@@ -17,6 +17,8 @@ export enum SupportedChainId {
   POLYGON = 137,
   POLYGON_MUMBAI = 80001,
 
+  SEPOLIA = 11155111,
+
   CELO = 42220,
   CELO_ALFAJORES = 44787,
 }
@@ -29,6 +31,7 @@ export const CHAIN_IDS_TO_NAMES = {
   [SupportedChainId.KOVAN]: 'kovan',
   [SupportedChainId.POLYGON]: 'polygon',
   [SupportedChainId.POLYGON_MUMBAI]: 'polygon_mumbai',
+  [SupportedChainId.SEPOLIA]: 'sepolia',
   [SupportedChainId.CELO]: 'celo',
   [SupportedChainId.CELO_ALFAJORES]: 'celo_alfajores',
   [SupportedChainId.ARBITRUM_ONE]: 'arbitrum',
@@ -54,6 +57,7 @@ export const SUPPORTED_GAS_ESTIMATE_CHAIN_IDS = [
   SupportedChainId.CELO,
   SupportedChainId.OPTIMISM,
   SupportedChainId.ARBITRUM_ONE,
+  SupportedChainId.SEPOLIA
 ]
 
 /**
@@ -73,6 +77,7 @@ export const TESTNET_CHAIN_IDS = [
   SupportedChainId.POLYGON_MUMBAI,
   SupportedChainId.ARBITRUM_RINKEBY,
   SupportedChainId.OPTIMISM_GOERLI,
+  SupportedChainId.SEPOLIA
 ] as const
 
 export type SupportedTestnetChainId = typeof TESTNET_CHAIN_IDS[number]
@@ -90,6 +95,7 @@ export const L1_CHAIN_IDS = [
   SupportedChainId.POLYGON_MUMBAI,
   SupportedChainId.CELO,
   SupportedChainId.CELO_ALFAJORES,
+  SupportedChainId.SEPOLIA
 ] as const
 
 export type SupportedL1ChainId = typeof L1_CHAIN_IDS[number]

@@ -39,6 +39,13 @@ const USDC_GOERLI = new Token(
   'USDC',
   'USD//C'
 )
+export const USDC_SEPOLIA = new Token(
+  SupportedChainId.SEPOLIA,
+  '0x94a9D9AC8a22534E3FaCa9F4e7F2E2cf85d5E4C8',
+  6,
+  'USDC',
+  'USD//C'
+)
 const USDC_KOVAN = new Token(SupportedChainId.KOVAN, '0x31eeb2d0f9b6fd8642914ab10f4dd473677d80df', 6, 'USDC', 'USD//C')
 export const USDC_OPTIMISM = new Token(
   SupportedChainId.OPTIMISM,
@@ -124,9 +131,23 @@ export const DAI_POLYGON = new Token(
   'DAI',
   'Dai Stablecoin'
 )
+export const DAI_SEPOLIA = new Token(
+  SupportedChainId.SEPOLIA,
+  '0x3e622317f8C93f7328350cF0B56d9eD4C620C5d6',
+  18,
+  'DAI',
+  'Dai Stablecoin'
+)
 export const USDT_POLYGON = new Token(
   SupportedChainId.POLYGON,
   '0xc2132d05d31c914a87c6611c10748aeb04b58e8f',
+  6,
+  'USDT',
+  'Tether USD'
+)
+export const USDT_SEPOLIA = new Token(
+  SupportedChainId.SEPOLIA,
+  '0xaA8E23Fb1079EA71e0a56F48a2aA51851D8433D0',
   6,
   'USDT',
   'Tether USD'
@@ -258,6 +279,13 @@ export const WETH_POLYGON = new Token(
   'WETH',
   'Wrapped Ether'
 )
+export const WETH_SEPOLIA = new Token(
+  SupportedChainId.SEPOLIA,
+  '0x7b79995e5f793A07Bc00c21412e50Ecae098E7f9',
+  18,
+  'WETH',
+  'Wrapped Ether'
+)
 const CELO_CELO = new Token(SupportedChainId.CELO, '0x471EcE3750Da237f93B8E339c536989b8978a438', 18, 'CELO', 'Celo')
 export const CUSD_CELO = new Token(
   SupportedChainId.CELO,
@@ -315,6 +343,7 @@ export const UNI: { [chainId: number]: Token } = {
   [SupportedChainId.ROPSTEN]: new Token(SupportedChainId.ROPSTEN, UNI_ADDRESS[3], 18, 'UNI', 'Uniswap'),
   [SupportedChainId.GOERLI]: new Token(SupportedChainId.GOERLI, UNI_ADDRESS[5], 18, 'UNI', 'Uniswap'),
   [SupportedChainId.KOVAN]: new Token(SupportedChainId.KOVAN, UNI_ADDRESS[42], 18, 'UNI', 'Uniswap'),
+  [SupportedChainId.SEPOLIA]: new Token(SupportedChainId.SEPOLIA, '0x41952a7F9247442292410EEa5CC94a0Be3724399', 18, 'UNI', 'Uniswap'),
 }
 
 export const LUX: { [chainId: number]: Token } = {
@@ -351,6 +380,13 @@ export const WRAPPED_NATIVE_CURRENCY: { [chainId: number]: Token | undefined } =
   [SupportedChainId.ARBITRUM_RINKEBY]: new Token(
     SupportedChainId.ARBITRUM_RINKEBY,
     '0xB47e6A5f8b33b3F17603C83a0535A9dcD7E32681',
+    18,
+    'WETH',
+    'Wrapped Ether'
+  ),
+  [SupportedChainId.SEPOLIA]: new Token(
+    SupportedChainId.SEPOLIA,
+    '0x7b79995e5f793A07Bc00c21412e50Ecae098E7f9',
     18,
     'WETH',
     'Wrapped Ether'
@@ -462,6 +498,7 @@ export const TOKEN_SHORTHANDS: { [shorthand: string]: { [chainId in SupportedCha
     [SupportedChainId.CELO]: PORTAL_USDC_CELO.address,
     [SupportedChainId.CELO_ALFAJORES]: PORTAL_USDC_CELO.address,
     [SupportedChainId.GOERLI]: USDC_GOERLI.address,
+    [SupportedChainId.SEPOLIA]: USDC_SEPOLIA.address,
     [SupportedChainId.RINKEBY]: USDC_RINKEBY.address,
     [SupportedChainId.KOVAN]: USDC_KOVAN.address,
     [SupportedChainId.ROPSTEN]: USDC_ROPSTEN.address,

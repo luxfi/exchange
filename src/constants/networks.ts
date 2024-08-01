@@ -38,6 +38,12 @@ export const FALLBACK_URLS: { [key in SupportedChainId]: string[] } = {
     // "Fallback" URLs
     'https://rpc.ankr.com/eth_goerli',
   ],
+  [SupportedChainId.SEPOLIA]: [
+    // "Safe" URLs
+    'https://eth-sepolia-public.unifra.io',
+    // "Fallback" URLs
+    'https://sepolia.drpc.org',
+  ],
   [SupportedChainId.KOVAN]: [
     // "Safe" URLs
     'https://kovan.poa.network',
@@ -134,4 +140,5 @@ export const RPC_URLS: { [key in SupportedChainId]: string[] } = {
   ],
   [SupportedChainId.CELO]: FALLBACK_URLS[SupportedChainId.CELO],
   [SupportedChainId.CELO_ALFAJORES]: FALLBACK_URLS[SupportedChainId.CELO_ALFAJORES],
+  [SupportedChainId.SEPOLIA]: FALLBACK_URLS[SupportedChainId.SEPOLIA],
 }
