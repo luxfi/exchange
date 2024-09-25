@@ -217,6 +217,17 @@ const CHAIN_INFO: ChainInfoMap = {
     nativeCurrency: { name: 'Celo', symbol: 'CELO', decimals: 18 },
     defaultListUrl: CELO_LIST,
   },
+  [SupportedChainId.LUX]: {
+    networkType: NetworkType.L1,
+    blockWaitMsBeforeWarning: ms`10m`,
+    bridge: 'https://bridge.lux.fi/',
+    docs: 'https://docs.lux.fi/',
+    logoUrl: celoLogo,
+    label: "Lux",
+    nativeCurrency: { name: 'Lux', symbol: 'LUX', decimals: 18 },
+    explorer: 'https://explorer.lux.fi/',
+    infoLink: 'https://info.uniswap.org/#/lux/',
+  },
 }
 
 export function getChainInfo(chainId: SupportedL1ChainId): L1ChainInfo

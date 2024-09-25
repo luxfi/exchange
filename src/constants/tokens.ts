@@ -25,6 +25,13 @@ const USDC_ROPSTEN = new Token(
   'USDC',
   'USD//C'
 )
+export const USDC_LUX = new Token(
+  SupportedChainId.LUX,
+  '0x57A22965AdA0e52D785A9Aa155beF423D573b879',
+  6,
+  "USDC",
+  "USD Coin",
+);
 const USDC_RINKEBY = new Token(
   SupportedChainId.RINKEBY,
   '0x4DBCdF9B62e891a7cec5A2568C3F4FAF9E8Abe2b',
@@ -131,6 +138,13 @@ export const USDT_POLYGON = new Token(
   'USDT',
   'Tether USD'
 )
+export const USDT_LUX = new Token(
+  SupportedChainId.LUX,
+  '0xd25F88CBdAe3c2CCA3Bb75FC4E723b44C0Ea362F',
+  6,
+  "USDT",
+  "Tether USD",
+);
 export const WBTC_POLYGON = new Token(
   SupportedChainId.POLYGON,
   '0x1bfd67037b42cf73acf2047067bd4f2c47d9bfd6',
@@ -383,6 +397,13 @@ export const WRAPPED_NATIVE_CURRENCY: { [chainId: number]: Token | undefined } =
     'CELO',
     'Celo native asset'
   ),
+  [SupportedChainId.LUX]: new Token(
+    SupportedChainId.LUX,
+    '0x53B1aAA5b6DDFD4eD00D0A7b5Ef333dc74B605b5',
+    18,
+    'LUX',
+    'Lux native asset'
+  ),
 }
 
 export function isCelo(chainId: number): chainId is SupportedChainId.CELO | SupportedChainId.CELO_ALFAJORES {
@@ -465,5 +486,6 @@ export const TOKEN_SHORTHANDS: { [shorthand: string]: { [chainId in SupportedCha
     [SupportedChainId.RINKEBY]: USDC_RINKEBY.address,
     [SupportedChainId.KOVAN]: USDC_KOVAN.address,
     [SupportedChainId.ROPSTEN]: USDC_ROPSTEN.address,
+    [SupportedChainId.LUX]: USDC_LUX.address,
   },
 }
