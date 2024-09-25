@@ -87,6 +87,9 @@ export const FALLBACK_URLS: { [key in SupportedChainId]: string[] } = {
     // "Safe" URLs
     `https://alfajores-forno.celo-testnet.org`,
   ],
+  [SupportedChainId.LUX]: [
+    `https://api.lux.network/`,
+  ],
 }
 
 /**
@@ -131,6 +134,9 @@ export const RPC_URLS: { [key in SupportedChainId]: string[] } = {
   [SupportedChainId.POLYGON_MUMBAI]: [
     `https://polygon-mumbai.infura.io/v3/${INFURA_KEY}`,
     ...FALLBACK_URLS[SupportedChainId.POLYGON_MUMBAI],
+  ],
+  [SupportedChainId.LUX]: [
+    ...FALLBACK_URLS[SupportedChainId.LUX],
   ],
   [SupportedChainId.CELO]: FALLBACK_URLS[SupportedChainId.CELO],
   [SupportedChainId.CELO_ALFAJORES]: FALLBACK_URLS[SupportedChainId.CELO_ALFAJORES],

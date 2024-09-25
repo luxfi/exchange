@@ -205,6 +205,7 @@ export default function TokenDetails({
             <Hr />
             <AboutSection
               address={address}
+              // @ts-ignore
               chainId={pageChainId}
               description={tokenQueryData?.project?.description}
               homepageUrl={tokenQueryData?.project?.homepageUrl}

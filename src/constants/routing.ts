@@ -31,6 +31,8 @@ import {
   USDC_POLYGON,
   USDT,
   USDT_ARBITRUM_ONE,
+  USDT_LUX,
+  USDC_LUX,
   USDT_OPTIMISM,
   USDT_POLYGON,
   WBTC,
@@ -184,6 +186,11 @@ export const COMMON_BASES: ChainCurrencyList = {
     nativeOnChain(SupportedChainId.CELO_ALFAJORES),
     CUSD_CELO_ALFAJORES,
     CEUR_CELO_ALFAJORES,
+  ],
+  [SupportedChainId.LUX]: [
+    nativeOnChain(SupportedChainId.LUX),
+    USDT_LUX,
+    USDC_LUX,
   ],
 }
 
