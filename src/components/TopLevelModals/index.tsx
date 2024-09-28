@@ -18,7 +18,7 @@ export default function TopLevelModals() {
   const addressClaimToggle = useToggleModal(ApplicationModal.ADDRESS_CLAIM)
   const blockedAccountModalOpen = useModalIsOpen(ApplicationModal.BLOCKED_ACCOUNT)
   const { account } = useWeb3React()
-  useAccountRiskCheck(account)
+  // useAccountRiskCheck(account)
   const accountBlocked = Boolean(blockedAccountModalOpen && account)
   const fiatOnrampFlagEnabled = useFiatOnrampFlag() === BaseVariant.Enabled
 

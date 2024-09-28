@@ -220,12 +220,11 @@ const CHAIN_INFO: ChainInfoMap = {
   [SupportedChainId.LUX]: {
     networkType: NetworkType.L1,
     blockWaitMsBeforeWarning: ms`10m`,
-    bridge: 'https://bridge.lux.fi/',
     docs: 'https://docs.lux.fi/',
     logoUrl: celoLogo,
     label: "Lux",
     nativeCurrency: { name: 'Lux', symbol: 'LUX', decimals: 18 },
-    explorer: 'https://explorer.lux.fi/',
+    explorer: 'https://explore.lux.network',
     infoLink: 'https://info.uniswap.org/#/lux/',
   },
 }
