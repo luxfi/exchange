@@ -179,6 +179,7 @@ export enum Currency {
   Idr = 'IDR',
   Inr = 'INR',
   Jpy = 'JPY',
+  Krw = 'KRW',
   Matic = 'MATIC',
   Ngn = 'NGN',
   Pkr = 'PKR',
@@ -1036,18 +1037,49 @@ export type PortfolioValueModifier = {
   includeSmallBalances?: InputMaybe<Scalars['Boolean']>;
   includeSpamTokens?: InputMaybe<Scalars['Boolean']>;
   ownerAddress: Scalars['String'];
+  tokenBalancesLimit?: InputMaybe<Scalars['Int']>;
   tokenExcludeOverrides?: InputMaybe<Array<ContractInput>>;
   tokenIncludeOverrides?: InputMaybe<Array<ContractInput>>;
 };
 
 export enum PriceSource {
   SubgraphV2 = 'SUBGRAPH_V2',
-  SubgraphV3 = 'SUBGRAPH_V3'
+  SubgraphV3 = 'SUBGRAPH_V3',
+  SubgraphV4 = 'SUBGRAPH_V4'
+}
+
+export enum ProtectionAttackType {
+  AirdropPattern = 'AIRDROP_PATTERN',
+  DynamicAnalysis = 'DYNAMIC_ANALYSIS',
+  HighFees = 'HIGH_FEES',
+  Impersonator = 'IMPERSONATOR',
+  InorganicVolume = 'INORGANIC_VOLUME',
+  KnownMalicious = 'KNOWN_MALICIOUS',
+  Metadata = 'METADATA',
+  Rugpull = 'RUGPULL',
+  StaticCodeSignature = 'STATIC_CODE_SIGNATURE',
+  Unknown = 'UNKNOWN',
+  UnstableTokenPrice = 'UNSTABLE_TOKEN_PRICE'
+}
+
+export type ProtectionInfo = {
+  __typename?: 'ProtectionInfo';
+  attackTypes?: Maybe<Array<Maybe<ProtectionAttackType>>>;
+  result?: Maybe<ProtectionResult>;
+};
+
+export enum ProtectionResult {
+  Benign = 'BENIGN',
+  Malicious = 'MALICIOUS',
+  Spam = 'SPAM',
+  Unknown = 'UNKNOWN',
+  Warning = 'WARNING'
 }
 
 export enum ProtocolVersion {
   V2 = 'V2',
-  V3 = 'V3'
+  V3 = 'V3',
+  V4 = 'V4'
 }
 
 export type PushNotification = {
@@ -1087,12 +1119,16 @@ export type Query = {
   topV2Pairs?: Maybe<Array<V2Pair>>;
   /**   returns top v3 pools sorted by total value locked in desc order */
   topV3Pools?: Maybe<Array<V3Pool>>;
+  topV4Pools?: Maybe<Array<V4Pool>>;
   transactionNotification?: Maybe<TransactionNotification>;
   v2Pair?: Maybe<V2Pair>;
   v2Transactions?: Maybe<Array<Maybe<PoolTransaction>>>;
   v3Pool?: Maybe<V3Pool>;
   v3PoolsForTokenPair?: Maybe<Array<V3Pool>>;
   v3Transactions?: Maybe<Array<PoolTransaction>>;
+  v4Pool?: Maybe<V4Pool>;
+  v4PoolsForTokenPair?: Maybe<Array<V4Pool>>;
+  v4Transactions?: Maybe<Array<PoolTransaction>>;
 };
 
 
@@ -1181,6 +1217,7 @@ export type QueryNftRouteArgs = {
 
 export type QueryPortfoliosArgs = {
   chains?: InputMaybe<Array<Chain>>;
+  fungibleIds?: InputMaybe<Array<Scalars['String']>>;
   lookupTokens?: InputMaybe<Array<ContractInput>>;
   ownerAddresses: Array<Scalars['String']>;
   valueModifiers?: InputMaybe<Array<PortfolioValueModifier>>;
@@ -1244,6 +1281,14 @@ export type QueryTopV3PoolsArgs = {
 };
 
 
+export type QueryTopV4PoolsArgs = {
+  chain: Chain;
+  first: Scalars['Int'];
+  tokenFilter?: InputMaybe<Scalars['String']>;
+  tvlCursor?: InputMaybe<Scalars['Float']>;
+};
+
+
 export type QueryTransactionNotificationArgs = {
   address: Scalars['String'];
   chain: Chain;
@@ -1278,6 +1323,26 @@ export type QueryV3PoolsForTokenPairArgs = {
 
 
 export type QueryV3TransactionsArgs = {
+  chain: Chain;
+  first: Scalars['Int'];
+  timestampCursor?: InputMaybe<Scalars['Int']>;
+};
+
+
+export type QueryV4PoolArgs = {
+  chain: Chain;
+  poolId: Scalars['String'];
+};
+
+
+export type QueryV4PoolsForTokenPairArgs = {
+  chain: Chain;
+  token0: Scalars['String'];
+  token1: Scalars['String'];
+};
+
+
+export type QueryV4TransactionsArgs = {
   chain: Chain;
   first: Scalars['Int'];
   timestampCursor?: InputMaybe<Scalars['Int']>;
@@ -1392,10 +1457,12 @@ export type Token = IContract & {
   market?: Maybe<TokenMarket>;
   name?: Maybe<Scalars['String']>;
   project?: Maybe<TokenProject>;
+  protectionInfo?: Maybe<ProtectionInfo>;
   standard?: Maybe<TokenStandard>;
   symbol?: Maybe<Scalars['String']>;
   v2Transactions?: Maybe<Array<Maybe<PoolTransaction>>>;
   v3Transactions?: Maybe<Array<Maybe<PoolTransaction>>>;
+  v4Transactions?: Maybe<Array<Maybe<PoolTransaction>>>;
 };
 
 
@@ -1411,6 +1478,12 @@ export type TokenV2TransactionsArgs = {
 
 
 export type TokenV3TransactionsArgs = {
+  first: Scalars['Int'];
+  timestampCursor?: InputMaybe<Scalars['Int']>;
+};
+
+
+export type TokenV4TransactionsArgs = {
   first: Scalars['Int'];
   timestampCursor?: InputMaybe<Scalars['Int']>;
 };
@@ -1820,6 +1893,72 @@ export type V3PoolTransactionsArgs = {
 
 export type V3PoolTick = {
   __typename?: 'V3PoolTick';
+  id: Scalars['ID'];
+  liquidityGross?: Maybe<Scalars['String']>;
+  liquidityNet?: Maybe<Scalars['String']>;
+  price0?: Maybe<Scalars['String']>;
+  price1?: Maybe<Scalars['String']>;
+  tickIdx?: Maybe<Scalars['Int']>;
+};
+
+export type V4Pool = {
+  __typename?: 'V4Pool';
+  chain: Chain;
+  createdAtTimestamp?: Maybe<Scalars['Int']>;
+  cumulativeVolume?: Maybe<Amount>;
+  feeTier?: Maybe<Scalars['Float']>;
+  historicalVolume?: Maybe<Array<Maybe<TimestampedAmount>>>;
+  hook?: Maybe<V4PoolHook>;
+  id: Scalars['ID'];
+  poolId: Scalars['String'];
+  priceHistory?: Maybe<Array<Maybe<TimestampedPoolPrice>>>;
+  protocolVersion: ProtocolVersion;
+  ticks?: Maybe<Array<Maybe<V4PoolTick>>>;
+  token0?: Maybe<Token>;
+  token0Supply?: Maybe<Scalars['Float']>;
+  token1?: Maybe<Token>;
+  token1Supply?: Maybe<Scalars['Float']>;
+  totalLiquidity?: Maybe<Amount>;
+  totalLiquidityPercentChange24h?: Maybe<Amount>;
+  transactions?: Maybe<Array<Maybe<PoolTransaction>>>;
+  txCount?: Maybe<Scalars['Int']>;
+};
+
+
+export type V4PoolCumulativeVolumeArgs = {
+  duration: HistoryDuration;
+};
+
+
+export type V4PoolHistoricalVolumeArgs = {
+  duration: HistoryDuration;
+};
+
+
+export type V4PoolPriceHistoryArgs = {
+  duration: HistoryDuration;
+};
+
+
+export type V4PoolTicksArgs = {
+  first?: InputMaybe<Scalars['Int']>;
+  skip?: InputMaybe<Scalars['Int']>;
+};
+
+
+export type V4PoolTransactionsArgs = {
+  first: Scalars['Int'];
+  timestampCursor?: InputMaybe<Scalars['Int']>;
+};
+
+export type V4PoolHook = {
+  __typename?: 'V4PoolHook';
+  address: Scalars['String'];
+  id: Scalars['ID'];
+};
+
+export type V4PoolTick = {
+  __typename?: 'V4PoolTick';
   id: Scalars['ID'];
   liquidityGross?: Maybe<Scalars['String']>;
   liquidityNet?: Maybe<Scalars['String']>;

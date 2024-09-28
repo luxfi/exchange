@@ -279,7 +279,8 @@ export const CUSD_CELO = new Token(
   18,
   'cUSD',
   'Celo Dollar'
-)
+);
+const LUX_LUX = new Token(SupportedChainId.LUX, "0x53B1aAA5b6DDFD4eD00D0A7b5Ef333dc74B605b5", 18, "LUX", "LUX");
 export const CEUR_CELO = new Token(
   SupportedChainId.CELO,
   '0xD8763CBa276a3738E6DE85b4b3bF5FDed6D6cA73',
@@ -465,6 +466,8 @@ export function nativeOnChain(chainId: number): NativeCurrency | Token {
     nativeCurrency = new MaticNativeCurrency(chainId)
   } else if (isCelo(chainId)) {
     nativeCurrency = getCeloNativeCurrency(chainId)
+  } else if(chainId === SupportedChainId.LUX) {
+    nativeCurrency = LUX_LUX;
   } else {
     nativeCurrency = ExtendedEther.onChain(chainId)
   }
