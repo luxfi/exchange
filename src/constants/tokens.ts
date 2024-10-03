@@ -28,7 +28,7 @@ const USDC_ROPSTEN = new Token(
 export const USDC_LUX = new Token(
   SupportedChainId.LUX,
   '0x57A22965AdA0e52D785A9Aa155beF423D573b879',
-  6,
+  18,
   "USDC",
   "USD Coin",
 );
@@ -141,7 +141,7 @@ export const USDT_POLYGON = new Token(
 export const USDT_LUX = new Token(
   SupportedChainId.LUX,
   '0xd25F88CBdAe3c2CCA3Bb75FC4E723b44C0Ea362F',
-  6,
+  18,
   "USDT",
   "Tether USD",
 );
