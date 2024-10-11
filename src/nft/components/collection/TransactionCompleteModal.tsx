@@ -177,7 +177,7 @@ const TxCompleteModal = () => {
                     </Row>
                     <a href={txHashUrl} target="_blank" rel="noreferrer" style={{ textDecoration: 'none' }}>
                       <Box color="textSecondary" fontWeight="normal">
-                        <Trans>View on Etherscan</Trans>
+                        <Trans>View on Explorer</Trans>
                       </Box>
                     </a>
                   </Box>
@@ -247,7 +247,7 @@ const TxCompleteModal = () => {
                               color="textSecondary"
                               className={styles.totalEthCost}
                             >
-                              View on Etherscan
+                              View on Explorer
                             </Box>
                           </a>
                         </Box>
@@ -358,7 +358,7 @@ const TxCompleteModal = () => {
                     <p className={styles.totalUsdRefund}>{formatUSDPriceWithCommas(totalUSDRefund)}</p>
                     <Box className={styles.walletAddress} marginLeft="auto" marginRight="0">
                       <a href={txHashUrl} target="_blank" rel="noreferrer">
-                        <Box className={styles.addressHash}>View on Etherscan</Box>
+                        <Box className={styles.addressHash}>View on Explorer</Box>
                       </a>
                     </Box>
                     <p className={styles.totalEthCost}>

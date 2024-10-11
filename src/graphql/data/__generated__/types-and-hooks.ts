@@ -155,7 +155,8 @@ export enum Chain {
   Polygon = 'POLYGON',
   UnknownChain = 'UNKNOWN_CHAIN',
   Zksync = 'ZKSYNC',
-  Zora = 'ZORA'
+  Zora = 'ZORA',
+  Lux = 'LUX'
 }
 
 export enum CollectionSortableField {

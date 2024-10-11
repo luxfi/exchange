@@ -1,5 +1,6 @@
 import celoCircleLogoUrl from 'assets/images/celoCircle.png'
 import ethereumLogoUrl from 'assets/images/ethereum-logo.png'
+import luxLogoUrl from 'assets/images/lux-Logo.png'
 import polygonCircleLogoUrl from 'assets/images/polygonCircle.png'
 import { default as arbitrumCircleLogoUrl, default as arbitrumLogoUrl } from 'assets/svg/arbitrum_logo.svg'
 import celoLogo from 'assets/svg/celo_logo.svg'
@@ -220,12 +221,13 @@ const CHAIN_INFO: ChainInfoMap = {
   [SupportedChainId.LUX]: {
     networkType: NetworkType.L1,
     blockWaitMsBeforeWarning: ms`10m`,
+    bridge: 'https://bridge.lux.network/',
     docs: 'https://docs.lux.fi/',
-    logoUrl: celoLogo,
-    label: "Lux",
-    nativeCurrency: { name: 'Lux', symbol: 'LUX', decimals: 18 },
     explorer: 'https://explore.lux.network',
     infoLink: 'https://info.uniswap.org/#/lux/',
+    logoUrl: luxLogoUrl,
+    label: "Lux",
+    nativeCurrency: { name: 'Lux', symbol: 'LUX', decimals: 18 },
   },
 }
 
