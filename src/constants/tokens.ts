@@ -143,7 +143,7 @@ export const USDT_LUX = new Token(
   '0xd25F88CBdAe3c2CCA3Bb75FC4E723b44C0Ea362F',
   18,
   "USDT",
-  "Tether USD",
+  "LUX USDT",
 );
 export const WBTC_POLYGON = new Token(
   SupportedChainId.POLYGON,
@@ -280,7 +280,7 @@ export const CUSD_CELO = new Token(
   'cUSD',
   'Celo Dollar'
 );
-const LUX_LUX = new Token(SupportedChainId.LUX, "0x53B1aAA5b6DDFD4eD00D0A7b5Ef333dc74B605b5", 18, "LUX", "LUX");
+// const LUX_LUX = new Token(SupportedChainId.LUX, "0x53B1aAA5b6DDFD4eD00D0A7b5Ef333dc74B605b5", 18, "LUX", "LUX");
 export const CEUR_CELO = new Token(
   SupportedChainId.CELO,
   '0xD8763CBa276a3738E6DE85b4b3bF5FDed6D6cA73',
@@ -402,13 +402,17 @@ export const WRAPPED_NATIVE_CURRENCY: { [chainId: number]: Token | undefined } =
     SupportedChainId.LUX,
     '0x53B1aAA5b6DDFD4eD00D0A7b5Ef333dc74B605b5',
     18,
-    'LUX',
-    'Lux native asset'
+    'WLUX',
+    'Wrapped LUX'
   ),
 }
 
 export function isCelo(chainId: number): chainId is SupportedChainId.CELO | SupportedChainId.CELO_ALFAJORES {
   return chainId === SupportedChainId.CELO_ALFAJORES || chainId === SupportedChainId.CELO
+}
+
+export function isLUX(chainId: number): chainId is SupportedChainId.LUX {
+  return chainId === SupportedChainId.LUX
 }
 
 function getCeloNativeCurrency(chainId: number) {
@@ -444,6 +448,24 @@ class MaticNativeCurrency extends NativeCurrency {
   }
 }
 
+class LuxNativeCurrency extends NativeCurrency {
+  equals(other: Currency): boolean {
+    return other.isNative && other.chainId === this.chainId
+  }
+
+  get wrapped(): Token {
+    if (!isLUX(this.chainId)) throw new Error('Not LUX')
+    const wrapped = WRAPPED_NATIVE_CURRENCY[this.chainId]
+    invariant(wrapped instanceof Token)
+    return wrapped
+  }
+
+  public constructor(chainId: number) {
+    if (!isLUX(chainId)) throw new Error('Not LUX')
+    super(chainId, 18, 'LUX', 'LUX')
+  }
+}
+
 class ExtendedEther extends Ether {
   public get wrapped(): Token {
     const wrapped = WRAPPED_NATIVE_CURRENCY[this.chainId]
@@ -466,8 +488,8 @@ export function nativeOnChain(chainId: number): NativeCurrency | Token {
     nativeCurrency = new MaticNativeCurrency(chainId)
   } else if (isCelo(chainId)) {
     nativeCurrency = getCeloNativeCurrency(chainId)
-  } else if(chainId === SupportedChainId.LUX) {
-    nativeCurrency = LUX_LUX;
+  } else if(isLUX(chainId)) {
+    nativeCurrency = new LuxNativeCurrency(chainId);
   } else {
     nativeCurrency = ExtendedEther.onChain(chainId)
   }
