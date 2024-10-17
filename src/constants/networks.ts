@@ -90,6 +90,9 @@ export const FALLBACK_URLS: { [key in SupportedChainId]: string[] } = {
   [SupportedChainId.LUX]: [
     `https://api.lux.network/`,
   ],
+  [SupportedChainId.LUX_TESTNET]: [
+    `https://api.lux-test.network/`,
+  ],
 }
 
 /**
@@ -137,6 +140,9 @@ export const RPC_URLS: { [key in SupportedChainId]: string[] } = {
   ],
   [SupportedChainId.LUX]: [
     ...FALLBACK_URLS[SupportedChainId.LUX],
+  ],
+  [SupportedChainId.LUX_TESTNET]: [
+    ...FALLBACK_URLS[SupportedChainId.LUX_TESTNET],
   ],
   [SupportedChainId.CELO]: FALLBACK_URLS[SupportedChainId.CELO],
   [SupportedChainId.CELO_ALFAJORES]: FALLBACK_URLS[SupportedChainId.CELO_ALFAJORES],

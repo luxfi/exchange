@@ -3,6 +3,7 @@
  */
 export enum SupportedChainId {
   LUX = 7777,
+  LUX_TESTNET = 8888,
 
   MAINNET = 1,
   ROPSTEN = 3,
@@ -35,6 +36,7 @@ export const CHAIN_IDS_TO_NAMES = {
   [SupportedChainId.CELO_ALFAJORES]: 'celo_alfajores',
   [SupportedChainId.ARBITRUM_ONE]: 'arbitrum',
   [SupportedChainId.LUX]: 'lux',
+  [SupportedChainId.LUX_TESTNET]: 'lux_testnet',
   [SupportedChainId.ARBITRUM_RINKEBY]: 'arbitrum_rinkeby',
   [SupportedChainId.OPTIMISM]: 'optimism',
   [SupportedChainId.OPTIMISM_GOERLI]: 'optimism_goerli',
@@ -90,6 +92,7 @@ export const L1_CHAIN_IDS = [
   SupportedChainId.GOERLI,
   SupportedChainId.KOVAN,
   SupportedChainId.LUX,
+  SupportedChainId.LUX_TESTNET,
   SupportedChainId.POLYGON,
   SupportedChainId.POLYGON_MUMBAI,
   SupportedChainId.CELO,

@@ -229,6 +229,17 @@ const CHAIN_INFO: ChainInfoMap = {
     label: "Lux",
     nativeCurrency: { name: 'Lux', symbol: 'LUX', decimals: 18 },
   },
+  [SupportedChainId.LUX_TESTNET]: {
+    networkType: NetworkType.L1,
+    blockWaitMsBeforeWarning: ms`10m`,
+    bridge: 'https://bridge.lux.network/',
+    docs: 'https://docs.lux.fi/',
+    explorer: 'https://explore.lux-test.network/',
+    infoLink: 'https://info.uniswap.org/#/lux/',
+    logoUrl: luxLogoUrl,
+    label: "Lux Testnet",
+    nativeCurrency: { name: 'Lux', symbol: 'LUX', decimals: 18 },
+  },
 }
 
 export function getChainInfo(chainId: SupportedL1ChainId): L1ChainInfo

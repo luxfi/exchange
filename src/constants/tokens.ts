@@ -32,6 +32,15 @@ export const USDC_LUX = new Token(
   "USDC",
   "USD Coin",
 );
+
+export const USDC_LUX_TESTNET = new Token(
+  SupportedChainId.LUX_TESTNET,
+  '0x827d7D81205a59b2864252bdB4D4313028c50e10',
+  18,
+  "USDC",
+  "USD Coin",
+);
+
 const USDC_RINKEBY = new Token(
   SupportedChainId.RINKEBY,
   '0x4DBCdF9B62e891a7cec5A2568C3F4FAF9E8Abe2b',
@@ -141,6 +150,13 @@ export const USDT_POLYGON = new Token(
 export const USDT_LUX = new Token(
   SupportedChainId.LUX,
   '0xd25F88CBdAe3c2CCA3Bb75FC4E723b44C0Ea362F',
+  18,
+  "USDT",
+  "LUX USDT",
+);
+export const USDT_LUX_TESTNET = new Token(
+  SupportedChainId.LUX_TESTNET,
+  '0x3fdd8BB8112d8008be2397d0FAfDa869EFCdDbC4',
   18,
   "USDT",
   "LUX USDT",
@@ -405,6 +421,13 @@ export const WRAPPED_NATIVE_CURRENCY: { [chainId: number]: Token | undefined } =
     'WLUX',
     'Wrapped LUX'
   ),
+  [SupportedChainId.LUX_TESTNET]: new Token(
+    SupportedChainId.LUX_TESTNET,
+    '0x0650683db720c793ff7e609A08b5fc2792c91f39',
+    18,
+    'WLUX',
+    'Wrapped LUX'
+  ),
 }
 
 export function isCelo(chainId: number): chainId is SupportedChainId.CELO | SupportedChainId.CELO_ALFAJORES {
@@ -412,7 +435,7 @@ export function isCelo(chainId: number): chainId is SupportedChainId.CELO | Supp
 }
 
 export function isLUX(chainId: number): chainId is SupportedChainId.LUX {
-  return chainId === SupportedChainId.LUX
+  return chainId === SupportedChainId.LUX || chainId === SupportedChainId.LUX_TESTNET
 }
 
 function getCeloNativeCurrency(chainId: number) {
@@ -512,5 +535,6 @@ export const TOKEN_SHORTHANDS: { [shorthand: string]: { [chainId in SupportedCha
     [SupportedChainId.KOVAN]: USDC_KOVAN.address,
     [SupportedChainId.ROPSTEN]: USDC_ROPSTEN.address,
     [SupportedChainId.LUX]: USDC_LUX.address,
+    [SupportedChainId.LUX_TESTNET]: USDC_LUX_TESTNET.address,
   },
 }
