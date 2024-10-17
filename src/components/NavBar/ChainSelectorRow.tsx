@@ -63,10 +63,12 @@ const Logo = styled.img`
 export default function ChainSelectorRow({
   targetChain,
   onSelectChain,
+  setLastchainId,
   isPending,
 }: {
   targetChain: SupportedChainId
   onSelectChain: (targetChain: number) => void
+  setLastchainId: React.Dispatch<React.SetStateAction<SupportedChainId | undefined>> 
   isPending: boolean
 }) {
   const { chainId } = useWeb3React()
@@ -76,7 +78,7 @@ export default function ChainSelectorRow({
   const theme = useTheme()
 
   return (
-    <Container onClick={() => onSelectChain(targetChain)} data-testid={`chain-selector-option-${label.toLowerCase()}`}>
+    <Container onClick={() => {setLastchainId(targetChain); onSelectChain(targetChain); }} data-testid={`chain-selector-option-${label.toLowerCase()}`}>
       <Logo src={logoUrl} alt={label} />
       <Label>{label}</Label>
       {isPending && <ApproveText>Approve in wallet</ApproveText>}
