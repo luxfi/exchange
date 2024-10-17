@@ -11,7 +11,7 @@ import { TokenWarningRedIcon } from 'nft/components/icons'
 import { subhead } from 'nft/css/common.css'
 import { themeVars } from 'nft/css/sprinkles.css'
 import { useIsMobile } from 'nft/hooks'
-import { useCallback, useRef, useState } from 'react'
+import { useCallback, useRef, useState, useEffect } from 'react'
 import { ChevronDown, ChevronUp } from 'react-feather'
 import { useTheme } from 'styled-components/macro'
 
@@ -20,12 +20,12 @@ import ChainSelectorRow from './ChainSelectorRow'
 import { NavDropdown } from './NavDropdown'
 
 const NETWORK_SELECTOR_CHAINS = [
+  SupportedChainId.LUX,
   SupportedChainId.MAINNET,
   SupportedChainId.POLYGON,
   SupportedChainId.OPTIMISM,
   SupportedChainId.ARBITRUM_ONE,
   SupportedChainId.CELO,
-  SupportedChainId.LUX,
 ]
 
 interface ChainSelectorProps {
@@ -33,7 +33,8 @@ interface ChainSelectorProps {
 }
 
 export const ChainSelector = ({ leftAlign }: ChainSelectorProps) => {
-  const { chainId } = useWeb3React()
+  const { account, chainId, connector } = useWeb3React() 
+
   const [isOpen, setIsOpen] = useState<boolean>(false)
   const isMobile = useIsMobile()
 
@@ -49,6 +50,10 @@ export const ChainSelector = ({ leftAlign }: ChainSelectorProps) => {
   useSyncChainQuery()
 
   const [pendingChainId, setPendingChainId] = useState<SupportedChainId | undefined>(undefined)
+  const [lastchainId, setlastchainId] = useState<SupportedChainId | undefined>(undefined)
+  const [lastAccount, setLastAccount] = useState<string | undefined>(undefined)
+  const [lastRequesting, setLastRequesting] = useState<boolean>(false)
+  const [netChangeRequesting, setNetChangeRequesting] = useState<boolean>(false)
 
   const onSelectChain = useCallback(
     async (targetChainId: SupportedChainId) => {
@@ -60,6 +65,23 @@ export const ChainSelector = ({ leftAlign }: ChainSelectorProps) => {
     [selectChain, setIsOpen]
   )
 
+  useEffect(() => {
+      
+      if(chainId == 1 && !lastRequesting) {
+        setLastRequesting(true);
+        onSelectChain(SupportedChainId.LUX);
+      }
+      else if(lastchainId && lastchainId != chainId && !lastAccount && account && account != lastAccount) {    
+          if(!netChangeRequesting) {
+            setNetChangeRequesting(true);
+              onSelectChain(lastchainId).finally(() => {
+                setNetChangeRequesting(false);
+              })
+            }
+      }
+      setLastAccount(account);
+    }, [chainId, account, lastchainId]);
+    
   if (!chainId) {
     return null
   }
@@ -73,6 +95,7 @@ export const ChainSelector = ({ leftAlign }: ChainSelectorProps) => {
           <ChainSelectorRow
             onSelectChain={onSelectChain}
             targetChain={chainId}
+            setLastchainId={setlastchainId}
             key={chainId}
             isPending={chainId === pendingChainId}
           />

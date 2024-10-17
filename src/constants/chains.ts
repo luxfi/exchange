@@ -2,6 +2,8 @@
  * List of all the networks supported by the LX Interface
  */
 export enum SupportedChainId {
+  LUX = 7777,
+
   MAINNET = 1,
   ROPSTEN = 3,
   RINKEBY = 4,
@@ -19,8 +21,6 @@ export enum SupportedChainId {
 
   CELO = 42220,
   CELO_ALFAJORES = 44787,
-
-  LUX = 7777,
 }
 
 export const CHAIN_IDS_TO_NAMES = {
