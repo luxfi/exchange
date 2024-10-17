@@ -57,6 +57,7 @@ export function getNativeLogoURI(chainId: SupportedChainId = SupportedChainId.MA
     case SupportedChainId.CELO_ALFAJORES:
       return CeloLogo
     case SupportedChainId.LUX:
+    case SupportedChainId.LUX_TESTNET:
       return LuxLogo
     default:
       return EthereumLogo
