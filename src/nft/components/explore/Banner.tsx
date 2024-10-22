@@ -164,13 +164,13 @@ const Banner = () => {
             </strong>
             <strong style={{ position: 'relative', left: 20, top: 10, verticalAlign: 'middle', fontSize: '14.2px' }}>NEW!</strong>
             <p style={{ fontSize: ".9rem", margin: '20px 10px 10px 10px', lineHeight: '1.42', fontWeight: '300', color: '#98A1C0' }}>
-              The Lux Genesis collection is backed by 7.65 million pounds of physical uranium (U3O8), in a first-of-its-kind mining transaction.
+              The Lux Genesis collection launched on Ethereum, introducing the first NFTs that granted exclusive access to our DeFi ecosystem—including the Genesis LUX coin, validator nodes, and credit card NFTs.
             </p>
             <p style={{ fontSize: ".9rem", margin: '10px', lineHeight: '1.42', fontWeight: '300', color: '#98A1C0' }}>
-              Each Genesis NFT provides access to governance, and unique utility. Mint a DeFi credit card, secure network rights and more.
+              Each Genesis Token provides access to governance and provides access to our innovative ecosystem: participate in staking and governance, secure the network and reserve your Lux Credit Card.
             </p>
             <p style={{ fontSize: ".9rem", margin: '10px', lineHeight: '1.42', fontWeight: '300', color: '#98A1C0' }}>
-              Stake, vote and build your reputation. Help us increase economic freedom through decentralized access to RWAs.
+              Join the Monetary Revolution: stake, trade, and build your reputation on the Lux Network. Connect with a vibrant community that's pushing the boundaries of what's possible in decentralized finance.
             </p>
           </a>
         </HeaderContainer>

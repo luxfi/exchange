@@ -14,7 +14,7 @@ export const MAIN_CARDS = [
   {
     to: '/swap',
     title: 'Swap tokens',
-    description: 'Buy, sell, and trade real world assets and tokens and NFTs on Ethereum, Polygon, Optimism, and more.',
+    description: 'Buy, sell, and trade tokens and NFTs on Lux, Ethereum, Polygon, Optimism, and more.',
     cta: 'Trade Tokens',
     darkBackgroundImgSrc: swapCardImgSrc,
     lightBackgroundImgSrc: swapCardImgSrc,
@@ -40,10 +40,10 @@ const StyledCardLogo = styled.img`
 
 export const MORE_CARDS = [
   {
-    to: 'https://app.lux.market',
+    to: 'https://lux.market',
     external: true,
     title: 'Mint',
-    description: 'Stake NFTs and mint real world asset (RWA) backed tokens, like LUX Uranium.',
+    description: 'Discover and trade exclusive NFTs on Lux Market. Be part of the future of decentralized finance.',
     lightIcon: <DollarSign color={lightTheme.textTertiary} size={48} />,
     darkIcon: <StyledCardLogo src={darkDollarImgSrc} alt="Earn" />,
     cta: 'Find on secondary market',
@@ -59,7 +59,7 @@ export const MORE_CARDS = [
     elementName: InterfaceElementName.ABOUT_PAGE_EARN_CARD,
   },
   {
-    to: 'https://docs.lux.finance',
+    to: 'https://docs.lux.network',
     external: true,
     title: 'Docs',
     description: 'Build apps and tools on the only decentralized, private, and quantum secure financial fabric.',
