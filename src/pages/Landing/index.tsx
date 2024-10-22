@@ -341,9 +341,9 @@ export default function Landing() {
             <Glow />
           </GlowContainer>
           <ContentContainer isDarkMode={isDarkMode}>
-            <TitleText isDarkMode={isDarkMode}>For the real ones.</TitleText>
+            <TitleText isDarkMode={isDarkMode}>Trade anything, anywhere</TitleText>
             <SubTextContainer>
-              <SubText>Find and trade tokens, NFTs, and real world assets (RWAs)</SubText>
+              <SubText>Buy and sell digital assets on Lux and other top blockchains</SubText>
             </SubTextContainer>
             <ActionsContainer>
               <TraceEvent
