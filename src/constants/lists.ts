@@ -11,6 +11,7 @@ const KLEROS_LIST = 't2crtokens.eth'
 const ROLL_LIST = 'https://app.tryroll.com/tokens.json'
 const SET_LIST = 'https://raw.githubusercontent.com/SetProtocol/uniswap-tokenlist/main/set.tokenlist.json'
 const WRAPPED_LIST = 'wrapped.tokensoft.eth'
+const LUX_LIST = "tokens-lux";
 
 export const OPTIMISM_LIST = 'https://static.optimism.io/optimism.tokenlist.json'
 export const ARBITRUM_LIST = 'https://bridge.arbitrum.io/token-list-42161.json'
@@ -19,7 +20,7 @@ export const CELO_LIST = 'https://celo-org.github.io/celo-token-list/celo.tokenl
 export const UNSUPPORTED_LIST_URLS: string[] = [BA_LIST, UNI_UNSUPPORTED_LIST]
 
 // default lists to be 'active' aka searched across
-export const DEFAULT_ACTIVE_LIST_URLS: string[] = [UNI_LIST]
+export const DEFAULT_ACTIVE_LIST_URLS: string[] = [UNI_LIST, LUX_LIST, CELO_LIST, ARBITRUM_LIST, OPTIMISM_LIST]
 export const DEFAULT_INACTIVE_LIST_URLS: string[] = [
   UNI_EXTENDED_LIST,
   COMPOUND_LIST,
@@ -31,9 +32,6 @@ export const DEFAULT_INACTIVE_LIST_URLS: string[] = [
   WRAPPED_LIST,
   SET_LIST,
   ROLL_LIST,
-  ARBITRUM_LIST,
-  OPTIMISM_LIST,
-  CELO_LIST,
   ...UNSUPPORTED_LIST_URLS,
 ]
 
