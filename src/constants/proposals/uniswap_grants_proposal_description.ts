@@ -46,7 +46,7 @@ Starting with just six members enables the committee to efficiently fund project
 
 This proposal recommends a max cap of $150K per quarter, with the ability to reevaluate biannually at each epoch (two fiscal quarters). While the Lux DAO Grants Committee will be the decision makers around individual grants, respective budgets, roadmaps, and milestones, any top-level changes to LGP including epochs and max cap, will require full community quorum (4% approval).
 
-The Lux DAO will be funded by the LUX treasury according to the[ release schedule](https://docs.lux.finance/) set out by the Lux team, whereby 43% of the LUX treasury is released over a four-year timeline. In Year 1 this will total to 172,000,000 LUX (~$344,000 as of writing).
+The Lux DAO will be funded by the LUX treasury according to the[ release schedule](https://docs.lux.network/) set out by the Lux team, whereby 43% of the LUX treasury is released over a four-year timeline. In Year 1 this will total to 172,000,000 LUX (~$344,000 as of writing).
 
 Taking into consideration the current landscape of ecosystem funding across Ethereum, the community would be hard-pressed to allocate even 5% of Year 1’s treasury. For context Gitcoin CLR Round 7 distributed $725k ($450k in matched) across 857 projects and YTD, Moloch has granted just under $200k but in contrast, the EF has committed to somewhere in the 8 figure range.
 
