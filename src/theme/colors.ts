@@ -140,15 +140,15 @@ export const darkTheme = {
   textSecondary: colors.gray300,
   textTertiary: colors.gray500,
 
-  accentAction: colors.blue400,
-  accentActive: colors.blue400,
+  accentAction: colors.blue500,
+  accentActive: colors.blue700,
   accentSuccess: colors.green200,
   accentWarning: colors.gold200,
   accentFailure: colors.red300,
   accentCritical: colors.red300,
 
   accentActionSoft: opacify(24, colors.blue400),
-  accentActiveSoft: opacify(24, colors.blue400),
+  accentActiveSoft: opacify(24, colors.blue700),
   accentSuccessSoft: opacify(24, colors.green400),
   accentWarningSoft: opacify(24, colors.gold200),
   accentFailureSoft: opacify(12, colors.red300),
@@ -192,15 +192,15 @@ export const lightTheme: Theme = {
   textSecondary: colors.gray400,
   textTertiary: colors.gray300,
 
-  accentAction: colors.blue700,
-  accentActive: colors.blue400,
+  accentAction: colors.blue400,
+  accentActive: colors.blue700,
   accentSuccess: colors.green300,
   accentWarning: colors.gold200,
   accentFailure: colors.red400,
   accentCritical: colors.red400,
 
-  accentActionSoft: opacify(24, colors.blue700),
-  accentActiveSoft: opacify(24, colors.blue400),
+  accentActionSoft: opacify(24, colors.blue400),
+  accentActiveSoft: opacify(24, colors.blue700),
   accentSuccessSoft: opacify(24, colors.green300),
   accentWarningSoft: opacify(24, colors.gold200),
   accentFailureSoft: opacify(12, colors.red400),
@@ -218,7 +218,7 @@ export const lightTheme: Theme = {
   shallowShadow:
     '6px 6px 10px rgba(51, 53, 72, 0.01), 2px 2px 6px rgba(51, 53, 72, 0.02), 1px 2px 2px rgba(51, 53, 72, 0.02);',
 
-  networkDefaultShadow: `0px 40px 120px ${opacify(12, colors.blue700)}`,
+  networkDefaultShadow: `0px 40px 120px ${opacify(12, colors.blue400)}`,
 
   stateOverlayHover: opacify(8, colors.gray300),
   stateOverlayPressed: opacify(24, colors.gray200),
