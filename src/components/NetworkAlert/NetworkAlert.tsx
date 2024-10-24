@@ -56,9 +56,9 @@ const BG_COLORS_BY_DARK_MODE_AND_CHAIN_ID: {
     [SupportedChainId.CELO_ALFAJORES]:
       'radial-gradient(182.71% 150.59% at 2.81% 7.69%, rgba(90, 190, 170, 0.15) 0%, rgba(80, 160, 40, 0.15) 100%)',
     [SupportedChainId.LUX]:
-      'radial-gradient(182.71% 150.59% at 2.81% 7.69%, rgba(10, 10, 10, 0.15) 0%, rgba(10, 10, 10, 0.15) 100%)',
+      'radial-gradient(182.71% 150.59% at 2.81% 7.69%, rgba(5, 5, 5, 0.85) 0%, rgba(5, 5, 5, 0.95) 100%)',
     [SupportedChainId.LUX_TESTNET]:
-      'radial-gradient(182.71% 150.59% at 2.81% 7.69%, rgba(10, 10, 10, 0.15) 0%, rgba(10, 10, 10, 0.15) 100%)',
+      'radial-gradient(182.71% 150.59% at 2.81% 7.69%, rgba(5, 5, 5, 0.85) 0%, rgba(5, 5, 5, 0.95) 100%)',
     [SupportedChainId.OPTIMISM]:
       'radial-gradient(948% 292% at 42% 0%, rgba(255, 58, 212, 0.01) 0%, rgba(255, 255, 255, 0.04) 100%),radial-gradient(98% 96% at 2% 0%, rgba(255, 39, 39, 0.01) 0%, rgba(235, 0, 255, 0.01) 96%)',
     [SupportedChainId.OPTIMISM_GOERLI]:
@@ -76,9 +76,9 @@ const BG_COLORS_BY_DARK_MODE_AND_CHAIN_ID: {
     [SupportedChainId.CELO]:
       'radial-gradient(182.71% 150.59% at 2.81% 7.69%, rgba(63, 208, 137, 0.15) 0%, rgba(49, 205, 50, 0.15) 100%)',
     [SupportedChainId.LUX]:
-      'radial-gradient(182.71% 150.59% at 2.81% 7.69%, rgba(0, 0, 0, 0.45) 0%, rgba(10, 10, 10, 0.75) 100%)',
+      'radial-gradient(182.71% 150.59% at 2.81% 7.69%, rgba(0, 0, 0, 0.85) 0%, rgba(10, 10, 10, 0.95) 100%)',
     [SupportedChainId.LUX_TESTNET]:
-      'radial-gradient(182.71% 150.59% at 2.81% 7.69%, rgba(0, 0, 0, 0.45) 0%, rgba(10, 10, 10, 0.75) 100%)',
+      'radial-gradient(182.71% 150.59% at 2.81% 7.69%, rgba(0, 0, 0, 0.85) 0%, rgba(10, 10, 10, 0.95) 100%)',
     [SupportedChainId.CELO_ALFAJORES]:
       'radial-gradient(182.71% 150.59% at 2.81% 7.69%, rgba(63, 208, 137, 0.15) 0%, rgba(49, 205, 50, 0.15) 100%)',
     [SupportedChainId.OPTIMISM]:
