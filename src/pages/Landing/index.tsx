@@ -112,7 +112,7 @@ const TitleText = styled.h1<{ isDarkMode: boolean }>`
   background: ${({ isDarkMode }) =>
     isDarkMode
       ? 'linear-gradient(20deg,rgb(129 92 255) 10%,rgb(255 47 47) 99.8%)'
-      : 'linear-gradient(10deg, rgba(255,79,184,1) 0%, rgba(255,159,251,1) 100%)'};
+      : 'linear-gradient(10deg, rgba(20,20,20,1) 0%, rgba(0,55,130,1) 100%)'};
   background-clip: text;
   -webkit-background-clip: text;
 
@@ -337,9 +337,9 @@ export default function Landing() {
             </TraceEvent>
           </LandingSwapContainer>
           <Gradient isDarkMode={isDarkMode} />
-          <GlowContainer>
+          {/* <GlowContainer>
             <Glow />
-          </GlowContainer>
+          </GlowContainer> */}
           <ContentContainer isDarkMode={isDarkMode}>
             <TitleText isDarkMode={isDarkMode}>Trade anything, anywhere</TitleText>
             <SubTextContainer>
