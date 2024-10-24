@@ -20,7 +20,7 @@ export const CELO_LIST = 'https://celo-org.github.io/celo-token-list/celo.tokenl
 export const UNSUPPORTED_LIST_URLS: string[] = [BA_LIST, UNI_UNSUPPORTED_LIST]
 
 // default lists to be 'active' aka searched across
-export const DEFAULT_ACTIVE_LIST_URLS: string[] = [UNI_LIST, LUX_LIST, CELO_LIST, ARBITRUM_LIST, OPTIMISM_LIST]
+export const DEFAULT_ACTIVE_LIST_URLS: string[] = [UNI_LIST, LUX_LIST, ARBITRUM_LIST, OPTIMISM_LIST]
 export const DEFAULT_INACTIVE_LIST_URLS: string[] = [
   UNI_EXTENDED_LIST,
   COMPOUND_LIST,
@@ -32,6 +32,7 @@ export const DEFAULT_INACTIVE_LIST_URLS: string[] = [
   WRAPPED_LIST,
   SET_LIST,
   ROLL_LIST,
+  CELO_LIST,
   ...UNSUPPORTED_LIST_URLS,
 ]
 
