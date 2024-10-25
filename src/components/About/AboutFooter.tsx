@@ -151,9 +151,9 @@ export const AboutFooter = () => {
         </LinkGroup>
         <LinkGroup>
           <LinkGroupTitle>Protocol</LinkGroupTitle>
-          <ExternalTextLink href="https://lux.chat">Community</ExternalTextLink>
+          <ExternalTextLink href="https://lux.link">Ecosystem</ExternalTextLink>
           <ExternalTextLink href="https://lux.vote">Governance</ExternalTextLink>
-          <ExternalTextLink href="https://github.com/luxdefi">Developers</ExternalTextLink>
+          <ExternalTextLink href="https://github.com/luxfi">Developers</ExternalTextLink>
         </LinkGroup>
         <LinkGroup>
           <LinkGroupTitle>Company</LinkGroupTitle>
@@ -162,14 +162,14 @@ export const AboutFooter = () => {
             name={SharedEventName.ELEMENT_CLICKED}
             element={InterfaceElementName.CAREERS_LINK}
           >
-            <ExternalTextLink href="https://docs.lux.finance/about/v/lux-job-listings">Careers</ExternalTextLink>
+            <ExternalTextLink href="https://lux.careers">Careers</ExternalTextLink>
           </TraceEvent>
           <TraceEvent
             events={[BrowserEvent.onClick]}
             name={SharedEventName.ELEMENT_CLICKED}
             element={InterfaceElementName.BLOG_LINK}
           >
-            <ExternalTextLink href="https://blog.lux.exchange">Blog</ExternalTextLink>
+            <ExternalTextLink href="https://lux.blog">Blog</ExternalTextLink>
           </TraceEvent>
         </LinkGroup>
         <LinkGroup>
@@ -180,7 +180,7 @@ export const AboutFooter = () => {
             element={InterfaceElementName.SUPPORT_LINK}
           >
             <ExternalTextLink
-              href="https://help.lux.exchange"
+              href="https://lux.help"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -192,7 +192,7 @@ export const AboutFooter = () => {
             name={SharedEventName.ELEMENT_CLICKED}
             element={InterfaceElementName.SUPPORT_LINK}
           >
-            <ExternalTextLink href="https://help.lux.exchange">Help Center</ExternalTextLink>
+            <ExternalTextLink href="https://lux.help">Help Center</ExternalTextLink>
           </TraceEvent>
         </LinkGroup>
       </FooterLinks>

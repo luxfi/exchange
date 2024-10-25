@@ -95,7 +95,7 @@ const ProtocolBanner = () => {
         </DescriptionText>
       </TextContainer>
       <BannerButtonContainer>
-        <BannerButton width="200px" as="a" href="https://docs.lux.finance" rel="noopener noreferrer" target="_blank">
+        <BannerButton width="200px" as="a" href="https://docs.lux.network" rel="noopener noreferrer" target="_blank">
           Learn more
         </BannerButton>
       </BannerButtonContainer>
