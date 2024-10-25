@@ -416,14 +416,14 @@ export const WRAPPED_NATIVE_CURRENCY: { [chainId: number]: Token | undefined } =
   ),
   [SupportedChainId.LUX]: new Token(
     SupportedChainId.LUX,
-    '0xFbad1306A6b306b1b673ACa75a1CC78C4375e4Dc',
+    '0xd4b2F0435faca8959A7D2e096C2A3Ce9697Ee9fc',
     18,
     'WLUX',
     'Wrapped LUX'
   ),
   [SupportedChainId.LUX_TESTNET]: new Token(
     SupportedChainId.LUX_TESTNET,
-    '0x1B3DBA2d66c18a15a6F88B0751366C01bC8CBdd3',
+    '0xA01c406bC54aD9363704E9D26522a4629b5E6263',
     18,
     'WLUX',
     'Wrapped LUX'

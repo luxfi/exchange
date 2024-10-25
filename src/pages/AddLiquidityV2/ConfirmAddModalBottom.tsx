@@ -25,6 +25,7 @@ export function ConfirmAddModalBottom({
 }) {
   return (
     <>
+      <RowBetween/>
       <RowBetween>
         <ThemedText.DeprecatedBody>
           <Trans>{currencies[Field.CURRENCY_A]?.symbol} Deposited</Trans>
