@@ -82,7 +82,7 @@ export const colors = {
   blue900: '#040E34',
   blueVibrant: '#587BFF',
   // TODO: add magenta 50-900
-  magentaVibrant: '#FC72FF',
+  magentaVibrant: '#141414',
   purple300: '#8440F2',
   purple900: '#1C0337',
   // TODO: add all other vibrant variations
