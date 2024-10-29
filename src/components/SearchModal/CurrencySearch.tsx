@@ -101,7 +101,7 @@ export function CurrencySearch({
               // If there is no query, filter out unselected user-added tokens with no balance.
               if (!debouncedQuery && token instanceof UserAddedToken) {
                 if (selectedCurrency?.equals(token) || otherSelectedCurrency?.equals(token)) return true
-                return balances[token.address]?.greaterThan(0)
+                // return balances[token.address]?.greaterThan(0)
               }
               return true
             })

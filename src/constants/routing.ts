@@ -31,8 +31,8 @@ import {
   USDC_POLYGON,
   USDT,
   USDT_ARBITRUM_ONE,
-  USDT_LUX,
-  USDC_LUX,
+  LETH,
+  LUSD,
   USDT_LUX_TESTNET,
   USDC_LUX_TESTNET,
   USDT_OPTIMISM,
@@ -191,8 +191,8 @@ export const COMMON_BASES: ChainCurrencyList = {
   ],
   [SupportedChainId.LUX]: [
     nativeOnChain(SupportedChainId.LUX),
-    USDT_LUX,
-    USDC_LUX,
+    LETH,
+    LUSD,
   ],
   [SupportedChainId.LUX_TESTNET]: [
     nativeOnChain(SupportedChainId.LUX_TESTNET),
