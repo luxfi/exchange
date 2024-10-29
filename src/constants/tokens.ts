@@ -25,12 +25,12 @@ const USDC_ROPSTEN = new Token(
   'USDC',
   'USD//C'
 )
-export const USDC_LUX = new Token(
+export const LUSD = new Token(
   SupportedChainId.LUX,
-  '0x57A22965AdA0e52D785A9Aa155beF423D573b879',
+  '0x42b733cA4b3A8FC0237dBE39A47441cfD525f0F1',
   18,
-  "USDC",
-  "USD Coin",
+  "LUSD",
+  "Lux Dollar",
 );
 
 export const USDC_LUX_TESTNET = new Token(
@@ -147,12 +147,12 @@ export const USDT_POLYGON = new Token(
   'USDT',
   'Tether USD'
 )
-export const USDT_LUX = new Token(
+export const LETH = new Token(
   SupportedChainId.LUX,
-  '0xd25F88CBdAe3c2CCA3Bb75FC4E723b44C0Ea362F',
+  '0x2951A9386df11a4EA8ae5A823B94DC257dEb35Cb',
   18,
-  "USDT",
-  "LUX USDT",
+  "LETH",
+  "Lux ETH",
 );
 export const USDT_LUX_TESTNET = new Token(
   SupportedChainId.LUX_TESTNET,
@@ -534,7 +534,7 @@ export const TOKEN_SHORTHANDS: { [shorthand: string]: { [chainId in SupportedCha
     [SupportedChainId.RINKEBY]: USDC_RINKEBY.address,
     [SupportedChainId.KOVAN]: USDC_KOVAN.address,
     [SupportedChainId.ROPSTEN]: USDC_ROPSTEN.address,
-    [SupportedChainId.LUX]: USDC_LUX.address,
+    // [SupportedChainId.LUX]: LUSD.address,
     [SupportedChainId.LUX_TESTNET]: USDC_LUX_TESTNET.address,
   },
 }
