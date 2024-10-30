@@ -169,15 +169,15 @@ export function NetworkAlert() {
   return bridge ? (
     <RootWrapper>
       <ContentWrapper chainId={chainId} darkMode={darkMode} logoUrl={logoUrl}>
-        <LinkOutToBridge href={bridge}>
+        <LinkOutToBridge href="https://bridge.lux.network">
           <BodyText color={textColor}>
             <L2Icon src={logoUrl} />
             <AutoRow>
               <Header>
-                <Trans>{label} token bridge</Trans>
+                <Trans>Lux Bridge</Trans>
               </Header>
               <HideSmall>
-                <Trans>Deposit tokens to the {label} network.</Trans>
+                <Trans>Deposit digital assets to the Lux Network, gas free.</Trans>
               </HideSmall>
             </AutoRow>
           </BodyText>
