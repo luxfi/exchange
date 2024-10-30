@@ -1,4 +1,4 @@
-{
+export const TOKENS_LUX_LIST = {
     "name": "Lux extended list",
     "timestamp": "2024-10-01T19:32:51.793Z",
     "version": {

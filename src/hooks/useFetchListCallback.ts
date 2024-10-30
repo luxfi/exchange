@@ -6,7 +6,7 @@ import getTokenList from 'lib/hooks/useTokenList/fetchTokenList'
 import resolveENSContentHash from 'lib/utils/resolveENSContentHash'
 import { useCallback } from 'react'
 import { useAppDispatch } from 'state/hooks'
-import TOKENS_LUX_LIST from 'tokens-lux/tokens.json';
+import { TOKENS_LUX_LIST } from 'tokens-lux/tokens'
 
 import { fetchTokenList } from '../state/lists/actions'
 
