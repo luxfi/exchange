@@ -258,7 +258,7 @@ export default function CurrencyList({
 
       const isSelected = Boolean(currency && selectedCurrency && selectedCurrency.equals(currency))
       const otherSelected = Boolean(currency && otherCurrency && otherCurrency.equals(currency))
-      const handleSelect = (hasWarning: boolean) => currency && onCurrencySelect(currency, hasWarning)
+      const handleSelect = () => currency && onCurrencySelect(currency, false)
 
       const token = currency?.wrapped
 
