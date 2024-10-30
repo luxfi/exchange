@@ -95,7 +95,7 @@ const ContentContainer = styled.div<{ isDarkMode: boolean }>`
   min-height: 500px;
   z-index: ${Z_INDEX.under_dropdown};
   transition: ${({ theme }) => `${theme.transition.duration.medium} ${theme.transition.timing.ease} opacity`};
-  height: 66vh;
+  height: 82vh;
   pointer-events: none;
   * {
     pointer-events: auto;
