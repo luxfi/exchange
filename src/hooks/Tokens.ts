@@ -29,6 +29,7 @@ function useTokensFromMap(tokenMap: TokenAddressMap): { [address: string]: Token
 
 export function useAllTokens(): { [address: string]: Token } {
   const allTokens = useCombinedActiveList()
+  // console.log("alltokens =  ", allTokens);
   const tokensFromMap = useTokensFromMap(allTokens)
   const userAddedTokens = useUserAddedTokens()
   return useMemo(() => {
