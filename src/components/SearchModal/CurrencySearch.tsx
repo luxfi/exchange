@@ -117,6 +117,7 @@ export function CurrencySearch({
       onlyShowCurrenciesWithBalance,
     ]
   )
+  
   const isLoading = Boolean(balancesAreLoading && !tokenLoaderTimerElapsed)
 
   const filteredSortedTokens = useSortTokensByQuery(debouncedQuery, sortedTokens)
