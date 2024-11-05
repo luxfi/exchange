@@ -27,7 +27,7 @@ const USDC_ROPSTEN = new Token(
 )
 export const LUSD = new Token(
   SupportedChainId.LUX,
-  '0x42b733cA4b3A8FC0237dBE39A47441cfD525f0F1',
+  '0x8031e9b0D02a792cfEFaa2bDCA6E1289d385426F',
   18,
   "LUSD",
   "Lux Dollar",
@@ -35,7 +35,7 @@ export const LUSD = new Token(
 
 export const USDC_LUX_TESTNET = new Token(
   SupportedChainId.LUX_TESTNET,
-  '0x827d7D81205a59b2864252bdB4D4313028c50e10',
+  '0x8031e9b0D02a792cfEFaa2bDCA6E1289d385426F',
   18,
   "USDC",
   "USD Coin",
@@ -149,14 +149,14 @@ export const USDT_POLYGON = new Token(
 )
 export const LETH = new Token(
   SupportedChainId.LUX,
-  '0x2951A9386df11a4EA8ae5A823B94DC257dEb35Cb',
+  '0xdf1De693C31e2A5eb869c329529623556B20AbF3',
   18,
   "LETH",
   "Lux ETH",
 );
 export const USDT_LUX_TESTNET = new Token(
   SupportedChainId.LUX_TESTNET,
-  '0x3fdd8BB8112d8008be2397d0FAfDa869EFCdDbC4',
+  '0xdf1De693C31e2A5eb869c329529623556B20AbF3',
   18,
   "USDT",
   "LUX USDT",
@@ -416,14 +416,14 @@ export const WRAPPED_NATIVE_CURRENCY: { [chainId: number]: Token | undefined } =
   ),
   [SupportedChainId.LUX]: new Token(
     SupportedChainId.LUX,
-    '0xd4b2F0435faca8959A7D2e096C2A3Ce9697Ee9fc',
+    '0x4888E4a2Ee0F03051c72D2BD3ACf755eD3498B3E',
     18,
     'WLUX',
     'Wrapped LUX'
   ),
   [SupportedChainId.LUX_TESTNET]: new Token(
     SupportedChainId.LUX_TESTNET,
-    '0xA01c406bC54aD9363704E9D26522a4629b5E6263',
+    '0x4888E4a2Ee0F03051c72D2BD3ACf755eD3498B3E',
     18,
     'WLUX',
     'Wrapped LUX'

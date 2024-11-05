@@ -2,8 +2,8 @@
  * List of all the networks supported by the LX Interface
  */
 export enum SupportedChainId {
-  LUX = 7777,
-  LUX_TESTNET = 8888,
+  LUX = 96369,
+  LUX_TESTNET = 96368,
 
   MAINNET = 1,
   ROPSTEN = 3,
