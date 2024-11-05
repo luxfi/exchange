@@ -29,8 +29,8 @@ export const LUSD = new Token(
   SupportedChainId.LUX,
   '0x8031e9b0D02a792cfEFaa2bDCA6E1289d385426F',
   18,
-  "LUSD",
-  "Lux Dollar",
+  "USDC",
+  "USD Coin",
 );
 
 export const USDC_LUX_TESTNET = new Token(
@@ -151,8 +151,8 @@ export const LETH = new Token(
   SupportedChainId.LUX,
   '0xdf1De693C31e2A5eb869c329529623556B20AbF3',
   18,
-  "LETH",
-  "Lux ETH",
+  "USDT",
+  "LUX USDT",
 );
 export const USDT_LUX_TESTNET = new Token(
   SupportedChainId.LUX_TESTNET,
