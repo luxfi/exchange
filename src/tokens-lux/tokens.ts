@@ -14,7 +14,7 @@ export const TOKENS_LUX_LIST = {
     ],
     "tokens": [
         {
-            "chainId": 7777,
+            "chainId": 96369,
             "address": "0xd4b2F0435faca8959A7D2e096C2A3Ce9697Ee9fc",
             "name": "Wrapped LUX",
             "symbol": "WLUX",
@@ -23,7 +23,7 @@ export const TOKENS_LUX_LIST = {
             "extensions": {}
         },
         {
-            "chainId": 7777,
+            "chainId": 96369,
             "address": "0x2951A9386df11a4EA8ae5A823B94DC257dEb35Cb",
             "name": "Lux ETH",
             "symbol": "LETH",
@@ -32,7 +32,7 @@ export const TOKENS_LUX_LIST = {
             "extensions": {}
         },
         {
-            "chainId": 7777,
+            "chainId": 96369,
             "address": "0x42b733cA4b3A8FC0237dBE39A47441cfD525f0F1",
             "name": "Lux Dollar",
             "symbol": "LUSD",
@@ -41,7 +41,7 @@ export const TOKENS_LUX_LIST = {
             "extensions": {}
         },
         {
-            "chainId": 8888,
+            "chainId": 96368,
             "address": "0xA01c406bC54aD9363704E9D26522a4629b5E6263",
             "name": "Wrapped LUX",
             "symbol": "WLUX",
@@ -50,7 +50,7 @@ export const TOKENS_LUX_LIST = {
             "extensions": {}
         },
         {
-            "chainId": 8888,
+            "chainId": 96368,
             "address": "0x5670756808b32c209a25c67481ba9c3c710126bb",
             "name": "Lux ETH",
             "symbol": "LETH",
@@ -59,7 +59,7 @@ export const TOKENS_LUX_LIST = {
             "extensions": {}
         },
         {
-            "chainId": 8888,
+            "chainId": 96368,
             "address": "0x5fc1f8394a0dfb43d21a03be5656559c45690357",
             "name": "Lux XDAI",
             "symbol": "LXDAI",
@@ -68,7 +68,7 @@ export const TOKENS_LUX_LIST = {
             "extensions": {}
         },
         {
-            "chainId": 8888,
+            "chainId": 96368,
             "address": "0xa1eeefb7693760e78501b29fcec9fb03ca981d3d",
             "name": "Lux POL",
             "symbol": "LPOL",
@@ -77,7 +77,7 @@ export const TOKENS_LUX_LIST = {
             "extensions": {}
         },
         {
-            "chainId": 8888,
+            "chainId": 96368,
             "address": "0xcec718c5b0c538cc6c15c151b9dc0f714499eab6",
             "name": "Lux BNB",
             "symbol": "LBNB",
@@ -86,7 +86,7 @@ export const TOKENS_LUX_LIST = {
             "extensions": {}
         },
         {
-            "chainId": 8888,
+            "chainId": 96368,
             "address": "0xe5c2a45ce63addf0f9581a439c85a214db657813",
             "name": "Lux FTM",
             "symbol": "LFTM",
@@ -95,7 +95,7 @@ export const TOKENS_LUX_LIST = {
             "extensions": {}
         },
         {
-            "chainId": 8888,
+            "chainId": 96368,
             "address": "0x7e1007b013dcf1d4d49b8ebfdf0c07b7683d4637",
             "name": "Lux CELO",
             "symbol": "LCELO",
@@ -104,7 +104,7 @@ export const TOKENS_LUX_LIST = {
             "extensions": {}
         },
         {
-            "chainId": 8888,
+            "chainId": 96368,
             "address": "0xb84112ac9318a0b2319aa11d4d10e9762b25f7f4",
             "name": "Lux USD",
             "symbol": "LUSD",
