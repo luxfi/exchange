@@ -56,6 +56,7 @@ export function isPricePoint(p: PricePoint | null): p is PricePoint {
 }
 
 export const CHAIN_ID_TO_BACKEND_NAME: { [key: number]: Chain } = {
+  [SupportedChainId.LUX]: Chain.Lux,
   [SupportedChainId.MAINNET]: Chain.Ethereum,
   [SupportedChainId.GOERLI]: Chain.EthereumGoerli,
   [SupportedChainId.POLYGON]: Chain.Polygon,
@@ -75,12 +76,12 @@ export function chainIdToBackendName(chainId: number | undefined) {
 }
 
 const URL_CHAIN_PARAM_TO_BACKEND: { [key: string]: Chain } = {
+  lux: Chain.Lux,
   ethereum: Chain.Ethereum,
   polygon: Chain.Polygon,
   celo: Chain.Celo,
   arbitrum: Chain.Arbitrum,
   optimism: Chain.Optimism,
-  lux: Chain.Lux,
 }
 
 export function validateUrlChainParam(chainName: string | undefined) {
@@ -88,15 +89,15 @@ export function validateUrlChainParam(chainName: string | undefined) {
 }
 
 export const CHAIN_NAME_TO_CHAIN_ID: { [key: string]: SupportedChainId } = {
+  LUX: SupportedChainId.LUX,
   ETHEREUM: SupportedChainId.MAINNET,
   POLYGON: SupportedChainId.POLYGON,
   CELO: SupportedChainId.CELO,
   ARBITRUM: SupportedChainId.ARBITRUM_ONE,
   OPTIMISM: SupportedChainId.OPTIMISM,
-  LUX: SupportedChainId.LUX,
 }
 
-export const BACKEND_CHAIN_NAMES: Chain[] = [Chain.Ethereum, Chain.Polygon, Chain.Optimism, Chain.Arbitrum, Chain.Celo, Chain.Lux]
+export const BACKEND_CHAIN_NAMES: Chain[] = [Chain.Lux, Chain.Ethereum, Chain.Polygon, Chain.Optimism, Chain.Arbitrum, Chain.Celo]
 
 export function getTokenDetailsURL(address: string, chainName?: Chain, chainId?: number) {
   if (address === ZERO_ADDRESS && chainId && chainId === SupportedChainId.MAINNET) {
