@@ -144,10 +144,9 @@ export const AboutFooter = () => {
       <FooterLinks>
         <LinkGroup>
           <LinkGroupTitle>App</LinkGroupTitle>
-          <TextLink to="/swap">Swap</TextLink>
-          <TextLink to="/tokens">Tokens</TextLink>
-          <TextLink to="/nfts">NFTs</TextLink>
+          <TextLink to="/tokens">Explore</TextLink>
           <TextLink to="/pool">Pools</TextLink>
+          <TextLink to="/swap">Swap</TextLink>
         </LinkGroup>
         <LinkGroup>
           <LinkGroupTitle>Protocol</LinkGroupTitle>
