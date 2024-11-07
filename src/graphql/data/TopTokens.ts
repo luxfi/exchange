@@ -82,6 +82,11 @@ gql`
   }
 `
 
+// Convert Chain.Lux to 'luxnet', others to lowercase
+function graphChainName(chain: Chain): string {
+  return chain === Chain.Lux ? 'luxnet' : chain.toLowerCase();
+}
+
 function useSortedTokens(tokens: TopTokens100Query['topTokens']) {
   const sortMethod = useAtomValue(sortMethodAtom)
   const sortAscending = useAtomValue(sortAscendingAtom)
@@ -150,7 +155,7 @@ export function useTopTokens(chain: Chain): UseTopTokensReturnValue {
 
   const { data: sparklineQuery } = usePollQueryWhileMounted(
     useTopTokensSparklineQuery({
-      variables: { duration, chain },
+      variables: { duration, graphChainName(chain) },
     }),
     PollingInterval.Slow
   )
@@ -166,7 +171,7 @@ export function useTopTokens(chain: Chain): UseTopTokensReturnValue {
 
   const { data, loading: loadingTokens } = usePollQueryWhileMounted(
     useTopTokens100Query({
-      variables: { duration, chain },
+      variables: { duration, graphChainName(chain) },
     }),
     PollingInterval.Fast
   )
