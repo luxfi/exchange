@@ -34,7 +34,6 @@ const TitleText = styled.div`
   margin: 0px 12px;
 `
 const Wrapper = styled.div`
-  display: none;
   background-color: ${({ theme }) => theme.backgroundSurface};
   border-radius: 12px;
   border: 1px solid ${({ theme }) => theme.backgroundOutline};
