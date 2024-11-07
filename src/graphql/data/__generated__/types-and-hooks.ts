@@ -156,8 +156,8 @@ export enum Chain {
   UnknownChain = 'UNKNOWN_CHAIN',
   Zksync = 'ZKSYNC',
   Zora = 'ZORA',
-  Lux = 'LUX'
-  LuxNet = 'luxnet'
+  Lux = 'LUX',
+  LuxNet = 'LUXNET'
 }
 
 export enum CollectionSortableField {
