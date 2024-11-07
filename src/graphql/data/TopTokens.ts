@@ -82,11 +82,6 @@ gql`
   }
 `
 
-// Convert Chain.Lux to 'luxnet', for our graph nodes
-function graphChainName(chain: Chain): Chain {
-  return chain === Chain.Lux ? Chain.LuxNet : chain;
-}
-
 function useSortedTokens(tokens: TopTokens100Query['topTokens']) {
   const sortMethod = useAtomValue(sortMethodAtom)
   const sortAscending = useAtomValue(sortAscendingAtom)
@@ -155,7 +150,7 @@ export function useTopTokens(chain: Chain): UseTopTokensReturnValue {
 
   const { data: sparklineQuery } = usePollQueryWhileMounted(
     useTopTokensSparklineQuery({
-      variables: { duration, chain: graphChainName(chain) },
+      variables: { duration, chain },
     }),
     PollingInterval.Slow
   )
@@ -171,7 +166,7 @@ export function useTopTokens(chain: Chain): UseTopTokensReturnValue {
 
   const { data, loading: loadingTokens } = usePollQueryWhileMounted(
     useTopTokens100Query({
-      variables: { duration, chain: graphChainName(chain) },
+      variables: { duration, chain },
     }),
     PollingInterval.Fast
   )

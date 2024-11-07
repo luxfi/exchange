@@ -157,7 +157,6 @@ export enum Chain {
   Zksync = 'ZKSYNC',
   Zora = 'ZORA',
   Lux = 'LUX',
-  LuxNet = 'LUXNET'
 }
 
 export enum CollectionSortableField {
