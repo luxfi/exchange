@@ -78,6 +78,7 @@ export const TESTNET_CHAIN_IDS = [
   SupportedChainId.POLYGON_MUMBAI,
   SupportedChainId.ARBITRUM_RINKEBY,
   SupportedChainId.OPTIMISM_GOERLI,
+  SupportedChainId.LUX_TESTNET,
 ] as const
 
 export type SupportedTestnetChainId = typeof TESTNET_CHAIN_IDS[number]
@@ -92,7 +93,6 @@ export const L1_CHAIN_IDS = [
   SupportedChainId.GOERLI,
   SupportedChainId.KOVAN,
   SupportedChainId.LUX,
-  SupportedChainId.LUX_TESTNET,
   SupportedChainId.POLYGON,
   SupportedChainId.POLYGON_MUMBAI,
   SupportedChainId.CELO,
