@@ -1,5 +1,19 @@
 # exchange
 
+Lux Exchange (LX) is a decentralized exchange (DEX) on the Lux Network, offering high-performance trading with interoperability across various assets.
+
+Key Features:
+	•	Trade: Engage in seamless, decentralized trading with a wide range of assets.
+	•	Pool: Provide liquidity to earn rewards and support the ecosystem.
+	•	Rewards: Participate in staking and liquidity programs to maximize returns.
+	•	Markets: Access diverse markets with competitive rates and minimal slippage.
+	•	Docs: Comprehensive documentation to guide users through the platform’s features and functionalities.
+	•	Connect: Integrate your Web3 wallet to start trading securely and efficiently.
+
+LX is designed for traders seeking a decentralized, efficient, and user-friendly platform. Its architecture ensures fast transactions and a seamless trading experience.
+
+For more information, visit [LX](https://lux.exchange).
+
 ## How to build and run
 
 Locally
@@ -18,17 +32,11 @@ yarn start
 
 An open source interface for [Lux Exchange](https://lux.exchange) -- a protocol for decentralized real world assets (RWAs).
 
-- Website: [lux.exchange](https://lux.exchange)
-- Interface: [app.lux.exchange](https://app.lux.exchange)
-- Docs: [docs.lux.exchange](https://docs.lux.exchange/)
+- Interface: [lux.exchange](https://lux.exchange)
+- Docs: [docs.lux.network](https://docs.lux.network/)
 - Twitter: [@luxdefi](https://twitter.com/luxdefi)
 - Reddit: [/r/luxdefi](https://www.reddit.com/r/luxdefi/)
 - Email: [hi@lux.exchange](mailto:hi@lux.exchange)
-- Discord: [Lux](https://discord.gg/6WHnbNnzVb)
-- Whitepapers:
-  - [V1](https://hackmd.io/C-DvwDSfSxuh-Gd4WKE_ig)
-  - [V2](https://uniswap.org/whitepaper.pdf)
-  - [V3](https://uniswap.org/whitepaper-v3.pdf)
 
 ## Accessing the LX Interface
 
@@ -54,8 +62,3 @@ The LX Interface supports swapping, adding liquidity, removing liquidity and mig
 - View V2 liquidity: <https://app.uniswap.org/#/pool/v2>
 - Add V2 liquidity: <https://app.uniswap.org/#/add/v2>
 - Migrate V2 liquidity to V3: <https://app.uniswap.org/#/migrate/v2>
-
-## Accessing Uniswap V1
-
-The Uniswap V1 interface for mainnet and testnets is accessible via IPFS gateways
-linked from the [v1.0.0 release](https://github.com/Uniswap/uniswap-interface/releases/tag/v1.0.0).
