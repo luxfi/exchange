@@ -423,7 +423,7 @@ interface LoadedRowProps {
   tokenListIndex: number
   tokenListLength: number
   token: NonNullable<TopToken>
-  sparklineMap: SparklineMap
+  // sparklineMap: SparklineMap
   volumeRank: number
 }
 
@@ -498,23 +498,23 @@ export const LoadedRow = forwardRef((props: LoadedRowProps, ref: ForwardedRef<HT
           volume={
             <ClickableContent>{formatNumber(token.market?.volume?.value, NumberType.FiatTokenStats)}</ClickableContent>
           }
-          sparkLine={
-            <SparkLine>
-              <ParentSize>
-                {({ width, height }) =>
-                  props.sparklineMap && (
-                    <SparklineChart
-                      width={width}
-                      height={height}
-                      tokenData={token}
-                      pricePercentChange={token.market?.pricePercentChange?.value}
-                      sparklineMap={props.sparklineMap}
-                    />
-                  )
-                }
-              </ParentSize>
-            </SparkLine>
-          }
+          // sparkLine={
+          //   <SparkLine>
+          //     <ParentSize>
+          //       {({ width, height }) =>
+          //         props.sparklineMap && (
+          //           <SparklineChart
+          //             width={width}
+          //             height={height}
+          //             tokenData={token}
+          //             pricePercentChange={token.market?.pricePercentChange?.value}
+          //             sparklineMap={props.sparklineMap}
+          //           />
+          //         )
+          //       }
+          //     </ParentSize>
+          //   </SparkLine>
+          // }
           first={tokenListIndex === 0}
           last={tokenListIndex === tokenListLength - 1}
         />
