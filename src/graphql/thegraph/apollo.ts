@@ -40,3 +40,10 @@ export const apolloClient = new ApolloClient({
   cache: new InMemoryCache(),
   link: concat(authMiddleware, httpLink),
 })
+
+export const luxClient = new ApolloClient({
+  link: new HttpLink({
+    uri: "https://graph.lux.network/subgraphs/name/lux/uniswap-v3",
+  }),
+  cache: new InMemoryCache(),
+})
