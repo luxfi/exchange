@@ -29,7 +29,7 @@ query GetTokenInfo($tokenAddress: String!) {
     derivedETH
 
     # Get daily data for more detailed metrics
-    tokenDayData(first: 365, orderBy: date, orderDirection: desc) {
+    tokenDayData(first: 365, orderBy: date, orderDirection: asc) {
       id
       date
       priceUSD  # The price of the token in USD for the day
@@ -173,7 +173,8 @@ const transformedTokenPriceHistory:TokenPriceQuery = {
         id: "QW1vdW50OjFfVVNE", // Encoded amount ID
         value: parseFloat(ethPriceUSD) * parseFloat(ethPrice),
       },
-      priceHistory: luxData?.token?.tokenDayData.map((data: any) => ({
+      priceHistory: luxData?.token?.tokenDayData.filter((data: any) => parseFloat(data.priceUSD) !== 0)
+      .map((data: any) => ({
         __typename: "TimestampedAmount",
         id: `VGltZXN0YW1wZWRBbW91bnQ6MV8x${data.date}_VVNE`, // Encoded version of the timestamped amount
         timestamp: data.date,

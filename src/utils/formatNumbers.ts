@@ -55,31 +55,31 @@ export const formatDollar = ({
   if (isPrice) {
     if (num === 0) return '$0.00'
     if (!num) return '-'
-    if (num < 0.000001) {
-      return `$${num.toExponential(2)}`
+    if (num < 0.00000001) {
+      return `$${num.toExponential(6)}`
     }
-    if ((num >= 0.000001 && num < 0.1) || num > 1000000) {
-      return `$${Number(num).toPrecision(3)}`
+    if ((num >= 0.00000001 && num < 0.1) || num > 100000000) {
+      return `$${Number(num).toPrecision(6)}`
     }
     // We only show 2 decimal places in explore table for stablecoin value ranges
     // for the sake of readability (as opposed to the usual 3 elsewhere).
-    if (num >= 0.1 && num < (lessPreciseStablecoinValues ? 0.9995 : 1.05)) {
-      return `$${num.toFixed(3)}`
+    if (num >= 0.1 && num < (lessPreciseStablecoinValues ? 0.9999995 : 1.00005)) {
+      return `$${num.toFixed(6)}`
     }
-    return `$${Number(num.toFixed(2)).toLocaleString(DEFAULT_LOCALE, { minimumFractionDigits: 2 })}`
+    return `$${Number(num.toFixed(5)).toLocaleString(DEFAULT_LOCALE, { minimumFractionDigits: 5 })}`
   }
   // For volume dollar amounts, like market cap, total value locked, etc.
   else {
     if (num === 0) return '$0.00'
     if (!num) return '-'
-    if (num < 0.000001) {
-      return '$<0.000001'
+    if (num < 0.00000001) {
+      return '$<0.00000001'
     }
-    if (num >= 0.000001 && num < 0.1) {
-      return `$${Number(num).toPrecision(3)}`
+    if (num >= 0.00000001 && num < 0.1) {
+      return `$${Number(num).toPrecision(6)}`
     }
     if (num >= 0.1 && num < 1.05) {
-      return `$${num.toFixed(3)}`
+      return `$${num.toFixed(6)}`
     }
 
     return numbro(num)
