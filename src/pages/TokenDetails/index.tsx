@@ -12,9 +12,13 @@ import { useQuery } from '@apollo/client'
 import gql from 'graphql-tag'
 import { luxClient } from 'graphql/thegraph/apollo'
 import { Chain, TokenQuery, Currency, TokenQueryData } from 'graphql/data/Token'
+import { TokenPriceQuery } from 'graphql/data/TokenPrice'
 
 const GetTokenInfo = gql`
 query GetTokenInfo($tokenAddress: String!) {
+  bundles(first: 10) {
+    ethPriceUSD
+  }
   token(id: $tokenAddress) {
     id
     decimals
@@ -22,6 +26,7 @@ query GetTokenInfo($tokenAddress: String!) {
     symbol
     totalValueLockedUSD  # The USD value locked in pools for this token
     volumeUSD  # Lifetime trading volume in USD for this token
+    derivedETH
 
     # Get daily data for more detailed metrics
     tokenDayData(first: 365, orderBy: date, orderDirection: desc) {
@@ -63,7 +68,6 @@ export default function TokenDetailsPage() {
     () => [isNative ? getNativeTokenDBAddress(chain) : tokenAddress ?? '', toHistoryDuration(timePeriod)],
     [chain, isNative, timePeriod, tokenAddress]
   )
-
   const { data: tokenQuery } = useTokenQuery({
     variables: {
       address,
@@ -101,15 +105,14 @@ export default function TokenDetailsPage() {
   const priceLow52W = dailyPrices && Math.min(...dailyPrices);
 
 
-  console.log("price High and Low",priceHigh52W, priceLow52W);
-  console.log("tokenQuery = ",tokenQuery);
-  console.log("tokenPriceQuery = ", tokenPriceQuery);
+  // console.log("price High and Low",priceHigh52W, priceLow52W);
+  // console.log("tokenQuery = ",tokenQuery);
+  // console.log("tokenPriceQuery = ", tokenPriceQuery);
 
   const token = luxData?.token;
-  console.log("token = ", token);
 
   // Now, you can assign the JSON data to a variable of type TokenQuery
-const transformedTokenDetail: TokenQuery = {
+const transformedTokenDetail: TokenQuery = tokenPriceQuery??{
   token: {
     id: "VG9rZW46RVRIRVJFVU1fMHhhMGI4Njk5MWM2MjE4YjM2YzFkMTlkNGEyZTllYjBjZTM2MDZlYjQ4",
     decimals: 18,
@@ -153,8 +156,34 @@ const transformedTokenDetail: TokenQuery = {
     }
   }
 };
+const ethPriceUSD = luxData?.bundles[0]?.ethPriceUSD;
+const ethPrice = luxData?.token?.derivedETH;
 
-const renderTokenDetail = (tokenAddress: any, chain: any, tokenQuery: any, tokenPriceQuery: any) => (
+const transformedTokenPriceHistory:TokenPriceQuery = {
+  token: {
+    __typename: "Token",
+    id: "VG9rZW46RVRIRVJFVU1fMHhhMGI4Njk5MWM2MjE4YjM2YzFkMTlkNGEyZTllYjBjZTM2MDZlYjQ4", // Encoded version of the token ID
+    address: luxData?.token?.id,
+    chain: Chain.Lux,
+    market: {
+      __typename: "TokenMarket",
+      id: "VG9rZW5NYXJrZXQ6RVRIRVJFVU1fMHhhMGI4Njk5MWM2MjE4YjM2YzFkMTlkNGEyZTllYjBjZTM2MDZlYjQ4X1VTRA==", // Encoded ID for the market
+      price: {
+        __typename: "Amount",
+        id: "QW1vdW50OjFfVVNE", // Encoded amount ID
+        value: parseFloat(ethPriceUSD) * parseFloat(ethPrice),
+      },
+      priceHistory: luxData?.token?.tokenDayData.map((data: any) => ({
+        __typename: "TimestampedAmount",
+        id: `VGltZXN0YW1wZWRBbW91bnQ6MV8x${data.date}_VVNE`, // Encoded version of the timestamped amount
+        timestamp: data.date,
+        value: parseFloat(data.priceUSD),
+      })),
+    },
+  },
+};
+
+const renderTokenDetail = (tokenAddress: any, chain: any, tokenQuery: any) => (
   <TokenDetails
   urlAddress={tokenAddress}
   chain={chain}
@@ -168,11 +197,12 @@ const renderTokenDetail = (tokenAddress: any, chain: any, tokenQuery: any, token
   const [currentPriceQuery, setCurrentPriceQuery] = useState(tokenPriceQuery)
   useEffect(() => {
     if (tokenPriceQuery) setCurrentPriceQuery(tokenPriceQuery)
-  }, [setCurrentPriceQuery, tokenPriceQuery])
+    else if(chain == "LUX") setCurrentPriceQuery(transformedTokenPriceHistory)
+  }, [luxData, tokenPriceQuery])
   if (!tokenQuery && !transformedTokenDetail) return <TokenDetailsPageSkeleton />
   if(chain == "LUX") {
-    return renderTokenDetail(tokenAddress, chain, transformedTokenDetail, tokenPriceQuery)
+    return renderTokenDetail(tokenAddress, chain, transformedTokenDetail)
   }
   if (!tokenQuery) return <TokenDetailsPageSkeleton />
-  return renderTokenDetail(tokenAddress, chain, tokenQuery, tokenPriceQuery)
+  return renderTokenDetail(tokenAddress, chain, tokenQuery)
 }
