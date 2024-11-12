@@ -92,7 +92,9 @@ export default function TokenDetailsPage() {
   }
 
   // Extract daily prices from the response
-  const dailyPrices = luxData?.token?.tokenDayData?.map((day: any) => parseFloat(day.priceUSD));
+  const dailyPrices = luxData?.token?.tokenDayData
+  ?.map((day: any) => parseFloat(day.priceUSD))
+  .filter((price: any) => price !== 0);
 
   // Calculate the 52-week high and low
   const priceHigh52W = dailyPrices && Math.max(...dailyPrices);
@@ -119,7 +121,7 @@ const transformedTokenDetail: TokenQuery = {
       id: "VG9rZW5NYXJrZXQ6RVRIRVJFVU1fMHhhMGI4Njk5MWM2MjE4YjM2YzFkMTlkNGEyZTllYjBjZTM2MDZlYjQ4X1VTRA==",
       totalValueLocked: {
         id: "QW1vdW50OjM0MDUwMDg5OS41NTQyMzk5X1VTRA==",
-        value: 340500899.5542399,
+        value: token?.totalValueLockedUSD,
         currency: Currency.Usd
       },
       price: {
@@ -129,7 +131,7 @@ const transformedTokenDetail: TokenQuery = {
       },
       volume24H: {
         id: "QW1vdW50OjY5MzIwODE3Ny45NDM0MDUyX1VTRA==",
-        value: 693208177.9434052,
+        value: token?.volumeUSD,
         currency: Currency.Usd
       },
       priceHigh52W: {
@@ -152,36 +154,25 @@ const transformedTokenDetail: TokenQuery = {
   }
 };
 
+const renderTokenDetail = (tokenAddress: any, chain: any, tokenQuery: any, tokenPriceQuery: any) => (
+  <TokenDetails
+  urlAddress={tokenAddress}
+  chain={chain}
+  tokenQuery={tokenQuery}
+  tokenPriceQuery={currentPriceQuery}
+  onChangeTimePeriod={setTimePeriod}
+/>
+);
+
   // Saves already-loaded chart data into state to display while tokenPriceQuery is undefined timePeriod input changes
   const [currentPriceQuery, setCurrentPriceQuery] = useState(tokenPriceQuery)
   useEffect(() => {
     if (tokenPriceQuery) setCurrentPriceQuery(tokenPriceQuery)
   }, [setCurrentPriceQuery, tokenPriceQuery])
-
-  console.log("query",tokenQuery, transformedTokenDetail);
   if (!tokenQuery && !transformedTokenDetail) return <TokenDetailsPageSkeleton />
-
-  console.log("chain", chain);
-
   if(chain == "LUX") {
-    return (
-      <TokenDetails
-        urlAddress={tokenAddress}
-        chain={chain}
-        tokenQuery={transformedTokenDetail}
-        tokenPriceQuery={currentPriceQuery}
-        onChangeTimePeriod={setTimePeriod}
-      />
-    )
+    return renderTokenDetail(tokenAddress, chain, transformedTokenDetail, tokenPriceQuery)
   }
   if (!tokenQuery) return <TokenDetailsPageSkeleton />
-  return (
-    <TokenDetails
-      urlAddress={tokenAddress}
-      chain={chain}
-      tokenQuery={tokenQuery}
-      tokenPriceQuery={currentPriceQuery}
-      onChangeTimePeriod={setTimePeriod}
-    />
-  )
+  return renderTokenDetail(tokenAddress, chain, tokenQuery, tokenPriceQuery)
 }
