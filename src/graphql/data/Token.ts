@@ -64,7 +64,8 @@ gql`
   }
 `
 
-export type { Chain, TokenQuery } from './__generated__/types-and-hooks'
+export type { TokenQuery } from './__generated__/types-and-hooks'
+export  { Chain, Currency } from './__generated__/types-and-hooks'
 
 export type TokenQueryData = TokenQuery['token']
 

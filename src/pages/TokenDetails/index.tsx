@@ -8,6 +8,47 @@ import { atomWithStorage } from 'jotai/utils'
 import { useEffect, useMemo, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { getNativeTokenDBAddress } from 'utils/nativeTokens'
+import { useQuery } from '@apollo/client'
+import gql from 'graphql-tag'
+import { luxClient } from 'graphql/thegraph/apollo'
+import { Chain, TokenQuery, Currency, TokenQueryData } from 'graphql/data/Token'
+
+const GetTokenInfo = gql`
+query GetTokenInfo($tokenAddress: String!) {
+  token(id: $tokenAddress) {
+    id
+    decimals
+    name
+    symbol
+    totalValueLockedUSD  # The USD value locked in pools for this token
+    volumeUSD  # Lifetime trading volume in USD for this token
+
+    # Get daily data for more detailed metrics
+    tokenDayData(first: 365, orderBy: date, orderDirection: desc) {
+      id
+      date
+      priceUSD  # The price of the token in USD for the day
+      totalValueLockedUSD
+      volumeUSD
+    }
+
+    # Get all pools involving this token for liquidity details
+    whitelistPools {
+      id
+      totalValueLockedUSD
+      volumeUSD
+      token0 {
+        id
+        symbol
+      }
+      token1 {
+        id
+        symbol
+      }
+    }
+  }
+}
+`
 
 export const pageTimePeriodAtom = atomWithStorage<TimePeriod>('tokenDetailsTimePeriod', TimePeriod.DAY)
 
@@ -38,14 +79,102 @@ export default function TokenDetailsPage() {
     },
   })
 
+  const { data: luxData, loading: luxLoading } = useQuery(GetTokenInfo, {
+    client: luxClient,
+    variables: {
+      tokenAddress: address,
+    },
+  })
+  if (luxLoading) {
+    console.log("Loading data...");
+  } else {
+    console.log("Data loaded:", luxData);
+  }
+
+  // Extract daily prices from the response
+  const dailyPrices = luxData?.token?.tokenDayData?.map((day: any) => parseFloat(day.priceUSD));
+
+  // Calculate the 52-week high and low
+  const priceHigh52W = dailyPrices && Math.max(...dailyPrices);
+  const priceLow52W = dailyPrices && Math.min(...dailyPrices);
+
+
+  console.log("price High and Low",priceHigh52W, priceLow52W);
+  console.log("tokenQuery = ",tokenQuery);
+  console.log("tokenPriceQuery = ", tokenPriceQuery);
+
+  const token = luxData?.token;
+  console.log("token = ", token);
+
+  // Now, you can assign the JSON data to a variable of type TokenQuery
+const transformedTokenDetail: TokenQuery = {
+  token: {
+    id: "VG9rZW46RVRIRVJFVU1fMHhhMGI4Njk5MWM2MjE4YjM2YzFkMTlkNGEyZTllYjBjZTM2MDZlYjQ4",
+    decimals: 18,
+    name: token?.name,
+    chain: Chain.Lux,
+    address: token?.id,
+    symbol: token?.symbol,
+    market: {
+      id: "VG9rZW5NYXJrZXQ6RVRIRVJFVU1fMHhhMGI4Njk5MWM2MjE4YjM2YzFkMTlkNGEyZTllYjBjZTM2MDZlYjQ4X1VTRA==",
+      totalValueLocked: {
+        id: "QW1vdW50OjM0MDUwMDg5OS41NTQyMzk5X1VTRA==",
+        value: 340500899.5542399,
+        currency: Currency.Usd
+      },
+      price: {
+        id: "QW1vdW50OjFfVVNE",
+        value: 1,
+        currency: Currency.Usd
+      },
+      volume24H: {
+        id: "QW1vdW50OjY5MzIwODE3Ny45NDM0MDUyX1VTRA==",
+        value: 693208177.9434052,
+        currency: Currency.Usd
+      },
+      priceHigh52W: {
+        id: "QW1vdW50OjEuMDAwMDAwMDAwMDAwMDAwMl9VU0Q=",
+        value: priceHigh52W
+      },
+      priceLow52W: {
+        id: "QW1vdW50OjFfVVNE",
+        value: priceLow52W
+      }
+    },
+    project: {
+      id: "VG9rZW5Qcm9qZWN0OkVUSEVSRVVNXzB4YTBiODY5OTFjNjIxOGIzNmMxZDE5ZDRhMmU5ZWIwY2UzNjA2ZWI0OF9VU0RD",
+      description: token?.name + " - " + token?.id,
+      homepageUrl: "https://www.circle.com/en/usdc",
+      twitterName: "circle",
+      logoUrl: "",
+      tokens: []
+    }
+  }
+};
+
   // Saves already-loaded chart data into state to display while tokenPriceQuery is undefined timePeriod input changes
   const [currentPriceQuery, setCurrentPriceQuery] = useState(tokenPriceQuery)
   useEffect(() => {
     if (tokenPriceQuery) setCurrentPriceQuery(tokenPriceQuery)
   }, [setCurrentPriceQuery, tokenPriceQuery])
 
-  if (!tokenQuery) return <TokenDetailsPageSkeleton />
+  console.log("query",tokenQuery, transformedTokenDetail);
+  if (!tokenQuery && !transformedTokenDetail) return <TokenDetailsPageSkeleton />
 
+  console.log("chain", chain);
+
+  if(chain == "LUX") {
+    return (
+      <TokenDetails
+        urlAddress={tokenAddress}
+        chain={chain}
+        tokenQuery={transformedTokenDetail}
+        tokenPriceQuery={currentPriceQuery}
+        onChangeTimePeriod={setTimePeriod}
+      />
+    )
+  }
+  if (!tokenQuery) return <TokenDetailsPageSkeleton />
   return (
     <TokenDetails
       urlAddress={tokenAddress}

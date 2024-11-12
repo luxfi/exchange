@@ -42,6 +42,7 @@ import { isAddress } from 'utils'
 
 import { OnChangeTimePeriod } from './ChartSection'
 import InvalidTokenDetails from './InvalidTokenDetails'
+import Swap from 'pages/Swap'
 
 const TokenSymbol = styled.span`
   text-transform: uppercase;
@@ -120,7 +121,7 @@ export default function TokenDetails({
       }, {} as { [key: string]: string | undefined }) ?? {},
     [tokenQueryData]
   )
-
+  
   const { token, didFetchFromChain } = useRelevantToken(address, pageChainId, tokenQueryData)
 
   const tokenWarning = address ? checkWarning(address) : null
@@ -195,7 +196,7 @@ export default function TokenDetails({
                 <ShareButton currency={token} />
               </TokenActions>
             </TokenInfoContainer>
-            <ChartSection tokenPriceQuery={tokenPriceQuery} onChangeTimePeriod={onChangeTimePeriod} />
+            {/* <ChartSection tokenPriceQuery={tokenPriceQuery} onChangeTimePeriod={onChangeTimePeriod} /> */}
             <StatsSection
               TVL={tokenQueryData?.market?.totalValueLocked?.value}
               volume24H={tokenQueryData?.market?.volume24H?.value}
@@ -218,14 +219,15 @@ export default function TokenDetails({
         )}
 
         <RightPanel>
+          {token?.chainId == 96369? <Swap/> : 
           <Widget
             token={token ?? undefined}
             defaultField={Field.OUTPUT}
             onTokenChange={navigateToWidgetSelectedToken}
             onReviewSwapClick={onReviewSwapClick}
-          />
-          {tokenWarning && <TokenSafetyMessage tokenAddress={address} warning={tokenWarning} />}
-          {token && <BalanceSummary token={token} />}
+          /> }
+          {tokenWarning && token?.chainId != 96369 && <TokenSafetyMessage tokenAddress={address} warning={tokenWarning} />}
+          {token && token?.chainId != 96369 && <BalanceSummary token={token} />}
         </RightPanel>
         {token && <MobileBalanceSummaryFooter token={token} />}
 

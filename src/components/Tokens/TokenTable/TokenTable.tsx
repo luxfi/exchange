@@ -113,7 +113,6 @@ function LoadingTokenTable({ rowCount = PAGE_SIZE }: { rowCount?: number }) {
 export default function TokenTable() {
   
   const chainName = validateUrlChainParam(useParams<{ chainName?: string }>().chainName)
-  console.log("success");
   const { data: luxData, loading: luxLoading } = useQuery(MyQuery, {
     client: luxClient,
   })
@@ -170,10 +169,6 @@ export default function TokenTable() {
   console.log("Transformed Tokens:", transformedTokens);
   
   const { tokens, tokenVolumeRank, loadingTokens, sparklines } = useTopTokens(chainName)
-  console.log("tokens= ", tokens);
-  console.log("tokenVolumeRank= ", tokenVolumeRank);
-  console.log("loadingTokens= ", loadingTokens);
-  console.log("sparklines= ", sparklines);
 
   if(chainName != "LUX") {
   /* loading and error state */
