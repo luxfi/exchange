@@ -12,6 +12,16 @@ import { useQuery } from '@apollo/client';
 import gql from 'graphql-tag';
 import { luxClient } from 'graphql/thegraph/apollo';
 
+import {
+  filterStringAtom,
+  filterTimeAtom,
+  sortAscendingAtom,
+  sortMethodAtom,
+  TokenSortMethod,
+} from 'components/Tokens/state'
+import { useAtomValue } from 'jotai/utils'
+import { useMemo } from 'react'
+
 const getTokenInfoQuery = gql`
   query getTokenInfoQuery {
     bundles(first: 10) {
@@ -111,6 +121,53 @@ function LoadingTokenTable({ rowCount = PAGE_SIZE }: { rowCount?: number }) {
   );
 }
 
+type Token = {
+  __typename: string;
+  id: string;
+  name: string;
+  chain: string;
+  address: string;
+  symbol: string;
+  market: {
+    __typename: string;
+    id: string;
+    totalValueLocked: {
+      __typename: string;
+      id: string;
+      value: number;
+      currency: string;
+    };
+    price: {
+      __typename: string;
+      id: string;
+      value: number;
+      currency: string;
+    };
+    pricePercentChange: {
+      __typename: string;
+      id: string;
+      value: number;
+      currency: string;
+    };
+    volume: {
+      __typename: string;
+      id: string;
+      value: number;
+      currency: string;
+    };
+  };
+  project: {
+    __typename: string;
+    id: string;
+    logoUrl: string;
+  };
+  chainId: number;
+  decimals: number;
+  isNative: boolean;
+  isToken: boolean;
+};
+
+
 export default function TokenTable() {
   const chainName = validateUrlChainParam(useParams<{ chainName?: string }>().chainName);
 
@@ -120,7 +177,7 @@ export default function TokenTable() {
 
   const ethPriceUSD = luxData?.bundles[0]?.ethPriceUSD;
 
-  const transformedTokens = luxData?.tokens?.map((token: any) => ({
+  const transformedTokens: Token[] | undefined = luxData?.tokens?.map((token: any) => ({
     __typename: 'Token',
     id: `VG9rZW46RVRIRVJFVU1f${typeof token.id === 'string' ? Buffer.from(token.id).toString('base64') : token.id}`,
     name: token.name,
@@ -165,6 +222,34 @@ export default function TokenTable() {
     isNative: true,
     isToken: false,
   }));
+  
+
+  const sortMethod = useAtomValue(sortMethodAtom);
+  const sortAscending = useAtomValue(sortAscendingAtom);
+
+  const sortedTokens = useMemo(() => {
+    if (!transformedTokens) return undefined;
+    let tokenArray = Array.from(transformedTokens);
+    switch (sortMethod) {
+      case TokenSortMethod.PRICE:
+        tokenArray = tokenArray.sort((a, b) => (b?.market?.price?.value ?? 0) - (a?.market?.price?.value ?? 0));
+        break;
+      case TokenSortMethod.PERCENT_CHANGE:
+        tokenArray = tokenArray.sort(
+          (a, b) => (b?.market?.pricePercentChange?.value ?? 0) - (a?.market?.pricePercentChange?.value ?? 0)
+        );
+        break;
+      case TokenSortMethod.TOTAL_VALUE_LOCKED:
+        tokenArray = tokenArray.sort(
+          (a, b) => (b?.market?.totalValueLocked?.value ?? 0) - (a?.market?.totalValueLocked?.value ?? 0)
+        );
+        break;
+      case TokenSortMethod.VOLUME:
+        tokenArray = tokenArray.sort((a, b) => (b?.market?.volume?.value ?? 0) - (a?.market?.volume?.value ?? 0));
+        break;
+    }
+    return sortAscending ? tokenArray.reverse() : tokenArray;
+  }, [transformedTokens, sortMethod, sortAscending]);
 
   const { tokens, tokenVolumeRank, loadingTokens, sparklines } = useTopTokens(chainName);
 
@@ -204,7 +289,8 @@ export default function TokenTable() {
     if (tokens.length === 0) return <NoTokensState message={<Trans>No tokens found</Trans>} />;
     return renderTokens(tokens, tokenVolumeRank);
   } else {
-    if (!transformedTokens) return renderErrorOrEmptyState("An error occurred loading tokens. Please try again.");
-    return renderTokens(transformedTokens, tokenVolumeRank);
+    if (!sortedTokens || sortedTokens.length === 0)
+      return renderErrorOrEmptyState("No tokens found or an error occurred loading tokens.");
+    return renderTokens(sortedTokens, tokenVolumeRank);
   }
 }
