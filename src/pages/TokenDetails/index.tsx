@@ -103,12 +103,6 @@ export default function TokenDetailsPage() {
   // Calculate the 52-week high and low
   const priceHigh52W = dailyPrices && Math.max(...dailyPrices);
   const priceLow52W = dailyPrices && Math.min(...dailyPrices);
-
-
-  // console.log("price High and Low",priceHigh52W, priceLow52W);
-  // console.log("tokenQuery = ",tokenQuery);
-  // console.log("tokenPriceQuery = ", tokenPriceQuery);
-
   const token = luxData?.token;
 
   // Now, you can assign the JSON data to a variable of type TokenQuery
