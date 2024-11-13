@@ -217,35 +217,52 @@ export default function TokenTable() {
 
   const transformedTokens: Token[] | undefined = luxData?.tokens?.map((token: any) => {
     const tokenDayData = token.tokenDayData || [];
-
     let nowPrice = 0;
     let previousPrice = 0;
     const mostRecentData = tokenDayData[0] || null;
     let secondMostRecentData;
 
-    if (duration == "DAY") {
-      secondMostRecentData = tokenDayData[1] || null;
-    
-      nowPrice = mostRecentData ? parseFloat(mostRecentData.priceUSD) : 0;
-      previousPrice = secondMostRecentData ? parseFloat(secondMostRecentData.priceUSD) : nowPrice;
-      if (mostRecentData.date < todayDate || (secondMostRecentData && secondMostRecentData.date < yesterdayDate)) {
-        previousPrice = nowPrice;
-      }
-    }
-    else if (duration == "WEEK") {
-      nowPrice = mostRecentData ? parseFloat(mostRecentData.priceUSD) : 0;
-      previousPrice = nowPrice;
+    if (duration == "HOUR") {
 
+    } else {
       let i;
+      let daysPer;
 
-      for (i = 0; i < tokenDayData.length; i++) {
-          if (tokenDayData[i]?.date && tokenDayData[i].date <= new Date(todayDate).getTime() - 7 * 24 * 60 * 60 * 1000) {
-              previousPrice = parseFloat(tokenDayData[i].priceUSD);
-              break;
-          }
+      daysPer = 1;
+
+      if (duration == "DAY") {
+        daysPer = 1;
+      } else if (duration == "WEEK") {
+        daysPer = 7;
+      } else if (duration == "MONTH") {
+        daysPer = 31;
+      } else if (duration == "YEAR") {
+        daysPer = 365;
       }
-      if (i == tokenDayData.length - 1 && previousPrice == 0)
+
+      nowPrice = mostRecentData ? mostRecentData.priceUSD : 0;
+      previousPrice = 0;
+
+      if (tokenDayData.length == 0) {
         previousPrice = nowPrice;
+      }
+      else {
+        for (i = 0; i < tokenDayData.length; i++) {
+          if (tokenDayData[i]?.date && tokenDayData[i].date * 1000 <= new Date(todayDate).getTime() - daysPer * 24 * 60 * 60 * 1000) {
+            previousPrice = tokenDayData[i].priceUSD;
+            break;
+          }
+        }
+        if (previousPrice == 0)
+        {
+          for (i = tokenDayData.length - 1; i >= 0; i--) {
+            if (tokenDayData[i].priceUSD != 0) {
+              previousPrice = tokenDayData[i].priceUSD;
+              break;
+            }
+          }
+        }
+      }
     }
 
     const priceChangePercent = previousPrice != 0
