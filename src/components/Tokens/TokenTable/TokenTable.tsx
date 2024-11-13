@@ -22,40 +22,57 @@ import {
 import { useAtomValue } from 'jotai/utils'
 import { useMemo } from 'react'
 
+import {
+  CHAIN_NAME_TO_CHAIN_ID,
+  isPricePoint,
+  PollingInterval,
+  PricePoint,
+  toHistoryDuration,
+  unwrapToken,
+  usePollQueryWhileMounted,
+} from '../../../graphql/data/util'
+
 const getTokenInfoQuery = gql`
-  query getTokenInfoQuery {
-    bundles(first: 10) {
-      ethPriceUSD
-    }
-    factories(first: 10) {
-      poolCount
-      totalFeesETH
-      totalFeesUSD
-      totalValueLockedETH
-      totalValueLockedETHUntracked
-      totalValueLockedUSD
-      totalValueLockedUSDUntracked
-      totalVolumeETH
-      totalVolumeUSD
-      txCount
-      untrackedVolumeUSD
-    }
-    pools(first: 10) {
-      collectedFeesToken0
-      collectedFeesToken1
+  query MyQuery {
+  bundles(first: 10) {
+    ethPriceUSD
+  }
+  factories(first: 10) {
+    poolCount
+    totalFeesETH
+    totalFeesUSD
+    totalValueLockedETH
+    totalValueLockedETHUntracked
+    totalValueLockedUSD
+    totalValueLockedUSDUntracked
+    totalVolumeETH
+    totalVolumeUSD
+    txCount
+    untrackedVolumeUSD
+  }
+  pools(first: 10) {
+    collectedFeesToken0
+    collectedFeesToken1
+    id
+  }
+  tokens(first: 10) {
+    volume
+    volumeUSD
+    totalValueLocked
+    totalValueLockedUSD
+    id
+    name
+    symbol
+    derivedETH
+    tokenDayData(first: 365, orderBy: date, orderDirection: desc) {
       id
-    }
-    tokens(first: 10) {
-      volume
+      date
+      priceUSD  # The price of the token in USD for the day
+      totalValueLockedUSD
       volumeUSD
-      totalValueLocked
-      totalValueLockedUSD
-      id
-      name
-      symbol
-      derivedETH
     }
   }
+}
 `;
 
 const GridContainer = styled.div`
@@ -167,6 +184,24 @@ type Token = {
   isToken: boolean;
 };
 
+// Function to get today's timestamp (start of the day)
+const getTodayDate = (): string => {
+  const today = new Date();
+  today.setHours(0, 0, 0, 0); // Reset to start of the day
+  return today.toISOString(); // Return the ISO string (timestamp)
+};
+
+// Function to get yesterday's timestamp (start of the previous day)
+const getYesterdayDate = (): string => {
+  const yesterday = new Date();
+  yesterday.setDate(yesterday.getDate() - 1); // Go back one day
+  yesterday.setHours(0, 0, 0, 0); // Reset to start of the day
+  return yesterday.toISOString(); // Return the ISO string (timestamp)
+};
+
+// You can pass these date values as parameters to your transformed tokens calculation.
+const todayDate = getTodayDate();
+const yesterdayDate = getYesterdayDate();
 
 export default function TokenTable() {
   const chainName = validateUrlChainParam(useParams<{ chainName?: string }>().chainName);
@@ -177,52 +212,92 @@ export default function TokenTable() {
 
   const ethPriceUSD = luxData?.bundles[0]?.ethPriceUSD;
 
-  const transformedTokens: Token[] | undefined = luxData?.tokens?.map((token: any) => ({
-    __typename: 'Token',
-    id: `VG9rZW46RVRIRVJFVU1f${typeof token.id === 'string' ? Buffer.from(token.id).toString('base64') : token.id}`,
-    name: token.name,
-    chain: 'LUX',
-    address: token.id,
-    symbol: token.symbol,
-    market: {
-      __typename: 'TokenMarket',
-      id: `VG9rZW5NYXJrZXQ6RVRIRVJFVU1f${typeof token.id === 'string' ? Buffer.from(token.id).toString('base64') : token.id}`,
-      totalValueLocked: {
-        __typename: 'Amount',
-        id: 'QW1vdW50OjE2MjA0NzYwNjkuOTA4MzkzMV9VU0Q=',
-        value: parseFloat(token.totalValueLockedUSD),
-        currency: 'USD',
+  // Move this outside the `map` function
+  const duration = toHistoryDuration(useAtomValue(filterTimeAtom));
+
+  const transformedTokens: Token[] | undefined = luxData?.tokens?.map((token: any) => {
+    const tokenDayData = token.tokenDayData || [];
+
+    let nowPrice = 0;
+    let previousPrice = 0;
+    const mostRecentData = tokenDayData[0] || null;
+    let secondMostRecentData;
+
+    if (duration == "DAY") {
+      secondMostRecentData = tokenDayData[1] || null;
+    
+      nowPrice = mostRecentData ? parseFloat(mostRecentData.priceUSD) : 0;
+      previousPrice = secondMostRecentData ? parseFloat(secondMostRecentData.priceUSD) : nowPrice;
+      if (mostRecentData.date < todayDate || (secondMostRecentData && secondMostRecentData.date < yesterdayDate)) {
+        previousPrice = nowPrice;
+      }
+    }
+    else if (duration == "WEEK") {
+      nowPrice = mostRecentData ? parseFloat(mostRecentData.priceUSD) : 0;
+      previousPrice = nowPrice;
+
+      let i;
+
+      for (i = 0; i < tokenDayData.length; i++) {
+          if (tokenDayData[i]?.date && tokenDayData[i].date <= new Date(todayDate).getTime() - 7 * 24 * 60 * 60 * 1000) {
+              previousPrice = parseFloat(tokenDayData[i].priceUSD);
+              break;
+          }
+      }
+      if (i == tokenDayData.length - 1 && previousPrice == 0)
+        previousPrice = nowPrice;
+    }
+
+    const priceChangePercent = previousPrice != 0
+      ? ((nowPrice - previousPrice) / previousPrice) * 100
+      : 0;
+
+    return {
+      __typename: 'Token',
+      id: `VG9rZW46RVRIRVJFVU1f${typeof token.id === 'string' ? Buffer.from(token.id).toString('base64') : token.id}`,
+      name: token.name,
+      chain: 'LUX',
+      address: token.id,
+      symbol: token.symbol,
+      market: {
+        __typename: 'TokenMarket',
+        id: `VG9rZW5NYXJrZXQ6RVRIRVJFVU1f${typeof token.id === 'string' ? Buffer.from(token.id).toString('base64') : token.id}`,
+        totalValueLocked: {
+          __typename: 'Amount',
+          id: 'QW1vdW50OjE2MjA0NzYwNjkuOTA4MzkzMV9VU0Q=',
+          value: parseFloat(token.totalValueLockedUSD),
+          currency: 'USD',
+        },
+        price: {
+          __typename: 'Amount',
+          id: 'QW1vdW50OjI5MDguMTM4MTcwMjkzNjg0N19VU0Q=',
+          value: ethPriceUSD && token.derivedETH ? parseFloat(ethPriceUSD) * parseFloat(token.derivedETH) : 0,
+          currency: 'USD',
+        },
+        pricePercentChange: {
+          __typename: 'Amount',
+          id: 'QW1vdW50OjMuMDMxMTQxNzU0Nzc1OTEyN19VU0Q=',
+          value: priceChangePercent,
+          currency: '%',
+        },
+        volume: {
+          __typename: 'Amount',
+          id: 'QW1vdW50OjE0NTI2MTcwMzYuNjg3ODY2Ml9VU0Q=',
+          value: parseFloat(token.volumeUSD),
+          currency: 'USD',
+        },
       },
-      price: {
-        __typename: 'Amount',
-        id: 'QW1vdW50OjI5MDguMTM4MTcwMjkzNjg0N19VU0Q=',
-        value: ethPriceUSD && token.derivedETH ? parseFloat(ethPriceUSD) * parseFloat(token.derivedETH) : 0,
-        currency: 'USD',
+      project: {
+        __typename: 'TokenProject',
+        id: 'VG9rZW5Qcm9qZWN0OkVUSEVSRVVNXzB4YzAyYWFhMzliMjIzZmU4ZDBhMGU1YzRmMjdlYWQ5MDgzYzc1NmNjMl9XRVRI',
+        logoUrl: 'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2/logo.png',
       },
-      pricePercentChange: {
-        __typename: 'Amount',
-        id: 'QW1vdW50OjMuMDMxMTQxNzU0Nzc1OTEyN19VU0Q=',
-        value: 3.0311417547759127,
-        currency: 'USD',
-      },
-      volume: {
-        __typename: 'Amount',
-        id: 'QW1vdW50OjE0NTI2MTcwMzYuNjg3ODY2Ml9VU0Q=',
-        value: parseFloat(token.volumeUSD),
-        currency: 'USD',
-      },
-    },
-    project: {
-      __typename: 'TokenProject',
-      id: 'VG9rZW5Qcm9qZWN0OkVUSEVSRVVNXzB4YzAyYWFhMzliMjIzZmU4ZDBhMGU1YzRmMjdlYWQ5MDgzYzc1NmNjMl9XRVRI',
-      logoUrl: 'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2/logo.png',
-    },
-    chainId: 1,
-    decimals: 18,
-    isNative: true,
-    isToken: false,
-  }));
-  
+      chainId: 1,
+      decimals: 18,
+      isNative: true,
+      isToken: false,
+    };
+  });
 
   const sortMethod = useAtomValue(sortMethodAtom);
   const sortAscending = useAtomValue(sortAscendingAtom);
