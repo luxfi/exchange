@@ -20,7 +20,7 @@ import {
   TokenSortMethod,
 } from 'components/Tokens/state'
 import { useAtomValue } from 'jotai/utils'
-import { useMemo } from 'react'
+import { useMemo, useEffect, useState } from 'react'
 
 import {
   CHAIN_NAME_TO_CHAIN_ID,
@@ -211,110 +211,125 @@ export default function TokenTable() {
   });
 
   const ethPriceUSD = luxData?.bundles[0]?.ethPriceUSD;
-
-  // Move this outside the `map` function
   const duration = toHistoryDuration(useAtomValue(filterTimeAtom));
 
-  const transformedTokens: Token[] | undefined = luxData?.tokens?.map((token: any) => {
-    const tokenDayData = token.tokenDayData || [];
-    let nowPrice = 0;
-    let previousPrice = 0;
-    const mostRecentData = tokenDayData[0] || null;
-    let secondMostRecentData;
+  const [transformedTokens, setTransformedTokens] = useState<Token[] | undefined>(undefined);
 
-    if (duration == "HOUR") {
+  // Helper function to calculate transformed tokens
+  const calculateTransformedTokens = () => {
+    return luxData?.tokens?.map((token: any) => {
+      const tokenDayData = token.tokenDayData || [];
+      let nowPrice = 0;
+      let previousPrice = 0;
+      const mostRecentData = tokenDayData[0] || null;
+      let secondMostRecentData;
 
-    } else {
-      let i;
-      let daysPer;
+      if (duration == "HOUR") {
+        // Process hourly duration logic
+      } else {
+        let i;
+        let daysPer;
 
-      daysPer = 1;
-
-      if (duration == "DAY") {
         daysPer = 1;
-      } else if (duration == "WEEK") {
-        daysPer = 7;
-      } else if (duration == "MONTH") {
-        daysPer = 31;
-      } else if (duration == "YEAR") {
-        daysPer = 365;
-      }
 
-      nowPrice = mostRecentData ? mostRecentData.priceUSD : 0;
-      previousPrice = 0;
-
-      if (tokenDayData.length == 0) {
-        previousPrice = nowPrice;
-      }
-      else {
-        for (i = 0; i < tokenDayData.length; i++) {
-          if (tokenDayData[i]?.date && tokenDayData[i].date * 1000 <= new Date(todayDate).getTime() - daysPer * 24 * 60 * 60 * 1000) {
-            previousPrice = tokenDayData[i].priceUSD;
-            break;
-          }
+        if (duration == "DAY") {
+          daysPer = 1;
+        } else if (duration == "WEEK") {
+          daysPer = 7;
+        } else if (duration == "MONTH") {
+          daysPer = 31;
+        } else if (duration == "YEAR") {
+          daysPer = 365;
         }
-        if (previousPrice == 0)
-        {
-          for (i = tokenDayData.length - 1; i >= 0; i--) {
-            if (tokenDayData[i].priceUSD != 0) {
+
+        nowPrice = mostRecentData ? mostRecentData.priceUSD : 0;
+        previousPrice = 0;  
+
+        if (tokenDayData.length == 0) {
+          previousPrice = nowPrice;
+        } else {
+          for (i = 0; i < tokenDayData.length; i++) {
+            if (tokenDayData[i]?.date && tokenDayData[i].date * 1000 <= new Date(todayDate).getTime() - daysPer * 24 * 60 * 60 * 1000) {
               previousPrice = tokenDayData[i].priceUSD;
               break;
             }
           }
+          if (previousPrice == 0) {
+            for (i = tokenDayData.length - 1; i >= 0; i--) {
+              if (tokenDayData[i].priceUSD != 0) {
+                previousPrice = tokenDayData[i].priceUSD;
+                break;
+              }
+            }
+          }
         }
       }
-    }
 
-    const priceChangePercent = previousPrice != 0
-      ? ((nowPrice - previousPrice) / previousPrice) * 100
-      : 0;
+      const priceChangePercent = previousPrice !== 0
+        ? ((nowPrice - previousPrice) / previousPrice) * 100
+        : 0;
 
-    return {
-      __typename: 'Token',
-      id: `VG9rZW46RVRIRVJFVU1f${typeof token.id === 'string' ? Buffer.from(token.id).toString('base64') : token.id}`,
-      name: token.name,
-      chain: 'LUX',
-      address: token.id,
-      symbol: token.symbol,
-      market: {
-        __typename: 'TokenMarket',
-        id: `VG9rZW5NYXJrZXQ6RVRIRVJFVU1f${typeof token.id === 'string' ? Buffer.from(token.id).toString('base64') : token.id}`,
-        totalValueLocked: {
-          __typename: 'Amount',
-          id: 'QW1vdW50OjE2MjA0NzYwNjkuOTA4MzkzMV9VU0Q=',
-          value: parseFloat(token.totalValueLockedUSD),
-          currency: 'USD',
+      return {
+        __typename: 'Token',
+        id: `VG9rZW46RVRIRVJFVU1f${typeof token.id === 'string' ? Buffer.from(token.id).toString('base64') : token.id}`,
+        name: token.name,
+        chain: 'LUX',
+        address: token.id,
+        symbol: token.symbol,
+        market: {
+          __typename: 'TokenMarket',
+          id: `VG9rZW5NYXJrZXQ6RVRIRVJFVU1f${typeof token.id === 'string' ? Buffer.from(token.id).toString('base64') : token.id}`,
+          totalValueLocked: {
+            __typename: 'Amount',
+            id: 'QW1vdW50OjE2MjA0NzYwNjkuOTA4MzkzMV9VU0Q=',
+            value: parseFloat(token.totalValueLockedUSD),
+            currency: 'USD',
+          },
+          price: {
+            __typename: 'Amount',
+            id: 'QW1vdW50OjI5MDguMTM4MTcwMjkzNjg0N19VU0Q=',
+            value: ethPriceUSD && token.derivedETH ? parseFloat(ethPriceUSD) * parseFloat(token.derivedETH) : 0,
+            currency: 'USD',
+          },
+          pricePercentChange: {
+            __typename: 'Amount',
+            id: 'QW1vdW50OjMuMDMxMTQxNzU0Nzc1OTEyN19VU0Q=',
+            value: priceChangePercent,
+            currency: '%',
+          },
+          volume: {
+            __typename: 'Amount',
+            id: 'QW1vdW50OjE0NTI2MTcwMzYuNjg3ODY2Ml9VU0Q=',
+            value: parseFloat(token.volumeUSD),
+            currency: 'USD',
+          },
         },
-        price: {
-          __typename: 'Amount',
-          id: 'QW1vdW50OjI5MDguMTM4MTcwMjkzNjg0N19VU0Q=',
-          value: ethPriceUSD && token.derivedETH ? parseFloat(ethPriceUSD) * parseFloat(token.derivedETH) : 0,
-          currency: 'USD',
+        project: {
+          __typename: 'TokenProject',
+          id: 'VG9rZW5Qcm9qZWN0OkVUSEVSRVVNXzB4YzAyYWFhMzliMjIzZmU4ZDBhMGU1YzRmMjdlYWQ5MDgzYzc1NmNjMl9XRVRI',
+          logoUrl: 'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2/logo.png',
         },
-        pricePercentChange: {
-          __typename: 'Amount',
-          id: 'QW1vdW50OjMuMDMxMTQxNzU0Nzc1OTEyN19VU0Q=',
-          value: priceChangePercent,
-          currency: '%',
-        },
-        volume: {
-          __typename: 'Amount',
-          id: 'QW1vdW50OjE0NTI2MTcwMzYuNjg3ODY2Ml9VU0Q=',
-          value: parseFloat(token.volumeUSD),
-          currency: 'USD',
-        },
-      },
-      project: {
-        __typename: 'TokenProject',
-        id: 'VG9rZW5Qcm9qZWN0OkVUSEVSRVVNXzB4YzAyYWFhMzliMjIzZmU4ZDBhMGU1YzRmMjdlYWQ5MDgzYzc1NmNjMl9XRVRI',
-        logoUrl: 'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2/logo.png',
-      },
-      chainId: 1,
-      decimals: 18,
-      isNative: true,
-      isToken: false,
-    };
-  });
+        chainId: 1,
+        decimals: 18,
+        isNative: true,
+        isToken: false,
+      };
+    });
+  };
+
+  // Set transformedTokens initially on component mount
+  useEffect(() => {
+    setTransformedTokens(calculateTransformedTokens());
+  }, [luxData, ethPriceUSD, duration]); // Dependencies ensure it only runs when necessary
+
+  // Reset transformedTokens every 12 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setTransformedTokens(calculateTransformedTokens());
+    }, 12000);
+
+    return () => clearInterval(interval);
+  }, [luxData, ethPriceUSD, duration]);
 
   const transformedTokenVolumeRank = useMemo(
     () =>
