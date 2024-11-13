@@ -316,12 +316,47 @@ export default function TokenTable() {
     };
   });
 
+  const transformedTokenVolumeRank = useMemo(
+    () =>
+      transformedTokens
+        ?.sort((a, b) => {
+          if (!a.market?.volume || !b.market?.volume) return 0
+          return a.market.volume.value > b.market.volume.value ? -1 : 1
+        })
+        .reduce((acc, cur, i) => {
+          if (!cur.address) return acc
+          return {
+            ...acc,
+            [cur.address]: i + 1,
+          }
+        }, {}) ?? {},
+    [transformedTokens]
+  )
+
+  const filterString = useAtomValue(filterStringAtom)
+
+  const lowercaseFilterString = useMemo(() => filterString.toLowerCase(), [filterString])
+
+  const filteredTokens = useMemo(() => {
+    if (!transformedTokens) return undefined
+    let returnTokens = transformedTokens
+    if (lowercaseFilterString) {
+      returnTokens = returnTokens?.filter((token) => {
+        const addressIncludesFilterString = token?.address?.toLowerCase().includes(lowercaseFilterString)
+        const nameIncludesFilterString = token?.name?.toLowerCase().includes(lowercaseFilterString)
+        const symbolIncludesFilterString = token?.symbol?.toLowerCase().includes(lowercaseFilterString)
+        return nameIncludesFilterString || symbolIncludesFilterString || addressIncludesFilterString
+      })
+    }
+    return returnTokens
+  }, [transformedTokens, lowercaseFilterString])
+
   const sortMethod = useAtomValue(sortMethodAtom);
   const sortAscending = useAtomValue(sortAscendingAtom);
 
   const sortedTokens = useMemo(() => {
-    if (!transformedTokens) return undefined;
-    let tokenArray = Array.from(transformedTokens);
+    if (!filteredTokens) return undefined;
+    let tokenArray = Array.from(filteredTokens);
     switch (sortMethod) {
       case TokenSortMethod.PRICE:
         tokenArray = tokenArray.sort((a, b) => (b?.market?.price?.value ?? 0) - (a?.market?.price?.value ?? 0));
@@ -341,7 +376,7 @@ export default function TokenTable() {
         break;
     }
     return sortAscending ? tokenArray.reverse() : tokenArray;
-  }, [transformedTokens, sortMethod, sortAscending]);
+  }, [filteredTokens, sortMethod, sortAscending]);
 
   const { tokens, tokenVolumeRank, loadingTokens, sparklines } = useTopTokens(chainName);
 
@@ -383,6 +418,6 @@ export default function TokenTable() {
   } else {
     if (!sortedTokens || sortedTokens.length === 0)
       return renderErrorOrEmptyState("No tokens found or an error occurred loading tokens.");
-    return renderTokens(sortedTokens, tokenVolumeRank);
+    return renderTokens(sortedTokens, transformedTokenVolumeRank);
   }
 }
