@@ -15,7 +15,7 @@ export const TOKENS_LUX_LIST = {
     "tokens": [
         {
             "chainId": 96369,
-            "address": "0xd4b2F0435faca8959A7D2e096C2A3Ce9697Ee9fc",
+            "address": "0x4888E4a2Ee0F03051c72D2BD3ACf755eD3498B3E",
             "name": "Wrapped LUX",
             "symbol": "WLUX",
             "decimals": 18,
@@ -24,7 +24,7 @@ export const TOKENS_LUX_LIST = {
         },
         {
             "chainId": 96369,
-            "address": "0x2951A9386df11a4EA8ae5A823B94DC257dEb35Cb",
+            "address": "0x60E0a8167FC13dE89348978860466C9ceC24B9ba",
             "name": "Lux ETH",
             "symbol": "LETH",
             "decimals": 18,
@@ -33,7 +33,7 @@ export const TOKENS_LUX_LIST = {
         },
         {
             "chainId": 96369,
-            "address": "0x42b733cA4b3A8FC0237dBE39A47441cfD525f0F1",
+            "address": "0x848Cff46eb323f323b6Bbe1Df274E40793d7f2c2",
             "name": "Lux Dollar",
             "symbol": "LUSD",
             "decimals": 18,
@@ -41,66 +41,75 @@ export const TOKENS_LUX_LIST = {
             "extensions": {}
         },
         {
-            "chainId": 96368,
-            "address": "0xA01c406bC54aD9363704E9D26522a4629b5E6263",
-            "name": "Wrapped LUX",
-            "symbol": "WLUX",
+            "chainId": 96369,
+            "address": "0x1E48D32a4F5e9f08DB9aE4959163300FaF8A6C8e",
+            "name": "Lux BTC",
+            "symbol": "LBTC",
             "decimals": 18,
-            "logoURI": "https://cdn.lux.network/exchange/icon-png/lux.png",
+            "logoURI": "https://cdn.lux.network/exchange/icon-png/lbtc.png",
             "extensions": {}
         },
         {
-            "chainId": 96368,
-            "address": "0x5670756808b32c209a25c67481ba9c3c710126bb",
-            "name": "Lux ETH",
-            "symbol": "LETH",
-            "decimals": 18,
-            "logoURI": "https://assets.coingecko.com/coins/images/4454/large/0xbtc.png?1561603765",
-            "extensions": {}
-        },
-        {
-            "chainId": 96368,
-            "address": "0x5fc1f8394a0dfb43d21a03be5656559c45690357",
-            "name": "Lux XDAI",
-            "symbol": "LXDAI",
-            "decimals": 18,
-            "logoURI": "https://assets.coingecko.com/coins/images/4454/large/0xbtc.png?1561603765",
-            "extensions": {}
-        },
-        {
-            "chainId": 96368,
-            "address": "0xa1eeefb7693760e78501b29fcec9fb03ca981d3d",
-            "name": "Lux POL",
-            "symbol": "LPOL",
-            "decimals": 18,
-            "logoURI": "https://assets.coingecko.com/coins/images/4454/large/0xbtc.png?1561603765",
-            "extensions": {}
-        },
-        {
-            "chainId": 96368,
-            "address": "0xcec718c5b0c538cc6c15c151b9dc0f714499eab6",
+            "chainId": 96369,
+            "address": "0x6EdcF3645DeF09DB45050638c41157D8B9FEa1cf",
             "name": "Lux BNB",
             "symbol": "LBNB",
             "decimals": 18,
-            "logoURI": "https://assets.coingecko.com/coins/images/4454/large/0xbtc.png?1561603765",
+            "logoURI": "https://cdn.lux.network/exchange/icon-png/lbnb.png",
             "extensions": {}
         },
         {
-            "chainId": 96368,
-            "address": "0xe5c2a45ce63addf0f9581a439c85a214db657813",
-            "name": "Lux FTM",
-            "symbol": "LFTM",
+            "chainId": 96369,
+            "address": "0x28BfC5DD4B7E15659e41190983e5fE3df1132bB9",
+            "name": "Lux POL",
+            "symbol": "LPOL",
             "decimals": 18,
-            "logoURI": "https://assets.coingecko.com/coins/images/4454/large/0xbtc.png?1561603765",
+            "logoURI": "https://cdn.lux.network/exchange/icon-png/lpol.png",
             "extensions": {}
         },
         {
-            "chainId": 96368,
-            "address": "0x7e1007b013dcf1d4d49b8ebfdf0c07b7683d4637",
+            "chainId": 96369,
+            "address": "0x3078847F879A33994cDa2Ec1540ca52b5E0eE2e5",
             "name": "Lux CELO",
             "symbol": "LCELO",
             "decimals": 18,
-            "logoURI": "https://assets.coingecko.com/coins/images/4454/large/0xbtc.png?1561603765",
+            "logoURI": "https://cdn.lux.network/exchange/icon-png/lcelo.png",
+            "extensions": {}
+        },
+        {
+            "chainId": 96369,
+            "address": "0x8B982132d639527E8a0eAAD385f97719af8f5e04",
+            "name": "Lux FTM",
+            "symbol": "LFTM",
+            "decimals": 18,
+            "logoURI": "https://cdn.lux.network/exchange/icon-png/lftm.png",
+            "extensions": {}
+        },
+        {
+            "chainId": 96369,
+            "address": "0x7dfb3cBf7CF9c96fd56e3601FBA50AF45C731211",
+            "name": "Lux XDAI",
+            "symbol": "LXDAI",
+            "decimals": 18,
+            "logoURI": "https://cdn.lux.network/exchange/icon-png/lxdai.png",
+            "extensions": {}
+        },
+        {
+            "chainId": 96369,
+            "address": "0x1AF00A2590a834d14F4A8a26D1b03EBbA8cf7961",
+            "name": "Lux SOL",
+            "symbol": "LSOL",
+            "decimals": 18,
+            "logoURI": "https://cdn.lux.network/exchange/icon-png/lsol.png",
+            "extensions": {}
+        },
+        {
+            "chainId": 96369,
+            "address": "0xF5a313885832D4Fc71d1Ef80115197c4479B58C8",
+            "name": "Lux TON",
+            "symbol": "LTON",
+            "decimals": 18,
+            "logoURI": "https://cdn.lux.network/exchange/icon-png/lton.png",
             "extensions": {}
         },
         {

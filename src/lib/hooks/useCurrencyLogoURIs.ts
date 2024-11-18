@@ -7,7 +7,7 @@ import EthereumLogo from '../../assets/images/ethereum-logo.png'
 import CeloLogo from '../../assets/svg/celo_logo.svg'
 import LuxLogo from '../../assets/svg/lux_logo.svg'
 import MaticLogo from '../../assets/svg/matic-token-icon.svg'
-import { isCelo, isLUX, NATIVE_CHAIN_ID, nativeOnChain } from '../../constants/tokens'
+import { isCelo, isLUX, isZOO, NATIVE_CHAIN_ID, nativeOnChain } from '../../constants/tokens'
 
 type Network = 'ethereum' | 'arbitrum' | 'optimism' | 'polygon'
 
@@ -46,6 +46,11 @@ function getTokenLogoURI(address: string, chainId: SupportedChainId = SupportedC
       return 'https://cdn.lux.network/bridge/currencies/lux.png'
     }
   }
+  if (isZOO(chainId)) {
+    if (address === nativeOnChain(chainId).wrapped.address) {
+      return 'https://cdn.lux.network/bridge/currencies/lux.png'
+    }
+  }
 }
 
 export function getNativeLogoURI(chainId: SupportedChainId = SupportedChainId.MAINNET): string {
@@ -58,6 +63,8 @@ export function getNativeLogoURI(chainId: SupportedChainId = SupportedChainId.MA
       return CeloLogo
     case SupportedChainId.LUX:
     case SupportedChainId.LUX_TESTNET:
+      return LuxLogo
+    case SupportedChainId.ZOO:
       return LuxLogo
     default:
       return EthereumLogo

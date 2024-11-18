@@ -33,6 +33,14 @@ export const LUSD = new Token(
   "USD Coin",
 );
 
+export const USDC_ZOO = new Token(
+  SupportedChainId.ZOO,
+  '0x8031e9b0D02a792cfEFaa2bDCA6E1289d385426F',
+  18,
+  "USDC",
+  "USD Coin",
+);
+
 export const USDC_LUX_TESTNET = new Token(
   SupportedChainId.LUX_TESTNET,
   '0x8031e9b0D02a792cfEFaa2bDCA6E1289d385426F',
@@ -149,6 +157,13 @@ export const USDT_POLYGON = new Token(
 )
 export const LETH = new Token(
   SupportedChainId.LUX,
+  '0xdf1De693C31e2A5eb869c329529623556B20AbF3',
+  18,
+  "USDT",
+  "LUX USDT",
+);
+export const USDT_ZOO = new Token(
+  SupportedChainId.ZOO,
   '0xdf1De693C31e2A5eb869c329529623556B20AbF3',
   18,
   "USDT",
@@ -356,6 +371,14 @@ export const LUX: { [chainId: number]: Token } = {
   [SupportedChainId.KOVAN]: new Token(SupportedChainId.KOVAN, UNI_ADDRESS[42], 18, 'LUX', 'Lux'),
 }
 
+export const ZOO: { [chainId: number]: Token } = {
+  [SupportedChainId.MAINNET]: new Token(SupportedChainId.MAINNET, UNI_ADDRESS[1], 18, 'ZOO', 'Zoo'),
+  [SupportedChainId.RINKEBY]: new Token(SupportedChainId.RINKEBY, UNI_ADDRESS[4], 18, 'ZOO', 'Zoo'),
+  [SupportedChainId.ROPSTEN]: new Token(SupportedChainId.ROPSTEN, UNI_ADDRESS[3], 18, 'ZOO', 'Zoo'),
+  [SupportedChainId.GOERLI]: new Token(SupportedChainId.GOERLI, UNI_ADDRESS[5], 18, 'ZOO', 'Zoo'),
+  [SupportedChainId.KOVAN]: new Token(SupportedChainId.KOVAN, UNI_ADDRESS[42], 18, 'ZOO', 'Zoo'),
+}
+
 export const WRAPPED_NATIVE_CURRENCY: { [chainId: number]: Token | undefined } = {
   ...(WETH9 as Record<SupportedChainId, Token>),
   [SupportedChainId.OPTIMISM]: new Token(
@@ -421,6 +444,13 @@ export const WRAPPED_NATIVE_CURRENCY: { [chainId: number]: Token | undefined } =
     'WLUX',
     'Wrapped LUX'
   ),
+  [SupportedChainId.ZOO]: new Token(
+    SupportedChainId.ZOO,
+    '0x4888E4a2Ee0F03051c72D2BD3ACf755eD3498B3E',
+    18,
+    'WZOO',
+    'Wrapped ZOO'
+  ),
   [SupportedChainId.LUX_TESTNET]: new Token(
     SupportedChainId.LUX_TESTNET,
     '0x4888E4a2Ee0F03051c72D2BD3ACf755eD3498B3E',
@@ -436,6 +466,10 @@ export function isCelo(chainId: number): chainId is SupportedChainId.CELO | Supp
 
 export function isLUX(chainId: number): chainId is SupportedChainId.LUX {
   return chainId === SupportedChainId.LUX || chainId === SupportedChainId.LUX_TESTNET
+}
+
+export function isZOO(chainId: number): chainId is SupportedChainId.ZOO {
+  return chainId === SupportedChainId.ZOO
 }
 
 function getCeloNativeCurrency(chainId: number) {
@@ -489,6 +523,24 @@ class LuxNativeCurrency extends NativeCurrency {
   }
 }
 
+class ZooNativeCurrency extends NativeCurrency {
+  equals(other: Currency): boolean {
+    return other.isNative && other.chainId === this.chainId
+  }
+
+  get wrapped(): Token {
+    if (!isZOO(this.chainId)) throw new Error('Not ZOO')
+    const wrapped = WRAPPED_NATIVE_CURRENCY[this.chainId]
+    invariant(wrapped instanceof Token)
+    return wrapped
+  }
+
+  public constructor(chainId: number) {
+    if (!isZOO(chainId)) throw new Error('Not ZOO')
+    super(chainId, 18, 'ZOO', 'ZOO')
+  }
+}
+
 class ExtendedEther extends Ether {
   public get wrapped(): Token {
     const wrapped = WRAPPED_NATIVE_CURRENCY[this.chainId]
@@ -513,6 +565,8 @@ export function nativeOnChain(chainId: number): NativeCurrency | Token {
     nativeCurrency = getCeloNativeCurrency(chainId)
   } else if(isLUX(chainId)) {
     nativeCurrency = new LuxNativeCurrency(chainId);
+  } else if(isZOO(chainId)) {
+    nativeCurrency = new ZooNativeCurrency(chainId);
   } else {
     nativeCurrency = ExtendedEther.onChain(chainId)
   }
