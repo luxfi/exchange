@@ -29,7 +29,7 @@ import { shortenAddress } from 'utils'
 import { ExplorerDataType, getExplorerLink } from 'utils/getExplorerLink'
 
 import { ZERO_ADDRESS } from '../../constants/misc'
-import { LUX } from '../../constants/tokens'
+import { LUX, ZOO } from '../../constants/tokens'
 import { ProposalStatus } from './styled'
 
 const PageWrapper = styled(AutoColumn)`

@@ -72,4 +72,5 @@ export const RPC_PROVIDERS: { [key in SupportedChainId]: StaticJsonRpcProvider }
   [SupportedChainId.CELO_ALFAJORES]: new AppJsonRpcProvider(SupportedChainId.CELO_ALFAJORES),
   [SupportedChainId.LUX]: new AppJsonRpcProvider(SupportedChainId.LUX),
   [SupportedChainId.LUX_TESTNET]: new AppJsonRpcProvider(SupportedChainId.LUX_TESTNET),
+  [SupportedChainId.ZOO]: new AppJsonRpcProvider(SupportedChainId.ZOO),
 }

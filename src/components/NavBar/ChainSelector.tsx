@@ -21,6 +21,7 @@ import { NavDropdown } from './NavDropdown'
 
 const NETWORK_SELECTOR_CHAINS = [
   SupportedChainId.LUX,
+  SupportedChainId.ZOO,
   SupportedChainId.MAINNET,
   SupportedChainId.POLYGON,
   SupportedChainId.OPTIMISM,

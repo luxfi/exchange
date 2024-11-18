@@ -53,9 +53,9 @@ function Chart({
   tokenPriceQuery: TokenPriceQuery
   onChangeTimePeriod: OnChangeTimePeriod
 }) {
-  const prices = usePriceHistory(tokenPriceQuery)
   // Initializes time period to global & maintain separate time period for subsequent changes
   const timePeriod = useAtomValue(pageTimePeriodAtom)
+  const prices = usePriceHistory(tokenPriceQuery)
 
   return (
     <ChartContainer data-testid="chart-container">

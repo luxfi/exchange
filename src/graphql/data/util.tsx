@@ -57,6 +57,7 @@ export function isPricePoint(p: PricePoint | null): p is PricePoint {
 
 export const CHAIN_ID_TO_BACKEND_NAME: { [key: number]: Chain } = {
   [SupportedChainId.LUX]: Chain.Lux,
+  [SupportedChainId.ZOO]: Chain.Zoo,
   [SupportedChainId.MAINNET]: Chain.Ethereum,
   [SupportedChainId.GOERLI]: Chain.EthereumGoerli,
   [SupportedChainId.POLYGON]: Chain.Polygon,
@@ -90,6 +91,7 @@ export function validateUrlChainParam(chainName: string | undefined) {
 
 export const CHAIN_NAME_TO_CHAIN_ID: { [key: string]: SupportedChainId } = {
   LUX: SupportedChainId.LUX,
+  ZOO: SupportedChainId.ZOO,
   ETHEREUM: SupportedChainId.MAINNET,
   POLYGON: SupportedChainId.POLYGON,
   CELO: SupportedChainId.CELO,

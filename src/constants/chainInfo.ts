@@ -229,6 +229,17 @@ const CHAIN_INFO: ChainInfoMap = {
     label: "Lux",
     nativeCurrency: { name: 'Lux', symbol: 'LUX', decimals: 18 },
   },
+  [SupportedChainId.ZOO]: {
+    networkType: NetworkType.L1,
+    blockWaitMsBeforeWarning: ms`10m`,
+    bridge: 'https://bridge.zoo.network/',
+    docs: 'https://docs.lux.fi/',
+    explorer: 'https://explore.zoo.network',
+    infoLink: 'https://info.uniswap.org/#/zoo/',
+    logoUrl: luxLogoUrl,
+    label: "Zoo",
+    nativeCurrency: { name: 'Zoo', symbol: 'ZOO', decimals: 18 },
+  },
   [SupportedChainId.LUX_TESTNET]: {
     networkType: NetworkType.L1,
     blockWaitMsBeforeWarning: ms`10m`,

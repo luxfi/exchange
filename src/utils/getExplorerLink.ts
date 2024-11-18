@@ -13,6 +13,7 @@ const BLOCK_EXPLORER_PREFIXES: { [chainId: number]: string } = {
   [SupportedChainId.CELO]: 'https://celoscan.io',
   [SupportedChainId.CELO_ALFAJORES]: 'https://alfajores-blockscout.celo-testnet.org',
   [SupportedChainId.LUX]: 'https://explore.lux.network/',
+  [SupportedChainId.ZOO]: 'https://explore.zoo.network/',
   [SupportedChainId.LUX_TESTNET]: 'https://explore.lux-test.network/',
 }
 

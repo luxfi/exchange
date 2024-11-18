@@ -20,7 +20,7 @@ import {
   TokenSortMethod,
 } from 'components/Tokens/state'
 import { useAtomValue } from 'jotai/utils'
-import { useMemo, useEffect, useState } from 'react'
+import { useMemo, useEffect, useState, useCallback, useRef } from 'react'
 
 import {
   CHAIN_NAME_TO_CHAIN_ID,
@@ -31,6 +31,7 @@ import {
   unwrapToken,
   usePollQueryWhileMounted,
 } from '../../../graphql/data/util'
+import { id } from 'make-plural';
 
 const getTokenInfoQuery = gql`
   query MyQuery {
@@ -67,6 +68,13 @@ const getTokenInfoQuery = gql`
     tokenDayData(first: 365, orderBy: date, orderDirection: desc) {
       id
       date
+      priceUSD  # The price of the token in USD for the day
+      totalValueLockedUSD
+      volumeUSD
+    }
+    tokenHourData(first: 365, orderBy: periodStartUnix, orderDirection: desc) {
+      id
+      periodStartUnix
       priceUSD  # The price of the token in USD for the day
       totalValueLockedUSD
       volumeUSD
@@ -138,52 +146,6 @@ function LoadingTokenTable({ rowCount = PAGE_SIZE }: { rowCount?: number }) {
   );
 }
 
-type Token = {
-  __typename: string;
-  id: string;
-  name: string;
-  chain: string;
-  address: string;
-  symbol: string;
-  market: {
-    __typename: string;
-    id: string;
-    totalValueLocked: {
-      __typename: string;
-      id: string;
-      value: number;
-      currency: string;
-    };
-    price: {
-      __typename: string;
-      id: string;
-      value: number;
-      currency: string;
-    };
-    pricePercentChange: {
-      __typename: string;
-      id: string;
-      value: number;
-      currency: string;
-    };
-    volume: {
-      __typename: string;
-      id: string;
-      value: number;
-      currency: string;
-    };
-  };
-  project: {
-    __typename: string;
-    id: string;
-    logoUrl: string;
-  };
-  chainId: number;
-  decimals: number;
-  isNative: boolean;
-  isToken: boolean;
-};
-
 // Function to get today's timestamp (start of the day)
 const getTodayDate = (): string => {
   const today = new Date();
@@ -191,83 +153,59 @@ const getTodayDate = (): string => {
   return today.toISOString(); // Return the ISO string (timestamp)
 };
 
-// Function to get yesterday's timestamp (start of the previous day)
-const getYesterdayDate = (): string => {
-  const yesterday = new Date();
-  yesterday.setDate(yesterday.getDate() - 1); // Go back one day
-  yesterday.setHours(0, 0, 0, 0); // Reset to start of the day
-  return yesterday.toISOString(); // Return the ISO string (timestamp)
+// Function to get the timestamp rounded to the most recent hour
+const getCurrentHourTimestamp = (): string => {
+  const now = new Date();
+  now.setMinutes(0, 0, 0); // Reset minutes, seconds, and milliseconds to 0
+  return now.toISOString(); // Return the ISO string (timestamp)
 };
 
 // You can pass these date values as parameters to your transformed tokens calculation.
 const todayDate = getTodayDate();
-const yesterdayDate = getYesterdayDate();
+const currentHourTime = getCurrentHourTimestamp();
 
 export default function TokenTable() {
   const chainName = validateUrlChainParam(useParams<{ chainName?: string }>().chainName);
 
-  const { data: luxData, loading: luxLoading } = useQuery(getTokenInfoQuery, {
+  const { data: luxData, loading: luxLoading, refetch } = useQuery(getTokenInfoQuery, {
     client: luxClient,
+    pollInterval: 5000,
   });
 
   const ethPriceUSD = luxData?.bundles[0]?.ethPriceUSD;
   const duration = toHistoryDuration(useAtomValue(filterTimeAtom));
 
-  const [transformedTokens, setTransformedTokens] = useState<Token[] | undefined>(undefined);
+  const [transformedTokens, setTransformedTokens] = useState<any[] | undefined>(undefined);
 
   // Helper function to calculate transformed tokens
-  const calculateTransformedTokens = () => {
+  const calculateTransformedTokens = useCallback(() => {
+    refetch();
     return luxData?.tokens?.map((token: any) => {
       const tokenDayData = token.tokenDayData || [];
+      const tokenHourData = token.tokenHourData || [];
       let nowPrice = 0;
       let previousPrice = 0;
-      const mostRecentData = tokenDayData[0] || null;
-      let secondMostRecentData;
+      let mostRecentData = null;
 
       if (duration == "HOUR") {
-        // Process hourly duration logic
-      } else {
-        let i;
-        let daysPer;
-
-        daysPer = 1;
-
-        if (duration == "DAY") {
-          daysPer = 1;
-        } else if (duration == "WEEK") {
-          daysPer = 7;
-        } else if (duration == "MONTH") {
-          daysPer = 31;
-        } else if (duration == "YEAR") {
-          daysPer = 365;
-        }
-
+        mostRecentData = tokenHourData[0] || null;
         nowPrice = mostRecentData ? mostRecentData.priceUSD : 0;
-        previousPrice = 0;  
-
-        if (tokenDayData.length == 0) {
-          previousPrice = nowPrice;
-        } else {
-          for (i = 0; i < tokenDayData.length; i++) {
-            if (tokenDayData[i]?.date && tokenDayData[i].date * 1000 <= new Date(todayDate).getTime() - daysPer * 24 * 60 * 60 * 1000) {
-              previousPrice = tokenDayData[i].priceUSD;
-              break;
-            }
-          }
-          if (previousPrice == 0) {
-            for (i = tokenDayData.length - 1; i >= 0; i--) {
-              if (tokenDayData[i].priceUSD != 0) {
-                previousPrice = tokenDayData[i].priceUSD;
-                break;
-              }
-            }
-          }
-        }
+        previousPrice = tokenHourData[1]?.priceUSD || nowPrice;
+      } else {
+        const daysPer = duration == "DAY" ? 1 : duration == "WEEK" ? 7 : duration == "MONTH" ? 31 : 365;
+        mostRecentData = tokenDayData[0] || null;
+        nowPrice = mostRecentData ? mostRecentData.priceUSD : 0;
+        previousPrice = tokenDayData.find(
+          (day: any) => day.date * 1000 <= Date.now() - daysPer * 24 * 60 * 60 * 1000
+        )?.priceUSD || nowPrice;
       }
 
-      const priceChangePercent = previousPrice !== 0
+      let priceChangePercent = previousPrice !== 0
         ? ((nowPrice - previousPrice) / previousPrice) * 100
         : 0;
+
+      if (nowPrice == 0)
+        priceChangePercent = 0;
 
       return {
         __typename: 'Token',
@@ -315,21 +253,28 @@ export default function TokenTable() {
         isToken: false,
       };
     });
-  };
+  }, [luxData, ethPriceUSD, duration]);
 
-  // Set transformedTokens initially on component mount
+  // Update transformed tokens when luxData, ethPriceUSD, or duration changes
   useEffect(() => {
     setTransformedTokens(calculateTransformedTokens());
-  }, [luxData, ethPriceUSD, duration]); // Dependencies ensure it only runs when necessary
+  }, [calculateTransformedTokens]);
 
-  // Reset transformedTokens every 12 seconds
+  // Use a ref for interval management
+  const intervalRef = useRef<NodeJS.Timer | null>(null);
+
+  // Set up the interval to recalculate transformed tokens every 12 seconds
   useEffect(() => {
-    const interval = setInterval(() => {
+    if (intervalRef.current) clearInterval(intervalRef.current);
+
+    intervalRef.current = setInterval(() => {
       setTransformedTokens(calculateTransformedTokens());
     }, 12000);
 
-    return () => clearInterval(interval);
-  }, [luxData, ethPriceUSD, duration]);
+    return () => {
+      if (intervalRef.current) clearInterval(intervalRef.current);
+    };
+  }, [calculateTransformedTokens]);
 
   const transformedTokenVolumeRank = useMemo(
     () =>
