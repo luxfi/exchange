@@ -55,14 +55,21 @@ export function getDeltaArrow(delta: number | null | undefined, iconSize = 20) {
   return <StyledUpArrow size={iconSize} key="arrow-up" aria-label="up" />
 }
 
-export function formatDelta(delta: number | null | undefined) {
+export function formatDelta(delta: number | null | undefined): string {
   // Null-check not including zero
   if (delta === null || delta === undefined || delta === Infinity || isNaN(delta)) {
-    return '-'
+    return '-';
   }
-  const formattedDelta = Math.abs(delta).toFixed(2) + '%'
-  return formattedDelta
+
+  // If delta is greater than 0 but smaller than 0.000001, set it to 0.000001
+  if (Math.abs(delta) > 0 && Math.abs(delta) < 0.001) {
+    return 0.001 + '%';
+  }
+
+  const formattedDelta = Math.abs(delta).toFixed(3) + '%';
+  return formattedDelta;
 }
+
 
 export const DeltaText = styled.span<{ delta: number | undefined }>`
   color: ${({ theme, delta }) =>

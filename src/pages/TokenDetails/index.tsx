@@ -220,10 +220,10 @@ const renderTokenDetail = (tokenAddress: any, chain: any, tokenQuery: any) => (
   const [currentPriceQuery, setCurrentPriceQuery] = useState(tokenPriceQuery)
   useEffect(() => {
     if (tokenPriceQuery) setCurrentPriceQuery(tokenPriceQuery)
-    else if(chain == "LUX" || chain == "ZOO") setCurrentPriceQuery(transformedTokenPriceHistory)
+    else if(chain == "LUX") setCurrentPriceQuery(transformedTokenPriceHistory)
   }, [luxData, tokenPriceQuery])
   if (!tokenQuery && !transformedTokenDetail) return <TokenDetailsPageSkeleton />
-  if(chain == "LUX" || chain == "ZOO") {
+  if(chain == "LUX") {
     return renderTokenDetail(tokenAddress, chain, transformedTokenDetail)
   }
   if (!tokenQuery) return <TokenDetailsPageSkeleton />
