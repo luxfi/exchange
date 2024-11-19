@@ -130,7 +130,7 @@ function NoTokensState({ message }: { message: ReactNode }) {
 const LoadingRows = ({ rowCount }: { rowCount: number }) => (
   <>
     {Array.from({ length: rowCount }, (_, index) => (
-      <LoadingRow key={index} first={index === 0} last={index === rowCount - 1} />
+      <LoadingRow key={index} first={index == 0} last={index == rowCount - 1} />
     ))}
   </>
 );
@@ -188,20 +188,52 @@ export default function TokenTable() {
       let mostRecentData = null;
 
       if (duration == "HOUR") {
+        // Process hourly duration logic
         mostRecentData = tokenHourData[0] || null;
         nowPrice = mostRecentData ? mostRecentData.priceUSD : 0;
-        previousPrice = tokenHourData[1]?.priceUSD || nowPrice;
+        previousPrice = nowPrice;
+        if ( tokenHourData[1]?.periodStartUnix && tokenHourData[1].periodStartUnix * 1000 <= new Date(currentHourTime).getTime() - 3600 * 1000 && tokenHourData[1].priceUSD != 0 )
+          previousPrice = tokenHourData[1].priceUSD;
       } else {
-        const daysPer = duration == "DAY" ? 1 : duration == "WEEK" ? 7 : duration == "MONTH" ? 31 : 365;
+        let i;
+        let daysPer;
+
         mostRecentData = tokenDayData[0] || null;
         nowPrice = mostRecentData ? mostRecentData.priceUSD : 0;
-        previousPrice = tokenDayData.find(
-          (day: any) => day.date * 1000 <= Date.now() - daysPer * 24 * 60 * 60 * 1000
-        )?.priceUSD || nowPrice;
+        daysPer = 1;
+
+        if (duration == "DAY") {
+          daysPer = 1;
+        } else if (duration == "WEEK") {
+          daysPer = 7;
+        } else if (duration == "MONTH") {
+          daysPer = 31;
+        } else if (duration == "YEAR") {
+          daysPer = 365;
+        }
+
+        if (tokenDayData.length == 0) {
+          previousPrice = nowPrice;
+        } else {
+          for (i = 0; i < tokenDayData.length; i++) {
+            if (tokenDayData[i]?.date && tokenDayData[i].date * 1000 <= new Date(todayDate).getTime() - daysPer * 24 * 60 * 60 * 1000) {
+              previousPrice = tokenDayData[i].priceUSD;
+              break;
+            }
+          }
+          if (previousPrice == 0) {
+            for (i = tokenDayData.length - 1; i >= 0; i--) {
+              if (tokenDayData[i].priceUSD != 0) {
+                previousPrice = tokenDayData[i].priceUSD;
+                break;
+              }
+            }
+          }
+        }
       }
 
       let priceChangePercent = previousPrice !== 0
-        ? ((nowPrice - previousPrice) / previousPrice) * 100
+        ? ((ethPriceUSD * parseFloat(token.derivedETH) - previousPrice) / previousPrice) * 100
         : 0;
 
       if (nowPrice == 0)
@@ -209,14 +241,14 @@ export default function TokenTable() {
 
       return {
         __typename: 'Token',
-        id: `VG9rZW46RVRIRVJFVU1f${typeof token.id === 'string' ? Buffer.from(token.id).toString('base64') : token.id}`,
+        id: `VG9rZW46RVRIRVJFVU1f${typeof token.id == 'string' ? Buffer.from(token.id).toString('base64') : token.id}`,
         name: token.name,
         chain: 'LUX',
         address: token.id,
         symbol: token.symbol,
         market: {
           __typename: 'TokenMarket',
-          id: `VG9rZW5NYXJrZXQ6RVRIRVJFVU1f${typeof token.id === 'string' ? Buffer.from(token.id).toString('base64') : token.id}`,
+          id: `VG9rZW5NYXJrZXQ6RVRIRVJFVU1f${typeof token.id == 'string' ? Buffer.from(token.id).toString('base64') : token.id}`,
           totalValueLocked: {
             __typename: 'Amount',
             id: 'QW1vdW50OjE2MjA0NzYwNjkuOTA4MzkzMV9VU0Q=',
@@ -373,10 +405,10 @@ export default function TokenTable() {
   if (chainName !== 'LUX') {
     if (loadingTokens && !tokens) return <LoadingTokenTable rowCount={PAGE_SIZE} />;
     if (!tokens) return renderErrorOrEmptyState("An error occurred loading tokens. Please try again.");
-    if (tokens.length === 0) return <NoTokensState message={<Trans>No tokens found</Trans>} />;
+    if (tokens.length == 0) return <NoTokensState message={<Trans>No tokens found</Trans>} />;
     return renderTokens(tokens, tokenVolumeRank);
   } else {
-    if (!sortedTokens || sortedTokens.length === 0)
+    if (!sortedTokens || sortedTokens.length == 0)
       return renderErrorOrEmptyState("No tokens found or an error occurred loading tokens.");
     return renderTokens(sortedTokens, transformedTokenVolumeRank);
   }
