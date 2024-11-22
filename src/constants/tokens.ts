@@ -27,18 +27,18 @@ const USDC_ROPSTEN = new Token(
 )
 export const LUSD = new Token(
   SupportedChainId.LUX,
-  '0x8031e9b0D02a792cfEFaa2bDCA6E1289d385426F',
+  '0x848Cff46eb323f323b6Bbe1Df274E40793d7f2c2',
   18,
-  "USDC",
-  "USD Coin",
+  "LUSD",
+  "Lux Dollar",
 );
 
-export const USDC_ZOO = new Token(
+export const ZETH = new Token(
   SupportedChainId.ZOO,
-  '0x8031e9b0D02a792cfEFaa2bDCA6E1289d385426F',
+  '0x60E0a8167FC13dE89348978860466C9ceC24B9ba',
   18,
-  "USDC",
-  "USD Coin",
+  "ZETH",
+  "Zoo ETH",
 );
 
 export const USDC_LUX_TESTNET = new Token(
@@ -157,17 +157,17 @@ export const USDT_POLYGON = new Token(
 )
 export const LETH = new Token(
   SupportedChainId.LUX,
-  '0xdf1De693C31e2A5eb869c329529623556B20AbF3',
+  '0x60E0a8167FC13dE89348978860466C9ceC24B9ba',
   18,
-  "USDT",
-  "LUX USDT",
+  "LETH",
+  "LUX ETH",
 );
-export const USDT_ZOO = new Token(
+export const ZUSD = new Token(
   SupportedChainId.ZOO,
-  '0xdf1De693C31e2A5eb869c329529623556B20AbF3',
+  '0x848Cff46eb323f323b6Bbe1Df274E40793d7f2c2',
   18,
-  "USDT",
-  "LUX USDT",
+  "ZUSD",
+  "Zoo Dollar",
 );
 export const USDT_LUX_TESTNET = new Token(
   SupportedChainId.LUX_TESTNET,

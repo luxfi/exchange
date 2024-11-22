@@ -35,8 +35,8 @@ import {
   LUSD,
   USDT_LUX_TESTNET,
   USDC_LUX_TESTNET,
-  USDT_ZOO,
-  USDC_ZOO,
+  ZETH,
+  ZUSD,
   USDT_OPTIMISM,
   USDT_POLYGON,
   WBTC,
@@ -198,8 +198,8 @@ export const COMMON_BASES: ChainCurrencyList = {
   ],
   [SupportedChainId.ZOO]: [
     nativeOnChain(SupportedChainId.ZOO),
-    USDT_ZOO,
-    USDC_ZOO,
+    ZETH,
+    ZUSD,
   ],
   [SupportedChainId.LUX_TESTNET]: [
     nativeOnChain(SupportedChainId.LUX_TESTNET),
