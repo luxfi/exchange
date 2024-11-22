@@ -10,7 +10,7 @@ import { useParams } from 'react-router-dom'
 import { getNativeTokenDBAddress } from 'utils/nativeTokens'
 import { useQuery } from '@apollo/client'
 import gql from 'graphql-tag'
-import { luxClient } from 'graphql/thegraph/apollo'
+import { apolloClient } from 'graphql/thegraph/apollo'
 import { Chain, TokenQuery, Currency, TokenQueryData } from 'graphql/data/Token'
 import { TokenPriceQuery } from 'graphql/data/TokenPrice'
 
@@ -65,8 +65,8 @@ query GetTokenInfo($tokenAddress: String!, $days: Int, $hours: Int) {
 
 export const pageTimePeriodAtom = atomWithStorage<TimePeriod>('tokenDetailsTimePeriod', TimePeriod.DAY)
 
-function getQueryParams(timePeriod:any) {
-  switch(timePeriod) {
+function getQueryParams(timePeriod: any) {
+  switch (timePeriod) {
     case 0:
       return [2, 2];
     case 1:
@@ -109,7 +109,7 @@ export default function TokenDetailsPage() {
     },
   })
   const { data: luxData, loading: luxLoading } = useQuery(GetTokenInfo, {
-    client: luxClient,
+    client: apolloClient,
     variables: {
       tokenAddress: address,
       days: totalDays,
@@ -124,8 +124,8 @@ export default function TokenDetailsPage() {
 
   // Extract daily prices from the response
   const dailyPrices = luxData?.token?.tokenDayData
-  ?.map((day: any) => parseFloat(day.priceUSD))
-  .filter((price: any) => price !== 0);
+    ?.map((day: any) => parseFloat(day.priceUSD))
+    .filter((price: any) => price !== 0);
 
   // Calculate the 52-week high and low
   const priceHigh52W = dailyPrices && Math.max(...dailyPrices);
@@ -133,97 +133,97 @@ export default function TokenDetailsPage() {
   const token = luxData?.token;
 
   // Now, you can assign the JSON data to a variable of type TokenQuery
-const transformedTokenDetail: TokenQuery = tokenPriceQuery??{
-  token: {
-    id: "VG9rZW46RVRIRVJFVU1fMHhhMGI4Njk5MWM2MjE4YjM2YzFkMTlkNGEyZTllYjBjZTM2MDZlYjQ4",
-    decimals: 18,
-    name: token?.name,
-    chain: Chain.Lux,
-    address: token?.id,
-    symbol: token?.symbol,
-    market: {
-      id: "VG9rZW5NYXJrZXQ6RVRIRVJFVU1fMHhhMGI4Njk5MWM2MjE4YjM2YzFkMTlkNGEyZTllYjBjZTM2MDZlYjQ4X1VTRA==",
-      totalValueLocked: {
-        id: "QW1vdW50OjM0MDUwMDg5OS41NTQyMzk5X1VTRA==",
-        value: token?.totalValueLockedUSD,
-        currency: Currency.Usd
+  const transformedTokenDetail: TokenQuery = tokenPriceQuery ?? {
+    token: {
+      id: "VG9rZW46RVRIRVJFVU1fMHhhMGI4Njk5MWM2MjE4YjM2YzFkMTlkNGEyZTllYjBjZTM2MDZlYjQ4",
+      decimals: 18,
+      name: token?.name,
+      chain: Chain.Lux,
+      address: token?.id,
+      symbol: token?.symbol,
+      market: {
+        id: "VG9rZW5NYXJrZXQ6RVRIRVJFVU1fMHhhMGI4Njk5MWM2MjE4YjM2YzFkMTlkNGEyZTllYjBjZTM2MDZlYjQ4X1VTRA==",
+        totalValueLocked: {
+          id: "QW1vdW50OjM0MDUwMDg5OS41NTQyMzk5X1VTRA==",
+          value: token?.totalValueLockedUSD,
+          currency: Currency.Usd
+        },
+        price: {
+          id: "QW1vdW50OjFfVVNE",
+          value: 1,
+          currency: Currency.Usd
+        },
+        volume24H: {
+          id: "QW1vdW50OjY5MzIwODE3Ny45NDM0MDUyX1VTRA==",
+          value: token?.volumeUSD,
+          currency: Currency.Usd
+        },
+        priceHigh52W: {
+          id: "QW1vdW50OjEuMDAwMDAwMDAwMDAwMDAwMl9VU0Q=",
+          value: priceHigh52W
+        },
+        priceLow52W: {
+          id: "QW1vdW50OjFfVVNE",
+          value: priceLow52W
+        }
       },
-      price: {
-        id: "QW1vdW50OjFfVVNE",
-        value: 1,
-        currency: Currency.Usd
-      },
-      volume24H: {
-        id: "QW1vdW50OjY5MzIwODE3Ny45NDM0MDUyX1VTRA==",
-        value: token?.volumeUSD,
-        currency: Currency.Usd
-      },
-      priceHigh52W: {
-        id: "QW1vdW50OjEuMDAwMDAwMDAwMDAwMDAwMl9VU0Q=",
-        value: priceHigh52W
-      },
-      priceLow52W: {
-        id: "QW1vdW50OjFfVVNE",
-        value: priceLow52W
+      project: {
+        id: "VG9rZW5Qcm9qZWN0OkVUSEVSRVVNXzB4YTBiODY5OTFjNjIxOGIzNmMxZDE5ZDRhMmU5ZWIwY2UzNjA2ZWI0OF9VU0RD",
+        description: token?.name + " - " + token?.id,
+        homepageUrl: "https://www.circle.com/en/usdc",
+        twitterName: "circle",
+        logoUrl: "",
+        tokens: []
       }
-    },
-    project: {
-      id: "VG9rZW5Qcm9qZWN0OkVUSEVSRVVNXzB4YTBiODY5OTFjNjIxOGIzNmMxZDE5ZDRhMmU5ZWIwY2UzNjA2ZWI0OF9VU0RD",
-      description: token?.name + " - " + token?.id,
-      homepageUrl: "https://www.circle.com/en/usdc",
-      twitterName: "circle",
-      logoUrl: "",
-      tokens: []
     }
-  }
-};
-const ethPriceUSD = luxData?.bundles[0]?.ethPriceUSD;
-const ethPrice = luxData?.token?.derivedETH;
-const tokenDayData = luxData?.token?.tokenDayData.filter((data: any) => parseFloat(data.priceUSD) !== 0).map((data: any) => ({
-  id: `VGltZXN0YW1wZWRBbW91bnQ6MV8x${data.date}_VVNE`, // Encoded version of the timestamped amount
-  timestamp: data.date,
-  value: parseFloat(data.priceUSD),
-}))
-const tokenHourData = luxData?.token?.tokenHourData.filter((data: any) => parseFloat(data.priceUSD) !== 0).map((data: any) => ({
-  id: `VGltZXN0YW1wZWRBbW91bnQ6MV8x${data.periodStartUnix}_VVNE`, // Encoded version of the timestamped amount
-  timestamp: data.periodStartUnix,
-  value: parseFloat(data.priceUSD),
-}))
+  };
+  const ethPriceUSD = luxData?.bundles[0]?.ethPriceUSD;
+  const ethPrice = luxData?.token?.derivedETH;
+  const tokenDayData = luxData?.token?.tokenDayData.filter((data: any) => parseFloat(data.priceUSD) !== 0).map((data: any) => ({
+    id: `VGltZXN0YW1wZWRBbW91bnQ6MV8x${data.date}_VVNE`, // Encoded version of the timestamped amount
+    timestamp: data.date,
+    value: parseFloat(data.priceUSD),
+  }))
+  const tokenHourData = luxData?.token?.tokenHourData.filter((data: any) => parseFloat(data.priceUSD) !== 0).map((data: any) => ({
+    id: `VGltZXN0YW1wZWRBbW91bnQ6MV8x${data.periodStartUnix}_VVNE`, // Encoded version of the timestamped amount
+    timestamp: data.periodStartUnix,
+    value: parseFloat(data.priceUSD),
+  }))
 
-const transformedTokenPriceHistory:TokenPriceQuery = {
-  token: {
-    id: "VG9rZW46RVRIRVJFVU1fMHhhMGI4Njk5MWM2MjE4YjM2YzFkMTlkNGEyZTllYjBjZTM2MDZlYjQ4", // Encoded version of the token ID
-    address: luxData?.token?.id,
-    chain: Chain.Lux,
-    market: {
-      id: "VG9rZW5NYXJrZXQ6RVRIRVJFVU1fMHhhMGI4Njk5MWM2MjE4YjM2YzFkMTlkNGEyZTllYjBjZTM2MDZlYjQ4X1VTRA==", // Encoded ID for the market
-      price: {
-        id: "QW1vdW50OjFfVVNE", // Encoded amount ID
-        value: parseFloat(ethPriceUSD) * parseFloat(ethPrice),
+  const transformedTokenPriceHistory: TokenPriceQuery = {
+    token: {
+      id: "VG9rZW46RVRIRVJFVU1fMHhhMGI4Njk5MWM2MjE4YjM2YzFkMTlkNGEyZTllYjBjZTM2MDZlYjQ4", // Encoded version of the token ID
+      address: luxData?.token?.id,
+      chain: Chain.Lux,
+      market: {
+        id: "VG9rZW5NYXJrZXQ6RVRIRVJFVU1fMHhhMGI4Njk5MWM2MjE4YjM2YzFkMTlkNGEyZTllYjBjZTM2MDZlYjQ4X1VTRA==", // Encoded ID for the market
+        price: {
+          id: "QW1vdW50OjFfVVNE", // Encoded amount ID
+          value: parseFloat(ethPriceUSD) * parseFloat(ethPrice),
+        },
+        priceHistory: timePeriod < 3 ? tokenHourData : tokenDayData,
       },
-      priceHistory: timePeriod < 3 ? tokenHourData : tokenDayData,
     },
-  },
-};
+  };
 
-const renderTokenDetail = (tokenAddress: any, chain: any, tokenQuery: any) => (
-  <TokenDetails
-  urlAddress={tokenAddress}
-  chain={chain}
-  tokenQuery={tokenQuery}
-  tokenPriceQuery={currentPriceQuery}
-  onChangeTimePeriod={setTimePeriod}
-/>
-);
+  const renderTokenDetail = (tokenAddress: any, chain: any, tokenQuery: any) => (
+    <TokenDetails
+      urlAddress={tokenAddress}
+      chain={chain}
+      tokenQuery={tokenQuery}
+      tokenPriceQuery={currentPriceQuery}
+      onChangeTimePeriod={setTimePeriod}
+    />
+  );
 
   // Saves already-loaded chart data into state to display while tokenPriceQuery is undefined timePeriod input changes
   const [currentPriceQuery, setCurrentPriceQuery] = useState(tokenPriceQuery)
   useEffect(() => {
     if (tokenPriceQuery) setCurrentPriceQuery(tokenPriceQuery)
-    else if(chain == "LUX") setCurrentPriceQuery(transformedTokenPriceHistory)
+    else if (chain == "LUX") setCurrentPriceQuery(transformedTokenPriceHistory)
   }, [luxData, tokenPriceQuery])
   if (!tokenQuery && !transformedTokenDetail) return <TokenDetailsPageSkeleton />
-  if(chain == "LUX") {
+  if (chain == "LUX") {
     return renderTokenDetail(tokenAddress, chain, transformedTokenDetail)
   }
   if (!tokenQuery) return <TokenDetailsPageSkeleton />

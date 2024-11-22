@@ -6,6 +6,7 @@ import { isAddress } from 'utils'
 import EthereumLogo from '../../assets/images/ethereum-logo.png'
 import CeloLogo from '../../assets/svg/celo_logo.svg'
 import LuxLogo from '../../assets/svg/lux_logo.svg'
+import ZooLogo from '../../assets/svg/zoo_logo.svg'
 import MaticLogo from '../../assets/svg/matic-token-icon.svg'
 import { isCelo, isLUX, isZOO, NATIVE_CHAIN_ID, nativeOnChain } from '../../constants/tokens'
 
@@ -48,7 +49,7 @@ function getTokenLogoURI(address: string, chainId: SupportedChainId = SupportedC
   }
   if (isZOO(chainId)) {
     if (address === nativeOnChain(chainId).wrapped.address) {
-      return 'https://cdn.lux.network/bridge/currencies/lux.png'
+      return 'https://cdn.lux.network/bridge/currencies/zoo.png'
     }
   }
 }
@@ -65,7 +66,7 @@ export function getNativeLogoURI(chainId: SupportedChainId = SupportedChainId.MA
     case SupportedChainId.LUX_TESTNET:
       return LuxLogo
     case SupportedChainId.ZOO:
-      return LuxLogo
+      return ZooLogo
     default:
       return EthereumLogo
   }
@@ -74,12 +75,12 @@ export function getNativeLogoURI(chainId: SupportedChainId = SupportedChainId.MA
 export default function useCurrencyLogoURIs(
   currency:
     | {
-        isNative?: boolean
-        isToken?: boolean
-        address?: string
-        chainId: number
-        logoURI?: string | null
-      }
+      isNative?: boolean
+      isToken?: boolean
+      address?: string
+      chainId: number
+      logoURI?: string | null
+    }
     | null
     | undefined
 ): string[] {
