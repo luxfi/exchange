@@ -32,6 +32,7 @@ import {
   usePollQueryWhileMounted,
 } from '../../../graphql/data/util'
 import { id } from 'make-plural';
+import { TOKENS_LUX_LIST } from 'tokens-lux/tokens'
 
 const getTokenInfoQuery = gql`
   query MyQuery {
@@ -163,9 +164,15 @@ const getCurrentHourTimestamp = (): string => {
 // You can pass these date values as parameters to your transformed tokens calculation.
 const todayDate = getTodayDate();
 const currentHourTime = getCurrentHourTimestamp();
+const tokenAddresses = TOKENS_LUX_LIST.tokens
+  .filter((token) => token.chainId === 96369) // Filter by chainId
+  .map((token) => token.address.toUpperCase()); // Extract the address
+
+  console.log("tokenAddresses",tokenAddresses);
 
 export default function TokenTable() {
   const chainName = validateUrlChainParam(useParams<{ chainName?: string }>().chainName);
+  console.log("chainName", chainName);
 
   const { data: luxData, loading: luxLoading, refetch } = useQuery(getTokenInfoQuery, {
     client: luxClient,
@@ -180,7 +187,8 @@ export default function TokenTable() {
   // Helper function to calculate transformed tokens
   const calculateTransformedTokens = useCallback(() => {
     refetch();
-    return luxData?.tokens?.map((token: any) => {
+    return luxData?.tokens
+    ?.filter((token: any) => tokenAddresses.includes(token.id.toUpperCase())).map((token: any) => {
       const tokenDayData = token.tokenDayData || [];
       const tokenHourData = token.tokenHourData || [];
       let nowPrice = 0;
