@@ -10,7 +10,6 @@ import { MAX_WIDTH_MEDIA_BREAKPOINT } from '../constants';
 import { HeaderRow, LoadedRow, LoadingRow } from './TokenRow';
 import { useQuery } from '@apollo/client';
 import gql from 'graphql-tag';
-import { luxClient } from 'graphql/thegraph/apollo';
 
 import {
   filterStringAtom,
@@ -21,6 +20,8 @@ import {
 } from 'components/Tokens/state'
 import { useAtomValue } from 'jotai/utils'
 import { useMemo, useEffect, useState, useCallback, useRef } from 'react'
+import { luxNetClient } from 'graphql/thegraph/apollo'
+import { zooNetClient } from 'graphql/thegraph/apollo'
 
 import {
   CHAIN_NAME_TO_CHAIN_ID,
@@ -167,6 +168,13 @@ const currentHourTime = getCurrentHourTimestamp();
 
 export default function TokenTable() {
   const chainName = validateUrlChainParam(useParams<{ chainName?: string }>().chainName);
+  let luxClient;
+
+  if (chainName == 'LUX') {
+    luxClient = luxNetClient;
+  } else {
+    luxClient = zooNetClient;
+  }
   const tokenAddresses = TOKENS_LUX_LIST.tokens
   .filter((token) => token.chainId === CHAIN_NAME_TO_CHAIN_ID[chainName]) // Filter by chainId
   .map((token) => token.address.toUpperCase()); // Extract the address
@@ -196,7 +204,7 @@ export default function TokenTable() {
         mostRecentData = tokenHourData[0] || null;
         nowPrice = mostRecentData ? mostRecentData.priceUSD : 0;
         previousPrice = nowPrice;
-        if ( tokenHourData[1]?.periodStartUnix && tokenHourData[1].periodStartUnix * 1000 <= new Date(currentHourTime).getTime() - 3600 * 1000 && tokenHourData[1].priceUSD != 0 )
+        if (tokenHourData[1]?.periodStartUnix && tokenHourData[1].periodStartUnix * 1000 <= new Date(currentHourTime).getTime() - 3600 * 1000 && tokenHourData[1].priceUSD != 0)
           previousPrice = tokenHourData[1].priceUSD;
       } else {
         let i;
@@ -244,38 +252,22 @@ export default function TokenTable() {
         priceChangePercent = 0;
 
       return {
-        __typename: 'Token',
-        id: `VG9rZW46RVRIRVJFVU1f${typeof token.id == 'string' ? Buffer.from(token.id).toString('base64') : token.id}`,
         name: token.name,
-        chain: 'LUX',
+        chain: chainName,
         address: token.id,
         symbol: token.symbol,
         market: {
-          __typename: 'TokenMarket',
-          id: `VG9rZW5NYXJrZXQ6RVRIRVJFVU1f${typeof token.id == 'string' ? Buffer.from(token.id).toString('base64') : token.id}`,
           totalValueLocked: {
-            __typename: 'Amount',
-            id: 'QW1vdW50OjE2MjA0NzYwNjkuOTA4MzkzMV9VU0Q=',
             value: parseFloat(token.totalValueLockedUSD),
-            currency: 'USD',
           },
           price: {
-            __typename: 'Amount',
-            id: 'QW1vdW50OjI5MDguMTM4MTcwMjkzNjg0N19VU0Q=',
             value: ethPriceUSD && token.derivedETH ? parseFloat(ethPriceUSD) * parseFloat(token.derivedETH) : 0,
-            currency: 'USD',
           },
           pricePercentChange: {
-            __typename: 'Amount',
-            id: 'QW1vdW50OjMuMDMxMTQxNzU0Nzc1OTEyN19VU0Q=',
             value: priceChangePercent,
-            currency: '%',
           },
           volume: {
-            __typename: 'Amount',
-            id: 'QW1vdW50OjE0NTI2MTcwMzYuNjg3ODY2Ml9VU0Q=',
             value: parseFloat(token.volumeUSD),
-            currency: 'USD',
           },
         },
         project: {
@@ -406,14 +398,29 @@ export default function TokenTable() {
     </GridContainer>
   );
 
-  if (chainName !== 'LUX') {
+  if (chainName != 'LUX' && chainName != 'ZOO') {
     if (loadingTokens && !tokens) return <LoadingTokenTable rowCount={PAGE_SIZE} />;
     if (!tokens) return renderErrorOrEmptyState("An error occurred loading tokens. Please try again.");
     if (tokens.length == 0) return <NoTokensState message={<Trans>No tokens found</Trans>} />;
     return renderTokens(tokens, tokenVolumeRank);
-  } else {
+  } else if (chainName == 'LUX') {
+    if (luxLoading || !sortedTokens) return <LoadingTokenTable rowCount={PAGE_SIZE} />;
     if (!sortedTokens || sortedTokens.length == 0)
       return renderErrorOrEmptyState("No tokens found or an error occurred loading tokens.");
+    return renderTokens(sortedTokens, transformedTokenVolumeRank);
+  } else { //chain = ZOO
+    if (luxLoading && !sortedTokens) return <LoadingTokenTable rowCount={PAGE_SIZE} />;
+    if (!sortedTokens || sortedTokens.length == 0)
+      return renderErrorOrEmptyState("No tokens found or an error occurred loading tokens.");
+
+    //must remove
+    for (let i = 0; i < sortedTokens.length; i++) {
+      if (sortedTokens[i].symbol == 'WLUX')
+        sortedTokens[i].isNative = true;
+      sortedTokens[i].symbol = sortedTokens[i].symbol.replace(/LUX/g, 'ZOO')
+      sortedTokens[i].name = sortedTokens[i].name.replace(/LUX/g, 'ZOO')
+    }
+
     return renderTokens(sortedTokens, transformedTokenVolumeRank);
   }
 }

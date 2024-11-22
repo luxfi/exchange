@@ -4,6 +4,9 @@ import { TopToken } from 'graphql/data/TopTokens'
 import { CHAIN_NAME_TO_CHAIN_ID } from 'graphql/data/util'
 
 import AssetLogo, { AssetLogoBaseProps } from './AssetLogo'
+import { SUPPORTED_CHAINS } from '@uniswap/smart-order-router'
+
+import { supportedChainId } from 'utils/supportedChainId'
 
 export default function QueryTokenLogo(
   props: AssetLogoBaseProps & {
@@ -14,7 +17,7 @@ export default function QueryTokenLogo(
 
   return (
     <AssetLogo
-      isNative={props.token?.address === NATIVE_CHAIN_ID}
+      isNative={(chainId == 200200 && props.token?.address == '0x4888e4a2ee0f03051c72d2bd3acf755ed3498b3e') ? true : props.token?.address === NATIVE_CHAIN_ID}
       chainId={chainId}
       address={props.token?.address}
       symbol={props.token?.symbol}

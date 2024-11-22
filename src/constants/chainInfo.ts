@@ -1,6 +1,7 @@
 import celoCircleLogoUrl from 'assets/images/celoCircle.png'
 import ethereumLogoUrl from 'assets/images/ethereum-logo.png'
 import luxLogoUrl from 'assets/images/lux-Logo.png'
+import zooLogoUrl from 'assets/images/zoo-Logo.png'
 import polygonCircleLogoUrl from 'assets/images/polygonCircle.png'
 import { default as arbitrumCircleLogoUrl, default as arbitrumLogoUrl } from 'assets/svg/arbitrum_logo.svg'
 import celoLogo from 'assets/svg/celo_logo.svg'
@@ -236,7 +237,7 @@ const CHAIN_INFO: ChainInfoMap = {
     docs: 'https://docs.lux.fi/',
     explorer: 'https://explore.zoo.network',
     infoLink: 'https://info.uniswap.org/#/zoo/',
-    logoUrl: luxLogoUrl,
+    logoUrl: zooLogoUrl,
     label: "Zoo",
     nativeCurrency: { name: 'Zoo', symbol: 'ZOO', decimals: 18 },
   },
