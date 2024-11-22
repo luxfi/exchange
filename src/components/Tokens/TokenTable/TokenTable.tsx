@@ -164,16 +164,12 @@ const getCurrentHourTimestamp = (): string => {
 // You can pass these date values as parameters to your transformed tokens calculation.
 const todayDate = getTodayDate();
 const currentHourTime = getCurrentHourTimestamp();
-const tokenAddresses = TOKENS_LUX_LIST.tokens
-  .filter((token) => token.chainId === 96369) // Filter by chainId
-  .map((token) => token.address.toUpperCase()); // Extract the address
-
-  console.log("tokenAddresses",tokenAddresses);
 
 export default function TokenTable() {
   const chainName = validateUrlChainParam(useParams<{ chainName?: string }>().chainName);
-  console.log("chainName", chainName);
-
+  const tokenAddresses = TOKENS_LUX_LIST.tokens
+  .filter((token) => token.chainId === CHAIN_NAME_TO_CHAIN_ID[chainName]) // Filter by chainId
+  .map((token) => token.address.toUpperCase()); // Extract the address
   const { data: luxData, loading: luxLoading, refetch } = useQuery(getTokenInfoQuery, {
     client: luxClient,
     pollInterval: 5000,
