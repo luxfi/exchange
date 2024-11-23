@@ -1,5 +1,5 @@
 import { Trans } from '@lingui/macro'
-import { SupportedChainId } from '@uniswap/sdk-core'
+import { SupportedChainId } from 'constants/chains'
 import { getChainInfo } from 'constants/chainInfo'
 import { darken } from 'polished'
 import { useState } from 'react'
@@ -79,6 +79,12 @@ export function AboutSection({ address, chainId, description, homepageUrl, twitt
 
   const tokenDescription = shouldTruncate && isDescriptionTruncated ? truncateDescription(description) : description
 
+  //must remove
+  let displayTokenDescription = tokenDescription;
+  if (chainId == 200200 && tokenDescription?.includes("Wrapped LUX")) {
+    displayTokenDescription = tokenDescription?.replace(/LUX/g, 'ZOO')
+  }
+
   const baseExplorerUrl = getChainInfo(chainId).explorer
 
   return (
@@ -92,7 +98,7 @@ export function AboutSection({ address, chainId, description, homepageUrl, twitt
             <Trans>No token information available</Trans>
           </NoInfoAvailable>
         )}
-        {tokenDescription}
+        {displayTokenDescription}
         {shouldTruncate && (
           <TruncateDescriptionButton onClick={() => setIsDescriptionTruncated(!isDescriptionTruncated)}>
             {isDescriptionTruncated ? <Trans>Show more</Trans> : <Trans>Hide</Trans>}
