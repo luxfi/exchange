@@ -33,6 +33,10 @@ import {
   USDT_ARBITRUM_ONE,
   LETH,
   LUSD,
+  LBTC,
+  LZOO,
+  ZBTC,
+  ZLUX,
   USDT_LUX_TESTNET,
   USDC_LUX_TESTNET,
   ZETH,
@@ -193,13 +197,17 @@ export const COMMON_BASES: ChainCurrencyList = {
   ],
   [SupportedChainId.LUX]: [
     nativeOnChain(SupportedChainId.LUX),
+    LBTC,
     LETH,
     LUSD,
+    LZOO,
   ],
   [SupportedChainId.ZOO]: [
     nativeOnChain(SupportedChainId.ZOO),
+    ZBTC,
     ZETH,
     ZUSD,
+    ZLUX,
   ],
   [SupportedChainId.LUX_TESTNET]: [
     nativeOnChain(SupportedChainId.LUX_TESTNET),
