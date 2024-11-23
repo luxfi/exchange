@@ -188,9 +188,9 @@ export default function TokenDetails({
             <TokenInfoContainer data-testid="token-info-container">
               <TokenNameCell>
                 <CurrencyLogo currency={token} size="32px" hideL2Icon={false} />
-
-                {token.name ?? <Trans>Name not found</Trans>}
-                <TokenSymbol>{token.symbol ?? <Trans>Symbol not found</Trans>}</TokenSymbol>
+                {/* must edit */}
+                {token.name ? (token?.chainId == 200200 && token?.symbol == "WLUX" ? "Wrapped ZOO" : token?.name) : <Trans>Name not found</Trans>}
+                <TokenSymbol>{token.symbol ? (token?.chainId == 200200 && token?.symbol == "WLUX" ? "WZOO" : token?.symbol) : <Trans>Symbol not found</Trans>}</TokenSymbol>
               </TokenNameCell>
               <TokenActions>
                 <ShareButton currency={token} />
@@ -219,15 +219,15 @@ export default function TokenDetails({
         )}
 
         <RightPanel>
-          {token?.chainId == 96369? <Swap/> : 
-          <Widget
-            token={token ?? undefined}
-            defaultField={Field.OUTPUT}
-            onTokenChange={navigateToWidgetSelectedToken}
-            onReviewSwapClick={onReviewSwapClick}
-          /> }
-          {tokenWarning && token?.chainId != 96369 && <TokenSafetyMessage tokenAddress={address} warning={tokenWarning} />}
-          {token && token?.chainId != 96369 && <BalanceSummary token={token} />}
+          {token?.chainId == 96369 || token?.chainId == 200200 ? <Swap /> :
+            <Widget
+              token={token ?? undefined}
+              defaultField={Field.OUTPUT}
+              onTokenChange={navigateToWidgetSelectedToken}
+              onReviewSwapClick={onReviewSwapClick}
+            />}
+          {tokenWarning && token?.chainId != 96369 && token?.chainId != 200200 && <TokenSafetyMessage tokenAddress={address} warning={tokenWarning} />}
+          {token && token?.chainId != 96369 && token?.chainId != 200200 && <BalanceSummary token={token} />}
         </RightPanel>
         {token && <MobileBalanceSummaryFooter token={token} />}
 

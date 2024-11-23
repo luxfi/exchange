@@ -13,6 +13,8 @@ import gql from 'graphql-tag'
 import { apolloClient } from 'graphql/thegraph/apollo'
 import { Chain, TokenQuery, Currency, TokenQueryData } from 'graphql/data/Token'
 import { TokenPriceQuery } from 'graphql/data/TokenPrice'
+import { luxNetClient } from 'graphql/thegraph/apollo'
+import { zooNetClient } from 'graphql/thegraph/apollo'
 
 const GetTokenInfo = gql`
 query GetTokenInfo($tokenAddress: String!, $days: Int, $hours: Int) {
@@ -108,8 +110,9 @@ export default function TokenDetailsPage() {
       duration,
     },
   })
+
   const { data: luxData, loading: luxLoading } = useQuery(GetTokenInfo, {
-    client: apolloClient,
+    client: chainName == "LUX" ? luxNetClient : zooNetClient,
     variables: {
       tokenAddress: address,
       days: totalDays,
@@ -138,7 +141,7 @@ export default function TokenDetailsPage() {
       id: "VG9rZW46RVRIRVJFVU1fMHhhMGI4Njk5MWM2MjE4YjM2YzFkMTlkNGEyZTllYjBjZTM2MDZlYjQ4",
       decimals: 18,
       name: token?.name,
-      chain: Chain.Lux,
+      chain: chain == "LUX" ? Chain.Lux : Chain.Zoo,
       address: token?.id,
       symbol: token?.symbol,
       market: {
@@ -194,7 +197,7 @@ export default function TokenDetailsPage() {
     token: {
       id: "VG9rZW46RVRIRVJFVU1fMHhhMGI4Njk5MWM2MjE4YjM2YzFkMTlkNGEyZTllYjBjZTM2MDZlYjQ4", // Encoded version of the token ID
       address: luxData?.token?.id,
-      chain: Chain.Lux,
+      chain: chain == "LUX" ? Chain.Lux : Chain.Zoo,
       market: {
         id: "VG9rZW5NYXJrZXQ6RVRIRVJFVU1fMHhhMGI4Njk5MWM2MjE4YjM2YzFkMTlkNGEyZTllYjBjZTM2MDZlYjQ4X1VTRA==", // Encoded ID for the market
         price: {
@@ -220,10 +223,10 @@ export default function TokenDetailsPage() {
   const [currentPriceQuery, setCurrentPriceQuery] = useState(tokenPriceQuery)
   useEffect(() => {
     if (tokenPriceQuery) setCurrentPriceQuery(tokenPriceQuery)
-    else if (chain == "LUX") setCurrentPriceQuery(transformedTokenPriceHistory)
+    else if (chain == "LUX" || chain == "ZOO") setCurrentPriceQuery(transformedTokenPriceHistory)
   }, [luxData, tokenPriceQuery])
   if (!tokenQuery && !transformedTokenDetail) return <TokenDetailsPageSkeleton />
-  if (chain == "LUX") {
+  if (chain == "LUX" || chain == "ZOO") {
     return renderTokenDetail(tokenAddress, chain, transformedTokenDetail)
   }
   if (!tokenQuery) return <TokenDetailsPageSkeleton />
