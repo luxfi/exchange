@@ -113,6 +113,15 @@ export const TOKENS_LUX_LIST = {
             "extensions": {}
         },
         {
+            "chainId": 96369,
+            "address": "0x5E5290f350352768bD2bfC59c2DA15DD04A7cB88",
+            "name": "Lux ZOO",
+            "symbol": "LZOO",
+            "decimals": 18,
+            "logoURI": "https://cdn.lux.network/exchange/icon-png/lzoo.png",
+            "extensions": {}
+        },
+        {
             "chainId": 200200,
             "address": "0x4888E4a2Ee0F03051c72D2BD3ACf755eD3498B3E",
             "name": "Wrapped ZOO",
