@@ -41,6 +41,22 @@ export const LBTC = new Token(
   "Lux BTC",
 );
 
+export const LSOL = new Token(
+  SupportedChainId.LUX,
+  '0x1AF00A2590a834d14F4A8a26D1b03EBbA8cf7961',
+  18,
+  "LSOL",
+  "Lux SOL",
+);
+
+export const ZSOL = new Token(
+  SupportedChainId.ZOO,
+  '0x26B40f650156C7EbF9e087Dd0dca181Fe87625B7',
+  18,
+  "ZSOL",
+  "Zoo SOL",
+);
+
 export const LZOO = new Token(
   SupportedChainId.LUX,
   '0x5E5290f350352768bD2bfC59c2DA15DD04A7cB88',
