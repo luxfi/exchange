@@ -112,7 +112,7 @@ export default function TokenDetailsPage() {
   })
 
   const { data: luxData, loading: luxLoading } = useQuery(GetTokenInfo, {
-    client: chainName == "LUX" ? luxNetClient : zooNetClient,
+    client: chainName == 'lux' ? luxNetClient : zooNetClient,
     variables: {
       tokenAddress: address,
       days: totalDays,

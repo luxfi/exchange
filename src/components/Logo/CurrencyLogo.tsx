@@ -11,7 +11,6 @@ export default function CurrencyLogo(
 ) {
   //must remove
   const chainId = props.currency?.chainId
-  console.log("check", chainId, props.currency?.name);
 
   return (
     <AssetLogo
