@@ -33,12 +33,44 @@ export const LUSD = new Token(
   "Lux Dollar",
 );
 
+export const LBTC = new Token(
+  SupportedChainId.LUX,
+  '0x1E48D32a4F5e9f08DB9aE4959163300FaF8A6C8e',
+  18,
+  "LBTC",
+  "Lux BTC",
+);
+
+export const LZOO = new Token(
+  SupportedChainId.LUX,
+  '0x5E5290f350352768bD2bfC59c2DA15DD04A7cB88',
+  18,
+  "LZOO",
+  "Lux ZOO",
+);
+
 export const ZETH = new Token(
   SupportedChainId.ZOO,
   '0x60E0a8167FC13dE89348978860466C9ceC24B9ba',
   18,
   "ZETH",
   "Zoo ETH",
+);
+
+export const ZBTC = new Token(
+  SupportedChainId.ZOO,
+  '0x1E48D32a4F5e9f08DB9aE4959163300FaF8A6C8e',
+  18,
+  "ZBTC",
+  "Zoo BTC",
+);
+
+export const ZLUX = new Token(
+  SupportedChainId.ZOO,
+  '0x5E5290f350352768bD2bfC59c2DA15DD04A7cB88',
+  18,
+  "ZLUX",
+  "Zoo LUX",
 );
 
 export const USDC_LUX_TESTNET = new Token(
