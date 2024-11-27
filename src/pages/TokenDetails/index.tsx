@@ -17,7 +17,7 @@ import { luxNetClient } from 'graphql/thegraph/apollo'
 import { zooNetClient } from 'graphql/thegraph/apollo'
 
 const GetTokenInfo = gql`
-query GetTokenInfo($tokenAddress: String!, $days: Int, $hours: Int) {
+query GetTokenInfo($tokenAddress: String!, $days: Int, $hours: Int, $mins: Int) {
   bundles(first: 10) {
     ethPriceUSD
   }
@@ -40,6 +40,14 @@ query GetTokenInfo($tokenAddress: String!, $days: Int, $hours: Int) {
     }
 
     tokenHourData(first: $hours, orderBy: periodStartUnix, orderDirection: desc) {
+      id
+      periodStartUnix
+      priceUSD  # The price of the token in USD for the day
+      totalValueLockedUSD
+      volumeUSD
+    }
+
+    token5MinData(first: $mins, orderBy: periodStartUnix, orderDirection: desc) {
       id
       periodStartUnix
       priceUSD  # The price of the token in USD for the day
@@ -70,15 +78,15 @@ export const pageTimePeriodAtom = atomWithStorage<TimePeriod>('tokenDetailsTimeP
 function getQueryParams(timePeriod: any) {
   switch (timePeriod) {
     case 0:
-      return [2, 2];
+      return [2, 2, 12];
     case 1:
-      return [2, 24];
+      return [2, 30, 2];
     case 2:
-      return [2, 168];
+      return [2, 168, 2];
     case 3:
-      return [2, 720];
+      return [2, 720, 2];
     case 4:
-      return [365, 2];
+      return [365, 2, 2];
   }
   return [2, 2];
 }
@@ -89,36 +97,55 @@ export default function TokenDetailsPage() {
   const chain = validateUrlChainParam(chainName)
   const isNative = tokenAddress === NATIVE_CHAIN_ID
   const [timePeriod, setTimePeriod] = useAtom(pageTimePeriodAtom)
-  const [totalDays, totalHours] = getQueryParams(timePeriod);
+  const [totalDays, totalHours, total5Mins] = getQueryParams(timePeriod);
   const [address, duration] = useMemo(
     /* tokenAddress will always be defined in the path for for this page to render, but useParams will always
       return optional arguments; nullish coalescing operator is present here to appease typechecker */
     () => [isNative ? getNativeTokenDBAddress(chain) : tokenAddress ?? '', toHistoryDuration(timePeriod)],
     [chain, isNative, timePeriod, tokenAddress]
   )
-  const { data: tokenQuery } = useTokenQuery({
+  const { data: tokenQuery, refetch: refetchTokenQuery } = useTokenQuery({
     variables: {
       address,
       chain,
     },
+    pollInterval: 12000, // 12 seconds
   })
 
-  const { data: tokenPriceQuery } = useTokenPriceQuery({
+  const { data: tokenPriceQuery, refetch: refetchTokenPriceQuery } = useTokenPriceQuery({
     variables: {
       address,
       chain,
       duration,
     },
+    pollInterval: 12000, // 12 seconds
   })
 
-  const { data: luxData, loading: luxLoading } = useQuery(GetTokenInfo, {
+  const { data: luxData, loading: luxLoading, refetch: refetchLuxData } = useQuery(GetTokenInfo, {
     client: chainName == 'lux' ? luxNetClient : zooNetClient,
     variables: {
       tokenAddress: address,
       days: totalDays,
       hours: totalHours,
+      mins: total5Mins,
     },
+    pollInterval: 12000, // 12 seconds
   })
+
+  // Use effect to handle periodic refetching
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      refetchTokenQuery()
+      refetchTokenPriceQuery()
+      if (chainName === 'lux' || chainName === 'zoo') {
+        refetchLuxData()
+      }
+    }, 12000) // 12 seconds interval
+
+    // Clear interval on component unmount
+    return () => clearInterval(intervalId)
+  }, [refetchTokenQuery, refetchTokenPriceQuery, refetchLuxData, chainName])
+
   if (luxLoading) {
     console.log("Loading data...");
   } else {
@@ -134,6 +161,20 @@ export default function TokenDetailsPage() {
   const priceHigh52W = dailyPrices && Math.max(...dailyPrices);
   const priceLow52W = dailyPrices && Math.min(...dailyPrices);
   const token = luxData?.token;
+
+  // Use effect to handle periodic refetching
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      refetchTokenQuery()
+      refetchTokenPriceQuery()
+      if (chainName === 'lux' || chainName === 'zoo') {
+        refetchLuxData()
+      }
+    }, 12000) // 12 seconds interval
+
+    // Clear interval on component unmount
+    return () => clearInterval(intervalId)
+  }, [])
 
   // Now, you can assign the JSON data to a variable of type TokenQuery
   const transformedTokenDetail: TokenQuery = tokenPriceQuery ?? {
@@ -192,6 +233,11 @@ export default function TokenDetailsPage() {
     timestamp: data.periodStartUnix,
     value: parseFloat(data.priceUSD),
   }))
+  const token5MinData = luxData?.token?.token5MinData.filter((data: any) => parseFloat(data.priceUSD) !== 0).map((data: any) => ({
+    id: `VGltZXN0YW1wZWRBbW91bnQ6MV8x${data.periodStartUnix}_VVNE`, // Encoded version of the timestamped amount
+    timestamp: data.periodStartUnix,
+    value: parseFloat(data.priceUSD),
+  }))
 
   const transformedTokenPriceHistory: TokenPriceQuery = {
     token: {
@@ -204,7 +250,7 @@ export default function TokenDetailsPage() {
           id: "QW1vdW50OjFfVVNE", // Encoded amount ID
           value: parseFloat(ethPriceUSD) * parseFloat(ethPrice),
         },
-        priceHistory: timePeriod < 4 ? tokenHourData : tokenDayData,
+        priceHistory: timePeriod < 1 ? token5MinData : timePeriod < 4 ? tokenHourData : tokenDayData,
       },
     },
   };
