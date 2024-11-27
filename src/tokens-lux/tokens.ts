@@ -163,7 +163,7 @@ export const TOKENS_LUX_LIST = {
             "name": "Zoo LUX",
             "symbol": "ZLUX",
             "decimals": 18,
-            "logoURI": "https://cdn.lux.network/exchange/icon-png/lux.png",
+            "logoURI": "https://cdn.lux.network/bridge/currencies/zoo/zlux.svg",
             "extensions": {}
         },
         {
