@@ -176,8 +176,8 @@ export default function TokenTable() {
     luxClient = zooNetClient;
   }
   const tokenAddresses = TOKENS_LUX_LIST.tokens
-  .filter((token) => token.chainId === CHAIN_NAME_TO_CHAIN_ID[chainName]) // Filter by chainId
-  .map((token) => token.address.toUpperCase()); // Extract the address
+    .filter((token) => token.chainId === CHAIN_NAME_TO_CHAIN_ID[chainName]) // Filter by chainId
+    .map((token) => token.address.toUpperCase()); // Extract the address
   const { data: luxData, loading: luxLoading, refetch } = useQuery(getTokenInfoQuery, {
     client: luxClient,
     pollInterval: 5000,
@@ -192,95 +192,101 @@ export default function TokenTable() {
   const calculateTransformedTokens = useCallback(() => {
     refetch();
     return luxData?.tokens
-    ?.filter((token: any) => tokenAddresses.includes(token.id.toUpperCase())).map((token: any) => {
-      const tokenDayData = token.tokenDayData || [];
-      const tokenHourData = token.tokenHourData || [];
-      let nowPrice = 0;
-      let previousPrice = 0;
-      let mostRecentData = null;
+      ?.filter((token: any) => tokenAddresses.includes(token.id.toUpperCase())).map((token: any) => {
+        const tokenDayData = token.tokenDayData || [];
+        const tokenHourData = token.tokenHourData || [];
+        let nowPrice = 0;
+        let previousPrice = 0;
+        let mostRecentData = null;
 
-      if (duration == "HOUR") {
-        // Process hourly duration logic
-        mostRecentData = tokenHourData[0] || null;
-        nowPrice = mostRecentData ? mostRecentData.priceUSD : 0;
-        previousPrice = nowPrice;
-        if (tokenHourData[1]?.periodStartUnix && tokenHourData[1].periodStartUnix * 1000 <= new Date(currentHourTime).getTime() - 3600 * 1000 && tokenHourData[1].priceUSD != 0)
-          previousPrice = tokenHourData[1].priceUSD;
-      } else {
-        let i;
-        let daysPer;
-
-        mostRecentData = tokenDayData[0] || null;
-        nowPrice = mostRecentData ? mostRecentData.priceUSD : 0;
-        daysPer = 1;
-
-        if (duration == "DAY") {
-          daysPer = 1;
-        } else if (duration == "WEEK") {
-          daysPer = 7;
-        } else if (duration == "MONTH") {
-          daysPer = 31;
-        } else if (duration == "YEAR") {
-          daysPer = 365;
-        }
-
-        if (tokenDayData.length == 0) {
+        if (duration == "HOUR") {
+          // Process hourly duration logic
+          mostRecentData = tokenHourData[0] || null;
+          nowPrice = mostRecentData ? mostRecentData.priceUSD : 0;
           previousPrice = nowPrice;
+          if (tokenHourData[1]?.periodStartUnix && tokenHourData[1].periodStartUnix * 1000 <= new Date(currentHourTime).getTime() - 3600 * 1000 && tokenHourData[1].priceUSD != 0)
+            previousPrice = tokenHourData[1].priceUSD;
         } else {
-          for (i = 0; i < tokenDayData.length; i++) {
-            if (tokenDayData[i]?.date && tokenDayData[i].date * 1000 <= new Date(todayDate).getTime() - daysPer * 24 * 60 * 60 * 1000) {
-              previousPrice = tokenDayData[i].priceUSD;
-              break;
-            }
+          let i;
+          let daysPer;
+
+          mostRecentData = tokenDayData[0] || null;
+          nowPrice = mostRecentData ? mostRecentData.priceUSD : 0;
+          daysPer = 1;
+
+          if (duration == "DAY") {
+            daysPer = 1;
+          } else if (duration == "WEEK") {
+            daysPer = 7;
+          } else if (duration == "MONTH") {
+            daysPer = 31;
+          } else if (duration == "YEAR") {
+            daysPer = 365;
           }
-          if (previousPrice == 0) {
-            for (i = tokenDayData.length - 1; i >= 0; i--) {
-              if (tokenDayData[i].priceUSD != 0) {
+
+          if (tokenDayData.length == 0) {
+            previousPrice = nowPrice;
+          } else {
+            for (i = 0; i < tokenDayData.length; i++) {
+              if (tokenDayData[i]?.date && tokenDayData[i].date * 1000 <= new Date(todayDate).getTime() - daysPer * 24 * 60 * 60 * 1000) {
                 previousPrice = tokenDayData[i].priceUSD;
                 break;
               }
             }
+            if (previousPrice == 0) {
+              for (i = tokenDayData.length - 1; i >= 0; i--) {
+                if (tokenDayData[i].priceUSD != 0) {
+                  previousPrice = tokenDayData[i].priceUSD;
+                  break;
+                }
+              }
+            }
           }
         }
-      }
 
-      let priceChangePercent = previousPrice !== 0
-        ? ((ethPriceUSD * parseFloat(token.derivedETH) - previousPrice) / previousPrice) * 100
-        : 0;
+        let priceChangePercent = previousPrice !== 0
+          ? ((ethPriceUSD * parseFloat(token.derivedETH) - previousPrice) / previousPrice) * 100
+          : 0;
 
-      if (nowPrice == 0)
-        priceChangePercent = 0;
+        if (nowPrice == 0)
+          priceChangePercent = 0;
 
-      return {
-        name: token.name,
-        chain: chainName,
-        address: token.id,
-        symbol: token.symbol,
-        market: {
-          totalValueLocked: {
-            value: parseFloat(token.totalValueLockedUSD),
+        let tokenName = token.name;
+        let tokenSymbol = token.symbol;
+        if (token.name == 'Wrapped LUX') {
+          tokenName = tokenSymbol = 'LUX';
+        }
+
+        return {
+          name: tokenName,//token.name,
+          chain: chainName,
+          address: token.id,
+          symbol: tokenSymbol,//token.symbol,
+          market: {
+            totalValueLocked: {
+              value: parseFloat(token.totalValueLockedUSD),
+            },
+            price: {
+              value: ethPriceUSD && token.derivedETH ? parseFloat(ethPriceUSD) * parseFloat(token.derivedETH) : 0,
+            },
+            pricePercentChange: {
+              value: priceChangePercent,
+            },
+            volume: {
+              value: parseFloat(token.volumeUSD),
+            },
           },
-          price: {
-            value: ethPriceUSD && token.derivedETH ? parseFloat(ethPriceUSD) * parseFloat(token.derivedETH) : 0,
+          project: {
+            __typename: 'TokenProject',
+            id: 'VG9rZW5Qcm9qZWN0OkVUSEVSRVVNXzB4YzAyYWFhMzliMjIzZmU4ZDBhMGU1YzRmMjdlYWQ5MDgzYzc1NmNjMl9XRVRI',
+            logoUrl: 'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2/logo.png',
           },
-          pricePercentChange: {
-            value: priceChangePercent,
-          },
-          volume: {
-            value: parseFloat(token.volumeUSD),
-          },
-        },
-        project: {
-          __typename: 'TokenProject',
-          id: 'VG9rZW5Qcm9qZWN0OkVUSEVSRVVNXzB4YzAyYWFhMzliMjIzZmU4ZDBhMGU1YzRmMjdlYWQ5MDgzYzc1NmNjMl9XRVRI',
-          logoUrl: 'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2/logo.png',
-        },
-        chainId: 1,
-        decimals: 18,
-        isNative: true,
-        isToken: false,
-      };
-    });
+          chainId: 1,
+          decimals: 18,
+          isNative: true,
+          isToken: false,
+        };
+      });
   }, [luxData, ethPriceUSD, duration]);
 
   // Update transformed tokens when luxData, ethPriceUSD, or duration changes
