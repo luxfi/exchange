@@ -254,7 +254,8 @@ export default function TokenTable() {
         let tokenName = token.name;
         let tokenSymbol = token.symbol;
         if (token.name == 'Wrapped LUX') {
-          tokenName = tokenSymbol = 'LUX';
+          tokenSymbol = 'LUX';
+          tokenName = 'Lux Coin'
         }
 
         return {
@@ -421,10 +422,11 @@ export default function TokenTable() {
 
     //must remove
     for (let i = 0; i < sortedTokens.length; i++) {
-      if (sortedTokens[i].symbol == 'WLUX')
+      if (sortedTokens[i].symbol == 'LUX') {
         sortedTokens[i].isNative = true;
-      sortedTokens[i].symbol = sortedTokens[i].symbol.replace(/LUX/g, 'ZOO')
-      sortedTokens[i].name = sortedTokens[i].name.replace(/LUX/g, 'ZOO')
+        sortedTokens[i].symbol = 'ZOO';
+        sortedTokens[i].name = sortedTokens[i].name.replace(/Lux/g, 'Zoo');
+      }
     }
 
     return renderTokens(sortedTokens, transformedTokenVolumeRank);
