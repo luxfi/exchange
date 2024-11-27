@@ -81,8 +81,11 @@ export function AboutSection({ address, chainId, description, homepageUrl, twitt
 
   //must remove
   let displayTokenDescription = tokenDescription;
-  if (chainId == 200200 && tokenDescription?.includes("Wrapped LUX")) {
-    displayTokenDescription = tokenDescription?.replace(/LUX/g, 'ZOO')
+  if (tokenDescription?.includes("Wrapped LUX")) {
+    displayTokenDescription = tokenDescription?.replace(/Wrapped LUX/g, 'LUX')
+  }
+  if (chainId == 200200 && tokenDescription?.includes("LUX")) {
+    displayTokenDescription = displayTokenDescription?.replace(/LUX/g, 'ZOO')
   }
 
   const baseExplorerUrl = getChainInfo(chainId).explorer

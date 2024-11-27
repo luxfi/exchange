@@ -43,6 +43,7 @@ import { isAddress } from 'utils'
 import { OnChangeTimePeriod } from './ChartSection'
 import InvalidTokenDetails from './InvalidTokenDetails'
 import Swap from 'pages/Swap'
+import { to } from 'make-plural'
 
 const TokenSymbol = styled.span`
   text-transform: uppercase;
@@ -173,6 +174,7 @@ export default function TokenDetails({
   if (token === undefined || !address) {
     return <InvalidTokenDetails chainName={address && getChainInfo(pageChainId)?.label} />
   }
+
   return (
     <Trace
       page={InterfacePageName.TOKEN_DETAILS_PAGE}
@@ -189,8 +191,8 @@ export default function TokenDetails({
               <TokenNameCell>
                 <CurrencyLogo currency={token} size="32px" hideL2Icon={false} />
                 {/* must edit */}
-                {token.name ? (token?.chainId == 200200 && token?.symbol == "WLUX" ? "Wrapped ZOO" : token?.name) : <Trans>Name not found</Trans>}
-                <TokenSymbol>{token.symbol ? (token?.chainId == 200200 && token?.symbol == "WLUX" ? "WZOO" : token?.symbol) : <Trans>Symbol not found</Trans>}</TokenSymbol>
+                {token.name ? (token?.chainId == 200200 && token?.symbol == "WLUX" ? "ZOO" : (token?.chainId == 96369 && token?.symbol == "WLUX" ? 'LUX' : token?.name)) : <Trans>Name not found</Trans>}
+                <TokenSymbol>{token.symbol ? (token?.chainId == 200200 && token?.symbol == "WLUX" ? "ZOO" : (token?.chainId == 96369 && token?.symbol == "WLUX" ? 'LUX' : token?.symbol)) : <Trans>Symbol not found</Trans>}</TokenSymbol>
               </TokenNameCell>
               <TokenActions>
                 <ShareButton currency={token} />

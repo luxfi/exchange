@@ -365,7 +365,7 @@ export default function AddLiquidity() {
       if (idB === undefined) {
         navigate(`/add/${idA}`)
       } else {
-        navigate(`/add/${idA}/${idB}`)
+        navigate(`/add/${idB}/${idA}`)
       }
     },
     [handleCurrencySelect, currencyIdB, navigate]
@@ -377,7 +377,7 @@ export default function AddLiquidity() {
       if (idA === undefined) {
         navigate(`/add/${idB}`)
       } else {
-        navigate(`/add/${idA}/${idB}`)
+        navigate(`/add/${idB}/${idA}`)
       }
     },
     [handleCurrencySelect, currencyIdA, navigate]
@@ -387,7 +387,7 @@ export default function AddLiquidity() {
     (newFeeAmount: FeeAmount) => {
       onLeftRangeInput('')
       onRightRangeInput('')
-      navigate(`/add/${currencyIdA}/${currencyIdB}/${newFeeAmount}`)
+      navigate(`/add/${currencyIdB}/${currencyIdA}/${newFeeAmount}`)
     },
     [currencyIdA, currencyIdB, navigate, onLeftRangeInput, onRightRangeInput]
   )
@@ -568,7 +568,7 @@ export default function AddLiquidity() {
                         onFieldAInput(formattedAmounts[Field.CURRENCY_B] ?? '')
                       }
                       navigate(
-                        `/add/${currencyIdB as string}/${currencyIdA as string}${feeAmount ? '/' + feeAmount : ''}`
+                        `/add/${currencyIdA as string}/${currencyIdB as string}${feeAmount ? '/' + feeAmount : ''}`
                       )
                     }}
                   />

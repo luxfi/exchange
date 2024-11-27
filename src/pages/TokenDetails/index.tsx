@@ -76,7 +76,7 @@ function getQueryParams(timePeriod: any) {
     case 2:
       return [2, 168];
     case 3:
-      return [30, 2];
+      return [2, 720];
     case 4:
       return [365, 2];
   }
@@ -204,7 +204,7 @@ export default function TokenDetailsPage() {
           id: "QW1vdW50OjFfVVNE", // Encoded amount ID
           value: parseFloat(ethPriceUSD) * parseFloat(ethPrice),
         },
-        priceHistory: timePeriod < 3 ? tokenHourData : tokenDayData,
+        priceHistory: timePeriod < 4 ? tokenHourData : tokenDayData,
       },
     },
   };
