@@ -191,7 +191,7 @@ export default function TokenDetails({
               <TokenNameCell>
                 <CurrencyLogo currency={token} size="32px" hideL2Icon={false} />
                 {/* must edit */}
-                {token.name ? (token?.chainId == 200200 && token?.symbol == "WLUX" ? "ZOO" : (token?.chainId == 96369 && token?.symbol == "WLUX" ? 'LUX' : token?.name)) : <Trans>Name not found</Trans>}
+                {token.name ? (token?.chainId == 200200 && token?.symbol == "WLUX" ? "Zoo Coin" : (token?.chainId == 96369 && token?.symbol == "WLUX" ? 'Lux Coin' : token?.name)) : <Trans>Name not found</Trans>}
                 <TokenSymbol>{token.symbol ? (token?.chainId == 200200 && token?.symbol == "WLUX" ? "ZOO" : (token?.chainId == 96369 && token?.symbol == "WLUX" ? 'LUX' : token?.symbol)) : <Trans>Symbol not found</Trans>}</TokenSymbol>
               </TokenNameCell>
               <TokenActions>
@@ -214,7 +214,7 @@ export default function TokenDetails({
               homepageUrl={tokenQueryData?.project?.homepageUrl}
               twitterName={tokenQueryData?.project?.twitterName}
             />
-            {!token.isNative && <AddressSection address={address} />}
+            {token?.symbol != "WLUX" && <AddressSection address={address} />}
           </LeftPanel>
         ) : (
           <TokenDetailsSkeleton />

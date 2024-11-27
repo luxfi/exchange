@@ -82,10 +82,26 @@ export function AboutSection({ address, chainId, description, homepageUrl, twitt
   //must remove
   let displayTokenDescription = tokenDescription;
   if (tokenDescription?.includes("Wrapped LUX")) {
-    displayTokenDescription = tokenDescription?.replace(/Wrapped LUX/g, 'LUX')
+    displayTokenDescription = 'Lux Coin - Native token on LUX chain'
   }
-  if (chainId == 200200 && tokenDescription?.includes("LUX")) {
+
+  if (chainId == 200200 && displayTokenDescription == 'Lux Coin - Native token on LUX chain') {
     displayTokenDescription = displayTokenDescription?.replace(/LUX/g, 'ZOO')
+    displayTokenDescription = displayTokenDescription?.replace(/Lux/g, 'Zoo')
+  }
+
+  let displayHomePageUrl = homepageUrl;
+  if (chainId == 96369) {
+    displayHomePageUrl = 'https://luxco.in';
+  } else if (chainId == 200200) {
+    displayHomePageUrl = 'https://zoo.network';
+  }
+
+  let displayTwitterName = twitterName;
+  if (chainId == 96369) {
+    displayTwitterName = 'luxdefi';
+  } else if (chainId == 200200) {
+    displayTwitterName = 'zoo_labs';
   }
 
   const baseExplorerUrl = getChainInfo(chainId).explorer
@@ -118,8 +134,8 @@ export function AboutSection({ address, chainId, description, homepageUrl, twitt
           link={`${baseExplorerUrl}${address === 'NATIVE' ? '' : '/address/' + address}`}
         />
         <Resource name="More analytics" link={`https://info.uniswap.org/#/tokens/${address}`} />
-        {homepageUrl && <Resource name="Website" link={homepageUrl} />}
-        {twitterName && <Resource name="Twitter" link={`https://twitter.com/${twitterName}`} />}
+        {displayHomePageUrl && <Resource name="Website" link={displayHomePageUrl} />}
+        {displayTwitterName && <Resource name="Twitter" link={`https://twitter.com/${displayTwitterName}`} />}
       </ResourcesContainer>
     </AboutContainer>
   )
