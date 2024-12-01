@@ -43,7 +43,7 @@ export const LBTC = new Token(
 
 export const LSOL = new Token(
   SupportedChainId.LUX,
-  '0x1AF00A2590a834d14F4A8a26D1b03EBbA8cf7961',
+  '0x26B40f650156C7EbF9e087Dd0dca181Fe87625B7',
   18,
   "LSOL",
   "Lux SOL",
