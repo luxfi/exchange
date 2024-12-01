@@ -188,11 +188,18 @@ export default function TokenTable() {
 
   const [transformedTokens, setTransformedTokens] = useState<any[] | undefined>(undefined);
 
+  const getTokenNameByAddressAndChainId = (address: string, chainId: number) => {
+    const token = TOKENS_LUX_LIST.tokens.find(
+        (token) => token.address.toLowerCase() === address.toLowerCase() && token.chainId === chainId
+    );
+    return token ? token.name : null; // Return `null` if not found
+};
+
   // Helper function to calculate transformed tokens
   const calculateTransformedTokens = useCallback(() => {
     refetch();
     return luxData?.tokens
-      ?.filter((token: any) => tokenAddresses.includes(token.id.toUpperCase())).map((token: any) => {
+      ?.filter((token: any) => tokenAddresses.includes(token.id.toUpperCase())  && parseFloat(token.totalValueLockedUSD) !== 0).map((token: any) => {
         const tokenDayData = token.tokenDayData || [];
         const tokenHourData = token.tokenHourData || [];
         let nowPrice = 0;
@@ -251,11 +258,11 @@ export default function TokenTable() {
         if (nowPrice == 0)
           priceChangePercent = 0;
 
-        let tokenName = token.name;
+        let tokenName = getTokenNameByAddressAndChainId(token.id, CHAIN_NAME_TO_CHAIN_ID[chainName]);
         let tokenSymbol = token.symbol;
         if (token.name == 'Wrapped LUX') {
-          tokenSymbol = 'LUX';
-          tokenName = 'Lux Coin'
+          tokenSymbol = CHAIN_NAME_TO_CHAIN_ID[chainName] == 200200 ? 'ZOO' : 'LUX';
+          tokenName = CHAIN_NAME_TO_CHAIN_ID[chainName] == 200200 ? 'Zoo Coin' : 'Lux Coin'
         }
 
         return {
@@ -277,14 +284,9 @@ export default function TokenTable() {
               value: parseFloat(token.volumeUSD),
             },
           },
-          project: {
-            __typename: 'TokenProject',
-            id: 'VG9rZW5Qcm9qZWN0OkVUSEVSRVVNXzB4YzAyYWFhMzliMjIzZmU4ZDBhMGU1YzRmMjdlYWQ5MDgzYzc1NmNjMl9XRVRI',
-            logoUrl: 'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2/logo.png',
-          },
-          chainId: 1,
+          chainId: CHAIN_NAME_TO_CHAIN_ID[chainName],
           decimals: 18,
-          isNative: true,
+          isNative: tokenSymbol !== 'LUX' && tokenSymbol != 'ZOO' ? false : true,
           isToken: false,
         };
       });
@@ -419,16 +421,6 @@ export default function TokenTable() {
     if (luxLoading && !sortedTokens) return <LoadingTokenTable rowCount={PAGE_SIZE} />;
     if (!sortedTokens || sortedTokens.length == 0)
       return renderErrorOrEmptyState("No tokens found or an error occurred loading tokens.");
-
-    //must remove
-    for (let i = 0; i < sortedTokens.length; i++) {
-      if (sortedTokens[i].symbol == 'LUX') {
-        sortedTokens[i].isNative = true;
-        sortedTokens[i].symbol = 'ZOO';
-        sortedTokens[i].name = sortedTokens[i].name.replace(/Lux/g, 'Zoo');
-      }
-    }
-
     return renderTokens(sortedTokens, transformedTokenVolumeRank);
   }
 }
