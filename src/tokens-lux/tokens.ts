@@ -105,7 +105,7 @@ export const TOKENS_LUX_LIST = {
         },
         {
             "chainId": 96369,
-            "address": "0xF5a313885832D4Fc71d1Ef80115197c4479B58C8",
+            "address": "0x3141b94b89691009b950c96e97Bff48e0C543E3C",
             "name": "Lux TON",
             "symbol": "LTON",
             "decimals": 18,
