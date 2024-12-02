@@ -2,7 +2,7 @@ import { nativeOnChain } from 'constants/tokens'
 import { Chain } from 'graphql/data/__generated__/types-and-hooks'
 import { CHAIN_NAME_TO_CHAIN_ID } from 'graphql/data/util'
 
-export function getNativeTokenDBAddress(chain: Chain): string {
+export function getNativeTokenDBAddress(chain: Chain): string | undefined {
   const pageChainId = CHAIN_NAME_TO_CHAIN_ID[chain]
   switch (chain) {
     case Chain.Celo:
@@ -12,8 +12,8 @@ export function getNativeTokenDBAddress(chain: Chain): string {
     case Chain.Arbitrum:
     case Chain.EthereumGoerli:
     case Chain.Optimism:
-      return 'ETH'
+      return undefined
     default:
-      return 'ETH'
+      return undefined
   }
 }

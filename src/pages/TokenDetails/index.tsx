@@ -177,45 +177,37 @@ export default function TokenDetailsPage() {
   }, [])
 
   // Now, you can assign the JSON data to a variable of type TokenQuery
-  const transformedTokenDetail: TokenQuery = tokenPriceQuery ?? {
+  const transformedTokenDetail: any = tokenPriceQuery ?? {
     token: {
-      id: "VG9rZW46RVRIRVJFVU1fMHhhMGI4Njk5MWM2MjE4YjM2YzFkMTlkNGEyZTllYjBjZTM2MDZlYjQ4",
       decimals: 18,
       name: token?.name,
       chain: chain == "LUX" ? Chain.Lux : Chain.Zoo,
       address: token?.id,
       symbol: token?.symbol,
       market: {
-        id: "VG9rZW5NYXJrZXQ6RVRIRVJFVU1fMHhhMGI4Njk5MWM2MjE4YjM2YzFkMTlkNGEyZTllYjBjZTM2MDZlYjQ4X1VTRA==",
         totalValueLocked: {
-          id: "QW1vdW50OjM0MDUwMDg5OS41NTQyMzk5X1VTRA==",
           value: token?.totalValueLockedUSD,
           currency: Currency.Usd
         },
         price: {
-          id: "QW1vdW50OjFfVVNE",
           value: 1,
           currency: Currency.Usd
         },
         volume24H: {
-          id: "QW1vdW50OjY5MzIwODE3Ny45NDM0MDUyX1VTRA==",
           value: token?.volumeUSD,
           currency: Currency.Usd
         },
         priceHigh52W: {
-          id: "QW1vdW50OjEuMDAwMDAwMDAwMDAwMDAwMl9VU0Q=",
           value: priceHigh52W
         },
         priceLow52W: {
-          id: "QW1vdW50OjFfVVNE",
           value: priceLow52W
         }
       },
       project: {
-        id: "VG9rZW5Qcm9qZWN0OkVUSEVSRVVNXzB4YTBiODY5OTFjNjIxOGIzNmMxZDE5ZDRhMmU5ZWIwY2UzNjA2ZWI0OF9VU0RD",
         description: token?.name + " - " + token?.id,
-        homepageUrl: "https://www.circle.com/en/usdc",
-        twitterName: "circle",
+        homepageUrl: "https://luxco.in",
+        twitterName: "luxdefi",
         logoUrl: "",
         tokens: []
       }
@@ -224,30 +216,24 @@ export default function TokenDetailsPage() {
   const ethPriceUSD = luxData?.bundles[0]?.ethPriceUSD;
   const ethPrice = luxData?.token?.derivedETH;
   const tokenDayData = luxData?.token?.tokenDayData.filter((data: any) => parseFloat(data.priceUSD) !== 0).map((data: any) => ({
-    id: `VGltZXN0YW1wZWRBbW91bnQ6MV8x${data.date}_VVNE`, // Encoded version of the timestamped amount
     timestamp: data.date,
     value: parseFloat(data.priceUSD),
   }))
   const tokenHourData = luxData?.token?.tokenHourData.filter((data: any) => parseFloat(data.priceUSD) !== 0).map((data: any) => ({
-    id: `VGltZXN0YW1wZWRBbW91bnQ6MV8x${data.periodStartUnix}_VVNE`, // Encoded version of the timestamped amount
     timestamp: data.periodStartUnix,
     value: parseFloat(data.priceUSD),
   }))
   const token5MinData = luxData?.token?.token5MinData.filter((data: any) => parseFloat(data.priceUSD) !== 0).map((data: any) => ({
-    id: `VGltZXN0YW1wZWRBbW91bnQ6MV8x${data.periodStartUnix}_VVNE`, // Encoded version of the timestamped amount
     timestamp: data.periodStartUnix,
     value: parseFloat(data.priceUSD),
   }))
 
-  const transformedTokenPriceHistory: TokenPriceQuery = {
+  const transformedTokenPriceHistory: any = {
     token: {
-      id: "VG9rZW46RVRIRVJFVU1fMHhhMGI4Njk5MWM2MjE4YjM2YzFkMTlkNGEyZTllYjBjZTM2MDZlYjQ4", // Encoded version of the token ID
       address: luxData?.token?.id,
       chain: chain == "LUX" ? Chain.Lux : Chain.Zoo,
       market: {
-        id: "VG9rZW5NYXJrZXQ6RVRIRVJFVU1fMHhhMGI4Njk5MWM2MjE4YjM2YzFkMTlkNGEyZTllYjBjZTM2MDZlYjQ4X1VTRA==", // Encoded ID for the market
         price: {
-          id: "QW1vdW50OjFfVVNE", // Encoded amount ID
           value: parseFloat(ethPriceUSD) * parseFloat(ethPrice),
         },
         priceHistory: timePeriod < 1 ? token5MinData : timePeriod < 4 ? tokenHourData : tokenDayData,
@@ -271,7 +257,7 @@ export default function TokenDetailsPage() {
     if (tokenPriceQuery) setCurrentPriceQuery(tokenPriceQuery)
     else if (chain == "LUX" || chain == "ZOO") setCurrentPriceQuery(transformedTokenPriceHistory)
   }, [luxData, tokenPriceQuery])
-  if (!tokenQuery && !transformedTokenDetail) return <TokenDetailsPageSkeleton />
+  if (!tokenQuery && !luxData) return <TokenDetailsPageSkeleton />
   if (chain == "LUX" || chain == "ZOO") {
     return renderTokenDetail(tokenAddress, chain, transformedTokenDetail)
   }
