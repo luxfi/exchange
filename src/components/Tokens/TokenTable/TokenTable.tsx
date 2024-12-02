@@ -37,10 +37,10 @@ import { TOKENS_LUX_LIST } from 'tokens-lux/tokens'
 
 const getTokenInfoQuery = gql`
   query MyQuery {
-  bundles(first: 10) {
+  bundles {
     ethPriceUSD
   }
-  factories(first: 10) {
+  factories {
     poolCount
     totalFeesETH
     totalFeesUSD
@@ -53,12 +53,12 @@ const getTokenInfoQuery = gql`
     txCount
     untrackedVolumeUSD
   }
-  pools(first: 10) {
+  pools {
     collectedFeesToken0
     collectedFeesToken1
     id
   }
-  tokens(first: 10) {
+  tokens {
     volume
     volumeUSD
     totalValueLocked
@@ -194,7 +194,6 @@ export default function TokenTable() {
     );
     return token ? token.name : null; // Return `null` if not found
 };
-
   // Helper function to calculate transformed tokens
   const calculateTransformedTokens = useCallback(() => {
     refetch();
