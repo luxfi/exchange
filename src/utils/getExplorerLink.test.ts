@@ -22,6 +22,9 @@ describe('#getExplorerLink', () => {
   it('celo', () => {
     expect(getExplorerLink(42220, 'abc', ExplorerDataType.ADDRESS)).toEqual('https://celoscan.io/address/abc')
   })
+  it('base', () => {
+    expect(getExplorerLink(42220, 'abc', ExplorerDataType.ADDRESS)).toEqual('https://basescan.org/address/abc')
+  })
   it('goerli', () => {
     expect(getExplorerLink(5, 'abc', ExplorerDataType.ADDRESS)).toEqual('https://goerli.etherscan.io/address/abc')
   })

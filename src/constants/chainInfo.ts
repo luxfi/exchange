@@ -1,17 +1,19 @@
 import celoCircleLogoUrl from 'assets/images/celoCircle.png'
+import baseCircleLogoUrl from 'assets/images/baseCircle.png'
 import ethereumLogoUrl from 'assets/images/ethereum-logo.png'
 import luxLogoUrl from 'assets/images/lux-Logo.png'
 import zooLogoUrl from 'assets/images/zoo-Logo.png'
 import polygonCircleLogoUrl from 'assets/images/polygonCircle.png'
 import { default as arbitrumCircleLogoUrl, default as arbitrumLogoUrl } from 'assets/svg/arbitrum_logo.svg'
 import celoLogo from 'assets/svg/celo_logo.svg'
+import baseLogo from 'assets/svg/base_logo.svg'
 import optimismLogoUrl from 'assets/svg/optimistic_ethereum.svg'
 import polygonMaticLogo from 'assets/svg/polygon-matic-logo.svg'
 import ms from 'ms.macro'
 import { darkTheme } from 'theme/colors'
 
 import { SupportedChainId, SupportedL1ChainId, SupportedL2ChainId } from './chains'
-import { ARBITRUM_LIST, CELO_LIST, OPTIMISM_LIST } from './lists'
+import { ARBITRUM_LIST, CELO_LIST, BASE_LIST, OPTIMISM_LIST } from './lists'
 
 export const AVERAGE_L1_BLOCK_TIME = ms`12s`
 
@@ -193,6 +195,21 @@ const CHAIN_INFO: ChainInfoMap = {
     label: 'Polygon Mumbai',
     logoUrl: polygonMaticLogo,
     nativeCurrency: { name: 'Polygon Mumbai Matic', symbol: 'mMATIC', decimals: 18 },
+  },
+  [SupportedChainId.BASE]: {
+    networkType: NetworkType.L2,
+    blockWaitMsBeforeWarning: ms`10m`,
+    bridge: 'https://superbridge.app/base',
+    docs: 'https://docs.base.org/',
+    explorer: 'https://basescan.org/',
+    infoLink: 'https://info.uniswap.org/#/base',
+    label: 'Base',
+    logoUrl: baseLogo,
+    circleLogoUrl: baseCircleLogoUrl,
+    nativeCurrency: { name: 'Ether', symbol: 'ETH', decimals: 18 },
+    defaultListUrl: BASE_LIST,
+    color: darkTheme.chain_42,
+    backgroundColor: darkTheme.chain_42161_background,
   },
   [SupportedChainId.CELO]: {
     networkType: NetworkType.L1,

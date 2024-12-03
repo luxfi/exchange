@@ -133,6 +133,15 @@ export const USDC_ARBITRUM = new Token(
   'USDC',
   'USD//C'
 )
+
+export const USDC_BASE = new Token(
+  SupportedChainId.BASE,
+  '0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913',
+  6,
+  'USDC',
+  'USD//C'
+)
+
 const USDC_ARBITRUM_RINKEBY = new Token(
   SupportedChainId.ARBITRUM_RINKEBY,
   '0x09b98f8b2395d076514037ff7d39a091a536206c',
@@ -443,6 +452,13 @@ export const WRAPPED_NATIVE_CURRENCY: { [chainId: number]: Token | undefined } =
     'WETH',
     'Wrapped Ether'
   ),
+  [SupportedChainId.BASE]: new Token(
+    SupportedChainId.BASE,
+    '0x4200000000000000000000000000000000000006',
+    18,
+    'WETH',
+    'Wrapped Ether'
+  ),
   [SupportedChainId.ARBITRUM_ONE]: new Token(
     SupportedChainId.ARBITRUM_ONE,
     '0x82aF49447D8a07e3bd95BD0d56f35241523fBab1',
@@ -630,6 +646,7 @@ export const TOKEN_SHORTHANDS: { [shorthand: string]: { [chainId in SupportedCha
     [SupportedChainId.OPTIMISM_GOERLI]: USDC_OPTIMISM_GOERLI.address,
     [SupportedChainId.POLYGON]: USDC_POLYGON.address,
     [SupportedChainId.POLYGON_MUMBAI]: USDC_POLYGON_MUMBAI.address,
+    [SupportedChainId.BASE]: USDC_BASE.address,
     [SupportedChainId.CELO]: PORTAL_USDC_CELO.address,
     [SupportedChainId.CELO_ALFAJORES]: PORTAL_USDC_CELO.address,
     [SupportedChainId.GOERLI]: USDC_GOERLI.address,

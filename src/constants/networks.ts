@@ -79,6 +79,10 @@ export const FALLBACK_URLS: { [key in SupportedChainId]: string[] } = {
     // "Safe" URLs
     'https://goerli.optimism.io',
   ],
+  [SupportedChainId.BASE]: [
+    // "Safe" URLs
+    `https://mainnet.base.org`,
+  ],
   [SupportedChainId.CELO]: [
     // "Safe" URLs
     `https://forno.celo.org`,
@@ -151,5 +155,6 @@ export const RPC_URLS: { [key in SupportedChainId]: string[] } = {
     ...FALLBACK_URLS[SupportedChainId.LUX_TESTNET],
   ],
   [SupportedChainId.CELO]: FALLBACK_URLS[SupportedChainId.CELO],
+  [SupportedChainId.BASE]: FALLBACK_URLS[SupportedChainId.BASE],
   [SupportedChainId.CELO_ALFAJORES]: FALLBACK_URLS[SupportedChainId.CELO_ALFAJORES],
 }
