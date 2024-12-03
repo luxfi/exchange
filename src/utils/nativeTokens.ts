@@ -9,6 +9,7 @@ export function getNativeTokenDBAddress(chain: Chain): string | undefined {
     case Chain.Polygon:
       return nativeOnChain(pageChainId).wrapped.address
     case Chain.Ethereum:
+    case Chain.Base:
     case Chain.Arbitrum:
     case Chain.EthereumGoerli:
     case Chain.Optimism:

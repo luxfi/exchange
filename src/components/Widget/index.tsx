@@ -39,7 +39,7 @@ import { useSyncWidgetTransactions } from './transactions'
 
 export const DEFAULT_WIDGET_WIDTH = 360
 
-const WIDGET_ROUTER_URL = 'https://api.uniswap.org/v1/'
+const WIDGET_ROUTER_URL = 'https://beta.api.uniswap.org/v1/'
 
 function useWidgetTheme() {
   return useIsDarkMode() ? DARK_THEME : LIGHT_THEME

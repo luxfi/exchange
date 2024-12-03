@@ -10,6 +10,7 @@ const BLOCK_EXPLORER_PREFIXES: { [chainId: number]: string } = {
   [SupportedChainId.OPTIMISM_GOERLI]: 'https://goerli-optimism.etherscan.io',
   [SupportedChainId.POLYGON]: 'https://polygonscan.com',
   [SupportedChainId.POLYGON_MUMBAI]: 'https://mumbai.polygonscan.com',
+  [SupportedChainId.BASE]: 'https://basescan.org',
   [SupportedChainId.CELO]: 'https://celoscan.io',
   [SupportedChainId.CELO_ALFAJORES]: 'https://alfajores-blockscout.celo-testnet.org',
   [SupportedChainId.LUX]: 'https://explore.lux.network/',

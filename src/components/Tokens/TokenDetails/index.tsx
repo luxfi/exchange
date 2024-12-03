@@ -221,13 +221,14 @@ export default function TokenDetails({
         )}
 
         <RightPanel>
-          {token?.chainId == 96369 || token?.chainId == 200200 ? <Swap /> :
+          {/* {token?.chainId == 96369 || token?.chainId == 200200 ? <Swap /> :
             <Widget
               token={token ?? undefined}
               defaultField={Field.OUTPUT}
               onTokenChange={navigateToWidgetSelectedToken}
               onReviewSwapClick={onReviewSwapClick}
-            />}
+            />} */}
+          {<Swap />}
           {tokenWarning && token?.chainId != 96369 && token?.chainId != 200200 && <TokenSafetyMessage tokenAddress={address} warning={tokenWarning} />}
           {token && token?.chainId != 96369 && token?.chainId != 200200 && <BalanceSummary token={token} />}
         </RightPanel>

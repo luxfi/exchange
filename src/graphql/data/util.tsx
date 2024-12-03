@@ -62,6 +62,7 @@ export const CHAIN_ID_TO_BACKEND_NAME: { [key: number]: Chain } = {
   [SupportedChainId.GOERLI]: Chain.EthereumGoerli,
   [SupportedChainId.POLYGON]: Chain.Polygon,
   [SupportedChainId.POLYGON_MUMBAI]: Chain.Polygon,
+  [SupportedChainId.BASE]: Chain.Base,
   [SupportedChainId.CELO]: Chain.Celo,
   [SupportedChainId.CELO_ALFAJORES]: Chain.Celo,
   [SupportedChainId.ARBITRUM_ONE]: Chain.Arbitrum,
@@ -81,6 +82,7 @@ const URL_CHAIN_PARAM_TO_BACKEND: { [key: string]: Chain } = {
   zoo: Chain.Zoo,
   ethereum: Chain.Ethereum,
   polygon: Chain.Polygon,
+  base: Chain.Base,
   celo: Chain.Celo,
   arbitrum: Chain.Arbitrum,
   optimism: Chain.Optimism,
@@ -96,11 +98,12 @@ export const CHAIN_NAME_TO_CHAIN_ID: { [key: string]: SupportedChainId } = {
   ETHEREUM: SupportedChainId.MAINNET,
   POLYGON: SupportedChainId.POLYGON,
   CELO: SupportedChainId.CELO,
+  BASE: SupportedChainId.BASE,
   ARBITRUM: SupportedChainId.ARBITRUM_ONE,
   OPTIMISM: SupportedChainId.OPTIMISM,
 }
 
-export const BACKEND_CHAIN_NAMES: Chain[] = [Chain.Lux, Chain.Zoo, Chain.Ethereum, Chain.Polygon, Chain.Optimism, Chain.Arbitrum, Chain.Celo]
+export const BACKEND_CHAIN_NAMES: Chain[] = [Chain.Lux, Chain.Zoo, Chain.Ethereum, Chain.Polygon, Chain.Optimism, Chain.Arbitrum, Chain.Celo, Chain.Base]
 
 export function getTokenDetailsURL(address: string, chainName?: Chain, chainId?: number) {
   if (address === ZERO_ADDRESS && chainId && chainId === SupportedChainId.MAINNET) {

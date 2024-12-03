@@ -52,6 +52,7 @@ import {
   WETH_POLYGON,
   WETH_POLYGON_MUMBAI,
   WRAPPED_NATIVE_CURRENCY,
+  USDC_BASE,
 } from './tokens'
 
 type ChainTokenList = {
@@ -89,6 +90,10 @@ export const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
     DAI_ARBITRUM_ONE,
     USDT_ARBITRUM_ONE,
     WBTC_ARBITRUM_ONE,
+  ],
+  [SupportedChainId.BASE]: [
+    ...WRAPPED_NATIVE_CURRENCIES_ONLY[SupportedChainId.BASE],
+    USDC_BASE,
   ],
   [SupportedChainId.POLYGON]: [
     ...WRAPPED_NATIVE_CURRENCIES_ONLY[SupportedChainId.POLYGON],
@@ -157,6 +162,11 @@ export const COMMON_BASES: ChainCurrencyList = {
     USDT_ARBITRUM_ONE,
     WBTC_ARBITRUM_ONE,
     WRAPPED_NATIVE_CURRENCY[SupportedChainId.ARBITRUM_ONE] as Token,
+  ],
+  [SupportedChainId.BASE]: [
+    nativeOnChain(SupportedChainId.BASE),
+    USDC_BASE,
+    WRAPPED_NATIVE_CURRENCY[SupportedChainId.BASE] as Token,
   ],
   [SupportedChainId.ARBITRUM_RINKEBY]: [
     nativeOnChain(SupportedChainId.ARBITRUM_RINKEBY),
