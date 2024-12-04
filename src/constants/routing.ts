@@ -53,7 +53,12 @@ import {
   WETH_POLYGON_MUMBAI,
   WRAPPED_NATIVE_CURRENCY,
   USDC_BASE,
+  USDC_BNB,
+  USDT_BNB,
+  USDC_AVAX,
+  WETH_AVAX,
 } from './tokens'
+import { BNB_LIST } from './lists'
 
 type ChainTokenList = {
   readonly [chainId: number]: Token[]
@@ -167,6 +172,24 @@ export const COMMON_BASES: ChainCurrencyList = {
     nativeOnChain(SupportedChainId.BASE),
     USDC_BASE,
     WRAPPED_NATIVE_CURRENCY[SupportedChainId.BASE] as Token,
+  ],
+  [SupportedChainId.BLAST]: [
+    nativeOnChain(SupportedChainId.BLAST),
+    WRAPPED_NATIVE_CURRENCY[SupportedChainId.BLAST] as Token,
+  ],
+  [SupportedChainId.BNB]: [
+    nativeOnChain(SupportedChainId.BNB),
+    USDC_BNB,
+    USDT_BNB,
+  ],
+  [SupportedChainId.AVALANCHE]: [
+    nativeOnChain(SupportedChainId.AVALANCHE),
+    USDC_AVAX,
+    WETH_AVAX,
+  ],
+  [SupportedChainId.ZORA]: [
+    nativeOnChain(SupportedChainId.ZORA),
+    WRAPPED_NATIVE_CURRENCY[SupportedChainId.ZORA] as Token,
   ],
   [SupportedChainId.ARBITRUM_RINKEBY]: [
     nativeOnChain(SupportedChainId.ARBITRUM_RINKEBY),

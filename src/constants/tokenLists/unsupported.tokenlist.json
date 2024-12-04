@@ -168,7 +168,7 @@
       "chainId": 1,
       "address": "0xAFD870F32CE54EfdBF677466B612bf8ad164454B",
       "symbol": "iBNB",
-      "name": "Synth Inverse Binance Coin",
+      "name": "Synth Inverse Bnb Coin",
       "decimals": 18,
       "logoURI": "https://raw.githubusercontent.com/Synthetixio/synthetix-assets/v2.0.10/synths/iBNB.svg",
       "tags": ["inverse", "synth"]
@@ -402,7 +402,7 @@
       "chainId": 1,
       "address": "0x617aeCB6137B5108D1E7D4918e3725C8cEbdB848",
       "symbol": "sBNB",
-      "name": "Synth Binance Coin",
+      "name": "Synth Bnb Coin",
       "decimals": 18,
       "logoURI": "https://raw.githubusercontent.com/Synthetixio/synthetix-assets/v2.0.10/synths/sBNB.svg",
       "tags": ["synth"]

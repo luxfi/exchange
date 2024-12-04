@@ -28,6 +28,10 @@ const NETWORK_SELECTOR_CHAINS = [
   SupportedChainId.ARBITRUM_ONE,
   SupportedChainId.CELO,
   SupportedChainId.BASE,
+  SupportedChainId.BNB,
+  SupportedChainId.AVALANCHE,
+  SupportedChainId.ZORA,
+  SupportedChainId.BLAST,
 ]
 
 interface ChainSelectorProps {

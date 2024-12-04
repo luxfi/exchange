@@ -23,6 +23,22 @@ export const TOKENS_LUX_LIST = {
             "extensions": {}
         },
         {
+            "chainId": 7777777,
+            "address": "0xCccCCccc7021b32EBb4e8C08314bD62F7c653EC4",
+            "name": "USD Coin (Bridged from Ethereum)",
+            "symbol": "USDzC",
+            "decimals": 6,
+            "logoURI": "https://assets.coingecko.com/coins/images/35218/large/USDC_Icon.png?1707908537"
+        },
+        {
+            "chainId": 7777777,
+            "address": "0x4200000000000000000000000000000000000006",
+            "name": "Zora Bridged WETH  Zora Network",
+            "symbol": "WETH",
+            "decimals": 18,
+            "logoURI": "https://raw.githubusercontent.com/Uniswap/assets/master/blockchains/ethereum/assets/0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2/logo.png"
+        },
+        {
             "chainId": 96369,
             "address": "0x60E0a8167FC13dE89348978860466C9ceC24B9ba",
             "name": "Lux ETH",

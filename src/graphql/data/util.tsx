@@ -63,6 +63,10 @@ export const CHAIN_ID_TO_BACKEND_NAME: { [key: number]: Chain } = {
   [SupportedChainId.POLYGON]: Chain.Polygon,
   [SupportedChainId.POLYGON_MUMBAI]: Chain.Polygon,
   [SupportedChainId.BASE]: Chain.Base,
+  [SupportedChainId.BNB]: Chain.Bnb,
+  [SupportedChainId.AVALANCHE]: Chain.Avalanche,
+  [SupportedChainId.BLAST]: Chain.Blast,
+  [SupportedChainId.ZORA]: Chain.Zora,
   [SupportedChainId.CELO]: Chain.Celo,
   [SupportedChainId.CELO_ALFAJORES]: Chain.Celo,
   [SupportedChainId.ARBITRUM_ONE]: Chain.Arbitrum,
@@ -82,6 +86,10 @@ const URL_CHAIN_PARAM_TO_BACKEND: { [key: string]: Chain } = {
   zoo: Chain.Zoo,
   ethereum: Chain.Ethereum,
   polygon: Chain.Polygon,
+  blast: Chain.Blast,
+  avalanche: Chain.Avalanche,
+  zora: Chain.Zora,
+  bnb: Chain.Bnb,
   base: Chain.Base,
   celo: Chain.Celo,
   arbitrum: Chain.Arbitrum,
@@ -99,11 +107,15 @@ export const CHAIN_NAME_TO_CHAIN_ID: { [key: string]: SupportedChainId } = {
   POLYGON: SupportedChainId.POLYGON,
   CELO: SupportedChainId.CELO,
   BASE: SupportedChainId.BASE,
+  BLAST: SupportedChainId.BLAST,
+  BNB: SupportedChainId.BNB,
+  AVALANCHE: SupportedChainId.AVALANCHE,
+  ZORA: SupportedChainId.ZORA,
   ARBITRUM: SupportedChainId.ARBITRUM_ONE,
   OPTIMISM: SupportedChainId.OPTIMISM,
 }
 
-export const BACKEND_CHAIN_NAMES: Chain[] = [Chain.Lux, Chain.Zoo, Chain.Ethereum, Chain.Polygon, Chain.Optimism, Chain.Arbitrum, Chain.Celo, Chain.Base]
+export const BACKEND_CHAIN_NAMES: Chain[] = [Chain.Lux, Chain.Zoo, Chain.Ethereum, Chain.Polygon, Chain.Optimism, Chain.Arbitrum, Chain.Celo, Chain.Base, Chain.Bnb, Chain.Avalanche, Chain.Zora, Chain.Blast]
 
 export function getTokenDetailsURL(address: string, chainName?: Chain, chainId?: number) {
   if (address === ZERO_ADDRESS && chainId && chainId === SupportedChainId.MAINNET) {

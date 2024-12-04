@@ -83,6 +83,22 @@ export const FALLBACK_URLS: { [key in SupportedChainId]: string[] } = {
     // "Safe" URLs
     `https://mainnet.base.org`,
   ],
+  [SupportedChainId.BNB]: [
+    // "Safe" URLs
+    `https://bsc-dataseed.binance.org`,
+  ],
+  [SupportedChainId.AVALANCHE]: [
+    // "Safe" URLs
+    `https://avalanche-mainnet.infura.io`,
+  ],
+  [SupportedChainId.BLAST]: [
+    // "Safe" URLs
+    `https://rpc.blast.io`,
+  ],
+  [SupportedChainId.ZORA]: [
+    // "Safe" URLs
+    `https://rpc.zora.energy`,
+  ],
   [SupportedChainId.CELO]: [
     // "Safe" URLs
     `https://forno.celo.org`,
@@ -156,5 +172,9 @@ export const RPC_URLS: { [key in SupportedChainId]: string[] } = {
   ],
   [SupportedChainId.CELO]: FALLBACK_URLS[SupportedChainId.CELO],
   [SupportedChainId.BASE]: FALLBACK_URLS[SupportedChainId.BASE],
+  [SupportedChainId.BNB]: FALLBACK_URLS[SupportedChainId.BNB],
+  [SupportedChainId.AVALANCHE]: FALLBACK_URLS[SupportedChainId.AVALANCHE],
+  [SupportedChainId.BLAST]: FALLBACK_URLS[SupportedChainId.BLAST],
+  [SupportedChainId.ZORA]: FALLBACK_URLS[SupportedChainId.ZORA],
   [SupportedChainId.CELO_ALFAJORES]: FALLBACK_URLS[SupportedChainId.CELO_ALFAJORES],
 }

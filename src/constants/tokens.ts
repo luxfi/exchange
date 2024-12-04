@@ -142,6 +142,38 @@ export const USDC_BASE = new Token(
   'USD//C'
 )
 
+export const USDC_AVAX = new Token(
+  SupportedChainId.AVALANCHE,
+  '0xB97EF9Ef8734C71904D8002F8b6Bc66Dd9c48a6E',
+  6,
+  'USDC',
+  'USD Coin'
+)
+
+export const WETH_AVAX = new Token(
+  SupportedChainId.AVALANCHE,
+  '0x49D5c2BdFfac6CE2BFdB6640F4F80f226bc10bAB',
+  18,
+  'WETH.e',
+  'Wrapped Ether'
+)
+
+export const USDC_BNB = new Token(
+  SupportedChainId.BNB,
+  '0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d',
+  6,
+  'USDC',
+  'USD Coin'
+)
+
+export const USDT_BNB = new Token(
+  SupportedChainId.BNB,
+  '0x55d398326f99059fF775485246999027B3197955',
+  6,
+  'USDT',
+  'Tether USD'
+)
+
 const USDC_ARBITRUM_RINKEBY = new Token(
   SupportedChainId.ARBITRUM_RINKEBY,
   '0x09b98f8b2395d076514037ff7d39a091a536206c',
@@ -459,6 +491,34 @@ export const WRAPPED_NATIVE_CURRENCY: { [chainId: number]: Token | undefined } =
     'WETH',
     'Wrapped Ether'
   ),
+  [SupportedChainId.BNB]: new Token(
+    SupportedChainId.BNB,
+    '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c',
+    18,
+    'WBNB',
+    'Wrapped BNB'
+  ),
+  [SupportedChainId.BLAST]: new Token(
+    SupportedChainId.BLAST,
+    '0x4300000000000000000000000000000000000004',
+    18,
+    'WETH',
+    'Wrapped Ether'
+  ),
+  [SupportedChainId.AVALANCHE]: new Token(
+    SupportedChainId.AVALANCHE,
+    '0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7',
+    18,
+    'WAVAX',
+    'Wrapped AVAX'
+  ),
+  [SupportedChainId.ZORA]: new Token(
+    SupportedChainId.ZORA,
+    '0x4200000000000000000000000000000000000006',
+    18,
+    'WETH',
+    'Wrapped Ether'
+  ),
   [SupportedChainId.ARBITRUM_ONE]: new Token(
     SupportedChainId.ARBITRUM_ONE,
     '0x82aF49447D8a07e3bd95BD0d56f35241523fBab1',
@@ -551,6 +611,16 @@ function isMatic(chainId: number): chainId is SupportedChainId.POLYGON | Support
   return chainId === SupportedChainId.POLYGON_MUMBAI || chainId === SupportedChainId.POLYGON
 }
 
+function isBNB(chainId: number): chainId is SupportedChainId.BNB {
+  return chainId === SupportedChainId.BNB
+}
+function isAVAX(chainId: number): chainId is SupportedChainId.AVALANCHE {
+  return chainId === SupportedChainId.AVALANCHE
+}
+function isBLAST(chainId: number): chainId is SupportedChainId.BLAST {
+  return chainId === SupportedChainId.BLAST
+}
+
 class MaticNativeCurrency extends NativeCurrency {
   equals(other: Currency): boolean {
     return other.isNative && other.chainId === this.chainId
@@ -566,6 +636,60 @@ class MaticNativeCurrency extends NativeCurrency {
   public constructor(chainId: number) {
     if (!isMatic(chainId)) throw new Error('Not matic')
     super(chainId, 18, 'MATIC', 'Polygon Matic')
+  }
+}
+
+class BNBNativeCurrency extends NativeCurrency {
+  equals(other: Currency): boolean {
+    return other.isNative && other.chainId === this.chainId
+  }
+
+  get wrapped(): Token {
+    if (!isBNB(this.chainId)) throw new Error('Not bnb')
+    const wrapped = WRAPPED_NATIVE_CURRENCY[this.chainId]
+    invariant(wrapped instanceof Token)
+    return wrapped
+  }
+
+  public constructor(chainId: number) {
+    if (!isBNB(chainId)) throw new Error('Not bnb')
+    super(chainId, 18, 'BNB', 'BNB')
+  }
+}
+
+class AVAXNativeCurrency extends NativeCurrency {
+  equals(other: Currency): boolean {
+    return other.isNative && other.chainId === this.chainId
+  }
+
+  get wrapped(): Token {
+    if (!isAVAX(this.chainId)) throw new Error('Not avax')
+    const wrapped = WRAPPED_NATIVE_CURRENCY[this.chainId]
+    invariant(wrapped instanceof Token)
+    return wrapped
+  }
+
+  public constructor(chainId: number) {
+    if (!isAVAX(chainId)) throw new Error('Not avax')
+    super(chainId, 18, 'AVAX', 'AVAX')
+  }
+}
+
+class BLASTNativeCurrency extends NativeCurrency {
+  equals(other: Currency): boolean {
+    return other.isNative && other.chainId === this.chainId
+  }
+
+  get wrapped(): Token {
+    if (!isBLAST(this.chainId)) throw new Error('Not blast')
+    const wrapped = WRAPPED_NATIVE_CURRENCY[this.chainId]
+    invariant(wrapped instanceof Token)
+    return wrapped
+  }
+
+  public constructor(chainId: number) {
+    if (!isBLAST(chainId)) throw new Error('Not blast')
+    super(chainId, 18, 'BLAST', 'BLAST')
   }
 }
 
@@ -625,12 +749,18 @@ export function nativeOnChain(chainId: number): NativeCurrency | Token {
   let nativeCurrency: NativeCurrency | Token
   if (isMatic(chainId)) {
     nativeCurrency = new MaticNativeCurrency(chainId)
+  } else if (isBNB(chainId)) {
+    nativeCurrency = new BNBNativeCurrency(chainId)
+  } else if (isBLAST(chainId)) {
+    nativeCurrency = new BLASTNativeCurrency(chainId)
+  } else if (isAVAX(chainId)) {
+    nativeCurrency = new AVAXNativeCurrency(chainId)
   } else if (isCelo(chainId)) {
     nativeCurrency = getCeloNativeCurrency(chainId)
   } else if(isLUX(chainId)) {
-    nativeCurrency = new LuxNativeCurrency(chainId);
+    nativeCurrency = new LuxNativeCurrency(chainId)
   } else if(isZOO(chainId)) {
-    nativeCurrency = new ZooNativeCurrency(chainId);
+    nativeCurrency = new ZooNativeCurrency(chainId)
   } else {
     nativeCurrency = ExtendedEther.onChain(chainId)
   }
@@ -647,6 +777,7 @@ export const TOKEN_SHORTHANDS: { [shorthand: string]: { [chainId in SupportedCha
     [SupportedChainId.POLYGON]: USDC_POLYGON.address,
     [SupportedChainId.POLYGON_MUMBAI]: USDC_POLYGON_MUMBAI.address,
     [SupportedChainId.BASE]: USDC_BASE.address,
+    [SupportedChainId.BNB]: USDC_BNB.address,
     [SupportedChainId.CELO]: PORTAL_USDC_CELO.address,
     [SupportedChainId.CELO_ALFAJORES]: PORTAL_USDC_CELO.address,
     [SupportedChainId.GOERLI]: USDC_GOERLI.address,

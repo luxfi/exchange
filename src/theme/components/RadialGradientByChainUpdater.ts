@@ -86,6 +86,42 @@ export default function RadialGradientByChainUpdater(): null {
         backgroundRadialGradientElement.style.background = darkMode ? baseDarkGradient : baseLightGradient
         break
       }
+      case SupportedChainId.AVALANCHE: {
+        setBackground(backgroundResetStyles)
+        const baseLightGradient =
+          'radial-gradient(100% 100% at 50% 0%, rgba(0, 15, 50, 0.41) 0%, rgba(20, 20, 20, 0.24) 100%), #FFFFFF'
+        const baseDarkGradient =
+          'radial-gradient(circle at center, #422222 0%, #000000 100%)'
+        backgroundRadialGradientElement.style.background = darkMode ? baseDarkGradient : baseLightGradient
+        break
+      }
+      case SupportedChainId.BNB: {
+        setBackground(backgroundResetStyles)
+        const baseLightGradient =
+          'radial-gradient(100% 100% at 50% 0%, rgba(0, 15, 50, 0.41) 0%, rgba(20, 20, 20, 0.24) 100%), #FFFFFF'
+        const baseDarkGradient =
+          'radial-gradient(circle at center, #424222 0%, #000000 100%)'
+        backgroundRadialGradientElement.style.background = darkMode ? baseDarkGradient : baseLightGradient
+        break
+      }
+      case SupportedChainId.ZORA: {
+        setBackground(backgroundResetStyles)
+        const baseLightGradient =
+          'radial-gradient(100% 100% at 50% 0%, rgba(0, 15, 50, 0.41) 0%, rgba(20, 20, 20, 0.24) 100%), #FFFFFF'
+        const baseDarkGradient =
+          'radial-gradient(circle at center, #292039 0%, #000000 100%)'
+        backgroundRadialGradientElement.style.background = darkMode ? baseDarkGradient : baseLightGradient
+        break
+      }
+      case SupportedChainId.BLAST: {
+        setBackground(backgroundResetStyles)
+        const baseLightGradient =
+          'radial-gradient(100% 100% at 50% 0%, rgba(0, 15, 50, 0.41) 0%, rgba(20, 20, 20, 0.24) 100%), #FFFFFF'
+        const baseDarkGradient =
+          'radial-gradient(circle at center, #323922 0%, #000000 100%)'
+        backgroundRadialGradientElement.style.background = darkMode ? baseDarkGradient : baseLightGradient
+        break
+      }
 
       case SupportedChainId.CELO:
       case SupportedChainId.CELO_ALFAJORES: {

@@ -183,6 +183,7 @@ export enum Currency {
   Jpy = 'JPY',
   Krw = 'KRW',
   Matic = 'MATIC',
+  Bnb = 'BNB',
   Ngn = 'NGN',
   Pkr = 'PKR',
   Rub = 'RUB',

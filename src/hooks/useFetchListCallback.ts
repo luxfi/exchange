@@ -6,7 +6,7 @@ import getTokenList from 'lib/hooks/useTokenList/fetchTokenList'
 import resolveENSContentHash from 'lib/utils/resolveENSContentHash'
 import { useCallback } from 'react'
 import { useAppDispatch } from 'state/hooks'
-// import { TOKENS_LUX_LIST } from 'tokens-lux/tokens'
+import { TOKENS_LUX_LIST } from 'tokens-lux/tokens'
 
 import { fetchTokenList } from '../state/lists/actions'
 
@@ -22,10 +22,10 @@ export function useFetchListCallback(): (
     async (listUrl: string, sendDispatch = true, skipValidation?: boolean) => {
       const requestId = nanoid()
       sendDispatch && dispatch(fetchTokenList.pending({ requestId, url: listUrl }))
-      // if(listUrl === "tokens-lux") {
-      //   dispatch(fetchTokenList.fulfilled({ url: listUrl, tokenList: TOKENS_LUX_LIST, requestId }));
-      //   return TOKENS_LUX_LIST;
-      // }
+      if(listUrl === "tokens-lux") {
+        dispatch(fetchTokenList.fulfilled({ url: listUrl, tokenList: TOKENS_LUX_LIST, requestId }));
+        return TOKENS_LUX_LIST;
+      }
       return getTokenList(
         listUrl,
         (ensName: string) => resolveENSContentHash(ensName, RPC_PROVIDERS[SupportedChainId.MAINNET]),
