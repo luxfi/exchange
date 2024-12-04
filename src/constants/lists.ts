@@ -20,8 +20,8 @@ export const AVALANCHE_LIST = 'https://tokens.coingecko.com/avalanche/all.json'
 export const BNB_LIST = 'https://tokens.coingecko.com/binance-smart-chain/all.json'
 export const CELO_LIST = 'https://celo-org.github.io/celo-token-list/celo.tokenlist.json'
 export const BASE_LIST = 'https://raw.githubusercontent.com/ethereum-optimism/ethereum-optimism.github.io/master/optimism.tokenlist.json'
-export const LUX_LIST = 'tokens-lux'
-// export const LUX_LIST = 'https://cdn.lux.network/exchange/tokens-lux/tokens.json'
+// export const LUX_LIST = 'tokens-lux'
+export const LUX_LIST = 'https://cdn.lux.network/exchange/tokens-lux/tokens.json'
 
 export const UNSUPPORTED_LIST_URLS: string[] = [BA_LIST, UNI_UNSUPPORTED_LIST]
 

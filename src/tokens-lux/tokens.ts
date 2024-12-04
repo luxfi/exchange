@@ -130,6 +130,24 @@ export const TOKENS_LUX_LIST = {
         },
         {
             "chainId": 96369,
+            "address": "0x94f49D0F4C62bbE4238F4AaA9200287bea9F2976",
+            "name": "Lux BLAST",
+            "symbol": "LBLAST",
+            "decimals": 18,
+            "logoURI": "https://cdn.lux.network/bridge/currencies/lux/lblast.svg",
+            "extensions": {}
+        },
+        {
+            "chainId": 96369,
+            "address": "0x0e4bD0DD67c15dECfBBBdbbE07FC9d51D737693D",
+            "name": "Lux AVAX",
+            "symbol": "LAVAX",
+            "decimals": 18,
+            "logoURI": "https://cdn.lux.network/bridge/currencies/lux/lavax.svg",
+            "extensions": {}
+        },
+        {
+            "chainId": 96369,
             "address": "0x5E5290f350352768bD2bfC59c2DA15DD04A7cB88",
             "name": "Lux ZOO",
             "symbol": "LZOO",
