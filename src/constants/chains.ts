@@ -25,6 +25,10 @@ export enum SupportedChainId {
   CELO_ALFAJORES = 44787,
 
   BASE = 8453,
+  BLAST = 81457,
+  ZORA = 7777777,
+  BNB = 56,
+  AVALANCHE = 43114,
 }
 
 export const CHAIN_IDS_TO_NAMES = {
@@ -35,7 +39,11 @@ export const CHAIN_IDS_TO_NAMES = {
   [SupportedChainId.KOVAN]: 'kovan',
   [SupportedChainId.POLYGON]: 'polygon',
   [SupportedChainId.POLYGON_MUMBAI]: 'polygon_mumbai',
+  [SupportedChainId.BNB]: 'bnb',
   [SupportedChainId.BASE]: 'base',
+  [SupportedChainId.AVALANCHE]: 'avalanche',
+  [SupportedChainId.ZORA]: 'zora',
+  [SupportedChainId.BLAST]: 'blast',
   [SupportedChainId.CELO]: 'celo',
   [SupportedChainId.CELO_ALFAJORES]: 'celo_alfajores',
   [SupportedChainId.ARBITRUM_ONE]: 'arbitrum',
@@ -63,6 +71,10 @@ export const SUPPORTED_GAS_ESTIMATE_CHAIN_IDS = [
   SupportedChainId.POLYGON,
   SupportedChainId.CELO,
   SupportedChainId.BASE,
+  SupportedChainId.AVALANCHE,
+  SupportedChainId.ZORA,
+  SupportedChainId.BLAST,
+  SupportedChainId.BNB,
   SupportedChainId.OPTIMISM,
   SupportedChainId.ARBITRUM_ONE,
   SupportedChainId.LUX,
@@ -100,6 +112,8 @@ export const L1_CHAIN_IDS = [
   SupportedChainId.RINKEBY,
   SupportedChainId.GOERLI,
   SupportedChainId.KOVAN,
+  SupportedChainId.AVALANCHE,
+  SupportedChainId.BNB,
   SupportedChainId.LUX,
   SupportedChainId.ZOO,
   SupportedChainId.POLYGON,
@@ -120,6 +134,8 @@ export const L2_CHAIN_IDS = [
   SupportedChainId.OPTIMISM,
   SupportedChainId.OPTIMISM_GOERLI,
   SupportedChainId.BASE,
+  SupportedChainId.BLAST,
+  SupportedChainId.ZORA,
 ] as const
 
 export type SupportedL2ChainId = typeof L2_CHAIN_IDS[number]

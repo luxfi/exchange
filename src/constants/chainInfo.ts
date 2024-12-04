@@ -1,10 +1,15 @@
 import celoCircleLogoUrl from 'assets/images/celoCircle.png'
 import baseCircleLogoUrl from 'assets/images/baseCircle.png'
+import binanceLogoUrl from 'assets/images/bnb_mainnet.png'
+import avalancheLogoUrl from 'assets/images/avax_mainnet.png'
+import zoraLogoUrl from 'assets/images/zora_mainnet.png'
+import blastLogoUrl from 'assets/images/blast_mainnet.png'
 import ethereumLogoUrl from 'assets/images/ethereum-logo.png'
 import luxLogoUrl from 'assets/images/lux-Logo.png'
 import zooLogoUrl from 'assets/images/zoo-Logo.png'
 import polygonCircleLogoUrl from 'assets/images/polygonCircle.png'
 import { default as arbitrumCircleLogoUrl, default as arbitrumLogoUrl } from 'assets/svg/arbitrum_logo.svg'
+import avalancheAvaxLogo from 'assets/svg/avalanche-avax-logo.svg'
 import celoLogo from 'assets/svg/celo_logo.svg'
 import baseLogo from 'assets/svg/base_logo.svg'
 import optimismLogoUrl from 'assets/svg/optimistic_ethereum.svg'
@@ -13,7 +18,7 @@ import ms from 'ms.macro'
 import { darkTheme } from 'theme/colors'
 
 import { SupportedChainId, SupportedL1ChainId, SupportedL2ChainId } from './chains'
-import { ARBITRUM_LIST, CELO_LIST, BASE_LIST, OPTIMISM_LIST } from './lists'
+import { ARBITRUM_LIST, CELO_LIST, BASE_LIST, OPTIMISM_LIST, BLAST_LIST, ZORA_LIST, AVALANCHE_LIST, BNB_LIST } from './lists'
 
 export const AVERAGE_L1_BLOCK_TIME = ms`12s`
 
@@ -208,8 +213,58 @@ const CHAIN_INFO: ChainInfoMap = {
     circleLogoUrl: baseCircleLogoUrl,
     nativeCurrency: { name: 'Ether', symbol: 'ETH', decimals: 18 },
     defaultListUrl: BASE_LIST,
-    color: darkTheme.chain_42,
-    backgroundColor: darkTheme.chain_42161_background,
+  },
+  [SupportedChainId.BNB]: {
+    networkType: NetworkType.L1,
+    blockWaitMsBeforeWarning: ms`1m`,
+    bridge: 'https://www.binance.org/en/bridge',
+    docs: 'https://docs.bnbchain.org/',
+    explorer: 'https://bscscan.com/',
+    infoLink: 'https://info.uniswap.org/#/binance-smart-chain',
+    label: 'Binance',
+    logoUrl: binanceLogoUrl,
+    circleLogoUrl: binanceLogoUrl,
+    nativeCurrency: { name: 'BNB', symbol: 'BNB', decimals: 18 },
+    defaultListUrl: BNB_LIST,
+  },
+  [SupportedChainId.AVALANCHE]: {
+    networkType: NetworkType.L1,
+    blockWaitMsBeforeWarning: ms`1m`,
+    bridge: 'https://bridge.avax.network/',
+    docs: 'https://docs.avax.network/',
+    explorer: 'https://snowtrace.io/',
+    infoLink: 'https://info.uniswap.org/#/avalanche',
+    label: 'Avalanche',
+    logoUrl: avalancheAvaxLogo,
+    circleLogoUrl: avalancheLogoUrl,
+    nativeCurrency: { name: 'Avalanche', symbol: 'AVAX', decimals: 18 },
+    defaultListUrl: AVALANCHE_LIST,
+  },
+  [SupportedChainId.ZORA]: {
+    networkType: NetworkType.L2,
+    blockWaitMsBeforeWarning: ms`10m`,
+    bridge: 'https://bridge.zora.energy/',
+    docs: 'https://docs.zora.energy/',
+    explorer: 'https://explorer.zora.energy/',
+    infoLink: 'https://info.uniswap.org/#/zora',
+    label: 'Zora',
+    logoUrl: zoraLogoUrl,
+    circleLogoUrl: zoraLogoUrl,
+    nativeCurrency: { name: 'Ether', symbol: 'ETH', decimals: 18 },
+    defaultListUrl: ZORA_LIST,
+  },
+  [SupportedChainId.BLAST]: {
+    networkType: NetworkType.L2,
+    blockWaitMsBeforeWarning: ms`5m`,
+    bridge: 'https://bridge.blast.org/',
+    docs: 'https://docs.blast.org/',
+    explorer: 'https://explorer.blast.org/',
+    infoLink: 'https://info.uniswap.org/#/blast',
+    label: 'Blast',
+    logoUrl: blastLogoUrl,
+    circleLogoUrl: blastLogoUrl,
+    nativeCurrency: { name: 'BlastToken', symbol: 'BLAST', decimals: 18 },
+    defaultListUrl: BLAST_LIST,
   },
   [SupportedChainId.CELO]: {
     networkType: NetworkType.L1,
