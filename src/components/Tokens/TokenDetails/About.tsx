@@ -86,6 +86,7 @@ export function AboutSection({ address, chainId, description, homepageUrl, twitt
   } else if (chainId == 96369) {
     displayTokenDescription = displayTokenDescription?.replace(/Lux/g, 'Liquid')
     displayTokenDescription = displayTokenDescription?.replace(/Solana/g, 'SOL')
+    displayTokenDescription = displayTokenDescription?.replace(/Dollar/g, 'USD')
   }
 
   if (chainId == 200200 && displayTokenDescription == 'Lux Coin for LUX') {
