@@ -179,6 +179,7 @@ export default function TokenDetails({
   if (token?.chainId == 96369 && token?.symbol != "WLUX") {
     changeTokenName = changeTokenName?.replace(/Lux/g, 'Liquid')
     changeTokenName = changeTokenName?.replace(/Solana/g, 'SOL')
+    changeTokenName = changeTokenName?.replace(/Dollar/g, 'USD')
   }
 
   return (
