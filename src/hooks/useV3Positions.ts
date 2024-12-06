@@ -103,3 +103,41 @@ export function useV3Positions(account: string | null | undefined): UseV3Positio
     positions,
   }
 }
+export function useAllV3Positions(): UseV3PositionsResults {
+  const positionManager = useV3NFTPositionManagerContract();
+
+  // Get the total supply of NFTs (total number of positions ever created)
+  const { loading: totalSupplyLoading, result: totalSupplyResult } = useSingleCallResult(positionManager, 'totalSupply');
+  const totalSupply: number | undefined = totalSupplyResult?.[0]?.toNumber();
+
+  // Generate token ID arguments for querying positions
+  const tokenIdsArgs = useMemo(() => {
+    if (totalSupply) {
+      const tokenRequests = [];
+      for (let i = 0; i < totalSupply; i++) {
+        tokenRequests.push([i]);
+      }
+      return tokenRequests;
+    }
+    return [];
+  }, [totalSupply]);
+
+  // Query the owner of each token ID
+  const ownerResults = useSingleContractMultipleData(positionManager, 'ownerOf', tokenIdsArgs);
+  const someOwnersLoading = useMemo(() => ownerResults.some(({ loading }) => loading), [ownerResults]);
+
+  // Extract valid token IDs that have owners
+  const tokenIds = useMemo(() => {
+    return ownerResults
+      .map(({ result }, index) => (result && result[0] ? BigNumber.from(index) : null))
+      .filter((id): id is BigNumber => id !== null);
+  }, [ownerResults]);
+
+  // Fetch positions from the valid token IDs
+  const { positions, loading: positionsLoading } = useV3PositionsFromTokenIds(tokenIds);
+
+  return {
+    loading: totalSupplyLoading || someOwnersLoading || positionsLoading,
+    positions,
+  };
+}

@@ -175,6 +175,12 @@ export default function TokenDetails({
     return <InvalidTokenDetails chainName={address && getChainInfo(pageChainId)?.label} />
   }
 
+  let changeTokenName = token?.name;
+  if (token?.chainId == 96369 && token?.symbol != "WLUX") {
+    changeTokenName = changeTokenName?.replace(/Lux/g, 'Liquid')
+    changeTokenName = changeTokenName?.replace(/Solana/g, 'SOL')
+  }
+
   return (
     <Trace
       page={InterfacePageName.TOKEN_DETAILS_PAGE}
@@ -191,7 +197,7 @@ export default function TokenDetails({
               <TokenNameCell>
                 <CurrencyLogo currency={token} size="32px" hideL2Icon={false} />
                 {/* must edit */}
-                {token.name ? (token?.chainId == 200200 && token?.symbol == "WLUX" ? "Zoo Coin" : (token?.chainId == 96369 && token?.symbol == "WLUX" ? 'Lux Coin' : token?.name)) : <Trans>Name not found</Trans>}
+                {token.name ? (token?.chainId == 200200 && token?.symbol == "WLUX" ? "Zoo Coin" : (token?.chainId == 96369 && token?.symbol == "WLUX" ? 'Lux Coin' : changeTokenName)) : <Trans>Name not found</Trans>}
                 <TokenSymbol>{token.symbol ? (token?.chainId == 200200 && token?.symbol == "WLUX" ? "ZOO" : (token?.chainId == 96369 && token?.symbol == "WLUX" ? 'LUX' : token?.symbol)) : <Trans>Symbol not found</Trans>}</TokenSymbol>
               </TokenNameCell>
               <TokenActions>
