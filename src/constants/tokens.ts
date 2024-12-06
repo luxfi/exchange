@@ -30,7 +30,7 @@ export const LUSD = new Token(
   '0x848Cff46eb323f323b6Bbe1Df274E40793d7f2c2',
   18,
   "LUSD",
-  "Lux Dollar",
+  "Liquid USD",
 );
 
 export const LBTC = new Token(
@@ -38,7 +38,7 @@ export const LBTC = new Token(
   '0x1E48D32a4F5e9f08DB9aE4959163300FaF8A6C8e',
   18,
   "LBTC",
-  "Lux BTC",
+  "Liquid BTC",
 );
 
 export const LSOL = new Token(
@@ -46,7 +46,7 @@ export const LSOL = new Token(
   '0x26B40f650156C7EbF9e087Dd0dca181Fe87625B7',
   18,
   "LSOL",
-  "Lux SOL",
+  "Liquid SOL",
 );
 
 export const ZSOL = new Token(
@@ -62,7 +62,7 @@ export const LZOO = new Token(
   '0x5E5290f350352768bD2bfC59c2DA15DD04A7cB88',
   18,
   "LZOO",
-  "Lux ZOO",
+  "Liquid ZOO",
 );
 
 export const ZETH = new Token(

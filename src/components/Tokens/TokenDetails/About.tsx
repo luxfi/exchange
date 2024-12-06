@@ -82,10 +82,13 @@ export function AboutSection({ address, chainId, description, homepageUrl, twitt
   //must remove
   let displayTokenDescription = tokenDescription;
   if (tokenDescription?.includes("Wrapped LUX")) {
-    displayTokenDescription = 'Lux Coin - Native token on LUX chain'
+    displayTokenDescription = 'Lux Coin for LUX'
+  } else if (chainId == 96369) {
+    displayTokenDescription = displayTokenDescription?.replace(/Lux/g, 'Liquid')
+    displayTokenDescription = displayTokenDescription?.replace(/Solana/g, 'SOL')
   }
 
-  if (chainId == 200200 && displayTokenDescription == 'Lux Coin - Native token on LUX chain') {
+  if (chainId == 200200 && displayTokenDescription == 'Lux Coin for LUX') {
     displayTokenDescription = displayTokenDescription?.replace(/LUX/g, 'ZOO')
     displayTokenDescription = displayTokenDescription?.replace(/Lux/g, 'Zoo')
   }
