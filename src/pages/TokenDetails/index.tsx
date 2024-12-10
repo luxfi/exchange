@@ -206,7 +206,7 @@ export default function TokenDetailsPage() {
       },
       project: {
         description: token?.name + " - " + token?.id,
-        homepageUrl: "https://luxco.in",
+        homepageUrl: "https://lux.network",
         twitterName: "luxdefi",
         logoUrl: "",
         tokens: []
