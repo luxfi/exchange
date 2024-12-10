@@ -96,7 +96,7 @@ export function AboutSection({ address, chainId, description, homepageUrl, twitt
 
   let displayHomePageUrl = homepageUrl;
   if (chainId == 96369) {
-    displayHomePageUrl = 'https://luxco.in';
+    displayHomePageUrl = 'https://lux.network';
   } else if (chainId == 200200) {
     displayHomePageUrl = 'https://zoo.network';
   }
