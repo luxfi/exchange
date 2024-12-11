@@ -150,7 +150,7 @@ const Header = styled.h2`
   margin: 0;
 `
 
-const LinkOutToBridge = styled(ExternalLink)`
+const LinkOutToBridge = styled.a`
   align-items: center;
   border-radius: 8px;
   color: white;
@@ -205,7 +205,7 @@ export function NetworkAlert() {
   return bridge ? (
     <RootWrapper>
       <ContentWrapper chainId={chainId} darkMode={darkMode} logoUrl={logoUrl}>
-        <LinkOutToBridge href="https://bridge.lux.network">
+        <LinkOutToBridge href="https://bridge.lux.network" target="_self">
           <BodyText color={textColor}>
             <L2Icon src={logoUrl} />
             <AutoRow>
