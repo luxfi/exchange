@@ -2,7 +2,7 @@
   "name": "@l.x/interface",
   "version": "1.0.7",
   "description": "LX Interface",
-  "homepage": ".",
+  "homepage": "https://lux.exchange/",
   "license": "GPL-3.0-or-later",
   "scripts": {
     "contracts:compile:abi": "typechain --target ethers-v5 --out-dir src/abis/types \"./src/abis/**/*.json\"",
