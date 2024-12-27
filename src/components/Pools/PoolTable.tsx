@@ -122,6 +122,8 @@ type PoolData = {
   feeTier: number;
   feesUSD: number;
   collectedFeesUSD: number;
+  lastDate: number;
+  lastHour: number;
 };
 
 export default function PoolsTable() {
@@ -170,6 +172,8 @@ export default function PoolsTable() {
       feeTier: pool.feeTier || 0,
       feesUSD: pool.feesUSD || 0,
       collectedFeesUSD: pool.feesUSD || 0,
+      lastDate: pool.poolDayData?.[0]?.date || 0,
+      lastHour: pool.poolHourData?.[0]?.periodStartUnix || 0,
 
     }));
   }, [luxData, refetch]);

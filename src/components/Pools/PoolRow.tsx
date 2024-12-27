@@ -411,6 +411,9 @@ export const LoadedRow = forwardRef((props: LoadedRowProps, ref: ForwardedRef<HT
   const delta = pool.feesUSD / pool.totalValueLockedUSD * 100
   const formattedDelta = formatDelta(delta)
 
+  const now = Date.now();
+  const dayVolume = Math.floor((now - pool.lastDate * 1000) / 1000 / 3600 / 24) > 1 ? 0 : pool.dayVolume;
+  const hourVolume = Math.floor((now - pool.lastHour * 1000) / 1000 / 3600) > 1 ? 0 : pool.hourVolume;
   // TODO: currency logo sizing mobile (32px) vs. desktop (24px)
   return (
     <div ref={ref}>
@@ -459,12 +462,12 @@ export const LoadedRow = forwardRef((props: LoadedRowProps, ref: ForwardedRef<HT
         }
         hourVolume={
           <PriceInfoCell>
-            {formatUSDPrice(pool.hourVolume)}
+            {formatUSDPrice(hourVolume)}
           </PriceInfoCell>
         }
         dayVolume={
           <PriceInfoCell>
-            {formatUSDPrice(pool.dayVolume)}
+            {formatUSDPrice(dayVolume)}
           </PriceInfoCell>
         }
         APR={
