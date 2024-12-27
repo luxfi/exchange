@@ -57,3 +57,66 @@ export const zooNetClient = new ApolloClient({
   }),
   cache: new InMemoryCache(),
 })
+
+export const ethereumNetClient = new ApolloClient({
+  link: new HttpLink({
+    uri: "https://gateway.thegraph.com/api/0004b7085b345be5e7c1e5fbdbf14135/subgraphs/id/5zvR82QoaXYFyDEKLZ9t6v9adgnptxYpKpSbxtgVENFV",
+  }),
+  cache: new InMemoryCache(),
+})
+
+export const arbitrumNetClient = new ApolloClient({
+  link: new HttpLink({
+    uri: "https://gateway.thegraph.com/api/0004b7085b345be5e7c1e5fbdbf14135/subgraphs/id/FbCGRftH4a3yZugY7TnbYgPJVEv2LvMT6oF1fxPe9aJM",
+  }),
+  cache: new InMemoryCache(),
+})
+
+export const polygonNetClient = new ApolloClient({
+  link: new HttpLink({
+    uri: "https://gateway.thegraph.com/api/0004b7085b345be5e7c1e5fbdbf14135/subgraphs/id/3hCPRGf4z88VC5rsBKU5AA9FBBq5nF3jbKJG7VZCbhjm",
+  }),
+  cache: new InMemoryCache(),
+})
+
+export const optimismNetClient = new ApolloClient({
+  link: new HttpLink({
+    uri: "https://gateway.thegraph.com/api/0004b7085b345be5e7c1e5fbdbf14135/subgraphs/id/Cghf4LfVqPiFw6fp6Y5X5Ubc8UpmUhSfJL82zwiBFLaj",
+  }),
+  cache: new InMemoryCache(),
+})
+
+export const celoNetClient = new ApolloClient({
+  link: new HttpLink({
+    uri: "https://gateway.thegraph.com/api/0004b7085b345be5e7c1e5fbdbf14135/subgraphs/id/ESdrTJ3twMwWVoQ1hUE2u7PugEHX3QkenudD6aXCkDQ4",
+  }),
+  cache: new InMemoryCache(),
+})
+
+export const baseNetClient = new ApolloClient({
+  link: new HttpLink({
+    uri: "https://gateway.thegraph.com/api/0004b7085b345be5e7c1e5fbdbf14135/subgraphs/id/GqzP4Xaehti8KSfQmv3ZctFSjnSUYZ4En5NRsiTbvZpz",
+  }),
+  cache: new InMemoryCache(),
+})
+
+export const bnbNetClient = new ApolloClient({
+  link: new HttpLink({
+    uri: "https://gateway.thegraph.com/api/0004b7085b345be5e7c1e5fbdbf14135/subgraphs/id/G5MUbSBM7Nsrm9tH2tGQUiAF4SZDGf2qeo1xPLYjKr7K",
+  }),
+  cache: new InMemoryCache(),
+})
+
+export const avalancheNetClient = new ApolloClient({
+  link: new HttpLink({
+    uri: "https://gateway.thegraph.com/api/0004b7085b345be5e7c1e5fbdbf14135/subgraphs/id/GVH9h9KZ9CqheUEL93qMbq7QwgoBu32QXQDPR6bev4Eo",
+  }),
+  cache: new InMemoryCache(),
+})
+
+export const blastNetClient = new ApolloClient({
+  link: new HttpLink({
+    uri: "https://gateway.thegraph.com/api/0004b7085b345be5e7c1e5fbdbf14135/subgraphs/id/2LHovKznvo8YmKC9ZprPjsYAZDCc4K5q4AYz8s3cnQn1",
+  }),
+  cache: new InMemoryCache(),
+})

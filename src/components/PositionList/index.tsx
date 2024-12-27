@@ -1,5 +1,5 @@
 import { Trans } from '@lingui/macro'
-import PositionListItem from 'components/PositionListItem'
+import {PositionListItem, PositionListTableItem}  from 'components/PositionListItem'
 import React from 'react'
 import styled from 'styled-components/macro'
 import { MEDIA_WIDTHS } from 'theme'
@@ -65,7 +65,7 @@ type PositionListProps = React.PropsWithChildren<{
   userHideClosedPositions: boolean
 }>
 
-export default function PositionList({
+export function PositionList({
   positions,
   setUserHideClosedPositions,
   userHideClosedPositions,
@@ -77,7 +77,6 @@ export default function PositionList({
           <Trans>Your positions</Trans>
           {positions && ' (' + positions.length + ')'}
         </div>
-
         <ToggleLabel
           id="desktop-hide-closed-positions"
           onClick={() => {
@@ -101,6 +100,18 @@ export default function PositionList({
       </MobileHeader>
       {positions.map((p) => {
         return <PositionListItem key={p.tokenId.toString()} positionDetails={p} />
+      })}
+    </>
+  )
+}
+
+export function PoolTableList({
+  positions,
+}: PositionListProps) {
+  return (
+    <>
+      {positions.map((p) => {
+        return <PositionListTableItem key={p.tokenId.toString()} positionDetails={p} />
       })}
     </>
   )

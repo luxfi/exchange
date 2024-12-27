@@ -157,6 +157,7 @@ export function useERC20Permit(
     }
 
     const nonceNumber = tokenNonceState.result?.[0]?.toNumber()
+    // const nonceNumber: Number = 0;
     if (tokenNonceState.loading || typeof nonceNumber !== 'number') {
       return {
         state: UseERC20PermitState.LOADING,

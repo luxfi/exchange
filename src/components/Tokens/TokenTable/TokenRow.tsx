@@ -2,15 +2,12 @@ import { Trans } from '@lingui/macro'
 import { sendAnalyticsEvent } from '@uniswap/analytics'
 import { InterfaceEventName } from '@uniswap/analytics-events'
 import { formatNumber, formatUSDPrice, NumberType } from '@uniswap/conedison/format'
-import { ParentSize } from '@visx/responsive'
-import SparklineChart from 'components/Charts/SparklineChart'
 import QueryTokenLogo from 'components/Logo/QueryTokenLogo'
 import { MouseoverTooltip } from 'components/Tooltip'
-import { SparklineMap, TopToken } from 'graphql/data/TopTokens'
+import { TopToken } from 'graphql/data/TopTokens'
 import { CHAIN_NAME_TO_CHAIN_ID, getTokenDetailsURL } from 'graphql/data/util'
 import { useAtomValue } from 'jotai/utils'
-import { ForwardedRef, forwardRef } from 'react'
-import { CSSProperties, ReactNode } from 'react'
+import { CSSProperties, ForwardedRef, forwardRef, ReactNode } from 'react'
 import { ArrowDown, ArrowUp, Info } from 'react-feather'
 import { Link, useParams } from 'react-router-dom'
 import styled, { css, useTheme } from 'styled-components/macro'
@@ -463,7 +460,7 @@ export const LoadedRow = forwardRef((props: LoadedRowProps, ref: ForwardedRef<HT
       >
         <TokenRow
           header={false}
-          listNumber={volumeRank}
+          listNumber={tokenListIndex + 1}
           tokenInfo={
             <ClickableName>
               <QueryTokenLogo token={token} />

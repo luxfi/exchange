@@ -117,14 +117,14 @@ export const CHAIN_NAME_TO_CHAIN_ID: { [key: string]: SupportedChainId } = {
 
 export const BACKEND_CHAIN_NAMES: Chain[] = [Chain.Lux, Chain.Zoo, Chain.Ethereum, Chain.Polygon, Chain.Optimism, Chain.Arbitrum, Chain.Celo, Chain.Base, Chain.Bnb, Chain.Avalanche, Chain.Zora, Chain.Blast]
 
-export function getTokenDetailsURL(address: string, chainName?: Chain, chainId?: number) {
+export function getTokenDetailsURL(address: string, chainName?: any, chainId?: number) {
   if (address === ZERO_ADDRESS && chainId && chainId === SupportedChainId.MAINNET) {
-    return `/tokens/${CHAIN_ID_TO_BACKEND_NAME[chainId].toLowerCase()}/${NATIVE_CHAIN_ID}`
+    return `/explore/tokens/${CHAIN_ID_TO_BACKEND_NAME[chainId].toLowerCase()}/${NATIVE_CHAIN_ID}`
   } else if (chainName) {
-    return `/tokens/${chainName.toLowerCase()}/${address}`
+    return `/explore/tokens/${chainName.toLowerCase()}/${address}`
   } else if (chainId) {
     const chainName = CHAIN_ID_TO_BACKEND_NAME[chainId]
-    return chainName ? `/tokens/${chainName.toLowerCase()}/${address}` : ''
+    return chainName ? `/explore/tokens/${chainName.toLowerCase()}/${address}` : ''
   } else {
     return ''
   }

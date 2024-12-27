@@ -1,5 +1,4 @@
-import { WidgetSkeleton } from 'components/Widget'
-import { DEFAULT_WIDGET_WIDTH } from 'components/Widget'
+import { DEFAULT_WIDGET_WIDTH, WidgetSkeleton } from 'components/Widget'
 import { ArrowLeft } from 'react-feather'
 import { useParams } from 'react-router-dom'
 import styled, { useTheme } from 'styled-components/macro'
@@ -221,7 +220,7 @@ export default function TokenDetailsSkeleton() {
   const { chainName } = useParams<{ chainName?: string }>()
   return (
     <LeftPanel>
-      <BreadcrumbNavLink to={chainName ? `/tokens/${chainName}` : `/explore`}>
+      <BreadcrumbNavLink to={chainName ? `/explore/tokens/${chainName}` : `/explore`}>
         <ArrowLeft size={14} /> Tokens
       </BreadcrumbNavLink>
       <TokenInfoContainer>

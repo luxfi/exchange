@@ -55,8 +55,8 @@ export const formatDollar = ({
   if (isPrice) {
     if (num === 0) return '$0.00'
     if (!num) return '-'
-    if (num < 0.00000001) {
-      return `$${num.toExponential(6)}`
+    if (num < 0.00001) {
+      return `$${num.toExponential(3)}`
     }
     if ((num >= 0.00000001 && num < 0.1) || num > 100000000) {
       return `$${Number(num).toPrecision(6)}`

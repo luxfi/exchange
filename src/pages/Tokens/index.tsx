@@ -7,6 +7,7 @@ import NetworkFilter from 'components/Tokens/TokenTable/NetworkFilter'
 import SearchBar from 'components/Tokens/TokenTable/SearchBar'
 import TimeSelector from 'components/Tokens/TokenTable/TimeSelector'
 import TokenTable from 'components/Tokens/TokenTable/TokenTable'
+
 import { MouseoverTooltip } from 'components/Tooltip'
 import { useResetAtom } from 'jotai/utils'
 import { useEffect } from 'react'
@@ -81,7 +82,7 @@ const Tokens = () => {
           <MouseoverTooltip
             text={<Trans>This table contains the top tokens by volume, sorted based on your input.</Trans>}
             placement="bottom"
-          >
+            >
             <ThemedText.LargeHeader>
               <Trans>Top tokens by volume</Trans>
             </ThemedText.LargeHeader>

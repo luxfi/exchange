@@ -105,7 +105,7 @@ const DataText = styled.div`
 
   ${({ theme }) => theme.deprecated_mediaWidth.deprecated_upToSmall`
     font-size: 18px;
-  `};
+  `}
 `
 
 interface PositionListItemProps {
@@ -166,7 +166,7 @@ export function getPriceOrderingFromPositionForUI(position?: Position): {
   }
 }
 
-export default function PositionListItem({ positionDetails }: PositionListItemProps) {
+export function PositionListItem({ positionDetails }: PositionListItemProps) {
   const {
     token0: token0Address,
     token1: token1Address,
@@ -264,6 +264,69 @@ export default function PositionListItem({ positionDetails }: PositionListItemPr
       ) : (
         <Loader />
       )}
+    </LinkRow>
+  )
+}
+
+
+export function PositionListTableItem({ positionDetails }: PositionListItemProps) {
+  const {
+    token0: token0Address,
+    token1: token1Address,
+    fee: feeAmount,
+    liquidity,
+    tickLower,
+    tickUpper,
+  } = positionDetails
+
+  const token0 = useToken(token0Address)
+  const token1 = useToken(token1Address)
+
+  const currency0 = token0 ? unwrappedToken(token0) : undefined
+  const currency1 = token1 ? unwrappedToken(token1) : undefined
+
+  // construct Position from details returned
+  const [, pool] = usePool(currency0 ?? undefined, currency1 ?? undefined, feeAmount)
+
+  const position = useMemo(() => {
+    if (pool) {
+      return new Position({ pool, liquidity: liquidity.toString(), tickLower, tickUpper })
+    }
+    return undefined
+  }, [liquidity, pool, tickLower, tickUpper])
+
+  const tickAtLimit = useIsTickAtLimit(feeAmount, tickLower, tickUpper)
+
+  // prices
+  const { priceLower, priceUpper, quote, base } = getPriceOrderingFromPositionForUI(position)
+
+  const currencyQuote = quote && unwrappedToken(quote)
+  const currencyBase = base && unwrappedToken(base)
+
+  // check if price is within range
+  const outOfRange: boolean = pool ? pool.tickCurrent < tickLower || pool.tickCurrent >= tickUpper : false
+
+  const positionSummaryLink = '/pool/' + positionDetails.tokenId
+
+  const removed = liquidity?.eq(0)
+
+  return (
+    <LinkRow to={positionSummaryLink}>
+      <RowBetween>
+        <PrimaryPositionIdData>
+          <DoubleCurrencyLogo currency0={currencyBase} currency1={currencyQuote} size={18} margin />
+          <DataText>
+            &nbsp;{currencyQuote?.symbol}&nbsp;/&nbsp;{currencyBase?.symbol}
+          </DataText>
+          &nbsp;
+          <Badge>
+            <BadgeText>
+              <Trans>{new Percent(feeAmount, 1_000_000).toSignificant()}%</Trans>
+            </BadgeText>
+          </Badge>
+        </PrimaryPositionIdData>
+        {/* <RangeBadge removed={removed} inRange={!outOfRange} /> */}
+      </RowBetween>
     </LinkRow>
   )
 }

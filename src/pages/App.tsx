@@ -1,4 +1,4 @@
-import { initializeAnalytics, OriginApplication, sendAnalyticsEvent, Trace, user } from '@uniswap/analytics'
+import { sendAnalyticsEvent, Trace, user } from '@uniswap/analytics'
 import { CustomUserProperties, getBrowser, InterfacePageName, SharedEventName } from '@uniswap/analytics-events'
 import Loader from 'components/Loader'
 import TopLevelModals from 'components/TopLevelModals'
@@ -11,13 +11,11 @@ import styled from 'styled-components/macro'
 import { SpinnerSVG } from 'theme/components'
 import { flexRowNoWrap } from 'theme/styles'
 import { Z_INDEX } from 'theme/zIndex'
-import { isProductionEnv } from 'utils/env'
 import { getCLS, getFCP, getFID, getLCP, Metric } from 'web-vitals'
 
 import { useAnalyticsReporter } from '../components/analytics'
 import ErrorBoundary from '../components/ErrorBoundary'
-import { PageTabs } from '../components/NavBar'
-import NavBar from '../components/NavBar'
+import NavBar, { PageTabs } from '../components/NavBar'
 import Polling from '../components/Polling'
 import Popups from '../components/Popups'
 import { useIsExpertMode } from '../state/user/hooks'
@@ -38,6 +36,8 @@ import RemoveLiquidityV3 from './RemoveLiquidity/V3'
 import Swap from './Swap'
 import { RedirectPathToSwapOnly } from './Swap/redirects'
 import Tokens from './Tokens'
+import Transactions from './Transactions'
+import Pools from './Pools'
 
 const TokenDetails = lazy(() => import('./TokenDetails'))
 const Vote = lazy(() => import('./Vote'))
@@ -189,10 +189,10 @@ export default function App() {
               <Routes>
                 <Route path="/" element={<Landing />} />
 
-                <Route path="tokens" element={<Tokens />}>
+                <Route path="explore/tokens" element={<Tokens />}>
                   <Route path=":chainName" />
                 </Route>
-                <Route path="tokens/:chainName/:tokenAddress" element={<TokenDetails />} />
+                <Route path="/explore/tokens/:chainName/:tokenAddress" element={<TokenDetails />} />
                 <Route
                   path="vote/*"
                   element={
@@ -202,6 +202,12 @@ export default function App() {
                   }
                 />
                 <Route path="create-proposal" element={<Navigate to="/vote/create-proposal" replace />} />
+                <Route path="explore/transactions" element={<Transactions />}>
+                  <Route path=":chainName" />
+                </Route>
+                <Route path="explore/pools" element={<Pools />}>
+                  <Route path=":chainName" />
+                </Route>
 
                 <Route path="send" element={<RedirectPathToSwapOnly />} />
                 <Route path="swap" element={<Swap />} />
