@@ -1,6 +1,5 @@
 import { Trans } from '@lingui/macro'
 import { Trace } from '@uniswap/analytics'
-import { InterfacePageName } from '@uniswap/analytics-events'
 import { MAX_WIDTH_MEDIA_BREAKPOINT, MEDIUM_MEDIA_BREAKPOINT } from 'components/Pools/constants'
 import { filterStringAtom } from 'components/Pools/state'
 import NetworkFilter from 'components/Pools/NetworkFilter'
@@ -66,6 +65,23 @@ const FiltersWrapper = styled.div`
     gap: 8px;
   }
 `
+
+export declare enum InterfacePageName {
+  ABOUT_PAGE = "about-page",
+  LANDING_PAGE = "landing-page",
+  NFT_COLLECTION_PAGE = "nft-collection-page",
+  NFT_DETAILS_PAGE = "nft-details-page",
+  NFT_EXPLORE_PAGE = "nft-explore-page",
+  NFT_PROFILE_PAGE = "nft-profile-page",
+  NOT_FOUND = "not-found",
+  POOL_PAGE = "pool-page",
+  POOLS_PAGE = "pools-page",
+  SWAP_PAGE = "swap-page",
+  TOKENS_PAGE = "tokens-page",
+  TRANSACTIONS_PAGE = "transactions-page",
+  TOKEN_DETAILS_PAGE = "token-details",
+  VOTE_PAGE = "vote-page"
+}
 
 const Pools = () => {
   const resetFilterString = useResetAtom(filterStringAtom)
