@@ -5,11 +5,11 @@ import { useWeb3React } from '@web3-react/core'
 import { ButtonGray, ButtonPrimary, ButtonText } from 'components/Button'
 import { AutoColumn } from 'components/Column'
 import { FlyoutAlignment, Menu } from 'components/Menu'
-import PositionList from 'components/PositionList'
+import {PositionList, PoolTableList } from 'components/PositionList'
 import { RowBetween, RowFixed } from 'components/Row'
 import { SwitchLocaleLink } from 'components/SwitchLocaleLink'
 import { isSupportedChain } from 'constants/chains'
-import { useV3Positions } from 'hooks/useV3Positions'
+import { useAllV3Positions1, useAllV3Positions, useV3Positions } from 'hooks/useV3Positions'
 import { AlertTriangle, BookOpen, ChevronDown, Inbox, Layers, PlusCircle } from 'react-feather'
 import { Link } from 'react-router-dom'
 import { useToggleWalletModal } from 'state/application/hooks'
@@ -202,6 +202,7 @@ export default function Pool() {
 
   const { positions, loading: positionsLoading } = useV3Positions(account)
   // const { positions, loading: positionsLoading } = useAllV3Positions()
+  console.log("poolTest");
 
   if (!isSupportedChain(chainId)) {
     return <WrongNetworkCard />

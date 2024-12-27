@@ -1,4 +1,5 @@
-import { createMulticall, ListenerOptions } from '@uniswap/redux-multicall'
+// import { createMulticall, ListenerOptions } from '@uniswap/redux-multicall'
+import { createMulticall, ListenerOptions } from 'redux-multicall'
 import { useWeb3React } from '@web3-react/core'
 import { SupportedChainId } from 'constants/chains'
 import { useInterfaceMulticall } from 'hooks/useContract'

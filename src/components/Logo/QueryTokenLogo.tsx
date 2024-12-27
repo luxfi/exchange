@@ -10,7 +10,7 @@ import { supportedChainId } from 'utils/supportedChainId'
 
 export default function QueryTokenLogo(
   props: AssetLogoBaseProps & {
-    token?: TopToken | TokenQueryData
+    token?: any
   }
 ) {
   const chainId = props.token?.chain ? CHAIN_NAME_TO_CHAIN_ID[props.token?.chain] : undefined

@@ -32,6 +32,9 @@ import { WRAPPED_NATIVE_CURRENCY } from 'constants/tokens'
 import { useMemo } from 'react'
 import { NonfungiblePositionManager, Quoter, QuoterV2, TickLens, UniswapInterfaceMulticall } from 'types/v3'
 import { V3Migrator } from 'types/v3/V3Migrator'
+import { RPC_URLS } from 'constants/networks'
+import { ethers } from 'ethers'
+import { SupportedChainId } from 'constants/chains'
 
 import { getContract } from '../utils'
 
@@ -130,6 +133,49 @@ export function useV3NFTPositionManagerContract(withSignerIfPossible?: boolean):
     NFTPositionManagerABI,
     withSignerIfPossible
   )
+}
+
+// Modified useContract to accept chainId as a parameter
+export function useContractExtended<T extends Contract = Contract>(
+  addressOrAddressMap: string | { [chainId: number]: string } | undefined,
+  ABI: any,
+  withSignerIfPossible = true,
+  manualChainId?: number // Add manualChainId as an optional parameter
+): T | null {
+  const rpcUrl = RPC_URLS[manualChainId as SupportedChainId]?.[0];
+  const provider = new ethers.providers.JsonRpcProvider(rpcUrl);
+  const { account } = useWeb3React(); // Removed chainId destructuring
+
+  return useMemo(() => {
+    const effectiveChainId = manualChainId; // Use manualChainId explicitly
+    if (!addressOrAddressMap || !ABI || !provider || !effectiveChainId) return null;
+    console.log("address", addressOrAddressMap[effectiveChainId]);
+
+    let address: string | undefined;
+    if (typeof addressOrAddressMap === 'string') address = addressOrAddressMap;
+    else address = addressOrAddressMap[effectiveChainId];
+    if (!address) return null;
+
+    try {
+      return getContract(address, ABI, provider, withSignerIfPossible && account ? undefined : undefined);
+    } catch (error) {
+      console.error('Failed to get contract', error);
+      return null;
+    }
+  }, [addressOrAddressMap, ABI, provider, manualChainId, withSignerIfPossible, account]) as T;
+}
+
+// Updated useV3NFTPositionManagerContract to pass manual chainId
+export function useV3NFTPositionManagerContractExtended(
+  withSignerIfPossible?: boolean,
+  chainId?: number // Add manualChainId parameter here
+): NonfungiblePositionManager | null {
+  return useContractExtended<NonfungiblePositionManager>(
+    NONFUNGIBLE_POSITION_MANAGER_ADDRESSES,
+    NFTPositionManagerABI,
+    withSignerIfPossible,
+    chainId // Pass the manualChainId
+  );
 }
 
 export function useQuoter(useQuoterV2: boolean) {

@@ -36,4 +36,5 @@ export const switchChain = async (connector: Connector, chainId: SupportedChainI
     }
     await connector.activate(addChainParameter)
   }
+  console.log("switchChain", connector);
 }

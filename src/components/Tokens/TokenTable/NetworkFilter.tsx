@@ -132,7 +132,7 @@ export default function NetworkFilter() {
                 key={network}
                 data-testid={`tokens-network-filter-option-${network.toLowerCase()}`}
                 onClick={() => {
-                  navigate(`/tokens/${network.toLowerCase()}`)
+                  navigate(`/explore/tokens/${network.toLowerCase()}`)
                   toggleMenu()
                 }}
               >

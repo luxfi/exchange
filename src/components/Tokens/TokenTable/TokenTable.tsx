@@ -6,10 +6,10 @@ import { AlertTriangle } from 'react-feather';
 import { useParams } from 'react-router-dom';
 import styled from 'styled-components/macro';
 
-import { MAX_WIDTH_MEDIA_BREAKPOINT } from '../constants';
-import { HeaderRow, LoadedRow, LoadingRow } from './TokenRow';
 import { useQuery } from '@apollo/client';
 import gql from 'graphql-tag';
+import { MAX_WIDTH_MEDIA_BREAKPOINT } from '../constants';
+import { HeaderRow, LoadedRow, LoadingRow } from './TokenRow';
 
 import {
   filterStringAtom,
@@ -17,23 +17,16 @@ import {
   sortAscendingAtom,
   sortMethodAtom,
   TokenSortMethod,
-} from 'components/Tokens/state'
-import { useAtomValue } from 'jotai/utils'
-import { useMemo, useEffect, useState, useCallback, useRef } from 'react'
-import { luxNetClient } from 'graphql/thegraph/apollo'
-import { zooNetClient } from 'graphql/thegraph/apollo'
+} from 'components/Tokens/state';
+import { luxNetClient, zooNetClient } from 'graphql/thegraph/apollo';
+import { useAtomValue } from 'jotai/utils';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 
+import { TOKENS_LUX_LIST } from 'tokens-lux/tokens';
 import {
   CHAIN_NAME_TO_CHAIN_ID,
-  isPricePoint,
-  PollingInterval,
-  PricePoint,
-  toHistoryDuration,
-  unwrapToken,
-  usePollQueryWhileMounted,
-} from '../../../graphql/data/util'
-import { id } from 'make-plural';
-import { TOKENS_LUX_LIST } from 'tokens-lux/tokens'
+  toHistoryDuration
+} from '../../../graphql/data/util';
 
 const getTokenInfoQuery = gql`
   query MyQuery {
@@ -74,7 +67,14 @@ const getTokenInfoQuery = gql`
       totalValueLockedUSD
       volumeUSD
     }
-    tokenHourData(first: 365, orderBy: periodStartUnix, orderDirection: desc) {
+    tokenHourData(first: 24, orderBy: periodStartUnix, orderDirection: desc) {
+      id
+      periodStartUnix
+      priceUSD  # The price of the token in USD for the day
+      totalValueLockedUSD
+      volumeUSD
+    }
+    token5MinData(first: 12, orderBy: periodStartUnix, orderDirection: desc) {
       id
       periodStartUnix
       priceUSD  # The price of the token in USD for the day
@@ -201,9 +201,12 @@ export default function TokenTable() {
       ?.filter((token: any) => tokenAddresses.includes(token.id.toUpperCase())  && parseFloat(token.totalValueLockedUSD) !== 0).map((token: any) => {
         const tokenDayData = token.tokenDayData || [];
         const tokenHourData = token.tokenHourData || [];
+        const token5MinData = token.token5MinData || [];
         let nowPrice = 0;
         let previousPrice = 0;
         let mostRecentData = null;
+        let volumeUSD = 0;
+        let i;
 
         if (duration == "HOUR") {
           // Process hourly duration logic
@@ -212,8 +215,14 @@ export default function TokenTable() {
           previousPrice = nowPrice;
           if (tokenHourData[1]?.periodStartUnix && tokenHourData[1].periodStartUnix * 1000 <= new Date(currentHourTime).getTime() - 3600 * 1000 && tokenHourData[1].priceUSD != 0)
             previousPrice = tokenHourData[1].priceUSD;
+          // Get Hour Volume USD
+          for (i = 0; i < token5MinData.length; i++) {
+            if (token5MinData[i]?.periodStartUnix && token5MinData[i].periodStartUnix * 1000 < new Date().getTime() -  60 * 60 * 1000) {
+              break;
+            }
+            volumeUSD += parseFloat(token5MinData[i].volumeUSD);
+          }
         } else {
-          let i;
           let daysPer;
 
           mostRecentData = tokenDayData[0] || null;
@@ -232,7 +241,25 @@ export default function TokenTable() {
 
           if (tokenDayData.length == 0) {
             previousPrice = nowPrice;
+            volumeUSD = 0;
           } else {
+            if (duration == "DAY") {
+              // Get Hour Volume USD
+              for (i = 0; i < tokenHourData.length; i++) {
+                if (tokenHourData[i]?.periodStartUnix && tokenHourData[i].periodStartUnix * 1000 < new Date(todayDate).getTime() -  24 * 60 * 60 * 1000) {
+                  break;
+                }
+                volumeUSD += parseFloat(tokenHourData[i].volumeUSD);
+              }
+            } else {
+              // Get Volume
+              for (i = 0; i < tokenDayData.length; i++) {
+                if (tokenDayData[i]?.date && tokenDayData[i].date * 1000 < new Date(todayDate).getTime() -  daysPer * 24 * 60 * 60 * 1000) {
+                  break;
+                }
+                volumeUSD += parseFloat(tokenDayData[i].volumeUSD);
+              }
+            }
             for (i = 0; i < tokenDayData.length; i++) {
               if (tokenDayData[i]?.date && tokenDayData[i].date * 1000 <= new Date(todayDate).getTime() - daysPer * 24 * 60 * 60 * 1000) {
                 previousPrice = tokenDayData[i].priceUSD;
@@ -280,7 +307,7 @@ export default function TokenTable() {
               value: priceChangePercent,
             },
             volume: {
-              value: parseFloat(token.volumeUSD),
+              value: volumeUSD,
             },
           },
           chainId: CHAIN_NAME_TO_CHAIN_ID[chainName],
