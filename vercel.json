@@ -1,8 +1,40 @@
 {
+  "redirects": [
+    {
+      "source": "/posts/:path*",
+      "destination": "/blog/:path*",
+      "permanent": false
+    }
+  ],
   "rewrites": [
-    { "source": "/api/(.*)",  "destination": "/api/index.js" },
-    { "source": "/beta/(.*)", "destination": "/api/beta.js" },
-    { "source": "/cmc/(.*)",  "destination": "/api/cmc.js" }
+    {
+      "source": "/api/(.*)",
+      "destination": "/api/index.js"
+    },
+    {
+      "source": "/beta/(.*)",
+      "destination": "/api/beta.js"
+    },
+    {
+      "source": "/cmc/(.*)",
+      "destination": "/api/cmc.js"
+    },
+    {
+      "source": "/product/:id",
+      "destination": "/api/product"
+    },
+    {
+      "source": "/atom.xml",
+      "destination": "/api/rss"
+    },
+    {
+      "source": "/((?!maintenance).*)",
+      "destination": "/maintenance"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
   ],
   "headers": [
     {
@@ -11,6 +43,24 @@
         {
           "key": "Content-Security-Policy",
           "value": "script-src 'self' https://www.google-analytics.com https://www.googletagmanager.com 'unsafe-inline';"
+        }
+      ]
+    },
+    {
+      "source": "/favicon.ico",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=3600"
+        }
+      ]
+    },
+    {
+      "source": "/assets/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31556952, immutable"
         }
       ]
     }
