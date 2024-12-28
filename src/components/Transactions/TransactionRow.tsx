@@ -484,7 +484,7 @@ export const LoadedRow = forwardRef((props: LoadedRowProps, ref: ForwardedRef<HT
         }
         transaction0Amount={
           <PriceInfoCell>
-            {formatNumber(transaction.amount0, NumberType.FiatTokenStats) } &nbsp;
+            { (formatNumber(transaction.amount0, NumberType.FiatTokenStats).charAt(0) == '<' ? "<" : "") + formatNumber(transaction.amount0, NumberType.FiatTokenStats).substring(formatNumber(transaction.amount0, NumberType.FiatTokenStats).charAt(0) == '<' ? 2 : 1, formatNumber(transaction.amount0, NumberType.FiatTokenStats).length) } &nbsp;
             <StyledLink
               to={getTokenDetailsURL(transaction.token0Address ?? '', filterNetwork)}
             >
@@ -502,7 +502,7 @@ export const LoadedRow = forwardRef((props: LoadedRowProps, ref: ForwardedRef<HT
         }
         transaction1Amount={
           <PriceInfoCell>
-          {formatNumber(transaction.amount1, NumberType.FiatTokenStats) } &nbsp;
+          { (formatNumber(transaction.amount1, NumberType.FiatTokenStats).charAt(0) == '<' ? "<" : "") + formatNumber(transaction.amount1, NumberType.FiatTokenStats).substring(formatNumber(transaction.amount1, NumberType.FiatTokenStats).charAt(0) == '<' ? 2 : 1, formatNumber(transaction.amount1, NumberType.FiatTokenStats).length) } &nbsp;
           <StyledLink
               to={getTokenDetailsURL(transaction.token1Address ?? '', filterNetwork)}
             >

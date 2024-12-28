@@ -76,7 +76,7 @@ const Pools = () => {
   }, [location, resetFilterString])
 
   return (
-    <Trace page={InterfacePageName.TOKENS_PAGE} shouldLogImpression>
+    <Trace shouldLogImpression>
       <ExploreContainer>
         <TitleContainer>
           <MouseoverTooltip
