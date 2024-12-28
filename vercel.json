@@ -1,8 +1,8 @@
 {
   "rewrites": [
-    { "source": "/api/.*",  "destination": "/api/index.js" },
-    { "source": "/beta/.*", "destination": "/api/beta.js" },
-    { "source": "/cmc/.*",  "destination": "/api/cmc.js" }
+    { "source": "/api/(.*)",  "destination": "/api/index.js" },
+    { "source": "/beta/(.*)", "destination": "/api/beta.js" },
+    { "source": "/cmc/(.*)",  "destination": "/api/cmc.js" }
   ],
   "headers": [
     {
