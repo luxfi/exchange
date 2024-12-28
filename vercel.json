@@ -3,5 +3,16 @@
     { "src": "/api/.*",  "dest": "/api/index.js" },
     { "src": "/beta/.*", "dest": "/api/beta.js" },
     { "src": "/cmc/.*",  "dest": "/api/cmc.js" }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Content-Security-Policy",
+          "value": "script-src 'self' https://www.google-analytics.com https://www.googletagmanager.com 'unsafe-inline';"
+        }
+      ]
+    }
   ]
 }
