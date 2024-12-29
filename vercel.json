@@ -42,7 +42,7 @@
       "headers": [
         {
           "key": "Content-Security-Policy",
-          "value": "script-src 'self' https://www.google-analytics.com https://www.googletagmanager.com 'unsafe-inline';"
+          "value": "script-src 'self' https://www.google-analytics.com https://www.googletagmanager.com 'unsafe-inline' 'unsafe-eval';"
         }
       ]
     },
