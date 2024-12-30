@@ -20,7 +20,7 @@ LX is designed for traders seeking a decentralized, efficient, and user-friendly
 - Reddit: [/r/luxdefi](https://www.reddit.com/r/luxdefi/)
 - Email: [hi@lux.exchange](mailto:hi@lux.exchange)
 
-For more information, visit [LX](https://lux.exchange).
+For more information, visit [Lux Exchange](https://lux.exchange).
 
 ## How to build and run
 
