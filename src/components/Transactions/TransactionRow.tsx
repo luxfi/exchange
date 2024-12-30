@@ -11,6 +11,8 @@ import styled, { css } from 'styled-components/macro'
 import { CHAIN_NAME_TO_CHAIN_ID, getTokenDetailsURL } from 'graphql/data/util'
 import { ClickableStyle } from 'theme'
 import AssetLogo from '../Logo/AssetLogo'
+import { ExplorerDataType, getExplorerLink } from '../../utils/getExplorerLink'
+import { CopyHelper, ExternalLink, LinkStyledButton, ThemedText } from '../../theme'
 
 import {
   LARGE_MEDIA_BREAKPOINT,
@@ -272,12 +274,24 @@ const IconLoadingBubble = styled(LoadingBubble)`
   width: 24px;
 `
 
+const AddressLink = styled(ExternalLink)`
+  color: ${({ theme }) => theme.white};
+  margin-left: 1rem;
+  display: flex;
+  gap: 6px;
+  text-decoration: none !important;
+  :hover {
+    color: ${({ theme }) => theme.white};
+  }
+`
+
 const InfoIconContainer = styled.div`
   margin-left: 2px;
   display: flex;
   align-items: center;
   cursor: help;
 `
+
 
 export const HEADER_DESCRIPTIONS: Record<TokenSortMethod, ReactNode | undefined> = {
   [TokenSortMethod.PRICE]: undefined,
@@ -440,6 +454,7 @@ export const LoadedRow = forwardRef((props: LoadedRowProps, ref: ForwardedRef<HT
   // TODO: currency logo sizing mobile (32px) vs. desktop (24px)
   return (
     <div ref={ref}>
+      <AddressLink href={getExplorerLink(chainId,transaction.originAddress , ExplorerDataType.TRANSACTION)}>
       <TransactionRow
         header={false}
         time={getTimeAgo(transaction.timestamp)}
@@ -520,12 +535,13 @@ export const LoadedRow = forwardRef((props: LoadedRowProps, ref: ForwardedRef<HT
         }
         walletAddress={
           <PriceInfoCell>
-            {shortenAddress(transaction.originAddress)}
+              {shortenAddress(transaction.originAddress)}
           </PriceInfoCell>
         }
         first={transactionListIndex === 0}
         last={transactionListIndex === transactionListLength - 1}
       />
+    </AddressLink>
     </div>
   )
 })
