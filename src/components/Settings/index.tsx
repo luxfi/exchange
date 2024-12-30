@@ -190,7 +190,7 @@ export default function SettingsTab({ placeholderSlippage }: { placeholderSlippa
         {expertMode ? (
           <EmojiWrapper>
             <span role="img" aria-label="wizard-icon">
-              🧙
+              
             </span>
           </EmojiWrapper>
         ) : null}
