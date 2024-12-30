@@ -158,7 +158,7 @@ export default function Polling() {
         </StyledPollingBlockNumber>
         <StyledPollingDot warning={warning}>{isMounting && <Spinner warning={warning} />}</StyledPollingDot>{' '}
       </StyledPolling>
-      {warning && <ChainConnectivityWarning />}
+      {/* {warning && <ChainConnectivityWarning />} */}
     </RowFixed>
   )
 }
