@@ -147,7 +147,7 @@ export default function Polling() {
   return (
     <RowFixed>
       <StyledPolling onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)}>
-        <StyledPollingBlockNumber breathe={isMounting} hovering={isHover} warning={warning}>
+        <StyledPollingBlockNumber breathe={isMounting} hovering={isHover} warning={false}>
           <ExternalLink href={blockExternalLinkHref}>
             <MouseoverTooltip
               text={<Trans>The most recent block number on this network. Prices update on every block.</Trans>}
@@ -156,7 +156,7 @@ export default function Polling() {
             </MouseoverTooltip>
           </ExternalLink>
         </StyledPollingBlockNumber>
-        <StyledPollingDot warning={warning}>{isMounting && <Spinner warning={warning} />}</StyledPollingDot>{' '}
+        <StyledPollingDot warning={false}>{isMounting && <Spinner warning={false} />}</StyledPollingDot>{' '}
       </StyledPolling>
       {/* {warning && <ChainConnectivityWarning />} */}
     </RowFixed>

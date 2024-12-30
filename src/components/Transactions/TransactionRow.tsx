@@ -349,7 +349,7 @@ export function HeaderRow() {
       amountUSD="USD&nbsp;"
       transaction0Amount="Token amount&nbsp;"
       transaction1Amount="Token amount&nbsp;"
-      walletAddress="Wallet&nbsp;"
+      walletAddress="Hash&nbsp;"
     />
   )
 }

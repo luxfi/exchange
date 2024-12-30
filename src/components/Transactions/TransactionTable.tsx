@@ -21,6 +21,7 @@ query MyQuery {
     ethPriceUSD
   }
   transactions(first: 30, orderBy: timestamp, orderDirection: desc) {
+    id
     swaps {
       amount0
       amount1
@@ -181,7 +182,7 @@ export default function TransactionsTable() {
         token0AddressValue = transaction?.swaps[0]?.token0?.id;
         token1AddressValue = transaction?.swaps[0]?.token1?.id;
         amountUSDValue = parseFloat(transaction?.swaps[0]?.amount0) * parseFloat(transaction?.swaps[0]?.token0?.derivedETH) * ethPriceUSD;
-        walletAddressValue = transaction?.swaps[0]?.sender;
+        walletAddressValue = transaction?.id;
       }
       else if (transaction.burns[0] != null) {
         transType = "Remove";
@@ -192,7 +193,7 @@ export default function TransactionsTable() {
         token0AddressValue = transaction?.burns[0]?.token0?.id;
         token1AddressValue = transaction?.burns[0]?.token1?.id;
         amountUSDValue = (parseFloat(transaction?.burns[0]?.amount0) * parseFloat(transaction?.burns[0]?.token0?.derivedETH) + parseFloat(transaction?.burns[0]?.amount1) * parseFloat(transaction?.burns[0]?.token1?.derivedETH)) * ethPriceUSD;
-        walletAddressValue = transaction?.burns[0]?.owner;
+        walletAddressValue = transaction?.id;
       }
       else if (transaction.mints[0] != null) {
         transType = "Add";
@@ -203,7 +204,7 @@ export default function TransactionsTable() {
         token0AddressValue = transaction?.mints[0]?.token0?.id;
         token1AddressValue = transaction?.mints[0]?.token1?.id;
         amountUSDValue = (parseFloat(transaction?.mints[0]?.amount0) * parseFloat(transaction?.mints[0]?.token0?.derivedETH) + parseFloat(transaction?.mints[0]?.amount1) * parseFloat(transaction?.mints[0]?.token1?.derivedETH)) * ethPriceUSD;
-        walletAddressValue = transaction?.mints[0]?.owner;
+        walletAddressValue = transaction?.id;
       }
 
       return {
