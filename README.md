@@ -1,6 +1,6 @@
 # exchange
 
-[Lux Exchange (LX)](https://lux.exchange) is a decentralized exchange (DEX)
+[LX](https://lux.exchange) is a decentralized exchange (DEX)
 built on [Lux Network](https://lux.network), offering high-performance trading
 with interoperability across hyper liquid digital assets and gas-free transactions.
 
