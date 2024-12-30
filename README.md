@@ -1,8 +1,8 @@
 # exchange
 
-Lux Exchange (LX) is a decentralized exchange (DEX) built on Lux Network, offering
-high-performance trading with interoperability across hyper liquid digital
-assets and gas-free transactions.
+[LX](https://lux.exchange) is a decentralized exchange (DEX)
+built on [Lux Network](https://lux.network), offering high-performance trading
+with interoperability across hyper liquid digital assets and gas-free transactions.
 
 Key Features:
 	•	Trade: Engage in seamless, decentralized trading with a wide range of assets.
@@ -14,14 +14,13 @@ Key Features:
 
 LX is designed for traders seeking a decentralized, efficient, and user-friendly platform. Its architecture ensures fast transactions and a seamless trading experience.
 
-For more information, visit [LX](https://lux.exchange).
-
 - Interface: [lux.exchange](https://lux.exchange)
 - Docs: [docs.lux.network](https://docs.lux.network/)
 - Twitter: [@luxdefi](https://twitter.com/luxdefi)
 - Reddit: [/r/luxdefi](https://www.reddit.com/r/luxdefi/)
 - Email: [hi@lux.exchange](mailto:hi@lux.exchange)
 
+For more information, visit [Lux Exchange](https://lux.exchange).
 
 ## How to build and run
 
