@@ -7,13 +7,15 @@ import NetworkFilter from 'components/Tokens/TokenTable/NetworkFilter'
 import SearchBar from 'components/Tokens/TokenTable/SearchBar'
 import TimeSelector from 'components/Tokens/TokenTable/TimeSelector'
 import TokenTable from 'components/Tokens/TokenTable/TokenTable'
+import { chainIdToBackendName } from 'graphql/data/util'
+import { useWeb3React } from '@web3-react/core'
+import { ThemedText, Navigation } from 'theme'
 
 import { MouseoverTooltip } from 'components/Tooltip'
 import { useResetAtom } from 'jotai/utils'
 import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import styled from 'styled-components/macro'
-import { ThemedText } from 'theme'
 
 const ExploreContainer = styled.div`
   width: 100%;
@@ -75,18 +77,17 @@ const Tokens = () => {
     resetFilterString()
   }, [location, resetFilterString])
 
+  const { chainId: connectedChainId } = useWeb3React()
+  const chainName = chainIdToBackendName(connectedChainId)
+
   return (
     <Trace page={InterfacePageName.TOKENS_PAGE} shouldLogImpression>
       <ExploreContainer>
         <TitleContainer>
-          <MouseoverTooltip
-            text={<Trans>This table contains the top tokens by volume, sorted based on your input.</Trans>}
-            placement="bottom"
-            >
-            <ThemedText.LargeHeader>
-              <Trans>Top tokens by volume</Trans>
-            </ThemedText.LargeHeader>
-          </MouseoverTooltip>
+          <ThemedText.LargeHeader>
+          <Navigation chainName={chainName} currentPath="Tokens" />
+            {/* <Trans>Top tokens by volume</Trans> */}
+          </ThemedText.LargeHeader>
         </TitleContainer>
         <FiltersWrapper>
           <FiltersContainer>

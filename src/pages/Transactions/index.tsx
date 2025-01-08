@@ -11,7 +11,9 @@ import { useResetAtom } from 'jotai/utils'
 import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import styled from 'styled-components/macro'
-import { ThemedText } from 'theme'
+import { chainIdToBackendName } from 'graphql/data/util'
+import { useWeb3React } from '@web3-react/core'
+import { ThemedText, Navigation } from 'theme'
 
 const ExploreContainer = styled.div`
   width: 100%;
@@ -73,18 +75,17 @@ const Transactions = () => {
     resetFilterString()
   }, [location, resetFilterString])
 
+  const { chainId: connectedChainId } = useWeb3React()
+  const chainName = chainIdToBackendName(connectedChainId)
+
   return (
     <Trace shouldLogImpression>
       <ExploreContainer>
         <TitleContainer>
-          <MouseoverTooltip
-            text={<Trans>This table contains the latest transactions by date</Trans>}
-            placement="bottom"
-            >
-            <ThemedText.LargeHeader>
-              <Trans>Latest Transactions</Trans>
-            </ThemedText.LargeHeader>
-          </MouseoverTooltip>
+          <ThemedText.LargeHeader>
+            <Navigation chainName={chainName} currentPath="Transactions" />
+            {/* <Trans>Latest Transactions</Trans> */}
+          </ThemedText.LargeHeader>
         </TitleContainer>
         <FiltersWrapper>
           <FiltersContainer>

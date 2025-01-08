@@ -2,6 +2,7 @@ import { Trans } from '@lingui/macro'
 import { outboundLink } from 'components/analytics'
 import { MOBILE_MEDIA_BREAKPOINT } from 'components/Tokens/constants'
 import useCopyClipboard from 'hooks/useCopyClipboard'
+import { MouseoverTooltip } from 'components/Tooltip'
 import React, {
   forwardRef,
   HTMLProps,
@@ -10,6 +11,7 @@ import React, {
   useCallback,
   useImperativeHandle,
   useState,
+  useEffect,
 } from 'react'
 import {
   ArrowLeft,
@@ -492,3 +494,57 @@ export const GlowEffect = styled.div`
   border-radius: 32px;
   box-shadow: ${({ theme }) => theme.networkDefaultShadow};
 `
+
+// Styled AddressLink component
+export const AddressLink = styled.a<{ isActive: boolean }>`
+  color: ${({ theme, isActive }) => (isActive ? theme.white : '#ccc')};
+  margin-left: 1rem;
+  display: flex;
+  gap: 1px;
+  font-size: 23px;
+  text-decoration: none !important;
+  font-weight: ${({ isActive }) => (isActive ? 'bold' : 'normal')};
+
+  :hover {
+    color: ${({ theme }) => theme.white};
+  }
+`;
+
+// Navigation Component
+export function Navigation({
+  chainName,
+  currentPath,
+}: {
+  chainName: string;
+  currentPath: 'Tokens' | 'Pools' | 'Transactions';
+}) {
+  const basePath = `/#/explore`;
+
+  const links = [
+    { href: `${basePath}/tokens/${chainName.toLowerCase()}`, label: 'Tokens', help: 'This table contains the top tokens by volume, sorted based on your input.'},
+    { href: `${basePath}/pools/${chainName.toLowerCase()}`, label: 'Pools', help: 'This table contains the pools by volume and total lock value, sorted based on your input.'},
+    { href: `${basePath}/transactions/${chainName.toLowerCase()}`, label: 'Transactions', help: 'This table contains the latest transactions by date.'},
+  ];
+
+  return (
+    <div
+      style={{
+        display: 'flex',
+        gap: '0.5rem',
+        alignItems: 'center',
+      }}
+    >
+      {links.map(({ href, label, help }) => (
+        <MouseoverTooltip
+        text={<Trans>{help}</Trans>}
+        placement="bottom"
+        >
+        <AddressLink key={href} href={href} isActive={currentPath === label}>
+          {label}
+        </AddressLink>
+        </MouseoverTooltip>
+      ))}
+    </div>
+    
+  );
+}
