@@ -400,41 +400,45 @@ const getTimeAgo = (timestamp: number): string => {
   const now = Date.now();
   const diffInSeconds = Math.floor((now - timestamp * 1000) / 1000);
 
+  if (diffInSeconds == 0) {
+    return "Just now";
+  }
+
   if (diffInSeconds < 60) {
-    return `${diffInSeconds} s ago`;
+    return `${diffInSeconds}s ago`;
   }
 
   const diffInMinutes = Math.floor(diffInSeconds / 60);
   if (diffInMinutes < 60) {
-    return `${diffInMinutes} m ago`;
+    return `${diffInMinutes}m ago`;
   }
 
   const diffInHours = Math.floor(diffInMinutes / 60);
   if (diffInHours < 24) {
-    return `${diffInHours} h ago`;
+    return `${diffInHours}h ago`;
   }
 
   const diffInDays = Math.floor(diffInHours / 24);
   if (diffInDays < 7) {
-    return `${diffInDays} day${diffInDays !== 1 ? 's' : ''} ago`;
+    return `${diffInDays}day${diffInDays !== 1 ? 's' : ''} ago`;
   }
 
   const diffInWeeks = Math.floor(diffInDays / 7);
   if (diffInWeeks < 5) {
-    return `${diffInWeeks} week${diffInWeeks !== 1 ? 's' : ''} ago`;
+    return `${diffInWeeks}week${diffInWeeks !== 1 ? 's' : ''} ago`;
   }
 
   const diffInMonths = Math.floor(diffInDays / 30); // Approximation for months
   if (diffInMonths < 12 && diffInMonths > 0) {
-    return `${diffInMonths} month${diffInMonths !== 1 ? 's' : ''} ago`;
+    return `${diffInMonths}month${diffInMonths !== 1 ? 's' : ''} ago`;
   }
 
   if (diffInMonths === 0) {
-    return `${diffInDays} day${diffInDays !== 1 ? 's' : ''} ago`;
+    return `${diffInDays}day${diffInDays !== 1 ? 's' : ''} ago`;
   }
 
   const diffInYears = Math.floor(diffInMonths / 12);
-  return `${diffInYears} year${diffInYears !== 1 ? 's' : ''} ago`;
+  return `${diffInYears}year${diffInYears !== 1 ? 's' : ''} ago`;
 };
 
 export const shortenAddress = (address: string, chars = 4): string => {

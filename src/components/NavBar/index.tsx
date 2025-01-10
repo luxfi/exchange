@@ -9,8 +9,8 @@ import { Box } from 'nft/components/Box'
 import { Column, Row } from 'nft/components/Flex'
 import { useProfilePageState } from 'nft/hooks'
 import { ProfilePageStateType } from 'nft/types'
-import { ReactNode, useReducer, useRef } from 'react'
-import { NavLink, NavLinkProps, useLocation, useNavigate } from 'react-router-dom'
+import { ReactNode, useReducer, useRef, useState } from 'react'
+import { Navigate, NavLink, NavLinkProps, useLocation, useNavigate } from 'react-router-dom'
 import styled from 'styled-components/macro'
 import { useToggleModal } from '../../state/application/hooks'
 import { ApplicationModal } from '../../state/application/reducer'
@@ -39,7 +39,7 @@ interface MenuItemProps {
   dataTestId?: string
 }
 
-const MenuItem = ({ href, dataTestId, id, isActive, children }: MenuItemProps) => {
+const MenuItem = ({ href, dataTestId, id, isActive, children, onClick }: MenuItemProps & { onClick?: () => void }) => {
   return (
     <NavLink
       to={href}
@@ -47,11 +47,12 @@ const MenuItem = ({ href, dataTestId, id, isActive, children }: MenuItemProps) =
       id={id}
       style={{ textDecoration: 'none' }}
       data-testid={dataTestId}
+      onClick={onClick} // Trigger parent-provided onClick
     >
       {children}
     </NavLink>
-  )
-}
+  );
+};
 
 const PrimaryMenuRow = ({
   to,
@@ -146,54 +147,97 @@ const Icon = ({ href, children }: { href?: string; children: ReactNode }) => {
 }
 
 export const PageTabs = () => {
-  const { pathname } = useLocation()
-  const { chainId: connectedChainId } = useWeb3React()
-  const chainName = chainIdToBackendName(connectedChainId)
+  const { pathname } = useLocation();
+  const { chainId: connectedChainId } = useWeb3React();
+  const chainName = chainIdToBackendName(connectedChainId);
 
   const isPoolActive =
     pathname.startsWith('/pool') ||
     pathname.startsWith('/add') ||
     pathname.startsWith('/remove') ||
     pathname.startsWith('/increase') ||
-    pathname.startsWith('/find')
+    pathname.startsWith('/find');
 
-  const isNftPage = useIsNftPage()
-  
-  const [isOpen, toggleOpen] = useReducer((s) => !s, false)
-  const togglePrivacyPolicy = useToggleModal(ApplicationModal.PRIVACY_POLICY)
-  const openFeatureFlagsModal = useToggleModal(ApplicationModal.FEATURE_FLAGS)
-  const ref = useRef<HTMLDivElement>(null)
-  useOnClickOutside(ref, isOpen ? toggleOpen : undefined)
+  const [isOpen, setIsOpen] = useState(false);
+
+  // Combine the hover effect into one area
+  const handleMouseEnter = () => setIsOpen(true);
+  const handleMouseLeave = (e: React.MouseEvent) => {
+    // Close dropdown if the mouse is leaving the combined area
+    if (!e.currentTarget.contains(e.relatedTarget as Node)) {
+      setIsOpen(false);
+    }
+  };
+
+  const handleMenuItemClick = () => {
+    setIsOpen(false); // Close dropdown on `MenuItem` click
+  };
+
+  const navigate = useNavigate();
+
+  const handleBoxItemClick = () => {
+    navigate(`/explore/tokens/${chainName.toLowerCase()}`);
+    setIsOpen(false);
+  };
+
 
   return (
     <>
-      <Box position="relative" ref={ref}>
+      <Box
+        position="relative"
+        className={pathname.startsWith('/explore') ? styles.activeMenuItem : styles.menuItem}
+        style={{ cursor: 'pointer' }}
+        color={pathname.startsWith('/explore') ? 'textPrimary' : 'textSecondary'}
+        onMouseEnter={() => setIsOpen(true)}
+        height="40"
+        width="40"
+        role="menu"
+        aria-haspopup="true"
+        aria-expanded={isOpen}
+      >
         <Box
-          className={pathname.startsWith('/explore') ? styles.activeMenuItem : styles.menuItem}
-          color={pathname.startsWith('/explore') ? 'textPrimary' : 'textSecondary'}
-          onClick={toggleOpen}
-          height="40"
-          width="40"
-          style={{ cursor: 'pointer' }} // Add this line to show the hand cursor on hover
-        >
+          onClick={handleBoxItemClick}>
           <Trans>Explore</Trans>
         </Box>
         {isOpen && (
-          <NavDropdown top={{ sm: 'unset', lg: '56' }} bottom={{ sm: '56', lg: 'unset' }} left="0">
-            <Column gap="16">
-              <Column paddingX="8" gap="4">
-                <MenuItem href={`/explore/tokens/${chainName.toLowerCase()}`} isActive={pathname.startsWith('/explore/tokens')}>
-                  <Trans>Tokens</Trans>
-                </MenuItem>
-                <MenuItem href={`/explore/pools/${chainName.toLowerCase()}`} isActive={pathname.startsWith('/explore/pools')}>
-                  <Trans>Pools</Trans>
-                </MenuItem>
-                <MenuItem href={`/explore/transactions/${chainName.toLowerCase()}`} isActive={pathname.startsWith('/explore/transactions')}>
-                  <Trans>Transactions</Trans>
-                </MenuItem>
+          <Box
+            position="absolute"
+            top="6"
+            left="0"
+          >
+            <NavDropdown
+              top={{ sm: 'unset', lg: '40' }}
+              bottom={{ sm: '56', lg: 'unset' }}
+              left="0"
+              onMouseLeave={() => setIsOpen(false)}
+            >
+              <Column gap="16">
+                <Column paddingX="8" gap="4">
+                  <MenuItem
+                    href={`/explore/tokens/${chainName.toLowerCase()}`}
+                    isActive={pathname.startsWith('/explore/tokens')}
+                    onClick={handleMenuItemClick} // Close dropdown on click
+                  >
+                    <Trans>Tokens</Trans>
+                  </MenuItem>
+                  <MenuItem
+                    href={`/explore/pools/${chainName.toLowerCase()}`}
+                    isActive={pathname.startsWith('/explore/pools')}
+                    onClick={handleMenuItemClick} // Close dropdown on click
+                  >
+                    <Trans>Pools</Trans>
+                  </MenuItem>
+                  <MenuItem
+                    href={`/explore/transactions/${chainName.toLowerCase()}`}
+                    isActive={pathname.startsWith('/explore/transactions')}
+                    onClick={handleMenuItemClick} // Close dropdown on click
+                  >
+                    <Trans>Transactions</Trans>
+                  </MenuItem>
+                </Column>
               </Column>
-            </Column>
-          </NavDropdown>
+            </NavDropdown>
+          </Box>
         )}
       </Box>
       <MenuItem href="/pool" id="pool-nav-link" isActive={isPoolActive}>
@@ -203,8 +247,8 @@ export const PageTabs = () => {
         <Trans>Trade</Trans>
       </MenuItem>
     </>
-  )
-}
+  );
+};
 
 const Navbar = () => {
   const isNftPage = useIsNftPage()
