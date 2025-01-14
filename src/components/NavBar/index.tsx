@@ -23,6 +23,7 @@ import { MenuDropdown } from './MenuDropdown'
 import * as menustyles from './MenuDropdown.css'
 import { SearchBar } from './SearchBar'
 import * as styles from './style.css'
+import { ParentSize } from '@visx/responsive'
 
 const Nav = styled.nav`
   padding: 20px 12px;
@@ -160,77 +161,76 @@ export const PageTabs = () => {
 
   const [isOpen, setIsOpen] = useState(false);
 
-  // Combine the hover effect into one area
-  const handleMouseEnter = () => setIsOpen(true);
-  const handleMouseLeave = (e: React.MouseEvent) => {
-    // Close dropdown if the mouse is leaving the combined area
-    if (!e.currentTarget.contains(e.relatedTarget as Node)) {
-      setIsOpen(false);
-    }
-  };
-
-  const handleMenuItemClick = () => {
-    setIsOpen(false); // Close dropdown on `MenuItem` click
-  };
-
   const navigate = useNavigate();
 
   const handleBoxItemClick = () => {
     navigate(`/explore/tokens/${chainName.toLowerCase()}`);
-    setIsOpen(false);
+    setIsOpen(false); // Close dropdown
   };
 
+  const handleMouseEnter = () => {
+    setIsOpen(true); // Open dropdown
+  };
+
+  const handleMouseLeave = () => {
+    setIsOpen(false); // Close dropdown
+  };
+
+  const handleMenuItemClick = () => {
+    setIsOpen(false); // Close dropdown when a menu item is clicked
+  };
 
   return (
     <>
       <Box
         position="relative"
         className={pathname.startsWith('/explore') ? styles.activeMenuItem : styles.menuItem}
-        style={{ cursor: 'pointer' }}
         color={pathname.startsWith('/explore') ? 'textPrimary' : 'textSecondary'}
-        onMouseEnter={() => setIsOpen(true)}
-        height="40"
-        width="40"
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
         role="menu"
         aria-haspopup="true"
         aria-expanded={isOpen}
+        style={{
+          display: 'inline-block',
+          cursor: 'pointer'
+        }}
       >
+        {/* Explore Button */}
         <Box
-          onClick={handleBoxItemClick}>
+          onClick={handleBoxItemClick}
+        >
           <Trans>Explore</Trans>
         </Box>
+
+        {/* Dropdown Menu */}
         {isOpen && (
-          <Box
-            position="absolute"
-            top="6"
-            left="0"
-          >
+          <Box position="absolute" left="0">
             <NavDropdown
-              top={{ sm: 'unset', lg: '40' }}
+              top={{ sm: 'unset', lg: '8' }}
               bottom={{ sm: '56', lg: 'unset' }}
               left="0"
-              onMouseLeave={() => setIsOpen(false)}
             >
               <Column gap="16">
-                <Column paddingX="8" gap="4">
+                <Column paddingX="8">
                   <MenuItem
                     href={`/explore/tokens/${chainName.toLowerCase()}`}
                     isActive={pathname.startsWith('/explore/tokens')}
-                    onClick={handleMenuItemClick} // Close dropdown on click
+                    onClick={handleMenuItemClick}
                   >
                     <Trans>Tokens</Trans>
                   </MenuItem>
                   <MenuItem
                     href={`/explore/pools/${chainName.toLowerCase()}`}
                     isActive={pathname.startsWith('/explore/pools')}
-                    onClick={handleMenuItemClick} // Close dropdown on click
+                    onClick={handleMenuItemClick}
                   >
                     <Trans>Pools</Trans>
                   </MenuItem>
                   <MenuItem
                     href={`/explore/transactions/${chainName.toLowerCase()}`}
                     isActive={pathname.startsWith('/explore/transactions')}
-                    onClick={handleMenuItemClick} // Close dropdown on click
+                    onClick={handleMenuItemClick}
                   >
                     <Trans>Transactions</Trans>
                   </MenuItem>
@@ -240,6 +240,8 @@ export const PageTabs = () => {
           </Box>
         )}
       </Box>
+
+      {/* Other Menu Items */}
       <MenuItem href="/pool" id="pool-nav-link" isActive={isPoolActive}>
         <Trans>Pool</Trans>
       </MenuItem>

@@ -24,8 +24,6 @@ import { ApplicationModal } from '../../state/application/reducer'
 import * as styles from './MenuDropdown.css'
 import { NavDropdown } from './NavDropdown'
 import { NavIcon } from './NavIcon'
-import { useWeb3React } from '@web3-react/core'
-import { chainIdToBackendName } from 'graphql/data/util'
 
 const PrimaryMenuRow = ({
   to,
@@ -120,8 +118,6 @@ const Icon = ({ href, children }: { href?: string; children: ReactNode }) => {
 }
 
 export const MenuDropdown = () => {
-  const { chainId: connectedChainId } = useWeb3React();
-  const chainName = chainIdToBackendName(connectedChainId);
   const [isOpen, toggleOpen] = useReducer((s) => !s, false)
   const togglePrivacyPolicy = useToggleModal(ApplicationModal.PRIVACY_POLICY)
   const openFeatureFlagsModal = useToggleModal(ApplicationModal.FEATURE_FLAGS)
@@ -148,7 +144,7 @@ export const MenuDropdown = () => {
                     <Trans>Vote in governance</Trans>
                   </PrimaryMenuRow.Text>
                 </PrimaryMenuRow>
-                <PrimaryMenuRow href={`/#/explore/tokens/${chainName.toLowerCase()}`}>
+                <PrimaryMenuRow href="https://info.uniswap.org/#/">
                   <Icon>
                     <BarChartIcon width={24} height={24} />
                   </Icon>

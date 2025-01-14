@@ -71,7 +71,8 @@ const baseMenuItem = style([
     lineHeight: '24px',
     textDecoration: 'none',
     ':hover': {
-      background: vars.color.lightGrayOverlay,
+      // background: vars.color.lightGrayOverlay,
+      color: 'lightcyan'
     },
   },
 ])
