@@ -137,7 +137,6 @@ export function AboutSection({ address, chainId, description, homepageUrl, twitt
           name={chainId === SupportedChainId.MAINNET ? 'Etherscan' : 'Block Explorer'}
           link={`${baseExplorerUrl}${address === 'NATIVE' ? '' : '/address/' + address}`}
         />
-        <Resource name="More analytics" link={`https://info.uniswap.org/#/tokens/${address}`} />
         {displayHomePageUrl && <Resource name="Website" link={displayHomePageUrl} />}
         {displayTwitterName && <Resource name="Twitter" link={`https://twitter.com/${displayTwitterName}`} />}
       </ResourcesContainer>

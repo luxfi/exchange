@@ -264,6 +264,186 @@ export const TOKENS_LUX_LIST = {
             "extensions": {}
         },
         {
+            "chainId": 200200,
+            "address": "0xED15C23B27a69b5bd50B1eeF5B8f1C8D849462b7",
+            "name": "Slog",
+            "symbol": "SLOG",
+            "decimals": 18,
+            "logoURI": "https://cdn.lux.network/bridge/currencies/slog.png",
+            "extensions": {}
+        },
+        {
+            "chainId": 200200,
+            "address": "0xED15C23B27a69b5bd50B1eeF5B8f1C8D849462b7",
+            "name": "Slog",
+            "symbol": "SLOG",
+            "decimals": 18,
+            "logoURI": "https://cdn.lux.network/bridge/currencies/slog.png",
+            "extensions": {}
+        },
+        {
+            "chainId": 200200,
+            "address": "0x8b34152832b8ab4a3274915675754AA61eC113F0",
+            "name": "Zoo ADA",
+            "symbol": "ZADA",
+            "decimals": 18,
+            "logoURI": "https://cdn.lux.network/bridge/currencies/zoo/zada.svg",
+            "extensions": {}
+        },
+        {
+            "chainId": 200200,
+            "address": "0x0EE4602429bFCEf8aEB1012F448b23532f9855Bd",
+            "name": "Zoo AVAX",
+            "symbol": "ZAVAX",
+            "decimals": 18,
+            "logoURI": "https://cdn.lux.network/bridge/currencies/zoo/zavax.svg",
+            "extensions": {}
+        },
+        {
+            "chainId": 200200,
+            "address": "0x7a56c769C50F2e73CFB70b401409Ad1F1a5000cd",
+            "name": "Zoo BLAST",
+            "symbol": "ZBLAST",
+            "decimals": 18,
+            "logoURI": "https://cdn.lux.network/bridge/currencies/zoo/zblast.svg",
+            "extensions": {}
+        },
+        {
+            "chainId": 200200,
+            "address": "0x8a873ad8CfF8ba640D71274d33a85AB1B2d53b62",
+            "name": "Zoo BONK",
+            "symbol": "ZBONK",
+            "decimals": 18,
+            "logoURI": "https://cdn.lux.network/bridge/currencies/zoo/zbonk.svg",
+            "extensions": {}
+        },
+        {
+            "chainId": 200200,
+            "address": "0x4586D49f3a32c3BeCA2e09802e0aB1Da705B011D",
+            "name": "Zoo WIF",
+            "symbol": "ZWIF",
+            "decimals": 18,
+            "logoURI": "https://cdn.lux.network/bridge/currencies/zoo/zwif.svg",
+            "extensions": {}
+        },
+        {
+            "chainId": 200200,
+            "address": "0x68Cd9b8Df6E86dA02ef030c2F1e5a3Ad6B6d747F",
+            "name": "Zoo Popcat",
+            "symbol": "ZPOPCAT",
+            "decimals": 18,
+            "logoURI": "https://cdn.lux.network/bridge/currencies/zoo/zpopcat.svg",
+            "extensions": {}
+        },
+        {
+            "chainId": 200200,
+            "address": "0x0e4bD0DD67c15dECfBBBdbbE07FC9d51D737693D",
+            "name": "Zoo PNUT",
+            "symbol": "ZPNUT",
+            "decimals": 18,
+            "logoURI": "https://cdn.lux.network/bridge/currencies/zoo/zpnut.svg",
+            "extensions": {}
+        },
+        {
+            "chainId": 200200,
+            "address": "0x94f49D0F4C62bbE4238F4AaA9200287bea9F2976",
+            "name": "Zoo MEW",
+            "symbol": "ZMEW",
+            "decimals": 18,
+            "logoURI": "https://cdn.lux.network/bridge/currencies/zoo/zmew.svg",
+            "extensions": {}
+        },
+        {
+            "chainId": 200200,
+            "address": "0xEf770a556430259d1244F2A1384bd1A672cE9e7F",
+            "name": "Zoo BOME",
+            "symbol": "ZBOME",
+            "decimals": 18,
+            "logoURI": "https://cdn.lux.network/bridge/currencies/zoo/zbome.svg",
+            "extensions": {}
+        },
+        {
+            "chainId": 200200,
+            "address": "0xBBd222BD7dADd241366e6c2CbD5979F678598A85",
+            "name": "Zoo GIGA",
+            "symbol": "ZGIGA",
+            "decimals": 18,
+            "logoURI": "https://cdn.lux.network/bridge/currencies/zoo/zgiga.svg",
+            "extensions": {}
+        },
+        {
+            "chainId": 200200,
+            "address": "0x273196F2018D61E31510D1Aa1e6644955880D122",
+            "name": "Zoo AI16Z",
+            "symbol": "ZAI16Z",
+            "decimals": 18,
+            "logoURI": "https://cdn.lux.network/bridge/currencies/zoo/zai16z.svg",
+            "extensions": {}
+        },
+        {
+            "chainId": 200200,
+            "address": "0xd8ab3C445d81D78E7DC2d60FeC24f8C7328feF2f",
+            "name": "Zoo FWOG",
+            "symbol": "ZFWOG",
+            "decimals": 18,
+            "logoURI": "https://cdn.lux.network/bridge/currencies/zoo/zfwog.svg",
+            "extensions": {}
+        },
+        {
+            "chainId": 200200,
+            "address": "0xe6cd610aD16C8Fe5BCeDFff7dAB2e3d461089261",
+            "name": "Zoo MOODENG",
+            "symbol": "ZMOODENG",
+            "decimals": 18,
+            "logoURI": "https://cdn.lux.network/bridge/currencies/zoo/zmoodeng.svg",
+            "extensions": {}
+        },
+        {
+            "chainId": 200200,
+            "address": "0xDF7740fCC9B244c192CfFF7b6553a3eEee0f4898",
+            "name": "Zoo PONKE",
+            "symbol": "ZPONKE",
+            "decimals": 18,
+            "logoURI": "https://cdn.lux.network/bridge/currencies/zoo/zponke.svg",
+            "extensions": {}
+        },
+        {
+            "chainId": 200200,
+            "address": "0xdfCAdda48DbbA09f5678aE31734193F7CCA7f20d",
+            "name": "Zoo NOT",
+            "symbol": "ZNOT",
+            "decimals": 18,
+            "logoURI": "https://cdn.lux.network/bridge/currencies/zoo/znot.svg",
+            "extensions": {}
+        },
+        {
+            "chainId": 200200,
+            "address": "0x0b0FF795d0A1C162b44CdC35D8f4DCbC2b4B9170",
+            "name": "Zoo DOGS",
+            "symbol": "ZDOGS",
+            "decimals": 18,
+            "logoURI": "https://cdn.lux.network/bridge/currencies/zoo/zdogs.svg",
+            "extensions": {}
+        },
+        {
+            "chainId": 200200,
+            "address": "0x3FfA9267739C04554C1fe640F79651333A2040e1",
+            "name": "Zoo MRB",
+            "symbol": "ZMRB",
+            "decimals": 18,
+            "logoURI": "https://cdn.lux.network/bridge/currencies/zoo/zmrb.svg",
+            "extensions": {}
+        },
+        {
+            "chainId": 200200,
+            "address": "0x137747A15dE042Cd01fCB41a5F3C7391d932750B",
+            "name": "Zoo REDO",
+            "symbol": "ZREDO",
+            "decimals": 18,
+            "logoURI": "https://cdn.lux.network/bridge/currencies/zoo/zredo.svg",
+            "extensions": {}
+        },
+        {
             "chainId": 96368,
             "address": "0xb84112ac9318a0b2319aa11d4d10e9762b25f7f4",
             "name": "Liquid USD",
