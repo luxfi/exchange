@@ -243,7 +243,7 @@ export const PageTabs = () => {
 
       {/* Other Menu Items */}
       <MenuItem href="/pool" id="pool-nav-link" isActive={isPoolActive}>
-        <Trans>Pool</Trans>
+        <Trans>Portfolio</Trans>
       </MenuItem>
       <MenuItem href="/swap" isActive={pathname.startsWith('/swap')}>
         <Trans>Trade</Trans>
