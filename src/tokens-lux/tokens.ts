@@ -268,16 +268,7 @@ export const TOKENS_LUX_LIST = {
             "address": "0xED15C23B27a69b5bd50B1eeF5B8f1C8D849462b7",
             "name": "Slog",
             "symbol": "SLOG",
-            "decimals": 18,
-            "logoURI": "https://cdn.lux.network/bridge/currencies/slog.png",
-            "extensions": {}
-        },
-        {
-            "chainId": 200200,
-            "address": "0xED15C23B27a69b5bd50B1eeF5B8f1C8D849462b7",
-            "name": "Slog",
-            "symbol": "SLOG",
-            "decimals": 18,
+            "decimals": 6,
             "logoURI": "https://cdn.lux.network/bridge/currencies/slog.png",
             "extensions": {}
         },
