@@ -259,6 +259,7 @@ export default function TokenTable() {
                 }
                 volumeUSD += parseFloat(tokenDayData[i].volumeUSD);
               }
+              console.log("tokenDayData",duration, new Date(todayDate).getTime(), getTokenNameByAddressAndChainId(token.id, CHAIN_NAME_TO_CHAIN_ID[chainName]), i, tokenDayData, volumeUSD);
             }
             for (i = 0; i < tokenDayData.length; i++) {
               if (tokenDayData[i]?.date && tokenDayData[i].date * 1000 <= new Date(todayDate).getTime() - daysPer * 24 * 60 * 60 * 1000) {
@@ -343,8 +344,8 @@ export default function TokenTable() {
     () =>
       transformedTokens
         ?.sort((a, b) => {
-          if (!a.market?.volume || !b.market?.volume) return 0
-          return a.market.volume.value > b.market.volume.value ? -1 : 1
+          if (!a.market?.totalValueLocked || !b.market?.totalValueLocked) return 0
+          return a.market.totalValueLocked.value > b.market.totalValueLocked.value ? -1 : 1
         })
         .reduce((acc, cur, i) => {
           if (!cur.address) return acc
