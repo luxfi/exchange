@@ -209,6 +209,13 @@ export default function TokenDetails({
               priceHigh52W={tokenQueryData?.market?.priceHigh52W?.value}
               priceLow52W={tokenQueryData?.market?.priceLow52W?.value}
             />
+            <AboutHeader>
+              <Hr />
+              <Trans>Transacitons</Trans>
+            </AboutHeader>
+            <div style={{ marginTop: "20px" }}>
+              <TokenTransactionTable />
+            </div>
             <Hr />
             <AboutSection
               address={address}
@@ -219,12 +226,6 @@ export default function TokenDetails({
               twitterName={tokenQueryData?.project?.twitterName}
             />
             {token?.symbol != "WLUX" && <AddressSection address={address} />}
-            <AboutHeader>
-              <Hr />
-              <Trans>Transacitons</Trans>
-              <Hr />
-            </AboutHeader>
-            <TokenTransactionTable/>
           </LeftPanel>
         ) : (
           <TokenDetailsSkeleton />
