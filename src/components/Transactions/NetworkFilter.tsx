@@ -7,6 +7,8 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { useModalIsOpen, useToggleModal } from 'state/application/hooks'
 import { ApplicationModal } from 'state/application/reducer'
 import styled, { useTheme } from 'styled-components/macro'
+import useSelectChain from 'hooks/useSelectChain'
+import useSyncChainQuery from 'hooks/useSyncChainQuery'
 
 import FilterOption from '../Tokens/TokenTable/FilterOption'
 
@@ -101,6 +103,14 @@ export default function NetworkFilter() {
 
   const chainInfo = getChainInfo(CHAIN_NAME_TO_CHAIN_ID[currentChainName])
 
+  const selectChain = useSelectChain()
+  useSyncChainQuery()
+
+  const changeNetwork = (network: any) => {
+    const targetchainId = CHAIN_NAME_TO_CHAIN_ID[network];
+    selectChain(targetchainId)
+  };
+
   return (
     <StyledMenu ref={node}>
       <NetworkFilterOption
@@ -134,6 +144,7 @@ export default function NetworkFilter() {
                 onClick={() => {
                   navigate(`/explore/transactions/${network.toLowerCase()}`)
                   toggleMenu()
+                  changeNetwork(network)
                 }}
               >
                 <NetworkLabel>

@@ -7,10 +7,8 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { useModalIsOpen, useToggleModal } from 'state/application/hooks'
 import { ApplicationModal } from 'state/application/reducer'
 import styled, { useTheme } from 'styled-components/macro'
-import useSelectChain from 'hooks/useSelectChain'
-import useSyncChainQuery from 'hooks/useSyncChainQuery'
 
-import FilterOption from './PoolTable/FilterOption'
+import FilterOption from '../Tokens/TokenTable/FilterOption'
 
 const InternalMenuItem = styled.div`
   flex: 1;
@@ -103,14 +101,6 @@ export default function NetworkFilter() {
 
   const chainInfo = getChainInfo(CHAIN_NAME_TO_CHAIN_ID[currentChainName])
 
-  const selectChain = useSelectChain()
-  useSyncChainQuery()
-
-  const changeNetwork = (network: any) => {
-    const targetchainId = CHAIN_NAME_TO_CHAIN_ID[network];
-    selectChain(targetchainId)
-  };
-
   return (
     <StyledMenu ref={node}>
       <NetworkFilterOption
@@ -140,11 +130,10 @@ export default function NetworkFilter() {
             return (
               <InternalLinkMenuItem
                 key={network}
-                data-testid={`pools-network-filter-option-${network.toLowerCase()}`}
+                data-testid={`transactions-network-filter-option-${network.toLowerCase()}`}
                 onClick={() => {
-                  navigate(`/explore/pools/${network.toLowerCase()}`)
+                  navigate(`/explore/transactions/${network.toLowerCase()}`)
                   toggleMenu()
-                  changeNetwork(network)
                 }}
               >
                 <NetworkLabel>

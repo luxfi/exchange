@@ -107,7 +107,8 @@ export function useCurrencyFromMap(tokens: TokenMap, currencyId?: string | null)
 
   // this case so we use our builtin wrapped token instead of wrapped tokens on token lists
   const wrappedNative = nativeCurrency?.wrapped
-  if (wrappedNative?.address?.toUpperCase() === currencyId?.toUpperCase()) return wrappedNative
-
+  if (wrappedNative?.address?.toUpperCase() === currencyId?.toUpperCase()) {
+    return wrappedNative
+  }
   return isNative ? nativeCurrency : token
 }

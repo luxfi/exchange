@@ -4,13 +4,14 @@ import { InterfacePageName } from '@uniswap/analytics-events'
 import { Currency } from '@uniswap/sdk-core'
 import { useWeb3React } from '@web3-react/core'
 import CurrencyLogo from 'components/Logo/CurrencyLogo'
-import { AboutSection } from 'components/Tokens/TokenDetails/About'
+import { AboutSection, AboutHeader } from 'components/Tokens/TokenDetails/About'
 import AddressSection from 'components/Tokens/TokenDetails/AddressSection'
 import BalanceSummary from 'components/Tokens/TokenDetails/BalanceSummary'
 import { BreadcrumbNavLink } from 'components/Tokens/TokenDetails/BreadcrumbNavLink'
 import ChartSection from 'components/Tokens/TokenDetails/ChartSection'
 import MobileBalanceSummaryFooter from 'components/Tokens/TokenDetails/MobileBalanceSummaryFooter'
 import ShareButton from 'components/Tokens/TokenDetails/ShareButton'
+import TokenTransactionTable from 'components/TokenTransaction/TransactionTable'
 import TokenDetailsSkeleton, {
   Hr,
   LeftPanel,
@@ -218,6 +219,12 @@ export default function TokenDetails({
               twitterName={tokenQueryData?.project?.twitterName}
             />
             {token?.symbol != "WLUX" && <AddressSection address={address} />}
+            <AboutHeader>
+              <Hr />
+              <Trans>Transacitons</Trans>
+              <Hr />
+            </AboutHeader>
+            <TokenTransactionTable/>
           </LeftPanel>
         ) : (
           <TokenDetailsSkeleton />
@@ -231,7 +238,10 @@ export default function TokenDetails({
               onTokenChange={navigateToWidgetSelectedToken}
               onReviewSwapClick={onReviewSwapClick}
             />} */}
-          {<Swap />}
+          {address.includes("Native") || token?.isNative || token?.symbol == "WLUX" ? <Swap/> :
+          <Swap
+            tokenAddress={address} 
+          />}
           {tokenWarning && token?.chainId != 96369 && token?.chainId != 200200 && <TokenSafetyMessage tokenAddress={address} warning={tokenWarning} />}
           {token && token?.chainId != 96369 && token?.chainId != 200200 && <BalanceSummary token={token} />}
         </RightPanel>

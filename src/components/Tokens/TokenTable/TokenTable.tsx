@@ -259,7 +259,6 @@ export default function TokenTable() {
                 }
                 volumeUSD += parseFloat(tokenDayData[i].volumeUSD);
               }
-              console.log("tokenDayData",duration, new Date(todayDate).getTime(), getTokenNameByAddressAndChainId(token.id, CHAIN_NAME_TO_CHAIN_ID[chainName]), i, tokenDayData, volumeUSD);
             }
             for (i = 0; i < tokenDayData.length; i++) {
               if (tokenDayData[i]?.date && tokenDayData[i].date * 1000 <= new Date(todayDate).getTime() - daysPer * 24 * 60 * 60 * 1000) {
@@ -340,7 +339,7 @@ export default function TokenTable() {
     };
   }, [calculateTransformedTokens]);
 
-  const transformedTokenVolumeRank = useMemo(
+  const transformedTokenTVLRank = useMemo(
     () =>
       transformedTokens
         ?.sort((a, b) => {
@@ -443,11 +442,11 @@ export default function TokenTable() {
     if (luxLoading || !sortedTokens) return <LoadingTokenTable rowCount={PAGE_SIZE} />;
     if (!sortedTokens || sortedTokens.length == 0)
       return renderErrorOrEmptyState("No tokens found or an error occurred loading tokens.");
-    return renderTokens(sortedTokens, transformedTokenVolumeRank);
+    return renderTokens(sortedTokens, transformedTokenTVLRank);
   } else { //chain = ZOO
     if (luxLoading && !sortedTokens) return <LoadingTokenTable rowCount={PAGE_SIZE} />;
     if (!sortedTokens || sortedTokens.length == 0)
       return renderErrorOrEmptyState("No tokens found or an error occurred loading tokens.");
-    return renderTokens(sortedTokens, transformedTokenVolumeRank);
+    return renderTokens(sortedTokens, transformedTokenTVLRank);
   }
 }

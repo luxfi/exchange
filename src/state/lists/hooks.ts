@@ -69,7 +69,6 @@ function useCombinedTokenMapFromUrls(urls: string[] | undefined): TokenAddressMa
 // get all the tokens from active lists, combine with local default tokens
 export function useCombinedActiveList(): TokenAddressMap {
   const activeTokens = useCombinedTokenMapFromUrls(DEFAULT_ACTIVE_LIST_URLS)
-  // console.log("activeTokens = ", activeTokens);
   return activeTokens
 }
 

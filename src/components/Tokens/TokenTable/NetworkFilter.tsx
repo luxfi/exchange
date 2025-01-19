@@ -3,6 +3,8 @@ import { BACKEND_CHAIN_NAMES, CHAIN_NAME_TO_CHAIN_ID, validateUrlChainParam } fr
 import { useOnClickOutside } from 'hooks/useOnClickOutside'
 import { useRef } from 'react'
 import { Check, ChevronDown, ChevronUp } from 'react-feather'
+import useSelectChain from 'hooks/useSelectChain'
+import useSyncChainQuery from 'hooks/useSyncChainQuery'
 import { useNavigate, useParams } from 'react-router-dom'
 import { useModalIsOpen, useToggleModal } from 'state/application/hooks'
 import { ApplicationModal } from 'state/application/reducer'
@@ -100,6 +102,14 @@ export default function NetworkFilter() {
   const currentChainName = validateUrlChainParam(chainName)
 
   const chainInfo = getChainInfo(CHAIN_NAME_TO_CHAIN_ID[currentChainName])
+  
+  const selectChain = useSelectChain()
+  useSyncChainQuery()
+
+  const changeNetwork = (network: any) => {
+    const targetchainId = CHAIN_NAME_TO_CHAIN_ID[network];
+    selectChain(targetchainId)
+  };
 
   return (
     <StyledMenu ref={node}>
@@ -134,6 +144,7 @@ export default function NetworkFilter() {
                 onClick={() => {
                   navigate(`/explore/tokens/${network.toLowerCase()}`)
                   toggleMenu()
+                  changeNetwork(network)
                 }}
               >
                 <NetworkLabel>

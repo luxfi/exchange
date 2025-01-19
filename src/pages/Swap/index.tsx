@@ -61,7 +61,7 @@ import useIsArgentWallet from '../../hooks/useIsArgentWallet'
 import { useIsSwapUnsupported } from '../../hooks/useIsSwapUnsupported'
 import { useStablecoinValue } from '../../hooks/useStablecoinPrice'
 import useWrapCallback, { WrapErrorText, WrapType } from '../../hooks/useWrapCallback'
-import { Field } from '../../state/swap/actions'
+import { Field, selectCurrency } from '../../state/swap/actions'
 import {
   useDefaultsFromURLSearch,
   useDerivedSwapInfo,
@@ -153,7 +153,7 @@ function largerPercentValue(a?: Percent, b?: Percent) {
 
 const TRADE_STRING = 'SwapRouter'
 
-export default function Swap({ className }: { className?: string }) {
+export default function Swap({ className, tokenAddress }: { className?: string, tokenAddress?:any }) {
   const navigate = useNavigate()
   const { account, chainId } = useWeb3React()
   const loadedUrlParams = useDefaultsFromURLSearch()
@@ -650,7 +650,7 @@ export default function Swap({ className }: { className?: string }) {
                         hideBalance={false}
                         fiatValue={fiatValueOutput ?? undefined}
                         priceImpact={stablecoinPriceImpact}
-                        currency={currencies[Field.OUTPUT] ?? null}
+                        currency={tokenAddress ? useCurrency(tokenAddress) : (currencies[Field.OUTPUT] ?? null)}
                         onCurrencySelect={handleOutputSelect}
                         otherCurrency={currencies[Field.INPUT]}
                         showCommonBases={true}
