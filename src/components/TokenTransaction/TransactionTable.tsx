@@ -23,7 +23,7 @@ query MyQuery($tokenId: String!) {
     ethPriceUSD
   }
   transactions(
-    first: 30, 
+    first: 10, 
     orderBy: timestamp, 
     orderDirection: desc,
     where: {
