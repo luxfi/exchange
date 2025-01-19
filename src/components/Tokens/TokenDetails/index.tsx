@@ -211,7 +211,7 @@ export default function TokenDetails({
             />
             <AboutHeader>
               <Hr />
-              <Trans>Transacitons</Trans>
+              <Trans>Transactions</Trans>
             </AboutHeader>
             <div style={{ marginTop: "20px" }}>
               <TokenTransactionTable />
