@@ -119,18 +119,16 @@ function LoadingTransactionsTable({ rowCount = PAGE_SIZE }: { rowCount?: number 
   );
 }
 
-export default function TokenTransactionTable() {
-    const { tokenAddress, chainName } = useParams<{ tokenAddress: string; chainName?: string }>()
-    const isNative = tokenAddress === NATIVE_CHAIN_ID
-    const chain = validateUrlChainParam(chainName)
-    const address = useMemo(
-      /* tokenAddress will always be defined in the path for for this page to render, but useParams will always
-        return optional arguments; nullish coalescing operator is present here to appease typechecker */
-      () => [isNative ? getNativeTokenDBAddress(chain) : tokenAddress ?? ''],
-      [chain, isNative, tokenAddress]
-    )
-  // const chainName = validateUrlChainParam(useParams<{ chainName?: string }>().chainName);
-  // console.log("tokenchain",chain);
+export default function TokenTransactionsTable() {
+  const { tokenAddress, chainName } = useParams<{ tokenAddress: string; chainName?: string }>()
+  const isNative = tokenAddress === NATIVE_CHAIN_ID
+  const chain = validateUrlChainParam(chainName)
+  const address = useMemo(
+    /* tokenAddress will always be defined in the path for for this page to render, but useParams will always
+      return optional arguments; nullish coalescing operator is present here to appease typechecker */
+    () => [isNative ? getNativeTokenDBAddress(chain) : tokenAddress ?? ''],
+    [chain, isNative, tokenAddress]
+  )
   const luxClient =
     chain == 'LUX' ? luxNetClient :
     chain == 'ZOO' ? zooNetClient :

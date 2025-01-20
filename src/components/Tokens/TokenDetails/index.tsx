@@ -4,14 +4,15 @@ import { InterfacePageName } from '@uniswap/analytics-events'
 import { Currency } from '@uniswap/sdk-core'
 import { useWeb3React } from '@web3-react/core'
 import CurrencyLogo from 'components/Logo/CurrencyLogo'
-import { AboutSection, AboutHeader } from 'components/Tokens/TokenDetails/About'
+import { AboutSection, TableHeader } from 'components/Tokens/TokenDetails/About'
 import AddressSection from 'components/Tokens/TokenDetails/AddressSection'
 import BalanceSummary from 'components/Tokens/TokenDetails/BalanceSummary'
 import { BreadcrumbNavLink } from 'components/Tokens/TokenDetails/BreadcrumbNavLink'
 import ChartSection from 'components/Tokens/TokenDetails/ChartSection'
 import MobileBalanceSummaryFooter from 'components/Tokens/TokenDetails/MobileBalanceSummaryFooter'
 import ShareButton from 'components/Tokens/TokenDetails/ShareButton'
-import TokenTransactionTable from 'components/TokenTransaction/TransactionTable'
+import TokenTransactionsTable from 'components/TokenTransaction/TransactionTable'
+import TokenPoolsTable from 'components/TokenPools/PoolTable'
 import TokenDetailsSkeleton, {
   Hr,
   LeftPanel,
@@ -93,6 +94,52 @@ type TokenDetailsProps = {
   tokenPriceQuery: TokenPriceQuery | undefined
   onChangeTimePeriod: OnChangeTimePeriod
 }
+
+function TokenDetailTable() {
+  const [activeTab, setActiveTab] = useState("transactions");
+
+  const handleTabClick = (tab : any) => {
+    setActiveTab(tab);
+  };
+
+  return (
+    <div>
+      <TableHeader>
+        <div style={{ display: "flex", gap: "20px" }}>
+          <span
+            onClick={() => handleTabClick("transactions")}
+            style={{
+              cursor: "pointer",
+              color: activeTab === "transactions" ? "white" : "gray",
+              fontWeight: activeTab === "transactions" ? "bold" : "normal",
+              fontFamily: 'Inter custom',
+            }}
+          >
+            Transactions
+          </span>
+          <span
+            onClick={() => handleTabClick("pools")}
+            style={{
+              cursor: "pointer",
+              color: activeTab === "pools" ? "white" : "gray",
+              fontWeight: activeTab === "pools" ? "bold" : "normal",
+              fontFamily: 'Inter custom',
+            }}
+          >
+            Pools
+          </span>
+        </div>
+      </TableHeader>
+
+      <div style={{ marginTop: "20px" }}>
+        {activeTab === "transactions" && <TokenTransactionsTable />}
+        {activeTab === "pools" && <TokenPoolsTable />}
+      </div>
+    </div>
+  );
+}
+
+
 export default function TokenDetails({
   urlAddress,
   chain,
@@ -209,13 +256,15 @@ export default function TokenDetails({
               priceHigh52W={tokenQueryData?.market?.priceHigh52W?.value}
               priceLow52W={tokenQueryData?.market?.priceLow52W?.value}
             />
-            <AboutHeader>
+            {/* <AboutHeader>
               <Hr />
               <Trans>Transactions</Trans>
             </AboutHeader>
             <div style={{ marginTop: "20px" }}>
               <TokenTransactionTable />
-            </div>
+            </div> */}
+            <Hr />
+            <TokenDetailTable />
             <Hr />
             <AboutSection
               address={address}

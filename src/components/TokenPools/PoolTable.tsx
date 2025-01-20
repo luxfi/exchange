@@ -4,10 +4,12 @@ import { validateUrlChainParam } from 'graphql/data/util';
 import { AlertTriangle, Percent } from 'react-feather';
 import { useParams } from 'react-router-dom';
 import styled from 'styled-components/macro';
+import { getNativeTokenDBAddress } from 'utils/nativeTokens'
 
 import { useQuery } from '@apollo/client';
+import { NATIVE_CHAIN_ID } from 'constants/tokens'
 import gql from 'graphql-tag';
-import { ReactNode, useCallback, useEffect, useState, useRef } from 'react';
+import { ReactNode, useCallback, useEffect, useState, useRef, useMemo } from 'react';
 import { MAX_WIDTH_MEDIA_BREAKPOINT } from '../Tokens/constants';
 import { HeaderRow, LoadedRow, LoadingRow } from './PoolRow';
 import { TOKENS_LUX_LIST } from 'tokens-lux/tokens';
@@ -131,20 +133,28 @@ type PoolData = {
   lastHour: number;
 };
 
-export default function PoolsTable() {
-  const chainName = validateUrlChainParam(useParams<{ chainName?: string }>().chainName);
+export default function TokenPoolsTable() {
+  const { tokenAddress, chainName } = useParams<{ tokenAddress: string; chainName?: string }>()
+  const isNative = tokenAddress === NATIVE_CHAIN_ID
+  const chain = validateUrlChainParam(chainName)
+  const address = useMemo(
+    /* tokenAddress will always be defined in the path for for this page to render, but useParams will always
+      return optional arguments; nullish coalescing operator is present here to appease typechecker */
+    () => [isNative ? getNativeTokenDBAddress(chain) : tokenAddress ?? ''],
+    [chain, isNative, tokenAddress]
+  )
   const luxClient =
-    chainName == 'LUX' ? luxNetClient :
-    chainName == 'ZOO' ? zooNetClient :
-    chainName == 'ARBITRUM' ? arbitrumNetClient :
-    chainName == 'POLYGON' ? polygonNetClient :
-    chainName == 'ETHEREUM' ? ethereumNetClient :
-    chainName == 'OPTIMISM' ? optimismNetClient :
-    chainName == 'CELO' ? celoNetClient :
-    chainName == 'BASE' ? baseNetClient :
-    chainName == 'BNB' ? bnbNetClient :
-    chainName == 'AVALANCHE' ? avalancheNetClient :
-    chainName == 'ZORA' ? apolloClient :
+    chain == 'LUX' ? luxNetClient :
+    chain == 'ZOO' ? zooNetClient :
+    chain == 'ARBITRUM' ? arbitrumNetClient :
+    chain == 'POLYGON' ? polygonNetClient :
+    chain == 'ETHEREUM' ? ethereumNetClient :
+    chain == 'OPTIMISM' ? optimismNetClient :
+    chain == 'CELO' ? celoNetClient :
+    chain == 'BASE' ? baseNetClient :
+    chain == 'BNB' ? bnbNetClient :
+    chain == 'AVALANCHE' ? avalancheNetClient :
+    chain == 'ZORA' ? apolloClient :
     apolloClient;
   
   const { data: luxData, loading: luxLoading, refetch } = useQuery(getPoolsInfoQuery, {
@@ -152,10 +162,11 @@ export default function PoolsTable() {
     pollInterval: 10000,
   });
   
-  const ethPriceUSD = luxData?.bundles[0]?.ethPriceUSD;
   const tokenAddresses = TOKENS_LUX_LIST.tokens
-      .filter((token) => token.chainId === CHAIN_NAME_TO_CHAIN_ID[chainName]) // Filter by chainId
+      .filter((token) => token.chainId === CHAIN_NAME_TO_CHAIN_ID[chain]) // Filter by chainId
       .map((token) => token.address.toUpperCase()); // Extract the address
+
+  const ethPriceUSD = luxData?.bundles[0]?.ethPriceUSD;
   const [transformedPools, setTransformedPools] = useState<any[] | undefined>(undefined);
 
   const calculateTransformedPools = useCallback((): PoolData[] => {
@@ -163,9 +174,13 @@ export default function PoolsTable() {
     if (!luxData?.pools) return [];
 
     // Apply a filter before mapping
-    const filteredPools = luxData.pools.filter((pool: any) => {
-      return pool.volumeUSD > 0.0000000000001 && pool.totalValueLockedUSD > 0.0000000000001 && tokenAddresses.includes(pool.token0.id.toUpperCase()) && tokenAddresses.includes(pool.token1.id.toUpperCase());
-    });
+  const filteredPools = luxData.pools.filter((pool: any) => {
+    return pool.volumeUSD > 0.0000000000001 && 
+    pool.totalValueLockedUSD > 0.0000000000001 && 
+    tokenAddresses.includes(pool.token0.id.toUpperCase()) && 
+    tokenAddresses.includes(pool.token1.id.toUpperCase()) &&
+    (pool.token0.id.toUpperCase() === address.toString().toUpperCase() || pool.token1.id.toUpperCase() === address.toString().toUpperCase());
+  });
 
     return filteredPools.map((pool: any) => ({
       totalValueLockedUSD: pool.totalValueLockedUSD || 0,

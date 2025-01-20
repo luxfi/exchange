@@ -53,7 +53,7 @@ import { ArrowWrapper, PageWrapper, SwapCallbackError, SwapWrapper } from '../..
 import SwapHeader from '../../components/swap/SwapHeader'
 import { SwitchLocaleLink } from '../../components/SwitchLocaleLink'
 import { TOKEN_SHORTHANDS } from '../../constants/tokens'
-import { useAllTokens, useCurrency } from '../../hooks/Tokens'
+import { useAllTokens, useCurrency, useToken } from '../../hooks/Tokens'
 import { ApprovalState, useApproveCallbackFromTrade } from '../../hooks/useApproveCallback'
 import useENSAddress from '../../hooks/useENSAddress'
 import { useERC20PermitFromTrade, UseERC20PermitState } from '../../hooks/useERC20Permit'
@@ -213,7 +213,7 @@ export default function Swap({ className, tokenAddress }: { className?: string, 
     currencies,
     inputError: swapInputError,
   } = useDerivedSwapInfo()
-
+  
   const {
     wrapType,
     execute: onWrap,
@@ -501,10 +501,15 @@ export default function Swap({ className, tokenAddress }: { className?: string, 
     })
   }, [maxInputAmount, onUserInput])
 
+  const [useTokenFlag, setUseTokenFlag] = useState(true);
+
   const handleOutputSelect = useCallback(
-    (outputCurrency: Currency) => onCurrencySelection(Field.OUTPUT, outputCurrency),
+    (outputCurrency: Currency) => {
+      onCurrencySelection(Field.OUTPUT, outputCurrency);
+      setUseTokenFlag(false); // Update state properly
+    },
     [onCurrencySelection]
-  )
+  );
 
   const swapIsUnsupported = useIsSwapUnsupported(currencies[Field.INPUT], currencies[Field.OUTPUT])
 
@@ -549,6 +554,14 @@ export default function Swap({ className, tokenAddress }: { className?: string, 
   const showDetailsDropdown = Boolean(
     !showWrap && userHasSpecifiedInputOutput && (trade || routeIsLoading || routeIsSyncing)
   )
+
+  const tokenCurrency = useCurrency(tokenAddress);
+  const tokenOutputShow = useMemo(() => {
+    if (useTokenFlag && tokenAddress) {
+      return tokenCurrency;
+    }
+    return currencies[Field.OUTPUT] ?? null;
+  }, [useTokenFlag, tokenAddress, tokenCurrency, currencies, Field.OUTPUT]);
 
   return (
     <Trace page={InterfacePageName.SWAP_PAGE} shouldLogImpression>
@@ -650,7 +663,7 @@ export default function Swap({ className, tokenAddress }: { className?: string, 
                         hideBalance={false}
                         fiatValue={fiatValueOutput ?? undefined}
                         priceImpact={stablecoinPriceImpact}
-                        currency={tokenAddress ? useCurrency(tokenAddress) : (currencies[Field.OUTPUT] ?? null)}
+                        currency={tokenOutputShow}
                         onCurrencySelect={handleOutputSelect}
                         otherCurrency={currencies[Field.INPUT]}
                         showCommonBases={true}
