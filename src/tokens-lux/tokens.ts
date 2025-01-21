@@ -435,6 +435,60 @@ export const TOKENS_LUX_LIST = {
             "extensions": {}
         },
         {
+            "chainId": 200200,
+            "address": "0x768972Ee4038a23b20B3beD3848027460172D897",
+            "name": "Official Trump",
+            "symbol": "TRUMP",
+            "decimals": 6,
+            "logoURI": "https://cdn.lux.network/bridge/currencies/trump.webp",
+            "extensions": {}
+        },
+        {
+            "chainId": 96369,
+            "address": "0x768972Ee4038a23b20B3beD3848027460172D897",
+            "name": "Official Trump",
+            "symbol": "TRUMP",
+            "decimals": 6,
+            "logoURI": "https://cdn.lux.network/bridge/currencies/trump.webp",
+            "extensions": {}
+        },
+        {
+            "chainId": 96369,
+            "address": "0x14F48A55722ecBa725aA83a294a8d3E8bE47DE46",
+            "name": "Melania Meme",
+            "symbol": "MELANIA",
+            "decimals": 6,
+            "logoURI": "https://cdn.lux.network/bridge/currencies/melania.jfif",
+            "extensions": {}
+        },
+        {
+            "chainId": 200200,
+            "address": "0x14F48A55722ecBa725aA83a294a8d3E8bE47DE46",
+            "name": "Melania Meme",
+            "symbol": "MELANIA",
+            "decimals": 6,
+            "logoURI": "https://cdn.lux.network/bridge/currencies/melania.jfif",
+            "extensions": {}
+        },
+        {
+            "chainId": 200200,
+            "address": "0xA69E6612B525474CB893500b70FD7Ec374CbF9a3",
+            "name": "Z",
+            "symbol": "Z",
+            "decimals": 6,
+            "logoURI": "https://cdn.lux.network/bridge/currencies/zeekay.jpeg",
+            "extensions": {}
+        },
+        {
+            "chainId": 96369,
+            "address": "0xA69E6612B525474CB893500b70FD7Ec374CbF9a3",
+            "name": "Z",
+            "symbol": "Z",
+            "decimals": 6,
+            "logoURI": "https://cdn.lux.network/bridge/currencies/zeekay.jpeg",
+            "extensions": {}
+        },
+        {
             "chainId": 96368,
             "address": "0xb84112ac9318a0b2319aa11d4d10e9762b25f7f4",
             "name": "Liquid USD",
