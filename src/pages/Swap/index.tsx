@@ -484,11 +484,18 @@ export default function Swap({ className, tokenAddress }: { className?: string, 
   const handleAcceptChanges = useCallback(() => {
     setSwapState({ tradeToConfirm: trade, swapErrorMessage, txHash, attemptingTxn, showConfirm })
   }, [attemptingTxn, showConfirm, swapErrorMessage, trade, txHash])
-
+  const tokenCurrency = useCurrency(tokenAddress);
+  const [useTokenFlag, setUseTokenFlag] = useState(true);
+  if (useTokenFlag && tokenAddress) {
+    currencies[Field.OUTPUT] = tokenCurrency;
+    // return currencies[Field.OUTPUT];
+  }
   const handleInputSelect = useCallback(
     (inputCurrency: Currency) => {
       setApprovalSubmitted(false) // reset 2 step UI for approvals
       onCurrencySelection(Field.INPUT, inputCurrency)
+      if(useTokenFlag && tokenCurrency) onCurrencySelection(Field.OUTPUT, tokenCurrency)
+      setUseTokenFlag(false); // Update state properly
     },
     [onCurrencySelection]
   )
@@ -500,8 +507,6 @@ export default function Swap({ className, tokenAddress }: { className?: string, 
       action: 'Max',
     })
   }, [maxInputAmount, onUserInput])
-
-  const [useTokenFlag, setUseTokenFlag] = useState(true);
 
   const handleOutputSelect = useCallback(
     (outputCurrency: Currency) => {
@@ -554,14 +559,6 @@ export default function Swap({ className, tokenAddress }: { className?: string, 
   const showDetailsDropdown = Boolean(
     !showWrap && userHasSpecifiedInputOutput && (trade || routeIsLoading || routeIsSyncing)
   )
-
-  const tokenCurrency = useCurrency(tokenAddress);
-  const tokenOutputShow = useMemo(() => {
-    if (useTokenFlag && tokenAddress) {
-      return tokenCurrency;
-    }
-    return currencies[Field.OUTPUT] ?? null;
-  }, [useTokenFlag, tokenAddress, tokenCurrency, currencies, Field.OUTPUT]);
 
   return (
     <Trace page={InterfacePageName.SWAP_PAGE} shouldLogImpression>
@@ -631,6 +628,10 @@ export default function Swap({ className, tokenAddress }: { className?: string, 
                     <ArrowContainer
                       onClick={() => {
                         setApprovalSubmitted(false) // reset 2 step UI for approvals
+                        if(useTokenFlag && tokenAddress) {
+                          onCurrencySelection(Field.OUTPUT, tokenCurrency!)
+                          setUseTokenFlag(false)
+                        }
                         onSwitchTokens()
                       }}
                       color={theme.textPrimary}
@@ -663,7 +664,7 @@ export default function Swap({ className, tokenAddress }: { className?: string, 
                         hideBalance={false}
                         fiatValue={fiatValueOutput ?? undefined}
                         priceImpact={stablecoinPriceImpact}
-                        currency={tokenOutputShow}
+                        currency={currencies[Field.OUTPUT] ?? null}
                         onCurrencySelect={handleOutputSelect}
                         otherCurrency={currencies[Field.INPUT]}
                         showCommonBases={true}
