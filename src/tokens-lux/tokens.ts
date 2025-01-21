@@ -489,6 +489,24 @@ export const TOKENS_LUX_LIST = {
             "extensions": {}
         },
         {
+            "chainId": 96369,
+            "address": "0x0A78f7Ce8D65e0FD4D6B78848483bA3C4fb895c5",
+            "name": "Cyrus AI",
+            "symbol": "CYRUS",
+            "decimals": 6,
+            "logoURI": "https://cdn.lux.network/bridge/currencies/cyrus.jpeg",
+            "extensions": {}
+        },
+        {
+            "chainId": 200200,
+            "address": "0x0A78f7Ce8D65e0FD4D6B78848483bA3C4fb895c5",
+            "name": "Cyrus AI",
+            "symbol": "CYRUS",
+            "decimals": 6,
+            "logoURI": "https://cdn.lux.network/bridge/currencies/cyrus.jpeg",
+            "extensions": {}
+        },
+        {
             "chainId": 96368,
             "address": "0xb84112ac9318a0b2319aa11d4d10e9762b25f7f4",
             "name": "Liquid USD",
