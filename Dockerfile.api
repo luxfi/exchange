@@ -1,0 +1,43 @@
+# Exchange API Backend Dockerfile
+FROM node:18-alpine AS builder
+
+WORKDIR /app
+
+# Copy package files
+COPY package*.json yarn.lock* pnpm-lock.yaml* ./
+
+# Install dependencies
+RUN if [ -f yarn.lock ]; then yarn install --frozen-lockfile; \
+    elif [ -f pnpm-lock.yaml ]; then npm install -g pnpm && pnpm install --frozen-lockfile; \
+    else npm ci; fi
+
+# Copy source code
+COPY . .
+
+# Build if needed
+RUN if [ -f "tsconfig.json" ]; then npm run build || true; fi
+
+# Production stage
+FROM node:18-alpine
+
+WORKDIR /app
+
+# Install production dependencies only
+COPY package*.json yarn.lock* pnpm-lock.yaml* ./
+RUN if [ -f yarn.lock ]; then yarn install --production --frozen-lockfile; \
+    elif [ -f pnpm-lock.yaml ]; then npm install -g pnpm && pnpm install --prod --frozen-lockfile; \
+    else npm ci --production; fi
+
+# Copy built application
+COPY --from=builder /app .
+
+# Create non-root user
+RUN addgroup -g 1001 -S nodejs && \
+    adduser -S nodejs -u 1001
+
+USER nodejs
+
+EXPOSE 3010
+
+# Start the API server
+CMD ["node", "server.js"]
