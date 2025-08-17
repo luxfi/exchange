@@ -1,30 +1,29 @@
 {
-  "name": "@l.x/interface",
-  "version": "1.0.7",
-  "description": "LX Interface",
+  "name": "@lux/dex-interface",
+  "version": "2.0.0",
+  "description": "LUX DEX Ultra-Fast Trading Interface",
   "homepage": "https://lux.exchange/",
   "license": "GPL-3.0-or-later",
   "scripts": {
-    "contracts:compile:abi": "typechain --target ethers-v5 --out-dir src/abis/types \"./src/abis/**/*.json\"",
-    "contracts:compile:v3": "typechain --target ethers-v5 --out-dir src/types/v3 \"./node_modules/@uniswap/**/artifacts/contracts/**/*[!dbg].json\"",
-    "contracts:compile": "yarn contracts:compile:abi && yarn contracts:compile:v3",
-    "graphql:fetch": "node fetch-schema.js",
-    "graphql:generate:data": "graphql-codegen --config apollo-codegen.ts",
-    "graphql:generate:thegraph": "graphql-codegen --config apollo-codegen_thegraph.ts",
-    "graphql:generate": "yarn graphql:generate:data && yarn graphql:generate:thegraph",
-    "prei18n:extract": "node prei18n-extract.js",
-    "i18n:extract": "lingui extract --locale en-US",
-    "i18n:compile": "yarn i18n:extract && lingui compile",
-    "i18n:pseudo": "lingui extract --locale pseudo && lingui compile",
-    "prepare": "yarn contracts:compile && yarn i18n:compile",
-    "start": "craco start",
-    "build": "craco build",
-    "serve": "serve build -l 3000",
-    "deduplicate": "yarn-deduplicate --strategy=highest",
-    "test": "craco test --coverage",
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "test": "jest --coverage",
+    "test:watch": "jest --watch",
+    "test:e2e": "cypress run",
+    "test:e2e:open": "cypress open",
+    "test:integration": "jest --config jest.integration.config.js",
+    "test:all": "yarn test && yarn test:integration && yarn test:e2e",
     "cypress:open": "cypress open --browser chrome --e2e",
     "cypress:run": "cypress run --browser chrome --e2e",
-    "postinstall": "patch-package"
+    "analyze": "ANALYZE=true yarn build",
+    "type-check": "tsc --noEmit",
+    "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\"",
+    "prepare": "husky install",
+    "postinstall": "patch-package",
+    "deploy:v2": "yarn build && yarn export",
+    "export": "next export"
   },
   "jest": {
     "collectCoverageFrom": [
@@ -56,6 +55,22 @@
       "last 1 chrome version",
       "last 1 firefox version",
       "last 1 safari version"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "pre-push": "yarn test:all"
+    }
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "eslint --fix",
+      "prettier --write",
+      "jest --bail --findRelatedTests"
+    ],
+    "*.{js,jsx,json,md}": [
+      "prettier --write"
     ]
   },
   "devDependencies": {
@@ -106,6 +121,13 @@
     "yarn-deduplicate": "^6.0.0"
   },
   "dependencies": {
+    "@luxfi/luxjs": "^3.0.0",
+    "@luxfi/wallet-sdk": "^1.0.0",
+    "@tanstack/react-query": "^5.0.0",
+    "viem": "^2.7.0",
+    "wagmi": "^2.5.0",
+    "@rainbow-me/rainbowkit": "^2.0.0",
+    "socket.io-client": "^4.7.0",
     "@apollo/client": "^3.7.2",
     "@coinbase/wallet-sdk": "^3.3.0",
     "@fontsource/ibm-plex-mono": "^4.5.1",

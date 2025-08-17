@@ -1,0 +1,198 @@
+name: Deploy V2 Trading Interface
+
+on:
+  push:
+    branches: [v2]
+  pull_request:
+    branches: [v2]
+
+env:
+  NODE_VERSION: '18'
+  NEXT_PUBLIC_BASE_PATH: '/v2'
+  NEXT_PUBLIC_WS_URL: 'wss://api.lux.exchange/v2/ws'
+  NEXT_PUBLIC_API_URL: 'https://api.lux.exchange/v2'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ env.NODE_VERSION }}
+        cache: 'yarn'
+    
+    - name: Install dependencies
+      run: yarn install --frozen-lockfile
+    
+    - name: Run linting
+      run: yarn lint
+    
+    - name: Run type checking
+      run: yarn tsc --noEmit
+    
+    - name: Run unit tests
+      run: yarn test --coverage
+    
+    - name: Upload coverage
+      uses: codecov/codecov-action@v3
+      with:
+        files: ./coverage/lcov.info
+        flags: unittests
+        name: codecov-v2
+    
+    - name: Build application
+      run: yarn build
+      env:
+        NEXT_PUBLIC_BASE_PATH: ${{ env.NEXT_PUBLIC_BASE_PATH }}
+    
+    - name: Start E2E test server
+      run: |
+        yarn start &
+        npx wait-on http://localhost:3000/v2
+    
+    - name: Run E2E tests
+      run: yarn cypress:run
+      env:
+        CYPRESS_BASE_URL: http://localhost:3000
+    
+    - name: Upload E2E artifacts
+      if: failure()
+      uses: actions/upload-artifact@v3
+      with:
+        name: cypress-artifacts
+        path: |
+          cypress/screenshots
+          cypress/videos
+
+  performance:
+    runs-on: ubuntu-latest
+    needs: test
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ env.NODE_VERSION }}
+        cache: 'yarn'
+    
+    - name: Install dependencies
+      run: yarn install --frozen-lockfile
+    
+    - name: Build production bundle
+      run: yarn build
+      env:
+        NODE_ENV: production
+    
+    - name: Analyze bundle size
+      run: |
+        npx size-limit
+        npx webpack-bundle-analyzer .next/stats.json -m static -r bundle-report.html -O
+    
+    - name: Run Lighthouse CI
+      run: |
+        yarn global add @lhci/cli
+        lhci autorun
+      env:
+        LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
+    
+    - name: Upload performance reports
+      uses: actions/upload-artifact@v3
+      with:
+        name: performance-reports
+        path: |
+          bundle-report.html
+          .lighthouseci
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: [test, performance]
+    if: github.ref == 'refs/heads/v2'
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ env.NODE_VERSION }}
+        cache: 'yarn'
+    
+    - name: Install dependencies
+      run: yarn install --frozen-lockfile
+    
+    - name: Build for production
+      run: yarn build
+      env:
+        NODE_ENV: production
+        NEXT_PUBLIC_BASE_PATH: ${{ env.NEXT_PUBLIC_BASE_PATH }}
+        NEXT_PUBLIC_WS_URL: ${{ env.NEXT_PUBLIC_WS_URL }}
+        NEXT_PUBLIC_API_URL: ${{ env.NEXT_PUBLIC_API_URL }}
+        NEXT_PUBLIC_WC_PROJECT_ID: ${{ secrets.WC_PROJECT_ID }}
+    
+    - name: Export static files
+      run: yarn next export -o out/v2
+    
+    - name: Deploy to S3
+      uses: jakejarvis/s3-sync-action@v0.5.1
+      with:
+        args: --acl public-read --follow-symlinks --delete
+      env:
+        AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        SOURCE_DIR: 'out/v2'
+        DEST_DIR: 'v2'
+    
+    - name: Invalidate CloudFront
+      uses: chetan/invalidate-cloudfront-action@v2
+      env:
+        DISTRIBUTION: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}
+        PATHS: '/v2/*'
+        AWS_REGION: 'us-east-1'
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+    
+    - name: Notify deployment
+      uses: 8398a7/action-slack@v3
+      with:
+        status: ${{ job.status }}
+        text: 'V2 Trading Interface deployed to https://lux.exchange/v2'
+        webhook_url: ${{ secrets.SLACK_WEBHOOK }}
+      if: always()
+
+  smoke-test:
+    runs-on: ubuntu-latest
+    needs: deploy
+    if: github.ref == 'refs/heads/v2'
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ env.NODE_VERSION }}
+    
+    - name: Install Cypress
+      run: npm install cypress
+    
+    - name: Run smoke tests
+      run: |
+        npx cypress run --spec "cypress/e2e/smoke-test.cy.ts"
+      env:
+        CYPRESS_BASE_URL: https://lux.exchange
+        CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+    
+    - name: Alert on failure
+      if: failure()
+      uses: 8398a7/action-slack@v3
+      with:
+        status: 'failure'
+        text: 'V2 production smoke tests failed!'
+        webhook_url: ${{ secrets.SLACK_WEBHOOK }}

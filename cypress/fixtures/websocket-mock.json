@@ -1,0 +1,83 @@
+{
+  "connection": {
+    "status": "connected",
+    "latency": "597ns",
+    "throughput": "2.9M/sec"
+  },
+  "orderbook": {
+    "symbol": "BTC-USDT",
+    "bids": [
+      { "price": 49950, "size": 1.5, "orders": 3 },
+      { "price": 49940, "size": 2.3, "orders": 5 },
+      { "price": 49930, "size": 0.8, "orders": 2 },
+      { "price": 49920, "size": 3.1, "orders": 4 },
+      { "price": 49910, "size": 1.2, "orders": 3 }
+    ],
+    "asks": [
+      { "price": 50050, "size": 1.2, "orders": 2 },
+      { "price": 50060, "size": 2.1, "orders": 4 },
+      { "price": 50070, "size": 0.9, "orders": 2 },
+      { "price": 50080, "size": 3.5, "orders": 5 },
+      { "price": 50090, "size": 1.8, "orders": 3 }
+    ],
+    "timestamp": 1234567890,
+    "sequence": 1000
+  },
+  "trades": [
+    {
+      "id": "trade-001",
+      "symbol": "BTC-USDT",
+      "price": 50000,
+      "size": 0.5,
+      "side": "buy",
+      "timestamp": 1234567890
+    },
+    {
+      "id": "trade-002",
+      "symbol": "BTC-USDT",
+      "price": 49995,
+      "size": 0.3,
+      "side": "sell",
+      "timestamp": 1234567891
+    }
+  ],
+  "ticker": {
+    "symbol": "BTC-USDT",
+    "lastPrice": 50000,
+    "volume24h": 1500000000,
+    "high24h": 51000,
+    "low24h": 49000,
+    "change24h": 500,
+    "changePercent24h": 1.01,
+    "bid": 49950,
+    "ask": 50050,
+    "timestamp": 1234567890
+  },
+  "positions": [
+    {
+      "symbol": "BTC-USDT",
+      "side": "long",
+      "size": 0.5,
+      "entryPrice": 49000,
+      "markPrice": 50000,
+      "pnl": 500,
+      "pnlPercent": 2.04,
+      "margin": 1000,
+      "leverage": 10,
+      "liquidationPrice": 45000
+    }
+  ],
+  "orders": [
+    {
+      "id": "order-001",
+      "symbol": "BTC-USDT",
+      "side": "buy",
+      "type": "limit",
+      "price": 49000,
+      "size": 0.1,
+      "filled": 0,
+      "status": "open",
+      "timestamp": 1234567890
+    }
+  ]
+}
