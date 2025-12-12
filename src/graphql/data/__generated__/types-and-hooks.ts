@@ -143,7 +143,7 @@ export type AssetChangeInput = {
 
 export enum Chain {
   Arbitrum = 'ARBITRUM',
-  Avalanche = 'AVALANCHE',
+  Lux = 'LUX',
   Base = 'BASE',
   Blast = 'BLAST',
   Bnb = 'BNB',

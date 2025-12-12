@@ -55,8 +55,8 @@ import {
   USDC_BASE,
   USDC_BNB,
   USDT_BNB,
-  USDC_AVAX,
-  WETH_AVAX,
+  USDC_LUX,
+  WETH_LUX,
 } from './tokens'
 import { BNB_LIST } from './lists'
 
@@ -182,10 +182,10 @@ export const COMMON_BASES: ChainCurrencyList = {
     USDC_BNB,
     USDT_BNB,
   ],
-  [SupportedChainId.AVALANCHE]: [
-    nativeOnChain(SupportedChainId.AVALANCHE),
-    USDC_AVAX,
-    WETH_AVAX,
+  [SupportedChainId.LUX]: [
+    nativeOnChain(SupportedChainId.LUX),
+    USDC_LUX,
+    WETH_LUX,
   ],
   [SupportedChainId.ZORA]: [
     nativeOnChain(SupportedChainId.ZORA),

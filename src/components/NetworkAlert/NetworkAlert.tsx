@@ -38,7 +38,7 @@ const SHOULD_SHOW_ALERT = {
   [SupportedChainId.CELO]: true,
   [SupportedChainId.BASE]: true,
   [SupportedChainId.ZORA]: true,
-  [SupportedChainId.AVALANCHE]: true,
+  [SupportedChainId.LUX]: true,
   [SupportedChainId.BLAST]: true,
   [SupportedChainId.BNB]: true,
   [SupportedChainId.CELO_ALFAJORES]: true,
@@ -59,7 +59,7 @@ const BG_COLORS_BY_DARK_MODE_AND_CHAIN_ID: {
       'radial-gradient(100% 93.36% at 0% 6.64%, rgba(160, 108, 247, 0.1) 0%, rgba(82, 32, 166, 0.1) 100%)',
     [SupportedChainId.BNB]:
       'radial-gradient(182.71% 150.59% at 2.81% 7.69%, rgba(220, 220, 0, 0.25) 0%, rgba(180, 180, 0, 0.15) 100%)',
-    [SupportedChainId.AVALANCHE]:
+    [SupportedChainId.LUX]:
       'radial-gradient(182.71% 150.59% at 2.81% 7.69%, rgba(220, 80, 80, 0.25) 0%, rgba(220, 15, 200, 0.15) 100%)',
     [SupportedChainId.ZORA]:
       'radial-gradient(182.71% 150.59% at 2.81% 7.69%, rgba(80, 80, 170, 0.45) 0%, rgba(10, 15, 200, 0.15) 100%)',
@@ -97,7 +97,7 @@ const BG_COLORS_BY_DARK_MODE_AND_CHAIN_ID: {
       'radial-gradient(182.71% 150.59% at 2.81% 7.69%, rgba(162, 162, 0, 0.25) 0%, rgba(180, 180, 0, 0.15) 100%)',
     [SupportedChainId.ZORA]:
       'radial-gradient(182.71% 150.59% at 2.81% 7.69%, rgba(80, 80, 170, 0.15) 0%, rgba(10, 15, 200, 0.15) 100%)',
-    [SupportedChainId.AVALANCHE]:
+    [SupportedChainId.LUX]:
       'radial-gradient(182.71% 150.59% at 2.81% 7.69%, rgba(220, 80, 80, 0.15) 0%, rgba(220, 15, 200, 0.15) 100%)',
     [SupportedChainId.BASE]:
       'radial-gradient(182.71% 150.59% at 2.81% 7.69%, rgba(63, 63, 238, 0.15) 0%, rgba(10, 10, 238, 0.15) 100%)',
@@ -173,7 +173,7 @@ const TEXT_COLORS: { [chainId in NetworkAlertChains]: string } = {
   [SupportedChainId.POLYGON]: 'rgba(130, 71, 229)',
   [SupportedChainId.POLYGON_MUMBAI]: 'rgba(130, 71, 229)',
   [SupportedChainId.BNB]: 'rgba(233, 238, 200)',
-  [SupportedChainId.AVALANCHE]: 'rgba(233, 228, 227)',
+  [SupportedChainId.LUX]: 'rgba(233, 228, 227)',
   [SupportedChainId.ZORA]: 'rgba(243, 248, 227)',
   [SupportedChainId.BLAST]: 'rgba(243, 248, 247)',
   [SupportedChainId.BASE]: 'rgba(153, 178, 197)',

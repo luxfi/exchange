@@ -87,10 +87,6 @@ export const FALLBACK_URLS: { [key in SupportedChainId]: string[] } = {
     // "Safe" URLs
     `https://bsc-dataseed.binance.org`,
   ],
-  [SupportedChainId.AVALANCHE]: [
-    // "Safe" URLs
-    `https://avalanche-mainnet.infura.io`,
-  ],
   [SupportedChainId.BLAST]: [
     // "Safe" URLs
     `https://rpc.blast.io`,
@@ -164,17 +160,16 @@ export const RPC_URLS: { [key in SupportedChainId]: string[] } = {
   [SupportedChainId.LUX]: [
     ...FALLBACK_URLS[SupportedChainId.LUX],
   ],
-  [SupportedChainId.ZOO]: [
-    ...FALLBACK_URLS[SupportedChainId.ZOO],
-  ],
   [SupportedChainId.LUX_TESTNET]: [
     ...FALLBACK_URLS[SupportedChainId.LUX_TESTNET],
   ],
+  [SupportedChainId.ZOO]: [
+    ...FALLBACK_URLS[SupportedChainId.ZOO],
+  ],
   [SupportedChainId.CELO]: FALLBACK_URLS[SupportedChainId.CELO],
+  [SupportedChainId.CELO_ALFAJORES]: FALLBACK_URLS[SupportedChainId.CELO_ALFAJORES],
   [SupportedChainId.BASE]: FALLBACK_URLS[SupportedChainId.BASE],
   [SupportedChainId.BNB]: FALLBACK_URLS[SupportedChainId.BNB],
-  [SupportedChainId.AVALANCHE]: FALLBACK_URLS[SupportedChainId.AVALANCHE],
   [SupportedChainId.BLAST]: FALLBACK_URLS[SupportedChainId.BLAST],
   [SupportedChainId.ZORA]: FALLBACK_URLS[SupportedChainId.ZORA],
-  [SupportedChainId.CELO_ALFAJORES]: FALLBACK_URLS[SupportedChainId.CELO_ALFAJORES],
 }

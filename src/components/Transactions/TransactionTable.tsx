@@ -12,7 +12,7 @@ import { MAX_WIDTH_MEDIA_BREAKPOINT } from '../Tokens/constants';
 import { HeaderRow, LoadedRow, LoadingRow } from './TransactionRow';
 
 import { apolloClient } from 'graphql/data/apollo';
-import { arbitrumNetClient, avalancheNetClient, baseNetClient, bnbNetClient, celoNetClient, ethereumNetClient, luxNetClient, optimismNetClient, polygonNetClient, zooNetClient } from 'graphql/thegraph/apollo';
+import { arbitrumNetClient, luxNetClient, baseNetClient, bnbNetClient, celoNetClient, ethereumNetClient, luxNetClient, optimismNetClient, polygonNetClient, zooNetClient } from 'graphql/thegraph/apollo';
 
 
 const getTransactionsInfoQuery = gql`
@@ -146,7 +146,7 @@ export default function TransactionsTable() {
     chainName == 'CELO' ? celoNetClient :
     chainName == 'BASE' ? baseNetClient :
     chainName == 'BNB' ? bnbNetClient :
-    chainName == 'AVALANCHE' ? avalancheNetClient :
+    chainName == 'LUX' ? luxNetClient :
     chainName == 'ZORA' ? apolloClient :
     apolloClient;
   

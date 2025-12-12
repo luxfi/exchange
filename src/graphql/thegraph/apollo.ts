@@ -107,7 +107,7 @@ export const bnbNetClient = new ApolloClient({
   cache: new InMemoryCache(),
 })
 
-export const avalancheNetClient = new ApolloClient({
+export const luxNetClient = new ApolloClient({
   link: new HttpLink({
     uri: "https://gateway.thegraph.com/api/0004b7085b345be5e7c1e5fbdbf14135/subgraphs/id/GVH9h9KZ9CqheUEL93qMbq7QwgoBu32QXQDPR6bev4Eo",
   }),

@@ -29,7 +29,7 @@ const NETWORK_SELECTOR_CHAINS = [
   SupportedChainId.CELO,
   SupportedChainId.BASE,
   SupportedChainId.BNB,
-  SupportedChainId.AVALANCHE,
+  SupportedChainId.LUX,
   SupportedChainId.ZORA,
   SupportedChainId.BLAST,
 ]

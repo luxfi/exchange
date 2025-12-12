@@ -140,8 +140,8 @@ export const TOKENS_LUX_LIST = {
         {
             "chainId": 96369,
             "address": "0x0e4bD0DD67c15dECfBBBdbbE07FC9d51D737693D",
-            "name": "Liquid AVAX",
-            "symbol": "LAVAX",
+            "name": "Liquid LUX",
+            "symbol": "LLUX",
             "decimals": 18,
             "logoURI": "https://cdn.lux.network/bridge/currencies/lux/lavax.svg",
             "extensions": {}
@@ -284,8 +284,8 @@ export const TOKENS_LUX_LIST = {
         {
             "chainId": 200200,
             "address": "0x0EE4602429bFCEf8aEB1012F448b23532f9855Bd",
-            "name": "Zoo AVAX",
-            "symbol": "ZAVAX",
+            "name": "Zoo LUX",
+            "symbol": "ZLUX",
             "decimals": 18,
             "logoURI": "https://cdn.lux.network/bridge/currencies/zoo/zavax.svg",
             "extensions": {}

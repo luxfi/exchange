@@ -142,16 +142,16 @@ export const USDC_BASE = new Token(
   'USD//C'
 )
 
-export const USDC_AVAX = new Token(
-  SupportedChainId.AVALANCHE,
+export const USDC_LUX = new Token(
+  SupportedChainId.LUX,
   '0xB97EF9Ef8734C71904D8002F8b6Bc66Dd9c48a6E',
   6,
   'USDC',
   'USD Coin'
 )
 
-export const WETH_AVAX = new Token(
-  SupportedChainId.AVALANCHE,
+export const WETH_LUX = new Token(
+  SupportedChainId.LUX,
   '0x49D5c2BdFfac6CE2BFdB6640F4F80f226bc10bAB',
   18,
   'WETH.e',
@@ -505,12 +505,12 @@ export const WRAPPED_NATIVE_CURRENCY: { [chainId: number]: Token | undefined } =
     'WETH',
     'Wrapped Ether'
   ),
-  [SupportedChainId.AVALANCHE]: new Token(
-    SupportedChainId.AVALANCHE,
+  [SupportedChainId.LUX]: new Token(
+    SupportedChainId.LUX,
     '0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7',
     18,
-    'WAVAX',
-    'Wrapped AVAX'
+    'WLUX',
+    'Wrapped LUX'
   ),
   [SupportedChainId.ZORA]: new Token(
     SupportedChainId.ZORA,
@@ -614,8 +614,8 @@ function isMatic(chainId: number): chainId is SupportedChainId.POLYGON | Support
 function isBNB(chainId: number): chainId is SupportedChainId.BNB {
   return chainId === SupportedChainId.BNB
 }
-function isAVAX(chainId: number): chainId is SupportedChainId.AVALANCHE {
-  return chainId === SupportedChainId.AVALANCHE
+function isLUX(chainId: number): chainId is SupportedChainId.LUX {
+  return chainId === SupportedChainId.LUX
 }
 function isBLAST(chainId: number): chainId is SupportedChainId.BLAST {
   return chainId === SupportedChainId.BLAST
@@ -657,21 +657,21 @@ class BNBNativeCurrency extends NativeCurrency {
   }
 }
 
-class AVAXNativeCurrency extends NativeCurrency {
+class LUXNativeCurrency extends NativeCurrency {
   equals(other: Currency): boolean {
     return other.isNative && other.chainId === this.chainId
   }
 
   get wrapped(): Token {
-    if (!isAVAX(this.chainId)) throw new Error('Not avax')
+    if (!isLUX(this.chainId)) throw new Error('Not avax')
     const wrapped = WRAPPED_NATIVE_CURRENCY[this.chainId]
     invariant(wrapped instanceof Token)
     return wrapped
   }
 
   public constructor(chainId: number) {
-    if (!isAVAX(chainId)) throw new Error('Not avax')
-    super(chainId, 18, 'AVAX', 'AVAX')
+    if (!isLUX(chainId)) throw new Error('Not avax')
+    super(chainId, 18, 'LUX', 'LUX')
   }
 }
 
@@ -753,8 +753,8 @@ export function nativeOnChain(chainId: number): NativeCurrency | Token {
     nativeCurrency = new BNBNativeCurrency(chainId)
   } else if (isBLAST(chainId)) {
     nativeCurrency = new BLASTNativeCurrency(chainId)
-  } else if (isAVAX(chainId)) {
-    nativeCurrency = new AVAXNativeCurrency(chainId)
+  } else if (isLUX(chainId)) {
+    nativeCurrency = new LUXNativeCurrency(chainId)
   } else if (isCelo(chainId)) {
     nativeCurrency = getCeloNativeCurrency(chainId)
   } else if(isLUX(chainId)) {

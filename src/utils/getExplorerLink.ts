@@ -12,7 +12,7 @@ const BLOCK_EXPLORER_PREFIXES: { [chainId: number]: string } = {
   [SupportedChainId.POLYGON_MUMBAI]: 'https://mumbai.polygonscan.com',
   [SupportedChainId.BASE]: 'https://basescan.org',
   [SupportedChainId.BNB]: 'https://docs.bnbchain.org',
-  [SupportedChainId.AVALANCHE]: 'https://snowtrace.io',
+  [SupportedChainId.LUX]: 'https://snowtrace.io',
   [SupportedChainId.ZORA]: 'https://explorer.zora.energy',
   [SupportedChainId.BLAST]: 'https://explorer.blast.org',
   [SupportedChainId.CELO]: 'https://celoscan.io',

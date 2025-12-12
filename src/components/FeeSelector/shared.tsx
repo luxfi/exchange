@@ -16,7 +16,7 @@ export const FEE_AMOUNT_DETAIL: Record<
       SupportedChainId.POLYGON_MUMBAI,
       SupportedChainId.ZORA,
       SupportedChainId.BNB,
-      SupportedChainId.AVALANCHE,
+      SupportedChainId.LUX,
       SupportedChainId.BLAST,
       SupportedChainId.BASE,
       SupportedChainId.CELO,

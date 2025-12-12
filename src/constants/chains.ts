@@ -28,7 +28,6 @@ export enum SupportedChainId {
   BLAST = 81457,
   ZORA = 7777777,
   BNB = 56,
-  AVALANCHE = 43114,
 }
 
 export const CHAIN_IDS_TO_NAMES = {
@@ -41,7 +40,6 @@ export const CHAIN_IDS_TO_NAMES = {
   [SupportedChainId.POLYGON_MUMBAI]: 'polygon_mumbai',
   [SupportedChainId.BNB]: 'bnb',
   [SupportedChainId.BASE]: 'base',
-  [SupportedChainId.AVALANCHE]: 'avalanche',
   [SupportedChainId.ZORA]: 'zora',
   [SupportedChainId.BLAST]: 'blast',
   [SupportedChainId.CELO]: 'celo',
@@ -71,13 +69,13 @@ export const SUPPORTED_GAS_ESTIMATE_CHAIN_IDS = [
   SupportedChainId.POLYGON,
   SupportedChainId.CELO,
   SupportedChainId.BASE,
-  SupportedChainId.AVALANCHE,
   SupportedChainId.ZORA,
   SupportedChainId.BLAST,
   SupportedChainId.BNB,
   SupportedChainId.OPTIMISM,
   SupportedChainId.ARBITRUM_ONE,
   SupportedChainId.LUX,
+  SupportedChainId.LUX_TESTNET,
   SupportedChainId.ZOO,
 ]
 
@@ -112,9 +110,9 @@ export const L1_CHAIN_IDS = [
   SupportedChainId.RINKEBY,
   SupportedChainId.GOERLI,
   SupportedChainId.KOVAN,
-  SupportedChainId.AVALANCHE,
   SupportedChainId.BNB,
   SupportedChainId.LUX,
+  SupportedChainId.LUX_TESTNET,
   SupportedChainId.ZOO,
   SupportedChainId.POLYGON,
   SupportedChainId.POLYGON_MUMBAI,

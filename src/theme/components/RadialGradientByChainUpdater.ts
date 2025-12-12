@@ -86,7 +86,7 @@ export default function RadialGradientByChainUpdater(): null {
         backgroundRadialGradientElement.style.background = darkMode ? baseDarkGradient : baseLightGradient
         break
       }
-      case SupportedChainId.AVALANCHE: {
+      case SupportedChainId.LUX: {
         setBackground(backgroundResetStyles)
         const baseLightGradient =
           'radial-gradient(100% 100% at 50% 0%, rgba(0, 15, 50, 0.41) 0%, rgba(20, 20, 20, 0.24) 100%), #FFFFFF'

@@ -14,7 +14,7 @@ import { NATIVE_CHAIN_ID } from 'constants/tokens'
 import { getNativeTokenDBAddress } from 'utils/nativeTokens'
 
 import { apolloClient } from 'graphql/data/apollo';
-import { arbitrumNetClient, avalancheNetClient, baseNetClient, bnbNetClient, celoNetClient, ethereumNetClient, luxNetClient, optimismNetClient, polygonNetClient, zooNetClient } from 'graphql/thegraph/apollo';
+import { arbitrumNetClient, luxNetClient, baseNetClient, bnbNetClient, celoNetClient, ethereumNetClient, luxNetClient, optimismNetClient, polygonNetClient, zooNetClient } from 'graphql/thegraph/apollo';
 
 
 const getTransactionsInfoQuery = gql`
@@ -139,7 +139,7 @@ export default function TokenTransactionsTable() {
     chain == 'CELO' ? celoNetClient :
     chain == 'BASE' ? baseNetClient :
     chain == 'BNB' ? bnbNetClient :
-    chain == 'AVALANCHE' ? avalancheNetClient :
+    chain == 'LUX' ? luxNetClient :
     chain == 'ZORA' ? apolloClient :
     apolloClient;
   

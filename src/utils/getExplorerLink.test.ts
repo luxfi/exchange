@@ -28,7 +28,7 @@ describe('#getExplorerLink', () => {
   it('bnb', () => {
     expect(getExplorerLink(56, 'abc', ExplorerDataType.ADDRESS)).toEqual('https://docs.bnbchain.org/address/abc')
   })
-  it('avalanche', () => {
+  it('lux', () => {
     expect(getExplorerLink(43114, 'abc', ExplorerDataType.ADDRESS)).toEqual('https://snowtrace.io/address/abc')
   })
   it('zora', () => {

@@ -18,7 +18,7 @@ const QUOTE_GAS_OVERRIDES: { [chainId: number]: number } = {
   [SupportedChainId.BLAST]: 50_000_000,
   [SupportedChainId.ZORA]: 50_000_000,
   [SupportedChainId.BNB]: 50_000_000,
-  [SupportedChainId.AVALANCHE]: 50_000_000,
+  [SupportedChainId.LUX]: 50_000_000,
   [SupportedChainId.CELO]: 50_000_000,
   [SupportedChainId.CELO_ALFAJORES]: 50_000_000,
   [SupportedChainId.POLYGON]: 40_000_000,

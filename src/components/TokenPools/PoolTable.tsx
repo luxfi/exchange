@@ -15,7 +15,7 @@ import { HeaderRow, LoadedRow, LoadingRow } from './PoolRow';
 import { TOKENS_LUX_LIST } from 'tokens-lux/tokens';
 
 import { apolloClient } from 'graphql/data/apollo';
-import { arbitrumNetClient, avalancheNetClient, baseNetClient, bnbNetClient, celoNetClient, ethereumNetClient, luxNetClient, optimismNetClient, polygonNetClient, zooNetClient } from 'graphql/thegraph/apollo';
+import { arbitrumNetClient, luxNetClient, baseNetClient, bnbNetClient, celoNetClient, ethereumNetClient, luxNetClient, optimismNetClient, polygonNetClient, zooNetClient } from 'graphql/thegraph/apollo';
 
 import {
   CHAIN_NAME_TO_CHAIN_ID
@@ -153,7 +153,7 @@ export default function TokenPoolsTable() {
     chain == 'CELO' ? celoNetClient :
     chain == 'BASE' ? baseNetClient :
     chain == 'BNB' ? bnbNetClient :
-    chain == 'AVALANCHE' ? avalancheNetClient :
+    chain == 'LUX' ? luxNetClient :
     chain == 'ZORA' ? apolloClient :
     apolloClient;
   

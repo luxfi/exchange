@@ -1,7 +1,7 @@
 import celoCircleLogoUrl from 'assets/images/celoCircle.png'
 import baseCircleLogoUrl from 'assets/images/baseCircle.png'
 import binanceLogoUrl from 'assets/images/bnb_mainnet.png'
-import avalancheLogoUrl from 'assets/images/avax_mainnet.png'
+import luxLogoUrl from 'assets/images/avax_mainnet.png'
 import zoraLogoUrl from 'assets/images/zora_mainnet.png'
 import blastLogoUrl from 'assets/images/blast_mainnet.png'
 import ethereumLogoUrl from 'assets/images/ethereum-logo.png'
@@ -9,7 +9,7 @@ import luxLogoUrl from 'assets/images/lux-Logo.png'
 import zooLogoUrl from 'assets/images/zoo-Logo.png'
 import polygonCircleLogoUrl from 'assets/images/polygonCircle.png'
 import { default as arbitrumCircleLogoUrl, default as arbitrumLogoUrl } from 'assets/svg/arbitrum_logo.svg'
-import avalancheAvaxLogo from 'assets/svg/avalanche-avax-logo.svg'
+import luxLuxLogo from 'assets/svg/lux-avax-logo.svg'
 import celoLogo from 'assets/svg/celo_logo.svg'
 import baseLogo from 'assets/svg/base_logo.svg'
 import optimismLogoUrl from 'assets/svg/optimistic_ethereum.svg'
@@ -18,7 +18,7 @@ import ms from 'ms.macro'
 import { darkTheme } from 'theme/colors'
 
 import { SupportedChainId, SupportedL1ChainId, SupportedL2ChainId } from './chains'
-import { ARBITRUM_LIST, CELO_LIST, BASE_LIST, OPTIMISM_LIST, BLAST_LIST, ZORA_LIST, AVALANCHE_LIST, BNB_LIST } from './lists'
+import { ARBITRUM_LIST, CELO_LIST, BASE_LIST, OPTIMISM_LIST, BLAST_LIST, ZORA_LIST, LUX_LIST, BNB_LIST } from './lists'
 
 export const AVERAGE_L1_BLOCK_TIME = ms`12s`
 
@@ -227,18 +227,18 @@ const CHAIN_INFO: ChainInfoMap = {
     nativeCurrency: { name: 'BNB', symbol: 'BNB', decimals: 18 },
     defaultListUrl: BNB_LIST,
   },
-  [SupportedChainId.AVALANCHE]: {
+  [SupportedChainId.LUX]: {
     networkType: NetworkType.L1,
     blockWaitMsBeforeWarning: ms`1m`,
     bridge: 'https://bridge.avax.network/',
     docs: 'https://docs.avax.network/',
     explorer: 'https://snowtrace.io/',
-    infoLink: 'https://info.uniswap.org/#/avalanche',
-    label: 'Avalanche',
-    logoUrl: avalancheAvaxLogo,
-    circleLogoUrl: avalancheLogoUrl,
-    nativeCurrency: { name: 'Avalanche', symbol: 'AVAX', decimals: 18 },
-    defaultListUrl: AVALANCHE_LIST,
+    infoLink: 'https://info.uniswap.org/#/lux',
+    label: 'Lux',
+    logoUrl: luxLuxLogo,
+    circleLogoUrl: luxLogoUrl,
+    nativeCurrency: { name: 'Lux', symbol: 'LUX', decimals: 18 },
+    defaultListUrl: LUX_LIST,
   },
   [SupportedChainId.ZORA]: {
     networkType: NetworkType.L2,
