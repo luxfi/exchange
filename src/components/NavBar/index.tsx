@@ -248,6 +248,9 @@ export const PageTabs = () => {
       <MenuItem href="/swap" isActive={pathname.startsWith('/swap')}>
         <Trans>Trade</Trans>
       </MenuItem>
+      <MenuItem href="/campaigns" isActive={pathname.startsWith('/campaigns')}>
+        <Trans>Advertise</Trans>
+      </MenuItem>
     </>
   );
 };

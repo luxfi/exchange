@@ -95,7 +95,7 @@ export const signOrderData = async (web3Provider: Web3Provider, order: Order) =>
 const fixSignature = (data: Order) => {
   // in geth its always 27/28, in ganache its 0/1. Change to 27/28 to prevent
   // signature malleability if version is 0/1
-  // see https://github.com/ethereum/go-ethereum/blob/v1.8.23/internal/ethapi/api.go#L465
+  // see https://github.com/luxfi/geth/blob/v1.8.23/internal/ethapi/api.go#L465
   if (data.v < 27) {
     data.v = data.v + 27
   }

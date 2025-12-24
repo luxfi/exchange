@@ -210,7 +210,7 @@ export const MenuDropdown = () => {
                     color={themeVars.colors.textSecondary}
                   />
                 </Icon>
-                <Icon href="https://github.com/luxdefi">
+                <Icon href="https://github.com/luxfi">
                   <GithubIconMenu
                     className={styles.hover}
                     width={24}

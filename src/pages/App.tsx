@@ -38,6 +38,7 @@ import { RedirectPathToSwapOnly } from './Swap/redirects'
 import Tokens from './Tokens'
 import Transactions from './Transactions'
 import Pools from './Pools'
+import AdCampaigns from './AdCampaigns'
 
 const TokenDetails = lazy(() => import('./TokenDetails'))
 const Vote = lazy(() => import('./Vote'))
@@ -216,6 +217,8 @@ export default function App() {
                 <Route path="pool/v2" element={<PoolV2 />} />
                 <Route path="pool" element={<Pool />} />
                 <Route path="pool/:tokenId" element={<PositionPage />} />
+                
+                <Route path="campaigns" element={<AdCampaigns />} />
 
                 <Route path="add/v2" element={<RedirectDuplicateTokenIdsV2 />}>
                   <Route path=":currencyIdA" />

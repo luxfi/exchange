@@ -125,7 +125,7 @@ const LogoSectionContent = () => {
             <TwitterIcon size={32} />
           </SocialLink>
         </TraceEvent>
-        <SocialLink href="https://github.com/luxdefi" target="_blank" rel="noopener noreferrer">
+        <SocialLink href="https://github.com/luxfi" target="_blank" rel="noopener noreferrer">
           <GithubIcon size={32} />
         </SocialLink>
       </SocialLinks>

@@ -1,0 +1,88 @@
+---
+title: Lux Exchange Documentation
+description: Comprehensive guide to Lux Exchange - a decentralized exchange with automated market making on Lux Network
+---
+
+# Lux Exchange
+
+Lux Exchange is a decentralized exchange (DEX) built on the Lux Network, providing automated market making (AMM) functionality for token swaps, liquidity provision, and DeFi operations.
+
+## Overview
+
+The exchange implements a constant product market maker (CPMM) model, similar to Uniswap V2/V3, with optimizations for the Lux Network's high-throughput, low-latency architecture.
+
+### Key Features
+
+- **Automated Market Making**: Constant product formula (x * y = k) for price discovery
+- **Liquidity Pools**: Permissionless pool creation and liquidity provision
+- **Token Swaps**: Efficient token-to-token swaps with minimal slippage
+- **LP Tokens**: ERC-20 compliant liquidity provider tokens
+- **Fee Distribution**: Automatic fee collection and distribution to LPs
+
+## Architecture
+
+```
+User Interface
+      |
+      v
++------------------+
+|  Swap Router     |  <-- Entry point for all swap operations
++------------------+
+      |
+      v
++------------------+
+|  Liquidity Pool  |  <-- Individual token pair pools
+|    (Pair)        |
++------------------+
+      |
+      v
++------------------+
+|  Pool Factory    |  <-- Creates and manages pools
++------------------+
+```
+
+## Quick Start
+
+### Swapping Tokens
+
+```typescript
+import { SwapRouter } from '@luxfi/exchange-sdk'
+
+const router = new SwapRouter(provider, ROUTER_ADDRESS)
+
+// Swap exact tokens for tokens
+const tx = await router.swapExactTokensForTokens(
+  amountIn,
+  amountOutMin,
+  [tokenA, tokenB],
+  recipient,
+  deadline
+)
+```
+
+### Adding Liquidity
+
+```typescript
+import { LiquidityPool } from '@luxfi/exchange-sdk'
+
+const pool = new LiquidityPool(provider, POOL_ADDRESS)
+
+// Add liquidity to a pool
+const tx = await pool.addLiquidity(
+  tokenAAmount,
+  tokenBAmount,
+  minTokenA,
+  minTokenB,
+  recipient,
+  deadline
+)
+```
+
+## Documentation Sections
+
+- [AMM Fundamentals](/docs/amm) - Understanding automated market makers
+- [Liquidity Pools](/docs/liquidity-pools) - Pool mechanics and LP tokens
+- [Swap Mechanics](/docs/swaps) - How token swaps work
+- [Price Oracle](/docs/oracle) - Time-weighted average prices
+- [Security](/docs/security) - Security considerations and best practices
+- [Smart Contracts](/docs/contracts) - Contract addresses and ABIs
