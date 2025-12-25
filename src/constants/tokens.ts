@@ -614,9 +614,6 @@ function isMatic(chainId: number): chainId is SupportedChainId.POLYGON | Support
 function isBNB(chainId: number): chainId is SupportedChainId.BNB {
   return chainId === SupportedChainId.BNB
 }
-function isLUX(chainId: number): chainId is SupportedChainId.LUX {
-  return chainId === SupportedChainId.LUX
-}
 function isBLAST(chainId: number): chainId is SupportedChainId.BLAST {
   return chainId === SupportedChainId.BLAST
 }

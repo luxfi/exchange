@@ -156,7 +156,6 @@ export enum Chain {
   UnknownChain = 'UNKNOWN_CHAIN',
   Zksync = 'ZKSYNC',
   Zora = 'ZORA',
-  Lux = 'LUX',
   Zoo = 'ZOO',
 }
 

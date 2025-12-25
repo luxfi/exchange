@@ -87,7 +87,6 @@ const URL_CHAIN_PARAM_TO_BACKEND: { [key: string]: Chain } = {
   ethereum: Chain.Ethereum,
   polygon: Chain.Polygon,
   blast: Chain.Blast,
-  lux: Chain.Lux,
   zora: Chain.Zora,
   bnb: Chain.Bnb,
   base: Chain.Base,

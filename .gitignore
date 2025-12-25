@@ -51,3 +51,7 @@ CLAUDE.md
 GEMINI.md
 GROK.md
 QWEN.md
+
+# Rust build artifacts
+rust/target/
+
