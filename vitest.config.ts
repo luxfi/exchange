@@ -1,3 +1,4 @@
+import { resolve } from "path"
 import react from "@vitejs/plugin-react"
 import tsconfigPaths from "vite-tsconfig-paths"
 import { configDefaults, defineConfig } from "vitest/config"
@@ -47,7 +48,10 @@ export default defineConfig({
   ],
   resolve: {
     alias: {
-      "@": ".",
+      "@": resolve(__dirname, "./"),
+      "@/lib": resolve(__dirname, "./lib"),
+      "@/components": resolve(__dirname, "./components"),
+      "@/hooks": resolve(__dirname, "./hooks"),
     },
   },
 })

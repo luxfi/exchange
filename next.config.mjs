@@ -14,6 +14,10 @@ const nextConfig = {
 
   devIndicators: false,
 
+  // Don't scan legacy src/pages directory
+  // Use pageExtensions with .page.tsx to distinguish if needed
+  // For now, we only use App Router (app/ directory)
+
   typescript: {
     // TODO: Remove after full migration
     ignoreBuildErrors: true,
@@ -66,13 +70,6 @@ const nextConfig = {
 
     return config
   },
-
-  // Transpile packages
-  transpilePackages: [
-    "@uniswap/widgets",
-    "@uniswap/conedison",
-    "@uniswap/smart-order-router",
-  ],
 
   turbopack: {
     rules: {

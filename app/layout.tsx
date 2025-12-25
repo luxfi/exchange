@@ -1,8 +1,6 @@
 import type { Metadata, Viewport } from "next"
 import { Inter, IBM_Plex_Mono } from "next/font/google"
-import { ThemeProvider } from "@/components/providers/theme-provider"
-import { Web3Provider } from "@/components/providers/web3-provider"
-import { Toaster } from "@/components/ui/sonner"
+import { Providers } from "@/components/providers/providers"
 import "./globals.css"
 
 const inter = Inter({
@@ -69,19 +67,11 @@ export default function RootLayout({
       className={`${inter.variable} ${ibmPlexMono.variable}`}
     >
       <body className="min-h-screen bg-background font-sans antialiased">
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          enableSystem={false}
-          disableTransitionOnChange
-        >
-          <Web3Provider>
-            <div className="relative flex min-h-screen flex-col">
-              {children}
-            </div>
-            <Toaster />
-          </Web3Provider>
-        </ThemeProvider>
+        <Providers>
+          <div className="relative flex min-h-screen flex-col">
+            {children}
+          </div>
+        </Providers>
       </body>
     </html>
   )

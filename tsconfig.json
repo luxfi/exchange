@@ -64,6 +64,11 @@
   "exclude": [
     "node_modules",
     "src/**",
-    "cypress/**"
+    "cypress/**",
+    "docs/**",
+    "apollo-codegen.ts",
+    "apollo-codegen_thegraph.ts",
+    "cypress.config.ts",
+    "cypress.release.config.ts"
   ]
 }
