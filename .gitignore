@@ -57,3 +57,7 @@ QWEN.md
 # Rust build artifacts
 rust/target/
 
+
+# Playwright
+playwright-report/
+test-results/

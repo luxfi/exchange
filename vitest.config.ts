@@ -17,6 +17,7 @@ export default defineConfig({
       "**/cypress/**",
       "**/e2e/**",
       "**/.next/**",
+      "**/src/**", // Legacy CRA code - uses Jest, not Vitest
     ],
     coverage: {
       provider: "v8",
