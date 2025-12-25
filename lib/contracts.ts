@@ -2,7 +2,7 @@
  * Lux Exchange - Contract Addresses
  *
  * Contains all deployed contract addresses per chain.
- * Placeholder addresses (0x0...0001) will be replaced after deployment.
+ * Updated with real mainnet/testnet addresses from /Users/z/work/lux/standard/deployments
  */
 
 import {
@@ -35,6 +35,10 @@ export interface TokenAddresses {
 export interface AMMAddresses {
   V2_FACTORY: Address
   V2_ROUTER: Address
+  V3_FACTORY?: Address
+  V3_ROUTER?: Address
+  V3_QUOTER?: Address
+  V3_POSITION_MANAGER?: Address
   MULTICALL?: Address
 }
 
@@ -44,39 +48,28 @@ export interface ChainContracts {
 }
 
 // =============================================================================
-// PLACEHOLDER ADDRESSES (will be replaced after deployment)
-// =============================================================================
-
-// Using deterministic placeholder addresses for easy identification
-const PLACEHOLDER = {
-  // Tokens
-  WLUX: "0x0000000000000000000000000000000000000001" as Address,
-  LETH: "0x0000000000000000000000000000000000000002" as Address,
-  LBTC: "0x0000000000000000000000000000000000000003" as Address,
-  LUSD: "0x0000000000000000000000000000000000000004" as Address,
-  WZOO: "0x0000000000000000000000000000000000000005" as Address,
-
-  // AMM V2
-  V2_FACTORY: "0x0000000000000000000000000000000000000010" as Address,
-  V2_ROUTER: "0x0000000000000000000000000000000000000011" as Address,
-  MULTICALL: "0x0000000000000000000000000000000000000012" as Address,
-}
-
-// =============================================================================
 // LUX MAINNET CONTRACTS (Chain ID: 96369)
+// Deployed from /Users/z/work/lux/standard
 // =============================================================================
 
 export const LUX_MAINNET_CONTRACTS: ChainContracts = {
   tokens: {
-    WLUX: PLACEHOLDER.WLUX,
-    LETH: PLACEHOLDER.LETH,
-    LBTC: PLACEHOLDER.LBTC,
-    LUSD: PLACEHOLDER.LUSD,
+    WLUX: "0x55750d6CA62a041c06a8E28626b10Be6c688f471" as Address,
+    // Bridge tokens - addresses TBD after Lux bridge deployment
+    LETH: undefined,
+    LBTC: undefined,
+    LUSD: undefined,
   },
   amm: {
-    V2_FACTORY: PLACEHOLDER.V2_FACTORY,
-    V2_ROUTER: PLACEHOLDER.V2_ROUTER,
-    MULTICALL: PLACEHOLDER.MULTICALL,
+    // V2 (QuantumSwap)
+    V2_FACTORY: "0xd9a95609DbB228A13568Bd9f9A285105E7596970" as Address,
+    V2_ROUTER: "0x1F6cbC7d3bc7D803ee76D80F0eEE25767431e674" as Address,
+    // V3 (Concentrated Liquidity)
+    V3_FACTORY: "0xb732BD88F25EdD9C3456638671fB37685D4B4e3f" as Address,
+    V3_ROUTER: "0x939bC0Bca6F9B9c52E6e3AD8A3C590b5d9B9D10E" as Address, // SwapRouter02
+    V3_QUOTER: "0x15C729fdd833Ba675edd466Dfc63E1B737925A4c" as Address, // QuoterV2
+    V3_POSITION_MANAGER: "0x7a4C48B9dae0b7c396569b34042fcA604150Ee28" as Address,
+    MULTICALL: "0xd25F88CBdAe3c2CCA3Bb75FC4E723b44C0Ea362F" as Address,
   },
 }
 
@@ -86,15 +79,23 @@ export const LUX_MAINNET_CONTRACTS: ChainContracts = {
 
 export const LUX_TESTNET_CONTRACTS: ChainContracts = {
   tokens: {
-    WLUX: PLACEHOLDER.WLUX,
-    LETH: PLACEHOLDER.LETH,
-    LBTC: PLACEHOLDER.LBTC,
-    LUSD: PLACEHOLDER.LUSD,
+    WLUX: "0x732740c5c895C9FCF619930ed4293fc858eb44c7" as Address,
+    WETH: "0xd9956542B51032d940ef076d70B69410667277A3" as Address,
+    // Bridge tokens - addresses TBD after testnet bridge deployment
+    LETH: undefined,
+    LBTC: undefined,
+    LUSD: undefined,
   },
   amm: {
-    V2_FACTORY: PLACEHOLDER.V2_FACTORY,
-    V2_ROUTER: PLACEHOLDER.V2_ROUTER,
-    MULTICALL: PLACEHOLDER.MULTICALL,
+    // V2
+    V2_FACTORY: "0x81C3669B139D92909AA67DbF74a241b10540d919" as Address,
+    V2_ROUTER: "0xDB6c703c80BFaE5F9a56482d3c8535f27E1136EB" as Address,
+    // V3
+    V3_FACTORY: "0x80bBc7C4C7a59C899D1B37BC14539A22D5830a84" as Address,
+    V3_ROUTER: "0x939bC0Bca6F9B9c52E6e3AD8A3C590b5d9B9D10E" as Address,
+    V3_QUOTER: "0x15C729fdd833Ba675edd466Dfc63E1B737925A4c" as Address,
+    V3_POSITION_MANAGER: "0x7a4C48B9dae0b7c396569b34042fcA604150Ee28" as Address,
+    MULTICALL: "0xd25F88CBdAe3c2CCA3Bb75FC4E723b44C0Ea362F" as Address,
   },
 }
 
@@ -104,13 +105,15 @@ export const LUX_TESTNET_CONTRACTS: ChainContracts = {
 
 export const ZOO_MAINNET_CONTRACTS: ChainContracts = {
   tokens: {
-    WZOO: PLACEHOLDER.WZOO,
-    WLUX: PLACEHOLDER.WLUX, // Bridged WLUX on Zoo
+    // Zoo native wrapped token - TBD
+    WZOO: undefined,
+    // Bridged WLUX on Zoo - TBD
+    WLUX: undefined,
   },
   amm: {
-    V2_FACTORY: PLACEHOLDER.V2_FACTORY,
-    V2_ROUTER: PLACEHOLDER.V2_ROUTER,
-    MULTICALL: PLACEHOLDER.MULTICALL,
+    // Deploy pending - use placeholder
+    V2_FACTORY: "0x0000000000000000000000000000000000000000" as Address,
+    V2_ROUTER: "0x0000000000000000000000000000000000000000" as Address,
   },
 }
 
@@ -120,18 +123,18 @@ export const ZOO_MAINNET_CONTRACTS: ChainContracts = {
 
 export const ZOO_TESTNET_CONTRACTS: ChainContracts = {
   tokens: {
-    WZOO: PLACEHOLDER.WZOO,
-    WLUX: PLACEHOLDER.WLUX,
+    WZOO: undefined,
+    WLUX: undefined,
   },
   amm: {
-    V2_FACTORY: PLACEHOLDER.V2_FACTORY,
-    V2_ROUTER: PLACEHOLDER.V2_ROUTER,
-    MULTICALL: PLACEHOLDER.MULTICALL,
+    V2_FACTORY: "0x0000000000000000000000000000000000000000" as Address,
+    V2_ROUTER: "0x0000000000000000000000000000000000000000" as Address,
   },
 }
 
 // =============================================================================
 // ETHEREUM MAINNET CONTRACTS (Chain ID: 1)
+// Standard Uniswap V2 addresses
 // =============================================================================
 
 export const ETHEREUM_MAINNET_CONTRACTS: ChainContracts = {
@@ -140,6 +143,9 @@ export const ETHEREUM_MAINNET_CONTRACTS: ChainContracts = {
     USDC: "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48" as Address,
     USDT: "0xdAC17F958D2ee523a2206206994597C13D831ec7" as Address,
     DAI: "0x6B175474E89094C44Da98b954EescdeCB5BE3830" as Address,
+    // Lux bridge tokens on Ethereum
+    LBTC: "0x526903Ee6118de6737D11b37f82fC7f69B13685D" as Address,
+    LETH: "0xAA3AE951A7925F25aE8Ad65b052a76Bd8f052598" as Address,
   },
   amm: {
     // Uniswap V2 on Ethereum
@@ -201,28 +207,44 @@ export function getTokenAddress(
 }
 
 /**
- * Get AMM router address for a specific chain
+ * Get AMM router address for a specific chain (V2)
  */
 export function getRouterAddress(chainId: number): Address | undefined {
   return CONTRACTS_BY_CHAIN[chainId]?.amm.V2_ROUTER
 }
 
 /**
- * Get AMM factory address for a specific chain
+ * Get AMM factory address for a specific chain (V2)
  */
 export function getFactoryAddress(chainId: number): Address | undefined {
   return CONTRACTS_BY_CHAIN[chainId]?.amm.V2_FACTORY
 }
 
 /**
- * Check if contracts are deployed (not placeholder addresses)
+ * Get V3 router address for a specific chain
+ */
+export function getV3RouterAddress(chainId: number): Address | undefined {
+  return CONTRACTS_BY_CHAIN[chainId]?.amm.V3_ROUTER
+}
+
+/**
+ * Check if contracts are deployed (not zero/placeholder addresses)
  */
 export function areContractsDeployed(chainId: number): boolean {
   const contracts = CONTRACTS_BY_CHAIN[chainId]
   if (!contracts) return false
 
-  // Check if factory is not a placeholder
-  return !contracts.amm.V2_FACTORY.startsWith("0x000000000000000000000000000000000000")
+  const factory = contracts.amm.V2_FACTORY
+  return factory !== undefined &&
+         factory !== ("0x0000000000000000000000000000000000000000" as Address)
+}
+
+/**
+ * Check if V3 contracts are available
+ */
+export function hasV3Contracts(chainId: number): boolean {
+  const contracts = CONTRACTS_BY_CHAIN[chainId]
+  return contracts?.amm.V3_FACTORY !== undefined
 }
 
 // =============================================================================
@@ -267,4 +289,16 @@ export const V2_PAIR_ABI = [
   "function getReserves() view returns (uint112 reserve0, uint112 reserve1, uint32 blockTimestampLast)",
   "function totalSupply() view returns (uint256)",
   "function balanceOf(address owner) view returns (uint256)",
+] as const
+
+export const V3_QUOTER_ABI = [
+  "function quoteExactInputSingle(address tokenIn, address tokenOut, uint24 fee, uint256 amountIn, uint160 sqrtPriceLimitX96) external returns (uint256 amountOut)",
+  "function quoteExactInput(bytes path, uint256 amountIn) external returns (uint256 amountOut)",
+  "function quoteExactOutputSingle(address tokenIn, address tokenOut, uint24 fee, uint256 amountOut, uint160 sqrtPriceLimitX96) external returns (uint256 amountIn)",
+  "function quoteExactOutput(bytes path, uint256 amountOut) external returns (uint256 amountIn)",
+] as const
+
+export const MULTICALL_ABI = [
+  "function aggregate(tuple(address target, bytes callData)[] calls) returns (uint256 blockNumber, bytes[] returnData)",
+  "function tryAggregate(bool requireSuccess, tuple(address target, bytes callData)[] calls) returns (tuple(bool success, bytes returnData)[] returnData)",
 ] as const

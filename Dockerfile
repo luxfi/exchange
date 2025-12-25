@@ -1,50 +1,57 @@
-# Exchange Dockerfile - React/Uniswap interface
-FROM node:18-alpine AS deps
-RUN apk add --no-cache libc6-compat python3 make g++
+# Lux Exchange - Next.js 15 Dockerfile
+# Multi-stage build for production deployment
+
+# Stage 1: Dependencies
+FROM node:20-alpine AS deps
+RUN apk add --no-cache libc6-compat
 WORKDIR /app
+
+# Install pnpm
+RUN corepack enable && corepack prepare pnpm@latest --activate
 
 # Copy package files
-COPY package.json yarn.lock ./
+COPY package.json pnpm-lock.yaml ./
 
 # Install dependencies
-RUN yarn install --frozen-lockfile
+RUN pnpm install --frozen-lockfile
 
-# Builder stage
-FROM node:18-alpine AS builder
+# Stage 2: Builder
+FROM node:20-alpine AS builder
 WORKDIR /app
+
+RUN corepack enable && corepack prepare pnpm@latest --activate
 
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
+# Set build-time environment variables
+ENV NEXT_TELEMETRY_DISABLED=1
+ENV NODE_ENV=production
+ENV DOCKER_BUILD=true
+
 # Build the application
-ENV REACT_APP_CHAIN_ID=96369
-ENV GENERATE_SOURCEMAP=false
-RUN yarn build
+RUN pnpm build
 
-# Production stage - serve with nginx
-FROM nginx:alpine AS runner
+# Stage 3: Runner
+FROM node:20-alpine AS runner
+WORKDIR /app
 
-# Copy custom nginx config if exists
-COPY nginx.conf /etc/nginx/conf.d/default.conf 2>/dev/null || :
+ENV NODE_ENV=production
+ENV NEXT_TELEMETRY_DISABLED=1
+
+RUN addgroup --system --gid 1001 nodejs
+RUN adduser --system --uid 1001 nextjs
 
 # Copy built assets
-COPY --from=builder /app/build /usr/share/nginx/html
+COPY --from=builder /app/public ./public
+COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
+COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 
-# Add a simple default nginx config if none exists
-RUN if [ ! -f /etc/nginx/conf.d/default.conf ]; then \
-  echo 'server { \
-    listen 3000; \
-    location / { \
-      root /usr/share/nginx/html; \
-      index index.html index.htm; \
-      try_files $uri $uri/ /index.html; \
-    } \
-    location /api { \
-      proxy_pass http://lux-node:8545; \
-    } \
-  }' > /etc/nginx/conf.d/default.conf; \
-  fi
+USER nextjs
 
 EXPOSE 3000
 
-CMD ["nginx", "-g", "daemon off;"]
+ENV PORT=3000
+ENV HOSTNAME="0.0.0.0"
+
+CMD ["node", "server.js"]

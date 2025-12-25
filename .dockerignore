@@ -1,0 +1,45 @@
+# Dependencies
+node_modules
+.pnpm-store
+
+# Build outputs
+.next
+out
+build
+dist
+
+# Development
+.git
+.gitignore
+*.md
+*.log
+
+# IDE
+.vscode
+.idea
+*.swp
+*.swo
+
+# Environment
+.env
+.env.*
+!.env.example
+
+# Test files
+__tests__
+*.test.ts
+*.test.tsx
+*.spec.ts
+*.spec.tsx
+e2e
+test-results
+playwright-report
+coverage
+
+# Legacy
+src/_pages_legacy
+
+# Misc
+.DS_Store
+Thumbs.db
+*.tsbuildinfo

@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Enable static export for deployment
-  output: process.env.GITHUB_ACTIONS ? "export" : undefined,
+  // Output mode: standalone for Docker, export for GitHub Actions
+  output: process.env.GITHUB_ACTIONS ? "export" : process.env.DOCKER_BUILD ? "standalone" : undefined,
 
   // Use trailing slashes for compatibility
   trailingSlash: true,
