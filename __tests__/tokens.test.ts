@@ -1,11 +1,16 @@
 import { describe, it, expect } from "vitest"
 import {
   DEFAULT_TOKENS,
+  LUX_MAINNET_TOKENS,
+  ETHEREUM_MAINNET_TOKENS,
   getTokenBySymbol,
   getTokenByAddress,
   formatTokenAmount,
   parseTokenAmount,
+  getDefaultTokenPair,
+  getNativeToken,
 } from "@/lib/tokens"
+import { luxMainnet, ethereum } from "@/lib/chains"
 
 describe("DEFAULT_TOKENS", () => {
   it("contains LUX token", () => {
@@ -15,34 +20,66 @@ describe("DEFAULT_TOKENS", () => {
     expect(lux?.decimals).toBe(18)
   })
 
-  it("contains USDC token", () => {
-    const usdc = DEFAULT_TOKENS.find((t) => t.symbol === "USDC")
-    expect(usdc).toBeDefined()
-    expect(usdc?.name).toBe("USD Coin")
-    expect(usdc?.decimals).toBe(6)
+  it("contains LUSD token", () => {
+    const lusd = DEFAULT_TOKENS.find((t) => t.symbol === "LUSD")
+    expect(lusd).toBeDefined()
+    expect(lusd?.name).toBe("Lux USD")
+    expect(lusd?.decimals).toBe(18)
   })
 })
 
 describe("getTokenBySymbol", () => {
   it("finds token by symbol (case insensitive)", () => {
-    expect(getTokenBySymbol("LUX")?.symbol).toBe("LUX")
-    expect(getTokenBySymbol("lux")?.symbol).toBe("LUX")
+    expect(getTokenBySymbol(luxMainnet.id, "LUX")?.symbol).toBe("LUX")
+    expect(getTokenBySymbol(luxMainnet.id, "lux")?.symbol).toBe("LUX")
   })
 
   it("returns undefined for unknown token", () => {
-    expect(getTokenBySymbol("UNKNOWN")).toBeUndefined()
+    expect(getTokenBySymbol(luxMainnet.id, "UNKNOWN")).toBeUndefined()
+  })
+
+  it("finds USDC on Ethereum", () => {
+    expect(getTokenBySymbol(ethereum.id, "USDC")?.symbol).toBe("USDC")
   })
 })
 
 describe("getTokenByAddress", () => {
-  it("finds token by address", () => {
-    const usdc = getTokenByAddress("0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48")
+  it("finds token by address on Ethereum", () => {
+    const usdc = getTokenByAddress(ethereum.id, "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48")
     expect(usdc?.symbol).toBe("USDC")
   })
 
   it("is case insensitive", () => {
-    const usdc = getTokenByAddress("0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48")
+    const usdc = getTokenByAddress(ethereum.id, "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48")
     expect(usdc?.symbol).toBe("USDC")
+  })
+})
+
+describe("getDefaultTokenPair", () => {
+  it("returns LUX -> LUSD for Lux mainnet", () => {
+    const pair = getDefaultTokenPair(luxMainnet.id)
+    expect(pair?.input.symbol).toBe("LUX")
+    expect(pair?.output.symbol).toBe("LUSD")
+  })
+
+  it("returns ETH -> USDC for Ethereum", () => {
+    const pair = getDefaultTokenPair(ethereum.id)
+    expect(pair?.input.symbol).toBe("ETH")
+    expect(pair?.output.symbol).toBe("USDC")
+  })
+})
+
+describe("getNativeToken", () => {
+  it("returns LUX for Lux mainnet", () => {
+    const native = getNativeToken(luxMainnet.id)
+    expect(native?.symbol).toBe("LUX")
+    expect(native?.isNative).toBe(true)
+  })
+
+  it("returns ETH for Ethereum", () => {
+    const native = getNativeToken(ethereum.id)
+    expect(native?.symbol).toBe("ETH")
+    expect(native?.isNative).toBe(true)
   })
 })
 

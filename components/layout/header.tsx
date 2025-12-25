@@ -7,6 +7,7 @@ import { usePathname } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 import { ConnectButton } from "@/components/wallet/connect-button"
+import { ChainSelector } from "@/components/wallet/chain-selector"
 
 interface HeaderProps {
   className?: string
@@ -70,7 +71,8 @@ export function Header({ className }: HeaderProps) {
           </nav>
         </div>
 
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-2">
+          <ChainSelector />
           <ConnectButton />
         </div>
       </div>

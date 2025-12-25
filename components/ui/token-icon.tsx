@@ -6,12 +6,22 @@ import { cn } from "@/lib/utils"
 
 // Token icon mapping for known tokens
 const TOKEN_ICONS: Record<string, string> = {
+  // Lux ecosystem
   LUX: "/tokens/lux.svg",
-  USDC: "/tokens/usdc.svg",
-  USDT: "/tokens/usdt.svg",
+  WLUX: "/tokens/wlux.svg",
+  LETH: "/tokens/leth.svg",
+  LBTC: "/tokens/lbtc.svg",
+  LUSD: "/tokens/lusd.svg",
+  // Zoo ecosystem
+  ZOO: "/tokens/zoo.svg",
+  WZOO: "/tokens/wzoo.svg",
+  // Ethereum ecosystem
   ETH: "/tokens/eth.svg",
   WETH: "/tokens/weth.svg",
-  ZOO: "/tokens/zoo.svg",
+  USDC: "/tokens/usdc.svg",
+  USDT: "/tokens/usdt.svg",
+  DAI: "/tokens/dai.svg",
+  WBTC: "/tokens/wbtc.svg",
 }
 
 interface TokenIconProps {

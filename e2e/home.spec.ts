@@ -12,9 +12,9 @@ test.describe("Home Page", () => {
     const header = page.locator("header")
     await expect(header).toBeVisible()
 
-    // Check branding - use more specific locators
-    await expect(header.getByText("Lux")).toBeVisible()
-    await expect(header.getByText("Exchange")).toBeVisible()
+    // Check branding - target the logo link specifically (has both Lux and Exchange)
+    const logoLink = header.getByRole("link", { name: /Lux.*Exchange/ })
+    await expect(logoLink).toBeVisible()
   })
 
   test("should display navigation links", async ({ page }) => {
@@ -26,7 +26,9 @@ test.describe("Home Page", () => {
   })
 
   test("should display Connect Wallet button", async ({ page }) => {
-    const connectButton = page.getByRole("button", { name: "Connect Wallet" })
+    // Scope to header to avoid matching the swap widget's Connect Wallet button
+    const header = page.locator("header")
+    const connectButton = header.getByRole("button", { name: "Connect Wallet" })
     await expect(connectButton).toBeVisible()
   })
 
@@ -64,14 +66,18 @@ test.describe("Swap Widget", () => {
     await expect(swapWidget.getByText("LUX").first()).toBeVisible()
   })
 
-  test("should display USDC token selector", async ({ page }) => {
-    await expect(page.getByText("USDC")).toBeVisible()
+  test("should display LUSD token selector", async ({ page }) => {
+    // Default receive token on Lux is LUSD
+    const swapWidget = page.locator("main")
+    await expect(swapWidget.getByText("LUSD").first()).toBeVisible()
   })
 
-  test("should have swap button", async ({ page }) => {
-    // Target the main swap button in the widget (not the nav button)
-    const swapButton = page.getByRole("main").getByRole("button", { name: "Swap", exact: true })
-    await expect(swapButton).toBeVisible()
+  test("should have swap action button", async ({ page }) => {
+    // The swap widget's action button shows "Connect Wallet" when not connected
+    // After connecting and entering amount, it shows "Swap"
+    const swapWidget = page.locator("main")
+    const actionButton = swapWidget.getByRole("button", { name: "Connect Wallet" })
+    await expect(actionButton).toBeVisible()
   })
 
   test("should have settings button", async ({ page }) => {
@@ -114,9 +120,9 @@ test.describe("Swap Widget", () => {
     })
     await swapDirectionButton.click()
 
-    // The second input should now have the value
+    // The second input should now have the value (may include decimals)
     const outputField = page.locator('input[placeholder="0"]').nth(1)
-    await expect(outputField).toHaveValue("50")
+    await expect(outputField).toHaveValue(/^50(\.0+)?$/)
   })
 })
 
@@ -155,8 +161,9 @@ test.describe("Accessibility", () => {
   test("should be keyboard navigable", async ({ page }) => {
     await page.goto("/")
 
-    // Focus the connect wallet button and verify it's focusable
-    const connectButton = page.getByRole("button", { name: "Connect Wallet" })
+    // Focus the connect wallet button in header and verify it's focusable
+    const header = page.locator("header")
+    const connectButton = header.getByRole("button", { name: "Connect Wallet" })
     await connectButton.focus()
     await expect(connectButton).toBeFocused()
   })

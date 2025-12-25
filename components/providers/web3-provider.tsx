@@ -3,67 +3,21 @@
 import * as React from "react"
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
 import { WagmiProvider, createConfig, http } from "wagmi"
-import { mainnet, sepolia } from "wagmi/chains"
 import { injected, walletConnect } from "wagmi/connectors"
-import type { Chain } from "wagmi/chains"
-
-// Define Lux chains
-const luxMainnet = {
-  id: 96369,
-  name: "Lux Mainnet",
-  nativeCurrency: {
-    decimals: 18,
-    name: "LUX",
-    symbol: "LUX",
-  },
-  rpcUrls: {
-    default: { http: ["https://api.lux.network/rpc"] },
-    public: { http: ["https://api.lux.network/rpc"] },
-  },
-  blockExplorers: {
-    default: { name: "Lux Explorer", url: "https://explore.lux.network" },
-  },
-} as const satisfies Chain
-
-const luxTestnet = {
-  id: 96368,
-  name: "Lux Testnet",
-  nativeCurrency: {
-    decimals: 18,
-    name: "LUX",
-    symbol: "LUX",
-  },
-  rpcUrls: {
-    default: { http: ["https://api.lux-test.network/rpc"] },
-    public: { http: ["https://api.lux-test.network/rpc"] },
-  },
-  blockExplorers: {
-    default: { name: "Lux Explorer", url: "https://explore.lux-test.network" },
-  },
-  testnet: true,
-} as const satisfies Chain
-
-const zooMainnet = {
-  id: 200200,
-  name: "Zoo Network",
-  nativeCurrency: {
-    decimals: 18,
-    name: "ZOO",
-    symbol: "ZOO",
-  },
-  rpcUrls: {
-    default: { http: ["https://api.zoo.network/rpc"] },
-    public: { http: ["https://api.zoo.network/rpc"] },
-  },
-  blockExplorers: {
-    default: { name: "Zoo Explorer", url: "https://explore.zoo.network" },
-  },
-} as const satisfies Chain
+import {
+  SUPPORTED_CHAINS,
+  luxMainnet,
+  luxTestnet,
+  zooMainnet,
+  zooTestnet,
+  ethereum,
+  sepolia,
+} from "@/lib/chains"
 
 // Wagmi config - created outside component to prevent recreation
 function createWagmiConfig() {
   return createConfig({
-    chains: [luxMainnet, luxTestnet, zooMainnet, mainnet, sepolia],
+    chains: SUPPORTED_CHAINS,
     connectors: [
       injected(),
       walletConnect({
@@ -74,7 +28,8 @@ function createWagmiConfig() {
       [luxMainnet.id]: http(),
       [luxTestnet.id]: http(),
       [zooMainnet.id]: http(),
-      [mainnet.id]: http(),
+      [zooTestnet.id]: http(),
+      [ethereum.id]: http(),
       [sepolia.id]: http(),
     },
     ssr: true, // Enable SSR mode to prevent hydration issues
@@ -111,5 +66,12 @@ export function Web3Provider({ children }: Web3ProviderProps) {
   )
 }
 
-// Export chains for use elsewhere
-export { luxMainnet, luxTestnet, zooMainnet }
+// Re-export chains for use elsewhere
+export {
+  luxMainnet,
+  luxTestnet,
+  zooMainnet,
+  zooTestnet,
+  ethereum,
+  sepolia,
+}

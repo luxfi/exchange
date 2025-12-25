@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <circle cx="50" cy="50" r="50" fill="#1a1a2e"/>
+  <circle cx="50" cy="50" r="45" fill="url(#lusd-gradient)"/>
+  <path d="M50 15L35 35H65L50 15Z" fill="white" fill-opacity="0.6"/>
+  <text x="50" y="60" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="white" text-anchor="middle">$</text>
+  <path d="M50 85L65 65H35L50 85Z" fill="white" fill-opacity="0.6"/>
+  <circle cx="50" cy="50" r="42" stroke="white" stroke-width="2" fill="none"/>
+  <defs>
+    <linearGradient id="lusd-gradient" x1="5" y1="5" x2="95" y2="95" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#22c55e"/>
+      <stop offset="0.5" stop-color="#6366f1"/>
+      <stop offset="1" stop-color="#10b981"/>
+    </linearGradient>
+  </defs>
+</svg>
