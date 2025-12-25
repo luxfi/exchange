@@ -10,7 +10,6 @@ import ZooLogo from '../../assets/svg/zoo_logo.svg'
 import MaticLogo from '../../assets/svg/matic-token-icon.svg'
 import BLASTLogo from '../../assets/svg/blast_logo.svg'
 import BNBLogo from '../../assets/svg/bnb_logo.svg'
-import LUXLogo from '../../assets/svg/lux-avax-logo.svg'
 import { isCelo, isLUX, isZOO, NATIVE_CHAIN_ID, nativeOnChain } from '../../constants/tokens'
 
 type Network = 'ethereum' | 'arbitrum' | 'optimism' | 'polygon'
@@ -63,8 +62,6 @@ export function getNativeLogoURI(chainId: SupportedChainId = SupportedChainId.MA
       return BLASTLogo
     case SupportedChainId.BNB:
       return BNBLogo
-    case SupportedChainId.LUX:
-      return LUXLogo
     case SupportedChainId.POLYGON:
     case SupportedChainId.POLYGON_MUMBAI:
       return MaticLogo

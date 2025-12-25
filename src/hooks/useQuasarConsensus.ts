@@ -82,14 +82,15 @@ export function useQuasarConsensus() {
           )
           
           const isValid = await compressedContract.verifyCompressedWitness(compressedWitness)
-          
+
           const verificationTime = Date.now() - startTime
-          
+          const lastVerifiedBlock = await provider.getBlockNumber()
+
           setQuasarState(prev => ({
             ...prev,
             isPQFinal: true,
             validatorCount,
-            lastVerifiedBlock: await provider.getBlockNumber(),
+            lastVerifiedBlock,
             witnessSize: compressedWitness.length,
             verificationTime,
           }))
@@ -122,12 +123,13 @@ export function useQuasarConsensus() {
         )
 
         const verificationTime = Date.now() - startTime
+        const lastVerifiedBlock = await provider.getBlockNumber()
 
         setQuasarState(prev => ({
           ...prev,
           isPQFinal: blsValid && ringtailValid,
           validatorCount,
-          lastVerifiedBlock: await provider.getBlockNumber(),
+          lastVerifiedBlock,
           witnessSize: witness.verkleProof.length + witness.blsSignature.length + witness.ringtailSignature.length,
           verificationTime,
         }))

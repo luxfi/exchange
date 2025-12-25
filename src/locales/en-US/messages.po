@@ -6,6 +6,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: @lingui/cli\n"
 "Language: en-US\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Plural-Forms: \n"
 
 #: src/pages/Pool/PositionPage.tsx:704
 #: src/pages/Pool/PositionPage.tsx:766
@@ -2740,7 +2746,11 @@ msgid "{label} might be down right now, or you may have lost your network connec
 msgstr "{label} might be down right now, or you may have lost your network connection."
 
 #: src/components/Pools/PoolTable/PoolTable.tsx:186
+#: src/components/Pools/PoolTable.tsx:215
+#: src/components/TokenPools/PoolTable.tsx:230
+#: src/components/TokenTransaction/TransactionTable.tsx:236
 #: src/components/Tokens/TokenTable/TokenTable.tsx:411
+#: src/components/Transactions/TransactionTable.tsx:250
 msgid "{message}"
 msgstr "{message}"
 

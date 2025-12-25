@@ -32,6 +32,6 @@ describe('networks', () => {
     })
 
     render(<Pool />)
-    expect(screen.getByText('Your active V3 liquidity positions will appear here.')).toBeInTheDocument()
+    expect(screen.getByText('Your active liquidity positions will appear here.')).toBeInTheDocument()
   })
 })

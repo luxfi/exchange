@@ -64,7 +64,6 @@ export const CHAIN_ID_TO_BACKEND_NAME: { [key: number]: Chain } = {
   [SupportedChainId.POLYGON_MUMBAI]: Chain.Polygon,
   [SupportedChainId.BASE]: Chain.Base,
   [SupportedChainId.BNB]: Chain.Bnb,
-  [SupportedChainId.LUX]: Chain.Lux,
   [SupportedChainId.BLAST]: Chain.Blast,
   [SupportedChainId.ZORA]: Chain.Zora,
   [SupportedChainId.CELO]: Chain.Celo,
@@ -108,13 +107,12 @@ export const CHAIN_NAME_TO_CHAIN_ID: { [key: string]: SupportedChainId } = {
   BASE: SupportedChainId.BASE,
   BLAST: SupportedChainId.BLAST,
   BNB: SupportedChainId.BNB,
-  LUX: SupportedChainId.LUX,
   ZORA: SupportedChainId.ZORA,
   ARBITRUM: SupportedChainId.ARBITRUM_ONE,
   OPTIMISM: SupportedChainId.OPTIMISM,
 }
 
-export const BACKEND_CHAIN_NAMES: Chain[] = [Chain.Lux, Chain.Zoo, Chain.Ethereum, Chain.Polygon, Chain.Optimism, Chain.Arbitrum, Chain.Celo, Chain.Base, Chain.Bnb, Chain.Lux, Chain.Zora, Chain.Blast]
+export const BACKEND_CHAIN_NAMES: Chain[] = [Chain.Lux, Chain.Zoo, Chain.Ethereum, Chain.Polygon, Chain.Optimism, Chain.Arbitrum, Chain.Celo, Chain.Base, Chain.Bnb, Chain.Zora, Chain.Blast]
 
 export function getTokenDetailsURL(address: string, chainName?: any, chainId?: number) {
   if (address === ZERO_ADDRESS && chainId && chainId === SupportedChainId.MAINNET) {

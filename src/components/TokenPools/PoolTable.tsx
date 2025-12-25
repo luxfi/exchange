@@ -15,7 +15,7 @@ import { HeaderRow, LoadedRow, LoadingRow } from './PoolRow';
 import { TOKENS_LUX_LIST } from 'tokens-lux/tokens';
 
 import { apolloClient } from 'graphql/data/apollo';
-import { arbitrumNetClient, luxNetClient, baseNetClient, bnbNetClient, celoNetClient, ethereumNetClient, luxNetClient, optimismNetClient, polygonNetClient, zooNetClient } from 'graphql/thegraph/apollo';
+import { arbitrumNetClient, luxNetClient, baseNetClient, bnbNetClient, celoNetClient, ethereumNetClient, optimismNetClient, polygonNetClient, zooNetClient } from 'graphql/thegraph/apollo';
 
 import {
   CHAIN_NAME_TO_CHAIN_ID

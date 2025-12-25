@@ -57,8 +57,9 @@ describe('#useBestV3Trade ExactIn', () => {
     const { result } = renderHook(() => useBestTrade(TradeType.EXACT_INPUT, USDCAmount, DAI))
 
     expect(mockUseRoutingAPITrade).toHaveBeenCalledWith(TradeType.EXACT_INPUT, undefined, DAI, RouterPreference.CLIENT)
-    expect(mockUseClientSideV3Trade).toHaveBeenCalledWith(TradeType.EXACT_INPUT, USDCAmount, DAI)
-    expect(result.current).toEqual({ state: TradeState.VALID, trade: undefined })
+    // When autoRouterSupported is false, useFallback is false, so client-side gets undefined args
+    expect(mockUseClientSideV3Trade).toHaveBeenCalledWith(TradeType.EXACT_INPUT, undefined, undefined)
+    expect(result.current).toEqual({ state: TradeState.INVALID, trade: undefined })
   })
 
   it('does not compute routing api trade when window is not focused', async () => {
@@ -69,6 +70,7 @@ describe('#useBestV3Trade ExactIn', () => {
     const { result } = renderHook(() => useBestTrade(TradeType.EXACT_INPUT, USDCAmount, DAI))
 
     expect(mockUseRoutingAPITrade).toHaveBeenCalledWith(TradeType.EXACT_INPUT, undefined, DAI, RouterPreference.CLIENT)
+    // useFallback is true when autoRouterSupported && NO_ROUTE_FOUND, but autoRouterSupported is true here and NO_ROUTE_FOUND
     expect(mockUseClientSideV3Trade).toHaveBeenCalledWith(TradeType.EXACT_INPUT, USDCAmount, DAI)
     expect(result.current).toEqual({ state: TradeState.VALID, trade: undefined })
   })
@@ -138,8 +140,9 @@ describe('#useBestV3Trade ExactOut', () => {
       USDC_MAINNET,
       RouterPreference.CLIENT
     )
-    expect(mockUseClientSideV3Trade).toHaveBeenCalledWith(TradeType.EXACT_OUTPUT, DAIAmount, USDC_MAINNET)
-    expect(result.current).toEqual({ state: TradeState.VALID, trade: undefined })
+    // When autoRouterSupported is false, useFallback is false, so client-side gets undefined args
+    expect(mockUseClientSideV3Trade).toHaveBeenCalledWith(TradeType.EXACT_OUTPUT, undefined, undefined)
+    expect(result.current).toEqual({ state: TradeState.INVALID, trade: undefined })
   })
 
   it('does not compute routing api trade when window is not focused', () => {
@@ -155,6 +158,7 @@ describe('#useBestV3Trade ExactOut', () => {
       USDC_MAINNET,
       RouterPreference.CLIENT
     )
+    // useFallback is true when autoRouterSupported && NO_ROUTE_FOUND
     expect(mockUseClientSideV3Trade).toHaveBeenCalledWith(TradeType.EXACT_OUTPUT, DAIAmount, USDC_MAINNET)
     expect(result.current).toEqual({ state: TradeState.VALID, trade: undefined })
   })

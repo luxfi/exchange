@@ -2,7 +2,7 @@ import '@testing-library/jest-dom'
 import { act } from 'react-dom/test-utils'
 import { combineReducers, configureStore, Store } from '@reduxjs/toolkit'
 import React, { useRef } from 'react'
-import { render, unmountComponentAtNode } from 'react-dom'
+import { createRoot, Root } from 'react-dom/client'
 import { Provider } from 'react-redux'
 
 import { useCallsDataSubscription } from './hooks'
@@ -13,20 +13,25 @@ import { Call, ListenerOptions } from './types'
 
 describe('multicall hooks', () => {
   let container: HTMLDivElement | null = null
+  let root: Root | null = null
   let actions: MulticallActions
   let context: MulticallContext
   let store: Store
   beforeEach(() => {
     container = document.createElement('div')
     document.body.appendChild(container)
+    root = createRoot(container)
     const slice = createMulticallSlice('multicall')
     actions = slice.actions
     context = { reducerPath: 'multicall', actions }
     store = configureStore({ reducer: combineReducers({ multicall: slice.reducer }) })
   })
   afterEach(() => {
+    if (root) {
+      root.unmount()
+      root = null
+    }
     if (container) {
-      unmountComponentAtNode(container)
       container.remove()
     }
     container = null
@@ -63,28 +68,31 @@ describe('multicall hooks', () => {
         updateCallResult(callA, '0xa')
         updateCallResult(callB, '0xb')
 
-        render(
-          <Provider store={store}>
-            <Caller calls={[callA]} />
-          </Provider>,
-          container
-        )
+        act(() => {
+          root?.render(
+            <Provider store={store}>
+              <Caller calls={[callA]} />
+            </Provider>
+          )
+        })
         expect(container?.textContent).toBe('a-:0xa')
 
-        render(
-          <Provider store={store}>
-            <Caller calls={[callB]} />
-          </Provider>,
-          container
-        )
+        act(() => {
+          root?.render(
+            <Provider store={store}>
+              <Caller calls={[callB]} />
+            </Provider>
+          )
+        })
         expect(container?.textContent).toBe('b-:0xb')
 
-        render(
-          <Provider store={store}>
-            <Caller calls={[callA, callB]} />
-          </Provider>,
-          container
-        )
+        act(() => {
+          root?.render(
+            <Provider store={store}>
+              <Caller calls={[callA, callB]} />
+            </Provider>
+          )
+        })
         expect(container?.textContent).toBe('a-:0xa;b-:0xb')
       })
 
@@ -92,15 +100,18 @@ describe('multicall hooks', () => {
         const call = { address: 'a', callData: '' }
         updateCallResult(call, '0xa')
 
-        render(
-          <Provider store={store}>
-            <Caller calls={[call]} />
-          </Provider>,
-          container
-        )
+        act(() => {
+          root?.render(
+            <Provider store={store}>
+              <Caller calls={[call]} />
+            </Provider>
+          )
+        })
         expect(container?.textContent).toBe('a-:0xa')
 
-        updateCallResult(call, '0xb')
+        act(() => {
+          updateCallResult(call, '0xb')
+        })
         expect(container?.textContent).toBe('a-:0xb')
       })
 
@@ -116,20 +127,25 @@ describe('multicall hooks', () => {
         const call = { address: 'a', callData: '' }
         updateCallResult(call, '0xa')
 
-        render(
-          <Provider store={store}>
-            <MockCaller calls={[call]} />
-          </Provider>,
-          container
-        )
+        act(() => {
+          root?.render(
+            <Provider store={store}>
+              <MockCaller calls={[call]} />
+            </Provider>
+          )
+        })
         expect(container?.textContent).toBe('true')
 
         // stable update
-        updateCallResult(call, '0xa')
+        act(() => {
+          updateCallResult(call, '0xa')
+        })
         expect(container?.textContent).toBe('true')
 
         // unrelated update
-        updateCallResult({ address: 'b', callData: '' }, '0xb')
+        act(() => {
+          updateCallResult({ address: 'b', callData: '' }, '0xb')
+        })
         expect(container?.textContent).toBe('true')
       })
     })
@@ -163,11 +179,10 @@ describe('multicall hooks', () => {
         }
 
         act(() => {
-          render(
+          root?.render(
             <Provider store={store}>
               <Caller calls={[callA]} multicallContext={mockContext} />
-            </Provider>,
-            container
+            </Provider>
           )
         })
 
@@ -206,11 +221,10 @@ describe('multicall hooks', () => {
         }
 
         act(() => {
-          render(
+          root?.render(
             <Provider store={store}>
               <Caller calls={[callA]} multicallContext={mockContext} listenerOptions={{ blocksPerFetch: 5 }} />
-            </Provider>,
-            container
+            </Provider>
           )
         })
 
@@ -238,11 +252,10 @@ describe('multicall hooks', () => {
         }
 
         act(() => {
-          render(
+          root?.render(
             <Provider store={store}>
               <Caller calls={[callA]} multicallContext={mockContext} />
-            </Provider>,
-            container
+            </Provider>
           )
         })
 

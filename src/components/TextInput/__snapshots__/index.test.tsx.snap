@@ -11,10 +11,10 @@ exports[`ResizableTextArea renders correctly 1`] = `
   flex: 1 1 auto;
   width: 0;
   resize: none;
-  background-color: #F5F6FC;
+  background-color: #1A1A1A;
   -webkit-transition: color 300ms step-start;
   transition: color 300ms step-start;
-  color: #010101;
+  color: #FFFFFF;
   overflow: hidden;
   text-overflow: ellipsis;
   font-weight: 500;
@@ -34,19 +34,19 @@ exports[`ResizableTextArea renders correctly 1`] = `
 }
 
 .c0::-webkit-input-placeholder {
-  color: #98A1C0;
+  color: #B8C0DC;
 }
 
 .c0::-moz-placeholder {
-  color: #98A1C0;
+  color: #B8C0DC;
 }
 
 .c0:-ms-input-placeholder {
-  color: #98A1C0;
+  color: #B8C0DC;
 }
 
 .c0::placeholder {
-  color: #98A1C0;
+  color: #B8C0DC;
 }
 
 <textarea
@@ -74,10 +74,10 @@ exports[`TextInput renders correctly 1`] = `
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
   width: 0;
-  background-color: #F5F6FC;
+  background-color: #1A1A1A;
   -webkit-transition: color 300ms step-start;
   transition: color 300ms step-start;
-  color: #010101;
+  color: #FFFFFF;
   overflow: hidden;
   text-overflow: ellipsis;
   font-weight: 500;
@@ -96,19 +96,19 @@ exports[`TextInput renders correctly 1`] = `
 }
 
 .c0::-webkit-input-placeholder {
-  color: #98A1C0;
+  color: #B8C0DC;
 }
 
 .c0::-moz-placeholder {
-  color: #98A1C0;
+  color: #B8C0DC;
 }
 
 .c0:-ms-input-placeholder {
-  color: #98A1C0;
+  color: #B8C0DC;
 }
 
 .c0::placeholder {
-  color: #98A1C0;
+  color: #B8C0DC;
 }
 
 <div
