@@ -20,6 +20,8 @@ schema.graphql
 # builds
 /build
 /dts
+/.next
+/out
 
 # misc
 .DS_Store
