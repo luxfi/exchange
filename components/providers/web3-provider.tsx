@@ -1,7 +1,6 @@
 "use client"
 
 import * as React from "react"
-import dynamic from "next/dynamic"
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
 import { WagmiProvider, createConfig, http } from "wagmi"
 import { mainnet, sepolia } from "wagmi/chains"
@@ -103,18 +102,8 @@ export function Web3Provider({ children }: Web3ProviderProps) {
   // Use state to ensure stable instances across renders
   const [config] = React.useState(() => createWagmiConfig())
   const [queryClient] = React.useState(() => createQueryClientInstance())
-  const [mounted, setMounted] = React.useState(false)
 
-  // Handle SSR - only render provider after hydration
-  React.useEffect(() => {
-    setMounted(true)
-  }, [])
-
-  // During SSR, render children without provider to avoid hydration mismatch
-  if (!mounted) {
-    return <>{children}</>
-  }
-
+  // Always wrap children in providers - wagmi has ssr: true for hydration safety
   return (
     <WagmiProvider config={config}>
       <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
