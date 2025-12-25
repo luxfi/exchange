@@ -1,0 +1,231 @@
+# Lux Exchange - Local Testing Infrastructure
+#
+# Uses G-Chain for native GraphQL indexing instead of traditional subgraphs.
+# G-Chain provides blockchain data querying directly from the Lux node.
+#
+# Usage:
+#   docker compose -f compose.local.yml up -d          # Start all services
+#   docker compose -f compose.local.yml --profile dev up -d  # With dev tools
+#   docker compose -f compose.local.yml down -v        # Stop and remove volumes
+#   docker compose -f compose.local.yml logs -f node   # Follow node logs
+#
+# Ports:
+#   9650: Node RPC (C-Chain: /ext/bc/C/rpc, G-Chain: /ext/bc/G/graphql)
+#   9651: Staking port
+#   3000: Exchange frontend
+#   5432: PostgreSQL
+#   6379: Redis
+#
+# G-Chain Endpoints:
+#   GraphQL: http://localhost:9650/ext/bc/G/graphql
+#   Schema:  http://localhost:9650/ext/bc/G/schema
+#   Query:   http://localhost:9650/ext/bc/G/query
+#   Index:   http://localhost:9650/ext/bc/G/index
+
+networks:
+  lux-local:
+    driver: bridge
+    name: lux-local
+
+volumes:
+  node-data:
+  postgres-data:
+  redis-data:
+
+services:
+  # =============================================================================
+  # LUX NODE with G-Chain (GraphVM) enabled
+  # =============================================================================
+  node:
+    image: ghcr.io/luxfi/node:latest
+    container_name: lux-exchange-node
+    restart: unless-stopped
+    ports:
+      - "${NODE_HTTP_PORT:-9650}:9650"
+      - "${NODE_STAKING_PORT:-9651}:9651"
+    environment:
+      # Network configuration - local development
+      NETWORK_ID: ${NETWORK_ID:-31337}
+
+      # HTTP API settings
+      HTTP_HOST: 0.0.0.0
+      HTTP_PORT: 9650
+      STAKING_PORT: 9651
+
+      # Storage
+      DB_DIR: /data
+      LOG_LEVEL: ${LOG_LEVEL:-info}
+
+      # Chain configuration
+      CHAIN_CONFIG_DIR: /app/configs
+      PLUGIN_DIR: /app/plugins
+
+      # Enable all APIs for local development
+      API_ADMIN_ENABLED: "true"
+      API_INFO_ENABLED: "true"
+      API_KEYSTORE_ENABLED: "true"
+      API_METRICS_ENABLED: "true"
+      INDEX_ENABLED: "true"
+
+      # Disable sybil protection for local testing
+      SYBIL_PROTECTION_ENABLED: "false"
+
+      # G-Chain (GraphVM) configuration
+      GCHAIN_ENABLED: "true"
+      GCHAIN_DGRAPH_ENDPOINT: ""
+      GCHAIN_AUTO_INDEX: "true"
+      GCHAIN_MAX_QUERY_DEPTH: 10
+      GCHAIN_QUERY_TIMEOUT_MS: 30000
+
+      # Local development - fast block times
+      BLOCK_GAS_LIMIT: 15000000
+      TX_POOL_PRICE_LIMIT: 0
+    volumes:
+      - node-data:/data
+      - ./configs/chains:/app/configs:ro
+      - ./configs/gchain:/app/configs/gchain:ro
+    networks:
+      - lux-local
+    healthcheck:
+      test: ["CMD", "curl", "-sf", "http://localhost:9650/ext/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 30s
+
+  # =============================================================================
+  # PostgreSQL - Exchange API database
+  # =============================================================================
+  postgres:
+    image: postgres:16-alpine
+    container_name: lux-exchange-postgres
+    restart: unless-stopped
+    ports:
+      - "${POSTGRES_PORT:-5432}:5432"
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-exchange}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-exchange_local_dev}
+      POSTGRES_DB: ${POSTGRES_DB:-exchange}
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+      - ./scripts/init-db.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    networks:
+      - lux-local
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-exchange}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # =============================================================================
+  # Redis - Caching layer
+  # =============================================================================
+  redis:
+    image: redis:7-alpine
+    container_name: lux-exchange-redis
+    restart: unless-stopped
+    command: redis-server --appendonly yes --maxmemory 512mb --maxmemory-policy allkeys-lru
+    ports:
+      - "${REDIS_PORT:-6379}:6379"
+    volumes:
+      - redis-data:/data
+    networks:
+      - lux-local
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # =============================================================================
+  # Exchange Frontend (Next.js)
+  # =============================================================================
+  exchange:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: lux-exchange-app
+    restart: unless-stopped
+    ports:
+      - "${EXCHANGE_PORT:-3000}:3000"
+    environment:
+      NODE_ENV: development
+
+      # App configuration
+      NEXT_PUBLIC_APP_URL: http://localhost:3000
+
+      # Chain RPC - connect to local node
+      NEXT_PUBLIC_LUX_RPC_URL: http://node:9650/ext/bc/C/rpc
+      NEXT_PUBLIC_LOCAL_RPC_URL: http://localhost:9650/ext/bc/C/rpc
+
+      # G-Chain GraphQL endpoint (replaces subgraph)
+      NEXT_PUBLIC_GCHAIN_GRAPHQL_URL: http://node:9650/ext/bc/G/graphql
+      NEXT_PUBLIC_LOCAL_GCHAIN_URL: http://localhost:9650/ext/bc/G/graphql
+
+      # Local chain configuration
+      NEXT_PUBLIC_CHAIN_ID: ${CHAIN_ID:-31337}
+      NEXT_PUBLIC_NETWORK_NAME: "Lux Local"
+
+      # Contract addresses (set after deployment)
+      NEXT_PUBLIC_WLUX_ADDRESS: ${WLUX_ADDRESS:-}
+      NEXT_PUBLIC_LUSD_ADDRESS: ${LUSD_ADDRESS:-}
+      NEXT_PUBLIC_WETH_ADDRESS: ${WETH_ADDRESS:-}
+      NEXT_PUBLIC_V2_FACTORY_ADDRESS: ${V2_FACTORY_ADDRESS:-}
+      NEXT_PUBLIC_V2_ROUTER_ADDRESS: ${V2_ROUTER_ADDRESS:-}
+
+      # Database
+      DATABASE_URL: postgresql://exchange:exchange_local_dev@postgres:5432/exchange
+
+      # Redis
+      REDIS_URL: redis://redis:6379
+
+      # Enable testnets for local development
+      NEXT_PUBLIC_ENABLE_TESTNETS: "true"
+      NEXT_PUBLIC_ENABLE_LOCAL: "true"
+    depends_on:
+      node:
+        condition: service_healthy
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    networks:
+      - lux-local
+    volumes:
+      # Mount source for hot reloading in development
+      - .:/app:delegated
+      - /app/node_modules
+      - /app/.next
+
+  # =============================================================================
+  # DEVELOPMENT TOOLS (optional - use --profile dev)
+  # =============================================================================
+
+  # Database Admin UI
+  adminer:
+    image: adminer:latest
+    container_name: lux-exchange-adminer
+    restart: unless-stopped
+    profiles:
+      - dev
+    ports:
+      - "${ADMINER_PORT:-8080}:8080"
+    networks:
+      - lux-local
+    environment:
+      ADMINER_DEFAULT_SERVER: postgres
+      ADMINER_DESIGN: pepa-linha-dark
+
+  # Redis UI
+  redis-commander:
+    image: rediscommander/redis-commander:latest
+    container_name: lux-exchange-redis-ui
+    restart: unless-stopped
+    profiles:
+      - dev
+    ports:
+      - "${REDIS_COMMANDER_PORT:-8081}:8081"
+    networks:
+      - lux-local
+    environment:
+      REDIS_HOSTS: "local:redis:6379"
