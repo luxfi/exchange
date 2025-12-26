@@ -1,10 +1,31 @@
 {
-  "extends": "expo/tsconfig.base",
-  "compilerOptions": {
-    "strict": true,
-    "paths": {
-      "@/*": ["./src/*"]
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "display": "Mobile App",
+  "extends": "../../config/tsconfig/expo.json",
+  "exclude": [".storybook/storybook.requires.ts"],
+  "references": [
+    {
+      "path": "../../packages/wallet"
+    },
+    {
+      "path": "../../packages/utilities"
+    },
+    {
+      "path": "../../packages/uniswap"
+    },
+    {
+      "path": "../../packages/sessions"
+    },
+    {
+      "path": "../../packages/gating"
+    },
+    {
+      "path": "../../packages/api"
     }
+  ],
+  "compilerOptions": {
+    "baseUrl": "./",
+    "types": ["jest", "node"]
   },
-  "include": ["**/*.ts", "**/*.tsx", ".expo/types/**/*.ts", "expo-env.d.ts"]
+  "include": ["**/*.ts", "**/*.tsx", "global.d.ts"]
 }

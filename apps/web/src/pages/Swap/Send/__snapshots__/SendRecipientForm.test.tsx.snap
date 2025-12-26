@@ -1,0 +1,485 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`SendCurrencyInputform > should render correctly with no verified recipient 1`] = `
+.c0 {
+  background: none;
+  width: 100%;
+  color: #131313;
+  outline: none;
+  border: none;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.c0 ::placeholder {
+  color: rgba(19, 19, 19, 0.35);
+}
+
+<span
+  class=""
+  style="display: contents;"
+>
+  <div
+    class="_display-flex _alignItems-stretch _flexBasis-auto _boxSizing-border-box _minHeight-0px _minWidth-0px _flexShrink-0 _flexDirection-column _position-relative _backgroundColor-surface2 _borderTopLeftRadius-t-radius-ro291586449 _borderTopRightRadius-t-radius-ro291586449 _borderBottomRightRadius-t-radius-ro291586449 _borderBottomLeftRadius-t-radius-ro291586449 _pt-t-space-spa1360334076 _pr-t-space-spa1360334076 _pb-t-space-spa1360334076 _pl-t-space-spa1360334076 _gap-t-space-spa94665589 _opacity-1 _borderTopColor-transparent _borderRightColor-transparent _borderBottomColor-transparent _borderLeftColor-transparent _borderTopWidth-t-space-spa94665586 _borderRightWidth-t-space-spa94665586 _borderBottomWidth-t-space-spa94665586 _borderLeftWidth-t-space-spa94665586 _borderBottomStyle-solid _borderTopStyle-solid _borderLeftStyle-solid _borderRightStyle-solid"
+  >
+    <div
+      aria-expanded="false"
+      aria-haspopup="dialog"
+      class="_display-flex _alignItems-stretch _flexDirection-column _flexBasis-auto _boxSizing-border-box _position-relative _minHeight-0px _minWidth-0px _flexShrink-0"
+    >
+      <div
+        aria-expanded="false"
+        class="_display-flex _alignItems-stretch _flexDirection-column _flexBasis-auto _boxSizing-border-box _position-relative _minHeight-0px _minWidth-0px _flexShrink-0"
+        data-state="closed"
+      >
+        <div
+          class="_display-flex _alignItems-stretch _flexBasis-auto _boxSizing-border-box _position-relative _minHeight-0px _minWidth-0px _flexShrink-0 _flexDirection-column"
+        >
+          <span
+            class="font_body _display-inline _boxSizing-border-box _whiteSpace-pre-wrap _mt-0px _mr-0px _mb-0px _ml-0px _color-neutral2 _fontFamily-f-family _wordWrap-break-word _fontSize-f-size-smal108 _lineHeight-f-lineHeigh1269072494 _fontWeight-f-weight-bo3548 _userSelect-none"
+            data-disable-theme="true"
+          >
+            To
+          </span>
+          <input
+            autocapitalize="off"
+            autocomplete="off"
+            autocorrect="off"
+            class="c0"
+            pattern="^(0x[a-fA-F0-9]{40})$"
+            placeholder="Wallet address or ENS name"
+            spellcheck="false"
+            type="text"
+            value="hayden.eth"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    style="display: contents;"
+  />
+</span>
+`;
+
+exports[`SendCurrencyInputform > should render correctly with unitag 1`] = `
+.c5 {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.c0 {
+  box-sizing: border-box;
+  margin: 0;
+  min-width: 0;
+}
+
+.c1 {
+  width: 100%;
+  display: flex;
+  padding: 0;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.c3 {
+  width: 100%;
+  display: flex;
+  padding: 0;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 12px;
+}
+
+.c6 {
+  width: 100%;
+  display: flex;
+  padding: 0;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 4px;
+}
+
+.c7 {
+  color: #131313;
+  letter-spacing: -0.01em;
+}
+
+.c8 {
+  color: rgba(19, 19, 19, 0.63);
+  letter-spacing: -0.01em;
+}
+
+.c2 {
+  padding: 6px 0px;
+  justify-content: space-between;
+}
+
+.c4 {
+  text-decoration: none;
+  cursor: pointer;
+  transition-duration: 125ms;
+}
+
+.c4 :hover {
+  opacity: 0.6;
+}
+
+.c4 :active {
+  opacity: 0.4;
+}
+
+.c9 {
+  color: rgba(19, 19, 19, 0.35);
+  text-decoration: none;
+  cursor: pointer;
+  transition-duration: 125ms;
+}
+
+.c9 :hover {
+  opacity: 0.6;
+}
+
+.c9 :active {
+  opacity: 0.4;
+}
+
+<span
+  class=""
+  style="display: contents;"
+>
+  <div
+    class="_display-flex _alignItems-stretch _flexBasis-auto _boxSizing-border-box _minHeight-0px _minWidth-0px _flexShrink-0 _flexDirection-column _position-relative _backgroundColor-surface2 _borderTopLeftRadius-t-radius-ro291586449 _borderTopRightRadius-t-radius-ro291586449 _borderBottomRightRadius-t-radius-ro291586449 _borderBottomLeftRadius-t-radius-ro291586449 _pt-t-space-spa1360334076 _pr-t-space-spa1360334076 _pb-t-space-spa1360334076 _pl-t-space-spa1360334076 _gap-t-space-spa94665589 _opacity-1 _borderTopColor-transparent _borderRightColor-transparent _borderBottomColor-transparent _borderLeftColor-transparent _borderTopWidth-t-space-spa94665586 _borderRightWidth-t-space-spa94665586 _borderBottomWidth-t-space-spa94665586 _borderLeftWidth-t-space-spa94665586 _borderBottomStyle-solid _borderTopStyle-solid _borderLeftStyle-solid _borderRightStyle-solid"
+  >
+    <div
+      aria-expanded="false"
+      aria-haspopup="dialog"
+      class="_display-flex _alignItems-stretch _flexDirection-column _flexBasis-auto _boxSizing-border-box _position-relative _minHeight-0px _minWidth-0px _flexShrink-0"
+    >
+      <div
+        aria-expanded="false"
+        class="_display-flex _alignItems-stretch _flexDirection-column _flexBasis-auto _boxSizing-border-box _position-relative _minHeight-0px _minWidth-0px _flexShrink-0"
+        data-state="closed"
+      >
+        <div
+          class="c0 c1 c2"
+        >
+          <div
+            class="c0 c3 c4"
+            gap="md"
+          >
+            <div
+              class="_display-flex _alignItems-stretch _flexBasis-auto _boxSizing-border-box _minHeight-0px _minWidth-0px _flexShrink-0 _flexDirection-column _backgroundColor-transparent _borderTopColor-transparent _borderRightColor-transparent _borderBottomColor-transparent _borderLeftColor-transparent _borderTopLeftRadius-t-radius-ro1041013639 _borderTopRightRadius-t-radius-ro1041013639 _borderBottomRightRadius-t-radius-ro1041013639 _borderBottomLeftRadius-t-radius-ro1041013639 _borderTopWidth-t-space-non101 _borderRightWidth-t-space-non101 _borderBottomWidth-t-space-non101 _borderLeftWidth-t-space-non101 _position-relative _width-36px _height-36px _borderBottomStyle-solid _borderTopStyle-solid _borderLeftStyle-solid _borderRightStyle-solid"
+              data-testid="account-icon"
+            >
+              <div
+                style="display: flex; align-items: stretch; flex-basis: auto; box-sizing: border-box; position: relative; min-height: 0px; min-width: 0px; flex-shrink: 0; flex-direction: column; opacity: 1;"
+              >
+                <span
+                  data-testid="unicon"
+                >
+                  🔵
+                </span>
+              </div>
+            </div>
+            <div
+              class="c5"
+            >
+              <div
+                class="c0 c6"
+                gap="xs"
+              >
+                <div
+                  class="c7 css-n8z49y"
+                >
+                  hayden
+                </div>
+                <img
+                  height="18"
+                  src="unitag-light-small.png"
+                  style="vertical-align: sub;"
+                  width="18"
+                />
+              </div>
+              <div
+                class="c8 css-obwv3p"
+              >
+                0x9984...9103
+              </div>
+            </div>
+          </div>
+          <svg
+            class="c9"
+            fill="none"
+            height="20"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            width="20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <line
+              x1="18"
+              x2="6"
+              y1="6"
+              y2="18"
+            />
+            <line
+              x1="6"
+              x2="18"
+              y1="6"
+              y2="18"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    style="display: contents;"
+  />
+</span>
+`;
+
+exports[`SendCurrencyInputform > should render correctly with verified recipient 1`] = `
+.c5 {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.c0 {
+  box-sizing: border-box;
+  margin: 0;
+  min-width: 0;
+}
+
+.c1 {
+  width: 100%;
+  display: flex;
+  padding: 0;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.c3 {
+  width: 100%;
+  display: flex;
+  padding: 0;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 12px;
+}
+
+.c6 {
+  width: 100%;
+  display: flex;
+  padding: 0;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 4px;
+}
+
+.c7 {
+  color: #131313;
+  letter-spacing: -0.01em;
+}
+
+.c8 {
+  color: rgba(19, 19, 19, 0.63);
+  letter-spacing: -0.01em;
+}
+
+.c2 {
+  padding: 6px 0px;
+  justify-content: space-between;
+}
+
+.c4 {
+  text-decoration: none;
+  cursor: pointer;
+  transition-duration: 125ms;
+}
+
+.c4 :hover {
+  opacity: 0.6;
+}
+
+.c4 :active {
+  opacity: 0.4;
+}
+
+.c9 {
+  color: rgba(19, 19, 19, 0.35);
+  text-decoration: none;
+  cursor: pointer;
+  transition-duration: 125ms;
+}
+
+.c9 :hover {
+  opacity: 0.6;
+}
+
+.c9 :active {
+  opacity: 0.4;
+}
+
+<span
+  class=""
+  style="display: contents;"
+>
+  <div
+    class="_display-flex _alignItems-stretch _flexBasis-auto _boxSizing-border-box _minHeight-0px _minWidth-0px _flexShrink-0 _flexDirection-column _position-relative _backgroundColor-surface2 _borderTopLeftRadius-t-radius-ro291586449 _borderTopRightRadius-t-radius-ro291586449 _borderBottomRightRadius-t-radius-ro291586449 _borderBottomLeftRadius-t-radius-ro291586449 _pt-t-space-spa1360334076 _pr-t-space-spa1360334076 _pb-t-space-spa1360334076 _pl-t-space-spa1360334076 _gap-t-space-spa94665589 _opacity-1 _borderTopColor-transparent _borderRightColor-transparent _borderBottomColor-transparent _borderLeftColor-transparent _borderTopWidth-t-space-spa94665586 _borderRightWidth-t-space-spa94665586 _borderBottomWidth-t-space-spa94665586 _borderLeftWidth-t-space-spa94665586 _borderBottomStyle-solid _borderTopStyle-solid _borderLeftStyle-solid _borderRightStyle-solid"
+  >
+    <div
+      aria-expanded="false"
+      aria-haspopup="dialog"
+      class="_display-flex _alignItems-stretch _flexDirection-column _flexBasis-auto _boxSizing-border-box _position-relative _minHeight-0px _minWidth-0px _flexShrink-0"
+    >
+      <div
+        aria-expanded="false"
+        class="_display-flex _alignItems-stretch _flexDirection-column _flexBasis-auto _boxSizing-border-box _position-relative _minHeight-0px _minWidth-0px _flexShrink-0"
+        data-state="closed"
+      >
+        <div
+          class="c0 c1 c2"
+        >
+          <div
+            class="c0 c3 c4"
+            gap="md"
+          >
+            <div
+              class="_display-flex _alignItems-stretch _flexBasis-auto _boxSizing-border-box _minHeight-0px _minWidth-0px _flexShrink-0 _flexDirection-column _backgroundColor-transparent _borderTopColor-transparent _borderRightColor-transparent _borderBottomColor-transparent _borderLeftColor-transparent _borderTopLeftRadius-t-radius-ro1041013639 _borderTopRightRadius-t-radius-ro1041013639 _borderBottomRightRadius-t-radius-ro1041013639 _borderBottomLeftRadius-t-radius-ro1041013639 _borderTopWidth-t-space-non101 _borderRightWidth-t-space-non101 _borderBottomWidth-t-space-non101 _borderLeftWidth-t-space-non101 _position-relative _width-36px _height-36px _borderBottomStyle-solid _borderTopStyle-solid _borderLeftStyle-solid _borderRightStyle-solid"
+              data-testid="account-icon"
+            >
+              <div
+                style="display: flex; align-items: stretch; flex-basis: auto; box-sizing: border-box; position: relative; min-height: 0px; min-width: 0px; flex-shrink: 0; flex-direction: column; opacity: 1;"
+              >
+                <span
+                  data-testid="unicon"
+                >
+                  🔵
+                </span>
+              </div>
+            </div>
+            <div
+              class="c5"
+            >
+              <div
+                class="c0 c6"
+                gap="xs"
+              >
+                <div
+                  class="c7 css-n8z49y"
+                >
+                  hayden.eth
+                </div>
+              </div>
+              <div
+                class="c8 css-obwv3p"
+              >
+                0x9984...9103
+              </div>
+            </div>
+          </div>
+          <svg
+            class="c9"
+            fill="none"
+            height="20"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            width="20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <line
+              x1="18"
+              x2="6"
+              y1="6"
+              y2="18"
+            />
+            <line
+              x1="6"
+              x2="18"
+              y1="6"
+              y2="18"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    style="display: contents;"
+  />
+</span>
+`;
+
+exports[`SendCurrencyInputform > should render placeholder values 1`] = `
+.c0 {
+  background: none;
+  width: 100%;
+  color: #131313;
+  outline: none;
+  border: none;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.c0 ::placeholder {
+  color: rgba(19, 19, 19, 0.35);
+}
+
+<span
+  class=""
+  style="display: contents;"
+>
+  <div
+    class="_display-flex _alignItems-stretch _flexBasis-auto _boxSizing-border-box _minHeight-0px _minWidth-0px _flexShrink-0 _flexDirection-column _position-relative _backgroundColor-surface2 _borderTopLeftRadius-t-radius-ro291586449 _borderTopRightRadius-t-radius-ro291586449 _borderBottomRightRadius-t-radius-ro291586449 _borderBottomLeftRadius-t-radius-ro291586449 _pt-t-space-spa1360334076 _pr-t-space-spa1360334076 _pb-t-space-spa1360334076 _pl-t-space-spa1360334076 _gap-t-space-spa94665589 _opacity-1 _borderTopColor-transparent _borderRightColor-transparent _borderBottomColor-transparent _borderLeftColor-transparent _borderTopWidth-t-space-spa94665586 _borderRightWidth-t-space-spa94665586 _borderBottomWidth-t-space-spa94665586 _borderLeftWidth-t-space-spa94665586 _borderBottomStyle-solid _borderTopStyle-solid _borderLeftStyle-solid _borderRightStyle-solid"
+  >
+    <div
+      aria-expanded="false"
+      aria-haspopup="dialog"
+      class="_display-flex _alignItems-stretch _flexDirection-column _flexBasis-auto _boxSizing-border-box _position-relative _minHeight-0px _minWidth-0px _flexShrink-0"
+    >
+      <div
+        aria-expanded="false"
+        class="_display-flex _alignItems-stretch _flexDirection-column _flexBasis-auto _boxSizing-border-box _position-relative _minHeight-0px _minWidth-0px _flexShrink-0"
+        data-state="closed"
+      >
+        <div
+          class="_display-flex _alignItems-stretch _flexBasis-auto _boxSizing-border-box _position-relative _minHeight-0px _minWidth-0px _flexShrink-0 _flexDirection-column"
+        >
+          <span
+            class="font_body _display-inline _boxSizing-border-box _whiteSpace-pre-wrap _mt-0px _mr-0px _mb-0px _ml-0px _color-neutral2 _fontFamily-f-family _wordWrap-break-word _fontSize-f-size-smal108 _lineHeight-f-lineHeigh1269072494 _fontWeight-f-weight-bo3548 _userSelect-none"
+            data-disable-theme="true"
+          >
+            To
+          </span>
+          <input
+            autocapitalize="off"
+            autocomplete="off"
+            autocorrect="off"
+            class="c0"
+            pattern="^(0x[a-fA-F0-9]{40})$"
+            placeholder="Wallet address or ENS name"
+            spellcheck="false"
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    style="display: contents;"
+  />
+</span>
+`;

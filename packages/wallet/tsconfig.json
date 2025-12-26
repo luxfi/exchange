@@ -1,21 +1,24 @@
 {
-  "$schema": "https://json.schemastore.org/tsconfig",
+  "extends": "../../config/tsconfig/app.json",
+  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.json"],
+  "references": [
+    {
+      "path": "../utilities"
+    },
+    {
+      "path": "../uniswap"
+    },
+    {
+      "path": "../ui"
+    },
+    {
+      "path": "../gating"
+    },
+    {
+      "path": "../api"
+    }
+  ],
   "compilerOptions": {
-    "target": "ES2022",
-    "lib": ["ES2022", "DOM"],
-    "types": ["node"],
-    "module": "ESNext",
-    "moduleResolution": "bundler",
-    "declaration": true,
-    "declarationMap": true,
-    "strict": true,
-    "skipLibCheck": true,
-    "esModuleInterop": true,
-    "resolveJsonModule": true,
-    "jsx": "react-jsx",
-    "outDir": "./dist",
-    "rootDir": "./src"
-  },
-  "include": ["src/**/*"],
-  "exclude": ["node_modules", "dist"]
+    "types": ["chrome", "jest"]
+  }
 }

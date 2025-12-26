@@ -1,91 +1,66 @@
-import { createTheme } from '@tamagui/core'
+import { colorsDark, colorsLight } from 'ui/src/theme/color/colors'
 
-/**
- * Light theme
- */
-export const lightTheme = createTheme({
-  background: '#FFFFFF',
-  backgroundHover: '#F4F4F5',
-  backgroundPress: '#E4E4E7',
-  backgroundFocus: '#F4F4F5',
-  backgroundStrong: '#FAFAFA',
-  backgroundTransparent: 'transparent',
+// remove $none from theme because it causes issues where $none tokens always resolve to transparent color
+// even if they are technically a gap or other space/size property
+// tamagui could make this so that themes only apply to color based properties, but would need a release
+const { none: darkTransparent, ...tamaguiColorsDark } = colorsDark
+const { none: lightTransparent, ...tamaguiColorsLight } = colorsLight
 
-  color: '#09090B',
-  colorHover: '#18181B',
-  colorPress: '#27272A',
-  colorFocus: '#18181B',
-  colorTransparent: 'transparent',
+// TODO can convert tokens to createTokens() and then use them here
+// Tamagui will automatically convert them though, so it just saves a small amount of performance
+const light = {
+  // Uniswap Design System
+  ...tamaguiColorsLight,
+  transparent: lightTransparent,
 
-  borderColor: '#E4E4E7',
-  borderColorHover: '#D4D4D8',
-  borderColorPress: '#A1A1AA',
-  borderColorFocus: '#FF6B00',
+  // Tamagui Theme
+  // Tamagui components expect the following
+  background: colorsLight.surface1,
+  backgroundHover: colorsLight.surface2,
+  backgroundPress: colorsLight.surface2,
+  backgroundFocus: colorsLight.surface2,
+  borderColor: colorsLight.none,
+  borderColorHover: colorsLight.none,
+  borderColorFocus: colorsLight.none,
+  outlineColor: colorsLight.none,
+  color: colorsLight.neutral1,
+  colorHover: colorsLight.accent1,
+  colorPress: colorsLight.accent1,
+  colorFocus: colorsLight.accent1,
+  shadowColor: 'rgba(0,0,0,0.15)',
+  shadowColorHover: 'rgba(0,0,0,0.2)',
+}
 
-  placeholderColor: '#A1A1AA',
+type BaseTheme = typeof light
 
-  // Semantic
-  primary: '#FF6B00',
-  primaryHover: '#FF8C00',
-  secondary: '#F4F4F5',
-  secondaryHover: '#E4E4E7',
+const dark: BaseTheme = {
+  ...tamaguiColorsDark,
+  transparent: darkTransparent,
+  background: colorsDark.surface1,
+  backgroundHover: colorsDark.surface2,
+  backgroundPress: colorsDark.surface2,
+  backgroundFocus: colorsDark.surface2,
+  borderColor: colorsDark.none,
+  borderColorHover: colorsDark.none,
+  borderColorFocus: colorsDark.none,
+  outlineColor: colorsDark.none,
+  color: colorsDark.neutral1,
+  colorHover: colorsDark.accent1,
+  colorPress: colorsDark.accent1,
+  colorFocus: colorsDark.accent1,
+  shadowColor: 'rgba(0,0,0,0.4)',
+  shadowColorHover: 'rgba(0,0,0,0.5)',
+}
 
-  success: '#22C55E',
-  warning: '#F59E0B',
-  error: '#EF4444',
-  info: '#3B82F6',
+// combine and narrow theme types before exporting
+const allThemes = {
+  dark,
+  light,
+}
 
-  // Card
-  card: '#FFFFFF',
-  cardHover: '#FAFAFA',
+type ThemeName = keyof typeof allThemes
+type Themes = {
+  [key in ThemeName]: BaseTheme
+}
 
-  // Muted
-  muted: '#F4F4F5',
-  mutedForeground: '#71717A',
-})
-
-/**
- * Dark theme
- */
-export const darkTheme = createTheme({
-  background: '#09090B',
-  backgroundHover: '#18181B',
-  backgroundPress: '#27272A',
-  backgroundFocus: '#18181B',
-  backgroundStrong: '#0A0A0A',
-  backgroundTransparent: 'transparent',
-
-  color: '#FAFAFA',
-  colorHover: '#FFFFFF',
-  colorPress: '#E4E4E7',
-  colorFocus: '#FFFFFF',
-  colorTransparent: 'transparent',
-
-  borderColor: '#27272A',
-  borderColorHover: '#3F3F46',
-  borderColorPress: '#52525B',
-  borderColorFocus: '#FF6B00',
-
-  placeholderColor: '#71717A',
-
-  // Semantic
-  primary: '#FF6B00',
-  primaryHover: '#FF8C00',
-  secondary: '#27272A',
-  secondaryHover: '#3F3F46',
-
-  success: '#22C55E',
-  warning: '#F59E0B',
-  error: '#EF4444',
-  info: '#3B82F6',
-
-  // Card
-  card: '#18181B',
-  cardHover: '#27272A',
-
-  // Muted
-  muted: '#27272A',
-  mutedForeground: '#A1A1AA',
-})
-
-export type LuxTheme = typeof lightTheme
+export const themes: Themes = allThemes

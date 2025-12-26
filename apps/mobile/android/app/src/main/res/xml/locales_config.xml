@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<locale-config xmlns:android="http://schemas.android.com/apk/res/android">
+  <!--We only need this list because we have the Spanish languages using the same translation file.-->
+  <!--Otherwise, can use automatic detection with `generateLocaleConfig = true`-->
+  <locale android:name="en"/>
+  <locale android:name="zh-Hans"/>
+  <locale android:name="zh-Hant"/>
+  <locale android:name="fr"/>
+  <locale android:name="ja"/>
+  <locale android:name="pt"/>
+  <locale android:name="vi"/>
+  <!-- Spanish locales that use `,` as the decimal separator -->
+  <locale android:name="es-419"/>
+  <locale android:name="es-BZ"/>
+  <locale android:name="es-CU"/>
+  <locale android:name="es-DO"/>
+  <locale android:name="es-GT"/>
+  <locale android:name="es-HN"/>
+  <locale android:name="es-MX"/>
+  <locale android:name="es-NI"/>
+  <locale android:name="es-PA"/>
+  <locale android:name="es-PE"/>
+  <locale android:name="es-PR"/>
+  <locale android:name="es-SV"/>
+  <locale android:name="es-US"/>
+  <!-- Spanish locales that use `.` as the decimal separator -->
+  <locale android:name="es-AR"/>
+  <locale android:name="es-BO"/>
+  <locale android:name="es-CL"/>
+  <locale android:name="es-CO"/>
+  <locale android:name="es-CR"/>
+  <locale android:name="es-EC"/>
+  <locale android:name="es-ES"/>
+  <locale android:name="es-PY"/>
+  <locale android:name="es-UY"/>
+  <locale android:name="es-VE"/>
+</locale-config>

@@ -1,74 +1,50 @@
 {
-  "$schema": "https://json.schemastore.org/tsconfig",
-  "compilerOptions": {
-    "target": "ES2022",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "noEmit": true,
-    "incremental": true,
-    "esModuleInterop": true,
-    "module": "esnext",
-    "moduleResolution": "bundler",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "jsx": "preserve",
-    "baseUrl": ".",
-    "paths": {
-      "@/*": [
-        "./*"
-      ],
-      "@/components/*": [
-        "./components/*"
-      ],
-      "@/lib/*": [
-        "./lib/*"
-      ],
-      "@/hooks/*": [
-        "./hooks/*"
-      ],
-      "@/styles/*": [
-        "./styles/*"
-      ],
-      "@/utils/*": [
-        "./utils/*"
-      ],
-      "@/state/*": [
-        "./state/*"
-      ],
-      "@/constants/*": [
-        "./constants/*"
-      ],
-      "@/abis/*": [
-        "./abis/*"
-      ]
+  "__comment": "NX's entrypoint for establishing the project graph",
+  "extends": "./tsconfig.base.json",
+  "files": [],
+  "include": [],
+  "references": [
+    {
+      "path": "./packages/utilities"
     },
-    "plugins": [
-      {
-        "name": "next"
-      }
-    ]
-  },
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    ".next/types/**/*.ts"
-  ],
-  "exclude": [
-    "node_modules",
-    "src/**",
-    "cypress/**",
-    "docs/**",
-    "apollo-codegen.ts",
-    "apollo-codegen_thegraph.ts",
-    "cypress.config.ts",
-    "cypress.release.config.ts"
+    {
+      "path": "./packages/uniswap"
+    },
+    {
+      "path": "./packages/wallet"
+    },
+    {
+      "path": "./packages/ui"
+    },
+    {
+      "path": "./apps/web"
+    },
+    {
+      "path": "./packages/api"
+    },
+    {
+      "path": "./apps/extension"
+    },
+    {
+      "path": "./packages/config"
+    },
+    {
+      "path": "./packages/sessions"
+    },
+    {
+      "path": "./config/vitest-presets"
+    },
+    {
+      "path": "./tools/uniswap-nx"
+    },
+    {
+      "path": "./packages/gating"
+    },
+    {
+      "path": "./packages/notifications"
+    },
+    {
+      "path": "./apps/cli"
+    }
   ]
 }

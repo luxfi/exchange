@@ -1,8 +1,2 @@
-/**
- * @luxfi/config - Shared configuration for Lux Exchange
- */
-
-export * from './chains'
-export * from './contracts'
-export * from './wagmi'
-export * from './env'
+export type { Config } from './config-types'
+export { getConfig } from './getConfig'

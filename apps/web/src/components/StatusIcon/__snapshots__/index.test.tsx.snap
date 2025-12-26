@@ -1,0 +1,190 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`StatusIcon > with account > renders children in correct order 1`] = `
+.c0 {
+  position: relative;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.c0>img,
+.c0 span {
+  height: 16px;
+  width: 16px;
+}
+
+.c1 {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 16px;
+  height: 16px;
+  bottom: -4px;
+  right: -4px;
+  border-radius: 50%;
+  outline: 2px solid #FFFFFF;
+  outline-offset: -0.1px;
+  background-color: #FFFFFF;
+  overflow: hidden;
+}
+
+.c3 {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 16px;
+  height: 16px;
+  bottom: -4px;
+  left: -4px;
+  border-radius: 50%;
+  outline: 2px solid #FFFFFF;
+  outline-offset: -0.1px;
+  background-color: #FFFFFF;
+  overflow: hidden;
+}
+
+.c2 {
+  width: 16px;
+  height: 16px;
+}
+
+@media only screen and (min-width: 1024px) {
+  .c0 {
+    margin-right: 4px;
+  }
+}
+
+@media (max-width: 960px) {
+  .c0 {
+    align-items: flex-end;
+  }
+}
+
+@supports (overflow: clip) {
+  .c1 {
+    overflow: clip;
+  }
+}
+
+@supports (overflow: clip) {
+  .c3 {
+    overflow: clip;
+  }
+}
+
+<div
+  class="c0"
+  data-testid="StatusIconRoot"
+  size="16"
+>
+  <div
+    class="_display-flex _alignItems-stretch _flexBasis-auto _boxSizing-border-box _minHeight-0px _minWidth-0px _flexShrink-0 _flexDirection-column _backgroundColor-transparent _borderTopColor-transparent _borderRightColor-transparent _borderBottomColor-transparent _borderLeftColor-transparent _borderTopLeftRadius-t-radius-ro1041013639 _borderTopRightRadius-t-radius-ro1041013639 _borderBottomRightRadius-t-radius-ro1041013639 _borderBottomLeftRadius-t-radius-ro1041013639 _borderTopWidth-t-space-non101 _borderRightWidth-t-space-non101 _borderBottomWidth-t-space-non101 _borderLeftWidth-t-space-non101 _position-relative _width-16px _height-16px _borderBottomStyle-solid _borderTopStyle-solid _borderLeftStyle-solid _borderRightStyle-solid"
+    data-testid="account-icon"
+  >
+    <div
+      style="display: flex; align-items: stretch; flex-basis: auto; box-sizing: border-box; position: relative; min-height: 0px; min-width: 0px; flex-shrink: 0; flex-direction: column; opacity: 1;"
+    >
+      <span
+        data-testid="unicon"
+      >
+        🔵
+      </span>
+    </div>
+  </div>
+  <div
+    class="c1"
+    data-testid="MiniIcon"
+    side="right"
+  >
+    <img
+      alt="MetaMask icon"
+      class="c2"
+      src="/src/assets/wallets/metamask-icon.svg"
+    />
+  </div>
+  <div
+    class="c3"
+    side="left"
+  >
+    <img
+      class="c2"
+      src="/src/assets/svg/socks.svg"
+    />
+  </div>
+</div>
+`;
+
+exports[`StatusIcon > with no account > renders children in correct order 1`] = `
+.c0 {
+  position: relative;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.c0>img,
+.c0 span {
+  height: 16px;
+  width: 16px;
+}
+
+.c1 {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 16px;
+  height: 16px;
+  bottom: -4px;
+  left: -4px;
+  border-radius: 50%;
+  outline: 2px solid #FFFFFF;
+  outline-offset: -0.1px;
+  background-color: #FFFFFF;
+  overflow: hidden;
+}
+
+.c2 {
+  width: 16px;
+  height: 16px;
+}
+
+@media only screen and (min-width: 1024px) {
+  .c0 {
+    margin-right: 4px;
+  }
+}
+
+@media (max-width: 960px) {
+  .c0 {
+    align-items: flex-end;
+  }
+}
+
+@supports (overflow: clip) {
+  .c1 {
+    overflow: clip;
+  }
+}
+
+<div
+  class="c0"
+  data-testid="StatusIconRoot"
+  size="16"
+>
+  <div
+    class="c1"
+    side="left"
+  >
+    <img
+      class="c2"
+      src="/src/assets/svg/socks.svg"
+    />
+  </div>
+</div>
+`;
