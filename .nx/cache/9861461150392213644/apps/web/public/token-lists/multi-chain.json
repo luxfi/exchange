@@ -1,0 +1,42 @@
+{
+  "name": "LUX Multi-Chain List",
+  "timestamp": "2025-07-06T00:00:00.000Z",
+  "version": {
+    "major": 1,
+    "minor": 0,
+    "patch": 0
+  },
+  "tags": {},
+  "logoURI": "https://lux.exchange/favicon.png",
+  "keywords": ["lux", "zoo", "spc", "hanzo", "multi-chain"],
+  "tokens": [
+    {
+      "chainId": 96369,
+      "address": "0x0000000000000000000000000000000000000000",
+      "name": "LUX",
+      "symbol": "LUX",
+      "decimals": 18
+    },
+    {
+      "chainId": 200200,
+      "address": "0x0000000000000000000000000000000000000000",
+      "name": "ZOO",
+      "symbol": "ZOO",
+      "decimals": 18
+    },
+    {
+      "chainId": 36911,
+      "address": "0x0000000000000000000000000000000000000000",
+      "name": "SPC",
+      "symbol": "SPC",
+      "decimals": 18
+    },
+    {
+      "chainId": 36963,
+      "address": "0x0000000000000000000000000000000000000000",
+      "name": "HANZO",
+      "symbol": "HANZO",
+      "decimals": 18
+    }
+  ]
+}

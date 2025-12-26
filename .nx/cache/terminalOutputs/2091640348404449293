@@ -1,0 +1,7 @@
+
+> @luxfi/wallet@0.0.1 typecheck /Users/z/work/lux/exchange/packages/wallet
+> tsc --noEmit
+
+src/hooks/use-balances.ts(41,17): error TS2742: The inferred type of 'useTokenBalances' cannot be named without a reference to '.pnpm/@wagmi+core@3.0.1_@tanstack+query-core@5.90.12_@types+react@19.2.7_immer@11.1.0_react@19.2.3__36km6jw4ebyi53khkosupvebc4/node_modules/@wagmi/core'. This is likely not portable. A type annotation is necessary.
+src/hooks/use-balances.ts(78,17): error TS2742: The inferred type of 'useCoreTokenBalances' cannot be named without a reference to '.pnpm/@wagmi+core@3.0.1_@tanstack+query-core@5.90.12_@types+react@19.2.7_immer@11.1.0_react@19.2.3__36km6jw4ebyi53khkosupvebc4/node_modules/@wagmi/core'. This is likely not portable. A type annotation is necessary.
+[41m[30m ELIFECYCLE [39m[49m [31mCommand failed with exit code 2.[39m

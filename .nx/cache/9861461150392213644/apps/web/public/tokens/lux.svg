@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <circle cx="50" cy="50" r="50" fill="#1a1a2e"/>
+  <circle cx="50" cy="50" r="45" fill="url(#lux-gradient)"/>
+  <path d="M50 20L65 45H35L50 20Z" fill="white"/>
+  <path d="M50 80L35 55H65L50 80Z" fill="white"/>
+  <path d="M35 55L50 45L65 55H35Z" fill="white" fill-opacity="0.8"/>
+  <defs>
+    <linearGradient id="lux-gradient" x1="5" y1="5" x2="95" y2="95" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#6366f1"/>
+      <stop offset="1" stop-color="#8b5cf6"/>
+    </linearGradient>
+  </defs>
+</svg>

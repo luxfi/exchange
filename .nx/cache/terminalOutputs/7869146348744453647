@@ -1,0 +1,4 @@
+
+> @luxfi/mobile@1.0.0 typecheck /Users/z/work/lux/exchange/apps/mobile
+> tsc --noEmit
+

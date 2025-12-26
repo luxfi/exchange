@@ -1,0 +1,73 @@
+
+> @luxfi/dex@0.0.1 typecheck /Users/z/work/lux/exchange/packages/dex
+> tsc --noEmit
+
+error TS5083: Cannot read file '/Users/z/work/lux/exchange/tsconfig.base.json'.
+../../node_modules/.pnpm/@tanstack+query-core@5.90.12/node_modules/@tanstack/query-core/build/legacy/focusManager.d.ts(6,5): error TS18028: Private identifiers are only available when targeting ECMAScript 2015 and higher.
+../../node_modules/.pnpm/@tanstack+query-core@5.90.12/node_modules/@tanstack/query-core/build/legacy/hydration-DksKBgQq.d.ts(9,5): error TS18028: Private identifiers are only available when targeting ECMAScript 2015 and higher.
+../../node_modules/.pnpm/@tanstack+query-core@5.90.12/node_modules/@tanstack/query-core/build/legacy/hydration-DksKBgQq.d.ts(115,5): error TS18028: Private identifiers are only available when targeting ECMAScript 2015 and higher.
+../../node_modules/.pnpm/@tanstack+query-core@5.90.12/node_modules/@tanstack/query-core/build/legacy/hydration-DksKBgQq.d.ts(156,5): error TS18028: Private identifiers are only available when targeting ECMAScript 2015 and higher.
+../../node_modules/.pnpm/@tanstack+query-core@5.90.12/node_modules/@tanstack/query-core/build/legacy/hydration-DksKBgQq.d.ts(205,5): error TS18028: Private identifiers are only available when targeting ECMAScript 2015 and higher.
+../../node_modules/.pnpm/@tanstack+query-core@5.90.12/node_modules/@tanstack/query-core/build/legacy/hydration-DksKBgQq.d.ts(266,5): error TS18028: Private identifiers are only available when targeting ECMAScript 2015 and higher.
+../../node_modules/.pnpm/@tanstack+query-core@5.90.12/node_modules/@tanstack/query-core/build/legacy/hydration-DksKBgQq.d.ts(424,5): error TS18028: Private identifiers are only available when targeting ECMAScript 2015 and higher.
+../../node_modules/.pnpm/@tanstack+query-core@5.90.12/node_modules/@tanstack/query-core/build/legacy/hydration-DksKBgQq.d.ts(441,5): error TS18028: Private identifiers are only available when targeting ECMAScript 2015 and higher.
+../../node_modules/.pnpm/@tanstack+query-core@5.90.12/node_modules/@tanstack/query-core/build/legacy/onlineManager.d.ts(6,5): error TS18028: Private identifiers are only available when targeting ECMAScript 2015 and higher.
+../../node_modules/.pnpm/@tanstack+query-core@5.90.12/node_modules/@tanstack/query-core/build/legacy/queriesObserver.d.ts(11,5): error TS18028: Private identifiers are only available when targeting ECMAScript 2015 and higher.
+../../node_modules/.pnpm/@tanstack+query-core@5.90.12/node_modules/@tanstack/query-core/build/legacy/removable.d.ts(2,5): error TS18028: Private identifiers are only available when targeting ECMAScript 2015 and higher.
+../../node_modules/.pnpm/@tanstack+query-core@5.90.12/node_modules/@tanstack/query-core/build/legacy/timeoutManager.d.ts(41,5): error TS18028: Private identifiers are only available when targeting ECMAScript 2015 and higher.
+../../node_modules/.pnpm/@wagmi+core@3.0.1_@tanstack+query-core@5.90.12_@types+react@19.2.7_immer@11.1.0_react@19.2.3__36km6jw4ebyi53khkosupvebc4/node_modules/@wagmi/core/dist/types/errors/base.d.ts(18,5): error TS18028: Private identifiers are only available when targeting ECMAScript 2015 and higher.
+../../node_modules/.pnpm/@wagmi+core@3.0.1_@tanstack+query-core@5.90.12_@types+react@19.2.7_immer@11.1.0_react@19.2.3__36km6jw4ebyi53khkosupvebc4/node_modules/@wagmi/core/dist/types/query/types.d.ts(3,199): error TS2707: Generic type 'InfiniteQueryObserverOptions<TQueryFnData, TError, TData, TQueryKey, TPageParam>' requires between 0 and 5 type arguments.
+../../node_modules/.pnpm/@wagmi+core@3.0.1_@tanstack+query-core@5.90.12_@types+react@19.2.7_immer@11.1.0_react@19.2.3__36km6jw4ebyi53khkosupvebc4/node_modules/@wagmi/core/dist/types/query/types.d.ts(3,288): error TS2707: Generic type 'InfiniteQueryObserverOptions<TQueryFnData, TError, TData, TQueryKey, TPageParam>' requires between 0 and 5 type arguments.
+../../node_modules/.pnpm/@wagmi+core@3.0.1_@tanstack+query-core@5.90.12_@types+react@19.2.7_immer@11.1.0_react@19.2.3__36km6jw4ebyi53khkosupvebc4/node_modules/@wagmi/core/dist/types/query/writeContract.d.ts(7,278): error TS2552: Cannot find name 'abi'. Did you mean 'Abi'?
+../../node_modules/.pnpm/@wagmi+core@3.0.1_@tanstack+query-core@5.90.12_@types+react@19.2.7_immer@11.1.0_react@19.2.3__36km6jw4ebyi53khkosupvebc4/node_modules/@wagmi/core/dist/types/query/writeContract.d.ts(7,283): error TS2552: Cannot find name 'functionName'. Did you mean 'Function'?
+../../node_modules/.pnpm/@wagmi+core@3.0.1_@tanstack+query-core@5.90.12_@types+react@19.2.7_immer@11.1.0_react@19.2.3__36km6jw4ebyi53khkosupvebc4/node_modules/@wagmi/core/dist/types/query/writeContract.d.ts(7,297): error TS2304: Cannot find name 'args'.
+../../node_modules/.pnpm/@wagmi+core@3.0.1_@tanstack+query-core@5.90.12_@types+react@19.2.7_immer@11.1.0_react@19.2.3__36km6jw4ebyi53khkosupvebc4/node_modules/@wagmi/core/dist/types/query/writeContract.d.ts(7,343): error TS2304: Cannot find name 'allFunctionNames'.
+../../node_modules/.pnpm/viem@2.43.3_typescript@5.9.3_zod@4.2.1/node_modules/viem/_types/utils/abi/parseEventLogs.d.ts(22,308): error TS2344: Type 'eventName extends ContractEventName<abi>[] ? eventName[number] : eventName' does not satisfy the constraint 'ContractEventName<abi>'.
+  Type 'eventName | eventName[number]' is not assignable to type 'ContractEventName<abi>'.
+    Type 'eventName' is not assignable to type 'ContractEventName<abi>'.
+      Type 'ContractEventName<abi> | ContractEventName<abi>[]' is not assignable to type 'ContractEventName<abi>'.
+        Type 'ContractEventName<abi>[]' is not assignable to type 'ContractEventName<abi>'.
+../../node_modules/.pnpm/wagmi@3.1.3_@tanstack+query-core@5.90.12_@tanstack+react-query@5.90.12_react@19.2.3__@types+r_awtrvpg4swukurnvkk5neb2awm/node_modules/wagmi/dist/types/utils/query.d.ts(15,204): error TS2707: Generic type 'UseInfiniteQueryOptions<TQueryFnData, TError, TData, TQueryKey, TPageParam>' requires between 0 and 5 type arguments.
+src/hooks/use-quote.ts(3,58): error TS2307: Cannot find module 'react' or its corresponding type declarations.
+src/hooks/use-quote.ts(48,60): error TS2737: BigInt literals are not available when targeting lower than ES2020.
+src/hooks/use-swap.ts(3,39): error TS2307: Cannot find module 'react' or its corresponding type declarations.
+src/hooks/use-swap.ts(57,34): error TS2345: Argument of type '{ address: `0x${string}`; abi: readonly [{ readonly type: "function"; readonly name: "exactInputSingle"; readonly inputs: readonly [{ readonly name: "params"; readonly type: "tuple"; readonly components: readonly [{ readonly name: "poolKey"; readonly type: "tuple"; readonly components: readonly [...]; }, ... 4 more ...' is not assignable to parameter of type '{ [x: string]: any; [x: number]: any; [x: symbol]: any; abi: readonly [{ readonly type: "function"; readonly name: "exactInputSingle"; readonly inputs: readonly [{ readonly name: "params"; readonly type: "tuple"; readonly components: readonly [...]; }]; readonly outputs: readonly [...]; readonly stateMutability: "pa...'.
+  Type '{ address: `0x${string}`; abi: readonly [{ readonly type: "function"; readonly name: "exactInputSingle"; readonly inputs: readonly [{ readonly name: "params"; readonly type: "tuple"; readonly components: readonly [{ readonly name: "poolKey"; readonly type: "tuple"; readonly components: readonly [...]; }, ... 4 more ...' is missing the following properties from type '{ [x: string]: any; [x: number]: any; [x: symbol]: any; abi: readonly [{ readonly type: "function"; readonly name: "exactInputSingle"; readonly inputs: readonly [{ readonly name: "params"; readonly type: "tuple"; readonly components: readonly [...]; }]; readonly outputs: readonly [...]; readonly stateMutability: "pa...': chain, account
+src/hooks/use-swap.ts(66,32): error TS2737: BigInt literals are not available when targeting lower than ES2020.
+src/hooks/use-swap.ts(72,15): error TS2737: BigInt literals are not available when targeting lower than ES2020.
+src/index.ts(35,1): error TS2308: Module './precompile' has already exported a member named 'Position'. Consider explicitly re-exporting to resolve the ambiguity.
+src/router/router.ts(98,104): error TS2737: BigInt literals are not available when targeting lower than ES2020.
+src/router/router.ts(123,58): error TS2345: Argument of type '{ address: `0x${string}`; abi: readonly [{ readonly type: "function"; readonly name: "initialize"; readonly inputs: readonly [{ readonly name: "key"; readonly type: "tuple"; readonly components: readonly [{ readonly name: "currency0"; readonly type: "address"; }, { ...; }, { ...; }, { ...; }, { ...; }]; }, { ...; }]...' is not assignable to parameter of type 'ReadContractParameters<readonly [{ readonly type: "function"; readonly name: "initialize"; readonly inputs: readonly [{ readonly name: "key"; readonly type: "tuple"; readonly components: readonly [{ readonly name: "currency0"; readonly type: "address"; }, { ...; }, { ...; }, { ...; }, { ...; }]; }, { ...; }]; readon...'.
+  Type '{ address: `0x${string}`; abi: readonly [{ readonly type: "function"; readonly name: "initialize"; readonly inputs: readonly [{ readonly name: "key"; readonly type: "tuple"; readonly components: readonly [{ readonly name: "currency0"; readonly type: "address"; }, { ...; }, { ...; }, { ...; }, { ...; }]; }, { ...; }]...' is not assignable to type '{ account?: `0x${string}` | Account; blockNumber?: bigint; factory?: `0x${string}`; authorizationList: any; factoryData?: `0x${string}`; stateOverride?: StateOverride; blockTag?: BlockTag; blockOverrides?: BlockOverrides<...>; } & { ...; } & { ...; } & { ...; }'.
+    Property 'authorizationList' is missing in type '{ address: `0x${string}`; abi: readonly [{ readonly type: "function"; readonly name: "initialize"; readonly inputs: readonly [{ readonly name: "key"; readonly type: "tuple"; readonly components: readonly [{ readonly name: "currency0"; readonly type: "address"; }, { ...; }, { ...; }, { ...; }, { ...; }]; }, { ...; }]...' but required in type '{ account?: `0x${string}` | Account; blockNumber?: bigint; factory?: `0x${string}`; authorizationList: any; factoryData?: `0x${string}`; stateOverride?: StateOverride; blockTag?: BlockTag; blockOverrides?: BlockOverrides<...>; }'.
+src/router/router.ts(130,24): error TS2737: BigInt literals are not available when targeting lower than ES2020.
+src/router/router.ts(137,54): error TS2737: BigInt literals are not available when targeting lower than ES2020.
+src/router/router.ts(137,54): error TS2791: Exponentiation cannot be performed on 'bigint' values unless the 'target' option is set to 'es2016' or later.
+src/router/router.ts(137,60): error TS2737: BigInt literals are not available when targeting lower than ES2020.
+src/router/router.ts(139,33): error TS2737: BigInt literals are not available when targeting lower than ES2020.
+src/router/router.ts(139,33): error TS2791: Exponentiation cannot be performed on 'bigint' values unless the 'target' option is set to 'es2016' or later.
+src/router/router.ts(139,40): error TS2737: BigInt literals are not available when targeting lower than ES2020.
+src/router/router.ts(140,24): error TS2737: BigInt literals are not available when targeting lower than ES2020.
+src/router/router.ts(140,24): error TS2791: Exponentiation cannot be performed on 'bigint' values unless the 'target' option is set to 'es2016' or later.
+src/router/router.ts(140,31): error TS2737: BigInt literals are not available when targeting lower than ES2020.
+src/router/router.ts(143,46): error TS2737: BigInt literals are not available when targeting lower than ES2020.
+src/router/router.ts(152,49): error TS2737: BigInt literals are not available when targeting lower than ES2020.
+src/router/router.ts(164,23): error TS2737: BigInt literals are not available when targeting lower than ES2020.
+src/router/router.ts(192,22): error TS2737: BigInt literals are not available when targeting lower than ES2020.
+src/router/router.ts(197,28): error TS2737: BigInt literals are not available when targeting lower than ES2020.
+src/router/router.ts(204,26): error TS2737: BigInt literals are not available when targeting lower than ES2020.
+src/router/router.ts(204,26): error TS2791: Exponentiation cannot be performed on 'bigint' values unless the 'target' option is set to 'es2016' or later.
+src/router/router.ts(204,33): error TS2737: BigInt literals are not available when targeting lower than ES2020.
+src/router/router.ts(205,40): error TS2737: BigInt literals are not available when targeting lower than ES2020.
+src/router/router.ts(205,40): error TS2791: Exponentiation cannot be performed on 'bigint' values unless the 'target' option is set to 'es2016' or later.
+src/router/router.ts(205,47): error TS2737: BigInt literals are not available when targeting lower than ES2020.
+src/router/router.ts(211,24): error TS2737: BigInt literals are not available when targeting lower than ES2020.
+src/router/router.ts(214,37): error TS2737: BigInt literals are not available when targeting lower than ES2020.
+src/router/router.ts(214,37): error TS2791: Exponentiation cannot be performed on 'bigint' values unless the 'target' option is set to 'es2016' or later.
+src/router/router.ts(214,44): error TS2737: BigInt literals are not available when targeting lower than ES2020.
+src/router/router.ts(216,39): error TS2737: BigInt literals are not available when targeting lower than ES2020.
+src/router/router.ts(217,44): error TS2737: BigInt literals are not available when targeting lower than ES2020.
+src/router/router.ts(227,26): error TS2737: BigInt literals are not available when targeting lower than ES2020.
+src/router/router.ts(227,33): error TS2737: BigInt literals are not available when targeting lower than ES2020.
+src/router/router.ts(239,23): error TS2737: BigInt literals are not available when targeting lower than ES2020.
+[41m[30m ELIFECYCLE [39m[49m [31mCommand failed with exit code 2.[39m

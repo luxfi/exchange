@@ -1,0 +1,4 @@
+
+> @luxfi/web@5.0.0 typecheck /Users/z/work/lux/exchange/apps/web
+> tsc --noEmit
+

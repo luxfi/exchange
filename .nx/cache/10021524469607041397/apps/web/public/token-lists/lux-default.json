@@ -1,0 +1,22 @@
+{
+  "name": "LUX Default List",
+  "timestamp": "2025-07-06T00:00:00.000Z",
+  "version": {
+    "major": 1,
+    "minor": 0,
+    "patch": 0
+  },
+  "tags": {},
+  "logoURI": "https://lux.exchange/favicon.png",
+  "keywords": ["lux", "default"],
+  "tokens": [
+    {
+      "chainId": 96369,
+      "address": "0x0000000000000000000000000000000000000000",
+      "name": "LUX",
+      "symbol": "LUX",
+      "decimals": 18,
+      "logoURI": "https://lux.exchange/images/tokens/lux.png"
+    }
+  ]
+}

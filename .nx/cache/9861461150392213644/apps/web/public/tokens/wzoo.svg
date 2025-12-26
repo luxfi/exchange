@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <circle cx="50" cy="50" r="50" fill="#059669"/>
+  <circle cx="50" cy="50" r="42" stroke="white" stroke-width="2" fill="none" stroke-dasharray="8 4"/>
+  <circle cx="50" cy="50" r="38" stroke="white" stroke-width="2" fill="none"/>
+  <text x="50" y="55" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="white" text-anchor="middle">wZOO</text>
+</svg>

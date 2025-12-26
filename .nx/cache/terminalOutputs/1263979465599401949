@@ -1,0 +1,4 @@
+
+> @luxfi/ui@0.0.1 typecheck /Users/z/work/lux/exchange/packages/ui
+> tsc --noEmit
+

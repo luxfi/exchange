@@ -1,0 +1,10 @@
+
+> @luxfi/extension@1.0.0 typecheck /Users/z/work/lux/exchange/apps/extension
+> tsc --noEmit
+
+src/entrypoints/background.ts(1,16): error TS2304: Cannot find name 'defineBackground'.
+src/entrypoints/background.ts(5,3): error TS2304: Cannot find name 'browser'.
+src/entrypoints/background.ts(5,42): error TS7006: Parameter 'message' implicitly has an 'any' type.
+src/entrypoints/background.ts(5,51): error TS7006: Parameter 'sender' implicitly has an 'any' type.
+src/entrypoints/background.ts(5,59): error TS7006: Parameter 'sendResponse' implicitly has an 'any' type.
+[41m[30m ELIFECYCLE [39m[49m [31mCommand failed with exit code 2.[39m

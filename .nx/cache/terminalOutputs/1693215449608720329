@@ -1,0 +1,31 @@
+
+> @luxfi/web@5.0.0 build /Users/z/work/lux/exchange/apps/web
+> next build
+
+[33m[1m⚠[22m[39m `eslint` configuration in next.config.mjs is no longer supported. See more info here: https://nextjs.org/docs/app/api-reference/cli/next#next-lint-options
+[33m[1m⚠[22m[39m Invalid next.config.mjs options detected: 
+[33m[1m⚠[22m[39m     Unrecognized key(s) in object: 'eslint'
+[33m[1m⚠[22m[39m See more info here: https://nextjs.org/docs/messages/invalid-next-config
+[1m[38;2;173;127;168m▲ Next.js 16.1.1[39m[22m (Turbopack)
+
+[37m[1m [22m[39m Creating an optimized production build ...
+[32m[1m✓[22m[39m Compiled successfully in 2.3s
+[37m[1m [22m[39m Skipping validation of types
+[37m[1m [22m[39m Collecting page data using 9 workers ...
+[37m[1m [22m[39m Generating static pages using 9 workers (0/6) ...
+[37m[1m [22m[39m Generating static pages using 9 workers (1/6) 
+[37m[1m [22m[39m Generating static pages using 9 workers (2/6) 
+[37m[1m [22m[39m Generating static pages using 9 workers (4/6) 
+[32m[1m✓[22m[39m Generating static pages using 9 workers (6/6) in 294.0ms
+[37m[1m [22m[39m Finalizing page optimization ...
+
+[4mRoute (app)[24m
+┌ ○ /
+├ ○ /_not-found
+├ ○ /pool
+├ ○ /swap
+└ ○ /tokens
+
+
+○  (Static)  prerendered as static content
+

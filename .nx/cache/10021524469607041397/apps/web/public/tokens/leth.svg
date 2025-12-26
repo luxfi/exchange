@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <circle cx="50" cy="50" r="50" fill="#1a1a2e"/>
+  <circle cx="50" cy="50" r="45" fill="url(#leth-gradient)"/>
+  <path d="M50 18v22.87l19.37 8.66L50 18z" fill="white" fill-opacity="0.6"/>
+  <path d="M50 18L30.62 49.53 50 40.87V18z" fill="white"/>
+  <path d="M50 62.96v16.03l19.39-26.78L50 62.96z" fill="white" fill-opacity="0.6"/>
+  <path d="M50 78.99V62.95l-19.38-10.74L50 78.99z" fill="white"/>
+  <path d="M50 59.14l19.37-11.09L50 38.89v20.25z" fill="white" fill-opacity="0.2"/>
+  <path d="M30.62 48.05L50 59.14V38.89l-19.38 9.16z" fill="white" fill-opacity="0.6"/>
+  <defs>
+    <linearGradient id="leth-gradient" x1="5" y1="5" x2="95" y2="95" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#6366f1"/>
+      <stop offset="0.5" stop-color="#627EEA"/>
+      <stop offset="1" stop-color="#8b5cf6"/>
+    </linearGradient>
+  </defs>
+</svg>

@@ -1,0 +1,116 @@
+
+> @luxfi/web@5.0.0 dev /Users/z/work/lux/exchange/apps/web
+> next dev --port 3000
+
+   [1m[38;2;173;127;168m▲ Next.js 15.5.9[39m[22m
+   - Local:        http://localhost:3000
+   - Network:      http://192.168.86.66:3000
+
+ [32m[1m✓[22m[39m Starting...
+ [32m[1m✓[22m[39m Ready in 3.8s
+ [37m[1m○[22m[39m Compiling / ...
+ [33m[1m⚠[22m[39m ../../node_modules/.pnpm/@wagmi+connectors@7.0.5_@wagmi+core@3.0.1_@tanstack+query-core@5.90.12_immer@11.1.0_react@19._ifazbw6afasidwhl75ss4bwgry/node_modules/@wagmi/connectors/dist/esm/baseAccount.js
+Module not found: Can't resolve '@base-org/account' in '/Users/z/work/lux/exchange/node_modules/.pnpm/@wagmi+connectors@7.0.5_@wagmi+core@3.0.1_@tanstack+query-core@5.90.12_immer@11.1.0_react@19._ifazbw6afasidwhl75ss4bwgry/node_modules/@wagmi/connectors/dist/esm'
+
+Import trace for requested module:
+../../node_modules/.pnpm/@wagmi+connectors@7.0.5_@wagmi+core@3.0.1_@tanstack+query-core@5.90.12_immer@11.1.0_react@19._ifazbw6afasidwhl75ss4bwgry/node_modules/@wagmi/connectors/dist/esm/baseAccount.js
+../../node_modules/.pnpm/@wagmi+connectors@7.0.5_@wagmi+core@3.0.1_@tanstack+query-core@5.90.12_immer@11.1.0_react@19._ifazbw6afasidwhl75ss4bwgry/node_modules/@wagmi/connectors/dist/esm/exports/index.js
+../../node_modules/.pnpm/wagmi@3.1.3_@tanstack+query-core@5.90.12_@tanstack+react-query@5.90.12_react@19.2.3__@types+r_ujayradydxnf3c2kesx77whu3e/node_modules/wagmi/dist/esm/exports/connectors.js
+./components/providers/web3-provider.tsx
+./components/providers/providers.tsx
+
+../../node_modules/.pnpm/@wagmi+connectors@7.0.5_@wagmi+core@3.0.1_@tanstack+query-core@5.90.12_immer@11.1.0_react@19._ifazbw6afasidwhl75ss4bwgry/node_modules/@wagmi/connectors/dist/esm/coinbaseWallet.js
+Module not found: Can't resolve '@coinbase/wallet-sdk' in '/Users/z/work/lux/exchange/node_modules/.pnpm/@wagmi+connectors@7.0.5_@wagmi+core@3.0.1_@tanstack+query-core@5.90.12_immer@11.1.0_react@19._ifazbw6afasidwhl75ss4bwgry/node_modules/@wagmi/connectors/dist/esm'
+
+Import trace for requested module:
+../../node_modules/.pnpm/@wagmi+connectors@7.0.5_@wagmi+core@3.0.1_@tanstack+query-core@5.90.12_immer@11.1.0_react@19._ifazbw6afasidwhl75ss4bwgry/node_modules/@wagmi/connectors/dist/esm/coinbaseWallet.js
+../../node_modules/.pnpm/@wagmi+connectors@7.0.5_@wagmi+core@3.0.1_@tanstack+query-core@5.90.12_immer@11.1.0_react@19._ifazbw6afasidwhl75ss4bwgry/node_modules/@wagmi/connectors/dist/esm/exports/index.js
+../../node_modules/.pnpm/wagmi@3.1.3_@tanstack+query-core@5.90.12_@tanstack+react-query@5.90.12_react@19.2.3__@types+r_ujayradydxnf3c2kesx77whu3e/node_modules/wagmi/dist/esm/exports/connectors.js
+./components/providers/web3-provider.tsx
+./components/providers/providers.tsx
+
+../../node_modules/.pnpm/@wagmi+connectors@7.0.5_@wagmi+core@3.0.1_@tanstack+query-core@5.90.12_immer@11.1.0_react@19._ifazbw6afasidwhl75ss4bwgry/node_modules/@wagmi/connectors/dist/esm/gemini.js
+Module not found: Can't resolve '@gemini-wallet/core' in '/Users/z/work/lux/exchange/node_modules/.pnpm/@wagmi+connectors@7.0.5_@wagmi+core@3.0.1_@tanstack+query-core@5.90.12_immer@11.1.0_react@19._ifazbw6afasidwhl75ss4bwgry/node_modules/@wagmi/connectors/dist/esm'
+
+Import trace for requested module:
+../../node_modules/.pnpm/@wagmi+connectors@7.0.5_@wagmi+core@3.0.1_@tanstack+query-core@5.90.12_immer@11.1.0_react@19._ifazbw6afasidwhl75ss4bwgry/node_modules/@wagmi/connectors/dist/esm/gemini.js
+../../node_modules/.pnpm/@wagmi+connectors@7.0.5_@wagmi+core@3.0.1_@tanstack+query-core@5.90.12_immer@11.1.0_react@19._ifazbw6afasidwhl75ss4bwgry/node_modules/@wagmi/connectors/dist/esm/exports/index.js
+../../node_modules/.pnpm/wagmi@3.1.3_@tanstack+query-core@5.90.12_@tanstack+react-query@5.90.12_react@19.2.3__@types+r_ujayradydxnf3c2kesx77whu3e/node_modules/wagmi/dist/esm/exports/connectors.js
+./components/providers/web3-provider.tsx
+./components/providers/providers.tsx
+
+../../node_modules/.pnpm/@wagmi+connectors@7.0.5_@wagmi+core@3.0.1_@tanstack+query-core@5.90.12_immer@11.1.0_react@19._ifazbw6afasidwhl75ss4bwgry/node_modules/@wagmi/connectors/dist/esm/metaMask.js
+Module not found: Can't resolve '@metamask/sdk' in '/Users/z/work/lux/exchange/node_modules/.pnpm/@wagmi+connectors@7.0.5_@wagmi+core@3.0.1_@tanstack+query-core@5.90.12_immer@11.1.0_react@19._ifazbw6afasidwhl75ss4bwgry/node_modules/@wagmi/connectors/dist/esm'
+
+Import trace for requested module:
+../../node_modules/.pnpm/@wagmi+connectors@7.0.5_@wagmi+core@3.0.1_@tanstack+query-core@5.90.12_immer@11.1.0_react@19._ifazbw6afasidwhl75ss4bwgry/node_modules/@wagmi/connectors/dist/esm/metaMask.js
+../../node_modules/.pnpm/@wagmi+connectors@7.0.5_@wagmi+core@3.0.1_@tanstack+query-core@5.90.12_immer@11.1.0_react@19._ifazbw6afasidwhl75ss4bwgry/node_modules/@wagmi/connectors/dist/esm/exports/index.js
+../../node_modules/.pnpm/wagmi@3.1.3_@tanstack+query-core@5.90.12_@tanstack+react-query@5.90.12_react@19.2.3__@types+r_ujayradydxnf3c2kesx77whu3e/node_modules/wagmi/dist/esm/exports/connectors.js
+./components/providers/web3-provider.tsx
+./components/providers/providers.tsx
+
+../../node_modules/.pnpm/@wagmi+connectors@7.0.5_@wagmi+core@3.0.1_@tanstack+query-core@5.90.12_immer@11.1.0_react@19._ifazbw6afasidwhl75ss4bwgry/node_modules/@wagmi/connectors/dist/esm/porto.js
+Module not found: Can't resolve 'porto/internal' in '/Users/z/work/lux/exchange/node_modules/.pnpm/@wagmi+connectors@7.0.5_@wagmi+core@3.0.1_@tanstack+query-core@5.90.12_immer@11.1.0_react@19._ifazbw6afasidwhl75ss4bwgry/node_modules/@wagmi/connectors/dist/esm'
+
+Import trace for requested module:
+../../node_modules/.pnpm/@wagmi+connectors@7.0.5_@wagmi+core@3.0.1_@tanstack+query-core@5.90.12_immer@11.1.0_react@19._ifazbw6afasidwhl75ss4bwgry/node_modules/@wagmi/connectors/dist/esm/porto.js
+../../node_modules/.pnpm/@wagmi+connectors@7.0.5_@wagmi+core@3.0.1_@tanstack+query-core@5.90.12_immer@11.1.0_react@19._ifazbw6afasidwhl75ss4bwgry/node_modules/@wagmi/connectors/dist/esm/exports/index.js
+../../node_modules/.pnpm/wagmi@3.1.3_@tanstack+query-core@5.90.12_@tanstack+react-query@5.90.12_react@19.2.3__@types+r_ujayradydxnf3c2kesx77whu3e/node_modules/wagmi/dist/esm/exports/connectors.js
+./components/providers/web3-provider.tsx
+./components/providers/providers.tsx
+
+../../node_modules/.pnpm/@wagmi+connectors@7.0.5_@wagmi+core@3.0.1_@tanstack+query-core@5.90.12_immer@11.1.0_react@19._ifazbw6afasidwhl75ss4bwgry/node_modules/@wagmi/connectors/dist/esm/porto.js
+Module not found: Can't resolve 'porto' in '/Users/z/work/lux/exchange/node_modules/.pnpm/@wagmi+connectors@7.0.5_@wagmi+core@3.0.1_@tanstack+query-core@5.90.12_immer@11.1.0_react@19._ifazbw6afasidwhl75ss4bwgry/node_modules/@wagmi/connectors/dist/esm'
+Did you mean './porto'?
+Requests that should resolve in the current directory need to start with './'.
+Requests that start with a name are treated as module requests and resolve within module directories (node_modules, /Users/z/work/lux/exchange/node_modules/.pnpm/next@15.5.9_@babel+core@7.28.5_@playwright+test@1.57.0_react-dom@19.2.3_react@19.2.3__react@19.2.3/node_modules/next/dist/bin/node_modules, /Users/z/work/lux/exchange/node_modules/.pnpm/next@15.5.9_@babel+core@7.28.5_@playwright+test@1.57.0_react-dom@19.2.3_react@19.2.3__react@19.2.3/node_modules/next/dist/node_modules, /Users/z/work/lux/exchange/node_modules/.pnpm/next@15.5.9_@babel+core@7.28.5_@playwright+test@1.57.0_react-dom@19.2.3_react@19.2.3__react@19.2.3/node_modules/next/node_modules, /Users/z/work/lux/exchange/node_modules/.pnpm/next@15.5.9_@babel+core@7.28.5_@playwright+test@1.57.0_react-dom@19.2.3_react@19.2.3__react@19.2.3/node_modules, /Users/z/work/lux/exchange/node_modules/.pnpm/node_modules, /Users/z/work/lux/exchange/node_modules/.pnpm/nx@21.6.10/node_modules/nx/bin/node_modules, /Users/z/work/lux/exchange/node_modules/.pnpm/nx@21.6.10/node_modules/nx/node_modules, /Users/z/work/lux/exchange/node_modules/.pnpm/nx@21.6.10/node_modules, /usr/local/lib/node_modules, /usr/lib/node_modules, /Users/z/work/lux/exchange/apps/web).
+If changing the source code is not an option there is also a resolve options called 'preferRelative' which tries to resolve these kind of requests in the current directory too.
+
+Import trace for requested module:
+../../node_modules/.pnpm/@wagmi+connectors@7.0.5_@wagmi+core@3.0.1_@tanstack+query-core@5.90.12_immer@11.1.0_react@19._ifazbw6afasidwhl75ss4bwgry/node_modules/@wagmi/connectors/dist/esm/porto.js
+../../node_modules/.pnpm/@wagmi+connectors@7.0.5_@wagmi+core@3.0.1_@tanstack+query-core@5.90.12_immer@11.1.0_react@19._ifazbw6afasidwhl75ss4bwgry/node_modules/@wagmi/connectors/dist/esm/exports/index.js
+../../node_modules/.pnpm/wagmi@3.1.3_@tanstack+query-core@5.90.12_@tanstack+react-query@5.90.12_react@19.2.3__@types+r_ujayradydxnf3c2kesx77whu3e/node_modules/wagmi/dist/esm/exports/connectors.js
+./components/providers/web3-provider.tsx
+./components/providers/providers.tsx
+
+../../node_modules/.pnpm/@wagmi+connectors@7.0.5_@wagmi+core@3.0.1_@tanstack+query-core@5.90.12_immer@11.1.0_react@19._ifazbw6afasidwhl75ss4bwgry/node_modules/@wagmi/connectors/dist/esm/safe.js
+Module not found: Can't resolve '@safe-global/safe-apps-sdk' in '/Users/z/work/lux/exchange/node_modules/.pnpm/@wagmi+connectors@7.0.5_@wagmi+core@3.0.1_@tanstack+query-core@5.90.12_immer@11.1.0_react@19._ifazbw6afasidwhl75ss4bwgry/node_modules/@wagmi/connectors/dist/esm'
+
+Import trace for requested module:
+../../node_modules/.pnpm/@wagmi+connectors@7.0.5_@wagmi+core@3.0.1_@tanstack+query-core@5.90.12_immer@11.1.0_react@19._ifazbw6afasidwhl75ss4bwgry/node_modules/@wagmi/connectors/dist/esm/safe.js
+../../node_modules/.pnpm/@wagmi+connectors@7.0.5_@wagmi+core@3.0.1_@tanstack+query-core@5.90.12_immer@11.1.0_react@19._ifazbw6afasidwhl75ss4bwgry/node_modules/@wagmi/connectors/dist/esm/exports/index.js
+../../node_modules/.pnpm/wagmi@3.1.3_@tanstack+query-core@5.90.12_@tanstack+react-query@5.90.12_react@19.2.3__@types+r_ujayradydxnf3c2kesx77whu3e/node_modules/wagmi/dist/esm/exports/connectors.js
+./components/providers/web3-provider.tsx
+./components/providers/providers.tsx
+
+../../node_modules/.pnpm/@wagmi+connectors@7.0.5_@wagmi+core@3.0.1_@tanstack+query-core@5.90.12_immer@11.1.0_react@19._ifazbw6afasidwhl75ss4bwgry/node_modules/@wagmi/connectors/dist/esm/safe.js
+Module not found: Can't resolve '@safe-global/safe-apps-provider' in '/Users/z/work/lux/exchange/node_modules/.pnpm/@wagmi+connectors@7.0.5_@wagmi+core@3.0.1_@tanstack+query-core@5.90.12_immer@11.1.0_react@19._ifazbw6afasidwhl75ss4bwgry/node_modules/@wagmi/connectors/dist/esm'
+
+Import trace for requested module:
+../../node_modules/.pnpm/@wagmi+connectors@7.0.5_@wagmi+core@3.0.1_@tanstack+query-core@5.90.12_immer@11.1.0_react@19._ifazbw6afasidwhl75ss4bwgry/node_modules/@wagmi/connectors/dist/esm/safe.js
+../../node_modules/.pnpm/@wagmi+connectors@7.0.5_@wagmi+core@3.0.1_@tanstack+query-core@5.90.12_immer@11.1.0_react@19._ifazbw6afasidwhl75ss4bwgry/node_modules/@wagmi/connectors/dist/esm/exports/index.js
+../../node_modules/.pnpm/wagmi@3.1.3_@tanstack+query-core@5.90.12_@tanstack+react-query@5.90.12_react@19.2.3__@types+r_ujayradydxnf3c2kesx77whu3e/node_modules/wagmi/dist/esm/exports/connectors.js
+./components/providers/web3-provider.tsx
+./components/providers/providers.tsx
+
+../../node_modules/.pnpm/@wagmi+connectors@7.0.5_@wagmi+core@3.0.1_@tanstack+query-core@5.90.12_immer@11.1.0_react@19._ifazbw6afasidwhl75ss4bwgry/node_modules/@wagmi/connectors/dist/esm/walletConnect.js
+Module not found: Can't resolve '@walletconnect/ethereum-provider' in '/Users/z/work/lux/exchange/node_modules/.pnpm/@wagmi+connectors@7.0.5_@wagmi+core@3.0.1_@tanstack+query-core@5.90.12_immer@11.1.0_react@19._ifazbw6afasidwhl75ss4bwgry/node_modules/@wagmi/connectors/dist/esm'
+
+Import trace for requested module:
+../../node_modules/.pnpm/@wagmi+connectors@7.0.5_@wagmi+core@3.0.1_@tanstack+query-core@5.90.12_immer@11.1.0_react@19._ifazbw6afasidwhl75ss4bwgry/node_modules/@wagmi/connectors/dist/esm/walletConnect.js
+../../node_modules/.pnpm/@wagmi+connectors@7.0.5_@wagmi+core@3.0.1_@tanstack+query-core@5.90.12_immer@11.1.0_react@19._ifazbw6afasidwhl75ss4bwgry/node_modules/@wagmi/connectors/dist/esm/exports/index.js
+../../node_modules/.pnpm/wagmi@3.1.3_@tanstack+query-core@5.90.12_@tanstack+react-query@5.90.12_react@19.2.3__@types+r_ujayradydxnf3c2kesx77whu3e/node_modules/wagmi/dist/esm/exports/connectors.js
+./components/providers/web3-provider.tsx
+./components/providers/providers.tsx
+
+../../node_modules/.pnpm/@wagmi+connectors@7.0.5_@wagmi+core@3.0.1_@tanstack+query-core@5.90.12_immer@11.1.0_react@19._ifazbw6afasidwhl75ss4bwgry/node_modules/@wagmi/connectors/dist/esm/porto.js
+Module not found: Can't resolve 'porto/internal' in '/Users/z/work/lux/exchange/node_modules/.pnpm/@wagmi+connectors@7.0.5_@wagmi+core@3.0.1_@tanstack+query-core@5.90.12_immer@11.1.0_react@19._ifazbw6afasidwhl75ss4bwgry/node_modules/@wagmi/connectors/dist/esm'
+
+Import trace for requested module:
+../../node_modules/.pnpm/@wagmi+connectors@7.0.5_@wagmi+core@3.0.1_@tanstack+query-core@5.90.12_immer@11.1.0_react@19._ifazbw6afasidwhl75ss4bwgry/node_modules/@wagmi/connectors/dist/esm/porto.js
+../../node_modules/.pnpm/@wagmi+connectors@7.0.5_@wagmi+core@3.0.1_@tanstack+query-core@5.90.12_immer@11.1.0_react@19._ifazbw6afasidwhl75ss4bwgry/node_modules/@wagmi/connectors/dist/esm/exports/index.js
+../../node_modules/.pnpm/wagmi@3.1.3_@tanstack+query-core@5.90.12_@tanstack+react-query@5.90.12_react@19.2.3__@types+r_ujayradydxnf3c2kesx77whu3e/node_modules/wagmi/dist/esm/exports/connectors.js
+./components/providers/web3-provider.tsx
+./components/providers/providers.tsx
+ GET / [32m200[39m in 6541ms
+[?25h

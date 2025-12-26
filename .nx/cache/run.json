@@ -1,0 +1,109 @@
+{
+  "run": {
+    "command": "nx run-many -t typecheck",
+    "startTime": "2025-12-26T02:04:38.809Z",
+    "endTime": "2025-12-26T02:04:46.983Z",
+    "inner": false
+  },
+  "tasks": [
+    {
+      "taskId": "@luxfi/config:typecheck",
+      "target": "typecheck",
+      "projectName": "@luxfi/config",
+      "hash": "1091027335953691732",
+      "startTime": "2025-12-26T02:04:38.879Z",
+      "endTime": "2025-12-26T02:04:38.880Z",
+      "params": "",
+      "cacheStatus": "local-cache-hit",
+      "status": 0
+    },
+    {
+      "taskId": "@luxfi/api:typecheck",
+      "target": "typecheck",
+      "projectName": "@luxfi/api",
+      "hash": "10574251396598602646",
+      "startTime": "2025-12-26T02:04:38.879Z",
+      "endTime": "2025-12-26T02:04:38.884Z",
+      "params": "",
+      "cacheStatus": "local-cache-hit",
+      "status": 0
+    },
+    {
+      "taskId": "@luxfi/ui:typecheck",
+      "target": "typecheck",
+      "projectName": "@luxfi/ui",
+      "hash": "3062868053212288221",
+      "startTime": "2025-12-26T02:04:38.879Z",
+      "endTime": "2025-12-26T02:04:42.347Z",
+      "params": "",
+      "cacheStatus": "cache-miss",
+      "status": 0
+    },
+    {
+      "taskId": "@luxfi/dex:typecheck",
+      "target": "typecheck",
+      "projectName": "@luxfi/dex",
+      "hash": "14984428021279278266",
+      "startTime": "2025-12-26T02:04:42.349Z",
+      "endTime": "2025-12-26T02:04:42.350Z",
+      "params": "",
+      "cacheStatus": "local-cache-hit",
+      "status": 0
+    },
+    {
+      "taskId": "@luxfi/wallet:typecheck",
+      "target": "typecheck",
+      "projectName": "@luxfi/wallet",
+      "hash": "9703854795039023034",
+      "startTime": "2025-12-26T02:04:38.889Z",
+      "endTime": "2025-12-26T02:04:42.388Z",
+      "params": "",
+      "cacheStatus": "cache-miss",
+      "status": 0
+    },
+    {
+      "taskId": "@luxfi/exchange:typecheck",
+      "target": "typecheck",
+      "projectName": "@luxfi/exchange",
+      "hash": "18421137298205726825",
+      "startTime": "2025-12-26T02:04:38.886Z",
+      "endTime": "2025-12-26T02:04:42.570Z",
+      "params": "",
+      "cacheStatus": "cache-miss",
+      "status": 0
+    },
+    {
+      "taskId": "@luxfi/mobile:typecheck",
+      "target": "typecheck",
+      "projectName": "@luxfi/mobile",
+      "hash": "7869146348744453647",
+      "startTime": "2025-12-26T02:04:42.575Z",
+      "endTime": "2025-12-26T02:04:45.628Z",
+      "params": "",
+      "cacheStatus": "cache-miss",
+      "status": 0
+    },
+    {
+      "taskId": "@luxfi/extension:typecheck",
+      "target": "typecheck",
+      "projectName": "@luxfi/extension",
+      "hash": "10179718348580548952",
+      "startTime": "2025-12-26T02:04:42.575Z",
+      "endTime": "2025-12-26T02:04:45.631Z",
+      "params": "",
+      "cacheStatus": "cache-miss",
+      "status": 0
+    },
+    {
+      "taskId": "@luxfi/web:typecheck",
+      "target": "typecheck",
+      "projectName": "@luxfi/web",
+      "hash": "5599023834114297181",
+      "startTime": "2025-12-26T02:04:42.575Z",
+      "endTime": "2025-12-26T02:04:46.981Z",
+      "params": "",
+      "cacheStatus": "cache-miss",
+      "status": 0
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+
+> @luxfi/ui@0.0.1 typecheck /Users/z/work/lux/exchange/packages/ui
+> tsc --noEmit
+
+src/components/Button.tsx(144,5): error TS7016: Could not find a declaration file for module 'react/jsx-runtime'. '/Users/z/work/lux/exchange/node_modules/.pnpm/react@19.2.3/node_modules/react/jsx-runtime.js' implicitly has an 'any' type.
+  If the 'react' package actually exposes this module, consider sending a pull request to amend 'https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/react'
+src/components/TokenLogo.tsx(62,5): error TS7016: Could not find a declaration file for module 'react/jsx-runtime'. '/Users/z/work/lux/exchange/node_modules/.pnpm/react@19.2.3/node_modules/react/jsx-runtime.js' implicitly has an 'any' type.
+  If the 'react' package actually exposes this module, consider sending a pull request to amend 'https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/react'
+[41m[30m ELIFECYCLE [39m[49m [31mCommand failed with exit code 2.[39m

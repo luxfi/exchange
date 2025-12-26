@@ -1,0 +1,1 @@
+{"manifest_version":3,"name":"Lux Exchange","description":"Swap tokens on Lux Network directly from your browser","version":"1.0.0","permissions":["storage","activeTab"],"host_permissions":["https://*.lux.network/*","https://*.zoo.network/*"],"background":{"service_worker":"background.js"},"action":{"default_title":"Lux Exchange","default_popup":"popup.html"}}

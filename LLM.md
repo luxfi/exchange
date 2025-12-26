@@ -1,69 +1,87 @@
 # AI Assistant Knowledge Base
 
 **Last Updated**: 2025-12-25
-**Project**: Lux Exchange
+**Project**: Lux Exchange Monorepo
 **Organization**: luxfi
 
 ## Project Overview
 
-Lux Exchange is a decentralized exchange (DEX) for the Lux Network ecosystem. It provides a swap interface for trading tokens on Lux Mainnet, Lux Testnet, Zoo Mainnet, and Zoo Testnet chains.
+Lux Exchange is a full-featured, cross-chain DEX for the Lux Network ecosystem. It combines:
+- **Standard AMM Contracts** (`~/work/lux/standard`) - V2/V3 pools deployed on Lux chains
+- **DEX Precompiles** (0x0400-0x0403) - Native Uniswap v4-style pools for sub-microsecond execution
+- **Omni-chain Routing** - Cross-chain swaps via Warp/Teleport
+- **Modern Frontend** - Tamagui + Zustand (Uniswap interface patterns)
 
 ## Technology Stack
 
-- **Framework**: Next.js 15.3 (App Router)
+- **Framework**: Next.js 15.5 (App Router) with Nx monorepo
 - **React**: 19.x
 - **Web3**: wagmi v3, viem
-- **Styling**: Tailwind CSS, shadcn/ui components
+- **UI**: Tamagui (cross-platform) + Tailwind CSS (web)
+- **State**: Zustand stores
+- **Data**: React Query
 - **Testing**: Playwright (e2e), Vitest (unit)
-- **Package Manager**: pnpm
+- **Package Manager**: pnpm workspaces
+
+## Monorepo Structure
+
+```
+/Users/z/work/lux/exchange/
+├── apps/
+│   └── web/                    # Next.js 15 web app
+│       ├── app/                # App Router pages
+│       ├── components/         # React components
+│       ├── lib/                # Utilities
+│       ├── e2e/                # Playwright tests
+│       └── public/             # Static assets
+│
+├── packages/
+│   ├── config/                 # Shared configuration
+│   │   └── src/
+│   │       ├── chains.ts       # Chain definitions (Lux, Zoo)
+│   │       ├── contracts.ts    # Contract addresses (V2, V3, Precompiles)
+│   │       ├── wagmi.ts        # Wagmi config
+│   │       └── env.ts          # Environment config
+│   │
+│   ├── exchange/               # Core DEX logic
+│   │   └── src/
+│   │       ├── chains/         # Chain re-exports
+│   │       ├── tokens/         # Token definitions
+│   │       ├── contracts/      # ABIs (V2, V3, precompiles)
+│   │       ├── dex/            # DEX types (PoolKey, BalanceDelta)
+│   │       ├── hooks/          # React hooks (useSwap, usePools, etc.)
+│   │       └── stores/         # Zustand stores
+│   │
+│   ├── ui/                     # Tamagui UI components
+│   │   └── src/
+│   │       ├── theme/          # Design tokens, themes
+│   │       └── components/     # Button, Card, TokenLogo, etc.
+│   │
+│   └── api/                    # Data fetching
+│       └── src/
+│           ├── client.ts       # React Query client
+│           └── hooks/          # useTokenList, useTokenPrice
+│
+├── package.json                # Workspace root
+├── pnpm-workspace.yaml         # pnpm workspaces config
+└── nx.json                     # Nx build orchestration
+```
 
 ## Essential Commands
 
 ```bash
 # Development
-pnpm dev                # Start dev server (port 3001)
-pnpm build              # Production build
-pnpm start              # Start production server
+pnpm dev                    # Start web app dev server
+pnpm build                  # Build all packages
 
 # Testing
-pnpm test               # Unit tests (Vitest)
-pnpm test:e2e           # E2E tests (Playwright)
-pnpm exec playwright test e2e/home.spec.ts --reporter=list  # Run specific tests
+pnpm test                   # Run all tests
+pnpm test:e2e               # Playwright e2e tests
 
-# Linting
-pnpm lint               # ESLint
-pnpm typecheck          # TypeScript type checking
-```
-
-## Architecture
-
-```
-/Users/z/work/lux/exchange/
-├── app/                    # Next.js App Router pages
-│   ├── layout.tsx          # Root layout with providers
-│   ├── page.tsx            # Home page (swap widget)
-│   ├── pool/               # Liquidity pool pages
-│   ├── swap/               # Dedicated swap page
-│   └── tokens/             # Token list page
-├── components/
-│   ├── layout/             # Header, Footer
-│   ├── providers/          # React context providers
-│   │   └── web3-provider.tsx  # wagmi/viem setup
-│   ├── swap/               # Swap widget components
-│   │   ├── swap-widget.tsx # Main swap interface
-│   │   └── token-selector.tsx # Token selection modal
-│   ├── wallet/             # Wallet components
-│   │   └── chain-selector.tsx # Chain dropdown
-│   └── ui/                 # shadcn/ui components
-├── lib/
-│   ├── chains.ts           # Chain definitions (Lux, Zoo, Ethereum)
-│   ├── contracts.ts        # Contract addresses per chain
-│   └── tokens.ts           # Token list with metadata
-├── e2e/                    # Playwright e2e tests
-│   └── home.spec.ts        # Home page tests (20 tests)
-├── __tests__/              # Unit tests (Vitest)
-└── public/
-    └── tokens/             # Token icons (SVG)
+# Package-specific
+pnpm nx run @luxfi/config:typecheck
+pnpm nx run @luxfi/exchange:typecheck
+pnpm nx run @luxfi/web:dev
 ```
 
 ## Supported Chains
@@ -74,76 +92,115 @@ pnpm typecheck          # TypeScript type checking
 | Lux Testnet | 96368 | https://api.lux-test.network/rpc |
 | Zoo Mainnet | 200200 | https://api.zoo.network/rpc |
 | Zoo Testnet | 200201 | https://api.zoo-test.network/rpc |
-| Ethereum | 1 | https://eth.llamarpc.com |
-| Sepolia | 11155111 | https://eth-sepolia.public.blastapi.io |
 
-## Key Tokens (Lux Network)
+## Contract Addresses
+
+### AMM V2 (QuantumSwap) - Lux Mainnet
+| Contract | Address |
+|----------|---------|
+| V2Factory | `0xd9a95609DbB228A13568Bd9f9A285105E7596970` |
+| V2Router | `0x1F6cbC7d3bc7D803ee76D80F0eEE25767431e674` |
+
+### AMM V3 (Concentrated Liquidity) - Lux Mainnet
+| Contract | Address |
+|----------|---------|
+| V3Factory | `0xb732BD88F25EdD9C3456638671fB37685D4B4e3f` |
+| SwapRouter | `0xE8fb25086C8652c92f5AF90D730Bac7C63Fc9A58` |
+| QuoterV2 | `0x15C729fdd833Ba675edd466Dfc63E1B737925A4c` |
+| NonfungiblePositionManager | `0x7a4C48B9dae0b7c396569b34042fcA604150Ee28` |
+
+### DEX Precompiles (Native AMM)
+| Precompile | Address | Description |
+|------------|---------|-------------|
+| PoolManager | `0x0400` | Singleton pool manager |
+| SwapRouter | `0x0401` | Optimized swap routing |
+| HooksRegistry | `0x0402` | Hook contract registry |
+| FlashLoan | `0x0403` | Flash loan facility |
+
+## Key Tokens
 
 | Symbol | Name | Type |
 |--------|------|------|
 | LUX | Lux | Native gas token |
-| WLUX | Wrapped LUX | ERC-20 wrapped native |
-| LETH | Lux ETH | Bridged ETH |
-| LBTC | Lux BTC | Bridged BTC |
-| LUSD | Lux USD | Stablecoin |
+| WLUX | Wrapped LUX | ERC-20 wrapped native (0x55750d6...) |
+| LETH | Lux ETH | Bridged ETH (0xAA3AE95...) |
+| LBTC | Lux BTC | Bridged BTC (0x526903E...) |
+| ZOO | Zoo | Native on Zoo Network |
 
-## Contract Addresses (Placeholder)
+## Package Dependencies
 
-Contract addresses are in `lib/contracts.ts` - currently using placeholder addresses. Real addresses need to be deployed from `/Users/z/work/lux/standard`:
-
-- LuxV2Factory
-- LuxV2Router
-- Token contracts (WLUX, LETH, LBTC, LUSD)
+```
+@luxfi/web
+  └── @luxfi/exchange
+      ├── @luxfi/config
+      └── @luxfi/api
+  └── @luxfi/ui
+      └── @luxfi/config
+```
 
 ## Recent Changes (2025-12-25)
 
-### Migration Complete: CRA → Next.js 15
-- Migrated from Create React App to Next.js 15 App Router
-- Migrated from web3-react to wagmi v3 + viem
-- Updated all dependencies to latest versions
+### Monorepo Migration Complete
+- Migrated to Nx monorepo with pnpm workspaces
+- Created 4 packages: config, exchange, ui, api
+- Moved web app to apps/web/
+- Added Tamagui UI components (Button, Card, TokenLogo)
+- Added comprehensive ABIs for V2, V3, and DEX precompiles
+- Added Zustand stores for swap state management
+- Added React hooks for swap, pools, positions, balances
 
-### New Features
-1. **Chain Selector**: Dropdown in header to switch between Lux/Zoo networks
-2. **Token Selector**: Modal with search for selecting swap tokens
-3. **Lux-First Token List**: LUX, WLUX, LETH, LBTC, LUSD as primary tokens
-4. **Default Pair**: LUX → LUSD on Lux Mainnet
+### Package Highlights
 
-### Test Status
-- 20/20 Playwright e2e tests passing
-- Unit tests for token utilities passing
+**@luxfi/config**
+- Chain definitions (luxMainnet, luxTestnet, zooMainnet, zooTestnet)
+- All deployed contract addresses from ~/work/lux/standard
+- DEX precompile addresses
+- Wagmi configuration
+
+**@luxfi/exchange**
+- Token definitions with bridge tokens (LETH, LBTC)
+- Full ABIs: V2Router, V2Factory, V2Pair, V3Factory, V3Pool, SwapRouter, QuoterV2, NFTPositionManager
+- DEX types: PoolKey, BalanceDelta, SwapParams
+- Hooks: useSwapQuote, useSwap, usePools, usePositions, useTokenBalance, useTokenAllowance
+- Stores: swapStore, tokenStore, settingsStore
+
+**@luxfi/ui**
+- Tamagui design tokens and themes (light/dark)
+- Components: Button, Card, IconButton, TokenLogo
+
+**@luxfi/api**
+- React Query client configuration
+- Token list and price hooks
 
 ## Development Workflow
 
 1. Start dev server: `pnpm dev`
-2. Make changes
-3. Run tests: `pnpm exec playwright test e2e/home.spec.ts --reporter=list`
+2. Make changes to packages (they're transpiled by Next.js)
+3. Run tests: `pnpm test:e2e`
 4. Commit: `git commit -m "feat: description"`
-5. Push: `git push origin dev`
 
-## Pending Work
+## Verification Status (2025-12-25)
 
-1. **Deploy AMM Contracts**: Deploy real contracts from `/Users/z/work/lux/standard` to update `lib/contracts.ts`
-2. **G-Chain Integration**: Replace The Graph subgraphs with G-Chain (GraphVM) for indexing
-3. **Local Testing Stack**: Complete docker-compose setup with luxd, G-Chain, contracts
-4. **Upstream Sync**: Port more components from `/Users/z/work/uni/interface` (Uniswap)
+- **TypeScript**: All 5 packages pass typecheck ✓
+- **Build**: All packages build successfully ✓
+- **E2E Tests**: 20 passed, 19 skipped (require local node) ✓
 
-## Context for All AI Assistants
+## Next Steps
 
-This file (`LLM.md`) is symlinked as:
-- `.AGENTS.md`
-- `CLAUDE.md`
-- `QWEN.md`
-- `GEMINI.md`
-
-All files reference the same knowledge base. Updates here propagate to all AI systems.
+1. **Connect to Standard AMM**: Wire up hooks to deployed V2/V3 contracts
+2. **Add Pool UI**: Implement pool list and add/remove liquidity
+3. **Add Positions UI**: Implement position management
+4. **DEX Precompile Integration**: Add precompile-based swap path
+5. **Cross-chain Support**: Implement Warp/Teleport routing
 
 ## Rules for AI Assistants
 
 1. **ALWAYS** update LLM.md with significant discoveries
-2. **NEVER** commit symlinked files (.AGENTS.md, CLAUDE.md, etc.) - they're in .gitignore
+2. **NEVER** commit symlinked files (.AGENTS.md, CLAUDE.md, etc.)
 3. **NEVER** create random summary files - update THIS file
-4. **USE** Lux/Zoo chains and tokens as primary, Ethereum as secondary
-5. **PREFER** wagmi v3 + viem over web3-react
+4. **USE** Lux/Zoo chains and tokens as primary
+5. **PREFER** packages from the monorepo over duplicating code
+6. **USE** deployed addresses from ~/work/lux/standard/DEPLOYMENTS.md
 
 ---
 

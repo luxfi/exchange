@@ -1,0 +1,36 @@
+{
+  "name": "@luxfi/extension",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "wxt",
+    "dev:firefox": "wxt -b firefox",
+    "build": "wxt build",
+    "build:firefox": "wxt build -b firefox",
+    "zip": "wxt zip",
+    "zip:firefox": "wxt zip -b firefox",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@luxfi/config": "workspace:*",
+    "@luxfi/exchange": "workspace:*",
+    "@luxfi/ui": "workspace:*",
+    "@tamagui/core": "^1.141.5",
+    "@tanstack/react-query": "^5.90.12",
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3",
+    "tamagui": "^1.141.5",
+    "viem": "^2.43.3",
+    "wagmi": "^3.1.3",
+    "zustand": "^5.0.5"
+  },
+  "devDependencies": {
+    "@types/chrome": "^0.0.321",
+    "@types/react": "^19.2.3",
+    "@types/react-dom": "^19.2.3",
+    "@wxt-dev/module-react": "^1.1.3",
+    "typescript": "^5.8.3",
+    "wxt": "^0.20.6"
+  }
+}
