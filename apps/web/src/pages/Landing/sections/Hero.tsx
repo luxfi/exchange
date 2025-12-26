@@ -9,10 +9,22 @@ import { ChevronDown } from 'react-feather'
 import { Trans, useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router'
 import { serializeSwapStateToURLParameters } from 'state/swap/hooks'
+import styled from 'styled-components'
 import { Flex, Text, useMedia } from 'ui/src'
 import { INTERFACE_NAV_HEIGHT } from 'ui/src/theme'
 import { useEnabledChains } from 'uniswap/src/features/chains/hooks/useEnabledChains'
 import { SwapRedirectFn } from 'uniswap/src/features/transactions/components/TransactionModal/TransactionModalContext'
+
+const HeroVideo = styled.video`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  opacity: 0.3;
+`
 
 interface HeroProps {
   scrollToRef: () => void
@@ -81,6 +93,9 @@ export function Hero({ scrollToRef, transition }: HeroProps) {
       pt={INTERFACE_NAV_HEIGHT}
       pointerEvents="none"
     >
+      <HeroVideo autoPlay muted loop playsInline>
+        <source src="/videos/lux-hero.mp4" type="video/mp4" />
+      </HeroVideo>
       {!media.sm && <TokenCloud />}
 
       <Flex

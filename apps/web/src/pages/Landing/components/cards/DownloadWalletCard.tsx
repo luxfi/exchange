@@ -38,7 +38,7 @@ export function DownloadWalletCard() {
       title={
         <PillButton
           color={theme.accent1.val}
-          label={t('common.uniswapWallet')}
+          label={t('common.luxWallet')}
           icon={<Wallet size="24px" fill={theme.accent1.val} />}
         />
       }
@@ -61,7 +61,7 @@ export function DownloadWalletCard() {
         )
       }
       button={
-        <PillButton color={theme.accent1.val} label={t('common.downloadUniswapWallet')} backgroundColor="$surface1" />
+        <PillButton color={theme.accent1.val} label={t('common.downloadLuxWallet')} backgroundColor="$surface1" />
       }
       $lg={{
         minHeight: 750,

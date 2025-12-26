@@ -108,7 +108,7 @@ export function UniswapWalletOptions() {
           <Flex row justifyContent="space-between">
             <Flex>
               <Text variant="buttonLabel2" color="$neutral1" whiteSpace="nowrap">
-                <Trans i18nKey="common.uniswapMobile" />
+                <Trans i18nKey="common.luxMobile" />
               </Text>
               <Text variant="body4" color="$neutral2" whiteSpace="nowrap">
                 {isMobileWeb ? <Trans i18nKey="wallet.appSignIn" /> : <Trans i18nKey="wallet.scanToConnect" />}

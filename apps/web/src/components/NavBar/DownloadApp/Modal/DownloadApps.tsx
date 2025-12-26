@@ -25,7 +25,7 @@ import {
   TouchableArea,
   useSporeColors,
 } from 'ui/src'
-import { UNISWAP_LOGO } from 'ui/src/assets'
+import { LUX_LOGO } from 'ui/src/assets'
 import { BackArrow } from 'ui/src/components/icons/BackArrow'
 import { GoogleChromeLogo } from 'ui/src/components/logos/GoogleChromeLogo'
 import { iconSizes, zIndexes } from 'ui/src/theme'
@@ -121,7 +121,7 @@ function DownloadMobile() {
   const account = useAccount()
   return (
     <ModalContent
-      title={t('common.downloadUniswapApp')}
+      title={t('common.downloadLuxApp')}
       subtext={t('common.scanQRDownload')}
       maxWidth="620px"
       px="60px"
@@ -172,7 +172,7 @@ function DownloadApps({ setPage }: { setPage: (page: Page) => void }) {
       <ModalContent
         title={t('downloadApp.modal.getTheApp.title')}
         subtext={t('downloadApp.modal.uniswapProducts.subtitle')}
-        header={<Image height={iconSizes.icon64} source={UNISWAP_LOGO} width={iconSizes.icon64} />}
+        header={<Image height={iconSizes.icon64} source={LUX_LOGO} width={iconSizes.icon64} />}
         maxWidth="620px"
       >
         <Flex row gap="$spacing12" width="100%" alignItems="flex-start">
@@ -186,7 +186,7 @@ function DownloadApps({ setPage }: { setPage: (page: Page) => void }) {
             <IllustrationContainer>
               <Illustration src={WalletIllustration} alt="Wallet example page" />
             </IllustrationContainer>
-            <CardInfo title={t('common.uniswapMobile')} details={t('common.iOSAndroid')}>
+            <CardInfo title={t('common.luxMobile')} details={t('common.iOSAndroid')}>
               <Trace
                 logPress
                 element={ElementName.UniswapWalletModalDownloadButton}

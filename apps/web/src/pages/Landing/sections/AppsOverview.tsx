@@ -1,8 +1,8 @@
 import { DownloadWalletCard } from 'pages/Landing/components/cards/DownloadWalletCard'
 import { LiquidityCard } from 'pages/Landing/components/cards/LiquidityCard'
+import { LuxDexCard } from 'pages/Landing/components/cards/LuxDexCard'
+import { LuxNetworkCard } from 'pages/Landing/components/cards/LuxNetworkCard'
 import { TradingApiCard } from 'pages/Landing/components/cards/TradingApiCard'
-import { UnichainCard } from 'pages/Landing/components/cards/UnichainCard'
-import { UniswapXCard } from 'pages/Landing/components/cards/UniswapXCard'
 import { WebappCard } from 'pages/Landing/components/cards/WebappCard'
 import { H2 } from 'pages/Landing/components/Generics'
 import { useTranslation } from 'react-i18next'
@@ -20,12 +20,12 @@ export function AppsOverview() {
             <DownloadWalletCard />
           </Flex>
           <Flex row flexWrap="wrap" height="auto" flex={1} gap="$gap16" $md={{ flexDirection: 'column' }}>
-            <UniswapXCard />
+            <LuxDexCard />
             <LiquidityCard />
           </Flex>
           <Flex row flexWrap="wrap" height="auto" flex={1} gap="$gap16" $md={{ flexDirection: 'column' }}>
             <TradingApiCard />
-            <UnichainCard />
+            <LuxNetworkCard />
           </Flex>
         </Flex>
       </Flex>
