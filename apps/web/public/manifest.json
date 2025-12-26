@@ -1,9 +1,9 @@
 {
-  "background_color": "#fff",
+  "background_color": "#000000",
   "display": "standalone",
   "homepage_url": "https://lux.exchange/",
   "providedBy": {
-    "name": "LX",
+    "name": "Lux",
     "url": "https://lux.exchange/"
   },
   "icons": [
@@ -21,10 +21,10 @@
     }
   ],
   "orientation": "portrait",
-  "name": "LX",
-  "description": "Swap or provide liquidity on the LUX exchange",
-  "iconPath": "./images/256x256_App_Icon_Pink.svg",
-  "short_name": "LX",
+  "name": "Lux Exchange",
+  "description": "Swap or provide liquidity on the Lux Exchange",
+  "iconPath": "./images/lux-logo.svg",
+  "short_name": "Lux",
   "start_url": ".",
-  "theme_color": "#141414"
+  "theme_color": "#000000"
 }

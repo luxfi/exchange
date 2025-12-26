@@ -1,9 +1,7 @@
 import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { LayerGroup } from 'ui/src/components/icons/LayerGroup'
-import { Unichain } from 'ui/src/components/icons/Unichain'
-import { UniswapLogo } from 'ui/src/components/icons/UniswapLogo'
-import { UniswapXGeneric } from 'ui/src/components/icons/UniswapXGeneric'
+import { LuxLogo } from 'ui/src/components/icons/LuxLogo'
 import { uniswapUrls } from 'uniswap/src/constants/urls'
 
 export interface MenuItem {
@@ -30,10 +28,10 @@ export enum MenuSectionTitle {
 }
 
 const MENU_ICONS = {
-  wallet: <UniswapLogo size="$icon.20" color="$accent1" />,
-  uniswapX: <UniswapXGeneric size="$icon.20" color="$accent1" />,
+  wallet: <LuxLogo size="$icon.20" color="$accent1" />,
+  luxDex: <LuxLogo size="$icon.20" color="$accent1" />,
   tradingApi: <LayerGroup size="$icon.20" color="$accent1" />,
-  unichain: <Unichain size="$icon.20" color="$accent1" />,
+  luxNetwork: <LuxLogo size="$icon.20" color="$accent1" />,
 } as const
 
 export const useMenuContent = (args?: {
@@ -54,10 +52,10 @@ export const useMenuContent = (args?: {
             body: t('nav.products.wallet'),
           },
           {
-            label: t('common.uniswapX'),
-            href: uniswapUrls.uniswapXUrl,
-            icon: MENU_ICONS.uniswapX,
-            body: t('nav.products.uniswapX'),
+            label: 'Lux DEX',
+            href: 'https://dex.lux.network',
+            icon: MENU_ICONS.luxDex,
+            body: 'High-performance native DEX',
           },
           {
             label: t('landing.api'),
@@ -66,10 +64,10 @@ export const useMenuContent = (args?: {
             body: t('nav.products.tradingApi'),
           },
           {
-            label: t('common.unichain'),
-            href: uniswapUrls.unichainUrl,
-            icon: MENU_ICONS.unichain,
-            body: t('nav.products.unichain'),
+            label: 'Lux Network',
+            href: 'https://lux.network',
+            icon: MENU_ICONS.luxNetwork,
+            body: 'High-performance multi-chain blockchain',
           },
         ],
       },

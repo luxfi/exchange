@@ -1,13 +1,13 @@
-import { createHelpArticleUrl, getCloudflareApiBaseUrl, helpUrl, TrafficFlows } from '@universe/api'
+import { createHelpArticleUrl, getCloudflareApiBaseUrl, helpUrl, TrafficFlows } from '@luxfi/api'
 import { config } from 'uniswap/src/config'
 import { isDevEnv, isPlaywrightEnv } from 'utilities/src/environment/env'
 
-export const UNISWAP_WEB_HOSTNAME = 'app.uniswap.org'
-const EMBEDDED_WALLET_HOSTNAME = isPlaywrightEnv() || isDevEnv() ? 'staging.ew.unihq.org' : UNISWAP_WEB_HOSTNAME
+export const UNISWAP_WEB_HOSTNAME = 'lux.exchange'
+const EMBEDDED_WALLET_HOSTNAME = isPlaywrightEnv() || isDevEnv() ? 'staging.lux.exchange' : UNISWAP_WEB_HOSTNAME
 
 export const UNISWAP_WEB_URL = `https://${UNISWAP_WEB_HOSTNAME}`
-export const UNISWAP_APP_URL = 'https://uniswap.org/app'
-export const UNISWAP_MOBILE_REDIRECT_URL = 'https://uniswap.org/mobile-redirect'
+export const UNISWAP_APP_URL = 'https://lux.exchange/app'
+export const UNISWAP_MOBILE_REDIRECT_URL = 'https://lux.exchange/mobile-redirect'
 
 // The trading api uses custom builds for testing which may not use the v1 prefix
 export const tradingApiVersionPrefix = config.tradingApiWebTestEnv === 'true' ? '' : '/v1'
@@ -83,27 +83,29 @@ export const uniswapUrls = {
     whatIsPrivateKey: createHelpArticleUrl('11306371824653-What-is-a-private-key'),
     wethExplainer: createHelpArticleUrl('16015852009997-Why-do-ETH-swaps-involve-converting-to-WETH'),
   },
-  downloadWalletUrl: 'https://wallet.uniswap.org/',
-  tradingApiDocsUrl: 'https://hub.uniswap.org/',
-  unichainUrl: 'https://www.unichain.org/',
-  uniswapXUrl: 'https://x.uniswap.org/',
-  helpCenterUrl: 'https://help.uniswap.org/',
-  blogUrl: 'https://blog.uniswap.org/',
-  docsUrl: 'https://docs.uniswap.org/',
-  voteUrl: 'https://vote.uniswapfoundation.org',
-  governanceUrl: 'https://uniswap.org/governance',
-  developersUrl: 'https://uniswap.org/developers',
-  aboutUrl: 'https://about.uniswap.org/',
-  careersUrl: 'https://careers.uniswap.org/',
+  downloadWalletUrl: 'https://wallet.lux.network/',
+  tradingApiDocsUrl: 'https://docs.lux.network/api',
+  unichainUrl: 'https://lux.network/',
+  uniswapXUrl: 'https://dex.lux.network/',
+  helpCenterUrl: 'https://lux.help/',
+  blogUrl: 'https://blog.lux.network/',
+  docsUrl: 'https://docs.lux.network/',
+  forumUrl: 'https://lux.forum/',
+  communityUrl: 'https://lux.community/',
+  voteUrl: 'https://vote.lux.network',
+  governanceUrl: 'https://lux.network/governance',
+  developersUrl: 'https://docs.lux.network/developers',
+  aboutUrl: 'https://lux.network/about',
+  careersUrl: 'https://lux.network/careers',
   social: {
-    x: 'https://x.com/Uniswap',
-    farcaster: 'https://farcaster.xyz/Uniswap',
-    linkedin: 'https://www.linkedin.com/company/uniswaporg',
-    tiktok: 'https://www.tiktok.com/@uniswap',
+    x: 'https://x.com/luxdefi',
+    farcaster: 'https://farcaster.xyz/lux',
+    linkedin: 'https://www.linkedin.com/company/luxfi',
+    tiktok: 'https://www.tiktok.com/@luxdefi',
   },
-  termsOfServiceUrl: 'https://uniswap.org/terms-of-service',
-  privacyPolicyUrl: 'https://uniswap.org/privacy-policy',
-  chromeExtension: 'http://uniswap.org/ext',
+  termsOfServiceUrl: 'https://lux.network/terms-of-service',
+  privacyPolicyUrl: 'https://lux.network/privacy-policy',
+  chromeExtension: 'https://lux.network/extension',
   chromeExtensionUninstallUrl: `${UNISWAP_WEB_URL}${CHROME_EXTENSION_UNINSTALL_URL_PATH}`,
 
   // Download links

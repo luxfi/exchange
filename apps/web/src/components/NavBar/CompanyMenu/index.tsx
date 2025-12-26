@@ -57,7 +57,7 @@ export function CompanyMenu() {
               <NavIcon />
               {isLargeScreen && (
                 <Text variant="subheading1" color="$accent1" userSelect="none">
-                  Uniswap
+                  Lux
                 </Text>
               )}
             </Flex>

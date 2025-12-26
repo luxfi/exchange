@@ -1,5 +1,5 @@
 import { Alignment, Fit, Layout, useRive } from '@rive-app/react-canvas'
-import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import { FeatureFlags, useFeatureFlag } from '@luxfi/gating'
 import { PillButton } from 'pages/Landing/components/cards/PillButton'
 import ValuePropCard from 'pages/Landing/components/cards/ValuePropCard'
 import { Wallet } from 'pages/Landing/components/Icons'
@@ -34,7 +34,7 @@ export function DownloadWalletCard() {
       href={uniswapUrls.downloadWalletUrl}
       minHeight={500}
       color="$accent1"
-      backgroundColor="rgba(252, 114, 255, 0.12)"
+      backgroundColor="rgba(255, 255, 255, 0.08)"
       title={
         <PillButton
           color={theme.accent1.val}

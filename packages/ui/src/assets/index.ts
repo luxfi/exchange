@@ -20,6 +20,12 @@ export const UNISWAP_LOGO = require('./logos/png/uniswap-logo.png')
 export const UNISWAP_LOGO_LARGE = require('./logos/png/uniswap-logo-large.png')
 export const UNISWAP_MONO_LOGO_LARGE = require('./logos/png/uniswap-mono-logo-large.png')
 export const UNISWAP_APP_ICON = require('./logos/png/uniswap-app-icon.png')
+
+// Lux branding logos
+export const LUX_LOGO = require('./logos/png/lux-logo.png')
+export const LUX_LOGO_LARGE = require('./logos/png/lux-logo-large.png')
+export const LUX_APP_ICON = require('./logos/png/lux-app-icon.png')
+export const LUX_NETWORK_LOGO = require('./logos/png/lux-network-logo.png')
 export const BINANCE_WALLET_ICON = require('./logos/png/binance-icon.png')
 
 export const ONBOARDING_QR_ETCHING_VIDEO_LIGHT = require('./videos/light-etching.mp4')

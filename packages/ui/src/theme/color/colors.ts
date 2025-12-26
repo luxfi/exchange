@@ -190,15 +190,15 @@ const sporeLight = {
   surface4: 'rgba(255, 255, 255, 0.64)',
   surface5: 'rgba(0,0,0,0.04)',
   surface5Hovered: 'rgba(0,0,0,0.06)',
-  accent1: '#FF37C7',
-  accent1Hovered: '#E500A5',
-  accent2: 'rgba(255, 55, 199, 0.08)',
-  accent2Hovered: 'rgba(255, 55, 199, 0.12)',
-  accent2Solid: '#FFF3FC',
+  accent1: '#000000',
+  accent1Hovered: '#1A1A1A',
+  accent2: 'rgba(0, 0, 0, 0.08)',
+  accent2Hovered: 'rgba(0, 0, 0, 0.12)',
+  accent2Solid: '#F5F5F5',
   accent3: '#222222',
   accent3Hovered: colors.black,
 
-  DEP_accentSoft: '#FC72FF33', //33 = 20%
+  DEP_accentSoft: '#00000033', //33 = 20%
   DEP_blue400: '#4C82FB',
 
   statusSuccess: '#0C8911',
@@ -229,26 +229,26 @@ const sporeDark = {
   neutral3: 'rgba(255, 255, 255, 0.38)',
   neutral3Hovered: 'rgba(255, 255, 255, 0.58)',
 
-  surface1: '#131313',
-  surface1Hovered: '#1A1A1A',
-  surface2: '#1F1F1F',
-  surface2Hovered: '#242424',
-  surface3: 'rgba(255,255,255,0.12)',
-  surface3Solid: '#393939',
-  surface3Hovered: 'rgba(255,255,255,0.16)',
-  surface4: 'rgba(255,255,255,0.20)',
+  surface1: '#000000',
+  surface1Hovered: '#0A0A0A',
+  surface2: '#0F0F0F',
+  surface2Hovered: '#141414',
+  surface3: 'rgba(255,255,255,0.10)',
+  surface3Solid: '#1A1A1A',
+  surface3Hovered: 'rgba(255,255,255,0.14)',
+  surface4: 'rgba(255,255,255,0.16)',
   surface5: 'rgba(0,0,0,0.04)',
   surface5Hovered: 'rgba(0,0,0,0.06)',
-  accent1: '#FF37C7',
-  accent1Hovered: '#E500A5',
+  accent1: '#FFFFFF',
+  accent1Hovered: '#E0E0E0',
 
-  accent2: 'rgba(255, 55, 199, 0.08)',
-  accent2Hovered: 'rgba(255, 55, 199, 0.12)',
-  accent2Solid: '#261621',
+  accent2: 'rgba(255, 255, 255, 0.08)',
+  accent2Hovered: 'rgba(255, 255, 255, 0.12)',
+  accent2Solid: '#1A1A1A',
   accent3: colors.white,
   accent3Hovered: '#F5F5F5',
 
-  DEP_accentSoft: '#FC72FF33', //33 = 20%
+  DEP_accentSoft: '#FFFFFF33', //33 = 20%
   DEP_blue400: '#4C82FB',
 
   statusSuccess: '#21C95E',

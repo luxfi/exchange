@@ -3,11 +3,11 @@ import { PillButton } from 'pages/Landing/components/cards/PillButton'
 import ValuePropCard from 'pages/Landing/components/cards/ValuePropCard'
 import { useTranslation } from 'react-i18next'
 import { Image } from 'ui/src'
-import { Unichain } from 'ui/src/components/icons/Unichain'
+import { LuxLogo } from 'ui/src/components/icons/LuxLogo'
 import { opacify } from 'ui/src/theme'
 import { uniswapUrls } from 'uniswap/src/constants/urls'
 
-const primary = '#F50DB4'
+const primary = '#FFFFFF'
 
 export function UnichainCard() {
   const { t } = useTranslation()
@@ -20,7 +20,7 @@ export function UnichainCard() {
       backgroundColor={opacify(6, primary)}
       $theme-dark={{ backgroundColor: opacify(12, primary) }}
       title={
-        <PillButton color={primary} label={t('common.unichain')} icon={<Unichain size="$icon.24" fill={primary} />} />
+        <PillButton color={primary} label={t('common.unichain')} icon={<LuxLogo size="$icon.24" color={primary} />} />
       }
       bodyText={t('landing.unichain.body')}
       subtitle={t('landing.unichain.subtitle')}
@@ -28,14 +28,7 @@ export function UnichainCard() {
       alignTextToBottom
     >
       <CardContents>
-        <Image src="/images/landing_page/Unichain-bg.svg" width="100%" height="100%" position="absolute" bottom="0" />
-        <img
-          src="/images/landing_page/Unichain.svg"
-          width="100%"
-          height="130%"
-          style={{ objectFit: 'contain', transform: 'translateX(35%)', marginTop: '10%' }}
-          alt={t('common.unichain')}
-        />
+        <Image src="/images/lux-logo.svg" width="60%" height="60%" position="absolute" bottom="10%" opacity={0.1} />
       </CardContents>
     </ValuePropCard>
   )
