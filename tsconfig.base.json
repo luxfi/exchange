@@ -39,16 +39,36 @@
       "node"
     ],
     "paths": {
-      "@universe/api/*": ["packages/api/*"],
-      "@universe/config/*": ["packages/config/*"],
-      "@universe/gating/*": ["packages/gating/*"],
-      "@universe/notifications/*": ["packages/notifications/*"],
-      "@universe/sessions/*": ["packages/sessions/*"],
-      "ui/*": ["packages/ui/*"],
-      "uniswap/*": ["packages/uniswap/*"],
-      "utilities/*": ["packages/utilities/*"],
-      "wallet/*": ["packages/wallet/*"],
-      "@universe/cli/*": ["apps/cli/*"]
+      "@universe/api/*": [
+        "packages/api/*"
+      ],
+      "@universe/cli/*": [
+        "apps/cli/*"
+      ],
+      "@universe/config/*": [
+        "packages/config/*"
+      ],
+      "@universe/gating/*": [
+        "packages/gating/*"
+      ],
+      "@universe/notifications/*": [
+        "packages/notifications/*"
+      ],
+      "@universe/sessions/*": [
+        "packages/sessions/*"
+      ],
+      "ui/*": [
+        "packages/ui/*"
+      ],
+      "uniswap/*": [
+        "packages/uniswap/*"
+      ],
+      "utilities/*": [
+        "packages/utilities/*"
+      ],
+      "wallet/*": [
+        "packages/wallet/*"
+      ]
     }
   }
 }
