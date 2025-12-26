@@ -96,7 +96,8 @@ export function Hero({ scrollToRef, transition }: HeroProps) {
       <HeroVideo autoPlay muted loop playsInline>
         <source src="/videos/lux-hero.mp4" type="video/mp4" />
       </HeroVideo>
-      {!media.sm && <TokenCloud />}
+      {/* TokenCloud (floating icons) disabled for cleaner design */}
+      {/* {!media.sm && <TokenCloud />} */}
 
       <Flex
         alignSelf="center"

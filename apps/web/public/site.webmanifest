@@ -1,7 +1,7 @@
 {
-  "name": "Lux Exchange",
-  "short_name": "Lux",
-  "description": "Trade tokens on the Lux Network",
+  "name": "LX",
+  "short_name": "LX",
+  "description": "Trade tokens on LX",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#000000",

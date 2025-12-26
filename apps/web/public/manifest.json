@@ -3,7 +3,7 @@
   "display": "standalone",
   "homepage_url": "https://lux.exchange/",
   "providedBy": {
-    "name": "Lux",
+    "name": "LX",
     "url": "https://lux.exchange/"
   },
   "icons": [
@@ -21,10 +21,10 @@
     }
   ],
   "orientation": "portrait",
-  "name": "Lux Exchange",
-  "description": "Swap or provide liquidity on the Lux Exchange",
+  "name": "LX",
+  "description": "Swap or provide liquidity on LX",
   "iconPath": "./images/lux-logo.svg",
-  "short_name": "Lux",
+  "short_name": "LX",
   "start_url": ".",
   "theme_color": "#000000"
 }
