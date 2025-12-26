@@ -52,10 +52,10 @@ export const useMenuContent = (args?: {
             body: t('nav.products.wallet'),
           },
           {
-            label: 'Lux DEX',
-            href: 'https://dex.lux.network',
+            label: t('common.luxDex'),
+            href: uniswapUrls.luxDexUrl,
             icon: MENU_ICONS.luxDex,
-            body: 'High-performance native DEX',
+            body: t('nav.products.luxDex'),
           },
           {
             label: t('landing.api'),
@@ -64,10 +64,10 @@ export const useMenuContent = (args?: {
             body: t('nav.products.tradingApi'),
           },
           {
-            label: 'Lux Network',
-            href: 'https://lux.network',
+            label: t('common.luxNetwork'),
+            href: uniswapUrls.luxNetworkUrl,
             icon: MENU_ICONS.luxNetwork,
-            body: 'High-performance multi-chain blockchain',
+            body: t('nav.products.luxNetwork'),
           },
         ],
       },

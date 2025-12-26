@@ -116,7 +116,7 @@ export function Footer() {
         <Text variant="body3">© {currentYear} Lux Industries Inc. 60 Rausch St, San Francisco, CA 94103</Text>
         <Flex row alignItems="center" gap="$spacing16">
           <PolicyLink onPress={togglePrivacyPolicy}>{t('common.privacyPolicy')}</PolicyLink>
-          <Anchor textDecorationLine="none" href="https://lux.network/trademark" target="_blank">
+          <Anchor textDecorationLine="none" href="https://lux.exchange/trademark" target="_blank">
             <PolicyLink>{t('common.trademarkPolicy')}</PolicyLink>
           </Anchor>
         </Flex>
