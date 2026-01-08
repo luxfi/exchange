@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/no-unnecessary-condition */
-import { Token } from '@uniswap/sdk-core'
+import { Token } from '@luxamm/sdk-core'
 import { PersistState } from 'redux-persist'
 import { PreV16UserState } from 'state/migrations/oldTypes'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { serializeToken } from 'uniswap/src/utils/currency'
+import { UniverseChainId } from 'lx/src/features/chains/types'
+import { serializeToken } from 'lx/src/utils/currency'
 
 export type PersistAppStateV3 = {
   _persist: PersistState

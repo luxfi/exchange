@@ -1,7 +1,7 @@
-import { Currency, CurrencyAmount } from '@uniswap/sdk-core'
-import { Pair } from '@uniswap/v2-sdk'
-import { Pool as V3Pool, Position as V3Position } from '@uniswap/v3-sdk'
-import { Pool as V4Pool, Position as V4Position } from '@uniswap/v4-sdk'
+import { Currency, CurrencyAmount } from '@luxamm/sdk-core'
+import { Pair } from '@luxamm/v2-sdk'
+import { Pool as V3Pool, Position as V3Position } from '@luxamm/v3-sdk'
+import { Pool as V4Pool, Position as V4Position } from '@luxamm/v4-sdk'
 import { PositionField } from 'types/position'
 
 export function getDependentAmountFromV2Pair({

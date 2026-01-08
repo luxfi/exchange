@@ -12,7 +12,7 @@ import {
   UniswapOpenSidebarRequest,
   UniswapOpenSidebarRequestSchema,
 } from 'src/contentScript/WindowEthereumRequestTypes'
-import { DappRequestType, DappResponseType } from 'uniswap/src/features/dappRequests/types'
+import { DappRequestType, DappResponseType } from 'lx/src/features/dappRequests/types'
 import { logger } from 'utilities/src/logger/logger'
 
 /**

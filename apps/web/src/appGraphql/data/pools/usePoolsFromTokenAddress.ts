@@ -5,13 +5,13 @@ import {
   sortPools,
   TablePool,
 } from 'appGraphql/data/pools/useTopPools'
-import { GraphQLApi } from '@universe/api'
+import { GraphQLApi } from '@luxfi/api'
 import { useCallback, useMemo, useRef } from 'react'
-import { DEFAULT_TICK_SPACING, V2_DEFAULT_FEE_TIER } from 'uniswap/src/constants/pools'
-import { DEFAULT_NATIVE_ADDRESS } from 'uniswap/src/features/chains/evm/rpc'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { toGraphQLChain } from 'uniswap/src/features/chains/utils'
-import { isSVMChain } from 'uniswap/src/features/platforms/utils/chains'
+import { DEFAULT_TICK_SPACING, V2_DEFAULT_FEE_TIER } from 'lx/src/constants/pools'
+import { DEFAULT_NATIVE_ADDRESS } from 'lx/src/features/chains/evm/rpc'
+import { UniverseChainId } from 'lx/src/features/chains/types'
+import { toGraphQLChain } from 'lx/src/features/chains/utils'
+import { isSVMChain } from 'lx/src/features/platforms/utils/chains'
 
 const DEFAULT_QUERY_SIZE = 20
 

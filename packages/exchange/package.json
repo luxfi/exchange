@@ -1,37 +1,82 @@
 {
   "name": "@luxfi/exchange",
-  "version": "0.0.1",
-  "private": true,
-  "main": "./src/index.ts",
-  "types": "./src/index.ts",
+  "version": "0.2.0",
+  "description": "Lux Exchange SDK - React hooks and utilities for Lux DEX",
+  "license": "MIT",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "exports": {
-    ".": "./src/index.ts",
-    "./chains": "./src/chains/index.ts",
-    "./tokens": "./src/tokens/index.ts",
-    "./contracts": "./src/contracts/index.ts",
-    "./hooks": "./src/hooks/index.ts",
-    "./stores": "./src/stores/index.ts",
-    "./dex": "./src/dex/index.ts"
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.js"
+    },
+    "./chains": {
+      "types": "./dist/chains/index.d.ts",
+      "import": "./dist/chains/index.js"
+    },
+    "./tokens": {
+      "types": "./dist/tokens/index.d.ts",
+      "import": "./dist/tokens/index.js"
+    },
+    "./contracts": {
+      "types": "./dist/contracts/index.d.ts",
+      "import": "./dist/contracts/index.js"
+    },
+    "./hooks": {
+      "types": "./dist/hooks/index.d.ts",
+      "import": "./dist/hooks/index.js"
+    },
+    "./stores": {
+      "types": "./dist/stores/index.d.ts",
+      "import": "./dist/stores/index.js"
+    },
+    "./dex": {
+      "types": "./dist/dex/index.d.ts",
+      "import": "./dist/dex/index.js"
+    },
+    "./bridge": {
+      "types": "./dist/bridge/index.d.ts",
+      "import": "./dist/bridge/index.js"
+    }
   },
+  "files": [
+    "dist",
+    "src"
+  ],
   "scripts": {
     "typecheck": "tsc --noEmit",
     "build": "tsc",
-    "test": "vitest run"
+    "test": "vitest run",
+    "prepublishOnly": "npm run build"
   },
   "dependencies": {
-    "@universe/config": "workspace:^",
     "viem": "^2.43.3",
     "wagmi": "^3.1.3",
     "@tanstack/react-query": "^5.90.12",
     "zustand": "^5.0.5"
   },
   "peerDependencies": {
-    "react": "^19.2.3"
+    "react": ">=18.0.0"
   },
   "devDependencies": {
     "@types/node": "^25.0.3",
     "@types/react": "^19.2.3",
     "typescript": "^5.8.3",
     "vitest": "^4.0.16"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/luxfi/exchange.git",
+    "directory": "packages/exchange"
+  },
+  "keywords": [
+    "lux",
+    "dex",
+    "exchange",
+    "defi",
+    "blockchain",
+    "react",
+    "hooks"
+  ]
 }

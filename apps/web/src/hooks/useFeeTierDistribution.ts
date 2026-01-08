@@ -1,11 +1,11 @@
-import { Currency, Token } from '@uniswap/sdk-core'
-import { FeeAmount } from '@uniswap/v3-sdk'
-import { GraphQLApi } from '@universe/api'
+import { Currency, Token } from '@luxamm/sdk-core'
+import { FeeAmount } from '@luxamm/v3-sdk'
+import { GraphQLApi } from '@luxfi/api'
 import { PoolState, usePool } from 'hooks/usePools'
 import ms from 'ms'
 import { useMemo } from 'react'
-import { useEnabledChains } from 'uniswap/src/features/chains/hooks/useEnabledChains'
-import { toGraphQLChain } from 'uniswap/src/features/chains/utils'
+import { useEnabledChains } from 'lx/src/features/chains/hooks/useEnabledChains'
+import { toGraphQLChain } from 'lx/src/features/chains/utils'
 import { logger } from 'utilities/src/logger/logger'
 
 interface FeeTierDistribution {

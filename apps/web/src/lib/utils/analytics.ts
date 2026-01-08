@@ -1,10 +1,10 @@
-import { Currency, CurrencyAmount, Percent, Price, Token } from '@uniswap/sdk-core'
-import { TradingApi } from '@universe/api'
+import { Currency, CurrencyAmount, Percent, Price, Token } from '@luxamm/sdk-core'
+import { TradingApi } from '@luxfi/api'
 import { NATIVE_CHAIN_ID } from 'constants/tokens'
 import { InterfaceTrade, OffchainOrderType, QuoteMethod, SubmittableTrade } from 'state/routing/types'
 import { isClassicTrade, isSubmittableTrade, isUniswapXTrade } from 'state/routing/utils'
-import { SwapTradeBaseProperties } from 'uniswap/src/features/telemetry/types'
-import { getRouteAnalyticsData, tradeRoutingToFillType } from 'uniswap/src/features/transactions/swap/analytics'
+import { SwapTradeBaseProperties } from 'lx/src/features/telemetry/types'
+import { getRouteAnalyticsData, tradeRoutingToFillType } from 'lx/src/features/transactions/swap/analytics'
 import {
   BridgeTrade,
   ChainedActionTrade,
@@ -13,9 +13,9 @@ import {
   UniswapXTrade,
   UniswapXV2Trade,
   UniswapXV3Trade,
-} from 'uniswap/src/features/transactions/swap/types/trade'
-import { isClassic } from 'uniswap/src/features/transactions/swap/utils/routing'
-import { TransactionOriginType } from 'uniswap/src/features/transactions/types/transactionDetails'
+} from 'lx/src/features/transactions/swap/types/trade'
+import { isClassic } from 'lx/src/features/transactions/swap/utils/routing'
+import { TransactionOriginType } from 'lx/src/features/transactions/types/transactionDetails'
 import { ITraceContext } from 'utilities/src/telemetry/trace/TraceContext'
 import { computeRealizedPriceImpact } from 'utils/prices'
 

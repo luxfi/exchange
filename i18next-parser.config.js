@@ -50,7 +50,7 @@ module.exports = {
   // Supports $LOCALE and $NAMESPACE injection
   // Supports JSON (.json) and YAML (.yml) file formats
   // Where to write the locale files relative to process.cwd()
-  output: 'packages/uniswap/src/i18n/locales/source/en-US.json',
+  output: 'packages/lx/src/i18n/locales/source/en-US.json',
 
   // Plural separator used in your translation keys
   // If you want to use plain english keys, separators such as `_` might conflict. You might want to set `pluralSeparator` to a different string that does not occur in your keys.

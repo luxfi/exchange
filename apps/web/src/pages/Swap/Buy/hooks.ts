@@ -1,5 +1,5 @@
 import { useMeldSupportedCurrencyToCurrencyInfo } from 'appGraphql/data/types'
-import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import { FeatureFlags, useFeatureFlag } from '@luxfi/gating'
 import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useSearchParams } from 'react-router'
@@ -7,17 +7,17 @@ import {
   getFiatCurrencyName,
   useAppFiatCurrency,
   useFiatCurrencyComponents,
-} from 'uniswap/src/features/fiatCurrency/hooks'
+} from 'lx/src/features/fiatCurrency/hooks'
 import {
   useFiatOnRampAggregatorSupportedFiatCurrenciesQuery,
   useFiatOnRampAggregatorSupportedTokensQuery,
-} from 'uniswap/src/features/fiatOnRamp/api'
+} from 'lx/src/features/fiatOnRamp/api'
 import {
   FiatCurrencyInfo,
   FiatOnRampCurrency,
   FORCountry,
   OffRampTransferDetailsRequest,
-} from 'uniswap/src/features/fiatOnRamp/types'
+} from 'lx/src/features/fiatOnRamp/types'
 // biome-ignore lint/style/noRestrictedImports: Buy hooks need direct SDK imports
 import { getFiatCurrencyComponents } from 'utilities/src/format/localeBased'
 

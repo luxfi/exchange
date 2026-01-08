@@ -1,6 +1,6 @@
 import { DdSdkReactNative } from '@datadog/mobile-react-native'
 import { getUniqueIdSync } from 'react-native-device-info'
-import { MobileUserPropertyName } from 'uniswap/src/features/telemetry/user'
+import { MobileUserPropertyName } from 'lx/src/features/telemetry/user'
 
 export function setDatadogUserWithUniqueId(activeAddress: Maybe<Address>): void {
   DdSdkReactNative.setUser({

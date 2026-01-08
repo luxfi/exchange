@@ -5,9 +5,9 @@ import { LimitContext } from 'state/limit/LimitContext'
 import { MultichainContext } from 'state/multichain/types'
 import { SwapAndLimitContext } from 'state/swap/types'
 import { act, renderWithUniswapContext, screen } from 'test-utils/render'
-import { DAI, USDC_MAINNET } from 'uniswap/src/constants/tokens'
-import { LimitsExpiry } from 'uniswap/src/types/limits'
-import { SwapTab } from 'uniswap/src/types/screens/interface'
+import { DAI, USDC_MAINNET } from 'lx/src/constants/tokens'
+import { LimitsExpiry } from 'lx/src/types/limits'
+import { SwapTab } from 'lx/src/types/screens/interface'
 
 const mockMultichainContextValue = {
   reset: vi.fn(),

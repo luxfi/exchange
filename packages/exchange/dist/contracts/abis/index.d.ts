@@ -1,11 +1,14 @@
 /**
  * Contract ABIs for Lux Exchange
+ *
+ * AMM V2/V3 - Concentrated liquidity AMM (Uniswap V2/V3 compatible)
+ * DEX V4 - Hook-based DEX with singleton pool manager (Uniswap V4 compatible)
  */
-export { UNISWAP_V2_ROUTER_ABI } from './uniswap-v2-router';
-export { UNISWAP_V2_FACTORY_ABI } from './uniswap-v2-factory';
-export { UNISWAP_V2_PAIR_ABI } from './uniswap-v2-pair';
-export { UNISWAP_V3_FACTORY_ABI } from './uniswap-v3-factory';
-export { UNISWAP_V3_POOL_ABI } from './uniswap-v3-pool';
+export { AMM_V2_ROUTER_ABI, UNISWAP_V2_ROUTER_ABI } from './amm-v2-router';
+export { AMM_V2_FACTORY_ABI, UNISWAP_V2_FACTORY_ABI } from './amm-v2-factory';
+export { AMM_V2_PAIR_ABI, UNISWAP_V2_PAIR_ABI } from './amm-v2-pair';
+export { AMM_V3_FACTORY_ABI, UNISWAP_V3_FACTORY_ABI } from './amm-v3-factory';
+export { AMM_V3_POOL_ABI, UNISWAP_V3_POOL_ABI } from './amm-v3-pool';
 export { SWAP_ROUTER_ABI } from './swap-router';
 export { QUOTER_V2_ABI } from './quoter-v2';
 export { NFT_POSITION_MANAGER_ABI } from './nft-position-manager';

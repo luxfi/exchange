@@ -32,7 +32,7 @@
     "paths": {
       "ui/src/*": ["../../packages/ui/src/*"],
       "utilities/src/*": ["../../packages/utilities/src/*"],
-      "uniswap/src/*": ["../../packages/uniswap/src/*"]
+      "lx/src/*": ["../../packages/lx/src/*"]
     }
   },
   "include": [
@@ -44,12 +44,20 @@
     "scripts/*",
     "vite/*"
   ],
+  "exclude": [
+    "src/_pages_legacy/**/*",
+    "src/components/TokenTransaction/**/*",
+    "src/components/Transactions/**/*",
+    "src/components/TokenPools/**/*",
+    "src/components/QuasarLiquidityGuard/**/*",
+    "src/components/Tokens/TokenDetails/tables/TokenDetailsPoolsTable.test.tsx"
+  ],
   "references": [
     {
       "path": "../../packages/utilities"
     },
     {
-      "path": "../../packages/uniswap"
+      "path": "../../packages/lx"
     },
     {
       "path": "../../packages/ui"

@@ -1,5 +1,5 @@
 {
-  "name": "@universe/gating",
+  "name": "@luxfi/gating",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "packages/gating/src",
   "projectType": "library",

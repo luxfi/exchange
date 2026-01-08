@@ -53,7 +53,7 @@ module.exports = {
           'error',
           {
             allowSameFolder: false,
-            prefix: '@universe/api',
+            prefix: '@luxfi/api',
           },
         ],
       },

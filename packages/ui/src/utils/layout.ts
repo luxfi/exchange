@@ -17,7 +17,7 @@ export function usePostTextElementPositionProps(): {
   onTextLayout: (event: NativeSyntheticEvent<TextLayoutEventData>) => void
 } {
   const [postTextElementPositionProps, setPostTextElementPositionProps] = useState<ElementPositionProps | undefined>(
-    undefined,
+    undefined
   )
 
   const onTextLayout = (event: NativeSyntheticEvent<TextLayoutEventData>): void => {

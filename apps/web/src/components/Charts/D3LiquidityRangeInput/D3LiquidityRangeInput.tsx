@@ -1,6 +1,6 @@
-import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
-import { Currency, Price } from '@uniswap/sdk-core'
-import { GraphQLApi } from '@universe/api'
+import { ProtocolVersion } from '@luxdex/client-data-api/dist/data/v1/poolTypes_pb'
+import { Currency, Price } from '@luxamm/sdk-core'
+import { GraphQLApi } from '@luxfi/api'
 import { D3LiquidityChartHeader } from 'components/Charts/D3LiquidityRangeInput/D3LiquidityRangeChart/components/D3LiquidityChartHeader'
 import { D3LiquidityMinMaxInput } from 'components/Charts/D3LiquidityRangeInput/D3LiquidityRangeChart/components/D3LiquidityMinMaxInput'
 import { DefaultPriceStrategies } from 'components/Charts/D3LiquidityRangeInput/D3LiquidityRangeChart/components/DefaultPriceStrategies'
@@ -19,8 +19,8 @@ import { UTCTimestamp } from 'lightweight-charts'
 import { useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Flex, SegmentedControlOption, Shine, Text } from 'ui/src'
-import { ZERO_ADDRESS } from 'uniswap/src/constants/misc'
-import { getChainInfo } from 'uniswap/src/features/chains/chainInfo'
+import { ZERO_ADDRESS } from 'lx/src/constants/misc'
+import { getChainInfo } from 'lx/src/features/chains/chainInfo'
 
 const MIN_DATA_POINTS = 5
 

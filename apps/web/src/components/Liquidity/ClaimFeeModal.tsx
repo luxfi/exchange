@@ -1,6 +1,6 @@
-import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
-import { CurrencyAmount } from '@uniswap/sdk-core'
-import { TradingApi } from '@universe/api'
+import { ProtocolVersion } from '@luxdex/client-data-api/dist/data/v1/poolTypes_pb'
+import { CurrencyAmount } from '@luxamm/sdk-core'
+import { TradingApi } from '@luxfi/api'
 import { ErrorCallout } from 'components/ErrorCallout'
 import { getLPBaseAnalyticsProperties } from 'components/Liquidity/analytics'
 import { canUnwrapCurrency, getCurrencyWithOptionalUnwrap } from 'components/Liquidity/utils/currency'
@@ -16,32 +16,32 @@ import { liquiditySaga } from 'state/sagas/liquidity/liquiditySaga'
 import { Button, Flex, Switch, Text } from 'ui/src'
 import { Passkey } from 'ui/src/components/icons/Passkey'
 import { iconSizes } from 'ui/src/theme'
-import { CurrencyLogo } from 'uniswap/src/components/CurrencyLogo/CurrencyLogo'
-import { GetHelpHeader } from 'uniswap/src/components/dialog/GetHelpHeader'
-import { Modal } from 'uniswap/src/components/modals/Modal'
-import { PollingInterval, ZERO_ADDRESS } from 'uniswap/src/constants/misc'
-import { nativeOnChain } from 'uniswap/src/constants/tokens'
-import { uniswapUrls } from 'uniswap/src/constants/urls'
-import { useClaimLpFeesCalldataQuery } from 'uniswap/src/data/apiClients/tradingApi/useClaimLpFeesCalldataQuery'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
-import { useGetPasskeyAuthStatus } from 'uniswap/src/features/passkey/hooks/useGetPasskeyAuthStatus'
-import { InterfaceEventName, ModalName } from 'uniswap/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
-import { useCurrencyInfo } from 'uniswap/src/features/tokens/useCurrencyInfo'
-import { useUSDCValue } from 'uniswap/src/features/transactions/hooks/useUSDCPrice'
+import { CurrencyLogo } from 'lx/src/components/CurrencyLogo/CurrencyLogo'
+import { GetHelpHeader } from 'lx/src/components/dialog/GetHelpHeader'
+import { Modal } from 'lx/src/components/modals/Modal'
+import { PollingInterval, ZERO_ADDRESS } from 'lx/src/constants/misc'
+import { nativeOnChain } from 'lx/src/constants/tokens'
+import { uniswapUrls } from 'lx/src/constants/urls'
+import { useClaimLpFeesCalldataQuery } from 'lx/src/data/apiClients/tradingApi/useClaimLpFeesCalldataQuery'
+import { UniverseChainId } from 'lx/src/features/chains/types'
+import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
+import { useGetPasskeyAuthStatus } from 'lx/src/features/passkey/hooks/useGetPasskeyAuthStatus'
+import { InterfaceEventName, ModalName } from 'lx/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
+import { useCurrencyInfo } from 'lx/src/features/tokens/useCurrencyInfo'
+import { useUSDCValue } from 'lx/src/features/transactions/hooks/useUSDCPrice'
 import {
   CollectFeesTxAndGasInfo,
   isValidLiquidityTxContext,
   LiquidityTransactionType,
-} from 'uniswap/src/features/transactions/liquidity/types'
-import { getErrorMessageToDisplay, parseErrorMessageTitle } from 'uniswap/src/features/transactions/liquidity/utils'
-import { TransactionStep } from 'uniswap/src/features/transactions/steps/types'
-import { validateTransactionRequest } from 'uniswap/src/features/transactions/swap/utils/trade'
-import { useWallet } from 'uniswap/src/features/wallet/hooks/useWallet'
-import { isSignerMnemonicAccountDetails } from 'uniswap/src/features/wallet/types/AccountDetails'
-import { TestID } from 'uniswap/src/test/fixtures/testIDs'
-import { currencyId } from 'uniswap/src/utils/currencyId'
+} from 'lx/src/features/transactions/liquidity/types'
+import { getErrorMessageToDisplay, parseErrorMessageTitle } from 'lx/src/features/transactions/liquidity/utils'
+import { TransactionStep } from 'lx/src/features/transactions/steps/types'
+import { validateTransactionRequest } from 'lx/src/features/transactions/swap/utils/trade'
+import { useWallet } from 'lx/src/features/wallet/hooks/useWallet'
+import { isSignerMnemonicAccountDetails } from 'lx/src/features/wallet/types/AccountDetails'
+import { TestID } from 'lx/src/test/fixtures/testIDs'
+import { currencyId } from 'lx/src/utils/currencyId'
 import { NumberType } from 'utilities/src/format/types'
 import { logger } from 'utilities/src/logger/logger'
 import { useTrace } from 'utilities/src/telemetry/trace/TraceContext'
@@ -260,8 +260,8 @@ export function ClaimFeeModal() {
               backgroundColor="$surface2"
               borderTopLeftRadius="$rounded12"
               borderTopRightRadius="$rounded12"
-              borderBottomLeftRadius={canUnwrap ? '$rounded0' : '$rounded12'}
-              borderBottomRightRadius={canUnwrap ? '$rounded0' : '$rounded12'}
+              borderBottomLeftRadius={canUnwrap ? 0 : '$rounded12'}
+              borderBottomRightRadius={canUnwrap ? 0 : '$rounded12'}
               p="$padding16"
               gap="$gap12"
             >

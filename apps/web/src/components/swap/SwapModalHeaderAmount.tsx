@@ -1,4 +1,4 @@
-import { Currency, CurrencyAmount } from '@uniswap/sdk-core'
+import { Currency, CurrencyAmount } from '@luxamm/sdk-core'
 import Column from 'components/deprecated/Column'
 import Row from 'components/deprecated/Row'
 import CurrencyLogo from 'components/Logo/CurrencyLogo'
@@ -9,8 +9,8 @@ import { TextProps } from 'rebass'
 import { ThemedText } from 'theme/components'
 import { useDeviceDimensions } from 'ui/src/hooks/useDeviceDimensions'
 import { breakpoints } from 'ui/src/theme'
-import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
-import { CurrencyField } from 'uniswap/src/types/currency'
+import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
+import { CurrencyField } from 'lx/src/types/currency'
 import { NumberType } from 'utilities/src/format/types'
 
 const Label = deprecatedStyled(ThemedText.BodySmall)<{ cursor?: string }>`

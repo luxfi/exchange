@@ -1,6 +1,24 @@
 import type { GestureResponderEvent } from 'react-native'
-import type { GetProps } from 'tamagui'
+import type { GetProps, SpaceTokens } from 'tamagui'
 import type { TouchableAreaFrame } from 'ui/src/components/touchable/TouchableArea/TouchableAreaFrame'
+
+// Shorthand props type for padding and margin
+type ShorthandSpaceProps = {
+  p?: SpaceTokens | number
+  px?: SpaceTokens | number
+  py?: SpaceTokens | number
+  pt?: SpaceTokens | number
+  pb?: SpaceTokens | number
+  pl?: SpaceTokens | number
+  pr?: SpaceTokens | number
+  m?: SpaceTokens | number
+  mx?: SpaceTokens | number
+  my?: SpaceTokens | number
+  mt?: SpaceTokens | number
+  mb?: SpaceTokens | number
+  ml?: SpaceTokens | number
+  mr?: SpaceTokens | number
+}
 
 type TouchableAreaFrameProps = GetProps<typeof TouchableAreaFrame>
 
@@ -43,5 +61,5 @@ type RaisedProps = TouchableAreaExtraProps &
     backgroundColor: NonNullable<TouchableAreaFrameProps['backgroundColor']>
   }
 
-export type TouchableAreaProps = NonRaisedProps | RaisedProps
+export type TouchableAreaProps = (NonRaisedProps | RaisedProps) & ShorthandSpaceProps
 export type TouchableAreaEvent = GestureResponderEvent

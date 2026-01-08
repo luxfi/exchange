@@ -1,9 +1,19 @@
 import { RemoveScroll } from '@tamagui/remove-scroll'
-import { PropsWithChildren, ReactNode, useCallback, useEffect, useRef, useState } from 'react'
-import { DimensionValue } from 'react-native'
-import { Adapt, Dialog, GetProps, Sheet, styled, useIsTouchDevice, useMedia, View, VisuallyHidden } from 'tamagui'
-import { CloseIconProps, CloseIconWithHover } from 'ui/src/components/icons/CloseIconWithHover'
-import { Flex, FlexProps } from 'ui/src/components/layout'
+import { type PropsWithChildren, type ReactNode, useCallback, useEffect, useRef, useState } from 'react'
+import type { DimensionValue } from 'react-native'
+import {
+  Adapt,
+  Dialog,
+  type GetProps,
+  Sheet,
+  styled,
+  useIsTouchDevice,
+  useMedia,
+  type View,
+  VisuallyHidden,
+} from 'tamagui'
+import { type CloseIconProps, CloseIconWithHover } from 'ui/src/components/icons/CloseIconWithHover'
+import { Flex, type FlexProps } from 'ui/src/components/layout'
 import { useScrollbarStyles } from 'ui/src/styles/ScrollbarStyles'
 import { INTERFACE_NAV_HEIGHT, zIndexes } from 'ui/src/theme'
 import { useShadowPropsShort } from 'ui/src/theme/shadows'
@@ -70,7 +80,7 @@ export function WebBottomSheet({
         onClose()
       }
     },
-    [onClose],
+    [onClose]
   )
 
   const sheetOverrideStyles: FlexProps = {
@@ -202,7 +212,7 @@ export function AdaptiveWebModal({
         onClose()
       }
     },
-    [onClose],
+    [onClose]
   )
 
   return (
@@ -297,7 +307,7 @@ export function WebModalWithBottomAttachment({
         onClose()
       }
     },
-    [onClose],
+    [onClose]
   )
 
   const isTopAligned = alignment === 'top'

@@ -1,11 +1,11 @@
-import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import { FeatureFlags, useFeatureFlag } from '@luxfi/gating'
 import { useLocation, useNavigate } from 'react-router'
 import { useAppDispatch, useAppSelector } from 'state/hooks'
 import { InterfaceState } from 'state/webReducer'
-import { WRAPPED_PATH } from 'uniswap/src/components/banners/shared/utils'
-import { UniswapWrapped2025Banner } from 'uniswap/src/components/banners/UniswapWrapped2025Banner/UniswapWrapped2025Banner'
-import { selectHasDismissedUniswapWrapped2025Banner } from 'uniswap/src/features/behaviorHistory/selectors'
-import { setHasDismissedUniswapWrapped2025Banner } from 'uniswap/src/features/behaviorHistory/slice'
+import { WRAPPED_PATH } from 'lx/src/components/banners/shared/utils'
+import { UniswapWrapped2025Banner } from 'lx/src/components/banners/UniswapWrapped2025Banner/UniswapWrapped2025Banner'
+import { selectHasDismissedUniswapWrapped2025Banner } from 'lx/src/features/behaviorHistory/selectors'
+import { setHasDismissedUniswapWrapped2025Banner } from 'lx/src/features/behaviorHistory/slice'
 
 export function useRenderUniswapWrapped2025Banner(): JSX.Element | null {
   const isFeatureFlagEnabled = useFeatureFlag(FeatureFlags.UniswapWrapped2025)

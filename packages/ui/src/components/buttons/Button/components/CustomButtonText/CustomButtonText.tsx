@@ -17,7 +17,7 @@ function createSizeVariant({
 }) {
   return (
     _size: NonNullable<ButtonVariantProps['size']>,
-    context: { props: Record<string, unknown> },
+    context: { props: Record<string, unknown> }
   ): Record<string, unknown> => {
     const baseStyles = {
       fontSize,
@@ -107,9 +107,8 @@ type CustomProps = {
   'line-height-disabled'?: string
 }
 
-type CustomButtonTextWithExtraProps = typeof CustomButtonTextStyled & {
-  (props: CustomProps & GetProps<typeof CustomButtonTextStyled>): JSX.Element | null
-}
+type CustomButtonTextWithExtraProps = typeof CustomButtonTextStyled &
+  ((props: CustomProps & GetProps<typeof CustomButtonTextStyled>) => JSX.Element | null)
 
 export const CustomButtonText = CustomButtonTextStyled as CustomButtonTextWithExtraProps
 

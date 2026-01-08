@@ -1,48 +1,30 @@
-import { styled, Stack, XStack } from 'tamagui'
-import type { GetProps } from 'tamagui'
 import { forwardRef } from 'react'
+import type { GetProps } from 'tamagui'
+import { styled, XStack } from 'tamagui'
+
+type InputSize = 'sm' | 'md' | 'lg'
 
 const InputFrame = styled(XStack, {
   name: 'InputFrame',
   alignItems: 'center',
-  backgroundColor: '$backgroundHover',
-  borderRadius: '$3',
+  backgroundColor: '$surface2',
+  borderRadius: '$rounded12',
   borderWidth: 1,
-  borderColor: '$borderColor',
-  paddingHorizontal: '$3',
+  borderColor: '$surface3',
+  px: '$spacing12',
   height: 48,
-  gap: '$2',
+  gap: '$spacing8',
 
   focusWithinStyle: {
-    borderColor: '$primary',
-  },
-
-  variants: {
-    size: {
-      sm: {
-        height: 36,
-        paddingHorizontal: '$2',
-      },
-      md: {
-        height: 48,
-        paddingHorizontal: '$3',
-      },
-      lg: {
-        height: 56,
-        paddingHorizontal: '$4',
-      },
-    },
-    error: {
-      true: {
-        borderColor: '$red10',
-      },
-    },
-  } as const,
-
-  defaultVariants: {
-    size: 'md',
+    borderColor: '$accent1',
   },
 })
+
+const sizeStyles: Record<InputSize, { height: number; px: number }> = {
+  sm: { height: 36, px: 8 },
+  md: { height: 48, px: 12 },
+  lg: { height: 56, px: 16 },
+}
 
 export type InputProps = Omit<GetProps<typeof InputFrame>, 'onChange'> & {
   value?: string
@@ -51,12 +33,24 @@ export type InputProps = Omit<GetProps<typeof InputFrame>, 'onChange'> & {
   type?: 'text' | 'number' | 'password'
   leftElement?: React.ReactNode
   rightElement?: React.ReactNode
+  size?: InputSize
+  error?: boolean
 }
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(
-  ({ value, onChangeText, placeholder, type = 'text', leftElement, rightElement, size, error, ...props }, ref) => {
+  (
+    { value, onChangeText, placeholder, type = 'text', leftElement, rightElement, size = 'md', error, ...props },
+    ref
+  ) => {
+    const sizeStyle = sizeStyles[size]
+
     return (
-      <InputFrame size={size} error={error} {...props}>
+      <InputFrame
+        height={sizeStyle.height}
+        px={sizeStyle.px}
+        borderColor={error ? '$statusCritical' : '$surface3'}
+        {...props}
+      >
         {leftElement}
         <input
           ref={ref}
@@ -80,3 +74,5 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
 )
 
 Input.displayName = 'Input'
+
+export type InputRef = HTMLInputElement

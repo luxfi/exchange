@@ -11,7 +11,7 @@ import { Trans } from 'react-i18next'
 import { transitions } from 'theme/styles'
 import { Flex, Separator, Text } from 'ui/src'
 import { BackArrow } from 'ui/src/components/icons/BackArrow'
-import { CONNECTION_PROVIDER_IDS } from 'uniswap/src/constants/web3'
+import { CONNECTION_PROVIDER_IDS } from 'lx/src/constants/web3'
 
 export function OtherWalletsModal() {
   const showMoonpayText = useShowMoonpayText()

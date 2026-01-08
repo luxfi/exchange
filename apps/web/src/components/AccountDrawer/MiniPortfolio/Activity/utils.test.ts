@@ -1,5 +1,5 @@
 import { BigNumber } from '@ethersproject/bignumber'
-import { GraphQLApi } from '@universe/api'
+import { GraphQLApi } from '@luxfi/api'
 import { Activity } from 'components/AccountDrawer/MiniPortfolio/Activity/types'
 import {
   createActivityMapByHash,
@@ -9,8 +9,8 @@ import {
   haveSameNonce,
   parseTokenAmount,
 } from 'components/AccountDrawer/MiniPortfolio/Activity/utils'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { TransactionStatus } from 'uniswap/src/features/transactions/types/transactionDetails'
+import { UniverseChainId } from 'lx/src/features/chains/types'
+import { TransactionStatus } from 'lx/src/features/transactions/types/transactionDetails'
 import { DEFAULT_ERC20_DECIMALS } from 'utilities/src/tokens/constants'
 import { vi } from 'vitest'
 

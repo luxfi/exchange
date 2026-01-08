@@ -1,4 +1,4 @@
-import { Currency } from '@uniswap/sdk-core'
+import { Currency } from '@luxamm/sdk-core'
 import { createCurrencyParsersWithValidation } from 'components/Liquidity/parsers/urlParsers'
 import { NATIVE_CHAIN_ID } from 'constants/tokens'
 import { useCurrencyWithLoading } from 'hooks/Tokens'

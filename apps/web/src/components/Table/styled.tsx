@@ -1,5 +1,5 @@
 import { getTokenDetailsURL, unwrapToken } from 'appGraphql/data/util'
-import { GraphQLApi } from '@universe/api'
+import { GraphQLApi } from '@luxfi/api'
 import { PortfolioLogo } from 'components/AccountDrawer/MiniPortfolio/PortfolioLogo'
 import { Cell } from 'components/Table/Cell'
 import { useTableSize } from 'components/Table/TableSizeProvider'
@@ -14,9 +14,9 @@ import { Link } from 'react-router'
 import { ClickableTamaguiStyle } from 'theme/components/styles'
 import { Anchor, Flex, styled, Text, TextProps, View } from 'ui/src'
 import { breakpoints, zIndexes } from 'ui/src/theme'
-import { useEnabledChains } from 'uniswap/src/features/chains/hooks/useEnabledChains'
-import { fromGraphQLChain } from 'uniswap/src/features/chains/utils'
-import { useCurrentLocale } from 'uniswap/src/features/language/hooks'
+import { useEnabledChains } from 'lx/src/features/chains/hooks/useEnabledChains'
+import { fromGraphQLChain } from 'lx/src/features/chains/utils'
+import { useCurrentLocale } from 'lx/src/features/language/hooks'
 
 export const SHOW_RETURN_TO_TOP_OFFSET = 500
 export const LOAD_MORE_BOTTOM_OFFSET = 50

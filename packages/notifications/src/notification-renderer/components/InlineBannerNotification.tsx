@@ -1,7 +1,7 @@
-import { BackgroundType } from '@uniswap/client-notification-service/dist/uniswap/notificationservice/v1/api_pb'
-import type { InAppNotification } from '@universe/api'
-import { BannerTemplate } from '@universe/notifications/src/notification-renderer/components/BannerTemplate'
-import { type NotificationClickTarget } from '@universe/notifications/src/notification-service/NotificationService'
+import { BackgroundType } from '@luxdex/client-notification-service/dist/uniswap/notificationservice/v1/api_pb'
+import type { InAppNotification } from '@luxfi/api'
+import { BannerTemplate } from '@luxfi/notifications/src/notification-renderer/components/BannerTemplate'
+import { type NotificationClickTarget } from '@luxfi/notifications/src/notification-service/NotificationService'
 import { memo, useMemo } from 'react'
 
 interface InlineBannerNotificationProps {

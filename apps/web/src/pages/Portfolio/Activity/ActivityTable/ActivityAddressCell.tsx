@@ -4,8 +4,8 @@ import { memo, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Flex, Text } from 'ui/src'
 import { iconSizes } from 'ui/src/theme'
-import { TransactionDetails, TransactionType } from 'uniswap/src/features/transactions/types/transactionDetails'
-import { getValidAddress } from 'uniswap/src/utils/addresses'
+import { TransactionDetails, TransactionType } from 'lx/src/features/transactions/types/transactionDetails'
+import { getValidAddress } from 'lx/src/utils/addresses'
 import { shortenHash } from 'utilities/src/addresses'
 
 interface ActivityAddressCellProps {

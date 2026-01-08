@@ -1,23 +1,43 @@
 {
   "name": "@luxfi/dex",
-  "version": "0.0.1",
-  "private": true,
+  "version": "1.3.0",
+  "description": "Lux DEX SDK - CLOB client, AMM precompiles, and omnichain routing",
+  "license": "MIT",
   "type": "module",
-  "main": "./src/index.ts",
-  "types": "./src/index.ts",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "exports": {
-    ".": "./src/index.ts",
-    "./client": "./src/client/index.ts",
-    "./router": "./src/router/index.ts",
-    "./precompile": "./src/precompile/index.ts",
-    "./hooks": "./src/hooks/index.ts"
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./client": {
+      "types": "./dist/client/index.d.ts",
+      "import": "./dist/client/index.js"
+    },
+    "./router": {
+      "types": "./dist/router/index.d.ts",
+      "import": "./dist/router/index.js"
+    },
+    "./precompile": {
+      "types": "./dist/precompile/index.d.ts",
+      "import": "./dist/precompile/index.js"
+    },
+    "./hooks": {
+      "types": "./dist/hooks/index.d.ts",
+      "import": "./dist/hooks/index.js"
+    }
   },
+  "files": [
+    "dist",
+    "src"
+  ],
   "scripts": {
     "typecheck": "tsc --noEmit",
-    "build": "tsc"
+    "build": "tsc",
+    "prepublishOnly": "bun run build"
   },
   "dependencies": {
-    "@universe/config": "workspace:^",
     "viem": "^2.30.6",
     "wagmi": "^3.1.3",
     "zustand": "^5.0.5"
@@ -28,6 +48,20 @@
     "typescript": "^5.8.3"
   },
   "peerDependencies": {
-    "react": "^19.2.3"
-  }
+    "react": "^19.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/luxfi/exchange.git",
+    "directory": "packages/dex"
+  },
+  "keywords": [
+    "lux",
+    "dex",
+    "defi",
+    "clob",
+    "amm",
+    "swap",
+    "precompile"
+  ]
 }

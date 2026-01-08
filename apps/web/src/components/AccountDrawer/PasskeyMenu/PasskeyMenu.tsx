@@ -20,17 +20,17 @@ import { Windows } from 'ui/src/components/icons/Windows'
 import { GoogleChromeLogo } from 'ui/src/components/logos/GoogleChromeLogo'
 import { UseSporeColorsReturn } from 'ui/src/hooks/useSporeColors'
 import { iconSizes } from 'ui/src/theme'
-import { uniswapUrls } from 'uniswap/src/constants/urls'
+import { uniswapUrls } from 'lx/src/constants/urls'
 import {
   Action,
   Authenticator,
   AuthenticatorNameType,
   authenticateWithPasskey,
   listAuthenticators,
-} from 'uniswap/src/features/passkey/embeddedWallet'
-import { ElementName, ModalName } from 'uniswap/src/features/telemetry/constants'
-import Trace from 'uniswap/src/features/telemetry/Trace'
-import i18n from 'uniswap/src/i18n'
+} from 'lx/src/features/passkey/embeddedWallet'
+import { ElementName, ModalName } from 'lx/src/features/telemetry/constants'
+import Trace from 'lx/src/features/telemetry/Trace'
+import i18n from 'lx/src/i18n'
 import { isMobileWeb } from 'utilities/src/platform'
 import { useEvent } from 'utilities/src/react/hooks'
 

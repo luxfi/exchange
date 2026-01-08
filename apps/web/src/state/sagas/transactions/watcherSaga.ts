@@ -5,10 +5,10 @@ import { useDispatch } from 'react-redux'
 import { createUniverseTransaction } from 'state/sagas/utils/transaction'
 import { PendingTransactionDetails } from 'state/transactions/types'
 import { call } from 'typed-redux-saga'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { refetchQueries } from 'uniswap/src/features/portfolio/portfolioUpdates/refetchQueriesSaga'
+import { UniverseChainId } from 'lx/src/features/chains/types'
+import { refetchQueries } from 'lx/src/features/portfolio/portfolioUpdates/refetchQueriesSaga'
 
-import { createSaga } from 'uniswap/src/utils/saga'
+import { createSaga } from 'lx/src/utils/saga'
 
 type WatchTransactionsCallbackParams = {
   pendingDiff: PendingTransactionDetails[]

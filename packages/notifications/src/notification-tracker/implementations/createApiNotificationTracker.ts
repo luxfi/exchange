@@ -1,10 +1,10 @@
 import type { FetchQueryOptions, QueryClient } from '@tanstack/react-query'
-import type { NotificationsApiClient } from '@universe/api'
-import { createNotificationTracker } from '@universe/notifications/src/notification-tracker/implementations/createNotificationTracker'
+import type { NotificationsApiClient } from '@luxfi/api'
+import { createNotificationTracker } from '@luxfi/notifications/src/notification-tracker/implementations/createNotificationTracker'
 import {
   NotificationTracker,
   TrackingMetadata,
-} from '@universe/notifications/src/notification-tracker/NotificationTracker'
+} from '@luxfi/notifications/src/notification-tracker/NotificationTracker'
 import { getLogger } from 'utilities/src/logger/logger'
 import { ReactQueryCacheKey } from 'utilities/src/reactQuery/cache'
 
@@ -34,8 +34,8 @@ export interface ApiNotificationTrackerContext {
  *
  * Example usage:
  * ```typescript
- * import { createApiNotificationTracker } from '@universe/notifications'
- * import { createNotificationsApiClient } from '@universe/api'
+ * import { createApiNotificationTracker } from '@luxfi/notifications'
+ * import { createNotificationsApiClient } from '@luxfi/api'
  *
  * const apiClient = createNotificationsApiClient({
  *   fetchClient: myFetchClient,

@@ -5,8 +5,8 @@ import { useOrderedWallets } from 'features/wallet/connection/hooks/useOrderedWa
 import { useModalState } from 'hooks/useModalState'
 import { useAtom } from 'jotai'
 import { Flex } from 'ui/src'
-import { CONNECTION_PROVIDER_IDS } from 'uniswap/src/constants/web3'
-import { ModalName } from 'uniswap/src/features/telemetry/constants'
+import { CONNECTION_PROVIDER_IDS } from 'lx/src/constants/web3'
+import { ModalName } from 'lx/src/features/telemetry/constants'
 import { useEvent } from 'utilities/src/react/hooks'
 
 interface DownloadHeaderProps {

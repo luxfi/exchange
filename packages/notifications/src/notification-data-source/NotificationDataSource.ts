@@ -1,4 +1,4 @@
-import { type InAppNotification } from '@universe/api'
+import { type InAppNotification } from '@luxfi/api'
 
 export interface NotificationDataSource {
   // Start receiving notifications (implementation determines mechanism: fetch, websocket, polling, etc.)

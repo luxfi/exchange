@@ -1,6 +1,6 @@
 import { renderHook } from '@testing-library/react'
 import { useTokenDetailsCTAVariant } from 'src/components/TokenDetails/useTokenDetailsCTAVariant'
-import { CurrencyField } from 'uniswap/src/types/currency'
+import { CurrencyField } from 'lx/src/types/currency'
 
 const mockOnPress = jest.fn()
 

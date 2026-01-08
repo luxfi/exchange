@@ -1,5 +1,5 @@
-import { TransactionStatus, TransactionType } from 'uniswap/src/features/transactions/types/transactionDetails'
-import i18n from 'uniswap/src/i18n'
+import { TransactionStatus, TransactionType } from 'lx/src/features/transactions/types/transactionDetails'
+import i18n from 'lx/src/i18n'
 import { logger } from 'utilities/src/logger/logger'
 
 type TransactionStatusWeb = TransactionStatus.Success | TransactionStatus.Failed | TransactionStatus.Pending

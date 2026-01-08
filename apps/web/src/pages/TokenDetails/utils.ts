@@ -1,7 +1,7 @@
-import { Currency } from '@uniswap/sdk-core'
+import { Currency } from '@luxamm/sdk-core'
 import { TFunction } from 'i18next'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { getChainLabel } from 'uniswap/src/features/chains/utils'
+import { UniverseChainId } from 'lx/src/features/chains/types'
+import { getChainLabel } from 'lx/src/features/chains/utils'
 
 export function getTokenPageTitle({
   t,

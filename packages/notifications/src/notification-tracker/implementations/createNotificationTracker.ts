@@ -1,7 +1,7 @@
 import {
   NotificationTracker,
   TrackingMetadata,
-} from '@universe/notifications/src/notification-tracker/NotificationTracker'
+} from '@luxfi/notifications/src/notification-tracker/NotificationTracker'
 
 /**
  * Basic implementation of the NotificationTracker interface.

@@ -7,8 +7,8 @@ import { Trans, useTranslation } from 'react-i18next'
 import { ExternalLink } from 'theme/components/Links'
 import { flexColumnNoWrap } from 'theme/styles'
 import { Text, useSporeColors } from 'ui/src'
-import { useENS } from 'uniswap/src/features/ens/useENS'
-import { ExplorerDataType, getExplorerLink } from 'uniswap/src/utils/linking'
+import { useENS } from 'lx/src/features/ens/useENS'
+import { ExplorerDataType, getExplorerLink } from 'lx/src/utils/linking'
 
 const InputPanel = deprecatedStyled.div`
   ${flexColumnNoWrap};

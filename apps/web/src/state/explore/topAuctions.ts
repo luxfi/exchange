@@ -1,4 +1,4 @@
-import { Auction } from 'uniswap/src/data/rest/auctions/types'
+import { Auction } from 'lx/src/data/rest/auctions/types'
 
 // Mock data - realistic auction values
 const MOCK_TOUCAN_AUCTIONS: Auction[] = [

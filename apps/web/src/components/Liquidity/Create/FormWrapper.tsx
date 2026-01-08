@@ -1,5 +1,5 @@
-import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
-import { Currency } from '@uniswap/sdk-core'
+import { ProtocolVersion } from '@luxdex/client-data-api/dist/data/v1/poolTypes_pb'
+import { Currency } from '@luxamm/sdk-core'
 import { BreadcrumbNavContainer, BreadcrumbNavLink } from 'components/BreadcrumbNav'
 import { Container } from 'components/Liquidity/Create/Container'
 import { EditSelectTokensStep } from 'components/Liquidity/Create/EditStep'
@@ -20,8 +20,8 @@ import { Dispatch, SetStateAction, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { AnimatePresence, Flex, HeightAnimator, Text, useMedia } from 'ui/src'
 import { Chevron } from 'ui/src/components/icons/Chevron'
-import { SectionName } from 'uniswap/src/features/telemetry/constants'
-import Trace from 'uniswap/src/features/telemetry/Trace'
+import { SectionName } from 'lx/src/features/telemetry/constants'
+import Trace from 'lx/src/features/telemetry/Trace'
 
 const WIDTH = {
   positionCard: 720,

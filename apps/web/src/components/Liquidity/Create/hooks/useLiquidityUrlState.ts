@@ -1,4 +1,4 @@
-import { Currency } from '@uniswap/sdk-core'
+import { Currency } from '@luxamm/sdk-core'
 import { useCurrencyValidation } from 'components/Liquidity/Create/hooks/useCurrencyValidation'
 import { PositionFlowStep, PositionState, PriceRangeState } from 'components/Liquidity/Create/types'
 import { applyUrlMigrations } from 'components/Liquidity/parsers/migrations'
@@ -16,9 +16,9 @@ import { NATIVE_CHAIN_ID } from 'constants/tokens'
 import { getIsBrowserPage, MatchType, PageType } from 'hooks/useIsPage'
 import { parseAsBoolean, parseAsString, useQueryState, useQueryStates } from 'nuqs'
 import { useCallback, useEffect, useMemo, useState } from 'react'
-import { nativeOnChain } from 'uniswap/src/constants/tokens'
-import { useEnabledChains } from 'uniswap/src/features/chains/hooks/useEnabledChains'
-import { useSupportedChainId } from 'uniswap/src/features/chains/hooks/useSupportedChainId'
+import { nativeOnChain } from 'lx/src/constants/tokens'
+import { useEnabledChains } from 'lx/src/features/chains/hooks/useEnabledChains'
+import { useSupportedChainId } from 'lx/src/features/chains/hooks/useSupportedChainId'
 import { assume0xAddress } from 'utils/wagmi'
 
 // Parser for replace parameters (most params)

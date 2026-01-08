@@ -1,5 +1,5 @@
-import { OpaqueColorValue } from 'react-native'
-import { GetThemeValueForKey } from 'tamagui'
+import type { OpaqueColorValue } from 'react-native'
+import type { GetThemeValueForKey } from 'tamagui'
 
 type HexColor = `#${string}${string}${string}` | `#${string}${string}${string}${string}${string}${string}`
 type RgbColor = `rgb(${number}, ${number}, ${number})` | `rgba(${number}, ${number}, ${number}, ${number})`
@@ -7,7 +7,7 @@ type RgbColor = `rgb(${number}, ${number}, ${number})` | `rgba(${number}, ${numb
 type HexOrRgbColor = HexColor | RgbColor
 
 export const getMaybeHexOrRGBColor = (
-  color?: string | GetThemeValueForKey<'backgroundColor'> | OpaqueColorValue,
+  color?: string | GetThemeValueForKey<'backgroundColor'> | OpaqueColorValue
 ): HexOrRgbColor | undefined => {
   if (!color) {
     return undefined

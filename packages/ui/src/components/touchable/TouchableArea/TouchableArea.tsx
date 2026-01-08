@@ -111,7 +111,7 @@ const TouchableAreaComponentWithoutMemo = forwardRef<TamaguiElement, TouchableAr
     shouldAutomaticallyInjectColors = isWebPlatform,
     ...restProps
   },
-  ref,
+  ref
 ): JSX.Element {
   const [hitSlop, onLayoutWithHitSlop] = useAutoHitSlop(onLayoutProp)
 
@@ -273,7 +273,13 @@ const TouchableAreaComponent = memo(TouchableAreaComponentWithoutMemo)
  * @see useAutoDimensions for minimum dimension handling.
  */
 
-export const TouchableArea = withStaticProperties(TouchableAreaComponent, {
+// Type assertion to expose shorthand props (p, px, py, m, mt, mb, etc.) that Tamagui supports at runtime
+// but doesn't include in the styled() component types
+const TouchableAreaWithShorthands = TouchableAreaComponent as React.ForwardRefExoticComponent<
+  TouchableAreaProps & React.RefAttributes<TamaguiElement>
+>
+
+export const TouchableArea = withStaticProperties(TouchableAreaWithShorthands, {
   Text,
   Icon: ThemedIcon,
 })

@@ -14,12 +14,12 @@ describe('getTsconfigAliases', () => {
 
     // Verify we got aliases for some known packages
     expect(result).toHaveProperty('uniswap')
-    expect(result).toHaveProperty('@universe/api')
+    expect(result).toHaveProperty('@luxfi/api')
 
     // Verify paths are absolute and point to the packages directory
     expect(result.uniswap).toContain('packages/uniswap')
-    expect(result['@universe/api']).toContain('packages/api')
+    expect(result['@luxfi/api']).toContain('packages/api')
     expect(path.isAbsolute(result.uniswap!)).toBe(true)
-    expect(path.isAbsolute(result['@universe/api']!)).toBe(true)
+    expect(path.isAbsolute(result['@luxfi/api']!)).toBe(true)
   })
 })

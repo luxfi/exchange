@@ -1,4 +1,4 @@
-import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import { FeatureFlags, useFeatureFlag } from '@luxfi/gating'
 import { useMedia } from 'ui/src'
 
 export function useIsSearchBarVisible() {

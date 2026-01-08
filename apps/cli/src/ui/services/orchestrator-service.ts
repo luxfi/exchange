@@ -1,8 +1,8 @@
-import type { OrchestratorConfig } from '@universe/cli/src/core/orchestrator'
-import { Orchestrator } from '@universe/cli/src/core/orchestrator'
-import { createVercelAIProvider } from '@universe/cli/src/lib/ai-provider-vercel'
-import { SqliteCacheProvider } from '@universe/cli/src/lib/cache-provider-sqlite'
-import { type ProgressEvent, ProgressLogger, type ProgressStage } from '@universe/cli/src/lib/logger'
+import type { OrchestratorConfig } from '@luxfi/cli/src/core/orchestrator'
+import { Orchestrator } from '@luxfi/cli/src/core/orchestrator'
+import { createVercelAIProvider } from '@luxfi/cli/src/lib/ai-provider-vercel'
+import { SqliteCacheProvider } from '@luxfi/cli/src/lib/cache-provider-sqlite'
+import { type ProgressEvent, ProgressLogger, type ProgressStage } from '@luxfi/cli/src/lib/logger'
 
 export type { ProgressStage, ProgressEvent }
 

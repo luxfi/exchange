@@ -1,6 +1,6 @@
 import { ConfirmedTransactionDetails, TransactionDetails } from 'state/transactions/types'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { TransactionType, UniswapXOrderDetails } from 'uniswap/src/features/transactions/types/transactionDetails'
+import { UniverseChainId } from 'lx/src/features/chains/types'
+import { TransactionType, UniswapXOrderDetails } from 'lx/src/features/transactions/types/transactionDetails'
 
 export enum ActivityUpdateTransactionType {
   BaseTransaction = 'transaction',

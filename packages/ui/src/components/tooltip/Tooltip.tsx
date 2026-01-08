@@ -1,4 +1,4 @@
-import { Tooltip as TamaguiTooltip, TooltipProps, withStaticProperties } from 'tamagui'
+import { type Tooltip as TamaguiTooltip, type TooltipProps, withStaticProperties } from 'tamagui'
 import { PlatformSplitStubError } from 'utilities/src/errors'
 
 export type { TooltipProps } from 'tamagui'
@@ -23,5 +23,5 @@ export const Tooltip = withStaticProperties(
     Arrow: (_props: ArrowProps) => {
       throw new PlatformSplitStubError('Tooltip.Arrow')
     },
-  },
+  }
 )

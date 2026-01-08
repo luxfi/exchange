@@ -1,10 +1,10 @@
 import { QueryResult } from '@apollo/client'
-import { Currency } from '@uniswap/sdk-core'
-import { GraphQLApi } from '@universe/api'
+import { Currency } from '@luxamm/sdk-core'
+import { GraphQLApi } from '@luxfi/api'
 import { TDPChartState } from 'components/Tokens/TokenDetails/ChartSection'
 import { createContext, PropsWithChildren, useContext } from 'react'
-import { GqlChainId, UniverseChainId } from 'uniswap/src/features/chains/types'
-import { PortfolioBalance } from 'uniswap/src/features/dataApi/types'
+import { GqlChainId, UniverseChainId } from 'lx/src/features/chains/types'
+import { PortfolioBalance } from 'lx/src/features/dataApi/types'
 
 export type MultiChainMap = {
   [chain in GraphQLApi.Chain]?: { address?: string; balance?: PortfolioBalance } | undefined
@@ -24,6 +24,9 @@ type BaseTDPContext = {
   multiChainMap: MultiChainMap
 
   tokenColor?: string
+
+  /** Combined loading state for all data sources (GraphQL + G-Chain for Lux chains) */
+  isLoading: boolean
 }
 /** Token details context with an unresolved currency field */
 export type PendingTDPContext = BaseTDPContext & { currency: undefined }

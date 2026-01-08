@@ -1,4 +1,4 @@
-import { SharedEventName } from '@uniswap/analytics-events'
+import { SharedEventName } from '@luxdex/analytics-events'
 import Card, { DarkGrayCard } from 'components/Card/cards'
 import { AutoColumn } from 'components/deprecated/Column'
 import Row, { AutoRow, RowBetween } from 'components/deprecated/Row'
@@ -10,9 +10,9 @@ import { useTranslation } from 'react-i18next'
 import { ThemedText } from 'theme/components'
 import { ExternalLink } from 'theme/components/Links'
 import { ModalCloseIcon, Text, useSporeColors } from 'ui/src'
-import { Modal } from 'uniswap/src/components/modals/Modal'
-import { ModalName } from 'uniswap/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
+import { Modal } from 'lx/src/components/modals/Modal'
+import { ModalName } from 'lx/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
 import { isMobileWeb } from 'utilities/src/platform'
 
 const Wrapper = deprecatedStyled.div`
@@ -83,7 +83,7 @@ function PrivacyPolicy() {
         description: (
           <>
             {t('privacy.trm')}{' '}
-            <ExternalLink href="https://support.uniswap.org/hc/en-us/articles/8671777747597-Address-Screening-Guide">
+            <ExternalLink href="https://docs.lux.exchange/help/address-screening">
               {t('common.button.learn')}
             </ExternalLink>
           </>
@@ -110,7 +110,7 @@ function PrivacyPolicy() {
       <AutoColumn gap="16px">
         <AutoColumn gap="sm" style={{ width: '100%' }}>
           <StyledExternalCard>
-            <ExternalLink href="https://uniswap.org/terms-of-service">
+            <ExternalLink href="https://lux.exchange/terms">
               <RowBetween>
                 <AutoRow gap="4px">
                   <Info size={20} />
@@ -123,7 +123,7 @@ function PrivacyPolicy() {
             </ExternalLink>
           </StyledExternalCard>
           <StyledExternalCard>
-            <ExternalLink href="https://uniswap.org/privacy-policy/">
+            <ExternalLink href="https://lux.exchange/privacy">
               <RowBetween>
                 <AutoRow gap="4px">
                   <Info size={20} />
@@ -153,7 +153,7 @@ function PrivacyPolicy() {
           ))}
           <ThemedText.DeprecatedBody fontSize={12}>
             <Row justify="center" marginBottom="1rem">
-              <ExternalLink href="https://help.uniswap.org/en/articles/5675203-terms-of-service-faq">
+              <ExternalLink href="https://docs.lux.exchange/help/terms-faq">
                 {t('common.button.learn')}
               </ExternalLink>
             </Row>

@@ -6,9 +6,9 @@ import { InterfaceTrade, TradeFillType } from 'state/routing/types'
 import { isLimitTrade, isUniswapXTrade } from 'state/routing/utils'
 import { ExternalLink } from 'theme/components/Links'
 import { Button, Flex, Text } from 'ui/src'
-import { LearnMoreLink } from 'uniswap/src/components/text/LearnMoreLink'
-import { uniswapUrls } from 'uniswap/src/constants/urls'
-import { ExplorerDataType, getExplorerLink } from 'uniswap/src/utils/linking'
+import { LearnMoreLink } from 'lx/src/components/text/LearnMoreLink'
+import { uniswapUrls } from 'lx/src/constants/urls'
+import { ExplorerDataType, getExplorerLink } from 'lx/src/utils/linking'
 
 export enum PendingModalError {
   TOKEN_APPROVAL_ERROR = 0,

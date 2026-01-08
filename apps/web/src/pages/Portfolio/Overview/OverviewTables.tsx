@@ -11,8 +11,8 @@ import { MiniTokensTable } from 'pages/Portfolio/Overview/MiniTokensTable'
 import { OpenLimitsTable } from 'pages/Portfolio/Overview/OpenLimitsTable'
 import { memo } from 'react'
 import { Flex } from 'ui/src'
-import { ActivityRenderData } from 'uniswap/src/features/activity/hooks/useActivityData'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { ActivityRenderData } from 'lx/src/features/activity/hooks/useActivityData'
+import { UniverseChainId } from 'lx/src/features/chains/types'
 
 interface PortfolioOverviewTablesProps {
   activityData: ActivityRenderData

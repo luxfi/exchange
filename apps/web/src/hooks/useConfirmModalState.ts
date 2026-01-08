@@ -1,4 +1,4 @@
-import { Currency, Percent } from '@uniswap/sdk-core'
+import { Currency, Percent } from '@luxamm/sdk-core'
 import { ConfirmModalState } from 'components/ConfirmSwapModal'
 import { PendingModalError } from 'components/ConfirmSwapModal/Error'
 import { RESET_APPROVAL_TOKENS } from 'components/swap/constants'
@@ -15,8 +15,8 @@ import { InterfaceTrade } from 'state/routing/types'
 import { isUniswapXTrade } from 'state/routing/utils'
 import { useIsTransactionConfirmed } from 'state/transactions/hooks'
 import invariant from 'tiny-invariant'
-import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
-import { CurrencyField } from 'uniswap/src/types/currency'
+import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
+import { CurrencyField } from 'lx/src/types/currency'
 import { NumberType } from 'utilities/src/format/types'
 import { logger } from 'utilities/src/logger/logger'
 import { didUserReject } from 'utils/swapErrorToUserReadableMessage'
@@ -243,7 +243,8 @@ export function useConfirmModalState({
   const [priceUpdate, setPriceUpdate] = useState<number>()
   useEffect(() => {
     if (!trade.executionPrice.equalTo(lastExecutionPrice)) {
-      setPriceUpdate(getPriceUpdateBasisPoints(lastExecutionPrice, trade.executionPrice))
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      setPriceUpdate(getPriceUpdateBasisPoints(lastExecutionPrice as any, trade.executionPrice as any))
       setLastExecutionPrice(trade.executionPrice)
     }
   }, [lastExecutionPrice, trade])

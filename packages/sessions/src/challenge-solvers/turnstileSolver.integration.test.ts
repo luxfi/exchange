@@ -1,6 +1,6 @@
 /// @vitest-environment happy-dom
-import { ChallengeType } from '@uniswap/client-platform-service/dist/uniswap/platformservice/v1/sessionService_pb'
-import { createTurnstileSolver } from '@universe/sessions/src/challenge-solvers/createTurnstileSolver'
+import { ChallengeType } from '@luxdex/client-platform-service/dist/uniswap/platformservice/v1/sessionService_pb'
+import { createTurnstileSolver } from '@luxfi/sessions/src/challenge-solvers/createTurnstileSolver'
 import { afterAll, afterEach, beforeAll, beforeEach, describe, expect, it, vi } from 'vitest'
 
 // Mock window.turnstile API

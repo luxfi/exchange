@@ -1,5 +1,5 @@
 import { type PromiseClient } from '@connectrpc/connect'
-import { type EmbeddedWalletService } from '@uniswap/client-embeddedwallet/dist/uniswap/embeddedwallet/v1/service_connect'
+import { type EmbeddedWalletService } from '@luxdex/client-embeddedwallet/dist/uniswap/embeddedwallet/v1/service_connect'
 import {
   type Action,
   type AuthenticationTypes,
@@ -16,7 +16,7 @@ import {
   type SignTransactionsResponse,
   type SignTypedDataBatchResponse,
   type WalletSigninResponse,
-} from '@uniswap/client-embeddedwallet/dist/uniswap/embeddedwallet/v1/service_pb'
+} from '@luxdex/client-embeddedwallet/dist/uniswap/embeddedwallet/v1/service_pb'
 
 export interface EmbeddedWalletClientContext {
   rpcClient: PromiseClient<typeof EmbeddedWalletService>

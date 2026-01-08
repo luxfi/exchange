@@ -1,5 +1,5 @@
-import { Currency, CurrencyAmount } from '@uniswap/sdk-core'
-import { TradingApi } from '@universe/api'
+import { Currency, CurrencyAmount } from '@luxamm/sdk-core'
+import { TradingApi } from '@luxfi/api'
 import {
   useCreatePositionDependentAmountFallback,
   useIncreasePositionDependentAmountFallback,
@@ -9,23 +9,23 @@ import JSBI from 'jsbi'
 import { TEST_TOKEN_1, TEST_TOKEN_2 } from 'test-utils/constants'
 import { renderHook } from 'test-utils/render'
 import { PositionField } from 'types/position'
-import { USDC_MAINNET } from 'uniswap/src/constants/tokens'
-import { useCreateLpPositionCalldataQuery } from 'uniswap/src/data/apiClients/tradingApi/useCreateLpPositionCalldataQuery'
-import { useIncreaseLpPositionCalldataQuery } from 'uniswap/src/data/apiClients/tradingApi/useIncreaseLpPositionCalldataQuery'
+import { USDC_MAINNET } from 'lx/src/constants/tokens'
+import { useCreateLpPositionCalldataQuery } from 'lx/src/data/apiClients/tradingApi/useCreateLpPositionCalldataQuery'
+import { useIncreaseLpPositionCalldataQuery } from 'lx/src/data/apiClients/tradingApi/useIncreaseLpPositionCalldataQuery'
 import { ONE_SECOND_MS } from 'utilities/src/time/time'
 import { vi } from 'vitest'
 
-vi.mock('uniswap/src/data/apiClients/tradingApi/useIncreaseLpPositionCalldataQuery', () => ({
+vi.mock('lx/src/data/apiClients/tradingApi/useIncreaseLpPositionCalldataQuery', () => ({
   useIncreaseLpPositionCalldataQuery: vi.fn(),
 }))
 const useIncreaseLpPositionCalldataQueryMock = vi.mocked(useIncreaseLpPositionCalldataQuery)
 
-vi.mock('uniswap/src/data/apiClients/tradingApi/useCreateLpPositionCalldataQuery', () => ({
+vi.mock('lx/src/data/apiClients/tradingApi/useCreateLpPositionCalldataQuery', () => ({
   useCreateLpPositionCalldataQuery: vi.fn(),
 }))
 const useCreateLpPositionCalldataQueryMock = vi.mocked(useCreateLpPositionCalldataQuery)
 
-vi.mock('uniswap/src/features/transactions/hooks/useUSDCPrice', () => ({
+vi.mock('lx/src/features/transactions/hooks/useUSDCPrice', () => ({
   useUSDCValue: (currencyAmount: CurrencyAmount<Currency> | undefined | null) => {
     if (!currencyAmount) {
       return null

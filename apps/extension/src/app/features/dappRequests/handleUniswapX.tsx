@@ -1,19 +1,19 @@
-import { TradingApi } from '@universe/api'
+import { TradingApi } from '@luxfi/api'
 import { Dispatch } from 'redux'
-import { TradingApiClient } from 'uniswap/src/data/apiClients/tradingApi/TradingApiClient'
-import { isUniverseChainId } from 'uniswap/src/features/chains/utils'
-import { transactionActions } from 'uniswap/src/features/transactions/slice'
+import { TradingApiClient } from 'lx/src/data/apiClients/tradingApi/TradingApiClient'
+import { isUniverseChainId } from 'lx/src/features/chains/utils'
+import { transactionActions } from 'lx/src/features/transactions/slice'
 import {
   QueuedOrderStatus,
   TransactionOriginType,
   TransactionType,
   UniswapXOrderDetails,
-} from 'uniswap/src/features/transactions/types/transactionDetails'
+} from 'lx/src/features/transactions/types/transactionDetails'
 import {
   convertOrderStatusToTransactionStatus,
   convertOrderTypeToRouting,
-} from 'uniswap/src/features/transactions/utils/uniswapX.utils'
-import { buildCurrencyId } from 'uniswap/src/utils/currencyId'
+} from 'lx/src/features/transactions/utils/uniswapX.utils'
+import { buildCurrencyId } from 'lx/src/utils/currencyId'
 import { logger } from 'utilities/src/logger/logger'
 import { ONE_SECOND_MS } from 'utilities/src/time/time'
 import { sleep } from 'utilities/src/time/timing'

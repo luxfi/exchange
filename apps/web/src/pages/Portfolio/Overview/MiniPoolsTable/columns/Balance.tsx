@@ -2,9 +2,9 @@ import { PositionInfo } from 'components/Liquidity/types'
 import { EmptyTableCell } from 'pages/Portfolio/EmptyTableCell'
 import { memo } from 'react'
 import { Text } from 'ui/src'
-import { PollingInterval } from 'uniswap/src/constants/misc'
-import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
-import { useUSDCValue } from 'uniswap/src/features/transactions/hooks/useUSDCPrice'
+import { PollingInterval } from 'lx/src/constants/misc'
+import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
+import { useUSDCValue } from 'lx/src/features/transactions/hooks/useUSDCPrice'
 import { NumberType } from 'utilities/src/format/types'
 
 // Fourth column cell component - Balance in USD

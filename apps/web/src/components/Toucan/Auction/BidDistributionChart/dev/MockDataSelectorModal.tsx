@@ -10,8 +10,8 @@ import { useMockDataStore } from 'components/Toucan/Auction/store/mocks/useMockD
 import { BidTokenInfo } from 'components/Toucan/Auction/store/types'
 import { useMemo, useState } from 'react'
 import { Flex, SegmentedControl, Text, TouchableArea } from 'ui/src'
-import { Modal } from 'uniswap/src/components/modals/Modal'
-import { ModalName } from 'uniswap/src/features/telemetry/constants'
+import { Modal } from 'lx/src/components/modals/Modal'
+import { ModalName } from 'lx/src/features/telemetry/constants'
 
 type TabType = 'quick' | 'customize' | 'saved'
 

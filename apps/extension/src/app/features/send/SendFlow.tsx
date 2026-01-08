@@ -5,10 +5,10 @@ import { SendFormScreen } from 'src/app/features/send/SendFormScreen/SendFormScr
 import { useExtensionNavigation } from 'src/app/navigation/utils'
 import { Flex } from 'ui/src'
 import { X } from 'ui/src/components/icons'
-import { ModalName } from 'uniswap/src/features/telemetry/constants'
-import { TransactionSettingsStoreContextProvider } from 'uniswap/src/features/transactions/components/settings/stores/transactionSettingsStore/TransactionSettingsStoreContextProvider'
-import { TransactionModal } from 'uniswap/src/features/transactions/components/TransactionModal/TransactionModal'
-import { SwapFormStoreContextProvider } from 'uniswap/src/features/transactions/swap/stores/swapFormStore/SwapFormStoreContextProvider'
+import { ModalName } from 'lx/src/features/telemetry/constants'
+import { TransactionSettingsStoreContextProvider } from 'lx/src/features/transactions/components/settings/stores/transactionSettingsStore/TransactionSettingsStoreContextProvider'
+import { TransactionModal } from 'lx/src/features/transactions/components/TransactionModal/TransactionModal'
+import { SwapFormStoreContextProvider } from 'lx/src/features/transactions/swap/stores/swapFormStore/SwapFormStoreContextProvider'
 import { SendContextProvider } from 'wallet/src/features/transactions/contexts/SendContext'
 
 export function SendFlow(): JSX.Element {

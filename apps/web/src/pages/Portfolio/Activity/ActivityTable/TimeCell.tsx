@@ -1,7 +1,7 @@
 import { memo, useMemo } from 'react'
 import { Flex, Text, TextProps } from 'ui/src'
-import { useFormattedTimeForActivity } from 'uniswap/src/components/activity/hooks/useFormattedTime'
-import { FORMAT_TIME_SHORT, useLocalizedDayjs } from 'uniswap/src/features/language/localizedDayjs'
+import { useFormattedTimeForActivity } from 'lx/src/components/activity/hooks/useFormattedTime'
+import { FORMAT_TIME_SHORT, useLocalizedDayjs } from 'lx/src/features/language/localizedDayjs'
 
 const FORMAT_DATE_WITH_WEEKDAY = 'ddd MMM D, YYYY'
 const CELL_HEIGHT = 36

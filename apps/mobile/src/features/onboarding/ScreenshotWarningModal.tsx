@@ -1,8 +1,8 @@
 import { useTranslation } from 'react-i18next'
 import { AppStackScreenProp } from 'src/app/navigation/types'
 import { useReactNavigationModal } from 'src/components/modals/useReactNavigationModal'
-import { WarningModal } from 'uniswap/src/components/modals/WarningModal/WarningModal'
-import { ModalName } from 'uniswap/src/features/telemetry/constants'
+import { WarningModal } from 'lx/src/components/modals/WarningModal/WarningModal'
+import { ModalName } from 'lx/src/features/telemetry/constants'
 
 export function ScreenshotWarningModal({ route }: AppStackScreenProp<typeof ModalName.ScreenshotWarning>): JSX.Element {
   const { t } = useTranslation()

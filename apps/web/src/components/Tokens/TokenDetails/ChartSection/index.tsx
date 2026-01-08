@@ -1,5 +1,5 @@
 import { TimePeriod, toHistoryDuration } from 'appGraphql/data/util'
-import { GraphQLApi } from '@universe/api'
+import { GraphQLApi } from '@luxfi/api'
 import { refitChartContentAtom } from 'components/Charts/ChartModel'
 import { ChartSkeleton } from 'components/Charts/LoadingState'
 import { PriceChart, PriceChartData } from 'components/Charts/PriceChart'
@@ -26,8 +26,8 @@ import { useTDPContext } from 'pages/TokenDetails/TDPContext'
 import { useMemo, useState } from 'react'
 import { Trans } from 'react-i18next'
 import { Flex, SegmentedControl, SegmentedControlOption, styled, useMedia } from 'ui/src'
-import { useTokenPriceChange } from 'uniswap/src/features/dataApi/tokenDetails/useTokenDetailsData'
-import { currencyId } from 'uniswap/src/utils/currencyId'
+import { useTokenPriceChange } from 'lx/src/features/dataApi/tokenDetails/useTokenDetailsData'
+import { currencyId } from 'lx/src/utils/currencyId'
 
 export const TDP_CHART_HEIGHT_PX = 356
 

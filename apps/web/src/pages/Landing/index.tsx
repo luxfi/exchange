@@ -11,9 +11,9 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router'
 import { ExploreContextProvider } from 'state/explore'
 import { TRANSITION_DURATIONS } from 'theme/styles'
-import { useConversionTracking } from 'uniswap/src/data/rest/conversionTracking/useConversionTracking'
-import { InterfacePageName } from 'uniswap/src/features/telemetry/constants'
-import Trace from 'uniswap/src/features/telemetry/Trace'
+import { useConversionTracking } from 'lx/src/data/rest/conversionTracking/useConversionTracking'
+import { InterfacePageName } from 'lx/src/features/telemetry/constants'
+import Trace from 'lx/src/features/telemetry/Trace'
 
 const privacySharingOptOutAtom = atomWithStorage<boolean>(PRIVACY_SHARING_OPT_OUT_STORAGE_KEY, false)
 

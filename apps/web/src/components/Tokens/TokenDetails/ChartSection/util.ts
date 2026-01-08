@@ -1,4 +1,4 @@
-import { GraphQLApi } from '@universe/api'
+import { GraphQLApi } from '@luxfi/api'
 import { ChartType } from 'components/Charts/utils'
 import { UTCTimestamp } from 'lightweight-charts'
 import ms from 'ms'

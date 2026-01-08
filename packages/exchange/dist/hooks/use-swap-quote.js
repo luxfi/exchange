@@ -1,7 +1,7 @@
 'use client';
 import { useQuery } from '@tanstack/react-query';
 import { usePublicClient } from 'wagmi';
-import { getContracts } from '@luxfi/config';
+import { getContracts } from '../contracts';
 import { QUOTER_V2_ABI } from '../contracts/abis';
 /**
  * Hook to get swap quote from V3 Quoter

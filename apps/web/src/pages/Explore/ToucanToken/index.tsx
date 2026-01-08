@@ -9,7 +9,7 @@ import { ToucanIntroModal } from 'components/Toucan/ToucanIntroModal'
 import { useEffect, useState } from 'react'
 import { useAppDispatch, useAppSelector } from 'state/hooks'
 import { Flex } from 'ui/src'
-import { setHasSeenToucanIntroModal } from 'uniswap/src/features/behaviorHistory/slice'
+import { setHasSeenToucanIntroModal } from 'lx/src/features/behaviorHistory/slice'
 
 export default function ToucanToken() {
   const [isModalOpen, setIsModalOpen] = useState(false)

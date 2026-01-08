@@ -1,4 +1,4 @@
-import { GraphQLApi } from '@universe/api'
+import { GraphQLApi } from '@luxfi/api'
 import React, { memo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import Animated, { FadeIn, FadeOut } from 'react-native-reanimated'
@@ -10,13 +10,13 @@ import { DEP_accentColors, validColor } from 'ui/src/theme'
 import {
   useTokenBasicInfoPartsFragment,
   useTokenBasicProjectPartsFragment,
-} from 'uniswap/src/data/graphql/uniswap-data-api/fragments'
-import { useTokenMarketStats } from 'uniswap/src/features/dataApi/tokenDetails/useTokenDetailsData'
-import { currencyIdToContractInput } from 'uniswap/src/features/dataApi/utils/currencyIdToContractInput'
-import { Language } from 'uniswap/src/features/language/constants'
-import { useCurrentLanguage, useCurrentLanguageInfo } from 'uniswap/src/features/language/hooks'
-import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
-import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+} from 'lx/src/data/graphql/uniswap-data-api/fragments'
+import { useTokenMarketStats } from 'lx/src/features/dataApi/tokenDetails/useTokenDetailsData'
+import { currencyIdToContractInput } from 'lx/src/features/dataApi/utils/currencyIdToContractInput'
+import { Language } from 'lx/src/features/language/constants'
+import { useCurrentLanguage, useCurrentLanguageInfo } from 'lx/src/features/language/hooks'
+import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
+import { TestID } from 'lx/src/test/fixtures/testIDs'
 import { NumberType } from 'utilities/src/format/types'
 
 const StatsRow = memo(function _StatsRow({

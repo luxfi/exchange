@@ -1,9 +1,9 @@
 import { ApolloError } from '@apollo/client'
-import { GraphQLApi } from '@universe/api'
+import { GraphQLApi } from '@luxfi/api'
 import { RESET, useAtomCallback } from 'jotai/utils'
 import { useCallback, useEffect } from 'react'
 import { manualChainOutageAtom } from 'state/outage/atoms'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { UniverseChainId } from 'lx/src/features/chains/types'
 import { useIsOffline } from 'utilities/src/connection/useIsOffline'
 import { isOutageError } from 'utils/errors/isOutageError'
 

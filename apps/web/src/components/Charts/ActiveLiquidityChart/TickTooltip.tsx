@@ -1,12 +1,12 @@
-import { Currency, Percent } from '@uniswap/sdk-core'
+import { Currency, Percent } from '@luxamm/sdk-core'
 import { LiquidityBarData } from 'components/Charts/LiquidityChart/types'
 import { ChartEntry } from 'components/Charts/LiquidityRangeInput/types'
 import { DoubleCurrencyLogo } from 'components/Logo/DoubleLogo'
 import tryParseCurrencyAmount from 'lib/utils/tryParseCurrencyAmount'
 import { Flex, FlexProps, Text } from 'ui/src'
 import { iconSizes } from 'ui/src/theme'
-import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
-import { useUSDCValue } from 'uniswap/src/features/transactions/hooks/useUSDCPrice'
+import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
+import { useUSDCValue } from 'lx/src/features/transactions/hooks/useUSDCPrice'
 import { NumberType } from 'utilities/src/format/types'
 
 export function TickTooltip({

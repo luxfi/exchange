@@ -1,4 +1,4 @@
-import { Line, LineProps, Svg } from 'react-native-svg'
+import { Line, type LineProps, Svg } from 'react-native-svg'
 
 interface DottedLineProps {
   strokeWidth?: LineProps['strokeWidth']

@@ -1,11 +1,11 @@
 /* eslint-disable complexity */
 import { useEffect, useState } from 'react'
-import { ColorTokens, Image } from 'tamagui'
+import { type ColorTokens, Image } from 'tamagui'
 import { Flex } from 'ui/src/components/layout/Flex'
 import { FastImageWrapper } from 'ui/src/components/UniversalImage/internal/FastImageWrapper'
 import { PlainImage } from 'ui/src/components/UniversalImage/internal/PlainImage'
 import { SvgImage } from 'ui/src/components/UniversalImage/internal/SvgImage'
-import { UniversalImageProps, UniversalImageSize } from 'ui/src/components/UniversalImage/types'
+import type { UniversalImageProps, UniversalImageSize } from 'ui/src/components/UniversalImage/types'
 import { Loader } from 'ui/src/loading/Loader'
 import { isSVGUri, uriToHttpUrls } from 'utilities/src/format/urls'
 import { logger } from 'utilities/src/logger/logger'
@@ -57,7 +57,7 @@ export function UniversalImage({
         setWidth(calculatedWidth)
         setHeight(calculatedHeight)
       },
-      () => setErrored(true),
+      () => setErrored(true)
     )
   }, [width, height, sizeKnown, uri, fastImage, isRequireSource])
 

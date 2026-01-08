@@ -1,0 +1,420 @@
+2026-01-03T14:08:23.142-0800	WARN	config/config.go:1017	dev-network.json nodeID mismatch (using stored genesis anyway for dev mode)	{"stored": "NodeID-KtoP2CcetJJ5BoCrkCbBuju2T3sted4GX", "current": "NodeID-JgoEyj8xdRd9PjW9aDyifa4SqwRiGumFs"}
+2026-01-03T14:08:23.142-0800	WARN	config/config.go:1024	dev-network.json BLS public key mismatch (using stored genesis anyway for dev mode)
+2026-01-03T14:08:23.142-0800	WARN	config/config.go:1028	dev-network.json BLS PoP mismatch (using stored genesis anyway for dev mode)
+2026-01-03T14:08:23.142-0800	WARN	config/config.go:1032	credentials changed since first boot - for persistent staking, use --staking-ephemeral-cert-enabled=false with persistent key files
+2026-01-03T14:08:23.142-0800	INFO	config/config.go:1058	loaded dev network config	{"path": "/Users/z/.lux/dev-e2e/port-8545/dev-network.json", "genesisHash": "2k2sTRhvLKzyg29cHq3SaeQr21YB6muGdTQDvtZWPrtqeNgQF9", "xAssetID": "2pUXDP2RUXZuPWmzgsALMCW3LZM8ufSGNWmgKcFGCscK4HDYKn", "startTime": 1767475976}
+[01-03|14:08:23.144] INFO node/node.go:147 initializing node {"{version 25 0  luxd/1.22.75}": {"Key":"commit","Type":15,"Integer":0,"String":"","Interface":null}, "{nodeID 25 0  NodeID-JgoEyj8xdRd9PjW9aDyifa4SqwRiGumFs}": {"Key":"stakingKeyType","Type":25,"Integer":0,"String":"","Interface":3}, "{nodePOP 23 0  0x14001278fa0}": {"Key":"providedFlags","Type":23,"Integer":0,"String":"","Interface":{"api-admin-enabled":true,"api-keystore-enabled":true,"chain-config-dir":"/Users/z/.lux/chains","consensus-quorum-size":1,"consensus-sample-size":1,"data-dir":"/Users/z/.lux/dev-e2e/port-8545","dev":true,"enable-automining":true,"http-host":"0.0.0.0","http-port":"8545","index-enabled":true,"log-dir":"/Users/z/.lux/dev-e2e/port-8545/logs","log-level":"info","network-health-min-conn-peers":0,"network-id":"1337","poa-single-node-mode":true,"skip-bootstrap":true,"staking-ephemeral-cert-enabled":true,"staking-ephemeral-signer-enabled":true,"staking-port":"8546","sybil-protection-disabled-weight":100,"sybil-protection-enabled":false,"track-all-chains":true}}}
+[01-03|14:08:23.145] INFO node/node.go:924 initializing NAT
+[01-03|14:08:25.151] WARN node/node.go:929 UPnP and NAT-PMP router attach failed, you may not be listening publicly. Please confirm the settings in your router
+[01-03|14:08:25.151] INFO node/node.go:942 initializing API server
+[01-03|14:08:25.151] DEBUG node/node.go:958 finished HTTP host lookup {"host": "0.0.0.0", "ip": "0.0.0.0", "isPublic": false}
+[01-03|14:08:25.151] INFO server/server.go:136 API created with allowed origins: *
+[01-03|14:08:25.151] INFO node/node.go:1403 initializing metrics API
+[01-03|14:08:25.151] INFO server/server.go:245 adding route {"{url 15 0 /ext/metrics <nil>}": {"Key":"endpoint","Type":15,"Integer":0,"String":"","Interface":null}}
+[01-03|14:08:25.187] INFO node/node.go:822 initializing database {"genesisHash": "2k2sTRhvLKzyg29cHq3SaeQr21YB6muGdTQDvtZWPrtqeNgQF9"}
+[01-03|14:08:25.187] INFO node/node.go:1370 initializing SharedMemory
+[01-03|14:08:25.188] WARN node/node.go:227 sybil control is not enforced
+[01-03|14:08:25.192] WARN node/node.go:504 P2P IP is private, you will not be publicly discoverable {"ip": "172.20.10.2"}
+[01-03|14:08:25.192] INFO node/node.go:519 initializing networking {"ip": "172.20.10.2:8546"}
+[01-03|14:08:25.192] DEBUG dialer/dialer.go:54 creating dialer {"{throttleRPS 19 50  <nil>}": {"Key":"dialTimeout","Type":8,"Integer":30000000000,"String":"","Interface":null}}
+[01-03|14:08:25.192] INFO network/network.go:317 using actual P-chain genesis bytes for initial stakers
+[01-03|14:08:25.192] DEBUG network/network.go:347 parsed genesis validator from P-chain genesis {"{nodeID 25 0  NodeID-KtoP2CcetJJ5BoCrkCbBuju2T3sted4GX}": {"Key":"weight","Type":18,"Integer":1000000000000000000,"String":"","Interface":null}}
+[01-03|14:08:25.192] INFO network/network.go:419 added genesis validator to network {"{nodeID 25 0  NodeID-KtoP2CcetJJ5BoCrkCbBuju2T3sted4GX}": {"Key":"weight","Type":18,"Integer":1000000000000000000,"String":"","Interface":null}}
+[01-03|14:08:25.192] INFO node/node.go:1562 initializing Health API
+[01-03|14:08:25.192] INFO health/worker.go:121 registered new check and initialized its state to failing {"{workerName 15 0 health <nil>}": {"Key":"checkName","Type":15,"Integer":0,"String":"network","Interface":null}}
+[01-03|14:08:25.192] INFO health/worker.go:121 registered new check and initialized its state to failing {"{workerName 15 0 health <nil>}": {"Key":"checkName","Type":15,"Integer":0,"String":"router","Interface":null}}
+[01-03|14:08:25.193] INFO health/worker.go:121 registered new check and initialized its state to failing {"{workerName 15 0 health <nil>}": {"Key":"checkName","Type":15,"Integer":0,"String":"database","Interface":null}}
+[01-03|14:08:25.193] INFO health/worker.go:121 registered new check and initialized its state to failing {"{workerName 15 0 health <nil>}": {"Key":"checkName","Type":15,"Integer":0,"String":"diskspace","Interface":null}}
+[01-03|14:08:25.193] INFO health/worker.go:121 registered new check and initialized its state to failing {"{workerName 15 0 health <nil>}": {"Key":"checkName","Type":15,"Integer":0,"String":"bls","Interface":null}}
+[01-03|14:08:25.193] INFO server/server.go:245 adding route {"{url 15 0 /ext/health <nil>}": {"Key":"endpoint","Type":15,"Integer":0,"String":"","Interface":null}}
+[01-03|14:08:25.193] INFO server/server.go:245 adding route {"{url 15 0 /ext/health <nil>}": {"Key":"endpoint","Type":15,"Integer":0,"String":"/readiness","Interface":null}}
+[01-03|14:08:25.193] INFO server/server.go:245 adding route {"{url 15 0 /ext/health <nil>}": {"Key":"endpoint","Type":15,"Integer":0,"String":"/health","Interface":null}}
+[01-03|14:08:25.193] INFO server/server.go:245 adding route {"{url 15 0 /ext/health <nil>}": {"Key":"endpoint","Type":15,"Integer":0,"String":"/liveness","Interface":null}}
+[01-03|14:08:25.193] INFO node/node.go:1034 adding the default VM aliases
+[01-03|14:08:25.193] INFO node/node.go:1165 initializing VMs
+[01-03|14:08:25.193] WARN node/node.go:1174 [VALIDATOR DEBUG] Sybil protection DISABLED - using separate validator manager for PlatformVM
+[01-03|14:08:25.193] INFO node/node.go:1223 Platform VM registered successfully
+[01-03|14:08:25.193] INFO node/node.go:1226 Registering X-Chain VM {"vmID": "jvYyfQTxGMJLuGWa55kdP2p2zSUYsQ5Raupu4TW34ZAUBAbtq"}
+[01-03|14:08:25.193] INFO node/node.go:1232 X-Chain VM registered successfully
+[01-03|14:08:25.193] INFO node/node.go:1235 Registering C-Chain VM {"vmID": "mgj786NP7uDwBCcq6YwThhaN8FLyybkCa4zBWTQbNgmK6k9A6"}
+[01-03|14:08:25.193] INFO node/node.go:1241 C-Chain VM registered successfully
+[01-03|14:08:25.193] INFO node/node.go:1244 Registering Q-Chain VM {"vmID": "ry9Sg8rZdT26iEKvJDmC2wkESs4SDKgZEhk5BgLSwg1EpcNug"}
+[01-03|14:08:25.193] INFO node/node.go:1250 Q-Chain VM registered successfully
+[01-03|14:08:25.193] INFO node/node.go:1253 Registering A-Chain VM (AI) {"vmID": "juFxSrbCM4wszxddKepj1GWwmrn9YgN1g4n3VUWPpRo9JjERA"}
+[01-03|14:08:25.193] INFO node/node.go:1259 A-Chain VM registered successfully
+[01-03|14:08:25.193] INFO node/node.go:1262 Registering B-Chain VM (Bridge) {"vmID": "kMhHABHM8j4bH94MCc4rsTNdo5E9En37MMyiujk4WdNxgXFsY"}
+[01-03|14:08:25.193] INFO node/node.go:1268 B-Chain VM registered successfully
+[01-03|14:08:25.193] INFO node/node.go:1271 Registering T-Chain VM (Threshold) {"vmID": "tGVBwRxpmD2aFdg3iYjgRvrCe8Jcmq9UNKxyHMus2NZ8WcD8t"}
+[01-03|14:08:25.193] INFO node/node.go:1277 T-Chain VM registered successfully
+[01-03|14:08:25.193] INFO node/node.go:1280 Registering Z-Chain VM (ZK) {"vmID": "vv3qPfyTVXZ5ArRZA9Jh4hbYDTBe43f7sgQg4CHfNg1rnnvX9"}
+[01-03|14:08:25.193] INFO node/node.go:1286 Z-Chain VM registered successfully
+[01-03|14:08:25.193] INFO node/node.go:1289 Registering G-Chain VM (Graph) {"vmID": "nZQm4Dmg1rjX18rb8maL9gamYyXPf1xCvF7ymWzxp6a1nSQTt"}
+[01-03|14:08:25.193] INFO node/node.go:1295 G-Chain VM registered successfully
+[01-03|14:08:25.193] INFO node/node.go:1298 Registering D-Chain VM (DEX) {"vmID": "mDVT5EWMumBp3LCqvKwuyZQeY1VXr1jvjGNAt8nL4UFiXvqXr"}
+[01-03|14:08:25.193] INFO node/node.go:1304 D-Chain VM registered successfully
+[01-03|14:08:25.193] INFO node/node.go:1307 Registering K-Chain VM (KMS) {"vmID": "pK6MrGPXEDBtUFTBJYj64Ur7yiNFYwVdwF2zCVtynCKQhXDkg"}
+[01-03|14:08:25.193] INFO node/node.go:1313 K-Chain VM registered successfully
+[01-03|14:08:25.193] INFO node/node.go:1316 ═══════════════════════════════════════════════════════════════════
+[01-03|14:08:25.193] INFO node/node.go:1317 ALL VMs REGISTERED SUCCESSFULLY - 11 chains ready
+[01-03|14:08:25.193] INFO node/node.go:1318 ───────────────────────────────────────────────────────────────────
+[01-03|14:08:25.193] INFO node/node.go:1319 P-Chain (Platform): Validators & staking {"vmID": "rWhpuQPF1kb72esV2momhMuTYGkEb1oL29pt2EBXWmSy4kxnT"}
+[01-03|14:08:25.193] INFO node/node.go:1320 X-Chain (Exchange): UTXO asset exchange {"vmID": "jvYyfQTxGMJLuGWa55kdP2p2zSUYsQ5Raupu4TW34ZAUBAbtq"}
+[01-03|14:08:25.193] INFO node/node.go:1321 C-Chain (Contract): EVM smart contracts {"vmID": "mgj786NP7uDwBCcq6YwThhaN8FLyybkCa4zBWTQbNgmK6k9A6"}
+[01-03|14:08:25.193] INFO node/node.go:1322 Q-Chain (Quantum):  Post-quantum security {"vmID": "ry9Sg8rZdT26iEKvJDmC2wkESs4SDKgZEhk5BgLSwg1EpcNug"}
+[01-03|14:08:25.193] INFO node/node.go:1323 A-Chain (AI):       AI/ML inference {"vmID": "juFxSrbCM4wszxddKepj1GWwmrn9YgN1g4n3VUWPpRo9JjERA"}
+[01-03|14:08:25.193] INFO node/node.go:1324 B-Chain (Bridge):   Cross-chain bridge {"vmID": "kMhHABHM8j4bH94MCc4rsTNdo5E9En37MMyiujk4WdNxgXFsY"}
+[01-03|14:08:25.193] INFO node/node.go:1325 T-Chain (Threshold): Threshold signatures {"vmID": "tGVBwRxpmD2aFdg3iYjgRvrCe8Jcmq9UNKxyHMus2NZ8WcD8t"}
+[01-03|14:08:25.193] INFO node/node.go:1326 Z-Chain (ZK):       Zero-knowledge proofs {"vmID": "vv3qPfyTVXZ5ArRZA9Jh4hbYDTBe43f7sgQg4CHfNg1rnnvX9"}
+[01-03|14:08:25.193] INFO node/node.go:1327 G-Chain (Graph):    GraphQL data layer {"vmID": "nZQm4Dmg1rjX18rb8maL9gamYyXPf1xCvF7ymWzxp6a1nSQTt"}
+[01-03|14:08:25.193] INFO node/node.go:1328 D-Chain (DEX):      Decentralized exchange {"vmID": "mDVT5EWMumBp3LCqvKwuyZQeY1VXr1jvjGNAt8nL4UFiXvqXr"}
+[01-03|14:08:25.193] INFO node/node.go:1329 K-Chain (KMS):      Key management service {"vmID": "pK6MrGPXEDBtUFTBJYj64Ur7yiNFYwVdwF2zCVtynCKQhXDkg"}
+[01-03|14:08:25.194] INFO node/node.go:1330 ═══════════════════════════════════════════════════════════════════
+[01-03|14:08:25.194] INFO node/node.go:1422 initializing admin API
+[01-03|14:08:25.194] INFO server/server.go:245 adding route {"{url 15 0 /ext/admin <nil>}": {"Key":"endpoint","Type":15,"Integer":0,"String":"","Interface":null}}
+[01-03|14:08:25.194] INFO node/node.go:1483 initializing info API
+[01-03|14:08:25.195] INFO server/server.go:245 adding route {"{url 15 0 /ext/info <nil>}": {"Key":"endpoint","Type":15,"Integer":0,"String":"","Interface":null}}
+[01-03|14:08:25.195] INFO node/node.go:1525 initializing keystore API
+[01-03|14:08:25.195] INFO server/server.go:245 adding route {"{url 15 0 /ext/keystore <nil>}": {"Key":"endpoint","Type":15,"Integer":0,"String":"","Interface":null}}
+[01-03|14:08:25.195] INFO node/node.go:1664 initializing chain aliases
+[01-03|14:08:25.195] INFO node/node.go:1691 initializing API aliases
+[01-03|14:08:25.195] INFO node/node.go:1451 skipping profiler initialization because it has been disabled
+[01-03|14:08:25.195] INFO node/node.go:900 initializing chains
+[01-03|14:08:25.195] INFO chains/manager.go:514 creating chain {"{netID 25 0  11111111111111111111111111111111LpoYY}": {"Key":"chainID","Type":25,"Integer":0,"String":"","Interface":"11111111111111111111111111111111P"}}
+[01-03|14:08:25.195] INFO chains/manager.go:773 Creating metrics gatherer
+[01-03|14:08:25.195] INFO chains/manager.go:789 Metrics gatherer created {"{primaryAlias 15 0 P <nil>}": {"Key":"isNil","Type":4,"Integer":0,"String":"","Interface":null}}
+[01-03|14:08:25.195] INFO chains/manager.go:826 Getting VM factory
+[01-03|14:08:25.195] INFO chains/manager.go:843 Got VM factory successfully
+[01-03|14:08:25.195] INFO chains/manager.go:864 DEBUG: About to check VM type {"{chainID 25 0  11111111111111111111111111111111P}": {"Key":"vmType","Type":15,"Integer":0,"String":"*platformvm.VM","Interface":null}}
+[01-03|14:08:25.195] INFO chains/manager.go:886 skip-bootstrap enabled - using empty beacons for single-node mode
+[01-03|14:08:25.195] INFO health/worker.go:267 check started passing {"{workerName 15 0 health <nil>}": {"Key":"checkName","Type":15,"Integer":0,"String":"router","Interface":null}}
+[01-03|14:08:25.195] INFO chains/manager.go:896 creating linear chain
+[01-03|14:08:25.196] INFO chains/chain_db.go:70 Created prefixed database for chain {"{chainID 25 0  11111111111111111111111111111111P}": {"Key":"alias","Type":15,"Integer":0,"String":"P","Interface":null}}
+[01-03|14:08:25.196] INFO health/worker.go:267 check started passing {"{workerName 15 0 health <nil>}": {"Key":"checkName","Type":15,"Integer":0,"String":"bls","Interface":null}}
+[01-03|14:08:25.196] INFO chains/manager.go:1593 injected enable-automining and skip-block-fee into chain config
+[01-03|14:08:25.196] INFO chains/manager.go:933 initializing VM
+[01-03|14:08:25.196] INFO health/worker.go:267 check started passing {"{workerName 15 0 health <nil>}": {"Key":"checkName","Type":15,"Integer":0,"String":"diskspace","Interface":null}}
+[01-03|14:08:25.196] INFO health/worker.go:267 check started passing {"{workerName 15 0 health <nil>}": {"Key":"checkName","Type":15,"Integer":0,"String":"network","Interface":null}}
+[01-03|14:08:25.196] INFO platformvm/vm.go:245 initializing platform chain
+[01-03|14:08:25.196] INFO health/worker.go:267 check started passing {"{workerName 15 0 health <nil>}": {"Key":"checkName","Type":15,"Integer":0,"String":"database","Interface":null}}
+[01-03|14:08:25.196] INFO platformvm/vm.go:252 toEngine channel set
+[01-03|14:08:25.196] INFO platformvm/vm.go:266 using VM execution config {"config": {"network":{"max-validator-set-staleness":60000000000,"target-gossip-size":20480,"push-gossip-percent-stake":0.9,"push-gossip-num-validators":100,"push-gossip-num-peers":0,"push-regossip-num-validators":10,"push-regossip-num-peers":0,"push-gossip-discarded-cache-size":16384,"push-gossip-max-regossip-frequency":30000000000,"push-gossip-frequency":500000000,"pull-gossip-poll-size":1,"pull-gossip-frequency":1500000000,"pull-gossip-throttling-period":10000000000,"pull-gossip-throttling-limit":2,"expected-bloom-filter-elements":8192,"expected-bloom-filter-false-positive-probability":0.01,"max-bloom-filter-false-positive-probability":0.05},"block-cache-size":67108864,"tx-cache-size":134217728,"transformed-subnet-tx-cache-size":4194304,"reward-utxos-cache-size":2048,"chain-cache-size":2048,"chain-db-cache-size":2048,"block-id-cache-size":8192,"fx-owner-cache-size":4194304,"subnet-to-l1-conversion-cache-size":4194304,"l1-weights-cache-size":16384,"l1-inactive-validators-cache-size":262144,"l1-subnet-id-node-id-cache-size":16384,"checksums-enabled":false,"mempool-prune-frequency":1800000000000,"sybil-protection-enabled":false,"tracked-chains":[],"tx-fee":1000,"create-asset-tx-fee":1000,"create-subnet-tx-fee":1000000,"create-blockchain-tx-fee":1000000,"add-primary-network-validator-fee":0,"add-primary-network-delegator-fee":0}}
+[01-03|14:08:25.196] INFO platformvm/vm.go:290 platformvm metrics initialized successfully
+[01-03|14:08:25.196] DEBUG secp256k1fx/fx.go:56 initializing secp256k1 fx
+[01-03|14:08:25.196] INFO platformvm/vm.go:336 Creating Platform VM state {"genesisLen": 3414}
+[VALIDATOR DEBUG] loadCurrentValidators: STARTING
+2026-01-03T14:08:25.200-0800	WARN	state/state.go:1899	loadCurrentValidators: starting	{"dbPrefix": "currentValidatorList"}
+2026-01-03T14:08:25.203-0800	WARN	state/state.go:1946	loadCurrentValidators: loaded validator	{"txID": "28FUGdJ5zs1mQa4Nfr67286HdenJjDXuwWEJzc8PcQh2ojxdwm", "nodeID": "NodeID-KtoP2CcetJJ5BoCrkCbBuju2T3sted4GX", "chainID": "11111111111111111111111111111111LpoYY", "weight": 1000000000000000000}
+2026-01-03T14:08:25.203-0800	WARN	state/state.go:1957	loadCurrentValidators: primary validators loaded	{"count": 1, "currentStakersValidatorsLen": 1}
+[VALIDATOR DEBUG] loadCurrentValidators: PRIMARY validators loaded: count=1 currentStakersLen=1
+[VALIDATOR DEBUG] initValidatorSets CALLED - validatorManagerPtr=0x14001441a70
+2026-01-03T14:08:25.203-0800	WARN	state/state.go:2148	[VALIDATOR DEBUG] initValidatorSets: STARTING NOW	{"validatorManagerPtr": "0x14001441a70"}
+2026-01-03T14:08:25.203-0800	INFO	state/state.go:2151	initValidatorSets: starting	{"numNets": 0, "currentStakersSubnets": 1}
+2026-01-03T14:08:25.203-0800	INFO	state/state.go:2170	initValidatorSets: after L1 validators	{"numNets": 0}
+2026-01-03T14:08:25.203-0800	INFO	state/state.go:2201	initValidatorSets: loading primary network validators	{"primaryNetworkID": "11111111111111111111111111111111LpoYY", "primaryNetworkValidatorCount": 1, "totalSubnets": 1}
+2026-01-03T14:08:25.203-0800	INFO	state/state.go:2207	initValidatorSets: processing subnet	{"subnetID": "11111111111111111111111111111111LpoYY", "validatorCount": 1}
+2026-01-03T14:08:25.203-0800	INFO	state/state.go:2226	initValidatorSets: added validator	{"subnetID": "11111111111111111111111111111111LpoYY", "nodeID": "NodeID-KtoP2CcetJJ5BoCrkCbBuju2T3sted4GX", "weight": 1000000000000000000}
+2026-01-03T14:08:25.203-0800	WARN	state/state.go:2255	[VALIDATOR DEBUG] initValidatorSets: COMPLETE	{"validatorManagerPtr": "0x14001441a70", "primaryNetworkID": "11111111111111111111111111111111LpoYY", "numValidators": 1, "totalWeight": 1000000000000000000, "numNets": 1}
+[VALIDATOR DEBUG] initValidatorSets COMPLETE: validatorManagerPtr=0x14001441a70 primaryNetworkID=11111111111111111111111111111111LpoYY numValidators=1 totalWeight=1000000000000000000 numNets=1
+[01-03|14:08:25.203] INFO platformvm/vm.go:355 Platform VM state created successfully
+[01-03|14:08:25.204] INFO platformvm/vm.go:443 about to call initBlockchains
+[01-03|14:08:25.204] INFO chains/manager.go:465 QueueChainCreation called {"{vmID 15 0 mDVT5EWMumBp3LCqvKwuyZQeY1VXr1jvjGNAt8nL4UFiXvqXr <nil>}": {"Key":"EVMID","Type":15,"Integer":0,"String":"mgj786NP7uDwBCcq6YwThhaN8FLyybkCa4zBWTQbNgmK6k9A6","Interface":null}, "{vmIDEqualsEVMID 4 0  <nil>}": {"Key":"envVar","Type":15,"Integer":0,"String":"","Interface":null}}
+[01-03|14:08:25.204] INFO chains/manager.go:465 QueueChainCreation called {"{vmID 15 0 mgj786NP7uDwBCcq6YwThhaN8FLyybkCa4zBWTQbNgmK6k9A6 <nil>}": {"Key":"EVMID","Type":15,"Integer":0,"String":"mgj786NP7uDwBCcq6YwThhaN8FLyybkCa4zBWTQbNgmK6k9A6","Interface":null}, "{vmIDEqualsEVMID 4 1  <nil>}": {"Key":"envVar","Type":15,"Integer":0,"String":"","Interface":null}}
+[01-03|14:08:25.204] INFO chains/manager.go:465 QueueChainCreation called {"{vmID 15 0 jvYyfQTxGMJLuGWa55kdP2p2zSUYsQ5Raupu4TW34ZAUBAbtq <nil>}": {"Key":"EVMID","Type":15,"Integer":0,"String":"mgj786NP7uDwBCcq6YwThhaN8FLyybkCa4zBWTQbNgmK6k9A6","Interface":null}, "{vmIDEqualsEVMID 4 0  <nil>}": {"Key":"envVar","Type":15,"Integer":0,"String":"","Interface":null}}
+[01-03|14:08:25.204] DEBUG platformvm/vm.go:723 No C-Chain data found, skipping creation
+[01-03|14:08:25.204] INFO platformvm/vm.go:452 initializing last accepted {"blkID": "QePHCVFfPRVXzVQTgcHBLakyFqchn66w85wnDtf1jiFTW6PU3"}
+[01-03|14:08:25.204] INFO platformvm/vm.go:482 Platform VM initialization complete
+[01-03|14:08:25.204] INFO chains/manager.go:951 VM initialized successfully
+[01-03|14:08:25.204] INFO chains/manager.go:959 transitioning VM to normal operation
+[01-03|14:08:25.204] INFO platformvm/vm.go:854 starting P-chain notification forwarder (toEngine and Builder both set)
+[01-03|14:08:25.204] INFO state/state.go:3338 blocks already reindexed
+[01-03|14:08:25.204] INFO chains/manager.go:974 registered VM with consensus engine for block building
+[01-03|14:08:25.204] INFO chains/manager.go:991 [CONSENSUS DEBUG] Creating consensus engine for chain {"{chainID 25 0  11111111111111111111111111111111P}": {"Key":"chainParams.ChainID","Type":25,"Integer":0,"String":"","Interface":"11111111111111111111111111111111LpoYY"}, "{isNativeChain 4 1  <nil>}": {"Key":"networkIDForValidators","Type":25,"Integer":0,"String":"","Interface":"11111111111111111111111111111111LpoYY"}}
+[01-03|14:08:25.204] INFO platformvm/vm.go:937 starting notification forwarder for P-chain block building
+[01-03|14:08:25.204] INFO chains/manager.go:1018 consensus engine started with Lux consensus (Photon → Wave → Focus)
+[01-03|14:08:25.204] DEBUG builder/builder.go:221 Will wait until a transaction comes
+[01-03|14:08:25.204] INFO server/server.go:245 adding route {"{url 15 0 /ext/bc/11111111111111111111111111111111P <nil>}": {"Key":"endpoint","Type":15,"Integer":0,"String":"","Interface":null}}
+[01-03|14:08:25.204] INFO chain/integration.go:115 starting VM notification forwarder for Lux consensus
+[01-03|14:08:25.204] INFO chains/manager.go:688 Registered HTTP handler {"{chainAlias 15 0 11111111111111111111111111111111P <nil>}": {"Key":"chainID","Type":25,"Integer":0,"String":"","Interface":"11111111111111111111111111111111P"}, "{base 15 0 bc/11111111111111111111111111111111P <nil>}": {"Key":"endpoint","Type":15,"Integer":0,"String":"","Interface":null}}
+[01-03|14:08:25.204] INFO node/chain_router.go:195 added chain to router {"{chainID 25 0  11111111111111111111111111111111P}": {"Key":"chainIDBytes","Type":3,"Integer":0,"String":"","Interface":"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFA="}}
+[01-03|14:08:25.204] INFO health/worker.go:121 registered new check and initialized its state to failing {"{workerName 15 0 readiness <nil>}": {"Key":"checkName","Type":15,"Integer":0,"String":"bootstrapped","Interface":null}}
+[01-03|14:08:25.204] INFO health/worker.go:121 registered new check and initialized its state to failing {"{workerName 15 0 health <nil>}": {"Key":"checkName","Type":15,"Integer":0,"String":"bootstrapped","Interface":null}}
+[01-03|14:08:25.204] INFO chains/manager.go:720 ╔══════════════════════════════════════════════════════════════════╗
+[01-03|14:08:25.204] INFO chains/manager.go:721 ║ CHAIN CREATED SUCCESSFULLY                                       ║ {"{vmName 15 0 platformvm <nil>}": {"Key":"chainAlias","Type":15,"Integer":0,"String":"P","Interface":null}}
+[01-03|14:08:25.204] INFO chains/manager.go:725 ║ Chain ID:
+[01-03|14:08:25.204] INFO chains/manager.go:726 ║ VM ID:
+[01-03|14:08:25.204] INFO chains/manager.go:727 ║ Network ID:
+[01-03|14:08:25.204] INFO chains/manager.go:728 ║ Endpoints available at:
+[01-03|14:08:25.204] INFO chains/manager.go:729 ║   → /ext/bc/11111111111111111111111111111111P
+[01-03|14:08:25.204] INFO chains/manager.go:731 ║   → /ext/bc/P
+[01-03|14:08:25.204] INFO chains/manager.go:733 ╚══════════════════════════════════════════════════════════════════╝
+[01-03|14:08:25.204] INFO chains/manager.go:1433 starting chain creator
+[01-03|14:08:25.204] INFO node/node.go:662 writing process context {"path": "/Users/z/.lux/dev-e2e/port-8545/process.json"}
+[01-03|14:08:25.204] INFO chains/manager.go:514 creating chain {"{netID 25 0  11111111111111111111111111111111LpoYY}": {"Key":"chainID","Type":25,"Integer":0,"String":"","Interface":"wMi5eaCvm5xpbXrUrTHfPKLUawqDsDxo2yEZwTAQpRCjKARZ2"}}
+[01-03|14:08:25.205] INFO chains/manager.go:773 Creating metrics gatherer
+[01-03|14:08:25.205] INFO chains/manager.go:789 Metrics gatherer created {"{primaryAlias 15 0 D <nil>}": {"Key":"isNil","Type":4,"Integer":0,"String":"","Interface":null}}
+[01-03|14:08:25.205] INFO chains/manager.go:826 Getting VM factory
+[01-03|14:08:25.205] INFO chains/manager.go:843 Got VM factory successfully
+[01-03|14:08:25.205] INFO chains/manager.go:864 DEBUG: About to check VM type {"{chainID 25 0  wMi5eaCvm5xpbXrUrTHfPKLUawqDsDxo2yEZwTAQpRCjKARZ2}": {"Key":"vmType","Type":15,"Integer":0,"String":"*dexvm.ChainVM","Interface":null}}
+[01-03|14:08:25.205] INFO chains/manager.go:886 skip-bootstrap enabled - using empty beacons for single-node mode
+[01-03|14:08:25.205] INFO chains/manager.go:896 creating linear chain
+[01-03|14:08:25.205] INFO chains/chain_db.go:70 Created prefixed database for chain {"{chainID 25 0  wMi5eaCvm5xpbXrUrTHfPKLUawqDsDxo2yEZwTAQpRCjKARZ2}": {"Key":"alias","Type":15,"Integer":0,"String":"D","Interface":null}}
+[01-03|14:08:25.205] INFO chains/manager.go:1593 injected enable-automining and skip-block-fee into chain config
+[01-03|14:08:25.205] INFO chains/manager.go:933 initializing VM
+[01-03|14:08:25.205] INFO dexvm/chainvm.go:140 DEX ChainVM initialized {"genesisID": "11111111111111111111111111111111LpoYY"}
+[01-03|14:08:25.205] INFO chains/manager.go:951 VM initialized successfully
+[01-03|14:08:25.205] INFO chains/manager.go:959 transitioning VM to normal operation
+[01-03|14:08:25.205] INFO dexvm/vm.go:247 DEX VM entering ready state
+[01-03|14:08:25.205] INFO chains/manager.go:974 registered VM with consensus engine for block building
+[01-03|14:08:25.205] INFO chains/manager.go:991 [CONSENSUS DEBUG] Creating consensus engine for chain {"{chainID 25 0  wMi5eaCvm5xpbXrUrTHfPKLUawqDsDxo2yEZwTAQpRCjKARZ2}": {"Key":"chainParams.ChainID","Type":25,"Integer":0,"String":"","Interface":"11111111111111111111111111111111LpoYY"}, "{isNativeChain 4 0  <nil>}": {"Key":"networkIDForValidators","Type":25,"Integer":0,"String":"","Interface":"11111111111111111111111111111111LpoYY"}}
+[01-03|14:08:25.205] INFO chains/manager.go:1018 consensus engine started with Lux consensus (Photon → Wave → Focus)
+[01-03|14:08:25.205] INFO chain/integration.go:115 starting VM notification forwarder for Lux consensus
+[01-03|14:08:25.205] INFO server/server.go:245 adding route {"{url 15 0 /ext/bc/wMi5eaCvm5xpbXrUrTHfPKLUawqDsDxo2yEZwTAQpRCjKARZ2 <nil>}": {"Key":"endpoint","Type":15,"Integer":0,"String":"","Interface":null}}
+[01-03|14:08:25.205] INFO server/server.go:245 adding route {"{url 15 0 /ext/bc/d-chain <nil>}": {"Key":"endpoint","Type":15,"Integer":0,"String":"","Interface":null}}
+[01-03|14:08:25.205] INFO chains/manager.go:669 Registered HTTP handler with chain name {"{chainName 15 0 d-chain <nil>}": {"Key":"chainID","Type":25,"Integer":0,"String":"","Interface":"wMi5eaCvm5xpbXrUrTHfPKLUawqDsDxo2yEZwTAQpRCjKARZ2"}, "{base 15 0 bc/d-chain <nil>}": {"Key":"endpoint","Type":15,"Integer":0,"String":"","Interface":null}}
+[01-03|14:08:25.205] INFO chains/manager.go:688 Registered HTTP handler {"{chainAlias 15 0 wMi5eaCvm5xpbXrUrTHfPKLUawqDsDxo2yEZwTAQpRCjKARZ2 <nil>}": {"Key":"chainID","Type":25,"Integer":0,"String":"","Interface":"wMi5eaCvm5xpbXrUrTHfPKLUawqDsDxo2yEZwTAQpRCjKARZ2"}, "{base 15 0 bc/wMi5eaCvm5xpbXrUrTHfPKLUawqDsDxo2yEZwTAQpRCjKARZ2 <nil>}": {"Key":"endpoint","Type":15,"Integer":0,"String":"","Interface":null}}
+[01-03|14:08:25.205] INFO server/server.go:245 adding route {"{url 15 0 /ext/bc/wMi5eaCvm5xpbXrUrTHfPKLUawqDsDxo2yEZwTAQpRCjKARZ2 <nil>}": {"Key":"endpoint","Type":15,"Integer":0,"String":"/ws","Interface":null}}
+[01-03|14:08:25.205] INFO server/server.go:245 adding route {"{url 15 0 /ext/bc/d-chain <nil>}": {"Key":"endpoint","Type":15,"Integer":0,"String":"/ws","Interface":null}}
+[01-03|14:08:25.206] INFO chains/manager.go:669 Registered HTTP handler with chain name {"{chainName 15 0 d-chain <nil>}": {"Key":"chainID","Type":25,"Integer":0,"String":"","Interface":"wMi5eaCvm5xpbXrUrTHfPKLUawqDsDxo2yEZwTAQpRCjKARZ2"}, "{base 15 0 bc/d-chain <nil>}": {"Key":"endpoint","Type":15,"Integer":0,"String":"/ws","Interface":null}}
+[01-03|14:08:25.206] INFO chains/manager.go:688 Registered HTTP handler {"{chainAlias 15 0 wMi5eaCvm5xpbXrUrTHfPKLUawqDsDxo2yEZwTAQpRCjKARZ2 <nil>}": {"Key":"chainID","Type":25,"Integer":0,"String":"","Interface":"wMi5eaCvm5xpbXrUrTHfPKLUawqDsDxo2yEZwTAQpRCjKARZ2"}, "{base 15 0 bc/wMi5eaCvm5xpbXrUrTHfPKLUawqDsDxo2yEZwTAQpRCjKARZ2 <nil>}": {"Key":"endpoint","Type":15,"Integer":0,"String":"/ws","Interface":null}}
+[01-03|14:08:25.206] INFO node/chain_router.go:195 added chain to router {"{chainID 25 0  wMi5eaCvm5xpbXrUrTHfPKLUawqDsDxo2yEZwTAQpRCjKARZ2}": {"Key":"chainIDBytes","Type":3,"Integer":0,"String":"","Interface":"e2yfZ/kzLJ1N5Tzn21AI2dhImA6GBrAj2wo2XIVCUpw="}}
+[01-03|14:08:25.206] INFO chains/manager.go:720 ╔══════════════════════════════════════════════════════════════════╗
+[01-03|14:08:25.206] INFO chains/manager.go:721 ║ CHAIN CREATED SUCCESSFULLY                                       ║ {"{vmName 15 0 dexvm <nil>}": {"Key":"chainAlias","Type":15,"Integer":0,"String":"D","Interface":null}}
+[01-03|14:08:25.206] INFO chains/manager.go:725 ║ Chain ID:
+[01-03|14:08:25.206] INFO chains/manager.go:726 ║ VM ID:
+[01-03|14:08:25.206] INFO chains/manager.go:727 ║ Network ID:
+[01-03|14:08:25.206] INFO chains/manager.go:728 ║ Endpoints available at:
+[01-03|14:08:25.206] INFO chains/manager.go:729 ║   → /ext/bc/wMi5eaCvm5xpbXrUrTHfPKLUawqDsDxo2yEZwTAQpRCjKARZ2
+[01-03|14:08:25.206] INFO chains/manager.go:731 ║   → /ext/bc/D
+[01-03|14:08:25.206] INFO chains/manager.go:733 ╚══════════════════════════════════════════════════════════════════╝
+[01-03|14:08:25.206] INFO chains/manager.go:514 creating chain {"{netID 25 0  11111111111111111111111111111111LpoYY}": {"Key":"chainID","Type":25,"Integer":0,"String":"","Interface":"24v2Ab7PcPFZTuw32gaKNG8xVKmC6Rbj9EVyBMjm7jMsxTvvk2"}}
+[01-03|14:08:25.206] INFO chains/manager.go:773 Creating metrics gatherer
+[01-03|14:08:25.206] INFO chains/manager.go:789 Metrics gatherer created {"{primaryAlias 15 0 C <nil>}": {"Key":"isNil","Type":4,"Integer":0,"String":"","Interface":null}}
+[01-03|14:08:25.206] INFO chains/manager.go:826 Getting VM factory
+[01-03|14:08:25.206] INFO chains/manager.go:843 Got VM factory successfully
+[01-03|14:08:25.206] INFO chains/manager.go:864 DEBUG: About to check VM type {"{chainID 25 0  24v2Ab7PcPFZTuw32gaKNG8xVKmC6Rbj9EVyBMjm7jMsxTvvk2}": {"Key":"vmType","Type":15,"Integer":0,"String":"*evm.VM","Interface":null}}
+[01-03|14:08:25.206] INFO chains/manager.go:886 skip-bootstrap enabled - using empty beacons for single-node mode
+[01-03|14:08:25.206] INFO chains/manager.go:896 creating linear chain
+[01-03|14:08:25.206] INFO chains/chain_db.go:70 Created prefixed database for chain {"{chainID 25 0  24v2Ab7PcPFZTuw32gaKNG8xVKmC6Rbj9EVyBMjm7jMsxTvvk2}": {"Key":"alias","Type":15,"Integer":0,"String":"C","Interface":null}}
+[01-03|14:08:25.206] INFO chains/manager.go:1593 injected enable-automining and skip-block-fee into chain config
+[01-03|14:08:25.206] INFO chains/manager.go:933 initializing VM
+[01-03|14:08:25.206] INFO evm/vm.go:369 2026-01-03T14:08:25.206-0800	INFO	<C Chain> /Users/z/work/lux/log/logger.go:205	Initializing Coreth VM	{"Version": "v0.15.66-upgrade-bytes-fix", "Config": {"admin-api-enabled":false,"admin-api-dir":"","coreth-admin-api-enabled":false,"coreth-admin-api-dir":"","warp-api-enabled":false,"eth-apis":["eth","eth-filter","net","web3","internal-eth","internal-blockchain","internal-transaction","eth-dev","evm-dev","anvil-dev","hardhat-dev"],"continuous-profiler-dir":"","continuous-profiler-frequency":"15m0s","continuous-profiler-max-files":5,"rpc-gas-cap":50000000,"rpc-tx-fee-cap":100,"trie-clean-cache":512,"trie-dirty-cache":512,"trie-dirty-commit-target":20,"trie-prefetcher-parallelism":16,"snapshot-cache":256,"preimages-enabled":false,"snapshot-wait":false,"snapshot-verification-enabled":false,"pruning-enabled":true,"accepted-queue-limit":64,"commit-interval":4096,"allow-missing-tries":false,"populate-missing-tries-parallelism":1024,"prune-warp-db-enabled":false,"historical-proof-query-window":43200,"metrics-expensive-enabled":true,"local-txs-enabled":false,"price-options-slow-fee-percentage":95,"price-options-fast-fee-percentage":105,"price-options-max-tip":20000000000,"tx-pool-price-limit":1,"tx-pool-price-bump":10,"tx-pool-account-slots":16,"tx-pool-global-slots":5120,"tx-pool-account-queue":64,"tx-pool-global-queue":1024,"tx-pool-lifetime":"10m0s","api-max-duration":"0s","ws-cpu-refill-rate":"0s","ws-cpu-max-stored":"0s","api-max-blocks-per-request":0,"allow-unfinalized-queries":false,"allow-unprotected-txs":false,"allow-unprotected-tx-hashes":["0xfefb2da535e927b85fe68eb81cb2e4a5827c905f78381a01ef2322aa9b0aee8e"],"keystore-directory":"","keystore-external-signer":"","keystore-insecure-unlock-allowed":false,"push-gossip-percent-stake":0.9,"push-gossip-num-validators":100,"push-gossip-num-peers":0,"push-regossip-num-validators":10,"push-regossip-num-peers":0,"push-gossip-frequency":"100ms","pull-gossip-frequency":"1s","regossip-frequency":"30s","tx-regossip-frequency":"0s","log-level":"info","log-json-format":false,"offline-pruning-enabled":false,"offline-pruning-bloom-filter-size":512,"offline-pruning-data-directory":"","max-outbound-active-requests":16,"state-sync-enabled":null,"state-sync-skip-resume":false,"state-sync-server-trie-cache":64,"state-sync-ids":"","state-sync-commit-interval":16384,"state-sync-min-blocks":300000,"state-sync-request-size":1024,"inspect-database":false,"skip-upgrade-check":false,"accepted-cache-size":32,"transaction-history":0,"state-history":32,"tx-lookup-limit":0,"skip-tx-indexing":false,"warp-off-chain-messages":null,"http-body-limit":0,"state-scheme":"","import-chain-data":"","enable-automining":true,"skip-block-fee":true}}
+[01-03|14:08:25.206] INFO evm/vm.go:370 2026-01-03T14:08:25.206-0800	INFO	<C Chain> /Users/z/work/lux/log/logger.go:205	CORETH_BUILD_2026_01_01_1605	{"marker": "PLUGIN_LOADED_FROM_PLUGINS_DIR"}
+[01-03|14:08:25.206] INFO evm/vm.go:371 2026-01-03T14:08:25.206-0800	INFO	<C Chain> /Users/z/work/lux/log/logger.go:205	DEBUG upgradeBytes received	{"length": 0, "content": ""}
+[01-03|14:08:25.206] INFO evm/vm.go:376 2026-01-03T14:08:25.206-0800	INFO	<C Chain> /Users/z/work/lux/log/logger.go:205	toEngine dynamic type	{"type": "chan vm.Message"}
+[01-03|14:08:25.206] INFO evm/vm.go:384 2026-01-03T14:08:25.206-0800	INFO	<C Chain> /Users/z/work/lux/log/logger.go:205	toEngine stored	{"as": "chan block.Message (cast to send-only)"}
+[01-03|14:08:25.213] INFO node/node.go:694 API server listening {"uri": "http://[::]:8545"}
+[01-03|14:08:25.213] INFO core/genesis.go:360 2026-01-03T14:08:25.213-0800	INFO	<C Chain> /Users/z/work/lux/log/logger.go:205	Genesis state verified accessible	{"root": "0x161f4694db001eaf42887c8c1f5cf4c5486973767a61a6859e50657364fc6234"}
+[01-03|14:08:25.213] INFO evm/vm.go:462 2026-01-03T14:08:25.213-0800	INFO	<C Chain> /Users/z/work/lux/log/logger.go:205	read last accepted	{"hash": "0x9272385e409e70bf79486db91701e7f8b514ebfa51d61dd6f1a2c2db6df4354f", "height": 0}
+[01-03|14:08:25.213] INFO eth/backend.go:151 2026-01-03T14:08:25.213-0800	INFO	<C Chain> /Users/z/work/lux/log/logger.go:205	Allocated memory caches	{"trie clean": "512.00 MiB", "trie dirty": "512.00 MiB", "snapshot clean": "256.00 MiB"}
+[01-03|14:08:25.213] INFO eth/backend.go:199 2026-01-03T14:08:25.213-0800	INFO	<C Chain> /Users/z/work/lux/log/logger.go:205	Initialising Ethereum protocol	{"network": 1337, "dbversion": "<nil>"}
+[01-03|14:08:25.213] INFO eth/backend.go:205 2026-01-03T14:08:25.213-0800	WARN	<C Chain> /Users/z/work/lux/log/logger.go:210	Upgrade blockchain database version	{"from": "<nil>", "to": 9}
+[01-03|14:08:25.214] INFO core/genesis.go:141 2026-01-03T14:08:25.214-0800	INFO	<C Chain> /Users/z/work/lux/log/logger.go:205	Writing genesis to database
+[01-03|14:08:25.214] INFO core/genesis.go:360 2026-01-03T14:08:25.214-0800	INFO	<C Chain> /Users/z/work/lux/log/logger.go:205	Genesis state verified accessible	{"root": "0x161f4694db001eaf42887c8c1f5cf4c5486973767a61a6859e50657364fc6234"}
+[01-03|14:08:25.214] INFO core/blockchain.go:393 2026-01-03T14:08:25.214-0800	INFO	<C Chain> /Users/z/work/lux/log/logger.go:205	
+[01-03|14:08:25.214] INFO core/blockchain.go:394 2026-01-03T14:08:25.214-0800	INFO	<C Chain> /Users/z/work/lux/log/logger.go:205	---------------------------------------------------------------------------------------------------------------------------------------------------------
+[01-03|14:08:25.214] INFO core/blockchain.go:396 2026-01-03T14:08:25.214-0800	INFO	<C Chain> /Users/z/work/lux/log/logger.go:205	Chain ID:  1337 (unknown)
+[01-03|14:08:25.214] INFO core/blockchain.go:396 2026-01-03T14:08:25.214-0800	INFO	<C Chain> /Users/z/work/lux/log/logger.go:205	Consensus: unknown
+[01-03|14:08:25.214] INFO core/blockchain.go:396 2026-01-03T14:08:25.214-0800	INFO	<C Chain> /Users/z/work/lux/log/logger.go:205	
+[01-03|14:08:25.214] INFO core/blockchain.go:396 2026-01-03T14:08:25.214-0800	INFO	<C Chain> /Users/z/work/lux/log/logger.go:205	Pre-Merge hard forks (block based):
+[01-03|14:08:25.214] INFO core/blockchain.go:396 2026-01-03T14:08:25.214-0800	INFO	<C Chain> /Users/z/work/lux/log/logger.go:205	 - Homestead:                   #0       
+[01-03|14:08:25.214] INFO core/blockchain.go:396 2026-01-03T14:08:25.214-0800	INFO	<C Chain> /Users/z/work/lux/log/logger.go:205	 - DAO Fork:                    #0       
+[01-03|14:08:25.214] INFO core/blockchain.go:396 2026-01-03T14:08:25.214-0800	INFO	<C Chain> /Users/z/work/lux/log/logger.go:205	 - Tangerine Whistle (EIP 150): #0       
+[01-03|14:08:25.214] INFO core/blockchain.go:396 2026-01-03T14:08:25.214-0800	INFO	<C Chain> /Users/z/work/lux/log/logger.go:205	 - Spurious Dragon/1 (EIP 155): #0       
+[01-03|14:08:25.215] INFO core/blockchain.go:396 2026-01-03T14:08:25.215-0800	INFO	<C Chain> /Users/z/work/lux/log/logger.go:205	 - Spurious Dragon/2 (EIP 158): #0       
+[01-03|14:08:25.215] INFO core/blockchain.go:396 2026-01-03T14:08:25.215-0800	INFO	<C Chain> /Users/z/work/lux/log/logger.go:205	 - Byzantium:                   #0       
+[01-03|14:08:25.215] INFO core/blockchain.go:396 2026-01-03T14:08:25.215-0800	INFO	<C Chain> /Users/z/work/lux/log/logger.go:205	 - Constantinople:              #0       
+[01-03|14:08:25.215] INFO core/blockchain.go:396 2026-01-03T14:08:25.215-0800	INFO	<C Chain> /Users/z/work/lux/log/logger.go:205	 - Petersburg:                  #0       
+[01-03|14:08:25.215] INFO core/blockchain.go:396 2026-01-03T14:08:25.215-0800	INFO	<C Chain> /Users/z/work/lux/log/logger.go:205	 - Istanbul:                    #0       
+[01-03|14:08:25.215] INFO core/blockchain.go:396 2026-01-03T14:08:25.215-0800	INFO	<C Chain> /Users/z/work/lux/log/logger.go:205	 - Muir Glacier:                #0       
+[01-03|14:08:25.215] INFO core/blockchain.go:396 2026-01-03T14:08:25.215-0800	INFO	<C Chain> /Users/z/work/lux/log/logger.go:205	 - Berlin:                      #0       
+[01-03|14:08:25.215] INFO core/blockchain.go:396 2026-01-03T14:08:25.215-0800	INFO	<C Chain> /Users/z/work/lux/log/logger.go:205	 - London:                      #0       
+[01-03|14:08:25.215] INFO core/blockchain.go:396 2026-01-03T14:08:25.215-0800	INFO	<C Chain> /Users/z/work/lux/log/logger.go:205	 - Arrow Glacier:               #0       
+[01-03|14:08:25.215] INFO core/blockchain.go:396 2026-01-03T14:08:25.215-0800	INFO	<C Chain> /Users/z/work/lux/log/logger.go:205	 - Gray Glacier:                #0       
+[01-03|14:08:25.215] INFO core/blockchain.go:396 2026-01-03T14:08:25.215-0800	INFO	<C Chain> /Users/z/work/lux/log/logger.go:205	
+[01-03|14:08:25.215] INFO core/blockchain.go:396 2026-01-03T14:08:25.215-0800	INFO	<C Chain> /Users/z/work/lux/log/logger.go:205	Merge configured:
+[01-03|14:08:25.215] INFO core/blockchain.go:396 2026-01-03T14:08:25.215-0800	INFO	<C Chain> /Users/z/work/lux/log/logger.go:205	 - Total terminal difficulty:  0
+[01-03|14:08:25.215] INFO core/blockchain.go:396 2026-01-03T14:08:25.215-0800	INFO	<C Chain> /Users/z/work/lux/log/logger.go:205	 - Merge netsplit block:       #0       
+[01-03|14:08:25.215] INFO core/blockchain.go:396 2026-01-03T14:08:25.215-0800	INFO	<C Chain> /Users/z/work/lux/log/logger.go:205	
+[01-03|14:08:25.215] INFO core/blockchain.go:396 2026-01-03T14:08:25.215-0800	INFO	<C Chain> /Users/z/work/lux/log/logger.go:205	Post-Merge hard forks (timestamp based):
+[01-03|14:08:25.215] INFO core/blockchain.go:396 2026-01-03T14:08:25.215-0800	INFO	<C Chain> /Users/z/work/lux/log/logger.go:205	 - Shanghai:                    @0         
+[01-03|14:08:25.215] INFO core/blockchain.go:396 2026-01-03T14:08:25.215-0800	INFO	<C Chain> /Users/z/work/lux/log/logger.go:205	
+[01-03|14:08:25.215] INFO core/blockchain.go:396 2026-01-03T14:08:25.215-0800	INFO	<C Chain> /Users/z/work/lux/log/logger.go:205	All fork specifications can be found at https://ethereum.github.io/execution-specs/src/ethereum/forks/
+[01-03|14:08:25.215] INFO core/blockchain.go:396 2026-01-03T14:08:25.215-0800	INFO	<C Chain> /Users/z/work/lux/log/logger.go:205	
+[01-03|14:08:25.215] INFO core/blockchain.go:398 2026-01-03T14:08:25.215-0800	INFO	<C Chain> /Users/z/work/lux/log/logger.go:205	---------------------------------------------------------------------------------------------------------------------------------------------------------
+[01-03|14:08:25.215] INFO core/blockchain.go:399 2026-01-03T14:08:25.215-0800	INFO	<C Chain> /Users/z/work/lux/log/logger.go:205	
+[01-03|14:08:25.215] INFO core/blockchain.go:788 2026-01-03T14:08:25.215-0800	INFO	<C Chain> /Users/z/work/lux/log/logger.go:205	Loaded most recent local header	{"number": "0", "hash": "0x9272385e409e70bf79486db91701e7f8b514ebfa51d61dd6f1a2c2db6df4354f", "age": "56y9mo3w"}
+[01-03|14:08:25.215] INFO core/blockchain.go:789 2026-01-03T14:08:25.215-0800	INFO	<C Chain> /Users/z/work/lux/log/logger.go:205	Loaded most recent local full block	{"number": "0", "hash": "0x9272385e409e70bf79486db91701e7f8b514ebfa51d61dd6f1a2c2db6df4354f", "age": "56y9mo3w"}
+[01-03|14:08:25.215] INFO core/blockchain.go:2039 2026-01-03T14:08:25.215-0800	INFO	<C Chain> /Users/z/work/lux/log/logger.go:205	Loaded Acceptor tip	{"hash": "0x0000000000000000000000000000000000000000000000000000000000000000"}
+[01-03|14:08:25.215] INFO core/blockchain.go:2047 2026-01-03T14:08:25.215-0800	INFO	<C Chain> /Users/z/work/lux/log/logger.go:205	Skipping state reprocessing	{"root": "0x161f4694db001eaf42887c8c1f5cf4c5486973767a61a6859e50657364fc6234"}
+[01-03|14:08:25.215] INFO core/blockchain.go:582 2026-01-03T14:08:25.215-0800	INFO	<C Chain> /Users/z/work/lux/log/logger.go:205	Not warming accepted cache because there are no accepted blocks
+[01-03|14:08:25.215] INFO core/blockchain.go:607 2026-01-03T14:08:25.215-0800	INFO	<C Chain> /Users/z/work/lux/log/logger.go:205	Starting Acceptor	{"queue length": 64}
+[01-03|14:08:25.215] INFO legacypool/legacypool.go:490 2026-01-03T14:08:25.215-0800	INFO	<C Chain> /Users/z/work/lux/log/logger.go:205	Legacy pool tip threshold updated	{"tip": "0"}
+[01-03|14:08:25.215] INFO evm/vm.go:798 2026-01-03T14:08:25.215-0800	WARN	<C Chain> /Users/z/work/lux/log/logger.go:210	CORETH-ZACH: SkipBlockFee config value	{"skipBlockFee": true}
+[01-03|14:08:25.215] INFO evm/vm.go:801 2026-01-03T14:08:25.215-0800	WARN	<C Chain> /Users/z/work/lux/log/logger.go:210	CORETH-ZACH: Setting MinFee to 0
+[01-03|14:08:25.216] INFO chains/manager.go:951 VM initialized successfully
+[01-03|14:08:25.216] INFO chains/manager.go:959 transitioning VM to normal operation
+[01-03|14:08:25.216] INFO chains/manager.go:974 registered VM with consensus engine for block building
+[01-03|14:08:25.216] INFO evm/block_builder.go:219 2026-01-03T14:08:25.216-0800	INFO	<C Chain> /Users/z/work/lux/log/logger.go:205	Automining started - blocks will be produced when transactions are pending
+[01-03|14:08:25.216] INFO chains/manager.go:991 [CONSENSUS DEBUG] Creating consensus engine for chain {"{chainID 25 0  24v2Ab7PcPFZTuw32gaKNG8xVKmC6Rbj9EVyBMjm7jMsxTvvk2}": {"Key":"chainParams.ChainID","Type":25,"Integer":0,"String":"","Interface":"11111111111111111111111111111111LpoYY"}, "{isNativeChain 4 0  <nil>}": {"Key":"networkIDForValidators","Type":25,"Integer":0,"String":"","Interface":"11111111111111111111111111111111LpoYY"}}
+[01-03|14:08:25.216] INFO chains/manager.go:1018 consensus engine started with Lux consensus (Photon → Wave → Focus)
+[01-03|14:08:25.216] INFO chain/integration.go:115 starting VM notification forwarder for Lux consensus
+[01-03|14:08:25.216] INFO evm/vm.go:1355 2026-01-03T14:08:25.216-0800	INFO	<C Chain> /Users/z/work/lux/log/logger.go:205	enabling apis	{"apis": ["eth", "eth-filter", "net", "web3", "internal-eth", "internal-blockchain", "internal-transaction", "eth-dev", "evm-dev", "anvil-dev", "hardhat-dev"]}
+[01-03|14:08:25.216] INFO server/server.go:245 adding route {"{url 15 0 /ext/bc/C <nil>}": {"Key":"endpoint","Type":15,"Integer":0,"String":"/rpc","Interface":null}}
+[01-03|14:08:25.216] INFO server/server.go:245 adding route {"{url 15 0 /ext/bc/24v2Ab7PcPFZTuw32gaKNG8xVKmC6Rbj9EVyBMjm7jMsxTvvk2 <nil>}": {"Key":"endpoint","Type":15,"Integer":0,"String":"/rpc","Interface":null}}
+[01-03|14:08:25.216] INFO server/server.go:245 adding route {"{url 15 0 /ext/bc/c-chain <nil>}": {"Key":"endpoint","Type":15,"Integer":0,"String":"/rpc","Interface":null}}
+[01-03|14:08:25.216] INFO chains/manager.go:669 Registered HTTP handler with chain name {"{chainName 15 0 c-chain <nil>}": {"Key":"chainID","Type":25,"Integer":0,"String":"","Interface":"24v2Ab7PcPFZTuw32gaKNG8xVKmC6Rbj9EVyBMjm7jMsxTvvk2"}, "{base 15 0 bc/c-chain <nil>}": {"Key":"endpoint","Type":15,"Integer":0,"String":"/rpc","Interface":null}}
+[01-03|14:08:25.216] INFO server/server.go:245 adding route {"{url 15 0 /ext/bc/C <nil>}": {"Key":"endpoint","Type":15,"Integer":0,"String":"/rpc","Interface":null}}
+[01-03|14:08:25.216] INFO chains/manager.go:680 Registered HTTP handler with C alias {"{chainID 25 0  24v2Ab7PcPFZTuw32gaKNG8xVKmC6Rbj9EVyBMjm7jMsxTvvk2}": {"Key":"base","Type":15,"Integer":0,"String":"bc/C","Interface":null}}
+[01-03|14:08:25.216] INFO chains/manager.go:688 Registered HTTP handler {"{chainAlias 15 0 C <nil>}": {"Key":"chainID","Type":25,"Integer":0,"String":"","Interface":"24v2Ab7PcPFZTuw32gaKNG8xVKmC6Rbj9EVyBMjm7jMsxTvvk2"}, "{base 15 0 bc/C <nil>}": {"Key":"endpoint","Type":15,"Integer":0,"String":"/rpc","Interface":null}}
+[01-03|14:08:25.216] INFO server/server.go:245 adding route {"{url 15 0 /ext/bc/C <nil>}": {"Key":"endpoint","Type":15,"Integer":0,"String":"/ws","Interface":null}}
+[01-03|14:08:25.216] INFO server/server.go:245 adding route {"{url 15 0 /ext/bc/24v2Ab7PcPFZTuw32gaKNG8xVKmC6Rbj9EVyBMjm7jMsxTvvk2 <nil>}": {"Key":"endpoint","Type":15,"Integer":0,"String":"/ws","Interface":null}}
+[01-03|14:08:25.216] INFO server/server.go:245 adding route {"{url 15 0 /ext/bc/c-chain <nil>}": {"Key":"endpoint","Type":15,"Integer":0,"String":"/ws","Interface":null}}
+[01-03|14:08:25.216] INFO chains/manager.go:669 Registered HTTP handler with chain name {"{chainName 15 0 c-chain <nil>}": {"Key":"chainID","Type":25,"Integer":0,"String":"","Interface":"24v2Ab7PcPFZTuw32gaKNG8xVKmC6Rbj9EVyBMjm7jMsxTvvk2"}, "{base 15 0 bc/c-chain <nil>}": {"Key":"endpoint","Type":15,"Integer":0,"String":"/ws","Interface":null}}
+[01-03|14:08:25.216] INFO server/server.go:245 adding route {"{url 15 0 /ext/bc/C <nil>}": {"Key":"endpoint","Type":15,"Integer":0,"String":"/ws","Interface":null}}
+[01-03|14:08:25.216] INFO chains/manager.go:680 Registered HTTP handler with C alias {"{chainID 25 0  24v2Ab7PcPFZTuw32gaKNG8xVKmC6Rbj9EVyBMjm7jMsxTvvk2}": {"Key":"base","Type":15,"Integer":0,"String":"bc/C","Interface":null}}
+[01-03|14:08:25.216] INFO chains/manager.go:688 Registered HTTP handler {"{chainAlias 15 0 C <nil>}": {"Key":"chainID","Type":25,"Integer":0,"String":"","Interface":"24v2Ab7PcPFZTuw32gaKNG8xVKmC6Rbj9EVyBMjm7jMsxTvvk2"}, "{base 15 0 bc/C <nil>}": {"Key":"endpoint","Type":15,"Integer":0,"String":"/ws","Interface":null}}
+[01-03|14:08:25.217] INFO node/chain_router.go:195 added chain to router {"{chainID 25 0  24v2Ab7PcPFZTuw32gaKNG8xVKmC6Rbj9EVyBMjm7jMsxTvvk2}": {"Key":"chainIDBytes","Type":3,"Integer":0,"String":"","Interface":"jJVoo2MG23zxxdXMNcYW3ZPHCvXKX/yh3jyv1BdIJl0="}}
+[01-03|14:08:25.217] INFO chains/manager.go:720 ╔══════════════════════════════════════════════════════════════════╗
+[01-03|14:08:25.217] INFO chains/manager.go:721 ║ CHAIN CREATED SUCCESSFULLY                                       ║ {"{vmName 15 0 evm <nil>}": {"Key":"chainAlias","Type":15,"Integer":0,"String":"C","Interface":null}}
+[01-03|14:08:25.217] INFO chains/manager.go:725 ║ Chain ID:
+[01-03|14:08:25.217] INFO chains/manager.go:726 ║ VM ID:
+[01-03|14:08:25.217] INFO chains/manager.go:727 ║ Network ID:
+[01-03|14:08:25.217] INFO chains/manager.go:728 ║ Endpoints available at:
+[01-03|14:08:25.217] INFO chains/manager.go:729 ║   → /ext/bc/24v2Ab7PcPFZTuw32gaKNG8xVKmC6Rbj9EVyBMjm7jMsxTvvk2
+[01-03|14:08:25.217] INFO chains/manager.go:731 ║   → /ext/bc/C
+[01-03|14:08:25.217] INFO chains/manager.go:733 ╚══════════════════════════════════════════════════════════════════╝
+[01-03|14:08:25.217] INFO chains/manager.go:514 creating chain {"{netID 25 0  11111111111111111111111111111111LpoYY}": {"Key":"chainID","Type":25,"Integer":0,"String":"","Interface":"3Xjeu5po5eNYe9MnH46LJhU1VCZT4YLZXhrAoRTHn3x637J4c"}}
+[01-03|14:08:25.217] INFO chains/manager.go:773 Creating metrics gatherer
+[01-03|14:08:25.217] INFO chains/manager.go:789 Metrics gatherer created {"{primaryAlias 15 0 X <nil>}": {"Key":"isNil","Type":4,"Integer":0,"String":"","Interface":null}}
+[01-03|14:08:25.217] INFO chains/manager.go:826 Getting VM factory
+[01-03|14:08:25.217] INFO chains/manager.go:843 Got VM factory successfully
+[01-03|14:08:25.217] INFO chains/manager.go:864 DEBUG: About to check VM type {"{chainID 25 0  3Xjeu5po5eNYe9MnH46LJhU1VCZT4YLZXhrAoRTHn3x637J4c}": {"Key":"vmType","Type":15,"Integer":0,"String":"*exchangevm.VM","Interface":null}}
+[01-03|14:08:25.217] INFO chains/manager.go:869 detected DAG VM with GetEngine()
+[01-03|14:08:25.217] INFO chains/manager.go:1128 creating DAG chain {"{chainID 25 0  3Xjeu5po5eNYe9MnH46LJhU1VCZT4YLZXhrAoRTHn3x637J4c}": {"Key":"vmID","Type":15,"Integer":0,"String":"jvYyfQTxGMJLuGWa55kdP2p2zSUYsQ5Raupu4TW34ZAUBAbtq","Interface":null}}
+[01-03|14:08:25.217] INFO chains/manager.go:1593 injected enable-automining and skip-block-fee into chain config
+[01-03|14:08:25.217] INFO chains/chain_db.go:70 Created prefixed database for chain {"{chainID 25 0  3Xjeu5po5eNYe9MnH46LJhU1VCZT4YLZXhrAoRTHn3x637J4c}": {"Key":"alias","Type":15,"Integer":0,"String":"X","Interface":null}}
+[01-03|14:08:25.217] INFO chains/manager.go:1237 ExchangeVM initialized successfully
+[01-03|14:08:25.217] INFO chains/manager.go:1262 DAG chain created successfully {"{chainID 25 0  3Xjeu5po5eNYe9MnH46LJhU1VCZT4YLZXhrAoRTHn3x637J4c}": {"Key":"status","Type":15,"Integer":0,"String":"using native DAG consensus","Interface":null}}
+[01-03|14:08:25.217] INFO server/server.go:245 adding route {"{url 15 0 /ext/bc/3Xjeu5po5eNYe9MnH46LJhU1VCZT4YLZXhrAoRTHn3x637J4c <nil>}": {"Key":"endpoint","Type":15,"Integer":0,"String":"","Interface":null}}
+[01-03|14:08:25.217] INFO server/server.go:245 adding route {"{url 15 0 /ext/bc/x-chain <nil>}": {"Key":"endpoint","Type":15,"Integer":0,"String":"","Interface":null}}
+[01-03|14:08:25.217] INFO chains/manager.go:669 Registered HTTP handler with chain name {"{chainName 15 0 x-chain <nil>}": {"Key":"chainID","Type":25,"Integer":0,"String":"","Interface":"3Xjeu5po5eNYe9MnH46LJhU1VCZT4YLZXhrAoRTHn3x637J4c"}, "{base 15 0 bc/x-chain <nil>}": {"Key":"endpoint","Type":15,"Integer":0,"String":"","Interface":null}}
+[01-03|14:08:25.217] INFO chains/manager.go:688 Registered HTTP handler {"{chainAlias 15 0 3Xjeu5po5eNYe9MnH46LJhU1VCZT4YLZXhrAoRTHn3x637J4c <nil>}": {"Key":"chainID","Type":25,"Integer":0,"String":"","Interface":"3Xjeu5po5eNYe9MnH46LJhU1VCZT4YLZXhrAoRTHn3x637J4c"}, "{base 15 0 bc/3Xjeu5po5eNYe9MnH46LJhU1VCZT4YLZXhrAoRTHn3x637J4c <nil>}": {"Key":"endpoint","Type":15,"Integer":0,"String":"","Interface":null}}
+[01-03|14:08:25.217] INFO server/server.go:245 adding route {"{url 15 0 /ext/bc/3Xjeu5po5eNYe9MnH46LJhU1VCZT4YLZXhrAoRTHn3x637J4c <nil>}": {"Key":"endpoint","Type":15,"Integer":0,"String":"/wallet","Interface":null}}
+[01-03|14:08:25.218] INFO server/server.go:245 adding route {"{url 15 0 /ext/bc/x-chain <nil>}": {"Key":"endpoint","Type":15,"Integer":0,"String":"/wallet","Interface":null}}
+[01-03|14:08:25.218] INFO chains/manager.go:669 Registered HTTP handler with chain name {"{chainName 15 0 x-chain <nil>}": {"Key":"chainID","Type":25,"Integer":0,"String":"","Interface":"3Xjeu5po5eNYe9MnH46LJhU1VCZT4YLZXhrAoRTHn3x637J4c"}, "{base 15 0 bc/x-chain <nil>}": {"Key":"endpoint","Type":15,"Integer":0,"String":"/wallet","Interface":null}}
+[01-03|14:08:25.218] INFO chains/manager.go:688 Registered HTTP handler {"{chainAlias 15 0 3Xjeu5po5eNYe9MnH46LJhU1VCZT4YLZXhrAoRTHn3x637J4c <nil>}": {"Key":"chainID","Type":25,"Integer":0,"String":"","Interface":"3Xjeu5po5eNYe9MnH46LJhU1VCZT4YLZXhrAoRTHn3x637J4c"}, "{base 15 0 bc/3Xjeu5po5eNYe9MnH46LJhU1VCZT4YLZXhrAoRTHn3x637J4c <nil>}": {"Key":"endpoint","Type":15,"Integer":0,"String":"/wallet","Interface":null}}
+[01-03|14:08:25.218] INFO server/server.go:245 adding route {"{url 15 0 /ext/bc/3Xjeu5po5eNYe9MnH46LJhU1VCZT4YLZXhrAoRTHn3x637J4c <nil>}": {"Key":"endpoint","Type":15,"Integer":0,"String":"/events","Interface":null}}
+[01-03|14:08:25.218] INFO server/server.go:245 adding route {"{url 15 0 /ext/bc/x-chain <nil>}": {"Key":"endpoint","Type":15,"Integer":0,"String":"/events","Interface":null}}
+[01-03|14:08:25.218] INFO chains/manager.go:669 Registered HTTP handler with chain name {"{chainName 15 0 x-chain <nil>}": {"Key":"chainID","Type":25,"Integer":0,"String":"","Interface":"3Xjeu5po5eNYe9MnH46LJhU1VCZT4YLZXhrAoRTHn3x637J4c"}, "{base 15 0 bc/x-chain <nil>}": {"Key":"endpoint","Type":15,"Integer":0,"String":"/events","Interface":null}}
+[01-03|14:08:25.218] INFO chains/manager.go:688 Registered HTTP handler {"{chainAlias 15 0 3Xjeu5po5eNYe9MnH46LJhU1VCZT4YLZXhrAoRTHn3x637J4c <nil>}": {"Key":"chainID","Type":25,"Integer":0,"String":"","Interface":"3Xjeu5po5eNYe9MnH46LJhU1VCZT4YLZXhrAoRTHn3x637J4c"}, "{base 15 0 bc/3Xjeu5po5eNYe9MnH46LJhU1VCZT4YLZXhrAoRTHn3x637J4c <nil>}": {"Key":"endpoint","Type":15,"Integer":0,"String":"/events","Interface":null}}
+[01-03|14:08:25.218] INFO node/chain_router.go:195 added chain to router {"{chainID 25 0  3Xjeu5po5eNYe9MnH46LJhU1VCZT4YLZXhrAoRTHn3x637J4c}": {"Key":"chainIDBytes","Type":3,"Integer":0,"String":"","Interface":"Bb6XMhen9oUhul2+yyTwjgcHeEi6fR+O+tbln4RtWH8="}}
+[01-03|14:08:25.218] INFO chains/manager.go:720 ╔══════════════════════════════════════════════════════════════════╗
+[01-03|14:08:25.218] INFO chains/manager.go:721 ║ CHAIN CREATED SUCCESSFULLY                                       ║ {"{vmName 15 0 xvm <nil>}": {"Key":"chainAlias","Type":15,"Integer":0,"String":"X","Interface":null}}
+[01-03|14:08:25.218] INFO chains/manager.go:725 ║ Chain ID:
+[01-03|14:08:25.218] INFO chains/manager.go:726 ║ VM ID:
+[01-03|14:08:25.218] INFO chains/manager.go:727 ║ Network ID:
+[01-03|14:08:25.218] INFO chains/manager.go:728 ║ Endpoints available at:
+[01-03|14:08:25.218] INFO chains/manager.go:729 ║   → /ext/bc/3Xjeu5po5eNYe9MnH46LJhU1VCZT4YLZXhrAoRTHn3x637J4c
+[01-03|14:08:25.218] INFO chains/manager.go:731 ║   → /ext/bc/X
+[01-03|14:08:25.218] INFO chains/manager.go:733 ╚══════════════════════════════════════════════════════════════════╝
+[01-03|14:08:25.218] INFO chains/manager.go:748 DAG chain has no standard engine, marking as bootstrapped immediately
+[01-03|14:08:25.305] INFO chains/manager.go:1318 chain finished bootstrapping, notifying subnet {"{chainID 25 0  11111111111111111111111111111111P}": {"Key":"pollCount","Type":11,"Integer":1,"String":"","Interface":null}}
+[01-03|14:08:25.306] INFO chains/manager.go:1318 chain finished bootstrapping, notifying subnet {"{chainID 25 0  wMi5eaCvm5xpbXrUrTHfPKLUawqDsDxo2yEZwTAQpRCjKARZ2}": {"Key":"pollCount","Type":11,"Integer":1,"String":"","Interface":null}}
+[01-03|14:08:25.317] INFO chains/manager.go:1318 chain finished bootstrapping, notifying subnet {"{chainID 25 0  24v2Ab7PcPFZTuw32gaKNG8xVKmC6Rbj9EVyBMjm7jMsxTvvk2}": {"Key":"pollCount","Type":11,"Integer":1,"String":"","Interface":null}}
+[01-03|14:08:25.624] INFO eth/api_dev.go:319 2026-01-03T14:08:25.624-0800	INFO	<C Chain> /Users/z/work/lux/log/logger.go:205	commitStateChanges: starting	{"parentNum": "0", "parentRoot": "0x161f4694db001eaf42887c8c1f5cf4c5486973767a61a6859e50657364fc6234"}
+[01-03|14:08:25.625] INFO eth/api_dev.go:330 2026-01-03T14:08:25.625-0800	INFO	<C Chain> /Users/z/work/lux/log/logger.go:205	commitStateChanges: statedb.Commit succeeded	{"newRoot": "0xd486520e6d3978e9cdd7fa34ec4562122bfe4191b4d5e046e12c6928a16e0839"}
+[01-03|14:08:25.625] INFO eth/api_dev.go:342 2026-01-03T14:08:25.625-0800	INFO	<C Chain> /Users/z/work/lux/log/logger.go:205	commitStateChanges: PathDB mode, state changes in memory
+[01-03|14:08:25.625] INFO eth/api_dev.go:377 2026-01-03T14:08:25.625-0800	INFO	<C Chain> /Users/z/work/lux/log/logger.go:205	commitStateChanges: InsertBlockWithoutState succeeded	{"blockNum": 1, "blockHash": "0x746abd7038f9f83252e242b6d15a8fc8c63d604792e97c7280ca2be0b91e9c11"}
+[01-03|14:08:25.625] INFO eth/api_dev.go:381 2026-01-03T14:08:25.625-0800	INFO	<C Chain> /Users/z/work/lux/log/logger.go:205	commitStateChanges: after insert	{"currentBlockNum": "1", "currentRoot": "0xd486520e6d3978e9cdd7fa34ec4562122bfe4191b4d5e046e12c6928a16e0839"}
+[01-03|14:08:25.692] DEBUG resource/usage.go:272 failed to lookup resource {"{resource 15 0 process IO <nil>}": {"Key":"pid","Type":23,"Integer":0,"String":"","Interface":80781}}
+[01-03|14:08:26.128] INFO eth/api_dev.go:319 2026-01-03T14:08:26.128-0800	INFO	<C Chain> /Users/z/work/lux/log/logger.go:205	commitStateChanges: starting	{"parentNum": "1", "parentRoot": "0xd486520e6d3978e9cdd7fa34ec4562122bfe4191b4d5e046e12c6928a16e0839"}
+[01-03|14:08:26.129] INFO eth/api_dev.go:330 2026-01-03T14:08:26.129-0800	INFO	<C Chain> /Users/z/work/lux/log/logger.go:205	commitStateChanges: statedb.Commit succeeded	{"newRoot": "0x470ac30053e530cb107a852ba6c90fdd9db34c2d2f216fc2e629184f3d8dc391"}
+[01-03|14:08:26.129] INFO eth/api_dev.go:342 2026-01-03T14:08:26.129-0800	INFO	<C Chain> /Users/z/work/lux/log/logger.go:205	commitStateChanges: PathDB mode, state changes in memory
+[01-03|14:08:26.129] INFO eth/api_dev.go:377 2026-01-03T14:08:26.129-0800	INFO	<C Chain> /Users/z/work/lux/log/logger.go:205	commitStateChanges: InsertBlockWithoutState succeeded	{"blockNum": 2, "blockHash": "0xa086660b2b471a446423bff145aa9a9f6b474158ed78c8e1535aca442ca42719"}
+[01-03|14:08:26.129] INFO eth/api_dev.go:381 2026-01-03T14:08:26.129-0800	INFO	<C Chain> /Users/z/work/lux/log/logger.go:205	commitStateChanges: after insert	{"currentBlockNum": "2", "currentRoot": "0x470ac30053e530cb107a852ba6c90fdd9db34c2d2f216fc2e629184f3d8dc391"}
+[01-03|14:08:26.192] DEBUG resource/usage.go:272 failed to lookup resource {"{resource 15 0 process IO <nil>}": {"Key":"pid","Type":23,"Integer":0,"String":"","Interface":80781}}
+[01-03|14:08:26.632] INFO eth/api_dev.go:319 2026-01-03T14:08:26.632-0800	INFO	<C Chain> /Users/z/work/lux/log/logger.go:205	commitStateChanges: starting	{"parentNum": "2", "parentRoot": "0x470ac30053e530cb107a852ba6c90fdd9db34c2d2f216fc2e629184f3d8dc391"}
+[01-03|14:08:26.632] INFO eth/api_dev.go:330 2026-01-03T14:08:26.632-0800	INFO	<C Chain> /Users/z/work/lux/log/logger.go:205	commitStateChanges: statedb.Commit succeeded	{"newRoot": "0xae9dd22898609988676dad43ecaca9c2b828cb02dda0ef9a10dc400b30ae3b0f"}
+[01-03|14:08:26.632] INFO eth/api_dev.go:342 2026-01-03T14:08:26.632-0800	INFO	<C Chain> /Users/z/work/lux/log/logger.go:205	commitStateChanges: PathDB mode, state changes in memory
+[01-03|14:08:26.632] INFO eth/api_dev.go:377 2026-01-03T14:08:26.632-0800	INFO	<C Chain> /Users/z/work/lux/log/logger.go:205	commitStateChanges: InsertBlockWithoutState succeeded	{"blockNum": 3, "blockHash": "0x28454db40577b98c91469cfbe87b3ce52a177ce9cd91321ad0f2723ff2b81f1f"}
+[01-03|14:08:26.632] INFO eth/api_dev.go:381 2026-01-03T14:08:26.632-0800	INFO	<C Chain> /Users/z/work/lux/log/logger.go:205	commitStateChanges: after insert	{"currentBlockNum": "3", "currentRoot": "0xae9dd22898609988676dad43ecaca9c2b828cb02dda0ef9a10dc400b30ae3b0f"}
+[01-03|14:08:26.692] DEBUG resource/usage.go:272 failed to lookup resource {"{resource 15 0 process IO <nil>}": {"Key":"pid","Type":23,"Integer":0,"String":"","Interface":80781}}
+[01-03|14:08:27.192] DEBUG resource/usage.go:272 failed to lookup resource {"{resource 15 0 process IO <nil>}": {"Key":"pid","Type":23,"Integer":0,"String":"","Interface":80781}}
+[01-03|14:08:27.702] DEBUG resource/usage.go:272 failed to lookup resource {"{resource 15 0 process IO <nil>}": {"Key":"pid","Type":23,"Integer":0,"String":"","Interface":80781}}
+[01-03|14:08:28.201] DEBUG resource/usage.go:272 failed to lookup resource {"{resource 15 0 process IO <nil>}": {"Key":"pid","Type":23,"Integer":0,"String":"","Interface":80781}}
+[01-03|14:08:28.808] DEBUG resource/usage.go:272 failed to lookup resource {"{resource 15 0 process IO <nil>}": {"Key":"pid","Type":23,"Integer":0,"String":"","Interface":80781}}
+[01-03|14:08:29.226] DEBUG resource/usage.go:272 failed to lookup resource {"{resource 15 0 process IO <nil>}": {"Key":"pid","Type":23,"Integer":0,"String":"","Interface":80781}}
+[01-03|14:08:29.691] DEBUG resource/usage.go:272 failed to lookup resource {"{resource 15 0 process IO <nil>}": {"Key":"pid","Type":23,"Integer":0,"String":"","Interface":80781}}
+[01-03|14:08:30.192] DEBUG resource/usage.go:272 failed to lookup resource {"{resource 15 0 process IO <nil>}": {"Key":"pid","Type":23,"Integer":0,"String":"","Interface":80781}}
+[01-03|14:08:30.812] DEBUG resource/usage.go:272 failed to lookup resource {"{resource 15 0 process IO <nil>}": {"Key":"pid","Type":23,"Integer":0,"String":"","Interface":80781}}
+[01-03|14:08:31.291] DEBUG resource/usage.go:272 failed to lookup resource {"{resource 15 0 process IO <nil>}": {"Key":"pid","Type":23,"Integer":0,"String":"","Interface":80781}}
+[01-03|14:08:31.778] DEBUG resource/usage.go:272 failed to lookup resource {"{resource 15 0 process IO <nil>}": {"Key":"pid","Type":23,"Integer":0,"String":"","Interface":80781}}
+[01-03|14:08:32.209] DEBUG resource/usage.go:272 failed to lookup resource {"{resource 15 0 process IO <nil>}": {"Key":"pid","Type":23,"Integer":0,"String":"","Interface":80781}}
+[01-03|14:08:32.692] DEBUG resource/usage.go:272 failed to lookup resource {"{resource 15 0 process IO <nil>}": {"Key":"pid","Type":23,"Integer":0,"String":"","Interface":80781}}
+[01-03|14:08:33.193] DEBUG resource/usage.go:272 failed to lookup resource {"{resource 15 0 process IO <nil>}": {"Key":"pid","Type":23,"Integer":0,"String":"","Interface":80781}}
+[01-03|14:08:33.692] DEBUG resource/usage.go:272 failed to lookup resource {"{resource 15 0 process IO <nil>}": {"Key":"pid","Type":23,"Integer":0,"String":"","Interface":80781}}
+[01-03|14:08:34.192] DEBUG resource/usage.go:272 failed to lookup resource {"{resource 15 0 process IO <nil>}": {"Key":"pid","Type":23,"Integer":0,"String":"","Interface":80781}}
+[01-03|14:08:34.692] DEBUG resource/usage.go:272 failed to lookup resource {"{resource 15 0 process IO <nil>}": {"Key":"pid","Type":23,"Integer":0,"String":"","Interface":80781}}
+[01-03|14:08:35.192] DEBUG resource/usage.go:272 failed to lookup resource {"{resource 15 0 process IO <nil>}": {"Key":"pid","Type":23,"Integer":0,"String":"","Interface":80781}}
+[01-03|14:08:35.692] DEBUG resource/usage.go:272 failed to lookup resource {"{resource 15 0 process IO <nil>}": {"Key":"pid","Type":23,"Integer":0,"String":"","Interface":80781}}
+[01-03|14:08:36.192] DEBUG resource/usage.go:272 failed to lookup resource {"{resource 15 0 process IO <nil>}": {"Key":"pid","Type":23,"Integer":0,"String":"","Interface":80781}}
+[01-03|14:08:36.692] DEBUG resource/usage.go:272 failed to lookup resource {"{resource 15 0 process IO <nil>}": {"Key":"pid","Type":23,"Integer":0,"String":"","Interface":80781}}
+[01-03|14:08:37.192] DEBUG resource/usage.go:272 failed to lookup resource {"{resource 15 0 process IO <nil>}": {"Key":"pid","Type":23,"Integer":0,"String":"","Interface":80781}}
+[01-03|14:08:37.693] DEBUG resource/usage.go:272 failed to lookup resource {"{resource 15 0 process IO <nil>}": {"Key":"pid","Type":23,"Integer":0,"String":"","Interface":80781}}
+[01-03|14:08:38.192] DEBUG resource/usage.go:272 failed to lookup resource {"{resource 15 0 process IO <nil>}": {"Key":"pid","Type":23,"Integer":0,"String":"","Interface":80781}}
+[01-03|14:08:38.691] DEBUG resource/usage.go:272 failed to lookup resource {"{resource 15 0 process IO <nil>}": {"Key":"pid","Type":23,"Integer":0,"String":"","Interface":80781}}
+[01-03|14:08:39.192] DEBUG resource/usage.go:272 failed to lookup resource {"{resource 15 0 process IO <nil>}": {"Key":"pid","Type":23,"Integer":0,"String":"","Interface":80781}}
+[01-03|14:08:39.692] DEBUG resource/usage.go:272 failed to lookup resource {"{resource 15 0 process IO <nil>}": {"Key":"pid","Type":23,"Integer":0,"String":"","Interface":80781}}
+[01-03|14:08:40.192] DEBUG resource/usage.go:272 failed to lookup resource {"{resource 15 0 process IO <nil>}": {"Key":"pid","Type":23,"Integer":0,"String":"","Interface":80781}}
+[01-03|14:08:40.693] DEBUG resource/usage.go:272 failed to lookup resource {"{resource 15 0 process IO <nil>}": {"Key":"pid","Type":23,"Integer":0,"String":"","Interface":80781}}
+[01-03|14:08:41.192] DEBUG resource/usage.go:272 failed to lookup resource {"{resource 15 0 process IO <nil>}": {"Key":"pid","Type":23,"Integer":0,"String":"","Interface":80781}}
+[01-03|14:08:41.692] DEBUG resource/usage.go:272 failed to lookup resource {"{resource 15 0 process IO <nil>}": {"Key":"pid","Type":23,"Integer":0,"String":"","Interface":80781}}
+[01-03|14:08:42.192] DEBUG resource/usage.go:272 failed to lookup resource {"{resource 15 0 process IO <nil>}": {"Key":"pid","Type":23,"Integer":0,"String":"","Interface":80781}}
+[01-03|14:08:42.692] DEBUG resource/usage.go:272 failed to lookup resource {"{resource 15 0 process IO <nil>}": {"Key":"pid","Type":23,"Integer":0,"String":"","Interface":80781}}
+[01-03|14:08:43.193] DEBUG resource/usage.go:272 failed to lookup resource {"{resource 15 0 process IO <nil>}": {"Key":"pid","Type":23,"Integer":0,"String":"","Interface":80781}}
+[01-03|14:08:43.692] DEBUG resource/usage.go:272 failed to lookup resource {"{resource 15 0 process IO <nil>}": {"Key":"pid","Type":23,"Integer":0,"String":"","Interface":80781}}
+[01-03|14:08:44.192] DEBUG resource/usage.go:272 failed to lookup resource {"{resource 15 0 process IO <nil>}": {"Key":"pid","Type":23,"Integer":0,"String":"","Interface":80781}}
+[01-03|14:08:44.693] DEBUG resource/usage.go:272 failed to lookup resource {"{resource 15 0 process IO <nil>}": {"Key":"pid","Type":23,"Integer":0,"String":"","Interface":80781}}
+[01-03|14:08:45.192] DEBUG resource/usage.go:272 failed to lookup resource {"{resource 15 0 process IO <nil>}": {"Key":"pid","Type":23,"Integer":0,"String":"","Interface":80781}}
+[01-03|14:08:45.692] DEBUG resource/usage.go:272 failed to lookup resource {"{resource 15 0 process IO <nil>}": {"Key":"pid","Type":23,"Integer":0,"String":"","Interface":80781}}
+[01-03|14:08:46.192] DEBUG resource/usage.go:272 failed to lookup resource {"{resource 15 0 process IO <nil>}": {"Key":"pid","Type":23,"Integer":0,"String":"","Interface":80781}}
+[01-03|14:08:46.693] DEBUG resource/usage.go:272 failed to lookup resource {"{resource 15 0 process IO <nil>}": {"Key":"pid","Type":23,"Integer":0,"String":"","Interface":80781}}
+[01-03|14:08:47.191] DEBUG resource/usage.go:272 failed to lookup resource {"{resource 15 0 process IO <nil>}": {"Key":"pid","Type":23,"Integer":0,"String":"","Interface":80781}}
+[01-03|14:08:47.692] DEBUG resource/usage.go:272 failed to lookup resource {"{resource 15 0 process IO <nil>}": {"Key":"pid","Type":23,"Integer":0,"String":"","Interface":80781}}
+[01-03|14:08:48.192] DEBUG resource/usage.go:272 failed to lookup resource {"{resource 15 0 process IO <nil>}": {"Key":"pid","Type":23,"Integer":0,"String":"","Interface":80781}}
+[01-03|14:08:48.692] DEBUG resource/usage.go:272 failed to lookup resource {"{resource 15 0 process IO <nil>}": {"Key":"pid","Type":23,"Integer":0,"String":"","Interface":80781}}
+[01-03|14:08:49.192] DEBUG resource/usage.go:272 failed to lookup resource {"{resource 15 0 process IO <nil>}": {"Key":"pid","Type":23,"Integer":0,"String":"","Interface":80781}}
+[01-03|14:08:49.691] DEBUG resource/usage.go:272 failed to lookup resource {"{resource 15 0 process IO <nil>}": {"Key":"pid","Type":23,"Integer":0,"String":"","Interface":80781}}
+[01-03|14:08:50.192] DEBUG resource/usage.go:272 failed to lookup resource {"{resource 15 0 process IO <nil>}": {"Key":"pid","Type":23,"Integer":0,"String":"","Interface":80781}}
+[01-03|14:08:50.692] DEBUG resource/usage.go:272 failed to lookup resource {"{resource 15 0 process IO <nil>}": {"Key":"pid","Type":23,"Integer":0,"String":"","Interface":80781}}
+[01-03|14:08:51.192] DEBUG resource/usage.go:272 failed to lookup resource {"{resource 15 0 process IO <nil>}": {"Key":"pid","Type":23,"Integer":0,"String":"","Interface":80781}}
+[01-03|14:08:51.724] DEBUG resource/usage.go:272 failed to lookup resource {"{resource 15 0 process IO <nil>}": {"Key":"pid","Type":23,"Integer":0,"String":"","Interface":80781}}
+[01-03|14:08:52.193] DEBUG resource/usage.go:272 failed to lookup resource {"{resource 15 0 process IO <nil>}": {"Key":"pid","Type":23,"Integer":0,"String":"","Interface":80781}}
+[01-03|14:08:52.692] DEBUG resource/usage.go:272 failed to lookup resource {"{resource 15 0 process IO <nil>}": {"Key":"pid","Type":23,"Integer":0,"String":"","Interface":80781}}
+[01-03|14:08:53.192] DEBUG resource/usage.go:272 failed to lookup resource {"{resource 15 0 process IO <nil>}": {"Key":"pid","Type":23,"Integer":0,"String":"","Interface":80781}}
+[01-03|14:08:53.692] DEBUG resource/usage.go:272 failed to lookup resource {"{resource 15 0 process IO <nil>}": {"Key":"pid","Type":23,"Integer":0,"String":"","Interface":80781}}
+[01-03|14:08:54.192] DEBUG resource/usage.go:272 failed to lookup resource {"{resource 15 0 process IO <nil>}": {"Key":"pid","Type":23,"Integer":0,"String":"","Interface":80781}}
+[01-03|14:08:54.692] DEBUG resource/usage.go:272 failed to lookup resource {"{resource 15 0 process IO <nil>}": {"Key":"pid","Type":23,"Integer":0,"String":"","Interface":80781}}
+[01-03|14:08:55.192] DEBUG resource/usage.go:272 failed to lookup resource {"{resource 15 0 process IO <nil>}": {"Key":"pid","Type":23,"Integer":0,"String":"","Interface":80781}}
+[01-03|14:08:55.196] INFO health/worker.go:267 check started passing {"{workerName 15 0 health <nil>}": {"Key":"checkName","Type":15,"Integer":0,"String":"bootstrapped","Interface":null}}
+[01-03|14:08:55.196] INFO health/worker.go:267 check started passing {"{workerName 15 0 readiness <nil>}": {"Key":"checkName","Type":15,"Integer":0,"String":"bootstrapped","Interface":null}}
+[01-03|14:08:55.692] DEBUG resource/usage.go:272 failed to lookup resource {"{resource 15 0 process IO <nil>}": {"Key":"pid","Type":23,"Integer":0,"String":"","Interface":80781}}
+[01-03|14:08:56.193] DEBUG resource/usage.go:272 failed to lookup resource {"{resource 15 0 process IO <nil>}": {"Key":"pid","Type":23,"Integer":0,"String":"","Interface":80781}}
+[01-03|14:08:56.692] DEBUG resource/usage.go:272 failed to lookup resource {"{resource 15 0 process IO <nil>}": {"Key":"pid","Type":23,"Integer":0,"String":"","Interface":80781}}
+[01-03|14:08:57.192] DEBUG resource/usage.go:272 failed to lookup resource {"{resource 15 0 process IO <nil>}": {"Key":"pid","Type":23,"Integer":0,"String":"","Interface":80781}}
+[01-03|14:08:57.692] DEBUG resource/usage.go:272 failed to lookup resource {"{resource 15 0 process IO <nil>}": {"Key":"pid","Type":23,"Integer":0,"String":"","Interface":80781}}
+[01-03|14:08:58.192] DEBUG resource/usage.go:272 failed to lookup resource {"{resource 15 0 process IO <nil>}": {"Key":"pid","Type":23,"Integer":0,"String":"","Interface":80781}}
+[01-03|14:08:58.692] DEBUG resource/usage.go:272 failed to lookup resource {"{resource 15 0 process IO <nil>}": {"Key":"pid","Type":23,"Integer":0,"String":"","Interface":80781}}
+[01-03|14:08:59.193] DEBUG resource/usage.go:272 failed to lookup resource {"{resource 15 0 process IO <nil>}": {"Key":"pid","Type":23,"Integer":0,"String":"","Interface":80781}}
+[01-03|14:08:59.692] DEBUG resource/usage.go:272 failed to lookup resource {"{resource 15 0 process IO <nil>}": {"Key":"pid","Type":23,"Integer":0,"String":"","Interface":80781}}
+[01-03|14:09:00.192] DEBUG resource/usage.go:272 failed to lookup resource {"{resource 15 0 process IO <nil>}": {"Key":"pid","Type":23,"Integer":0,"String":"","Interface":80781}}
+[01-03|14:09:00.692] DEBUG resource/usage.go:272 failed to lookup resource {"{resource 15 0 process IO <nil>}": {"Key":"pid","Type":23,"Integer":0,"String":"","Interface":80781}}
+[01-03|14:09:01.192] DEBUG resource/usage.go:272 failed to lookup resource {"{resource 15 0 process IO <nil>}": {"Key":"pid","Type":23,"Integer":0,"String":"","Interface":80781}}
+[01-03|14:09:01.777] DEBUG resource/usage.go:272 failed to lookup resource {"{resource 15 0 process IO <nil>}": {"Key":"pid","Type":23,"Integer":0,"String":"","Interface":80781}}
+[01-03|14:09:02.192] DEBUG resource/usage.go:272 failed to lookup resource {"{resource 15 0 process IO <nil>}": {"Key":"pid","Type":23,"Integer":0,"String":"","Interface":80781}}
+[01-03|14:09:02.787] DEBUG resource/usage.go:272 failed to lookup resource {"{resource 15 0 process IO <nil>}": {"Key":"pid","Type":23,"Integer":0,"String":"","Interface":80781}}
+[01-03|14:09:03.192] DEBUG resource/usage.go:272 failed to lookup resource {"{resource 15 0 process IO <nil>}": {"Key":"pid","Type":23,"Integer":0,"String":"","Interface":80781}}
+[01-03|14:09:03.693] DEBUG resource/usage.go:272 failed to lookup resource {"{resource 15 0 process IO <nil>}": {"Key":"pid","Type":23,"Integer":0,"String":"","Interface":80781}}
+[01-03|14:09:04.192] DEBUG resource/usage.go:272 failed to lookup resource {"{resource 15 0 process IO <nil>}": {"Key":"pid","Type":23,"Integer":0,"String":"","Interface":80781}}
+[01-03|14:09:04.692] DEBUG resource/usage.go:272 failed to lookup resource {"{resource 15 0 process IO <nil>}": {"Key":"pid","Type":23,"Integer":0,"String":"","Interface":80781}}
+[01-03|14:09:05.198] DEBUG resource/usage.go:272 failed to lookup resource {"{resource 15 0 process IO <nil>}": {"Key":"pid","Type":23,"Integer":0,"String":"","Interface":80781}}

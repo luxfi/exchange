@@ -1,11 +1,11 @@
-import { GraphQLApi } from '@universe/api'
+import { GraphQLApi } from '@luxfi/api'
 import { useCallback, useMemo, useRef } from 'react'
-import { normalizeTokenAddressForCache } from 'uniswap/src/data/cache'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { fromGraphQLChain, toGraphQLChain } from 'uniswap/src/features/chains/utils'
-import { isSVMChain } from 'uniswap/src/features/platforms/utils/chains'
-import i18n from 'uniswap/src/i18n'
-import { areAddressesEqual } from 'uniswap/src/utils/addresses'
+import { normalizeTokenAddressForCache } from 'lx/src/data/cache'
+import { UniverseChainId } from 'lx/src/features/chains/types'
+import { fromGraphQLChain, toGraphQLChain } from 'lx/src/features/chains/utils'
+import { isSVMChain } from 'lx/src/features/platforms/utils/chains'
+import i18n from 'lx/src/i18n'
+import { areAddressesEqual } from 'lx/src/utils/addresses'
 
 export enum TokenTransactionType {
   BUY = 'Buy',

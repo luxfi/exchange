@@ -6,9 +6,9 @@ import { useTDPContext } from 'pages/TokenDetails/TDPContext'
 import { ReactNode, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Flex, FlexProps, Text } from 'ui/src'
-import { useTokenMarketStats } from 'uniswap/src/features/dataApi/tokenDetails/useTokenDetailsData'
-import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
-import { currencyId } from 'uniswap/src/utils/currencyId'
+import { useTokenMarketStats } from 'lx/src/features/dataApi/tokenDetails/useTokenDetailsData'
+import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
+import { currencyId } from 'lx/src/utils/currencyId'
 import { NumberType } from 'utilities/src/format/types'
 
 export const StatWrapper = ({ children, ...props }: { children: ReactNode } & FlexProps) => (

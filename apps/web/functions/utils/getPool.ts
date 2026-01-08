@@ -1,4 +1,4 @@
-import { GraphQLApi } from '@universe/api'
+import { GraphQLApi } from '@luxfi/api'
 import client from 'functions/client'
 import { Data } from 'functions/utils/cache'
 

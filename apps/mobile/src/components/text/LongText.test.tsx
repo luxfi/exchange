@@ -2,7 +2,7 @@ import React from 'react'
 import { ReactTestInstance } from 'react-test-renderer'
 import { LongText } from 'src/components/text/LongText'
 import { fireEvent, render, within } from 'src/test/test-utils'
-import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+import { TestID } from 'lx/src/test/fixtures/testIDs'
 
 const SHORT_TEXT = 'Short text'
 const LONG_TEXT = 'Some very long text'

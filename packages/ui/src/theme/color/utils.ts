@@ -1,4 +1,4 @@
-import { ColorTokens } from 'tamagui'
+import type { ColorTokens } from 'tamagui'
 import { logger } from 'utilities/src/logger/logger'
 
 const HEX_REGEX = /^#([0-9A-Fa-f]{3}|[0-9A-Fa-f]{6}|[0-9A-Fa-f]{8})$/
@@ -63,7 +63,7 @@ function _opacifyHex(opacity: number, color: string): string {
 
   let hex = color
   if (color.length === 5) {
-    hex = '#' + color[1] + color[1] + color[2] + color[2] + color[3] + color[3]
+    hex = `#${color[1]}${color[1]}${color[2]}${color[2]}${color[3]}${color[3]}`
   }
 
   const validHexColor = HEX_REGEX.test(hex)

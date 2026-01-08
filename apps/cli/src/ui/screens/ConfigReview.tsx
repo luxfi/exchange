@@ -1,11 +1,11 @@
 /* eslint-disable max-lines */
-import type { OrchestratorConfig } from '@universe/cli/src/core/orchestrator'
-import { resolveTeam } from '@universe/cli/src/lib/team-resolver'
-import { NumberInput } from '@universe/cli/src/ui/components/NumberInput'
-import { TextInput } from '@universe/cli/src/ui/components/TextInput'
-import { Toggle } from '@universe/cli/src/ui/components/Toggle'
-import { useAppState } from '@universe/cli/src/ui/hooks/useAppState'
-import { colors } from '@universe/cli/src/ui/utils/colors'
+import type { OrchestratorConfig } from '@luxfi/cli/src/core/orchestrator'
+import { resolveTeam } from '@luxfi/cli/src/lib/team-resolver'
+import { NumberInput } from '@luxfi/cli/src/ui/components/NumberInput'
+import { TextInput } from '@luxfi/cli/src/ui/components/TextInput'
+import { Toggle } from '@luxfi/cli/src/ui/components/Toggle'
+import { useAppState } from '@luxfi/cli/src/ui/hooks/useAppState'
+import { colors } from '@luxfi/cli/src/ui/utils/colors'
 import { Box, Text, useInput } from 'ink'
 import { useCallback, useEffect, useMemo, useState } from 'react'
 

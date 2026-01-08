@@ -7,9 +7,9 @@ import { TOTAL_INTERFACE_NAV_HEIGHT } from 'pages/Portfolio/constants'
 import { useTranslation } from 'react-i18next'
 import { Button, Flex, styled, Text, useIsDarkMode, useMedia, useSporeColors } from 'ui/src'
 import { opacify } from 'ui/src/theme'
-import { useEnabledChains } from 'uniswap/src/features/chains/hooks/useEnabledChains'
-import { ElementName, InterfaceEventName, InterfacePageName } from 'uniswap/src/features/telemetry/constants'
-import Trace from 'uniswap/src/features/telemetry/Trace'
+import { useEnabledChains } from 'lx/src/features/chains/hooks/useEnabledChains'
+import { ElementName, InterfaceEventName, InterfacePageName } from 'lx/src/features/telemetry/constants'
+import Trace from 'lx/src/features/telemetry/Trace'
 
 const PADDING_TOP = 60
 const LEFT_CONTENT_MAX_WIDTH = 262

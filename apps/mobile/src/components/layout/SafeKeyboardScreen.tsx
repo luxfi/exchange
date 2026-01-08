@@ -4,7 +4,7 @@ import { KeyboardAvoidingView } from 'react-native-keyboard-controller'
 import { Screen, ScreenProps } from 'src/components/layout/Screen'
 import { Flex, flexStyles } from 'ui/src'
 import { spacing } from 'ui/src/theme'
-import { useKeyboardLayout } from 'uniswap/src/utils/useKeyboardLayout'
+import { useKeyboardLayout } from 'lx/src/utils/useKeyboardLayout'
 import { isIOS } from 'utilities/src/platform'
 
 type OnboardingScreenProps = ScreenProps & {

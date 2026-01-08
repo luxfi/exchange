@@ -1,6 +1,6 @@
 import { PersistState } from 'redux-persist'
-import { Language } from 'uniswap/src/features/language/constants'
-import { getCurrentLanguageFromNavigator } from 'uniswap/src/features/language/utils'
+import { Language } from 'lx/src/features/language/constants'
+import { getCurrentLanguageFromNavigator } from 'lx/src/features/language/utils'
 import { isWebApp } from 'utilities/src/platform'
 
 type PersistAppStateV22 = {

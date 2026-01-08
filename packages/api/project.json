@@ -1,5 +1,5 @@
 {
-  "name": "@universe/api",
+  "name": "@luxfi/api",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "packages/api/src",
   "projectType": "library",

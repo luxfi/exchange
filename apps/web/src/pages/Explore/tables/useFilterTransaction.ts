@@ -1,8 +1,8 @@
-import { GraphQLApi } from '@universe/api'
+import { GraphQLApi } from '@luxfi/api'
 import { exploreSearchStringAtom } from 'components/Tokens/state'
 import { useAtomValue } from 'jotai/utils'
 import { useMemo } from 'react'
-import { normalizeTokenAddressForCache } from 'uniswap/src/data/cache'
+import { normalizeTokenAddressForCache } from 'lx/src/data/cache'
 import { normalizeTextInput } from 'utilities/src/primitives/string'
 
 // Filters transactions in Explore by hash, token symbol, or token address

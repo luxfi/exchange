@@ -4,14 +4,14 @@ import { WebAccountsStoreUpdater } from 'features/accounts/store/updater'
 import { useAccount } from 'hooks/useAccount'
 import { mocked } from 'test-utils/mocked'
 import { render } from 'test-utils/render'
-import type { ConnectionStatusInfo } from 'uniswap/src/features/accounts/store/types/Connector'
-import { ConnectorStatus } from 'uniswap/src/features/accounts/store/types/Connector'
-import { SigningCapability } from 'uniswap/src/features/accounts/store/types/Wallet'
-import { Platform } from 'uniswap/src/features/platforms/types/Platform'
-import { InterfaceEventName } from 'uniswap/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
-import { WalletConnectionResult } from 'uniswap/src/features/telemetry/types'
-import { setUserProperty } from 'uniswap/src/features/telemetry/user'
+import type { ConnectionStatusInfo } from 'lx/src/features/accounts/store/types/Connector'
+import { ConnectorStatus } from 'lx/src/features/accounts/store/types/Connector'
+import { SigningCapability } from 'lx/src/features/accounts/store/types/Wallet'
+import { Platform } from 'lx/src/features/platforms/types/Platform'
+import { InterfaceEventName } from 'lx/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
+import { WalletConnectionResult } from 'lx/src/features/telemetry/types'
+import { setUserProperty } from 'lx/src/features/telemetry/user'
 
 // Mock the hooks
 vi.mock('features/accounts/store/hooks', () => ({
@@ -38,11 +38,11 @@ vi.mock('wagmi', async (importOriginal) => {
   }
 })
 
-vi.mock('uniswap/src/features/telemetry/send', () => ({
+vi.mock('lx/src/features/telemetry/send', () => ({
   sendAnalyticsEvent: vi.fn(),
 }))
 
-vi.mock('uniswap/src/features/telemetry/user', async (importOriginal) => {
+vi.mock('lx/src/features/telemetry/user', async (importOriginal) => {
   const original = (await importOriginal()) as any
   return {
     ...original,

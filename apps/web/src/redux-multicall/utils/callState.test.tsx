@@ -1,21 +1,27 @@
 import { FunctionFragment, Interface } from '@ethersproject/abi'
 import React, { useRef } from 'react'
-import { render, unmountComponentAtNode } from 'react-dom'
+import { createRoot, type Root } from 'react-dom/client'
+import { act } from 'react'
 import { toCallState, useCallStates } from './callState'
 
 describe('callState', () => {
   describe('#useCallStates', () => {
     let container: HTMLDivElement | null = null
+    let root: Root | null = null
     beforeEach(() => {
       container = document.createElement('div')
       document.body.appendChild(container)
+      root = createRoot(container)
     })
     afterEach(() => {
+      if (root) {
+        root.unmount()
+      }
       if (container) {
-        unmountComponentAtNode(container)
         container.remove()
       }
       container = null
+      root = null
     })
 
     const contractInterface = { decodeFunctionResult: () => [{}] } as unknown as Interface
@@ -28,14 +34,22 @@ describe('callState', () => {
     }
 
     it('Stabilizes values across renders (assuming stable interface/fragment/results)', () => {
-      render(<Caller latestBlockNumber={1} />, container)
-      render(<Caller latestBlockNumber={2} />, container)
+      act(() => {
+        root?.render(<Caller latestBlockNumber={1} />)
+      })
+      act(() => {
+        root?.render(<Caller latestBlockNumber={2} />)
+      })
       expect(container?.textContent).toBe('true')
     })
 
     it('Returns referentially new values if data goes stale', () => {
-      render(<Caller latestBlockNumber={2} />, container)
-      render(<Caller latestBlockNumber={3} />, container)
+      act(() => {
+        root?.render(<Caller latestBlockNumber={2} />)
+      })
+      act(() => {
+        root?.render(<Caller latestBlockNumber={3} />)
+      })
       expect(container?.textContent).toBe('false')
     })
   })

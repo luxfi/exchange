@@ -9,7 +9,7 @@ import { ExternalLink } from 'theme/components/Links'
 import { Button, Flex, TouchableArea } from 'ui/src'
 import { CopyAlt } from 'ui/src/components/icons/CopyAlt'
 import { RotatableChevron } from 'ui/src/components/icons/RotatableChevron'
-import { uniswapUrls } from 'uniswap/src/constants/urls'
+import { uniswapUrls } from 'lx/src/constants/urls'
 
 const Code = deprecatedStyled.code`
   font-weight: 485;

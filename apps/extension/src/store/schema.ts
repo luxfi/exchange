@@ -1,4 +1,4 @@
-import { RankingType } from '@universe/api'
+import { RankingType } from '@luxfi/api'
 
 // only add fields that are persisted
 export const initialSchema = {

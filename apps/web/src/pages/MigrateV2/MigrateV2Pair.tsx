@@ -1,8 +1,8 @@
 /* eslint-disable max-lines */
 import type { TransactionResponse } from '@ethersproject/providers'
-import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
-import { type Currency, CurrencyAmount, Fraction, Percent, Price, Token, V2_FACTORY_ADDRESSES } from '@uniswap/sdk-core'
-import { FeeAmount, Pool, Position, priceToClosestTick, TickMath } from '@uniswap/v3-sdk'
+import { ProtocolVersion } from '@luxdex/client-data-api/dist/data/v1/poolTypes_pb'
+import { type Currency, CurrencyAmount, Fraction, Percent, Price, Token, V2_FACTORY_ADDRESSES } from '@luxamm/sdk-core'
+import { FeeAmount, Pool, Position, priceToClosestTick, TickMath } from '@luxamm/v3-sdk'
 import { BlueCard, DarkGrayCard, LightCard, YellowCard } from 'components/Card/cards'
 import FeeSelector from 'components/FeeSelector'
 import FormattedCurrencyAmount from 'components/FormattedCurrencyAmount'
@@ -41,20 +41,20 @@ import { ExternalLink } from 'theme/components/Links'
 import { Button, Flex, Text, TouchableArea, useSporeColors } from 'ui/src'
 import { Arrow } from 'ui/src/components/arrow/Arrow'
 import { iconSizes } from 'ui/src/theme'
-import Badge from 'uniswap/src/components/badge/Badge'
-import { WRAPPED_NATIVE_CURRENCY } from 'uniswap/src/constants/tokens'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
-import { Platform } from 'uniswap/src/features/platforms/types/Platform'
-import { InterfacePageName, LiquidityEventName } from 'uniswap/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
-import Trace from 'uniswap/src/features/telemetry/Trace'
-import { LiquiditySource } from 'uniswap/src/features/telemetry/types'
-import { useUSDCValue } from 'uniswap/src/features/transactions/hooks/useUSDCPrice'
-import { TransactionType } from 'uniswap/src/features/transactions/types/transactionDetails'
-import { getValidAddress } from 'uniswap/src/utils/addresses'
-import { currencyId } from 'uniswap/src/utils/currencyId'
-import { ExplorerDataType, getExplorerLink } from 'uniswap/src/utils/linking'
+import Badge from 'lx/src/components/badge/Badge'
+import { WRAPPED_NATIVE_CURRENCY } from 'lx/src/constants/tokens'
+import { UniverseChainId } from 'lx/src/features/chains/types'
+import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
+import { Platform } from 'lx/src/features/platforms/types/Platform'
+import { InterfacePageName, LiquidityEventName } from 'lx/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
+import Trace from 'lx/src/features/telemetry/Trace'
+import { LiquiditySource } from 'lx/src/features/telemetry/types'
+import { useUSDCValue } from 'lx/src/features/transactions/hooks/useUSDCPrice'
+import { TransactionType } from 'lx/src/features/transactions/types/transactionDetails'
+import { getValidAddress } from 'lx/src/utils/addresses'
+import { currencyId } from 'lx/src/utils/currencyId'
+import { ExplorerDataType, getExplorerLink } from 'lx/src/utils/linking'
 import { HexString } from 'utilities/src/addresses/hex'
 import { NumberType } from 'utilities/src/format/types'
 import { logger } from 'utilities/src/logger/logger'
@@ -319,7 +319,8 @@ function V2PairMigration({
   const { onLeftRangeInput, onRightRangeInput } = useV3MintActionHandlers(noLiquidity)
 
   // the v3 tick is either the pool's tickCurrent, or the tick closest to the v2 spot price
-  const tick = pool?.tickCurrent ?? priceToClosestTick(v2SpotPrice)
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const tick = pool?.tickCurrent ?? priceToClosestTick(v2SpotPrice as any)
   // the price is either the current v3 price, or the price at the tick
   const sqrtPrice = pool?.sqrtRatioX96 ?? TickMath.getSqrtRatioAtTick(tick)
   const position =
@@ -699,8 +700,10 @@ function V2PairMigration({
           </Flex>
 
           <RangeSelector
-            priceLower={priceLower}
-            priceUpper={priceUpper}
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            priceLower={priceLower as any}
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            priceUpper={priceUpper as any}
             getDecrementLower={getDecrementLower}
             getIncrementLower={getIncrementLower}
             getDecrementUpper={getDecrementUpper}

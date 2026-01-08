@@ -2,9 +2,9 @@ import { OpenLimitOrdersButton } from 'components/AccountDrawer/MiniPortfolio/Li
 import { MenuStateVariant, useSetMenu } from 'components/AccountDrawer/menuState'
 import { useMemo } from 'react'
 import { Flex, Loader, ScrollView } from 'ui/src'
-import { ActivityItem } from 'uniswap/src/components/activity/generateActivityItemRenderer'
-import { useActivityData } from 'uniswap/src/features/activity/hooks/useActivityData'
-import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+import { ActivityItem } from 'lx/src/components/activity/generateActivityItemRenderer'
+import { useActivityData } from 'lx/src/features/activity/hooks/useActivityData'
+import { TestID } from 'lx/src/test/fixtures/testIDs'
 import { useInfiniteScroll } from 'utilities/src/react/useInfiniteScroll'
 
 export default function ActivityTab({

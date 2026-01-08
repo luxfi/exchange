@@ -25,7 +25,7 @@ export function useShadowPropsShort(): ShadowProps {
             shadowOffset: { width: 0, height: 1 },
             shadowRadius: 6,
           },
-    [isDarkMode],
+    [isDarkMode]
   )
 }
 
@@ -47,6 +47,6 @@ export function useShadowPropsMedium(): ShadowProps {
             shadowOffset: { width: 0, height: 6 },
             shadowRadius: 12,
           },
-    [isDarkMode],
+    [isDarkMode]
   )
 }

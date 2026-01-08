@@ -1,7 +1,7 @@
 import { TickData } from 'appGraphql/data/AllV3TicksQuery'
-import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
-import { Price, Token } from '@uniswap/sdk-core'
-import { FeeAmount, TICK_SPACINGS } from '@uniswap/v3-sdk'
+import { ProtocolVersion } from '@luxdex/client-data-api/dist/data/v1/poolTypes_pb'
+import { Price, Token } from '@luxamm/sdk-core'
+import { FeeAmount, TICK_SPACINGS } from '@luxamm/v3-sdk'
 import JSBI from 'jsbi'
 import computeSurroundingTicks, { TickProcessed } from 'utils/computeSurroundingTicks'
 

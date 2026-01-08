@@ -1,4 +1,4 @@
-import { FeatureFlagClient, type FeatureFlags, getFeatureFlagName } from '@universe/gating'
+import { FeatureFlagClient, type FeatureFlags, getFeatureFlagName } from '@luxfi/gating'
 import path from 'path'
 
 export function createTestUrlBuilder({

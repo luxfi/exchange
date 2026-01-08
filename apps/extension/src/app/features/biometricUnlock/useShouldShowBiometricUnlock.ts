@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query'
-import { DynamicConfigs, ExtensionBiometricUnlockConfigKey, useDynamicConfigValue } from '@universe/gating'
+import { DynamicConfigs, ExtensionBiometricUnlockConfigKey, useDynamicConfigValue } from '@luxfi/gating'
 import { biometricUnlockCredentialQuery } from 'src/app/features/biometricUnlock/biometricUnlockCredentialQuery'
 
 export function useShouldShowBiometricUnlock(): boolean {

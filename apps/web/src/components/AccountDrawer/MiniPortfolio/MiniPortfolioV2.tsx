@@ -7,9 +7,9 @@ import { useNavigate } from 'react-router'
 import { Button, Flex, Text } from 'ui/src'
 import { RightArrow } from 'ui/src/components/icons/RightArrow'
 import { iconSizes } from 'ui/src/theme'
-import { ActivityItem } from 'uniswap/src/components/activity/generateActivityItemRenderer'
-import { useActivityData } from 'uniswap/src/features/activity/hooks/useActivityData'
-import { ElementName } from 'uniswap/src/features/telemetry/constants'
+import { ActivityItem } from 'lx/src/components/activity/generateActivityItemRenderer'
+import { useActivityData } from 'lx/src/features/activity/hooks/useActivityData'
+import { ElementName } from 'lx/src/features/telemetry/constants'
 import { filterDefinedWalletAddresses } from 'utils/filterDefinedWalletAddresses'
 
 const MAX_RECENT_ACTIVITY_ITEMS = 3

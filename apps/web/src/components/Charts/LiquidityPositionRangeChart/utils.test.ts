@@ -1,11 +1,11 @@
-import { CurrencyAmount, Price, Token } from '@uniswap/sdk-core'
+import { CurrencyAmount, Price, Token } from '@luxamm/sdk-core'
 import {
   getCrosshairProps,
   isEffectivelyInfinity,
   priceToNumber,
 } from 'components/Charts/LiquidityPositionRangeChart/utils'
-import { DAI, USDC_MAINNET } from 'uniswap/src/constants/tokens'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { DAI, USDC_MAINNET } from 'lx/src/constants/tokens'
+import { UniverseChainId } from 'lx/src/features/chains/types'
 
 describe('LiquidityPositionRangeChart utils', () => {
   describe('getCrosshairProps', () => {

@@ -12,10 +12,10 @@ import FavoriteTokenCard from 'src/components/explore/FavoriteTokenCard'
 import { getTokenValue } from 'ui/src'
 import { AnimatedFlex } from 'ui/src/components/layout/AnimatedFlex'
 import { Flex } from 'ui/src/components/layout/Flex'
-import { ExpandoRow } from 'uniswap/src/components/ExpandoRow/ExpandoRow'
-import { selectFavoriteTokens } from 'uniswap/src/features/favorites/selectors'
-import { setFavoriteTokens } from 'uniswap/src/features/favorites/slice'
-import { useHapticFeedback } from 'uniswap/src/features/settings/useHapticFeedback/useHapticFeedback'
+import { ExpandoRow } from 'lx/src/components/ExpandoRow/ExpandoRow'
+import { selectFavoriteTokens } from 'lx/src/features/favorites/selectors'
+import { setFavoriteTokens } from 'lx/src/features/favorites/slice'
+import { useHapticFeedback } from 'lx/src/features/settings/useHapticFeedback/useHapticFeedback'
 
 const NUM_COLUMNS = 2
 const DEFAULT_TOKENS_TO_DISPLAY = 4

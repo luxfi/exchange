@@ -1,5 +1,5 @@
 import { createHash } from 'node:crypto'
-import { type CollectOptions } from '@universe/cli/src/core/data-collector'
+import { type CollectOptions } from '@luxfi/cli/src/core/data-collector'
 
 /**
  * Generate deterministic cache keys from CollectOptions

@@ -1,5 +1,5 @@
-import { Flex, FlexProps } from 'ui/src/components/layout/Flex'
-import { Text, TextProps } from 'ui/src/components/text/Text'
+import { Flex, type FlexProps } from 'ui/src/components/layout/Flex'
+import { Text, type TextProps } from 'ui/src/components/text/Text'
 import { usePostTextElementPositionProps } from 'ui/src/utils/layout'
 import { isWebAppDesktop } from 'utilities/src/platform'
 

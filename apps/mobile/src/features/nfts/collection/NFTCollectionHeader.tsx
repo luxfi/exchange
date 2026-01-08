@@ -10,10 +10,10 @@ import { Flex, FlexProps, Text, useExtractedColors, useSporeColors } from 'ui/sr
 import { Verified } from 'ui/src/components/icons'
 import { Ethereum } from 'ui/src/components/logos/Ethereum'
 import { iconSizes, spacing } from 'ui/src/theme'
-import { ImageUri } from 'uniswap/src/components/nfts/images/ImageUri'
-import { NFTViewer } from 'uniswap/src/components/nfts/images/NFTViewer'
-import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
-import { useAppInsets } from 'uniswap/src/hooks/useAppInsets'
+import { ImageUri } from 'lx/src/components/nfts/images/ImageUri'
+import { NFTViewer } from 'lx/src/components/nfts/images/NFTViewer'
+import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
+import { useAppInsets } from 'lx/src/hooks/useAppInsets'
 import { NumberType } from 'utilities/src/format/types'
 
 const PROFILE_IMAGE_SIZE = 72

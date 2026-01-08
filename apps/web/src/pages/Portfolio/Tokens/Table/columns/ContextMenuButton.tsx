@@ -3,7 +3,7 @@ import { TokensContextMenuWrapper } from 'pages/Portfolio/Tokens/Table/TokensCon
 import { memo } from 'react'
 import { Flex, useIsTouchDevice } from 'ui/src'
 import { MoreHorizontal } from 'ui/src/components/icons/MoreHorizontal'
-import { ContextMenuTriggerMode } from 'uniswap/src/components/menus/types'
+import { ContextMenuTriggerMode } from 'lx/src/components/menus/types'
 
 const ICON_BUTTON_SIZE = 28
 

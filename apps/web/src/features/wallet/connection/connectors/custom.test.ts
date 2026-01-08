@@ -4,7 +4,7 @@ import { applyCustomConnectorMeta } from 'features/wallet/connection/connectors/
 import type { WalletConnectorMeta } from 'features/wallet/connection/types/WalletConnectorMeta'
 import { COINBASE_WALLET_CONNECTOR, METAMASK_CONNECTOR, UNISWAP_WALLET_CONNECTOR } from 'test-utils/wallets/fixtures'
 import PASSKEY_ICON from 'ui/src/assets/icons/passkey.svg'
-import { CONNECTION_PROVIDER_IDS, CONNECTION_PROVIDER_NAMES } from 'uniswap/src/constants/web3'
+import { CONNECTION_PROVIDER_IDS, CONNECTION_PROVIDER_NAMES } from 'lx/src/constants/web3'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 
 // Mock dependencies

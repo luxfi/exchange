@@ -9,8 +9,8 @@ import { useTranslation } from 'react-i18next'
 import { TABLE_PAGE_SIZE } from 'state/explore'
 import { useTopAuctions } from 'state/explore/topAuctions'
 import { Flex, styled, Text, useMedia } from 'ui/src'
-import { Auction } from 'uniswap/src/data/rest/auctions/types'
-import { getChainInfo } from 'uniswap/src/features/chains/chainInfo'
+import { Auction } from 'lx/src/data/rest/auctions/types'
+import { getChainInfo } from 'lx/src/features/chains/chainInfo'
 
 const TableWrapper = styled(Flex, {
   m: '0 auto',

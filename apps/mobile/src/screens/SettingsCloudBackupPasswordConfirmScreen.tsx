@@ -6,7 +6,7 @@ import { BackHeader } from 'src/components/layout/BackHeader'
 import { SafeKeyboardScreen } from 'src/components/layout/SafeKeyboardScreen'
 import { CloudBackupPassword } from 'src/features/CloudBackup/CloudBackupForm/CloudBackupPassword'
 import { Flex, Text } from 'ui/src'
-import { MobileScreens } from 'uniswap/src/types/screens/mobile'
+import { MobileScreens } from 'lx/src/types/screens/mobile'
 
 type Props = NativeStackScreenProps<SettingsStackParamList, MobileScreens.SettingsCloudBackupPasswordConfirm>
 

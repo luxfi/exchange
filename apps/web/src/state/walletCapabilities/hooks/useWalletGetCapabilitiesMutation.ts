@@ -1,5 +1,5 @@
 import { queryOptions, useMutation, useQueryClient } from '@tanstack/react-query'
-import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import { FeatureFlags, useFeatureFlag } from '@luxfi/gating'
 import { useAccount } from 'hooks/useAccount'
 import ms from 'ms'
 import { useAppDispatch } from 'state/hooks'

@@ -8,8 +8,8 @@ import { ThemedText } from 'theme/components'
 import { CopyHelper } from 'theme/components/CopyHelper'
 import { ExternalLink } from 'theme/components/Links'
 import { Flex, Text, useSporeColors } from 'ui/src'
-import { Modal } from 'uniswap/src/components/modals/Modal'
-import { ModalName } from 'uniswap/src/features/telemetry/constants'
+import { Modal } from 'lx/src/components/modals/Modal'
+import { ModalName } from 'lx/src/features/telemetry/constants'
 
 const ContentWrapper = deprecatedStyled(Column)`
   align-items: center;
@@ -36,7 +36,7 @@ export default function ConnectedAccountBlocked({ isOpen, closeModal }: ModalSta
         <ThemedText.DeprecatedMain fontSize={12} marginBottom={12}>
           <Trans
             i18nKey="common.blocked.reason"
-            components={{ link: <ExternalLink href="https://help.uniswap.org/en/articles/6149816" /> }}
+            components={{ link: <ExternalLink href="https://docs.lux.exchange/help/blocked-addresses" /> }}
           />
         </ThemedText.DeprecatedMain>
         <ThemedText.DeprecatedMain fontSize={12}>
@@ -45,8 +45,8 @@ export default function ConnectedAccountBlocked({ isOpen, closeModal }: ModalSta
             components={{
               emailAddress: (
                 <Flex mt={12} alignItems="center">
-                  <CopyHelper toCopy="compliance@uniswap.org" iconSize={16} color="$accent1" iconPosition="right">
-                    compliance@uniswap.org
+                  <CopyHelper toCopy="compliance@lux.exchange" iconSize={16} color="$accent1" iconPosition="right">
+                    compliance@lux.exchange
                   </CopyHelper>
                 </Flex>
               ),

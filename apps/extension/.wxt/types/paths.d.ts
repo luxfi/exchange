@@ -5,8 +5,25 @@ declare module "wxt/browser" {
   export type PublicPath =
     | ""
     | "/"
+    | "/assets/fonts/Basel-Book.woff"
+    | "/assets/fonts/Basel-Medium.woff"
+    | "/assets/fonts/Inter-normal.var.ttf"
+    | "/assets/icon128.png"
+    | "/assets/icon16.png"
+    | "/assets/icon32.png"
+    | "/assets/icon48.png"
+    | "/assets/icon64.png"
+    | "/assets/index.ts"
+    | "/assets/onboarding-background-dark.png"
+    | "/assets/onboarding-background-light.png"
     | "/background.js"
-    | "/popup.html"
+    | "/content-scripts/ethereum.js"
+    | "/content-scripts/injected.js"
+    | "/fallback-popup.html"
+    | "/logo.svg"
+    | "/onboarding.html"
+    | "/sidepanel.html"
+    | "/unitagClaim.html"
   type HtmlPublicPath = Extract<PublicPath, `${string}.html`>
   export interface WxtRuntime {
     getURL(path: PublicPath): string;

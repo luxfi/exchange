@@ -1,4 +1,4 @@
-import { getOverrides, StatsigContext } from '@universe/gating'
+import { getOverrides, StatsigContext } from '@luxfi/gating'
 import { RowBetween } from 'components/deprecated/Row'
 import { MouseoverTooltip, TooltipSize } from 'components/Tooltip'
 import { useModalState } from 'hooks/useModalState'
@@ -6,10 +6,11 @@ import { useContext, useState } from 'react'
 import { Flag, Settings } from 'react-feather'
 import { useDispatch } from 'react-redux'
 import { ThemedText } from 'theme/components'
-import { Button, Flex, useShadowPropsShort } from 'ui/src'
-import { resetUniswapBehaviorHistory } from 'uniswap/src/features/behaviorHistory/slice'
-import { ModalName } from 'uniswap/src/features/telemetry/constants'
-import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+import { ClickableTamaguiStyle } from 'theme/components/styles'
+import { Button, Flex, TouchableArea, useShadowPropsShort } from 'ui/src'
+import { resetUniswapBehaviorHistory } from 'lx/src/features/behaviorHistory/slice'
+import { ModalName } from 'lx/src/features/telemetry/constants'
+import { TestID } from 'lx/src/test/fixtures/testIDs'
 import { isBetaEnv, isDevEnv } from 'utilities/src/environment/env'
 
 const Override = (name: string, value: any) => {
@@ -38,17 +39,46 @@ export default function DevFlagsBox() {
     dispatch(resetUniswapBehaviorHistory())
   }
 
+  // When collapsed, show circular icon button matching HelpModal style
+  if (!isOpen) {
+    return (
+      <Flex
+        $platform-web={{
+          position: 'fixed',
+        }}
+        bottom="$spacing20"
+        right="$spacing20"
+        zIndex="$modal"
+      >
+        <TouchableArea
+          hoverable
+          {...ClickableTamaguiStyle}
+          onPress={() => setIsOpen(true)}
+        >
+          <Flex
+            centered
+            width={36}
+            height={36}
+            borderRadius="$roundedFull"
+            backgroundColor="$surface1"
+            testID={TestID.DevFlagsBox}
+          >
+            <Flag size={18} color="currentColor" />
+          </Flex>
+        </TouchableArea>
+      </Flex>
+    )
+  }
+
+  // Expanded state
   return (
     <Flex
       $platform-web={{
         position: 'fixed',
         ...shadowProps,
       }}
-      $xl={{
-        bottom: 30,
-      }}
-      bottom="$spacing48"
-      left="$spacing20"
+      bottom="$spacing20"
+      right="$spacing20"
       zIndex="$modal"
       padding={10}
       borderWidth={1}
@@ -60,48 +90,40 @@ export default function DevFlagsBox() {
         backgroundColor: '$surface1Hovered',
       }}
       testID={TestID.DevFlagsBox}
-      onPress={() => {
-        setIsOpen((prev) => !prev)
-      }}
+      onPress={() => setIsOpen(false)}
     >
-      {isOpen ? (
-        <RowBetween>
-          <ThemedText.SubHeader>
-            {isDevEnv() && 'Local Overrides'}
-            {isBetaEnv() && 'Staging Overrides'}
-          </ThemedText.SubHeader>
-          <MouseoverTooltip
-            size={TooltipSize.Small}
-            text="Protip: Set feature flags by adding '?featureFlagOverride={flag_name}' to the URL"
+      <RowBetween>
+        <ThemedText.SubHeader>
+          {isDevEnv() && 'Local Overrides'}
+          {isBetaEnv() && 'Staging Overrides'}
+        </ThemedText.SubHeader>
+        <MouseoverTooltip
+          size={TooltipSize.Small}
+          text="Protip: Set feature flags by adding '?featureFlagOverride={flag_name}' to the URL"
+        >
+          <Flex
+            centered
+            width={30}
+            height={30}
+            borderRadius="$rounded8"
+            testID={TestID.DevFlagsSettingsToggle}
+            hoverStyle={{
+              backgroundColor: '$surface1Hovered',
+            }}
+            onPress={(e) => {
+              e.stopPropagation()
+              toggleFeatureFlagsModal()
+            }}
           >
-            <Flex
-              centered
-              width={30}
-              height={30}
-              borderRadius="$rounded8"
-              testID={TestID.DevFlagsSettingsToggle}
-              hoverStyle={{
-                backgroundColor: '$surface1Hovered',
-              }}
-              onPress={(e) => {
-                e.stopPropagation()
-                toggleFeatureFlagsModal()
-              }}
-            >
-              <Settings width={15} height={15} />
-            </Flex>
-          </MouseoverTooltip>
-        </RowBetween>
-      ) : (
-        <Flag />
-      )}
+            <Settings width={15} height={15} />
+          </Flex>
+        </MouseoverTooltip>
+      </RowBetween>
 
-      {isOpen && (hasOverrides ? overrides : <ThemedText.LabelSmall>No overrides</ThemedText.LabelSmall>)}
-      {isOpen && (
-        <Button variant="branded" emphasis="secondary" size="small" onPress={onPressReset} mt="$spacing8">
-          Reset behavior history
-        </Button>
-      )}
+      {hasOverrides ? overrides : <ThemedText.LabelSmall>No overrides</ThemedText.LabelSmall>}
+      <Button variant="branded" emphasis="secondary" size="small" onPress={onPressReset} mt="$spacing8">
+        Reset behavior history
+      </Button>
     </Flex>
   )
 }

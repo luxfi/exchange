@@ -1,4 +1,4 @@
-import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
+import { ProtocolVersion } from '@luxdex/client-data-api/dist/data/v1/poolTypes_pb'
 import { getCurrencyWithWrap } from 'components/Liquidity/utils/currency'
 import { useCurrency } from 'hooks/Tokens'
 import { useAccount } from 'hooks/useAccount'
@@ -6,9 +6,9 @@ import { useV2Pair } from 'hooks/useV2Pairs'
 import { lazy, Suspense } from 'react'
 import { Navigate, useParams, useSearchParams } from 'react-router'
 import { Loader } from 'ui/src/loading/Loader'
-import { useEnabledChains } from 'uniswap/src/features/chains/hooks/useEnabledChains'
-import { toGraphQLChain } from 'uniswap/src/features/chains/utils'
-import { currencyIdToAddress, currencyIdToChain } from 'uniswap/src/utils/currencyId'
+import { useEnabledChains } from 'lx/src/features/chains/hooks/useEnabledChains'
+import { toGraphQLChain } from 'lx/src/features/chains/utils'
+import { currencyIdToAddress, currencyIdToChain } from 'lx/src/utils/currencyId'
 import { searchParamToBackendName } from 'utils/chainParams'
 
 const PoolFinder = lazy(() => import('pages/PoolFinder'))

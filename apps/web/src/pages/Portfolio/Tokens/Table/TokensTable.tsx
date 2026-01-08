@@ -1,5 +1,5 @@
 import { NetworkStatus } from '@apollo/client'
-import { SharedEventName } from '@uniswap/analytics-events'
+import { SharedEventName } from '@luxdex/analytics-events'
 import { PortfolioExpandoRow } from 'pages/Portfolio/components/PortfolioExpandoRow'
 import { TokenData } from 'pages/Portfolio/Tokens/hooks/useTransformTokenTableData'
 import { TokensTableInner } from 'pages/Portfolio/Tokens/Table/TokensTableInner'
@@ -7,8 +7,8 @@ import { useCallback, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { ScrollSync } from 'react-scroll-sync'
 import { Flex } from 'ui/src'
-import { ElementName, SectionName } from 'uniswap/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
+import { ElementName, SectionName } from 'lx/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
 import { useTrace } from 'utilities/src/telemetry/trace/TraceContext'
 
 interface TokensTableProps {

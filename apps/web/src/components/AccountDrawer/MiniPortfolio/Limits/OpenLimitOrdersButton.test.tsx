@@ -1,15 +1,15 @@
-import { TradingApi } from '@universe/api'
+import { TradingApi } from '@luxfi/api'
 import { useOpenLimitOrders } from 'components/AccountDrawer/MiniPortfolio/Activity/hooks'
 import { OpenLimitOrdersButton } from 'components/AccountDrawer/MiniPortfolio/Limits/OpenLimitOrdersButton'
 import { mocked } from 'test-utils/mocked'
 import { fireEvent, render, screen } from 'test-utils/render'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { UniverseChainId } from 'lx/src/features/chains/types'
 import {
   TransactionOriginType,
   TransactionStatus,
   TransactionType,
   UniswapXOrderDetails,
-} from 'uniswap/src/features/transactions/types/transactionDetails'
+} from 'lx/src/features/transactions/types/transactionDetails'
 
 vi.mock('components/AccountDrawer/MiniPortfolio/Activity/hooks', async () => {
   const actual = await vi.importActual('components/AccountDrawer/MiniPortfolio/Activity/hooks')

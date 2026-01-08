@@ -1,4 +1,5 @@
-import { Currency, Price, Token } from '@uniswap/sdk-core'
+import { Currency, Price, Token } from '@luxamm/sdk-core'
+import type { Price as UniswapPrice, Token as UniswapToken } from '@uniswap/sdk-core'
 import {
   encodeSqrtRatioX96,
   FeeAmount,
@@ -6,7 +7,7 @@ import {
   priceToClosestTick,
   TICK_SPACINGS,
   TickMath,
-} from '@uniswap/v3-sdk'
+} from '@luxdex/v3-sdk'
 import JSBI from 'jsbi'
 import { convertScientificNotationToNumber } from 'utilities/src/format/convertScientificNotation'
 
@@ -77,7 +78,7 @@ export function tryParseTick({
     tick = TickMath.MIN_TICK
   } else {
     // this function is agnostic to the base, will always return the correct tick
-    tick = priceToClosestTick(price)
+    tick = priceToClosestTick(price as unknown as UniswapPrice<UniswapToken, UniswapToken>)
   }
 
   return nearestUsableTick(tick, TICK_SPACINGS[feeAmount])

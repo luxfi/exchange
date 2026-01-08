@@ -8,7 +8,7 @@ import { useMockDataStore } from 'components/Toucan/Auction/store/mocks/useMockD
 import { useAuctionStore } from 'components/Toucan/Auction/store/useAuctionStore'
 import { useMemo } from 'react'
 import { Flex, Text } from 'ui/src'
-import { EVMUniverseChainId } from 'uniswap/src/features/chains/types'
+import { EVMUniverseChainId } from 'lx/src/features/chains/types'
 import { logger } from 'utilities/src/logger/logger'
 
 export const BidDistributionChart = () => {

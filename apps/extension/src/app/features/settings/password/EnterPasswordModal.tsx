@@ -5,8 +5,8 @@ import { PasswordInputWithBiometrics } from 'src/app/components/PasswordInput'
 import { reauthenticateWithBiometricCredential } from 'src/app/features/biometricUnlock/useUnlockWithBiometricCredentialMutation'
 import { Button, Flex, inputStyles, Square, Text, useSporeColors } from 'ui/src'
 import { Lock } from 'ui/src/components/icons'
-import { Modal } from 'uniswap/src/components/modals/Modal'
-import { ModalName } from 'uniswap/src/features/telemetry/constants'
+import { Modal } from 'lx/src/components/modals/Modal'
+import { ModalName } from 'lx/src/features/telemetry/constants'
 import { Keyring } from 'wallet/src/features/wallet/Keyring/Keyring'
 
 export function EnterPasswordModal({

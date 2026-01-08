@@ -3,7 +3,7 @@ import { navigationRef } from 'src/app/navigation/navigationRef'
 import { dispatchNavigationAction } from 'src/app/navigation/rootNavigation'
 import { closeAllModals } from 'src/features/modals/modalSlice'
 import { call, put } from 'typed-redux-saga'
-import { MobileScreens } from 'uniswap/src/types/screens/mobile'
+import { MobileScreens } from 'lx/src/types/screens/mobile'
 
 /**
  * Helper function to dismiss all open modals before navigating to a deep link target.

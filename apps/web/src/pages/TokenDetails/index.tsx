@@ -1,5 +1,5 @@
 import { gqlToCurrency } from 'appGraphql/data/util'
-import { GraphQLApi } from '@universe/api'
+import { GraphQLApi } from '@luxfi/api'
 import TokenDetails from 'components/Tokens/TokenDetails'
 import { useCreateTDPChartState } from 'components/Tokens/TokenDetails/ChartSection'
 import { TokenDetailsPageSkeleton } from 'components/Tokens/TokenDetails/Skeleton'
@@ -16,13 +16,16 @@ import { useTranslation } from 'react-i18next'
 import { useLocation, useNavigate, useParams } from 'react-router'
 import { formatTokenMetatagTitleName } from 'shared-cloud/metatags'
 import { useSporeColors } from 'ui/src'
-import { nativeOnChain } from 'uniswap/src/constants/tokens'
-import { getChainInfo } from 'uniswap/src/features/chains/chainInfo'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { fromGraphQLChain } from 'uniswap/src/features/chains/utils'
-import { usePortfolioBalances } from 'uniswap/src/features/dataApi/balances/balances'
-import { ModalName } from 'uniswap/src/features/telemetry/constants'
-import { buildCurrencyId, buildNativeCurrencyId, isNativeCurrencyAddress } from 'uniswap/src/utils/currencyId'
+import { nativeOnChain } from 'lx/src/constants/tokens'
+import { getChainInfo } from 'lx/src/features/chains/chainInfo'
+import { UniverseChainId } from 'lx/src/features/chains/types'
+import { fromGraphQLChain } from 'lx/src/features/chains/utils'
+import { buildCurrency } from 'lx/src/features/dataApi/utils/buildCurrency'
+import { usePortfolioBalances } from 'lx/src/features/dataApi/balances/balances'
+import { ModalName } from 'lx/src/features/telemetry/constants'
+import { buildCurrencyId, buildNativeCurrencyId, isNativeCurrencyAddress } from 'lx/src/utils/currencyId'
+import { useGChainToken } from 'lx/src/data/gchain/hooks'
+import { isLxdChain, getTokenByAddress } from 'lx/src/data/rest/lxdGateway'
 import { useChainIdFromUrlParam } from 'utils/chainParams'
 import { getNativeTokenDBAddress } from 'utils/nativeTokens'
 
@@ -81,6 +84,7 @@ function useCreateTDPContext(): PendingTDPContext | LoadedTDPContext {
   const currencyChainInfo = getChainInfo(useChainIdFromUrlParam() ?? UniverseChainId.Mainnet)
 
   const isNative = tokenAddress === NATIVE_CHAIN_ID
+  const isLuxChain = isLxdChain(currencyChainInfo.id)
 
   const tokenDBAddress = isNative ? getNativeTokenDBAddress(currencyChainInfo.backendChain.chain) : tokenAddress
 
@@ -88,15 +92,48 @@ function useCreateTDPContext(): PendingTDPContext | LoadedTDPContext {
     variables: { address: tokenDBAddress, chain: currencyChainInfo.backendChain.chain },
     errorPolicy: 'all',
   })
+
+  // For Lux chains, use G-Chain as fallback data source
+  const gchainTokenQuery = useGChainToken(isLuxChain && !isNative ? tokenAddress : undefined)
+
   const currency = useMemo(() => {
     if (isNative) {
       return nativeOnChain(currencyChainInfo.id)
     }
+    // First try GraphQL data
     if (tokenQuery.data?.token) {
       return gqlToCurrency(tokenQuery.data.token)
     }
+    // For Lux chains, fallback to G-Chain token data
+    if (isLuxChain && gchainTokenQuery.data) {
+      return buildCurrency({
+        chainId: currencyChainInfo.id,
+        address: gchainTokenQuery.data.id,
+        decimals: gchainTokenQuery.data.decimals,
+        symbol: gchainTokenQuery.data.symbol,
+        name: gchainTokenQuery.data.name,
+      })
+    }
+    // Check fallback token list for Lux chains
+    if (isLuxChain && tokenAddress) {
+      // Synchronously check the fallback token list
+      const chainInfo = getChainInfo(currencyChainInfo.id)
+      const wrappedNative = chainInfo.wrappedNativeCurrency
+      if (wrappedNative && tokenAddress.toLowerCase() === wrappedNative.address.toLowerCase()) {
+        return buildCurrency({
+          chainId: currencyChainInfo.id,
+          address: wrappedNative.address,
+          decimals: wrappedNative.decimals,
+          symbol: wrappedNative.symbol,
+          name: wrappedNative.name,
+        })
+      }
+    }
     return undefined
-  }, [tokenQuery.data?.token, isNative, currencyChainInfo.id])
+  }, [tokenQuery.data?.token, gchainTokenQuery.data, isNative, isLuxChain, currencyChainInfo.id, tokenAddress])
+
+  // Combined loading state: for Lux chains, also wait for G-Chain query
+  const isLoading = tokenQuery.loading || (isLuxChain && !isNative && gchainTokenQuery.isLoading)
 
   const chartState = useCreateTDPChartState(tokenDBAddress, currencyChainInfo.backendChain.chain)
 
@@ -125,6 +162,7 @@ function useCreateTDPContext(): PendingTDPContext | LoadedTDPContext {
       chartState,
       multiChainMap,
       tokenColor,
+      isLoading, // Combined loading state for GraphQL and G-Chain
     }
   }, [
     currency,
@@ -135,19 +173,20 @@ function useCreateTDPContext(): PendingTDPContext | LoadedTDPContext {
     chartState,
     multiChainMap,
     tokenColor,
+    isLoading,
   ])
 }
 
 export default function TokenDetailsPage() {
   const { t } = useTranslation()
   const contextValue = useCreateTDPContext()
-  const { address, currency, currencyChain, currencyChainId, tokenQuery } = contextValue
+  const { address, currency, currencyChain, currencyChainId, tokenQuery, isLoading } = contextValue
   const navigate = useNavigate()
 
   const tokenQueryData = tokenQuery.data?.token
   const metatagProperties = useMemo(() => {
     return {
-      title: formatTokenMetatagTitleName(tokenQueryData?.symbol, tokenQueryData?.name),
+      title: formatTokenMetatagTitleName(tokenQueryData?.symbol ?? currency?.symbol, tokenQueryData?.name ?? currency?.name),
       image:
         window.location.origin +
         '/api/image/tokens/' +
@@ -160,12 +199,12 @@ export default function TokenDetailsPage() {
   }, [address, currency, currencyChain, currencyChainId, tokenQueryData?.name, tokenQueryData?.symbol])
   const metatags = useDynamicMetatags(metatagProperties)
 
-  // redirect to /explore if token is not found
+  // redirect to /explore if token is not found (only after all data sources have been checked)
   useEffect(() => {
-    if (!tokenQuery.loading && !currency) {
+    if (!isLoading && !currency) {
       navigate(`/explore?type=${ExploreTab.Tokens}&result=${ModalName.NotFound}`)
     }
-  }, [currency, tokenQuery.loading, navigate])
+  }, [currency, isLoading, navigate])
 
   return (
     <>
@@ -176,7 +215,7 @@ export default function TokenDetailsPage() {
         ))}
       </Helmet>
       {(() => {
-        if (tokenQuery.loading || !currency) {
+        if (isLoading || !currency) {
           return <TokenDetailsPageSkeleton />
         }
 

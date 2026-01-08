@@ -1,4 +1,4 @@
-import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import { FeatureFlags, useFeatureFlag } from '@luxfi/gating'
 import { LiveIcon, StatCard } from 'pages/Landing/components/StatCard'
 import { useInView } from 'pages/Landing/sections/useInView'
 import { parseToRgb } from 'polished'
@@ -8,7 +8,7 @@ import { ExternalLink } from 'theme/components/Links'
 import { Flex, styled, Text, useSporeColors } from 'ui/src'
 import { RightArrow } from 'ui/src/components/icons/RightArrow'
 
-import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
+import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
 import { NumberType } from 'utilities/src/format/types'
 
 const Container = styled(Flex, {

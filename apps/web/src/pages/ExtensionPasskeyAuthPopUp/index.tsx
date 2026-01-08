@@ -6,8 +6,8 @@ import { Anchor, Button, Flex, SpinningLoader, Text } from 'ui/src'
 import { EnvelopeHeart } from 'ui/src/components/icons/EnvelopeHeart'
 import { Passkey } from 'ui/src/components/icons/Passkey'
 import { UniswapLogo } from 'ui/src/components/icons/UniswapLogo'
-import { uniswapUrls } from 'uniswap/src/constants/urls'
-import { parseMessage } from 'uniswap/src/extension/messagePassing/platform'
+import { uniswapUrls } from 'lx/src/constants/urls'
+import { parseMessage } from 'lx/src/extension/messagePassing/platform'
 import {
   InterfaceToExtensionRequestType,
   PasskeyCredentialError,
@@ -15,10 +15,10 @@ import {
   PasskeyRequest,
   PasskeyRequestSchema,
   PasskeySignInFlowOpened,
-} from 'uniswap/src/extension/messagePassing/types/requests'
-import { authenticatePasskey } from 'uniswap/src/features/passkey/passkey'
-import { InterfacePageName } from 'uniswap/src/features/telemetry/constants'
-import Trace from 'uniswap/src/features/telemetry/Trace'
+} from 'lx/src/extension/messagePassing/types/requests'
+import { authenticatePasskey } from 'lx/src/features/passkey/passkey'
+import { InterfacePageName } from 'lx/src/features/telemetry/constants'
+import Trace from 'lx/src/features/telemetry/Trace'
 import { getChromeRuntime, getChromeRuntimeWithThrow } from 'utilities/src/chrome/chrome'
 import { logger } from 'utilities/src/logger/logger'
 import { ONE_SECOND_MS } from 'utilities/src/time/time'

@@ -4,11 +4,11 @@ import { useDispatch } from 'react-redux'
 import { AppStackScreenProp } from 'src/app/navigation/types'
 import { useReactNavigationModal } from 'src/components/modals/useReactNavigationModal'
 import { Wrench } from 'ui/src/components/icons'
-import { WarningSeverity } from 'uniswap/src/components/modals/WarningModal/types'
-import { WarningModal } from 'uniswap/src/components/modals/WarningModal/WarningModal'
-import { setIsTestnetModeEnabled } from 'uniswap/src/features/settings/slice'
-import { ModalName, WalletEventName } from 'uniswap/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
+import { WarningSeverity } from 'lx/src/components/modals/WarningModal/types'
+import { WarningModal } from 'lx/src/components/modals/WarningModal/WarningModal'
+import { setIsTestnetModeEnabled } from 'lx/src/features/settings/slice'
+import { ModalName, WalletEventName } from 'lx/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
 
 export function TestnetSwitchModal({ route }: AppStackScreenProp<typeof ModalName.TestnetSwitchModal>): JSX.Element {
   const { onClose } = useReactNavigationModal()

@@ -1,6 +1,6 @@
 /* eslint-disable react-native/no-unused-styles */
 import { FlashList, FlashListProps } from '@shopify/flash-list'
-import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import { FeatureFlags, useFeatureFlag } from '@luxfi/gating'
 import React, { RefObject, useCallback, useMemo } from 'react'
 import {
   FlatList,
@@ -15,7 +15,7 @@ import Animated, { SharedValue } from 'react-native-reanimated'
 import { Route } from 'react-native-tab-view'
 import { Flex, Text } from 'ui/src'
 import { colorsLight, spacing } from 'ui/src/theme'
-import { TestIDType } from 'uniswap/src/test/fixtures/testIDs'
+import { TestIDType } from 'lx/src/test/fixtures/testIDs'
 import { PendingNotificationBadge } from 'wallet/src/features/notifications/components/PendingNotificationBadge'
 
 export const TAB_VIEW_SCROLL_THROTTLE = 16

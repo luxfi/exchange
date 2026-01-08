@@ -1,4 +1,4 @@
-import { TokenList } from '@uniswap/token-lists'
+import { TokenList } from 'utils/tokenListTypes'
 
 export interface ListsState {
   readonly byUrl: {

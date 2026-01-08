@@ -5,7 +5,7 @@ import { ReactElement, useEffect, useState } from 'react'
 import { ThemedText } from 'theme/components'
 import { ExternalLink } from 'theme/components/Links'
 import { Flex } from 'ui/src'
-import { StepStatus } from 'uniswap/src/components/ConfirmSwapModal/types'
+import { StepStatus } from 'lx/src/components/ConfirmSwapModal/types'
 
 export const ICON_SIZE = 24
 

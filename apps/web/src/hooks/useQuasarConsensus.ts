@@ -277,5 +277,4 @@ async function createVerkleProof(
   return '0x' + stateRoot + path + amounts
 }
 
-// Export types for use in components
-export type { SwapWitness, QuasarState }
+// Types are already exported via 'export interface' declarations above

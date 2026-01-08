@@ -11,7 +11,7 @@ export enum TrafficFlows {
   Scantastic = 'scantastic',
 }
 
-export const helpUrl = 'https://support.uniswap.org/hc/en-us'
+export const helpUrl = 'https://docs.lux.exchange/help'
 
 const FLOWS_USING_BETA = [TrafficFlows.FOR]
 

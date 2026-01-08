@@ -1,5 +1,5 @@
 import { Trans } from '@lingui/macro'
-import { formatNumber, formatUSDPrice, NumberType } from '@uniswap/conedison/format'
+import { formatNumber, formatUSDPrice, NumberType } from '@luxdex/conedison/format'
 import { CHAIN_NAME_TO_CHAIN_ID, getTokenDetailsURL } from 'graphql/data/util'
 import { useAtomValue } from 'jotai/utils'
 import QueryTokenLogo from 'components/Logo/QueryTokenLogo'

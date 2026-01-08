@@ -4,9 +4,9 @@ import { SCREEN_ITEM_HORIZONTAL_PAD } from 'src/app/constants'
 import { useExtensionNavigation } from 'src/app/navigation/utils'
 import { Flex } from 'ui/src'
 import { X } from 'ui/src/components/icons'
-import { ReceiveQRCode } from 'uniswap/src/components/ReceiveQRCode/ReceiveQRCode'
-import { ModalName } from 'uniswap/src/features/telemetry/constants'
-import Trace from 'uniswap/src/features/telemetry/Trace'
+import { ReceiveQRCode } from 'lx/src/components/ReceiveQRCode/ReceiveQRCode'
+import { ModalName } from 'lx/src/features/telemetry/constants'
+import Trace from 'lx/src/features/telemetry/Trace'
 import { useActiveAccountAddressWithThrow } from 'wallet/src/features/wallet/hooks'
 
 export function ReceiveScreen(): JSX.Element {

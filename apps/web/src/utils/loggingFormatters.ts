@@ -1,4 +1,4 @@
-import { Currency, Percent } from '@uniswap/sdk-core'
+import { Currency, Percent } from '@luxamm/sdk-core'
 import { SwapResult } from 'hooks/useSwapCallback'
 import {
   formatPercentInBasisPointsNumber,
@@ -8,8 +8,8 @@ import {
 } from 'lib/utils/analytics'
 import { InterfaceTrade, TradeFillType } from 'state/routing/types'
 import { isClassicTrade, isUniswapXTradeType } from 'state/routing/utils'
-import { SwapPriceUpdateUserResponse } from 'uniswap/src/features/telemetry/types'
-import { TransactionOriginType } from 'uniswap/src/features/transactions/types/transactionDetails'
+import { SwapPriceUpdateUserResponse } from 'lx/src/features/telemetry/types'
+import { TransactionOriginType } from 'lx/src/features/transactions/types/transactionDetails'
 import { computeRealizedPriceImpact } from 'utils/prices'
 
 export function formatSwapPriceUpdatedEventProperties({

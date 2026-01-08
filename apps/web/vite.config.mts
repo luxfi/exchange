@@ -30,7 +30,7 @@ const VITE_DISABLE_SOURCEMAP = process.env.VITE_DISABLE_SOURCEMAP === 'true'
 const DEBUG_PROXY = process.env.VITE_DEBUG_PROXY === 'true'
 const ENABLE_PROXY = process.env.VITE_ENABLE_ENTRY_GATEWAY_PROXY === 'true'
 
-const DEFAULT_PORT = 3000
+const DEFAULT_PORT = 9000
 
 const reactPlugin = () =>
   ENABLE_REACT_COMPILER
@@ -55,7 +55,7 @@ const portWarningPlugin = (isProduction: boolean) =>
                 console.log('\n')
                 console.log('\x1b[41m\x1b[37m' + '═'.repeat(80) + '\x1b[0m')
                 console.log('\x1b[41m\x1b[37m' + ' '.repeat(80) + '\x1b[0m')
-                console.log('\x1b[41m\x1b[37m' + '  ⚠️  WARNING: Port 3000 is already in use!'.padEnd(80) + '\x1b[0m')
+                console.log('\x1b[41m\x1b[37m' + '  ⚠️  WARNING: Port 9000 is already in use!'.padEnd(80) + '\x1b[0m')
                 console.log('\x1b[41m\x1b[37m' + ' '.repeat(80) + '\x1b[0m')
                 console.log(
                   '\x1b[41m\x1b[37m' + '  You may have another server instance running.'.padEnd(80) + '\x1b[0m',
@@ -112,7 +112,7 @@ export default defineConfig(({ mode }) => {
     'react-native': 'react-native-web',
     'expo-blur': path.resolve(__dirname, './.storybook/__mocks__/expo-blur.jsx'),
     '@web3-react/core': path.resolve(__dirname, 'src/connection/web3reactShim.ts'),
-    'uniswap/src': path.resolve(__dirname, '../../packages/uniswap/src'),
+    'lx/src': path.resolve(__dirname, '../../packages/lx/src'),
     'utilities/src': path.resolve(__dirname, '../../packages/utilities/src'),
     'ui/src': path.resolve(__dirname, '../../packages/ui/src'),
     'expo-clipboard': path.resolve(__dirname, 'src/lib/expo-clipboard.jsx'),
@@ -120,8 +120,15 @@ export default defineConfig(({ mode }) => {
   }
 
   // Create process.env definitions for ALL environment variables
+  // Merge shell environment variables with .env file variables (shell takes precedence)
+  const mergedEnv = { ...env }
+  for (const [key, value] of Object.entries(process.env)) {
+    if (key.startsWith('REACT_APP_') && value !== undefined) {
+      mergedEnv[key] = value
+    }
+  }
   const envDefines = Object.fromEntries(
-    Object.entries(env).map(([key, value]) => [`process.env.${key}`, JSON.stringify(value)]),
+    Object.entries(mergedEnv).map(([key, value]) => [`process.env.${key}`, JSON.stringify(value)]),
   )
 
   return {
@@ -143,19 +150,24 @@ export default defineConfig(({ mode }) => {
       extensions: ['.web.tsx', '.web.ts', '.web.js', '.tsx', '.ts', '.js'],
       modules: [path.resolve(root, 'node_modules')],
       dedupe: [
-        '@uniswap/sdk-core',
-        '@uniswap/v2-sdk',
-        '@uniswap/v3-sdk',
-        '@uniswap/v4-sdk',
-        '@uniswap/router-sdk',
-        '@uniswap/universal-router-sdk',
-        '@uniswap/uniswapx-sdk',
-        '@uniswap/permit2-sdk',
+        '@luxamm/sdk-core',
+        '@luxamm/v2-sdk',
+        '@luxamm/v3-sdk',
+        '@luxamm/v4-sdk',
+        '@luxdex/router-sdk',
+        '@luxdex/universal-router-sdk',
+        '@luxdex/sdk',
+        '@luxdex/permit2-sdk',
         '@visx/responsive',
         'jsbi',
         'ethers',
         'react',
         'react-dom',
+        // Prevent duplicate wagmi/viem instances from nested dependencies (e.g., @binance connector)
+        'wagmi',
+        '@wagmi/core',
+        '@wagmi/connectors',
+        'viem',
       ],
       alias: {
         ...overrides,
@@ -191,7 +203,7 @@ export default defineConfig(({ mode }) => {
       isProduction || isStaging
         ? tamaguiPlugin({
             config: '../../packages/ui/src/tamagui.config.ts',
-            components: ['ui', 'uniswap', 'utilities'],
+            components: ['ui', 'lx', 'utilities'],
             optimize: true,
             importsWhitelist: ['constants.js'],
           })
@@ -296,7 +308,8 @@ export default defineConfig(({ mode }) => {
           }
         },
       },
-      DEPLOY_TARGET === 'cloudflare' || mode === 'development'
+      // Only use cloudflare plugin for production builds, not local dev
+      DEPLOY_TARGET === 'cloudflare' && isProduction
         ? cloudflare({
             configPath: './wrangler-vite-worker.jsonc',
             // Workaround for cloudflare plugin bug: explicitly set environment name based on CLOUDFLARE_ENV
@@ -321,20 +334,20 @@ export default defineConfig(({ mode }) => {
         'tamagui',
         '@tamagui/web',
         'ui',
-        '@uniswap/sdk-core',
-        '@uniswap/v2-sdk',
-        '@uniswap/v3-sdk',
-        '@uniswap/v4-sdk',
-        '@uniswap/router-sdk',
-        '@uniswap/universal-router-sdk',
-        '@uniswap/uniswapx-sdk',
-        '@uniswap/permit2-sdk',
+        '@luxamm/sdk-core',
+        '@luxamm/v2-sdk',
+        '@luxamm/v3-sdk',
+        '@luxamm/v4-sdk',
+        '@luxdex/router-sdk',
+        '@luxdex/universal-router-sdk',
+        '@luxdex/permit2-sdk',
         'jsbi',
         'ethers',
         '@visx/responsive',
       ],
       // Libraries that shouldn't be pre-bundled
-      exclude: ['expo-clipboard', '@connectrpc/connect'],
+      // Note: @l.x/uniswapx-sdk excluded due to SES class heritage error
+      exclude: ['expo-clipboard', '@connectrpc/connect', '@luxdex/sdk'],
       esbuildOptions: {
         resolveExtensions: ['.web.js', '.web.ts', '.web.tsx', '.js', '.ts', '.tsx'],
         loader: {
@@ -377,7 +390,7 @@ export default defineConfig(({ mode }) => {
     envPrefix: [],
 
     preview: {
-      port: 3000,
+      port: 9000,
     },
   }
 })

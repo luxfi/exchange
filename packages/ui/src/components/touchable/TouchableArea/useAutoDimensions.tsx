@@ -70,7 +70,7 @@ export function useAutoDimensions({
         return prevDimensions
       })
     },
-    [onLayoutParam, shouldConsiderMinimumDimensions],
+    [onLayoutParam, shouldConsiderMinimumDimensions]
   )
 
   const widthToReturn = shouldConsiderMinimumDimensions ? dimensions.width : widthParam

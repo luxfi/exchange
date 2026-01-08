@@ -20,7 +20,7 @@ import { migration18 } from 'state/migrations/18'
 import { migration19 } from 'state/migrations/19'
 import { migration20 } from 'state/migrations/20'
 import { migration21, PersistAppStateV21 } from 'state/migrations/21'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { UniverseChainId } from 'lx/src/features/chains/types'
 
 describe('migration to v21', () => {
   beforeEach(() => {

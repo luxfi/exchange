@@ -1,23 +1,12 @@
-import { ArrowChangeDown } from 'components/Icons/ArrowChangeDown'
 import { NavIcon } from 'components/Logo/NavIcon'
 import { MenuDropdown } from 'components/NavBar/CompanyMenu/MenuDropdown'
 import { MobileMenuDrawer } from 'components/NavBar/CompanyMenu/MobileMenuDrawer'
 import { useIsMobileDrawer } from 'components/NavBar/ScreenSizes'
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { Link, useLocation } from 'react-router'
-import { Flex, Popover, styled, Text, useIsTouchDevice, useMedia } from 'ui/src'
+import { Flex, Popover, Text, useIsTouchDevice, useMedia } from 'ui/src'
 import { Hamburger } from 'ui/src/components/icons/Hamburger'
-import { TestID } from 'uniswap/src/test/fixtures/testIDs'
-
-const ArrowDownWrapper = styled(Text, {
-  color: '$neutral2',
-  '$group-hover': { color: '$neutral1' },
-  variants: {
-    open: {
-      true: { color: '$neutral1' },
-    },
-  },
-})
+import { TestID } from 'lx/src/test/fixtures/testIDs'
 
 export function CompanyMenu() {
   const popoverRef = useRef<Popover>(null)
@@ -57,17 +46,12 @@ export function CompanyMenu() {
               <NavIcon />
               {isLargeScreen && (
                 <Text variant="subheading1" color="$accent1" userSelect="none">
-                  Lux
+                  LX
                 </Text>
               )}
             </Flex>
           </Link>
           {(media.md || isTouchDevice) && <Hamburger size={22} color="$neutral2" cursor="pointer" ml="16px" />}
-          {!media.md && !isTouchDevice && (
-            <ArrowDownWrapper open={isOpen}>
-              <ArrowChangeDown width="12px" height="12px" />
-            </ArrowDownWrapper>
-          )}
         </Flex>
       </Popover.Trigger>
       {isMobileDrawer ? <MobileMenuDrawer isOpen={isOpen} closeMenu={closeMenu} /> : <MenuDropdown close={closeMenu} />}

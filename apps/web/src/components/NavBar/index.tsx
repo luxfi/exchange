@@ -1,4 +1,4 @@
-import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import { FeatureFlags, useFeatureFlag } from '@luxfi/gating'
 import Row from 'components/deprecated/Row'
 import { CompanyMenu } from 'components/NavBar/CompanyMenu'
 import { NewUserCTAButton } from 'components/NavBar/DownloadApp/NewUserCTAButton'
@@ -14,8 +14,8 @@ import { PageType, useIsPage } from 'hooks/useIsPage'
 import { css, deprecatedStyled } from 'lib/styled-components'
 import { Flex, styled, Nav as TamaguiNav, useMedia } from 'ui/src'
 import { breakpoints, INTERFACE_NAV_HEIGHT, zIndexes } from 'ui/src/theme'
-import { useConnectionStatus } from 'uniswap/src/features/accounts/store/hooks'
-import { useEnabledChains } from 'uniswap/src/features/chains/hooks/useEnabledChains'
+import { useConnectionStatus } from 'lx/src/features/accounts/store/hooks'
+import { useEnabledChains } from 'lx/src/features/chains/hooks/useEnabledChains'
 
 // Flex is position relative by default, we must unset the position on every Flex
 // between the body and search component

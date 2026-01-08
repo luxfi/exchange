@@ -1,11 +1,11 @@
-import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
-import { Currency, Price, Token } from '@uniswap/sdk-core'
-import { Pair } from '@uniswap/v2-sdk'
-import { FeeAmount, TICK_SPACINGS, Pool as V3Pool } from '@uniswap/v3-sdk'
-import { Pool as V4Pool } from '@uniswap/v4-sdk'
+import { ProtocolVersion } from '@luxdex/client-data-api/dist/data/v1/poolTypes_pb'
+import { Currency, Price, Token } from '@luxamm/sdk-core'
+import { Pair } from '@luxamm/v2-sdk'
+import { FeeAmount, TICK_SPACINGS, Pool as V3Pool } from '@luxamm/v3-sdk'
+import { Pool as V4Pool } from '@luxamm/v4-sdk'
 import { PositionField } from 'types/position'
-import { WarningSeverity } from 'uniswap/src/components/modals/WarningModal/types'
-import { DEFAULT_TICK_SPACING, DYNAMIC_FEE_AMOUNT } from 'uniswap/src/constants/pools'
+import { WarningSeverity } from 'lx/src/components/modals/WarningModal/types'
+import { DEFAULT_TICK_SPACING, DYNAMIC_FEE_AMOUNT } from 'lx/src/constants/pools'
 
 export type FeeData = {
   isDynamic: boolean

@@ -1,7 +1,7 @@
 import { useCallback, useState } from 'react'
-import { LayoutChangeEvent } from 'react-native'
+import type { LayoutChangeEvent } from 'react-native'
 import { View, type ViewProps } from 'tamagui'
-import { type FlexProps } from 'ui/src/components/layout'
+import type { FlexProps } from 'ui/src/components/layout'
 import { isTestEnv } from 'utilities/src/environment/env'
 
 export interface HeightAnimatorProps {
@@ -40,5 +40,5 @@ export const HeightAnimator = View.styleable<HeightAnimatorProps>(
         </View>
       </View>
     )
-  },
+  }
 )

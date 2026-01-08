@@ -1,12 +1,12 @@
 import type { PromiseClient } from '@connectrpc/connect'
-import type { SessionService } from '@uniswap/client-platform-service/dist/uniswap/platformservice/v1/sessionService_connect'
+import type { SessionService } from '@luxdex/client-platform-service/dist/uniswap/platformservice/v1/sessionService_connect'
 import {
   ChallengeResponse,
   GetChallengeTypesResponse,
   InitSessionResponse,
   SignoutResponse,
-} from '@uniswap/client-platform-service/dist/uniswap/platformservice/v1/sessionService_pb'
-import { createSessionRepository } from '@universe/sessions/src/session-repository/createSessionRepository'
+} from '@luxdex/client-platform-service/dist/uniswap/platformservice/v1/sessionService_pb'
+import { createSessionRepository } from '@luxfi/sessions/src/session-repository/createSessionRepository'
 import { describe, expect, it, type MockedFunction, vi } from 'vitest'
 
 type MockedClient = {

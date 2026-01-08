@@ -1,8 +1,8 @@
 import { SettingsToggle } from 'components/AccountDrawer/SettingsToggle'
 import { useTranslation } from 'react-i18next'
 import { useDispatch } from 'react-redux'
-import { useHideReportedActivitySetting } from 'uniswap/src/features/settings/hooks'
-import { setHideReportedActivity } from 'uniswap/src/features/settings/slice'
+import { useHideReportedActivitySetting } from 'lx/src/features/settings/hooks'
+import { setHideReportedActivity } from 'lx/src/features/settings/slice'
 
 export function ReportedActivityToggle() {
   const { t } = useTranslation()

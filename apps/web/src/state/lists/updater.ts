@@ -1,4 +1,4 @@
-import { getVersionUpgrade, VersionUpgrade } from '@uniswap/token-lists'
+import { getVersionUpgrade, VersionUpgrade } from 'utils/tokenListTypes'
 import { useWeb3React } from '@web3-react/core'
 import { DEFAULT_INACTIVE_LIST_URLS } from 'constants/lists'
 import { useFetchListCallback } from 'hooks/useFetchListCallback'

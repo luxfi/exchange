@@ -1,7 +1,13 @@
-import { createContext, PropsWithChildren, ReactElement, useContext, useState } from 'react'
-import { AnimatePresence, GetThemeValueForKey, RadioGroup, RadioGroupItemProps, RadioGroupProps } from 'tamagui'
+import { createContext, type PropsWithChildren, type ReactElement, useContext, useState } from 'react'
+import {
+  AnimatePresence,
+  type GetThemeValueForKey,
+  RadioGroup,
+  type RadioGroupItemProps,
+  type RadioGroupProps,
+} from 'tamagui'
 import { Flex } from 'ui/src/components/layout'
-import { SporeComponentVariant } from 'ui/src/components/types'
+import type { SporeComponentVariant } from 'ui/src/components/types'
 
 // Used to pass the selected value of the RadioGroup down to the RadioButtons.
 const RadioButtonGroupContext = createContext<string | undefined>(undefined)

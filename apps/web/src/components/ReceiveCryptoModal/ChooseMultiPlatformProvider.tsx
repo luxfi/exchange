@@ -10,19 +10,19 @@ import { FiatOnRampTransactionStatus, FiatOnRampTransactionType } from 'state/fi
 import { ExternalLink } from 'theme/components/Links'
 import { Flex, Text, TouchableArea, useIsDarkMode, useSporeColors } from 'ui/src'
 import { iconSizes } from 'ui/src/theme'
-import { NetworkLogo } from 'uniswap/src/components/CurrencyLogo/NetworkLogo'
-import { UNISWAP_WEB_URL } from 'uniswap/src/constants/urls'
-import { MAINNET_CHAIN_INFO } from 'uniswap/src/features/chains/evm/info/mainnet'
-import { useEnabledChains } from 'uniswap/src/features/chains/hooks/useEnabledChains'
-import { SOLANA_CHAIN_INFO } from 'uniswap/src/features/chains/svm/info/solana'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { useFiatOnRampAggregatorTransferWidgetQuery } from 'uniswap/src/features/fiatOnRamp/api'
-import { ServiceProviderLogoStyles } from 'uniswap/src/features/fiatOnRamp/constants'
-import { FORServiceProvider } from 'uniswap/src/features/fiatOnRamp/types'
-import { getOptionalServiceProviderLogo } from 'uniswap/src/features/fiatOnRamp/utils'
-import { Platform } from 'uniswap/src/features/platforms/types/Platform'
-import { FiatOnRampEventName } from 'uniswap/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
+import { NetworkLogo } from 'lx/src/components/CurrencyLogo/NetworkLogo'
+import { UNISWAP_WEB_URL } from 'lx/src/constants/urls'
+import { MAINNET_CHAIN_INFO } from 'lx/src/features/chains/evm/info/mainnet'
+import { useEnabledChains } from 'lx/src/features/chains/hooks/useEnabledChains'
+import { SOLANA_CHAIN_INFO } from 'lx/src/features/chains/svm/info/solana'
+import { UniverseChainId } from 'lx/src/features/chains/types'
+import { useFiatOnRampAggregatorTransferWidgetQuery } from 'lx/src/features/fiatOnRamp/api'
+import { ServiceProviderLogoStyles } from 'lx/src/features/fiatOnRamp/constants'
+import { FORServiceProvider } from 'lx/src/features/fiatOnRamp/types'
+import { getOptionalServiceProviderLogo } from 'lx/src/features/fiatOnRamp/utils'
+import { Platform } from 'lx/src/features/platforms/types/Platform'
+import { FiatOnRampEventName } from 'lx/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
 import { shortenAddress } from 'utilities/src/addresses'
 import { useEvent } from 'utilities/src/react/hooks'
 import { v4 as uuid } from 'uuid'
@@ -212,12 +212,12 @@ export function ChooseMultiPlatformProvider({
             }}
             components={{
               tosLink: (
-                <StyledLink color={colors.neutral3.val} href="https://uniswap.org/terms-of-service/">
+                <StyledLink color={colors.neutral3.val} href="https://lux.exchange/terms">
                   {t('common.termsOfService')}
                 </StyledLink>
               ),
               privacyLink: (
-                <StyledLink color={colors.neutral3.val} href="https://uniswap.org/privacy-policy">
+                <StyledLink color={colors.neutral3.val} href="https://lux.exchange/privacy">
                   {t('common.privacyPolicy')}
                 </StyledLink>
               ),

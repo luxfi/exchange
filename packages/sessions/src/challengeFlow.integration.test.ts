@@ -6,16 +6,16 @@ import {
   InitSessionResponse,
   SignoutResponse,
   VerifyResponse,
-} from '@uniswap/client-platform-service/dist/uniswap/platformservice/v1/sessionService_pb'
-import { createChallengeSolverService } from '@universe/sessions/src/challenge-solvers/createChallengeSolverService'
-import type { ChallengeSolver } from '@universe/sessions/src/challenge-solvers/types'
+} from '@luxdex/client-platform-service/dist/uniswap/platformservice/v1/sessionService_pb'
+import { createChallengeSolverService } from '@luxfi/sessions/src/challenge-solvers/createChallengeSolverService'
+import type { ChallengeSolver } from '@luxfi/sessions/src/challenge-solvers/types'
 import {
   createSessionInitializationService,
   type SessionInitializationService,
-} from '@universe/sessions/src/session-initialization/createSessionInitializationService'
-import { createSessionRepository } from '@universe/sessions/src/session-repository/createSessionRepository'
-import { createSessionService } from '@universe/sessions/src/session-service/createSessionService'
-import type { SessionService } from '@universe/sessions/src/session-service/types'
+} from '@luxfi/sessions/src/session-initialization/createSessionInitializationService'
+import { createSessionRepository } from '@luxfi/sessions/src/session-repository/createSessionRepository'
+import { createSessionService } from '@luxfi/sessions/src/session-service/createSessionService'
+import type { SessionService } from '@luxfi/sessions/src/session-service/types'
 import {
   createMockSessionClient,
   createTestTransport,
@@ -23,7 +23,7 @@ import {
   InMemorySessionStorage,
   InMemoryUniswapIdentifierService,
   type MockEndpoints,
-} from '@universe/sessions/src/test-utils'
+} from '@luxfi/sessions/src/test-utils'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
 // Mock Turnstile solver for integration tests

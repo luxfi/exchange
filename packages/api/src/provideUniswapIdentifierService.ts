@@ -1,5 +1,5 @@
-import { getStorageDriver } from '@universe/api/src/storage/getStorageDriver'
-import { createUniswapIdentifierService, UniswapIdentifierService } from '@universe/sessions'
+import { getStorageDriver } from '@luxfi/api/src/storage/getStorageDriver'
+import { createUniswapIdentifierService, UniswapIdentifierService } from '@luxfi/sessions'
 
 const UNISWAP_IDENTIFIER_KEY = 'UNISWAP_IDENTIFIER'
 

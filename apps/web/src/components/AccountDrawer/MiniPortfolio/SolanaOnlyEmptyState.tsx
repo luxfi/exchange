@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next'
 import { Button, Flex, Text } from 'ui/src'
 import { EmptyPoolsIcon } from 'ui/src/components/icons/EmptyPoolsIcon'
 import { NoNfts } from 'ui/src/components/icons/NoNfts'
-import { Platform } from 'uniswap/src/features/platforms/types/Platform'
+import { Platform } from 'lx/src/features/platforms/types/Platform'
 
 interface SolanaOnlyEmptyStateProps {
   tab: 'nfts' | 'pools'

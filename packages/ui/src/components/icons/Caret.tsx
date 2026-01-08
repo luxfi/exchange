@@ -1,7 +1,7 @@
 import { memo } from 'react'
 import { withAnimated } from 'ui/src/components/factories/animated'
 import { ArrowChange } from 'ui/src/components/icons/ArrowChange'
-import { IconSizeTokens } from 'ui/src/theme'
+import type { IconSizeTokens } from 'ui/src/theme'
 
 type Props = {
   size?: IconSizeTokens

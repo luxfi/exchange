@@ -14,8 +14,8 @@ export default function PrivacyPolicyNotice() {
       <Trans
         i18nKey="wallet.connectingAgreement"
         components={{
-          termsLink: <StyledLink href="https://uniswap.org/terms-of-service/" />,
-          privacyLink: <StyledLink href="https://uniswap.org/privacy-policy" />,
+          termsLink: <StyledLink href="https://lux.exchange/terms" />,
+          privacyLink: <StyledLink href="https://lux.exchange/privacy" />,
         }}
       />
     </Text>

@@ -22,8 +22,8 @@ import { migration20 } from 'state/migrations/20'
 import { migration21 } from 'state/migrations/21'
 import { migration22 } from 'state/migrations/22'
 import { migration23 } from 'state/migrations/23'
-import { FiatCurrency } from 'uniswap/src/features/fiatCurrency/constants'
-import { Language } from 'uniswap/src/features/language/constants'
+import { FiatCurrency } from 'lx/src/features/fiatCurrency/constants'
+import { Language } from 'lx/src/features/language/constants'
 
 const previousState = {
   _persist: {

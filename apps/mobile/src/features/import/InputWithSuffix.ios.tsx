@@ -1,7 +1,7 @@
 import { InputWithSuffixProps } from 'src/features/import/InputWIthSuffixProps'
 import { Flex } from 'ui/src'
-import { TextInput } from 'uniswap/src/components/input/TextInput'
-import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+import { TextInput } from 'lx/src/components/input/TextInput'
+import { TestID } from 'lx/src/test/fixtures/testIDs'
 
 export default function InputWithSuffix({
   alwaysShowInputSuffix = false,

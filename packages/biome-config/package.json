@@ -1,5 +1,5 @@
 {
-  "name": "@uniswap/biome-config",
+  "name": "@luxfi/biome-config",
   "version": "1.0.0",
   "description": "Shared Biome configuration for Uniswap Universe",
   "devDependencies": {
@@ -15,6 +15,11 @@
   "nx": {
     "includedScripts": []
   },
-  "keywords": ["biome", "config", "linting", "formatting"],
+  "keywords": [
+    "biome",
+    "config",
+    "linting",
+    "formatting"
+  ],
   "license": "MIT"
 }

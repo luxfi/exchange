@@ -1,15 +1,15 @@
-import { TradingApi } from '@universe/api'
+import { TradingApi } from '@luxfi/api'
 import type { ConfirmedTransactionDetails } from 'state/transactions/types'
-import { getChainLabel } from 'uniswap/src/features/chains/utils'
-import { SwapEventName } from 'uniswap/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
-import type { SwapRouting } from 'uniswap/src/features/telemetry/types'
-import { SwapEventType, timestampTracker } from 'uniswap/src/features/transactions/swap/utils/SwapEventTimestampTracker'
+import { getChainLabel } from 'lx/src/features/chains/utils'
+import { SwapEventName } from 'lx/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
+import type { SwapRouting } from 'lx/src/features/telemetry/types'
+import { SwapEventType, timestampTracker } from 'lx/src/features/transactions/swap/utils/SwapEventTimestampTracker'
 import {
   TransactionOriginType,
   TransactionStatus,
   TransactionType,
-} from 'uniswap/src/features/transactions/types/transactionDetails'
+} from 'lx/src/features/transactions/types/transactionDetails'
 import { logger } from 'utilities/src/logger/logger'
 import type { ITraceContext } from 'utilities/src/telemetry/trace/TraceContext'
 

@@ -1,6 +1,6 @@
 import { getWalletRequiresSeparatePrompt } from 'components/WalletModal/PendingWalletConnectionModal/state'
 import { ConnectionService } from 'features/wallet/connection/services/IConnectionService'
-import { Platform } from 'uniswap/src/features/platforms/types/Platform'
+import { Platform } from 'lx/src/features/platforms/types/Platform'
 import { sleep } from 'utilities/src/time/timing'
 
 type MultiPlatformConnectWalletServiceContext = {

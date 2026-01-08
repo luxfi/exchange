@@ -25,9 +25,10 @@ const ButtonComponent = forwardRef<TamaguiElement, ButtonProps>(function Button(
     iconPosition: propIconPosition = 'before',
     isDisabled: propDisabled,
     onPress,
+    testID,
     ...props
   },
-  ref,
+  ref
 ) {
   useLayoutAnimationOnChange(shouldAnimateBetweenLoadingStates ? loading : false)
 
@@ -54,6 +55,8 @@ const ButtonComponent = forwardRef<TamaguiElement, ButtonProps>(function Button(
       disabled={props.onDisabledPress ? false : isDisabled}
       custom-background-color={customBackgroundColor}
       dd-action-name={props['dd-action-name'] ?? (typeof children === 'string' ? children : undefined)}
+      testID={testID}
+      data-testid={testID}
       {...props}
       onPress={handleOnPress}
     >

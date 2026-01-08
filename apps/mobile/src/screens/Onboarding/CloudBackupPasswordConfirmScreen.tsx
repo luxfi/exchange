@@ -7,8 +7,8 @@ import { BackupSpeedBumpModal } from 'src/features/onboarding/BackupSpeedBumpMod
 import { SafeKeyboardOnboardingScreen } from 'src/features/onboarding/SafeKeyboardOnboardingScreen'
 import { Flex } from 'ui/src'
 import { Cloud } from 'ui/src/components/icons'
-import { OnboardingEntryPoint } from 'uniswap/src/types/onboarding'
-import { OnboardingScreens } from 'uniswap/src/types/screens/mobile'
+import { OnboardingEntryPoint } from 'lx/src/types/onboarding'
+import { OnboardingScreens } from 'lx/src/types/screens/mobile'
 import { dismissNativeKeyboard } from 'utilities/src/device/keyboard/dismissNativeKeyboard'
 import { BackupType } from 'wallet/src/features/wallet/accounts/types'
 

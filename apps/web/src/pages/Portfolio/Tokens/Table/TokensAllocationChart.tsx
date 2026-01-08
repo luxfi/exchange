@@ -5,8 +5,8 @@ import {
 import { TokenData } from 'pages/Portfolio/Tokens/hooks/useTransformTokenTableData'
 import { useMemo } from 'react'
 import { iconSizes } from 'ui/src/theme'
-import { NetworkLogo } from 'uniswap/src/components/CurrencyLogo/NetworkLogo'
-import { CurrencyInfo } from 'uniswap/src/features/dataApi/types'
+import { NetworkLogo } from 'lx/src/components/CurrencyLogo/NetworkLogo'
+import { CurrencyInfo } from 'lx/src/features/dataApi/types'
 
 interface TokenBreakdown {
   currencyInfo: CurrencyInfo | null

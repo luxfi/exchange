@@ -4,14 +4,14 @@ import { useTokenDetailsContext } from 'src/components/TokenDetails/TokenDetails
 import { EM_DASH, Flex, flexStyles, Text, TouchableArea } from 'ui/src'
 import { CopyAlt } from 'ui/src/components/icons'
 import { iconSizes } from 'ui/src/theme'
-import { TokenLogo } from 'uniswap/src/components/CurrencyLogo/TokenLogo'
+import { TokenLogo } from 'lx/src/components/CurrencyLogo/TokenLogo'
 import {
   useTokenBasicInfoPartsFragment,
   useTokenBasicProjectPartsFragment,
-} from 'uniswap/src/data/graphql/uniswap-data-api/fragments'
-import { selectHasViewedContractAddressExplainer } from 'uniswap/src/features/behaviorHistory/selectors'
-import { fromGraphQLChain } from 'uniswap/src/features/chains/utils'
-import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+} from 'lx/src/data/graphql/uniswap-data-api/fragments'
+import { selectHasViewedContractAddressExplainer } from 'lx/src/features/behaviorHistory/selectors'
+import { fromGraphQLChain } from 'lx/src/features/chains/utils'
+import { TestID } from 'lx/src/test/fixtures/testIDs'
 
 export const TokenDetailsHeader = memo(function _TokenDetailsHeader(): JSX.Element {
   const { currencyId, openContractAddressExplainerModal, copyAddressToClipboard } = useTokenDetailsContext()

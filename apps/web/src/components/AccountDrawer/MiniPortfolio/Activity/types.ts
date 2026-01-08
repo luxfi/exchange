@@ -1,11 +1,11 @@
-import { Currency } from '@uniswap/sdk-core'
-import { GraphQLApi } from '@universe/api'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { Currency } from '@luxamm/sdk-core'
+import { GraphQLApi } from '@luxfi/api'
+import { UniverseChainId } from 'lx/src/features/chains/types'
 import {
   TransactionOptions,
   TransactionStatus,
   UniswapXOrderDetails,
-} from 'uniswap/src/features/transactions/types/transactionDetails'
+} from 'lx/src/features/transactions/types/transactionDetails'
 
 /**
  * TODO: refactor parsing / Activity so that all Activity Types can have a detail sheet.

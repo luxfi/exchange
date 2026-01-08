@@ -3,9 +3,9 @@ import type {
   GetLPPriceDiscrepancyResponse,
   PoolInfoRequest,
   PoolInfoResponse,
-} from '@uniswap/client-trading/dist/trading/v1/api_pb'
-import type { FetchClient } from '@universe/api/src/clients/base/types'
-import { createFetcher } from '@universe/api/src/clients/base/utils'
+} from '@luxdex/client-trading/dist/trading/v1/api_pb'
+import type { FetchClient } from '@luxfi/api/src/clients/base/types'
+import { createFetcher } from '@luxfi/api/src/clients/base/utils'
 import type {
   ApprovalRequest,
   ApprovalResponse,
@@ -42,14 +42,14 @@ import type {
   WalletCheckDelegationRequestBody,
   WalletCheckDelegationResponseBody,
   WalletEncode7702RequestBody,
-} from '@universe/api/src/clients/trading/__generated__'
-import { CreatePlanRequest, PlanResponse, RoutingPreference } from '@universe/api/src/clients/trading/__generated__'
+} from '@luxfi/api/src/clients/trading/__generated__'
+import { CreatePlanRequest, PlanResponse, RoutingPreference } from '@luxfi/api/src/clients/trading/__generated__'
 import type {
   DiscriminatedQuoteResponse,
   ExistingPlanRequest,
   SwappableTokensParams,
   UpdatePlanRequestWithPlanId,
-} from '@universe/api/src/clients/trading/tradeTypes'
+} from '@luxfi/api/src/clients/trading/tradeTypes'
 import { logger } from 'utilities/src/logger/logger'
 
 // TODO(app-infra), de-duplicate with uniswapUrls.tradingApiPaths when other consumers are migrated to use TradingApiClient

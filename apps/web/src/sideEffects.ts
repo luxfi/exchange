@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unnecessary-condition */
 // note the reason for the setupi18n function is to avoid webpack tree shaking the file out
-import { setupi18n } from 'uniswap/src/i18n/i18n-setup-interface'
+import { setupi18n } from 'lx/src/i18n/i18n-setup-interface'
 import '@reach/dialog/styles.css'
 import 'global.css'
 import 'polyfills'

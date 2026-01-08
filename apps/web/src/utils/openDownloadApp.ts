@@ -1,6 +1,6 @@
-import { ElementName, InterfaceEventName } from 'uniswap/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
-import { AppDownloadPlatform } from 'uniswap/src/features/telemetry/types'
+import { ElementName, InterfaceEventName } from 'lx/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
+import { AppDownloadPlatform } from 'lx/src/features/telemetry/types'
 import { isWebAndroid, isWebIOS } from 'utilities/src/platform'
 
 // OneLink will direct to App/Play Store or microsite depending on user agent
@@ -11,7 +11,7 @@ const APP_DOWNLOAD_LINKS: Partial<{ [key in ElementName]: string }> = {
   [ElementName.UniswapWalletBannerDownloadButton]: 'https://uniswapwallet.onelink.me/8q3y/jh9orof3',
 }
 
-export const MICROSITE_LINK = 'https://wallet.uniswap.org/'
+export const MICROSITE_LINK = 'https://lux.exchange/wallet'
 
 type OpenDownloadAppOptions = {
   element: ElementName

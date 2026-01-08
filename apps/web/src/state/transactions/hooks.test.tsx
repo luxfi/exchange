@@ -1,6 +1,6 @@
 import { BigNumber } from '@ethersproject/bignumber'
-import { permit2Address } from '@uniswap/permit2-sdk'
-import { TradeType } from '@uniswap/sdk-core'
+import { permit2Address } from '@luxdex/permit2-sdk'
+import { TradeType } from '@luxdex/sdk-core'
 import { useAccount } from 'hooks/useAccount'
 import {
   useHasPendingApproval,
@@ -13,20 +13,20 @@ import {
 import { mocked } from 'test-utils/mocked'
 import { act } from 'test-utils/render'
 import { renderHookWithProviders } from 'test-utils/renderHookWithProviders'
-import { USDC_MAINNET } from 'uniswap/src/constants/tokens'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { USDC_MAINNET } from 'lx/src/constants/tokens'
+import { UniverseChainId } from 'lx/src/features/chains/types'
 import {
   ApproveTransactionInfo,
   InterfaceTransactionDetails,
   TransactionStatus,
   TransactionType,
-} from 'uniswap/src/features/transactions/types/transactionDetails'
-import { useWallet } from 'uniswap/src/features/wallet/hooks/useWallet'
+} from 'lx/src/features/transactions/types/transactionDetails'
+import { useWallet } from 'lx/src/features/wallet/hooks/useWallet'
 import { vi } from 'vitest'
 
 // Mock useAccount hook
 vi.mock('hooks/useAccount')
-vi.mock('uniswap/src/features/wallet/hooks/useWallet')
+vi.mock('lx/src/features/wallet/hooks/useWallet')
 
 describe('Transactions hooks', () => {
   const address = '0x0000000000000000000000000000000000000000'

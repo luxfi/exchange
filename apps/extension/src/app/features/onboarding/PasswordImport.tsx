@@ -1,7 +1,7 @@
 import { useCallback, useEffect } from 'react'
 import { useOnboardingSteps } from 'src/app/features/onboarding/OnboardingSteps'
 import { Password } from 'src/app/features/onboarding/Password'
-import { ExtensionOnboardingFlow } from 'uniswap/src/types/screens/extension'
+import { ExtensionOnboardingFlow } from 'lx/src/types/screens/extension'
 import { logger } from 'utilities/src/logger/logger'
 import { useOnboardingContext } from 'wallet/src/features/onboarding/OnboardingContext'
 import { validateMnemonic } from 'wallet/src/utils/mnemonics'

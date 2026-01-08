@@ -6,7 +6,7 @@ import { CloudBackupPassword } from 'src/features/CloudBackup/CloudBackupForm/Cl
 import { SafeKeyboardOnboardingScreen } from 'src/features/onboarding/SafeKeyboardOnboardingScreen'
 import { Flex } from 'ui/src'
 import { Cloud } from 'ui/src/components/icons'
-import { OnboardingScreens } from 'uniswap/src/types/screens/mobile'
+import { OnboardingScreens } from 'lx/src/types/screens/mobile'
 
 export function CloudBackupPasswordCreateScreen({
   navigation,

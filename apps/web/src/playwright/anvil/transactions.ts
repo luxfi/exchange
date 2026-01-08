@@ -1,7 +1,23 @@
 // biome-ignore lint/style/noRestrictedImports: Anvil transactions need direct ethers imports
 import { expect } from '@playwright/test'
+import { isLuxdMode } from 'playwright/anvil/anvil-manager'
 import type { AnvilClient } from 'playwright/fixtures/anvil'
+import { sleep } from 'utilities/src/time/timing'
 import { Address } from 'viem'
+
+/**
+ * Mine blocks or wait for auto-mining
+ * On luxd mode, blocks are auto-mined so we just wait briefly
+ * On Anvil mode, we use the mine() RPC method
+ */
+async function mineOrWait(anvil: AnvilClient, blocks: number): Promise<void> {
+  if (isLuxdMode()) {
+    // luxd auto-mines blocks, just wait for transaction to be included
+    await sleep(500 * blocks)
+  } else {
+    await anvil.mine({ blocks })
+  }
+}
 
 /**
  * Wait for transactions to be confirmed by mining blocks
@@ -11,7 +27,7 @@ import { Address } from 'viem'
  */
 async function _waitForTransaction(input: { anvil: AnvilClient; options?: { blocks?: number } }): Promise<void> {
   const { anvil, options } = input
-  await anvil.mine({ blocks: options?.blocks ?? 1 })
+  await mineOrWait(anvil, options?.blocks ?? 1)
 }
 
 /**
@@ -34,7 +50,7 @@ async function _expectTransactionCount(input: {
   const blocks = options?.blocks ?? 1
 
   if (shouldMine) {
-    await anvil.mine({ blocks })
+    await mineOrWait(anvil, blocks)
   }
 
   const txCount = await anvil.getTransactionCount({ address })
@@ -63,7 +79,7 @@ async function withTransactionConfirmation(input: {
   const { anvil, address, action, options } = input
   const initialCount = await anvil.getTransactionCount({ address })
   await action()
-  await anvil.mine({ blocks: options?.blocks ?? 1 })
+  await mineOrWait(anvil, options?.blocks ?? 1)
   const finalCount = await anvil.getTransactionCount({ address })
 
   return {

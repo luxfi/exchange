@@ -1,5 +1,5 @@
 import { JsonValue } from '@bufbuild/protobuf'
-import { GetNotificationsResponse as GetNotificationsResponseMessage } from '@uniswap/client-notification-service/dist/uniswap/notificationservice/v1/api_pb'
+import { GetNotificationsResponse as GetNotificationsResponseMessage } from '@luxdex/client-notification-service/dist/uniswap/notificationservice/v1/api_pb'
 import type {
   AckNotificationRequest,
   AckNotificationResponse,
@@ -7,7 +7,7 @@ import type {
   GetNotificationsResponse,
   NotificationsApiClient,
   NotificationsClientContext,
-} from '@universe/api/src/clients/notifications/types'
+} from '@luxfi/api/src/clients/notifications/types'
 
 /**
  * Factory function to create a NotificationsApiClient

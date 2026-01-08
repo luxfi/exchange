@@ -46,7 +46,7 @@ export default defineConfig({
       '@tamagui/use-direction': path.resolve(__dirname, '../../node_modules/@tamagui/use-direction/dist/cjs/index.cjs'),
       '@tamagui/use-callback-ref': path.resolve(
         __dirname,
-        '../../node_modules/@tamagui/use-callback-ref/dist/cjs/index.cjs',
+        '../../node_modules/@tamagui/use-callback-ref/dist/cjs/index.cjs'
       ),
       tamagui: path.resolve(__dirname, '../../node_modules/tamagui/dist/cjs/index.cjs'),
     },

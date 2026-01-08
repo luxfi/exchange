@@ -1,5 +1,5 @@
-import { GetProps } from 'tamagui'
-import { Text } from 'ui/src/components/text'
+import type { GetProps } from 'tamagui'
+import type { Text } from 'ui/src/components/text'
 import { GradientText } from 'ui/src/components/text/GradientText'
 import { colors } from 'ui/src/theme/color/colors'
 

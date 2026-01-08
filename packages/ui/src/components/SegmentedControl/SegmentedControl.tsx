@@ -1,5 +1,13 @@
 import { cloneElement, useState } from 'react'
-import { AnimatePresence, ColorTokens, SpaceTokens, styled, TabLayout, Tabs, TabsTabProps } from 'tamagui'
+import {
+  AnimatePresence,
+  type ColorTokens,
+  type SpaceTokens,
+  styled,
+  type TabLayout,
+  Tabs,
+  type TabsTabProps,
+} from 'tamagui'
 import { Flex } from 'ui/src/components/layout/Flex'
 import { Text } from 'ui/src/components/text/Text'
 import { assert } from 'utilities/src/errors'
@@ -271,10 +279,11 @@ export function SegmentedControl<T extends string = string>({
 
           const itemDisabled = disabled || option.disabled
 
+          const isActive = selectedOption === value
+
           const optionButton = (
             <OptionButton
               key={value}
-              active={selectedOption === value}
               disabled={itemDisabled}
               fullWidth={fullWidth}
               size={size}
@@ -289,7 +298,7 @@ export function SegmentedControl<T extends string = string>({
               {display ?? (
                 <Text
                   color={getOptionTextColor({
-                    active: selectedOption === value,
+                    active: isActive,
                     hovered: hoveredIndex === index,
                     disabled: itemDisabled,
                   })}

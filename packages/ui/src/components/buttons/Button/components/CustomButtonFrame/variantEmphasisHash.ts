@@ -1,4 +1,4 @@
-import { XStackProps } from 'tamagui'
+import type { XStackProps } from 'tamagui'
 import {
   brandedFocusVisibleStyle,
   criticalFocusVisibleStyle,
@@ -20,29 +20,37 @@ type ButtonStyleLookup = {
 export const variantEmphasisHash: ButtonStyleLookup = {
   default: {
     primary: {
-      backgroundColor: '$accent3',
+      // Semi-transparent background that provides contrast in both light and dark modes
+      backgroundColor: '$neutral3',
+      borderColor: '$neutral3',
       hoverStyle: {
-        backgroundColor: '$accent3Hovered',
+        backgroundColor: '$accent3',
+        borderColor: '$accent3',
       },
       focusVisibleStyle: {
         backgroundColor: '$accent3Hovered',
+        borderColor: '$accent3Hovered',
         ...defaultFocusVisibleStyle,
       },
       pressStyle: withCommonPressStyle({
         backgroundColor: '$accent3Hovered',
+        borderColor: '$accent3Hovered',
       }),
     },
     secondary: {
-      backgroundColor: '$surface3',
+      // Semi-transparent background that provides contrast in both light and dark modes
+      backgroundColor: '$neutral3',
+      borderColor: '$neutral3',
       hoverStyle: {
-        backgroundColor: '$surface3Hovered',
+        backgroundColor: '$neutral3Hovered',
+        borderColor: '$neutral3Hovered',
       },
       focusVisibleStyle: {
-        backgroundColor: '$surface3Hovered',
+        backgroundColor: '$neutral3Hovered',
         ...defaultFocusVisibleStyle,
       },
       pressStyle: withCommonPressStyle({
-        backgroundColor: '$surface3Hovered',
+        backgroundColor: '$neutral3Hovered',
       }),
     },
     tertiary: {

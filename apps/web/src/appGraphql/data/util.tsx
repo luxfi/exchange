@@ -1,25 +1,25 @@
 import { DeepPartial } from '@apollo/client/utilities'
 import { DataTag, DefaultError, QueryKey, queryOptions, UndefinedInitialDataOptions } from '@tanstack/react-query'
-import { Currency } from '@uniswap/sdk-core'
-import { GraphQLApi } from '@universe/api'
+import { Currency } from '@luxamm/sdk-core'
+import { GraphQLApi } from '@luxfi/api'
 import { NATIVE_CHAIN_ID } from 'constants/tokens'
 import ms from 'ms'
 import { ExploreTab } from 'pages/Explore/constants'
 import { TokenStat } from 'state/explore/types'
 import { ColorTokens } from 'ui/src'
-import { nativeOnChain, WRAPPED_NATIVE_CURRENCY } from 'uniswap/src/constants/tokens'
-import { GqlChainId, UniverseChainId } from 'uniswap/src/features/chains/types'
+import { nativeOnChain, WRAPPED_NATIVE_CURRENCY } from 'lx/src/constants/tokens'
+import { GqlChainId, UniverseChainId } from 'lx/src/features/chains/types'
 import {
   fromGraphQLChain,
   isBackendSupportedChain,
   isUniverseChainId,
   toGraphQLChain,
   toSupportedChainId,
-} from 'uniswap/src/features/chains/utils'
-import { buildCurrency } from 'uniswap/src/features/dataApi/utils/buildCurrency'
-import { FORSupportedToken } from 'uniswap/src/features/fiatOnRamp/types'
-import { AVERAGE_L1_BLOCK_TIME_MS } from 'uniswap/src/features/transactions/hooks/usePollingIntervalByChain'
-import { areAddressesEqual } from 'uniswap/src/utils/addresses'
+} from 'lx/src/features/chains/utils'
+import { buildCurrency } from 'lx/src/features/dataApi/utils/buildCurrency'
+import { FORSupportedToken } from 'lx/src/features/fiatOnRamp/types'
+import { AVERAGE_L1_BLOCK_TIME_MS } from 'lx/src/features/transactions/hooks/usePollingIntervalByChain'
+import { areAddressesEqual } from 'lx/src/utils/addresses'
 import { getChainIdFromBackendChain, getChainIdFromChainUrlParam } from 'utils/chainParams'
 import { getNativeTokenDBAddress } from 'utils/nativeTokens'
 

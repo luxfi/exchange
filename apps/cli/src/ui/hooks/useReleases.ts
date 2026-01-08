@@ -1,4 +1,4 @@
-import { type Release, ReleaseScanner } from '@universe/cli/src/lib/release-scanner'
+import { type Release, ReleaseScanner } from '@luxfi/cli/src/lib/release-scanner'
 import { useCallback, useEffect, useRef, useState } from 'react'
 
 interface UseReleasesResult {

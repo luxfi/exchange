@@ -1,3 +1,4 @@
+import { isLuxdMode } from 'playwright/anvil/anvil-manager'
 import { expect, getTest } from 'playwright/fixtures'
 
 const test = getTest({ withAnvil: true })
@@ -15,6 +16,9 @@ test.describe(
     // Note: requires anvil because the RemoveLiquidityV2WithTokenRedirects component uses the useV2Pair hook,
     // which reads chain state via wagmi hooks
     test('should redirect remove v2 liquidity to positions page', async ({ page }) => {
+      // V2 liquidity removal redirects are Ethereum-specific - Lux uses native DEX precompile (V4)
+      if (isLuxdMode()) return
+
       await page.goto(
         '/remove/v2/1-0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599/1-0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2',
       )

@@ -1,4 +1,4 @@
-import { PositionStatus } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
+import { PositionStatus } from '@luxdex/client-data-api/dist/data/v1/poolTypes_pb'
 import { lpStatusConfig } from 'components/Liquidity/constants'
 import { TextLoader } from 'components/Liquidity/Loader'
 import { Trans } from 'react-i18next'

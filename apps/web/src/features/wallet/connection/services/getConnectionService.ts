@@ -14,8 +14,8 @@ import { getEVMConnectionService } from 'features/wallet/connection/connectors/w
 import type { ConnectionService } from 'features/wallet/connection/services/IConnectionService'
 import { createMultiPlatformConnectionService } from 'features/wallet/connection/services/multiplatformConnectionService'
 import { useMemo } from 'react'
-import { CONNECTION_PROVIDER_IDS } from 'uniswap/src/constants/web3'
-import { Platform } from 'uniswap/src/features/platforms/types/Platform'
+import { CONNECTION_PROVIDER_IDS } from 'lx/src/constants/web3'
+import { Platform } from 'lx/src/features/platforms/types/Platform'
 import { useEvent } from 'utilities/src/react/hooks'
 
 type GetConnectionServiceFn = (params: { wallet: ExternalWallet; individualPlatform?: Platform }) => ConnectionService

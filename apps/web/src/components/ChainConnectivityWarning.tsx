@@ -12,12 +12,12 @@ import { ExternalLink } from 'theme/components/Links'
 import { ClickableTamaguiStyle } from 'theme/components/styles'
 import { Flex, styled } from 'ui/src'
 import { iconSizes } from 'ui/src/theme'
-import { useUniswapContext } from 'uniswap/src/contexts/UniswapContext'
-import { getChainInfo } from 'uniswap/src/features/chains/chainInfo'
-import { DEFAULT_MS_BEFORE_WARNING } from 'uniswap/src/features/chains/evm/rpc'
-import { useEnabledChains } from 'uniswap/src/features/chains/hooks/useEnabledChains'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { AVERAGE_L1_BLOCK_TIME_MS } from 'uniswap/src/features/transactions/hooks/usePollingIntervalByChain'
+import { useUniswapContext } from 'lx/src/contexts/UniswapContext'
+import { getChainInfo } from 'lx/src/features/chains/chainInfo'
+import { DEFAULT_MS_BEFORE_WARNING } from 'lx/src/features/chains/evm/rpc'
+import { useEnabledChains } from 'lx/src/features/chains/hooks/useEnabledChains'
+import { UniverseChainId } from 'lx/src/features/chains/types'
+import { AVERAGE_L1_BLOCK_TIME_MS } from 'lx/src/features/transactions/hooks/usePollingIntervalByChain'
 
 const BodyRow = deprecatedStyled.div`
   color: ${({ theme }) => theme.neutral1};

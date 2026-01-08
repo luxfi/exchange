@@ -1,8 +1,8 @@
-import { type NotificationDataSource } from '@universe/notifications/src/notification-data-source/NotificationDataSource'
-import { type NotificationProcessor } from '@universe/notifications/src/notification-processor/NotificationProcessor'
-import { type NotificationRenderer } from '@universe/notifications/src/notification-renderer/NotificationRenderer'
-import { type NotificationTelemetry } from '@universe/notifications/src/notification-telemetry/NotificationTelemetry'
-import { type NotificationTracker } from '@universe/notifications/src/notification-tracker/NotificationTracker'
+import { type NotificationDataSource } from '@luxfi/notifications/src/notification-data-source/NotificationDataSource'
+import { type NotificationProcessor } from '@luxfi/notifications/src/notification-processor/NotificationProcessor'
+import { type NotificationRenderer } from '@luxfi/notifications/src/notification-renderer/NotificationRenderer'
+import { type NotificationTelemetry } from '@luxfi/notifications/src/notification-telemetry/NotificationTelemetry'
+import { type NotificationTracker } from '@luxfi/notifications/src/notification-tracker/NotificationTracker'
 
 /**
  * Represents what was clicked on a notification

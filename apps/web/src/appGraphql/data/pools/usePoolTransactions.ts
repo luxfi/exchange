@@ -1,13 +1,13 @@
-import { GraphQLApi } from '@universe/api'
+import { GraphQLApi } from '@luxfi/api'
 import { NATIVE_CHAIN_ID } from 'constants/tokens'
 import { useCallback, useMemo, useRef } from 'react'
-import { WRAPPED_NATIVE_CURRENCY } from 'uniswap/src/constants/tokens'
-import { useEnabledChains } from 'uniswap/src/features/chains/hooks/useEnabledChains'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { fromGraphQLChain, toGraphQLChain } from 'uniswap/src/features/chains/utils'
-import { isSVMChain } from 'uniswap/src/features/platforms/utils/chains'
-import i18n from 'uniswap/src/i18n'
-import { areAddressesEqual } from 'uniswap/src/utils/addresses'
+import { WRAPPED_NATIVE_CURRENCY } from 'lx/src/constants/tokens'
+import { useEnabledChains } from 'lx/src/features/chains/hooks/useEnabledChains'
+import { UniverseChainId } from 'lx/src/features/chains/types'
+import { fromGraphQLChain, toGraphQLChain } from 'lx/src/features/chains/utils'
+import { isSVMChain } from 'lx/src/features/platforms/utils/chains'
+import i18n from 'lx/src/i18n'
+import { areAddressesEqual } from 'lx/src/utils/addresses'
 
 export enum PoolTableTransactionType {
   BUY = 'Buy',

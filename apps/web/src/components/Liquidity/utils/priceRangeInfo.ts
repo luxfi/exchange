@@ -1,7 +1,8 @@
 /* eslint-disable max-lines */
-import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
-import { Currency, CurrencyAmount, Price, Token } from '@uniswap/sdk-core'
-import { Pair } from '@uniswap/v2-sdk'
+import { ProtocolVersion } from '@luxdex/client-data-api/dist/data/v1/poolTypes_pb'
+import { Currency, CurrencyAmount, Price, Token } from '@luxamm/sdk-core'
+import type { Price as UniswapPrice, Currency as UniswapCurrency } from '@uniswap/sdk-core'
+import { Pair } from '@luxamm/v2-sdk'
 import {
   encodeSqrtRatioX96,
   FeeAmount,
@@ -9,8 +10,11 @@ import {
   priceToClosestTick as priceToClosestV3Tick,
   TickMath,
   Pool as V3Pool,
-} from '@uniswap/v3-sdk'
-import { priceToClosestTick as priceToClosestV4Tick, Pool as V4Pool } from '@uniswap/v4-sdk'
+} from '@luxamm/v3-sdk'
+import { priceToClosestTick as priceToClosestV4Tick, Pool as V4Pool } from '@luxamm/v4-sdk'
+
+// Helper type for SDK compatibility - @luxamm and @uniswap types are structurally identical
+type AsUniswapPrice<T extends UniswapCurrency, U extends UniswapCurrency> = UniswapPrice<T, U>
 import {
   CreatePositionInfo,
   CreateV2PositionInfo,
@@ -29,7 +33,7 @@ import JSBI from 'jsbi'
 import tryParseCurrencyAmount from 'lib/utils/tryParseCurrencyAmount'
 import { tryParsePrice, tryParseTick } from 'state/mint/v3/utils'
 import { PositionField } from 'types/position'
-import { ZERO_ADDRESS } from 'uniswap/src/constants/misc'
+import { ZERO_ADDRESS } from 'lx/src/constants/misc'
 
 import { getTickToPrice, getV4TickToPrice } from 'utils/getTickToPrice'
 
@@ -97,13 +101,15 @@ function getPrice(
         currency0?: Maybe<Token>
         priceInverted: boolean
       },
-) {
+): Price<Currency, Currency> | undefined {
   const { type, pool, currency0, priceInverted } = opts
   if (!pool || !currency0) {
     return undefined
   }
   const price = type === ProtocolVersion.V4 ? pool.priceOf(currency0) : pool.priceOf(currency0)
-  return priceInverted ? price.invert() : price
+  // Type assertion needed due to SDK type mismatch between @luxamm and @uniswap
+  const typedPrice = (priceInverted ? price.invert() : price) as unknown as Price<Currency, Currency>
+  return typedPrice
 }
 
 export function isInvalidPrice(price?: Price<Currency, Currency>) {
@@ -142,7 +148,7 @@ function createMockV3Pool({
     price.numerator,
   )
 
-  const currentTick = priceToClosestV3Tick(wrappedPrice)
+  const currentTick = priceToClosestV3Tick(wrappedPrice as unknown as AsUniswapPrice<Token, Token>)
   const currentSqrt = TickMath.getSqrtRatioAtTick(currentTick)
 
   const pool = new V3Pool(baseToken, quoteToken, fee, currentSqrt, JSBI.BigInt(0), currentTick, [])
@@ -168,7 +174,7 @@ function createMockV4Pool({
     return undefined
   }
 
-  const currentTick = priceToClosestV4Tick(price)
+  const currentTick = priceToClosestV4Tick(price as unknown as UniswapPrice<UniswapCurrency, UniswapCurrency>)
   const currentSqrt = TickMath.getSqrtRatioAtTick(currentTick)
   const pool = new V4Pool(
     baseToken,
@@ -373,7 +379,7 @@ export function getV3PriceRangeInfo({
   ]
 
   pricesAtTicks = state.priceInverted
-    ? [pricesAtTicks[1]?.invert(), pricesAtTicks[0]?.invert()]
+    ? [pricesAtTicks[1]?.invert() as Maybe<Price<Currency, Currency>>, pricesAtTicks[0]?.invert() as Maybe<Price<Currency, Currency>>]
     : [pricesAtTicks[0], pricesAtTicks[1]]
 
   return {
@@ -418,7 +424,7 @@ function tryParseV4Tick({
     tick = TickMath.MIN_TICK
   } else {
     // this function is agnostic to the base, will always return the correct tick
-    tick = priceToClosestV4Tick(price)
+    tick = priceToClosestV4Tick(price as unknown as UniswapPrice<UniswapCurrency, UniswapCurrency>)
   }
 
   return nearestUsableTick(tick, tickSpacing)
@@ -539,7 +545,7 @@ export function getV4PriceRangeInfo({
   ]
 
   pricesAtTicks = state.priceInverted
-    ? [pricesAtTicks[1]?.invert(), pricesAtTicks[0]?.invert()]
+    ? [pricesAtTicks[1]?.invert() as Maybe<Price<Currency, Currency>>, pricesAtTicks[0]?.invert() as Maybe<Price<Currency, Currency>>]
     : [pricesAtTicks[0], pricesAtTicks[1]]
 
   return {

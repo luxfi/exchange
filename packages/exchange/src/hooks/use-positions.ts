@@ -2,7 +2,7 @@
 
 import { useQuery } from '@tanstack/react-query'
 import { usePublicClient } from 'wagmi'
-import { getContracts } from '@luxfi/config'
+import { getContracts } from '../contracts'
 import { NFT_POSITION_MANAGER_ABI } from '../contracts/abis'
 import type { Address } from 'viem'
 

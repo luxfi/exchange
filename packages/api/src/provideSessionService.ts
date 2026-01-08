@@ -1,4 +1,4 @@
-import type { SessionService } from '@universe/sessions'
+import type { SessionService } from '@luxfi/sessions'
 import { PlatformSplitStubError } from 'utilities/src/errors'
 import type { Logger } from 'utilities/src/logger/logger'
 

@@ -1,5 +1,5 @@
 import { Trans } from '@lingui/macro'
-import { sendAnalyticsEvent, Trace, TraceEvent } from '@uniswap/analytics'
+import { sendAnalyticsEvent, Trace, TraceEvent } from '@luxdex/analytics'
 import {
   BrowserEvent,
   InterfaceElementName,
@@ -7,10 +7,10 @@ import {
   InterfacePageName,
   InterfaceSectionName,
   SwapEventName,
-} from '@uniswap/analytics-events'
-import { Trade } from '@uniswap/router-sdk'
-import { Currency, CurrencyAmount, Percent, Token, TradeType } from '@uniswap/sdk-core'
-import { UNIVERSAL_ROUTER_ADDRESS } from '@uniswap/universal-router-sdk'
+} from '@luxdex/analytics-events'
+import { Trade } from '@luxdex/router-sdk'
+import { Currency, CurrencyAmount, Percent, Token, TradeType } from '@luxamm/sdk-core'
+import { UNIVERSAL_ROUTER_ADDRESS } from '@luxdex/universal-router-sdk'
 import { useWeb3React } from '@web3-react/core'
 import { sendEvent } from 'components/analytics'
 import { NetworkAlert } from 'components/NetworkAlert/NetworkAlert'

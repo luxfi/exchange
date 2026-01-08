@@ -1,7 +1,0 @@
-
-> @luxfi/ui@0.0.1 typecheck /Users/z/work/lux/exchange/packages/ui
-> tsc --noEmit
-
-src/components/Modal.tsx(95,29): error TS2322: Type '{ icon: IconComponent; size: "sm"; variant: "default"; }' is not assignable to type 'IntrinsicAttributes & Omit<RNTamaguiViewNonStyleProps, "size" | "variant" | keyof StackStyleBase | "circular"> & ... 5 more ... & RefAttributes<...>'.
-  Property 'icon' does not exist on type 'IntrinsicAttributes & Omit<RNTamaguiViewNonStyleProps, "size" | "variant" | keyof StackStyleBase | "circular"> & ... 5 more ... & RefAttributes<...>'.
-[41m[30m ELIFECYCLE [39m[49m [31mCommand failed with exit code 2.[39m

@@ -29,9 +29,9 @@ import { LUX_LOGO } from 'ui/src/assets'
 import { BackArrow } from 'ui/src/components/icons/BackArrow'
 import { GoogleChromeLogo } from 'ui/src/components/logos/GoogleChromeLogo'
 import { iconSizes, zIndexes } from 'ui/src/theme'
-import { uniswapUrls } from 'uniswap/src/constants/urls'
-import { ElementName, ModalName } from 'uniswap/src/features/telemetry/constants'
-import Trace from 'uniswap/src/features/telemetry/Trace'
+import { uniswapUrls } from 'lx/src/constants/urls'
+import { ElementName, ModalName } from 'lx/src/features/telemetry/constants'
+import Trace from 'lx/src/features/telemetry/Trace'
 import { useEvent } from 'utilities/src/react/hooks'
 
 const LazyWalletOneLinkQR = lazy(async () => {
@@ -104,7 +104,7 @@ function CardInfo({ title, details, children }: PropsWithChildren<{ title: strin
   return (
     <Flex row p="$spacing8" justifyContent="space-between" alignItems="center" width="100%">
       <Flex alignItems="flex-start">
-        <Text variant="body2" fontWeight="535">
+        <Text variant="body2" fontWeight={500}>
           {title}
         </Text>
         <Text variant="body4" color="$neutral2">

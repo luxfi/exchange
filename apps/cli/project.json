@@ -1,5 +1,5 @@
 {
-  "name": "@universe/cli",
+  "name": "@luxfi/cli",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "apps/cli/src",
   "projectType": "application",

@@ -5,7 +5,7 @@ import { navigationRef } from 'src/app/navigation/navigationRef'
 import { dispatchNavigationAction } from 'src/app/navigation/rootNavigation'
 import { dismissAllModalsBeforeNavigation } from 'src/features/deepLinking/utils'
 import { closeAllModals } from 'src/features/modals/modalSlice'
-import { MobileScreens } from 'uniswap/src/types/screens/mobile'
+import { MobileScreens } from 'lx/src/types/screens/mobile'
 
 // Mock the navigation ref
 jest.mock('src/app/navigation/navigationRef', () => ({

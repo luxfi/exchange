@@ -1,4 +1,4 @@
-import { CurrencyAmount, Token } from '@uniswap/sdk-core'
+import { CurrencyAmount, Token } from '@luxamm/sdk-core'
 import tokenLogo from 'assets/images/token-logo.png'
 import { CardBGImage, CardNoise } from 'components/earn/styled'
 import { useAccount } from 'hooks/useAccount'
@@ -9,7 +9,7 @@ import { Trans } from 'react-i18next'
 import { useUserHasAvailableClaim, useUserUnclaimedAmount } from 'state/claim/hooks'
 import { Button, Flex, Text, TouchableArea } from 'ui/src'
 import { X } from 'ui/src/components/icons/X'
-import { ModalName } from 'uniswap/src/features/telemetry/constants'
+import { ModalName } from 'lx/src/features/telemetry/constants'
 
 const rotateKeyframe = `
   @keyframes rotate {

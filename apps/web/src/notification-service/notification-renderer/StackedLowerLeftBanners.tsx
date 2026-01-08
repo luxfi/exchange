@@ -1,7 +1,7 @@
 /* eslint-disable import/no-unused-modules */
 
-import type { InAppNotification } from '@universe/api'
-import { InlineBannerNotification, type NotificationClickTarget } from '@universe/notifications'
+import type { InAppNotification } from '@luxfi/api'
+import { InlineBannerNotification, type NotificationClickTarget } from '@luxfi/notifications'
 import { AnimatePresence, motion } from 'framer-motion'
 import { calculateStackingProps, MAX_STACKED_BANNERS } from 'notification-service/notification-renderer/stackingUtils'
 import { memo, useEffect } from 'react'

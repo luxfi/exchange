@@ -1,4 +1,4 @@
-import { GraphQLApi } from '@universe/api'
+import { GraphQLApi } from '@luxfi/api'
 import { ChartHeader } from 'components/Charts/ChartHeader'
 import { Chart, ChartHoverData, ChartModel, ChartModelParams } from 'components/Charts/ChartModel'
 import {
@@ -24,9 +24,9 @@ import { useMemo } from 'react'
 import { Trans } from 'react-i18next'
 import { Flex, styled, Text } from 'ui/src'
 import { opacify } from 'ui/src/theme'
-import { isLowVarianceRange } from 'uniswap/src/components/charts/utils'
-import { useFormatChartFiatDelta } from 'uniswap/src/features/fiatCurrency/hooks/useFormatChartFiatDelta'
-import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
+import { isLowVarianceRange } from 'lx/src/components/charts/utils'
+import { useFormatChartFiatDelta } from 'lx/src/features/fiatCurrency/hooks/useFormatChartFiatDelta'
+import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
 import { NumberType } from 'utilities/src/format/types'
 
 export type PriceChartData = CandlestickData<UTCTimestamp> & AreaData<UTCTimestamp>

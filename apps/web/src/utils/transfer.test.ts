@@ -1,9 +1,9 @@
 import { ExternalProvider, JsonRpcProvider, JsonRpcSigner, Web3Provider } from '@ethersproject/providers'
-import { CurrencyAmount } from '@uniswap/sdk-core'
+import { CurrencyAmount } from '@luxamm/sdk-core'
 import { renderHook, waitFor } from 'test-utils/render'
 import { Mutable } from 'types/mutable'
-import { DAI, nativeOnChain } from 'uniswap/src/constants/tokens'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { DAI, nativeOnChain } from 'lx/src/constants/tokens'
+import { UniverseChainId } from 'lx/src/features/chains/types'
 import { useCreateTransferTransaction } from 'utils/transfer'
 
 describe('useCreateTransfer', () => {

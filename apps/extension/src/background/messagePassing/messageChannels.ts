@@ -91,8 +91,8 @@ import {
   UpdateConnectionRequest,
   UpdateConnectionRequestSchema,
 } from 'src/background/messagePassing/types/requests'
-import { MessageParsers } from 'uniswap/src/extension/messagePassing/platform'
-import { DappRequestType, DappResponseType } from 'uniswap/src/features/dappRequests/types'
+import { MessageParsers } from 'lx/src/extension/messagePassing/platform'
+import { DappRequestType, DappResponseType } from 'lx/src/features/dappRequests/types'
 
 enum MessageChannelName {
   DappContentScript = 'DappContentScript',

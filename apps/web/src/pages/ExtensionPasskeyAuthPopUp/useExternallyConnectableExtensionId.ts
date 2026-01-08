@@ -1,4 +1,4 @@
-import { DynamicConfigs, ExternallyConnectableExtensionConfigKey, useDynamicConfigValue } from '@universe/gating'
+import { DynamicConfigs, ExternallyConnectableExtensionConfigKey, useDynamicConfigValue } from '@luxfi/gating'
 import { TRUSTED_CHROME_EXTENSION_IDS } from 'utilities/src/environment/extensionId'
 
 export function useExternallyConnectableExtensionId(): string {

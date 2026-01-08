@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next'
 import { EllipsisTamaguiStyle } from 'theme/components/styles'
 import { Flex, Text } from 'ui/src'
 import { iconSizes } from 'ui/src/theme'
-import { TokenLogo } from 'uniswap/src/components/CurrencyLogo/TokenLogo'
+import { TokenLogo } from 'lx/src/components/CurrencyLogo/TokenLogo'
 
 const AuctionBreadcrumbs = ({ symbol, address }: { symbol: string; address: string }) => {
   const { t } = useTranslation()

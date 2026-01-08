@@ -3,8 +3,8 @@ import { approvedERC20, InteractiveToken } from 'pages/Landing/assets/approvedTo
 import { Ticker } from 'pages/Landing/components/TokenCloud/Ticker'
 import { useCallback } from 'react'
 import { useNavigate } from 'react-router'
-import { IconCloud, ItemPoint } from 'uniswap/src/components/IconCloud/IconCloud'
-import { shuffleArray } from 'uniswap/src/components/IconCloud/utils'
+import { IconCloud, ItemPoint } from 'lx/src/components/IconCloud/IconCloud'
+import { shuffleArray } from 'lx/src/components/IconCloud/utils'
 
 const tokenList = shuffleArray(approvedERC20) as InteractiveToken[]
 

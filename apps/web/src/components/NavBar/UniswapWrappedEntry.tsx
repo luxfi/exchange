@@ -1,4 +1,4 @@
-import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import { FeatureFlags, useFeatureFlag } from '@luxfi/gating'
 import { useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router'
@@ -6,9 +6,9 @@ import { useAppDispatch, useAppSelector } from 'state/hooks'
 import { Flex, Text, Tooltip } from 'ui/src'
 import { Snowflake } from 'ui/src/components/icons/Snowflake'
 import { zIndexes } from 'ui/src/theme'
-import { WRAPPED_PATH } from 'uniswap/src/components/banners/shared/utils'
-import { selectHasDismissedUniswapWrapped2025Banner } from 'uniswap/src/features/behaviorHistory/selectors'
-import { setHasDismissedUniswapWrapped2025Banner } from 'uniswap/src/features/behaviorHistory/slice'
+import { WRAPPED_PATH } from 'lx/src/components/banners/shared/utils'
+import { selectHasDismissedUniswapWrapped2025Banner } from 'lx/src/features/behaviorHistory/selectors'
+import { setHasDismissedUniswapWrapped2025Banner } from 'lx/src/features/behaviorHistory/slice'
 import { isMobileWeb } from 'utilities/src/platform'
 
 const snowflakeHoverKeyframes = `

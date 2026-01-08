@@ -1,6 +1,6 @@
 /* eslint-disable import/no-unused-modules */
-import { ContentStyle, type InAppNotification } from '@universe/api'
-import type { NotificationClickTarget } from '@universe/notifications'
+import { ContentStyle, type InAppNotification } from '@luxfi/api'
+import type { NotificationClickTarget } from '@luxfi/notifications'
 import { ModalNotification } from 'notification-service/notification-renderer/ModalNotification'
 import {
   type NotificationState,

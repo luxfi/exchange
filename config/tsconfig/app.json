@@ -9,7 +9,7 @@
     "resolveJsonModule": true,
     "noEmit": false,
     "jsx": "react-jsx",
-    "target": "es2019",
+    "target": "es2020",
     "lib": ["es2021", "dom", "esnext"]
   }
 }

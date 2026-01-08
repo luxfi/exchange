@@ -18,15 +18,15 @@ import {
 } from 'ui/src'
 import { X } from 'ui/src/components/icons/X'
 import { opacify } from 'ui/src/theme'
-import { CardImage } from 'uniswap/src/components/cards/image'
-import { NewTag } from 'uniswap/src/components/pill/NewTag'
-import { useUniswapContext } from 'uniswap/src/contexts/UniswapContext'
-import { useIsBridgingChain } from 'uniswap/src/features/bridging/hooks/chains'
-import { getChainInfo } from 'uniswap/src/features/chains/chainInfo'
-import { useIsSupportedChainId } from 'uniswap/src/features/chains/hooks/useSupportedChainId'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { useIsShowingWebFORNudge } from 'uniswap/src/features/providers/webForNudgeProvider'
-import { ElementName } from 'uniswap/src/features/telemetry/constants'
+import { CardImage } from 'lx/src/components/cards/image'
+import { NewTag } from 'lx/src/components/pill/NewTag'
+import { useUniswapContext } from 'lx/src/contexts/UniswapContext'
+import { useIsBridgingChain } from 'lx/src/features/bridging/hooks/chains'
+import { getChainInfo } from 'lx/src/features/chains/chainInfo'
+import { useIsSupportedChainId } from 'lx/src/features/chains/hooks/useSupportedChainId'
+import { UniverseChainId } from 'lx/src/features/chains/types'
+import { useIsShowingWebFORNudge } from 'lx/src/features/providers/webForNudgeProvider'
+import { ElementName } from 'lx/src/features/telemetry/constants'
 
 export function SwapBottomCard() {
   const { chainId: oldFlowChainId } = useMultichainContext()
@@ -130,6 +130,11 @@ const CHAIN_THEME_LIGHT: Record<UniverseChainId, ChainTheme> = {
   [UniverseChainId.WorldChain]: { bgColor: 'rgba(0, 0, 0, 0.12)', textColor: '#000000' },
   [UniverseChainId.Zksync]: { bgColor: 'rgba(54, 103, 246, 0.12)', textColor: '#3667F6' },
   [UniverseChainId.Zora]: { bgColor: 'rgba(0, 0, 0, 0.12)', textColor: '#000000' },
+  [UniverseChainId.Lux]: { bgColor: '#FF6B0033', textColor: '#FF6B00' },
+  [UniverseChainId.LuxTestnet]: { bgColor: '#FF6B0033', textColor: '#FF6B00' },
+  [UniverseChainId.LuxDev]: { bgColor: '#FF6B0033', textColor: '#FF6B00' },
+  [UniverseChainId.Zoo]: { bgColor: '#00C85333', textColor: '#00C853' },
+  [UniverseChainId.ZooTestnet]: { bgColor: '#00C85333', textColor: '#00C853' },
 }
 
 const CHAIN_THEME_DARK: Record<UniverseChainId, ChainTheme> = {
@@ -143,9 +148,12 @@ const CHAIN_THEME_DARK: Record<UniverseChainId, ChainTheme> = {
   [UniverseChainId.Zora]: { bgColor: 'rgba(255, 255, 255, 0.12)', textColor: '#FFFFFF' },
 }
 
+const DEFAULT_CHAIN_THEME: ChainTheme = { bgColor: '#FFFFFF33', textColor: '#FFFFFF' }
+
 function useChainTheme(chainId: UniverseChainId): ChainTheme {
   const isDarkMode = useIsDarkMode()
-  return isDarkMode ? CHAIN_THEME_LIGHT[chainId] : CHAIN_THEME_DARK[chainId]
+  const theme = isDarkMode ? CHAIN_THEME_LIGHT[chainId] : CHAIN_THEME_DARK[chainId]
+  return theme ?? DEFAULT_CHAIN_THEME
 }
 
 function MaybeExternalBridgeCard({ chainId }: { chainId: UniverseChainId }) {

@@ -130,7 +130,7 @@ bun i18n:extract                # Extract localized strings (run after changing 
 Core shared packages:
 
 - `packages/ui/` - Cross-platform UI components and theme
-- `packages/uniswap/` - Core business logic and utilities
+- `packages/lx/` - Core business logic and utilities
 - `packages/wallet/` - Wallet functionality
 - `packages/utilities/` - Common utilities
 

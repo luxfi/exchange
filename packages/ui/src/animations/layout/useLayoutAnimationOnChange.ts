@@ -3,7 +3,7 @@ import { useHasValueChanged } from 'utilities/src/react/useHasValueChanged'
 
 export function useLayoutAnimationOnChange<ValueType>(
   value: ValueType,
-  options?: Parameters<typeof easeInEaseOutLayoutAnimation>[0],
+  options?: Parameters<typeof easeInEaseOutLayoutAnimation>[0]
 ): undefined {
   const hasValueChanged = useHasValueChanged(value)
 

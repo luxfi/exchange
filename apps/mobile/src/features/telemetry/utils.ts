@@ -1,5 +1,5 @@
 import { RootParamList } from 'src/app/navigation/types'
-import { MobileNavScreen, MobileScreens } from 'uniswap/src/types/screens/mobile'
+import { MobileNavScreen, MobileScreens } from 'lx/src/types/screens/mobile'
 
 export enum AuthMethod {
   FaceId = 'FaceId',

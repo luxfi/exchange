@@ -1,7 +1,7 @@
-import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
+import { ProtocolVersion } from '@luxdex/client-data-api/dist/data/v1/poolTypes_pb'
 import { LiquidityPositionInfoBadges } from 'components/Liquidity/LiquidityPositionInfoBadges'
 import { fireEvent, render } from 'test-utils/render'
-import { DEFAULT_TICK_SPACING } from 'uniswap/src/constants/pools'
+import { DEFAULT_TICK_SPACING } from 'lx/src/constants/pools'
 
 describe('LiquidityPositionInfoBadges', () => {
   it('should render with default size', () => {

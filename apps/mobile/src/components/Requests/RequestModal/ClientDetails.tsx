@@ -1,7 +1,7 @@
 import React from 'react'
 import { HeaderText } from 'src/components/Requests/RequestModal/HeaderText'
 import { WalletConnectSigningRequest } from 'src/features/walletConnect/walletConnectSlice'
-import { useCurrencyInfo } from 'uniswap/src/features/tokens/useCurrencyInfo'
+import { useCurrencyInfo } from 'lx/src/features/tokens/useCurrencyInfo'
 import { DappHeaderIcon } from 'wallet/src/components/dappRequests/DappHeaderIcon'
 import { DappRequestHeader } from 'wallet/src/components/dappRequests/DappRequestHeader'
 

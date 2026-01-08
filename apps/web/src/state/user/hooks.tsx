@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/no-unnecessary-condition */
 
 import { gqlToCurrency } from 'appGraphql/data/util'
-import { Percent, Token, V2_FACTORY_ADDRESSES } from '@uniswap/sdk-core'
-import { computePairAddress, Pair } from '@uniswap/v2-sdk'
-import { GraphQLApi } from '@universe/api'
+import { Percent, Token, V2_FACTORY_ADDRESSES } from '@luxamm/sdk-core'
+import { computePairAddress, Pair } from '@luxamm/v2-sdk'
+import { GraphQLApi } from '@luxfi/api'
 import { L2_DEADLINE_FROM_NOW } from 'constants/misc'
 import { BASES_TO_TRACK_LIQUIDITY_FOR, PINNED_PAIRS } from 'constants/routing'
 import { useAccount } from 'hooks/useAccount'
@@ -18,11 +18,11 @@ import {
   updateUserSlippageTolerance,
 } from 'state/user/reducer'
 import { SerializedPair, SlippageTolerance } from 'state/user/types'
-import { useGetPositionsForPairs } from 'uniswap/src/data/rest/getPositions'
-import { useEnabledChains } from 'uniswap/src/features/chains/hooks/useEnabledChains'
-import { useSupportedChainId } from 'uniswap/src/features/chains/hooks/useSupportedChainId'
-import { isL2ChainId, toGraphQLChain } from 'uniswap/src/features/chains/utils'
-import { deserializeToken, serializeToken } from 'uniswap/src/utils/currency'
+import { useGetPositionsForPairs } from 'lx/src/data/rest/getPositions'
+import { useEnabledChains } from 'lx/src/features/chains/hooks/useEnabledChains'
+import { useSupportedChainId } from 'lx/src/features/chains/hooks/useSupportedChainId'
+import { isL2ChainId, toGraphQLChain } from 'lx/src/features/chains/utils'
+import { deserializeToken, serializeToken } from 'lx/src/utils/currency'
 
 export function useRouterPreference(): [RouterPreference, (routerPreference: RouterPreference) => void] {
   const dispatch = useAppDispatch()

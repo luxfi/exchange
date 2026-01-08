@@ -1,13 +1,13 @@
 import { type PlainMessage } from '@bufbuild/protobuf'
-import { Platform, type PlatformAddress, type WalletAccount } from '@uniswap/client-data-api/dist/data/v1/api_pb'
-import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
-import { type ProtectionInfo as ProtectionInfoProtobuf } from '@uniswap/client-explore/dist/uniswap/explore/v1/service_pb'
+import { Platform, type PlatformAddress, type WalletAccount } from '@luxdex/client-data-api/dist/data/v1/api_pb'
+import { ProtocolVersion } from '@luxdex/client-data-api/dist/data/v1/poolTypes_pb'
+import { type ProtectionInfo as ProtectionInfoProtobuf } from '@luxdex/client-explore/dist/uniswap/explore/v1/service_pb'
 import {
   ProtectionAttackType,
   type ProtectionInfo,
   ProtectionResult,
   SafetyLevel,
-} from '@universe/api/src/clients/graphql/__generated__/schema-types'
+} from '@luxfi/api/src/clients/graphql/__generated__/schema-types'
 import { logger } from 'utilities/src/logger/logger'
 
 /**

@@ -1,14 +1,14 @@
 import { NetworkStatus } from '@apollo/client'
-import { NativeCurrency, Token } from '@uniswap/sdk-core'
+import { NativeCurrency, Token } from '@luxamm/sdk-core'
 import { useActiveAddresses } from 'features/accounts/store/hooks'
 import { useTokenBalances } from 'hooks/useTokenBalances'
 import { mocked } from 'test-utils/mocked'
 import { renderHook } from 'test-utils/render'
-import { DAI, USDC } from 'uniswap/src/constants/tokens'
-import { normalizeTokenAddressForCache } from 'uniswap/src/data/cache'
-import { usePortfolioBalances } from 'uniswap/src/features/dataApi/balances/balances'
-import { PortfolioBalance } from 'uniswap/src/features/dataApi/types'
-import { WETH } from 'uniswap/src/test/fixtures/lib/sdk'
+import { DAI, USDC } from 'lx/src/constants/tokens'
+import { normalizeTokenAddressForCache } from 'lx/src/data/cache'
+import { usePortfolioBalances } from 'lx/src/features/dataApi/balances/balances'
+import { PortfolioBalance } from 'lx/src/features/dataApi/types'
+import { WETH } from 'lx/src/test/fixtures/lib/sdk'
 
 vi.mock('features/accounts/store/hooks', () => ({
   useActiveAddresses: vi.fn(),
@@ -17,8 +17,8 @@ vi.mock('features/accounts/store/hooks', () => ({
 }))
 
 // Mock the balances module with all exports
-vi.mock('uniswap/src/features/dataApi/balances/balances', async () => {
-  const actual = await vi.importActual('uniswap/src/features/dataApi/balances/balances')
+vi.mock('lx/src/features/dataApi/balances/balances', async () => {
+  const actual = await vi.importActual('lx/src/features/dataApi/balances/balances')
   return {
     ...actual,
     usePortfolioBalances: vi.fn(() => ({

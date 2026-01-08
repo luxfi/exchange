@@ -1,9 +1,9 @@
 import { memo } from 'react'
 import { I18nManager } from 'react-native'
-import { ColorTokens } from 'tamagui'
-import { IconProps } from 'ui/src/components/factories/createIcon'
+import type { ColorTokens } from 'tamagui'
+import type { IconProps } from 'ui/src/components/factories/createIcon'
 import { Chevron } from 'ui/src/components/icons'
-import { Flex, FlexProps } from 'ui/src/components/layout'
+import { Flex, type FlexProps } from 'ui/src/components/layout'
 
 type Props = {
   width?: string | number
@@ -39,7 +39,6 @@ function _RotatableChevron({
     case 'down':
       degree = '270deg'
       break
-    case 'left':
     default:
       degree = '0deg'
       break

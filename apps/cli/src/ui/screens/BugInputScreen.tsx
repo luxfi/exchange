@@ -1,5 +1,5 @@
-import { useAppState } from '@universe/cli/src/ui/hooks/useAppState'
-import { colors } from '@universe/cli/src/ui/utils/colors'
+import { useAppState } from '@luxfi/cli/src/ui/hooks/useAppState'
+import { colors } from '@luxfi/cli/src/ui/utils/colors'
 import { Box, Text, useInput } from 'ink'
 import TextInput from 'ink-text-input'
 import { useCallback, useState } from 'react'

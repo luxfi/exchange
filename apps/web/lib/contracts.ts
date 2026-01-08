@@ -8,6 +8,7 @@
 import {
   luxMainnet,
   luxTestnet,
+  luxDev,
   zooMainnet,
   zooTestnet,
   ethereum,
@@ -45,6 +46,28 @@ export interface AMMAddresses {
 export interface ChainContracts {
   tokens: TokenAddresses
   amm: AMMAddresses
+}
+
+// =============================================================================
+// LUX DEV CONTRACTS (Chain ID: 1337)
+// Deployed via DeployFullStack.s.sol to luxd dev mode
+// =============================================================================
+
+export const LUX_DEV_CONTRACTS: ChainContracts = {
+  tokens: {
+    WLUX: "0x610178dA211FEF7D417bC0e6FeD39F05609AD788" as Address,
+    // Bridged collateral tokens
+    WETH: "0x5FbDB2315678afecb367f032d93F642f64180aa3" as Address,
+    USDC: "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0" as Address,
+    USDT: "0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9" as Address,
+    DAI: "0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9" as Address,
+  },
+  amm: {
+    // AMM V2 (QuantumSwap)
+    V2_FACTORY: "0x959922bE3CAee4b8Cd9a407cc3ac1C251C2007B1" as Address,
+    V2_ROUTER: "0x9A9f2CCfdE556A7E9Ff0848998Aa4a0CFD8863AE" as Address,
+    MULTICALL: "0xd25F88CBdAe3c2CCA3Bb75FC4E723b44C0Ea362F" as Address,
+  },
 }
 
 // =============================================================================
@@ -177,6 +200,7 @@ export const SEPOLIA_CONTRACTS: ChainContracts = {
 // =============================================================================
 
 export const CONTRACTS_BY_CHAIN: Record<number, ChainContracts> = {
+  [luxDev.id]: LUX_DEV_CONTRACTS,
   [luxMainnet.id]: LUX_MAINNET_CONTRACTS,
   [luxTestnet.id]: LUX_TESTNET_CONTRACTS,
   [zooMainnet.id]: ZOO_MAINNET_CONTRACTS,

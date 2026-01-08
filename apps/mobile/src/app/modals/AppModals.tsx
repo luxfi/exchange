@@ -5,7 +5,7 @@ import { ForceUpgradeModal } from 'src/components/forceUpgrade/ForceUpgradeModal
 import { WalletConnectModals } from 'src/components/Requests/WalletConnectModals'
 import { FiatOnRampAggregatorModal } from 'src/features/fiatOnRamp/FiatOnRampAggregatorModal'
 import { LockScreenModal } from 'src/features/lockScreen/LockScreenModal'
-import { ModalName } from 'uniswap/src/features/telemetry/constants'
+import { ModalName } from 'lx/src/features/telemetry/constants'
 import { QueuedOrderModal } from 'wallet/src/features/transactions/swap/modals/QueuedOrderModal'
 
 /**

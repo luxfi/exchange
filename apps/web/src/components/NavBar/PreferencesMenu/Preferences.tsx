@@ -1,12 +1,15 @@
 import { PreferencesHeader } from 'components/NavBar/PreferencesMenu/Header'
 import { PreferencesView } from 'components/NavBar/PreferencesMenu/shared'
 import { deprecatedStyled } from 'lib/styled-components'
+import { useCallback } from 'react'
 import { ChevronRight } from 'react-feather'
 import { Trans, useTranslation } from 'react-i18next'
+import { useDispatch, useSelector } from 'react-redux'
 import { ThemeSelector } from 'theme/components/ThemeToggle'
-import { Flex, Text, useSporeColors } from 'ui/src'
-import { useAppFiatCurrency } from 'uniswap/src/features/fiatCurrency/hooks'
-import { useCurrentLanguage, useLanguageInfo } from 'uniswap/src/features/language/hooks'
+import { Flex, Switch, Text, useSporeColors } from 'ui/src'
+import { useAppFiatCurrency } from 'lx/src/features/fiatCurrency/hooks'
+import { useCurrentLanguage, useLanguageInfo } from 'lx/src/features/language/hooks'
+import { setShowVideoBackground } from 'lx/src/features/settings/slice'
 
 const Pref = deprecatedStyled.div`
   display: flex;
@@ -59,9 +62,16 @@ export function PreferenceSettings({
   showThemeLabel?: boolean
 }) {
   const { t } = useTranslation()
+  const dispatch = useDispatch()
   const activeLocalCurrency = useAppFiatCurrency()
   const activeLanguage = useCurrentLanguage()
   const languageInfo = useLanguageInfo(activeLanguage)
+  const showVideoBackground = useSelector((state: { userSettings: { showVideoBackground: boolean } }) => 
+    state.userSettings?.showVideoBackground ?? true
+  )
+  const toggleVideoBackground = useCallback(() => {
+    dispatch(setShowVideoBackground(!showVideoBackground))
+  }, [dispatch, showVideoBackground])
 
   const items: SettingItem[] = [
     {
@@ -77,6 +87,10 @@ export function PreferenceSettings({
     {
       label: t('common.currency'),
       component: <SelectButton label={activeLocalCurrency} onClick={() => setSettingsView(PreferencesView.CURRENCY)} />,
+    },
+    {
+      label: 'Video Background',
+      component: <Switch variant="branded" checked={showVideoBackground} onCheckedChange={toggleVideoBackground} />,
     },
   ]
 

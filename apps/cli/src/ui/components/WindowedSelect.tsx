@@ -1,4 +1,4 @@
-import { colors } from '@universe/cli/src/ui/utils/colors'
+import { colors } from '@luxfi/cli/src/ui/utils/colors'
 import { Box, Text, useInput } from 'ink'
 import { useCallback, useEffect, useState } from 'react'
 

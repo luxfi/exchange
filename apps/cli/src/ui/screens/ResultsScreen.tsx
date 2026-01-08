@@ -1,8 +1,8 @@
 import { join } from 'node:path'
-import { ChangelogPreview } from '@universe/cli/src/ui/components/ChangelogPreview'
-import { Select } from '@universe/cli/src/ui/components/Select'
-import { TextInput } from '@universe/cli/src/ui/components/TextInput'
-import { colors } from '@universe/cli/src/ui/utils/colors'
+import { ChangelogPreview } from '@luxfi/cli/src/ui/components/ChangelogPreview'
+import { Select } from '@luxfi/cli/src/ui/components/Select'
+import { TextInput } from '@luxfi/cli/src/ui/components/TextInput'
+import { colors } from '@luxfi/cli/src/ui/utils/colors'
 import { Box, Text, useInput } from 'ink'
 import { useCallback, useState } from 'react'
 

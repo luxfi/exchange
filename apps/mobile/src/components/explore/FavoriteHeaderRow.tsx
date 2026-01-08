@@ -2,7 +2,7 @@ import { default as React } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Flex, Text, TouchableArea } from 'ui/src'
 import { Ellipsis } from 'ui/src/components/icons'
-import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+import { TestID } from 'lx/src/test/fixtures/testIDs'
 
 export function FavoriteHeaderRow({
   title,

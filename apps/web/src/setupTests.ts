@@ -12,7 +12,7 @@ import {
   WalletName,
   WalletReadyState,
 } from '@solana/wallet-adapter-base'
-import { useFeatureFlag } from '@universe/gating'
+import { useFeatureFlag } from '@luxfi/gating'
 import { useWeb3React } from '@web3-react/core'
 import { config as loadEnv } from 'dotenv'
 import failOnConsole from 'jest-fail-on-console'
@@ -21,9 +21,9 @@ import React from 'react'
 import { Readable } from 'stream'
 import { toBeVisible } from 'test-utils/matchers'
 import { mocked } from 'test-utils/mocked'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { setupi18n } from 'uniswap/src/i18n/i18n-setup-interface'
-import { mockLocalizationContext } from 'uniswap/src/test/mocks/locale'
+import { UniverseChainId } from 'lx/src/features/chains/types'
+import { setupi18n } from 'lx/src/i18n/i18n-setup-interface'
+import { mockLocalizationContext } from 'lx/src/test/mocks/locale'
 import { TextDecoder, TextEncoder } from 'util'
 
 loadEnv()
@@ -103,7 +103,7 @@ setupi18n()
 
 // Sets origin to the production origin, because some tests depend on this.
 // This prevents each test file from needing to set this manually.
-globalThis.origin = 'https://app.uniswap.org'
+globalThis.origin = 'https://lux.exchange'
 
 // Polyfill browser APIs (jest is a node.js environment):
 // biome-ignore lint/complexity/noUselessLoneBlockStatements: block used to scope polyfill assignments
@@ -169,7 +169,7 @@ vi.mock('@datadog/browser-logs', () => ({
 }))
 
 // This package must be mocked because it doesn't support ESM
-vi.mock('@uniswap/analytics-events', () => {
+vi.mock('@luxdex/analytics-events', () => {
   return {
     SharedEventName: {},
     sendAnalyticsEvent: vi.fn(),
@@ -197,7 +197,7 @@ vi.mock('@tamagui/animations-moti', () => ({
   },
 }))
 
-vi.mock('@uniswap/analytics', () => ({
+vi.mock('@luxdex/analytics', () => ({
   Trace: ({ children }: any) => {
     return React.createElement(React.Fragment, {}, children)
   },
@@ -419,7 +419,7 @@ failOnConsole({
   },
 })
 
-vi.mock('@universe/gating', async (importOriginal) => {
+vi.mock('@luxfi/gating', async (importOriginal) => {
   return {
     ...(await importOriginal()),
     useFeatureFlag: vi.fn(),

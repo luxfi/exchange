@@ -1,4 +1,4 @@
-import { TimestampedAmount } from '@uniswap/client-explore/dist/uniswap/explore/v1/service_pb'
+import { TimestampedAmount } from '@luxdex/client-explore/dist/uniswap/explore/v1/service_pb'
 import { useContext, useMemo } from 'react'
 import { ExploreContext } from 'state/explore'
 import { logger } from 'utilities/src/logger/logger'

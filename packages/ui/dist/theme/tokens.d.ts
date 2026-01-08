@@ -3,185 +3,188 @@
  * Based on Tailwind/shadcn design system
  */
 export declare const tokens: {
+  color: {
+    luxPrimary: import('tamagui').Variable<string>
+    luxSecondary: import('tamagui').Variable<string>
+    white: import('tamagui').Variable<string>
+    black: import('tamagui').Variable<string>
+    gray50: import('tamagui').Variable<string>
+    gray100: import('tamagui').Variable<string>
+    gray200: import('tamagui').Variable<string>
+    gray300: import('tamagui').Variable<string>
+    gray400: import('tamagui').Variable<string>
+    gray500: import('tamagui').Variable<string>
+    gray600: import('tamagui').Variable<string>
+    gray700: import('tamagui').Variable<string>
+    gray800: import('tamagui').Variable<string>
+    gray900: import('tamagui').Variable<string>
+    gray950: import('tamagui').Variable<string>
+    success: import('tamagui').Variable<string>
+    successDark: import('tamagui').Variable<string>
+    warning: import('tamagui').Variable<string>
+    warningDark: import('tamagui').Variable<string>
+    error: import('tamagui').Variable<string>
+    errorDark: import('tamagui').Variable<string>
+    info: import('tamagui').Variable<string>
+    infoDark: import('tamagui').Variable<string>
+    transparent: import('tamagui').Variable<string>
+  }
+  space: {
+    0: import('tamagui').Variable<number>
+    true: import('tamagui').Variable<number>
+    4: import('tamagui').Variable<number>
+    8: import('tamagui').Variable<number>
+    12: import('tamagui').Variable<number>
+    16: import('tamagui').Variable<number>
+    20: import('tamagui').Variable<number>
+    24: import('tamagui').Variable<number>
+    28: import('tamagui').Variable<number>
+    32: import('tamagui').Variable<number>
+    1: import('tamagui').Variable<number>
+    2: import('tamagui').Variable<number>
+    3: import('tamagui').Variable<number>
+    5: import('tamagui').Variable<number>
+    6: import('tamagui').Variable<number>
+    7: import('tamagui').Variable<number>
+    9: import('tamagui').Variable<number>
+    10: import('tamagui').Variable<number>
+    11: import('tamagui').Variable<number>
+    14: import('tamagui').Variable<number>
+  }
+  size: {
+    0: import('tamagui').Variable<number>
+    true: import('tamagui').Variable<number>
+    4: import('tamagui').Variable<number>
+    8: import('tamagui').Variable<number>
+    12: import('tamagui').Variable<number>
+    16: import('tamagui').Variable<number>
+    20: import('tamagui').Variable<number>
+    1: import('tamagui').Variable<number>
+    2: import('tamagui').Variable<number>
+    3: import('tamagui').Variable<number>
+    5: import('tamagui').Variable<number>
+    6: import('tamagui').Variable<number>
+    7: import('tamagui').Variable<number>
+    9: import('tamagui').Variable<number>
+    10: import('tamagui').Variable<number>
+    11: import('tamagui').Variable<number>
+    14: import('tamagui').Variable<number>
+  }
+  radius: {
+    0: import('tamagui').Variable<number>
+    true: import('tamagui').Variable<number>
+    4: import('tamagui').Variable<number>
+    round: import('tamagui').Variable<number>
+    1: import('tamagui').Variable<number>
+    2: import('tamagui').Variable<number>
+    3: import('tamagui').Variable<number>
+    5: import('tamagui').Variable<number>
+    6: import('tamagui').Variable<number>
+  }
+  zIndex: {
+    0: import('tamagui').Variable<number>
+    4: import('tamagui').Variable<number>
+    modal: import('tamagui').Variable<number>
+    popover: import('tamagui').Variable<number>
+    tooltip: import('tamagui').Variable<number>
+    1: import('tamagui').Variable<number>
+    2: import('tamagui').Variable<number>
+    3: import('tamagui').Variable<number>
+    5: import('tamagui').Variable<number>
+  }
+} & Omit<
+  {
     color: {
-        luxPrimary: import("tamagui").Variable<string>;
-        luxSecondary: import("tamagui").Variable<string>;
-        white: import("tamagui").Variable<string>;
-        black: import("tamagui").Variable<string>;
-        gray50: import("tamagui").Variable<string>;
-        gray100: import("tamagui").Variable<string>;
-        gray200: import("tamagui").Variable<string>;
-        gray300: import("tamagui").Variable<string>;
-        gray400: import("tamagui").Variable<string>;
-        gray500: import("tamagui").Variable<string>;
-        gray600: import("tamagui").Variable<string>;
-        gray700: import("tamagui").Variable<string>;
-        gray800: import("tamagui").Variable<string>;
-        gray900: import("tamagui").Variable<string>;
-        gray950: import("tamagui").Variable<string>;
-        success: import("tamagui").Variable<string>;
-        successDark: import("tamagui").Variable<string>;
-        warning: import("tamagui").Variable<string>;
-        warningDark: import("tamagui").Variable<string>;
-        error: import("tamagui").Variable<string>;
-        errorDark: import("tamagui").Variable<string>;
-        info: import("tamagui").Variable<string>;
-        infoDark: import("tamagui").Variable<string>;
-        transparent: import("tamagui").Variable<string>;
-    };
+      luxPrimary: import('tamagui').Variable<string>
+      luxSecondary: import('tamagui').Variable<string>
+      white: import('tamagui').Variable<string>
+      black: import('tamagui').Variable<string>
+      gray50: import('tamagui').Variable<string>
+      gray100: import('tamagui').Variable<string>
+      gray200: import('tamagui').Variable<string>
+      gray300: import('tamagui').Variable<string>
+      gray400: import('tamagui').Variable<string>
+      gray500: import('tamagui').Variable<string>
+      gray600: import('tamagui').Variable<string>
+      gray700: import('tamagui').Variable<string>
+      gray800: import('tamagui').Variable<string>
+      gray900: import('tamagui').Variable<string>
+      gray950: import('tamagui').Variable<string>
+      success: import('tamagui').Variable<string>
+      successDark: import('tamagui').Variable<string>
+      warning: import('tamagui').Variable<string>
+      warningDark: import('tamagui').Variable<string>
+      error: import('tamagui').Variable<string>
+      errorDark: import('tamagui').Variable<string>
+      info: import('tamagui').Variable<string>
+      infoDark: import('tamagui').Variable<string>
+      transparent: import('tamagui').Variable<string>
+    }
     space: {
-        0: import("tamagui").Variable<number>;
-        true: import("tamagui").Variable<number>;
-        4: import("tamagui").Variable<number>;
-        8: import("tamagui").Variable<number>;
-        12: import("tamagui").Variable<number>;
-        16: import("tamagui").Variable<number>;
-        20: import("tamagui").Variable<number>;
-        24: import("tamagui").Variable<number>;
-        28: import("tamagui").Variable<number>;
-        32: import("tamagui").Variable<number>;
-        1: import("tamagui").Variable<number>;
-        2: import("tamagui").Variable<number>;
-        3: import("tamagui").Variable<number>;
-        5: import("tamagui").Variable<number>;
-        6: import("tamagui").Variable<number>;
-        7: import("tamagui").Variable<number>;
-        9: import("tamagui").Variable<number>;
-        10: import("tamagui").Variable<number>;
-        11: import("tamagui").Variable<number>;
-        14: import("tamagui").Variable<number>;
-    };
+      0: import('tamagui').Variable<number>
+      true: import('tamagui').Variable<number>
+      4: import('tamagui').Variable<number>
+      8: import('tamagui').Variable<number>
+      12: import('tamagui').Variable<number>
+      16: import('tamagui').Variable<number>
+      20: import('tamagui').Variable<number>
+      24: import('tamagui').Variable<number>
+      28: import('tamagui').Variable<number>
+      32: import('tamagui').Variable<number>
+      1: import('tamagui').Variable<number>
+      2: import('tamagui').Variable<number>
+      3: import('tamagui').Variable<number>
+      5: import('tamagui').Variable<number>
+      6: import('tamagui').Variable<number>
+      7: import('tamagui').Variable<number>
+      9: import('tamagui').Variable<number>
+      10: import('tamagui').Variable<number>
+      11: import('tamagui').Variable<number>
+      14: import('tamagui').Variable<number>
+    }
     size: {
-        0: import("tamagui").Variable<number>;
-        true: import("tamagui").Variable<number>;
-        4: import("tamagui").Variable<number>;
-        8: import("tamagui").Variable<number>;
-        12: import("tamagui").Variable<number>;
-        16: import("tamagui").Variable<number>;
-        20: import("tamagui").Variable<number>;
-        1: import("tamagui").Variable<number>;
-        2: import("tamagui").Variable<number>;
-        3: import("tamagui").Variable<number>;
-        5: import("tamagui").Variable<number>;
-        6: import("tamagui").Variable<number>;
-        7: import("tamagui").Variable<number>;
-        9: import("tamagui").Variable<number>;
-        10: import("tamagui").Variable<number>;
-        11: import("tamagui").Variable<number>;
-        14: import("tamagui").Variable<number>;
-    };
+      0: import('tamagui').Variable<number>
+      true: import('tamagui').Variable<number>
+      4: import('tamagui').Variable<number>
+      8: import('tamagui').Variable<number>
+      12: import('tamagui').Variable<number>
+      16: import('tamagui').Variable<number>
+      20: import('tamagui').Variable<number>
+      1: import('tamagui').Variable<number>
+      2: import('tamagui').Variable<number>
+      3: import('tamagui').Variable<number>
+      5: import('tamagui').Variable<number>
+      6: import('tamagui').Variable<number>
+      7: import('tamagui').Variable<number>
+      9: import('tamagui').Variable<number>
+      10: import('tamagui').Variable<number>
+      11: import('tamagui').Variable<number>
+      14: import('tamagui').Variable<number>
+    }
     radius: {
-        0: import("tamagui").Variable<number>;
-        true: import("tamagui").Variable<number>;
-        4: import("tamagui").Variable<number>;
-        round: import("tamagui").Variable<number>;
-        1: import("tamagui").Variable<number>;
-        2: import("tamagui").Variable<number>;
-        3: import("tamagui").Variable<number>;
-        5: import("tamagui").Variable<number>;
-        6: import("tamagui").Variable<number>;
-    };
+      0: import('tamagui').Variable<number>
+      true: import('tamagui').Variable<number>
+      4: import('tamagui').Variable<number>
+      round: import('tamagui').Variable<number>
+      1: import('tamagui').Variable<number>
+      2: import('tamagui').Variable<number>
+      3: import('tamagui').Variable<number>
+      5: import('tamagui').Variable<number>
+      6: import('tamagui').Variable<number>
+    }
     zIndex: {
-        0: import("tamagui").Variable<number>;
-        4: import("tamagui").Variable<number>;
-        modal: import("tamagui").Variable<number>;
-        popover: import("tamagui").Variable<number>;
-        tooltip: import("tamagui").Variable<number>;
-        1: import("tamagui").Variable<number>;
-        2: import("tamagui").Variable<number>;
-        3: import("tamagui").Variable<number>;
-        5: import("tamagui").Variable<number>;
-    };
-} & Omit<{
-    color: {
-        luxPrimary: import("tamagui").Variable<string>;
-        luxSecondary: import("tamagui").Variable<string>;
-        white: import("tamagui").Variable<string>;
-        black: import("tamagui").Variable<string>;
-        gray50: import("tamagui").Variable<string>;
-        gray100: import("tamagui").Variable<string>;
-        gray200: import("tamagui").Variable<string>;
-        gray300: import("tamagui").Variable<string>;
-        gray400: import("tamagui").Variable<string>;
-        gray500: import("tamagui").Variable<string>;
-        gray600: import("tamagui").Variable<string>;
-        gray700: import("tamagui").Variable<string>;
-        gray800: import("tamagui").Variable<string>;
-        gray900: import("tamagui").Variable<string>;
-        gray950: import("tamagui").Variable<string>;
-        success: import("tamagui").Variable<string>;
-        successDark: import("tamagui").Variable<string>;
-        warning: import("tamagui").Variable<string>;
-        warningDark: import("tamagui").Variable<string>;
-        error: import("tamagui").Variable<string>;
-        errorDark: import("tamagui").Variable<string>;
-        info: import("tamagui").Variable<string>;
-        infoDark: import("tamagui").Variable<string>;
-        transparent: import("tamagui").Variable<string>;
-    };
-    space: {
-        0: import("tamagui").Variable<number>;
-        true: import("tamagui").Variable<number>;
-        4: import("tamagui").Variable<number>;
-        8: import("tamagui").Variable<number>;
-        12: import("tamagui").Variable<number>;
-        16: import("tamagui").Variable<number>;
-        20: import("tamagui").Variable<number>;
-        24: import("tamagui").Variable<number>;
-        28: import("tamagui").Variable<number>;
-        32: import("tamagui").Variable<number>;
-        1: import("tamagui").Variable<number>;
-        2: import("tamagui").Variable<number>;
-        3: import("tamagui").Variable<number>;
-        5: import("tamagui").Variable<number>;
-        6: import("tamagui").Variable<number>;
-        7: import("tamagui").Variable<number>;
-        9: import("tamagui").Variable<number>;
-        10: import("tamagui").Variable<number>;
-        11: import("tamagui").Variable<number>;
-        14: import("tamagui").Variable<number>;
-    };
-    size: {
-        0: import("tamagui").Variable<number>;
-        true: import("tamagui").Variable<number>;
-        4: import("tamagui").Variable<number>;
-        8: import("tamagui").Variable<number>;
-        12: import("tamagui").Variable<number>;
-        16: import("tamagui").Variable<number>;
-        20: import("tamagui").Variable<number>;
-        1: import("tamagui").Variable<number>;
-        2: import("tamagui").Variable<number>;
-        3: import("tamagui").Variable<number>;
-        5: import("tamagui").Variable<number>;
-        6: import("tamagui").Variable<number>;
-        7: import("tamagui").Variable<number>;
-        9: import("tamagui").Variable<number>;
-        10: import("tamagui").Variable<number>;
-        11: import("tamagui").Variable<number>;
-        14: import("tamagui").Variable<number>;
-    };
-    radius: {
-        0: import("tamagui").Variable<number>;
-        true: import("tamagui").Variable<number>;
-        4: import("tamagui").Variable<number>;
-        round: import("tamagui").Variable<number>;
-        1: import("tamagui").Variable<number>;
-        2: import("tamagui").Variable<number>;
-        3: import("tamagui").Variable<number>;
-        5: import("tamagui").Variable<number>;
-        6: import("tamagui").Variable<number>;
-    };
-    zIndex: {
-        0: import("tamagui").Variable<number>;
-        4: import("tamagui").Variable<number>;
-        modal: import("tamagui").Variable<number>;
-        popover: import("tamagui").Variable<number>;
-        tooltip: import("tamagui").Variable<number>;
-        1: import("tamagui").Variable<number>;
-        2: import("tamagui").Variable<number>;
-        3: import("tamagui").Variable<number>;
-        5: import("tamagui").Variable<number>;
-    };
-}, "color" | "space" | "size" | "radius" | "zIndex">;
-export type AppTokens = typeof tokens;
+      0: import('tamagui').Variable<number>
+      4: import('tamagui').Variable<number>
+      modal: import('tamagui').Variable<number>
+      popover: import('tamagui').Variable<number>
+      tooltip: import('tamagui').Variable<number>
+      1: import('tamagui').Variable<number>
+      2: import('tamagui').Variable<number>
+      3: import('tamagui').Variable<number>
+      5: import('tamagui').Variable<number>
+    }
+  },
+  'color' | 'space' | 'size' | 'radius' | 'zIndex'
+>
+export type AppTokens = typeof tokens
 //# sourceMappingURL=tokens.d.ts.map

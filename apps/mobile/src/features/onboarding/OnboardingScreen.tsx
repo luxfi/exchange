@@ -10,7 +10,7 @@ import { Screen, SHORT_SCREEN_HEADER_HEIGHT_RATIO } from 'src/components/layout/
 import { Flex, GeneratedIcon, SpaceTokens, Text, useMedia } from 'ui/src'
 import { AnimatedFlex } from 'ui/src/components/layout/AnimatedFlex'
 import { fonts } from 'ui/src/theme'
-import { useAppInsets } from 'uniswap/src/hooks/useAppInsets'
+import { useAppInsets } from 'lx/src/hooks/useAppInsets'
 import { isIOS } from 'utilities/src/platform'
 
 type OnboardingScreenProps = {

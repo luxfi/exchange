@@ -1,6 +1,6 @@
-import { PositionStatus, ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
-import { Protocols } from '@uniswap/client-trading/dist/trading/v1/api_pb'
-import { TradingApi } from '@universe/api'
+import { PositionStatus, ProtocolVersion } from '@luxdex/client-data-api/dist/data/v1/poolTypes_pb'
+import { Protocols } from '@luxdex/client-trading/dist/trading/v1/api_pb'
+import { TradingApi } from '@luxfi/api'
 import { AppTFunction } from 'ui/src/i18n/types'
 
 export function getProtocolVersionLabel(version: ProtocolVersion): string | undefined {

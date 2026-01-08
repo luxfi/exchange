@@ -1,5 +1,5 @@
-import type { OrchestratorConfig } from '@universe/cli/src/core/orchestrator'
-import type { Release } from '@universe/cli/src/lib/release-scanner'
+import type { OrchestratorConfig } from '@luxfi/cli/src/core/orchestrator'
+import type { Release } from '@luxfi/cli/src/lib/release-scanner'
 import { createContext, type ReactNode, useContext, useReducer } from 'react'
 
 export type Screen =

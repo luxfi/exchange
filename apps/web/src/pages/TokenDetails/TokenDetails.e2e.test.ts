@@ -1,6 +1,6 @@
 import { expect, getTest } from 'playwright/fixtures'
 import { Mocks } from 'playwright/mocks/mocks'
-import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+import { TestID } from 'lx/src/test/fixtures/testIDs'
 
 const test = getTest()
 

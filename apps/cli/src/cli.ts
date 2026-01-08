@@ -1,12 +1,12 @@
 #!/usr/bin/env bun
 /* eslint-disable complexity */
-import { type CollectOptions } from '@universe/cli/src/core/data-collector'
-import { Orchestrator, type OrchestratorConfig, type OutputConfig } from '@universe/cli/src/core/orchestrator'
-import { createVercelAIProvider } from '@universe/cli/src/lib/ai-provider-vercel'
-import { SqliteCacheProvider } from '@universe/cli/src/lib/cache-provider-sqlite'
-import { ConsoleLogger, type Logger } from '@universe/cli/src/lib/logger'
-import { parseReleaseIdentifier, ReleaseScanner } from '@universe/cli/src/lib/release-scanner'
-import { detectRepository, resolveTeam } from '@universe/cli/src/lib/team-resolver'
+import { type CollectOptions } from '@luxfi/cli/src/core/data-collector'
+import { Orchestrator, type OrchestratorConfig, type OutputConfig } from '@luxfi/cli/src/core/orchestrator'
+import { createVercelAIProvider } from '@luxfi/cli/src/lib/ai-provider-vercel'
+import { SqliteCacheProvider } from '@luxfi/cli/src/lib/cache-provider-sqlite'
+import { ConsoleLogger, type Logger } from '@luxfi/cli/src/lib/logger'
+import { parseReleaseIdentifier, ReleaseScanner } from '@luxfi/cli/src/lib/release-scanner'
+import { detectRepository, resolveTeam } from '@luxfi/cli/src/lib/team-resolver'
 import { parseArgs } from 'util'
 
 /* eslint-disable no-console */

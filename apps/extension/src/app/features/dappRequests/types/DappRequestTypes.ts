@@ -5,8 +5,8 @@ import { NonfungiblePositionManagerCallSchema } from 'src/app/features/dappReque
 import { UniversalRouterCallSchema } from 'src/app/features/dappRequests/types/UniversalRouterTypes'
 import { HomeTabs } from 'src/app/navigation/constants'
 import { PermissionRequestSchema, PermissionSchema } from 'src/contentScript/WindowEthereumRequestTypes'
-import { MessageSchema } from 'uniswap/src/extension/messagePassing/messageTypes'
-import { DappRequestType, DappResponseType } from 'uniswap/src/features/dappRequests/types'
+import { MessageSchema } from 'lx/src/extension/messagePassing/messageTypes'
+import { DappRequestType, DappResponseType } from 'lx/src/features/dappRequests/types'
 import {
   BatchIdSchema,
   CallSchema,

@@ -1,7 +1,7 @@
 import type { QueryClient } from '@tanstack/react-query'
-import type { NotificationsApiClient } from '@universe/api'
-import { createApiNotificationTracker } from '@universe/notifications/src/notification-tracker/implementations/createApiNotificationTracker'
-import type { TrackingMetadata } from '@universe/notifications/src/notification-tracker/NotificationTracker'
+import type { NotificationsApiClient } from '@luxfi/api'
+import { createApiNotificationTracker } from '@luxfi/notifications/src/notification-tracker/implementations/createApiNotificationTracker'
+import type { TrackingMetadata } from '@luxfi/notifications/src/notification-tracker/NotificationTracker'
 import { describe, expect, it, type Mock, vi } from 'vitest'
 
 describe('createApiNotificationTracker', () => {

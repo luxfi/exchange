@@ -18,7 +18,7 @@ import { migration16 } from 'state/migrations/16'
 import { migration17 } from 'state/migrations/17'
 import { migration18 } from 'state/migrations/18'
 import { migration19, PersistAppStateV19 } from 'state/migrations/19'
-import { Language } from 'uniswap/src/features/language/constants'
+import { Language } from 'lx/src/features/language/constants'
 
 const previousState: PersistAppStateV19 = {
   _persist: {

@@ -4,19 +4,19 @@
 /* eslint-disable max-lines */
 
 import dayjs from 'dayjs'
-import { AccountType } from 'uniswap/src/features/accounts/types'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { toSupportedChainId } from 'uniswap/src/features/chains/utils'
-import { FiatCurrency } from 'uniswap/src/features/fiatCurrency/constants'
-import { Language } from 'uniswap/src/features/language/constants'
-import { getNFTAssetKey } from 'uniswap/src/features/nfts/utils'
-import { ModalName } from 'uniswap/src/features/telemetry/constants'
-import { TransactionsState } from 'uniswap/src/features/transactions/slice'
+import { AccountType } from 'lx/src/features/accounts/types'
+import { UniverseChainId } from 'lx/src/features/chains/types'
+import { toSupportedChainId } from 'lx/src/features/chains/utils'
+import { FiatCurrency } from 'lx/src/features/fiatCurrency/constants'
+import { Language } from 'lx/src/features/language/constants'
+import { getNFTAssetKey } from 'lx/src/features/nfts/utils'
+import { ModalName } from 'lx/src/features/telemetry/constants'
+import { TransactionsState } from 'lx/src/features/transactions/slice'
 import {
   ChainIdToTxIdToDetails,
   TransactionStatus,
   TransactionType,
-} from 'uniswap/src/features/transactions/types/transactionDetails'
+} from 'lx/src/features/transactions/types/transactionDetails'
 import {
   addActivityVisibility,
   addDismissedBridgedAndCompatibleWarnings,
@@ -24,8 +24,8 @@ import {
   migrateSearchHistory,
   removeThaiBahtFromFiatCurrency,
   unchecksumDismissedTokenWarningKeys,
-} from 'uniswap/src/state/uniswapMigrations'
-import { DappRequestType } from 'uniswap/src/types/walletConnect'
+} from 'lx/src/state/uniswapMigrations'
+import { DappRequestType } from 'lx/src/types/walletConnect'
 import { Account } from 'wallet/src/features/wallet/accounts/types'
 import { SwapProtectionSetting } from 'wallet/src/features/wallet/slice'
 import {

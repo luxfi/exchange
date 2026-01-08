@@ -7,18 +7,18 @@ import {
   Position as RestPosition,
   Token as RestToken,
   V4Position as RestV4Position,
-} from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
-import { ChainId, PoolInformation } from '@uniswap/client-trading/dist/trading/v1/api_pb'
-import { CurrencyAmount, Token } from '@uniswap/sdk-core'
-import { Pair } from '@uniswap/v2-sdk'
-import { FeeAmount, TICK_SPACINGS, Pool as V3Pool, Position as V3Position } from '@uniswap/v3-sdk'
-import { Pool as V4Pool, Position as V4Position } from '@uniswap/v4-sdk'
+} from '@luxdex/client-data-api/dist/data/v1/poolTypes_pb'
+import { ChainId, PoolInformation } from '@luxdex/client-trading/dist/trading/v1/api_pb'
+import { CurrencyAmount, Token } from '@luxamm/sdk-core'
+import { Pair } from '@luxamm/v2-sdk'
+import { FeeAmount, TICK_SPACINGS, Pool as V3Pool, Position as V3Position } from '@luxamm/v3-sdk'
+import { Pool as V4Pool, Position as V4Position } from '@luxamm/v4-sdk'
 import { getSDKPoolFromPoolInformation, parseRestPosition } from 'components/Liquidity/utils/parseFromRest'
 import { ETH_MAINNET } from 'test-utils/constants'
-import { ZERO_ADDRESS } from 'uniswap/src/constants/misc'
-import { DAI, USDT } from 'uniswap/src/constants/tokens'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { WETH } from 'uniswap/src/test/fixtures/lib/sdk'
+import { ZERO_ADDRESS } from 'lx/src/constants/misc'
+import { DAI, USDT } from 'lx/src/constants/tokens'
+import { UniverseChainId } from 'lx/src/features/chains/types'
+import { WETH } from 'lx/src/test/fixtures/lib/sdk'
 import { describe, expect, it } from 'vitest'
 
 const token0Rest = {

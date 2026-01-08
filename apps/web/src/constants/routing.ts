@@ -1,4 +1,4 @@
-import { Token } from '@uniswap/sdk-core'
+import { Token } from '@luxdex/sdk-core'
 import {
   BTC_BSC,
   BUSD_BSC,
@@ -15,8 +15,8 @@ import {
   WBTC,
   WETH_AVALANCHE,
   WRAPPED_NATIVE_CURRENCY,
-} from 'uniswap/src/constants/tokens'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
+} from 'lx/src/constants/tokens'
+import { UniverseChainId } from 'lx/src/features/chains/types'
 
 type ChainTokenList = {
   readonly [chainId: number]: Token[]

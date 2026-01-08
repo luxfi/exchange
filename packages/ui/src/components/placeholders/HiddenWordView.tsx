@@ -1,4 +1,4 @@
-import { Flex, FlexProps } from 'ui/src/components/layout/Flex'
+import { Flex, type FlexProps } from 'ui/src/components/layout/Flex'
 
 type HiddenWordViewProps = {
   rows: number

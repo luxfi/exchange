@@ -1,6 +1,7 @@
-import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
-import { nearestUsableTick, priceToClosestTick, TickMath, tickToPrice as tickToPriceV3 } from '@uniswap/v3-sdk'
-import { priceToClosestTick as priceToClosestV4Tick, tickToPrice as tickToPriceV4 } from '@uniswap/v4-sdk'
+import { ProtocolVersion } from '@luxdex/client-data-api/dist/data/v1/poolTypes_pb'
+import type { Price as UniswapPrice, Token as UniswapToken, Currency as UniswapCurrency } from '@uniswap/sdk-core'
+import { nearestUsableTick, priceToClosestTick, TickMath, tickToPrice as tickToPriceV3 } from '@luxamm/v3-sdk'
+import { priceToClosestTick as priceToClosestV4Tick, tickToPrice as tickToPriceV4 } from '@luxamm/v4-sdk'
 import { TickNavigationParams } from 'components/Charts/D3LiquidityRangeInput/D3LiquidityRangeChart/store/types'
 import { ChartEntry } from 'components/Charts/LiquidityRangeInput/types'
 import { PriceChartData } from 'components/Charts/PriceChart'
@@ -43,7 +44,7 @@ export const navigateTick = ({
         return undefined
       }
 
-      let tick = priceToClosestTick(price)
+      let tick = priceToClosestTick(price as unknown as UniswapPrice<UniswapToken, UniswapToken>)
 
       if (tick > TickMath.MAX_TICK) {
         tick = TickMath.MAX_TICK
@@ -69,7 +70,7 @@ export const navigateTick = ({
         return undefined
       }
 
-      let tick = priceToClosestV4Tick(price)
+      let tick = priceToClosestV4Tick(price as unknown as UniswapPrice<UniswapCurrency, UniswapCurrency>)
 
       if (tick > TickMath.MAX_TICK) {
         tick = TickMath.MAX_TICK

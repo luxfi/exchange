@@ -4,7 +4,7 @@
       "dependsOn": ["^build", "build:icons"]
     },
     "build:icons": {
-      "command": "bunx tsx ./src/scripts/componentize-icons.ts && nx lint:biome:fix ui",
+      "command": "bunx tsx ./src/scripts/componentize-icons.ts",
       "options": {
         "cwd": "{projectRoot}"
       },

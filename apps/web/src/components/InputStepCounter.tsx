@@ -1,4 +1,4 @@
-import { FeeAmount } from '@uniswap/v3-sdk'
+import { FeeAmount } from '@luxamm/v3-sdk'
 import { OutlineCard } from 'components/Card/cards'
 import { Input as NumericalInput } from 'components/NumericalInput'
 import { deprecatedStyled } from 'lib/styled-components'

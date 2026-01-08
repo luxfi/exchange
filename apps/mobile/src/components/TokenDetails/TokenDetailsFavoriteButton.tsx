@@ -3,9 +3,9 @@ import { useSelector } from 'react-redux'
 import { Favorite } from 'src/components/icons/Favorite'
 import { TouchableArea } from 'ui/src'
 import { iconSizes } from 'ui/src/theme'
-import { selectFavoriteTokens } from 'uniswap/src/features/favorites/selectors'
-import { useToggleFavoriteCallback } from 'uniswap/src/features/favorites/useToggleFavoriteCallback'
-import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+import { selectFavoriteTokens } from 'lx/src/features/favorites/selectors'
+import { useToggleFavoriteCallback } from 'lx/src/features/favorites/useToggleFavoriteCallback'
+import { TestID } from 'lx/src/test/fixtures/testIDs'
 
 export function TokenDetailsFavoriteButton({
   currencyId,

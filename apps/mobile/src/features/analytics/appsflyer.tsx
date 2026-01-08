@@ -1,5 +1,5 @@
 import appsFlyer from 'react-native-appsflyer'
-import { config } from 'uniswap/src/config'
+import { config } from 'lx/src/config'
 import { isBetaEnv, isDevEnv } from 'utilities/src/environment/env'
 import { logger } from 'utilities/src/logger/logger'
 

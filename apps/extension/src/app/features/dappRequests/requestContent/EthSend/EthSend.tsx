@@ -1,4 +1,4 @@
-import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import { FeatureFlags, useFeatureFlag } from '@luxfi/gating'
 import { useCallback } from 'react'
 import { useDappLastChainId } from 'src/app/features/dapp/hooks'
 import { useDappRequestQueueContext } from 'src/app/features/dappRequests/DappRequestQueueContext'
@@ -19,8 +19,8 @@ import {
   isWrapRequest,
   SendTransactionRequest,
 } from 'src/app/features/dappRequests/types/DappRequestTypes'
-import { GasFeeResult } from 'uniswap/src/features/gas/types'
-import { TransactionTypeInfo } from 'uniswap/src/features/transactions/types/transactionDetails'
+import { GasFeeResult } from 'lx/src/features/gas/types'
+import { TransactionTypeInfo } from 'lx/src/features/transactions/types/transactionDetails'
 import { logger } from 'utilities/src/logger/logger'
 import { ErrorBoundary } from 'wallet/src/components/ErrorBoundary/ErrorBoundary'
 

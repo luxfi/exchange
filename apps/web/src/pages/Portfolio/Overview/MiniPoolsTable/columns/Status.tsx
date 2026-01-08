@@ -1,4 +1,4 @@
-import { PositionStatus } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
+import { PositionStatus } from '@luxdex/client-data-api/dist/data/v1/poolTypes_pb'
 import { PositionInfo } from 'components/Liquidity/types'
 import { TFunction } from 'i18next'
 import { memo } from 'react'

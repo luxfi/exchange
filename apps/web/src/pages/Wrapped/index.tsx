@@ -7,10 +7,10 @@ import { X } from 'ui/src/components/icons/X'
 import { useDeviceDimensions } from 'ui/src/hooks/useDeviceDimensions'
 import { useSporeColorsForTheme } from 'ui/src/hooks/useSporeColors'
 import { INTERFACE_NAV_HEIGHT, opacify } from 'ui/src/theme'
-import { WRAPPED_PATH } from 'uniswap/src/components/banners/shared/utils'
-import { useUrlContext } from 'uniswap/src/contexts/UrlContext'
-import { useActiveAddresses } from 'uniswap/src/features/accounts/store/hooks'
-import { setHasDismissedUniswapWrapped2025Banner } from 'uniswap/src/features/behaviorHistory/slice'
+import { WRAPPED_PATH } from 'lx/src/components/banners/shared/utils'
+import { useUrlContext } from 'lx/src/contexts/UrlContext'
+import { useActiveAddresses } from 'lx/src/features/accounts/store/hooks'
+import { setHasDismissedUniswapWrapped2025Banner } from 'lx/src/features/behaviorHistory/slice'
 import { isAddress } from 'viem'
 
 export default function Wrapped() {
@@ -43,7 +43,7 @@ export default function Wrapped() {
 
   const hasWallet = Boolean(walletAddressRef.current || backupWalletAddress)
   const walletAddress = walletAddressRef.current || backupWalletAddress
-  const iframeUrl = `https://wrapped.uniswap.org${walletAddress ? `?address=${walletAddress}` : ''}`
+  const iframeUrl = `https://wrapped.lux.exchange${walletAddress ? `?address=${walletAddress}` : ''}`
 
   return (
     <Flex

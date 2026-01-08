@@ -1,7 +1,7 @@
 import { type QueryClient, type QueryKey, QueryObserver } from '@tanstack/react-query'
-import { type InAppNotification } from '@universe/api'
-import { createNotificationDataSource } from '@universe/notifications/src/notification-data-source/implementations/createNotificationDataSource'
-import { type NotificationDataSource } from '@universe/notifications/src/notification-data-source/NotificationDataSource'
+import { type InAppNotification } from '@luxfi/api'
+import { createNotificationDataSource } from '@luxfi/notifications/src/notification-data-source/implementations/createNotificationDataSource'
+import { type NotificationDataSource } from '@luxfi/notifications/src/notification-data-source/NotificationDataSource'
 import { getLogger } from 'utilities/src/logger/logger'
 import { type QueryOptionsResult } from 'utilities/src/reactQuery/queryOptions'
 

@@ -1,6 +1,6 @@
 import { memo } from 'react'
 import { Flex, Progress, Text } from 'ui/src'
-import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
+import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
 
 export const Allocation = memo(function Allocation({ value }: { value: number }): JSX.Element {
   const { formatPercent } = useLocalizationContext()

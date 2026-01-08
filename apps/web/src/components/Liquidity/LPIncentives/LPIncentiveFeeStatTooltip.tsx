@@ -3,10 +3,10 @@ import { LP_INCENTIVES_REWARD_TOKEN } from 'components/LpIncentives/constants'
 import { useTranslation } from 'react-i18next'
 import { Flex, Text } from 'ui/src'
 import { Magic } from 'ui/src/components/icons/Magic'
-import { SplitLogo } from 'uniswap/src/components/CurrencyLogo/SplitLogo'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { CurrencyInfo } from 'uniswap/src/features/dataApi/types'
-import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
+import { SplitLogo } from 'lx/src/components/CurrencyLogo/SplitLogo'
+import { UniverseChainId } from 'lx/src/features/chains/types'
+import { CurrencyInfo } from 'lx/src/features/dataApi/types'
+import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
 
 type LPIncentiveFeeStatTooltipProps = {
   currency0Info: Maybe<CurrencyInfo>
@@ -91,8 +91,8 @@ export default LPIncentiveFeeStatTooltip
 type TooltipRowProps = {
   children: React.ReactNode
   backgroundColor?: string
-  borderBottomLeftRadius?: string
-  borderBottomRightRadius?: string
+  borderBottomLeftRadius?: '$rounded6' | '$rounded8' | '$rounded12' | '$rounded16' | '$rounded20' | number
+  borderBottomRightRadius?: '$rounded6' | '$rounded8' | '$rounded12' | '$rounded16' | '$rounded20' | number
   alignItems?: 'flex-start' | 'center'
 }
 

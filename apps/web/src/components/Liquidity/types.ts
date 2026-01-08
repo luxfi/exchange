@@ -1,12 +1,12 @@
-import { PositionStatus, ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
-import { Currency, CurrencyAmount, Percent, Price, Token } from '@uniswap/sdk-core'
-import { Pair } from '@uniswap/v2-sdk'
-import { Pool as V3Pool, Position as V3Position } from '@uniswap/v3-sdk'
-import { Pool as V4Pool, Position as V4Position } from '@uniswap/v4-sdk'
+import { PositionStatus, ProtocolVersion } from '@luxdex/client-data-api/dist/data/v1/poolTypes_pb'
+import { Currency, CurrencyAmount, Percent, Price, Token } from '@luxamm/sdk-core'
+import { Pair } from '@luxamm/v2-sdk'
+import { Pool as V3Pool, Position as V3Position } from '@luxamm/v3-sdk'
+import { Pool as V4Pool, Position as V4Position } from '@luxamm/v4-sdk'
 import { FeeData } from 'components/Liquidity/Create/types'
 import { ReactNode } from 'react'
 import { PositionField } from 'types/position'
-import { EVMUniverseChainId } from 'uniswap/src/features/chains/types'
+import { EVMUniverseChainId } from 'lx/src/features/chains/types'
 
 export interface PriceOrdering {
   priceLower?: Price<Currency, Currency>

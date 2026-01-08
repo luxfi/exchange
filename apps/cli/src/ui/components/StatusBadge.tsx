@@ -1,4 +1,4 @@
-import { colors } from '@universe/cli/src/ui/utils/colors'
+import { colors } from '@luxfi/cli/src/ui/utils/colors'
 import { Text } from 'ink'
 
 type StatusType = 'success' | 'warning' | 'error' | 'info'

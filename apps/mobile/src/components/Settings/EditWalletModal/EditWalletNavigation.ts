@@ -1,6 +1,6 @@
 import { navigate } from 'src/app/navigation/rootNavigation'
-import { ModalName } from 'uniswap/src/features/telemetry/constants'
-import { MobileScreens, UnitagScreens } from 'uniswap/src/types/screens/mobile'
+import { ModalName } from 'lx/src/features/telemetry/constants'
+import { MobileScreens, UnitagScreens } from 'lx/src/types/screens/mobile'
 
 export const navigateBackFromEditingWallet = (
   entryPoint: UnitagScreens.UnitagConfirmation | MobileScreens.SettingsWallet,

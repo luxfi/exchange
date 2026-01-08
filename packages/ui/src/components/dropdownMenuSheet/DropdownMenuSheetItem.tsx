@@ -61,12 +61,12 @@ export const DropdownMenuSheetItem = ({
   const flexDirection: FlexProps['flexDirection'] = I18nManager.isRTL ? 'row-reverse' : 'row'
   const touchableAreaHoverStyle: YStackProps['hoverStyle'] = useMemo(
     () => (disabled ? undefined : { backgroundColor: '$surface1Hovered' }),
-    [disabled],
+    [disabled]
   )
 
   const textColorValue = useMemo(
     () => getMenuItemColor({ overrideColor: textColor, destructive, disabled }),
-    [destructive, textColor, disabled],
+    [destructive, textColor, disabled]
   )
 
   return (

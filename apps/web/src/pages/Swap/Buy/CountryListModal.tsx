@@ -9,9 +9,9 @@ import { FixedSizeList } from 'react-window'
 import { Flex, ModalCloseIcon, styled, useMedia, useScrollbarStyles, useSporeColors } from 'ui/src'
 import { Text } from 'ui/src/components/text/Text'
 import { iconSizes } from 'ui/src/theme'
-import { Modal } from 'uniswap/src/components/modals/Modal'
-import { FORCountry } from 'uniswap/src/features/fiatOnRamp/types'
-import { ModalName } from 'uniswap/src/features/telemetry/constants'
+import { Modal } from 'lx/src/components/modals/Modal'
+import { FORCountry } from 'lx/src/features/fiatOnRamp/types'
+import { ModalName } from 'lx/src/features/telemetry/constants'
 import { bubbleToTop } from 'utilities/src/primitives/array'
 
 const ROW_ITEM_SIZE = 56

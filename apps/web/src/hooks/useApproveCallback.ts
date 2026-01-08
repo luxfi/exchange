@@ -1,8 +1,8 @@
-import { Currency, CurrencyAmount } from '@uniswap/sdk-core'
+import { Currency, CurrencyAmount } from '@luxamm/sdk-core'
 import { ApprovalState, useApproval } from 'lib/hooks/useApproval'
 import { useCallback } from 'react'
 import { useHasPendingApproval, useTransactionAdder } from 'state/transactions/hooks'
-import { TransactionType } from 'uniswap/src/features/transactions/types/transactionDetails'
+import { TransactionType } from 'lx/src/features/transactions/types/transactionDetails'
 
 export { ApprovalState } from 'lib/hooks/useApproval'
 

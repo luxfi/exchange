@@ -1,7 +1,7 @@
 import { useCallback, useState } from 'react'
 import { Flex } from 'ui/src/components/layout'
 import { SWIPEABLE_CARD_Y_OFFSET } from 'ui/src/components/swipeablecards/BaseCard'
-import { PickedCardProps, SwipeableCardStackProps } from 'ui/src/components/swipeablecards/props'
+import type { PickedCardProps, SwipeableCardStackProps } from 'ui/src/components/swipeablecards/props'
 import { SwipeableCard } from 'ui/src/components/swipeablecards/SwipeableCard'
 import { usePrevious } from 'utilities/src/react/hooks'
 
@@ -34,7 +34,7 @@ export function BaseSwipeableCardStack<T extends PickedCardProps>({
 
       onSwiped?.(card, index)
     },
-    [activeIndex, cards, keyExtractor, onSwiped],
+    [activeIndex, cards, keyExtractor, onSwiped]
   )
 
   const handleLayout = useCallback(({ height, yOffset }: { height: number; yOffset: number }) => {

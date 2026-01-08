@@ -1,4 +1,4 @@
-import i18n from 'uniswap/src/i18n'
+import i18n from 'lx/src/i18n'
 
 export const getPositionPageTitle = (path?: string) => {
   const parts = path?.split('/').filter((part) => part !== '')

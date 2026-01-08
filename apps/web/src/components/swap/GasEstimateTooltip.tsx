@@ -9,9 +9,9 @@ import { useMultichainContext } from 'state/multichain/useMultichainContext'
 import { SubmittableTrade } from 'state/routing/types'
 import { isUniswapXTrade } from 'state/routing/utils'
 import { ThemedText } from 'theme/components'
-import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
-import { ElementName, SwapEventName } from 'uniswap/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
+import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
+import { ElementName, SwapEventName } from 'lx/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
 import { NumberType } from 'utilities/src/format/types'
 
 const StyledGasIcon = deprecatedStyled(Gas)`

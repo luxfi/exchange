@@ -1,19 +1,19 @@
-import { Switch as TSwitch } from 'tamagui'
 import type { GetProps } from 'tamagui'
+import { Switch as TSwitch } from 'tamagui'
 
 export type SwitchProps = GetProps<typeof TSwitch> & {
-  size?: 'sm' | 'md' | 'lg'
+  switchSize?: 'sm' | 'md' | 'lg'
 }
 
-export function Switch({ size = 'md', ...props }: SwitchProps) {
+export function Switch({ switchSize = 'md', ...props }: SwitchProps) {
   const sizeMap = {
-    sm: '$2',
-    md: '$3',
-    lg: '$4',
-  } as const
+    sm: '$spacing16' as const,
+    md: '$spacing20' as const,
+    lg: '$spacing24' as const,
+  }
 
   return (
-    <TSwitch size={sizeMap[size]} {...props}>
+    <TSwitch size={sizeMap[switchSize]} {...props}>
       <TSwitch.Thumb animation="quick" />
     </TSwitch>
   )

@@ -5,8 +5,8 @@ import { useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Anchor, AnchorProps, Flex, Text } from 'ui/src'
 import { spacing } from 'ui/src/theme'
-import { uniswapUrls } from 'uniswap/src/constants/urls'
-import { ModalName } from 'uniswap/src/features/telemetry/constants'
+import { uniswapUrls } from 'lx/src/constants/urls'
+import { ModalName } from 'lx/src/features/telemetry/constants'
 import { useBooleanState } from 'utilities/src/react/useBooleanState'
 
 const MenuLink = ({ children, ...rest }: AnchorProps) => (

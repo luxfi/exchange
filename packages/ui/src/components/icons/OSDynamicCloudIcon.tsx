@@ -1,6 +1,6 @@
 import { memo } from 'react'
 import { Platform } from 'react-native'
-import { IconProps } from 'ui/src/components/factories/createIcon'
+import type { IconProps } from 'ui/src/components/factories/createIcon'
 import { Cloud, GoogleDrive } from 'ui/src/components/icons'
 
 function _OSDynamicCloudIcon(iconProps: IconProps): JSX.Element {

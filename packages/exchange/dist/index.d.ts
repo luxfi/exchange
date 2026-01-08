@@ -14,4 +14,5 @@ export * from './contracts';
 export * from './dex';
 export * from './hooks';
 export * from './stores';
+export * from './bridge';
 //# sourceMappingURL=index.d.ts.map

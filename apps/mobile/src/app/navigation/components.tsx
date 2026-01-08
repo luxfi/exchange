@@ -3,9 +3,9 @@ import { BackButton } from 'src/components/buttons/BackButton'
 import { Text, TouchableArea } from 'ui/src'
 import { RotatableChevron } from 'ui/src/components/icons'
 import { iconSizes } from 'ui/src/theme'
-import { ElementName } from 'uniswap/src/features/telemetry/constants'
-import Trace from 'uniswap/src/features/telemetry/Trace'
-import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+import { ElementName } from 'lx/src/features/telemetry/constants'
+import Trace from 'lx/src/features/telemetry/Trace'
+import { TestID } from 'lx/src/test/fixtures/testIDs'
 
 export const renderHeaderBackButton = (): JSX.Element => (
   <BackButton color="$neutral2" size={iconSizes.icon28} testID={TestID.OnboardingHeaderBack} />

@@ -8,7 +8,7 @@ import { capitalize } from 'tsafe'
 import { Flex, styled, Text, useSporeColors } from 'ui/src'
 import { iconSizes, zIndexes } from 'ui/src/theme'
 import { useShadowPropsShort } from 'ui/src/theme/shadows'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { UniverseChainId } from 'lx/src/features/chains/types'
 import { getChainUrlParam } from 'utils/chainParams'
 
 export function getOutageBannerSessionStorageKey(chainId: UniverseChainId) {
@@ -22,7 +22,7 @@ const OutageCloseButton = styled(X, {
   p: '$spacing4',
   right: 6,
   top: 8,
-  borderRadius: '50%',
+  borderRadius: '$roundedFull',
   backgroundColor: '$surface5',
   color: '$neutral2',
   position: 'absolute',
@@ -89,7 +89,7 @@ export function OutageBanner({ chainId, version }: ChainOutageData) {
           <Text variant="body3" color={colors.neutral2.val}>
             <Trans i18nKey="outageBanner.message.sub" />
           </Text>
-          <ExternalLink href="https://support.uniswap.org/hc/en-us/articles/23952001935373-Subgraph-downtime">
+          <ExternalLink href="https://docs.lux.exchange/help/subgraph-downtime">
             <Text variant="body3" color={colors.accent1.val}>
               <Trans i18nKey="common.button.learn" />
             </Text>

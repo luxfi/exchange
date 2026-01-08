@@ -1,3 +1,4 @@
+import { isLuxdMode } from 'playwright/anvil/anvil-manager'
 import { getTest } from 'playwright/fixtures'
 import { mockUnitagResponse, openAccountDrawerAndVerify } from 'playwright/fixtures/account'
 import { HAYDEN_ADDRESS, HAYDEN_ENS, UNITAG_NAME } from 'playwright/fixtures/wallets'
@@ -14,6 +15,8 @@ test.describe(
     ],
   },
   () => {
+    // ENS is Ethereum-specific - Lux doesn't have ENS
+
     // Test cases:
     // 1. Shows ENS, followed by address, if ENS exists but not Unitag
     // 2. Shows Unitag, followed by address, if user has both Unitag and ENS
@@ -21,12 +24,20 @@ test.describe(
     const ACCOUNT_WITH_ENS = HAYDEN_ADDRESS
 
     test('shows ENS, followed by address when ENS exists but not Unitag', async ({ page }) => {
+      // ENS is Ethereum-only - not applicable on Lux
+      if (isLuxdMode()) {
+        return
+      }
       await page.goto(`/swap?eagerlyConnectAddress=${ACCOUNT_WITH_ENS}`)
 
       await openAccountDrawerAndVerify({ page, expectedPrimaryText: HAYDEN_ENS, walletAddress: HAYDEN_ADDRESS })
     })
 
     test('shows Unitag when user has both Unitag and ENS', async ({ page }) => {
+      // ENS is Ethereum-only - not applicable on Lux
+      if (isLuxdMode()) {
+        return
+      }
       await mockUnitagResponse({ page, address: HAYDEN_ADDRESS, unitag: UNITAG_NAME })
       await page.goto(`/swap?eagerlyConnectAddress=${HAYDEN_ADDRESS}`)
 

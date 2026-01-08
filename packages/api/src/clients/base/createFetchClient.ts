@@ -1,10 +1,10 @@
-import { FetchError } from '@universe/api/src/clients/base/errors'
+import { FetchError } from '@luxfi/api/src/clients/base/errors'
 import type {
   CustomOptions,
   FetchClient,
   FetchClientContext,
   StandardFetchOptions,
-} from '@universe/api/src/clients/base/types'
+} from '@luxfi/api/src/clients/base/types'
 
 export function createFetchClient({
   baseUrl,

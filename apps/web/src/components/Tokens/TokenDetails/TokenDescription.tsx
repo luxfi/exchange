@@ -12,10 +12,10 @@ import { ClickableTamaguiStyle, EllipsisTamaguiStyle } from 'theme/components/st
 import { Flex, Paragraph, styled, Text, TouchableArea, useSporeColors } from 'ui/src'
 import { GlobeFilled } from 'ui/src/components/icons/GlobeFilled'
 import { XTwitter } from 'ui/src/components/icons/XTwitter'
-import { getBlockExplorerIcon } from 'uniswap/src/components/chains/BlockExplorerIcon'
-import { getChainInfo } from 'uniswap/src/features/chains/chainInfo'
-import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
-import { ExplorerDataType, getExplorerLink, openUri } from 'uniswap/src/utils/linking'
+import { getBlockExplorerIcon } from 'lx/src/components/chains/BlockExplorerIcon'
+import { getChainInfo } from 'lx/src/features/chains/chainInfo'
+import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
+import { ExplorerDataType, getExplorerLink, openUri } from 'lx/src/utils/linking'
 import { shortenAddress } from 'utilities/src/addresses'
 
 const TokenInfoButton = styled(Text, {
@@ -167,7 +167,7 @@ export function TokenDescription() {
           <Text
             display="flex"
             color="neutral2"
-            fontWeight="485"
+            fontWeight={500}
             variant="body2"
             pt="0.5em"
             $sm={{ mb: '2rem' }}

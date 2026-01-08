@@ -1,7 +1,12 @@
-import { Trade } from '@uniswap/router-sdk'
-import { CurrencyAmount, Percent, TradeType } from '@uniswap/sdk-core'
-import { Pair, Route as V2Route } from '@uniswap/v2-sdk'
-import { Route as V3Route } from '@uniswap/v3-sdk'
+import { Trade, type RouteV2, type RouteV3 } from '@luxdex/router-sdk'
+import { CurrencyAmount, Percent, TradeType, type Token } from '@luxamm/sdk-core'
+import { Pair, Route as V2Route } from '@luxamm/v2-sdk'
+import { Route as V3Route } from '@luxamm/v3-sdk'
+
+// Type assertion helper for SDK compatibility
+// @luxdex/router-sdk uses @uniswap/* SDKs internally while local code uses @luxamm/* SDKs
+type AsRouteV2<T extends Token, U extends Token> = RouteV2<T, U>
+type AsRouteV3<T extends Token, U extends Token> = RouteV3<T, U>
 import { PriceChartData } from 'components/Charts/PriceChart'
 import JSBI from 'jsbi'
 import { UTCTimestamp } from 'lightweight-charts'
@@ -37,7 +42,7 @@ describe('prices', () => {
           new Trade({
             v2Routes: [
               {
-                routev2: new V2Route([pair12], TEST_TOKEN_1, TEST_TOKEN_2),
+                routev2: new V2Route([pair12], TEST_TOKEN_1, TEST_TOKEN_2) as unknown as AsRouteV2<typeof TEST_TOKEN_1, typeof TEST_TOKEN_2>,
                 inputAmount: toCurrencyAmount(TEST_TOKEN_1, 1000),
                 outputAmount: toCurrencyAmount(TEST_TOKEN_2, 1000),
               },
@@ -56,7 +61,7 @@ describe('prices', () => {
           new Trade({
             v3Routes: [
               {
-                routev3: new V3Route([TEST_POOL_12], TEST_TOKEN_1, TEST_TOKEN_2),
+                routev3: new V3Route([TEST_POOL_12], TEST_TOKEN_1, TEST_TOKEN_2) as unknown as AsRouteV3<typeof TEST_TOKEN_1, typeof TEST_TOKEN_2>,
                 inputAmount: toCurrencyAmount(TEST_TOKEN_1, 1000),
                 outputAmount: toCurrencyAmount(TEST_TOKEN_2, 1000),
               },
@@ -74,7 +79,7 @@ describe('prices', () => {
           new Trade({
             v2Routes: [
               {
-                routev2: new V2Route([pair12, pair23], TEST_TOKEN_1, TEST_TOKEN_3),
+                routev2: new V2Route([pair12, pair23], TEST_TOKEN_1, TEST_TOKEN_3) as unknown as AsRouteV2<typeof TEST_TOKEN_1, typeof TEST_TOKEN_3>,
                 inputAmount: toCurrencyAmount(TEST_TOKEN_1, 1000),
                 outputAmount: toCurrencyAmount(TEST_TOKEN_3, 1000),
               },
@@ -92,14 +97,14 @@ describe('prices', () => {
           new Trade({
             v2Routes: [
               {
-                routev2: new V2Route([pair12, pair23], TEST_TOKEN_1, TEST_TOKEN_3),
+                routev2: new V2Route([pair12, pair23], TEST_TOKEN_1, TEST_TOKEN_3) as unknown as AsRouteV2<typeof TEST_TOKEN_1, typeof TEST_TOKEN_3>,
                 inputAmount: toCurrencyAmount(TEST_TOKEN_1, 1000),
                 outputAmount: toCurrencyAmount(TEST_TOKEN_3, 1000),
               },
             ],
             v3Routes: [
               {
-                routev3: new V3Route([TEST_POOL_13], TEST_TOKEN_1, TEST_TOKEN_3),
+                routev3: new V3Route([TEST_POOL_13], TEST_TOKEN_1, TEST_TOKEN_3) as unknown as AsRouteV3<typeof TEST_TOKEN_1, typeof TEST_TOKEN_3>,
                 inputAmount: toCurrencyAmount(TEST_TOKEN_1, 1000),
                 outputAmount: toCurrencyAmount(TEST_TOKEN_3, 1000),
               },

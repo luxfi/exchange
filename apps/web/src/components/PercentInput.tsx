@@ -3,7 +3,7 @@ import { NumericalInputFontStyle } from 'pages/Swap/common/shared'
 import React, { forwardRef } from 'react'
 // biome-ignore lint/style/noRestrictedImports: styled-components needed for input component styling
 import styled from 'styled-components'
-import { useCurrentLocale } from 'uniswap/src/features/language/hooks'
+import { useCurrentLocale } from 'lx/src/features/language/hooks'
 
 const PercentInput = forwardRef<HTMLInputElement, InputProps>(
   ({ value, onUserInput, placeholder, testId, maxDecimals = 2, ...rest }: InputProps, ref) => {

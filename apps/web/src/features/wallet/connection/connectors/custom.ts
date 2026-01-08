@@ -8,7 +8,7 @@ import { useSignInWithPasskey } from 'hooks/useSignInWithPasskey'
 import { useUpdateAtom } from 'jotai/utils'
 import { useMemo } from 'react'
 import { persistHideMobileAppPromoBannerAtom } from 'state/application/atoms'
-import { CONNECTION_PROVIDER_IDS, CONNECTION_PROVIDER_NAMES } from 'uniswap/src/constants/web3'
+import { CONNECTION_PROVIDER_IDS, CONNECTION_PROVIDER_NAMES } from 'lx/src/constants/web3'
 
 const APPLY_CUSTOM_CONNECTOR_META_MAP = {
   [CONNECTION_PROVIDER_IDS.UNISWAP_WALLET_CONNECT_CONNECTOR_ID]: applyUniswapWalletConnectorMeta,

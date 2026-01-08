@@ -1,7 +1,7 @@
 import { Trans } from '@lingui/macro'
-import { Trace } from '@uniswap/analytics'
-import { InterfacePageName } from '@uniswap/analytics-events'
-import { Pair } from '@uniswap/v2-sdk'
+import { Trace } from '@luxdex/analytics'
+import { InterfacePageName } from '@luxdex/analytics-events'
+import { Pair } from '@luxamm/v2-sdk'
 import { useWeb3React } from '@web3-react/core'
 import { UNSUPPORTED_V2POOL_CHAIN_IDS } from 'constants/chains'
 import JSBI from 'jsbi'
@@ -164,7 +164,7 @@ export default function Pool() {
                 <ExternalLink
                   style={{ color: theme.white, textDecoration: 'underline' }}
                   target="_blank"
-                  href="https://docs.uniswap.org/protocol/V2/concepts/core-concepts/pools"
+                  href="https://docs.lux.exchange/protocol/v2/core-concepts/pools"
                 >
                   <ThemedText.DeprecatedWhite fontSize={14}>
                     <Trans>Read more about providing liquidity</Trans>
@@ -231,7 +231,7 @@ export default function Pool() {
                     <ButtonSecondary>
                       <RowBetween>
                         <Trans>
-                          <ExternalLink href={'https://v2.info.uniswap.org/account/' + account}>
+                          <ExternalLink href={'https://info.lux.exchange/v2/account/' + account}>
                             Account analytics and accrued fees
                           </ExternalLink>
                           <span> ↗ </span>

@@ -1,6 +1,7 @@
-import React, { lazy, Suspense } from 'react'
+import type React from 'react'
+import { lazy, Suspense } from 'react'
 import { Flex } from 'ui/src/components/layout/Flex'
-import { UniconProps } from 'ui/src/components/Unicon/types'
+import type { UniconProps } from 'ui/src/components/Unicon/types'
 import { getUniconColors, getUniconsDeterministicHash } from 'ui/src/components/Unicon/utils'
 import { useIsDarkMode } from 'ui/src/hooks/useIsDarkMode'
 import { isEVMAddressWithChecksum } from 'utilities/src/addresses/evm/evm'
@@ -36,7 +37,7 @@ function UniconSVGInner({
   return (
     <svg height={size} viewBox={`0 0 ${size} ${size}`} width={size} xmlns="http://www.w3.org/2000/svg">
       <g style={{ transformOrigin: 'center center' }}>
-        <circle cx={size / 2} cy={size / 2} fill={color + `${isDarkMode ? '29' : '1F'}`} r={size / 2} />
+        <circle cx={size / 2} cy={size / 2} fill={`${color}${isDarkMode ? '29' : '1F'}`} r={size / 2} />
         <g transform={`translate(${translateX}, ${translateY}) scale(${scaleValue})`}>
           {selectedIconPaths?.map((pathData: string, index: number) => (
             <path key={index} clipRule="evenodd" d={pathData} fill={color} fillRule="evenodd" />

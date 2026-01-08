@@ -2,7 +2,7 @@ import { PropsWithChildren } from 'react'
 import { Trans } from 'react-i18next'
 import { Link, LinkProps } from 'react-router'
 import { Text } from 'ui/src'
-import { uniswapUrls } from 'uniswap/src/constants/urls'
+import { uniswapUrls } from 'lx/src/constants/urls'
 
 export function Terms(): JSX.Element {
   return (

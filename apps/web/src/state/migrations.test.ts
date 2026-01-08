@@ -5,7 +5,7 @@ import { initialState as initialListsState } from 'state/lists/reducer'
 import { PERSIST_VERSION } from 'state/migrations'
 import { RouterPreference } from 'state/routing/types'
 import { initialState as initialUserState } from 'state/user/reducer'
-import { initialTransactionsState } from 'uniswap/src/features/transactions/slice'
+import { initialTransactionsState } from 'lx/src/features/transactions/slice'
 
 const defaultState = {
   lists: {},

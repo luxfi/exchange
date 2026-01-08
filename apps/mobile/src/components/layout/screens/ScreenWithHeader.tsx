@@ -5,7 +5,7 @@ import { Screen } from 'src/components/layout/Screen'
 import { HorizontalEdgeGestureTarget } from 'src/components/layout/screens/EdgeGestureTarget'
 import { ColorTokens, Flex, flexStyles } from 'ui/src'
 import { iconSizes } from 'ui/src/theme'
-import { useAppInsets } from 'uniswap/src/hooks/useAppInsets'
+import { useAppInsets } from 'lx/src/hooks/useAppInsets'
 
 type ScreenWithHeaderProps = {
   centerElement?: JSX.Element

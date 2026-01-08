@@ -65,7 +65,7 @@ export const IconButton = forwardRef<TamaguiElement, IconButtonProps>(function I
     focusScaling = 'equal:smaller-button',
     ...props
   },
-  ref,
+  ref
 ) {
   useButtonAnimationOnChange({
     shouldAnimateBetweenLoadingStates,

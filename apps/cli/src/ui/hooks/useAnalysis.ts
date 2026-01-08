@@ -1,5 +1,5 @@
-import type { OrchestratorConfig } from '@universe/cli/src/core/orchestrator'
-import { OrchestratorService, type ProgressEvent } from '@universe/cli/src/ui/services/orchestrator-service'
+import type { OrchestratorConfig } from '@luxfi/cli/src/core/orchestrator'
+import { OrchestratorService, type ProgressEvent } from '@luxfi/cli/src/ui/services/orchestrator-service'
 import { useCallback, useState } from 'react'
 
 interface UseAnalysisResult {

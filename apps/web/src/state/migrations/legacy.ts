@@ -4,7 +4,7 @@ import { initialState as initialListsState } from 'state/lists/reducer'
 import { RouterPreference } from 'state/routing/types'
 import { initialState as initialUserState, UserState } from 'state/user/reducer'
 import { SlippageTolerance } from 'state/user/types'
-import { TransactionDetails } from 'uniswap/src/features/transactions/types/transactionDetails'
+import { TransactionDetails } from 'lx/src/features/transactions/types/transactionDetails'
 
 export interface LocalWebTransactionState {
   [address: Address]: {

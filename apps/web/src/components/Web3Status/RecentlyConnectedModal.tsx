@@ -1,4 +1,4 @@
-import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import { FeatureFlags, useFeatureFlag } from '@luxfi/gating'
 import StatusIcon from 'components/StatusIcon'
 import { useRecentConnectorId } from 'components/Web3Provider/constants'
 import { useIsMobile } from 'hooks/screenSize/useIsMobile'
@@ -11,10 +11,10 @@ import { useEmbeddedWalletState } from 'state/embeddedWallet/store'
 import { AdaptiveWebPopoverContent, Button, Flex, Text, useShadowPropsShort } from 'ui/src'
 import { Unitag } from 'ui/src/components/icons/Unitag'
 import { X } from 'ui/src/components/icons/X'
-import { CONNECTION_PROVIDER_IDS } from 'uniswap/src/constants/web3'
-import { DisplayNameType } from 'uniswap/src/features/accounts/types'
-import { useOnchainDisplayName } from 'uniswap/src/features/accounts/useOnchainDisplayName'
-import { ModalName } from 'uniswap/src/features/telemetry/constants'
+import { CONNECTION_PROVIDER_IDS } from 'lx/src/constants/web3'
+import { DisplayNameType } from 'lx/src/features/accounts/types'
+import { useOnchainDisplayName } from 'lx/src/features/accounts/useOnchainDisplayName'
+import { ModalName } from 'lx/src/features/telemetry/constants'
 import { shortenAddress } from 'utilities/src/addresses'
 import { useOnClickOutside } from 'utilities/src/react/hooks'
 
@@ -131,7 +131,7 @@ function RecentlyConnectedModalUI({
         </Flex>
         <Flex row alignSelf="stretch" $md={{ ml: 'auto', alignSelf: 'center' }}>
           <Button variant="default" py="$spacing8" emphasis="primary" onPress={onSignIn}>
-            <Text variant="buttonLabel3" color="$surface1" lineHeight="20px">
+            <Text variant="buttonLabel3" color="$surface1" lineHeight={20}>
               {t('nav.logIn.button')}
             </Text>
           </Button>

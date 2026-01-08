@@ -1,12 +1,12 @@
-import { Currency } from '@uniswap/sdk-core'
+import { Currency } from '@luxamm/sdk-core'
 import { DepositInfo } from 'components/Liquidity/types'
 import { useModalInitialState } from 'hooks/useModalInitialState'
 import { useDerivedIncreaseLiquidityInfo } from 'pages/IncreaseLiquidity/hooks/useDerivedIncreaseLiquidityInfo'
 import { createContext, Dispatch, PropsWithChildren, SetStateAction, useContext, useMemo, useState } from 'react'
 import { LiquidityModalInitialState } from 'state/application/reducer'
 import { PositionField } from 'types/position'
-import { ModalName } from 'uniswap/src/features/telemetry/constants'
-import { TransactionStep } from 'uniswap/src/features/transactions/steps/types'
+import { ModalName } from 'lx/src/features/telemetry/constants'
+import { TransactionStep } from 'lx/src/features/transactions/steps/types'
 
 export enum IncreaseLiquidityStep {
   Input = 0,

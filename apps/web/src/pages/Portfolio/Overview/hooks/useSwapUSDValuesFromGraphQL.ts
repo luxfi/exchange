@@ -1,8 +1,8 @@
-import { GraphQLApi } from '@universe/api'
+import { GraphQLApi } from '@luxfi/api'
 import { useMemo } from 'react'
-import { parseUSDValueFromAssetChange } from 'uniswap/src/features/activity/utils/remote'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { toGraphQLChain } from 'uniswap/src/features/chains/utils'
+import { parseUSDValueFromAssetChange } from 'lx/src/features/activity/utils/remote'
+import { UniverseChainId } from 'lx/src/features/chains/types'
+import { toGraphQLChain } from 'lx/src/features/chains/utils'
 import { ONE_DAY_MS } from 'utilities/src/time/time'
 
 /**

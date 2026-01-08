@@ -2,11 +2,11 @@ import { buildActivityRowFragments } from 'pages/Portfolio/Activity/ActivityTabl
 import { getTransactionTypeFilterOptions } from 'pages/Portfolio/Activity/Filters/utils'
 import { useTranslation } from 'react-i18next'
 import { iconSizes } from 'ui/src/theme/iconSizes'
-import { SplitLogo } from 'uniswap/src/components/CurrencyLogo/SplitLogo'
-import { TokenLogo } from 'uniswap/src/components/CurrencyLogo/TokenLogo'
-import { CurrencyInfo } from 'uniswap/src/features/dataApi/types'
-import { TransactionDetails } from 'uniswap/src/features/transactions/types/transactionDetails'
-import { getSymbolDisplayText } from 'uniswap/src/utils/currency'
+import { SplitLogo } from 'lx/src/components/CurrencyLogo/SplitLogo'
+import { TokenLogo } from 'lx/src/components/CurrencyLogo/TokenLogo'
+import { CurrencyInfo } from 'lx/src/features/dataApi/types'
+import { TransactionDetails } from 'lx/src/features/transactions/types/transactionDetails'
+import { getSymbolDisplayText } from 'lx/src/utils/currency'
 
 const COMPACT_TOKEN_LOGO_SIZE = iconSizes.icon24
 

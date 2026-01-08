@@ -5,8 +5,32 @@
  * web, iOS, and Android using Tamagui.
  */
 // Theme
-export * from './theme';
-// Components
-export * from './components';
+
 // Re-export Tamagui primitives
-export { Stack, XStack, YStack, ZStack, Text, Paragraph, H1, H2, H3, H4, H5, H6, Separator, Spinner, ScrollView, Image, Input, TextArea, Label, Theme, useTheme, useMedia, } from 'tamagui';
+export {
+  H1,
+  H2,
+  H3,
+  H4,
+  H5,
+  H6,
+  Image,
+  Input,
+  Label,
+  Paragraph,
+  ScrollView,
+  Separator,
+  Spinner,
+  Stack,
+  Text,
+  TextArea,
+  Theme,
+  useMedia,
+  useTheme,
+  XStack,
+  YStack,
+  ZStack,
+} from 'tamagui'
+// Components
+export * from './components'
+export * from './theme'

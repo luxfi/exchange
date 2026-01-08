@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unnecessary-condition */
 import { createSlice } from '@reduxjs/toolkit'
 import { FiatOnRampTransactionStatus, FiatOnRampTransactionType } from 'state/fiatOnRampTransactions/types'
-import { FORTransaction } from 'uniswap/src/features/fiatOnRamp/types'
+import { FORTransaction } from 'lx/src/features/fiatOnRamp/types'
 
 export type FiatOnRampTransactionDetails = {
   account: string

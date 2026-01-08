@@ -2,8 +2,7 @@ import { useQuery } from '@tanstack/react-query'
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { useIsDarkMode } from 'ui/src/hooks/useIsDarkMode'
 import { useSporeColors } from 'ui/src/hooks/useSporeColors'
-import type { ThemeKeys } from 'ui/src/index'
-import { type ColorTokens } from 'ui/src/index'
+import type { ColorTokens, ThemeKeys } from 'ui/src/index'
 import { colorsDark, colorsLight } from 'ui/src/theme'
 import type { ColorStrategy, ExtractedColors } from 'ui/src/utils/colors/getExtractedColors'
 import { getExtractedColors } from 'ui/src/utils/colors/getExtractedColors'
@@ -32,7 +31,7 @@ type ExtractedColorsOptions = {
 
 export function useExtractedColors(
   imageUrl: Maybe<string>,
-  options: ExtractedColorsOptions = { fallback: 'accent1', cache: true },
+  options: ExtractedColorsOptions = { fallback: 'accent1', cache: true }
 ): { colors?: ExtractedColors; colorsLoading: boolean } {
   const sporeColors = useSporeColors()
   const getImageColors = useCallback(
@@ -42,7 +41,7 @@ export function useExtractedColors(
         cache: options.cache,
         colorStrategy: options.colorStrategy,
       }),
-    [imageUrl, options.fallback, options.cache, sporeColors, options.colorStrategy],
+    [imageUrl, options.fallback, options.cache, sporeColors, options.colorStrategy]
   )
 
   const { data: colors, isLoading: colorsLoading } = useQuery({
@@ -59,11 +58,12 @@ function getSpecialCaseTokenColor(imageUrl: Maybe<string>, isDarkMode: boolean):
     return isDarkMode ? '#FFFFFF' : '#000000'
   }
 
-  if (!imageUrl || !SPECIAL_CASE_TOKEN_COLORS[imageUrl]) {
+  if (!imageUrl) {
     return null
   }
 
-  return SPECIAL_CASE_TOKEN_COLORS[imageUrl]
+  const specialColor = SPECIAL_CASE_TOKEN_COLORS[imageUrl]
+  return specialColor ?? null
 }
 /**
  * Picks a contrast-passing color from a given token image URL and background color.

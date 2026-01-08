@@ -23,11 +23,11 @@ import {
   WebBottomSheet,
 } from 'ui/src'
 import { INTERFACE_NAV_HEIGHT, zIndexes } from 'ui/src/theme'
-import { useConnectionStatus } from 'uniswap/src/features/accounts/store/hooks'
-import { Platform } from 'uniswap/src/features/platforms/types/Platform'
-import { InterfaceEventName } from 'uniswap/src/features/telemetry/constants'
-import Trace from 'uniswap/src/features/telemetry/Trace'
-import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+import { useConnectionStatus } from 'lx/src/features/accounts/store/hooks'
+import { Platform } from 'lx/src/features/platforms/types/Platform'
+import { InterfaceEventName } from 'lx/src/features/telemetry/constants'
+import Trace from 'lx/src/features/telemetry/Trace'
+import { TestID } from 'lx/src/test/fixtures/testIDs'
 
 const DRAWER_SPECS = {
   WIDTH_XL: '390px',
@@ -201,6 +201,7 @@ function AccountSideDrawer({ isOpen, onClose, children }: AccountDrawerProps) {
             <Trace logPress eventOnTrigger={InterfaceEventName.MiniPortfolioToggled} properties={{ type: 'close' }}>
               <TouchableArea group zIndex={zIndexes.background} width={60}>
                 <CloseDrawer onPress={onClose} data-testid="close-account-drawer">
+                  {/* @ts-expect-error - Tamagui variant type inference issue */}
                   <ChevronBackground backgroundFilled={isUkBannerOpen}>
                     <ChevronsRight size={24} color={colors.neutral2.val} />
                   </ChevronBackground>

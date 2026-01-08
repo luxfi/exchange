@@ -3,9 +3,9 @@ import {
   parseSwapLinkMobileFormatOrThrow,
   parseSwapLinkWebFormatOrThrow,
 } from 'src/features/deepLinking/parseSwapLink'
-import { AssetType } from 'uniswap/src/entities/assets'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { CurrencyField } from 'uniswap/src/types/currency'
+import { AssetType } from 'lx/src/entities/assets'
+import { UniverseChainId } from 'lx/src/features/chains/types'
+import { CurrencyField } from 'lx/src/types/currency'
 
 describe('parseSwapLink', () => {
   describe('Mobile format', () => {

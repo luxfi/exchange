@@ -6,16 +6,16 @@ import { usePasskeyAuthWithHelpModal } from 'hooks/usePasskeyAuthWithHelpModal'
 import { useDispatch } from 'react-redux'
 import { useEmbeddedWalletState } from 'state/embeddedWallet/store'
 import { updateIsEmbeddedWalletBackedUp } from 'state/user/reducer'
-import { CONNECTION_PROVIDER_IDS } from 'uniswap/src/constants/web3'
+import { CONNECTION_PROVIDER_IDS } from 'lx/src/constants/web3'
 import {
   createNewEmbeddedWallet,
   signInWithPasskey as signInWithPasskeyAPI,
   signMessagesWithPasskey,
-} from 'uniswap/src/features/passkey/embeddedWallet'
-import { InterfaceEventName } from 'uniswap/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
-import { WalletConnectionResult } from 'uniswap/src/features/telemetry/types'
-import { useClaimUnitag } from 'uniswap/src/features/unitags/hooks/useClaimUnitag'
+} from 'lx/src/features/passkey/embeddedWallet'
+import { InterfaceEventName } from 'lx/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
+import { WalletConnectionResult } from 'lx/src/features/telemetry/types'
+import { useClaimUnitag } from 'lx/src/features/unitags/hooks/useClaimUnitag'
 import { logger } from 'utilities/src/logger/logger'
 import { isIFramed } from 'utils/isIFramed'
 

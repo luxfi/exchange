@@ -1,4 +1,4 @@
-import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
+import { ProtocolVersion } from '@luxdex/client-data-api/dist/data/v1/poolTypes_pb'
 import { LiquidityPositionInfoBadges } from 'components/Liquidity/LiquidityPositionInfoBadges'
 import {
   LiquidityPositionStatusIndicator,
@@ -13,13 +13,13 @@ import { useNavigate } from 'react-router'
 import { ClickableTamaguiStyle } from 'theme/components/styles'
 import { Anchor, Circle, Flex, Text, useMedia } from 'ui/src'
 import { RightArrow } from 'ui/src/components/icons/RightArrow'
-import { NetworkLogo } from 'uniswap/src/components/CurrencyLogo/NetworkLogo'
-import { SplitLogo } from 'uniswap/src/components/CurrencyLogo/SplitLogo'
-import { getChainInfo } from 'uniswap/src/features/chains/chainInfo'
-import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
-import { useCurrencyInfos } from 'uniswap/src/features/tokens/useCurrencyInfo'
-import { currencyId } from 'uniswap/src/utils/currencyId'
-import { getPoolDetailsURL } from 'uniswap/src/utils/linking'
+import { NetworkLogo } from 'lx/src/components/CurrencyLogo/NetworkLogo'
+import { SplitLogo } from 'lx/src/components/CurrencyLogo/SplitLogo'
+import { getChainInfo } from 'lx/src/features/chains/chainInfo'
+import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
+import { useCurrencyInfos } from 'lx/src/features/tokens/useCurrencyInfo'
+import { currencyId } from 'lx/src/utils/currencyId'
+import { getPoolDetailsURL } from 'lx/src/utils/linking'
 import { isV4UnsupportedChain } from 'utils/networkSupportsV4'
 
 interface LiquidityPositionInfoProps {

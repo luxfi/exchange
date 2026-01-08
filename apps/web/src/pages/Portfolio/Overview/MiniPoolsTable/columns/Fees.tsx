@@ -1,12 +1,12 @@
-import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
+import { ProtocolVersion } from '@luxdex/client-data-api/dist/data/v1/poolTypes_pb'
 import { PositionInfo } from 'components/Liquidity/types'
 import { useLpIncentivesFormattedEarnings } from 'hooks/useLpIncentivesFormattedEarnings'
 import { EmptyTableCell } from 'pages/Portfolio/EmptyTableCell'
 import { memo } from 'react'
 import { EM_DASH, Text } from 'ui/src'
-import { PollingInterval } from 'uniswap/src/constants/misc'
-import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
-import { useUSDCValue } from 'uniswap/src/features/transactions/hooks/useUSDCPrice'
+import { PollingInterval } from 'lx/src/constants/misc'
+import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
+import { useUSDCValue } from 'lx/src/features/transactions/hooks/useUSDCPrice'
 import { NumberType } from 'utilities/src/format/types'
 
 // Third column cell component - Fees in USD

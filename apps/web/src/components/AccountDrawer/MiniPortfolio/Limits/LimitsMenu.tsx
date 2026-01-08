@@ -10,8 +10,8 @@ import { LimitDisclaimer } from 'components/swap/LimitDisclaimer'
 import { useCallback, useMemo, useState } from 'react'
 import { Trans, useTranslation } from 'react-i18next'
 import { Button, Flex } from 'ui/src'
-import { UniswapXOrderDetails } from 'uniswap/src/features/transactions/types/transactionDetails'
-import { isLimitCancellable } from 'uniswap/src/features/transactions/utils/uniswapX.utils'
+import { UniswapXOrderDetails } from 'lx/src/features/transactions/types/transactionDetails'
+import { isLimitCancellable } from 'lx/src/features/transactions/utils/uniswapX.utils'
 
 export function LimitsMenu({ onClose, account }: { account: string; onClose: () => void }) {
   const { t } = useTranslation()

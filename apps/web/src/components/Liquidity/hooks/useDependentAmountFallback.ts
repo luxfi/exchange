@@ -1,11 +1,11 @@
-import { Currency, CurrencyAmount } from '@uniswap/sdk-core'
-import { TradingApi } from '@universe/api'
+import { Currency, CurrencyAmount } from '@luxamm/sdk-core'
+import { TradingApi } from '@luxfi/api'
 import { DepositInfo } from 'components/Liquidity/types'
 import { useEffect, useMemo, useState } from 'react'
 import { PositionField } from 'types/position'
-import { useCreateLpPositionCalldataQuery } from 'uniswap/src/data/apiClients/tradingApi/useCreateLpPositionCalldataQuery'
-import { useIncreaseLpPositionCalldataQuery } from 'uniswap/src/data/apiClients/tradingApi/useIncreaseLpPositionCalldataQuery'
-import { useUSDCValue } from 'uniswap/src/features/transactions/hooks/useUSDCPrice'
+import { useCreateLpPositionCalldataQuery } from 'lx/src/data/apiClients/tradingApi/useCreateLpPositionCalldataQuery'
+import { useIncreaseLpPositionCalldataQuery } from 'lx/src/data/apiClients/tradingApi/useIncreaseLpPositionCalldataQuery'
+import { useUSDCValue } from 'lx/src/features/transactions/hooks/useUSDCPrice'
 import { ONE_SECOND_MS } from 'utilities/src/time/time'
 
 export function useIncreasePositionDependentAmountFallback(

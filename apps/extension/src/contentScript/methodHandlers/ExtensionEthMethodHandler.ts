@@ -43,12 +43,12 @@ import {
   WalletSwitchEthereumChainRequest,
   WalletSwitchEthereumChainRequestSchema,
 } from 'src/contentScript/WindowEthereumRequestTypes'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { chainIdToHexadecimalString, toSupportedChainId } from 'uniswap/src/features/chains/utils'
-import { DappRequestType, DappResponseType, EthMethod } from 'uniswap/src/features/dappRequests/types'
-import { isSelfCallWithData } from 'uniswap/src/features/dappRequests/utils'
-import { Platform } from 'uniswap/src/features/platforms/types/Platform'
-import { areAddressesEqual } from 'uniswap/src/utils/addresses'
+import { UniverseChainId } from 'lx/src/features/chains/types'
+import { chainIdToHexadecimalString, toSupportedChainId } from 'lx/src/features/chains/utils'
+import { DappRequestType, DappResponseType, EthMethod } from 'lx/src/features/dappRequests/types'
+import { isSelfCallWithData } from 'lx/src/features/dappRequests/utils'
+import { Platform } from 'lx/src/features/platforms/types/Platform'
+import { areAddressesEqual } from 'lx/src/utils/addresses'
 import { extractBaseUrl } from 'utilities/src/format/urls'
 
 export class ExtensionEthMethodHandler extends BaseMethodHandler<WindowEthereumRequest> {

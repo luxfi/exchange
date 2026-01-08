@@ -1,5 +1,5 @@
 import userEvent from '@testing-library/user-event'
-import { GraphQLApi } from '@universe/api'
+import { GraphQLApi } from '@luxfi/api'
 import { TokenDescription } from 'components/Tokens/TokenDetails/TokenDescription'
 import { useCurrency } from 'hooks/Tokens'
 import { useTDPContext } from 'pages/TokenDetails/TDPContext'
@@ -7,7 +7,7 @@ import { mocked } from 'test-utils/mocked'
 import { validUSDCCurrency } from 'test-utils/pools/fixtures'
 import { render, screen } from 'test-utils/render'
 import { validTokenProjectResponse } from 'test-utils/tokens/fixtures'
-import { USDC_MAINNET } from 'uniswap/src/constants/tokens'
+import { USDC_MAINNET } from 'lx/src/constants/tokens'
 
 vi.mock('hooks/Tokens')
 

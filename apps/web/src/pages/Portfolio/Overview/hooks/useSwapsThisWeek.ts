@@ -7,10 +7,10 @@ import { usePortfolioRoutes } from 'pages/Portfolio/Header/hooks/usePortfolioRou
 import { usePortfolioAddresses } from 'pages/Portfolio/hooks/usePortfolioAddresses'
 import { useSwapUSDValuesFromGraphQL } from 'pages/Portfolio/Overview/hooks/useSwapUSDValuesFromGraphQL'
 import { useMemo } from 'react'
-import { ActivityItem } from 'uniswap/src/components/activity/generateActivityItemRenderer'
-import { ActivityRenderData } from 'uniswap/src/features/activity/hooks/useActivityData'
-import { useEnabledChains } from 'uniswap/src/features/chains/hooks/useEnabledChains'
-import { TransactionDetails } from 'uniswap/src/features/transactions/types/transactionDetails'
+import { ActivityItem } from 'lx/src/components/activity/generateActivityItemRenderer'
+import { ActivityRenderData } from 'lx/src/features/activity/hooks/useActivityData'
+import { useEnabledChains } from 'lx/src/features/chains/hooks/useEnabledChains'
+import { TransactionDetails } from 'lx/src/features/transactions/types/transactionDetails'
 import { ONE_DAY_MS } from 'utilities/src/time/time'
 
 function filterSwapsTypeLast7Days(transactions: ActivityItem[]): TransactionDetails[] {

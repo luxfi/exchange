@@ -1,7 +1,7 @@
-import { Token } from '@uniswap/sdk-core'
+import { Token } from '@luxamm/sdk-core'
 import { formatCurrencySymbol } from 'components/CurrencyInputPanel/utils'
-import { DAI } from 'uniswap/src/constants/tokens'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { DAI } from 'lx/src/constants/tokens'
+import { UniverseChainId } from 'lx/src/features/chains/types'
 
 describe('formatCurrencySymbol', () => {
   it('should return undefined if currency is undefined', () => {

@@ -1,5 +1,5 @@
-import { useSelectAddressNotifications } from 'uniswap/src/features/notifications/slice/hooks'
-import { AppNotification, AppNotificationType } from 'uniswap/src/features/notifications/slice/types'
+import { useSelectAddressNotifications } from 'lx/src/features/notifications/slice/hooks'
+import { AppNotification, AppNotificationType } from 'lx/src/features/notifications/slice/types'
 import { DappConnectedNotification } from 'wallet/src/features/notifications/components/DappConnectedNotification'
 import { DappDisconnectedNotification } from 'wallet/src/features/notifications/components/DappDisconnectedNotification'
 import { NotSupportedNetworkNotification } from 'wallet/src/features/notifications/components/NotSupportedNetworkNotification'

@@ -1,10 +1,10 @@
-import { createSessionInitializationService } from '@universe/sessions/src/session-initialization/createSessionInitializationService'
-import { ChallengeType } from '@universe/sessions/src/session-service/types'
+import { createSessionInitializationService } from '@luxfi/sessions/src/session-initialization/createSessionInitializationService'
+import { ChallengeType } from '@luxfi/sessions/src/session-service/types'
 import {
   createMockChallengeSolverService,
   createMockSessionService,
   TestScenarios,
-} from '@universe/sessions/src/test-utils/mocks'
+} from '@luxfi/sessions/src/test-utils/mocks'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 
 describe('createSessionInitializationService', () => {

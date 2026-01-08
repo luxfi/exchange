@@ -4,7 +4,7 @@ import { useFinishExtensionOnboarding } from 'src/app/features/onboarding/useFin
 import { terminateStoreSynchronization } from 'src/store/storeSynchronization'
 import { Flex, Text } from 'ui/src'
 import { Check, GraduationCap } from 'ui/src/components/icons'
-import { uniswapUrls } from 'uniswap/src/constants/urls'
+import { uniswapUrls } from 'lx/src/constants/urls'
 
 export function ResetComplete(): JSX.Element {
   const { t } = useTranslation()

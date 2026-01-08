@@ -1,5 +1,5 @@
-import { ChartPeriod, GetPortfolioChartResponse } from '@uniswap/client-data-api/dist/data/v1/api_pb'
-import { GraphQLApi } from '@universe/api'
+import { ChartPeriod, GetPortfolioChartResponse } from '@luxdex/client-data-api/dist/data/v1/api_pb'
+import { GraphQLApi } from '@luxfi/api'
 import { ChartSkeleton } from 'components/Charts/LoadingState'
 import { PriceChart, PriceChartData } from 'components/Charts/PriceChart'
 import { ChartType, PriceChartType } from 'components/Charts/utils'
@@ -16,9 +16,9 @@ import {
   useMedia,
   useSporeColors,
 } from 'ui/src'
-import { useAppFiatCurrencyInfo } from 'uniswap/src/features/fiatCurrency/hooks'
-import { useCurrentLocale } from 'uniswap/src/features/language/hooks'
-import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
+import { useAppFiatCurrencyInfo } from 'lx/src/features/fiatCurrency/hooks'
+import { useCurrentLocale } from 'lx/src/features/language/hooks'
+import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
 import { NumberType } from 'utilities/src/format/types'
 
 const ChartContainer = styled(Flex, {

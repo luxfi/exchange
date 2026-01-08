@@ -1,8 +1,8 @@
 import { lazy, Suspense } from 'react'
 import { Flex } from 'ui/src'
 import { Flag } from 'ui/src/components/icons/Flag'
-import { Modal } from 'uniswap/src/components/modals/Modal'
-import { ModalName } from 'uniswap/src/features/telemetry/constants'
+import { Modal } from 'lx/src/components/modals/Modal'
+import { ModalName } from 'lx/src/features/telemetry/constants'
 import { useBooleanState } from 'utilities/src/react/useBooleanState'
 
 const DevMenuScreen = lazy(() =>

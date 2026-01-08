@@ -1,20 +1,20 @@
-import { TradingApi } from '@universe/api'
+import { TradingApi } from '@luxfi/api'
 import { logSwapFinalized, logUniswapXSwapFinalized } from 'tracing/swapFlowLoggers'
-import { SwapEventName } from 'uniswap/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
-import { maybeLogFirstSwapAction } from 'uniswap/src/features/transactions/swap/utils/maybeLogFirstSwapAction'
+import { SwapEventName } from 'lx/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
+import { maybeLogFirstSwapAction } from 'lx/src/features/transactions/swap/utils/maybeLogFirstSwapAction'
 import {
   TransactionOriginType,
   TransactionStatus,
   TransactionType,
-} from 'uniswap/src/features/transactions/types/transactionDetails'
+} from 'lx/src/features/transactions/types/transactionDetails'
 
-vi.mock('uniswap/src/features/telemetry/send', () => ({
+vi.mock('lx/src/features/telemetry/send', () => ({
   sendAnalyticsEvent: vi.fn(),
 }))
 
-vi.mock('uniswap/src/features/transactions/swap/utils/SwapEventTimestampTracker', async () => {
-  const actual = await vi.importActual('uniswap/src/features/transactions/swap/utils/SwapEventTimestampTracker')
+vi.mock('lx/src/features/transactions/swap/utils/SwapEventTimestampTracker', async () => {
+  const actual = await vi.importActual('lx/src/features/transactions/swap/utils/SwapEventTimestampTracker')
   return {
     ...actual,
     timestampTracker: {

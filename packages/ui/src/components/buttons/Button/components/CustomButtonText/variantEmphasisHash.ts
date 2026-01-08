@@ -1,4 +1,4 @@
-import { TextProps } from 'tamagui'
+import type { TextProps } from 'tamagui'
 import type { ButtonEmphasis, ButtonVariant } from 'ui/src/components/buttons/Button/types'
 
 type TextStyleLookup = {
@@ -10,7 +10,8 @@ type TextStyleLookup = {
 export const variantEmphasisHash: TextStyleLookup = {
   branded: {
     primary: {
-      color: '$white',
+      // Use $surface1 (black in dark mode, white in light mode) for contrast with $accent1 background
+      color: '$surface1',
     },
     secondary: {
       color: '$accent1',

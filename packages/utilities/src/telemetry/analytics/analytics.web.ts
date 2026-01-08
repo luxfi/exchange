@@ -1,5 +1,5 @@
 import { flush, getUserId, Identify, identify, init, setDeviceId, track } from '@amplitude/analytics-browser'
-import { ANONYMOUS_DEVICE_ID } from '@uniswap/analytics'
+import { ANONYMOUS_DEVICE_ID } from '@luxdex/analytics'
 import { getChromeWithThrow } from 'utilities/src/chrome/chrome'
 import {
   Analytics,

@@ -4,7 +4,7 @@
 vi.mock('hooks/Tokens')
 vi.mock('components/AccountDrawer/MiniPortfolio/Activity/getCurrency')
 
-import { Currency, WETH9 } from '@uniswap/sdk-core'
+import { Currency, WETH9 } from '@luxamm/sdk-core'
 import { getCurrencyFromCurrencyId } from 'components/AccountDrawer/MiniPortfolio/Activity/getCurrency'
 import { useCurrency, useCurrencyInfo } from 'hooks/Tokens'
 import {
@@ -24,12 +24,12 @@ import {
   WETH_INFO,
 } from 'test-utils/constants'
 import { mocked } from 'test-utils/mocked'
-import { COMMON_BASES } from 'uniswap/src/constants/routing'
-import { DAI, DAI_ARBITRUM_ONE, USDC_ARBITRUM, USDC_MAINNET, USDT, WBTC } from 'uniswap/src/constants/tokens'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { Platform } from 'uniswap/src/features/platforms/types/Platform'
-import { areAddressesEqual } from 'uniswap/src/utils/addresses'
-import { currencyIdToAddress, currencyIdToChain, isNativeCurrencyAddress } from 'uniswap/src/utils/currencyId'
+import { COMMON_BASES } from 'lx/src/constants/routing'
+import { DAI, DAI_ARBITRUM_ONE, USDC_ARBITRUM, USDC_MAINNET, USDT, WBTC } from 'lx/src/constants/tokens'
+import { UniverseChainId } from 'lx/src/features/chains/types'
+import { Platform } from 'lx/src/features/platforms/types/Platform'
+import { areAddressesEqual } from 'lx/src/utils/addresses'
+import { currencyIdToAddress, currencyIdToChain, isNativeCurrencyAddress } from 'lx/src/utils/currencyId'
 
 function isSameEthAddress(a?: string, b?: string): boolean {
   return areAddressesEqual({

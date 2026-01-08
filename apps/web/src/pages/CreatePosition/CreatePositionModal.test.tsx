@@ -31,11 +31,11 @@ vi.mock('hooks/useAccount', () => ({
   useAccount: vi.fn(),
 }))
 
-vi.mock('uniswap/src/features/wallet/hooks/useWallet', () => ({
+vi.mock('lx/src/features/wallet/hooks/useWallet', () => ({
   useWallet: vi.fn(),
 }))
 
-vi.mock('uniswap/src/features/passkey/hooks/useGetPasskeyAuthStatus', () => ({
+vi.mock('lx/src/features/passkey/hooks/useGetPasskeyAuthStatus', () => ({
   useGetPasskeyAuthStatus: vi.fn(),
 }))
 
@@ -47,8 +47,8 @@ vi.mock('hooks/Tokens', () => ({
   useCurrencyInfo: vi.fn(),
 }))
 
-import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
-import { CurrencyAmount } from '@uniswap/sdk-core'
+import { ProtocolVersion } from '@luxdex/client-data-api/dist/data/v1/poolTypes_pb'
+import { CurrencyAmount } from '@luxamm/sdk-core'
 import { useCurrencyInfo } from 'hooks/Tokens'
 import { useAccount } from 'hooks/useAccount'
 import useSelectChain from 'hooks/useSelectChain'
@@ -58,10 +58,10 @@ import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router'
 import { act, fireEvent, render } from 'test-utils/render'
 import { PositionField } from 'types/position'
-import { DAI, USDC_MAINNET } from 'uniswap/src/constants/tokens'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { useGetPasskeyAuthStatus } from 'uniswap/src/features/passkey/hooks/useGetPasskeyAuthStatus'
-import { useWallet } from 'uniswap/src/features/wallet/hooks/useWallet'
+import { DAI, USDC_MAINNET } from 'lx/src/constants/tokens'
+import { UniverseChainId } from 'lx/src/features/chains/types'
+import { useGetPasskeyAuthStatus } from 'lx/src/features/passkey/hooks/useGetPasskeyAuthStatus'
+import { useWallet } from 'lx/src/features/wallet/hooks/useWallet'
 import { useTrace } from 'utilities/src/telemetry/trace/TraceContext'
 
 const mockUseCreateLiquidityContext = useCreateLiquidityContext as ReturnType<typeof vi.fn>

@@ -7,8 +7,8 @@ import { Trans } from 'react-i18next'
 import { ThemedText } from 'theme/components'
 import { useIsDarkMode } from 'theme/components/ThemeToggle'
 import { Button, Flex } from 'ui/src'
-import { InterfacePageName } from 'uniswap/src/features/telemetry/constants'
-import Trace from 'uniswap/src/features/telemetry/Trace'
+import { InterfacePageName } from 'lx/src/features/telemetry/constants'
+import Trace from 'lx/src/features/telemetry/Trace'
 
 const Image = deprecatedStyled.img`
   max-width: 510px;

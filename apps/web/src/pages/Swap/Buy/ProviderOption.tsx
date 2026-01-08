@@ -5,8 +5,8 @@ import { FiatOnRampTransactionStatus, FiatOnRampTransactionType } from 'state/fi
 import {
   useFiatOnRampAggregatorOffRampWidgetQuery,
   useFiatOnRampAggregatorWidgetQuery,
-} from 'uniswap/src/features/fiatOnRamp/api'
-import { FORQuoteItem } from 'uniswap/src/features/fiatOnRamp/FORQuoteItem'
+} from 'lx/src/features/fiatOnRamp/api'
+import { FORQuoteItem } from 'lx/src/features/fiatOnRamp/FORQuoteItem'
 import {
   FiatCurrencyInfo,
   FORCountry,
@@ -14,10 +14,10 @@ import {
   FORQuote,
   FORServiceProvider,
   RampDirection,
-} from 'uniswap/src/features/fiatOnRamp/types'
-import { createOnRampTransactionId } from 'uniswap/src/features/fiatOnRamp/utils'
-import { FiatOffRampEventName, FiatOnRampEventName } from 'uniswap/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
+} from 'lx/src/features/fiatOnRamp/types'
+import { createOnRampTransactionId } from 'lx/src/features/fiatOnRamp/utils'
+import { FiatOffRampEventName, FiatOnRampEventName } from 'lx/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
 
 interface ProviderOptionProps {
   quote: FORQuote

@@ -24,7 +24,7 @@ import {
 } from 'constants/localCurrencyIcons'
 import { ReactNode, Suspense } from 'react'
 import { Loader } from 'ui/src/loading/Loader'
-import { FiatCurrency } from 'uniswap/src/features/fiatCurrency/constants'
+import { FiatCurrency } from 'lx/src/features/fiatCurrency/constants'
 
 export function getLocalCurrencyIcon(localCurrency: FiatCurrency, size = 20): ReactNode {
   switch (localCurrency) {

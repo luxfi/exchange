@@ -1,6 +1,6 @@
-import type { ChallengeSolver, ChallengeSolverService } from '@universe/sessions/src/challenge-solvers/types'
-import type { SessionService } from '@universe/sessions/src/session-service/types'
-import { ChallengeType } from '@universe/sessions/src/session-service/types'
+import type { ChallengeSolver, ChallengeSolverService } from '@luxfi/sessions/src/challenge-solvers/types'
+import type { SessionService } from '@luxfi/sessions/src/session-service/types'
+import { ChallengeType } from '@luxfi/sessions/src/session-service/types'
 import { vi } from 'vitest'
 
 /**

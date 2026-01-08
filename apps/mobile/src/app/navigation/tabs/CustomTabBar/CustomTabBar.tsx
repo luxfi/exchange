@@ -8,8 +8,8 @@ import { SwapLongPressOverlay } from 'src/app/navigation/tabs/SwapLongPressOverl
 import { Flex, TouchableArea, useIsDarkMode, useSporeColors } from 'ui/src'
 import { AnimatedFlex } from 'ui/src/components/layout/AnimatedFlex'
 import { iconSizes, spacing } from 'ui/src/theme'
-import { useHapticFeedback } from 'uniswap/src/features/settings/useHapticFeedback/useHapticFeedback'
-import { useAppInsets } from 'uniswap/src/hooks/useAppInsets'
+import { useHapticFeedback } from 'lx/src/features/settings/useHapticFeedback/useHapticFeedback'
+import { useAppInsets } from 'lx/src/hooks/useAppInsets'
 import { useEvent } from 'utilities/src/react/hooks'
 import { useBooleanState } from 'utilities/src/react/useBooleanState'
 

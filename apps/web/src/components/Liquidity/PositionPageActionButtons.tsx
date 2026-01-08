@@ -1,4 +1,4 @@
-import { PositionStatus, ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
+import { PositionStatus, ProtocolVersion } from '@luxdex/client-data-api/dist/data/v1/poolTypes_pb'
 import { PositionInfo } from 'components/Liquidity/types'
 import { MobileBottomBar } from 'components/NavBar/MobileBottomBar'
 import { MouseoverTooltip } from 'components/Tooltip'
@@ -11,8 +11,8 @@ import { Button, DropdownMenuSheetItem, Flex, IconButton, Popover, useIsTouchDev
 import { GridView } from 'ui/src/components/icons/GridView'
 import { X } from 'ui/src/components/icons/X'
 import { zIndexes } from 'ui/src/theme'
-import { MenuOptionItem } from 'uniswap/src/components/menus/ContextMenuV2'
-import { ModalName } from 'uniswap/src/features/telemetry/constants'
+import { MenuOptionItem } from 'lx/src/components/menus/ContextMenuV2'
+import { ModalName } from 'lx/src/features/telemetry/constants'
 import { isV4UnsupportedChain } from 'utils/networkSupportsV4'
 
 export function PositionPageActionButtons({

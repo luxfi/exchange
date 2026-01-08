@@ -1,10 +1,10 @@
 import { useQuery } from '@tanstack/react-query'
-import { SharedQueryClient } from '@universe/api'
-import { StatsigCustomAppValue, StatsigUser } from '@universe/gating'
+import { SharedQueryClient } from '@luxfi/api'
+import { StatsigCustomAppValue, StatsigUser } from '@luxfi/gating'
 import { useEffect, useState } from 'react'
 import { makeStatsigUser } from 'src/app/core/initStatSigForBrowserScripts'
-import { StatsigProviderWrapper } from 'uniswap/src/features/gating/StatsigProviderWrapper'
-import { initializeDatadog } from 'uniswap/src/utils/datadog'
+import { StatsigProviderWrapper } from 'lx/src/features/gating/StatsigProviderWrapper'
+import { initializeDatadog } from 'lx/src/utils/datadog'
 import { uniqueIdQuery } from 'utilities/src/device/uniqueIdQuery'
 
 export function ExtensionStatsigProvider({

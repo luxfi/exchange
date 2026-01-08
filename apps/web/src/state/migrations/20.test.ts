@@ -19,9 +19,9 @@ import { migration17 } from 'state/migrations/17'
 import { migration18 } from 'state/migrations/18'
 import { migration19 } from 'state/migrations/19'
 import { activeLocalCurrencyAtomName, migration20, PersistAppStateV20 } from 'state/migrations/20'
-import { FiatCurrency } from 'uniswap/src/features/fiatCurrency/constants'
-import { Language } from 'uniswap/src/features/language/constants'
-import { DeviceAccessTimeout } from 'uniswap/src/features/settings/constants'
+import { FiatCurrency } from 'lx/src/features/fiatCurrency/constants'
+import { Language } from 'lx/src/features/language/constants'
+import { DeviceAccessTimeout } from 'lx/src/features/settings/constants'
 
 const previousState: PersistAppStateV20 = {
   _persist: {
@@ -35,6 +35,7 @@ const previousState: PersistAppStateV20 = {
     hideSpamTokens: true,
     hapticsEnabled: false,
     deviceAccessTimeout: DeviceAccessTimeout.ThirtyMinutes,
+    showVideoBackground: true,
   },
 }
 

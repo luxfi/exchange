@@ -5,14 +5,14 @@ import { LinkButton, type LinkButtonProps, LinkButtonType } from 'src/components
 import { useTokenDetailsContext } from 'src/components/TokenDetails/TokenDetailsContext'
 import { Flex, Text } from 'ui/src'
 import { GlobeFilled, XTwitter } from 'ui/src/components/icons'
-import { getBlockExplorerIcon } from 'uniswap/src/components/chains/BlockExplorerIcon'
-import { useTokenProjectUrlsPartsFragment } from 'uniswap/src/data/graphql/uniswap-data-api/fragments'
-import { getChainInfo } from 'uniswap/src/features/chains/chainInfo'
-import { chainIdToPlatform } from 'uniswap/src/features/platforms/utils/chains'
-import { ElementName } from 'uniswap/src/features/telemetry/constants'
-import { TestID } from 'uniswap/src/test/fixtures/testIDs'
-import { isDefaultNativeAddress, isNativeCurrencyAddress } from 'uniswap/src/utils/currencyId'
-import { ExplorerDataType, getExplorerLink, getTwitterLink } from 'uniswap/src/utils/linking'
+import { getBlockExplorerIcon } from 'lx/src/components/chains/BlockExplorerIcon'
+import { useTokenProjectUrlsPartsFragment } from 'lx/src/data/graphql/uniswap-data-api/fragments'
+import { getChainInfo } from 'lx/src/features/chains/chainInfo'
+import { chainIdToPlatform } from 'lx/src/features/platforms/utils/chains'
+import { ElementName } from 'lx/src/features/telemetry/constants'
+import { TestID } from 'lx/src/test/fixtures/testIDs'
+import { isDefaultNativeAddress, isNativeCurrencyAddress } from 'lx/src/utils/currencyId'
+import { ExplorerDataType, getExplorerLink, getTwitterLink } from 'lx/src/utils/linking'
 
 const ItemSeparatorComponent = (): JSX.Element => <Flex width="$spacing8" />
 

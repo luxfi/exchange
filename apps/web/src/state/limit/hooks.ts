@@ -1,5 +1,5 @@
-import { Currency, CurrencyAmount, Price, TradeType } from '@uniswap/sdk-core'
-import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import { Currency, CurrencyAmount, Price, TradeType } from '@luxamm/sdk-core'
+import { FeatureFlags, useFeatureFlag } from '@luxfi/gating'
 import { useAccount } from 'hooks/useAccount'
 import JSBI from 'jsbi'
 import { useCurrencyBalances } from 'lib/hooks/useCurrencyBalance'
@@ -12,10 +12,10 @@ import { LimitOrderTrade, RouterPreference, SubmittableTrade, SwapFeeInfo, WrapI
 import { useRoutingAPITrade } from 'state/routing/useRoutingAPITrade'
 import { getUSDCostPerGas, isClassicTrade } from 'state/routing/utils'
 import { useSwapAndLimitContext } from 'state/swap/useSwapContext'
-import { nativeOnChain } from 'uniswap/src/constants/tokens'
-import { getStablecoinsForChain, isUniverseChainId } from 'uniswap/src/features/chains/utils'
-import { isEVMChain, isSVMChain } from 'uniswap/src/features/platforms/utils/chains'
-import { CurrencyField } from 'uniswap/src/types/currency'
+import { nativeOnChain } from 'lx/src/constants/tokens'
+import { getStablecoinsForChain, isUniverseChainId } from 'lx/src/features/chains/utils'
+import { isEVMChain, isSVMChain } from 'lx/src/features/platforms/utils/chains'
+import { CurrencyField } from 'lx/src/types/currency'
 
 export type LimitInfo = {
   currencyBalances: { [field in CurrencyField]?: CurrencyAmount<Currency> }
@@ -286,7 +286,7 @@ function useMarketPriceAndFee(
     }
 
     // Combine spot prices of A -> ETH and ETH -> B to get a price for A -> B
-    return priceA.multiply(priceB)
+    return priceA.multiply(priceB) as unknown as Price<Currency, Currency>
   }, [inputCurrency, outputCurrency, skip, tradeA, tradeB])
 
   const feesEnabled = useFeatureFlag(FeatureFlags.LimitsFees)

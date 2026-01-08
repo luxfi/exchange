@@ -1,5 +1,5 @@
-import { PositionStatus, ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
-import { TradingApi } from '@universe/api'
+import { PositionStatus, ProtocolVersion } from '@luxdex/client-data-api/dist/data/v1/poolTypes_pb'
+import { TradingApi } from '@luxfi/api'
 import {
   getProtocolItems,
   getProtocolStatusLabel,

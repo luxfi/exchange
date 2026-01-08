@@ -1,6 +1,6 @@
 import { useTotalBalancesUsdForAnalytics } from 'appGraphql/data/apollo/useTotalBalancesUsdForAnalytics'
-import { TradingApi } from '@universe/api'
-import { Experiments } from '@universe/gating'
+import { TradingApi } from '@luxfi/api'
+import { Experiments } from '@luxfi/gating'
 import { popupRegistry } from 'components/Popups/registry'
 import { PopupType } from 'components/Popups/types'
 import { DEFAULT_TXN_DISMISS_MS, L2_TXN_DISMISS_MS, ZERO_PERCENT } from 'constants/misc'
@@ -24,54 +24,54 @@ import {
 } from 'state/sagas/transactions/utils'
 import { VitalTxFields } from 'state/transactions/types'
 import { call, SagaGenerator } from 'typed-redux-saga'
-import { isL2ChainId } from 'uniswap/src/features/chains/utils'
-import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
-import { isSVMChain } from 'uniswap/src/features/platforms/utils/chains'
-import { SwapEventName } from 'uniswap/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
-import { SwapTradeBaseProperties } from 'uniswap/src/features/telemetry/types'
-import { logExperimentQualifyingEvent } from 'uniswap/src/features/telemetry/utils/logExperimentQualifyingEvent'
-import { selectSwapStartTimestamp } from 'uniswap/src/features/timing/selectors'
-import { updateSwapStartTimestamp } from 'uniswap/src/features/timing/slice'
-import { UnexpectedTransactionStateError } from 'uniswap/src/features/transactions/errors'
+import { isL2ChainId } from 'lx/src/features/chains/utils'
+import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
+import { isSVMChain } from 'lx/src/features/platforms/utils/chains'
+import { SwapEventName } from 'lx/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
+import { SwapTradeBaseProperties } from 'lx/src/features/telemetry/types'
+import { logExperimentQualifyingEvent } from 'lx/src/features/telemetry/utils/logExperimentQualifyingEvent'
+import { selectSwapStartTimestamp } from 'lx/src/features/timing/selectors'
+import { updateSwapStartTimestamp } from 'lx/src/features/timing/slice'
+import { UnexpectedTransactionStateError } from 'lx/src/features/transactions/errors'
 import {
   HandleOnChainStepParams,
   HandleSwapStepParams,
   TransactionStep,
   TransactionStepType,
-} from 'uniswap/src/features/transactions/steps/types'
+} from 'lx/src/features/transactions/steps/types'
 import {
   ExtractedBaseTradeAnalyticsProperties,
   getBaseTradeAnalyticsProperties,
-} from 'uniswap/src/features/transactions/swap/analytics'
-import { getFlashblocksExperimentStatus } from 'uniswap/src/features/transactions/swap/hooks/useIsUnichainFlashblocksEnabled'
-import { useV4SwapEnabled } from 'uniswap/src/features/transactions/swap/hooks/useV4SwapEnabled'
-import { planSaga } from 'uniswap/src/features/transactions/swap/plan/planSaga'
-import { handleSwitchChains } from 'uniswap/src/features/transactions/swap/plan/utils'
-import { getSwapTxRequest, SwapTransactionStepBatched } from 'uniswap/src/features/transactions/swap/steps/swap'
-import { useSwapFormStore } from 'uniswap/src/features/transactions/swap/stores/swapFormStore/useSwapFormStore'
+} from 'lx/src/features/transactions/swap/analytics'
+import { getFlashblocksExperimentStatus } from 'lx/src/features/transactions/swap/hooks/useIsUnichainFlashblocksEnabled'
+import { useV4SwapEnabled } from 'lx/src/features/transactions/swap/hooks/useV4SwapEnabled'
+import { planSaga } from 'lx/src/features/transactions/swap/plan/planSaga'
+import { handleSwitchChains } from 'lx/src/features/transactions/swap/plan/utils'
+import { getSwapTxRequest, SwapTransactionStepBatched } from 'lx/src/features/transactions/swap/steps/swap'
+import { useSwapFormStore } from 'lx/src/features/transactions/swap/stores/swapFormStore/useSwapFormStore'
 import {
   SwapCallback,
   SwapCallbackParams,
   SwapExecutionCallbacks,
-} from 'uniswap/src/features/transactions/swap/types/swapCallback'
-import { PermitMethod, ValidatedSwapTxContext } from 'uniswap/src/features/transactions/swap/types/swapTxAndGasInfo'
-import { BridgeTrade, ChainedActionTrade, ClassicTrade } from 'uniswap/src/features/transactions/swap/types/trade'
-import { slippageToleranceToPercent } from 'uniswap/src/features/transactions/swap/utils/format'
-import { generateSwapTransactionSteps } from 'uniswap/src/features/transactions/swap/utils/generateSwapTransactionSteps'
+} from 'lx/src/features/transactions/swap/types/swapCallback'
+import { PermitMethod, ValidatedSwapTxContext } from 'lx/src/features/transactions/swap/types/swapTxAndGasInfo'
+import { BridgeTrade, ChainedActionTrade, ClassicTrade } from 'lx/src/features/transactions/swap/types/trade'
+import { slippageToleranceToPercent } from 'lx/src/features/transactions/swap/utils/format'
+import { generateSwapTransactionSteps } from 'lx/src/features/transactions/swap/utils/generateSwapTransactionSteps'
 import {
   isClassic,
   isJupiter,
   requireRouting,
   UNISWAPX_ROUTING_VARIANTS,
-} from 'uniswap/src/features/transactions/swap/utils/routing'
-import { getClassicQuoteFromResponse } from 'uniswap/src/features/transactions/swap/utils/tradingApi'
-import { useWallet } from 'uniswap/src/features/wallet/hooks/useWallet'
+} from 'lx/src/features/transactions/swap/utils/routing'
+import { getClassicQuoteFromResponse } from 'lx/src/features/transactions/swap/utils/tradingApi'
+import { useWallet } from 'lx/src/features/wallet/hooks/useWallet'
 import {
   isSignerMnemonicAccountDetails,
   SignerMnemonicAccountDetails,
-} from 'uniswap/src/features/wallet/types/AccountDetails'
-import { createSaga } from 'uniswap/src/utils/saga'
+} from 'lx/src/features/wallet/types/AccountDetails'
+import { createSaga } from 'lx/src/utils/saga'
 import { logger } from 'utilities/src/logger/logger'
 import { useTrace } from 'utilities/src/telemetry/trace/TraceContext'
 

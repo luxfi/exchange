@@ -1,7 +1,7 @@
-import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
-import { Currency } from '@uniswap/sdk-core'
-import { FeeAmount, TICK_SPACINGS, tickToPrice } from '@uniswap/v3-sdk'
-import { tickToPrice as tickToPriceV4 } from '@uniswap/v4-sdk'
+import { ProtocolVersion } from '@luxdex/client-data-api/dist/data/v1/poolTypes_pb'
+import { Currency, Price } from '@luxamm/sdk-core'
+import { FeeAmount, TICK_SPACINGS, tickToPrice } from '@luxamm/v3-sdk'
+import { tickToPrice as tickToPriceV4 } from '@luxamm/v4-sdk'
 import { ChartHoverData, ChartModel, ChartModelParams } from 'components/Charts/ChartModel'
 import { LiquidityBarSeries } from 'components/Charts/LiquidityChart/liquidity-bar-series'
 import { LiquidityBarData, LiquidityBarProps, LiquidityBarSeriesOptions } from 'components/Charts/LiquidityChart/types'
@@ -12,8 +12,8 @@ import JSBI from 'jsbi'
 import { ISeriesApi, UTCTimestamp } from 'lightweight-charts'
 import { useEffect, useState } from 'react'
 import { PositionField } from 'types/position'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
+import { UniverseChainId } from 'lx/src/features/chains/types'
+import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
 import { NumberType } from 'utilities/src/format/types'
 
 interface LiquidityBarChartModelParams extends ChartModelParams<LiquidityBarData>, LiquidityBarProps {}
@@ -187,10 +187,11 @@ export function useLiquidityBarData({
           activeRangeIndex = index
           activeRangePercentage = 1 - (currentTick - t.tick) / poolTickSpacing
 
-          price0 =
+          price0 = (
             version === ProtocolVersion.V3
               ? tickToPrice(sdkCurrencies.TOKEN0.wrapped, sdkCurrencies.TOKEN1.wrapped, t.tick)
               : tickToPriceV4(sdkCurrencies.TOKEN0, sdkCurrencies.TOKEN1, t.tick)
+          ) as unknown as Price<Currency, Currency>
           price1 = price0.invert()
         }
 

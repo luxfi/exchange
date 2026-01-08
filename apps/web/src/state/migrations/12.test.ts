@@ -1,4 +1,4 @@
-import { GraphQLApi } from '@universe/api'
+import { GraphQLApi } from '@luxfi/api'
 import { createMigrate } from 'redux-persist'
 import { migration1 } from 'state/migrations/1'
 import { migration2 } from 'state/migrations/2'

@@ -1,15 +1,15 @@
-import { Currency } from '@uniswap/sdk-core'
+import { Currency } from '@luxamm/sdk-core'
 import { ReactComponent as UnknownStatus } from 'assets/svg/contract-interaction.svg'
 import CurrencyLogo from 'components/Logo/CurrencyLogo'
 import { DoubleCurrencyLogo } from 'components/Logo/DoubleLogo'
 import React, { memo } from 'react'
 import { Flex, useSporeColors } from 'ui/src'
 import { UseSporeColorsReturn } from 'ui/src/hooks/useSporeColors'
-import { SplitLogo } from 'uniswap/src/components/CurrencyLogo/SplitLogo'
-import { TokenLogo } from 'uniswap/src/components/CurrencyLogo/TokenLogo'
-import { AccountIcon } from 'uniswap/src/features/accounts/AccountIcon'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { isTestnetChain } from 'uniswap/src/features/chains/utils'
+import { SplitLogo } from 'lx/src/components/CurrencyLogo/SplitLogo'
+import { TokenLogo } from 'lx/src/components/CurrencyLogo/TokenLogo'
+import { AccountIcon } from 'lx/src/features/accounts/AccountIcon'
+import { UniverseChainId } from 'lx/src/features/chains/types'
+import { isTestnetChain } from 'lx/src/features/chains/utils'
 
 interface PortfolioLogoProps {
   chainId: UniverseChainId

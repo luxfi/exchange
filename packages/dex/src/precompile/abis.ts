@@ -1,6 +1,7 @@
 /**
- * DEX Precompile ABIs
- * Native Go implementation at 0x0400-0x0403
+ * DEX Precompile ABIs (LP-Aligned)
+ * Native Go implementation at LP-9010 to LP-9040
+ * Address format: 0x0000000000000000000000000000000000LPNUM
  */
 
 /**
@@ -287,5 +288,468 @@ export const FLASH_LOAN_ABI = [
     ],
     outputs: [],
     stateMutability: 'nonpayable',
+  },
+] as const
+
+// ============================================================================
+// LXBook ABI (LP-9020) - CLOB Matching Engine
+// ============================================================================
+
+/**
+ * LXBook ABI (LP-9020)
+ * Permissionless orderbooks with Hyperliquid-style execute() endpoint
+ */
+export const LX_BOOK_ABI = [
+  // Hyperliquid-style execute endpoint
+  {
+    type: 'function',
+    name: 'execute',
+    inputs: [
+      {
+        name: 'action',
+        type: 'tuple',
+        components: [
+          { name: 'actionType', type: 'uint8' },
+          { name: 'nonce', type: 'uint64' },
+          { name: 'expiresAfter', type: 'uint64' },
+          { name: 'data', type: 'bytes' },
+        ],
+      },
+    ],
+    outputs: [{ name: 'result', type: 'bytes' }],
+    stateMutability: 'nonpayable',
+  },
+  // Batch execute
+  {
+    type: 'function',
+    name: 'executeBatch',
+    inputs: [
+      {
+        name: 'actions',
+        type: 'tuple[]',
+        components: [
+          { name: 'actionType', type: 'uint8' },
+          { name: 'nonce', type: 'uint64' },
+          { name: 'expiresAfter', type: 'uint64' },
+          { name: 'data', type: 'bytes' },
+        ],
+      },
+    ],
+    outputs: [{ name: 'results', type: 'bytes[]' }],
+    stateMutability: 'nonpayable',
+  },
+  // Create market
+  {
+    type: 'function',
+    name: 'createMarket',
+    inputs: [
+      {
+        name: 'cfg',
+        type: 'tuple',
+        components: [
+          { name: 'baseAsset', type: 'bytes32' },
+          { name: 'quoteAsset', type: 'bytes32' },
+          { name: 'tickSizeX18', type: 'uint128' },
+          { name: 'lotSizeX18', type: 'uint128' },
+          { name: 'makerFeePpm', type: 'uint32' },
+          { name: 'takerFeePpm', type: 'uint32' },
+          { name: 'feedId', type: 'bytes32' },
+          { name: 'initialStatus', type: 'uint8' },
+        ],
+      },
+    ],
+    outputs: [{ name: 'marketId', type: 'uint32' }],
+    stateMutability: 'nonpayable',
+  },
+  // Get L1 (best bid/ask)
+  {
+    type: 'function',
+    name: 'getL1',
+    inputs: [{ name: 'marketId', type: 'uint32' }],
+    outputs: [
+      {
+        name: 'l1',
+        type: 'tuple',
+        components: [
+          { name: 'bestBidPxX18', type: 'uint128' },
+          { name: 'bestBidSzX18', type: 'uint128' },
+          { name: 'bestAskPxX18', type: 'uint128' },
+          { name: 'bestAskSzX18', type: 'uint128' },
+          { name: 'lastTradePxX18', type: 'uint128' },
+        ],
+      },
+    ],
+    stateMutability: 'view',
+  },
+  // Get market config
+  {
+    type: 'function',
+    name: 'getMarketConfig',
+    inputs: [{ name: 'marketId', type: 'uint32' }],
+    outputs: [
+      {
+        name: 'cfg',
+        type: 'tuple',
+        components: [
+          { name: 'baseAsset', type: 'bytes32' },
+          { name: 'quoteAsset', type: 'bytes32' },
+          { name: 'tickSizeX18', type: 'uint128' },
+          { name: 'lotSizeX18', type: 'uint128' },
+          { name: 'makerFeePpm', type: 'uint32' },
+          { name: 'takerFeePpm', type: 'uint32' },
+          { name: 'feedId', type: 'bytes32' },
+          { name: 'initialStatus', type: 'uint8' },
+        ],
+      },
+    ],
+    stateMutability: 'view',
+  },
+  // Get market status
+  {
+    type: 'function',
+    name: 'getMarketStatus',
+    inputs: [{ name: 'marketId', type: 'uint32' }],
+    outputs: [{ name: 'status', type: 'uint8' }],
+    stateMutability: 'view',
+  },
+] as const
+
+// ============================================================================
+// LXVault ABI (LP-9030) - Custody and Risk Engine
+// ============================================================================
+
+/**
+ * LXVault ABI (LP-9030)
+ * Balances, margin, collateral, liquidations
+ */
+export const LX_VAULT_ABI = [
+  // Deposit
+  {
+    type: 'function',
+    name: 'deposit',
+    inputs: [
+      { name: 'token', type: 'address' },
+      { name: 'amount', type: 'uint128' },
+      { name: 'subaccountId', type: 'uint8' },
+    ],
+    outputs: [],
+    stateMutability: 'nonpayable',
+  },
+  // Withdraw
+  {
+    type: 'function',
+    name: 'withdraw',
+    inputs: [
+      { name: 'token', type: 'address' },
+      { name: 'amount', type: 'uint128' },
+      { name: 'subaccountId', type: 'uint8' },
+    ],
+    outputs: [],
+    stateMutability: 'nonpayable',
+  },
+  // Transfer between subaccounts
+  {
+    type: 'function',
+    name: 'transfer',
+    inputs: [
+      { name: 'token', type: 'address' },
+      { name: 'amount', type: 'uint128' },
+      { name: 'fromSubaccount', type: 'uint8' },
+      { name: 'toSubaccount', type: 'uint8' },
+    ],
+    outputs: [],
+    stateMutability: 'nonpayable',
+  },
+  // Get balance
+  {
+    type: 'function',
+    name: 'getBalance',
+    inputs: [
+      {
+        name: 'account',
+        type: 'tuple',
+        components: [
+          { name: 'main', type: 'address' },
+          { name: 'subaccountId', type: 'uint8' },
+        ],
+      },
+      { name: 'token', type: 'address' },
+    ],
+    outputs: [{ name: 'balance', type: 'uint128' }],
+    stateMutability: 'view',
+  },
+  // Get position
+  {
+    type: 'function',
+    name: 'getPosition',
+    inputs: [
+      {
+        name: 'account',
+        type: 'tuple',
+        components: [
+          { name: 'main', type: 'address' },
+          { name: 'subaccountId', type: 'uint8' },
+        ],
+      },
+      { name: 'marketId', type: 'uint32' },
+    ],
+    outputs: [
+      {
+        name: 'position',
+        type: 'tuple',
+        components: [
+          { name: 'marketId', type: 'uint32' },
+          { name: 'side', type: 'uint8' },
+          { name: 'sizeX18', type: 'uint128' },
+          { name: 'entryPxX18', type: 'uint128' },
+          { name: 'unrealizedPnlX18', type: 'uint128' },
+          { name: 'accumulatedFundingX18', type: 'int128' },
+          { name: 'lastFundingTime', type: 'uint64' },
+        ],
+      },
+    ],
+    stateMutability: 'view',
+  },
+  // Get margin info
+  {
+    type: 'function',
+    name: 'getMargin',
+    inputs: [
+      {
+        name: 'account',
+        type: 'tuple',
+        components: [
+          { name: 'main', type: 'address' },
+          { name: 'subaccountId', type: 'uint8' },
+        ],
+      },
+    ],
+    outputs: [
+      {
+        name: 'info',
+        type: 'tuple',
+        components: [
+          { name: 'totalCollateralX18', type: 'uint128' },
+          { name: 'usedMarginX18', type: 'uint128' },
+          { name: 'freeMarginX18', type: 'uint128' },
+          { name: 'marginRatioX18', type: 'uint128' },
+          { name: 'maintenanceMarginX18', type: 'uint128' },
+          { name: 'liquidatable', type: 'bool' },
+        ],
+      },
+    ],
+    stateMutability: 'view',
+  },
+  // Check if liquidatable
+  {
+    type: 'function',
+    name: 'isLiquidatable',
+    inputs: [
+      {
+        name: 'account',
+        type: 'tuple',
+        components: [
+          { name: 'main', type: 'address' },
+          { name: 'subaccountId', type: 'uint8' },
+        ],
+      },
+    ],
+    outputs: [
+      { name: 'liquidatable', type: 'bool' },
+      { name: 'shortfall', type: 'uint128' },
+    ],
+    stateMutability: 'view',
+  },
+  // Liquidate
+  {
+    type: 'function',
+    name: 'liquidate',
+    inputs: [
+      {
+        name: 'account',
+        type: 'tuple',
+        components: [
+          { name: 'main', type: 'address' },
+          { name: 'subaccountId', type: 'uint8' },
+        ],
+      },
+      { name: 'marketId', type: 'uint32' },
+      { name: 'sizeX18', type: 'uint128' },
+    ],
+    outputs: [
+      {
+        name: 'result',
+        type: 'tuple',
+        components: [
+          {
+            name: 'liquidated',
+            type: 'tuple',
+            components: [
+              { name: 'main', type: 'address' },
+              { name: 'subaccountId', type: 'uint8' },
+            ],
+          },
+          {
+            name: 'liquidator',
+            type: 'tuple',
+            components: [
+              { name: 'main', type: 'address' },
+              { name: 'subaccountId', type: 'uint8' },
+            ],
+          },
+          { name: 'marketId', type: 'uint32' },
+          { name: 'sizeX18', type: 'uint128' },
+          { name: 'priceX18', type: 'uint128' },
+          { name: 'penaltyX18', type: 'uint128' },
+          { name: 'adlTriggered', type: 'bool' },
+        ],
+      },
+    ],
+    stateMutability: 'nonpayable',
+  },
+  // Get funding rate
+  {
+    type: 'function',
+    name: 'getFundingRate',
+    inputs: [{ name: 'marketId', type: 'uint32' }],
+    outputs: [
+      { name: 'rateX18', type: 'int128' },
+      { name: 'nextFundingTime', type: 'uint64' },
+    ],
+    stateMutability: 'view',
+  },
+] as const
+
+// ============================================================================
+// LXFeed ABI (LP-9040) - Price Feeds
+// ============================================================================
+
+/**
+ * LXFeed ABI (LP-9040)
+ * Mark price, index price, funding calculations
+ */
+export const LX_FEED_ABI = [
+  // Get mark price
+  {
+    type: 'function',
+    name: 'getMarkPrice',
+    inputs: [{ name: 'marketId', type: 'uint32' }],
+    outputs: [
+      {
+        name: 'mark',
+        type: 'tuple',
+        components: [
+          { name: 'indexPxX18', type: 'uint128' },
+          { name: 'markPxX18', type: 'uint128' },
+          { name: 'premiumX18', type: 'int128' },
+          { name: 'timestamp', type: 'uint64' },
+        ],
+      },
+    ],
+    stateMutability: 'view',
+  },
+  // Get index price
+  {
+    type: 'function',
+    name: 'getIndexPrice',
+    inputs: [{ name: 'marketId', type: 'uint32' }],
+    outputs: [
+      { name: 'priceX18', type: 'uint128' },
+      { name: 'timestamp', type: 'uint64' },
+    ],
+    stateMutability: 'view',
+  },
+  // Get funding rate
+  {
+    type: 'function',
+    name: 'getFundingRate',
+    inputs: [{ name: 'marketId', type: 'uint32' }],
+    outputs: [
+      { name: 'rateX18', type: 'int128' },
+      { name: 'nextFundingTime', type: 'uint64' },
+    ],
+    stateMutability: 'view',
+  },
+  // Get trigger price for order
+  {
+    type: 'function',
+    name: 'getTriggerPrice',
+    inputs: [
+      { name: 'marketId', type: 'uint32' },
+      { name: 'isBuy', type: 'bool' },
+    ],
+    outputs: [{ name: 'priceX18', type: 'uint128' }],
+    stateMutability: 'view',
+  },
+] as const
+
+// ============================================================================
+// LXOracle ABI (LP-9011) - Price Oracle
+// ============================================================================
+
+/**
+ * LXOracle ABI (LP-9011)
+ * Multi-source price aggregation
+ */
+export const LX_ORACLE_ABI = [
+  // Get price
+  {
+    type: 'function',
+    name: 'getPrice',
+    inputs: [
+      { name: 'baseToken', type: 'address' },
+      { name: 'quoteToken', type: 'address' },
+    ],
+    outputs: [
+      {
+        name: 'price',
+        type: 'tuple',
+        components: [
+          { name: 'price', type: 'uint256' },
+          { name: 'confidence', type: 'uint256' },
+          { name: 'timestamp', type: 'uint256' },
+          { name: 'source', type: 'uint8' },
+          { name: 'expo', type: 'int32' },
+        ],
+      },
+    ],
+    stateMutability: 'view',
+  },
+  // Get aggregated price
+  {
+    type: 'function',
+    name: 'getAggregatedPrice',
+    inputs: [
+      { name: 'baseToken', type: 'address' },
+      { name: 'quoteToken', type: 'address' },
+      { name: 'maxStaleness', type: 'uint256' },
+    ],
+    outputs: [
+      {
+        name: 'aggregated',
+        type: 'tuple',
+        components: [
+          { name: 'price', type: 'uint256' },
+          { name: 'minPrice', type: 'uint256' },
+          { name: 'maxPrice', type: 'uint256' },
+          { name: 'deviation', type: 'uint256' },
+          { name: 'numSources', type: 'uint256' },
+          { name: 'timestamp', type: 'uint256' },
+        ],
+      },
+    ],
+    stateMutability: 'view',
+  },
+  // Check if price is fresh
+  {
+    type: 'function',
+    name: 'isPriceFresh',
+    inputs: [
+      { name: 'baseToken', type: 'address' },
+      { name: 'quoteToken', type: 'address' },
+      { name: 'maxStaleness', type: 'uint256' },
+    ],
+    outputs: [{ name: 'fresh', type: 'bool' }],
+    stateMutability: 'view',
   },
 ] as const

@@ -25,9 +25,16 @@ export const Mocks = {
     uni_token: path.resolve(__dirname, '../mocks/graphql/Token/uni_token.json'),
     uni_token_price: path.resolve(__dirname, '../mocks/graphql/Token/uni_token_price.json'),
     sepolia_yay_token: path.resolve(__dirname, '../mocks/graphql/Token/sepolia_yay_token.json'),
+    eth_token: path.resolve(__dirname, '../mocks/graphql/Token/eth_token.json'),
+    weth_token: path.resolve(__dirname, '../mocks/graphql/Token/weth_token.json'),
+  },
+  Convert: {
+    usd_convert: path.resolve(__dirname, '../mocks/graphql/Convert/usd_convert.json'),
   },
   TokenProjects: {
     token_spam: path.resolve(__dirname, '../mocks/graphql/TokenProjects/token_warning.json'),
+    common_bases: path.resolve(__dirname, '../mocks/graphql/TokenProjects/common_bases.json'),
+    common_bases_lux: path.resolve(__dirname, '../mocks/graphql/TokenProjects/common_bases_lux.json'),
   },
   TokenWeb: {
     token_warning: path.resolve(__dirname, '../mocks/graphql/TokenWeb/token_warning.json'),

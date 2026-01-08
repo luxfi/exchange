@@ -1,6 +1,6 @@
 import { expect, getTest } from 'playwright/fixtures'
-import { USDT } from 'uniswap/src/constants/tokens'
-import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+import { USDT } from 'lx/src/constants/tokens'
+import { TestID } from 'lx/src/test/fixtures/testIDs'
 
 const test = getTest()
 
@@ -21,8 +21,9 @@ test.describe(
       await page.goto(`/swap?outputCurrency=${USDT.address}`)
       await expect(page.getByTestId(TestID.ChooseOutputToken + '-label')).toHaveText('USDT')
 
-      await page.goto(`/swap?inputCurrency=ETH&outputCurrency=${USDT.address}`)
-      await expect(page.getByTestId(TestID.ChooseInputToken + '-label')).toHaveText('ETH')
+      // Lux uses LUX as native token instead of ETH
+      await page.goto(`/swap?inputCurrency=NATIVE&outputCurrency=${USDT.address}`)
+      await expect(page.getByTestId(TestID.ChooseInputToken + '-label')).toHaveText('LUX')
       await expect(page.getByTestId(TestID.ChooseOutputToken + '-label')).toHaveText('USDT')
     })
 

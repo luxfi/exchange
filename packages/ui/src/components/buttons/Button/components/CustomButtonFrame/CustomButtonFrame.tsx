@@ -1,4 +1,4 @@
-import { GetProps, styled, XStack } from 'tamagui'
+import { type GetProps, styled, XStack } from 'tamagui'
 import { FOCUS_SCALE } from 'ui/src/components/buttons/Button/components/CustomButtonFrame/constants'
 import { withCommonPressStyle } from 'ui/src/components/buttons/Button/components/CustomButtonFrame/utils'
 import { variantEmphasisHash } from 'ui/src/components/buttons/Button/components/CustomButtonFrame/variantEmphasisHash'
@@ -234,8 +234,7 @@ type CustomProps = {
   onDisabledPress?: () => void
 }
 
-type CustomButtonWithExtraProps = typeof CustomButtonFrameWithoutCustomProps & {
-  (props: CustomProps & GetProps<typeof CustomButtonFrameWithoutCustomProps>): JSX.Element | null
-}
+type CustomButtonWithExtraProps = typeof CustomButtonFrameWithoutCustomProps &
+  ((props: CustomProps & GetProps<typeof CustomButtonFrameWithoutCustomProps>) => JSX.Element | null)
 
 export const CustomButtonFrame = CustomButtonFrameWithoutCustomProps as CustomButtonWithExtraProps

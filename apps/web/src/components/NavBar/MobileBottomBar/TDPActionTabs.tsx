@@ -9,8 +9,8 @@ import { useNavigate } from 'react-router'
 import { Button, ButtonProps, Flex, IconButton, useMedia } from 'ui/src'
 import { ArrowDownCircle } from 'ui/src/components/icons/ArrowDownCircle'
 import { ArrowUpCircle } from 'ui/src/components/icons/ArrowUpCircle'
-import { isEVMChain } from 'uniswap/src/features/platforms/utils/chains'
-import { useShouldShowAztecWarning } from 'uniswap/src/hooks/useShouldShowAztecWarning'
+import { isEVMChain } from 'lx/src/features/platforms/utils/chains'
+import { useShouldShowAztecWarning } from 'lx/src/hooks/useShouldShowAztecWarning'
 
 type TabItem = {
   label?: string

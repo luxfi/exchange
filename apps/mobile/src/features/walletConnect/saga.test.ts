@@ -6,8 +6,8 @@ import { handleSessionAuthenticate, handleSessionProposal } from 'src/features/w
 import { parseVerifyStatus } from 'src/features/walletConnect/utils'
 import { wcWeb3Wallet } from 'src/features/walletConnect/walletConnectClient'
 import { addPendingSession } from 'src/features/walletConnect/walletConnectSlice'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { DappRequestInfo, DappRequestType, EthEvent } from 'uniswap/src/types/walletConnect'
+import { UniverseChainId } from 'lx/src/features/chains/types'
+import { DappRequestInfo, DappRequestType, EthEvent } from 'lx/src/types/walletConnect'
 import { DappVerificationStatus } from 'wallet/src/features/dappRequests/types'
 import { selectActiveAccountAddress } from 'wallet/src/features/wallet/selectors'
 

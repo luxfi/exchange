@@ -7,8 +7,8 @@ import { useTranslation } from 'react-i18next'
 import { Flex, SegmentedControl, Text, TouchableArea } from 'ui/src'
 import { AnglesMaximize } from 'ui/src/components/icons/AnglesMaximize'
 import { QuestionInCircleFilled } from 'ui/src/components/icons/QuestionInCircleFilled'
-import { InfoTooltip } from 'uniswap/src/components/tooltip/InfoTooltip'
-import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
+import { InfoTooltip } from 'lx/src/components/tooltip/InfoTooltip'
+import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
 import { NumberType } from 'utilities/src/format/types'
 
 const BidDistributionChartHeaderTooltip = () => {

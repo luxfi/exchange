@@ -1,5 +1,5 @@
 import { act, renderHook } from '@testing-library/react'
-import { LayoutChangeEvent } from 'react-native'
+import type { LayoutChangeEvent } from 'react-native'
 import { useDynamicFontSizing } from 'ui/src/hooks/useDynamicFontSizing'
 import { describe, expect, it } from 'vitest'
 
@@ -14,7 +14,7 @@ describe(useDynamicFontSizing, () => {
         maxCharWidthAtMaxFontSize: MAX_CHAR_PIXEL_WIDTH,
         maxFontSize: MAX_INPUT_FONT_SIZE,
         minFontSize: MIN_INPUT_FONT_SIZE,
-      }),
+      })
     )
 
     expect(result.current.fontSize).toBe(MAX_INPUT_FONT_SIZE)
@@ -26,7 +26,7 @@ describe(useDynamicFontSizing, () => {
         maxCharWidthAtMaxFontSize: MAX_CHAR_PIXEL_WIDTH,
         maxFontSize: MAX_INPUT_FONT_SIZE,
         minFontSize: MIN_INPUT_FONT_SIZE,
-      }),
+      })
     )
 
     await act(() => {
@@ -44,7 +44,7 @@ describe(useDynamicFontSizing, () => {
         maxCharWidthAtMaxFontSize: MAX_CHAR_PIXEL_WIDTH,
         maxFontSize: MAX_INPUT_FONT_SIZE,
         minFontSize: MIN_INPUT_FONT_SIZE,
-      }),
+      })
     )
 
     await act(() => {
@@ -62,7 +62,7 @@ describe(useDynamicFontSizing, () => {
         maxCharWidthAtMaxFontSize: MAX_CHAR_PIXEL_WIDTH,
         maxFontSize: MAX_INPUT_FONT_SIZE,
         minFontSize: MIN_INPUT_FONT_SIZE,
-      }),
+      })
     )
 
     await act(() => {

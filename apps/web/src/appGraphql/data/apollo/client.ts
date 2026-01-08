@@ -1,6 +1,6 @@
 import { getRetryLink } from 'appGraphql/data/apollo/retryLink'
 import { ApolloClient, from, HttpLink } from '@apollo/client'
-import { setupSharedApolloCache } from 'uniswap/src/data/cache'
+import { setupSharedApolloCache } from 'lx/src/data/cache'
 import { getDatadogApolloLink } from 'utilities/src/logger/datadog/datadogLink'
 
 const API_URL = process.env.REACT_APP_AWS_API_ENDPOINT
@@ -17,7 +17,7 @@ export const apolloClient = new ApolloClient({
   link: from([datadogLink, retryLink, httpLink]),
   headers: {
     'Content-Type': 'application/json',
-    Origin: 'https://app.uniswap.org',
+    Origin: 'https://lux.exchange',
   },
   cache: setupSharedApolloCache(),
   defaultOptions: {

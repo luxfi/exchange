@@ -1,4 +1,4 @@
-import { detectRepository } from '@universe/cli/src/lib/team-resolver'
+import { detectRepository } from '@luxfi/cli/src/lib/team-resolver'
 import { useEffect, useState } from 'react'
 
 interface Repository {

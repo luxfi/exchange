@@ -7,9 +7,9 @@ import { AnimatePresence, Button, Flex, Text } from 'ui/src'
 import { AnimateInOrder } from 'ui/src/animations'
 import { useDeviceDimensions } from 'ui/src/hooks/useDeviceDimensions'
 import { spacing } from 'ui/src/theme'
-import { UNITAG_SUFFIX } from 'uniswap/src/features/unitags/constants'
-import { useAppInsets } from 'uniswap/src/hooks/useAppInsets'
-import { MobileScreens, UnitagScreens } from 'uniswap/src/types/screens/mobile'
+import { UNITAG_SUFFIX } from 'lx/src/features/unitags/constants'
+import { useAppInsets } from 'lx/src/hooks/useAppInsets'
+import { MobileScreens, UnitagScreens } from 'lx/src/types/screens/mobile'
 import {
   EmojiElement,
   ENSElement,

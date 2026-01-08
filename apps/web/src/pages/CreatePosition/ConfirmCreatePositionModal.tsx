@@ -2,9 +2,9 @@ import { PriceDifference } from 'components/Liquidity/Create/types'
 import { useTranslation } from 'react-i18next'
 import { Button, Flex, Text } from 'ui/src'
 import { AlertTriangleFilled } from 'ui/src/components/icons/AlertTriangleFilled'
-import { GetHelpHeader } from 'uniswap/src/components/dialog/GetHelpHeader'
-import { Modal } from 'uniswap/src/components/modals/Modal'
-import { ModalName } from 'uniswap/src/features/telemetry/constants'
+import { GetHelpHeader } from 'lx/src/components/dialog/GetHelpHeader'
+import { Modal } from 'lx/src/components/modals/Modal'
+import { ModalName } from 'lx/src/features/telemetry/constants'
 
 export default function ConfirmCreatePositionModal({
   isOpen,

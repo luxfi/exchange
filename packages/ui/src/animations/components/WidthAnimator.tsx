@@ -1,5 +1,5 @@
 import { useCallback, useState } from 'react'
-import { LayoutChangeEvent } from 'react-native'
+import type { LayoutChangeEvent } from 'react-native'
 import { View, type ViewProps } from 'tamagui'
 
 const enterStyle = { opacity: 0 } satisfies ViewProps['enterStyle']

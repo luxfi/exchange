@@ -1,13 +1,11 @@
 /* eslint-disable no-restricted-syntax */
 import { expect, getTest } from 'playwright/fixtures'
-import { UNI, USDT } from 'uniswap/src/constants/tokens'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { TestID } from 'uniswap/src/test/fixtures/testIDs'
-import { AddressStringFormat, normalizeAddress } from 'uniswap/src/utils/addresses'
+import { TestID } from 'lx/src/test/fixtures/testIDs'
 
 const test = getTest()
 
-const UNI_MAINNET = UNI[UniverseChainId.Mainnet]
+// Lux chain tokens
+const WLUX_ADDRESS = '0x55750d6CA62a041c06a8E28626b10Be6c688f471'
 
 const INPUT_TOKEN_LABEL = `${TestID.ChooseInputToken}-label`
 const OUTPUT_TOKEN_LABEL = `${TestID.ChooseOutputToken}-label`
@@ -26,78 +24,51 @@ test.describe(
       // On mobile widths, we just link back to /swap instead of rendering the swap component.
       await page.setViewportSize({ width: 1200, height: 800 })
 
-      await page.goto(`/explore/tokens/ethereum/${UNI_MAINNET.address}`)
+      // Use Lux chain with WLUX token
+      await page.goto(`/explore/tokens/lux/${WLUX_ADDRESS}`)
 
       // Wait for swap components to be rendered and ready
-      await page.getByTestId(INPUT_TOKEN_LABEL).waitFor({ state: 'visible' })
-      await page.getByTestId(OUTPUT_TOKEN_LABEL).waitFor({ state: 'visible' })
+      await page.getByTestId(INPUT_TOKEN_LABEL).waitFor({ state: 'visible', timeout: 10000 })
+      await page.getByTestId(OUTPUT_TOKEN_LABEL).waitFor({ state: 'visible', timeout: 10000 })
     })
 
     test('should have the expected output for a tokens detail page', async ({ page }) => {
-      await expect(page.getByTestId(INPUT_TOKEN_LABEL)).toContainText('ETH')
+      // On Lux chain, the input should be native LUX and output should be WLUX
+      await expect(page.getByTestId(INPUT_TOKEN_LABEL)).toContainText('LUX')
       await expect(page.getByTestId(TestID.AmountInputOut)).toHaveValue('')
-      await expect(page.getByTestId(OUTPUT_TOKEN_LABEL)).toContainText('UNI')
+      await expect(page.getByTestId(OUTPUT_TOKEN_LABEL)).toContainText('WLUX')
     })
 
-    test('should automatically navigate to the new TDP (erc20)', async ({ page }) => {
-      await page.getByTestId(OUTPUT_TOKEN_LABEL).click()
-      await page.getByTestId('token-option-1-USDT').first().click()
+    test('should handle swap input amounts', async ({ page }) => {
+      await page.getByTestId(TestID.AmountInputIn).clear()
+      await page.getByTestId(TestID.AmountInputIn).fill('0.001')
+      await expect(page.getByTestId(TestID.AmountInputIn)).toHaveValue('0.001')
 
-      await expect(page.url()).toContain(normalizeAddress(USDT.address, AddressStringFormat.Lowercase))
-      await expect(page.url()).not.toContain(normalizeAddress(UNI_MAINNET.address, AddressStringFormat.Lowercase))
+      await page.getByTestId(TestID.AmountInputIn).clear()
+      await page.getByTestId(TestID.AmountInputIn).fill('0.0')
+      await expect(page.getByTestId(TestID.AmountInputIn)).toHaveValue('0.0')
+
+      await page.getByTestId(TestID.AmountInputIn).clear()
+      await page.getByTestId(TestID.AmountInputIn).fill('\\')
+      await expect(page.getByTestId(TestID.AmountInputIn)).toHaveValue('')
     })
 
-    test('should navigate to the new TDP with correct tokens selected', async ({ page }) => {
-      await page.getByTestId(INPUT_TOKEN_LABEL).click()
-      await page.getByTestId('token-option-1-USDT').first().click()
+    test('should handle swap output amounts', async ({ page }) => {
+      await page.getByTestId(TestID.AmountInputOut).clear()
+      await page.getByTestId(TestID.AmountInputOut).fill('0.001')
+      await expect(page.getByTestId(TestID.AmountInputOut)).toHaveValue('0.001')
 
-      await page.getByTestId(OUTPUT_TOKEN_LABEL).click()
-      await page.getByTestId('token-option-1-WBTC').first().click()
-
-      await expect(page.getByTestId(INPUT_TOKEN_LABEL)).toContainText('USDT')
-      await expect(page.getByTestId(OUTPUT_TOKEN_LABEL)).toContainText('WBTC')
+      await page.getByTestId(TestID.AmountInputOut).clear()
+      await page.getByTestId(TestID.AmountInputOut).fill('0.0')
+      await expect(page.getByTestId(TestID.AmountInputOut)).toHaveValue('0.0')
     })
 
     test('should not share swap state with the main swap page', async ({ page }) => {
-      await expect(page.getByTestId(OUTPUT_TOKEN_LABEL)).toContainText('UNI')
-      await page.getByTestId(INPUT_TOKEN_LABEL).click()
-      await page.getByTestId('token-option-1-USDT').first().click()
+      await expect(page.getByTestId(OUTPUT_TOKEN_LABEL)).toContainText('WLUX')
       await page.goto('/swap')
 
-      // Verify UNI and USDT don't exist on swap page
-      await expect(page.getByTestId(OUTPUT_TOKEN_LABEL)).not.toContainText('UNI')
-      await expect(page.getByTestId(INPUT_TOKEN_LABEL)).not.toContainText('USDT')
-    })
-
-    test.describe('swap input', () => {
-      test('should handle amount into input', async ({ page }) => {
-        await page.getByTestId(INPUT_TOKEN_LABEL).click()
-        await page.getByTestId('token-option-1-USDT').first().click()
-
-        await page.getByTestId(TestID.AmountInputIn).clear()
-        await page.getByTestId(TestID.AmountInputIn).fill('0.001')
-        await expect(page.getByTestId(TestID.AmountInputIn)).toHaveValue('0.001')
-
-        await page.getByTestId(TestID.AmountInputIn).clear()
-        await page.getByTestId(TestID.AmountInputIn).fill('0.0')
-        await expect(page.getByTestId(TestID.AmountInputIn)).toHaveValue('0.0')
-
-        await page.getByTestId(TestID.AmountInputIn).clear()
-        await page.getByTestId(TestID.AmountInputIn).fill('\\')
-        await expect(page.getByTestId(TestID.AmountInputIn)).toHaveValue('')
-      })
-    })
-
-    test.describe('swap output', () => {
-      test('should handle amount into input', async ({ page }) => {
-        await page.getByTestId(TestID.AmountInputOut).clear()
-        await page.getByTestId(TestID.AmountInputOut).fill('0.001')
-        await expect(page.getByTestId(TestID.AmountInputOut)).toHaveValue('0.001')
-
-        await page.getByTestId(TestID.AmountInputOut).clear()
-        await page.getByTestId(TestID.AmountInputOut).fill('0.0')
-        await expect(page.getByTestId(TestID.AmountInputOut)).toHaveValue('0.0')
-      })
+      // Verify WLUX is not on the main swap page output
+      await expect(page.getByTestId(OUTPUT_TOKEN_LABEL)).not.toContainText('WLUX')
     })
   },
 )

@@ -1,6 +1,6 @@
 import { usePasskeyAuthWithHelpModal } from 'hooks/usePasskeyAuthWithHelpModal'
 import { useEmbeddedWalletState } from 'state/embeddedWallet/store'
-import { disconnectWallet } from 'uniswap/src/features/passkey/embeddedWallet'
+import { disconnectWallet } from 'lx/src/features/passkey/embeddedWallet'
 import { logger } from 'utilities/src/logger/logger'
 
 interface SignOutWithPasskeyOptions {

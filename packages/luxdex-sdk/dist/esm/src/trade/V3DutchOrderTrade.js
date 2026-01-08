@@ -1,0 +1,87 @@
+import { CurrencyAmount, Price } from "@uniswap/sdk-core";
+import { UnsignedV3DutchOrder } from "../order/V3DutchOrder";
+import { areCurrenciesEqual } from "./utils";
+export class V3DutchOrderTrade {
+    constructor({ currencyIn, currenciesOut, orderInfo, tradeType, expectedAmounts, }) {
+        this._currencyIn = currencyIn;
+        this._currenciesOut = currenciesOut;
+        this.tradeType = tradeType;
+        this.expectedAmounts = expectedAmounts;
+        // Assuming not cross-chain
+        this.order = new UnsignedV3DutchOrder(orderInfo, currencyIn.chainId);
+    }
+    get inputAmount() {
+        var _a;
+        if (this._inputAmount)
+            return this._inputAmount;
+        const amount = ((_a = this.expectedAmounts) === null || _a === void 0 ? void 0 : _a.expectedAmountIn)
+            ? this.getExpectedAmountIn()
+            : CurrencyAmount.fromRawAmount(this._currencyIn, this.order.info.input.startAmount.toString());
+        this._inputAmount = amount;
+        return amount;
+    }
+    get outputAmounts() {
+        if (this._outputAmounts)
+            return this._outputAmounts;
+        const amounts = this.order.info.outputs.map((output) => {
+            // Assuming all outputs on the same chain
+            const currencyOut = this._currenciesOut.find((currency) => areCurrenciesEqual(currency, output.token, currency.chainId));
+            if (!currencyOut) {
+                throw new Error("Currency out not found");
+            }
+            return CurrencyAmount.fromRawAmount(currencyOut, output.startAmount.toString());
+        });
+        this._outputAmounts = amounts;
+        return amounts;
+    }
+    // Same assumption as V2 that there is only one non-fee output at a time, and it exists at index 0
+    get outputAmount() {
+        var _a;
+        return ((_a = this.expectedAmounts) === null || _a === void 0 ? void 0 : _a.expectedAmountOut)
+            ? this.getExpectedAmountOut()
+            : this.outputAmounts[0];
+    }
+    minimumAmountOut() {
+        const nonFeeOutput = this.order.info.outputs[0];
+        const relativeAmounts = nonFeeOutput.curve.relativeAmounts;
+        const startAmount = nonFeeOutput.startAmount;
+        // Get the maximum of the relative amounts
+        const maxRelativeAmount = relativeAmounts.reduce((max, amount) => amount > max ? amount : max, BigInt(0));
+        // minimum is the start - the max of the relative amounts
+        const minOut = startAmount.sub(maxRelativeAmount.toString());
+        return CurrencyAmount.fromRawAmount(this.outputAmount.currency, minOut.toString());
+    }
+    maximumAmountIn() {
+        const maxAmountIn = this.order.info.input.maxAmount;
+        return CurrencyAmount.fromRawAmount(this._currencyIn, maxAmountIn.toString());
+    }
+    /**
+     * The price expressed in terms of output amount/input amount.
+     */
+    get executionPrice() {
+        var _a;
+        return ((_a = this._executionPrice) !== null && _a !== void 0 ? _a : (this._executionPrice = new Price(this.inputAmount.currency, this.outputAmount.currency, this.inputAmount.quotient, this.outputAmount.quotient)));
+    }
+    /**
+     * Return the execution price after accounting for slippage tolerance
+     * @returns The execution price
+     */
+    worstExecutionPrice() {
+        return new Price(this.inputAmount.currency, this.outputAmount.currency, this.maximumAmountIn().quotient, this.minimumAmountOut().quotient);
+    }
+    getExpectedAmountIn() {
+        var _a;
+        if (!((_a = this.expectedAmounts) === null || _a === void 0 ? void 0 : _a.expectedAmountIn)) {
+            throw new Error("expectedAmountIn not set");
+        }
+        return CurrencyAmount.fromRawAmount(this._currencyIn, this.expectedAmounts.expectedAmountIn);
+    }
+    getExpectedAmountOut() {
+        var _a;
+        if (!((_a = this.expectedAmounts) === null || _a === void 0 ? void 0 : _a.expectedAmountOut)) {
+            throw new Error("expectedAmountOut not set");
+        }
+        return CurrencyAmount.fromRawAmount(this._currenciesOut[0], this.expectedAmounts.expectedAmountOut);
+    }
+}
+//# sourceMappingURL=V3DutchOrderTrade.js.map

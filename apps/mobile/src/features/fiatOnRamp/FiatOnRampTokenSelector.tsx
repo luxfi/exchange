@@ -4,12 +4,12 @@ import { FadeIn, FadeOut } from 'react-native-reanimated'
 import { TokenFiatOnRampList } from 'src/components/TokenSelector/TokenFiatOnRampList'
 import { Flex, Text, useSporeColors } from 'ui/src'
 import { AnimatedFlex } from 'ui/src/components/layout/AnimatedFlex'
-import { Modal } from 'uniswap/src/components/modals/Modal'
-import { PortfolioBalance } from 'uniswap/src/features/dataApi/types'
-import { FOR_MODAL_SNAP_POINTS } from 'uniswap/src/features/fiatOnRamp/constants'
-import { FiatOnRampCurrency } from 'uniswap/src/features/fiatOnRamp/types'
-import { ElementName, ModalName, SectionName } from 'uniswap/src/features/telemetry/constants'
-import Trace from 'uniswap/src/features/telemetry/Trace'
+import { Modal } from 'lx/src/components/modals/Modal'
+import { PortfolioBalance } from 'lx/src/features/dataApi/types'
+import { FOR_MODAL_SNAP_POINTS } from 'lx/src/features/fiatOnRamp/constants'
+import { FiatOnRampCurrency } from 'lx/src/features/fiatOnRamp/types'
+import { ElementName, ModalName, SectionName } from 'lx/src/features/telemetry/constants'
+import Trace from 'lx/src/features/telemetry/Trace'
 
 interface Props {
   onSelectCurrency: (currency: FiatOnRampCurrency) => void

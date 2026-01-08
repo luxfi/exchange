@@ -4,7 +4,7 @@ import { AuctionProgressState } from 'components/Toucan/Auction/store/types'
 import { useAuctionStore } from 'components/Toucan/Auction/store/useAuctionStore'
 import { useTranslation } from 'react-i18next'
 import { Flex, styled, Text } from 'ui/src'
-import { EVMUniverseChainId } from 'uniswap/src/features/chains/types'
+import { EVMUniverseChainId } from 'lx/src/features/chains/types'
 
 const ColorDot = styled(Flex, {
   width: 8,

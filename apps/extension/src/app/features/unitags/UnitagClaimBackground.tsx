@@ -19,7 +19,7 @@ import {
   UNITAGS_SPENCER_LIGHT,
 } from 'ui/src/assets'
 import { zIndexes } from 'ui/src/theme'
-import { IconCloud } from 'uniswap/src/components/IconCloud/IconCloud'
+import { IconCloud } from 'lx/src/components/IconCloud/IconCloud'
 
 export function UnitagClaimBackground({ children }: PropsWithChildren<{ blurAll: boolean }>): JSX.Element {
   const isDarkMode = useIsDarkMode()

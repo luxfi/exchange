@@ -11,9 +11,9 @@ import { Helmet } from 'react-helmet-async/lib/index'
 import { Navigate, useLocation } from 'react-router'
 import DarkModeQueryParamReader from 'theme/components/DarkModeQueryParamReader'
 import { useSporeColors } from 'ui/src'
-import { initializeScrollWatcher } from 'uniswap/src/components/modals/ScrollLock'
-import { EXTENSION_PASSKEY_AUTH_PATH } from 'uniswap/src/features/passkey/constants'
-import Trace from 'uniswap/src/features/telemetry/Trace'
+import { initializeScrollWatcher } from 'lx/src/components/modals/ScrollLock'
+import { EXTENSION_PASSKEY_AUTH_PATH } from 'lx/src/features/passkey/constants'
+import Trace from 'lx/src/features/telemetry/Trace'
 import { isPathBlocked } from 'utils/blockedPaths'
 import { MICROSITE_LINK } from 'utils/openDownloadApp'
 import { getCurrentPageFromLocation } from 'utils/urlRoutes'
@@ -34,7 +34,7 @@ export default function App() {
   }, [])
 
   const metaTags = useDynamicMetatags()
-  const staticTitle = findRouteByPath(pathname)?.getTitle(pathname) ?? 'Uniswap Interface'
+  const staticTitle = findRouteByPath(pathname)?.getTitle(pathname) ?? 'Lux Exchange'
   const staticDescription = findRouteByPath(pathname)?.getDescription(pathname)
 
   // redirect address to landing pages until implemented

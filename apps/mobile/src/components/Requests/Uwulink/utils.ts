@@ -4,13 +4,13 @@ import {
   UwULinkAllowlistItem,
   UwuLinkConfigKey,
   useDynamicConfigValue,
-} from '@universe/gating'
+} from '@luxfi/gating'
 import { parseEther } from 'ethers/lib/utils'
 import { WalletConnectSigningRequest } from 'src/features/walletConnect/walletConnectSlice'
-import { AssetType } from 'uniswap/src/entities/assets'
-import { SignerMnemonicAccountMeta } from 'uniswap/src/features/accounts/types'
-import { EthMethod } from 'uniswap/src/features/dappRequests/types'
-import { isUwULinkAllowlistType } from 'uniswap/src/features/gating/typeGuards'
+import { AssetType } from 'lx/src/entities/assets'
+import { SignerMnemonicAccountMeta } from 'lx/src/features/accounts/types'
+import { EthMethod } from 'lx/src/features/dappRequests/types'
+import { isUwULinkAllowlistType } from 'lx/src/features/gating/typeGuards'
 import {
   DappRequestType,
   EthTransaction,
@@ -18,8 +18,8 @@ import {
   UwULinkMethod,
   UwULinkRequest,
   UwULinkRequestInfo,
-} from 'uniswap/src/types/walletConnect'
-import { areAddressesEqual } from 'uniswap/src/utils/addresses'
+} from 'lx/src/types/walletConnect'
+import { areAddressesEqual } from 'lx/src/utils/addresses'
 import { ContractManager } from 'wallet/src/features/contracts/ContractManager'
 import { ProviderManager } from 'wallet/src/features/providers/ProviderManager'
 import { getTokenSendRequest } from 'wallet/src/features/transactions/send/hooks/useSendTransactionRequest'

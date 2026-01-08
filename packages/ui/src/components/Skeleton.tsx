@@ -1,10 +1,14 @@
-import { styled, Stack } from 'tamagui'
-import type { GetProps } from 'tamagui'
+import type { StackProps } from 'tamagui'
+import { Stack, styled } from 'tamagui'
 
-export const Skeleton = styled(Stack, {
+type SkeletonVariant = 'text' | 'circular' | 'rectangular'
+type SkeletonWidth = 'sm' | 'md' | 'lg' | 'full'
+type SkeletonHeight = 'sm' | 'md' | 'lg' | 'xl'
+
+const SkeletonFrame = styled(Stack, {
   name: 'Skeleton',
-  backgroundColor: '$backgroundHover',
-  borderRadius: '$2',
+  backgroundColor: '$surface2',
+  borderRadius: '$rounded8',
   animation: 'lazy',
 
   // Pulse animation via opacity
@@ -13,39 +17,65 @@ export const Skeleton = styled(Stack, {
   enterStyle: {
     opacity: 0.5,
   },
-
-  variants: {
-    variant: {
-      text: {
-        height: 16,
-        width: '100%',
-      },
-      circular: {
-        borderRadius: 1000,
-      },
-      rectangular: {
-        borderRadius: '$2',
-      },
-    },
-    width: {
-      sm: { width: 60 },
-      md: { width: 100 },
-      lg: { width: 160 },
-      full: { width: '100%' },
-    },
-    height: {
-      sm: { height: 16 },
-      md: { height: 24 },
-      lg: { height: 40 },
-      xl: { height: 60 },
-    },
-  } as const,
-
-  defaultVariants: {
-    variant: 'rectangular',
-    width: 'full',
-    height: 'md',
-  },
 })
 
-export type SkeletonProps = GetProps<typeof Skeleton>
+interface VariantStyle {
+  borderRadius?: number
+  height?: number
+  width?: number
+  fullWidth?: boolean
+}
+
+const variantStyles: Record<SkeletonVariant, VariantStyle> = {
+  text: {
+    height: 16,
+    fullWidth: true,
+  },
+  circular: {
+    borderRadius: 1000,
+  },
+  rectangular: {
+    // Uses default borderRadius from SkeletonFrame
+  },
+}
+
+const widthMap: Record<Exclude<SkeletonWidth, 'full'>, number> = {
+  sm: 60,
+  md: 100,
+  lg: 160,
+}
+
+const heightMap: Record<SkeletonHeight, number> = {
+  sm: 16,
+  md: 24,
+  lg: 40,
+  xl: 60,
+}
+
+export interface SkeletonProps extends Omit<StackProps, 'width' | 'height'> {
+  variant?: SkeletonVariant
+  width?: SkeletonWidth | number
+  height?: SkeletonHeight | number
+}
+
+export function Skeleton({ variant = 'rectangular', width = 'full', height = 'md', ...props }: SkeletonProps) {
+  const variantStyle = variantStyles[variant]
+
+  const isFullWidth = width === 'full' || variantStyle.fullWidth
+
+  const resolvedWidth: number | undefined =
+    typeof width === 'number' ? width : width !== 'full' ? widthMap[width] : undefined
+
+  const resolvedHeight: number = typeof height === 'number' ? height : heightMap[height]
+
+  return (
+    <SkeletonFrame
+      width={variantStyle.width ?? resolvedWidth}
+      height={variantStyle.height ?? resolvedHeight}
+      borderRadius={variantStyle.borderRadius}
+      flex={isFullWidth ? 1 : undefined}
+      alignSelf={isFullWidth ? 'stretch' : undefined}
+      {...props}
+    />
+  )
+}

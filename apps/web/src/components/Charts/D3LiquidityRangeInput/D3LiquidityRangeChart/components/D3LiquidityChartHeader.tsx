@@ -1,4 +1,4 @@
-import { Currency, Price } from '@uniswap/sdk-core'
+import { Currency, Price } from '@luxamm/sdk-core'
 import { DisplayCurrentPrice } from 'components/Liquidity/DisplayCurrentPrice'
 import { Flex } from 'ui/src'
 import { SegmentedControl, SegmentedControlOption } from 'ui/src/components/SegmentedControl/SegmentedControl'

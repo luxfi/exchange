@@ -2,8 +2,8 @@ import {
   DEV_ENTRY_GATEWAY_API_BASE_URL,
   PROD_ENTRY_GATEWAY_API_BASE_URL,
   STAGING_ENTRY_GATEWAY_API_BASE_URL,
-} from '@universe/api/src/clients/base/urls'
-import { getConfig } from '@universe/config'
+} from '@luxfi/api/src/clients/base/urls'
+import { getConfig } from '@luxfi/config'
 import { Environment, getCurrentEnv } from 'utilities/src/environment/getCurrentEnv'
 /**
  * Returns the appropriate Entry Gateway API base URL based on the current environment.

@@ -1,8 +1,8 @@
 import { Ticks } from 'appGraphql/data/AllV3TicksQuery'
-import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
-import { Currency, Price, Token } from '@uniswap/sdk-core'
-import { tickToPrice as tickToPriceV3 } from '@uniswap/v3-sdk'
-import { tickToPrice as tickToPriceV4 } from '@uniswap/v4-sdk'
+import { ProtocolVersion } from '@luxdex/client-data-api/dist/data/v1/poolTypes_pb'
+import { Currency, Price, Token } from '@luxamm/sdk-core'
+import { tickToPrice as tickToPriceV3 } from '@luxamm/v3-sdk'
+import { tickToPrice as tickToPriceV4 } from '@luxamm/v4-sdk'
 import JSBI from 'jsbi'
 
 const PRICE_FIXED_DIGITS = 8
@@ -47,10 +47,12 @@ export default function computeSurroundingTicks({
   let processedTicks: TickProcessed[] = []
   for (let i = pivot + (ascending ? 1 : -1); ascending ? i < sortedTickData.length : i >= 0; ascending ? i++ : i--) {
     const tick = Number(sortedTickData[i]?.tick)
-    const sdkPrice =
+    // Type assertion needed because @luxamm/* SDKs use @uniswap/sdk-core internally
+    const sdkPrice = (
       version === ProtocolVersion.V3
         ? tickToPriceV3(token0 as Token, token1 as Token, tick)
         : tickToPriceV4(token0, token1, tick)
+    ) as unknown as Price<Currency, Currency>
     const currentTickProcessed: TickProcessed = {
       liquidityActive: previousTickProcessed.liquidityActive,
       tick,

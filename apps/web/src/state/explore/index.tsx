@@ -1,10 +1,12 @@
-import { ExploreStatsResponse, ProtocolStatsResponse } from '@uniswap/client-explore/dist/uniswap/explore/v1/service_pb'
-import { ALL_NETWORKS_ARG } from '@universe/api'
+import { ExploreStatsResponse, ProtocolStatsResponse } from '@luxdex/client-explore/dist/uniswap/explore/v1/service_pb'
+import { ALL_NETWORKS_ARG } from '@luxfi/api'
 import { createContext, useMemo } from 'react'
-import { useExploreStatsQuery } from 'uniswap/src/data/rest/exploreStats'
-import { useProtocolStatsQuery } from 'uniswap/src/data/rest/protocolStats'
-import { useIsSupportedChainId } from 'uniswap/src/features/chains/hooks/useSupportedChainId'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { useExploreStatsQuery } from 'lx/src/data/rest/exploreStats'
+import { isLxdChain } from 'lx/src/data/rest/lxdGateway'
+import { useProtocolStatsQuery } from 'lx/src/data/rest/protocolStats'
+import { useIsSupportedChainId } from 'lx/src/features/chains/hooks/useSupportedChainId'
+import { UniverseChainId } from 'lx/src/features/chains/types'
+import { useLxdExploreStats } from './useLxdExploreStats'
 
 interface QueryResult<T> {
   data?: T
@@ -49,14 +51,25 @@ export function ExploreContextProvider({
   children: React.ReactNode
 }) {
   const isSupportedChain = useIsSupportedChainId(chainId)
+  const useLxd = chainId && isLxdChain(chainId)
 
+  // Standard Uniswap backend query (disabled for LXD chains)
   const {
-    data: exploreStatsData,
-    isLoading: exploreStatsLoading,
-    error: exploreStatsError,
+    data: uniswapStatsData,
+    isLoading: uniswapStatsLoading,
+    error: uniswapStatsError,
   } = useExploreStatsQuery<ExploreStatsResponse>({
     input: { chainId: isSupportedChain ? chainId.toString() : ALL_NETWORKS_ARG },
+    enabled: !useLxd,
   })
+
+  // LXD Gateway query (enabled only for Lux/Zoo chains)
+  const {
+    data: lxdStatsData,
+    isLoading: lxdStatsLoading,
+    error: lxdStatsError,
+  } = useLxdExploreStats(chainId)
+
   const {
     data: protocolStatsData,
     isLoading: protocolStatsLoading,
@@ -64,6 +77,11 @@ export function ExploreContextProvider({
   } = useProtocolStatsQuery({
     chainId: isSupportedChain ? chainId.toString() : ALL_NETWORKS_ARG,
   })
+
+  // Use LXD data for Lux/Zoo chains, Uniswap data for others
+  const exploreStatsData = useLxd ? lxdStatsData : uniswapStatsData
+  const exploreStatsLoading = useLxd ? lxdStatsLoading : uniswapStatsLoading
+  const exploreStatsError = useLxd ? lxdStatsError : uniswapStatsError
 
   const exploreContext = useMemo(() => {
     return {

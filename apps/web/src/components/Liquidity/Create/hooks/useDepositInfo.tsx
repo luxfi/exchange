@@ -1,8 +1,8 @@
-import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
-import { Currency, CurrencyAmount } from '@uniswap/sdk-core'
-import { Pair } from '@uniswap/v2-sdk'
-import { Pool as V3Pool } from '@uniswap/v3-sdk'
-import { Pool as V4Pool } from '@uniswap/v4-sdk'
+import { ProtocolVersion } from '@luxdex/client-data-api/dist/data/v1/poolTypes_pb'
+import { Currency, CurrencyAmount } from '@luxamm/sdk-core'
+import { Pair } from '@luxamm/v2-sdk'
+import { Pool as V3Pool } from '@luxamm/v3-sdk'
+import { Pool as V4Pool } from '@luxamm/v4-sdk'
 import { useNativeTokenPercentageBufferExperiment } from 'components/Liquidity/Create/hooks/useNativeTokenPercentageBufferExperiment'
 import { DepositInfo } from 'components/Liquidity/types'
 import {
@@ -14,10 +14,10 @@ import tryParseCurrencyAmount from 'lib/utils/tryParseCurrencyAmount'
 import { useMemo } from 'react'
 import { Trans, useTranslation } from 'react-i18next'
 import { PositionField } from 'types/position'
-import { useMaxAmountSpend } from 'uniswap/src/features/gas/hooks/useMaxAmountSpend'
-import { applyNativeTokenPercentageBuffer } from 'uniswap/src/features/gas/utils'
-import { useOnChainCurrencyBalance } from 'uniswap/src/features/portfolio/api'
-import { useUSDCValue } from 'uniswap/src/features/transactions/hooks/useUSDCPrice'
+import { useMaxAmountSpend } from 'lx/src/features/gas/hooks/useMaxAmountSpend'
+import { applyNativeTokenPercentageBuffer } from 'lx/src/features/gas/utils'
+import { useOnChainCurrencyBalance } from 'lx/src/features/portfolio/api'
+import { useUSDCValue } from 'lx/src/features/transactions/hooks/useUSDCPrice'
 
 type UseDepositInfoProps = {
   protocolVersion: ProtocolVersion

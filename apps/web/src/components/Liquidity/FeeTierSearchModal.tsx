@@ -1,4 +1,4 @@
-import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import { FeatureFlags, useFeatureFlag } from '@luxfi/gating'
 import { useAllFeeTierPoolData } from 'components/Liquidity/hooks/useAllFeeTierPoolData'
 import {
   calculateTickSpacingFromFeeAmount,
@@ -24,14 +24,14 @@ import { CheckCircleFilled } from 'ui/src/components/icons/CheckCircleFilled'
 import { Plus } from 'ui/src/components/icons/Plus'
 import { Search } from 'ui/src/components/icons/Search'
 import { useDynamicFontSizing } from 'ui/src/hooks/useDynamicFontSizing'
-import { AmountInput } from 'uniswap/src/components/AmountInput/AmountInput'
-import { numericInputRegex } from 'uniswap/src/components/AmountInput/utils/numericInputEnforcer'
-import { Modal } from 'uniswap/src/components/modals/Modal'
-import { ZERO_ADDRESS } from 'uniswap/src/constants/misc'
-import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
-import { LiquidityEventName, ModalName } from 'uniswap/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
-import { FeePoolSelectAction } from 'uniswap/src/features/telemetry/types'
+import { AmountInput } from 'lx/src/components/AmountInput/AmountInput'
+import { numericInputRegex } from 'lx/src/components/AmountInput/utils/numericInputEnforcer'
+import { Modal } from 'lx/src/components/modals/Modal'
+import { ZERO_ADDRESS } from 'lx/src/constants/misc'
+import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
+import { LiquidityEventName, ModalName } from 'lx/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
+import { FeePoolSelectAction } from 'lx/src/features/telemetry/types'
 import useResizeObserver from 'use-resize-observer'
 import { NumberType } from 'utilities/src/format/types'
 import { isMobileWeb } from 'utilities/src/platform'
@@ -330,7 +330,7 @@ export function FeeTierSearchModal() {
                 py="$none"
                 placeholder={t('fee.tier.search.short')}
                 placeholderTextColor="$neutral3"
-                onChangeText={(value) => {
+                onChangeText={(value: string) => {
                   if (value === '.') {
                     setSearchValue('0.')
                     return

@@ -1,4 +1,4 @@
-import { GetProps } from 'tamagui'
+import type { GetProps } from 'tamagui'
 import { Text } from 'ui/src/components/text'
 
 const gradientStyle = `

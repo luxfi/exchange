@@ -1,4 +1,4 @@
-import { FeeAmount } from '@uniswap/v3-sdk'
+import { FeeAmount } from '@luxamm/v3-sdk'
 import { AutoColumn } from 'components/deprecated/Column'
 import { FEE_AMOUNT_DETAIL } from 'components/FeeSelector/shared'
 import { MouseoverTooltip, TooltipSize } from 'components/Tooltip'
@@ -6,7 +6,7 @@ import { useFeeTierDistribution } from 'hooks/useFeeTierDistribution'
 import { PoolState } from 'hooks/usePools'
 import { Trans } from 'react-i18next'
 import { Flex, RadioButton, Text } from 'ui/src'
-import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
+import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
 
 interface FeeOptionProps {
   feeAmount: FeeAmount

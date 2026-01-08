@@ -1,4 +1,4 @@
-import { GraphQLApi } from '@universe/api'
+import { GraphQLApi } from '@luxfi/api'
 import ethereumLogo from 'assets/images/ethereum-logo.png'
 import { NATIVE_CHAIN_ID } from 'constants/tokens'
 

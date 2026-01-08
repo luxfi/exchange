@@ -1,4 +1,4 @@
-import { TradingApi } from '@universe/api'
+import { TradingApi } from '@luxfi/api'
 import { ContractTransaction } from 'ethers/lib/ethers'
 import { useAccount } from 'hooks/useAccount'
 import { useEthersWeb3Provider } from 'hooks/useEthersProvider'
@@ -14,10 +14,10 @@ import {
   getOrdersMatchingCancellationData,
   LimitOrdersFetcher,
   trackOrderCancellation,
-} from 'uniswap/src/features/transactions/cancel/cancelMultipleOrders'
-import { validateOrdersForCancellation } from 'uniswap/src/features/transactions/cancel/validation'
-import { updateTransaction } from 'uniswap/src/features/transactions/slice'
-import { TransactionStatus, UniswapXOrderDetails } from 'uniswap/src/features/transactions/types/transactionDetails'
+} from 'lx/src/features/transactions/cancel/cancelMultipleOrders'
+import { validateOrdersForCancellation } from 'lx/src/features/transactions/cancel/validation'
+import { updateTransaction } from 'lx/src/features/transactions/slice'
+import { TransactionStatus, UniswapXOrderDetails } from 'lx/src/features/transactions/types/transactionDetails'
 import { logger } from 'utilities/src/logger/logger'
 import { WrongChainError } from 'utils/errors'
 import { didUserReject } from 'utils/swapErrorToUserReadableMessage'

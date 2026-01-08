@@ -11,9 +11,9 @@ import {
   parseSignRequest,
   parseTransactionRequest,
 } from 'src/features/walletConnect/utils'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { EthMethod } from 'uniswap/src/features/dappRequests/types'
-import { DappRequestType } from 'uniswap/src/types/walletConnect'
+import { UniverseChainId } from 'lx/src/features/chains/types'
+import { EthMethod } from 'lx/src/features/dappRequests/types'
+import { DappRequestType } from 'lx/src/types/walletConnect'
 
 const EIP155_MAINNET = 'eip155:1'
 const EIP155_POLYGON = 'eip155:137'

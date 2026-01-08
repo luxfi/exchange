@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next'
 import { Image } from 'ui/src'
 import { LuxLogo } from 'ui/src/components/icons/LuxLogo'
 import { opacify } from 'ui/src/theme'
-import { uniswapUrls } from 'uniswap/src/constants/urls'
+import { uniswapUrls } from 'lx/src/constants/urls'
 
 const primary = '#FFFFFF'
 
@@ -23,7 +23,7 @@ export function LuxDexCard() {
       }
       bodyText={t('landing.luxDex.body')}
       subtitle={t('landing.luxDex.subtitle')}
-      button={<PillButton color={primary} label={t('landing.luxDex.button')} backgroundColor="$surface1" />}
+      button={<PillButton color="$neutral1" label={t('landing.luxDex.button')} backgroundColor="$surface1" />}
       alignTextToBottom
     >
       <CardContents alignItems="flex-end">

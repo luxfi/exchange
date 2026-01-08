@@ -1,4 +1,4 @@
-import { WETH9 } from '@uniswap/sdk-core'
+import { WETH9 } from '@luxamm/sdk-core'
 import { useLiquidityUrlState } from 'components/Liquidity/Create/hooks/useLiquidityUrlState'
 import { DEFAULT_FEE_DATA, PositionFlowStep } from 'components/Liquidity/Create/types'
 import { NATIVE_CHAIN_ID } from 'constants/tokens'
@@ -7,8 +7,8 @@ import { useQueryState, useQueryStates } from 'nuqs'
 import { mocked } from 'test-utils/mocked'
 import { renderHook } from 'test-utils/render'
 import { PositionField } from 'types/position'
-import { nativeOnChain, USDC, USDC_UNICHAIN } from 'uniswap/src/constants/tokens'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { nativeOnChain, USDC, USDC_UNICHAIN } from 'lx/src/constants/tokens'
+import { UniverseChainId } from 'lx/src/features/chains/types'
 import { vi } from 'vitest'
 
 vi.mock('nuqs', async () => {

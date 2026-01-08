@@ -15,7 +15,7 @@ export function LimitDisclaimer(props: FlexProps) {
       </DisclaimerText>
       <DisclaimerText>Canceling a limit has a network cost.</DisclaimerText>
       <DisclaimerText>
-        <ExternalLink href="https://support.uniswap.org/hc/en-us/articles/24300813697933">
+        <ExternalLink href="https://docs.lux.exchange/help/limit-orders">
           <Trans i18nKey="common.button.learn" />
         </ExternalLink>
       </DisclaimerText>

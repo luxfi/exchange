@@ -31,7 +31,7 @@ const LeftContainer = ({ elementPositioning, children, icon, label }: LeftContai
 
 const DropdownButtonComponent = forwardRef<TamaguiElement, DropdownButtonProps>(function DropdownButton(
   { children, emphasis = 'secondary', icon, isDisabled, elementPositioning = 'equal', isExpanded, ...props },
-  ref,
+  ref
 ) {
   const disabled = getIsButtonDisabled({ isDisabled, loading: undefined })
   const isStringOrTransTag = useIsStringOrTransTag(children)
@@ -48,7 +48,7 @@ const DropdownButtonComponent = forwardRef<TamaguiElement, DropdownButtonProps>(
             color: EXPANDED_HOVER_COLOR,
           }
         : undefined,
-    [isExpanded],
+    [isExpanded]
   )
   const iconColor = isExpanded ? EXPANDED_COLOR : undefined
 

@@ -1,15 +1,15 @@
-import { SharedEventName } from '@uniswap/analytics-events'
+import { SharedEventName } from '@luxdex/analytics-events'
 import { SolanaOnlyEmptyState } from 'components/AccountDrawer/MiniPortfolio/SolanaOnlyEmptyState'
 import { useAccount } from 'hooks/useAccount'
 import { useCallback, useMemo } from 'react'
 import { Flex } from 'ui/src'
-import { NftsList } from 'uniswap/src/components/nfts/NftsList'
-import { NftViewWithContextMenu } from 'uniswap/src/components/nfts/NftViewWithContextMenu'
-import { useActiveAddresses } from 'uniswap/src/features/accounts/store/hooks'
-import { NFTItem } from 'uniswap/src/features/nfts/types'
-import { ElementName } from 'uniswap/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
-import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+import { NftsList } from 'lx/src/components/nfts/NftsList'
+import { NftViewWithContextMenu } from 'lx/src/components/nfts/NftViewWithContextMenu'
+import { useActiveAddresses } from 'lx/src/features/accounts/store/hooks'
+import { NFTItem } from 'lx/src/features/nfts/types'
+import { ElementName } from 'lx/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
+import { TestID } from 'lx/src/test/fixtures/testIDs'
 
 export default function NftsTab({ owner }: { owner: Address }): JSX.Element {
   const account = useAccount()

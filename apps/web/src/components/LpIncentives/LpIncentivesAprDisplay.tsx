@@ -4,11 +4,11 @@ import { MouseoverTooltip, TooltipSize } from 'components/Tooltip'
 import { useTranslation } from 'react-i18next'
 import { ClickableTamaguiStyle } from 'theme/components/styles'
 import { Flex, FlexProps, Text } from 'ui/src'
-import { CurrencyLogo } from 'uniswap/src/components/CurrencyLogo/CurrencyLogo'
-import { CurrencyInfo } from 'uniswap/src/features/dataApi/types'
-import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
-import { useCurrencyInfo } from 'uniswap/src/features/tokens/useCurrencyInfo'
-import { buildCurrencyId } from 'uniswap/src/utils/currencyId'
+import { CurrencyLogo } from 'lx/src/components/CurrencyLogo/CurrencyLogo'
+import { CurrencyInfo } from 'lx/src/features/dataApi/types'
+import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
+import { useCurrencyInfo } from 'lx/src/features/tokens/useCurrencyInfo'
+import { buildCurrencyId } from 'lx/src/utils/currencyId'
 
 interface LpIncentiveAprTooltipProps {
   currency0Info?: Maybe<CurrencyInfo>

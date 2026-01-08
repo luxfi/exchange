@@ -1,4 +1,4 @@
-import { MobileScreens } from 'uniswap/src/types/screens/mobile'
+import { MobileScreens } from 'lx/src/types/screens/mobile'
 
 export interface UnitagsIntroModalState {
   address: Address

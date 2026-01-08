@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 
-import type { Logger } from '@universe/cli/src/lib/logger'
+import type { Logger } from '@luxfi/cli/src/lib/logger'
 import { $ } from 'bun'
 
 // ============================================================================

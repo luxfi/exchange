@@ -3,14 +3,14 @@ import {
   Body,
   BodyItem,
   Notification,
-} from '@uniswap/client-notification-service/dist/uniswap/notificationservice/v1/api_pb'
-import { BackgroundType, ContentStyle, type InAppNotification, OnClickAction } from '@universe/api'
-import { createNotificationProcessor } from '@universe/notifications/src/notification-processor/implementations/createNotificationProcessor'
+} from '@luxdex/client-notification-service/dist/uniswap/notificationservice/v1/api_pb'
+import { BackgroundType, ContentStyle, type InAppNotification, OnClickAction } from '@luxfi/api'
+import { createNotificationProcessor } from '@luxfi/notifications/src/notification-processor/implementations/createNotificationProcessor'
 import {
   type NotificationProcessor,
   type NotificationProcessorResult,
-} from '@universe/notifications/src/notification-processor/NotificationProcessor'
-import { type NotificationTracker } from '@universe/notifications/src/notification-tracker/NotificationTracker'
+} from '@luxfi/notifications/src/notification-processor/NotificationProcessor'
+import { type NotificationTracker } from '@luxfi/notifications/src/notification-tracker/NotificationTracker'
 import { MONAD_LOGO_FILLED, MONAD_TEST_BANNER_LIGHT } from 'ui/src/assets'
 import { getLogger } from 'utilities/src/logger/logger'
 

@@ -83,3 +83,21 @@ html {
     flex-grow: 0;
   }
 }
+
+/* Hero section white text - higher specificity than Tamagui */
+:root:root:root .hero-title-white,
+:root:root:root .hero-title-white * {
+  color: #FFFFFF !important;
+}
+
+/* Hero text rise-in animation */
+@keyframes riseIn {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

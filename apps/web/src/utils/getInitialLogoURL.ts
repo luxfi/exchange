@@ -1,9 +1,9 @@
 import { CELO_LOGO } from 'ui/src/assets'
-import { nativeOnChain } from 'uniswap/src/constants/tokens'
-import { getChainInfo } from 'uniswap/src/features/chains/chainInfo'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { isUniverseChainId } from 'uniswap/src/features/chains/utils'
-import { getValidAddress } from 'uniswap/src/utils/addresses'
+import { nativeOnChain } from 'lx/src/constants/tokens'
+import { getChainInfo } from 'lx/src/features/chains/chainInfo'
+import { UniverseChainId } from 'lx/src/features/chains/types'
+import { isUniverseChainId } from 'lx/src/features/chains/utils'
+import { getValidAddress } from 'lx/src/utils/addresses'
 
 export function getInitialLogoUrl({
   address,

@@ -1,0 +1,39 @@
+{
+  "data": {
+    "token": {
+      "id": "VG9rZW46RVRIRVJFVU1fbnVsbA==",
+      "address": null,
+      "chain": "ETHEREUM",
+      "decimals": 18,
+      "name": "Ether",
+      "standard": "NATIVE",
+      "symbol": "ETH",
+      "isBridged": false,
+      "bridgedWithdrawalInfo": null,
+      "__typename": "Token",
+      "project": {
+        "id": "VG9rZW5Qcm9qZWN0OkVUSEVSRVVNX251bGxfRXRoZXI=",
+        "isSpam": false,
+        "logoUrl": "https://token-icons.s3.amazonaws.com/eth.png",
+        "name": "Ether",
+        "safetyLevel": "VERIFIED",
+        "spamCode": 0,
+        "tokens": [
+          {
+            "chain": "ETHEREUM",
+            "address": null,
+            "__typename": "Token"
+          }
+        ],
+        "__typename": "TokenProject"
+      },
+      "feeData": null,
+      "protectionInfo": {
+        "result": "BENIGN",
+        "attackTypes": [],
+        "blockaidFees": null,
+        "__typename": "ProtectionInfo"
+      }
+    }
+  }
+}

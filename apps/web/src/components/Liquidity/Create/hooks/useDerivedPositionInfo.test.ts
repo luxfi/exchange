@@ -1,11 +1,11 @@
 import { renderHook } from '@testing-library/react'
-import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
-import { ChainId, PoolInformation } from '@uniswap/client-trading/dist/trading/v1/api_pb'
-import { CurrencyAmount } from '@uniswap/sdk-core'
-import { Pair } from '@uniswap/v2-sdk'
-import { FeeAmount, TICK_SPACINGS, Pool as V3Pool } from '@uniswap/v3-sdk'
-import { Pool as V4Pool } from '@uniswap/v4-sdk'
-import { getFeatureFlag } from '@universe/gating'
+import { ProtocolVersion } from '@luxdex/client-data-api/dist/data/v1/poolTypes_pb'
+import { ChainId, PoolInformation } from '@luxdex/client-trading/dist/trading/v1/api_pb'
+import { CurrencyAmount } from '@luxamm/sdk-core'
+import { Pair } from '@luxamm/v2-sdk'
+import { FeeAmount, TICK_SPACINGS, Pool as V3Pool } from '@luxamm/v3-sdk'
+import { Pool as V4Pool } from '@luxamm/v4-sdk'
+import { getFeatureFlag } from '@luxfi/gating'
 import {
   getSortedCurrenciesForProtocol,
   useDerivedPositionInfo,
@@ -19,9 +19,9 @@ import {
 import { PoolState } from 'hooks/usePools'
 import { PairState } from 'hooks/useV2Pairs'
 import { ETH_MAINNET } from 'test-utils/constants'
-import { ZERO_ADDRESS } from 'uniswap/src/constants/misc'
-import { DAI, nativeOnChain, USDT } from 'uniswap/src/constants/tokens'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { ZERO_ADDRESS } from 'lx/src/constants/misc'
+import { DAI, nativeOnChain, USDT } from 'lx/src/constants/tokens'
+import { UniverseChainId } from 'lx/src/features/chains/types'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 
 class MockPoolInformation extends PoolInformation {
@@ -86,11 +86,11 @@ vi.mock('state/multichain/useMultichainContext', () => ({
   useMultichainContext: () => mockUseMultichainContext(),
 }))
 
-vi.mock('uniswap/src/data/rest/getPools', () => ({
+vi.mock('lx/src/data/rest/getPools', () => ({
   useGetPoolsByTokens: () => mockUseGetPoolsByTokens(),
 }))
 
-vi.mock('@universe/gating', async (importOriginal) => ({
+vi.mock('@luxfi/gating', async (importOriginal) => ({
   ...(await importOriginal()),
   getFeatureFlag: vi.fn(),
 }))
@@ -109,7 +109,7 @@ vi.mock('components/Liquidity/Create/hooks/useDefaultInitialPrice', () => ({
   useDefaultInitialPrice: () => mockUseDefaultInitialPrice(),
 }))
 
-vi.mock('uniswap/src/data/apiClients/tradingApi/usePoolInfoQuery', () => ({
+vi.mock('lx/src/data/apiClients/tradingApi/usePoolInfoQuery', () => ({
   usePoolInfoQuery: () => mockUsePoolInfoQuery(),
 }))
 

@@ -1,8 +1,8 @@
 import React, { memo, useMemo } from 'react'
-import { getToken, SpaceTokens } from 'tamagui'
+import { getToken, type SpaceTokens } from 'tamagui'
 import { Flex, Separator } from 'ui/src/components/layout'
 import { useDeviceDimensions } from 'ui/src/hooks/useDeviceDimensions/useDeviceDimensions'
-import { FlexLoader, FlexLoaderProps } from 'ui/src/loading/FlexLoader'
+import { FlexLoader, type FlexLoaderProps } from 'ui/src/loading/FlexLoader'
 import { InsufficientFundsNetworkRowLoader } from 'ui/src/loading/InsufficientFundsNetworkRowLoader'
 import { NftCardLoader } from 'ui/src/loading/NftCardLoader'
 import { Skeleton } from 'ui/src/loading/Skeleton'
@@ -124,7 +124,7 @@ function NFT({ repeat = 1 }: { repeat?: number }): JSX.Element {
           })}
         </Flex>
       ),
-    [repeat],
+    [repeat]
   )
 
   return <Skeleton>{loader}</Skeleton>

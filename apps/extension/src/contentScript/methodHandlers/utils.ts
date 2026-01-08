@@ -7,7 +7,7 @@ import {
 } from 'src/contentScript/methodHandlers/requestMethods'
 import { PendingResponseInfo } from 'src/contentScript/methodHandlers/types'
 import { logContentScriptError } from 'src/contentScript/utils'
-import { DappResponseType, EthMethod, ExtensionEthMethod } from 'uniswap/src/features/dappRequests/types'
+import { DappResponseType, EthMethod, ExtensionEthMethod } from 'lx/src/features/dappRequests/types'
 
 export function isProviderDirectMethod(method: string): boolean {
   return Object.keys(ProviderDirectMethods).includes(method)

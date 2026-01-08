@@ -1,50 +1,23 @@
-// TODO(WALL-6098): this is a temporary solution until the delay typing is updated
-// thread: https://uniswapteam.slack.com/messages/C07AHFK2QRK/p1740698259468079
-type DelayAnimationKey =
-  | '200msDelayed1ms'
-  | '200msDelayed40ms'
-  | '200msDelayed80ms'
-  | '200msDelayed120ms'
-  | '200msDelayed160ms'
-  | '200msDelayed200ms'
-  | '200msDelayed240ms'
-// maintain alignment with `DelayAnimationKey`
-const DELAY_VALUES = [1, 40, 80, 120, 160, 200, 240] as const
-const DEFAULT_ANIMATION_DELAY: (typeof DELAY_VALUES)[number] = 1
-export const getDelayValue = (delay: number): DelayAnimationKey => `200msDelayed${delay}ms` as DelayAnimationKey
-export const delayAnimations200ms: Record<
-  DelayAnimationKey,
-  {
-    type: 'spring'
-    delay: number
-    stiff: 150
-    damping: 30
+import type { AnimationKeys } from 'tamagui'
+
+// Animation delay keys matching the pattern in animations/index.ts
+// Uses the format '200msDelay-{delay}' where delay is in ms
+// The return type is AnimationKeys to ensure compatibility with Tamagui components
+
+// maintain alignment with animations defined in animations/index.ts
+const DELAY_VALUES = [0, 50, 100, 150, 200, 250, 300, 350, 400] as const
+const _DEFAULT_ANIMATION_DELAY: (typeof DELAY_VALUES)[number] = 0
+
+const getDelayValue = (delay: number): AnimationKeys => `200msDelay-${delay}` as AnimationKeys
+
+/**
+ * Returns an animation key for the given index that corresponds to a 200ms animation
+ * with incremental delays (0ms, 50ms, 100ms, etc.)
+ */
+export const get200MsAnimationDelayFromIndex = (index: number): AnimationKeys | undefined => {
+  const delay = DELAY_VALUES[index]
+  if (delay === undefined) {
+    return undefined
   }
-> = {
-  // needs to be one-to-one with DelayAnimationKey
-  ...DELAY_VALUES.reduce(
-    (acc, delay) => {
-      acc[getDelayValue(delay)] = {
-        type: 'spring',
-        stiff: 150,
-        damping: 30,
-        delay,
-        duration: 200,
-      }
-      return acc
-    },
-    {} as Record<
-      DelayAnimationKey,
-      {
-        type: 'spring'
-        stiff: 150
-        damping: 30
-        delay: number
-        duration: 200
-      }
-    >,
-  ),
-}
-export const get200MsAnimationDelayFromIndex = (index: number): DelayAnimationKey => {
-  return getDelayValue(DELAY_VALUES[index] || DEFAULT_ANIMATION_DELAY)
+  return getDelayValue(delay)
 }

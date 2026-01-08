@@ -4,10 +4,10 @@ import { Dispatch, SetStateAction, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Flex, Text } from 'ui/src'
 import { Person } from 'ui/src/components/icons/Person'
-import { ModalName } from 'uniswap/src/features/telemetry/constants'
-import Trace from 'uniswap/src/features/telemetry/Trace'
-import { ClaimUnitagContent } from 'uniswap/src/features/unitags/ClaimUnitagContent'
-import { ExtensionScreens } from 'uniswap/src/types/screens/extension'
+import { ModalName } from 'lx/src/features/telemetry/constants'
+import Trace from 'lx/src/features/telemetry/Trace'
+import { ClaimUnitagContent } from 'lx/src/features/unitags/ClaimUnitagContent'
+import { ExtensionScreens } from 'lx/src/types/screens/extension'
 
 export function ChooseUnitagModal({
   setUnitag,

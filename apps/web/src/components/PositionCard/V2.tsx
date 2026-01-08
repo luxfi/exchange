@@ -1,5 +1,5 @@
-import { CurrencyAmount, Percent, Token } from '@uniswap/sdk-core'
-import { Pair } from '@uniswap/v2-sdk'
+import { CurrencyAmount, Percent, Token } from '@luxamm/sdk-core'
+import { Pair } from '@luxamm/v2-sdk'
 import { CardNoise } from 'components/earn/styled'
 import CurrencyLogo from 'components/Logo/CurrencyLogo'
 import { DoubleCurrencyLogo } from 'components/Logo/DoubleLogo'
@@ -15,7 +15,7 @@ import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router'
 import { useTokenBalance } from 'state/connection/hooks'
 import { Button, Flex, Text, useSporeColors } from 'ui/src'
-import { currencyId } from 'uniswap/src/utils/currencyId'
+import { currencyId } from 'lx/src/utils/currencyId'
 import { unwrappedToken } from 'utils/unwrappedToken'
 
 interface PositionCardProps {

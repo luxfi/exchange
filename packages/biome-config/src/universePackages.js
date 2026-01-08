@@ -2,7 +2,7 @@ const { readCachedProjectGraph, readProjectsConfigurationFromProjectGraph } = re
 const path = require('node:path')
 
 /**
- * Detects all @universe/* packages using NX project graph
+ * Detects all @luxfi/* packages using NX project graph
  * @returns {Array<{dir: string, name: string, fullName: string}>} Array of package info objects
  */
 function detectUniversePackages() {
@@ -16,9 +16,9 @@ function detectUniversePackages() {
     // Iterate through all projects in the workspace
     for (const [projectName, config] of Object.entries(projectsConfig.projects)) {
       // NX project names are the same as package names (from package.json)
-      if (projectName.startsWith('@universe/')) {
-        // Extract the package name without @universe/ prefix
-        const shortName = projectName.replace('@universe/', '')
+      if (projectName.startsWith('@luxfi/')) {
+        // Extract the package name without @luxfi/ prefix
+        const shortName = projectName.replace('@luxfi/', '')
 
         // Extract directory name from root path (e.g., "packages/api" -> "api")
         const dir = path.basename(config.root)
@@ -40,7 +40,7 @@ function detectUniversePackages() {
 }
 
 /**
- * Generates override configurations for @universe/* packages
+ * Generates override configurations for @luxfi/* packages
  * Each package gets an override that:
  * - Applies to files within that package
  * - Allows the package to deep-import into itself
@@ -53,11 +53,11 @@ function generateUniversePackageOverrides(universePackages, globalPatterns) {
   const overrides = []
 
   for (const pkg of universePackages) {
-    // For each @universe/* package, we need to:
-    // 1. Allow deep imports to ITSELF (@universe/api can use @universe/api/src/...)
-    // 2. Block deep imports to OTHER @universe/* packages
+    // For each @luxfi/* package, we need to:
+    // 1. Allow deep imports to ITSELF (@luxfi/api can use @luxfi/api/src/...)
+    // 2. Block deep imports to OTHER @luxfi/* packages
     //
-    // Strategy: Replace the wildcard pattern @universe/*/src with explicit patterns
+    // Strategy: Replace the wildcard pattern @luxfi/*/src with explicit patterns
     // for all OTHER packages (excluding the current package)
 
     const filteredPatterns = globalPatterns
@@ -66,22 +66,20 @@ function generateUniversePackageOverrides(universePackages, globalPatterns) {
           return pattern // Keep non-group patterns as-is
         }
 
-        // Check if this is the @universe/* wildcard pattern
-        const hasUniverseWildcard = pattern.group.some(
-          (g) => g.includes('@universe/*/src') || g === '@universe/*/src/*',
-        )
+        // Check if this is the @luxfi/* wildcard pattern
+        const hasUniverseWildcard = pattern.group.some((g) => g.includes('@luxfi/*/src') || g === '@luxfi/*/src/*')
 
         if (!hasUniverseWildcard) {
           return pattern // Keep other patterns unchanged
         }
 
-        // Replace wildcard with explicit patterns for OTHER @universe/* packages
+        // Replace wildcard with explicit patterns for OTHER @luxfi/* packages
         const otherPackages = universePackages.filter((p) => p.name !== pkg.name)
         const explicitGroup = []
 
         for (const otherPkg of otherPackages) {
-          explicitGroup.push(`@universe/${otherPkg.name}/src`)
-          explicitGroup.push(`@universe/${otherPkg.name}/src/*`)
+          explicitGroup.push(`@luxfi/${otherPkg.name}/src`)
+          explicitGroup.push(`@luxfi/${otherPkg.name}/src/*`)
         }
 
         // Return new pattern with explicit group (or empty if no other packages)

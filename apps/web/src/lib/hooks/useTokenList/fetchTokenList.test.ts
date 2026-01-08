@@ -1,4 +1,4 @@
-import defaultTokenList from '@uniswap/default-token-list'
+import defaultTokenList from '@luxdex/default-token-list'
 import fetchTokenList from 'lib/hooks/useTokenList/fetchTokenList'
 import contenthashToUri from 'lib/utils/contenthashToUri'
 import { mocked } from 'test-utils/mocked'

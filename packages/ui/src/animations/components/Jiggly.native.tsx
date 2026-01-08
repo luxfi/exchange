@@ -1,4 +1,4 @@
-import { PropsWithChildren } from 'react'
+import type { PropsWithChildren } from 'react'
 import { useAnimatedStyle, useSharedValue, withRepeat, withSequence, withTiming } from 'react-native-reanimated'
 import { AnimatedTouchableArea } from 'ui/src/components/touchable'
 
@@ -15,14 +15,14 @@ export const Jiggly = ({
     () => ({
       transform: [{ rotateZ: `${rotate.value}deg` }],
     }),
-    [rotate],
+    [rotate]
   )
 
   const onPress = async (): Promise<void> => {
     rotate.value = withSequence(
       withTiming(-offset, { duration: duration / 2 }),
       withRepeat(withTiming(offset, { duration }), 5, true),
-      withTiming(0, { duration: duration / 2 }),
+      withTiming(0, { duration: duration / 2 })
     )
   }
 

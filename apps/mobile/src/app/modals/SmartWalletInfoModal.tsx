@@ -3,10 +3,10 @@ import { useTranslation } from 'react-i18next'
 import { useReactNavigationModal } from 'src/components/modals/useReactNavigationModal'
 import { Button, Flex, Text, TouchableArea, useSporeColors } from 'ui/src'
 import { SmartWallet } from 'ui/src/components/icons'
-import { Modal } from 'uniswap/src/components/modals/Modal'
-import { uniswapUrls } from 'uniswap/src/constants/urls'
-import { ModalName } from 'uniswap/src/features/telemetry/constants'
-import { openUri } from 'uniswap/src/utils/linking'
+import { Modal } from 'lx/src/components/modals/Modal'
+import { uniswapUrls } from 'lx/src/constants/urls'
+import { ModalName } from 'lx/src/features/telemetry/constants'
+import { openUri } from 'lx/src/utils/linking'
 
 const onPressLearnMore = (url: string): Promise<void> => openUri({ uri: url })
 

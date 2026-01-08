@@ -1,5 +1,5 @@
 import ms from 'ms'
-import { LimitsExpiry } from 'uniswap/src/types/limits'
+import { LimitsExpiry } from 'lx/src/types/limits'
 
 const DAY_SECS = ms('1d') / 1000
 

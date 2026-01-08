@@ -1,4 +1,4 @@
-import type { ChallengeData, ChallengeSolver } from '@universe/sessions/src/challenge-solvers/types'
+import type { ChallengeData, ChallengeSolver } from '@luxfi/sessions/src/challenge-solvers/types'
 
 // Declare Turnstile types inline to avoid import issues
 interface TurnstileWidget {

@@ -13,7 +13,7 @@ import { NumericalInputMimic, NumericalInputSymbolContainer, NumericalInputWrapp
 import { useMemo } from 'react'
 import { Trans, useTranslation } from 'react-i18next'
 import { Button, Flex, Switch, Text } from 'ui/src'
-import { nativeOnChain } from 'uniswap/src/constants/tokens'
+import { nativeOnChain } from 'lx/src/constants/tokens'
 import useResizeObserver from 'use-resize-observer'
 
 const isValidPercentageInput = (value: string): boolean => {
@@ -81,8 +81,8 @@ export function RemoveLiquidityForm() {
           backgroundColor="$surface2"
           borderTopLeftRadius="$rounded12"
           borderTopRightRadius="$rounded12"
-          borderBottomLeftRadius={canUnwrap ? '$rounded0' : '$rounded12'}
-          borderBottomRightRadius={canUnwrap ? '$rounded0' : '$rounded12'}
+          borderBottomLeftRadius={canUnwrap ? 0 : '$rounded12'}
+          borderBottomRightRadius={canUnwrap ? 0 : '$rounded12'}
           p="$padding16"
           gap="$gap12"
         >

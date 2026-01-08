@@ -4,7 +4,7 @@ import {
   getOrderedConnectedAddresses,
   isConnectedAccount,
 } from 'src/app/features/dapp/utils'
-import { SAMPLE_SEED_ADDRESS_1, SAMPLE_SEED_ADDRESS_2, SAMPLE_SEED_ADDRESS_3 } from 'uniswap/src/test/fixtures'
+import { SAMPLE_SEED_ADDRESS_1, SAMPLE_SEED_ADDRESS_2, SAMPLE_SEED_ADDRESS_3 } from 'lx/src/test/fixtures'
 import { extractNameFromUrl } from 'utilities/src/format/extractNameFromUrl'
 import { promiseTimeout } from 'utilities/src/time/timing'
 import { Account } from 'wallet/src/features/wallet/accounts/types'

@@ -1,4 +1,4 @@
-import { colors, colorsLight } from 'ui/src/theme/color/colors'
+import type { colors, colorsLight } from 'ui/src/theme/color/colors'
 
 export type GlobalPalette = typeof colors
 export type GlobalColorNames = keyof GlobalPalette

@@ -1,4 +1,4 @@
-import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import { FeatureFlags, useFeatureFlag } from '@luxfi/gating'
 import UNIWALLET_ICON from 'assets/wallets/uniswap-wallet-icon.png'
 import { useAccountDrawer } from 'components/AccountDrawer/MiniPortfolio/hooks'
 import { OptionContainer } from 'components/WalletModal/UniswapWalletOptions'
@@ -6,8 +6,8 @@ import { useModalState } from 'hooks/useModalState'
 import { useState } from 'react'
 import { Trans } from 'react-i18next'
 import { Flex, Image, Text } from 'ui/src'
-import { ElementName, ModalName } from 'uniswap/src/features/telemetry/constants'
-import Trace from 'uniswap/src/features/telemetry/Trace'
+import { ElementName, ModalName } from 'lx/src/features/telemetry/constants'
+import Trace from 'lx/src/features/telemetry/Trace'
 import { useEvent } from 'utilities/src/react/hooks'
 
 interface BackgroundImageProps {
@@ -24,7 +24,7 @@ function BackgroundImage({ backgroundImage, isHovered }: BackgroundImageProps) {
       width="100%"
       height="100%"
       borderRadius="$rounded16"
-      zIndex="$zero"
+      zIndex={0}
       opacity={isHovered ? 0.54 : 1}
       animation="fast"
       maxHeight={72}

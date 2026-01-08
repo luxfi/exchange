@@ -1,5 +1,5 @@
-import { PropsWithChildren } from 'react'
-import { GetProps, styled, Text as TamaguiText } from 'tamagui'
+import type { PropsWithChildren } from 'react'
+import { type GetProps, styled, Text as TamaguiText } from 'tamagui'
 import { Flex } from 'ui/src/components/layout'
 import { HiddenFromScreenReaders } from 'ui/src/components/text/HiddenFromScreenReaders'
 import { useEnableFontScaling } from 'ui/src/components/text/useEnableFontScaling'
@@ -216,5 +216,5 @@ export const Text = TextFrame.styleable<TextProps>(
     }
 
     return <TextComponent allowFontScaling={enableFontScaling} color="$neutral1" {...rest} />
-  },
+  }
 )

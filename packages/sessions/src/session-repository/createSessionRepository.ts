@@ -1,5 +1,5 @@
-import type { SessionServiceClient } from '@universe/sessions/src/session-repository/createSessionClient'
-import type { SessionRepository } from '@universe/sessions/src/session-repository/types'
+import type { SessionServiceClient } from '@luxfi/sessions/src/session-repository/createSessionClient'
+import type { SessionRepository } from '@luxfi/sessions/src/session-repository/types'
 import type { Logger } from 'utilities/src/logger/logger'
 
 /**

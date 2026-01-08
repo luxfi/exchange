@@ -1,4 +1,4 @@
-import { FiatOnRampCurrency } from 'uniswap/src/features/fiatOnRamp/types'
+import { FiatOnRampCurrency } from 'lx/src/features/fiatOnRamp/types'
 
 export type FiatOnRampModalState = {
   prefilledCurrency?: FiatOnRampCurrency

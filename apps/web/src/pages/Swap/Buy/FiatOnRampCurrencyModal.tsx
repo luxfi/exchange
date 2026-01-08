@@ -11,10 +11,10 @@ import { Flex, ModalCloseIcon, useIsDarkMode, useMedia, useScrollbarStyles } fro
 import { GraduationCap } from 'ui/src/components/icons/GraduationCap'
 import { Text } from 'ui/src/components/text/Text'
 import { iconSizes } from 'ui/src/theme'
-import { Modal } from 'uniswap/src/components/modals/Modal'
-import { FiatOnRampCurrency } from 'uniswap/src/features/fiatOnRamp/types'
-import { useIsWebFORNudgeEnabled } from 'uniswap/src/features/providers/webForNudgeProvider'
-import { ModalName } from 'uniswap/src/features/telemetry/constants'
+import { Modal } from 'lx/src/components/modals/Modal'
+import { FiatOnRampCurrency } from 'lx/src/features/fiatOnRamp/types'
+import { useIsWebFORNudgeEnabled } from 'lx/src/features/providers/webForNudgeProvider'
+import { ModalName } from 'lx/src/features/telemetry/constants'
 
 const ROW_ITEM_SIZE = 56
 

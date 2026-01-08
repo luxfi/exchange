@@ -1,14 +1,14 @@
-import { ApiInit, getEntryGatewayUrl, provideSessionService } from '@universe/api'
+import { ApiInit, getEntryGatewayUrl, provideSessionService } from '@luxfi/api'
 import {
   getIsSessionServiceEnabled,
   getIsSessionUpgradeAutoEnabled,
   useIsSessionServiceEnabled,
-} from '@universe/gating'
+} from '@luxfi/gating'
 import {
   createChallengeSolverService,
   createSessionInitializationService,
   SessionInitializationService,
-} from '@universe/sessions'
+} from '@luxfi/sessions'
 import { PropsWithChildren } from 'react'
 import { I18nextProvider } from 'react-i18next'
 import { GraphqlProvider } from 'src/app/apollo'
@@ -17,10 +17,10 @@ import { SmartWalletNudgesProvider } from 'src/app/context/SmartWalletNudgesCont
 import { ExtensionStatsigProvider } from 'src/app/core/StatsigProvider'
 import { DatadogAppNameTag } from 'src/app/datadog'
 import { getReduxStore } from 'src/store/store'
-import { BlankUrlProvider } from 'uniswap/src/contexts/UrlContext'
-import { LocalizationContextProvider } from 'uniswap/src/features/language/LocalizationContext'
-import Trace from 'uniswap/src/features/telemetry/Trace'
-import i18n from 'uniswap/src/i18n'
+import { BlankUrlProvider } from 'lx/src/contexts/UrlContext'
+import { LocalizationContextProvider } from 'lx/src/features/language/LocalizationContext'
+import Trace from 'lx/src/features/telemetry/Trace'
+import i18n from 'lx/src/i18n'
 import { ErrorBoundary } from 'wallet/src/components/ErrorBoundary/ErrorBoundary'
 import { AccountsStoreContextProvider } from 'wallet/src/features/accounts/store/provider'
 import { SharedWalletProvider } from 'wallet/src/providers/SharedWalletProvider'

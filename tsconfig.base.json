@@ -39,29 +39,29 @@
       "node"
     ],
     "paths": {
-      "@universe/api/*": [
+      "@luxfi/api/*": [
         "packages/api/*"
       ],
-      "@universe/cli/*": [
+      "@luxfi/cli/*": [
         "apps/cli/*"
       ],
-      "@universe/config/*": [
+      "@luxfi/config/*": [
         "packages/config/*"
       ],
-      "@universe/gating/*": [
+      "@luxfi/gating/*": [
         "packages/gating/*"
       ],
-      "@universe/notifications/*": [
+      "@luxfi/notifications/*": [
         "packages/notifications/*"
       ],
-      "@universe/sessions/*": [
+      "@luxfi/sessions/*": [
         "packages/sessions/*"
+      ],
+      "lx/*": [
+        "packages/lx/*"
       ],
       "ui/*": [
         "packages/ui/*"
-      ],
-      "uniswap/*": [
-        "packages/uniswap/*"
       ],
       "utilities/*": [
         "packages/utilities/*"

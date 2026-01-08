@@ -1,9 +1,9 @@
 import { BidTokenInfo } from 'components/Toucan/Auction/store/types'
 import { useMemo } from 'react'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { useCurrencyInfoWithLoading } from 'uniswap/src/features/tokens/useCurrencyInfo'
-import { useUSDCPrice } from 'uniswap/src/features/transactions/hooks/useUSDCPrice'
-import { buildCurrencyId } from 'uniswap/src/utils/currencyId'
+import { UniverseChainId } from 'lx/src/features/chains/types'
+import { useCurrencyInfoWithLoading } from 'lx/src/features/tokens/useCurrencyInfo'
+import { useUSDCPrice } from 'lx/src/features/transactions/hooks/useUSDCPrice'
+import { buildCurrencyId } from 'lx/src/utils/currencyId'
 
 /**
  * Hook to fetch bid token information from on-chain/API data

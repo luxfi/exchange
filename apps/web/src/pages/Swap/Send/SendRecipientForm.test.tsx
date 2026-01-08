@@ -3,8 +3,8 @@ import { MultichainContext } from 'state/multichain/types'
 import { SendContext, SendContextType } from 'state/send/SendContext'
 import { SwapAndLimitContext } from 'state/swap/types'
 import { render, screen } from 'test-utils/render'
-import { DAI } from 'uniswap/src/constants/tokens'
-import { SwapTab } from 'uniswap/src/types/screens/interface'
+import { DAI } from 'lx/src/constants/tokens'
+import { SwapTab } from 'lx/src/types/screens/interface'
 import { shortenAddress } from 'utilities/src/addresses'
 
 const mockMultichainContextValue = {

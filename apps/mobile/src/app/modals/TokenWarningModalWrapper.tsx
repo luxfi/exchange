@@ -1,13 +1,13 @@
 import { AppStackScreenProp } from 'src/app/navigation/types'
 import { useReactNavigationModal } from 'src/components/modals/useReactNavigationModal'
-import { useEnabledChains } from 'uniswap/src/features/chains/hooks/useEnabledChains'
-import { TokenList } from 'uniswap/src/features/dataApi/types'
-import { ModalName } from 'uniswap/src/features/telemetry/constants'
-import { useCurrencyInfo } from 'uniswap/src/features/tokens/useCurrencyInfo'
-import { getTokenProtectionWarning } from 'uniswap/src/features/tokens/warnings/safetyUtils'
-import { useDismissedTokenWarnings } from 'uniswap/src/features/tokens/warnings/slice/hooks'
-import TokenWarningModal from 'uniswap/src/features/tokens/warnings/TokenWarningModal'
-import { currencyIdToAddress, currencyIdToChain, isNativeCurrencyAddress } from 'uniswap/src/utils/currencyId'
+import { useEnabledChains } from 'lx/src/features/chains/hooks/useEnabledChains'
+import { TokenList } from 'lx/src/features/dataApi/types'
+import { ModalName } from 'lx/src/features/telemetry/constants'
+import { useCurrencyInfo } from 'lx/src/features/tokens/useCurrencyInfo'
+import { getTokenProtectionWarning } from 'lx/src/features/tokens/warnings/safetyUtils'
+import { useDismissedTokenWarnings } from 'lx/src/features/tokens/warnings/slice/hooks'
+import TokenWarningModal from 'lx/src/features/tokens/warnings/TokenWarningModal'
+import { currencyIdToAddress, currencyIdToChain, isNativeCurrencyAddress } from 'lx/src/utils/currencyId'
 
 export function TokenWarningModalWrapper({
   route,

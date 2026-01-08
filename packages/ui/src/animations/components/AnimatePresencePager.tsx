@@ -1,7 +1,7 @@
-import { Children, ReactNode, useEffect, useState } from 'react'
+import { Children, type ReactNode, useEffect, useState } from 'react'
 import { AnimatePresence, styled } from 'tamagui'
 import { Flex } from 'ui/src/components/layout'
-import { animations } from 'ui/src/theme/animations'
+import type { animations } from 'ui/src/theme/animations'
 import { usePrevious } from 'utilities/src/react/hooks'
 
 type TransitionDirection = 'forward' | 'backward' | 'up' | 'down'
@@ -12,7 +12,7 @@ type AnimationTransitionType = 'unset' | AnimationKey | null | undefined
 
 function getAnimationOffsets(
   animationType: AnimationType,
-  distance: number,
+  distance: number
 ): { enterOffset: object; exitOffset: object } {
   switch (animationType) {
     case 'forward':
@@ -23,7 +23,6 @@ function getAnimationOffsets(
       return { enterOffset: { y: distance }, exitOffset: { y: -distance } }
     case 'down':
       return { enterOffset: { y: -distance }, exitOffset: { y: distance } }
-    case 'fade':
     default:
       return { enterOffset: {}, exitOffset: {} }
   }

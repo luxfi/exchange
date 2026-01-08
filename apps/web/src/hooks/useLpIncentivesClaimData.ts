@@ -2,11 +2,11 @@ import { UseQueryResult, useQuery } from '@tanstack/react-query'
 import {
   ClaimLPRewardsRequest,
   ClaimLPRewardsResponse,
-} from '@uniswap/client-liquidity/dist/uniswap/liquidity/v1/api_pb'
-import { LIQUIDITY_PATHS, TradingApi, UseQueryApiHelperHookArgs } from '@universe/api'
-import { uniswapUrls } from 'uniswap/src/constants/urls'
-import { LiquidityServiceClient } from 'uniswap/src/data/apiClients/liquidityService/LiquidityServiceClient'
-import { TradingApiClient } from 'uniswap/src/data/apiClients/tradingApi/TradingApiClient'
+} from '@luxdex/client-liquidity/dist/uniswap/liquidity/v1/api_pb'
+import { LIQUIDITY_PATHS, TradingApi, UseQueryApiHelperHookArgs } from '@luxfi/api'
+import { uniswapUrls } from 'lx/src/constants/urls'
+import { LiquidityServiceClient } from 'lx/src/data/apiClients/liquidityService/LiquidityServiceClient'
+import { TradingApiClient } from 'lx/src/data/apiClients/tradingApi/TradingApiClient'
 import { ReactQueryCacheKey } from 'utilities/src/reactQuery/cache'
 
 type LpIncentivesClaimDataParams = {

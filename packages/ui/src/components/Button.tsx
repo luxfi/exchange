@@ -1,5 +1,8 @@
-import { styled, GetProps } from '@tamagui/core'
-import { Stack, Text } from 'tamagui'
+import type { StackProps, TextProps } from 'tamagui'
+import { Stack, styled, Text } from 'tamagui'
+
+type ButtonVariant = 'primary' | 'secondary' | 'outline' | 'ghost' | 'destructive'
+type ButtonSize = 'sm' | 'md' | 'lg' | 'xl'
 
 const ButtonFrame = styled(Stack, {
   name: 'Button',
@@ -7,10 +10,8 @@ const ButtonFrame = styled(Stack, {
   alignItems: 'center',
   justifyContent: 'center',
   flexDirection: 'row',
-  gap: '$2',
-  borderRadius: '$3',
-  paddingHorizontal: '$4',
-  paddingVertical: '$3',
+  gap: '$spacing8',
+  borderRadius: '$rounded12',
   cursor: 'pointer',
   pressStyle: {
     opacity: 0.8,
@@ -19,99 +20,9 @@ const ButtonFrame = styled(Stack, {
   hoverStyle: {
     opacity: 0.9,
   },
-  focusStyle: {
-    outlineWidth: 2,
-    outlineColor: '$primary',
-    outlineStyle: 'solid',
-    outlineOffset: 2,
-  },
   disabledStyle: {
     opacity: 0.5,
     cursor: 'not-allowed',
-  },
-
-  variants: {
-    variant: {
-      primary: {
-        backgroundColor: '$primary',
-        color: 'white',
-        hoverStyle: {
-          backgroundColor: '$primaryHover',
-        },
-      },
-      secondary: {
-        backgroundColor: '$secondary',
-        color: '$color',
-        hoverStyle: {
-          backgroundColor: '$secondaryHover',
-        },
-      },
-      outline: {
-        backgroundColor: 'transparent',
-        borderWidth: 1,
-        borderColor: '$borderColor',
-        color: '$color',
-        hoverStyle: {
-          backgroundColor: '$backgroundHover',
-        },
-      },
-      ghost: {
-        backgroundColor: 'transparent',
-        color: '$color',
-        hoverStyle: {
-          backgroundColor: '$backgroundHover',
-        },
-      },
-      destructive: {
-        backgroundColor: '$error',
-        color: 'white',
-        hoverStyle: {
-          backgroundColor: '$errorDark' as any,
-        },
-      },
-    },
-
-    size: {
-      sm: {
-        paddingHorizontal: '$3',
-        paddingVertical: '$2',
-        height: 32,
-      },
-      md: {
-        paddingHorizontal: '$4',
-        paddingVertical: '$3',
-        height: 40,
-      },
-      lg: {
-        paddingHorizontal: '$5',
-        paddingVertical: '$4',
-        height: 48,
-      },
-      xl: {
-        paddingHorizontal: '$6',
-        paddingVertical: '$5',
-        height: 56,
-      },
-    },
-
-    fullWidth: {
-      true: {
-        width: '100%',
-      },
-    },
-
-    circular: {
-      true: {
-        borderRadius: '$round',
-        paddingHorizontal: 0,
-        aspectRatio: 1,
-      },
-    },
-  } as const,
-
-  defaultVariants: {
-    variant: 'primary',
-    size: 'md',
   },
 })
 
@@ -119,31 +30,78 @@ const ButtonText = styled(Text, {
   name: 'ButtonText',
   fontFamily: '$body',
   fontWeight: '600',
-  color: 'inherit',
-
-  variants: {
-    size: {
-      sm: { fontSize: 13 },
-      md: { fontSize: 14 },
-      lg: { fontSize: 16 },
-      xl: { fontSize: 18 },
-    },
-  } as const,
-
-  defaultVariants: {
-    size: 'md',
-  },
 })
 
-export type ButtonProps = GetProps<typeof ButtonFrame> & {
-  children?: React.ReactNode
+interface VariantStyle {
+  bg: StackProps['backgroundColor']
+  textColor: TextProps['color']
+  borderWidth?: number
+  borderColor?: StackProps['borderColor']
 }
 
-export function Button({ children, size, ...props }: ButtonProps) {
+const variantStyles: Record<ButtonVariant, VariantStyle> = {
+  primary: { bg: '$accent1', textColor: '$surface1' },
+  secondary: { bg: '$surface2', textColor: '$neutral1' },
+  outline: { bg: 'transparent', textColor: '$neutral1', borderWidth: 1, borderColor: '$surface3' },
+  ghost: { bg: 'transparent', textColor: '$neutral1' },
+  destructive: { bg: '$statusCritical', textColor: '$surface1' },
+}
+
+interface SizeStyle {
+  px: number
+  py: number
+  height: number
+  fontSize: number
+}
+
+const sizeStyles: Record<ButtonSize, SizeStyle> = {
+  sm: { px: 12, py: 8, height: 32, fontSize: 13 },
+  md: { px: 16, py: 12, height: 40, fontSize: 14 },
+  lg: { px: 20, py: 16, height: 48, fontSize: 16 },
+  xl: { px: 24, py: 20, height: 56, fontSize: 18 },
+}
+
+export interface ButtonProps extends Omit<StackProps, 'children'> {
+  children?: React.ReactNode
+  variant?: ButtonVariant
+  size?: ButtonSize
+  fullWidth?: boolean
+  circular?: boolean
+  disabled?: boolean
+}
+
+export function Button({
+  children,
+  variant = 'primary',
+  size = 'md',
+  fullWidth,
+  circular,
+  disabled,
+  ...props
+}: ButtonProps) {
+  const variantStyle = variantStyles[variant]
+  const sizeStyle = sizeStyles[size]
+
   return (
-    <ButtonFrame size={size} {...props}>
+    <ButtonFrame
+      backgroundColor={variantStyle.bg}
+      borderWidth={variantStyle.borderWidth ?? 0}
+      borderColor={variantStyle.borderColor}
+      px={circular ? 0 : sizeStyle.px}
+      py={sizeStyle.py}
+      height={sizeStyle.height}
+      width={fullWidth ? '100%' : undefined}
+      borderRadius={circular ? '$roundedFull' : '$rounded12'}
+      aspectRatio={circular ? 1 : undefined}
+      opacity={disabled ? 0.5 : 1}
+      cursor={disabled ? 'not-allowed' : 'pointer'}
+      pointerEvents={disabled ? 'none' : 'auto'}
+      {...props}
+    >
       {typeof children === 'string' ? (
-        <ButtonText size={size}>{children}</ButtonText>
+        <ButtonText color={variantStyle.textColor} fontSize={sizeStyle.fontSize}>
+          {children}
+        </ButtonText>
       ) : (
         children
       )}

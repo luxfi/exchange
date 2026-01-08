@@ -1,5 +1,5 @@
 #!/usr/bin/env bun
-import { App } from '@universe/cli/src/ui/App'
+import { App } from '@luxfi/cli/src/ui/App'
 import { render } from 'ink'
 // Ensure React is loaded before ink
 import React from 'react'

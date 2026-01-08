@@ -1,17 +1,17 @@
-import { useFeatureFlag } from '@universe/gating'
+import { useFeatureFlag } from '@luxfi/gating'
 import { UniswapWalletOptions } from 'components/WalletModal/UniswapWalletOptions'
 import { useWalletWithId } from 'features/accounts/store/hooks'
 import { ExternalWallet } from 'features/accounts/store/types'
 import { mocked } from 'test-utils/mocked'
 import { render, screen } from 'test-utils/render'
-import { CONNECTION_PROVIDER_IDS } from 'uniswap/src/constants/web3'
+import { CONNECTION_PROVIDER_IDS } from 'lx/src/constants/web3'
 
 vi.mock('features/accounts/store/hooks', async () => ({
   ...(await vi.importActual('features/accounts/store/hooks')),
   useWalletWithId: vi.fn(),
 }))
 
-vi.mock('@universe/gating', async (importOriginal) => {
+vi.mock('@luxfi/gating', async (importOriginal) => {
   return {
     ...(await importOriginal()),
     useFeatureFlag: vi.fn(),

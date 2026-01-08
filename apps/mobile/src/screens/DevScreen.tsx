@@ -8,16 +8,16 @@ import { Screen } from 'src/components/layout/Screen'
 import { Flex, Switch, Text, TouchableArea } from 'ui/src'
 import { CheckmarkCircle, CopyAlt } from 'ui/src/components/icons'
 import { spacing } from 'ui/src/theme'
-import { pushNotification } from 'uniswap/src/features/notifications/slice/slice'
-import { AppNotificationType } from 'uniswap/src/features/notifications/slice/types'
+import { pushNotification } from 'lx/src/features/notifications/slice/slice'
+import { AppNotificationType } from 'lx/src/features/notifications/slice/types'
 import {
   resetDismissedBridgedAssetWarnings,
   resetDismissedCompatibleAddressWarnings,
   resetDismissedWarnings,
-} from 'uniswap/src/features/tokens/warnings/slice/slice'
-import { useAppInsets } from 'uniswap/src/hooks/useAppInsets'
-import { MobileScreens } from 'uniswap/src/types/screens/mobile'
-import { setClipboard } from 'uniswap/src/utils/clipboard'
+} from 'lx/src/features/tokens/warnings/slice/slice'
+import { useAppInsets } from 'lx/src/hooks/useAppInsets'
+import { MobileScreens } from 'lx/src/types/screens/mobile'
+import { setClipboard } from 'lx/src/utils/clipboard'
 import { logger } from 'utilities/src/logger/logger'
 import { UniconSampleSheet } from 'wallet/src/components/DevelopmentOnly/UniconSampleSheet'
 import { createOnboardingAccount } from 'wallet/src/features/onboarding/createOnboardingAccount'

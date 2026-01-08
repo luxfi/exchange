@@ -1,4 +1,4 @@
-import { Fragment, PropsWithChildren } from 'react'
+import { Fragment, type PropsWithChildren } from 'react'
 import { Spacer } from 'tamagui'
 import { Flex } from 'ui/src/components/layout'
 import { Separator } from 'ui/src/components/layout/Separator'

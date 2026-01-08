@@ -1,4 +1,4 @@
-import { GasStrategy } from '@universe/api'
+import { GasStrategy } from '@luxfi/api'
 
 // TODO: move to own package
 export enum Locale {

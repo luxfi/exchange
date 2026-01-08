@@ -17,13 +17,6 @@
     "rootDir": "./src"
   },
   "include": ["src/**/*"],
-  "exclude": [
-    "node_modules",
-    "dist"
-  ],
-  "references": [
-    {
-      "path": "../config"
-    }
-  ]
+  "exclude": ["node_modules", "dist"],
+  "references": []
 }

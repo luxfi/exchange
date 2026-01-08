@@ -1,6 +1,0 @@
-
-> @luxfi/api@0.0.1 typecheck /Users/z/work/lux/exchange/packages/api
-> tsc --noEmit
-
-src/hooks/use-token-price.ts(5,30): error TS2307: Cannot find module 'viem' or its corresponding type declarations.
-[41m[30m ELIFECYCLE [39m[49m [31mCommand failed with exit code 2.[39m

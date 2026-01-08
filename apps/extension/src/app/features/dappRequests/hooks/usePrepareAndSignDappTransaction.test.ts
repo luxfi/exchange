@@ -3,12 +3,12 @@ import { useDispatch } from 'react-redux'
 import { prepareAndSignDappTransactionActions } from 'src/app/features/dappRequests/configuredSagas'
 import { useConditionalPreSignDelay } from 'src/app/features/dappRequests/hooks/useConditionalPreSignDelay'
 import { usePrepareAndSignDappTransaction } from 'src/app/features/dappRequests/hooks/usePrepareAndSignDappTransaction'
-import { AccountType } from 'uniswap/src/features/accounts/types'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { AccountType } from 'lx/src/features/accounts/types'
+import { UniverseChainId } from 'lx/src/features/chains/types'
 import {
   isValidTransactionRequest,
   ValidatedTransactionRequest,
-} from 'uniswap/src/features/transactions/types/transactionRequests'
+} from 'lx/src/features/transactions/types/transactionRequests'
 import { logger } from 'utilities/src/logger/logger'
 import { SignedTransactionRequest } from 'wallet/src/features/transactions/executeTransaction/types'
 import { Account, SignerMnemonicAccount } from 'wallet/src/features/wallet/accounts/types'

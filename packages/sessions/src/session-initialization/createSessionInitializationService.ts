@@ -1,9 +1,9 @@
-import type { ChallengeSolverService } from '@universe/sessions/src/challenge-solvers/types'
+import type { ChallengeSolverService } from '@luxfi/sessions/src/challenge-solvers/types'
 import {
   MaxChallengeRetriesError,
   NoSolverAvailableError,
-} from '@universe/sessions/src/session-initialization/sessionErrors'
-import type { SessionService } from '@universe/sessions/src/session-service/types'
+} from '@luxfi/sessions/src/session-initialization/sessionErrors'
+import type { SessionService } from '@luxfi/sessions/src/session-service/types'
 import type { Logger } from 'utilities/src/logger/logger'
 
 interface SessionInitResult {

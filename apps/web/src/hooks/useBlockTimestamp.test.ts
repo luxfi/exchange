@@ -1,6 +1,6 @@
 import { useBlockTimestamp } from 'hooks/useBlockTimestamp'
 import { renderHook } from 'test-utils/render'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { UniverseChainId } from 'lx/src/features/chains/types'
 
 const mockUseBlockNumber = vi.fn()
 const mockUseBlock = vi.fn()

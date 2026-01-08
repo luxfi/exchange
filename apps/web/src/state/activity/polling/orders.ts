@@ -1,20 +1,20 @@
-import { TradeType } from '@uniswap/sdk-core'
-import { TradingApi } from '@universe/api'
+import { TradeType } from '@luxamm/sdk-core'
+import { TradingApi } from '@luxfi/api'
 import { useAccount } from 'hooks/useAccount'
 import ms from 'ms'
 import { useEffect, useRef, useState } from 'react'
 import { ActivityUpdateTransactionType, OnActivityUpdate } from 'state/activity/types'
 import { usePendingUniswapXOrders } from 'state/transactions/hooks'
 import { OrderQueryResponse, UniswapXBackendOrder } from 'types/uniswapx'
-import { uniswapUrls } from 'uniswap/src/constants/urls'
-import { isL2ChainId } from 'uniswap/src/features/chains/utils'
+import { uniswapUrls } from 'lx/src/constants/urls'
+import { isL2ChainId } from 'lx/src/features/chains/utils'
 import {
   ExactInputSwapTransactionInfo,
   TransactionStatus,
   UniswapXOrderDetails,
-} from 'uniswap/src/features/transactions/types/transactionDetails'
-import { isFinalizedTxStatus } from 'uniswap/src/features/transactions/types/utils'
-import { convertOrderStatusToTransactionStatus } from 'uniswap/src/features/transactions/utils/uniswapX.utils'
+} from 'lx/src/features/transactions/types/transactionDetails'
+import { isFinalizedTxStatus } from 'lx/src/features/transactions/types/utils'
+import { convertOrderStatusToTransactionStatus } from 'lx/src/features/transactions/utils/uniswapX.utils'
 import { logger } from 'utilities/src/logger/logger'
 
 const STANDARD_POLLING_INITIAL_INTERVAL = ms(`2s`)

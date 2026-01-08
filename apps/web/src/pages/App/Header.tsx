@@ -46,11 +46,11 @@ export const Header = memo(function Header() {
       </Flex>
       <Flex
         width="100%"
-        backgroundColor={isHeaderTransparent ? 'transparent' : '$surface1'}
-        borderBottomColor={navHasBottomBorder ? '$surface3' : 'transparent'}
+        backgroundColor={isHeaderTransparent ? 'transparent' : 'rgba(0, 0, 0, 0.95)'}
+        borderBottomColor={navHasBottomBorder ? 'rgba(255, 255, 255, 0.1)' : 'transparent'}
         borderBottomWidth={1}
         pointerEvents="auto"
-        transition="border-bottom-color 0.2s ease-in-out"
+        transition="background-color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out"
       >
         <Navbar />
       </Flex>

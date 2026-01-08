@@ -4,23 +4,23 @@ import {
   MULTICALL_ADDRESSES,
   NONFUNGIBLE_POSITION_MANAGER_ADDRESSES,
   V3_MIGRATOR_ADDRESSES,
-} from '@uniswap/sdk-core'
-import IUniswapV2PairJson from '@uniswap/v2-core/build/IUniswapV2Pair.json'
-import UniswapInterfaceMulticallJson from '@uniswap/v3-periphery/artifacts/contracts/lens/UniswapInterfaceMulticall.sol/UniswapInterfaceMulticall.json'
-import NonfungiblePositionManagerJson from '@uniswap/v3-periphery/artifacts/contracts/NonfungiblePositionManager.sol/NonfungiblePositionManager.json'
-import V3MigratorJson from '@uniswap/v3-periphery/artifacts/contracts/V3Migrator.sol/V3Migrator.json'
+} from '@luxamm/sdk-core'
+import IUniswapV2PairJson from '@luxdex/v2-core/build/IUniswapV2Pair.json'
+import UniswapInterfaceMulticallJson from '@luxdex/v3-periphery/artifacts/contracts/lens/UniswapInterfaceMulticall.sol/UniswapInterfaceMulticall.json'
+import NonfungiblePositionManagerJson from '@luxdex/v3-periphery/artifacts/contracts/NonfungiblePositionManager.sol/NonfungiblePositionManager.json'
+import V3MigratorJson from '@luxdex/v3-periphery/artifacts/contracts/V3Migrator.sol/V3Migrator.json'
 import { useAccount } from 'hooks/useAccount'
 import { useEthersProvider } from 'hooks/useEthersProvider'
 import { useEffect, useMemo } from 'react'
-import ERC20_ABI from 'uniswap/src/abis/erc20.json'
-import { Erc20, Erc721, Weth } from 'uniswap/src/abis/types'
-import { NonfungiblePositionManager, UniswapInterfaceMulticall } from 'uniswap/src/abis/types/v3'
-import { V3Migrator } from 'uniswap/src/abis/types/v3/V3Migrator'
-import WETH_ABI from 'uniswap/src/abis/weth.json'
-import { WRAPPED_NATIVE_CURRENCY } from 'uniswap/src/constants/tokens'
-import { EVMUniverseChainId, UniverseChainId } from 'uniswap/src/features/chains/types'
-import { InterfaceEventName } from 'uniswap/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
+import ERC20_ABI from 'lx/src/abis/erc20.json'
+import { Erc20, Erc721, Weth } from 'lx/src/abis/types'
+import { NonfungiblePositionManager, UniswapInterfaceMulticall } from 'lx/src/abis/types/v3'
+import { V3Migrator } from 'lx/src/abis/types/v3/V3Migrator'
+import WETH_ABI from 'lx/src/abis/weth.json'
+import { WRAPPED_NATIVE_CURRENCY } from 'lx/src/constants/tokens'
+import { EVMUniverseChainId, UniverseChainId } from 'lx/src/features/chains/types'
+import { InterfaceEventName } from 'lx/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
 import { getContract } from 'utilities/src/contracts/getContract'
 import { logger } from 'utilities/src/logger/logger'
 
@@ -156,7 +156,8 @@ export function useV4NFTPositionManagerContract(
   const chainIdToUse = chainId ?? account.chainId
 
   const contract = useContract<Erc721>({
-    address: chainIdToUse ? CHAIN_TO_ADDRESSES_MAP[chainIdToUse].v4PositionManagerAddress : undefined,
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    address: chainIdToUse ? (CHAIN_TO_ADDRESSES_MAP as any)[chainIdToUse]?.v4PositionManagerAddress : undefined,
     ABI: NFTPositionManagerABI,
     withSignerIfPossible,
     chainId: chainIdToUse,

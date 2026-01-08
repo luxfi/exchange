@@ -1,27 +1,15 @@
-import { styled, GetProps } from '@tamagui/core'
-import { Stack, Image, Text } from 'tamagui'
+import type { StackProps } from 'tamagui'
+import { Image, Stack, styled, Text } from 'tamagui'
+
+type TokenLogoSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl'
 
 const TokenLogoFrame = styled(Stack, {
   name: 'TokenLogo',
   alignItems: 'center',
   justifyContent: 'center',
-  borderRadius: '$round',
+  borderRadius: 1000,
   overflow: 'hidden',
-  backgroundColor: '$muted',
-
-  variants: {
-    size: {
-      xs: { width: 20, height: 20 },
-      sm: { width: 24, height: 24 },
-      md: { width: 32, height: 32 },
-      lg: { width: 40, height: 40 },
-      xl: { width: 48, height: 48 },
-    },
-  } as const,
-
-  defaultVariants: {
-    size: 'md',
-  },
+  backgroundColor: '$surface2',
 })
 
 const TokenImage = styled(Image, {
@@ -33,37 +21,42 @@ const TokenImage = styled(Image, {
 const TokenFallback = styled(Text, {
   name: 'TokenFallback',
   fontWeight: '600',
-  color: '$mutedForeground',
-
-  variants: {
-    size: {
-      xs: { fontSize: 8 },
-      sm: { fontSize: 10 },
-      md: { fontSize: 12 },
-      lg: { fontSize: 14 },
-      xl: { fontSize: 16 },
-    },
-  } as const,
-
-  defaultVariants: {
-    size: 'md',
-  },
+  color: '$neutral2',
 })
 
-export type TokenLogoProps = GetProps<typeof TokenLogoFrame> & {
-  symbol: string
-  logoURI?: string
+const sizeStyles: Record<TokenLogoSize, { width: number; height: number }> = {
+  xs: { width: 20, height: 20 },
+  sm: { width: 24, height: 24 },
+  md: { width: 32, height: 32 },
+  lg: { width: 40, height: 40 },
+  xl: { width: 48, height: 48 },
 }
 
-export function TokenLogo({ symbol, logoURI, size, ...props }: TokenLogoProps) {
+const fontSizeStyles: Record<TokenLogoSize, number> = {
+  xs: 8,
+  sm: 10,
+  md: 12,
+  lg: 14,
+  xl: 16,
+}
+
+export interface TokenLogoProps extends Omit<StackProps, 'size'> {
+  symbol: string
+  logoURI?: string
+  size?: TokenLogoSize
+}
+
+export function TokenLogo({ symbol, logoURI, size = 'md', ...props }: TokenLogoProps) {
   const fallbackText = symbol.slice(0, 3).toUpperCase()
+  const sizeStyle = sizeStyles[size]
+  const fontSize = fontSizeStyles[size]
 
   return (
-    <TokenLogoFrame size={size} {...props}>
+    <TokenLogoFrame width={sizeStyle.width} height={sizeStyle.height} {...props}>
       {logoURI ? (
         <TokenImage source={{ uri: logoURI }} />
       ) : (
-        <TokenFallback size={size}>{fallbackText}</TokenFallback>
+        <TokenFallback fontSize={fontSize}>{fallbackText}</TokenFallback>
       )}
     </TokenLogoFrame>
   )

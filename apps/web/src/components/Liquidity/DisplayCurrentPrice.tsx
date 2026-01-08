@@ -1,5 +1,5 @@
-import { Currency, Price } from '@uniswap/sdk-core'
-import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import { Currency, Price } from '@luxamm/sdk-core'
+import { FeatureFlags, useFeatureFlag } from '@luxfi/gating'
 import { BaseQuoteFiatAmount } from 'components/Liquidity/BaseQuoteFiatAmount'
 import { Trans } from 'react-i18next'
 import { Flex, Text } from 'ui/src'

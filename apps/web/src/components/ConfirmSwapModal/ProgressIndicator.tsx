@@ -18,9 +18,9 @@ import { useIsTransactionConfirmed, useUniswapXOrderByOrderHash } from 'state/tr
 import { Divider } from 'theme/components/Dividers'
 import { Flex, useSporeColors } from 'ui/src'
 import { DEP_accentColors } from 'ui/src/theme'
-import { StepStatus } from 'uniswap/src/components/ConfirmSwapModal/types'
-import { uniswapUrls } from 'uniswap/src/constants/urls'
-import { TransactionStatus } from 'uniswap/src/features/transactions/types/transactionDetails'
+import { StepStatus } from 'lx/src/components/ConfirmSwapModal/types'
+import { uniswapUrls } from 'lx/src/constants/urls'
+import { TransactionStatus } from 'lx/src/features/transactions/types/transactionDetails'
 import { SignatureExpiredError } from 'utils/errors'
 
 const DividerContainer = deprecatedStyled(Column)`

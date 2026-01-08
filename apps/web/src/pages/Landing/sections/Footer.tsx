@@ -6,7 +6,7 @@ import { Discord, Github, Twitter } from 'pages/Landing/components/Icons'
 import { useTranslation } from 'react-i18next'
 import { Anchor, Flex, FlexProps, Separator, styled, Text } from 'ui/src'
 import { iconSizes } from 'ui/src/theme'
-import { ModalName } from 'uniswap/src/features/telemetry/constants'
+import { ModalName } from 'lx/src/features/telemetry/constants'
 
 const SOCIAL_ICONS_SIZE = `${iconSizes.icon32}px`
 

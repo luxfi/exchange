@@ -1,7 +1,7 @@
-import { FeeAmount } from '@uniswap/v3-sdk'
+import { FeeAmount } from '@luxamm/v3-sdk'
 import { PoolState, useComputePoolState } from 'hooks/usePools'
 import { renderHook } from 'test-utils/render'
-import { USDC, USDT } from 'uniswap/src/constants/tokens'
+import { USDC, USDT } from 'lx/src/constants/tokens'
 
 describe('useComputePoolState', () => {
   it('should return loading state when loading', () => {

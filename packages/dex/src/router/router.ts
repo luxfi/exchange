@@ -124,7 +124,8 @@ export class OmnichainRouter {
         address: DEX_PRECOMPILES.POOL_MANAGER,
         abi: POOL_MANAGER_ABI,
         functionName: 'getSlot0',
-        args: [poolKey],
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        args: [poolKey] as any,
       }) as [bigint, number, number, number]
 
       if (slot0[0] === 0n) {

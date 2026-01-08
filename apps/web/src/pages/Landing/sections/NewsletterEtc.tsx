@@ -7,7 +7,7 @@ import { BookOpen } from 'ui/src/components/icons/BookOpen'
 import { GraduationCap } from 'ui/src/components/icons/GraduationCap'
 import { PenLine } from 'ui/src/components/icons/PenLine'
 import { SpeechBubbles } from 'ui/src/components/icons/SpeechBubbles'
-import { uniswapUrls } from 'uniswap/src/constants/urls'
+import { uniswapUrls } from 'lx/src/constants/urls'
 
 const SectionLayout = styled(Flex, {
   width: '100%',
@@ -105,8 +105,11 @@ function UniverseRow({
 }
 
 const SocialLink = styled(Anchor, {
+  // @ts-expect-error - 'inherit' is valid CSS but not in Tamagui types
   fontSize: 'inherit',
+  // @ts-expect-error - 'inherit' is valid CSS but not in Tamagui types
   lineHeight: 'inherit',
+  // @ts-expect-error - 'inherit' is valid CSS but not in Tamagui types
   fontWeight: 'inherit',
   color: '$neutral2',
   target: '_blank',

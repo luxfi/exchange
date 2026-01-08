@@ -1,4 +1,4 @@
-import { TradingApi } from '@universe/api'
+import { TradingApi } from '@luxfi/api'
 import { useCancelMultipleOrdersCallback } from 'components/AccountDrawer/MiniPortfolio/Activity/utils/cancel'
 import { useAccount } from 'hooks/useAccount'
 import { useEthersWeb3Provider } from 'hooks/useEthersProvider'
@@ -6,24 +6,24 @@ import { useFetchLimitOrders } from 'hooks/useFetchLimitOrders'
 import useSelectChain from 'hooks/useSelectChain'
 import { renderHook } from 'test-utils/render'
 import { createMockUniswapXOrder } from 'test-utils/transactions/fixtures'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { UniverseChainId } from 'lx/src/features/chains/types'
 import {
   cancelMultipleUniswapXOrders,
   extractCancellationData,
   fetchLimitOrdersEncodedOrderData,
   getOrdersMatchingCancellationData,
-} from 'uniswap/src/features/transactions/cancel/cancelMultipleOrders'
-import { validateOrdersForCancellation } from 'uniswap/src/features/transactions/cancel/validation'
-import { TransactionStatus, UniswapXOrderDetails } from 'uniswap/src/features/transactions/types/transactionDetails'
-import { createPermit2ContractForChain } from 'uniswap/src/features/transactions/utils/permit2'
+} from 'lx/src/features/transactions/cancel/cancelMultipleOrders'
+import { validateOrdersForCancellation } from 'lx/src/features/transactions/cancel/validation'
+import { TransactionStatus, UniswapXOrderDetails } from 'lx/src/features/transactions/types/transactionDetails'
+import { createPermit2ContractForChain } from 'lx/src/features/transactions/utils/permit2'
 import { vi } from 'vitest'
 
 vi.mock('hooks/useAccount')
 vi.mock('hooks/useEthersProvider')
 vi.mock('hooks/useSelectChain')
 vi.mock('hooks/useFetchLimitOrders')
-vi.mock('uniswap/src/features/transactions/cancel/validation')
-vi.mock('uniswap/src/features/transactions/utils/permit2')
+vi.mock('lx/src/features/transactions/cancel/validation')
+vi.mock('lx/src/features/transactions/utils/permit2')
 vi.mock('utilities/src/logger/logger', () => ({
   logger: {
     warn: vi.fn(),
@@ -31,7 +31,7 @@ vi.mock('utilities/src/logger/logger', () => ({
   },
 }))
 
-vi.mock('uniswap/src/features/transactions/cancel/cancelMultipleOrders', () => ({
+vi.mock('lx/src/features/transactions/cancel/cancelMultipleOrders', () => ({
   cancelMultipleUniswapXOrders: vi.fn(),
   trackOrderCancellation: vi.fn(),
   extractCancellationData: vi.fn(),

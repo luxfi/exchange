@@ -1,18 +1,18 @@
-import { CurrencyAmount, WETH9 } from '@uniswap/sdk-core'
-import { TradingApi } from '@universe/api'
+import { CurrencyAmount, WETH9 } from '@luxamm/sdk-core'
+import { TradingApi } from '@luxfi/api'
 import {
   OffchainOrderLineItem,
   OffchainOrderLineItemType,
 } from 'components/AccountDrawer/MiniPortfolio/Activity/OffchainOrderLineItem'
 import { render, screen } from 'test-utils/render'
-import { DAI, USDC_MAINNET } from 'uniswap/src/constants/tokens'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { DAI, USDC_MAINNET } from 'lx/src/constants/tokens'
+import { UniverseChainId } from 'lx/src/features/chains/types'
 import {
   TransactionOriginType,
   TransactionStatus,
   TransactionType,
-} from 'uniswap/src/features/transactions/types/transactionDetails'
-import { currencyId } from 'uniswap/src/utils/currencyId'
+} from 'lx/src/features/transactions/types/transactionDetails'
+import { currencyId } from 'lx/src/utils/currencyId'
 
 describe('OffchainOrderLineItem', () => {
   it('should render type EXCHANGE_RATE', () => {

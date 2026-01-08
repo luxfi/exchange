@@ -1,4 +1,4 @@
-import { GraphQLApi } from '@universe/api'
+import { GraphQLApi } from '@luxfi/api'
 import dayjs from 'dayjs'
 import React from 'react'
 import { ListRenderItemInfo, StyleSheet } from 'react-native'

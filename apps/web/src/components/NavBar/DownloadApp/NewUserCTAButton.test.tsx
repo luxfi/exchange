@@ -1,7 +1,7 @@
 import { NewUserCTAButton } from 'components/NavBar/DownloadApp/NewUserCTAButton'
 import { render, screen } from 'test-utils/render'
 
-vi.mock('@universe/gating', async (importOriginal) => {
+vi.mock('@luxfi/gating', async (importOriginal) => {
   return {
     ...(await importOriginal()),
     useFeatureFlag: vi.fn(),

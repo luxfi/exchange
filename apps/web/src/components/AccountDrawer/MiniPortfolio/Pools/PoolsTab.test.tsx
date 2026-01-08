@@ -6,7 +6,7 @@ import { renderWithUniswapContext } from 'test-utils/render'
 
 vi.mock('./useMultiChainPositions')
 
-vi.mock('uniswap/src/features/accounts/store/hooks', () => ({
+vi.mock('lx/src/features/accounts/store/hooks', () => ({
   useActiveAddresses: vi.fn(() => ({
     evmAddress: '0x0000000000000000000000000000000000000000',
     svmAddress: undefined,
@@ -18,7 +18,8 @@ vi.spyOn(console, 'warn').mockImplementation(() => {})
 vi.spyOn(console, 'error').mockImplementation(() => {})
 
 beforeEach(() => {
-  mocked(useMultiChainPositions).mockReturnValue(useMultiChainPositionsReturnValue)
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  mocked(useMultiChainPositions).mockReturnValue(useMultiChainPositionsReturnValue as any)
 })
 
 test('Pools should render LP positions', () => {

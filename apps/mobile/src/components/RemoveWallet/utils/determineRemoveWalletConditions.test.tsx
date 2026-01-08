@@ -1,5 +1,5 @@
 import { determineRemoveWalletConditions } from 'src/components/RemoveWallet/utils/determineRemoveWalletConditions'
-import { AccountType } from 'uniswap/src/features/accounts/types'
+import { AccountType } from 'lx/src/features/accounts/types'
 import { Account, SignerMnemonicAccount } from 'wallet/src/features/wallet/accounts/types'
 
 describe('determineRemoveWalletConditions', () => {

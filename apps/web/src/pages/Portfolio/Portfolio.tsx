@@ -1,12 +1,12 @@
-import { Layers, PortfolioDisconnectedDemoViewProperties, useExperimentValueFromLayer } from '@universe/gating'
+import { Layers, PortfolioDisconnectedDemoViewProperties, useExperimentValueFromLayer } from '@luxfi/gating'
 import { useScroll } from 'hooks/useScroll'
 import { CONNECT_WALLET_BANNER_HEIGHT, CONNECT_WALLET_FIXED_BOTTOM_SECTION_HEIGHT } from 'pages/Portfolio/constants'
 import useIsConnected from 'pages/Portfolio/Header/hooks/useIsConnected'
 import PortfolioDisconnectedView from 'pages/Portfolio/PortfolioDisconnectedView'
 import { PortfolioPageInner } from 'pages/Portfolio/PortfolioPageInner'
 import { useMemo } from 'react'
-import { InterfacePageName, SectionName } from 'uniswap/src/features/telemetry/constants'
-import Trace from 'uniswap/src/features/telemetry/Trace'
+import { InterfacePageName, SectionName } from 'lx/src/features/telemetry/constants'
+import Trace from 'lx/src/features/telemetry/Trace'
 
 // Trigger slightly before banner fully scrolls out for more responsive animation
 const SCROLL_BUFFER = 40

@@ -1,17 +1,17 @@
-import { Currency, Token } from '@uniswap/sdk-core'
+import { Currency, Token } from '@luxamm/sdk-core'
 import { NATIVE_CHAIN_ID } from 'constants/tokens'
 import { useAccount } from 'hooks/useAccount'
 import { useMemo } from 'react'
-import { getChainInfo } from 'uniswap/src/features/chains/chainInfo'
-import { useSupportedChainId } from 'uniswap/src/features/chains/hooks/useSupportedChainId'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { CurrencyInfo } from 'uniswap/src/features/dataApi/types'
+import { getChainInfo } from 'lx/src/features/chains/chainInfo'
+import { useSupportedChainId } from 'lx/src/features/chains/hooks/useSupportedChainId'
+import { UniverseChainId } from 'lx/src/features/chains/types'
+import { CurrencyInfo } from 'lx/src/features/dataApi/types'
 import {
   useCurrencyInfo as useUniswapCurrencyInfo,
   useCurrencyInfoWithLoading as useUniswapCurrencyInfoWithLoading,
-} from 'uniswap/src/features/tokens/useCurrencyInfo'
-import { AddressStringFormat, getValidAddress, normalizeAddress } from 'uniswap/src/utils/addresses'
-import { buildCurrencyId } from 'uniswap/src/utils/currencyId'
+} from 'lx/src/features/tokens/useCurrencyInfo'
+import { AddressStringFormat, getValidAddress, normalizeAddress } from 'lx/src/utils/addresses'
+import { buildCurrencyId } from 'lx/src/utils/currencyId'
 
 type Maybe<T> = T | undefined
 

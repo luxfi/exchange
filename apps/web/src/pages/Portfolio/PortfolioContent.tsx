@@ -1,4 +1,4 @@
-import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import { FeatureFlags, useFeatureFlag } from '@luxfi/gating'
 import PortfolioActivity from 'pages/Portfolio/Activity/Activity'
 import { PortfolioDefi } from 'pages/Portfolio/Defi'
 import { usePortfolioRoutes } from 'pages/Portfolio/Header/hooks/usePortfolioRoutes'

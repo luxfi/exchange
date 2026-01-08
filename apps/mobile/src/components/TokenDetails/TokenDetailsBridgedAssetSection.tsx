@@ -1,9 +1,9 @@
 import { navigate } from 'src/app/navigation/rootNavigation'
 import { useTokenDetailsContext } from 'src/components/TokenDetails/TokenDetailsContext'
-import { BridgedAssetTDPSection } from 'uniswap/src/components/BridgedAsset/BridgedAssetTDPSection'
-import { ModalName } from 'uniswap/src/features/telemetry/constants'
-import { useCurrencyInfo } from 'uniswap/src/features/tokens/useCurrencyInfo'
-import { CurrencyField } from 'uniswap/src/types/currency'
+import { BridgedAssetTDPSection } from 'lx/src/components/BridgedAsset/BridgedAssetTDPSection'
+import { ModalName } from 'lx/src/features/telemetry/constants'
+import { useCurrencyInfo } from 'lx/src/features/tokens/useCurrencyInfo'
+import { CurrencyField } from 'lx/src/types/currency'
 import { useEvent } from 'utilities/src/react/hooks'
 import { useWalletNavigation } from 'wallet/src/contexts/WalletNavigationContext'
 

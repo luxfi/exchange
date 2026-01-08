@@ -1,1 +1,0 @@
-{"version":3,"file":"use-token-balance.d.ts","sourceRoot":"","sources":["../../src/hooks/use-token-balance.ts"],"names":[],"mappings":"AAIA,OAAO,KAAK,EAAE,KAAK,EAAE,MAAM,WAAW,CAAA;AAEtC,OAAO,KAAK,EAAE,OAAO,EAAE,MAAM,MAAM,CAAA;AAEnC;;GAEG;AACH,wBAAgB,eAAe,CAC7B,KAAK,EAAE,KAAK,GAAG,IAAI,EACnB,OAAO,EAAE,OAAO,GAAG,SAAS,EAC5B,OAAO,EAAE,MAAM;;;;;;;;;;EAgDhB"}

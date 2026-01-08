@@ -1,8 +1,8 @@
 import { useTotalBalancesUsdForAnalytics } from 'appGraphql/data/apollo/useTotalBalancesUsdForAnalytics'
 import { TypedDataDomain, TypedDataField } from '@ethersproject/abstract-signer'
 import { BigNumber } from '@ethersproject/bignumber'
-import { PermitTransferFrom } from '@uniswap/permit2-sdk'
-import { Percent } from '@uniswap/sdk-core'
+import { PermitTransferFrom } from '@luxdex/permit2-sdk'
+import { Percent } from '@luxamm/sdk-core'
 import {
   DutchOrder,
   DutchOrderBuilder,
@@ -12,7 +12,7 @@ import {
   UnsignedV3DutchOrder,
   V2DutchOrderBuilder,
   V3DutchOrderBuilder,
-} from '@uniswap/uniswapx-sdk'
+} from '@luxdex/sdk'
 import { useAccount } from 'hooks/useAccount'
 import { useEthersWeb3Provider } from 'hooks/useEthersProvider'
 import { formatSwapSignedAnalyticsEventProperties } from 'lib/utils/analytics'
@@ -28,9 +28,9 @@ import {
   V2DutchOrderTrade,
   V3DutchOrderTrade,
 } from 'state/routing/types'
-import { InterfaceEventName, SwapEventName } from 'uniswap/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
-import { getValidAddress } from 'uniswap/src/utils/addresses'
+import { InterfaceEventName, SwapEventName } from 'lx/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
+import { getValidAddress } from 'lx/src/utils/addresses'
 import { logger } from 'utilities/src/logger/logger'
 import { useTrace } from 'utilities/src/telemetry/trace/TraceContext'
 import {

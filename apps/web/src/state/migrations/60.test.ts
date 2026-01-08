@@ -1,7 +1,7 @@
 import { migration60 } from 'state/migrations/60'
-import { USDC } from 'uniswap/src/constants/tokens'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { testMigrateDismissedTokenWarnings } from 'uniswap/src/state/uniswapMigrationTests'
+import { USDC } from 'lx/src/constants/tokens'
+import { UniverseChainId } from 'lx/src/features/chains/types'
+import { testMigrateDismissedTokenWarnings } from 'lx/src/state/uniswapMigrationTests'
 
 const previousState = {
   _persist: {

@@ -1,4 +1,4 @@
-import type { SessionService } from '@universe/sessions'
+import type { SessionService } from '@luxfi/sessions'
 
 export type StandardFetchOptions = Parameters<typeof fetch>[1]
 

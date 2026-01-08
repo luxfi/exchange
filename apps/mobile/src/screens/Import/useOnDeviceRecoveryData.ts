@@ -1,11 +1,11 @@
-import { GraphQLApi } from '@universe/api'
+import { GraphQLApi } from '@luxfi/api'
 import { useEffect, useMemo, useState } from 'react'
-import { useUnitagsAddressQuery } from 'uniswap/src/data/apiClients/unitagsApi/useUnitagsAddressQuery'
-import { useEnabledChains } from 'uniswap/src/features/chains/hooks/useEnabledChains'
+import { useUnitagsAddressQuery } from 'lx/src/data/apiClients/unitagsApi/useUnitagsAddressQuery'
+import { useEnabledChains } from 'lx/src/features/chains/hooks/useEnabledChains'
 // biome-ignore lint/style/noRestrictedImports: Direct access needed for custom portfolio query with multiple addresses
-import { usePortfolioValueModifiers } from 'uniswap/src/features/dataApi/balances/balances'
-import { Platform } from 'uniswap/src/features/platforms/types/Platform'
-import { areAddressesEqual } from 'uniswap/src/utils/addresses'
+import { usePortfolioValueModifiers } from 'lx/src/features/dataApi/balances/balances'
+import { Platform } from 'lx/src/features/platforms/types/Platform'
+import { areAddressesEqual } from 'lx/src/utils/addresses'
 import { logger } from 'utilities/src/logger/logger'
 import {
   AddressWithBalanceAndName,

@@ -20,3 +20,5 @@ export * from './dex';
 export * from './hooks';
 // Stores
 export * from './stores';
+// Bridge (cross-chain + Z-Chain privacy layer)
+export * from './bridge';

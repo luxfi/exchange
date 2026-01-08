@@ -1,6 +1,6 @@
-import { ARGENT_WALLET_DETECTOR_ADDRESS } from '@uniswap/sdk-core'
+import { ARGENT_WALLET_DETECTOR_ADDRESS } from '@luxamm/sdk-core'
 import { useAccount } from 'hooks/useAccount'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { UniverseChainId } from 'lx/src/features/chains/types'
 import { assume0xAddress } from 'utils/wagmi'
 import { useReadContract } from 'wagmi'
 

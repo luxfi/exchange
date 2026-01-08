@@ -1,4 +1,4 @@
-import { CustomRankingType, RankingType } from '@universe/api'
+import { CustomRankingType, RankingType } from '@luxfi/api'
 import { AppTFunction } from 'ui/src/i18n/types'
 import { ExploreOrderBy, TokenMetadataDisplayType } from 'wallet/src/features/wallet/types'
 

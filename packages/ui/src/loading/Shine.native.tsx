@@ -1,7 +1,8 @@
 import MaskedView from '@react-native-masked-view/masked-view'
 import { LinearGradient } from 'expo-linear-gradient'
-import React, { useEffect, useMemo, useState } from 'react'
-import { LayoutRectangle, StyleSheet } from 'react-native'
+import type React from 'react'
+import { useEffect, useMemo, useState } from 'react'
+import { type LayoutRectangle, StyleSheet } from 'react-native'
 import Reanimated, {
   interpolate,
   useAnimatedStyle,
@@ -11,7 +12,7 @@ import Reanimated, {
 } from 'react-native-reanimated'
 import { Flex } from 'ui/src/components/layout'
 import { useSporeColors } from 'ui/src/hooks/useSporeColors'
-import { ShineProps } from 'ui/src/loading/ShineProps'
+import type { ShineProps } from 'ui/src/loading/ShineProps'
 import { opacify } from 'ui/src/theme'
 import { useEvent } from 'utilities/src/react/hooks'
 import { ONE_SECOND_MS } from 'utilities/src/time/time'
@@ -30,7 +31,7 @@ export function Shine({ shimmerDurationSeconds = 2, children, disabled }: ShineP
 
   useEffect(() => {
     xPosition.value = withRepeat(withTiming(1, { duration: shimmerDuration }), Infinity, false)
-  }, [shimmerDuration])
+  }, [shimmerDuration, xPosition])
 
   const animatedStyle = useAnimatedStyle(() => ({
     ...StyleSheet.absoluteFillObject,
@@ -44,7 +45,7 @@ export function Shine({ shimmerDurationSeconds = 2, children, disabled }: ShineP
   const handleOnLayout = useEvent(
     (event: { nativeEvent: { layout: React.SetStateAction<LayoutRectangle | null | undefined> } }): void => {
       setLayout(event.nativeEvent.layout)
-    },
+    }
   )
 
   const gradientColors: [string, string, string] = useMemo(() => {

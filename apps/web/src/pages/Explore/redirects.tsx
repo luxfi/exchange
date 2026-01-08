@@ -1,4 +1,4 @@
-import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import { FeatureFlags, useFeatureFlag } from '@luxfi/gating'
 import { ExploreTab } from 'pages/Explore/constants'
 import { lazy, Suspense } from 'react'
 import { Navigate, useLocation, useParams } from 'react-router'
@@ -16,21 +16,25 @@ export function useExploreParams(): {
   const isLegacyUrl = !useLocation().pathname.includes('explore')
 
   const exploreTabs = Object.values(ExploreTab)
-  if (tab && !chainName && exploreTabs.includes(tab as ExploreTab)) {
+  
+  // Map legacy 'pools' URLs to 'markets'
+  const normalizedTab = tab === 'pools' ? ExploreTab.Markets : tab
+  
+  if (normalizedTab && !chainName && exploreTabs.includes(normalizedTab as ExploreTab)) {
     // /explore/:tab
-    return { tab: tab as ExploreTab, chainName: undefined, tokenAddress }
-  } else if (tab && !chainName) {
+    return { tab: normalizedTab as ExploreTab, chainName: undefined, tokenAddress }
+  } else if (normalizedTab && !chainName) {
     // /explore/:chainName
-    return { tab: undefined, chainName: tab, tokenAddress }
+    return { tab: undefined, chainName: normalizedTab, tokenAddress }
   } else if (isLegacyUrl && !tab) {
     // legacy /tokens, /tokens/:chainName, and /tokens/:chainName/:tokenAddress
     return { tab: ExploreTab.Tokens, chainName, tokenAddress }
-  } else if (!tab) {
-    // /explore
-    return { tab: undefined, chainName: undefined, tokenAddress: undefined }
+  } else if (!normalizedTab) {
+    // /explore - default to markets
+    return { tab: ExploreTab.Markets, chainName: undefined, tokenAddress: undefined }
   } else {
     // /explore/:tab/:chainName
-    return { tab: tab as ExploreTab, chainName, tokenAddress }
+    return { tab: normalizedTab as ExploreTab, chainName, tokenAddress }
   }
 }
 export default function RedirectExplore() {

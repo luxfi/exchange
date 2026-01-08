@@ -6,8 +6,8 @@ import { useOnboardingSteps } from 'src/app/features/onboarding/OnboardingStepsC
 import { OnboardingRoutes, TopLevelRoutes } from 'src/app/navigation/constants'
 import { navigate } from 'src/app/navigation/state'
 import { Flex } from 'ui/src'
-import Trace from 'uniswap/src/features/telemetry/Trace'
-import { ExtensionOnboardingFlow, ExtensionOnboardingScreens } from 'uniswap/src/types/screens/extension'
+import Trace from 'lx/src/features/telemetry/Trace'
+import { ExtensionOnboardingFlow, ExtensionOnboardingScreens } from 'lx/src/types/screens/extension'
 import { PasskeyImportLoading } from 'wallet/src/features/onboarding/PasskeyImportLoading'
 import { WelcomeSplash } from 'wallet/src/features/onboarding/WelcomeSplash'
 

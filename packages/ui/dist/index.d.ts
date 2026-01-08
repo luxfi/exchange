@@ -4,7 +4,30 @@
  * This package provides cross-platform UI components that work on
  * web, iOS, and Android using Tamagui.
  */
-export * from './theme';
-export * from './components';
-export { Stack, XStack, YStack, ZStack, Text, Paragraph, H1, H2, H3, H4, H5, H6, Separator, Spinner, ScrollView, Image, Input, TextArea, Label, Theme, useTheme, useMedia, } from 'tamagui';
+export * from './theme'
+export * from './components'
+export {
+  Stack,
+  XStack,
+  YStack,
+  ZStack,
+  Text,
+  Paragraph,
+  H1,
+  H2,
+  H3,
+  H4,
+  H5,
+  H6,
+  Separator,
+  Spinner,
+  ScrollView,
+  Image,
+  Input,
+  TextArea,
+  Label,
+  Theme,
+  useTheme,
+  useMedia,
+} from 'tamagui'
 //# sourceMappingURL=index.d.ts.map

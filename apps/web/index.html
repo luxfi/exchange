@@ -6,6 +6,7 @@
     <title>LX</title>
     <meta name="description" content="Swap or provide liquidity on the LX Protocol" />
 
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="shortcut icon" type="image/png" href="/favicon.png" />
     <link rel="apple-touch-icon" sizes="192x192" href="/images/192x192_App_Icon.png" />
     <link rel="apple-touch-icon" sizes="512x512" href="/images/512x512_App_Icon.png" />
@@ -67,27 +68,176 @@
         min-height: 100%;
       }
 
-      @media (prefers-color-scheme: dark) {
-        html {
-          background: #000000;
-        }
+      #root {
+        position: relative;
+        z-index: 1;
       }
 
-      @media (prefers-color-scheme: light) {
-        html {
-          background: #FFFFFF;
-        }
+      html {
+        background: #000000;
       }
+
+      /* Loading Screen Styles */
+      #loading-screen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: transparent;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        z-index: 99999;
+        opacity: 1;
+        transition: opacity 0.6s ease-out;
+        pointer-events: none;
+      }
+
+      #loading-screen.fade-out {
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      #loading-screen.hidden {
+        display: none;
+      }
+
+      #loading-video {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(1.33);
+        max-width: 80vw;
+        max-height: 80vh;
+        width: auto;
+        height: auto;
+        object-fit: contain;
+        z-index: -1;
+        opacity: 0;
+        transition: opacity 0.5s ease-in;
+        pointer-events: none;
+      }
+
+      #loading-video.visible {
+        opacity: 1;
+      }
+
+
+
+      #loading-progress-container {
+        position: absolute;
+        z-index: 2;
+        bottom: 80px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: min(30vw, 300px);
+        height: 3px;
+        background: rgba(255, 255, 255, 0.15);
+        border-radius: 3px;
+        overflow: hidden;
+        opacity: 1;
+      }
+
+      #loading-progress-bar {
+        height: 100%;
+        width: 0%;
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: 4px;
+        box-shadow: 0 0 12px rgba(255, 255, 255, 0.8), 0 0 24px rgba(255, 255, 255, 0.4), 0 0 40px rgba(255, 255, 255, 0.2);
+      }
+
+      #loading-progress-bar.animate {
+        animation: loading-progress 3.69s ease-out forwards, glow-pulse 1s ease-in-out infinite;
+      }
+
+      @keyframes loading-progress {
+        0% { width: 0%; }
+        30% { width: 40%; }
+        70% { width: 80%; }
+        100% { width: 100%; }
+      }
+
+      @keyframes glow-pulse {
+        0%, 100% { box-shadow: 0 0 12px rgba(255, 255, 255, 0.8), 0 0 24px rgba(255, 255, 255, 0.4), 0 0 40px rgba(255, 255, 255, 0.2); }
+        50% { box-shadow: 0 0 20px rgba(255, 255, 255, 1), 0 0 40px rgba(255, 255, 255, 0.6), 0 0 60px rgba(255, 255, 255, 0.3); }
+      }
+
     </style>
   </head>
 
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
 
+    <!-- Persistent background video - stays visible after app loads -->
+    <video id="loading-video" autoplay muted loop playsinline>
+      <source src="/videos/lux-hero.mp4" type="video/mp4" />
+    </video>
+
+    <!-- Loading Screen - only contains progress bar, fades out -->
+    <div id="loading-screen">
+      <div id="loading-progress-container">
+        <div id="loading-progress-bar"></div>
+      </div>
+    </div>
+
     <div id="root"></div>
     <div id="background-radial-gradient"></div>
 
     <script type="module" src="/zone-events.js"></script>
     <script type="module" src="/src/index.tsx"></script>
+    
+    <!-- Loading sequence script -->
+    <script>
+      (function() {
+        console.log('[Loading] Script starting');
+        var video = document.getElementById('loading-video');
+        var progressBar = document.getElementById('loading-progress-bar');
+        var loadingScreen = document.getElementById('loading-screen');
+        var started = false;
+
+        console.log('[Loading] Elements:', { video: !!video, progressBar: !!progressBar, loadingScreen: !!loadingScreen });
+
+        function startLoading() {
+          if (started) return;
+          started = true;
+          console.log('[Loading] Starting loading sequence');
+          // Show video if available
+          if (video) video.classList.add('visible');
+          // Start progress bar animation
+          if (progressBar) progressBar.classList.add('animate');
+          // Dismiss loading screen after 3.69 seconds
+          console.log('[Loading] Will dismiss in 3.69s');
+          setTimeout(dismissLoading, 3690);
+        }
+
+        function dismissLoading() {
+          console.log('[Loading] Dismissing loading screen');
+          if (loadingScreen) {
+            loadingScreen.classList.add('fade-out');
+            setTimeout(function() {
+              loadingScreen.classList.add('hidden');
+              console.log('[Loading] Loading screen hidden');
+            }, 500);
+          }
+        }
+
+        // Start immediately - don't wait for video
+        startLoading();
+
+        // When video can play, show it
+        if (video) {
+          video.addEventListener('canplay', function() {
+            console.log('[Loading] Video can play');
+            video.classList.add('visible');
+          });
+          if (video.readyState >= 3) {
+            console.log('[Loading] Video already ready');
+            video.classList.add('visible');
+          }
+        }
+      })();
+    </script>
   </body>
 </html>

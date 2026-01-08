@@ -11,17 +11,15 @@ export interface SettingsStore {
     toggleHideSmallBalances: () => void;
     setSmallBalanceThreshold: (threshold: number) => void;
 }
-export declare const useSettingsStore: import("zustand").UseBoundStore<Omit<import("zustand").StoreApi<SettingsStore>, "setState" | "persist"> & {
-    setState(partial: SettingsStore | Partial<SettingsStore> | ((state: SettingsStore) => SettingsStore | Partial<SettingsStore>), replace?: false | undefined): unknown;
-    setState(state: SettingsStore | ((state: SettingsStore) => SettingsStore), replace: true): unknown;
+export declare const useSettingsStore: import("zustand").UseBoundStore<Omit<import("zustand").StoreApi<SettingsStore>, "persist"> & {
     persist: {
-        setOptions: (options: Partial<import("zustand/middleware").PersistOptions<SettingsStore, SettingsStore, unknown>>) => void;
+        setOptions: (options: Partial<import("zustand/middleware").PersistOptions<SettingsStore, SettingsStore>>) => void;
         clearStorage: () => void;
         rehydrate: () => Promise<void> | void;
         hasHydrated: () => boolean;
         onHydrate: (fn: (state: SettingsStore) => void) => () => void;
         onFinishHydration: (fn: (state: SettingsStore) => void) => () => void;
-        getOptions: () => Partial<import("zustand/middleware").PersistOptions<SettingsStore, SettingsStore, unknown>>;
+        getOptions: () => Partial<import("zustand/middleware").PersistOptions<SettingsStore, SettingsStore>>;
     };
 }>;
 //# sourceMappingURL=settings-store.d.ts.map

@@ -2,14 +2,14 @@ import 'test-utils/tokens/mocks'
 
 import { usePoolsFromTokenAddress } from 'appGraphql/data/pools/usePoolsFromTokenAddress'
 import { ApolloError } from '@apollo/client'
-import { type Currency, Percent, Token } from '@uniswap/sdk-core'
-import { GraphQLApi } from '@universe/api'
+import { type Currency, Percent, Token } from '@luxamm/sdk-core'
+import { GraphQLApi } from '@luxfi/api'
 import { TokenDetailsPoolsTable } from 'components/Tokens/TokenDetails/tables/TokenDetailsPoolsTable'
 import { mocked } from 'test-utils/mocked'
 import { validBEPoolToken0, validBEPoolToken1 } from 'test-utils/pools/fixtures'
 import { render, screen } from 'test-utils/render'
-import { DEFAULT_TICK_SPACING } from 'uniswap/src/constants/pools'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { DEFAULT_TICK_SPACING } from 'lx/src/constants/pools'
+import { UniverseChainId } from 'lx/src/features/chains/types'
 
 vi.mock('appGraphql/data/pools/usePoolsFromTokenAddress')
 vi.mock('react-router', async () => {

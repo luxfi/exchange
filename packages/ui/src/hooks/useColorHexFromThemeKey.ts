@@ -1,5 +1,5 @@
-import { ColorTokens, ThemeKeys } from 'tamagui'
-import { DynamicColor, useSporeColors } from 'ui/src/hooks/useSporeColors'
+import type { ColorTokens, ThemeKeys } from 'tamagui'
+import { type DynamicColor, useSporeColors } from 'ui/src/hooks/useSporeColors'
 
 export type ColorHexFromThemeKey = {
   val: ColorTokens

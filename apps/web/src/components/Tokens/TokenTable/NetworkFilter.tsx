@@ -3,7 +3,7 @@ import { ExploreTab } from 'pages/Explore/constants'
 import { useExploreParams } from 'pages/Explore/redirects'
 import { useNavigate } from 'react-router'
 import { useMedia } from 'ui/src'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { UniverseChainId } from 'lx/src/features/chains/types'
 import { useEvent } from 'utilities/src/react/hooks'
 import { getChainIdFromChainUrlParam, getChainUrlParam } from 'utils/chainParams'
 

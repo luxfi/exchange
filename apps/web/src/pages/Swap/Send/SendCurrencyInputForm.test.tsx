@@ -8,8 +8,8 @@ import { SwapAndLimitContext } from 'state/swap/types'
 import { DAI_INFO } from 'test-utils/constants'
 import { mocked } from 'test-utils/mocked'
 import { act, renderWithUniswapContext, screen } from 'test-utils/render'
-import { DAI } from 'uniswap/src/constants/tokens'
-import { SwapTab } from 'uniswap/src/types/screens/interface'
+import { DAI } from 'lx/src/constants/tokens'
+import { SwapTab } from 'lx/src/types/screens/interface'
 
 const mockMultichainContextValue = {
   reset: vi.fn(),

@@ -3,10 +3,10 @@ import { DualTokenLayout } from 'pages/Portfolio/Activity/ActivityTable/Activity
 import { createTokenLogo } from 'pages/Portfolio/Activity/ActivityTable/ActivityAmountCell/utils'
 import { memo, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
-import { formatApprovalAmount } from 'uniswap/src/components/activity/utils'
-import { CurrencyInfo } from 'uniswap/src/features/dataApi/types'
-import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
-import { getSymbolDisplayText } from 'uniswap/src/utils/currency'
+import { formatApprovalAmount } from 'lx/src/components/activity/utils'
+import { CurrencyInfo } from 'lx/src/features/dataApi/types'
+import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
+import { getSymbolDisplayText } from 'lx/src/utils/currency'
 
 // Memoized component for approval transaction amounts
 interface ApproveAmountCellProps {

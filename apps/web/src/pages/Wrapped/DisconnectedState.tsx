@@ -8,8 +8,8 @@ import {
   MouseGlow,
   renderSnowflakesWeb,
   SnowflakeContainer,
-} from 'uniswap/src/components/banners/shared/SharedSnowflakeComponents'
-import { useSnowflakeAnimation } from 'uniswap/src/hooks/useSnowflakeAnimation'
+} from 'lx/src/components/banners/shared/SharedSnowflakeComponents'
+import { useSnowflakeAnimation } from 'lx/src/hooks/useSnowflakeAnimation'
 import { isMobileWeb } from 'utilities/src/platform'
 
 const DisconnectedContainer = styled(Flex, {

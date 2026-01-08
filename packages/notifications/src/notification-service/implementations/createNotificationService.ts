@@ -1,9 +1,9 @@
-import { type InAppNotification, OnClickAction } from '@universe/api'
+import { type InAppNotification, OnClickAction } from '@luxfi/api'
 import {
   type NotificationClickTarget,
   type NotificationService,
   type NotificationServiceConfig,
-} from '@universe/notifications/src/notification-service/NotificationService'
+} from '@luxfi/notifications/src/notification-service/NotificationService'
 import ms from 'ms'
 import { getLogger } from 'utilities/src/logger/logger'
 

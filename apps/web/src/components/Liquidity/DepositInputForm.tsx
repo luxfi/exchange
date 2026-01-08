@@ -1,4 +1,4 @@
-import { Currency } from '@uniswap/sdk-core'
+import { Currency } from '@luxamm/sdk-core'
 import { useTokenBalanceWithBuffer } from 'components/Liquidity/Create/hooks/useDepositInfo'
 import { useNativeTokenPercentageBufferExperiment } from 'components/Liquidity/Create/hooks/useNativeTokenPercentageBufferExperiment'
 import { DepositInfo } from 'components/Liquidity/types'
@@ -6,21 +6,21 @@ import { useCurrencyInfo } from 'hooks/Tokens'
 import { ReactNode, useEffect, useRef } from 'react'
 import { PositionField } from 'types/position'
 import { Flex, FlexProps } from 'ui/src'
-import { CurrencyInputPanel } from 'uniswap/src/components/CurrencyInputPanel/CurrencyInputPanel'
-import { CurrencyInputPanelRef } from 'uniswap/src/components/CurrencyInputPanel/types'
-import { CurrencyField } from 'uniswap/src/types/currency'
+import { CurrencyInputPanel } from 'lx/src/components/CurrencyInputPanel/CurrencyInputPanel'
+import { CurrencyInputPanelRef } from 'lx/src/components/CurrencyInputPanel/types'
+import { CurrencyField } from 'lx/src/types/currency'
 
-const INPUT_BORDER_RADIUS = '$rounded20'
+const INPUT_BORDER_RADIUS = '$rounded20' as const
 const sharedPanelStyle = {
   borderTopLeftRadius: INPUT_BORDER_RADIUS,
   borderTopRightRadius: INPUT_BORDER_RADIUS,
   backgroundColor: '$surface2',
-}
+} as const
 
 function borderRadiusStyles(component?: ReactNode): FlexProps {
   return {
-    borderBottomLeftRadius: component ? '$rounded0' : INPUT_BORDER_RADIUS,
-    borderBottomRightRadius: component ? '$rounded0' : INPUT_BORDER_RADIUS,
+    borderBottomLeftRadius: component ? 0 : INPUT_BORDER_RADIUS,
+    borderBottomRightRadius: component ? 0 : INPUT_BORDER_RADIUS,
   }
 }
 

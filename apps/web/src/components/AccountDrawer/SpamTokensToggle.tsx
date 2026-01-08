@@ -1,8 +1,8 @@
 import { SettingsToggle } from 'components/AccountDrawer/SettingsToggle'
 import { useTranslation } from 'react-i18next'
 import { useDispatch } from 'react-redux'
-import { useHideSpamTokensSetting } from 'uniswap/src/features/settings/hooks'
-import { setHideSpamTokens } from 'uniswap/src/features/settings/slice'
+import { useHideSpamTokensSetting } from 'lx/src/features/settings/hooks'
+import { setHideSpamTokens } from 'lx/src/features/settings/slice'
 
 export function SpamTokensToggle() {
   const { t } = useTranslation()

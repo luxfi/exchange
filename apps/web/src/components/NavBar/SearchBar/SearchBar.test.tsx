@@ -10,7 +10,7 @@ vi.mock('tamagui', async () => {
   }
 })
 
-vi.mock('uniswap/src/components/modals/ScrollLock', () => ({
+vi.mock('lx/src/components/modals/ScrollLock', () => ({
   useUpdateScrollLock: vi.fn(),
 }))
 

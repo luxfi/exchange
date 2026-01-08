@@ -1,5 +1,5 @@
 /** biome-ignore-all lint/suspicious/noConsole: cli tool */
-import type { StreamChunk } from '@universe/cli/src/lib/ai-provider'
+import type { StreamChunk } from '@luxfi/cli/src/lib/ai-provider'
 
 /**
  * Stream Handler for CLI Output

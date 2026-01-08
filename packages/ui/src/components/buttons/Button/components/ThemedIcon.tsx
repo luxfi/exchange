@@ -1,7 +1,7 @@
 import { cloneElement, memo } from 'react'
 import { useStyle } from 'tamagui'
 import { CustomButtonText } from 'ui/src/components/buttons/Button/components/CustomButtonText/CustomButtonText'
-import { TypeOfButton } from 'ui/src/components/buttons/Button/components/types'
+import type { TypeOfButton } from 'ui/src/components/buttons/Button/components/types'
 import { useIconSizes } from 'ui/src/components/buttons/Button/hooks/useIconSizes'
 import type { ButtonVariantProps } from 'ui/src/components/buttons/Button/types'
 
@@ -31,7 +31,7 @@ const _ThemedIcon = ({
     { variant, emphasis, isDisabled, 'custom-background-color': customBackgroundColor },
     {
       forComponent: CustomButtonText,
-    },
+    }
   )
 
   if (!children) {

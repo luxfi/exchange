@@ -11,8 +11,8 @@ import { navigate } from 'src/app/navigation/state'
 import { Flex, Square, Text } from 'ui/src'
 import { PapersText, Passkey, QrCode, WalletFilled } from 'ui/src/components/icons'
 import { iconSizes } from 'ui/src/theme'
-import Trace from 'uniswap/src/features/telemetry/Trace'
-import { ExtensionOnboardingFlow, ExtensionOnboardingScreens } from 'uniswap/src/types/screens/extension'
+import Trace from 'lx/src/features/telemetry/Trace'
+import { ExtensionOnboardingFlow, ExtensionOnboardingScreens } from 'lx/src/types/screens/extension'
 
 export function SelectImportMethod(): JSX.Element {
   const { t } = useTranslation()

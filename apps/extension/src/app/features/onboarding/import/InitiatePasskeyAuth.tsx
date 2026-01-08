@@ -1,4 +1,4 @@
-import { Action, AuthenticationTypes } from '@uniswap/client-embeddedwallet/dist/uniswap/embeddedwallet/v1/service_pb'
+import { Action, AuthenticationTypes } from '@luxdex/client-embeddedwallet/dist/uniswap/embeddedwallet/v1/service_pb'
 import { useEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Navigate, useLocation } from 'react-router'
@@ -14,18 +14,18 @@ import { bringWindowToFront, closeWindow, openPopupWindow } from 'src/app/naviga
 import { Button, Flex, IconButton, SpinningLoader, Text } from 'ui/src'
 import { X } from 'ui/src/components/icons'
 import { UniswapLogo } from 'ui/src/components/icons/UniswapLogo'
-import { EmbeddedWalletApiClient } from 'uniswap/src/data/rest/embeddedWallet/requests'
-import { parseMessage } from 'uniswap/src/extension/messagePassing/platform'
+import { EmbeddedWalletApiClient } from 'lx/src/data/rest/embeddedWallet/requests'
+import { parseMessage } from 'lx/src/extension/messagePassing/platform'
 import {
   ExtensionToInterfaceRequestType,
   PasskeyCredentialRetrievedSchema,
   PasskeyRequest,
   PasskeySignInFlowOpenedSchema,
-} from 'uniswap/src/extension/messagePassing/types/requests'
-import { EXTENSION_PASSKEY_AUTH_PATH } from 'uniswap/src/features/passkey/constants'
-import { useEmbeddedWalletBaseUrl } from 'uniswap/src/features/passkey/hooks/useEmbeddedWalletBaseUrl'
-import Trace from 'uniswap/src/features/telemetry/Trace'
-import { ExtensionOnboardingFlow, ExtensionOnboardingScreens } from 'uniswap/src/types/screens/extension'
+} from 'lx/src/extension/messagePassing/types/requests'
+import { EXTENSION_PASSKEY_AUTH_PATH } from 'lx/src/features/passkey/constants'
+import { useEmbeddedWalletBaseUrl } from 'lx/src/features/passkey/hooks/useEmbeddedWalletBaseUrl'
+import Trace from 'lx/src/features/telemetry/Trace'
+import { ExtensionOnboardingFlow, ExtensionOnboardingScreens } from 'lx/src/types/screens/extension'
 import { logger } from 'utilities/src/logger/logger'
 import { useEvent } from 'utilities/src/react/hooks'
 import { useInterval } from 'utilities/src/time/timing'

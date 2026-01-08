@@ -1,9 +1,9 @@
 import { ParsedQs } from 'qs'
 import { useParams } from 'react-router'
 // biome-ignore lint/style/noRestrictedImports: Need direct chain info access for network parameters
-import { getChainInfo, UNIVERSE_CHAIN_INFO } from 'uniswap/src/features/chains/chainInfo'
-import { GqlChainId, UniverseChainId } from 'uniswap/src/features/chains/types'
-import { CurrencyField } from 'uniswap/src/types/currency'
+import { getChainInfo, UNIVERSE_CHAIN_INFO } from 'lx/src/features/chains/chainInfo'
+import { GqlChainId, UniverseChainId } from 'lx/src/features/chains/types'
+import { CurrencyField } from 'lx/src/types/currency'
 
 // i.e. ?chain=mainnet -> ethereum
 export function searchParamToBackendName(interfaceName: string | null): string | undefined {

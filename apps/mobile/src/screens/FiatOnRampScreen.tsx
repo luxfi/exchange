@@ -17,49 +17,49 @@ import { FiatOnRampTokenSelectorModal } from 'src/features/fiatOnRamp/FiatOnRamp
 import { OffRampPopover } from 'src/features/fiatOnRamp/OffRampPopover'
 import { Flex, useIsDarkMode, useIsShortMobileDevice } from 'ui/src'
 import { AnimatedFlex } from 'ui/src/components/layout/AnimatedFlex'
-import { useBottomSheetContext } from 'uniswap/src/components/modals/BottomSheetContext'
-import { HandleBar } from 'uniswap/src/components/modals/HandleBar'
-import { PillMultiToggle } from 'uniswap/src/components/pill/PillMultiToggle'
-import { MAX_FIAT_INPUT_DECIMALS } from 'uniswap/src/constants/transactions'
-import { usePortfolioBalances } from 'uniswap/src/features/dataApi/balances/balances'
-import { useFiatOnRampAggregatorGetCountryQuery } from 'uniswap/src/features/fiatOnRamp/api'
-import { FiatOnRampCountryPicker } from 'uniswap/src/features/fiatOnRamp/FiatOnRampCountryPicker'
+import { useBottomSheetContext } from 'lx/src/components/modals/BottomSheetContext'
+import { HandleBar } from 'lx/src/components/modals/HandleBar'
+import { PillMultiToggle } from 'lx/src/components/pill/PillMultiToggle'
+import { MAX_FIAT_INPUT_DECIMALS } from 'lx/src/constants/transactions'
+import { usePortfolioBalances } from 'lx/src/features/dataApi/balances/balances'
+import { useFiatOnRampAggregatorGetCountryQuery } from 'lx/src/features/fiatOnRamp/api'
+import { FiatOnRampCountryPicker } from 'lx/src/features/fiatOnRamp/FiatOnRampCountryPicker'
 import {
   useFiatOnRampQuotes,
   useFiatOnRampSupportedTokens,
   useIsFORLoading,
   useMeldFiatCurrencySupportInfo,
   useParseFiatOnRampError,
-} from 'uniswap/src/features/fiatOnRamp/hooks'
-import { TokenSelectorBalanceDisplay } from 'uniswap/src/features/fiatOnRamp/TokenSelectorBalanceDisplay'
+} from 'lx/src/features/fiatOnRamp/hooks'
+import { TokenSelectorBalanceDisplay } from 'lx/src/features/fiatOnRamp/TokenSelectorBalanceDisplay'
 import {
   FiatOnRampCurrency,
   FORCurrencyOrBalance,
   FORServiceProvider,
   RampDirection,
   RampToggle,
-} from 'uniswap/src/features/fiatOnRamp/types'
-import UnsupportedTokenModal from 'uniswap/src/features/fiatOnRamp/UnsupportedTokenModal'
+} from 'lx/src/features/fiatOnRamp/types'
+import UnsupportedTokenModal from 'lx/src/features/fiatOnRamp/UnsupportedTokenModal'
 import {
   getServiceProviderLogo,
   isSupportedFORCurrency,
   organizeQuotesIntoSections,
-} from 'uniswap/src/features/fiatOnRamp/utils'
-import { pushNotification } from 'uniswap/src/features/notifications/slice/slice'
-import { AppNotificationType } from 'uniswap/src/features/notifications/slice/types'
-import { FiatOffRampEventName, FiatOnRampEventName } from 'uniswap/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
-import { FORAmountEnteredProperties } from 'uniswap/src/features/telemetry/types'
+} from 'lx/src/features/fiatOnRamp/utils'
+import { pushNotification } from 'lx/src/features/notifications/slice/slice'
+import { AppNotificationType } from 'lx/src/features/notifications/slice/types'
+import { FiatOffRampEventName, FiatOnRampEventName } from 'lx/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
+import { FORAmountEnteredProperties } from 'lx/src/features/telemetry/types'
 import {
   DecimalPadCalculatedSpaceId,
   DecimalPadCalculateSpace,
   DecimalPadInput,
   DecimalPadInputRef,
-} from 'uniswap/src/features/transactions/components/DecimalPadInput/DecimalPadInput'
-import { useUSDTokenUpdater } from 'uniswap/src/features/transactions/hooks/useUSDTokenUpdater'
-import { CurrencyField } from 'uniswap/src/types/currency'
-import { FiatOnRampScreens } from 'uniswap/src/types/screens/mobile'
-import { currencyIdToAddress } from 'uniswap/src/utils/currencyId'
+} from 'lx/src/features/transactions/components/DecimalPadInput/DecimalPadInput'
+import { useUSDTokenUpdater } from 'lx/src/features/transactions/hooks/useUSDTokenUpdater'
+import { CurrencyField } from 'lx/src/types/currency'
+import { FiatOnRampScreens } from 'lx/src/types/screens/mobile'
+import { currencyIdToAddress } from 'lx/src/utils/currencyId'
 import { truncateToMaxDecimals } from 'utilities/src/format/truncateToMaxDecimals'
 import { isIOS, isWebPlatform } from 'utilities/src/platform'
 import { usePrevious } from 'utilities/src/react/hooks'

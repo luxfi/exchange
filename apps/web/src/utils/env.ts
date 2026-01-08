@@ -1,18 +1,18 @@
 import { isBetaEnv, isProdEnv } from 'utilities/src/environment/env'
 
-function isAppUniswapOrg({ hostname }: { hostname: string }): boolean {
-  return hostname === 'app.uniswap.org'
+function isAppLuxExchange({ hostname }: { hostname: string }): boolean {
+  return hostname === 'lux.exchange' || hostname === 'app.lux.exchange'
 }
 
-function isAppUniswapStagingOrg({ hostname }: { hostname: string }): boolean {
-  return hostname === 'app.corn-staging.com'
+function isAppLuxStaging({ hostname }: { hostname: string }): boolean {
+  return hostname === 'staging.lux.exchange'
 }
 
 export function isBrowserRouterEnabled(): boolean {
   if (isProdEnv()) {
     if (
-      isAppUniswapOrg(window.location) ||
-      isAppUniswapStagingOrg(window.location) ||
+      isAppLuxExchange(window.location) ||
+      isAppLuxStaging(window.location) ||
       isLocalhost(window.location) // playwright tests
     ) {
       return true
@@ -28,10 +28,10 @@ function isLocalhost({ hostname }: { hostname: string }): boolean {
 
 export function isRemoteReportingEnabled(): boolean {
   // Disable in e2e test environments
-  if (isBetaEnv() && !isAppUniswapStagingOrg(window.location)) {
+  if (isBetaEnv() && !isAppLuxStaging(window.location)) {
     return false
   }
-  if (isProdEnv() && !isAppUniswapOrg(window.location)) {
+  if (isProdEnv() && !isAppLuxExchange(window.location)) {
     return false
   }
   return process.env.REACT_APP_ANALYTICS_ENABLED === 'true'

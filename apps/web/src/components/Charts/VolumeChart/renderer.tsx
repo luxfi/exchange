@@ -3,7 +3,7 @@
  * Modifications are called out with comments.
  */
 
-import { GraphQLApi } from '@universe/api'
+import { GraphQLApi } from '@luxfi/api'
 import { roundRect } from 'components/Charts/utils'
 import {
   ColumnPosition,

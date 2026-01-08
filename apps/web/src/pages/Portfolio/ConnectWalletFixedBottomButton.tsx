@@ -4,8 +4,8 @@ import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Button, Flex, styled, Text, useIsDarkMode, useSporeColors } from 'ui/src'
 import { opacify, zIndexes } from 'ui/src/theme'
-import { ElementName, InterfaceEventName } from 'uniswap/src/features/telemetry/constants'
-import Trace from 'uniswap/src/features/telemetry/Trace'
+import { ElementName, InterfaceEventName } from 'lx/src/features/telemetry/constants'
+import Trace from 'lx/src/features/telemetry/Trace'
 
 function useBackgroundGradient() {
   const colors = useSporeColors()

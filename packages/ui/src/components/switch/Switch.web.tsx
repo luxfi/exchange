@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { type OpaqueColorValue } from 'react-native'
+import type { OpaqueColorValue } from 'react-native'
 import type { ColorTokens, GetThemeValueForKey } from 'tamagui'
 import { Switch as TamaguiSwitch } from 'tamagui'
 import { Check } from 'ui/src/components/icons'
@@ -59,8 +59,10 @@ export function Switch({
       return '$surface3'
     }
     if (isBranded) {
+      // Use accent colors for better contrast in both light and dark modes
       return checked ? '$accent1' : '$neutral3'
     }
+    // Use neutral3 for unchecked state - provides contrast in both light and dark modes
     return checked ? '$accent3' : '$neutral3'
   })()
 
@@ -160,45 +162,43 @@ export function Switch({
         />
       </TamaguiSwitch.Thumb>
 
-      <>
-        {/* focus ring outer */}
-        <Flex
-          $group-item-focusVisible={{
-            borderColor: checked
-              ? isBranded
-                ? '$accent1Hovered'
-                : '$neutral3Hovered'
-              : isBranded
-                ? '$neutral3Hovered'
-                : '$neutral3Hovered',
-          }}
-          borderColor="transparent"
-          borderRadius="$roundedFull"
-          borderWidth="$spacing1"
-          bottom={OUTER_RING_DISTANCE}
-          left={OUTER_RING_DISTANCE}
-          position="absolute"
-          right={OUTER_RING_DISTANCE}
-          top={OUTER_RING_DISTANCE}
-          zIndex={-2}
-        />
+      {/* focus ring outer */}
+      <Flex
+        $group-item-focusVisible={{
+          borderColor: checked
+            ? isBranded
+              ? '$accent1Hovered'
+              : '$neutral3Hovered'
+            : isBranded
+              ? '$neutral3Hovered'
+              : '$neutral3Hovered',
+        }}
+        borderColor="transparent"
+        borderRadius="$roundedFull"
+        borderWidth="$spacing1"
+        bottom={OUTER_RING_DISTANCE}
+        left={OUTER_RING_DISTANCE}
+        position="absolute"
+        right={OUTER_RING_DISTANCE}
+        top={OUTER_RING_DISTANCE}
+        zIndex={-2}
+      />
 
-        {/* focus ring inner */}
-        <Flex
-          $group-item-focusVisible={{
-            borderColor: isBranded ? '$surface1' : '$surface1',
-          }}
-          borderColor="transparent"
-          borderRadius="$roundedFull"
-          borderWidth="$spacing2"
-          bottom={INNER_RING_DISTANCE}
-          left={INNER_RING_DISTANCE}
-          position="absolute"
-          right={INNER_RING_DISTANCE}
-          top={INNER_RING_DISTANCE}
-          zIndex={-1}
-        />
-      </>
+      {/* focus ring inner */}
+      <Flex
+        $group-item-focusVisible={{
+          borderColor: isBranded ? '$surface1' : '$surface1',
+        }}
+        borderColor="transparent"
+        borderRadius="$roundedFull"
+        borderWidth="$spacing2"
+        bottom={INNER_RING_DISTANCE}
+        left={INNER_RING_DISTANCE}
+        position="absolute"
+        right={INNER_RING_DISTANCE}
+        top={INNER_RING_DISTANCE}
+        zIndex={-1}
+      />
     </TamaguiSwitch>
   )
 }

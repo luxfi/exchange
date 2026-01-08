@@ -4,7 +4,7 @@ import { getColumnSizingStyles } from 'components/Table/utils'
 import { useActivityTableColumns } from 'pages/Portfolio/Activity/ActivityTable/ActivityTable'
 import { PORTFOLIO_TABLE_ROW_HEIGHT } from 'pages/Portfolio/constants'
 import { memo } from 'react'
-import { TransactionDetails } from 'uniswap/src/features/transactions/types/transactionDetails'
+import { TransactionDetails } from 'lx/src/features/transactions/types/transactionDetails'
 
 function _PaginationSkeletonRow(): JSX.Element {
   // Memoize columns - they only depend on loading state which is always true here

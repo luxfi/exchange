@@ -1,12 +1,12 @@
-import { TradeType } from '@uniswap/sdk-core'
-import { TradingApi } from '@universe/api'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { TradeType } from '@luxamm/sdk-core'
+import { TradingApi } from '@luxfi/api'
+import { UniverseChainId } from 'lx/src/features/chains/types'
 import {
   TransactionOriginType,
   TransactionStatus,
   TransactionType,
   UniswapXOrderDetails,
-} from 'uniswap/src/features/transactions/types/transactionDetails'
+} from 'lx/src/features/transactions/types/transactionDetails'
 
 /**
  * Creates a mock UniswapXOrderDetails object for testing

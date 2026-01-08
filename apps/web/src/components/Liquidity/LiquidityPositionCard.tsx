@@ -1,6 +1,6 @@
 /* eslint-disable max-lines */
-import { PositionStatus, ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
-import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import { PositionStatus, ProtocolVersion } from '@luxdex/client-data-api/dist/data/v1/poolTypes_pb'
+import { FeatureFlags, useFeatureFlag } from '@luxfi/gating'
 import {
   CHART_HEIGHT,
   CHART_WIDTH,
@@ -41,17 +41,17 @@ import { MoreHorizontal } from 'ui/src/components/icons/MoreHorizontal'
 import { Plus } from 'ui/src/components/icons/Plus'
 import { RightArrow } from 'ui/src/components/icons/RightArrow'
 import { zIndexes } from 'ui/src/theme/zIndexes'
-import { MenuContent } from 'uniswap/src/components/menus/ContextMenuContent'
-import { MenuOptionItem } from 'uniswap/src/components/menus/ContextMenuV2'
-import { PollingInterval } from 'uniswap/src/constants/misc'
-import { getChainInfo } from 'uniswap/src/features/chains/chainInfo'
-import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
-import { ModalName } from 'uniswap/src/features/telemetry/constants'
-import { useCurrencyInfo } from 'uniswap/src/features/tokens/useCurrencyInfo'
-import { useUSDCValue } from 'uniswap/src/features/transactions/hooks/useUSDCPrice'
-import { setPositionVisibility } from 'uniswap/src/features/visibility/slice'
-import { buildCurrencyId, currencyAddress } from 'uniswap/src/utils/currencyId'
-import { getPoolDetailsURL } from 'uniswap/src/utils/linking'
+import { MenuContent } from 'lx/src/components/menus/ContextMenuContent'
+import { MenuOptionItem } from 'lx/src/components/menus/ContextMenuV2'
+import { PollingInterval } from 'lx/src/constants/misc'
+import { getChainInfo } from 'lx/src/features/chains/chainInfo'
+import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
+import { ModalName } from 'lx/src/features/telemetry/constants'
+import { useCurrencyInfo } from 'lx/src/features/tokens/useCurrencyInfo'
+import { useUSDCValue } from 'lx/src/features/transactions/hooks/useUSDCPrice'
+import { setPositionVisibility } from 'lx/src/features/visibility/slice'
+import { buildCurrencyId, currencyAddress } from 'lx/src/utils/currencyId'
+import { getPoolDetailsURL } from 'lx/src/utils/linking'
 import { NumberType } from 'utilities/src/format/types'
 import { isV4UnsupportedChain } from 'utils/networkSupportsV4'
 
@@ -344,7 +344,8 @@ export function LiquidityPositionCard({
           positionInfo={liquidityPosition}
           formattedUsdValue={formattedUsdValue}
           formattedUsdFees={formattedFeesValue}
-          priceOrdering={priceOrdering}
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          priceOrdering={priceOrdering as any}
           tickSpacing={liquidityPosition.tickSpacing}
           tickLower={liquidityPosition.tickLower}
           tickUpper={liquidityPosition.tickUpper}
@@ -389,11 +390,13 @@ export function LiquidityPositionCard({
               priceInverted={priceInverted}
               positionStatus={liquidityPosition.status}
               poolAddressOrId={liquidityPosition.poolId}
-              priceOrdering={priceOrderingForChart}
+              // eslint-disable-next-line @typescript-eslint/no-explicit-any
+              priceOrdering={priceOrderingForChart as any}
             />
             <Flex $md={{ display: 'block' }} display="none" width="100%">
               <MinMaxRange
-                priceOrdering={priceOrdering}
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                priceOrdering={priceOrdering as any}
                 tickLower={liquidityPosition.tickLower}
                 tickUpper={liquidityPosition.tickUpper}
                 tickSpacing={liquidityPosition.tickSpacing}
@@ -407,7 +410,8 @@ export function LiquidityPositionCard({
             formattedUsdFees={formattedFeesValue}
             formattedLpIncentiveEarnings={totalFormattedEarnings}
             hasRewards={hasRewards}
-            priceOrdering={priceOrdering}
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            priceOrdering={priceOrdering as any}
             tickSpacing={liquidityPosition.tickSpacing}
             tickLower={liquidityPosition.tickLower}
             tickUpper={liquidityPosition.tickUpper}

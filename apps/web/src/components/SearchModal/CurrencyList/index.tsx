@@ -1,4 +1,4 @@
-import { Currency, CurrencyAmount } from '@uniswap/sdk-core'
+import { Currency, CurrencyAmount } from '@luxamm/sdk-core'
 import CurrencyLogo from 'components/Logo/CurrencyLogo'
 import { MenuItem } from 'components/SearchModal/styled'
 import { MouseoverTooltip, TooltipSize } from 'components/Tooltip'
@@ -7,13 +7,13 @@ import { CSSProperties } from 'react'
 import { TokenFromList } from 'state/lists/tokenFromList'
 import { ThemedText } from 'theme/components'
 import { Flex, styled, Text, TextStyle } from 'ui/src'
-import { WarningSeverity } from 'uniswap/src/components/modals/WarningModal/types'
-import WarningIcon from 'uniswap/src/components/warnings/WarningIcon'
-import { CurrencyInfo } from 'uniswap/src/features/dataApi/types'
-import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
-import { ElementName, UniswapEventName } from 'uniswap/src/features/telemetry/constants'
-import Trace from 'uniswap/src/features/telemetry/Trace'
-import { getTokenWarningSeverity } from 'uniswap/src/features/tokens/warnings/safetyUtils'
+import { WarningSeverity } from 'lx/src/components/modals/WarningModal/types'
+import WarningIcon from 'lx/src/components/warnings/WarningIcon'
+import { CurrencyInfo } from 'lx/src/features/dataApi/types'
+import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
+import { ElementName, UniswapEventName } from 'lx/src/features/telemetry/constants'
+import Trace from 'lx/src/features/telemetry/Trace'
+import { getTokenWarningSeverity } from 'lx/src/features/tokens/warnings/safetyUtils'
 import { shortenAddress } from 'utilities/src/addresses'
 import { NumberType } from 'utilities/src/format/types'
 import { currencyKey } from 'utils/currencyKey'
@@ -39,7 +39,7 @@ const CurrencyName = styled(Text, TextOverflowStyle)
 const Tag = styled(Text, {
   backgroundColor: '$surface2',
   color: '$neutral2',
-  fontSize: '14px',
+  fontSize: 14,
   borderRadius: '$rounded4',
   p: '$spacing4',
   maxWidth: '100px',

@@ -6,9 +6,9 @@ import {
 } from 'state/walletCapabilities/lib/handleGetCapabilities'
 import type { GetCapabilitiesResult } from 'state/walletCapabilities/lib/types'
 import { GetCapabilitiesStatus, WalletCapabilitiesState } from 'state/walletCapabilities/types'
-import { InterfaceEventName } from 'uniswap/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
-import { InterfaceUserPropertyName, setUserProperty } from 'uniswap/src/features/telemetry/user'
+import { InterfaceEventName } from 'lx/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
+import { InterfaceUserPropertyName, setUserProperty } from 'lx/src/features/telemetry/user'
 import { hexToNumber } from 'utilities/src/addresses/hex'
 
 const initialState: WalletCapabilitiesState = {

@@ -1,114 +1,32 @@
-import { createAnimations } from '@tamagui/animations-moti'
-import { Easing } from 'react-native-reanimated'
-import { delayAnimations200ms } from 'ui/src/theme/animations/delay200ms'
+import { createAnimations } from '@tamagui/animations-css'
 
 export const animations = createAnimations({
-  '100ms': {
-    type: 'timing',
-    duration: 100,
-  },
-  '125ms': {
-    type: 'timing',
-    duration: 125,
-    easing: Easing.inOut(Easing.quad),
-  },
-  '125msDelayed': {
-    type: 'timing',
-    duration: 125,
-    easing: Easing.inOut(Easing.quad),
-    delay: 250,
-  },
-  '125msDelayedLong': {
-    type: 'timing',
-    duration: 125,
-    easing: Easing.inOut(Easing.quad),
-    delay: 2000,
-  },
-  '200ms': {
-    type: 'timing',
-    duration: 200,
-  },
-  ...delayAnimations200ms,
-  '300ms': {
-    type: 'timing',
-    duration: 300,
-  },
-  '80ms-ease-in-out': {
-    type: 'timing',
-    duration: 80,
-    easing: Easing.inOut(Easing.quad),
-  },
-  stiff: {
-    type: 'spring',
-    mass: 1,
-    damping: 200,
-    stiffness: 400,
-  },
-  bouncy: {
-    type: 'spring',
-    damping: 10,
-    mass: 0.9,
-    stiffness: 100,
-  },
-  semiBouncy: {
-    type: 'spring',
-    damping: 12,
-    mass: 0.7,
-    stiffness: 100,
-  },
-  lazy: {
-    type: 'spring',
-    damping: 20,
-    stiffness: 60,
-  },
-  quick: {
-    type: 'spring',
-    damping: 20,
-    mass: 1.2,
-    stiffness: 250,
-  },
-  quicker: {
-    type: 'spring',
-    damping: 18,
-    mass: 0.9,
-    stiffness: 390,
-  },
-  // TODO(TAM-49): the animation config prop inline isn't passing delay, need to
-  // fix on tamagui side then we can remove this and just use quicker + add
-  // delay inline
-  quickishDelayed: {
-    type: 'spring',
-    damping: 18,
-    mass: 0.9,
-    stiffness: 200,
-    delay: 70,
-  },
-  fast: {
-    type: 'spring',
-    damping: 75,
-    stiffness: 1000,
-    mass: 1,
-  },
-  fastHeavy: {
-    type: 'spring',
-    damping: 75,
-    stiffness: 1000,
-    mass: 1.4,
-  },
-  fastExit: {
-    type: 'spring',
-    damping: 200,
-    stiffness: 1250,
-    mass: 1,
-  },
-  fastExitHeavy: {
-    type: 'spring',
-    damping: 200,
-    stiffness: 1250,
-    mass: 1.4,
-  },
-  simple: {
-    type: 'timing',
-    duration: 80,
-  },
+  '100ms': 'ease-in-out 100ms',
+  '125ms': 'ease-in-out 125ms',
+  '125msDelayed': 'ease-in-out 125ms 250ms',
+  '125msDelayedLong': 'ease-in-out 125ms 2000ms',
+  '200ms': 'ease-in-out 200ms',
+  '200msDelay-0': 'ease-in-out 200ms 0ms',
+  '200msDelay-50': 'ease-in-out 200ms 50ms',
+  '200msDelay-100': 'ease-in-out 200ms 100ms',
+  '200msDelay-150': 'ease-in-out 200ms 150ms',
+  '200msDelay-200': 'ease-in-out 200ms 200ms',
+  '200msDelay-250': 'ease-in-out 200ms 250ms',
+  '200msDelay-300': 'ease-in-out 200ms 300ms',
+  '200msDelay-350': 'ease-in-out 200ms 350ms',
+  '200msDelay-400': 'ease-in-out 200ms 400ms',
+  '300ms': 'ease-in-out 300ms',
+  '80ms-ease-in-out': 'ease-in-out 80ms',
+  stiff: 'ease-out 150ms',
+  bouncy: 'cubic-bezier(0.175, 0.885, 0.32, 1.275) 400ms',
+  semiBouncy: 'cubic-bezier(0.175, 0.885, 0.32, 1.175) 350ms',
+  lazy: 'ease-in-out 500ms',
+  quick: 'ease-out 200ms',
+  quicker: 'ease-out 150ms',
+  quickishDelayed: 'ease-out 200ms 70ms',
+  fast: 'ease-out 100ms',
+  fastHeavy: 'ease-out 120ms',
+  fastExit: 'ease-out 80ms',
+  fastExitHeavy: 'ease-out 100ms',
+  simple: 'ease-in-out 80ms',
 })

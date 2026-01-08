@@ -12,10 +12,10 @@ import { Trans, useTranslation } from 'react-i18next'
 import { ThemedText } from 'theme/components'
 import ThemeToggle from 'theme/components/ThemeToggle'
 import { Flex, Text } from 'ui/src'
-import { CONNECTION_PROVIDER_IDS } from 'uniswap/src/constants/web3'
-import { useAppFiatCurrency } from 'uniswap/src/features/fiatCurrency/hooks'
-import { useCurrentLanguage, useLanguageInfo } from 'uniswap/src/features/language/hooks'
-import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+import { CONNECTION_PROVIDER_IDS } from 'lx/src/constants/web3'
+import { useAppFiatCurrency } from 'lx/src/features/fiatCurrency/hooks'
+import { useCurrentLanguage, useLanguageInfo } from 'lx/src/features/language/hooks'
+import { TestID } from 'lx/src/test/fixtures/testIDs'
 
 const Container = deprecatedStyled(Column)`
   height: 100%;

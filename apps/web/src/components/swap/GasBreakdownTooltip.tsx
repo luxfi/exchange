@@ -1,4 +1,4 @@
-import { Currency } from '@uniswap/sdk-core'
+import { Currency } from '@luxamm/sdk-core'
 import { AutoColumn } from 'components/deprecated/Column'
 import Row from 'components/deprecated/Row'
 import UniswapXRouterLabel, { UniswapXGradient } from 'components/RouterLabel/UniswapXRouterLabel'
@@ -10,12 +10,12 @@ import { isPreviewTrade, isUniswapXTrade } from 'state/routing/utils'
 import { ThemedText } from 'theme/components'
 import { Divider } from 'theme/components/Dividers'
 import { ExternalLink } from 'theme/components/Links'
-import { nativeOnChain } from 'uniswap/src/constants/tokens'
-import { uniswapUrls } from 'uniswap/src/constants/urls'
-import { useEnabledChains } from 'uniswap/src/features/chains/hooks/useEnabledChains'
-import { useSupportedChainId } from 'uniswap/src/features/chains/hooks/useSupportedChainId'
-import { getChainLabel } from 'uniswap/src/features/chains/utils'
-import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
+import { nativeOnChain } from 'lx/src/constants/tokens'
+import { uniswapUrls } from 'lx/src/constants/urls'
+import { useEnabledChains } from 'lx/src/features/chains/hooks/useEnabledChains'
+import { useSupportedChainId } from 'lx/src/features/chains/hooks/useSupportedChainId'
+import { getChainLabel } from 'lx/src/features/chains/utils'
+import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
 import { NumberType } from 'utilities/src/format/types'
 
 const Container = deprecatedStyled(AutoColumn)`
@@ -95,7 +95,7 @@ function NetworkCostDescription({ native }: { native: Currency }) {
   return (
     <ThemedText.LabelMicro>
       <Trans i18nKey="swap.networkCost.paidIn" values={{ sym: native.symbol, chainName }} />{' '}
-      <ExternalLink href="https://support.uniswap.org/hc/en-us/articles/8370337377805-What-is-a-network-fee-">
+      <ExternalLink href="https://docs.lux.exchange/help/network-fees">
         <Trans i18nKey="common.button.learn" />
       </ExternalLink>
     </ThemedText.LabelMicro>

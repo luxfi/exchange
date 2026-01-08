@@ -1,5 +1,5 @@
 import { forwardRef } from 'react'
-import { IconProps } from 'ui/src/components/factories/createIcon'
+import type { IconProps } from 'ui/src/components/factories/createIcon'
 import { RotateRight } from 'ui/src/components/icons/RotateRight'
 import { Flex } from 'ui/src/components/layout'
 
@@ -33,7 +33,7 @@ const rotateCSS = `
  */
 export const RefreshIcon = forwardRef<HTMLDivElement, IconProps & { isAnimating?: boolean }>(function RefreshIcon(
   { isAnimating = false, ...iconProps },
-  ref,
+  ref
 ) {
   return (
     <>

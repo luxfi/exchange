@@ -2,9 +2,9 @@ import {
   createSignedRequestBody,
   createSignedRequestParams,
   SignedRequestParams,
-} from '@universe/api/src/clients/base/auth'
-import { FetchClient } from '@universe/api/src/clients/base/types'
-import { createFetcher } from '@universe/api/src/clients/base/utils'
+} from '@luxfi/api/src/clients/base/auth'
+import { FetchClient } from '@luxfi/api/src/clients/base/types'
+import { createFetcher } from '@luxfi/api/src/clients/base/utils'
 import {
   UnitagAddressesRequest,
   UnitagAddressesResponse,
@@ -21,7 +21,7 @@ import {
   UnitagUpdateMetadataResponse,
   UnitagUsernameRequest,
   UnitagUsernameResponse,
-} from '@universe/api/src/clients/unitags/types'
+} from '@luxfi/api/src/clients/unitags/types'
 
 const UNI_SIG_HEADER_KEY = 'x-uni-sig'
 

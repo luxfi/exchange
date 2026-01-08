@@ -1,5 +1,5 @@
-import { DynamicConfigs, getDynamicConfigValue, UwULinkAllowlist, UwuLinkConfigKey } from '@universe/gating'
-import { isUwULinkAllowlistType } from 'uniswap/src/features/gating/typeGuards'
+import { DynamicConfigs, getDynamicConfigValue, UwULinkAllowlist, UwuLinkConfigKey } from '@luxfi/gating'
+import { isUwULinkAllowlistType } from 'lx/src/features/gating/typeGuards'
 
 /**
  * Gets the UwuLink allowlist from dynamic config.

@@ -21,9 +21,9 @@ import { migration19 } from 'state/migrations/19'
 import { migration20 } from 'state/migrations/20'
 import { migration21 } from 'state/migrations/21'
 import { migration22 } from 'state/migrations/22'
-import { FiatCurrency } from 'uniswap/src/features/fiatCurrency/constants'
-import { Language } from 'uniswap/src/features/language/constants'
-import * as languageUtils from 'uniswap/src/features/language/utils'
+import { FiatCurrency } from 'lx/src/features/fiatCurrency/constants'
+import { Language } from 'lx/src/features/language/constants'
+import * as languageUtils from 'lx/src/features/language/utils'
 
 vi.mock('utilities/src/platform', () => ({
   isWebApp: true,
@@ -33,13 +33,13 @@ vi.mock('utilities/src/platform', () => ({
   isAndroid: false,
 }))
 
-vi.mock('uniswap/src/features/language/utils', () => ({
+vi.mock('lx/src/features/language/utils', () => ({
   getCurrentLanguageFromNavigator: vi.fn().mockReturnValue('en'),
 }))
 
 const mockGetCurrentLanguageFromNavigator = vi.mocked(languageUtils.getCurrentLanguageFromNavigator)
 
-vi.mock('uniswap/src/features/language/hooks', () => ({
+vi.mock('lx/src/features/language/hooks', () => ({
   navigatorLocale: vi.fn().mockReturnValue('en-US'),
 }))
 

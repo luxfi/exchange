@@ -1,7 +1,7 @@
 import { ONBOARDING_PANE_TRANSITION_DURATION_WITH_LEEWAY } from 'src/app/features/onboarding/OnboardingPaneAnimatedContents'
 import { useOnboardingSteps } from 'src/app/features/onboarding/OnboardingSteps'
 import { Password } from 'src/app/features/onboarding/Password'
-import { ExtensionOnboardingFlow } from 'uniswap/src/types/screens/extension'
+import { ExtensionOnboardingFlow } from 'lx/src/types/screens/extension'
 import { sleep } from 'utilities/src/time/timing'
 import { useOnboardingContext } from 'wallet/src/features/onboarding/OnboardingContext'
 

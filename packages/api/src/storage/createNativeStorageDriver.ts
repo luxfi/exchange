@@ -1,4 +1,4 @@
-import { StorageDriver } from '@universe/api/src/storage/types'
+import { StorageDriver } from '@luxfi/api/src/storage/types'
 import * as SecureStore from 'expo-secure-store'
 
 export function createNativeStorageDriver(): StorageDriver {

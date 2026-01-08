@@ -1,5 +1,5 @@
 {
-  "name": "@universe/cli",
+  "name": "@luxfi/cli",
   "version": "0.0.0",
   "type": "module",
   "dependencies": {
@@ -16,7 +16,7 @@
     "@types/bun": "1.3.1",
     "@types/node": "22.13.1",
     "@types/react": "19.0.10",
-    "@uniswap/eslint-config": "workspace:^",
+    "@luxfi/eslint-config": "workspace:^",
     "depcheck": "1.4.7",
     "eslint": "8.57.1",
     "ink-gradient": "3.0.0",

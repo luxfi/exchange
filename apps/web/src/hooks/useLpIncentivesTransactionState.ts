@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { usePendingTransactions } from 'state/transactions/hooks'
-import { TransactionType } from 'uniswap/src/features/transactions/types/transactionDetails'
+import { TransactionType } from 'lx/src/features/transactions/types/transactionDetails'
 
 export function useLpIncentivesTransactionState() {
   const [isPendingTransaction, setIsPendingTransaction] = useState(false)

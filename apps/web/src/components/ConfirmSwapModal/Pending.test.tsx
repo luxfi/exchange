@@ -1,8 +1,8 @@
 import 'test-utils/tokens/mocks'
 
 import { BigNumber } from '@ethersproject/bignumber'
-import { WETH9 } from '@uniswap/sdk-core'
-import { TradingApi } from '@universe/api'
+import { WETH9 } from '@luxamm/sdk-core'
+import { TradingApi } from '@luxfi/api'
 import { Pending } from 'components/ConfirmSwapModal/Pending'
 import { SwapResult, useSwapTransactionStatus } from 'hooks/useSwapCallback'
 import { TradeFillType } from 'state/routing/types'
@@ -10,15 +10,15 @@ import { useUniswapXOrderByOrderHash } from 'state/transactions/hooks'
 import { LIMIT_ORDER_TRADE, TEST_TRADE_EXACT_INPUT } from 'test-utils/constants'
 import { mocked } from 'test-utils/mocked'
 import { render, screen } from 'test-utils/render'
-import { DAI } from 'uniswap/src/constants/tokens'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { DAI } from 'lx/src/constants/tokens'
+import { UniverseChainId } from 'lx/src/features/chains/types'
 import {
   TransactionOriginType,
   TransactionStatus,
   TransactionType,
   UniswapXOrderDetails,
-} from 'uniswap/src/features/transactions/types/transactionDetails'
-import { currencyId } from 'uniswap/src/utils/currencyId'
+} from 'lx/src/features/transactions/types/transactionDetails'
+import { currencyId } from 'lx/src/utils/currencyId'
 
 vi.mock('state/transactions/hooks', async () => {
   const actual = await vi.importActual('state/transactions/hooks')

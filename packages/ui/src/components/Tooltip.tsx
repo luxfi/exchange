@@ -1,13 +1,13 @@
-import { Tooltip as TTooltip, Text, styled, Paragraph } from 'tamagui'
+import { Paragraph, styled, Tooltip as TTooltip } from 'tamagui'
 
 const TooltipContent = styled(TTooltip.Content, {
   name: 'TooltipContent',
-  backgroundColor: '$background',
-  borderRadius: '$2',
-  paddingHorizontal: '$3',
-  paddingVertical: '$2',
+  backgroundColor: '$surface1',
+  borderRadius: '$rounded8',
+  px: '$spacing12',
+  py: '$spacing8',
   borderWidth: 1,
-  borderColor: '$borderColor',
+  borderColor: '$surface3',
   enterStyle: { x: 0, y: -5, opacity: 0, scale: 0.9 },
   exitStyle: { x: 0, y: -5, opacity: 0, scale: 0.9 },
   animation: [
@@ -36,7 +36,7 @@ export function Tooltip({ content, children, delay = 300 }: TooltipProps) {
       <TTooltip.Trigger asChild>{children}</TTooltip.Trigger>
       <TooltipContent>
         <TooltipArrow />
-        <Paragraph size="$2">{content}</Paragraph>
+        <Paragraph fontSize={14}>{content}</Paragraph>
       </TooltipContent>
     </TTooltip>
   )

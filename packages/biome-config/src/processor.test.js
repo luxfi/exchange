@@ -78,7 +78,7 @@ describe('Biome Config Processor', () => {
             group: ['sessionStorage/*'],
             message: 'Please do not import from sessionStorage',
           },
-        ]),
+        ])
       )
 
       // Should not include marker
@@ -329,7 +329,7 @@ describe('Biome Config Processor', () => {
 
       // Original config should still have the marker
       expect(
-        originalConfig.overrides[0].linter.rules.style.noRestrictedImports.options.paths.__INCLUDE_GLOBAL_VALUES__,
+        originalConfig.overrides[0].linter.rules.style.noRestrictedImports.options.paths.__INCLUDE_GLOBAL_VALUES__
       ).toBe(true)
     })
   })

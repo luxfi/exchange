@@ -1,6 +1,6 @@
-import { StatsigClient, StatsigCustomAppValue, StatsigUser } from '@universe/gating'
-import { config } from 'uniswap/src/config'
-import { statsigBaseConfig } from 'uniswap/src/features/gating/statsigBaseConfig'
+import { StatsigClient, StatsigCustomAppValue, StatsigUser } from '@luxfi/gating'
+import { config } from 'lx/src/config'
+import { statsigBaseConfig } from 'lx/src/features/gating/statsigBaseConfig'
 import { getUniqueId } from 'utilities/src/device/uniqueId'
 import { logger } from 'utilities/src/logger/logger'
 

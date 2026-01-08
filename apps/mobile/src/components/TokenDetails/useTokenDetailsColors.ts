@@ -2,7 +2,7 @@ import { useExtractedTokenColor, useIsDarkMode, useSporeColors } from 'ui/src'
 import {
   useTokenBasicInfoPartsFragment,
   useTokenBasicProjectPartsFragment,
-} from 'uniswap/src/data/graphql/uniswap-data-api/fragments'
+} from 'lx/src/data/graphql/uniswap-data-api/fragments'
 
 export function useTokenDetailsColors({ currencyId }: { currencyId: string }): {
   tokenColor: Nullable<string>

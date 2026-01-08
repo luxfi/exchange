@@ -1,4 +1,4 @@
-import type { Config } from '@universe/config/src/config-types'
+import type { Config } from '@luxfi/config/src/config-types'
 import { isNonTestDev } from 'utilities/src/environment/constants'
 
 // Module-level cache for config to avoid recomputing on every call
@@ -34,6 +34,13 @@ export const getConfig = (): Config => {
     isE2ETest: process.env.IS_E2E_TEST?.toLowerCase() === 'true',
     forApiUrlOverride: process.env.FOR_API_URL_OVERRIDE || '',
     graphqlUrlOverride: process.env.GRAPHQL_URL_OVERRIDE || '',
+    // G-Chain GraphQL: testnet=9650, mainnet=9630, devnet=9650
+    gChainGraphqlUrl:
+      process.env.REACT_APP_GCHAIN_GRAPHQL_URL ||
+      process.env.GCHAIN_GRAPHQL_URL ||
+      (process.env.NODE_ENV === 'production'
+        ? 'http://localhost:9630/ext/bc/G/graphql'
+        : 'http://localhost:9650/ext/bc/G/graphql'),
     infuraKey: process.env.REACT_APP_INFURA_KEY || '',
     includePrototypeFeatures: process.env.INCLUDE_PROTOTYPE_FEATURES || '',
     isVercelEnvironment: process.env.VERCEL === '1',
@@ -54,6 +61,7 @@ export const getConfig = (): Config => {
     unitagsApiUrlOverride: process.env.UNITAGS_API_URL_OVERRIDE || '',
     uniswapNotifApiBaseUrlOverride: process.env.UNISWAP_NOTIF_API_BASE_URL_OVERRIDE || '',
     entryGatewayApiUrlOverride: process.env.ENTRY_GATEWAY_API_URL_OVERRIDE || '',
+    luxGatewayUrlOverride: process.env.REACT_APP_LUX_GATEWAY_URL || process.env.LUX_GATEWAY_URL || '',
     walletConnectProjectId:
       process.env.REACT_APP_WALLET_CONNECT_PROJECT_ID || process.env.WALLETCONNECT_PROJECT_ID || '',
     walletConnectProjectIdBeta: process.env.WALLETCONNECT_PROJECT_ID_BETA || '',

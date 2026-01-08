@@ -1,4 +1,4 @@
-import type { DynamicConfigKeys } from '@universe/gating'
+import type { DynamicConfigKeys } from '@luxfi/gating'
 import {
   DynamicConfigs,
   Experiments,
@@ -10,16 +10,16 @@ import {
   NetworkRequestsConfigKey,
   useDynamicConfigValue,
   useFeatureFlagWithExposureLoggingDisabled,
-} from '@universe/gating'
+} from '@luxfi/gating'
 import { useModalState } from 'hooks/useModalState'
 import { deprecatedStyled } from 'lib/styled-components'
 import { useExternallyConnectableExtensionId } from 'pages/ExtensionPasskeyAuthPopUp/useExternallyConnectableExtensionId'
 import type { ChangeEvent, PropsWithChildren } from 'react'
 import { memo } from 'react'
 import { Button, Flex, ModalCloseIcon, styled, Text } from 'ui/src'
-import { ExperimentRow, LayerRow } from 'uniswap/src/components/gating/Rows'
-import { Modal } from 'uniswap/src/components/modals/Modal'
-import { ModalName } from 'uniswap/src/features/telemetry/constants'
+import { ExperimentRow, LayerRow } from 'lx/src/components/gating/Rows'
+import { Modal } from 'lx/src/components/modals/Modal'
+import { ModalName } from 'lx/src/features/telemetry/constants'
 import { isPlaywrightEnv } from 'utilities/src/environment/env'
 import { TRUSTED_CHROME_EXTENSION_IDS } from 'utilities/src/environment/extensionId'
 import { useEvent } from 'utilities/src/react/hooks'

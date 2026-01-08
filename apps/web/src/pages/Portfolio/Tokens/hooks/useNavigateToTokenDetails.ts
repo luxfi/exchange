@@ -1,7 +1,7 @@
 import { getTokenDetailsURL } from 'appGraphql/data/util'
 import { TokenData } from 'pages/Portfolio/Tokens/hooks/useTransformTokenTableData'
 import { useNavigate } from 'react-router'
-import { toGraphQLChain } from 'uniswap/src/features/chains/utils'
+import { toGraphQLChain } from 'lx/src/features/chains/utils'
 import { useEvent } from 'utilities/src/react/hooks'
 
 export function useNavigateToTokenDetails(): (tokenData: TokenData) => void {

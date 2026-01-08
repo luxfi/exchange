@@ -8,13 +8,13 @@ export const getUniconsDeterministicHash = (address: string): bigint => {
     throw new Error('Invalid address')
   }
   const hash = keccak256(toUtf8Bytes(address))
-  const hashNumber = BigInt('0x' + hash.slice(2, 12))
+  const hashNumber = BigInt(`0x${hash.slice(2, 12)}`)
   return hashNumber
 }
 
 export const getUniconColors = (
   activeAddress: string,
-  isDark: boolean,
+  isDark: boolean
 ): {
   color: string
 } => {
@@ -22,7 +22,7 @@ export const getUniconColors = (
   const colorIndex = isDark ? 1 : 0
 
   let colorToUse
-  if (!isNaN(Number(hashValue.toString()))) {
+  if (!Number.isNaN(Number(hashValue.toString()))) {
     const colorArrayIndex = Number(hashValue.toString()) % Number(UNICON_COLORS.length)
     colorToUse = UNICON_COLORS[colorArrayIndex]?.[colorIndex]
   } else {

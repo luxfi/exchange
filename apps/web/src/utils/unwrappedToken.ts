@@ -1,5 +1,5 @@
-import { Currency } from '@uniswap/sdk-core'
-import { nativeOnChain, WRAPPED_NATIVE_CURRENCY } from 'uniswap/src/constants/tokens'
+import { Currency } from '@luxamm/sdk-core'
+import { nativeOnChain, WRAPPED_NATIVE_CURRENCY } from 'lx/src/constants/tokens'
 
 export function unwrappedToken(currency: Currency): Currency {
   if (currency.isNative) {

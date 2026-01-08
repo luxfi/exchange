@@ -1,9 +1,9 @@
 import type { WalletName as SolanaWalletName } from '@solana/wallet-adapter-base'
-import type { AccountsData } from 'uniswap/src/features/accounts/store/types/AccountsState'
-import type { Connector } from 'uniswap/src/features/accounts/store/types/Connector'
-import type { Session, SingleChainScope } from 'uniswap/src/features/accounts/store/types/Session'
-import type { SigningCapability, Wallet } from 'uniswap/src/features/accounts/store/types/Wallet'
-import { Platform } from 'uniswap/src/features/platforms/types/Platform'
+import type { AccountsData } from 'lx/src/features/accounts/store/types/AccountsState'
+import type { Connector } from 'lx/src/features/accounts/store/types/Connector'
+import type { Session, SingleChainScope } from 'lx/src/features/accounts/store/types/Session'
+import type { SigningCapability, Wallet } from 'lx/src/features/accounts/store/types/Wallet'
+import { Platform } from 'lx/src/features/platforms/types/Platform'
 
 export interface ExternalWallet extends Wallet<SigningCapability.Interactive> {
   name: string

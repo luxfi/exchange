@@ -69,7 +69,7 @@ export const getHitSlop = ({ width, height }: FrameSize): Insets | undefined => 
  * ```
  */
 export const useAutoHitSlop = (
-  onLayoutArg?: (e: LayoutChangeEvent) => void,
+  onLayoutArg?: (e: LayoutChangeEvent) => void
 ): [Insets | undefined, (e: LayoutChangeEvent) => void] => {
   const [frameSize, setFrameSize] = useState<FrameSize | undefined>(undefined)
 
@@ -89,7 +89,7 @@ export const useAutoHitSlop = (
         return prevFrameSize
       })
     },
-    [onLayoutArg],
+    [onLayoutArg]
   )
 
   const finalHitSlop = useMemo(() => {

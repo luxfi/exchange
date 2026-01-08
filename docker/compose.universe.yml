@@ -1,0 +1,51 @@
+# LX Exchange - Universe Backend Override
+# Use this when you have ~/work/lux/universe already running
+#
+# Usage:
+#   # First, start universe
+#   cd ~/work/lux/universe && docker compose up -d
+#
+#   # Then start exchange pointing to universe
+#   docker compose -f compose.universe.yml up -d
+#
+# This compose file:
+#   - Connects to the existing lux-network from universe
+#   - Uses universe's luxd nodes and LXD gateway
+#   - Only runs the exchange frontend
+
+networks:
+  lux-network:
+    external: true
+    name: lux-network
+
+services:
+  # =============================================================================
+  # EXCHANGE UI - Connects to Universe Backend
+  # =============================================================================
+  exchange:
+    build:
+      context: ..
+      dockerfile: apps/web/Dockerfile
+    image: ghcr.io/luxfi/exchange:latest
+    container_name: lux-exchange-ui
+    restart: unless-stopped
+    ports:
+      - "${EXCHANGE_PORT:-9000}:3000"
+    environment:
+      NODE_ENV: production
+      NEXT_PUBLIC_APP_URL: http://localhost:9000
+      
+      # Universe node endpoints (lux-node-1 is the bootstrap node)
+      NEXT_PUBLIC_LUX_MAINNET_RPC: http://lux-node-1:9630/ext/bc/C/rpc
+      NEXT_PUBLIC_ZOO_MAINNET_RPC: http://lux-node-1:9630/ext/bc/Zoo/rpc
+      
+      # Universe LXD gateway
+      NEXT_PUBLIC_LXD_GATEWAY_URL: http://lxd-gateway:8080
+      
+      # Chain configuration
+      NEXT_PUBLIC_DEFAULT_CHAIN_ID: 96369
+      NEXT_PUBLIC_ENABLE_TESTNETS: "true"
+    networks:
+      - lux-network
+    extra_hosts:
+      - "host.docker.internal:host-gateway"

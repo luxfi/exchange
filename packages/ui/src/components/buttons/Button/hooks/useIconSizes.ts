@@ -1,10 +1,10 @@
 import { useMemo } from 'react'
 import { getTokenValue } from 'tamagui'
-import { TypeOfButton } from 'ui/src/components/buttons/Button/components/types'
+import type { TypeOfButton } from 'ui/src/components/buttons/Button/components/types'
 import { lineHeights } from 'ui/src/components/buttons/Button/constants'
-import { ButtonProps } from 'ui/src/components/buttons/Button/types'
+import type { ButtonProps } from 'ui/src/components/buttons/Button/types'
 import { getLineHeightForButtonFontTokenKey } from 'ui/src/components/buttons/Button/utils/getLineHeightForButtonFontTokenKey'
-import { IconButtonProps } from 'ui/src/components/buttons/IconButton/IconButton'
+import type { IconButtonProps } from 'ui/src/components/buttons/IconButton/IconButton'
 
 type Size = NonNullable<ButtonProps['size'] | IconButtonProps['size']>
 
@@ -29,7 +29,7 @@ const getIconSizesForIconButton = (): Record<Size, number> => ({
 // We declare this because there could potentially be a race condition where `getConfig()` is called before the tamagui config is initialized
 // So, we create `getIconSizes` and wrap is with `useMemo` so it's used when the component actually needs it
 export const useIconSizes = (
-  typeOfButton: TypeOfButton,
+  typeOfButton: TypeOfButton
 ): ReturnType<typeof getIconSizesForButton | typeof getIconSizesForIconButton> =>
   useMemo(() => {
     if (typeOfButton === 'button') {

@@ -1,5 +1,5 @@
-import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
-import { CurrencyAmount } from '@uniswap/sdk-core'
+import { ProtocolVersion } from '@luxdex/client-data-api/dist/data/v1/poolTypes_pb'
+import { CurrencyAmount } from '@luxamm/sdk-core'
 import { getLPBaseAnalyticsProperties } from 'components/Liquidity/analytics'
 import { useUpdatedAmountsFromDependentAmount } from 'components/Liquidity/hooks/useDependentAmountFallback'
 import { useGetPoolTokenPercentage } from 'components/Liquidity/hooks/useGetPoolTokenPercentage'
@@ -19,19 +19,19 @@ import { ExternalLink } from 'theme/components/Links'
 import { Button, Flex, Separator, Text } from 'ui/src'
 import { Passkey } from 'ui/src/components/icons/Passkey'
 import { iconSizes } from 'ui/src/theme'
-import { ProgressIndicator } from 'uniswap/src/components/ConfirmSwapModal/ProgressIndicator'
-import { CurrencyLogo } from 'uniswap/src/components/CurrencyLogo/CurrencyLogo'
-import { NetworkLogo } from 'uniswap/src/components/CurrencyLogo/NetworkLogo'
-import { PollingInterval } from 'uniswap/src/constants/misc'
-import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
-import { useGetPasskeyAuthStatus } from 'uniswap/src/features/passkey/hooks/useGetPasskeyAuthStatus'
-import { useUSDCValue } from 'uniswap/src/features/transactions/hooks/useUSDCPrice'
-import { isValidLiquidityTxContext } from 'uniswap/src/features/transactions/liquidity/types'
-import { getErrorMessageToDisplay } from 'uniswap/src/features/transactions/liquidity/utils'
-import { TransactionStep } from 'uniswap/src/features/transactions/steps/types'
-import { useWallet } from 'uniswap/src/features/wallet/hooks/useWallet'
-import { isSignerMnemonicAccountDetails } from 'uniswap/src/features/wallet/types/AccountDetails'
-import { getSymbolDisplayText } from 'uniswap/src/utils/currency'
+import { ProgressIndicator } from 'lx/src/components/ConfirmSwapModal/ProgressIndicator'
+import { CurrencyLogo } from 'lx/src/components/CurrencyLogo/CurrencyLogo'
+import { NetworkLogo } from 'lx/src/components/CurrencyLogo/NetworkLogo'
+import { PollingInterval } from 'lx/src/constants/misc'
+import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
+import { useGetPasskeyAuthStatus } from 'lx/src/features/passkey/hooks/useGetPasskeyAuthStatus'
+import { useUSDCValue } from 'lx/src/features/transactions/hooks/useUSDCPrice'
+import { isValidLiquidityTxContext } from 'lx/src/features/transactions/liquidity/types'
+import { getErrorMessageToDisplay } from 'lx/src/features/transactions/liquidity/utils'
+import { TransactionStep } from 'lx/src/features/transactions/steps/types'
+import { useWallet } from 'lx/src/features/wallet/hooks/useWallet'
+import { isSignerMnemonicAccountDetails } from 'lx/src/features/wallet/types/AccountDetails'
+import { getSymbolDisplayText } from 'lx/src/utils/currency'
 import { NumberType } from 'utilities/src/format/types'
 import { useTrace } from 'utilities/src/telemetry/trace/TraceContext'
 
@@ -252,7 +252,7 @@ export function IncreaseLiquidityReview({ onClose }: { onClose: () => void }) {
                 </Flex>
               </Flex>
             )}
-            <ExternalLink href="https://support.uniswap.org/hc/en-us/articles/39530204759693-How-do-I-add-liquidity-to-an-existing-position">
+            <ExternalLink href="https://docs.lux.exchange/help/add-liquidity-existing-position">
               <Text variant="body3" color="$accent1">
                 {t('common.button.learn')}
               </Text>

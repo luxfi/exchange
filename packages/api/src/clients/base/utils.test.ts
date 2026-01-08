@@ -1,5 +1,5 @@
-import type { FetchClient } from '@universe/api/src/clients/base/types'
-import { createFetcher } from '@universe/api/src/clients/base/utils'
+import type { FetchClient } from '@luxfi/api/src/clients/base/types'
+import { createFetcher } from '@luxfi/api/src/clients/base/utils'
 import { describe, expect, it, vi } from 'vitest'
 
 describe('createFetcher', () => {

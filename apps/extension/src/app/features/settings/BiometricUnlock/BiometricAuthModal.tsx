@@ -1,9 +1,9 @@
 import { useTranslation } from 'react-i18next'
 import { Button, Flex, GeneratedIcon, Square, Text, useSporeColors } from 'ui/src'
 import { HelpCenter } from 'ui/src/components/icons'
-import { Modal } from 'uniswap/src/components/modals/Modal'
-import { uniswapUrls } from 'uniswap/src/constants/urls'
-import { ModalName } from 'uniswap/src/features/telemetry/constants'
+import { Modal } from 'lx/src/components/modals/Modal'
+import { uniswapUrls } from 'lx/src/constants/urls'
+import { ModalName } from 'lx/src/features/telemetry/constants'
 import { useEvent } from 'utilities/src/react/hooks'
 
 export function BiometricAuthModal({

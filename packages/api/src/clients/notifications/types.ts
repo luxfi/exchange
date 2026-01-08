@@ -10,8 +10,8 @@ import {
   AckNotificationResponse as ProtoAckNotificationResponse,
   GetNotificationsRequest as ProtoGetNotificationsRequest,
   GetNotificationsResponse as ProtoGetNotificationsResponse,
-} from '@uniswap/client-notification-service/dist/uniswap/notificationservice/v1/api_pb'
-import { FetchClient } from '@universe/api/src/clients/base/types'
+} from '@luxdex/client-notification-service/dist/uniswap/notificationservice/v1/api_pb'
+import { FetchClient } from '@luxfi/api/src/clients/base/types'
 
 export interface NotificationsClientContext {
   fetchClient: FetchClient
@@ -30,7 +30,7 @@ export type NotificationContentStyle = ContentStyle
 
 /**
  * Button configuration for notification content
- * Re-exported from @uniswap/client-notification-service
+ * Re-exported from @l.x/client-notification-service
  * Note: This is the Message class instance, not a plain object.
  * Used within Content which comes from deserialized notifications.
  */
@@ -38,7 +38,7 @@ export type NotificationButton = Button
 
 /**
  * Notification content
- * Re-exported from @uniswap/client-notification-service
+ * Re-exported from @l.x/client-notification-service
  *
  * Notification API Type Mapping:
  * - content.title → Modal title
@@ -54,7 +54,7 @@ export type NotificationContent = Content
 
 /**
  * In-app notification returned by the notifications API
- * Re-exported from @uniswap/client-notification-service
+ * Re-exported from @l.x/client-notification-service
  * Note: This is a plain object (not a Message class instance) to prevent
  * React Query's structural cloning from triggering toJSON() which would
  * convert numeric enum values to strings.
@@ -63,26 +63,26 @@ export type InAppNotification = PlainMessage<Notification>
 
 /**
  * Request parameters for fetching notifications
- * Re-exported from @uniswap/client-notification-service
+ * Re-exported from @l.x/client-notification-service
  */
 export type GetNotificationsRequest = PlainMessage<ProtoGetNotificationsRequest>
 
 /**
  * Response from the GetNotifications API endpoint
- * Re-exported from @uniswap/client-notification-service
+ * Re-exported from @l.x/client-notification-service
  * Note: This is the Message class instance from protobuf deserialization.
  */
 export type GetNotificationsResponse = ProtoGetNotificationsResponse
 
 /**
  * Request parameters for acknowledging notifications
- * Re-exported from @uniswap/client-notification-service
+ * Re-exported from @l.x/client-notification-service
  */
 export type AckNotificationRequest = PlainMessage<ProtoAckNotificationRequest>
 
 /**
  * Response from the AckNotifications API endpoint
- * Re-exported from @uniswap/client-notification-service
+ * Re-exported from @l.x/client-notification-service
  */
 export type AckNotificationResponse = PlainMessage<ProtoAckNotificationResponse>
 

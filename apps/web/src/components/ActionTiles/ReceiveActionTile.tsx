@@ -3,7 +3,7 @@ import { ReceiveModalState } from 'components/ReceiveCryptoModal/types'
 import { useOpenReceiveCryptoModal } from 'components/ReceiveCryptoModal/useOpenReceiveCryptoModal'
 import { useTranslation } from 'react-i18next'
 import { ArrowDownCircleFilled } from 'ui/src/components/icons/ArrowDownCircleFilled'
-import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+import { TestID } from 'lx/src/test/fixtures/testIDs'
 
 export function ReceiveActionTile() {
   const { t } = useTranslation()

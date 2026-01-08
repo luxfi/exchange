@@ -1,4 +1,4 @@
-import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import { FeatureFlags, useFeatureFlag } from '@luxfi/gating'
 
 export function useIsExtensionPasskeyImportEnabled(): boolean {
   return useFeatureFlag(FeatureFlags.EmbeddedWallet)

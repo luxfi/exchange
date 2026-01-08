@@ -1,5 +1,5 @@
 import { TabActivityIcon, TabExploreIcon, TabHomeIcon } from 'src/app/navigation/tabs/CustomTabBar/Icons'
-import { MobileScreens } from 'uniswap/src/types/screens/mobile'
+import { MobileScreens } from 'lx/src/types/screens/mobile'
 
 export const TAB_BAR_ANIMATION_DURATION = 200
 

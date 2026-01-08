@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux'
 import { FavoriteTokensGrid } from 'src/components/explore/FavoriteTokensGrid'
 import { FavoriteWalletsGrid } from 'src/components/explore/FavoriteWalletsGrid'
 import { Flex } from 'ui/src'
-import { selectHasFavoriteTokens, selectHasWatchedWallets } from 'uniswap/src/features/favorites/selectors'
+import { selectHasFavoriteTokens, selectHasWatchedWallets } from 'lx/src/features/favorites/selectors'
 
 type FavoritesSectionProps = {
   showLoading: boolean

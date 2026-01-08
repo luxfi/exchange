@@ -1,6 +1,6 @@
-import { Token } from '@uniswap/sdk-core'
+import { Token } from '@luxdex/sdk-core'
 import { tryParsePrice } from 'state/mint/v3/utils'
-import { DAI } from 'uniswap/src/constants/tokens'
+import { DAI } from 'lx/src/constants/tokens'
 
 describe('hooks', () => {
   describe('#tryParsePrice', () => {

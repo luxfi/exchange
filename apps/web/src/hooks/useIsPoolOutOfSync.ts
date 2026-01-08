@@ -1,10 +1,10 @@
-import { Currency, CurrencyAmount, Fraction } from '@uniswap/sdk-core'
-import { Pair } from '@uniswap/v2-sdk'
-import { Pool as V3Pool } from '@uniswap/v3-sdk'
-import { Pool as V4Pool } from '@uniswap/v4-sdk'
+import { Currency, CurrencyAmount, Fraction } from '@luxdex/sdk-core'
+import { Pair } from '@luxamm/v2-sdk'
+import { Pool as V3Pool } from '@luxamm/v3-sdk'
+import { Pool as V4Pool } from '@luxamm/v4-sdk'
 import { parseUnits } from 'ethers/lib/utils'
 import JSBI from 'jsbi'
-import { useUSDCValue } from 'uniswap/src/features/transactions/hooks/useUSDCPrice'
+import { useUSDCValue } from 'lx/src/features/transactions/hooks/useUSDCPrice'
 
 // Show warning if the price diverges by more than 5%
 const WARNING_THRESHOLD = new Fraction(5, 100)

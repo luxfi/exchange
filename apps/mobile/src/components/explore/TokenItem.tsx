@@ -10,17 +10,17 @@ import { TokenMetadata } from 'src/components/tokens/TokenMetadata'
 import { Flex, FlexProps, Text, TouchableArea, useSporeColors } from 'ui/src'
 import { AnimatedFlex } from 'ui/src/components/layout/AnimatedFlex'
 import { spacing } from 'ui/src/theme'
-import { TokenLogo } from 'uniswap/src/components/CurrencyLogo/TokenLogo'
-import { RelativeChange } from 'uniswap/src/components/RelativeChange/RelativeChange'
-import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
-import { MobileEventName, SectionName } from 'uniswap/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
+import { TokenLogo } from 'lx/src/components/CurrencyLogo/TokenLogo'
+import { RelativeChange } from 'lx/src/components/RelativeChange/RelativeChange'
+import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
+import { MobileEventName, SectionName } from 'lx/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
 import {
   buildCurrencyId,
   buildNativeCurrencyId,
   currencyIdToAddress,
   currencyIdToChain,
-} from 'uniswap/src/utils/currencyId'
+} from 'lx/src/utils/currencyId'
 import { NumberType } from 'utilities/src/format/types'
 import { useEvent } from 'utilities/src/react/hooks'
 import { noop } from 'utilities/src/react/noop'

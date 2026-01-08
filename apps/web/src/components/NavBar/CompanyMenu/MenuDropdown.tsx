@@ -1,4 +1,4 @@
-import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import { FeatureFlags, useFeatureFlag } from '@luxfi/gating'
 import { HelpModal } from 'components/HelpModal/HelpModal'
 import { MenuItem, MenuSection, MenuSectionTitle, useMenuContent } from 'components/NavBar/CompanyMenu/Content'
 import { LegalAndPrivacyMenu } from 'components/NavBar/LegalAndPrivacyMenu'
@@ -13,7 +13,7 @@ import { ExternalLink } from 'theme/components/Links'
 import { ClickableTamaguiStyle } from 'theme/components/styles'
 import { Anchor, Flex, Separator, styled, Text } from 'ui/src'
 import { TextVariantTokens } from 'ui/src/theme'
-import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+import { TestID } from 'lx/src/test/fixtures/testIDs'
 
 const Container = styled(Flex, {
   width: '400px',

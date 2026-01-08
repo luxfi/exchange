@@ -11,7 +11,7 @@ describe(fetchSVG, () => {
     globalThis.fetch = vi.fn(() =>
       Promise.resolve({
         text: () => Promise.resolve(REGULAR_SVG),
-      }),
+      })
     ) as any
 
     const result = await fetchSVG({ uri: 'regular.svg', autoplay: false })
@@ -24,7 +24,7 @@ describe(fetchSVG, () => {
     globalThis.fetch = vi.fn(() =>
       Promise.resolve({
         text: () => Promise.resolve(SVG_WITH_ANIMATES),
-      }),
+      })
     ) as any
 
     const result = await fetchSVG({ uri: 'with-animate.svg', autoplay: false })

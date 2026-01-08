@@ -1,4 +1,4 @@
-import { PropsWithChildren } from 'react'
+import type { PropsWithChildren } from 'react'
 import type { ViewStyle } from 'react-native'
 import { Flex } from 'ui/src/components/layout'
 

@@ -1,6 +1,6 @@
 /* eslint-disable max-lines */
-import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
-import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import { ProtocolVersion } from '@luxdex/client-data-api/dist/data/v1/poolTypes_pb'
+import { FeatureFlags, useFeatureFlag } from '@luxfi/gating'
 import { D3LiquidityRangeInput } from 'components/Charts/D3LiquidityRangeInput/D3LiquidityRangeInput'
 import { LiquidityRangeInput } from 'components/Charts/LiquidityRangeInput/LiquidityRangeInput'
 import { useDefaultInitialPrice } from 'components/Liquidity/Create/hooks/useDefaultInitialPrice'
@@ -23,8 +23,8 @@ import { PositionField } from 'types/position'
 import { AnimatePresence, Button, Flex, SegmentedControl, Text, useMedia, useSporeColors } from 'ui/src'
 import { AlertTriangleFilled } from 'ui/src/components/icons/AlertTriangleFilled'
 import { fonts, zIndexes } from 'ui/src/theme'
-import { AmountInput } from 'uniswap/src/components/AmountInput/AmountInput'
-import { WarningSeverity } from 'uniswap/src/components/modals/WarningModal/types'
+import { AmountInput } from 'lx/src/components/AmountInput/AmountInput'
+import { WarningSeverity } from 'lx/src/components/modals/WarningModal/types'
 
 enum RangeSelection {
   FULL = 'FULL',
@@ -183,7 +183,7 @@ const InitialPriceInput = () => {
               px="$none"
               py="$none"
               value={initialPrice}
-              onChangeText={(text) =>
+              onChangeText={(text: string) =>
                 setPriceRangeState((prev) => ({
                   ...prev,
                   initialPrice: text,

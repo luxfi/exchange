@@ -3,7 +3,7 @@ import type { ColorTokens } from 'tamagui'
 import { opacify, validColor } from 'ui/src/theme'
 
 export const useColorsFromTokenColor = (
-  tokenColor?: string,
+  tokenColor?: string
 ): Record<'validTokenColor' | 'lightTokenColor', ColorTokens | undefined> => {
   const { validTokenColor, lightTokenColor } = useMemo(() => {
     const validatedColor = validColor(tokenColor)

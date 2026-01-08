@@ -1,5 +1,5 @@
-import { Currency, CurrencyAmount, TradeType } from '@uniswap/sdk-core'
-import { TradingApi } from '@universe/api'
+import { Currency, CurrencyAmount, TradeType } from '@luxamm/sdk-core'
+import { TradingApi } from '@luxfi/api'
 import {
   CancellationState,
   CancelOrdersDialog,
@@ -31,15 +31,15 @@ import { ThemedText } from 'theme/components'
 import { Divider } from 'theme/components/Dividers'
 import { Button, Flex, TouchableArea, useSporeColors } from 'ui/src'
 import { X } from 'ui/src/components/icons/X'
-import { Modal } from 'uniswap/src/components/modals/Modal'
-import { InterfaceEventName, ModalName } from 'uniswap/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
-import { hasTradeType } from 'uniswap/src/features/transactions/swap/utils/trade'
-import { TransactionStatus, UniswapXOrderDetails } from 'uniswap/src/features/transactions/types/transactionDetails'
-import { isLimitCancellable } from 'uniswap/src/features/transactions/utils/uniswapX.utils'
-import { CurrencyField } from 'uniswap/src/types/currency'
-import { currencyIdToAddress } from 'uniswap/src/utils/currencyId'
-import { ExplorerDataType, getExplorerLink } from 'uniswap/src/utils/linking'
+import { Modal } from 'lx/src/components/modals/Modal'
+import { InterfaceEventName, ModalName } from 'lx/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
+import { hasTradeType } from 'lx/src/features/transactions/swap/utils/trade'
+import { TransactionStatus, UniswapXOrderDetails } from 'lx/src/features/transactions/types/transactionDetails'
+import { isLimitCancellable } from 'lx/src/features/transactions/utils/uniswapX.utils'
+import { CurrencyField } from 'lx/src/types/currency'
+import { currencyIdToAddress } from 'lx/src/utils/currencyId'
+import { ExplorerDataType, getExplorerLink } from 'lx/src/utils/linking'
 import { logger } from 'utilities/src/logger/logger'
 
 type SelectedOrderInfo = {

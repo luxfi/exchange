@@ -1,6 +1,6 @@
 import React, { PropsWithChildren } from 'react'
 import { Pressable } from 'react-native'
-import { config } from 'uniswap/src/config'
+import { config } from 'lx/src/config'
 
 type WithScrollToTopProps = PropsWithChildren
 

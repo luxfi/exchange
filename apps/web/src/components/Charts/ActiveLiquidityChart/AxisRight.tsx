@@ -1,6 +1,6 @@
 import { axisRight, Axis as d3Axis, NumberValue, ScaleLinear, select } from 'd3'
 import { useMemo } from 'react'
-import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
+import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
 import { NumberType } from 'utilities/src/format/types'
 
 const TEXT_Y_OFFSET = 5

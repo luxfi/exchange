@@ -29,7 +29,7 @@ export const PulseRipple = ({ rippleColor, size = 24 }: { rippleColor?: string; 
             duration: 0,
             useNativeDriver: true,
           }),
-        ]),
+        ])
       ),
     ]).start()
     return (): void => {

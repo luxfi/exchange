@@ -14,10 +14,10 @@ import { useTranslation } from 'react-i18next'
 import { Button, Flex, Image, ImageProps, Text, TouchableArea, useMedia } from 'ui/src'
 import { X } from 'ui/src/components/icons/X'
 import { iconSizes } from 'ui/src/theme'
-import { Modal } from 'uniswap/src/components/modals/Modal'
-import { ElementName, ModalNameType } from 'uniswap/src/features/telemetry/constants'
-import Trace from 'uniswap/src/features/telemetry/Trace'
-import { openUri } from 'uniswap/src/utils/linking'
+import { Modal } from 'lx/src/components/modals/Modal'
+import { ElementName, ModalNameType } from 'lx/src/features/telemetry/constants'
+import Trace from 'lx/src/features/telemetry/Trace'
+import { openUri } from 'lx/src/utils/linking'
 
 type Props = {
   modalName: ModalNameType

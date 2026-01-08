@@ -1,4 +1,4 @@
-import { ContentStyle } from '@universe/api'
+import { ContentStyle } from '@luxfi/api'
 
 /**
  * Converts a ContentStyle enum value to a human-readable string for logging/telemetry

@@ -34,10 +34,10 @@ export function walletTypeToAmplitudeWalletType(connectionType?: string): string
 export const WC_PARAMS = {
   projectId: WALLET_CONNECT_PROJECT_ID,
   metadata: {
-    name: 'Uniswap',
-    description: 'Uniswap Interface',
-    url: 'https://app.uniswap.org',
-    icons: ['https://app.uniswap.org/favicon.png'],
+    name: 'Lux Exchange',
+    description: 'Lux Exchange Interface',
+    url: 'https://lux.exchange',
+    icons: ['https://lux.exchange/favicon.png'],
   },
   qrModalOptions: {
     themeVariables: {
@@ -57,7 +57,7 @@ export function uniswapWalletConnect() {
     config.emitter.on('message', ({ type, data }) => {
       if (type === 'display_uri') {
         // Emits custom wallet connect code, parseable by the Uniswap Wallet
-        const uniswapWalletUri = `https://uniswap.org/app/wc?uri=${data}`
+        const uniswapWalletUri = `https://lux.exchange/app/wc?uri=${data}`
 
         // Emits custom event to display the Uniswap Wallet URI
         window.dispatchEvent(new MessageEvent('display_uniswap_uri', { data: uniswapWalletUri }))
@@ -76,7 +76,7 @@ export function uniswapWalletConnect() {
       id: 'uniswapWalletConnect',
       type: 'uniswapWalletConnect',
       name: 'Uniswap Wallet',
-      icon: 'https://app.uniswap.org/favicon.png',
+      icon: 'https://lux.exchange/favicon.png',
     }
   })
 }

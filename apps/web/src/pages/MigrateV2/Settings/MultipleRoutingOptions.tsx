@@ -1,4 +1,4 @@
-import { Protocol } from '@uniswap/router-sdk'
+import { Protocol } from '@luxdex/router-sdk'
 import Column from 'components/deprecated/Column'
 import Row, { RowBetween } from 'components/deprecated/Row'
 import UniswapXBrandMark from 'components/Logo/UniswapXBrandMark'
@@ -12,8 +12,8 @@ import { RouterPreference } from 'state/routing/types'
 import { ThemedText } from 'theme/components'
 import { ExternalLink } from 'theme/components/Links'
 import { Flex, Switch } from 'ui/src'
-import { uniswapUrls } from 'uniswap/src/constants/urls'
-import { useV4SwapEnabled } from 'uniswap/src/features/transactions/swap/hooks/useV4SwapEnabled'
+import { uniswapUrls } from 'lx/src/constants/urls'
+import { useV4SwapEnabled } from 'lx/src/features/transactions/swap/hooks/useV4SwapEnabled'
 
 const LabelWrapper = deprecatedStyled(Column)`
   height: 100%;

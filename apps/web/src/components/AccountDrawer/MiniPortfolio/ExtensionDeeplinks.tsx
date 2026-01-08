@@ -1,4 +1,4 @@
-import { PositionStatus } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
+import { PositionStatus } from '@luxdex/client-data-api/dist/data/v1/poolTypes_pb'
 import { useOpenLimitOrders, usePendingActivity } from 'components/AccountDrawer/MiniPortfolio/Activity/hooks'
 import { useAccountDrawer } from 'components/AccountDrawer/MiniPortfolio/hooks'
 import { MenuStateVariant, useSetMenu } from 'components/AccountDrawer/menuState'
@@ -12,7 +12,7 @@ import { ArrowRightToLine } from 'ui/src/components/icons/ArrowRightToLine'
 import { RotatableChevron } from 'ui/src/components/icons/RotatableChevron'
 import { TimePast } from 'ui/src/components/icons/TimePast'
 import { iconSizes } from 'ui/src/theme/iconSizes'
-import { useGetPositionsQuery } from 'uniswap/src/data/rest/getPositions'
+import { useGetPositionsQuery } from 'lx/src/data/rest/getPositions'
 
 const UnreadIndicator = () => {
   const colors = useSporeColors()

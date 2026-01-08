@@ -9,7 +9,6 @@ export type {
   GetRef,
   GetThemeValueForKey,
   ImageProps,
-  InputProps,
   PopperProps,
   SpaceTokens,
   TabLayout,
@@ -32,7 +31,6 @@ export {
   getToken,
   getTokenValue,
   Image,
-  Input,
   isTouchable,
   ListItem,
   Main,
@@ -74,6 +72,8 @@ export * from './components/dropdownMenuSheet/DropdownMenuSheetItem'
 export { getMenuItemColor } from './components/dropdownMenuSheet/utils'
 export type { GeneratedIcon, IconProps } from './components/factories/createIcon'
 export * from './components/InlineCard/InlineCard'
+// Re-export Input from tamagui
+export { Input, type InputProps, type InputRef } from './components/input/Input'
 export * from './components/input/utils'
 export { Flex, type FlexProps, flexStyles, Inset, Separator } from './components/layout'
 export { VerticalDottedLineSeparator } from './components/lines/VerticalDottedLineSeparator'
@@ -87,7 +87,7 @@ export * from './components/SegmentedControl/SegmentedControl'
 export { ClickableWithinGesture } from './components/swipeablecards/ClickableWithinGesture'
 export { SwipeableCardStack } from './components/swipeablecards/SwipeableCardStack'
 export { Switch } from './components/switch/Switch'
-export { type SwitchProps } from './components/switch/types'
+export type { SwitchProps } from './components/switch/types'
 export * from './components/text'
 export { Tooltip } from './components/tooltip/Tooltip'
 export * from './components/touchable'

@@ -7,7 +7,7 @@ import { Trans, useTranslation } from 'react-i18next'
 import { Flex, SegmentedControl, styled, Text, useSporeColors } from 'ui/src'
 import { Moon as MoonFilled } from 'ui/src/components/icons/Moon'
 import { Sun as SunFilled } from 'ui/src/components/icons/Sun'
-import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+import { TestID } from 'lx/src/test/fixtures/testIDs'
 import { addMediaQueryListener, removeMediaQueryListener } from 'utils/matchMedia'
 
 const THEME_UPDATE_DELAY = ms(`0.1s`)

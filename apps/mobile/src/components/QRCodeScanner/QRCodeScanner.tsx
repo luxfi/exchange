@@ -15,7 +15,7 @@ import { AnimatedFlex } from 'ui/src/components/layout/AnimatedFlex'
 import { useDeviceDimensions } from 'ui/src/hooks/useDeviceDimensions'
 import { useSporeColorsForTheme } from 'ui/src/hooks/useSporeColors'
 import { iconSizes, spacing } from 'ui/src/theme'
-import PasteButton from 'uniswap/src/components/buttons/PasteButton'
+import PasteButton from 'lx/src/components/buttons/PasteButton'
 import { logger } from 'utilities/src/logger/logger'
 
 enum BarcodeType {

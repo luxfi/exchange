@@ -1,14 +1,14 @@
 import { gqlToCurrency, supportedChainIdFromGQLChain, unwrapToken } from 'appGraphql/data/util'
-import { GraphQLApi } from '@universe/api'
+import { GraphQLApi } from '@luxfi/api'
 import { LiquidityPositionInfoBadges } from 'components/Liquidity/LiquidityPositionInfoBadges'
 import { LPIncentiveRewardsBadge } from 'components/Liquidity/LPIncentives/LPIncentiveRewardsBadge'
 import { DoubleCurrencyLogo } from 'components/Logo/DoubleLogo'
 import { Trans } from 'react-i18next'
 import { PoolStat } from 'state/explore/types'
 import { Flex, Text } from 'ui/src'
-import { useEnabledChains } from 'uniswap/src/features/chains/hooks/useEnabledChains'
-import { toGraphQLChain } from 'uniswap/src/features/chains/utils'
-import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
+import { useEnabledChains } from 'lx/src/features/chains/hooks/useEnabledChains'
+import { toGraphQLChain } from 'lx/src/features/chains/utils'
+import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
 
 export function TopPoolsCard({ pool }: { pool: PoolStat }) {
   const { defaultChainId } = useEnabledChains()

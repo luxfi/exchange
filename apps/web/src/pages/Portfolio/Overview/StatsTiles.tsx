@@ -3,8 +3,8 @@ import { useSwapsThisWeek } from 'pages/Portfolio/Overview/hooks/useSwapsThisWee
 import { memo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Flex, styled, Text, useMedia } from 'ui/src'
-import { ActivityRenderData } from 'uniswap/src/features/activity/hooks/useActivityData'
-import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
+import { ActivityRenderData } from 'lx/src/features/activity/hooks/useActivityData'
+import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
 import { NumberType } from 'utilities/src/format/types'
 
 const BORDER_COLOR = '$surface3'

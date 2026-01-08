@@ -68,7 +68,7 @@ const TouchableTextLink_ = forwardRef<TamaguiElement, TouchableTextLinkProps>(fu
     display,
     ...textProps
   },
-  ref,
+  ref
 ) {
   const textRef = useRef<TamaguiElement>(undefined) as unknown as ForwardedRef<TamaguiElement>
 
@@ -78,7 +78,7 @@ const TouchableTextLink_ = forwardRef<TamaguiElement, TouchableTextLinkProps>(fu
 
   const hoverStyle = useMemo(
     (): TextProps['$group-item-hover'] => ({ color: disabled ? undefined : hoveredColor }),
-    [disabled, hoveredColor],
+    [disabled, hoveredColor]
   )
 
   const focusVisibleStyle = useMemo(
@@ -89,7 +89,7 @@ const TouchableTextLink_ = forwardRef<TamaguiElement, TouchableTextLinkProps>(fu
       textDecorationLine: 'underline',
       textDecorationDistance: 1,
     }),
-    [hoveredColor],
+    [hoveredColor]
   )
 
   const handleOnPressWithLink = useEvent(async (event: GestureResponderEvent): Promise<void> => {

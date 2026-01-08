@@ -2,7 +2,7 @@ import { Database } from 'bun:sqlite'
 import { existsSync } from 'node:fs'
 import { mkdir } from 'node:fs/promises'
 import { join } from 'node:path'
-import { type CacheProvider } from '@universe/cli/src/lib/cache-provider'
+import { type CacheProvider } from '@luxfi/cli/src/lib/cache-provider'
 
 /**
  * SQLite implementation of CacheProvider using Bun's built-in SQLite

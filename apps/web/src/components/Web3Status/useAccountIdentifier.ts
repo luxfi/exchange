@@ -1,5 +1,5 @@
-import { useUnitagsAddressQuery } from 'uniswap/src/data/apiClients/unitagsApi/useUnitagsAddressQuery'
-import { useActiveAddresses } from 'uniswap/src/features/accounts/store/hooks'
+import { useUnitagsAddressQuery } from 'lx/src/data/apiClients/unitagsApi/useUnitagsAddressQuery'
+import { useActiveAddresses } from 'lx/src/features/accounts/store/hooks'
 import { shortenAddress } from 'utilities/src/addresses'
 import { useEnsName } from 'wagmi'
 

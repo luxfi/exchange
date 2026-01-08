@@ -12,7 +12,7 @@ import { memo, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Flex, Text, useIsTouchDevice } from 'ui/src'
 import { ArrowRight } from 'ui/src/components/icons/ArrowRight'
-import { TransactionDetails } from 'uniswap/src/features/transactions/types/transactionDetails'
+import { TransactionDetails } from 'lx/src/features/transactions/types/transactionDetails'
 
 interface ActivityTableProps {
   data: TransactionDetails[]

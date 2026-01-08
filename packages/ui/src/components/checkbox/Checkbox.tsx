@@ -1,15 +1,15 @@
-import { ReactElement, useMemo, useState } from 'react'
+import { type ReactElement, useMemo, useState } from 'react'
 import {
   AnimatePresence,
-  GetThemeValueForKey,
+  type GetThemeValueForKey,
   getTokenValue,
   Checkbox as TamaguiCheckbox,
-  CheckboxProps as TamaguiCheckboxPops,
+  type CheckboxProps as TamaguiCheckboxPops,
 } from 'tamagui'
 import { Check } from 'ui/src/components/icons'
-import { Flex, FlexProps } from 'ui/src/components/layout'
-import { SporeComponentVariant } from 'ui/src/components/types'
-import { IconSizeTokens } from 'ui/src/theme'
+import { Flex, type FlexProps } from 'ui/src/components/layout'
+import type { SporeComponentVariant } from 'ui/src/components/types'
+import type { IconSizeTokens } from 'ui/src/theme'
 import { isTestEnv } from 'utilities/src/environment/env'
 import { v4 as uuid } from 'uuid'
 

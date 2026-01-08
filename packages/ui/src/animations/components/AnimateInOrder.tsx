@@ -1,5 +1,5 @@
-import { PropsWithChildren, useEffect, useState } from 'react'
-import { Flex, FlexProps } from 'ui/src/components/layout'
+import React, { type PropsWithChildren, useEffect, useState } from 'react'
+import { Flex, type FlexProps } from 'ui/src/components/layout'
 
 export const AnimateInOrder = ({
   children,
@@ -25,7 +25,7 @@ export const AnimateInOrder = ({
   )
 }
 
-const Delay = ({ children, by }: PropsWithChildren<{ by: number }>): JSX.Element | null => {
+const Delay = ({ children, by }: PropsWithChildren<{ by: number }>): React.ReactNode => {
   const [done, setDone] = useState(false)
 
   useEffect(() => {
@@ -35,5 +35,5 @@ const Delay = ({ children, by }: PropsWithChildren<{ by: number }>): JSX.Element
     return () => clearTimeout(showTimer)
   }, [by])
 
-  return done ? <>{children}</> : null
+  return done ? children : null
 }

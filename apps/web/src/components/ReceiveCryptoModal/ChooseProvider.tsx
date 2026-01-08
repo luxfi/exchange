@@ -10,10 +10,10 @@ import { CopyToClipboard } from 'theme/components/CopyHelper'
 import { Flex, GeneratedIcon, IconButton, Separator, Text, TouchableArea } from 'ui/src'
 import { CopySheets } from 'ui/src/components/icons/CopySheets'
 import { QrCode } from 'ui/src/components/icons/QrCode'
-import { useUnitagsAddressQuery } from 'uniswap/src/data/apiClients/unitagsApi/useUnitagsAddressQuery'
-import { useENSName } from 'uniswap/src/features/ens/api'
-import { FORServiceProvider } from 'uniswap/src/features/fiatOnRamp/types'
-import { useCexTransferProviders } from 'uniswap/src/features/fiatOnRamp/useCexTransferProviders'
+import { useUnitagsAddressQuery } from 'lx/src/data/apiClients/unitagsApi/useUnitagsAddressQuery'
+import { useENSName } from 'lx/src/features/ens/api'
+import { FORServiceProvider } from 'lx/src/features/fiatOnRamp/types'
+import { useCexTransferProviders } from 'lx/src/features/fiatOnRamp/useCexTransferProviders'
 
 function ActionIcon({ Icon }: { Icon: GeneratedIcon }) {
   return <IconButton emphasis="secondary" size="xxsmall" icon={<Icon />} />

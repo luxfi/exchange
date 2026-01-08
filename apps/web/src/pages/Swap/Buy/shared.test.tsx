@@ -1,7 +1,7 @@
-import { FORCountry } from 'uniswap/src/features/fiatOnRamp/types'
+import { FORCountry } from 'lx/src/features/fiatOnRamp/types'
 
 // Mock the navigatorLocale function
-vi.mock('uniswap/src/features/language/hooks', () => ({
+vi.mock('lx/src/features/language/hooks', () => ({
   navigatorLocale: vi.fn(),
 }))
 
@@ -27,8 +27,8 @@ vi.mock('ui/src/assets/backgrounds/for-connecting-v2.svg', () => ({
 
 // Import after mocks
 import { getCountryFromLocale } from 'pages/Swap/Buy/shared'
-import { Locale } from 'uniswap/src/features/language/constants'
-import { navigatorLocale } from 'uniswap/src/features/language/hooks'
+import { Locale } from 'lx/src/features/language/constants'
+import { navigatorLocale } from 'lx/src/features/language/hooks'
 
 describe('getCountryFromLocale', () => {
   const mockNavigatorLocale = vi.mocked(navigatorLocale)

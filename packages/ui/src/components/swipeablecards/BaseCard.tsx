@@ -1,5 +1,5 @@
-import { PropsWithChildren, useEffect, useState } from 'react'
-import { SharedValue, useAnimatedStyle, useSharedValue, withSpring } from 'react-native-reanimated'
+import { type PropsWithChildren, useEffect, useState } from 'react'
+import { type SharedValue, useAnimatedStyle, useSharedValue, withSpring } from 'react-native-reanimated'
 import { AnimatedFlex } from 'ui/src/components/layout/AnimatedFlex'
 
 export const SWIPEABLE_CARD_Y_OFFSET = 8
@@ -38,7 +38,7 @@ export function BaseCard({ children, stackIndex, cardHeight, onLayout, panOffset
     if (panOffset) {
       panOffset.value = 0
     }
-  }, [panOffset, stackIndex])
+  }, [panOffset, stackIndex, scale, yOffset])
 
   const animatedStyle = useAnimatedStyle(() => {
     return {

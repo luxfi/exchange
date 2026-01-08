@@ -1,0 +1,21 @@
+{
+  "chart.error.pools": "Unable to display historical data for the current pool.",
+  "common.happyHolidays": "Happy Holidays from the Lux team!",
+  "common.links": "Links",
+  "common.tokenA": "Token A",
+  "common.tokenB": "Token B",
+  "pool.activeRange": "Active tick range",
+  "pool.apr.base": "Base APR",
+  "pool.apr.description": "Annualized based on 1 day fees",
+  "pool.apr.reward": "Reward APR",
+  "pool.balances": "Pool balances",
+  "pool.explorers": "Explorers",
+  "pool.incentives.merklDocs": "Calculated by Merkl from emission rewards and pool TVL.",
+  "pool.positions": "Positions",
+  "pool.volOverTvl": "1D vol/TVL",
+  "pool.volume.thirtyDay": "30 day volume",
+  "pool.volume.thirtyDay.short": "30D vol",
+  "stats.24fees": "24H fees",
+  "stats.24volume": "24H volume",
+  "stats.volume.1d.short": "1D vol"
+}

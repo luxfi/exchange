@@ -1,9 +1,9 @@
-import { ChangeAssetVisibilityNotification } from 'uniswap/src/components/notifications/notifications/ChangeAssetVisibilityNotification'
-import { CopiedNotification } from 'uniswap/src/components/notifications/notifications/CopiedNotification'
-import { SuccessNotification } from 'uniswap/src/components/notifications/notifications/SuccessNotification'
-import { useSelectAddressNotifications } from 'uniswap/src/features/notifications/slice/hooks'
-import { AppNotification, AppNotificationType } from 'uniswap/src/features/notifications/slice/types'
-import { useWallet } from 'uniswap/src/features/wallet/hooks/useWallet'
+import { ChangeAssetVisibilityNotification } from 'lx/src/components/notifications/notifications/ChangeAssetVisibilityNotification'
+import { CopiedNotification } from 'lx/src/components/notifications/notifications/CopiedNotification'
+import { SuccessNotification } from 'lx/src/components/notifications/notifications/SuccessNotification'
+import { useSelectAddressNotifications } from 'lx/src/features/notifications/slice/hooks'
+import { AppNotification, AppNotificationType } from 'lx/src/features/notifications/slice/types'
+import { useWallet } from 'lx/src/features/wallet/hooks/useWallet'
 
 export function WebNotificationToastWrapper(): JSX.Element | null {
   const { evmAccount } = useWallet()

@@ -1,4 +1,4 @@
-import { Currency, Percent, TradeType } from '@uniswap/sdk-core'
+import { Currency, Percent, TradeType } from '@luxamm/sdk-core'
 import Column, { AutoColumn } from 'components/deprecated/Column'
 import { SwapModalHeaderAmount } from 'components/swap/SwapModalHeaderAmount'
 import { useUSDPrice } from 'hooks/useUSDPrice'
@@ -7,7 +7,7 @@ import { Trans } from 'react-i18next'
 import { InterfaceTrade } from 'state/routing/types'
 import { isPreviewTrade } from 'state/routing/utils'
 import { ThemedText } from 'theme/components'
-import { CurrencyField } from 'uniswap/src/types/currency'
+import { CurrencyField } from 'lx/src/types/currency'
 
 const HeaderContainer = deprecatedStyled(AutoColumn)`
   margin-top: 0px;

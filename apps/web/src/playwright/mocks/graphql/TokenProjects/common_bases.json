@@ -1,0 +1,138 @@
+{
+  "data": {
+    "tokenProjects": [
+      {
+        "id": "VG9rZW5Qcm9qZWN0OkVUSEVSRVVNX25hdGl2ZV9FVEg=",
+        "logoUrl": "https://token-icons.s3.amazonaws.com/eth.png",
+        "safetyLevel": "VERIFIED",
+        "__typename": "TokenProject",
+        "tokens": [
+          {
+            "id": "ETH-native-1",
+            "address": null,
+            "chain": "ETHEREUM",
+            "symbol": "ETH",
+            "name": "Ether",
+            "decimals": 18,
+            "standard": "NATIVE",
+            "isBridged": false,
+            "bridgedWithdrawalInfo": null,
+            "feeData": null,
+            "protectionInfo": null,
+            "__typename": "Token"
+          }
+        ]
+      },
+      {
+        "id": "VG9rZW5Qcm9qZWN0OkVUSEVSRVVNXzB4QzAyYWFBMzliMjIzRkU4RDBBMGU1QzRGMjdlQUQ5MDgzQzc1NkNjMl9XRVRI",
+        "logoUrl": "https://raw.githubusercontent.com/Uniswap/assets/master/blockchains/ethereum/assets/0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2/logo.png",
+        "safetyLevel": "VERIFIED",
+        "__typename": "TokenProject",
+        "tokens": [
+          {
+            "id": "WETH-0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2-1",
+            "address": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+            "chain": "ETHEREUM",
+            "symbol": "WETH",
+            "name": "Wrapped Ether",
+            "decimals": 18,
+            "standard": "ERC20",
+            "isBridged": false,
+            "bridgedWithdrawalInfo": null,
+            "feeData": null,
+            "protectionInfo": null,
+            "__typename": "Token"
+          }
+        ]
+      },
+      {
+        "id": "VG9rZW5Qcm9qZWN0OkVUSEVSRVVNXzB4ZEFDMTdGOTU4RDJlZTUyM2EyMjA2MjA2OTk0NTk3QzEzRDgzMWVjN19VU0RU",
+        "logoUrl": "https://raw.githubusercontent.com/Uniswap/assets/master/blockchains/ethereum/assets/0xdAC17F958D2ee523a2206206994597C13D831ec7/logo.png",
+        "safetyLevel": "VERIFIED",
+        "__typename": "TokenProject",
+        "tokens": [
+          {
+            "id": "USDT-0xdAC17F958D2ee523a2206206994597C13D831ec7-1",
+            "address": "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+            "chain": "ETHEREUM",
+            "symbol": "USDT",
+            "name": "Tether USD",
+            "decimals": 6,
+            "standard": "ERC20",
+            "isBridged": false,
+            "bridgedWithdrawalInfo": null,
+            "feeData": null,
+            "protectionInfo": null,
+            "__typename": "Token"
+          }
+        ]
+      },
+      {
+        "id": "VG9rZW5Qcm9qZWN0OkVUSEVSRVVNXzB4QTBiODY5OTFjNjIxOGIzNmMxZDE5RDRhMmU5RWIwQ0UzNjA2ZUI0OF9VU0RD",
+        "logoUrl": "https://raw.githubusercontent.com/Uniswap/assets/master/blockchains/ethereum/assets/0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48/logo.png",
+        "safetyLevel": "VERIFIED",
+        "__typename": "TokenProject",
+        "tokens": [
+          {
+            "id": "USDC-0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48-1",
+            "address": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+            "chain": "ETHEREUM",
+            "symbol": "USDC",
+            "name": "USD Coin",
+            "decimals": 6,
+            "standard": "ERC20",
+            "isBridged": false,
+            "bridgedWithdrawalInfo": null,
+            "feeData": null,
+            "protectionInfo": null,
+            "__typename": "Token"
+          }
+        ]
+      },
+      {
+        "id": "VG9rZW5Qcm9qZWN0OkVUSEVSRVVNXzB4NkIxNzU0NzRFODkwOTRDNDREYTk4Yjk1NEVlZGVBQzQ5NTI3MWQwRl9EQUk=",
+        "logoUrl": "https://raw.githubusercontent.com/Uniswap/assets/master/blockchains/ethereum/assets/0x6B175474E89094C44Da98b954EedeAC495271d0F/logo.png",
+        "safetyLevel": "VERIFIED",
+        "__typename": "TokenProject",
+        "tokens": [
+          {
+            "id": "DAI-0x6B175474E89094C44Da98b954EedeAC495271d0F-1",
+            "address": "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+            "chain": "ETHEREUM",
+            "symbol": "DAI",
+            "name": "Dai Stablecoin",
+            "decimals": 18,
+            "standard": "ERC20",
+            "isBridged": false,
+            "bridgedWithdrawalInfo": null,
+            "feeData": null,
+            "protectionInfo": null,
+            "__typename": "Token"
+          }
+        ]
+      },
+      {
+        "id": "VG9rZW5Qcm9qZWN0OkVUSEVSRVVNXzB4MjI2MGZhYzVlNTU0MmEzNzNhNDY5YzZmYjA0NWMzYzFlM2QzMjI2MV9XQlRD",
+        "logoUrl": "https://raw.githubusercontent.com/Uniswap/assets/master/blockchains/ethereum/assets/0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599/logo.png",
+        "safetyLevel": "VERIFIED",
+        "__typename": "TokenProject",
+        "tokens": [
+          {
+            "id": "WBTC-0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599-1",
+            "address": "0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599",
+            "chain": "ETHEREUM",
+            "symbol": "WBTC",
+            "name": "Wrapped BTC",
+            "decimals": 8,
+            "standard": "ERC20",
+            "isBridged": false,
+            "bridgedWithdrawalInfo": null,
+            "feeData": null,
+            "protectionInfo": null,
+            "__typename": "Token"
+          }
+        ]
+      }
+    ]
+  }
+}

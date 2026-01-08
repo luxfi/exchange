@@ -29,7 +29,7 @@ function Tooltip() {
         justifyContent="center"
         width={`${TOOLTIP_WIDTH}px`}
         height="32px"
-        lineHeight="32px"
+        lineHeight={32}
       >
         <Trans i18nKey="common.copied" />
       </Text>

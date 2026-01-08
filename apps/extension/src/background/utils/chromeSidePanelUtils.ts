@@ -1,6 +1,6 @@
 import { focusOrCreateDappRequestWindow } from 'src/app/navigation/utils'
-import { ExtensionEventName } from 'uniswap/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
+import { ExtensionEventName } from 'lx/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
 import { logger } from 'utilities/src/logger/logger'
 
 export async function openSidePanel(tabId: number | undefined, windowId: number): Promise<void> {

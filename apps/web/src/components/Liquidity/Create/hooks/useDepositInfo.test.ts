@@ -1,42 +1,42 @@
-import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
-import { CurrencyAmount } from '@uniswap/sdk-core'
-import { Pair } from '@uniswap/v2-sdk'
-import { FeeAmount, nearestUsableTick, TICK_SPACINGS, TickMath, Pool as V3Pool } from '@uniswap/v3-sdk'
-import { Pool as V4Pool } from '@uniswap/v4-sdk'
-import { useDynamicConfigValue } from '@universe/gating'
+import { ProtocolVersion } from '@luxdex/client-data-api/dist/data/v1/poolTypes_pb'
+import { CurrencyAmount } from '@luxamm/sdk-core'
+import { Pair } from '@luxamm/v2-sdk'
+import { FeeAmount, nearestUsableTick, TICK_SPACINGS, TickMath, Pool as V3Pool } from '@luxamm/v3-sdk'
+import { Pool as V4Pool } from '@luxamm/v4-sdk'
+import { useDynamicConfigValue } from '@luxfi/gating'
 import { useDepositInfo } from 'components/Liquidity/Create/hooks/useDepositInfo'
 import { useNativeTokenPercentageBufferExperiment } from 'components/Liquidity/Create/hooks/useNativeTokenPercentageBufferExperiment'
 import JSBI from 'jsbi'
 import { ETH_MAINNET } from 'test-utils/constants'
 import { renderHook } from 'test-utils/render'
 import { PositionField } from 'types/position'
-import { ZERO_ADDRESS } from 'uniswap/src/constants/misc'
-import { USDC, USDT } from 'uniswap/src/constants/tokens'
-import { useMaxAmountSpend } from 'uniswap/src/features/gas/hooks/useMaxAmountSpend'
-import { useOnChainCurrencyBalance } from 'uniswap/src/features/portfolio/api'
-import { useUSDCValue } from 'uniswap/src/features/transactions/hooks/useUSDCPrice'
+import { ZERO_ADDRESS } from 'lx/src/constants/misc'
+import { USDC, USDT } from 'lx/src/constants/tokens'
+import { useMaxAmountSpend } from 'lx/src/features/gas/hooks/useMaxAmountSpend'
+import { useOnChainCurrencyBalance } from 'lx/src/features/portfolio/api'
+import { useUSDCValue } from 'lx/src/features/transactions/hooks/useUSDCPrice'
 
 vi.mock('components/Liquidity/Create/hooks/useNativeTokenPercentageBufferExperiment', async (importOriginal) => ({
   ...(await importOriginal()),
   useNativeTokenPercentageBufferExperiment: vi.fn(),
 }))
 
-vi.mock('uniswap/src/features/portfolio/api', async (importOriginal) => ({
+vi.mock('lx/src/features/portfolio/api', async (importOriginal) => ({
   ...(await importOriginal()),
   useOnChainCurrencyBalance: vi.fn(),
 }))
 
-vi.mock('@universe/gating', async (importOriginal) => ({
+vi.mock('@luxfi/gating', async (importOriginal) => ({
   ...(await importOriginal()),
   useDynamicConfigValue: vi.fn(),
 }))
 
-vi.mock('uniswap/src/features/gas/hooks/useMaxAmountSpend', async (importOriginal) => ({
+vi.mock('lx/src/features/gas/hooks/useMaxAmountSpend', async (importOriginal) => ({
   ...(await importOriginal()),
   useMaxAmountSpend: vi.fn(),
 }))
 
-vi.mock('uniswap/src/features/transactions/hooks/useUSDCPrice', async (importOriginal) => ({
+vi.mock('lx/src/features/transactions/hooks/useUSDCPrice', async (importOriginal) => ({
   ...(await importOriginal()),
   useUSDCValue: vi.fn(),
 }))

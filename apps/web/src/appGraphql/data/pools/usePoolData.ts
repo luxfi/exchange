@@ -1,13 +1,13 @@
-import { FeeAmount, TICK_SPACINGS } from '@uniswap/v3-sdk'
-import { GraphQLApi } from '@universe/api'
+import { FeeAmount, TICK_SPACINGS } from '@luxamm/v3-sdk'
+import { GraphQLApi } from '@luxfi/api'
 import { FeeData } from 'components/Liquidity/Create/types'
 import ms from 'ms'
 import { useMemo } from 'react'
-import { V2_DEFAULT_FEE_TIER } from 'uniswap/src/constants/pools'
-import { useEnabledChains } from 'uniswap/src/features/chains/hooks/useEnabledChains'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { toGraphQLChain } from 'uniswap/src/features/chains/utils'
-import { isSVMChain } from 'uniswap/src/features/platforms/utils/chains'
+import { V2_DEFAULT_FEE_TIER } from 'lx/src/constants/pools'
+import { useEnabledChains } from 'lx/src/features/chains/hooks/useEnabledChains'
+import { UniverseChainId } from 'lx/src/features/chains/types'
+import { toGraphQLChain } from 'lx/src/features/chains/utils'
+import { isSVMChain } from 'lx/src/features/platforms/utils/chains'
 
 interface RewardsCampaign {
   id: string

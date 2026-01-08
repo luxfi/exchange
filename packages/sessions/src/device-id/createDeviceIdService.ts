@@ -1,4 +1,4 @@
-import type { DeviceIdService } from '@universe/sessions/src/device-id/types'
+import type { DeviceIdService } from '@luxfi/sessions/src/device-id/types'
 
 function createDeviceIdService(ctx: {
   getDeviceId: () => Promise<string>

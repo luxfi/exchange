@@ -1,4 +1,4 @@
-import { MobileScreens, UnitagScreens } from 'uniswap/src/types/screens/mobile'
+import { MobileScreens, UnitagScreens } from 'lx/src/types/screens/mobile'
 
 export interface EditWalletSettingsModalState {
   address: Address

@@ -1,4 +1,4 @@
-import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import { FeatureFlags, useFeatureFlag } from '@luxfi/gating'
 import { useRecentConnectorId } from 'components/Web3Provider/constants'
 import { createAccountsStoreGetters } from 'features/accounts/store/getters'
 import { useAccountsStore } from 'features/accounts/store/hooks'
@@ -6,9 +6,9 @@ import { ExternalWallet } from 'features/accounts/store/types'
 import { useOrderedWallets } from 'features/wallet/connection/hooks/useOrderedWalletConnectors'
 import { mocked } from 'test-utils/mocked'
 import { renderHook } from 'test-utils/render'
-import { CONNECTION_PROVIDER_IDS } from 'uniswap/src/constants/web3'
-import { SigningCapability } from 'uniswap/src/features/accounts/store/types/Wallet'
-import { Platform } from 'uniswap/src/features/platforms/types/Platform'
+import { CONNECTION_PROVIDER_IDS } from 'lx/src/constants/web3'
+import { SigningCapability } from 'lx/src/features/accounts/store/types/Wallet'
+import { Platform } from 'lx/src/features/platforms/types/Platform'
 
 // biome-ignore lint/suspicious/noVar: Testing variable hoisting behavior requires var
 var mockIsMobileWeb = false
@@ -37,7 +37,7 @@ vi.mock('components/Web3Provider/constants', async () => {
   }
 })
 
-vi.mock('@universe/gating', async (importOriginal) => {
+vi.mock('@luxfi/gating', async (importOriginal) => {
   return {
     ...(await importOriginal()),
     useFeatureFlag: vi.fn(),

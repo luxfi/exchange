@@ -38,7 +38,7 @@ export function useDynamicFontSizing({ maxCharWidthAtMaxFontSize, maxFontSize, m
       const newFontSize = Math.round(Math.min(maxFontSize, scaledSizeWithMin))
       setFontSize(newFontSize)
     },
-    [fontSize, maxFontSize, minFontSize, maxCharWidthAtMaxFontSize],
+    [fontSize, maxFontSize, minFontSize, maxCharWidthAtMaxFontSize]
   )
 
   return { onLayout, fontSize, onSetFontSize }

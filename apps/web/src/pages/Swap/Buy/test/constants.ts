@@ -1,5 +1,5 @@
 import { ethCurrencyInfo } from 'pages/Swap/Buy/BuyFormContext'
-import { RampDirection } from 'uniswap/src/features/fiatOnRamp/types'
+import { RampDirection } from 'lx/src/features/fiatOnRamp/types'
 import { getFiatCurrencyComponents } from 'utilities/src/format/localeBased'
 
 export const mockServiceProvider = {

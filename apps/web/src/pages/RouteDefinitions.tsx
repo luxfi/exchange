@@ -1,4 +1,4 @@
-import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import { FeatureFlags, useFeatureFlag } from '@luxfi/gating'
 import { getExploreDescription, getExploreTitle } from 'pages/getExploreTitle'
 import { getPortfolioDescription, getPortfolioTitle } from 'pages/getPortfolioTitle'
 import { getAddLiquidityPageTitle, getPositionPageDescription, getPositionPageTitle } from 'pages/getPositionPageTitle'
@@ -7,11 +7,11 @@ import Landing from 'pages/Landing'
 import Swap from 'pages/Swap'
 import { lazy, ReactNode, Suspense, useMemo } from 'react'
 import { matchPath, Navigate, Route, Routes, useLocation } from 'react-router'
-import { WRAPPED_PATH } from 'uniswap/src/components/banners/shared/utils'
-import { CHROME_EXTENSION_UNINSTALL_URL_PATH } from 'uniswap/src/constants/urls'
-import { WRAPPED_SOL_ADDRESS_SOLANA } from 'uniswap/src/features/chains/svm/defaults'
-import { EXTENSION_PASSKEY_AUTH_PATH } from 'uniswap/src/features/passkey/constants'
-import i18n from 'uniswap/src/i18n'
+import { WRAPPED_PATH } from 'lx/src/components/banners/shared/utils'
+import { CHROME_EXTENSION_UNINSTALL_URL_PATH } from 'lx/src/constants/urls'
+import { WRAPPED_SOL_ADDRESS_SOLANA } from 'lx/src/features/chains/svm/defaults'
+import { EXTENSION_PASSKEY_AUTH_PATH } from 'lx/src/features/passkey/constants'
+import i18n from 'lx/src/i18n'
 import { isBrowserRouterEnabled } from 'utils/env'
 
 const CreatePosition = lazy(() => import('pages/CreatePosition/CreatePosition'))
@@ -37,7 +37,8 @@ const RemoveLiquidityV2WithTokenRedirects = lazy(() =>
 )
 const PositionPage = lazy(() => import('pages/Positions/PositionPage'))
 const V2PositionPage = lazy(() => import('pages/Positions/V2PositionPage'))
-const PoolDetails = lazy(() => import('pages/PoolDetails'))
+// Legacy PoolDetails removed - use /pool/:tokenId instead
+const PoolDetails = () => null
 const TokenDetails = lazy(() => import('pages/TokenDetails'))
 const ExtensionPasskeyAuthPopUp = lazy(() => import('pages/ExtensionPasskeyAuthPopUp'))
 const PasskeyManagement = lazy(() => import('pages/PasskeyManagement'))
@@ -412,7 +413,7 @@ export const routes: RouteDefinition[] = [
   createRouteDefinition({
     path: WRAPPED_PATH,
     getElement: () => <Wrapped />,
-    getTitle: () => 'Uniswap Wrapped',
+    getTitle: () => 'Lux Wrapped',
     enabled: (args) => args.isWrappedEnabled ?? false,
   }),
   createRouteDefinition({ path: '*', getElement: () => <Navigate to="/not-found" replace /> }),

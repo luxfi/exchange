@@ -6,8 +6,8 @@ import {
 } from 'src/app/features/dapp/hooks'
 import { DappState, dappStore } from 'src/app/features/dapp/store'
 import { act, renderHook, waitFor } from 'src/test/test-utils'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { SAMPLE_SEED_ADDRESS_1, SAMPLE_SEED_ADDRESS_3 } from 'uniswap/src/test/fixtures'
+import { UniverseChainId } from 'lx/src/features/chains/types'
+import { SAMPLE_SEED_ADDRESS_1, SAMPLE_SEED_ADDRESS_3 } from 'lx/src/test/fixtures'
 import { ACCOUNT, ACCOUNT2, ACCOUNT3 } from 'wallet/src/test/fixtures'
 
 const SAMPLE_DAPP = 'http://example.com'

@@ -10,9 +10,9 @@ import { Pools } from 'ui/src/components/icons/Pools'
 import { ReceiveAlt } from 'ui/src/components/icons/ReceiveAlt'
 import { SendAction } from 'ui/src/components/icons/SendAction'
 import { AppTFunction } from 'ui/src/i18n/types'
-import { ActivityItem } from 'uniswap/src/components/activity/generateActivityItemRenderer'
-import { isLoadingItem, isSectionHeader } from 'uniswap/src/components/activity/utils'
-import { TransactionDetails, TransactionType } from 'uniswap/src/features/transactions/types/transactionDetails'
+import { ActivityItem } from 'lx/src/components/activity/generateActivityItemRenderer'
+import { isLoadingItem, isSectionHeader } from 'lx/src/components/activity/utils'
+import { TransactionDetails, TransactionType } from 'lx/src/features/transactions/types/transactionDetails'
 
 export enum ActivityFilterType {
   All = 'all',

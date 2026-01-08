@@ -10,16 +10,16 @@ import { useTranslation } from 'react-i18next'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router'
 import { liquiditySaga } from 'state/sagas/liquidity/liquiditySaga'
-import { ModalName } from 'uniswap/src/features/telemetry/constants'
+import { ModalName } from 'lx/src/features/telemetry/constants'
 import {
   CreatePositionTxAndGasInfo,
   isValidLiquidityTxContext,
   MigratePositionTxAndGasInfo,
-} from 'uniswap/src/features/transactions/liquidity/types'
-import { getErrorMessageToDisplay } from 'uniswap/src/features/transactions/liquidity/utils'
-import { TransactionStep } from 'uniswap/src/features/transactions/steps/types'
-import { useWallet } from 'uniswap/src/features/wallet/hooks/useWallet'
-import { isSignerMnemonicAccountDetails } from 'uniswap/src/features/wallet/types/AccountDetails'
+} from 'lx/src/features/transactions/liquidity/types'
+import { getErrorMessageToDisplay } from 'lx/src/features/transactions/liquidity/utils'
+import { TransactionStep } from 'lx/src/features/transactions/steps/types'
+import { useWallet } from 'lx/src/features/wallet/hooks/useWallet'
+import { isSignerMnemonicAccountDetails } from 'lx/src/features/wallet/types/AccountDetails'
 import { useTrace } from 'utilities/src/telemetry/trace/TraceContext'
 
 export function CreatePositionModal({

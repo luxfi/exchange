@@ -1,5 +1,5 @@
 import { BaseCard } from 'ui/src/components/swipeablecards/BaseCard'
-import { SwipeableCardProps } from 'ui/src/components/swipeablecards/props'
+import type { SwipeableCardProps } from 'ui/src/components/swipeablecards/props'
 import { TouchableArea } from 'ui/src/components/touchable'
 
 export function SwipeableCard({

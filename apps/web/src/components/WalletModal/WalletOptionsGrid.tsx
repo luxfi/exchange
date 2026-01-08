@@ -6,8 +6,8 @@ import { useOrderedWallets } from 'features/wallet/connection/hooks/useOrderedWa
 import { Fragment } from 'react'
 import { transitions } from 'theme/styles'
 import { Flex, Separator } from 'ui/src'
-import { CONNECTION_PROVIDER_IDS } from 'uniswap/src/constants/web3'
-import { Platform } from 'uniswap/src/features/platforms/types/Platform'
+import { CONNECTION_PROVIDER_IDS } from 'lx/src/constants/web3'
+import { Platform } from 'lx/src/features/platforms/types/Platform'
 import { isMobileWeb } from 'utilities/src/platform'
 
 interface WalletOptionsGridProps {

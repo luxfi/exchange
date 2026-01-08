@@ -1,5 +1,5 @@
-import { sendAnalyticsEvent, Trace, user } from '@uniswap/analytics'
-import { CustomUserProperties, getBrowser, InterfacePageName, SharedEventName } from '@uniswap/analytics-events'
+import { sendAnalyticsEvent, Trace, user } from '@luxdex/analytics'
+import { CustomUserProperties, getBrowser, InterfacePageName, SharedEventName } from '@luxdex/analytics-events'
 import Loader from 'components/Loader'
 import TopLevelModals from 'components/TopLevelModals'
 import { useFeatureFlagsIsLoaded } from 'featureFlags'

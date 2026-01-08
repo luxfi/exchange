@@ -1,7 +1,7 @@
 'use client';
 import { useMutation } from '@tanstack/react-query';
 import { useWriteContract, useWaitForTransactionReceipt } from 'wagmi';
-import { getContracts } from '@luxfi/config';
+import { getContracts } from '../contracts';
 import { SWAP_ROUTER_ABI } from '../contracts/abis';
 import { isNativeToken } from '../tokens';
 /**

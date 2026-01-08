@@ -5,8 +5,8 @@ import { PopupType } from 'components/Popups/types'
 import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router'
 import { useAppDispatch } from 'state/hooks'
-import { submitPoolSpamReport } from 'uniswap/src/features/reporting/reports'
-import { setPositionVisibility } from 'uniswap/src/features/visibility/slice'
+import { submitPoolSpamReport } from 'lx/src/features/reporting/reports'
+import { setPositionVisibility } from 'lx/src/features/visibility/slice'
 import { useEvent } from 'utilities/src/react/hooks'
 
 export function useReportPositionHandler({

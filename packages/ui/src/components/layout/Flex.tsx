@@ -1,11 +1,44 @@
+import type React from 'react'
 import type { Insets } from 'react-native'
-import { GetProps, SizeTokens, styled, View } from 'tamagui'
+import { type GetProps, type SizeTokens, type SpaceTokens, styled, type TamaguiElement, View } from 'tamagui'
 import { animationsEnter, animationsEnterExit, animationsExit } from 'ui/src/animations/presets'
 
 export const flexStyles = {
   fill: { flex: 1 },
   grow: { flexGrow: 1 },
   shrink: { flexShrink: 1 },
+}
+
+// Shorthand props type for padding and margin
+export type ShorthandSpaceProps = {
+  /** Padding all sides */
+  p?: SpaceTokens | number
+  /** Padding horizontal (left + right) */
+  px?: SpaceTokens | number
+  /** Padding vertical (top + bottom) */
+  py?: SpaceTokens | number
+  /** Padding top */
+  pt?: SpaceTokens | number
+  /** Padding bottom */
+  pb?: SpaceTokens | number
+  /** Padding left */
+  pl?: SpaceTokens | number
+  /** Padding right */
+  pr?: SpaceTokens | number
+  /** Margin all sides */
+  m?: SpaceTokens | number
+  /** Margin horizontal (left + right) */
+  mx?: SpaceTokens | number
+  /** Margin vertical (top + bottom) */
+  my?: SpaceTokens | number
+  /** Margin top */
+  mt?: SpaceTokens | number
+  /** Margin bottom */
+  mb?: SpaceTokens | number
+  /** Margin left */
+  ml?: SpaceTokens | number
+  /** Margin right */
+  mr?: SpaceTokens | number
 }
 
 type SizeOrNumber = number | SizeTokens
@@ -24,7 +57,8 @@ const getInset = (val: SizeOrNumber): SizedInset => ({
   left: val,
 })
 
-export const Flex = styled(View, {
+const FlexFrame = styled(View, {
+  name: 'Flex',
   flexDirection: 'column',
 
   variants: {
@@ -70,6 +104,16 @@ export const Flex = styled(View, {
   } as const,
 })
 
-Flex.displayName = 'Flex'
+type FlexFrameProps = GetProps<typeof FlexFrame>
 
-export type FlexProps = GetProps<typeof Flex>
+// Extend FlexProps with shorthand types that Tamagui supports at runtime
+export type FlexProps = FlexFrameProps & ShorthandSpaceProps
+
+/**
+ * Flex component with shorthand spacing props (p, px, py, m, mt, mb, etc.)
+ * These shorthands work at runtime through Tamagui but need explicit typing.
+ *
+ * The type assertion is necessary because Tamagui supports shorthands at runtime
+ * but the TypeScript types from styled() don't include them.
+ */
+export const Flex = FlexFrame as React.ForwardRefExoticComponent<FlexProps & React.RefAttributes<TamaguiElement>>

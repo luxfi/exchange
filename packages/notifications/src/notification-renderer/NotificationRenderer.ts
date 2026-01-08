@@ -1,4 +1,4 @@
-import { type InAppNotification } from '@universe/api'
+import { type InAppNotification } from '@luxfi/api'
 
 export interface NotificationRenderer {
   // Render a notification and return cleanup function

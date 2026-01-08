@@ -2,8 +2,8 @@ import { useAccountDrawer } from 'components/AccountDrawer/MiniPortfolio/hooks'
 import { AnimatedStyledBanner } from 'pages/Portfolio/components/AnimatedStyledBanner/AnimatedStyledBanner'
 import { useTranslation } from 'react-i18next'
 import { Button, Flex, Text } from 'ui/src'
-import { ElementName, InterfaceEventName } from 'uniswap/src/features/telemetry/constants'
-import Trace from 'uniswap/src/features/telemetry/Trace'
+import { ElementName, InterfaceEventName } from 'lx/src/features/telemetry/constants'
+import Trace from 'lx/src/features/telemetry/Trace'
 
 export function PortfolioConnectWalletBanner() {
   const { t } = useTranslation()

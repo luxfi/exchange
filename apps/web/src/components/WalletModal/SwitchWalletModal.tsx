@@ -5,7 +5,7 @@ import { TFunction } from 'i18next'
 import { ArrowLeft } from 'react-feather'
 import { useTranslation } from 'react-i18next'
 import { Flex, Text } from 'ui/src'
-import { Platform } from 'uniswap/src/features/platforms/types/Platform'
+import { Platform } from 'lx/src/features/platforms/types/Platform'
 
 function getTitle(t: TFunction, connectOnPlatform: Platform | 'any'): string {
   if (connectOnPlatform === Platform.EVM) {

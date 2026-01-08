@@ -1,7 +1,7 @@
 import { BigNumber } from '@ethersproject/bignumber'
-import { CurrencyAmount, Token, V3_CORE_FACTORY_ADDRESSES } from '@uniswap/sdk-core'
-import IUniswapV3PoolStateJSON from '@uniswap/v3-core/artifacts/contracts/interfaces/pool/IUniswapV3PoolState.sol/IUniswapV3PoolState.json'
-import { computePoolAddress, Pool, Position } from '@uniswap/v3-sdk'
+import { CurrencyAmount, Token, V3_CORE_FACTORY_ADDRESSES } from '@luxamm/sdk-core'
+import IUniswapV3PoolStateJSON from '@luxdex/v3-core/artifacts/contracts/interfaces/pool/IUniswapV3PoolState.sol/IUniswapV3PoolState.json'
+import { computePoolAddress, Pool, Position } from '@luxamm/v3-sdk'
 import {
   PositionInfo,
   useCachedPositions,
@@ -17,10 +17,10 @@ import {
 import { Interface } from 'ethers/lib/utils'
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { PositionDetails } from 'types/position'
-import { NonfungiblePositionManager, UniswapInterfaceMulticall } from 'uniswap/src/abis/types/v3'
-import { UniswapV3PoolInterface } from 'uniswap/src/abis/types/v3/UniswapV3Pool'
-import { useEnabledChains } from 'uniswap/src/features/chains/hooks/useEnabledChains'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { NonfungiblePositionManager, UniswapInterfaceMulticall } from 'lx/src/abis/types/v3'
+import { UniswapV3PoolInterface } from 'lx/src/abis/types/v3/UniswapV3Pool'
+import { useEnabledChains } from 'lx/src/features/chains/hooks/useEnabledChains'
+import { UniverseChainId } from 'lx/src/features/chains/types'
 import { logger } from 'utilities/src/logger/logger'
 import { DEFAULT_ERC20_DECIMALS } from 'utilities/src/tokens/constants'
 import { currencyKey } from 'utils/currencyKey'

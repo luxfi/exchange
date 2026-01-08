@@ -1,10 +1,10 @@
-import { PositionStatus } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
+import { PositionStatus } from '@luxdex/client-data-api/dist/data/v1/poolTypes_pb'
 import { ErrorCallout } from 'components/ErrorCallout'
 import { PositionInfo } from 'components/Liquidity/types'
 import { useTranslation } from 'react-i18next'
 import { useDispatch } from 'react-redux'
 import { setOpenModal } from 'state/application/reducer'
-import { ModalName } from 'uniswap/src/features/telemetry/constants'
+import { ModalName } from 'lx/src/features/telemetry/constants'
 
 export function PositionOutOfRangeError({ positionInfo }: { positionInfo?: PositionInfo }) {
   const { t } = useTranslation()

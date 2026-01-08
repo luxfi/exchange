@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react'
-import { EVMUniverseChainId } from 'uniswap/src/features/chains/types'
-import { isMainnetChainId } from 'uniswap/src/features/chains/utils'
+import { EVMUniverseChainId } from 'lx/src/features/chains/types'
+import { isMainnetChainId } from 'lx/src/features/chains/utils'
 import {
   AVERAGE_L1_BLOCK_TIME_MS,
   AVERAGE_L2_BLOCK_TIME_MS,
-} from 'uniswap/src/features/transactions/hooks/usePollingIntervalByChain'
+} from 'lx/src/features/transactions/hooks/usePollingIntervalByChain'
 import { ONE_SECOND_MS } from 'utilities/src/time/time'
 import { useBlock } from 'wagmi'
 

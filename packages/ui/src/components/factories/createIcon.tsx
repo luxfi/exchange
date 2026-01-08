@@ -1,10 +1,10 @@
 import type { IconProps as TamaguiIconProps } from '@tamagui/helpers-icon'
 import { createElement, forwardRef, useState } from 'react'
-import { Svg, SvgProps } from 'react-native-svg'
-import { ColorTokens, SpecificTokens, Stack, styled, ThemeKeys, usePropsAndStyle, View } from 'tamagui'
+import type { Svg, SvgProps } from 'react-native-svg'
+import { type ColorTokens, type SpecificTokens, Stack, styled, type ThemeKeys, usePropsAndStyle, View } from 'tamagui'
 import { withAnimated } from 'ui/src/components/factories/animated'
-import { DynamicColor } from 'ui/src/hooks/useSporeColors'
-import { IconSizeTokens } from 'ui/src/theme'
+import type { DynamicColor } from 'ui/src/hooks/useSporeColors'
+import type { IconSizeTokens } from 'ui/src/theme'
 import { isWebPlatform } from 'utilities/src/platform'
 
 type SvgPropsWithRef = SvgProps & { ref: React.ForwardedRef<Svg>; style?: { color?: string } }
@@ -59,7 +59,7 @@ export function createIcon({
       {
         resolveValues: 'value',
         forComponent: IconFrame,
-      },
+      }
     )
 
     // On web, style must be an object, not an array. The Tamagui compiler may

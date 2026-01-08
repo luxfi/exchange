@@ -1,5 +1,5 @@
 import { AnthropicProviderOptions, anthropic } from '@ai-sdk/anthropic'
-import type { AIProvider, GenerateTextInput, StreamChunk, StreamTextInput } from '@universe/cli/src/lib/ai-provider'
+import type { AIProvider, GenerateTextInput, StreamChunk, StreamTextInput } from '@luxfi/cli/src/lib/ai-provider'
 import { generateText, streamText } from 'ai'
 
 /**

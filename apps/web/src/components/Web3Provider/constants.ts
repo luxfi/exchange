@@ -7,7 +7,7 @@ import WALLET_CONNECT_ICON from 'assets/wallets/walletconnect-icon.svg'
 import { atomWithStorage, useAtomValue } from 'jotai/utils'
 // biome-ignore lint/style/noRestrictedImports: Provider constants need direct ethers imports
 import PASSKEY_ICON from 'ui/src/assets/icons/passkey.svg'
-import { CONNECTION_PROVIDER_NAMES } from 'uniswap/src/constants/web3'
+import { CONNECTION_PROVIDER_NAMES } from 'lx/src/constants/web3'
 
 export const CONNECTOR_ICON_OVERRIDE_MAP: { [name in string]?: string } = {
   [CONNECTION_PROVIDER_NAMES.METAMASK]: METAMASK_ICON,

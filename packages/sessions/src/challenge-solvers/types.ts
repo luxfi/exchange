@@ -1,4 +1,4 @@
-import type { ChallengeType } from '@universe/sessions/src/session-service/types'
+import type { ChallengeType } from '@luxfi/sessions/src/session-service/types'
 
 interface ChallengeData {
   challengeId: string

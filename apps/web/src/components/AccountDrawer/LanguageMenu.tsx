@@ -3,11 +3,11 @@ import { MenuColumn, MenuItem } from 'components/AccountDrawer/shared'
 import { useLocationLinkProps } from 'hooks/useLocationLinkProps'
 import { useTranslation } from 'react-i18next'
 import { useDispatch } from 'react-redux'
-import { Language, WEB_SUPPORTED_LANGUAGES } from 'uniswap/src/features/language/constants'
-import { useCurrentLanguage, useLanguageInfo } from 'uniswap/src/features/language/hooks'
-import { setCurrentLanguage } from 'uniswap/src/features/settings/slice'
-import { InterfaceEventName } from 'uniswap/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
+import { Language, WEB_SUPPORTED_LANGUAGES } from 'lx/src/features/language/constants'
+import { useCurrentLanguage, useLanguageInfo } from 'lx/src/features/language/hooks'
+import { setCurrentLanguage } from 'lx/src/features/settings/slice'
+import { InterfaceEventName } from 'lx/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
 
 function LanguageMenuItem({ language }: { language: Language }) {
   const currentLanguage = useCurrentLanguage()

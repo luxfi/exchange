@@ -1,6 +1,6 @@
-import { SignerMnemonicAccountMeta } from 'uniswap/src/features/accounts/types'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { ValidatedTransactionRequest } from 'uniswap/src/features/transactions/types/transactionRequests'
+import { SignerMnemonicAccountMeta } from 'lx/src/features/accounts/types'
+import { UniverseChainId } from 'lx/src/features/chains/types'
+import { ValidatedTransactionRequest } from 'lx/src/features/transactions/types/transactionRequests'
 import { SignedTransactionRequest } from 'wallet/src/features/transactions/executeTransaction/types'
 
 export interface PrepareAndSignDappTransactionParams {

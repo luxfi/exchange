@@ -1,6 +1,6 @@
 // biome-ignore lint/style/noRestrictedImports: until the web app needs all of tamagui, avoid heavy imports there
-import { SpaceTokens } from '@tamagui/core'
-import { PropsWithChildren } from 'react'
+import type { SpaceTokens } from '@tamagui/core'
+import type { PropsWithChildren } from 'react'
 import { Flex } from 'ui/src/components/layout/Flex'
 
 interface InsetProps {

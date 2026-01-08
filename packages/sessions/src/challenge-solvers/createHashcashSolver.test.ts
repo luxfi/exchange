@@ -1,6 +1,6 @@
-import { ChallengeType } from '@uniswap/client-platform-service/dist/uniswap/platformservice/v1/sessionService_pb'
-import { createHashcashSolver } from '@universe/sessions/src/challenge-solvers/createHashcashSolver'
-import type { ChallengeData } from '@universe/sessions/src/challenge-solvers/types'
+import { ChallengeType } from '@luxdex/client-platform-service/dist/uniswap/platformservice/v1/sessionService_pb'
+import { createHashcashSolver } from '@luxfi/sessions/src/challenge-solvers/createHashcashSolver'
+import type { ChallengeData } from '@luxfi/sessions/src/challenge-solvers/types'
 import { describe, expect, it } from 'vitest'
 
 describe('createHashcashSolver', () => {

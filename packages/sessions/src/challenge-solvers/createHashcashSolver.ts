@@ -1,5 +1,5 @@
-import { findProof, type HashcashChallenge } from '@universe/sessions/src/challenge-solvers/hashcash/core'
-import type { ChallengeData, ChallengeSolver } from '@universe/sessions/src/challenge-solvers/types'
+import { findProof, type HashcashChallenge } from '@luxfi/sessions/src/challenge-solvers/hashcash/core'
+import type { ChallengeData, ChallengeSolver } from '@luxfi/sessions/src/challenge-solvers/types'
 import { z } from 'zod'
 
 // Zod schema for hashcash challenge validation

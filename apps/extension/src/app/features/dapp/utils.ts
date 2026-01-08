@@ -1,4 +1,4 @@
-import { AccountType } from 'uniswap/src/features/accounts/types'
+import { AccountType } from 'lx/src/features/accounts/types'
 import { extractNameFromUrl } from 'utilities/src/format/extractNameFromUrl'
 import { bubbleToTop } from 'utilities/src/primitives/array'
 import { ONE_SECOND_MS } from 'utilities/src/time/time'

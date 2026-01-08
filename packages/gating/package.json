@@ -1,5 +1,5 @@
 {
-  "name": "@universe/gating",
+  "name": "@luxfi/gating",
   "version": "0.0.0",
   "dependencies": {
     "@statsig/client-core": "3.12.2",
@@ -7,12 +7,12 @@
     "@statsig/js-local-overrides": "3.12.2",
     "@statsig/react-bindings": "3.12.2",
     "@statsig/react-native-bindings": "3.12.2",
-    "@universe/api": "workspace:*",
+    "@luxfi/api": "workspace:*",
     "utilities": "workspace:*"
   },
   "devDependencies": {
     "@types/node": "22.13.1",
-    "@uniswap/eslint-config": "workspace:^",
+    "@luxfi/eslint-config": "workspace:^",
     "depcheck": "1.4.7",
     "eslint": "8.57.1",
     "typescript": "5.8.3"

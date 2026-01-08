@@ -20,8 +20,8 @@ import {
 } from 'src/features/biometricsSettings/slice'
 import { openSettings } from 'src/utils/linking'
 import { Flex, Switch, Text, TouchableArea } from 'ui/src'
-import { Modal } from 'uniswap/src/components/modals/Modal'
-import { ModalName } from 'uniswap/src/features/telemetry/constants'
+import { Modal } from 'lx/src/components/modals/Modal'
+import { ModalName } from 'lx/src/features/telemetry/constants'
 import { isAndroid, isIOS } from 'utilities/src/platform'
 
 interface BiometricAuthSetting {

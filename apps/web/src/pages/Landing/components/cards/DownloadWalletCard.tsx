@@ -7,7 +7,7 @@ import { Trans, useTranslation } from 'react-i18next'
 import { useIsDarkMode } from 'theme/components/ThemeToggle'
 import { Flex, useSporeColors } from 'ui/src'
 import { Star } from 'ui/src/components/icons/Star'
-import { uniswapUrls } from 'uniswap/src/constants/urls'
+import { uniswapUrls } from 'lx/src/constants/urls'
 
 export function DownloadWalletCard() {
   const theme = useSporeColors()

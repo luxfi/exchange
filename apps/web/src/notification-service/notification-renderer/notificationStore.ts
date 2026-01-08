@@ -1,5 +1,5 @@
 /* eslint-disable import/no-unused-modules */
-import { type InAppNotification } from '@universe/api'
+import { type InAppNotification } from '@luxfi/api'
 import { create, type StoreApi, type UseBoundStore } from 'zustand'
 
 export interface NotificationState {

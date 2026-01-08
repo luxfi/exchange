@@ -3,9 +3,9 @@ import { Trans } from 'react-i18next'
 import { Button, Flex, Image, Text, useIsDarkMode } from 'ui/src'
 import { UNISWAP_LOGO_LARGE } from 'ui/src/assets'
 import { iconSizes } from 'ui/src/theme'
-import { ServiceProviderLogoStyles } from 'uniswap/src/features/fiatOnRamp/constants'
-import { FORServiceProvider } from 'uniswap/src/features/fiatOnRamp/types'
-import { getOptionalServiceProviderLogo } from 'uniswap/src/features/fiatOnRamp/utils'
+import { ServiceProviderLogoStyles } from 'lx/src/features/fiatOnRamp/constants'
+import { FORServiceProvider } from 'lx/src/features/fiatOnRamp/types'
+import { getOptionalServiceProviderLogo } from 'lx/src/features/fiatOnRamp/utils'
 
 interface ProviderConnectionErrorProps {
   onBack: () => void

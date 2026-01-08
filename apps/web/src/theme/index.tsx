@@ -145,6 +145,12 @@ export function ThemeProvider({ children, ...overriddenColors }: PropsWithChildr
   return <StyledComponentsThemeProvider theme={themeObject}>{children}</StyledComponentsThemeProvider>
 }
 
+/** Force dark theme regardless of user settings - for use on dark backgrounds like hero sections */
+export function ForceDarkThemeProvider({ children }: PropsWithChildren) {
+  const themeObject = useMemo(() => getTheme(true), [])
+  return <StyledComponentsThemeProvider theme={themeObject}>{children}</StyledComponentsThemeProvider>
+}
+
 export const ThemedGlobalStyle = createGlobalStyle`
   html {
     color: ${({ theme }) => theme.neutral1};

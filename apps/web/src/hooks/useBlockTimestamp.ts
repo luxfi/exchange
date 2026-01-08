@@ -1,10 +1,10 @@
 import { useEffect, useMemo, useRef } from 'react'
-import { EVMUniverseChainId } from 'uniswap/src/features/chains/types'
-import { isMainnetChainId } from 'uniswap/src/features/chains/utils'
+import { EVMUniverseChainId } from 'lx/src/features/chains/types'
+import { isMainnetChainId } from 'lx/src/features/chains/utils'
 import {
   AVERAGE_L1_BLOCK_TIME_MS,
   AVERAGE_L2_BLOCK_TIME_MS,
-} from 'uniswap/src/features/transactions/hooks/usePollingIntervalByChain'
+} from 'lx/src/features/transactions/hooks/usePollingIntervalByChain'
 // biome-ignore lint/style/noRestrictedImports: Use wagmi version because it supports a chain being passed in
 import { useBlock, useBlockNumber } from 'wagmi'
 

@@ -1,11 +1,11 @@
-import { GraphQLApi } from '@universe/api'
+import { GraphQLApi } from '@luxfi/api'
 import { DeltaArrow } from 'components/Tokens/TokenDetails/Delta'
 import { NATIVE_CHAIN_ID } from 'constants/tokens'
 import { InteractiveToken } from 'pages/Landing/assets/approvedTokens'
 import { useMemo } from 'react'
 import { Flex, Text } from 'ui/src'
-import { ItemPoint } from 'uniswap/src/components/IconCloud/IconCloud'
-import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
+import { ItemPoint } from 'lx/src/components/IconCloud/IconCloud'
+import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
 
 export function Ticker({ itemPoint }: { itemPoint: ItemPoint<InteractiveToken> }) {
   const { formatPercent } = useLocalizationContext()

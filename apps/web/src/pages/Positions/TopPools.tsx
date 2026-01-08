@@ -1,16 +1,16 @@
 import { PoolSortFields } from 'appGraphql/data/pools/useTopPools'
 import { OrderDirection } from 'appGraphql/data/util'
-import { ExploreStatsResponse } from '@uniswap/client-explore/dist/uniswap/explore/v1/service_pb'
-import { ALL_NETWORKS_ARG } from '@universe/api'
-import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import { ExploreStatsResponse } from '@luxdex/client-explore/dist/uniswap/explore/v1/service_pb'
+import { ALL_NETWORKS_ARG } from '@luxfi/api'
+import { FeatureFlags, useFeatureFlag } from '@luxfi/gating'
 import { ExternalArrowLink } from 'components/Liquidity/ExternalArrowLink'
 import { useAccount } from 'hooks/useAccount'
 import { TopPoolsSection } from 'pages/Positions/TopPoolsSection'
 import { useTranslation } from 'react-i18next'
 import { useTopPools } from 'state/explore/topPools'
 import { Flex, useMedia } from 'ui/src'
-import { useExploreStatsQuery } from 'uniswap/src/data/rest/exploreStats'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { useExploreStatsQuery } from 'lx/src/data/rest/exploreStats'
+import { UniverseChainId } from 'lx/src/features/chains/types'
 
 const MAX_BOOSTED_POOLS = 3
 

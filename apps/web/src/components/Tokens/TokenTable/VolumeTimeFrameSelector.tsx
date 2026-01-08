@@ -7,8 +7,8 @@ import { useEffect, useState } from 'react'
 import { Check } from 'react-feather'
 import { useTranslation } from 'react-i18next'
 import { Flex, useMedia, useSporeColors } from 'ui/src'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+import { UniverseChainId } from 'lx/src/features/chains/types'
+import { TestID } from 'lx/src/test/fixtures/testIDs'
 import { getChainIdFromChainUrlParam } from 'utils/chainParams'
 
 export enum TimePeriodDisplay {

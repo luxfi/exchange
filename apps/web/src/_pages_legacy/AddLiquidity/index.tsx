@@ -1,10 +1,10 @@
 import { BigNumber } from '@ethersproject/bignumber'
 import type { TransactionResponse } from '@ethersproject/providers'
 import { Trans } from '@lingui/macro'
-import { TraceEvent } from '@uniswap/analytics'
-import { BrowserEvent, InterfaceElementName, InterfaceEventName } from '@uniswap/analytics-events'
-import { Currency, CurrencyAmount, Percent } from '@uniswap/sdk-core'
-import { FeeAmount, NonfungiblePositionManager } from '@uniswap/v3-sdk'
+import { TraceEvent } from '@luxdex/analytics'
+import { BrowserEvent, InterfaceElementName, InterfaceEventName } from '@luxdex/analytics-events'
+import { Currency, CurrencyAmount, Percent } from '@luxamm/sdk-core'
+import { FeeAmount, NonfungiblePositionManager } from '@luxamm/v3-sdk'
 import { useWeb3React } from '@web3-react/core'
 import { sendEvent } from 'components/analytics'
 import UnsupportedCurrencyFooter from 'components/swap/UnsupportedCurrencyFooter'
@@ -862,7 +862,7 @@ export default function AddLiquidity() {
                                       Full range positions may earn less fees than concentrated positions. Learn more{' '}
                                       <ExternalLink
                                         style={{ color: theme.deprecated_yellow3, textDecoration: 'underline' }}
-                                        href="https://help.uniswap.org/en/articles/5434296-can-i-provide-liquidity-over-the-full-range-in-v3"
+                                        href="https://docs.lux.exchange/help/liquidity-full-range-v3"
                                       >
                                         here
                                       </ExternalLink>

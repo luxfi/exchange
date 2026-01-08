@@ -2,8 +2,8 @@ import { UseMutationOptions, UseMutationResult, useMutation } from '@tanstack/re
 import { useModalState } from 'hooks/useModalState'
 import { atom } from 'jotai'
 import { useUpdateAtom } from 'jotai/utils'
-import { PasskeysHelpModalTypes } from 'uniswap/src/features/passkey/PasskeysHelpModal'
-import { ModalName } from 'uniswap/src/features/telemetry/constants'
+import { PasskeysHelpModalTypes } from 'lx/src/features/passkey/PasskeysHelpModal'
+import { ModalName } from 'lx/src/features/telemetry/constants'
 import { logger } from 'utilities/src/logger/logger'
 
 export const PasskeysHelpModalTypeAtom = atom<PasskeysHelpModalTypes>(PasskeysHelpModalTypes.Default)

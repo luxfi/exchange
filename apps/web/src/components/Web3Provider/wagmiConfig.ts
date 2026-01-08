@@ -5,11 +5,11 @@ import { WC_PARAMS } from 'components/Web3Provider/walletConnect'
 import { embeddedWallet } from 'connection/EmbeddedWalletConnector'
 import { porto } from 'porto/wagmi'
 import { UNISWAP_LOGO } from 'ui/src/assets'
-import { UNISWAP_WEB_URL } from 'uniswap/src/constants/urls'
-import { CONNECTION_PROVIDER_IDS } from 'uniswap/src/constants/web3'
-import type { getChainInfo } from 'uniswap/src/features/chains/chainInfo'
-import { ORDERED_EVM_CHAINS } from 'uniswap/src/features/chains/chainInfo'
-import { isTestnetChain } from 'uniswap/src/features/chains/utils'
+import { UNISWAP_WEB_URL } from 'lx/src/constants/urls'
+import { CONNECTION_PROVIDER_IDS } from 'lx/src/constants/web3'
+import type { getChainInfo } from 'lx/src/features/chains/chainInfo'
+import { ORDERED_EVM_CHAINS } from 'lx/src/features/chains/chainInfo'
+import { isTestnetChain } from 'lx/src/features/chains/utils'
 import { isPlaywrightEnv, isTestEnv } from 'utilities/src/environment/env'
 import { logger } from 'utilities/src/logger/logger'
 import { getNonEmptyArrayOrThrow } from 'utilities/src/primitives/array'
@@ -18,6 +18,9 @@ import { createClient } from 'viem'
 import type { Config } from 'wagmi'
 import { createConfig, fallback, http } from 'wagmi'
 import { coinbaseWallet, injected, safe, walletConnect } from 'wagmi/connectors'
+
+// Note: LuxDev chain (ID 1337) is included in ORDERED_EVM_CHAINS via LUX_DEV_CHAIN_INFO
+// See packages/lx/src/features/chains/evm/info/lux.ts for the full chain definition
 
 // Get the appropriate Binance connector based on the environment
 const getBinanceConnector = () => {
@@ -50,14 +53,15 @@ const getBinanceConnector = () => {
   })
 }
 
-export const orderedTransportUrls = (chain: ReturnType<typeof getChainInfo>): string[] => {
+export const orderedTransportUrls = (chain: Chain): string[] => {
+  const fullChain = chain as ReturnType<typeof getChainInfo>
   const orderedRpcUrls = [
     // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
-    ...(chain.rpcUrls.interface?.http ?? []),
+    ...(fullChain.rpcUrls.interface?.http ?? []),
     // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
-    ...(chain.rpcUrls.default?.http ?? []),
-    ...(chain.rpcUrls.public?.http ?? []),
-    ...(chain.rpcUrls.fallback?.http ?? []),
+    ...(fullChain.rpcUrls.default?.http ?? []),
+    ...(fullChain.rpcUrls.public?.http ?? []),
+    ...(fullChain.rpcUrls.fallback?.http ?? []),
   ]
 
   return Array.from(new Set(orderedRpcUrls.filter(Boolean)))
@@ -70,7 +74,8 @@ function createWagmiConnectors(params: {
   const { includeMockConnector } = params
 
   const baseConnectors = [
-    porto(),
+    // Porto connector creates an iframe that can cause issues in Playwright headless mode
+    ...(isPlaywrightEnv() ? [] : [porto()]),
     // Binance connector - uses injected for extension, QR code for mobile
     getBinanceConnector(),
     // There are no unit tests that expect WalletConnect to be included here,
@@ -98,16 +103,22 @@ function createWagmiConnectors(params: {
     : baseConnectors
 }
 
+// Get chains - LuxDev (chain ID 1337) is already in ORDERED_EVM_CHAINS
+function getChains(): [Chain, ...Chain[]] {
+  return ORDERED_EVM_CHAINS as [Chain, ...Chain[]]
+}
+
 function createWagmiConfig(params: {
   /** The connector list to use. */
   connectors: any[]
   /** Optional custom `onFetchResponse` handler – defaults to `defaultOnFetchResponse`. */
   onFetchResponse?: (response: Response, chain: Chain, url: string) => void
-}): Config<typeof ORDERED_EVM_CHAINS> {
+}): Config {
   const { connectors, onFetchResponse = defaultOnFetchResponse } = params
+  const chains = getChains()
 
   return createConfig({
-    chains: getNonEmptyArrayOrThrow(ORDERED_EVM_CHAINS),
+    chains: getNonEmptyArrayOrThrow(chains),
     connectors,
     client({ chain }) {
       return createClient({

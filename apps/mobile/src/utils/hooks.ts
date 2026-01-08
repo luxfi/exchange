@@ -1,7 +1,7 @@
 import { useFocusEffect } from '@react-navigation/core'
 import { useCallback, useEffect } from 'react'
 import { useAppStackNavigation } from 'src/app/navigation/types'
-import { PollingInterval } from 'uniswap/src/constants/misc'
+import { PollingInterval } from 'lx/src/constants/misc'
 
 export function usePollOnFocusOnly({
   startPolling,

@@ -1,4 +1,4 @@
-import { Currency, Percent } from '@uniswap/sdk-core'
+import { Currency, Percent } from '@luxamm/sdk-core'
 import { AxisRight } from 'components/Charts/ActiveLiquidityChart/AxisRight'
 import { Brush } from 'components/Charts/ActiveLiquidityChart/Brush'
 import { HorizontalArea } from 'components/Charts/ActiveLiquidityChart/HorizontalArea'
@@ -9,7 +9,7 @@ import { max as getMax, scaleLinear } from 'd3'
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { Flex, Text, useSporeColors } from 'ui/src'
 import { opacify } from 'ui/src/theme'
-import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
+import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
 
 const xAccessor = (d: ChartEntry) => d.activeLiquidity
 const yAccessor = (d: ChartEntry) => d.price0

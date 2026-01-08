@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <circle cx="50" cy="50" r="50" fill="#000000"/>
+  <circle cx="50" cy="50" r="46" stroke="#333333" stroke-width="2" fill="none"/>
+  <path d="M35 30h30l-3 40h-24l-3-40z" fill="white" fill-opacity="0.9"/>
+  <path d="M40 35l3 30h14l3-30h-20z" fill="#000000"/>
+  <text x="50" y="56" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">TON</text>
+</svg>

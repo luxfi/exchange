@@ -8,7 +8,7 @@ import mintV3 from 'state/mint/v3/reducer'
 import { routingApi } from 'state/routing/slice'
 import user from 'state/user/reducer'
 import walletCapabilities from 'state/walletCapabilities/reducer'
-import { uniswapPersistedStateList, uniswapReducers } from 'uniswap/src/state/uniswapReducer'
+import { uniswapPersistedStateList, uniswapReducers } from 'lx/src/state/uniswapReducer'
 
 const interfaceReducers = {
   ...uniswapReducers,

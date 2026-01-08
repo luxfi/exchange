@@ -5,17 +5,17 @@ import { navigate } from 'src/app/navigation/rootNavigation'
 import { SafeKeyboardOnboardingScreen } from 'src/features/onboarding/SafeKeyboardOnboardingScreen'
 import { useNavigationHeader } from 'src/utils/useNavigationHeader'
 import { Person } from 'ui/src/components/icons'
-import { UnitagEventName } from 'uniswap/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
-import { ClaimUnitagContent } from 'uniswap/src/features/unitags/ClaimUnitagContent'
-import { ImportType, OnboardingEntryPoint } from 'uniswap/src/types/onboarding'
+import { UnitagEventName } from 'lx/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
+import { ClaimUnitagContent } from 'lx/src/features/unitags/ClaimUnitagContent'
+import { ImportType, OnboardingEntryPoint } from 'lx/src/types/onboarding'
 import {
   MobileScreens,
   OnboardingScreens,
   SharedUnitagScreenParams,
   UnitagScreens,
   UnitagStackParamList,
-} from 'uniswap/src/types/screens/mobile'
+} from 'lx/src/types/screens/mobile'
 import {
   useCreateOnboardingAccountIfNone,
   useOnboardingContext,

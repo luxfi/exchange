@@ -9,12 +9,12 @@ import {
   DataCollector,
   type PullRequest,
   type RepositoryData,
-} from '@universe/cli/src/core/data-collector'
-import type { AIProvider } from '@universe/cli/src/lib/ai-provider'
-import { AnalysisWriter } from '@universe/cli/src/lib/analysis-writer'
-import type { CacheProvider } from '@universe/cli/src/lib/cache-provider'
-import type { Logger } from '@universe/cli/src/lib/logger'
-import { ReleaseScanner } from '@universe/cli/src/lib/release-scanner'
+} from '@luxfi/cli/src/core/data-collector'
+import type { AIProvider } from '@luxfi/cli/src/lib/ai-provider'
+import { AnalysisWriter } from '@luxfi/cli/src/lib/analysis-writer'
+import type { CacheProvider } from '@luxfi/cli/src/lib/cache-provider'
+import type { Logger } from '@luxfi/cli/src/lib/logger'
+import { ReleaseScanner } from '@luxfi/cli/src/lib/release-scanner'
 
 // ============================================================================
 // Types

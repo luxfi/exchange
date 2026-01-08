@@ -6,7 +6,7 @@ import useCurrentBlockTimestamp from 'hooks/useCurrentBlockTimestamp'
 import { useCallback, useMemo } from 'react'
 import { useAppSelector } from 'state/hooks'
 import { useMultichainContext } from 'state/multichain/useMultichainContext'
-import { isL2ChainId } from 'uniswap/src/features/chains/utils'
+import { isL2ChainId } from 'lx/src/features/chains/utils'
 
 export default function useTransactionDeadline(): BigNumber | undefined {
   const { chainId } = useAccount()

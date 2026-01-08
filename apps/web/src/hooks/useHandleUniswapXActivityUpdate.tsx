@@ -1,17 +1,17 @@
-import { useTrace } from '@uniswap/analytics'
-import { TradingApi } from '@universe/api'
+import { useTrace } from '@luxdex/analytics'
+import { TradingApi } from '@luxfi/api'
 import { popupRegistry } from 'components/Popups/registry'
 import { PopupType } from 'components/Popups/types'
 import { useCallback } from 'react'
 import type { UniswapXOrderUpdate } from 'state/activity/types'
 import { useAppDispatch } from 'state/hooks'
 import { logUniswapXSwapFinalized } from 'tracing/swapFlowLoggers'
-import { finalizeTransaction, updateTransaction } from 'uniswap/src/features/transactions/slice'
+import { finalizeTransaction, updateTransaction } from 'lx/src/features/transactions/slice'
 import {
   extractTransactionTypeInfoAttribute,
   TransactionStatus,
-} from 'uniswap/src/features/transactions/types/transactionDetails'
-import { isFinalizedTx } from 'uniswap/src/features/transactions/types/utils'
+} from 'lx/src/features/transactions/types/transactionDetails'
+import { isFinalizedTx } from 'lx/src/features/transactions/types/utils'
 
 interface HandleUniswapXActivityUpdateParams {
   activity: UniswapXOrderUpdate

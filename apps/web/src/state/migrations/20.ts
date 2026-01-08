@@ -1,6 +1,6 @@
 import { PersistState } from 'redux-persist'
-import { FiatCurrency } from 'uniswap/src/features/fiatCurrency/constants'
-import { UserSettingsState } from 'uniswap/src/features/settings/slice'
+import { FiatCurrency } from 'lx/src/features/fiatCurrency/constants'
+import { UserSettingsState } from 'lx/src/features/settings/slice'
 
 export type PersistAppStateV20 = {
   _persist: PersistState

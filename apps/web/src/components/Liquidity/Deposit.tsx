@@ -1,4 +1,4 @@
-import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
+import { ProtocolVersion } from '@luxdex/client-data-api/dist/data/v1/poolTypes_pb'
 import { ErrorCallout } from 'components/ErrorCallout'
 import { useDefaultInitialPrice } from 'components/Liquidity/Create/hooks/useDefaultInitialPrice'
 import { DepositInputForm } from 'components/Liquidity/DepositInputForm'
@@ -14,9 +14,9 @@ import { useCallback, useEffect, useMemo, useState } from 'react'
 import { Trans, useTranslation } from 'react-i18next'
 import { PositionField } from 'types/position'
 import { Button, Flex, Text } from 'ui/src'
-import { WarningSeverity } from 'uniswap/src/components/modals/WarningModal/types'
-import { useUniswapContext } from 'uniswap/src/contexts/UniswapContext'
-import { Platform } from 'uniswap/src/features/platforms/types/Platform'
+import { WarningSeverity } from 'lx/src/components/modals/WarningModal/types'
+import { useUniswapContext } from 'lx/src/contexts/UniswapContext'
+import { Platform } from 'lx/src/features/platforms/types/Platform'
 
 export const DepositStep = () => {
   const {

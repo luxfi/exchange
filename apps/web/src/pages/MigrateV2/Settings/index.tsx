@@ -1,4 +1,4 @@
-import type { Percent } from '@uniswap/sdk-core'
+import type { Percent } from '@luxamm/sdk-core'
 import { Scrim } from 'components/AccountDrawer/Scrim'
 import { Portal } from 'components/Popups/Portal'
 import { useIsMobile } from 'hooks/screenSize/useIsMobile'
@@ -15,9 +15,9 @@ import { ThemedText } from 'theme/components'
 import { transitions } from 'theme/styles'
 import { Z_INDEX } from 'theme/zIndex'
 import { Flex, HeightAnimator, styled, TouchableArea } from 'ui/src'
-import { useIsSupportedChainId } from 'uniswap/src/features/chains/hooks/useSupportedChainId'
-import { isL2ChainId } from 'uniswap/src/features/chains/utils'
-import { ModalName } from 'uniswap/src/features/telemetry/constants'
+import { useIsSupportedChainId } from 'lx/src/features/chains/hooks/useSupportedChainId'
+import { isL2ChainId } from 'lx/src/features/chains/utils'
+import { ModalName } from 'lx/src/features/telemetry/constants'
 
 const MenuFlyout = styled(Flex, {
   minWidth: '20.125rem',

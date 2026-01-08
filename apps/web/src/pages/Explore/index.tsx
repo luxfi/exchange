@@ -1,9 +1,13 @@
 import { getTokenExploreURL } from 'appGraphql/data/util'
-import { SharedEventName } from '@uniswap/analytics-events'
-import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import { SharedEventName } from '@luxdex/analytics-events'
+import { FeatureFlags, useFeatureFlag } from '@luxfi/gating'
 import PoolNotFoundModal from 'components/NotFoundModal/PoolNotFoundModal'
 import TokenNotFoundModal from 'components/NotFoundModal/TokenNotFoundModal'
-import { ExploreTopPoolTable } from 'components/Pools/PoolTable/PoolTable'
+// Legacy Pools table removed - TODO: Add new pools implementation
+import { memo } from 'react'
+const ExploreTopPoolTable = memo(function ExploreTopPoolTable() {
+  return null
+})
 import { MAX_WIDTH_MEDIA_BREAKPOINT } from 'components/Tokens/constants'
 import { TopTokensTable } from 'components/Tokens/TokenTable'
 import TableNetworkFilter from 'components/Tokens/TokenTable/NetworkFilter'
@@ -26,10 +30,10 @@ import { manualChainOutageAtom } from 'state/outage/atoms'
 import { ClickableTamaguiStyle } from 'theme/components/styles'
 import { Button, Flex, styled, Text, useMedia } from 'ui/src'
 import { Plus } from 'ui/src/components/icons/Plus'
-import { getChainInfo } from 'uniswap/src/features/chains/chainInfo'
-import { isSVMChain } from 'uniswap/src/features/platforms/utils/chains'
-import { ElementName, InterfacePageName, ModalName } from 'uniswap/src/features/telemetry/constants'
-import Trace from 'uniswap/src/features/telemetry/Trace'
+import { getChainInfo } from 'lx/src/features/chains/chainInfo'
+import { isSVMChain } from 'lx/src/features/platforms/utils/chains'
+import { ElementName, InterfacePageName, ModalName } from 'lx/src/features/telemetry/constants'
+import Trace from 'lx/src/features/telemetry/Trace'
 import { getChainUrlParam, useChainIdFromUrlParam } from 'utils/chainParams'
 
 interface Page {
@@ -43,7 +47,14 @@ function usePages(): Array<Page> {
   const { t } = useTranslation()
   const isToucanEnabled = useFeatureFlag(FeatureFlags.Toucan)
 
+  // Markets (trading pairs) shown first as primary tab
   const pages: Array<Page> = [
+    {
+      title: t('common.markets'),
+      key: ExploreTab.Markets,
+      component: ExploreTopPoolTable,
+      loggingElementName: ElementName.ExplorePoolsTab,
+    },
     {
       title: t('common.tokens'),
       key: ExploreTab.Tokens,
@@ -61,20 +72,12 @@ function usePages(): Array<Page> {
     })
   }
 
-  pages.push(
-    {
-      title: t('common.pools'),
-      key: ExploreTab.Pools,
-      component: ExploreTopPoolTable,
-      loggingElementName: ElementName.ExplorePoolsTab,
-    },
-    {
-      title: t('common.transactions'),
-      key: ExploreTab.Transactions,
-      component: RecentTransactions,
-      loggingElementName: ElementName.ExploreTransactionsTab,
-    },
-  )
+  pages.push({
+    title: t('common.transactions'),
+    key: ExploreTab.Transactions,
+    component: RecentTransactions,
+    loggingElementName: ElementName.ExploreTransactionsTab,
+  })
 
   return pages
 }
@@ -163,7 +166,7 @@ const Explore = ({ initialTab }: { initialTab?: ExploreTab }) => {
 
   // to allow backward navigation between tabs
   const { tab: tabName } = useExploreParams()
-  const tab = tabName ?? ExploreTab.Tokens
+  const tab = tabName ?? ExploreTab.Markets
 
   const urlChainId = useChainIdFromUrlParam()
   const chainInfo = useMemo(() => {
@@ -211,8 +214,8 @@ const Explore = ({ initialTab }: { initialTab?: ExploreTab }) => {
               transition: 'margin-top 300ms ease',
             }}
             $lg={{ row: false, flexDirection: 'column', mx: 'unset', alignItems: 'flex-start', gap: '$spacing16' }}
-            // Pools page needs to break to multiple rows at larger breakpoint due to the extra filter options
-            {...(currentKey === ExploreTab.Pools && {
+            // Markets/Pools page needs to break to multiple rows at larger breakpoint due to the extra filter options
+            {...((currentKey === ExploreTab.Markets || currentKey === ExploreTab.Pools) && {
               $lg: {},
               $xl: { row: false, flexDirection: 'column', mx: 'unset', alignItems: 'flex-start', gap: '$spacing16' },
             })}
@@ -250,7 +253,7 @@ const Explore = ({ initialTab }: { initialTab?: ExploreTab }) => {
               })}
             </Flex>
             <Flex row gap="$spacing8" justifyContent="flex-start" $md={{ width: '100%' }}>
-              {currentKey === ExploreTab.Pools && (
+              {(currentKey === ExploreTab.Markets || currentKey === ExploreTab.Pools) && (
                 <Flex row>
                   <Button size="small" icon={<Plus />} onPress={() => navigate('/positions/create')}>
                     {media.sm ? t('common.add.label') : t('common.addLiquidity')}
@@ -259,7 +262,7 @@ const Explore = ({ initialTab }: { initialTab?: ExploreTab }) => {
               )}
               <TableNetworkFilter />
               {currentKey === ExploreTab.Tokens && <VolumeTimeFrameSelector />}
-              {currentKey === ExploreTab.Pools && <ProtocolFilter />}
+              {(currentKey === ExploreTab.Markets || currentKey === ExploreTab.Pools) && <ProtocolFilter />}
               <SearchBar tab={currentKey} />
             </Flex>
           </Flex>

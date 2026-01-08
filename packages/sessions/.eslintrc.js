@@ -44,7 +44,7 @@ module.exports = {
           'error',
           {
             allowSameFolder: false,
-            prefix: '@universe/sessions',
+            prefix: '@luxfi/sessions',
           },
         ],
       },

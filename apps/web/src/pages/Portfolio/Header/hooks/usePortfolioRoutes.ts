@@ -1,9 +1,9 @@
-import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import { FeatureFlags, useFeatureFlag } from '@luxfi/gating'
 import { PortfolioTab } from 'pages/Portfolio/types'
 import { pathToPortfolioTab } from 'pages/Portfolio/utils/portfolioUrls'
 import { useEffect } from 'react'
 import { useLocation, useNavigate, useSearchParams } from 'react-router'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { UniverseChainId } from 'lx/src/features/chains/types'
 import { getChainIdFromChainUrlParam, isChainUrlParam } from 'utils/chainParams'
 
 export function usePortfolioRoutes(): {

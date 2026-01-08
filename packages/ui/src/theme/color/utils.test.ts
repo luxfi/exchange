@@ -56,7 +56,7 @@ describe(opacifyRaw, () => {
     expect(logger.warn).toHaveBeenCalledWith(
       'color/utils',
       'opacifyRaw',
-      `Error opacifying color ${color} with opacity ${amount}: ${expectedError}`,
+      `Error opacifying color ${color} with opacity ${amount}: ${expectedError}`
     )
   })
 })

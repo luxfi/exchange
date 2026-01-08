@@ -3,8 +3,8 @@ import React from 'react'
 import { OnboardingStackParamList } from 'src/app/navigation/types'
 import { Screen } from 'src/components/layout/Screen'
 import { CloudBackupProcessingAnimation } from 'src/features/CloudBackup/CloudBackupProcessingAnimation'
-import { OnboardingEntryPoint } from 'uniswap/src/types/onboarding'
-import { OnboardingScreens } from 'uniswap/src/types/screens/mobile'
+import { OnboardingEntryPoint } from 'lx/src/types/onboarding'
+import { OnboardingScreens } from 'lx/src/types/screens/mobile'
 
 type Props = NativeStackScreenProps<OnboardingStackParamList, OnboardingScreens.BackupCloudProcessing>
 

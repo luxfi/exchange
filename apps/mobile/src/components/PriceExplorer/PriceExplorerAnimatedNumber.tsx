@@ -21,10 +21,10 @@ import {
   DIGIT_HEIGHT,
   NUMBER_ARRAY,
   NUMBER_WIDTH_ARRAY,
-} from 'uniswap/src/components/AnimatedNumber/AnimatedNumber'
-import { TopAndBottomGradient } from 'uniswap/src/components/AnimatedNumber/TopAndBottomGradient'
-import { FiatCurrencyInfo } from 'uniswap/src/features/fiatOnRamp/types'
-import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+} from 'lx/src/components/AnimatedNumber/AnimatedNumber'
+import { TopAndBottomGradient } from 'lx/src/components/AnimatedNumber/TopAndBottomGradient'
+import { FiatCurrencyInfo } from 'lx/src/features/fiatOnRamp/types'
+import { TestID } from 'lx/src/test/fixtures/testIDs'
 
 // if price per token has > 3 numbers before the decimal, start showing decimals in neutral3
 // otherwise, show entire price in neutral1

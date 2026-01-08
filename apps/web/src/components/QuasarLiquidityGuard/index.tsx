@@ -1,6 +1,6 @@
 // Quasar Consensus Guard for Liquidity Operations
 import { Trans } from '@lingui/macro'
-import { Currency, CurrencyAmount, Token } from '@uniswap/sdk-core'
+import { Currency, CurrencyAmount, Token } from '@luxamm/sdk-core'
 import { useWeb3React } from '@web3-react/core'
 import { AutoColumn } from 'components/Column'
 import { AutoRow } from 'components/Row'

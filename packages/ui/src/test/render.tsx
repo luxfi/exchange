@@ -1,4 +1,4 @@
-import { TamaguiProvider as OGTamaguiProvider, TamaguiProviderProps } from 'tamagui'
+import { TamaguiProvider as OGTamaguiProvider, type TamaguiProviderProps } from 'tamagui'
 import { config } from 'ui/src/tamagui.config'
 
 /**

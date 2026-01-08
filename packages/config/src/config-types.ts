@@ -21,6 +21,7 @@ export interface Config {
   isE2ETest: boolean
   forApiUrlOverride: string
   graphqlUrlOverride: string
+  gChainGraphqlUrl: string
   includePrototypeFeatures: string
   infuraKey: string
   isVercelEnvironment: boolean
@@ -39,6 +40,7 @@ export interface Config {
   unitagsApiUrlOverride: string
   uniswapNotifApiBaseUrlOverride: string
   entryGatewayApiUrlOverride: string
+  luxGatewayUrlOverride: string
   walletConnectProjectId: string
   walletConnectProjectIdBeta: string
   walletConnectProjectIdDev: string

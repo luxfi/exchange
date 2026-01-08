@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next'
 import { Image } from 'ui/src'
 import { LuxLogo } from 'ui/src/components/icons/LuxLogo'
 import { opacify } from 'ui/src/theme'
-import { uniswapUrls } from 'uniswap/src/constants/urls'
+import { uniswapUrls } from 'lx/src/constants/urls'
 
 const primary = '#FFFFFF'
 
@@ -24,7 +24,7 @@ export function LuxNetworkCard() {
       }
       bodyText={t('landing.luxNetwork.body')}
       subtitle={t('landing.luxNetwork.subtitle')}
-      button={<PillButton color={primary} label={t('landing.luxNetwork.button')} backgroundColor="$surface1" />}
+      button={<PillButton color="$neutral1" label={t('landing.luxNetwork.button')} backgroundColor="$surface1" />}
       alignTextToBottom
     >
       <CardContents>

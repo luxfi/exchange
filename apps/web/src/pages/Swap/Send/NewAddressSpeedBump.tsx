@@ -6,9 +6,9 @@ import type { RecipientData } from 'state/send/hooks'
 import { useSendContext } from 'state/send/SendContext'
 import { Flex, Text, useSporeColors } from 'ui/src'
 import { Unitag } from 'ui/src/components/icons/Unitag'
-import { Dialog } from 'uniswap/src/components/dialog/Dialog'
-import { AccountIcon } from 'uniswap/src/features/accounts/AccountIcon'
-import { ModalName } from 'uniswap/src/features/telemetry/constants'
+import { Dialog } from 'lx/src/components/dialog/Dialog'
+import { AccountIcon } from 'lx/src/features/accounts/AccountIcon'
+import { ModalName } from 'lx/src/features/telemetry/constants'
 
 const RecipientDisplay = ({ recipientData }: { recipientData?: RecipientData }) => {
   const ensOrUnitag = recipientData?.unitag ?? recipientData?.ensName

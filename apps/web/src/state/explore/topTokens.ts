@@ -1,6 +1,6 @@
 import { SparklineMap } from 'appGraphql/data/types'
 import { PricePoint, TimePeriod, unwrapToken } from 'appGraphql/data/util'
-import { Amount, PriceHistory, TokenStats } from '@uniswap/client-explore/dist/uniswap/explore/v1/service_pb'
+import { Amount, PriceHistory, TokenStats } from '@luxdex/client-explore/dist/uniswap/explore/v1/service_pb'
 import {
   exploreSearchStringAtom,
   filterTimeAtom,
@@ -13,10 +13,10 @@ import { useAtomValue } from 'jotai/utils'
 import { useContext, useMemo } from 'react'
 import { ExploreContext, giveExploreStatDefaultValue } from 'state/explore'
 import { TokenStat } from 'state/explore/types'
-import { normalizeTokenAddressForCache } from 'uniswap/src/data/cache'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { fromGraphQLChain } from 'uniswap/src/features/chains/utils'
-import { buildCurrencyId } from 'uniswap/src/utils/currencyId'
+import { normalizeTokenAddressForCache } from 'lx/src/data/cache'
+import { UniverseChainId } from 'lx/src/features/chains/types'
+import { fromGraphQLChain } from 'lx/src/features/chains/utils'
+import { buildCurrencyId } from 'lx/src/utils/currencyId'
 import { getChainIdFromChainUrlParam } from 'utils/chainParams'
 
 const TokenSortMethods = {

@@ -1,12 +1,12 @@
 import { getProtocolColor, getProtocolName } from 'appGraphql/data/util'
-import { GraphQLApi } from '@universe/api'
+import { GraphQLApi } from '@luxfi/api'
 import { useHeaderDateFormatter } from 'components/Charts/hooks/useHeaderDateFormatter'
 import { PROTOCOL_LEGEND_ELEMENT_ID } from 'components/Charts/types'
 import { UTCTimestamp } from 'lightweight-charts'
 import { ReactElement, ReactNode } from 'react'
 import { EllipsisTamaguiStyle } from 'theme/components/styles'
 import { Flex, styled, Text, useSporeColors } from 'ui/src'
-import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
+import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
 import { FiatNumberType, NumberType } from 'utilities/src/format/types'
 
 type ChartHeaderProtocolInfo = { protocol: GraphQLApi.PriceSource; value?: number }
@@ -25,7 +25,8 @@ const ProtocolLegendWrapper = styled(Flex, {
         p: '$spacing8',
         gap: '$gap6',
         borderRadius: '$rounded12',
-        border: '1px solid',
+        borderWidth: 1,
+        borderStyle: 'solid',
         borderColor: '$surface3',
         backgroundColor: '$surface2',
         boxShadow: '0px 1px 2px 0px rgba(0, 0, 0, 0.02), 0px 1px 6px 2px rgba(0, 0, 0, 0.03)',
@@ -39,6 +40,7 @@ function ProtocolLegend({ protocolData }: { protocolData?: ChartHeaderProtocolIn
   const { convertFiatAmountFormatted } = useLocalizationContext()
 
   return (
+    // @ts-expect-error - Tamagui hover variant type inference issue
     <ProtocolLegendWrapper id={PROTOCOL_LEGEND_ELEMENT_ID} hover={true}>
       {protocolData
         ?.map(({ value, protocol }) => {

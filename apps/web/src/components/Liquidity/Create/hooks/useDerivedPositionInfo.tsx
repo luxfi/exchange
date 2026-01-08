@@ -1,7 +1,7 @@
-import { Pool, ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
-import { PoolInfoRequest, PoolParameters } from '@uniswap/client-trading/dist/trading/v1/api_pb'
-import { Currency } from '@uniswap/sdk-core'
-import { FeatureFlags, getFeatureFlag } from '@universe/gating'
+import { Pool, ProtocolVersion } from '@luxdex/client-data-api/dist/data/v1/poolTypes_pb'
+import { PoolInfoRequest, PoolParameters } from '@luxdex/client-trading/dist/trading/v1/api_pb'
+import { Currency } from '@luxamm/sdk-core'
+import { FeatureFlags, getFeatureFlag } from '@luxfi/gating'
 import {
   CreatePositionInfo,
   CreateV2PositionInfo,
@@ -24,9 +24,9 @@ import { PairState, useV2Pair } from 'hooks/useV2Pairs'
 import { useMemo } from 'react'
 import { useMultichainContext } from 'state/multichain/useMultichainContext'
 import { PositionField } from 'types/position'
-import { ZERO_ADDRESS } from 'uniswap/src/constants/misc'
-import { usePoolInfoQuery } from 'uniswap/src/data/apiClients/tradingApi/usePoolInfoQuery'
-import { useGetPoolsByTokens } from 'uniswap/src/data/rest/getPools'
+import { ZERO_ADDRESS } from 'lx/src/constants/misc'
+import { usePoolInfoQuery } from 'lx/src/data/apiClients/tradingApi/usePoolInfoQuery'
+import { useGetPoolsByTokens } from 'lx/src/data/rest/getPools'
 
 function getSortedCurrencies(a: Maybe<Currency>, b: Maybe<Currency>): { [field in PositionField]: Maybe<Currency> } {
   if (!a || !b) {

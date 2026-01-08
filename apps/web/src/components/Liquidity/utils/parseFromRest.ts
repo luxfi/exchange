@@ -6,17 +6,17 @@ import {
   Pool as RestPool,
   Position as RestPosition,
   Token as RestToken,
-} from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
-import { PoolInformation } from '@uniswap/client-trading/dist/trading/v1/api_pb'
-import { Currency, CurrencyAmount, Token } from '@uniswap/sdk-core'
-import { Pair } from '@uniswap/v2-sdk'
-import { FeeAmount, Pool as V3Pool, Position as V3Position } from '@uniswap/v3-sdk'
-import { Pool as V4Pool, Position as V4Position } from '@uniswap/v4-sdk'
+} from '@luxdex/client-data-api/dist/data/v1/poolTypes_pb'
+import { PoolInformation } from '@luxdex/client-trading/dist/trading/v1/api_pb'
+import { Currency, CurrencyAmount, Token } from '@luxamm/sdk-core'
+import { Pair } from '@luxamm/v2-sdk'
+import { FeeAmount, Pool as V3Pool, Position as V3Position } from '@luxamm/v3-sdk'
+import { Pool as V4Pool, Position as V4Position } from '@luxamm/v4-sdk'
 import { DYNAMIC_FEE_DATA, FeeData } from 'components/Liquidity/Create/types'
 import { PositionInfo } from 'components/Liquidity/types'
-import { ZERO_ADDRESS } from 'uniswap/src/constants/misc'
-import { DEFAULT_TICK_SPACING } from 'uniswap/src/constants/pools'
-import { nativeOnChain } from 'uniswap/src/constants/tokens'
+import { ZERO_ADDRESS } from 'lx/src/constants/misc'
+import { DEFAULT_TICK_SPACING } from 'lx/src/constants/pools'
+import { nativeOnChain } from 'lx/src/constants/tokens'
 import { logger } from 'utilities/src/logger/logger'
 
 function parseV3FeeTier(feeTier: number | string | undefined): FeeData | undefined {

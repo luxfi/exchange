@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query'
-import { DynamicConfigs, ExtensionBiometricUnlockConfigKey, useDynamicConfigValue } from '@universe/gating'
+import { DynamicConfigs, ExtensionBiometricUnlockConfigKey, useDynamicConfigValue } from '@luxfi/gating'
 import { useTranslation } from 'react-i18next'
 import { builtInBiometricCapabilitiesQuery } from 'src/app/utils/device/builtInBiometricCapabilitiesQuery'
 

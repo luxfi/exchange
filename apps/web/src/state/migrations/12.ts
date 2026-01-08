@@ -1,7 +1,7 @@
-import { GraphQLApi } from '@universe/api'
+import { GraphQLApi } from '@luxfi/api'
 import { PersistState } from 'redux-persist'
 import { TransactionInfo } from 'state/transactions/types'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { UniverseChainId } from 'lx/src/features/chains/types'
 
 interface SerializableTransactionReceipt {
   to: string

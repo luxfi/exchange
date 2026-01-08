@@ -4,12 +4,12 @@ import { ScreenHeader } from 'src/app/components/layout/ScreenHeader'
 import { SettingsItemWithDropdown } from 'src/app/features/settings/SettingsItemWithDropdown'
 import { Accordion, Flex, ScrollView, Text } from 'ui/src'
 import { Settings } from 'ui/src/components/icons'
-import { CacheConfig } from 'uniswap/src/components/gating/CacheConfig'
-import { GatingOverrides } from 'uniswap/src/components/gating/GatingOverrides'
-import { Language, WALLET_SUPPORTED_LANGUAGES } from 'uniswap/src/features/language/constants'
-import { getLanguageInfo, useCurrentLanguageInfo } from 'uniswap/src/features/language/hooks'
-import { setCurrentLanguage } from 'uniswap/src/features/settings/slice'
-import i18n from 'uniswap/src/i18n'
+import { CacheConfig } from 'lx/src/components/gating/CacheConfig'
+import { GatingOverrides } from 'lx/src/components/gating/GatingOverrides'
+import { Language, WALLET_SUPPORTED_LANGUAGES } from 'lx/src/features/language/constants'
+import { getLanguageInfo, useCurrentLanguageInfo } from 'lx/src/features/language/hooks'
+import { setCurrentLanguage } from 'lx/src/features/settings/slice'
+import i18n from 'lx/src/i18n'
 
 /**
  * When modifying this component, take into consideration that this is used

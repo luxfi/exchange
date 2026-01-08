@@ -5,14 +5,14 @@ import { useFiatOnRampSupportedTokens, useMeldFiatCurrencyInfo } from 'pages/Swa
 import { formatFORErrorAmount, getOnRampInputAmount, parseAndFormatFiatOnRampFiatAmount } from 'pages/Swap/Buy/shared'
 import { createContext, Dispatch, PropsWithChildren, SetStateAction, useContext, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { buildPartialCurrencyInfo } from 'uniswap/src/constants/routing'
-import { nativeOnChain } from 'uniswap/src/constants/tokens'
-import { useActiveAddress } from 'uniswap/src/features/accounts/store/hooks'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { buildPartialCurrencyInfo } from 'lx/src/constants/routing'
+import { nativeOnChain } from 'lx/src/constants/tokens'
+import { useActiveAddress } from 'lx/src/features/accounts/store/hooks'
+import { UniverseChainId } from 'lx/src/features/chains/types'
 import {
   useFiatOnRampAggregatorCountryListQuery,
   useFiatOnRampAggregatorCryptoQuoteQuery,
-} from 'uniswap/src/features/fiatOnRamp/api'
+} from 'lx/src/features/fiatOnRamp/api'
 import {
   FiatCurrencyInfo,
   FiatOnRampCurrency,
@@ -21,7 +21,7 @@ import {
   FORQuoteResponse,
   FORSupportedCountriesResponse,
   RampDirection,
-} from 'uniswap/src/features/fiatOnRamp/types'
+} from 'lx/src/features/fiatOnRamp/types'
 import {
   InvalidRequestAmountTooHigh,
   InvalidRequestAmountTooLow,
@@ -30,9 +30,9 @@ import {
   isFiatOnRampApiError,
   isInvalidRequestAmountTooHigh,
   isInvalidRequestAmountTooLow,
-} from 'uniswap/src/features/fiatOnRamp/utils'
-import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
-import { getSymbolDisplayText } from 'uniswap/src/utils/currency'
+} from 'lx/src/features/fiatOnRamp/utils'
+import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
+import { getSymbolDisplayText } from 'lx/src/utils/currency'
 import { useDebounce } from 'utilities/src/time/timing'
 
 class BuyFormError extends Error {

@@ -18,8 +18,8 @@ import { BrowserRouter } from 'react-router'
 import store from 'state'
 import { ThemeProvider } from 'theme'
 import { TamaguiProvider } from 'theme/tamaguiProvider'
-import { ReactRouterUrlProvider } from 'uniswap/src/contexts/UrlContext'
-import { MismatchContextProvider } from 'uniswap/src/features/smartWallet/mismatch/MismatchContext'
+import { ReactRouterUrlProvider } from 'lx/src/contexts/UrlContext'
+import { MismatchContextProvider } from 'lx/src/features/smartWallet/mismatch/MismatchContext'
 
 const queryClient = new QueryClient()
 

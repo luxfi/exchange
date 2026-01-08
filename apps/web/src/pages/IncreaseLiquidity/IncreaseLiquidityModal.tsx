@@ -11,9 +11,9 @@ import { IncreaseLiquidityReview } from 'pages/IncreaseLiquidity/IncreaseLiquidi
 import { IncreaseLiquidityTxContextProvider } from 'pages/IncreaseLiquidity/IncreaseLiquidityTxContext'
 import { useTranslation } from 'react-i18next'
 import { HeightAnimator } from 'ui/src'
-import { Modal } from 'uniswap/src/components/modals/Modal'
-import { ModalName } from 'uniswap/src/features/telemetry/constants'
-import { LPTransactionSettingsStoreContextProvider } from 'uniswap/src/features/transactions/components/settings/stores/transactionSettingsStore/LPTransactionSettingsStoreContextProvider'
+import { Modal } from 'lx/src/components/modals/Modal'
+import { ModalName } from 'lx/src/features/telemetry/constants'
+import { LPTransactionSettingsStoreContextProvider } from 'lx/src/features/transactions/components/settings/stores/transactionSettingsStore/LPTransactionSettingsStoreContextProvider'
 
 function IncreaseLiquidityModalInner() {
   const { t } = useTranslation()

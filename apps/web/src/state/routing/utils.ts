@@ -1,7 +1,7 @@
 /* eslint-disable max-lines */
 import { BigNumber } from '@ethersproject/bignumber'
-import { MixedRouteSDK } from '@uniswap/router-sdk'
-import { Currency, CurrencyAmount, Percent, Token, TradeType } from '@uniswap/sdk-core'
+import { MixedRouteSDK } from '@luxdex/router-sdk'
+import { Currency, CurrencyAmount, Percent, Token, TradeType } from '@luxamm/sdk-core'
 import {
   DutchOrderInfo,
   DutchOrderInfoJSON,
@@ -14,9 +14,9 @@ import {
   UnsignedV3DutchOrderInfo,
   UnsignedV3DutchOrderInfoJSON,
   V3DutchOutputJSON,
-} from '@uniswap/uniswapx-sdk'
-import { Pair, Route as V2Route } from '@uniswap/v2-sdk'
-import { FeeAmount, Pool, Route as V3Route } from '@uniswap/v3-sdk'
+} from '@luxdex/sdk'
+import { Pair, Route as V2Route } from '@luxamm/v2-sdk'
+import { FeeAmount, Pool, Route as V3Route } from '@luxamm/v3-sdk'
 import { getApproveInfo, getWrapInfo } from 'state/routing/gas'
 import {
   ClassicQuoteData,
@@ -51,10 +51,10 @@ import {
   V3DutchOrderTrade,
   V3PoolInRoute,
 } from 'state/routing/types'
-import { BIPS_BASE } from 'uniswap/src/constants/misc'
-import { nativeOnChain } from 'uniswap/src/constants/tokens'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { isEVMChain } from 'uniswap/src/features/platforms/utils/chains'
+import { BIPS_BASE } from 'lx/src/constants/misc'
+import { nativeOnChain } from 'lx/src/constants/tokens'
+import { UniverseChainId } from 'lx/src/features/chains/types'
+import { isEVMChain } from 'lx/src/features/platforms/utils/chains'
 import { logger } from 'utilities/src/logger/logger'
 import { toSlippagePercent } from 'utils/slippage'
 
@@ -95,7 +95,8 @@ export function computeRoutes(args: GetQuoteArgs, routes: ClassicQuoteData['rout
         routev3: isOnlyV3 ? new V3Route(route.map(parsePool), currencyIn, currencyOut) : null,
         routev2: isOnlyV2 ? new V2Route(route.map(parsePair), currencyIn, currencyOut) : null,
         mixedRoute:
-          !isOnlyV3 && !isOnlyV2 ? new MixedRouteSDK(route.map(parsePoolOrPair), currencyIn, currencyOut) : null,
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          !isOnlyV3 && !isOnlyV2 ? new MixedRouteSDK(route.map(parsePoolOrPair) as any, currencyIn, currencyOut) : null,
         inputAmount: CurrencyAmount.fromRawAmount(currencyIn, rawAmountIn),
         outputAmount: CurrencyAmount.fromRawAmount(currencyOut, rawAmountOut),
       }

@@ -3,7 +3,7 @@ import { configureStore } from '@reduxjs/toolkit'
 import { RenderHookOptions, RenderHookResult, renderHook } from '@testing-library/react'
 import { PropsWithChildren } from 'react'
 import { Provider } from 'react-redux'
-import { uniswapReducer } from 'uniswap/src/state/uniswapReducer'
+import { uniswapReducer } from 'lx/src/state/uniswapReducer'
 
 // Type for the uniswap state
 type UniswapState = ReturnType<typeof uniswapReducer>

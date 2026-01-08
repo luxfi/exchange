@@ -1,12 +1,12 @@
-import { getNativeAddress } from 'uniswap/src/constants/addresses'
-import { AssetType, CurrencyAsset } from 'uniswap/src/entities/assets'
-import { ALL_CHAIN_IDS } from 'uniswap/src/features/chains/chainInfo'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { fromUniswapWebAppLink, isTestnetChain } from 'uniswap/src/features/chains/utils'
-import { TransactionState } from 'uniswap/src/features/transactions/types/transactionState'
-import { CurrencyField } from 'uniswap/src/types/currency'
-import { areAddressesEqual, getValidAddress } from 'uniswap/src/utils/addresses'
-import { currencyIdToAddress, currencyIdToChain } from 'uniswap/src/utils/currencyId'
+import { getNativeAddress } from 'lx/src/constants/addresses'
+import { AssetType, CurrencyAsset } from 'lx/src/entities/assets'
+import { ALL_CHAIN_IDS } from 'lx/src/features/chains/chainInfo'
+import { UniverseChainId } from 'lx/src/features/chains/types'
+import { fromUniswapWebAppLink, isTestnetChain } from 'lx/src/features/chains/utils'
+import { TransactionState } from 'lx/src/features/transactions/types/transactionState'
+import { CurrencyField } from 'lx/src/types/currency'
+import { areAddressesEqual, getValidAddress } from 'lx/src/utils/addresses'
+import { currencyIdToAddress, currencyIdToChain } from 'lx/src/utils/currencyId'
 
 /**
  * Supported swap link formats:

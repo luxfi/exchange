@@ -1,10 +1,10 @@
 import { createAccountsStoreGetters } from 'features/accounts/store/getters'
 import type { ExternalConnector, ExternalWallet, WebAccountsData } from 'features/accounts/store/types'
-import { Account } from 'uniswap/src/features/accounts/store/types/Account'
-import { AccessPattern, ConnectorStatus } from 'uniswap/src/features/accounts/store/types/Connector'
-import { ChainScopeType } from 'uniswap/src/features/accounts/store/types/Session'
-import { SigningCapability } from 'uniswap/src/features/accounts/store/types/Wallet'
-import { Platform } from 'uniswap/src/features/platforms/types/Platform'
+import { Account } from 'lx/src/features/accounts/store/types/Account'
+import { AccessPattern, ConnectorStatus } from 'lx/src/features/accounts/store/types/Connector'
+import { ChainScopeType } from 'lx/src/features/accounts/store/types/Session'
+import { SigningCapability } from 'lx/src/features/accounts/store/types/Wallet'
+import { Platform } from 'lx/src/features/platforms/types/Platform'
 
 describe('Web Accounts Store Getters', () => {
   const createMockEVMConnector = (

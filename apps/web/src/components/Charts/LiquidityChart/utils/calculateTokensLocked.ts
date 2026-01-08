@@ -1,5 +1,5 @@
-import { Currency, CurrencyAmount } from '@uniswap/sdk-core'
-import { TickMath } from '@uniswap/v3-sdk'
+import { Currency, CurrencyAmount } from '@luxamm/sdk-core'
+import { TickMath } from '@luxamm/v3-sdk'
 import { getAmount0, getAmount1 } from 'components/Charts/LiquidityChart/utils/getAmounts'
 import JSBI from 'jsbi'
 import { logger } from 'utilities/src/logger/logger'

@@ -1,7 +1,7 @@
 import { useBlockCountdown } from 'hooks/useBlockCountdown'
 import { useTranslation } from 'react-i18next'
 import { Text } from 'ui/src'
-import { EVMUniverseChainId } from 'uniswap/src/features/chains/types'
+import { EVMUniverseChainId } from 'lx/src/features/chains/types'
 
 interface BlockUpdateCountdownProps {
   chainId: EVMUniverseChainId | undefined

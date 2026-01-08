@@ -18,6 +18,7 @@ declare module 'react-native-dotenv' {
   export const IS_E2E_TEST: string
   export const JUPITER_PROXY_URL: string
   export const LIQUIDITY_SERVICE_URL_OVERRIDE: string
+  export const LUX_GATEWAY_URL: string
   export const ONESIGNAL_APP_ID: string
   export const QUICKNODE_ENDPOINT_NAME: string
   export const QUICKNODE_ENDPOINT_TOKEN: string

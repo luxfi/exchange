@@ -3,7 +3,7 @@ import { getAddLiquidityPageTitle, getPositionPageDescription, getPositionPageTi
 import { paths } from 'pages/paths'
 import { routes } from 'pages/RouteDefinitions'
 import React from 'react'
-import { WRAPPED_SOL_ADDRESS_SOLANA } from 'uniswap/src/features/chains/svm/defaults'
+import { WRAPPED_SOL_ADDRESS_SOLANA } from 'lx/src/features/chains/svm/defaults'
 
 // Mock the actual components since they're not needed to test route definitions.
 vi.mock('pages/Swap', () => ({

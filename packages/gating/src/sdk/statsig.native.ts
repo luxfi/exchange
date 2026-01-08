@@ -1,7 +1,7 @@
 import { StatsigClient } from '@statsig/react-bindings'
 import { StatsigClientRN } from '@statsig/react-native-bindings'
-import { getConfig } from '@universe/config'
-import { LocalOverrideAdapterWrapper } from '@universe/gating/src/LocalOverrideAdapterWrapper'
+import { getConfig } from '@luxfi/config'
+import { LocalOverrideAdapterWrapper } from '@luxfi/gating/src/LocalOverrideAdapterWrapper'
 
 const config = getConfig()
 

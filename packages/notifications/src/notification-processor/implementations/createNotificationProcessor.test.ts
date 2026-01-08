@@ -1,5 +1,5 @@
-import type { InAppNotification } from '@universe/api'
-import { createNotificationProcessor } from '@universe/notifications/src/notification-processor/implementations/createNotificationProcessor'
+import type { InAppNotification } from '@luxfi/api'
+import { createNotificationProcessor } from '@luxfi/notifications/src/notification-processor/implementations/createNotificationProcessor'
 import { describe, expect, it, vi } from 'vitest'
 
 describe('createNotificationProcessor', () => {

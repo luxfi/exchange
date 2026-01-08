@@ -1,12 +1,13 @@
-import { WETH9 } from '@uniswap/sdk-core'
+import { WETH9 } from '@luxamm/sdk-core'
+import { isLuxdMode } from 'playwright/anvil/anvil-manager'
 import { expect, getTest } from 'playwright/fixtures'
 import { TEST_WALLET_ADDRESS } from 'playwright/fixtures/wallets'
 import { Mocks } from 'playwright/mocks/mocks'
-import { ZERO_ADDRESS } from 'uniswap/src/constants/misc'
-import { DAI, USDC_MAINNET } from 'uniswap/src/constants/tokens'
-import { uniswapUrls } from 'uniswap/src/constants/urls'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+import { ZERO_ADDRESS } from 'lx/src/constants/misc'
+import { DAI, USDC_MAINNET } from 'lx/src/constants/tokens'
+import { uniswapUrls } from 'lx/src/constants/urls'
+import { UniverseChainId } from 'lx/src/features/chains/types'
+import { TestID } from 'lx/src/test/fixtures/testIDs'
 import { assume0xAddress } from 'utils/wagmi'
 import { parseEther } from 'viem'
 
@@ -14,6 +15,8 @@ const test = getTest({ withAnvil: true })
 
 const UNISWAP_X_ORDERS_ENDPOINT = `https://interface.gateway.uniswap.org/v2/orders?swapper=${TEST_WALLET_ADDRESS}&orderHashes=${ZERO_ADDRESS}`
 
+// UniswapX tests are Ethereum-specific - UniswapX is an Ethereum MEV protection system
+// Lux uses its native DEX precompile instead
 test.describe(
   'UniswapX',
   {
@@ -25,6 +28,10 @@ test.describe(
   },
   async () => {
     test.beforeEach(async ({ page, anvil }) => {
+      // UniswapX is Ethereum-only - Lux uses native DEX precompile
+      if (isLuxdMode()) {
+        return
+      }
       await anvil.setErc20Balance({
         address: assume0xAddress(WETH9[UniverseChainId.Mainnet].address),
         balance: parseEther('1000000'),
@@ -49,6 +56,7 @@ test.describe(
     })
 
     test('can swap using uniswapX with WETH as input', async ({ page }) => {
+      if (isLuxdMode()) return // UniswapX is Ethereum-only
       await page.route(UNISWAP_X_ORDERS_ENDPOINT, async (route) => {
         await route.fulfill({
           path: Mocks.UniswapX.filledOrders,
@@ -60,6 +68,7 @@ test.describe(
     })
 
     test('renders error view if uniswapx order expires', async ({ page }) => {
+      if (isLuxdMode()) return // UniswapX is Ethereum-only
       await page.route(UNISWAP_X_ORDERS_ENDPOINT, async (route) => {
         await route.fulfill({ path: Mocks.UniswapX.expiredOrders })
       })
@@ -68,6 +77,7 @@ test.describe(
     })
 
     test('cancels a pending uniswapx order', async ({ page }) => {
+      if (isLuxdMode()) return // UniswapX is Ethereum-only
       await page.getByTestId(TestID.Web3StatusConnected).click()
       await page.getByText('Activity').click()
       await page.getByText('Swapping').click()
@@ -78,6 +88,7 @@ test.describe(
     })
 
     test('deduplicates remote vs local uniswapx orders', async ({ page, graphql }) => {
+      if (isLuxdMode()) return // UniswapX is Ethereum-only
       await page.route(UNISWAP_X_ORDERS_ENDPOINT, async (route) => {
         await route.fulfill({ path: Mocks.UniswapX.filledOrders })
       })

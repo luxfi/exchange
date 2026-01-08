@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import { StyleSheet } from 'react-native'
 import FastImage from 'react-native-fast-image'
 import Animated, { useAnimatedStyle, useSharedValue } from 'react-native-reanimated'
-import { FastImageWrapperProps } from 'ui/src/components/UniversalImage/types'
+import type { FastImageWrapperProps } from 'ui/src/components/UniversalImage/types'
 import { logger } from 'utilities/src/logger/logger'
 
 export function FastImageWrapper({

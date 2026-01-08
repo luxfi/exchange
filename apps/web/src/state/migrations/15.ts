@@ -1,6 +1,6 @@
-import { GraphQLApi } from '@universe/api'
+import { GraphQLApi } from '@luxfi/api'
 import { PersistState } from 'redux-persist'
-import { PreV55SearchResult, PreV55SearchResultType, TokenSearchResult } from 'uniswap/src/state/oldTypes'
+import { PreV55SearchResult, PreV55SearchResultType, TokenSearchResult } from 'lx/src/state/oldTypes'
 
 export type PersistAppStateV15 = {
   _persist: PersistState

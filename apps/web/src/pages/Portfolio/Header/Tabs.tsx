@@ -3,8 +3,8 @@ import { PortfolioTabInfo, usePortfolioTabs } from 'pages/Portfolio/Header/hooks
 import { buildPortfolioUrl, pathToPortfolioTab } from 'pages/Portfolio/utils/portfolioUrls'
 import { Link, useLocation } from 'react-router'
 import { Flex, Separator, Text } from 'ui/src'
-import { ElementName, InterfacePageName } from 'uniswap/src/features/telemetry/constants'
-import Trace from 'uniswap/src/features/telemetry/Trace'
+import { ElementName, InterfacePageName } from 'lx/src/features/telemetry/constants'
+import Trace from 'lx/src/features/telemetry/Trace'
 import { getCurrentPageFromLocation } from 'utils/urlRoutes'
 
 function getTabElementName(pageName: InterfacePageName): ElementName {

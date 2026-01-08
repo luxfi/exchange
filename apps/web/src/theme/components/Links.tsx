@@ -2,8 +2,8 @@ import { css, deprecatedStyled } from 'lib/styled-components'
 import React, { HTMLProps, useCallback } from 'react'
 import { Link } from 'react-router'
 import { ClickableStyle } from 'theme/components/styles'
-import { InterfaceEventName } from 'uniswap/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
+import { InterfaceEventName } from 'lx/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
 import { anonymizeLink } from 'utils/anonymizeLink'
 
 const LinkStyle = css`

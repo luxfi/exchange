@@ -15,9 +15,9 @@ import { migration13 } from 'state/migrations/13'
 import { migration14 } from 'state/migrations/14'
 import { migration15 } from 'state/migrations/15'
 import { migration16, PersistAppStateV16 } from 'state/migrations/16'
-import { DAI_ARBITRUM_ONE, USDC } from 'uniswap/src/constants/tokens'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { serializeToken } from 'uniswap/src/utils/currency'
+import { DAI_ARBITRUM_ONE, USDC } from 'lx/src/constants/tokens'
+import { UniverseChainId } from 'lx/src/features/chains/types'
+import { serializeToken } from 'lx/src/utils/currency'
 
 const tokenMap = {
   [UniverseChainId.Mainnet]: {

@@ -1,11 +1,28 @@
+import { isLuxdMode } from 'playwright/anvil/anvil-manager'
 import { expect, getTest } from 'playwright/fixtures'
 import { stubTradingApiEndpoint } from 'playwright/fixtures/tradingApi'
-import { USDC_MAINNET } from 'uniswap/src/constants/tokens'
-import { uniswapUrls } from 'uniswap/src/constants/urls'
-import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+import { LUSD_LUX, USDC_MAINNET } from 'lx/src/constants/tokens'
+import { uniswapUrls } from 'lx/src/constants/urls'
+import { TestID } from 'lx/src/test/fixtures/testIDs'
 import { assume0xAddress } from 'utils/wagmi'
 
 const test = getTest({ withAnvil: true })
+
+// Get chain-specific configuration
+const getChainConfig = () => {
+  if (isLuxdMode()) {
+    return {
+      inputCurrency: 'LUX',
+      outputToken: LUSD_LUX,
+      outputCurrency: LUSD_LUX.address,
+    }
+  }
+  return {
+    inputCurrency: 'ETH',
+    outputToken: USDC_MAINNET,
+    outputCurrency: USDC_MAINNET.address,
+  }
+}
 
 test.describe(
   'Fees',
@@ -17,11 +34,14 @@ test.describe(
     ],
   },
   () => {
-    test('swaps ETH for USDC exact-in with swap fee', async ({ page, anvil }) => {
+    // Fees tests work on all chains with chain-appropriate tokens
+
+    test('swaps native token for stablecoin exact-in with swap fee', async ({ page, anvil }) => {
+      const config = getChainConfig()
       await stubTradingApiEndpoint({ page, endpoint: uniswapUrls.tradingApiPaths.swap })
       await stubTradingApiEndpoint({ page, endpoint: uniswapUrls.tradingApiPaths.quote })
 
-      await page.goto(`/swap?inputCurrency=ETH&outputCurrency=${USDC_MAINNET.address}`)
+      await page.goto(`/swap?inputCurrency=${config.inputCurrency}&outputCurrency=${config.outputCurrency}`)
 
       // Set up swap
       await page.getByTestId(TestID.AmountInputOut).fill('1')
@@ -32,7 +52,7 @@ test.describe(
       } = await response.json()
 
       const portionRecipientBalance = await anvil.getErc20Balance(
-        assume0xAddress(USDC_MAINNET.address),
+        assume0xAddress(config.outputToken.address),
         portionRecipient,
       )
 
@@ -44,7 +64,7 @@ test.describe(
       await page.getByTestId(TestID.Swap).click()
 
       // Verify fee recipient received fee
-      const finalRecipientBalance = await anvil.getErc20Balance(assume0xAddress(USDC_MAINNET.address), portionRecipient)
+      const finalRecipientBalance = await anvil.getErc20Balance(assume0xAddress(config.outputToken.address), portionRecipient)
       await expect(finalRecipientBalance).toBeGreaterThan(portionRecipientBalance)
     })
   },

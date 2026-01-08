@@ -1,5 +1,5 @@
 /* eslint-disable max-lines */
-import { Currency, CurrencyAmount, Price, Rounding, Token } from '@uniswap/sdk-core'
+import { Currency, CurrencyAmount, Price, Rounding, Token } from '@luxdex/sdk-core'
 import {
   encodeSqrtRatioX96,
   FeeAmount,
@@ -10,8 +10,8 @@ import {
   TickMath,
   tickToPrice as tickToPriceV3,
   Pool as V3Pool,
-} from '@uniswap/v3-sdk'
-import { tickToPrice as tickToPriceV4, Pool as V4Pool } from '@uniswap/v4-sdk'
+} from '@luxamm/v3-sdk'
+import { tickToPrice as tickToPriceV4, Pool as V4Pool } from '@luxamm/v4-sdk'
 import { FeeData } from 'components/Liquidity/Create/types'
 import { BIG_INT_ZERO } from 'constants/misc'
 import { useAccount } from 'hooks/useAccount'
@@ -532,8 +532,10 @@ export function useV3DerivedMintInfo({
     parsedAmounts,
     ticks,
     price,
-    pricesAtTicks,
-    pricesAtLimit,
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    pricesAtTicks: pricesAtTicks as any,
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    pricesAtLimit: pricesAtLimit as any,
     position,
     noLiquidity,
     errorMessage,

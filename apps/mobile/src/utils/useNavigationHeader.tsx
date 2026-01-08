@@ -4,7 +4,7 @@ import { HeaderSkipButton } from 'src/app/navigation/components'
 import { OnboardingStackParamList } from 'src/app/navigation/types'
 import { BackButton } from 'src/components/buttons/BackButton'
 import { iconSizes } from 'ui/src/theme'
-import { UnitagStackParamList } from 'uniswap/src/types/screens/mobile'
+import { UnitagStackParamList } from 'lx/src/types/screens/mobile'
 
 /**
  * Adds a back button to the navigation header regardless of the screen's position in the stack.

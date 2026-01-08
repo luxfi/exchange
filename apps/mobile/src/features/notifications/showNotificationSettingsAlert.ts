@@ -1,6 +1,6 @@
 import { Alert } from 'react-native'
 import { openNotificationSettings } from 'src/utils/linking'
-import i18n from 'uniswap/src/i18n'
+import i18n from 'lx/src/i18n'
 
 export const showNotificationSettingsAlert = (): void => {
   Alert.alert(

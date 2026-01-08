@@ -1,101 +1,60 @@
-import { styled, Stack, Text } from 'tamagui'
-import type { GetProps } from 'tamagui'
+import type { StackProps, TextProps } from 'tamagui'
+import { Stack, styled, Text } from 'tamagui'
+
+type BadgeVariant = 'default' | 'primary' | 'success' | 'warning' | 'error' | 'outline'
+type BadgeSize = 'sm' | 'md' | 'lg'
 
 const BadgeFrame = styled(Stack, {
   name: 'Badge',
   flexDirection: 'row',
   alignItems: 'center',
   justifyContent: 'center',
-  paddingHorizontal: '$2',
-  paddingVertical: '$1',
-  borderRadius: '$2',
-
-  variants: {
-    variant: {
-      default: {
-        backgroundColor: '$backgroundHover',
-      },
-      primary: {
-        backgroundColor: '$primary',
-      },
-      success: {
-        backgroundColor: '$success',
-      },
-      warning: {
-        backgroundColor: '$warning',
-      },
-      error: {
-        backgroundColor: '$error',
-      },
-      outline: {
-        backgroundColor: 'transparent',
-        borderWidth: 1,
-        borderColor: '$borderColor',
-      },
-    },
-    size: {
-      sm: {
-        paddingHorizontal: '$1.5',
-        paddingVertical: 2,
-      },
-      md: {
-        paddingHorizontal: '$2',
-        paddingVertical: '$1',
-      },
-      lg: {
-        paddingHorizontal: '$3',
-        paddingVertical: '$1.5',
-      },
-    },
-  } as const,
-
-  defaultVariants: {
-    variant: 'default',
-    size: 'md',
-  },
+  px: '$spacing8',
+  py: '$spacing4',
+  borderRadius: '$rounded8',
 })
 
 const BadgeText = styled(Text, {
   name: 'BadgeText',
   fontSize: 12,
   fontWeight: '500',
-
-  variants: {
-    variant: {
-      default: {
-        color: '$color',
-      },
-      primary: {
-        color: 'white',
-      },
-      success: {
-        color: 'white',
-      },
-      warning: {
-        color: 'white',
-      },
-      error: {
-        color: 'white',
-      },
-      outline: {
-        color: '$color',
-      },
-    },
-  } as const,
-
-  defaultVariants: {
-    variant: 'default',
-  },
 })
 
-export type BadgeProps = GetProps<typeof BadgeFrame> & {
-  children: React.ReactNode
+const variantStyles: Record<BadgeVariant, { bg: StackProps['backgroundColor']; textColor: TextProps['color'] }> = {
+  default: { bg: '$surface2', textColor: '$neutral1' },
+  primary: { bg: '$accent1', textColor: '$surface1' },
+  success: { bg: '$statusSuccess', textColor: '$surface1' },
+  warning: { bg: '$statusWarning', textColor: '$surface1' },
+  error: { bg: '$statusCritical', textColor: '$surface1' },
+  outline: { bg: 'transparent', textColor: '$neutral1' },
 }
 
-export function Badge({ children, variant = 'default', ...props }: BadgeProps) {
+const sizeStyles: Record<BadgeSize, { px: number; py: number }> = {
+  sm: { px: 6, py: 2 },
+  md: { px: 8, py: 4 },
+  lg: { px: 12, py: 6 },
+}
+
+export interface BadgeProps extends Omit<StackProps, 'children'> {
+  children: React.ReactNode
+  variant?: BadgeVariant
+  size?: BadgeSize
+}
+
+export function Badge({ children, variant = 'default', size = 'md', ...props }: BadgeProps) {
+  const variantStyle = variantStyles[variant]
+  const sizeStyle = sizeStyles[size]
+
   return (
-    <BadgeFrame variant={variant} {...props}>
-      <BadgeText variant={variant}>{children}</BadgeText>
+    <BadgeFrame
+      backgroundColor={variantStyle.bg}
+      px={sizeStyle.px}
+      py={sizeStyle.py}
+      borderWidth={variant === 'outline' ? 1 : 0}
+      borderColor={variant === 'outline' ? '$surface3' : undefined}
+      {...props}
+    >
+      <BadgeText color={variantStyle.textColor}>{children}</BadgeText>
     </BadgeFrame>
   )
 }

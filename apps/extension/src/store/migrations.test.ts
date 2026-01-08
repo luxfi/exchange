@@ -39,24 +39,24 @@ import {
   v27Schema,
   v29Schema,
 } from 'src/store/schema'
-import { USDC } from 'uniswap/src/constants/tokens'
-import { initialUniswapBehaviorHistoryState } from 'uniswap/src/features/behaviorHistory/slice'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { initialFavoritesState } from 'uniswap/src/features/favorites/slice'
-import { FiatCurrency } from 'uniswap/src/features/fiatCurrency/constants'
-import { initialNotificationsState } from 'uniswap/src/features/notifications/slice/slice'
-import { initialSearchHistoryState } from 'uniswap/src/features/search/searchHistorySlice'
-import { initialUserSettingsState } from 'uniswap/src/features/settings/slice'
-import { initialTokensState } from 'uniswap/src/features/tokens/warnings/slice/slice'
-import { initialTransactionsState } from 'uniswap/src/features/transactions/slice'
-import { TransactionStatus, TransactionType } from 'uniswap/src/features/transactions/types/transactionDetails'
-import { initialVisibilityState } from 'uniswap/src/features/visibility/slice'
+import { USDC } from 'lx/src/constants/tokens'
+import { initialUniswapBehaviorHistoryState } from 'lx/src/features/behaviorHistory/slice'
+import { UniverseChainId } from 'lx/src/features/chains/types'
+import { initialFavoritesState } from 'lx/src/features/favorites/slice'
+import { FiatCurrency } from 'lx/src/features/fiatCurrency/constants'
+import { initialNotificationsState } from 'lx/src/features/notifications/slice/slice'
+import { initialSearchHistoryState } from 'lx/src/features/search/searchHistorySlice'
+import { initialUserSettingsState } from 'lx/src/features/settings/slice'
+import { initialTokensState } from 'lx/src/features/tokens/warnings/slice/slice'
+import { initialTransactionsState } from 'lx/src/features/transactions/slice'
+import { TransactionStatus, TransactionType } from 'lx/src/features/transactions/types/transactionDetails'
+import { initialVisibilityState } from 'lx/src/features/visibility/slice'
 import {
   testAddActivityVisibility,
   testMigrateDismissedTokenWarnings,
   testMigrateSearchHistory,
   testRemoveTHBFromCurrency,
-} from 'uniswap/src/state/uniswapMigrationTests'
+} from 'lx/src/state/uniswapMigrationTests'
 import { getAllKeysOfNestedObject } from 'utilities/src/primitives/objects'
 import { initialAppearanceSettingsState } from 'wallet/src/features/appearance/slice'
 import { initialBatchedTransactionsState } from 'wallet/src/features/batchedTransactions/slice'

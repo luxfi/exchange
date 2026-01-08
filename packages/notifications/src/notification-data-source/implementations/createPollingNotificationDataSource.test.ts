@@ -4,11 +4,11 @@ import {
   GetNotificationsResponse,
   Metadata,
   Notification,
-} from '@uniswap/client-notification-service/dist/uniswap/notificationservice/v1/api_pb'
-import type { InAppNotification, NotificationsApiClient } from '@universe/api'
-import { ContentStyle } from '@universe/api'
-import { getNotificationQueryOptions } from '@universe/notifications/src/notification-data-source/getNotificationQueryOptions'
-import { createPollingNotificationDataSource } from '@universe/notifications/src/notification-data-source/implementations/createPollingNotificationDataSource'
+} from '@luxdex/client-notification-service/dist/uniswap/notificationservice/v1/api_pb'
+import type { InAppNotification, NotificationsApiClient } from '@luxfi/api'
+import { ContentStyle } from '@luxfi/api'
+import { getNotificationQueryOptions } from '@luxfi/notifications/src/notification-data-source/getNotificationQueryOptions'
+import { createPollingNotificationDataSource } from '@luxfi/notifications/src/notification-data-source/implementations/createPollingNotificationDataSource'
 import { ReactQueryCacheKey } from 'utilities/src/reactQuery/cache'
 import { afterEach, beforeEach, describe, expect, it, type Mock, vi } from 'vitest'
 

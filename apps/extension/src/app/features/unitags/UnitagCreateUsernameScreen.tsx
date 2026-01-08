@@ -6,9 +6,9 @@ import { useUnitagClaimContext } from 'src/app/features/unitags/UnitagClaimConte
 import { Flex, Square } from 'ui/src'
 import { Person } from 'ui/src/components/icons'
 import { iconSizes } from 'ui/src/theme'
-import Trace from 'uniswap/src/features/telemetry/Trace'
-import { ClaimUnitagContent, ClaimUnitagContentProps } from 'uniswap/src/features/unitags/ClaimUnitagContent'
-import { ExtensionScreens, ExtensionUnitagClaimScreens } from 'uniswap/src/types/screens/extension'
+import Trace from 'lx/src/features/telemetry/Trace'
+import { ClaimUnitagContent, ClaimUnitagContentProps } from 'lx/src/features/unitags/ClaimUnitagContent'
+import { ExtensionScreens, ExtensionUnitagClaimScreens } from 'lx/src/types/screens/extension'
 import { useAccountAddressFromUrlWithThrow } from 'wallet/src/features/wallet/hooks'
 
 type onNavigateContinueType = Exclude<ClaimUnitagContentProps['onNavigateContinue'], undefined>

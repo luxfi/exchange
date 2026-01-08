@@ -39,7 +39,7 @@ export async function fetchSVG({
   try {
     aspectRatio = viewboxHeight && viewboxWidth ? +viewboxWidth / +viewboxHeight : FALLBACK_ASPECT_RATIO
   } catch (e) {
-    logger.debug('images/utils', 'fetchSVG', 'Could not calculate aspect ratio ' + e)
+    logger.debug('images/utils', 'fetchSVG', `Could not calculate aspect ratio ${e}`)
   }
 
   return { content: formatted, aspectRatio }
@@ -62,7 +62,7 @@ export function useSvgData(uri: string, autoplay = false): SvgData | undefined {
         return undefined
       }
     },
-    [autoplay, uri],
+    [autoplay, uri]
   )
 
   const { data } = useQuery({

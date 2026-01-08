@@ -1,8 +1,8 @@
 import { atom } from 'jotai'
 import { useAtomValue, useUpdateAtom } from 'jotai/utils'
 import { Switch } from 'ui/src'
-import { Platform } from 'uniswap/src/features/platforms/types/Platform'
-import { TransactionSettingConfig } from 'uniswap/src/features/transactions/components/settings/types'
+import { Platform } from 'lx/src/features/platforms/types/Platform'
+import { TransactionSettingConfig } from 'lx/src/features/transactions/components/settings/types'
 import { useEvent } from 'utilities/src/react/hooks'
 
 const oneClickSwapAtom = atom(true)

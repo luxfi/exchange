@@ -1,5 +1,5 @@
-import type { ProgressEvent, ProgressStage } from '@universe/cli/src/ui/services/orchestrator-service'
-import { colors } from '@universe/cli/src/ui/utils/colors'
+import type { ProgressEvent, ProgressStage } from '@luxfi/cli/src/ui/services/orchestrator-service'
+import { colors } from '@luxfi/cli/src/ui/utils/colors'
 import { Box, Text } from 'ink'
 
 interface Stage {

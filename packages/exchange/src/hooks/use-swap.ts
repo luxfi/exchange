@@ -3,7 +3,7 @@
 import { useMutation } from '@tanstack/react-query'
 import { useWriteContract, useWaitForTransactionReceipt } from 'wagmi'
 import { parseUnits } from 'viem'
-import { getContracts } from '@luxfi/config'
+import { getContracts } from '../contracts'
 import { SWAP_ROUTER_ABI } from '../contracts/abis'
 import type { Token } from '../tokens'
 import { isNativeToken } from '../tokens'

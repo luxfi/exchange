@@ -8,7 +8,7 @@ const PROD_ENTRY_GATEWAY_API_BASE_URL = 'https://entry-gateway.backend-prod.api.
 
 /**
  * Returns the appropriate Entry Gateway API URL for the proxy target.
- * Duplicated from @universe/api to avoid importing app code into build config.
+ * Duplicated from @luxfi/api to avoid importing app code into build config.
  */
 function getEntryGatewayProxyTarget(): string {
   // Allow override via environment variable

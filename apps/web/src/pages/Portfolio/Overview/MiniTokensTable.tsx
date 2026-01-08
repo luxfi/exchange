@@ -1,4 +1,4 @@
-import { SharedEventName } from '@uniswap/analytics-events'
+import { SharedEventName } from '@luxdex/analytics-events'
 import { Table } from 'components/Table'
 import { PORTFOLIO_TABLE_ROW_HEIGHT } from 'pages/Portfolio/constants'
 import { MAX_TOKENS_ROWS } from 'pages/Portfolio/Overview/constants'
@@ -10,9 +10,9 @@ import { TokenColumns, useTokenColumns } from 'pages/Portfolio/Tokens/Table/colu
 import { memo, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Flex, TouchableArea } from 'ui/src'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { ElementName, SectionName } from 'uniswap/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
+import { UniverseChainId } from 'lx/src/features/chains/types'
+import { ElementName, SectionName } from 'lx/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
 import { useTrace } from 'utilities/src/telemetry/trace/TraceContext'
 
 const TOKENS_TABLE_MAX_HEIGHT = 800

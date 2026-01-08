@@ -1,32 +1,32 @@
 /* eslint-disable @typescript-eslint/no-unnecessary-condition */
 import { BigNumber } from '@ethersproject/bignumber'
 import type { TransactionResponse } from '@ethersproject/providers'
-import type { Token } from '@uniswap/sdk-core'
+import type { Token } from '@luxamm/sdk-core'
 import { useAccount } from 'hooks/useAccount'
 import { useCallback, useEffect, useMemo } from 'react'
 import { getRoutingForTransaction } from 'state/activity/utils'
 import { useAppDispatch, useAppSelector } from 'state/hooks'
 import { PendingTransactionDetails } from 'state/transactions/types'
 import { isConfirmedTx, isPendingTx, isUniswapXOrderPending } from 'state/transactions/utils'
-import { useEnabledChains } from 'uniswap/src/features/chains/hooks/useEnabledChains'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { toSupportedChainId } from 'uniswap/src/features/chains/utils'
-import { selectTransactions } from 'uniswap/src/features/transactions/selectors'
-import { addTransaction, deleteTransaction, interfaceCancelTransaction } from 'uniswap/src/features/transactions/slice'
-import { isUniswapX } from 'uniswap/src/features/transactions/swap/utils/routing'
+import { useEnabledChains } from 'lx/src/features/chains/hooks/useEnabledChains'
+import { UniverseChainId } from 'lx/src/features/chains/types'
+import { toSupportedChainId } from 'lx/src/features/chains/utils'
+import { selectTransactions } from 'lx/src/features/transactions/selectors'
+import { addTransaction, deleteTransaction, interfaceCancelTransaction } from 'lx/src/features/transactions/slice'
+import { isUniswapX } from 'lx/src/features/transactions/swap/utils/routing'
 import type {
   InterfaceTransactionDetails,
   TransactionDetails,
   TransactionTypeInfo as TransactionInfo,
   UniswapXOrderDetails,
-} from 'uniswap/src/features/transactions/types/transactionDetails'
+} from 'lx/src/features/transactions/types/transactionDetails'
 import {
   TransactionOriginType,
   TransactionStatus,
   TransactionType,
-} from 'uniswap/src/features/transactions/types/transactionDetails'
-import { isInterfaceTransaction } from 'uniswap/src/features/transactions/types/utils'
-import { useWallet } from 'uniswap/src/features/wallet/hooks/useWallet'
+} from 'lx/src/features/transactions/types/transactionDetails'
+import { isInterfaceTransaction } from 'lx/src/features/transactions/types/utils'
+import { useWallet } from 'lx/src/features/wallet/hooks/useWallet'
 import { usePrevious } from 'utilities/src/react/hooks'
 import { ONE_MINUTE_MS } from 'utilities/src/time/time'
 

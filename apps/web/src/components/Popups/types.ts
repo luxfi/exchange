@@ -1,6 +1,6 @@
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { FORTransaction } from 'uniswap/src/features/fiatOnRamp/types'
-import { CurrencyId } from 'uniswap/src/types/currency'
+import { UniverseChainId } from 'lx/src/features/chains/types'
+import { FORTransaction } from 'lx/src/features/fiatOnRamp/types'
+import { CurrencyId } from 'lx/src/types/currency'
 
 export enum PopupType {
   Transaction = 'transaction',

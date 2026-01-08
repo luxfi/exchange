@@ -1,4 +1,4 @@
-import { EVMUniverseChainId } from 'uniswap/src/features/chains/types'
+import { EVMUniverseChainId } from 'lx/src/features/chains/types'
 
 export type BidDistributionData = Map<string, string>
 

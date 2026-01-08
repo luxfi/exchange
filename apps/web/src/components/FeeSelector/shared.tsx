@@ -1,8 +1,8 @@
-import { FeeAmount } from '@uniswap/v3-sdk'
+import { FeeAmount } from '@luxamm/v3-sdk'
 import { getFeeTierTitle } from 'components/Liquidity/utils/feeTiers'
 import type { ReactNode } from 'react'
-import { ALL_EVM_CHAIN_IDS } from 'uniswap/src/features/chains/chainInfo'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { ALL_EVM_CHAIN_IDS } from 'lx/src/features/chains/chainInfo'
+import { UniverseChainId } from 'lx/src/features/chains/types'
 
 export const FEE_AMOUNT_DETAIL: Record<
   FeeAmount,

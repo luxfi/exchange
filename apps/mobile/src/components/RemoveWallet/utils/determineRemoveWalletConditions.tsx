@@ -1,5 +1,5 @@
-import { Platform } from 'uniswap/src/features/platforms/types/Platform'
-import { areAddressesEqual } from 'uniswap/src/utils/addresses'
+import { Platform } from 'lx/src/features/platforms/types/Platform'
+import { areAddressesEqual } from 'lx/src/utils/addresses'
 import { Account, SignerMnemonicAccount } from 'wallet/src/features/wallet/accounts/types'
 
 type RemoveWalletConditions = {

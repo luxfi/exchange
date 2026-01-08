@@ -40,7 +40,7 @@ export const Switch = memo(function Switch({
     if (checked !== undefined && checked !== (progress.value === 1)) {
       progress.value = withTiming(checked ? 1 : 0, ANIMATION_CONFIG)
     }
-  }, [checked])
+  }, [checked, progress])
 
   const trackStyle = useAnimatedStyle(() => {
     const isOn = progress.value
@@ -57,7 +57,7 @@ export const Switch = memo(function Switch({
         {
           translateX: withTiming(
             interpolate(isOn, [0, 1], [0, SWITCH_TRACK_WIDTH - SWITCH_THUMB_HEIGHT - SWITCH_THUMB_PADDING * 2]),
-            ANIMATION_CONFIG,
+            ANIMATION_CONFIG
           ),
         },
       ],
@@ -85,7 +85,7 @@ export const Switch = memo(function Switch({
 
   const containerStyle: PressableProps['style'] = useMemo(
     () => (pointerEvents === 'none' ? { pointerEvents: 'none' } : {}),
-    [pointerEvents],
+    [pointerEvents]
   )
 
   return (
@@ -118,7 +118,8 @@ function getTrackColor({
     return colors.surface3.val
   }
   if (isBranded) {
-    return isOn ? colors.accent1.val : colors.neutral3.val
+    // Use dark track background, white thumb stands out
+    return isOn ? colors.surface2.val : colors.neutral3.val
   }
   return isOn ? colors.accent3.val : colors.neutral3.val
 }

@@ -1,5 +1,6 @@
 /**
  * Theme exports
  */
-export * from './tokens';
-export * from './themes';
+
+export * from './themes'
+export * from './tokens'

@@ -166,6 +166,14 @@ export const networkColors = {
     light: '#3667F6',
     dark: '#3667F6',
   },
+  lux: {
+    light: '#F54562',
+    dark: '#F54562',
+  },
+  zoo: {
+    light: '#9945FF',
+    dark: '#9945FF',
+  },
 }
 
 const sporeLight = {
@@ -343,10 +351,17 @@ export const colorsLight = {
   chain_501000101: networkColors.solana.light,
   chain_143: networkColors.monad.light,
 
+  // Lux ecosystem
+  chain_96369: networkColors.lux.light,
+  chain_200200: networkColors.zoo.light,
+
   // Testnets
   chain_11155111: networkColors.ethereum.light,
   chain_1301: networkColors.unichain.light,
   chain_10143: networkColors.monad.light,
+  chain_96368: networkColors.lux.light,
+  chain_200201: networkColors.zoo.light,
+  chain_1337: networkColors.lux.light, // Lux Local dev mode
 
   pinkThemed: colors.pinkLight,
 }
@@ -433,10 +448,17 @@ export const colorsDark = {
   chain_501000101: networkColors.solana.dark,
   chain_143: networkColors.monad.dark,
 
+  // Lux ecosystem
+  chain_96369: networkColors.lux.dark,
+  chain_200200: networkColors.zoo.dark,
+
   // Testnets
   chain_11155111: networkColors.ethereum.dark,
   chain_1301: networkColors.unichain.dark,
   chain_10143: networkColors.monad.dark,
+  chain_96368: networkColors.lux.dark,
+  chain_200201: networkColors.zoo.dark,
+  chain_1337: networkColors.lux.dark, // Lux Local dev mode
 
   pinkThemed: colors.pinkDark,
 }

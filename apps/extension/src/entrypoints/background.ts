@@ -19,9 +19,9 @@ import {
   readDeviceAccessTimeoutMinutesFromStorage,
   readIsOnboardedFromStorage,
 } from 'src/background/utils/persistedStateUtils'
-import { uniswapUrls } from 'uniswap/src/constants/urls'
-import { ExtensionEventName } from 'uniswap/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
+import { uniswapUrls } from 'lx/src/constants/urls'
+import { ExtensionEventName } from 'lx/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
 import { logger } from 'utilities/src/logger/logger'
 import { Keyring } from 'wallet/src/features/wallet/Keyring/Keyring'
 import { defineBackground } from 'wxt/utils/define-background'

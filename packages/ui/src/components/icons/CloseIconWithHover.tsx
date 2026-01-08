@@ -1,6 +1,6 @@
 import { X } from 'ui/src/components/icons/X'
 import { TouchableArea } from 'ui/src/components/touchable'
-import { IconSizeTokens } from 'ui/src/theme'
+import type { IconSizeTokens } from 'ui/src/theme'
 
 export type CloseIconProps = {
   onClose: () => void

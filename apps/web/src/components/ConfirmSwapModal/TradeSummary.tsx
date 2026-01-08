@@ -4,7 +4,7 @@ import { ArrowRight } from 'react-feather'
 import { InterfaceTrade } from 'state/routing/types'
 import { ThemedText } from 'theme/components'
 import { useSporeColors } from 'ui/src'
-import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
+import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
 import { NumberType } from 'utilities/src/format/types'
 
 export function TradeSummary({ trade }: { trade: Pick<InterfaceTrade, 'inputAmount' | 'outputAmount'> }) {

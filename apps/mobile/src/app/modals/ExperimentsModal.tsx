@@ -7,12 +7,12 @@ import { E2EPixel } from 'src/test/E2EPixel'
 import { getFullAppVersion } from 'src/utils/version'
 import { Accordion, Text } from 'ui/src'
 import { spacing } from 'ui/src/theme'
-import { CacheConfig } from 'uniswap/src/components/gating/CacheConfig'
-import { GatingOverrides } from 'uniswap/src/components/gating/GatingOverrides'
-import { Modal } from 'uniswap/src/components/modals/Modal'
-import { ModalName } from 'uniswap/src/features/telemetry/constants'
-import { useAppInsets } from 'uniswap/src/hooks/useAppInsets'
-import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+import { CacheConfig } from 'lx/src/components/gating/CacheConfig'
+import { GatingOverrides } from 'lx/src/components/gating/GatingOverrides'
+import { Modal } from 'lx/src/components/modals/Modal'
+import { ModalName } from 'lx/src/features/telemetry/constants'
+import { useAppInsets } from 'lx/src/hooks/useAppInsets'
+import { TestID } from 'lx/src/test/fixtures/testIDs'
 
 export function ExperimentsModal(): JSX.Element {
   const insets = useAppInsets()

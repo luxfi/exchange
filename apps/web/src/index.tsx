@@ -7,14 +7,14 @@ import { TokenBalancesProvider } from 'appGraphql/data/apollo/TokenBalancesProvi
 import { getDeviceId } from '@amplitude/analytics-browser'
 import { ApolloProvider } from '@apollo/client'
 import { datadogRum } from '@datadog/browser-rum'
-import { ApiInit, getEntryGatewayUrl, provideSessionService } from '@universe/api'
-import type { StatsigUser } from '@universe/gating'
+import { ApiInit, getEntryGatewayUrl, provideSessionService } from '@luxfi/api'
+import type { StatsigUser } from '@luxfi/gating'
 import {
   getIsSessionServiceEnabled,
   getIsSessionUpgradeAutoEnabled,
   useIsSessionServiceEnabled,
-} from '@universe/gating'
-import { createChallengeSolverService, createSessionInitializationService } from '@universe/sessions'
+} from '@luxfi/gating'
+import { createChallengeSolverService, createSessionInitializationService } from '@luxfi/sessions'
 import { QueryClientPersistProvider } from 'components/PersistQueryClient'
 import { createWeb3Provider, WalletCapabilitiesEffects } from 'components/Web3Provider/createWeb3Provider'
 import { WebUniswapProvider } from 'components/Web3Provider/WebUniswapContext'
@@ -30,23 +30,26 @@ import { WebNotificationServiceManager } from 'notification-service/WebNotificat
 import { NuqsAdapter } from 'nuqs/adapters/react-router/v7'
 import App from 'pages/App'
 import type { PropsWithChildren } from 'react'
-import { StrictMode, useEffect, useMemo } from 'react'
+// StrictMode disabled temporarily for React 19 + immer 9.x compatibility
+// TODO: Enable after upgrading to @reduxjs/toolkit 2.x
+import { /* StrictMode, */ useEffect, useMemo } from 'react'
 import { createRoot } from 'react-dom/client'
 import { Helmet, HelmetProvider } from 'react-helmet-async/lib/index'
 import { I18nextProvider } from 'react-i18next'
-import { configureReanimatedLogger } from 'react-native-reanimated'
+// configureReanimatedLogger disabled - incompatible with React 19 on web
+// import { configureReanimatedLogger } from 'react-native-reanimated'
 import { Provider } from 'react-redux'
 import { BrowserRouter, HashRouter, useLocation } from 'react-router'
 import store from 'state'
 import { ThemedGlobalStyle, ThemeProvider } from 'theme'
 import { TamaguiProvider } from 'theme/tamaguiProvider'
 import { PortalProvider } from 'ui/src'
-import { ReactRouterUrlProvider } from 'uniswap/src/contexts/UrlContext'
-import { initializePortfolioQueryOverrides } from 'uniswap/src/data/rest/portfolioBalanceOverrides'
-import { StatsigProviderWrapper } from 'uniswap/src/features/gating/StatsigProviderWrapper'
-import { LocalizationContextProvider } from 'uniswap/src/features/language/LocalizationContext'
-import i18n from 'uniswap/src/i18n'
-import { initializeDatadog } from 'uniswap/src/utils/datadog'
+import { ReactRouterUrlProvider } from 'lx/src/contexts/UrlContext'
+import { initializePortfolioQueryOverrides } from 'lx/src/data/rest/portfolioBalanceOverrides'
+import { StatsigProviderWrapper } from 'lx/src/features/gating/StatsigProviderWrapper'
+import { LocalizationContextProvider } from 'lx/src/features/language/LocalizationContext'
+import i18n from 'lx/src/i18n'
+import { initializeDatadog } from 'lx/src/utils/datadog'
 import { localDevDatadogEnabled } from 'utilities/src/environment/constants'
 import { isDevEnv, isTestEnv } from 'utilities/src/environment/env'
 import { getLogger } from 'utilities/src/logger/logger'
@@ -60,11 +63,10 @@ if (window.ethereum) {
   window.ethereum.autoRefreshOnNetworkChange = false
 }
 
-if (__DEV__ && !isTestEnv()) {
-  configureReanimatedLogger({
-    strict: false,
-  })
-}
+// Reanimated logger disabled for React 19 web compatibility
+// if (__DEV__ && !isTestEnv()) {
+//   configureReanimatedLogger({ strict: false })
+// }
 
 initializePortfolioQueryOverrides({ store })
 
@@ -177,9 +179,14 @@ const container = document.getElementById('root') as HTMLElement
 
 const Router = isBrowserRouterEnabled() ? BrowserRouter : HashRouter
 
+// Loading screen dismissal is now handled by index.html script for faster startup
+
 const RootApp = (): JSX.Element => {
+  // Loading screen animation is handled by index.html script for faster startup
   return (
-    <StrictMode>
+    // StrictMode disabled - see import comment
+    // <StrictMode>
+    <>
       <HelmetProvider>
         <ReactRouterUrlProvider>
           <Provider store={store}>
@@ -225,7 +232,7 @@ const RootApp = (): JSX.Element => {
           </Provider>
         </ReactRouterUrlProvider>
       </HelmetProvider>
-    </StrictMode>
+    </>
   )
 }
 

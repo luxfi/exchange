@@ -1,4 +1,4 @@
-import type { ChallengeData, ChallengeSolver } from '@universe/sessions/src/challenge-solvers/types'
+import type { ChallengeData, ChallengeSolver } from '@luxfi/sessions/src/challenge-solvers/types'
 
 function createNoneMockSolver(): ChallengeSolver {
   async function solve(_challengeData: ChallengeData): Promise<string> {

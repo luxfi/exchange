@@ -1,5 +1,5 @@
-import { getStorageDriver } from '@universe/api/src/storage/getStorageDriver'
-import { createSessionStorage, type SessionStorage } from '@universe/sessions'
+import { getStorageDriver } from '@luxfi/api/src/storage/getStorageDriver'
+import { createSessionStorage, type SessionStorage } from '@luxfi/sessions'
 
 const SESSION_ID_KEY = 'UNISWAP_SESSION_ID'
 

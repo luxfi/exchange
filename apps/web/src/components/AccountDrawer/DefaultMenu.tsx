@@ -14,9 +14,9 @@ import usePrevious from 'hooks/usePrevious'
 import { useEffect, useMemo } from 'react'
 import { Flex } from 'ui/src'
 import { TransitionItem } from 'ui/src/animations'
-import { useActiveAddresses } from 'uniswap/src/features/accounts/store/hooks'
-import { InterfaceEventName } from 'uniswap/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
+import { useActiveAddresses } from 'lx/src/features/accounts/store/hooks'
+import { InterfaceEventName } from 'lx/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
 
 function DefaultMenu() {
   const activeAccount = useActiveAddresses()

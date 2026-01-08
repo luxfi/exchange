@@ -3,7 +3,7 @@ import { wagmiConfig } from 'components/Web3Provider/wagmiConfig'
 import { ExternalConnector } from 'features/accounts/store/types'
 import { createConnectionService, GetConnectorFn } from 'features/wallet/connection/services/createConnectionService'
 import { ConnectionService } from 'features/wallet/connection/services/IConnectionService'
-import { Platform } from 'uniswap/src/features/platforms/types/Platform'
+import { Platform } from 'lx/src/features/platforms/types/Platform'
 import { isPlaywrightEnv } from 'utilities/src/environment/env'
 import { sleep } from 'utilities/src/time/timing'
 

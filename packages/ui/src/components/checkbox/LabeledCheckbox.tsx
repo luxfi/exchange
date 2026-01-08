@@ -53,7 +53,7 @@ export function LabeledCheckbox({
       ) : (
         text
       ),
-    [text],
+    [text]
   )
 
   return (

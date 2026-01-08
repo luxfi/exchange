@@ -3,9 +3,9 @@ import { memo } from 'react'
 import { Flex, Text } from 'ui/src'
 import { Unitag } from 'ui/src/components/icons/Unitag'
 import { iconSizes } from 'ui/src/theme'
-import { useUnitagsAddressQuery } from 'uniswap/src/data/apiClients/unitagsApi/useUnitagsAddressQuery'
-import { AccountIcon } from 'uniswap/src/features/accounts/AccountIcon'
-import { useENSName } from 'uniswap/src/features/ens/api'
+import { useUnitagsAddressQuery } from 'lx/src/data/apiClients/unitagsApi/useUnitagsAddressQuery'
+import { AccountIcon } from 'lx/src/features/accounts/AccountIcon'
+import { useENSName } from 'lx/src/features/ens/api'
 import { shortenAddress } from 'utilities/src/addresses'
 
 interface AddressWithAvatarProps {

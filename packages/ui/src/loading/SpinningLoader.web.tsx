@@ -1,6 +1,6 @@
 import { CircleSpinner, EmptySpinner } from 'ui/src/components/icons'
 import { Flex } from 'ui/src/components/layout'
-import { SpinningLoaderProps } from 'ui/src/loading/types'
+import type { SpinningLoaderProps } from 'ui/src/loading/types'
 
 const rotateCSS = `
   @keyframes rotate360 {

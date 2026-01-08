@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unnecessary-condition */
 import { createReducer } from '@reduxjs/toolkit'
-import { getVersionUpgrade, VersionUpgrade } from '@uniswap/token-lists'
+import { getVersionUpgrade, VersionUpgrade } from 'utils/tokenListTypes'
 import { DEFAULT_INACTIVE_LIST_URLS } from 'constants/lists'
 import { updateVersion } from 'state/global/actions'
 import { acceptListUpdate, addList, fetchTokenList, removeList } from 'state/lists/actions'

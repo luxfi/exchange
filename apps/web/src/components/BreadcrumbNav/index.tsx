@@ -1,10 +1,10 @@
-import { Currency } from '@uniswap/sdk-core'
+import { Currency } from '@luxamm/sdk-core'
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router'
 import { CopyHelper } from 'theme/components/CopyHelper'
 import { Flex, styled, Text, TextProps, useMedia } from 'ui/src'
-import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+import { TestID } from 'lx/src/test/fixtures/testIDs'
 import { shortenAddress } from 'utilities/src/addresses'
 
 export const BreadcrumbNavContainer = styled(Flex, {
@@ -43,8 +43,11 @@ const CurrentPageBreadcrumbContainer = styled(Flex, {
 // This must be an h1 to match the SEO title, and must be the first heading tag in code.
 const PageTitleText = styled(Text, {
   tag: 'h1',
+  // @ts-expect-error - 'inherit' is valid CSS but not in Tamagui types
   fontWeight: 'inherit',
+  // @ts-expect-error - 'inherit' is valid CSS but not in Tamagui types
   fontSize: 'inherit',
+  // @ts-expect-error - 'inherit' is valid CSS but not in Tamagui types
   lineHeight: 'inherit',
   color: '$neutral1',
   whiteSpace: 'nowrap',

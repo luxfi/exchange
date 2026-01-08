@@ -16,7 +16,7 @@
     "types": ["chrome", "node"],
     "baseUrl": ".",
     "paths": {
-      "@universe/api/*": ["./src/*"]
+      "@luxfi/api/*": ["./src/*"]
     }
   },
   "types": ["vitest/globals"],

@@ -1,5 +1,5 @@
 import { PrefetchBalancesWrapper } from 'appGraphql/data/apollo/AdaptiveTokenBalancesProvider'
-import { Currency, CurrencyAmount, Price } from '@uniswap/sdk-core'
+import { Currency, CurrencyAmount, Price } from '@luxamm/sdk-core'
 import {
   LimitCustomMarketPriceButton,
   LimitPresetPriceButton,
@@ -24,9 +24,9 @@ import { ThemedText } from 'theme/components'
 import { ClickableStyle } from 'theme/components/styles'
 import { TouchableArea } from 'ui/src'
 import { ArrowDownArrowUp } from 'ui/src/components/icons/ArrowDownArrowUp'
-import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
-import { InterfaceEventName } from 'uniswap/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
+import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
+import { InterfaceEventName } from 'lx/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
 // biome-ignore lint/style/noRestrictedImports: We need to import this directly so we can format with `en-US` locale
 import { formatCurrencyAmount as formatCurrencyAmountRaw } from 'utilities/src/format/localeBased'
 import { NumberType } from 'utilities/src/format/types'

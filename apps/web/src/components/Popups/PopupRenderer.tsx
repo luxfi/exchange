@@ -30,11 +30,11 @@ export function PopupRenderer() {
 
   return (
     <Toaster
-      position="top-right"
+      position="bottom-right"
       pauseWhenPageIsHidden
       expand
       style={{
-        marginTop: spacing.spacing32,
+        marginBottom: spacing.spacing32,
       }}
       toastOptions={{
         style: {

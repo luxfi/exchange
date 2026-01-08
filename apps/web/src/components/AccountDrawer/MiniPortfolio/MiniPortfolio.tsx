@@ -1,4 +1,4 @@
-import { SharedEventName } from '@uniswap/analytics-events'
+import { SharedEventName } from '@luxdex/analytics-events'
 import { usePendingActivity } from 'components/AccountDrawer/MiniPortfolio/Activity/hooks'
 import { LoaderV2 } from 'components/Icons/LoadingSpinner'
 import { atom, useAtom } from 'jotai'
@@ -6,8 +6,8 @@ import { lazy, Suspense, useEffect, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Flex, Text, TouchableArea, useSporeColors } from 'ui/src'
 import { Loader } from 'ui/src/loading/Loader'
-import { ElementName, SectionName } from 'uniswap/src/features/telemetry/constants'
-import Trace from 'uniswap/src/features/telemetry/Trace'
+import { ElementName, SectionName } from 'lx/src/features/telemetry/constants'
+import Trace from 'lx/src/features/telemetry/Trace'
 
 const TokensTab = lazy(() => import('components/AccountDrawer/MiniPortfolio/Tokens/TokensTab'))
 const NFTsTab = lazy(() => import('components/AccountDrawer/MiniPortfolio/NFTs/NFTsTab'))

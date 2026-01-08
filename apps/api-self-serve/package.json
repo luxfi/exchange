@@ -26,7 +26,7 @@
     "@tailwindcss/vite": "4.1.13",
     "@types/node": "22.13.1",
     "@types/react": "19.0.10",
-    "@uniswap/eslint-config": "workspace:^",
+    "@luxfi/eslint-config": "workspace:^",
     "eslint": "8.57.1",
     "tailwindcss": "4.1.16",
     "typescript": "5.8.3",

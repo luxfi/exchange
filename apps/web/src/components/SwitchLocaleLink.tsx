@@ -4,9 +4,9 @@ import { Trans } from 'react-i18next'
 import { useAppDispatch } from 'state/hooks'
 import { StyledInternalLink } from 'theme/components/Links'
 import { Text } from 'ui/src'
-import { DEFAULT_LOCALE, Language, Locale, mapLocaleToLanguage } from 'uniswap/src/features/language/constants'
-import { navigatorLocale, useCurrentLocale, useLanguageInfo } from 'uniswap/src/features/language/hooks'
-import { setCurrentLanguage } from 'uniswap/src/features/settings/slice'
+import { DEFAULT_LOCALE, Language, Locale, mapLocaleToLanguage } from 'lx/src/features/language/constants'
+import { navigatorLocale, useCurrentLocale, useLanguageInfo } from 'lx/src/features/language/hooks'
+import { setCurrentLanguage } from 'lx/src/features/settings/slice'
 
 const useTargetLocale = (activeLocale: Locale) => {
   const browserLocale = useMemo(() => navigatorLocale(), [])

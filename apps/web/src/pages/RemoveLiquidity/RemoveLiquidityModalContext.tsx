@@ -1,12 +1,12 @@
-import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
-import { Currency } from '@uniswap/sdk-core'
+import { ProtocolVersion } from '@luxdex/client-data-api/dist/data/v1/poolTypes_pb'
+import { Currency } from '@luxamm/sdk-core'
 import { getCurrencyWithOptionalUnwrap } from 'components/Liquidity/utils/currency'
 import { useModalInitialState } from 'hooks/useModalInitialState'
 import { createContext, Dispatch, PropsWithChildren, SetStateAction, useContext, useMemo, useState } from 'react'
 import { LiquidityModalInitialState } from 'state/application/reducer'
 import { PositionField } from 'types/position'
-import { ModalName } from 'uniswap/src/features/telemetry/constants'
-import { TransactionStep } from 'uniswap/src/features/transactions/steps/types'
+import { ModalName } from 'lx/src/features/telemetry/constants'
+import { TransactionStep } from 'lx/src/features/transactions/steps/types'
 
 export enum DecreaseLiquidityStep {
   Input = 0,

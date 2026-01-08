@@ -54,7 +54,7 @@
       "options": {
         "cwd": "{projectRoot}"
       },
-      "dependsOn": ["@uniswap/biome-config:prepare"],
+      "dependsOn": ["@luxfi/biome-config:prepare"],
       "cache": true,
       "inputs": [
         "default",
@@ -68,7 +68,7 @@
       "options": {
         "cwd": "{projectRoot}"
       },
-      "dependsOn": ["@uniswap/biome-config:prepare"],
+      "dependsOn": ["@luxfi/biome-config:prepare"],
       "cache": false
     },
     "lint:eslint": {
@@ -233,7 +233,7 @@
     "applyChanges": true
   },
   "parallel": 3,
-  "defaultProject": "@universe/web",
+  "defaultProject": "@luxfi/web",
   "generators": {
     "@nx/js:library": {
       "buildable": false

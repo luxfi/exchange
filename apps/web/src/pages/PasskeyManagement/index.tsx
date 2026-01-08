@@ -8,8 +8,8 @@ import Swap from 'pages/Swap'
 import { useEffect, useMemo, useRef } from 'react'
 import { useDispatch } from 'react-redux'
 import { useNavigate, useParams } from 'react-router'
-import { setIsTestnetModeEnabled } from 'uniswap/src/features/settings/slice'
-import { ModalName } from 'uniswap/src/features/telemetry/constants'
+import { setIsTestnetModeEnabled } from 'lx/src/features/settings/slice'
+import { ModalName } from 'lx/src/features/telemetry/constants'
 import { useEvent } from 'utilities/src/react/hooks'
 
 type PasskeyManagementEffectDependencies = {

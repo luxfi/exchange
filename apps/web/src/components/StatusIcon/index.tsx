@@ -6,8 +6,8 @@ import { deprecatedStyled } from 'lib/styled-components'
 import { flexColumnNoWrap } from 'theme/styles'
 import { Flex, FlexProps } from 'ui/src/components/layout'
 import { breakpoints } from 'ui/src/theme'
-import { AccountIcon } from 'uniswap/src/features/accounts/AccountIcon'
-import { Platform } from 'uniswap/src/features/platforms/types/Platform'
+import { AccountIcon } from 'lx/src/features/accounts/AccountIcon'
+import { Platform } from 'lx/src/features/platforms/types/Platform'
 import { isEVMAddress } from 'utilities/src/addresses/evm/evm'
 
 const IconWrapper = deprecatedStyled.div<{ size?: number }>`

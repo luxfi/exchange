@@ -64,10 +64,10 @@ export default defineConfig({
     screenshot: 'off',
     video: 'retain-on-failure',
     trace: 'retain-on-failure',
-    baseURL: 'http://localhost:3000',
+    baseURL: process.env.BASE_URL || 'http://localhost:9000',
     headless: true,
     extraHTTPHeaders: {
-      origin: 'http://localhost:3000',
+      origin: process.env.BASE_URL || 'http://localhost:9000',
     },
     launchOptions: {
       args: ['--disable-blink-features=AutomationControlled'],
@@ -80,4 +80,10 @@ export default defineConfig({
     },
   ],
   outputDir: './test-results',
+  webServer: {
+    command: 'bun run dev',
+    url: 'http://localhost:9000',
+    reuseExistingServer: !IS_CI,
+    timeout: ms('120s'),
+  },
 })

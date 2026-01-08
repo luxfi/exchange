@@ -1,6 +1,6 @@
 import { Flex } from 'ui/src/components/layout/Flex'
 import { PlainImage } from 'ui/src/components/UniversalImage/internal/PlainImage'
-import { SvgImageProps } from 'ui/src/components/UniversalImage/types'
+import type { SvgImageProps } from 'ui/src/components/UniversalImage/types'
 import { useSvgData } from 'ui/src/components/UniversalImage/utils'
 
 export function SvgImage({ uri, size, autoplay, fallback }: SvgImageProps): JSX.Element | null {

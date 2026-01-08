@@ -4,8 +4,8 @@ import { AppStackScreenProp, SettingsStackScreenProp } from 'src/app/navigation/
 import { BackHeader } from 'src/components/layout/BackHeader'
 import { Screen } from 'src/components/layout/Screen'
 import { Separator, Text } from 'ui/src'
-import { uniswapUrls } from 'uniswap/src/constants/urls'
-import { MobileScreens } from 'uniswap/src/types/screens/mobile'
+import { uniswapUrls } from 'lx/src/constants/urls'
+import { MobileScreens } from 'lx/src/types/screens/mobile'
 import { useActiveAccountAddress } from 'wallet/src/features/wallet/hooks'
 
 export function WebViewScreen({

@@ -1,14 +1,14 @@
-import { UNI_ADDRESSES } from '@uniswap/sdk-core'
+import { UNI_ADDRESSES } from '@luxamm/sdk-core'
 import { ActivityProtocolInfo, ActivityRowFragments } from 'pages/Portfolio/Activity/ActivityTable/activityTableModels'
 import { ActivityFilterType } from 'pages/Portfolio/Activity/Filters/utils'
-import { AssetType } from 'uniswap/src/entities/assets'
+import { AssetType } from 'lx/src/entities/assets'
 import {
   DappInfoTransactionDetails,
   TransactionDetails,
   TransactionType,
-} from 'uniswap/src/features/transactions/types/transactionDetails'
-import { getValidAddress } from 'uniswap/src/utils/addresses'
-import { buildCurrencyId } from 'uniswap/src/utils/currencyId'
+} from 'lx/src/features/transactions/types/transactionDetails'
+import { getValidAddress } from 'lx/src/utils/addresses'
+import { buildCurrencyId } from 'lx/src/utils/currencyId'
 
 function toProtocolInfo(dappInfo: DappInfoTransactionDetails | undefined): ActivityProtocolInfo | null {
   if (!dappInfo?.name) {

@@ -1,6 +1,6 @@
-import type { Release } from '@universe/cli/src/lib/release-scanner'
-import { colors } from '@universe/cli/src/ui/utils/colors'
-import { formatBranch } from '@universe/cli/src/ui/utils/format'
+import type { Release } from '@luxfi/cli/src/lib/release-scanner'
+import { colors } from '@luxfi/cli/src/ui/utils/colors'
+import { formatBranch } from '@luxfi/cli/src/ui/utils/format'
 import { Text } from 'ink'
 
 interface ReleaseListProps {

@@ -10,21 +10,21 @@ import { Flex, Text } from 'ui/src'
 import { Ellipsis } from 'ui/src/components/icons'
 import { AnimatedFlex } from 'ui/src/components/layout/AnimatedFlex'
 import { iconSizes, spacing } from 'ui/src/theme'
-import { TokenLogo } from 'uniswap/src/components/CurrencyLogo/TokenLogo'
-import { ContextMenu } from 'uniswap/src/components/menus/ContextMenuV2'
-import { ContextMenuTriggerMode } from 'uniswap/src/components/menus/types'
+import { TokenLogo } from 'lx/src/components/CurrencyLogo/TokenLogo'
+import { ContextMenu } from 'lx/src/components/menus/ContextMenuV2'
+import { ContextMenuTriggerMode } from 'lx/src/components/menus/types'
 import {
   useTokenBasicInfoPartsFragment,
   useTokenBasicProjectPartsFragment,
-} from 'uniswap/src/data/graphql/uniswap-data-api/fragments'
-import { fromGraphQLChain } from 'uniswap/src/features/chains/utils'
-import { TokenList } from 'uniswap/src/features/dataApi/types'
+} from 'lx/src/data/graphql/uniswap-data-api/fragments'
+import { fromGraphQLChain } from 'lx/src/features/chains/utils'
+import { TokenList } from 'lx/src/features/dataApi/types'
 import {
   TokenMenuActionType,
   useTokenContextMenuOptions,
-} from 'uniswap/src/features/portfolio/balances/hooks/useTokenContextMenuOptions'
-import { ModalName } from 'uniswap/src/features/telemetry/constants'
-import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+} from 'lx/src/features/portfolio/balances/hooks/useTokenContextMenuOptions'
+import { ModalName } from 'lx/src/features/telemetry/constants'
+import { TestID } from 'lx/src/test/fixtures/testIDs'
 import { useEvent } from 'utilities/src/react/hooks'
 import { useBooleanState } from 'utilities/src/react/useBooleanState'
 

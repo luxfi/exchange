@@ -1,4 +1,4 @@
-import { Currency } from '@uniswap/sdk-core'
+import { Currency } from '@luxamm/sdk-core'
 import { BreadcrumbNavContainer, BreadcrumbNavLink } from 'components/BreadcrumbNav'
 import { ChartSkeleton } from 'components/Charts/LoadingState'
 import { ChartType } from 'components/Charts/utils'
@@ -18,9 +18,9 @@ import { useParams } from 'react-router'
 import { ClickableTamaguiStyle } from 'theme/components/styles'
 import { capitalize } from 'tsafe'
 import { Anchor, Flex, styled, Text, TextProps } from 'ui/src'
-import { getChainInfo } from 'uniswap/src/features/chains/chainInfo'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { ExplorerDataType, getExplorerLink } from 'uniswap/src/utils/linking'
+import { getChainInfo } from 'lx/src/features/chains/chainInfo'
+import { UniverseChainId } from 'lx/src/features/chains/types'
+import { ExplorerDataType, getExplorerLink } from 'lx/src/utils/linking'
 import { useChainIdFromUrlParam } from 'utils/chainParams'
 
 const SWAP_COMPONENT_WIDTH = 360

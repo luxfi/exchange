@@ -3,7 +3,7 @@ import { Provider } from 'jotai'
 import MultipleRoutingOptions from 'pages/MigrateV2/Settings/MultipleRoutingOptions'
 import { mocked } from 'test-utils/mocked'
 import { fireEvent, render, screen, waitFor } from 'test-utils/render'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { UniverseChainId } from 'lx/src/features/chains/types'
 
 vi.mock('hooks/useAccount')
 

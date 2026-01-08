@@ -1,5 +1,5 @@
 import { cleanup, render } from '@testing-library/react'
-import { QRCodeErrorCorrectionLevel } from 'qrcode'
+import type { QRCodeErrorCorrectionLevel } from 'qrcode'
 import { QRCode } from 'ui/src/components/QRCode/QRCode'
 import { SharedUIUniswapProvider } from 'ui/src/test/render'
 import { describe, expect, it } from 'vitest'
@@ -34,10 +34,10 @@ describe('QRCode', () => {
             color="orange"
             ecl={ecl}
           />
-        </SharedUIUniswapProvider>,
+        </SharedUIUniswapProvider>
       )
       expect(tree.container.innerHTML).toMatchSnapshot()
       cleanup()
-    },
+    }
   )
 })

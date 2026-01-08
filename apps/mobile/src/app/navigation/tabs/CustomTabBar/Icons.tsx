@@ -1,7 +1,7 @@
 import { Flex } from 'ui/src'
 import { Home, Search, SearchFilled, TimePast } from 'ui/src/components/icons'
 import { iconSizes } from 'ui/src/theme'
-import { useSelectAddressHasNotifications } from 'uniswap/src/features/notifications/slice/hooks'
+import { useSelectAddressHasNotifications } from 'lx/src/features/notifications/slice/hooks'
 import { useActiveAccountAddress } from 'wallet/src/features/wallet/hooks'
 
 export const TabHomeIcon = ({ color, size }: { color: string; focused: boolean; size: number }): JSX.Element => (

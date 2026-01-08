@@ -1,6 +1,6 @@
-import { TransactionRequest as LiquidityTransactionRequest } from '@uniswap/client-liquidity/dist/uniswap/liquidity/v1/types_pb'
-import { TradingApi } from '@universe/api'
-import { SetCurrentStepFn } from 'uniswap/src/features/transactions/swap/types/swapCallback'
+import { TransactionRequest as LiquidityTransactionRequest } from '@luxdex/client-liquidity/dist/uniswap/liquidity/v1/types_pb'
+import { TradingApi } from '@luxfi/api'
+import { SetCurrentStepFn } from 'lx/src/features/transactions/swap/types/swapCallback'
 
 export interface LpIncentivesClaimParams {
   address: string

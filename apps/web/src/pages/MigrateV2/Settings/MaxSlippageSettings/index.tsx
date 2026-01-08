@@ -1,4 +1,4 @@
-import { Percent } from '@uniswap/sdk-core'
+import { Percent } from '@luxamm/sdk-core'
 import Row, { RowBetween } from 'components/deprecated/Row'
 import Expand from 'components/Expand'
 import QuestionHelper from 'components/QuestionHelper'
@@ -11,7 +11,7 @@ import { SlippageTolerance } from 'state/user/types'
 import { ThemedText } from 'theme/components'
 import { CautionTriangle } from 'theme/components/icons/CautionTriangle'
 import { Text } from 'ui/src'
-import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
+import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
 
 enum SlippageError {
   InvalidInput = 'InvalidInput',

@@ -5,8 +5,8 @@ import { ExternalLink } from 'ui/src/components/icons/ExternalLink'
 import { GraduationCap } from 'ui/src/components/icons/GraduationCap'
 import { SpeechBubbles } from 'ui/src/components/icons/SpeechBubbles'
 import { X } from 'ui/src/components/icons/X'
-import { uniswapUrls } from 'uniswap/src/constants/urls'
-import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+import { uniswapUrls } from 'lx/src/constants/urls'
+import { TestID } from 'lx/src/test/fixtures/testIDs'
 
 interface HelpContentProps {
   onClose?: () => void

@@ -7,11 +7,11 @@ import { getSupportedURI, URIType } from 'src/components/Requests/ScanSheet/util
 import { Flex, Text, TouchableArea, useIsDarkMode } from 'ui/src'
 import { QrCode, Scan } from 'ui/src/components/icons'
 import { useSporeColorsForTheme } from 'ui/src/hooks/useSporeColors'
-import { Modal } from 'uniswap/src/components/modals/Modal'
-import { ScannerModalState } from 'uniswap/src/components/ReceiveQRCode/constants'
-import { ReceiveQRCode } from 'uniswap/src/components/ReceiveQRCode/ReceiveQRCode'
-import { ModalName } from 'uniswap/src/features/telemetry/constants'
-import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+import { Modal } from 'lx/src/components/modals/Modal'
+import { ScannerModalState } from 'lx/src/components/ReceiveQRCode/constants'
+import { ReceiveQRCode } from 'lx/src/components/ReceiveQRCode/ReceiveQRCode'
+import { ModalName } from 'lx/src/features/telemetry/constants'
+import { TestID } from 'lx/src/test/fixtures/testIDs'
 import { useActiveAccountAddress } from 'wallet/src/features/wallet/hooks'
 
 type Props = {

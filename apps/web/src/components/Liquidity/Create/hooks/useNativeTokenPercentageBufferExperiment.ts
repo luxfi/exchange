@@ -1,4 +1,4 @@
-import { Experiments, NativeTokenPercentageBufferProperties, useExperimentValue } from '@universe/gating'
+import { Experiments, NativeTokenPercentageBufferProperties, useExperimentValue } from '@luxfi/gating'
 
 export function useNativeTokenPercentageBufferExperiment(): number {
   const bufferSize = useExperimentValue({

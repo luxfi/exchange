@@ -5,8 +5,8 @@ import { useLocalCurrencyLinkProps } from 'hooks/useLocalCurrencyLinkProps'
 import { deprecatedStyled } from 'lib/styled-components'
 import { useMemo } from 'react'
 import { Trans } from 'react-i18next'
-import { FiatCurrency, ORDERED_CURRENCIES } from 'uniswap/src/features/fiatCurrency/constants'
-import { useAppFiatCurrency } from 'uniswap/src/features/fiatCurrency/hooks'
+import { FiatCurrency, ORDERED_CURRENCIES } from 'lx/src/features/fiatCurrency/constants'
+import { useAppFiatCurrency } from 'lx/src/features/fiatCurrency/hooks'
 
 const StyledLocalCurrencyIcon = deprecatedStyled.div`
   width: 20px;

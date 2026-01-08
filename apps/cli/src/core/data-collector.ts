@@ -5,12 +5,12 @@
 
 /** biome-ignore-all lint/suspicious/noConsole: CLI tool requires console output */
 
-import { getCommitsCacheKey, getPullRequestsCacheKey, getStatsCacheKey } from '@universe/cli/src/lib/cache-keys'
-import { type CacheProvider } from '@universe/cli/src/lib/cache-provider'
-import type { Logger } from '@universe/cli/src/lib/logger'
-import { cleanPRBody } from '@universe/cli/src/lib/pr-body-cleaner'
-import { type ReleaseComparison } from '@universe/cli/src/lib/release-scanner'
-import { isTrivialFile } from '@universe/cli/src/lib/trivial-files'
+import { getCommitsCacheKey, getPullRequestsCacheKey, getStatsCacheKey } from '@luxfi/cli/src/lib/cache-keys'
+import { type CacheProvider } from '@luxfi/cli/src/lib/cache-provider'
+import type { Logger } from '@luxfi/cli/src/lib/logger'
+import { cleanPRBody } from '@luxfi/cli/src/lib/pr-body-cleaner'
+import { type ReleaseComparison } from '@luxfi/cli/src/lib/release-scanner'
+import { isTrivialFile } from '@luxfi/cli/src/lib/trivial-files'
 import { $ } from 'bun'
 
 // ============================================================================

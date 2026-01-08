@@ -6,7 +6,7 @@ import { NFTCollectionData } from 'src/features/nfts/collection/types'
 import { ColorTokens, Flex, TouchableArea } from 'ui/src'
 import { Ellipsis } from 'ui/src/components/icons/Ellipsis'
 import { iconSizes, spacing } from 'ui/src/theme'
-import { getTwitterLink, openUri } from 'uniswap/src/utils/linking'
+import { getTwitterLink, openUri } from 'lx/src/utils/linking'
 import { noop } from 'utilities/src/react/noop'
 
 type MenuOption = {

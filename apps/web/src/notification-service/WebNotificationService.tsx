@@ -6,8 +6,8 @@ import {
   provideSessionService,
   SESSION_INIT_QUERY_KEY,
   SharedQueryClient,
-} from '@universe/api'
-import { FeatureFlags, getIsSessionServiceEnabled, useFeatureFlag } from '@universe/gating'
+} from '@luxfi/api'
+import { FeatureFlags, getIsSessionServiceEnabled, useFeatureFlag } from '@luxfi/gating'
 import {
   createApiNotificationTracker,
   createBaseNotificationProcessor,
@@ -16,7 +16,7 @@ import {
   getIsNotificationServiceEnabled,
   getNotificationQueryOptions,
   type NotificationService,
-} from '@universe/notifications'
+} from '@luxfi/notifications'
 import { createLocalStorageAdapter } from 'notification-service/createLocalStorageAdapter'
 import { createLegacyBannersNotificationDataSource } from 'notification-service/data-sources/createLegacyBannersNotificationDataSource'
 import { createWebNotificationRenderer } from 'notification-service/notification-renderer/createWebNotificationRenderer'
@@ -27,9 +27,9 @@ import { useEffect } from 'react'
 import { useLocation, useNavigate } from 'react-router'
 import store from 'state'
 import { useIsDarkMode } from 'ui/src'
-import { mapLocaleToBackendLocale } from 'uniswap/src/features/language/constants'
-import { getLocale } from 'uniswap/src/features/language/hooks'
-import { selectCurrentLanguage } from 'uniswap/src/features/settings/selectors'
+import { mapLocaleToBackendLocale } from 'lx/src/features/language/constants'
+import { getLocale } from 'lx/src/features/language/hooks'
+import { selectCurrentLanguage } from 'lx/src/features/settings/selectors'
 import { isPlaywrightEnv } from 'utilities/src/environment/env'
 import { getLogger } from 'utilities/src/logger/logger'
 import { REQUEST_SOURCE } from 'utilities/src/platform/requestSource'

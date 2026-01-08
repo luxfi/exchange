@@ -512,7 +512,34 @@ export const TOKENS_LUX_LIST = {
             "name": "Liquid USD",
             "symbol": "LUSD",
             "decimals": 18,
-            "logoURI": "https://assets.coingecko.com/coins/images/4454/large/0xbtc.png?1561603765",
+            "logoURI": "https://cdn.lux.network/exchange/icon-png/lusd.png",
+            "extensions": {}
+        },
+        {
+            "chainId": 96368,
+            "address": "0x732740c5c895C9FCF619930ed4293fc858eb44c7",
+            "name": "Wrapped LUX",
+            "symbol": "WLUX",
+            "decimals": 18,
+            "logoURI": "https://cdn.lux.network/exchange/icon-png/lux.png",
+            "extensions": {}
+        },
+        {
+            "chainId": 96368,
+            "address": "0x60E0a8167FC13dE89348978860466C9ceC24B9ba",
+            "name": "Liquid ETH",
+            "symbol": "LETH",
+            "decimals": 18,
+            "logoURI": "https://cdn.lux.network/exchange/icon-png/leth.png",
+            "extensions": {}
+        },
+        {
+            "chainId": 96368,
+            "address": "0x1E48D32a4F5e9f08DB9aE4959163300FaF8A6C8e",
+            "name": "Liquid BTC",
+            "symbol": "LBTC",
+            "decimals": 18,
+            "logoURI": "https://cdn.lux.network/exchange/icon-png/lbtc.png",
             "extensions": {}
         }
     ]

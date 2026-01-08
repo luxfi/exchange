@@ -1,8 +1,8 @@
-import { type InAppNotification } from '@universe/api'
+import { type InAppNotification } from '@luxfi/api'
 import {
   type NotificationProcessor,
   type NotificationProcessorResult,
-} from '@universe/notifications/src/notification-processor/NotificationProcessor'
+} from '@luxfi/notifications/src/notification-processor/NotificationProcessor'
 
 export function createNotificationProcessor(ctx: {
   process: (notifications: InAppNotification[]) => Promise<NotificationProcessorResult>

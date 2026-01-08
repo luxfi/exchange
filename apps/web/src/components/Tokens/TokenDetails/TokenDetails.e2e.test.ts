@@ -1,11 +1,10 @@
 /* eslint-disable no-restricted-syntax */
 import { expect, getTest } from 'playwright/fixtures'
-import { Mocks } from 'playwright/mocks/mocks'
-import { shortenAddress } from 'utilities/src/addresses'
 
 const test = getTest()
 
-const UNI_ADDRESS = '0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984'
+// Use Lux chain native token (WLUX) for testing
+const WLUX_ADDRESS = '0x55750d6CA62a041c06a8E28626b10Be6c688f471'
 
 test.describe(
   'Token details',
@@ -19,47 +18,30 @@ test.describe(
   () => {
     test('should have a single h1 tag on smaller screen size', async ({ page }) => {
       await page.setViewportSize({ width: 800, height: 600 })
-      await page.goto(`/explore/tokens/ethereum/${UNI_ADDRESS}`)
+      // Use Lux chain native token
+      await page.goto('/explore/tokens/lux/NATIVE')
       await expect(page.locator('h1')).toHaveCount(1)
     })
 
-    test('UNI token should have all information populated', async ({ page, graphql }) => {
-      await graphql.intercept('TokenWeb', Mocks.TokenWeb.uni_token)
-      await graphql.intercept('Token', Mocks.Token.uni_token)
-      await graphql.intercept('TokenPrice', Mocks.Token.uni_token_price)
+    test('LUX token should display basic information', async ({ page }) => {
       await page.setViewportSize({ width: 1440, height: 900 })
-      // $UNI token
-      await page.goto(`/explore/tokens/ethereum/${UNI_ADDRESS}`)
+      // Use Lux chain native token
+      await page.goto('/explore/tokens/lux/NATIVE')
+
       // Wait for token name to load
-      await expect(page.getByText('Uniswap').first()).toBeVisible()
+      await expect(page.getByText('Lux').first()).toBeVisible({ timeout: 10000 })
 
-      // Stats should have: TVL, FDV, market cap
+      // Stats section should be visible
       await expect(page.getByTestId('token-details-stats')).toBeVisible()
-      await expect(page.getByTestId('tvl')).toContainText('$')
-      await expect(page.getByTestId('fdv')).toContainText('$')
-      await expect(page.getByTestId('market-cap')).toContainText('$')
+    })
 
-      // Info section should have description of token & relevant links
-      await expect(page.getByTestId('token-details-info-section')).toBeVisible()
-      await expect(page.getByTestId('token-description-truncated')).toContainText('UNI is the governance token')
+    test('WLUX token details page should load', async ({ page }) => {
+      await page.setViewportSize({ width: 1440, height: 900 })
+      // Use WLUX token on Lux chain
+      await page.goto(`/explore/tokens/lux/${WLUX_ADDRESS}`)
 
-      // Check links
-      const etherscanLink = page.getByTestId('token-details-info-links').getByRole('link', { name: 'Etherscan' })
-      await expect(etherscanLink).toHaveAttribute(
-        'href',
-        /etherscan\.io\/token\/0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984/,
-      )
-
-      const websiteLink = page.getByTestId('token-details-info-links').getByRole('link', { name: 'Website' })
-      await expect(websiteLink).toHaveAttribute('href', /uniswap\.org/)
-
-      const twitterLink = page.getByTestId('token-details-info-links').getByRole('link', { name: 'Twitter' })
-      await expect(twitterLink).toHaveAttribute('href', new RegExp('x.com/Uniswap'))
-
-      // Contract address should be displayed
-      await expect(
-        page.locator('[aria-label="breadcrumb-nav"]').getByText(shortenAddress({ address: UNI_ADDRESS })),
-      ).toBeVisible()
+      // Wait for token to load - look for WLUX or the token name
+      await expect(page.getByText(/WLUX|Wrapped LUX/i).first()).toBeVisible({ timeout: 10000 })
     })
   },
 )

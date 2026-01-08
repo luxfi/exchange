@@ -34,7 +34,7 @@ describe('useAutoDimensions', () => {
     const widthParam = 100
     const heightParam = 200
     const { result } = renderHook(() =>
-      useAutoDimensions({ width: widthParam, height: heightParam, shouldConsiderMinimumDimensions: false }),
+      useAutoDimensions({ width: widthParam, height: heightParam, shouldConsiderMinimumDimensions: false })
     )
 
     expect(result.current.width).toBe(widthParam)
@@ -45,7 +45,7 @@ describe('useAutoDimensions', () => {
     const widthParam = 100
     const heightParam = 200
     const { result } = renderHook(() =>
-      useAutoDimensions({ width: widthParam, height: heightParam, shouldConsiderMinimumDimensions: false }),
+      useAutoDimensions({ width: widthParam, height: heightParam, shouldConsiderMinimumDimensions: false })
     )
 
     act(() => {
@@ -104,7 +104,7 @@ describe('useAutoDimensions', () => {
   it('should call the provided onLayout callback', () => {
     const mockOnLayout = vi.fn()
     const { result } = renderHook(() =>
-      useAutoDimensions({ onLayout: mockOnLayout, shouldConsiderMinimumDimensions: true }),
+      useAutoDimensions({ onLayout: mockOnLayout, shouldConsiderMinimumDimensions: true })
     )
     const layoutEvent = createLayoutChangeEvent(50, 50)
 
@@ -186,7 +186,7 @@ describe('useAutoDimensions', () => {
     const widthParam = 100
     const heightParam = 200
     const { result } = renderHook(() =>
-      useAutoDimensions({ width: widthParam, height: heightParam, shouldConsiderMinimumDimensions: true }),
+      useAutoDimensions({ width: widthParam, height: heightParam, shouldConsiderMinimumDimensions: true })
     )
 
     // Initial dimensions are undefined
@@ -215,7 +215,7 @@ describe('useAutoDimensions', () => {
   it('should handle layout event updates correctly', () => {
     const { result, rerender } = renderHook(
       ({ shouldConsiderMinimumDimensions }) => useAutoDimensions({ shouldConsiderMinimumDimensions }),
-      { initialProps: { shouldConsiderMinimumDimensions: true } },
+      { initialProps: { shouldConsiderMinimumDimensions: true } }
     )
 
     // Layout below minimums

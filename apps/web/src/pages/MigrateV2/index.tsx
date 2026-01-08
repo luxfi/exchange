@@ -1,7 +1,7 @@
 import { getCreate2Address } from '@ethersproject/address'
 import { keccak256, pack } from '@ethersproject/solidity'
-import { Token, V2_FACTORY_ADDRESSES } from '@uniswap/sdk-core'
-import { Pair } from '@uniswap/v2-sdk'
+import { Token, V2_FACTORY_ADDRESSES } from '@luxamm/sdk-core'
+import { Pair } from '@luxamm/v2-sdk'
 import { LightCard } from 'components/Card/cards'
 import { AutoColumn } from 'components/deprecated/Column'
 import MigrateSushiPositionCard from 'components/PositionCard/Sushi'
@@ -23,8 +23,8 @@ import { StyledInternalLink } from 'theme/components/Links'
 import { Flex, Text, TouchableArea } from 'ui/src'
 import { Arrow } from 'ui/src/components/arrow/Arrow'
 import { iconSizes } from 'ui/src/theme'
-import { InterfacePageName } from 'uniswap/src/features/telemetry/constants'
-import Trace from 'uniswap/src/features/telemetry/Trace'
+import { InterfacePageName } from 'lx/src/features/telemetry/constants'
+import Trace from 'lx/src/features/telemetry/Trace'
 
 function EmptyState({ message }: { message: ReactNode }) {
   return (
@@ -154,7 +154,7 @@ export default function MigrateV2() {
             <Flex width={iconSizes.icon48} height={iconSizes.icon36} />
           </Flex>
 
-          <Text m="$spacing8" lineHeight="24px" variant="body2">
+          <Text m="$spacing8" lineHeight={24} variant="body2">
             <Trans i18nKey="migrate.v2Instruction" />
           </Text>
 

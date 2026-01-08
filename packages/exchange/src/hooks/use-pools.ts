@@ -2,7 +2,7 @@
 
 import { useQuery } from '@tanstack/react-query'
 import { usePublicClient } from 'wagmi'
-import { getContracts } from '@luxfi/config'
+import { getContracts } from '../contracts'
 import { UNISWAP_V3_FACTORY_ABI, UNISWAP_V3_POOL_ABI } from '../contracts/abis'
 import type { Address } from 'viem'
 

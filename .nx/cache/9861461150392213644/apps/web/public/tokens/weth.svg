@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
-  <circle cx="50" cy="50" r="50" fill="#EC4899"/>
-  <path d="M50 15v25.87l21.87 9.78L50 15z" fill="white" fill-opacity="0.6"/>
-  <path d="M50 15L28.12 50.65 50 40.87V15z" fill="white"/>
-  <path d="M50 66.96v18.03l21.89-30.28L50 66.96z" fill="white" fill-opacity="0.6"/>
-  <path d="M50 84.99V66.95l-21.88-12.24L50 84.99z" fill="white"/>
-  <path d="M50 63.14l21.87-12.49L50 40.89v22.25z" fill="white" fill-opacity="0.2"/>
-  <path d="M28.12 50.65L50 63.14V40.89l-21.88 9.76z" fill="white" fill-opacity="0.6"/>
-</svg>

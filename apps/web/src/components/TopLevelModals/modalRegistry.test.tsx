@@ -3,7 +3,7 @@ import { ModalRenderer, modalRegistry } from 'components/TopLevelModals/modalReg
 import { useAppSelector } from 'state/hooks'
 import { mocked } from 'test-utils/mocked'
 import { render } from 'test-utils/render'
-import { ModalName } from 'uniswap/src/features/telemetry/constants'
+import { ModalName } from 'lx/src/features/telemetry/constants'
 
 vi.mock('components/claim/AddressClaimModal', () => ({
   __esModule: true,

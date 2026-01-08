@@ -1,10 +1,10 @@
 // Component logic from: https://github.com/awesomejerry/react-native-qrcode-svg
 // Custom matrix renderer from: https://github.com/awesomejerry/react-native-qrcode-svg/pull/139/files
 
-import { create, QRCodeErrorCorrectionLevel, QRCodeSegment } from 'qrcode'
+import { create, type QRCodeErrorCorrectionLevel, type QRCodeSegment } from 'qrcode'
 import { useMemo } from 'react'
 import Svg, { Defs, G, LinearGradient, Path, Rect, Stop } from 'react-native-svg'
-import { BaseQRProps } from 'ui/src/components/QRCode/QRCodeDisplay'
+import type { BaseQRProps } from 'ui/src/components/QRCode/QRCodeDisplay'
 import { useSporeColors } from 'ui/src/hooks/useSporeColors'
 import { isWebPlatform } from 'utilities/src/platform'
 
@@ -97,7 +97,7 @@ const QREyeWrapper = ({
 
 function transformMatrixIntoCirclePath(
   matrix: number[][],
-  size: number,
+  size: number
 ): {
   cellSize: number
   path: string
@@ -134,7 +134,7 @@ function genMatrix(value: string | QRCodeSegment[], errorCorrectionLevel: QRCode
   return arr.reduce(
     // eslint-disable-next-line @typescript-eslint/no-unsafe-return, max-params
     (rows, key, index) => (index % sqrt === 0 ? rows.push([key]) : rows[rows.length - 1].push(key)) && rows,
-    [],
+    []
   )
 }
 
@@ -197,24 +197,24 @@ export function QRCode({
       </G>
       <G>
         <Path d={path} fill={color} />
-        <Path d={path} fill={overlayColor + '2D'} />
+        <Path d={path} fill={`${overlayColor}2D`} />
         <QREyeWrapper
           backgroundColor={backgroundColor}
           fillColor={color}
-          overlayColor={overlayColor + '2D'}
+          overlayColor={`${overlayColor}2D`}
           size={eyeSize}
         />
         <QREyeWrapper
           backgroundColor={backgroundColor}
           fillColor={color}
-          overlayColor={overlayColor + '2D'}
+          overlayColor={`${overlayColor}2D`}
           size={eyeSize}
           y={cornerPosition}
         />
         <QREyeWrapper
           backgroundColor={backgroundColor}
           fillColor={color}
-          overlayColor={overlayColor + '2D'}
+          overlayColor={`${overlayColor}2D`}
           size={eyeSize}
           x={cornerPosition}
         />

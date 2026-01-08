@@ -7,17 +7,15 @@ export interface TokenStore {
     toggleFavorite: (address: string) => void;
     isFavorite: (address: string) => boolean;
 }
-export declare const useTokenStore: import("zustand").UseBoundStore<Omit<import("zustand").StoreApi<TokenStore>, "setState" | "persist"> & {
-    setState(partial: TokenStore | Partial<TokenStore> | ((state: TokenStore) => TokenStore | Partial<TokenStore>), replace?: false | undefined): unknown;
-    setState(state: TokenStore | ((state: TokenStore) => TokenStore), replace: true): unknown;
+export declare const useTokenStore: import("zustand").UseBoundStore<Omit<import("zustand").StoreApi<TokenStore>, "persist"> & {
     persist: {
-        setOptions: (options: Partial<import("zustand/middleware").PersistOptions<TokenStore, TokenStore, unknown>>) => void;
+        setOptions: (options: Partial<import("zustand/middleware").PersistOptions<TokenStore, TokenStore>>) => void;
         clearStorage: () => void;
         rehydrate: () => Promise<void> | void;
         hasHydrated: () => boolean;
         onHydrate: (fn: (state: TokenStore) => void) => () => void;
         onFinishHydration: (fn: (state: TokenStore) => void) => () => void;
-        getOptions: () => Partial<import("zustand/middleware").PersistOptions<TokenStore, TokenStore, unknown>>;
+        getOptions: () => Partial<import("zustand/middleware").PersistOptions<TokenStore, TokenStore>>;
     };
 }>;
 //# sourceMappingURL=token-store.d.ts.map

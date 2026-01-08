@@ -1,6 +1,6 @@
 import { queryOptions, useQuery } from '@tanstack/react-query'
-import type { SessionInitializationService, SessionInitResult } from '@universe/sessions'
-import { SessionError } from '@universe/sessions'
+import type { SessionInitializationService, SessionInitResult } from '@luxfi/sessions'
+import { SessionError } from '@luxfi/sessions'
 import { useState } from 'react'
 import { ReactQueryCacheKey } from 'utilities/src/reactQuery/cache'
 

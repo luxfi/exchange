@@ -1,4 +1,4 @@
-import { GraphQLApi } from '@universe/api'
+import { GraphQLApi } from '@luxfi/api'
 import { TokenLinkCell } from 'components/Table/styled'
 import { validBEPoolToken0 } from 'test-utils/pools/fixtures'
 import { render, screen } from 'test-utils/render'

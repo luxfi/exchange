@@ -1,21 +1,21 @@
-import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import { FeatureFlags, useFeatureFlag } from '@luxfi/gating'
 import { useModalState } from 'hooks/useModalState'
 import { memo, useCallback, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Flex, Text, TouchableArea, useMedia, useScrollbarStyles, useSporeColors } from 'ui/src'
-import { Modal } from 'uniswap/src/components/modals/Modal'
-import { useUpdateScrollLock } from 'uniswap/src/components/modals/ScrollLock'
-import { NetworkFilter } from 'uniswap/src/components/network/NetworkFilter'
-import { useEnabledChains } from 'uniswap/src/features/chains/hooks/useEnabledChains'
-import { useFilterCallbacks } from 'uniswap/src/features/search/SearchModal/hooks/useFilterCallbacks'
-import { useWebSearchTabs } from 'uniswap/src/features/search/SearchModal/hooks/useWebSearchTabs'
-import { SearchModalNoQueryList } from 'uniswap/src/features/search/SearchModal/SearchModalNoQueryList'
-import { SearchModalResultsList } from 'uniswap/src/features/search/SearchModal/SearchModalResultsList'
-import { SearchTab } from 'uniswap/src/features/search/SearchModal/types'
-import { SearchTextInput } from 'uniswap/src/features/search/SearchTextInput'
-import { ElementName, InterfaceEventName, ModalName, SectionName } from 'uniswap/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
-import { Trace } from 'uniswap/src/features/telemetry/Trace'
+import { Modal } from 'lx/src/components/modals/Modal'
+import { useUpdateScrollLock } from 'lx/src/components/modals/ScrollLock'
+import { NetworkFilter } from 'lx/src/components/network/NetworkFilter'
+import { useEnabledChains } from 'lx/src/features/chains/hooks/useEnabledChains'
+import { useFilterCallbacks } from 'lx/src/features/search/SearchModal/hooks/useFilterCallbacks'
+import { useWebSearchTabs } from 'lx/src/features/search/SearchModal/hooks/useWebSearchTabs'
+import { SearchModalNoQueryList } from 'lx/src/features/search/SearchModal/SearchModalNoQueryList'
+import { SearchModalResultsList } from 'lx/src/features/search/SearchModal/SearchModalResultsList'
+import { SearchTab } from 'lx/src/features/search/SearchModal/types'
+import { SearchTextInput } from 'lx/src/features/search/SearchTextInput'
+import { ElementName, InterfaceEventName, ModalName, SectionName } from 'lx/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
+import { Trace } from 'lx/src/features/telemetry/Trace'
 import { useTrace } from 'utilities/src/telemetry/trace/TraceContext'
 import { useDebounce } from 'utilities/src/time/timing'
 
@@ -104,7 +104,7 @@ export const SearchModal = memo(function _SearchModal(): JSX.Element {
             px="$spacing16"
             value={searchFilter ?? ''}
             onChangeText={onChangeText}
-            onKeyPress={(e) => {
+            onKeyPress={(e: { nativeEvent: { key: string }; preventDefault: () => void }) => {
               if (['Enter', 'ArrowUp', 'ArrowDown'].includes(e.nativeEvent.key)) {
                 // default behaviors we don't want:
                 // - 'enter' key action blurs the input field

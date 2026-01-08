@@ -1,13 +1,13 @@
 import { getEmbeddedWalletState, setChainId } from 'state/embeddedWallet/store'
-import { getChainInfo } from 'uniswap/src/features/chains/chainInfo'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { getChainInfo } from 'lx/src/features/chains/chainInfo'
+import { UniverseChainId } from 'lx/src/features/chains/types'
 import {
   signMessagesWithPasskey,
   signTransactionsWithPasskey,
   signTypedDataWithPasskey,
-} from 'uniswap/src/features/passkey/embeddedWallet'
-import { Platform } from 'uniswap/src/features/platforms/types/Platform'
-import { getValidAddress } from 'uniswap/src/utils/addresses'
+} from 'lx/src/features/passkey/embeddedWallet'
+import { Platform } from 'lx/src/features/platforms/types/Platform'
+import { getValidAddress } from 'lx/src/utils/addresses'
 import { HexString, isValidHexString } from 'utilities/src/addresses/hex'
 import { logger } from 'utilities/src/logger/logger'
 import { Account, createPublicClient, fallback, Hash, http, SignableMessage } from 'viem'

@@ -1,4 +1,4 @@
-import type { UniswapIdentifierService } from '@universe/sessions/src/uniswap-identifier/types'
+import type { UniswapIdentifierService } from '@luxfi/sessions/src/uniswap-identifier/types'
 
 function createUniswapIdentifierService(ctx: {
   getUniswapIdentifier: () => Promise<string | null>

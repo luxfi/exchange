@@ -1,4 +1,4 @@
-import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
+import { ProtocolVersion } from '@luxdex/client-data-api/dist/data/v1/poolTypes_pb'
 import { ErrorCallout } from 'components/ErrorCallout'
 import { DepositInputForm } from 'components/Liquidity/DepositInputForm'
 import { useUpdatedAmountsFromDependentAmount } from 'components/Liquidity/hooks/useDependentAmountFallback'
@@ -12,7 +12,7 @@ import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { PositionField } from 'types/position'
 import { Button, Flex, Switch, Text } from 'ui/src'
-import { nativeOnChain } from 'uniswap/src/constants/tokens'
+import { nativeOnChain } from 'lx/src/constants/tokens'
 
 export function IncreaseLiquidityForm() {
   const { t } = useTranslation()

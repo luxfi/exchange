@@ -2,10 +2,10 @@ import MobileAppLogo from 'assets/svg/uniswap_app_logo.svg'
 import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router'
 import { Flex, Image, Text, TouchableArea } from 'ui/src'
-import { InterfaceEventName, InterfacePageName } from 'uniswap/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
-import Trace from 'uniswap/src/features/telemetry/Trace'
-import { ExtensionUninstallFeedbackOptions } from 'uniswap/src/features/telemetry/types'
+import { InterfaceEventName, InterfacePageName } from 'lx/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
+import Trace from 'lx/src/features/telemetry/Trace'
+import { ExtensionUninstallFeedbackOptions } from 'lx/src/features/telemetry/types'
 
 const LOGO_SIZE = 60
 const MAX_WIDTH = 500

@@ -11,11 +11,11 @@ import { usePromptPushPermission } from 'src/features/notifications/hooks/usePro
 import { openNotificationSettings } from 'src/utils/linking'
 import { Button, Flex } from 'ui/src'
 import { BellOn } from 'ui/src/components/icons/BellOn'
-import { GenericHeader } from 'uniswap/src/components/misc/GenericHeader'
-import { Modal } from 'uniswap/src/components/modals/Modal'
-import { ElementName, ModalName } from 'uniswap/src/features/telemetry/constants'
-import Trace from 'uniswap/src/features/telemetry/Trace'
-import { MobileScreens } from 'uniswap/src/types/screens/mobile'
+import { GenericHeader } from 'lx/src/components/misc/GenericHeader'
+import { Modal } from 'lx/src/components/modals/Modal'
+import { ElementName, ModalName } from 'lx/src/features/telemetry/constants'
+import Trace from 'lx/src/features/telemetry/Trace'
+import { MobileScreens } from 'lx/src/types/screens/mobile'
 
 type NotificationsOSSettingsModalProps = {
   navigation: SettingsStackNavigationProp

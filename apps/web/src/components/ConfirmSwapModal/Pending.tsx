@@ -22,10 +22,10 @@ import { useIsTransactionConfirmed, useUniswapXOrderByOrderHash } from 'state/tr
 import { AnimationType } from 'theme/components/FadePresence'
 import { ExternalLink } from 'theme/components/Links'
 import { ThemedText } from 'theme/components/text'
-import { uniswapUrls } from 'uniswap/src/constants/urls'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { TransactionStatus } from 'uniswap/src/features/transactions/types/transactionDetails'
-import { ExplorerDataType, getExplorerLink } from 'uniswap/src/utils/linking'
+import { uniswapUrls } from 'lx/src/constants/urls'
+import { UniverseChainId } from 'lx/src/features/chains/types'
+import { TransactionStatus } from 'lx/src/features/transactions/types/transactionDetails'
+import { ExplorerDataType, getExplorerLink } from 'lx/src/utils/linking'
 
 const Container = deprecatedStyled(ColumnCenter)`
   margin: 48px 0 8px;

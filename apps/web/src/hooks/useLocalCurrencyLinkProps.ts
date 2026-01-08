@@ -3,12 +3,12 @@ import { useMemo } from 'react'
 import { useDispatch } from 'react-redux'
 import type { To } from 'react-router'
 import { useLocation } from 'react-router'
-import { useUrlContext } from 'uniswap/src/contexts/UrlContext'
-import { FiatCurrency } from 'uniswap/src/features/fiatCurrency/constants'
-import { useAppFiatCurrency } from 'uniswap/src/features/fiatCurrency/hooks'
-import { setCurrentFiatCurrency } from 'uniswap/src/features/settings/slice'
-import { InterfaceEventName } from 'uniswap/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
+import { useUrlContext } from 'lx/src/contexts/UrlContext'
+import { FiatCurrency } from 'lx/src/features/fiatCurrency/constants'
+import { useAppFiatCurrency } from 'lx/src/features/fiatCurrency/hooks'
+import { setCurrentFiatCurrency } from 'lx/src/features/settings/slice'
+import { InterfaceEventName } from 'lx/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
 
 export function useLocalCurrencyLinkProps(localCurrency?: FiatCurrency): {
   to?: To

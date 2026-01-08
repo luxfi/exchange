@@ -37,6 +37,11 @@ export const LUX_TESTNET_CONTRACTS = {
   WETH: '0xd9956542B51032d940ef076d70B69410667277A3' as Address,
   MULTICALL: '0xd25F88CBdAe3c2CCA3Bb75FC4E723b44C0Ea362F' as Address,
 
+  // Bridge tokens (testnet deployments)
+  LETH: '0x60E0a8167FC13dE89348978860466C9ceC24B9ba' as Address,
+  LBTC: '0x1E48D32a4F5e9f08DB9aE4959163300FaF8A6C8e' as Address,
+  LUSD: '0xb84112ac9318a0b2319aa11d4d10e9762b25f7f4' as Address,
+
   // AMM V2
   V2_FACTORY: '0x81C3669B139D92909AA67DbF74a241b10540d919' as Address,
   V2_ROUTER: '0xDB6c703c80BFaE5F9a56482d3c8535f27E1136EB' as Address,
@@ -53,14 +58,53 @@ export const LUX_TESTNET_CONTRACTS = {
 } as const
 
 /**
- * DEX Precompile addresses (native AMM)
- * These provide sub-microsecond execution
+ * DEX Precompile addresses (native AMM - Uniswap v4 style singleton PoolManager)
+ * These provide sub-microsecond execution via native Go implementation
+ *
+ * Address format: 0x0000...00LPNUMBER (addresses end with LP number)
+ * LP-9010: DEX Precompile - Native HFT Order Book (PoolManager)
+ * LP-9011: Oracle Precompile - Multi-Source Price Aggregation
+ *
+ * @see ~/work/lux/precompile/registry/registry.go for the full address scheme
+ * @see ~/work/lux/dex/pkg/gateway/lux/provider.go for gateway implementation
  */
 export const DEX_PRECOMPILES = {
-  POOL_MANAGER: '0x0000000000000000000000000000000000000400' as Address,
-  SWAP_ROUTER: '0x0000000000000000000000000000000000000401' as Address,
-  HOOKS_REGISTRY: '0x0000000000000000000000000000000000000402' as Address,
-  FLASH_LOAN: '0x0000000000000000000000000000000000000403' as Address,
+  // Core DEX (LP-9010 series - Uniswap v4 style)
+  POOL_MANAGER: '0x0000000000000000000000000000000000009010' as Address,   // LP-9010
+  SWAP_ROUTER: '0x0000000000000000000000000000000000009012' as Address,    // LP-9012
+  HOOKS_REGISTRY: '0x0000000000000000000000000000000000009013' as Address, // LP-9013
+  FLASH_LOAN: '0x0000000000000000000000000000000000009014' as Address,     // LP-9014
+
+  // DeFi Extensions
+  ORACLE_HUB: '0x0000000000000000000000000000000000009011' as Address,     // LP-9011
+  CLOB: '0x0000000000000000000000000000000000009020' as Address,           // LP-9020
+  VAULT: '0x0000000000000000000000000000000000009030' as Address,          // LP-9030
+
+  // Bridges (LP-6xxx)
+  TELEPORT: '0x0000000000000000000000000000000000006010' as Address,       // LP-6010
+} as const
+
+/**
+ * Contract addresses for Lux Dev (1337)
+ * Deterministic CREATE addresses from DeployFullStack.s.sol deployed by anvil account 0
+ * Account 0: 0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266
+ */
+export const LUX_DEV_CONTRACTS = {
+  // Core - Nonce 0
+  WLUX: '0x5FbDB2315678afecb367f032d93F642f64180aa3' as Address,
+  MULTICALL: '0xd25F88CBdAe3c2CCA3Bb75FC4E723b44C0Ea362F' as Address,
+
+  // Bridged tokens (deterministic deployment nonces 1-3)
+  LETH: '0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512' as Address, // Nonce 1
+  LBTC: '0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0' as Address, // Nonce 2
+  LUSD: '0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9' as Address, // Nonce 3
+
+  // AMM V2
+  V2_FACTORY: '0x959922bE3CAee4b8Cd9a407cc3ac1C251C2007B1' as Address,
+  V2_ROUTER: '0x9A9f2CCfdE556A7E9Ff0848998Aa4a0CFD8863AE' as Address,
+
+  // Staking
+  STAKED_LUX: '0xA51c1fc2f0D1a1b8494Ed1FE312d7C3a78Ed91C0' as Address,
 } as const
 
 /**
@@ -72,6 +116,8 @@ export function getContracts(chainId: number) {
       return LUX_MAINNET_CONTRACTS
     case 96368:
       return LUX_TESTNET_CONTRACTS
+    case 1337:
+      return LUX_DEV_CONTRACTS
     default:
       return LUX_TESTNET_CONTRACTS
   }

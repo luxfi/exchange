@@ -1,7 +1,7 @@
 import { memo } from 'react'
 import { Flex, Text } from 'ui/src'
-import { CurrencyLogo } from 'uniswap/src/components/CurrencyLogo/CurrencyLogo'
-import { useCurrencyInfo } from 'uniswap/src/features/tokens/useCurrencyInfo'
+import { CurrencyLogo } from 'lx/src/components/CurrencyLogo/CurrencyLogo'
+import { useCurrencyInfo } from 'lx/src/features/tokens/useCurrencyInfo'
 
 interface TokenAmountDisplayProps {
   currencyInfo: ReturnType<typeof useCurrencyInfo>

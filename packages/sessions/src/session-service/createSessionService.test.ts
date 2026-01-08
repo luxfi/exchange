@@ -1,9 +1,9 @@
-import type { DeviceIdService } from '@universe/sessions/src/device-id/types'
-import type { SessionRepository } from '@universe/sessions/src/session-repository/types'
-import { createSessionService } from '@universe/sessions/src/session-service/createSessionService'
-import type { SessionService } from '@universe/sessions/src/session-service/types'
-import type { SessionStorage } from '@universe/sessions/src/session-storage/types'
-import type { UniswapIdentifierService } from '@universe/sessions/src/uniswap-identifier/types'
+import type { DeviceIdService } from '@luxfi/sessions/src/device-id/types'
+import type { SessionRepository } from '@luxfi/sessions/src/session-repository/types'
+import { createSessionService } from '@luxfi/sessions/src/session-service/createSessionService'
+import type { SessionService } from '@luxfi/sessions/src/session-service/types'
+import type { SessionStorage } from '@luxfi/sessions/src/session-storage/types'
+import type { UniswapIdentifierService } from '@luxfi/sessions/src/uniswap-identifier/types'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 
 describe('createSessionService', () => {

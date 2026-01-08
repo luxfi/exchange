@@ -1,4 +1,4 @@
-import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
+import { ProtocolVersion } from '@luxdex/client-data-api/dist/data/v1/poolTypes_pb'
 import { Dropdown, InternalMenuItem } from 'components/Dropdowns/Dropdown'
 import { getProtocolVersionLabel } from 'components/Liquidity/utils/protocolVersion'
 import { atom, useAtom } from 'jotai'
@@ -6,8 +6,8 @@ import { useCallback, useMemo, useState } from 'react'
 import { Check } from 'react-feather'
 import { useTranslation } from 'react-i18next'
 import { Flex, Text, useMedia, useSporeColors } from 'ui/src'
-import { ModalName } from 'uniswap/src/features/telemetry/constants'
-import Trace from 'uniswap/src/features/telemetry/Trace'
+import { ModalName } from 'lx/src/features/telemetry/constants'
+import Trace from 'lx/src/features/telemetry/Trace'
 
 export const exploreProtocolVersionFilterAtom = atom(ProtocolVersion.UNSPECIFIED)
 const PROTOCOL_VERSIONS = [ProtocolVersion.UNSPECIFIED, ProtocolVersion.V4, ProtocolVersion.V3, ProtocolVersion.V2]

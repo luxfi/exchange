@@ -1,7 +1,7 @@
-import { CurrencyAmount } from '@uniswap/sdk-core'
-import { Pair } from '@uniswap/v2-sdk'
-import { FeeAmount, nearestUsableTick, TICK_SPACINGS, TickMath, Pool as V3Pool } from '@uniswap/v3-sdk'
-import { Pool as V4Pool } from '@uniswap/v4-sdk'
+import { CurrencyAmount } from '@luxamm/sdk-core'
+import { Pair } from '@luxamm/v2-sdk'
+import { FeeAmount, nearestUsableTick, TICK_SPACINGS, TickMath, Pool as V3Pool } from '@luxamm/v3-sdk'
+import { Pool as V4Pool } from '@luxamm/v4-sdk'
 import {
   getDependentAmountFromV2Pair,
   getDependentAmountFromV3Position,
@@ -9,9 +9,9 @@ import {
 } from 'components/Liquidity/utils/getDependentAmount'
 import { ETH_MAINNET } from 'test-utils/constants'
 import { PositionField } from 'types/position'
-import { ZERO_ADDRESS } from 'uniswap/src/constants/misc'
-import { nativeOnChain, USDT } from 'uniswap/src/constants/tokens'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { ZERO_ADDRESS } from 'lx/src/constants/misc'
+import { nativeOnChain, USDT } from 'lx/src/constants/tokens'
+import { UniverseChainId } from 'lx/src/features/chains/types'
 
 const WETH = nativeOnChain(UniverseChainId.Mainnet).wrapped
 const tickSpaceLimits = [

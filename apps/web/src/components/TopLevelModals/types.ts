@@ -1,5 +1,5 @@
 import { ComponentProps, ComponentType } from 'react'
-import { ModalNameType } from 'uniswap/src/features/telemetry/constants'
+import { ModalNameType } from 'lx/src/features/telemetry/constants'
 
 type ModalComponent = ComponentType<any>
 

@@ -14,7 +14,7 @@ export const useShakeAnimation = (): ShakeAnimation => {
     () => ({
       transform: [{ translateX: shakeValue.value }],
     }),
-    [shakeValue.value],
+    [shakeValue.value]
   )
 
   const triggerShakeAnimation = useEvent(() => {
@@ -26,6 +26,6 @@ export const useShakeAnimation = (): ShakeAnimation => {
       shakeStyle,
       triggerShakeAnimation,
     }),
-    [shakeStyle, triggerShakeAnimation],
+    [shakeStyle, triggerShakeAnimation]
   )
 }

@@ -1,6 +1,6 @@
 import { BigNumber } from '@ethersproject/bignumber'
-import { CurrencyAmount, Percent, Token, TradeType, WETH9 } from '@uniswap/sdk-core'
-import { FeeAmount, Pool, Route } from '@uniswap/v3-sdk'
+import { CurrencyAmount, Percent, Token, TradeType, WETH9 } from '@luxamm/sdk-core'
+import { FeeAmount, Pool, Route } from '@luxamm/v3-sdk'
 import JSBI from 'jsbi'
 import { expiryToDeadlineSeconds } from 'state/limit/expiryToDeadlineSeconds'
 import {
@@ -19,12 +19,12 @@ import {
   USDC_MAINNET,
   USDT,
   WBTC,
-} from 'uniswap/src/constants/tokens'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { CurrencyInfo } from 'uniswap/src/features/dataApi/types'
-import { FORCountry } from 'uniswap/src/features/fiatOnRamp/types'
-import { benignSafetyInfo } from 'uniswap/src/test/fixtures/wallet/currencies'
-import { LimitsExpiry } from 'uniswap/src/types/limits'
+} from 'lx/src/constants/tokens'
+import { UniverseChainId } from 'lx/src/features/chains/types'
+import { CurrencyInfo } from 'lx/src/features/dataApi/types'
+import { FORCountry } from 'lx/src/features/fiatOnRamp/types'
+import { benignSafetyInfo } from 'lx/src/test/fixtures/wallet/currencies'
+import { LimitsExpiry } from 'lx/src/types/limits'
 import { UseAccountReturnType, type Register as WagmiRegister } from 'wagmi'
 
 export const TEST_TOKEN_1 = new Token(1, '0x0000000000000000000000000000000000000001', 18, 'ABC', 'Abc')

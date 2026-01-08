@@ -1,5 +1,5 @@
 import { PersistState } from 'redux-persist'
-import { CurrencyIdToVisibility, PositionKeyToVisibility } from 'uniswap/src/features/visibility/slice'
+import { CurrencyIdToVisibility, PositionKeyToVisibility } from 'lx/src/features/visibility/slice'
 
 type PersistAppStateV23 = {
   _persist: PersistState

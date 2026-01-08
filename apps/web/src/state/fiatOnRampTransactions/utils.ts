@@ -1,6 +1,6 @@
 import { FiatOnRampTransactionStatus } from 'state/fiatOnRampTransactions/types'
-import { FORTransaction } from 'uniswap/src/features/fiatOnRamp/types'
-import { TransactionStatus } from 'uniswap/src/features/transactions/types/transactionDetails'
+import { FORTransaction } from 'lx/src/features/fiatOnRamp/types'
+import { TransactionStatus } from 'lx/src/features/transactions/types/transactionDetails'
 
 export function statusToTransactionInfoStatus(status: FORTransaction['status']): FiatOnRampTransactionStatus {
   switch (status) {

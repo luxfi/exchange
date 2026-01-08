@@ -21,8 +21,8 @@ import {
 } from 'lightweight-charts'
 import { ReactElement, TouchEvent, useEffect, useMemo, useRef, useState } from 'react'
 import { assertWebElement, ColorTokens, Flex, TamaguiElement, useMedia, useSporeColors } from 'ui/src'
-import { useCurrentLocale } from 'uniswap/src/features/language/hooks'
-import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
+import { useCurrentLocale } from 'lx/src/features/language/hooks'
+import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
 import { NumberType } from 'utilities/src/format/types'
 import { v4 as uuidv4 } from 'uuid'
 
@@ -422,6 +422,7 @@ export function Chart<TParamType extends ChartDataParams<TDataType>, TDataType e
       {/* Header/content outside background */}
       {children && children(crosshairData)}
       {TooltipBody && crosshairData && (
+        // @ts-expect-error - Tamagui variant type inference issue
         <ChartTooltip id={chartModelRef.current?.tooltipId} includeBorder={!params.hideTooltipBorder}>
           <TooltipBody data={crosshairData} />
         </ChartTooltip>

@@ -1,22 +1,22 @@
-import { createChallengeSolverService } from '@universe/sessions/src/challenge-solvers/createChallengeSolverService'
-import { createHashcashSolver } from '@universe/sessions/src/challenge-solvers/createHashcashSolver'
-import { createNoneMockSolver } from '@universe/sessions/src/challenge-solvers/createNoneMockSolver'
-import { createTurnstileMockSolver } from '@universe/sessions/src/challenge-solvers/createTurnstileMockSolver'
-import { createSessionInitializationService } from '@universe/sessions/src/session-initialization/createSessionInitializationService'
-import { createSessionClient } from '@universe/sessions/src/session-repository/createSessionClient'
-import { createSessionRepository } from '@universe/sessions/src/session-repository/createSessionRepository'
-import { createSessionService } from '@universe/sessions/src/session-service/createSessionService'
-import type { SessionService } from '@universe/sessions/src/session-service/types'
-import { ChallengeType } from '@universe/sessions/src/session-service/types'
+import { createChallengeSolverService } from '@luxfi/sessions/src/challenge-solvers/createChallengeSolverService'
+import { createHashcashSolver } from '@luxfi/sessions/src/challenge-solvers/createHashcashSolver'
+import { createNoneMockSolver } from '@luxfi/sessions/src/challenge-solvers/createNoneMockSolver'
+import { createTurnstileMockSolver } from '@luxfi/sessions/src/challenge-solvers/createTurnstileMockSolver'
+import { createSessionInitializationService } from '@luxfi/sessions/src/session-initialization/createSessionInitializationService'
+import { createSessionClient } from '@luxfi/sessions/src/session-repository/createSessionClient'
+import { createSessionRepository } from '@luxfi/sessions/src/session-repository/createSessionRepository'
+import { createSessionService } from '@luxfi/sessions/src/session-service/createSessionService'
+import type { SessionService } from '@luxfi/sessions/src/session-service/types'
+import { ChallengeType } from '@luxfi/sessions/src/session-service/types'
 import {
   InMemoryDeviceIdService,
   InMemorySessionStorage,
   InMemoryUniswapIdentifierService,
-} from '@universe/sessions/src/test-utils'
+} from '@luxfi/sessions/src/test-utils'
 import {
   createCookieJar,
   createLocalCookieTransport,
-} from '@universe/sessions/src/test-utils/createLocalCookieTransport'
+} from '@luxfi/sessions/src/test-utils/createLocalCookieTransport'
 import { afterAll, beforeAll, beforeEach, describe, expect, it } from 'vitest'
 
 // Skip this test in CI unless explicitly enabled

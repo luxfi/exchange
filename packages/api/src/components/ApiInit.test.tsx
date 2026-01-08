@@ -1,6 +1,6 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { render, waitFor } from '@testing-library/react'
-import { ApiInit } from '@universe/api/src/components/ApiInit'
+import { ApiInit } from '@luxfi/api/src/components/ApiInit'
 import {
   ChallengeType,
   createChallengeSolverService,
@@ -15,7 +15,7 @@ import {
   type SessionService,
   type SessionStorage,
   type UniswapIdentifierService,
-} from '@universe/sessions'
+} from '@luxfi/sessions'
 import React from 'react'
 import { sleep } from 'utilities/src/time/timing'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'

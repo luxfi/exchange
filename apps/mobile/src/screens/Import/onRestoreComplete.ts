@@ -1,9 +1,9 @@
 import { NavigationProp } from '@react-navigation/core'
 import { Dispatch } from 'redux'
 import { OnboardingStackBaseParams, OnboardingStackParamList } from 'src/app/navigation/types'
-import { MobileEventName } from 'uniswap/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
-import { OnboardingScreens } from 'uniswap/src/types/screens/mobile'
+import { MobileEventName } from 'lx/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
+import { OnboardingScreens } from 'lx/src/types/screens/mobile'
 import { setHasCopiedPrivateKeys } from 'wallet/src/features/behaviorHistory/slice'
 import { restoreMnemonicComplete } from 'wallet/src/features/wallet/slice'
 

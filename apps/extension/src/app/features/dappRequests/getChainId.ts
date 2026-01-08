@@ -3,9 +3,9 @@ import type { SenderTabInfo } from 'src/app/features/dappRequests/shared'
 import { ChainIdResponse, GetChainIdRequest } from 'src/app/features/dappRequests/types/DappRequestTypes'
 import { dappResponseMessageChannel } from 'src/background/messagePassing/messageChannels'
 import { call } from 'typed-redux-saga'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { chainIdToHexadecimalString } from 'uniswap/src/features/chains/utils'
-import { DappResponseType } from 'uniswap/src/features/dappRequests/types'
+import { UniverseChainId } from 'lx/src/features/chains/types'
+import { chainIdToHexadecimalString } from 'lx/src/features/chains/utils'
+import { DappResponseType } from 'lx/src/features/dappRequests/types'
 
 // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 export function* getChainId({

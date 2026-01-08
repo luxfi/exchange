@@ -1,4 +1,4 @@
-import { SessionStorage } from '@universe/sessions/src/session-storage/types'
+import { SessionStorage } from '@luxfi/sessions/src/session-storage/types'
 
 /**
  * Creates a Session Storage instance, given a set of functions to interact with a storage driver.

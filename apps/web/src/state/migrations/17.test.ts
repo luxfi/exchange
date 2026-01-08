@@ -16,7 +16,7 @@ import { migration14 } from 'state/migrations/14'
 import { migration15 } from 'state/migrations/15'
 import { migration16 } from 'state/migrations/16'
 import { migration17, PersistAppStateV17 } from 'state/migrations/17'
-import { PreV55SearchResultType } from 'uniswap/src/state/oldTypes'
+import { PreV55SearchResultType } from 'lx/src/state/oldTypes'
 
 const previousState: PersistAppStateV17 = {
   _persist: {

@@ -3,8 +3,8 @@ import { useLpIncentivesTransactionState } from 'hooks/useLpIncentivesTransactio
 import { useAtom } from 'jotai'
 import { atomWithStorage } from 'jotai/utils'
 import { useCallback, useState } from 'react'
-import { useGetPoolsRewards } from 'uniswap/src/data/rest/getPoolsRewards'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { useGetPoolsRewards } from 'lx/src/data/rest/getPoolsRewards'
+import { UniverseChainId } from 'lx/src/features/chains/types'
 
 // This is used as check to avoid showing user rewards they just claimed
 // This date/amount will be saved on successful rewards claim, and checked against when rewards refetches on page refresh

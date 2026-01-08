@@ -8,7 +8,7 @@
     "types": ["chrome", "node"],
     "baseUrl": ".",
     "paths": {
-      "@universe/sessions/*": ["./src/*"]
+      "@luxfi/sessions/*": ["./src/*"]
     }
   },
   "references": [

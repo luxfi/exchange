@@ -1,19 +1,19 @@
-import { WETH9 } from '@uniswap/sdk-core'
-import { TradingApi } from '@universe/api'
+import { WETH9 } from '@luxamm/sdk-core'
+import { TradingApi } from '@luxfi/api'
 import {
   CancellationState,
   CancelOrdersDialog,
 } from 'components/AccountDrawer/MiniPortfolio/Activity/CancelOrdersDialog'
 import { render, screen } from 'test-utils/render'
-import { DAI } from 'uniswap/src/constants/tokens'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { DAI } from 'lx/src/constants/tokens'
+import { UniverseChainId } from 'lx/src/features/chains/types'
 import {
   TransactionOriginType,
   TransactionStatus,
   TransactionType,
   UniswapXOrderDetails,
-} from 'uniswap/src/features/transactions/types/transactionDetails'
-import { currencyId } from 'uniswap/src/utils/currencyId'
+} from 'lx/src/features/transactions/types/transactionDetails'
+import { currencyId } from 'lx/src/utils/currencyId'
 import { vi } from 'vitest'
 
 const mockOrderDetails: UniswapXOrderDetails = {

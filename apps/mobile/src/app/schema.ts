@@ -1,8 +1,8 @@
 /* eslint-disable max-lines */
-import { RankingType } from '@universe/api'
-import { FiatCurrency } from 'uniswap/src/features/fiatCurrency/constants'
-import { Language } from 'uniswap/src/features/language/constants'
-import { ModalName } from 'uniswap/src/features/telemetry/constants'
+import { RankingType } from '@luxfi/api'
+import { FiatCurrency } from 'lx/src/features/fiatCurrency/constants'
+import { Language } from 'lx/src/features/language/constants'
+import { ModalName } from 'lx/src/features/telemetry/constants'
 import { SwapProtectionSetting } from 'wallet/src/features/wallet/slice'
 
 // only add fields that are persisted

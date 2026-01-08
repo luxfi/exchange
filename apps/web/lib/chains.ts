@@ -46,6 +46,24 @@ export const luxTestnet = {
   testnet: true,
 } as const satisfies Chain
 
+export const luxDev = {
+  id: 1337,
+  name: "Lux Dev",
+  nativeCurrency: {
+    decimals: 18,
+    name: "LUX",
+    symbol: "LUX",
+  },
+  rpcUrls: {
+    default: { http: ["http://127.0.0.1:8545/ext/bc/C/rpc"] },
+    public: { http: ["http://127.0.0.1:8545/ext/bc/C/rpc"] },
+  },
+  blockExplorers: {
+    default: { name: "Dev Explorer", url: "http://localhost:4000" },
+  },
+  testnet: false,
+} as const satisfies Chain
+
 // =============================================================================
 // ZOO CHAINS
 // =============================================================================
@@ -171,6 +189,7 @@ export const LUX_ECOSYSTEM_CHAINS = [
 export const CHAIN_BY_ID: Record<number, Chain> = {
   [luxMainnet.id]: luxMainnet,
   [luxTestnet.id]: luxTestnet,
+  [luxDev.id]: luxDev,
   [zooMainnet.id]: zooMainnet,
   [zooTestnet.id]: zooTestnet,
   [ethereum.id]: ethereum,
@@ -196,7 +215,7 @@ export function isLuxEcosystem(chainId: number): boolean {
  * Check if chain is a Lux chain (not Zoo)
  */
 export function isLuxChain(chainId: number): boolean {
-  const luxChainIds: number[] = [luxMainnet.id, luxTestnet.id]
+  const luxChainIds: number[] = [luxMainnet.id, luxTestnet.id, luxDev.id]
   return luxChainIds.includes(chainId)
 }
 
@@ -230,6 +249,7 @@ export function getChainIcon(chainId: number): string {
   switch (chainId) {
     case luxMainnet.id:
     case luxTestnet.id:
+    case luxDev.id:
       return "/tokens/lux.svg"
     case zooMainnet.id:
     case zooTestnet.id:

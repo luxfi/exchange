@@ -7,14 +7,14 @@ import {
   Notification,
   NotificationVersion,
   OnClick,
-} from '@uniswap/client-notification-service/dist/uniswap/notificationservice/v1/api_pb'
-import { BackgroundType, ContentStyle, type InAppNotification, OnClickAction } from '@universe/api'
-import { FeatureFlags, getFeatureFlag } from '@universe/gating'
+} from '@luxdex/client-notification-service/dist/uniswap/notificationservice/v1/api_pb'
+import { BackgroundType, ContentStyle, type InAppNotification, OnClickAction } from '@luxfi/api'
+import { FeatureFlags, getFeatureFlag } from '@luxfi/gating'
 import {
   createNotificationDataSource,
   type NotificationDataSource,
   type NotificationTracker,
-} from '@universe/notifications'
+} from '@luxfi/notifications'
 import store from 'state/index'
 import {
   BRIDGED_ASSETS_V2_WEB_BANNER,
@@ -25,8 +25,8 @@ import {
   SOLANA_BANNER_LIGHT,
   SOLANA_LOGO,
 } from 'ui/src/assets'
-import { uniswapUrls } from 'uniswap/src/constants/urls'
-import i18n from 'uniswap/src/i18n'
+import { uniswapUrls } from 'lx/src/constants/urls'
+import i18n from 'lx/src/i18n'
 import { logger } from 'utilities/src/logger/logger'
 
 // Legacy storage keys from the old banner implementation

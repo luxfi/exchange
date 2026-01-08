@@ -5,9 +5,9 @@ import type {
   MigrateV2ToV3LPPositionResponse,
   MigrateV3ToV4LPPositionRequest,
   MigrateV3ToV4LPPositionResponse,
-} from '@uniswap/client-liquidity/dist/uniswap/liquidity/v1/api_pb'
-import { FetchClient } from '@universe/api/src/clients/base/types'
-import { createFetcher } from '@universe/api/src/clients/base/utils'
+} from '@luxdex/client-liquidity/dist/uniswap/liquidity/v1/api_pb'
+import { FetchClient } from '@luxfi/api/src/clients/base/types'
+import { createFetcher } from '@luxfi/api/src/clients/base/utils'
 
 export interface LiquidityServiceClientContext {
   fetchClient: FetchClient

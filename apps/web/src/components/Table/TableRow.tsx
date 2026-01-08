@@ -8,8 +8,8 @@ import { LinkProps } from 'react-router'
 import { Flex } from 'ui/src'
 import { UseSporeColorsReturn, useSporeColors } from 'ui/src/hooks/useSporeColors'
 import { breakpoints } from 'ui/src/theme'
-import { ElementName } from 'uniswap/src/features/telemetry/constants'
-import Trace from 'uniswap/src/features/telemetry/Trace'
+import { ElementName } from 'lx/src/features/telemetry/constants'
+import Trace from 'lx/src/features/telemetry/Trace'
 import { useTrace } from 'utilities/src/telemetry/trace/TraceContext'
 
 interface TableCellProps<T extends RowData> {

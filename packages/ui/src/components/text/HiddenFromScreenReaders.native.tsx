@@ -1,5 +1,5 @@
 import { View } from 'react-native'
-import { HiddenFromScreenReadersProps } from 'ui/src/components/text/HiddenFromScreenReaders'
+import type { HiddenFromScreenReadersProps } from 'ui/src/components/text/HiddenFromScreenReaders'
 
 export function HiddenFromScreenReaders({ children, style }: HiddenFromScreenReadersProps): JSX.Element {
   return (

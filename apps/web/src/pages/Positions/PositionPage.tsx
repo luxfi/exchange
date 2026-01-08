@@ -1,9 +1,9 @@
 /* eslint-disable max-lines */
 import { BigNumber } from '@ethersproject/bignumber'
-import { Position, PositionStatus, ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
-import { Currency, CurrencyAmount, Percent, Price } from '@uniswap/sdk-core'
-import { GraphQLApi } from '@universe/api'
-import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import { Position, PositionStatus, ProtocolVersion } from '@luxdex/client-data-api/dist/data/v1/poolTypes_pb'
+import { Currency, CurrencyAmount, Percent, Price } from '@luxamm/sdk-core'
+import { GraphQLApi } from '@luxfi/api'
+import { FeatureFlags, useFeatureFlag } from '@luxfi/gating'
 import { BreadcrumbNavContainer, BreadcrumbNavLink } from 'components/BreadcrumbNav'
 import { WrappedLiquidityPositionRangeChart } from 'components/Charts/LiquidityPositionRangeChart/LiquidityPositionRangeChart'
 import { Dropdown } from 'components/Dropdowns/Dropdown'
@@ -53,22 +53,22 @@ import { InfoCircleFilled } from 'ui/src/components/icons/InfoCircleFilled'
 import { RotatableChevron } from 'ui/src/components/icons/RotatableChevron'
 import { useDeviceDimensions } from 'ui/src/hooks/useDeviceDimensions'
 import { breakpoints } from 'ui/src/theme/breakpoints'
-import { CurrencyLogo } from 'uniswap/src/components/CurrencyLogo/CurrencyLogo'
-import { PollingInterval, ZERO_ADDRESS } from 'uniswap/src/constants/misc'
-import { useGetPositionQuery } from 'uniswap/src/data/rest/getPosition'
-import { getChainInfo } from 'uniswap/src/features/chains/chainInfo'
-import { useSupportedChainId } from 'uniswap/src/features/chains/hooks/useSupportedChainId'
-import { EVMUniverseChainId, UniverseChainId } from 'uniswap/src/features/chains/types'
-import { CurrencyInfo } from 'uniswap/src/features/dataApi/types'
-import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
-import { isEVMChain } from 'uniswap/src/features/platforms/utils/chains'
-import { InterfacePageName } from 'uniswap/src/features/telemetry/constants'
-import Trace from 'uniswap/src/features/telemetry/Trace'
-import { useCurrencyInfos } from 'uniswap/src/features/tokens/useCurrencyInfo'
-import { useUSDCValue } from 'uniswap/src/features/transactions/hooks/useUSDCPrice'
-import { usePositionVisibilityCheck } from 'uniswap/src/features/visibility/hooks/usePositionVisibilityCheck'
-import { areAddressesEqual } from 'uniswap/src/utils/addresses'
-import { buildCurrencyId, currencyId, currencyIdToAddress } from 'uniswap/src/utils/currencyId'
+import { CurrencyLogo } from 'lx/src/components/CurrencyLogo/CurrencyLogo'
+import { PollingInterval, ZERO_ADDRESS } from 'lx/src/constants/misc'
+import { useGetPositionQuery } from 'lx/src/data/rest/getPosition'
+import { getChainInfo } from 'lx/src/features/chains/chainInfo'
+import { useSupportedChainId } from 'lx/src/features/chains/hooks/useSupportedChainId'
+import { EVMUniverseChainId, UniverseChainId } from 'lx/src/features/chains/types'
+import { CurrencyInfo } from 'lx/src/features/dataApi/types'
+import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
+import { isEVMChain } from 'lx/src/features/platforms/utils/chains'
+import { InterfacePageName } from 'lx/src/features/telemetry/constants'
+import Trace from 'lx/src/features/telemetry/Trace'
+import { useCurrencyInfos } from 'lx/src/features/tokens/useCurrencyInfo'
+import { useUSDCValue } from 'lx/src/features/transactions/hooks/useUSDCPrice'
+import { usePositionVisibilityCheck } from 'lx/src/features/visibility/hooks/usePositionVisibilityCheck'
+import { areAddressesEqual } from 'lx/src/utils/addresses'
+import { buildCurrencyId, currencyId, currencyIdToAddress } from 'lx/src/utils/currencyId'
 import { NumberType } from 'utilities/src/format/types'
 import { isMobileWeb } from 'utilities/src/platform'
 import { useEvent } from 'utilities/src/react/hooks'
@@ -161,10 +161,11 @@ function PositionPage({ chainId }: { chainId: EVMUniverseChainId | undefined }) 
     const token1 = position.amount1.currency
 
     return {
-      priceLower: position.token0PriceLower,
-      priceUpper: position.token0PriceUpper,
-      quote: token1,
-      base: token0,
+      // Type assertion needed due to SDK type mismatch between @luxamm and @uniswap
+      priceLower: position.token0PriceLower as unknown as Price<Currency, Currency>,
+      priceUpper: position.token0PriceUpper as unknown as Price<Currency, Currency>,
+      quote: token1 as Currency,
+      base: token0 as Currency,
     }
   }, [positionInfo])
 
@@ -312,8 +313,9 @@ function PositionPage({ chainId }: { chainId: EVMUniverseChainId | undefined }) 
     )
   }
 
-  const token0Price = positionInfo.version !== ProtocolVersion.V2 ? positionInfo.poolOrPair?.token0Price : undefined
-  const token1Price = positionInfo.version !== ProtocolVersion.V2 ? positionInfo.poolOrPair?.token1Price : undefined
+  // Type assertion needed due to SDK type mismatch between @luxamm and @uniswap
+  const token0Price = (positionInfo.version !== ProtocolVersion.V2 ? positionInfo.poolOrPair?.token0Price : undefined) as Price<Currency, Currency> | undefined
+  const token1Price = (positionInfo.version !== ProtocolVersion.V2 ? positionInfo.poolOrPair?.token1Price : undefined) as Price<Currency, Currency> | undefined
 
   const isOwner = areAddressesEqual({
     addressInput1: { address: positionInfo.owner, chainId: positionInfo.chainId },
@@ -409,8 +411,8 @@ function PositionPage({ chainId }: { chainId: EVMUniverseChainId | undefined }) 
                     priceInverted
                       ? {
                           base: priceOrdering.quote,
-                          priceLower: priceOrdering.priceUpper?.invert(),
-                          priceUpper: priceOrdering.priceLower?.invert(),
+                          priceLower: priceOrdering.priceUpper?.invert() as Price<Currency, Currency> | undefined,
+                          priceUpper: priceOrdering.priceLower?.invert() as Price<Currency, Currency> | undefined,
                         }
                       : priceOrdering
                   }

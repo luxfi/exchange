@@ -1,4 +1,4 @@
-import { CurrencyAmount, Price } from '@uniswap/sdk-core'
+import { CurrencyAmount, Price } from '@luxamm/sdk-core'
 import {
   useOpenOffchainActivityModal,
   useOrderAmounts,
@@ -11,10 +11,10 @@ import { ArrowRight } from 'react-feather'
 import { Trans } from 'react-i18next'
 import { EllipsisTamaguiStyle } from 'theme/components/styles'
 import { Checkbox, Flex, Image, Text, useMedia, useSporeColors } from 'ui/src'
-import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
-import { useCurrencyInfo } from 'uniswap/src/features/tokens/useCurrencyInfo'
-import { TransactionStatus, UniswapXOrderDetails } from 'uniswap/src/features/transactions/types/transactionDetails'
-import { currencyId } from 'uniswap/src/utils/currencyId'
+import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
+import { useCurrencyInfo } from 'lx/src/features/tokens/useCurrencyInfo'
+import { TransactionStatus, UniswapXOrderDetails } from 'lx/src/features/transactions/types/transactionDetails'
+import { currencyId } from 'lx/src/utils/currencyId'
 import { NumberType } from 'utilities/src/format/types'
 
 interface LimitDetailActivityRowProps {

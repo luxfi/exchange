@@ -18,7 +18,7 @@ export declare function useTokenAllowance(token: Token | null, owner: Address | 
     isPending: boolean;
     isConfirming: boolean;
     isSuccess: boolean;
-    refetch: (options?: import("@tanstack/react-query").RefetchOptions) => Promise<import("@tanstack/react-query").QueryObserverResult<bigint, import("viem").ReadContractErrorType>>;
+    refetch: (options?: import("@tanstack/query-core").RefetchOptions) => Promise<import("@tanstack/query-core").QueryObserverResult<bigint, import("viem").ReadContractErrorType>>;
 };
 /**
  * Check if approval is needed for a specific amount

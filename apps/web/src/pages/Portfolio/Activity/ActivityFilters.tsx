@@ -5,8 +5,8 @@ import { useTranslation } from 'react-i18next'
 import { Flex } from 'ui/src'
 import { Calendar } from 'ui/src/components/icons/Calendar'
 import { Filter } from 'ui/src/components/icons/Filter'
-import { ElementName } from 'uniswap/src/features/telemetry/constants'
-import Trace from 'uniswap/src/features/telemetry/Trace'
+import { ElementName } from 'lx/src/features/telemetry/constants'
+import Trace from 'lx/src/features/telemetry/Trace'
 
 const DROPDOWN_MIN_WIDTH = {
   transactionType: 220,

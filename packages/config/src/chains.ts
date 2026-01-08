@@ -93,12 +93,34 @@ export const zooTestnet = defineChain({
 })
 
 /**
+ * Dev Chain Definition (for running local node with --dev)
+ */
+export const luxDev = defineChain({
+  id: 1337,
+  name: 'Lux Dev',
+  nativeCurrency: {
+    name: 'LUX',
+    symbol: 'LUX',
+    decimals: 18,
+  },
+  rpcUrls: {
+    default: { http: ['http://localhost:8545/ext/bc/C/rpc'] },
+    public: { http: ['http://localhost:8545/ext/bc/C/rpc'] },
+  },
+  blockExplorers: {
+    default: { name: 'Dev', url: 'http://localhost:8545' },
+  },
+  testnet: false,
+})
+
+/**
  * Chain IDs
  */
 export const LUX_MAINNET_ID = 96369
 export const LUX_TESTNET_ID = 96368
 export const ZOO_MAINNET_ID = 200200
 export const ZOO_TESTNET_ID = 200201
+export const LUX_DEV_ID = 1337
 
 /**
  * All supported chains
@@ -108,6 +130,7 @@ export const supportedChains = [
   luxTestnet,
   zooMainnet,
   zooTestnet,
+  luxDev,
 ] as const
 
 export type SupportedChainId = typeof supportedChains[number]['id']

@@ -3,8 +3,8 @@ import { createCurrencyParsersWithValidation } from 'components/Liquidity/parser
 import { NATIVE_CHAIN_ID } from 'constants/tokens'
 import { useCurrencyWithLoading } from 'hooks/Tokens'
 import { renderHook } from 'test-utils/render'
-import { nativeOnChain, USDC, USDC_UNICHAIN } from 'uniswap/src/constants/tokens'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { nativeOnChain, USDC, USDC_UNICHAIN } from 'lx/src/constants/tokens'
+import { UniverseChainId } from 'lx/src/features/chains/types'
 
 const ETH = nativeOnChain(UniverseChainId.Mainnet)
 

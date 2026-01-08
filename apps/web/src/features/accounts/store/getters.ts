@@ -1,15 +1,15 @@
 /* eslint-disable import/no-unused-modules */
 import type { WebAccountsData } from 'features/accounts/store/types'
-import { Account } from 'uniswap/src/features/accounts/store/types/Account'
-import { AccountsGetters } from 'uniswap/src/features/accounts/store/types/AccountsState'
-import { ConnectorStatus } from 'uniswap/src/features/accounts/store/types/Connector'
-import { CrossChainAddresses } from 'uniswap/src/features/accounts/store/types/Wallet'
-import { toConnectionStatusInfo } from 'uniswap/src/features/accounts/store/utils/connection'
+import { Account } from 'lx/src/features/accounts/store/types/Account'
+import { AccountsGetters } from 'lx/src/features/accounts/store/types/AccountsState'
+import { ConnectorStatus } from 'lx/src/features/accounts/store/types/Connector'
+import { CrossChainAddresses } from 'lx/src/features/accounts/store/types/Wallet'
+import { toConnectionStatusInfo } from 'lx/src/features/accounts/store/utils/connection'
 import {
   FlexiblePlatformInput as Flexible,
   resolvePlatform,
-} from 'uniswap/src/features/accounts/store/utils/flexibleInput'
-import { Platform } from 'uniswap/src/features/platforms/types/Platform'
+} from 'lx/src/features/accounts/store/utils/flexibleInput'
+import { Platform } from 'lx/src/features/platforms/types/Platform'
 
 export function createAccountsStoreGetters(getState: () => WebAccountsData) {
   function getActiveConnector<P extends Platform>(platformInput: Flexible<P>) {

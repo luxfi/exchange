@@ -1,11 +1,11 @@
-import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import { FeatureFlags, useFeatureFlag } from '@luxfi/gating'
 import { useCallback, useEffect, useMemo } from 'react'
 import { StyleProp, ViewStyle } from 'react-native'
 import Animated, { SharedValue, useAnimatedStyle, useSharedValue } from 'react-native-reanimated'
 import { ESTIMATED_BOTTOM_TABS_HEIGHT } from 'src/app/navigation/tabs/CustomTabBar/constants'
 import { TAB_BAR_HEIGHT } from 'src/components/layout/TabHelpers'
 import { useDeviceDimensions } from 'ui/src/hooks/useDeviceDimensions'
-import { useAppInsets } from 'uniswap/src/hooks/useAppInsets'
+import { useAppInsets } from 'lx/src/hooks/useAppInsets'
 import { useActiveAccount } from 'wallet/src/features/wallet/hooks'
 
 export function useAdaptiveFooter(contentContainerStyle?: StyleProp<ViewStyle>): {

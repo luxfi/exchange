@@ -3,8 +3,8 @@ import { Avatar, Flex, styled } from 'ui/src'
 import { Check } from 'ui/src/components/icons/Check'
 import { Text } from 'ui/src/components/text/Text'
 import { iconSizes } from 'ui/src/theme'
-import { FORCountry } from 'uniswap/src/features/fiatOnRamp/types'
-import { getCountryFlagSvgUrl } from 'uniswap/src/features/fiatOnRamp/utils'
+import { FORCountry } from 'lx/src/features/fiatOnRamp/types'
+import { getCountryFlagSvgUrl } from 'lx/src/features/fiatOnRamp/utils'
 
 const RowWrapper = styled(Flex, {
   row: true,

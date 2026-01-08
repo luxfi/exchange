@@ -1,4 +1,4 @@
-import { Config } from '@universe/config/src/config-types'
+import { Config } from '@luxfi/config/src/config-types'
 import { PlatformSplitStubError } from 'utilities/src/errors'
 
 export function getConfig(): Config {

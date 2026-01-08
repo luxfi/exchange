@@ -1,8 +1,0 @@
-
-> @luxfi/dex@0.0.1 typecheck /Users/z/work/lux/exchange/packages/dex
-> tsc --noEmit
-
-src/hooks/use-quote.ts(3,58): error TS2307: Cannot find module 'react' or its corresponding type declarations.
-src/hooks/use-swap.ts(3,39): error TS2307: Cannot find module 'react' or its corresponding type declarations.
-src/index.ts(35,1): error TS2308: Module './precompile' has already exported a member named 'Position'. Consider explicitly re-exporting to resolve the ambiguity.
-[41m[30m ELIFECYCLE [39m[49m [31mCommand failed with exit code 2.[39m

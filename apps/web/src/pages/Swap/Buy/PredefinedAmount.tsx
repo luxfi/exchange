@@ -1,5 +1,5 @@
 import { useSporeColors } from 'ui/src'
-import { Pill, PillProps } from 'uniswap/src/components/pill/Pill'
+import { Pill, PillProps } from 'lx/src/components/pill/Pill'
 
 interface PredefinedAmountProps {
   label: string

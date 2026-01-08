@@ -1,4 +1,4 @@
-import { ChallengeType } from '@uniswap/client-platform-service/dist/uniswap/platformservice/v1/sessionService_pb'
+import { ChallengeType } from '@luxdex/client-platform-service/dist/uniswap/platformservice/v1/sessionService_pb'
 
 /**
  * Response from session initialization

@@ -1,6 +1,6 @@
-import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
-import { Percent } from '@uniswap/sdk-core'
-import { FeeAmount, TICK_SPACINGS } from '@uniswap/v3-sdk'
+import { ProtocolVersion } from '@luxdex/client-data-api/dist/data/v1/poolTypes_pb'
+import { Percent } from '@luxamm/sdk-core'
+import { FeeAmount, TICK_SPACINGS } from '@luxamm/v3-sdk'
 import { DYNAMIC_FEE_DATA } from 'components/Liquidity/Create/types'
 import { FeeTierData } from 'components/Liquidity/types'
 import {
@@ -11,7 +11,7 @@ import {
   isDynamicFeeTier,
   mergeFeeTiers,
 } from 'components/Liquidity/utils/feeTiers'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { UniverseChainId } from 'lx/src/features/chains/types'
 import { PercentNumberDecimals } from 'utilities/src/format/types'
 import { describe, expect, it } from 'vitest'
 

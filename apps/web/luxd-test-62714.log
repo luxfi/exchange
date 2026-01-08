@@ -1,0 +1,17 @@
+[01-03|06:48:42.308] [1;34mDEBUG[0;0m cmd/root.go:360 using config file
+Starting Lux dev node (K=1 consensus)...
+[01-03|06:48:42.309] [0;0mINFO[0;0m ux/output.go:40 Starting Lux dev node (K=1 consensus)...
+Cleaning dev state...
+[01-03|06:48:42.309] [0;0mINFO[0;0m ux/output.go:40 Cleaning dev state...
+Binary: /usr/local/bin/luxd
+[01-03|06:48:42.309] [0;0mINFO[0;0m ux/output.go:40 Binary: /usr/local/bin/luxd
+Port: 8545 (staking: 8546)
+[01-03|06:48:42.309] [0;0mINFO[0;0m ux/output.go:40 Port: 8545 (staking: 8546)
+Automine: 100ms interval
+[01-03|06:48:42.309] [0;0mINFO[0;0m ux/output.go:40 Automine: 100ms interval
+luxd started (PID: 62917)
+[01-03|06:48:42.312] [0;0mINFO[0;0m ux/output.go:40 luxd started (PID: 62917)
+couldn't configure flags: unknown flag: --automine-interval
+Error: node failed to become healthy after 60 seconds
+
+ERROR: node failed to become healthy after 60 seconds

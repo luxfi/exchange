@@ -7,14 +7,14 @@
     "@shopify/flash-list": "1.7.6",
     "@shopify/react-native-skia": "2.2.4",
     "@storybook/react": "8.5.2",
-    "@tamagui/adapt": "1.136.1",
-    "@tamagui/animations-react-native": "1.136.1",
-    "@tamagui/font-inter": "1.136.1",
-    "@tamagui/helpers-icon": "1.136.1",
-    "@tamagui/portal": "1.136.1",
-    "@tamagui/react-native-media-driver": "1.136.1",
-    "@tamagui/remove-scroll": "1.136.1",
-    "@tamagui/theme-base": "1.136.1",
+    "@tamagui/adapt": "1.141.5",
+    "@tamagui/animations-react-native": "1.141.5",
+    "@tamagui/font-inter": "1.141.5",
+    "@tamagui/helpers-icon": "1.141.5",
+    "@tamagui/portal": "1.141.5",
+    "@tamagui/react-native-media-driver": "1.141.5",
+    "@tamagui/remove-scroll": "1.141.5",
+    "@tamagui/theme-base": "1.141.5",
     "@tanstack/react-query": "5.77.2",
     "@testing-library/react": "16.3.0",
     "ethers": "5.7.2",
@@ -33,19 +33,20 @@
     "react-native-safe-area-context": "5.4.0",
     "react-native-svg": "15.13.0",
     "react-native-webview": "13.13.5",
-    "tamagui": "1.136.1",
+    "tamagui": "1.141.5",
     "utilities": "workspace:^",
     "uuid": "9.0.0",
     "wcag-contrast": "3.0.0"
   },
   "devDependencies": {
     "@storybook/test": "8.5.2",
-    "@tamagui/animations-moti": "1.136.1",
-    "@tamagui/core": "1.136.1",
+    "@tamagui/animations-css": "1.141.5",
+    "@tamagui/animations-moti": "1.141.5",
+    "@tamagui/core": "1.141.5",
     "@types/chrome": "0.0.304",
     "@types/fs-extra": "11.0.2",
     "@types/qrcode": "1.5.5",
-    "@uniswap/eslint-config": "workspace:^",
+    "@luxfi/eslint-config": "workspace:^",
     "@vitejs/plugin-react": "4.7.0",
     "camelcase": "6.3.0",
     "cheerio": "1.0.0-rc.12",
@@ -58,7 +59,10 @@
     "vitest": "3.2.1",
     "vitest-presets": "workspace:^"
   },
-  "files": ["types", "dist"],
+  "files": [
+    "types",
+    "dist"
+  ],
   "main": "./src/index.ts",
   "module:jsx": "src",
   "private": true,
@@ -77,6 +81,8 @@
   "nx": {
     "includedScripts": []
   },
-  "sideEffects": ["*.css"],
+  "sideEffects": [
+    "*.css"
+  ],
   "types": "./types/index"
 }

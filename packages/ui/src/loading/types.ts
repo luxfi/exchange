@@ -1,4 +1,4 @@
-import { ColorTokens } from 'tamagui'
+import type { ColorTokens } from 'tamagui'
 
 export type SpinningLoaderProps = {
   size?: number

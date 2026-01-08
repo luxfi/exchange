@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { SEND_CONTENT_RENDER_DELAY_MS } from 'src/features/send/constants'
 import { Flex } from 'ui/src/components/layout/Flex'
-import { useHapticFeedback } from 'uniswap/src/features/settings/useHapticFeedback/useHapticFeedback'
-import { TransactionModalInnerContainer } from 'uniswap/src/features/transactions/components/TransactionModal/TransactionModal'
-import { useTransactionModalContext } from 'uniswap/src/features/transactions/components/TransactionModal/TransactionModalContext'
+import { useHapticFeedback } from 'lx/src/features/settings/useHapticFeedback/useHapticFeedback'
+import { TransactionModalInnerContainer } from 'lx/src/features/transactions/components/TransactionModal/TransactionModal'
+import { useTransactionModalContext } from 'lx/src/features/transactions/components/TransactionModal/TransactionModalContext'
 import { SendReviewDetails } from 'wallet/src/features/transactions/send/SendReviewDetails'
 
 // We add a short hardcoded delay to allow the sheet to animate quickly both on first render and when going back from Review -> Form.

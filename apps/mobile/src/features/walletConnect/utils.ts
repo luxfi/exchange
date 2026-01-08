@@ -9,10 +9,10 @@ import {
   WalletGetCapabilitiesRequest,
   WalletSendCallsRequest,
 } from 'src/features/walletConnect/walletConnectSlice'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { toSupportedChainId } from 'uniswap/src/features/chains/utils'
-import { EthMethod, EthSignMethod, WalletConnectEthMethod } from 'uniswap/src/features/dappRequests/types'
-import { DappRequestInfo, DappRequestType } from 'uniswap/src/types/walletConnect'
+import { UniverseChainId } from 'lx/src/features/chains/types'
+import { toSupportedChainId } from 'lx/src/features/chains/utils'
+import { EthMethod, EthSignMethod, WalletConnectEthMethod } from 'lx/src/features/dappRequests/types'
+import { DappRequestInfo, DappRequestType } from 'lx/src/types/walletConnect'
 import { hexToNumber } from 'utilities/src/addresses/hex'
 import { logger } from 'utilities/src/logger/logger'
 import { generateBatchId } from 'wallet/src/features/batchedTransactions/utils'

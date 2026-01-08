@@ -18,14 +18,12 @@ export interface SwapState {
     switchTokens: () => void;
     reset: () => void;
 }
-export declare const useSwapStore: import("zustand").UseBoundStore<Omit<import("zustand").StoreApi<SwapState>, "setState" | "persist"> & {
-    setState(partial: SwapState | Partial<SwapState> | ((state: SwapState) => SwapState | Partial<SwapState>), replace?: false | undefined): unknown;
-    setState(state: SwapState | ((state: SwapState) => SwapState), replace: true): unknown;
+export declare const useSwapStore: import("zustand").UseBoundStore<Omit<import("zustand").StoreApi<SwapState>, "persist"> & {
     persist: {
         setOptions: (options: Partial<import("zustand/middleware").PersistOptions<SwapState, {
             slippageTolerance: number;
             deadline: number;
-        }, unknown>>) => void;
+        }>>) => void;
         clearStorage: () => void;
         rehydrate: () => Promise<void> | void;
         hasHydrated: () => boolean;
@@ -34,7 +32,7 @@ export declare const useSwapStore: import("zustand").UseBoundStore<Omit<import("
         getOptions: () => Partial<import("zustand/middleware").PersistOptions<SwapState, {
             slippageTolerance: number;
             deadline: number;
-        }, unknown>>;
+        }>>;
     };
 }>;
 //# sourceMappingURL=swap-store.d.ts.map

@@ -1,5 +1,5 @@
 import { BottomSheetFooter, BottomSheetScrollView, useBottomSheetInternal } from '@gorhom/bottom-sheet'
-import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import { FeatureFlags, useFeatureFlag } from '@luxfi/gating'
 import { PropsWithChildren, useCallback, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import {
@@ -16,10 +16,10 @@ import { AnimatedStyle, useDerivedValue } from 'react-native-reanimated'
 import { ScrollDownOverlay } from 'src/components/Requests/ModalWithOverlay/ScrollDownOverlay'
 import { Button, ButtonProps, Flex } from 'ui/src'
 import { spacing } from 'ui/src/theme'
-import { Modal } from 'uniswap/src/components/modals/Modal'
-import { ModalProps } from 'uniswap/src/components/modals/ModalProps'
-import { useAppInsets } from 'uniswap/src/hooks/useAppInsets'
-import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+import { Modal } from 'lx/src/components/modals/Modal'
+import { ModalProps } from 'lx/src/components/modals/ModalProps'
+import { useAppInsets } from 'lx/src/hooks/useAppInsets'
+import { TestID } from 'lx/src/test/fixtures/testIDs'
 
 const MEASURE_LAYOUT_TIMEOUT = 100
 

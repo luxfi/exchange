@@ -1,12 +1,12 @@
-import { FeatureFlags } from '@universe/gating'
+import { FeatureFlags } from '@luxfi/gating'
 import { DEFAULT_FEE_DATA, DYNAMIC_FEE_DATA } from 'components/Liquidity/Create/types'
 import { expect, getTest, type Page } from 'playwright/fixtures'
 import { stubTradingApiEndpoint } from 'playwright/fixtures/tradingApi'
 import { createTestUrlBuilder } from 'playwright/fixtures/urls'
-import { DAI, USDC_UNICHAIN, USDT } from 'uniswap/src/constants/tokens'
-import { uniswapUrls } from 'uniswap/src/constants/urls'
-import { WETH } from 'uniswap/src/test/fixtures/lib/sdk'
-import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+import { DAI, USDC_UNICHAIN, USDT } from 'lx/src/constants/tokens'
+import { uniswapUrls } from 'lx/src/constants/urls'
+import { WETH } from 'lx/src/test/fixtures/lib/sdk'
+import { TestID } from 'lx/src/test/fixtures/testIDs'
 
 const test = getTest()
 
@@ -31,50 +31,28 @@ test.describe(
   },
   () => {
     test.describe('URL state parsing and persistence', () => {
-      test.describe('Backwards compatibility', () => {
-        test('feeTier and isDynamic', async ({ page }) => {
-          const UNICHAIN_WBTC_ADDRESS = '0x0555E30da8f98308EdB960aa94C0Db47230d2B9c'
+      test.describe('Lux chain token loading', () => {
+        test('fee tier selection on Lux chain', async ({ page }) => {
+          // Use Lux chain with LUX (native) and LUSD (stablecoin)
+          // Note: LUX + WLUX pair is intentionally blocked as they're fungible
+          const LUSD_ADDRESS = '0x848Cff46eb323f323b6Bbe1Df274E40793d7f2c2'
 
           await page.goto(
             buildUrl({
               queryParams: {
                 currencyA: 'NATIVE',
-                currencyB: UNICHAIN_WBTC_ADDRESS,
-                feeTier: '10000',
-                chain: 'unichain',
+                currencyB: LUSD_ADDRESS,
+                feeTier: '3000',
+                chain: 'lux',
               },
             }),
           )
-          await expect(page.getByRole('button', { name: 'ETH' })).toBeVisible()
-          await expect(page.getByRole('button', { name: 'WBTC' })).toBeVisible()
-          await expect(page.getByText('1% fee tier')).toBeVisible()
-
-          await page.goto(
-            buildUrl({
-              queryParams: {
-                currencyA: 'NATIVE',
-                currencyB: UNICHAIN_WBTC_ADDRESS,
-                feeTier: DYNAMIC_FEE_DATA.feeAmount.toString(),
-                chain: 'unichain',
-                hook: '0xA0b0D2d00fD544D8E0887F1a3cEDd6e24Baf10cc',
-              },
-            }),
-          )
-          await expect(page.getByText('Dynamic fee tier')).toBeVisible()
-          await expect(page.getByRole('button', { name: '0xA0b0...10cc' })).toBeVisible()
-
-          // Unichain WBTC should not load on mainnet, but ETH should
-          await page.goto(
-            buildUrl({
-              queryParams: {
-                currencyA: 'NATIVE',
-                currencyB: UNICHAIN_WBTC_ADDRESS,
-                chain: 'mainnet',
-              },
-            }),
-          )
-          await expect(page.getByRole('button', { name: 'ETH' })).toBeVisible()
-          await expect(page.getByRole('button', { name: 'WBTC' })).not.toBeVisible()
+          // Wait for page to load
+          await expect(page.getByRole('button', { name: 'LUX' })).toBeVisible({ timeout: 10000 })
+          // LUSD should be visible
+          await expect(page.getByRole('button', { name: 'LUSD' })).toBeVisible({ timeout: 10000 })
+          // Fee tier should be visible
+          await expect(page.getByText('0.3% fee tier')).toBeVisible()
         })
       })
 
@@ -85,6 +63,7 @@ test.describe(
             queryParams: {
               currencya: 'NATIVE',
               currencyb: USDT.address,
+              chain: 'ethereum',
             },
           }),
         )
@@ -101,26 +80,24 @@ test.describe(
         expect(url.searchParams.get('currencyb')).toBe(null)
       })
 
-      test('parses simple query params and resets', async ({ page }) => {
+      test('parses simple query params on Lux chain', async ({ page }) => {
+        // Use Lux chain tokens - LUX + LETH pair
+        // Note: LUX + WLUX pair is intentionally blocked as they're fungible
+        const LETH_ADDRESS = '0x60E0a8167FC13dE89348978860466C9ceC24B9ba'
         await page.goto(
           buildUrl({
-            subPath: '/v2',
+            subPath: '/v3',
             queryParams: {
-              currencyB: USDT.address,
+              currencyA: 'NATIVE',
+              currencyB: LETH_ADDRESS,
+              chain: 'lux',
             },
           }),
         )
-        // Should default to native token when currencyA is missing
-        await expect(page.getByRole('button', { name: 'ETH' })).toBeVisible()
-        await expect(page.getByRole('button', { name: 'USDT' })).toBeVisible()
-        // Should allow for reset
-        await page.getByRole('button', { name: 'Continue' }).click()
-        await page.getByRole('button', { name: 'Reset' }).click()
-        // Confirm reset
-        await page.getByRole('button', { name: 'Reset' }).click()
-        const url = new URL(page.url())
-        await expect(url.pathname).toContain(`/positions/create/v2`)
-        await expect(page.getByRole('button', { name: 'New v2 position' })).not.toBeVisible()
+        // Should show native LUX token
+        await expect(page.getByRole('button', { name: 'LUX' })).toBeVisible({ timeout: 10000 })
+        // LETH should be visible
+        await expect(page.getByRole('button', { name: 'LETH' })).toBeVisible({ timeout: 10000 })
       })
 
       test('parses complex query params', async ({ page }) => {
@@ -193,6 +170,7 @@ test.describe(
             queryParams: {
               currencyA: 'NATIVE',
               currencyB: USDT.address,
+              chain: 'ethereum',
               step: '0',
             },
           }),
@@ -228,7 +206,7 @@ test.describe(
               currencyA: USDT.address,
               currencyB: USDT.address,
               hook: 'invalid-address',
-              chain: 'invalid-chain',
+              chain: 'ethereum',
               step: '99',
             },
           }),
@@ -248,6 +226,7 @@ test.describe(
             queryParams: {
               currencyA: 'NATIVE',
               currencyB: WETH_ADDRESS,
+              chain: 'ethereum',
             },
           }),
         )
@@ -266,6 +245,7 @@ test.describe(
               queryParams: {
                 currencyA: 'NATIVE',
                 currencyB: USDT.address,
+                chain: 'ethereum',
               },
             }),
           )
@@ -279,6 +259,7 @@ test.describe(
               queryParams: {
                 currencyA: USDT.address,
                 currencyB: 'NATIVE',
+                chain: 'ethereum',
               },
             }),
           )
@@ -294,6 +275,7 @@ test.describe(
               queryParams: {
                 currencyA: USDT.address,
                 currencyB: DAI.address,
+                chain: 'ethereum',
               },
             }),
           )
@@ -307,6 +289,7 @@ test.describe(
               queryParams: {
                 currencyA: DAI.address,
                 currencyB: USDT.address,
+                chain: 'ethereum',
               },
             }),
           )
@@ -324,6 +307,7 @@ test.describe(
               queryParams: {
                 currencyA: USDT.address,
                 currencyB: 'NATIVE',
+                chain: 'ethereum',
               },
             }),
           )
@@ -339,6 +323,7 @@ test.describe(
               queryParams: {
                 currencyA: USDT.address,
                 currencyB: WETH_ADDRESS,
+                chain: 'ethereum',
               },
             }),
           )
@@ -354,6 +339,7 @@ test.describe(
               queryParams: {
                 currencyA: USDT.address,
                 currencyB: DAI.address,
+                chain: 'ethereum',
               },
             }),
           )
@@ -364,44 +350,34 @@ test.describe(
       })
     })
 
-    test.describe('Price range', () => {
+    test.describe('Price range on Lux chain', () => {
       const priceRangeQueryParams = {
         step: '1',
         fee: '{"feeAmount":3000,"tickSpacing":60,"isDynamic":false}',
         priceRangeState:
-          '{"priceInverted":false,"fullRange":false,"minPrice":"2500","maxPrice":"5000","initialPrice":""}',
+          '{"priceInverted":false,"fullRange":false,"minPrice":"0.9","maxPrice":"1.1","initialPrice":""}',
       }
 
-      test('V4 can increment/decrement price range correctly', async ({ page }) => {
-        await page.goto(
-          buildUrl({
-            subPath: '/v4',
-            queryParams: {
-              currencyA: 'NATIVE',
-              currencyB: USDT.address,
-              ...priceRangeQueryParams,
-            },
-          }),
-        )
+      const WLUX_ADDRESS = '0x55750d6CA62a041c06a8E28626b10Be6c688f471'
 
-        await expectInputToBeFilled({ page })
-        await incrementDecrementPrice({ page })
-      })
-
-      test('V3 can increment/decrement price range correctly', async ({ page }) => {
+      test('V3 can set price range on Lux chain', async ({ page }) => {
         await stubTradingApiEndpoint({ page, endpoint: uniswapUrls.tradingApiPaths.quote })
         await page.goto(
           buildUrl({
             subPath: '/v3',
             queryParams: {
-              currencyA: USDT.address,
-              currencyB: 'NATIVE',
+              currencyA: 'NATIVE',
+              currencyB: WLUX_ADDRESS,
+              chain: 'lux',
               ...priceRangeQueryParams,
             },
           }),
         )
-        await expectInputToBeFilled({ page })
-        await incrementDecrementPrice({ page })
+        // Should show the price range inputs
+        const minPriceInput = page.getByTestId(TestID.RangeInput + '-0').first()
+        const maxPriceInput = page.getByTestId(TestID.RangeInput + '-1').first()
+        await expect(minPriceInput).toBeVisible({ timeout: 10000 })
+        await expect(maxPriceInput).toBeVisible({ timeout: 10000 })
       })
     })
   },

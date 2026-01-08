@@ -1,4 +1,4 @@
-import { TradingApi } from '@universe/api'
+import { TradingApi } from '@luxfi/api'
 import { popupRegistry } from 'components/Popups/registry'
 import { PopupType } from 'components/Popups/types'
 import { useHandleUniswapXActivityUpdate } from 'hooks/useHandleUniswapXActivityUpdate'
@@ -6,15 +6,15 @@ import { ActivityUpdateTransactionType, type UniswapXOrderUpdate } from 'state/a
 import { mocked } from 'test-utils/mocked'
 import { renderHook } from 'test-utils/render'
 import { logUniswapXSwapFinalized } from 'tracing/swapFlowLoggers'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { finalizeTransaction, updateTransaction } from 'uniswap/src/features/transactions/slice'
+import { UniverseChainId } from 'lx/src/features/chains/types'
+import { finalizeTransaction, updateTransaction } from 'lx/src/features/transactions/slice'
 import {
   TransactionOriginType,
   TransactionStatus,
   TransactionType,
   type UniswapXOrderDetails,
-} from 'uniswap/src/features/transactions/types/transactionDetails'
-import { isFinalizedTx } from 'uniswap/src/features/transactions/types/utils'
+} from 'lx/src/features/transactions/types/transactionDetails'
+import { isFinalizedTx } from 'lx/src/features/transactions/types/utils'
 
 const dispatchMock = vi.fn()
 vi.mock('state/hooks', async () => {
@@ -25,7 +25,7 @@ vi.mock('state/hooks', async () => {
   }
 })
 
-vi.mock('@uniswap/analytics', () => ({
+vi.mock('@luxdex/analytics', () => ({
   useTrace: vi.fn(() => ({ trace: 'mock-trace' })),
 }))
 
@@ -39,7 +39,7 @@ vi.mock('tracing/swapFlowLoggers', () => ({
   logUniswapXSwapFinalized: vi.fn(),
 }))
 
-vi.mock('uniswap/src/features/transactions/types/utils', () => ({
+vi.mock('lx/src/features/transactions/types/utils', () => ({
   isFinalizedTx: vi.fn(),
 }))
 

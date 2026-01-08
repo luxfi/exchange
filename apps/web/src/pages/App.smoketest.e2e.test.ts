@@ -1,5 +1,5 @@
 import { expect, getTest } from 'playwright/fixtures'
-import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+import { TestID } from 'lx/src/test/fixtures/testIDs'
 
 const test = getTest()
 

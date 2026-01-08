@@ -1,6 +1,6 @@
 import { CONNECTOR_ICON_OVERRIDE_MAP } from 'components/Web3Provider/constants'
 import { WalletConnectorMeta } from 'features/wallet/connection/types/WalletConnectorMeta'
-import { CONNECTION_PROVIDER_IDS, CONNECTION_PROVIDER_NAMES } from 'uniswap/src/constants/web3'
+import { CONNECTION_PROVIDER_IDS, CONNECTION_PROVIDER_NAMES } from 'lx/src/constants/web3'
 
 export const METAMASK_CONNECTOR: WalletConnectorMeta = {
   wagmi: { id: CONNECTION_PROVIDER_IDS.METAMASK_RDNS, type: 'injected' },

@@ -7,7 +7,7 @@ import { WithScrollToTop } from 'src/components/layout/screens/WithScrollToTop'
 import { ColorTokens, Flex } from 'ui/src'
 import { AnimatedFlex } from 'ui/src/components/layout/AnimatedFlex'
 import { iconSizes, zIndexes } from 'ui/src/theme'
-import { useAppInsets } from 'uniswap/src/hooks/useAppInsets'
+import { useAppInsets } from 'lx/src/hooks/useAppInsets'
 
 type ScrollHeaderProps = {
   scrollY: SharedValue<number>

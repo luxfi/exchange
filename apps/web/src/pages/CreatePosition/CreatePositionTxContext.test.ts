@@ -1,9 +1,9 @@
-import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
-import { CurrencyAmount } from '@uniswap/sdk-core'
-import { Pair } from '@uniswap/v2-sdk'
-import { FeeAmount, nearestUsableTick, TICK_SPACINGS, TickMath, Pool as V3Pool } from '@uniswap/v3-sdk'
-import { Pool as V4Pool } from '@uniswap/v4-sdk'
-import { TradingApi } from '@universe/api'
+import { ProtocolVersion } from '@luxdex/client-data-api/dist/data/v1/poolTypes_pb'
+import { CurrencyAmount } from '@luxamm/sdk-core'
+import { Pair } from '@luxamm/v2-sdk'
+import { FeeAmount, nearestUsableTick, TICK_SPACINGS, TickMath, Pool as V3Pool } from '@luxamm/v3-sdk'
+import { Pool as V4Pool } from '@luxamm/v4-sdk'
+import { TradingApi } from '@luxfi/api'
 import { PositionState } from 'components/Liquidity/Create/types'
 import {
   generateAddLiquidityApprovalParams,
@@ -12,14 +12,14 @@ import {
 } from 'pages/CreatePosition/CreatePositionTxContext'
 import { ETH_MAINNET } from 'test-utils/constants'
 import { PositionField } from 'types/position'
-import { ZERO_ADDRESS } from 'uniswap/src/constants/misc'
-import { USDT } from 'uniswap/src/constants/tokens'
-import { AccountType } from 'uniswap/src/features/accounts/types'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { Platform } from 'uniswap/src/features/platforms/types/Platform'
-import { LiquidityTransactionType } from 'uniswap/src/features/transactions/liquidity/types'
-import { PermitMethod } from 'uniswap/src/features/transactions/swap/types/swapTxAndGasInfo'
-import { AccountDetails } from 'uniswap/src/features/wallet/types/AccountDetails'
+import { ZERO_ADDRESS } from 'lx/src/constants/misc'
+import { USDT } from 'lx/src/constants/tokens'
+import { AccountType } from 'lx/src/features/accounts/types'
+import { UniverseChainId } from 'lx/src/features/chains/types'
+import { Platform } from 'lx/src/features/platforms/types/Platform'
+import { LiquidityTransactionType } from 'lx/src/features/transactions/liquidity/types'
+import { PermitMethod } from 'lx/src/features/transactions/swap/types/swapTxAndGasInfo'
+import { AccountDetails } from 'lx/src/features/wallet/types/AccountDetails'
 
 const ACCOUNT_DETAILS: AccountDetails = {
   address: ZERO_ADDRESS,

@@ -1,4 +1,4 @@
-import { CustomRankingType, RankingType } from '@universe/api'
+import { CustomRankingType, RankingType } from '@luxfi/api'
 import { SortButton } from 'src/components/explore/SortButton'
 import { act, render } from 'src/test/test-utils'
 import { ExploreOrderBy } from 'wallet/src/features/wallet/types'

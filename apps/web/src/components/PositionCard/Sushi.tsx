@@ -1,4 +1,4 @@
-import { Token } from '@uniswap/sdk-core'
+import { Token } from '@luxamm/sdk-core'
 import { CardNoise } from 'components/earn/styled'
 import { DoubleCurrencyLogo } from 'components/Logo/DoubleLogo'
 import { useColor } from 'hooks/useColor'
@@ -7,7 +7,7 @@ import { Trans } from 'react-i18next'
 import { Link } from 'react-router'
 import { Text } from 'rebass'
 import { Button, Flex, useSporeColors } from 'ui/src'
-import Badge, { BadgeVariant } from 'uniswap/src/components/badge/Badge'
+import Badge, { BadgeVariant } from 'lx/src/components/badge/Badge'
 import { unwrappedToken } from 'utils/unwrappedToken'
 
 interface PositionCardProps {

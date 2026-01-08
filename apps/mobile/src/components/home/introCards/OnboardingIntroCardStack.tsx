@@ -1,5 +1,5 @@
-import { SharedEventName } from '@uniswap/analytics-events'
-import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import { SharedEventName } from '@luxdex/analytics-events'
+import { FeatureFlags, useFeatureFlag } from '@luxfi/gating'
 import React, { useCallback, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
@@ -17,15 +17,15 @@ import {
   PUSH_NOTIFICATIONS_CARD_BANNER,
 } from 'ui/src/assets'
 import { Buy } from 'ui/src/components/icons'
-import { MonadAnnouncementModal } from 'uniswap/src/components/notifications/MonadAnnouncementModal'
-import { AccountType } from 'uniswap/src/features/accounts/types'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { ElementName, ModalName, WalletEventName } from 'uniswap/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
-import { OnboardingCardLoggingName } from 'uniswap/src/features/telemetry/types'
-import { CurrencyField } from 'uniswap/src/types/currency'
-import { ImportType, OnboardingEntryPoint } from 'uniswap/src/types/onboarding'
-import { MobileScreens, OnboardingScreens, UnitagScreens } from 'uniswap/src/types/screens/mobile'
+import { MonadAnnouncementModal } from 'lx/src/components/notifications/MonadAnnouncementModal'
+import { AccountType } from 'lx/src/features/accounts/types'
+import { UniverseChainId } from 'lx/src/features/chains/types'
+import { ElementName, ModalName, WalletEventName } from 'lx/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
+import { OnboardingCardLoggingName } from 'lx/src/features/telemetry/types'
+import { CurrencyField } from 'lx/src/types/currency'
+import { ImportType, OnboardingEntryPoint } from 'lx/src/types/onboarding'
+import { MobileScreens, OnboardingScreens, UnitagScreens } from 'lx/src/types/screens/mobile'
 import {
   CardType,
   IntroCardGraphicType,

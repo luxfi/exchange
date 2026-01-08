@@ -1,18 +1,18 @@
-import { FeeType, TradingApi } from '@universe/api'
+import { FeeType, TradingApi } from '@luxfi/api'
 import { useSwapCallback } from 'state/sagas/transactions/swapSaga'
 import { useSwapHandlers, validateWrapParams } from 'state/sagas/transactions/useSwapHandlers'
 import { renderHook } from 'test-utils/render'
-import { AccountType } from 'uniswap/src/features/accounts/types'
-import { DEFAULT_GAS_STRATEGY } from 'uniswap/src/features/gas/utils'
-import { Platform } from 'uniswap/src/features/platforms/types/Platform'
-import { ExecuteSwapParams } from 'uniswap/src/features/transactions/swap/types/swapHandlers'
+import { AccountType } from 'lx/src/features/accounts/types'
+import { DEFAULT_GAS_STRATEGY } from 'lx/src/features/gas/utils'
+import { Platform } from 'lx/src/features/platforms/types/Platform'
+import { ExecuteSwapParams } from 'lx/src/features/transactions/swap/types/swapHandlers'
 import {
   ValidatedClassicSwapTxAndGasInfo,
   ValidatedSwapTxContext,
-} from 'uniswap/src/features/transactions/swap/types/swapTxAndGasInfo'
-import { isWrap } from 'uniswap/src/features/transactions/swap/utils/routing'
-import { WrapType } from 'uniswap/src/features/transactions/types/wrap'
-import { SignerMnemonicAccountDetails } from 'uniswap/src/features/wallet/types/AccountDetails'
+} from 'lx/src/features/transactions/swap/types/swapTxAndGasInfo'
+import { isWrap } from 'lx/src/features/transactions/swap/utils/routing'
+import { WrapType } from 'lx/src/features/transactions/types/wrap'
+import { SignerMnemonicAccountDetails } from 'lx/src/features/wallet/types/AccountDetails'
 
 // Create mock functions in hoisted scope so they're available to vi.mock
 const { mockSwapCallbackFn, mockWrapCallbackFn } = vi.hoisted(() => ({
@@ -41,7 +41,7 @@ vi.mock('state/sagas/transactions/wrapSaga', () => ({
   },
 }))
 
-vi.mock('uniswap/src/features/transactions/swap/utils/routing', () => ({
+vi.mock('lx/src/features/transactions/swap/utils/routing', () => ({
   isWrap: vi.fn(),
 }))
 

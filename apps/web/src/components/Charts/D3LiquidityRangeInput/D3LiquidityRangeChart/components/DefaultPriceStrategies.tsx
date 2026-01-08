@@ -7,9 +7,9 @@ import { popupRegistry } from 'components/Popups/registry'
 import { PopupType } from 'components/Popups/types'
 import { ClickableTamaguiStyle } from 'theme/components/styles'
 import { Flex, Shine, styled, Text } from 'ui/src'
-import { ElementName } from 'uniswap/src/features/telemetry/constants'
-import Trace from 'uniswap/src/features/telemetry/Trace'
-import i18n from 'uniswap/src/i18n'
+import { ElementName } from 'lx/src/features/telemetry/constants'
+import Trace from 'lx/src/features/telemetry/Trace'
+import i18n from 'lx/src/i18n'
 import { useEvent } from 'utilities/src/react/hooks'
 
 const Container = styled(Flex, {

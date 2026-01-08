@@ -1,5 +1,5 @@
-import { ChallengeType } from '@uniswap/client-platform-service/dist/uniswap/platformservice/v1/sessionService_pb'
-import { SessionState } from '@universe/sessions/src/session-storage/types'
+import { ChallengeType } from '@luxdex/client-platform-service/dist/uniswap/platformservice/v1/sessionService_pb'
+import { SessionState } from '@luxfi/sessions/src/session-storage/types'
 
 interface InitSessionResponse {
   sessionId?: string

@@ -1,5 +1,5 @@
 import { DappRequestSchema } from 'src/app/features/dappRequests/types/DappRequestTypes'
-import { MessageSchema } from 'uniswap/src/extension/messagePassing/messageTypes'
+import { MessageSchema } from 'lx/src/extension/messagePassing/messageTypes'
 import { z } from 'zod'
 
 // ENUMS
