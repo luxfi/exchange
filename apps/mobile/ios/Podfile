@@ -16,7 +16,7 @@ setup_permissions([
 $RNFirebaseAsStaticFramework = true
 $RNFirebaseAnalyticsWithoutAdIdSupport=true
 
-target 'Uniswap' do
+target 'Lux' do
   use_frameworks! :linkage => :static
   use_expo_modules!
   post_integrate do |installer|
@@ -51,7 +51,7 @@ target 'Uniswap' do
     :hermes_enabled => true
   )
 
-  target 'UniswapTests' do
+  target 'LuxTests' do
     inherit! :complete
     # Pods for testing
   end
@@ -123,10 +123,10 @@ target 'Uniswap' do
       end
     end
 
-    # Fix Argon2Swift module for main Uniswap target
-    main_project = Xcodeproj::Project.open("#{pods_root}/../Uniswap.xcodeproj")
+    # Fix Argon2Swift module for main Lux target
+    main_project = Xcodeproj::Project.open("#{pods_root}/../Lux.xcodeproj")
     main_project.targets.each do |target|
-      if target.name == 'Uniswap'
+      if target.name == 'Lux'
         target.build_configurations.each do |config|
           existing_flags = config.build_settings['OTHER_SWIFT_FLAGS'] || '$(inherited)'
           unless existing_flags.include?(argon2_module_path)

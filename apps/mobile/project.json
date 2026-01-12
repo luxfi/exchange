@@ -4,37 +4,37 @@
       "executor": "nx:noop"
     },
     "android": {
-      "command": "EXPO_ANDROID_LAUNCH_ACTIVITY='com.uniswap.mobile.dev/com.uniswap.MainActivity' bunx expo run:android --variant=devDebug --app-id=com.uniswap.mobile.dev",
+      "command": "EXPO_ANDROID_LAUNCH_ACTIVITY='com.lux.mobile.dev/com.lux.MainActivity' bunx expo run:android --variant=devDebug --app-id=com.lux.mobile.dev",
       "options": {
         "cwd": "{projectRoot}"
       }
     },
     "android:release": {
-      "command": "EXPO_ANDROID_LAUNCH_ACTIVITY='com.uniswap.mobile.dev/com.uniswap.MainActivity' bunx expo run:android --variant=devRelease --app-id=com.uniswap.mobile.dev",
+      "command": "EXPO_ANDROID_LAUNCH_ACTIVITY='com.lux.mobile.dev/com.lux.MainActivity' bunx expo run:android --variant=devRelease --app-id=com.lux.mobile.dev",
       "options": {
         "cwd": "{projectRoot}"
       }
     },
     "android:beta": {
-      "command": "EXPO_ANDROID_LAUNCH_ACTIVITY='com.uniswap.mobile.beta/com.uniswap.MainActivity' bunx expo run:android --variant=betaDebug --app-id=com.uniswap.mobile.beta",
+      "command": "EXPO_ANDROID_LAUNCH_ACTIVITY='com.lux.mobile.beta/com.lux.MainActivity' bunx expo run:android --variant=betaDebug --app-id=com.lux.mobile.beta",
       "options": {
         "cwd": "{projectRoot}"
       }
     },
     "android:beta:release": {
-      "command": "EXPO_ANDROID_LAUNCH_ACTIVITY='com.uniswap.mobile.beta/com.uniswap.MainActivity' bunx expo run:android --variant=betaRelease --app-id=com.uniswap.mobile.beta",
+      "command": "EXPO_ANDROID_LAUNCH_ACTIVITY='com.lux.mobile.beta/com.lux.MainActivity' bunx expo run:android --variant=betaRelease --app-id=com.lux.mobile.beta",
       "options": {
         "cwd": "{projectRoot}"
       }
     },
     "android:prod": {
-      "command": "EXPO_ANDROID_LAUNCH_ACTIVITY='com.uniswap.mobile/com.uniswap.MainActivity' bunx expo run:android --variant=prodDebug",
+      "command": "EXPO_ANDROID_LAUNCH_ACTIVITY='com.lux.mobile/com.lux.MainActivity' bunx expo run:android --variant=prodDebug",
       "options": {
         "cwd": "{projectRoot}"
       }
     },
     "android:prod:release": {
-      "command": "EXPO_ANDROID_LAUNCH_ACTIVITY='com.uniswap.mobile/com.uniswap.MainActivity' bunx expo run:android --variant=prodRelease",
+      "command": "EXPO_ANDROID_LAUNCH_ACTIVITY='com.lux.mobile/com.lux.MainActivity' bunx expo run:android --variant=prodRelease",
       "options": {
         "cwd": "{projectRoot}"
       }
@@ -196,7 +196,7 @@
       }
     },
     "ios": {
-      "command": "bunx expo run:ios --scheme Uniswap --configuration Debug",
+      "command": "bunx expo run:ios --scheme Lux --configuration Debug",
       "options": {
         "cwd": "{projectRoot}"
       }
@@ -244,7 +244,7 @@
     "lint:eslint": {},
     "lint:eslint:fix": {},
     "start": {
-      "command": "EXPO_ANDROID_LAUNCH_ACTIVITY='com.uniswap.mobile.dev/com.uniswap.MainActivity' EXPO_BUILD_CONFIGURATION=Debug NODE_ENV=development bunx expo start --scheme uniswap",
+      "command": "EXPO_ANDROID_LAUNCH_ACTIVITY='com.lux.mobile.dev/com.lux.MainActivity' EXPO_BUILD_CONFIGURATION=Debug NODE_ENV=development bunx expo start --scheme lux",
       "options": {
         "cwd": "{projectRoot}"
       },

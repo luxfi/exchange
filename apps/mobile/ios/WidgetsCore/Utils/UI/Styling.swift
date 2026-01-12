@@ -1,6 +1,6 @@
 //
 //  Styling.swift
-//  UniswapWidgetsCore
+//  LuxWidgetsCore
 //
 //  Created by Eric Huang on 7/17/23.
 //

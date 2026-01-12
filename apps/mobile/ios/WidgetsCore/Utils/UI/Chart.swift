@@ -1,6 +1,6 @@
 //
 //  Chart.swift
-//  UniswapWidgetsCore
+//  LuxWidgetsCore
 //
 //  Created by Eric Huang on 7/21/23.
 //

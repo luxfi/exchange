@@ -1,6 +1,6 @@
 //
 //  ActionButtons.swift
-//  Uniswap
+//  Lux
 //
 //  Created by Mateusz Łopaciński on 05/06/2024.
 //

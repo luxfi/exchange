@@ -6,8 +6,8 @@
 //
 import Foundation
 
-// Based on https://www.notion.so/uniswaplabs/Number-standards-fbb9f533f10e4e22820722c2f66d23c0
-// React native code: https://github.com/Uniswap/universe/blob/main/packages/wallet/src/utils/format.ts
+// Based on https://www.notion.so/luxlabs/Number-standards-fbb9f533f10e4e22820722c2f66d23c0
+// React native code: https://github.com/luxfi/exchange/blob/main/packages/wallet/src/utils/format.ts
 extension NumberFormatter {
   
   static func formatShorthandWithDecimals(number: Double, fractionDigits: Int, locale: Locale, currencyCode: String, placeholder: String) -> String {
