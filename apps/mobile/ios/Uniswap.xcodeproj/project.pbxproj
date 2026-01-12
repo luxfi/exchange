@@ -3698,7 +3698,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_DEBUG";
+				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_DEBUG -Xcc -fmodule-map-file=/Users/z/work/lux/exchange/apps/mobile/ios/Pods/Argon2Swift/Sources/Modules/module.modulemap";
 				PRODUCT_BUNDLE_IDENTIFIER = com.uniswap.mobile.dev;
 				PRODUCT_NAME = Uniswap;
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -3736,7 +3736,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_RELEASE";
+				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_RELEASE -Xcc -fmodule-map-file=/Users/z/work/lux/exchange/apps/mobile/ios/Pods/Argon2Swift/Sources/Modules/module.modulemap";
 				PRODUCT_BUNDLE_IDENTIFIER = com.uniswap.mobile;
 				PRODUCT_NAME = Uniswap;
 				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.uniswap.mobile";
@@ -4097,7 +4097,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_RELEASE";
+				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_RELEASE -Xcc -fmodule-map-file=/Users/z/work/lux/exchange/apps/mobile/ios/Pods/Argon2Swift/Sources/Modules/module.modulemap";
 				PRODUCT_BUNDLE_IDENTIFIER = com.uniswap.mobile.beta;
 				PRODUCT_NAME = Uniswap;
 				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.uniswap.mobile.beta";
@@ -4281,7 +4281,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_RELEASE";
+				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_RELEASE -Xcc -fmodule-map-file=/Users/z/work/lux/exchange/apps/mobile/ios/Pods/Argon2Swift/Sources/Modules/module.modulemap";
 				PRODUCT_BUNDLE_IDENTIFIER = com.uniswap.mobile.dev;
 				PRODUCT_NAME = Uniswap;
 				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.uniswap.mobile.dev";
