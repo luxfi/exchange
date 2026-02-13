@@ -1,32 +1,34 @@
 # Exchange API Backend Dockerfile
-FROM node:18-alpine AS builder
+FROM node:22-alpine AS builder
 
 WORKDIR /app
 
+# Install bun
+RUN npm install -g bun
+
 # Copy package files
-COPY package*.json yarn.lock* pnpm-lock.yaml* ./
+COPY package.json bun.lockb* ./
 
 # Install dependencies
-RUN if [ -f yarn.lock ]; then yarn install --frozen-lockfile; \
-    elif [ -f pnpm-lock.yaml ]; then npm install -g pnpm && pnpm install --frozen-lockfile; \
-    else npm ci; fi
+RUN bun install --frozen-lockfile
 
 # Copy source code
 COPY . .
 
 # Build if needed
-RUN if [ -f "tsconfig.json" ]; then npm run build || true; fi
+RUN if [ -f "tsconfig.json" ]; then bun run build || true; fi
 
 # Production stage
-FROM node:18-alpine
+FROM node:22-alpine
 
 WORKDIR /app
 
+# Install bun for production
+RUN npm install -g bun
+
 # Install production dependencies only
-COPY package*.json yarn.lock* pnpm-lock.yaml* ./
-RUN if [ -f yarn.lock ]; then yarn install --production --frozen-lockfile; \
-    elif [ -f pnpm-lock.yaml ]; then npm install -g pnpm && pnpm install --prod --frozen-lockfile; \
-    else npm ci --production; fi
+COPY package.json bun.lockb* ./
+RUN bun install --frozen-lockfile --production
 
 # Copy built application
 COPY --from=builder /app .

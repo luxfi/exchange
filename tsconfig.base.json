@@ -39,6 +39,12 @@
       "node"
     ],
     "paths": {
+      "@universe/api": [
+        "packages/api/src/index.ts"
+      ],
+      "@universe/api/*": [
+        "packages/api/*"
+      ],
       "@luxfi/api/*": [
         "packages/api/*"
       ],
@@ -58,6 +64,9 @@
         "packages/sessions/*"
       ],
       "lx/*": [
+        "packages/lx/*"
+      ],
+      "uniswap/*": [
         "packages/lx/*"
       ],
       "ui/*": [
