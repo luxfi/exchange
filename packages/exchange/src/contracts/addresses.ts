@@ -7,21 +7,28 @@ import type { Address } from 'viem'
  * Contract addresses for Lux Mainnet (96369)
  */
 export const LUX_MAINNET_CONTRACTS = {
-  // Core
-  WLUX: '0x55750d6CA62a041c06a8E28626b10Be6c688f471' as Address,
+  // Core (from RLP import - source of truth)
+  WLUX: '0x4888E4a2Ee0F03051c72D2BD3ACf755eD3498B3E' as Address,
   MULTICALL: '0xd25F88CBdAe3c2CCA3Bb75FC4E723b44C0Ea362F' as Address,
 
-  // Bridge tokens
-  LETH: '0xAA3AE95816a4A6FbC6b8Ed5a6C06f22A96A80C8C' as Address,
-  LBTC: '0x526903E35E7106D62ED3B5d77E14e51d024Aa1D3' as Address,
-  LUSD: '0x4B1BfA76eD63F1A0aD2E4f40b3F46C45E8F7A4E2' as Address,
+  // Bridge tokens (L* prefix = bridged from source chains) - from RLP
+  LETH: '0x60e0a8167fc13de89348978860466c9cec24b9ba' as Address,
+  LBTC: '0x1e48d32a4f5e9f08db9ae4959163300faf8a6c8e' as Address,
+  LUSD: '0x848cff46eb323f323b6bbe1df274e40793d7f2c2' as Address,
+  LZOO: '0x5e5290f350352768bd2bfc59c2da15dd04a7cb88' as Address,
+  LSOL: '0x1af00a2590a834d14f4a8a26d1b03ebba8cf7961' as Address,
+  LTON: '0xf5a313885832d4fc71d1ef80115197c4479b58c8' as Address,
+  LBNB: '0x6edcf3645def09db45050638c41157d8b9fea1cf' as Address,
+  LPOL: '0x28bfc5dd4b7e15659e41190983e5fe3df1132bb9' as Address,
+  LCELO: '0x3078847f879a33994cda2ec1540ca52b5e0ee2e5' as Address,
+  LFTM: '0x8b982132d639527e8a0eaad385f97719af8f5e04' as Address,
 
   // AMM V2 (QuantumSwap)
-  V2_FACTORY: '0xd9a95609DbB228A13568Bd9f9A285105E7596970' as Address,
-  V2_ROUTER: '0x1F6cbC7d3bc7D803ee76D80F0eEE25767431e674' as Address,
+  V2_FACTORY: '0xD173926A10A0C4eCd3A51B1422270b65Df0551c1' as Address,
+  V2_ROUTER: '0xAe2cf1E403aAFE6C05A5b8Ef63EB19ba591d8511' as Address,
 
   // AMM V3 (Concentrated Liquidity)
-  V3_FACTORY: '0xb732BD88F25EdD9C3456638671fB37685D4B4e3f' as Address,
+  V3_FACTORY: '0x80bBc7C4C7a59C899D1B37BC14539A22D5830a84' as Address,
   V3_SWAP_ROUTER: '0xE8fb25086C8652c92f5AF90D730Bac7C63Fc9A58' as Address,
   V3_SWAP_ROUTER_02: '0x939bC0Bca6F9B9c52E6e3AD8A3C590b5d9B9D10E' as Address,
   V3_QUOTER: '0x12e2B76FaF4dDA5a173a4532916bb6Bfa3645275' as Address,
@@ -35,19 +42,25 @@ export const LUX_MAINNET_CONTRACTS = {
  * Contract addresses for Lux Testnet (96368)
  */
 export const LUX_TESTNET_CONTRACTS = {
-  // Core
-  WLUX: '0x732740c5c895C9FCF619930ed4293fc858eb44c7' as Address,
-  WETH: '0xd9956542B51032d940ef076d70B69410667277A3' as Address,
+  // Core (from RLP import - same as mainnet via CREATE2)
+  WLUX: '0x4888E4a2Ee0F03051c72D2BD3ACf755eD3498B3E' as Address,
   MULTICALL: '0xd25F88CBdAe3c2CCA3Bb75FC4E723b44C0Ea362F' as Address,
 
-  // Bridge tokens (testnet deployments)
-  LETH: '0x60E0a8167FC13dE89348978860466C9ceC24B9ba' as Address,
-  LBTC: '0x1E48D32a4F5e9f08DB9aE4959163300FaF8A6C8e' as Address,
-  LUSD: '0xb84112ac9318a0b2319aa11d4d10e9762b25f7f4' as Address,
+  // Bridge tokens (L* prefix = bridged from source chains) - same as mainnet
+  LETH: '0x60e0a8167fc13de89348978860466c9cec24b9ba' as Address,
+  LBTC: '0x1e48d32a4f5e9f08db9ae4959163300faf8a6c8e' as Address,
+  LUSD: '0x848cff46eb323f323b6bbe1df274e40793d7f2c2' as Address,
+  LZOO: '0x5e5290f350352768bd2bfc59c2da15dd04a7cb88' as Address,
+  LSOL: '0x1af00a2590a834d14f4a8a26d1b03ebba8cf7961' as Address,
+  LTON: '0xf5a313885832d4fc71d1ef80115197c4479b58c8' as Address,
+  LBNB: '0x6edcf3645def09db45050638c41157d8b9fea1cf' as Address,
+  LPOL: '0x28bfc5dd4b7e15659e41190983e5fe3df1132bb9' as Address,
+  LCELO: '0x3078847f879a33994cda2ec1540ca52b5e0ee2e5' as Address,
+  LFTM: '0x8b982132d639527e8a0eaad385f97719af8f5e04' as Address,
 
   // AMM V2
-  V2_FACTORY: '0x81C3669B139D92909AA67DbF74a241b10540d919' as Address,
-  V2_ROUTER: '0xDB6c703c80BFaE5F9a56482d3c8535f27E1136EB' as Address,
+  V2_FACTORY: '0xD173926A10A0C4eCd3A51B1422270b65Df0551c1' as Address,
+  V2_ROUTER: '0xAe2cf1E403aAFE6C05A5b8Ef63EB19ba591d8511' as Address,
 
   // AMM V3
   V3_FACTORY: '0x80bBc7C4C7a59C899D1B37BC14539A22D5830a84' as Address,
