@@ -68,7 +68,7 @@ xvfb-run -a bun run e2e:smoke
 ### onboardedExtensionTest
 - Loads extension with fresh user data
 - Automatically completes onboarding with test wallet
-- Uses test seed phrase: `test test test test test test test test test test test junk`
+- Uses test seed phrase: `light light light light light light light light light light light energy`
 - Use for testing wallet functionality
 
 ## Programmatic Onboarding

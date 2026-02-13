@@ -5,6 +5,9 @@
   "dependencies": {
     "@apollo/client": "3.11.10",
     "@datadog/browser-rum": "5.23.3",
+    "@ledgerhq/hw-app-eth": "^6.38.0",
+    "@ledgerhq/hw-transport": "^6.31.0",
+    "@ledgerhq/hw-transport-webhid": "^6.29.0",
     "@ethersproject/bignumber": "5.7.0",
     "@ethersproject/providers": "5.7.2",
     "@ethersproject/strings": "5.7.0",

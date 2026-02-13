@@ -8,15 +8,15 @@ import { defineConfig } from 'wxt'
 import { getTsconfigAliases } from './config/getTsconfigAliases'
 
 const icons = {
-  16: 'assets/icon16.png',
-  32: 'assets/icon32.png',
-  48: 'assets/icon48.png',
-  128: 'assets/icon128.png',
+  16: 'assets/icons/icon16.png',
+  32: 'assets/icons/icon32.png',
+  48: 'assets/icons/icon48.png',
+  128: 'assets/icons/icon128.png',
 }
 
-const BASE_NAME = 'Uniswap Extension'
-const BASE_DESCRIPTION = "The Uniswap Extension is a self-custody crypto wallet that's built for swapping."
-const BASE_VERSION = '1.64.0'
+const BASE_NAME = 'Lux Wallet'
+const BASE_DESCRIPTION = 'Lux Wallet - A self-custody crypto wallet for the Lux ecosystem with multi-chain support.'
+const BASE_VERSION = '1.0.0'
 
 const BUILD_NUM = parseInt(process.env.BUILD_NUM || '0')
 const EXTENSION_VERSION = `${BASE_VERSION}.${BUILD_NUM}`
@@ -113,8 +113,8 @@ export default defineConfig({
         ids: [],
         matches:
           BUILD_ENV === 'prod'
-            ? ['https://app.uniswap.org/*']
-            : ['https://app.uniswap.org/*', 'https://ew.unihq.org/*', 'https://*.ew.unihq.org/*'],
+            ? ['https://app.lux.exchange/*', 'https://*.lux.exchange/*', 'https://*.lux.network/*']
+            : ['https://app.lux.exchange/*', 'https://*.lux.exchange/*', 'https://*.lux.network/*', 'http://localhost/*', 'http://127.0.0.1/*'],
       },
     }
   },
@@ -136,6 +136,8 @@ export default defineConfig({
     // External package aliases from web config
     const overrides = {
       buffer: 'buffer',
+      // Legacy package name aliases (from Uniswap fork)
+      '@universe/gating': path.resolve(__dirname, '../../packages/gating/src'),
       // External package aliases
       'react-native': 'react-native-web',
       // Skip expo-crypto alias during prepare phase since it imports react-native-web
@@ -173,6 +175,8 @@ export default defineConfig({
           '@luxdex/universal-router-sdk',
           '@luxdex/sdk',
           '@luxdex/permit2-sdk',
+          '@noble/hashes',
+          '@noble/curves',
           'jsbi',
           'ethers',
           'react',
@@ -186,6 +190,26 @@ export default defineConfig({
       },
 
       plugins: [
+        // Fix imports that don't match package exports (Rolldown compatibility)
+        {
+          name: 'fix-package-imports',
+          enforce: 'pre',
+          resolveId(source, importer) {
+            // Skip virtual modules
+            if (source.startsWith('\0') || source.startsWith('virtual:')) {
+              return null
+            }
+            // Fix @noble/hashes imports with .js extension
+            if (source.startsWith('@noble/hashes/') && source.endsWith('.js')) {
+              return this.resolve(source.replace(/\.js$/, ''), importer, { skipSelf: true })
+            }
+            // Fix @tanstack/react-query deep imports
+            if (source.includes('@tanstack/react-query/build/modern/')) {
+              return this.resolve(`@tanstack/react-query`, importer, { skipSelf: true })
+            }
+            return null
+          },
+        },
         {
           name: 'transform-react-native-jsx',
           async transform(code, id) {
@@ -352,7 +376,7 @@ export default defineConfig({
   // See the README for more information.
   // https://wxt.dev/guide/essentials/config/browser-startup.html
   webExt: {
-    startUrls: ['https://app.uniswap.org'],
+    startUrls: ['https://app.lux.exchange'],
 
     chromiumArgs: ['--user-data-dir=./.wxt/chrome-data'],
 

@@ -1,21 +1,21 @@
 {
   "manifest_version": 3,
-  "name": "Uniswap Extension",
-  "description": "The Uniswap Extension is a self-custody crypto wallet that's built for swapping.",
-  "version": "1.64.0",
+  "name": "Lux Wallet",
+  "description": "Lux Wallet - A self-custody crypto wallet for the Lux ecosystem with multi-chain support.",
+  "version": "1.0.0",
   "minimum_chrome_version": "116",
   "icons": {
-    "16": "assets/icon16.png",
-    "32": "assets/icon32.png",
-    "48": "assets/icon48.png",
-    "128": "assets/icon128.png"
+    "16": "assets/icons/icon16.png",
+    "32": "assets/icons/icon32.png",
+    "48": "assets/icons/icon48.png",
+    "128": "assets/icons/icon128.png"
   },
   "action": {
     "default_icon": {
-      "16": "assets/icon16.png",
-      "32": "assets/icon32.png",
-      "48": "assets/icon48.png",
-      "128": "assets/icon128.png"
+      "16": "assets/icons/icon16.png",
+      "32": "assets/icons/icon32.png",
+      "48": "assets/icons/icon48.png",
+      "128": "assets/icons/icon128.png"
     }
   },
   "side_panel": {
@@ -26,10 +26,10 @@
     "type": "module"
   },
   "permissions": ["alarms", "notifications", "sidePanel", "storage", "tabs"],
-  "host_permissions": ["https://*.uniswap.org/*"],
+  "host_permissions": ["https://*.lux.exchange/*", "https://*.lux.network/*"],
   "externally_connectable": {
     "ids": [],
-    "matches": ["THIS WILL BE OVERWRITTEN DURING THE BUILD PROCESS - See webpack.config.js"]
+    "matches": ["https://app.lux.exchange/*", "https://*.lux.exchange/*", "https://*.lux.network/*"]
   },
   "commands": {
     "_execute_action": {

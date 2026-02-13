@@ -107,3 +107,7 @@ rust/target/
 # Playwright
 playwright-report/
 test-results/
+
+apps/extension/.output/
+.nx/
+grpc-server.log
