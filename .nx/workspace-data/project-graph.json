@@ -4510,7 +4510,7 @@
           "android": {
             "options": {
               "cwd": "apps/mobile",
-              "command": "EXPO_ANDROID_LAUNCH_ACTIVITY='com.uniswap.mobile.dev/com.uniswap.MainActivity' bunx expo run:android --variant=devDebug --app-id=com.uniswap.mobile.dev"
+              "command": "EXPO_ANDROID_LAUNCH_ACTIVITY='com.lux.mobile.dev/com.lux.MainActivity' bunx expo run:android --variant=devDebug --app-id=com.lux.mobile.dev"
             },
             "executor": "nx:run-commands",
             "configurations": {},
@@ -4519,7 +4519,7 @@
           "android:release": {
             "options": {
               "cwd": "apps/mobile",
-              "command": "EXPO_ANDROID_LAUNCH_ACTIVITY='com.uniswap.mobile.dev/com.uniswap.MainActivity' bunx expo run:android --variant=devRelease --app-id=com.uniswap.mobile.dev"
+              "command": "EXPO_ANDROID_LAUNCH_ACTIVITY='com.lux.mobile.dev/com.lux.MainActivity' bunx expo run:android --variant=devRelease --app-id=com.lux.mobile.dev"
             },
             "executor": "nx:run-commands",
             "configurations": {},
@@ -4528,7 +4528,7 @@
           "android:beta": {
             "options": {
               "cwd": "apps/mobile",
-              "command": "EXPO_ANDROID_LAUNCH_ACTIVITY='com.uniswap.mobile.beta/com.uniswap.MainActivity' bunx expo run:android --variant=betaDebug --app-id=com.uniswap.mobile.beta"
+              "command": "EXPO_ANDROID_LAUNCH_ACTIVITY='com.lux.mobile.beta/com.lux.MainActivity' bunx expo run:android --variant=betaDebug --app-id=com.lux.mobile.beta"
             },
             "executor": "nx:run-commands",
             "configurations": {},
@@ -4537,7 +4537,7 @@
           "android:beta:release": {
             "options": {
               "cwd": "apps/mobile",
-              "command": "EXPO_ANDROID_LAUNCH_ACTIVITY='com.uniswap.mobile.beta/com.uniswap.MainActivity' bunx expo run:android --variant=betaRelease --app-id=com.uniswap.mobile.beta"
+              "command": "EXPO_ANDROID_LAUNCH_ACTIVITY='com.lux.mobile.beta/com.lux.MainActivity' bunx expo run:android --variant=betaRelease --app-id=com.lux.mobile.beta"
             },
             "executor": "nx:run-commands",
             "configurations": {},
@@ -4546,7 +4546,7 @@
           "android:prod": {
             "options": {
               "cwd": "apps/mobile",
-              "command": "EXPO_ANDROID_LAUNCH_ACTIVITY='com.uniswap.mobile/com.uniswap.MainActivity' bunx expo run:android --variant=prodDebug"
+              "command": "EXPO_ANDROID_LAUNCH_ACTIVITY='com.lux.mobile/com.lux.MainActivity' bunx expo run:android --variant=prodDebug"
             },
             "executor": "nx:run-commands",
             "configurations": {},
@@ -4555,7 +4555,7 @@
           "android:prod:release": {
             "options": {
               "cwd": "apps/mobile",
-              "command": "EXPO_ANDROID_LAUNCH_ACTIVITY='com.uniswap.mobile/com.uniswap.MainActivity' bunx expo run:android --variant=prodRelease"
+              "command": "EXPO_ANDROID_LAUNCH_ACTIVITY='com.lux.mobile/com.lux.MainActivity' bunx expo run:android --variant=prodRelease"
             },
             "executor": "nx:run-commands",
             "configurations": {},
@@ -4800,7 +4800,7 @@
           "ios": {
             "options": {
               "cwd": "apps/mobile",
-              "command": "bunx expo run:ios --scheme Uniswap --configuration Debug"
+              "command": "bunx expo run:ios --scheme Lux --configuration Debug"
             },
             "executor": "nx:run-commands",
             "configurations": {},
@@ -4948,7 +4948,7 @@
           "start": {
             "options": {
               "cwd": "apps/mobile",
-              "command": "EXPO_ANDROID_LAUNCH_ACTIVITY='com.uniswap.mobile.dev/com.uniswap.MainActivity' EXPO_BUILD_CONFIGURATION=Debug NODE_ENV=development bunx expo start --scheme uniswap"
+              "command": "EXPO_ANDROID_LAUNCH_ACTIVITY='com.lux.mobile.dev/com.lux.MainActivity' EXPO_BUILD_CONFIGURATION=Debug NODE_ENV=development bunx expo start --scheme lux"
             },
             "dependsOn": [
               "pod:ensure",
@@ -7017,5 +7017,5 @@
   },
   "version": "6.0",
   "errors": [],
-  "computedAt": 1767684118314
+  "computedAt": 1771051027368
 }

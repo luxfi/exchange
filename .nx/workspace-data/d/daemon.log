@@ -1575,3 +1575,986 @@ Skipping project "tsconfig" as there is no tsconfig.json file found in the proje
 [NX v21.3.11 Daemon Server] - 2026-01-06T06:12:16.406Z - [SYNC]: @nx/js:typescript-sync changes: 
 [NX v21.3.11 Daemon Server] - 2026-01-06T06:12:16.407Z - Time taken for 'run-sync-generator:@nx/js:typescript-sync' 228.33512499998324ms
 [NX v21.3.11 Daemon Server] - 2026-01-06T06:12:51.403Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:33.629Z - Started listening on: /private/var/folders/xh/_fpw0c6d7rs1sn8nwx93t7gw0000gn/T/0da7118ded95a4e69711/d.sock
+node:events:486
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use /private/var/folders/xh/_fpw0c6d7rs1sn8nwx93t7gw0000gn/T/0da7118ded95a4e69711/d.sock
+    at Server.setupListenHandle [as _listen2] (node:net:1918:21)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2119:5)
+    at /Users/z/work/lux/exchange/node_modules/nx/src/daemon/server/server.js:374:20
+    at new Promise (<anonymous>)
+    at startServer (/Users/z/work/lux/exchange/node_modules/nx/src/daemon/server/server.js:372:12)
+    at async /Users/z/work/lux/exchange/node_modules/nx/src/daemon/server/start.js:8:9
+Emitted 'error' event on Server instance at:
+    at emitErrorNT (node:net:1976:8)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {
+  code: 'EADDRINUSE',
+  errno: -48,
+  syscall: 'listen',
+  address: '/private/var/folders/xh/_fpw0c6d7rs1sn8nwx93t7gw0000gn/T/0da7118ded95a4e69711/d.sock',
+  port: -1
+}
+
+Node.js v24.11.0
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:33.629Z - Started listening on: /private/var/folders/xh/_fpw0c6d7rs1sn8nwx93t7gw0000gn/T/0da7118ded95a4e69711/d.sock
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:33.635Z - [WATCHER]: Subscribed to changes within: /Users/z/work/lux/exchange (native)
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:33.636Z - [WATCHER]: Subscribed to changes within: /Users/z/work/lux/exchange (native)
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:33.632Z - Started listening on: /private/var/folders/xh/_fpw0c6d7rs1sn8nwx93t7gw0000gn/T/0da7118ded95a4e69711/d.sock
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:33.638Z - [WATCHER]: Subscribed to changes within: /Users/z/work/lux/exchange (native)
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:33.642Z - [WATCHER]: Stopping the watcher for /Users/z/work/lux/exchange (sources)
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:33.643Z - Established a connection. Number of open connections: 1
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:33.644Z - Closed a connection. Number of open connections: 0
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:33.647Z - [WATCHER]: Stopping the watcher for /Users/z/work/lux/exchange (outputs)
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:33.647Z - Server stopped because: "this process is no longer the current daemon (native)"
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:33.648Z - [WATCHER]: Stopping the watcher for /Users/z/work/lux/exchange (sources)
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:33.648Z - [WATCHER]: Stopping the watcher for /Users/z/work/lux/exchange (sources)
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:33.648Z - [WATCHER]: Stopping the watcher for /Users/z/work/lux/exchange (sources)
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:33.786Z - [WATCHER]: Stopping the watcher for /Users/z/work/lux/exchange (sources)
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:33.789Z - [WATCHER]: Stopping the watcher for /Users/z/work/lux/exchange (outputs)
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:33.790Z - Server stopped because: "this process is no longer the current daemon (native)"
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:33.795Z - [WATCHER]: Stopping the watcher for /Users/z/work/lux/exchange (outputs)
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:33.795Z - Server stopped because: "this process is no longer the current daemon (native)"
+Time for 'plugin worker 57656 code loading' 12.560541
+Time for 'plugin worker 57654 code loading' 5.482667000000001
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:33.880Z - Started listening on: /private/var/folders/xh/_fpw0c6d7rs1sn8nwx93t7gw0000gn/T/0da7118ded95a4e69711/d.sock
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:33.883Z - [WATCHER]: Subscribed to changes within: /Users/z/work/lux/exchange (native)
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:33.891Z - Established a connection. Number of open connections: 1
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:33.891Z - Established a connection. Number of open connections: 2
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:33.893Z - Closed a connection. Number of open connections: 1
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:33.893Z - Established a connection. Number of open connections: 2
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:33.894Z - [REQUEST]: Client Request for Project Graph Received
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:33.899Z - Established a connection. Number of open connections: 3
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:33.899Z - Closed a connection. Number of open connections: 2
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:33.899Z - Established a connection. Number of open connections: 3
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:33.899Z - Closed a connection. Number of open connections: 2
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:33.899Z - Established a connection. Number of open connections: 3
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:33.900Z - [REQUEST]: Client Request for Project Graph Received
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:33.902Z - [REQUEST]: Client Request for Project Graph Received
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:33.902Z - Established a connection. Number of open connections: 4
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:33.902Z - Established a connection. Number of open connections: 5
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:33.902Z - Closed a connection. Number of open connections: 4
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:33.903Z - [REQUEST]: Client Request for Project Graph Received
+Time for 'plugin worker 57655 code loading' 6.07775
+Time for 'plugin worker 57657 code loading' 5.472375000000001
+Time for 'plugin worker 57659 code loading' 5.496375000000002
+Time for 'plugin worker 57661 code loading' 5.584916999999999
+Time for 'plugin worker 57727 code loading' 5.4765830000000015
+Time for 'plugin worker 57660 code loading' 5.305958999999998
+Time for 'plugin worker 57662 code loading' 5.475542000000001
+Time for 'plugin worker 57730 code loading' 5.905915999999998
+Time for 'plugin worker 57728 code loading' 5.6949580000000015
+Time for 'plugin worker 57729 code loading' 5.668749999999999
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:34.407Z - Time taken for 'Load Nx Plugin: /Users/z/work/lux/exchange/node_modules/nx/src/plugins/project-json/build-nodes/project-json' 510.90433299999995ms
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:34.414Z - Time taken for 'Load Nx Plugin: /Users/z/work/lux/exchange/node_modules/nx/src/plugins/package-json' 518.123375ms
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:34.425Z - Time taken for 'loadDefaultNxPlugins' 530.031667ms
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:34.462Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:34.462Z - [REQUEST]: 
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:34.462Z - [REQUEST]: 
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:34.466Z - No files changed, but no in-memory cached project graph found. Recomputing it...
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:34.466Z - Reusing in-memory cached project graph because no files changed.
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:34.466Z - Reusing in-memory cached project graph because no files changed.
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:34.466Z - Reusing in-memory cached project graph because no files changed.
+Time for 'nx/js/dependencies-and-lockfile:createNodes' 0.9733339999999941
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:34.472Z - Time taken for 'loadSpecifiedNxPlugins' 563.745667ms
+Time for 'nx/core/project-json:createNodes' 3.3380829999999833
+Time for '@nx/js/typescript:createNodes' 23.225791999999984
+Time for 'nx/core/package-json:createNodes' 28.93237499999998
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:34.565Z - Time taken for 'build-project-configs' 45.26016600000014ms
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:34.572Z - Time taken for '@nx/js/typescript:createDependencies' 13.025833000000148ms
+Time for 'build typescript dependencies' 0.4017079999999851
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:34.583Z - Wrote project graph cache to /Users/z/work/lux/exchange/.nx/workspace-data/project-graph.json
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:34.583Z - [SYNC]: collect registered sync generators
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:34.584Z - [SYNC]: scheduling: ["@nx/js:typescript-sync"]
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:34.584Z - [REQUEST]: Responding to the client. project-graph
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:34.585Z - [REQUEST]: Responding to the client. project-graph
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:34.585Z - [REQUEST]: Responding to the client. project-graph
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:34.586Z - [REQUEST]: Responding to the client. project-graph
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:34.587Z - Time taken for 'total for creating and serializing project graph' 680.687542ms
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:34.588Z - Done responding to the client project-graph
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:34.588Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 685. Response time: 3.
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:34.589Z - Done responding to the client project-graph
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:34.589Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 690. Response time: 5.
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:34.589Z - Done responding to the client project-graph
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:34.589Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 683. Response time: 4.
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:34.589Z - Done responding to the client project-graph
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:34.589Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 683. Response time: 3.
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:34.594Z - [REQUEST]: Responding to the client. handleRunPreTasksExecution
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:34.594Z - Done responding to the client handleRunPreTasksExecution
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:34.594Z - Handled PRE_TASKS_EXECUTION. Handling time: 0. Response time: 0.
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:34.594Z - Time taken for 'preTasksExecution' 0.37954100000001745ms
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:34.596Z - [REQUEST]: Responding to the client. handleRunPreTasksExecution
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:34.596Z - Done responding to the client handleRunPreTasksExecution
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:34.596Z - Handled PRE_TASKS_EXECUTION. Handling time: 1. Response time: 0.
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:34.597Z - [REQUEST]: Responding to the client. handleRunPreTasksExecution
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:34.597Z - Done responding to the client handleRunPreTasksExecution
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:34.597Z - Handled PRE_TASKS_EXECUTION. Handling time: 1. Response time: 0.
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:34.598Z - [REQUEST]: Responding to the client. handleRunPreTasksExecution
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:34.598Z - Done responding to the client handleRunPreTasksExecution
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:34.598Z - Handled PRE_TASKS_EXECUTION. Handling time: 0. Response time: 0.
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:34.598Z - Time taken for 'preTasksExecution' 0.1847499999998945ms
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:34.684Z - [SYNC]: running scheduled generator @nx/js:typescript-sync
+Time for 'nx/js/dependencies-and-lockfile:createNodes' 0.8458749999999782
+Time for 'nx/core/project-json:createNodes' 1.4819579999999632
+Time for '@nx/js/typescript:createNodes' 20.31629099999998
+Time for 'nx/core/package-json:createNodes' 16.474624999999946
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:34.880Z - Time taken for 'build-project-configs' 27.15625ms
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:34.885Z - Time taken for '@nx/js/typescript:createDependencies' 11.093041999999969ms
+Time for 'build typescript dependencies' 0.021917000000030384
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:34.893Z - Wrote project graph cache to /Users/z/work/lux/exchange/.nx/workspace-data/project-graph.json
+Skipping project "@luxamm/sdk-core" as there is no tsconfig.json file found in the project root "packages/luxamm-sdk-core".
+Skipping project "@luxamm/v2-sdk" as there is no tsconfig.json file found in the project root "packages/luxamm-v2-sdk".
+Skipping project "@luxamm/v3-sdk" as there is no tsconfig.json file found in the project root "packages/luxamm-v3-sdk".
+Skipping project "@luxamm/v4-sdk" as there is no tsconfig.json file found in the project root "packages/luxamm-v4-sdk".
+Skipping project "@luxfi/eslint-config" as there is no tsconfig.json file found in the project root "packages/eslint-config".
+Skipping project "@luxfi/biome-config" as there is no tsconfig.json file found in the project root "packages/biome-config".
+Skipping project "@luxdex/sdk" as there is no tsconfig.json file found in the project root "packages/luxdex-sdk".
+Skipping project "jest-presets" as there is no tsconfig.json file found in the project root "config/jest-presets".
+Skipping project "tsconfig" as there is no tsconfig.json file found in the project root "config/tsconfig".
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:35.098Z - [SYNC]: @nx/js:typescript-sync changes: 
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:35.098Z - Time taken for 'run-sync-generator:@nx/js:typescript-sync' 413.20112500000005ms
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:35.164Z - Reusing in-memory cached project graph because no files changed.
+DEBUG nx::native::tasks::task_hasher: plan length: 1
+DEBUG nx::native::tasks::hashers::hash_workspace_files: Hashing workspace fileset{cache_key="nx.json,.gitignore,.nxignore"}: Adding "1293000364732943373" (".gitignore") to hash
+DEBUG nx::native::tasks::hashers::hash_workspace_files: Hashing workspace fileset{cache_key="nx.json,.gitignore,.nxignore"}: Adding "11099261540174954515" (".nxignore") to hash
+DEBUG nx::native::tasks::hashers::hash_workspace_files: Hashing workspace fileset{cache_key=".github/actions/**/*.yml,.github/workflows/*.yml,tsconfig.base.json,tsconfig.json,bun.lock,package.json,.biome*,.eslint*,.depcheckrc*,.env*,!.env.defaults,metro.config.*,Gemfile*,bun.lock,package.json"}: Adding "13054972624864554065" (".depcheckrc") to hash
+DEBUG nx::native::tasks::hashers::hash_workspace_files: Hashing workspace fileset{cache_key=".github/actions/**/*.yml,.github/workflows/*.yml,tsconfig.base.json,tsconfig.json,bun.lock,package.json,.biome*,.eslint*,.depcheckrc*,.env*,!.env.defaults,metro.config.*,Gemfile*,bun.lock,package.json"}: Adding "15910524072054588382" (".env.example") to hash
+DEBUG nx::native::tasks::hashers::hash_workspace_files: Hashing workspace fileset{cache_key=".github/actions/**/*.yml,.github/workflows/*.yml,tsconfig.base.json,tsconfig.json,bun.lock,package.json,.biome*,.eslint*,.depcheckrc*,.env*,!.env.defaults,metro.config.*,Gemfile*,bun.lock,package.json"}: Adding "4430571568255876746" (".env.production") to hash
+DEBUG nx::native::tasks::hashers::hash_workspace_files: Hashing workspace fileset{cache_key=".github/actions/**/*.yml,.github/workflows/*.yml,tsconfig.base.json,tsconfig.json,bun.lock,package.json,.biome*,.eslint*,.depcheckrc*,.env*,!.env.defaults,metro.config.*,Gemfile*,bun.lock,package.json"}: Adding "12441122903126687893" (".eslintignore") to hash
+DEBUG nx::native::tasks::hashers::hash_workspace_files: Hashing workspace fileset{cache_key="nx.json,.gitignore,.nxignore"}: Adding "7733756417215477115" ("nx.json") to hash
+DEBUG nx::native::tasks::hashers::hash_workspace_files: Hashing workspace fileset{cache_key=".github/actions/**/*.yml,.github/workflows/*.yml,tsconfig.base.json,tsconfig.json,bun.lock,package.json,.biome*,.eslint*,.depcheckrc*,.env*,!.env.defaults,metro.config.*,Gemfile*,bun.lock,package.json"}: Adding "8491586781047950321" ("bun.lock") to hash
+DEBUG nx::native::tasks::hashers::hash_workspace_files: Hashing workspace fileset{cache_key=".github/actions/**/*.yml,.github/workflows/*.yml,tsconfig.base.json,tsconfig.json,bun.lock,package.json,.biome*,.eslint*,.depcheckrc*,.env*,!.env.defaults,metro.config.*,Gemfile*,bun.lock,package.json"}: Adding "14280520889076867339" ("package.json") to hash
+DEBUG nx::native::tasks::hashers::hash_workspace_files: Hashing workspace fileset{cache_key="nx.json,.gitignore,.nxignore"}: Hash Value: "14091880271820810729"
+DEBUG nx::native::tasks::hashers::hash_workspace_files: Hashing workspace fileset{cache_key=".github/actions/**/*.yml,.github/workflows/*.yml,tsconfig.base.json,tsconfig.json,bun.lock,package.json,.biome*,.eslint*,.depcheckrc*,.env*,!.env.defaults,metro.config.*,Gemfile*,bun.lock,package.json"}: Adding "1656584089319049115" ("tsconfig.base.json") to hash
+DEBUG nx::native::tasks::hashers::hash_workspace_files: Hashing workspace fileset{cache_key=".github/actions/**/*.yml,.github/workflows/*.yml,tsconfig.base.json,tsconfig.json,bun.lock,package.json,.biome*,.eslint*,.depcheckrc*,.env*,!.env.defaults,metro.config.*,Gemfile*,bun.lock,package.json"}: Adding "6499925384825500004" ("tsconfig.json") to hash
+DEBUG nx::native::tasks::hashers::hash_workspace_files: Hashing workspace fileset{cache_key=".github/actions/**/*.yml,.github/workflows/*.yml,tsconfig.base.json,tsconfig.json,bun.lock,package.json,.biome*,.eslint*,.depcheckrc*,.env*,!.env.defaults,metro.config.*,Gemfile*,bun.lock,package.json"}: Hash Value: "12004268602528856375"
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:35.167Z - [REQUEST]: Responding to the client. handleHashTasks
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:35.167Z - Done responding to the client handleHashTasks
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:35.167Z - Handled HASH_TASKS. Handling time: 4. Response time: 0.
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:36.050Z - [REQUEST]: Responding to the client. handleGetEstimatedTaskTimings
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:36.050Z - Done responding to the client handleGetEstimatedTaskTimings
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:36.050Z - Handled GET_ESTIMATED_TASK_TIMINGS. Handling time: 834. Response time: 0.
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:36.052Z - Reusing in-memory cached project graph because no files changed.
+DEBUG nx::native::tasks::task_hasher: plan length: 1
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:36.053Z - [REQUEST]: Responding to the client. handleHashTasks
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:36.053Z - Done responding to the client handleHashTasks
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:36.053Z - Handled HASH_TASKS. Handling time: 1. Response time: 0.
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:36.054Z - Reusing in-memory cached project graph because no files changed.
+DEBUG nx::native::tasks::task_hasher: plan length: 1
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:36.055Z - [REQUEST]: Responding to the client. handleHashTasks
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:36.055Z - Done responding to the client handleHashTasks
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:36.055Z - Handled HASH_TASKS. Handling time: 1. Response time: 0.
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:36.057Z - Reusing in-memory cached project graph because no files changed.
+DEBUG nx::native::tasks::task_hasher: plan length: 4
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:36.629Z - [REQUEST]: Responding to the client. handleHashTasks
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:36.629Z - Done responding to the client handleHashTasks
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:36.629Z - Handled HASH_TASKS. Handling time: 573. Response time: 0.
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:36.631Z - [REQUEST]: Responding to the client. outputsHashesMatch
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:36.631Z - Done responding to the client outputsHashesMatch
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:36.631Z - Handled OUTPUTS_HASHES_MATCH. Handling time: 0. Response time: 0.
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:36.633Z - [REQUEST]: Responding to the client. handleGetEstimatedTaskTimings
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:36.633Z - Done responding to the client handleGetEstimatedTaskTimings
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:36.633Z - Handled GET_ESTIMATED_TASK_TIMINGS. Handling time: 1. Response time: 0.
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:36.634Z - [REQUEST]: Responding to the client. handleGetEstimatedTaskTimings
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:36.635Z - Done responding to the client handleGetEstimatedTaskTimings
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:36.635Z - Handled GET_ESTIMATED_TASK_TIMINGS. Handling time: 0. Response time: 1.
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:36.638Z - [REQUEST]: Responding to the client. recordOutputsHash
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:36.638Z - Done responding to the client recordOutputsHash
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:36.638Z - Handled RECORD_OUTPUTS_HASH. Handling time: 0. Response time: 0.
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:36.639Z - [REQUEST]: Responding to the client. outputsHashesMatch
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:36.639Z - Done responding to the client outputsHashesMatch
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:36.639Z - Handled OUTPUTS_HASHES_MATCH. Handling time: 0. Response time: 0.
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:36.644Z - [REQUEST]: Responding to the client. handleRecordTaskRuns
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:36.644Z - Done responding to the client handleRecordTaskRuns
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:36.644Z - Handled RECORD_TASK_RUNS. Handling time: 2. Response time: 0.
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:36.647Z - [REQUEST]: Responding to the client. recordOutputsHash
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:36.647Z - Done responding to the client recordOutputsHash
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:36.647Z - Handled RECORD_OUTPUTS_HASH. Handling time: 0. Response time: 0.
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:36.648Z - [REQUEST]: Responding to the client. handleGetFlakyTasks
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:36.648Z - Done responding to the client handleGetFlakyTasks
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:36.648Z - Handled GET_FLAKY_TASKS. Handling time: 0. Response time: 0.
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:36.651Z - [REQUEST]: Responding to the client. handleRecordTaskRuns
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:36.651Z - Done responding to the client handleRecordTaskRuns
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:36.651Z - Handled RECORD_TASK_RUNS. Handling time: 1. Response time: 0.
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:36.653Z - [REQUEST]: Responding to the client. handleRunPostTasksExecution
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:36.653Z - Done responding to the client handleRunPostTasksExecution
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:36.653Z - Handled POST_TASKS_EXECUTION. Handling time: 1. Response time: 0.
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:36.653Z - Time taken for 'postTasksExecution' 0.23808399999961694ms
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:36.654Z - [REQUEST]: Responding to the client. handleGetFlakyTasks
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:36.655Z - Done responding to the client handleGetFlakyTasks
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:36.655Z - Handled GET_FLAKY_TASKS. Handling time: 0. Response time: 1.
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:36.658Z - [REQUEST]: Responding to the client. handleRunPostTasksExecution
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:36.658Z - Done responding to the client handleRunPostTasksExecution
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:36.658Z - Handled POST_TASKS_EXECUTION. Handling time: 0. Response time: 0.
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:36.658Z - Time taken for 'postTasksExecution' 0.19787500000029468ms
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:36.661Z - Closed a connection. Number of open connections: 3
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:36.671Z - Closed a connection. Number of open connections: 2
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:36.701Z - [REQUEST]: Responding to the client. handleGetEstimatedTaskTimings
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:36.701Z - Done responding to the client handleGetEstimatedTaskTimings
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:36.701Z - Handled GET_ESTIMATED_TASK_TIMINGS. Handling time: 0. Response time: 0.
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:36.710Z - [REQUEST]: Responding to the client. outputsHashesMatch
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:36.710Z - Done responding to the client outputsHashesMatch
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:36.710Z - Handled OUTPUTS_HASHES_MATCH. Handling time: 3. Response time: 0.
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:36.724Z - [REQUEST]: Responding to the client. outputsHashesMatch
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:36.724Z - Done responding to the client outputsHashesMatch
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:36.724Z - Handled OUTPUTS_HASHES_MATCH. Handling time: 9. Response time: 0.
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:36.725Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:36.793Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:36.815Z - [REQUEST]: Responding to the client. recordOutputsHash
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:36.815Z - Done responding to the client recordOutputsHash
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:36.815Z - Handled RECORD_OUTPUTS_HASH. Handling time: 2. Response time: 0.
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:36.822Z - [REQUEST]: Responding to the client. recordOutputsHash
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:36.822Z - Done responding to the client recordOutputsHash
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:36.822Z - Handled RECORD_OUTPUTS_HASH. Handling time: 5. Response time: 0.
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:36.830Z - [REQUEST]: Responding to the client. outputsHashesMatch
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:36.830Z - Done responding to the client outputsHashesMatch
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:36.830Z - Handled OUTPUTS_HASHES_MATCH. Handling time: 5. Response time: 0.
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:36.898Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:36.934Z - [REQUEST]: Responding to the client. recordOutputsHash
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:36.934Z - Done responding to the client recordOutputsHash
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:36.934Z - Handled RECORD_OUTPUTS_HASH. Handling time: 5. Response time: 0.
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:36.941Z - [REQUEST]: Responding to the client. recordOutputsHash
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:36.941Z - Done responding to the client recordOutputsHash
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:36.941Z - Handled RECORD_OUTPUTS_HASH. Handling time: 5. Response time: 0.
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:36.941Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:36.943Z - [REQUEST]: Responding to the client. handleRecordTaskRuns
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:36.943Z - Done responding to the client handleRecordTaskRuns
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:36.943Z - Handled RECORD_TASK_RUNS. Handling time: 0. Response time: 0.
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:36.944Z - [REQUEST]: Responding to the client. handleGetFlakyTasks
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:36.944Z - Done responding to the client handleGetFlakyTasks
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:36.944Z - Handled GET_FLAKY_TASKS. Handling time: 0. Response time: 0.
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:36.947Z - [REQUEST]: Responding to the client. handleRunPostTasksExecution
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:36.947Z - Done responding to the client handleRunPostTasksExecution
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:36.947Z - Handled POST_TASKS_EXECUTION. Handling time: 0. Response time: 0.
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:36.947Z - Time taken for 'postTasksExecution' 0.20487499999990177ms
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:36.951Z - Closed a connection. Number of open connections: 1
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:38.822Z - [REQUEST]: Responding to the client. recordOutputsHash
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:38.822Z - Done responding to the client recordOutputsHash
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:38.822Z - Handled RECORD_OUTPUTS_HASH. Handling time: 21. Response time: 0.
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:38.829Z - [WATCHER]: Processing file changes in outputs
+The plugin worker is exiting as it was not connected to within 5 seconds.
+The plugin worker is exiting as it was not connected to within 5 seconds.
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:39.011Z - [REQUEST]: Responding to the client. handleRecordTaskRuns
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:39.011Z - Done responding to the client handleRecordTaskRuns
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:39.011Z - Handled RECORD_TASK_RUNS. Handling time: 0. Response time: 0.
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:39.013Z - [REQUEST]: Responding to the client. handleGetFlakyTasks
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:39.013Z - Done responding to the client handleGetFlakyTasks
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:39.013Z - Handled GET_FLAKY_TASKS. Handling time: 0. Response time: 0.
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:39.015Z - [REQUEST]: Responding to the client. handleRunPostTasksExecution
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:39.016Z - Done responding to the client handleRunPostTasksExecution
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:39.016Z - Handled POST_TASKS_EXECUTION. Handling time: 0. Response time: 1.
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:39.016Z - Time taken for 'postTasksExecution' 0.19549999999981083ms
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:39.019Z - Closed a connection. Number of open connections: 0
+The plugin worker is exiting as it was not connected to within 5 seconds.
+The plugin worker is exiting as it was not connected to within 5 seconds.
+The plugin worker is exiting as it was not connected to within 5 seconds.
+The plugin worker is exiting as it was not connected to within 5 seconds.
+The plugin worker is exiting as it was not connected to within 5 seconds.
+The plugin worker is exiting as it was not connected to within 5 seconds.
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:40.981Z - [WATCHER]: bun.lock was created or restored
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:40.981Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:41.085Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:41.085Z - [REQUEST]: bun.lock
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:41.085Z - [REQUEST]: 
+Time for 'nx/js/dependencies-and-lockfile:createNodes' 0.49333300000034797
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:41.091Z - Time taken for 'hash changed files from watcher' 3.2587499999999636ms
+Time for 'nx/core/project-json:createNodes' 1.2774170000002414
+Time for 'nx/core/package-json:createNodes' 7.339624999999614
+Time for '@nx/js/typescript:createNodes' 11.410874999999578
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:41.126Z - Time taken for 'build-project-configs' 16.326083999999355ms
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:41.130Z - Time taken for '@nx/js/typescript:createDependencies' 10.712291000000732ms
+Time for 'build typescript dependencies' 0.00874999999996362
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:41.137Z - Wrote project graph cache to /Users/z/work/lux/exchange/.nx/workspace-data/project-graph.json
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:41.137Z - [SYNC]: collect registered sync generators
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:41.137Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:41.137Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:41.138Z - [SYNC]: scheduling: ["@nx/js:typescript-sync"]
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:41.138Z - Time taken for 'total execution time for createProjectGraph()' 18.794875000000502ms
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:41.338Z - [SYNC]: running scheduled generator @nx/js:typescript-sync
+Time for 'nx/js/dependencies-and-lockfile:createNodes' 0.49316599999929167
+Time for 'nx/core/project-json:createNodes' 1.6027500000000146
+Time for 'nx/core/package-json:createNodes' 7.1035830000000715
+Time for '@nx/js/typescript:createNodes' 11.009291999999732
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:41.382Z - Time taken for 'build-project-configs' 16.561750000000757ms
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:41.387Z - Time taken for '@nx/js/typescript:createDependencies' 11.132082999999511ms
+Time for 'build typescript dependencies' 0.01375000000007276
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:41.393Z - Wrote project graph cache to /Users/z/work/lux/exchange/.nx/workspace-data/project-graph.json
+Skipping project "@luxamm/sdk-core" as there is no tsconfig.json file found in the project root "packages/luxamm-sdk-core".
+Skipping project "@luxamm/v2-sdk" as there is no tsconfig.json file found in the project root "packages/luxamm-v2-sdk".
+Skipping project "@luxamm/v3-sdk" as there is no tsconfig.json file found in the project root "packages/luxamm-v3-sdk".
+Skipping project "@luxamm/v4-sdk" as there is no tsconfig.json file found in the project root "packages/luxamm-v4-sdk".
+Skipping project "@luxfi/eslint-config" as there is no tsconfig.json file found in the project root "packages/eslint-config".
+Skipping project "@luxfi/biome-config" as there is no tsconfig.json file found in the project root "packages/biome-config".
+Skipping project "@luxdex/sdk" as there is no tsconfig.json file found in the project root "packages/luxdex-sdk".
+Skipping project "jest-presets" as there is no tsconfig.json file found in the project root "config/jest-presets".
+Skipping project "tsconfig" as there is no tsconfig.json file found in the project root "config/tsconfig".
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:41.509Z - [SYNC]: @nx/js:typescript-sync changes: 
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:41.509Z - Time taken for 'run-sync-generator:@nx/js:typescript-sync' 171.1703749999997ms
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:55.303Z - [WATCHER]: bun.lock was created or restored
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:55.303Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:55.407Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:55.407Z - [REQUEST]: bun.lock
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:55.407Z - [REQUEST]: 
+Time for 'nx/js/dependencies-and-lockfile:createNodes' 0.48916599999938626
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:55.412Z - Time taken for 'hash changed files from watcher' 2.9095000000015716ms
+Time for 'nx/core/project-json:createNodes' 1.5039160000014817
+Time for 'nx/core/package-json:createNodes' 6.707124999997177
+Time for '@nx/js/typescript:createNodes' 9.52612500000032
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:55.442Z - Time taken for 'build-project-configs' 13.53766700000051ms
+Time for 'build typescript dependencies' 0.010125000000698492
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:55.448Z - Time taken for 'nx/js/dependencies-and-lockfile:createDependencies' 8.326542000002519ms
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:55.455Z - Wrote project graph cache to /Users/z/work/lux/exchange/.nx/workspace-data/project-graph.json
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:55.455Z - [SYNC]: collect registered sync generators
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:55.456Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:55.456Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:55.456Z - [SYNC]: scheduling: ["@nx/js:typescript-sync"]
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:55.456Z - Time taken for 'total execution time for createProjectGraph()' 18.06841699999859ms
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:55.855Z - [SYNC]: running scheduled generator @nx/js:typescript-sync
+Time for 'nx/js/dependencies-and-lockfile:createNodes' 0.4034159999973781
+Time for 'nx/core/project-json:createNodes' 1.2955829999991693
+Time for 'nx/core/package-json:createNodes' 7.6241250000020955
+Time for '@nx/js/typescript:createNodes' 10.329750000000786
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:55.898Z - Time taken for 'build-project-configs' 14.819500000001426ms
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:55.913Z - Time taken for '@nx/js/typescript:createDependencies' 22.304082999999082ms
+Time for 'build typescript dependencies' 0.015292000000044936
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:55.918Z - Wrote project graph cache to /Users/z/work/lux/exchange/.nx/workspace-data/project-graph.json
+Skipping project "@luxamm/sdk-core" as there is no tsconfig.json file found in the project root "packages/luxamm-sdk-core".
+Skipping project "@luxamm/v2-sdk" as there is no tsconfig.json file found in the project root "packages/luxamm-v2-sdk".
+Skipping project "@luxamm/v3-sdk" as there is no tsconfig.json file found in the project root "packages/luxamm-v3-sdk".
+Skipping project "@luxamm/v4-sdk" as there is no tsconfig.json file found in the project root "packages/luxamm-v4-sdk".
+Skipping project "@luxfi/eslint-config" as there is no tsconfig.json file found in the project root "packages/eslint-config".
+Skipping project "@luxfi/biome-config" as there is no tsconfig.json file found in the project root "packages/biome-config".
+Skipping project "@luxdex/sdk" as there is no tsconfig.json file found in the project root "packages/luxdex-sdk".
+Skipping project "jest-presets" as there is no tsconfig.json file found in the project root "config/jest-presets".
+Skipping project "tsconfig" as there is no tsconfig.json file found in the project root "config/tsconfig".
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:56.038Z - [SYNC]: @nx/js:typescript-sync changes: 
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:53:56.038Z - Time taken for 'run-sync-generator:@nx/js:typescript-sync' 182.3797909999994ms
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:54:05.862Z - [WATCHER]: bun.lock was created or restored
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:54:05.862Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:54:05.966Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:54:05.966Z - [REQUEST]: bun.lock
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:54:05.966Z - [REQUEST]: 
+Time for 'nx/js/dependencies-and-lockfile:createNodes' 0.3892500000001746
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:54:05.972Z - Time taken for 'hash changed files from watcher' 3.258791000000201ms
+Time for 'nx/core/project-json:createNodes' 1.2888750000020082
+Time for 'nx/core/package-json:createNodes' 7.138290999999299
+Time for '@nx/js/typescript:createNodes' 10.831709000001865
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:54:06.002Z - Time taken for 'build-project-configs' 15.633042000001296ms
+Time for 'build typescript dependencies' 0.010500000000320142
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:54:06.007Z - Time taken for 'nx/js/dependencies-and-lockfile:createDependencies' 7.391124999998283ms
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:54:06.014Z - Wrote project graph cache to /Users/z/work/lux/exchange/.nx/workspace-data/project-graph.json
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:54:06.014Z - [SYNC]: collect registered sync generators
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:54:06.014Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:54:06.014Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:54:06.014Z - [SYNC]: scheduling: ["@nx/js:typescript-sync"]
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:54:06.015Z - Time taken for 'total execution time for createProjectGraph()' 15.066166000000521ms
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:54:06.814Z - [SYNC]: running scheduled generator @nx/js:typescript-sync
+Time for 'nx/js/dependencies-and-lockfile:createNodes' 0.4399999999986903
+Time for 'nx/core/project-json:createNodes' 1.7268330000006245
+Time for 'nx/core/package-json:createNodes' 9.101415999997698
+Time for '@nx/js/typescript:createNodes' 13.596333999998024
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:54:06.859Z - Time taken for 'build-project-configs' 17.694415999998455ms
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:54:06.866Z - Time taken for '@nx/js/typescript:createDependencies' 13.351582999996026ms
+Time for 'build typescript dependencies' 0.011082999997597653
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:54:06.873Z - Wrote project graph cache to /Users/z/work/lux/exchange/.nx/workspace-data/project-graph.json
+Skipping project "@luxamm/sdk-core" as there is no tsconfig.json file found in the project root "packages/luxamm-sdk-core".
+Skipping project "@luxamm/v2-sdk" as there is no tsconfig.json file found in the project root "packages/luxamm-v2-sdk".
+Skipping project "@luxamm/v3-sdk" as there is no tsconfig.json file found in the project root "packages/luxamm-v3-sdk".
+Skipping project "@luxamm/v4-sdk" as there is no tsconfig.json file found in the project root "packages/luxamm-v4-sdk".
+Skipping project "@luxfi/eslint-config" as there is no tsconfig.json file found in the project root "packages/eslint-config".
+Skipping project "@luxfi/biome-config" as there is no tsconfig.json file found in the project root "packages/biome-config".
+Skipping project "@luxdex/sdk" as there is no tsconfig.json file found in the project root "packages/luxdex-sdk".
+Skipping project "jest-presets" as there is no tsconfig.json file found in the project root "config/jest-presets".
+Skipping project "tsconfig" as there is no tsconfig.json file found in the project root "config/tsconfig".
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:54:07.056Z - [SYNC]: @nx/js:typescript-sync changes: 
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:54:07.056Z - Time taken for 'run-sync-generator:@nx/js:typescript-sync' 241.85375000000204ms
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:54:07.058Z - [WATCHER]: 157 file(s) created or restored, 2 file(s) modified, 0 file(s) deleted
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:54:07.059Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:54:07.060Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:54:07.061Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:54:07.155Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:54:07.172Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:54:07.172Z - [REQUEST]: apps/web/public/nft/svgs/marketplaces/rarible.svg,apps/web/public/tokens/lusd.svg,apps/web/public/nft/svgs/minusCircle.svg,apps/web/public/rive/landing-page.riv,apps/web/public/nft/svgs/image-placeholder.svg,apps/web/public/nft/svgs/loading.svg,apps/web/public/tokens/lblast.svg,apps/web/public/nft/svgs/hamburgerMenu.svg,apps/web/public/nft/svgs/logo.svg,apps/web/public/nft/svgs/marketplaces/x2y2.svg,apps/web/public/nft/svgs/looksrare.svg,apps/web/public/pools-sitemap.xml,apps/web/public/feeReturnsMathAppendix.pdf,apps/web/public/nft/svgs/marketplaces/looksrare-grey.svg,apps/web/public/nft/svgs/marketplaces/uniswap-magenta.svg,apps/web/public/csp.json,apps/web/public/nft/arrow_down.png,apps/web/public/nft/logos/walletlink.png,apps/web/public/nft/svgs/eth.svg,apps/web/public/nft/svgs/verifiedBadge.svg,apps/web/public/nft/svgs/gem.svg,apps/web/public/nft/svgs/down.svg,apps/web/public/.well-known/apple-app-site-association,apps/web/public/data/tokens.json,apps/web/public/nft/svgs/eth2Dark.svg,apps/web/public/TheDominanceofUniswapv3Liquidity.pdf,apps/web/public/images/logos/Base_Logo.png,apps/web/public/site.webmanifest,apps/web/public/images/noise-color.png,apps/web/public/tokens/lux.svg,apps/web/public/tokens/lxdai.svg,apps/web/public/tokens/default.svg,apps/web/public/images/extension_promo/announcement_modal_desktop2.png,apps/web/public/token-lists/lux-default.json,apps/web/public/tokens/usdt.svg,apps/web/public/images/logos/Optimism_Logo.png,apps/web/public/robots.txt,apps/web/public/nft/svgs/logoDark.svg,apps/web/public/tokens/wlux.svg,apps/web/public/tokens/lbtc.svg,apps/web/public/images/54x54_Verified_Check.svg,apps/web/public/images/256x256_App_Icon_Pink.svg,apps/web/public/nft/svgs/checkmark.svg,apps/web/public/nft/svgs/marketplaces/opensea-grey.svg,apps/web/public/app-sitemap.xml,apps/web/public/nft/logos/frame.png,apps/web/public/fonts/Inter-normal.var.ttf,apps/web/public/nft/logos/poprank.png,apps/web/public/nft/svgs/eth2Light.svg,apps/web/public/tokens/lzoo.svg,apps/web/public/tokens/lcelo.svg,apps/web/public/nft/svgs/priceTag.svg,apps/web/public/nft/svgs/plus.svg,apps/web/public/OnchainFX.pdf,apps/web/public/nft/svgs/eth2.svg,apps/web/public/451.html,apps/web/public/images/landing_page/LiquidityProvisions.svg,apps/web/public/nft/svgs/marketplaces/foundation.svg,apps/web/public/images/landing_page/UniswapX-bg.svg,apps/web/public/tokens/eth.svg,apps/web/public/nft/svgs/bagFill.svg,apps/web/public/tokens/weth.svg,apps/web/public/nft/logos/metamask.png,apps/web/public/token-lists/multi-chain.json,apps/web/public/favicon.png,apps/web/public/manifest.json,apps/web/public/tokens/lsol.svg,apps/web/public/tokens-sitemap.xml,apps/web/public/nft/logos/rarible.png,apps/web/public/images/portfolio_page_promo/dark.png,apps/web/public/.well-known/walletconnect.txt,apps/web/public/tokens/dai.svg,apps/web/public/tokens/leth.svg,apps/web/public/staging-csp.json,apps/web/public/nft/logos/gnosis.png,apps/web/public/images/1200x630_Rich_Link_Preview_Image.png,apps/web/public/nft/svgs/marketplaces/cryptopunks.svg,apps/web/public/images/logos/Avax_Logo.png,apps/web/public/images/logos/Blast_Logo.png,apps/web/public/nft/svgs/magnifyingGlass.svg,apps/web/public/nft/svgs/marketplaces/coinbase.svg,apps/web/public/nft/logos/opensea.png,apps/web/public/images/logos/Polygon_Logo.png,apps/web/public/images/324x74_App_Watermark.png,apps/web/public/flair.pdf,apps/web/public/SuperiorReturnsForLiquidityProviders.pdf,apps/web/public/nft/svgs/plusWhite.svg,apps/web/public/nft/logos/rainbow.png,apps/web/public/nft/svgs/chevronUp.svg,apps/web/public/whitepaper-uniswapx.pdf,apps/web/public/nft/svgs/sweep.svg,apps/web/public/tokens/lbnb.svg,apps/web/public/nft/svgs/upshot.svg,apps/web/public/tokens/zoo.svg,apps/web/public/tokens/lftm.svg,apps/web/public/nft/svgs/logoWithoutText.svg,apps/web/public/nft/svgs/marketplaces/looksrare.svg,apps/web/public/images/logos/Unichain_Logo.png,apps/web/public/nft/favicon.png,apps/web/public/images/logos/Zora_Logo.png,apps/web/public/nft/svgs/marketplaces/uniswap.svg,apps/web/public/images/landing_page/TradingAPI.svg,apps/web/public/images/notifications/monad_logo_filled.png,apps/web/public/nft/logos/argent.png,apps/web/public/nft/svgs/genieSmallGreen.svg,apps/web/public/images/logos/Arbitrum_Logo.png,apps/web/public/tokens/lpol.svg,apps/web/public/nft/svgs/marketplaces/nft20.svg,apps/web/public/sitemap.xml,apps/web/public/images/logos/Celo_Logo.png,apps/web/public/images/lux-logo.svg,apps/web/public/tokens/usdc.svg,apps/web/public/whitepaper-v4.pdf,apps/web/public/tokens/lton.svg,apps/web/public/nft/svgs/greenArrowTopRight.svg,apps/web/public/favicon.ico,apps/web/public/_routes.json,apps/web/public/nft/banner.png,apps/web/public/nft/svgs/marketplaces/nftx.svg,apps/web/public/nfts-sitemap.xml,apps/web/public/nft/svgs/marketplaces/sushiswap.svg,apps/web/public/nft/svgs/clockSpin.svg,apps/web/public/images/192x192_App_Icon.png,apps/web/public/images/logos/BNB_Logo.png,apps/web/public/images/portfolio_page_promo/light.png,apps/web/public/nft/bannerIcons.png,apps/web/public/whitepaper-v3.pdf,apps/web/public/images/logos/zkSync_Logo.png,apps/web/public/tokens/lavax.svg,apps/web/public/zone-events.js,apps/web/public/nft/svgs/rarity.svg,apps/web/public/nft/svgs/marketplaces/x2y2-grey.svg,apps/web/public/nft/svgs/close.svg,apps/web/public/images/extension_promo/background_connector.png,apps/web/public/images/landing_page/UniswapX.svg,apps/web/public/tokens/wbtc.svg,apps/web/public/nft/svgs/magnifyingGlassDark.svg,apps/web/public/nft/svgs/listBulletRectanglePortrait.svg,apps/web/public/_headers,apps/web/public/nft/svgs/marketplaces/sudoswap.svg,apps/web/public/nft/svgs/chevronBackward.svg,apps/web/public/tokenlist.schema.json,apps/web/public/dev-csp.json,apps/web/public/tokens/wzoo.svg,apps/web/public/nft/svgs/marketplaces/opensea.svg,apps/web/public/fonts/Inter-roman.var.woff2,apps/web/public/.well-known/security.txt,apps/web/public/nft/svgs/orangeArrowBottomRight.svg,apps/web/public/images/landing_page/Unichain.svg,apps/web/public/images/notifications/monad_banner_light.png,apps/web/public/images/512x512_App_Icon.png,apps/web/public/.well-known/assetlinks.json,apps/web/public/nft/logos/wc.png,apps/web/public/favicon.svg,apps/web/public/whitepaper.pdf,apps/web/public/images/landing_page/Unichain-bg.svg,apps/web/public/nft/listBullet.svg,apps/web/public/rive/rive.wasm,apps/web/public/videos/lux-hero.mp4
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:54:07.172Z - [REQUEST]: 
+Time for 'nx/js/dependencies-and-lockfile:createNodes' 0.40004100000078324
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:54:07.178Z - Time taken for 'hash changed files from watcher' 11.896291000004567ms
+Time for 'nx/core/project-json:createNodes' 1.41320899999846
+Time for 'nx/core/package-json:createNodes' 6.6443750000034925
+Time for '@nx/js/typescript:createNodes' 10.627792000006593
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:54:07.208Z - Time taken for 'build-project-configs' 14.814417000001413ms
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:54:07.213Z - Time taken for '@nx/js/typescript:createDependencies' 11.007125000003725ms
+Time for 'build typescript dependencies' 0.013458000001264736
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:54:07.219Z - Wrote project graph cache to /Users/z/work/lux/exchange/.nx/workspace-data/project-graph.json
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:54:07.220Z - [SYNC]: collect registered sync generators
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:54:07.220Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:54:07.220Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:54:07.220Z - [SYNC]: scheduling: ["@nx/js:typescript-sync"]
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:54:07.220Z - Time taken for 'total execution time for createProjectGraph()' 16.107875000001513ms
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:54:08.603Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:54:08.820Z - [SYNC]: running scheduled generator @nx/js:typescript-sync
+Time for 'nx/js/dependencies-and-lockfile:createNodes' 0.4803329999995185
+Time for 'nx/core/project-json:createNodes' 1.424416999994719
+Time for 'nx/core/package-json:createNodes' 6.174791999997979
+Time for '@nx/js/typescript:createNodes' 9.803167000005487
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:54:08.859Z - Time taken for 'build-project-configs' 14.038957999997365ms
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:54:08.864Z - Time taken for '@nx/js/typescript:createDependencies' 11.792750000000524ms
+Time for 'build typescript dependencies' 0.01391699999658158
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:54:08.870Z - Wrote project graph cache to /Users/z/work/lux/exchange/.nx/workspace-data/project-graph.json
+Skipping project "@luxamm/sdk-core" as there is no tsconfig.json file found in the project root "packages/luxamm-sdk-core".
+Skipping project "@luxamm/v2-sdk" as there is no tsconfig.json file found in the project root "packages/luxamm-v2-sdk".
+Skipping project "@luxamm/v3-sdk" as there is no tsconfig.json file found in the project root "packages/luxamm-v3-sdk".
+Skipping project "@luxamm/v4-sdk" as there is no tsconfig.json file found in the project root "packages/luxamm-v4-sdk".
+Skipping project "@luxfi/eslint-config" as there is no tsconfig.json file found in the project root "packages/eslint-config".
+Skipping project "@luxfi/biome-config" as there is no tsconfig.json file found in the project root "packages/biome-config".
+Skipping project "@luxdex/sdk" as there is no tsconfig.json file found in the project root "packages/luxdex-sdk".
+Skipping project "jest-presets" as there is no tsconfig.json file found in the project root "config/jest-presets".
+Skipping project "tsconfig" as there is no tsconfig.json file found in the project root "config/tsconfig".
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:54:08.976Z - [SYNC]: @nx/js:typescript-sync changes: 
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:54:08.976Z - Time taken for 'run-sync-generator:@nx/js:typescript-sync' 155.6704580000005ms
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:54:18.609Z - [WATCHER]: apps/web/public/rive/rive.wasm was modified
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:54:18.609Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:54:18.812Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:54:18.812Z - [REQUEST]: apps/web/public/rive/rive.wasm
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:54:18.812Z - [REQUEST]: 
+Time for 'nx/js/dependencies-and-lockfile:createNodes' 0.5872919999965234
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:54:18.820Z - Time taken for 'hash changed files from watcher' 3.0076659999976982ms
+Time for 'nx/core/project-json:createNodes' 2.963084000002709
+Time for 'nx/core/package-json:createNodes' 8.732207999993989
+Time for '@nx/js/typescript:createNodes' 13.382041999997455
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:54:18.877Z - Time taken for 'build-project-configs' 18.561000000001513ms
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:54:18.893Z - Time taken for '@nx/js/typescript:createDependencies' 23.38408399999753ms
+Time for 'build typescript dependencies' 0.010125000000698492
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:54:18.903Z - Wrote project graph cache to /Users/z/work/lux/exchange/.nx/workspace-data/project-graph.json
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:54:18.904Z - [SYNC]: collect registered sync generators
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:54:18.904Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:54:18.904Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:54:18.904Z - [SYNC]: scheduling: ["@nx/js:typescript-sync"]
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:54:18.904Z - Time taken for 'total execution time for createProjectGraph()' 36.733750000006694ms
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:54:22.105Z - [SYNC]: running scheduled generator @nx/js:typescript-sync
+Time for 'nx/js/dependencies-and-lockfile:createNodes' 0.5890000000072177
+Time for 'nx/core/project-json:createNodes' 1.416417000000365
+Time for 'nx/core/package-json:createNodes' 8.434208000006038
+Time for '@nx/js/typescript:createNodes' 12.244458000001032
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:54:22.153Z - Time taken for 'build-project-configs' 17.31025000000227ms
+Time for 'build typescript dependencies' 0.009957999995094724
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:54:22.169Z - Wrote project graph cache to /Users/z/work/lux/exchange/.nx/workspace-data/project-graph.json
+Skipping project "@luxamm/sdk-core" as there is no tsconfig.json file found in the project root "packages/luxamm-sdk-core".
+Skipping project "@luxamm/v2-sdk" as there is no tsconfig.json file found in the project root "packages/luxamm-v2-sdk".
+Skipping project "@luxamm/v3-sdk" as there is no tsconfig.json file found in the project root "packages/luxamm-v3-sdk".
+Skipping project "@luxamm/v4-sdk" as there is no tsconfig.json file found in the project root "packages/luxamm-v4-sdk".
+Skipping project "@luxfi/eslint-config" as there is no tsconfig.json file found in the project root "packages/eslint-config".
+Skipping project "@luxfi/biome-config" as there is no tsconfig.json file found in the project root "packages/biome-config".
+Skipping project "@luxdex/sdk" as there is no tsconfig.json file found in the project root "packages/luxdex-sdk".
+Skipping project "jest-presets" as there is no tsconfig.json file found in the project root "config/jest-presets".
+Skipping project "tsconfig" as there is no tsconfig.json file found in the project root "config/tsconfig".
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:54:22.297Z - [SYNC]: @nx/js:typescript-sync changes: 
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:54:22.297Z - Time taken for 'run-sync-generator:@nx/js:typescript-sync' 191.4625409999935ms
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:54:27.237Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:54:27.290Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:54:27.341Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:54:32.664Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:55:50.715Z - [WATCHER]: 1 file(s) created or restored, 0 file(s) modified, 1 file(s) deleted
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:55:50.715Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:55:50.819Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:55:50.819Z - [REQUEST]: tsconfig.base.json
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:55:50.819Z - [REQUEST]: tsconfig.base.json.tmp.25069.1768168550631
+Time for 'nx/js/dependencies-and-lockfile:createNodes' 0.35704199998872355
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:55:50.825Z - Time taken for 'hash changed files from watcher' 3.5836249999993015ms
+Time for 'nx/core/project-json:createNodes' 1.484874999994645
+Time for 'nx/core/package-json:createNodes' 6.69754200000898
+Time for '@nx/js/typescript:createNodes' 151.63349999999627
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:55:50.998Z - Time taken for 'build-project-configs' 156.64662499999395ms
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:55:51.002Z - Time taken for '@nx/js/typescript:createDependencies' 10.925709000002826ms
+Time for 'build typescript dependencies' 0.009957999980542809
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:55:51.009Z - Wrote project graph cache to /Users/z/work/lux/exchange/.nx/workspace-data/project-graph.json
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:55:51.009Z - [SYNC]: collect registered sync generators
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:55:51.010Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:55:51.010Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:55:51.010Z - [SYNC]: scheduling: ["@nx/js:typescript-sync"]
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:55:51.010Z - Time taken for 'total execution time for createProjectGraph()' 15.8626660000009ms
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:55:57.411Z - [SYNC]: running scheduled generator @nx/js:typescript-sync
+Time for 'nx/js/dependencies-and-lockfile:createNodes' 0.3517500000016298
+Time for 'nx/core/project-json:createNodes' 1.1321670000033919
+Time for 'nx/core/package-json:createNodes' 7.043541999999434
+Time for '@nx/js/typescript:createNodes' 10.302458999998635
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:55:57.455Z - Time taken for 'build-project-configs' 16.15312500001164ms
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:55:57.460Z - Time taken for '@nx/js/typescript:createDependencies' 11.366915999999037ms
+Time for 'build typescript dependencies' 0.010500000003958121
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:55:57.467Z - Wrote project graph cache to /Users/z/work/lux/exchange/.nx/workspace-data/project-graph.json
+Skipping project "@luxamm/sdk-core" as there is no tsconfig.json file found in the project root "packages/luxamm-sdk-core".
+Skipping project "@luxamm/v2-sdk" as there is no tsconfig.json file found in the project root "packages/luxamm-v2-sdk".
+Skipping project "@luxamm/v3-sdk" as there is no tsconfig.json file found in the project root "packages/luxamm-v3-sdk".
+Skipping project "@luxamm/v4-sdk" as there is no tsconfig.json file found in the project root "packages/luxamm-v4-sdk".
+Skipping project "@luxfi/eslint-config" as there is no tsconfig.json file found in the project root "packages/eslint-config".
+Skipping project "@luxfi/biome-config" as there is no tsconfig.json file found in the project root "packages/biome-config".
+Skipping project "@luxdex/sdk" as there is no tsconfig.json file found in the project root "packages/luxdex-sdk".
+Skipping project "jest-presets" as there is no tsconfig.json file found in the project root "config/jest-presets".
+Skipping project "tsconfig" as there is no tsconfig.json file found in the project root "config/tsconfig".
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:55:57.586Z - Time taken for 'create-project-graph-async' 55.42041600000812ms
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:55:57.642Z - [SYNC]: @nx/js:typescript-sync changes: tsconfig.base.json
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:55:57.643Z - Time taken for 'run-sync-generator:@nx/js:typescript-sync' 231.12916700000642ms
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:56:00.044Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:56:00.106Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:56:00.721Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:56:00.774Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:56:01.851Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:56:06.270Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:56:24.466Z - [WATCHER]: 1 file(s) created or restored, 0 file(s) modified, 1 file(s) deleted
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:56:24.466Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:56:24.570Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:56:24.570Z - [REQUEST]: tsconfig.base.json
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:56:24.570Z - [REQUEST]: tsconfig.base.json.tmp.25069.1768168584379
+Time for 'nx/js/dependencies-and-lockfile:createNodes' 0.3890409999876283
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:56:24.576Z - Time taken for 'hash changed files from watcher' 3.4463329999998678ms
+Time for 'nx/core/project-json:createNodes' 1.3418750000128057
+Time for 'nx/core/package-json:createNodes' 7.206999999994878
+Time for '@nx/js/typescript:createNodes' 25.460000000020955
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:56:24.623Z - Time taken for 'build-project-configs' 31.240958000009414ms
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:56:24.635Z - Time taken for '@nx/js/typescript:createDependencies' 17.78737499998533ms
+Time for 'build typescript dependencies' 0.010334000020520762
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:56:24.642Z - Wrote project graph cache to /Users/z/work/lux/exchange/.nx/workspace-data/project-graph.json
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:56:24.642Z - [SYNC]: collect registered sync generators
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:56:24.643Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:56:24.643Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:56:24.643Z - [SYNC]: scheduling: ["@nx/js:typescript-sync"]
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:56:24.643Z - Time taken for 'total execution time for createProjectGraph()' 23.74412499999744ms
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:56:31.043Z - [SYNC]: running scheduled generator @nx/js:typescript-sync
+Waiting for graph construction in another process to complete
+Skipping project "@luxamm/sdk-core" as there is no tsconfig.json file found in the project root "packages/luxamm-sdk-core".
+Skipping project "@luxamm/v2-sdk" as there is no tsconfig.json file found in the project root "packages/luxamm-v2-sdk".
+Skipping project "@luxamm/v3-sdk" as there is no tsconfig.json file found in the project root "packages/luxamm-v3-sdk".
+Skipping project "@luxamm/v4-sdk" as there is no tsconfig.json file found in the project root "packages/luxamm-v4-sdk".
+Skipping project "@luxfi/eslint-config" as there is no tsconfig.json file found in the project root "packages/eslint-config".
+Skipping project "@luxfi/biome-config" as there is no tsconfig.json file found in the project root "packages/biome-config".
+Skipping project "@luxdex/sdk" as there is no tsconfig.json file found in the project root "packages/luxdex-sdk".
+Skipping project "jest-presets" as there is no tsconfig.json file found in the project root "config/jest-presets".
+Skipping project "tsconfig" as there is no tsconfig.json file found in the project root "config/tsconfig".
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:56:31.442Z - Time taken for 'read cache' 1.128958999994211ms
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:56:31.446Z - [SYNC]: @nx/js:typescript-sync changes: tsconfig.base.json
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:56:31.446Z - Time taken for 'run-sync-generator:@nx/js:typescript-sync' 402.9578749999928ms
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:56:31.501Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:56:31.554Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:56:32.151Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:56:32.203Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:56:33.167Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:56:38.531Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:56:39.956Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:56:43.789Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:56:43.842Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:56:44.499Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:56:44.734Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:56:44.830Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:56:44.936Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:56:44.988Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:56:45.099Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:56:45.155Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:56:45.224Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:56:45.290Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:56:45.346Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:56:45.398Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:56:45.466Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:56:45.518Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:56:45.570Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:56:45.671Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:56:46.280Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:56:46.352Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:56:46.436Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:56:46.546Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:56:46.619Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:56:46.674Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:56:46.737Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:56:46.850Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:56:47.158Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:56:47.210Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:56:47.287Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:56:47.373Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:56:47.424Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:56:47.489Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:56:47.541Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:56:47.602Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:56:47.658Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:56:47.709Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:56:47.773Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:56:47.866Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:56:47.924Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:56:47.996Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:56:48.052Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:56:48.109Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:56:48.197Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:56:48.285Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:56:48.336Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:56:48.447Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:56:50.422Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:56:52.014Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:56:52.250Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:56:52.375Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:56:54.822Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:56:54.924Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:56:55.820Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:56:57.632Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:56:59.682Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:57:01.129Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:57:03.271Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:57:04.198Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:57:05.108Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:57:06.363Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:57:08.327Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:57:08.491Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:57:11.379Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:57:11.516Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:57:14.579Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:57:14.879Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:57:15.534Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:57:18.254Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:57:22.284Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:57:22.423Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:57:24.937Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:57:27.635Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:57:28.468Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:57:28.547Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:57:31.196Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:57:31.286Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:57:31.527Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:57:33.396Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:57:45.224Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:57:45.749Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:57:51.128Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:57:53.400Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:57:54.945Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:57:55.572Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:58:04.553Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:58:07.240Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:58:10.424Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:58:15.551Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:58:15.742Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:58:16.739Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:58:23.304Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:58:28.201Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:58:31.363Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:58:31.873Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:58:35.556Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:58:38.276Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:58:38.542Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:58:38.777Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:58:39.404Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:58:45.141Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:58:45.582Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:58:46.741Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:58:47.743Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:58:50.571Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:58:51.063Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:58:51.264Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:58:53.964Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:58:54.839Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:58:55.278Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:58:55.438Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:58:55.598Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:58:55.883Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:58:56.098Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:58:56.232Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:59:00.806Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:59:04.145Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:59:04.841Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:59:07.976Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:59:11.777Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:59:13.084Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:59:17.741Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:59:18.739Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:59:19.427Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:59:23.095Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:59:26.688Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:59:27.206Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:59:27.917Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:59:43.977Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:59:48.742Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:59:49.744Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T21:59:55.243Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:00:00.077Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:00:14.497Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:00:15.395Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:00:16.186Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:00:19.748Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:00:20.748Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:00:31.949Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:00:32.406Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:00:36.827Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:00:36.902Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:00:39.105Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:00:39.176Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:00:39.360Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:00:39.434Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:00:39.701Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:00:39.786Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:00:39.884Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:00:40.500Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:00:40.676Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:00:40.805Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:00:40.888Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:00:41.590Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:00:41.683Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:00:41.942Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:00:44.521Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:00:46.309Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:00:46.363Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:00:46.698Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:00:48.501Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:00:48.561Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:00:48.873Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:00:50.748Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:00:51.689Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:00:51.748Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:00:51.804Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:00:52.096Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:00:53.599Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:00:53.685Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:00:53.744Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:00:55.562Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:00:55.753Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:00:55.887Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:00:58.009Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:00:58.086Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:01:00.397Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:01:00.454Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:01:03.688Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:01:04.584Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:01:20.661Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:01:21.753Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:01:36.734Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:01:48.950Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:01:52.805Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:02:09.245Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:02:15.702Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:02:23.754Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:02:24.107Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:02:25.708Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:02:25.777Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:02:41.471Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:02:54.767Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:02:57.525Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:03:05.260Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:03:05.590Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:03:13.622Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:03:25.754Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:03:29.722Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:03:45.902Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:03:50.050Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:03:56.750Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:04:00.071Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:04:00.131Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:04:02.116Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:04:18.340Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:04:27.758Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:04:34.369Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:04:50.569Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:04:58.754Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:05:06.655Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:05:22.921Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:05:24.525Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:05:29.757Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:05:34.595Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:05:34.682Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:05:39.010Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:05:55.313Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:06:00.760Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:06:11.258Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:06:27.642Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:06:31.760Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:06:43.733Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:06:43.961Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:06:45.545Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:06:59.458Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:06:59.901Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:06:59.953Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:07:00.551Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:07:01.013Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:07:01.720Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:07:02.754Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:07:02.859Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:07:04.297Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:07:04.527Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:07:04.858Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:07:06.130Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:07:07.983Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:07:09.461Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:07:09.595Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:07:09.859Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:07:11.991Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:07:14.238Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:07:14.562Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:07:16.371Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:07:19.885Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:07:20.064Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:07:31.773Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:07:33.806Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:07:48.862Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:08:04.186Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:08:05.034Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:08:21.379Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:08:34.762Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:08:37.468Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:08:45.594Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:08:53.694Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:09:01.040Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:09:05.757Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:09:09.959Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:09:25.766Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:09:26.257Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:09:36.930Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:09:42.585Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:09:58.813Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:10:07.760Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:10:14.972Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:10:31.237Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:10:38.753Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:10:47.457Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:11:03.890Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:11:09.758Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:11:20.001Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:11:36.293Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:11:40.753Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:11:52.791Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:12:08.999Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:12:11.749Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:12:25.053Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:12:40.299Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:12:42.743Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:12:51.040Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:12:57.643Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:13:13.807Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:13:30.071Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:13:44.761Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:13:46.278Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:14:02.589Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:14:15.763Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:14:19.018Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:14:25.866Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:14:35.069Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:14:46.754Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:14:51.356Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:15:07.569Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:15:17.762Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:15:23.805Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:15:40.083Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:15:48.895Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:15:56.514Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:16:12.584Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:16:19.788Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:16:28.777Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:16:45.234Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:16:46.253Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:16:50.750Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:17:01.369Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:17:17.623Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:17:21.759Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:17:33.840Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:17:49.166Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:17:52.805Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:17:54.503Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:18:06.563Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:18:22.833Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:18:23.904Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:18:42.782Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:18:45.659Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:18:54.759Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:18:58.894Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:19:15.175Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:19:25.760Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:19:31.982Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:19:46.295Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:19:47.480Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:19:48.246Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:19:48.782Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:19:56.759Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:20:03.818Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:20:20.061Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:20:27.819Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:20:36.335Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:20:52.385Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:20:52.494Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:20:52.550Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:20:58.757Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:21:08.808Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:21:25.102Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:21:30.073Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:21:41.299Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:21:57.619Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:22:00.763Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:22:13.833Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:22:30.000Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:22:31.798Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:22:34.840Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:22:34.905Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:22:47.181Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:23:01.517Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:23:02.755Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:23:18.871Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:23:33.764Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:23:35.071Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:23:51.321Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:24:04.762Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:24:07.526Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:24:23.779Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:24:35.762Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:24:40.055Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:24:56.297Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:25:06.938Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:25:12.582Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:25:28.825Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:25:37.771Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:25:44.986Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:26:01.278Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:26:08.769Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:26:17.451Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:26:34.324Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:26:39.815Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:26:50.120Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:26:52.314Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:26:52.574Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:27:06.064Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:27:06.547Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:27:10.801Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:27:41.822Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:28:12.778Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:28:43.794Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:29:13.953Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:29:29.740Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:29:43.863Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:29:49.744Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:29:59.814Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:30:14.800Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:30:19.815Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:30:29.835Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:30:44.993Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:31:15.982Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:31:46.277Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:32:17.154Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:32:46.834Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:33:18.136Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:33:47.809Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:34:18.094Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:34:49.076Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:35:18.903Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:35:49.858Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:36:20.135Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:36:51.009Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:37:00.245Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:37:00.602Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:37:00.727Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:37:21.186Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:38:45.101Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:38:52.822Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:39:22.950Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:39:53.837Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:40:23.888Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:40:55.397Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:41:26.625Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:41:55.828Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:42:27.947Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:42:56.005Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:43:26.873Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:43:57.308Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:44:28.143Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:44:47.929Z - [WATCHER]: Processing file changes in outputs
+[NX v21.3.11 Daemon Server] - 2026-01-11T22:44:47.994Z - [WATCHER]: Processing file changes in outputs

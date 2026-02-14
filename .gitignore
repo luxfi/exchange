@@ -111,3 +111,5 @@ test-results/
 apps/extension/.output/
 .nx/
 grpc-server.log
+.nx/
+.nx/
