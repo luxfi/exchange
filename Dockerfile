@@ -5,7 +5,7 @@
 FROM node:22.13.1-alpine AS builder
 
 RUN apk add --no-cache python3 make g++ git
-RUN corepack enable && corepack prepare pnpm@latest --activate
+RUN npm install -g pnpm
 
 WORKDIR /app
 
