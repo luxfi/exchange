@@ -12,40 +12,19 @@ WORKDIR /app
 # Copy entire monorepo (workspaces need each other)
 COPY . .
 
-# Patch: pnpm-lock.yaml doesn't include the rolldown-vite alias from apps/web/package.json
-# Add pnpm override to force vite -> rolldown-vite for the build
-RUN node -e " \
-  const fs = require('fs'); \
-  const p = JSON.parse(fs.readFileSync('package.json', 'utf8')); \
-  p.pnpm = p.pnpm || {}; \
-  p.pnpm.overrides = p.pnpm.overrides || {}; \
-  p.pnpm.overrides['vite'] = 'npm:rolldown-vite@7.0.10'; \
-  fs.writeFileSync('package.json', JSON.stringify(p, null, 2) + '\n');"
-
-# Install deps (no frozen lockfile since we patched overrides; ignore scripts for Docker)
-RUN pnpm install --no-frozen-lockfile --ignore-scripts
-
-# Patch @noble/hashes v1.3.3 for rolldown strict module resolution:
-# 1. Add ./sha2.js export (v1 only has ./sha2 without extension)
-# 2. Create ./legacy shim (v2-only export needed by some deps)
-RUN node -e " \
-  const fs = require('fs'); \
-  const f = 'node_modules/@noble/hashes/package.json'; \
-  const p = JSON.parse(fs.readFileSync(f, 'utf8')); \
-  p.exports['./sha2.js'] = p.exports['./sha2']; \
-  p.exports['./legacy'] = { types: './utils.d.ts', import: './esm/legacy.js', default: './legacy.js' }; \
-  fs.writeFileSync(f, JSON.stringify(p, null, 2));" && \
-  echo "module.exports={...require('./utils'),...require('./sha256'),...require('./sha512'),...require('./ripemd160')};" > node_modules/@noble/hashes/legacy.js && \
-  mkdir -p node_modules/@noble/hashes/esm && \
-  echo "export * from './utils.js';export * from './sha256.js';export * from './sha512.js';export * from './ripemd160.js';" > node_modules/@noble/hashes/esm/legacy.js
+# Install deps (ignore preinstall/postinstall scripts that need bash/lefthook)
+RUN pnpm install --frozen-lockfile --ignore-scripts || pnpm install --no-frozen-lockfile --ignore-scripts
 
 # Run the ajv prepare step needed before build
 RUN cd apps/web && node scripts/compile-ajv-validators.js || true
 
-# Build the web app as a static SPA using workspace-resolved rolldown-vite
+# Build the web app as a static SPA
+# Use ENABLE_REACT_COMPILER=true to use @vitejs/plugin-react (Babel) instead of
+# @vitejs/plugin-react-oxc which requires rolldown-vite (strict module resolution
+# causes @noble/hashes v1/v2 compat issues in Docker)
 ENV NODE_ENV=production
 ENV DEPLOY_TARGET=static
-ENV ROLLDOWN_OPTIONS_VALIDATION=loose
+ENV ENABLE_REACT_COMPILER=true
 ENV CLOUDFLARE_ENV=production
 RUN pnpm --filter @luxfi/web exec vite build
 
