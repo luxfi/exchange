@@ -26,11 +26,14 @@ RUN node -e " \
   const p = JSON.parse(fs.readFileSync(f, 'utf8')); \
   if (!p.exports['./legacy']) { \
     p.exports['./legacy'] = { types: './utils.d.ts', import: './esm/utils.js', default: './utils.js' }; \
-    fs.writeFileSync(f, JSON.stringify(p, null, 2)); \
     fs.writeFileSync(d + '/legacy.js', 'module.exports = require(\"./utils\");'); \
     fs.mkdirSync(d + '/esm', { recursive: true }); \
     fs.writeFileSync(d + '/esm/legacy.js', 'export * from \"./utils.js\";'); \
-  }"
+  } \
+  if (!p.exports['./sha2.js']) { \
+    p.exports['./sha2.js'] = p.exports['./sha2']; \
+  } \
+  fs.writeFileSync(f, JSON.stringify(p, null, 2));"
 
 # Run the ajv prepare step needed before build
 RUN cd apps/web && node scripts/compile-ajv-validators.js || true
