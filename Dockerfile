@@ -1,8 +1,8 @@
 # Lux Exchange - Vite SPA Dockerfile
 # Multi-stage build: pnpm install + vite build -> nginx static serve
 
-# Stage 1: Build
-FROM --platform=linux/amd64 node:22-alpine AS builder
+# Stage 1: Build (pin exact node version to match engines requirement)
+FROM node:22.13.1-alpine AS builder
 
 RUN apk add --no-cache python3 make g++ git
 RUN corepack enable && corepack prepare pnpm@latest --activate
@@ -13,9 +13,7 @@ WORKDIR /app
 COPY . .
 
 # Install deps using pnpm (matches pnpm-lock.yaml)
-# Ignore engine-strict since node:22-alpine may not match =22.13.1
-RUN pnpm config set engine-strict false && \
-    (pnpm install --frozen-lockfile || pnpm install --no-frozen-lockfile)
+RUN pnpm install --frozen-lockfile || pnpm install --no-frozen-lockfile
 
 # Run the ajv prepare step needed before build
 RUN cd apps/web && node scripts/compile-ajv-validators.js || true
@@ -27,7 +25,7 @@ ENV ROLLDOWN_OPTIONS_VALIDATION=loose
 RUN cd apps/web && pnpm exec vite build
 
 # Stage 2: Serve with nginx
-FROM --platform=linux/amd64 nginx:alpine AS runner
+FROM nginx:alpine AS runner
 
 # Copy built static files (vite outDir is 'build')
 COPY --from=builder /app/apps/web/build /usr/share/nginx/html
