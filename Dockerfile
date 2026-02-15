@@ -20,6 +20,7 @@ RUN node -e " \
   p.pnpm = p.pnpm || {}; \
   p.pnpm.overrides = p.pnpm.overrides || {}; \
   p.pnpm.overrides['vite'] = 'npm:rolldown-vite@7.0.10'; \
+  p.pnpm.overrides['@noble/hashes'] = '2.0.1'; \
   fs.writeFileSync('package.json', JSON.stringify(p, null, 2) + '\n');"
 
 # Install deps (no frozen lockfile since we patched overrides; ignore scripts for Docker)
