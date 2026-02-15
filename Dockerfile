@@ -15,6 +15,23 @@ COPY . .
 # Install deps (ignore preinstall/postinstall scripts that need bash/lefthook)
 RUN pnpm install --frozen-lockfile --ignore-scripts || pnpm install --no-frozen-lockfile --ignore-scripts
 
+# Patch @noble/hashes v1.3.3: add missing ./legacy export for vite commonjs resolver
+# (v2-only export required by some transitive dependency)
+RUN node -e " \
+  const fs = require('fs'); \
+  const dir = 'node_modules/.pnpm/@noble+hashes@1.3.3/node_modules/@noble/hashes'; \
+  const alt = 'node_modules/@noble/hashes'; \
+  const d = fs.existsSync(dir) ? dir : alt; \
+  const f = d + '/package.json'; \
+  const p = JSON.parse(fs.readFileSync(f, 'utf8')); \
+  if (!p.exports['./legacy']) { \
+    p.exports['./legacy'] = { types: './utils.d.ts', import: './esm/utils.js', default: './utils.js' }; \
+    fs.writeFileSync(f, JSON.stringify(p, null, 2)); \
+    fs.writeFileSync(d + '/legacy.js', 'module.exports = require(\"./utils\");'); \
+    fs.mkdirSync(d + '/esm', { recursive: true }); \
+    fs.writeFileSync(d + '/esm/legacy.js', 'export * from \"./utils.js\";'); \
+  }"
+
 # Run the ajv prepare step needed before build
 RUN cd apps/web && node scripts/compile-ajv-validators.js || true
 
