@@ -9,9 +9,7 @@ build
 dist
 
 # Development
-.git
 .gitignore
-*.md
 *.log
 
 # IDE
@@ -19,11 +17,6 @@ dist
 .idea
 *.swp
 *.swo
-
-# Environment
-.env
-.env.*
-!.env.example
 
 # Test files
 __tests__
@@ -38,6 +31,11 @@ coverage
 
 # Legacy
 src/_pages_legacy
+
+# Mobile (not needed for web build)
+apps/mobile/android
+apps/mobile/ios
+apps/mobile/e2e
 
 # Misc
 .DS_Store
