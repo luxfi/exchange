@@ -12,8 +12,18 @@ WORKDIR /app
 # Copy entire monorepo (workspaces need each other)
 COPY . .
 
-# Install deps (ignore preinstall/postinstall scripts that need bash/lefthook)
-RUN pnpm install --frozen-lockfile --ignore-scripts || pnpm install --no-frozen-lockfile --ignore-scripts
+# Patch: pnpm-lock.yaml doesn't include the rolldown-vite alias from apps/web/package.json
+# Add pnpm override to force vite -> rolldown-vite for the build
+RUN node -e " \
+  const fs = require('fs'); \
+  const p = JSON.parse(fs.readFileSync('package.json', 'utf8')); \
+  p.pnpm = p.pnpm || {}; \
+  p.pnpm.overrides = p.pnpm.overrides || {}; \
+  p.pnpm.overrides['vite'] = 'npm:rolldown-vite@7.0.10'; \
+  fs.writeFileSync('package.json', JSON.stringify(p, null, 2) + '\n');"
+
+# Install deps (no frozen lockfile since we patched overrides; ignore scripts for Docker)
+RUN pnpm install --no-frozen-lockfile --ignore-scripts
 
 # Run the ajv prepare step needed before build
 RUN cd apps/web && node scripts/compile-ajv-validators.js || true
