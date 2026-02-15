@@ -4,7 +4,7 @@
 # Stage 1: Build (pin exact node version to match engines requirement)
 FROM node:22.13.1-alpine AS builder
 
-RUN apk add --no-cache python3 make g++ git
+RUN apk add --no-cache python3 make g++ git bash
 RUN npm install -g pnpm
 
 WORKDIR /app
@@ -12,8 +12,8 @@ WORKDIR /app
 # Copy entire monorepo (workspaces need each other)
 COPY . .
 
-# Install deps using pnpm (matches pnpm-lock.yaml)
-RUN pnpm install --frozen-lockfile || pnpm install --no-frozen-lockfile
+# Install deps (ignore preinstall/postinstall scripts that need bash/lefthook)
+RUN pnpm install --frozen-lockfile --ignore-scripts || pnpm install --no-frozen-lockfile --ignore-scripts
 
 # Run the ajv prepare step needed before build
 RUN cd apps/web && node scripts/compile-ajv-validators.js || true
