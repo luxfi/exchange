@@ -13,7 +13,9 @@ WORKDIR /app
 COPY . .
 
 # Install deps using pnpm (matches pnpm-lock.yaml)
-RUN pnpm install --frozen-lockfile || pnpm install --no-frozen-lockfile
+# Ignore engine-strict since node:22-alpine may not match =22.13.1
+RUN pnpm config set engine-strict false && \
+    (pnpm install --frozen-lockfile || pnpm install --no-frozen-lockfile)
 
 # Run the ajv prepare step needed before build
 RUN cd apps/web && node scripts/compile-ajv-validators.js || true
