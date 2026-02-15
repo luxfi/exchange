@@ -18,11 +18,12 @@ RUN pnpm install --frozen-lockfile --ignore-scripts || pnpm install --no-frozen-
 # Run the ajv prepare step needed before build
 RUN cd apps/web && node scripts/compile-ajv-validators.js || true
 
-# Build the web app as a static SPA
+# Build the web app as a static SPA using workspace-resolved rolldown-vite
 ENV NODE_ENV=production
 ENV DEPLOY_TARGET=static
 ENV ROLLDOWN_OPTIONS_VALIDATION=loose
-RUN cd apps/web && pnpm exec vite build
+ENV CLOUDFLARE_ENV=production
+RUN pnpm --filter @luxfi/web exec vite build
 
 # Stage 2: Serve with nginx
 FROM nginx:alpine AS runner
