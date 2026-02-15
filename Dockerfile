@@ -66,6 +66,7 @@ ENV NODE_ENV=production
 ENV DEPLOY_TARGET=static
 ENV ENABLE_REACT_COMPILER=true
 ENV CLOUDFLARE_ENV=production
+ENV NODE_OPTIONS=--max-old-space-size=8192
 RUN pnpm --filter @luxfi/web exec vite build
 
 # Stage 2: Serve with nginx
