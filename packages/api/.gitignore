@@ -4,5 +4,5 @@ THUMBS_DB
 tsconfig.tsbuildinfo
 dist/
 
-# generated files
-src/**/__generated__
+# generated files (tracked for Docker build - run codegen to update)
+# src/**/__generated__
