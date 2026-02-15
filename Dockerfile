@@ -15,25 +15,45 @@ COPY . .
 # Install deps (ignore preinstall/postinstall scripts that need bash/lefthook)
 RUN pnpm install --frozen-lockfile --ignore-scripts || pnpm install --no-frozen-lockfile --ignore-scripts
 
-# Patch @noble/hashes v1.3.3: add ./legacy and ./sha2.js exports needed by @scure/bip32@1.7.0
-# which expects v2.x API (abytes, anumber, ripemd160 from ./legacy)
-RUN node -e " \
-  const fs = require('fs'); \
-  const glob = require('path'); \
-  const dirs = ['node_modules/.pnpm/@noble+hashes@1.3.3/node_modules/@noble/hashes', 'node_modules/@noble/hashes']; \
-  dirs.filter(d => fs.existsSync(d)).forEach(d => { \
-    const f = d + '/package.json'; \
-    const p = JSON.parse(fs.readFileSync(f, 'utf8')); \
-    if (p.version !== '1.3.3') return; \
-    p.exports['./legacy'] = { types: './utils.d.ts', import: './esm/legacy.js', default: './legacy.js' }; \
-    if (!p.exports['./sha2.js']) p.exports['./sha2.js'] = p.exports['./sha2']; \
-    fs.writeFileSync(f, JSON.stringify(p, null, 2)); \
-    const cjs = 'const u=require(\"./utils\");const r=require(\"./ripemd160\");const s2=require(\"./sha256\");const s5=require(\"./sha512\");function abytes(b,...l){if(!(b instanceof Uint8Array))throw new Error(\"Uint8Array expected\");if(l.length>0&&!l.includes(b.length))throw new Error(\"Uint8Array expected of length \"+l)}function anumber(n){if(!Number.isSafeInteger(n)||n<0)throw new Error(\"positive integer expected\")}module.exports={...u,...r,...s2,...s5,abytes,anumber};'; \
-    const esm = 'export * from \"./utils.js\";export{ripemd160}from\"./ripemd160.js\";export{sha256}from\"./sha256.js\";export{sha384,sha512,sha512_256}from\"./sha512.js\";export function abytes(b,...l){if(!(b instanceof Uint8Array))throw new Error(\"Uint8Array expected\");if(l.length>0&&!l.includes(b.length))throw new Error(\"Uint8Array expected of length \"+l)}export function anumber(n){if(!Number.isSafeInteger(n)||n<0)throw new Error(\"positive integer expected\")}'; \
-    fs.writeFileSync(d + '/legacy.js', cjs); \
-    fs.mkdirSync(d + '/esm', { recursive: true }); \
-    fs.writeFileSync(d + '/esm/legacy.js', esm); \
-  });"
+# Patch @noble/hashes v1.3.3 for v2 compat needed by @scure/bip32@1.7.0
+# Adds: ./legacy export, ./sha2.js mapping, abytes/anumber to utils
+COPY <<'PATCH' /tmp/patch-noble.js
+const fs = require('fs');
+const polyfill = `
+function abytes(b,...l){if(!(b instanceof Uint8Array))throw new Error("Uint8Array expected");if(l.length>0&&!l.includes(b.length))throw new Error("wrong length")}
+function anumber(n){if(!Number.isSafeInteger(n)||n<0)throw new Error("positive integer expected")}
+`;
+const dirs = [
+  'node_modules/.pnpm/@noble+hashes@1.3.3/node_modules/@noble/hashes',
+  'node_modules/@noble/hashes'
+];
+dirs.filter(d => fs.existsSync(d + '/package.json')).forEach(d => {
+  const pkg = JSON.parse(fs.readFileSync(d + '/package.json', 'utf8'));
+  if (pkg.version !== '1.3.3') return;
+  // Add missing exports
+  pkg.exports['./legacy'] = { types: './utils.d.ts', import: './esm/legacy.js', default: './legacy.js' };
+  if (!pkg.exports['./sha2.js']) pkg.exports['./sha2.js'] = pkg.exports['./sha2'];
+  fs.writeFileSync(d + '/package.json', JSON.stringify(pkg, null, 2));
+  // Append abytes/anumber to CJS utils
+  let cjs = fs.readFileSync(d + '/utils.js', 'utf8');
+  if (!cjs.includes('abytes')) {
+    cjs += '\n' + polyfill + 'exports.abytes=abytes;exports.anumber=anumber;\n';
+    fs.writeFileSync(d + '/utils.js', cjs);
+  }
+  // Append abytes/anumber to ESM utils
+  let esm = fs.readFileSync(d + '/esm/utils.js', 'utf8');
+  if (!esm.includes('abytes')) {
+    esm += '\nexport ' + polyfill.trim().split('\n').join('\nexport ') + '\n';
+    fs.writeFileSync(d + '/esm/utils.js', esm);
+  }
+  // Create legacy module
+  fs.writeFileSync(d + '/legacy.js',
+    'const u=require("./utils");const r=require("./ripemd160");const s=require("./sha256");const s5=require("./sha512");module.exports={...u,...r,...s,...s5};');
+  fs.writeFileSync(d + '/esm/legacy.js',
+    'export * from "./utils.js";export{ripemd160}from"./ripemd160.js";export{sha256}from"./sha256.js";export{sha384,sha512,sha512_256}from"./sha512.js";');
+});
+PATCH
+RUN node /tmp/patch-noble.js
 
 # Run the ajv prepare step needed before build
 RUN cd apps/web && node scripts/compile-ajv-validators.js || true
