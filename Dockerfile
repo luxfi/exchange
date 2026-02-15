@@ -25,6 +25,9 @@ RUN node -e " \
 # Install deps (no frozen lockfile since we patched overrides; ignore scripts for Docker)
 RUN pnpm install --no-frozen-lockfile --ignore-scripts
 
+# Generate GraphQL types (gitignored but needed for build)
+RUN cd packages/api && npx graphql-codegen --config ./src/clients/graphql/codegen.config.ts || true
+
 # Run the ajv prepare step needed before build
 RUN cd apps/web && node scripts/compile-ajv-validators.js || true
 
