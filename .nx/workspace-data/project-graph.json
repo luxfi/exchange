@@ -7016,6 +7016,81 @@
     ]
   },
   "version": "6.0",
-  "errors": [],
-  "computedAt": 1771051027368
+  "errors": [
+    {
+      "stack": " - bun.lockb: SyntaxError: Expected \"\\n\", \"\\r\", or \"\\r\\n\" but \":\" found.\n    at peg$buildStructuredError (/Users/z/work/lux/exchange/node_modules/.pnpm/@yarnpkg+parsers@3.0.2/node_modules/@yarnpkg/parsers/lib/grammars/syml.js:371:12)\n    at peg$parse (/Users/z/work/lux/exchange/node_modules/.pnpm/@yarnpkg+parsers@3.0.2/node_modules/@yarnpkg/parsers/lib/grammars/syml.js:1898:11)\n    at parseViaPeg (/Users/z/work/lux/exchange/node_modules/.pnpm/@yarnpkg+parsers@3.0.2/node_modules/@yarnpkg/parsers/lib/syml.js:110:29)\n    at parseViaJsYaml (/Users/z/work/lux/exchange/node_modules/.pnpm/@yarnpkg+parsers@3.0.2/node_modules/@yarnpkg/parsers/lib/syml.js:115:16)\n    at parseSyml (/Users/z/work/lux/exchange/node_modules/.pnpm/@yarnpkg+parsers@3.0.2/node_modules/@yarnpkg/parsers/lib/syml.js:131:12)\n    at parseLockFile (/Users/z/work/lux/exchange/node_modules/.pnpm/nx@21.3.11_@swc-node+register@1.9.1_@swc+core@1.5.7_@swc+helpers@0.5.11__@swc+types@0.1_7912f72ca67508e191435370bca53246/node_modules/nx/src/plugins/js/lock-file/yarn-parser.js:23:20)\n    at getYarnLockfileNodes (/Users/z/work/lux/exchange/node_modules/.pnpm/nx@21.3.11_@swc-node+register@1.9.1_@swc+core@1.5.7_@swc+helpers@0.5.11__@swc+types@0.1_7912f72ca67508e191435370bca53246/node_modules/nx/src/plugins/js/lock-file/yarn-parser.js:29:45)\n    at getLockFileNodes (/Users/z/work/lux/exchange/node_modules/.pnpm/nx@21.3.11_@swc-node+register@1.9.1_@swc+core@1.5.7_@swc+helpers@0.5.11__@swc+types@0.1_7912f72ca67508e191435370bca53246/node_modules/nx/src/plugins/js/lock-file/lock-file.js:62:59)\n    at exports.createNodes (/Users/z/work/lux/exchange/node_modules/.pnpm/nx@21.3.11_@swc-node+register@1.9.1_@swc+core@1.5.7_@swc+helpers@0.5.11__@swc+types@0.1_7912f72ca67508e191435370bca53246/node_modules/nx/src/plugins/js/index.js:54:64)\n    at /Users/z/work/lux/exchange/node_modules/.pnpm/nx@21.3.11_@swc-node+register@1.9.1_@swc+core@1.5.7_@swc+helpers@0.5.11__@swc+types@0.1_7912f72ca67508e191435370bca53246/node_modules/nx/src/project-graph/plugins/utils.js:10:33",
+      "message": "An error occurred while processing files for the nx/js/dependencies-and-lockfile plugin\n.\n  - bun.lockb: Expected \"\\n\", \"\\r\", or \"\\r\\n\" but \":\" found.",
+      "errors": [
+        [
+          "bun.lockb",
+          {
+            "message": "Expected \"\\n\", \"\\r\", or \"\\r\\n\" but \":\" found.",
+            "expected": [
+              {
+                "type": "literal",
+                "text": "\r\n",
+                "ignoreCase": false
+              },
+              {
+                "type": "literal",
+                "text": "\n",
+                "ignoreCase": false
+              },
+              {
+                "type": "literal",
+                "text": "\r",
+                "ignoreCase": false
+              },
+              {
+                "type": "literal",
+                "text": "\r\n",
+                "ignoreCase": false
+              },
+              {
+                "type": "literal",
+                "text": "\n",
+                "ignoreCase": false
+              },
+              {
+                "type": "literal",
+                "text": "\r",
+                "ignoreCase": false
+              }
+            ],
+            "found": ":",
+            "location": {
+              "start": {
+                "offset": 754115,
+                "line": 17406,
+                "column": 46
+              },
+              "end": {
+                "offset": 754116,
+                "line": 17406,
+                "column": 47
+              }
+            },
+            "name": "SyntaxError",
+            "stack": "SyntaxError: Expected \"\\n\", \"\\r\", or \"\\r\\n\" but \":\" found.\n    at peg$buildStructuredError (/Users/z/work/lux/exchange/node_modules/.pnpm/@yarnpkg+parsers@3.0.2/node_modules/@yarnpkg/parsers/lib/grammars/syml.js:371:12)\n    at peg$parse (/Users/z/work/lux/exchange/node_modules/.pnpm/@yarnpkg+parsers@3.0.2/node_modules/@yarnpkg/parsers/lib/grammars/syml.js:1898:11)\n    at parseViaPeg (/Users/z/work/lux/exchange/node_modules/.pnpm/@yarnpkg+parsers@3.0.2/node_modules/@yarnpkg/parsers/lib/syml.js:110:29)\n    at parseViaJsYaml (/Users/z/work/lux/exchange/node_modules/.pnpm/@yarnpkg+parsers@3.0.2/node_modules/@yarnpkg/parsers/lib/syml.js:115:16)\n    at parseSyml (/Users/z/work/lux/exchange/node_modules/.pnpm/@yarnpkg+parsers@3.0.2/node_modules/@yarnpkg/parsers/lib/syml.js:131:12)\n    at parseLockFile (/Users/z/work/lux/exchange/node_modules/.pnpm/nx@21.3.11_@swc-node+register@1.9.1_@swc+core@1.5.7_@swc+helpers@0.5.11__@swc+types@0.1_7912f72ca67508e191435370bca53246/node_modules/nx/src/plugins/js/lock-file/yarn-parser.js:23:20)\n    at getYarnLockfileNodes (/Users/z/work/lux/exchange/node_modules/.pnpm/nx@21.3.11_@swc-node+register@1.9.1_@swc+core@1.5.7_@swc+helpers@0.5.11__@swc+types@0.1_7912f72ca67508e191435370bca53246/node_modules/nx/src/plugins/js/lock-file/yarn-parser.js:29:45)\n    at getLockFileNodes (/Users/z/work/lux/exchange/node_modules/.pnpm/nx@21.3.11_@swc-node+register@1.9.1_@swc+core@1.5.7_@swc+helpers@0.5.11__@swc+types@0.1_7912f72ca67508e191435370bca53246/node_modules/nx/src/plugins/js/lock-file/lock-file.js:62:59)\n    at exports.createNodes (/Users/z/work/lux/exchange/node_modules/.pnpm/nx@21.3.11_@swc-node+register@1.9.1_@swc+core@1.5.7_@swc+helpers@0.5.11__@swc+types@0.1_7912f72ca67508e191435370bca53246/node_modules/nx/src/plugins/js/index.js:54:64)\n    at /Users/z/work/lux/exchange/node_modules/.pnpm/nx@21.3.11_@swc-node+register@1.9.1_@swc+core@1.5.7_@swc+helpers@0.5.11__@swc+types@0.1_7912f72ca67508e191435370bca53246/node_modules/nx/src/project-graph/plugins/utils.js:10:33"
+          }
+        ]
+      ],
+      "partialResults": [
+        [
+          "bun.lock",
+          {}
+        ],
+        [
+          "package-lock.json",
+          {}
+        ],
+        [
+          "pnpm-lock.yaml",
+          {}
+        ]
+      ],
+      "name": "AggregateCreateNodesError"
+    }
+  ],
+  "computedAt": 1771383661818
 }

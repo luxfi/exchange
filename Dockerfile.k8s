@@ -1,0 +1,48 @@
+# Lux Exchange - Next.js 15 Dockerfile
+# Multi-stage build for production deployment (NX monorepo)
+
+# Stage 1: Builder
+FROM node:22-alpine AS builder
+RUN apk add --no-cache libc6-compat python3 make g++
+WORKDIR /app
+
+# Install bun
+RUN npm install -g bun
+
+# Copy entire monorepo (workspace resolution requires all package.json files)
+COPY . .
+
+# Install dependencies (no frozen lockfile - workspace hoisting may differ)
+RUN bun install --no-frozen-lockfile
+
+# Set build-time environment variables
+ENV NEXT_TELEMETRY_DISABLED=1
+ENV NODE_ENV=production
+ENV DOCKER_BUILD=true
+
+# Build the web app via NX
+RUN bunx nx build:production web || bun run --filter @luxfi/web build || (cd apps/web && bun run build)
+
+# Stage 2: Runner
+FROM node:22-alpine AS runner
+WORKDIR /app
+
+ENV NODE_ENV=production
+ENV NEXT_TELEMETRY_DISABLED=1
+
+RUN addgroup --system --gid 1001 nodejs
+RUN adduser --system --uid 1001 nextjs
+
+# Copy built assets (try standalone first, fallback to .next)
+COPY --from=builder /app/apps/web/public ./public
+COPY --from=builder --chown=nextjs:nodejs /app/apps/web/.next/standalone ./
+COPY --from=builder --chown=nextjs:nodejs /app/apps/web/.next/static ./.next/static
+
+USER nextjs
+
+EXPOSE 3000
+
+ENV PORT=3000
+ENV HOSTNAME="0.0.0.0"
+
+CMD ["node", "server.js"]
