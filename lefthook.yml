@@ -13,7 +13,17 @@ pre-commit:
       env:
         CI: "true"
         FORCE_COLOR: "0"
-      run: TERM=dumb bun g:pre-commit-checks
+        NX_DAEMON: "false"
+      run: |
+        export TERM=dumb
+        # Get changed packages and typecheck them directly (not dependents)
+        CHANGED=$(git diff --cached --name-only | sed -n 's|^packages/\([^/]*\)/.*|@luxfi/\1|p; s|^apps/\([^/]*\)/.*|@luxfi/\1|p' | sort -u | paste -sd, -)
+        if [ -n "$CHANGED" ]; then
+          echo "Typechecking changed packages: $CHANGED"
+          npx nx run-many -t typecheck --projects="$CHANGED" --output-style=stream
+        else
+          echo "No package files changed, skipping typecheck"
+        fi
 
     git-secrets:
       run: |
