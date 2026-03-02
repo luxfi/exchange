@@ -27,18 +27,18 @@ const USDC_ROPSTEN = new Token(
 )
 export const LUSD = new Token(
   SupportedChainId.LUX,
-  '0x848Cff46eb323f323b6Bbe1Df274E40793d7f2c2',
+  '0x57f9E717dc080a6A76fB6F77BecA8C9C1D266B96',
   18,
-  "LUSD",
-  "Liquid USD",
+  "LUSDC",
+  "Bridged USDC",
 );
 
 export const LBTC = new Token(
   SupportedChainId.LUX,
-  '0x1E48D32a4F5e9f08DB9aE4959163300FaF8A6C8e',
+  '0x8a3fad1c7FB94461621351aa6A983B6f814F039c',
   18,
   "LBTC",
-  "Liquid BTC",
+  "Bridged BTC",
 );
 
 export const LSOL = new Token(
@@ -46,7 +46,7 @@ export const LSOL = new Token(
   '0x26B40f650156C7EbF9e087Dd0dca181Fe87625B7',
   18,
   "LSOL",
-  "Liquid SOL",
+  "Bridged SOL",
 );
 
 export const ZSOL = new Token(
@@ -62,12 +62,12 @@ export const LZOO = new Token(
   '0x5E5290f350352768bD2bfC59c2DA15DD04A7cB88',
   18,
   "LZOO",
-  "Liquid ZOO",
+  "Bridged ZOO",
 );
 
 export const ZETH = new Token(
   SupportedChainId.ZOO,
-  '0x60E0a8167FC13dE89348978860466C9ceC24B9ba',
+  '0x82312e295533ab5167b306d5abf7f3eb2c0d95fd',
   18,
   "ZETH",
   "Zoo ETH",
@@ -75,7 +75,7 @@ export const ZETH = new Token(
 
 export const ZBTC = new Token(
   SupportedChainId.ZOO,
-  '0x1E48D32a4F5e9f08DB9aE4959163300FaF8A6C8e',
+  '0x923fd54fb626b01b1444cd2dd5b7bd02648d60e0',
   18,
   "ZBTC",
   "Zoo BTC",
@@ -83,10 +83,10 @@ export const ZBTC = new Token(
 
 export const ZLUX = new Token(
   SupportedChainId.ZOO,
-  '0x5E5290f350352768bD2bfC59c2DA15DD04A7cB88',
+  '0x49b76d9ca9bca9e9edef5e2ec4ed425b2e6b2445',
   18,
-  "ZLUX",
-  "Zoo LUX",
+  "WLUX",
+  "Wrapped LUX",
 );
 
 export const USDC_LUX_TESTNET = new Token(
@@ -144,18 +144,18 @@ export const USDC_BASE = new Token(
 
 export const USDC_LUX = new Token(
   SupportedChainId.LUX,
-  '0xB97EF9Ef8734C71904D8002F8b6Bc66Dd9c48a6E',
-  6,
-  'USDC',
-  'USD Coin'
+  '0x57f9E717dc080a6A76fB6F77BecA8C9C1D266B96',
+  18,
+  'LUSDC',
+  'Bridged USDC'
 )
 
 export const WETH_LUX = new Token(
   SupportedChainId.LUX,
-  '0x49D5c2BdFfac6CE2BFdB6640F4F80f226bc10bAB',
+  '0x5a88986958ea76Dd043f834542724F081cA1443B',
   18,
-  'WETH.e',
-  'Wrapped Ether'
+  'LETH',
+  'Bridged Ether'
 )
 
 export const USDC_BNB = new Token(
@@ -246,17 +246,17 @@ export const USDT_POLYGON = new Token(
 )
 export const LETH = new Token(
   SupportedChainId.LUX,
-  '0x60E0a8167FC13dE89348978860466C9ceC24B9ba',
+  '0x5a88986958ea76Dd043f834542724F081cA1443B',
   18,
   "LETH",
-  "LUX ETH",
+  "Bridged ETH",
 );
 export const ZUSD = new Token(
   SupportedChainId.ZOO,
-  '0x848Cff46eb323f323b6Bbe1Df274E40793d7f2c2',
+  '0x6aab89551e94e393185e77537f89c7d3834afae1',
   18,
-  "ZUSD",
-  "Zoo Dollar",
+  "ZUSDC",
+  "Zoo USDC",
 );
 export const USDT_LUX_TESTNET = new Token(
   SupportedChainId.LUX_TESTNET,
@@ -505,13 +505,6 @@ export const WRAPPED_NATIVE_CURRENCY: { [chainId: number]: Token | undefined } =
     'WETH',
     'Wrapped Ether'
   ),
-  [SupportedChainId.LUX]: new Token(
-    SupportedChainId.LUX,
-    '0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7',
-    18,
-    'WLUX',
-    'Wrapped LUX'
-  ),
   [SupportedChainId.ZORA]: new Token(
     SupportedChainId.ZORA,
     '0x4200000000000000000000000000000000000006',
@@ -563,21 +556,21 @@ export const WRAPPED_NATIVE_CURRENCY: { [chainId: number]: Token | undefined } =
   ),
   [SupportedChainId.LUX]: new Token(
     SupportedChainId.LUX,
-    '0x4888E4a2Ee0F03051c72D2BD3ACf755eD3498B3E',
+    '0x3C18bB6B17eb3F0879d4653e0120a531aF4d86E3',
     18,
     'WLUX',
     'Wrapped LUX'
   ),
   [SupportedChainId.ZOO]: new Token(
     SupportedChainId.ZOO,
-    '0x4888E4a2Ee0F03051c72D2BD3ACf755eD3498B3E',
+    '0x49b76d9ca9bca9e9edef5e2ec4ed425b2e6b2445',
     18,
     'WZOO',
     'Wrapped ZOO'
   ),
   [SupportedChainId.LUX_TESTNET]: new Token(
     SupportedChainId.LUX_TESTNET,
-    '0x4888E4a2Ee0F03051c72D2BD3ACf755eD3498B3E',
+    '0xDe5310d0Eccc04C8987cB66Ff6b89Ee793442C91',
     18,
     'WLUX',
     'Wrapped LUX'

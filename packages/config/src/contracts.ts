@@ -32,19 +32,18 @@ export const LUX_MAINNET_CONTRACTS = {
  * Contract addresses for Lux Testnet (96368)
  */
 export const LUX_TESTNET_CONTRACTS = {
-  // Core
-  WLUX: '0x732740c5c895C9FCF619930ed4293fc858eb44c7' as Address,
-  WETH: '0xd9956542B51032d940ef076d70B69410667277A3' as Address,
+  // Core — verified on-chain 2026-02-27
+  WLUX: '0xDe5310d0Eccc04C8987cB66Ff6b89Ee793442C91' as Address,
   MULTICALL: '0xd25F88CBdAe3c2CCA3Bb75FC4E723b44C0Ea362F' as Address,
 
-  // Bridge tokens (testnet deployments)
-  LETH: '0x60E0a8167FC13dE89348978860466C9ceC24B9ba' as Address,
-  LBTC: '0x1E48D32a4F5e9f08DB9aE4959163300FaF8A6C8e' as Address,
-  LUSD: '0xb84112ac9318a0b2319aa11d4d10e9762b25f7f4' as Address,
+  // Bridge tokens — verified on-chain 2026-02-27
+  LETH: '0xa695A8a66fbe3e32d15a531Db04185313595771a' as Address,
+  LBTC: '0x5a88986958ea76Dd043f834542724F081cA1443B' as Address,
+  LUSDC: '0x8a3fad1c7FB94461621351aa6A983B6f814F039c' as Address,
 
-  // AMM V2
-  V2_FACTORY: '0x81C3669B139D92909AA67DbF74a241b10540d919' as Address,
-  V2_ROUTER: '0xDB6c703c80BFaE5F9a56482d3c8535f27E1136EB' as Address,
+  // AMM V2 — verified on-chain 2026-02-27
+  V2_FACTORY: '0x1dD4E6cbC6B8fD032FCad5a3b0a45E446A014637' as Address,
+  V2_ROUTER: '0xb06B31521Afc434F87Fe4852c98FC15A26c92aE8' as Address,
 
   // AMM V3
   V3_FACTORY: '0x80bBc7C4C7a59C899D1B37BC14539A22D5830a84' as Address,
@@ -85,6 +84,26 @@ export const DEX_PRECOMPILES = {
 } as const
 
 /**
+ * Contract addresses for Zoo Mainnet (200200)
+ */
+export const ZOO_MAINNET_CONTRACTS = {
+  // Core — verified on-chain 2026-02-27
+  WLUX: '0x49b76d9ca9bca9e9edef5e2ec4ed425b2e6b2445' as Address,
+
+  // Bridge tokens — verified on-chain 2026-02-27
+  LETH: '0x82312e295533ab5167b306d5abf7f3eb2c0d95fd' as Address,
+  LBTC: '0x923fd54fb626b01b1444cd2dd5b7bd02648d60e0' as Address,
+  LUSDC: '0x6aab89551e94e393185e77537f89c7d3834afae1' as Address,
+
+  // AMM V2 (original 7 contracts, shared across all subnets)
+  V2_FACTORY: '0x84CF0A13db1BE8E1f0676405CfcBC8b09692fd1C' as Address,
+  V2_ROUTER: '0x2382F7A49Fa48E1f91bEc466C32E1d7f13Ec8206' as Address,
+
+  // DeFi
+  MARKETS: '0xabbc9a75b40dd3a8ee7bcf6cb7be41e67fd5dba3' as Address,
+} as const
+
+/**
  * Contract addresses for Lux Dev (1337)
  * Deterministic CREATE addresses from DeployFullStack.s.sol deployed by anvil account 0
  * Account 0: 0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266
@@ -116,6 +135,8 @@ export function getContracts(chainId: number) {
       return LUX_MAINNET_CONTRACTS
     case 96368:
       return LUX_TESTNET_CONTRACTS
+    case 200200:
+      return ZOO_MAINNET_CONTRACTS
     case 1337:
       return LUX_DEV_CONTRACTS
     default:
