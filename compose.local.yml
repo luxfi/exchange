@@ -97,7 +97,7 @@ services:
   # PostgreSQL - Exchange API database
   # =============================================================================
   postgres:
-    image: ghcr.io/hanzoai/sql:17-alpine
+    image: ghcr.io/hanzoai/sql:latest
     container_name: lux-exchange-postgres
     restart: unless-stopped
     ports:
