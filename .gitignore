@@ -104,3 +104,4 @@ CLAUDE.local.md
 # temporary files
 /tmp/
 packages/lx/CLAUDE.md
+.nx/
