@@ -7,14 +7,14 @@ import type { Address } from 'viem'
  * Contract addresses for Lux Mainnet (96369)
  */
 export const LUX_MAINNET_CONTRACTS = {
-  // Core (from RLP import - source of truth)
-  WLUX: '0x4888E4a2Ee0F03051c72D2BD3ACf755eD3498B3E' as Address,
+  // Core — verified on-chain 2026-03-03
+  WLUX: '0x190ec57826999527d2b1abf1ea619a0e190dc3bf' as Address,
   MULTICALL: '0xd25F88CBdAe3c2CCA3Bb75FC4E723b44C0Ea362F' as Address,
 
-  // Bridge tokens (L* prefix = bridged from source chains) - from RLP
-  LETH: '0x60e0a8167fc13de89348978860466c9cec24b9ba' as Address,
-  LBTC: '0x1e48d32a4f5e9f08db9ae4959163300faf8a6c8e' as Address,
-  LUSD: '0x848cff46eb323f323b6bbe1df274e40793d7f2c2' as Address,
+  // Bridge tokens (L* prefix = bridged from source chains) — verified 2026-03-03
+  LETH: '0x2d1d573097a1106eefd9f07b9eaa79ba55d09fc2' as Address,
+  LBTC: '0xab95c8b59f68ce922f2f334dfc8bb8f5b0525326' as Address,
+  LUSDC: '0xf85cf66fd0189c435033056edec5e525f39374a6' as Address,
   LZOO: '0x5e5290f350352768bd2bfc59c2da15dd04a7cb88' as Address,
   LSOL: '0x1af00a2590a834d14f4a8a26d1b03ebba8cf7961' as Address,
   LTON: '0xf5a313885832d4fc71d1ef80115197c4479b58c8' as Address,
@@ -23,9 +23,14 @@ export const LUX_MAINNET_CONTRACTS = {
   LCELO: '0x3078847f879a33994cda2ec1540ca52b5e0ee2e5' as Address,
   LFTM: '0x8b982132d639527e8a0eaad385f97719af8f5e04' as Address,
 
-  // AMM V2 (QuantumSwap)
-  V2_FACTORY: '0xD173926A10A0C4eCd3A51B1422270b65Df0551c1' as Address,
-  V2_ROUTER: '0xAe2cf1E403aAFE6C05A5b8Ef63EB19ba591d8511' as Address,
+  // AMM V2 — verified on-chain 2026-03-03
+  V2_FACTORY: '0xfcf74fe55da242d72ff063c603cd6abff4fa98b8' as Address,
+  V2_ROUTER: '0x84cf0a13db1be8e1f0676405cfcbc8b09692fd1c' as Address,
+
+  // AMM V2 LP Pools — deployed 2026-03-03
+  V2_POOL_WLUX_LUSDC: '0x7E09cE37D615E0A1a3841C3F4b84110865e5849a' as Address,
+  V2_POOL_WLUX_LETH: '0x72163c486ccB7A37Cd5261e5fF9C13CBC1C24780' as Address,
+  V2_POOL_WLUX_LBTC: '0x1759ab5B054a806892a8c92Ca941DBc6087A3a8F' as Address,
 
   // AMM V3 (Concentrated Liquidity)
   V3_FACTORY: '0x80bBc7C4C7a59C899D1B37BC14539A22D5830a84' as Address,

@@ -4,18 +4,23 @@ import type { Address } from 'viem'
  * Contract addresses for Lux Mainnet (96369)
  */
 export const LUX_MAINNET_CONTRACTS = {
-  // Core — verified on-chain 2026-02-27
-  WLUX: '0x3C18bB6B17eb3F0879d4653e0120a531aF4d86E3' as Address,
+  // Core — verified on-chain 2026-03-03
+  WLUX: '0x190ec57826999527d2b1abf1ea619a0e190dc3bf' as Address,
   MULTICALL: '0xd25F88CBdAe3c2CCA3Bb75FC4E723b44C0Ea362F' as Address,
 
-  // Bridge tokens — verified on-chain 2026-02-27
-  LETH: '0x5a88986958ea76Dd043f834542724F081cA1443B' as Address,
-  LBTC: '0x8a3fad1c7FB94461621351aa6A983B6f814F039c' as Address,
-  LUSDC: '0x57f9E717dc080a6A76fB6F77BecA8C9C1D266B96' as Address,
+  // Bridge tokens — verified on-chain 2026-03-03
+  LETH: '0x2d1d573097a1106eefd9f07b9eaa79ba55d09fc2' as Address,
+  LBTC: '0xab95c8b59f68ce922f2f334dfc8bb8f5b0525326' as Address,
+  LUSDC: '0xf85cf66fd0189c435033056edec5e525f39374a6' as Address,
 
-  // AMM V2 — verified on-chain 2026-02-27 (factory has 1 pair)
-  V2_FACTORY: '0xb06B31521Afc434F87Fe4852c98FC15A26c92aE8' as Address,
-  V2_ROUTER: '0x6A1a32BF731d504122EA318cE7Bd8D92b2284C0d' as Address,
+  // AMM V2 — verified on-chain 2026-03-03
+  V2_FACTORY: '0xfcf74fe55da242d72ff063c603cd6abff4fa98b8' as Address,
+  V2_ROUTER: '0x84cf0a13db1be8e1f0676405cfcbc8b09692fd1c' as Address,
+
+  // AMM V2 LP Pools — deployed 2026-03-03
+  V2_POOL_WLUX_LUSDC: '0x7E09cE37D615E0A1a3841C3F4b84110865e5849a' as Address,
+  V2_POOL_WLUX_LETH: '0x72163c486ccB7A37Cd5261e5fF9C13CBC1C24780' as Address,
+  V2_POOL_WLUX_LBTC: '0x1759ab5B054a806892a8c92Ca941DBc6087A3a8F' as Address,
 
   // Governance
   STAKED_LUX: '0xc606302cd0722DD42c460B09930477d09993F913' as Address,

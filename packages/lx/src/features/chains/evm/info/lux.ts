@@ -63,16 +63,16 @@ export const LUX_CHAIN_INFO = {
   pendingTransactionsRetryOptions: undefined,
   rpcUrls: {
     [RPCType.Public]: {
-      http: ['http://localhost:9630/ext/bc/C/rpc', 'https://api.lux.network/rpc'],
+      http: ['https://api.lux.network/mainnet/ext/bc/C/rpc'],
     },
     [RPCType.Default]: {
-      http: ['http://localhost:9630/ext/bc/C/rpc', 'https://api.lux.network/rpc'],
+      http: ['https://api.lux.network/mainnet/ext/bc/C/rpc'],
     },
     [RPCType.Fallback]: {
-      http: ['https://api.lux.network/rpc'],
+      http: ['https://api.lux.network/mainnet/ext/bc/C/rpc'],
     },
     [RPCType.Interface]: {
-      http: ['http://localhost:9630/ext/bc/C/rpc', 'https://api.lux.network/rpc'],
+      http: ['https://api.lux.network/mainnet/ext/bc/C/rpc'],
     },
   },
   urlParam: 'lux',
@@ -84,7 +84,7 @@ export const LUX_CHAIN_INFO = {
     name: 'Wrapped LUX',
     symbol: 'WLUX',
     decimals: 18,
-    address: '0x55750d6CA62a041c06a8E28626b10Be6c688f471', // WLUX mainnet deployment
+    address: '0x190ec57826999527d2b1abf1ea619a0e190dc3bf', // WLUX mainnet deployment 2026-03-03
   },
   gasConfig: {
     send: {
@@ -134,16 +134,16 @@ export const LUX_TESTNET_CHAIN_INFO = {
   pendingTransactionsRetryOptions: undefined,
   rpcUrls: {
     [RPCType.Public]: {
-      http: ['http://localhost:9640/ext/bc/C/rpc', 'https://api.lux-test.network/rpc'],
+      http: ['https://api.lux.network/testnet/ext/bc/C/rpc'],
     },
     [RPCType.Default]: {
-      http: ['http://localhost:9640/ext/bc/C/rpc', 'https://api.lux-test.network/rpc'],
+      http: ['https://api.lux.network/testnet/ext/bc/C/rpc'],
     },
     [RPCType.Fallback]: {
-      http: ['https://api.lux-test.network/rpc'],
+      http: ['https://api.lux.network/testnet/ext/bc/C/rpc'],
     },
     [RPCType.Interface]: {
-      http: ['http://localhost:9640/ext/bc/C/rpc', 'https://api.lux-test.network/rpc'],
+      http: ['https://api.lux.network/testnet/ext/bc/C/rpc'],
     },
   },
   urlParam: 'lux-testnet',

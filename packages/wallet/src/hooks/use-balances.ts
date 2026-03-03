@@ -94,7 +94,7 @@ export function useCoreTokenBalances(address: Address | undefined, chainId: numb
         LUX_MAINNET_CONTRACTS.WLUX,
         LUX_MAINNET_CONTRACTS.LETH,
         LUX_MAINNET_CONTRACTS.LBTC,
-        LUX_MAINNET_CONTRACTS.LUSD,
+        LUX_MAINNET_CONTRACTS.LUSDC,
       ]
     : [LUX_MAINNET_CONTRACTS.WLUX] // Fallback to mainnet WLUX for testnet
 

@@ -38,7 +38,7 @@ export const NATIVE_ZOO: Token = {
  * Wrapped native tokens
  */
 export const WLUX_MAINNET: Token = {
-  address: '0x55750d6CA62a041c06a8E28626b10Be6c688f471',
+  address: '0x190ec57826999527d2b1abf1ea619a0e190dc3bf',
   chainId: 96369,
   decimals: 18,
   symbol: 'WLUX',
@@ -65,12 +65,12 @@ export const WLUX_DEV: Token = {
 /**
  * Stablecoins
  */
-export const LUSD: Token = {
-  address: '0x4B1BfA76eD63F1A0aD2E4f40b3F46C45E8F7A4E2',
+export const LUSDC: Token = {
+  address: '0xf85cf66fd0189c435033056edec5e525f39374a6',
   chainId: 96369,
   decimals: 6, // USDC-compatible decimals
-  symbol: 'LUSD',
-  name: 'Lux Dollar',
+  symbol: 'LUSDC',
+  name: 'Lux USDC',
 }
 
 /**
@@ -78,7 +78,7 @@ export const LUSD: Token = {
  * These are the canonical mainnet addresses from @luxfi/config
  */
 export const LETH: Token = {
-  address: '0xAA3AE95816a4A6FbC6b8Ed5a6C06f22A96A80C8C',
+  address: '0x2d1d573097a1106eefd9f07b9eaa79ba55d09fc2',
   chainId: 96369,
   decimals: 18,
   symbol: 'LETH',
@@ -86,7 +86,7 @@ export const LETH: Token = {
 }
 
 export const LBTC: Token = {
-  address: '0x526903E35E7106D62ED3B5d77E14e51d024Aa1D3',
+  address: '0xab95c8b59f68ce922f2f334dfc8bb8f5b0525326',
   chainId: 96369,
   decimals: 8,
   symbol: 'LBTC',
@@ -238,7 +238,7 @@ export const LUX_MAINNET_TOKENS: Token[] = [
   DAI_LUX,
   LETH,
   LBTC,
-  LUSD,
+  LUSDC,
 ]
 
 /**

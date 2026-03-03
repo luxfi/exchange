@@ -351,7 +351,7 @@ export const WRAPPED_NATIVE_CURRENCY: { [chainId: number]: Token | undefined } =
   // Lux ecosystem chains - deployed WLUX/WZOO addresses
   [UniverseChainId.Lux]: new Token(
     UniverseChainId.Lux,
-    '0x55750d6CA62a041c06a8E28626b10Be6c688f471', // WLUX mainnet deployment
+    '0x190ec57826999527d2b1abf1ea619a0e190dc3bf', // WLUX mainnet deployment 2026-03-03
     18,
     'WLUX',
     'Wrapped LUX',
@@ -388,15 +388,15 @@ export const WRAPPED_NATIVE_CURRENCY: { [chainId: number]: Token | undefined } =
 
 export const LUSD_LUX = new Token(
   UniverseChainId.Lux,
-  '0x848Cff46eb323f323b6Bbe1Df274E40793d7f2c2',
-  18,
-  'LUSD',
-  'Lux Dollar',
+  '0xf85cf66fd0189c435033056edec5e525f39374a6',
+  6,
+  'LUSDC',
+  'Lux USDC',
 )
 
 export const LETH_LUX = new Token(
   UniverseChainId.Lux,
-  '0x60E0a8167FC13dE89348978860466C9ceC24B9ba',
+  '0x2d1d573097a1106eefd9f07b9eaa79ba55d09fc2',
   18,
   'LETH',
   'Lux ETH',
@@ -404,8 +404,8 @@ export const LETH_LUX = new Token(
 
 export const LBTC_LUX = new Token(
   UniverseChainId.Lux,
-  '0x1E48D32a4F5e9f08DB9aE4959163300FaF8A6C8e',
-  18,
+  '0xab95c8b59f68ce922f2f334dfc8bb8f5b0525326',
+  8,
   'LBTC',
   'Lux BTC',
 )
