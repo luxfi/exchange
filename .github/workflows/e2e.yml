@@ -1,0 +1,106 @@
+name: E2E Tests
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+concurrency:
+  group: e2e-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: luxfi/exchange
+
+jobs:
+  e2e-critical:
+    name: Critical Path E2E Tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Install Playwright browsers
+        run: npx playwright install chromium
+
+      - name: Run critical e2e tests against production
+        run: |
+          npx playwright test \
+            e2e/advanced.spec.ts \
+            e2e/lux-explore.spec.ts \
+            --grep "@critical" \
+            --reporter=list \
+            --retries=2
+        env:
+          BASE_URL: https://exchange.lux.network
+
+      - name: Upload test results
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: e2e-results
+          path: apps/web/test-results/
+          retention-days: 7
+
+  e2e-full:
+    name: Full E2E Suite
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Install Playwright browsers
+        run: npx playwright install chromium
+
+      - name: Run all e2e tests
+        run: |
+          npx playwright test \
+            e2e/advanced.spec.ts \
+            e2e/lux-explore.spec.ts \
+            e2e/explore.spec.ts \
+            --reporter=list \
+            --retries=2
+        env:
+          BASE_URL: https://exchange.lux.network
+
+      - name: Upload test results
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: e2e-full-results
+          path: apps/web/test-results/
+          retention-days: 7
+
+  # Gate: deployment cannot proceed if critical tests fail
+  deploy-gate:
+    name: Deploy Gate
+    needs: [e2e-critical]
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
+    steps:
+      - name: Critical tests passed
+        run: echo "All critical e2e tests passed. Deployment is allowed."
