@@ -25,8 +25,10 @@ export function StatsigProviderWrapper({
   storageProvider,
   onInit,
 }: StatsigProviderWrapperProps): ReactNode {
+  // Skip Statsig when no API key is configured (e.g. self-hosted deployments)
   if (!config.statsigApiKey) {
-    throw new Error('statsigApiKey is not set')
+    onInit?.()
+    return <>{children}</>
   }
 
   const statsigOptions = useMemo<StatsigOptions>(

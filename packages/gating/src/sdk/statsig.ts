@@ -28,11 +28,8 @@ function getStatsigApiKeyOrThrow(): string {
   // A dummy key is used in test env b/c the wallet/mobile tests use this file instead of the statsig.native file
   const statsigApiKey = isTestEnv() ? 'dummy-test-key' : getConfig().statsigApiKey
 
-  if (!statsigApiKey) {
-    throw new Error('STATSIG_API_KEY is not set')
-  }
-
-  return statsigApiKey
+  // Return empty string instead of throwing for self-hosted deployments without Statsig
+  return statsigApiKey || ''
 }
 
 export function getOverrideAdapter(): LocalOverrideAdapterWrapper {
