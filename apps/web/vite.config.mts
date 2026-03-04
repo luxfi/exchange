@@ -349,6 +349,7 @@ export default defineConfig(({ mode }) => {
       // Note: @l.x/uniswapx-sdk excluded due to SES class heritage error
       exclude: ['expo-clipboard', '@connectrpc/connect', '@luxdex/sdk'],
       esbuildOptions: {
+        target: 'es2020',
         resolveExtensions: ['.web.js', '.web.ts', '.web.tsx', '.js', '.ts', '.tsx'],
         loader: {
           '.js': 'jsx',
@@ -368,6 +369,7 @@ export default defineConfig(({ mode }) => {
 
     build: {
       outDir: 'build',
+      target: 'es2020', // BigInt, optional chaining, nullish coalescing
       sourcemap: VITE_DISABLE_SOURCEMAP ? false : (isProduction && !isVercelDeploy ? 'hidden' : true),
       minify: isProduction && !isVercelDeploy ? 'esbuild' : undefined,
       rollupOptions: {
