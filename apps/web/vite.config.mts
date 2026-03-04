@@ -163,6 +163,12 @@ export default defineConfig(({ mode }) => {
         'ethers',
         'react',
         'react-dom',
+        // Prevent duplicate context/state instances (pnpm creates separate copies → null contexts)
+        'react-redux',
+        '@reduxjs/toolkit',
+        '@apollo/client',
+        'jotai',
+        '@tanstack/react-query',
         // Prevent duplicate wagmi/viem instances from nested dependencies (e.g., @binance connector)
         'wagmi',
         '@wagmi/core',
