@@ -33,7 +33,7 @@ export function usePositions(owner: Address | undefined, chainId: number) {
       try {
         // Get number of positions
         const balance = await publicClient.readContract({
-          address: contracts.V3_NFT_POSITION_MANAGER,
+          address: (contracts as any).V3_NFT_POSITION_MANAGER,
           abi: NFT_POSITION_MANAGER_ABI,
           functionName: 'balanceOf',
           args: [owner],
@@ -45,7 +45,7 @@ export function usePositions(owner: Address | undefined, chainId: number) {
         const tokenIds = await Promise.all(
           Array.from({ length: Number(balance) }, (_, i) =>
             publicClient.readContract({
-              address: contracts.V3_NFT_POSITION_MANAGER,
+              address: (contracts as any).V3_NFT_POSITION_MANAGER,
               abi: NFT_POSITION_MANAGER_ABI,
               functionName: 'tokenOfOwnerByIndex',
               args: [owner, BigInt(i)],
@@ -57,7 +57,7 @@ export function usePositions(owner: Address | undefined, chainId: number) {
         const positions = await Promise.all(
           tokenIds.map(async (tokenId) => {
             const position = await publicClient.readContract({
-              address: contracts.V3_NFT_POSITION_MANAGER,
+              address: (contracts as any).V3_NFT_POSITION_MANAGER,
               abi: NFT_POSITION_MANAGER_ABI,
               functionName: 'positions',
               args: [tokenId],

@@ -20,7 +20,7 @@
     },
     {
       "chainId": 96369,
-      "address": "0x190ec57826999527d2b1abf1ea619a0e190dc3bf",
+      "address": "0x3C18bB6B17eb3F0879d4653e0120a531aF4d86E3",
       "name": "Wrapped LUX",
       "symbol": "WLUX",
       "decimals": 18,
@@ -28,7 +28,7 @@
     },
     {
       "chainId": 96369,
-      "address": "0x2d1d573097a1106eefd9f07b9eaa79ba55d09fc2",
+      "address": "0x5a88986958ea76Dd043f834542724F081cA1443B",
       "name": "Lux Ether",
       "symbol": "LETH",
       "decimals": 18,
@@ -36,7 +36,7 @@
     },
     {
       "chainId": 96369,
-      "address": "0xab95c8b59f68ce922f2f334dfc8bb8f5b0525326",
+      "address": "0x8a3fad1c7FB94461621351aa6A983B6f814F039c",
       "name": "Lux Bitcoin",
       "symbol": "LBTC",
       "decimals": 8,
@@ -44,7 +44,7 @@
     },
     {
       "chainId": 96369,
-      "address": "0xf85cf66fd0189c435033056edec5e525f39374a6",
+      "address": "0x57f9E717dc080a6A76fB6F77BecA8C9C1D266B96",
       "name": "Lux USD",
       "symbol": "LUSDC",
       "decimals": 6,

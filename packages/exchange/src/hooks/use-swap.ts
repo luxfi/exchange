@@ -31,7 +31,7 @@ export function useSwap() {
       const isNativeIn = isNativeToken(params.tokenIn)
 
       const txHash = await writeContractAsync({
-        address: contracts.V3_SWAP_ROUTER_02,
+        address: (contracts as any).V3_SWAP_ROUTER_02 ?? contracts.V2_ROUTER,
         abi: SWAP_ROUTER_ABI,
         functionName: 'exactInputSingle',
         args: [

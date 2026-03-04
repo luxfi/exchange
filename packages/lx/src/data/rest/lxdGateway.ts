@@ -38,18 +38,17 @@ const FALLBACK_TOKENS: Record<number, LxdToken[]> = {
   ],
   [UniverseChainId.Lux]: [
     { chainId: 96369, address: '0x0000000000000000000000000000000000000000', name: 'LUX', symbol: 'LUX', decimals: 18 },
-    { chainId: 96369, address: '0x190ec57826999527d2b1abf1ea619a0e190dc3bf', name: 'Wrapped LUX', symbol: 'WLUX', decimals: 18 },
-    { chainId: 96369, address: '0xf85cf66fd0189c435033056edec5e525f39374a6', name: 'Lux USDC', symbol: 'LUSDC', decimals: 6 },
-    { chainId: 96369, address: '0x2d1d573097a1106eefd9f07b9eaa79ba55d09fc2', name: 'Lux ETH', symbol: 'LETH', decimals: 18 },
-    { chainId: 96369, address: '0xab95c8b59f68ce922f2f334dfc8bb8f5b0525326', name: 'Lux BTC', symbol: 'LBTC', decimals: 8 },
+    { chainId: 96369, address: '0x3C18bB6B17eb3F0879d4653e0120a531aF4d86E3', name: 'Wrapped LUX', symbol: 'WLUX', decimals: 18 },
+    { chainId: 96369, address: '0x57f9E717dc080a6A76fB6F77BecA8C9C1D266B96', name: 'Lux USDC', symbol: 'LUSDC', decimals: 6 },
+    { chainId: 96369, address: '0x5a88986958ea76Dd043f834542724F081cA1443B', name: 'Lux ETH', symbol: 'LETH', decimals: 18 },
+    { chainId: 96369, address: '0x8a3fad1c7FB94461621351aa6A983B6f814F039c', name: 'Lux BTC', symbol: 'LBTC', decimals: 8 },
   ],
   [UniverseChainId.Zoo]: [
     { chainId: 200200, address: '0x0000000000000000000000000000000000000000', name: 'ZOO', symbol: 'ZOO', decimals: 18 },
-    { chainId: 200200, address: '0x55750d6CA62a041c06a8E28626b10Be6c688f471', name: 'Wrapped ZOO', symbol: 'WZOO', decimals: 18 },
-    { chainId: 200200, address: '0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48', name: 'USD Coin', symbol: 'USDC', decimals: 6 },
-    { chainId: 200200, address: '0xdAC17F958D2ee523a2206206994597C13D831ec7', name: 'Tether USD', symbol: 'USDT', decimals: 6 },
-    { chainId: 200200, address: '0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2', name: 'Wrapped Ether', symbol: 'WETH', decimals: 18 },
-    { chainId: 200200, address: '0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599', name: 'Wrapped Bitcoin', symbol: 'WBTC', decimals: 8 },
+    { chainId: 200200, address: '0x5491216406daB99b7032b83765F36790E27F8A61', name: 'Wrapped LUX', symbol: 'WLUX', decimals: 18 },
+    { chainId: 200200, address: '0xb2ee1CE7b84853b83AA08702aD0aD4D79711882D', name: 'Lux USDC', symbol: 'LUSDC', decimals: 6 },
+    { chainId: 200200, address: '0x4870621EA8be7a383eFCfdA225249d35888bD9f2', name: 'Lux ETH', symbol: 'LETH', decimals: 18 },
+    { chainId: 200200, address: '0x6fc44509a32E513bE1aa00d27bb298e63830C6A8', name: 'Lux BTC', symbol: 'LBTC', decimals: 8 },
   ],
 }
 

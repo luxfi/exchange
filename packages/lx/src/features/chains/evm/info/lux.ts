@@ -17,7 +17,7 @@ import { ONE_MINUTE_MS } from 'utilities/src/time/time'
 
 const tokens = buildChainTokens({
   stables: {
-    USDC: buildUSDC('0x17ab05351fc94a1a67bf3f56ddbb941ae6c63e25', UniverseChainId.Lux), // USDC on Lux mainnet
+    USDC: buildUSDC('0x57f9E717dc080a6A76fB6F77BecA8C9C1D266B96', UniverseChainId.Lux), // LUSDC on Lux mainnet
     USDT: buildUSDT('0x5aa01b3b5877255ce50cc55e8986a7a5fe29c70e', UniverseChainId.Lux), // USDT on Lux mainnet
   },
 })
@@ -25,7 +25,7 @@ const tokens = buildChainTokens({
 // Lux testnet tokens - LUSD is a stablecoin on testnet
 const testnetTokens = buildChainTokens({
   stables: {
-    USDC: buildUSDC('0xb84112ac9318a0b2319aa11d4d10e9762b25f7f4', UniverseChainId.LuxTestnet), // LUSD on Lux testnet
+    USDC: buildUSDC('0x8a3fad1c7FB94461621351aa6A983B6f814F039c', UniverseChainId.LuxTestnet), // LUSDC on Lux testnet
   },
 })
 
@@ -84,7 +84,7 @@ export const LUX_CHAIN_INFO = {
     name: 'Wrapped LUX',
     symbol: 'WLUX',
     decimals: 18,
-    address: '0x190ec57826999527d2b1abf1ea619a0e190dc3bf', // WLUX mainnet deployment 2026-03-03
+    address: '0x3C18bB6B17eb3F0879d4653e0120a531aF4d86E3', // WLUX mainnet deployment 2026-02-26
   },
   gasConfig: {
     send: {
@@ -155,7 +155,7 @@ export const LUX_TESTNET_CHAIN_INFO = {
     name: 'Wrapped LUX',
     symbol: 'WLUX',
     decimals: 18,
-    address: '0x732740c5c895C9FCF619930ed4293fc858eb44c7', // WLUX testnet deployment
+    address: '0xDe5310d0Eccc04C8987cB66Ff6b89Ee793442C91', // WLUX testnet deployment 2026-02-27
   },
   gasConfig: {
     send: {

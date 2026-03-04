@@ -38,7 +38,7 @@ export const NATIVE_ZOO: Token = {
  * Wrapped native tokens
  */
 export const WLUX_MAINNET: Token = {
-  address: '0x190ec57826999527d2b1abf1ea619a0e190dc3bf',
+  address: '0x3C18bB6B17eb3F0879d4653e0120a531aF4d86E3',
   chainId: 96369,
   decimals: 18,
   symbol: 'WLUX',
@@ -46,7 +46,7 @@ export const WLUX_MAINNET: Token = {
 }
 
 export const WLUX_TESTNET: Token = {
-  address: '0x732740c5c895C9FCF619930ed4293fc858eb44c7',
+  address: '0xDe5310d0Eccc04C8987cB66Ff6b89Ee793442C91',
   chainId: 96368,
   decimals: 18,
   symbol: 'WLUX',
@@ -66,7 +66,7 @@ export const WLUX_DEV: Token = {
  * Stablecoins
  */
 export const LUSDC: Token = {
-  address: '0xf85cf66fd0189c435033056edec5e525f39374a6',
+  address: '0x57f9E717dc080a6A76fB6F77BecA8C9C1D266B96',
   chainId: 96369,
   decimals: 6, // USDC-compatible decimals
   symbol: 'LUSDC',
@@ -78,7 +78,7 @@ export const LUSDC: Token = {
  * These are the canonical mainnet addresses from @luxfi/config
  */
 export const LETH: Token = {
-  address: '0x2d1d573097a1106eefd9f07b9eaa79ba55d09fc2',
+  address: '0x5a88986958ea76Dd043f834542724F081cA1443B',
   chainId: 96369,
   decimals: 18,
   symbol: 'LETH',
@@ -86,7 +86,7 @@ export const LETH: Token = {
 }
 
 export const LBTC: Token = {
-  address: '0xab95c8b59f68ce922f2f334dfc8bb8f5b0525326',
+  address: '0x8a3fad1c7FB94461621351aa6A983B6f814F039c',
   chainId: 96369,
   decimals: 8,
   symbol: 'LBTC',
@@ -97,7 +97,7 @@ export const LBTC: Token = {
  * Testnet bridge tokens
  */
 export const LETH_TESTNET: Token = {
-  address: '0x60E0a8167FC13dE89348978860466C9ceC24B9ba',
+  address: '0xa695A8a66fbe3e32d15a531Db04185313595771a',
   chainId: 96368,
   decimals: 18,
   symbol: 'LETH',
@@ -105,7 +105,7 @@ export const LETH_TESTNET: Token = {
 }
 
 export const LBTC_TESTNET: Token = {
-  address: '0x1E48D32a4F5e9f08DB9aE4959163300FaF8A6C8e',
+  address: '0x5a88986958ea76Dd043f834542724F081cA1443B',
   chainId: 96368,
   decimals: 8,
   symbol: 'LBTC',
@@ -113,11 +113,11 @@ export const LBTC_TESTNET: Token = {
 }
 
 export const LUSD_TESTNET: Token = {
-  address: '0xb84112ac9318a0b2319aa11d4d10e9762b25f7f4',
+  address: '0x8a3fad1c7FB94461621351aa6A983B6f814F039c',
   chainId: 96368,
-  decimals: 18,
-  symbol: 'LUSD',
-  name: 'Lux Dollar',
+  decimals: 6,
+  symbol: 'LUSDC',
+  name: 'Lux USDC',
 }
 
 /**

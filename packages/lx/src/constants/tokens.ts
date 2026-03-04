@@ -351,22 +351,22 @@ export const WRAPPED_NATIVE_CURRENCY: { [chainId: number]: Token | undefined } =
   // Lux ecosystem chains - deployed WLUX/WZOO addresses
   [UniverseChainId.Lux]: new Token(
     UniverseChainId.Lux,
-    '0x190ec57826999527d2b1abf1ea619a0e190dc3bf', // WLUX mainnet deployment 2026-03-03
+    '0x3C18bB6B17eb3F0879d4653e0120a531aF4d86E3', // WLUX mainnet deployment 2026-02-26
     18,
     'WLUX',
     'Wrapped LUX',
   ),
   [UniverseChainId.Zoo]: new Token(
     UniverseChainId.Zoo,
-    '0x55750d6CA62a041c06a8E28626b10Be6c688f471', // WZOO mainnet deployment
+    '0x5491216406daB99b7032b83765F36790E27F8A61', // WLUX on Zoo mainnet 2026-03-01
     18,
-    'WZOO',
-    'Wrapped ZOO',
+    'WLUX',
+    'Wrapped LUX',
   ),
   // Lux Testnet
   [UniverseChainId.LuxTestnet]: new Token(
     UniverseChainId.LuxTestnet,
-    '0x732740c5c895C9FCF619930ed4293fc858eb44c7',
+    '0xDe5310d0Eccc04C8987cB66Ff6b89Ee793442C91',
     18,
     'WLUX',
     'Wrapped LUX',
@@ -388,7 +388,7 @@ export const WRAPPED_NATIVE_CURRENCY: { [chainId: number]: Token | undefined } =
 
 export const LUSD_LUX = new Token(
   UniverseChainId.Lux,
-  '0xf85cf66fd0189c435033056edec5e525f39374a6',
+  '0x57f9E717dc080a6A76fB6F77BecA8C9C1D266B96',
   6,
   'LUSDC',
   'Lux USDC',
@@ -396,7 +396,7 @@ export const LUSD_LUX = new Token(
 
 export const LETH_LUX = new Token(
   UniverseChainId.Lux,
-  '0x2d1d573097a1106eefd9f07b9eaa79ba55d09fc2',
+  '0x5a88986958ea76Dd043f834542724F081cA1443B',
   18,
   'LETH',
   'Lux ETH',
@@ -404,7 +404,7 @@ export const LETH_LUX = new Token(
 
 export const LBTC_LUX = new Token(
   UniverseChainId.Lux,
-  '0xab95c8b59f68ce922f2f334dfc8bb8f5b0525326',
+  '0x8a3fad1c7FB94461621351aa6A983B6f814F039c',
   8,
   'LBTC',
   'Lux BTC',
@@ -686,26 +686,26 @@ export const ZXDAI_ZOO = new Token(
 
 export const LUSD_LUX_TESTNET = new Token(
   UniverseChainId.LuxTestnet,
-  '0xb84112ac9318a0b2319aa11d4d10e9762b25f7f4',
-  18,
-  'LUSD',
-  'Liquid USD',
+  '0x8a3fad1c7FB94461621351aa6A983B6f814F039c',
+  6,
+  'LUSDC',
+  'Lux USDC',
 )
 
 export const LETH_LUX_TESTNET = new Token(
   UniverseChainId.LuxTestnet,
-  '0x60E0a8167FC13dE89348978860466C9ceC24B9ba',
+  '0xa695A8a66fbe3e32d15a531Db04185313595771a',
   18,
   'LETH',
-  'Liquid ETH',
+  'Lux ETH',
 )
 
 export const LBTC_LUX_TESTNET = new Token(
   UniverseChainId.LuxTestnet,
-  '0x1E48D32a4F5e9f08DB9aE4959163300FaF8A6C8e',
-  18,
+  '0x5a88986958ea76Dd043f834542724F081cA1443B',
+  8,
   'LBTC',
-  'Liquid BTC',
+  'Lux BTC',
 )
 
 // =============================================================================

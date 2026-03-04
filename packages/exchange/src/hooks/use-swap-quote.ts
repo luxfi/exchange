@@ -43,7 +43,7 @@ export function useSwapQuote({
       try {
         // Call QuoterV2 for quote
         const result = await publicClient.simulateContract({
-          address: contracts.V3_QUOTER_V2,
+          address: (contracts as any).V3_QUOTER_V2,
           abi: QUOTER_V2_ABI,
           functionName: 'quoteExactInputSingle',
           args: [

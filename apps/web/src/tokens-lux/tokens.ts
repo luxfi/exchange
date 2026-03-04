@@ -517,7 +517,7 @@ export const TOKENS_LUX_LIST = {
         },
         {
             "chainId": 96368,
-            "address": "0x732740c5c895C9FCF619930ed4293fc858eb44c7",
+            "address": "0xDe5310d0Eccc04C8987cB66Ff6b89Ee793442C91",
             "name": "Wrapped LUX",
             "symbol": "WLUX",
             "decimals": 18,
