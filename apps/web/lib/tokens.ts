@@ -11,6 +11,9 @@ import {
   luxTestnet,
   zooMainnet,
   zooTestnet,
+  hanzoMainnet,
+  spcMainnet,
+  parsMainnet,
   ethereum,
   sepolia,
   isLuxChain,
@@ -60,39 +63,39 @@ export const LUX_MAINNET_TOKENS: Token[] = [
     chainId: luxMainnet.id,
     isNative: true,
   },
-  // Wrapped native
+  // Wrapped native — verified on-chain 2026-03-03
   {
     symbol: "WLUX",
     name: "Wrapped LUX",
     decimals: 18,
-    address: "0x4888E4a2Ee0F03051c72D2BD3ACf755eD3498B3E",
-    logoUri: "https://cdn.lux.network/exchange/icon-png/lux.png",
+    address: "0x190ec57826999527d2b1abf1ea619a0e190dc3bf",
+    logoUri: "/tokens/wlux.svg",
     chainId: luxMainnet.id,
     isWrappedNative: true,
   },
-  // Liquid/Bridge tokens
+  // Bridge tokens — verified on-chain 2026-03-03
   {
     symbol: "LETH",
-    name: "Liquid ETH",
+    name: "Lux Ether",
     decimals: 18,
-    address: "0x60E0a8167FC13dE89348978860466C9ceC24B9ba",
-    logoUri: "https://cdn.lux.network/exchange/icon-png/leth.png",
+    address: "0x2d1d573097a1106eefd9f07b9eaa79ba55d09fc2",
+    logoUri: "/tokens/leth.svg",
     chainId: luxMainnet.id,
   },
   {
-    symbol: "LUSD",
-    name: "Liquid USD",
-    decimals: 18,
-    address: "0x848Cff46eb323f323b6Bbe1Df274E40793d7f2c2",
-    logoUri: "https://cdn.lux.network/exchange/icon-png/lusd.png",
+    symbol: "LUSDC",
+    name: "Lux USD",
+    decimals: 6,
+    address: "0xf85cf66fd0189c435033056edec5e525f39374a6",
+    logoUri: "/tokens/lusdc.svg",
     chainId: luxMainnet.id,
   },
   {
     symbol: "LBTC",
-    name: "Liquid BTC",
-    decimals: 18,
-    address: "0x1E48D32a4F5e9f08DB9aE4959163300FaF8A6C8e",
-    logoUri: "https://cdn.lux.network/exchange/icon-png/lbtc.png",
+    name: "Lux Bitcoin",
+    decimals: 8,
+    address: "0xab95c8b59f68ce922f2f334dfc8bb8f5b0525326",
+    logoUri: "/tokens/lbtc.svg",
     chainId: luxMainnet.id,
   },
   {
@@ -588,6 +591,153 @@ export const ZOO_TESTNET_TOKENS: Token[] = [
 ]
 
 // =============================================================================
+// HANZO MAINNET TOKENS (Chain ID: 36963)
+// Shared subnet deployment addresses (nonce 0)
+// =============================================================================
+
+export const HANZO_MAINNET_TOKENS: Token[] = [
+  {
+    symbol: "HANZO",
+    name: "Hanzo",
+    decimals: 18,
+    address: null,
+    logoUri: "/tokens/hanzo.svg",
+    chainId: hanzoMainnet.id,
+    isNative: true,
+  },
+  {
+    symbol: "WLUX",
+    name: "Wrapped LUX",
+    decimals: 18,
+    address: "0x49b76d9ca9bca9e9edef5e2ec4ed425b2e6b2445",
+    logoUri: "/tokens/wlux.svg",
+    chainId: hanzoMainnet.id,
+  },
+  {
+    symbol: "LETH",
+    name: "Lux Ether",
+    decimals: 18,
+    address: "0x82312e295533ab5167b306d5abf7f3eb2c0d95fd",
+    logoUri: "/tokens/leth.svg",
+    chainId: hanzoMainnet.id,
+  },
+  {
+    symbol: "LBTC",
+    name: "Lux Bitcoin",
+    decimals: 8,
+    address: "0x923fd54fb626b01b1444cd2dd5b7bd02648d60e0",
+    logoUri: "/tokens/lbtc.svg",
+    chainId: hanzoMainnet.id,
+  },
+  {
+    symbol: "LUSDC",
+    name: "Lux USD",
+    decimals: 6,
+    address: "0x6aab89551e94e393185e77537f89c7d3834afae1",
+    logoUri: "/tokens/lusdc.svg",
+    chainId: hanzoMainnet.id,
+  },
+]
+
+// =============================================================================
+// SPC MAINNET TOKENS (Chain ID: 36911)
+// Shared subnet deployment addresses (nonce 0)
+// =============================================================================
+
+export const SPC_MAINNET_TOKENS: Token[] = [
+  {
+    symbol: "SPC",
+    name: "SPC",
+    decimals: 18,
+    address: null,
+    logoUri: "/tokens/spc.svg",
+    chainId: spcMainnet.id,
+    isNative: true,
+  },
+  {
+    symbol: "WLUX",
+    name: "Wrapped LUX",
+    decimals: 18,
+    address: "0x49b76d9ca9bca9e9edef5e2ec4ed425b2e6b2445",
+    logoUri: "/tokens/wlux.svg",
+    chainId: spcMainnet.id,
+  },
+  {
+    symbol: "LETH",
+    name: "Lux Ether",
+    decimals: 18,
+    address: "0x82312e295533ab5167b306d5abf7f3eb2c0d95fd",
+    logoUri: "/tokens/leth.svg",
+    chainId: spcMainnet.id,
+  },
+  {
+    symbol: "LBTC",
+    name: "Lux Bitcoin",
+    decimals: 8,
+    address: "0x923fd54fb626b01b1444cd2dd5b7bd02648d60e0",
+    logoUri: "/tokens/lbtc.svg",
+    chainId: spcMainnet.id,
+  },
+  {
+    symbol: "LUSDC",
+    name: "Lux USD",
+    decimals: 6,
+    address: "0x6aab89551e94e393185e77537f89c7d3834afae1",
+    logoUri: "/tokens/lusdc.svg",
+    chainId: spcMainnet.id,
+  },
+]
+
+// =============================================================================
+// PARS MAINNET TOKENS (Chain ID: 494949)
+// Shared subnet deployment addresses (nonce 0)
+// =============================================================================
+
+export const PARS_MAINNET_TOKENS: Token[] = [
+  {
+    symbol: "PARS",
+    name: "Pars",
+    decimals: 18,
+    address: null,
+    logoUri: "/tokens/pars.svg",
+    chainId: parsMainnet.id,
+    isNative: true,
+  },
+  {
+    symbol: "WLUX",
+    name: "Wrapped LUX",
+    decimals: 18,
+    address: "0x49b76d9ca9bca9e9edef5e2ec4ed425b2e6b2445",
+    logoUri: "/tokens/wlux.svg",
+    chainId: parsMainnet.id,
+  },
+  {
+    symbol: "LETH",
+    name: "Lux Ether",
+    decimals: 18,
+    address: "0x82312e295533ab5167b306d5abf7f3eb2c0d95fd",
+    logoUri: "/tokens/leth.svg",
+    chainId: parsMainnet.id,
+  },
+  {
+    symbol: "LBTC",
+    name: "Lux Bitcoin",
+    decimals: 8,
+    address: "0x923fd54fb626b01b1444cd2dd5b7bd02648d60e0",
+    logoUri: "/tokens/lbtc.svg",
+    chainId: parsMainnet.id,
+  },
+  {
+    symbol: "LUSDC",
+    name: "Lux USD",
+    decimals: 6,
+    address: "0x6aab89551e94e393185e77537f89c7d3834afae1",
+    logoUri: "/tokens/lusdc.svg",
+    chainId: parsMainnet.id,
+  },
+]
+
+// =============================================================================
 // ETHEREUM MAINNET TOKENS (Chain ID: 1)
 // =============================================================================
 
@@ -686,6 +836,9 @@ export const TOKENS_BY_CHAIN: Record<number, Token[]> = {
   [luxTestnet.id]: LUX_TESTNET_TOKENS,
   [zooMainnet.id]: ZOO_MAINNET_TOKENS,
   [zooTestnet.id]: ZOO_TESTNET_TOKENS,
+  [hanzoMainnet.id]: HANZO_MAINNET_TOKENS,
+  [spcMainnet.id]: SPC_MAINNET_TOKENS,
+  [parsMainnet.id]: PARS_MAINNET_TOKENS,
   [ethereum.id]: ETHEREUM_MAINNET_TOKENS,
   [sepolia.id]: SEPOLIA_TOKENS,
 }

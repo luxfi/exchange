@@ -104,6 +104,61 @@ export const zooTestnet = {
 } as const satisfies Chain
 
 // =============================================================================
+// SUBNET CHAINS
+// =============================================================================
+
+export const hanzoMainnet = {
+  id: 36963,
+  name: "Hanzo Network",
+  nativeCurrency: {
+    decimals: 18,
+    name: "HANZO",
+    symbol: "HANZO",
+  },
+  rpcUrls: {
+    default: { http: ["https://api.lux.network/mainnet/ext/bc/2GiQb73CeJESjc4omFv2YtQHZrRgJf25NXPzAr5J6UNHRcDV2F/rpc"] },
+    public: { http: ["https://api.lux.network/mainnet/ext/bc/2GiQb73CeJESjc4omFv2YtQHZrRgJf25NXPzAr5J6UNHRcDV2F/rpc"] },
+  },
+  blockExplorers: {
+    default: { name: "Hanzo Explorer", url: "https://explore-hanzo.lux.network" },
+  },
+} as const satisfies Chain
+
+export const spcMainnet = {
+  id: 36911,
+  name: "SPC Network",
+  nativeCurrency: {
+    decimals: 18,
+    name: "SPC",
+    symbol: "SPC",
+  },
+  rpcUrls: {
+    default: { http: ["https://api.lux.network/mainnet/ext/bc/rtjwvtE1tEvrokmpeYdTq7b2zqZgmybKwR5MLjKMGAR1W78dQ/rpc"] },
+    public: { http: ["https://api.lux.network/mainnet/ext/bc/rtjwvtE1tEvrokmpeYdTq7b2zqZgmybKwR5MLjKMGAR1W78dQ/rpc"] },
+  },
+  blockExplorers: {
+    default: { name: "SPC Explorer", url: "https://explore-spc.lux.network" },
+  },
+} as const satisfies Chain
+
+export const parsMainnet = {
+  id: 494949,
+  name: "Pars Network",
+  nativeCurrency: {
+    decimals: 18,
+    name: "PARS",
+    symbol: "PARS",
+  },
+  rpcUrls: {
+    default: { http: ["https://api.lux.network/mainnet/ext/bc/2pUskxqaL5Bpx7uRUGG1fDjPckjxQ4UKX4sLKeaS1NdSVBJd3F/rpc"] },
+    public: { http: ["https://api.lux.network/mainnet/ext/bc/2pUskxqaL5Bpx7uRUGG1fDjPckjxQ4UKX4sLKeaS1NdSVBJd3F/rpc"] },
+  },
+  blockExplorers: {
+    default: { name: "Pars Explorer", url: "https://explore-pars.lux.network" },
+  },
+} as const satisfies Chain
+
+// =============================================================================
 // ETHEREUM CHAINS (for bridging reference)
 // =============================================================================
 
@@ -153,6 +208,9 @@ export const sepolia = {
 export const SUPPORTED_CHAINS = [
   luxMainnet,
   zooMainnet,
+  hanzoMainnet,
+  spcMainnet,
+  parsMainnet,
   luxTestnet,
   zooTestnet,
   ethereum,
@@ -162,7 +220,7 @@ export const SUPPORTED_CHAINS = [
 /**
  * Mainnet chains only (no testnets)
  */
-export const MAINNET_CHAINS = [luxMainnet, zooMainnet, ethereum] as const
+export const MAINNET_CHAINS = [luxMainnet, zooMainnet, hanzoMainnet, spcMainnet, parsMainnet, ethereum] as const
 
 /**
  * Testnet chains only
@@ -175,6 +233,9 @@ export const TESTNET_CHAINS = [luxTestnet, zooTestnet, sepolia] as const
 export const LUX_ECOSYSTEM_CHAINS = [
   luxMainnet,
   zooMainnet,
+  hanzoMainnet,
+  spcMainnet,
+  parsMainnet,
   luxTestnet,
   zooTestnet,
 ] as const
@@ -192,6 +253,9 @@ export const CHAIN_BY_ID: Record<number, Chain> = {
   [luxDev.id]: luxDev,
   [zooMainnet.id]: zooMainnet,
   [zooTestnet.id]: zooTestnet,
+  [hanzoMainnet.id]: hanzoMainnet,
+  [spcMainnet.id]: spcMainnet,
+  [parsMainnet.id]: parsMainnet,
   [ethereum.id]: ethereum,
   [sepolia.id]: sepolia,
 }
@@ -207,7 +271,7 @@ export function getChainById(chainId: number): Chain | undefined {
  * Check if chain is a Lux ecosystem chain
  */
 export function isLuxEcosystem(chainId: number): boolean {
-  const luxEcosystemIds: number[] = [luxMainnet.id, luxTestnet.id, zooMainnet.id, zooTestnet.id]
+  const luxEcosystemIds: number[] = [luxMainnet.id, luxTestnet.id, zooMainnet.id, zooTestnet.id, hanzoMainnet.id, spcMainnet.id, parsMainnet.id]
   return luxEcosystemIds.includes(chainId)
 }
 
@@ -254,6 +318,12 @@ export function getChainIcon(chainId: number): string {
     case zooMainnet.id:
     case zooTestnet.id:
       return "/tokens/zoo.svg"
+    case hanzoMainnet.id:
+      return "/tokens/hanzo.svg"
+    case spcMainnet.id:
+      return "/tokens/spc.svg"
+    case parsMainnet.id:
+      return "/tokens/pars.svg"
     case ethereum.id:
     case sepolia.id:
       return "/tokens/eth.svg"

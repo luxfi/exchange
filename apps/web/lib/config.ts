@@ -115,6 +115,45 @@ export const CHAIN_CONFIGS: Record<number, ChainConfig> = {
       decimals: 18,
     },
   },
+
+  // Hanzo Network (AI Coin)
+  36963: {
+    id: 36963,
+    name: "Hanzo Network",
+    rpcUrl: "https://api.lux.network/mainnet/ext/bc/2GiQb73CeJESjc4omFv2YtQHZrRgJf25NXPzAr5J6UNHRcDV2F/rpc",
+    blockExplorer: "https://explore-hanzo.lux.network",
+    nativeCurrency: {
+      name: "HANZO",
+      symbol: "HANZO",
+      decimals: 18,
+    },
+  },
+
+  // SPC Network
+  36911: {
+    id: 36911,
+    name: "SPC Network",
+    rpcUrl: "https://api.lux.network/mainnet/ext/bc/rtjwvtE1tEvrokmpeYdTq7b2zqZgmybKwR5MLjKMGAR1W78dQ/rpc",
+    blockExplorer: "https://explore-spc.lux.network",
+    nativeCurrency: {
+      name: "SPC",
+      symbol: "SPC",
+      decimals: 18,
+    },
+  },
+
+  // Pars Network
+  494949: {
+    id: 494949,
+    name: "Pars Network",
+    rpcUrl: "https://api.lux.network/mainnet/ext/bc/2pUskxqaL5Bpx7uRUGG1fDjPckjxQ4UKX4sLKeaS1NdSVBJd3F/rpc",
+    blockExplorer: "https://explore-pars.lux.network",
+    nativeCurrency: {
+      name: "PARS",
+      symbol: "PARS",
+      decimals: 18,
+    },
+  },
 }
 
 // =============================================================================
@@ -146,14 +185,14 @@ export const CONTRACT_ADDRESSES: Record<number, ContractAddresses> = {
     multicall: "0x1234567890123456789012345678901234567895",
   },
 
-  // Lux Mainnet
+  // Lux Mainnet - deployed 2026-03-03
   96369: {
-    wlux: null, // TODO: Deploy
-    lusd: null,
-    weth: null,
-    factory: null,
-    router: null,
-    multicall: null,
+    wlux: "0x190ec57826999527d2b1abf1ea619a0e190dc3bf",
+    lusd: "0xf85cf66fd0189c435033056edec5e525f39374a6",
+    weth: "0x2d1d573097a1106eefd9f07b9eaa79ba55d09fc2",
+    factory: "0xfcf74fe55da242d72ff063c603cd6abff4fa98b8",
+    router: "0x84cf0a13db1be8e1f0676405cfcbc8b09692fd1c",
+    multicall: "0xd25F88CBdAe3c2CCA3Bb75FC4E723b44C0Ea362F",
   },
 }
 

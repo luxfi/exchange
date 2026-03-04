@@ -109,6 +109,48 @@ export const ZOO_MAINNET_CONTRACTS = {
 } as const
 
 /**
+ * Contract addresses for Hanzo Mainnet (36963)
+ * Shared subnet deployment addresses (nonce 0)
+ */
+export const HANZO_MAINNET_CONTRACTS = {
+  WLUX: '0x49b76d9ca9bca9e9edef5e2ec4ed425b2e6b2445' as Address,
+  LETH: '0x82312e295533ab5167b306d5abf7f3eb2c0d95fd' as Address,
+  LBTC: '0x923fd54fb626b01b1444cd2dd5b7bd02648d60e0' as Address,
+  LUSDC: '0x6aab89551e94e393185e77537f89c7d3834afae1' as Address,
+  V2_FACTORY: '0x84CF0A13db1BE8E1f0676405CfcBC8b09692fd1C' as Address,
+  V2_ROUTER: '0x2382F7A49Fa48E1f91bEc466C32E1d7f13Ec8206' as Address,
+  MARKETS: '0xabbc9a75b40dd3a8ee7bcf6cb7be41e67fd5dba3' as Address,
+} as const
+
+/**
+ * Contract addresses for SPC Mainnet (36911)
+ * Shared subnet deployment addresses (nonce 0)
+ */
+export const SPC_MAINNET_CONTRACTS = {
+  WLUX: '0x49b76d9ca9bca9e9edef5e2ec4ed425b2e6b2445' as Address,
+  LETH: '0x82312e295533ab5167b306d5abf7f3eb2c0d95fd' as Address,
+  LBTC: '0x923fd54fb626b01b1444cd2dd5b7bd02648d60e0' as Address,
+  LUSDC: '0x6aab89551e94e393185e77537f89c7d3834afae1' as Address,
+  V2_FACTORY: '0x84CF0A13db1BE8E1f0676405CfcBC8b09692fd1C' as Address,
+  V2_ROUTER: '0x2382F7A49Fa48E1f91bEc466C32E1d7f13Ec8206' as Address,
+  MARKETS: '0xabbc9a75b40dd3a8ee7bcf6cb7be41e67fd5dba3' as Address,
+} as const
+
+/**
+ * Contract addresses for Pars Mainnet (494949)
+ * Shared subnet deployment addresses (nonce 0)
+ */
+export const PARS_MAINNET_CONTRACTS = {
+  WLUX: '0x49b76d9ca9bca9e9edef5e2ec4ed425b2e6b2445' as Address,
+  LETH: '0x82312e295533ab5167b306d5abf7f3eb2c0d95fd' as Address,
+  LBTC: '0x923fd54fb626b01b1444cd2dd5b7bd02648d60e0' as Address,
+  LUSDC: '0x6aab89551e94e393185e77537f89c7d3834afae1' as Address,
+  V2_FACTORY: '0x84CF0A13db1BE8E1f0676405CfcBC8b09692fd1C' as Address,
+  V2_ROUTER: '0x2382F7A49Fa48E1f91bEc466C32E1d7f13Ec8206' as Address,
+  MARKETS: '0xabbc9a75b40dd3a8ee7bcf6cb7be41e67fd5dba3' as Address,
+} as const
+
+/**
  * Contract addresses for Lux Dev (1337)
  * Deterministic CREATE addresses from DeployFullStack.s.sol deployed by anvil account 0
  * Account 0: 0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266
@@ -142,10 +184,16 @@ export function getContracts(chainId: number) {
       return LUX_TESTNET_CONTRACTS
     case 200200:
       return ZOO_MAINNET_CONTRACTS
+    case 36963:
+      return HANZO_MAINNET_CONTRACTS
+    case 36911:
+      return SPC_MAINNET_CONTRACTS
+    case 494949:
+      return PARS_MAINNET_CONTRACTS
     case 1337:
       return LUX_DEV_CONTRACTS
     default:
-      return LUX_TESTNET_CONTRACTS
+      return LUX_MAINNET_CONTRACTS
   }
 }
 

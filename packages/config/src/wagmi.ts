@@ -1,18 +1,22 @@
 import { http, createConfig } from 'wagmi'
 import { mainnet, sepolia } from 'wagmi/chains'
-import { luxMainnet, luxTestnet, zooMainnet, zooTestnet } from './chains'
+import { luxMainnet, luxTestnet, zooMainnet, zooTestnet, hanzoMainnet, spcMainnet, parsMainnet } from './chains'
 
 /**
  * Wagmi configuration for Lux Exchange
  */
 export const wagmiConfig = createConfig({
-  chains: [luxMainnet, luxTestnet, zooMainnet, zooTestnet, mainnet, sepolia],
+  chains: [luxMainnet, zooMainnet, hanzoMainnet, spcMainnet, parsMainnet, luxTestnet, zooTestnet, mainnet, sepolia],
   transports: {
-    // Lux chains
-    [luxMainnet.id]: http('https://api.lux.network/rpc'),
-    [luxTestnet.id]: http('https://api.lux-test.network/rpc'),
-    [zooMainnet.id]: http('https://api.zoo.network/rpc'),
-    [zooTestnet.id]: http('https://api.zoo-test.network/rpc'),
+    // Lux C-Chain
+    [luxMainnet.id]: http(luxMainnet.rpcUrls.default.http[0]),
+    [luxTestnet.id]: http(luxTestnet.rpcUrls.default.http[0]),
+    // Subnet chains
+    [zooMainnet.id]: http(zooMainnet.rpcUrls.default.http[0]),
+    [zooTestnet.id]: http(zooTestnet.rpcUrls.default.http[0]),
+    [hanzoMainnet.id]: http(hanzoMainnet.rpcUrls.default.http[0]),
+    [spcMainnet.id]: http(spcMainnet.rpcUrls.default.http[0]),
+    [parsMainnet.id]: http(parsMainnet.rpcUrls.default.http[0]),
     // Ethereum (for bridging)
     [mainnet.id]: http(),
     [sepolia.id]: http(),

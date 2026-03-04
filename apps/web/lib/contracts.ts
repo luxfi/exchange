@@ -11,6 +11,9 @@ import {
   luxDev,
   zooMainnet,
   zooTestnet,
+  hanzoMainnet,
+  spcMainnet,
+  parsMainnet,
   ethereum,
   sepolia,
 } from "./chains"
@@ -77,16 +80,16 @@ export const LUX_DEV_CONTRACTS: ChainContracts = {
 
 export const LUX_MAINNET_CONTRACTS: ChainContracts = {
   tokens: {
-    WLUX: "0x55750d6CA62a041c06a8E28626b10Be6c688f471" as Address,
-    // Bridge tokens - addresses TBD after Lux bridge deployment
-    LETH: undefined,
-    LBTC: undefined,
-    LUSD: undefined,
+    WLUX: "0x190ec57826999527d2b1abf1ea619a0e190dc3bf" as Address,
+    // Bridge tokens - deployed 2026-03-03
+    LETH: "0x2d1d573097a1106eefd9f07b9eaa79ba55d09fc2" as Address,
+    LBTC: "0xab95c8b59f68ce922f2f334dfc8bb8f5b0525326" as Address,
+    LUSD: "0xf85cf66fd0189c435033056edec5e525f39374a6" as Address,
   },
   amm: {
-    // V2 (QuantumSwap)
-    V2_FACTORY: "0xd9a95609DbB228A13568Bd9f9A285105E7596970" as Address,
-    V2_ROUTER: "0x1F6cbC7d3bc7D803ee76D80F0eEE25767431e674" as Address,
+    // V2 (QuantumSwap) - redeployed 2026-03-03
+    V2_FACTORY: "0xfcf74fe55da242d72ff063c603cd6abff4fa98b8" as Address,
+    V2_ROUTER: "0x84cf0a13db1be8e1f0676405cfcbc8b09692fd1c" as Address,
     // V3 (Concentrated Liquidity)
     V3_FACTORY: "0xb732BD88F25EdD9C3456638671fB37685D4B4e3f" as Address,
     V3_ROUTER: "0x939bC0Bca6F9B9c52E6e3AD8A3C590b5d9B9D10E" as Address, // SwapRouter02
@@ -124,19 +127,19 @@ export const LUX_TESTNET_CONTRACTS: ChainContracts = {
 
 // =============================================================================
 // ZOO MAINNET CONTRACTS (Chain ID: 200200)
+// Shared subnet deployment addresses (nonce 0)
 // =============================================================================
 
 export const ZOO_MAINNET_CONTRACTS: ChainContracts = {
   tokens: {
-    // Zoo native wrapped token - TBD
-    WZOO: undefined,
-    // Bridged WLUX on Zoo - TBD
-    WLUX: undefined,
+    WLUX: "0x49b76d9ca9bca9e9edef5e2ec4ed425b2e6b2445" as Address,
+    LETH: "0x82312e295533ab5167b306d5abf7f3eb2c0d95fd" as Address,
+    LBTC: "0x923fd54fb626b01b1444cd2dd5b7bd02648d60e0" as Address,
+    LUSD: "0x6aab89551e94e393185e77537f89c7d3834afae1" as Address,
   },
   amm: {
-    // Deploy pending - use placeholder
-    V2_FACTORY: "0x0000000000000000000000000000000000000000" as Address,
-    V2_ROUTER: "0x0000000000000000000000000000000000000000" as Address,
+    V2_FACTORY: "0x84CF0A13db1BE8E1f0676405CfcBC8b09692fd1C" as Address,
+    V2_ROUTER: "0x2382F7A49Fa48E1f91bEc466C32E1d7f13Ec8206" as Address,
   },
 }
 
@@ -146,12 +149,65 @@ export const ZOO_MAINNET_CONTRACTS: ChainContracts = {
 
 export const ZOO_TESTNET_CONTRACTS: ChainContracts = {
   tokens: {
-    WZOO: undefined,
     WLUX: undefined,
   },
   amm: {
     V2_FACTORY: "0x0000000000000000000000000000000000000000" as Address,
     V2_ROUTER: "0x0000000000000000000000000000000000000000" as Address,
+  },
+}
+
+// =============================================================================
+// HANZO MAINNET CONTRACTS (Chain ID: 36963)
+// Shared subnet deployment addresses (nonce 0)
+// =============================================================================
+
+export const HANZO_MAINNET_CONTRACTS: ChainContracts = {
+  tokens: {
+    WLUX: "0x49b76d9ca9bca9e9edef5e2ec4ed425b2e6b2445" as Address,
+    LETH: "0x82312e295533ab5167b306d5abf7f3eb2c0d95fd" as Address,
+    LBTC: "0x923fd54fb626b01b1444cd2dd5b7bd02648d60e0" as Address,
+    LUSD: "0x6aab89551e94e393185e77537f89c7d3834afae1" as Address,
+  },
+  amm: {
+    V2_FACTORY: "0x84CF0A13db1BE8E1f0676405CfcBC8b09692fd1C" as Address,
+    V2_ROUTER: "0x2382F7A49Fa48E1f91bEc466C32E1d7f13Ec8206" as Address,
+  },
+}
+
+// =============================================================================
+// SPC MAINNET CONTRACTS (Chain ID: 36911)
+// Shared subnet deployment addresses (nonce 0)
+// =============================================================================
+
+export const SPC_MAINNET_CONTRACTS: ChainContracts = {
+  tokens: {
+    WLUX: "0x49b76d9ca9bca9e9edef5e2ec4ed425b2e6b2445" as Address,
+    LETH: "0x82312e295533ab5167b306d5abf7f3eb2c0d95fd" as Address,
+    LBTC: "0x923fd54fb626b01b1444cd2dd5b7bd02648d60e0" as Address,
+    LUSD: "0x6aab89551e94e393185e77537f89c7d3834afae1" as Address,
+  },
+  amm: {
+    V2_FACTORY: "0x84CF0A13db1BE8E1f0676405CfcBC8b09692fd1C" as Address,
+    V2_ROUTER: "0x2382F7A49Fa48E1f91bEc466C32E1d7f13Ec8206" as Address,
+  },
+}
+
+// =============================================================================
+// PARS MAINNET CONTRACTS (Chain ID: 494949)
+// Shared subnet deployment addresses (nonce 0)
+// =============================================================================
+
+export const PARS_MAINNET_CONTRACTS: ChainContracts = {
+  tokens: {
+    WLUX: "0x49b76d9ca9bca9e9edef5e2ec4ed425b2e6b2445" as Address,
+    LETH: "0x82312e295533ab5167b306d5abf7f3eb2c0d95fd" as Address,
+    LBTC: "0x923fd54fb626b01b1444cd2dd5b7bd02648d60e0" as Address,
+    LUSD: "0x6aab89551e94e393185e77537f89c7d3834afae1" as Address,
+  },
+  amm: {
+    V2_FACTORY: "0x84CF0A13db1BE8E1f0676405CfcBC8b09692fd1C" as Address,
+    V2_ROUTER: "0x2382F7A49Fa48E1f91bEc466C32E1d7f13Ec8206" as Address,
   },
 }
 
@@ -205,6 +261,9 @@ export const CONTRACTS_BY_CHAIN: Record<number, ChainContracts> = {
   [luxTestnet.id]: LUX_TESTNET_CONTRACTS,
   [zooMainnet.id]: ZOO_MAINNET_CONTRACTS,
   [zooTestnet.id]: ZOO_TESTNET_CONTRACTS,
+  [hanzoMainnet.id]: HANZO_MAINNET_CONTRACTS,
+  [spcMainnet.id]: SPC_MAINNET_CONTRACTS,
+  [parsMainnet.id]: PARS_MAINNET_CONTRACTS,
   [ethereum.id]: ETHEREUM_MAINNET_CONTRACTS,
   [sepolia.id]: SEPOLIA_CONTRACTS,
 }
