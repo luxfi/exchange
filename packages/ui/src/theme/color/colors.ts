@@ -78,7 +78,7 @@ export const colors = {
   uniswapXViolet: '#4673FA',
   uniswapXPurple: '#7D55FB',
 
-  fiatOnRampBanner: '#FB36D0',
+  fiatOnRampBanner: '#9B9B9B',
 }
 
 export const DEP_accentColors = {

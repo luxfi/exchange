@@ -4,18 +4,24 @@ import type { Address } from 'viem'
  * Contract addresses for Lux Mainnet (96369)
  */
 export const LUX_MAINNET_CONTRACTS = {
-  // Core — verified on-chain 2026-03-04
+  // Core — WLUX wiped by 2026-03-01 re-genesis, needs redeployment
   WLUX: '0x3C18bB6B17eb3F0879d4653e0120a531aF4d86E3' as Address,
   MULTICALL: '0xd25F88CBdAe3c2CCA3Bb75FC4E723b44C0Ea362F' as Address,
 
-  // Bridge tokens — deployed via DeployMultiNetwork.s.sol 2026-02-26
+  // Bridge tokens — wiped by re-genesis, need redeployment
   LETH: '0x5a88986958ea76Dd043f834542724F081cA1443B' as Address,
   LBTC: '0x8a3fad1c7FB94461621351aa6A983B6f814F039c' as Address,
   LUSDC: '0x57f9E717dc080a6A76fB6F77BecA8C9C1D266B96' as Address,
 
-  // AMM V2 — deployed via DeployMultiNetwork.s.sol 2026-02-26
-  V2_FACTORY: '0xb06B31521Afc434F87Fe4852c98FC15A26c92aE8' as Address,
-  V2_ROUTER: '0x6A1a32BF731d504122EA318cE7Bd8D92b2284C0d' as Address,
+  // AMM V2 (CREATE2) — survived re-genesis
+  V2_FACTORY: '0xD173926A10A0C4eCd3A51B1422270b65Df0551c1' as Address,
+  V2_ROUTER: '0xAe2cf1E403aAFE6C05A5b8Ef63EB19ba591d8511' as Address,
+
+  // AMM V3 (CREATE2) — 27 pools, 100k+ swaps, active trading
+  V3_FACTORY: '0x80bBc7C4C7a59C899D1B37BC14539A22D5830a84' as Address,
+  V3_ROUTER: '0x939bC0Bca6F9B9c52E6e3AD8A3C590b5d9B9D10E' as Address,
+  V3_QUOTER: '0x12e2B76FaF4dDA5a173a4532916bb6Bfa3645275' as Address,
+  V3_NFT_POSITION_MANAGER: '0x7a4C48B9dae0b7c396569b34042fcA604150Ee28' as Address,
 
   // Governance
   STAKED_LUX: '0xc606302cd0722DD42c460B09930477d09993F913' as Address,

@@ -185,13 +185,13 @@ export const CONTRACT_ADDRESSES: Record<number, ContractAddresses> = {
     multicall: "0xd25F88CBdAe3c2CCA3Bb75FC4E723b44C0Ea362F",
   },
 
-  // Lux Mainnet - deployed 2026-02-26
+  // Lux Mainnet - CREATE2 contracts (survived 2026-03-01 re-genesis)
   96369: {
-    wlux: "0x3C18bB6B17eb3F0879d4653e0120a531aF4d86E3",
-    lusd: "0x57f9E717dc080a6A76fB6F77BecA8C9C1D266B96",
-    weth: "0x5a88986958ea76Dd043f834542724F081cA1443B",
-    factory: "0xb06B31521Afc434F87Fe4852c98FC15A26c92aE8",
-    router: "0x6A1a32BF731d504122EA318cE7Bd8D92b2284C0d",
+    wlux: "0x3C18bB6B17eb3F0879d4653e0120a531aF4d86E3", // needs redeployment
+    lusd: "0x57f9E717dc080a6A76fB6F77BecA8C9C1D266B96", // needs redeployment
+    weth: "0x5a88986958ea76Dd043f834542724F081cA1443B", // needs redeployment
+    factory: "0xD173926A10A0C4eCd3A51B1422270b65Df0551c1", // CREATE2 V2 factory
+    router: "0xAe2cf1E403aAFE6C05A5b8Ef63EB19ba591d8511",  // CREATE2 V2 router
     multicall: "0xd25F88CBdAe3c2CCA3Bb75FC4E723b44C0Ea362F",
   },
 }
