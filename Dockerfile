@@ -2,7 +2,8 @@
 # Multi-stage build: pnpm install + vite build -> nginx static serve
 
 # Stage 1: Build (pin exact node version to match engines requirement)
-FROM node:22.13.1-alpine AS builder
+# Use BUILDPLATFORM so the builder runs natively (fast) even during cross-compilation
+FROM --platform=$BUILDPLATFORM node:22.13.1-alpine AS builder
 
 RUN apk add --no-cache python3 make g++ git bash
 RUN npm install -g pnpm
@@ -46,7 +47,7 @@ ENV NODE_ENV=production
 ENV DEPLOY_TARGET=static
 ENV ENABLE_REACT_COMPILER=true
 ENV CLOUDFLARE_ENV=production
-ENV NODE_OPTIONS=--max-old-space-size=4096
+ENV NODE_OPTIONS=--max-old-space-size=8192
 RUN pnpm --filter @luxfi/web exec vite build
 
 # Stage 2: Serve with nginx
