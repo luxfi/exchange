@@ -18,7 +18,7 @@ import { ONE_MINUTE_MS } from 'utilities/src/time/time'
 const tokens = buildChainTokens({
   stables: {
     USDC: buildUSDC('0x57f9E717dc080a6A76fB6F77BecA8C9C1D266B96', UniverseChainId.Lux), // LUSDC on Lux mainnet
-    USDT: buildUSDT('0x5aa01b3b5877255ce50cc55e8986a7a5fe29c70e', UniverseChainId.Lux), // USDT on Lux mainnet
+    USDT: buildUSDT('0x5aa01B3b5877255cE50cc55e8986a7a5fe29C70e', UniverseChainId.Lux), // USDT on Lux mainnet
   },
 })
 

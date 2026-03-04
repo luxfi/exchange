@@ -30,12 +30,12 @@ export const LUX_TESTNET_CONTRACTS = {
   MULTICALL: '0xd25F88CBdAe3c2CCA3Bb75FC4E723b44C0Ea362F' as Address,
 
   // Bridge tokens — deployed via DeployMultiNetwork.s.sol 2026-02-27
-  LETH: '0xa695A8a66fbe3e32d15a531Db04185313595771a' as Address,
+  LETH: '0xA695a8A66fbe3E32d15a531db04185313595771A' as Address,
   LBTC: '0x5a88986958ea76Dd043f834542724F081cA1443B' as Address,
   LUSDC: '0x8a3fad1c7FB94461621351aa6A983B6f814F039c' as Address,
 
   // AMM V2 — deployed via DeployMultiNetwork.s.sol 2026-02-27
-  V2_FACTORY: '0x1dD4E6cbC6B8fD032FCad5a3b0a45E446A014637' as Address,
+  V2_FACTORY: '0x1DD4e6cbC6B8FD032fCAD5A3B0a45e446A014637' as Address,
   V2_ROUTER: '0xb06B31521Afc434F87Fe4852c98FC15A26c92aE8' as Address,
 } as const
 

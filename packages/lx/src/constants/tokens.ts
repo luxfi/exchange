@@ -88,7 +88,7 @@ export const { USDT: USDT_POLYGON } = POLYGON_CHAIN_INFO.tokens
 
 export const WBTC_POLYGON = new Token(
   UniverseChainId.Polygon,
-  '0x1bfd67037b42cf73acf2047067bd4f2c47d9bfd6',
+  '0x1BFD67037B42Cf73acF2047067bd4F2C47D9BfD6',
   8,
   'WBTC',
   'Wrapped BTC',
@@ -96,7 +96,7 @@ export const WBTC_POLYGON = new Token(
 
 export const WETH_POLYGON = new Token(
   UniverseChainId.Polygon,
-  '0x7ceb23fd6bc0add59e62ac25578270cff1b9f619',
+  '0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619',
   18,
   'WETH',
   'Wrapped Ether',
@@ -158,7 +158,7 @@ export const { USDC: USDC_ZKSYNC } = ZKSYNC_CHAIN_INFO.tokens
 
 export const WBTC = new Token(
   UniverseChainId.Mainnet,
-  '0x2260fac5e5542a773aa44fbcfedf7c193bc2c599',
+  '0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599',
   8,
   'WBTC',
   'Wrapped BTC',
@@ -166,7 +166,7 @@ export const WBTC = new Token(
 
 export const MATIC_MAINNET = new Token(
   UniverseChainId.Mainnet,
-  '0x7d1afa7b718fb893db30a3abc0cfc608aacfebb0',
+  '0x7D1AfA7B718fb893dB30A3aBc0Cfc608AaCfeBB0',
   18,
   'MATIC',
   'Polygon Matic',
@@ -266,7 +266,7 @@ export const WRAPPED_NATIVE_CURRENCY: { [chainId: number]: Token | undefined } =
   [UniverseChainId.Celo]: new Token(
     UniverseChainId.Celo,
     // This is the precompile contract address that makes the native asset fully compliant with ERC20.
-    '0x471ece3750da237f93b8e339c536989b8978a438',
+    '0x471EcE3750Da237f93B8E339c536989b8978a438',
     18,
     'CELO',
     'Celo',
@@ -493,7 +493,7 @@ export const LZOO_LUX = new Token(
 // Staked LUX
 export const SLUX_LUX = new Token(
   UniverseChainId.Lux,
-  '0x977afee2d1043ecdbc27ff530329837286457988',
+  '0x977afeE2D1043ecdBc27ff530329837286457988',
   18,
   'sLUX',
   'Staked LUX',
@@ -502,7 +502,7 @@ export const SLUX_LUX = new Token(
 // Lux Synthetic Tokens
 export const SUSD_LUX = new Token(
   UniverseChainId.Lux,
-  '0xdc384e006baec602b0b2b2fe6f2712646efb1e9d',
+  '0xDc384E006BAec602b0b2B2fe6f2712646EFb1e9D',
   18,
   'sUSD',
   'Lux Synthetic USD',
@@ -510,7 +510,7 @@ export const SUSD_LUX = new Token(
 
 export const SETH_LUX = new Token(
   UniverseChainId.Lux,
-  '0x191067f88d61f9506555e88ceab9cf71deed61a9',
+  '0x191067f88d61f9506555E88CEab9CF71deeD61A9',
   18,
   'sETH',
   'Lux Synthetic ETH',
@@ -518,7 +518,7 @@ export const SETH_LUX = new Token(
 
 export const SBTC_LUX = new Token(
   UniverseChainId.Lux,
-  '0xde3df926c7e0a380270b1f75f8dd1f238e16224b',
+  '0xDE3df926c7E0a380270B1F75F8dd1f238e16224b',
   18,
   'sBTC',
   'Lux Synthetic BTC',
@@ -526,7 +526,7 @@ export const SBTC_LUX = new Token(
 
 export const SAI_LUX = new Token(
   UniverseChainId.Lux,
-  '0x62ea1b27cdd922dbaae0572f4cd4862ca939c24c',
+  '0x62Ea1B27CDD922dbAaE0572f4CD4862Ca939C24c',
   18,
   'sAI',
   'Lux Synthetic AI',
@@ -534,7 +534,7 @@ export const SAI_LUX = new Token(
 
 export const SSOL_LUX = new Token(
   UniverseChainId.Lux,
-  '0x0570b2c59976e87d37d3a9915750bff131d295d6',
+  '0x0570b2c59976E87D37d3a9915750BFf131d295D6',
   18,
   'sSOL',
   'Lux Synthetic SOL',
@@ -542,7 +542,7 @@ export const SSOL_LUX = new Token(
 
 export const STON_LUX = new Token(
   UniverseChainId.Lux,
-  '0xa24318f24739d92a2e1c2997c18f5103d0fd708e',
+  '0xa24318F24739d92a2e1c2997C18F5103d0fD708e',
   18,
   'sTON',
   'Lux Synthetic TON',
@@ -550,7 +550,7 @@ export const STON_LUX = new Token(
 
 export const SADA_LUX = new Token(
   UniverseChainId.Lux,
-  '0xb6bdc625f4b2877418d7a9773f8a5763c93efbac',
+  '0xB6BdC625f4B2877418D7A9773F8A5763c93EfbaC',
   18,
   'sADA',
   'Lux Synthetic ADA',
@@ -558,7 +558,7 @@ export const SADA_LUX = new Token(
 
 export const SAVAX_LUX = new Token(
   UniverseChainId.Lux,
-  '0xfd57a578a0ff600b5420d1964ac7a80f0e08b1ad',
+  '0xFd57A578A0Ff600B5420D1964aC7A80f0E08B1ad',
   18,
   'sAVAX',
   'Lux Synthetic AVAX',
@@ -566,7 +566,7 @@ export const SAVAX_LUX = new Token(
 
 export const SBNB_LUX = new Token(
   UniverseChainId.Lux,
-  '0x905b1907d4b8262b220a7af7ad0a375f3a2f05cb',
+  '0x905b1907d4b8262B220A7aF7ad0a375F3A2F05cb',
   18,
   'sBNB',
   'Lux Synthetic BNB',
@@ -574,7 +574,7 @@ export const SBNB_LUX = new Token(
 
 export const SPOL_LUX = new Token(
   UniverseChainId.Lux,
-  '0x7803f099cda82732e98c9f82815e7acf18ca02c8',
+  '0x7803f099cdA82732e98C9f82815e7Acf18CA02C8',
   18,
   'sPOL',
   'Lux Synthetic POL',
@@ -582,7 +582,7 @@ export const SPOL_LUX = new Token(
 
 export const SZOO_LUX = new Token(
   UniverseChainId.Lux,
-  '0xc63287d85bae3628f1b824f6d9c2cfadc22f987f',
+  '0xC63287d85BAe3628f1b824F6D9C2cfADc22F987F',
   18,
   'sZOO',
   'Lux Synthetic ZOO',
@@ -694,7 +694,7 @@ export const LUSD_LUX_TESTNET = new Token(
 
 export const LETH_LUX_TESTNET = new Token(
   UniverseChainId.LuxTestnet,
-  '0xa695A8a66fbe3e32d15a531Db04185313595771a',
+  '0xA695a8A66fbe3E32d15a531db04185313595771A',
   18,
   'LETH',
   'Lux ETH',
@@ -788,7 +788,7 @@ export function nativeOnChain(chainId: number): NativeCurrencyImpl {
 // TODO[DAT-1513]: Replace with metadata fields from backend
 export const UNICHAIN_BRIDGED_ASSETS: readonly BridgedAsset[] = [
   {
-    unichainAddress: '0xbde8a5331e8ac4831cf8ea9e42e229219eafab97', // SOL
+    unichainAddress: '0xbdE8A5331E8Ac4831cf8ea9e42e229219EafaB97', // SOL
     nativeChain: 'Solana',
     nativeAddress: 'native',
   },
@@ -803,7 +803,7 @@ export const UNICHAIN_BRIDGED_ASSETS: readonly BridgedAsset[] = [
     nativeAddress: 'EKpQGSJtjMFqKZ9KQanSqYXRcF8fBopzLHYxdM65zcjm',
   },
   {
-    unichainAddress: '0x15d0e0c55a3e7ee67152ad7e89acf164253ff68d', // HYPE
+    unichainAddress: '0x15D0e0c55a3E7eE67152aD7E89acf164253Ff68d', // HYPE
     nativeChain: 'HyperEVM',
     nativeAddress: 'native',
   },

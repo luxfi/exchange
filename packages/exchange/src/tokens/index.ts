@@ -97,7 +97,7 @@ export const LBTC: Token = {
  * Testnet bridge tokens
  */
 export const LETH_TESTNET: Token = {
-  address: '0xa695A8a66fbe3e32d15a531Db04185313595771a',
+  address: '0xA695a8A66fbe3E32d15a531db04185313595771A',
   chainId: 96368,
   decimals: 18,
   symbol: 'LETH',
@@ -183,7 +183,7 @@ export const WBTC_LUX: Token = {
 }
 
 export const DAI_LUX: Token = {
-  address: '0x6B175474E89094C44Da98b954EesdscdKD34eL55',
+  address: '0x6B175474E89094C44Da98b954EedeAC495271d0F',
   chainId: 96369,
   decimals: 18,
   symbol: 'DAI',

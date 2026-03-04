@@ -106,15 +106,15 @@ export const LUX_MAINNET_CONTRACTS: ChainContracts = {
 export const LUX_TESTNET_CONTRACTS: ChainContracts = {
   tokens: {
     WLUX: "0xDe5310d0Eccc04C8987cB66Ff6b89Ee793442C91" as Address,
-    WETH: "0xa695A8a66fbe3e32d15a531Db04185313595771a" as Address,
+    WETH: "0xA695a8A66fbe3E32d15a531db04185313595771A" as Address,
     // Bridge tokens - deployed via DeployMultiNetwork.s.sol 2026-02-27
-    LETH: "0xa695A8a66fbe3e32d15a531Db04185313595771a" as Address,
+    LETH: "0xA695a8A66fbe3E32d15a531db04185313595771A" as Address,
     LBTC: "0x5a88986958ea76Dd043f834542724F081cA1443B" as Address,
     LUSD: "0x8a3fad1c7FB94461621351aa6A983B6f814F039c" as Address,
   },
   amm: {
     // V2 - deployed via DeployMultiNetwork.s.sol 2026-02-27
-    V2_FACTORY: "0x1dD4E6cbC6B8fD032FCad5a3b0a45E446A014637" as Address,
+    V2_FACTORY: "0x1DD4e6cbC6B8FD032fCAD5A3B0a45e446A014637" as Address,
     V2_ROUTER: "0xb06B31521Afc434F87Fe4852c98FC15A26c92aE8" as Address,
     MULTICALL: "0xd25F88CBdAe3c2CCA3Bb75FC4E723b44C0Ea362F" as Address,
   },
@@ -213,7 +213,7 @@ export const ETHEREUM_MAINNET_CONTRACTS: ChainContracts = {
     WETH: "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2" as Address,
     USDC: "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48" as Address,
     USDT: "0xdAC17F958D2ee523a2206206994597C13D831ec7" as Address,
-    DAI: "0x6B175474E89094C44Da98b954EescdeCB5BE3830" as Address,
+    DAI: "0x6B175474E89094C44Da98b954EedeAC495271d0F" as Address,
     // Lux bridge tokens on Ethereum
     LBTC: "0x526903Ee6118de6737D11b37f82fC7f69B13685D" as Address,
     LETH: "0xAA3AE951A7925F25aE8Ad65b052a76Bd8f052598" as Address,
