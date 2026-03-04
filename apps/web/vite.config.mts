@@ -116,7 +116,7 @@ export default defineConfig(({ mode }) => {
     'utilities/src': path.resolve(__dirname, '../../packages/utilities/src'),
     'ui/src': path.resolve(__dirname, '../../packages/ui/src'),
     'expo-clipboard': path.resolve(__dirname, 'src/lib/expo-clipboard.jsx'),
-    jsbi: path.resolve(__dirname, '../../node_modules/jsbi/dist/jsbi.mjs'), // force consistent ESM build
+    // Removed jsbi alias - let Vite use default node_modules resolution
   }
 
   // Create process.env definitions for ALL environment variables
