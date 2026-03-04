@@ -17,43 +17,23 @@ RUN pnpm install --frozen-lockfile --ignore-scripts || pnpm install --no-frozen-
 
 # Patch @noble/hashes v1.3.3 for v2 compat needed by @scure/bip32@1.7.0
 # Adds: ./legacy export, ./sha2.js mapping, abytes/anumber to utils
-COPY <<'PATCH' /tmp/patch-noble.js
-const fs = require('fs');
-const polyfill = `
-function abytes(b,...l){if(!(b instanceof Uint8Array))throw new Error("Uint8Array expected");if(l.length>0&&!l.includes(b.length))throw new Error("wrong length")}
-function anumber(n){if(!Number.isSafeInteger(n)||n<0)throw new Error("positive integer expected")}
-`;
-const dirs = [
-  'node_modules/.pnpm/@noble+hashes@1.3.3/node_modules/@noble/hashes',
-  'node_modules/@noble/hashes'
-];
-dirs.filter(d => fs.existsSync(d + '/package.json')).forEach(d => {
-  const pkg = JSON.parse(fs.readFileSync(d + '/package.json', 'utf8'));
-  if (pkg.version !== '1.3.3') return;
-  // Add missing exports
-  pkg.exports['./legacy'] = { types: './utils.d.ts', import: './esm/legacy.js', default: './legacy.js' };
-  if (!pkg.exports['./sha2.js']) pkg.exports['./sha2.js'] = pkg.exports['./sha2'];
-  fs.writeFileSync(d + '/package.json', JSON.stringify(pkg, null, 2));
-  // Append abytes/anumber to CJS utils
-  let cjs = fs.readFileSync(d + '/utils.js', 'utf8');
-  if (!cjs.includes('abytes')) {
-    cjs += '\n' + polyfill + 'exports.abytes=abytes;exports.anumber=anumber;\n';
-    fs.writeFileSync(d + '/utils.js', cjs);
-  }
-  // Append abytes/anumber to ESM utils
-  let esm = fs.readFileSync(d + '/esm/utils.js', 'utf8');
-  if (!esm.includes('abytes')) {
-    esm += '\nexport ' + polyfill.trim().split('\n').join('\nexport ') + '\n';
-    fs.writeFileSync(d + '/esm/utils.js', esm);
-  }
-  // Create legacy module
-  fs.writeFileSync(d + '/legacy.js',
-    'const u=require("./utils");const r=require("./ripemd160");const s=require("./sha256");const s5=require("./sha512");module.exports={...u,...r,...s,...s5};');
-  fs.writeFileSync(d + '/esm/legacy.js',
-    'export * from "./utils.js";export{ripemd160}from"./ripemd160.js";export{sha256}from"./sha256.js";export{sha384,sha512,sha512_256}from"./sha512.js";');
-});
-PATCH
-RUN node /tmp/patch-noble.js
+RUN node -e '\
+const fs = require("fs");\
+const polyfill = "function abytes(b,...l){if(!(b instanceof Uint8Array))throw new Error(\"Uint8Array expected\");if(l.length>0&&!l.includes(b.length))throw new Error(\"wrong length\")}\nfunction anumber(n){if(!Number.isSafeInteger(n)||n<0)throw new Error(\"positive integer expected\")}\n";\
+const dirs = ["node_modules/.pnpm/@noble+hashes@1.3.3/node_modules/@noble/hashes","node_modules/@noble/hashes"];\
+dirs.filter(d => fs.existsSync(d + "/package.json")).forEach(d => {\
+  const pkg = JSON.parse(fs.readFileSync(d + "/package.json", "utf8"));\
+  if (pkg.version !== "1.3.3") return;\
+  pkg.exports["./legacy"] = { types: "./utils.d.ts", import: "./esm/legacy.js", default: "./legacy.js" };\
+  if (!pkg.exports["./sha2.js"]) pkg.exports["./sha2.js"] = pkg.exports["./sha2"];\
+  fs.writeFileSync(d + "/package.json", JSON.stringify(pkg, null, 2));\
+  let cjs = fs.readFileSync(d + "/utils.js", "utf8");\
+  if (!cjs.includes("abytes")) { cjs += "\n" + polyfill + "exports.abytes=abytes;exports.anumber=anumber;\n"; fs.writeFileSync(d + "/utils.js", cjs); }\
+  let esm = fs.readFileSync(d + "/esm/utils.js", "utf8");\
+  if (!esm.includes("abytes")) { esm += "\nexport " + polyfill.trim().split("\n").join("\nexport ") + "\n"; fs.writeFileSync(d + "/esm/utils.js", esm); }\
+  fs.writeFileSync(d + "/legacy.js", "const u=require(\"./utils\");const r=require(\"./ripemd160\");const s=require(\"./sha256\");const s5=require(\"./sha512\");module.exports={...u,...r,...s,...s5};");\
+  fs.writeFileSync(d + "/esm/legacy.js", "export * from \"./utils.js\";export{ripemd160}from\"./ripemd160.js\";export{sha256}from\"./sha256.js\";export{sha384,sha512,sha512_256}from\"./sha512.js\";");\
+});'
 
 # Run the ajv prepare step needed before build
 RUN cd apps/web && node scripts/compile-ajv-validators.js || true
