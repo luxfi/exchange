@@ -1,20 +1,15 @@
 import { Fragment, PropsWithChildren, useRef, useState } from 'react'
 import { AdaptiveWebPopoverContent, Popover, RemoveScroll, useMedia } from 'ui/src'
 import { zIndexes } from 'ui/src/theme'
-<<<<<<<< HEAD:packages/lx/src/components/menus/ContextMenuV2.web.tsx
+import { ContextMenuProps } from 'lx/src/components/menus/ContextMenu'
 import { MenuContent } from 'lx/src/components/menus/ContextMenuContent'
-import { ContextMenuProps } from 'lx/src/components/menus/ContextMenuV2'
 import { useContextMenuTracking } from 'lx/src/components/menus/hooks/useContextMenuTracking'
 import { ContextMenuTriggerMode } from 'lx/src/components/menus/types'
-import { isMobileWeb } from 'utilities/src/platform'
-========
-import { ContextMenuProps } from 'uniswap/src/components/menus/ContextMenu'
-import { MenuContent } from 'uniswap/src/components/menus/ContextMenuContent'
-import { useContextMenuTracking } from 'uniswap/src/components/menus/hooks/useContextMenuTracking'
-import { ContextMenuTriggerMode } from 'uniswap/src/components/menus/types'
 import { isWebApp } from 'utilities/src/platform'
->>>>>>>> upstream/main:packages/lx/src/components/menus/ContextMenu.web.tsx
 import { useEvent, useOnClickOutside } from 'utilities/src/react/hooks'
+
+export { type ContextMenuProps } from 'lx/src/components/menus/ContextMenu'
+export type { MenuOptionItem } from 'lx/src/components/menus/ContextMenuContent'
 
 export function ContextMenu({
   menuItems,
@@ -49,8 +44,6 @@ export function ContextMenu({
     sectionName,
   })
 
-  // Skip click-outside handling when showing as sheet (sheet has its own dismiss handling via overlay).
-  // Use capture so we run before modal/sheet handlers that stopPropagation (e.g. when menu is inside transaction-details modal).
   useOnClickOutside({
     node: containerRef,
     handler: isSheet ? undefined : handleCloseMenu,
@@ -67,7 +60,6 @@ export function ContextMenu({
     e.preventDefault()
     e.stopPropagation()
 
-    // Toggle: close if already open, otherwise open
     if (isOpen) {
       handleCloseMenu()
       return
@@ -75,18 +67,15 @@ export function ContextMenu({
 
     openMenu?.()
 
-    // Capture raw click coords
     const { clientX, clientY } = e
     setMenuPosition({ x: clientX, y: clientY })
   })
 
-  // Prevent click events from propagating to parent elements (e.g., TouchableArea)
   const onClickCapture = useEvent((e: React.MouseEvent<HTMLDivElement>): void => {
     e.preventDefault()
     e.stopPropagation()
   })
 
-  // Prevent native browser context menu from appearing
   const onPreventContextMenu = useEvent((e: React.MouseEvent<HTMLDivElement>): void => {
     e.preventDefault()
     e.stopPropagation()
@@ -121,24 +110,17 @@ export function ContextMenu({
       placement={
         isPlacementAbove
           ? isPlacementRight
-            ? 'top-start' // above & to the right
-            : 'top-end' // above & to the left
+            ? 'top-start'
+            : 'top-end'
           : isPlacementRight
-            ? 'bottom-start' // below & to the right
-            : 'bottom-end' // below & to the left
+            ? 'bottom-start'
+            : 'bottom-end'
       }
       offset={{
         mainAxis: y + (isPlacementAbove ? -offsetY : offsetY),
         crossAxis: x + (isPlacementRight ? offsetX : -offsetX),
       }}
     >
-      {/*
-        We attach the context menu event handler conditionally:
-        - If onLeftClick is true, we use onMouseDown to open the menu on left-click.
-        - Otherwise, we use onContextMenu to open the menu on right-click.
-        This ensures that left-click events are not blocked from propagating,
-        keeping normal click behavior intact.
-      */}
       <Popover.Trigger onMouseDown={isLeftClick ? onContextMenu : undefined}>
         {/* biome-ignore  lint/correctness/noRestrictedElements: needed here */}
         <div
@@ -154,7 +136,7 @@ export function ContextMenu({
 
       <AdaptiveWebPopoverContent
         ref={containerRef}
-        key={`${menuPosition.x}-${menuPosition.y}`} // This key ensures that the component re-renders when the menu position changes so we get a re-animation
+        key={`${menuPosition.x}-${menuPosition.y}`}
         backgroundColor="transparent"
         p="$none"
         py="$spacing8"

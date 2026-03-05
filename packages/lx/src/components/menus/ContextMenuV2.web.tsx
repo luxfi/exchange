@@ -1,19 +1,11 @@
 import { Fragment, PropsWithChildren, useRef, useState } from 'react'
 import { AdaptiveWebPopoverContent, Popover, RemoveScroll, useMedia } from 'ui/src'
 import { zIndexes } from 'ui/src/theme'
-<<<<<<<< HEAD:packages/lx/src/components/menus/ContextMenuV2.web.tsx
+import { ContextMenuProps } from 'lx/src/components/menus/ContextMenu'
 import { MenuContent } from 'lx/src/components/menus/ContextMenuContent'
-import { ContextMenuProps } from 'lx/src/components/menus/ContextMenuV2'
 import { useContextMenuTracking } from 'lx/src/components/menus/hooks/useContextMenuTracking'
 import { ContextMenuTriggerMode } from 'lx/src/components/menus/types'
-import { isMobileWeb } from 'utilities/src/platform'
-========
-import { ContextMenuProps } from 'uniswap/src/components/menus/ContextMenu'
-import { MenuContent } from 'uniswap/src/components/menus/ContextMenuContent'
-import { useContextMenuTracking } from 'uniswap/src/components/menus/hooks/useContextMenuTracking'
-import { ContextMenuTriggerMode } from 'uniswap/src/components/menus/types'
 import { isWebApp } from 'utilities/src/platform'
->>>>>>>> upstream/main:packages/lx/src/components/menus/ContextMenu.web.tsx
 import { useEvent, useOnClickOutside } from 'utilities/src/react/hooks'
 
 export function ContextMenu({

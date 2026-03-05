@@ -239,6 +239,8 @@ export default defineConfig(({ mode }) => {
     'react-router-dom': path.resolve(__dirname, '../../node_modules/react-router'),
     // Lingui is not used — stub Trans/t for components that import from @lingui/macro
     '@lingui/macro': path.resolve(__dirname, 'src/lib/lingui-stub.tsx'),
+    // React Compiler injects this import into transformed files across all packages
+    'react-compiler-runtime': path.resolve(__dirname, '../../node_modules/react-compiler-runtime'),
   }
 
   // Aliases that need exact matching (using resolve.alias array format)

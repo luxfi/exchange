@@ -1,14 +1,7 @@
 import { Flex, Text } from 'ui/src'
 import { iconSizes } from 'ui/src/theme'
-<<<<<<<< HEAD:packages/lx/src/features/transactions/swap/components/BridgingCurrencyRow.tsx
 import { NetworkLogo } from 'lx/src/components/CurrencyLogo/NetworkLogo'
 import { UniverseChainId } from 'lx/src/features/chains/types'
-import { CurrencyInfo } from 'lx/src/features/dataApi/types'
-import { getSymbolDisplayText } from 'lx/src/utils/currency'
-========
-import { NetworkLogo } from 'uniswap/src/components/CurrencyLogo/NetworkLogo'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
->>>>>>>> upstream/main:packages/lx/src/features/transactions/swap/components/CrossChainCurrencyRow.tsx
 
 export type CrossChainCurrencyRowProps = {
   inputChainId: UniverseChainId | null

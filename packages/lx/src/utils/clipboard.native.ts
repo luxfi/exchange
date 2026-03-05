@@ -1,9 +1,5 @@
 import * as ExpoClipboard from 'expo-clipboard'
-<<<<<<<< HEAD:packages/lx/src/utils/clipboard.native.ts
-import { IClipboard } from 'lx/src/utils/clipboard'
-========
 import { IClipboard } from 'utilities/src/clipboard/clipboard'
->>>>>>>> upstream/main:packages/utilities/src/clipboard/clipboard.native.ts
 import { logger } from 'utilities/src/logger/logger'
 
 const Clipboard: IClipboard = {

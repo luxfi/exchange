@@ -3,17 +3,10 @@ import { act } from '@testing-library/react-native'
 // eslint-disable-next-line @typescript-eslint/no-restricted-imports
 import { View } from 'react-native'
 import { Flex } from 'ui/src'
-<<<<<<<< HEAD:packages/lx/src/components/menus/ContextMenuV2.web.test.tsx
-import { MenuOptionItem } from 'lx/src/components/menus/ContextMenuV2'
-import { ContextMenu } from 'lx/src/components/menus/ContextMenuV2.web'
+import { MenuOptionItem } from 'lx/src/components/menus/ContextMenu'
+import { ContextMenu } from 'lx/src/components/menus/ContextMenu.web'
 import { ContextMenuTriggerMode } from 'lx/src/components/menus/types'
 import { renderWithProviders } from 'lx/src/test/render'
-========
-import { MenuOptionItem } from 'uniswap/src/components/menus/ContextMenu'
-import { ContextMenu } from 'uniswap/src/components/menus/ContextMenu.web'
-import { ContextMenuTriggerMode } from 'uniswap/src/components/menus/types'
-import { renderWithProviders } from 'uniswap/src/test/render'
->>>>>>>> upstream/main:packages/lx/src/components/menus/ContextMenu.web.test.tsx
 
 describe('ContextMenu', () => {
   const mockMenuItems: MenuOptionItem[] = [
@@ -104,12 +97,7 @@ describe('ContextMenu', () => {
   describe('handles edge cases', () => {
     it('does not open the menu if no menuItems are provided', () => {
       const { getByTestId, queryByRole } = renderWithProviders(
-<<<<<<<< HEAD:packages/lx/src/components/menus/ContextMenuV2.web.test.tsx
-        <ContextMenu menuItems={[]} triggerMode={ContextMenuTriggerMode.Secondary} isOpen={true} closeMenu={jest.fn()}>
-          {/* @ts-expect-error RN View type */}
-========
         <ContextMenu menuItems={[]} triggerMode={ContextMenuTriggerMode.Secondary} isOpen={true} closeMenu={vi.fn()}>
->>>>>>>> upstream/main:packages/lx/src/components/menus/ContextMenu.web.test.tsx
           <View testID="trigger">
             <Flex>Trigger</Flex>
           </View>

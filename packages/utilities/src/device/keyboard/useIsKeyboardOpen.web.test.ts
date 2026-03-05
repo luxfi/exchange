@@ -1,10 +1,6 @@
 import { act, renderHook } from '@testing-library/react'
-<<<<<<<< HEAD:packages/lx/src/hooks/useIsKeyboardOpen.test.ts
-import useIsKeyboardOpen from 'lx/src/hooks/useIsKeyboardOpen'
-========
 import { useIsKeyboardOpen } from 'utilities/src/device/keyboard/useIsKeyboardOpen.web'
 import { vi } from 'vitest'
->>>>>>>> upstream/main:packages/utilities/src/device/keyboard/useIsKeyboardOpen.web.test.ts
 
 describe('useIsKeyboardOpen', () => {
   // Mock the visualViewport object

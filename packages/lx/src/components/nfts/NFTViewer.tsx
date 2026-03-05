@@ -1,13 +1,7 @@
 import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
-<<<<<<<< HEAD:packages/lx/src/components/nfts/images/NFTViewer.tsx
-import { Flex, Text } from 'ui/src'
-import { ImageUri, ImageUriProps } from 'lx/src/components/nfts/images/ImageUri'
-import { WebSvgUri } from 'lx/src/components/nfts/images/WebSvgUri'
-========
 import { Flex, Text, UniversalImage, type UniversalImageStyleDimensionValue } from 'ui/src'
 import { UniversalImageResizeMode } from 'ui/src/components/UniversalImage/types'
->>>>>>>> upstream/main:packages/lx/src/components/nfts/NFTViewer.tsx
 import { shortenAddress } from 'utilities/src/addresses'
 import { isEVMAddress } from 'utilities/src/addresses/evm/evm'
 import { isGifUri, isSVGUri, uriToHttpUrls } from 'utilities/src/format/urls'
