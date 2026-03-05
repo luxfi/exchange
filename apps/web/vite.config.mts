@@ -33,7 +33,7 @@ const ENABLE_REACT_COMPILER = process.env.ENABLE_REACT_COMPILER === 'true'
 const ReactCompilerConfig = {
   target: '18', // '17' | '18' | '19'
 }
-const DEPLOY_TARGET = process.env.DEPLOY_TARGET || 'cloudflare'
+const DEPLOY_TARGET = process.env.DEPLOY_TARGET || (process.env.DOCKER_BUILD ? 'static' : 'cloudflare')
 const VITE_DISABLE_SOURCEMAP = process.env.VITE_DISABLE_SOURCEMAP === 'true'
 const DEBUG_PROXY = process.env.VITE_DEBUG_PROXY === 'true'
 const ENABLE_PROXY = process.env.VITE_ENABLE_ENTRY_GATEWAY_PROXY === 'true'
@@ -172,7 +172,7 @@ export default defineConfig(({ mode }) => {
     'react-native': 'react-native-web',
     'expo-blur': path.resolve(__dirname, './.storybook/__mocks__/expo-blur.jsx'),
     '@web3-react/core': path.resolve(__dirname, 'src/connection/web3reactShim.ts'),
-    'uniswap/src': path.resolve(__dirname, '../../packages/uniswap/src'),
+    'uniswap/src': path.resolve(__dirname, '../../packages/lx/src'),
     'lx/src': path.resolve(__dirname, '../../packages/lx/src'),
     'utilities/src': path.resolve(__dirname, '../../packages/utilities/src'),
     'ui/src': path.resolve(__dirname, '../../packages/ui/src'),
@@ -194,15 +194,27 @@ export default defineConfig(({ mode }) => {
     '@universe/websocket': path.resolve(__dirname, '../../packages/websocket'),
     // Force JSBI to use ESM build so transform plugin can add __esModule marker
     jsbi: path.resolve(__dirname, '../../node_modules/jsbi/dist/jsbi.mjs'),
+    // Map @luxdex/* to @uniswap/* for packages that exist under the old namespace
+    '@luxdex/router-sdk': path.resolve(__dirname, '../../node_modules/@uniswap/router-sdk'),
+    '@luxdex/sdk-core': path.resolve(__dirname, '../../node_modules/@uniswap/sdk-core'),
+    '@luxdex/universal-router-sdk': path.resolve(__dirname, '../../node_modules/@uniswap/universal-router-sdk'),
+    '@luxdex/permit2-sdk': path.resolve(__dirname, '../../node_modules/@uniswap/permit2-sdk'),
+    // '@luxdex/conedison': not available — externalized
+    '@luxdex/v2-sdk': path.resolve(__dirname, '../../node_modules/@uniswap/v2-sdk'),
+    '@luxdex/v3-sdk': path.resolve(__dirname, '../../node_modules/@uniswap/v3-sdk'),
+    '@luxdex/v4-sdk': path.resolve(__dirname, '../../node_modules/@uniswap/v4-sdk'),
+    '@luxdex/client-platform-service': path.resolve(__dirname, '../../node_modules/@uniswap/client-platform-service'),
+    '@luxdex/client-notification-service': path.resolve(__dirname, '../../node_modules/@uniswap/client-notification-service'),
+    '@luxdex/client-data-api': path.resolve(__dirname, '../../node_modules/@uniswap/client-data-api'),
+    '@luxdex/client-trading': path.resolve(__dirname, '../../node_modules/@uniswap/client-trading'),
+    '@luxdex/client-for': path.resolve(__dirname, '../../node_modules/@uniswap/client-for'),
+    '@luxdex/client-liquidity': path.resolve(__dirname, '../../node_modules/@uniswap/client-liquidity'),
+    '@luxdex/permit': path.resolve(__dirname, '../../node_modules/@uniswap/permit2-sdk'),
   }
 
   // Aliases that need exact matching (using resolve.alias array format)
   const exactAliases = [
     // Use web app-specific i18n entry that doesn't import wallet's i18n-setup (exact match only)
-    {
-      find: /^uniswap\/src\/i18n$/,
-      replacement: path.resolve(__dirname, '../../packages/uniswap/src/i18n/index.web-app.ts'),
-    },
     {
       find: /^lx\/src\/i18n$/,
       replacement: path.resolve(__dirname, '../../packages/lx/src/i18n/index.web-app.ts'),
@@ -312,7 +324,7 @@ export default defineConfig(({ mode }) => {
       isProduction || isStaging
         ? tamaguiPlugin({
             config: '../../packages/ui/src/tamagui.config.ts',
-            components: ['ui', 'uniswap', 'utilities'],
+            components: ['ui', 'lx', 'utilities'],
             optimize: true,
             importsWhitelist: ['constants.js'],
           })
@@ -492,6 +504,8 @@ export default defineConfig(({ mode }) => {
           // When the private package is not installed, externalize it so Rollup doesn't error.
           // Dynamic imports of this module will fail at runtime (caught by loadPrivyPbModule's try/catch).
           ...(!privyPackageInstalled ? [/^@uniswap\/client-privy-embedded-wallet/] : []),
+          // Externalize unavailable optional packages
+          /^@luxdex\/conedison/,
         ],
         output: {
           // Ensure consistent file naming for better caching

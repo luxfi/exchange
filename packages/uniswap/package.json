@@ -1,7 +1,6 @@
 {
-  "name": "@universe/uniswap",
+  "name": "uniswap",
   "version": "0.0.0",
   "private": true,
-  "main": "src/index.ts",
-  "sideEffects": false
+  "main": "src/index.ts"
 }
