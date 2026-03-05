@@ -235,3 +235,122 @@ export const ERC721_ABI = [
     ],
   },
 ] as const
+
+// ERC1155 minimal ABI
+export const ERC1155_ABI = [
+  {
+    name: 'balanceOf',
+    type: 'function',
+    stateMutability: 'view',
+    inputs: [
+      { name: 'account', type: 'address' },
+      { name: 'id', type: 'uint256' },
+    ],
+    outputs: [{ type: 'uint256' }],
+  },
+  {
+    name: 'uri',
+    type: 'function',
+    stateMutability: 'view',
+    inputs: [{ name: 'id', type: 'uint256' }],
+    outputs: [{ type: 'string' }],
+  },
+  {
+    name: 'setApprovalForAll',
+    type: 'function',
+    stateMutability: 'nonpayable',
+    inputs: [
+      { name: 'operator', type: 'address' },
+      { name: 'approved', type: 'bool' },
+    ],
+    outputs: [],
+  },
+  {
+    name: 'isApprovedForAll',
+    type: 'function',
+    stateMutability: 'view',
+    inputs: [
+      { name: 'owner', type: 'address' },
+      { name: 'operator', type: 'address' },
+    ],
+    outputs: [{ type: 'bool' }],
+  },
+] as const
+
+// LSSVM Pair ABI (sudoswap AMM for NFTs)
+export const LSSVM_PAIR_ABI = [
+  {
+    name: 'swapTokenForSpecificNFTs',
+    type: 'function',
+    stateMutability: 'payable',
+    inputs: [
+      { name: 'nftIds', type: 'uint256[]' },
+      { name: 'maxExpectedTokenInput', type: 'uint256' },
+      { name: 'nftRecipient', type: 'address' },
+      { name: 'isRouter', type: 'bool' },
+      { name: 'routerCaller', type: 'address' },
+    ],
+    outputs: [{ name: 'inputAmount', type: 'uint256' }],
+  },
+  {
+    name: 'swapNFTsForToken',
+    type: 'function',
+    stateMutability: 'nonpayable',
+    inputs: [
+      { name: 'nftIds', type: 'uint256[]' },
+      { name: 'minExpectedTokenOutput', type: 'uint256' },
+      { name: 'tokenRecipient', type: 'address' },
+      { name: 'isRouter', type: 'bool' },
+      { name: 'routerCaller', type: 'address' },
+    ],
+    outputs: [{ name: 'outputAmount', type: 'uint256' }],
+  },
+  {
+    name: 'getBuyNFTQuote',
+    type: 'function',
+    stateMutability: 'view',
+    inputs: [
+      { name: 'assetId', type: 'uint256' },
+      { name: 'numNFTs', type: 'uint256' },
+    ],
+    outputs: [
+      { name: 'error', type: 'uint8' },
+      { name: 'newSpotPrice', type: 'uint256' },
+      { name: 'newDelta', type: 'uint256' },
+      { name: 'inputAmount', type: 'uint256' },
+      { name: 'protocolFee', type: 'uint256' },
+      { name: 'royaltyAmount', type: 'uint256' },
+    ],
+  },
+  {
+    name: 'getSellNFTQuote',
+    type: 'function',
+    stateMutability: 'view',
+    inputs: [
+      { name: 'assetId', type: 'uint256' },
+      { name: 'numNFTs', type: 'uint256' },
+    ],
+    outputs: [
+      { name: 'error', type: 'uint8' },
+      { name: 'newSpotPrice', type: 'uint256' },
+      { name: 'newDelta', type: 'uint256' },
+      { name: 'outputAmount', type: 'uint256' },
+      { name: 'protocolFee', type: 'uint256' },
+      { name: 'royaltyAmount', type: 'uint256' },
+    ],
+  },
+  {
+    name: 'spotPrice',
+    type: 'function',
+    stateMutability: 'view',
+    inputs: [],
+    outputs: [{ type: 'uint128' }],
+  },
+  {
+    name: 'nft',
+    type: 'function',
+    stateMutability: 'view',
+    inputs: [],
+    outputs: [{ type: 'address' }],
+  },
+] as const
