@@ -1,39 +1,39 @@
 /**
- * Hook to fetch explore stats from LXD Gateway for Lux/Zoo chains
+ * Hook to fetch explore stats for all chains
+ * - Lux/Zoo chains: G-Chain → LXD Gateway → static fallback
+ * - Other chains: CoinGecko free API → static fallback
  */
 import { useQuery } from '@tanstack/react-query'
-import { ExploreStatsResponse, TokenStats, PoolStats } from '@luxdex/client-explore/dist/uniswap/explore/v1/service_pb'
+import { ExploreStatsResponse } from '@luxdex/client-explore/dist/uniswap/explore/v1/service_pb'
 import { GraphQLApi } from '@luxfi/api'
 import { fetchLxdTokens, fetchLxdPools, isLxdChain, LxdToken, LxdPool } from 'lx/src/data/rest/lxdGateway'
 import { UniverseChainId } from 'lx/src/features/chains/types'
+import {
+  CHAIN_TO_GQL,
+  fetchCoinGeckoPrices,
+  getPublicTokensForChain,
+  getAllNetworkTokens,
+  hasPublicTokenData,
+  type PublicToken,
+} from './publicTokenData'
 
 // Convert chain ID to GraphQL chain enum
-function chainIdToGqlChain(chainId: number): GraphQLApi.Chain {
-  switch (chainId) {
-    case UniverseChainId.Lux:
-      return 'LUX' as GraphQLApi.Chain  // Custom chain name
-    case UniverseChainId.Zoo:
-      return 'ZOO' as GraphQLApi.Chain  // Custom chain name
-    default:
-      return GraphQLApi.Chain.Ethereum
-  }
+function chainIdToGqlChain(chainId: number): string {
+  return CHAIN_TO_GQL[chainId] ?? GraphQLApi.Chain.Ethereum
 }
 
-// Token logos for known symbols - L* tokens have black icons
+// Token logos for known Lux/Zoo symbols
 const TOKEN_LOGOS: Record<string, string> = {
-  // Native tokens
   LUX: '/tokens/lux.svg',
   WLUX: '/tokens/wlux.svg',
   ZOO: '/tokens/zoo.svg',
   WZOO: '/tokens/wzoo.svg',
-  // Common tokens
   USDC: '/tokens/usdc.svg',
   USDT: '/tokens/usdt.svg',
   WETH: '/tokens/weth.svg',
   WBTC: '/tokens/wbtc.svg',
   DAI: '/tokens/dai.svg',
   ETH: '/tokens/eth.svg',
-  // L* bridged tokens (black coin icons)
   LETH: '/tokens/leth.svg',
   LBTC: '/tokens/lbtc.svg',
   LUSD: '/tokens/lusd.svg',
@@ -49,7 +49,7 @@ const TOKEN_LOGOS: Record<string, string> = {
   LZOO: '/tokens/lzoo.svg',
 }
 
-// Convert LXD token to TokenStats-like format
+// Convert LXD token to TokenStats-like format (for Lux/Zoo chains)
 function lxdTokenToTokenStats(token: LxdToken): any {
   const chain = chainIdToGqlChain(token.chainId)
   const logo = TOKEN_LOGOS[token.symbol] || '/tokens/default.svg'
@@ -59,13 +59,11 @@ function lxdTokenToTokenStats(token: LxdToken): any {
     name: token.name,
     symbol: token.symbol,
     decimals: token.decimals,
-    // Project info for display
     project: {
       name: token.name,
       logo,
       logoUrl: logo,
     },
-    // Price data - would need real oracle data in production
     price: { value: token.symbol === 'LUX' ? 1.0 : token.symbol === 'ZOO' ? 0.5 : 0, currency: 'USD' },
     pricePercentChange1Hour: { value: 0 },
     pricePercentChange1Day: { value: 0 },
@@ -76,6 +74,42 @@ function lxdTokenToTokenStats(token: LxdToken): any {
     volume1Month: { value: 0, currency: 'USD' },
     volume1Year: { value: 0, currency: 'USD' },
     logo,
+  }
+}
+
+// Convert public token + CoinGecko price data to TokenStats format (for non-Lux chains)
+function publicTokenToTokenStats(
+  token: PublicToken,
+  chainId: number,
+  priceData?: { usd: number; usd_24h_change?: number; usd_24h_vol?: number; usd_market_cap?: number },
+): any {
+  const chain = chainIdToGqlChain(chainId)
+  const price = priceData?.usd ?? 0
+  const change24h = priceData?.usd_24h_change ?? 0
+  const volume24h = priceData?.usd_24h_vol ?? 0
+  const marketCap = priceData?.usd_market_cap ?? 0
+
+  return {
+    address: token.address,
+    chain,
+    name: token.name,
+    symbol: token.symbol,
+    decimals: token.decimals,
+    project: {
+      name: token.name,
+      logo: token.logoUrl,
+      logoUrl: token.logoUrl,
+    },
+    price: { value: price, currency: 'USD' },
+    pricePercentChange1Hour: { value: 0 },
+    pricePercentChange1Day: { value: change24h },
+    fullyDilutedValuation: { value: marketCap, currency: 'USD' },
+    volume1Hour: { value: 0, currency: 'USD' },
+    volume1Day: { value: volume24h, currency: 'USD' },
+    volume1Week: { value: 0, currency: 'USD' },
+    volume1Month: { value: 0, currency: 'USD' },
+    volume1Year: { value: 0, currency: 'USD' },
+    logo: token.logoUrl,
   }
 }
 
@@ -99,38 +133,79 @@ function lxdPoolToPoolStats(pool: LxdPool): any {
   }
 }
 
-async function fetchLxdExploreStats(chainId: number): Promise<ExploreStatsResponse> {
-  const [tokens, pools] = await Promise.all([
-    fetchLxdTokens(chainId),
-    fetchLxdPools(chainId),
-  ])
+/**
+ * Fetch explore stats for Lux/Zoo chains (existing path)
+ */
+async function fetchLxdChainStats(chainId: number): Promise<ExploreStatsResponse> {
+  const [tokens, pools] = await Promise.all([fetchLxdTokens(chainId), fetchLxdPools(chainId)])
 
-  // Convert to ExploreStatsResponse format
   const tokenStats = tokens.map(lxdTokenToTokenStats)
   const poolStats = pools.map(lxdPoolToPoolStats)
 
-  // Create a minimal Stats object - cast to any to avoid protobuf type issues
-  const stats = {
-    tokenStats,
-    poolStats,
+  return {
+    stats: { tokenStats, poolStats },
+  } as any as ExploreStatsResponse
+}
+
+/**
+ * Fetch explore stats for public chains using CoinGecko
+ */
+async function fetchPublicChainStats(chainId?: number): Promise<ExploreStatsResponse> {
+  // Get tokens for the chain (or all networks)
+  const tokens = chainId && hasPublicTokenData(chainId) ? await getPublicTokensForChain(chainId) : getAllNetworkTokens()
+
+  // Fetch live prices from CoinGecko
+  const prices = await fetchCoinGeckoPrices()
+
+  // Convert to TokenStats format with live prices
+  const effectiveChainId = chainId ?? UniverseChainId.Mainnet
+  const tokenStats = tokens.map((token) => {
+    const priceData = prices[token.coingeckoId]
+    return publicTokenToTokenStats(token, effectiveChainId, priceData)
+  })
+
+  // Sort by market cap (FDV) descending
+  tokenStats.sort((a: any, b: any) => (b.fullyDilutedValuation?.value ?? 0) - (a.fullyDilutedValuation?.value ?? 0))
+
+  return {
+    stats: { tokenStats, poolStats: [] },
+  } as any as ExploreStatsResponse
+}
+
+/**
+ * Fetch explore stats — routes to LXD or CoinGecko based on chain
+ * For "All Networks" (no chainId), merges Lux tokens with public chain tokens
+ */
+async function fetchExploreStats(chainId?: number): Promise<ExploreStatsResponse> {
+  if (chainId && isLxdChain(chainId)) {
+    return fetchLxdChainStats(chainId)
   }
 
-  // Create the response - ExploreStatsResponse expects stats property
-  const response = {
-    stats,
-  } as any as ExploreStatsResponse
+  const publicStats = await fetchPublicChainStats(chainId)
 
-  return response
+  // For "All Networks" view, prepend Lux and Zoo tokens
+  if (!chainId) {
+    try {
+      const [luxTokens, zooTokens] = await Promise.all([fetchLxdTokens(UniverseChainId.Lux), fetchLxdTokens(UniverseChainId.Zoo)])
+      const luxStats = luxTokens.map(lxdTokenToTokenStats)
+      const zooStats = zooTokens.map(lxdTokenToTokenStats)
+      const combined = [...luxStats, ...zooStats, ...(publicStats.stats as any)?.tokenStats ?? []]
+      return {
+        stats: { tokenStats: combined, poolStats: (publicStats.stats as any)?.poolStats ?? [] },
+      } as any as ExploreStatsResponse
+    } catch {
+      // If LXD fetch fails, just return public data
+    }
+  }
+
+  return publicStats
 }
 
 export function useLxdExploreStats(chainId?: number) {
-  const isLxd = chainId && isLxdChain(chainId)
-
   return useQuery({
-    queryKey: ['lxd-explore-stats', chainId],
-    queryFn: () => fetchLxdExploreStats(chainId!),
-    enabled: !!isLxd,
-    staleTime: 30000, // 30 seconds
-    refetchInterval: 60000, // 1 minute
+    queryKey: ['explore-stats', chainId ?? 'all'],
+    queryFn: () => fetchExploreStats(chainId),
+    staleTime: 30000,
+    refetchInterval: 60000,
   })
 }

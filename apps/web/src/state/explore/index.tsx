@@ -1,8 +1,6 @@
 import { ExploreStatsResponse, ProtocolStatsResponse } from '@luxdex/client-explore/dist/uniswap/explore/v1/service_pb'
 import { ALL_NETWORKS_ARG } from '@luxfi/api'
 import { createContext, useMemo } from 'react'
-import { useExploreStatsQuery } from 'lx/src/data/rest/exploreStats'
-import { isLxdChain } from 'lx/src/data/rest/lxdGateway'
 import { useProtocolStatsQuery } from 'lx/src/data/rest/protocolStats'
 import { useIsSupportedChainId } from 'lx/src/features/chains/hooks/useSupportedChainId'
 import { UniverseChainId } from 'lx/src/features/chains/types'
@@ -51,23 +49,13 @@ export function ExploreContextProvider({
   children: React.ReactNode
 }) {
   const isSupportedChain = useIsSupportedChainId(chainId)
-  const useLxd = chainId && isLxdChain(chainId)
 
-  // Standard Uniswap backend query (disabled for LXD chains)
+  // Unified data provider: CoinGecko for public chains, LXD Gateway for Lux/Zoo
+  // Replaces the broken Uniswap REST API (*.gateway.uniswap.org returns ACCESS_DENIED)
   const {
-    data: uniswapStatsData,
-    isLoading: uniswapStatsLoading,
-    error: uniswapStatsError,
-  } = useExploreStatsQuery<ExploreStatsResponse>({
-    input: { chainId: isSupportedChain ? chainId.toString() : ALL_NETWORKS_ARG },
-    enabled: !useLxd,
-  })
-
-  // LXD Gateway query (enabled only for Lux/Zoo chains)
-  const {
-    data: lxdStatsData,
-    isLoading: lxdStatsLoading,
-    error: lxdStatsError,
+    data: exploreStatsData,
+    isLoading: exploreStatsLoading,
+    error: exploreStatsError,
   } = useLxdExploreStats(chainId)
 
   const {
@@ -75,13 +63,8 @@ export function ExploreContextProvider({
     isLoading: protocolStatsLoading,
     error: protocolStatsError,
   } = useProtocolStatsQuery({
-    chainId: isSupportedChain ? chainId.toString() : ALL_NETWORKS_ARG,
+    chainId: isSupportedChain ? chainId?.toString() ?? ALL_NETWORKS_ARG : ALL_NETWORKS_ARG,
   })
-
-  // Use LXD data for Lux/Zoo chains, Uniswap data for others
-  const exploreStatsData = useLxd ? lxdStatsData : uniswapStatsData
-  const exploreStatsLoading = useLxd ? lxdStatsLoading : uniswapStatsLoading
-  const exploreStatsError = useLxd ? lxdStatsError : uniswapStatsError
 
   const exploreContext = useMemo(() => {
     return {
