@@ -7,11 +7,11 @@ node_modules
 .git
 .gitattributes
 
-# Build outputs (rebuilt in container)
-# Note: apps/web/build is NOT excluded (needed for static image)
-**/dist
+# Build outputs
 **/.turbo
 **/.nx
+# Only exclude app dist/ dirs (packages/*/dist/ is pre-built and committed — needed at build time)
+apps/*/dist
 
 # Mobile/native artifacts (not needed for web)
 apps/mobile/ios

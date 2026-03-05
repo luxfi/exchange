@@ -240,6 +240,7 @@ export default defineConfig(({ mode }) => {
     '@luxamm/sdk-core': path.resolve(__dirname, '../../node_modules/@luxamm/sdk-core/dist/sdk-core.esm.js'),
     '@luxamm/v2-sdk': path.resolve(__dirname, '../../node_modules/@luxamm/v2-sdk/dist/v2-sdk.esm.js'),
     '@luxamm/v3-sdk': path.resolve(__dirname, '../../node_modules/@luxamm/v3-sdk/dist/v3-sdk.esm.js'),
+    '@luxamm/v4-sdk': path.resolve(__dirname, '../../node_modules/@luxamm/v4-sdk/dist/v4-sdk.esm.js'),
     // Additional @luxdex/* aliases missing from original config
     '@luxdex/analytics': path.resolve(__dirname, '../../packages/luxdex-analytics'),
     '@luxdex/analytics-events': path.resolve(__dirname, '../../node_modules/@uniswap/analytics-events'),
