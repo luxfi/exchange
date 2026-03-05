@@ -23,7 +23,7 @@ import type { Logger } from 'utilities/src/logger/logger'
 function createSessionRepository(ctx: { client: SessionServiceClient; getLogger?: () => Logger }): SessionRepository {
   const initSession: SessionRepository['initSession'] = async () => {
     try {
-      const response = await ctx.client.initSession({})
+      const response = await ctx.client['initSession']({})
 
       return {
         sessionId: response.sessionId,
@@ -39,7 +39,7 @@ function createSessionRepository(ctx: { client: SessionServiceClient; getLogger?
 
   const challenge: SessionRepository['challenge'] = async (request) => {
     try {
-      const response = await ctx.client.challenge({
+      const response = await ctx.client['challenge']({
         challengeType: request.challengeType,
         identifier: request.identifier,
       })
@@ -140,7 +140,7 @@ function createSessionRepository(ctx: { client: SessionServiceClient; getLogger?
 
   const verifySession: SessionRepository['verifySession'] = async (request) => {
     try {
-      const response = await ctx.client.verify({
+      const response = await ctx.client['verify']({
         solution: request.solution,
         challengeId: request.challengeId,
         type: request.challengeType,
@@ -209,7 +209,7 @@ function createSessionRepository(ctx: { client: SessionServiceClient; getLogger?
   const deleteSession: SessionRepository['deleteSession'] = async () => {
     try {
       // Proto renamed deleteSession to signout
-      await ctx.client.signout({})
+      await ctx.client['signout']({})
       return {}
     } catch (error) {
       const errorMessage = error instanceof Error ? error.message : String(error)
@@ -219,10 +219,10 @@ function createSessionRepository(ctx: { client: SessionServiceClient; getLogger?
 
   const getChallengeTypes: SessionRepository['getChallengeTypes'] = async () => {
     try {
-      const response = await ctx.client.getChallengeTypes({})
-      return response.challengeTypeConfig.map((config) => ({
-        type: config.type,
-        config: config.config,
+      const response = await ctx.client['getChallengeTypes']({})
+      return response.challengeTypeConfig.map((cfg: { type: number; config: Record<string, string> }) => ({
+        type: cfg.type,
+        config: cfg.config,
       }))
     } catch (error) {
       const errorMessage = error instanceof Error ? error.message : String(error)

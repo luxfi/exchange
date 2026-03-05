@@ -79,7 +79,7 @@ export const getConfig = (): Config => {
     graphqlUrlOverride: process.env.GRAPHQL_URL_OVERRIDE || GRAPHQL_URL_OVERRIDE,
     // G-Chain GraphQL: testnet=9650, mainnet=9630
     gChainGraphqlUrl:
-      process.env.GCHAIN_GRAPHQL_URL ||
+      process.env['GCHAIN_GRAPHQL_URL'] ||
       (isNonTestDev ? 'http://localhost:9650/ext/bc/G/graphql' : 'http://localhost:9630/ext/bc/G/graphql'),
     infuraKey: process.env.REACT_APP_INFURA_KEY || INFURA_KEY,
     includePrototypeFeatures: process.env.INCLUDE_PROTOTYPE_FEATURES || INCLUDE_PROTOTYPE_FEATURES,
@@ -110,7 +110,7 @@ export const getConfig = (): Config => {
     uniswapNotifApiBaseUrlOverride:
       process.env.UNISWAP_NOTIF_API_BASE_URL_OVERRIDE || UNISWAP_NOTIF_API_BASE_URL_OVERRIDE,
     entryGatewayApiUrlOverride: process.env.ENTRY_GATEWAY_API_URL_OVERRIDE || ENTRY_GATEWAY_API_URL_OVERRIDE,
-    luxGatewayUrlOverride: process.env.LUX_GATEWAY_URL || LUX_GATEWAY_URL || '',
+    luxGatewayUrlOverride: process.env['LUX_GATEWAY_URL'] || LUX_GATEWAY_URL || '',
     walletConnectProjectId:
       process.env.REACT_APP_WALLET_CONNECT_PROJECT_ID ||
       process.env.WALLETCONNECT_PROJECT_ID ||

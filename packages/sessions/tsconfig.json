@@ -6,7 +6,8 @@
     "emitDeclarationOnly": true,
     "noEmit": false,
     "paths": {
-      "@universe/sessions/*": ["./src/*"]
+      "@universe/sessions/*": ["./src/*"],
+      "@luxdex/client-platform-service/*": ["../../node_modules/@uniswap/client-platform-service/*"]
     },
     "types": ["chrome", "node"]
   },
