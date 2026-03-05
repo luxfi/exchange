@@ -197,6 +197,22 @@ export default defineConfig(({ mode }) => {
     '@luxfi/dex': path.resolve(__dirname, '../../packages/dex'),
     '@luxfi/gating': path.resolve(__dirname, '../../packages/gating'),
     '@luxfi/notifications': path.resolve(__dirname, '../../packages/notifications'),
+    // Bare src-relative imports (CRA baseUrl convention — pnpm strict mode needs explicit aliases)
+    'components': path.resolve(__dirname, 'src/components'),
+    'constants': path.resolve(__dirname, 'src/constants'),
+    'connection': path.resolve(__dirname, 'src/connection'),
+    'featureFlags': path.resolve(__dirname, 'src/featureFlags'),
+    'hooks': path.resolve(__dirname, 'src/hooks'),
+    'lib': path.resolve(__dirname, 'src/lib'),
+    'nft': path.resolve(__dirname, 'src/nft'),
+    'pages': path.resolve(__dirname, 'src/pages'),
+    'state': path.resolve(__dirname, 'src/state'),
+    'test-utils': path.resolve(__dirname, 'src/test-utils'),
+    'theme': path.resolve(__dirname, 'src/theme'),
+    'tokens-lux': path.resolve(__dirname, 'src/tokens-lux'),
+    'tracing': path.resolve(__dirname, 'src/tracing'),
+    'types': path.resolve(__dirname, 'src/types'),
+    'utils': path.resolve(__dirname, 'src/utils'),
     // Force JSBI to use ESM build so transform plugin can add __esModule marker
     jsbi: path.resolve(__dirname, '../../node_modules/jsbi/dist/jsbi.mjs'),
     // Map @luxdex/* to @uniswap/* for packages that exist under the old namespace
