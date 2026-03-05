@@ -176,6 +176,21 @@ export default defineConfig(({ mode }) => {
     'utilities/src': path.resolve(__dirname, '../../packages/utilities/src'),
     'ui/src': path.resolve(__dirname, '../../packages/ui/src'),
     'expo-clipboard': path.resolve(__dirname, 'src/lib/expo-clipboard.jsx'),
+    // Workspace package aliases (upstream uses @universe/pkg/src/* paths)
+    '@universe/sessions/src': path.resolve(__dirname, '../../packages/sessions/src'),
+    '@universe/sessions': path.resolve(__dirname, '../../packages/sessions'),
+    '@universe/api/src': path.resolve(__dirname, '../../packages/api/src'),
+    '@universe/api': path.resolve(__dirname, '../../packages/api'),
+    '@universe/config/src': path.resolve(__dirname, '../../packages/config/src'),
+    '@universe/config': path.resolve(__dirname, '../../packages/config'),
+    '@universe/gating/src': path.resolve(__dirname, '../../packages/gating/src'),
+    '@universe/gating': path.resolve(__dirname, '../../packages/gating'),
+    '@universe/notifications/src': path.resolve(__dirname, '../../packages/notifications/src'),
+    '@universe/notifications': path.resolve(__dirname, '../../packages/notifications'),
+    '@universe/prices/src': path.resolve(__dirname, '../../packages/prices/src'),
+    '@universe/prices': path.resolve(__dirname, '../../packages/prices'),
+    '@universe/websocket/src': path.resolve(__dirname, '../../packages/websocket/src'),
+    '@universe/websocket': path.resolve(__dirname, '../../packages/websocket'),
     // Force JSBI to use ESM build so transform plugin can add __esModule marker
     jsbi: path.resolve(__dirname, '../../node_modules/jsbi/dist/jsbi.mjs'),
   }
