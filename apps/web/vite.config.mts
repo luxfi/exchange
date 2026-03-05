@@ -170,7 +170,7 @@ export default defineConfig(({ mode }) => {
   const overrides = {
     // External package aliases
     'react-native': 'react-native-web',
-    'expo-blur': path.resolve(__dirname, './.storybook/__mocks__/expo-blur.jsx'),
+    'expo-blur': path.resolve(__dirname, 'src/lib/expo-blur-mock.jsx'),
     '@web3-react/core': path.resolve(__dirname, 'src/connection/web3reactShim.ts'),
     'uniswap/src': path.resolve(__dirname, '../../packages/lx/src'),
     'lx/src': path.resolve(__dirname, '../../packages/lx/src'),
@@ -236,17 +236,17 @@ export default defineConfig(({ mode }) => {
     '@luxdex/client-for': path.resolve(__dirname, '../../node_modules/@uniswap/client-for'),
     '@luxdex/client-liquidity': path.resolve(__dirname, '../../node_modules/@uniswap/client-liquidity'),
     '@luxdex/permit': path.resolve(__dirname, '../../node_modules/@uniswap/permit2-sdk'),
-    // Map @luxamm/* to their ESM entry files (directory aliases cause EISDIR)
-    '@luxamm/sdk-core': path.resolve(__dirname, '../../node_modules/@luxamm/sdk-core/dist/sdk-core.esm.js'),
-    '@luxamm/v2-sdk': path.resolve(__dirname, '../../node_modules/@luxamm/v2-sdk/dist/v2-sdk.esm.js'),
-    '@luxamm/v3-sdk': path.resolve(__dirname, '../../node_modules/@luxamm/v3-sdk/dist/v3-sdk.esm.js'),
-    '@luxamm/v4-sdk': path.resolve(__dirname, '../../node_modules/@luxamm/v4-sdk/dist/v4-sdk.esm.js'),
+    // Map @luxamm/* to workspace package ESM entry files
+    '@luxamm/sdk-core': path.resolve(__dirname, '../../packages/luxamm-sdk-core/dist/sdk-core.esm.js'),
+    '@luxamm/v2-sdk': path.resolve(__dirname, '../../packages/luxamm-v2-sdk/dist/v2-sdk.esm.js'),
+    '@luxamm/v3-sdk': path.resolve(__dirname, '../../packages/luxamm-v3-sdk/dist/v3-sdk.esm.js'),
+    '@luxamm/v4-sdk': path.resolve(__dirname, '../../packages/luxamm-v4-sdk/dist/v4-sdk.esm.js'),
     // Additional @luxdex/* aliases missing from original config
-    '@luxdex/analytics': path.resolve(__dirname, '../../packages/luxdex-analytics'),
-    '@luxdex/analytics-events': path.resolve(__dirname, '../../node_modules/@uniswap/analytics-events'),
+    '@luxdex/analytics': path.resolve(__dirname, '../../packages/luxdex-analytics/dist/index.mjs'),
+    '@luxdex/analytics-events': path.resolve(__dirname, '../../node_modules/@uniswap/analytics-events/lib/cjs/index.js'),
     '@luxdex/client-explore': path.resolve(__dirname, '../../node_modules/@uniswap/client-explore'),
     '@luxdex/client-search': path.resolve(__dirname, '../../node_modules/@uniswap/client-search'),
-    '@luxdex/sdk': path.resolve(__dirname, '../../packages/luxdex-sdk'),
+    '@luxdex/sdk': path.resolve(__dirname, '../../packages/luxdex-sdk/dist/esm/src/index.js'),
     '@luxdex/conedison/format': path.resolve(__dirname, 'src/lib/conedison-format-stub.ts'),
     // react-router v7 merged react-router-dom into react-router
     'react-router-dom': path.resolve(__dirname, '../../node_modules/react-router'),
