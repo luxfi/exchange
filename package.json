@@ -40,7 +40,10 @@
     "syncpack": "8.5.14",
     "tslib": "2.3.0",
     "typescript": "5.8.3",
-    "wrangler": "4.65.0"
+    "wrangler": "4.65.0",
+    "@tailwindcss/postcss": "^4.1.18",
+    "tailwindcss": "4.1.18",
+    "autoprefixer": "^10.4.23"
   },
   "engines": {
     "node": "=22.13.1",
