@@ -3327,6 +3327,8 @@ importers:
         specifier: workspace:^
         version: link:../../config/vitest-presets
 
+  packages/uniswap: {}
+
   packages/utilities:
     dependencies:
       '@amplitude/analytics-browser':
