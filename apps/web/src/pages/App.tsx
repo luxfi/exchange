@@ -1,22 +1,22 @@
-import { useFeatureFlagUrlOverrides } from 'featureFlags/useFeatureFlagUrlOverrides'
-import ErrorBoundary from 'components/ErrorBoundary'
-import { Body } from 'pages/App/Body'
-import { AppLayout } from 'pages/App/Layout'
-import { ResetPageScrollEffect } from 'pages/App/utils/ResetPageScroll'
-import { UserPropertyUpdater } from 'pages/App/utils/UserPropertyUpdater'
-import { useDynamicMetatags } from 'pages/metatags'
-import { findRouteByPath } from 'pages/RouteDefinitions'
 import { useEffect, useLayoutEffect } from 'react'
 import { Helmet } from 'react-helmet-async/lib/index'
 import { Navigate, useLocation } from 'react-router'
-import DarkModeQueryParamReader from 'theme/components/DarkModeQueryParamReader'
 import { useSporeColors } from 'ui/src'
-import { initializeScrollWatcher } from 'lx/src/components/modals/ScrollLock'
-import { EXTENSION_PASSKEY_AUTH_PATH } from 'lx/src/features/passkey/constants'
-import Trace from 'lx/src/features/telemetry/Trace'
-import { isPathBlocked } from 'utils/blockedPaths'
-import { MICROSITE_LINK } from 'utils/openDownloadApp'
-import { getCurrentPageFromLocation } from 'utils/urlRoutes'
+import { initializeScrollWatcher } from 'uniswap/src/components/modals/ScrollLock'
+import { EXTENSION_PASSKEY_AUTH_PATH } from 'uniswap/src/features/passkey/constants'
+import Trace from 'uniswap/src/features/telemetry/Trace'
+import ErrorBoundary from '~/components/ErrorBoundary'
+import { useFeatureFlagUrlOverrides } from '~/featureFlags/useFeatureFlagUrlOverrides'
+import { Body } from '~/pages/App/Body'
+import { AppLayout } from '~/pages/App/Layout'
+import { ResetPageScrollEffect } from '~/pages/App/utils/ResetPageScroll'
+import { UserPropertyUpdater } from '~/pages/App/utils/UserPropertyUpdater'
+import { useDynamicMetatags } from '~/pages/metatags'
+import { findRouteByPath } from '~/pages/RouteDefinitions'
+import DarkModeQueryParamReader from '~/theme/components/DarkModeQueryParamReader'
+import { isPathBlocked } from '~/utils/blockedPaths'
+import { MICROSITE_LINK } from '~/utils/openDownloadApp'
+import { getCurrentPageFromLocation } from '~/utils/urlRoutes'
 
 const OVERRIDE_PAGE_LAYOUT = [EXTENSION_PASSKEY_AUTH_PATH]
 
@@ -34,7 +34,7 @@ export default function App() {
   }, [])
 
   const metaTags = useDynamicMetatags()
-  const staticTitle = findRouteByPath(pathname)?.getTitle(pathname) ?? 'Lux Exchange'
+  const staticTitle = findRouteByPath(pathname)?.getTitle(pathname) ?? 'Uniswap Interface'
   const staticDescription = findRouteByPath(pathname)?.getDescription(pathname)
 
   // redirect address to landing pages until implemented

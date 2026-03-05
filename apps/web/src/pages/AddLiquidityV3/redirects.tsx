@@ -1,8 +1,8 @@
-import { useAccount } from 'hooks/useAccount'
 import { Navigate, useParams } from 'react-router'
-import { useEnabledChains } from 'lx/src/features/chains/hooks/useEnabledChains'
-import { areCurrencyIdsEqual } from 'lx/src/utils/currencyId'
-import { getChainUrlParam } from 'utils/chainParams'
+import { useEnabledChains } from 'uniswap/src/features/chains/hooks/useEnabledChains'
+import { areCurrencyIdsEqual } from 'uniswap/src/utils/currencyId'
+import { useAccount } from '~/hooks/useAccount'
+import { getChainUrlParam } from '~/utils/chainParams'
 
 export default function AddLiquidityV3WithTokenRedirects() {
   const { currencyIdA, currencyIdB, tokenId } = useParams<{

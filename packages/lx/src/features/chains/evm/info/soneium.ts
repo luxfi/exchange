@@ -1,19 +1,22 @@
-import { Token } from '@luxamm/sdk-core'
-import { GraphQLApi } from '@luxfi/api'
+import { Token } from '@uniswap/sdk-core'
+import { GraphQLApi } from '@universe/api'
 import { ETH_LOGO, SONEIUM_LOGO } from 'ui/src/assets'
-import { config } from 'lx/src/config'
-import { DEFAULT_NATIVE_ADDRESS_LEGACY, DEFAULT_RETRY_OPTIONS } from 'lx/src/features/chains/evm/rpc'
-import { buildChainTokens } from 'lx/src/features/chains/evm/tokens'
-import { GENERIC_L2_GAS_CONFIG } from 'lx/src/features/chains/gasDefaults'
+import {
+  DEFAULT_NATIVE_ADDRESS_LEGACY,
+  DEFAULT_RETRY_OPTIONS,
+  getQuicknodeEndpointUrl,
+} from 'uniswap/src/features/chains/evm/rpc'
+import { buildChainTokens } from 'uniswap/src/features/chains/evm/tokens'
+import { GENERIC_L2_GAS_CONFIG } from 'uniswap/src/features/chains/gasDefaults'
 import {
   GqlChainId,
   NetworkLayer,
   RPCType,
   UniverseChainId,
   UniverseChainInfo,
-} from 'lx/src/features/chains/types'
-import { Platform } from 'lx/src/features/platforms/types/Platform'
-import { ElementName } from 'lx/src/features/telemetry/constants'
+} from 'uniswap/src/features/chains/types'
+import { Platform } from 'uniswap/src/features/platforms/types/Platform'
+import { ElementName } from 'uniswap/src/features/telemetry/constants'
 import { isWebApp } from 'utilities/src/platform'
 import { soneium } from 'wagmi/chains'
 
@@ -62,12 +65,14 @@ export const SONEIUM_CHAIN_INFO = {
     logo: ETH_LOGO,
   },
   networkLayer: NetworkLayer.L2,
+  blockTimeMs: 2000,
   pendingTransactionsRetryOptions: DEFAULT_RETRY_OPTIONS,
   rpcUrls: {
-    // TODO (WEB-6702) - update public rpc to quicknode url when available
-    [RPCType.Public]: { http: [`https://soneium-mainnet.g.alchemy.com/v2/${config.alchemyApiKey}`] },
+    [RPCType.Public]: { http: [getQuicknodeEndpointUrl(UniverseChainId.Soneium)] },
     [RPCType.Default]: { http: ['https://rpc.soneium.org'] },
-    [RPCType.Interface]: { http: [`https://soneium-mainnet.g.alchemy.com/v2/${config.alchemyApiKey}`] },
+    [RPCType.Interface]: {
+      http: [getQuicknodeEndpointUrl(UniverseChainId.Soneium)],
+    },
   },
   tokens,
   statusPage: 'https://status.soneium.org/',

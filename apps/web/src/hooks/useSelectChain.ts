@@ -1,13 +1,13 @@
-import { popupRegistry } from 'components/Popups/registry'
-import { PopupType } from 'components/Popups/types'
-import { useAccount } from 'hooks/useAccount'
-import { useIsSupportedChainIdCallback } from 'lx/src/features/chains/hooks/useSupportedChainId'
-import { EVMUniverseChainId, UniverseChainId } from 'lx/src/features/chains/types'
-import { isSVMChain } from 'lx/src/features/platforms/utils/chains'
+import { useIsSupportedChainIdCallback } from 'uniswap/src/features/chains/hooks/useSupportedChainId'
+import { EVMUniverseChainId, UniverseChainId } from 'uniswap/src/features/chains/types'
+import { isSVMChain } from 'uniswap/src/features/platforms/utils/chains'
 import { logger } from 'utilities/src/logger/logger'
 import { useEvent } from 'utilities/src/react/hooks'
 import { UserRejectedRequestError } from 'viem'
 import { useSwitchChain as useSwitchChainWagmi } from 'wagmi'
+import { popupRegistry } from '~/components/Popups/registry'
+import { PopupType } from '~/components/Popups/types'
+import { useAccount } from '~/hooks/useAccount'
 
 export default function useSelectChain() {
   const isSupportedChainCallback = useIsSupportedChainIdCallback()

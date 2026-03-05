@@ -1,23 +1,24 @@
-import { TradingApi } from '@luxfi/api'
+import { TradingApi } from '@universe/api'
 import { useCallback } from 'react'
 // biome-ignore lint/style/noRestrictedImports: only using to keep a consistent timing on interface
 import { ADAPTIVE_MODAL_ANIMATION_DURATION } from 'ui/src/components/modal/AdaptiveWebModal'
-import type { ParsedWarnings } from 'lx/src/components/modals/WarningModal/types'
-import type { AuthTrigger } from 'lx/src/features/auth/types'
-import { TransactionScreen } from 'lx/src/features/transactions/components/TransactionModal/TransactionModalContext'
-import type { TransactionStep } from 'lx/src/features/transactions/steps/types'
-import { shouldShowFlashblocksUI } from 'lx/src/features/transactions/swap/components/UnichainInstantBalanceModal/utils'
-import { useIsUnichainFlashblocksEnabled } from 'lx/src/features/transactions/swap/hooks/useIsUnichainFlashblocksEnabled'
+import type { ParsedWarnings } from 'uniswap/src/components/modals/WarningModal/types'
+import type { AuthTrigger } from 'uniswap/src/features/auth/types'
+import { TransactionScreen } from 'uniswap/src/features/transactions/components/TransactionModal/TransactionModalContext'
+import type { TransactionStep } from 'uniswap/src/features/transactions/steps/types'
+import { shouldShowFlashblocksUI } from 'uniswap/src/features/transactions/swap/components/UnichainInstantBalanceModal/utils'
+import { useIsUnichainFlashblocksEnabled } from 'uniswap/src/features/transactions/swap/hooks/useIsUnichainFlashblocksEnabled'
 import {
   ensureFreshSwapTxData,
   useSwapParams,
   useSwapTxAndGasInfoService,
-} from 'lx/src/features/transactions/swap/review/services/swapTxAndGasInfoService/hooks'
-import type { GetExecuteSwapService } from 'lx/src/features/transactions/swap/services/executeSwapService'
-import { useSwapDependenciesStore } from 'lx/src/features/transactions/swap/stores/swapDependenciesStore/useSwapDependenciesStore'
-import type { SwapFormState } from 'lx/src/features/transactions/swap/stores/swapFormStore/types'
-import type { SetCurrentStepFn } from 'lx/src/features/transactions/swap/types/swapCallback'
-import { createTransactionId } from 'lx/src/utils/createTransactionId'
+} from 'uniswap/src/features/transactions/swap/review/services/swapTxAndGasInfoService/hooks'
+import { activePlanStore } from 'uniswap/src/features/transactions/swap/review/stores/activePlan/activePlanStore'
+import type { GetExecuteSwapService } from 'uniswap/src/features/transactions/swap/services/executeSwapService'
+import { useSwapDependenciesStore } from 'uniswap/src/features/transactions/swap/stores/swapDependenciesStore/useSwapDependenciesStore'
+import type { SwapFormState } from 'uniswap/src/features/transactions/swap/stores/swapFormStore/types'
+import type { SetCurrentStepFn } from 'uniswap/src/features/transactions/swap/types/swapCallback'
+import { createTransactionId } from 'uniswap/src/utils/createTransactionId'
 import { tryCatch } from 'utilities/src/errors'
 import { logger } from 'utilities/src/logger/logger'
 import { isWebApp } from 'utilities/src/platform'
@@ -84,20 +85,34 @@ export function useCreateSwapReviewCallbacks(ctx: {
     // show the confirmed state for bridges
     derivedSwapInfo.trade.trade?.routing === TradingApi.Routing.BRIDGE
 
-  const onFailure = useCallback(
-    (error?: Error, onPressRetry?: () => void) => {
+  const onFailure = useEvent((error?: Error, onPressRetry?: () => void) => {
+    if (!activePlanStore.getState().activePlan) {
       resetCurrentStep()
+    }
 
-      // Create a new txId for the next transaction, as the existing one may be used in state to track the failed submission.
-      const newTxId = createTransactionId()
-      updateSwapForm({ isSubmitting: false, isConfirmed: false, txId: newTxId, showPendingUI: false })
+    // Create a new txId for the next transaction, as the existing one may be used in state to track the failed submission.
+    const newTxId = createTransactionId()
+    updateSwapForm({ isSubmitting: false, isConfirmed: false, txId: newTxId, showPendingUI: false })
 
-      setSubmissionError(error)
-      setRetrySwap(() => onPressRetry)
-    },
-    [updateSwapForm, setSubmissionError, resetCurrentStep, setRetrySwap],
-  )
+    setSubmissionError(error)
+    setRetrySwap(onPressRetry)
+  })
 
+  const onClearForm = useCallback(() => {
+    updateSwapForm({
+      isConfirmed: true,
+      isSubmitting: false,
+      showPendingUI: false,
+      exactAmountFiat: undefined,
+      exactAmountToken: '',
+      instantReceiptFetchTime: undefined,
+      instantOutputAmountRaw: undefined,
+      txHash: undefined,
+      txHashReceivedTime: undefined,
+    })
+  }, [updateSwapForm])
+
+  // TODO: SWAP-1774 handle backgrounded plans
   const onSuccess = useCallback(() => {
     // For Unichain networks, trigger confirmation and branch to stall+fetch logic (ie handle in component)
     if (isFlashblocksEnabled && shouldShowConfirmedState) {
@@ -185,6 +200,7 @@ export function useCreateSwapReviewCallbacks(ctx: {
     const executeSwapService = getExecuteSwapService({
       onSuccess,
       onFailure,
+      onClearForm,
       onPending,
       setCurrentStep,
       setSteps,

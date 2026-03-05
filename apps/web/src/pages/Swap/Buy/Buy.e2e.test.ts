@@ -1,37 +1,75 @@
-import { expect, getTest } from 'playwright/fixtures'
+import { uniswapUrls } from 'uniswap/src/constants/urls'
+import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+import { expect, getTest } from '~/playwright/fixtures'
+import { stubTradingApiEndpoint } from '~/playwright/fixtures/tradingApi'
+import { Mocks } from '~/playwright/mocks/mocks'
 
 const test = getTest()
 
 test.describe(
-  'Buy Page',
+  'Buy Crypto Form',
   {
-    tag: '@team:apps-growth',
+    tag: '@team:apps-swap',
     annotation: [
-      { type: 'DD_TAGS[team]', description: 'apps-growth' },
+      { type: 'DD_TAGS[team]', description: 'apps-swap' },
       { type: 'DD_TAGS[test.type]', description: 'web-e2e' },
     ],
   },
   () => {
-    test('buy page loads', async ({ page }) => {
+    test.beforeEach(async ({ page }) => {
+      const mockRoutes = [
+        { pattern: '**/GetCountry', file: Mocks.FiatOnRamp.get_country },
+        { pattern: '**/SupportedFiatCurrencies', file: Mocks.FiatOnRamp.supported_fiat_currencies },
+        { pattern: '**/SupportedCountries', file: Mocks.FiatOnRamp.supported_countries },
+        { pattern: '**/SupportedTokens', file: Mocks.FiatOnRamp.supported_tokens },
+        { pattern: '**/Quote', file: Mocks.FiatOnRamp.quotes },
+      ]
+
+      for (const { pattern, file } of mockRoutes) {
+        await page.route(pattern, async (route) => {
+          await route.fulfill({ path: file })
+        })
+      }
+
+      await stubTradingApiEndpoint({ page, endpoint: uniswapUrls.tradingApiPaths.quote })
       await page.goto('/buy')
-      // Wait for the page to load - may redirect or show buy interface
-      await page.waitForTimeout(2000)
-      // Either shows buy interface or redirects to swap
-      const url = page.url()
-      const hasValidPath = url.includes('/buy') || url.includes('/swap')
-      expect(hasValidPath).toBe(true)
+
+      // Wait for wallet to be connected
+      await page.getByTestId(TestID.Web3StatusConnected).waitFor()
+
+      await page.getByTestId(TestID.ChooseInputToken).click()
+      // eslint-disable-next-line
+      await page.getByTestId('for-currency-list-wrapper').getByText('Ethereum').click()
     })
 
-    test('can navigate to buy from swap page', async ({ page }) => {
-      await page.goto('/swap')
-      // Look for buy navigation option
-      const buyLink = page.getByRole('link', { name: /buy/i }).first()
-      if (await buyLink.isVisible()) {
-        await buyLink.click()
-        await page.waitForTimeout(1000)
-        const url = page.url()
-        expect(url.includes('/buy') || url.includes('/swap')).toBe(true)
-      }
+    test('quick amount select', async ({ page }) => {
+      await page.getByText('$100', { exact: true }).click()
+      await page.getByRole('button', { name: 'Continue' }).click()
+      await expect(page.getByTestId(TestID.BuyFormChooseProvider)).toBeVisible()
+    })
+
+    test('user input amount', async ({ page }) => {
+      await page.getByTestId(TestID.BuyFormAmountInput).click()
+      await page.getByTestId(TestID.BuyFormAmountInput).fill('123')
+      await page.getByRole('button', { name: 'Continue' }).click()
+      await expect(page.getByTestId(TestID.BuyFormChooseProvider)).toBeVisible()
+    })
+
+    test('change input token', async ({ page }) => {
+      await page.getByTestId(TestID.ChooseInputToken).click()
+      // eslint-disable-next-line
+      await page.getByTestId('for-currency-list-wrapper').getByText('DAI').nth(1).click()
+      await page.getByTestId(TestID.BuyFormAmountInput).fill('123')
+      await page.getByRole('button', { name: 'Continue' }).click()
+      await expect(page.getByTestId(TestID.BuyFormChooseProvider)).toBeVisible()
+    })
+
+    test('change country', async ({ page }) => {
+      await page.getByTestId(TestID.FiatOnRampCountryPicker).click()
+      await page.getByText('Argentina').click()
+      await page.getByTestId(TestID.BuyFormAmountInput).fill('123')
+      await page.getByRole('button', { name: 'Continue' }).click()
+      await expect(page.getByTestId(TestID.BuyFormChooseProvider)).toBeVisible()
     })
   },
 )

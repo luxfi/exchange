@@ -4,8 +4,8 @@ import {
   mapDeviceLanguageToLanguage,
   mapLocaleToLanguage,
   PLATFORM_SUPPORTED_LANGUAGES,
-} from 'lx/src/features/language/constants'
-import { getLocale } from 'lx/src/features/language/hooks'
+} from 'uniswap/src/features/language/constants'
+import { getLocale } from 'uniswap/src/features/language/navigatorLocale'
 import { getDeviceLocales } from 'utilities/src/device/locales'
 import { logger } from 'utilities/src/logger/logger'
 

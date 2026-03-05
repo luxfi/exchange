@@ -1,21 +1,24 @@
-import { TradeType } from '@luxamm/sdk-core'
-import { TradingApi } from '@luxfi/api'
-import { useAccount } from 'hooks/useAccount'
+import { TradeType } from '@uniswap/sdk-core'
+import { TradingApi } from '@universe/api'
 import ms from 'ms'
 import { useEffect, useRef, useState } from 'react'
-import { ActivityUpdateTransactionType, OnActivityUpdate } from 'state/activity/types'
-import { usePendingUniswapXOrders } from 'state/transactions/hooks'
-import { OrderQueryResponse, UniswapXBackendOrder } from 'types/uniswapx'
-import { uniswapUrls } from 'lx/src/constants/urls'
-import { isL2ChainId } from 'lx/src/features/chains/utils'
+import { uniswapUrls } from 'uniswap/src/constants/urls'
+import { isL2ChainId } from 'uniswap/src/features/chains/utils'
+import { InterfaceEventName } from 'uniswap/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
+import { tradeRoutingToFillType } from 'uniswap/src/features/transactions/swap/analytics'
 import {
   ExactInputSwapTransactionInfo,
   TransactionStatus,
   UniswapXOrderDetails,
-} from 'lx/src/features/transactions/types/transactionDetails'
-import { isFinalizedTxStatus } from 'lx/src/features/transactions/types/utils'
-import { convertOrderStatusToTransactionStatus } from 'lx/src/features/transactions/utils/uniswapX.utils'
+} from 'uniswap/src/features/transactions/types/transactionDetails'
+import { isFinalizedTxStatus } from 'uniswap/src/features/transactions/types/utils'
+import { convertOrderStatusToTransactionStatus } from 'uniswap/src/features/transactions/utils/uniswapX.utils'
 import { logger } from 'utilities/src/logger/logger'
+import { useAccount } from '~/hooks/useAccount'
+import { ActivityUpdateTransactionType, OnActivityUpdate } from '~/state/activity/types'
+import { usePendingUniswapXOrders } from '~/state/transactions/hooks'
+import { OrderQueryResponse, UniswapXBackendOrder } from '~/types/uniswapx'
 
 const STANDARD_POLLING_INITIAL_INTERVAL = ms(`2s`)
 const STANDARD_POLLING_MAX_INTERVAL = ms('30s')
@@ -150,6 +153,23 @@ function updateOrders({
       }
     }
 
+    // Send analytics event when order becomes finalized
+    if (isFinalizedTxStatus(transactionStatus)) {
+      const txHash =
+        transactionStatus === TransactionStatus.Success && 'txHash' in updatedOrder
+          ? updatedOrder.txHash
+          : pendingOrder.hash
+      sendAnalyticsEvent(InterfaceEventName.SwapConfirmedOnClient, {
+        time: Date.now() - pendingOrder.addedTime,
+        swap_success: transactionStatus === TransactionStatus.Success,
+        success: transactionStatus === TransactionStatus.Success,
+        chainId: pendingOrder.chainId,
+        txHash: txHash ?? '',
+        transactionType: pendingOrder.typeInfo.type,
+        routing: tradeRoutingToFillType({ routing: pendingOrder.routing, indicative: false }),
+      })
+    }
+
     onActivityUpdate({
       type: ActivityUpdateTransactionType.UniswapXOrder,
       chainId: pendingOrder.chainId,
@@ -180,7 +200,7 @@ function useQuickPolling({
   }, [pendingOrders])
 
   useEffect(() => {
-    let timeout: ReturnType<typeof setTimeout>
+    let timeout: NodeJS.Timeout
 
     async function poll() {
       const l2Orders = pendingOrders.filter((order) => isL2ChainId(order.chainId))
@@ -234,7 +254,7 @@ function useStandardPolling({
   }, [pendingOrders])
 
   useEffect(() => {
-    let timeout: ReturnType<typeof setTimeout>
+    let timeout: NodeJS.Timeout
 
     async function poll() {
       const mainnetOrders = pendingOrders.filter((order) => !isL2ChainId(order.chainId))

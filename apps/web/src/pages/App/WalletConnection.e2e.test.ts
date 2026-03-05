@@ -1,16 +1,17 @@
-import { FeatureFlags, getFeatureFlagName } from '@luxfi/gating'
+import { FeatureFlags, getFeatureFlagName } from '@universe/gating'
 import ms from 'ms'
-import { expect, getTest } from 'playwright/fixtures'
-import { TestID } from 'lx/src/test/fixtures/testIDs'
+import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+import { expect, getTest } from '~/playwright/fixtures'
+import { getVisibleDropdownElementByTestId } from '~/playwright/fixtures/utils'
 
 const test = getTest()
 
 test.describe(
   'Wallet Connection',
   {
-    tag: '@team:apps-growth',
+    tag: '@team:apps-infra',
     annotation: [
-      { type: 'DD_TAGS[team]', description: 'apps-growth' },
+      { type: 'DD_TAGS[team]', description: 'apps-infra' },
       { type: 'DD_TAGS[test.type]', description: 'web-e2e' },
     ],
   },
@@ -26,8 +27,8 @@ test.describe(
       await page.getByTestId(TestID.Web3StatusConnected).click()
 
       // Wait for the disconnect button to be visible
-      await page.getByTestId(TestID.WalletDisconnect).waitFor({ state: 'visible' })
-      await page.getByTestId(TestID.WalletDisconnect).hover()
+      await getVisibleDropdownElementByTestId(page, TestID.WalletDisconnect).waitFor({ state: 'visible' })
+      await getVisibleDropdownElementByTestId(page, TestID.WalletDisconnect).hover()
       await page.getByTestId(TestID.WalletDisconnectInModal).click()
 
       // Check if tooltip content appears (Solana enabled case)
@@ -50,7 +51,8 @@ test.describe(
       )
 
       await page.getByText('Connect Wallet').click()
-      await page.getByText('Mock Connector').click()
+      // Scope to visible dropdown to avoid hidden measurement copy in AdaptiveDropdown
+      await page.getByTestId(TestID.AccountDrawer).getByText('Mock Connector').click()
 
       await expect(await page.getByText('Connect wallet')).not.toBeVisible()
       await expect(await page.getByTestId(TestID.Web3StatusConnected)).toHaveText('test0')

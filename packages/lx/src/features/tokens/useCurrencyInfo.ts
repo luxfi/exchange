@@ -1,16 +1,16 @@
-import { GraphQLApi } from '@luxfi/api'
+import { GraphQLApi } from '@universe/api'
 import { useMemo } from 'react'
-import { getCommonBase } from 'lx/src/constants/routing'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { CurrencyInfo } from 'lx/src/features/dataApi/types'
-import { currencyIdToContractInput } from 'lx/src/features/dataApi/utils/currencyIdToContractInput'
-import { gqlTokenToCurrencyInfo } from 'lx/src/features/dataApi/utils/gqlTokenToCurrencyInfo'
+import { getCommonBase } from 'uniswap/src/constants/routing'
+import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { CurrencyInfo } from 'uniswap/src/features/dataApi/types'
+import { currencyIdToContractInput } from 'uniswap/src/features/dataApi/utils/currencyIdToContractInput'
+import { gqlTokenToCurrencyInfo } from 'uniswap/src/features/dataApi/utils/gqlTokenToCurrencyInfo'
 import {
   buildNativeCurrencyId,
   buildWrappedNativeCurrencyId,
   currencyIdToAddress,
   currencyIdToChain,
-} from 'lx/src/utils/currencyId'
+} from 'uniswap/src/utils/currencyId'
 
 function useCurrencyInfoQuery(
   _currencyId?: string,
@@ -22,9 +22,9 @@ function useCurrencyInfoQuery(
     fetchPolicy: options?.refetch ? 'cache-and-network' : 'cache-first',
   })
 
-  const { currencyInfo, foundInCommonBase } = useMemo(() => {
+  const currencyInfo = useMemo(() => {
     if (!_currencyId) {
-      return { currencyInfo: undefined, foundInCommonBase: false }
+      return undefined
     }
 
     const chainId = currencyIdToChain(_currencyId)
@@ -32,7 +32,7 @@ function useCurrencyInfoQuery(
     try {
       address = currencyIdToAddress(_currencyId)
     } catch (_error) {
-      return { currencyInfo: undefined, foundInCommonBase: false }
+      return undefined
     }
     if (chainId && address) {
       const commonBase = getCommonBase(chainId, address)
@@ -45,20 +45,20 @@ function useCurrencyInfoQuery(
           copyCommonBase.logoUrl = queryResult.data.token.project.logoUrl
         }
         copyCommonBase.currencyId = _currencyId
-        return { currencyInfo: copyCommonBase, foundInCommonBase: true }
+
+        // Local common base object will not have remote project id, so we add it here.
+        copyCommonBase.projectId = queryResult.data?.token?.project?.id
+
+        return copyCommonBase
       }
     }
 
-    const info = queryResult.data?.token && gqlTokenToCurrencyInfo(queryResult.data.token)
-    return { currencyInfo: info, foundInCommonBase: false }
+    return queryResult.data?.token && gqlTokenToCurrencyInfo(queryResult.data.token)
   }, [_currencyId, queryResult.data?.token])
-
-  // If token was found in common base, don't wait for GraphQL query
-  const loading = foundInCommonBase ? false : queryResult.loading
 
   return {
     currencyInfo,
-    loading,
+    loading: queryResult.loading,
     error: queryResult.error,
   }
 }

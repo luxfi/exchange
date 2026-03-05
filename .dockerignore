@@ -1,43 +1,53 @@
-# Dependencies
+# =============================================================================
+# .dockerignore for Docker builds (api-self-serve, mission-control)
+# =============================================================================
+
+# Dependencies (reinstalled in container)
 node_modules
-.pnpm-store
 
-# Build outputs
-.next
-out
-build
-dist
+# Git
+.git
+.gitattributes
 
-# Development
-.gitignore
-*.log
+# Build outputs (rebuilt in container)
+**/build
+**/dist
+**/.turbo
+**/.nx
 
-# IDE
+# Other apps (not needed for api-self-serve)
+apps/web
+apps/mobile
+apps/extension
+apps/cli
+
+# Mobile/native artifacts
+**/ios
+**/android
+**/*.podspec
+
+# Tests
+**/*.test.ts
+**/*.test.tsx
+**/*.spec.ts
+**/coverage
+**/__tests__
+**/__mocks__
+**/e2e
+
+# IDE & local config
 .vscode
 .idea
-*.swp
-*.swo
+**/.claude
+**/.env.local
+**/.env.*.local
 
-# Test files
-__tests__
-*.test.ts
-*.test.tsx
-*.spec.ts
-*.spec.tsx
-e2e
-test-results
-playwright-report
-coverage
-
-# Legacy
-src/_pages_legacy
-
-# Mobile (not needed for web build)
-apps/mobile/android
-apps/mobile/ios
-apps/mobile/e2e
+# Docs
+*.md
+!README.md
 
 # Misc
 .DS_Store
-Thumbs.db
-*.tsbuildinfo
+*.log
+**/.storybook
+**/storybook-static

@@ -1,6 +1,6 @@
 /* eslint-disable max-lines */
-import { MixedRouteSDK, Trade as RouterSDKTrade, ZERO_PERCENT } from '@luxdex/router-sdk'
-import { Currency, CurrencyAmount, Percent, Price, TradeType } from '@luxamm/sdk-core'
+import { MixedRouteSDK, Trade as RouterSDKTrade, ZERO_PERCENT } from '@uniswap/router-sdk'
+import { Currency, CurrencyAmount, Percent, Price, TradeType } from '@uniswap/sdk-core'
 import {
   PriorityOrderTrade as IPriorityOrderTrade,
   UnsignedPriorityOrderInfo,
@@ -8,10 +8,10 @@ import {
   UnsignedV3DutchOrderInfo,
   V2DutchOrderTrade,
   V3DutchOrderTrade,
-} from '@luxdex/sdk'
-import { Route as V2RouteSDK } from '@luxamm/v2-sdk'
-import { Route as V3RouteSDK } from '@luxamm/v3-sdk'
-import { Route as V4RouteSDK } from '@luxamm/v4-sdk'
+} from '@uniswap/uniswapx-sdk'
+import { Route as V2RouteSDK } from '@uniswap/v2-sdk'
+import { Route as V3RouteSDK } from '@uniswap/v3-sdk'
+import { Route as V4RouteSDK } from '@uniswap/v4-sdk'
 import type {
   BridgeQuoteResponse,
   ChainedQuoteResponse,
@@ -22,19 +22,20 @@ import type {
   PriorityQuoteResponse,
   UnwrapQuoteResponse,
   WrapQuoteResponse,
-} from '@luxfi/api'
-import { TradingApi } from '@luxfi/api'
+} from '@universe/api'
+import { TradingApi } from '@universe/api'
 import { BigNumber, providers } from 'ethers/lib/ethers'
-import { PollingInterval } from 'lx/src/constants/misc'
-import { MAX_AUTO_SLIPPAGE_TOLERANCE } from 'lx/src/constants/transactions'
-import { getCurrencyAmount, ValueType } from 'lx/src/features/tokens/getCurrencyAmount'
-import { BlockingTradeError } from 'lx/src/features/transactions/swap/types/BlockingTradeError'
-import { getTradingApiSwapFee } from 'lx/src/features/transactions/swap/types/getTradingApiSwapFee'
-import { SolanaTrade } from 'lx/src/features/transactions/swap/types/solana'
-import { slippageToleranceToPercent } from 'lx/src/features/transactions/swap/utils/format'
-import { FrontendSupportedProtocol } from 'lx/src/features/transactions/swap/utils/protocols'
-import { AccountDetails } from 'lx/src/features/wallet/types/AccountDetails'
-import { CurrencyField } from 'lx/src/types/currency'
+import { PollingInterval } from 'uniswap/src/constants/misc'
+import { MAX_AUTO_SLIPPAGE_TOLERANCE } from 'uniswap/src/constants/transactions'
+import { getCurrencyAmount, ValueType } from 'uniswap/src/features/tokens/getCurrencyAmount'
+import { getPlanCompoundSlippageTolerance } from 'uniswap/src/features/transactions/swap/plan/slippage'
+import { BlockingTradeError } from 'uniswap/src/features/transactions/swap/types/BlockingTradeError'
+import { getTradingApiSwapFee } from 'uniswap/src/features/transactions/swap/types/getTradingApiSwapFee'
+import { SolanaTrade } from 'uniswap/src/features/transactions/swap/types/solana'
+import { slippageToleranceToPercent } from 'uniswap/src/features/transactions/swap/utils/format'
+import { FrontendSupportedProtocol } from 'uniswap/src/features/transactions/swap/utils/protocols'
+import { AccountDetails } from 'uniswap/src/features/wallet/types/AccountDetails'
+import { CurrencyField } from 'uniswap/src/types/currency'
 
 type QuoteResponseWithAggregatedOutputs =
   | ClassicQuoteResponse
@@ -366,10 +367,7 @@ export class ClassicTrade<
     }[]
     readonly tradeType: TTradeType
   }) {
-    // Type assertion needed because @luxdex/router-sdk uses @uniswap/* SDKs internally
-    // while local code uses @luxamm/* SDKs which have incompatible private property declarations
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    super(routes as any)
+    super(routes)
     this.quote = quote
     this.deadline = deadline
     this.slippageTolerance = quote.quote.slippage ?? MAX_AUTO_SLIPPAGE_TOLERANCE
@@ -458,7 +456,6 @@ export interface UseTradeArgs {
   isDebouncing?: boolean
   generatePermitAsTransaction?: boolean
   isV4HookPoolsEnabled?: boolean
-  routeVia?: 'auto' | 'amm' | 'dex-precompile'
 }
 
 export type SwapFee = {
@@ -866,7 +863,7 @@ export class ChainedActionTrade {
     quote,
     currencyIn,
     currencyOut,
-  }: { quote: ChainedQuoteResponse; currencyIn: Currency; currencyOut: Currency; slippageTolerance?: number }) {
+  }: { quote: ChainedQuoteResponse; currencyIn: Currency; currencyOut: Currency }) {
     this.quote = quote
 
     const inputAmount = getCurrencyAmount({
@@ -887,9 +884,20 @@ export class ChainedActionTrade {
     this.outputAmount = outputAmount
     this.executionPrice = new Price(currencyIn, currencyOut, inputAmount.quotient, outputAmount.quotient)
 
-    this.slippageTolerance = this.quote.quote.slippage ?? 0
+    const compoundSlippage = getPlanCompoundSlippageTolerance(this.quote.quote.steps)
+    this.slippageTolerance = compoundSlippage ?? 0
+
+    // `ChainedActionTrade` only supports EXACT_INPUT trades, so `maxAmountIn` is always the input amount.
     this.maxAmountIn = inputAmount
-    this.minAmountOut = outputAmount
+
+    // Apply slippage to minAmountOut - user should receive at least this amount
+    if (this.slippageTolerance > 0) {
+      const slippagePercent = new Percent(Math.round(this.slippageTolerance * 100), 10_000)
+      const slippageAmount = outputAmount.multiply(slippagePercent)
+      this.minAmountOut = outputAmount.subtract(slippageAmount)
+    } else {
+      this.minAmountOut = outputAmount
+    }
   }
 
   public get quoteOutputAmount(): CurrencyAmount<Currency> {

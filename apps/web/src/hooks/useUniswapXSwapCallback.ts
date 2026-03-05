@@ -1,8 +1,7 @@
-import { useTotalBalancesUsdForAnalytics } from 'appGraphql/data/apollo/useTotalBalancesUsdForAnalytics'
 import { TypedDataDomain, TypedDataField } from '@ethersproject/abstract-signer'
 import { BigNumber } from '@ethersproject/bignumber'
-import { PermitTransferFrom } from '@luxdex/permit2-sdk'
-import { Percent } from '@luxamm/sdk-core'
+import { PermitTransferFrom } from '@uniswap/permit2-sdk'
+import { Percent } from '@uniswap/sdk-core'
 import {
   DutchOrder,
   DutchOrderBuilder,
@@ -12,13 +11,19 @@ import {
   UnsignedV3DutchOrder,
   V2DutchOrderBuilder,
   V3DutchOrderBuilder,
-} from '@luxdex/sdk'
-import { useAccount } from 'hooks/useAccount'
-import { useEthersWeb3Provider } from 'hooks/useEthersProvider'
-import { formatSwapSignedAnalyticsEventProperties } from 'lib/utils/analytics'
+} from '@uniswap/uniswapx-sdk'
 import { useCallback, useRef } from 'react'
 import { useTranslation } from 'react-i18next'
-import { useMultichainContext } from 'state/multichain/useMultichainContext'
+import { InterfaceEventName, SwapEventName } from 'uniswap/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
+import { getValidAddress } from 'uniswap/src/utils/addresses'
+import { logger } from 'utilities/src/logger/logger'
+import { useTrace } from 'utilities/src/telemetry/trace/TraceContext'
+import { useTotalBalancesUsdForAnalytics } from '~/appGraphql/data/apollo/useTotalBalancesUsdForAnalytics'
+import { useAccount } from '~/hooks/useAccount'
+import { useEthersWeb3Provider } from '~/hooks/useEthersProvider'
+import { formatSwapSignedAnalyticsEventProperties } from '~/lib/utils/analytics'
+import { useMultichainContext } from '~/state/multichain/useMultichainContext'
 import {
   DutchOrderTrade,
   LimitOrderTrade,
@@ -27,20 +32,15 @@ import {
   TradeFillType,
   V2DutchOrderTrade,
   V3DutchOrderTrade,
-} from 'state/routing/types'
-import { InterfaceEventName, SwapEventName } from 'lx/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
-import { getValidAddress } from 'lx/src/utils/addresses'
-import { logger } from 'utilities/src/logger/logger'
-import { useTrace } from 'utilities/src/telemetry/trace/TraceContext'
+} from '~/state/routing/types'
 import {
   SignatureExpiredError,
   UniswapXv2HardQuoteError,
   UserRejectedRequestError,
   WrongChainError,
-} from 'utils/errors'
-import { signTypedData } from 'utils/signing'
-import { didUserReject, swapErrorToUserReadableMessage } from 'utils/swapErrorToUserReadableMessage'
+} from '~/utils/errors'
+import { signTypedData } from '~/utils/signing'
+import { didUserReject, swapErrorToUserReadableMessage } from '~/utils/swapErrorToUserReadableMessage'
 
 type DutchAuctionOrderError = { errorCode?: number; detail?: string }
 type DutchAuctionOrderSuccess = { hash: string }

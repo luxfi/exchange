@@ -6,6 +6,7 @@ set -euo pipefail
 #   --git   Remove git untracked files (except for .env files, node_modules, and .claude directories)
 #   --node  Remove all node_modules (instead of just local packages)
 #   --bun   Clear the global bun cache
+#   --quick Quick, basic clean that only removes temporary files
 
 # Parse CLI arguments
 GIT_CLEAN=false
@@ -16,6 +17,9 @@ HAS_CLI_ARGS=false
 while [[ $# -gt 0 ]]; do
   HAS_CLI_ARGS=true
   case $1 in
+    --quick)
+      shift
+      ;;
     --git)
       GIT_CLEAN=true
       shift
@@ -47,20 +51,28 @@ prompt_yes_no() {
   fi
 }
 
-echo "This script will automatically remove build artifacts and caches. For a more thorough reset, you can use the following options:"
+echo "This script will automatically remove build artifacts and caches."
 
 # Only prompt if no CLI args were provided
 if [ "$HAS_CLI_ARGS" = false ]; then
+  echo "For a more thorough reset, you can use the following options:"
   prompt_yes_no "⚠️  UNTRACKED FILES: Do you want to remove all files untracked by git (except .env files)?" "GIT_CLEAN"
   prompt_yes_no "📦 NODE MODULES: Local packages will be cleaned. Should ALL other node_modules be removed (slower but more thorough)?" "NODE_MODULES"
   prompt_yes_no "🗑️  BUN CACHE: Do you want to clear the global bun cache (force re-download of dependencies)?" "BUN_CACHE"
 fi
 
+# Stop NX daemon and reset the cache
+echo "Clearing NX cache..."
+bun nx daemon --stop 2>/dev/null || true
+bun nx reset || true
+
 # Always remove specific build artifacts and cache directories
 echo "Removing build artifacts and cache directories..."
 # Remove build artifacts dirs in apps
-rm -rf dist apps/extension/.output apps/extension/.wxt apps/web/.wrangler
-# Remove nested node_modules dirs (not the root ./node_modules will not be affected here)
+rm -rf dist apps/web/.wrangler apps/extension/.output
+# Remove the extension's WXT artifacts but NOT the chrome data dir
+find apps/extension/.wxt -mindepth 1 -maxdepth 1 ! -name 'chrome-data' -exec sh -c 'echo "Removing $1" && rm -rf "$1"' _ {} \; 2>/dev/null || true
+# Remove nested node_modules dirs (note, the root ./node_modules will not be affected here)
 find . -path "./node_modules" -prune -o -type d -name "node_modules" -exec sh -c 'echo "Removing $1" && rm -rf "$1"' _ {} \; 2>/dev/null || true
 # Remove tsbuildinfo files (except those in node_modules)
 find . -path "./node_modules" -prune -o -type f -name "tsconfig.tsbuildinfo" -exec sh -c 'echo "Removing $1" && rm -f "$1"' _ {} \; 2>/dev/null || true
@@ -88,13 +100,18 @@ else
   bun run g:rm:local-packages
 fi
 
-# Install dependencies
+# Install dependencies (with NX daemon disabled to avoid conflicts)
 echo "Installing dependencies..."
-bun install
+NX_DAEMON=false bun install || {
+  # Race conditions are possible with the NX daemon when node_modules
+  # are removed. Retry once if install fails.
+  echo "First install attempt failed, retrying..."
+  sleep 2
+  bun install
+}
 
-# Clear NX cache. Use '|| true' to avoid failing if NX is not yet ready
-echo "Clearing NX cache..."
-bun nx reset || true
+# Clear NX cache and restart daemon
+echo "Restarting NX daemon..."
 bun nx daemon --start 2>/dev/null || true  # Restart the daemon
 bun nx sync 2>/dev/null || true
 

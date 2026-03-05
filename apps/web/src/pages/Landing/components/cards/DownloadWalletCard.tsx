@@ -1,13 +1,12 @@
 import { Alignment, Fit, Layout, useRive } from '@rive-app/react-canvas'
-import { FeatureFlags, useFeatureFlag } from '@luxfi/gating'
-import { PillButton } from 'pages/Landing/components/cards/PillButton'
-import ValuePropCard from 'pages/Landing/components/cards/ValuePropCard'
-import { Wallet } from 'pages/Landing/components/Icons'
+import { FeatureFlags, useFeatureFlag } from '@universe/gating'
 import { Trans, useTranslation } from 'react-i18next'
-import { useIsDarkMode } from 'theme/components/ThemeToggle'
-import { Flex, useSporeColors } from 'ui/src'
+import { Flex, useIsDarkMode, useSporeColors } from 'ui/src'
 import { Star } from 'ui/src/components/icons/Star'
-import { uniswapUrls } from 'lx/src/constants/urls'
+import { uniswapUrls } from 'uniswap/src/constants/urls'
+import { PillButton } from '~/pages/Landing/components/cards/PillButton'
+import ValuePropCard from '~/pages/Landing/components/cards/ValuePropCard'
+import { Wallet } from '~/pages/Landing/components/Icons'
 
 export function DownloadWalletCard() {
   const theme = useSporeColors()
@@ -34,11 +33,11 @@ export function DownloadWalletCard() {
       href={uniswapUrls.downloadWalletUrl}
       minHeight={500}
       color="$accent1"
-      backgroundColor="rgba(255, 255, 255, 0.08)"
+      backgroundColor="rgba(252, 114, 255, 0.12)"
       title={
         <PillButton
           color={theme.accent1.val}
-          label={t('common.luxWallet')}
+          label={t('common.uniswapWallet')}
           icon={<Wallet size="24px" fill={theme.accent1.val} />}
         />
       }
@@ -61,7 +60,7 @@ export function DownloadWalletCard() {
         )
       }
       button={
-        <PillButton color={theme.accent1.val} label={t('common.downloadLuxWallet')} backgroundColor="$surface1" />
+        <PillButton color={theme.accent1.val} label={t('common.downloadUniswapWallet')} backgroundColor="$surface1" />
       }
       $lg={{
         minHeight: 750,

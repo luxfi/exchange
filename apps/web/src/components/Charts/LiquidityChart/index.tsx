@@ -1,20 +1,23 @@
-import { ProtocolVersion } from '@luxdex/client-data-api/dist/data/v1/poolTypes_pb'
-import { Currency, Price } from '@luxamm/sdk-core'
-import { FeeAmount, TICK_SPACINGS, tickToPrice } from '@luxamm/v3-sdk'
-import { tickToPrice as tickToPriceV4 } from '@luxamm/v4-sdk'
-import { ChartHoverData, ChartModel, ChartModelParams } from 'components/Charts/ChartModel'
-import { LiquidityBarSeries } from 'components/Charts/LiquidityChart/liquidity-bar-series'
-import { LiquidityBarData, LiquidityBarProps, LiquidityBarSeriesOptions } from 'components/Charts/LiquidityChart/types'
-import { calculateAnchoredLiquidityByTick } from 'components/Charts/LiquidityChart/utils/calculateAnchoredLiquidityByTick'
-import { calculateTokensLocked } from 'components/Charts/LiquidityChart/utils/calculateTokensLocked'
-import { usePoolActiveLiquidity } from 'hooks/usePoolTickData'
+import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
+import { Currency } from '@uniswap/sdk-core'
+import { FeeAmount, TICK_SPACINGS, tickToPrice } from '@uniswap/v3-sdk'
+import { tickToPrice as tickToPriceV4 } from '@uniswap/v4-sdk'
 import JSBI from 'jsbi'
 import { ISeriesApi, UTCTimestamp } from 'lightweight-charts'
 import { useEffect, useState } from 'react'
-import { PositionField } from 'types/position'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
+import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
 import { NumberType } from 'utilities/src/format/types'
+import { ChartHoverData, ChartModel, ChartModelParams } from '~/components/Charts/ChartModel'
+import { LiquidityBarSeries } from '~/components/Charts/LiquidityChart/liquidity-bar-series'
+import {
+  LiquidityBarData,
+  LiquidityBarProps,
+  LiquidityBarSeriesOptions,
+} from '~/components/Charts/LiquidityChart/types'
+import { calculateTokensLocked } from '~/components/Charts/LiquidityChart/utils/calculateTokensLocked'
+import { usePoolActiveLiquidity } from '~/hooks/usePoolTickData'
+import { PositionField } from '~/types/position'
 
 interface LiquidityBarChartModelParams extends ChartModelParams<LiquidityBarData>, LiquidityBarProps {}
 
@@ -168,8 +171,6 @@ export function useLiquidityBarData({
       let activeRangePercentage: number | undefined
       let activeRangeIndex: number | undefined
 
-      // Calculate anchored active liquidity per tick
-      const activeLiquidityByTick = calculateAnchoredLiquidityByTick({ ticksProcessed, activeTick, liquidity })
       const poolTickSpacing = tickSpacing ?? TICK_SPACINGS[feeTier]
 
       const barData: LiquidityBarData[] = []
@@ -187,20 +188,22 @@ export function useLiquidityBarData({
           activeRangeIndex = index
           activeRangePercentage = 1 - (currentTick - t.tick) / poolTickSpacing
 
-          price0 = (
+          price0 =
             version === ProtocolVersion.V3
               ? tickToPrice(sdkCurrencies.TOKEN0.wrapped, sdkCurrencies.TOKEN1.wrapped, t.tick)
               : tickToPriceV4(sdkCurrencies.TOKEN0, sdkCurrencies.TOKEN1, t.tick)
-          ) as unknown as Price<Currency, Currency>
           price1 = price0.invert()
         }
+
+        const nextTick = ticksProcessed[index + 1]?.tick
 
         const { amount0Locked, amount1Locked } = calculateTokensLocked({
           token0: sdkCurrencies.TOKEN0,
           token1: sdkCurrencies.TOKEN1,
           tickSpacing: poolTickSpacing,
           currentTick: currentTick ?? 0,
-          amount: activeLiquidityByTick.get(t.tick) ?? JSBI.BigInt(0),
+          amount: JSBI.BigInt(t.liquidityActive.toString()),
+          nextTick,
           tick: t,
         })
 

@@ -1,22 +1,22 @@
-import { TradingApi } from '@luxfi/api'
+import { TradingApi } from '@universe/api'
 import { useTranslation } from 'react-i18next'
 import { Accordion, Flex, Text } from 'ui/src'
 import {
   useTransactionSettingsAutoSlippageToleranceStore,
   useTransactionSettingsStore,
-} from 'lx/src/features/transactions/components/settings/stores/transactionSettingsStore/useTransactionSettingsStore'
-import { MaxSlippageRow } from 'lx/src/features/transactions/swap/components/MaxSlippageRow/MaxSlippageRow'
-import { PriceImpactRow } from 'lx/src/features/transactions/swap/components/PriceImpactRow/PriceImpactRow'
-import { RoutingInfo } from 'lx/src/features/transactions/swap/components/RoutingInfo'
-import { SwapRateRatio } from 'lx/src/features/transactions/swap/components/SwapRateRatio'
-import { useFeeOnTransferAmounts } from 'lx/src/features/transactions/swap/hooks/useFeeOnTransferAmount'
-import { useParsedSwapWarnings } from 'lx/src/features/transactions/swap/hooks/useSwapWarnings/useSwapWarnings'
-import { useSwapFormStore } from 'lx/src/features/transactions/swap/stores/swapFormStore/useSwapFormStore'
-import { useSwapTxStore } from 'lx/src/features/transactions/swap/stores/swapTxStore/useSwapTxStore'
-import { getSwapFeeUsdFromDerivedSwapInfo } from 'lx/src/features/transactions/swap/utils/getSwapFeeUsd'
-import { isUniswapX } from 'lx/src/features/transactions/swap/utils/routing'
-import { TransactionDetails } from 'lx/src/features/transactions/TransactionDetails/TransactionDetails'
-import { CurrencyField } from 'lx/src/types/currency'
+} from 'uniswap/src/features/transactions/components/settings/stores/transactionSettingsStore/useTransactionSettingsStore'
+import { MaxSlippageRow } from 'uniswap/src/features/transactions/swap/components/MaxSlippageRow/MaxSlippageRow'
+import { PriceImpactRow } from 'uniswap/src/features/transactions/swap/components/PriceImpactRow/PriceImpactRow'
+import { RoutingInfo } from 'uniswap/src/features/transactions/swap/components/RoutingInfo/RoutingInfo'
+import { SwapRateRatio } from 'uniswap/src/features/transactions/swap/components/SwapRateRatio'
+import { useFeeOnTransferAmounts } from 'uniswap/src/features/transactions/swap/hooks/useFeeOnTransferAmount'
+import { useParsedSwapWarnings } from 'uniswap/src/features/transactions/swap/hooks/useSwapWarnings/useSwapWarnings'
+import { useSwapFormStore } from 'uniswap/src/features/transactions/swap/stores/swapFormStore/useSwapFormStore'
+import { useSwapTxStore } from 'uniswap/src/features/transactions/swap/stores/swapTxStore/useSwapTxStore'
+import { getSwapFeeUsdFromDerivedSwapInfo } from 'uniswap/src/features/transactions/swap/utils/getSwapFeeUsd'
+import { isMultiChainGasQuote, isUniswapX } from 'uniswap/src/features/transactions/swap/utils/routing'
+import { TransactionDetails } from 'uniswap/src/features/transactions/TransactionDetails/TransactionDetails'
+import { CurrencyField } from 'uniswap/src/types/currency'
 
 export function ExpandableRows(): JSX.Element | null {
   const { t } = useTranslation()
@@ -65,10 +65,10 @@ export function ExpandableRows(): JSX.Element | null {
           feeOnTransferProps={feeOnTransferProps}
           showGasFeeError={false}
           showSeparatorToggle={false}
+          showNetworkLogo={!isMultiChainGasQuote(trade.trade.quote)}
           outputCurrency={trade.trade.outputAmount.currency}
           transactionUSDValue={derivedSwapInfo.currencyAmountsUSDValue[CurrencyField.OUTPUT]}
           uniswapXGasBreakdown={gasFeeBreakdown}
-          RoutingInfo={<RoutingInfo trade={trade.trade} gasFee={gasFee} chainId={chainId} />}
           RateInfo={
             showPriceImpactWarning ? (
               <Flex row alignItems="center" justifyContent="space-between">
@@ -90,6 +90,9 @@ export function ExpandableRows(): JSX.Element | null {
               autoSlippageTolerance={autoSlippageTolerance}
               customSlippageTolerance={customSlippageTolerance}
             />
+          )}
+          {trade.trade.routing !== TradingApi.Routing.BRIDGE && (
+            <RoutingInfo trade={trade.trade} gasFee={gasFee} chainId={chainId} />
           )}
         </TransactionDetails>
       </Accordion.Content>

@@ -1,25 +1,26 @@
-import { Currency, NativeCurrency, Token, UNI_ADDRESSES, WETH9 } from '@luxamm/sdk-core'
-import { getChainInfo } from 'lx/src/features/chains/chainInfo'
-import { ARBITRUM_CHAIN_INFO } from 'lx/src/features/chains/evm/info/arbitrum'
-import { AVALANCHE_CHAIN_INFO } from 'lx/src/features/chains/evm/info/avalanche'
-import { BASE_CHAIN_INFO } from 'lx/src/features/chains/evm/info/base'
-import { BLAST_CHAIN_INFO } from 'lx/src/features/chains/evm/info/blast'
-import { BNB_CHAIN_INFO } from 'lx/src/features/chains/evm/info/bnb'
-import { CELO_CHAIN_INFO } from 'lx/src/features/chains/evm/info/celo'
-import { MAINNET_CHAIN_INFO, SEPOLIA_CHAIN_INFO } from 'lx/src/features/chains/evm/info/mainnet'
-import { MONAD_CHAIN_INFO } from 'lx/src/features/chains/evm/info/monad'
-import { OPTIMISM_CHAIN_INFO } from 'lx/src/features/chains/evm/info/optimism'
-import { POLYGON_CHAIN_INFO } from 'lx/src/features/chains/evm/info/polygon'
-import { SONEIUM_CHAIN_INFO } from 'lx/src/features/chains/evm/info/soneium'
-import { UNICHAIN_CHAIN_INFO, UNICHAIN_SEPOLIA_CHAIN_INFO } from 'lx/src/features/chains/evm/info/unichain'
-import { WORLD_CHAIN_INFO } from 'lx/src/features/chains/evm/info/worldchain'
-import { ZKSYNC_CHAIN_INFO } from 'lx/src/features/chains/evm/info/zksync'
-import { ZORA_CHAIN_INFO } from 'lx/src/features/chains/evm/info/zora'
-import { WRAPPED_SOL_ADDRESS_SOLANA } from 'lx/src/features/chains/svm/defaults'
-import { SOLANA_CHAIN_INFO } from 'lx/src/features/chains/svm/info/solana'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { isUniverseChainId } from 'lx/src/features/chains/utils'
-import { SolanaToken } from 'lx/src/features/tokens/SolanaToken'
+import { Currency, NativeCurrency, Token, UNI_ADDRESSES, WETH9 } from '@uniswap/sdk-core'
+import { getChainInfo } from 'uniswap/src/features/chains/chainInfo'
+import { ARBITRUM_CHAIN_INFO } from 'uniswap/src/features/chains/evm/info/arbitrum'
+import { AVALANCHE_CHAIN_INFO } from 'uniswap/src/features/chains/evm/info/avalanche'
+import { BASE_CHAIN_INFO } from 'uniswap/src/features/chains/evm/info/base'
+import { BLAST_CHAIN_INFO } from 'uniswap/src/features/chains/evm/info/blast'
+import { BNB_CHAIN_INFO } from 'uniswap/src/features/chains/evm/info/bnb'
+import { CELO_CHAIN_INFO } from 'uniswap/src/features/chains/evm/info/celo'
+import { MAINNET_CHAIN_INFO, SEPOLIA_CHAIN_INFO } from 'uniswap/src/features/chains/evm/info/mainnet'
+import { MONAD_CHAIN_INFO } from 'uniswap/src/features/chains/evm/info/monad'
+import { OPTIMISM_CHAIN_INFO } from 'uniswap/src/features/chains/evm/info/optimism'
+import { POLYGON_CHAIN_INFO } from 'uniswap/src/features/chains/evm/info/polygon'
+import { SONEIUM_CHAIN_INFO } from 'uniswap/src/features/chains/evm/info/soneium'
+import { UNICHAIN_CHAIN_INFO, UNICHAIN_SEPOLIA_CHAIN_INFO } from 'uniswap/src/features/chains/evm/info/unichain'
+import { WORLD_CHAIN_INFO } from 'uniswap/src/features/chains/evm/info/worldchain'
+import { XLAYER_CHAIN_INFO } from 'uniswap/src/features/chains/evm/info/xlayer'
+import { ZKSYNC_CHAIN_INFO } from 'uniswap/src/features/chains/evm/info/zksync'
+import { ZORA_CHAIN_INFO } from 'uniswap/src/features/chains/evm/info/zora'
+import { WRAPPED_SOL_ADDRESS_SOLANA } from 'uniswap/src/features/chains/svm/defaults'
+import { SOLANA_CHAIN_INFO } from 'uniswap/src/features/chains/svm/info/solana'
+import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { isUniverseChainId } from 'uniswap/src/features/chains/utils'
+import { SolanaToken } from 'uniswap/src/features/tokens/SolanaToken'
 import { logger } from 'utilities/src/logger/logger'
 
 export const { USDC: USDC_MONAD, AUSD: AUSD_MONAD } = MONAD_CHAIN_INFO.tokens
@@ -31,6 +32,8 @@ export const { USDC: USDC_UNICHAIN } = UNICHAIN_CHAIN_INFO.tokens
 export const { USDC: USDC_UNICHAIN_SEPOLIA } = UNICHAIN_SEPOLIA_CHAIN_INFO.tokens
 
 export const { USDC: USDC_SONEIUM } = SONEIUM_CHAIN_INFO.tokens
+
+export const { USDC: USDC_XLAYER, USDT0: USDT0_XLAYER } = XLAYER_CHAIN_INFO.tokens
 
 export const { DAI } = MAINNET_CHAIN_INFO.tokens
 
@@ -88,7 +91,7 @@ export const { USDT: USDT_POLYGON } = POLYGON_CHAIN_INFO.tokens
 
 export const WBTC_POLYGON = new Token(
   UniverseChainId.Polygon,
-  '0x1BFD67037B42Cf73acF2047067bd4F2C47D9BfD6',
+  '0x1bfd67037b42cf73acf2047067bd4f2c47d9bfd6',
   8,
   'WBTC',
   'Wrapped BTC',
@@ -96,7 +99,7 @@ export const WBTC_POLYGON = new Token(
 
 export const WETH_POLYGON = new Token(
   UniverseChainId.Polygon,
-  '0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619',
+  '0x7ceb23fd6bc0add59e62ac25578270cff1b9f619',
   18,
   'WETH',
   'Wrapped Ether',
@@ -158,7 +161,7 @@ export const { USDC: USDC_ZKSYNC } = ZKSYNC_CHAIN_INFO.tokens
 
 export const WBTC = new Token(
   UniverseChainId.Mainnet,
-  '0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599',
+  '0x2260fac5e5542a773aa44fbcfedf7c193bc2c599',
   8,
   'WBTC',
   'Wrapped BTC',
@@ -166,7 +169,7 @@ export const WBTC = new Token(
 
 export const MATIC_MAINNET = new Token(
   UniverseChainId.Mainnet,
-  '0x7D1AfA7B718fb893dB30A3aBc0Cfc608AaCfeBB0',
+  '0x7d1afa7b718fb893db30a3abc0cfc608aacfebb0',
   18,
   'MATIC',
   'Polygon Matic',
@@ -266,7 +269,7 @@ export const WRAPPED_NATIVE_CURRENCY: { [chainId: number]: Token | undefined } =
   [UniverseChainId.Celo]: new Token(
     UniverseChainId.Celo,
     // This is the precompile contract address that makes the native asset fully compliant with ERC20.
-    '0x471EcE3750Da237f93B8E339c536989b8978a438',
+    '0x471ece3750da237f93b8e339c536989b8978a438',
     18,
     'CELO',
     'Celo',
@@ -305,6 +308,13 @@ export const WRAPPED_NATIVE_CURRENCY: { [chainId: number]: Token | undefined } =
     18,
     'WETH',
     'Wrapped Ether',
+  ),
+  [UniverseChainId.XLayer]: new Token(
+    UniverseChainId.XLayer,
+    '0xe538905cf8410324e03A5A23C1c177a474D59b2b',
+    18,
+    'WOKB',
+    'Wrapped OKB',
   ),
   [UniverseChainId.Unichain]: new Token(
     UniverseChainId.Unichain,
@@ -348,398 +358,7 @@ export const WRAPPED_NATIVE_CURRENCY: { [chainId: number]: Token | undefined } =
     'WSOL',
     'Wrapped SOL',
   ),
-  // Lux ecosystem chains - deployed WLUX/WZOO addresses
-  [UniverseChainId.Lux]: new Token(
-    UniverseChainId.Lux,
-    '0x3C18bB6B17eb3F0879d4653e0120a531aF4d86E3', // WLUX mainnet deployment 2026-02-26
-    18,
-    'WLUX',
-    'Wrapped LUX',
-  ),
-  [UniverseChainId.Zoo]: new Token(
-    UniverseChainId.Zoo,
-    '0x5491216406daB99b7032b83765F36790E27F8A61', // WLUX on Zoo mainnet 2026-03-01
-    18,
-    'WLUX',
-    'Wrapped LUX',
-  ),
-  // Lux Testnet
-  [UniverseChainId.LuxTestnet]: new Token(
-    UniverseChainId.LuxTestnet,
-    '0xDe5310d0Eccc04C8987cB66Ff6b89Ee793442C91',
-    18,
-    'WLUX',
-    'Wrapped LUX',
-  ),
-  // Lux Dev (dev mode, chain ID 1337) - Deterministic CREATE address from Anvil deployer nonce 0
-  // This address must match DEFAULT_DEPLOYED_CONTRACTS.wlux in luxd-manager.ts
-  [UniverseChainId.LuxDev]: new Token(
-    UniverseChainId.LuxDev,
-    '0x5FbDB2315678afecb367f032d93F642f64180aa3',
-    18,
-    'WLUX',
-    'Wrapped LUX',
-  ),
 }
-
-// =============================================================================
-// LUX MAINNET TOKENS (Chain ID: 96369)
-// =============================================================================
-
-export const LUSD_LUX = new Token(
-  UniverseChainId.Lux,
-  '0x57f9E717dc080a6A76fB6F77BecA8C9C1D266B96',
-  6,
-  'LUSDC',
-  'Lux USDC',
-)
-
-export const LETH_LUX = new Token(
-  UniverseChainId.Lux,
-  '0x5a88986958ea76Dd043f834542724F081cA1443B',
-  18,
-  'LETH',
-  'Lux ETH',
-)
-
-export const LBTC_LUX = new Token(
-  UniverseChainId.Lux,
-  '0x8a3fad1c7FB94461621351aa6A983B6f814F039c',
-  8,
-  'LBTC',
-  'Lux BTC',
-)
-
-export const LSOL_LUX = new Token(
-  UniverseChainId.Lux,
-  '0x26B40f650156C7EbF9e087Dd0dca181Fe87625B7',
-  18,
-  'LSOL',
-  'Lux SOL',
-)
-
-export const LTON_LUX = new Token(
-  UniverseChainId.Lux,
-  '0x3141b94b89691009b950c96e97Bff48e0C543E3C',
-  18,
-  'LTON',
-  'Lux TON',
-)
-
-export const LBNB_LUX = new Token(
-  UniverseChainId.Lux,
-  '0x6EdcF3645DeF09DB45050638c41157D8B9FEa1cf',
-  18,
-  'LBNB',
-  'Lux BNB',
-)
-
-export const LPOL_LUX = new Token(
-  UniverseChainId.Lux,
-  '0x28BfC5DD4B7E15659e41190983e5fE3df1132bB9',
-  18,
-  'LPOL',
-  'Lux POL',
-)
-
-export const LCELO_LUX = new Token(
-  UniverseChainId.Lux,
-  '0x3078847F879A33994cDa2Ec1540ca52b5E0eE2e5',
-  18,
-  'LCELO',
-  'Lux CELO',
-)
-
-export const LFTM_LUX = new Token(
-  UniverseChainId.Lux,
-  '0x8B982132d639527E8a0eAAD385f97719af8f5e04',
-  18,
-  'LFTM',
-  'Lux FTM',
-)
-
-export const LXDAI_LUX = new Token(
-  UniverseChainId.Lux,
-  '0x7dfb3cBf7CF9c96fd56e3601FBA50AF45C731211',
-  18,
-  'LXDAI',
-  'Lux xDAI',
-)
-
-export const LBLAST_LUX = new Token(
-  UniverseChainId.Lux,
-  '0x94f49D0F4C62bbE4238F4AaA9200287bea9F2976',
-  18,
-  'LBLAST',
-  'Lux BLAST',
-)
-
-export const LAVAX_LUX = new Token(
-  UniverseChainId.Lux,
-  '0x0e4bD0DD67c15dECfBBBdbbE07FC9d51D737693D',
-  18,
-  'LAVAX',
-  'Lux AVAX',
-)
-
-export const LZOO_LUX = new Token(
-  UniverseChainId.Lux,
-  '0x5E5290f350352768bD2bfC59c2DA15DD04A7cB88',
-  18,
-  'LZOO',
-  'Liquid Zoo',
-)
-
-// Staked LUX
-export const SLUX_LUX = new Token(
-  UniverseChainId.Lux,
-  '0x977afeE2D1043ecdBc27ff530329837286457988',
-  18,
-  'sLUX',
-  'Staked LUX',
-)
-
-// Lux Synthetic Tokens
-export const SUSD_LUX = new Token(
-  UniverseChainId.Lux,
-  '0xDc384E006BAec602b0b2B2fe6f2712646EFb1e9D',
-  18,
-  'sUSD',
-  'Lux Synthetic USD',
-)
-
-export const SETH_LUX = new Token(
-  UniverseChainId.Lux,
-  '0x191067f88d61f9506555E88CEab9CF71deeD61A9',
-  18,
-  'sETH',
-  'Lux Synthetic ETH',
-)
-
-export const SBTC_LUX = new Token(
-  UniverseChainId.Lux,
-  '0xDE3df926c7E0a380270B1F75F8dd1f238e16224b',
-  18,
-  'sBTC',
-  'Lux Synthetic BTC',
-)
-
-export const SAI_LUX = new Token(
-  UniverseChainId.Lux,
-  '0x62Ea1B27CDD922dbAaE0572f4CD4862Ca939C24c',
-  18,
-  'sAI',
-  'Lux Synthetic AI',
-)
-
-export const SSOL_LUX = new Token(
-  UniverseChainId.Lux,
-  '0x0570b2c59976E87D37d3a9915750BFf131d295D6',
-  18,
-  'sSOL',
-  'Lux Synthetic SOL',
-)
-
-export const STON_LUX = new Token(
-  UniverseChainId.Lux,
-  '0xa24318F24739d92a2e1c2997C18F5103d0fD708e',
-  18,
-  'sTON',
-  'Lux Synthetic TON',
-)
-
-export const SADA_LUX = new Token(
-  UniverseChainId.Lux,
-  '0xB6BdC625f4B2877418D7A9773F8A5763c93EfbaC',
-  18,
-  'sADA',
-  'Lux Synthetic ADA',
-)
-
-export const SAVAX_LUX = new Token(
-  UniverseChainId.Lux,
-  '0xFd57A578A0Ff600B5420D1964aC7A80f0E08B1ad',
-  18,
-  'sAVAX',
-  'Lux Synthetic AVAX',
-)
-
-export const SBNB_LUX = new Token(
-  UniverseChainId.Lux,
-  '0x905b1907d4b8262B220A7aF7ad0a375F3A2F05cb',
-  18,
-  'sBNB',
-  'Lux Synthetic BNB',
-)
-
-export const SPOL_LUX = new Token(
-  UniverseChainId.Lux,
-  '0x7803f099cdA82732e98C9f82815e7Acf18CA02C8',
-  18,
-  'sPOL',
-  'Lux Synthetic POL',
-)
-
-export const SZOO_LUX = new Token(
-  UniverseChainId.Lux,
-  '0xC63287d85BAe3628f1b824F6D9C2cfADc22F987F',
-  18,
-  'sZOO',
-  'Lux Synthetic ZOO',
-)
-
-// =============================================================================
-// ZOO MAINNET TOKENS (Chain ID: 200200)
-// =============================================================================
-
-export const ZUSD_ZOO = new Token(
-  UniverseChainId.Zoo,
-  '0x848Cff46eb323f323b6Bbe1Df274E40793d7f2c2',
-  18,
-  'ZUSD',
-  'Zoo Dollar',
-)
-
-export const ZETH_ZOO = new Token(
-  UniverseChainId.Zoo,
-  '0x60E0a8167FC13dE89348978860466C9ceC24B9ba',
-  18,
-  'ZETH',
-  'Zoo ETH',
-)
-
-export const ZBTC_ZOO = new Token(
-  UniverseChainId.Zoo,
-  '0x1E48D32a4F5e9f08DB9aE4959163300FaF8A6C8e',
-  18,
-  'ZBTC',
-  'Zoo BTC',
-)
-
-export const ZSOL_ZOO = new Token(
-  UniverseChainId.Zoo,
-  '0x26B40f650156C7EbF9e087Dd0dca181Fe87625B7',
-  18,
-  'ZSOL',
-  'Zoo SOL',
-)
-
-export const ZTON_ZOO = new Token(
-  UniverseChainId.Zoo,
-  '0x3141b94b89691009b950c96e97Bff48e0C543E3C',
-  18,
-  'ZTON',
-  'Zoo TON',
-)
-
-export const ZLUX_ZOO = new Token(
-  UniverseChainId.Zoo,
-  '0x5E5290f350352768bD2bfC59c2DA15DD04A7cB88',
-  18,
-  'ZLUX',
-  'Liquid LUX',
-)
-
-export const ZBNB_ZOO = new Token(
-  UniverseChainId.Zoo,
-  '0x6EdcF3645DeF09DB45050638c41157D8B9FEa1cf',
-  18,
-  'ZBNB',
-  'Zoo BNB',
-)
-
-export const ZPOL_ZOO = new Token(
-  UniverseChainId.Zoo,
-  '0x28BfC5DD4B7E15659e41190983e5fE3df1132bB9',
-  18,
-  'ZPOL',
-  'Zoo POL',
-)
-
-export const ZCELO_ZOO = new Token(
-  UniverseChainId.Zoo,
-  '0x3078847F879A33994cDa2Ec1540ca52b5E0eE2e5',
-  18,
-  'ZCELO',
-  'Zoo CELO',
-)
-
-export const ZFTM_ZOO = new Token(
-  UniverseChainId.Zoo,
-  '0x8B982132d639527E8a0eAAD385f97719af8f5e04',
-  18,
-  'ZFTM',
-  'Zoo FTM',
-)
-
-export const ZXDAI_ZOO = new Token(
-  UniverseChainId.Zoo,
-  '0x7dfb3cBf7CF9c96fd56e3601FBA50AF45C731211',
-  18,
-  'ZXDAI',
-  'Zoo xDAI',
-)
-
-// =============================================================================
-// LUX TESTNET TOKENS (Chain ID: 96368)
-// =============================================================================
-
-export const LUSD_LUX_TESTNET = new Token(
-  UniverseChainId.LuxTestnet,
-  '0x8a3fad1c7FB94461621351aa6A983B6f814F039c',
-  6,
-  'LUSDC',
-  'Lux USDC',
-)
-
-export const LETH_LUX_TESTNET = new Token(
-  UniverseChainId.LuxTestnet,
-  '0xA695a8A66fbe3E32d15a531db04185313595771A',
-  18,
-  'LETH',
-  'Lux ETH',
-)
-
-export const LBTC_LUX_TESTNET = new Token(
-  UniverseChainId.LuxTestnet,
-  '0x5a88986958ea76Dd043f834542724F081cA1443B',
-  8,
-  'LBTC',
-  'Lux BTC',
-)
-
-// =============================================================================
-// LUX DEV TOKENS (Chain ID: 1337)
-// Deterministic CREATE addresses from Anvil deployer (0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266)
-// These MUST match DEFAULT_DEPLOYED_CONTRACTS in luxd-manager.ts
-// =============================================================================
-
-// Bridged ETH - nonce 1
-export const LETH_LUXDEV = new Token(
-  UniverseChainId.LuxDev,
-  '0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512',
-  18,
-  'LETH',
-  'Lux Ether',
-)
-
-// Bridged BTC - nonce 2
-export const LBTC_LUXDEV = new Token(
-  UniverseChainId.LuxDev,
-  '0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0',
-  8,
-  'LBTC',
-  'Lux Bitcoin',
-)
-
-// Lux USD (bridged stablecoin) - nonce 3
-export const LUSD_LUXDEV = new Token(
-  UniverseChainId.LuxDev,
-  '0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9',
-  6,
-  'LUSD',
-  'Lux USD',
-)
 
 class NativeCurrencyImpl extends NativeCurrency {
   public get wrapped(): Token {
@@ -771,7 +390,7 @@ const cachedNativeCurrency: { [chainId: number]: NativeCurrencyImpl } = {}
 /**
  * @deprecated Prefer obtaining metadata via the non-sdk-based getChainInfo(chainId).nativeCurrency instead.
  *
- * Utility for obtaining an `@l.x/sdk-core` `NativeCurrency` instance for a given chainId.
+ * Utility for obtaining an `@uniswap/sdk-core` `NativeCurrency` instance for a given chainId.
  */
 export function nativeOnChain(chainId: number): NativeCurrencyImpl {
   const cached = cachedNativeCurrency[chainId]
@@ -788,7 +407,7 @@ export function nativeOnChain(chainId: number): NativeCurrencyImpl {
 // TODO[DAT-1513]: Replace with metadata fields from backend
 export const UNICHAIN_BRIDGED_ASSETS: readonly BridgedAsset[] = [
   {
-    unichainAddress: '0xbdE8A5331E8Ac4831cf8ea9e42e229219EafaB97', // SOL
+    unichainAddress: '0xbde8a5331e8ac4831cf8ea9e42e229219eafab97', // SOL
     nativeChain: 'Solana',
     nativeAddress: 'native',
   },
@@ -803,7 +422,7 @@ export const UNICHAIN_BRIDGED_ASSETS: readonly BridgedAsset[] = [
     nativeAddress: 'EKpQGSJtjMFqKZ9KQanSqYXRcF8fBopzLHYxdM65zcjm',
   },
   {
-    unichainAddress: '0x15D0e0c55a3E7eE67152aD7E89acf164253Ff68d', // HYPE
+    unichainAddress: '0x15d0e0c55a3e7ee67152ad7e89acf164253ff68d', // HYPE
     nativeChain: 'HyperEVM',
     nativeAddress: 'native',
   },

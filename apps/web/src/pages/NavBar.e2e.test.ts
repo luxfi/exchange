@@ -1,5 +1,5 @@
-import { expect, getTest } from 'playwright/fixtures'
-import { TestID } from 'lx/src/test/fixtures/testIDs'
+import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+import { expect, getTest } from '~/playwright/fixtures'
 
 const test = getTest()
 
@@ -7,26 +7,25 @@ const companyMenu = [
   {
     label: 'Products',
     items: [
-      { label: 'Wallet', href: 'https://lux.exchange/wallet' },
-      { label: 'LX DEX', href: 'https://lux.exchange/swap' },
-      { label: 'API', href: 'https://docs.lux.exchange/api' },
-      { label: 'LX Network', href: 'https://lux.network/' },
+      { label: 'Wallet', href: 'https://wallet.uniswap.org/' },
+      { label: 'UniswapX', href: 'https://x.uniswap.org/' },
+      { label: 'API', href: 'https://hub.uniswap.org/' },
+      { label: 'Unichain', href: 'https://www.unichain.org/' },
     ],
   },
   {
     label: 'Protocol',
     items: [
-      { label: 'Vote', href: 'https://lux.exchange/vote' },
-      { label: 'Governance', href: 'https://lux.exchange/governance' },
-      { label: 'Developers', href: 'https://docs.lux.exchange/developers' },
+      { label: 'Governance', href: 'https://uniswap.org/governance' },
+      { label: 'Developers', href: 'https://uniswap.org/developers' },
+      { label: 'Vote', href: 'https://vote.uniswapfoundation.org' },
     ],
   },
   {
     label: 'Company',
     items: [
-      { label: 'About', href: 'https://lux.exchange/about' },
-      { label: 'Careers', href: 'https://lux.exchange/careers' },
-      { label: 'Blog', href: 'https://lux.exchange/blog' },
+      { label: 'Careers', href: 'https://careers.uniswap.org/' },
+      { label: 'Blog', href: 'https://blog.uniswap.org/' },
     ],
   },
 ]
@@ -59,7 +58,7 @@ const tabs = [
     ],
   },
 ]
-const socialMediaLinks = ['https://github.com/luxfi', 'https://x.com/luxdefi', 'https://discord.gg/GPyuT6z9N3']
+const socialMediaLinks = ['https://github.com/Uniswap', 'https://x.com/Uniswap', 'https://discord.com/invite/uniswap']
 
 test.describe(
   'NavBar',
@@ -110,7 +109,7 @@ test.describe(
         await expect(page.getByTestId(TestID.NavCompanyDropdown).getByText('Terms of Service')).toBeVisible()
 
         await expect(
-          page.getByTestId(TestID.NavCompanyDropdown).locator('a[href="https://lux.exchange/terms"]'),
+          page.getByTestId(TestID.NavCompanyDropdown).locator('a[href="https://uniswap.org/terms-of-service"]'),
         ).toBeVisible()
       })
 
@@ -169,7 +168,7 @@ test.describe(
         await expect(drawer.getByText('Privacy Policy')).toBeVisible()
         await expect(drawer.getByText('Terms of Service')).toBeVisible()
 
-        await expect(drawer.locator('a[href="https://lux.exchange/terms"]')).toBeVisible()
+        await expect(drawer.locator('a[href="https://uniswap.org/terms-of-service"]')).toBeVisible()
       })
 
       test('displays mobile-specific UI elements', async ({ page }) => {
@@ -182,27 +181,19 @@ test.describe(
         await expect(page.getByTestId(TestID.HelpModal).getByText('Contact us')).toBeVisible()
 
         await expect(
-          page.getByTestId(TestID.HelpModal).locator('a[href="https://docs.lux.exchange/help"]'),
+          page.getByTestId(TestID.HelpModal).locator('a[href="https://support.uniswap.org/hc/en-us"]'),
         ).toBeVisible()
-        await expect(page.getByTestId(TestID.HelpModal).locator('a[href="https://docs.lux.exchange/"]')).toBeVisible()
+        await expect(page.getByTestId(TestID.HelpModal).locator('a[href="https://docs.uniswap.org/"]')).toBeVisible()
         await expect(
-          page.getByTestId(TestID.HelpModal).locator('a[href*="requests/new"]'),
+          page.getByTestId(TestID.HelpModal).locator('a[href="https://support.uniswap.org/hc/en-us/requests/new"]'),
         ).toBeVisible()
       })
-    })
 
-    // Separate test for mobile bottom bar on token details - no beforeEach interference
-    test.describe('Mobile token details', () => {
       test('displays bottom bar on token details page', async ({ page }) => {
-        // Verify bottom bar on token details page (using ETH on Ethereum)
-        // Use Ethereum to avoid any Lux-specific token loading issues
-        await page.setViewportSize({ width: 449, height: 900 })
+        // Verify bottom bar on token details page
         await page.goto('/explore/tokens/ethereum/NATIVE')
-        // Wait for Ethereum text to be visible (page loaded)
-        await expect(page.getByText('Ethereum').first()).toBeVisible({ timeout: 10000 })
-        // Check for the mobile bottom bar
         const bottomBar = page.getByTestId(TestID.TokenDetailsMobileBottomBar)
-        await expect(bottomBar).toBeVisible({ timeout: 10000 })
+        await expect(bottomBar).toBeVisible()
         await expect(bottomBar.getByText('Buy')).toBeVisible()
         await expect(bottomBar.getByText('Sell')).toBeVisible()
       })

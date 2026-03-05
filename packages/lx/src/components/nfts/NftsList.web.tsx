@@ -1,21 +1,21 @@
-import { isNonPollingRequestInFlight } from '@luxfi/api'
-import { useCallback, useEffect, useMemo, useState } from 'react'
+import { isNonPollingRequestInFlight } from '@universe/api'
+import { Fragment, useCallback, useEffect, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import InfiniteScroll from 'react-infinite-scroll-component'
 import { Flex, Loader, styled, Text, View } from 'ui/src'
-import { BaseCard } from 'lx/src/components/BaseCard/BaseCard'
-import { ExpandoRow } from 'lx/src/components/ExpandoRow/ExpandoRow'
-import { useNftListRenderData } from 'lx/src/components/nfts/hooks/useNftListRenderData'
-import { NftsListProps } from 'lx/src/components/nfts/NftsList'
-import { NftsListEmptyState } from 'lx/src/components/nfts/NftsListEmptyState'
-import { NftListHeader } from 'lx/src/components/nfts/NftsListHeader'
-import { ShowNFTModal } from 'lx/src/components/nfts/ShowNFTModal'
-import { EMPTY_NFT_ITEM, HIDDEN_NFTS_ROW } from 'lx/src/features/nfts/constants'
-import { NFTItem } from 'lx/src/features/nfts/types'
-import { buildNftsArray, filterNft, getNFTAssetKey } from 'lx/src/features/nfts/utils'
-import { WalletEventName } from 'lx/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
-import { TestID } from 'lx/src/test/fixtures/testIDs'
+import { BaseCard } from 'uniswap/src/components/BaseCard/BaseCard'
+import { ExpandoRow } from 'uniswap/src/components/ExpandoRow/ExpandoRow'
+import { useNftListRenderData } from 'uniswap/src/components/nfts/hooks/useNftListRenderData'
+import { NftsListProps } from 'uniswap/src/components/nfts/NftsList'
+import { NftsListEmptyState } from 'uniswap/src/components/nfts/NftsListEmptyState'
+import { NftListHeader } from 'uniswap/src/components/nfts/NftsListHeader'
+import { ShowNFTModal } from 'uniswap/src/components/nfts/ShowNFTModal'
+import { EMPTY_NFT_ITEM, HIDDEN_NFTS_ROW } from 'uniswap/src/features/nfts/constants'
+import { NFTItem } from 'uniswap/src/features/nfts/types'
+import { buildNftsArray, filterNft, getNFTAssetKey } from 'uniswap/src/features/nfts/utils'
+import { WalletEventName } from 'uniswap/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
+import { TestID } from 'uniswap/src/test/fixtures/testIDs'
 
 const AssetsContainer = styled(View, {
   width: '100%',
@@ -58,7 +58,6 @@ export function NftsList({
   customLoadingState,
   filteredNumHidden,
   chainsFilter,
-  searchString,
   onFilteredCountsChange,
   renderExpandoRow,
   nextFetchPolicy,
@@ -66,6 +65,10 @@ export function NftsList({
   onLoadingStateChange,
   showHeader = false,
   SearchInputComponent,
+  searchInputTestId,
+  headerTestId,
+  noResultsTestId,
+  emptyStateTestId,
   pollInterval,
 }: NftsListProps): JSX.Element {
   const { t } = useTranslation()
@@ -138,10 +141,9 @@ export function NftsList({
   const filteredHiddenCount = filteredHiddenNfts.length
 
   // Use filtered count if provided, otherwise use internal count
-  // If searchString is provided, use filtered count
   const numHidden = filteredNumHidden ?? (search ? filteredHiddenCount : internalNumHidden)
 
-  // Notify parent of filtered counts (or unfiltered counts if no search string)
+  // Notify parent of filtered counts (or unfiltered counts if no search)
   useEffect(() => {
     if (onFilteredCountsChange) {
       onFilteredCountsChange({ shown: filteredShownCount, hidden: filteredHiddenCount })
@@ -167,9 +169,9 @@ export function NftsList({
   }, [hiddenNftsExpanded, numHidden, setHiddenNftsExpanded])
 
   const renderItem = useCallback(
-    (item: string | NFTItem, index: number) => {
+    (item: string | NFTItem, index: number): JSX.Element | null => {
       if (typeof item !== 'string') {
-        return renderNFTItem(item, index)
+        return <Fragment key={keyExtractor(item)}>{renderNFTItem(item, index)}</Fragment>
       }
 
       switch (item) {
@@ -215,7 +217,8 @@ export function NftsList({
   )
 
   // Skeleton content without container (used for initial load inside main AssetsContainer)
-  const skeletonContent = useMemo<JSX.Element>(() => {
+  const skeletonContent = useMemo<JSX.Element>((): JSX.Element => {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-return -- customLoadingState is typed as JSX.Element | undefined
     return (
       customLoadingState ?? (
         <>
@@ -236,10 +239,10 @@ export function NftsList({
     )
   }, [skeletonContent, autoColumns])
 
-  const emptyState = useMemo(
-    () => customEmptyState ?? <NftsListEmptyState containerStyle={emptyStateStyle} />,
-    [customEmptyState, emptyStateStyle],
-  )
+  const emptyState = useMemo<JSX.Element>((): JSX.Element => {
+    const defaultEmptyState = <NftsListEmptyState containerStyle={emptyStateStyle} dataTestId={emptyStateTestId} />
+    return (customEmptyState ?? defaultEmptyState) as JSX.Element
+  }, [customEmptyState, emptyStateStyle, emptyStateTestId])
 
   const errorState = useMemo(
     () => (
@@ -257,7 +260,7 @@ export function NftsList({
 
   const isEmptyState = (nfts.length === 0 && !isLoadingState) || isErrorState
 
-  const listContent = useMemo<JSX.Element | JSX.Element[]>(() => {
+  const listContent = useMemo<JSX.Element | JSX.Element[]>((): JSX.Element | JSX.Element[] => {
     if (isLoadingState) {
       return skeletonContent
     }
@@ -266,31 +269,35 @@ export function NftsList({
       return errorState
     }
 
+    // Show no-results when user has searched and the filtered list is empty (explicit check so we always hit this when filtering yields nothing)
+    if (search && filteredShownCount === 0) {
+      return (
+        <Flex centered p="$spacing12" width="100%" data-testid={noResultsTestId}>
+          <Text variant="body3" color="$neutral2">
+            {t('common.noResults')}
+          </Text>
+        </Flex>
+      )
+    }
+
+    // Use nfts.length so we show empty state when there are no NFTs; itemsToRender can have length 1 when shouldAddInLoadingItem is true
     if (nfts.length === 0) {
-      if (searchString) {
-        return (
-          <Flex centered p="$spacing12" width="100%">
-            <Text variant="body3" color="$neutral2">
-              {t('common.noResults')}
-            </Text>
-          </Flex>
-        )
-      } else {
-        return emptyState
-      }
+      return emptyState
     }
 
     return itemsToRender.map(renderItem).filter((item): item is JSX.Element => item !== null)
   }, [
     isLoadingState,
     nfts.length,
+    filteredShownCount,
     itemsToRender,
     renderItem,
     errorState,
     emptyState,
     skeletonContent,
     isErrorState,
-    searchString,
+    noResultsTestId,
+    search,
     t,
   ])
 
@@ -300,6 +307,8 @@ export function NftsList({
         <NftListHeader
           count={filteredShownCount}
           SearchInputComponent={SearchInputComponent}
+          searchInputTestId={searchInputTestId}
+          headerTestId={headerTestId}
           onSearchValueChange={setSearch}
         />
       )}

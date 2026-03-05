@@ -1,15 +1,15 @@
 import { useMemo } from 'react'
-import { useOnRetrySwap } from 'lx/src/components/activity/hooks/useOnRetrySwap'
-import { TransactionSummaryLayout } from 'lx/src/components/activity/summaries/TransactionSummaryLayout'
-import { SummaryItemProps } from 'lx/src/components/activity/types'
-import { TXN_HISTORY_ICON_SIZE } from 'lx/src/components/activity/utils'
-import { BridgeIcon, SplitLogo } from 'lx/src/components/CurrencyLogo/SplitLogo'
-import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
-import { useCurrencyInfo } from 'lx/src/features/tokens/useCurrencyInfo'
-import { BridgingCurrencyRow } from 'lx/src/features/transactions/swap/components/BridgingCurrencyRow'
-import { getAmountsFromTrade } from 'lx/src/features/transactions/swap/utils/getAmountsFromTrade'
-import { BridgeTransactionInfo, TransactionDetails } from 'lx/src/features/transactions/types/transactionDetails'
-import { getFormattedCurrencyAmount } from 'lx/src/utils/currency'
+import { useOnRetrySwap } from 'uniswap/src/components/activity/hooks/useOnRetrySwap'
+import { TransactionSummaryLayout } from 'uniswap/src/components/activity/summaries/TransactionSummaryLayout'
+import { SummaryItemProps } from 'uniswap/src/components/activity/types'
+import { TXN_HISTORY_ICON_SIZE } from 'uniswap/src/components/activity/utils'
+import { CrossChainIcon, SplitLogo } from 'uniswap/src/components/CurrencyLogo/SplitLogo'
+import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
+import { useCurrencyInfo } from 'uniswap/src/features/tokens/useCurrencyInfo'
+import { CrossChainCurrencyRow } from 'uniswap/src/features/transactions/swap/components/CrossChainCurrencyRow'
+import { getAmountsFromTrade } from 'uniswap/src/features/transactions/swap/utils/getAmountsFromTrade'
+import { BridgeTransactionInfo, TransactionDetails } from 'uniswap/src/features/transactions/types/transactionDetails'
+import { getFormattedCurrencyAmount } from 'uniswap/src/utils/currency'
 
 export function BridgeSummaryItem({
   transaction,
@@ -21,7 +21,7 @@ export function BridgeSummaryItem({
     typeInfo: BridgeTransactionInfo
   }
 }): JSX.Element {
-  const { typeInfo } = transaction
+  const { typeInfo, status } = transaction
   const inputCurrencyInfo = useCurrencyInfo(typeInfo.inputCurrencyId)
   const outputCurrencyInfo = useCurrencyInfo(typeInfo.outputCurrencyId)
   const formatter = useLocalizationContext()
@@ -47,9 +47,11 @@ export function BridgeSummaryItem({
     })
 
     return (
-      <BridgingCurrencyRow
-        inputCurrencyInfo={inputCurrencyInfo}
-        outputCurrencyInfo={outputCurrencyInfo}
+      <CrossChainCurrencyRow
+        inputChainId={inputCurrency.chainId}
+        inputSymbol={inputCurrency.symbol ?? ''}
+        outputChainId={outputCurrency.chainId}
+        outputSymbol={outputCurrency.symbol ?? ''}
         formattedInputTokenAmount={inputCurrencyAmount}
         formattedOutputTokenAmount={outputCurrencyAmount}
       />
@@ -63,10 +65,10 @@ export function BridgeSummaryItem({
         outputCurrencyInfo={outputCurrencyInfo}
         size={TXN_HISTORY_ICON_SIZE}
         chainId={transaction.chainId}
-        customIcon={BridgeIcon}
+        customIcon={<CrossChainIcon status={status} />}
       />
     ),
-    [inputCurrencyInfo, outputCurrencyInfo, transaction.chainId],
+    [inputCurrencyInfo, outputCurrencyInfo, transaction.chainId, status],
   )
 
   return (

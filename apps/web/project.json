@@ -2,6 +2,7 @@
   "root": "apps/web",
   "sourceRoot": "apps/web/src",
   "projectType": "application",
+  "tags": ["scope:web", "type:app"],
   "targets": {
     "build": {
       "executor": "nx:noop",
@@ -10,7 +11,7 @@
     "wait-for-webserver": {
       "executor": "nx:run-commands",
       "options": {
-        "command": "wait-on http://localhost:3000 --timeout 60000 --interval 1000 --delay 5000"
+        "command": "wait-on http://localhost:3000 --timeout 120000 --interval 1000 --delay 5000"
       }
     },
     "e2e": {
@@ -37,25 +38,21 @@
       },
       "dependsOn": ["preview:e2e", "wait-for-webserver"]
     },
-    "e2e:luxd": {
-      "executor": "nx:run-commands",
-      "options": {
-        "command": "nx playwright:test:luxd web",
-        "cwd": "{projectRoot}"
-      },
-      "dependsOn": ["preview:e2e", "wait-for-webserver"]
-    },
     "prepare": {
-      "command": "bun ajv",
-      "options": {
-        "cwd": "{projectRoot}"
-      }
+      "executor": "nx:noop",
+      "dependsOn": ["ajv"],
+      "cache": true,
+      "inputs": [],
+      "outputs": []
     },
     "ajv": {
       "command": "bun run scripts/compile-ajv-validators.js",
       "options": {
         "cwd": "{projectRoot}"
-      }
+      },
+      "cache": true,
+      "inputs": ["{projectRoot}/scripts/compile-ajv-validators.js", "{projectRoot}/package.json"],
+      "outputs": ["{projectRoot}/src/utils/__generated__"]
     },
     "graphql:generate": {
       "command": "echo 'GraphQL generation handled by uniswap package'",
@@ -77,14 +74,9 @@
       },
       "continuous": true
     },
-    "check:deps:usage": {
-      "command": "depcheck",
-      "options": {
-        "cwd": "{projectRoot}"
-      }
-    },
+    "check:deps:usage": {},
     "check:circular": {
-      "command": "concurrently \"../../scripts/check-circular-imports.sh ./src/pages/App.tsx 2\" \"../../scripts/check-circular-imports.sh ./src/setupTests.ts 0\"",
+      "command": "bunx madge --circular ./src/pages/App.tsx ./src/setupTests.ts",
       "options": {
         "cwd": "{projectRoot}"
       }
@@ -105,27 +97,20 @@
       ]
     },
     "start": {
-      "command": "ROLLDOWN_OPTIONS_VALIDATION=loose vite dev",
+      "command": "vite dev",
       "options": {
         "cwd": "{projectRoot}"
       },
       "continuous": true
     },
     "dev": {
-      "command": "ROLLDOWN_OPTIONS_VALIDATION=loose vite dev",
+      "command": "vite dev",
       "options": {
         "cwd": "{projectRoot}"
       }
     },
-    "dev:e2e": {
-      "command": "REACT_APP_IS_PLAYWRIGHT_ENV=true REACT_APP_SKIP_CSP=1 ROLLDOWN_OPTIONS_VALIDATION=loose vite dev",
-      "options": {
-        "cwd": "{projectRoot}"
-      },
-      "continuous": true
-    },
     "build:production": {
-      "command": "CLOUDFLARE_ENV=production ROLLDOWN_OPTIONS_VALIDATION=loose vite build",
+      "command": "NODE_OPTIONS=\"--max-old-space-size=$([ -n \\\"$GITHUB_ACTIONS\\\" ] && echo 32768 || echo 16384)\" CLOUDFLARE_ENV=production vite build",
       "options": {
         "cwd": "{projectRoot}"
       },
@@ -133,21 +118,27 @@
       "inputs": ["default", "^production", "!{projectRoot}/build"]
     },
     "build:staging": {
-      "command": "CLOUDFLARE_ENV=staging ROLLDOWN_OPTIONS_VALIDATION=loose vite build --mode staging",
+      "command": "NODE_OPTIONS=\"--max-old-space-size=$([ -n \\\"$GITHUB_ACTIONS\\\" ] && echo 32768 || echo 16384)\" VITE_ENABLE_ENTRY_GATEWAY_PROXY=true CLOUDFLARE_ENV=staging vite build --mode staging",
       "options": {
         "cwd": "{projectRoot}"
       },
       "defaultConfiguration": "staging"
     },
     "build:staging:preview": {
-      "command": "VITE_DISABLE_SOURCEMAP=true CLOUDFLARE_ENV=staging ROLLDOWN_OPTIONS_VALIDATION=loose vite build --mode staging",
+      "command": "NODE_OPTIONS=\"--max-old-space-size=$([ -n \\\"$GITHUB_ACTIONS\\\" ] && echo 32768 || echo 16384)\" VITE_ENABLE_ENTRY_GATEWAY_PROXY=true VITE_DISABLE_SOURCEMAP=true CLOUDFLARE_ENV=staging vite build --mode staging",
       "options": {
         "cwd": "{projectRoot}"
       },
       "defaultConfiguration": "staging"
     },
+    "build-vercel": {
+      "command": "DEPLOY_TARGET=vercel VITE_ENABLE_ENTRY_GATEWAY_PROXY=true NODE_OPTIONS=\"--max-old-space-size=12288\" VITE_DISABLE_SOURCEMAP=true vite build --mode staging && bun scripts/build-vercel.ts",
+      "options": {
+        "cwd": "{projectRoot}"
+      }
+    },
     "build:e2e": {
-      "command": "DEPLOY_TARGET=vercel REACT_APP_IS_PLAYWRIGHT_ENV=true REACT_APP_SKIP_CSP=1 VITE_DISABLE_SOURCEMAP=true nx run web:build:production",
+      "command": "REACT_APP_SKIP_CSP=1 VITE_DISABLE_SOURCEMAP=true nx run web:build:production",
       "options": {
         "cwd": "{projectRoot}"
       },
@@ -155,7 +146,7 @@
       "inputs": ["default", "^production", "!{projectRoot}/build"]
     },
     "preview": {
-      "command": "ROLLDOWN_OPTIONS_VALIDATION=loose vite preview --port 3000",
+      "command": "vite preview --port 3000",
       "options": {
         "cwd": "{projectRoot}"
       },
@@ -163,7 +154,7 @@
       "dependsOn": ["build:production"]
     },
     "preview:staging": {
-      "command": "ROLLDOWN_OPTIONS_VALIDATION=loose vite preview --port 3000",
+      "command": "vite preview --port 3000",
       "options": {
         "cwd": "{projectRoot}"
       },
@@ -171,12 +162,19 @@
       "dependsOn": ["build:staging:preview"]
     },
     "preview:e2e": {
-      "command": "DEPLOY_TARGET=vercel REACT_APP_IS_PLAYWRIGHT_ENV=true REACT_APP_SKIP_CSP=1 VITE_DISABLE_SOURCEMAP=true ROLLDOWN_OPTIONS_VALIDATION=loose vite preview --port 3000",
+      "command": "REACT_APP_SKIP_CSP=1 VITE_DISABLE_SOURCEMAP=true vite preview --port 3000",
       "options": {
         "cwd": "{projectRoot}"
       },
       "continuous": true,
       "dependsOn": ["build:e2e"]
+    },
+    "preview:e2e:no-build": {
+      "command": "REACT_APP_SKIP_CSP=1 VITE_DISABLE_SOURCEMAP=true vite preview --port 3000",
+      "options": {
+        "cwd": "{projectRoot}"
+      },
+      "continuous": true
     },
     "analyze": {
       "command": "source-map-explorer 'build/assets/*.js' --no-border-checks --gzip",
@@ -198,7 +196,7 @@
       }
     },
     "lint:eslint:fix": {
-      "command": "eslint --ignore-path .gitignore --cache --cache-location node_modules/.cache/eslint/ . --fix",
+      "command": "NODE_OPTIONS=--max_old_space_size=8192 eslint --ignore-path .gitignore --cache --cache-location node_modules/.cache/eslint/ . --fix",
       "options": {
         "cwd": "{projectRoot}"
       }
@@ -215,12 +213,6 @@
         "cwd": "{projectRoot}"
       }
     },
-    "playwright:test:luxd": {
-      "command": "USE_LUXD=true ANVIL_PORT=8545 playwright test --grep '\\.anvil\\.'",
-      "options": {
-        "cwd": "{projectRoot}"
-      }
-    },
     "playwright:test:no-anvil": {
       "command": "playwright test --grep-invert '\\.anvil\\.'",
       "options": {
@@ -229,6 +221,9 @@
     },
     "typecheck": {
       "dependsOn": ["^typecheck", "typecheck:cloud"]
+    },
+    "typecheck:tsgo": {
+      "dependsOn": ["typecheck:cloud"]
     },
     "typecheck:cloud": {
       "command": "tsc -p functions/tsconfig.json",

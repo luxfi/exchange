@@ -1,8 +1,7 @@
 import { BigNumber, BigNumberish } from '@ethersproject/bignumber'
-import { FeeType } from '@luxfi/api'
+import { FeeType, GasFeeResult } from '@universe/api'
 import { providers } from 'ethers/lib/ethers'
-import { GasFeeResult } from 'lx/src/features/gas/types'
-import { BigNumberMax } from 'lx/src/utils/number'
+import { BigNumberMax } from 'uniswap/src/utils/number'
 
 export type FeeDetails =
   | { type: FeeType.LEGACY; params: { gasPrice: string } }

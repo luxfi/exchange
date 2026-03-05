@@ -11,29 +11,31 @@ import { navigate } from 'src/app/navigation/rootNavigation'
 import { useAppStackNavigation } from 'src/app/navigation/types'
 import { useAdaptiveFooter } from 'src/components/home/hooks'
 import { TAB_BAR_HEIGHT, TAB_VIEW_SCROLL_THROTTLE, TabProps } from 'src/components/layout/TabHelpers'
+import { useAppStateTrigger } from 'src/utils/useAppStateTrigger'
 import { Flex, Loader, useSporeColors } from 'ui/src'
 import { AnimatedFlex } from 'ui/src/components/layout/AnimatedFlex'
 import { zIndexes } from 'ui/src/theme'
-import { BaseCard } from 'lx/src/components/BaseCard/BaseCard'
-import { EmptyTokensList } from 'lx/src/components/portfolio/EmptyTokensList'
-import { HiddenTokensRow } from 'lx/src/components/portfolio/HiddenTokensRow'
-import { TokenBalanceItem } from 'lx/src/components/portfolio/TokenBalanceItem'
-import { TokenBalanceItemContextMenu } from 'lx/src/components/portfolio/TokenBalanceItemContextMenu'
-import { pushNotification } from 'lx/src/features/notifications/slice/slice'
-import { AppNotificationType, CopyNotificationType } from 'lx/src/features/notifications/slice/types'
+import { BaseCard } from 'uniswap/src/components/BaseCard/BaseCard'
+import { EmptyTokensList } from 'uniswap/src/components/portfolio/EmptyTokensList'
+import { HiddenTokensRow } from 'uniswap/src/components/portfolio/HiddenTokensRow'
+import { TokenBalanceItem } from 'uniswap/src/components/portfolio/TokenBalanceItem'
+import { TokenBalanceItemContextMenu } from 'uniswap/src/components/portfolio/TokenBalanceItemContextMenu'
+import { pushNotification } from 'uniswap/src/features/notifications/slice/slice'
+import { AppNotificationType, CopyNotificationType } from 'uniswap/src/features/notifications/slice/types'
 import {
   TokenBalanceListContextProvider,
   useTokenBalanceListContext,
-} from 'lx/src/features/portfolio/TokenBalanceListContext'
-import { isHiddenTokenBalancesRow, TokenBalanceListRow } from 'lx/src/features/portfolio/types'
-import { ModalName } from 'lx/src/features/telemetry/constants'
-import { useAppInsets } from 'lx/src/hooks/useAppInsets'
-import { CurrencyId } from 'lx/src/types/currency'
-import { MobileScreens } from 'lx/src/types/screens/mobile'
-import { setClipboard } from 'lx/src/utils/clipboard'
+} from 'uniswap/src/features/portfolio/TokenBalanceListContext'
+import { isHiddenTokenBalancesRow, TokenBalanceListRow } from 'uniswap/src/features/portfolio/types'
+import { ModalName } from 'uniswap/src/features/telemetry/constants'
+import { useAppInsets } from 'uniswap/src/hooks/useAppInsets'
+import { CurrencyId } from 'uniswap/src/types/currency'
+import { MobileScreens } from 'uniswap/src/types/screens/mobile'
+import { setClipboard } from 'utilities/src/clipboard/clipboard'
 import { DDRumManualTiming } from 'utilities/src/logger/datadog/datadogEvents'
 import { usePerformanceLogger } from 'utilities/src/logger/usePerformanceLogger'
 import { isAndroid } from 'utilities/src/platform'
+import { noop } from 'utilities/src/react/noop'
 
 type TokenBalanceListProps = TabProps & {
   empty?: JSX.Element | null
@@ -204,8 +206,12 @@ const TokenBalanceListInner = forwardRef<FlatList<TokenBalanceListRow>, TokenBal
 
 const HeaderComponent = memo(function _HeaderComponent(): JSX.Element | null {
   const { t } = useTranslation()
-  const { balancesById, networkStatus, refetch } = useTokenBalanceListContext()
-  const hasErrorWithCachedValues = !!balancesById && networkStatus === NetworkStatus.error
+  const { balancesById, networkStatus, refetch, isPortfolioBalancesLoading } = useTokenBalanceListContext()
+
+  useAppStateTrigger({ from: 'background', to: 'active', callback: refetch || noop })
+
+  const hasErrorWithCachedValues =
+    !isPortfolioBalancesLoading && !!balancesById && networkStatus === NetworkStatus.error
 
   return hasErrorWithCachedValues ? (
     <AnimatedFlex entering={FadeInDown} exiting={FadeOut} px="$spacing24" py="$spacing8">

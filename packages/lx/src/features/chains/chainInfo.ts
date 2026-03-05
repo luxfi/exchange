@@ -1,23 +1,22 @@
-import { ARBITRUM_CHAIN_INFO } from 'lx/src/features/chains/evm/info/arbitrum'
-import { AVALANCHE_CHAIN_INFO } from 'lx/src/features/chains/evm/info/avalanche'
-import { BASE_CHAIN_INFO } from 'lx/src/features/chains/evm/info/base'
-import { BLAST_CHAIN_INFO } from 'lx/src/features/chains/evm/info/blast'
-import { BNB_CHAIN_INFO } from 'lx/src/features/chains/evm/info/bnb'
-import { CELO_CHAIN_INFO } from 'lx/src/features/chains/evm/info/celo'
-import { LUX_CHAIN_INFO, LUX_DEV_CHAIN_INFO, LUX_TESTNET_CHAIN_INFO } from 'lx/src/features/chains/evm/info/lux'
-import { MAINNET_CHAIN_INFO, SEPOLIA_CHAIN_INFO } from 'lx/src/features/chains/evm/info/mainnet'
-import { MONAD_CHAIN_INFO } from 'lx/src/features/chains/evm/info/monad'
-import { OPTIMISM_CHAIN_INFO } from 'lx/src/features/chains/evm/info/optimism'
-import { POLYGON_CHAIN_INFO } from 'lx/src/features/chains/evm/info/polygon'
-import { SONEIUM_CHAIN_INFO } from 'lx/src/features/chains/evm/info/soneium'
-import { UNICHAIN_CHAIN_INFO, UNICHAIN_SEPOLIA_CHAIN_INFO } from 'lx/src/features/chains/evm/info/unichain'
-import { WORLD_CHAIN_INFO } from 'lx/src/features/chains/evm/info/worldchain'
-import { ZKSYNC_CHAIN_INFO } from 'lx/src/features/chains/evm/info/zksync'
-import { ZOO_CHAIN_INFO, ZOO_TESTNET_CHAIN_INFO } from 'lx/src/features/chains/evm/info/zoo'
-import { ZORA_CHAIN_INFO } from 'lx/src/features/chains/evm/info/zora'
-import { SOLANA_CHAIN_INFO } from 'lx/src/features/chains/svm/info/solana'
-import { UniverseChainId, UniverseChainInfo } from 'lx/src/features/chains/types'
-import { Platform } from 'lx/src/features/platforms/types/Platform'
+import { ARBITRUM_CHAIN_INFO } from 'uniswap/src/features/chains/evm/info/arbitrum'
+import { AVALANCHE_CHAIN_INFO } from 'uniswap/src/features/chains/evm/info/avalanche'
+import { BASE_CHAIN_INFO } from 'uniswap/src/features/chains/evm/info/base'
+import { BLAST_CHAIN_INFO } from 'uniswap/src/features/chains/evm/info/blast'
+import { BNB_CHAIN_INFO } from 'uniswap/src/features/chains/evm/info/bnb'
+import { CELO_CHAIN_INFO } from 'uniswap/src/features/chains/evm/info/celo'
+import { MAINNET_CHAIN_INFO, SEPOLIA_CHAIN_INFO } from 'uniswap/src/features/chains/evm/info/mainnet'
+import { MONAD_CHAIN_INFO } from 'uniswap/src/features/chains/evm/info/monad'
+import { OPTIMISM_CHAIN_INFO } from 'uniswap/src/features/chains/evm/info/optimism'
+import { POLYGON_CHAIN_INFO } from 'uniswap/src/features/chains/evm/info/polygon'
+import { SONEIUM_CHAIN_INFO } from 'uniswap/src/features/chains/evm/info/soneium'
+import { UNICHAIN_CHAIN_INFO, UNICHAIN_SEPOLIA_CHAIN_INFO } from 'uniswap/src/features/chains/evm/info/unichain'
+import { WORLD_CHAIN_INFO } from 'uniswap/src/features/chains/evm/info/worldchain'
+import { XLAYER_CHAIN_INFO } from 'uniswap/src/features/chains/evm/info/xlayer'
+import { ZKSYNC_CHAIN_INFO } from 'uniswap/src/features/chains/evm/info/zksync'
+import { ZORA_CHAIN_INFO } from 'uniswap/src/features/chains/evm/info/zora'
+import { SOLANA_CHAIN_INFO } from 'uniswap/src/features/chains/svm/info/solana'
+import { UniverseChainId, UniverseChainInfo } from 'uniswap/src/features/chains/types'
+import { Platform } from 'uniswap/src/features/platforms/types/Platform'
 import { getNonEmptyArrayOrThrow } from 'utilities/src/primitives/array'
 
 export function getChainInfo(chainId: UniverseChainId): UniverseChainInfo {
@@ -25,13 +24,6 @@ export function getChainInfo(chainId: UniverseChainId): UniverseChainInfo {
 }
 
 export const ORDERED_CHAINS = [
-  // Lux ecosystem chains - prioritized first
-  LUX_CHAIN_INFO,
-  LUX_TESTNET_CHAIN_INFO,
-  LUX_DEV_CHAIN_INFO,
-  ZOO_CHAIN_INFO,
-  ZOO_TESTNET_CHAIN_INFO,
-  // Ethereum and other EVM chains
   MAINNET_CHAIN_INFO,
   UNICHAIN_CHAIN_INFO,
   MONAD_CHAIN_INFO,
@@ -46,6 +38,7 @@ export const ORDERED_CHAINS = [
   CELO_CHAIN_INFO,
   WORLD_CHAIN_INFO,
   SONEIUM_CHAIN_INFO,
+  XLAYER_CHAIN_INFO,
   ZORA_CHAIN_INFO,
   ZKSYNC_CHAIN_INFO,
   SEPOLIA_CHAIN_INFO,
@@ -77,13 +70,6 @@ type AllChainsMap = {
 }
 
 export const UNIVERSE_CHAIN_INFO = {
-  // LUX ECOSYSTEM - prioritized first
-  [UniverseChainId.Lux]: LUX_CHAIN_INFO,
-  [UniverseChainId.LuxTestnet]: LUX_TESTNET_CHAIN_INFO,
-  [UniverseChainId.LuxDev]: LUX_DEV_CHAIN_INFO,
-  [UniverseChainId.Zoo]: ZOO_CHAIN_INFO,
-  [UniverseChainId.ZooTestnet]: ZOO_TESTNET_CHAIN_INFO,
-
   // MAINNETS
   [UniverseChainId.Mainnet]: MAINNET_CHAIN_INFO,
   [UniverseChainId.Unichain]: UNICHAIN_CHAIN_INFO,
@@ -97,6 +83,7 @@ export const UNIVERSE_CHAIN_INFO = {
   [UniverseChainId.Celo]: CELO_CHAIN_INFO,
   [UniverseChainId.WorldChain]: WORLD_CHAIN_INFO,
   [UniverseChainId.Soneium]: SONEIUM_CHAIN_INFO,
+  [UniverseChainId.XLayer]: XLAYER_CHAIN_INFO,
   [UniverseChainId.Zora]: ZORA_CHAIN_INFO,
   [UniverseChainId.Zksync]: ZKSYNC_CHAIN_INFO,
   [UniverseChainId.Monad]: MONAD_CHAIN_INFO,
@@ -120,3 +107,12 @@ export const GQL_TESTNET_CHAINS = ORDERED_EVM_CHAINS.filter((chain) => chain.tes
 // If limit support expands beyond Mainnet, refactor to use a `supportsLimits`
 // property on chain info objects and filter chains, similar to the pattern used above
 export const LIMIT_SUPPORTED_CHAINS = [UniverseChainId.Mainnet]
+
+export const TOUCAN_AUCTION_SUPPORTED_CHAINS = [
+  UniverseChainId.Unichain,
+  UniverseChainId.Mainnet,
+  UniverseChainId.Base,
+  UniverseChainId.ArbitrumOne,
+  UniverseChainId.Sepolia,
+  UniverseChainId.UnichainSepolia,
+]

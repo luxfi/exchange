@@ -1,6 +1,6 @@
-import { Token } from '@luxamm/sdk-core'
-import { formatTokenAmount } from 'components/Liquidity/LPIncentives/utils/formatTokenAmount'
+import { Token } from '@uniswap/sdk-core'
 import { useMemo } from 'react'
+import { formatTokenAmount } from '~/components/Liquidity/LPIncentives/utils/formatTokenAmount'
 
 interface UseFormattedTokenRewardsProps {
   tokenRewards: string

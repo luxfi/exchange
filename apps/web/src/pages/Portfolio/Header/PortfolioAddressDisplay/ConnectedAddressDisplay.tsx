@@ -1,26 +1,42 @@
 /* eslint-disable-next-line no-restricted-imports, no-restricted-syntax */
-import { MultiBlockchainAddressDisplay } from 'components/AccountDetails/MultiBlockchainAddressDisplay'
-import StatusIcon from 'components/StatusIcon'
-import { useActiveAddresses } from 'features/accounts/store/hooks'
+
+import { useMemo } from 'react'
 import { Flex } from 'ui/src'
 import { iconSizes } from 'ui/src/theme/iconSizes'
+import { Platform } from 'uniswap/src/features/platforms/types/Platform'
+import { MultiBlockchainAddressDisplay } from '~/components/AccountDetails/MultiBlockchainAddressDisplay'
+import StatusIcon from '~/components/StatusIcon'
+import { useResolvedAddresses } from '~/pages/Portfolio/hooks/useResolvedAddresses'
 
-export function ConnectedAddressDisplay({ isCompact }: { isCompact: boolean }) {
-  const activeAddresses = useActiveAddresses()
+interface ConnectedAddressDisplayProps {
+  isCompact: boolean
+}
 
-  // Use primary address for icon (EVM first, then SVM)
-  const addressToDisplay = activeAddresses.evmAddress ?? activeAddresses.svmAddress
+export function ConnectedAddressDisplay({ isCompact }: ConnectedAddressDisplayProps) {
+  const { evmAddress, svmAddress, isExternalWallet } = useResolvedAddresses()
 
-  if (!addressToDisplay) {
+  const primaryAddress = evmAddress ?? svmAddress
+
+  const externalAddress = useMemo(() => {
+    if (!isExternalWallet || !primaryAddress) {
+      return undefined
+    }
+    return {
+      address: primaryAddress,
+      platform: evmAddress ? Platform.EVM : Platform.SVM,
+    }
+  }, [isExternalWallet, primaryAddress, evmAddress])
+
+  if (!primaryAddress) {
     return null
   }
 
   const iconSize = isCompact ? iconSizes.icon24 : iconSizes.icon48
 
   return (
-    <Flex row alignItems="center" gap="$spacing12">
-      <StatusIcon size={iconSize} showMiniIcons={false} />
-      <MultiBlockchainAddressDisplay hideAddressInSubtitle={isCompact} />
+    <Flex row alignItems="center" gap="$spacing12" shrink>
+      <StatusIcon address={primaryAddress} size={iconSize} showMiniIcons={false} />
+      <MultiBlockchainAddressDisplay hideAddressInSubtitle={isCompact} externalAddress={externalAddress} />
     </Flex>
   )
 }

@@ -1,13 +1,13 @@
-import { GraphQLApi } from '@luxfi/api'
+import { GraphQLApi } from '@universe/api'
 import { default as React } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Loader } from 'src/components/loading/loaders'
 import { PriceAmount } from 'src/features/nfts/collection/ListPriceCard'
 import { Flex, Text, TouchableArea, useSporeColors } from 'ui/src'
 import { RotatableChevron, Verified } from 'ui/src/components/icons'
-import { iconSizes, imageSizes, spacing } from 'ui/src/theme'
-import { NFTViewer } from 'lx/src/components/nfts/images/NFTViewer'
-import { NFTItem } from 'lx/src/features/nfts/types'
+import { imageSizes, spacing } from 'ui/src/theme'
+import { NFTViewer } from 'uniswap/src/components/nfts/NFTViewer'
+import { NFTItem } from 'uniswap/src/features/nfts/types'
 
 type Collection = NonNullable<
   NonNullable<NonNullable<GraphQLApi.NftItemScreenQuery['nftAssets']>>['edges'][0]
@@ -30,8 +30,12 @@ export function CollectionPreviewCard({
   const colors = useSporeColors()
   const { t } = useTranslation()
 
-  if (loading || (!collection && !fallbackData?.name)) {
+  if (loading) {
     return <Loader.Box borderRadius="$rounded16" height={spacing.spacing60} />
+  }
+
+  if (!collection && !fallbackData?.name) {
+    return <></>
   }
 
   const isViewableCollection = !shouldDisableLink && Boolean(collection || fallbackData?.contractAddress)
@@ -51,7 +55,7 @@ export function CollectionPreviewCard({
         <Flex row shrink alignItems="center" gap="$spacing12" overflow="hidden">
           {collection?.image?.url ? (
             <Flex borderRadius="$roundedFull" height={imageSizes.image40} overflow="hidden" width={imageSizes.image40}>
-              <NFTViewer squareGridView maxHeight={spacing.spacing60} uri={collection.image.url} />
+              <NFTViewer maxHeight={spacing.spacing60} uri={collection.image.url} />
             </Flex>
           ) : null}
           <Flex shrink>
@@ -83,9 +87,7 @@ export function CollectionPreviewCard({
             )}
           </Flex>
         </Flex>
-        {isViewableCollection ? (
-          <RotatableChevron color="$neutral1" direction="end" height={iconSizes.icon24} width={iconSizes.icon24} />
-        ) : null}
+        {isViewableCollection ? <RotatableChevron color="$neutral1" direction="end" size="$icon.24" /> : null}
       </Flex>
     </TouchableArea>
   )

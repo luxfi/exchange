@@ -1,13 +1,14 @@
-import { ChangeAssetVisibilityNotification } from 'lx/src/components/notifications/notifications/ChangeAssetVisibilityNotification'
-import { CopiedNotification } from 'lx/src/components/notifications/notifications/CopiedNotification'
-import { SuccessNotification } from 'lx/src/components/notifications/notifications/SuccessNotification'
-import { useSelectAddressNotifications } from 'lx/src/features/notifications/slice/hooks'
-import { AppNotification, AppNotificationType } from 'lx/src/features/notifications/slice/types'
-import { useWallet } from 'lx/src/features/wallet/hooks/useWallet'
+import { ChangeAssetVisibilityNotification } from 'uniswap/src/components/notifications/notifications/ChangeAssetVisibilityNotification'
+import { CopiedNotification } from 'uniswap/src/components/notifications/notifications/CopiedNotification'
+import { SuccessNotification } from 'uniswap/src/components/notifications/notifications/SuccessNotification'
+import { useSelectAddressNotifications } from 'uniswap/src/features/notifications/slice/hooks'
+import { AppNotification, AppNotificationType } from 'uniswap/src/features/notifications/slice/types'
+import { Platform } from 'uniswap/src/features/platforms/types/Platform'
+import { useActiveAddress } from '~/features/accounts/store/hooks'
 
 export function WebNotificationToastWrapper(): JSX.Element | null {
-  const { evmAccount } = useWallet()
-  const notifications = useSelectAddressNotifications(evmAccount?.address ?? null)
+  const evmAddress = useActiveAddress(Platform.EVM)
+  const notifications = useSelectAddressNotifications(evmAddress ?? null)
   const notification = notifications?.[0]
 
   if (!notification) {

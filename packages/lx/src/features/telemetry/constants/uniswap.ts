@@ -1,4 +1,5 @@
 export enum UniswapEventName {
+  AuctionFilterSelected = 'Auction Filter Selected',
   BalancesReport = 'Balances Report',
   BalancesReportPerChain = 'Balances Report Per Chain',
   BlockaidFeesMismatch = 'Blockaid Fees Mismatch',

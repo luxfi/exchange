@@ -1,5 +1,5 @@
-import { SharedEventName } from '@luxdex/analytics-events'
-import { isNativeCurrency } from '@luxdex/universal-router-sdk'
+import { SharedEventName } from '@uniswap/analytics-events'
+import { isNativeCurrency } from '@uniswap/universal-router-sdk'
 import { useCallback, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
@@ -12,23 +12,23 @@ import { EyeOff } from 'ui/src/components/icons/EyeOff'
 import { ReceiveAlt } from 'ui/src/components/icons/ReceiveAlt'
 import { SendAction } from 'ui/src/components/icons/SendAction'
 import { ShareArrow } from 'ui/src/components/icons/ShareArrow'
-import { MenuOptionItemWithId } from 'lx/src/components/menus/ContextMenuV2'
-import { useUniswapContext } from 'lx/src/contexts/UniswapContext'
-import { normalizeCurrencyIdForMapLookup } from 'lx/src/data/cache'
-import { useActiveAddresses } from 'lx/src/features/accounts/store/hooks'
-import { selectHasViewedContractAddressExplainer } from 'lx/src/features/behaviorHistory/selectors'
-import { useEnabledChains } from 'lx/src/features/chains/hooks/useEnabledChains'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { usePortfolioCacheUpdater } from 'lx/src/features/dataApi/balances/balancesRest'
-import { PortfolioBalance } from 'lx/src/features/dataApi/types'
-import { pushNotification } from 'lx/src/features/notifications/slice/slice'
-import { AppNotificationType } from 'lx/src/features/notifications/slice/types'
-import { ElementName, SectionName, WalletEventName } from 'lx/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
-import { useTokenVisibility } from 'lx/src/features/visibility/hooks/useTokenVisibility'
-import { setTokenVisibility } from 'lx/src/features/visibility/slice'
-import { CurrencyField, CurrencyId } from 'lx/src/types/currency'
-import { areCurrencyIdsEqual, currencyIdToAddress, currencyIdToChain } from 'lx/src/utils/currencyId'
+import { MenuOptionItemWithId } from 'uniswap/src/components/menus/ContextMenu'
+import { useUniswapContext } from 'uniswap/src/contexts/UniswapContext'
+import { normalizeCurrencyIdForMapLookup } from 'uniswap/src/data/cache'
+import { useActiveAddresses } from 'uniswap/src/features/accounts/store/hooks'
+import { selectHasViewedContractAddressExplainer } from 'uniswap/src/features/behaviorHistory/selectors'
+import { useEnabledChains } from 'uniswap/src/features/chains/hooks/useEnabledChains'
+import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { usePortfolioCacheUpdater } from 'uniswap/src/features/dataApi/balances/balancesRest'
+import { PortfolioBalance } from 'uniswap/src/features/dataApi/types'
+import { pushNotification } from 'uniswap/src/features/notifications/slice/slice'
+import { AppNotificationType } from 'uniswap/src/features/notifications/slice/types'
+import { ElementName, SectionName, WalletEventName } from 'uniswap/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
+import { useTokenVisibility } from 'uniswap/src/features/visibility/hooks/useTokenVisibility'
+import { setTokenVisibility } from 'uniswap/src/features/visibility/slice'
+import { CurrencyField, CurrencyId } from 'uniswap/src/types/currency'
+import { areCurrencyIdsEqual, currencyIdToAddress, currencyIdToChain } from 'uniswap/src/utils/currencyId'
 import { isExtensionApp, isMobileApp, isWebPlatform } from 'utilities/src/platform'
 import { ONE_SECOND_MS } from 'utilities/src/time/time'
 
@@ -56,6 +56,7 @@ interface TokenMenuParams {
   copyAddressToClipboard?: (address: string) => Promise<void>
   closeMenu: () => void
   disableNotifications?: boolean
+  recipient?: Address // Pre-filled recipient address for send action
 }
 
 const CLOSE_MENU_DELAY = ONE_SECOND_MS / 4
@@ -72,6 +73,7 @@ export function useTokenContextMenuOptions({
   copyAddressToClipboard,
   closeMenu,
   disableNotifications,
+  recipient,
 }: TokenMenuParams): MenuOptionItemWithId[] {
   const { t } = useTranslation()
   const dispatch = useDispatch()
@@ -96,9 +98,9 @@ export function useTokenContextMenuOptions({
     // Do not show warning modal speed-bump if user is trying to send tokens they own
     closeMenu()
     setTimeout(() => {
-      navigateToSendFlow({ currencyAddress, chainId: currencyChainId })
+      navigateToSendFlow({ currencyAddress, chainId: currencyChainId, recipient })
     }, CLOSE_MENU_DELAY)
-  }, [currencyAddress, currencyChainId, navigateToSendFlow, closeMenu])
+  }, [currencyAddress, currencyChainId, navigateToSendFlow, closeMenu, recipient])
 
   const onPressSwap = useCallback(
     (currencyField: CurrencyField) => {

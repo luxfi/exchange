@@ -1,20 +1,29 @@
 import { useQuery } from '@tanstack/react-query'
 import { providers } from 'ethers/lib/ethers'
 import { useCallback, useMemo } from 'react'
-import { CancellationGasFeeDetails, useTransactionGasFee } from 'lx/src/features/gas/hooks'
+import { CancellationGasFeeDetails, useTransactionGasFee } from 'uniswap/src/features/gas/hooks'
+import {
+  PlanCancellationGasFeeDetails,
+  usePlanCancellationGasFeeInfo,
+} from 'uniswap/src/features/gas/hooks/usePlanCancellationGasFeeInfo'
 import {
   CancellationType,
   calculateCancellationGasFee,
   createClassicCancelRequest,
   getCancellationType,
-} from 'lx/src/features/gas/utils/cancel'
+} from 'uniswap/src/features/gas/utils/cancel'
 import {
   extractCancellationData,
   getCancelMultipleUniswapXOrdersTransaction,
-} from 'lx/src/features/transactions/cancel/cancelMultipleOrders'
-import { getCancelOrderTxRequest } from 'lx/src/features/transactions/cancel/getCancelOrderTxRequest'
-import { isUniswapX } from 'lx/src/features/transactions/swap/utils/routing'
-import { TransactionDetails, UniswapXOrderDetails } from 'lx/src/features/transactions/types/transactionDetails'
+} from 'uniswap/src/features/transactions/cancel/cancelMultipleOrders'
+import { getCancelOrderTxRequest } from 'uniswap/src/features/transactions/cancel/getCancelOrderTxRequest'
+import { isUniswapX } from 'uniswap/src/features/transactions/swap/utils/routing'
+import {
+  PlanTransactionDetails,
+  TransactionDetails,
+  UniswapXOrderDetails,
+} from 'uniswap/src/features/transactions/types/transactionDetails'
+import { isPlanTransactionDetails } from 'uniswap/src/features/transactions/types/utils'
 import { ReactQueryCacheKey } from 'utilities/src/reactQuery/cache'
 
 /**
@@ -28,7 +37,10 @@ import { ReactQueryCacheKey } from 'utilities/src/reactQuery/cache'
 export function useCancellationGasFeeInfo(
   transaction: TransactionDetails,
   orders?: UniswapXOrderDetails[],
-): CancellationGasFeeDetails | undefined {
+): CancellationGasFeeDetails | PlanCancellationGasFeeDetails | undefined {
+  const isPlan = isPlanTransactionDetails(transaction)
+  const planCancellation = usePlanCancellationGasFeeInfo(isPlan ? (transaction as PlanTransactionDetails) : undefined)
+
   // Determine cancellation type
   const cancellationType = useMemo(() => {
     return getCancellationType(transaction, orders)
@@ -56,6 +68,11 @@ export function useCancellationGasFeeInfo(
   })
 
   return useMemo(() => {
+    // For plan transactions, use the plan-specific cancellation
+    if (isPlan) {
+      return planCancellation
+    }
+
     return calculateCancellationGasFee({
       type: cancellationType,
       transaction,
@@ -63,7 +80,7 @@ export function useCancellationGasFeeInfo(
       cancelRequest,
       orders,
     })
-  }, [cancellationType, transaction, gasFee, cancelRequest, orders])
+  }, [isPlan, planCancellation, cancellationType, transaction, gasFee, cancelRequest, orders])
 }
 
 /**

@@ -1,28 +1,45 @@
 import type { PropsWithChildren } from 'react'
 import { useEffect, useMemo, useState } from 'react'
-import { useFeeOnTransferAmounts } from 'lx/src/features/transactions/swap/hooks/useFeeOnTransferAmount'
-import { useParsedSwapWarnings } from 'lx/src/features/transactions/swap/hooks/useSwapWarnings/useSwapWarnings'
-import type { SwapReviewTransactionState } from 'lx/src/features/transactions/swap/review/stores/swapReviewTransactionStore/createSwapReviewTransactionStore'
-import { createSwapReviewTransactionStore } from 'lx/src/features/transactions/swap/review/stores/swapReviewTransactionStore/createSwapReviewTransactionStore'
-import { SwapReviewTransactionStoreContext } from 'lx/src/features/transactions/swap/review/stores/swapReviewTransactionStore/SwapReviewTransactionStoreContext'
-import { isClassic, isUniswapX } from 'lx/src/features/transactions/swap/utils/routing'
-import { isWrapAction } from 'lx/src/features/transactions/swap/utils/wrap'
-import { getRelevantTokenWarningSeverity } from 'lx/src/features/transactions/TransactionDetails/utils/getRelevantTokenWarningSeverity'
-import { CurrencyField } from 'lx/src/types/currency'
+import { FLASHBLOCKS_UI_SKIP_ROUTES } from 'uniswap/src/features/transactions/swap/components/UnichainInstantBalanceModal/constants'
+import { useClearFlashblocksSwapNotifications } from 'uniswap/src/features/transactions/swap/components/UnichainInstantBalanceModal/hooks/useClearFlashblocksSwapNotifications'
+import { useFeeOnTransferAmounts } from 'uniswap/src/features/transactions/swap/hooks/useFeeOnTransferAmount'
+import { useIsUnichainFlashblocksEnabled } from 'uniswap/src/features/transactions/swap/hooks/useIsUnichainFlashblocksEnabled'
+import { useParsedSwapWarnings } from 'uniswap/src/features/transactions/swap/hooks/useSwapWarnings/useSwapWarnings'
+import { useAcceptedTrade } from 'uniswap/src/features/transactions/swap/review/hooks/useAcceptedTrade'
+import type { SwapReviewTransactionState } from 'uniswap/src/features/transactions/swap/review/stores/swapReviewTransactionStore/createSwapReviewTransactionStore'
+import { createSwapReviewTransactionStore } from 'uniswap/src/features/transactions/swap/review/stores/swapReviewTransactionStore/createSwapReviewTransactionStore'
+import { SwapReviewTransactionStoreContext } from 'uniswap/src/features/transactions/swap/review/stores/swapReviewTransactionStore/SwapReviewTransactionStoreContext'
+import { useSwapFormStore } from 'uniswap/src/features/transactions/swap/stores/swapFormStore/useSwapFormStore'
+import { isClassic, isUniswapX } from 'uniswap/src/features/transactions/swap/utils/routing'
+import { isWrapAction } from 'uniswap/src/features/transactions/swap/utils/wrap'
+import { getRelevantTokenWarningSeverity } from 'uniswap/src/features/transactions/TransactionDetails/utils/getRelevantTokenWarningSeverity'
+import { CurrencyField } from 'uniswap/src/types/currency'
 import { useHasValueChanged } from 'utilities/src/react/useHasValueChanged'
 
 export const SwapReviewTransactionStoreContextProvider = ({
   children,
   derivedSwapInfo,
   swapTxContext,
-  acceptedDerivedSwapInfo,
-  newTradeRequiresAcceptance,
-}: PropsWithChildren<
-  Pick<
-    SwapReviewTransactionState,
-    'derivedSwapInfo' | 'swapTxContext' | 'acceptedDerivedSwapInfo' | 'newTradeRequiresAcceptance'
-  >
->): JSX.Element => {
+}: PropsWithChildren<Pick<SwapReviewTransactionState, 'derivedSwapInfo' | 'swapTxContext'>>): JSX.Element => {
+  const { dangerouslyGetLatestDerivedSwapInfo, isSubmitting } = useSwapFormStore((s) => ({
+    dangerouslyGetLatestDerivedSwapInfo: s.dangerouslyGetLatestDerivedSwapInfo,
+    isSubmitting: s.isSubmitting,
+  }))
+
+  const { onAcceptTrade, acceptedDerivedSwapInfo, newTradeRequiresAcceptance } = useAcceptedTrade({
+    derivedSwapInfo: dangerouslyGetLatestDerivedSwapInfo,
+    isSubmitting,
+  })
+
+  const isFlashblocksEnabled = useIsUnichainFlashblocksEnabled(acceptedDerivedSwapInfo?.chainId)
+  useClearFlashblocksSwapNotifications(
+    isFlashblocksEnabled &&
+      !(
+        acceptedDerivedSwapInfo?.trade.trade?.routing &&
+        FLASHBLOCKS_UI_SKIP_ROUTES.includes(acceptedDerivedSwapInfo.trade.trade.routing)
+      ),
+  )
+
   const uniswapXGasBreakdown = isUniswapX(swapTxContext) ? swapTxContext.gasFeeBreakdown : undefined
 
   const {
@@ -65,6 +82,7 @@ export const SwapReviewTransactionStoreContextProvider = ({
       currencyInInfo: currencies[CurrencyField.INPUT],
       currencyOutInfo: currencies[CurrencyField.OUTPUT],
       chainId,
+      onAcceptTrade,
     }),
     [
       trade,
@@ -83,6 +101,7 @@ export const SwapReviewTransactionStoreContextProvider = ({
       tokenWarningProps,
       currencies,
       chainId,
+      onAcceptTrade,
     ],
   )
 

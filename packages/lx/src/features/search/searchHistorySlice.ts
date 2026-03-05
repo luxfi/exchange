@@ -1,10 +1,12 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { normalizeTokenAddressForCache } from 'lx/src/data/cache'
+import { normalizeTokenAddressForCache } from 'uniswap/src/data/cache'
+import { isUniverseChainId } from 'uniswap/src/features/chains/utils'
 import {
   isPoolSearchHistoryResult,
+  isTokenSearchHistoryResult,
   SearchHistoryResult,
   SearchHistoryResultType,
-} from 'lx/src/features/search/SearchHistoryResult'
+} from 'uniswap/src/features/search/SearchHistoryResult'
 
 const SEARCH_HISTORY_LENGTH = 5
 
@@ -42,6 +44,12 @@ const slice = createSlice({
   reducers: {
     addToSearchHistory: (state, action: PayloadAction<{ searchResult: SearchHistoryResult }>) => {
       const { searchResult } = action.payload
+
+      // Validate chainId for token results to prevent storing invalid data
+      if (isTokenSearchHistoryResult(searchResult) && !isUniverseChainId(searchResult.chainId)) {
+        return
+      }
+
       // Store search results with a standard searchId to prevent duplicates
       const searchId = searchResultId(searchResult)
       // Optimistically push search result to array

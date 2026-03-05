@@ -1,19 +1,18 @@
-import { GqlResult } from '@luxfi/api'
+import { GqlResult } from '@universe/api'
 import { useCallback, useMemo } from 'react'
-import { TokenOption } from 'lx/src/components/lists/items/types'
-import { filter } from 'lx/src/components/TokenSelector/filter'
-import { useCurrencyInfosToTokenOptions } from 'lx/src/components/TokenSelector/hooks/useCurrencyInfosToTokenOptions'
-import { useFavoriteCurrencies } from 'lx/src/components/TokenSelector/hooks/useFavoriteCurrencies'
-import { usePortfolioBalancesForAddressById } from 'lx/src/components/TokenSelector/hooks/usePortfolioBalancesForAddressById'
-import { UniverseChainId } from 'lx/src/features/chains/types'
+import { TokenOption } from 'uniswap/src/components/lists/items/types'
+import { filter } from 'uniswap/src/components/TokenSelector/filter'
+import { useCurrencyInfosToTokenOptions } from 'uniswap/src/components/TokenSelector/hooks/useCurrencyInfosToTokenOptions'
+import { useFavoriteCurrencies } from 'uniswap/src/components/TokenSelector/hooks/useFavoriteCurrencies'
+import { usePortfolioBalancesForAddressById } from 'uniswap/src/components/TokenSelector/hooks/usePortfolioBalancesForAddressById'
+import type { AddressGroup } from 'uniswap/src/features/accounts/store/types/AccountsState'
+import { UniverseChainId } from 'uniswap/src/features/chains/types'
 
 export function useFavoriteTokensOptions({
-  evmAddress,
-  svmAddress,
+  addresses,
   chainFilter,
 }: {
-  evmAddress: Address | undefined
-  svmAddress: Address | undefined
+  addresses: AddressGroup
   chainFilter: UniverseChainId | null
 }): GqlResult<TokenOption[] | undefined> {
   const {
@@ -21,7 +20,7 @@ export function useFavoriteTokensOptions({
     error: portfolioBalancesByIdError,
     refetch: portfolioBalancesByIdRefetch,
     loading: loadingPorfolioBalancesById,
-  } = usePortfolioBalancesForAddressById({ evmAddress, svmAddress })
+  } = usePortfolioBalancesForAddressById(addresses)
 
   const {
     data: favoriteCurrencies,

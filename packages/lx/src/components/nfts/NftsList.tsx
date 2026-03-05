@@ -29,8 +29,6 @@ export type NftsListProps = Omit<
     customLoadingState?: JSX.Element
     /** Optional: override the numHidden count (e.g., for filtered results) */
     filteredNumHidden?: number
-    /** Optional: search string to filter NFTs by name, collection, token ID, or contract address */
-    searchString?: string
     /** Optional: callback to receive filtered counts (shown and hidden) */
     onFilteredCountsChange?: (params: { shown: number; hidden: number }) => void
     /** Optional: custom render function for the ExpandoRow component */
@@ -44,6 +42,14 @@ export type NftsListProps = Omit<
     /** Optional: show header with count and refresh button */
     showHeader?: boolean
     SearchInputComponent?: React.ComponentType<SearchInputProps>
+    /** Optional: test ID for the search input (e.g. PortfolioNftsSearchInput) */
+    searchInputTestId?: string
+    /** Optional: test ID for the header (e.g. PortfolioNftsHeader) */
+    headerTestId?: string
+    /** Optional: test ID for the no-results message (e.g. PortfolioNftsNoResults) */
+    noResultsTestId?: string
+    /** Optional: test ID for the default empty state when customEmptyState is not provided (e.g. PortfolioNftsEmptyState) */
+    emptyStateTestId?: string
     pollInterval?: PollingInterval
   },
   'renderItem' | 'data'

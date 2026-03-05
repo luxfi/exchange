@@ -1,27 +1,15 @@
 import { renderHook } from '@testing-library/react'
-import { Currency, Price } from '@luxamm/sdk-core'
-import { useGetRangeDisplay } from 'components/Liquidity/hooks/useGetRangeDisplay'
-import useIsTickAtLimit from 'hooks/useIsTickAtLimit'
-import { Bound } from 'state/mint/v3/actions'
+import { Currency, Price } from '@uniswap/sdk-core'
 import { afterEach, describe, expect, it, vi } from 'vitest'
+import { useGetRangeDisplay } from '~/components/Liquidity/hooks/useGetRangeDisplay'
+import useIsTickAtLimit, { Bound } from '~/hooks/useIsTickAtLimit'
 
-vi.mock('hooks/useIsTickAtLimit', () => ({
-  default: vi.fn(),
-}))
-
-// Mock the LocalizationContext to avoid needing the provider
-vi.mock('lx/src/features/language/LocalizationContext', () => ({
-  useLocalizationContext: () => ({
-    formatNumberOrString: ({ value }: { value: string | number }) => String(value),
-    formatCurrencyAmount: () => '0',
-    formatPercent: () => '0%',
-    addFiatSymbolToNumber: () => '$0',
-    conversionRate: 1,
-    convertFiatAmount: () => 0,
-    convertFiatAmountFormatted: () => '$0',
-  }),
-}))
-
+vi.mock('~/hooks/useIsTickAtLimit', async (importOriginal) => {
+  return {
+    ...(await importOriginal()),
+    default: vi.fn(),
+  }
+})
 const useIsTickAtLimitMock = vi.mocked(useIsTickAtLimit)
 
 function createCurrency(symbol: string): Currency {

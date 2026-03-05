@@ -1,8 +1,7 @@
 /* eslint-disable max-lines */
-import { ProtocolVersion } from '@luxdex/client-data-api/dist/data/v1/poolTypes_pb'
-import { Currency, CurrencyAmount, Price, Token } from '@luxamm/sdk-core'
-import type { Price as UniswapPrice, Currency as UniswapCurrency } from '@uniswap/sdk-core'
-import { Pair } from '@luxamm/v2-sdk'
+import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
+import { Currency, CurrencyAmount, Price, Token } from '@uniswap/sdk-core'
+import { Pair } from '@uniswap/v2-sdk'
 import {
   encodeSqrtRatioX96,
   FeeAmount,
@@ -10,11 +9,10 @@ import {
   priceToClosestTick as priceToClosestV3Tick,
   TickMath,
   Pool as V3Pool,
-} from '@luxamm/v3-sdk'
-import { priceToClosestTick as priceToClosestV4Tick, Pool as V4Pool } from '@luxamm/v4-sdk'
-
-// Helper type for SDK compatibility - @luxamm and @uniswap types are structurally identical
-type AsUniswapPrice<T extends UniswapCurrency, U extends UniswapCurrency> = UniswapPrice<T, U>
+} from '@uniswap/v3-sdk'
+import { priceToClosestTick as priceToClosestV4Tick, Pool as V4Pool } from '@uniswap/v4-sdk'
+import JSBI from 'jsbi'
+import { ZERO_ADDRESS } from 'uniswap/src/constants/misc'
 import {
   CreatePositionInfo,
   CreateV2PositionInfo,
@@ -27,36 +25,30 @@ import {
   V2PriceRangeInfo,
   V3PriceRangeInfo,
   V4PriceRangeInfo,
-} from 'components/Liquidity/Create/types'
-import { getBaseAndQuoteCurrencies } from 'components/Liquidity/utils/currency'
-import JSBI from 'jsbi'
-import tryParseCurrencyAmount from 'lib/utils/tryParseCurrencyAmount'
-import { tryParsePrice, tryParseTick } from 'state/mint/v3/utils'
-import { PositionField } from 'types/position'
-import { ZERO_ADDRESS } from 'lx/src/constants/misc'
+} from '~/components/Liquidity/Create/types'
+import { getBaseAndQuoteCurrencies } from '~/components/Liquidity/utils/currency'
+import tryParseCurrencyAmount from '~/lib/utils/tryParseCurrencyAmount'
+import { tryParsePrice } from '~/state/mint/v3/utils'
+import { PositionField } from '~/types/position'
 
-import { getTickToPrice, getV4TickToPrice } from 'utils/getTickToPrice'
-
-function getTicksAtLimit({
+export function getTicksAtLimit({
   lowerTick,
   upperTick,
-  tickSpaceLimits,
-  priceInverted,
+  tickSpacing,
   fullRange,
 }: {
   lowerTick?: Maybe<number>
   upperTick?: Maybe<number>
-  tickSpaceLimits: [Maybe<number>, Maybe<number>]
-  priceInverted: boolean
+  tickSpacing: number
   fullRange: boolean
 }): [boolean, boolean] {
   if (fullRange) {
     return [true, true]
   }
 
-  return priceInverted
-    ? [upperTick === tickSpaceLimits[1], lowerTick === tickSpaceLimits[0]]
-    : [lowerTick === tickSpaceLimits[0], upperTick === tickSpaceLimits[1]]
+  const minTick = nearestUsableTick(TickMath.MIN_TICK, tickSpacing)
+  const maxTick = nearestUsableTick(TickMath.MAX_TICK, tickSpacing)
+  return [lowerTick === minTick, upperTick === maxTick]
 }
 
 /**
@@ -101,15 +93,13 @@ function getPrice(
         currency0?: Maybe<Token>
         priceInverted: boolean
       },
-): Price<Currency, Currency> | undefined {
+) {
   const { type, pool, currency0, priceInverted } = opts
   if (!pool || !currency0) {
     return undefined
   }
   const price = type === ProtocolVersion.V4 ? pool.priceOf(currency0) : pool.priceOf(currency0)
-  // Type assertion needed due to SDK type mismatch between @luxamm and @uniswap
-  const typedPrice = (priceInverted ? price.invert() : price) as unknown as Price<Currency, Currency>
-  return typedPrice
+  return priceInverted ? price.invert() : price
 }
 
 export function isInvalidPrice(price?: Price<Currency, Currency>) {
@@ -148,7 +138,7 @@ function createMockV3Pool({
     price.numerator,
   )
 
-  const currentTick = priceToClosestV3Tick(wrappedPrice as unknown as AsUniswapPrice<Token, Token>)
+  const currentTick = priceToClosestV3Tick(wrappedPrice)
   const currentSqrt = TickMath.getSqrtRatioAtTick(currentTick)
 
   const pool = new V3Pool(baseToken, quoteToken, fee, currentSqrt, JSBI.BigInt(0), currentTick, [])
@@ -174,7 +164,7 @@ function createMockV4Pool({
     return undefined
   }
 
-  const currentTick = priceToClosestV4Tick(price as unknown as UniswapPrice<UniswapCurrency, UniswapCurrency>)
+  const currentTick = priceToClosestV4Tick(price)
   const currentSqrt = TickMath.getSqrtRatioAtTick(currentTick)
   const pool = new V4Pool(
     baseToken,
@@ -320,79 +310,32 @@ export function getV3PriceRangeInfo({
   ]
 
   const [baseRangeInput, quoteRangeInput] = state.priceInverted
-    ? [state.maxPrice, state.minPrice]
-    : [state.minPrice, state.maxPrice]
+    ? [state.maxTick, state.minTick]
+    : [state.minTick, state.maxTick]
 
   const lowerTick =
-    baseRangeInput === '' || state.fullRange
+    baseRangeInput === undefined || state.fullRange
       ? tickSpaceLimits[0]
       : state.priceInverted
-        ? tryParseTick({
-            baseToken: sdkCurrencies.TOKEN1,
-            quoteToken: sdkCurrencies.TOKEN0,
-            feeAmount: fee.feeAmount,
-            value: state.maxPrice,
-          })
-        : tryParseTick({
-            baseToken: sdkCurrencies.TOKEN0,
-            quoteToken: sdkCurrencies.TOKEN1,
-            feeAmount: fee.feeAmount,
-            value: state.minPrice,
-          })
+        ? -baseRangeInput
+        : baseRangeInput
   const upperTick =
-    quoteRangeInput === '' || state.fullRange
+    quoteRangeInput === undefined || state.fullRange
       ? tickSpaceLimits[1]
       : state.priceInverted
-        ? tryParseTick({
-            baseToken: sdkCurrencies.TOKEN1,
-            quoteToken: sdkCurrencies.TOKEN0,
-            feeAmount: fee.feeAmount,
-            value: state.minPrice,
-          })
-        : tryParseTick({
-            baseToken: sdkCurrencies.TOKEN0,
-            quoteToken: sdkCurrencies.TOKEN1,
-            feeAmount: fee.feeAmount,
-            value: state.maxPrice,
-          })
+        ? -quoteRangeInput
+        : quoteRangeInput
   const ticks: [Maybe<number>, Maybe<number>] = [lowerTick, upperTick]
-
-  const ticksAtLimit: [boolean, boolean] = getTicksAtLimit({
-    lowerTick,
-    upperTick,
-    tickSpaceLimits,
-    fullRange: state.fullRange,
-    priceInverted: state.priceInverted,
-  })
-
-  let pricesAtTicks: [Maybe<Price<Currency, Currency>>, Maybe<Price<Currency, Currency>>] = [
-    getTickToPrice({
-      baseToken: sdkCurrencies.TOKEN0,
-      quoteToken: sdkCurrencies.TOKEN1,
-      tick: ticks[0],
-    }),
-    getTickToPrice({
-      baseToken: sdkCurrencies.TOKEN0,
-      quoteToken: sdkCurrencies.TOKEN1,
-      tick: ticks[1],
-    }),
-  ]
-
-  pricesAtTicks = state.priceInverted
-    ? [pricesAtTicks[1]?.invert() as Maybe<Price<Currency, Currency>>, pricesAtTicks[0]?.invert() as Maybe<Price<Currency, Currency>>]
-    : [pricesAtTicks[0], pricesAtTicks[1]]
 
   return {
     protocolVersion,
     ticks,
-    ticksAtLimit,
     price,
-    pricesAtTicks,
     mockPool,
   } satisfies V3PriceRangeInfo
 }
 
-function tryParseV4Tick({
+export function tryParseV4Tick({
   baseToken,
   quoteToken,
   value,
@@ -423,8 +366,7 @@ function tryParseV4Tick({
   } else if (JSBI.lessThanOrEqual(sqrtRatioX96, TickMath.MIN_SQRT_RATIO)) {
     tick = TickMath.MIN_TICK
   } else {
-    // this function is agnostic to the base, will always return the correct tick
-    tick = priceToClosestV4Tick(price as unknown as UniswapPrice<UniswapCurrency, UniswapCurrency>)
+    tick = TickMath.getTickAtSqrtRatio(sqrtRatioX96)
   }
 
   return nearestUsableTick(tick, tickSpacing)
@@ -486,74 +428,27 @@ export function getV4PriceRangeInfo({
         ]
 
   const [baseRangeInput, quoteRangeInput] = state.priceInverted
-    ? [state.maxPrice, state.minPrice]
-    : [state.minPrice, state.maxPrice]
+    ? [state.maxTick, state.minTick]
+    : [state.minTick, state.maxTick]
 
   const lowerTick =
-    baseRangeInput === '' || initialPosition?.isOutOfRange || state.fullRange
+    baseRangeInput === undefined || initialPosition?.isOutOfRange || state.fullRange
       ? tickSpaceLimits[0]
       : state.priceInverted
-        ? tryParseV4Tick({
-            baseToken: sortedCurrencies.TOKEN1,
-            quoteToken: sortedCurrencies.TOKEN0,
-            value: state.maxPrice,
-            tickSpacing: poolForPosition?.tickSpacing,
-          })
-        : tryParseV4Tick({
-            baseToken: sortedCurrencies.TOKEN0,
-            quoteToken: sortedCurrencies.TOKEN1,
-            value: state.minPrice,
-            tickSpacing: poolForPosition?.tickSpacing,
-          })
+        ? -baseRangeInput
+        : baseRangeInput
   const upperTick =
-    quoteRangeInput === '' || initialPosition?.isOutOfRange || state.fullRange
+    quoteRangeInput === undefined || initialPosition?.isOutOfRange || state.fullRange
       ? tickSpaceLimits[1]
       : state.priceInverted
-        ? tryParseV4Tick({
-            baseToken: sortedCurrencies.TOKEN1,
-            quoteToken: sortedCurrencies.TOKEN0,
-            value: state.minPrice,
-            tickSpacing: poolForPosition?.tickSpacing,
-          })
-        : tryParseV4Tick({
-            baseToken: sortedCurrencies.TOKEN0,
-            quoteToken: sortedCurrencies.TOKEN1,
-            value: state.maxPrice,
-            tickSpacing: poolForPosition?.tickSpacing,
-          })
+        ? -quoteRangeInput
+        : quoteRangeInput
   const ticks: [Maybe<number>, Maybe<number>] = [lowerTick, upperTick]
-
-  const ticksAtLimit: [boolean, boolean] = getTicksAtLimit({
-    lowerTick,
-    upperTick,
-    tickSpaceLimits,
-    fullRange: state.fullRange,
-    priceInverted: state.priceInverted,
-  })
-
-  let pricesAtTicks: [Maybe<Price<Currency, Currency>>, Maybe<Price<Currency, Currency>>] = [
-    getV4TickToPrice({
-      baseCurrency: sortedCurrencies.TOKEN0,
-      quoteCurrency: sortedCurrencies.TOKEN1,
-      tick: ticks[0],
-    }),
-    getV4TickToPrice({
-      baseCurrency: sortedCurrencies.TOKEN0,
-      quoteCurrency: sortedCurrencies.TOKEN1,
-      tick: ticks[1],
-    }),
-  ]
-
-  pricesAtTicks = state.priceInverted
-    ? [pricesAtTicks[1]?.invert() as Maybe<Price<Currency, Currency>>, pricesAtTicks[0]?.invert() as Maybe<Price<Currency, Currency>>]
-    : [pricesAtTicks[0], pricesAtTicks[1]]
 
   return {
     protocolVersion,
     ticks,
-    ticksAtLimit,
     price,
-    pricesAtTicks,
     mockPool,
   } satisfies V4PriceRangeInfo
 }

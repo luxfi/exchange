@@ -1,7 +1,6 @@
-import type { DynamicConfigKeys } from '@luxfi/gating'
+import type { DynamicConfigKeys } from '@universe/gating'
 import {
   DynamicConfigs,
-  Experiments,
   ExternallyConnectableExtensionConfigKey,
   FeatureFlags,
   getFeatureFlagName,
@@ -10,19 +9,19 @@ import {
   NetworkRequestsConfigKey,
   useDynamicConfigValue,
   useFeatureFlagWithExposureLoggingDisabled,
-} from '@luxfi/gating'
-import { useModalState } from 'hooks/useModalState'
-import { deprecatedStyled } from 'lib/styled-components'
-import { useExternallyConnectableExtensionId } from 'pages/ExtensionPasskeyAuthPopUp/useExternallyConnectableExtensionId'
+} from '@universe/gating'
 import type { ChangeEvent, PropsWithChildren } from 'react'
 import { memo } from 'react'
 import { Button, Flex, ModalCloseIcon, styled, Text } from 'ui/src'
-import { ExperimentRow, LayerRow } from 'lx/src/components/gating/Rows'
-import { Modal } from 'lx/src/components/modals/Modal'
-import { ModalName } from 'lx/src/features/telemetry/constants'
+import { LayerRow } from 'uniswap/src/components/gating/Rows'
+import { Modal } from 'uniswap/src/components/modals/Modal'
+import { ModalName } from 'uniswap/src/features/telemetry/constants'
 import { isPlaywrightEnv } from 'utilities/src/environment/env'
 import { TRUSTED_CHROME_EXTENSION_IDS } from 'utilities/src/environment/extensionId'
 import { useEvent } from 'utilities/src/react/hooks'
+import { useModalState } from '~/hooks/useModalState'
+import { deprecatedStyled } from '~/lib/deprecated-styled'
+import { useExternallyConnectableExtensionId } from '~/pages/ExtensionPasskeyAuthPopUp/useExternallyConnectableExtensionId'
 
 const FLAG_VARIANTS = ['Enabled', 'Disabled'] as const
 
@@ -186,34 +185,41 @@ export default function FeatureFlagModal(): JSX.Element {
           <FeatureFlagGroup name="Sessions">
             <FeatureFlagOption flag={FeatureFlags.SessionsServiceEnabled} label="Enable Sessions Service" />
             <FeatureFlagOption flag={FeatureFlags.SessionsUpgradeAutoEnabled} label="Enable Sessions Upgrade Auto" />
+            <FeatureFlagOption flag={FeatureFlags.HashcashSolverEnabled} label="Enable Hashcash Solver" />
+            <FeatureFlagOption flag={FeatureFlags.TurnstileSolverEnabled} label="Enable Turnstile Solver" />
+            <FeatureFlagOption
+              flag={FeatureFlags.SessionsPerformanceTrackingEnabled}
+              label="Enable Sessions Performance Tracking"
+            />
+          </FeatureFlagGroup>
+          <FeatureFlagGroup name="FOR API">
+            <FeatureFlagOption flag={FeatureFlags.ForSessionsEnabled} label="Enable FOR Sessions" />
+            <FeatureFlagOption flag={FeatureFlags.ForUrlMigration} label="Enable FOR URL Migration" />
           </FeatureFlagGroup>
           <FeatureFlagGroup name="Monad">
             <FeatureFlagOption flag={FeatureFlags.Monad} label="Enable Monad UX" />
+          </FeatureFlagGroup>
+          <FeatureFlagGroup name="XLayer">
+            <FeatureFlagOption flag={FeatureFlags.XLayer} label="Enable XLayer UX" />
           </FeatureFlagGroup>
           <FeatureFlagGroup name="Solana">
             <FeatureFlagOption flag={FeatureFlags.Solana} label="Enable Solana UX" />
             <FeatureFlagOption flag={FeatureFlags.SolanaPromo} label="Turn on Solana promo banners" />
           </FeatureFlagGroup>
-          <FeatureFlagGroup name="Swap Refactor">
-            <FeatureFlagOption
-              flag={FeatureFlags.ServiceBasedSwapTransactionInfo}
-              label="Enable service-based swap transaction info"
-            />
+          <FeatureFlagGroup name="Multichain Token UX Improvements">
+            <FeatureFlagOption flag={FeatureFlags.MultichainTokenUx} label="Enable Updated Multichain Token UX" />
           </FeatureFlagGroup>
           <FeatureFlagGroup name="Swap Features">
             <FeatureFlagOption flag={FeatureFlags.NoUniswapInterfaceFees} label="Turn off Uniswap interface fees" />
             <FeatureFlagOption flag={FeatureFlags.ChainedActions} label="Enable Chained Actions" />
             <FeatureFlagOption flag={FeatureFlags.BatchedSwaps} label="Enable Batched Swaps" />
-            <FeatureFlagOption flag={FeatureFlags.EthAsErc20UniswapX} label="Enable Eth as ERC20 for UniswapX " />
             <FeatureFlagOption flag={FeatureFlags.UnichainFlashblocks} label="Enable Unichain Flashblocks" />
             <FeatureFlagOption flag={FeatureFlags.UniquoteEnabled} label="Enable Uniquote" />
+            <FeatureFlagOption flag={FeatureFlags.UnirouteEnabled} label="Enable Uniroute" />
+            <FeatureFlagOption flag={FeatureFlags.UniroutePulumiEnabled} label="Enable Uniroute Pulumi" />
             <FeatureFlagOption flag={FeatureFlags.ViemProviderEnabled} label="Enable Viem Provider" />
             <FeatureFlagOption flag={FeatureFlags.LimitsFees} label="Enable Limits fees" />
             <FeatureFlagOption flag={FeatureFlags.EnablePermitMismatchUX} label="Enable Permit2 mismatch detection" />
-            <FeatureFlagOption
-              flag={FeatureFlags.TradingApiSwapConfirmation}
-              label="Enable Trading API Swap Confirmation"
-            />
             <FeatureFlagOption
               flag={FeatureFlags.ForcePermitTransactions}
               label="Force Permit2 transaction instead of signatures, always"
@@ -240,26 +246,15 @@ export default function FeatureFlagModal(): JSX.Element {
             <FeatureFlagOption flag={FeatureFlags.ArbitrumDutchV3} label="Enable Dutch V3 on Arbitrum" />
           </FeatureFlagGroup>
           <FeatureFlagGroup name="LP">
-            <FeatureFlagOption flag={FeatureFlags.D3LiquidityRangeChart} label="Enable new D3 liquidity range chart" />
+            <FeatureFlagOption
+              flag={FeatureFlags.LiquidityBatchedTransactions}
+              label="Enable Batched Transactions for LP flow"
+            />
             <FeatureFlagOption flag={FeatureFlags.LpIncentives} label="Enable LP Incentives" />
-            <FeatureFlagOption flag={FeatureFlags.MigrateV2} label="Enable new Migrate V2 flow" />
-            <FeatureFlagOption
-              flag={FeatureFlags.PoolInfoEndpoint}
-              label="Enable create flow with new PoolInfo endpoint"
-            />
-          </FeatureFlagGroup>
-          <FeatureFlagGroup name="ECS LP Migration">
-            <FeatureFlagOption flag={FeatureFlags.MigrateLiquidityApi} label="Enable Migrate Liquidity API" />
-            <FeatureFlagOption
-              flag={FeatureFlags.ClaimRewardsLiquidityApi}
-              label="Enable Claim Rewards Liquidity API"
-            />
           </FeatureFlagGroup>
           <FeatureFlagGroup name="Toucan">
-            <FeatureFlagOption flag={FeatureFlags.Toucan} label="Enable Toucan" />
-          </FeatureFlagGroup>
-          <FeatureFlagGroup name="FOR">
-            <FeatureFlagOption flag={FeatureFlags.FiatOffRamp} label="Enable Fiat OffRamp" />
+            <FeatureFlagOption flag={FeatureFlags.ToucanAuctionKYC} label="Enable Toucan Auction KYC" />
+            <FeatureFlagOption flag={FeatureFlags.ToucanLaunchAuction} label="Enable Toucan Launch Auction" />
           </FeatureFlagGroup>
           <FeatureFlagGroup name="Embedded Wallet">
             <FeatureFlagOption flag={FeatureFlags.EmbeddedWallet} label="Add internal embedded wallet functionality" />
@@ -271,19 +266,6 @@ export default function FeatureFlagModal(): JSX.Element {
               configKey={ExternallyConnectableExtensionConfigKey.ExtensionId}
               label="Which Extension the web app will communicate with"
               allowMultiple={false}
-            />
-          </FeatureFlagGroup>
-          <FeatureFlagGroup name="Mini Portfolio">
-            <FeatureFlagOption flag={FeatureFlags.SelfReportSpamNFTs} label="Report spam NFTs" />
-            <FeatureFlagOption
-              flag={FeatureFlags.DisableExtensionDeeplinks}
-              label="Disable extension deeplinks for testing mini portfolio UI on web"
-            />
-          </FeatureFlagGroup>
-          <FeatureFlagGroup name="Search">
-            <FeatureFlagOption
-              flag={FeatureFlags.PoolSearch}
-              label="Enable pool search (turn on search_revamp as well to see)"
             />
           </FeatureFlagGroup>
           <FeatureFlagGroup name="New Chains">
@@ -301,37 +283,30 @@ export default function FeatureFlagModal(): JSX.Element {
             <FeatureFlagOption flag={FeatureFlags.PortoWalletConnector} label="Enable Porto Wallet Connector" />
           </FeatureFlagGroup>
           <FeatureFlagGroup name="Portfolio">
-            <FeatureFlagOption flag={FeatureFlags.PortfolioPage} label="Enable Portfolio page" />
             <FeatureFlagOption flag={FeatureFlags.PortfolioDefiTab} label="Enable Portfolio DeFi Tab" />
             <FeatureFlagOption
               flag={FeatureFlags.PortfolioTokensAllocationChart}
               label="Enable Portfolio Tokens Allocation Chart"
             />
-            <FeatureFlagOption flag={FeatureFlags.ViewExternalWalletsOnWeb} label="View external wallets on web" />
+            <FeatureFlagOption flag={FeatureFlags.ProfitLoss} label="Enable Profit/Loss" />
+            <FeatureFlagOption flag={FeatureFlags.SelfReportSpamNFTs} label="Report spam NFTs" />
           </FeatureFlagGroup>
-          <FeatureFlagGroup name="Notifications">
-            <FeatureFlagOption flag={FeatureFlags.NotificationService} label="Enable Notification Service" />
-            <FeatureFlagOption
-              flag={FeatureFlags.NotificationApiDataSource}
-              label="Enable API Data Source for Notifications"
-            />
+          <FeatureFlagGroup name="Token Details Page">
+            <FeatureFlagOption flag={FeatureFlags.TDPTokenCarousel} label="Enable TDP Token Carousel" />
           </FeatureFlagGroup>
           <FeatureFlagGroup name="Misc">
             <FeatureFlagOption flag={FeatureFlags.BridgedAssetsBannerV2} label="Enable V2 Bridged Assets Banner" />
             <FeatureFlagOption flag={FeatureFlags.UniswapWrapped2025} label="Enable Uniswap Wrapped 2025" />
             <FeatureFlagOption flag={FeatureFlags.UnificationCopy} label="Enable Unification Copy" />
-            <FeatureFlagOption flag={FeatureFlags.DisableAztecToken} label="Disable Aztec Token" />
           </FeatureFlagGroup>
-          <FeatureFlagGroup name="Experiments">
-            <Flex ml="$padding8">
-              <ExperimentRow value={Experiments.ForFilters} />
-              <ExperimentRow value={Experiments.WebFORNudges} />
-            </Flex>
+          <FeatureFlagGroup name="Prices">
+            <FeatureFlagOption flag={FeatureFlags.CentralizedPrices} label="Enable Centralized Prices" />
           </FeatureFlagGroup>
+          <FeatureFlagGroup name="Experiments"></FeatureFlagGroup>
           <FeatureFlagGroup name="Layers">
             <Flex ml="$padding8">
+              <LayerRow value={Layers.ExplorePage} />
               <LayerRow value={Layers.SwapPage} />
-              <LayerRow value={Layers.PortfolioPage} />
             </Flex>
           </FeatureFlagGroup>
         </Flex>

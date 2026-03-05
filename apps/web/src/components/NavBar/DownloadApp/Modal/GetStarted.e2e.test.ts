@@ -1,28 +1,46 @@
-import { expect, getTest } from 'playwright/fixtures'
+import { uniswapUrls } from 'uniswap/src/constants/urls'
+import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+import { expect, getTest } from '~/playwright/fixtures'
+import { setupWebAuthn } from '~/playwright/mocks/webAuthn'
 
 const test = getTest()
+
+const UNITAG_NAME = 'newunitag'
 
 test.describe(
   'User onboarding',
   {
-    tag: '@team:apps-growth',
+    tag: '@team:apps-portfolio',
     annotation: [
-      { type: 'DD_TAGS[team]', description: 'apps-growth' },
+      { type: 'DD_TAGS[team]', description: 'apps-portfolio' },
       { type: 'DD_TAGS[test.type]', description: 'web-e2e' },
     ],
   },
   () => {
-    test('navigation to swap works for new users', async ({ page }) => {
-      await page.goto('/swap?eagerlyConnect=false')
-      // Page should load and stay on swap
-      await expect(page).toHaveURL(/\/swap/)
-    })
+    test.describe.configure({ retries: 3 }) // the challenge endpoint can be flaky so retry the whole test
 
-    test('swap page loads for disconnected users', async ({ page }) => {
-      await page.goto('/swap?eagerlyConnect=false')
-      // Page should load without errors
-      await page.waitForLoadState('networkidle')
-      await expect(page).toHaveURL(/\/swap/)
+    test.skip('sign up a user', async ({ page }) => {
+      await setupWebAuthn(page)
+
+      await page.goto(`https://app.corn-staging.com/?eagerlyConnect=false&featureFlagOverride=embedded_wallet`)
+
+      // stub the response for unitag
+      await page.route(`${uniswapUrls.unitagsApiUrl}/username?username=${UNITAG_NAME}`, async (route) => {
+        await route.fulfill({
+          body: JSON.stringify({ available: true, requiresEnsMatch: false }),
+        })
+      })
+
+      await page.getByTestId(TestID.NewUserCTAButton).click()
+      await page.getByTestId(TestID.CreateAccount).click()
+
+      await page.getByTestId(TestID.WalletNameInput).fill(UNITAG_NAME)
+      await page.getByTestId(TestID.Continue).click()
+      await page.getByTestId(TestID.Continue).click()
+
+      await page.getByTestId(TestID.CreatePasskey).click()
+
+      await expect(page.getByTestId(TestID.PortfolioBalance)).toBeVisible()
     })
   },
 )

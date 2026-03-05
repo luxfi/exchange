@@ -1,9 +1,9 @@
-import { Currency } from '@luxamm/sdk-core'
-import { GraphQLApi } from '@luxfi/api'
-import { NATIVE_CHAIN_ID } from 'constants/tokens'
-import { normalizeTokenAddressForCache } from 'lx/src/data/cache'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { fromGraphQLChain } from 'lx/src/features/chains/utils'
+import { Currency } from '@uniswap/sdk-core'
+import { GraphQLApi } from '@universe/api'
+import { normalizeTokenAddressForCache } from 'uniswap/src/data/cache'
+import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { fromGraphQLChain } from 'uniswap/src/features/chains/utils'
+import { NATIVE_CHAIN_ID } from '~/constants/tokens'
 
 export type CurrencyKey = string
 

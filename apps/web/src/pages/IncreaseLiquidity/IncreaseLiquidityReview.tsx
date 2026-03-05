@@ -1,39 +1,39 @@
-import { ProtocolVersion } from '@luxdex/client-data-api/dist/data/v1/poolTypes_pb'
-import { CurrencyAmount } from '@luxamm/sdk-core'
-import { getLPBaseAnalyticsProperties } from 'components/Liquidity/analytics'
-import { useUpdatedAmountsFromDependentAmount } from 'components/Liquidity/hooks/useDependentAmountFallback'
-import { useGetPoolTokenPercentage } from 'components/Liquidity/hooks/useGetPoolTokenPercentage'
-import { TokenInfo } from 'components/Liquidity/TokenInfo'
-import { DetailLineItem } from 'components/swap/DetailLineItem'
-import { useCurrencyInfo } from 'hooks/Tokens'
-import { useAccount } from 'hooks/useAccount'
-import useSelectChain from 'hooks/useSelectChain'
-import { IncreaseLiquidityStep, useIncreaseLiquidityContext } from 'pages/IncreaseLiquidity/IncreaseLiquidityContext'
-import { useIncreaseLiquidityTxContext } from 'pages/IncreaseLiquidity/IncreaseLiquidityTxContext'
-import { useSetOverrideOneClickSwapFlag } from 'pages/Swap/settings/OneClickSwap'
+import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
+import { CurrencyAmount } from '@uniswap/sdk-core'
 import { useMemo, useState } from 'react'
 import { Trans, useTranslation } from 'react-i18next'
 import { useDispatch } from 'react-redux'
-import { liquiditySaga } from 'state/sagas/liquidity/liquiditySaga'
-import { ExternalLink } from 'theme/components/Links'
 import { Button, Flex, Separator, Text } from 'ui/src'
 import { Passkey } from 'ui/src/components/icons/Passkey'
 import { iconSizes } from 'ui/src/theme'
-import { ProgressIndicator } from 'lx/src/components/ConfirmSwapModal/ProgressIndicator'
-import { CurrencyLogo } from 'lx/src/components/CurrencyLogo/CurrencyLogo'
-import { NetworkLogo } from 'lx/src/components/CurrencyLogo/NetworkLogo'
-import { PollingInterval } from 'lx/src/constants/misc'
-import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
-import { useGetPasskeyAuthStatus } from 'lx/src/features/passkey/hooks/useGetPasskeyAuthStatus'
-import { useUSDCValue } from 'lx/src/features/transactions/hooks/useUSDCPrice'
-import { isValidLiquidityTxContext } from 'lx/src/features/transactions/liquidity/types'
-import { getErrorMessageToDisplay } from 'lx/src/features/transactions/liquidity/utils'
-import { TransactionStep } from 'lx/src/features/transactions/steps/types'
-import { useWallet } from 'lx/src/features/wallet/hooks/useWallet'
-import { isSignerMnemonicAccountDetails } from 'lx/src/features/wallet/types/AccountDetails'
-import { getSymbolDisplayText } from 'lx/src/utils/currency'
+import { ProgressIndicator } from 'uniswap/src/components/ConfirmSwapModal/ProgressIndicator'
+import { CurrencyLogo } from 'uniswap/src/components/CurrencyLogo/CurrencyLogo'
+import { NetworkLogo } from 'uniswap/src/components/CurrencyLogo/NetworkLogo'
+import { PollingInterval } from 'uniswap/src/constants/misc'
+import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
+import { useGetPasskeyAuthStatus } from 'uniswap/src/features/passkey/hooks/useGetPasskeyAuthStatus'
+import { useUSDCValue } from 'uniswap/src/features/transactions/hooks/useUSDCPriceWrapper'
+import { isValidLiquidityTxContext } from 'uniswap/src/features/transactions/liquidity/types'
+import { getErrorMessageToDisplay } from 'uniswap/src/features/transactions/liquidity/utils'
+import { TransactionStep } from 'uniswap/src/features/transactions/steps/types'
+import { useWallet } from 'uniswap/src/features/wallet/hooks/useWallet'
+import { isSignerMnemonicAccountDetails } from 'uniswap/src/features/wallet/types/AccountDetails'
+import { getSymbolDisplayText } from 'uniswap/src/utils/currency'
 import { NumberType } from 'utilities/src/format/types'
 import { useTrace } from 'utilities/src/telemetry/trace/TraceContext'
+import { getLPBaseAnalyticsProperties } from '~/components/Liquidity/analytics'
+import { useUpdatedAmountsFromDependentAmount } from '~/components/Liquidity/hooks/useDependentAmountFallback'
+import { useGetPoolTokenPercentage } from '~/components/Liquidity/hooks/useGetPoolTokenPercentage'
+import { TokenInfo } from '~/components/Liquidity/TokenInfo'
+import { DetailLineItem } from '~/components/swap/DetailLineItem'
+import { useCurrencyInfo } from '~/hooks/Tokens'
+import { useAccount } from '~/hooks/useAccount'
+import useSelectChain from '~/hooks/useSelectChain'
+import { IncreaseLiquidityStep, useIncreaseLiquidityContext } from '~/pages/IncreaseLiquidity/IncreaseLiquidityContext'
+import { useIncreaseLiquidityTxContext } from '~/pages/IncreaseLiquidity/IncreaseLiquidityTxContext'
+import { useSetOverrideOneClickSwapFlag } from '~/pages/Swap/settings/OneClickSwap'
+import { liquiditySaga } from '~/state/sagas/liquidity/liquiditySaga'
+import { ExternalLink } from '~/theme/components/Links'
 
 export function IncreaseLiquidityReview({ onClose }: { onClose: () => void }) {
   const { t } = useTranslation()
@@ -208,6 +208,8 @@ export function IncreaseLiquidityReview({ onClose }: { onClose: () => void }) {
       : [updatedCurrencyAmounts.TOKEN1, updatedUSDAmounts?.TOKEN1]
   }, [fee1Amount, updatedCurrencyAmounts?.TOKEN1, fiatFeeValue1, updatedUSDAmounts?.TOKEN1])
 
+  const hasUnclaimedFees = displayFee0Amount?.greaterThan(0) || displayFee1Amount?.greaterThan(0)
+
   return (
     <Flex gap="$gap12">
       <Flex gap="$gap16" px="$padding16" pt="$padding12">
@@ -217,7 +219,7 @@ export function IncreaseLiquidityReview({ onClose }: { onClose: () => void }) {
         </Text>
         <TokenInfo currencyAmount={updatedCurrencyAmounts?.TOKEN1} currencyUSDAmount={updatedUSDAmounts?.TOKEN1} />
         {/* V4 adds unclaimed fees to the position */}
-        {version === ProtocolVersion.V4 && (
+        {version === ProtocolVersion.V4 && hasUnclaimedFees && (
           <Flex p="$spacing12" gap="$gap12" background="$surface2" borderRadius="$rounded12">
             <Text variant="body4" color="$neutral2">
               {t('fee.unclaimed.added')}
@@ -252,7 +254,7 @@ export function IncreaseLiquidityReview({ onClose }: { onClose: () => void }) {
                 </Flex>
               </Flex>
             )}
-            <ExternalLink href="https://docs.lux.exchange/help/add-liquidity-existing-position">
+            <ExternalLink href="https://support.uniswap.org/hc/en-us/articles/39530204759693-How-do-I-add-liquidity-to-an-existing-position">
               <Text variant="body3" color="$accent1">
                 {t('common.button.learn')}
               </Text>

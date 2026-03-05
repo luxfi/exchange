@@ -1,45 +1,47 @@
 import type { BottomSheetView } from '@gorhom/bottom-sheet'
-import { Currency } from '@luxamm/sdk-core'
+import { Currency } from '@uniswap/sdk-core'
 import { hasStringAsync } from 'expo-clipboard'
 import { ComponentProps, memo, useCallback, useEffect, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Flex, ModalCloseIcon, Text, useMedia, useScrollbarStyles, useSporeColors } from 'ui/src'
 import { InfoCircleFilled } from 'ui/src/components/icons/InfoCircleFilled'
 import { spacing, zIndexes } from 'ui/src/theme'
-import PasteButton from 'lx/src/components/buttons/PasteButton'
-import { TokenSelectorOption } from 'lx/src/components/lists/items/types'
-import { type OnchainItemSection, OnchainItemSectionName } from 'lx/src/components/lists/OnchainItemList/types'
-import { useBottomSheetContext } from 'lx/src/components/modals/BottomSheetContext'
-import { Modal } from 'lx/src/components/modals/Modal'
-import { NetworkFilter } from 'lx/src/components/network/NetworkFilter'
-import { TokenSelectorEmptySearchList } from 'lx/src/components/TokenSelector/lists/TokenSelectorEmptySearchList'
-import { TokenSelectorSearchResultsList } from 'lx/src/components/TokenSelector/lists/TokenSelectorSearchResultsList'
-import { TokenSelectorSendList } from 'lx/src/components/TokenSelector/lists/TokenSelectorSendList'
-import { TokenSelectorSwapList } from 'lx/src/components/TokenSelector/lists/TokenSelectorSwapList'
-import { TokenSelectorFlow } from 'lx/src/components/TokenSelector/types'
-import { UnsupportedChainedActionsBanner } from 'lx/src/components/TokenSelector/UnsupportedChainedActionsBanner'
-import { flowToModalName } from 'lx/src/components/TokenSelector/utils'
-import { useUniswapContext } from 'lx/src/contexts/UniswapContext'
-import { TradeableAsset } from 'lx/src/entities/assets'
-import { useEnabledChains } from 'lx/src/features/chains/hooks/useEnabledChains'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { CurrencyInfo } from 'lx/src/features/dataApi/types'
-import { SearchContext } from 'lx/src/features/search/SearchModal/analytics/SearchContext'
-import { useFilterCallbacks } from 'lx/src/features/search/SearchModal/hooks/useFilterCallbacks'
-import { SearchTextInput } from 'lx/src/features/search/SearchTextInput'
+import PasteButton from 'uniswap/src/components/buttons/PasteButton'
+import { TokenSelectorOption } from 'uniswap/src/components/lists/items/types'
+import { type OnchainItemSection, OnchainItemSectionName } from 'uniswap/src/components/lists/OnchainItemList/types'
+import { useBottomSheetContext } from 'uniswap/src/components/modals/BottomSheetContext'
+import { Modal } from 'uniswap/src/components/modals/Modal'
+import { NetworkFilter } from 'uniswap/src/components/network/NetworkFilter'
+import { CrosschainSwapsPromoBanner } from 'uniswap/src/components/TokenSelector/CrosschainSwapsPromoBanner'
+import { TokenSelectorEmptySearchList } from 'uniswap/src/components/TokenSelector/lists/TokenSelectorEmptySearchList'
+import { TokenSelectorSearchResultsList } from 'uniswap/src/components/TokenSelector/lists/TokenSelectorSearchResultsList'
+import { TokenSelectorSendList } from 'uniswap/src/components/TokenSelector/lists/TokenSelectorSendList'
+import { TokenSelectorSwapList } from 'uniswap/src/components/TokenSelector/lists/TokenSelectorSwapList'
+import { TokenSelectorFlow } from 'uniswap/src/components/TokenSelector/types'
+import { UnsupportedChainedActionsBanner } from 'uniswap/src/components/TokenSelector/UnsupportedChainedActionsBanner'
+import { flowToModalName } from 'uniswap/src/components/TokenSelector/utils'
+import { useUniswapContext } from 'uniswap/src/contexts/UniswapContext'
+import { TradeableAsset } from 'uniswap/src/entities/assets'
+import type { AddressGroup } from 'uniswap/src/features/accounts/store/types/AccountsState'
+import { useEnabledChains } from 'uniswap/src/features/chains/hooks/useEnabledChains'
+import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { CurrencyInfo } from 'uniswap/src/features/dataApi/types'
+import { SearchContext } from 'uniswap/src/features/search/SearchModal/analytics/SearchContext'
+import { useFilterCallbacks } from 'uniswap/src/features/search/SearchModal/hooks/useFilterCallbacks'
+import { SearchTextInput } from 'uniswap/src/features/search/SearchTextInput'
 import {
   ElementName,
   InterfaceEventName,
   ModalName,
   SectionName,
   UniswapEventName,
-} from 'lx/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
-import Trace from 'lx/src/features/telemetry/Trace'
-import { isChainSupportedForChainedActions } from 'lx/src/features/transactions/swap/utils/chainedActions'
-import { CurrencyField } from 'lx/src/types/currency'
-import { getClipboard } from 'lx/src/utils/clipboard'
-import { currencyAddress } from 'lx/src/utils/currencyId'
+} from 'uniswap/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
+import Trace from 'uniswap/src/features/telemetry/Trace'
+import { isChainSupportedForChainedActions } from 'uniswap/src/features/transactions/swap/utils/chainedActions'
+import { CurrencyField } from 'uniswap/src/types/currency'
+import { currencyAddress } from 'uniswap/src/utils/currencyId'
+import { getClipboard } from 'utilities/src/clipboard/clipboard'
 import { dismissNativeKeyboard } from 'utilities/src/device/keyboard/dismissNativeKeyboard'
 import { isExtensionApp, isMobileApp, isMobileWeb, isWebApp, isWebPlatform } from 'utilities/src/platform'
 import { useTrace } from 'utilities/src/telemetry/trace/TraceContext'
@@ -64,8 +66,7 @@ export interface TokenSelectorProps {
   isModalOpen: boolean
   currencyField: CurrencyField
   flow: TokenSelectorFlow
-  evmAddress?: string
-  svmAddress?: string
+  addresses: AddressGroup
   chainId?: UniverseChainId
   chainIds?: UniverseChainId[]
   input?: TradeableAsset
@@ -73,7 +74,6 @@ export interface TokenSelectorProps {
   isSurfaceReady?: boolean
   isLimits?: boolean
   onClose: () => void
-  // @ts-expect-error BottomSheet type incompatibility
   focusHook?: ComponentProps<typeof BottomSheetView>['focusHook']
   onSelectChain?: (chainId: UniverseChainId | null) => void
   onSelectCurrency: ({
@@ -95,8 +95,7 @@ export function TokenSelectorContent({
   variation,
   input,
   output,
-  evmAddress,
-  svmAddress,
+  addresses,
   chainId,
   chainIds,
   isSurfaceReady = true,
@@ -105,7 +104,9 @@ export function TokenSelectorContent({
   onSelectChain,
   onSelectCurrency,
   renderedInModal,
-}: Omit<TokenSelectorProps, 'isModalOpen'> & { renderedInModal: boolean }): JSX.Element {
+}: Omit<TokenSelectorProps, 'isModalOpen'> & {
+  renderedInModal: boolean
+}): JSX.Element {
   const { onChangeChainFilter, onChangeText, searchFilter, chainFilter, parsedChainFilter, parsedSearchFilter } =
     useFilterCallbacks(chainId ?? null, flowToModalName(flow))
   const debouncedSearchFilter = useDebounce(searchFilter)
@@ -222,12 +223,16 @@ export function TokenSelectorContent({
 
   const shouldAutoFocusSearch = isWebPlatform && !media.sm
 
+  const shouldShowCrosschainPromoBanner = useMemo(
+    () => !isLimits && (!chainFilter || isChainSupportedForChainedActions(chainFilter)),
+    [isLimits, chainFilter],
+  )
+
   const tokenSelector = useMemo(() => {
     if (searchInFocus && !searchFilter && !isTestnetModeEnabled) {
       return (
         <TokenSelectorEmptySearchList
-          evmAddress={evmAddress}
-          svmAddress={svmAddress}
+          addresses={addresses}
           chainFilter={chainFilter}
           renderedInModal={renderedInModal}
           onSelectCurrency={onSelectCurrencyCallback}
@@ -238,8 +243,7 @@ export function TokenSelectorContent({
     if (searchFilter) {
       return (
         <TokenSelectorSearchResultsList
-          evmAddress={evmAddress}
-          svmAddress={svmAddress}
+          addresses={addresses}
           chainFilter={chainFilter}
           debouncedParsedSearchFilter={debouncedParsedSearchFilter}
           debouncedSearchFilter={debouncedSearchFilter}
@@ -257,8 +261,7 @@ export function TokenSelectorContent({
       case TokenSelectorVariation.BalancesOnly:
         return (
           <TokenSelectorSendList
-            evmAddress={evmAddress}
-            svmAddress={svmAddress}
+            addresses={addresses}
             chainFilter={chainFilter}
             renderedInModal={renderedInModal}
             onEmptyActionPress={onSendEmptyActionPress}
@@ -269,8 +272,7 @@ export function TokenSelectorContent({
         return (
           <TokenSelectorSwapList
             oppositeSelectedToken={output}
-            evmAddress={evmAddress}
-            svmAddress={svmAddress}
+            addresses={addresses}
             chainFilter={chainFilter}
             renderedInModal={renderedInModal}
             onSelectCurrency={onSelectCurrencyCallback}
@@ -280,8 +282,7 @@ export function TokenSelectorContent({
         return (
           <TokenSelectorSwapList
             oppositeSelectedToken={input}
-            evmAddress={evmAddress}
-            svmAddress={svmAddress}
+            addresses={addresses}
             chainFilter={chainFilter}
             renderedInModal={renderedInModal}
             onSelectCurrency={onSelectCurrencyCallback}
@@ -295,8 +296,7 @@ export function TokenSelectorContent({
     searchFilter,
     isTestnetModeEnabled,
     variation,
-    evmAddress,
-    svmAddress,
+    addresses,
     chainFilter,
     onSelectCurrencyCallback,
     debouncedParsedSearchFilter,
@@ -332,7 +332,7 @@ export function TokenSelectorContent({
                   includeAllNetworks={!isTestnetModeEnabled}
                   chainIds={chainIds || enabledChains}
                   selectedChain={chainFilter}
-                  styles={isExtensionApp || isMobileWeb ? { dropdownZIndex: zIndexes.overlay } : undefined}
+                  styles={isExtensionApp || media.md ? { dropdownZIndex: zIndexes.overlay } : undefined}
                   onPressChain={(newChainId) => {
                     onChangeChainFilter(newChainId)
                     onSelectChain?.(newChainId)
@@ -366,6 +366,7 @@ export function TokenSelectorContent({
 
           {isSurfaceReady && (
             <Flex grow>
+              {shouldShowCrosschainPromoBanner && <CrosschainSwapsPromoBanner />}
               <UnsupportedChainedActionsBanner oppositeToken={oppositeToken} chainFilter={chainFilter ?? undefined} />
               {tokenSelector}
             </Flex>
@@ -412,7 +413,9 @@ function _TokenSelectorModal(props: TokenSelectorProps): JSX.Element {
       focusHook={focusHook}
       onClose={onClose}
     >
-      <TokenSelectorModalContent {...props} />
+      <Flex grow maxHeight="100%" overflow="hidden">
+        <TokenSelectorModalContent {...props} />
+      </Flex>
     </Modal>
   )
 }

@@ -1,15 +1,10 @@
-import { createLiquidityServiceClient } from '@luxfi/api'
-import { config } from 'lx/src/config'
-import { uniswapUrls } from 'lx/src/constants/urls'
-import { createUniswapFetchClient } from 'lx/src/data/apiClients/createUniswapFetchClient'
+import { createPromiseClient } from '@connectrpc/connect'
+import { LiquidityService } from '@uniswap/client-liquidity/dist/uniswap/liquidity/v1/api_connect'
+import { createLiquidityServiceClient } from '@universe/api'
+import { liquidityServiceTransport } from 'uniswap/src/data/apiClients/liquidityService/base'
 
-const LiquidityServiceFetchClient = createUniswapFetchClient({
-  baseUrl: uniswapUrls.liquidityServiceUrl,
-  additionalHeaders: {
-    'x-api-key': config.tradingApiKey,
-  },
-})
-
+// Direct client for imperative calls (non-React)
+// For React components, use the hooks (useCheckLPApprovalQuery, etc.) instead
 export const LiquidityServiceClient = createLiquidityServiceClient({
-  fetchClient: LiquidityServiceFetchClient,
+  rpcClient: createPromiseClient(LiquidityService, liquidityServiceTransport),
 })

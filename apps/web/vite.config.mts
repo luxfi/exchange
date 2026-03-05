@@ -1,11 +1,11 @@
 import { cloudflare } from '@cloudflare/vite-plugin'
 import { tamaguiPlugin } from '@tamagui/vite-plugin'
 import react from '@vitejs/plugin-react'
-import reactOxc from '@vitejs/plugin-react-oxc'
 import { execSync } from 'child_process'
 import { config as dotenvConfig } from 'dotenv'
 import fs from 'fs'
 import path from 'path'
+import { createHash } from 'node:crypto'
 import process from 'process'
 import { fileURLToPath } from 'url'
 import { defineConfig, loadEnv, type ViteDevServer } from 'vite'
@@ -21,6 +21,14 @@ import {createEntryGatewayProxy} from './vite/entry-gateway-proxy'
 // Get current file directory (ESM equivalent of __dirname)
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
+
+// When the private embedded wallet package is not installed,
+// externalize it so Rollup doesn't fail to resolve dynamic imports at build time.
+// At runtime, the dynamic import will fail and the try/catch in loadPrivyPbModule() provides
+// a clear error message: "Embedded Wallet requires @uniswap/client-privy-embedded-wallet".
+const privyPackageInstalled = fs.existsSync(
+  path.resolve(__dirname, '../../node_modules/@uniswap/client-privy-embedded-wallet'),
+)
 const ENABLE_REACT_COMPILER = process.env.ENABLE_REACT_COMPILER === 'true'
 const ReactCompilerConfig = {
   target: '18', // '17' | '18' | '19'
@@ -30,7 +38,46 @@ const VITE_DISABLE_SOURCEMAP = process.env.VITE_DISABLE_SOURCEMAP === 'true'
 const DEBUG_PROXY = process.env.VITE_DEBUG_PROXY === 'true'
 const ENABLE_PROXY = process.env.VITE_ENABLE_ENTRY_GATEWAY_PROXY === 'true'
 
-const DEFAULT_PORT = 9000
+const DEFAULT_PORT = 3000
+
+/**
+ * Vite's optimizeDeps cache hash doesn't include `define` values, so changing env vars
+ * (which are injected via `define` as `process.env.X` replacements) won't invalidate the
+ * pre-bundled deps cache. This compares a hash of the resolved env defines against a stored
+ * hash and forces a re-bundle only when env values actually changed.
+ */
+function shouldInvalidateOptimizeDepsForEnv({
+  defines,
+  cacheDir,
+}: {
+  defines: Record<string, unknown>
+  cacheDir: string
+}): boolean {
+  const hash = createHash('md5').update(JSON.stringify(defines)).digest('hex').slice(0, 16)
+  const hashFile = path.join(cacheDir, '.env-defines-hash')
+
+  try {
+    if (fs.existsSync(hashFile)) {
+      const stored = fs.readFileSync(hashFile, 'utf-8').trim()
+      if (stored === hash) {
+        return false
+      }
+    }
+  } catch {
+    return true
+  }
+
+  try {
+    if (!fs.existsSync(cacheDir)) {
+      fs.mkdirSync(cacheDir, { recursive: true })
+    }
+    fs.writeFileSync(hashFile, hash)
+  } catch {
+    return true
+  }
+
+  return true
+}
 
 const reactPlugin = () =>
   ENABLE_REACT_COMPILER
@@ -39,7 +86,7 @@ const reactPlugin = () =>
           plugins: [['babel-plugin-react-compiler', ReactCompilerConfig]],
         },
       })
-    : reactOxc()
+    : react()
 
 // Prints a warning if server automatically switches to a different port when `DEFAULT_PORT` is already in use
 const portWarningPlugin = (isProduction: boolean) =>
@@ -55,7 +102,7 @@ const portWarningPlugin = (isProduction: boolean) =>
                 console.log('\n')
                 console.log('\x1b[41m\x1b[37m' + '═'.repeat(80) + '\x1b[0m')
                 console.log('\x1b[41m\x1b[37m' + ' '.repeat(80) + '\x1b[0m')
-                console.log('\x1b[41m\x1b[37m' + '  ⚠️  WARNING: Port 9000 is already in use!'.padEnd(80) + '\x1b[0m')
+                console.log('\x1b[41m\x1b[37m' + '  ⚠️  WARNING: Port 3000 is already in use!'.padEnd(80) + '\x1b[0m')
                 console.log('\x1b[41m\x1b[37m' + ' '.repeat(80) + '\x1b[0m')
                 console.log(
                   '\x1b[41m\x1b[37m' + '  You may have another server instance running.'.padEnd(80) + '\x1b[0m',
@@ -78,7 +125,7 @@ const portWarningPlugin = (isProduction: boolean) =>
 // Get git commit hash
 const commitHash = execSync('git rev-parse HEAD').toString().trim()
 
-export default (defineConfig as any)(({ mode }: { mode: string }) => {
+export default defineConfig(({ mode }) => {
   let env = loadEnv(mode, __dirname, '')
 
   // Force load .env.[mode] files since NX ignores them
@@ -98,6 +145,18 @@ export default (defineConfig as any)(({ mode }: { mode: string }) => {
     }
   }
 
+  // Env vars that should be overridable from Vercel/CI (process.env takes precedence over .env files)
+  const VERCEL_OVERRIDABLE_ENV_VARS = [
+    'UNISWAP_GATEWAY_DNS',
+    'API_BASE_URL_V2_OVERRIDE',
+    'ENTRY_GATEWAY_API_URL_OVERRIDE',
+  ]
+  for (const key of VERCEL_OVERRIDABLE_ENV_VARS) {
+    if (process.env[key]) {
+      env[key] = process.env[key]
+    }
+  }
+
   // Log environment loading for CI verification
   console.log(`ENV_LOADED: mode=${mode} REACT_APP_AWS_API_ENDPOINT=${env.REACT_APP_AWS_API_ENDPOINT}`)
 
@@ -112,75 +171,98 @@ export default (defineConfig as any)(({ mode }: { mode: string }) => {
     'react-native': 'react-native-web',
     'expo-blur': path.resolve(__dirname, './.storybook/__mocks__/expo-blur.jsx'),
     '@web3-react/core': path.resolve(__dirname, 'src/connection/web3reactShim.ts'),
-    'lx/src': path.resolve(__dirname, '../../packages/lx/src'),
+    'uniswap/src': path.resolve(__dirname, '../../packages/uniswap/src'),
     'utilities/src': path.resolve(__dirname, '../../packages/utilities/src'),
     'ui/src': path.resolve(__dirname, '../../packages/ui/src'),
     'expo-clipboard': path.resolve(__dirname, 'src/lib/expo-clipboard.jsx'),
-    // Removed jsbi alias - let Vite use default node_modules resolution
+    // Force JSBI to use ESM build so transform plugin can add __esModule marker
+    jsbi: path.resolve(__dirname, '../../node_modules/jsbi/dist/jsbi.mjs'),
   }
 
+  // Aliases that need exact matching (using resolve.alias array format)
+  const exactAliases = [
+    // Use web app-specific i18n entry that doesn't import wallet's i18n-setup (exact match only)
+    {
+      find: /^uniswap\/src\/i18n$/,
+      replacement: path.resolve(__dirname, '../../packages/uniswap/src/i18n/index.web-app.ts'),
+    },
+  ]
+
   // Create process.env definitions for ALL environment variables
-  // Merge shell environment variables with .env file variables (shell takes precedence)
-  const mergedEnv = { ...env }
-  for (const [key, value] of Object.entries(process.env)) {
-    if (key.startsWith('REACT_APP_') && value !== undefined) {
-      mergedEnv[key] = value
-    }
-  }
   const envDefines = Object.fromEntries(
-    Object.entries(mergedEnv).map(([key, value]) => [`process.env.${key}`, JSON.stringify(value)]),
+    Object.entries(env).map(([key, value]) => [`process.env.${key}`, JSON.stringify(value)]),
   )
+
+  const defines = {
+    __DEV__: !isProduction,
+    'process.env.NODE_ENV': JSON.stringify(mode),
+    'process.env.EXPO_OS': JSON.stringify('web'),
+    'process.env.REACT_APP_GIT_COMMIT_HASH': JSON.stringify(commitHash),
+    'process.env.REACT_APP_STAGING': JSON.stringify(mode === 'staging'),
+    'process.env.REACT_APP_WEB_BUILD_TYPE': JSON.stringify('vite'),
+    // Enable Tamagui's global z-index stacking to fix modal stacking issues
+    'process.env.TAMAGUI_STACK_Z_INDEX_GLOBAL': JSON.stringify('true'),
+    ...envDefines,
+  }
+
+  const cacheDir = path.resolve(__dirname, 'node_modules/.vite')
+  const forceOptimize = shouldInvalidateOptimizeDepsForEnv({ defines, cacheDir })
 
   return {
     root,
 
-    define: {
-      __DEV__: !isProduction,
-      'process.env.NODE_ENV': JSON.stringify(mode),
-      'process.env.EXPO_OS': JSON.stringify('web'),
-      'process.env.REACT_APP_GIT_COMMIT_HASH': JSON.stringify(commitHash),
-      'process.env.REACT_APP_STAGING': JSON.stringify(mode === 'staging'),
-      'process.env.REACT_APP_WEB_BUILD_TYPE': JSON.stringify('vite'),
-      // Enable Tamagui's global z-index stacking to fix modal stacking issues
-      'process.env.TAMAGUI_STACK_Z_INDEX_GLOBAL': JSON.stringify('true'),
-      ...envDefines,
-    },
+    define: defines,
 
     resolve: {
-      extensions: ['.web.tsx', '.web.ts', '.web.js', '.tsx', '.ts', '.js'],
+      // .web-app file extensions take priority over .web for web app-specific overrides
+      extensions: ['.web-app.tsx', '.web-app.ts', '.web-app.js', '.web.tsx', '.web.ts', '.web.js', '.tsx', '.ts', '.js'],
       modules: [path.resolve(root, 'node_modules')],
       dedupe: [
-        '@luxamm/sdk-core',
-        '@luxamm/v2-sdk',
-        '@luxamm/v3-sdk',
-        '@luxamm/v4-sdk',
-        '@luxdex/router-sdk',
-        '@luxdex/universal-router-sdk',
-        '@luxdex/sdk',
-        '@luxdex/permit2-sdk',
+        '@uniswap/sdk-core',
+        '@uniswap/v2-sdk',
+        '@uniswap/v3-sdk',
+        '@uniswap/v4-sdk',
+        '@uniswap/router-sdk',
+        '@uniswap/universal-router-sdk',
+        '@uniswap/uniswapx-sdk',
+        '@uniswap/permit2-sdk',
         '@visx/responsive',
         'jsbi',
         'ethers',
         'react',
         'react-dom',
-        // Prevent duplicate context/state instances (pnpm creates separate copies → null contexts)
-        'react-redux',
-        '@reduxjs/toolkit',
-        '@apollo/client',
-        'jotai',
-        '@tanstack/react-query',
-        // Prevent duplicate wagmi/viem instances from nested dependencies (e.g., @binance connector)
-        'wagmi',
-        '@wagmi/core',
-        '@wagmi/connectors',
-        'viem',
       ],
-      alias: {
-        ...overrides,
-      },
+      alias: [
+        ...exactAliases,
+        ...Object.entries(overrides).map(([find, replacement]) => ({ find, replacement })),
+      ],
     },
 
     plugins: [
+      // Fix JSBI ESM interop issue:
+      // Rollup's interop wrapper checks for __esModule and passes through if present.
+      // JSBI's pure ESM build doesn't have __esModule, so Rollup creates a proxy wrapper
+      // that loses static methods like BigInt(). By adding __esModule as a named export,
+      // the module namespace will include it, and the interop function returns the module
+      // as-is, preserving all static methods.
+      {
+        name: 'jsbi-esm-interop-fix',
+        enforce: 'pre' as const,
+        transform(code: string, id: string) {
+          // Only transform the JSBI ESM module
+          if (!id.includes('node_modules/jsbi/dist/jsbi.mjs')) {
+            return null
+          }
+
+          // Add __esModule as a named export so Rollup's interop passes it through
+          // The interop checks: hasOwnProperty(moduleNamespace, "__esModule")
+          // By exporting it, it will be a property on the module namespace object
+          return {
+            code: `${code}\nexport const __esModule = true;`,
+            map: null,
+          }
+        },
+      },
       {
         name: 'transform-react-native-jsx',
         async transform(code: string, id: string) {
@@ -209,7 +291,7 @@ export default (defineConfig as any)(({ mode }: { mode: string }) => {
       isProduction || isStaging
         ? tamaguiPlugin({
             config: '../../packages/ui/src/tamagui.config.ts',
-            components: ['ui', 'lx', 'utilities'],
+            components: ['ui', 'uniswap', 'utilities'],
             optimize: true,
             importsWhitelist: ['constants.js'],
           })
@@ -279,7 +361,7 @@ export default (defineConfig as any)(({ mode }: { mode: string }) => {
         ? undefined
         : bundlesize({
             limits: [
-              { name: 'assets/index-*.js', limit: '2.35 MB', mode: 'gzip' },
+              { name: 'assets/index-*.js', limit: '2.40 MB', mode: 'gzip' },
               { name: '**/*', limit: Infinity, mode: 'uncompressed' },
             ],
           }),
@@ -314,8 +396,7 @@ export default (defineConfig as any)(({ mode }: { mode: string }) => {
           }
         },
       },
-      // Only use cloudflare plugin for production builds, not local dev
-      DEPLOY_TARGET === 'cloudflare' && isProduction
+      DEPLOY_TARGET === 'cloudflare' || mode === 'development'
         ? cloudflare({
             configPath: './wrangler-vite-worker.jsonc',
             // Workaround for cloudflare plugin bug: explicitly set environment name based on CLOUDFLARE_ENV
@@ -330,6 +411,7 @@ export default (defineConfig as any)(({ mode }: { mode: string }) => {
     ].filter(Boolean as unknown as <T>(x: T) => x is NonNullable<T>),
 
     optimizeDeps: {
+      force: forceOptimize,
       entries: ['index.html'],
       include: [
         'graphql',
@@ -340,23 +422,22 @@ export default (defineConfig as any)(({ mode }: { mode: string }) => {
         'tamagui',
         '@tamagui/web',
         'ui',
-        '@luxamm/sdk-core',
-        '@luxamm/v2-sdk',
-        '@luxamm/v3-sdk',
-        '@luxamm/v4-sdk',
-        '@luxdex/router-sdk',
-        '@luxdex/universal-router-sdk',
-        '@luxdex/permit2-sdk',
+        '@uniswap/sdk-core',
+        '@uniswap/v2-sdk',
+        '@uniswap/v3-sdk',
+        '@uniswap/v4-sdk',
+        '@uniswap/router-sdk',
+        '@uniswap/universal-router-sdk',
+        '@uniswap/uniswapx-sdk',
+        '@uniswap/permit2-sdk',
         'jsbi',
         'ethers',
         '@visx/responsive',
       ],
       // Libraries that shouldn't be pre-bundled
-      // Note: @l.x/uniswapx-sdk excluded due to SES class heritage error
-      exclude: ['expo-clipboard', '@connectrpc/connect', '@luxdex/sdk'],
+      exclude: ['expo-clipboard', '@connectrpc/connect'],
       esbuildOptions: {
-        target: 'es2020',
-        resolveExtensions: ['.web.js', '.web.ts', '.web.tsx', '.js', '.ts', '.tsx'],
+        resolveExtensions: ['.web-app.js', '.web-app.ts', '.web-app.tsx', '.web.js', '.web.ts', '.web.tsx', '.js', '.ts', '.tsx'],
         loader: {
           '.js': 'jsx',
           '.ts': 'ts',
@@ -368,18 +449,29 @@ export default (defineConfig as any)(({ mode }: { mode: string }) => {
     server: {
       port: DEFAULT_PORT,
       proxy: {
-        ...(ENABLE_PROXY ? {
-          '/entry-gateway': createEntryGatewayProxy({ getLogger })
-        } : {})}
+        '/config': {
+          target: 'https://gating.interface.gateway.uniswap.org',
+          changeOrigin: true,
+          secure: true,
+          rewrite: (path) => path.replace(/^\/config/, '/v1/statsig-proxy'),
+        },
+        ...(ENABLE_PROXY ? { '/entry-gateway': createEntryGatewayProxy({ getLogger }) } : {}),
+      },
     },
 
     build: {
       outDir: 'build',
-      target: 'es2020', // BigInt, optional chaining, nullish coalescing
       sourcemap: VITE_DISABLE_SOURCEMAP ? false : (isProduction && !isVercelDeploy ? 'hidden' : true),
       minify: isProduction && !isVercelDeploy ? 'esbuild' : undefined,
       rollupOptions: {
-        external: [/\.stories\.[tj]sx?$/, /\.mdx$/, /expo-clipboard\/build\/ClipboardPasteButton\.js/],
+        external: [
+          /\.stories\.[tj]sx?$/,
+          /\.mdx$/,
+          /expo-clipboard\/build\/ClipboardPasteButton\.js/,
+          // When the private package is not installed, externalize it so Rollup doesn't error.
+          // Dynamic imports of this module will fail at runtime (caught by loadPrivyPbModule's try/catch).
+          ...(!privyPackageInstalled ? [/^@uniswap\/client-privy-embedded-wallet/] : []),
+        ],
         output: {
           // Ensure consistent file naming for better caching
           entryFileNames: 'assets/[name]-[hash].js',
@@ -390,7 +482,7 @@ export default (defineConfig as any)(({ mode }: { mode: string }) => {
       // Increase the warning limit for larger chunks
       chunkSizeWarningLimit: 800,
       commonjsOptions: {
-        include: [/jsbi/, /node_modules/], // force inclusion + conversion of jsbi CJS
+        include: [/node_modules/],
       },
     },
 
@@ -398,20 +490,11 @@ export default (defineConfig as any)(({ mode }: { mode: string }) => {
     envPrefix: [],
 
     preview: {
-      port: 9000,
+      port: 3000,
     },
   }
 })
 
-function getLogger(): {
-  log: typeof console.log
-} {
-  if(!DEBUG_PROXY) {
-    return {
-      log: () => {}
-    }
-  }
-  return {
-    log: console.log
-  }
+function getLogger(): { log: typeof console.log } {
+  return { log: DEBUG_PROXY ? console.log : () => {} }
 }

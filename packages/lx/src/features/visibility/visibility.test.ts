@@ -1,11 +1,11 @@
 /* biome-ignore-all lint/suspicious/noExplicitAny: legacy code needs review */
-import { UniverseChainId } from 'lx/src/features/chains/types'
+import { UniverseChainId } from 'uniswap/src/features/chains/types'
 import {
   selectActivityVisibility,
   selectNftsVisibility,
   selectPositionsVisibility,
   selectTokensVisibility,
-} from 'lx/src/features/visibility/selectors'
+} from 'uniswap/src/features/visibility/selectors'
 import {
   setActivityVisibility,
   setNftVisibility,
@@ -13,14 +13,15 @@ import {
   setTokenVisibility,
   VisibilityState,
   visibilityReducer,
-} from 'lx/src/features/visibility/slice'
-import { getUniquePositionId } from 'lx/src/features/visibility/utils'
+} from 'uniswap/src/features/visibility/slice'
+import { getUniquePositionId } from 'uniswap/src/features/visibility/utils'
+import type { Mock } from 'vitest'
 
-jest.mock('uniswap/src/features/visibility/utils', () => ({
-  getUniquePositionId: jest.fn(),
+vi.mock('uniswap/src/features/visibility/utils', () => ({
+  getUniquePositionId: vi.fn(),
 }))
 
-const mockedGetUniquePositionId = getUniquePositionId as jest.Mock
+const mockedGetUniquePositionId = getUniquePositionId as Mock
 
 const makeEmptyVisibilityState = (): VisibilityState => ({
   positions: {},
@@ -31,7 +32,7 @@ const makeEmptyVisibilityState = (): VisibilityState => ({
 
 describe('visibility slice', () => {
   beforeEach(() => {
-    jest.clearAllMocks()
+    vi.clearAllMocks()
   })
 
   it('should return the initial state', () => {

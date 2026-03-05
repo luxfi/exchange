@@ -1,24 +1,23 @@
-import { ExploreStatsResponse, PoolStats } from '@luxdex/client-explore/dist/uniswap/explore/v1/service_pb'
-import { ALL_NETWORKS_ARG, GqlResult } from '@luxfi/api'
-import { FeatureFlags, useFeatureFlag } from '@luxfi/gating'
+import { ExploreStatsResponse, PoolStats } from '@uniswap/client-explore/dist/uniswap/explore/v1/service_pb'
+import { ALL_NETWORKS_ARG, GqlResult } from '@universe/api'
 import { useMemo } from 'react'
-import { usePoolStatsToPoolOptions } from 'lx/src/components/lists/items/pools/usePoolStatsToPoolOptions'
-import { SearchModalOption } from 'lx/src/components/lists/items/types'
-import { useFavoriteWalletOptions } from 'lx/src/components/lists/items/wallets/useFavoriteWalletOptions'
-import { OnchainItemSection, OnchainItemSectionName } from 'lx/src/components/lists/OnchainItemList/types'
-import { useOnchainItemListSection } from 'lx/src/components/lists/utils'
-import { useCurrencyInfosToTokenOptions } from 'lx/src/components/TokenSelector/hooks/useCurrencyInfosToTokenOptions'
-import { useTrendingTokensCurrencyInfos } from 'lx/src/components/TokenSelector/hooks/useTrendingTokensCurrencyInfos'
-import { useExploreStatsQuery } from 'lx/src/data/rest/exploreStats'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { ClearRecentSearchesButton } from 'lx/src/features/search/ClearRecentSearchesButton'
+import { usePoolStatsToPoolOptions } from 'uniswap/src/components/lists/items/pools/usePoolStatsToPoolOptions'
+import { SearchModalOption } from 'uniswap/src/components/lists/items/types'
+import { useFavoriteWalletOptions } from 'uniswap/src/components/lists/items/wallets/useFavoriteWalletOptions'
+import { OnchainItemSection, OnchainItemSectionName } from 'uniswap/src/components/lists/OnchainItemList/types'
+import { useOnchainItemListSection } from 'uniswap/src/components/lists/utils'
+import { useCurrencyInfosToTokenOptions } from 'uniswap/src/components/TokenSelector/hooks/useCurrencyInfosToTokenOptions'
+import { useTrendingTokensCurrencyInfos } from 'uniswap/src/components/TokenSelector/hooks/useTrendingTokensCurrencyInfos'
+import { useExploreStatsQuery } from 'uniswap/src/data/rest/exploreStats'
+import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { ClearRecentSearchesButton } from 'uniswap/src/features/search/ClearRecentSearchesButton'
 import {
   NUMBER_OF_RESULTS_LONG,
   NUMBER_OF_RESULTS_MEDIUM,
   NUMBER_OF_RESULTS_SHORT,
-} from 'lx/src/features/search/SearchModal/constants'
-import { useRecentlySearchedOptions } from 'lx/src/features/search/SearchModal/hooks/useRecentlySearchedOptions'
-import { SearchTab } from 'lx/src/features/search/SearchModal/types'
+} from 'uniswap/src/features/search/SearchModal/constants'
+import { useRecentlySearchedOptions } from 'uniswap/src/features/search/SearchModal/hooks/useRecentlySearchedOptions'
+import { SearchTab } from 'uniswap/src/features/search/SearchModal/types'
 import { isMobileApp, isWebApp, isWebPlatform } from 'utilities/src/platform'
 
 export function useSectionsForNoQuerySearch({
@@ -28,9 +27,6 @@ export function useSectionsForNoQuerySearch({
   chainFilter: UniverseChainId | null
   activeTab: SearchTab
 }): GqlResult<OnchainItemSection<SearchModalOption>[]> {
-  const viewExternalWalletsFeatureEnabled = useFeatureFlag(FeatureFlags.ViewExternalWalletsOnWeb)
-  const walletSearchEnabledOnWeb = isWebApp && viewExternalWalletsFeatureEnabled
-
   const recentlySearchedOptions: SearchModalOption[] = useRecentlySearchedOptions({
     chainFilter,
     activeTab,
@@ -87,8 +83,7 @@ export function useSectionsForNoQuerySearch({
     options: trendingPoolOptions,
   })
 
-  const skipFavoriteWallets =
-    activeTab !== SearchTab.Wallets && !(isWebApp && walletSearchEnabledOnWeb && activeTab === SearchTab.All)
+  const skipFavoriteWallets = activeTab !== SearchTab.Wallets && !(isWebApp && activeTab === SearchTab.All)
   const favoriteWalletsOptions = useFavoriteWalletOptions({ skip: skipFavoriteWallets })
   const favoriteWalletsSection = useOnchainItemListSection({
     sectionKey: OnchainItemSectionName.FavoriteWallets,
@@ -129,12 +124,12 @@ export function useSectionsForNoQuerySearch({
       default:
       case SearchTab.All:
         if (isWebPlatform) {
-          const webSections = [
+          sections = [
             ...(recentSearchSection ?? []),
             ...(trendingTokenSection ?? []),
             ...(trendingPoolSection ?? []),
+            ...(favoriteWalletsSection ?? []),
           ]
-          sections = walletSearchEnabledOnWeb ? [...webSections, ...(favoriteWalletsSection ?? [])] : webSections
         } else {
           sections = [...(recentSearchSection ?? []), ...(trendingTokenSection ?? [])]
         }
@@ -160,6 +155,5 @@ export function useSectionsForNoQuerySearch({
     tokensError,
     trendingPoolSection,
     trendingTokenSection,
-    walletSearchEnabledOnWeb,
   ])
 }

@@ -1,21 +1,23 @@
 import { createElement } from 'react'
-import { ApproveSummaryItem } from 'lx/src/components/activity/summaries/ApproveSummaryItem'
-import { BridgeSummaryItem } from 'lx/src/components/activity/summaries/BridgeSummaryItem'
-import { LiquiditySummaryItem } from 'lx/src/components/activity/summaries/LiquiditySummaryItem'
-import { NFTApproveSummaryItem } from 'lx/src/components/activity/summaries/NFTApproveSummaryItem'
-import { NFTMintSummaryItem } from 'lx/src/components/activity/summaries/NFTMintSummaryItem'
-import { NFTTradeSummaryItem } from 'lx/src/components/activity/summaries/NFTTradeSummaryItem'
-import { OffRampTransferSummaryItem } from 'lx/src/components/activity/summaries/OffRampTransferSummaryItem'
-import { OnRampTransferSummaryItem } from 'lx/src/components/activity/summaries/OnRampTransferSummaryItem'
-import { ReceiveSummaryItem } from 'lx/src/components/activity/summaries/ReceiveSummaryItem'
-import { SendSummaryItem } from 'lx/src/components/activity/summaries/SendSummaryItem'
-import { SwapSummaryItem } from 'lx/src/components/activity/summaries/SwapSummaryItem'
-import { UnknownSummaryItem } from 'lx/src/components/activity/summaries/UnknownSummaryItem'
-import { WCSummaryItem } from 'lx/src/components/activity/summaries/WCSummaryItem'
-import { WrapSummaryItem } from 'lx/src/components/activity/summaries/WrapSummaryItem'
-import { SummaryItemProps, SwapSummaryCallbacks } from 'lx/src/components/activity/types'
-import { isLoadingItem, isSectionHeader, LoadingItem, SectionHeader } from 'lx/src/components/activity/utils'
-import { TransactionDetails, TransactionType } from 'lx/src/features/transactions/types/transactionDetails'
+import { ApproveSummaryItem } from 'uniswap/src/components/activity/summaries/ApproveSummaryItem'
+import { BridgeSummaryItem } from 'uniswap/src/components/activity/summaries/BridgeSummaryItem'
+import { LiquiditySummaryItem } from 'uniswap/src/components/activity/summaries/LiquiditySummaryItem'
+import { NFTApproveSummaryItem } from 'uniswap/src/components/activity/summaries/NFTApproveSummaryItem'
+import { NFTMintSummaryItem } from 'uniswap/src/components/activity/summaries/NFTMintSummaryItem'
+import { NFTTradeSummaryItem } from 'uniswap/src/components/activity/summaries/NFTTradeSummaryItem'
+import { OffRampTransferSummaryItem } from 'uniswap/src/components/activity/summaries/OffRampTransferSummaryItem'
+import { OnRampTransferSummaryItem } from 'uniswap/src/components/activity/summaries/OnRampTransferSummaryItem'
+import { PlanSummaryItem } from 'uniswap/src/components/activity/summaries/PlanSummaryItem'
+import { ReceiveSummaryItem } from 'uniswap/src/components/activity/summaries/ReceiveSummaryItem'
+import { SendSummaryItem } from 'uniswap/src/components/activity/summaries/SendSummaryItem'
+import { SwapSummaryItem } from 'uniswap/src/components/activity/summaries/SwapSummaryItem'
+import { UnknownSummaryItem } from 'uniswap/src/components/activity/summaries/UnknownSummaryItem'
+import { WCSummaryItem } from 'uniswap/src/components/activity/summaries/WCSummaryItem'
+import { WithdrawSummaryItem } from 'uniswap/src/components/activity/summaries/WithdrawSummaryItem'
+import { WrapSummaryItem } from 'uniswap/src/components/activity/summaries/WrapSummaryItem'
+import { SummaryItemProps, SwapSummaryCallbacks } from 'uniswap/src/components/activity/types'
+import { isLoadingItem, isSectionHeader, LoadingItem, SectionHeader } from 'uniswap/src/components/activity/utils'
+import { TransactionDetails, TransactionType } from 'uniswap/src/features/transactions/types/transactionDetails'
 
 export type ActivityItem = TransactionDetails | SectionHeader | LoadingItem
 export type ActivityItemRenderer = ({ item, index }: { item: ActivityItem; index: number }) => JSX.Element
@@ -77,11 +79,17 @@ export function generateActivityItemRenderer({
       case TransactionType.Swap:
         SummaryItem = SwapSummaryItem
         break
+      case TransactionType.Plan:
+        SummaryItem = PlanSummaryItem
+        break
       case TransactionType.WCConfirm:
         SummaryItem = WCSummaryItem
         break
       case TransactionType.Wrap:
         SummaryItem = WrapSummaryItem
+        break
+      case TransactionType.Withdraw:
+        SummaryItem = WithdrawSummaryItem
         break
       case TransactionType.LPIncentivesClaimRewards:
       case TransactionType.CollectFees:

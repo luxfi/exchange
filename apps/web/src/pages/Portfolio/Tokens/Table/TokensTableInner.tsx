@@ -1,18 +1,19 @@
-import { SharedEventName } from '@luxdex/analytics-events'
-import { Table } from 'components/Table'
-import { PORTFOLIO_TABLE_ROW_HEIGHT } from 'pages/Portfolio/constants'
-import { useNavigateToTokenDetails } from 'pages/Portfolio/Tokens/hooks/useNavigateToTokenDetails'
-import { TokenData } from 'pages/Portfolio/Tokens/hooks/useTransformTokenTableData'
-import { useTokenColumns } from 'pages/Portfolio/Tokens/Table/columns/useTokenColumns'
+import { SharedEventName } from '@uniswap/analytics-events'
 import { useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 import { TouchableArea } from 'ui/src'
-import { InformationBanner } from 'lx/src/components/banners/InformationBanner'
-import { ElementName, SectionName } from 'lx/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
-import { HiddenTokenInfoModal } from 'lx/src/features/transactions/modals/HiddenTokenInfoModal'
+import { InformationBanner } from 'uniswap/src/components/banners/InformationBanner'
+import { ElementName, SectionName } from 'uniswap/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
+import { HiddenTokenInfoModal } from 'uniswap/src/features/transactions/modals/HiddenTokenInfoModal'
+import { TestID } from 'uniswap/src/test/fixtures/testIDs'
 import { useBooleanState } from 'utilities/src/react/useBooleanState'
 import { useTrace } from 'utilities/src/telemetry/trace/TraceContext'
+import { Table } from '~/components/Table'
+import { PORTFOLIO_TABLE_ROW_HEIGHT } from '~/pages/Portfolio/constants'
+import { useNavigateToTokenDetails } from '~/pages/Portfolio/Tokens/hooks/useNavigateToTokenDetails'
+import { TokenData } from '~/pages/Portfolio/Tokens/hooks/useTransformTokenTableData'
+import { useTokenColumns } from '~/pages/Portfolio/Tokens/Table/columns/useTokenColumns'
 
 export function TokensTableInner({
   tokenData,
@@ -44,7 +45,7 @@ export function TokensTableInner({
         section: SectionName.PortfolioTokensTab,
         ...trace,
       })
-      navigateToTokenDetails(tokenData)
+      navigateToTokenDetails(tokenData.currencyInfo?.currency)
     },
     [navigateToTokenDetails, trace],
   )
@@ -52,7 +53,11 @@ export function TokensTableInner({
   return (
     <>
       {showHiddenTokensBanner && (
-        <InformationBanner infoText={t('hidden.tokens.info.banner.text')} onPress={openModal} />
+        <InformationBanner
+          infoText={t('hidden.tokens.info.banner.text')}
+          onPress={openModal}
+          testID={TestID.HiddenTokensInfoBanner}
+        />
       )}
       <HiddenTokenInfoModal isOpen={isModalVisible} onClose={closeModal} />
       <Table

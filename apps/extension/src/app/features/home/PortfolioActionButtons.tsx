@@ -1,5 +1,4 @@
-import { SharedEventName } from '@luxdex/analytics-events'
-import { FeatureFlags, useFeatureFlag } from '@luxfi/gating'
+import { SharedEventName } from '@uniswap/analytics-events'
 import { cloneElement, memo, useCallback, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useInterfaceBuyNavigator } from 'src/app/features/for/utils'
@@ -7,11 +6,11 @@ import { AppRoutes } from 'src/app/navigation/constants'
 import { navigate } from 'src/app/navigation/state'
 import { Flex, getTokenValue, Text, TouchableArea, useMedia } from 'ui/src'
 import { ArrowDownCircle, Bank, CoinConvert, SendAction } from 'ui/src/components/icons'
-import { useEnabledChains } from 'lx/src/features/chains/hooks/useEnabledChains'
-import { ElementName } from 'lx/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
-import { TestnetModeModal } from 'lx/src/features/testnets/TestnetModeModal'
-import { ExtensionScreens } from 'lx/src/types/screens/extension'
+import { useEnabledChains } from 'uniswap/src/features/chains/hooks/useEnabledChains'
+import { ElementName } from 'uniswap/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
+import { TestnetModeModal } from 'uniswap/src/features/testnets/TestnetModeModal'
+import { ExtensionScreens } from 'uniswap/src/types/screens/extension'
 
 const ICON_COLOR = '$accent1'
 
@@ -66,7 +65,6 @@ export const PortfolioActionButtons = memo(function _PortfolioActionButtons(): J
   const { t } = useTranslation()
   const media = useMedia()
   const { isTestnetModeEnabled } = useEnabledChains()
-  const isFiatOffRampEnabled = useFeatureFlag(FeatureFlags.FiatOffRamp)
 
   const onSendClick = (): void => {
     sendAnalyticsEvent(SharedEventName.ELEMENT_CLICKED, {
@@ -118,11 +116,7 @@ export const PortfolioActionButtons = memo(function _PortfolioActionButtons(): J
       />
       <Flex row shrink gap="$spacing8" width={isGrid ? '100%' : '50%'}>
         <ActionButton Icon={<CoinConvert />} label={t('home.label.swap')} onClick={onSwapClick} />
-        <ActionButton
-          Icon={<Bank />}
-          label={isFiatOffRampEnabled ? t('home.label.for') : t('home.label.buy')}
-          onClick={onBuyClick}
-        />
+        <ActionButton Icon={<Bank />} label={t('home.label.for')} onClick={onBuyClick} />
       </Flex>
       <Flex row shrink gap="$spacing8" width={isGrid ? '100%' : '50%'}>
         <ActionButton Icon={<SendAction />} label={t('home.label.send')} onClick={onSendClick} />

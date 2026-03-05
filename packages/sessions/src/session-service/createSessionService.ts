@@ -1,14 +1,15 @@
-import type { DeviceIdService } from '@luxfi/sessions/src/device-id/types'
-import type { SessionRepository } from '@luxfi/sessions/src/session-repository/types'
+import type { DeviceIdService } from '@universe/sessions/src/device-id/types'
+import type { SessionRepository } from '@universe/sessions/src/session-repository/types'
 import type {
+  ChallengeRequest,
   ChallengeResponse,
   InitSessionResponse,
   SessionService,
-  UpgradeSessionRequest,
-  UpgradeSessionResponse,
-} from '@luxfi/sessions/src/session-service/types'
-import type { SessionStorage } from '@luxfi/sessions/src/session-storage/types'
-import type { UniswapIdentifierService } from '@luxfi/sessions/src/uniswap-identifier/types'
+  VerifySessionRequest,
+  VerifySessionResponse,
+} from '@universe/sessions/src/session-service/types'
+import type { SessionStorage } from '@universe/sessions/src/session-storage/types'
+import type { UniswapIdentifierService } from '@universe/sessions/src/uniswap-identifier/types'
 
 /**
  * Creates a Session Service instance.
@@ -25,21 +26,21 @@ export function createSessionService(ctx: {
     if (result.sessionId) {
       await ctx.sessionStorage.set({ sessionId: result.sessionId })
     }
-    if (result.extra.device_id) {
-      await ctx.deviceIdService.setDeviceId(result.extra.device_id)
+    if (result.deviceId) {
+      await ctx.deviceIdService.setDeviceId(result.deviceId)
     }
-    if (result.extra.uniswapIdentifier) {
-      await ctx.uniswapIdentifierService.setUniswapIdentifier(result.extra.uniswapIdentifier)
+    if (result.extra['uniswapIdentifier']) {
+      await ctx.uniswapIdentifierService.setUniswapIdentifier(result.extra['uniswapIdentifier'])
     }
     return result
   }
 
-  async function requestChallenge(): Promise<ChallengeResponse> {
-    return ctx.sessionRepository.challenge({})
+  async function requestChallenge(request?: ChallengeRequest): Promise<ChallengeResponse> {
+    return ctx.sessionRepository.challenge(request ?? {})
   }
 
-  async function upgradeSession(input: UpgradeSessionRequest): Promise<UpgradeSessionResponse> {
-    return ctx.sessionRepository.upgradeSession(input)
+  async function verifySession(input: VerifySessionRequest): Promise<VerifySessionResponse> {
+    return ctx.sessionRepository.verifySession(input)
   }
 
   async function removeSession(): Promise<void> {
@@ -53,7 +54,7 @@ export function createSessionService(ctx: {
   return {
     initSession,
     requestChallenge,
-    upgradeSession,
+    verifySession,
     removeSession,
     getSessionState,
   }

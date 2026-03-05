@@ -1,14 +1,15 @@
 import { useMemo } from 'react'
 import { useSelector } from 'react-redux'
-import { TokenOption } from 'lx/src/components/lists/items/types'
-import { MAX_RECENT_SEARCH_RESULTS } from 'lx/src/components/TokenSelector/constants'
-import { currencyInfosToTokenOptions } from 'lx/src/components/TokenSelector/hooks/useCurrencyInfosToTokenOptions'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { CurrencyInfo } from 'lx/src/features/dataApi/types'
-import { SearchHistoryResultType, TokenSearchHistoryResult } from 'lx/src/features/search/SearchHistoryResult'
-import { selectSearchHistory } from 'lx/src/features/search/selectSearchHistory'
-import { useCurrencyInfos } from 'lx/src/features/tokens/useCurrencyInfo'
-import { buildCurrencyId, buildNativeCurrencyId } from 'lx/src/utils/currencyId'
+import { TokenOption } from 'uniswap/src/components/lists/items/types'
+import { MAX_RECENT_SEARCH_RESULTS } from 'uniswap/src/components/TokenSelector/constants'
+import { currencyInfosToTokenOptions } from 'uniswap/src/components/TokenSelector/hooks/useCurrencyInfosToTokenOptions'
+import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { isUniverseChainId } from 'uniswap/src/features/chains/utils'
+import { CurrencyInfo } from 'uniswap/src/features/dataApi/types'
+import { SearchHistoryResultType, TokenSearchHistoryResult } from 'uniswap/src/features/search/SearchHistoryResult'
+import { selectSearchHistory } from 'uniswap/src/features/search/selectSearchHistory'
+import { useCurrencyInfos } from 'uniswap/src/features/tokens/useCurrencyInfo'
+import { buildCurrencyId, buildNativeCurrencyId } from 'uniswap/src/utils/currencyId'
 
 export function useRecentlySearchedTokens(
   chainFilter: UniverseChainId | null,
@@ -21,6 +22,8 @@ export function useRecentlySearchedTokens(
       .filter(
         (searchResult): searchResult is TokenSearchHistoryResult => searchResult.type === SearchHistoryResultType.Token,
       )
+      // Filter out invalid chainIds to prevent crashes from corrupted search history data
+      .filter((searchResult) => isUniverseChainId(searchResult.chainId))
       .filter((searchResult) => (chainFilter ? searchResult.chainId === chainFilter : true))
       .slice(0, numberOfResults),
   )

@@ -1,43 +1,42 @@
-import { FeatureFlags, useFeatureFlag } from '@luxfi/gating'
 import type { TFunction } from 'i18next'
 import isEqual from 'lodash/isEqual'
 import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
-import type { ParsedWarnings, Warning } from 'lx/src/components/modals/WarningModal/types'
-import { useUniswapContext } from 'lx/src/contexts/UniswapContext'
-import { useActiveAddress } from 'lx/src/features/accounts/store/hooks'
-import { useTransactionGasWarning } from 'lx/src/features/gas/hooks'
-import type { LocalizationContextState } from 'lx/src/features/language/LocalizationContext'
-import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
+import type { ParsedWarnings, Warning } from 'uniswap/src/components/modals/WarningModal/types'
+import { useUniswapContext } from 'uniswap/src/contexts/UniswapContext'
+import { useActiveAddress } from 'uniswap/src/features/accounts/store/hooks'
+import { useTransactionGasWarning } from 'uniswap/src/features/gas/hooks'
+import type { LocalizationContextState } from 'uniswap/src/features/language/LocalizationContext'
+import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
 import {
   getNetworkWarning,
   useFormattedWarnings,
-} from 'lx/src/features/transactions/hooks/useParsedTransactionWarnings'
-import { getAztecUnavailableWarning } from 'lx/src/features/transactions/swap/hooks/useSwapWarnings/getAztecUnavailableWarning'
-import { getBalanceWarning } from 'lx/src/features/transactions/swap/hooks/useSwapWarnings/getBalanceWarning'
-import { getFormIncompleteWarning } from 'lx/src/features/transactions/swap/hooks/useSwapWarnings/getFormIncompleteWarning'
-import { getPriceImpactWarning } from 'lx/src/features/transactions/swap/hooks/useSwapWarnings/getPriceImpactWarning'
-import { getSwapWarningFromError } from 'lx/src/features/transactions/swap/hooks/useSwapWarnings/getSwapWarningFromError'
-import { getTokenBlockedWarning } from 'lx/src/features/transactions/swap/hooks/useSwapWarnings/getTokenBlockedWarning'
-import { useSwapFormStore } from 'lx/src/features/transactions/swap/stores/swapFormStore/useSwapFormStore'
-import { useSwapTxStore } from 'lx/src/features/transactions/swap/stores/swapTxStore/useSwapTxStore'
-import type { DerivedSwapInfo } from 'lx/src/features/transactions/swap/types/derivedSwapInfo'
-import { getPriceImpact } from 'lx/src/features/transactions/swap/utils/getPriceImpact'
+} from 'uniswap/src/features/transactions/hooks/useParsedTransactionWarnings'
+import { getBalanceWarning } from 'uniswap/src/features/transactions/swap/hooks/useSwapWarnings/getBalanceWarning'
+import { getFormIncompleteWarning } from 'uniswap/src/features/transactions/swap/hooks/useSwapWarnings/getFormIncompleteWarning'
+import { getPriceImpactWarning } from 'uniswap/src/features/transactions/swap/hooks/useSwapWarnings/getPriceImpactWarning'
+import { getSwapWarningFromError } from 'uniswap/src/features/transactions/swap/hooks/useSwapWarnings/getSwapWarningFromError'
+import { getTokenBlockedWarning } from 'uniswap/src/features/transactions/swap/hooks/useSwapWarnings/getTokenBlockedWarning'
+import { useParsedActivePlanWarnings } from 'uniswap/src/features/transactions/swap/hooks/useSwapWarnings/useParsedActivePlanWarnings'
+import { activePlanStore } from 'uniswap/src/features/transactions/swap/review/stores/activePlan/activePlanStore'
+import { useSwapFormStore } from 'uniswap/src/features/transactions/swap/stores/swapFormStore/useSwapFormStore'
+import { useSwapTxStore } from 'uniswap/src/features/transactions/swap/stores/swapTxStore/useSwapTxStore'
+import type { DerivedSwapInfo } from 'uniswap/src/features/transactions/swap/types/derivedSwapInfo'
+import { getPriceImpact } from 'uniswap/src/features/transactions/swap/utils/getPriceImpact'
 import { useIsOffline } from 'utilities/src/connection/useIsOffline'
 import { useMemoCompare } from 'utilities/src/react/hooks'
+import { useStore } from 'zustand'
 
 export function getSwapWarnings({
   t,
   formatPercent,
   derivedSwapInfo,
   offline,
-  aztecDisabled = false,
 }: {
   t: TFunction
   formatPercent: LocalizationContextState['formatPercent']
   derivedSwapInfo: DerivedSwapInfo
   offline: boolean
-  aztecDisabled?: boolean
 }): Warning[] {
   const warnings: Warning[] = []
 
@@ -46,15 +45,6 @@ export function getSwapWarnings({
   }
 
   const { trade } = derivedSwapInfo
-
-  const aztecUnavailableWarning = getAztecUnavailableWarning({
-    t,
-    currencies: derivedSwapInfo.currencies,
-    isAztecDisabled: aztecDisabled,
-  })
-  if (aztecUnavailableWarning) {
-    warnings.push(aztecUnavailableWarning)
-  }
 
   // token is blocked
   const tokenBlockedWarning = getTokenBlockedWarning(t, derivedSwapInfo.currencies)
@@ -101,12 +91,11 @@ function useSwapWarnings(derivedSwapInfo: DerivedSwapInfo): Warning[] {
   const { t } = useTranslation()
   const { formatPercent } = useLocalizationContext()
   const offline = useIsOffline()
-  const aztecDisabled = useFeatureFlag(FeatureFlags.DisableAztecToken)
 
-  return useMemoCompare(() => getSwapWarnings({ t, formatPercent, derivedSwapInfo, offline, aztecDisabled }), isEqual)
+  return useMemoCompare(() => getSwapWarnings({ t, formatPercent, derivedSwapInfo, offline }), isEqual)
 }
 
-export function useParsedSwapWarnings(): ParsedWarnings {
+function useParsedSwapFormWarnings(): ParsedWarnings {
   const derivedSwapInfo = useSwapFormStore((s) => s.derivedSwapInfo)
 
   const accountAddress = useActiveAddress(derivedSwapInfo.chainId)
@@ -131,4 +120,13 @@ export function useParsedSwapWarnings(): ParsedWarnings {
   }, [gasWarning, swapWarnings])
 
   return useFormattedWarnings(allWarnings)
+}
+
+export function useParsedSwapWarnings(): ParsedWarnings {
+  const hasActivePlan = useStore(activePlanStore, (s) => !!s.activePlan)
+
+  const formWarnings = useParsedSwapFormWarnings()
+  const planWarnings = useParsedActivePlanWarnings()
+
+  return hasActivePlan ? planWarnings : formWarnings
 }

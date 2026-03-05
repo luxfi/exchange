@@ -1,17 +1,17 @@
 import { memo, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
-import { NoResultsFound } from 'lx/src/components/lists/NoResultsFound'
-import { useAddToSearchHistory } from 'lx/src/components/TokenSelector/hooks/useAddToSearchHistory'
-import { useTokenSectionsForSearchResults } from 'lx/src/components/TokenSelector/hooks/useTokenSectionsForSearchResults'
-import { TokenSelectorList } from 'lx/src/components/TokenSelector/TokenSelectorList'
-import { OnSelectCurrency } from 'lx/src/components/TokenSelector/types'
-import { TradeableAsset } from 'lx/src/entities/assets'
-import { UniverseChainId } from 'lx/src/features/chains/types'
+import { NoResultsFound } from 'uniswap/src/components/lists/NoResultsFound'
+import { useAddToSearchHistory } from 'uniswap/src/components/TokenSelector/hooks/useAddToSearchHistory'
+import { useTokenSectionsForSearchResults } from 'uniswap/src/components/TokenSelector/hooks/useTokenSectionsForSearchResults'
+import { TokenSelectorList } from 'uniswap/src/components/TokenSelector/TokenSelectorList'
+import { OnSelectCurrency } from 'uniswap/src/components/TokenSelector/types'
+import { TradeableAsset } from 'uniswap/src/entities/assets'
+import type { AddressGroup } from 'uniswap/src/features/accounts/store/types/AccountsState'
+import { UniverseChainId } from 'uniswap/src/features/chains/types'
 
 function _TokenSelectorSearchResultsList({
   onSelectCurrency: parentOnSelectCurrency,
-  evmAddress,
-  svmAddress,
+  addresses,
   chainFilter,
   parsedChainFilter,
   searchFilter,
@@ -22,8 +22,7 @@ function _TokenSelectorSearchResultsList({
   renderedInModal,
 }: {
   onSelectCurrency: OnSelectCurrency
-  evmAddress?: string
-  svmAddress?: string
+  addresses: AddressGroup
   chainFilter: UniverseChainId | null
   parsedChainFilter: UniverseChainId | null
   searchFilter: string
@@ -41,8 +40,7 @@ function _TokenSelectorSearchResultsList({
     error,
     refetch,
   } = useTokenSectionsForSearchResults({
-    evmAddress,
-    svmAddress,
+    addresses,
     chainFilter: chainFilter ?? parsedChainFilter,
     searchFilter: debouncedParsedSearchFilter ?? debouncedSearchFilter,
     isBalancesOnlySearch,

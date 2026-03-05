@@ -1,38 +1,38 @@
-import { createHelpArticleUrl, getCloudflareApiBaseUrl, helpUrl, TrafficFlows } from '@luxfi/api'
-import { config } from 'lx/src/config'
-import { isBetaEnv, isDevEnv, isPlaywrightEnv } from 'utilities/src/environment/env'
+import {
+  createHelpArticleUrl,
+  getCloudflareApiBaseUrl,
+  getMigratedForApiUrl,
+  helpUrl,
+  TrafficFlows,
+} from '@universe/api'
+import { FeatureFlags, getFeatureFlag } from '@universe/gating'
+import { config } from 'uniswap/src/config'
+import { isDevEnv, isPlaywrightEnv } from 'utilities/src/environment/env'
+import { isWebApp } from 'utilities/src/platform'
 
-// Lux Gateway URLs - proxies to Uniswap APIs with native Lux/Zoo chain support
-const LUX_GATEWAY_DEV_URL = 'http://localhost:8085'
-const LUX_GATEWAY_STAGING_URL = 'https://dex.lux-test.network'
-const LUX_GATEWAY_PROD_URL = 'https://dex.lux.network'
+export const UNISWAP_WEB_HOSTNAME = 'app.uniswap.org'
+const EMBEDDED_WALLET_HOSTNAME = isPlaywrightEnv() || isDevEnv() ? 'staging.ew.unihq.org' : UNISWAP_WEB_HOSTNAME
 
 /**
- * Get the Lux Gateway URL based on environment
- * Override with LUX_GATEWAY_URL or REACT_APP_LUX_GATEWAY_URL environment variable
+ * Returns the FOR API URL based on the ForUrlMigration feature flag.
+ * When the flag is enabled, uses the new migrated URLs (staging/prod).
+ * When disabled, uses the legacy URL structure.
  */
-function getLuxGatewayUrl(): string {
-  // Allow override via config
-  if (config.luxGatewayUrlOverride) {
-    return config.luxGatewayUrlOverride
+export function getForApiUrl(): string {
+  if (config.forApiUrlOverride) {
+    return config.forApiUrlOverride
   }
 
-  // Environment-based defaults
-  if (isPlaywrightEnv() || isDevEnv()) {
-    return LUX_GATEWAY_DEV_URL
+  if (getFeatureFlag(FeatureFlags.ForUrlMigration)) {
+    return getMigratedForApiUrl()
   }
-  if (isBetaEnv()) {
-    return LUX_GATEWAY_STAGING_URL
-  }
-  return LUX_GATEWAY_PROD_URL
+
+  return getCloudflareApiBaseUrl({ flow: TrafficFlows.FOR, postfix: 'v2/FOR.v1.FORService' })
 }
 
-export const UNISWAP_WEB_HOSTNAME = 'lux.exchange'
-const EMBEDDED_WALLET_HOSTNAME = isPlaywrightEnv() || isDevEnv() ? 'staging.lux.exchange' : UNISWAP_WEB_HOSTNAME
-
 export const UNISWAP_WEB_URL = `https://${UNISWAP_WEB_HOSTNAME}`
-export const UNISWAP_APP_URL = 'https://lux.exchange/app'
-export const UNISWAP_MOBILE_REDIRECT_URL = 'https://lux.exchange/mobile-redirect'
+export const UNISWAP_APP_URL = 'https://uniswap.org/app'
+export const UNISWAP_MOBILE_REDIRECT_URL = 'https://uniswap.org/mobile-redirect'
 
 // The trading api uses custom builds for testing which may not use the v1 prefix
 export const tradingApiVersionPrefix = config.tradingApiWebTestEnv === 'true' ? '' : '/v1'
@@ -82,6 +82,7 @@ export const uniswapUrls = {
     positionsLearnMore: createHelpArticleUrl('8829880740109'),
     priceImpact: createHelpArticleUrl('8671539602317-What-is-Price-Impact'),
     providingLiquidityInfo: createHelpArticleUrl('20982919867021', 'sections'),
+    providingLiquidityVersions: createHelpArticleUrl('30998269400333'),
     recoveryPhraseHowToImport: createHelpArticleUrl(
       '11380692567949-How-to-import-a-recovery-phrase-into-the-Uniswap-Wallet',
     ),
@@ -96,41 +97,55 @@ export const uniswapUrls = {
     smartWalletDelegation: createHelpArticleUrl('36391987158797'),
     swapProtection: createHelpArticleUrl('18814993155853'),
     swapSlippage: createHelpArticleUrl('8643879653261-What-is-Price-Slippage-'),
+    toucanBidHelp: createHelpArticleUrl(
+      '43106804833421-How-to-participate-in-token-auctions-on-Uniswap#bidding-in-an-auction',
+    ),
+    toucanBidDetailsHelp: createHelpArticleUrl(
+      '43106804833421-How-to-participate-in-token-auctions-on-Uniswap#bidding-in-an-auction',
+    ),
+    toucanIntro: createHelpArticleUrl('43107626487437'),
+    toucanFailedToLaunchHelp: createHelpArticleUrl(
+      '43107626487437-What-are-Continuous-Clearing-Auctions#what-is-a-graduation-threshold',
+    ),
+    toucanVerifiedAuctionsHelp: createHelpArticleUrl('43107250032781'),
     tokenWarning: createHelpArticleUrl('8723118437133-What-are-token-warnings-'),
+    toucanWithdrawHelp: createHelpArticleUrl(
+      '43106804833421-How-to-participate-in-token-auctions-on-Uniswap#claiming-your-tokens-and-unspent-budget',
+    ),
     transactionFailure: createHelpArticleUrl('8643975058829-Why-did-my-transaction-fail-'),
     uniswapXInfo: createHelpArticleUrl('17544708791821'),
     uniswapXFailure: createHelpArticleUrl('17515489874189-Why-can-my-swap-not-be-filled-'),
     unsupportedTokenPolicy: createHelpArticleUrl('18783694078989-Unsupported-Token-Policy'),
     addingV4Hooks: createHelpArticleUrl('32402040565133'),
     routingSettings: createHelpArticleUrl('27362707722637'),
+    uniswapVersionsInfo: createHelpArticleUrl('7425482965517-Uniswap-v2-v3-and-v4'),
     v4HooksInfo: createHelpArticleUrl('30998263256717'),
+    subgraphDowntime: createHelpArticleUrl('23952001935373-Subgraph-downtime'),
     walletSecurityMeasures: createHelpArticleUrl('28278904584077-Uniswap-Wallet-Security-Measures'),
     whatIsPrivateKey: createHelpArticleUrl('11306371824653-What-is-a-private-key'),
     wethExplainer: createHelpArticleUrl('16015852009997-Why-do-ETH-swaps-involve-converting-to-WETH'),
   },
-  downloadWalletUrl: 'https://lux.exchange/wallet',
-  tradingApiDocsUrl: 'https://docs.lux.exchange/api',
-  luxNetworkUrl: 'https://lux.network/',
-  luxDexUrl: 'https://lux.exchange/swap',
-  helpCenterUrl: 'https://docs.lux.exchange/help',
-  blogUrl: 'https://lux.exchange/blog',
-  docsUrl: 'https://docs.lux.exchange/',
-  forumUrl: 'https://github.com/luxfi/exchange/discussions',
-  communityUrl: 'https://discord.gg/luxfi',
-  voteUrl: 'https://lux.exchange/vote',
-  governanceUrl: 'https://lux.exchange/governance',
-  developersUrl: 'https://docs.lux.exchange/developers',
-  aboutUrl: 'https://lux.exchange/about',
-  careersUrl: 'https://lux.exchange/careers',
+  downloadWalletUrl: 'https://wallet.uniswap.org/',
+  tradingApiDocsUrl: 'https://hub.uniswap.org/',
+  unichainUrl: 'https://www.unichain.org/',
+  uniswapXUrl: 'https://x.uniswap.org/',
+  helpCenterUrl: 'https://help.uniswap.org/',
+  blogUrl: 'https://blog.uniswap.org/',
+  docsUrl: 'https://docs.uniswap.org/',
+  voteUrl: 'https://vote.uniswapfoundation.org',
+  governanceUrl: 'https://uniswap.org/governance',
+  developersUrl: 'https://uniswap.org/developers',
+  aboutUrl: 'https://about.uniswap.org/',
+  careersUrl: 'https://careers.uniswap.org/',
   social: {
-    x: 'https://x.com/luxdefi',
-    farcaster: 'https://farcaster.xyz/lux',
-    linkedin: 'https://www.linkedin.com/company/luxfi',
-    tiktok: 'https://www.tiktok.com/@luxdefi',
+    x: 'https://x.com/Uniswap',
+    farcaster: 'https://farcaster.xyz/Uniswap',
+    linkedin: 'https://www.linkedin.com/company/uniswaporg',
+    tiktok: 'https://www.tiktok.com/@uniswap',
   },
-  termsOfServiceUrl: 'https://lux.exchange/terms',
-  privacyPolicyUrl: 'https://lux.exchange/privacy',
-  chromeExtension: 'https://lux.exchange/extension',
+  termsOfServiceUrl: 'https://uniswap.org/terms-of-service',
+  privacyPolicyUrl: 'https://uniswap.org/privacy-policy',
+  chromeExtension: 'http://uniswap.org/ext',
   chromeExtensionUninstallUrl: `${UNISWAP_WEB_URL}${CHROME_EXTENSION_UNINSTALL_URL_PATH}`,
 
   // Download links
@@ -140,45 +155,31 @@ export const uniswapUrls = {
   // Core API Urls
   apiOrigin: 'https://api.uniswap.org',
   apiBaseUrl: config.apiBaseUrlOverride || getCloudflareApiBaseUrl(),
-
-  // Lux Gateway - routes to native Lux/Zoo providers with Uniswap fallback
-  luxGatewayUrl: getLuxGatewayUrl(),
-  luxGatewayQuoteUrl: `${getLuxGatewayUrl()}/v1/quote`,
-  luxGatewaySwapUrl: `${getLuxGatewayUrl()}/v1/swap`,
-  luxGatewayPoolsUrl: `${getLuxGatewayUrl()}/v1/pools`,
-  luxGatewayPriceUrl: `${getLuxGatewayUrl()}/v1/price`,
-
-  // Lux DEX Gateway - Advanced trading (CLOB, perps, margin, vaults)
-  luxDexOrderBookUrl: `${getLuxGatewayUrl()}/api/orderbook`,
-  luxDexTradesUrl: `${getLuxGatewayUrl()}/api/trades`,
-  luxDexStatsUrl: `${getLuxGatewayUrl()}/api/stats`,
-  luxDexOrderUrl: `${getLuxGatewayUrl()}/api/order`,
-  luxDexOrdersUrl: `${getLuxGatewayUrl()}/api/orders`,
-  luxDexPositionsUrl: `${getLuxGatewayUrl()}/api/positions`,
-  luxDexVaultsUrl: `${getLuxGatewayUrl()}/api/vaults`,
-  luxDexWsUrl: getLuxGatewayUrl().replace(/^http/, 'ws') + '/ws',
-  apiBaseUrlV2: config.apiBaseUrlV2Override || `${getCloudflareApiBaseUrl()}/v2`,
-  graphQLUrl: config.graphqlUrlOverride || `${getCloudflareApiBaseUrl(TrafficFlows.GraphQL)}/v1/graphql`,
-
-  // G-Chain GraphQL - native Lux blockchain data layer (read-only)
-  gChainGraphqlUrl: config.gChainGraphqlUrl,
-  gChainSchemaUrl: config.gChainGraphqlUrl.replace('/graphql', '/schema'),
-  gChainQueryUrl: config.gChainGraphqlUrl.replace('/graphql', '/query'),
+  apiBaseUrlV2: config.apiBaseUrlV2Override || getCloudflareApiBaseUrl({ postfix: 'v2' }),
+  dataApiBaseUrlV2:
+    config.apiBaseUrlV2Override || getCloudflareApiBaseUrl({ flow: TrafficFlows.DataApi, postfix: 'v2' }),
+  graphQLUrl:
+    config.graphqlUrlOverride || getCloudflareApiBaseUrl({ flow: TrafficFlows.GraphQL, postfix: 'v1/graphql' }),
 
   // Proxies
   amplitudeProxyUrl:
-    config.amplitudeProxyUrlOverride || `${getCloudflareApiBaseUrl(TrafficFlows.Metrics)}/v1/amplitude-proxy`,
-  statsigProxyUrl: config.statsigProxyUrlOverride || `${getCloudflareApiBaseUrl(TrafficFlows.Gating)}/v1/statsig-proxy`,
+    config.amplitudeProxyUrlOverride ||
+    getCloudflareApiBaseUrl({ flow: TrafficFlows.Metrics, postfix: 'v1/amplitude-proxy' }),
+  // On web, proxy through same-origin "/config" — the BFF (Hono) rewrites to the real Cloudflare URL.
+  statsigProxyUrl:
+    config.statsigProxyUrlOverride ||
+    (isWebApp ? '/config' : getCloudflareApiBaseUrl({ flow: TrafficFlows.Gating, postfix: 'v1/statsig-proxy' })),
 
   // Feature service URL's
-  unitagsApiUrl: config.unitagsApiUrlOverride || `${getCloudflareApiBaseUrl(TrafficFlows.Unitags)}/v2/unitags`,
+  unitagsApiUrl:
+    config.unitagsApiUrlOverride || getCloudflareApiBaseUrl({ flow: TrafficFlows.Unitags, postfix: 'v2/unitags' }),
   scantasticApiUrl:
-    config.scantasticApiUrlOverride || `${getCloudflareApiBaseUrl(TrafficFlows.Scantastic)}/v2/scantastic`,
-  forApiUrl: config.forApiUrlOverride || `${getCloudflareApiBaseUrl(TrafficFlows.FOR)}/v2/FOR.v1.FORService`,
-  tradingApiUrl: config.tradingApiUrlOverride || getCloudflareApiBaseUrl(TrafficFlows.TradingApi),
-  liquidityServiceUrl:
-    config.liquidityServiceUrlOverride ||
-    'https://liquidity.backend-prod.api.uniswap.org/uniswap.liquidity.v1.LiquidityService',
+    config.scantasticApiUrlOverride ||
+    getCloudflareApiBaseUrl({ flow: TrafficFlows.Scantastic, postfix: 'v2/scantastic' }),
+  forApiUrl:
+    config.forApiUrlOverride || getCloudflareApiBaseUrl({ flow: TrafficFlows.FOR, postfix: 'v2/FOR.v1.FORService' }),
+  tradingApiUrl: config.tradingApiUrlOverride || getCloudflareApiBaseUrl({ flow: TrafficFlows.TradingApi }),
+  liquidityServiceUrl: config.liquidityServiceUrlOverride || 'https://liquidity.backend-prod.api.uniswap.org',
 
   // Merkl Docs for LP Incentives
   merklDocsUrl: 'https://docs.merkl.xyz/earn-with-merkl/faq-earn#how-are-aprs-calculated',
@@ -190,6 +191,7 @@ export const uniswapUrls = {
   evervaultProductionUrl: 'https://embedded-wallet.app-907329d19a06.enclave.evervault.com',
   embeddedWalletUrl: `https://${EMBEDDED_WALLET_HOSTNAME}`,
   passkeysManagementUrl: `https://${EMBEDDED_WALLET_HOSTNAME}/manage/passkey`,
+  privyEmbeddedWalletUrl: 'https://privy-embedded-wallet.backend-dev.api.uniswap.org',
 
   // API Paths
   trmPath: '/v1/screen',
@@ -202,7 +204,6 @@ export const uniswapUrls = {
     decreaseLp: `${tradingApiVersionPrefix}/lp/decrease`,
     increaseLp: `${tradingApiVersionPrefix}/lp/increase`,
     lpApproval: `${tradingApiVersionPrefix}/lp/approve`,
-    migrate: `${tradingApiVersionPrefix}/lp/migrate`,
     poolInfo: `${tradingApiVersionPrefix}/lp/pool_info`,
     order: `${tradingApiVersionPrefix}/order`,
     orders: `${tradingApiVersionPrefix}/orders`,
@@ -243,5 +244,5 @@ export const uniswapUrls = {
   walletFeedbackForm:
     'https://docs.google.com/forms/d/e/1FAIpQLSepzL5aMuSfRhSgw0zDw_gVmc2aeVevfrb1UbOwn6WGJ--46w/viewform',
 
-  dataApiServiceUrl: `${getCloudflareApiBaseUrl()}/v2/data.v1.DataApiService`,
+  dataApiServiceUrl: getCloudflareApiBaseUrl({ postfix: 'v2/data.v1.DataApiService' }),
 }

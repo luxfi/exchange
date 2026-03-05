@@ -1,20 +1,19 @@
 import type { BottomSheetView } from '@gorhom/bottom-sheet'
 import type { ComponentProps } from 'react'
-import { TokenSelectorModal, TokenSelectorVariation } from 'lx/src/components/TokenSelector/TokenSelector'
-import { TokenSelectorFlow } from 'lx/src/components/TokenSelector/types'
-import { useOnSelectCurrency } from 'lx/src/features/transactions/swap/form/hooks/useOnSelectCurrency'
-import { useChainId } from 'lx/src/features/transactions/swap/form/SwapFormScreen/SwapTokenSelector/hooks/useChainId'
-import { useHideTokenSelector } from 'lx/src/features/transactions/swap/form/SwapFormScreen/SwapTokenSelector/hooks/useHideTokenSelector'
-import { useSwapFormStore } from 'lx/src/features/transactions/swap/stores/swapFormStore/useSwapFormStore'
-import { useWallet } from 'lx/src/features/wallet/hooks/useWallet'
-import { CurrencyField } from 'lx/src/types/currency'
+import { TokenSelectorModal, TokenSelectorVariation } from 'uniswap/src/components/TokenSelector/TokenSelector'
+import { TokenSelectorFlow } from 'uniswap/src/components/TokenSelector/types'
+import { useActiveAddresses } from 'uniswap/src/features/accounts/store/hooks'
+import { useOnSelectCurrency } from 'uniswap/src/features/transactions/swap/form/hooks/useOnSelectCurrency'
+import { useChainId } from 'uniswap/src/features/transactions/swap/form/SwapFormScreen/SwapTokenSelector/hooks/useChainId'
+import { useHideTokenSelector } from 'uniswap/src/features/transactions/swap/form/SwapFormScreen/SwapTokenSelector/hooks/useHideTokenSelector'
+import { useSwapFormStore } from 'uniswap/src/features/transactions/swap/stores/swapFormStore/useSwapFormStore'
+import { CurrencyField } from 'uniswap/src/types/currency'
 
 export function SwapTokenSelector({
   isModalOpen,
   focusHook,
 }: {
   isModalOpen: boolean
-  // @ts-expect-error BottomSheet type incompatibility
   focusHook?: ComponentProps<typeof BottomSheetView>['focusHook']
 }): JSX.Element | null {
   const { selectingCurrencyField, input, output } = useSwapFormStore((s) => ({
@@ -23,9 +22,7 @@ export function SwapTokenSelector({
     output: s.output,
   }))
 
-  const wallet = useWallet()
-  const activeEVMAccountAddress = wallet.evmAccount?.address
-  const activeSVMAccountAddress = wallet.svmAccount?.address
+  const addresses = useActiveAddresses()
   const chainId = useChainId()
 
   const handleHideTokenSelector = useHideTokenSelector()
@@ -44,8 +41,7 @@ export function SwapTokenSelector({
   return (
     <TokenSelectorModal
       isModalOpen={isModalOpen}
-      evmAddress={activeEVMAccountAddress}
-      svmAddress={activeSVMAccountAddress}
+      addresses={addresses}
       chainId={chainId}
       input={input}
       output={output}

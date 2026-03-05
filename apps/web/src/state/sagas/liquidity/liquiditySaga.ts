@@ -1,55 +1,56 @@
 import {
   GetLPPriceDiscrepancyRequest,
   GetLPPriceDiscrepancyResponse,
-} from '@luxdex/client-trading/dist/trading/v1/api_pb'
-import { getLiquidityEventName } from 'components/Liquidity/analytics'
-import { popupRegistry } from 'components/Popups/registry'
-import { PopupType } from 'components/Popups/types'
-import { handleAtomicSendCalls } from 'state/sagas/transactions/5792'
-import {
-  getDisplayableError,
-  handleApprovalTransactionStep,
-  handleOnChainStep,
-  handlePermitTransactionStep,
-  handleSignatureStep,
-} from 'state/sagas/transactions/utils'
+} from '@uniswap/client-liquidity/dist/uniswap/liquidity/v1/api_pb'
 import invariant from 'tiny-invariant'
 import { call, delay, spawn } from 'typed-redux-saga'
-import { ZERO_ADDRESS } from 'lx/src/constants/misc'
-import { TradingApiClient } from 'lx/src/data/apiClients/tradingApi/TradingApiClient'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { InterfaceEventName, LiquidityEventName } from 'lx/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
-import type { UniverseEventProperties } from 'lx/src/features/telemetry/types'
-import type { CollectFeesTransactionStep } from 'lx/src/features/transactions/liquidity/steps/collectFees'
-import type { DecreasePositionTransactionStep } from 'lx/src/features/transactions/liquidity/steps/decreasePosition'
-import { generateLPTransactionSteps } from 'lx/src/features/transactions/liquidity/steps/generateLPTransactionSteps'
+import { ZERO_ADDRESS } from 'uniswap/src/constants/misc'
+import { LiquidityServiceClient } from 'uniswap/src/data/apiClients/liquidityService/LiquidityServiceClient'
+import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { InterfaceEventName, LiquidityEventName } from 'uniswap/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
+import type { UniverseEventProperties } from 'uniswap/src/features/telemetry/types'
+import type { CollectFeesTransactionStep } from 'uniswap/src/features/transactions/liquidity/steps/collectFees'
+import type { DecreasePositionTransactionStep } from 'uniswap/src/features/transactions/liquidity/steps/decreasePosition'
+import { generateLPTransactionSteps } from 'uniswap/src/features/transactions/liquidity/steps/generateLPTransactionSteps'
 import type {
   IncreasePositionTransactionStep,
   IncreasePositionTransactionStepAsync,
   IncreasePositionTransactionStepBatched,
-} from 'lx/src/features/transactions/liquidity/steps/increasePosition'
+} from 'uniswap/src/features/transactions/liquidity/steps/increasePosition'
 import type {
   MigratePositionTransactionStep,
   MigratePositionTransactionStepAsync,
-} from 'lx/src/features/transactions/liquidity/steps/migrate'
-import type { LiquidityAction, ValidatedLiquidityTxContext } from 'lx/src/features/transactions/liquidity/types'
-import { LiquidityTransactionType } from 'lx/src/features/transactions/liquidity/types'
-import type { HandleOnChainStepParams, TransactionStep } from 'lx/src/features/transactions/steps/types'
-import { TransactionStepType } from 'lx/src/features/transactions/steps/types'
-import type { SetCurrentStepFn } from 'lx/src/features/transactions/swap/types/swapCallback'
+} from 'uniswap/src/features/transactions/liquidity/steps/migrate'
+import type { LiquidityAction, ValidatedLiquidityTxContext } from 'uniswap/src/features/transactions/liquidity/types'
+import { LiquidityTransactionType } from 'uniswap/src/features/transactions/liquidity/types'
+import type { HandleOnChainStepParams, TransactionStep } from 'uniswap/src/features/transactions/steps/types'
+import { TransactionStepType } from 'uniswap/src/features/transactions/steps/types'
+import type { SetCurrentStepFn } from 'uniswap/src/features/transactions/swap/types/swapCallback'
 import type {
   CollectFeesTransactionInfo,
   CreatePoolTransactionInfo,
   LiquidityDecreaseTransactionInfo,
   LiquidityIncreaseTransactionInfo,
   MigrateV3LiquidityToV4TransactionInfo,
-} from 'lx/src/features/transactions/types/transactionDetails'
-import { TransactionType } from 'lx/src/features/transactions/types/transactionDetails'
-import { SignerMnemonicAccountDetails } from 'lx/src/features/wallet/types/AccountDetails'
-import { currencyId, isNativeCurrencyAddress } from 'lx/src/utils/currencyId'
-import { createSaga } from 'lx/src/utils/saga'
+} from 'uniswap/src/features/transactions/types/transactionDetails'
+import { TransactionType } from 'uniswap/src/features/transactions/types/transactionDetails'
+import { SignerMnemonicAccountDetails } from 'uniswap/src/features/wallet/types/AccountDetails'
+import { currencyId, isNativeCurrencyAddress } from 'uniswap/src/utils/currencyId'
+import { createSaga } from 'uniswap/src/utils/saga'
 import { logger } from 'utilities/src/logger/logger'
+import { getLiquidityEventName } from '~/components/Liquidity/analytics'
+import { getProtocols } from '~/components/Liquidity/utils/protocolVersion'
+import { popupRegistry } from '~/components/Popups/registry'
+import { PopupType } from '~/components/Popups/types'
+import { handleAtomicSendCalls } from '~/state/sagas/transactions/5792'
+import {
+  getDisplayableError,
+  handleApprovalTransactionStep,
+  handleOnChainStep,
+  handlePermitTransactionStep,
+  handleSignatureStep,
+} from '~/state/sagas/transactions/utils'
 
 type LiquidityParams = {
   selectChain: (chainId: number) => Promise<boolean>
@@ -303,7 +304,13 @@ function* modifyLiquidity(params: LiquidityParams & { steps: TransactionStep[] }
       const displayableError = getDisplayableError({ error: e, step, flow: 'liquidity' })
 
       if (displayableError) {
-        logger.error(displayableError, { tags: { file: 'liquiditySaga', function: 'modifyLiquidity' } })
+        logger.error(displayableError, {
+          tags: { file: 'liquiditySaga', function: 'modifyLiquidity' },
+          extra: {
+            canBatchTransactions: params.liquidityTxContext.canBatchTransactions,
+            delegatedAddress: params.liquidityTxContext.delegatedAddress,
+          },
+        })
         onFailure(e)
       } else {
         onFailure()
@@ -409,7 +416,7 @@ function* pollForLPPriceDiscrepancy(params: {
   while (attempt < maxAttempts) {
     try {
       const priceDiscrepancyResponse: GetLPPriceDiscrepancyResponse = yield* call(
-        TradingApiClient.getLPPriceDiscrepancy,
+        LiquidityServiceClient.getLPPriceDiscrepancy,
         new GetLPPriceDiscrepancyRequest({
           txnHash: hash,
           chainId,
@@ -421,8 +428,7 @@ function* pollForLPPriceDiscrepancy(params: {
           fee: analytics.fee_tier,
           hooks: analytics.hook,
           sqrtRatioX96,
-          // @ts-expect-error endpoint excepts a string
-          protocol: analytics.type,
+          protocol: getProtocols(analytics.protocol_version),
         }),
       )
 

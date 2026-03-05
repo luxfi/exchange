@@ -3,15 +3,20 @@
   "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.json", "../../index.d.ts"],
   "exclude": ["src/**/*.spec.ts", "src/**/*.spec.tsx", "src/**/*.test.ts", "src/**/*.test.tsx"],
   "compilerOptions": {
-    "noEmit": false,
     "emitDeclarationOnly": true,
-    "types": ["node", "vitest/globals"],
-    "baseUrl": ".",
+    "noEmit": false,
     "paths": {
-      "@luxfi/notifications/*": ["./*"]
-    }
+      "@universe/notifications/*": ["./*"]
+    },
+    "types": ["node", "vitest/globals"]
   },
   "references": [
+    {
+      "path": "../utilities"
+    },
+    {
+      "path": "../api"
+    },
     {
       "path": "../ui"
     }

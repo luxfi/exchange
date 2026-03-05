@@ -1,16 +1,16 @@
-import { CurrencyAmount } from '@luxamm/sdk-core'
-import { GraphQLApi } from '@luxfi/api'
-import { LP_INCENTIVES_REWARD_TOKEN } from 'components/LpIncentives/constants'
+import { CurrencyAmount } from '@uniswap/sdk-core'
+import { GraphQLApi } from '@universe/api'
 import { TFunction } from 'i18next'
 import JSBI from 'jsbi'
 import ms from 'ms'
 import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Flex, Text } from 'ui/src'
-import { useCurrentLanguage } from 'lx/src/features/language/hooks'
-import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
-import { useUSDCPrice } from 'lx/src/features/transactions/hooks/useUSDCPrice'
+import { useCurrentLanguage } from 'uniswap/src/features/language/hooks'
+import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
+import { useUSDCPrice } from 'uniswap/src/features/transactions/hooks/useUSDCPriceWrapper'
 import { NumberType } from 'utilities/src/format/types'
+import { LP_INCENTIVES_REWARD_TOKEN } from '~/components/LpIncentives/constants'
 
 function formatDateRange({
   startTimestamp,
@@ -168,7 +168,7 @@ export const LpIncentivesPoolDetailsRewardsDistribution = ({
       mt={-24}
       $xl={{ my: 0 }}
       padding="$spacing20"
-      borderRadius="$rounded20"
+      borderRadius="$spacing20"
       backgroundColor="$surface2"
       width="100%"
     >

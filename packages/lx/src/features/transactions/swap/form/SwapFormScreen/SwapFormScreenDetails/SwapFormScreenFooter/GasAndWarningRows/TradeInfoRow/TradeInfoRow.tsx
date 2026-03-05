@@ -1,20 +1,19 @@
 import { Accordion, Flex, Text } from 'ui/src'
+import { DoubleChevronInverted } from 'ui/src/components/icons'
 import { AlertTriangleFilled } from 'ui/src/components/icons/AlertTriangleFilled'
-import { RotatableChevron } from 'ui/src/components/icons/RotatableChevron'
-import { iconSizes } from 'ui/src/theme'
-import { getAlertColor } from 'lx/src/components/modals/WarningModal/getAlertColor'
-import type { Warning } from 'lx/src/components/modals/WarningModal/types'
-import { WarningLabel } from 'lx/src/components/modals/WarningModal/types'
-import { useEnabledChains } from 'lx/src/features/chains/hooks/useEnabledChains'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { SwapRateRatio } from 'lx/src/features/transactions/swap/components/SwapRateRatio'
-import { CanonicalBridgeLinkBanner } from 'lx/src/features/transactions/swap/form/SwapFormScreen/SwapFormScreenDetails/SwapFormScreenFooter/GasAndWarningRows/TradeInfoRow/CanonicalBridgeLinkBanner'
-import { GasInfoRow } from 'lx/src/features/transactions/swap/form/SwapFormScreen/SwapFormScreenDetails/SwapFormScreenFooter/GasAndWarningRows/TradeInfoRow/GasInfoRow'
-import { TradeWarning } from 'lx/src/features/transactions/swap/form/SwapFormScreen/SwapFormScreenDetails/SwapFormScreenFooter/GasAndWarningRows/TradeInfoRow/TradeWarning'
-import { useDebouncedTrade } from 'lx/src/features/transactions/swap/form/SwapFormScreen/SwapFormScreenDetails/SwapFormScreenFooter/GasAndWarningRows/TradeInfoRow/useDebouncedTrade'
-import type { GasInfo } from 'lx/src/features/transactions/swap/form/SwapFormScreen/SwapFormScreenDetails/SwapFormScreenFooter/GasAndWarningRows/types'
-import { usePriceUXEnabled } from 'lx/src/features/transactions/swap/hooks/usePriceUXEnabled'
-import { useSwapFormStoreDerivedSwapInfo } from 'lx/src/features/transactions/swap/stores/swapFormStore/useSwapFormStore'
+import { getAlertColor } from 'uniswap/src/components/modals/WarningModal/getAlertColor'
+import type { Warning } from 'uniswap/src/components/modals/WarningModal/types'
+import { WarningLabel } from 'uniswap/src/components/modals/WarningModal/types'
+import { useEnabledChains } from 'uniswap/src/features/chains/hooks/useEnabledChains'
+import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { SwapRateRatio } from 'uniswap/src/features/transactions/swap/components/SwapRateRatio'
+import { CanonicalBridgeLinkBanner } from 'uniswap/src/features/transactions/swap/form/SwapFormScreen/SwapFormScreenDetails/SwapFormScreenFooter/GasAndWarningRows/TradeInfoRow/CanonicalBridgeLinkBanner'
+import { GasInfoRow } from 'uniswap/src/features/transactions/swap/form/SwapFormScreen/SwapFormScreenDetails/SwapFormScreenFooter/GasAndWarningRows/TradeInfoRow/GasInfoRow'
+import { TradeWarning } from 'uniswap/src/features/transactions/swap/form/SwapFormScreen/SwapFormScreenDetails/SwapFormScreenFooter/GasAndWarningRows/TradeInfoRow/TradeWarning'
+import { useDebouncedTrade } from 'uniswap/src/features/transactions/swap/form/SwapFormScreen/SwapFormScreenDetails/SwapFormScreenFooter/GasAndWarningRows/TradeInfoRow/useDebouncedTrade'
+import type { GasInfo } from 'uniswap/src/features/transactions/swap/form/SwapFormScreen/SwapFormScreenDetails/SwapFormScreenFooter/GasAndWarningRows/types'
+import { usePriceUXEnabled } from 'uniswap/src/features/transactions/swap/hooks/usePriceUXEnabled'
+import { useSwapFormStoreDerivedSwapInfo } from 'uniswap/src/features/transactions/swap/stores/swapFormStore/useSwapFormStore'
 import { isMobileApp, isWebApp } from 'utilities/src/platform'
 
 // TradeInfoRow take `gasInfo` as a prop (rather than directly using useDebouncedGasInfo) because on mobile,
@@ -79,13 +78,9 @@ export function TradeInfoRow({ gasInfo, warning }: { gasInfo: GasInfo; warning?:
           {({ open }: { open: boolean }) => (
             <Flex row gap="$spacing4" alignItems="center">
               <GasInfoRow gasInfo={gasInfo} hidden={open} />
-              <RotatableChevron
-                animation="fast"
-                width={iconSizes.icon16}
-                height={iconSizes.icon16}
-                direction={open ? 'up' : 'down'}
-                color="$neutral3"
-              />
+              <Flex rotate={open ? '180deg' : '0deg'} animation="quick" transition="ease-in-out">
+                <DoubleChevronInverted size="$icon.20" color="$neutral2" />
+              </Flex>
             </Flex>
           )}
         </Accordion.Trigger>

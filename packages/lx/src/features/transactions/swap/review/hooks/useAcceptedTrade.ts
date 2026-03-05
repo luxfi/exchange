@@ -1,9 +1,8 @@
 import { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { DerivedSwapInfo } from 'lx/src/features/transactions/swap/types/derivedSwapInfo'
-import { requireAcceptNewTrade } from 'lx/src/features/transactions/swap/utils/trade'
-import { isWrapAction } from 'lx/src/features/transactions/swap/utils/wrap'
-import { interruptTransactionFlow } from 'lx/src/utils/saga'
+import { DerivedSwapInfo } from 'uniswap/src/features/transactions/swap/types/derivedSwapInfo'
+import { requireAcceptNewTrade } from 'uniswap/src/features/transactions/swap/utils/trade'
+import { interruptTransactionFlow } from 'uniswap/src/utils/saga'
 import { isWebApp } from 'utilities/src/platform'
 
 export function useAcceptedTrade({
@@ -22,7 +21,6 @@ export function useAcceptedTrade({
 
   const { trade, indicativeTrade } = derivedSwapInfo?.trade ?? {}
   const acceptedTrade = acceptedDerivedSwapInfo?.trade.trade
-  const isWrap = derivedSwapInfo?.wrapType ? isWrapAction(derivedSwapInfo.wrapType) : false
 
   // In wallet, once swap is clicked / submission is in progress, it is too late to prompt user to accept new trade.
   // On interface, we can prompt the user to accept a new trade mid-flow.
@@ -32,13 +30,17 @@ export function useAcceptedTrade({
   const newTradeRequiresAcceptance = !avoidPromptingUserToAcceptNewTrade && requireAcceptNewTrade(acceptedTrade, trade)
 
   useEffect(() => {
-    // For wrap operations, there's no trade - auto-accept the derivedSwapInfo immediately
-    if (isWrap && derivedSwapInfo && !acceptedDerivedSwapInfo) {
-      setAcceptedDerivedSwapInfo(derivedSwapInfo)
+    if ((!trade && !indicativeTrade) || trade === acceptedTrade) {
       return
     }
 
-    if ((!trade && !indicativeTrade) || trade === acceptedTrade) {
+    // If a new trade requires acceptance, interrupt interface's transaction flow
+    if (isWebApp && newTradeRequiresAcceptance) {
+      dispatch(interruptTransactionFlow())
+    }
+
+    // Avoid updating the accepted trade if submission is in progress
+    if (isSubmitting) {
       return
     }
 
@@ -46,12 +48,7 @@ export function useAcceptedTrade({
     if (!acceptedTrade || !newTradeRequiresAcceptance) {
       setAcceptedDerivedSwapInfo(derivedSwapInfo)
     }
-
-    // If a new trade requires acceptance, interrupt interface's transaction flow
-    if (isWebApp && newTradeRequiresAcceptance) {
-      dispatch(interruptTransactionFlow())
-    }
-  }, [trade, acceptedTrade, indicativeTrade, newTradeRequiresAcceptance, derivedSwapInfo, dispatch, isWrap, acceptedDerivedSwapInfo])
+  }, [trade, acceptedTrade, indicativeTrade, newTradeRequiresAcceptance, derivedSwapInfo, dispatch, isSubmitting])
 
   const onAcceptTrade = (): undefined => {
     if (!trade) {

@@ -7,6 +7,7 @@ node_modules
 
 # testing
 coverage
+test-results/
 
 # utility script output
 scripts/dist
@@ -16,10 +17,9 @@ tools/uniswap-nx/dist
 .next/
 out/
 build
-!apps/build/
 
-# builds
-/dts
+# React Router
+.react-router/
 
 # misc
 .DS_Store
@@ -47,7 +47,9 @@ yarn-error.log*
 .yarn/versions
 .yarn/install-state.gz
 
+# typescript
 dist/out-tsc/*
+tsconfig.tsbuildinfo
 
 # Locale backup/generated files
 packages/uniswap/src/i18n/locales/source/*_old.json
@@ -70,6 +72,9 @@ packages/uniswap/src/i18n/locales/source/*_old.json
 # Expo
 .expo/
 
+# Watchman
+.watchman-cookie-*
+
 # auto-generated test ids
 apps/mobile/.maestro/scripts/testIds.js
 
@@ -79,13 +84,7 @@ CLAUDE.local.md
 .claude/settings.local.json
 .claude/local/
 **/*/.claude/user/*
-
-# LLM agent files
-AGENTS.md
-CLAUDE.md
-GEMINI.md
-GROK.md
-QWEN.md
+**/*/.claude/local/
 
 # cursor
 .cursor/mcp.json
@@ -102,15 +101,5 @@ QWEN.md
 # Spec Workflow MCP
 .spec-workflow/
 
-# Rust build artifacts
-rust/target/
-
-# Playwright
-playwright-report/
-test-results/
-
-apps/extension/.output/
-.nx/
-grpc-server.log
-.nx/
-.nx/
+# temporary files
+/tmp/

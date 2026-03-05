@@ -1,18 +1,18 @@
-import { apolloClient } from 'appGraphql/data/apollo/client'
-import { gqlTokenToCurrencyInfo } from 'appGraphql/data/types'
-import { apolloQueryOptions } from 'appGraphql/data/util'
 import { useQueries } from '@tanstack/react-query'
-import { GraphQLApi } from '@luxfi/api'
-import { useAccount } from 'hooks/useAccount'
-import { useTokenContractsConstant } from 'hooks/useTokenContractsConstant'
+import { GraphQLApi } from '@universe/api'
 import { useMemo } from 'react'
-import { PositionDetails } from 'types/position'
-import { useEnabledChains } from 'lx/src/features/chains/hooks/useEnabledChains'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { toGraphQLChain } from 'lx/src/features/chains/utils'
-import { TokenList } from 'lx/src/features/dataApi/types'
+import { useEnabledChains } from 'uniswap/src/features/chains/hooks/useEnabledChains'
+import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { toGraphQLChain } from 'uniswap/src/features/chains/utils'
+import { TokenList } from 'uniswap/src/features/dataApi/types'
 import { ReactQueryCacheKey } from 'utilities/src/reactQuery/cache'
-import { hasURL } from 'utils/urlChecks'
+import { apolloClient } from '~/appGraphql/data/apollo/client'
+import { gqlTokenToCurrencyInfo } from '~/appGraphql/data/types'
+import { apolloQueryOptions } from '~/appGraphql/data/util'
+import { useAccount } from '~/hooks/useAccount'
+import { useTokenContractsConstant } from '~/hooks/useTokenContractsConstant'
+import { PositionDetails } from '~/types/position'
+import { hasURL } from '~/utils/urlChecks'
 
 function getUniqueAddressesFromPositions(positions: PositionDetails[]): string[] {
   return Array.from(
@@ -25,7 +25,7 @@ function getPositionCurrencyInfosQueryOptions(position: PositionDetails, chainId
     queryKey: [ReactQueryCacheKey.PositionCurrencyInfo, position],
     queryFn: async () => {
       const queries = [
-        (apolloClient as any).query({
+        apolloClient.query<GraphQLApi.TokenQuery>({
           query: GraphQLApi.TokenDocument,
           variables: {
             address: position.token0,
@@ -33,7 +33,7 @@ function getPositionCurrencyInfosQueryOptions(position: PositionDetails, chainId
           },
           fetchPolicy: 'cache-first',
         }),
-        (apolloClient as any).query({
+        apolloClient.query<GraphQLApi.TokenQuery>({
           query: GraphQLApi.TokenDocument,
           variables: {
             address: position.token1,

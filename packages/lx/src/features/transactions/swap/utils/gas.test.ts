@@ -1,5 +1,5 @@
-import { GasFeeResult } from 'lx/src/features/gas/types'
-import { mergeGasFeeResults, sumGasFees } from 'lx/src/features/transactions/swap/utils/gas'
+import { GasFeeResult } from '@universe/api'
+import { mergeGasFeeResults, sumGasFees } from 'uniswap/src/features/transactions/swap/utils/gas'
 
 describe('sumGasFees', () => {
   it('returns undefined for empty array', () => {

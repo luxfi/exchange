@@ -1,5 +1,5 @@
-import type { Currency, CurrencyAmount } from '@luxamm/sdk-core'
-import { Percent } from '@luxamm/sdk-core'
+import type { Currency, CurrencyAmount } from '@uniswap/sdk-core'
+import { Percent } from '@uniswap/sdk-core'
 import { useTranslation } from 'react-i18next'
 import { Flex, HeightAnimator, Separator, Text, TouchableArea, UniswapXText } from 'ui/src'
 import { AlertTriangleFilled } from 'ui/src/components/icons/AlertTriangleFilled'
@@ -7,39 +7,38 @@ import { AnglesDownUp } from 'ui/src/components/icons/AnglesDownUp'
 import { SortVertical } from 'ui/src/components/icons/SortVertical'
 import { AnimatedUniswapX } from 'ui/src/components/icons/UniswapX'
 import { AcrossLogo } from 'ui/src/components/logos/AcrossLogo'
-import type { WarningWithStyle } from 'lx/src/components/modals/WarningModal/types'
-import { WarningLabel } from 'lx/src/components/modals/WarningModal/types'
-import { InfoTooltip } from 'lx/src/components/tooltip/InfoTooltip'
-import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
-import { isSVMChain } from 'lx/src/features/platforms/utils/chains'
-import { useSlippageSettings } from 'lx/src/features/transactions/components/settings/settingsConfigurations/slippage/useSlippageSettings'
-import { useTransactionSettingsStore } from 'lx/src/features/transactions/components/settings/stores/transactionSettingsStore/useTransactionSettingsStore'
-import { AcrossRoutingInfoTooltip } from 'lx/src/features/transactions/swap/form/SwapFormScreen/SwapFormTooltips/AcrossRoutingTooltip'
+import type { WarningWithStyle } from 'uniswap/src/components/modals/WarningModal/types'
+import { WarningLabel } from 'uniswap/src/components/modals/WarningModal/types'
+import { InfoTooltip } from 'uniswap/src/components/tooltip/InfoTooltip'
+import { useActiveAddress } from 'uniswap/src/features/accounts/store/hooks'
+import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
+import { useSlippageSettings } from 'uniswap/src/features/transactions/components/settings/settingsConfigurations/slippage/useSlippageSettings'
+import { useTransactionSettingsStore } from 'uniswap/src/features/transactions/components/settings/stores/transactionSettingsStore/useTransactionSettingsStore'
+import { AcrossRoutingInfoTooltip } from 'uniswap/src/features/transactions/swap/form/SwapFormScreen/SwapFormTooltips/AcrossRoutingTooltip'
 import {
   BestRouteTooltip,
   BestRouteUniswapXTooltip,
-} from 'lx/src/features/transactions/swap/form/SwapFormScreen/SwapFormTooltips/BestRouteTooltip'
-import { SwapFeeOnTransferTooltip } from 'lx/src/features/transactions/swap/form/SwapFormScreen/SwapFormTooltips/FeeDetailsTooltip'
-import { LargePriceDifferenceTooltip } from 'lx/src/features/transactions/swap/form/SwapFormScreen/SwapFormTooltips/LargePriceDifferenceTooltip'
+} from 'uniswap/src/features/transactions/swap/form/SwapFormScreen/SwapFormTooltips/BestRouteTooltip'
+import { SwapFeeOnTransferTooltip } from 'uniswap/src/features/transactions/swap/form/SwapFormScreen/SwapFormTooltips/FeeDetailsTooltip'
+import { LargePriceDifferenceTooltip } from 'uniswap/src/features/transactions/swap/form/SwapFormScreen/SwapFormTooltips/LargePriceDifferenceTooltip'
 import {
   AutoSlippageBadge,
   MaxSlippageTooltip,
-} from 'lx/src/features/transactions/swap/form/SwapFormScreen/SwapFormTooltips/MaxSlippageTooltip'
-import { YouReceiveDetailsTooltip } from 'lx/src/features/transactions/swap/form/SwapFormScreen/SwapFormTooltips/YouReceiveDetailsTooltip'
-import { SwapDetailsRow } from 'lx/src/features/transactions/swap/form/SwapFormScreen/YouReceiveDetails/SwapDetailsRow'
-import type { YouReceiveDetailsProps } from 'lx/src/features/transactions/swap/form/SwapFormScreen/YouReceiveDetails/YouReceiveDetails'
-import { useFeeOnTransferAmounts } from 'lx/src/features/transactions/swap/hooks/useFeeOnTransferAmount'
-import type { UsePriceDifferenceReturnType } from 'lx/src/features/transactions/swap/hooks/usePriceDifference'
-import { usePriceDifference } from 'lx/src/features/transactions/swap/hooks/usePriceDifference'
-import { useParsedSwapWarnings } from 'lx/src/features/transactions/swap/hooks/useSwapWarnings/useSwapWarnings'
-import { useSwapFormStore } from 'lx/src/features/transactions/swap/stores/swapFormStore/useSwapFormStore'
-import { useSwapTxStore } from 'lx/src/features/transactions/swap/stores/swapTxStore/useSwapTxStore'
-import { isUniswapX } from 'lx/src/features/transactions/swap/utils/routing'
-import type { FeeOnTransferFeeGroupProps } from 'lx/src/features/transactions/TransactionDetails/types'
-import { WrapType } from 'lx/src/features/transactions/types/wrap'
-import { useIsBlocked } from 'lx/src/features/trm/hooks'
-import { useWallet } from 'lx/src/features/wallet/hooks/useWallet'
-import { useRoutingProvider } from 'lx/src/utils/routingDiagram/routingRegistry'
+} from 'uniswap/src/features/transactions/swap/form/SwapFormScreen/SwapFormTooltips/MaxSlippageTooltip'
+import { YouReceiveDetailsTooltip } from 'uniswap/src/features/transactions/swap/form/SwapFormScreen/SwapFormTooltips/YouReceiveDetailsTooltip'
+import { SwapDetailsRow } from 'uniswap/src/features/transactions/swap/form/SwapFormScreen/YouReceiveDetails/SwapDetailsRow'
+import type { YouReceiveDetailsProps } from 'uniswap/src/features/transactions/swap/form/SwapFormScreen/YouReceiveDetails/YouReceiveDetails'
+import { useFeeOnTransferAmounts } from 'uniswap/src/features/transactions/swap/hooks/useFeeOnTransferAmount'
+import type { UsePriceDifferenceReturnType } from 'uniswap/src/features/transactions/swap/hooks/usePriceDifference'
+import { usePriceDifference } from 'uniswap/src/features/transactions/swap/hooks/usePriceDifference'
+import { useParsedSwapWarnings } from 'uniswap/src/features/transactions/swap/hooks/useSwapWarnings/useSwapWarnings'
+import { useSwapFormStore } from 'uniswap/src/features/transactions/swap/stores/swapFormStore/useSwapFormStore'
+import { useSwapTxStore } from 'uniswap/src/features/transactions/swap/stores/swapTxStore/useSwapTxStore'
+import { isUniswapX } from 'uniswap/src/features/transactions/swap/utils/routing'
+import type { FeeOnTransferFeeGroupProps } from 'uniswap/src/features/transactions/TransactionDetails/types'
+import { WrapType } from 'uniswap/src/features/transactions/types/wrap'
+import { useIsBlocked } from 'uniswap/src/features/trm/hooks'
+import { useRoutingProvider } from 'uniswap/src/utils/routingDiagram/routingRegistry'
 // biome-ignore lint/style/noRestrictedImports: legacy import will be migrated
 import { formatCurrencyAmount } from 'utilities/src/format/localeBased'
 import { NumberType } from 'utilities/src/format/types'
@@ -321,9 +320,8 @@ export function YouReceiveDetails({
   const derivedSwapInfo = useSwapFormStore((s) => s.derivedSwapInfo)
   const priceDifference = usePriceDifference(derivedSwapInfo)
 
-  const wallet = useWallet()
-  const account = isSVMChain(derivedSwapInfo.chainId) ? wallet.svmAccount?.address : wallet.evmAccount?.address
-  const { isBlocked } = useIsBlocked(account)
+  const address = useActiveAddress(derivedSwapInfo.chainId)
+  const { isBlocked } = useIsBlocked(address)
 
   const { formScreenWarning } = useParsedSwapWarnings()
   const inlineWarning =

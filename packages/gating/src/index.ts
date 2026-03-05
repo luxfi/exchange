@@ -9,7 +9,7 @@ export type {
   GasStrategyWithConditions,
   UwULinkAllowlist,
   UwULinkAllowlistItem,
-} from '@luxfi/gating/src/configs'
+} from '@universe/gating/src/configs'
 export {
   AllowedV4WethHookAddressesConfigKey,
   BlockedAsyncSubmissionChainIdsConfigKey,
@@ -29,31 +29,40 @@ export {
   SwapConfigKey,
   SyncTransactionSubmissionChainIdsConfigKey,
   UwuLinkConfigKey,
-} from '@luxfi/gating/src/configs'
-export { StatsigCustomAppValue } from '@luxfi/gating/src/constants'
-export type { ExperimentProperties } from '@luxfi/gating/src/experiments'
+  VerifiedAuctionsConfigKey,
+} from '@universe/gating/src/configs'
+export { StatsigCustomAppValue } from '@universe/gating/src/constants'
+export type { ExperimentProperties } from '@universe/gating/src/experiments'
 export {
+  EthAsErc20UniswapXProperties,
   Experiments,
-  ForFiltersProperties,
+  ExploreBackendSortingProperties,
   LayerProperties,
   Layers,
   NativeTokenPercentageBufferProperties,
-  PortfolioDisconnectedDemoViewProperties,
   PriceUxUpdateProperties,
   PrivateRpcProperties,
   UnichainFlashblocksProperties,
-  WebFORNudgesProperties,
-} from '@luxfi/gating/src/experiments'
+} from '@universe/gating/src/experiments'
 export {
   FeatureFlagClient,
   FeatureFlags,
   getFeatureFlagName,
   WALLET_FEATURE_FLAG_NAMES,
   WEB_FEATURE_FLAG_NAMES,
-} from '@luxfi/gating/src/flags'
-export { getIsSessionServiceEnabled, useIsSessionServiceEnabled } from '@luxfi/gating/src/getIsSessionServiceEnabled'
-export { getIsSessionUpgradeAutoEnabled } from '@luxfi/gating/src/getIsSessionUpgradeAutoEnabled'
-export { getStatsigEnvName } from '@luxfi/gating/src/getStatsigEnvName'
+} from '@universe/gating/src/flags'
+export { getIsHashcashSolverEnabled, useIsHashcashSolverEnabled } from '@universe/gating/src/getIsHashcashSolverEnabled'
+export {
+  getIsSessionsPerformanceTrackingEnabled,
+  useIsSessionsPerformanceTrackingEnabled,
+} from '@universe/gating/src/getIsPerformanceTrackingEnabled'
+export { getIsSessionServiceEnabled, useIsSessionServiceEnabled } from '@universe/gating/src/getIsSessionServiceEnabled'
+export { getIsSessionUpgradeAutoEnabled } from '@universe/gating/src/getIsSessionUpgradeAutoEnabled'
+export {
+  getIsTurnstileSolverEnabled,
+  useIsTurnstileSolverEnabled,
+} from '@universe/gating/src/getIsTurnstileSolverEnabled'
+export { getStatsigEnvName } from '@universe/gating/src/getStatsigEnvName'
 export {
   getDynamicConfigValue,
   getExperimentValue,
@@ -62,17 +71,18 @@ export {
   useDynamicConfigValue,
   useExperimentValue,
   useExperimentValueFromLayer,
+  useExperimentValueWithExposureLoggingDisabled,
   useFeatureFlag,
   useFeatureFlagWithExposureLoggingDisabled,
   useFeatureFlagWithLoading,
   useStatsigClientStatus,
-} from '@luxfi/gating/src/hooks'
-export { LocalOverrideAdapterWrapper } from '@luxfi/gating/src/LocalOverrideAdapterWrapper'
+} from '@universe/gating/src/hooks'
+export { LocalOverrideAdapterWrapper } from '@universe/gating/src/LocalOverrideAdapterWrapper'
 export type {
   StatsigOptions,
   StatsigUser,
   StorageProvider,
-} from '@luxfi/gating/src/sdk/statsig'
+} from '@universe/gating/src/sdk/statsig'
 export {
   getOverrideAdapter,
   getStatsigClient,
@@ -83,5 +93,5 @@ export {
   useClientAsyncInit,
   useExperiment,
   useLayer,
-} from '@luxfi/gating/src/sdk/statsig'
-export { getOverrides } from '@luxfi/gating/src/utils'
+} from '@universe/gating/src/sdk/statsig'
+export { getOverrides } from '@universe/gating/src/utils'

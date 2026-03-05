@@ -1,11 +1,11 @@
-import { TradingApi } from '@luxfi/api'
-import { TradingApiClient } from 'lx/src/data/apiClients/tradingApi/TradingApiClient'
-import { InterfaceEventName } from 'lx/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
-import { parseErrorMessageTitle } from 'lx/src/features/transactions/liquidity/utils'
-import { OnChainTransactionFields, TransactionStepType } from 'lx/src/features/transactions/steps/types'
-import { validateTransactionRequest } from 'lx/src/features/transactions/swap/utils/trade'
-import { ValidatedTransactionRequest } from 'lx/src/features/transactions/types/transactionRequests'
+import { MigrateV3ToV4LPPositionRequest } from '@uniswap/client-liquidity/dist/uniswap/liquidity/v1/api_pb'
+import { LiquidityServiceClient } from 'uniswap/src/data/apiClients/liquidityService/LiquidityServiceClient'
+import { InterfaceEventName } from 'uniswap/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
+import { parseErrorMessageTitle } from 'uniswap/src/features/transactions/liquidity/utils'
+import { OnChainTransactionFields, TransactionStepType } from 'uniswap/src/features/transactions/steps/types'
+import { validateTransactionRequest } from 'uniswap/src/features/transactions/swap/utils/trade'
+import { ValidatedTransactionRequest } from 'uniswap/src/features/transactions/types/transactionRequests'
 import { logger } from 'utilities/src/logger/logger'
 
 export interface MigratePositionTransactionStep extends OnChainTransactionFields {
@@ -29,7 +29,7 @@ export function createMigratePositionStep(txRequest: ValidatedTransactionRequest
 }
 
 export function createMigratePositionAsyncStep(
-  migratePositionRequestArgs: TradingApi.MigrateLPPositionRequest | undefined,
+  migratePositionRequestArgs: MigrateV3ToV4LPPositionRequest | undefined,
   signatureDeadline: number | undefined,
 ): MigratePositionTransactionStepAsync {
   return {
@@ -42,13 +42,13 @@ export function createMigratePositionAsyncStep(
       }
 
       try {
-        const { migrate } = await TradingApiClient.migrateV3ToV4LpPosition({
+        const updatedRequest = new MigrateV3ToV4LPPositionRequest({
           ...migratePositionRequestArgs,
           signature,
-          signatureDeadline,
+          signatureDeadline: Number(signatureDeadline),
           simulateTransaction: true,
         })
-
+        const migrate = (await LiquidityServiceClient.migrateV3ToV4LpPosition(updatedRequest)).migrate
         return { txRequest: validateTransactionRequest(migrate) }
       } catch (e) {
         const message = parseErrorMessageTitle(e, { includeRequestId: true })

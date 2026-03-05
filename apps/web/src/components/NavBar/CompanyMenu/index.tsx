@@ -1,12 +1,25 @@
-import { NavIcon } from 'components/Logo/NavIcon'
-import { MenuDropdown } from 'components/NavBar/CompanyMenu/MenuDropdown'
-import { MobileMenuDrawer } from 'components/NavBar/CompanyMenu/MobileMenuDrawer'
-import { useIsMobileDrawer } from 'components/NavBar/ScreenSizes'
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { Link, useLocation } from 'react-router'
-import { Flex, Popover, Text, useIsTouchDevice, useMedia } from 'ui/src'
+import { Flex, Popover, styled, Text, useIsTouchDevice, useMedia } from 'ui/src'
 import { Hamburger } from 'ui/src/components/icons/Hamburger'
-import { TestID } from 'lx/src/test/fixtures/testIDs'
+import { ElementName } from 'uniswap/src/features/telemetry/constants'
+import Trace from 'uniswap/src/features/telemetry/Trace'
+import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+import { ArrowChangeDown } from '~/components/Icons/ArrowChangeDown'
+import { NavIcon } from '~/components/Logo/NavIcon'
+import { MenuDropdown } from '~/components/NavBar/CompanyMenu/MenuDropdown'
+import { MobileMenuDrawer } from '~/components/NavBar/CompanyMenu/MobileMenuDrawer'
+import { useIsMobileDrawer } from '~/components/NavBar/ScreenSizes'
+
+const ArrowDownWrapper = styled(Text, {
+  color: '$neutral2',
+  '$group-hover': { color: '$neutral1' },
+  variants: {
+    open: {
+      true: { color: '$neutral1' },
+    },
+  },
+})
 
 export function CompanyMenu() {
   const popoverRef = useRef<Popover>(null)
@@ -41,17 +54,24 @@ export function CompanyMenu() {
           group
           $platform-web={{ containerType: 'normal' }}
         >
-          <Link to="/?intro=true" style={{ textDecoration: 'none' }}>
-            <Flex row alignItems="center" gap="$gap4" data-testid={TestID.NavUniswapLogo}>
-              <NavIcon />
-              {isLargeScreen && (
-                <Text variant="subheading1" color="$accent1" userSelect="none">
-                  LX
-                </Text>
-              )}
-            </Flex>
-          </Link>
+          <Trace logPress element={ElementName.NavbarCompanyMenuLogo}>
+            <Link to="/?intro=true" style={{ textDecoration: 'none' }}>
+              <Flex row alignItems="center" gap="$gap4" data-testid={TestID.NavUniswapLogo}>
+                <NavIcon />
+                {isLargeScreen && (
+                  <Text variant="subheading1" color="$accent1" userSelect="none">
+                    Uniswap
+                  </Text>
+                )}
+              </Flex>
+            </Link>
+          </Trace>
           {(media.md || isTouchDevice) && <Hamburger size={22} color="$neutral2" cursor="pointer" ml="16px" />}
+          {!media.md && !isTouchDevice && (
+            <ArrowDownWrapper open={isOpen}>
+              <ArrowChangeDown width="12px" height="12px" />
+            </ArrowDownWrapper>
+          )}
         </Flex>
       </Popover.Trigger>
       {isMobileDrawer ? <MobileMenuDrawer isOpen={isOpen} closeMenu={closeMenu} /> : <MenuDropdown close={closeMenu} />}

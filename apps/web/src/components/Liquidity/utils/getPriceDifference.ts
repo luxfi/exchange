@@ -1,6 +1,6 @@
-import { Currency, Price } from '@luxamm/sdk-core'
-import { PriceDifference } from 'components/Liquidity/Create/types'
-import { WarningSeverity } from 'lx/src/components/modals/WarningModal/types'
+import { Currency, Price } from '@uniswap/sdk-core'
+import { WarningSeverity } from 'uniswap/src/components/modals/WarningModal/types'
+import { PriceDifference } from '~/components/Liquidity/Create/types'
 
 const WARNING_PRICE_DIFFERENCE_PERCENTAGE = 5
 const CRITICAL_PRICE_DIFFERENCE_PERCENTAGE = 10

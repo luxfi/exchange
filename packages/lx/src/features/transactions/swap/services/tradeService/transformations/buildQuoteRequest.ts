@@ -1,11 +1,11 @@
-import { Currency, CurrencyAmount } from '@luxamm/sdk-core'
-import { GasStrategy, TradingApi } from '@luxfi/api'
-import { getActiveGasStrategy } from 'lx/src/features/gas/hooks'
+import { Currency, CurrencyAmount } from '@uniswap/sdk-core'
+import { GasStrategy, TradingApi } from '@universe/api'
+import { getActiveGasStrategy } from 'uniswap/src/features/gas/utils'
 import {
   isZeroAmount,
   parseQuoteCurrencies,
-} from 'lx/src/features/transactions/swap/hooks/useTrade/parseQuoteCurrencies'
-import type { UseTradeArgs } from 'lx/src/features/transactions/swap/types/trade'
+} from 'uniswap/src/features/transactions/swap/hooks/useTrade/parseQuoteCurrencies'
+import type { UseTradeArgs } from 'uniswap/src/features/transactions/swap/types/trade'
 import {
   GetQuoteRoutingParams,
   GetQuoteSlippageParams,
@@ -14,7 +14,7 @@ import {
   QuoteSlippageParamsResult,
   SWAP_GAS_URGENCY_OVERRIDE,
   toTradingApiSupportedChainId,
-} from 'lx/src/features/transactions/swap/utils/tradingApi'
+} from 'uniswap/src/features/transactions/swap/utils/tradingApi'
 
 // The TradingAPI requires an address for the swapper field; we supply a placeholder address if no account is connected.
 // Note: This address was randomly generated.
@@ -34,7 +34,6 @@ export interface QuoteRequestResult {
   urgency?: TradingApi.Urgency
   routingParams: QuoteRoutingParamsResult
   slippageParams: QuoteSlippageParamsResult
-  routeVia?: 'auto' | 'amm' | 'dex-precompile'
 }
 
 // all required fields are guaranteed to be present
@@ -50,7 +49,6 @@ export interface ValidatedTradeInput {
   tokenOutAddress: string
   generatePermitAsTransaction?: boolean
   isUSDQuote?: boolean
-  routeVia?: 'auto' | 'amm' | 'dex-precompile'
 }
 
 interface BuildQuoteRequestContext {
@@ -88,7 +86,6 @@ export function createBuildQuoteRequest(
       urgency: SWAP_GAS_URGENCY_OVERRIDE,
       routingParams,
       slippageParams,
-      routeVia: validatedInput.routeVia,
     }
   }
 }
@@ -120,7 +117,6 @@ export interface ParsedTradeInput {
   tokenOutAddress?: string
   generatePermitAsTransaction?: boolean
   isUSDQuote?: boolean
-  routeVia?: 'auto' | 'amm' | 'dex-precompile'
 }
 
 export function parseTradeInputForTradingApiQuote(input: UseTradeArgs): ParsedTradeInput {
@@ -137,7 +133,6 @@ export function parseTradeInputForTradingApiQuote(input: UseTradeArgs): ParsedTr
     tokenOutAddress: getTokenAddressForApi(currencyOut),
     generatePermitAsTransaction: input.generatePermitAsTransaction,
     isUSDQuote: input.isUSDQuote ?? false,
-    routeVia: input.routeVia,
   }
 }
 
@@ -173,7 +168,6 @@ export function validateParsedInput(input: ParsedTradeInput): ValidatedTradeInpu
     tokenOutAddress: input.tokenOutAddress,
     generatePermitAsTransaction: input.generatePermitAsTransaction,
     isUSDQuote: input.isUSDQuote,
-    routeVia: input.routeVia,
   }
 }
 

@@ -9,17 +9,16 @@ import {
   render as RNRender,
   renderHook as RNRenderHook,
 } from '@testing-library/react-native'
-import { GraphQLApi } from '@luxfi/api'
+import { GraphQLApi } from '@universe/api'
 import React, { PropsWithChildren } from 'react'
 import { MobileWalletNavigationProvider } from 'src/app/MobileWalletNavigationProvider'
 import type { MobileState } from 'src/app/mobileReducer'
 import { navigationRef } from 'src/app/navigation/navigationRef'
 import { store as appStore, persistedReducer } from 'src/app/store'
-import { UniswapProvider } from 'lx/src/contexts/UniswapContext'
-import { BlankUrlProvider } from 'lx/src/contexts/UrlContext'
-import { fiatOnRampAggregatorApi } from 'lx/src/features/fiatOnRamp/api'
-import { AutoMockedApolloProvider } from 'lx/src/test/mocks'
-import { mockUniswapContext } from 'lx/src/test/render'
+import { UniswapProvider } from 'uniswap/src/contexts/UniswapContext'
+import { BlankUrlProvider } from 'uniswap/src/contexts/UrlContext'
+import { AutoMockedApolloProvider } from 'uniswap/src/test/mocks'
+import { mockUniswapContext } from 'uniswap/src/test/render'
 import { SharedWalletProvider } from 'wallet/src/providers/SharedWalletProvider'
 
 type AppStore = typeof appStore
@@ -48,7 +47,7 @@ export function renderWithProviders(
     store = configureStore({
       reducer: persistedReducer,
       preloadedState,
-      middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(fiatOnRampAggregatorApi.middleware),
+      middleware: (getDefaultMiddleware) => getDefaultMiddleware(),
     }),
     ...renderOptions
   }: ExtendedRenderOptions = {},
@@ -118,7 +117,7 @@ export function renderHookWithProviders<P, R>(
     store = configureStore({
       reducer: persistedReducer,
       preloadedState,
-      middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(fiatOnRampAggregatorApi.middleware),
+      middleware: (getDefaultMiddleware) => getDefaultMiddleware(),
     }),
     ...renderOptions
   } = (hookOptions ?? {}) as ExtendedRenderHookOptions<P>

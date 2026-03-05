@@ -1,9 +1,9 @@
-import { TransferTransactionDetails } from 'lx/src/components/activity/details/transactions/TransferTransactionDetails'
-import { CurrencyInfo } from 'lx/src/features/dataApi/types'
+import { TransferTransactionDetails } from 'uniswap/src/components/activity/details/transactions/TransferTransactionDetails'
+import { CurrencyInfo } from 'uniswap/src/features/dataApi/types'
 import {
   SendTokenTransactionInfo,
   TransactionDetails,
-} from 'lx/src/features/transactions/types/transactionDetails'
+} from 'uniswap/src/features/transactions/types/transactionDetails'
 import {
   ARBITRUM_DAI_CURRENCY_INFO,
   BASE_CURRENCY,
@@ -12,12 +12,12 @@ import {
   OPTIMISM_CURRENCY,
   POLYGON_CURRENCY,
   SAMPLE_SEED_ADDRESS_1,
-} from 'lx/src/test/fixtures'
-import { render } from 'lx/src/test/test-utils'
+} from 'uniswap/src/test/fixtures'
+import { render } from 'uniswap/src/test/test-utils'
 
 const mockWalletAddress = (): Address => SAMPLE_SEED_ADDRESS_1
-jest.mock('uniswap/src/features/wallet/hooks/useWallet', () => ({
-  useWallet: jest.fn().mockReturnValue({
+vi.mock('uniswap/src/features/wallet/hooks/useWallet', () => ({
+  useWallet: vi.fn().mockReturnValue({
     evmAccount: { address: mockWalletAddress },
   }),
 }))
@@ -67,19 +67,22 @@ const getCurrencyInfoForChain = (chainId: number): CurrencyInfo => {
   }
 }
 
-jest.mock('@luxfi/gating', () => ({
-  ...jest.requireActual('@luxfi/gating'),
-  useDynamicConfigValue: jest
-    .fn()
-    .mockImplementation(({ defaultValue }: { config: unknown; key: unknown; defaultValue: unknown }) => {
-      return defaultValue
-    }),
-  useFeatureFlag: jest.fn().mockReturnValue(true),
-  getFeatureFlag: jest.fn().mockReturnValue(true),
-  useExperimentValue: jest.fn().mockReturnValue('CLASSIC'),
-}))
+vi.mock('@universe/gating', async (importOriginal) => {
+  const actual = await importOriginal<typeof import('@universe/gating')>()
+  return {
+    ...actual,
+    useDynamicConfigValue: vi
+      .fn()
+      .mockImplementation(({ defaultValue }: { config: unknown; key: unknown; defaultValue: unknown }) => {
+        return defaultValue
+      }),
+    useFeatureFlag: vi.fn().mockReturnValue(true),
+    getFeatureFlag: vi.fn().mockReturnValue(true),
+    useExperimentValue: vi.fn().mockReturnValue('CLASSIC'),
+  }
+})
 
-jest.mock('uniswap/src/features/tokens/useCurrencyInfo', () => ({
+vi.mock('uniswap/src/features/tokens/useCurrencyInfo', () => ({
   useCurrencyInfo: (currencyIdString: string | undefined): Maybe<CurrencyInfo> => {
     if (!currencyIdString) {
       return null
@@ -93,13 +96,13 @@ jest.mock('uniswap/src/features/tokens/useCurrencyInfo', () => ({
   },
 }))
 
-jest.mock('ui/src/loading/Skeleton', () => ({
+vi.mock('ui/src/loading/Skeleton', () => ({
   Skeleton: (): JSX.Element => <></>,
 }))
 
 describe('TransferTransactionDetails Component', () => {
   it('renders TransferTransactionDetails without error', () => {
-    const onClose = jest.fn()
+    const onClose = vi.fn()
 
     const tree = render(
       <TransferTransactionDetails transactionDetails={mockTransaction} typeInfo={transferTypeInfo} onClose={onClose} />,

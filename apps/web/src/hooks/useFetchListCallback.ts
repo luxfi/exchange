@@ -1,13 +1,13 @@
 import { nanoid } from '@reduxjs/toolkit'
-import { TokenList } from 'utils/tokenListTypes'
-import { RPC_PROVIDERS } from 'constants/providers'
-import getTokenList from 'lib/hooks/useTokenList/fetchTokenList'
-import resolveENSContentHash from 'lib/utils/resolveENSContentHash'
+import { TokenList } from '@uniswap/token-lists'
 import { useCallback } from 'react'
-import { useAppDispatch } from 'state/hooks'
-import { fetchTokenList } from 'state/lists/actions'
-import { UniverseChainId } from 'lx/src/features/chains/types'
+import { UniverseChainId } from 'uniswap/src/features/chains/types'
 import { logger } from 'utilities/src/logger/logger'
+import { RPC_PROVIDERS } from '~/constants/providers'
+import getTokenList from '~/lib/hooks/useTokenList/fetchTokenList'
+import resolveENSContentHash from '~/lib/utils/resolveENSContentHash'
+import { useAppDispatch } from '~/state/hooks'
+import { fetchTokenList } from '~/state/lists/actions'
 
 export function useFetchListCallback(): (listUrl: string, skipValidation?: boolean) => Promise<TokenList> {
   const dispatch = useAppDispatch()

@@ -5,22 +5,23 @@ import { CheckmarkCircle } from 'ui/src/components/icons/CheckmarkCircle'
 import { CopySheets } from 'ui/src/components/icons/CopySheets'
 import { InfoCircleFilled } from 'ui/src/components/icons/InfoCircleFilled'
 import { iconSizes, spacing } from 'ui/src/theme'
-import { AddressDisplay } from 'lx/src/components/accounts/AddressDisplay'
-import { NetworkLogo } from 'lx/src/components/CurrencyLogo/NetworkLogo'
-import { SupportedNetworkLogosModal } from 'lx/src/components/network/SupportedNetworkLogosModal'
-import { useUniswapContext } from 'lx/src/contexts/UniswapContext'
-import { AccountIcon } from 'lx/src/features/accounts/AccountIcon'
-import { DisplayNameType } from 'lx/src/features/accounts/types'
-import { useAddressColorProps } from 'lx/src/features/address/color'
-import { MAINNET_CHAIN_INFO } from 'lx/src/features/chains/evm/info/mainnet'
-import { useEnabledChains } from 'lx/src/features/chains/hooks/useEnabledChains'
-import { SOLANA_CHAIN_INFO } from 'lx/src/features/chains/svm/info/solana'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { pushNotification } from 'lx/src/features/notifications/slice/slice'
-import { AppNotificationType, CopyNotificationType } from 'lx/src/features/notifications/slice/types'
-import { Platform } from 'lx/src/features/platforms/types/Platform'
-import { setClipboard } from 'lx/src/utils/clipboard'
+import { AddressDisplay } from 'uniswap/src/components/accounts/AddressDisplay'
+import { NetworkLogo } from 'uniswap/src/components/CurrencyLogo/NetworkLogo'
+import { SupportedNetworkLogosModal } from 'uniswap/src/components/network/SupportedNetworkLogosModal'
+import { useUniswapContext } from 'uniswap/src/contexts/UniswapContext'
+import { AccountIcon } from 'uniswap/src/features/accounts/AccountIcon'
+import { DisplayNameType } from 'uniswap/src/features/accounts/types'
+import { useAddressColorProps } from 'uniswap/src/features/address/color'
+import { MAINNET_CHAIN_INFO } from 'uniswap/src/features/chains/evm/info/mainnet'
+import { useEnabledChains } from 'uniswap/src/features/chains/hooks/useEnabledChains'
+import { SOLANA_CHAIN_INFO } from 'uniswap/src/features/chains/svm/info/solana'
+import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { pushNotification } from 'uniswap/src/features/notifications/slice/slice'
+import { AppNotificationType, CopyNotificationType } from 'uniswap/src/features/notifications/slice/types'
+import { Platform } from 'uniswap/src/features/platforms/types/Platform'
+import { TestID } from 'uniswap/src/test/fixtures/testIDs'
 import { isEVMAddress } from 'utilities/src/addresses/evm/evm'
+import { setClipboard } from 'utilities/src/clipboard/clipboard'
 import { isExtensionApp, isWebApp, isWebPlatform } from 'utilities/src/platform'
 import { useEvent } from 'utilities/src/react/hooks'
 import { useBooleanState } from 'utilities/src/react/useBooleanState'
@@ -42,11 +43,10 @@ export function ReceiveQRCode({ address }: { address: Address }): JSX.Element | 
   const { useWalletDisplayName } = useUniswapContext()
   const displayName = useWalletDisplayName(address, { includeUnitagSuffix: true })
   const displayHeaderAddress = displayName?.type === DisplayNameType.Address
-
   const platformAddressLabel = isWebApp
-    ? (isEVMAddress(address) ? MAINNET_CHAIN_INFO.name : SOLANA_CHAIN_INFO.name) +
-      ' ' +
-      t('common.address').toLowerCase()
+    ? t('common.address.chain', {
+        chainName: isEVMAddress(address) ? MAINNET_CHAIN_INFO.name : SOLANA_CHAIN_INFO.name,
+      })
     : t('common.walletAddress')
 
   const { value: copied, setTrue: setCopiedTrue, setFalse: setCopiedFalse } = useBooleanState(false)
@@ -77,7 +77,6 @@ export function ReceiveQRCode({ address }: { address: Address }): JSX.Element | 
       <Flex
         grow
         $short={{ mb: spacing.none }}
-        alignItems="center"
         animation="quick"
         gap="$spacing12"
         justifyContent={isWebPlatform ? 'flex-start' : 'center'}
@@ -85,22 +84,23 @@ export function ReceiveQRCode({ address }: { address: Address }): JSX.Element | 
         px={isWebPlatform || isShortMobileDevice ? '$spacing16' : '$spacing60'}
         py={isExtensionApp ? '$spacing60' : '$spacing24'}
       >
-        <Flex>
+        <Flex shrink>
           {displayHeaderAddress ? (
             <Text color="$neutral1" numberOfLines={1} variant="heading3">
               {platformAddressLabel}
             </Text>
           ) : (
-            <AddressDisplay
-              includeUnitagSuffix
-              centered
-              hideAddressInSubtitle
-              disableForcedWidth
-              address={address}
-              captionVariant="body2"
-              showAccountIcon={false}
-              variant="heading3"
-            />
+            <Flex grow row centered>
+              <AddressDisplay
+                includeUnitagSuffix
+                centered
+                hideAddressInSubtitle
+                address={address}
+                captionVariant="body2"
+                showAccountIcon={false}
+                variant="heading3"
+              />
+            </Flex>
           )}
         </Flex>
         <QRCodeDisplay
@@ -130,7 +130,7 @@ export function ReceiveQRCode({ address }: { address: Address }): JSX.Element | 
               borderWidth="$spacing1"
               borderColor="$surface3"
             >
-              <Text color="$neutral1" textAlign="center" variant="body2" width="100%">
+              <Text color="$neutral1" textAlign="center" variant="body2" width="100%" testID={TestID.AddressDisplay}>
                 {address}
               </Text>
             </Flex>
@@ -157,7 +157,9 @@ export function ReceiveQRCode({ address }: { address: Address }): JSX.Element | 
           </Flex>
         </TouchableArea>
         <TouchableArea gap="$gap4" mt="$spacing4" onPress={openSupportedNetworksModal}>
-          <Text variant="body3">{t('fiatOnRamp.receiveCrypto.useThisAddress')}</Text>
+          <Flex centered row>
+            <Text variant="body3">{t('fiatOnRamp.receiveCrypto.useThisAddress')}</Text>
+          </Flex>
           <Flex row centered gap="$gap4">
             {isEVMAddress(address) ? (
               <>

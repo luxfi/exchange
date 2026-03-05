@@ -1,9 +1,9 @@
-import { GraphQLApi } from '@luxfi/api'
-import useIsWindowVisible from 'hooks/useIsWindowVisible'
+import { GraphQLApi } from '@universe/api'
 import { useCallback, useMemo, useRef } from 'react'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { fromGraphQLChain } from 'lx/src/features/chains/utils'
-import i18n from 'lx/src/i18n'
+import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { fromGraphQLChain } from 'uniswap/src/features/chains/utils'
+import i18n from 'uniswap/src/i18n'
+import { useIsWindowVisible } from 'utilities/src/react/useIsWindowVisible'
 
 export enum TransactionType {
   SWAP = 'Swap',
@@ -35,7 +35,7 @@ const ALL_TX_DEFAULT_QUERY_SIZE = 20
 export function useAllTransactions(
   chain: GraphQLApi.Chain,
   filter: TransactionType[] = [TransactionType.SWAP, TransactionType.ADD, TransactionType.REMOVE],
-): any {
+) {
   const isWindowVisible = useIsWindowVisible()
   const skipTransactionsQueries = !isWindowVisible || fromGraphQLChain(chain) === UniverseChainId.Solana
 

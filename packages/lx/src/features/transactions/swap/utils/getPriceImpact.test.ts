@@ -1,28 +1,27 @@
-import { CurrencyAmount, Percent, Token } from '@luxamm/sdk-core'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import type { DerivedSwapInfo } from 'lx/src/features/transactions/swap/types/derivedSwapInfo'
-import type { Trade, TradeWithStatus } from 'lx/src/features/transactions/swap/types/trade'
-import { getPriceImpact } from 'lx/src/features/transactions/swap/utils/getPriceImpact'
-import { getSwapFeeUsdFromDerivedSwapInfo } from 'lx/src/features/transactions/swap/utils/getSwapFeeUsd'
-import { isClassic, isUniswapX } from 'lx/src/features/transactions/swap/utils/routing'
-import { WrapType } from 'lx/src/features/transactions/types/wrap'
-import { CurrencyField } from 'lx/src/types/currency'
+import { CurrencyAmount, Percent, Token } from '@uniswap/sdk-core'
+import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import type { DerivedSwapInfo } from 'uniswap/src/features/transactions/swap/types/derivedSwapInfo'
+import type { Trade, TradeWithStatus } from 'uniswap/src/features/transactions/swap/types/trade'
+import { getPriceImpact } from 'uniswap/src/features/transactions/swap/utils/getPriceImpact'
+import { getSwapFeeUsdFromDerivedSwapInfo } from 'uniswap/src/features/transactions/swap/utils/getSwapFeeUsd'
+import { isClassic, isUniswapX } from 'uniswap/src/features/transactions/swap/utils/routing'
+import { WrapType } from 'uniswap/src/features/transactions/types/wrap'
+import { CurrencyField } from 'uniswap/src/types/currency'
+import type { Mock } from 'vitest'
 
 // Mocks for routing and getSwapFeeUsd
-jest.mock('uniswap/src/features/transactions/swap/utils/routing', () => ({
-  isClassic: jest.fn(),
-  isUniswapX: jest.fn(),
+vi.mock('uniswap/src/features/transactions/swap/utils/routing', () => ({
+  isClassic: vi.fn(),
+  isUniswapX: vi.fn(),
 }))
-jest.mock('uniswap/src/features/transactions/swap/utils/getSwapFeeUsd', () => ({
-  getSwapFeeUsdFromDerivedSwapInfo: jest.fn(),
+vi.mock('uniswap/src/features/transactions/swap/utils/getSwapFeeUsd', () => ({
+  getSwapFeeUsdFromDerivedSwapInfo: vi.fn(),
 }))
 
 // Type the mocks for TypeScript
-const isClassicMock = isClassic as jest.MockedFunction<typeof isClassic>
-const isUniswapXMock = isUniswapX as jest.MockedFunction<typeof isUniswapX>
-const getSwapFeeUsdFromDerivedSwapInfoMock = getSwapFeeUsdFromDerivedSwapInfo as jest.MockedFunction<
-  typeof getSwapFeeUsdFromDerivedSwapInfo
->
+const isClassicMock = isClassic as unknown as Mock
+const isUniswapXMock = isUniswapX as unknown as Mock
+const getSwapFeeUsdFromDerivedSwapInfoMock = getSwapFeeUsdFromDerivedSwapInfo as unknown as Mock
 
 // Minimal ClassicTrade mock
 class ClassicTradeMock {
@@ -65,6 +64,7 @@ describe('getPriceImpact', () => {
     overrides: Partial<DerivedSwapInfo> = {},
   ): DerivedSwapInfo => ({
     chainId: UniverseChainId.Mainnet,
+
     currencies: {
       [CurrencyField.INPUT]: null,
       [CurrencyField.OUTPUT]: null,
@@ -91,7 +91,7 @@ describe('getPriceImpact', () => {
   })
 
   afterEach(() => {
-    jest.resetAllMocks()
+    vi.resetAllMocks()
   })
 
   it('returns undefined if there is no trade', () => {

@@ -1,23 +1,23 @@
-import { TradingApi } from '@luxfi/api'
+import { TradingApi } from '@universe/api'
 import { useEffect, useMemo } from 'react'
 import { useDispatch } from 'react-redux'
-import { usePendingTransactions, usePendingUniswapXOrders } from 'state/transactions/hooks'
-import { isExistingTransaction } from 'state/transactions/utils'
-import { useMergeLocalAndRemoteTransactions } from 'lx/src/features/activity/hooks/useMergeLocalAndRemoteTransactions'
-import { useOpenLimitOrders as useOpenLimitOrdersREST } from 'lx/src/features/activity/hooks/useOpenLimitOrders'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { isL2ChainId } from 'lx/src/features/chains/utils'
-import { CancellationGasFeeDetails } from 'lx/src/features/gas/hooks'
-import { useCancellationGasFeeInfo } from 'lx/src/features/gas/hooks/useCancellationGasFeeInfo'
-import { addTransaction } from 'lx/src/features/transactions/slice'
-import { isUniswapX } from 'lx/src/features/transactions/swap/utils/routing'
+import { useMergeLocalAndRemoteTransactions } from 'uniswap/src/features/activity/hooks/useMergeLocalAndRemoteTransactions'
+import { useOpenLimitOrders as useOpenLimitOrdersREST } from 'uniswap/src/features/activity/hooks/useOpenLimitOrders'
+import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { isL2ChainId } from 'uniswap/src/features/chains/utils'
+import { CancellationGasFeeDetails } from 'uniswap/src/features/gas/hooks'
+import { useCancellationGasFeeInfo } from 'uniswap/src/features/gas/hooks/useCancellationGasFeeInfo'
+import { addTransaction } from 'uniswap/src/features/transactions/slice'
+import { isUniswapX } from 'uniswap/src/features/transactions/swap/utils/routing'
 import {
   TransactionDetails,
   TransactionStatus,
   TransactionType,
   UniswapXOrderDetails,
-} from 'lx/src/features/transactions/types/transactionDetails'
-import { isLimitOrder } from 'lx/src/features/transactions/utils/uniswapX.utils'
+} from 'uniswap/src/features/transactions/types/transactionDetails'
+import { isLimitOrder, isUniswapXOrderPending } from 'uniswap/src/features/transactions/utils/uniswapX.utils'
+import { usePendingTransactions, usePendingUniswapXOrders } from '~/state/transactions/hooks'
+import { isExistingTransaction } from '~/state/transactions/utils'
 
 export function useOpenLimitOrders(account: string): { openLimitOrders: UniswapXOrderDetails[]; loading: boolean } {
   const dispatch = useDispatch()
@@ -31,7 +31,7 @@ export function useOpenLimitOrders(account: string): { openLimitOrders: UniswapX
 
     limitOrders.forEach((order) => {
       if (
-        order.status === TransactionStatus.Pending &&
+        isUniswapXOrderPending(order) &&
         !isExistingTransaction({ from: order.from, chainId: order.chainId, id: order.id })
       ) {
         dispatch(addTransaction(order))
@@ -41,10 +41,7 @@ export function useOpenLimitOrders(account: string): { openLimitOrders: UniswapX
 
   const merged = useMergeLocalAndRemoteTransactions({ evmAddress: account, remoteTransactions: limitOrders })
   const openLimitOrders = useMemo(
-    () =>
-      (merged ?? []).filter(
-        (tx): tx is UniswapXOrderDetails => isLimitOrder(tx) && tx.status === TransactionStatus.Pending,
-      ),
+    () => (merged ?? []).filter((tx): tx is UniswapXOrderDetails => isLimitOrder(tx) && isUniswapXOrderPending(tx)),
     [merged],
   )
   return { openLimitOrders, loading }
@@ -60,8 +57,9 @@ export function usePendingActivity() {
   // Pending limit orders shown in the limit sidebar
   const pendingOrdersWithoutLimits = pendingOrders.filter((order) => order.routing !== TradingApi.Routing.DUTCH_LIMIT)
 
-  const hasPendingActivity = pendingTransactions.length > 0 || pendingOrdersWithoutLimits.length > 0
   const pendingActivityCount = pendingTransactions.length + pendingOrdersWithoutLimits.length
+  const hasPendingActivity = pendingActivityCount > 0
+
   // Check if any pending transactions are on L1 networks (which need longer delay)
   const hasL1PendingActivity =
     hasPendingActivity && [...pendingTransactions, ...pendingOrdersWithoutLimits].some((tx) => !isL2ChainId(tx.chainId))

@@ -1,12 +1,3 @@
-import { MismatchToastItem } from 'components/Popups/MismatchToastItem'
-import {
-  FailedNetworkSwitchPopup,
-  FORTransactionPopupContent,
-  TransactionPopupContent,
-  UniswapXOrderPopupContent,
-} from 'components/Popups/PopupContent'
-import { ToastRegularSimple } from 'components/Popups/ToastRegularSimple'
-import { PopupContent, PopupType, SwitchNetworkAction } from 'components/Popups/types'
 import { TFunction } from 'i18next'
 import { useTranslation } from 'react-i18next'
 import { Flex, Text } from 'ui/src'
@@ -15,9 +6,19 @@ import { CheckCircleFilled } from 'ui/src/components/icons/CheckCircleFilled'
 import { Eye } from 'ui/src/components/icons/Eye'
 import { Shuffle } from 'ui/src/components/icons/Shuffle'
 import { spacing } from 'ui/src/theme'
-import { NetworkLogo } from 'lx/src/components/CurrencyLogo/NetworkLogo'
-import { getChainInfo } from 'lx/src/features/chains/chainInfo'
-import { UniverseChainId } from 'lx/src/features/chains/types'
+import { NetworkLogo } from 'uniswap/src/components/CurrencyLogo/NetworkLogo'
+import { getChainInfo } from 'uniswap/src/features/chains/chainInfo'
+import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { MismatchToastItem } from '~/components/Popups/MismatchToastItem'
+import {
+  FailedNetworkSwitchPopup,
+  FORTransactionPopupContent,
+  PlanPopupContent,
+  TransactionPopupContent,
+  UniswapXOrderPopupContent,
+} from '~/components/Popups/PopupContent'
+import { ToastRegularSimple } from '~/components/Popups/ToastRegularSimple'
+import { PopupContent, PopupType, SwitchNetworkAction } from '~/components/Popups/types'
 
 export function PopupItem({ content, onClose }: { content: PopupContent; popKey: string; onClose: () => void }) {
   const { t } = useTranslation()
@@ -25,6 +26,9 @@ export function PopupItem({ content, onClose }: { content: PopupContent; popKey:
   switch (content.type) {
     case PopupType.Transaction: {
       return <TransactionPopupContent hash={content.hash} onClose={onClose} />
+    }
+    case PopupType.Plan: {
+      return <PlanPopupContent planId={content.planId} onClose={onClose} />
     }
     case PopupType.Order: {
       return <UniswapXOrderPopupContent orderHash={content.orderHash} onClose={onClose} />

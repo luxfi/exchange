@@ -1,27 +1,28 @@
 import type { PropsWithChildren } from 'react'
 import { useEffect, useMemo, useState } from 'react'
 import { useDispatch } from 'react-redux'
-import type { TradeableAsset } from 'lx/src/entities/assets'
-import { useMaxAmountSpend } from 'lx/src/features/gas/hooks/useMaxAmountSpend'
-import { useSwapAnalytics } from 'lx/src/features/transactions/swap/analytics'
+import type { TradeableAsset } from 'uniswap/src/entities/assets'
+import { useMaxAmountSpend } from 'uniswap/src/features/gas/hooks/useMaxAmountSpend'
+import { useSwapAnalytics } from 'uniswap/src/features/transactions/swap/analytics'
+import { useEthAsErc20UniswapXQualifyingEvent } from 'uniswap/src/features/transactions/swap/hooks/useEthAsErc20UniswapXQualifyingEvent'
 import {
   createSwapFormStore,
   INITIAL_SWAP_FORM_STATE,
-} from 'lx/src/features/transactions/swap/stores/swapFormStore/createSwapFormStore'
-import { useDebouncedSwapFormAmounts } from 'lx/src/features/transactions/swap/stores/swapFormStore/hooks/useDebouncedSwapFormAmounts'
-import { useDefaultSwapFormState } from 'lx/src/features/transactions/swap/stores/swapFormStore/hooks/useDefaultSwapFormState'
-import { useDerivedSwapInfo } from 'lx/src/features/transactions/swap/stores/swapFormStore/hooks/useDerivedSwapInfo'
-import { useFreezeWhileSubmitting } from 'lx/src/features/transactions/swap/stores/swapFormStore/hooks/useFreezeWhileSubmitting'
-import { useOpenOutputSelectorOnPrefilledStateChange } from 'lx/src/features/transactions/swap/stores/swapFormStore/hooks/useOpenOutputSelectorOnPrefilledStateChange'
-import { useUpdateSwapFormFromPrefilledCurrencies } from 'lx/src/features/transactions/swap/stores/swapFormStore/hooks/useUpdateSwapFormFromPrefilledCurrencies'
-import { SwapFormStoreContext } from 'lx/src/features/transactions/swap/stores/swapFormStore/SwapFormStoreContext'
+} from 'uniswap/src/features/transactions/swap/stores/swapFormStore/createSwapFormStore'
+import { useDebouncedSwapFormAmounts } from 'uniswap/src/features/transactions/swap/stores/swapFormStore/hooks/useDebouncedSwapFormAmounts'
+import { useDefaultSwapFormState } from 'uniswap/src/features/transactions/swap/stores/swapFormStore/hooks/useDefaultSwapFormState'
+import { useDerivedSwapInfo } from 'uniswap/src/features/transactions/swap/stores/swapFormStore/hooks/useDerivedSwapInfo'
+import { useFreezeWhileSubmitting } from 'uniswap/src/features/transactions/swap/stores/swapFormStore/hooks/useFreezeWhileSubmitting'
+import { useOpenOutputSelectorOnPrefilledStateChange } from 'uniswap/src/features/transactions/swap/stores/swapFormStore/hooks/useOpenOutputSelectorOnPrefilledStateChange'
+import { useUpdateSwapFormFromPrefilledCurrencies } from 'uniswap/src/features/transactions/swap/stores/swapFormStore/hooks/useUpdateSwapFormFromPrefilledCurrencies'
+import { SwapFormStoreContext } from 'uniswap/src/features/transactions/swap/stores/swapFormStore/SwapFormStoreContext'
 import type {
   SwapFormState,
   SwapFormStateForConsumers,
-} from 'lx/src/features/transactions/swap/stores/swapFormStore/types'
-import type { DerivedSwapInfo } from 'lx/src/features/transactions/swap/types/derivedSwapInfo'
-import { TransactionType } from 'lx/src/features/transactions/types/transactionDetails'
-import { CurrencyField } from 'lx/src/types/currency'
+} from 'uniswap/src/features/transactions/swap/stores/swapFormStore/types'
+import type { DerivedSwapInfo } from 'uniswap/src/features/transactions/swap/types/derivedSwapInfo'
+import { TransactionType } from 'uniswap/src/features/transactions/types/transactionDetails'
+import { CurrencyField } from 'uniswap/src/types/currency'
 import { useEvent } from 'utilities/src/react/hooks'
 import { useValueAsRef } from 'utilities/src/react/useValueAsRef'
 import { useStore } from 'zustand'
@@ -181,7 +182,7 @@ function SwapFormStoreContextProviderBase({
     setSwapForm: setSwapFormState,
   })
 
-  const latestDerivedSwapInfo = useCalculatedInitialDerivedSwapInfo({
+  const dangerouslyGetLatestDerivedSwapInfo = useCalculatedInitialDerivedSwapInfo({
     exactAmountFiat,
     exactAmountToken,
     exactCurrencyField,
@@ -193,12 +194,13 @@ function SwapFormStoreContextProviderBase({
   })
 
   // This prevents the swap form from displaying a new trade while an old one is still being submitted.
-  const derivedSwapInfo = useFreezeWhileSubmitting(latestDerivedSwapInfo, isSubmitting)
+  const derivedSwapInfo = useFreezeWhileSubmitting(dangerouslyGetLatestDerivedSwapInfo, isSubmitting)
 
   const inputAmount = derivedSwapInfo.currencyAmounts[CurrencyField.INPUT]
   const inputBalanceAmount = derivedSwapInfo.currencyBalances[CurrencyField.INPUT]
 
   useSwapAnalytics(derivedSwapInfo)
+  useEthAsErc20UniswapXQualifyingEvent(derivedSwapInfo)
 
   // for native transfers, this is the balance - (estimated gas fee for one transaction * multiplier from flag);
   // for ERC20 transfers, this is the balance
@@ -248,7 +250,12 @@ function SwapFormStoreContextProviderBase({
       exactAmountTokenRef.current = updatedState.exactAmountToken
     }
 
-    if (isAmountUpdated || updatedState.exactCurrencyField !== CurrencyField.OUTPUT) {
+    const shouldRecomputeIsMax =
+      updatedState.exactAmountToken !== undefined ||
+      updatedState.isMax !== undefined ||
+      updatedState.exactCurrencyField !== undefined
+
+    if (shouldRecomputeIsMax) {
       const isMaxTokenAmount =
         !!maxInputAmountAsRef.current &&
         !!updatedState.exactAmountToken &&
@@ -276,6 +283,7 @@ function SwapFormStoreContextProviderBase({
   const derivedState: Partial<SwapFormStateForConsumers> = useMemo(
     () => ({
       derivedSwapInfo,
+      dangerouslyGetLatestDerivedSwapInfo,
       hideFooter,
       hideSettings,
       prefilledCurrencies,
@@ -284,6 +292,7 @@ function SwapFormStoreContextProviderBase({
     }),
     [
       derivedSwapInfo,
+      dangerouslyGetLatestDerivedSwapInfo,
       hideFooter,
       hideSettings,
       prefilledCurrencies,

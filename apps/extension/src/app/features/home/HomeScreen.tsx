@@ -1,14 +1,13 @@
 import { useApolloClient } from '@apollo/client'
-import { SharedEventName } from '@luxdex/analytics-events'
-import { FeatureFlags, useFeatureFlag } from '@luxfi/gating'
-import { memo, useCallback, useEffect, useState } from 'react'
+import { SharedEventName } from '@uniswap/analytics-events'
+import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import { getIsNotificationServiceLocalOverrideEnabled } from '@universe/notifications'
+import React, { memo, useCallback, useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
 import { ActivityTab } from 'src/app/components/tabs/ActivityTab'
 import { NftsTab } from 'src/app/components/tabs/NftsTab'
 import { useSmartWalletNudges } from 'src/app/context/SmartWalletNudgesContext'
-import AppRatingModal from 'src/app/features/appRating/AppRatingModal'
-import { useAppRating } from 'src/app/features/appRating/hooks/useAppRating'
 import { HomeIntroCardStack } from 'src/app/features/home/introCards/HomeIntroCardStack'
 import { PortfolioActionButtons } from 'src/app/features/home/PortfolioActionButtons'
 import { PortfolioHeader } from 'src/app/features/home/PortfolioHeader'
@@ -19,19 +18,20 @@ import { PinReminder } from 'src/app/features/onboarding/PinReminder'
 import { useOptimizedSearchParams } from 'src/app/hooks/useOptimizedSearchParams'
 import { HomeQueryParams, HomeTabs } from 'src/app/navigation/constants'
 import { navigate } from 'src/app/navigation/state'
+import { ExtensionNotificationServiceManager } from 'src/notification-service/ExtensionNotificationServiceManager'
 import { Flex, Loader, styled, Text, TouchableArea } from 'ui/src'
 import { SMART_WALLET_UPGRADE_VIDEO } from 'ui/src/assets'
-import { buildWrappedUrl } from 'lx/src/components/banners/shared/utils'
-import { UniswapWrapped2025Banner } from 'lx/src/components/banners/UniswapWrapped2025Banner/UniswapWrapped2025Banner'
-import { NFTS_TAB_DATA_DEPENDENCIES } from 'lx/src/components/nfts/constants'
-import { UNISWAP_WEB_URL } from 'lx/src/constants/urls'
-import { selectHasDismissedUniswapWrapped2025Banner } from 'lx/src/features/behaviorHistory/selectors'
-import { setHasDismissedUniswapWrapped2025Banner } from 'lx/src/features/behaviorHistory/slice'
-import { useSelectAddressHasNotifications } from 'lx/src/features/notifications/slice/hooks'
-import { setNotificationStatus } from 'lx/src/features/notifications/slice/slice'
-import { PortfolioBalance } from 'lx/src/features/portfolio/PortfolioBalance/PortfolioBalance'
-import { ModalName } from 'lx/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
+import { buildWrappedUrl } from 'uniswap/src/components/banners/shared/utils'
+import { UniswapWrapped2025Banner } from 'uniswap/src/components/banners/UniswapWrapped2025Banner/UniswapWrapped2025Banner'
+import { NFTS_TAB_DATA_DEPENDENCIES } from 'uniswap/src/components/nfts/constants'
+import { UNISWAP_WEB_URL } from 'uniswap/src/constants/urls'
+import { selectHasDismissedUniswapWrapped2025Banner } from 'uniswap/src/features/behaviorHistory/selectors'
+import { setHasDismissedUniswapWrapped2025Banner } from 'uniswap/src/features/behaviorHistory/slice'
+import { useSelectAddressHasNotifications } from 'uniswap/src/features/notifications/slice/hooks'
+import { setNotificationStatus } from 'uniswap/src/features/notifications/slice/slice'
+import { PortfolioBalance } from 'uniswap/src/features/portfolio/PortfolioBalance/PortfolioBalance'
+import { ModalName } from 'uniswap/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
 import { logger } from 'utilities/src/logger/logger'
 import { useEvent } from 'utilities/src/react/hooks'
 import { ONE_MINUTE_MS, ONE_SECOND_MS } from 'utilities/src/time/time'
@@ -81,6 +81,11 @@ export const HomeScreen = memo(function _HomeScreen(): JSX.Element {
   const isWrappedBannerEnabled = useFeatureFlag(FeatureFlags.UniswapWrapped2025)
   const hasDismissedWrappedBanner = useSelector(selectHasDismissedUniswapWrapped2025Banner)
   const shouldShowWrappedBanner = isWrappedBannerEnabled && !hasDismissedWrappedBanner
+
+  // Notification service feature flag
+  const isNotificationServiceEnabledFlag = useFeatureFlag(FeatureFlags.NotificationService)
+  const isNotificationServiceEnabled =
+    getIsNotificationServiceLocalOverrideEnabled() || isNotificationServiceEnabledFlag
 
   const handleDismissWrappedBanner = useCallback(() => {
     dispatch(setHasDismissedUniswapWrapped2025Banner(true))
@@ -182,8 +187,6 @@ export const HomeScreen = memo(function _HomeScreen(): JSX.Element {
     }
   }, [apolloClient, shouldRefetchNfts])
 
-  const { appRatingModalVisible, onAppRatingModalClose } = useAppRating()
-
   return (
     <Flex fill alignItems="center" backgroundColor="$surface1" p="$spacing12">
       {address ? (
@@ -223,7 +226,9 @@ export const HomeScreen = memo(function _HomeScreen(): JSX.Element {
 
             <PortfolioActionButtons />
 
-            <HomeIntroCardStack />
+            <ExtensionNotificationServiceManager />
+
+            {!isNotificationServiceEnabled && <HomeIntroCardStack />}
 
             <Flex flex={1} width="100%">
               <Flex row gap="$spacing16" px="$spacing4" py="$spacing8">
@@ -286,7 +291,6 @@ export const HomeScreen = memo(function _HomeScreen(): JSX.Element {
           {t('home.extension.error')}
         </Text>
       )}
-      {appRatingModalVisible && <AppRatingModal onClose={onAppRatingModalClose} />}
       {isSmartWalletEnabled && !activeModal && (
         <SmartWalletUpgradeModals
           account={activeAccount}
@@ -316,7 +320,7 @@ const TabButton = ({
   onPress: () => void
   children: React.ReactNode
   showPendingNotificationBadge?: boolean
-}): JSX.Element => {
+}): React.JSX.Element => {
   return (
     <TouchableArea alignItems="center" flexDirection="row" gap="$spacing4" p="$spacing2" onPress={onPress}>
       <Text color={isActive ? '$neutral1' : '$neutral2'} userSelect="none" variant="subheading2">

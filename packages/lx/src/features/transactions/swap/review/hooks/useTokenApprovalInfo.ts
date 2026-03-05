@@ -1,19 +1,17 @@
-import { Currency, CurrencyAmount } from '@luxamm/sdk-core'
-import { TradingApi } from '@luxfi/api'
+import { Currency, CurrencyAmount } from '@uniswap/sdk-core'
+import { GasFeeResult, TradingApi } from '@universe/api'
 import { useMemo } from 'react'
-import { useUniswapContextSelector } from 'lx/src/contexts/UniswapContext'
-import { useCheckApprovalQuery } from 'lx/src/data/apiClients/tradingApi/useCheckApprovalQuery'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { convertGasFeeToDisplayValue, useActiveGasStrategy } from 'lx/src/features/gas/hooks'
-import { GasFeeResult } from 'lx/src/features/gas/types'
-import { ApprovalAction, TokenApprovalInfo } from 'lx/src/features/transactions/swap/types/trade'
-import { isUniswapX } from 'lx/src/features/transactions/swap/utils/routing'
+import { useUniswapContextSelector } from 'uniswap/src/contexts/UniswapContext'
+import { useCheckApprovalQuery } from 'uniswap/src/data/apiClients/tradingApi/useCheckApprovalQuery'
+import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { convertGasFeeToDisplayValue, useActiveGasStrategy } from 'uniswap/src/features/gas/hooks'
+import { ApprovalAction, TokenApprovalInfo } from 'uniswap/src/features/transactions/swap/types/trade'
+import { isUniswapX } from 'uniswap/src/features/transactions/swap/utils/routing'
 import {
   getTokenAddressForApi,
   toTradingApiSupportedChainId,
-} from 'lx/src/features/transactions/swap/utils/tradingApi'
-import { WrapType } from 'lx/src/features/transactions/types/wrap'
-import { AccountDetails } from 'lx/src/features/wallet/types/AccountDetails'
+} from 'uniswap/src/features/transactions/swap/utils/tradingApi'
+import { WrapType } from 'uniswap/src/features/transactions/types/wrap'
 import { logger } from 'utilities/src/logger/logger'
 import { ONE_MINUTE_MS, ONE_SECOND_MS } from 'utilities/src/time/time'
 
@@ -23,7 +21,7 @@ export interface TokenApprovalInfoParams {
   currencyInAmount: Maybe<CurrencyAmount<Currency>>
   currencyOutAmount?: Maybe<CurrencyAmount<Currency>>
   routing: TradingApi.Routing | undefined
-  account?: AccountDetails
+  address?: string
 }
 
 export type ApprovalTxInfo = {
@@ -42,16 +40,13 @@ function useApprovalWillBeBatchedWithSwap(chainId: UniverseChainId, routing: Tra
 }
 
 export function useTokenApprovalInfo(params: TokenApprovalInfoParams): ApprovalTxInfo {
-  const { account, chainId, wrapType, currencyInAmount, currencyOutAmount, routing } = params
+  const { address, chainId, wrapType, currencyInAmount, currencyOutAmount, routing } = params
 
   const isWrap = wrapType !== WrapType.NotApplicable
   /** Approval is included elsewhere for Chained Actions so it can be skipped */
   const isChained = routing === TradingApi.Routing.CHAINED
 
-  const address = account?.address
-  const inputWillBeWrapped = routing && isUniswapX({ routing })
-  // Off-chain orders must have wrapped currencies approved, rather than natives.
-  const currencyIn = inputWillBeWrapped ? currencyInAmount?.currency.wrapped : currencyInAmount?.currency
+  const currencyIn = currencyInAmount?.currency
   const amount = currencyInAmount?.quotient.toString()
 
   const tokenInAddress = getTokenAddressForApi(currencyIn)

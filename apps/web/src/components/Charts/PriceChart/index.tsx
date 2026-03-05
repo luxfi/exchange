@@ -1,13 +1,4 @@
-import { GraphQLApi } from '@luxfi/api'
-import { ChartHeader } from 'components/Charts/ChartHeader'
-import { Chart, ChartHoverData, ChartModel, ChartModelParams } from 'components/Charts/ChartModel'
-import {
-  RoundedCandleSeries,
-  RoundedCandleSeriesOptions,
-} from 'components/Charts/PriceChart/RoundedCandlestickSeries/rounded-candles-series'
-import { getCandlestickPriceBounds } from 'components/Charts/PriceChart/utils'
-import { PriceChartType } from 'components/Charts/utils'
-import { calculateDelta, DeltaArrow, DeltaText } from 'components/Tokens/TokenDetails/Delta'
+import { GraphQLApi } from '@universe/api'
 import {
   AreaData,
   AreaSeriesPartialOptions,
@@ -24,10 +15,26 @@ import { useMemo } from 'react'
 import { Trans } from 'react-i18next'
 import { Flex, styled, Text } from 'ui/src'
 import { opacify } from 'ui/src/theme'
-import { isLowVarianceRange } from 'lx/src/components/charts/utils'
-import { useFormatChartFiatDelta } from 'lx/src/features/fiatCurrency/hooks/useFormatChartFiatDelta'
-import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
+import { isLowVarianceRange } from 'uniswap/src/components/charts/utils'
+import { useFormatChartFiatDelta } from 'uniswap/src/features/fiatCurrency/hooks/useFormatChartFiatDelta'
+import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
 import { NumberType } from 'utilities/src/format/types'
+import { ChartHeader } from '~/components/Charts/ChartHeader'
+import {
+  Chart,
+  ChartHoverData,
+  ChartModel,
+  ChartModelParams,
+  DEFAULT_BOTTOM_PRICE_SCALE_MARGIN,
+  DEFAULT_TOP_PRICE_SCALE_MARGIN,
+} from '~/components/Charts/ChartModel'
+import {
+  RoundedCandleSeries,
+  RoundedCandleSeriesOptions,
+} from '~/components/Charts/PriceChart/RoundedCandlestickSeries/rounded-candles-series'
+import { getCandlestickPriceBounds } from '~/components/Charts/PriceChart/utils'
+import { PriceChartType } from '~/components/Charts/utils'
+import { calculateDelta, DeltaArrow } from '~/components/DeltaArrow/DeltaArrow'
 
 export type PriceChartData = CandlestickData<UTCTimestamp> & AreaData<UTCTimestamp>
 
@@ -175,7 +182,10 @@ export class PriceChartModel extends ChartModel<PriceChartData> {
           top: 0.49,
           bottom: 0.49,
         }
-      : undefined
+      : {
+          top: DEFAULT_TOP_PRICE_SCALE_MARGIN,
+          bottom: DEFAULT_BOTTOM_PRICE_SCALE_MARGIN,
+        }
 
     super.updateOptions(params, {
       localization: {
@@ -201,9 +211,7 @@ export class PriceChartModel extends ChartModel<PriceChartData> {
       rightPriceScale: {
         borderVisible: false,
         ...(hideYAxis && { visible: false, minimumWidth: 0 }),
-        ...(scaleMargins && {
-          scaleMargins,
-        }),
+        scaleMargins,
       },
     })
 
@@ -365,9 +373,9 @@ export function PriceChartDelta({
   ])
 
   return (
-    <Text variant="body2" display="flex" alignItems="center" gap="$gap4">
+    <Text variant="body2" color="$neutral2" display="flex" alignItems="center" gap="$gap4">
       {delta !== undefined && <DeltaArrow delta={delta} formattedDelta={formattedDelta} noColor={noColor} />}
-      <DeltaText delta={delta}>{fiatDelta ? `${fiatDelta.formatted} (${formattedDelta})` : formattedDelta}</DeltaText>
+      {fiatDelta ? `${fiatDelta.formatted} (${formattedDelta})` : formattedDelta}
     </Text>
   )
 }

@@ -85,9 +85,9 @@ export function transformTradingApiResponseToTrade(params: TradingApiResponseToT
       // We validate the token addresses match to ensure the trade is valid.
       if (
         !areAddressesEqual({
-          addressInput1: { address: currencyIn.wrapped.address, chainId: currencyIn.chainId },
+          addressInput1: { address: getTokenAddressForApi(currencyIn), chainId: currencyIn.chainId },
           addressInput2: { address: quote.orderInfo.input.token, chainId: currencyIn.chainId },
-        }) || // UniswapX quotes should use wrapped native as input, rather than the native token
+        }) ||
         !areAddressesEqual({
           addressInput1: { address: getTokenAddressForApi(currencyOut), chainId: currencyOut.chainId },
           addressInput2: { address: quote.orderInfo.outputs[0]?.token, chainId: currencyOut.chainId },
@@ -568,9 +568,9 @@ export function createGetQuoteSlippageParams(ctx: {
       return { slippageTolerance: customSlippageTolerance }
     }
 
-    // For bridging or USD quotes, we do not apply any slippage settings
+    // For cross-chain swaps, use default as it will be handled by the backend
     if (tokenInChainId !== tokenOutChainId || isUSDQuote) {
-      return undefined
+      return { autoSlippage: TradingApi.AutoSlippage.DEFAULT }
     }
 
     // L2 chains should use the minimum slippage tolerance defined in the dynamic config
@@ -579,8 +579,7 @@ export function createGetQuoteSlippageParams(ctx: {
     }
 
     // Otherwise, use an auto slippage tolerance calculated on the backend
-    // TODO: TradingApi.AutoSlippage.DEFAULT was removed. Verify if there is a replacement.
-    return { autoSlippage: 'DEFAULT' }
+    return { autoSlippage: TradingApi.AutoSlippage.DEFAULT }
   }
 }
 

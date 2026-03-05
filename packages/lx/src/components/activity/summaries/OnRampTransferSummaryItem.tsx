@@ -1,19 +1,20 @@
 import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
-import { TransactionSummaryLayout } from 'lx/src/components/activity/summaries/TransactionSummaryLayout'
-import { SummaryItemProps } from 'lx/src/components/activity/types'
-import { TXN_HISTORY_ICON_SIZE } from 'lx/src/components/activity/utils'
-import { LogoWithTxStatus } from 'lx/src/components/CurrencyLogo/LogoWithTxStatus'
-import { AssetType } from 'lx/src/entities/assets'
-import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
-import { useCurrencyInfo } from 'lx/src/features/tokens/useCurrencyInfo'
+import { TransactionSummaryLayout } from 'uniswap/src/components/activity/summaries/TransactionSummaryLayout'
+import { SummaryItemProps } from 'uniswap/src/components/activity/types'
+import { TXN_HISTORY_ICON_SIZE } from 'uniswap/src/components/activity/utils'
+import { LogoWithTxStatus } from 'uniswap/src/components/CurrencyLogo/LogoWithTxStatus'
+import { AssetType } from 'uniswap/src/entities/assets'
+import { isValidIsoCurrencyCode } from 'uniswap/src/features/fiatOnRamp/utils'
+import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
+import { useCurrencyInfo } from 'uniswap/src/features/tokens/useCurrencyInfo'
 import {
   OnRampPurchaseInfo,
   OnRampTransferInfo,
   TransactionDetails,
   TransactionType,
-} from 'lx/src/features/transactions/types/transactionDetails'
-import { buildCurrencyId } from 'lx/src/utils/currencyId'
+} from 'uniswap/src/features/transactions/types/transactionDetails'
+import { buildCurrencyId } from 'uniswap/src/utils/currencyId'
 import { NumberType } from 'utilities/src/format/types'
 import { logger } from 'utilities/src/logger/logger'
 
@@ -34,11 +35,24 @@ export function OnRampTransferSummaryItem({
   const cryptoPurchaseAmount = formatNumberOrString({ value: destinationTokenAmount }) + ' ' + destinationTokenSymbol
 
   const formatFiatTokenPrice = (purchaseInfo: OnRampPurchaseInfo): string => {
+    // Validate sourceCurrency is a valid 3-letter ISO currency code before formatting
+    const currencyCode = purchaseInfo.sourceCurrency
+    if (!isValidIsoCurrencyCode(currencyCode)) {
+      logger.error(new Error('Invalid sourceCurrency in OnRampPurchaseInfo'), {
+        tags: {
+          file: 'OnRampTransferSummaryItem.tsx',
+          function: 'formatFiatTokenPrice',
+        },
+        extra: { sourceCurrency: currencyCode, transactionId: purchaseInfo.id },
+      })
+      return '-'
+    }
+
     try {
       return formatNumberOrString({
         value: purchaseInfo.sourceAmount,
         type: NumberType.FiatTokenPrice,
-        currencyCode: purchaseInfo.sourceCurrency,
+        currencyCode,
       })
     } catch (error) {
       logger.error(error, {
@@ -46,6 +60,7 @@ export function OnRampTransferSummaryItem({
           file: 'OnRampTransferSummaryItem.tsx',
           function: 'formatFiatTokenPrice',
         },
+        extra: { sourceCurrency: currencyCode, transactionId: purchaseInfo.id },
       })
       return '-'
     }

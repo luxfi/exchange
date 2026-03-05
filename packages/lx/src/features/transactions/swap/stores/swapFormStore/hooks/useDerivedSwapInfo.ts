@@ -1,22 +1,23 @@
-import { TradeType } from '@luxamm/sdk-core'
-import { FeatureFlags, useFeatureFlag } from '@luxfi/gating'
+import { TradeType } from '@uniswap/sdk-core'
+import { FeatureFlags, useFeatureFlag } from '@universe/gating'
 import { useMemo } from 'react'
-import { useUniswapContextSelector } from 'lx/src/contexts/UniswapContext'
-import { useEnabledChains } from 'lx/src/features/chains/hooks/useEnabledChains'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { useOnChainCurrencyBalance } from 'lx/src/features/portfolio/api'
-import { getCurrencyAmount, ValueType } from 'lx/src/features/tokens/getCurrencyAmount'
-import { useCurrencyInfo } from 'lx/src/features/tokens/useCurrencyInfo'
-import { useTransactionSettingsStore } from 'lx/src/features/transactions/components/settings/stores/transactionSettingsStore/useTransactionSettingsStore'
-import { useUSDCValue } from 'lx/src/features/transactions/hooks/useUSDCPrice'
-import { usePriceUXEnabled } from 'lx/src/features/transactions/swap/hooks/usePriceUXEnabled'
-import { useTrade } from 'lx/src/features/transactions/swap/hooks/useTrade'
-import type { DerivedSwapInfo } from 'lx/src/features/transactions/swap/types/derivedSwapInfo'
-import { getWrapType, isWrapAction } from 'lx/src/features/transactions/swap/utils/wrap'
-import type { TransactionState } from 'lx/src/features/transactions/types/transactionState'
-import { useWallet } from 'lx/src/features/wallet/hooks/useWallet'
-import { CurrencyField } from 'lx/src/types/currency'
-import { buildCurrencyId } from 'lx/src/utils/currencyId'
+import { useUniswapContextSelector } from 'uniswap/src/contexts/UniswapContext'
+import { useEnabledChains } from 'uniswap/src/features/chains/hooks/useEnabledChains'
+import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { useOnChainCurrencyBalance } from 'uniswap/src/features/portfolio/api'
+import { getCurrencyAmount, ValueType } from 'uniswap/src/features/tokens/getCurrencyAmount'
+import { useCurrencyInfo } from 'uniswap/src/features/tokens/useCurrencyInfo'
+import { useTransactionSettingsStore } from 'uniswap/src/features/transactions/components/settings/stores/transactionSettingsStore/useTransactionSettingsStore'
+import { useUSDCValue } from 'uniswap/src/features/transactions/hooks/useUSDCPriceWrapper'
+import { usePriceUXEnabled } from 'uniswap/src/features/transactions/swap/hooks/usePriceUXEnabled'
+import { useTrade } from 'uniswap/src/features/transactions/swap/hooks/useTrade'
+import { useTradeFromExistingPlan } from 'uniswap/src/features/transactions/swap/hooks/useTradeFromExistingPlan'
+import type { DerivedSwapInfo } from 'uniswap/src/features/transactions/swap/types/derivedSwapInfo'
+import { getWrapType } from 'uniswap/src/features/transactions/swap/utils/wrap'
+import type { TransactionState } from 'uniswap/src/features/transactions/types/transactionState'
+import { useWallet } from 'uniswap/src/features/wallet/hooks/useWallet'
+import { CurrencyField } from 'uniswap/src/types/currency'
+import { buildCurrencyId } from 'uniswap/src/utils/currencyId'
 
 /** Returns information derived from the current swap state */
 export function useDerivedSwapInfo({
@@ -36,14 +37,11 @@ export function useDerivedSwapInfo({
 
   const { defaultChainId } = useEnabledChains()
 
-  const { customSlippageTolerance, selectedProtocols, isV4HookPoolsEnabled, routeVia } = useTransactionSettingsStore(
-    (s) => ({
-      customSlippageTolerance: s.customSlippageTolerance,
-      selectedProtocols: s.selectedProtocols,
-      isV4HookPoolsEnabled: s.isV4HookPoolsEnabled,
-      routeVia: s.routeVia,
-    }),
-  )
+  const { customSlippageTolerance, selectedProtocols, isV4HookPoolsEnabled } = useTransactionSettingsStore((s) => ({
+    customSlippageTolerance: s.customSlippageTolerance,
+    selectedProtocols: s.selectedProtocols,
+    isV4HookPoolsEnabled: s.isV4HookPoolsEnabled,
+  }))
 
   const currencyInInfo = useCurrencyInfo(
     currencyAssetIn ? buildCurrencyId(currencyAssetIn.chainId, currencyAssetIn.address) : undefined,
@@ -97,20 +95,36 @@ export function useDerivedSwapInfo({
     // swap_7702 endpoint consumes typedData in the process encoding the swap.
     return ctx.getCanSignPermits?.(chainId) && !ctx.getSwapDelegationInfo?.(chainId).delegationAddress
   })
+  const tradeParams = useMemo(
+    () => ({
+      account,
+      amountSpecified,
+      otherCurrency,
+      tradeType: isExactIn ? TradeType.EXACT_INPUT : TradeType.EXACT_OUTPUT,
+      customSlippageTolerance,
+      selectedProtocols,
+      sendPortionEnabled,
+      isDebouncing,
+      generatePermitAsTransaction,
+      isV4HookPoolsEnabled,
+    }),
+    [
+      account,
+      amountSpecified,
+      otherCurrency,
+      isExactIn,
+      customSlippageTolerance,
+      selectedProtocols,
+      sendPortionEnabled,
+      isDebouncing,
+      generatePermitAsTransaction,
+      isV4HookPoolsEnabled,
+    ],
+  )
 
-  const trade = useTrade({
-    account,
-    amountSpecified,
-    otherCurrency,
-    tradeType: isExactIn ? TradeType.EXACT_INPUT : TradeType.EXACT_OUTPUT,
-    customSlippageTolerance,
-    selectedProtocols,
-    sendPortionEnabled,
-    isDebouncing,
-    generatePermitAsTransaction,
-    isV4HookPoolsEnabled,
-    routeVia,
-  })
+  const existingPlanTrade = useTradeFromExistingPlan(tradeParams)
+  const tradeFromQuote = useTrade({ ...tradeParams, skip: !!existingPlanTrade })
+  const trade = existingPlanTrade ?? tradeFromQuote
 
   const displayableTrade = trade.trade ?? trade.indicativeTrade
 
@@ -119,59 +133,14 @@ export function useDerivedSwapInfo({
     ? displayableTrade?.quoteOutputAmount
     : displayableTrade?.outputAmount
 
-  // For wrap/unwrap operations, use 1:1 conversion (no trade API needed)
-  const wrapInputAmount = useMemo(() => {
-    if (!isWrapAction(wrapType) || !amountSpecified) {
-      return undefined
-    }
-    // If exact input, use amountSpecified directly; otherwise create amount with input currency
-    if (exactCurrencyField === CurrencyField.INPUT) {
-      return amountSpecified
-    }
-    return getCurrencyAmount({
-      value: exactAmountToken,
-      valueType: ValueType.Exact,
-      currency: currencyIn,
-    })
-  }, [wrapType, amountSpecified, exactCurrencyField, exactAmountToken, currencyIn])
-
-  const wrapOutputAmount = useMemo(() => {
-    if (!isWrapAction(wrapType) || !amountSpecified) {
-      return undefined
-    }
-    // If exact output, use amountSpecified directly; otherwise create amount with output currency
-    if (exactCurrencyField === CurrencyField.OUTPUT) {
-      return amountSpecified
-    }
-    return getCurrencyAmount({
-      value: exactAmountToken,
-      valueType: ValueType.Exact,
-      currency: currencyOut,
-    })
-  }, [wrapType, amountSpecified, exactCurrencyField, exactAmountToken, currencyOut])
-
   const currencyAmounts = useMemo(
     () => ({
-      [CurrencyField.INPUT]: isWrapAction(wrapType)
-        ? wrapInputAmount
-        : exactCurrencyField === CurrencyField.INPUT
-          ? amountSpecified
-          : displayableTrade?.inputAmount,
-      [CurrencyField.OUTPUT]: isWrapAction(wrapType)
-        ? wrapOutputAmount
-        : exactCurrencyField === CurrencyField.OUTPUT
-          ? amountSpecified
-          : displayableTradeOutputAmount,
+      [CurrencyField.INPUT]:
+        exactCurrencyField === CurrencyField.INPUT ? amountSpecified : displayableTrade?.inputAmount,
+      [CurrencyField.OUTPUT]:
+        exactCurrencyField === CurrencyField.OUTPUT ? amountSpecified : displayableTradeOutputAmount,
     }),
-    [
-      wrapType,
-      wrapInputAmount,
-      wrapOutputAmount,
-      exactCurrencyField,
-      amountSpecified,
-      displayableTrade?.inputAmount,
-      displayableTradeOutputAmount,
-    ],
+    [exactCurrencyField, amountSpecified, displayableTrade?.inputAmount, displayableTradeOutputAmount],
   )
 
   const inputCurrencyUSDValue = useUSDCValue(currencyAmounts[CurrencyField.INPUT])

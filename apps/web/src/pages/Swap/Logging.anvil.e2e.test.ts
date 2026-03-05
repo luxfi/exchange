@@ -1,28 +1,13 @@
-import { isLuxdMode } from 'playwright/anvil/anvil-manager'
-import { createExpectMultipleTransactions } from 'playwright/anvil/transactions'
-import { expect, getTest } from 'playwright/fixtures'
-import { stubTradingApiEndpoint } from 'playwright/fixtures/tradingApi'
-import { TEST_WALLET_ADDRESS } from 'playwright/fixtures/wallets'
-import { LUSD_LUX, USDC_MAINNET } from 'lx/src/constants/tokens'
-import { uniswapUrls } from 'lx/src/constants/urls'
-import { SwapEventName } from 'lx/src/features/telemetry/constants'
-import { TestID } from 'lx/src/test/fixtures/testIDs'
+import { USDC_MAINNET } from 'uniswap/src/constants/tokens'
+import { uniswapUrls } from 'uniswap/src/constants/urls'
+import { SwapEventName } from 'uniswap/src/features/telemetry/constants'
+import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+import { createExpectMultipleTransactions } from '~/playwright/anvil/transactions'
+import { expect, getTest } from '~/playwright/fixtures'
+import { stubTradingApiEndpoint } from '~/playwright/fixtures/tradingApi'
+import { TEST_WALLET_ADDRESS } from '~/playwright/fixtures/wallets'
 
 const test = getTest({ withAnvil: true })
-
-// Get chain-specific configuration
-const getChainConfig = () => {
-  if (isLuxdMode()) {
-    return {
-      inputCurrency: 'LUX',
-      outputCurrency: LUSD_LUX.address,
-    }
-  }
-  return {
-    inputCurrency: 'ETH',
-    outputCurrency: USDC_MAINNET.address,
-  }
-}
 
 test.describe(
   'Time-to-swap logging',
@@ -34,17 +19,14 @@ test.describe(
     ],
   },
   () => {
-    // Logging tests work on all chains with chain-appropriate tokens
-
     test('completes two swaps and verifies the TTS logging for the first, plus all intermediate steps along the way', async ({
       page,
       amplitude,
       anvil,
     }) => {
-      const config = getChainConfig()
       await stubTradingApiEndpoint({ page, endpoint: uniswapUrls.tradingApiPaths.swap })
       await stubTradingApiEndpoint({ page, endpoint: uniswapUrls.tradingApiPaths.quote })
-      await page.goto(`/swap?inputCurrency=${config.inputCurrency}&outputCurrency=${config.outputCurrency}`)
+      await page.goto(`/swap?inputCurrency=ETH&outputCurrency=${USDC_MAINNET.address}`)
 
       const expectMultipleTransactions = createExpectMultipleTransactions({
         anvil,

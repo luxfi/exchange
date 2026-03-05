@@ -1,20 +1,22 @@
 import { useMemo } from 'react'
 import { Flex, styled } from 'ui/src'
-import { NotificationToastProps } from 'lx/src/components/notifications/NotificationToast'
-import { NotificationToastContent } from 'lx/src/components/notifications/NotificationToastContent'
-import { HIDE_OFFSET_Y } from 'lx/src/features/notifications/constants'
-import { useNotificationLifecycle } from 'lx/src/features/notifications/hooks/useNotificationLifecycle'
+import { zIndexes } from 'ui/src/theme'
+import { NotificationToastProps } from 'uniswap/src/components/notifications/NotificationToast'
+import { NotificationToastContent } from 'uniswap/src/components/notifications/NotificationToastContent'
+import { HIDE_OFFSET_Y } from 'uniswap/src/features/notifications/constants'
+import { useNotificationLifecycle } from 'uniswap/src/features/notifications/hooks/useNotificationLifecycle'
 
 // TODO(EXT-931): Consolidate mobile and web animation styles
 const WebToastEntryAnimation = styled(Flex, {
   animation: 'semiBouncy',
   y: 0,
   top: '$spacing12',
+  left: '$spacing12',
+  right: '$spacing12',
   '$platform-web': {
     position: 'fixed',
   },
-  width: '100%',
-  zIndex: '$overlay',
+  zIndex: zIndexes.toast,
   opacity: 1,
   pointerEvents: 'none',
   enterStyle: {

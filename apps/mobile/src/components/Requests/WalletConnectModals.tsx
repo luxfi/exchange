@@ -15,12 +15,11 @@ import {
 import { useAppStateTrigger } from 'src/utils/useAppStateTrigger'
 import { Flex } from 'ui/src'
 import { Eye } from 'ui/src/components/icons'
-import { iconSizes } from 'ui/src/theme'
-import { WarningSeverity } from 'lx/src/components/modals/WarningModal/types'
-import { WarningModal } from 'lx/src/components/modals/WarningModal/WarningModal'
-import { Platform } from 'lx/src/features/platforms/types/Platform'
-import { ModalName } from 'lx/src/features/telemetry/constants'
-import { areAddressesEqual } from 'lx/src/utils/addresses'
+import { WarningSeverity } from 'uniswap/src/components/modals/WarningModal/types'
+import { WarningModal } from 'uniswap/src/components/modals/WarningModal/WarningModal'
+import { Platform } from 'uniswap/src/features/platforms/types/Platform'
+import { ModalName } from 'uniswap/src/features/telemetry/constants'
+import { areAddressesEqual } from 'uniswap/src/utils/addresses'
 import { AccountDetails } from 'wallet/src/components/accounts/AccountDetails'
 import { ErrorBoundary } from 'wallet/src/components/ErrorBoundary/ErrorBoundary'
 import { useActiveAccount, useActiveAccountAddressWithThrow, useSignerAccounts } from 'wallet/src/features/wallet/hooks'
@@ -146,7 +145,7 @@ function RequestModal({ currRequest }: RequestModalProps): JSX.Element {
         onClose={onClose}
       >
         <Flex alignSelf="stretch" backgroundColor="$surface2" borderRadius="$rounded16" p="$spacing16">
-          <AccountDetails address={currRequest.account} iconSize={iconSizes.icon24} />
+          <AccountDetails address={currRequest.account} />
         </Flex>
       </WarningModal>
     )

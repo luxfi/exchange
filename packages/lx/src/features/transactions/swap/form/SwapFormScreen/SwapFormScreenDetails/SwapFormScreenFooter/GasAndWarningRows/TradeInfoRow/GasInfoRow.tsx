@@ -1,10 +1,11 @@
 import { Flex, Text } from 'ui/src'
 import { Gas } from 'ui/src/components/icons/Gas'
-import { UniswapXFee } from 'lx/src/components/gas/NetworkFee'
-import { NetworkFeeWarning } from 'lx/src/components/gas/NetworkFeeWarning'
-import type { GasInfo } from 'lx/src/features/transactions/swap/form/SwapFormScreen/SwapFormScreenDetails/SwapFormScreenFooter/GasAndWarningRows/types'
-import { usePriceUXEnabled } from 'lx/src/features/transactions/swap/hooks/usePriceUXEnabled'
-import { TestID } from 'lx/src/test/fixtures/testIDs'
+import { UniswapXFee } from 'uniswap/src/components/gas/NetworkFee'
+import { NetworkFeeWarning } from 'uniswap/src/components/gas/NetworkFeeWarning'
+import type { GasInfo } from 'uniswap/src/features/transactions/swap/form/SwapFormScreen/SwapFormScreenDetails/SwapFormScreenFooter/GasAndWarningRows/types'
+import { usePriceUXEnabled } from 'uniswap/src/features/transactions/swap/hooks/usePriceUXEnabled'
+import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+import { isZero } from 'uniswap/src/utils/number'
 import { isWebApp } from 'utilities/src/platform'
 
 function NetworkFeeWarningContent({ gasInfo }: { gasInfo?: GasInfo }): JSX.Element | null {
@@ -21,9 +22,10 @@ function NetworkFeeWarningContent({ gasInfo }: { gasInfo?: GasInfo }): JSX.Eleme
         ? '$neutral3'
         : '$neutral2' // Avoid high gas UI on interface
   const uniswapXSavings = gasInfo.uniswapXGasFeeInfo?.preSavingsGasFeeFormatted
+  const isGasFeeFree = gasInfo.gasFee.value !== undefined && isZero(gasInfo.gasFee.value)
 
   return uniswapXSavings ? (
-    <UniswapXFee gasFee={gasInfo.fiatPriceFormatted} preSavingsGasFee={uniswapXSavings} />
+    <UniswapXFee gasFee={gasInfo.fiatPriceFormatted} isFree={isGasFeeFree} preSavingsGasFee={uniswapXSavings} />
   ) : (
     <>
       <Gas color={color} size="$icon.16" />

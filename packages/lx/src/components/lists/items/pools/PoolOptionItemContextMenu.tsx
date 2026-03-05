@@ -1,15 +1,15 @@
-import { ProtocolVersion } from '@luxdex/client-data-api/dist/data/v1/poolTypes_pb'
+import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
 import React, { ReactNode, useCallback, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { CheckCircleFilled } from 'ui/src/components/icons/CheckCircleFilled'
 import { CopyAlt } from 'ui/src/components/icons/CopyAlt'
 import { ShareArrow } from 'ui/src/components/icons/ShareArrow'
-import { ContextMenu, ContextMenuProps, MenuOptionItem } from 'lx/src/components/menus/ContextMenuV2'
-import { ContextMenuTriggerMode } from 'lx/src/components/menus/types'
-import { UNISWAP_WEB_URL } from 'lx/src/constants/urls'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { setClipboard } from 'lx/src/utils/clipboard'
-import { getPoolDetailsURL } from 'lx/src/utils/linking'
+import { ContextMenu, ContextMenuProps, MenuOptionItem } from 'uniswap/src/components/menus/ContextMenu'
+import { ContextMenuTriggerMode } from 'uniswap/src/components/menus/types'
+import { UNISWAP_WEB_URL } from 'uniswap/src/constants/urls'
+import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { getPoolDetailsURL } from 'uniswap/src/utils/linking'
+import { setClipboard } from 'utilities/src/clipboard/clipboard'
 
 const COPY_CLOSE_DELAY = 400
 

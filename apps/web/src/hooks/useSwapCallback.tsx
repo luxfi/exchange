@@ -1,25 +1,14 @@
 import { BigNumber } from '@ethersproject/bignumber'
-import type { Percent } from '@luxamm/sdk-core'
-import { TradeType } from '@luxamm/sdk-core'
-import type { FlatFeeOptions } from '@luxdex/universal-router-sdk'
-import type { FeeOptions } from '@luxamm/v3-sdk'
-import { TradingApi } from '@luxfi/api'
-import { useAccount } from 'hooks/useAccount'
-import type { PermitSignature } from 'hooks/usePermitAllowance'
-import useSelectChain from 'hooks/useSelectChain'
-import { useUniswapXSwapCallback } from 'hooks/useUniswapXSwapCallback'
-import { useUniversalRouterSwapCallback } from 'hooks/useUniversalRouter'
+import type { Percent } from '@uniswap/sdk-core'
+import { TradeType } from '@uniswap/sdk-core'
+import type { FlatFeeOptions } from '@uniswap/universal-router-sdk'
+import type { FeeOptions } from '@uniswap/v3-sdk'
+import { TradingApi } from '@universe/api'
 import { useCallback } from 'react'
 import { useDispatch } from 'react-redux'
-import { useMultichainContext } from 'state/multichain/useMultichainContext'
-import type { InterfaceTrade } from 'state/routing/types'
-import { TradeFillType } from 'state/routing/types'
-import { isClassicTrade, isLimitTrade, isUniswapXTrade } from 'state/routing/utils'
-import { useTransaction, useTransactionAdder } from 'state/transactions/hooks'
-import type { TransactionInfo } from 'state/transactions/types'
-import { useSupportedChainId } from 'lx/src/features/chains/hooks/useSupportedChainId'
-import { isEVMChain } from 'lx/src/features/platforms/utils/chains'
-import { addTransaction } from 'lx/src/features/transactions/slice'
+import { useSupportedChainId } from 'uniswap/src/features/chains/hooks/useSupportedChainId'
+import { isEVMChain } from 'uniswap/src/features/platforms/utils/chains'
+import { addTransaction } from 'uniswap/src/features/transactions/slice'
 import {
   InterfaceTransactionDetails,
   QueuedOrderStatus,
@@ -27,8 +16,19 @@ import {
   TransactionStatus,
   TransactionType,
   UniswapXOrderDetails,
-} from 'lx/src/features/transactions/types/transactionDetails'
-import { currencyId } from 'lx/src/utils/currencyId'
+} from 'uniswap/src/features/transactions/types/transactionDetails'
+import { currencyId } from 'uniswap/src/utils/currencyId'
+import { useAccount } from '~/hooks/useAccount'
+import type { PermitSignature } from '~/hooks/usePermitAllowance'
+import useSelectChain from '~/hooks/useSelectChain'
+import { useUniswapXSwapCallback } from '~/hooks/useUniswapXSwapCallback'
+import { useUniversalRouterSwapCallback } from '~/hooks/useUniversalRouter'
+import { useMultichainContext } from '~/state/multichain/useMultichainContext'
+import type { InterfaceTrade } from '~/state/routing/types'
+import { TradeFillType } from '~/state/routing/types'
+import { isClassicTrade, isLimitTrade, isUniswapXTrade } from '~/state/routing/utils'
+import { useTransaction, useTransactionAdder } from '~/state/transactions/hooks'
+import type { TransactionInfo } from '~/state/transactions/types'
 
 export type SwapResult = Awaited<ReturnType<ReturnType<typeof useSwapCallback>>>
 

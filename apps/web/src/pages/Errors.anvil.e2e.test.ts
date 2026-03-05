@@ -1,12 +1,10 @@
-import { rejectNextTransaction } from 'components/Web3Provider/rejectableConnector'
-import { isLuxdMode } from 'playwright/anvil/anvil-manager'
-import { expect, getTest } from 'playwright/fixtures'
-import { HAYDEN_ADDRESS, TEST_WALLET_ADDRESS } from 'playwright/fixtures/wallets'
-import { TestID } from 'lx/src/test/fixtures/testIDs'
+import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+import { rejectNextTransaction } from '~/components/Web3Provider/rejectableConnector'
+import { expect, getTest } from '~/playwright/fixtures'
+import { HAYDEN_ADDRESS, TEST_WALLET_ADDRESS } from '~/playwright/fixtures/wallets'
 
 const test = getTest({ withAnvil: true })
 
-// Test wallet rejection error handling
 test.describe(
   'Errors',
   {
@@ -26,18 +24,11 @@ test.describe(
       await page.getByTestId(TestID.SendFormAmountInput).click()
       await page.getByTestId(TestID.SendFormAmountInput).fill('10')
 
-      // Fill in recipient address (use raw address, not ENS)
+      // Fill in recipient address
       const recipientInput = page.getByPlaceholder(/address or ens/i)
       await recipientInput.click()
       await recipientInput.fill(HAYDEN_ADDRESS)
-
-      // On Ethereum, click ENS name. On Lux, just use the address directly.
-      if (!isLuxdMode()) {
-        await page.getByText('hayden.eth').click()
-      } else {
-        // Wait for address to be recognized
-        await page.waitForTimeout(500)
-      }
+      await page.getByText('hayden.eth').click()
 
       // Wait for send button to be enabled
       const sendButton = page.getByRole('button', { name: /^send$/i })

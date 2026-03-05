@@ -1,28 +1,28 @@
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
-import { JsonRpcProvider } from '@ethersproject/providers'
+import { type JsonRpcProvider } from '@ethersproject/providers'
 import { providerErrors, serializeError } from '@metamask/rpc-errors'
 import { saveDappConnection } from 'src/app/features/dapp/actions'
-import { DappInfo, dappStore } from 'src/app/features/dapp/store'
+import { type DappInfo, dappStore } from 'src/app/features/dapp/store'
 import { getOrderedConnectedAddresses } from 'src/app/features/dapp/utils'
 import type { SenderTabInfo } from 'src/app/features/dappRequests/shared'
 import {
-  AccountResponse,
-  DappRequest,
-  ErrorResponse,
-  GetAccountRequest,
-  RequestAccountRequest,
+  type AccountResponse,
+  type DappRequest,
+  type ErrorResponse,
+  type GetAccountRequest,
+  type RequestAccountRequest,
 } from 'src/app/features/dappRequests/types/DappRequestTypes'
 import { dappResponseMessageChannel } from 'src/background/messagePassing/messageChannels'
 import { call, put, select } from 'typed-redux-saga'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { chainIdToHexadecimalString } from 'lx/src/features/chains/utils'
-import { DappResponseType } from 'lx/src/features/dappRequests/types'
-import { pushNotification } from 'lx/src/features/notifications/slice/slice'
-import { AppNotificationType } from 'lx/src/features/notifications/slice/types'
-import { Platform } from 'lx/src/features/platforms/types/Platform'
-import { getEnabledChainIdsSaga } from 'lx/src/features/settings/saga'
-import { ExtensionEventName } from 'lx/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
+import { type UniverseChainId } from 'uniswap/src/features/chains/types'
+import { chainIdToHexadecimalString } from 'uniswap/src/features/chains/utils'
+import { DappResponseType } from 'uniswap/src/features/dappRequests/types'
+import { pushNotification } from 'uniswap/src/features/notifications/slice/slice'
+import { AppNotificationType } from 'uniswap/src/features/notifications/slice/types'
+import { Platform } from 'uniswap/src/features/platforms/types/Platform'
+import { getEnabledChainIdsSaga } from 'uniswap/src/features/settings/saga'
+import { ExtensionEventName } from 'uniswap/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
 import { extractBaseUrl } from 'utilities/src/format/urls'
 import { getProvider } from 'wallet/src/features/wallet/context'
 import { selectActiveAccount } from 'wallet/src/features/wallet/selectors'
@@ -161,7 +161,8 @@ export function* getAccountRequest(request: RequestAccountRequest, senderTabInfo
 
     yield* call(dappResponseMessageChannel.sendMessageToTab, senderTabInfo.id, accountResponse)
 
-    sendAnalyticsEvent(ExtensionEventName.DappConnectRequest, {
+    // Track that a connection was established
+    sendAnalyticsEvent(ExtensionEventName.DappConnect, {
       dappUrl,
       chainId,
       activeConnectedAddress: activeAccount.address,

@@ -1,25 +1,25 @@
-import { TickData, Ticks } from 'appGraphql/data/AllV3TicksQuery'
-import { ProtocolVersion } from '@luxdex/client-data-api/dist/data/v1/poolTypes_pb'
-import { Currency, Token, V3_CORE_FACTORY_ADDRESSES } from '@luxamm/sdk-core'
-import { FeeAmount, TICK_SPACINGS, tickToPrice as tickToPriceV3, Pool as V3Pool } from '@luxamm/v3-sdk'
-import { tickToPrice as tickToPriceV4, Pool as V4Pool } from '@luxamm/v4-sdk'
-import { GraphQLApi } from '@luxfi/api'
-import { getTokenOrZeroAddress } from 'components/Liquidity/utils/currency'
-import { poolEnabledProtocolVersion } from 'components/Liquidity/utils/protocolVersion'
+import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
+import { Currency, Token, V3_CORE_FACTORY_ADDRESSES } from '@uniswap/sdk-core'
+import { FeeAmount, TICK_SPACINGS, tickToPrice as tickToPriceV3, Pool as V3Pool } from '@uniswap/v3-sdk'
+import { tickToPrice as tickToPriceV4, Pool as V4Pool } from '@uniswap/v4-sdk'
+import { GraphQLApi } from '@universe/api'
 import JSBI from 'jsbi'
 import ms from 'ms'
 import { useEffect, useMemo, useState } from 'react'
-import { useMultichainContext } from 'state/multichain/useMultichainContext'
-import { PositionField } from 'types/position'
-import { ZERO_ADDRESS } from 'lx/src/constants/misc'
-import { useGetPoolsByTokens } from 'lx/src/data/rest/getPools'
-import { useEnabledChains } from 'lx/src/features/chains/hooks/useEnabledChains'
-import { useSupportedChainId } from 'lx/src/features/chains/hooks/useSupportedChainId'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { toGraphQLChain } from 'lx/src/features/chains/utils'
-import { AddressStringFormat, normalizeAddress } from 'lx/src/utils/addresses'
+import { ZERO_ADDRESS } from 'uniswap/src/constants/misc'
+import { useGetPoolsByTokens } from 'uniswap/src/data/rest/getPools'
+import { useEnabledChains } from 'uniswap/src/features/chains/hooks/useEnabledChains'
+import { useSupportedChainId } from 'uniswap/src/features/chains/hooks/useSupportedChainId'
+import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { toGraphQLChain } from 'uniswap/src/features/chains/utils'
+import { AddressStringFormat, normalizeAddress } from 'uniswap/src/utils/addresses'
 import { logger } from 'utilities/src/logger/logger'
-import computeSurroundingTicks, { TickProcessed } from 'utils/computeSurroundingTicks'
+import { TickData, Ticks } from '~/appGraphql/data/AllV3TicksQuery'
+import { getTokenOrZeroAddress } from '~/components/Liquidity/utils/currency'
+import { poolEnabledProtocolVersion } from '~/components/Liquidity/utils/protocolVersion'
+import { useMultichainContext } from '~/state/multichain/useMultichainContext'
+import { PositionField } from '~/types/position'
+import computeSurroundingTicks, { TickProcessed } from '~/utils/computeSurroundingTicks'
 
 const PRICE_FIXED_DIGITS = 8
 
@@ -89,7 +89,7 @@ function usePaginatedTickQuery({
 }
 
 // Fetches all ticks for a given pool
-function useAllPoolTicks({
+export function useAllPoolTicks({
   sdkCurrencies,
   feeAmount,
   chainId,
@@ -205,7 +205,10 @@ export function usePoolActiveLiquidity({
     poolsQueryEnabled,
   )
 
-  const pool = poolData?.pools && poolData.pools.length > 0 ? poolData.pools[0] : undefined
+  const pool = useMemo(() => {
+    return poolData?.pools.find((p) => p.poolId === poolId) || poolData?.pools[0] || undefined
+  }, [poolData, poolId])
+
   const tickSpacingWithFallback =
     tickSpacing ?? pool?.tickSpacing ?? (feeAmount ? TICK_SPACINGS[feeAmount as FeeAmount] : undefined)
 
@@ -292,11 +295,9 @@ export function usePoolActiveLiquidity({
     const activeTickProcessed: TickProcessed = {
       liquidityActive: JSBI.BigInt(pool.liquidity),
       tick: activeTick,
-      liquidityNet:
-        Number(ticks[pivot]?.tick) === activeTick ? JSBI.BigInt(ticks[pivot]?.liquidityNet ?? 0) : JSBI.BigInt(0),
+      liquidityNet: JSBI.BigInt(ticks[pivot]?.liquidityNet ?? 0),
       price0: sdkPrice.toFixed(PRICE_FIXED_DIGITS),
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      sdkPrice: sdkPrice as any,
+      sdkPrice,
     }
 
     const subsequentTicks = computeSurroundingTicks({

@@ -1,4 +1,4 @@
-import { SelectOption } from 'components/Dropdowns/DropdownSelector'
+import { TransactionTypeFilter } from '@uniswap/client-data-api/dist/data/v1/types_pb'
 import { Box } from 'ui/src/components/icons/Box'
 import { Coin } from 'ui/src/components/icons/Coin'
 import { CoinConvert } from 'ui/src/components/icons/CoinConvert'
@@ -10,9 +10,10 @@ import { Pools } from 'ui/src/components/icons/Pools'
 import { ReceiveAlt } from 'ui/src/components/icons/ReceiveAlt'
 import { SendAction } from 'ui/src/components/icons/SendAction'
 import { AppTFunction } from 'ui/src/i18n/types'
-import { ActivityItem } from 'lx/src/components/activity/generateActivityItemRenderer'
-import { isLoadingItem, isSectionHeader } from 'lx/src/components/activity/utils'
-import { TransactionDetails, TransactionType } from 'lx/src/features/transactions/types/transactionDetails'
+import { ActivityItem } from 'uniswap/src/components/activity/generateActivityItemRenderer'
+import { isLoadingItem, isSectionHeader } from 'uniswap/src/components/activity/utils'
+import { TransactionDetails, TransactionType } from 'uniswap/src/features/transactions/types/transactionDetails'
+import { SelectOption } from '~/components/Dropdowns/DropdownSelector'
 
 export enum ActivityFilterType {
   All = 'all',
@@ -101,16 +102,16 @@ export function getTransactionTypeFilterOptions(t: AppTFunction): Record<string,
 }
 
 /**
- * Maps filter type to transaction types that should be included
+ * Maps filter type to transaction types that should be included (client-side filtering)
  */
 export function getTransactionTypesForFilter(filterType: string): TransactionType[] | 'all' {
   switch (filterType) {
     case ActivityFilterType.Sends:
-      return [TransactionType.Send]
+      return [TransactionType.Send, TransactionType.ToucanBid]
     case ActivityFilterType.Receives:
       return [TransactionType.Receive]
     case ActivityFilterType.Swaps:
-      return [TransactionType.Swap, TransactionType.Bridge]
+      return [TransactionType.Swap, TransactionType.Bridge, TransactionType.Plan]
     case ActivityFilterType.Wraps:
       return [TransactionType.Wrap]
     case ActivityFilterType.Approvals:
@@ -131,7 +132,26 @@ export function getTransactionTypesForFilter(filterType: string): TransactionTyp
   }
 }
 
-enum TimePeriod {
+/**
+ * Maps ActivityFilterType to server-side TransactionTypeFilter for API requests.
+ * Returns undefined for 'All' filter (no server-side filtering needed).
+ * This is used when connected to an EVM-only wallet for server-side filtering.
+ */
+export const SERVER_FILTER_MAP: Record<ActivityFilterType, TransactionTypeFilter[] | undefined> = {
+  [ActivityFilterType.All]: undefined,
+  [ActivityFilterType.Sends]: [TransactionTypeFilter.SEND],
+  [ActivityFilterType.Receives]: [TransactionTypeFilter.RECEIVE],
+  [ActivityFilterType.Swaps]: [TransactionTypeFilter.SWAP],
+  [ActivityFilterType.Wraps]: [TransactionTypeFilter.WRAP],
+  [ActivityFilterType.Approvals]: [TransactionTypeFilter.APPROVE],
+  [ActivityFilterType.CreatePool]: [TransactionTypeFilter.CREATE_POOL],
+  [ActivityFilterType.AddLiquidity]: [TransactionTypeFilter.INCREASE_LIQUIDITY],
+  [ActivityFilterType.RemoveLiquidity]: [TransactionTypeFilter.DECREASE_LIQUIDITY],
+  [ActivityFilterType.Mints]: [TransactionTypeFilter.MINT],
+  [ActivityFilterType.ClaimFees]: [TransactionTypeFilter.CLAIM],
+}
+
+export enum TimePeriod {
   All = 'all',
   Last24Hours = '24h',
   Last7Days = '7d',

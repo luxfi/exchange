@@ -1,5 +1,5 @@
-import { Percent } from '@luxamm/sdk-core'
-import { largerPercentValue } from 'utils/percent'
+import { Percent } from '@uniswap/sdk-core'
+import { largerPercentValue } from '~/utils/percent'
 
 describe('largerPercentValue', () => {
   it('should return the larger percent value', () => {

@@ -1,34 +1,34 @@
-import type { Currency, CurrencyAmount } from '@luxamm/sdk-core'
-import { TradingApi } from '@luxfi/api'
+import type { Currency, CurrencyAmount } from '@uniswap/sdk-core'
+import type { GasFeeResult } from '@universe/api'
+import { TradingApi } from '@universe/api'
 import type { PropsWithChildren, ReactNode } from 'react'
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { AnimatePresence, Flex } from 'ui/src'
-import { NetworkFee } from 'lx/src/components/gas/NetworkFee'
-import type { Warning } from 'lx/src/components/modals/WarningModal/types'
-import type { UniverseChainId } from 'lx/src/features/chains/types'
-import type { GasFeeResult } from 'lx/src/features/gas/types'
-import { SwapEventName } from 'lx/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
-import { TransactionSettingsModal } from 'lx/src/features/transactions/components/settings/TransactionSettingsModal/TransactionSettingsModal'
-import { EstimatedSwapTime } from 'lx/src/features/transactions/swap/components/EstimatedBridgeTime'
-import { SlippageUpdate } from 'lx/src/features/transactions/swap/components/SwapFormSettings/settingsConfigurations/slippageUpdate/SlippageUpdate'
-import { usePriceUXEnabled } from 'lx/src/features/transactions/swap/hooks/usePriceUXEnabled'
-import type { UniswapXGasBreakdown } from 'lx/src/features/transactions/swap/types/swapTxAndGasInfo'
-import type { SwapFee as SwapFeeType } from 'lx/src/features/transactions/swap/types/trade'
-import { isBridge, isChained } from 'lx/src/features/transactions/swap/utils/routing'
-import { ExpectedFailureBanner } from 'lx/src/features/transactions/TransactionDetails/ExpectedFailureBanner'
-import { ExpectedSpeed } from 'lx/src/features/transactions/TransactionDetails/ExpectedSpeed'
-import { FeeOnTransferFeeGroup } from 'lx/src/features/transactions/TransactionDetails/FeeOnTransferFee'
-import { ListSeparatorToggle } from 'lx/src/features/transactions/TransactionDetails/ListSeparatorToggle'
-import { SwapFee } from 'lx/src/features/transactions/TransactionDetails/SwapFee'
-import { SwapReviewTokenWarningCard } from 'lx/src/features/transactions/TransactionDetails/SwapReviewTokenWarningCard'
-import { TransactionWarning } from 'lx/src/features/transactions/TransactionDetails/TransactionWarning'
+import { NetworkFee } from 'uniswap/src/components/gas/NetworkFee'
+import type { Warning } from 'uniswap/src/components/modals/WarningModal/types'
+import type { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { SwapEventName } from 'uniswap/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
+import { TransactionSettingsModal } from 'uniswap/src/features/transactions/components/settings/TransactionSettingsModal/TransactionSettingsModal'
+import { EstimatedSwapTime } from 'uniswap/src/features/transactions/swap/components/EstimatedBridgeTime'
+import { SlippageUpdate } from 'uniswap/src/features/transactions/swap/components/SwapFormSettings/settingsConfigurations/slippageUpdate/SlippageUpdate'
+import { usePriceUXEnabled } from 'uniswap/src/features/transactions/swap/hooks/usePriceUXEnabled'
+import type { UniswapXGasBreakdown } from 'uniswap/src/features/transactions/swap/types/swapTxAndGasInfo'
+import type { SwapFee as SwapFeeType } from 'uniswap/src/features/transactions/swap/types/trade'
+import { isBridge, isChained } from 'uniswap/src/features/transactions/swap/utils/routing'
+import { ExpectedFailureBanner } from 'uniswap/src/features/transactions/TransactionDetails/ExpectedFailureBanner'
+import { ExpectedSpeed } from 'uniswap/src/features/transactions/TransactionDetails/ExpectedSpeed'
+import { FeeOnTransferFeeGroup } from 'uniswap/src/features/transactions/TransactionDetails/FeeOnTransferFee'
+import { ListSeparatorToggle } from 'uniswap/src/features/transactions/TransactionDetails/ListSeparatorToggle'
+import { SwapFee } from 'uniswap/src/features/transactions/TransactionDetails/SwapFee'
+import { SwapReviewTokenWarningCard } from 'uniswap/src/features/transactions/TransactionDetails/SwapReviewTokenWarningCard'
+import { TransactionWarning } from 'uniswap/src/features/transactions/TransactionDetails/TransactionWarning'
 import type {
   FeeOnTransferFeeGroupProps,
   TokenWarningProps,
-} from 'lx/src/features/transactions/TransactionDetails/types'
-import { UserReceiveAmount } from 'lx/src/features/transactions/TransactionDetails/UserReceiveAmount'
+} from 'uniswap/src/features/transactions/TransactionDetails/types'
+import { UserReceiveAmount } from 'uniswap/src/features/transactions/TransactionDetails/UserReceiveAmount'
 import { isWebApp } from 'utilities/src/platform'
 
 interface TransactionDetailsProps {
@@ -144,7 +144,7 @@ export function TransactionDetails({
               </Flex>
             </AnimatePresence>
           ) : null}
-          {RateInfo}
+          {showChildren ? RateInfo : null}
           {feeOnTransferProps && <FeeOnTransferFeeGroup {...feeOnTransferProps} />}
           <EstimatedSwapTime showIfLongerThanCutoff={true} timeMs={estimatedSwapTime} />
           {isSwap && outputCurrency && (

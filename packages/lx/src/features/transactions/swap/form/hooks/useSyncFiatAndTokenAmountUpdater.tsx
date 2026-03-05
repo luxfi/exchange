@@ -1,13 +1,13 @@
 import { useEffect } from 'react'
-import { getPrimaryStablecoin } from 'lx/src/features/chains/utils'
-import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
-import { getCurrencyAmount, ValueType } from 'lx/src/features/tokens/getCurrencyAmount'
-import { useUSDCPrice } from 'lx/src/features/transactions/hooks/useUSDCPrice'
+import { getPrimaryStablecoin } from 'uniswap/src/features/chains/utils'
+import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
+import { getCurrencyAmount, ValueType } from 'uniswap/src/features/tokens/getCurrencyAmount'
+import { useUSDCPrice } from 'uniswap/src/features/transactions/hooks/useUSDCPriceWrapper'
 import {
   useSwapFormStore,
   useSwapFormStoreDerivedSwapInfo,
-} from 'lx/src/features/transactions/swap/stores/swapFormStore/useSwapFormStore'
-import { currencyIdToChain } from 'lx/src/utils/currencyId'
+} from 'uniswap/src/features/transactions/swap/stores/swapFormStore/useSwapFormStore'
+import { currencyIdToChain } from 'uniswap/src/utils/currencyId'
 
 // Used for rounding in conversion math
 const NUM_DECIMALS_FIAT_ROUNDING = 2

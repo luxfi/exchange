@@ -1,14 +1,28 @@
-import AccountDrawer, { MODAL_WIDTH } from 'components/AccountDrawer'
-import { useIsUniswapExtensionConnected } from 'hooks/useIsUniswapExtensionConnected'
-import { mocked } from 'test-utils/mocked'
-import mockMediaSize from 'test-utils/mockMediaSize'
-import { render, screen } from 'test-utils/render'
+import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+import AccountDrawer, { MODAL_WIDTH } from '~/components/AccountDrawer'
+import { useIsUniswapExtensionConnected } from '~/hooks/useIsUniswapExtensionConnected'
+import { mocked } from '~/test-utils/mocked'
+import mockMediaSize from '~/test-utils/mockMediaSize'
+import { render, screen } from '~/test-utils/render'
 
-vi.mock('hooks/useIsUniswapExtensionConnected', () => ({
+vi.mock('~/hooks/useIsUniswapExtensionConnected', () => ({
   useIsUniswapExtensionConnected: vi.fn(),
 }))
 
-vi.mock('lx/src/features/accounts/store/hooks', () => ({
+vi.mock('~/components/AccountDrawer/MiniPortfolio/hooks', async (importOriginal) => {
+  const actual = await importOriginal<typeof import('~/components/AccountDrawer/MiniPortfolio/hooks')>()
+  return {
+    ...actual,
+    useAccountDrawer: vi.fn(() => ({
+      isOpen: true,
+      open: vi.fn(),
+      close: vi.fn(),
+      toggle: vi.fn(),
+    })),
+  }
+})
+
+vi.mock('uniswap/src/features/accounts/store/hooks', () => ({
   useActiveAddresses: vi.fn(() => ({
     evmAddress: '0x0000000000000000000000000000000000000000',
     svmAddress: undefined,
@@ -39,7 +53,7 @@ vi.mock('tamagui', async () => {
   }
 })
 
-vi.mock('lx/src/components/AnimatedNumber/AnimatedNumber', () => {
+vi.mock('uniswap/src/components/AnimatedNumber/AnimatedNumber', () => {
   const mockAnimatedNumber = ({ value }: { value: number }) => {
     return <div>{value}</div>
   }
@@ -57,8 +71,9 @@ describe('AccountDrawer tests', () => {
 
     render(<AccountDrawer />)
     expect(document.body).toMatchSnapshot()
-    const drawerWrapper = screen.getByTestId('account-drawer')
+    const drawerWrapper = screen.getByTestId(TestID.AccountDrawer)
     expect(drawerWrapper).toBeInTheDocument()
-    expect(drawerWrapper).toHaveClass(`_width-${MODAL_WIDTH}`)
+    const drawerContainer = screen.getByTestId(TestID.AccountDrawerContainer)
+    expect(drawerContainer).toHaveClass(`_width-${MODAL_WIDTH}`)
   })
 })

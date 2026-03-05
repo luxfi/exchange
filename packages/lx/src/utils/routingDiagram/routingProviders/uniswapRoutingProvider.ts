@@ -1,13 +1,14 @@
-import { Protocol } from '@luxdex/router-sdk'
-import { Percent, TradeType } from '@luxamm/sdk-core'
-import { Pair } from '@luxamm/v2-sdk'
-import { Pool as V3Pool } from '@luxamm/v3-sdk'
-import { Pool as V4Pool } from '@luxamm/v4-sdk'
-import { DYNAMIC_FEE_AMOUNT, V2_DEFAULT_FEE_TIER } from 'lx/src/constants/pools'
-import { Trade } from 'lx/src/features/transactions/swap/types/trade'
-import { isChained, isClassic } from 'lx/src/features/transactions/swap/utils/routing'
-import { currencyId } from 'lx/src/utils/currencyId'
-import type { RoutingDiagramEntry, RoutingHop, RoutingProvider } from 'lx/src/utils/routingDiagram/types'
+import { Protocol } from '@uniswap/router-sdk'
+import { Percent, TradeType } from '@uniswap/sdk-core'
+import { Pair } from '@uniswap/v2-sdk'
+import { Pool as V3Pool } from '@uniswap/v3-sdk'
+import { Pool as V4Pool } from '@uniswap/v4-sdk'
+import { UniswapLogo } from 'ui/src/components/icons/UniswapLogo'
+import { DYNAMIC_FEE_AMOUNT, V2_DEFAULT_FEE_TIER } from 'uniswap/src/constants/pools'
+import { Trade } from 'uniswap/src/features/transactions/swap/types/trade'
+import { isChained, isClassic } from 'uniswap/src/features/transactions/swap/utils/routing'
+import { currencyId } from 'uniswap/src/utils/currencyId'
+import type { RoutingDiagramEntry, RoutingHop, RoutingProvider } from 'uniswap/src/utils/routingDiagram/types'
 
 type UniswapPool = Pair | V3Pool | V4Pool
 
@@ -50,8 +51,8 @@ function getProtocolLabel(route: { protocol: Protocol; pools: UniswapPool[] }): 
 
 export const uniswapRoutingProvider: RoutingProvider = {
   name: 'Uniswap API',
-  icon: undefined,
-  iconColor: '$neutral1',
+  icon: UniswapLogo,
+  iconColor: '$accent1',
 
   getRoutingEntries: (trade: Trade): RoutingDiagramEntry[] => {
     if (!isClassic(trade)) {
@@ -95,9 +96,7 @@ export const uniswapRoutingProvider: RoutingProvider = {
         }
       })
 
-      // Type assertion needed because @luxdex/router-sdk uses @uniswap/* SDKs internally
-      // while local code uses @luxamm/* SDKs which have incompatible private property declarations
-      const protocolLabel = getProtocolLabel(route as unknown as { protocol: Protocol; pools: UniswapPool[] })
+      const protocolLabel = getProtocolLabel(route)
 
       return {
         percent,

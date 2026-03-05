@@ -1,15 +1,13 @@
 import { getWagmiConnectorV2 } from '@binance/w3w-wagmi-connector-v2'
-import { PLAYWRIGHT_CONNECT_ADDRESS } from 'components/Web3Provider/constants'
-import { createRejectableMockConnector } from 'components/Web3Provider/rejectableConnector'
-import { WC_PARAMS } from 'components/Web3Provider/walletConnect'
-import { embeddedWallet } from 'connection/EmbeddedWalletConnector'
 import { porto } from 'porto/wagmi'
 import { UNISWAP_LOGO } from 'ui/src/assets'
-import { UNISWAP_WEB_URL } from 'lx/src/constants/urls'
-import { CONNECTION_PROVIDER_IDS } from 'lx/src/constants/web3'
-import type { getChainInfo } from 'lx/src/features/chains/chainInfo'
-import { ORDERED_EVM_CHAINS } from 'lx/src/features/chains/chainInfo'
-import { isTestnetChain } from 'lx/src/features/chains/utils'
+import { UNISWAP_WEB_URL } from 'uniswap/src/constants/urls'
+import { CONNECTION_PROVIDER_IDS } from 'uniswap/src/constants/web3'
+import type { getChainInfo } from 'uniswap/src/features/chains/chainInfo'
+import { ORDERED_EVM_CHAINS } from 'uniswap/src/features/chains/chainInfo'
+import { isTestnetChain } from 'uniswap/src/features/chains/utils'
+import { createObservableTransport } from 'uniswap/src/features/providers/observability/createObservableTransport'
+import { getRpcObserver } from 'uniswap/src/features/providers/observability/rpcObserver'
 import { isPlaywrightEnv, isTestEnv } from 'utilities/src/environment/env'
 import { logger } from 'utilities/src/logger/logger'
 import { getNonEmptyArrayOrThrow } from 'utilities/src/primitives/array'
@@ -18,9 +16,10 @@ import { createClient } from 'viem'
 import type { Config } from 'wagmi'
 import { createConfig, fallback, http } from 'wagmi'
 import { coinbaseWallet, injected, safe, walletConnect } from 'wagmi/connectors'
-
-// Note: LuxDev chain (ID 1337) is included in ORDERED_EVM_CHAINS via LUX_DEV_CHAIN_INFO
-// See packages/lx/src/features/chains/evm/info/lux.ts for the full chain definition
+import { PLAYWRIGHT_CONNECT_ADDRESS } from '~/components/Web3Provider/constants'
+import { createRejectableMockConnector } from '~/components/Web3Provider/rejectableConnector'
+import { WC_PARAMS } from '~/components/Web3Provider/walletConnect'
+import { embeddedWallet } from '~/connection/EmbeddedWalletConnector'
 
 // Get the appropriate Binance connector based on the environment
 const getBinanceConnector = () => {
@@ -53,15 +52,14 @@ const getBinanceConnector = () => {
   })
 }
 
-export const orderedTransportUrls = (chain: Chain): string[] => {
-  const fullChain = chain as ReturnType<typeof getChainInfo>
+export const orderedTransportUrls = (chain: ReturnType<typeof getChainInfo>): string[] => {
   const orderedRpcUrls = [
     // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
-    ...(fullChain.rpcUrls.interface?.http ?? []),
+    ...(chain.rpcUrls.interface?.http ?? []),
     // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
-    ...(fullChain.rpcUrls.default?.http ?? []),
-    ...(fullChain.rpcUrls.public?.http ?? []),
-    ...(fullChain.rpcUrls.fallback?.http ?? []),
+    ...(chain.rpcUrls.default?.http ?? []),
+    ...(chain.rpcUrls.public?.http ?? []),
+    ...(chain.rpcUrls.fallback?.http ?? []),
   ]
 
   return Array.from(new Set(orderedRpcUrls.filter(Boolean)))
@@ -74,8 +72,7 @@ function createWagmiConnectors(params: {
   const { includeMockConnector } = params
 
   const baseConnectors = [
-    // Porto connector creates an iframe that can cause issues in Playwright headless mode
-    ...(isPlaywrightEnv() ? [] : [porto()]),
+    porto(),
     // Binance connector - uses injected for extension, QR code for mobile
     getBinanceConnector(),
     // There are no unit tests that expect WalletConnect to be included here,
@@ -103,22 +100,16 @@ function createWagmiConnectors(params: {
     : baseConnectors
 }
 
-// Get chains - LuxDev (chain ID 1337) is already in ORDERED_EVM_CHAINS
-function getChains(): [Chain, ...Chain[]] {
-  return ORDERED_EVM_CHAINS as [Chain, ...Chain[]]
-}
-
 function createWagmiConfig(params: {
   /** The connector list to use. */
   connectors: any[]
   /** Optional custom `onFetchResponse` handler – defaults to `defaultOnFetchResponse`. */
   onFetchResponse?: (response: Response, chain: Chain, url: string) => void
-}): Config {
+}): Config<typeof ORDERED_EVM_CHAINS> {
   const { connectors, onFetchResponse = defaultOnFetchResponse } = params
-  const chains = getChains()
 
   return createConfig({
-    chains: getNonEmptyArrayOrThrow(chains),
+    chains: getNonEmptyArrayOrThrow(ORDERED_EVM_CHAINS),
     connectors,
     client({ chain }) {
       return createClient({
@@ -127,7 +118,13 @@ function createWagmiConfig(params: {
         pollingInterval: 12_000,
         transport: fallback(
           orderedTransportUrls(chain).map((url) =>
-            http(url, { onFetchResponse: (response) => onFetchResponse(response, chain, url) }),
+            createObservableTransport({
+              baseTransportFactory: http(url, {
+                onFetchResponse: (response) => onFetchResponse(response, chain, url),
+              }),
+              observer: getRpcObserver(),
+              meta: { chainId: chain.id, url },
+            }),
           ),
         ),
       })

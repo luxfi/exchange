@@ -1,12 +1,12 @@
-import { ProtocolVersion } from '@luxdex/client-data-api/dist/data/v1/poolTypes_pb'
-import { Currency, CurrencyAmount } from '@luxamm/sdk-core'
-import { getCurrencyForProtocol } from 'components/Liquidity/utils/currency'
-import CurrencyLogo from 'components/Logo/CurrencyLogo'
+import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
+import { Currency, CurrencyAmount } from '@uniswap/sdk-core'
 import { Flex, Text } from 'ui/src'
 import { iconSizes } from 'ui/src/theme'
-import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
-import { getSymbolDisplayText } from 'lx/src/utils/currency'
+import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
+import { getSymbolDisplayText } from 'uniswap/src/utils/currency'
 import { NumberType } from 'utilities/src/format/types'
+import { getCurrencyForProtocol } from '~/components/Liquidity/utils/currency'
+import CurrencyLogo from '~/components/Logo/CurrencyLogo'
 
 export function TokenInfo({
   currencyAmount,

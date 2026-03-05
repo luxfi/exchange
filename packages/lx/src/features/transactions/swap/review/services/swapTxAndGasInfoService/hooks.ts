@@ -1,42 +1,42 @@
 import type { UseQueryResult } from '@tanstack/react-query'
 import { queryOptions, useQuery } from '@tanstack/react-query'
-import { GasStrategy, TradingApi } from '@luxfi/api'
-import { SharedQueryClient } from '@luxfi/api/src/clients/base/SharedQueryClient'
-import { DynamicConfigs, SwapConfigKey, useDynamicConfigValue } from '@luxfi/gating'
+import { GasStrategy, TradingApi } from '@universe/api'
+import { SharedQueryClient } from '@universe/api/src/clients/base/SharedQueryClient'
+import { DynamicConfigs, SwapConfigKey, useDynamicConfigValue } from '@universe/gating'
 import { useMemo } from 'react'
-import { useUniswapContext } from 'lx/src/contexts/UniswapContext'
-import type { UniverseChainId } from 'lx/src/features/chains/types'
-import { useActiveGasStrategy } from 'lx/src/features/gas/hooks'
-import type { SwapDelegationInfo } from 'lx/src/features/smartWallet/delegation/types'
-import { useAllTransactionSettings } from 'lx/src/features/transactions/components/settings/stores/transactionSettingsStore/useTransactionSettingsStore'
-import { useV4SwapEnabled } from 'lx/src/features/transactions/swap/hooks/useV4SwapEnabled'
-import type { ApprovalTxInfo } from 'lx/src/features/transactions/swap/review/hooks/useTokenApprovalInfo'
-import { useTokenApprovalInfo } from 'lx/src/features/transactions/swap/review/hooks/useTokenApprovalInfo'
-import { createBridgeSwapTxAndGasInfoService } from 'lx/src/features/transactions/swap/review/services/swapTxAndGasInfoService/bridge/bridgeSwapTxAndGasInfoService'
-import { createChainedActionSwapTxAndGasInfoService } from 'lx/src/features/transactions/swap/review/services/swapTxAndGasInfoService/chained/chainedActionTxSwapAndGasInfoService'
-import { createClassicSwapTxAndGasInfoService } from 'lx/src/features/transactions/swap/review/services/swapTxAndGasInfoService/classic/classicSwapTxAndGasInfoService'
-import { FALLBACK_SWAP_REQUEST_POLL_INTERVAL_MS } from 'lx/src/features/transactions/swap/review/services/swapTxAndGasInfoService/constants'
-import { createEVMSwapInstructionsService } from 'lx/src/features/transactions/swap/review/services/swapTxAndGasInfoService/evm/evmSwapInstructionsService'
-import { usePresignPermit } from 'lx/src/features/transactions/swap/review/services/swapTxAndGasInfoService/evm/hooks'
-import { createDecorateSwapTxInfoServiceWithEVMLogging } from 'lx/src/features/transactions/swap/review/services/swapTxAndGasInfoService/evm/logging'
-import { createSolanaSwapTxAndGasInfoService } from 'lx/src/features/transactions/swap/review/services/swapTxAndGasInfoService/svm/solanaSwapTxAndGasInfoService'
+import { useUniswapContext } from 'uniswap/src/contexts/UniswapContext'
+import { useActiveAddress } from 'uniswap/src/features/accounts/store/hooks'
+import type { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { useActiveGasStrategy } from 'uniswap/src/features/gas/hooks'
+import type { SwapDelegationInfo } from 'uniswap/src/features/smartWallet/delegation/types'
+import { useAllTransactionSettings } from 'uniswap/src/features/transactions/components/settings/stores/transactionSettingsStore/useTransactionSettingsStore'
+import { useV4SwapEnabled } from 'uniswap/src/features/transactions/swap/hooks/useV4SwapEnabled'
+import type { ApprovalTxInfo } from 'uniswap/src/features/transactions/swap/review/hooks/useTokenApprovalInfo'
+import { useTokenApprovalInfo } from 'uniswap/src/features/transactions/swap/review/hooks/useTokenApprovalInfo'
+import { createBridgeSwapTxAndGasInfoService } from 'uniswap/src/features/transactions/swap/review/services/swapTxAndGasInfoService/bridge/bridgeSwapTxAndGasInfoService'
+import { createChainedActionSwapTxAndGasInfoService } from 'uniswap/src/features/transactions/swap/review/services/swapTxAndGasInfoService/chained/chainedActionTxSwapAndGasInfoService'
+import { createClassicSwapTxAndGasInfoService } from 'uniswap/src/features/transactions/swap/review/services/swapTxAndGasInfoService/classic/classicSwapTxAndGasInfoService'
+import { FALLBACK_SWAP_REQUEST_POLL_INTERVAL_MS } from 'uniswap/src/features/transactions/swap/review/services/swapTxAndGasInfoService/constants'
+import { createEVMSwapInstructionsService } from 'uniswap/src/features/transactions/swap/review/services/swapTxAndGasInfoService/evm/evmSwapInstructionsService'
+import { usePresignPermit } from 'uniswap/src/features/transactions/swap/review/services/swapTxAndGasInfoService/evm/hooks'
+import { createDecorateSwapTxInfoServiceWithEVMLogging } from 'uniswap/src/features/transactions/swap/review/services/swapTxAndGasInfoService/evm/logging'
+import { createSolanaSwapTxAndGasInfoService } from 'uniswap/src/features/transactions/swap/review/services/swapTxAndGasInfoService/svm/solanaSwapTxAndGasInfoService'
 import type {
   RoutingServicesMap,
   SwapTxAndGasInfoParameters,
   SwapTxAndGasInfoService,
-} from 'lx/src/features/transactions/swap/review/services/swapTxAndGasInfoService/swapTxAndGasInfoService'
-import { createSwapTxAndGasInfoService } from 'lx/src/features/transactions/swap/review/services/swapTxAndGasInfoService/swapTxAndGasInfoService'
-import { createUniswapXSwapTxAndGasInfoService } from 'lx/src/features/transactions/swap/review/services/swapTxAndGasInfoService/uniswapx/uniswapXSwapTxAndGasInfoService'
-import { createWrapTxAndGasInfoService } from 'lx/src/features/transactions/swap/review/services/swapTxAndGasInfoService/wrap/wrapTxAndGasInfoService'
+} from 'uniswap/src/features/transactions/swap/review/services/swapTxAndGasInfoService/swapTxAndGasInfoService'
+import { createSwapTxAndGasInfoService } from 'uniswap/src/features/transactions/swap/review/services/swapTxAndGasInfoService/swapTxAndGasInfoService'
+import { createUniswapXSwapTxAndGasInfoService } from 'uniswap/src/features/transactions/swap/review/services/swapTxAndGasInfoService/uniswapx/uniswapXSwapTxAndGasInfoService'
+import { createWrapTxAndGasInfoService } from 'uniswap/src/features/transactions/swap/review/services/swapTxAndGasInfoService/wrap/wrapTxAndGasInfoService'
 import {
   useSwapFormStore,
   useSwapFormStoreDerivedSwapInfo,
-} from 'lx/src/features/transactions/swap/stores/swapFormStore/useSwapFormStore'
-import type { DerivedSwapInfo } from 'lx/src/features/transactions/swap/types/derivedSwapInfo'
-import type { SwapTxAndGasInfo } from 'lx/src/features/transactions/swap/types/swapTxAndGasInfo'
-import type { Trade } from 'lx/src/features/transactions/swap/types/trade'
-import { useWallet } from 'lx/src/features/wallet/hooks/useWallet'
-import { CurrencyField } from 'lx/src/types/currency'
+} from 'uniswap/src/features/transactions/swap/stores/swapFormStore/useSwapFormStore'
+import type { DerivedSwapInfo } from 'uniswap/src/features/transactions/swap/types/derivedSwapInfo'
+import type { SwapTxAndGasInfo } from 'uniswap/src/features/transactions/swap/types/swapTxAndGasInfo'
+import type { Trade } from 'uniswap/src/features/transactions/swap/types/trade'
+import { CurrencyField } from 'uniswap/src/types/currency'
 import { useEvent, usePrevious } from 'utilities/src/react/hooks'
 import { ReactQueryCacheKey } from 'utilities/src/reactQuery/cache'
 import type { QueryOptionsResult } from 'utilities/src/reactQuery/queryOptions'
@@ -117,9 +117,10 @@ export function useSwapTxAndGasInfoService(): SwapTxAndGasInfoService {
   }, [])
 
   const chainedSwapTxInfoService = useMemo(() => {
-    const chainedService = createChainedActionSwapTxAndGasInfoService()
-    return chainedService
-  }, [])
+    return createChainedActionSwapTxAndGasInfoService({
+      getSwapDelegationInfo: swapConfig.getSwapDelegationInfo,
+    })
+  }, [swapConfig.getSwapDelegationInfo])
 
   const wrapTxInfoService = useMemo(() => {
     const wrapService = createWrapTxAndGasInfoService({ ...swapConfig, transactionSettings, instructionService })
@@ -251,8 +252,6 @@ export function useSwapParams(): {
 } {
   const derivedSwapInfo = useSwapFormStore((s) => s.derivedSwapInfo)
 
-  const account = useWallet().evmAccount
-
   const {
     chainId,
     wrapType,
@@ -260,8 +259,10 @@ export function useSwapParams(): {
     trade: { trade },
   } = derivedSwapInfo
 
+  const address = useActiveAddress(derivedSwapInfo.chainId)
+
   const approvalTxInfo = useTokenApprovalInfo({
-    account,
+    address,
     chainId,
     wrapType,
     currencyInAmount: currencyAmounts[CurrencyField.INPUT],

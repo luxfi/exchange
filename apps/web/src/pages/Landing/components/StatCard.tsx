@@ -1,9 +1,9 @@
 import { motion } from 'framer-motion'
-import { deprecatedStyled, keyframes } from 'lib/styled-components'
 import { parseToRgb } from 'polished'
 import { Flex, Text, useSporeColors } from 'ui/src'
 import { opacify } from 'ui/src/theme'
-import { useCurrentLocale } from 'lx/src/features/language/hooks'
+import { useCurrentLocale } from 'uniswap/src/features/language/hooks'
+import { deprecatedStyled, keyframes } from '~/lib/deprecated-styled'
 
 const Mask = motion(deprecatedStyled.div`
   position: relative;
@@ -22,7 +22,7 @@ const Mask = motion(deprecatedStyled.div`
 
 const Char = motion(deprecatedStyled.div<{ color: string }>`
   font-variant-numeric: lining-nums tabular-nums;
-  font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: Basel;
   font-size: 52px;
   font-style: normal;
   font-weight: 500;
@@ -105,7 +105,7 @@ export const LiveIcon = deprecatedStyled.div<{ display: string }>`
 const Title = deprecatedStyled.h3<{ color: string }>`
   padding: 0;
   margin: 0;
-  font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: Basel;
   font-size: 24px;
   font-style: normal;
   font-weight: 535;

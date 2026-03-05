@@ -2,25 +2,26 @@ import { TransactionRequest, TransactionResponse } from '@ethersproject/provider
 import { formatEther } from '@ethersproject/units'
 import { BigNumber, providers } from 'ethers/lib/ethers'
 import merge from 'lodash/merge'
-import { getChainInfo } from 'lx/src/features/chains/chainInfo'
-import { finalizeTransaction } from 'lx/src/features/transactions/slice'
+import { getChainInfo } from 'uniswap/src/features/chains/chainInfo'
+import { ValueType } from 'uniswap/src/features/tokens/getCurrencyAmount'
+import { finalizeTransaction } from 'uniswap/src/features/transactions/slice'
 import {
   ClassicTransactionDetails,
   TransactionReceipt,
   TransactionStatus,
-} from 'lx/src/features/transactions/types/transactionDetails'
+} from 'uniswap/src/features/transactions/types/transactionDetails'
 import {
   ethersTransactionReceipt,
   ethersTransactionRequest,
   ethersTransactionResponse,
-} from 'lx/src/test/fixtures/lib/ethers'
+} from 'uniswap/src/test/fixtures/lib/ethers'
 import {
   finalizedTransactionAction,
   finalizedTransactionDetails,
   transactionDetails,
   transactionReceipt,
-} from 'lx/src/test/fixtures/wallet/transactions/fixtures'
-import { faker } from 'lx/src/test/shared'
+} from 'uniswap/src/test/fixtures/wallet/transactions/fixtures'
+import { faker } from 'uniswap/src/test/shared'
 
 type TxFixtures<T extends ClassicTransactionDetails> = {
   txDetailsPending: T
@@ -89,6 +90,7 @@ export const getTxFixtures = <T extends ClassicTransactionDetails>(
       tokenSymbol: nativeCurrency.symbol,
       tokenAddress: nativeCurrency.address,
       chainId: txDetailsPending.chainId,
+      valueType: ValueType.Exact,
     },
   })
   const txDetailsFailed = finalizedTransactionDetails({

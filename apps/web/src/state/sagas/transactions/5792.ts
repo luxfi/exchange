@@ -1,22 +1,22 @@
 import { JsonRpcSigner } from '@ethersproject/providers'
 import { getAccount } from '@wagmi/core'
-import { popupRegistry } from 'components/Popups/registry'
-import { PopupType } from 'components/Popups/types'
-import { wagmiConfig } from 'components/Web3Provider/wagmiConfig'
-import { getRoutingForTransaction } from 'state/activity/utils'
-import { getSigner, watchForInterruption } from 'state/sagas/transactions/utils'
-import { handleGetCapabilities } from 'state/walletCapabilities/lib/handleGetCapabilities'
-import { setCapabilitiesByChain } from 'state/walletCapabilities/reducer'
 import { call, put } from 'typed-redux-saga'
-import { addTransaction } from 'lx/src/features/transactions/slice'
-import { HandleOnChainStepParams, OnChainTransactionStepBatched } from 'lx/src/features/transactions/steps/types'
+import { addTransaction } from 'uniswap/src/features/transactions/slice'
+import { HandleOnChainStepParams, OnChainTransactionStepBatched } from 'uniswap/src/features/transactions/steps/types'
 import {
   InterfaceTransactionDetails,
   TransactionOriginType,
   TransactionStatus,
-} from 'lx/src/features/transactions/types/transactionDetails'
-import { ValidatedTransactionRequest } from 'lx/src/features/transactions/types/transactionRequests'
-import { didUserReject } from 'utils/swapErrorToUserReadableMessage'
+} from 'uniswap/src/features/transactions/types/transactionDetails'
+import { ValidatedTransactionRequest } from 'uniswap/src/features/transactions/types/transactionRequests'
+import { popupRegistry } from '~/components/Popups/registry'
+import { PopupType } from '~/components/Popups/types'
+import { wagmiConfig } from '~/components/Web3Provider/wagmiConfig'
+import { getRoutingForTransaction } from '~/state/activity/utils'
+import { getSigner, watchForInterruption } from '~/state/sagas/transactions/utils'
+import { handleGetCapabilities } from '~/state/walletCapabilities/lib/handleGetCapabilities'
+import { setCapabilitiesByChain } from '~/state/walletCapabilities/reducer'
+import { didUserReject } from '~/utils/swapErrorToUserReadableMessage'
 
 const CURRENT_SEND_CALLS_VERSION = '2.0.0'
 async function sendCalls(params: {

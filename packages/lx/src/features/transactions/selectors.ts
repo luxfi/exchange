@@ -1,25 +1,26 @@
 import { createSelector, Selector } from '@reduxjs/toolkit'
 import { useMemo } from 'react'
 import { useSelector } from 'react-redux'
-import { normalizeCurrencyIdForMapLookup } from 'lx/src/data/cache'
-import { SearchableRecipient } from 'lx/src/features/address/types'
-import { uniqueAddressesOnly } from 'lx/src/features/address/utils'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { TransactionsState } from 'lx/src/features/transactions/slice'
-import { isBridge, isClassic, isUniswapX } from 'lx/src/features/transactions/swap/utils/routing'
+import { normalizeCurrencyIdForMapLookup } from 'uniswap/src/data/cache'
+import { SearchableRecipient } from 'uniswap/src/features/address/types'
+import { uniqueAddressesOnly } from 'uniswap/src/features/address/utils'
+import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { TransactionsState } from 'uniswap/src/features/transactions/slice'
+import { isBridge, isClassic, isUniswapX } from 'uniswap/src/features/transactions/swap/utils/routing'
 import {
   InterfaceTransactionDetails,
+  PlanTransactionDetails,
   SendTokenTransactionInfo,
   TransactionDetails,
   TransactionType,
   UniswapXOrderDetails,
-} from 'lx/src/features/transactions/types/transactionDetails'
-import { isFinalizedTx } from 'lx/src/features/transactions/types/utils'
-import { isLimitOrder } from 'lx/src/features/transactions/utils/uniswapX.utils'
-import { selectTokensVisibility } from 'lx/src/features/visibility/selectors'
-import { CurrencyIdToVisibility } from 'lx/src/features/visibility/slice'
-import { UniswapState } from 'lx/src/state/uniswapReducer'
-import { buildCurrencyId } from 'lx/src/utils/currencyId'
+} from 'uniswap/src/features/transactions/types/transactionDetails'
+import { isFinalizedTx, isPlanTransactionDetails } from 'uniswap/src/features/transactions/types/utils'
+import { isLimitOrder } from 'uniswap/src/features/transactions/utils/uniswapX.utils'
+import { selectTokensVisibility } from 'uniswap/src/features/visibility/selectors'
+import { CurrencyIdToVisibility } from 'uniswap/src/features/visibility/slice'
+import { UniswapState } from 'uniswap/src/state/uniswapReducer'
+import { buildCurrencyId } from 'uniswap/src/utils/currencyId'
 import { unique } from 'utilities/src/primitives/array'
 import { flattenObjectOfObjects } from 'utilities/src/primitives/objects'
 
@@ -181,7 +182,7 @@ export const makeSelectTransaction = (): Selector<
         return undefined
       }
 
-      const addressTxs = transactions[address]?.[chainId]
+      const addressTxs = transactions[address][chainId]
       if (!addressTxs) {
         return undefined
       }
@@ -206,6 +207,30 @@ export const makeSelectUniswapXOrder = (): Selector<
       for (const transactionsForChain of flattenObjectOfObjects(transactions)) {
         for (const tx of Object.values(transactionsForChain)) {
           if (isUniswapX(tx) && tx.orderHash === orderHash) {
+            return tx
+          }
+        }
+      }
+      return undefined
+    },
+  )
+
+interface MakeSelectPlanParams {
+  planId: string
+}
+
+export const makeSelectPlanTransaction = (): Selector<
+  UniswapState,
+  PlanTransactionDetails | undefined,
+  [MakeSelectPlanParams]
+> =>
+  createSelector(
+    selectTransactions,
+    (_: UniswapState, { planId }: MakeSelectPlanParams) => ({ planId }),
+    (transactions, { planId }): PlanTransactionDetails | undefined => {
+      for (const transactionsForChain of flattenObjectOfObjects(transactions)) {
+        for (const tx of Object.values(transactionsForChain)) {
+          if (isPlanTransactionDetails(tx) && tx.typeInfo.planId === planId) {
             return tx
           }
         }
@@ -266,4 +291,25 @@ export const selectTransaction = (
   const { address, chainId, txId } = params
 
   return transactions[address]?.[chainId]?.[txId]
+}
+
+/**
+ * Selector to get a specific transaction from the store
+ * Returns the transaction if it exists, undefined otherwise
+ */
+export const selectPlanTransaction = (
+  state: UniswapState,
+  params: {
+    address: string
+    chainId: UniverseChainId
+    planId: string
+  },
+): PlanTransactionDetails | undefined => {
+  const transactions = selectTransactions(state)
+  const { address, chainId, planId } = params
+  const planTransaction = transactions[address]?.[chainId]?.[planId]
+  if (!planTransaction || !isPlanTransactionDetails(planTransaction)) {
+    return undefined
+  }
+  return planTransaction
 }

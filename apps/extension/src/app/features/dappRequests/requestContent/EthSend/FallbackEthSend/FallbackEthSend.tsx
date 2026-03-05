@@ -1,3 +1,4 @@
+import { GasFeeResult } from '@universe/api'
 import { useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useDappLastChainId } from 'src/app/features/dapp/hooks'
@@ -7,10 +8,9 @@ import { isNonZeroBigNumber } from 'src/app/features/dappRequests/requestContent
 import { SendTransactionRequest } from 'src/app/features/dappRequests/types/DappRequestTypes'
 import { Anchor, Flex, Text, TouchableArea } from 'ui/src'
 import { AnimatedCopySheets, ExternalLink } from 'ui/src/components/icons'
-import { ContentRow } from 'lx/src/components/transactions/requests/ContentRow'
-import { GasFeeResult } from 'lx/src/features/gas/types'
-import { CopyNotificationType } from 'lx/src/features/notifications/slice/types'
-import { ExplorerDataType, getExplorerLink } from 'lx/src/utils/linking'
+import { ContentRow } from 'uniswap/src/components/transactions/requests/ContentRow'
+import { CopyNotificationType } from 'uniswap/src/features/notifications/slice/types'
+import { ExplorerDataType, getExplorerLink } from 'uniswap/src/utils/linking'
 import { ellipseMiddle, shortenAddress } from 'utilities/src/addresses'
 import { useCopyToClipboard } from 'wallet/src/components/copy/useCopyToClipboard'
 import {

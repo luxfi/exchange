@@ -1,5 +1,12 @@
-import React from 'react'
-import { SharedValue, useAnimatedStyle, useDerivedValue } from 'react-native-reanimated'
+import React, { useEffect } from 'react'
+import Animated, {
+  cancelAnimation,
+  SharedValue,
+  useAnimatedStyle,
+  useDerivedValue,
+  useSharedValue,
+  withTiming,
+} from 'react-native-reanimated'
 import { useLineChart, useLineChartDatetime } from 'react-native-wagmi-charts'
 import { AnimatedDecimalNumber } from 'src/components/PriceExplorer/AnimatedDecimalNumber'
 import { useLineChartFiatDelta } from 'src/components/PriceExplorer/useFiatDelta'
@@ -77,12 +84,29 @@ export function RelativeChangeText({
 
   const relativeChangeFormatted = useDerivedValue(() => {
     if (shouldUseSpotData.value) {
-      return spotRelativeChange
+      return spotRelativeChange?.value
         ? numberToPercentWorklet(spotRelativeChange.value, { precision: 2, absolute: true })
         : calculatedRelativeChange.formatted.value
     }
     return calculatedRelativeChange.formatted.value
   })
+
+  // Shared value for fade-in animation; always start hidden since
+  // the component always mounts with loading=true
+  const contentOpacity = useSharedValue(0)
+
+  useEffect(() => {
+    if (!loading) {
+      contentOpacity.value = withTiming(1, { duration: 200 })
+    } else {
+      cancelAnimation(contentOpacity)
+      contentOpacity.value = 0
+    }
+  }, [loading])
+
+  const animatedContentStyle = useAnimatedStyle(() => ({
+    opacity: contentOpacity.value,
+  }))
 
   const changeColor = useDerivedValue(() => {
     // Round the range to 2 decimal places to check if is equal to 0
@@ -93,9 +117,6 @@ export function RelativeChangeText({
     return relativeChange.value > 0 ? colors.statusSuccess.val : colors.statusCritical.val
   })
 
-  const styles = useAnimatedStyle(() => ({
-    color: changeColor.value,
-  }))
   const caretStyle = useAnimatedStyle(() => ({
     color: changeColor.value,
     transform: [
@@ -129,25 +150,23 @@ export function RelativeChangeText({
         <Text loading="no-shimmer" loadingPlaceholderText="00.00%" variant="body1" />
       )}
       {/* Must always mount this component to avoid stale values on initial render */}
-      <Flex row alignItems="center" gap="$spacing2" style={{ opacity: loading ? 0 : 1 }}>
-        <AnimatedCaretChange size="$icon.16" strokeWidth={2} style={caretStyle} />
-        <AnimatedText style={styles} testID="relative-change-text" text={combinedText} variant="body1" />
-      </Flex>
+      <Animated.View style={animatedContentStyle}>
+        <Flex row alignItems="center" gap="$spacing2">
+          <AnimatedCaretChange size="$icon.16" strokeWidth={2} style={caretStyle} />
+          <AnimatedText testID="relative-change-text" text={combinedText} variant="body1" color="$neutral2" />
+        </Flex>
+      </Animated.View>
     </Flex>
   )
 }
 
-export function DatetimeText({ loading }: { loading: boolean }): JSX.Element | null {
+export function DatetimeText({ loading }: { loading: boolean }): JSX.Element {
   const locale = useCurrentLocale()
   // `datetime` when scrubbing the chart
   const datetime = useLineChartDatetime({ locale })
 
-  if (loading) {
-    return null
-  }
-
   return (
-    <Flex alignItems="center" mt="$spacing12">
+    <Flex alignItems="center" mt="$spacing12" style={{ opacity: loading ? 0 : 1 }}>
       <AnimatedText color="$neutral2" text={datetime.formatted} variant="body3" />
     </Flex>
   )

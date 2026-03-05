@@ -2,30 +2,33 @@ import {
   OnChainTransaction,
   OnChainTransactionLabel,
   OnChainTransactionStatus,
-} from '@luxdex/client-data-api/dist/data/v1/types_pb'
-import { TradingApi } from '@luxfi/api'
+} from '@uniswap/client-data-api/dist/data/v1/types_pb'
+import { TradingApi } from '@universe/api'
 
-import { parseRestApproveTransaction } from 'lx/src/features/activity/parse/parseApproveTransaction'
-import { parseRestBridgeTransaction } from 'lx/src/features/activity/parse/parseBridgingTransaction'
+import { parseRestApproveTransaction } from 'uniswap/src/features/activity/parse/parseApproveTransaction'
+import { parseRestAuctionTransaction } from 'uniswap/src/features/activity/parse/parseAuctionTransaction'
+import { parseRestBridgeTransaction } from 'uniswap/src/features/activity/parse/parseBridgingTransaction'
 import {
   buildExecuteTransactionDetails,
   parseRestExecuteTransaction,
-} from 'lx/src/features/activity/parse/parseExecuteTransaction'
-import { parseRestLiquidityTransaction } from 'lx/src/features/activity/parse/parseLiquidityTransaction'
-import { parseRestNFTMintTransaction } from 'lx/src/features/activity/parse/parseMintTransaction'
-import { parseRestReceiveTransaction } from 'lx/src/features/activity/parse/parseReceiveTransaction'
-import { parseRestSendTransaction } from 'lx/src/features/activity/parse/parseSendTransaction'
+} from 'uniswap/src/features/activity/parse/parseExecuteTransaction'
+import { parseRestLiquidityTransaction } from 'uniswap/src/features/activity/parse/parseLiquidityTransaction'
+import { parseRestNFTMintTransaction } from 'uniswap/src/features/activity/parse/parseMintTransaction'
+import { parseRestReceiveTransaction } from 'uniswap/src/features/activity/parse/parseReceiveTransaction'
+import { parseRestSendTransaction } from 'uniswap/src/features/activity/parse/parseSendTransaction'
 import {
   parseRestSwapTransaction,
+  parseRestWithdrawTransaction,
   parseRestWrapTransaction,
-} from 'lx/src/features/activity/parse/parseTradeTransaction'
-import { parseRestUnknownTransaction } from 'lx/src/features/activity/parse/parseUnknownTransaction'
+} from 'uniswap/src/features/activity/parse/parseTradeTransaction'
+import { parseRestUnknownTransaction } from 'uniswap/src/features/activity/parse/parseUnknownTransaction'
+import { ValueType } from 'uniswap/src/features/tokens/getCurrencyAmount'
 import {
   TransactionDetails,
   TransactionOriginType,
   TransactionStatus,
   TransactionTypeInfo,
-} from 'lx/src/features/transactions/types/transactionDetails'
+} from 'uniswap/src/features/transactions/types/transactionDetails'
 
 /**
  * Maps REST API transaction status to local transaction status
@@ -76,9 +79,11 @@ export default function extractRestOnChainTransactionDetails(transaction: OnChai
       break
     case OnChainTransactionLabel.WRAP:
     case OnChainTransactionLabel.UNWRAP:
-    case OnChainTransactionLabel.WITHDRAW:
     case OnChainTransactionLabel.LEND:
       typeInfo = parseRestWrapTransaction(transaction)
+      break
+    case OnChainTransactionLabel.WITHDRAW:
+      typeInfo = parseRestWithdrawTransaction(transaction)
       break
     case OnChainTransactionLabel.APPROVE:
       typeInfo = parseRestApproveTransaction(transaction)
@@ -96,6 +101,13 @@ export default function extractRestOnChainTransactionDetails(transaction: OnChai
     case OnChainTransactionLabel.DECREASE_LIQUIDITY:
       typeInfo = parseRestLiquidityTransaction(transaction)
       break
+    case OnChainTransactionLabel.AUCTION_SUBMIT_BID:
+    case OnChainTransactionLabel.AUCTION_CLAIM_TOKENS:
+    case OnChainTransactionLabel.AUCTION_EXIT_BID:
+    case OnChainTransactionLabel.AUCTION_EXIT_PARTIALLY_FILLED_BID:
+    case OnChainTransactionLabel.AUCTION_CLAIM_TOKENS_BATCHED:
+      typeInfo = parseRestAuctionTransaction(transaction)
+      break
   }
 
   if (!typeInfo) {
@@ -108,6 +120,7 @@ export default function extractRestOnChainTransactionDetails(transaction: OnChai
         tokenSymbol: fee.symbol,
         tokenAddress: fee.address,
         chainId,
+        valueType: ValueType.Exact,
       }
     : undefined
 

@@ -1,5 +1,5 @@
 import { StackActions } from '@react-navigation/native'
-import { FeatureFlags, useFeatureFlag } from '@luxfi/gating'
+import { FeatureFlags, useFeatureFlag } from '@universe/gating'
 import { PropsWithChildren, useCallback } from 'react'
 import { Share } from 'react-native'
 import { useDispatch } from 'react-redux'
@@ -7,22 +7,23 @@ import { exploreNavigationRef, navigationRef } from 'src/app/navigation/navigati
 import { useAppStackNavigation } from 'src/app/navigation/types'
 import { useReactNavigationModal } from 'src/components/modals/useReactNavigationModal'
 import { closeAllModals, closeModal, openModal } from 'src/features/modals/modalSlice'
+import { useAdvancedSettingsMenuState } from 'src/features/settings/hooks/useAdvancedSettingsMenuState'
 import { HomeScreenTabIndex } from 'src/screens/HomeScreen/HomeScreenTabIndex'
-import { ScannerModalState } from 'lx/src/components/ReceiveQRCode/constants'
-import { NavigateToNftItemArgs } from 'lx/src/contexts/UniswapContext'
-import { useEnabledChains } from 'lx/src/features/chains/hooks/useEnabledChains'
+import { ScannerModalState } from 'uniswap/src/components/ReceiveQRCode/constants'
+import { NavigateToNftItemArgs } from 'uniswap/src/contexts/UniswapContext'
+import { useEnabledChains } from 'uniswap/src/features/chains/hooks/useEnabledChains'
 import {
   useFiatOnRampAggregatorCountryListQuery,
   useFiatOnRampAggregatorGetCountryQuery,
-} from 'lx/src/features/fiatOnRamp/api'
-import { RampDirection } from 'lx/src/features/fiatOnRamp/types'
-import { ModalName, WalletEventName } from 'lx/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
-import { TransactionState } from 'lx/src/features/transactions/types/transactionState'
-import { MobileScreens } from 'lx/src/types/screens/mobile'
-import { ShareableEntity } from 'lx/src/types/sharing'
-import { buildCurrencyId } from 'lx/src/utils/currencyId'
-import { getTokenUrl } from 'lx/src/utils/linking'
+} from 'uniswap/src/features/fiatOnRamp/hooks/useFiatOnRampQueries'
+import { RampDirection } from 'uniswap/src/features/fiatOnRamp/types'
+import { ModalName, WalletEventName } from 'uniswap/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
+import { TransactionState } from 'uniswap/src/features/transactions/types/transactionState'
+import { MobileScreens } from 'uniswap/src/types/screens/mobile'
+import { ShareableEntity } from 'uniswap/src/types/sharing'
+import { buildCurrencyId } from 'uniswap/src/utils/currencyId'
+import { getTokenUrl } from 'uniswap/src/utils/linking'
 import { closeKeyboardBeforeCallback } from 'utilities/src/device/keyboard/dismissNativeKeyboard'
 import { logger } from 'utilities/src/logger/logger'
 import { noop } from 'utilities/src/react/noop'
@@ -52,6 +53,7 @@ export function MobileWalletNavigationProvider({ children }: PropsWithChildren):
   const navigateToTokenDetails = useNavigateToTokenDetails()
   const navigateToFiatOnRamp = useNavigateToFiatOnRamp()
   const navigateToExternalProfile = useNavigateToExternalProfile()
+  const navigateToAdvancedSettings = useNavigateToAdvancedSettings()
 
   return (
     <WalletNavigationProvider
@@ -68,6 +70,7 @@ export function MobileWalletNavigationProvider({ children }: PropsWithChildren):
       navigateToSwapFlow={navigateToSwapFlow}
       navigateToTokenDetails={navigateToTokenDetails}
       navigateToPoolDetails={noop} // no pool details screen on mobile
+      navigateToAdvancedSettings={navigateToAdvancedSettings}
     >
       {children}
     </WalletNavigationProvider>
@@ -342,7 +345,7 @@ function useNavigateToBuyOrReceiveWithEmptyWallet(): () => void {
 
   const { data: countryResult } = useFiatOnRampAggregatorGetCountryQuery()
   const { data: countryOptionsResult } = useFiatOnRampAggregatorCountryListQuery({
-    rampDirection: RampDirection.ONRAMP,
+    rampDirection: RampDirection.ON_RAMP,
   })
   const forAggregatorEnabled = countryOptionsResult?.supportedCountries.some(
     (c) => c.countryCode === countryResult?.countryCode,
@@ -394,4 +397,15 @@ function useNavigateToExternalProfile(): (args: NavigateToExternalProfileArgs) =
     },
     [appNavigation],
   )
+}
+
+function useNavigateToAdvancedSettings(): () => void {
+  const navigation = useAppStackNavigation()
+  const advancedSettingsState = useAdvancedSettingsMenuState()
+
+  return useCallback((): void => {
+    closeKeyboardBeforeCallback(() => {
+      navigation.navigate(ModalName.SmartWalletAdvancedSettingsModal, advancedSettingsState)
+    })
+  }, [navigation, advancedSettingsState])
 }

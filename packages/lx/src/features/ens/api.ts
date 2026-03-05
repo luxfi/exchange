@@ -6,6 +6,7 @@ import { Platform } from 'lx/src/features/platforms/types/Platform'
 import { createEthersProvider } from 'lx/src/features/providers/createEthersProvider'
 import { areAddressesEqual } from 'lx/src/utils/addresses'
 import { isEVMAddress } from 'utilities/src/addresses/evm/evm'
+import { sanitizeAvatarUrl } from 'utilities/src/format/urls'
 import { ReactQueryCacheKey } from 'utilities/src/reactQuery/cache'
 import { ONE_MINUTE_MS } from 'utilities/src/time/time'
 
@@ -53,7 +54,8 @@ async function getAvatarFetch(address: string, provider: providers.JsonRpcProvid
   })
     ? name
     : null
-  return checkedName ? await provider.getAvatar(checkedName) : null
+  const avatarUrl = checkedName ? await provider.getAvatar(checkedName) : null
+  return sanitizeAvatarUrl(avatarUrl)
 }
 
 async function getTextFetch({

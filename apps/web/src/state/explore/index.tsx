@@ -1,10 +1,11 @@
-import { ExploreStatsResponse, ProtocolStatsResponse } from '@luxdex/client-explore/dist/uniswap/explore/v1/service_pb'
-import { ALL_NETWORKS_ARG } from '@luxfi/api'
+import { ExploreStatsResponse, ProtocolStatsResponse } from '@uniswap/client-explore/dist/uniswap/explore/v1/service_pb'
+import { ALL_NETWORKS_ARG } from '@universe/api'
 import { createContext, useMemo } from 'react'
-import { useProtocolStatsQuery } from 'lx/src/data/rest/protocolStats'
-import { useIsSupportedChainId } from 'lx/src/features/chains/hooks/useSupportedChainId'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { useLxdExploreStats } from './useLxdExploreStats'
+import { useExploreStatsQuery } from 'uniswap/src/data/rest/exploreStats'
+import { useProtocolStatsQuery } from 'uniswap/src/data/rest/protocolStats'
+import { useIsSupportedChainId } from 'uniswap/src/features/chains/hooks/useSupportedChainId'
+import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { useExploreBackendSortingEnabled } from '~/state/explore/useExploreBackendSortingEnabled'
 
 interface QueryResult<T> {
   data?: T
@@ -49,21 +50,23 @@ export function ExploreContextProvider({
   children: React.ReactNode
 }) {
   const isSupportedChain = useIsSupportedChainId(chainId)
+  const isExploreBackendSortingEnabled = useExploreBackendSortingEnabled()
 
-  // Unified data provider: CoinGecko for public chains, LXD Gateway for Lux/Zoo
-  // Replaces the broken Uniswap REST API (*.gateway.uniswap.org returns ACCESS_DENIED)
+  // Skip exploreStats query when backend sorting is enabled (tokens/pools tables use new endpoints)
   const {
     data: exploreStatsData,
     isLoading: exploreStatsLoading,
     error: exploreStatsError,
-  } = useLxdExploreStats(chainId)
-
+  } = useExploreStatsQuery<ExploreStatsResponse>({
+    input: { chainId: isSupportedChain ? chainId.toString() : ALL_NETWORKS_ARG },
+    enabled: !isExploreBackendSortingEnabled,
+  })
   const {
     data: protocolStatsData,
     isLoading: protocolStatsLoading,
     error: protocolStatsError,
   } = useProtocolStatsQuery({
-    chainId: isSupportedChain ? chainId?.toString() ?? ALL_NETWORKS_ARG : ALL_NETWORKS_ARG,
+    chainId: isSupportedChain ? chainId.toString() : ALL_NETWORKS_ARG,
   })
 
   const exploreContext = useMemo(() => {

@@ -1,6 +1,6 @@
-import { TokenInfo } from 'utils/tokenListTypes'
-import { DAI } from 'lx/src/constants/tokens'
-import { validateTokens } from 'utils/validateTokenList'
+import { TokenInfo } from '@uniswap/token-lists'
+import { DAI } from 'uniswap/src/constants/tokens'
+import { validateTokens } from '~/utils/validateTokenList'
 
 const INVALID_TOKEN: TokenInfo = {
   name: 'Dai Stablecoin',

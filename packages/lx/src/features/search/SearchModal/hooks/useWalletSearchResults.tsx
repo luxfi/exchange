@@ -1,15 +1,16 @@
 import { useMemo } from 'react'
-import { OnchainItemListOptionType, WalletOption } from 'lx/src/components/lists/items/types'
-import { useUnitagsAddressQuery } from 'lx/src/data/apiClients/unitagsApi/useUnitagsAddressQuery'
-import { useUnitagsUsernameQuery } from 'lx/src/data/apiClients/unitagsApi/useUnitagsUsernameQuery'
-import { useIsSmartContractAddress } from 'lx/src/features/address/useIsSmartContractAddress'
-import { useEnabledChains } from 'lx/src/features/chains/hooks/useEnabledChains'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { ENS_SUFFIX } from 'lx/src/features/ens/constants'
-import { useENS } from 'lx/src/features/ens/useENS'
-import { Platform } from 'lx/src/features/platforms/types/Platform'
-import { UNITAG_SUFFIX } from 'lx/src/features/unitags/constants'
-import { getValidAddress } from 'lx/src/utils/addresses'
+import { OnchainItemListOptionType, WalletOption } from 'uniswap/src/components/lists/items/types'
+import { useUnitagsAddressQuery } from 'uniswap/src/data/apiClients/unitagsApi/useUnitagsAddressQuery'
+import { useUnitagsUsernameQuery } from 'uniswap/src/data/apiClients/unitagsApi/useUnitagsUsernameQuery'
+import { useIsSmartContractAddress } from 'uniswap/src/features/address/useIsSmartContractAddress'
+import { useEnabledChains } from 'uniswap/src/features/chains/hooks/useEnabledChains'
+import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { ENS_SUFFIX } from 'uniswap/src/features/ens/constants'
+import { useENS } from 'uniswap/src/features/ens/useENS'
+import { Platform } from 'uniswap/src/features/platforms/types/Platform'
+import { UNITAG_SUFFIX } from 'uniswap/src/features/unitags/constants'
+import { getValidAddress } from 'uniswap/src/utils/addresses'
+import { isWebApp } from 'utilities/src/platform'
 
 // eslint-disable-next-line complexity
 export function useWalletSearchResults(
@@ -23,10 +24,21 @@ export function useWalletSearchResults(
 } {
   const { defaultChainId } = useEnabledChains()
 
-  const validAddress: Address | undefined = useMemo(
+  const validEvmAddress: Address | undefined = useMemo(
     () => getValidAddress({ address: query, platform: Platform.EVM, withEVMChecksum: true, log: false }) ?? undefined,
     [query],
   )
+
+  // Check for valid Solana address on web only
+  const validSvmAddress: string | undefined = useMemo(() => {
+    if (validEvmAddress || !isWebApp) {
+      return undefined
+    }
+    return getValidAddress({ address: query, platform: Platform.SVM, log: false }) ?? undefined
+  }, [query, validEvmAddress])
+
+  // Use EVM address for ENS/Unitag lookups (Solana doesn't have these)
+  const validAddress = validEvmAddress
 
   const querySkippedIfValidAddress = validAddress ? null : query
 
@@ -133,6 +145,14 @@ export function useWalletSearchResults(
     results.push({
       type: OnchainItemListOptionType.WalletByAddress,
       address: validAddress,
+    })
+  }
+
+  // Add Solana wallet result on web only
+  if (validSvmAddress) {
+    results.push({
+      type: OnchainItemListOptionType.WalletByAddress,
+      address: validSvmAddress,
     })
   }
 

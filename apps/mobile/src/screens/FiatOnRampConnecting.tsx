@@ -1,34 +1,33 @@
-import { NativeStackScreenProps } from '@react-navigation/native-stack'
-import { skipToken } from '@reduxjs/toolkit/query/react'
+import { type NativeStackScreenProps } from '@react-navigation/native-stack'
+import { skipToken } from '@tanstack/react-query'
 import React, { useCallback, useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useDispatch } from 'react-redux'
-import { FiatOnRampStackParamList } from 'src/app/navigation/types'
+import { type FiatOnRampStackParamList } from 'src/app/navigation/types'
 import { Screen } from 'src/components/layout/Screen'
 import { useFiatOnRampContext } from 'src/features/fiatOnRamp/FiatOnRampContext'
 import { closeModal } from 'src/features/modals/modalSlice'
-import { Flex, Text, useIsDarkMode } from 'ui/src'
+import { Flex, Text, UniversalImage, useIsDarkMode } from 'ui/src'
 import { spacing } from 'ui/src/theme'
-import { ImageUri } from 'lx/src/components/nfts/images/ImageUri'
-import { uniswapUrls } from 'lx/src/constants/urls'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { useLocalFiatToUSDConverter } from 'lx/src/features/fiatCurrency/hooks'
+import { uniswapUrls } from 'uniswap/src/constants/urls'
+import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { useLocalFiatToUSDConverter } from 'uniswap/src/features/fiatCurrency/hooks'
+import { ServiceProviderLogoStyles } from 'uniswap/src/features/fiatOnRamp/constants'
+import { FiatOnRampConnectingView } from 'uniswap/src/features/fiatOnRamp/FiatOnRampConnectingView'
+import { useFiatOnRampTransactionCreator } from 'uniswap/src/features/fiatOnRamp/hooks'
 import {
   useFiatOnRampAggregatorOffRampWidgetQuery,
   useFiatOnRampAggregatorWidgetQuery,
-} from 'lx/src/features/fiatOnRamp/api'
-import { ServiceProviderLogoStyles } from 'lx/src/features/fiatOnRamp/constants'
-import { FiatOnRampConnectingView } from 'lx/src/features/fiatOnRamp/FiatOnRampConnectingView'
-import { useFiatOnRampTransactionCreator } from 'lx/src/features/fiatOnRamp/hooks'
-import { getOptionalServiceProviderLogo } from 'lx/src/features/fiatOnRamp/utils'
-import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
-import { pushNotification } from 'lx/src/features/notifications/slice/slice'
-import { AppNotificationType } from 'lx/src/features/notifications/slice/types'
-import { FiatOffRampEventName, FiatOnRampEventName, ModalName } from 'lx/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
-import { forceFetchFiatOnRampTransactions } from 'lx/src/features/transactions/slice'
-import { FiatOnRampScreens } from 'lx/src/types/screens/mobile'
-import { openUri } from 'lx/src/utils/linking'
+} from 'uniswap/src/features/fiatOnRamp/hooks/useFiatOnRampQueries'
+import { getOptionalServiceProviderLogo } from 'uniswap/src/features/fiatOnRamp/utils'
+import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
+import { pushNotification } from 'uniswap/src/features/notifications/slice/slice'
+import { AppNotificationType } from 'uniswap/src/features/notifications/slice/types'
+import { FiatOffRampEventName, FiatOnRampEventName, ModalName } from 'uniswap/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
+import { forceFetchFiatOnRampTransactions } from 'uniswap/src/features/transactions/slice'
+import { type FiatOnRampScreens } from 'uniswap/src/types/screens/mobile'
+import { openUri } from 'uniswap/src/utils/linking'
 import { ONE_SECOND_MS } from 'utilities/src/time/time'
 import { useTimeout } from 'utilities/src/time/timing'
 import { useActiveAccountAddressWithThrow } from 'wallet/src/features/wallet/hooks'
@@ -131,7 +130,7 @@ export function FiatOnRampConnectingScreen({ navigation }: Props): JSX.Element |
           {
             externalTransactionId,
             serviceProvider: serviceProvider.serviceProvider,
-            preselectedServiceProvider: quotesSections[0]?.data?.[0]?.serviceProviderDetails.serviceProvider,
+            preselectedServiceProvider: quotesSections[0]?.data?.[0]?.serviceProviderDetails?.serviceProvider,
             countryCode,
             countryState,
             fiatCurrency: baseCurrencyInfo.code.toLowerCase(),
@@ -206,7 +205,14 @@ export function FiatOnRampConnectingScreen({ navigation }: Props): JSX.Element |
                 justifyContent="center"
                 width={ServiceProviderLogoStyles.icon.width}
               >
-                <ImageUri imageStyle={ServiceProviderLogoStyles.icon} uri={logoUrl} />
+                <UniversalImage
+                  uri={logoUrl}
+                  size={{
+                    height: ServiceProviderLogoStyles.icon.height,
+                    width: ServiceProviderLogoStyles.icon.width,
+                  }}
+                  style={{ image: { borderRadius: ServiceProviderLogoStyles.icon.borderRadius } }}
+                />
               </Flex>
             }
             serviceProviderName={serviceProvider.name}

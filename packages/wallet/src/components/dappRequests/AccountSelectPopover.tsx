@@ -86,11 +86,12 @@ export function AccountSelectPopover({
                 px="$spacing8"
                 py="$spacing4"
                 pressStyle={{ backgroundColor: '$surface2' }}
+                maxWidth="100%"
                 onPress={() => handleAccountSelect(address)}
               >
                 <AddressDisplay
+                  grow
                   showAccountIcon
-                  flexGrow={false}
                   address={address}
                   hideAddressInSubtitle={false}
                   size={iconSizes.icon24}
@@ -98,7 +99,6 @@ export function AccountSelectPopover({
                   variant="buttonLabel3"
                   captionVariant="body4"
                 />
-                <Flex grow={true} />
                 <Checkbox
                   checked={isChecked}
                   size="$icon.16"

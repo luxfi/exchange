@@ -26,8 +26,6 @@ interface SignTypedDataRequestProps {
 }
 
 export function SignTypedDataRequestContent({ dappRequest }: SignTypedDataRequestProps): JSX.Element | null {
-  const blockaidTransactionScanning = useFeatureFlag(FeatureFlags.BlockaidTransactionScanning)
-
   return (
     <ErrorBoundary
       fallback={<NonStandardTypedDataRequestContent dappRequest={dappRequest} />}
@@ -43,19 +41,12 @@ export function SignTypedDataRequestContent({ dappRequest }: SignTypedDataReques
         }
       }}
     >
-      {blockaidTransactionScanning ? (
-        <SignTypedDataRequestContentWithScanning dappRequest={dappRequest} />
-      ) : (
-        <SignTypedDataRequestContentLegacy dappRequest={dappRequest} />
-      )}
+      <SignTypedDataRequestContentInner dappRequest={dappRequest} />
     </ErrorBoundary>
   )
 }
 
-/**
- * Implementation with Blockaid scanning
- */
-function SignTypedDataRequestContentWithScanning({ dappRequest }: SignTypedDataRequestProps): JSX.Element | null {
+function SignTypedDataRequestContentInner({ dappRequest }: SignTypedDataRequestProps): JSX.Element | null {
   const { t } = useTranslation()
   const { dappUrl, currentAccount } = useDappRequestQueueContext()
   const { value: confirmedRisk, setValue: setConfirmedRisk } = useBooleanState(false)
@@ -75,8 +66,8 @@ function SignTypedDataRequestContentWithScanning({ dappRequest }: SignTypedDataR
   }
 
   if (!chainId) {
-    // chainId is required for Blockaid scanning
-    return <SignTypedDataRequestContentLegacy dappRequest={dappRequest} />
+    // chainId is required for Blockaid scanning, fall back to basic typed data UI
+    return <SignTypedDataRequestContentFallback dappRequest={dappRequest} />
   }
 
   // Extension SignTypedData requests default to v4 method (modern standard)
@@ -110,9 +101,9 @@ function SignTypedDataRequestContentWithScanning({ dappRequest }: SignTypedDataR
 }
 
 /**
- * Legacy implementation (existing behavior when feature flag is off)
+ * Fallback for when chainId is not available (required for Blockaid scanning)
  */
-function SignTypedDataRequestContentLegacy({ dappRequest }: SignTypedDataRequestProps): JSX.Element | null {
+function SignTypedDataRequestContentFallback({ dappRequest }: SignTypedDataRequestProps): JSX.Element | null {
   const { t } = useTranslation()
   const enablePermitMismatchUx = useFeatureFlag(FeatureFlags.EnablePermitMismatchUX)
   const getHasMismatch = useHasAccountMismatchCallback()

@@ -14,6 +14,8 @@ export const ZORA_LOGO = require('./logos/png/zora-logo.png')
 export const ZKSYNC_LOGO = require('./logos/png/zksync-logo.png')
 export const SOLANA_LOGO = require('./logos/png/solana-logo.png')
 export const SONEIUM_LOGO = require('./logos/png/soneium-logo.png')
+export const XLAYER_LOGO = require('./logos/png/xlayer-logo.png')
+export const OKB_LOGO = require('./logos/png/okb-logo.png')
 export const UNICHAIN_LOGO = require('./logos/png/unichain-logo.png')
 export const UNICHAIN_SEPOLIA_LOGO = require('./logos/png/unichain-sepolia-logo.png')
 export const UNISWAP_LOGO = require('./logos/png/uniswap-logo.png')
@@ -81,7 +83,6 @@ export const CRYPTO_PURCHASE_BACKGROUND_DARK = require('./backgrounds/coins-back
 
 export const SOLANA_BANNER_LIGHT = require('./backgrounds/solana-banner-light.png')
 export const SOLANA_BANNER_DARK = require('./backgrounds/solana-banner-dark.png')
-export const MONAD_TEST_BANNER_LIGHT = require('./backgrounds/monad-test-banner-light.png')
 
 export const SECURITY_SCREEN_BACKGROUND_DARK = {
   ios: require(`./backgrounds/ios/security-background-dark.png`),

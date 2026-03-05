@@ -1,19 +1,19 @@
-import { TradingApi } from '@luxfi/api'
+import { TradingApi } from '@universe/api'
 import ms from 'ms'
 import { useCallback, useEffect, useMemo } from 'react'
-import { ActivityUpdateTransactionType, type OnActivityUpdate } from 'state/activity/types'
-import { useMultichainTransactions } from 'state/transactions/hooks'
-import type { ConfirmedTransactionDetails, TransactionDetails } from 'state/transactions/types'
-import { isPendingTx } from 'state/transactions/utils'
-import { TradingApiClient } from 'lx/src/data/apiClients/tradingApi/TradingApiClient'
-import type { UniverseChainId } from 'lx/src/features/chains/types'
-import { toTradingApiSupportedChainId } from 'lx/src/features/transactions/swap/utils/tradingApi'
+import { TradingApiClient } from 'uniswap/src/data/apiClients/tradingApi/TradingApiClient'
+import type { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { toTradingApiSupportedChainId } from 'uniswap/src/features/transactions/swap/utils/tradingApi'
 import type {
   BridgeTransactionInfo,
   InterfaceTransactionDetails,
-} from 'lx/src/features/transactions/types/transactionDetails'
-import { TransactionStatus, TransactionType } from 'lx/src/features/transactions/types/transactionDetails'
+} from 'uniswap/src/features/transactions/types/transactionDetails'
+import { TransactionStatus, TransactionType } from 'uniswap/src/features/transactions/types/transactionDetails'
 import { logger } from 'utilities/src/logger/logger'
+import { ActivityUpdateTransactionType, type OnActivityUpdate } from '~/state/activity/types'
+import { useMultichainTransactions } from '~/state/transactions/hooks'
+import type { ConfirmedTransactionDetails, TransactionDetails } from '~/state/transactions/types'
+import { isPendingTx } from '~/state/transactions/utils'
 
 const MIN_BRIDGE_WAIT_TIME = ms('2s')
 
@@ -99,7 +99,7 @@ export function usePollPendingBridgeTransactions(onActivityUpdate: OnActivityUpd
   useEffect(() => {
     let attempts = 0
     let interval = 500
-    let timeoutId: ReturnType<typeof setTimeout>
+    let timeoutId: NodeJS.Timeout
     let isPolling = true
 
     const poll = async () => {

@@ -2,7 +2,10 @@ import { ExtensionOnboardingFlow, ExtensionScreens } from 'lx/src/types/screens/
 
 export enum MobileScreens {
   Activity = 'Activity',
+  DebugScreens = 'DebugScreens',
   Dev = 'Dev',
+  HashcashBenchmark = 'HashcashBenchmark',
+  SessionsDebug = 'SessionsDebug',
   Storybook = 'Storybook',
   Education = 'Education',
   ConnectionsDappListModal = 'connections-dapp-list-modal',
@@ -21,6 +24,7 @@ export enum MobileScreens {
   SettingsNotifications = 'SettingsNotifications',
   SettingsPrivacy = 'SettingsPrivacy',
   SettingsSmartWallet = 'SettingsSmartWallet',
+  SettingsStorage = 'SettingsStorage',
   SettingsWallet = 'SettingsWallet',
   SettingsWalletEdit = 'SettingsWalletEdit',
   SettingsWalletManageConnection = 'SettingsWalletManageConnection',

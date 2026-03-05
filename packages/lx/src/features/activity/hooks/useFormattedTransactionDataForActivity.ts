@@ -1,23 +1,25 @@
 import { NetworkStatus, QueryHookOptions } from '@apollo/client'
 import { PartialMessage } from '@bufbuild/protobuf'
-import { FiatOnRampParams } from '@luxdex/client-data-api/dist/data/v1/api_pb'
-import { GraphQLApi } from '@luxfi/api'
+import { FiatOnRampParams } from '@uniswap/client-data-api/dist/data/v1/api_pb'
+import { TransactionTypeFilter } from '@uniswap/client-data-api/dist/data/v1/types_pb'
+import { GraphQLApi } from '@universe/api'
 import isEqual from 'lodash/isEqual'
 import { useCallback, useMemo, useRef } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
-import { ActivityItem } from 'lx/src/components/activity/generateActivityItemRenderer'
-import { isLoadingItem, isSectionHeader, LoadingItem } from 'lx/src/components/activity/utils'
-import { formatTransactionsByDate } from 'lx/src/features/activity/formatTransactionsByDate'
-import { useMergeLocalAndRemoteTransactions } from 'lx/src/features/activity/hooks/useMergeLocalAndRemoteTransactions'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { useListTransactions } from 'lx/src/features/dataApi/listTransactions/listTransactions'
-import { PaginationControls } from 'lx/src/features/dataApi/types'
-import { useLocalizedDayjs } from 'lx/src/features/language/localizedDayjs'
-import { useCurrencyIdToVisibility } from 'lx/src/features/transactions/selectors'
-import { TransactionDetails } from 'lx/src/features/transactions/types/transactionDetails'
-import { isLimitOrder } from 'lx/src/features/transactions/utils/uniswapX.utils'
-import { selectNftsVisibility } from 'lx/src/features/visibility/selectors'
+import { ActivityItem } from 'uniswap/src/components/activity/generateActivityItemRenderer'
+import { isLoadingItem, isSectionHeader, LoadingItem } from 'uniswap/src/components/activity/utils'
+import { formatTransactionsByDate } from 'uniswap/src/features/activity/formatTransactionsByDate'
+import { useMergeLocalAndRemoteTransactions } from 'uniswap/src/features/activity/hooks/useMergeLocalAndRemoteTransactions'
+import { useSyncRemotePlans } from 'uniswap/src/features/activity/hooks/useSyncRemotePlans'
+import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { useListTransactions } from 'uniswap/src/features/dataApi/listTransactions/listTransactions'
+import { PaginationControls } from 'uniswap/src/features/dataApi/types'
+import { useLocalizedDayjs } from 'uniswap/src/features/language/localizedDayjs'
+import { useCurrencyIdToVisibility } from 'uniswap/src/features/transactions/selectors'
+import { TransactionDetails } from 'uniswap/src/features/transactions/types/transactionDetails'
+import { isLimitOrder } from 'uniswap/src/features/transactions/utils/uniswapX.utils'
+import { selectNftsVisibility } from 'uniswap/src/features/visibility/selectors'
 import { isAndroid } from 'utilities/src/platform'
 
 const LOADING_ITEM = (index: number): LoadingItem => ({ itemType: 'LOADING', id: index })
@@ -45,6 +47,7 @@ interface UseFormattedTransactionDataOptions {
   pageSize?: number
   skip?: boolean
   chainIds?: UniverseChainId[]
+  filterTransactionTypes?: TransactionTypeFilter[]
 }
 
 type FormattedTransactionInputs = UseFormattedTransactionDataOptions &
@@ -74,6 +77,7 @@ export function useFormattedTransactionDataForActivity({
   pageSize,
   skip,
   chainIds,
+  filterTransactionTypes,
   showLoadingOnRefetch = false,
   ...queryOptions
 }: FormattedTransactionInputs): FormattedTransactionDataResult {
@@ -101,6 +105,7 @@ export function useFormattedTransactionDataForActivity({
     nftVisibility,
     skip,
     chainIds,
+    filterTransactionTypes,
     ...queryOptions,
   })
 
@@ -109,13 +114,15 @@ export function useFormattedTransactionDataForActivity({
     [evmAddress, svmAddress],
   )
 
+  useSyncRemotePlans(formattedTransactions)
+
   const transactions = useMergeLocalAndRemoteTransactions({
     evmAddress,
     svmAddress,
     remoteTransactions: formattedTransactions,
   })
 
-  // TODO(PORT-429): update to only TradingApi.Routing.DUTCH_V2 once limit orders can be excluded from REST query
+  // TODO(CONS-722): update to only TradingApi.Routing.DUTCH_V2 once limit orders can be excluded from REST query
   const transactionsWithOutLimitOrders = useMemo(() => {
     // Filter out limit orders
     const withoutLimitOrders = transactions?.filter((tx) => !isLimitOrder(tx))

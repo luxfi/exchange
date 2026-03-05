@@ -37,7 +37,7 @@ export function createNotificationsApiClient(ctx: NotificationsClientContext): N
         body: JSON.stringify(params ?? {}),
       })
 
-      return GetNotificationsResponseMessage.fromJson(response)
+      return GetNotificationsResponseMessage.fromJson(response, { ignoreUnknownFields: true })
     } catch (error) {
       throw new Error(`Failed to fetch notifications: ${error instanceof Error ? error.message : String(error)}`, {
         cause: error,

@@ -1,8 +1,23 @@
 import { ApolloError } from '@apollo/client'
-import { ColumnDef, flexRender, getCoreRowModel, Row, RowData, useReactTable } from '@tanstack/react-table'
+import {
+  ColumnDef,
+  ExpandedState,
+  flexRender,
+  getCoreRowModel,
+  getExpandedRowModel,
+  Row,
+  RowData,
+  useReactTable,
+} from '@tanstack/react-table'
 import { useParentSize } from '@visx/responsive'
-import Loader from 'components/Icons/LoadingSpinner'
-import { ScrollButton, ScrollButtonProps } from 'components/Table/ScrollButton'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import { Trans } from 'react-i18next'
+import { ScrollSync, ScrollSyncPane } from 'react-scroll-sync'
+import { AnimatePresence, Flex } from 'ui/src'
+import { useSporeColors } from 'ui/src/hooks/useSporeColors'
+import { zIndexes } from 'ui/src/theme'
+import Loader from '~/components/Icons/LoadingSpinner'
+import { ScrollButton, ScrollButtonProps } from '~/components/Table/ScrollButton'
 import {
   CellContainer,
   HeaderRow,
@@ -14,17 +29,12 @@ import {
   TableContainer,
   TableHead,
   TableScrollMask,
-} from 'components/Table/styled'
-import { TableBody } from 'components/Table/TableBody'
-import { TableSizeProvider } from 'components/Table/TableSizeProvider'
-import { getCommonPinningStyles } from 'components/Table/utils'
-import useDebounce from 'hooks/useDebounce'
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
-import { Trans } from 'react-i18next'
-import { ScrollSync, ScrollSyncPane } from 'react-scroll-sync'
-import { Flex } from 'ui/src'
-import { useSporeColors } from 'ui/src/hooks/useSporeColors'
-import { INTERFACE_NAV_HEIGHT, zIndexes } from 'ui/src/theme'
+} from '~/components/Table/styled'
+import { TableBody } from '~/components/Table/TableBody'
+import { TableSizeProvider } from '~/components/Table/TableSizeProvider'
+import { getCommonPinningStyles } from '~/components/Table/utils'
+import { useAppHeaderHeight } from '~/hooks/useAppHeaderHeight'
+import useDebounce from '~/hooks/useDebounce'
 
 function calculateScrollButtonTop(params: {
   maxHeight?: number
@@ -74,6 +84,8 @@ export function Table<T extends RowData>({
   rowHeight,
   compactRowHeight,
   centerArrows = false,
+  headerTestId,
+  getSubRows,
 }: {
   columns: ColumnDef<T, any>[]
   data: T[]
@@ -94,6 +106,8 @@ export function Table<T extends RowData>({
   rowHeight?: number
   compactRowHeight?: number
   centerArrows?: boolean
+  headerTestId?: string
+  getSubRows?: (row: T) => T[] | undefined
 }) {
   const [loadingMore, setLoadingMore] = useState(false)
   const [showScrollRightButton, setShowScrollRightButton] = useState(false)
@@ -101,6 +115,7 @@ export function Table<T extends RowData>({
   const [showRightFadeOverlay, setShowRightFadeOverlay] = useState(false)
   const colors = useSporeColors()
   const [pinnedColumns, setPinnedColumns] = useState<string[]>([])
+  const [expanded, setExpanded] = useState<ExpandedState>({})
 
   const [scrollPosition, setScrollPosition] = useState<{
     distanceFromTop: number
@@ -113,6 +128,10 @@ export function Table<T extends RowData>({
   const tableBodyRef = useRef<HTMLDivElement>(null)
   const lastLoadedLengthRef = useRef(0)
   const canLoadMore = useRef(true)
+  // Tracks the intended scroll destination during smooth-scroll animations so
+  // rapid arrow-button taps advance column-by-column instead of re-targeting
+  // the same position while the previous animation is still in flight.
+  const targetScrollLeftRef = useRef<number | null>(null)
   const isSticky = useMemo(() => !maxHeight, [maxHeight])
 
   const { parentRef, width, height, top, left } = useParentSize()
@@ -190,9 +209,17 @@ export function Table<T extends RowData>({
   const table = useReactTable({
     columns,
     data,
-    state: { columnPinning: { left: pinnedColumns } },
+    state: {
+      columnPinning: { left: pinnedColumns },
+      ...(getSubRows && { expanded }),
+    },
     getCoreRowModel: getCoreRowModel(),
     getRowId,
+    ...(getSubRows && {
+      getSubRows,
+      getExpandedRowModel: getExpandedRowModel(),
+      onExpandedChange: setExpanded,
+    }),
   })
   // biome-ignore lint/correctness/useExhaustiveDependencies: we want to run it also when table is changed
   useEffect(() => {
@@ -214,42 +241,48 @@ export function Table<T extends RowData>({
     }
   }, [maxWidth, defaultPinnedColumns, forcePinning, table])
 
+  const SCROLL_EDGE_TOLERANCE_PX = 1
+
   useEffect(() => {
     const container = tableBodyRef.current?.parentElement
     if (!container || loading) {
       return undefined
     }
 
-    const horizontalScrollHandler = () => {
+    const updateScrollButtonVisibility = () => {
       const maxScrollLeft = container.scrollWidth - container.clientWidth
-      const nextShowScrollRightButton = container.scrollLeft < maxScrollLeft
-      if (showScrollRightButton !== nextShowScrollRightButton) {
-        setShowScrollRightButton(nextShowScrollRightButton)
+      // Tolerance accounts for sub-pixel rounding from smooth scroll animations
+      setShowScrollRightButton(container.scrollLeft < maxScrollLeft - SCROLL_EDGE_TOLERANCE_PX)
+      setShowScrollLeftButton(container.scrollLeft > SCROLL_EDGE_TOLERANCE_PX)
+
+      // Clear the optimistic scroll target once the animation reaches its destination
+      if (
+        targetScrollLeftRef.current !== null &&
+        Math.abs(container.scrollLeft - targetScrollLeftRef.current) < SCROLL_EDGE_TOLERANCE_PX
+      ) {
+        targetScrollLeftRef.current = null
       }
-      const nextShowScrollLeftButton = container.scrollLeft > 0
-      if (showScrollLeftButton !== nextShowScrollLeftButton) {
-        setShowScrollLeftButton(nextShowScrollLeftButton)
-      }
+
       // Hide overlay when table is full width or scrolled all the way to the right
       const isFullWidth = maxScrollLeft <= 0
       const isScrolledToRight = container.scrollLeft >= maxScrollLeft
-      const nextShowRightFadeOverlay = pinnedColumns.length > 0 && !isFullWidth && !isScrolledToRight
-      if (showRightFadeOverlay !== nextShowRightFadeOverlay) {
-        setShowRightFadeOverlay(nextShowRightFadeOverlay)
-      }
+      setShowRightFadeOverlay(pinnedColumns.length > 0 && !isFullWidth && !isScrolledToRight)
     }
 
-    horizontalScrollHandler()
-    container.addEventListener('scroll', horizontalScrollHandler)
+    updateScrollButtonVisibility()
+    container.addEventListener('scroll', updateScrollButtonVisibility)
+
+    // Listen to resize events in case the container size changes
+    const resizeObserver = new ResizeObserver(updateScrollButtonVisibility)
+    resizeObserver.observe(container)
+
     return () => {
-      container.removeEventListener('scroll', horizontalScrollHandler)
+      container.removeEventListener('scroll', updateScrollButtonVisibility)
+      resizeObserver.disconnect()
     }
-  }, [loading, showScrollLeftButton, showScrollRightButton, showRightFadeOverlay, pinnedColumns.length])
+  }, [loading, pinnedColumns.length])
 
-  const headerHeight = useMemo(() => {
-    const header = document.getElementById('AppHeader')
-    return header?.clientHeight || INTERFACE_NAV_HEIGHT
-  }, [])
+  const headerHeight = useAppHeaderHeight()
 
   const scrollButtonTop = useMemo(() => {
     return calculateScrollButtonTop({
@@ -279,17 +312,42 @@ export function Table<T extends RowData>({
         [0] as number[],
       )
 
+      // Use the optimistic target (if mid-animation) so rapid taps advance
+      // to successive column boundaries instead of re-targeting the same one
+      const currentPosition = targetScrollLeftRef.current ?? container.scrollLeft
+
       if (direction === 'left') {
         cumulativeWidths.reverse()
       }
 
+      // Find the next column boundary beyond the current (or optimistic) position
       const nextScrollLeft = cumulativeWidths.find((width) => {
         if (direction === 'left') {
-          return width < container.scrollLeft
+          return width < currentPosition
         }
-        return width > container.scrollLeft
+        return width > currentPosition
       })
 
+      // No column boundary found — this happens when column.getSize() totals
+      // don't match actual rendered widths (e.g. flexGrow expands cells).
+      // Fall back to scrolling to the absolute edge if we're not there yet.
+      if (nextScrollLeft === undefined) {
+        const maxScrollLeft = container.scrollWidth - container.clientWidth
+        if (direction === 'right' && container.scrollLeft < maxScrollLeft - SCROLL_EDGE_TOLERANCE_PX) {
+          targetScrollLeftRef.current = maxScrollLeft
+          container.scrollTo({ left: maxScrollLeft, behavior: 'smooth' })
+        } else if (direction === 'left' && container.scrollLeft > SCROLL_EDGE_TOLERANCE_PX) {
+          targetScrollLeftRef.current = 0
+          container.scrollTo({ left: 0, behavior: 'smooth' })
+        }
+        return
+      }
+
+      // Clamp to valid scroll range so the ref matches the actual scroll
+      // endpoint (the browser clamps scrollTo internally, but the ref must agree
+      // for the scroll-event handler to clear it)
+      const maxScrollLeft = container.scrollWidth - container.clientWidth
+      targetScrollLeftRef.current = Math.min(Math.max(nextScrollLeft, 0), maxScrollLeft)
       container.scrollTo({ left: nextScrollLeft, behavior: 'smooth' })
     },
     [table],
@@ -305,29 +363,41 @@ export function Table<T extends RowData>({
   const content = (
     <TableContainer maxWidth={maxWidth} maxHeight={maxHeight} position="relative" ref={parentRef}>
       <>
-        <TableHead $isSticky={isSticky} $top={headerHeight}>
+        <TableHead $isSticky={isSticky} $top={headerHeight} mb={v2 && !hasPinnedColumns ? '$spacing2' : undefined}>
           {hasPinnedColumns && (
             <>
-              <Flex
-                position="absolute"
-                top={scrollButtonTop}
-                left={table.getLeftTotalSize()}
-                pl="$spacing12"
-                zIndex={zIndexes.mask}
-              >
-                <ScrollButton
-                  onPress={onScrollButtonPress('left')}
-                  opacity={showScrollLeftButton ? 1 : 0}
-                  direction="left"
-                />
-              </Flex>
-              <Flex position="absolute" top={scrollButtonTop} right={0} pr="$spacing12" zIndex={zIndexes.mask}>
-                <ScrollButton
-                  onPress={onScrollButtonPress('right')}
-                  opacity={showScrollRightButton ? 1 : 0}
-                  direction="right"
-                />
-              </Flex>
+              <AnimatePresence>
+                {showScrollLeftButton && (
+                  <Flex
+                    position="absolute"
+                    top={scrollButtonTop}
+                    left={table.getLeftTotalSize()}
+                    pl="$spacing12"
+                    zIndex={zIndexes.mask}
+                    animateEnter="fadeIn"
+                    animateExit="fadeOut"
+                    animation="200ms"
+                  >
+                    <ScrollButton onPress={onScrollButtonPress('left')} direction="left" />
+                  </Flex>
+                )}
+              </AnimatePresence>
+              <AnimatePresence>
+                {showScrollRightButton && (
+                  <Flex
+                    position="absolute"
+                    top={scrollButtonTop}
+                    right={0}
+                    pr="$spacing12"
+                    zIndex={zIndexes.mask}
+                    animateEnter="fadeIn"
+                    animateExit="fadeOut"
+                    animation="200ms"
+                  >
+                    <ScrollButton onPress={onScrollButtonPress('right')} direction="right" />
+                  </Flex>
+                )}
+              </AnimatePresence>
               {(!v2 || showRightFadeOverlay) && (
                 <TableScrollMask
                   top={isSticky ? '$spacing12' : 0}
@@ -341,7 +411,7 @@ export function Table<T extends RowData>({
 
           {!hideHeader && (
             <ScrollSyncPane group={scrollGroup}>
-              <HeaderRow dimmed={!!error} v2={v2}>
+              <HeaderRow data-testid={headerTestId} dimmed={!!error} v2={v2}>
                 {table.getFlatHeaders().map((header) => (
                   <CellContainer
                     key={header.id}
@@ -373,6 +443,7 @@ export function Table<T extends RowData>({
             loadingRowsCount={loadingRowsCount}
             rowHeight={rowHeight}
             compactRowHeight={compactRowHeight}
+            hasPinnedColumns={hasPinnedColumns}
             // @ts-ignore
             table={table}
             ref={tableBodyRef}

@@ -1,11 +1,12 @@
-import { Currency } from '@luxamm/sdk-core'
+import { Currency } from '@uniswap/sdk-core'
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router'
-import { CopyHelper } from 'theme/components/CopyHelper'
 import { Flex, styled, Text, TextProps, useMedia } from 'ui/src'
-import { TestID } from 'lx/src/test/fixtures/testIDs'
+import { iconSizes } from 'ui/src/theme'
+import { TestID } from 'uniswap/src/test/fixtures/testIDs'
 import { shortenAddress } from 'utilities/src/addresses'
+import { CopyHelper } from '~/theme/components/CopyHelper'
 
 export const BreadcrumbNavContainer = styled(Flex, {
   row: true,
@@ -43,11 +44,8 @@ const CurrentPageBreadcrumbContainer = styled(Flex, {
 // This must be an h1 to match the SEO title, and must be the first heading tag in code.
 const PageTitleText = styled(Text, {
   tag: 'h1',
-  // @ts-expect-error - 'inherit' is valid CSS but not in Tamagui types
   fontWeight: 'inherit',
-  // @ts-expect-error - 'inherit' is valid CSS but not in Tamagui types
   fontSize: 'inherit',
-  // @ts-expect-error - 'inherit' is valid CSS but not in Tamagui types
   lineHeight: 'inherit',
   color: '$neutral1',
   whiteSpace: 'nowrap',
@@ -61,7 +59,7 @@ export const CurrentPageBreadcrumb = ({
   currency,
   poolName,
 }: {
-  address: string
+  address?: string
   currency?: Currency
   poolName?: string
 }) => {
@@ -81,18 +79,20 @@ export const CurrentPageBreadcrumb = ({
       onMouseLeave={() => setIsBreadcrumbHover(false)}
     >
       <PageTitleText>{currency ? tokenSymbolName : poolName}</PageTitleText>
-      {(!currency || !isNative) && (
+      {(!currency || !isNative) && address && (
         <CopyHelper
           toCopy={address}
           iconPosition="right"
-          iconSize={16}
+          iconSize={iconSizes.icon16}
           iconColor="$neutral2"
           color="$neutral2"
           disabled={!shouldEnableCopy}
           externalHover={isBreadcrumbHover}
           dataTestId={TestID.BreadcrumbHoverCopy}
         >
-          {shortenAddress({ address })}
+          <Text color="$neutral2" $platform-web={{ whiteSpace: 'nowrap' }}>
+            {shortenAddress({ address })}
+          </Text>
         </CopyHelper>
       )}
     </CurrentPageBreadcrumbContainer>

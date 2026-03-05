@@ -1,11 +1,11 @@
-import { deprecatedStyled } from 'lib/styled-components'
-import { ConnectingViewWrapper } from 'pages/Swap/Buy/shared'
 import { Trans, useTranslation } from 'react-i18next'
-import { ExternalLink } from 'theme/components/Links'
 import { Flex, Text, useIsDarkMode, useSporeColors } from 'ui/src'
-import { ServiceProviderLogoStyles } from 'lx/src/features/fiatOnRamp/constants'
-import { FORServiceProvider } from 'lx/src/features/fiatOnRamp/types'
-import { getOptionalServiceProviderLogo } from 'lx/src/features/fiatOnRamp/utils'
+import { ServiceProviderLogoStyles } from 'uniswap/src/features/fiatOnRamp/constants'
+import { FORServiceProvider } from 'uniswap/src/features/fiatOnRamp/types'
+import { getOptionalServiceProviderLogo } from 'uniswap/src/features/fiatOnRamp/utils'
+import { deprecatedStyled } from '~/lib/deprecated-styled'
+import { ConnectingViewWrapper } from '~/pages/Swap/Buy/shared'
+import { ExternalLink } from '~/theme/components/Links'
 
 const StyledLink = deprecatedStyled(ExternalLink)`
   font-weight: 535;
@@ -52,12 +52,12 @@ export function ProviderConnectedView({ closeModal, selectedServiceProvider }: P
             }}
             components={{
               tosLink: (
-                <StyledLink color={colors.neutral3.val} href="https://lux.exchange/terms">
+                <StyledLink color={colors.neutral3.val} href="https://uniswap.org/terms-of-service/">
                   {t('common.termsOfService')}
                 </StyledLink>
               ),
               privacyLink: (
-                <StyledLink color={colors.neutral3.val} href="https://lux.exchange/privacy">
+                <StyledLink color={colors.neutral3.val} href="https://uniswap.org/privacy-policy">
                   {t('common.privacyPolicy')}
                 </StyledLink>
               ),

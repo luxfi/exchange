@@ -1,21 +1,22 @@
 import { useEffect } from 'react'
 import type { ColorTokens, FlexProps } from 'ui/src'
 import type { IconSizeTokens } from 'ui/src/theme'
-import { useTransactionSettingsWithSlippage } from 'lx/src/features/transactions/components/settings/hooks/useTransactionSettingsWithSlippage'
-import { useSlippageSettings } from 'lx/src/features/transactions/components/settings/settingsConfigurations/slippage/useSlippageSettings'
+import { useTransactionSettingsWithSlippage } from 'uniswap/src/features/transactions/components/settings/hooks/useTransactionSettingsWithSlippage'
+import { Slippage } from 'uniswap/src/features/transactions/components/settings/settingsConfigurations/slippage/Slippage/Slippage'
+import { useSlippageSettings } from 'uniswap/src/features/transactions/components/settings/settingsConfigurations/slippage/useSlippageSettings'
 import {
   type ModalIdWithSlippage,
   TransactionSettingsModalId,
-} from 'lx/src/features/transactions/components/settings/stores/TransactionSettingsModalStore/createTransactionSettingsModalStore'
-import { TransactionSettingsModalStoreContextProvider } from 'lx/src/features/transactions/components/settings/stores/TransactionSettingsModalStore/TransactionSettingsModalStoreContextProvider'
-import { useSetTransactionSettingsAutoSlippageTolerance } from 'lx/src/features/transactions/components/settings/stores/transactionSettingsStore/useTransactionSettingsStore'
-import { TransactionSettings as BaseTransactionSettings } from 'lx/src/features/transactions/components/settings/TransactionSettings'
-import { TransactionSettingsButtonWithSlippage } from 'lx/src/features/transactions/components/settings/TransactionSettingsButtonWithSlippage'
-import type { TransactionSettingConfig } from 'lx/src/features/transactions/components/settings/types'
-import SlippageWarningModal from 'lx/src/features/transactions/swap/components/SwapFormSettings/SlippageWarningModal'
-import { useSwapFormStoreDerivedSwapInfo } from 'lx/src/features/transactions/swap/stores/swapFormStore/useSwapFormStore'
-import { BridgeTrade } from 'lx/src/features/transactions/swap/types/trade'
-import { TestID } from 'lx/src/test/fixtures/testIDs'
+} from 'uniswap/src/features/transactions/components/settings/stores/TransactionSettingsModalStore/createTransactionSettingsModalStore'
+import { TransactionSettingsModalStoreContextProvider } from 'uniswap/src/features/transactions/components/settings/stores/TransactionSettingsModalStore/TransactionSettingsModalStoreContextProvider'
+import { useSetTransactionSettingsAutoSlippageTolerance } from 'uniswap/src/features/transactions/components/settings/stores/transactionSettingsStore/useTransactionSettingsStore'
+import { TransactionSettings as BaseTransactionSettings } from 'uniswap/src/features/transactions/components/settings/TransactionSettings'
+import { TransactionSettingsButtonWithSlippage } from 'uniswap/src/features/transactions/components/settings/TransactionSettingsButtonWithSlippage'
+import type { TransactionSettingConfig } from 'uniswap/src/features/transactions/components/settings/types'
+import { getShouldSettingApplyToRouting } from 'uniswap/src/features/transactions/components/settings/utils'
+import SlippageWarningModal from 'uniswap/src/features/transactions/swap/components/SwapFormSettings/SlippageWarningModal'
+import { useSwapFormStoreDerivedSwapInfo } from 'uniswap/src/features/transactions/swap/stores/swapFormStore/useSwapFormStore'
+import { TestID } from 'uniswap/src/test/fixtures/testIDs'
 
 interface SwapFormSettingsProps {
   settings: TransactionSettingConfig[]
@@ -25,7 +26,7 @@ interface SwapFormSettingsProps {
   iconColor?: ColorTokens
   iconSize?: IconSizeTokens
   defaultTitle?: string
-  isBridgeTrade?: boolean
+  isZeroSlippage?: boolean
 }
 
 const customModalIds: ModalIdWithSlippage[] = [TransactionSettingsModalId.SlippageWarning]
@@ -33,7 +34,7 @@ const customModalIds: ModalIdWithSlippage[] = [TransactionSettingsModalId.Slippa
 export function SwapFormSettings(props: SwapFormSettingsProps): JSX.Element {
   const setAutoSlippageTolerance = useSetTransactionSettingsAutoSlippageTolerance()
   const slippageTolerance = useSwapFormStoreDerivedSwapInfo((s) => {
-    if (s.trade.trade instanceof BridgeTrade) {
+    if (!getShouldSettingApplyToRouting(Slippage, s.trade.trade?.routing)) {
       return 0
     }
     return s.trade.trade?.slippageTolerance ?? s.trade.indicativeTrade?.slippageTolerance
@@ -58,7 +59,7 @@ export function SwapFormSettingsInner({
   iconColor = '$neutral2',
   iconSize,
   defaultTitle,
-  isBridgeTrade,
+  isZeroSlippage,
 }: SwapFormSettingsProps): JSX.Element {
   const { isSlippageWarningModalVisible, handleHideSlippageWarningModalWithSeen, onCloseSettingsModal } =
     useTransactionSettingsWithSlippage()
@@ -79,7 +80,7 @@ export function SwapFormSettingsInner({
         CustomSettingsButton={
           <TransactionSettingsButtonWithSlippage
             autoSlippageTolerance={autoSlippageTolerance}
-            isZeroSlippage={isBridgeTrade}
+            isZeroSlippage={isZeroSlippage}
             iconColor={iconColor}
             iconSize={iconSize}
           />

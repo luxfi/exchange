@@ -1,6 +1,3 @@
-import { useAccountDrawer } from 'components/AccountDrawer/MiniPortfolio/hooks'
-import { ReceiveModalState } from 'components/ReceiveCryptoModal/types'
-import { useOpenReceiveCryptoModal } from 'components/ReceiveCryptoModal/useOpenReceiveCryptoModal'
 import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router'
@@ -8,14 +5,18 @@ import { Flex, useIsDarkMode, useShadowPropsShort, useSporeColors } from 'ui/src
 import { ArrowDownCircle } from 'ui/src/components/icons/ArrowDownCircle'
 import { Bank } from 'ui/src/components/icons/Bank'
 import { useDeviceDimensions } from 'ui/src/hooks/useDeviceDimensions'
-import type { ActionCardItem } from 'lx/src/components/misc/ActionCard'
-import { ActionCard } from 'lx/src/components/misc/ActionCard'
-import type { FORServiceProvider } from 'lx/src/features/fiatOnRamp/types'
-import { useCexTransferProviders } from 'lx/src/features/fiatOnRamp/useCexTransferProviders'
-import { getServiceProviderLogo } from 'lx/src/features/fiatOnRamp/utils'
-import { ElementName } from 'lx/src/features/telemetry/constants'
+import type { ActionCardItem } from 'uniswap/src/components/misc/ActionCard'
+import { ActionCard } from 'uniswap/src/components/misc/ActionCard'
+import type { FORServiceProvider } from 'uniswap/src/features/fiatOnRamp/types'
+import { useCexTransferProviders } from 'uniswap/src/features/fiatOnRamp/useCexTransferProviders'
+import { getOptionalServiceProviderLogo } from 'uniswap/src/features/fiatOnRamp/utils'
+import { ElementName } from 'uniswap/src/features/telemetry/constants'
+import { TestID } from 'uniswap/src/test/fixtures/testIDs'
 import { isExtensionApp } from 'utilities/src/platform'
 import { useEvent } from 'utilities/src/react/hooks'
+import { useAccountDrawer } from '~/components/AccountDrawer/MiniPortfolio/hooks'
+import { ReceiveModalState } from '~/components/ReceiveCryptoModal/types'
+import { useOpenReceiveCryptoModal } from '~/components/ReceiveCryptoModal/useOpenReceiveCryptoModal'
 
 const ICON_SIZE = 28
 const ICON_SHIFT = 18
@@ -42,7 +43,7 @@ function CEXTransferLogo({ providers }: { providers: FORServiceProvider[] }) {
             key={provider.serviceProvider}
             width={ICON_SIZE}
             height={ICON_SIZE}
-            src={getServiceProviderLogo(provider.logos, isDarkMode)}
+            src={getOptionalServiceProviderLogo(provider.logos, isDarkMode)}
             alt={provider.name}
             style={{
               borderRadius: 8,
@@ -105,6 +106,7 @@ export const EmptyWalletCards = (
         elementName: buyElementName,
         icon: <Bank color="$accent1" size="$icon.28" />,
         onPress: handleBuyCryptoClick,
+        testId: TestID.EmptyStateBuy,
       },
       {
         title: t('home.empty.transfer'),
@@ -112,6 +114,7 @@ export const EmptyWalletCards = (
         elementName: receiveElementName,
         icon: <ArrowDownCircle color="$accent1" size="$icon.28" />,
         onPress: handleReceiveCryptoClick,
+        testId: TestID.WalletReceiveCrypto,
       },
       ...(providers.length > 0
         ? [

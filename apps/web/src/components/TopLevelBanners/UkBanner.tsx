@@ -1,10 +1,10 @@
-import { useModalState } from 'hooks/useModalState'
 import { useTranslation } from 'react-i18next'
-import { useAppSelector } from 'state/hooks'
-import { InterfaceState } from 'state/webReducer'
-import { ClickableTamaguiStyle } from 'theme/components/styles'
 import { Flex, styled, Text } from 'ui/src'
-import { ModalName } from 'lx/src/features/telemetry/constants'
+import { ModalName } from 'uniswap/src/features/telemetry/constants'
+import { useModalState } from '~/hooks/useModalState'
+import { useAppSelector } from '~/state/hooks'
+import { InterfaceState } from '~/state/webReducer'
+import { ClickableTamaguiStyle } from '~/theme/components/styles'
 
 const BannerWrapper = styled(Flex, {
   gap: '$gap8',
@@ -26,7 +26,7 @@ const BannerWrapper = styled(Flex, {
 
 const BannerTextWrapper = styled(Text, {
   variant: 'body2',
-  lineHeight: 24,
+  lineHeight: '24px',
   whiteSpace: 'nowrap',
   overflow: 'hidden',
   color: '$neutral2',
@@ -46,7 +46,7 @@ export function UkBanner() {
     <BannerWrapper>
       <BannerTextWrapper>{t('notice.uk.label') + ' ' + t('notice.uk')}</BannerTextWrapper>
       <Flex alignItems="center" width="100%">
-        <Text variant="body2" lineHeight={24} color="$accent1" onPress={openDisclaimer} {...ClickableTamaguiStyle}>
+        <Text variant="body2" lineHeight="24px" color="$accent1" onPress={openDisclaimer} {...ClickableTamaguiStyle}>
           {t('common.readMore')}
         </Text>
       </Flex>

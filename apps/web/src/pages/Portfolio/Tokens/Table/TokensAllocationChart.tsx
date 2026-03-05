@@ -1,12 +1,12 @@
+import { useMemo } from 'react'
+import { iconSizes } from 'ui/src/theme'
+import { NetworkLogo } from 'uniswap/src/components/CurrencyLogo/NetworkLogo'
+import { CurrencyInfo } from 'uniswap/src/features/dataApi/types'
 import {
   PercentageAllocationChart,
   PercentageAllocationItem,
-} from 'components/PercentageAllocationChart/PercentageAllocationChart'
-import { TokenData } from 'pages/Portfolio/Tokens/hooks/useTransformTokenTableData'
-import { useMemo } from 'react'
-import { iconSizes } from 'ui/src/theme'
-import { NetworkLogo } from 'lx/src/components/CurrencyLogo/NetworkLogo'
-import { CurrencyInfo } from 'lx/src/features/dataApi/types'
+} from '~/components/PercentageAllocationChart/PercentageAllocationChart'
+import { TokenData } from '~/pages/Portfolio/Tokens/hooks/useTransformTokenTableData'
 
 interface TokenBreakdown {
   currencyInfo: CurrencyInfo | null

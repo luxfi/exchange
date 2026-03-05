@@ -4,11 +4,12 @@ import {
   GetNotificationsResponse,
   Metadata,
   Notification,
-} from '@luxdex/client-notification-service/dist/uniswap/notificationservice/v1/api_pb'
-import type { InAppNotification, NotificationsApiClient } from '@luxfi/api'
-import { ContentStyle } from '@luxfi/api'
-import { getNotificationQueryOptions } from '@luxfi/notifications/src/notification-data-source/getNotificationQueryOptions'
-import { createPollingNotificationDataSource } from '@luxfi/notifications/src/notification-data-source/implementations/createPollingNotificationDataSource'
+  PlatformType,
+} from '@uniswap/client-notification-service/dist/uniswap/notificationservice/v1/api_pb'
+import type { InAppNotification, NotificationsApiClient } from '@universe/api'
+import { ContentStyle } from '@universe/api'
+import { getNotificationQueryOptions } from '@universe/notifications/src/notification-data-source/getNotificationQueryOptions'
+import { createPollingNotificationDataSource } from '@universe/notifications/src/notification-data-source/implementations/createPollingNotificationDataSource'
 import { ReactQueryCacheKey } from 'utilities/src/reactQuery/cache'
 import { afterEach, beforeEach, describe, expect, it, type Mock, vi } from 'vitest'
 
@@ -50,6 +51,7 @@ describe('createPollingNotificationDataSource', () => {
       queryClient: testQueryClient,
       queryOptions: getNotificationQueryOptions({
         apiClient: mockApiClient,
+        getPlatformType: () => PlatformType.WEB,
       }),
     })
 
@@ -67,6 +69,7 @@ describe('createPollingNotificationDataSource', () => {
       queryClient: testQueryClient,
       queryOptions: getNotificationQueryOptions({
         apiClient: mockApiClient,
+        getPlatformType: () => PlatformType.WEB,
       }),
     })
 
@@ -90,6 +93,7 @@ describe('createPollingNotificationDataSource', () => {
       queryClient: testQueryClient,
       queryOptions: getNotificationQueryOptions({
         apiClient: mockApiClient,
+        getPlatformType: () => PlatformType.WEB,
       }),
     })
 
@@ -103,6 +107,36 @@ describe('createPollingNotificationDataSource', () => {
     await dataSource.stop()
   })
 
+  it.each([
+    ['WEB', PlatformType.WEB],
+    ['MOBILE', PlatformType.MOBILE],
+    ['EXTENSION', PlatformType.EXTENSION],
+  ] as const)(
+    'calls apiClient.getNotifications with platform_type %s when getPlatformType returns that platform',
+    async (_label, platformType) => {
+      const testQueryClient = new QueryClient({
+        defaultOptions: { queries: { retry: false } },
+      })
+
+      const dataSource = createPollingNotificationDataSource({
+        queryClient: testQueryClient,
+        queryOptions: getNotificationQueryOptions({
+          apiClient: mockApiClient,
+          getPlatformType: () => platformType,
+        }),
+      })
+
+      const onNotifications = vi.fn()
+      dataSource.start(onNotifications)
+
+      await vi.waitFor(() => {
+        expect(mockApiClient.getNotifications).toHaveBeenCalledWith({ platform_type: platformType })
+      })
+
+      await dataSource.stop()
+    },
+  )
+
   it('does not start twice if already active', async () => {
     const testQueryClient = new QueryClient({
       defaultOptions: { queries: { retry: false } },
@@ -112,6 +146,7 @@ describe('createPollingNotificationDataSource', () => {
       queryClient: testQueryClient,
       queryOptions: getNotificationQueryOptions({
         apiClient: mockApiClient,
+        getPlatformType: () => PlatformType.WEB,
       }),
     })
 
@@ -141,6 +176,7 @@ describe('createPollingNotificationDataSource', () => {
       queryClient: testQueryClient,
       queryOptions: getNotificationQueryOptions({
         apiClient: mockApiClient,
+        getPlatformType: () => PlatformType.WEB,
       }),
     })
 
@@ -167,6 +203,7 @@ describe('createPollingNotificationDataSource', () => {
       queryClient: testQueryClient,
       queryOptions: getNotificationQueryOptions({
         apiClient: mockApiClient,
+        getPlatformType: () => PlatformType.WEB,
         pollIntervalMs: 100, // Short interval for testing
       }),
     })
@@ -198,6 +235,7 @@ describe('createPollingNotificationDataSource', () => {
       queryClient: testQueryClient,
       queryOptions: getNotificationQueryOptions({
         apiClient: mockApiClient,
+        getPlatformType: () => PlatformType.WEB,
       }),
     })
 
@@ -242,6 +280,7 @@ describe('createPollingNotificationDataSource', () => {
       queryClient: testQueryClient,
       queryOptions: getNotificationQueryOptions({
         apiClient: mockApiClient,
+        getPlatformType: () => PlatformType.WEB,
         pollIntervalMs: customPollInterval,
       }),
     })
@@ -275,6 +314,7 @@ describe('createPollingNotificationDataSource', () => {
       queryClient: testQueryClient,
       queryOptions: getNotificationQueryOptions({
         apiClient: mockApiClient,
+        getPlatformType: () => PlatformType.WEB,
       }),
     })
 
@@ -297,6 +337,7 @@ describe('createPollingNotificationDataSource', () => {
       queryClient: testQueryClient,
       queryOptions: getNotificationQueryOptions({
         apiClient: mockApiClient,
+        getPlatformType: () => PlatformType.WEB,
       }),
     })
 
@@ -333,6 +374,7 @@ describe('createPollingNotificationDataSource', () => {
       queryClient: retryQueryClient,
       queryOptions: getNotificationQueryOptions({
         apiClient: mockApiClient,
+        getPlatformType: () => PlatformType.WEB,
       }),
     })
 

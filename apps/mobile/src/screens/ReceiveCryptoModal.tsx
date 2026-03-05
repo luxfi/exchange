@@ -1,4 +1,4 @@
-import { SharedEventName } from '@luxdex/analytics-events'
+import { SharedEventName } from '@uniswap/analytics-events'
 import { useTranslation } from 'react-i18next'
 import { useDispatch } from 'react-redux'
 import { AppStackScreenProp } from 'src/app/navigation/types'
@@ -7,14 +7,15 @@ import { ServiceProviderSelector } from 'src/features/fiatOnRamp/ExchangeTransfe
 import { openModal } from 'src/features/modals/modalSlice'
 import { Flex, Separator, Text, TouchableArea, useSporeColors } from 'ui/src'
 import { CopySheets, QrCode } from 'ui/src/components/icons'
-import { AddressDisplay } from 'lx/src/components/accounts/AddressDisplay'
-import { Modal } from 'lx/src/components/modals/Modal'
-import { ScannerModalState } from 'lx/src/components/ReceiveQRCode/constants'
-import { pushNotification } from 'lx/src/features/notifications/slice/slice'
-import { AppNotificationType, CopyNotificationType } from 'lx/src/features/notifications/slice/types'
-import { ElementName, ModalName } from 'lx/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
-import { setClipboard } from 'lx/src/utils/clipboard'
+import { AddressDisplay } from 'uniswap/src/components/accounts/AddressDisplay'
+import { Modal } from 'uniswap/src/components/modals/Modal'
+import { ScannerModalState } from 'uniswap/src/components/ReceiveQRCode/constants'
+import { pushNotification } from 'uniswap/src/features/notifications/slice/slice'
+import { AppNotificationType, CopyNotificationType } from 'uniswap/src/features/notifications/slice/types'
+import { ElementName, ModalName } from 'uniswap/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
+import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+import { setClipboard } from 'utilities/src/clipboard/clipboard'
 import { useActiveAccountAddressWithThrow } from 'wallet/src/features/wallet/hooks'
 
 const ACCOUNT_IMAGE_SIZE = 52
@@ -45,7 +46,7 @@ function AccountCardItem({ onClose }: { onClose: () => void }): JSX.Element {
   }
 
   return (
-    <TouchableArea onPress={onPressShowWalletQr}>
+    <TouchableArea testID={TestID.WalletReceiveCrypto} onPress={onPressShowWalletQr}>
       <Flex row alignItems="flex-start" gap="$spacing12" px="$spacing8">
         <Flex
           fill

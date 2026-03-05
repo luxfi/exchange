@@ -1,9 +1,9 @@
-import { useConnectWallet } from 'features/wallet/connection/hooks/useConnectWallet'
 import { useTranslation } from 'react-i18next'
 import { WarningSeverity } from 'lx/src/components/modals/WarningModal/types'
 import { WarningModal } from 'lx/src/components/modals/WarningModal/WarningModal'
 import { ModalName } from 'lx/src/features/telemetry/constants'
 import { useEvent } from 'utilities/src/react/hooks'
+import { useConnectWallet } from '~/features/wallet/connection/hooks/useConnectWallet'
 
 export default function ConnectionErrorView() {
   const { t } = useTranslation()

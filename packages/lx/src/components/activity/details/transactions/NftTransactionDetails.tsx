@@ -1,9 +1,8 @@
 import { Flex, Text, TouchableArea } from 'ui/src'
 import { RotatableChevron } from 'ui/src/components/icons/RotatableChevron'
-import { iconSizes } from 'ui/src/theme'
-import { NFTViewer } from 'lx/src/components/nfts/images/NFTViewer'
-import { useUniswapContext } from 'lx/src/contexts/UniswapContext'
-import { UniverseChainId } from 'lx/src/features/chains/types'
+import { NFTViewer } from 'uniswap/src/components/nfts/NFTViewer'
+import { useUniswapContext } from 'uniswap/src/contexts/UniswapContext'
+import { UniverseChainId } from 'uniswap/src/features/chains/types'
 import {
   NFTApproveTransactionInfo,
   NFTMintTransactionInfo,
@@ -12,7 +11,7 @@ import {
   ReceiveTokenTransactionInfo,
   SendTokenTransactionInfo,
   TransactionDetails,
-} from 'lx/src/features/transactions/types/transactionDetails'
+} from 'uniswap/src/features/transactions/types/transactionDetails'
 import { isWebPlatform } from 'utilities/src/platform'
 
 const MAX_NFT_IMAGE_HEIGHT = 375
@@ -95,14 +94,7 @@ export function NftTransactionContent({
             <Text color="$neutral2" numberOfLines={1} variant="body3">
               {nftSummaryInfo.collectionName}
             </Text>
-            {!disableOnPressNftCollection && (
-              <RotatableChevron
-                color="$neutral2"
-                direction="right"
-                height={iconSizes.icon16}
-                width={iconSizes.icon16}
-              />
-            )}
+            {!disableOnPressNftCollection && <RotatableChevron color="$neutral2" direction="right" size="$icon.16" />}
           </Flex>
         </TouchableArea>
       </Flex>

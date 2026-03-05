@@ -3,18 +3,17 @@ import { createContext, PropsWithChildren, useCallback, useContext, useMemo, use
 import { useDispatch } from 'react-redux'
 import { AppStackParamList } from 'src/app/navigation/types'
 import { useTokenDetailsColors } from 'src/components/TokenDetails/useTokenDetailsColors'
-import { setHasViewedContractAddressExplainer } from 'lx/src/features/behaviorHistory/slice'
-import { useEnabledChains } from 'lx/src/features/chains/hooks/useEnabledChains'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { CurrencyInfo } from 'lx/src/features/dataApi/types'
-import { pushNotification } from 'lx/src/features/notifications/slice/slice'
-import { AppNotificationType, CopyNotificationType } from 'lx/src/features/notifications/slice/types'
-import { useCurrencyInfo } from 'lx/src/features/tokens/useCurrencyInfo'
-import { CurrencyField } from 'lx/src/types/currency'
-import { MobileScreens } from 'lx/src/types/screens/mobile'
-import { setClipboard } from 'lx/src/utils/clipboard'
-import { currencyIdToAddress, currencyIdToChain } from 'lx/src/utils/currencyId'
-import { useBooleanState } from 'utilities/src/react/useBooleanState'
+import { setHasViewedContractAddressExplainer } from 'uniswap/src/features/behaviorHistory/slice'
+import { useEnabledChains } from 'uniswap/src/features/chains/hooks/useEnabledChains'
+import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { CurrencyInfo } from 'uniswap/src/features/dataApi/types'
+import { pushNotification } from 'uniswap/src/features/notifications/slice/slice'
+import { AppNotificationType, CopyNotificationType } from 'uniswap/src/features/notifications/slice/types'
+import { useCurrencyInfo } from 'uniswap/src/features/tokens/useCurrencyInfo'
+import { CurrencyField } from 'uniswap/src/types/currency'
+import { MobileScreens } from 'uniswap/src/types/screens/mobile'
+import { currencyIdToAddress, currencyIdToChain } from 'uniswap/src/utils/currencyId'
+import { setClipboard } from 'utilities/src/clipboard/clipboard'
 
 type TokenDetailsContextState = {
   currencyId: string
@@ -33,9 +32,6 @@ type TokenDetailsContextState = {
   isContractAddressExplainerModalOpen: boolean
   openContractAddressExplainerModal: () => void
   closeContractAddressExplainerModal: (markViewed: boolean) => void
-  isAztecWarningModalOpen: boolean
-  openAztecWarningModal: () => void
-  closeAztecWarningModal: () => void
   copyAddressToClipboard: (address: string) => Promise<void>
   error: unknown | undefined
   setError: (error: unknown | undefined) => void
@@ -67,12 +63,6 @@ export function TokenDetailsContextProvider({
     },
     [dispatch],
   )
-
-  const {
-    value: isAztecWarningModalOpen,
-    setTrue: openAztecWarningModal,
-    setFalse: closeAztecWarningModal,
-  } = useBooleanState(false)
 
   const copyAddressToClipboard = useCallback(
     async (address: string): Promise<void> => {
@@ -123,9 +113,6 @@ export function TokenDetailsContextProvider({
       isContractAddressExplainerModalOpen,
       openContractAddressExplainerModal,
       closeContractAddressExplainerModal,
-      isAztecWarningModalOpen,
-      openAztecWarningModal,
-      closeAztecWarningModal,
       copyAddressToClipboard,
       error,
       setError,
@@ -134,16 +121,13 @@ export function TokenDetailsContextProvider({
     activeTransactionType,
     closeTokenWarningModal,
     closeContractAddressExplainerModal,
-    closeAztecWarningModal,
     currencyId,
     currencyInfo,
     enabledChains,
     error,
-    isAztecWarningModalOpen,
     isContractAddressExplainerModalOpen,
     isTokenWarningModalOpen,
     navigation,
-    openAztecWarningModal,
     openContractAddressExplainerModal,
     openTokenWarningModal,
     tokenColor,

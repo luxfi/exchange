@@ -1,12 +1,12 @@
-import { config } from 'lx/src/config'
+import { config } from 'uniswap/src/config'
 import {
   getQuicknodeChainId,
   getQuicknodeChainIdPathSuffix,
   getQuicknodeEndpointUrl,
-} from 'lx/src/features/chains/evm/rpc'
-import { UniverseChainId } from 'lx/src/features/chains/types'
+} from 'uniswap/src/features/chains/evm/rpc'
+import { UniverseChainId } from 'uniswap/src/features/chains/types'
 
-jest.mock('uniswap/src/config', () => ({
+vi.mock('uniswap/src/config', () => ({
   config: {
     quicknodeEndpointName: 'test-endpoint',
     quicknodeEndpointToken: 'test-token-123',
@@ -28,6 +28,7 @@ describe('getQuicknodeChainIdPathSuffix', () => {
     [UniverseChainId.Sepolia, '', 'Sepolia testnet'],
     [UniverseChainId.UnichainSepolia, '', 'Unichain Sepolia testnet'],
     [UniverseChainId.WorldChain, '', 'World chain'],
+    [UniverseChainId.XLayer, '', 'XLayer chain'],
     [UniverseChainId.Zksync, '', 'ZkSync chain'],
     [UniverseChainId.Zora, '', 'Zora chain'],
   ]
@@ -41,15 +42,15 @@ describe('getQuicknodeChainIdPathSuffix', () => {
 describe('getQuicknodeEndpointUrl', () => {
   it('constructs URL with different config values', () => {
     // Override config mock for this test
-    ;(config as { quicknodeEndpointName: string }).quicknodeEndpointName = 'different-endpoint'
-    ;(config as { quicknodeEndpointToken: string }).quicknodeEndpointToken = 'different-token'
+    vi.mocked(config).quicknodeEndpointName = 'different-endpoint'
+    vi.mocked(config).quicknodeEndpointToken = 'different-token'
 
     const url = getQuicknodeEndpointUrl(UniverseChainId.Base)
     expect(url).toBe('https://different-endpoint.base-mainnet.quiknode.pro/different-token')
 
     // Reset mock to original values
-    ;(config as { quicknodeEndpointName: string }).quicknodeEndpointName = 'test-endpoint'
-    ;(config as { quicknodeEndpointToken: string }).quicknodeEndpointToken = 'test-token-123'
+    vi.mocked(config).quicknodeEndpointName = 'test-endpoint'
+    vi.mocked(config).quicknodeEndpointToken = 'test-token-123'
   })
 
   it('throws error for unsupported chain', () => {
@@ -68,6 +69,7 @@ describe('getQuicknodeEndpointUrl', () => {
       UniverseChainId.Bnb,
       UniverseChainId.Celo,
       UniverseChainId.Monad,
+      UniverseChainId.XLayer,
       UniverseChainId.Optimism,
       UniverseChainId.Polygon,
       UniverseChainId.Sepolia,
@@ -105,6 +107,7 @@ describe('getQuicknodeChainId', () => {
     expect(getQuicknodeChainId(UniverseChainId.WorldChain)).toBe('worldchain-mainnet')
     expect(getQuicknodeChainId(UniverseChainId.Zksync)).toBe('zksync-mainnet')
     expect(getQuicknodeChainId(UniverseChainId.Zora)).toBe('zora-mainnet')
+    expect(getQuicknodeChainId(UniverseChainId.XLayer)).toBe('xlayer-mainnet')
   })
 
   it('throws error for unsupported chain', () => {

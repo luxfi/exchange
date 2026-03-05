@@ -1,20 +1,20 @@
-import { ApolloCache, ApolloLink, NormalizedCacheObject } from '@apollo/client'
-import { asyncMap, Reference } from '@apollo/client/utilities'
-import { ToolkitStore } from '@reduxjs/toolkit/dist/configureStore'
-import { GQLQueries, GraphQLApi } from '@luxfi/api'
+import { type ApolloCache, ApolloLink, type NormalizedCacheObject } from '@apollo/client'
+import { asyncMap, type Reference } from '@apollo/client/utilities'
+import { type ToolkitStore } from '@reduxjs/toolkit/dist/configureStore'
+import { GQLQueries, GraphQLApi } from '@universe/api'
 import { Buffer } from 'buffer'
-import { getNativeAddress } from 'lx/src/constants/addresses'
-import { normalizeCurrencyIdForMapLookup } from 'lx/src/data/cache'
-import { fromGraphQLChain } from 'lx/src/features/chains/utils'
-import { currencyIdToContractInput } from 'lx/src/features/dataApi/utils/currencyIdToContractInput'
-import { fetchOnChainBalances } from 'lx/src/features/portfolio/portfolioUpdates/fetchOnChainBalances'
-import { makeSelectTokenBalanceOverridesForWalletAddress } from 'lx/src/features/portfolio/slice/selectors'
+import { getNativeAddress } from 'uniswap/src/constants/addresses'
+import { normalizeCurrencyIdForMapLookup } from 'uniswap/src/data/cache'
+import { fromGraphQLChain } from 'uniswap/src/features/chains/utils'
+import { currencyIdToContractInput } from 'uniswap/src/features/dataApi/utils/currencyIdToContractInput'
+import { fetchOnChainBalances } from 'uniswap/src/features/portfolio/portfolioUpdates/fetchOnChainBalances'
+import { makeSelectTokenBalanceOverridesForWalletAddress } from 'uniswap/src/features/portfolio/slice/selectors'
 import {
   removeExpiredBalanceOverrides,
   removeTokenFromBalanceOverride,
-} from 'lx/src/features/portfolio/slice/slice'
-import { CurrencyId } from 'lx/src/types/currency'
-import { buildCurrencyId } from 'lx/src/utils/currencyId'
+} from 'uniswap/src/features/portfolio/slice/slice'
+import { type CurrencyId } from 'uniswap/src/types/currency'
+import { buildCurrencyId } from 'uniswap/src/utils/currencyId'
 import { logger } from 'utilities/src/logger/logger'
 
 const APPROXIMATE_EQUALITY_THRESHOLD_PERCENT = 0.02 // 2%
@@ -27,7 +27,7 @@ export function getInstantTokenBalanceUpdateApolloLink({ reduxStore }: { reduxSt
 
     return asyncMap(forward(operation), async (response) => {
       try {
-        const walletAddress = operation.variables.ownerAddress as string
+        const walletAddress = operation.variables['ownerAddress'] as string
 
         reduxStore.dispatch(removeExpiredBalanceOverrides())
         const selectTokenBalanceOverridesForWalletAddress = makeSelectTokenBalanceOverridesForWalletAddress()
@@ -44,7 +44,7 @@ export function getInstantTokenBalanceUpdateApolloLink({ reduxStore }: { reduxSt
           tokenBalanceOverrides,
         )
 
-        if (!response.data?.portfolios) {
+        if (!response.data?.['portfolios']) {
           logger.warn(
             'getInstantTokenBalanceUpdateApolloLink.ts',
             'getInstantTokenBalanceUpdateApolloLink',
@@ -164,7 +164,7 @@ export function getInstantTokenBalanceUpdateApolloLink({ reduxStore }: { reduxSt
           }
         })
 
-        if (tokenBalanceOverrides.length === tokenBalanceAlreadyExists.length) {
+        if (Object.keys(tokenBalanceOverrides).length === Object.keys(tokenBalanceAlreadyExists).length) {
           return response
         }
 

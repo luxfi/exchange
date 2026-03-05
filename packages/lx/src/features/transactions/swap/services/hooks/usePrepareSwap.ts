@@ -1,17 +1,21 @@
-import { useUniswapContext } from 'lx/src/contexts/UniswapContext'
-import { AccountType } from 'lx/src/features/accounts/types'
-import { isSVMChain } from 'lx/src/features/platforms/utils/chains'
-import { useTransactionModalContext } from 'lx/src/features/transactions/components/TransactionModal/TransactionModalContext'
-import { useSwapFormWarningStoreActions } from 'lx/src/features/transactions/swap/form/stores/swapFormWarningStore/useSwapFormWarningStore'
-import { useNeedsBridgedAssetWarning } from 'lx/src/features/transactions/swap/hooks/useNeedsBridgedAssetWarning'
-import { useNeedsBridgingWarning } from 'lx/src/features/transactions/swap/hooks/useSwapWarnings/useNeedsBridgingWarning'
-import { useNeedsLowNativeBalanceWarning } from 'lx/src/features/transactions/swap/hooks/useSwapWarnings/useNeedsLowNativeBalanceWarning'
-import { usePrefilledNeedsTokenProtectionWarning } from 'lx/src/features/transactions/swap/hooks/useSwapWarnings/usePrefilledNeedsTokenProtectionWarning'
-import { createPrepareSwap } from 'lx/src/features/transactions/swap/services/prepareSwapService'
-import type { WarningService } from 'lx/src/features/transactions/swap/services/warningService'
-import { useSwapFormStore } from 'lx/src/features/transactions/swap/stores/swapFormStore/useSwapFormStore'
-import { useWallet } from 'lx/src/features/wallet/hooks/useWallet'
-import { AccountDetails } from 'lx/src/features/wallet/types/AccountDetails'
+import { useMemo } from 'react'
+import { useUniswapContext } from 'uniswap/src/contexts/UniswapContext'
+import { useAccountsStore } from 'uniswap/src/features/accounts/store/hooks'
+import { AccountType } from 'uniswap/src/features/accounts/types'
+import { Platform } from 'uniswap/src/features/platforms/types/Platform'
+import { isSVMChain } from 'uniswap/src/features/platforms/utils/chains'
+import { useTransactionModalContext } from 'uniswap/src/features/transactions/components/TransactionModal/TransactionModalContext'
+import { useSwapFormWarningStoreActions } from 'uniswap/src/features/transactions/swap/form/stores/swapFormWarningStore/useSwapFormWarningStore'
+import { useNeedsBridgedAssetWarning } from 'uniswap/src/features/transactions/swap/hooks/useNeedsBridgedAssetWarning'
+import { useNeedsBridgingWarning } from 'uniswap/src/features/transactions/swap/hooks/useSwapWarnings/useNeedsBridgingWarning'
+import { useNeedsLowNativeBalanceWarning } from 'uniswap/src/features/transactions/swap/hooks/useSwapWarnings/useNeedsLowNativeBalanceWarning'
+import { usePrefilledNeedsTokenProtectionWarning } from 'uniswap/src/features/transactions/swap/hooks/useSwapWarnings/usePrefilledNeedsTokenProtectionWarning'
+import { getWalletExecutionContext } from 'uniswap/src/features/transactions/swap/plan/planSagaUtils'
+import { createPrepareSwap } from 'uniswap/src/features/transactions/swap/services/prepareSwapService'
+import type { WarningService } from 'uniswap/src/features/transactions/swap/services/warningService'
+import { useSwapFormStore } from 'uniswap/src/features/transactions/swap/stores/swapFormStore/useSwapFormStore'
+import { useWallet } from 'uniswap/src/features/wallet/hooks/useWallet'
+import { AccountDetails } from 'uniswap/src/features/wallet/types/AccountDetails'
 import { logger } from 'utilities/src/logger/logger'
 import { useEvent } from 'utilities/src/react/hooks'
 
@@ -52,6 +56,11 @@ export function usePrepareSwap(ctx: { warningService: WarningService }): () => v
 
   const isViewOnlyWallet = getIsViewOnlyWallet(activeAccount)
 
+  const caip25Info = useAccountsStore((state) => {
+    return state.getActiveConnector(Platform.EVM)?.session?.caip25Info
+  })
+  const walletExecutionContext = useMemo(() => getWalletExecutionContext(caip25Info), [caip25Info])
+
   return useEvent(
     createPrepareSwap({
       // getAction
@@ -65,6 +74,8 @@ export function usePrepareSwap(ctx: { warningService: WarningService }): () => v
       needsBridgingWarning,
       needsLowNativeBalanceWarning,
       needsBridgedAssetWarning,
+      trade: derivedSwapInfo.trade.trade ?? undefined,
+      walletExecutionContext,
       // handleEventAction
       handleShowViewOnlyModal,
       handleShowTokenWarningModal,

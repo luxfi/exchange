@@ -1,8 +1,8 @@
-import { PositionStatus, ProtocolVersion } from '@luxdex/client-data-api/dist/data/v1/poolTypes_pb'
-import { InitialPosition } from 'components/Liquidity/Create/types'
-import { PositionInfo } from 'components/Liquidity/types'
+import { PositionStatus, ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
 import { useMemo } from 'react'
-import { unwrappedToken } from 'utils/unwrappedToken'
+import { InitialPosition } from '~/components/Liquidity/Create/types'
+import { PositionInfo } from '~/components/Liquidity/types'
+import { unwrappedToken } from '~/utils/unwrappedToken'
 
 export default function useInitialPosition(positionInfo?: PositionInfo): InitialPosition | undefined {
   return useMemo(() => {

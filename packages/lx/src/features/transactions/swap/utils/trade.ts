@@ -1,11 +1,12 @@
 import providers from '@ethersproject/providers'
-import { ONE, Protocol } from '@luxdex/router-sdk'
-import { Currency, CurrencyAmount, Fraction, Percent, TradeType } from '@luxamm/sdk-core'
-import { GasEstimate, TradingApi } from '@luxfi/api'
-import { LocalizationContextState } from 'lx/src/features/language/LocalizationContext'
-import { IndicativeTrade, Trade } from 'lx/src/features/transactions/swap/types/trade'
-import { ACROSS_DAPP_INFO, isBridge, isClassic, isUniswapX } from 'lx/src/features/transactions/swap/utils/routing'
-import { getClassicQuoteFromResponse } from 'lx/src/features/transactions/swap/utils/tradingApi'
+import { NFTPermitData, PermitBatchData } from '@uniswap/client-liquidity/dist/uniswap/liquidity/v1/types_pb'
+import { ONE, Protocol } from '@uniswap/router-sdk'
+import { Currency, CurrencyAmount, Fraction, Percent, TradeType } from '@uniswap/sdk-core'
+import { GasEstimate, TradingApi } from '@universe/api'
+import { LocalizationContextState } from 'uniswap/src/features/language/LocalizationContext'
+import { IndicativeTrade, Trade } from 'uniswap/src/features/transactions/swap/types/trade'
+import { ACROSS_DAPP_INFO, isBridge, isClassic } from 'uniswap/src/features/transactions/swap/utils/routing'
+import { getClassicQuoteFromResponse } from 'uniswap/src/features/transactions/swap/utils/tradingApi'
 import {
   BaseSwapTransactionInfo,
   BridgeTransactionInfo,
@@ -13,13 +14,13 @@ import {
   ExactOutputSwapTransactionInfo,
   TransactionType,
   TransactionTypeInfo,
-} from 'lx/src/features/transactions/types/transactionDetails'
+} from 'uniswap/src/features/transactions/types/transactionDetails'
 import {
   PopulatedTransactionRequestArray,
   ValidatedTransactionRequest,
-} from 'lx/src/features/transactions/types/transactionRequests'
-import { getSymbolDisplayText } from 'lx/src/utils/currency'
-import { currencyId } from 'lx/src/utils/currencyId'
+} from 'uniswap/src/features/transactions/types/transactionRequests'
+import { getSymbolDisplayText } from 'uniswap/src/utils/currency'
+import { currencyId } from 'uniswap/src/utils/currencyId'
 import { NumberType } from 'utilities/src/format/types'
 
 export function tradeToTransactionInfo({
@@ -38,8 +39,7 @@ export function tradeToTransactionInfo({
   const { quote, slippageTolerance } = trade
   const { quoteId, gasUseEstimate, routeString } = getClassicQuoteFromResponse(quote) ?? {}
 
-  // UniswapX trades wrap native input before swapping
-  const inputCurrency = isUniswapX(trade) ? trade.inputAmount.currency.wrapped : trade.inputAmount.currency
+  const inputCurrency = trade.inputAmount.currency
   const outputCurrency = trade.outputAmount.currency
 
   if (isBridge(trade)) {
@@ -216,12 +216,6 @@ export function validateTransactionRequest(
   return undefined
 }
 
-export function validateTransactionRequestTypeGuard(
-  request?: providers.TransactionRequest | null,
-): request is ValidatedTransactionRequest {
-  return !!request?.to && !!request.chainId
-}
-
 export function validateTransactionRequests(
   requests?: providers.TransactionRequest[] | null,
 ): PopulatedTransactionRequestArray | undefined {
@@ -249,7 +243,9 @@ type RemoveUndefined<T> = {
 
 export type ValidatedPermit = RemoveUndefined<TradingApi.Permit>
 
-export function validatePermit(permit: TradingApi.NullablePermit | undefined): ValidatedPermit | undefined {
+export function validatePermit(
+  permit: TradingApi.NullablePermit | PermitBatchData | NFTPermitData | undefined,
+): ValidatedPermit | undefined {
   const { domain, types, values } = permit ?? {}
   if (domain && types && values) {
     return { domain, types, values }

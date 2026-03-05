@@ -1,5 +1,17 @@
 // eslint-disable-next-line @typescript-eslint/triple-slash-reference
 /// <reference path="../../../index.d.ts" />
+
+/** biome-ignore-all lint/style/noNamespace: required to define process.env type */
+
+declare global {
+  namespace NodeJS {
+    // All process.env values used by this package should be listed here
+    interface ProcessEnv {
+      NODE_ENV?: 'development' | 'production' | 'test'
+    }
+  }
+}
+
 import { config } from 'ui/src/tamagui.config'
 import { shorthands } from 'ui/src/theme/shorthands'
 
@@ -40,3 +52,5 @@ declare module '@tamagui/web' {
     groupNames(): 'item' | 'card'
   }
 }
+
+export {}

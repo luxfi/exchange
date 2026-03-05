@@ -1,15 +1,14 @@
 import { BigNumber } from '@ethersproject/bignumber'
-import { TradeType } from '@luxamm/sdk-core'
-import { TradingApi } from '@luxfi/api'
+import { TradeType } from '@uniswap/sdk-core'
+import { GasFeeResult, TradingApi } from '@universe/api'
 import { providers } from 'ethers/lib/ethers'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { GasFeeResult } from 'lx/src/features/gas/types'
+import { UniverseChainId } from 'uniswap/src/features/chains/types'
 import {
   CancellationType,
   calculateCancellationGasFee,
   createClassicCancelRequest,
   getCancellationType,
-} from 'lx/src/features/gas/utils/cancel'
+} from 'uniswap/src/features/gas/utils/cancel'
 import {
   ExactInputSwapTransactionInfo,
   TransactionDetails,
@@ -17,7 +16,7 @@ import {
   TransactionStatus,
   TransactionType,
   UniswapXOrderDetails,
-} from 'lx/src/features/transactions/types/transactionDetails'
+} from 'uniswap/src/features/transactions/types/transactionDetails'
 
 describe('CancellationGasCalculationService', () => {
   const mockClassicTransaction: TransactionDetails = {

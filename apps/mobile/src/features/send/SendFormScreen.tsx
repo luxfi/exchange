@@ -10,27 +10,27 @@ import { SendHeader } from 'src/features/send/SendHeader'
 import { SendTokenForm } from 'src/features/send/SendTokenForm'
 import { Flex, useSporeColors } from 'ui/src'
 import { Eye } from 'ui/src/components/icons'
-import { Modal } from 'lx/src/components/modals/Modal'
-import { WarningSeverity } from 'lx/src/components/modals/WarningModal/types'
-import { WarningModal } from 'lx/src/components/modals/WarningModal/WarningModal'
-import { TokenSelectorModal, TokenSelectorVariation } from 'lx/src/components/TokenSelector/TokenSelector'
-import { TokenSelectorFlow } from 'lx/src/components/TokenSelector/types'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { ModalName } from 'lx/src/features/telemetry/constants'
+import { Modal } from 'uniswap/src/components/modals/Modal'
+import { WarningSeverity } from 'uniswap/src/components/modals/WarningModal/types'
+import { WarningModal } from 'uniswap/src/components/modals/WarningModal/WarningModal'
+import { TokenSelectorModal, TokenSelectorVariation } from 'uniswap/src/components/TokenSelector/TokenSelector'
+import { TokenSelectorFlow } from 'uniswap/src/components/TokenSelector/types'
+import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { ModalName } from 'uniswap/src/features/telemetry/constants'
 import {
   TransactionModalFooterContainer,
   TransactionModalInnerContainer,
-} from 'lx/src/features/transactions/components/TransactionModal/TransactionModal'
+} from 'uniswap/src/features/transactions/components/TransactionModal/TransactionModal'
 import {
   TransactionScreen,
   useTransactionModalContext,
-} from 'lx/src/features/transactions/components/TransactionModal/TransactionModalContext'
-import { CompatibleAddressModal } from 'lx/src/features/transactions/modals/CompatibleAddressModal'
-import { LowNativeBalanceModal } from 'lx/src/features/transactions/modals/LowNativeBalanceModal'
-import { CurrencyField } from 'lx/src/types/currency'
-import { createTransactionId } from 'lx/src/utils/createTransactionId'
+} from 'uniswap/src/features/transactions/components/TransactionModal/TransactionModalContext'
+import { CompatibleAddressModal } from 'uniswap/src/features/transactions/modals/CompatibleAddressModal'
+import { LowNativeBalanceModal } from 'uniswap/src/features/transactions/modals/LowNativeBalanceModal'
+import { CurrencyField } from 'uniswap/src/types/currency'
+import { createTransactionId } from 'uniswap/src/utils/createTransactionId'
+import { useActiveAddresses } from 'wallet/src/features/accounts/store/hooks'
 import { useSendContext } from 'wallet/src/features/transactions/contexts/SendContext'
-import { useActiveAccountAddressWithThrow } from 'wallet/src/features/wallet/hooks'
 
 function useGoToReviewScreen(): () => void {
   const { updateSendForm } = useSendContext()
@@ -162,7 +162,7 @@ function SendFormContent({
 
   const goToReviewScreen = useGoToReviewScreen()
 
-  const activeAccountAddress = useActiveAccountAddressWithThrow()
+  const addresses = useActiveAddresses()
 
   const { selectingCurrencyField, onSelectCurrency, updateSendForm } = useSendContext()
 
@@ -217,8 +217,8 @@ function SendFormContent({
           onAcknowledge={onAcknowledgeCompatibleAddressWarning}
         />
       )}
-
-      <TouchableWithoutFeedback>
+      {/* Do not remove `accessible`, this allows maestro to view components within this */}
+      <TouchableWithoutFeedback accessible={false}>
         <Flex fill>
           <Animated.View style={{ position: 'absolute', height: '100%', width: '100%' }}>
             <SendTokenForm />
@@ -228,7 +228,7 @@ function SendFormContent({
       {!!selectingCurrencyField && (
         <TokenSelectorModal
           isModalOpen
-          evmAddress={activeAccountAddress}
+          addresses={addresses}
           currencyField={CurrencyField.INPUT}
           flow={TokenSelectorFlow.Send}
           variation={TokenSelectorVariation.BalancesOnly}

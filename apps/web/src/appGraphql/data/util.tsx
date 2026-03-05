@@ -1,34 +1,19 @@
 import { DeepPartial } from '@apollo/client/utilities'
 import { DataTag, DefaultError, QueryKey, queryOptions, UndefinedInitialDataOptions } from '@tanstack/react-query'
-import { Currency } from '@luxamm/sdk-core'
-import { GraphQLApi } from '@luxfi/api'
-import { NATIVE_CHAIN_ID } from 'constants/tokens'
-import ms from 'ms'
-import { ExploreTab } from 'pages/Explore/constants'
-import { TokenStat } from 'state/explore/types'
+import { Currency } from '@uniswap/sdk-core'
+import { GraphQLApi } from '@universe/api'
 import { ColorTokens } from 'ui/src'
-import { nativeOnChain, WRAPPED_NATIVE_CURRENCY } from 'lx/src/constants/tokens'
-import { GqlChainId, UniverseChainId } from 'lx/src/features/chains/types'
-import {
-  fromGraphQLChain,
-  isBackendSupportedChain,
-  isUniverseChainId,
-  toGraphQLChain,
-  toSupportedChainId,
-} from 'lx/src/features/chains/utils'
-import { buildCurrency } from 'lx/src/features/dataApi/utils/buildCurrency'
-import { FORSupportedToken } from 'lx/src/features/fiatOnRamp/types'
-import { AVERAGE_L1_BLOCK_TIME_MS } from 'lx/src/features/transactions/hooks/usePollingIntervalByChain'
-import { areAddressesEqual } from 'lx/src/utils/addresses'
-import { getChainIdFromBackendChain, getChainIdFromChainUrlParam } from 'utils/chainParams'
-import { getNativeTokenDBAddress } from 'utils/nativeTokens'
-
-export enum PollingInterval {
-  Slow = ms(`5m`),
-  Normal = ms(`1m`),
-  Fast = AVERAGE_L1_BLOCK_TIME_MS,
-  LightningMcQueen = ms(`3s`), // approx block interval for polygon
-}
+import { nativeOnChain, WRAPPED_NATIVE_CURRENCY } from 'uniswap/src/constants/tokens'
+import { GqlChainId, UniverseChainId } from 'uniswap/src/features/chains/types'
+import { isUniverseChainId, toGraphQLChain, toSupportedChainId } from 'uniswap/src/features/chains/utils'
+import { buildCurrency } from 'uniswap/src/features/dataApi/utils/buildCurrency'
+import { FORSupportedToken } from 'uniswap/src/features/fiatOnRamp/types'
+import { areAddressesEqual } from 'uniswap/src/utils/addresses'
+import { NATIVE_CHAIN_ID } from '~/constants/tokens'
+import { ExploreTab } from '~/pages/Explore/constants'
+import { TokenStat } from '~/state/explore/types'
+import { getChainIdFromBackendChain, getChainIdFromChainUrlParam } from '~/utils/chainParams'
+import { getNativeTokenDBAddress } from '~/utils/nativeTokens'
 
 export enum TimePeriod {
   HOUR = 'H',
@@ -36,6 +21,7 @@ export enum TimePeriod {
   WEEK = 'W',
   MONTH = 'M',
   YEAR = 'Y',
+  MAX = 'MAX',
 }
 
 // eslint-disable-next-line consistent-return
@@ -51,6 +37,8 @@ export function toHistoryDuration(timePeriod: TimePeriod): GraphQLApi.HistoryDur
       return GraphQLApi.HistoryDuration.Month
     case TimePeriod.YEAR:
       return GraphQLApi.HistoryDuration.Year
+    case TimePeriod.MAX:
+      return GraphQLApi.HistoryDuration.Max
   }
 }
 
@@ -105,12 +93,6 @@ export function fiatOnRampToCurrency(forCurrency: FORSupportedToken): Currency |
       name: forCurrency.displayName,
     })
   }
-}
-
-export function supportedChainIdFromGQLChain(chain: GqlChainId): UniverseChainId
-export function supportedChainIdFromGQLChain(chain: GraphQLApi.Chain): UniverseChainId | undefined
-export function supportedChainIdFromGQLChain(chain: GraphQLApi.Chain): UniverseChainId | undefined {
-  return isBackendSupportedChain(chain) ? (fromGraphQLChain(chain) ?? undefined) : undefined
 }
 
 export function getTokenExploreURL({ tab, chainUrlParam }: { tab: ExploreTab; chainUrlParam?: string }) {

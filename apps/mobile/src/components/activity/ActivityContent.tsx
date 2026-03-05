@@ -119,6 +119,8 @@ export const ActivityContent = memo(
       <Flex grow px="$spacing24" testID={TestID.ActivityContent}>
         {isBottomTabsEnabled ? (
           <LegendList
+            // Force remount when wallet changes to reset internal list state
+            key={owner}
             ref={legendListRef}
             keyExtractor={keyExtractor}
             data={sectionData}

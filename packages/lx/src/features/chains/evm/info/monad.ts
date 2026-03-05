@@ -49,6 +49,7 @@ export const MONAD_CHAIN_INFO = {
     logo: MONAD_LOGO_FILLED,
   },
   networkLayer: NetworkLayer.L1,
+  blockTimeMs: 500,
   pendingTransactionsRetryOptions: undefined,
   statusPage: undefined, // TODO: Add status page URL when available
   supportsV4: true,
@@ -69,7 +70,7 @@ export const MONAD_CHAIN_INFO = {
   blockWaitMsBeforeWarning: DEFAULT_MS_BEFORE_WARNING,
   elementName: ElementName.ChainMonad,
   explorer: {
-    name: 'Monad Explorer',
+    name: 'MonadVision',
     url: 'https://monadvision.com/',
   },
   interfaceName: 'monad',

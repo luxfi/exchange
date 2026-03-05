@@ -1,9 +1,9 @@
 import { ApolloLink, createHttpLink } from '@apollo/client'
 import { onError } from '@apollo/client/link/error'
 import { RestLink } from 'apollo-link-rest'
-import { config } from 'lx/src/config'
-import { uniswapUrls } from 'lx/src/constants/urls'
-import { getVersionHeader } from 'lx/src/data/constants'
+import { config } from 'uniswap/src/config'
+import { uniswapUrls } from 'uniswap/src/constants/urls'
+import { getVersionHeader } from 'uniswap/src/data/getVersionHeader'
 import { logger } from 'utilities/src/logger/logger'
 import { isMobileApp } from 'utilities/src/platform'
 import { REQUEST_SOURCE } from 'utilities/src/platform/requestSource'
@@ -53,21 +53,6 @@ export const getGraphqlHttpLink = (): ApolloLink =>
       'x-app-version': getVersionHeader(),
       // TODO: [MOB-3883] remove once API gateway supports mobile origin URL
       Origin: uniswapUrls.apiOrigin,
-    },
-  })
-
-/**
- * G-Chain GraphQL link for native Lux blockchain data
- * G-Chain is a read-only GraphQL interface on the shared Lux database
- * Provides: blocks, transactions, accounts, balances, chain info
- */
-export const getGChainGraphqlHttpLink = (): ApolloLink =>
-  createHttpLink({
-    uri: uniswapUrls.gChainGraphqlUrl,
-    headers: {
-      'Content-Type': 'application/json',
-      'x-request-source': REQUEST_SOURCE,
-      'x-app-version': getVersionHeader(),
     },
   })
 

@@ -1,5 +1,5 @@
-import { Percent } from '@luxamm/sdk-core'
-import { toSlippagePercent } from 'utils/slippage'
+import { Percent } from '@uniswap/sdk-core'
+import { toSlippagePercent } from '~/utils/slippage'
 
 describe('slippage function', () => {
   it('should turn slippage strings into Percents correctly', async () => {

@@ -1,16 +1,16 @@
-import { TradingApi } from '@luxfi/api'
-import type { Warning, WarningWithStyle } from 'lx/src/components/modals/WarningModal/types'
-import type { UniverseChainId } from 'lx/src/features/chains/types'
-import type { CurrencyInfo } from 'lx/src/features/dataApi/types'
-import type { GasFeeResult } from 'lx/src/features/gas/types'
-import type { SwapTxStoreState } from 'lx/src/features/transactions/swap/stores/swapTxStore/createSwapTxStore'
-import type { DerivedSwapInfo } from 'lx/src/features/transactions/swap/types/derivedSwapInfo'
-import type { UniswapXGasBreakdown } from 'lx/src/features/transactions/swap/types/swapTxAndGasInfo'
-import type { IndicativeTrade, Trade } from 'lx/src/features/transactions/swap/types/trade'
+import type { GasFeeResult } from '@universe/api'
+import { TradingApi } from '@universe/api'
+import type { Warning, WarningWithStyle } from 'uniswap/src/components/modals/WarningModal/types'
+import type { UniverseChainId } from 'uniswap/src/features/chains/types'
+import type { CurrencyInfo } from 'uniswap/src/features/dataApi/types'
+import type { SwapTxStoreState } from 'uniswap/src/features/transactions/swap/stores/swapTxStore/createSwapTxStore'
+import type { DerivedSwapInfo } from 'uniswap/src/features/transactions/swap/types/derivedSwapInfo'
+import type { UniswapXGasBreakdown } from 'uniswap/src/features/transactions/swap/types/swapTxAndGasInfo'
+import type { IndicativeTrade, Trade } from 'uniswap/src/features/transactions/swap/types/trade'
 import type {
   FeeOnTransferFeeGroupProps,
   TokenWarningProps,
-} from 'lx/src/features/transactions/TransactionDetails/types'
+} from 'uniswap/src/features/transactions/TransactionDetails/types'
 import { isDevEnv } from 'utilities/src/environment/env'
 import type { StoreApi, UseBoundStore } from 'zustand'
 import { create } from 'zustand'
@@ -37,6 +37,7 @@ export type SwapReviewTransactionState = {
   currencyInInfo: Maybe<CurrencyInfo>
   currencyOutInfo: Maybe<CurrencyInfo>
   chainId: UniverseChainId | undefined
+  onAcceptTrade: () => void
 }
 
 export const createSwapReviewTransactionStore = (

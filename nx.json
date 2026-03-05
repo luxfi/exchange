@@ -7,8 +7,9 @@
   },
   "targetDefaults": {
     "prepare": {
-      "inputs": ["default", "dependencies"],
-      "cache": true
+      "inputs": ["dependencies"],
+      "cache": true,
+      "outputs": []
     },
     "build": {
       "dependsOn": ["^prepare", "prepare", "^build"],
@@ -29,19 +30,42 @@
       "cache": true
     },
     "typecheck": {
-      "command": "NODE_OPTIONS=--max_old_space_size=8192 tsc -b",
+      "command": "test \"$ENABLE_TSGO\" = \"true\" && { bun run nx typecheck:tsgo || exit $?; } || NODE_OPTIONS=--max_old_space_size=16384 tsc -b",
       "options": {
         "cwd": "{projectRoot}"
       },
       "dependsOn": ["prepare", "^typecheck"],
       "inputs": [
-        "{projectRoot}/package.json",
-        "{workspaceRoot}/config/tsconfig/app.json",
+        "{workspaceRoot}/package.json",
+        "{workspaceRoot}/config/tsconfig/*",
         "{workspaceRoot}/tsconfig.base.json",
-        "{projectRoot}/tsconfig.json",
-        "{projectRoot}/src/**/*.ts",
-        "{projectRoot}/src/**/*.tsx",
-        "{projectRoot}/src/**/*.json",
+        "{projectRoot}/package.json",
+        "{projectRoot}/tsconfig.*.json",
+        "{projectRoot}/**/*.ts",
+        "{projectRoot}/**/*.tsx",
+        "{projectRoot}/**/*.json",
+        {
+          "dependentTasksOutputFiles": "**/*.d.ts"
+        }
+      ],
+      "outputs": ["{workspaceRoot}/dist/out-tsc/{projectRoot}"],
+      "cache": true
+    },
+    "typecheck:tsgo": {
+      "command": "tsgo -b",
+      "options": {
+        "cwd": "{projectRoot}"
+      },
+      "dependsOn": ["^prepare", "prepare"],
+      "inputs": [
+        "{workspaceRoot}/package.json",
+        "{workspaceRoot}/config/tsconfig/*",
+        "{workspaceRoot}/tsconfig.base.json",
+        "{projectRoot}/package.json",
+        "{projectRoot}/tsconfig.*.json",
+        "{projectRoot}/**/*.ts",
+        "{projectRoot}/**/*.tsx",
+        "{projectRoot}/**/*.json",
         {
           "dependentTasksOutputFiles": "**/*.d.ts"
         }
@@ -58,9 +82,8 @@
       "cache": true,
       "inputs": [
         "default",
-        "{workspaceRoot}/.biome*",
-        "{workspaceRoot}/biome.json",
-        "{workspaceRoot}/packages/biome-config/**/*"
+        "lintConfig",
+        "{workspaceRoot}/biome.json"
       ]
     },
     "lint:biome:fix": {
@@ -79,9 +102,8 @@
       "cache": true,
       "inputs": [
         "default",
-        "{workspaceRoot}/.eslint*",
-        "{projectRoot}/.eslint*",
-        "{workspaceRoot}/packages/eslint-config/**/*"
+        "lintConfig",
+        "{projectRoot}/.eslint*"
       ]
     },
     "lint:eslint:fix": {
@@ -136,13 +158,18 @@
       "cache": false
     },
     "snapshots": {
-      "dependsOn": ["prepare", "typecheck", "lint"],
+      "dependsOn": ["^prepare", "prepare"],
       "cache": true
     },
     "check:circular": {
       "cache": true
     },
     "check:deps:usage": {
+      "command": "depcheck",
+      "options": {
+        "cwd": "{projectRoot}"
+      },
+      "inputs": ["sourceFiles", "{projectRoot}/package.json", "{projectRoot}/.depcheckrc"],
       "cache": true
     },
     "storybook:test:standalone": {
@@ -201,17 +228,17 @@
       "!{projectRoot}/**/*.stories.ts"
     ],
     "sharedGlobals": [
-      "{workspaceRoot}/.github/actions/**/*.yml",
-      "{workspaceRoot}/.github/workflows/*.yml",
       "{workspaceRoot}/tsconfig.base.json",
-      "{workspaceRoot}/tsconfig.json",
-      "{workspaceRoot}/bun.lock",
-      "{workspaceRoot}/package.json",
+      "{workspaceRoot}/tsconfig.json"
+    ],
+    "lintConfig": [
       "{workspaceRoot}/.biome*",
       "{workspaceRoot}/.eslint*",
       "{workspaceRoot}/.depcheckrc*",
-      "{workspaceRoot}/.env*",
-      "!{workspaceRoot}/.env.defaults",
+      "{workspaceRoot}/packages/biome-config/**/*",
+      "{workspaceRoot}/packages/eslint-config/**/*"
+    ],
+    "mobileGlobals": [
       "{workspaceRoot}/metro.config.*",
       "{workspaceRoot}/Gemfile*"
     ],
@@ -222,7 +249,7 @@
       "{projectRoot}/**/*.js",
       "{projectRoot}/**/*.jsx"
     ],
-    "dependencies": ["{workspaceRoot}/bun.lock", "{workspaceRoot}/package.json", "{projectRoot}/package.json"],
+    "dependencies": ["{workspaceRoot}/package.json", "{projectRoot}/package.json"],
     "tsConfig": ["{projectRoot}/tsconfig*.json"]
   },
   "workspaceLayout": {
@@ -253,5 +280,10 @@
         }
       }
     }
-  ]
+  ],
+  "pluginsConfig": {
+    "@nx/js": {
+      "analyzeSourceFiles": true
+    }
+  }
 }

@@ -1,20 +1,20 @@
-import { FeatureFlags, useFeatureFlag } from '@luxfi/gating'
-import { HelpModal } from 'components/HelpModal/HelpModal'
-import { MenuSectionTitle, useMenuContent } from 'components/NavBar/CompanyMenu/Content'
-import { MenuLink } from 'components/NavBar/CompanyMenu/MenuDropdown'
-import { LegalAndPrivacyMenu } from 'components/NavBar/LegalAndPrivacyMenu'
-import { NavDropdown } from 'components/NavBar/NavDropdown'
-import { getSettingsViewIndex } from 'components/NavBar/PreferencesMenu'
-import { CurrencySettings } from 'components/NavBar/PreferencesMenu/Currency'
-import { LanguageSettings } from 'components/NavBar/PreferencesMenu/Language'
-import { PreferencesView } from 'components/NavBar/PreferencesMenu/shared'
-import { useTabsContent } from 'components/NavBar/Tabs/TabsContent'
-import { Socials } from 'pages/Landing/sections/Footer'
+import { FeatureFlags, useFeatureFlag } from '@universe/gating'
 import { useCallback, useEffect, useRef, useState } from 'react'
-import { ChevronDown } from 'react-feather'
 import { useTranslation } from 'react-i18next'
-import { Accordion, AnimateTransition, Flex, Separator, Square, Text, useSporeColors } from 'ui/src'
-import { TestID } from 'lx/src/test/fixtures/testIDs'
+import { Accordion, AnimateTransition, Flex, Separator, Square, Text } from 'ui/src'
+import { RotatableChevron } from 'ui/src/components/icons/RotatableChevron'
+import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+import { HelpModal } from '~/components/HelpModal/HelpModal'
+import { MenuSectionTitle, useMenuContent } from '~/components/NavBar/CompanyMenu/Content'
+import { MenuLink } from '~/components/NavBar/CompanyMenu/MenuDropdown'
+import { LegalAndPrivacyMenu } from '~/components/NavBar/LegalAndPrivacyMenu'
+import { NavDropdown } from '~/components/NavBar/NavDropdown'
+import { getSettingsViewIndex } from '~/components/NavBar/PreferencesMenu'
+import { CurrencySettings } from '~/components/NavBar/PreferencesMenu/Currency'
+import { LanguageSettings } from '~/components/NavBar/PreferencesMenu/Language'
+import { PreferencesView } from '~/components/NavBar/PreferencesMenu/shared'
+import { useTabsContent } from '~/components/NavBar/Tabs/TabsContent'
+import { Socials } from '~/pages/Landing/sections/Footer'
 
 function MenuSection({
   title,
@@ -25,8 +25,6 @@ function MenuSection({
   children: JSX.Element | JSX.Element[]
   collapsible?: boolean
 }) {
-  const colors = useSporeColors()
-
   return (
     <Accordion.Item value={title} disabled={!collapsible}>
       <Flex gap="8px">
@@ -37,8 +35,8 @@ function MenuSection({
                 {title}
               </Text>
               {collapsible && (
-                <Square animation="200ms" rotate={open ? '-180deg' : '0deg'}>
-                  <ChevronDown size="16px" color={colors.neutral2.val} />
+                <Square animation="200ms" rotate={open ? '90deg' : '270deg'}>
+                  <RotatableChevron size="$icon.16" color="$neutral2" />
                 </Square>
               )}
             </>
@@ -116,12 +114,13 @@ export function MobileMenuDrawer({ isOpen, closeMenu }: { isOpen: boolean; close
                     closeMenu={closeMenu}
                     icon={tab.icon}
                     textVariant="body2"
+                    elementName={tab.elementName}
                   />
                 ))}
               </MenuSection>
               {Object.values(productContent).map((sectionContent, index) => (
                 <MenuSection key={`${sectionContent.title}_${index}`} title={sectionContent.title} collapsible={false}>
-                  {sectionContent.items.map(({ label, href, internal, icon }, index) => (
+                  {sectionContent.items.map(({ label, href, internal, icon, elementName }, index) => (
                     <MenuLink
                       key={`${label}_${index}}`}
                       label={label}
@@ -130,6 +129,7 @@ export function MobileMenuDrawer({ isOpen, closeMenu }: { isOpen: boolean; close
                       closeMenu={closeMenu}
                       icon={icon}
                       textVariant="body2"
+                      elementName={elementName}
                     />
                   ))}
                 </MenuSection>
@@ -139,18 +139,23 @@ export function MobileMenuDrawer({ isOpen, closeMenu }: { isOpen: boolean; close
 
               {Object.values(menuContent).map((sectionContent, index) => (
                 <MenuSection key={`${sectionContent.title}_${index}`} title={sectionContent.title}>
-                  {sectionContent.items.map(({ label, href, internal }, index) => (
+                  {sectionContent.items.map(({ label, href, internal, elementName }, index) => (
                     <MenuLink
                       key={`${label}_${index}}`}
                       label={label}
                       href={href}
                       internal={internal}
                       closeMenu={closeMenu}
+                      elementName={elementName}
                     />
                   ))}
                 </MenuSection>
               ))}
-              {isConversionTrackingEnabled && <LegalAndPrivacyMenu closeMenu={closeMenu} />}
+              {isConversionTrackingEnabled && (
+                <Flex paddingBottom="$padding8">
+                  <LegalAndPrivacyMenu closeMenu={closeMenu} />
+                </Flex>
+              )}
               <Flex row width="100%" justifyContent="space-between" alignItems="flex-end">
                 <HelpModal showOnXL />
                 <Flex gap="$spacing16">

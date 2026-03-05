@@ -1,17 +1,18 @@
-import { useTrace } from '@luxdex/analytics'
-import { TradingApi } from '@luxfi/api'
-import { popupRegistry } from 'components/Popups/registry'
-import { PopupType } from 'components/Popups/types'
+import { useTrace } from '@uniswap/analytics'
+import { TradingApi } from '@universe/api'
 import { useCallback } from 'react'
-import type { UniswapXOrderUpdate } from 'state/activity/types'
-import { useAppDispatch } from 'state/hooks'
-import { logUniswapXSwapFinalized } from 'tracing/swapFlowLoggers'
-import { finalizeTransaction, updateTransaction } from 'lx/src/features/transactions/slice'
+import { finalizeTransaction, updateTransaction } from 'uniswap/src/features/transactions/slice'
 import {
+  extractPlanFieldsFromTypeInfo,
   extractTransactionTypeInfoAttribute,
   TransactionStatus,
-} from 'lx/src/features/transactions/types/transactionDetails'
-import { isFinalizedTx } from 'lx/src/features/transactions/types/utils'
+} from 'uniswap/src/features/transactions/types/transactionDetails'
+import { isFinalizedTx } from 'uniswap/src/features/transactions/types/utils'
+import { popupRegistry } from '~/components/Popups/registry'
+import { PopupType } from '~/components/Popups/types'
+import type { UniswapXOrderUpdate } from '~/state/activity/types'
+import { useAppDispatch } from '~/state/hooks'
+import { logUniswapXSwapFinalized } from '~/tracing/swapFlowLoggers'
 
 interface HandleUniswapXActivityUpdateParams {
   activity: UniswapXOrderUpdate
@@ -71,8 +72,8 @@ export function useHandleUniswapXActivityUpdate(): (params: HandleUniswapXActivi
           analyticsContext,
           routing: original.routing,
           status: update.status,
-          isFinalStep: extractTransactionTypeInfoAttribute(original.typeInfo, 'isFinalStep'),
           swapStartTimestamp: extractTransactionTypeInfoAttribute(original.typeInfo, 'swapStartTimestamp'),
+          planAnalytics: extractPlanFieldsFromTypeInfo(original.typeInfo),
         })
       }
     },

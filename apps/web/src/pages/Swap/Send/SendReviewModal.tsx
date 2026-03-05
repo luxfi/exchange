@@ -1,31 +1,31 @@
-import { PortfolioLogo } from 'components/AccountDrawer/MiniPortfolio/PortfolioLogo'
-import { ChainLogo } from 'components/Logo/ChainLogo'
-import { useAccount } from 'hooks/useAccount'
 import { ReactNode } from 'react'
 import { Trans, useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
-import { useMultichainContext } from 'state/multichain/useMultichainContext'
-import { useSendContext } from 'state/send/SendContext'
-import { ThemedText } from 'theme/components'
 import { capitalize } from 'tsafe'
 import { Button, Flex, Separator, styled } from 'ui/src'
 import { Passkey } from 'ui/src/components/icons/Passkey'
 import { Unitag } from 'ui/src/components/icons/Unitag'
-import { AccountIcon } from 'lx/src/features/accounts/AccountIcon'
-import { selectHasDismissedLowNetworkTokenWarning } from 'lx/src/features/behaviorHistory/selectors'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { useAppFiatCurrency } from 'lx/src/features/fiatCurrency/hooks'
-import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
-import { useGetPasskeyAuthStatus } from 'lx/src/features/passkey/hooks/useGetPasskeyAuthStatus'
-import { ElementName, UniswapEventName } from 'lx/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
-import Trace from 'lx/src/features/telemetry/Trace'
-import { useUSDCValue } from 'lx/src/features/transactions/hooks/useUSDCPrice'
-import { LowNativeBalanceModal } from 'lx/src/features/transactions/modals/LowNativeBalanceModal'
+import { AccountIcon } from 'uniswap/src/features/accounts/AccountIcon'
+import { selectHasDismissedLowNetworkTokenWarning } from 'uniswap/src/features/behaviorHistory/selectors'
+import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { useAppFiatCurrency } from 'uniswap/src/features/fiatCurrency/hooks'
+import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
+import { useGetPasskeyAuthStatus } from 'uniswap/src/features/passkey/hooks/useGetPasskeyAuthStatus'
+import { ElementName, UniswapEventName } from 'uniswap/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
+import Trace from 'uniswap/src/features/telemetry/Trace'
+import { useUSDCValue } from 'uniswap/src/features/transactions/hooks/useUSDCPriceWrapper'
+import { LowNativeBalanceModal } from 'uniswap/src/features/transactions/modals/LowNativeBalanceModal'
 import { shortenAddress } from 'utilities/src/addresses'
 import { NumberType } from 'utilities/src/format/types'
 import { useBooleanState } from 'utilities/src/react/useBooleanState'
-import { maxAmountSpend } from 'utils/maxAmountSpend'
+import { PortfolioLogo } from '~/components/AccountDrawer/MiniPortfolio/PortfolioLogo'
+import { ChainLogo } from '~/components/Logo/ChainLogo'
+import { useAccount } from '~/hooks/useAccount'
+import { useMultichainContext } from '~/state/multichain/useMultichainContext'
+import { useSendContext } from '~/state/send/SendContext'
+import { ThemedText } from '~/theme/components'
+import { maxAmountSpend } from '~/utils/maxAmountSpend'
 
 const ReviewContentContainer = styled(Flex, {
   width: '100%',
@@ -142,7 +142,11 @@ export function SendReviewModalInner({ onConfirm, isConfirming }: SendModalInner
               recipientData?.unitag || recipientData?.ensName ? (
                 <Flex row gap="$gap4" alignItems="center">
                   <ThemedText.HeadlineLarge>{recipientData.unitag ?? recipientData.ensName}</ThemedText.HeadlineLarge>
-                  {recipientData.unitag && <Unitag size={18} />}
+                  {recipientData.unitag && (
+                    <Flex pt="$spacing8">
+                      <Unitag size={36} />
+                    </Flex>
+                  )}
                 </Flex>
               ) : (
                 shortenAddress({ address: recipientData?.address })

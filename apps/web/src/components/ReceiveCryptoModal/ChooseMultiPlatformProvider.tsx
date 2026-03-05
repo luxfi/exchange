@@ -1,31 +1,31 @@
-import { useActiveAddresses } from 'features/accounts/store/hooks'
-import { deprecatedStyled } from 'lib/styled-components'
-import { ProviderConnectedView } from 'pages/Swap/Buy/ProviderConnectedView'
-import { ProviderConnectionError } from 'pages/Swap/Buy/ProviderConnectionError'
-import { ConnectingViewWrapper } from 'pages/Swap/Buy/shared'
 import { useMemo } from 'react'
 import { Trans, useTranslation } from 'react-i18next'
-import { addFiatOnRampTransaction } from 'state/fiatOnRampTransactions/reducer'
-import { FiatOnRampTransactionStatus, FiatOnRampTransactionType } from 'state/fiatOnRampTransactions/types'
-import { ExternalLink } from 'theme/components/Links'
 import { Flex, Text, TouchableArea, useIsDarkMode, useSporeColors } from 'ui/src'
 import { iconSizes } from 'ui/src/theme'
-import { NetworkLogo } from 'lx/src/components/CurrencyLogo/NetworkLogo'
-import { UNISWAP_WEB_URL } from 'lx/src/constants/urls'
-import { MAINNET_CHAIN_INFO } from 'lx/src/features/chains/evm/info/mainnet'
-import { useEnabledChains } from 'lx/src/features/chains/hooks/useEnabledChains'
-import { SOLANA_CHAIN_INFO } from 'lx/src/features/chains/svm/info/solana'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { useFiatOnRampAggregatorTransferWidgetQuery } from 'lx/src/features/fiatOnRamp/api'
-import { ServiceProviderLogoStyles } from 'lx/src/features/fiatOnRamp/constants'
-import { FORServiceProvider } from 'lx/src/features/fiatOnRamp/types'
-import { getOptionalServiceProviderLogo } from 'lx/src/features/fiatOnRamp/utils'
-import { Platform } from 'lx/src/features/platforms/types/Platform'
-import { FiatOnRampEventName } from 'lx/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
+import { NetworkLogo } from 'uniswap/src/components/CurrencyLogo/NetworkLogo'
+import { UNISWAP_WEB_URL } from 'uniswap/src/constants/urls'
+import { MAINNET_CHAIN_INFO } from 'uniswap/src/features/chains/evm/info/mainnet'
+import { useEnabledChains } from 'uniswap/src/features/chains/hooks/useEnabledChains'
+import { SOLANA_CHAIN_INFO } from 'uniswap/src/features/chains/svm/info/solana'
+import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { ServiceProviderLogoStyles } from 'uniswap/src/features/fiatOnRamp/constants'
+import { useFiatOnRampAggregatorTransferWidgetQuery } from 'uniswap/src/features/fiatOnRamp/hooks/useFiatOnRampQueries'
+import { FORServiceProvider } from 'uniswap/src/features/fiatOnRamp/types'
+import { getOptionalServiceProviderLogo } from 'uniswap/src/features/fiatOnRamp/utils'
+import { Platform } from 'uniswap/src/features/platforms/types/Platform'
+import { FiatOnRampEventName } from 'uniswap/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
 import { shortenAddress } from 'utilities/src/addresses'
 import { useEvent } from 'utilities/src/react/hooks'
 import { v4 as uuid } from 'uuid'
+import { useActiveAddresses } from '~/features/accounts/store/hooks'
+import { deprecatedStyled } from '~/lib/deprecated-styled'
+import { ProviderConnectedView } from '~/pages/Swap/Buy/ProviderConnectedView'
+import { ProviderConnectionError } from '~/pages/Swap/Buy/ProviderConnectionError'
+import { ConnectingViewWrapper } from '~/pages/Swap/Buy/shared'
+import { addFiatOnRampTransaction } from '~/state/fiatOnRampTransactions/reducer'
+import { FiatOnRampTransactionStatus, FiatOnRampTransactionType } from '~/state/fiatOnRampTransactions/types'
+import { ExternalLink } from '~/theme/components/Links'
 
 const StyledLink = deprecatedStyled(ExternalLink)`
   font-weight: 535;
@@ -212,12 +212,12 @@ export function ChooseMultiPlatformProvider({
             }}
             components={{
               tosLink: (
-                <StyledLink color={colors.neutral3.val} href="https://lux.exchange/terms">
+                <StyledLink color={colors.neutral3.val} href="https://uniswap.org/terms-of-service/">
                   {t('common.termsOfService')}
                 </StyledLink>
               ),
               privacyLink: (
-                <StyledLink color={colors.neutral3.val} href="https://lux.exchange/privacy">
+                <StyledLink color={colors.neutral3.val} href="https://uniswap.org/privacy-policy">
                   {t('common.privacyPolicy')}
                 </StyledLink>
               ),

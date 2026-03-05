@@ -1,30 +1,30 @@
 /* eslint-disable max-lines */
 import '@testing-library/jest-dom' // jest custom assertions
 import 'jest-styled-components' // adds style diffs to snapshot tests
-import 'polyfills' // add polyfills
+import '~/polyfills' // add polyfills
 // eslint-disable-next-line
 import './test-utils/mockTamagui' // mock problematic Tamagui components
 
-import { createPopper } from '@popperjs/core'
+import { type createPopper } from '@popperjs/core'
 import {
   BaseWalletAdapter,
-  SupportedTransactionVersions,
-  WalletName,
+  type SupportedTransactionVersions,
+  type WalletName,
   WalletReadyState,
 } from '@solana/wallet-adapter-base'
-import { useFeatureFlag } from '@luxfi/gating'
+import { useFeatureFlag } from '@universe/gating'
 import { useWeb3React } from '@web3-react/core'
 import { config as loadEnv } from 'dotenv'
 import failOnConsole from 'jest-fail-on-console'
 import { disableNetConnect, restore as restoreNetConnect } from 'nock'
 import React from 'react'
 import { Readable } from 'stream'
-import { toBeVisible } from 'test-utils/matchers'
-import { mocked } from 'test-utils/mocked'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { setupi18n } from 'lx/src/i18n/i18n-setup-interface'
-import { mockLocalizationContext } from 'lx/src/test/mocks/locale'
+import { type UniverseChainId } from 'uniswap/src/features/chains/types'
+import { setupi18n } from 'uniswap/src/i18n/i18n-setup-interface'
+import { mockLocalizationContext } from 'uniswap/src/test/mocks/locale'
 import { TextDecoder, TextEncoder } from 'util'
+import { toBeVisible } from '~/test-utils/matchers'
+import { mocked } from '~/test-utils/mocked'
 
 loadEnv()
 
@@ -103,7 +103,7 @@ setupi18n()
 
 // Sets origin to the production origin, because some tests depend on this.
 // This prevents each test file from needing to set this manually.
-globalThis.origin = 'https://lux.exchange'
+globalThis.origin = 'https://app.uniswap.org'
 
 // Polyfill browser APIs (jest is a node.js environment):
 // biome-ignore lint/complexity/noUselessLoneBlockStatements: block used to scope polyfill assignments
@@ -113,7 +113,8 @@ globalThis.origin = 'https://lux.exchange'
 
   if (typeof globalThis.TextEncoder === 'undefined') {
     globalThis.ReadableStream = Readable as unknown as typeof globalThis.ReadableStream
-    globalThis.TextEncoder = TextEncoder
+    // Cast through unknown due to Node.js TextEncoder vs Web API TextEncoder type compatibility
+    globalThis.TextEncoder = TextEncoder as unknown as typeof globalThis.TextEncoder
     globalThis.TextDecoder = TextDecoder as typeof globalThis.TextDecoder
   }
 
@@ -169,7 +170,7 @@ vi.mock('@datadog/browser-logs', () => ({
 }))
 
 // This package must be mocked because it doesn't support ESM
-vi.mock('@luxdex/analytics-events', () => {
+vi.mock('@uniswap/analytics-events', () => {
   return {
     SharedEventName: {},
     sendAnalyticsEvent: vi.fn(),
@@ -197,7 +198,7 @@ vi.mock('@tamagui/animations-moti', () => ({
   },
 }))
 
-vi.mock('@luxdex/analytics', () => ({
+vi.mock('@uniswap/analytics', () => ({
   Trace: ({ children }: any) => {
     return React.createElement(React.Fragment, {}, children)
   },
@@ -343,8 +344,8 @@ vi.mock('@web3-react/core', async () => {
   }
 })
 
-vi.mock('state/routing/slice', async () => {
-  const routingSlice = await vi.importActual('state/routing/slice')
+vi.mock('~/state/routing/slice', async () => {
+  const routingSlice = await vi.importActual('~/state/routing/slice')
   return {
     ...routingSlice,
     // Prevents unit tests from logging errors from failed getQuote queries
@@ -419,7 +420,7 @@ failOnConsole({
   },
 })
 
-vi.mock('@luxfi/gating', async (importOriginal) => {
+vi.mock('@universe/gating', async (importOriginal) => {
   return {
     ...(await importOriginal()),
     useFeatureFlag: vi.fn(),
@@ -504,3 +505,15 @@ afterEach(() => {
 expect.extend({
   toBeVisible,
 })
+
+vi.mock('./components/Table/TableSizeProvider', () => ({
+  useTableSize: vi.fn(() => ({
+    width: 1024,
+    height: 768,
+    top: 0,
+    left: 0,
+  })),
+  TableSizeProvider: ({ children }: { children: JSX.Element }) => {
+    return React.createElement(React.Fragment, {}, children)
+  },
+}))

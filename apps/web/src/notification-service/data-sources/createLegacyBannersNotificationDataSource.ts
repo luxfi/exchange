@@ -7,15 +7,14 @@ import {
   Notification,
   NotificationVersion,
   OnClick,
-} from '@luxdex/client-notification-service/dist/uniswap/notificationservice/v1/api_pb'
-import { BackgroundType, ContentStyle, type InAppNotification, OnClickAction } from '@luxfi/api'
-import { FeatureFlags, getFeatureFlag } from '@luxfi/gating'
+} from '@uniswap/client-notification-service/dist/uniswap/notificationservice/v1/api_pb'
+import { BackgroundType, ContentStyle, type InAppNotification, OnClickAction } from '@universe/api'
+import { FeatureFlags, getFeatureFlag } from '@universe/gating'
 import {
   createNotificationDataSource,
   type NotificationDataSource,
   type NotificationTracker,
-} from '@luxfi/notifications'
-import store from 'state/index'
+} from '@universe/notifications'
 import {
   BRIDGED_ASSETS_V2_WEB_BANNER,
   NO_FEES_ICON,
@@ -25,9 +24,10 @@ import {
   SOLANA_BANNER_LIGHT,
   SOLANA_LOGO,
 } from 'ui/src/assets'
-import { uniswapUrls } from 'lx/src/constants/urls'
-import i18n from 'lx/src/i18n'
+import { uniswapUrls } from 'uniswap/src/constants/urls'
+import i18n from 'uniswap/src/i18n'
 import { logger } from 'utilities/src/logger/logger'
+import store from '~/state/index'
 
 // Legacy storage keys from the old banner implementation
 const LEGACY_SOLANA_PROMO_STORAGE_KEY = 'solanaPromoHidden'
@@ -62,7 +62,7 @@ export function createLegacyBannersNotificationDataSource(
 ): NotificationDataSource {
   const { tracker, pollIntervalMs = 5000, getIsDarkMode } = ctx
 
-  let intervalId: ReturnType<typeof setInterval> | null = null
+  let intervalId: NodeJS.Timeout | null = null
   let currentCallback: ((notifications: InAppNotification[], source: string) => void) | null = null
   let hasMigratedLegacyState = false
 
@@ -194,7 +194,7 @@ async function fetchNotifications(isDarkMode: boolean): Promise<InAppNotificatio
  * The processor will filter based on tracked state.
  */
 async function checkNoUniswapInterfaceFeesBanner(isDarkMode: boolean): Promise<InAppNotification | null> {
-  const isEnabled = getFeatureFlag(FeatureFlags.NoUniswapInterfaceFees)
+  const isEnabled = getFeatureFlag(FeatureFlags.NoUniswapInterfaceFeesNotification)
 
   if (!isEnabled) {
     return null

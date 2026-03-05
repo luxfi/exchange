@@ -1,14 +1,14 @@
-import { RangeAmountInputPriceMode } from 'components/Liquidity/Create/types'
-import { getBaseAndQuoteCurrencies } from 'components/Liquidity/utils/currency'
-import { useCreateLiquidityContext } from 'pages/CreatePosition/CreateLiquidityContextProvider'
 import { useTranslation } from 'react-i18next'
 import { Flex, Text, TouchableArea, useSporeColors } from 'ui/src'
 import { Minus } from 'ui/src/components/icons/Minus'
 import { Plus } from 'ui/src/components/icons/Plus'
 import { fonts } from 'ui/src/theme'
-import { AmountInput } from 'lx/src/components/AmountInput/AmountInput'
-import { numericInputRegex } from 'lx/src/components/AmountInput/utils/numericInputEnforcer'
-import { TestID } from 'lx/src/test/fixtures/testIDs'
+import { AmountInput } from 'uniswap/src/components/AmountInput/AmountInput'
+import { numericInputRegex } from 'uniswap/src/components/AmountInput/utils/numericInputEnforcer'
+import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+import { RangeAmountInputPriceMode } from '~/components/Liquidity/Create/types'
+import { getBaseAndQuoteCurrencies } from '~/components/Liquidity/utils/currency'
+import { useCreateLiquidityContext } from '~/pages/CreatePosition/CreateLiquidityContextProvider'
 
 enum RangeSelectionInput {
   MIN = 0,
@@ -61,7 +61,6 @@ export function D3RangeAmountInput({
 
   const {
     currencies,
-    creatingPoolOrPair,
     priceRangeState: { priceInverted },
   } = useCreateLiquidityContext()
 
@@ -74,8 +73,8 @@ export function D3RangeAmountInput({
       flexBasis={0}
       position="relative"
       backgroundColor="$surface2"
-      borderTopLeftRadius={creatingPoolOrPair && input === RangeSelectionInput.MIN ? '$rounded20' : '$none'}
-      borderTopRightRadius={creatingPoolOrPair && input === RangeSelectionInput.MAX ? '$rounded20' : '$none'}
+      borderTopLeftRadius="$none"
+      borderTopRightRadius="$none"
       borderBottomRightRadius={input === RangeSelectionInput.MIN ? '$none' : '$rounded20'}
       borderBottomLeftRadius={input === RangeSelectionInput.MIN ? '$rounded20' : '$none'}
       $lg={{
@@ -109,7 +108,7 @@ export function D3RangeAmountInput({
             py="$none"
             adjustWidthToContent={inputMode === RangeAmountInputPriceMode.PERCENTAGE}
             value={displayUserTypedValue ? typedValue : value}
-            onChange={(e: { nativeEvent: { text: string } }) => handlePriceRangeInput(input, e.nativeEvent.text)}
+            onChange={(e) => handlePriceRangeInput(input, e.nativeEvent.text)}
             onBlur={onBlur}
             inputEnforcer={numericInputEnforcerWithInfinity}
             $md={{

@@ -1,8 +1,9 @@
 import PoissonDiskSampling from 'poisson-disk-sampling'
 import { useMemo, useRef } from 'react'
 import { Flex } from 'ui/src'
-import { CloudItem } from 'lx/src/components/IconCloud/CloudItem'
-import { randomFloat, randomInt } from 'lx/src/components/IconCloud/utils'
+import { CloudItem } from 'uniswap/src/components/IconCloud/CloudItem'
+import { randomFloat, randomInt } from 'uniswap/src/components/IconCloud/utils'
+import { useIsWindowVisible } from 'utilities/src/react/useIsWindowVisible'
 
 export type FloatingElementPosition = 'left' | 'right'
 
@@ -87,6 +88,7 @@ export function IconCloud<T extends ItemData>({
   }, [data, maxItemSize, minItemSize])
 
   const constraintsRef = useRef(null)
+  const isWindowVisible = useIsWindowVisible()
 
   return (
     <Flex
@@ -106,6 +108,7 @@ export function IconCloud<T extends ItemData>({
             point={point}
             renderOuterElement={renderOuterElement}
             getElementRounded={getElementRounded}
+            isPaused={!isWindowVisible}
             onPress={onPress}
           />
         )
