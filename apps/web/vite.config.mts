@@ -263,6 +263,11 @@ export default defineConfig(({ mode }) => {
       find: /^lx\/src\/i18n$/,
       replacement: path.resolve(__dirname, '../../packages/lx/src/i18n/index.web-app.ts'),
     },
+    // Tilde alias (~/...) → apps/web/src/... (tsconfig "~/*" may not resolve in Docker)
+    {
+      find: /^~\//,
+      replacement: path.resolve(__dirname, 'src') + '/',
+    },
   ]
 
   // Create process.env definitions for ALL environment variables
