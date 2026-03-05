@@ -16,6 +16,7 @@ tools/uniswap-nx/dist
 .next/
 out/
 build
+!apps/build/
 
 # builds
 /dts
