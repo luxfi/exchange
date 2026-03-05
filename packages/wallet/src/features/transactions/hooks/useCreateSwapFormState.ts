@@ -1,9 +1,9 @@
 import { useMemo } from 'react'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { useCurrencyInfo } from 'uniswap/src/features/tokens/useCurrencyInfo'
-import { useSelectTransaction } from 'uniswap/src/features/transactions/hooks/useSelectTransaction'
-import { TransactionType } from 'uniswap/src/features/transactions/types/transactionDetails'
-import { TransactionState } from 'uniswap/src/features/transactions/types/transactionState'
+import { UniverseChainId } from 'lx/src/features/chains/types'
+import { useCurrencyInfo } from 'lx/src/features/tokens/useCurrencyInfo'
+import { useSelectTransaction } from 'lx/src/features/transactions/hooks/useSelectTransaction'
+import { TransactionType } from 'lx/src/features/transactions/types/transactionDetails'
+import { TransactionState } from 'lx/src/features/transactions/types/transactionState'
 import { createSwapFormFromTxDetails } from 'wallet/src/features/transactions/swap/createSwapFormFromTxDetails'
 
 export function useCreateSwapFormState({

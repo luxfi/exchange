@@ -6,7 +6,7 @@ dataSources:
     name: Factory
     network: lux
     source:
-      address: "0x0000000000000000000000000000000000000000"  # Replace with actual factory address
+      address: "0xD173926A10A0C4eCd3A51B1422270b65Df0551c1"
       abi: Factory
       startBlock: 0
     mapping:
@@ -14,9 +14,9 @@ dataSources:
       apiVersion: 0.0.7
       language: wasm/assemblyscript
       entities:
+        - Factory
         - Pair
         - Token
-        - Factory
       abis:
         - name: Factory
           file: ./abis/Factory.json
@@ -41,6 +41,7 @@ templates:
       entities:
         - Pair
         - Token
+        - Transaction
         - Swap
         - Mint
         - Burn
@@ -49,6 +50,8 @@ templates:
           file: ./abis/Pair.json
         - name: Factory
           file: ./abis/Factory.json
+        - name: ERC20
+          file: ./abis/ERC20.json
       eventHandlers:
         - event: Mint(indexed address,uint256,uint256)
           handler: handleMint
@@ -58,4 +61,6 @@ templates:
           handler: handleSwap
         - event: Sync(uint112,uint112)
           handler: handleSync
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleTransfer
       file: ./src/pair.ts

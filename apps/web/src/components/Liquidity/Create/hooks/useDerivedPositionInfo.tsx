@@ -4,7 +4,7 @@ import { PoolInfoRequest } from '@uniswap/client-liquidity/dist/uniswap/liquidit
 import { PoolParameters } from '@uniswap/client-liquidity/dist/uniswap/liquidity/v1/types_pb'
 import { Currency } from '@uniswap/sdk-core'
 import { useMemo } from 'react'
-import { liquidityQueries } from 'uniswap/src/data/apiClients/liquidityService/liquidityQueries'
+import { liquidityQueries } from 'lx/src/data/apiClients/liquidityService/liquidityQueries'
 import {
   CreatePositionInfo,
   CreateV2PositionInfo,

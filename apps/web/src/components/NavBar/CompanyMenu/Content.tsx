@@ -4,8 +4,8 @@ import { LayerGroup } from 'ui/src/components/icons/LayerGroup'
 import { Unichain } from 'ui/src/components/icons/Unichain'
 import { UniswapLogo } from 'ui/src/components/icons/UniswapLogo'
 import { UniswapXGeneric } from 'ui/src/components/icons/UniswapXGeneric'
-import { uniswapUrls } from 'uniswap/src/constants/urls'
-import { ElementName } from 'uniswap/src/features/telemetry/constants'
+import { uniswapUrls } from 'lx/src/constants/urls'
+import { ElementName } from 'lx/src/features/telemetry/constants'
 
 export interface MenuItem {
   label: string

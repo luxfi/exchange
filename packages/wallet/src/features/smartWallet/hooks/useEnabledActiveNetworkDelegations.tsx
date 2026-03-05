@@ -1,5 +1,5 @@
 import { useMemo } from 'react'
-import { useIsSupportedChainIdCallback } from 'uniswap/src/features/chains/hooks/useSupportedChainId'
+import { useIsSupportedChainIdCallback } from 'lx/src/features/chains/hooks/useSupportedChainId'
 import { isEVMAddressWithChecksum } from 'utilities/src/addresses/evm/evm'
 import { ActiveDelegation, WalletData } from 'wallet/src/features/smartWallet/types'
 

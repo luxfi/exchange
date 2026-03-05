@@ -1,7 +1,7 @@
 import { createAsyncStoragePersister } from '@tanstack/query-async-storage-persister'
 import { type AsyncStorage, type Persister } from '@tanstack/react-query-persist-client'
 import { MMKV } from 'react-native-mmkv'
-import { REACT_QUERY_PERSISTER_KEY } from 'uniswap/src/data/apiClients/constants'
+import { REACT_QUERY_PERSISTER_KEY } from 'lx/src/data/apiClients/constants'
 import { jsonParse, jsonStringify } from 'utilities/src/serialization/json'
 import { ONE_SECOND_MS } from 'utilities/src/time/time'
 

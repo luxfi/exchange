@@ -6,6 +6,7 @@
  * The routing for the proposed transaction.
  */
 export enum Routing {
+    DUTCH_LIMIT = 'DUTCH_LIMIT',
     CLASSIC = 'CLASSIC',
     DUTCH_V2 = 'DUTCH_V2',
     DUTCH_V3 = 'DUTCH_V3',
@@ -15,7 +16,5 @@ export enum Routing {
     WRAP = 'WRAP',
     UNWRAP = 'UNWRAP',
     CHAINED = 'CHAINED',
-    JUPITER = "JUPITER",
-    /** @deprecated Deprecation flag added via modifyTradingApiTypes.mts in order to not break existing code. */
-    DUTCH_LIMIT = "DUTCH_LIMIT"
+    JUPITER = "JUPITER"
 }

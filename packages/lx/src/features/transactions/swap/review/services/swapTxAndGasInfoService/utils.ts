@@ -13,47 +13,47 @@ import type {
 import { TradingApi } from '@universe/api'
 import type { providers } from 'ethers/lib/ethers'
 import { useMemo } from 'react'
-import { getTradeSettingsDeadline } from 'uniswap/src/data/apiClients/tradingApi/utils/getTradeSettingsDeadline'
-import { getChainLabel } from 'uniswap/src/features/chains/utils'
-import { convertGasFeeToDisplayValue, useActiveGasStrategy } from 'uniswap/src/features/gas/hooks'
-import { SwapEventName } from 'uniswap/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
-import type { TransactionSettings } from 'uniswap/src/features/transactions/components/settings/types'
-import { getBaseTradeAnalyticsPropertiesFromSwapInfo } from 'uniswap/src/features/transactions/swap/analytics'
-import type { ApprovalTxInfo } from 'uniswap/src/features/transactions/swap/review/hooks/useTokenApprovalInfo'
+import { getTradeSettingsDeadline } from 'lx/src/data/apiClients/tradingApi/utils/getTradeSettingsDeadline'
+import { getChainLabel } from 'lx/src/features/chains/utils'
+import { convertGasFeeToDisplayValue, useActiveGasStrategy } from 'lx/src/features/gas/hooks'
+import { SwapEventName } from 'lx/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
+import type { TransactionSettings } from 'lx/src/features/transactions/components/settings/types'
+import { getBaseTradeAnalyticsPropertiesFromSwapInfo } from 'lx/src/features/transactions/swap/analytics'
+import type { ApprovalTxInfo } from 'lx/src/features/transactions/swap/review/hooks/useTokenApprovalInfo'
 import {
   SlippageTooLowError,
   UnknownSimulationError,
-} from 'uniswap/src/features/transactions/swap/review/services/swapTxAndGasInfoService/constants'
-import type { SwapData } from 'uniswap/src/features/transactions/swap/review/services/swapTxAndGasInfoService/evm/evmSwapRepository'
-import type { DerivedSwapInfo } from 'uniswap/src/features/transactions/swap/types/derivedSwapInfo'
-import type { SolanaTrade } from 'uniswap/src/features/transactions/swap/types/solana'
+} from 'lx/src/features/transactions/swap/review/services/swapTxAndGasInfoService/constants'
+import type { SwapData } from 'lx/src/features/transactions/swap/review/services/swapTxAndGasInfoService/evm/evmSwapRepository'
+import type { DerivedSwapInfo } from 'lx/src/features/transactions/swap/types/derivedSwapInfo'
+import type { SolanaTrade } from 'lx/src/features/transactions/swap/types/solana'
 import type {
   BaseSwapTxAndGasInfo,
   BridgeSwapTxAndGasInfo,
   ClassicSwapTxAndGasInfo,
   SwapGasFeeEstimation,
   WrapSwapTxAndGasInfo,
-} from 'uniswap/src/features/transactions/swap/types/swapTxAndGasInfo'
-import { PermitMethod } from 'uniswap/src/features/transactions/swap/types/swapTxAndGasInfo'
+} from 'lx/src/features/transactions/swap/types/swapTxAndGasInfo'
+import { PermitMethod } from 'lx/src/features/transactions/swap/types/swapTxAndGasInfo'
 import type {
   BridgeTrade,
   ClassicTrade,
   TokenApprovalInfo,
   UnwrapTrade,
   WrapTrade,
-} from 'uniswap/src/features/transactions/swap/types/trade'
-import { ApprovalAction } from 'uniswap/src/features/transactions/swap/types/trade'
-import { mergeGasFeeResults } from 'uniswap/src/features/transactions/swap/utils/gas'
-import { isClassic } from 'uniswap/src/features/transactions/swap/utils/routing'
+} from 'lx/src/features/transactions/swap/types/trade'
+import { ApprovalAction } from 'lx/src/features/transactions/swap/types/trade'
+import { mergeGasFeeResults } from 'lx/src/features/transactions/swap/utils/gas'
+import { isClassic } from 'lx/src/features/transactions/swap/utils/routing'
 import {
   validatePermit,
   validateTransactionRequest,
   validateTransactionRequests,
-} from 'uniswap/src/features/transactions/swap/utils/trade'
-import { SWAP_GAS_URGENCY_OVERRIDE } from 'uniswap/src/features/transactions/swap/utils/tradingApi'
-import type { ValidatedTransactionRequest } from 'uniswap/src/features/transactions/types/transactionRequests'
-import { CurrencyField } from 'uniswap/src/types/currency'
+} from 'lx/src/features/transactions/swap/utils/trade'
+import { SWAP_GAS_URGENCY_OVERRIDE } from 'lx/src/features/transactions/swap/utils/tradingApi'
+import type { ValidatedTransactionRequest } from 'lx/src/features/transactions/types/transactionRequests'
+import { CurrencyField } from 'lx/src/types/currency'
 import { logger } from 'utilities/src/logger/logger'
 import { isExtensionApp, isMobileApp, isWebApp } from 'utilities/src/platform'
 import type { ITraceContext } from 'utilities/src/telemetry/trace/TraceContext'

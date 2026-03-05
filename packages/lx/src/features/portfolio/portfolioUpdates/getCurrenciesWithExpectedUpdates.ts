@@ -1,8 +1,8 @@
-import { normalizeCurrencyIdForMapLookup, normalizeTokenAddressForCache } from 'uniswap/src/data/cache'
-import { TransactionDetails, TransactionType } from 'uniswap/src/features/transactions/types/transactionDetails'
-import { isPlanTransactionDetails } from 'uniswap/src/features/transactions/types/utils'
-import { CurrencyId } from 'uniswap/src/types/currency'
-import { buildCurrencyId, buildNativeCurrencyId, buildWrappedNativeCurrencyId } from 'uniswap/src/utils/currencyId'
+import { normalizeCurrencyIdForMapLookup, normalizeTokenAddressForCache } from 'lx/src/data/cache'
+import { TransactionDetails, TransactionType } from 'lx/src/features/transactions/types/transactionDetails'
+import { isPlanTransactionDetails } from 'lx/src/features/transactions/types/utils'
+import { CurrencyId } from 'lx/src/types/currency'
+import { buildCurrencyId, buildNativeCurrencyId, buildWrappedNativeCurrencyId } from 'lx/src/utils/currencyId'
 import { logger } from 'utilities/src/logger/logger'
 
 /**

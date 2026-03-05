@@ -1,8 +1,8 @@
 import { Currency } from '@uniswap/sdk-core'
 import { useMemo } from 'react'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { useSelectTransaction } from 'uniswap/src/features/transactions/hooks/useSelectTransaction'
-import { TransactionState } from 'uniswap/src/features/transactions/types/transactionState'
+import { UniverseChainId } from 'lx/src/features/chains/types'
+import { useSelectTransaction } from 'lx/src/features/transactions/hooks/useSelectTransaction'
+import { TransactionState } from 'lx/src/features/transactions/types/transactionState'
 import { createWrapFormFromTxDetails } from 'wallet/src/features/transactions/swap/createSwapFormFromTxDetails'
 
 export function useCreateWrapFormState({

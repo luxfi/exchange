@@ -1,4 +1,4 @@
-import { SerializedTokenMap, TokenDismissInfo } from 'uniswap/src/features/tokens/warnings/slice/types'
+import { SerializedTokenMap, TokenDismissInfo } from 'lx/src/features/tokens/warnings/slice/types'
 import { UserState } from '~/state/user/reducer'
 
 export type PreV16UserState = UserState & {

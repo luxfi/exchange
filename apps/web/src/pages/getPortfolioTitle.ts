@@ -1,4 +1,4 @@
-import i18n from 'uniswap/src/i18n'
+import i18n from 'lx/src/i18n'
 import { isPortfolioTab, PortfolioTab } from '~/pages/Portfolio/types'
 
 export const getPortfolioTitle = (path?: string): string => {

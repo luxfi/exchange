@@ -1,4 +1,4 @@
-import type { CurrencyInfo } from 'uniswap/src/features/dataApi/types'
+import type { CurrencyInfo } from 'lx/src/features/dataApi/types'
 import {
   approximateNumberFromRaw,
   computeFdvBidTokenRaw,

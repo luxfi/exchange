@@ -1,6 +1,6 @@
 import type { HashcashSolveAnalytics, SessionInitAnalytics } from '@universe/sessions'
-import { SessionsEventName } from 'uniswap/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
+import { SessionsEventName } from 'lx/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
 
 /**
  * Sanitizes error messages before sending to analytics.

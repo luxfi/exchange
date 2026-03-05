@@ -1,7 +1,7 @@
 import { useQueries } from '@tanstack/react-query'
 import { getPublicClient } from '@wagmi/core'
 import { useMemo } from 'react'
-import { EVMUniverseChainId } from 'uniswap/src/features/chains/types'
+import { EVMUniverseChainId } from 'lx/src/features/chains/types'
 import { ReactQueryCacheKey } from 'utilities/src/reactQuery/cache'
 import { wagmiConfig } from '~/components/Web3Provider/wagmiConfig'
 

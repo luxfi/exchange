@@ -24,8 +24,8 @@ import {
   SOLANA_BANNER_LIGHT,
   SOLANA_LOGO,
 } from 'ui/src/assets'
-import { uniswapUrls } from 'uniswap/src/constants/urls'
-import i18n from 'uniswap/src/i18n'
+import { uniswapUrls } from 'lx/src/constants/urls'
+import i18n from 'lx/src/i18n'
 import { logger } from 'utilities/src/logger/logger'
 import store from '~/state/index'
 

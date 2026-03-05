@@ -1,13 +1,13 @@
 import { useEffect, useMemo, useState } from 'react'
 import { useSelector } from 'react-redux'
-import { useActiveAddress } from 'uniswap/src/features/accounts/store/hooks'
-import { Platform } from 'uniswap/src/features/platforms/types/Platform'
-import { selectTransactions } from 'uniswap/src/features/transactions/selectors'
+import { useActiveAddress } from 'lx/src/features/accounts/store/hooks'
+import { Platform } from 'lx/src/features/platforms/types/Platform'
+import { selectTransactions } from 'lx/src/features/transactions/selectors'
 import {
   TransactionDetails,
   TransactionStatus,
   TransactionType,
-} from 'uniswap/src/features/transactions/types/transactionDetails'
+} from 'lx/src/features/transactions/types/transactionDetails'
 import { flattenObjectOfObjects } from 'utilities/src/primitives/objects'
 import { ONE_SECOND_MS } from 'utilities/src/time/time'
 

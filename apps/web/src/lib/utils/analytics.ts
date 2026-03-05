@@ -1,8 +1,8 @@
 import { Currency, CurrencyAmount, Percent, Price, Token } from '@uniswap/sdk-core'
 import { TradingApi } from '@universe/api'
-import { SwapTradeBaseProperties } from 'uniswap/src/features/telemetry/types'
-import { getRouteAnalyticsData, tradeRoutingToFillType } from 'uniswap/src/features/transactions/swap/analytics'
-import { planAnalyticsToSnakeCase } from 'uniswap/src/features/transactions/swap/plan/types'
+import { SwapTradeBaseProperties } from 'lx/src/features/telemetry/types'
+import { getRouteAnalyticsData, tradeRoutingToFillType } from 'lx/src/features/transactions/swap/analytics'
+import { planAnalyticsToSnakeCase } from 'lx/src/features/transactions/swap/plan/types'
 import {
   BridgeTrade,
   ChainedActionTrade,
@@ -11,12 +11,12 @@ import {
   UniswapXTrade,
   UniswapXV2Trade,
   UniswapXV3Trade,
-} from 'uniswap/src/features/transactions/swap/types/trade'
-import { isClassic } from 'uniswap/src/features/transactions/swap/utils/routing'
+} from 'lx/src/features/transactions/swap/types/trade'
+import { isClassic } from 'lx/src/features/transactions/swap/utils/routing'
 import {
   type PlanSwapTransactionInfoFields,
   TransactionOriginType,
-} from 'uniswap/src/features/transactions/types/transactionDetails'
+} from 'lx/src/features/transactions/types/transactionDetails'
 import { ITraceContext } from 'utilities/src/telemetry/trace/TraceContext'
 import { NATIVE_CHAIN_ID } from '~/constants/tokens'
 import { InterfaceTrade, OffchainOrderType, QuoteMethod, SubmittableTrade } from '~/state/routing/types'

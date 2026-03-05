@@ -1,6 +1,6 @@
 import { Web3Provider } from '@ethersproject/providers'
 import { useEffect, useMemo } from 'react'
-import { TransactionStatus } from 'uniswap/src/features/transactions/types/transactionDetails'
+import { TransactionStatus } from 'lx/src/features/transactions/types/transactionDetails'
 import { HexString } from 'utilities/src/addresses/hex'
 import { logger } from 'utilities/src/logger/logger'
 import { useEvent } from 'utilities/src/react/hooks'

@@ -1,6 +1,6 @@
 import { Flex, Text } from 'ui/src'
 import { iconSizes } from 'ui/src/theme'
-import { NetworkLogo } from 'uniswap/src/components/CurrencyLogo/NetworkLogo'
+import { NetworkLogo } from 'lx/src/components/CurrencyLogo/NetworkLogo'
 
 interface FiatFeeDisplayProps {
   logoChainId: number | null

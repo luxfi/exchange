@@ -26,7 +26,7 @@ export {
   SupportedCountriesResponse,
 } from '@universe/api'
 
-import { CurrencyInfo, PortfolioBalance } from 'uniswap/src/features/dataApi/types'
+import { CurrencyInfo, PortfolioBalance } from 'lx/src/features/dataApi/types'
 import {
   LocalOffRampTransactionInfo,
   LocalOnRampTransactionInfo,
@@ -34,7 +34,7 @@ import {
   OnRampPurchaseInfo,
   OnRampTransferInfo,
   TransactionDetails,
-} from 'uniswap/src/features/transactions/types/transactionDetails'
+} from 'lx/src/features/transactions/types/transactionDetails'
 // biome-ignore lint/style/noRestrictedImports: legacy import will be migrated
 import { FiatCurrencyComponents } from 'utilities/src/format/localeBased'
 

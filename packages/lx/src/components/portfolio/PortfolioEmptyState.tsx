@@ -8,12 +8,12 @@ import { Buy as BuyIcon } from 'ui/src/components/icons/Buy'
 import { PaperStack } from 'ui/src/components/icons/PaperStack'
 import { UniversalImageResizeMode } from 'ui/src/components/UniversalImage/types'
 import { borderRadii } from 'ui/src/theme'
-import { ActionCard, type ActionCardItem } from 'uniswap/src/components/misc/ActionCard'
-import { AccountType } from 'uniswap/src/features/accounts/types'
-import { useCexTransferProviders } from 'uniswap/src/features/fiatOnRamp/useCexTransferProviders'
-import { ElementName } from 'uniswap/src/features/telemetry/constants'
-import { useWallet } from 'uniswap/src/features/wallet/hooks/useWallet'
-import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+import { ActionCard, type ActionCardItem } from 'lx/src/components/misc/ActionCard'
+import { AccountType } from 'lx/src/features/accounts/types'
+import { useCexTransferProviders } from 'lx/src/features/fiatOnRamp/useCexTransferProviders'
+import { ElementName } from 'lx/src/features/telemetry/constants'
+import { useWallet } from 'lx/src/features/wallet/hooks/useWallet'
+import { TestID } from 'lx/src/test/fixtures/testIDs'
 
 enum ActionOption {
   Buy = 'Buy',

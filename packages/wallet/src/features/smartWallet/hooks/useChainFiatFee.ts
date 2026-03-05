@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
-import { nativeOnChain } from 'uniswap/src/constants/tokens'
-import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
-import { getCurrencyAmount, ValueType } from 'uniswap/src/features/tokens/getCurrencyAmount'
-import { useUSDCPrice } from 'uniswap/src/features/transactions/hooks/useUSDCPriceWrapper'
+import { nativeOnChain } from 'lx/src/constants/tokens'
+import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
+import { getCurrencyAmount, ValueType } from 'lx/src/features/tokens/getCurrencyAmount'
+import { useUSDCPrice } from 'lx/src/features/transactions/hooks/useUSDCPriceWrapper'
 
 // Hook for individual chain fee calculation
 export function useChainFiatFee(params: {

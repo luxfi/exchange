@@ -4,8 +4,8 @@ import { AppRoutes, SettingsRoutes } from 'src/app/navigation/constants'
 import { useExtensionNavigation } from 'src/app/navigation/utils'
 import { Accordion, Flex, ScrollView, Text } from 'ui/src'
 import { Clock, Wrench } from 'ui/src/components/icons'
-import { CacheConfig } from 'uniswap/src/components/gating/CacheConfig'
-import { GatingOverrides } from 'uniswap/src/components/gating/GatingOverrides'
+import { CacheConfig } from 'lx/src/components/gating/CacheConfig'
+import { GatingOverrides } from 'lx/src/components/gating/GatingOverrides'
 
 /**
  * When modifying this component, take into consideration that this is used

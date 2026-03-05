@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next'
 import { Flex, Text } from 'ui/src'
-import { ThemeToggle } from 'uniswap/src/components/appearance/ThemeToggle'
+import { ThemeToggle } from 'lx/src/components/appearance/ThemeToggle'
 
 export function ThemeToggleWithLabel(): JSX.Element {
   const { t } = useTranslation()

@@ -1,0 +1,165 @@
+[
+  {
+    "anonymous": false,
+    "inputs": [
+      { "indexed": false, "name": "sqrtPriceX96", "type": "uint160" },
+      { "indexed": false, "name": "tick", "type": "int24" }
+    ],
+    "name": "Initialize",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      { "indexed": false, "name": "sender", "type": "address" },
+      { "indexed": true, "name": "owner", "type": "address" },
+      { "indexed": true, "name": "tickLower", "type": "int24" },
+      { "indexed": true, "name": "tickUpper", "type": "int24" },
+      { "indexed": false, "name": "amount", "type": "uint128" },
+      { "indexed": false, "name": "amount0", "type": "uint256" },
+      { "indexed": false, "name": "amount1", "type": "uint256" }
+    ],
+    "name": "Mint",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      { "indexed": true, "name": "owner", "type": "address" },
+      { "indexed": true, "name": "tickLower", "type": "int24" },
+      { "indexed": true, "name": "tickUpper", "type": "int24" },
+      { "indexed": false, "name": "amount", "type": "uint128" },
+      { "indexed": false, "name": "amount0", "type": "uint256" },
+      { "indexed": false, "name": "amount1", "type": "uint256" }
+    ],
+    "name": "Burn",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      { "indexed": true, "name": "sender", "type": "address" },
+      { "indexed": true, "name": "recipient", "type": "address" },
+      { "indexed": false, "name": "amount0", "type": "int256" },
+      { "indexed": false, "name": "amount1", "type": "int256" },
+      { "indexed": false, "name": "sqrtPriceX96", "type": "uint160" },
+      { "indexed": false, "name": "liquidity", "type": "uint128" },
+      { "indexed": false, "name": "tick", "type": "int24" }
+    ],
+    "name": "Swap",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      { "indexed": true, "name": "sender", "type": "address" },
+      { "indexed": true, "name": "recipient", "type": "address" },
+      { "indexed": false, "name": "amount0", "type": "uint256" },
+      { "indexed": false, "name": "amount1", "type": "uint256" },
+      { "indexed": false, "name": "paid0", "type": "uint256" },
+      { "indexed": false, "name": "paid1", "type": "uint256" }
+    ],
+    "name": "Flash",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      { "indexed": true, "name": "owner", "type": "address" },
+      { "indexed": false, "name": "recipient", "type": "address" },
+      { "indexed": true, "name": "tickLower", "type": "int24" },
+      { "indexed": true, "name": "tickUpper", "type": "int24" },
+      { "indexed": false, "name": "amount0", "type": "uint128" },
+      { "indexed": false, "name": "amount1", "type": "uint128" }
+    ],
+    "name": "Collect",
+    "type": "event"
+  },
+  {
+    "constant": true,
+    "inputs": [],
+    "name": "token0",
+    "outputs": [{ "name": "", "type": "address" }],
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [],
+    "name": "token1",
+    "outputs": [{ "name": "", "type": "address" }],
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [],
+    "name": "fee",
+    "outputs": [{ "name": "", "type": "uint24" }],
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [],
+    "name": "tickSpacing",
+    "outputs": [{ "name": "", "type": "int24" }],
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [],
+    "name": "liquidity",
+    "outputs": [{ "name": "", "type": "uint128" }],
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [],
+    "name": "slot0",
+    "outputs": [
+      { "name": "sqrtPriceX96", "type": "uint160" },
+      { "name": "tick", "type": "int24" },
+      { "name": "observationIndex", "type": "uint16" },
+      { "name": "observationCardinality", "type": "uint16" },
+      { "name": "observationCardinalityNext", "type": "uint16" },
+      { "name": "feeProtocol", "type": "uint8" },
+      { "name": "unlocked", "type": "bool" }
+    ],
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [],
+    "name": "factory",
+    "outputs": [{ "name": "", "type": "address" }],
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [],
+    "name": "feeGrowthGlobal0X128",
+    "outputs": [{ "name": "", "type": "uint256" }],
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [],
+    "name": "feeGrowthGlobal1X128",
+    "outputs": [{ "name": "", "type": "uint256" }],
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [{ "name": "", "type": "int24" }],
+    "name": "ticks",
+    "outputs": [
+      { "name": "liquidityGross", "type": "uint128" },
+      { "name": "liquidityNet", "type": "int128" },
+      { "name": "feeGrowthOutside0X128", "type": "uint256" },
+      { "name": "feeGrowthOutside1X128", "type": "uint256" },
+      { "name": "tickCumulativeOutside", "type": "int56" },
+      { "name": "secondsPerLiquidityOutsideX128", "type": "uint160" },
+      { "name": "secondsOutside", "type": "uint32" },
+      { "name": "initialized", "type": "bool" }
+    ],
+    "type": "function"
+  }
+]

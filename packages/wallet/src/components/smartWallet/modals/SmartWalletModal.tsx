@@ -1,11 +1,11 @@
 import React from 'react'
 import { Trans } from 'react-i18next'
 import { Button, Flex, GetThemeValueForKey, Text } from 'ui/src'
-import { ButtonConfig as DialogButtonConfig } from 'uniswap/src/components/dialog/DialogButtons'
-import { Modal } from 'uniswap/src/components/modals/Modal'
-import { LearnMoreLink } from 'uniswap/src/components/text/LearnMoreLink'
-import { ModalNameType } from 'uniswap/src/features/telemetry/constants'
-import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+import { ButtonConfig as DialogButtonConfig } from 'lx/src/components/dialog/DialogButtons'
+import { Modal } from 'lx/src/components/modals/Modal'
+import { LearnMoreLink } from 'lx/src/components/text/LearnMoreLink'
+import { ModalNameType } from 'lx/src/features/telemetry/constants'
+import { TestID } from 'lx/src/test/fixtures/testIDs'
 import { isExtensionApp } from 'utilities/src/platform'
 
 type ButtonConfig =

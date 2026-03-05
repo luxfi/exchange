@@ -2,9 +2,9 @@ import { TradingApi } from '@universe/api'
 import {
   OnChainTransactionDetails,
   TransactionStatus,
-} from 'uniswap/src/features/transactions/types/transactionDetails'
-import { isBridgeTypeInfo } from 'uniswap/src/features/transactions/types/utils'
-import { createTransactionId } from 'uniswap/src/utils/createTransactionId'
+} from 'lx/src/features/transactions/types/transactionDetails'
+import { isBridgeTypeInfo } from 'lx/src/features/transactions/types/utils'
+import { createTransactionId } from 'lx/src/utils/createTransactionId'
 import { SubmitTransactionParamsWithTypeInfo } from 'wallet/src/features/transactions/executeTransaction/services/TransactionService/transactionService'
 
 export function createUnsubmittedTransactionDetails(

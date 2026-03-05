@@ -11,22 +11,22 @@ import {
   transformInput,
   type WithoutWalletAccount,
 } from '@universe/api'
-import { uniswapGetTransport } from 'uniswap/src/data/rest/base'
-import { buildAccountAddressesByPlatform } from 'uniswap/src/data/rest/buildAccountAddressesByPlatform'
+import { uniswapGetTransport } from 'lx/src/data/rest/base'
+import { buildAccountAddressesByPlatform } from 'lx/src/data/rest/buildAccountAddressesByPlatform'
 import {
   cleanupCaughtUpOverrides,
   getOverridesForAddress,
   getOverridesForQuery,
   getPortfolioQueryReduxStore,
-} from 'uniswap/src/data/rest/portfolioBalanceOverrides'
-import { useEnabledChains } from 'uniswap/src/features/chains/hooks/useEnabledChains'
-import { useRestPortfolioValueModifier } from 'uniswap/src/features/dataApi/balances/balancesRest'
-import { Platform } from 'uniswap/src/features/platforms/types/Platform'
-import { fetchAndMergeOnchainBalances } from 'uniswap/src/features/portfolio/portfolioUpdates/rest/refetchRestQueriesViaOnchainOverrideVariantSaga'
-import { removeExpiredBalanceOverrides } from 'uniswap/src/features/portfolio/slice/slice'
-import { type CurrencyId } from 'uniswap/src/types/currency'
-import { areAddressesEqual } from 'uniswap/src/utils/addresses'
-import { currencyIdToAddress, currencyIdToChain, isNativeCurrencyAddress } from 'uniswap/src/utils/currencyId'
+} from 'lx/src/data/rest/portfolioBalanceOverrides'
+import { useEnabledChains } from 'lx/src/features/chains/hooks/useEnabledChains'
+import { useRestPortfolioValueModifier } from 'lx/src/features/dataApi/balances/balancesRest'
+import { Platform } from 'lx/src/features/platforms/types/Platform'
+import { fetchAndMergeOnchainBalances } from 'lx/src/features/portfolio/portfolioUpdates/rest/refetchRestQueriesViaOnchainOverrideVariantSaga'
+import { removeExpiredBalanceOverrides } from 'lx/src/features/portfolio/slice/slice'
+import { type CurrencyId } from 'lx/src/types/currency'
+import { areAddressesEqual } from 'lx/src/utils/addresses'
+import { currencyIdToAddress, currencyIdToChain, isNativeCurrencyAddress } from 'lx/src/utils/currencyId'
 import { createLogger } from 'utilities/src/logger/logger'
 import { useEvent } from 'utilities/src/react/hooks'
 import { ReactQueryCacheKey } from 'utilities/src/reactQuery/cache'

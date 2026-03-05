@@ -1,20 +1,20 @@
 import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
-import { TransactionSummaryLayout } from 'uniswap/src/components/activity/summaries/TransactionSummaryLayout'
-import { SummaryItemProps } from 'uniswap/src/components/activity/types'
-import { TXN_HISTORY_ICON_SIZE } from 'uniswap/src/components/activity/utils'
-import { LogoWithTxStatus } from 'uniswap/src/components/CurrencyLogo/LogoWithTxStatus'
-import { AssetType } from 'uniswap/src/entities/assets'
-import { isValidIsoCurrencyCode } from 'uniswap/src/features/fiatOnRamp/utils'
-import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
-import { useCurrencyInfo } from 'uniswap/src/features/tokens/useCurrencyInfo'
+import { TransactionSummaryLayout } from 'lx/src/components/activity/summaries/TransactionSummaryLayout'
+import { SummaryItemProps } from 'lx/src/components/activity/types'
+import { TXN_HISTORY_ICON_SIZE } from 'lx/src/components/activity/utils'
+import { LogoWithTxStatus } from 'lx/src/components/CurrencyLogo/LogoWithTxStatus'
+import { AssetType } from 'lx/src/entities/assets'
+import { isValidIsoCurrencyCode } from 'lx/src/features/fiatOnRamp/utils'
+import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
+import { useCurrencyInfo } from 'lx/src/features/tokens/useCurrencyInfo'
 import {
   OnRampPurchaseInfo,
   OnRampTransferInfo,
   TransactionDetails,
   TransactionType,
-} from 'uniswap/src/features/transactions/types/transactionDetails'
-import { buildCurrencyId } from 'uniswap/src/utils/currencyId'
+} from 'lx/src/features/transactions/types/transactionDetails'
+import { buildCurrencyId } from 'lx/src/utils/currencyId'
 import { NumberType } from 'utilities/src/format/types'
 import { logger } from 'utilities/src/logger/logger'
 

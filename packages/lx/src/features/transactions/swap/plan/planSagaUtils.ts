@@ -2,34 +2,34 @@ import { ChainedQuoteResponse, TradingApi } from '@universe/api'
 import { PlanResponse } from '@universe/api/src/clients/trading/__generated__/models/PlanResponse'
 import { WalletExecutionContext } from '@universe/api/src/clients/trading/__generated__/models/WalletExecutionContext'
 import { call, race, SagaGenerator, take } from 'typed-redux-saga'
-import { CAIP25Session } from 'uniswap/src/features/capabilities/caip25/types'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { toSupportedChainId } from 'uniswap/src/features/chains/utils'
-import { AppNotificationType, SwapPendingNotification } from 'uniswap/src/features/notifications/slice/types'
+import { CAIP25Session } from 'lx/src/features/capabilities/caip25/types'
+import { UniverseChainId } from 'lx/src/features/chains/types'
+import { toSupportedChainId } from 'lx/src/features/chains/utils'
+import { AppNotificationType, SwapPendingNotification } from 'lx/src/features/notifications/slice/types'
 import {
   TransformPlanParams,
   transformPlanResponseToChainedQuote,
-} from 'uniswap/src/features/transactions/swap/hooks/useTradeFromExistingPlan'
-import { TransactionAndPlanStep, transformSteps } from 'uniswap/src/features/transactions/swap/plan/planStepTransformer'
-import { consumePrefetchedPlan } from 'uniswap/src/features/transactions/swap/plan/prefetchedPlanStore'
-import { getPlanCompoundSlippageTolerance } from 'uniswap/src/features/transactions/swap/plan/slippage'
+} from 'lx/src/features/transactions/swap/hooks/useTradeFromExistingPlan'
+import { TransactionAndPlanStep, transformSteps } from 'lx/src/features/transactions/swap/plan/planStepTransformer'
+import { consumePrefetchedPlan } from 'lx/src/features/transactions/swap/plan/prefetchedPlanStore'
+import { getPlanCompoundSlippageTolerance } from 'lx/src/features/transactions/swap/plan/slippage'
 import {
   AbortPlanError,
   ExpectedPlanError,
   PlanParams,
   PlanValidationError,
-} from 'uniswap/src/features/transactions/swap/plan/types'
+} from 'lx/src/features/transactions/swap/plan/types'
 import {
   createOrRefreshPlan,
   findFirstActiveStep,
   getStepLogArray,
-} from 'uniswap/src/features/transactions/swap/plan/utils'
-import { activePlanStore } from 'uniswap/src/features/transactions/swap/review/stores/activePlan/activePlanStore'
-import { ValidatedTradeInput } from 'uniswap/src/features/transactions/swap/services/tradeService/transformations/buildQuoteRequest'
-import { ValidatedChainedSwapTxAndGasInfo } from 'uniswap/src/features/transactions/swap/types/swapTxAndGasInfo'
-import { ChainedActionTrade, Trade } from 'uniswap/src/features/transactions/swap/types/trade'
-import { WrapType } from 'uniswap/src/features/transactions/types/wrap'
-import { signalSwapModalClosed } from 'uniswap/src/utils/saga'
+} from 'lx/src/features/transactions/swap/plan/utils'
+import { activePlanStore } from 'lx/src/features/transactions/swap/review/stores/activePlan/activePlanStore'
+import { ValidatedTradeInput } from 'lx/src/features/transactions/swap/services/tradeService/transformations/buildQuoteRequest'
+import { ValidatedChainedSwapTxAndGasInfo } from 'lx/src/features/transactions/swap/types/swapTxAndGasInfo'
+import { ChainedActionTrade, Trade } from 'lx/src/features/transactions/swap/types/trade'
+import { WrapType } from 'lx/src/features/transactions/types/wrap'
+import { signalSwapModalClosed } from 'lx/src/utils/saga'
 import { isProdEnv } from 'utilities/src/environment/env'
 import { logger } from 'utilities/src/logger/logger'
 

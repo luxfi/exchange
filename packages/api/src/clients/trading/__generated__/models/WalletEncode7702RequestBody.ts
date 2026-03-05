@@ -13,5 +13,9 @@ export type WalletEncode7702RequestBody = {
      * The address of the smart contract delegation implementation to use.
      */
     smartContractDelegationAddress: Address;
+    /**
+     * The address of the wallet for which the transactions will be encoded.
+     */
+    walletAddress: Address;
 };
 

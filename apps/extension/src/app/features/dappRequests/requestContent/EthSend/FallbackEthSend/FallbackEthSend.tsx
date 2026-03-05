@@ -8,9 +8,9 @@ import { isNonZeroBigNumber } from 'src/app/features/dappRequests/requestContent
 import { SendTransactionRequest } from 'src/app/features/dappRequests/types/DappRequestTypes'
 import { Anchor, Flex, Text, TouchableArea } from 'ui/src'
 import { AnimatedCopySheets, ExternalLink } from 'ui/src/components/icons'
-import { ContentRow } from 'uniswap/src/components/transactions/requests/ContentRow'
-import { CopyNotificationType } from 'uniswap/src/features/notifications/slice/types'
-import { ExplorerDataType, getExplorerLink } from 'uniswap/src/utils/linking'
+import { ContentRow } from 'lx/src/components/transactions/requests/ContentRow'
+import { CopyNotificationType } from 'lx/src/features/notifications/slice/types'
+import { ExplorerDataType, getExplorerLink } from 'lx/src/utils/linking'
 import { ellipseMiddle, shortenAddress } from 'utilities/src/addresses'
 import { useCopyToClipboard } from 'wallet/src/components/copy/useCopyToClipboard'
 import {

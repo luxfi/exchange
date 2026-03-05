@@ -1,11 +1,11 @@
 import { waitFor } from '@testing-library/react-native'
 import { BlockaidScanTransactionRequest, SharedQueryClient } from '@universe/api'
-import { BlockaidApiClient } from 'uniswap/src/data/apiClients/blockaidApi/BlockaidApiClient'
+import { BlockaidApiClient } from 'lx/src/data/apiClients/blockaidApi/BlockaidApiClient'
 import { useBlockaidTransactionScan } from 'wallet/src/features/dappRequests/hooks/useBlockaidTransactionScan'
 import { renderHook } from 'wallet/src/test/test-utils'
 
 // Mock the BlockaidApiClient
-jest.mock('uniswap/src/data/apiClients/blockaidApi/BlockaidApiClient', () => ({
+jest.mock('lx/src/data/apiClients/blockaidApi/BlockaidApiClient', () => ({
   BlockaidApiClient: {
     scanTransaction: jest.fn(),
   },

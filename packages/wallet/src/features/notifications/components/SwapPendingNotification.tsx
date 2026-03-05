@@ -1,9 +1,9 @@
 import { TFunction } from 'i18next'
 import { useTranslation } from 'react-i18next'
 import { SpinningLoader } from 'ui/src'
-import { NotificationToast } from 'uniswap/src/components/notifications/NotificationToast'
-import { SwapPendingNotification as SwapPendingNotificationType } from 'uniswap/src/features/notifications/slice/types'
-import { WrapType } from 'uniswap/src/features/transactions/types/wrap'
+import { NotificationToast } from 'lx/src/components/notifications/NotificationToast'
+import { SwapPendingNotification as SwapPendingNotificationType } from 'lx/src/features/notifications/slice/types'
+import { WrapType } from 'lx/src/features/transactions/types/wrap'
 import { ONE_SECOND_MS } from 'utilities/src/time/time'
 
 // We roughly track the L1 block time, accuracy isnt crucial because we have other pending states,

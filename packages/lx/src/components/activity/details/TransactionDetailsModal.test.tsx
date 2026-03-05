@@ -1,14 +1,14 @@
 import { TradingApi } from '@universe/api/src'
-import { TransactionDetailsContent } from 'uniswap/src/components/activity/details/TransactionDetailsContent'
-import { TransactionDetailsHeader } from 'uniswap/src/components/activity/details/TransactionDetailsHeader'
-import { TransactionDetailsInfoRows } from 'uniswap/src/components/activity/details/TransactionDetailsInfoRows'
-import { CurrencyInfo } from 'uniswap/src/features/dataApi/types'
+import { TransactionDetailsContent } from 'lx/src/components/activity/details/TransactionDetailsContent'
+import { TransactionDetailsHeader } from 'lx/src/components/activity/details/TransactionDetailsHeader'
+import { TransactionDetailsInfoRows } from 'lx/src/components/activity/details/TransactionDetailsInfoRows'
+import { CurrencyInfo } from 'lx/src/features/dataApi/types'
 import {
   TransactionDetails,
   TransactionOriginType,
   TransactionStatus,
   TransactionType,
-} from 'uniswap/src/features/transactions/types/transactionDetails'
+} from 'lx/src/features/transactions/types/transactionDetails'
 import {
   ARBITRUM_DAI_CURRENCY_INFO,
   BASE_CURRENCY,
@@ -17,15 +17,15 @@ import {
   OPTIMISM_CURRENCY,
   POLYGON_CURRENCY,
   SAMPLE_SEED_ADDRESS_1,
-} from 'uniswap/src/test/fixtures'
-import { render } from 'uniswap/src/test/test-utils'
+} from 'lx/src/test/fixtures'
+import { render } from 'lx/src/test/test-utils'
 
-vi.mock('uniswap/src/components/menus/ContextMenu', async (importOriginal) => {
-  const actual = await importOriginal<typeof import('uniswap/src/components/menus/ContextMenu.web')>()
+vi.mock('lx/src/components/menus/ContextMenu', async (importOriginal) => {
+  const actual = await importOriginal<typeof import('lx/src/components/menus/ContextMenu.web')>()
   return { ...actual }
 })
 
-vi.mock('uniswap/src/features/wallet/hooks/useWallet', () => ({
+vi.mock('lx/src/features/wallet/hooks/useWallet', () => ({
   useWallet: vi.fn().mockReturnValue({
     evmAccount: { address: '0x82D56A352367453f74FC0dC7B071b311da373Fa6', accountType: 'signerMnemonic' },
   }),
@@ -74,7 +74,7 @@ const getCurrencyInfoForChain = (chainId: number): CurrencyInfo => {
   }
 }
 
-vi.mock('uniswap/src/features/tokens/useCurrencyInfo', () => ({
+vi.mock('lx/src/features/tokens/useCurrencyInfo', () => ({
   useCurrencyInfo: (currencyIdString: string | undefined): Maybe<CurrencyInfo> => {
     if (!currencyIdString) {
       return null
@@ -103,7 +103,7 @@ vi.mock('@universe/gating', async (importOriginal) => {
   }
 })
 
-vi.mock('uniswap/src/features/language/localizedDayjs', () => ({
+vi.mock('lx/src/features/language/localizedDayjs', () => ({
   useFormattedDateTime: vi.fn(() => 'January 1, 2023 12:00 AM'),
   FORMAT_DATE_TIME_MEDIUM: 'MMMM D, YYYY h:mm A',
 }))

@@ -5,45 +5,21 @@ import { Trans, useTranslation } from 'react-i18next'
 import { Flex, Text, UniswapXText } from 'ui/src'
 import { OrderRouting } from 'ui/src/components/icons/OrderRouting'
 import { zIndexes } from 'ui/src/theme'
-<<<<<<<< HEAD:packages/lx/src/features/transactions/swap/components/RoutingInfo.tsx
 import { WarningSeverity } from 'lx/src/components/modals/WarningModal/types'
 import { WarningInfo } from 'lx/src/components/modals/WarningModal/WarningInfo'
 import { RoutingDiagram } from 'lx/src/components/RoutingDiagram/RoutingDiagram'
 import { RoutingLabel } from 'lx/src/components/RoutingDiagram/RoutingLabel'
-import { uniswapUrls } from 'lx/src/constants/urls'
 import type { UniverseChainId } from 'lx/src/features/chains/types'
 import { useUSDValueOfGasFee } from 'lx/src/features/gas/hooks'
-import type { GasFeeResult } from 'lx/src/features/gas/types'
 import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
 import { ModalName } from 'lx/src/features/telemetry/constants'
-import { AcrossRoutingInfo } from 'lx/src/features/transactions/swap/components/AcrossRoutingInfo'
 import {
   BestRouteTooltip,
   BestRouteUniswapXTooltip,
 } from 'lx/src/features/transactions/swap/form/SwapFormScreen/SwapFormTooltips/BestRouteTooltip'
-import { usePriceUXEnabled } from 'lx/src/features/transactions/swap/hooks/usePriceUXEnabled'
-import { useV4SwapEnabled } from 'lx/src/features/transactions/swap/hooks/useV4SwapEnabled'
 import { Trade } from 'lx/src/features/transactions/swap/types/trade'
-import { isBridge, isClassic, isUniswapX } from 'lx/src/features/transactions/swap/utils/routing'
-import { openUri } from 'lx/src/utils/linking'
+import { isUniswapX } from 'lx/src/features/transactions/swap/utils/routing'
 import { useRoutingEntries } from 'lx/src/utils/routingDiagram/routingRegistry'
-========
-import { WarningSeverity } from 'uniswap/src/components/modals/WarningModal/types'
-import { WarningInfo } from 'uniswap/src/components/modals/WarningModal/WarningInfo'
-import { RoutingDiagram } from 'uniswap/src/components/RoutingDiagram/RoutingDiagram'
-import { RoutingLabel } from 'uniswap/src/components/RoutingDiagram/RoutingLabel'
-import type { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { useUSDValueOfGasFee } from 'uniswap/src/features/gas/hooks'
-import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
-import { ModalName } from 'uniswap/src/features/telemetry/constants'
-import {
-  BestRouteTooltip,
-  BestRouteUniswapXTooltip,
-} from 'uniswap/src/features/transactions/swap/form/SwapFormScreen/SwapFormTooltips/BestRouteTooltip'
-import { Trade } from 'uniswap/src/features/transactions/swap/types/trade'
-import { isUniswapX } from 'uniswap/src/features/transactions/swap/utils/routing'
-import { useRoutingEntries } from 'uniswap/src/utils/routingDiagram/routingRegistry'
->>>>>>>> upstream/main:packages/lx/src/features/transactions/swap/components/RoutingInfo/RoutingHopInfo.tsx
 import { NumberType } from 'utilities/src/format/types'
 import { isWebPlatform } from 'utilities/src/platform'
 

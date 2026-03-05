@@ -1,5 +1,5 @@
 import type { BlockaidScanJsonRpcRequest } from '@universe/api'
-import type { UniverseChainId } from 'uniswap/src/features/chains/types'
+import type { UniverseChainId } from 'lx/src/features/chains/types'
 
 interface SignatureRequestData {
   chainId: UniverseChainId

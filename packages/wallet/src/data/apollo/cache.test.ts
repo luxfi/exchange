@@ -1,13 +1,13 @@
 import { InMemoryCache } from '@apollo/client'
 import { persistCache } from 'apollo3-cache-persist'
 import { PersistentStorage } from 'apollo3-cache-persist/lib/types'
-import { setupSharedApolloCache } from 'uniswap/src/data/cache'
+import { setupSharedApolloCache } from 'lx/src/data/cache'
 import { initAndPersistCache, shouldResetCache, storeCacheVersion } from 'wallet/src/data/apollo/cache'
 
 // Mock external dependencies
 jest.mock('@apollo/client')
 jest.mock('apollo3-cache-persist')
-jest.mock('uniswap/src/data/cache')
+jest.mock('lx/src/data/cache')
 jest.mock('utilities/src/logger/logger')
 
 const mockPersistCache = persistCache as jest.MockedFunction<typeof persistCache>

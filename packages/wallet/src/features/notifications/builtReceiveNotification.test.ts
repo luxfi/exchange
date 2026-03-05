@@ -1,10 +1,10 @@
-import { AssetType } from 'uniswap/src/entities/assets'
+import { AssetType } from 'lx/src/entities/assets'
 import {
   ReceiveTokenTransactionInfo,
   TransactionStatus,
   TransactionType,
-} from 'uniswap/src/features/transactions/types/transactionDetails'
-import { receiveTokenTransactionInfo } from 'uniswap/src/test/fixtures'
+} from 'lx/src/features/transactions/types/transactionDetails'
+import { receiveTokenTransactionInfo } from 'lx/src/test/fixtures'
 import { buildReceiveNotification } from 'wallet/src/features/notifications/buildReceiveNotification'
 import { createFinalizedTxAction } from 'wallet/src/features/notifications/notificationWatcherSaga.test'
 import { receiveCurrencyTxNotification, receiveNFTNotification, signerMnemonicAccount } from 'wallet/src/test/fixtures'

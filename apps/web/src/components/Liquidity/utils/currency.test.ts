@@ -1,8 +1,8 @@
 import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
-import { ZERO_ADDRESS } from 'uniswap/src/constants/misc'
-import { nativeOnChain, USDT } from 'uniswap/src/constants/tokens'
-import { getChainInfo } from 'uniswap/src/features/chains/chainInfo'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { ZERO_ADDRESS } from 'lx/src/constants/misc'
+import { nativeOnChain, USDT } from 'lx/src/constants/tokens'
+import { getChainInfo } from 'lx/src/features/chains/chainInfo'
+import { UniverseChainId } from 'lx/src/features/chains/types'
 import {
   canUnwrapCurrency,
   getCurrencyForProtocol,

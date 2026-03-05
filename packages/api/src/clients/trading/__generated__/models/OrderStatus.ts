@@ -10,6 +10,7 @@
  * Cancelled - order is cancelled. Note that to cancel an order, a new order must be placed with the same nonce as the prior open order and it must be placed within the same block as the original order.
  * Filled - order is filled.
  * Insufficient-funds - the swapper (you) do not have enough funds for the order to be completed and the order is cancelled and will not be filled.
+ * Unverified - order has not been verified yet.
  */
 export enum OrderStatus {
     OPEN = 'open',
@@ -17,7 +18,6 @@ export enum OrderStatus {
     ERROR = 'error',
     CANCELLED = 'cancelled',
     FILLED = 'filled',
+    UNVERIFIED = 'unverified',
     INSUFFICIENT_FUNDS = 'insufficient-funds',
-    /** @deprecated Deprecation flag added via modifyTradingApiTypes.mts in order to not break existing code. */
-    UNVERIFIED = "unverified"
 }

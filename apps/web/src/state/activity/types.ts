@@ -1,9 +1,9 @@
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { UniverseChainId } from 'lx/src/features/chains/types'
 import {
   PlanTransactionDetails,
   TransactionType,
   UniswapXOrderDetails,
-} from 'uniswap/src/features/transactions/types/transactionDetails'
+} from 'lx/src/features/transactions/types/transactionDetails'
 import { ConfirmedTransactionDetails, TransactionDetails } from '~/state/transactions/types'
 
 export enum ActivityUpdateTransactionType {

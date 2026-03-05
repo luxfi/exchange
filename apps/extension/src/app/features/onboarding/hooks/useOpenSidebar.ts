@@ -3,7 +3,7 @@ import { getCurrentTabAndWindowId } from 'src/app/navigation/utils'
 import { onboardingMessageChannel } from 'src/background/messagePassing/messageChannels'
 import { OnboardingMessageType } from 'src/background/messagePassing/types/ExtensionMessages'
 import { openSidePanel } from 'src/background/utils/chromeSidePanelUtils'
-import { uniswapUrls } from 'uniswap/src/constants/urls'
+import { uniswapUrls } from 'lx/src/constants/urls'
 import { logger } from 'utilities/src/logger/logger'
 import { useBooleanState } from 'utilities/src/react/useBooleanState'
 

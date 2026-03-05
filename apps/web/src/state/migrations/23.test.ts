@@ -1,6 +1,6 @@
 import { createMigrate } from 'redux-persist'
-import { FiatCurrency } from 'uniswap/src/features/fiatCurrency/constants'
-import { Language } from 'uniswap/src/features/language/constants'
+import { FiatCurrency } from 'lx/src/features/fiatCurrency/constants'
+import { Language } from 'lx/src/features/language/constants'
 import { migration1 } from '~/state/migrations/1'
 import { migration2 } from '~/state/migrations/2'
 import { migration3 } from '~/state/migrations/3'

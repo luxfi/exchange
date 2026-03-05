@@ -1,5 +1,5 @@
 import { useMemo } from 'react'
-import { Platform } from 'uniswap/src/features/platforms/types/Platform'
+import { Platform } from 'lx/src/features/platforms/types/Platform'
 import { useActiveAddresses } from '~/features/accounts/store/hooks'
 import { usePortfolioRoutes } from '~/pages/Portfolio/Header/hooks/usePortfolioRoutes'
 

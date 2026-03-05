@@ -4,9 +4,9 @@ import { QueryClient } from '@tanstack/react-query'
 import { dappRequestActions } from 'src/app/features/dappRequests/slice'
 import { createExtensionAppStateResetter } from 'src/store/appStateResetter'
 import { type ExtensionState, extensionReducer } from 'src/store/extensionReducer'
-import { DappRequestType } from 'uniswap/src/features/dappRequests/types'
-import { pushNotification } from 'uniswap/src/features/notifications/slice/slice'
-import { AppNotificationType } from 'uniswap/src/features/notifications/slice/types'
+import { DappRequestType } from 'lx/src/features/dappRequests/types'
+import { pushNotification } from 'lx/src/features/notifications/slice/slice'
+import { AppNotificationType } from 'lx/src/features/notifications/slice/types'
 
 const createMockApolloClient = (): ApolloClient<unknown> => {
   const client = new ApolloClient({

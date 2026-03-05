@@ -4,22 +4,22 @@ import { useTranslation } from 'react-i18next'
 import { Button, Flex, FlexLoader, Separator, Skeleton, Text } from 'ui/src'
 import { SlashCircle } from 'ui/src/components/icons/SlashCircle'
 import { fonts } from 'ui/src/theme'
-import { AuthTrigger } from 'uniswap/src/features/auth/types'
-import { useUSDValueOfGasFee } from 'uniswap/src/features/gas/hooks'
-import { useCancellationGasFeeInfo } from 'uniswap/src/features/gas/hooks/useCancellationGasFeeInfo'
-import { PlanCancellationGasFeeDetails } from 'uniswap/src/features/gas/hooks/usePlanCancellationGasFeeInfo'
-import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
-import { ElementName, ModalName } from 'uniswap/src/features/telemetry/constants'
-import Trace from 'uniswap/src/features/telemetry/Trace'
-import { CancelableStepInfo } from 'uniswap/src/features/transactions/hooks/useIsCancelable'
-import { isUniswapX } from 'uniswap/src/features/transactions/swap/utils/routing'
+import { AuthTrigger } from 'lx/src/features/auth/types'
+import { useUSDValueOfGasFee } from 'lx/src/features/gas/hooks'
+import { useCancellationGasFeeInfo } from 'lx/src/features/gas/hooks/useCancellationGasFeeInfo'
+import { PlanCancellationGasFeeDetails } from 'lx/src/features/gas/hooks/usePlanCancellationGasFeeInfo'
+import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
+import { ElementName, ModalName } from 'lx/src/features/telemetry/constants'
+import Trace from 'lx/src/features/telemetry/Trace'
+import { CancelableStepInfo } from 'lx/src/features/transactions/hooks/useIsCancelable'
+import { isUniswapX } from 'lx/src/features/transactions/swap/utils/routing'
 import {
   PlanTransactionInfo,
   TransactionDetails,
   TransactionStatus,
   TransactionType,
-} from 'uniswap/src/features/transactions/types/transactionDetails'
-import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+} from 'lx/src/features/transactions/types/transactionDetails'
+import { TestID } from 'lx/src/test/fixtures/testIDs'
 import { NumberType } from 'utilities/src/format/types'
 import { isWebPlatform } from 'utilities/src/platform'
 

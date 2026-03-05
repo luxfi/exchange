@@ -1,10 +1,10 @@
 import { TradingApi } from '@universe/api'
 import { useFeatureFlag } from '@universe/gating'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import type { FrontendSupportedProtocol } from 'uniswap/src/features/transactions/swap/utils/protocols'
-import { useProtocolsForChain } from 'uniswap/src/features/transactions/swap/utils/protocols'
-import { useQuoteRoutingParams } from 'uniswap/src/features/transactions/swap/utils/tradingApi'
-import { renderHook } from 'uniswap/src/test/test-utils'
+import { UniverseChainId } from 'lx/src/features/chains/types'
+import type { FrontendSupportedProtocol } from 'lx/src/features/transactions/swap/utils/protocols'
+import { useProtocolsForChain } from 'lx/src/features/transactions/swap/utils/protocols'
+import { useQuoteRoutingParams } from 'lx/src/features/transactions/swap/utils/tradingApi'
+import { renderHook } from 'lx/src/test/test-utils'
 import type { Mock } from 'vitest'
 
 vi.mock('@universe/gating', async (importOriginal) => {
@@ -14,8 +14,8 @@ vi.mock('@universe/gating', async (importOriginal) => {
     useFeatureFlag: vi.fn(),
   }
 })
-vi.mock('uniswap/src/features/transactions/swap/utils/protocols', async (importOriginal) => {
-  const actual = await importOriginal<typeof import('uniswap/src/features/transactions/swap/utils/protocols')>()
+vi.mock('lx/src/features/transactions/swap/utils/protocols', async (importOriginal) => {
+  const actual = await importOriginal<typeof import('lx/src/features/transactions/swap/utils/protocols')>()
   return {
     ...actual,
     useProtocolsForChain: vi.fn((protocols) => protocols),

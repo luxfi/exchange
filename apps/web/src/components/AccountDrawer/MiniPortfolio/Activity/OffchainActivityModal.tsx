@@ -8,21 +8,21 @@ import { useTranslation } from 'react-i18next'
 import { Button, Flex, styled, TouchableArea } from 'ui/src'
 import { ArrowDown } from 'ui/src/components/icons/ArrowDown'
 import { X } from 'ui/src/components/icons/X'
-import { Modal } from 'uniswap/src/components/modals/Modal'
+import { Modal } from 'lx/src/components/modals/Modal'
 import {
   FORMAT_DATE_TIME_SHORT,
   useFormattedDateTime,
   useLocalizedDayjs,
-} from 'uniswap/src/features/language/localizedDayjs'
-import { InterfaceEventName, ModalName } from 'uniswap/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
-import { useUSDCValue } from 'uniswap/src/features/transactions/hooks/useUSDCPriceWrapper'
-import { hasTradeType } from 'uniswap/src/features/transactions/swap/utils/trade'
-import { TransactionStatus, UniswapXOrderDetails } from 'uniswap/src/features/transactions/types/transactionDetails'
-import { isLimitCancellable } from 'uniswap/src/features/transactions/utils/uniswapX.utils'
-import { CurrencyField } from 'uniswap/src/types/currency'
-import { currencyIdToAddress } from 'uniswap/src/utils/currencyId'
-import { ExplorerDataType, getExplorerLink } from 'uniswap/src/utils/linking'
+} from 'lx/src/features/language/localizedDayjs'
+import { InterfaceEventName, ModalName } from 'lx/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
+import { useUSDCValue } from 'lx/src/features/transactions/hooks/useUSDCPriceWrapper'
+import { hasTradeType } from 'lx/src/features/transactions/swap/utils/trade'
+import { TransactionStatus, UniswapXOrderDetails } from 'lx/src/features/transactions/types/transactionDetails'
+import { isLimitCancellable } from 'lx/src/features/transactions/utils/uniswapX.utils'
+import { CurrencyField } from 'lx/src/types/currency'
+import { currencyIdToAddress } from 'lx/src/utils/currencyId'
+import { ExplorerDataType, getExplorerLink } from 'lx/src/utils/linking'
 import { logger } from 'utilities/src/logger/logger'
 import {
   CancellationState,

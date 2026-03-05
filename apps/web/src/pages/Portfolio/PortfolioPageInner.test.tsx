@@ -1,13 +1,13 @@
-import { useActiveAddresses } from 'uniswap/src/features/accounts/store/hooks'
-import { SAMPLE_SEED_ADDRESS_1 } from 'uniswap/src/test/fixtures/gql/assets/constants'
+import { useActiveAddresses } from 'lx/src/features/accounts/store/hooks'
+import { SAMPLE_SEED_ADDRESS_1 } from 'lx/src/test/fixtures/gql/assets/constants'
 import { usePortfolioRoutes } from '~/pages/Portfolio/Header/hooks/usePortfolioRoutes'
 import { PortfolioPageInner } from '~/pages/Portfolio/PortfolioPageInner'
 import { PortfolioTab } from '~/pages/Portfolio/types'
 import { mocked } from '~/test-utils/mocked'
 import { render } from '~/test-utils/render'
 
-vi.mock('uniswap/src/features/accounts/store/hooks', async (importOriginal) => {
-  const actual = await importOriginal<typeof import('uniswap/src/features/accounts/store/hooks')>()
+vi.mock('lx/src/features/accounts/store/hooks', async (importOriginal) => {
+  const actual = await importOriginal<typeof import('lx/src/features/accounts/store/hooks')>()
   return {
     ...actual,
     useActiveAddresses: vi.fn(),

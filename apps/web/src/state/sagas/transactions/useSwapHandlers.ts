@@ -5,9 +5,9 @@ import {
   ExecuteSwapParams,
   PrepareSwapCallback,
   SwapHandlers,
-} from 'uniswap/src/features/transactions/swap/types/swapHandlers'
-import { isWrap } from 'uniswap/src/features/transactions/swap/utils/routing'
-import { WrapType } from 'uniswap/src/features/transactions/types/wrap'
+} from 'lx/src/features/transactions/swap/types/swapHandlers'
+import { isWrap } from 'lx/src/features/transactions/swap/utils/routing'
+import { WrapType } from 'lx/src/features/transactions/types/wrap'
 import { useSwapCallback } from '~/state/sagas/transactions/swapSaga'
 import { useWrapCallback } from '~/state/sagas/transactions/wrapSaga'
 

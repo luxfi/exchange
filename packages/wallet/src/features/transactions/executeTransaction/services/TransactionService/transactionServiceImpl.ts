@@ -1,19 +1,19 @@
 import type { BaseProvider, Provider } from '@ethersproject/providers'
 import { utils } from 'ethers'
-import { type AccountMeta } from 'uniswap/src/features/accounts/types'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { getChainLabel } from 'uniswap/src/features/chains/utils'
-import { FlashbotsRpcProvider } from 'uniswap/src/features/providers/FlashbotsRpcProvider'
-import { SwapTradeBaseProperties } from 'uniswap/src/features/telemetry/types'
-import { validateTransactionRequest } from 'uniswap/src/features/transactions/swap/utils/trade'
+import { type AccountMeta } from 'lx/src/features/accounts/types'
+import { UniverseChainId } from 'lx/src/features/chains/types'
+import { getChainLabel } from 'lx/src/features/chains/utils'
+import { FlashbotsRpcProvider } from 'lx/src/features/providers/FlashbotsRpcProvider'
+import { SwapTradeBaseProperties } from 'lx/src/features/telemetry/types'
+import { validateTransactionRequest } from 'lx/src/features/transactions/swap/utils/trade'
 import type {
   OnChainTransactionDetails,
   TransactionDetails,
   TransactionOptions,
   TransactionTypeInfo,
-} from 'uniswap/src/features/transactions/types/transactionDetails'
-import { TransactionOriginType, TransactionStatus } from 'uniswap/src/features/transactions/types/transactionDetails'
-import { isBridgeTypeInfo, isSwapTypeInfo } from 'uniswap/src/features/transactions/types/utils'
+} from 'lx/src/features/transactions/types/transactionDetails'
+import { TransactionOriginType, TransactionStatus } from 'lx/src/features/transactions/types/transactionDetails'
+import { isBridgeTypeInfo, isSwapTypeInfo } from 'lx/src/features/transactions/types/utils'
 import { logger as loggerUtil } from 'utilities/src/logger/logger'
 import { ONE_SECOND_MS } from 'utilities/src/time/time'
 import { isPrivateRpcSupportedOnChain } from 'wallet/src/features/providers/utils'

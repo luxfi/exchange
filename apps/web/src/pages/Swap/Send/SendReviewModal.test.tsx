@@ -1,7 +1,7 @@
 import '~/test-utils/tokens/mocks'
 
-import { DAI } from 'uniswap/src/constants/tokens'
-import { SwapTab } from 'uniswap/src/types/screens/interface'
+import { DAI } from 'lx/src/constants/tokens'
+import { SwapTab } from 'lx/src/types/screens/interface'
 import { shortenAddress } from 'utilities/src/addresses'
 import tryParseCurrencyAmount from '~/lib/utils/tryParseCurrencyAmount'
 import { SendReviewModalInner } from '~/pages/Swap/Send/SendReviewModal'

@@ -1,6 +1,6 @@
 import { Experiments, FeatureFlags, PrivateRpcProperties } from '@universe/gating'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { DEFAULT_FLASHBOTS_ENABLED } from 'uniswap/src/features/providers/FlashbotsCommon'
+import { UniverseChainId } from 'lx/src/features/chains/types'
+import { DEFAULT_FLASHBOTS_ENABLED } from 'lx/src/features/providers/FlashbotsCommon'
 import { logger as loggerUtil } from 'utilities/src/logger/logger'
 import { isPrivateRpcSupportedOnChain } from 'wallet/src/features/providers/utils'
 import { FeatureFlagService } from 'wallet/src/features/transactions/executeTransaction/services/featureFlagService'

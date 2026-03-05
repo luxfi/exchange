@@ -1,12 +1,12 @@
 import { ApolloCache, NormalizedCacheObject } from '@apollo/client'
 import { GraphQLApi } from '@universe/api'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { fetchOnChainCurrencyBalance } from 'uniswap/src/features/portfolio/api'
-import { fetchOnChainBalances } from 'uniswap/src/features/portfolio/portfolioUpdates/fetchOnChainBalances'
-import { buildCurrencyId } from 'uniswap/src/utils/currencyId'
+import { UniverseChainId } from 'lx/src/features/chains/types'
+import { fetchOnChainCurrencyBalance } from 'lx/src/features/portfolio/api'
+import { fetchOnChainBalances } from 'lx/src/features/portfolio/portfolioUpdates/fetchOnChainBalances'
+import { buildCurrencyId } from 'lx/src/utils/currencyId'
 import type { Mock, MockedFunction } from 'vitest'
 
-vi.mock('uniswap/src/data/apiClients/tradingApi/useTradingApiIndicativeQuoteQuery', () => ({
+vi.mock('lx/src/data/apiClients/tradingApi/useTradingApiIndicativeQuoteQuery', () => ({
   fetchTradingApiIndicativeQuote: vi.fn().mockResolvedValue({
     output: {
       token: '0x833589fcd6edb6e08f4c7c32d4f71b54bda02913',
@@ -16,7 +16,7 @@ vi.mock('uniswap/src/data/apiClients/tradingApi/useTradingApiIndicativeQuoteQuer
   }),
 }))
 
-vi.mock('uniswap/src/features/portfolio/api', () => ({
+vi.mock('lx/src/features/portfolio/api', () => ({
   fetchOnChainCurrencyBalance: vi.fn(),
 }))
 

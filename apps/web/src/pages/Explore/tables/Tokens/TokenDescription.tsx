@@ -1,5 +1,5 @@
 import { Flex, View } from 'ui/src'
-import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+import { TestID } from 'lx/src/test/fixtures/testIDs'
 import QueryTokenLogo from '~/components/Logo/QueryTokenLogo'
 import { EllipsisText, TableText } from '~/components/Table/styled'
 import { TokenStat } from '~/state/explore/types'

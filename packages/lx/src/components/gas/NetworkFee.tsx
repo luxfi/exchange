@@ -4,17 +4,17 @@ import { useTranslation } from 'react-i18next'
 import { Flex, Text, UniswapXText } from 'ui/src'
 import { UniswapX } from 'ui/src/components/icons/UniswapX'
 import { iconSizes } from 'ui/src/theme'
-import { NetworkLogo } from 'uniswap/src/components/CurrencyLogo/NetworkLogo'
-import { NetworkFeeWarning } from 'uniswap/src/components/gas/NetworkFeeWarning'
-import { IndicativeLoadingWrapper } from 'uniswap/src/components/misc/IndicativeLoadingWrapper'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { NetworkLogo } from 'lx/src/components/CurrencyLogo/NetworkLogo'
+import { NetworkFeeWarning } from 'lx/src/components/gas/NetworkFeeWarning'
+import { IndicativeLoadingWrapper } from 'lx/src/components/misc/IndicativeLoadingWrapper'
+import { UniverseChainId } from 'lx/src/features/chains/types'
 import {
   useFormattedUniswapXGasFeeInfo,
   useGasFeeFormattedDisplayAmounts,
   useGasFeeHighRelativeToValue,
-} from 'uniswap/src/features/gas/hooks'
-import { UniswapXGasBreakdown } from 'uniswap/src/features/transactions/swap/types/swapTxAndGasInfo'
-import { isZero } from 'uniswap/src/utils/number'
+} from 'lx/src/features/gas/hooks'
+import { UniswapXGasBreakdown } from 'lx/src/features/transactions/swap/types/swapTxAndGasInfo'
+import { isZero } from 'lx/src/utils/number'
 import { isWebApp } from 'utilities/src/platform'
 
 export function NetworkFee({

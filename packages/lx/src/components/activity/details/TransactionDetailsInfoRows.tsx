@@ -18,18 +18,18 @@ import { CopyAlt } from 'ui/src/components/icons/CopyAlt'
 import { ExternalLink } from 'ui/src/components/icons/ExternalLink'
 import { UniswapX } from 'ui/src/components/icons/UniswapX'
 import { borderRadii, fonts, iconSizes } from 'ui/src/theme'
-import { InfoRow } from 'uniswap/src/components/activity/details/InfoRow'
-import { TransactionParticipantRow } from 'uniswap/src/components/activity/details/TransactionParticipantRow'
-import { SwapTypeTransactionInfo } from 'uniswap/src/components/activity/details/types'
-import { NetworkLogo } from 'uniswap/src/components/CurrencyLogo/NetworkLogo'
-import { useNetworkFee } from 'uniswap/src/features/activity/hooks/useNetworkFee'
-import { getFormattedSwapRatio } from 'uniswap/src/features/activity/utils/swapInfo'
-import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
-import { FORMAT_DATE_TIME_MEDIUM, useFormattedDateTime } from 'uniswap/src/features/language/localizedDayjs'
-import { pushNotification } from 'uniswap/src/features/notifications/slice/slice'
-import { AppNotificationType, CopyNotificationType } from 'uniswap/src/features/notifications/slice/types'
-import { useCurrencyInfo } from 'uniswap/src/features/tokens/useCurrencyInfo'
-import { isUniswapX } from 'uniswap/src/features/transactions/swap/utils/routing'
+import { InfoRow } from 'lx/src/components/activity/details/InfoRow'
+import { TransactionParticipantRow } from 'lx/src/components/activity/details/TransactionParticipantRow'
+import { SwapTypeTransactionInfo } from 'lx/src/components/activity/details/types'
+import { NetworkLogo } from 'lx/src/components/CurrencyLogo/NetworkLogo'
+import { useNetworkFee } from 'lx/src/features/activity/hooks/useNetworkFee'
+import { getFormattedSwapRatio } from 'lx/src/features/activity/utils/swapInfo'
+import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
+import { FORMAT_DATE_TIME_MEDIUM, useFormattedDateTime } from 'lx/src/features/language/localizedDayjs'
+import { pushNotification } from 'lx/src/features/notifications/slice/slice'
+import { AppNotificationType, CopyNotificationType } from 'lx/src/features/notifications/slice/types'
+import { useCurrencyInfo } from 'lx/src/features/tokens/useCurrencyInfo'
+import { isUniswapX } from 'lx/src/features/transactions/swap/utils/routing'
 import {
   BridgeTransactionInfo,
   LiquidityTransactionBaseInfos,
@@ -38,9 +38,9 @@ import {
   OnRampTransferInfo,
   TransactionDetails,
   TransactionType,
-} from 'uniswap/src/features/transactions/types/transactionDetails'
-import { isPlanTransactionDetails } from 'uniswap/src/features/transactions/types/utils'
-import { ExplorerDataType, getExplorerLink, openTransactionLink, openUri } from 'uniswap/src/utils/linking'
+} from 'lx/src/features/transactions/types/transactionDetails'
+import { isPlanTransactionDetails } from 'lx/src/features/transactions/types/utils'
+import { ExplorerDataType, getExplorerLink, openTransactionLink, openUri } from 'lx/src/utils/linking'
 import { shortenAddress, shortenHash } from 'utilities/src/addresses'
 import { setClipboard } from 'utilities/src/clipboard/clipboard'
 

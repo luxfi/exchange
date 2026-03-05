@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next'
-import { NotificationToast } from 'uniswap/src/components/notifications/NotificationToast'
-import { CopyFailedNotification as CopyFailedNotificationType } from 'uniswap/src/features/notifications/slice/types'
+import { NotificationToast } from 'lx/src/components/notifications/NotificationToast'
+import { CopyFailedNotification as CopyFailedNotificationType } from 'lx/src/features/notifications/slice/types'
 
 export function CopyFailedNotification({
   notification: { hideDelay = 2000 },

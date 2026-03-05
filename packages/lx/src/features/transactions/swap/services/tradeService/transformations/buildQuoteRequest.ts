@@ -1,11 +1,11 @@
 import { Currency, CurrencyAmount } from '@uniswap/sdk-core'
 import { GasStrategy, TradingApi } from '@universe/api'
-import { getActiveGasStrategy } from 'uniswap/src/features/gas/utils'
+import { getActiveGasStrategy } from 'lx/src/features/gas/utils'
 import {
   isZeroAmount,
   parseQuoteCurrencies,
-} from 'uniswap/src/features/transactions/swap/hooks/useTrade/parseQuoteCurrencies'
-import type { UseTradeArgs } from 'uniswap/src/features/transactions/swap/types/trade'
+} from 'lx/src/features/transactions/swap/hooks/useTrade/parseQuoteCurrencies'
+import type { UseTradeArgs } from 'lx/src/features/transactions/swap/types/trade'
 import {
   GetQuoteRoutingParams,
   GetQuoteSlippageParams,
@@ -14,7 +14,7 @@ import {
   QuoteSlippageParamsResult,
   SWAP_GAS_URGENCY_OVERRIDE,
   toTradingApiSupportedChainId,
-} from 'uniswap/src/features/transactions/swap/utils/tradingApi'
+} from 'lx/src/features/transactions/swap/utils/tradingApi'
 
 // The TradingAPI requires an address for the swapper field; we supply a placeholder address if no account is connected.
 // Note: This address was randomly generated.

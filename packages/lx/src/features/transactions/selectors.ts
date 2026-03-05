@@ -1,12 +1,12 @@
 import { createSelector, Selector } from '@reduxjs/toolkit'
 import { useMemo } from 'react'
 import { useSelector } from 'react-redux'
-import { normalizeCurrencyIdForMapLookup } from 'uniswap/src/data/cache'
-import { SearchableRecipient } from 'uniswap/src/features/address/types'
-import { uniqueAddressesOnly } from 'uniswap/src/features/address/utils'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { TransactionsState } from 'uniswap/src/features/transactions/slice'
-import { isBridge, isClassic, isUniswapX } from 'uniswap/src/features/transactions/swap/utils/routing'
+import { normalizeCurrencyIdForMapLookup } from 'lx/src/data/cache'
+import { SearchableRecipient } from 'lx/src/features/address/types'
+import { uniqueAddressesOnly } from 'lx/src/features/address/utils'
+import { UniverseChainId } from 'lx/src/features/chains/types'
+import { TransactionsState } from 'lx/src/features/transactions/slice'
+import { isBridge, isClassic, isUniswapX } from 'lx/src/features/transactions/swap/utils/routing'
 import {
   InterfaceTransactionDetails,
   PlanTransactionDetails,
@@ -14,13 +14,13 @@ import {
   TransactionDetails,
   TransactionType,
   UniswapXOrderDetails,
-} from 'uniswap/src/features/transactions/types/transactionDetails'
-import { isFinalizedTx, isPlanTransactionDetails } from 'uniswap/src/features/transactions/types/utils'
-import { isLimitOrder } from 'uniswap/src/features/transactions/utils/uniswapX.utils'
-import { selectTokensVisibility } from 'uniswap/src/features/visibility/selectors'
-import { CurrencyIdToVisibility } from 'uniswap/src/features/visibility/slice'
-import { UniswapState } from 'uniswap/src/state/uniswapReducer'
-import { buildCurrencyId } from 'uniswap/src/utils/currencyId'
+} from 'lx/src/features/transactions/types/transactionDetails'
+import { isFinalizedTx, isPlanTransactionDetails } from 'lx/src/features/transactions/types/utils'
+import { isLimitOrder } from 'lx/src/features/transactions/utils/uniswapX.utils'
+import { selectTokensVisibility } from 'lx/src/features/visibility/selectors'
+import { CurrencyIdToVisibility } from 'lx/src/features/visibility/slice'
+import { UniswapState } from 'lx/src/state/uniswapReducer'
+import { buildCurrencyId } from 'lx/src/utils/currencyId'
 import { unique } from 'utilities/src/primitives/array'
 import { flattenObjectOfObjects } from 'utilities/src/primitives/objects'
 

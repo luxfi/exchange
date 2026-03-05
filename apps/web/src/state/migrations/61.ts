@@ -1,5 +1,5 @@
 import { PersistState } from 'redux-persist'
-import { AppearanceSettingType } from 'uniswap/src/features/appearance/slice'
+import { AppearanceSettingType } from 'lx/src/features/appearance/slice'
 
 export type PersistAppStateV60 = {
   _persist: PersistState

@@ -1,5 +1,5 @@
 import { type PersistedClient } from '@tanstack/react-query-persist-client'
-import { createPersister } from 'uniswap/src/data/apiClients/createPersister.web'
+import { createPersister } from 'lx/src/data/apiClients/createPersister.web'
 
 // Mock idb-keyval to use in-memory storage for tests
 let mockStorage: Map<string, string>

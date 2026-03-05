@@ -13,10 +13,10 @@ import {
   useMedia,
   useSporeColors,
 } from 'ui/src'
-import { useAppFiatCurrencyInfo } from 'uniswap/src/features/fiatCurrency/hooks'
-import { useCurrentLocale } from 'uniswap/src/features/language/hooks'
-import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
-import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+import { useAppFiatCurrencyInfo } from 'lx/src/features/fiatCurrency/hooks'
+import { useCurrentLocale } from 'lx/src/features/language/hooks'
+import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
+import { TestID } from 'lx/src/test/fixtures/testIDs'
 import { NumberType } from 'utilities/src/format/types'
 import { ChartSkeleton } from '~/components/Charts/LoadingState'
 import { PriceChart, PriceChartData } from '~/components/Charts/PriceChart'

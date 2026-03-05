@@ -7,10 +7,10 @@
  * For tests of the full migration chain, see uniswapMigrationTests.ts.
  */
 /* biome-ignore-all lint/suspicious/noExplicitAny: legacy code needs review */
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { SearchHistoryResultType } from 'uniswap/src/features/search/SearchHistoryResult'
-import { TokenProtectionWarning } from 'uniswap/src/features/tokens/warnings/types'
-import { PreV55SearchResultType } from 'uniswap/src/state/oldTypes'
+import { UniverseChainId } from 'lx/src/features/chains/types'
+import { SearchHistoryResultType } from 'lx/src/features/search/SearchHistoryResult'
+import { TokenProtectionWarning } from 'lx/src/features/tokens/warnings/types'
+import { PreV55SearchResultType } from 'lx/src/state/oldTypes'
 import {
   addActivityVisibility,
   addDismissedBridgedAndCompatibleWarnings,
@@ -18,7 +18,7 @@ import {
   migrateSearchHistory,
   removeThaiBahtFromFiatCurrency,
   unchecksumDismissedTokenWarningKeys,
-} from 'uniswap/src/state/uniswapMigrations'
+} from 'lx/src/state/uniswapMigrations'
 import { createThrowingProxy } from 'utilities/src/test/utils'
 
 // Mobile: 82

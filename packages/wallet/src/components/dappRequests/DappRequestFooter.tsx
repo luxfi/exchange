@@ -1,6 +1,6 @@
 import type { GasFeeResult } from '@universe/api'
 import { Flex } from 'ui/src'
-import type { UniverseChainId } from 'uniswap/src/features/chains/types'
+import type { UniverseChainId } from 'lx/src/features/chains/types'
 import { DappWalletLineItem } from 'wallet/src/components/dappRequests/DappWalletLineItem'
 import { TransactionWarningBanner } from 'wallet/src/components/dappRequests/TransactionWarningBanner'
 import type { TransactionRiskLevel } from 'wallet/src/features/dappRequests/types'

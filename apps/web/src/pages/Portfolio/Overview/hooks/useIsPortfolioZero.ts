@@ -1,6 +1,6 @@
 import { useMemo } from 'react'
-import { useEnabledChains } from 'uniswap/src/features/chains/hooks/useEnabledChains'
-import { usePortfolioTotalValue } from 'uniswap/src/features/dataApi/balances/balancesRest'
+import { useEnabledChains } from 'lx/src/features/chains/hooks/useEnabledChains'
+import { usePortfolioTotalValue } from 'lx/src/features/dataApi/balances/balancesRest'
 import { usePortfolioAddresses } from '~/pages/Portfolio/hooks/usePortfolioAddresses'
 import { useTransformTokenTableData } from '~/pages/Portfolio/Tokens/hooks/useTransformTokenTableData'
 

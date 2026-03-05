@@ -1,10 +1,10 @@
 import { datadogRum } from '@datadog/browser-rum'
 import { FetchError, is401Error } from '@universe/api'
 import { AppTFunction } from 'ui/src/i18n/types'
-import { uniswapUrls } from 'uniswap/src/constants/urls'
-import { TokenApprovalTransactionStep } from 'uniswap/src/features/transactions/steps/approve'
-import { TokenRevocationTransactionStep } from 'uniswap/src/features/transactions/steps/revoke'
-import { TransactionStep, TransactionStepType } from 'uniswap/src/features/transactions/steps/types'
+import { uniswapUrls } from 'lx/src/constants/urls'
+import { TokenApprovalTransactionStep } from 'lx/src/features/transactions/steps/approve'
+import { TokenRevocationTransactionStep } from 'lx/src/features/transactions/steps/revoke'
+import { TransactionStep, TransactionStepType } from 'lx/src/features/transactions/steps/types'
 import { isWebApp } from 'utilities/src/platform'
 
 /** Superclass used to differentiate categorized/known transaction errors from generic/unknown errors. */

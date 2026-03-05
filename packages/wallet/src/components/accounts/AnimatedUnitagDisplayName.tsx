@@ -1,5 +1,5 @@
 import { IconSizeTokens } from 'ui/src/theme'
-import { DisplayName } from 'uniswap/src/features/accounts/types'
+import { DisplayName } from 'lx/src/features/accounts/types'
 import { PlatformSplitStubError } from 'utilities/src/errors'
 
 export type AnimatedUnitagDisplayNameProps = {

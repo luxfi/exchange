@@ -1,8 +1,8 @@
 import { DappRequestStatus } from 'src/app/features/dappRequests/shared'
 import type { DappRequestState } from 'src/app/features/dappRequests/slice'
-import { Language } from 'uniswap/src/features/language/constants'
-import { getCurrentLanguageFromNavigator } from 'uniswap/src/features/language/utils'
-import { createSafeMigrationFactory } from 'uniswap/src/state/createSafeMigration'
+import { Language } from 'lx/src/features/language/constants'
+import { getCurrentLanguageFromNavigator } from 'lx/src/features/language/utils'
+import { createSafeMigrationFactory } from 'lx/src/state/createSafeMigration'
 import { type BackupType } from 'wallet/src/features/wallet/accounts/types'
 
 const createSafeMigration = createSafeMigrationFactory('extensionMigrations')

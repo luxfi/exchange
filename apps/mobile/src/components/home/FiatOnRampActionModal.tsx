@@ -9,9 +9,9 @@ import { openModal } from 'src/features/modals/modalSlice'
 import { Flex, Text, TouchableArea } from 'ui/src'
 import { GeneratedIcon } from 'ui/src/components/factories/createIcon'
 import { ArrowUpCircle, Bank, CoinConvert } from 'ui/src/components/icons'
-import { Modal } from 'uniswap/src/components/modals/Modal'
-import { ElementName, ModalName } from 'uniswap/src/features/telemetry/constants'
-import { Trace } from 'uniswap/src/features/telemetry/Trace'
+import { Modal } from 'lx/src/components/modals/Modal'
+import { ElementName, ModalName } from 'lx/src/features/telemetry/constants'
+import { Trace } from 'lx/src/features/telemetry/Trace'
 
 type ActionRow = {
   Icon: GeneratedIcon

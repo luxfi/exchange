@@ -1,6 +1,6 @@
 import dayjs from 'dayjs'
 import { expectSaga } from 'redux-saga-test-plan'
-import { AccountType } from 'uniswap/src/features/accounts/types'
+import { AccountType } from 'lx/src/features/accounts/types'
 import { Account, SignerMnemonicAccount } from 'wallet/src/features/wallet/accounts/types'
 import { CreateAccountsParams, createAccounts } from 'wallet/src/features/wallet/create/createAccountsSaga'
 import { walletRootReducer } from 'wallet/src/state/walletReducer'

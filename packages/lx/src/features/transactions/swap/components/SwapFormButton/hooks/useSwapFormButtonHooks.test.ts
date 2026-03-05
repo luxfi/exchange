@@ -1,9 +1,9 @@
-import { useOnReviewPress } from 'uniswap/src/features/transactions/swap/components/SwapFormButton/hooks/useOnReviewPress'
-import { useSwapFormButtonColors } from 'uniswap/src/features/transactions/swap/components/SwapFormButton/hooks/useSwapFormButtonColors'
-import { useSwapFormButtonText } from 'uniswap/src/features/transactions/swap/components/SwapFormButton/hooks/useSwapFormButtonText'
-import { WrapType } from 'uniswap/src/features/transactions/types/wrap'
-import { act, renderHook } from 'uniswap/src/test/test-utils'
-import { CurrencyField } from 'uniswap/src/types/currency'
+import { useOnReviewPress } from 'lx/src/features/transactions/swap/components/SwapFormButton/hooks/useOnReviewPress'
+import { useSwapFormButtonColors } from 'lx/src/features/transactions/swap/components/SwapFormButton/hooks/useSwapFormButtonColors'
+import { useSwapFormButtonText } from 'lx/src/features/transactions/swap/components/SwapFormButton/hooks/useSwapFormButtonText'
+import { WrapType } from 'lx/src/features/transactions/types/wrap'
+import { act, renderHook } from 'lx/src/test/test-utils'
+import { CurrencyField } from 'lx/src/types/currency'
 import type { Mock } from 'vitest'
 
 const mockT = vi.fn((key: string, options?: Record<string, unknown>) =>
@@ -22,68 +22,68 @@ vi.mock('@universe/gating', async (importOriginal) => {
   }
 })
 
-vi.mock('uniswap/src/constants/tokens', async (importOriginal) => {
-  const actual = await importOriginal<typeof import('uniswap/src/constants/tokens')>()
+vi.mock('lx/src/constants/tokens', async (importOriginal) => {
+  const actual = await importOriginal<typeof import('lx/src/constants/tokens')>()
   return {
     ...actual,
     nativeOnChain: vi.fn(),
   }
 })
 
-vi.mock('uniswap/src/features/accounts/store/hooks', () => ({
+vi.mock('lx/src/features/accounts/store/hooks', () => ({
   useConnectionStatus: vi.fn(),
   useActiveAccount: vi.fn(),
 }))
 
-vi.mock('uniswap/src/features/platforms/utils/chains', () => ({
+vi.mock('lx/src/features/platforms/utils/chains', () => ({
   isSVMChain: vi.fn(),
   chainIdToPlatform: vi.fn(),
 }))
 
-vi.mock('uniswap/src/features/providers/webForNudgeProvider', () => ({
+vi.mock('lx/src/features/providers/webForNudgeProvider', () => ({
   useIsWebFORNudgeEnabled: vi.fn(),
   useIsShowingWebFORNudge: vi.fn(),
 }))
 
-vi.mock('uniswap/src/features/transactions/components/TransactionModal/TransactionModalContext', () => ({
+vi.mock('lx/src/features/transactions/components/TransactionModal/TransactionModalContext', () => ({
   useTransactionModalContext: vi.fn(),
 }))
 
-vi.mock('uniswap/src/features/transactions/swap/components/SwapFormButton/hooks/useIsAmountSelectionInvalid', () => ({
+vi.mock('lx/src/features/transactions/swap/components/SwapFormButton/hooks/useIsAmountSelectionInvalid', () => ({
   useIsAmountSelectionInvalid: vi.fn(),
 }))
 
-vi.mock('uniswap/src/features/transactions/swap/components/SwapFormButton/hooks/useIsMissingPlatformWallet', () => ({
+vi.mock('lx/src/features/transactions/swap/components/SwapFormButton/hooks/useIsMissingPlatformWallet', () => ({
   useIsMissingPlatformWallet: vi.fn(),
 }))
 
-vi.mock('uniswap/src/features/transactions/swap/components/SwapFormButton/hooks/useIsTokenSelectionInvalid', () => ({
+vi.mock('lx/src/features/transactions/swap/components/SwapFormButton/hooks/useIsTokenSelectionInvalid', () => ({
   useIsTokenSelectionInvalid: vi.fn(),
 }))
 
-vi.mock('uniswap/src/features/transactions/swap/components/SwapFormButton/hooks/useIsTradeIndicative', () => ({
+vi.mock('lx/src/features/transactions/swap/components/SwapFormButton/hooks/useIsTradeIndicative', () => ({
   useIsTradeIndicative: vi.fn(),
 }))
 
-vi.mock('uniswap/src/features/transactions/swap/hooks/useSwapWarnings/useSwapWarnings', () => ({
+vi.mock('lx/src/features/transactions/swap/hooks/useSwapWarnings/useSwapWarnings', () => ({
   useParsedSwapWarnings: vi.fn(),
 }))
 
-vi.mock('uniswap/src/features/transactions/swap/review/SwapReviewScreen/SwapReviewFooter/SubmitSwapButton', () => ({
+vi.mock('lx/src/features/transactions/swap/review/SwapReviewScreen/SwapReviewFooter/SubmitSwapButton', () => ({
   getActionText: vi.fn(),
 }))
 
-vi.mock('uniswap/src/features/transactions/swap/stores/swapFormStore/useSwapFormStore', () => ({
+vi.mock('lx/src/features/transactions/swap/stores/swapFormStore/useSwapFormStore', () => ({
   useSwapFormStore: vi.fn(),
   useSwapFormStoreDerivedSwapInfo: vi.fn(),
 }))
 
-vi.mock('uniswap/src/features/transactions/swap/components/SwapFormButton/hooks/useIsSwapButtonDisabled', () => ({
+vi.mock('lx/src/features/transactions/swap/components/SwapFormButton/hooks/useIsSwapButtonDisabled', () => ({
   useIsSwapButtonDisabled: vi.fn(),
 }))
 
 vi.mock(
-  'uniswap/src/features/transactions/swap/components/SwapFormButton/hooks/useIsBlockingWithCustomMessage',
+  'lx/src/features/transactions/swap/components/SwapFormButton/hooks/useIsBlockingWithCustomMessage',
   () => ({
     useIsBlockingWithCustomMessage: vi.fn(),
   }),
@@ -97,15 +97,15 @@ vi.mock('ui/src', async (importOriginal) => {
   }
 })
 
-vi.mock('uniswap/src/features/transactions/swap/form/stores/swapFormWarningStore/useSwapFormWarningStore', () => ({
+vi.mock('lx/src/features/transactions/swap/form/stores/swapFormWarningStore/useSwapFormWarningStore', () => ({
   useSwapFormWarningStoreActions: vi.fn(),
 }))
 
-vi.mock('uniswap/src/features/transactions/swap/services/hooks/usePrepareSwap', () => ({
+vi.mock('lx/src/features/transactions/swap/services/hooks/usePrepareSwap', () => ({
   usePrepareSwap: vi.fn(),
 }))
 
-vi.mock('uniswap/src/features/transactions/swap/services/hooks/useWarningService', () => ({
+vi.mock('lx/src/features/transactions/swap/services/hooks/useWarningService', () => ({
   useWarningService: vi.fn(),
 }))
 
@@ -115,26 +115,26 @@ vi.mock('utilities/src/react/hooks', () => ({
 
 import { FeatureFlags, useFeatureFlag } from '@universe/gating'
 import { useColorsFromTokenColor } from 'ui/src'
-import { nativeOnChain } from 'uniswap/src/constants/tokens'
-import { useActiveAccount, useConnectionStatus } from 'uniswap/src/features/accounts/store/hooks'
-import { chainIdToPlatform, isSVMChain } from 'uniswap/src/features/platforms/utils/chains'
-import { useIsShowingWebFORNudge, useIsWebFORNudgeEnabled } from 'uniswap/src/features/providers/webForNudgeProvider'
-import { useTransactionModalContext } from 'uniswap/src/features/transactions/components/TransactionModal/TransactionModalContext'
-import { useIsAmountSelectionInvalid } from 'uniswap/src/features/transactions/swap/components/SwapFormButton/hooks/useIsAmountSelectionInvalid'
-import { useIsBlockingWithCustomMessage } from 'uniswap/src/features/transactions/swap/components/SwapFormButton/hooks/useIsBlockingWithCustomMessage'
-import { useIsMissingPlatformWallet } from 'uniswap/src/features/transactions/swap/components/SwapFormButton/hooks/useIsMissingPlatformWallet'
-import { useIsSwapButtonDisabled } from 'uniswap/src/features/transactions/swap/components/SwapFormButton/hooks/useIsSwapButtonDisabled'
-import { useIsTokenSelectionInvalid } from 'uniswap/src/features/transactions/swap/components/SwapFormButton/hooks/useIsTokenSelectionInvalid'
-import { useIsTradeIndicative } from 'uniswap/src/features/transactions/swap/components/SwapFormButton/hooks/useIsTradeIndicative'
-import { useSwapFormWarningStoreActions } from 'uniswap/src/features/transactions/swap/form/stores/swapFormWarningStore/useSwapFormWarningStore'
-import { useParsedSwapWarnings } from 'uniswap/src/features/transactions/swap/hooks/useSwapWarnings/useSwapWarnings'
-import { getActionText } from 'uniswap/src/features/transactions/swap/review/SwapReviewScreen/SwapReviewFooter/SubmitSwapButton'
-import { usePrepareSwap } from 'uniswap/src/features/transactions/swap/services/hooks/usePrepareSwap'
-import { useWarningService } from 'uniswap/src/features/transactions/swap/services/hooks/useWarningService'
+import { nativeOnChain } from 'lx/src/constants/tokens'
+import { useActiveAccount, useConnectionStatus } from 'lx/src/features/accounts/store/hooks'
+import { chainIdToPlatform, isSVMChain } from 'lx/src/features/platforms/utils/chains'
+import { useIsShowingWebFORNudge, useIsWebFORNudgeEnabled } from 'lx/src/features/providers/webForNudgeProvider'
+import { useTransactionModalContext } from 'lx/src/features/transactions/components/TransactionModal/TransactionModalContext'
+import { useIsAmountSelectionInvalid } from 'lx/src/features/transactions/swap/components/SwapFormButton/hooks/useIsAmountSelectionInvalid'
+import { useIsBlockingWithCustomMessage } from 'lx/src/features/transactions/swap/components/SwapFormButton/hooks/useIsBlockingWithCustomMessage'
+import { useIsMissingPlatformWallet } from 'lx/src/features/transactions/swap/components/SwapFormButton/hooks/useIsMissingPlatformWallet'
+import { useIsSwapButtonDisabled } from 'lx/src/features/transactions/swap/components/SwapFormButton/hooks/useIsSwapButtonDisabled'
+import { useIsTokenSelectionInvalid } from 'lx/src/features/transactions/swap/components/SwapFormButton/hooks/useIsTokenSelectionInvalid'
+import { useIsTradeIndicative } from 'lx/src/features/transactions/swap/components/SwapFormButton/hooks/useIsTradeIndicative'
+import { useSwapFormWarningStoreActions } from 'lx/src/features/transactions/swap/form/stores/swapFormWarningStore/useSwapFormWarningStore'
+import { useParsedSwapWarnings } from 'lx/src/features/transactions/swap/hooks/useSwapWarnings/useSwapWarnings'
+import { getActionText } from 'lx/src/features/transactions/swap/review/SwapReviewScreen/SwapReviewFooter/SubmitSwapButton'
+import { usePrepareSwap } from 'lx/src/features/transactions/swap/services/hooks/usePrepareSwap'
+import { useWarningService } from 'lx/src/features/transactions/swap/services/hooks/useWarningService'
 import {
   useSwapFormStore,
   useSwapFormStoreDerivedSwapInfo,
-} from 'uniswap/src/features/transactions/swap/stores/swapFormStore/useSwapFormStore'
+} from 'lx/src/features/transactions/swap/stores/swapFormStore/useSwapFormStore'
 
 type UseSwapFormStoreSelector<T> = (s: { isSubmitting: boolean }) => T
 type UseSwapFormStoreDerivedSwapInfoSelector<T> = (s: {

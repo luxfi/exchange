@@ -1,4 +1,4 @@
-import { createMonitoredSaga } from 'uniswap/src/utils/saga'
+import { createMonitoredSaga } from 'lx/src/utils/saga'
 import { getSharedTransactionSagaDependencies } from 'wallet/src/features/transactions/configuredSagas'
 import { createExecutePlanSaga } from 'wallet/src/features/transactions/swap/executePlanSaga'
 import { createExecuteSwapSaga } from 'wallet/src/features/transactions/swap/executeSwapSaga'

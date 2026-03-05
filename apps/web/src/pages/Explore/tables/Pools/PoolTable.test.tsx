@@ -2,7 +2,7 @@ import '~/test-utils/tokens/mocks'
 
 import { Percent } from '@uniswap/sdk-core'
 import { GraphQLApi } from '@universe/api'
-import { DEFAULT_TICK_SPACING } from 'uniswap/src/constants/pools'
+import { DEFAULT_TICK_SPACING } from 'lx/src/constants/pools'
 import { ExploreTablesFilterStoreContextProvider } from '~/pages/Explore/exploreTablesFilterStore'
 import { ExploreTopPoolTable } from '~/pages/Explore/tables/Pools/PoolTable'
 import { useTopPools } from '~/state/explore/topPools/useTopPools'

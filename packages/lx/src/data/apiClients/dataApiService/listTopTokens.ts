@@ -4,7 +4,7 @@ import { infiniteQueryOptions } from '@tanstack/react-query'
 import { DataApiService } from '@uniswap/client-data-api/dist/data/v1/api_connect'
 import type { ListTopTokensRequest, ListTopTokensResponse } from '@uniswap/client-data-api/dist/data/v1/api_pb'
 import { createDataApiServiceClient } from '@universe/api'
-import { uniswapGetTransport } from 'uniswap/src/data/rest/base'
+import { uniswapGetTransport } from 'lx/src/data/rest/base'
 import { ReactQueryCacheKey } from 'utilities/src/reactQuery/cache'
 
 export type ListTopTokensInput = {

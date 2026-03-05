@@ -1,4 +1,4 @@
-import { useUnitagsAddressesQuery } from 'uniswap/src/data/apiClients/unitagsApi/useUnitagsAddressQuery'
+import { useUnitagsAddressesQuery } from 'lx/src/data/apiClients/unitagsApi/useUnitagsAddressQuery'
 import { useHasAnyAccountsWithUnitag } from 'wallet/src/features/unitags/hooks/useHasAnyAccountsWithUnitag'
 import { useSignerAccounts } from 'wallet/src/features/wallet/hooks'
 import { renderHook } from 'wallet/src/test/test-utils'
@@ -8,7 +8,7 @@ jest.mock('wallet/src/features/wallet/hooks', () => ({
   useActiveAccount: jest.fn().mockReturnValue(undefined),
 }))
 
-jest.mock('uniswap/src/data/apiClients/unitagsApi/useUnitagsAddressQuery', () => ({
+jest.mock('lx/src/data/apiClients/unitagsApi/useUnitagsAddressQuery', () => ({
   useUnitagsAddressesQuery: jest.fn(),
 }))
 

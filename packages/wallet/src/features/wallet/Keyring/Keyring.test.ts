@@ -12,7 +12,7 @@ import {
   SAMPLE_SEED_ADDRESS_8,
   SAMPLE_SEED_ADDRESS_9,
   SAMPLE_SEED_ADDRESS_10,
-} from 'uniswap/src/test/fixtures'
+} from 'lx/src/test/fixtures'
 import { WebKeyring } from 'wallet/src/features/wallet/Keyring/Keyring.web'
 
 // Mock the chrome utilities to return valid chrome

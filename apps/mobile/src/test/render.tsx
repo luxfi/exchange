@@ -15,10 +15,10 @@ import { MobileWalletNavigationProvider } from 'src/app/MobileWalletNavigationPr
 import type { MobileState } from 'src/app/mobileReducer'
 import { navigationRef } from 'src/app/navigation/navigationRef'
 import { store as appStore, persistedReducer } from 'src/app/store'
-import { UniswapProvider } from 'uniswap/src/contexts/UniswapContext'
-import { BlankUrlProvider } from 'uniswap/src/contexts/UrlContext'
-import { AutoMockedApolloProvider } from 'uniswap/src/test/mocks'
-import { mockUniswapContext } from 'uniswap/src/test/render'
+import { UniswapProvider } from 'lx/src/contexts/UniswapContext'
+import { BlankUrlProvider } from 'lx/src/contexts/UrlContext'
+import { AutoMockedApolloProvider } from 'lx/src/test/mocks'
+import { mockUniswapContext } from 'lx/src/test/render'
 import { SharedWalletProvider } from 'wallet/src/providers/SharedWalletProvider'
 
 type AppStore = typeof appStore

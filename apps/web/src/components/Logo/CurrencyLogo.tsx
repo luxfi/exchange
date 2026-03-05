@@ -1,7 +1,7 @@
 import { Currency } from '@uniswap/sdk-core'
-import { CurrencyLogo as UniverseCurrencyLogo } from 'uniswap/src/components/CurrencyLogo/CurrencyLogo'
-import { useCurrencyInfo } from 'uniswap/src/features/tokens/useCurrencyInfo'
-import { buildCurrencyId, currencyAddress } from 'uniswap/src/utils/currencyId'
+import { CurrencyLogo as UniverseCurrencyLogo } from 'lx/src/components/CurrencyLogo/CurrencyLogo'
+import { useCurrencyInfo } from 'lx/src/features/tokens/useCurrencyInfo'
+import { buildCurrencyId, currencyAddress } from 'lx/src/utils/currencyId'
 import { AssetLogoBaseProps } from '~/components/Logo/AssetLogo'
 
 export default function CurrencyLogo(

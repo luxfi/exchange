@@ -2,6 +2,7 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
+import type { AutoSlippage } from './AutoSlippage';
 import type { ChainId } from './ChainId';
 import type { ClassicInput } from './ClassicInput';
 import type { ClassicOutput } from './ClassicOutput';
@@ -10,13 +11,17 @@ import type { gasFeeInCurrency } from './gasFeeInCurrency';
 import type { gasFeeUSD } from './gasFeeUSD';
 import type { gasLimit } from './gasLimit';
 import type { gasPrice } from './gasPrice';
+import type { GasStrategy } from './GasStrategy';
+import type { HooksOptions } from './HooksOptions';
 import type { maxFeePerGas } from './maxFeePerGas';
 import type { maxPriorityFeePerGas } from './maxPriorityFeePerGas';
+import type { Protocols } from './Protocols';
 import type { quoteId } from './quoteId';
 import type { senderWalletAddress } from './senderWalletAddress';
+import type { slippageTolerance } from './slippageTolerance';
 import type { TradeType } from './TradeType';
+import type { TruncatedPlanStep } from './TruncatedPlanStep';
 import { GasEstimate } from "../../types";
-import { slippageTolerance } from "./slippageTolerance";
 
 /**
  * A quote for a chained transaction flow that spans multiple steps, potentially across multiple chains.
@@ -40,6 +45,18 @@ export type ChainedQuote = {
     maxFeePerGas?: maxFeePerGas;
     maxPriorityFeePerGas?: maxPriorityFeePerGas;
     gasFee?: gasFee;
+    protocols?: Protocols;
+    hooksOptions?: HooksOptions;
+    /**
+     * Gas strategies for the chained flow.
+     */
+    gasStrategies: Array<GasStrategy>;
+    /**
+     * Truncated plan steps for the chained transaction flow.
+     */
+    steps?: Array<TruncatedPlanStep>;
+    slippageTolerance?: slippageTolerance;
+    autoSlippage?: AutoSlippage;
     gasEstimates?: GasEstimate[];
     slippage?: slippageTolerance;
 };

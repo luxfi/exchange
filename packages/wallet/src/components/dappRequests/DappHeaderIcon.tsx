@@ -1,8 +1,8 @@
 import { Flex, UniversalImage } from 'ui/src'
 import { borderRadii, iconSizes } from 'ui/src/theme'
-import { CurrencyLogo } from 'uniswap/src/components/CurrencyLogo/CurrencyLogo'
-import { DappIconPlaceholder } from 'uniswap/src/components/dapps/DappIconPlaceholder'
-import { CurrencyInfo } from 'uniswap/src/features/dataApi/types'
+import { CurrencyLogo } from 'lx/src/components/CurrencyLogo/CurrencyLogo'
+import { DappIconPlaceholder } from 'lx/src/components/dapps/DappIconPlaceholder'
+import { CurrencyInfo } from 'lx/src/features/dataApi/types'
 import { DappConnectionInfo } from 'wallet/src/features/dappRequests/types'
 
 export function DappHeaderIcon({

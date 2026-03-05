@@ -1,5 +1,5 @@
 import { Dispatch, SetStateAction } from 'react'
-import { LimitsExpiry } from 'uniswap/src/types/limits'
+import { LimitsExpiry } from 'lx/src/types/limits'
 import { LimitInfo } from '~/state/limit/hooks'
 
 export interface LimitState {

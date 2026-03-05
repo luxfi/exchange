@@ -1,8 +1,8 @@
 import { Currency, CurrencyAmount } from '@uniswap/sdk-core'
-import { PresetPercentage } from 'uniswap/src/components/CurrencyInputPanel/AmountInputPresets/types'
-import { SwapExecutionCallbacks } from 'uniswap/src/features/transactions/swap/types/swapCallback'
-import { ValidatedSwapTxContext } from 'uniswap/src/features/transactions/swap/types/swapTxAndGasInfo'
-import { WrapType } from 'uniswap/src/features/transactions/types/wrap'
+import { PresetPercentage } from 'lx/src/components/CurrencyInputPanel/AmountInputPresets/types'
+import { SwapExecutionCallbacks } from 'lx/src/features/transactions/swap/types/swapCallback'
+import { ValidatedSwapTxContext } from 'lx/src/features/transactions/swap/types/swapTxAndGasInfo'
+import { WrapType } from 'lx/src/features/transactions/types/wrap'
 
 /**
  * Parameters needed for transaction preparation

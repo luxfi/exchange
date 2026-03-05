@@ -1,9 +1,9 @@
 import { TradingApi } from '@universe/api'
 import { PlanResponse } from '@universe/api/src/clients/trading/__generated__/models/PlanResponse'
-import { TradingApiSessionClient } from 'uniswap/src/data/apiClients/tradingApi/TradingApiSessionClient'
-import { Trade } from 'uniswap/src/features/transactions/swap/types/trade'
-import { isChained } from 'uniswap/src/features/transactions/swap/utils/routing'
-import { requireAcceptNewTrade } from 'uniswap/src/features/transactions/swap/utils/trade'
+import { TradingApiSessionClient } from 'lx/src/data/apiClients/tradingApi/TradingApiSessionClient'
+import { Trade } from 'lx/src/features/transactions/swap/types/trade'
+import { isChained } from 'lx/src/features/transactions/swap/utils/routing'
+import { requireAcceptNewTrade } from 'lx/src/features/transactions/swap/utils/trade'
 import { logger } from 'utilities/src/logger/logger'
 import { ONE_SECOND_MS } from 'utilities/src/time/time'
 

@@ -12,9 +12,9 @@ import {
   ValidationType,
 } from '@uniswap/client-liquidity/dist/uniswap/liquidity/v1/types_pb'
 import { FeatureFlags, useFeatureFlag } from '@universe/gating'
-import { PollingInterval } from 'uniswap/src/constants/misc'
-import { AuctionMutationClient } from 'uniswap/src/data/apiClients/liquidityService/AuctionMutationClient'
-import { AUCTION_DEFAULT_RETRY, AuctionStaleTime } from 'uniswap/src/data/rest/auctions/queryTypes'
+import { PollingInterval } from 'lx/src/constants/misc'
+import { AuctionMutationClient } from 'lx/src/data/apiClients/liquidityService/AuctionMutationClient'
+import { AUCTION_DEFAULT_RETRY, AuctionStaleTime } from 'lx/src/data/rest/auctions/queryTypes'
 import { ReactQueryCacheKey } from 'utilities/src/reactQuery/cache'
 
 /**

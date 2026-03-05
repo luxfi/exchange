@@ -4,10 +4,10 @@ import { iconSizes } from 'ui/src/theme'
 import {
   useSelectAddressHasNotifications,
   useSelectAddressNotifications,
-} from 'uniswap/src/features/notifications/slice/hooks'
-import { AppNotificationType } from 'uniswap/src/features/notifications/slice/types'
-import { useSortedPendingTransactions } from 'uniswap/src/features/transactions/hooks/usePendingTransactions'
-import { TransactionStatus } from 'uniswap/src/features/transactions/types/transactionDetails'
+} from 'lx/src/features/notifications/slice/hooks'
+import { AppNotificationType } from 'lx/src/features/notifications/slice/types'
+import { useSortedPendingTransactions } from 'lx/src/features/transactions/hooks/usePendingTransactions'
+import { TransactionStatus } from 'lx/src/features/transactions/types/transactionDetails'
 import { useActiveAccountAddress } from 'wallet/src/features/wallet/hooks'
 
 const PENDING_TX_TIME_LIMIT = 60_000 * 5 // 5 mins

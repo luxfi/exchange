@@ -1,12 +1,12 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { normalizeTokenAddressForCache } from 'uniswap/src/data/cache'
-import { isUniverseChainId } from 'uniswap/src/features/chains/utils'
+import { normalizeTokenAddressForCache } from 'lx/src/data/cache'
+import { isUniverseChainId } from 'lx/src/features/chains/utils'
 import {
   isPoolSearchHistoryResult,
   isTokenSearchHistoryResult,
   SearchHistoryResult,
   SearchHistoryResultType,
-} from 'uniswap/src/features/search/SearchHistoryResult'
+} from 'lx/src/features/search/SearchHistoryResult'
 
 const SEARCH_HISTORY_LENGTH = 5
 

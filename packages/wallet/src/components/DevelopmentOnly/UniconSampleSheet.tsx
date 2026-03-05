@@ -1,6 +1,6 @@
 import { Flex, Unicon } from 'ui/src'
-import { Modal } from 'uniswap/src/components/modals/Modal'
-import { ModalName } from 'uniswap/src/features/telemetry/constants'
+import { Modal } from 'lx/src/components/modals/Modal'
+import { ModalName } from 'lx/src/features/telemetry/constants'
 
 const generateRandomEthereumAddresses = (numberOfAddresses: number): string[] => {
   const addresses = []

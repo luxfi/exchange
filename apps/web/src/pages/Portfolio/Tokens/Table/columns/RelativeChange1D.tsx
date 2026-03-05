@@ -1,5 +1,5 @@
 import { memo } from 'react'
-import { RelativeChange } from 'uniswap/src/components/RelativeChange/RelativeChange'
+import { RelativeChange } from 'lx/src/components/RelativeChange/RelativeChange'
 import { EmptyTableCell } from '~/pages/Portfolio/EmptyTableCell'
 
 export const RelativeChange1D = memo(function RelativeChange1D({ value }: { value: number | undefined }): JSX.Element {

@@ -2,11 +2,11 @@ import { UniverseChainId } from 'lx/src/features/chains/types'
 import { getPossibleChainMatchFromSearchWord } from 'lx/src/utils/search/getPossibleChainMatchFromSearchWord'
 
 // Mock the dependencies before importing the function
-vi.mock('uniswap/src/features/chains/chainInfo', () => ({
+vi.mock('lx/src/features/chains/chainInfo', () => ({
   getChainInfo: vi.fn(),
 }))
 
-vi.mock('uniswap/src/features/chains/utils', () => ({
+vi.mock('lx/src/features/chains/utils', () => ({
   isTestnetChain: vi.fn(),
 }))
 

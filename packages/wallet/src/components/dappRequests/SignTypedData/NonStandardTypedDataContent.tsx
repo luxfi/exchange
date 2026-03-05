@@ -1,8 +1,8 @@
 import { useTranslation } from 'react-i18next'
 import { Flex, Separator, Text } from 'ui/src'
 import { Clear, Signature } from 'ui/src/components/icons'
-import { InlineWarningCard } from 'uniswap/src/components/InlineWarningCard/InlineWarningCard'
-import { WarningSeverity } from 'uniswap/src/components/modals/WarningModal/types'
+import { InlineWarningCard } from 'lx/src/components/InlineWarningCard/InlineWarningCard'
+import { WarningSeverity } from 'lx/src/components/modals/WarningModal/types'
 
 interface NonStandardTypedDataContentProps {
   typedData: string

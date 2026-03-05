@@ -2,7 +2,7 @@ import {
   type AppStateResetter,
   type AppStateResetterContext,
   createAppStateResetter,
-} from 'uniswap/src/state/createAppStateResetter'
+} from 'lx/src/state/createAppStateResetter'
 import { clearBatchedTransactions } from 'wallet/src/features/batchedTransactions/slice'
 import { resetWalletBehaviorHistory } from 'wallet/src/features/behaviorHistory/slice'
 

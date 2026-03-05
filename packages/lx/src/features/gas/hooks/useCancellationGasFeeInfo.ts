@@ -1,29 +1,29 @@
 import { useQuery } from '@tanstack/react-query'
 import { providers } from 'ethers/lib/ethers'
 import { useCallback, useMemo } from 'react'
-import { CancellationGasFeeDetails, useTransactionGasFee } from 'uniswap/src/features/gas/hooks'
+import { CancellationGasFeeDetails, useTransactionGasFee } from 'lx/src/features/gas/hooks'
 import {
   PlanCancellationGasFeeDetails,
   usePlanCancellationGasFeeInfo,
-} from 'uniswap/src/features/gas/hooks/usePlanCancellationGasFeeInfo'
+} from 'lx/src/features/gas/hooks/usePlanCancellationGasFeeInfo'
 import {
   CancellationType,
   calculateCancellationGasFee,
   createClassicCancelRequest,
   getCancellationType,
-} from 'uniswap/src/features/gas/utils/cancel'
+} from 'lx/src/features/gas/utils/cancel'
 import {
   extractCancellationData,
   getCancelMultipleUniswapXOrdersTransaction,
-} from 'uniswap/src/features/transactions/cancel/cancelMultipleOrders'
-import { getCancelOrderTxRequest } from 'uniswap/src/features/transactions/cancel/getCancelOrderTxRequest'
-import { isUniswapX } from 'uniswap/src/features/transactions/swap/utils/routing'
+} from 'lx/src/features/transactions/cancel/cancelMultipleOrders'
+import { getCancelOrderTxRequest } from 'lx/src/features/transactions/cancel/getCancelOrderTxRequest'
+import { isUniswapX } from 'lx/src/features/transactions/swap/utils/routing'
 import {
   PlanTransactionDetails,
   TransactionDetails,
   UniswapXOrderDetails,
-} from 'uniswap/src/features/transactions/types/transactionDetails'
-import { isPlanTransactionDetails } from 'uniswap/src/features/transactions/types/utils'
+} from 'lx/src/features/transactions/types/transactionDetails'
+import { isPlanTransactionDetails } from 'lx/src/features/transactions/types/utils'
 import { ReactQueryCacheKey } from 'utilities/src/reactQuery/cache'
 
 /**

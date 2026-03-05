@@ -46,7 +46,7 @@
       "@universe/hashcash-native": ["./packages/hashcash-native/src/index.ts"],
       "@universe/hashcash-native/*": ["./packages/hashcash-native/*"],
       "ui/*": ["./packages/ui/*"],
-      "uniswap/*": ["./packages/uniswap/*"],
+      "lx/*": ["./packages/lx/*"],
       "utilities/*": ["./packages/utilities/*"],
       "wallet/*": ["./packages/wallet/*"],
       "@universe/transactional/*": ["./packages/transactional/*"],

@@ -18,7 +18,7 @@ jest.mock('src/app/store', () => ({
 }))
 
 const mockOpenUri = jest.fn()
-jest.mock('uniswap/src/utils/linking', () => ({
+jest.mock('lx/src/utils/linking', () => ({
   openUri: mockOpenUri,
 }))
 
@@ -50,7 +50,7 @@ describe('handleNotificationNavigation', () => {
         getState: (): unknown => mockGetState(),
       },
     }))
-    jest.doMock('uniswap/src/utils/linking', () => ({
+    jest.doMock('lx/src/utils/linking', () => ({
       openUri: mockOpenUri,
     }))
     jest.doMock('utilities/src/logger/logger', () => ({

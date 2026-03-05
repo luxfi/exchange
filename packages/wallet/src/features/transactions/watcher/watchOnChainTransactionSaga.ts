@@ -1,28 +1,28 @@
 import { ApolloClient, NormalizedCacheObject } from '@apollo/client'
 import { BigNumber, BigNumberish, providers } from 'ethers'
 import { call, cancel, delay, fork, put, race, spawn, take } from 'typed-redux-saga'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { pushNotification } from 'uniswap/src/features/notifications/slice/slice'
-import { AppNotificationType } from 'uniswap/src/features/notifications/slice/types'
-import { waitForFlashbotsProtectReceipt } from 'uniswap/src/features/providers/FlashbotsCommon'
-import { CancelableStepInfo } from 'uniswap/src/features/transactions/hooks/useIsCancelable'
+import { UniverseChainId } from 'lx/src/features/chains/types'
+import { pushNotification } from 'lx/src/features/notifications/slice/slice'
+import { AppNotificationType } from 'lx/src/features/notifications/slice/types'
+import { waitForFlashbotsProtectReceipt } from 'lx/src/features/providers/FlashbotsCommon'
+import { CancelableStepInfo } from 'lx/src/features/transactions/hooks/useIsCancelable'
 import {
   cancelPlanStep,
   cancelTransaction,
   replaceTransaction,
   transactionActions,
-} from 'uniswap/src/features/transactions/slice'
-import { waitForPlanUpdateOrFinalizedState } from 'uniswap/src/features/transactions/swap/plan/planPollingUtils'
-import { isBridge, isChained, isClassic, isUniswapX } from 'uniswap/src/features/transactions/swap/utils/routing'
+} from 'lx/src/features/transactions/slice'
+import { waitForPlanUpdateOrFinalizedState } from 'lx/src/features/transactions/swap/plan/planPollingUtils'
+import { isBridge, isChained, isClassic, isUniswapX } from 'lx/src/features/transactions/swap/utils/routing'
 import {
   FinalizedTransactionDetails,
   OnChainTransactionDetails,
   TEMPORARY_TRANSACTION_STATUSES,
   TransactionDetails,
   TransactionStatus,
-} from 'uniswap/src/features/transactions/types/transactionDetails'
-import { isFinalizedTx, isPlanTransactionDetails } from 'uniswap/src/features/transactions/types/utils'
-import i18n from 'uniswap/src/i18n'
+} from 'lx/src/features/transactions/types/transactionDetails'
+import { isFinalizedTx, isPlanTransactionDetails } from 'lx/src/features/transactions/types/utils'
+import i18n from 'lx/src/i18n'
 import { logger } from 'utilities/src/logger/logger'
 import { cancelPlanStep as cancelPlanStepSaga } from 'wallet/src/features/transactions/cancelPlanStepSaga'
 import { attemptCancelTransaction } from 'wallet/src/features/transactions/cancelTransactionSaga'

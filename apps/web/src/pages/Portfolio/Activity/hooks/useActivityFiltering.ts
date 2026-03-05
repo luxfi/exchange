@@ -1,8 +1,8 @@
 import { useMemo, useRef } from 'react'
-import { ActivityItem } from 'uniswap/src/components/activity/generateActivityItemRenderer'
-import { useActivityData } from 'uniswap/src/features/activity/hooks/useActivityData'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { TransactionDetails } from 'uniswap/src/features/transactions/types/transactionDetails'
+import { ActivityItem } from 'lx/src/components/activity/generateActivityItemRenderer'
+import { useActivityData } from 'lx/src/features/activity/hooks/useActivityData'
+import { UniverseChainId } from 'lx/src/features/chains/types'
+import { TransactionDetails } from 'lx/src/features/transactions/types/transactionDetails'
 import { useInfiniteScroll } from 'utilities/src/react/useInfiniteScroll'
 import { ONE_DAY_MS } from 'utilities/src/time/time'
 import {

@@ -1,6 +1,6 @@
 import type { providers } from 'ethers'
-import type { AccountMeta } from 'uniswap/src/features/accounts/types'
-import type { UniverseChainId } from 'uniswap/src/features/chains/types'
+import type { AccountMeta } from 'lx/src/features/accounts/types'
+import type { UniverseChainId } from 'lx/src/features/chains/types'
 
 export type Provider = providers.JsonRpcProvider
 

@@ -1,7 +1,7 @@
 import { lazy, Suspense, useEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Button, Flex, useIsDarkMode, useMedia } from 'ui/src'
-import { ElementName } from 'uniswap/src/features/telemetry/constants'
+import { ElementName } from 'lx/src/features/telemetry/constants'
 import { logger } from 'utilities/src/logger/logger'
 import ErrorBoundary from '~/components/ErrorBoundary'
 import { BidDistributionChartTab } from '~/components/Toucan/Auction/AuctionChartShared'

@@ -1,5 +1,5 @@
-import { nativeOnChain } from 'uniswap/src/constants/tokens'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { nativeOnChain } from 'lx/src/constants/tokens'
+import { UniverseChainId } from 'lx/src/features/chains/types'
 import { GasFeeData, GroupedGasFee, groupGasFeesBySymbol } from 'wallet/src/features/smartWallet/utils/gasFeeUtils'
 
 describe('groupGasFeesBySymbol', () => {

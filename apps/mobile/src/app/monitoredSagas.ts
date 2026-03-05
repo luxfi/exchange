@@ -1,4 +1,4 @@
-import { getMonitoredSagaReducers, type MonitoredSaga } from 'uniswap/src/utils/saga'
+import { getMonitoredSagaReducers, type MonitoredSaga } from 'lx/src/utils/saga'
 import {
   removeDelegationActions,
   removeDelegationReducer,

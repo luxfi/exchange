@@ -9,7 +9,7 @@ import {
   TransactionOriginType,
   TransactionType,
   WrapTransactionInfo,
-} from 'uniswap/src/features/transactions/types/transactionDetails'
+} from 'lx/src/features/transactions/types/transactionDetails'
 import { ensure0xHex } from 'utilities/src/addresses/hex'
 import { logger } from 'utilities/src/logger/logger'
 import { TransactionService } from 'wallet/src/features/transactions/executeTransaction/services/TransactionService/transactionService'

@@ -1,8 +1,8 @@
 import { createStore, Store } from '@reduxjs/toolkit'
 import { TradingApi } from '@universe/api'
 
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { ValueType } from 'uniswap/src/features/tokens/getCurrencyAmount'
+import { UniverseChainId } from 'lx/src/features/chains/types'
+import { ValueType } from 'lx/src/features/tokens/getCurrencyAmount'
 import {
   addTransaction,
   cancelTransaction,
@@ -18,7 +18,7 @@ import {
   TransactionsState,
   transactionReducer,
   updateTransaction,
-} from 'uniswap/src/features/transactions/slice'
+} from 'lx/src/features/transactions/slice'
 import {
   ApproveTransactionInfo,
   BridgeTransactionInfo,
@@ -33,8 +33,8 @@ import {
   TransactionStatus,
   TransactionType,
   TransactionTypeInfo,
-} from 'uniswap/src/features/transactions/types/transactionDetails'
-import { finalizedTransactionAction } from 'uniswap/src/test/fixtures'
+} from 'lx/src/features/transactions/types/transactionDetails'
+import { finalizedTransactionAction } from 'lx/src/test/fixtures'
 
 const finalizedTxAction = finalizedTransactionAction()
 

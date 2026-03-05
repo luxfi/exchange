@@ -1,19 +1,19 @@
 import { ApolloClient, NormalizedCacheObject } from '@apollo/client'
 import { fork, put, select, take, takeEvery } from 'typed-redux-saga'
-import { FORTransactionDetails } from 'uniswap/src/features/fiatOnRamp/types'
-import { pushNotification } from 'uniswap/src/features/notifications/slice/slice'
-import { AppNotificationType } from 'uniswap/src/features/notifications/slice/types'
-import { selectIncompleteTransactions } from 'uniswap/src/features/transactions/selectors'
+import { FORTransactionDetails } from 'lx/src/features/fiatOnRamp/types'
+import { pushNotification } from 'lx/src/features/notifications/slice/slice'
+import { AppNotificationType } from 'lx/src/features/notifications/slice/types'
+import { selectIncompleteTransactions } from 'lx/src/features/transactions/selectors'
 import {
   addTransaction,
   cancelRemoteUniswapXOrder,
   transactionActions,
   updateTransaction,
-} from 'uniswap/src/features/transactions/slice'
-import { PlanWatcher } from 'uniswap/src/features/transactions/swap/plan/planWatcherSaga'
-import { isUniswapX } from 'uniswap/src/features/transactions/swap/utils/routing'
-import { QueuedOrderStatus } from 'uniswap/src/features/transactions/types/transactionDetails'
-import i18n from 'uniswap/src/i18n'
+} from 'lx/src/features/transactions/slice'
+import { PlanWatcher } from 'lx/src/features/transactions/swap/plan/planWatcherSaga'
+import { isUniswapX } from 'lx/src/features/transactions/swap/utils/routing'
+import { QueuedOrderStatus } from 'lx/src/features/transactions/types/transactionDetails'
+import i18n from 'lx/src/i18n'
 import { logger } from 'utilities/src/logger/logger'
 import { attemptCancelRemoteUniswapXOrder } from 'wallet/src/features/transactions/cancelTransactionSaga'
 import { isFORTransaction } from 'wallet/src/features/transactions/utils'

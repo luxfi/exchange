@@ -3,9 +3,9 @@ import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes
 import { Currency, Percent } from '@uniswap/sdk-core'
 import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
-import { BIPS_BASE } from 'uniswap/src/constants/misc'
-import { useGetPoolsByTokens } from 'uniswap/src/data/rest/getPools'
-import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
+import { BIPS_BASE } from 'lx/src/constants/misc'
+import { useGetPoolsByTokens } from 'lx/src/data/rest/getPools'
+import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
 import { FeeTierData } from '~/components/Liquidity/types'
 import { getTokenOrZeroAddress } from '~/components/Liquidity/utils/currency'
 import {

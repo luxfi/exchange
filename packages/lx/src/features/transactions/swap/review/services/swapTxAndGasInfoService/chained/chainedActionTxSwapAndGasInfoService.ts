@@ -1,12 +1,12 @@
 import { type GasFeeResult, type GasStrategy, TradingApi } from '@universe/api'
-import type { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { convertGasFeeToDisplayValue } from 'uniswap/src/features/gas/hooks'
-import type { SwapDelegationInfo } from 'uniswap/src/features/smartWallet/delegation/types'
-import { getPlanCompoundSlippageTolerance } from 'uniswap/src/features/transactions/swap/plan/slippage'
-import type { SwapTxAndGasInfoService } from 'uniswap/src/features/transactions/swap/review/services/swapTxAndGasInfoService/swapTxAndGasInfoService'
-import { type ChainedSwapTxAndGasInfo } from 'uniswap/src/features/transactions/swap/types/swapTxAndGasInfo'
-import type { ChainedActionTrade } from 'uniswap/src/features/transactions/swap/types/trade'
-import { tradingApiToUniverseChainId } from 'uniswap/src/features/transactions/swap/utils/tradingApi'
+import type { UniverseChainId } from 'lx/src/features/chains/types'
+import { convertGasFeeToDisplayValue } from 'lx/src/features/gas/hooks'
+import type { SwapDelegationInfo } from 'lx/src/features/smartWallet/delegation/types'
+import { getPlanCompoundSlippageTolerance } from 'lx/src/features/transactions/swap/plan/slippage'
+import type { SwapTxAndGasInfoService } from 'lx/src/features/transactions/swap/review/services/swapTxAndGasInfoService/swapTxAndGasInfoService'
+import { type ChainedSwapTxAndGasInfo } from 'lx/src/features/transactions/swap/types/swapTxAndGasInfo'
+import type { ChainedActionTrade } from 'lx/src/features/transactions/swap/types/trade'
+import { tradingApiToUniverseChainId } from 'lx/src/features/transactions/swap/utils/tradingApi'
 
 const UNUSED_CHAINED_ACTIONS_FIELDS: Pick<
   ChainedSwapTxAndGasInfo,

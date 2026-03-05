@@ -1,22 +1,22 @@
 import { TradingApi } from '@universe/api'
 import { useEffect, useState } from 'react'
-import { useActiveConnector } from 'uniswap/src/features/accounts/store/hooks'
-import { AccessPattern } from 'uniswap/src/features/accounts/store/types/Connector'
-import { isL2ChainId } from 'uniswap/src/features/chains/utils'
-import { Platform } from 'uniswap/src/features/platforms/types/Platform'
+import { useActiveConnector } from 'lx/src/features/accounts/store/hooks'
+import { AccessPattern } from 'lx/src/features/accounts/store/types/Connector'
+import { isL2ChainId } from 'lx/src/features/chains/utils'
+import { Platform } from 'lx/src/features/platforms/types/Platform'
 import {
   isBridge,
   isChained,
   isClassic,
   isUniswapX,
   isWrap,
-} from 'uniswap/src/features/transactions/swap/utils/routing'
+} from 'lx/src/features/transactions/swap/utils/routing'
 import {
   PlanTransactionInfo,
   TransactionDetails,
   TransactionStatus,
   TransactionType,
-} from 'uniswap/src/features/transactions/types/transactionDetails'
+} from 'lx/src/features/transactions/types/transactionDetails'
 import { ONE_SECOND_MS } from 'utilities/src/time/time'
 
 // For L2 chains, delay showing cancel option by 2 seconds

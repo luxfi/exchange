@@ -32,8 +32,8 @@ jest.mock('@react-navigation/native', () => {
   }
 })
 
-jest.mock('uniswap/src/features/dataApi/balances/balances', () => {
-  const actual = jest.requireActual('uniswap/src/features/dataApi/balances/balances')
+jest.mock('lx/src/features/dataApi/balances/balances', () => {
+  const actual = jest.requireActual('lx/src/features/dataApi/balances/balances')
   const { NetworkStatus: MockNetworkStatus } = jest.requireActual('@apollo/client')
   return {
     ...actual,

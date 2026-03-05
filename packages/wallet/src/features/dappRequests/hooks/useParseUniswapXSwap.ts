@@ -1,8 +1,8 @@
 import { useMemo } from 'react'
-import { DEFAULT_NATIVE_ADDRESS, DEFAULT_NATIVE_ADDRESS_LEGACY } from 'uniswap/src/features/chains/evm/defaults'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { useCurrencyInfoWithLoading } from 'uniswap/src/features/tokens/useCurrencyInfo'
-import { buildCurrencyId } from 'uniswap/src/utils/currencyId'
+import { DEFAULT_NATIVE_ADDRESS, DEFAULT_NATIVE_ADDRESS_LEGACY } from 'lx/src/features/chains/evm/defaults'
+import { UniverseChainId } from 'lx/src/features/chains/types'
+import { useCurrencyInfoWithLoading } from 'lx/src/features/tokens/useCurrencyInfo'
+import { buildCurrencyId } from 'lx/src/utils/currencyId'
 import { formatUnits } from 'viem'
 import { UniswapXSwapRequest } from 'wallet/src/components/dappRequests/types/Permit2Types'
 import {

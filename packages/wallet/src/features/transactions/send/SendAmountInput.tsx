@@ -5,12 +5,12 @@ import { Flex, FlexProps, Text, TouchableArea } from 'ui/src'
 import { ArrowDownArrowUp } from 'ui/src/components/icons'
 import { useDynamicFontSizing } from 'ui/src/hooks/useDynamicFontSizing'
 import { fonts } from 'ui/src/theme'
-import { AmountInput } from 'uniswap/src/components/AmountInput/AmountInput'
-import { ParsedWarnings, WarningLabel } from 'uniswap/src/components/modals/WarningModal/types'
-import { useEnabledChains } from 'uniswap/src/features/chains/hooks/useEnabledChains'
-import { CurrencyInfo } from 'uniswap/src/features/dataApi/types'
-import { useAppFiatCurrencyInfo } from 'uniswap/src/features/fiatCurrency/hooks'
-import { useTokenAndFiatDisplayAmounts } from 'uniswap/src/features/transactions/hooks/useTokenAndFiatDisplayAmounts'
+import { AmountInput } from 'lx/src/components/AmountInput/AmountInput'
+import { ParsedWarnings, WarningLabel } from 'lx/src/components/modals/WarningModal/types'
+import { useEnabledChains } from 'lx/src/features/chains/hooks/useEnabledChains'
+import { CurrencyInfo } from 'lx/src/features/dataApi/types'
+import { useAppFiatCurrencyInfo } from 'lx/src/features/fiatCurrency/hooks'
+import { useTokenAndFiatDisplayAmounts } from 'lx/src/features/transactions/hooks/useTokenAndFiatDisplayAmounts'
 
 type SendAmountInputProps = {
   currencyInfo: Maybe<CurrencyInfo>

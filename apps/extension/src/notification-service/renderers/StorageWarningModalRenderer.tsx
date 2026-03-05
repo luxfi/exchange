@@ -7,9 +7,9 @@ import { AppRoutes, SettingsRoutes } from 'src/app/navigation/constants'
 import { useExtensionNavigation } from 'src/app/navigation/utils'
 import { getIsOnboardingFromNotification } from 'src/notification-service/data-sources/reactive/storageWarningCondition'
 import { spacing } from 'ui/src/theme'
-import { WarningSeverity } from 'uniswap/src/components/modals/WarningModal/types'
-import { WarningModal } from 'uniswap/src/components/modals/WarningModal/WarningModal'
-import { ModalName } from 'uniswap/src/features/telemetry/constants'
+import { WarningSeverity } from 'lx/src/components/modals/WarningModal/types'
+import { WarningModal } from 'lx/src/components/modals/WarningModal/WarningModal'
+import { ModalName } from 'lx/src/features/telemetry/constants'
 
 interface StorageWarningModalRendererProps {
   notification: InAppNotification

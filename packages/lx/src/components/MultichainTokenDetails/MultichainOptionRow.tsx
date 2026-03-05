@@ -1,9 +1,9 @@
 import { ReactNode } from 'react'
 import { Flex, Text, TouchableArea, useMedia } from 'ui/src'
 import { iconSizes } from 'ui/src/theme'
-import { NetworkLogo } from 'uniswap/src/components/CurrencyLogo/NetworkLogo'
-import { getChainInfo } from 'uniswap/src/features/chains/chainInfo'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { NetworkLogo } from 'lx/src/components/CurrencyLogo/NetworkLogo'
+import { getChainInfo } from 'lx/src/features/chains/chainInfo'
+import { UniverseChainId } from 'lx/src/features/chains/types'
 
 interface MultichainOptionRowProps {
   chainId: UniverseChainId

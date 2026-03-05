@@ -12,10 +12,10 @@ import {
   useMedia,
 } from 'ui/src'
 import { X } from 'ui/src/components/icons/X'
-import { Modal } from 'uniswap/src/components/modals/Modal'
-import { parseCustomIconLink } from 'uniswap/src/components/notifications/iconUtils'
-import { ElementName, type ModalNameType } from 'uniswap/src/features/telemetry/constants'
-import Trace from 'uniswap/src/features/telemetry/Trace'
+import { Modal } from 'lx/src/components/modals/Modal'
+import { parseCustomIconLink } from 'lx/src/components/notifications/iconUtils'
+import { ElementName, type ModalNameType } from 'lx/src/features/telemetry/constants'
+import Trace from 'lx/src/features/telemetry/Trace'
 import { isMobileApp, isWebApp } from 'utilities/src/platform'
 
 const MODAL_MAX_WIDTH = 440

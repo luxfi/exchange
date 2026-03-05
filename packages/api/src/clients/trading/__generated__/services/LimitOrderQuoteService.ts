@@ -28,7 +28,7 @@ export class LimitOrderQuoteService {
                 400: `RequestValidationError, Bad Input`,
                 401: `UnauthorizedError eg. Account is blocked.`,
                 404: `ResourceNotFound eg. No quotes available or Gas fee/price not available`,
-                419: `Ratelimited`,
+                429: `Ratelimited`,
                 500: `Unexpected error`,
                 504: `Request duration limit reached.`,
             },

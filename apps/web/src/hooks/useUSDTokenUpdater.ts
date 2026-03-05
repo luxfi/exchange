@@ -1,9 +1,9 @@
 import { Currency } from '@uniswap/sdk-core'
 import { useMemo } from 'react'
-import { useSupportedChainId } from 'uniswap/src/features/chains/hooks/useSupportedChainId'
-import { getPrimaryStablecoin } from 'uniswap/src/features/chains/utils'
-import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
-import { useUSDCPrice } from 'uniswap/src/features/transactions/hooks/useUSDCPriceWrapper'
+import { useSupportedChainId } from 'lx/src/features/chains/hooks/useSupportedChainId'
+import { getPrimaryStablecoin } from 'lx/src/features/chains/utils'
+import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
+import { useUSDCPrice } from 'lx/src/features/transactions/hooks/useUSDCPriceWrapper'
 import { NumberType } from 'utilities/src/format/types'
 import tryParseCurrencyAmount from '~/lib/utils/tryParseCurrencyAmount'
 

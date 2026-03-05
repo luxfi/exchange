@@ -1,7 +1,7 @@
 import { atomWithStorage, useAtomValue } from 'jotai/utils'
 // biome-ignore lint/style/noRestrictedImports: Provider constants need direct ethers imports
 import PASSKEY_ICON from 'ui/src/assets/icons/passkey.svg'
-import { CONNECTION_PROVIDER_NAMES } from 'uniswap/src/constants/web3'
+import { CONNECTION_PROVIDER_NAMES } from 'lx/src/constants/web3'
 import GNOSIS_ICON from '~/assets/images/gnosis.png'
 import COINBASE_ICON from '~/assets/wallets/coinbase-icon.svg'
 import METAMASK_ICON from '~/assets/wallets/metamask-icon.svg'

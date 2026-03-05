@@ -1,5 +1,5 @@
 import { useMemo } from 'react'
-import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
+import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
 import { NumberType } from 'utilities/src/format/types'
 import { fromQ96ToDecimalWithTokenDecimals } from '~/components/Toucan/Auction/BidDistributionChart/utils/q96'
 import { useBidTokenInfo } from '~/components/Toucan/Auction/hooks/useBidTokenInfo'

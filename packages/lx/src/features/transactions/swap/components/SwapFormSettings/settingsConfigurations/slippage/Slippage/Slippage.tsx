@@ -1,6 +1,6 @@
 import { TradingApi } from '@universe/api'
-import { Platform } from 'uniswap/src/features/platforms/types/Platform'
-import type { TransactionSettingConfig } from 'uniswap/src/features/transactions/components/settings/types'
+import { Platform } from 'lx/src/features/platforms/types/Platform'
+import type { TransactionSettingConfig } from 'lx/src/features/transactions/components/settings/types'
 import { PlatformSplitStubError } from 'utilities/src/errors'
 
 export const Slippage: TransactionSettingConfig = {

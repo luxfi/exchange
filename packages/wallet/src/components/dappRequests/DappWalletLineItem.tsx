@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next'
 import { Flex, Text } from 'ui/src'
-import { AddressDisplay } from 'uniswap/src/components/accounts/AddressDisplay'
-import { ContentRow } from 'uniswap/src/components/transactions/requests/ContentRow'
+import { AddressDisplay } from 'lx/src/components/accounts/AddressDisplay'
+import { ContentRow } from 'lx/src/components/transactions/requests/ContentRow'
 import { isExtensionApp, isMobileApp } from 'utilities/src/platform'
 
 /**

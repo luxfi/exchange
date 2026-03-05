@@ -1,5 +1,5 @@
-import { Language, Locale } from 'uniswap/src/features/language/constants'
-import * as navigatorLocale from 'uniswap/src/features/language/navigatorLocale'
+import { Language, Locale } from 'lx/src/features/language/constants'
+import * as navigatorLocale from 'lx/src/features/language/navigatorLocale'
 import * as deviceLocales from 'utilities/src/device/locales'
 import { mockLogger } from 'utilities/src/logger/mocks'
 import type { Mock } from 'vitest'
@@ -9,13 +9,13 @@ vi.mock('utilities/src/device/locales', () => ({
   getDeviceLocales: vi.fn(),
 }))
 
-vi.mock('uniswap/src/features/language/navigatorLocale', () => ({
+vi.mock('lx/src/features/language/navigatorLocale', () => ({
   getLocale: vi.fn(),
 }))
 
 // Import the functions under test after mocks are set up
 // We need to use dynamic import to ensure mocks are applied
-const { getWalletDeviceLanguage, getWalletDeviceLocale } = await import('uniswap/src/i18n/utils')
+const { getWalletDeviceLanguage, getWalletDeviceLocale } = await import('lx/src/i18n/utils')
 
 describe('i18n utils', () => {
   const mockGetDeviceLocales = deviceLocales.getDeviceLocales as Mock

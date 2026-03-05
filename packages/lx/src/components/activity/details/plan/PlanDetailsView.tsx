@@ -2,21 +2,21 @@ import { Fragment, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Button, Flex, getTokenValue, Text, VerticalDottedLineSeparator } from 'ui/src'
 import { ArrowRight, ArrowRightDashed } from 'ui/src/components/icons'
-import { PLAN_STEP_ITEM_WIDTH, PlanStepItem } from 'uniswap/src/components/activity/details/plan/PlanStepItem'
-import { ResumePlanButton } from 'uniswap/src/components/activity/details/plan/ResumePlanButton'
-import { CurrencyLogo } from 'uniswap/src/components/CurrencyLogo/CurrencyLogo'
-import { getTransactionSummaryTitle } from 'uniswap/src/features/activity/utils/getTransactionSummaryTitle'
-import { useCurrencyInfo } from 'uniswap/src/features/tokens/useCurrencyInfo'
-import { useCanResumePlan } from 'uniswap/src/features/transactions/swap/plan/intermediaryState/useCanResumePlan'
-import { useIntermediaryPlanState } from 'uniswap/src/features/transactions/swap/plan/intermediaryState/useIntermediaryPlanState'
-import { useIntermediaryPlanStateDescriptor } from 'uniswap/src/features/transactions/swap/plan/intermediaryState/useIntermediaryPlanStateDescriptor'
+import { PLAN_STEP_ITEM_WIDTH, PlanStepItem } from 'lx/src/components/activity/details/plan/PlanStepItem'
+import { ResumePlanButton } from 'lx/src/components/activity/details/plan/ResumePlanButton'
+import { CurrencyLogo } from 'lx/src/components/CurrencyLogo/CurrencyLogo'
+import { getTransactionSummaryTitle } from 'lx/src/features/activity/utils/getTransactionSummaryTitle'
+import { useCurrencyInfo } from 'lx/src/features/tokens/useCurrencyInfo'
+import { useCanResumePlan } from 'lx/src/features/transactions/swap/plan/intermediaryState/useCanResumePlan'
+import { useIntermediaryPlanState } from 'lx/src/features/transactions/swap/plan/intermediaryState/useIntermediaryPlanState'
+import { useIntermediaryPlanStateDescriptor } from 'lx/src/features/transactions/swap/plan/intermediaryState/useIntermediaryPlanStateDescriptor'
 import {
   PlanTransactionInfo,
   TransactionDetails,
   TransactionStatus,
   TransactionType,
-} from 'uniswap/src/features/transactions/types/transactionDetails'
-import { buildNativeCurrencyId, buildWrappedNativeCurrencyId } from 'uniswap/src/utils/currencyId'
+} from 'lx/src/features/transactions/types/transactionDetails'
+import { buildNativeCurrencyId, buildWrappedNativeCurrencyId } from 'lx/src/utils/currencyId'
 import { isWebPlatform } from 'utilities/src/platform'
 
 interface PlanDetailsViewProps {

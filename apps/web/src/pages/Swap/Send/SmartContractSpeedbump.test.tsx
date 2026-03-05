@@ -1,4 +1,4 @@
-import { DAI } from 'uniswap/src/constants/tokens'
+import { DAI } from 'lx/src/constants/tokens'
 import { SmartContractSpeedBumpModal } from '~/pages/Swap/Send/SmartContractSpeedBump'
 import { SendContext, SendContextType } from '~/state/send/SendContext'
 import { render, screen } from '~/test-utils/render'

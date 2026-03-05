@@ -1,5 +1,5 @@
 import { spawn } from 'typed-redux-saga'
-import { type MonitoredSaga } from 'uniswap/src/utils/saga'
+import { type MonitoredSaga } from 'lx/src/utils/saga'
 import { notificationWatcher } from 'wallet/src/features/notifications/notificationWatcherSaga'
 import { initProviders } from 'wallet/src/features/providers/saga'
 import {

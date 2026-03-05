@@ -7,7 +7,7 @@ import { DeviceAccessTimeout } from 'lx/src/features/settings/constants'
 import { logger } from 'utilities/src/logger/logger'
 
 // Mock dependencies
-jest.mock('uniswap/src/extension/useIsChromeWindowFocused')
+jest.mock('lx/src/extension/useIsChromeWindowFocused')
 jest.mock('utilities/src/logger/logger')
 jest.mock('src/app/hooks/useIsWalletUnlocked', () => ({
   useIsWalletUnlocked: jest.fn(),

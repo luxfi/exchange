@@ -17,8 +17,8 @@ import {
 } from '@uniswap/client-data-api/dist/data/v1/auction_pb'
 import type { AuctionServiceClient } from '@universe/api/src/clients/auctions/createAuctionServiceClient'
 import { UseQueryApiHelperHookArgs } from '@universe/api/src/hooks/shared/types'
-import { AuctionServiceClient as AuctionServiceClientInstance } from 'uniswap/src/data/rest/auctions/AuctionServiceClient'
-import { AUCTION_DEFAULT_RETRY, AuctionStaleTime } from 'uniswap/src/data/rest/auctions/queryTypes'
+import { AuctionServiceClient as AuctionServiceClientInstance } from 'lx/src/data/rest/auctions/AuctionServiceClient'
+import { AUCTION_DEFAULT_RETRY, AuctionStaleTime } from 'lx/src/data/rest/auctions/queryTypes'
 import { ReactQueryCacheKey } from 'utilities/src/reactQuery/cache'
 import { QueryOptionsResult } from 'utilities/src/reactQuery/queryOptions'
 

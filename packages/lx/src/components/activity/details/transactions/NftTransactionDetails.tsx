@@ -1,8 +1,8 @@
 import { Flex, Text, TouchableArea } from 'ui/src'
 import { RotatableChevron } from 'ui/src/components/icons/RotatableChevron'
-import { NFTViewer } from 'uniswap/src/components/nfts/NFTViewer'
-import { useUniswapContext } from 'uniswap/src/contexts/UniswapContext'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { NFTViewer } from 'lx/src/components/nfts/NFTViewer'
+import { useUniswapContext } from 'lx/src/contexts/UniswapContext'
+import { UniverseChainId } from 'lx/src/features/chains/types'
 import {
   NFTApproveTransactionInfo,
   NFTMintTransactionInfo,
@@ -11,7 +11,7 @@ import {
   ReceiveTokenTransactionInfo,
   SendTokenTransactionInfo,
   TransactionDetails,
-} from 'uniswap/src/features/transactions/types/transactionDetails'
+} from 'lx/src/features/transactions/types/transactionDetails'
 import { isWebPlatform } from 'utilities/src/platform'
 
 const MAX_NFT_IMAGE_HEIGHT = 375

@@ -1,6 +1,6 @@
 import { useMemo } from 'react'
 import { useSelector } from 'react-redux'
-import { usePoolSearchResultsToPoolOptions } from 'uniswap/src/components/lists/items/pools/usePoolSearchResultsToPoolOptions'
+import { usePoolSearchResultsToPoolOptions } from 'lx/src/components/lists/items/pools/usePoolSearchResultsToPoolOptions'
 import {
   NFTCollectionOption,
   OnchainItemListOptionType,
@@ -8,13 +8,13 @@ import {
   SearchModalOption,
   TokenOption,
   WalletByAddressOption,
-} from 'uniswap/src/components/lists/items/types'
-import { MAX_RECENT_SEARCH_RESULTS } from 'uniswap/src/components/TokenSelector/constants'
-import { useCurrencyInfosToTokenOptions } from 'uniswap/src/components/TokenSelector/hooks/useCurrencyInfosToTokenOptions'
-import { getNativeAddress } from 'uniswap/src/constants/addresses'
-import { normalizeCurrencyIdForMapLookup, normalizeTokenAddressForCache } from 'uniswap/src/data/cache'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { CurrencyInfo } from 'uniswap/src/features/dataApi/types'
+} from 'lx/src/components/lists/items/types'
+import { MAX_RECENT_SEARCH_RESULTS } from 'lx/src/components/TokenSelector/constants'
+import { useCurrencyInfosToTokenOptions } from 'lx/src/components/TokenSelector/hooks/useCurrencyInfosToTokenOptions'
+import { getNativeAddress } from 'lx/src/constants/addresses'
+import { normalizeCurrencyIdForMapLookup, normalizeTokenAddressForCache } from 'lx/src/data/cache'
+import { UniverseChainId } from 'lx/src/features/chains/types'
+import { CurrencyInfo } from 'lx/src/features/dataApi/types'
 import {
   isEtherscanSearchHistoryResult,
   isNFTCollectionSearchHistoryResult,
@@ -22,11 +22,11 @@ import {
   isTokenSearchHistoryResult,
   isWalletSearchHistoryResult,
   SearchHistoryResult,
-} from 'uniswap/src/features/search/SearchHistoryResult'
-import { SearchTab } from 'uniswap/src/features/search/SearchModal/types'
-import { selectSearchHistory } from 'uniswap/src/features/search/selectSearchHistory'
-import { useCurrencyInfos } from 'uniswap/src/features/tokens/useCurrencyInfo'
-import { buildCurrencyId, buildNativeCurrencyId, currencyId } from 'uniswap/src/utils/currencyId'
+} from 'lx/src/features/search/SearchHistoryResult'
+import { SearchTab } from 'lx/src/features/search/SearchModal/types'
+import { selectSearchHistory } from 'lx/src/features/search/selectSearchHistory'
+import { useCurrencyInfos } from 'lx/src/features/tokens/useCurrencyInfo'
+import { buildCurrencyId, buildNativeCurrencyId, currencyId } from 'lx/src/utils/currencyId'
 import { isMobileApp, isWebApp } from 'utilities/src/platform'
 
 export function useRecentlySearchedOptions({

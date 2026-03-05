@@ -11,9 +11,9 @@ import { Verified } from 'ui/src/components/icons'
 import { Ethereum } from 'ui/src/components/logos/Ethereum'
 import { UniversalImageResizeMode } from 'ui/src/components/UniversalImage/types'
 import { spacing } from 'ui/src/theme'
-import { NFTViewer } from 'uniswap/src/components/nfts/NFTViewer'
-import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
-import { useAppInsets } from 'uniswap/src/hooks/useAppInsets'
+import { NFTViewer } from 'lx/src/components/nfts/NFTViewer'
+import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
+import { useAppInsets } from 'lx/src/hooks/useAppInsets'
 import { NumberType } from 'utilities/src/format/types'
 
 const PROFILE_IMAGE_SIZE = 72

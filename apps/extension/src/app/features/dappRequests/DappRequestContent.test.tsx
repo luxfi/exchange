@@ -4,8 +4,8 @@ import type { DappRequestStoreItem } from 'src/app/features/dappRequests/shared'
 import { DappRequestStatus } from 'src/app/features/dappRequests/shared'
 import type { WithMetadata } from 'src/app/features/dappRequests/slice'
 import { render, screen } from 'src/test/test-utils'
-import { AccountType } from 'uniswap/src/features/accounts/types'
-import { DappRequestType } from 'uniswap/src/features/dappRequests/types'
+import { AccountType } from 'lx/src/features/accounts/types'
+import { DappRequestType } from 'lx/src/features/dappRequests/types'
 
 // Mock wagmi to avoid ESM import issues
 jest.mock('wagmi', () => ({
@@ -30,7 +30,7 @@ jest.mock('src/app/features/dapp/hooks', () => ({
   useDappLastChainId: jest.fn(() => 1),
 }))
 
-jest.mock('uniswap/src/features/portfolio/api', () => ({
+jest.mock('lx/src/features/portfolio/api', () => ({
   useOnChainNativeCurrencyBalance: jest.fn(() => ({
     balance: { value: '1000000000000000000', currency: { symbol: 'ETH' } },
   })),
@@ -45,7 +45,7 @@ jest.mock('wallet/src/features/wallet/hooks', () => ({
   })),
 }))
 
-jest.mock('uniswap/src/features/chains/hooks/useEnabledChains', () => ({
+jest.mock('lx/src/features/chains/hooks/useEnabledChains', () => ({
   useEnabledChains: jest.fn(() => ({
     defaultChainId: 1,
   })),
@@ -65,7 +65,7 @@ jest.mock('wallet/src/features/transactions/TransactionRequest/AddressFooter', (
 }))
 
 // Mock currency hooks that parse transaction data
-jest.mock('uniswap/src/data/apiClients/tradingApi/useTradingApiSwapQuery', () => ({
+jest.mock('lx/src/data/apiClients/tradingApi/useTradingApiSwapQuery', () => ({
   useTradingApiSwapQuery: jest.fn(() => ({
     data: undefined,
     isLoading: false,

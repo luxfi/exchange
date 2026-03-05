@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next'
 import { Flex, Text } from 'ui/src'
 import { Receipt } from 'ui/src/components/icons/Receipt'
 import { iconSizes } from 'ui/src/theme'
-import { TransactionDetails } from 'uniswap/src/features/transactions/types/transactionDetails'
+import { TransactionDetails } from 'lx/src/features/transactions/types/transactionDetails'
 import { shortenHash } from 'utilities/src/addresses'
 import { ActivityProtocolInfo } from '~/pages/Portfolio/Activity/ActivityTable/activityTableModels'
 

@@ -4,40 +4,40 @@ import {
 } from '@uniswap/client-liquidity/dist/uniswap/liquidity/v1/api_pb'
 import invariant from 'tiny-invariant'
 import { call, delay, spawn } from 'typed-redux-saga'
-import { ZERO_ADDRESS } from 'uniswap/src/constants/misc'
-import { LiquidityServiceClient } from 'uniswap/src/data/apiClients/liquidityService/LiquidityServiceClient'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { InterfaceEventName, LiquidityEventName } from 'uniswap/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
-import type { UniverseEventProperties } from 'uniswap/src/features/telemetry/types'
-import type { CollectFeesTransactionStep } from 'uniswap/src/features/transactions/liquidity/steps/collectFees'
-import type { DecreasePositionTransactionStep } from 'uniswap/src/features/transactions/liquidity/steps/decreasePosition'
-import { generateLPTransactionSteps } from 'uniswap/src/features/transactions/liquidity/steps/generateLPTransactionSteps'
+import { ZERO_ADDRESS } from 'lx/src/constants/misc'
+import { LiquidityServiceClient } from 'lx/src/data/apiClients/liquidityService/LiquidityServiceClient'
+import { UniverseChainId } from 'lx/src/features/chains/types'
+import { InterfaceEventName, LiquidityEventName } from 'lx/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
+import type { UniverseEventProperties } from 'lx/src/features/telemetry/types'
+import type { CollectFeesTransactionStep } from 'lx/src/features/transactions/liquidity/steps/collectFees'
+import type { DecreasePositionTransactionStep } from 'lx/src/features/transactions/liquidity/steps/decreasePosition'
+import { generateLPTransactionSteps } from 'lx/src/features/transactions/liquidity/steps/generateLPTransactionSteps'
 import type {
   IncreasePositionTransactionStep,
   IncreasePositionTransactionStepAsync,
   IncreasePositionTransactionStepBatched,
-} from 'uniswap/src/features/transactions/liquidity/steps/increasePosition'
+} from 'lx/src/features/transactions/liquidity/steps/increasePosition'
 import type {
   MigratePositionTransactionStep,
   MigratePositionTransactionStepAsync,
-} from 'uniswap/src/features/transactions/liquidity/steps/migrate'
-import type { LiquidityAction, ValidatedLiquidityTxContext } from 'uniswap/src/features/transactions/liquidity/types'
-import { LiquidityTransactionType } from 'uniswap/src/features/transactions/liquidity/types'
-import type { HandleOnChainStepParams, TransactionStep } from 'uniswap/src/features/transactions/steps/types'
-import { TransactionStepType } from 'uniswap/src/features/transactions/steps/types'
-import type { SetCurrentStepFn } from 'uniswap/src/features/transactions/swap/types/swapCallback'
+} from 'lx/src/features/transactions/liquidity/steps/migrate'
+import type { LiquidityAction, ValidatedLiquidityTxContext } from 'lx/src/features/transactions/liquidity/types'
+import { LiquidityTransactionType } from 'lx/src/features/transactions/liquidity/types'
+import type { HandleOnChainStepParams, TransactionStep } from 'lx/src/features/transactions/steps/types'
+import { TransactionStepType } from 'lx/src/features/transactions/steps/types'
+import type { SetCurrentStepFn } from 'lx/src/features/transactions/swap/types/swapCallback'
 import type {
   CollectFeesTransactionInfo,
   CreatePoolTransactionInfo,
   LiquidityDecreaseTransactionInfo,
   LiquidityIncreaseTransactionInfo,
   MigrateV3LiquidityToV4TransactionInfo,
-} from 'uniswap/src/features/transactions/types/transactionDetails'
-import { TransactionType } from 'uniswap/src/features/transactions/types/transactionDetails'
-import { SignerMnemonicAccountDetails } from 'uniswap/src/features/wallet/types/AccountDetails'
-import { currencyId, isNativeCurrencyAddress } from 'uniswap/src/utils/currencyId'
-import { createSaga } from 'uniswap/src/utils/saga'
+} from 'lx/src/features/transactions/types/transactionDetails'
+import { TransactionType } from 'lx/src/features/transactions/types/transactionDetails'
+import { SignerMnemonicAccountDetails } from 'lx/src/features/wallet/types/AccountDetails'
+import { currencyId, isNativeCurrencyAddress } from 'lx/src/utils/currencyId'
+import { createSaga } from 'lx/src/utils/saga'
 import { logger } from 'utilities/src/logger/logger'
 import { getLiquidityEventName } from '~/components/Liquidity/analytics'
 import { getProtocols } from '~/components/Liquidity/utils/protocolVersion'

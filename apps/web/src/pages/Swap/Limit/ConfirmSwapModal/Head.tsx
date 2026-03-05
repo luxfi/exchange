@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next'
-import { GetHelpHeader } from 'uniswap/src/components/dialog/GetHelpHeader'
+import { GetHelpHeader } from 'lx/src/components/dialog/GetHelpHeader'
 import { ConfirmModalState } from '~/pages/Swap/Limit/ConfirmSwapModal/state'
 
 export function SwapHead({

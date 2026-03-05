@@ -1,0 +1,15 @@
+{
+  "name": "@luxfi/subgraph-dex-v3",
+  "version": "1.0.0",
+  "description": "Subgraph for Lux DEX V3 concentrated liquidity on C-chain (factory 0x80bBc7C4C7a59C899D1B37BC14539A22D5830a84, 27 pools, 100k+ swaps)",
+  "scripts": {
+    "codegen": "graph codegen",
+    "build": "graph build",
+    "deploy:local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 luxfi/dex-v3",
+    "create:local": "graph create --node http://localhost:8020/ luxfi/dex-v3"
+  },
+  "devDependencies": {
+    "@graphprotocol/graph-cli": "^0.68.0",
+    "@graphprotocol/graph-ts": "^0.32.0"
+  }
+}

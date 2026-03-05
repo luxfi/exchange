@@ -2,10 +2,10 @@ import { Currency, CurrencyAmount } from '@uniswap/sdk-core'
 import { TFunction } from 'i18next'
 import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
-import { getChainLabel } from 'uniswap/src/features/chains/utils'
-import { LocalizationContextState, useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
-import { IntermediaryPlanState } from 'uniswap/src/features/transactions/swap/plan/intermediaryState/useIntermediaryPlanState'
-import { TransactionStatus } from 'uniswap/src/features/transactions/types/transactionDetails'
+import { getChainLabel } from 'lx/src/features/chains/utils'
+import { LocalizationContextState, useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
+import { IntermediaryPlanState } from 'lx/src/features/transactions/swap/plan/intermediaryState/useIntermediaryPlanState'
+import { TransactionStatus } from 'lx/src/features/transactions/types/transactionDetails'
 
 interface IntermediaryStateDescriptorParams {
   intermediaryState: IntermediaryPlanState

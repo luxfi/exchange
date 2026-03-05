@@ -3,11 +3,11 @@ import { useTranslation } from 'react-i18next'
 import { Flex, Text } from 'ui/src'
 import { UniswapX } from 'ui/src/components/icons/UniswapX'
 import { UniswapXText } from 'ui/src/components/text/UniswapXText'
-import { NetworkLogo } from 'uniswap/src/components/CurrencyLogo/NetworkLogo'
-import { TransactionDetailsTooltip as Tooltip } from 'uniswap/src/components/TransactionDetailsTooltip'
-import { uniswapUrls } from 'uniswap/src/constants/urls'
-import { getChainInfo } from 'uniswap/src/features/chains/chainInfo'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { NetworkLogo } from 'lx/src/components/CurrencyLogo/NetworkLogo'
+import { TransactionDetailsTooltip as Tooltip } from 'lx/src/components/TransactionDetailsTooltip'
+import { uniswapUrls } from 'lx/src/constants/urls'
+import { getChainInfo } from 'lx/src/features/chains/chainInfo'
+import { UniverseChainId } from 'lx/src/features/chains/types'
 
 export function NetworkCostTooltip({
   chainId,

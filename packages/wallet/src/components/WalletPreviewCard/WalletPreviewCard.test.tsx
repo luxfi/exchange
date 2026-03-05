@@ -1,4 +1,4 @@
-import { SAMPLE_SEED_ADDRESS_1 } from 'uniswap/src/test/fixtures'
+import { SAMPLE_SEED_ADDRESS_1 } from 'lx/src/test/fixtures'
 import WalletPreviewCard from 'wallet/src/components/WalletPreviewCard/WalletPreviewCard'
 import { render } from 'wallet/src/test/test-utils'
 

@@ -1,17 +1,17 @@
 import { TradingApi } from '@universe/api'
-import { createApprovalTransactionStep } from 'uniswap/src/features/transactions/steps/approve'
-import { createPermit2SignatureStep } from 'uniswap/src/features/transactions/steps/permit2Signature'
-import { TransactionStep } from 'uniswap/src/features/transactions/steps/types'
-import { PlanValidationError } from 'uniswap/src/features/transactions/swap/plan/types'
-import { parseSendCallsPlanStepPayload } from 'uniswap/src/features/transactions/swap/plan/utils'
-import { createUniswapXPlanSignatureStep } from 'uniswap/src/features/transactions/swap/steps/signOrder'
+import { createApprovalTransactionStep } from 'lx/src/features/transactions/steps/approve'
+import { createPermit2SignatureStep } from 'lx/src/features/transactions/steps/permit2Signature'
+import { TransactionStep } from 'lx/src/features/transactions/steps/types'
+import { PlanValidationError } from 'lx/src/features/transactions/swap/plan/types'
+import { parseSendCallsPlanStepPayload } from 'lx/src/features/transactions/swap/plan/utils'
+import { createUniswapXPlanSignatureStep } from 'lx/src/features/transactions/swap/steps/signOrder'
 import {
   createSwapTransactionStep,
   createSwapTransactionStepBatched,
-} from 'uniswap/src/features/transactions/swap/steps/swap'
-import { isUniswapX, planStepTypeToTradingRoute } from 'uniswap/src/features/transactions/swap/utils/routing'
-import { validatePermitTypeGuard, validateTransactionRequest } from 'uniswap/src/features/transactions/swap/utils/trade'
-import { tradingApiToUniverseChainId } from 'uniswap/src/features/transactions/swap/utils/tradingApi'
+} from 'lx/src/features/transactions/swap/steps/swap'
+import { isUniswapX, planStepTypeToTradingRoute } from 'lx/src/features/transactions/swap/utils/routing'
+import { validatePermitTypeGuard, validateTransactionRequest } from 'lx/src/features/transactions/swap/utils/trade'
+import { tradingApiToUniverseChainId } from 'lx/src/features/transactions/swap/utils/tradingApi'
 
 const ERC20_APPROVE_TX_PREFIX = '0x095ea7b3'
 

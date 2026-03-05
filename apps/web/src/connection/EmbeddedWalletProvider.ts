@@ -1,14 +1,14 @@
-import { getChainInfo } from 'uniswap/src/features/chains/chainInfo'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { getChainInfo } from 'lx/src/features/chains/chainInfo'
+import { UniverseChainId } from 'lx/src/features/chains/types'
 import {
   signMessageWithPasskey,
   signTransactionWithPasskey,
   signTypedDataWithPasskey,
-} from 'uniswap/src/features/passkey/embeddedWallet'
-import { Platform } from 'uniswap/src/features/platforms/types/Platform'
-import { createObservableTransport } from 'uniswap/src/features/providers/observability/createObservableTransport'
-import { getRpcObserver } from 'uniswap/src/features/providers/observability/rpcObserver'
-import { getValidAddress } from 'uniswap/src/utils/addresses'
+} from 'lx/src/features/passkey/embeddedWallet'
+import { Platform } from 'lx/src/features/platforms/types/Platform'
+import { createObservableTransport } from 'lx/src/features/providers/observability/createObservableTransport'
+import { getRpcObserver } from 'lx/src/features/providers/observability/rpcObserver'
+import { getValidAddress } from 'lx/src/utils/addresses'
 import { HexString, isValidHexString } from 'utilities/src/addresses/hex'
 import { logger } from 'utilities/src/logger/logger'
 import { Account, createPublicClient, fallback, Hash, http, SignableMessage } from 'viem'

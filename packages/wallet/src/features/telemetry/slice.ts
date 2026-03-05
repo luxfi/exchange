@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { SharedEventName } from '@uniswap/analytics-events'
-import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
+import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
 // biome-ignore lint/style/noRestrictedImports: Wallet package needs direct access for internal usage
 import { analytics } from 'utilities/src/telemetry/analytics/analytics'
 

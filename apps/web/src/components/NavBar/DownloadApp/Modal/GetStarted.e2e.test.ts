@@ -1,5 +1,5 @@
-import { uniswapUrls } from 'uniswap/src/constants/urls'
-import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+import { uniswapUrls } from 'lx/src/constants/urls'
+import { TestID } from 'lx/src/test/fixtures/testIDs'
 import { expect, getTest } from '~/playwright/fixtures'
 import { setupWebAuthn } from '~/playwright/mocks/webAuthn'
 

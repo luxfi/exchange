@@ -6,9 +6,9 @@ import { Flex, Text, TouchableArea, UniversalImage, useIsDarkMode } from 'ui/src
 import { AnimatedFlex } from 'ui/src/components/layout/AnimatedFlex'
 import { UniversalImageResizeMode } from 'ui/src/components/UniversalImage/types'
 import { iconSizes } from 'ui/src/theme'
-import { FORServiceProvider } from 'uniswap/src/features/fiatOnRamp/types'
-import { getOptionalServiceProviderLogo } from 'uniswap/src/features/fiatOnRamp/utils'
-import { ModalName } from 'uniswap/src/features/telemetry/constants'
+import { FORServiceProvider } from 'lx/src/features/fiatOnRamp/types'
+import { getOptionalServiceProviderLogo } from 'lx/src/features/fiatOnRamp/utils'
+import { ModalName } from 'lx/src/features/telemetry/constants'
 
 function key(item: FORServiceProvider): string {
   return item.serviceProvider

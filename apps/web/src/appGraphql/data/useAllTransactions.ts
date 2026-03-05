@@ -1,8 +1,8 @@
 import { GraphQLApi } from '@universe/api'
 import { useCallback, useMemo, useRef } from 'react'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { fromGraphQLChain } from 'uniswap/src/features/chains/utils'
-import i18n from 'uniswap/src/i18n'
+import { UniverseChainId } from 'lx/src/features/chains/types'
+import { fromGraphQLChain } from 'lx/src/features/chains/utils'
+import i18n from 'lx/src/i18n'
 import { useIsWindowVisible } from 'utilities/src/react/useIsWindowVisible'
 
 export enum TransactionType {

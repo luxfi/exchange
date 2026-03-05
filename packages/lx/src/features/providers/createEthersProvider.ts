@@ -1,10 +1,10 @@
 import { providers as ethersProviders } from 'ethers/lib/ethers'
-import { RPCType, UniverseChainId } from 'uniswap/src/features/chains/types'
-import { SignerInfo } from 'uniswap/src/features/providers/FlashbotsCommon'
-import { FlashbotsRpcProvider } from 'uniswap/src/features/providers/FlashbotsRpcProvider'
-import { InstrumentedJsonRpcProvider } from 'uniswap/src/features/providers/observability/InstrumentedJsonRpcProvider'
-import { getRpcObserver } from 'uniswap/src/features/providers/observability/rpcObserver'
-import { selectRpcUrl } from 'uniswap/src/features/providers/rpcUrlSelector'
+import { RPCType, UniverseChainId } from 'lx/src/features/chains/types'
+import { SignerInfo } from 'lx/src/features/providers/FlashbotsCommon'
+import { FlashbotsRpcProvider } from 'lx/src/features/providers/FlashbotsRpcProvider'
+import { InstrumentedJsonRpcProvider } from 'lx/src/features/providers/observability/InstrumentedJsonRpcProvider'
+import { getRpcObserver } from 'lx/src/features/providers/observability/rpcObserver'
+import { selectRpcUrl } from 'lx/src/features/providers/rpcUrlSelector'
 import { logger } from 'utilities/src/logger/logger'
 
 // Should use ProviderManager for provider access unless being accessed outside of ProviderManagerContext (e.g., Apollo initialization)

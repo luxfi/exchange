@@ -1,5 +1,5 @@
 import { useMutation } from '@tanstack/react-query'
-import { LimitOrderResponse } from 'uniswap/src/features/transactions/cancel/cancelMultipleOrders'
+import { LimitOrderResponse } from 'lx/src/features/transactions/cancel/cancelMultipleOrders'
 import { logger } from 'utilities/src/logger/logger'
 import { fetchOpenLimitOrders } from '~/state/activity/polling/orders'
 

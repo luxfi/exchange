@@ -6,8 +6,8 @@ import { Flex, Text, TouchableArea } from 'ui/src'
 import { Shuffle } from 'ui/src/components/icons/Shuffle'
 import { X } from 'ui/src/components/icons/X'
 import { iconSizes, spacing } from 'ui/src/theme'
-import { selectHasDismissedCrosschainSwapsPromoBanner } from 'uniswap/src/features/behaviorHistory/selectors'
-import { setHasDismissedCrosschainSwapsPromoBanner } from 'uniswap/src/features/behaviorHistory/slice'
+import { selectHasDismissedCrosschainSwapsPromoBanner } from 'lx/src/features/behaviorHistory/selectors'
+import { setHasDismissedCrosschainSwapsPromoBanner } from 'lx/src/features/behaviorHistory/slice'
 
 export function CrosschainSwapsPromoBanner(): JSX.Element | null {
   const { t } = useTranslation()

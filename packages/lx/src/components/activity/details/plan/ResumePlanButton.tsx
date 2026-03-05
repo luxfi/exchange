@@ -2,9 +2,9 @@ import { formatUnits } from 'ethers/lib/utils'
 import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Button, SpinningLoader } from 'ui/src'
-import { useCurrencyInfo } from 'uniswap/src/features/tokens/useCurrencyInfo'
-import { useResumePlanMutation } from 'uniswap/src/features/transactions/swap/plan/intermediaryState/useResumePlanMutation'
-import { PlanTransactionInfo } from 'uniswap/src/features/transactions/types/transactionDetails'
+import { useCurrencyInfo } from 'lx/src/features/tokens/useCurrencyInfo'
+import { useResumePlanMutation } from 'lx/src/features/transactions/swap/plan/intermediaryState/useResumePlanMutation'
+import { PlanTransactionInfo } from 'lx/src/features/transactions/types/transactionDetails'
 import { useEvent } from 'utilities/src/react/hooks'
 
 export function ResumePlanButton({

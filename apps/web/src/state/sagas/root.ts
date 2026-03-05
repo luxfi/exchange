@@ -4,8 +4,8 @@ import {
   planReducer,
   planSagaName,
   planWrappedSaga,
-} from 'uniswap/src/features/transactions/swap/plan/planSaga'
-import { getMonitoredSagaReducers, type MonitoredSaga, waitForRehydration } from 'uniswap/src/utils/saga'
+} from 'lx/src/features/transactions/swap/plan/planSaga'
+import { getMonitoredSagaReducers, type MonitoredSaga, waitForRehydration } from 'lx/src/utils/saga'
 import { liquiditySaga } from '~/state/sagas/liquidity/liquiditySaga'
 import { lpIncentivesClaimSaga } from '~/state/sagas/lp_incentives/lpIncentivesSaga'
 import { submitToucanBidSaga } from '~/state/sagas/toucan/submitBidSaga'

@@ -1,13 +1,13 @@
 import { GqlResult } from '@universe/api'
 import { useCallback, useMemo } from 'react'
-import { TokenOption } from 'uniswap/src/components/lists/items/types'
-import { filter } from 'uniswap/src/components/TokenSelector/filter'
-import { useAllCommonBaseCurrencies } from 'uniswap/src/components/TokenSelector/hooks/useAllCommonBaseCurrencies'
-import { useCurrencyInfosToTokenOptions } from 'uniswap/src/components/TokenSelector/hooks/useCurrencyInfosToTokenOptions'
-import { usePortfolioBalancesForAddressById } from 'uniswap/src/components/TokenSelector/hooks/usePortfolioBalancesForAddressById'
-import type { AddressGroup } from 'uniswap/src/features/accounts/store/types/AccountsState'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { areAddressesEqual } from 'uniswap/src/utils/addresses'
+import { TokenOption } from 'lx/src/components/lists/items/types'
+import { filter } from 'lx/src/components/TokenSelector/filter'
+import { useAllCommonBaseCurrencies } from 'lx/src/components/TokenSelector/hooks/useAllCommonBaseCurrencies'
+import { useCurrencyInfosToTokenOptions } from 'lx/src/components/TokenSelector/hooks/useCurrencyInfosToTokenOptions'
+import { usePortfolioBalancesForAddressById } from 'lx/src/components/TokenSelector/hooks/usePortfolioBalancesForAddressById'
+import type { AddressGroup } from 'lx/src/features/accounts/store/types/AccountsState'
+import { UniverseChainId } from 'lx/src/features/chains/types'
+import { areAddressesEqual } from 'lx/src/utils/addresses'
 
 export function useCommonTokensOptions({
   addresses,

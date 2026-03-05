@@ -1,7 +1,7 @@
 import { useCallback } from 'react'
 import { useNavigate } from 'react-router'
 import { Flex, TouchableArea } from 'ui/src'
-import { toGraphQLChain } from 'uniswap/src/features/chains/utils'
+import { toGraphQLChain } from 'lx/src/features/chains/utils'
 import { getTokenDetailsURL } from '~/appGraphql/data/util'
 import { TokenLaunchedBackgroundChart } from '~/components/Toucan/Auction/Banners/TokenLaunched/TokenLaunchedBackgroundChart'
 import { TokenLaunchedBannerContent } from '~/components/Toucan/Auction/Banners/TokenLaunched/TokenLaunchedBannerContent'

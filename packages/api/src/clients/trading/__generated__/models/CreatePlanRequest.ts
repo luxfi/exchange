@@ -3,12 +3,14 @@
 /* tslint:disable */
 /* eslint-disable */
 import type { ChainedQuote } from './ChainedQuote';
+import type { WalletExecutionContext } from './WalletExecutionContext';
 export type CreatePlanRequest = {
     /**
      * The routing type for the plan. Currently only CHAINED is supported for multi-step execution plans.
      */
     routing: CreatePlanRequest.routing;
     quote: ChainedQuote;
+    walletExecutionContext?: WalletExecutionContext;
 };
 export namespace CreatePlanRequest {
     /**

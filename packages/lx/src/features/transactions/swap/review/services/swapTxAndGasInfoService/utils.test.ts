@@ -2,24 +2,24 @@ import { CurrencyAmount } from '@uniswap/sdk-core'
 import type { ClassicQuoteResponse, GasFeeResult } from '@universe/api'
 import { FeeType, TradingApi } from '@universe/api'
 import type { providers } from 'ethers/lib/ethers'
-import { DAI, USDC } from 'uniswap/src/constants/tokens'
-import { DEFAULT_GAS_STRATEGY } from 'uniswap/src/features/gas/utils'
-import type { TransactionSettingsState } from 'uniswap/src/features/transactions/components/settings/types'
-import { UnknownSimulationError } from 'uniswap/src/features/transactions/swap/review/services/swapTxAndGasInfoService/constants'
-import type { SwapData } from 'uniswap/src/features/transactions/swap/review/services/swapTxAndGasInfoService/evm/evmSwapRepository'
+import { DAI, USDC } from 'lx/src/constants/tokens'
+import { DEFAULT_GAS_STRATEGY } from 'lx/src/features/gas/utils'
+import type { TransactionSettingsState } from 'lx/src/features/transactions/components/settings/types'
+import { UnknownSimulationError } from 'lx/src/features/transactions/swap/review/services/swapTxAndGasInfoService/constants'
+import type { SwapData } from 'lx/src/features/transactions/swap/review/services/swapTxAndGasInfoService/evm/evmSwapRepository'
 import {
   createPrepareSwapRequestParams,
   createProcessSwapResponse,
   getShouldSkipSwapRequest,
   getSimulationError,
   processWrapResponse,
-} from 'uniswap/src/features/transactions/swap/review/services/swapTxAndGasInfoService/utils'
-import type { DerivedSwapInfo } from 'uniswap/src/features/transactions/swap/types/derivedSwapInfo'
-import type { TokenApprovalInfo, TradeWithStatus } from 'uniswap/src/features/transactions/swap/types/trade'
-import { ApprovalAction } from 'uniswap/src/features/transactions/swap/types/trade'
-import { DEFAULT_PROTOCOL_OPTIONS } from 'uniswap/src/features/transactions/swap/utils/protocols'
-import { WrapType } from 'uniswap/src/features/transactions/types/wrap'
-import { CurrencyField } from 'uniswap/src/types/currency'
+} from 'lx/src/features/transactions/swap/review/services/swapTxAndGasInfoService/utils'
+import type { DerivedSwapInfo } from 'lx/src/features/transactions/swap/types/derivedSwapInfo'
+import type { TokenApprovalInfo, TradeWithStatus } from 'lx/src/features/transactions/swap/types/trade'
+import { ApprovalAction } from 'lx/src/features/transactions/swap/types/trade'
+import { DEFAULT_PROTOCOL_OPTIONS } from 'lx/src/features/transactions/swap/utils/protocols'
+import { WrapType } from 'lx/src/features/transactions/types/wrap'
+import { CurrencyField } from 'lx/src/types/currency'
 
 const mockPermitData = { fakePermitField: 'hi' } as unknown as TradingApi.NullablePermit
 
@@ -75,11 +75,11 @@ describe('processWrapResponse (smart contract unwrap fallback)', () => {
 
     // Use dynamic imports to get modules with the mock applied
     const { processWrapResponse: mockedProcessWrapResponse } = await import(
-      'uniswap/src/features/transactions/swap/review/services/swapTxAndGasInfoService/utils'
+      'lx/src/features/transactions/swap/review/services/swapTxAndGasInfoService/utils'
     )
 
     const { WRAP_FALLBACK_GAS_LIMIT_IN_GWEI } = await import(
-      'uniswap/src/features/transactions/swap/review/services/swapTxAndGasInfoService/constants'
+      'lx/src/features/transactions/swap/review/services/swapTxAndGasInfoService/constants'
     )
 
     const gasFeeResult: GasFeeResult = {

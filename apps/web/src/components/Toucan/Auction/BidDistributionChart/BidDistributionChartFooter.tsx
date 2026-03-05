@@ -1,7 +1,7 @@
 import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Flex, SegmentedControl, Text, Tooltip, useColorsFromTokenColor, useSporeColors } from 'ui/src'
-import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
+import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
 import { getChartBarColors } from '~/components/Charts/ToucanChart/utils/colors'
 import { BidDistributionChartTab } from '~/components/Toucan/Auction/AuctionChartShared'
 import { AuctionProgressBar } from '~/components/Toucan/Auction/AuctionProgressBar'

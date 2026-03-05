@@ -1,4 +1,4 @@
-import { PreV55SearchResultType } from 'uniswap/src/state/oldTypes'
+import { PreV55SearchResultType } from 'lx/src/state/oldTypes'
 import { migration55 } from '~/state/migrations/55'
 
 const previousState = {

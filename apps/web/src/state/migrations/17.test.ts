@@ -1,5 +1,5 @@
 import { createMigrate } from 'redux-persist'
-import { PreV55SearchResultType } from 'uniswap/src/state/oldTypes'
+import { PreV55SearchResultType } from 'lx/src/state/oldTypes'
 import { createThrowingProxy } from 'utilities/src/test/utils'
 import { vi } from 'vitest'
 import { migration1 } from '~/state/migrations/1'

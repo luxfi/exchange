@@ -1,17 +1,17 @@
 import { CurrencyAmount } from '@uniswap/sdk-core'
-import { USDC } from 'uniswap/src/constants/tokens'
-import { usePriceDifference } from 'uniswap/src/features/transactions/swap/hooks/usePriceDifference'
-import type { SwapFormStoreState } from 'uniswap/src/features/transactions/swap/stores/swapFormStore/types'
-import * as useSwapFormStoreModule from 'uniswap/src/features/transactions/swap/stores/swapFormStore/useSwapFormStore'
-import { DerivedSwapInfo } from 'uniswap/src/features/transactions/swap/types/derivedSwapInfo'
-import { WrapType } from 'uniswap/src/features/transactions/types/wrap'
-import { createGasEstimate } from 'uniswap/src/test/fixtures/tradingApi'
-import { createEmptyTradeWithStatus } from 'uniswap/src/test/fixtures/transactions/swap'
-import { renderHookWithProviders } from 'uniswap/src/test/render'
-import { CurrencyField } from 'uniswap/src/types/currency'
+import { USDC } from 'lx/src/constants/tokens'
+import { usePriceDifference } from 'lx/src/features/transactions/swap/hooks/usePriceDifference'
+import type { SwapFormStoreState } from 'lx/src/features/transactions/swap/stores/swapFormStore/types'
+import * as useSwapFormStoreModule from 'lx/src/features/transactions/swap/stores/swapFormStore/useSwapFormStore'
+import { DerivedSwapInfo } from 'lx/src/features/transactions/swap/types/derivedSwapInfo'
+import { WrapType } from 'lx/src/features/transactions/types/wrap'
+import { createGasEstimate } from 'lx/src/test/fixtures/tradingApi'
+import { createEmptyTradeWithStatus } from 'lx/src/test/fixtures/transactions/swap'
+import { renderHookWithProviders } from 'lx/src/test/render'
+import { CurrencyField } from 'lx/src/types/currency'
 import type { Mock } from 'vitest'
 
-vi.mock('uniswap/src/features/transactions/swap/stores/swapFormStore/useSwapFormStore', () => ({
+vi.mock('lx/src/features/transactions/swap/stores/swapFormStore/useSwapFormStore', () => ({
   useSwapFormStore: vi.fn(),
 }))
 

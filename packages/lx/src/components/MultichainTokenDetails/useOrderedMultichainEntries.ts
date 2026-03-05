@@ -1,7 +1,7 @@
 import { useMemo } from 'react'
 // biome-ignore lint/style/noRestrictedImports: we need raw chain ordering without enabled filtering
-import { useOrderedChainIds } from 'uniswap/src/features/chains/hooks/useOrderedChainIds'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { useOrderedChainIds } from 'lx/src/features/chains/hooks/useOrderedChainIds'
+import { UniverseChainId } from 'lx/src/features/chains/types'
 
 export interface MultichainTokenEntry {
   chainId: UniverseChainId

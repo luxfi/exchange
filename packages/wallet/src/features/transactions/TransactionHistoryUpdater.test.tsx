@@ -1,10 +1,10 @@
 import { GraphQLApi } from '@universe/api'
 import dayjs from 'dayjs'
 import MockDate from 'mockdate'
-import { fromGraphQLChain } from 'uniswap/src/features/chains/utils'
-import { TransactionStatus } from 'uniswap/src/features/transactions/types/transactionDetails'
-import { erc20RecentReceiveAssetActivity, erc20StaleReceiveAssetActivity, portfolio } from 'uniswap/src/test/fixtures'
-import { queryResolvers } from 'uniswap/src/test/utils'
+import { fromGraphQLChain } from 'lx/src/features/chains/utils'
+import { TransactionStatus } from 'lx/src/features/transactions/types/transactionDetails'
+import { erc20RecentReceiveAssetActivity, erc20StaleReceiveAssetActivity, portfolio } from 'lx/src/test/fixtures'
+import { queryResolvers } from 'lx/src/test/utils'
 import { ONE_MINUTE_MS } from 'utilities/src/time/time'
 import {
   getReceiveNotificationFromData,

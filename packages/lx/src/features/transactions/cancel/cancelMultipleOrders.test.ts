@@ -1,9 +1,9 @@
 import 'utilities/src/logger/mocks'
 import { TradingApi } from '@universe/api'
 import { ContractTransaction, providers } from 'ethers/lib/ethers'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { InterfaceEventName } from 'uniswap/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
+import { UniverseChainId } from 'lx/src/features/chains/types'
+import { InterfaceEventName } from 'lx/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
 import {
   cancelMultipleUniswapXOrders,
   extractCancellationData,
@@ -12,21 +12,21 @@ import {
   getOrdersMatchingCancellationData,
   LimitOrdersFetcher,
   trackOrderCancellation,
-} from 'uniswap/src/features/transactions/cancel/cancelMultipleOrders'
-import { buildBatchCancellation } from 'uniswap/src/features/transactions/cancel/cancelOrderFactory'
-import { UniswapXOrderDetails } from 'uniswap/src/features/transactions/types/transactionDetails'
-import { uniswapXOrderDetails } from 'uniswap/src/test/fixtures'
+} from 'lx/src/features/transactions/cancel/cancelMultipleOrders'
+import { buildBatchCancellation } from 'lx/src/features/transactions/cancel/cancelOrderFactory'
+import { UniswapXOrderDetails } from 'lx/src/features/transactions/types/transactionDetails'
+import { uniswapXOrderDetails } from 'lx/src/test/fixtures'
 import type { Mock, Mocked } from 'vitest'
 
-vi.mock('uniswap/src/features/telemetry/send')
-vi.mock('uniswap/src/features/transactions/cancel/cancelOrderFactory', () => ({
+vi.mock('lx/src/features/telemetry/send')
+vi.mock('lx/src/features/transactions/cancel/cancelOrderFactory', () => ({
   buildBatchCancellation: vi.fn(),
 }))
-vi.mock('uniswap/src/features/transactions/swap/orders', () => ({
+vi.mock('lx/src/features/transactions/swap/orders', () => ({
   getOrders: vi.fn(),
 }))
 
-import { getOrders } from 'uniswap/src/features/transactions/swap/orders'
+import { getOrders } from 'lx/src/features/transactions/swap/orders'
 
 const mockGetOrders = getOrders as Mock
 

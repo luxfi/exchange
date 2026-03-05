@@ -7,41 +7,41 @@ import { Clear } from 'ui/src/components/icons/Clear'
 import { CopySheets } from 'ui/src/components/icons/CopySheets'
 import { HelpCenter } from 'ui/src/components/icons/HelpCenter'
 import { X } from 'ui/src/components/icons/X'
-import { MenuOptionItem } from 'uniswap/src/components/menus/ContextMenu'
-import { Modal } from 'uniswap/src/components/modals/Modal'
-import { WarningSeverity } from 'uniswap/src/components/modals/WarningModal/types'
-import { WarningModal } from 'uniswap/src/components/modals/WarningModal/WarningModal'
-import { uniswapUrls } from 'uniswap/src/constants/urls'
-import { AccountType } from 'uniswap/src/features/accounts/types'
-import { AuthTrigger } from 'uniswap/src/features/auth/types'
-import { pushNotification } from 'uniswap/src/features/notifications/slice/slice'
-import { AppNotificationType, CopyNotificationType } from 'uniswap/src/features/notifications/slice/types'
-import { submitActivitySpamReport } from 'uniswap/src/features/reporting/reports'
-import { ModalName } from 'uniswap/src/features/telemetry/constants'
+import { MenuOptionItem } from 'lx/src/components/menus/ContextMenu'
+import { Modal } from 'lx/src/components/modals/Modal'
+import { WarningSeverity } from 'lx/src/components/modals/WarningModal/types'
+import { WarningModal } from 'lx/src/components/modals/WarningModal/WarningModal'
+import { uniswapUrls } from 'lx/src/constants/urls'
+import { AccountType } from 'lx/src/features/accounts/types'
+import { AuthTrigger } from 'lx/src/features/auth/types'
+import { pushNotification } from 'lx/src/features/notifications/slice/slice'
+import { AppNotificationType, CopyNotificationType } from 'lx/src/features/notifications/slice/types'
+import { submitActivitySpamReport } from 'lx/src/features/reporting/reports'
+import { ModalName } from 'lx/src/features/telemetry/constants'
 import {
   CancelConfirmationView,
   PlanCancellationInfo,
-} from 'uniswap/src/features/transactions/components/cancel/CancelConfirmationView'
-import { useIsCancelable } from 'uniswap/src/features/transactions/hooks/useIsCancelable'
-import { useSelectTransaction } from 'uniswap/src/features/transactions/hooks/useSelectTransaction'
+} from 'lx/src/features/transactions/components/cancel/CancelConfirmationView'
+import { useIsCancelable } from 'lx/src/features/transactions/hooks/useIsCancelable'
+import { useSelectTransaction } from 'lx/src/features/transactions/hooks/useSelectTransaction'
 import {
   cancelPlanStep,
   cancelRemoteUniswapXOrder,
   cancelTransaction,
   finalizeTransaction,
-} from 'uniswap/src/features/transactions/slice'
-import { isBridge, isClassic, isUniswapX } from 'uniswap/src/features/transactions/swap/utils/routing'
+} from 'lx/src/features/transactions/slice'
+import { isBridge, isClassic, isUniswapX } from 'lx/src/features/transactions/swap/utils/routing'
 import {
   TransactionDetails,
   TransactionStatus,
   TransactionType,
   UniswapXOrderDetails,
-} from 'uniswap/src/features/transactions/types/transactionDetails'
-import { isFinalizedTx } from 'uniswap/src/features/transactions/types/utils'
-import { useIsActivityHidden } from 'uniswap/src/features/visibility/hooks/useIsActivityHidden'
-import { setActivityVisibility } from 'uniswap/src/features/visibility/slice'
-import { useWallet } from 'uniswap/src/features/wallet/hooks/useWallet'
-import { openFORSupportLink, openUri } from 'uniswap/src/utils/linking'
+} from 'lx/src/features/transactions/types/transactionDetails'
+import { isFinalizedTx } from 'lx/src/features/transactions/types/utils'
+import { useIsActivityHidden } from 'lx/src/features/visibility/hooks/useIsActivityHidden'
+import { setActivityVisibility } from 'lx/src/features/visibility/slice'
+import { useWallet } from 'lx/src/features/wallet/hooks/useWallet'
+import { openFORSupportLink, openUri } from 'lx/src/utils/linking'
 import { setClipboard } from 'utilities/src/clipboard/clipboard'
 import { logger } from 'utilities/src/logger/logger'
 import { isWebPlatform } from 'utilities/src/platform'

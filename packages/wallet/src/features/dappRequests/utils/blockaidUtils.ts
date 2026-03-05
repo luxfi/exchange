@@ -1,7 +1,7 @@
 import { type BlockaidScanTransactionResponse } from '@universe/api'
-import { getNativeAddress } from 'uniswap/src/constants/addresses'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { AddressStringFormat, normalizeAddress } from 'uniswap/src/utils/addresses'
+import { getNativeAddress } from 'lx/src/constants/addresses'
+import { UniverseChainId } from 'lx/src/features/chains/types'
+import { AddressStringFormat, normalizeAddress } from 'lx/src/utils/addresses'
 import { formatUnits } from 'viem'
 import { TransactionErrorType } from 'wallet/src/components/dappRequests/TransactionErrorSection'
 import {

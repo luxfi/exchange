@@ -1,9 +1,9 @@
 import { GraphQLApi } from '@universe/api'
 import { UTCTimestamp } from 'lightweight-charts'
 import { useMemo, useReducer } from 'react'
-import { fromGraphQLChain } from 'uniswap/src/features/chains/utils'
-import { currencyIdToContractInput } from 'uniswap/src/features/dataApi/utils/currencyIdToContractInput'
-import { buildCurrencyId } from 'uniswap/src/utils/currencyId'
+import { fromGraphQLChain } from 'lx/src/features/chains/utils'
+import { currencyIdToContractInput } from 'lx/src/features/dataApi/utils/currencyIdToContractInput'
+import { buildCurrencyId } from 'lx/src/utils/currencyId'
 import { PriceChartData } from '~/components/Charts/PriceChart'
 import { StackedLineData } from '~/components/Charts/StackedLineChart'
 import {
@@ -72,7 +72,7 @@ export function useTDPPriceChartData({
     // IMPORTANT: Must use no-cache to prevent infinite query loop.
     //
     // TokenPriceHistory returns Token objects (with chain/address) nested inside tokenProjects.
-    // Apollo normalizes these into the shared Token[chain, address] cache (defined in packages/uniswap/src/data/cache.ts).
+    // Apollo normalizes these into the shared Token[chain, address] cache (defined in packages/lx/src/data/cache.ts).
     // This triggers watchers on TokenWeb and TokenPrice queries (which use the same cache keys),
     // causing them to re-emit, which triggers re-renders, which re-executes this query → infinite loop.
     fetchPolicy: 'no-cache',

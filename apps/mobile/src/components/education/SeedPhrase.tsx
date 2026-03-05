@@ -7,7 +7,7 @@ import { CloseButton } from 'src/components/buttons/CloseButton'
 import { CarouselContext } from 'src/components/carousel/Carousel'
 import { Flex, Text } from 'ui/src'
 import { useDeviceDimensions } from 'ui/src/hooks/useDeviceDimensions'
-import { getCloudProviderName } from 'uniswap/src/utils/cloud-backup/getCloudProviderName'
+import { getCloudProviderName } from 'lx/src/utils/cloud-backup/getCloudProviderName'
 
 function Page({ text, params }: { text: ReactNode; params: OnboardingStackBaseParams }): JSX.Element {
   const { t } = useTranslation()

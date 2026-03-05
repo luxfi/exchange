@@ -4,11 +4,11 @@ import { Pair } from '@uniswap/v2-sdk'
 import { Pool as V3Pool } from '@uniswap/v3-sdk'
 import { Pool as V4Pool } from '@uniswap/v4-sdk'
 import { UniswapLogo } from 'ui/src/components/icons/UniswapLogo'
-import { DYNAMIC_FEE_AMOUNT, V2_DEFAULT_FEE_TIER } from 'uniswap/src/constants/pools'
-import { Trade } from 'uniswap/src/features/transactions/swap/types/trade'
-import { isChained, isClassic } from 'uniswap/src/features/transactions/swap/utils/routing'
-import { currencyId } from 'uniswap/src/utils/currencyId'
-import type { RoutingDiagramEntry, RoutingHop, RoutingProvider } from 'uniswap/src/utils/routingDiagram/types'
+import { DYNAMIC_FEE_AMOUNT, V2_DEFAULT_FEE_TIER } from 'lx/src/constants/pools'
+import { Trade } from 'lx/src/features/transactions/swap/types/trade'
+import { isChained, isClassic } from 'lx/src/features/transactions/swap/utils/routing'
+import { currencyId } from 'lx/src/utils/currencyId'
+import type { RoutingDiagramEntry, RoutingHop, RoutingProvider } from 'lx/src/utils/routingDiagram/types'
 
 type UniswapPool = Pair | V3Pool | V4Pool
 

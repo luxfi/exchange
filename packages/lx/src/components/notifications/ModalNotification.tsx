@@ -7,7 +7,7 @@ import {
   type ModalFeatureItem,
   ModalTemplate,
   type ModalTemplateButton,
-} from 'uniswap/src/components/notifications/ModalTemplate'
+} from 'lx/src/components/notifications/ModalTemplate'
 import { useEvent } from 'utilities/src/react/hooks'
 
 interface ModalNotificationProps {

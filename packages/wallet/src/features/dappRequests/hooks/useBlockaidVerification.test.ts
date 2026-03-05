@@ -1,10 +1,10 @@
 import { waitFor } from '@testing-library/react-native'
-import { BlockaidApiClient } from 'uniswap/src/data/apiClients/blockaidApi/BlockaidApiClient'
+import { BlockaidApiClient } from 'lx/src/data/apiClients/blockaidApi/BlockaidApiClient'
 import { useBlockaidVerification } from 'wallet/src/features/dappRequests/hooks/useBlockaidVerification'
 import { DappVerificationStatus } from 'wallet/src/features/dappRequests/types'
 import { renderHook } from 'wallet/src/test/test-utils'
 
-jest.mock('uniswap/src/data/apiClients/blockaidApi/BlockaidApiClient', () => ({
+jest.mock('lx/src/data/apiClients/blockaidApi/BlockaidApiClient', () => ({
   BlockaidApiClient: {
     scanSite: jest.fn(),
   },

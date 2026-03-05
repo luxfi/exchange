@@ -1,4 +1,4 @@
-import { CONNECTION_PROVIDER_IDS } from 'uniswap/src/constants/web3'
+import { CONNECTION_PROVIDER_IDS } from 'lx/src/constants/web3'
 import { useAccount } from '~/hooks/useAccount'
 
 // Checks if the user is connected to the uniswap extension.

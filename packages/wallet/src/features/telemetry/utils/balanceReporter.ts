@@ -1,4 +1,4 @@
-import { hasRequiredDataForBalancesReport } from 'uniswap/src/features/accounts/reportBalancesForAnalytics'
+import { hasRequiredDataForBalancesReport } from 'lx/src/features/accounts/reportBalancesForAnalytics'
 import { ONE_MINUTE_MS } from 'utilities/src/time/time'
 
 /**

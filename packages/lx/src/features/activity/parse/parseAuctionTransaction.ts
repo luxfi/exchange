@@ -1,13 +1,13 @@
 import { Direction, OnChainTransaction, OnChainTransactionLabel } from '@uniswap/client-data-api/dist/data/v1/types_pb'
-import { extractDappInfo } from 'uniswap/src/features/activity/utils/extractDappInfo'
-import { AssetCase } from 'uniswap/src/features/activity/utils/remote'
+import { extractDappInfo } from 'lx/src/features/activity/utils/extractDappInfo'
+import { AssetCase } from 'lx/src/features/activity/utils/remote'
 import {
   AuctionBidTransactionInfo,
   AuctionClaimedTransactionInfo,
   AuctionExitedTransactionInfo,
   TransactionType,
   UnknownTransactionInfo,
-} from 'uniswap/src/features/transactions/types/transactionDetails'
+} from 'lx/src/features/transactions/types/transactionDetails'
 
 export function parseRestAuctionTransaction(
   transaction: OnChainTransaction,

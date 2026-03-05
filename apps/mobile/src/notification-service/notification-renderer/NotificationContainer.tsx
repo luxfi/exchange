@@ -17,7 +17,7 @@ import { OfflineBannerRenderer } from 'src/notification-service/renderers/Offlin
 import { isBackupReminderNotification } from 'src/notification-service/triggers/backupReminderTrigger'
 import { isLocalTriggerNotification } from 'src/notification-service/triggers/createMobileLocalTriggerDataSource'
 import { Flex } from 'ui/src'
-import { ModalNotification } from 'uniswap/src/components/notifications/ModalNotification'
+import { ModalNotification } from 'lx/src/components/notifications/ModalNotification'
 import { getLogger } from 'utilities/src/logger/logger'
 import { useEvent } from 'utilities/src/react/hooks'
 import { type IntroCardProps } from 'wallet/src/components/introCards/IntroCard'

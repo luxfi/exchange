@@ -2,16 +2,16 @@ import { providers } from 'ethers'
 import { call } from 'redux-saga/effects'
 import { expectSaga } from 'redux-saga-test-plan'
 import * as matchers from 'redux-saga-test-plan/matchers'
-import { Platform } from 'uniswap/src/features/platforms/types/Platform'
-import { getEnabledChainIdsSaga } from 'uniswap/src/features/settings/saga'
-import { cancelTransaction, transactionActions } from 'uniswap/src/features/transactions/slice'
-import { TransactionDetails, TransactionStatus } from 'uniswap/src/features/transactions/types/transactionDetails'
+import { Platform } from 'lx/src/features/platforms/types/Platform'
+import { getEnabledChainIdsSaga } from 'lx/src/features/settings/saga'
+import { cancelTransaction, transactionActions } from 'lx/src/features/transactions/slice'
+import { TransactionDetails, TransactionStatus } from 'lx/src/features/transactions/types/transactionDetails'
 import {
   fiatPurchaseTransactionInfo,
   getTxFixtures,
   transactionDetails as transactionDetailsFixture,
-} from 'uniswap/src/test/fixtures'
-import { mockApolloClient } from 'uniswap/src/test/mocks'
+} from 'lx/src/test/fixtures'
+import { mockApolloClient } from 'lx/src/test/mocks'
 import { sleep } from 'utilities/src/time/timing'
 import { attemptCancelTransaction } from 'wallet/src/features/transactions/cancelTransactionSaga'
 import { logTransactionTimeout } from 'wallet/src/features/transactions/watcher/transactionFinalizationSaga'
@@ -35,7 +35,7 @@ jest.mock('@universe/api', () => ({
   })),
 }))
 
-jest.mock('uniswap/src/data/apiClients/tradingApi/TradingApiClient', () => ({
+jest.mock('lx/src/data/apiClients/tradingApi/TradingApiClient', () => ({
   TradingApiClient: {
     fetchSwaps: jest.fn().mockResolvedValue({ swaps: [] }),
   },

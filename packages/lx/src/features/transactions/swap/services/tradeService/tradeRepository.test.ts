@@ -8,7 +8,7 @@ import {
 import type { Logger } from 'utilities/src/logger/logger'
 
 // Mock dependencies
-vi.mock('uniswap/src/features/transactions/swap/analytics')
+vi.mock('lx/src/features/transactions/swap/analytics')
 
 describe('TradeRepository', () => {
   // Minimal test params

@@ -1,9 +1,9 @@
 import { Result } from 'ethers/lib/utils'
 import { TransactionDescription } from 'no-yolo-signatures'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { useTokenProjects } from 'uniswap/src/features/dataApi/tokenProjects/tokenProjects'
-import { CurrencyInfo } from 'uniswap/src/features/dataApi/types'
-import { buildCurrencyId } from 'uniswap/src/utils/currencyId'
+import { UniverseChainId } from 'lx/src/features/chains/types'
+import { useTokenProjects } from 'lx/src/features/dataApi/tokenProjects/tokenProjects'
+import { CurrencyInfo } from 'lx/src/features/dataApi/types'
+import { buildCurrencyId } from 'lx/src/utils/currencyId'
 import { isEVMAddressWithChecksum } from 'utilities/src/addresses/evm/evm'
 
 export function useTransactionCurrencies(args: {

@@ -75,7 +75,7 @@ import {
   migrateSearchHistory,
   removeThaiBahtFromFiatCurrency,
   unchecksumDismissedTokenWarningKeys,
-} from 'uniswap/src/state/uniswapMigrations'
+} from 'lx/src/state/uniswapMigrations'
 import {
   activatePendingAccounts,
   addBatchedTransactions,

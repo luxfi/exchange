@@ -2,9 +2,9 @@ import { useMemo } from 'react'
 import type { TextStyle, ViewStyle } from 'react-native'
 import { Flex, Shine, Text, TextLoaderWrapper, useSporeColors } from 'ui/src'
 import { fonts } from 'ui/src/theme'
-import { TopAndBottomGradient } from 'uniswap/src/components/AnimatedNumber/TopAndBottomGradient'
-import { useAppFiatCurrencyInfo } from 'uniswap/src/features/fiatCurrency/hooks'
-import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+import { TopAndBottomGradient } from 'lx/src/components/AnimatedNumber/TopAndBottomGradient'
+import { useAppFiatCurrencyInfo } from 'lx/src/features/fiatCurrency/hooks'
+import { TestID } from 'lx/src/test/fixtures/testIDs'
 import { ONE_SECOND_MS } from 'utilities/src/time/time'
 
 export const BALANCE_CHANGE_INDICATION_DURATION = ONE_SECOND_MS / 2

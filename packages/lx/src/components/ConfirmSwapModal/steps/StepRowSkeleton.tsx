@@ -6,14 +6,14 @@ import { ApproveAlt } from 'ui/src/components/icons'
 import { AvatarPlaceholder } from 'ui/src/components/icons/AvatarPlaceholder'
 import { PulseRipple } from 'ui/src/loading/PulseRipple'
 import { fonts, spacing } from 'ui/src/theme'
-import Badge from 'uniswap/src/components/badge/Badge'
-import { SpinningBorderIcon } from 'uniswap/src/components/ConfirmSwapModal/steps/SpinningBorderIcon'
-import { StepStatus } from 'uniswap/src/components/ConfirmSwapModal/types'
-import { CurrencyLogo } from 'uniswap/src/components/CurrencyLogo/CurrencyLogo'
-import { SplitLogo } from 'uniswap/src/components/CurrencyLogo/SplitLogo'
-import { useCurrencyInfo } from 'uniswap/src/features/tokens/useCurrencyInfo'
-import { TransactionStep } from 'uniswap/src/features/transactions/steps/types'
-import { currencyId } from 'uniswap/src/utils/currencyId'
+import Badge from 'lx/src/components/badge/Badge'
+import { SpinningBorderIcon } from 'lx/src/components/ConfirmSwapModal/steps/SpinningBorderIcon'
+import { StepStatus } from 'lx/src/components/ConfirmSwapModal/types'
+import { CurrencyLogo } from 'lx/src/components/CurrencyLogo/CurrencyLogo'
+import { SplitLogo } from 'lx/src/components/CurrencyLogo/SplitLogo'
+import { useCurrencyInfo } from 'lx/src/features/tokens/useCurrencyInfo'
+import { TransactionStep } from 'lx/src/features/transactions/steps/types'
+import { currencyId } from 'lx/src/utils/currencyId'
 
 export const STEP_ROW_HEIGHT = '$spacing40'
 export const STEP_ROW_ICON_SIZE = '$icon.24'
@@ -179,7 +179,7 @@ export function StepIconWrapper({
 }
 
 // SpinningBorderIcon is now exported from its own file with platform-specific implementations
-export { SpinningBorderIcon } from 'uniswap/src/components/ConfirmSwapModal/steps/SpinningBorderIcon'
+export { SpinningBorderIcon } from 'lx/src/components/ConfirmSwapModal/steps/SpinningBorderIcon'
 
 function Timer({ secondsRemaining }: { secondsRemaining: number }): JSX.Element | null {
   const timerText = useMemo(() => {

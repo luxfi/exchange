@@ -10,7 +10,7 @@ import { BackgroundType, ContentStyle, type InAppNotification, OnClickAction } f
 import { DynamicConfigs, ForceUpgradeConfigKey, type ForceUpgradeStatus, getDynamicConfigValue } from '@universe/gating'
 import { createIntervalNotificationDataSource, type NotificationDataSource } from '@universe/notifications'
 import { UNISWAP_LOGO } from 'ui/src/assets'
-import i18n from 'uniswap/src/i18n'
+import i18n from 'lx/src/i18n'
 import { ONE_SECOND_MS } from 'utilities/src/time/time'
 import { MOBILE_APP_STORE_LINK } from 'wallet/src/constants/urls'
 

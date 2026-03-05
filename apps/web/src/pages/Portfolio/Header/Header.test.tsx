@@ -1,5 +1,5 @@
-import { Platform } from 'uniswap/src/features/platforms/types/Platform'
-import { SAMPLE_SEED_ADDRESS_1 } from 'uniswap/src/test/fixtures/gql/assets/constants'
+import { Platform } from 'lx/src/features/platforms/types/Platform'
+import { SAMPLE_SEED_ADDRESS_1 } from 'lx/src/test/fixtures/gql/assets/constants'
 import { PortfolioHeader } from '~/pages/Portfolio/Header/Header'
 import { usePortfolioRoutes } from '~/pages/Portfolio/Header/hooks/usePortfolioRoutes'
 import { PortfolioTab } from '~/pages/Portfolio/types'
@@ -19,8 +19,8 @@ vi.mock('~/features/accounts/store/hooks', async (importOriginal) => {
 })
 
 // Header uses useShowDemoView, which imports from uniswap package; setupTests only mocks useConnectionStatus
-vi.mock('uniswap/src/features/accounts/store/hooks', async (importOriginal) => {
-  const actual = await importOriginal<typeof import('uniswap/src/features/accounts/store/hooks')>()
+vi.mock('lx/src/features/accounts/store/hooks', async (importOriginal) => {
+  const actual = await importOriginal<typeof import('lx/src/features/accounts/store/hooks')>()
   return {
     ...actual,
     useActiveAddresses: mockUseActiveAddresses,

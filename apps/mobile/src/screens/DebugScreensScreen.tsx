@@ -5,7 +5,7 @@ import { ScreenWithHeader } from 'src/components/layout/screens/ScreenWithHeader
 import { Flex, Text, TouchableArea } from 'ui/src'
 import { Clock, Wrench } from 'ui/src/components/icons'
 import { iconSizes } from 'ui/src/theme'
-import { MobileScreens } from 'uniswap/src/types/screens/mobile'
+import { MobileScreens } from 'lx/src/types/screens/mobile'
 
 interface DebugScreenItem {
   id: string

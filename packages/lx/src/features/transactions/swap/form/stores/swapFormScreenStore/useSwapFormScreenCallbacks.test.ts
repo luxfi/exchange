@@ -1,10 +1,10 @@
 import { renderHook } from '@testing-library/react'
 import type { MutableRefObject, RefObject } from 'react'
 import type { TextInputProps } from 'react-native'
-import type { CurrencyInputPanelRef } from 'uniswap/src/components/CurrencyInputPanel/types'
-import type { DecimalPadInputRef } from 'uniswap/src/features/transactions/components/DecimalPadInput/DecimalPadInput'
-import { useSwapFormScreenCallbacks } from 'uniswap/src/features/transactions/swap/form/stores/swapFormScreenStore/useSwapFormScreenCallbacks'
-import { CurrencyField } from 'uniswap/src/types/currency'
+import type { CurrencyInputPanelRef } from 'lx/src/components/CurrencyInputPanel/types'
+import type { DecimalPadInputRef } from 'lx/src/features/transactions/components/DecimalPadInput/DecimalPadInput'
+import { useSwapFormScreenCallbacks } from 'lx/src/features/transactions/swap/form/stores/swapFormScreenStore/useSwapFormScreenCallbacks'
+import { CurrencyField } from 'lx/src/types/currency'
 import type { Mock } from 'vitest'
 
 // Mock all dependencies
@@ -21,19 +21,19 @@ vi.mock('utilities/src/react/hooks', () => ({
   useEvent: vi.fn((fn) => fn),
 }))
 
-vi.mock('uniswap/src/features/transactions/swap/utils/maybeLogFirstSwapAction', () => ({
+vi.mock('lx/src/features/transactions/swap/utils/maybeLogFirstSwapAction', () => ({
   maybeLogFirstSwapAction: vi.fn(),
 }))
 
-vi.mock('uniswap/src/features/transactions/swap/form/hooks/useDecimalPadControlledField', () => ({
+vi.mock('lx/src/features/transactions/swap/form/hooks/useDecimalPadControlledField', () => ({
   useDecimalPadControlledField: vi.fn(() => CurrencyField.INPUT),
 }))
 
-vi.mock('uniswap/src/features/transactions/swap/stores/swapFormStore/hooks/useOnToggleIsFiatMode', () => ({
+vi.mock('lx/src/features/transactions/swap/stores/swapFormStore/hooks/useOnToggleIsFiatMode', () => ({
   useOnToggleIsFiatMode: vi.fn(() => vi.fn()),
 }))
 
-vi.mock('uniswap/src/components/CurrencyInputPanel/AmountInputPresets/utils', () => ({
+vi.mock('lx/src/components/CurrencyInputPanel/AmountInputPresets/utils', () => ({
   isMaxPercentage: vi.fn((percentage) => percentage === 'max'),
 }))
 
@@ -42,7 +42,7 @@ const mockUpdateSwapForm = vi.fn()
 const mockAmountUpdatedTimeRef = { current: 0 }
 const mockExactAmountTokenRef = { current: '' }
 
-vi.mock('uniswap/src/features/transactions/swap/stores/swapFormStore/useSwapFormStore', () => ({
+vi.mock('lx/src/features/transactions/swap/stores/swapFormStore/useSwapFormStore', () => ({
   useSwapFormStore: vi.fn((selector) =>
     selector({
       amountUpdatedTimeRef: mockAmountUpdatedTimeRef,

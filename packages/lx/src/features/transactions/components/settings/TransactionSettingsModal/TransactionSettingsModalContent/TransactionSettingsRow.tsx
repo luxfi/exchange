@@ -4,8 +4,8 @@ import { useTranslation } from 'react-i18next'
 import { Flex, Text, TouchableArea } from 'ui/src'
 import { InfoCircleFilled } from 'ui/src/components/icons/InfoCircleFilled'
 import { RotatableChevron } from 'ui/src/components/icons/RotatableChevron'
-import { InfoTooltip } from 'uniswap/src/components/tooltip/InfoTooltip'
-import type { TransactionSettingConfig } from 'uniswap/src/features/transactions/components/settings/types'
+import { InfoTooltip } from 'lx/src/components/tooltip/InfoTooltip'
+import type { TransactionSettingConfig } from 'lx/src/features/transactions/components/settings/types'
 
 interface TransactionSettingRowProps {
   setting: TransactionSettingConfig

@@ -1,13 +1,13 @@
 import { Currency, CurrencyAmount, Price } from '@uniswap/sdk-core'
 import { useMemo } from 'react'
 import { Trans } from 'react-i18next'
-import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
+import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
 import {
   FORMAT_DATE_TIME_SHORT,
   useFormattedDateTime,
   useLocalizedDayjs,
-} from 'uniswap/src/features/language/localizedDayjs'
-import { UniswapXOrderDetails } from 'uniswap/src/features/transactions/types/transactionDetails'
+} from 'lx/src/features/language/localizedDayjs'
+import { UniswapXOrderDetails } from 'lx/src/features/transactions/types/transactionDetails'
 import { ellipseMiddle } from 'utilities/src/addresses'
 import { NumberType } from 'utilities/src/format/types'
 import { DetailLineItem, LineItemData } from '~/components/swap/DetailLineItem'

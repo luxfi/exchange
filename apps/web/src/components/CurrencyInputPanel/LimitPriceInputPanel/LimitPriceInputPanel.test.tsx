@@ -1,13 +1,13 @@
 import '~/test-utils/tokens/mocks'
 
-vi.mock('uniswap/src/features/accounts/store/hooks', () => ({
+vi.mock('lx/src/features/accounts/store/hooks', () => ({
   useActiveAddresses: vi.fn(),
 }))
 
-import { DAI, USDC_MAINNET } from 'uniswap/src/constants/tokens'
-import { useActiveAddresses } from 'uniswap/src/features/accounts/store/hooks'
-import { LimitsExpiry } from 'uniswap/src/types/limits'
-import { SwapTab } from 'uniswap/src/types/screens/interface'
+import { DAI, USDC_MAINNET } from 'lx/src/constants/tokens'
+import { useActiveAddresses } from 'lx/src/features/accounts/store/hooks'
+import { LimitsExpiry } from 'lx/src/types/limits'
+import { SwapTab } from 'lx/src/types/screens/interface'
 import { LimitPriceInputPanel } from '~/components/CurrencyInputPanel/LimitPriceInputPanel/LimitPriceInputPanel'
 import { LimitContext } from '~/state/limit/LimitContext'
 import { MultichainContext } from '~/state/multichain/types'

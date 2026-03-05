@@ -177,6 +177,7 @@ export enum Chain {
   Unichain = 'UNICHAIN',
   UnknownChain = 'UNKNOWN_CHAIN',
   Worldchain = 'WORLDCHAIN',
+  Xlayer = 'XLAYER',
   Zksync = 'ZKSYNC',
   Zora = 'ZORA'
 }

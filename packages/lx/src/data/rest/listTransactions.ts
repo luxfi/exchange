@@ -11,11 +11,11 @@ import { DataApiService } from '@uniswap/client-data-api/dist/data/v1/api_connec
 import { ListTransactionsRequest, ListTransactionsResponse } from '@uniswap/client-data-api/dist/data/v1/api_pb'
 import { transformInput, WithoutWalletAccount } from '@universe/api'
 import { FeatureFlags, getFeatureFlag } from '@universe/gating'
-import { dataApiGetTransport } from 'uniswap/src/data/rest/base'
+import { dataApiGetTransport } from 'lx/src/data/rest/base'
 import {
   AccountAddressesByPlatform,
   buildAccountAddressesByPlatform,
-} from 'uniswap/src/data/rest/buildAccountAddressesByPlatform'
+} from 'lx/src/data/rest/buildAccountAddressesByPlatform'
 import { ReactQueryCacheKey } from 'utilities/src/reactQuery/cache'
 import type { InfiniteQueryOptionsResult, QueryOptionsResult } from 'utilities/src/reactQuery/queryOptions'
 

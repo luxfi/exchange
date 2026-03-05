@@ -1,11 +1,11 @@
 import { TradeType } from '@uniswap/sdk-core'
 import { expectSaga } from 'redux-saga-test-plan'
-import { getNativeAddress } from 'uniswap/src/constants/addresses'
-import { AssetType } from 'uniswap/src/entities/assets'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { NotificationState, pushNotification } from 'uniswap/src/features/notifications/slice/slice'
-import { AppNotificationType } from 'uniswap/src/features/notifications/slice/types'
-import { finalizeTransaction } from 'uniswap/src/features/transactions/slice'
+import { getNativeAddress } from 'lx/src/constants/addresses'
+import { AssetType } from 'lx/src/entities/assets'
+import { UniverseChainId } from 'lx/src/features/chains/types'
+import { NotificationState, pushNotification } from 'lx/src/features/notifications/slice/slice'
+import { AppNotificationType } from 'lx/src/features/notifications/slice/types'
+import { finalizeTransaction } from 'lx/src/features/transactions/slice'
 import {
   ApproveTransactionInfo,
   ExactOutputSwapTransactionInfo,
@@ -15,8 +15,8 @@ import {
   TransactionType,
   TransactionTypeInfo,
   UnknownTransactionInfo,
-} from 'uniswap/src/features/transactions/types/transactionDetails'
-import { finalizedTransactionAction } from 'uniswap/src/test/fixtures'
+} from 'lx/src/features/transactions/types/transactionDetails'
+import { finalizedTransactionAction } from 'lx/src/test/fixtures'
 import { pushTransactionNotification } from 'wallet/src/features/notifications/notificationWatcherSaga'
 import { signerMnemonicAccount } from 'wallet/src/test/fixtures'
 

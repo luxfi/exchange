@@ -1,10 +1,10 @@
 import { FeatureFlags, useFeatureFlag } from '@universe/gating'
 import { useCallback, useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
-import { AccountType } from 'uniswap/src/features/accounts/types'
-import { DEFAULT_TOAST_HIDE_DELAY } from 'uniswap/src/features/notifications/constants'
-import { useSuccessfulSwapCompleted } from 'uniswap/src/features/transactions/hooks/useSuccessfulSwapCompleted'
-import { TransactionDetails } from 'uniswap/src/features/transactions/types/transactionDetails'
+import { AccountType } from 'lx/src/features/accounts/types'
+import { DEFAULT_TOAST_HIDE_DELAY } from 'lx/src/features/notifications/constants'
+import { useSuccessfulSwapCompleted } from 'lx/src/features/transactions/hooks/useSuccessfulSwapCompleted'
+import { TransactionDetails } from 'lx/src/features/transactions/types/transactionDetails'
 import { ONE_SECOND_MS } from 'utilities/src/time/time'
 import {
   selectHasDismissedSmartWalletHomeScreenNudge,

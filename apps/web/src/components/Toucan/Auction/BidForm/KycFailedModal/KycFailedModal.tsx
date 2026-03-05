@@ -2,8 +2,8 @@ import { useTranslation } from 'react-i18next'
 import { Anchor, Button, Flex, Text, TouchableArea } from 'ui/src'
 import { UserLock } from 'ui/src/components/icons/UserLock'
 import { X } from 'ui/src/components/icons/X'
-import { Modal } from 'uniswap/src/components/modals/Modal'
-import { ModalName } from 'uniswap/src/features/telemetry/constants'
+import { Modal } from 'lx/src/components/modals/Modal'
+import { ModalName } from 'lx/src/features/telemetry/constants'
 
 interface KycFailedModalProps {
   isOpen: boolean

@@ -62,11 +62,11 @@ export default defineConfig({
       // Use web app-specific i18n entry that doesn't import wallet's i18n-setup (must be before general uniswap/src alias)
       {
         find: /^uniswap\/src\/i18n$/,
-        replacement: path.resolve(__dirname, '../../packages/uniswap/src/i18n/index.web-app.ts'),
+        replacement: path.resolve(__dirname, '../../packages/lx/src/i18n/index.web-app.ts'),
       },
       { find: 'ui/src', replacement: path.resolve(__dirname, '../../packages/ui/src') },
       { find: 'utilities/src', replacement: path.resolve(__dirname, '../../packages/utilities/src') },
-      { find: 'uniswap/src', replacement: path.resolve(__dirname, '../../packages/uniswap/src') },
+      { find: 'uniswap/src', replacement: path.resolve(__dirname, '../../packages/lx/src') },
       { find: 'd3-array', replacement: path.resolve(__dirname, '../../node_modules/d3-array/dist/d3-array.min.js') },
       { find: 'react-native', replacement: 'react-native-web' },
       { find: 'react-native-gesture-handler', replacement: require.resolve('react-native-gesture-handler') },

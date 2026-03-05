@@ -5,30 +5,30 @@ import {
 } from '@uniswap/client-data-api/dist/data/v1/types_pb'
 import { TradingApi } from '@universe/api'
 
-import { parseRestApproveTransaction } from 'uniswap/src/features/activity/parse/parseApproveTransaction'
-import { parseRestAuctionTransaction } from 'uniswap/src/features/activity/parse/parseAuctionTransaction'
-import { parseRestBridgeTransaction } from 'uniswap/src/features/activity/parse/parseBridgingTransaction'
+import { parseRestApproveTransaction } from 'lx/src/features/activity/parse/parseApproveTransaction'
+import { parseRestAuctionTransaction } from 'lx/src/features/activity/parse/parseAuctionTransaction'
+import { parseRestBridgeTransaction } from 'lx/src/features/activity/parse/parseBridgingTransaction'
 import {
   buildExecuteTransactionDetails,
   parseRestExecuteTransaction,
-} from 'uniswap/src/features/activity/parse/parseExecuteTransaction'
-import { parseRestLiquidityTransaction } from 'uniswap/src/features/activity/parse/parseLiquidityTransaction'
-import { parseRestNFTMintTransaction } from 'uniswap/src/features/activity/parse/parseMintTransaction'
-import { parseRestReceiveTransaction } from 'uniswap/src/features/activity/parse/parseReceiveTransaction'
-import { parseRestSendTransaction } from 'uniswap/src/features/activity/parse/parseSendTransaction'
+} from 'lx/src/features/activity/parse/parseExecuteTransaction'
+import { parseRestLiquidityTransaction } from 'lx/src/features/activity/parse/parseLiquidityTransaction'
+import { parseRestNFTMintTransaction } from 'lx/src/features/activity/parse/parseMintTransaction'
+import { parseRestReceiveTransaction } from 'lx/src/features/activity/parse/parseReceiveTransaction'
+import { parseRestSendTransaction } from 'lx/src/features/activity/parse/parseSendTransaction'
 import {
   parseRestSwapTransaction,
   parseRestWithdrawTransaction,
   parseRestWrapTransaction,
-} from 'uniswap/src/features/activity/parse/parseTradeTransaction'
-import { parseRestUnknownTransaction } from 'uniswap/src/features/activity/parse/parseUnknownTransaction'
-import { ValueType } from 'uniswap/src/features/tokens/getCurrencyAmount'
+} from 'lx/src/features/activity/parse/parseTradeTransaction'
+import { parseRestUnknownTransaction } from 'lx/src/features/activity/parse/parseUnknownTransaction'
+import { ValueType } from 'lx/src/features/tokens/getCurrencyAmount'
 import {
   TransactionDetails,
   TransactionOriginType,
   TransactionStatus,
   TransactionTypeInfo,
-} from 'uniswap/src/features/transactions/types/transactionDetails'
+} from 'lx/src/features/transactions/types/transactionDetails'
 
 /**
  * Maps REST API transaction status to local transaction status

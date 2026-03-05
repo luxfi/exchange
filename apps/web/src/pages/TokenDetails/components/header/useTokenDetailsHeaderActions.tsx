@@ -6,9 +6,9 @@ import { Ellipsis } from 'ui/src/components/icons/Ellipsis'
 import { Flag } from 'ui/src/components/icons/Flag'
 import { GlobeFilled } from 'ui/src/components/icons/GlobeFilled'
 import { XTwitter } from 'ui/src/components/icons/XTwitter'
-import { getBlockExplorerIcon } from 'uniswap/src/components/chains/BlockExplorerIcon'
-import { getChainInfo } from 'uniswap/src/features/chains/chainInfo'
-import { ExplorerDataType, getExplorerLink } from 'uniswap/src/utils/linking'
+import { getBlockExplorerIcon } from 'lx/src/components/chains/BlockExplorerIcon'
+import { getChainInfo } from 'lx/src/features/chains/chainInfo'
+import { ExplorerDataType, getExplorerLink } from 'lx/src/utils/linking'
 import { deriveFromSections } from '~/components/Explore/stickyHeader/HeaderActions/deriveHeaderActions'
 import {
   type HeaderAction,

@@ -1,7 +1,7 @@
 import {
   EVM_NAMESPACE_IDENTIFIER,
   SOLANA_NAMESPACE_IDENTIFIER,
-} from 'uniswap/src/features/capabilities/caip25/constants'
+} from 'lx/src/features/capabilities/caip25/constants'
 
 interface ChainScope {
   accounts: string[]

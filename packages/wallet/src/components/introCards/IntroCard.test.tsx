@@ -1,5 +1,5 @@
 import { Wallet } from 'ui/src/components/icons'
-import { OnboardingCardLoggingName } from 'uniswap/src/features/telemetry/types'
+import { OnboardingCardLoggingName } from 'lx/src/features/telemetry/types'
 import { CardType, IntroCard, IntroCardGraphicType, IntroCardProps } from 'wallet/src/components/introCards/IntroCard'
 import { render, screen } from 'wallet/src/test/test-utils'
 

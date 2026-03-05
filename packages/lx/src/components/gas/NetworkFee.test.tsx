@@ -2,7 +2,7 @@ import { NetworkFee } from 'lx/src/components/gas/NetworkFee'
 import { UniverseChainId } from 'lx/src/features/chains/types'
 import { render } from 'lx/src/test/test-utils'
 
-vi.mock('uniswap/src/features/gas/hooks', () => {
+vi.mock('lx/src/features/gas/hooks', () => {
   return {
     useFormattedUniswapXGasFeeInfo: vi.fn(() => undefined),
     useUSDValue: (_chainId: UniverseChainId, gasFee: string): string => gasFee,

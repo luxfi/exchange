@@ -1,13 +1,13 @@
-import { AuctionEventName } from 'uniswap/src/features/telemetry/constants'
-import { UniverseEventProperties } from 'uniswap/src/features/telemetry/types'
-import { TransactionStep } from 'uniswap/src/features/transactions/steps/types'
-import { SetCurrentStepFn } from 'uniswap/src/features/transactions/swap/types/swapCallback'
+import { AuctionEventName } from 'lx/src/features/telemetry/constants'
+import { UniverseEventProperties } from 'lx/src/features/telemetry/types'
+import { TransactionStep } from 'lx/src/features/transactions/steps/types'
+import { SetCurrentStepFn } from 'lx/src/features/transactions/swap/types/swapCallback'
 import {
   ToucanBidTransactionInfo,
   ToucanWithdrawBidAndClaimTokensTransactionInfo,
-} from 'uniswap/src/features/transactions/types/transactionDetails'
-import { ValidatedTransactionRequest } from 'uniswap/src/features/transactions/types/transactionRequests'
-import { SignerMnemonicAccountDetails } from 'uniswap/src/features/wallet/types/AccountDetails'
+} from 'lx/src/features/transactions/types/transactionDetails'
+import { ValidatedTransactionRequest } from 'lx/src/features/transactions/types/transactionRequests'
+import { SignerMnemonicAccountDetails } from 'lx/src/features/wallet/types/AccountDetails'
 
 export interface SubmitToucanBidParams {
   account: SignerMnemonicAccountDetails

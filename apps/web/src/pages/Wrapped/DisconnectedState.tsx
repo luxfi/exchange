@@ -7,10 +7,10 @@ import {
   MouseGlow,
   renderSnowflakesWeb,
   SnowflakeContainer,
-} from 'uniswap/src/components/banners/shared/SharedSnowflakeComponents'
-import { ElementName } from 'uniswap/src/features/telemetry/constants'
-import Trace from 'uniswap/src/features/telemetry/Trace'
-import { useSnowflakeAnimation } from 'uniswap/src/hooks/useSnowflakeAnimation'
+} from 'lx/src/components/banners/shared/SharedSnowflakeComponents'
+import { ElementName } from 'lx/src/features/telemetry/constants'
+import Trace from 'lx/src/features/telemetry/Trace'
+import { useSnowflakeAnimation } from 'lx/src/hooks/useSnowflakeAnimation'
 import { isMobileWeb } from 'utilities/src/platform'
 import { useAccountDrawer } from '~/components/AccountDrawer/MiniPortfolio/hooks'
 import { MenuStateVariant, useSetMenuCallback } from '~/components/AccountDrawer/menuState'

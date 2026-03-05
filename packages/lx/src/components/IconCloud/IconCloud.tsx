@@ -1,8 +1,8 @@
 import PoissonDiskSampling from 'poisson-disk-sampling'
 import { useMemo, useRef } from 'react'
 import { Flex } from 'ui/src'
-import { CloudItem } from 'uniswap/src/components/IconCloud/CloudItem'
-import { randomFloat, randomInt } from 'uniswap/src/components/IconCloud/utils'
+import { CloudItem } from 'lx/src/components/IconCloud/CloudItem'
+import { randomFloat, randomInt } from 'lx/src/components/IconCloud/utils'
 import { useIsWindowVisible } from 'utilities/src/react/useIsWindowVisible'
 
 export type FloatingElementPosition = 'left' | 'right'

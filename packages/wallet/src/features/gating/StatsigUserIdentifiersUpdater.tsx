@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query'
 import { provideUniswapIdentifierService } from '@universe/api'
 import { uniswapIdentifierQuery } from '@universe/sessions'
-import { useSyncStatsigUserIdentifiers } from 'uniswap/src/features/gating/useSyncStatsigUserIdentifiers'
+import { useSyncStatsigUserIdentifiers } from 'lx/src/features/gating/useSyncStatsigUserIdentifiers'
 import { useActiveAccountAddress } from 'wallet/src/features/wallet/hooks'
 
 /**

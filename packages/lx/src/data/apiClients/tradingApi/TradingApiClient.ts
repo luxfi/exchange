@@ -7,11 +7,11 @@ import {
   getExperimentValue,
   getFeatureFlag,
 } from '@universe/gating'
-import { config } from 'uniswap/src/config'
-import { tradingApiVersionPrefix, uniswapUrls } from 'uniswap/src/constants/urls'
-import { createUniswapFetchClient } from 'uniswap/src/data/apiClients/createUniswapFetchClient'
-import { filterChainIdsByPlatform } from 'uniswap/src/features/chains/utils'
-import { Platform } from 'uniswap/src/features/platforms/types/Platform'
+import { config } from 'lx/src/config'
+import { tradingApiVersionPrefix, uniswapUrls } from 'lx/src/constants/urls'
+import { createUniswapFetchClient } from 'lx/src/data/apiClients/createUniswapFetchClient'
+import { filterChainIdsByPlatform } from 'lx/src/features/chains/utils'
+import { Platform } from 'lx/src/features/platforms/types/Platform'
 
 const TradingFetchClient = createUniswapFetchClient({
   baseUrl: uniswapUrls.tradingApiUrl,

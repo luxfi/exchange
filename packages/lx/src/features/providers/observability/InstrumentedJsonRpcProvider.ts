@@ -1,5 +1,5 @@
 import { Networkish, StaticJsonRpcProvider } from '@ethersproject/providers'
-import { generateRequestId, type RpcObserver } from 'uniswap/src/features/providers/observability/rpcObserver'
+import { generateRequestId, type RpcObserver } from 'lx/src/features/providers/observability/rpcObserver'
 
 export class InstrumentedJsonRpcProvider extends StaticJsonRpcProvider {
   private observer: RpcObserver

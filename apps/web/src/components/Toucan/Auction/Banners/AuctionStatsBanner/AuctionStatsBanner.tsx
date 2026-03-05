@@ -11,8 +11,8 @@ import {
   useMedia,
   useSporeColors,
 } from 'ui/src'
-import { useAppFiatCurrencyInfo } from 'uniswap/src/features/fiatCurrency/hooks'
-import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
+import { useAppFiatCurrencyInfo } from 'lx/src/features/fiatCurrency/hooks'
+import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
 import { ArrowChangeDown } from '~/components/Icons/ArrowChangeDown'
 import { ArrowChangeUp } from '~/components/Icons/ArrowChangeUp'
 import { useStatsBannerData } from '~/components/Toucan/Auction/hooks/useStatsBannerData'

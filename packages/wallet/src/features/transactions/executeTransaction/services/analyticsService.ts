@@ -1,6 +1,6 @@
-import type { WalletEventName } from 'uniswap/src/features/telemetry/constants'
-import type { SwapTradeBaseProperties, UniverseEventProperties } from 'uniswap/src/features/telemetry/types'
-import type { TransactionDetails } from 'uniswap/src/features/transactions/types/transactionDetails'
+import type { WalletEventName } from 'lx/src/features/telemetry/constants'
+import type { SwapTradeBaseProperties, UniverseEventProperties } from 'lx/src/features/telemetry/types'
+import type { TransactionDetails } from 'lx/src/features/transactions/types/transactionDetails'
 
 /**
  * Service for tracking analytics events

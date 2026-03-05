@@ -1,4 +1,4 @@
-import { EmbeddedWalletApiClient } from 'uniswap/src/data/rest/embeddedWallet/requests'
+import { EmbeddedWalletApiClient } from 'lx/src/data/rest/embeddedWallet/requests'
 import { Keyring } from 'wallet/src/features/wallet/Keyring/Keyring'
 
 export async function fetchSeedPhrase(passkeyCredential: string): Promise<string> {

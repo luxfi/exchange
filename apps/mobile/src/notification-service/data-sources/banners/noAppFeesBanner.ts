@@ -13,8 +13,8 @@ import {
   NO_UNISWAP_INTERFACE_FEES_BANNER_DARK,
   NO_UNISWAP_INTERFACE_FEES_BANNER_LIGHT,
 } from 'ui/src/assets'
-import { uniswapUrls } from 'uniswap/src/constants/urls'
-import i18n from 'uniswap/src/i18n'
+import { uniswapUrls } from 'lx/src/constants/urls'
+import i18n from 'lx/src/i18n'
 
 /**
  * Check if No App Fees banner should be shown based on feature flag.

@@ -5,8 +5,8 @@ import { AppStackScreenProp } from 'src/app/navigation/types'
 import { FiatOnRampActionModal } from 'src/components/home/FiatOnRampActionModal'
 import { preloadedMobileState } from 'src/test/fixtures'
 import { renderWithProviders } from 'src/test/render'
-import { ModalName } from 'uniswap/src/features/telemetry/constants'
-import { ON_PRESS_EVENT_PAYLOAD } from 'uniswap/src/test/fixtures'
+import { ModalName } from 'lx/src/features/telemetry/constants'
+import { ON_PRESS_EVENT_PAYLOAD } from 'lx/src/test/fixtures'
 
 const mockOnClose = jest.fn()
 

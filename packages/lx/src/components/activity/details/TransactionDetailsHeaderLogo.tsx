@@ -1,16 +1,16 @@
 import { useSporeColors } from 'ui/src'
 import { ContractInteraction } from 'ui/src/components/icons/ContractInteraction'
 import { iconSizes } from 'ui/src/theme'
-import { SwapTypeTransactionInfo } from 'uniswap/src/components/activity/details/types'
-import { DappLogoWithWCBadge, LogoWithTxStatus } from 'uniswap/src/components/CurrencyLogo/LogoWithTxStatus'
-import { CrossChainIcon, SplitLogo } from 'uniswap/src/components/CurrencyLogo/SplitLogo'
-import { AssetType } from 'uniswap/src/entities/assets'
-import { CurrencyInfo } from 'uniswap/src/features/dataApi/types'
+import { SwapTypeTransactionInfo } from 'lx/src/components/activity/details/types'
+import { DappLogoWithWCBadge, LogoWithTxStatus } from 'lx/src/components/CurrencyLogo/LogoWithTxStatus'
+import { CrossChainIcon, SplitLogo } from 'lx/src/components/CurrencyLogo/SplitLogo'
+import { AssetType } from 'lx/src/entities/assets'
+import { CurrencyInfo } from 'lx/src/features/dataApi/types'
 import {
   useCurrencyInfo,
   useNativeCurrencyInfo,
   useWrappedNativeCurrencyInfo,
-} from 'uniswap/src/features/tokens/useCurrencyInfo'
+} from 'lx/src/features/tokens/useCurrencyInfo'
 import {
   ApproveTransactionInfo,
   AuctionBidTransactionInfo,
@@ -41,8 +41,8 @@ import {
   WCConfirmInfo,
   WithdrawTransactionInfo,
   WrapTransactionInfo,
-} from 'uniswap/src/features/transactions/types/transactionDetails'
-import { buildCurrencyId } from 'uniswap/src/utils/currencyId'
+} from 'lx/src/features/transactions/types/transactionDetails'
+import { buildCurrencyId } from 'lx/src/utils/currencyId'
 
 const TXN_DETAILS_ICON_SIZE = iconSizes.icon40
 

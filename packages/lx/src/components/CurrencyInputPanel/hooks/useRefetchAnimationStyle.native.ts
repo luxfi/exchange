@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { Easing, useAnimatedStyle, useSharedValue, withRepeat, withSequence, withTiming } from 'react-native-reanimated'
-import { CurrencyInputPanelProps } from 'uniswap/src/components/CurrencyInputPanel/types'
+import { CurrencyInputPanelProps } from 'lx/src/components/CurrencyInputPanel/types'
 import { usePrevious } from 'utilities/src/react/hooks'
 
 /** Returns an animated opacity based on current indicative and full quote state  */

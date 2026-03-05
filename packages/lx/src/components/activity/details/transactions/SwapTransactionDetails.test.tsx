@@ -1,6 +1,6 @@
-import { SwapTransactionDetails } from 'uniswap/src/components/activity/details/transactions/SwapTransactionDetails'
-import { SwapTypeTransactionInfo } from 'uniswap/src/components/activity/details/types'
-import { CurrencyInfo } from 'uniswap/src/features/dataApi/types'
+import { SwapTransactionDetails } from 'lx/src/components/activity/details/transactions/SwapTransactionDetails'
+import { SwapTypeTransactionInfo } from 'lx/src/components/activity/details/types'
+import { CurrencyInfo } from 'lx/src/features/dataApi/types'
 import {
   ARBITRUM_DAI_CURRENCY_INFO,
   BASE_CURRENCY,
@@ -9,11 +9,11 @@ import {
   OPTIMISM_CURRENCY,
   POLYGON_CURRENCY,
   SAMPLE_SEED_ADDRESS_1,
-} from 'uniswap/src/test/fixtures'
-import { render } from 'uniswap/src/test/test-utils'
+} from 'lx/src/test/fixtures'
+import { render } from 'lx/src/test/test-utils'
 
 const mockWalletAddress = (): Address => SAMPLE_SEED_ADDRESS_1
-vi.mock('uniswap/src/features/wallet/hooks/useWallet', () => ({
+vi.mock('lx/src/features/wallet/hooks/useWallet', () => ({
   useWallet: vi.fn().mockReturnValue({
     evmAccount: { address: mockWalletAddress },
   }),
@@ -37,7 +37,7 @@ const getCurrencyInfoForChain = (chainId: number): CurrencyInfo => {
   }
 }
 
-vi.mock('uniswap/src/features/tokens/useCurrencyInfo', () => ({
+vi.mock('lx/src/features/tokens/useCurrencyInfo', () => ({
   useCurrencyInfo: (currencyIdString: string | undefined): Maybe<CurrencyInfo> => {
     if (!currencyIdString) {
       return null

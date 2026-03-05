@@ -2,7 +2,7 @@ import { TradingApi } from '@universe/api'
 import {
   ActivePlanState,
   activePlanStore,
-} from 'uniswap/src/features/transactions/swap/review/stores/activePlan/activePlanStore'
+} from 'lx/src/features/transactions/swap/review/stores/activePlan/activePlanStore'
 import { useStore } from 'zustand'
 import { useShallow } from 'zustand/shallow'
 

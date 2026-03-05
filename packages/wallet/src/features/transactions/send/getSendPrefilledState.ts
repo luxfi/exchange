@@ -1,8 +1,8 @@
-import { getNativeAddress } from 'uniswap/src/constants/addresses'
-import { AssetType, CurrencyAsset } from 'uniswap/src/entities/assets'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { TransactionState } from 'uniswap/src/features/transactions/types/transactionState'
-import { CurrencyField } from 'uniswap/src/types/currency'
+import { getNativeAddress } from 'lx/src/constants/addresses'
+import { AssetType, CurrencyAsset } from 'lx/src/entities/assets'
+import { UniverseChainId } from 'lx/src/features/chains/types'
+import { TransactionState } from 'lx/src/features/transactions/types/transactionState'
+import { CurrencyField } from 'lx/src/types/currency'
 
 export function getSendPrefilledState({
   chainId,

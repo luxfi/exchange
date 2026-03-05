@@ -1,6 +1,6 @@
 import { FeatureFlags, getFeatureFlag, getStatsigClient } from '@universe/gating'
 import { call, delay, fork, select } from 'typed-redux-saga'
-import { makeSelectPlanTransaction } from 'uniswap/src/features/transactions/selectors'
+import { makeSelectPlanTransaction } from 'lx/src/features/transactions/selectors'
 import {
   logPlanPollDebug,
   PLAN_MAX_AGE_MS,
@@ -8,8 +8,8 @@ import {
   PLAN_POLLING_INTERVAL_MS,
   pollPlanStatus,
   shouldPollPlan,
-} from 'uniswap/src/features/transactions/swap/plan/planPollingUtils'
-import { PlanTransactionDetails } from 'uniswap/src/features/transactions/types/transactionDetails'
+} from 'lx/src/features/transactions/swap/plan/planPollingUtils'
+import { PlanTransactionDetails } from 'lx/src/features/transactions/types/transactionDetails'
 import { logger } from 'utilities/src/logger/logger'
 import { ONE_SECOND_MS } from 'utilities/src/time/time'
 

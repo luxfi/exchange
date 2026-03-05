@@ -6,13 +6,16 @@ import type { Address } from './Address';
 import type { BridgeQuote } from './BridgeQuote';
 import type { ClassicQuote } from './ClassicQuote';
 import type { deadline } from './deadline';
+import type { NullablePermit } from './NullablePermit';
 import type { Urgency } from './Urgency';
 import type { WrapUnwrapQuote } from './WrapUnwrapQuote';
 export type CreateSwap7702Request = {
     quote: (ClassicQuote | WrapUnwrapQuote | BridgeQuote);
+    permitData?: NullablePermit;
     smartContractDelegationAddress?: Address;
     includeGasInfo?: boolean;
     deadline?: deadline;
     urgency?: Urgency;
+    simulateTransaction?: boolean;
 };
 

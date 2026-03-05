@@ -1,16 +1,16 @@
 import { TradingApi } from '@universe/api'
 import { call, delay, fork, select, take } from 'typed-redux-saga'
-import { makeSelectUniswapXOrder } from 'uniswap/src/features/transactions/selectors'
-import { updateTransaction } from 'uniswap/src/features/transactions/slice'
-import { getOrders } from 'uniswap/src/features/transactions/swap/orders'
-import { isUniswapX } from 'uniswap/src/features/transactions/swap/utils/routing'
+import { makeSelectUniswapXOrder } from 'lx/src/features/transactions/selectors'
+import { updateTransaction } from 'lx/src/features/transactions/slice'
+import { getOrders } from 'lx/src/features/transactions/swap/orders'
+import { isUniswapX } from 'lx/src/features/transactions/swap/utils/routing'
 import {
   QueuedOrderStatus,
   TransactionStatus,
   UniswapXOrderDetails,
-} from 'uniswap/src/features/transactions/types/transactionDetails'
-import { isFinalizedTxStatus } from 'uniswap/src/features/transactions/types/utils'
-import { convertOrderStatusToTransactionStatus } from 'uniswap/src/features/transactions/utils/uniswapX.utils'
+} from 'lx/src/features/transactions/types/transactionDetails'
+import { isFinalizedTxStatus } from 'lx/src/features/transactions/types/utils'
+import { convertOrderStatusToTransactionStatus } from 'lx/src/features/transactions/utils/uniswapX.utils'
 import { logger } from 'utilities/src/logger/logger'
 import { ONE_SECOND_MS } from 'utilities/src/time/time'
 

@@ -3566,6 +3566,14 @@ export const TokenWebDocument = gql`
           value
           currency
         }
+        priceHigh52W: priceHighLow(duration: YEAR, highLow: HIGH) {
+          id
+          value
+        }
+        priceLow52W: priceHighLow(duration: YEAR, highLow: LOW) {
+          id
+          value
+        }
       }
     }
   }

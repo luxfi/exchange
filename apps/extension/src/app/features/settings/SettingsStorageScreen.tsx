@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next'
 import { ScreenHeader } from 'src/app/components/layout/ScreenHeader'
 import { useAppStateResetter } from 'src/store/appStateResetter'
 import { Flex } from 'ui/src'
-import { StorageHelpIcon, StorageSettingsContent } from 'uniswap/src/features/settings/storage/StorageSettingsContent'
+import { StorageHelpIcon, StorageSettingsContent } from 'lx/src/features/settings/storage/StorageSettingsContent'
 import { useEvent } from 'utilities/src/react/hooks'
 
 export function SettingsStorageScreen(): JSX.Element {

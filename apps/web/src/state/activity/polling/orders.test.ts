@@ -1,16 +1,16 @@
 import { TradeType } from '@uniswap/sdk-core'
 import { TradingApi } from '@universe/api'
 import ms from 'ms'
-import { DAI } from 'uniswap/src/constants/tokens'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { updateTransaction } from 'uniswap/src/features/transactions/slice'
+import { DAI } from 'lx/src/constants/tokens'
+import { UniverseChainId } from 'lx/src/features/chains/types'
+import { updateTransaction } from 'lx/src/features/transactions/slice'
 import {
   TransactionOriginType,
   TransactionStatus,
   TransactionType,
   UniswapXOrderDetails,
-} from 'uniswap/src/features/transactions/types/transactionDetails'
-import { buildCurrencyId, currencyId } from 'uniswap/src/utils/currencyId'
+} from 'lx/src/features/transactions/types/transactionDetails'
+import { buildCurrencyId, currencyId } from 'lx/src/utils/currencyId'
 import type { Mock } from 'vitest'
 import {
   getQuickPollingInterval,
@@ -40,8 +40,8 @@ vi.mock('~/state/hooks', async () => {
   }
 })
 
-vi.mock('uniswap/src/features/transactions/slice', async () => {
-  const actual = await vi.importActual('uniswap/src/features/transactions/slice')
+vi.mock('lx/src/features/transactions/slice', async () => {
+  const actual = await vi.importActual('lx/src/features/transactions/slice')
   return {
     ...actual,
     updateTransaction: vi.fn((tx: any) => ({ type: 'transactions/updateTransaction', payload: tx })),

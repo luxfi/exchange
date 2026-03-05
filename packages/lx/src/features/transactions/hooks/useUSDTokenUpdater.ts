@@ -1,9 +1,9 @@
 import { Currency } from '@uniswap/sdk-core'
 import { useEffect, useRef } from 'react'
-import { getPrimaryStablecoin, isUniverseChainId } from 'uniswap/src/features/chains/utils'
-import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
-import { getCurrencyAmount, ValueType } from 'uniswap/src/features/tokens/getCurrencyAmount'
-import { useUSDCPrice } from 'uniswap/src/features/transactions/hooks/useUSDCPriceWrapper'
+import { getPrimaryStablecoin, isUniverseChainId } from 'lx/src/features/chains/utils'
+import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
+import { getCurrencyAmount, ValueType } from 'lx/src/features/tokens/getCurrencyAmount'
+import { useUSDCPrice } from 'lx/src/features/transactions/hooks/useUSDCPriceWrapper'
 
 const NUM_DECIMALS_USD = 2
 const NUM_DECIMALS_DISPLAY = 2

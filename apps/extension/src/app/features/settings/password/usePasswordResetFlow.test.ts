@@ -24,7 +24,7 @@ jest.mock('src/app/features/biometricUnlock/useBiometricUnlockDisableMutation', 
   useBiometricUnlockDisableMutation: jest.fn(),
 }))
 
-jest.mock('uniswap/src/features/notifications/slice/slice', () => ({
+jest.mock('lx/src/features/notifications/slice/slice', () => ({
   pushNotification: jest.fn(),
 }))
 

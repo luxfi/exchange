@@ -1,7 +1,7 @@
 import { GraphQLApi } from '@universe/api'
-import { NUM_FIRST_NFTS } from 'uniswap/src/components/nfts/constants'
-import { useEnabledChains } from 'uniswap/src/features/chains/hooks/useEnabledChains'
-import { formatNftItems } from 'uniswap/src/features/nfts/utils'
+import { NUM_FIRST_NFTS } from 'lx/src/components/nfts/constants'
+import { useEnabledChains } from 'lx/src/features/chains/hooks/useEnabledChains'
+import { formatNftItems } from 'lx/src/features/nfts/utils'
 import { selectPhotoFromLibrary } from 'wallet/src/features/unitags/photoSelection'
 
 export function useAvatarSelectionHandler({

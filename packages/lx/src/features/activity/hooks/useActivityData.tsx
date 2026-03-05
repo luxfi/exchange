@@ -10,14 +10,14 @@ import {
   ActivityItem,
   ActivityItemRenderer,
   generateActivityItemRenderer,
-} from 'uniswap/src/components/activity/generateActivityItemRenderer'
-import { SwapSummaryCallbacks } from 'uniswap/src/components/activity/types'
-import { BaseCard } from 'uniswap/src/components/BaseCard/BaseCard'
-import { useFormattedTransactionDataForActivity } from 'uniswap/src/features/activity/hooks/useFormattedTransactionDataForActivity'
-import { AuthTrigger } from 'uniswap/src/features/auth/types'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { PaginationControls } from 'uniswap/src/features/dataApi/types'
-import { useHideSpamTokensSetting } from 'uniswap/src/features/settings/hooks'
+} from 'lx/src/components/activity/generateActivityItemRenderer'
+import { SwapSummaryCallbacks } from 'lx/src/components/activity/types'
+import { BaseCard } from 'lx/src/components/BaseCard/BaseCard'
+import { useFormattedTransactionDataForActivity } from 'lx/src/features/activity/hooks/useFormattedTransactionDataForActivity'
+import { AuthTrigger } from 'lx/src/features/auth/types'
+import { UniverseChainId } from 'lx/src/features/chains/types'
+import { PaginationControls } from 'lx/src/features/dataApi/types'
+import { useHideSpamTokensSetting } from 'lx/src/features/settings/hooks'
 import { isWebPlatform } from 'utilities/src/platform'
 
 export type UseActivityDataProps = {

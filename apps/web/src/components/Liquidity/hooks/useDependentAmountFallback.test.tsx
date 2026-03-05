@@ -11,8 +11,8 @@ import {
 } from '@uniswap/client-liquidity/dist/uniswap/liquidity/v1/types_pb'
 import { Currency, CurrencyAmount } from '@uniswap/sdk-core'
 import JSBI from 'jsbi'
-import { USDC_MAINNET } from 'uniswap/src/constants/tokens'
-import { liquidityQueries } from 'uniswap/src/data/apiClients/liquidityService/liquidityQueries'
+import { USDC_MAINNET } from 'lx/src/constants/tokens'
+import { liquidityQueries } from 'lx/src/data/apiClients/liquidityService/liquidityQueries'
 import { ReactQueryCacheKey } from 'utilities/src/reactQuery/cache'
 import { ONE_SECOND_MS } from 'utilities/src/time/time'
 import { vi } from 'vitest'
@@ -34,7 +34,7 @@ vi.mock('@tanstack/react-query', async () => {
 })
 const useQueryMock = vi.mocked(useQuery)
 
-vi.mock('uniswap/src/features/transactions/hooks/useUSDCPriceWrapper', () => ({
+vi.mock('lx/src/features/transactions/hooks/useUSDCPriceWrapper', () => ({
   useUSDCValue: (currencyAmount: CurrencyAmount<Currency> | undefined | null) => {
     if (!currencyAmount) {
       return null

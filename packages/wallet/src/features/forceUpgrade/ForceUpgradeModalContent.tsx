@@ -5,7 +5,7 @@ import Svg, { Circle } from 'react-native-svg'
 import { Button, Flex, Image, Text, useSporeColors } from 'ui/src'
 import { UNISWAP_LOGO } from 'ui/src/assets'
 import { imageSizes } from 'ui/src/theme'
-import { NewTag } from 'uniswap/src/components/pill/NewTag'
+import { NewTag } from 'lx/src/components/pill/NewTag'
 import { isWebPlatform } from 'utilities/src/platform'
 
 interface ForceUpgradeModalContentProps {

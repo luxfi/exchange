@@ -1,32 +1,32 @@
 import { CurrencyAmount, NativeCurrency } from '@uniswap/sdk-core'
 import { TradingApi } from '@universe/api'
-import { WarningLabel } from 'uniswap/src/components/modals/WarningModal/types'
-import { nativeOnChain } from 'uniswap/src/constants/tokens'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { useParsedActivePlanWarnings } from 'uniswap/src/features/transactions/swap/hooks/useSwapWarnings/useParsedActivePlanWarnings'
-import { activePlanStore } from 'uniswap/src/features/transactions/swap/review/stores/activePlan/activePlanStore'
-import { renderHookWithProviders } from 'uniswap/src/test/render'
+import { WarningLabel } from 'lx/src/components/modals/WarningModal/types'
+import { nativeOnChain } from 'lx/src/constants/tokens'
+import { UniverseChainId } from 'lx/src/features/chains/types'
+import { useParsedActivePlanWarnings } from 'lx/src/features/transactions/swap/hooks/useSwapWarnings/useParsedActivePlanWarnings'
+import { activePlanStore } from 'lx/src/features/transactions/swap/review/stores/activePlan/activePlanStore'
+import { renderHookWithProviders } from 'lx/src/test/render'
 
 // Mock dependencies
-vi.mock('uniswap/src/features/tokens/useCurrencyInfo', () => ({
+vi.mock('lx/src/features/tokens/useCurrencyInfo', () => ({
   useCurrencyInfo: vi.fn(),
 }))
 
-vi.mock('uniswap/src/features/portfolio/api', () => ({
+vi.mock('lx/src/features/portfolio/api', () => ({
   useOnChainCurrencyBalance: vi.fn().mockReturnValue({ balance: undefined, isLoading: false, error: null }),
   useOnChainNativeCurrencyBalance: vi.fn().mockReturnValue({ balance: undefined, isLoading: false }),
 }))
 
-vi.mock('uniswap/src/features/accounts/store/hooks', () => ({
+vi.mock('lx/src/features/accounts/store/hooks', () => ({
   useActiveAddress: vi.fn().mockReturnValue('0x1234567890abcdef1234567890abcdef12345678'),
 }))
 
-vi.mock('uniswap/src/features/transactions/swap/stores/swapFormStore/useSwapFormStore', () => ({
+vi.mock('lx/src/features/transactions/swap/stores/swapFormStore/useSwapFormStore', () => ({
   useSwapFormStore: vi.fn((selector: (s: { isSubmitting: boolean }) => unknown) => selector({ isSubmitting: false })),
 }))
 
-import { useOnChainCurrencyBalance, useOnChainNativeCurrencyBalance } from 'uniswap/src/features/portfolio/api'
-import { useCurrencyInfo } from 'uniswap/src/features/tokens/useCurrencyInfo'
+import { useOnChainCurrencyBalance, useOnChainNativeCurrencyBalance } from 'lx/src/features/portfolio/api'
+import { useCurrencyInfo } from 'lx/src/features/tokens/useCurrencyInfo'
 import type { Mock } from 'vitest'
 
 const mockUseCurrencyInfo = useCurrencyInfo as Mock

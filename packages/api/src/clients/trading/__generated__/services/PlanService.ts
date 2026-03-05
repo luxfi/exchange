@@ -28,7 +28,46 @@ export class PlanService {
                 400: `RequestValidationError, Bad Input`,
                 401: `UnauthorizedError eg. Account is blocked.`,
                 404: `ResourceNotFound eg. No quotes available or Gas fee/price not available`,
-                419: `Ratelimited`,
+                429: `Ratelimited`,
+                500: `Unexpected error`,
+                504: `Request duration limit reached.`,
+            },
+        });
+    }
+    /**
+     * Get an execution plan
+     * Retrieves an existing execution plan by its ID. Returns the full plan with current status and all steps. If forceRefresh is set to true, the plan will be refreshed to check for any updates to step statuses. Note: Completed plans cannot be refreshed.
+     * @returns PlanResponse Get plan successful.
+     * @throws ApiError
+     */
+    public static getPlan({
+        planId,
+        forceRefresh,
+    }: {
+        /**
+         * The unique identifier of the plan to retrieve.
+         */
+        planId: string,
+        /**
+         * Whether to force refresh the plan status. Defaults to false. Completed plans cannot be refreshed.
+         */
+        forceRefresh?: boolean,
+    }): CancelablePromise<PlanResponse> {
+        return __request(OpenAPI, {
+            method: 'GET',
+            url: '/plan/{planId}',
+            path: {
+                'planId': planId,
+            },
+            query: {
+                'forceRefresh': forceRefresh,
+            },
+            errors: {
+                400: `RequestValidationError, Bad Input`,
+                401: `UnauthorizedError eg. Account is blocked.`,
+                404: `ResourceNotFound eg. No quotes available or Gas fee/price not available`,
+                422: `UnprocessableEntity eg. Plan is already completed and cannot be updated.`,
+                429: `Ratelimited`,
                 500: `Unexpected error`,
                 504: `Request duration limit reached.`,
             },

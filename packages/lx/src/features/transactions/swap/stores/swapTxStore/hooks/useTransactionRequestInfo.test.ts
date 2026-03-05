@@ -1,27 +1,27 @@
 import { renderHook } from '@testing-library/react'
 import type { GasFeeResult } from '@universe/api'
 import type { providers } from 'ethers/lib/ethers'
-import { useTradingApiSwapQuery } from 'uniswap/src/data/apiClients/tradingApi/useTradingApiSwapQuery'
-import { useIsSmartContractAddress } from 'uniswap/src/features/address/useIsSmartContractAddress'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { useTransactionGasFee } from 'uniswap/src/features/gas/hooks'
-import { initialTransactionSettingsState } from 'uniswap/src/features/transactions/components/settings/stores/transactionSettingsStore/createTransactionSettingsStore'
-import { useAllTransactionSettings } from 'uniswap/src/features/transactions/components/settings/stores/transactionSettingsStore/useTransactionSettingsStore'
-import { useV4SwapEnabled } from 'uniswap/src/features/transactions/swap/hooks/useV4SwapEnabled'
-import type { SwapData } from 'uniswap/src/features/transactions/swap/review/services/swapTxAndGasInfoService/evm/evmSwapRepository'
-import { usePermit2SignatureWithData } from 'uniswap/src/features/transactions/swap/stores/swapTxStore/hooks/usePermit2Signature'
-import { useTransactionRequestInfo } from 'uniswap/src/features/transactions/swap/stores/swapTxStore/hooks/useTransactionRequestInfo'
-import { WrapType } from 'uniswap/src/features/transactions/types/wrap'
-import { ETH, WETH } from 'uniswap/src/test/fixtures'
-import { createMockDerivedSwapInfo, createMockTokenApprovalInfo } from 'uniswap/src/test/fixtures/transactions/swap'
+import { useTradingApiSwapQuery } from 'lx/src/data/apiClients/tradingApi/useTradingApiSwapQuery'
+import { useIsSmartContractAddress } from 'lx/src/features/address/useIsSmartContractAddress'
+import { UniverseChainId } from 'lx/src/features/chains/types'
+import { useTransactionGasFee } from 'lx/src/features/gas/hooks'
+import { initialTransactionSettingsState } from 'lx/src/features/transactions/components/settings/stores/transactionSettingsStore/createTransactionSettingsStore'
+import { useAllTransactionSettings } from 'lx/src/features/transactions/components/settings/stores/transactionSettingsStore/useTransactionSettingsStore'
+import { useV4SwapEnabled } from 'lx/src/features/transactions/swap/hooks/useV4SwapEnabled'
+import type { SwapData } from 'lx/src/features/transactions/swap/review/services/swapTxAndGasInfoService/evm/evmSwapRepository'
+import { usePermit2SignatureWithData } from 'lx/src/features/transactions/swap/stores/swapTxStore/hooks/usePermit2Signature'
+import { useTransactionRequestInfo } from 'lx/src/features/transactions/swap/stores/swapTxStore/hooks/useTransactionRequestInfo'
+import { WrapType } from 'lx/src/features/transactions/types/wrap'
+import { ETH, WETH } from 'lx/src/test/fixtures'
+import { createMockDerivedSwapInfo, createMockTokenApprovalInfo } from 'lx/src/test/fixtures/transactions/swap'
 import type { Mock } from 'vitest'
 
-vi.mock('uniswap/src/data/apiClients/tradingApi/useTradingApiSwapQuery')
-vi.mock('uniswap/src/features/transactions/swap/stores/swapTxStore/hooks/usePermit2Signature')
-vi.mock('uniswap/src/features/gas/hooks')
-vi.mock('uniswap/src/features/transactions/swap/hooks/useV4SwapEnabled')
+vi.mock('lx/src/data/apiClients/tradingApi/useTradingApiSwapQuery')
+vi.mock('lx/src/features/transactions/swap/stores/swapTxStore/hooks/usePermit2Signature')
+vi.mock('lx/src/features/gas/hooks')
+vi.mock('lx/src/features/transactions/swap/hooks/useV4SwapEnabled')
 vi.mock(
-  'uniswap/src/features/transactions/components/settings/stores/transactionSettingsStore/useTransactionSettingsStore',
+  'lx/src/features/transactions/components/settings/stores/transactionSettingsStore/useTransactionSettingsStore',
   () => ({
     useAllTransactionSettings: vi.fn(),
   }),
@@ -37,7 +37,7 @@ vi.mock('@universe/gating', async (importOriginal) => {
       }),
   }
 })
-vi.mock('uniswap/src/features/address/useIsSmartContractAddress')
+vi.mock('lx/src/features/address/useIsSmartContractAddress')
 
 const mockUseTradingApiSwapQuery = useTradingApiSwapQuery as Mock
 const mockUsePermit2SignatureWithData = usePermit2SignatureWithData as Mock

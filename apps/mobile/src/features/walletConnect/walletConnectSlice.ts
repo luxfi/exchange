@@ -1,8 +1,8 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit'
 import { type ProposalTypes, type SessionTypes } from '@walletconnect/types'
-import { type UniverseChainId } from 'uniswap/src/features/chains/types'
-import { EthMethod, type EthSignMethod } from 'uniswap/src/features/dappRequests/types'
-import { type DappRequestInfo, type EthTransaction, UwULinkMethod } from 'uniswap/src/types/walletConnect'
+import { type UniverseChainId } from 'lx/src/features/chains/types'
+import { EthMethod, type EthSignMethod } from 'lx/src/features/dappRequests/types'
+import { type DappRequestInfo, type EthTransaction, UwULinkMethod } from 'lx/src/types/walletConnect'
 import { logger } from 'utilities/src/logger/logger'
 import { type Call, type Capability, type DappVerificationStatus } from 'wallet/src/features/dappRequests/types'
 

@@ -1,4 +1,4 @@
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { UniverseChainId } from 'lx/src/features/chains/types'
 import { useBlockCountdown } from '~/hooks/useBlockCountdown'
 import { renderHook } from '~/test-utils/render'
 

@@ -11,7 +11,7 @@ import {
 import {
   shouldTransformToMultichain,
   transformPortfolioToMultichain,
-} from 'uniswap/src/data/rest/transformPortfolioToMultichain'
+} from 'lx/src/data/rest/transformPortfolioToMultichain'
 
 function createLegacyBalance(
   overrides: {

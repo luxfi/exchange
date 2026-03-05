@@ -15,15 +15,15 @@ import {
   useShadowPropsShort,
 } from 'ui/src'
 import { X } from 'ui/src/components/icons'
-import { CardImage, CardImageGraphicSizeInfo } from 'uniswap/src/components/cards/image'
-import { NewTag } from 'uniswap/src/components/pill/NewTag'
-import { WalletEventName } from 'uniswap/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
+import { CardImage, CardImageGraphicSizeInfo } from 'lx/src/components/cards/image'
+import { NewTag } from 'lx/src/components/pill/NewTag'
+import { WalletEventName } from 'lx/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
 import {
   CardLoggingName,
   DappRequestCardLoggingName,
   OnboardingCardLoggingName,
-} from 'uniswap/src/features/telemetry/types'
+} from 'lx/src/features/telemetry/types'
 import { isExtensionApp } from 'utilities/src/platform'
 
 const DESCRIPTION_LENGTH_THRESHOLD = 66

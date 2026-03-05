@@ -2,8 +2,8 @@ import { QueryResult } from '@apollo/client'
 import { Currency } from '@uniswap/sdk-core'
 import { GraphQLApi } from '@universe/api'
 import { createContext, PropsWithChildren, useContext } from 'react'
-import { GqlChainId, UniverseChainId } from 'uniswap/src/features/chains/types'
-import { PortfolioBalance } from 'uniswap/src/features/dataApi/types'
+import { GqlChainId, UniverseChainId } from 'lx/src/features/chains/types'
+import { PortfolioBalance } from 'lx/src/features/dataApi/types'
 import { TDPChartState } from '~/pages/TokenDetails/components/chart/TDPChartState'
 
 export type MultiChainMap = {

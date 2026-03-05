@@ -12,7 +12,7 @@ import {
   V4Position,
 } from '@uniswap/client-liquidity/dist/uniswap/liquidity/v1/types_pb'
 import type { Currency } from '@uniswap/sdk-core'
-import { getTradeSettingsDeadline } from 'uniswap/src/data/apiClients/tradingApi/utils/getTradeSettingsDeadline'
+import { getTradeSettingsDeadline } from 'lx/src/data/apiClients/tradingApi/utils/getTradeSettingsDeadline'
 import { PositionInfo } from '~/components/Liquidity/types'
 import { getTokenOrZeroAddress } from '~/components/Liquidity/utils/currency'
 import { PositionField } from '~/types/position'

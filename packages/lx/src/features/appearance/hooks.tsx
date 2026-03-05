@@ -1,8 +1,8 @@
 import { useSelector } from 'react-redux'
-import { AppearanceSettingType } from 'uniswap/src/features/appearance/slice'
-import { ColorScheme } from 'uniswap/src/features/appearance/types'
-import { useColorScheme } from 'uniswap/src/features/appearance/useColorScheme'
-import { UniswapState } from 'uniswap/src/state/uniswapReducer'
+import { AppearanceSettingType } from 'lx/src/features/appearance/slice'
+import { ColorScheme } from 'lx/src/features/appearance/types'
+import { useColorScheme } from 'lx/src/features/appearance/useColorScheme'
+import { UniswapState } from 'lx/src/state/uniswapReducer'
 
 export function useCurrentAppearanceSetting(): AppearanceSettingType {
   const { selectedAppearanceSettings } = useSelector((state: UniswapState) => state.appearanceSettings)

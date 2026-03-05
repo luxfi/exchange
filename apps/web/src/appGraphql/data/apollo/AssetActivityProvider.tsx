@@ -1,7 +1,7 @@
 import { GraphQLApi } from '@universe/api'
 import ms from 'ms'
 import { PropsWithChildren, useEffect, useMemo, useState } from 'react'
-import { useEnabledChains } from 'uniswap/src/features/chains/hooks/useEnabledChains'
+import { useEnabledChains } from 'lx/src/features/chains/hooks/useEnabledChains'
 import { logger } from 'utilities/src/logger/logger'
 import { useEvent } from 'utilities/src/react/hooks'
 import { useInterval } from 'utilities/src/time/timing'

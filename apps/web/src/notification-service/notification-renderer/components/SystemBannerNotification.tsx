@@ -7,7 +7,7 @@ import { Globe } from 'ui/src/components/icons/Globe'
 import { X } from 'ui/src/components/icons/X'
 import { iconSizes, zIndexes } from 'ui/src/theme'
 import { useShadowPropsShort } from 'ui/src/theme/shadows'
-import { getCustomIconComponent } from 'uniswap/src/components/notifications/iconUtils'
+import { getCustomIconComponent } from 'lx/src/components/notifications/iconUtils'
 import { ExternalLink } from '~/theme/components/Links'
 import { ClickableTamaguiStyle } from '~/theme/components/styles'
 

@@ -17,28 +17,38 @@ import { request as __request } from '../core/request';
 export class OrderService {
     /**
      * Create a gasless order
-     * The order endpoint is used to submit a UniswapX intent. If the `routing` field in the response to a quote is any of `DUTCH_V2`, `DUTCH_V3`, or `PRIORITY` this endpoint is used to submit your order to the UniswapX protocol to be filled by the filler network. These orders are gasless because the filler will pay the gas to complete the transaction.
+     * The order endpoint is used to submit a UniswapX intent. If the `routing` field in the response to a quote is any of `DUTCH_V2`, `DUTCH_V3`, `LIMIT_ORDER`, or `PRIORITY` this endpoint is used to submit your order to the UniswapX protocol to be filled by the filler network. These orders are gasless because the filler will pay the gas to complete the transaction.
      *
      * The order will be validated and, if valid, will be submitted to the filler network. The network will try to fill the order at the quoted `startAmount`. If the order is not filled at the `startAmount` by the `deadline`, the amount will start decaying until the `endAmount` is reached. The order will remain `open` until it is either filled, canceled, or has expired by remaining unfilled beyond the `decayEndTime`.
      *
      * For simplicity, the order request is identical to the quote response except for the addition of the signed permit.
+     *
+     * Native ETH on UniswapX: If the quote you are submitting uses native ETH as the input token (e.g. `tokenIn` is `0x0000000000000000000000000000000000000000`), include `x-erc20eth-enabled: true`. Native ETH input on UniswapX requires wallet support for EIP-7914 and sufficient native allowance. For 7702-delegated smart contract wallets, you can generate the required approval call(s) via `/swap_7702` when needed.
      * @returns OrderResponse Encoded order submitted.
      * @throws ApiError
      */
     public static postOrder({
+        xErc20EthEnabled = false,
         requestBody,
     }: {
+        /**
+         * Enable native ETH input support for UniswapX via ERC20-ETH (EIP-7914). When set to true and `tokenIn` is the native currency address (e.g. `0x0000000000000000000000000000000000000000`), the API may return UniswapX routes that spend native ETH for supported wallets.
+         */
+        xErc20EthEnabled?: boolean,
         requestBody?: OrderRequest,
     }): CancelablePromise<OrderResponse> {
         return __request(OpenAPI, {
             method: 'POST',
             url: '/order',
+            headers: {
+                'x-erc20eth-enabled': xErc20EthEnabled,
+            },
             body: requestBody,
             mediaType: 'application/json',
             errors: {
                 400: `RequestValidationError, Bad Input`,
                 401: `UnauthorizedError eg. Account is blocked.`,
-                419: `Ratelimited`,
+                429: `Ratelimited`,
                 500: `Unexpected error`,
                 504: `Request duration limit reached.`,
             },
@@ -63,7 +73,7 @@ export class OrderService {
         cursor,
     }: {
         /**
-         * The default orderType is Dutch_V2.
+         * The default orderType is Dutch_V1_V2 and will grab both Dutch and Dutch_V2 orders.
          */
         orderType?: OrderTypeQuery,
         orderId?: orderId,
@@ -112,7 +122,7 @@ export class OrderService {
             errors: {
                 400: `RequestValidationError eg. Token allowance not valid or Insufficient Funds.`,
                 404: `Orders not found.`,
-                419: `Ratelimited`,
+                429: `Ratelimited`,
                 500: `Unexpected error`,
                 504: `Request duration limit reached.`,
             },

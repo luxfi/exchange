@@ -1,6 +1,6 @@
 import { Currency } from '@uniswap/sdk-core'
 import { BigNumber } from 'ethers'
-import { nativeOnChain } from 'uniswap/src/constants/tokens'
+import { nativeOnChain } from 'lx/src/constants/tokens'
 
 export interface GasFeeData {
   chainId: number

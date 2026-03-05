@@ -12,7 +12,7 @@ import {
 } from '@uniswap/v3-sdk'
 import { priceToClosestTick as priceToClosestV4Tick, Pool as V4Pool } from '@uniswap/v4-sdk'
 import JSBI from 'jsbi'
-import { ZERO_ADDRESS } from 'uniswap/src/constants/misc'
+import { ZERO_ADDRESS } from 'lx/src/constants/misc'
 import {
   CreatePositionInfo,
   CreateV2PositionInfo,

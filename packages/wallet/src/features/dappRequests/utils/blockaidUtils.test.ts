@@ -1,5 +1,5 @@
 // Mock chain info to avoid importing chain data with PNG files
-jest.mock('uniswap/src/features/chains/chainInfo', () => ({
+jest.mock('lx/src/features/chains/chainInfo', () => ({
   getChainInfo: jest.fn((chainId: number) => ({
     nativeCurrency: {
       address: `0xNATIVE${chainId}`,
@@ -14,7 +14,7 @@ jest.mock('uniswap/src/features/chains/chainInfo', () => ({
 }))
 
 import { type BlockaidScanTransactionResponse } from '@universe/api/src'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { UniverseChainId } from 'lx/src/features/chains/types'
 import { TransactionRiskLevel, TransactionSectionType } from 'wallet/src/features/dappRequests/types'
 import {
   extractContractName,

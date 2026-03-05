@@ -1,8 +1,8 @@
 import { useTranslation } from 'react-i18next'
-import { Dialog } from 'uniswap/src/components/dialog/Dialog'
-import WarningIcon from 'uniswap/src/components/warnings/WarningIcon'
-import { RampDirection } from 'uniswap/src/features/fiatOnRamp/types'
-import { ModalName } from 'uniswap/src/features/telemetry/constants'
+import { Dialog } from 'lx/src/components/dialog/Dialog'
+import WarningIcon from 'lx/src/components/warnings/WarningIcon'
+import { RampDirection } from 'lx/src/features/fiatOnRamp/types'
+import { ModalName } from 'lx/src/features/telemetry/constants'
 
 interface Props {
   isVisible: boolean

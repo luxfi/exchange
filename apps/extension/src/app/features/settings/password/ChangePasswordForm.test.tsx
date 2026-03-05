@@ -11,7 +11,7 @@ jest.mock('wallet/src/features/wallet/Keyring/Keyring', () => ({
 }))
 
 // Mock analytics
-jest.mock('uniswap/src/features/telemetry/send', () => ({
+jest.mock('lx/src/features/telemetry/send', () => ({
   sendAnalyticsEvent: jest.fn(),
 }))
 

@@ -1,17 +1,17 @@
 import { ToolkitStore } from '@reduxjs/toolkit/dist/configureStore'
 import { GetPortfolioResponse } from '@uniswap/client-data-api/dist/data/v1/api_pb'
-import { getNativeAddress } from 'uniswap/src/constants/addresses'
-import { normalizeCurrencyIdForMapLookup, normalizeTokenAddressForCache } from 'uniswap/src/data/cache'
-import { AccountAddressesByPlatform } from 'uniswap/src/data/rest/buildAccountAddressesByPlatform'
-import { makeSelectTokenBalanceOverridesForWalletAddress } from 'uniswap/src/features/portfolio/slice/selectors'
-import { removeTokenFromBalanceOverride } from 'uniswap/src/features/portfolio/slice/slice'
-import { CurrencyId } from 'uniswap/src/types/currency'
+import { getNativeAddress } from 'lx/src/constants/addresses'
+import { normalizeCurrencyIdForMapLookup, normalizeTokenAddressForCache } from 'lx/src/data/cache'
+import { AccountAddressesByPlatform } from 'lx/src/data/rest/buildAccountAddressesByPlatform'
+import { makeSelectTokenBalanceOverridesForWalletAddress } from 'lx/src/features/portfolio/slice/selectors'
+import { removeTokenFromBalanceOverride } from 'lx/src/features/portfolio/slice/slice'
+import { CurrencyId } from 'lx/src/types/currency'
 import {
   buildCurrencyId,
   currencyIdToAddress,
   currencyIdToChain,
   isNativeCurrencyAddress,
-} from 'uniswap/src/utils/currencyId'
+} from 'lx/src/utils/currencyId'
 import { createLogger } from 'utilities/src/logger/logger'
 
 const FILE_NAME = 'portfolioBalanceOverrides.ts'

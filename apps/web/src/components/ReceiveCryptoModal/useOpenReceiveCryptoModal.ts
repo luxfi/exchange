@@ -1,4 +1,4 @@
-import { ModalName } from 'uniswap/src/features/telemetry/constants'
+import { ModalName } from 'lx/src/features/telemetry/constants'
 import { useEvent } from 'utilities/src/react/hooks'
 import { ReceiveCryptoModalInitialState } from '~/components/ReceiveCryptoModal/types'
 import { setOpenModal } from '~/state/application/reducer'

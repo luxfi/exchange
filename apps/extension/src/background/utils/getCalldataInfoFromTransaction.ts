@@ -3,8 +3,8 @@ import { Actions, V4BaseActionsParser, type V4RouterCall } from '@uniswap/v4-sdk
 import { EthSendTransactionRPCActions } from 'src/app/features/dappRequests/types/DappRequestTypes'
 import { parseCalldata as parseNfPMCalldata } from 'src/app/features/dappRequests/types/NonfungiblePositionManager'
 import { type NonfungiblePositionManagerCall } from 'src/app/features/dappRequests/types/NonfungiblePositionManagerTypes'
-import { type UniverseChainId } from 'uniswap/src/features/chains/types'
-import { wrappedNativeCurrency } from 'uniswap/src/utils/currency'
+import { type UniverseChainId } from 'lx/src/features/chains/types'
+import { wrappedNativeCurrency } from 'lx/src/utils/currency'
 import methodHashToFunctionSignature from 'utilities/src/calldata/methodHashToFunctionSignature'
 import { noop } from 'utilities/src/react/noop'
 

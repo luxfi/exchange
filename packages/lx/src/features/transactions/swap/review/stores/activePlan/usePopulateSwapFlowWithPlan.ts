@@ -1,9 +1,9 @@
 import { PlanResponse } from '@universe/api/src/clients/trading/__generated__/models/PlanResponse'
-import { AssetType } from 'uniswap/src/entities/assets'
-import { extractPlanResponseAssetDetails } from 'uniswap/src/features/activity/extract/extractPlanResponseDetails'
-import { useSwapFormStore } from 'uniswap/src/features/transactions/swap/stores/swapFormStore/useSwapFormStore'
-import { CurrencyField } from 'uniswap/src/types/currency'
-import { currencyIdToAddress } from 'uniswap/src/utils/currencyId'
+import { AssetType } from 'lx/src/entities/assets'
+import { extractPlanResponseAssetDetails } from 'lx/src/features/activity/extract/extractPlanResponseDetails'
+import { useSwapFormStore } from 'lx/src/features/transactions/swap/stores/swapFormStore/useSwapFormStore'
+import { CurrencyField } from 'lx/src/types/currency'
+import { currencyIdToAddress } from 'lx/src/utils/currencyId'
 import { useEvent } from 'utilities/src/react/hooks'
 
 export function usePopulateSwapFlowWithPlan(): (planResponse: PlanResponse) => void {

@@ -10,7 +10,7 @@ import {
   createBackupReminderTrigger,
   isBackupReminderNotification,
 } from 'src/notification-service/triggers/backupReminderTrigger'
-import { AccountType } from 'uniswap/src/features/accounts/types'
+import { AccountType } from 'lx/src/features/accounts/types'
 import { ONE_DAY_MS } from 'utilities/src/time/time'
 import { selectBackupReminderLastSeenTs } from 'wallet/src/features/behaviorHistory/selectors'
 import { setBackupReminderLastSeenTs } from 'wallet/src/features/behaviorHistory/slice'

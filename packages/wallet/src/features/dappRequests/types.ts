@@ -1,5 +1,5 @@
 import { DappVerificationStatus } from '@universe/api'
-import { type UniverseChainId } from 'uniswap/src/features/chains/types'
+import { type UniverseChainId } from 'lx/src/features/chains/types'
 import { z } from 'zod'
 
 export const CapabilitySchema = z.record(z.string(), z.unknown())

@@ -1,18 +1,18 @@
 import { put, select, takeLatest } from 'typed-redux-saga'
-import { AssetType } from 'uniswap/src/entities/assets'
-import { STALE_TRANSACTION_TIME_MS } from 'uniswap/src/features/notifications/constants'
-import { makeSelectAddressNotifications } from 'uniswap/src/features/notifications/slice/selectors'
-import { pushNotification } from 'uniswap/src/features/notifications/slice/slice'
-import { AppNotification, AppNotificationType } from 'uniswap/src/features/notifications/slice/types'
-import { finalizeTransaction } from 'uniswap/src/features/transactions/slice'
-import { getAmountsFromTrade } from 'uniswap/src/features/transactions/swap/utils/getAmountsFromTrade'
+import { AssetType } from 'lx/src/entities/assets'
+import { STALE_TRANSACTION_TIME_MS } from 'lx/src/features/notifications/constants'
+import { makeSelectAddressNotifications } from 'lx/src/features/notifications/slice/selectors'
+import { pushNotification } from 'lx/src/features/notifications/slice/slice'
+import { AppNotification, AppNotificationType } from 'lx/src/features/notifications/slice/types'
+import { finalizeTransaction } from 'lx/src/features/transactions/slice'
+import { getAmountsFromTrade } from 'lx/src/features/transactions/swap/utils/getAmountsFromTrade'
 import {
   TransactionDetails,
   TransactionStatus,
   TransactionType,
-} from 'uniswap/src/features/transactions/types/transactionDetails'
-import { UniswapState } from 'uniswap/src/state/uniswapReducer'
-import { WalletConnectEvent } from 'uniswap/src/types/walletConnect'
+} from 'lx/src/features/transactions/types/transactionDetails'
+import { UniswapState } from 'lx/src/state/uniswapReducer'
+import { WalletConnectEvent } from 'lx/src/types/walletConnect'
 import { buildReceiveNotification } from 'wallet/src/features/notifications/buildReceiveNotification'
 import { selectActiveAccountAddress } from 'wallet/src/features/wallet/selectors'
 

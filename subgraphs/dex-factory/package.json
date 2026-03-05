@@ -1,0 +1,15 @@
+{
+  "name": "@luxfi/subgraph-dex-v2",
+  "version": "1.0.0",
+  "description": "Subgraph for Lux DEX V2 AMM on C-chain (factory 0xD173926A10A0C4eCd3A51B1422270b65Df0551c1)",
+  "scripts": {
+    "codegen": "graph codegen",
+    "build": "graph build",
+    "deploy:local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 luxfi/dex-v2",
+    "create:local": "graph create --node http://localhost:8020/ luxfi/dex-v2"
+  },
+  "devDependencies": {
+    "@graphprotocol/graph-cli": "^0.68.0",
+    "@graphprotocol/graph-ts": "^0.32.0"
+  }
+}

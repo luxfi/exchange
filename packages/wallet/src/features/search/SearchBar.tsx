@@ -2,8 +2,8 @@ import { forwardRef } from 'react'
 import { TextInput } from 'react-native'
 import { Flex, TouchableArea } from 'ui/src'
 import { RotatableChevron } from 'ui/src/components/icons'
-import { SearchTextInput, SearchTextInputProps } from 'uniswap/src/features/search/SearchTextInput'
-import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+import { SearchTextInput, SearchTextInputProps } from 'lx/src/features/search/SearchTextInput'
+import { TestID } from 'lx/src/test/fixtures/testIDs'
 
 interface SearchBarProps extends SearchTextInputProps {
   onBack?: () => void

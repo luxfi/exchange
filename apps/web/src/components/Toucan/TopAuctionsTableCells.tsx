@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next'
 import { Flex } from 'ui/src'
 import { CheckmarkCircle } from 'ui/src/components/icons/CheckmarkCircle'
-import { TokenLogo } from 'uniswap/src/components/CurrencyLogo/TokenLogo'
+import { TokenLogo } from 'lx/src/components/CurrencyLogo/TokenLogo'
 import { useEvent } from 'utilities/src/react/hooks'
 import { OrderDirection } from '~/appGraphql/data/util'
 import { ClickableHeaderRow, EllipsisText, HeaderArrow, HeaderSortText } from '~/components/Table/styled'

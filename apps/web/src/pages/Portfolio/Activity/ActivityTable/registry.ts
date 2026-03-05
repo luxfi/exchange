@@ -1,16 +1,16 @@
 import { UNI_ADDRESSES } from '@uniswap/sdk-core'
-import { AssetType } from 'uniswap/src/entities/assets'
-import { mapTAPIPlanStatusToTXStatus } from 'uniswap/src/features/activity/extract/statusMappers'
+import { AssetType } from 'lx/src/entities/assets'
+import { mapTAPIPlanStatusToTXStatus } from 'lx/src/features/activity/extract/statusMappers'
 import {
   DappInfoTransactionDetails,
   TransactionDetails,
   TransactionStatus,
   TransactionType,
   TransactionTypeInfo,
-} from 'uniswap/src/features/transactions/types/transactionDetails'
-import { isPlanTransactionDetails } from 'uniswap/src/features/transactions/types/utils'
-import { getValidAddress } from 'uniswap/src/utils/addresses'
-import { buildCurrencyId, buildNativeCurrencyId, isNativeCurrencyAddress } from 'uniswap/src/utils/currencyId'
+} from 'lx/src/features/transactions/types/transactionDetails'
+import { isPlanTransactionDetails } from 'lx/src/features/transactions/types/utils'
+import { getValidAddress } from 'lx/src/utils/addresses'
+import { buildCurrencyId, buildNativeCurrencyId, isNativeCurrencyAddress } from 'lx/src/utils/currencyId'
 import { logger } from 'utilities/src/logger/logger'
 import {
   ActivityProtocolInfo,

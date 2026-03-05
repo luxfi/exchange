@@ -4,7 +4,7 @@ import { SAMPLE_SEED_ADDRESS_1 } from 'lx/src/test/fixtures'
 import { render } from 'lx/src/test/test-utils'
 
 const mockWalletAddress = (): Address => SAMPLE_SEED_ADDRESS_1
-vi.mock('uniswap/src/features/wallet/hooks/useWallet', () => ({
+vi.mock('lx/src/features/wallet/hooks/useWallet', () => ({
   useWallet: vi.fn().mockReturnValue({
     evmAccount: { address: mockWalletAddress },
   }),

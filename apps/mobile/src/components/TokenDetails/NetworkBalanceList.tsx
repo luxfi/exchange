@@ -1,12 +1,12 @@
 import { memo, useMemo } from 'react'
 import { Flex, Text, TouchableArea } from 'ui/src'
 import { borderRadii, iconSizes } from 'ui/src/theme'
-import { NetworkLogo } from 'uniswap/src/components/CurrencyLogo/NetworkLogo'
-import { getChainInfo } from 'uniswap/src/features/chains/chainInfo'
-import { PortfolioBalance } from 'uniswap/src/features/dataApi/types'
-import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
-import { TestID } from 'uniswap/src/test/fixtures/testIDs'
-import { getSymbolDisplayText } from 'uniswap/src/utils/currency'
+import { NetworkLogo } from 'lx/src/components/CurrencyLogo/NetworkLogo'
+import { getChainInfo } from 'lx/src/features/chains/chainInfo'
+import { PortfolioBalance } from 'lx/src/features/dataApi/types'
+import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
+import { TestID } from 'lx/src/test/fixtures/testIDs'
+import { getSymbolDisplayText } from 'lx/src/utils/currency'
 import { NumberType } from 'utilities/src/format/types'
 
 interface NetworkBalanceRowProps {

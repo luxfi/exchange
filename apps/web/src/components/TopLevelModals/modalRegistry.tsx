@@ -1,5 +1,5 @@
 import { memo, Suspense } from 'react'
-import { ModalName, ModalNameType } from 'uniswap/src/features/telemetry/constants'
+import { ModalName, ModalNameType } from 'lx/src/features/telemetry/constants'
 import { logger } from 'utilities/src/logger/logger'
 import ErrorBoundary from '~/components/ErrorBoundary'
 import { ModalRegistry, ModalWrapperProps } from '~/components/TopLevelModals/types'
@@ -22,7 +22,7 @@ const UkDisclaimerModal = createLazy(() =>
   import('~/components/TopLevelModals/UkDisclaimerModal').then((module) => ({ default: module.UkDisclaimerModal })),
 )
 const TestnetModeModal = createLazy(() =>
-  import('uniswap/src/features/testnets/TestnetModeModal').then((module) => ({ default: module.TestnetModeModal })),
+  import('lx/src/features/testnets/TestnetModeModal').then((module) => ({ default: module.TestnetModeModal })),
 )
 const GetTheAppModal = createLazy(() =>
   import('~/components/NavBar/DownloadApp/Modal').then((module) => ({ default: module.GetTheAppModal })),
@@ -49,7 +49,7 @@ const ClaimFeeModal = createLazy(() =>
   import('~/components/Liquidity/ClaimFeeModal').then((module) => ({ default: module.ClaimFeeModal })),
 )
 const PasskeysHelpModal = createLazy(() =>
-  import('uniswap/src/features/passkey/PasskeysHelpModal').then((module) => ({ default: module.PasskeysHelpModal })),
+  import('lx/src/features/passkey/PasskeysHelpModal').then((module) => ({ default: module.PasskeysHelpModal })),
 )
 
 const DelegationMismatchModal = createLazy(() =>
@@ -70,19 +70,19 @@ const SendModal = createLazy(() =>
 )
 
 const BridgedAssetModal = createLazy(() =>
-  import('uniswap/src/components/BridgedAsset/BridgedAssetModal').then((module) => ({
+  import('lx/src/components/BridgedAsset/BridgedAssetModal').then((module) => ({
     default: module.BridgedAssetModal,
   })),
 )
 
 const WormholeModal = createLazy(() =>
-  import('uniswap/src/components/BridgedAsset/WormholeModal').then((module) => ({
+  import('lx/src/components/BridgedAsset/WormholeModal').then((module) => ({
     default: module.WormholeModal,
   })),
 )
 
 const ReportTokenModal = createLazy(() =>
-  import('uniswap/src/components/reporting/ReportTokenIssueModal').then((module) => ({
+  import('lx/src/components/reporting/ReportTokenIssueModal').then((module) => ({
     default: module.ReportTokenIssueModal,
   })),
 )

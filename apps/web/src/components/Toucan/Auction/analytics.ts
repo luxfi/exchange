@@ -2,11 +2,11 @@ import {
   AuctionBidAnalyticsProperties,
   AuctionBidInputtedAnalyticsProperties,
   AuctionWithdrawAnalyticsProperties,
-} from 'uniswap/src/features/telemetry/types'
+} from 'lx/src/features/telemetry/types'
 import {
   ToucanBidTransactionInfo,
   ToucanWithdrawBidAndClaimTokensTransactionInfo,
-} from 'uniswap/src/features/transactions/types/transactionDetails'
+} from 'lx/src/features/transactions/types/transactionDetails'
 import { ITraceContext } from 'utilities/src/telemetry/trace/TraceContext'
 
 /**

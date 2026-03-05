@@ -1,8 +1,8 @@
 import { TradeType } from '@uniswap/sdk-core'
-import { DAI, USDC } from 'uniswap/src/constants/tokens'
-import { Locale } from 'uniswap/src/features/language/constants'
-import { TransactionStatus } from 'uniswap/src/features/transactions/types/transactionDetails'
-import { mockLocalizedFormatter } from 'uniswap/src/test/mocks'
+import { DAI, USDC } from 'lx/src/constants/tokens'
+import { Locale } from 'lx/src/features/language/constants'
+import { TransactionStatus } from 'lx/src/features/transactions/types/transactionDetails'
+import { mockLocalizedFormatter } from 'lx/src/test/mocks'
 import { formSwapNotificationTitle } from 'wallet/src/features/notifications/utils'
 
 const mockFormatter = mockLocalizedFormatter(Locale.EnglishUnitedStates)

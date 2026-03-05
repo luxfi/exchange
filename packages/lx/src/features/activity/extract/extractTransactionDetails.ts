@@ -1,26 +1,26 @@
 import { GraphQLApi, SpamCode, TradingApi } from '@universe/api'
-import parseApproveTransaction from 'uniswap/src/features/activity/parse/parseApproveTransaction'
-import parseBridgingTransaction from 'uniswap/src/features/activity/parse/parseBridgingTransaction'
-import parseNFTMintTransaction from 'uniswap/src/features/activity/parse/parseMintTransaction'
-import parseOnRampTransaction from 'uniswap/src/features/activity/parse/parseOnRampTransaction'
-import parseReceiveTransaction from 'uniswap/src/features/activity/parse/parseReceiveTransaction'
-import parseSendTransaction from 'uniswap/src/features/activity/parse/parseSendTransaction'
-import parseTradeTransaction from 'uniswap/src/features/activity/parse/parseTradeTransaction'
-import { remoteTxStatusToLocalTxStatus } from 'uniswap/src/features/activity/utils/remote'
-import { DEFAULT_NATIVE_ADDRESS_LEGACY } from 'uniswap/src/features/chains/evm/defaults'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { fromGraphQLChain } from 'uniswap/src/features/chains/utils'
-import { ValueType } from 'uniswap/src/features/tokens/getCurrencyAmount'
+import parseApproveTransaction from 'lx/src/features/activity/parse/parseApproveTransaction'
+import parseBridgingTransaction from 'lx/src/features/activity/parse/parseBridgingTransaction'
+import parseNFTMintTransaction from 'lx/src/features/activity/parse/parseMintTransaction'
+import parseOnRampTransaction from 'lx/src/features/activity/parse/parseOnRampTransaction'
+import parseReceiveTransaction from 'lx/src/features/activity/parse/parseReceiveTransaction'
+import parseSendTransaction from 'lx/src/features/activity/parse/parseSendTransaction'
+import parseTradeTransaction from 'lx/src/features/activity/parse/parseTradeTransaction'
+import { remoteTxStatusToLocalTxStatus } from 'lx/src/features/activity/utils/remote'
+import { DEFAULT_NATIVE_ADDRESS_LEGACY } from 'lx/src/features/chains/evm/defaults'
+import { UniverseChainId } from 'lx/src/features/chains/types'
+import { fromGraphQLChain } from 'lx/src/features/chains/utils'
+import { ValueType } from 'lx/src/features/tokens/getCurrencyAmount'
 import type {
   TransactionDetails,
   TransactionListQueryResponse,
   TransactionTypeInfo,
-} from 'uniswap/src/features/transactions/types/transactionDetails'
+} from 'lx/src/features/transactions/types/transactionDetails'
 import {
   TransactionDetailsType,
   TransactionOriginType,
   TransactionType,
-} from 'uniswap/src/features/transactions/types/transactionDetails'
+} from 'lx/src/features/transactions/types/transactionDetails'
 
 /**
  * Parses txn API response item and identifies known txn type. Helps strictly

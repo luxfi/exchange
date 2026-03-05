@@ -4,8 +4,8 @@ import { reinitializeSession } from '@universe/api/src/components/ApiInit'
 import { createWithSessionRetry } from '@universe/api/src/session/createWithSessionRetry'
 import { getConfig } from '@universe/config'
 import { FeatureFlags, getFeatureFlag } from '@universe/gating'
-import { BASE_UNISWAP_HEADERS } from 'uniswap/src/data/apiClients/createUniswapFetchClient'
-import { getFeatureFlaggedHeaders } from 'uniswap/src/data/apiClients/tradingApi/TradingApiClient'
+import { BASE_UNISWAP_HEADERS } from 'lx/src/data/apiClients/createUniswapFetchClient'
+import { getFeatureFlaggedHeaders } from 'lx/src/data/apiClients/tradingApi/TradingApiClient'
 import { logger } from 'utilities/src/logger/logger'
 
 function getHeaders(): HeadersInit {

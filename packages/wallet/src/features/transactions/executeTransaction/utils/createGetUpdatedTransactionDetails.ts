@@ -1,9 +1,9 @@
 import { providers } from 'ethers'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { UniverseChainId } from 'lx/src/features/chains/types'
 import {
   OnChainTransactionDetails,
   TransactionStatus,
-} from 'uniswap/src/features/transactions/types/transactionDetails'
+} from 'lx/src/features/transactions/types/transactionDetails'
 import { ONE_MINUTE_MS } from 'utilities/src/time/time'
 import { getSerializableTransactionRequest } from 'wallet/src/features/transactions/utils'
 

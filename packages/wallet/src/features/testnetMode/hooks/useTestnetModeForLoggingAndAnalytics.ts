@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
-import { useEnabledChains } from 'uniswap/src/features/chains/hooks/useEnabledChains'
-import { WALLET_TESTNET_CONFIG } from 'uniswap/src/features/telemetry/constants'
+import { useEnabledChains } from 'lx/src/features/chains/hooks/useEnabledChains'
+import { WALLET_TESTNET_CONFIG } from 'lx/src/features/telemetry/constants'
 import { setAttributesToDatadog } from 'utilities/src/logger/datadog/Datadog'
 // biome-ignore lint/style/noRestrictedImports: Hook needs direct selector access for testnet mode state
 import { analytics } from 'utilities/src/telemetry/analytics/analytics'

@@ -2,19 +2,19 @@ import { memo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Flex, Text } from 'ui/src'
 import { Plus } from 'ui/src/components/icons/Plus'
-import { useFormattedCurrencyAmountAndUSDValue } from 'uniswap/src/components/activity/hooks/useFormattedCurrencyAmountAndUSDValue'
-import { PollingInterval } from 'uniswap/src/constants/misc'
-import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
+import { useFormattedCurrencyAmountAndUSDValue } from 'lx/src/components/activity/hooks/useFormattedCurrencyAmountAndUSDValue'
+import { PollingInterval } from 'lx/src/constants/misc'
+import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
 import {
   useCurrencyInfo,
   useNativeCurrencyInfo,
   useWrappedNativeCurrencyInfo,
-} from 'uniswap/src/features/tokens/useCurrencyInfo'
+} from 'lx/src/features/tokens/useCurrencyInfo'
 import {
   TransactionDetails,
   TransactionStatus,
   TransactionType,
-} from 'uniswap/src/features/transactions/types/transactionDetails'
+} from 'lx/src/features/transactions/types/transactionDetails'
 import { ApproveAmountCell } from '~/pages/Portfolio/Activity/ActivityTable/ActivityAmountCell/ApproveAmountCell'
 import { CompactLayout } from '~/pages/Portfolio/Activity/ActivityTable/ActivityAmountCell/CompactLayout'
 import { DualTokenLayout } from '~/pages/Portfolio/Activity/ActivityTable/ActivityAmountCell/DualTokenLayout'

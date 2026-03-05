@@ -1,4 +1,4 @@
-import { extractProviderName } from 'uniswap/src/features/providers/observability/extractProviderName'
+import { extractProviderName } from 'lx/src/features/providers/observability/extractProviderName'
 import { logger } from 'utilities/src/logger/logger'
 
 export interface RpcRequestContext {

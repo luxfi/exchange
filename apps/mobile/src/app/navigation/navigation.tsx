@@ -116,16 +116,16 @@ import { ViewPrivateKeysScreen } from 'src/screens/ViewPrivateKeys/ViewPrivateKe
 import { WebViewScreen } from 'src/screens/WebViewScreen'
 import { useSporeColors } from 'ui/src'
 import { spacing } from 'ui/src/theme'
-import { ModalName } from 'uniswap/src/features/telemetry/constants'
-import { useAppInsets } from 'uniswap/src/hooks/useAppInsets'
-import { OnboardingEntryPoint } from 'uniswap/src/types/onboarding'
+import { ModalName } from 'lx/src/features/telemetry/constants'
+import { useAppInsets } from 'lx/src/hooks/useAppInsets'
+import { OnboardingEntryPoint } from 'lx/src/types/onboarding'
 import {
   FiatOnRampScreens,
   MobileScreens,
   OnboardingScreens,
   UnitagScreens,
   type UnitagStackParamList,
-} from 'uniswap/src/types/screens/mobile'
+} from 'lx/src/types/screens/mobile'
 import { OnboardingContextProvider } from 'wallet/src/features/onboarding/OnboardingContext'
 import { selectFinishedOnboarding } from 'wallet/src/features/wallet/selectors'
 

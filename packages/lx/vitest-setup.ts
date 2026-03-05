@@ -95,7 +95,7 @@ import './vitest-package-mocks'
 import '../ui/vitest-setup'
 
 // Mock i18n to avoid require() path resolution issues
-// The original jest setup imported 'uniswap/src/i18n' but that uses require() internally
+// The original jest setup imported 'lx/src/i18n' but that uses require() internally
 // Common translations map for test assertions that look for translated text
 const commonTranslations: Record<string, string> = {
   'common.button.retry': 'Retry',
@@ -152,7 +152,7 @@ vi.mock('react-i18next', () => ({
   initReactI18next: { type: '3rdParty', init: vi.fn() },
 }))
 
-vi.mock('uniswap/src/i18n', () => ({
+vi.mock('lx/src/i18n', () => ({
   changeLanguage: vi.fn(),
   default: {
     t: (key: string, options?: Record<string, unknown>) => {
@@ -182,10 +182,10 @@ vi.mock('uniswap/src/i18n', () => ({
   },
 }))
 
-vi.mock('uniswap/src/i18n/i18n-setup', () => ({}))
+vi.mock('lx/src/i18n/i18n-setup', () => ({}))
 
 vi.mock(
-  'uniswap/src/features/transactions/components/settings/stores/transactionSettingsStore/useTransactionSettingsStore',
+  'lx/src/features/transactions/components/settings/stores/transactionSettingsStore/useTransactionSettingsStore',
   () => {
     return {
       useTransactionSettingsStore: (
@@ -200,7 +200,7 @@ vi.mock(
 )
 
 // Mock Modal component - provide simple implementations for tests
-vi.mock('uniswap/src/components/modals/Modal', () => {
+vi.mock('lx/src/components/modals/Modal', () => {
   const React = require('react')
   return {
     Modal: ({ children, isModalOpen = true }: { children?: React.ReactNode; isModalOpen?: boolean }) => {

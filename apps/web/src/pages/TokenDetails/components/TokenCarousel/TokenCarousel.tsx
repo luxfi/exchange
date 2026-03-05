@@ -2,7 +2,7 @@ import { ComponentProps, useEffect, useMemo, useRef, useState } from 'react'
 import { Flex, GeneratedIcon, LinearGradient, Text, TouchableArea } from 'ui/src'
 import { ArrowLeft } from 'ui/src/components/icons/ArrowLeft'
 import { ArrowRight } from 'ui/src/components/icons/ArrowRight'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { UniverseChainId } from 'lx/src/features/chains/types'
 import { useEvent } from 'utilities/src/react/hooks'
 import { MouseoverTooltip, TooltipSize } from '~/components/Tooltip'
 import {

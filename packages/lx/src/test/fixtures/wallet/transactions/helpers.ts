@@ -2,26 +2,26 @@ import { TransactionRequest, TransactionResponse } from '@ethersproject/provider
 import { formatEther } from '@ethersproject/units'
 import { BigNumber, providers } from 'ethers/lib/ethers'
 import merge from 'lodash/merge'
-import { getChainInfo } from 'uniswap/src/features/chains/chainInfo'
-import { ValueType } from 'uniswap/src/features/tokens/getCurrencyAmount'
-import { finalizeTransaction } from 'uniswap/src/features/transactions/slice'
+import { getChainInfo } from 'lx/src/features/chains/chainInfo'
+import { ValueType } from 'lx/src/features/tokens/getCurrencyAmount'
+import { finalizeTransaction } from 'lx/src/features/transactions/slice'
 import {
   ClassicTransactionDetails,
   TransactionReceipt,
   TransactionStatus,
-} from 'uniswap/src/features/transactions/types/transactionDetails'
+} from 'lx/src/features/transactions/types/transactionDetails'
 import {
   ethersTransactionReceipt,
   ethersTransactionRequest,
   ethersTransactionResponse,
-} from 'uniswap/src/test/fixtures/lib/ethers'
+} from 'lx/src/test/fixtures/lib/ethers'
 import {
   finalizedTransactionAction,
   finalizedTransactionDetails,
   transactionDetails,
   transactionReceipt,
-} from 'uniswap/src/test/fixtures/wallet/transactions/fixtures'
-import { faker } from 'uniswap/src/test/shared'
+} from 'lx/src/test/fixtures/wallet/transactions/fixtures'
+import { faker } from 'lx/src/test/shared'
 
 type TxFixtures<T extends ClassicTransactionDetails> = {
   txDetailsPending: T

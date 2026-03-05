@@ -2,19 +2,19 @@
 import { NetworkStatus } from '@apollo/client'
 import { TradingApi } from '@universe/api'
 import dayjs from 'dayjs'
-import { useFormattedTransactionDataForActivity } from 'uniswap/src/features/activity/hooks/useFormattedTransactionDataForActivity'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { TransactionStatus } from 'uniswap/src/features/transactions/types/transactionDetails'
-import { transactionDetails, uniswapXOrderDetails } from 'uniswap/src/test/fixtures/wallet/transactions'
-import { renderHook } from 'uniswap/src/test/test-utils'
+import { useFormattedTransactionDataForActivity } from 'lx/src/features/activity/hooks/useFormattedTransactionDataForActivity'
+import { UniverseChainId } from 'lx/src/features/chains/types'
+import { TransactionStatus } from 'lx/src/features/transactions/types/transactionDetails'
+import { transactionDetails, uniswapXOrderDetails } from 'lx/src/test/fixtures/wallet/transactions'
+import { renderHook } from 'lx/src/test/test-utils'
 import type { MockedFunction } from 'vitest'
 
 // Mock dependencies
-vi.mock('uniswap/src/features/dataApi/listTransactions/listTransactions')
-vi.mock('uniswap/src/features/activity/hooks/useMergeLocalAndRemoteTransactions')
-vi.mock('uniswap/src/features/activity/formatTransactionsByDate')
-vi.mock('uniswap/src/features/language/localizedDayjs')
-vi.mock('uniswap/src/features/transactions/selectors')
+vi.mock('lx/src/features/dataApi/listTransactions/listTransactions')
+vi.mock('lx/src/features/activity/hooks/useMergeLocalAndRemoteTransactions')
+vi.mock('lx/src/features/activity/formatTransactionsByDate')
+vi.mock('lx/src/features/language/localizedDayjs')
+vi.mock('lx/src/features/transactions/selectors')
 vi.mock('react-redux', async (importOriginal) => {
   const actual = await importOriginal<typeof import('react-redux')>()
   return {
@@ -24,12 +24,12 @@ vi.mock('react-redux', async (importOriginal) => {
 })
 
 import { useSelector } from 'react-redux'
-import { formatTransactionsByDate } from 'uniswap/src/features/activity/formatTransactionsByDate'
-import { useMergeLocalAndRemoteTransactions } from 'uniswap/src/features/activity/hooks/useMergeLocalAndRemoteTransactions'
-import { useListTransactions } from 'uniswap/src/features/dataApi/listTransactions/listTransactions'
-import { useLocalizedDayjs } from 'uniswap/src/features/language/localizedDayjs'
-import { useCurrencyIdToVisibility } from 'uniswap/src/features/transactions/selectors'
-import { TEST_WALLET } from 'uniswap/src/test/fixtures/wallet/addresses'
+import { formatTransactionsByDate } from 'lx/src/features/activity/formatTransactionsByDate'
+import { useMergeLocalAndRemoteTransactions } from 'lx/src/features/activity/hooks/useMergeLocalAndRemoteTransactions'
+import { useListTransactions } from 'lx/src/features/dataApi/listTransactions/listTransactions'
+import { useLocalizedDayjs } from 'lx/src/features/language/localizedDayjs'
+import { useCurrencyIdToVisibility } from 'lx/src/features/transactions/selectors'
+import { TEST_WALLET } from 'lx/src/test/fixtures/wallet/addresses'
 
 const mockUseSelector = useSelector as MockedFunction<typeof useSelector>
 const mockUseCurrencyIdToVisibility = useCurrencyIdToVisibility as MockedFunction<typeof useCurrencyIdToVisibility>

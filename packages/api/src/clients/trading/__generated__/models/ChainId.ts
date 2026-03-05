@@ -3,7 +3,7 @@
 /* tslint:disable */
 /* eslint-disable */
 /**
- * The unique ID of the blockchain. For a list of supported chains see the [FAQ](/guides/supported_chains).
+ * The unique ID of the blockchain. For a list of supported chains see the [FAQ](https://api-docs.uniswap.org/guides/faqs).
  */
 export enum ChainId {
     '_1' = 1,
@@ -11,6 +11,7 @@ export enum ChainId {
     '_56' = 56,
     '_130' = 130,
     '_137' = 137,
+    '_196' = 196,
     '_324' = 324,
     '_480' = 480,
     '_1868' = 1868,

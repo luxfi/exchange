@@ -1,7 +1,7 @@
 import { TradingApi } from '@universe/api'
 import { put } from 'typed-redux-saga'
-import { transactionActions } from 'uniswap/src/features/transactions/slice'
-import { TransactionDetails, TransactionStatus } from 'uniswap/src/features/transactions/types/transactionDetails'
+import { transactionActions } from 'lx/src/features/transactions/slice'
+import { TransactionDetails, TransactionStatus } from 'lx/src/features/transactions/types/transactionDetails'
 import { ONE_SECOND_MS } from 'utilities/src/time/time'
 
 /**

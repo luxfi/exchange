@@ -29,7 +29,7 @@ jest.mock('src/app/features/dappRequests/configuredSagas', () => ({
   },
 }))
 
-jest.mock('uniswap/src/features/transactions/types/transactionRequests', () => ({
+jest.mock('lx/src/features/transactions/types/transactionRequests', () => ({
   isValidTransactionRequest: jest.fn(),
 }))
 

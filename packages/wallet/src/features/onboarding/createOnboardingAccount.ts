@@ -1,5 +1,5 @@
 import dayjs from 'dayjs'
-import { AccountType } from 'uniswap/src/features/accounts/types'
+import { AccountType } from 'lx/src/features/accounts/types'
 import { BackupType, SignerMnemonicAccount } from 'wallet/src/features/wallet/accounts/types'
 import { Keyring } from 'wallet/src/features/wallet/Keyring/Keyring'
 

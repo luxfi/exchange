@@ -1,10 +1,10 @@
 import { waitFor } from '@testing-library/react-native'
 import * as reactRedux from 'react-redux'
-import * as balanceUtils from 'uniswap/src/data/balances/utils'
-import * as reportBalancesForAnalytics from 'uniswap/src/features/accounts/reportBalancesForAnalytics'
-import { AccountType } from 'uniswap/src/features/accounts/types'
-import * as telemetrySend from 'uniswap/src/features/telemetry/send'
-import * as walletHooks from 'uniswap/src/features/wallet/hooks/useWallet'
+import * as balanceUtils from 'lx/src/data/balances/utils'
+import * as reportBalancesForAnalytics from 'lx/src/features/accounts/reportBalancesForAnalytics'
+import { AccountType } from 'lx/src/features/accounts/types'
+import * as telemetrySend from 'lx/src/features/telemetry/send'
+import * as walletHooks from 'lx/src/features/wallet/hooks/useWallet'
 import { ONE_MINUTE_MS } from 'utilities/src/time/time'
 import { useLastBalancesReporter } from 'wallet/src/features/telemetry/hooks/useLastBalancesReporter'
 import * as portfolioData from 'wallet/src/features/telemetry/hooks/usePortfolioDataForReporting'
@@ -24,11 +24,11 @@ jest.mock('wallet/src/features/telemetry/utils/walletFundingDetector', () => ({
 }))
 jest.mock('wallet/src/features/telemetry/utils/balanceReporter')
 
-jest.mock('uniswap/src/data/balances/utils', () => ({
-  ...jest.requireActual('uniswap/src/data/balances/utils'),
+jest.mock('lx/src/data/balances/utils', () => ({
+  ...jest.requireActual('lx/src/data/balances/utils'),
   calculateTotalBalancesUsdPerChainRest: jest.fn(),
 }))
-jest.mock('uniswap/src/features/accounts/reportBalancesForAnalytics', () => ({
+jest.mock('lx/src/features/accounts/reportBalancesForAnalytics', () => ({
   reportBalancesForAnalytics: jest.fn(),
   hasRequiredDataForBalancesReport: jest.fn().mockReturnValue(true),
 }))

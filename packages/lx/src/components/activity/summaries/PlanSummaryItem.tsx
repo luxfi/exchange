@@ -1,18 +1,18 @@
 import { memo, useMemo } from 'react'
-import { useOnRetrySwap } from 'uniswap/src/components/activity/hooks/useOnRetrySwap'
-import { TransactionSummaryLayout } from 'uniswap/src/components/activity/summaries/TransactionSummaryLayout'
-import type { SummaryItemProps } from 'uniswap/src/components/activity/types'
-import { TXN_HISTORY_ICON_SIZE } from 'uniswap/src/components/activity/utils'
-import { CrossChainIcon, SplitLogo } from 'uniswap/src/components/CurrencyLogo/SplitLogo'
-import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
-import { useCurrencyInfo } from 'uniswap/src/features/tokens/useCurrencyInfo'
-import { CrossChainCurrencyRow } from 'uniswap/src/features/transactions/swap/components/CrossChainCurrencyRow'
+import { useOnRetrySwap } from 'lx/src/components/activity/hooks/useOnRetrySwap'
+import { TransactionSummaryLayout } from 'lx/src/components/activity/summaries/TransactionSummaryLayout'
+import type { SummaryItemProps } from 'lx/src/components/activity/types'
+import { TXN_HISTORY_ICON_SIZE } from 'lx/src/components/activity/utils'
+import { CrossChainIcon, SplitLogo } from 'lx/src/components/CurrencyLogo/SplitLogo'
+import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
+import { useCurrencyInfo } from 'lx/src/features/tokens/useCurrencyInfo'
+import { CrossChainCurrencyRow } from 'lx/src/features/transactions/swap/components/CrossChainCurrencyRow'
 import {
   type PlanTransactionInfo,
   type TransactionDetails,
   TransactionStatus,
-} from 'uniswap/src/features/transactions/types/transactionDetails'
-import { getFormattedCurrencyAmount } from 'uniswap/src/utils/currency'
+} from 'lx/src/features/transactions/types/transactionDetails'
+import { getFormattedCurrencyAmount } from 'lx/src/utils/currency'
 
 /**
  * Component used in the activity history to display the top level details of a plan transaction.

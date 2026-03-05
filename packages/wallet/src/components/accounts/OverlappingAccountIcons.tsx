@@ -1,7 +1,7 @@
 import { FlatList, ListRenderItemInfo } from 'react-native'
 import { Flex } from 'ui/src'
 import { iconSizes } from 'ui/src/theme'
-import { AccountIcon } from 'uniswap/src/features/accounts/AccountIcon'
+import { AccountIcon } from 'lx/src/features/accounts/AccountIcon'
 
 export const OverlappingAccountIcons = ({
   accountAddresses,

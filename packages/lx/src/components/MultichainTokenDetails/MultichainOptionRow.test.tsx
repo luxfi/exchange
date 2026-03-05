@@ -1,8 +1,8 @@
 import { Flex } from 'ui/src'
-import { MultichainOptionRow } from 'uniswap/src/components/MultichainTokenDetails/MultichainOptionRow'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { ON_PRESS_EVENT_PAYLOAD } from 'uniswap/src/test/fixtures'
-import { fireEvent, render } from 'uniswap/src/test/test-utils'
+import { MultichainOptionRow } from 'lx/src/components/MultichainTokenDetails/MultichainOptionRow'
+import { UniverseChainId } from 'lx/src/features/chains/types'
+import { ON_PRESS_EVENT_PAYLOAD } from 'lx/src/test/fixtures'
+import { fireEvent, render } from 'lx/src/test/test-utils'
 
 describe(MultichainOptionRow, () => {
   const defaultProps = {

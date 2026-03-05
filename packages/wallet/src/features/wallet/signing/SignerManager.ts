@@ -1,4 +1,4 @@
-import { AccountMeta, AccountType } from 'uniswap/src/features/accounts/types'
+import { AccountMeta, AccountType } from 'lx/src/features/accounts/types'
 import { Keyring } from 'wallet/src/features/wallet/Keyring/Keyring'
 import { NativeSigner } from 'wallet/src/features/wallet/signing/NativeSigner'
 

@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next'
 import { FlatList } from 'react-native'
 import { Flex, Separator } from 'ui/src'
 import { InsufficientGas } from 'ui/src/components/icons'
-import { ModalName } from 'uniswap/src/features/telemetry/constants'
+import { ModalName } from 'lx/src/features/telemetry/constants'
 import { SmartWalletModal } from 'wallet/src/components/smartWallet/modals/SmartWalletModal'
 import { InsufficientFundsNetworkRow, NetworkInfo } from 'wallet/src/features/smartWallet/InsufficientFundsNetworkRow'
 

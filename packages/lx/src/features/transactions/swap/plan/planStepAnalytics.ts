@@ -1,10 +1,10 @@
-import { InterfaceEventName, SwapEventName } from 'uniswap/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
-import { TransactionStepType } from 'uniswap/src/features/transactions/steps/types'
-import { TransactionAndPlanStep } from 'uniswap/src/features/transactions/swap/plan/planStepTransformer'
-import { type PlanSagaAnalytics } from 'uniswap/src/features/transactions/swap/plan/types'
-import { SwapEventType, timestampTracker } from 'uniswap/src/features/transactions/swap/utils/SwapEventTimestampTracker'
-import { TransactionOriginType } from 'uniswap/src/features/transactions/types/transactionDetails'
+import { InterfaceEventName, SwapEventName } from 'lx/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
+import { TransactionStepType } from 'lx/src/features/transactions/steps/types'
+import { TransactionAndPlanStep } from 'lx/src/features/transactions/swap/plan/planStepTransformer'
+import { type PlanSagaAnalytics } from 'lx/src/features/transactions/swap/plan/types'
+import { SwapEventType, timestampTracker } from 'lx/src/features/transactions/swap/utils/SwapEventTimestampTracker'
+import { TransactionOriginType } from 'lx/src/features/transactions/types/transactionDetails'
 import { logger } from 'utilities/src/logger/logger'
 
 /**

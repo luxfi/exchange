@@ -1,7 +1,7 @@
 import { Contract, ContractInterface, providers } from 'ethers'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { getValidAddress } from 'uniswap/src/utils/addresses'
-import { isNativeCurrencyAddress } from 'uniswap/src/utils/currencyId'
+import { UniverseChainId } from 'lx/src/features/chains/types'
+import { getValidAddress } from 'lx/src/utils/addresses'
+import { isNativeCurrencyAddress } from 'lx/src/utils/currencyId'
 import { logger } from 'utilities/src/logger/logger'
 
 export class ContractManager {

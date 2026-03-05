@@ -2,13 +2,13 @@ import { Currency, CurrencyAmount } from '@uniswap/sdk-core'
 import React, { ReactNode } from 'react'
 import { Trans } from 'react-i18next'
 import { Flex } from 'ui/src'
-import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
+import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
 import {
   FORMAT_DATE_TIME_MEDIUM,
   useFormattedDateTime,
   useLocalizedDayjs,
-} from 'uniswap/src/features/language/localizedDayjs'
-import { useUSDCValue } from 'uniswap/src/features/transactions/hooks/useUSDCPriceWrapper'
+} from 'lx/src/features/language/localizedDayjs'
+import { useUSDCValue } from 'lx/src/features/transactions/hooks/useUSDCPriceWrapper'
 import { NumberType } from 'utilities/src/format/types'
 import Row from '~/components/deprecated/Row'
 import { LoadingRow } from '~/components/Loader/styled'

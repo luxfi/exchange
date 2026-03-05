@@ -6,11 +6,11 @@ import {
   usePortfolioValueModifiers,
   useSortedPortfolioBalances,
   useTokenBalancesGroupedByVisibility,
-} from 'uniswap/src/features/dataApi/balances/balances'
-import { usePortfolioTotalValue } from 'uniswap/src/features/dataApi/balances/balancesRest'
-import { PortfolioBalance } from 'uniswap/src/features/dataApi/types'
-import { initialUserSettingsState, UserSettingsState } from 'uniswap/src/features/settings/slice'
-import { CurrencyIdToVisibility, initialVisibilityState, VisibilityState } from 'uniswap/src/features/visibility/slice'
+} from 'lx/src/features/dataApi/balances/balances'
+import { usePortfolioTotalValue } from 'lx/src/features/dataApi/balances/balancesRest'
+import { PortfolioBalance } from 'lx/src/features/dataApi/types'
+import { initialUserSettingsState, UserSettingsState } from 'lx/src/features/settings/slice'
+import { CurrencyIdToVisibility, initialVisibilityState, VisibilityState } from 'lx/src/features/visibility/slice'
 import {
   ARBITRUM_CURRENCY,
   BASE_CURRENCY,
@@ -24,8 +24,8 @@ import {
   SAMPLE_SEED_ADDRESS_1,
   SAMPLE_SEED_ADDRESS_2,
   tokenBalance,
-} from 'uniswap/src/test/fixtures'
-import { createArray } from 'uniswap/src/test/utils'
+} from 'lx/src/test/fixtures'
+import { createArray } from 'lx/src/test/utils'
 import { renderHook } from 'wallet/src/test/test-utils'
 
 const daiTokenBalance = tokenBalance({ token: daiToken(), isHidden: true })

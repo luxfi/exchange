@@ -1,16 +1,16 @@
 import { GraphQLApi } from '@universe/api'
 import { useMemo } from 'react'
-import { getCommonBase } from 'uniswap/src/constants/routing'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { CurrencyInfo } from 'uniswap/src/features/dataApi/types'
-import { currencyIdToContractInput } from 'uniswap/src/features/dataApi/utils/currencyIdToContractInput'
-import { gqlTokenToCurrencyInfo } from 'uniswap/src/features/dataApi/utils/gqlTokenToCurrencyInfo'
+import { getCommonBase } from 'lx/src/constants/routing'
+import { UniverseChainId } from 'lx/src/features/chains/types'
+import { CurrencyInfo } from 'lx/src/features/dataApi/types'
+import { currencyIdToContractInput } from 'lx/src/features/dataApi/utils/currencyIdToContractInput'
+import { gqlTokenToCurrencyInfo } from 'lx/src/features/dataApi/utils/gqlTokenToCurrencyInfo'
 import {
   buildNativeCurrencyId,
   buildWrappedNativeCurrencyId,
   currencyIdToAddress,
   currencyIdToChain,
-} from 'uniswap/src/utils/currencyId'
+} from 'lx/src/utils/currencyId'
 
 function useCurrencyInfoQuery(
   _currencyId?: string,

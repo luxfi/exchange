@@ -4,7 +4,7 @@ import { Pair } from '@uniswap/v2-sdk'
 import { Pool as V3Pool, Position as V3Position } from '@uniswap/v3-sdk'
 import { Pool as V4Pool, Position as V4Position } from '@uniswap/v4-sdk'
 import { ReactNode } from 'react'
-import { EVMUniverseChainId } from 'uniswap/src/features/chains/types'
+import { EVMUniverseChainId } from 'lx/src/features/chains/types'
 import { FeeData } from '~/components/Liquidity/Create/types'
 import { PositionField } from '~/types/position'
 

@@ -3,8 +3,8 @@ import Animated, { Easing, FadeIn, FadeInDown, RotateInUpLeft } from 'react-nati
 import { Button, Flex, Text } from 'ui/src'
 import { Unitag } from 'ui/src/components/icons'
 import { iconSizes } from 'ui/src/theme'
-import { useUnitagsAddressQuery } from 'uniswap/src/data/apiClients/unitagsApi/useUnitagsAddressQuery'
-import { AccountIcon } from 'uniswap/src/features/accounts/AccountIcon'
+import { useUnitagsAddressQuery } from 'lx/src/data/apiClients/unitagsApi/useUnitagsAddressQuery'
+import { AccountIcon } from 'lx/src/features/accounts/AccountIcon'
 import { isExtensionApp } from 'utilities/src/platform'
 
 export function WelcomeSplash({

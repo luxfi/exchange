@@ -1,8 +1,8 @@
 import { TradingApi } from '@universe/api'
 import type { FeatureFlags } from '@universe/gating'
 import type { AppTFunction } from 'ui/src/i18n/types'
-import type { Platform } from 'uniswap/src/features/platforms/types/Platform'
-import type { FrontendSupportedProtocol } from 'uniswap/src/features/transactions/swap/utils/protocols'
+import type { Platform } from 'lx/src/features/platforms/types/Platform'
+import type { FrontendSupportedProtocol } from 'lx/src/features/transactions/swap/utils/protocols'
 
 export enum TransactionSettingId {
   SLIPPAGE = 'slippage',

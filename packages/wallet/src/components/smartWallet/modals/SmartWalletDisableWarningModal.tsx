@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next'
 import { AlertTriangleFilled } from 'ui/src/components/icons'
-import { ModalName } from 'uniswap/src/features/telemetry/constants'
+import { ModalName } from 'lx/src/features/telemetry/constants'
 import { SmartWalletModal } from 'wallet/src/components/smartWallet/modals/SmartWalletModal'
 
 /**

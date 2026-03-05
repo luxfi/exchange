@@ -16,8 +16,8 @@ import {
   getStatsigClient,
 } from '@universe/gating'
 import JSBI from 'jsbi'
-import { createEthersProvider } from 'uniswap/src/features/providers/createEthersProvider'
-import { getCurrencyAmount, ValueType } from 'uniswap/src/features/tokens/getCurrencyAmount'
+import { createEthersProvider } from 'lx/src/features/providers/createEthersProvider'
+import { getCurrencyAmount, ValueType } from 'lx/src/features/tokens/getCurrencyAmount'
 import { type Prettify } from 'viem'
 
 // Normal speed strategy - Lower multipliers for economical transactions

@@ -3,10 +3,10 @@ import { iconSizes } from 'ui/src/theme'
 import {
   isReceiveTokenTransactionInfo,
   isSendTokenTransactionInfo,
-} from 'uniswap/src/components/activity/details/types'
-import { ActivityItem } from 'uniswap/src/components/activity/generateActivityItemRenderer'
-import { AssetType } from 'uniswap/src/entities/assets'
-import { LocalizationContextState } from 'uniswap/src/features/language/LocalizationContext'
+} from 'lx/src/components/activity/details/types'
+import { ActivityItem } from 'lx/src/components/activity/generateActivityItemRenderer'
+import { AssetType } from 'lx/src/entities/assets'
+import { LocalizationContextState } from 'lx/src/features/language/LocalizationContext'
 import {
   INFINITE_APPROVAL_AMOUNT,
   INFINITE_APPROVAL_NUMBER,
@@ -14,7 +14,7 @@ import {
   REVOKE_APPROVAL_AMOUNT,
   TransactionType,
   TransactionTypeInfo,
-} from 'uniswap/src/features/transactions/types/transactionDetails'
+} from 'lx/src/features/transactions/types/transactionDetails'
 import { NumberType } from 'utilities/src/format/types'
 
 export const TXN_HISTORY_ICON_SIZE = TXN_HISTORY_LOADER_ICON_SIZE

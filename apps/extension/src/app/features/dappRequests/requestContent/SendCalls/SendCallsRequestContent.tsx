@@ -13,8 +13,8 @@ import {
   type ParsedCall,
   type SendCallsRequest,
 } from 'src/app/features/dappRequests/types/DappRequestTypes'
-import { type UniverseChainId } from 'uniswap/src/features/chains/types'
-import { TransactionType, type TransactionTypeInfo } from 'uniswap/src/features/transactions/types/transactionDetails'
+import { type UniverseChainId } from 'lx/src/features/chains/types'
+import { TransactionType, type TransactionTypeInfo } from 'lx/src/features/transactions/types/transactionDetails'
 import { useBooleanState } from 'utilities/src/react/useBooleanState'
 import { BatchedRequestDetailsContent } from 'wallet/src/components/BatchedTransactions/BatchedTransactionDetails'
 import { DappSendCallsScanningContent } from 'wallet/src/components/dappRequests/DappSendCallsScanningContent'

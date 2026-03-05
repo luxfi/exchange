@@ -1,5 +1,5 @@
 import { act, screen } from '@testing-library/react'
-import { ModalName } from 'uniswap/src/features/telemetry/constants'
+import { ModalName } from 'lx/src/features/telemetry/constants'
 import { ModalRenderer, modalRegistry } from '~/components/TopLevelModals/modalRegistry'
 import { useAppSelector } from '~/state/hooks'
 import { mocked } from '~/test-utils/mocked'

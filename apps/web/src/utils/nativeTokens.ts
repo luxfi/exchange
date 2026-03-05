@@ -1,5 +1,5 @@
 import { GraphQLApi } from '@universe/api'
-import { getChainInfo } from 'uniswap/src/features/chains/chainInfo'
+import { getChainInfo } from 'lx/src/features/chains/chainInfo'
 import { supportedChainIdFromGQLChain } from '~/appGraphql/data/chainUtils'
 
 export function getNativeTokenDBAddress(chain: GraphQLApi.Chain): string | undefined {

@@ -1,5 +1,5 @@
 import React from 'react'
-import { WRAPPED_SOL_ADDRESS_SOLANA } from 'uniswap/src/features/chains/svm/defaults'
+import { WRAPPED_SOL_ADDRESS_SOLANA } from 'lx/src/features/chains/svm/defaults'
 import { getExploreTitle } from '~/pages/getExploreTitle'
 import {
   getAddLiquidityPageTitle,

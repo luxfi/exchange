@@ -1,8 +1,8 @@
 import { useQueryClient } from '@tanstack/react-query'
 import { GetLatestCheckpointRequest } from '@uniswap/client-data-api/dist/data/v1/auction_pb'
 import { useCallback, useEffect, useRef, useState } from 'react'
-import { auctionQueries } from 'uniswap/src/data/rest/auctions/auctionQueries'
-import { EVMUniverseChainId } from 'uniswap/src/features/chains/types'
+import { auctionQueries } from 'lx/src/data/rest/auctions/auctionQueries'
+import { EVMUniverseChainId } from 'lx/src/features/chains/types'
 import { logger } from 'utilities/src/logger/logger'
 
 interface UseRefreshCheckpointOnOpenParams {

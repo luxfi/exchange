@@ -2,9 +2,9 @@ import { ArrowDown } from 'ui/src/components/icons/ArrowDown'
 import {
   TwoTokenDetails,
   useTokenAmountInfo,
-} from 'uniswap/src/components/activity/details/transactions/utilityComponents'
-import { useCurrencyInfo } from 'uniswap/src/features/tokens/useCurrencyInfo'
-import { BridgeTransactionInfo } from 'uniswap/src/features/transactions/types/transactionDetails'
+} from 'lx/src/components/activity/details/transactions/utilityComponents'
+import { useCurrencyInfo } from 'lx/src/features/tokens/useCurrencyInfo'
+import { BridgeTransactionInfo } from 'lx/src/features/transactions/types/transactionDetails'
 
 /**
  * This component displays the details of a bridge transaction.

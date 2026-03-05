@@ -1,7 +1,7 @@
 import { forwardRef } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Flex, Text } from 'ui/src'
-import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
+import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
 import { NumberType } from 'utilities/src/format/types'
 import { CLEARING_PRICE_LINE } from '~/components/Toucan/Auction/BidDistributionChart/constants'
 import { useConcentrationColor } from '~/components/Toucan/Auction/BidDistributionChart/hooks/useConcentrationColor'

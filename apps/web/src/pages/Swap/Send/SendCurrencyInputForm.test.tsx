@@ -1,7 +1,7 @@
 vi.mock('~/hooks/Tokens')
 
 // Mock only what's needed for tests to pass
-vi.mock('uniswap/src/features/accounts/store/hooks', () => {
+vi.mock('lx/src/features/accounts/store/hooks', () => {
   return {
     useActiveAddresses: () => ({
       evmAddress: undefined,
@@ -10,8 +10,8 @@ vi.mock('uniswap/src/features/accounts/store/hooks', () => {
   }
 })
 
-import { DAI } from 'uniswap/src/constants/tokens'
-import { SwapTab } from 'uniswap/src/types/screens/interface'
+import { DAI } from 'lx/src/constants/tokens'
+import { SwapTab } from 'lx/src/types/screens/interface'
 import { useCurrencyInfo } from '~/hooks/Tokens'
 import SendCurrencyInputForm from '~/pages/Swap/Send/SendCurrencyInputForm'
 import { MultichainContext } from '~/state/multichain/types'

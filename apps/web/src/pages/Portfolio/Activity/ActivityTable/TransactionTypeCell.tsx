@@ -2,11 +2,11 @@ import { memo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Flex, SpinningLoader, Text } from 'ui/src'
 import { Receipt } from 'ui/src/components/icons/Receipt'
-import { getTransactionSummaryTitle } from 'uniswap/src/features/activity/utils/getTransactionSummaryTitle'
+import { getTransactionSummaryTitle } from 'lx/src/features/activity/utils/getTransactionSummaryTitle'
 import {
   TEMPORARY_TRANSACTION_STATUSES,
   TransactionDetails,
-} from 'uniswap/src/features/transactions/types/transactionDetails'
+} from 'lx/src/features/transactions/types/transactionDetails'
 import { buildActivityRowFragments } from '~/pages/Portfolio/Activity/ActivityTable/registry'
 import { getTransactionTypeFilterOptions } from '~/pages/Portfolio/Activity/Filters/utils'
 

@@ -2,8 +2,8 @@ import { useTranslation } from 'react-i18next'
 import { Button, Flex, Text } from 'ui/src'
 import { Language } from 'ui/src/components/icons'
 import { DEP_accentColors, opacify } from 'ui/src/theme'
-import { Modal } from 'uniswap/src/components/modals/Modal'
-import { ModalName } from 'uniswap/src/features/telemetry/constants'
+import { Modal } from 'lx/src/components/modals/Modal'
+import { ModalName } from 'lx/src/features/telemetry/constants'
 
 import { SettingsLanguageModalProps } from 'wallet/src/components/settings/language/SettingsLanguageModalProps'
 

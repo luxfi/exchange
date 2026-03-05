@@ -1,6 +1,6 @@
 import { getPortfolio } from '@uniswap/client-data-api/dist/data/v1/api-DataApiService_connectquery'
-import { uniswapUrls } from 'uniswap/src/constants/urls'
-import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+import { uniswapUrls } from 'lx/src/constants/urls'
+import { TestID } from 'lx/src/test/fixtures/testIDs'
 import { shortenAddress } from 'utilities/src/addresses'
 import { expect, type Page } from '~/playwright/fixtures'
 import { Mocks } from '~/playwright/mocks/mocks'

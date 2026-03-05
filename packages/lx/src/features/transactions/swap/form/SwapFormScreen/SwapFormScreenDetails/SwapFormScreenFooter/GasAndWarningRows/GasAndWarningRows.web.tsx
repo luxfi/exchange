@@ -1,13 +1,13 @@
 import { Flex } from 'ui/src'
-import { WarningLabel } from 'uniswap/src/components/modals/WarningModal/types'
-import { useActiveAddress } from 'uniswap/src/features/accounts/store/hooks'
-import { InsufficientNativeTokenWarning } from 'uniswap/src/features/transactions/components/InsufficientNativeTokenWarning/InsufficientNativeTokenWarning'
-import { BlockedAddressWarning } from 'uniswap/src/features/transactions/modals/BlockedAddressWarning'
-import { TradeInfoRow } from 'uniswap/src/features/transactions/swap/form/SwapFormScreen/SwapFormScreenDetails/SwapFormScreenFooter/GasAndWarningRows/TradeInfoRow/TradeInfoRow'
-import { useDebouncedGasInfo } from 'uniswap/src/features/transactions/swap/form/SwapFormScreen/SwapFormScreenDetails/SwapFormScreenFooter/GasAndWarningRows/useDebouncedGasInfo'
-import { useParsedSwapWarnings } from 'uniswap/src/features/transactions/swap/hooks/useSwapWarnings/useSwapWarnings'
-import { useSwapFormStoreDerivedSwapInfo } from 'uniswap/src/features/transactions/swap/stores/swapFormStore/useSwapFormStore'
-import { useIsBlocked } from 'uniswap/src/features/trm/hooks'
+import { WarningLabel } from 'lx/src/components/modals/WarningModal/types'
+import { useActiveAddress } from 'lx/src/features/accounts/store/hooks'
+import { InsufficientNativeTokenWarning } from 'lx/src/features/transactions/components/InsufficientNativeTokenWarning/InsufficientNativeTokenWarning'
+import { BlockedAddressWarning } from 'lx/src/features/transactions/modals/BlockedAddressWarning'
+import { TradeInfoRow } from 'lx/src/features/transactions/swap/form/SwapFormScreen/SwapFormScreenDetails/SwapFormScreenFooter/GasAndWarningRows/TradeInfoRow/TradeInfoRow'
+import { useDebouncedGasInfo } from 'lx/src/features/transactions/swap/form/SwapFormScreen/SwapFormScreenDetails/SwapFormScreenFooter/GasAndWarningRows/useDebouncedGasInfo'
+import { useParsedSwapWarnings } from 'lx/src/features/transactions/swap/hooks/useSwapWarnings/useSwapWarnings'
+import { useSwapFormStoreDerivedSwapInfo } from 'lx/src/features/transactions/swap/stores/swapFormStore/useSwapFormStore'
+import { useIsBlocked } from 'lx/src/features/trm/hooks'
 
 export function GasAndWarningRows(): JSX.Element {
   const chainId = useSwapFormStoreDerivedSwapInfo((s) => s.chainId)

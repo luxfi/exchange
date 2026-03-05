@@ -1,10 +1,10 @@
 import { FORTransactionStatus, GraphQLApi, TradingApi } from '@universe/api'
-import parseGraphQLOnRampTransaction from 'uniswap/src/features/activity/parse/parseOnRampTransaction'
-import { remoteTxStatusToLocalTxStatus } from 'uniswap/src/features/activity/utils/remote'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { fromGraphQLChain, toSupportedChainId } from 'uniswap/src/features/chains/utils'
-import type { FORTransaction, FORTransactionDetails } from 'uniswap/src/features/fiatOnRamp/types'
-import { isValidIsoCurrencyCode } from 'uniswap/src/features/fiatOnRamp/utils'
+import parseGraphQLOnRampTransaction from 'lx/src/features/activity/parse/parseOnRampTransaction'
+import { remoteTxStatusToLocalTxStatus } from 'lx/src/features/activity/utils/remote'
+import { UniverseChainId } from 'lx/src/features/chains/types'
+import { fromGraphQLChain, toSupportedChainId } from 'lx/src/features/chains/utils'
+import type { FORTransaction, FORTransactionDetails } from 'lx/src/features/fiatOnRamp/types'
+import { isValidIsoCurrencyCode } from 'lx/src/features/fiatOnRamp/utils'
 import type {
   OffRampSaleInfo,
   OnRampPurchaseInfo,
@@ -12,13 +12,13 @@ import type {
   OnRampTransferInfo,
   TransactionDetails,
   TransactionListQueryResponse,
-} from 'uniswap/src/features/transactions/types/transactionDetails'
+} from 'lx/src/features/transactions/types/transactionDetails'
 import {
   TransactionDetailsType,
   TransactionOriginType,
   TransactionStatus,
   TransactionType,
-} from 'uniswap/src/features/transactions/types/transactionDetails'
+} from 'lx/src/features/transactions/types/transactionDetails'
 import { logger } from 'utilities/src/logger/logger'
 
 function parseFORTransaction(

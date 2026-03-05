@@ -1,14 +1,14 @@
 import { renderHook } from '@testing-library/react'
 import { CurrencyAmount, Token } from '@uniswap/sdk-core'
 import { FeeType, GasEstimate, TradingApi } from '@universe/api'
-import { DAI, USDC } from 'uniswap/src/constants/tokens'
-import { useCheckApprovalQuery } from 'uniswap/src/data/apiClients/tradingApi/useCheckApprovalQuery'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { DEFAULT_GAS_STRATEGY } from 'uniswap/src/features/gas/utils'
-import type { TokenApprovalInfoParams } from 'uniswap/src/features/transactions/swap/review/hooks/useTokenApprovalInfo'
-import { useTokenApprovalInfo } from 'uniswap/src/features/transactions/swap/review/hooks/useTokenApprovalInfo'
-import { ApprovalAction } from 'uniswap/src/features/transactions/swap/types/trade'
-import { WrapType } from 'uniswap/src/features/transactions/types/wrap'
+import { DAI, USDC } from 'lx/src/constants/tokens'
+import { useCheckApprovalQuery } from 'lx/src/data/apiClients/tradingApi/useCheckApprovalQuery'
+import { UniverseChainId } from 'lx/src/features/chains/types'
+import { DEFAULT_GAS_STRATEGY } from 'lx/src/features/gas/utils'
+import type { TokenApprovalInfoParams } from 'lx/src/features/transactions/swap/review/hooks/useTokenApprovalInfo'
+import { useTokenApprovalInfo } from 'lx/src/features/transactions/swap/review/hooks/useTokenApprovalInfo'
+import { ApprovalAction } from 'lx/src/features/transactions/swap/types/trade'
+import { WrapType } from 'lx/src/features/transactions/types/wrap'
 import type { Mock } from 'vitest'
 
 const { mockLogger } = vi.hoisted(() => ({
@@ -24,7 +24,7 @@ const { mockLogger } = vi.hoisted(() => ({
 vi.mock('utilities/src/logger/logger', () => ({
   logger: mockLogger,
 }))
-vi.mock('uniswap/src/data/apiClients/tradingApi/useCheckApprovalQuery')
+vi.mock('lx/src/data/apiClients/tradingApi/useCheckApprovalQuery')
 const mockUseCheckApprovalQuery = useCheckApprovalQuery as Mock
 
 describe('useTokenApprovalInfo', () => {

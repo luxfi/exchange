@@ -3,5 +3,6 @@
 /* tslint:disable */
 /* eslint-disable */
 export enum UniversalRouterVersion {
+    _1_2 = '1.2',
     _2_0 = '2.0',
 }

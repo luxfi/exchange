@@ -2,9 +2,9 @@ import { useCallback, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Flex, Text, useMedia } from 'ui/src'
 import { Check } from 'ui/src/components/icons/Check'
-import { ModalName, UniswapEventName } from 'uniswap/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
-import Trace from 'uniswap/src/features/telemetry/Trace'
+import { ModalName, UniswapEventName } from 'lx/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
+import Trace from 'lx/src/features/telemetry/Trace'
 import { Dropdown, InternalMenuItem } from '~/components/Dropdowns/Dropdown'
 import {
   AuctionStatusFilter as AuctionStatusFilterEnum,

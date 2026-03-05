@@ -1,9 +1,9 @@
 import { act, waitFor } from '@testing-library/react'
 import { SharedQueryClient } from '@universe/api'
-import { BehaviorType, useDialogVisibility } from 'uniswap/src/components/dialog/hooks/useDialogVisibility'
-import { type DialogPreferencesService } from 'uniswap/src/dialog-preferences'
-import { DialogVisibilityId } from 'uniswap/src/dialog-preferences/types'
-import { renderHook } from 'uniswap/src/test/test-utils'
+import { BehaviorType, useDialogVisibility } from 'lx/src/components/dialog/hooks/useDialogVisibility'
+import { type DialogPreferencesService } from 'lx/src/dialog-preferences'
+import { DialogVisibilityId } from 'lx/src/dialog-preferences/types'
+import { renderHook } from 'lx/src/test/test-utils'
 import { mockLogger } from 'utilities/src/logger/mocks'
 import type { Mocked } from 'vitest'
 

@@ -12,13 +12,13 @@
 
 import { RankingType } from '@universe/api'
 import { BigNumber } from 'ethers'
-import { USDC } from 'uniswap/src/constants/tokens'
-import { AccountType } from 'uniswap/src/features/accounts/types'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { FiatCurrency } from 'uniswap/src/features/fiatCurrency/constants'
-import { Language } from 'uniswap/src/features/language/constants'
-import { TransactionStatus, TransactionType } from 'uniswap/src/features/transactions/types/transactionDetails'
-import { buildCurrencyId } from 'uniswap/src/utils/currencyId'
+import { USDC } from 'lx/src/constants/tokens'
+import { AccountType } from 'lx/src/features/accounts/types'
+import { UniverseChainId } from 'lx/src/features/chains/types'
+import { FiatCurrency } from 'lx/src/features/fiatCurrency/constants'
+import { Language } from 'lx/src/features/language/constants'
+import { TransactionStatus, TransactionType } from 'lx/src/features/transactions/types/transactionDetails'
+import { buildCurrencyId } from 'lx/src/utils/currencyId'
 import { type Account } from 'wallet/src/features/wallet/accounts/types'
 
 export function testActivatePendingAccounts(migration: (state: any) => any, prevSchema: any): void {

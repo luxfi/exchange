@@ -11,9 +11,9 @@ import { ColorTokens, Flex, FlexProps, Shine, useSporeColors } from 'ui/src'
 import { HorizontalDensityChart } from 'ui/src/components/icons/HorizontalDensityChart'
 import { LoadingPriceCurve } from 'ui/src/components/icons/LoadingPriceCurve'
 import { opacify, zIndexes } from 'ui/src/theme'
-import { ZERO_ADDRESS } from 'uniswap/src/constants/misc'
-import { getChainInfo } from 'uniswap/src/features/chains/chainInfo'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { ZERO_ADDRESS } from 'lx/src/constants/misc'
+import { getChainInfo } from 'lx/src/features/chains/chainInfo'
+import { UniverseChainId } from 'lx/src/features/chains/types'
 import useResizeObserver from 'use-resize-observer'
 // Not using the formatters in a react context, so we need to import the formatter directly.
 // biome-ignore lint/style/noRestrictedImports: Need direct formatter import for chart formatting outside React context

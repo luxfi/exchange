@@ -1,5 +1,5 @@
 import { SectionListData } from 'react-native'
-import { SearchableRecipient } from 'uniswap/src/features/address/types'
+import { SearchableRecipient } from 'lx/src/features/address/types'
 
 export function filterSections({
   sections,

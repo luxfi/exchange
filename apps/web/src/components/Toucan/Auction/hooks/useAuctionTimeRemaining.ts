@@ -1,5 +1,5 @@
 import { useMemo } from 'react'
-import { EVMUniverseChainId } from 'uniswap/src/features/chains/types'
+import { EVMUniverseChainId } from 'lx/src/features/chains/types'
 import { getDurationRemainingString } from 'utilities/src/time/duration'
 import { ONE_SECOND_MS } from 'utilities/src/time/time'
 import { useBlockTimestamp } from '~/hooks/useBlockTimestamp'

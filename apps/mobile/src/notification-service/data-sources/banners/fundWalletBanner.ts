@@ -8,9 +8,9 @@ import {
 import { BackgroundType, ContentStyle, type InAppNotification, OnClickAction } from '@universe/api'
 import type { MobileState } from 'src/app/mobileReducer'
 import { BannerId, MOBILE_NAV_PREFIX } from 'src/notification-service/data-sources/banners/types'
-import { AccountType } from 'uniswap/src/features/accounts/types'
-import { ModalName } from 'uniswap/src/features/telemetry/constants'
-import i18n from 'uniswap/src/i18n'
+import { AccountType } from 'lx/src/features/accounts/types'
+import { ModalName } from 'lx/src/features/telemetry/constants'
+import i18n from 'lx/src/i18n'
 import { selectHasBalanceOrActivityForAddress } from 'wallet/src/features/wallet/selectors'
 
 /**

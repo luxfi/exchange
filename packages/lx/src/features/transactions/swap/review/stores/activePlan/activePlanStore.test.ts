@@ -1,8 +1,8 @@
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { UniverseChainId } from 'lx/src/features/chains/types'
 import {
   ActivePlanData,
   activePlanStore,
-} from 'uniswap/src/features/transactions/swap/review/stores/activePlan/activePlanStore'
+} from 'lx/src/features/transactions/swap/review/stores/activePlan/activePlanStore'
 
 function createMockActivePlan(planId: string): ActivePlanData {
   return {

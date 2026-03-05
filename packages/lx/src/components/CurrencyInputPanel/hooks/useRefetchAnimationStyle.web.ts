@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef } from 'react'
-import { CurrencyInputPanelProps } from 'uniswap/src/components/CurrencyInputPanel/types'
+import { CurrencyInputPanelProps } from 'lx/src/components/CurrencyInputPanel/types'
 import { usePrevious } from 'utilities/src/react/hooks'
 
 // CSS keyframes for pulse animation - injected once into the document

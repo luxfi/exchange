@@ -12,8 +12,8 @@ import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
 jest.mock('@ethersproject/providers')
 jest.mock('@metamask/rpc-errors')
 jest.mock('src/app/features/dapp/store')
-jest.mock('uniswap/src/features/telemetry/send')
-jest.mock('uniswap/src/features/chains/utils')
+jest.mock('lx/src/features/telemetry/send')
+jest.mock('lx/src/features/chains/utils')
 
 describe('changeChain', () => {
   const mockRequestId = 'test-request-id'

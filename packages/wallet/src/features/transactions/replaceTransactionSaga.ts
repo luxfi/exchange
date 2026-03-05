@@ -1,20 +1,20 @@
 import { BigNumber, providers } from 'ethers'
 import { call, put, select } from 'typed-redux-saga'
-import { AccountType } from 'uniswap/src/features/accounts/types'
-import { pushNotification } from 'uniswap/src/features/notifications/slice/slice'
-import { AppNotificationType } from 'uniswap/src/features/notifications/slice/types'
-import { WalletEventName } from 'uniswap/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
-import { addTransaction, deleteTransaction } from 'uniswap/src/features/transactions/slice'
+import { AccountType } from 'lx/src/features/accounts/types'
+import { pushNotification } from 'lx/src/features/notifications/slice/slice'
+import { AppNotificationType } from 'lx/src/features/notifications/slice/types'
+import { WalletEventName } from 'lx/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
+import { addTransaction, deleteTransaction } from 'lx/src/features/transactions/slice'
 import {
   OnChainTransactionDetails,
   TransactionDetails,
   TransactionOriginType,
   TransactionStatus,
-} from 'uniswap/src/features/transactions/types/transactionDetails'
-import i18n from 'uniswap/src/i18n'
-import { getValidAddress } from 'uniswap/src/utils/addresses'
-import { createTransactionId } from 'uniswap/src/utils/createTransactionId'
+} from 'lx/src/features/transactions/types/transactionDetails'
+import i18n from 'lx/src/i18n'
+import { getValidAddress } from 'lx/src/utils/addresses'
+import { createTransactionId } from 'lx/src/utils/createTransactionId'
 import { logger } from 'utilities/src/logger/logger'
 import {
   ExecuteTransactionParams,

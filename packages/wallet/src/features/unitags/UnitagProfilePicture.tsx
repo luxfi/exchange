@@ -1,5 +1,5 @@
 import { Flex, Unicon, UniversalImage } from 'ui/src'
-import { AccountIcon } from 'uniswap/src/features/accounts/AccountIcon'
+import { AccountIcon } from 'lx/src/features/accounts/AccountIcon'
 
 export function UnitagProfilePicture({
   address,

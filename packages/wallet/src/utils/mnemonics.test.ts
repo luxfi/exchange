@@ -1,4 +1,4 @@
-import i18n from 'uniswap/src/i18n'
+import i18n from 'lx/src/i18n'
 import { isValidMnemonicWord, MnemonicValidationError, translateMnemonicErrorMessage } from 'wallet/src/utils/mnemonics'
 
 describe(translateMnemonicErrorMessage, () => {

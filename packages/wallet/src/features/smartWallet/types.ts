@@ -1,4 +1,4 @@
-import type { UniverseChainId } from 'uniswap/src/features/chains/types'
+import type { UniverseChainId } from 'lx/src/features/chains/types'
 
 export enum WalletStatus {
   Active = 'Active',

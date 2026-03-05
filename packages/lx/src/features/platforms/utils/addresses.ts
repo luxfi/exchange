@@ -1,6 +1,6 @@
-import { Platform } from 'uniswap/src/features/platforms/types/Platform'
-import { PlatformAddress } from 'uniswap/src/features/platforms/types/PlatformSpecificAddress'
-import { getValidAddress } from 'uniswap/src/utils/addresses'
+import { Platform } from 'lx/src/features/platforms/types/Platform'
+import { PlatformAddress } from 'lx/src/features/platforms/types/PlatformSpecificAddress'
+import { getValidAddress } from 'lx/src/utils/addresses'
 
 /**
  * Validates a potential address string and returns a PlatformAddress with the detected platform.

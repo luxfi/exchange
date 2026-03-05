@@ -1,6 +1,6 @@
 import { Currency, Percent } from '@uniswap/sdk-core'
-import { SwapPriceUpdateUserResponse } from 'uniswap/src/features/telemetry/types'
-import { TransactionOriginType } from 'uniswap/src/features/transactions/types/transactionDetails'
+import { SwapPriceUpdateUserResponse } from 'lx/src/features/telemetry/types'
+import { TransactionOriginType } from 'lx/src/features/transactions/types/transactionDetails'
 import { SwapResult } from '~/hooks/useSwapCallback'
 import {
   formatPercentInBasisPointsNumber,

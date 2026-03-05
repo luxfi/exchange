@@ -1,23 +1,23 @@
 import { TradeType } from '@uniswap/sdk-core'
 import { TradingApi } from '@universe/api'
-import { createTransactionDetails } from 'uniswap/src/features/activity/extract/extractPlanUtils'
+import { createTransactionDetails } from 'lx/src/features/activity/extract/extractPlanUtils'
 import {
   mapTAPIPlanStatusToTXStatus,
   mapTAPIPlanStepStatusToTXStatus,
-} from 'uniswap/src/features/activity/extract/statusMappers'
-import { getChainInfo } from 'uniswap/src/features/chains/chainInfo'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { ValueType } from 'uniswap/src/features/tokens/getCurrencyAmount'
-import { planStepTypeToTradingRoute } from 'uniswap/src/features/transactions/swap/utils/routing'
+} from 'lx/src/features/activity/extract/statusMappers'
+import { getChainInfo } from 'lx/src/features/chains/chainInfo'
+import { UniverseChainId } from 'lx/src/features/chains/types'
+import { ValueType } from 'lx/src/features/tokens/getCurrencyAmount'
+import { planStepTypeToTradingRoute } from 'lx/src/features/transactions/swap/utils/routing'
 import {
   PlanTransactionDetails,
   PlanTransactionInfo,
   TransactionDetails,
   TransactionOriginType,
   TransactionType,
-} from 'uniswap/src/features/transactions/types/transactionDetails'
-import { CurrencyId } from 'uniswap/src/types/currency'
-import { validateAndBuildCurrencyId } from 'uniswap/src/utils/currencyId'
+} from 'lx/src/features/transactions/types/transactionDetails'
+import { CurrencyId } from 'lx/src/types/currency'
+import { validateAndBuildCurrencyId } from 'lx/src/utils/currencyId'
 import { logger } from 'utilities/src/logger/logger'
 
 /**

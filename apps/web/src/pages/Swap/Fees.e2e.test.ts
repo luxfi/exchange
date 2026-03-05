@@ -1,6 +1,6 @@
-import { DAI, USDC_MAINNET } from 'uniswap/src/constants/tokens'
-import { uniswapUrls } from 'uniswap/src/constants/urls'
-import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+import { DAI, USDC_MAINNET } from 'lx/src/constants/tokens'
+import { uniswapUrls } from 'lx/src/constants/urls'
+import { TestID } from 'lx/src/test/fixtures/testIDs'
 import { expect, getTest } from '~/playwright/fixtures'
 import { stubTradingApiEndpoint } from '~/playwright/fixtures/tradingApi'
 

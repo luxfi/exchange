@@ -13,12 +13,12 @@ import {
 import { type Currency, type TradeType } from '@uniswap/sdk-core'
 import { type TradingApi, type UnitagClaimContext } from '@universe/api'
 import { type Experiments } from '@universe/gating'
-import type { PresetPercentage } from 'uniswap/src/components/CurrencyInputPanel/AmountInputPresets/types'
-import { type OnchainItemSectionName } from 'uniswap/src/components/lists/OnchainItemList/types'
-import { type UniverseChainId } from 'uniswap/src/features/chains/types'
-import { type EthMethod } from 'uniswap/src/features/dappRequests/types'
-import { type FiatCurrency } from 'uniswap/src/features/fiatCurrency/constants'
-import { type Platform } from 'uniswap/src/features/platforms/types/Platform'
+import type { PresetPercentage } from 'lx/src/components/CurrencyInputPanel/AmountInputPresets/types'
+import { type OnchainItemSectionName } from 'lx/src/components/lists/OnchainItemList/types'
+import { type UniverseChainId } from 'lx/src/features/chains/types'
+import { type EthMethod } from 'lx/src/features/dappRequests/types'
+import { type FiatCurrency } from 'lx/src/features/fiatCurrency/constants'
+import { type Platform } from 'lx/src/features/platforms/types/Platform'
 import {
   type AuctionEventName,
   type ExtensionEventName,
@@ -35,20 +35,20 @@ import {
   type UniswapEventName,
   type UnitagEventName,
   type WalletEventName,
-} from 'uniswap/src/features/telemetry/constants'
-import { type TokenProtectionWarning } from 'uniswap/src/features/tokens/warnings/types'
-import { type TransactionType } from 'uniswap/src/features/transactions/types/transactionDetails'
-import { type WrapType } from 'uniswap/src/features/transactions/types/wrap'
-import { type CurrencyField } from 'uniswap/src/types/currency'
-import { type LimitsExpiry } from 'uniswap/src/types/limits'
-import { type ImportType } from 'uniswap/src/types/onboarding'
-import { type RenderPassReport } from 'uniswap/src/types/RenderPassReport'
-import { type ExtensionOnboardingFlow } from 'uniswap/src/types/screens/extension'
-import { type SwapTab } from 'uniswap/src/types/screens/interface'
-import { type OnboardingScreens } from 'uniswap/src/types/screens/mobile'
-import { type ShareableEntity } from 'uniswap/src/types/sharing'
-import { type UwULinkMethod, type WCEventType, type WCRequestOutcome } from 'uniswap/src/types/walletConnect'
-import { type WidgetEvent, type WidgetType } from 'uniswap/src/types/widgets'
+} from 'lx/src/features/telemetry/constants'
+import { type TokenProtectionWarning } from 'lx/src/features/tokens/warnings/types'
+import { type TransactionType } from 'lx/src/features/transactions/types/transactionDetails'
+import { type WrapType } from 'lx/src/features/transactions/types/wrap'
+import { type CurrencyField } from 'lx/src/types/currency'
+import { type LimitsExpiry } from 'lx/src/types/limits'
+import { type ImportType } from 'lx/src/types/onboarding'
+import { type RenderPassReport } from 'lx/src/types/RenderPassReport'
+import { type ExtensionOnboardingFlow } from 'lx/src/types/screens/extension'
+import { type SwapTab } from 'lx/src/types/screens/interface'
+import { type OnboardingScreens } from 'lx/src/types/screens/mobile'
+import { type ShareableEntity } from 'lx/src/types/sharing'
+import { type UwULinkMethod, type WCEventType, type WCRequestOutcome } from 'lx/src/types/walletConnect'
+import { type WidgetEvent, type WidgetType } from 'lx/src/types/widgets'
 import { type ITraceContext } from 'utilities/src/telemetry/trace/TraceContext'
 
 export enum ExtensionUninstallFeedbackOptions {

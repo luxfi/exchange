@@ -2,7 +2,7 @@
 import { ContentStyle, type InAppNotification } from '@universe/api'
 import { type NotificationClickTarget } from '@universe/notifications'
 import { useEffect, useMemo } from 'react'
-import { ModalNotification } from 'uniswap/src/components/notifications/ModalNotification'
+import { ModalNotification } from 'lx/src/components/notifications/ModalNotification'
 import { getLogger } from 'utilities/src/logger/logger'
 import { useEvent } from 'utilities/src/react/hooks'
 import { type StoreApi, type UseBoundStore } from 'zustand'

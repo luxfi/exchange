@@ -77,11 +77,11 @@ export function ValidatorTable({ validators }: ValidatorTableProps) {
                       width: 8,
                       height: 8,
                       borderRadius: '50%',
-                      background: isExpired ? 'var(--danger)' : v.connected ? 'var(--success)' : 'var(--warning)',
+                      background: isExpired ? 'var(--danger)' : (v.connected || parseFloat(v.uptime || '0') > 80) ? 'var(--success)' : 'var(--warning)',
                       marginRight: 6,
                     }}
                   />
-                  {isExpired ? 'Expired' : v.connected ? 'Connected' : 'Disconnected'}
+                  {isExpired ? 'Expired' : (v.connected || parseFloat(v.uptime || '0') > 80) ? 'Active' : 'Inactive'}
                 </td>
                 <td style={{ padding: '12px 16px', textAlign: 'right' }}>
                   {v.delegationFee ? `${parseFloat(v.delegationFee)}%` : '---'}

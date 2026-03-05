@@ -10,7 +10,7 @@ import { terminateStoreSynchronization } from 'src/store/storeSynchronization'
 import { Flex, Image, Text } from 'ui/src'
 import { UNISWAP_LOGO } from 'ui/src/assets'
 import { iconSizes } from 'ui/src/theme'
-import { ExtensionOnboardingFlow } from 'uniswap/src/types/screens/extension'
+import { ExtensionOnboardingFlow } from 'lx/src/types/screens/extension'
 import { useOnboardingContext } from 'wallet/src/features/onboarding/OnboardingContext'
 
 export function Complete({

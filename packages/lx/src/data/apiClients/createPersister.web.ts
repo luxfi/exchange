@@ -1,7 +1,7 @@
 import { createAsyncStoragePersister } from '@tanstack/query-async-storage-persister'
 import { type AsyncStorage, type Persister } from '@tanstack/react-query-persist-client'
 import { del, get, set } from 'idb-keyval'
-import { REACT_QUERY_PERSISTER_KEY } from 'uniswap/src/data/apiClients/constants'
+import { REACT_QUERY_PERSISTER_KEY } from 'lx/src/data/apiClients/constants'
 import { jsonParse, jsonStringify } from 'utilities/src/serialization/json'
 
 /**

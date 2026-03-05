@@ -5,27 +5,27 @@ import { TokenRankingsResponse, TokenRankingsStat } from '@uniswap/client-explor
 import { GraphQLApi } from '@universe/api'
 import { toIncludeSameMembers } from 'jest-extended'
 import { PreloadedState } from 'redux'
-import { OnchainItemListOptionType, TokenOption } from 'uniswap/src/components/lists/items/types'
-import { useAllCommonBaseCurrencies } from 'uniswap/src/components/TokenSelector/hooks/useAllCommonBaseCurrencies'
-import { useCommonTokensOptionsWithFallback } from 'uniswap/src/components/TokenSelector/hooks/useCommonTokensOptionsWithFallback'
+import { OnchainItemListOptionType, TokenOption } from 'lx/src/components/lists/items/types'
+import { useAllCommonBaseCurrencies } from 'lx/src/components/TokenSelector/hooks/useAllCommonBaseCurrencies'
+import { useCommonTokensOptionsWithFallback } from 'lx/src/components/TokenSelector/hooks/useCommonTokensOptionsWithFallback'
 import {
   createEmptyBalanceOption,
   useCurrencyInfosToTokenOptions,
-} from 'uniswap/src/components/TokenSelector/hooks/useCurrencyInfosToTokenOptions'
-import { useFavoriteCurrencies } from 'uniswap/src/components/TokenSelector/hooks/useFavoriteCurrencies'
-import { useFavoriteTokensOptions } from 'uniswap/src/components/TokenSelector/hooks/useFavoriteTokensOptions'
-import { usePortfolioBalancesForAddressById } from 'uniswap/src/components/TokenSelector/hooks/usePortfolioBalancesForAddressById'
-import { usePortfolioTokenOptions } from 'uniswap/src/components/TokenSelector/hooks/usePortfolioTokenOptions'
-import { useRecentlySearchedTokens } from 'uniswap/src/components/TokenSelector/hooks/useRecentlySearchedTokens'
-import { useTrendingTokensOptions } from 'uniswap/src/components/TokenSelector/hooks/useTrendingTokensOptions'
-import { BRIDGED_BASE_ADDRESSES } from 'uniswap/src/constants/addresses'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { fromGraphQLChain } from 'uniswap/src/features/chains/utils'
-import { tokenProjectToCurrencyInfos } from 'uniswap/src/features/dataApi/tokenProjects/utils/tokenProjectToCurrencyInfos'
-import { SearchHistoryResultType } from 'uniswap/src/features/search/SearchHistoryResult'
-import { useFilterCallbacks } from 'uniswap/src/features/search/SearchModal/hooks/useFilterCallbacks'
-import { ModalName } from 'uniswap/src/features/telemetry/constants'
-import { UniswapState } from 'uniswap/src/state/uniswapReducer'
+} from 'lx/src/components/TokenSelector/hooks/useCurrencyInfosToTokenOptions'
+import { useFavoriteCurrencies } from 'lx/src/components/TokenSelector/hooks/useFavoriteCurrencies'
+import { useFavoriteTokensOptions } from 'lx/src/components/TokenSelector/hooks/useFavoriteTokensOptions'
+import { usePortfolioBalancesForAddressById } from 'lx/src/components/TokenSelector/hooks/usePortfolioBalancesForAddressById'
+import { usePortfolioTokenOptions } from 'lx/src/components/TokenSelector/hooks/usePortfolioTokenOptions'
+import { useRecentlySearchedTokens } from 'lx/src/components/TokenSelector/hooks/useRecentlySearchedTokens'
+import { useTrendingTokensOptions } from 'lx/src/components/TokenSelector/hooks/useTrendingTokensOptions'
+import { BRIDGED_BASE_ADDRESSES } from 'lx/src/constants/addresses'
+import { UniverseChainId } from 'lx/src/features/chains/types'
+import { fromGraphQLChain } from 'lx/src/features/chains/utils'
+import { tokenProjectToCurrencyInfos } from 'lx/src/features/dataApi/tokenProjects/utils/tokenProjectToCurrencyInfos'
+import { SearchHistoryResultType } from 'lx/src/features/search/SearchHistoryResult'
+import { useFilterCallbacks } from 'lx/src/features/search/SearchModal/hooks/useFilterCallbacks'
+import { ModalName } from 'lx/src/features/telemetry/constants'
+import { UniswapState } from 'lx/src/state/uniswapReducer'
 import {
   arbitrumDaiCurrencyInfo,
   daiToken,
@@ -41,11 +41,11 @@ import {
   usdcBaseToken,
   usdcCurrencyInfo,
   usdcToken,
-} from 'uniswap/src/test/fixtures'
-import { act, renderHook, waitFor } from 'uniswap/src/test/test-utils'
-import { createArray, queryResolvers } from 'uniswap/src/test/utils'
-import { portfolioBalancesById } from 'uniswap/src/utils/balances'
-import { buildCurrencyId } from 'uniswap/src/utils/currencyId'
+} from 'lx/src/test/fixtures'
+import { act, renderHook, waitFor } from 'lx/src/test/test-utils'
+import { createArray, queryResolvers } from 'lx/src/test/utils'
+import { portfolioBalancesById } from 'lx/src/utils/balances'
+import { buildCurrencyId } from 'lx/src/utils/currencyId'
 
 // Extend vitest's expect types with jest-extended matchers
 declare module 'vitest' {
@@ -56,7 +56,7 @@ declare module 'vitest' {
 
 expect.extend({ toIncludeSameMembers })
 
-vi.mock('uniswap/src/features/telemetry/send')
+vi.mock('lx/src/features/telemetry/send')
 
 // Create mock functions with vi.hoisted to ensure they're available before vi.mock runs
 const { mockUsePortfolioBalancesForAddressById, mockUseTokenRankingsQuery, mockTokenRankingsStatToCurrencyInfo } =
@@ -66,11 +66,11 @@ const { mockUsePortfolioBalancesForAddressById, mockUseTokenRankingsQuery, mockT
     mockTokenRankingsStatToCurrencyInfo: vi.fn(),
   }))
 
-vi.mock('uniswap/src/components/TokenSelector/hooks/usePortfolioBalancesForAddressById', () => ({
+vi.mock('lx/src/components/TokenSelector/hooks/usePortfolioBalancesForAddressById', () => ({
   usePortfolioBalancesForAddressById: mockUsePortfolioBalancesForAddressById,
 }))
 
-vi.mock('uniswap/src/data/rest/tokenRankings', () => ({
+vi.mock('lx/src/data/rest/tokenRankings', () => ({
   useTokenRankingsQuery: mockUseTokenRankingsQuery,
   CustomRankingType: {
     Trending: 'TRENDING',

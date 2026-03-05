@@ -1,5 +1,5 @@
-import { SigningCapability } from 'uniswap/src/features/accounts/store/types/Wallet'
-import { Platform } from 'uniswap/src/features/platforms/types/Platform'
+import { SigningCapability } from 'lx/src/features/accounts/store/types/Wallet'
+import { Platform } from 'lx/src/features/platforms/types/Platform'
 import { beforeEach, describe, expect, it, Mock, vi } from 'vitest'
 import { ExternalConnector, ExternalWallet } from '~/features/accounts/store/types'
 import { GetConnectorFn } from '~/features/wallet/connection/services/createConnectionService'

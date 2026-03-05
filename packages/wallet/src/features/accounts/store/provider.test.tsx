@@ -1,11 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit'
 import { Provider } from 'react-redux'
-import { AccountsStore } from 'uniswap/src/features/accounts/store/types/AccountsState'
-import { AccessPattern, ConnectorErrorType, ConnectorStatus } from 'uniswap/src/features/accounts/store/types/Connector'
-import { ChainScopeType } from 'uniswap/src/features/accounts/store/types/Session'
-import { SigningCapability } from 'uniswap/src/features/accounts/store/types/Wallet'
-import { AccountType as ReduxAccountType } from 'uniswap/src/features/accounts/types'
-import { Platform } from 'uniswap/src/features/platforms/types/Platform'
+import { AccountsStore } from 'lx/src/features/accounts/store/types/AccountsState'
+import { AccessPattern, ConnectorErrorType, ConnectorStatus } from 'lx/src/features/accounts/store/types/Connector'
+import { ChainScopeType } from 'lx/src/features/accounts/store/types/Session'
+import { SigningCapability } from 'lx/src/features/accounts/store/types/Wallet'
+import { AccountType as ReduxAccountType } from 'lx/src/features/accounts/types'
+import { Platform } from 'lx/src/features/platforms/types/Platform'
 import { AccountsStoreContextProvider, useAccountsStoreContext } from 'wallet/src/features/accounts/store/provider'
 import {
   Account as ReduxAccount,
@@ -30,7 +30,7 @@ jest.mock('wallet/src/features/wallet/selectors', () => ({
 }))
 
 // Mock the enabled chains hook
-jest.mock('uniswap/src/features/chains/hooks/useEnabledChains', () => ({
+jest.mock('lx/src/features/chains/hooks/useEnabledChains', () => ({
   useEnabledChains: jest.fn(() => ({
     chains: [1, 10, 137, 8453, 42161], // Default mainnet chains
   })),

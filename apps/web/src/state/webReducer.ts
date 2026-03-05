@@ -1,5 +1,5 @@
 import { combineReducers } from '@reduxjs/toolkit'
-import { uniswapPersistedStateList, uniswapReducers } from 'uniswap/src/state/uniswapReducer'
+import { uniswapPersistedStateList, uniswapReducers } from 'lx/src/state/uniswapReducer'
 import application from '~/state/application/reducer'
 import fiatOnRampTransactions from '~/state/fiatOnRampTransactions/reducer'
 import lists from '~/state/lists/reducer'

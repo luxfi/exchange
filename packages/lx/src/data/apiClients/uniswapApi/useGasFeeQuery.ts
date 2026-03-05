@@ -7,9 +7,9 @@ import {
   useQueryWithImmediateGarbageCollection,
 } from '@universe/api'
 import { useStatsigClientStatus } from '@universe/gating'
-import { uniswapUrls } from 'uniswap/src/constants/urls'
-import { UniswapApiClient } from 'uniswap/src/data/apiClients/uniswapApi/UniswapApiClient'
-import { getActiveGasStrategy } from 'uniswap/src/features/gas/utils'
+import { uniswapUrls } from 'lx/src/constants/urls'
+import { UniswapApiClient } from 'lx/src/data/apiClients/uniswapApi/UniswapApiClient'
+import { getActiveGasStrategy } from 'lx/src/features/gas/utils'
 import { ReactQueryCacheKey } from 'utilities/src/reactQuery/cache'
 
 export function useGasFeeQuery({

@@ -1,10 +1,10 @@
 import { CurrencyAmount } from '@uniswap/sdk-core'
 import { TradingApi } from '@universe/api'
-import { UNI, WBTC } from 'uniswap/src/constants/tokens'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { buildTradeFromPlanResponse } from 'uniswap/src/features/transactions/swap/plan/planSagaUtils'
-import { ChainedActionTrade } from 'uniswap/src/features/transactions/swap/types/trade'
-import { requireAcceptNewTrade } from 'uniswap/src/features/transactions/swap/utils/trade'
+import { UNI, WBTC } from 'lx/src/constants/tokens'
+import { UniverseChainId } from 'lx/src/features/chains/types'
+import { buildTradeFromPlanResponse } from 'lx/src/features/transactions/swap/plan/planSagaUtils'
+import { ChainedActionTrade } from 'lx/src/features/transactions/swap/types/trade'
+import { requireAcceptNewTrade } from 'lx/src/features/transactions/swap/utils/trade'
 
 const INPUT_TOKEN = UNI[UniverseChainId.Mainnet]
 const OUTPUT_TOKEN = WBTC

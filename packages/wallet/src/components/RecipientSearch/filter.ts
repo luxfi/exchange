@@ -1,5 +1,5 @@
 import Fuse from 'fuse.js'
-import { SearchableRecipient } from 'uniswap/src/features/address/types'
+import { SearchableRecipient } from 'lx/src/features/address/types'
 import { unique } from 'utilities/src/primitives/array'
 
 export type AutocompleteOption<T> = { data: T; key: string }

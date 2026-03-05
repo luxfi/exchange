@@ -1,10 +1,10 @@
 import { TFunction } from 'i18next'
 import { useTranslation } from 'react-i18next'
 import { iconSizes } from 'ui/src/theme'
-import { NetworkLogo } from 'uniswap/src/components/CurrencyLogo/NetworkLogo'
-import { NotificationToast } from 'uniswap/src/components/notifications/NotificationToast'
-import { getChainLabel } from 'uniswap/src/features/chains/utils'
-import { NetworkChangedNotification as NetworkChangedNotificationType } from 'uniswap/src/features/notifications/slice/types'
+import { NetworkLogo } from 'lx/src/components/CurrencyLogo/NetworkLogo'
+import { NotificationToast } from 'lx/src/components/notifications/NotificationToast'
+import { getChainLabel } from 'lx/src/features/chains/utils'
+import { NetworkChangedNotification as NetworkChangedNotificationType } from 'lx/src/features/notifications/slice/types'
 import { ONE_SECOND_MS } from 'utilities/src/time/time'
 
 export function NetworkChangedNotification({

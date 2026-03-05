@@ -8,19 +8,19 @@ import { ArrowUpInCircle } from 'ui/src/components/icons/ArrowUpInCircle'
 import { QuestionInCircle } from 'ui/src/components/icons/QuestionInCircle'
 import { Walletconnect } from 'ui/src/components/icons/Walletconnect'
 import { borderRadii, zIndexes } from 'ui/src/theme'
-import { CurrencyLogo, STATUS_RATIO } from 'uniswap/src/components/CurrencyLogo/CurrencyLogo'
-import { TransactionSummaryNetworkLogo } from 'uniswap/src/components/CurrencyLogo/NetworkLogo'
-import { DappIconPlaceholder } from 'uniswap/src/components/dapps/DappIconPlaceholder'
-import { NFTViewer } from 'uniswap/src/components/nfts/NFTViewer'
-import { AssetType } from 'uniswap/src/entities/assets'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { type CurrencyInfo } from 'uniswap/src/features/dataApi/types'
+import { CurrencyLogo, STATUS_RATIO } from 'lx/src/components/CurrencyLogo/CurrencyLogo'
+import { TransactionSummaryNetworkLogo } from 'lx/src/components/CurrencyLogo/NetworkLogo'
+import { DappIconPlaceholder } from 'lx/src/components/dapps/DappIconPlaceholder'
+import { NFTViewer } from 'lx/src/components/nfts/NFTViewer'
+import { AssetType } from 'lx/src/entities/assets'
+import { UniverseChainId } from 'lx/src/features/chains/types'
+import { type CurrencyInfo } from 'lx/src/features/dataApi/types'
 import {
   NFTTradeType,
   TransactionStatus,
   TransactionType,
-} from 'uniswap/src/features/transactions/types/transactionDetails'
-import { WalletConnectEvent } from 'uniswap/src/types/walletConnect'
+} from 'lx/src/features/transactions/types/transactionDetails'
+import { WalletConnectEvent } from 'lx/src/types/walletConnect'
 import { logger } from 'utilities/src/logger/logger'
 
 interface LogoWithTxStatusBaseProps {

@@ -1,9 +1,9 @@
 import { TradingApi } from '@universe/api'
 import { SagaGenerator } from 'typed-redux-saga'
-import { CAIP25Session } from 'uniswap/src/features/capabilities/caip25/types'
-import { AppNotification } from 'uniswap/src/features/notifications/slice/types'
-import type { SwapRouting, SwapTradeBaseProperties } from 'uniswap/src/features/telemetry/types'
-import { HandledTransactionInterrupt } from 'uniswap/src/features/transactions/errors'
+import { CAIP25Session } from 'lx/src/features/capabilities/caip25/types'
+import { AppNotification } from 'lx/src/features/notifications/slice/types'
+import type { SwapRouting, SwapTradeBaseProperties } from 'lx/src/features/telemetry/types'
+import { HandledTransactionInterrupt } from 'lx/src/features/transactions/errors'
 import {
   HandleApprovalStepParams,
   HandleSignatureStepParams,
@@ -12,11 +12,11 @@ import {
   HandleUniswapXPlanSignatureStepParams,
   SignatureTransactionStep,
   TransactionStep,
-} from 'uniswap/src/features/transactions/steps/types'
-import { ExtractedBaseTradeAnalyticsProperties } from 'uniswap/src/features/transactions/swap/analytics'
-import { SwapExecutionCallbacks } from 'uniswap/src/features/transactions/swap/types/swapCallback'
-import { ValidatedSwapTxContext } from 'uniswap/src/features/transactions/swap/types/swapTxAndGasInfo'
-import type { PlanSwapTransactionInfoFields } from 'uniswap/src/features/transactions/types/transactionDetails'
+} from 'lx/src/features/transactions/steps/types'
+import { ExtractedBaseTradeAnalyticsProperties } from 'lx/src/features/transactions/swap/analytics'
+import { SwapExecutionCallbacks } from 'lx/src/features/transactions/swap/types/swapCallback'
+import { ValidatedSwapTxContext } from 'lx/src/features/transactions/swap/types/swapTxAndGasInfo'
+import type { PlanSwapTransactionInfoFields } from 'lx/src/features/transactions/types/transactionDetails'
 
 export interface PlanParams extends SwapExecutionCallbacks {
   address: Address

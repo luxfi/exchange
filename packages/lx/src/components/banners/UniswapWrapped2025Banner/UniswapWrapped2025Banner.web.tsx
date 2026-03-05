@@ -9,11 +9,11 @@ import {
   MouseGlow,
   renderSnowflakesWeb,
   SnowflakeContainer,
-} from 'uniswap/src/components/banners/shared/SharedSnowflakeComponents'
-import { UniswapWrapped2025BannerProps } from 'uniswap/src/components/banners/UniswapWrapped2025Banner/types'
-import { ElementName } from 'uniswap/src/features/telemetry/constants'
-import Trace from 'uniswap/src/features/telemetry/Trace'
-import { useSnowflakeAnimation } from 'uniswap/src/hooks/useSnowflakeAnimation'
+} from 'lx/src/components/banners/shared/SharedSnowflakeComponents'
+import { UniswapWrapped2025BannerProps } from 'lx/src/components/banners/UniswapWrapped2025Banner/types'
+import { ElementName } from 'lx/src/features/telemetry/constants'
+import Trace from 'lx/src/features/telemetry/Trace'
+import { useSnowflakeAnimation } from 'lx/src/hooks/useSnowflakeAnimation'
 import { isExtensionApp } from 'utilities/src/platform'
 
 const BannerWrapper = styled(Flex, {

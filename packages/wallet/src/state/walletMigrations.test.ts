@@ -7,8 +7,8 @@
  * For tests of the full migration chain, see walletMigrationsTests.ts.
  */
 import { RankingType } from '@universe/api'
-import { FiatCurrency } from 'uniswap/src/features/fiatCurrency/constants'
-import { TransactionType } from 'uniswap/src/features/transactions/types/transactionDetails'
+import { FiatCurrency } from 'lx/src/features/fiatCurrency/constants'
+import { TransactionType } from 'lx/src/features/transactions/types/transactionDetails'
 import { createThrowingProxy } from 'utilities/src/test/utils'
 import {
   addBatchedTransactions,

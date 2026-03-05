@@ -1,10 +1,10 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit'
 import { Ether } from '@uniswap/sdk-core'
-import { WBTC } from 'uniswap/src/constants/tokens'
-import { normalizeCurrencyIdForMapLookup } from 'uniswap/src/data/cache'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { type CurrencyId } from 'uniswap/src/types/currency'
-import { currencyId as idFromCurrency } from 'uniswap/src/utils/currencyId'
+import { WBTC } from 'lx/src/constants/tokens'
+import { normalizeCurrencyIdForMapLookup } from 'lx/src/data/cache'
+import { UniverseChainId } from 'lx/src/features/chains/types'
+import { type CurrencyId } from 'lx/src/types/currency'
+import { currencyId as idFromCurrency } from 'lx/src/utils/currencyId'
 import { logger } from 'utilities/src/logger/logger'
 
 export interface FavoritesState {

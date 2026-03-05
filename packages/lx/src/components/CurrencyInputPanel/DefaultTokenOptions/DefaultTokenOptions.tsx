@@ -1,4 +1,4 @@
-// TODO: Move this to `packages/uniswap/src/components/CurrencyInputPanel/CurrencyInputPanel.tsx`
+// TODO: Move this to `packages/lx/src/components/CurrencyInputPanel/CurrencyInputPanel.tsx`
 
 import { memo } from 'react'
 import { Flex, ScrollView } from 'ui/src'

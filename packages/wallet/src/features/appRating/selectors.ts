@@ -1,11 +1,11 @@
 import { createSelector, Selector } from '@reduxjs/toolkit'
-import { selectTransactions } from 'uniswap/src/features/transactions/selectors'
-import { TransactionsState } from 'uniswap/src/features/transactions/slice'
+import { selectTransactions } from 'lx/src/features/transactions/selectors'
+import { TransactionsState } from 'lx/src/features/transactions/slice'
 import {
   TransactionDetails,
   TransactionStatus,
   TransactionType,
-} from 'uniswap/src/features/transactions/types/transactionDetails'
+} from 'lx/src/features/transactions/types/transactionDetails'
 import { flattenObjectOfObjects } from 'utilities/src/primitives/objects'
 import { ONE_DAY_MS, ONE_MINUTE_MS } from 'utilities/src/time/time'
 import {

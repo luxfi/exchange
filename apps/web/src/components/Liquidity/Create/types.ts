@@ -3,8 +3,8 @@ import { Currency, Price, Token } from '@uniswap/sdk-core'
 import { Pair } from '@uniswap/v2-sdk'
 import { FeeAmount, TICK_SPACINGS, Pool as V3Pool } from '@uniswap/v3-sdk'
 import { Pool as V4Pool } from '@uniswap/v4-sdk'
-import { WarningSeverity } from 'uniswap/src/components/modals/WarningModal/types'
-import { DEFAULT_TICK_SPACING, DYNAMIC_FEE_AMOUNT } from 'uniswap/src/constants/pools'
+import { WarningSeverity } from 'lx/src/components/modals/WarningModal/types'
+import { DEFAULT_TICK_SPACING, DYNAMIC_FEE_AMOUNT } from 'lx/src/constants/pools'
 import { PositionField } from '~/types/position'
 
 export type FeeData = {

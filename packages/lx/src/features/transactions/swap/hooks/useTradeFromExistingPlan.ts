@@ -1,10 +1,10 @@
 import { ChainedQuoteResponse, TradingApi } from '@universe/api'
 import { useMemo } from 'react'
-import { getPlanCompoundSlippageTolerance } from 'uniswap/src/features/transactions/swap/plan/slippage'
-import { activePlanStore } from 'uniswap/src/features/transactions/swap/review/stores/activePlan/activePlanStore'
-import { prepareTradingApiTradeInput } from 'uniswap/src/features/transactions/swap/services/tradeService/evmTradeService'
-import { ValidatedTradeInput } from 'uniswap/src/features/transactions/swap/services/tradeService/transformations/buildQuoteRequest'
-import { ChainedActionTrade, TradeWithStatus, UseTradeArgs } from 'uniswap/src/features/transactions/swap/types/trade'
+import { getPlanCompoundSlippageTolerance } from 'lx/src/features/transactions/swap/plan/slippage'
+import { activePlanStore } from 'lx/src/features/transactions/swap/review/stores/activePlan/activePlanStore'
+import { prepareTradingApiTradeInput } from 'lx/src/features/transactions/swap/services/tradeService/evmTradeService'
+import { ValidatedTradeInput } from 'lx/src/features/transactions/swap/services/tradeService/transformations/buildQuoteRequest'
+import { ChainedActionTrade, TradeWithStatus, UseTradeArgs } from 'lx/src/features/transactions/swap/types/trade'
 import { useStore } from 'zustand'
 
 export interface TransformPlanParams {

@@ -1,6 +1,6 @@
 import { Flex, Text } from 'ui/src'
-import { toSupportedChainId } from 'uniswap/src/features/chains/utils'
-import { ExplorerDataType, getExplorerLink } from 'uniswap/src/utils/linking'
+import { toSupportedChainId } from 'lx/src/features/chains/utils'
+import { ExplorerDataType, getExplorerLink } from 'lx/src/utils/linking'
 import { MaybeExplorerLinkedAddress } from 'wallet/src/components/dappRequests/SignTypedData/MaybeExplorerLinkedAddress'
 import { EIP712DomainType } from 'wallet/src/components/dappRequests/types/EIP712Types'
 

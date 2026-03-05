@@ -14,7 +14,7 @@ jest.mock('src/app/navigation/rootNavigation', () => ({
   navigate: jest.fn(),
 }))
 
-jest.mock('uniswap/src/features/settings/saga', () => ({
+jest.mock('lx/src/features/settings/saga', () => ({
   *getEnabledChainIdsSaga(
     _platform?: Platform,
   ): Generator<undefined, { isTestnetModeEnabled: boolean; chains: never[]; defaultChainId: number }> {

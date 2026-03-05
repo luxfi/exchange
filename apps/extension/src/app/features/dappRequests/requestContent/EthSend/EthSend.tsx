@@ -19,7 +19,7 @@ import {
   isWrapRequest,
   SendTransactionRequest,
 } from 'src/app/features/dappRequests/types/DappRequestTypes'
-import { TransactionTypeInfo } from 'uniswap/src/features/transactions/types/transactionDetails'
+import { TransactionTypeInfo } from 'lx/src/features/transactions/types/transactionDetails'
 import { logger } from 'utilities/src/logger/logger'
 import { ErrorBoundary } from 'wallet/src/components/ErrorBoundary/ErrorBoundary'
 

@@ -1,6 +1,6 @@
-import type { FORTransaction } from 'uniswap/src/features/fiatOnRamp/types'
-import { FORTransactionStatus } from 'uniswap/src/features/fiatOnRamp/types'
-import { TransactionStatus } from 'uniswap/src/features/transactions/types/transactionDetails'
+import type { FORTransaction } from 'lx/src/features/fiatOnRamp/types'
+import { FORTransactionStatus } from 'lx/src/features/fiatOnRamp/types'
+import { TransactionStatus } from 'lx/src/features/transactions/types/transactionDetails'
 import { FiatOnRampTransactionStatus } from '~/state/fiatOnRampTransactions/types'
 
 // eslint-disable-next-line consistent-return

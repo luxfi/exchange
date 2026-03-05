@@ -1,7 +1,7 @@
-import { FLASHBLOCKS_INSTANT_BALANCE_TIMEOUT } from 'uniswap/src/features/transactions/swap/components/UnichainInstantBalanceModal/constants'
-import { isNonInstantFlashblockTransactionType } from 'uniswap/src/features/transactions/swap/components/UnichainInstantBalanceModal/utils'
-import { useIsUnichainFlashblocksEnabled } from 'uniswap/src/features/transactions/swap/hooks/useIsUnichainFlashblocksEnabled'
-import { InterfaceTransactionDetails } from 'uniswap/src/features/transactions/types/transactionDetails'
+import { FLASHBLOCKS_INSTANT_BALANCE_TIMEOUT } from 'lx/src/features/transactions/swap/components/UnichainInstantBalanceModal/constants'
+import { isNonInstantFlashblockTransactionType } from 'lx/src/features/transactions/swap/components/UnichainInstantBalanceModal/utils'
+import { useIsUnichainFlashblocksEnabled } from 'lx/src/features/transactions/swap/hooks/useIsUnichainFlashblocksEnabled'
+import { InterfaceTransactionDetails } from 'lx/src/features/transactions/types/transactionDetails'
 import { Activity } from '~/components/AccountDrawer/MiniPortfolio/Activity/types'
 
 export function useIsRecentFlashblocksNotification({

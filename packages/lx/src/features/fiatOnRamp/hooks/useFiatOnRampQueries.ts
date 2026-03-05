@@ -22,7 +22,7 @@ import {
   WidgetUrlResponse,
 } from '@universe/api'
 import { FeatureFlags, useFeatureFlag } from '@universe/gating'
-import { ForApiClient } from 'uniswap/src/data/apiClients/forApi/ForApiClient'
+import { ForApiClient } from 'lx/src/data/apiClients/forApi/ForApiClient'
 import { ReactQueryCacheKey } from 'utilities/src/reactQuery/cache'
 import { ONE_HOUR_MS, ONE_MINUTE_MS } from 'utilities/src/time/time'
 

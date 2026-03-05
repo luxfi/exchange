@@ -2,8 +2,8 @@ import { BackgroundType, ContentStyle, type InAppNotification } from '@universe/
 import { ImageSourcePropType } from 'react-native'
 import { GeneratedIcon } from 'ui/src'
 import { Bell, Coin, Person, ShieldCheck } from 'ui/src/components/icons'
-import { parseCustomIconLink } from 'uniswap/src/components/notifications/iconUtils'
-import { OnboardingCardLoggingName } from 'uniswap/src/features/telemetry/types'
+import { parseCustomIconLink } from 'lx/src/components/notifications/iconUtils'
+import { OnboardingCardLoggingName } from 'lx/src/features/telemetry/types'
 import { getLogger } from 'utilities/src/logger/logger'
 import { CardType, IntroCardGraphicType, type IntroCardProps } from 'wallet/src/components/introCards/IntroCard'
 

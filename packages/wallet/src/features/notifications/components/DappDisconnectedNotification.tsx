@@ -1,8 +1,8 @@
 import { useTranslation } from 'react-i18next'
 import { UniversalImage } from 'ui/src'
 import { borderRadii, iconSizes } from 'ui/src/theme'
-import { NotificationToast } from 'uniswap/src/components/notifications/NotificationToast'
-import { DappDisconnectedNotification as DappDisconnectedNotificationType } from 'uniswap/src/features/notifications/slice/types'
+import { NotificationToast } from 'lx/src/components/notifications/NotificationToast'
+import { DappDisconnectedNotification as DappDisconnectedNotificationType } from 'lx/src/features/notifications/slice/types'
 
 export function DappDisconnectedNotification({
   notification: { hideDelay = 2000, dappIconUrl },

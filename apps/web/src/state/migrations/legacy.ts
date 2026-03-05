@@ -1,4 +1,4 @@
-import { TransactionDetails } from 'uniswap/src/features/transactions/types/transactionDetails'
+import { TransactionDetails } from 'lx/src/features/transactions/types/transactionDetails'
 import { DEFAULT_DEADLINE_FROM_NOW } from '~/constants/misc'
 import { persistor } from '~/state'
 import { initialState as initialListsState } from '~/state/lists/reducer'

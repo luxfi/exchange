@@ -1,7 +1,7 @@
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { selectTransaction } from 'uniswap/src/features/transactions/selectors'
-import type { InterfaceTransactionDetails } from 'uniswap/src/features/transactions/types/transactionDetails'
-import { TransactionStatus, TransactionType } from 'uniswap/src/features/transactions/types/transactionDetails'
+import { UniverseChainId } from 'lx/src/features/chains/types'
+import { selectTransaction } from 'lx/src/features/transactions/selectors'
+import type { InterfaceTransactionDetails } from 'lx/src/features/transactions/types/transactionDetails'
+import { TransactionStatus, TransactionType } from 'lx/src/features/transactions/types/transactionDetails'
 import store from '~/state'
 import { ConfirmedTransactionDetails, PendingTransactionDetails } from '~/state/transactions/types'
 

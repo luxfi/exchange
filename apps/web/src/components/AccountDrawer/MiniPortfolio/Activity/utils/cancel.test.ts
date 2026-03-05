@@ -1,15 +1,15 @@
 import 'utilities/src/logger/mocks'
 import { TradingApi } from '@universe/api'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { UniverseChainId } from 'lx/src/features/chains/types'
 import {
   cancelMultipleUniswapXOrders,
   extractCancellationData,
   fetchLimitOrdersEncodedOrderData,
   getOrdersMatchingCancellationData,
-} from 'uniswap/src/features/transactions/cancel/cancelMultipleOrders'
-import { validateOrdersForCancellation } from 'uniswap/src/features/transactions/cancel/validation'
-import { TransactionStatus, UniswapXOrderDetails } from 'uniswap/src/features/transactions/types/transactionDetails'
-import { createPermit2ContractForChain } from 'uniswap/src/features/transactions/utils/permit2'
+} from 'lx/src/features/transactions/cancel/cancelMultipleOrders'
+import { validateOrdersForCancellation } from 'lx/src/features/transactions/cancel/validation'
+import { TransactionStatus, UniswapXOrderDetails } from 'lx/src/features/transactions/types/transactionDetails'
+import { createPermit2ContractForChain } from 'lx/src/features/transactions/utils/permit2'
 import { vi } from 'vitest'
 import { useCancelMultipleOrdersCallback } from '~/components/AccountDrawer/MiniPortfolio/Activity/utils/cancel'
 import { useAccount } from '~/hooks/useAccount'
@@ -23,10 +23,10 @@ vi.mock('~/hooks/useAccount')
 vi.mock('~/hooks/useEthersProvider')
 vi.mock('~/hooks/useSelectChain')
 vi.mock('~/hooks/useFetchLimitOrders')
-vi.mock('uniswap/src/features/transactions/cancel/validation')
-vi.mock('uniswap/src/features/transactions/utils/permit2')
+vi.mock('lx/src/features/transactions/cancel/validation')
+vi.mock('lx/src/features/transactions/utils/permit2')
 
-vi.mock('uniswap/src/features/transactions/cancel/cancelMultipleOrders', () => ({
+vi.mock('lx/src/features/transactions/cancel/cancelMultipleOrders', () => ({
   cancelMultipleUniswapXOrders: vi.fn(),
   trackOrderCancellation: vi.fn(),
   extractCancellationData: vi.fn(),

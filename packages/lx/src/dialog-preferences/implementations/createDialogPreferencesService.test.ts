@@ -1,6 +1,6 @@
-import type { StorageDriver } from 'uniswap/src/dialog-preferences'
-import { createDialogPreferencesService } from 'uniswap/src/dialog-preferences'
-import { DialogVisibilityId } from 'uniswap/src/dialog-preferences/types'
+import type { StorageDriver } from 'lx/src/dialog-preferences'
+import { createDialogPreferencesService } from 'lx/src/dialog-preferences'
+import { DialogVisibilityId } from 'lx/src/dialog-preferences/types'
 import type { Mocked } from 'vitest'
 
 const { mockLogger } = vi.hoisted(() => ({

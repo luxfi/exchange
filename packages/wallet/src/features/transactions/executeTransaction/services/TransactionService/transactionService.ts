@@ -1,13 +1,13 @@
 import { providers } from 'ethers/lib/ethers'
-import type { AccountMeta, SignerMnemonicAccountMeta } from 'uniswap/src/features/accounts/types'
-import type { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { SwapTradeBaseProperties } from 'uniswap/src/features/telemetry/types'
+import type { AccountMeta, SignerMnemonicAccountMeta } from 'lx/src/features/accounts/types'
+import type { UniverseChainId } from 'lx/src/features/chains/types'
+import { SwapTradeBaseProperties } from 'lx/src/features/telemetry/types'
 import {
   TransactionDetails,
   TransactionOptions,
   TransactionOriginType,
   TransactionTypeInfo,
-} from 'uniswap/src/features/transactions/types/transactionDetails'
+} from 'lx/src/features/transactions/types/transactionDetails'
 import type { ExecuteTransactionParams } from 'wallet/src/features/transactions/executeTransaction/executeTransactionSaga'
 import type { CalculatedNonce } from 'wallet/src/features/transactions/executeTransaction/tryGetNonce'
 import { SignedTransactionRequest } from 'wallet/src/features/transactions/executeTransaction/types'

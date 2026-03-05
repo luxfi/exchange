@@ -1,22 +1,22 @@
 import { useEffect } from 'react'
 import type { ColorTokens, FlexProps } from 'ui/src'
 import type { IconSizeTokens } from 'ui/src/theme'
-import { useTransactionSettingsWithSlippage } from 'uniswap/src/features/transactions/components/settings/hooks/useTransactionSettingsWithSlippage'
-import { Slippage } from 'uniswap/src/features/transactions/components/settings/settingsConfigurations/slippage/Slippage/Slippage'
-import { useSlippageSettings } from 'uniswap/src/features/transactions/components/settings/settingsConfigurations/slippage/useSlippageSettings'
+import { useTransactionSettingsWithSlippage } from 'lx/src/features/transactions/components/settings/hooks/useTransactionSettingsWithSlippage'
+import { Slippage } from 'lx/src/features/transactions/components/settings/settingsConfigurations/slippage/Slippage/Slippage'
+import { useSlippageSettings } from 'lx/src/features/transactions/components/settings/settingsConfigurations/slippage/useSlippageSettings'
 import {
   type ModalIdWithSlippage,
   TransactionSettingsModalId,
-} from 'uniswap/src/features/transactions/components/settings/stores/TransactionSettingsModalStore/createTransactionSettingsModalStore'
-import { TransactionSettingsModalStoreContextProvider } from 'uniswap/src/features/transactions/components/settings/stores/TransactionSettingsModalStore/TransactionSettingsModalStoreContextProvider'
-import { useSetTransactionSettingsAutoSlippageTolerance } from 'uniswap/src/features/transactions/components/settings/stores/transactionSettingsStore/useTransactionSettingsStore'
-import { TransactionSettings as BaseTransactionSettings } from 'uniswap/src/features/transactions/components/settings/TransactionSettings'
-import { TransactionSettingsButtonWithSlippage } from 'uniswap/src/features/transactions/components/settings/TransactionSettingsButtonWithSlippage'
-import type { TransactionSettingConfig } from 'uniswap/src/features/transactions/components/settings/types'
-import { getShouldSettingApplyToRouting } from 'uniswap/src/features/transactions/components/settings/utils'
-import SlippageWarningModal from 'uniswap/src/features/transactions/swap/components/SwapFormSettings/SlippageWarningModal'
-import { useSwapFormStoreDerivedSwapInfo } from 'uniswap/src/features/transactions/swap/stores/swapFormStore/useSwapFormStore'
-import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+} from 'lx/src/features/transactions/components/settings/stores/TransactionSettingsModalStore/createTransactionSettingsModalStore'
+import { TransactionSettingsModalStoreContextProvider } from 'lx/src/features/transactions/components/settings/stores/TransactionSettingsModalStore/TransactionSettingsModalStoreContextProvider'
+import { useSetTransactionSettingsAutoSlippageTolerance } from 'lx/src/features/transactions/components/settings/stores/transactionSettingsStore/useTransactionSettingsStore'
+import { TransactionSettings as BaseTransactionSettings } from 'lx/src/features/transactions/components/settings/TransactionSettings'
+import { TransactionSettingsButtonWithSlippage } from 'lx/src/features/transactions/components/settings/TransactionSettingsButtonWithSlippage'
+import type { TransactionSettingConfig } from 'lx/src/features/transactions/components/settings/types'
+import { getShouldSettingApplyToRouting } from 'lx/src/features/transactions/components/settings/utils'
+import SlippageWarningModal from 'lx/src/features/transactions/swap/components/SwapFormSettings/SlippageWarningModal'
+import { useSwapFormStoreDerivedSwapInfo } from 'lx/src/features/transactions/swap/stores/swapFormStore/useSwapFormStore'
+import { TestID } from 'lx/src/test/fixtures/testIDs'
 
 interface SwapFormSettingsProps {
   settings: TransactionSettingConfig[]

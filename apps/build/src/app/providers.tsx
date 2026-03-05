@@ -20,7 +20,7 @@ export function Providers({ children }: { children: ReactNode }) {
             borderRadius: 'medium',
           })}
         >
-          {children}
+          {children as any}
         </RainbowKitProvider>
       </QueryClientProvider>
     </WagmiProvider>

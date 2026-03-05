@@ -16,9 +16,10 @@ import type { PlanStepMethod } from './PlanStepMethod';
 import type { PlanStepPayloadType } from './PlanStepPayloadType';
 import type { PlanStepProof } from './PlanStepProof';
 import type { PlanStepStatus } from './PlanStepStatus';
+import type { PlanStepType } from './PlanStepType';
 import type { receiverWalletAddress } from './receiverWalletAddress';
-import type { Routing } from './Routing';
 import type { senderWalletAddress } from './senderWalletAddress';
+import type { slippageTolerance } from './slippageTolerance';
 import type { tokenAmount } from './tokenAmount';
 export type PlanStep = {
     /**
@@ -41,7 +42,7 @@ export type PlanStep = {
     tokenOutAmount?: tokenAmount;
     swapper?: senderWalletAddress;
     recipient?: receiverWalletAddress;
-    stepSwapType?: Routing;
+    stepType?: PlanStepType;
     gasUseEstimate?: gasLimit;
     gasFeeUSD?: gasFeeUSD;
     gasFeeQuote?: gasFeeInCurrency;
@@ -53,6 +54,6 @@ export type PlanStep = {
      * An optional key identifying the routing strategy used for this step.
      */
     routingStepKey?: string;
-    stepType?: string;
+    slippage?: slippageTolerance;
 };
 

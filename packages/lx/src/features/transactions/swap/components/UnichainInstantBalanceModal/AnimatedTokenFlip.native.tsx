@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
 import Animated, { Easing, interpolate, useAnimatedStyle, useSharedValue, withTiming } from 'react-native-reanimated'
 import { Flex } from 'ui/src'
-import { TokenLogo } from 'uniswap/src/components/CurrencyLogo/TokenLogo'
-import { CurrencyInfo } from 'uniswap/src/features/dataApi/types'
+import { TokenLogo } from 'lx/src/components/CurrencyLogo/TokenLogo'
+import { CurrencyInfo } from 'lx/src/features/dataApi/types'
 
 interface AnimatedTokenFlipProps {
   size: number

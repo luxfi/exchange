@@ -1,7 +1,7 @@
 import { ApolloError } from '@apollo/client'
 import { GraphQLApi } from '@universe/api'
 import { useEffect } from 'react'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { UniverseChainId } from 'lx/src/features/chains/types'
 import { useIsOffline } from 'utilities/src/connection/useIsOffline'
 import { useManualChainOutageStore } from '~/state/outage/store'
 import { isOutageError } from '~/utils/errors/isOutageError'

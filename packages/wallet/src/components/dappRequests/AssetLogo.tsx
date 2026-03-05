@@ -1,8 +1,8 @@
 import { Flex, Loader, UniversalImage, useSporeColors } from 'ui/src'
-import { CurrencyLogo } from 'uniswap/src/components/CurrencyLogo/CurrencyLogo'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { useCurrencyInfoWithLoading } from 'uniswap/src/features/tokens/useCurrencyInfo'
-import { buildCurrencyId } from 'uniswap/src/utils/currencyId'
+import { CurrencyLogo } from 'lx/src/components/CurrencyLogo/CurrencyLogo'
+import { UniverseChainId } from 'lx/src/features/chains/types'
+import { useCurrencyInfoWithLoading } from 'lx/src/features/tokens/useCurrencyInfo'
+import { buildCurrencyId } from 'lx/src/utils/currencyId'
 
 const DAPP_REQUEST_LOGO_SIZE = 36
 

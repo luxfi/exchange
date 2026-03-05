@@ -1,9 +1,9 @@
 import { ApolloLink, createHttpLink } from '@apollo/client'
 import { onError } from '@apollo/client/link/error'
 import { RestLink } from 'apollo-link-rest'
-import { config } from 'uniswap/src/config'
-import { uniswapUrls } from 'uniswap/src/constants/urls'
-import { getVersionHeader } from 'uniswap/src/data/getVersionHeader'
+import { config } from 'lx/src/config'
+import { uniswapUrls } from 'lx/src/constants/urls'
+import { getVersionHeader } from 'lx/src/data/getVersionHeader'
 import { logger } from 'utilities/src/logger/logger'
 import { isMobileApp } from 'utilities/src/platform'
 import { REQUEST_SOURCE } from 'utilities/src/platform/requestSource'
@@ -55,6 +55,23 @@ export const getGraphqlHttpLink = (): ApolloLink =>
       Origin: uniswapUrls.apiOrigin,
     },
   })
+
+/**
+ * G-Chain GraphQL link for native Lux blockchain data
+ * Provides access to DEX data (pools, tokens, swaps) indexed natively
+ */
+export const getGChainGraphqlHttpLink = (): ApolloLink => {
+  const gChainUrl =
+    (typeof uniswapUrls === 'object' && 'gChainGraphqlUrl' in uniswapUrls
+      ? (uniswapUrls as Record<string, string>).gChainGraphqlUrl
+      : undefined) || 'http://localhost:9650/ext/bc/G/graphql'
+  return createHttpLink({
+    uri: gChainUrl,
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+}
 
 // Samples error reports to reduce load on backend
 // Recurring errors that we must fix should have enough occurrences that we detect them still

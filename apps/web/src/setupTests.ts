@@ -19,9 +19,9 @@ import failOnConsole from 'jest-fail-on-console'
 import { disableNetConnect, restore as restoreNetConnect } from 'nock'
 import React from 'react'
 import { Readable } from 'stream'
-import { type UniverseChainId } from 'uniswap/src/features/chains/types'
-import { setupi18n } from 'uniswap/src/i18n/i18n-setup-interface'
-import { mockLocalizationContext } from 'uniswap/src/test/mocks/locale'
+import { type UniverseChainId } from 'lx/src/features/chains/types'
+import { setupi18n } from 'lx/src/i18n/i18n-setup-interface'
+import { mockLocalizationContext } from 'lx/src/test/mocks/locale'
 import { TextDecoder, TextEncoder } from 'util'
 import { toBeVisible } from '~/test-utils/matchers'
 import { mocked } from '~/test-utils/mocked'
@@ -235,7 +235,7 @@ vi.mock('utilities/src/platform', async () => {
   }
 })
 
-vi.mock('uniswap/src/features/telemetry/Trace', () => ({
+vi.mock('lx/src/features/telemetry/Trace', () => ({
   default: ({ children }: any) => {
     return React.createElement(React.Fragment, {}, children)
   },
@@ -244,7 +244,7 @@ vi.mock('uniswap/src/features/telemetry/Trace', () => ({
   },
 }))
 
-vi.mock('uniswap/src/features/accounts/store/hooks', () => ({
+vi.mock('lx/src/features/accounts/store/hooks', () => ({
   useConnectionStatus: vi.fn(() => ({ isConnecting: false })),
 }))
 
@@ -329,7 +329,7 @@ vi.mock('@popperjs/core', async () => {
   }
 })
 
-vi.mock('uniswap/src/features/language/LocalizationContext', () => mockLocalizationContext({}))
+vi.mock('lx/src/features/language/LocalizationContext', () => mockLocalizationContext({}))
 
 vi.mock('@web3-react/core', async () => {
   const web3React: any = await vi.importActual('@web3-react/core')
@@ -445,7 +445,7 @@ vi.mock('@universe/gating', async (importOriginal) => {
   }
 })
 
-vi.mock('uniswap/src/features/chains/hooks/useOrderedChainIds', () => {
+vi.mock('lx/src/features/chains/hooks/useOrderedChainIds', () => {
   return {
     useOrderedChainIds: (chainIds: UniverseChainId[]) => chainIds,
   }

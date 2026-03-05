@@ -77,13 +77,13 @@ import {
   transformNotificationCountToStatus,
   updateLanguageSettings,
 } from 'src/app/mobileMigrations'
-import { AccountType } from 'uniswap/src/features/accounts/types'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { FiatCurrency } from 'uniswap/src/features/fiatCurrency/constants'
-import { Language } from 'uniswap/src/features/language/constants'
-import { ModalName } from 'uniswap/src/features/telemetry/constants'
-import { TransactionStatus, TransactionType } from 'uniswap/src/features/transactions/types/transactionDetails'
-import { DappRequestType } from 'uniswap/src/types/walletConnect'
+import { AccountType } from 'lx/src/features/accounts/types'
+import { UniverseChainId } from 'lx/src/features/chains/types'
+import { FiatCurrency } from 'lx/src/features/fiatCurrency/constants'
+import { Language } from 'lx/src/features/language/constants'
+import { ModalName } from 'lx/src/features/telemetry/constants'
+import { TransactionStatus, TransactionType } from 'lx/src/features/transactions/types/transactionDetails'
+import { DappRequestType } from 'lx/src/types/walletConnect'
 import { createThrowingProxy } from 'utilities/src/test/utils'
 import { SwapProtectionSetting } from 'wallet/src/features/wallet/slice'
 

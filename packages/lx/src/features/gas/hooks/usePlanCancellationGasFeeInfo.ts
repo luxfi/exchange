@@ -1,16 +1,16 @@
 import { useQuery } from '@tanstack/react-query'
 import { providers } from 'ethers/lib/ethers'
 import { useMemo } from 'react'
-import { CancellationGasFeeDetails, useTransactionGasFee } from 'uniswap/src/features/gas/hooks'
+import { CancellationGasFeeDetails, useTransactionGasFee } from 'lx/src/features/gas/hooks'
 import {
   calculateClassicCancellationGas,
   calculateUniswapXCancellationGas,
   createClassicCancelRequest,
-} from 'uniswap/src/features/gas/utils/cancel'
-import { buildSingleCancellation } from 'uniswap/src/features/transactions/cancel/cancelOrderFactory'
-import { CancelableStepInfo, findCancelableStepInPlan } from 'uniswap/src/features/transactions/hooks/useIsCancelable'
-import { getOrders } from 'uniswap/src/features/transactions/swap/orders'
-import { PlanTransactionDetails, PlanTransactionInfo } from 'uniswap/src/features/transactions/types/transactionDetails'
+} from 'lx/src/features/gas/utils/cancel'
+import { buildSingleCancellation } from 'lx/src/features/transactions/cancel/cancelOrderFactory'
+import { CancelableStepInfo, findCancelableStepInPlan } from 'lx/src/features/transactions/hooks/useIsCancelable'
+import { getOrders } from 'lx/src/features/transactions/swap/orders'
+import { PlanTransactionDetails, PlanTransactionInfo } from 'lx/src/features/transactions/types/transactionDetails'
 import { logger } from 'utilities/src/logger/logger'
 import { ReactQueryCacheKey } from 'utilities/src/reactQuery/cache'
 

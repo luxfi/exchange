@@ -44,7 +44,7 @@ export class SwapService {
                 400: `RequestValidationError, Bad Input`,
                 401: `UnauthorizedError eg. Account is blocked or  Fee is not enabled.`,
                 404: `ResourceNotFound eg. No quotes available or Gas fee/price not available`,
-                419: `Ratelimited`,
+                429: `Ratelimited`,
                 500: `Unexpected error`,
                 504: `Request duration limit reached.`,
             },
@@ -76,7 +76,7 @@ export class SwapService {
             errors: {
                 400: `RequestValidationError, Bad Input`,
                 404: `ResourceNotFound eg. No quotes available or Gas fee/price not available`,
-                419: `Ratelimited`,
+                429: `Ratelimited`,
                 500: `Unexpected error`,
                 504: `Request duration limit reached.`,
             },
@@ -119,17 +119,24 @@ export class SwapService {
     /**
      * Create swap EIP 7702 calldata
      * Create the EIP 7702 calldata for a swap transaction (including wrap/unwrap and bridging) against the Uniswap Protocols. If the `quote` parameter includes the fee parameters, then the calldata will include the fee disbursement. The gas estimates will be **more precise** when the the response calldata would be valid if submitted on-chain.
+     *
+     * Native ETH / UniswapX setup: When `x-erc20eth-enabled` is `true` and the input token is native ETH, the response may include an additional native approval call (e.g. an `approveNative` step) to enable ERC20-ETH (EIP-7914) spending for the wallet. This native allowance is a prerequisite for native ETH input on UniswapX (`/quote` → `/order`) for supported wallets.
      * @returns CreateSwap7702Response Create 7702 swap successful.
      * @throws ApiError
      */
     public static createSwap7702Transaction({
         xUniversalRouterVersion,
+        xErc20EthEnabled = false,
         requestBody,
     }: {
         /**
          * The version of the Universal Router to use for the swap journey. *MUST* be consistent throughout the API calls.
          */
         xUniversalRouterVersion?: UniversalRouterVersion,
+        /**
+         * Enable native ETH input support for UniswapX via ERC20-ETH (EIP-7914). When set to true and `tokenIn` is the native currency address (e.g. `0x0000000000000000000000000000000000000000`), the API may return UniswapX routes that spend native ETH for supported wallets.
+         */
+        xErc20EthEnabled?: boolean,
         requestBody?: CreateSwap7702Request,
     }): CancelablePromise<CreateSwap7702Response> {
         return __request(OpenAPI, {
@@ -137,6 +144,7 @@ export class SwapService {
             url: '/swap_7702',
             headers: {
                 'x-universal-router-version': xUniversalRouterVersion,
+                'x-erc20eth-enabled': xErc20EthEnabled,
             },
             body: requestBody,
             mediaType: 'application/json',

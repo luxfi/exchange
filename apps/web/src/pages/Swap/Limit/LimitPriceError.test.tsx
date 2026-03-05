@@ -1,4 +1,4 @@
-import { DAI, USDC_MAINNET } from 'uniswap/src/constants/tokens'
+import { DAI, USDC_MAINNET } from 'lx/src/constants/tokens'
 import { LimitPriceErrorType } from '~/components/CurrencyInputPanel/LimitPriceInputPanel/useCurrentPriceAdjustment'
 import { LimitPriceError } from '~/pages/Swap/Limit/LimitPriceError'
 import { render } from '~/test-utils/render'

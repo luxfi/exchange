@@ -2,7 +2,10 @@ type Factory @entity {
   id: ID!
   pairCount: Int!
   totalVolumeUSD: BigDecimal!
+  totalVolumeETH: BigDecimal!
+  untrackedVolumeUSD: BigDecimal!
   totalLiquidityUSD: BigDecimal!
+  totalLiquidityETH: BigDecimal!
   txCount: BigInt!
 }
 
@@ -14,10 +17,16 @@ type Token @entity {
   totalSupply: BigInt!
   tradeVolume: BigDecimal!
   tradeVolumeUSD: BigDecimal!
+  untrackedVolumeUSD: BigDecimal!
   txCount: BigInt!
   totalLiquidity: BigDecimal!
   derivedETH: BigDecimal
   derivedUSD: BigDecimal
+  tokenDayData: [TokenDayData!]! @derivedFrom(field: "token")
+  pairDayDataBase: [PairDayData!]! @derivedFrom(field: "token0")
+  pairDayDataQuote: [PairDayData!]! @derivedFrom(field: "token1")
+  pairBase: [Pair!]! @derivedFrom(field: "token0")
+  pairQuote: [Pair!]! @derivedFrom(field: "token1")
 }
 
 type Pair @entity {
@@ -39,6 +48,12 @@ type Pair @entity {
   txCount: BigInt!
   createdAtTimestamp: BigInt!
   createdAtBlockNumber: BigInt!
+  liquidityProviderCount: BigInt!
+  pairHourData: [PairHourData!]! @derivedFrom(field: "pair")
+  liquidityPositions: [LiquidityPosition!]! @derivedFrom(field: "pair")
+  mints: [Mint!]! @derivedFrom(field: "pair")
+  burns: [Burn!]! @derivedFrom(field: "pair")
+  swaps: [Swap!]! @derivedFrom(field: "pair")
 }
 
 type Transaction @entity {
@@ -97,4 +112,95 @@ type Swap @entity {
   to: Bytes!
   logIndex: BigInt
   amountUSD: BigDecimal!
+}
+
+type Bundle @entity {
+  id: ID!
+  ethPrice: BigDecimal!
+  luxPrice: BigDecimal!
+}
+
+type LuxDayData @entity {
+  id: ID!
+  date: Int!
+  dailyVolumeETH: BigDecimal!
+  dailyVolumeUSD: BigDecimal!
+  dailyVolumeUntracked: BigDecimal!
+  totalVolumeETH: BigDecimal!
+  totalLiquidityETH: BigDecimal!
+  totalVolumeUSD: BigDecimal!
+  totalLiquidityUSD: BigDecimal!
+  txCount: BigInt!
+}
+
+type PairHourData @entity {
+  id: ID!
+  hourStartUnix: Int!
+  pair: Pair!
+  reserve0: BigDecimal!
+  reserve1: BigDecimal!
+  totalSupply: BigDecimal!
+  reserveUSD: BigDecimal!
+  hourlyVolumeToken0: BigDecimal!
+  hourlyVolumeToken1: BigDecimal!
+  hourlyVolumeUSD: BigDecimal!
+  hourlyTxns: BigInt!
+}
+
+type PairDayData @entity {
+  id: ID!
+  date: Int!
+  pairAddress: Bytes!
+  token0: Token!
+  token1: Token!
+  reserve0: BigDecimal!
+  reserve1: BigDecimal!
+  totalSupply: BigDecimal!
+  reserveUSD: BigDecimal!
+  dailyVolumeToken0: BigDecimal!
+  dailyVolumeToken1: BigDecimal!
+  dailyVolumeUSD: BigDecimal!
+  dailyTxns: BigInt!
+}
+
+type TokenDayData @entity {
+  id: ID!
+  date: Int!
+  token: Token!
+  dailyVolumeToken: BigDecimal!
+  dailyVolumeETH: BigDecimal!
+  dailyVolumeUSD: BigDecimal!
+  dailyTxns: BigInt!
+  totalLiquidityToken: BigDecimal!
+  totalLiquidityETH: BigDecimal!
+  totalLiquidityUSD: BigDecimal!
+  priceUSD: BigDecimal!
+}
+
+type LiquidityPosition @entity {
+  id: ID!
+  user: User!
+  pair: Pair!
+  liquidityTokenBalance: BigDecimal!
+}
+
+type LiquidityPositionSnapshot @entity {
+  id: ID!
+  liquidityPosition: LiquidityPosition!
+  timestamp: Int!
+  block: Int!
+  user: User!
+  pair: Pair!
+  token0PriceUSD: BigDecimal!
+  token1PriceUSD: BigDecimal!
+  reserve0: BigDecimal!
+  reserve1: BigDecimal!
+  reserveUSD: BigDecimal!
+  liquidityTokenTotalSupply: BigDecimal!
+  liquidityTokenBalance: BigDecimal!
+}
+
+type User @entity {
+  id: ID!
+  liquidityPositions: [LiquidityPosition!] @derivedFrom(field: "user")
 }

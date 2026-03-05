@@ -1,5 +1,5 @@
-import { TransactionStepFailedError } from 'uniswap/src/features/transactions/errors'
-import { TransactionStepType } from 'uniswap/src/features/transactions/steps/types'
+import { TransactionStepFailedError } from 'lx/src/features/transactions/errors'
+import { TransactionStepType } from 'lx/src/features/transactions/steps/types'
 import { useEvent } from 'utilities/src/react/hooks'
 import { useSetOverrideOneClickSwapFlag } from '~/pages/Swap/settings/OneClickSwap'
 

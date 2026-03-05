@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
-import { PaginatedModalRenderer, PaginatedModals } from 'uniswap/src/components/modals/PaginatedModals'
+import { PaginatedModalRenderer, PaginatedModals } from 'lx/src/components/modals/PaginatedModals'
 import { dismissNativeKeyboard } from 'utilities/src/device/keyboard/dismissNativeKeyboard'
 
 export type ConditionalModalRenderer = {

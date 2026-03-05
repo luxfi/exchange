@@ -1,9 +1,9 @@
 import { Currency, CurrencyAmount, Price } from '@uniswap/sdk-core'
 import { normalizeToken, usePrice } from '@universe/prices'
 import { useMemo } from 'react'
-import type { PollingInterval } from 'uniswap/src/constants/misc'
-import { getPrimaryStablecoin, isUniverseChainId } from 'uniswap/src/features/chains/utils'
-import { getCurrencyAmount, ValueType } from 'uniswap/src/features/tokens/getCurrencyAmount'
+import type { PollingInterval } from 'lx/src/constants/misc'
+import { getPrimaryStablecoin, isUniverseChainId } from 'lx/src/features/chains/utils'
+import { getCurrencyAmount, ValueType } from 'lx/src/features/tokens/getCurrencyAmount'
 import { logger } from 'utilities/src/logger/logger'
 
 export function useUSDCPriceCentralized(

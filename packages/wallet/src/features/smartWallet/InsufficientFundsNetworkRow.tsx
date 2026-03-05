@@ -2,7 +2,7 @@ import { type GasFeeResultWithoutState } from '@universe/api'
 import { memo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Flex, Text } from 'ui/src'
-import { NetworkLogoWarning } from 'uniswap/src/components/CurrencyLogo/NetworkLogoWarning'
+import { NetworkLogoWarning } from 'lx/src/components/CurrencyLogo/NetworkLogoWarning'
 
 export interface NetworkInfo {
   chainId: number

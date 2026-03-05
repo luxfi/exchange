@@ -10,10 +10,10 @@ import {
   getGraphqlHttpLink,
   getPerformanceLink,
   getRestLink,
-} from 'uniswap/src/data/links'
-import { getInstantTokenBalanceUpdateApolloLink } from 'uniswap/src/features/portfolio/portfolioUpdates/getInstantTokenBalanceUpdateApolloLink'
-import { WalletEventName } from 'uniswap/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
+} from 'lx/src/data/links'
+import { getInstantTokenBalanceUpdateApolloLink } from 'lx/src/features/portfolio/portfolioUpdates/getInstantTokenBalanceUpdateApolloLink'
+import { WalletEventName } from 'lx/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
 import { getDatadogApolloLink } from 'utilities/src/logger/datadog/datadogLink'
 import { logger } from 'utilities/src/logger/logger'
 import { isMobileApp } from 'utilities/src/platform'

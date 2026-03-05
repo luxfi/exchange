@@ -9,26 +9,26 @@ import ms from 'ms'
 import type { Action } from 'redux'
 import type { SagaGenerator } from 'typed-redux-saga'
 import { call, cancel, delay, fork, put, race, select, spawn, take } from 'typed-redux-saga'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { isL2ChainId, isUniverseChainId } from 'uniswap/src/features/chains/utils'
-import { AppNotification, AppNotificationType } from 'uniswap/src/features/notifications/slice/types'
+import { UniverseChainId } from 'lx/src/features/chains/types'
+import { isL2ChainId, isUniverseChainId } from 'lx/src/features/chains/utils'
+import { AppNotification, AppNotificationType } from 'lx/src/features/notifications/slice/types'
 import {
   ApprovalEditedInWalletError,
   HandledTransactionInterrupt,
   TransactionError,
   TransactionStepFailedError,
   UnexpectedTransactionStateError,
-} from 'uniswap/src/features/transactions/errors'
+} from 'lx/src/features/transactions/errors'
 import {
   addTransaction,
   finalizeTransaction,
   interfaceApplyTransactionHashToBatch,
   interfaceUpdateTransactionInfo,
   type TransactionsState,
-} from 'uniswap/src/features/transactions/slice'
-import { TokenApprovalTransactionStep } from 'uniswap/src/features/transactions/steps/approve'
-import type { Permit2TransactionStep } from 'uniswap/src/features/transactions/steps/permit2Transaction'
-import { TokenRevocationTransactionStep } from 'uniswap/src/features/transactions/steps/revoke'
+} from 'lx/src/features/transactions/slice'
+import { TokenApprovalTransactionStep } from 'lx/src/features/transactions/steps/approve'
+import type { Permit2TransactionStep } from 'lx/src/features/transactions/steps/permit2Transaction'
+import { TokenRevocationTransactionStep } from 'lx/src/features/transactions/steps/revoke'
 import type {
   HandleApprovalStepParams,
   HandleOnChainPermit2TransactionStep,
@@ -36,16 +36,16 @@ import type {
   HandleSignatureStepParams,
   OnChainTransactionStep,
   TransactionStep,
-} from 'uniswap/src/features/transactions/steps/types'
-import { TransactionStepType } from 'uniswap/src/features/transactions/steps/types'
-import { SolanaTrade } from 'uniswap/src/features/transactions/swap/types/solana'
+} from 'lx/src/features/transactions/steps/types'
+import { TransactionStepType } from 'lx/src/features/transactions/steps/types'
+import { SolanaTrade } from 'lx/src/features/transactions/swap/types/solana'
 import type {
   BridgeTrade,
   ChainedActionTrade,
   ClassicTrade,
   UniswapXTrade,
-} from 'uniswap/src/features/transactions/swap/types/trade'
-import { isUniswapX } from 'uniswap/src/features/transactions/swap/utils/routing'
+} from 'lx/src/features/transactions/swap/types/trade'
+import { isUniswapX } from 'lx/src/features/transactions/swap/utils/routing'
 import type {
   ApproveTransactionInfo,
   BridgeTransactionInfo,
@@ -54,17 +54,17 @@ import type {
   InterfaceTransactionDetails,
   Permit2ApproveTransactionInfo,
   PlanSwapTransactionInfoFields,
-} from 'uniswap/src/features/transactions/types/transactionDetails'
+} from 'lx/src/features/transactions/types/transactionDetails'
 import {
   TransactionOriginType,
   TransactionStatus,
   TransactionType,
-} from 'uniswap/src/features/transactions/types/transactionDetails'
-import { getInterfaceTransaction, isInterfaceTransaction } from 'uniswap/src/features/transactions/types/utils'
-import { areAddressesEqual } from 'uniswap/src/utils/addresses'
-import { parseERC20ApproveCalldata } from 'uniswap/src/utils/approvals'
-import { currencyId } from 'uniswap/src/utils/currencyId'
-import { interruptTransactionFlow } from 'uniswap/src/utils/saga'
+} from 'lx/src/features/transactions/types/transactionDetails'
+import { getInterfaceTransaction, isInterfaceTransaction } from 'lx/src/features/transactions/types/utils'
+import { areAddressesEqual } from 'lx/src/utils/addresses'
+import { parseERC20ApproveCalldata } from 'lx/src/utils/approvals'
+import { currencyId } from 'lx/src/utils/currencyId'
+import { interruptTransactionFlow } from 'lx/src/utils/saga'
 import { HexString, isValidHexString } from 'utilities/src/addresses/hex'
 import { logger } from 'utilities/src/logger/logger'
 import { noop } from 'utilities/src/react/noop'

@@ -4,9 +4,9 @@ import { Pair } from '@uniswap/v2-sdk'
 import { FeeAmount, nearestUsableTick, TICK_SPACINGS, TickMath, Pool as V3Pool } from '@uniswap/v3-sdk'
 import { Pool as V4Pool } from '@uniswap/v4-sdk'
 import JSBI from 'jsbi'
-import { ZERO_ADDRESS } from 'uniswap/src/constants/misc'
-import { nativeOnChain, USDT } from 'uniswap/src/constants/tokens'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { ZERO_ADDRESS } from 'lx/src/constants/misc'
+import { nativeOnChain, USDT } from 'lx/src/constants/tokens'
+import { UniverseChainId } from 'lx/src/features/chains/types'
 import {
   CreateV2PositionInfo,
   CreateV3PositionInfo,

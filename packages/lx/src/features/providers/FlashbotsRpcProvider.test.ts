@@ -1,7 +1,7 @@
 import { Signer } from '@ethersproject/abstract-signer'
 import { JsonRpcProvider } from '@ethersproject/providers'
 import { ConnectionInfo, fetchJson } from '@ethersproject/web'
-import { FlashbotsRpcProvider } from 'uniswap/src/features/providers/FlashbotsRpcProvider'
+import { FlashbotsRpcProvider } from 'lx/src/features/providers/FlashbotsRpcProvider'
 import type { Mock, Mocked } from 'vitest'
 
 vi.mock('@ethersproject/web', () => ({

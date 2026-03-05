@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
-import { getChainInfo } from 'uniswap/src/features/chains/chainInfo'
-import { EVMUniverseChainId } from 'uniswap/src/features/chains/types'
-import { AVERAGE_L2_BLOCK_TIME_MS } from 'uniswap/src/features/transactions/hooks/usePollingIntervalByChain'
+import { getChainInfo } from 'lx/src/features/chains/chainInfo'
+import { EVMUniverseChainId } from 'lx/src/features/chains/types'
+import { AVERAGE_L2_BLOCK_TIME_MS } from 'lx/src/features/transactions/hooks/usePollingIntervalByChain'
 import { ONE_SECOND_MS } from 'utilities/src/time/time'
 import { useBlock } from 'wagmi'
 

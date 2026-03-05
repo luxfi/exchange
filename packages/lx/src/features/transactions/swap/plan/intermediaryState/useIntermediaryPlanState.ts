@@ -1,14 +1,14 @@
 import { Currency, CurrencyAmount } from '@uniswap/sdk-core'
 import { useMemo } from 'react'
-import { getCurrencyAmount, ValueType } from 'uniswap/src/features/tokens/getCurrencyAmount'
-import { useCurrencyInfo } from 'uniswap/src/features/tokens/useCurrencyInfo'
-import { useCanResumePlan } from 'uniswap/src/features/transactions/swap/plan/intermediaryState/useCanResumePlan'
+import { getCurrencyAmount, ValueType } from 'lx/src/features/tokens/getCurrencyAmount'
+import { useCurrencyInfo } from 'lx/src/features/tokens/useCurrencyInfo'
+import { useCanResumePlan } from 'lx/src/features/transactions/swap/plan/intermediaryState/useCanResumePlan'
 import {
   extractTransactionTypeInfoAttribute,
   PlanTransactionInfo,
   TransactionStatus,
   TransactionType,
-} from 'uniswap/src/features/transactions/types/transactionDetails'
+} from 'lx/src/features/transactions/types/transactionDetails'
 
 export interface IntermediaryPlanState {
   inputCurrency?: Currency

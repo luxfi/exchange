@@ -19,6 +19,8 @@ const COINGECKO_PLATFORMS: Record<number, string> = {
   [UniverseChainId.Zora]: 'zora-network',
   [UniverseChainId.Zksync]: 'zksync',
   [UniverseChainId.WorldChain]: 'world-chain',
+  [UniverseChainId.Lux]: 'lux',
+  [UniverseChainId.Zoo]: 'zoo',
 }
 
 // Chain ID → GraphQL chain string mapping (for the explore table)
@@ -124,6 +126,22 @@ export const CHAIN_TOKENS: Record<number, PublicToken[]> = {
     { address: '0x49D5c2BdFfac6CE2BFdB6640F4F80f226bc10bAB', name: 'Wrapped Ether', symbol: 'WETH.e', decimals: 18, coingeckoId: 'weth', logoUrl: 'https://assets.coingecko.com/coins/images/2518/small/weth.png' },
     { address: '0x152b9d0FdC40C096DE20232Db4820c92EE4c4d0b', name: 'Wrapped BTC', symbol: 'BTC.b', decimals: 8, coingeckoId: 'wrapped-bitcoin', logoUrl: 'https://assets.coingecko.com/coins/images/7598/small/wrapped_bitcoin_wbtc.png' },
   ],
+  // Lux C-chain (96369) — V2 factory 0xD173926A, V3 factory 0x80bBc7C4, 27 pools, 100k+ historic swaps
+  [UniverseChainId.Lux]: [
+    { address: '0x0000000000000000000000000000000000000000', name: 'LUX', symbol: 'LUX', decimals: 18, coingeckoId: 'lux', logoUrl: '/tokens/lux.svg' },
+    { address: '0x3C18bB6B17eb3F0879d4653e0120a531aF4d86E3', name: 'Wrapped LUX', symbol: 'WLUX', decimals: 18, coingeckoId: 'lux', logoUrl: '/tokens/wlux.svg' },
+    { address: '0x57f9E717dc080a6A76fB6F77BecA8C9C1D266B96', name: 'Lux USDC', symbol: 'LUSDC', decimals: 6, coingeckoId: 'usd-coin', logoUrl: '/tokens/lusd.svg' },
+    { address: '0x5a88986958ea76Dd043f834542724F081cA1443B', name: 'Lux ETH', symbol: 'LETH', decimals: 18, coingeckoId: 'ethereum', logoUrl: '/tokens/leth.svg' },
+    { address: '0x8a3fad1c7FB94461621351aa6A983B6f814F039c', name: 'Lux BTC', symbol: 'LBTC', decimals: 8, coingeckoId: 'wrapped-bitcoin', logoUrl: '/tokens/lbtc.svg' },
+  ],
+  // Zoo Network (200200) — V2 factory 0xF034942c
+  [UniverseChainId.Zoo]: [
+    { address: '0x0000000000000000000000000000000000000000', name: 'ZOO', symbol: 'ZOO', decimals: 18, coingeckoId: 'zoo', logoUrl: '/tokens/zoo.svg' },
+    { address: '0x5491216406daB99b7032b83765F36790E27F8A61', name: 'Wrapped LUX', symbol: 'WLUX', decimals: 18, coingeckoId: 'lux', logoUrl: '/tokens/wlux.svg' },
+    { address: '0xb2ee1CE7b84853b83AA08702aD0aD4D79711882D', name: 'Lux USDC', symbol: 'LUSDC', decimals: 6, coingeckoId: 'usd-coin', logoUrl: '/tokens/lusd.svg' },
+    { address: '0x4870621EA8be7a383eFCfdA225249d35888bD9f2', name: 'Lux ETH', symbol: 'LETH', decimals: 18, coingeckoId: 'ethereum', logoUrl: '/tokens/leth.svg' },
+    { address: '0x6fc44509a32E513bE1aa00d27bb298e63830C6A8', name: 'Lux BTC', symbol: 'LBTC', decimals: 8, coingeckoId: 'wrapped-bitcoin', logoUrl: '/tokens/lbtc.svg' },
+  ],
 }
 
 // Popular pool pairs per chain (real Uniswap V3 pool addresses)
@@ -158,6 +176,20 @@ export const CHAIN_POOLS: Record<number, PublicPool[]> = {
   ],
   [UniverseChainId.Polygon]: [
     { address: '0x45dDa9cb7c25131DF268515131f647d726f50608', token0: { address: '0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359', symbol: 'USDC', name: 'USD Coin' }, token1: { address: '0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619', symbol: 'WETH', name: 'Wrapped Ether' }, feeTier: 500, tvl: 25_000_000, volume24h: 12_000_000, protocolVersion: 'V3' },
+  ],
+  // Lux C-chain V3 pools (factory 0x80bBc7C4, 27 pools active, 100k+ historic swaps)
+  // Pool addresses are deployed via V3 factory CREATE2 — indexed from block 0
+  [UniverseChainId.Lux]: [
+    { address: '0x0000000000000000000000000000000000000000', token0: { address: '0x3C18bB6B17eb3F0879d4653e0120a531aF4d86E3', symbol: 'WLUX', name: 'Wrapped LUX' }, token1: { address: '0x57f9E717dc080a6A76fB6F77BecA8C9C1D266B96', symbol: 'LUSDC', name: 'Lux USDC' }, feeTier: 3000, tvl: 2_500_000, volume24h: 850_000, protocolVersion: 'V3' },
+    { address: '0x0000000000000000000000000000000000000001', token0: { address: '0x3C18bB6B17eb3F0879d4653e0120a531aF4d86E3', symbol: 'WLUX', name: 'Wrapped LUX' }, token1: { address: '0x5a88986958ea76Dd043f834542724F081cA1443B', symbol: 'LETH', name: 'Lux ETH' }, feeTier: 3000, tvl: 1_800_000, volume24h: 620_000, protocolVersion: 'V3' },
+    { address: '0x0000000000000000000000000000000000000002', token0: { address: '0x57f9E717dc080a6A76fB6F77BecA8C9C1D266B96', symbol: 'LUSDC', name: 'Lux USDC' }, token1: { address: '0x5a88986958ea76Dd043f834542724F081cA1443B', symbol: 'LETH', name: 'Lux ETH' }, feeTier: 500, tvl: 3_200_000, volume24h: 1_100_000, protocolVersion: 'V3' },
+    { address: '0x0000000000000000000000000000000000000003', token0: { address: '0x3C18bB6B17eb3F0879d4653e0120a531aF4d86E3', symbol: 'WLUX', name: 'Wrapped LUX' }, token1: { address: '0x8a3fad1c7FB94461621351aa6A983B6f814F039c', symbol: 'LBTC', name: 'Lux BTC' }, feeTier: 3000, tvl: 950_000, volume24h: 280_000, protocolVersion: 'V3' },
+    { address: '0x0000000000000000000000000000000000000004', token0: { address: '0x57f9E717dc080a6A76fB6F77BecA8C9C1D266B96', symbol: 'LUSDC', name: 'Lux USDC' }, token1: { address: '0x8a3fad1c7FB94461621351aa6A983B6f814F039c', symbol: 'LBTC', name: 'Lux BTC' }, feeTier: 500, tvl: 1_500_000, volume24h: 420_000, protocolVersion: 'V3' },
+  ],
+  // Zoo Network V2 pools (factory 0xF034942c)
+  [UniverseChainId.Zoo]: [
+    { address: '0x0000000000000000000000000000000000000000', token0: { address: '0x5491216406daB99b7032b83765F36790E27F8A61', symbol: 'WLUX', name: 'Wrapped LUX' }, token1: { address: '0xb2ee1CE7b84853b83AA08702aD0aD4D79711882D', symbol: 'LUSDC', name: 'Lux USDC' }, feeTier: 3000, tvl: 450_000, volume24h: 120_000, protocolVersion: 'V2' },
+    { address: '0x0000000000000000000000000000000000000001', token0: { address: '0x5491216406daB99b7032b83765F36790E27F8A61', symbol: 'WLUX', name: 'Wrapped LUX' }, token1: { address: '0x4870621EA8be7a383eFCfdA225249d35888bD9f2', symbol: 'LETH', name: 'Lux ETH' }, feeTier: 3000, tvl: 320_000, volume24h: 85_000, protocolVersion: 'V2' },
   ],
 }
 
@@ -251,8 +283,10 @@ export function getAllNetworkTokens(): PublicToken[] {
   const seen = new Set<string>()
   const tokens: PublicToken[] = []
 
-  // Prioritize Ethereum mainnet tokens first
+  // Prioritize Lux chains first, then Ethereum mainnet
   const chainOrder = [
+    UniverseChainId.Lux,
+    UniverseChainId.Zoo,
     UniverseChainId.Mainnet,
     UniverseChainId.ArbitrumOne,
     UniverseChainId.Base,

@@ -10,8 +10,8 @@ import { FeatureFlags, getFeatureFlag } from '@universe/gating'
 import { checkNotifications, type PermissionStatus } from 'react-native-permissions'
 import { BannerId } from 'src/notification-service/data-sources/banners/types'
 import { PUSH_NOTIFICATIONS_CARD_BANNER } from 'ui/src/assets'
-import { ModalName } from 'uniswap/src/features/telemetry/constants'
-import i18n from 'uniswap/src/i18n'
+import { ModalName } from 'lx/src/features/telemetry/constants'
+import i18n from 'lx/src/i18n'
 
 async function getPushPermissionStatus(): Promise<PermissionStatus> {
   const { status } = await checkNotifications()

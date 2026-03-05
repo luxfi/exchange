@@ -10,13 +10,13 @@ import {
   getCancelSingleParams,
 } from '@uniswap/uniswapx-sdk'
 import { TradingApi } from '@universe/api'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { UniverseChainId } from 'lx/src/features/chains/types'
 import {
   buildBatchCancellation,
   buildSingleCancellation,
   OrderCancellationParams,
-} from 'uniswap/src/features/transactions/cancel/cancelOrderFactory'
-import { createPermit2Contract } from 'uniswap/src/features/transactions/utils/permit2'
+} from 'lx/src/features/transactions/cancel/cancelOrderFactory'
+import { createPermit2Contract } from 'lx/src/features/transactions/utils/permit2'
 import type { Mock } from 'vitest'
 
 // Mock the uniswapx-sdk functions
@@ -42,7 +42,7 @@ vi.mock('@uniswap/uniswapx-sdk', async (importOriginal) => {
 })
 
 // Mock the permit2 contract creation
-vi.mock('uniswap/src/features/transactions/utils/permit2', () => ({
+vi.mock('lx/src/features/transactions/utils/permit2', () => ({
   createPermit2Contract: vi.fn(),
 }))
 

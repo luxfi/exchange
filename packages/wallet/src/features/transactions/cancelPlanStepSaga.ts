@@ -1,16 +1,16 @@
 import { providers } from 'ethers'
 import { call, put, type SagaGenerator, select } from 'typed-redux-saga'
-import { AccountType } from 'uniswap/src/features/accounts/types'
-import { CANCELLATION_TX_VALUE } from 'uniswap/src/features/gas/utils/cancel'
-import { CancelableStepInfo } from 'uniswap/src/features/transactions/hooks/useIsCancelable'
-import { activePlanStore } from 'uniswap/src/features/transactions/swap/review/stores/activePlan/activePlanStore'
+import { AccountType } from 'lx/src/features/accounts/types'
+import { CANCELLATION_TX_VALUE } from 'lx/src/features/gas/utils/cancel'
+import { CancelableStepInfo } from 'lx/src/features/transactions/hooks/useIsCancelable'
+import { activePlanStore } from 'lx/src/features/transactions/swap/review/stores/activePlan/activePlanStore'
 import {
   PlanTransactionDetails,
   TransactionDetails,
   TransactionOriginType,
-} from 'uniswap/src/features/transactions/types/transactionDetails'
-import { getValidAddress } from 'uniswap/src/utils/addresses'
-import { signalPlanCancellation } from 'uniswap/src/utils/saga'
+} from 'lx/src/features/transactions/types/transactionDetails'
+import { getValidAddress } from 'lx/src/utils/addresses'
+import { signalPlanCancellation } from 'lx/src/utils/saga'
 import { logger } from 'utilities/src/logger/logger'
 import {
   ExecuteTransactionParams,

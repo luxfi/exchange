@@ -6,7 +6,7 @@ import { BookOpen } from 'ui/src/components/icons/BookOpen'
 import { GraduationCap } from 'ui/src/components/icons/GraduationCap'
 import { PenLine } from 'ui/src/components/icons/PenLine'
 import { SpeechBubbles } from 'ui/src/components/icons/SpeechBubbles'
-import { uniswapUrls } from 'uniswap/src/constants/urls'
+import { uniswapUrls } from 'lx/src/constants/urls'
 import { ClickableTamaguiStyle } from '~/theme/components/styles'
 
 const SectionLayout = styled(Flex, {

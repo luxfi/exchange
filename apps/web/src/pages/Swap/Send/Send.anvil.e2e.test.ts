@@ -1,5 +1,5 @@
-import { uniswapUrls } from 'uniswap/src/constants/urls'
-import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+import { uniswapUrls } from 'lx/src/constants/urls'
+import { TestID } from 'lx/src/test/fixtures/testIDs'
 import { expect, getTest } from '~/playwright/fixtures'
 import { stubTradingApiEndpoint } from '~/playwright/fixtures/tradingApi'
 import { HAYDEN_ADDRESS, TEST_WALLET_ADDRESS } from '~/playwright/fixtures/wallets'

@@ -5,19 +5,19 @@ import {
   TokenOption,
   UnitagOption,
   WalletOption,
-} from 'uniswap/src/components/lists/items/types'
-import { OnchainItemSection, OnchainItemSectionName } from 'uniswap/src/components/lists/OnchainItemList/types'
-import { sendSearchOptionItemClickedAnalytics } from 'uniswap/src/features/search/SearchModal/analytics/analytics'
-import { SearchFilterContext } from 'uniswap/src/features/search/SearchModal/analytics/SearchContext'
-import { SearchTab } from 'uniswap/src/features/search/SearchModal/types'
-import { InterfaceEventName, MobileEventName } from 'uniswap/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
+} from 'lx/src/components/lists/items/types'
+import { OnchainItemSection, OnchainItemSectionName } from 'lx/src/components/lists/OnchainItemList/types'
+import { sendSearchOptionItemClickedAnalytics } from 'lx/src/features/search/SearchModal/analytics/analytics'
+import { SearchFilterContext } from 'lx/src/features/search/SearchModal/analytics/SearchContext'
+import { SearchTab } from 'lx/src/features/search/SearchModal/types'
+import { InterfaceEventName, MobileEventName } from 'lx/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
 import type { Mock } from 'vitest'
 
 // Use vi.hoisted to create a mutable mock value that can be changed between tests
 const mockPlatformState = vi.hoisted(() => ({ isMobileApp: false }))
 
-vi.mock('uniswap/src/features/telemetry/send')
+vi.mock('lx/src/features/telemetry/send')
 vi.mock('utilities/src/platform', () => ({
   get isMobileApp(): boolean {
     return mockPlatformState.isMobileApp

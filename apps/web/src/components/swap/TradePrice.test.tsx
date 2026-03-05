@@ -1,6 +1,6 @@
 import 'utilities/src/logger/mocks'
 import { Price, WETH9 } from '@uniswap/sdk-core'
-import { USDC_MAINNET } from 'uniswap/src/constants/tokens'
+import { USDC_MAINNET } from 'lx/src/constants/tokens'
 import TradePrice from '~/components/swap/TradePrice'
 import { fireEvent, render, screen } from '~/test-utils/render'
 

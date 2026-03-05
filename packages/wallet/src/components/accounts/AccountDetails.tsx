@@ -1,7 +1,7 @@
 import { ColorTokens, Flex, Text } from 'ui/src'
 import { RotatableChevron } from 'ui/src/components/icons'
 import { iconSizes } from 'ui/src/theme'
-import { AddressDisplay } from 'uniswap/src/components/accounts/AddressDisplay'
+import { AddressDisplay } from 'lx/src/components/accounts/AddressDisplay'
 import { shortenAddress } from 'utilities/src/addresses'
 
 export function AccountDetails({

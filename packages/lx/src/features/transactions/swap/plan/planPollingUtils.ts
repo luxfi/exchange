@@ -1,21 +1,21 @@
 import { call, put, type SagaGenerator, select } from 'typed-redux-saga'
-import { TradingApiSessionClient } from 'uniswap/src/data/apiClients/tradingApi/TradingApiSessionClient'
-import extractPlanResponseDetails from 'uniswap/src/features/activity/extract/extractPlanResponseDetails'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { selectPlanTransaction } from 'uniswap/src/features/transactions/selectors'
-import { transactionActions } from 'uniswap/src/features/transactions/slice'
-import { PlanWatcher } from 'uniswap/src/features/transactions/swap/plan/planWatcherSaga'
-import { activePlanStore } from 'uniswap/src/features/transactions/swap/review/stores/activePlan/activePlanStore'
+import { TradingApiSessionClient } from 'lx/src/data/apiClients/tradingApi/TradingApiSessionClient'
+import extractPlanResponseDetails from 'lx/src/features/activity/extract/extractPlanResponseDetails'
+import { UniverseChainId } from 'lx/src/features/chains/types'
+import { selectPlanTransaction } from 'lx/src/features/transactions/selectors'
+import { transactionActions } from 'lx/src/features/transactions/slice'
+import { PlanWatcher } from 'lx/src/features/transactions/swap/plan/planWatcherSaga'
+import { activePlanStore } from 'lx/src/features/transactions/swap/review/stores/activePlan/activePlanStore'
 import {
   PlanTransactionDetails,
   TransactionDetails,
   TransactionStatus,
-} from 'uniswap/src/features/transactions/types/transactionDetails'
+} from 'lx/src/features/transactions/types/transactionDetails'
 import {
   isFinalizedTx,
   isFinalizedTxStatus,
   isPlanTransactionDetails,
-} from 'uniswap/src/features/transactions/types/utils'
+} from 'lx/src/features/transactions/types/utils'
 import { logger } from 'utilities/src/logger/logger'
 import { ONE_HOUR_MS, ONE_SECOND_MS } from 'utilities/src/time/time'
 

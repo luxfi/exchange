@@ -1,12 +1,12 @@
 import {
   COPY_FEEDBACK_RESET_MS,
   MultichainAddressList,
-} from 'uniswap/src/components/MultichainTokenDetails/MultichainAddressList'
-import type { MultichainTokenEntry } from 'uniswap/src/components/MultichainTokenDetails/useOrderedMultichainEntries'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { ON_PRESS_EVENT_PAYLOAD } from 'uniswap/src/test/fixtures'
-import { TestID } from 'uniswap/src/test/fixtures/testIDs'
-import { act, fireEvent, render } from 'uniswap/src/test/test-utils'
+} from 'lx/src/components/MultichainTokenDetails/MultichainAddressList'
+import type { MultichainTokenEntry } from 'lx/src/components/MultichainTokenDetails/useOrderedMultichainEntries'
+import { UniverseChainId } from 'lx/src/features/chains/types'
+import { ON_PRESS_EVENT_PAYLOAD } from 'lx/src/test/fixtures'
+import { TestID } from 'lx/src/test/fixtures/testIDs'
+import { act, fireEvent, render } from 'lx/src/test/test-utils'
 
 vi.mock('utilities/src/addresses', async (importOriginal) => {
   return {

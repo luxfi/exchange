@@ -2,12 +2,12 @@
 import { TradingApi } from '@universe/api'
 import ms from 'ms'
 import { call, cancel, delay, fork } from 'typed-redux-saga'
-import { TradingApiSessionClient } from 'uniswap/src/data/apiClients/tradingApi/TradingApiSessionClient'
-import { getChainInfo } from 'uniswap/src/features/chains/chainInfo'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { HandledTransactionInterrupt } from 'uniswap/src/features/transactions/errors'
-import { TransactionStepType } from 'uniswap/src/features/transactions/steps/types'
-import { tradeRoutingToFillType } from 'uniswap/src/features/transactions/swap/analytics'
+import { TradingApiSessionClient } from 'lx/src/data/apiClients/tradingApi/TradingApiSessionClient'
+import { getChainInfo } from 'lx/src/features/chains/chainInfo'
+import { UniverseChainId } from 'lx/src/features/chains/types'
+import { HandledTransactionInterrupt } from 'lx/src/features/transactions/errors'
+import { TransactionStepType } from 'lx/src/features/transactions/steps/types'
+import { tradeRoutingToFillType } from 'lx/src/features/transactions/swap/analytics'
 import {
   backgroundPlan,
   buildTradeFromPlanResponse,
@@ -23,12 +23,12 @@ import {
   unlockPlanExecution,
   updateGlobalStateProofPending,
   updateGlobalStateWithLatestSteps,
-} from 'uniswap/src/features/transactions/swap/plan/planSagaUtils'
+} from 'lx/src/features/transactions/swap/plan/planSagaUtils'
 import {
   logPlanStepTradeAnalytics,
   logUniswapXPlanOrderSubmitted,
-} from 'uniswap/src/features/transactions/swap/plan/planStepAnalytics'
-import { TransactionAndPlanStep } from 'uniswap/src/features/transactions/swap/plan/planStepTransformer'
+} from 'lx/src/features/transactions/swap/plan/planStepAnalytics'
+import { TransactionAndPlanStep } from 'lx/src/features/transactions/swap/plan/planStepTransformer'
 import {
   AbortPlanError,
   ExpectedPlanError,
@@ -36,18 +36,18 @@ import {
   PlanPriceChangeInterrupt,
   type PlanSagaAnalytics,
   ShouldRetryPlanError,
-} from 'uniswap/src/features/transactions/swap/plan/types'
-import { findFirstActionableStep } from 'uniswap/src/features/transactions/swap/plan/utils'
-import { WatchPlanStepParams, watchPlanStep } from 'uniswap/src/features/transactions/swap/plan/watchPlanStepSaga'
-import { ValidatedChainedSwapTxAndGasInfo } from 'uniswap/src/features/transactions/swap/types/swapTxAndGasInfo'
+} from 'lx/src/features/transactions/swap/plan/types'
+import { findFirstActionableStep } from 'lx/src/features/transactions/swap/plan/utils'
+import { WatchPlanStepParams, watchPlanStep } from 'lx/src/features/transactions/swap/plan/watchPlanStepSaga'
+import { ValidatedChainedSwapTxAndGasInfo } from 'lx/src/features/transactions/swap/types/swapTxAndGasInfo'
 import {
   isChained,
   planStepTypeToTradingRoute,
   requireRouting,
-} from 'uniswap/src/features/transactions/swap/utils/routing'
-import { requireAcceptNewTrade } from 'uniswap/src/features/transactions/swap/utils/trade'
-import { tradingApiToUniverseChainId } from 'uniswap/src/features/transactions/swap/utils/tradingApi'
-import { createMonitoredSaga } from 'uniswap/src/utils/saga'
+} from 'lx/src/features/transactions/swap/utils/routing'
+import { requireAcceptNewTrade } from 'lx/src/features/transactions/swap/utils/trade'
+import { tradingApiToUniverseChainId } from 'lx/src/features/transactions/swap/utils/tradingApi'
+import { createMonitoredSaga } from 'lx/src/utils/saga'
 import { BackoffStrategy, retryWithBackoff } from 'utilities/src/async/retryWithBackoff'
 import { logger } from 'utilities/src/logger/logger'
 import { ONE_SECOND_MS } from 'utilities/src/time/time'

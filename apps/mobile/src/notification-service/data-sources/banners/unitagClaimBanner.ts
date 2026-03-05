@@ -8,12 +8,12 @@ import {
 import { BackgroundType, ContentStyle, type InAppNotification, OnClickAction, SharedQueryClient } from '@universe/api'
 import type { MobileState } from 'src/app/mobileReducer'
 import { BannerId, UNITAG_NAV_PREFIX } from 'src/notification-service/data-sources/banners/types'
-import { AccountType } from 'uniswap/src/features/accounts/types'
-import { Platform } from 'uniswap/src/features/platforms/types/Platform'
-import { UNITAG_SUFFIX_NO_LEADING_DOT } from 'uniswap/src/features/unitags/constants'
-import i18n from 'uniswap/src/i18n'
-import { UnitagScreens } from 'uniswap/src/types/screens/mobile'
-import { getValidAddress } from 'uniswap/src/utils/addresses'
+import { AccountType } from 'lx/src/features/accounts/types'
+import { Platform } from 'lx/src/features/platforms/types/Platform'
+import { UNITAG_SUFFIX_NO_LEADING_DOT } from 'lx/src/features/unitags/constants'
+import i18n from 'lx/src/i18n'
+import { UnitagScreens } from 'lx/src/types/screens/mobile'
+import { getValidAddress } from 'lx/src/utils/addresses'
 import { ReactQueryCacheKey } from 'utilities/src/reactQuery/cache'
 
 /**

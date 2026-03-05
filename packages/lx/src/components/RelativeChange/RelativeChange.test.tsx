@@ -5,8 +5,8 @@ import { renderWithProviders } from 'lx/src/test/render'
 
 const mockLocale = Locale.EnglishUnitedStates
 
-vi.mock('uniswap/src/features/language/hooks', async (importOriginal) => {
-  const actual = await importOriginal<typeof import('uniswap/src/features/language/hooks')>()
+vi.mock('lx/src/features/language/hooks', async (importOriginal) => {
+  const actual = await importOriginal<typeof import('lx/src/features/language/hooks')>()
   return {
     ...actual,
     useCurrentLocale: (): Locale => mockLocale,
@@ -24,7 +24,7 @@ const mockFiatCurrencyInfo: FiatCurrencyInfo = {
   symbolAtFront: true,
 }
 
-vi.mock('uniswap/src/features/fiatCurrency/hooks', () => ({
+vi.mock('lx/src/features/fiatCurrency/hooks', () => ({
   useAppFiatCurrencyInfo: (): FiatCurrencyInfo => mockFiatCurrencyInfo,
 }))
 

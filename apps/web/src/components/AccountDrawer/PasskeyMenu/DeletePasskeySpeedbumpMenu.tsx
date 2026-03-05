@@ -1,9 +1,9 @@
 import { Dispatch, SetStateAction } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Button, Flex, Text } from 'ui/src'
-import WarningIcon from 'uniswap/src/components/warnings/WarningIcon'
-import { ElementName, ModalName } from 'uniswap/src/features/telemetry/constants'
-import Trace from 'uniswap/src/features/telemetry/Trace'
+import WarningIcon from 'lx/src/components/warnings/WarningIcon'
+import { ElementName, ModalName } from 'lx/src/features/telemetry/constants'
+import Trace from 'lx/src/features/telemetry/Trace'
 import { GenericPasskeyMenuModal, PasskeyMenuModalState } from '~/components/AccountDrawer/PasskeyMenu/PasskeyMenuModal'
 
 export function DeletePasskeySpeedbumpMenu({

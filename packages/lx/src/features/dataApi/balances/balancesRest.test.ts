@@ -1,8 +1,8 @@
 import {
   convertRestBalanceToPortfolioBalance,
   createPortfolioCacheUpdater,
-} from 'uniswap/src/features/dataApi/balances/balancesRest'
-import { CurrencyInfo } from 'uniswap/src/features/dataApi/types'
+} from 'lx/src/features/dataApi/balances/balancesRest'
+import { CurrencyInfo } from 'lx/src/features/dataApi/types'
 
 const mockPortfolioData = {
   portfolio: {

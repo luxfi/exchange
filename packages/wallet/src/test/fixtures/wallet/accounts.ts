@@ -1,7 +1,7 @@
-import { AccountType } from 'uniswap/src/features/accounts/types'
-import { SAMPLE_SEED_ADDRESS_1, SAMPLE_SEED_ADDRESS_2, SAMPLE_SEED_ADDRESS_3 } from 'uniswap/src/test/fixtures'
-import { faker } from 'uniswap/src/test/shared'
-import { createFixture, randomEnumValue } from 'uniswap/src/test/utils'
+import { AccountType } from 'lx/src/features/accounts/types'
+import { SAMPLE_SEED_ADDRESS_1, SAMPLE_SEED_ADDRESS_2, SAMPLE_SEED_ADDRESS_3 } from 'lx/src/test/fixtures'
+import { faker } from 'lx/src/test/shared'
+import { createFixture, randomEnumValue } from 'lx/src/test/utils'
 import {
   BackupType,
   ReadOnlyAccount,

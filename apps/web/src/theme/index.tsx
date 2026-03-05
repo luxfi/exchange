@@ -1,6 +1,6 @@
 import { PropsWithChildren, useMemo } from 'react'
 import { breakpoints } from 'ui/src/theme'
-import { useSelectedColorScheme } from 'uniswap/src/features/appearance/hooks'
+import { useSelectedColorScheme } from 'lx/src/features/appearance/hooks'
 import { createGlobalStyle, css, ThemeProvider as StyledComponentsThemeProvider } from '~/lib/deprecated-styled'
 import { darkTheme, lightTheme, ThemeColors } from '~/theme/colors'
 import { darkDeprecatedTheme, lightDeprecatedTheme } from '~/theme/deprecatedColors'

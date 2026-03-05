@@ -6,9 +6,9 @@ import {
   QuadLogo,
   SingleLogo,
   TripleLogo,
-} from 'uniswap/src/components/network/NetworkPile/NetworkPileLayouts'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+} from 'lx/src/components/network/NetworkPile/NetworkPileLayouts'
+import { UniverseChainId } from 'lx/src/features/chains/types'
+import { TestID } from 'lx/src/test/fixtures/testIDs'
 
 export type NetworkPileSize = 'default' | 'small'
 

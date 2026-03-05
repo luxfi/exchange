@@ -2,19 +2,19 @@ import '~/test-utils/tokens/mocks'
 import 'utilities/src/logger/mocks'
 import { WETH9 } from '@uniswap/sdk-core'
 import { TradingApi } from '@universe/api'
-import { DAI } from 'uniswap/src/constants/tokens'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { DAI } from 'lx/src/constants/tokens'
+import { UniverseChainId } from 'lx/src/features/chains/types'
 import {
   TransactionOriginType,
   TransactionStatus,
   TransactionType,
   UniswapXOrderDetails,
-} from 'uniswap/src/features/transactions/types/transactionDetails'
-import { currencyId } from 'uniswap/src/utils/currencyId'
+} from 'lx/src/features/transactions/types/transactionDetails'
+import { currencyId } from 'lx/src/utils/currencyId'
 import { OrderContent } from '~/components/AccountDrawer/MiniPortfolio/Activity/OffchainActivityModal'
 import { render } from '~/test-utils/render'
 
-vi.mock('uniswap/src/features/language/localizedDayjs', () => ({
+vi.mock('lx/src/features/language/localizedDayjs', () => ({
   useFormattedDateTime: vi.fn(() => 'Mock Date'),
   useLocalizedDayjs: vi.fn(() => (timestamp: number) => timestamp), // Returns timestamp as-is since useFormattedDateTime is mocked
   FORMAT_DATE_TIME_SHORT: 'lll',

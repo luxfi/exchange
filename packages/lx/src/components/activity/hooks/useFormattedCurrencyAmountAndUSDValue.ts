@@ -1,8 +1,8 @@
 import { Currency } from '@uniswap/sdk-core'
-import { PollingInterval } from 'uniswap/src/constants/misc'
-import { LocalizationContextState } from 'uniswap/src/features/language/LocalizationContext'
-import { getCurrencyAmount, ValueType } from 'uniswap/src/features/tokens/getCurrencyAmount'
-import { useUSDCValue } from 'uniswap/src/features/transactions/hooks/useUSDCPriceWrapper'
+import { PollingInterval } from 'lx/src/constants/misc'
+import { LocalizationContextState } from 'lx/src/features/language/LocalizationContext'
+import { getCurrencyAmount, ValueType } from 'lx/src/features/tokens/getCurrencyAmount'
+import { useUSDCValue } from 'lx/src/features/transactions/hooks/useUSDCPriceWrapper'
 import { NumberType } from 'utilities/src/format/types'
 
 export function useFormattedCurrencyAmountAndUSDValue({

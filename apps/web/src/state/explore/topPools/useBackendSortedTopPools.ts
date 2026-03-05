@@ -1,12 +1,12 @@
 import { InfiniteData, useInfiniteQuery } from '@tanstack/react-query'
 import { type DataApiPool, type ListTopPoolsResponse, ProtocolVersion, TopPoolsOrderBy } from '@universe/api'
 import { useMemo } from 'react'
-import { DEFAULT_TICK_SPACING } from 'uniswap/src/constants/pools'
-import { dataApiQueries } from 'uniswap/src/data/apiClients/dataApiService/dataApiQueries'
-import { normalizeTokenAddressForCache } from 'uniswap/src/data/cache'
-import { useEnabledChains } from 'uniswap/src/features/chains/hooks/useEnabledChains'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { toGraphQLChain } from 'uniswap/src/features/chains/utils'
+import { DEFAULT_TICK_SPACING } from 'lx/src/constants/pools'
+import { dataApiQueries } from 'lx/src/data/apiClients/dataApiService/dataApiQueries'
+import { normalizeTokenAddressForCache } from 'lx/src/data/cache'
+import { useEnabledChains } from 'lx/src/features/chains/hooks/useEnabledChains'
+import { UniverseChainId } from 'lx/src/features/chains/types'
+import { toGraphQLChain } from 'lx/src/features/chains/utils'
 import {
   calculate1DVolOverTvl,
   calculateApr,

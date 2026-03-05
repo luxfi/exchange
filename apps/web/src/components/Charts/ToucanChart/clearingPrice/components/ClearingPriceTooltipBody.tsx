@@ -1,6 +1,6 @@
 import { useMemo } from 'react'
 import { Flex, Text } from 'ui/src'
-import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
+import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
 import { NumberType } from 'utilities/src/format/types'
 import type { ClearingPriceChartPoint } from '~/components/Charts/ToucanChart/clearingPrice/types'
 import type { BidTokenInfo } from '~/components/Toucan/Auction/store/types'

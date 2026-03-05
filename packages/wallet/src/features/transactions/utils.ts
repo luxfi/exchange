@@ -1,10 +1,10 @@
 import { Currency } from '@uniswap/sdk-core'
 import { BigNumber, providers } from 'ethers'
 import { formatEther } from 'ethers/lib/utils'
-import { getChainInfo } from 'uniswap/src/features/chains/chainInfo'
-import { UniverseChainId, UniverseChainInfo } from 'uniswap/src/features/chains/types'
-import { getCurrencyAmount, ValueType } from 'uniswap/src/features/tokens/getCurrencyAmount'
-import { isBridge, isClassic } from 'uniswap/src/features/transactions/swap/utils/routing'
+import { getChainInfo } from 'lx/src/features/chains/chainInfo'
+import { UniverseChainId, UniverseChainInfo } from 'lx/src/features/chains/types'
+import { getCurrencyAmount, ValueType } from 'lx/src/features/tokens/getCurrencyAmount'
+import { isBridge, isClassic } from 'lx/src/features/transactions/swap/utils/routing'
 import {
   FinalizedTransactionStatus,
   TransactionDetails,
@@ -12,8 +12,8 @@ import {
   TransactionOptions,
   TransactionStatus,
   TransactionType,
-} from 'uniswap/src/features/transactions/types/transactionDetails'
-import { receiptFromEthersReceipt } from 'uniswap/src/features/transactions/utils/receipt'
+} from 'lx/src/features/transactions/types/transactionDetails'
+import { receiptFromEthersReceipt } from 'lx/src/features/transactions/utils/receipt'
 
 export function getSerializableTransactionRequest(
   request: providers.TransactionRequest,

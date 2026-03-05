@@ -1,7 +1,7 @@
-import { createUseActiveAccount } from 'uniswap/src/features/accounts/store/utils/accounts'
-import { createUseActiveAddress, createUseActiveAddresses } from 'uniswap/src/features/accounts/store/utils/addresses'
-import { createUseAccountsStore } from 'uniswap/src/features/accounts/store/utils/createUseAccountsStore'
-import { createUseActiveWallet } from 'uniswap/src/features/accounts/store/utils/wallets'
+import { createUseActiveAccount } from 'lx/src/features/accounts/store/utils/accounts'
+import { createUseActiveAddress, createUseActiveAddresses } from 'lx/src/features/accounts/store/utils/addresses'
+import { createUseAccountsStore } from 'lx/src/features/accounts/store/utils/createUseAccountsStore'
+import { createUseActiveWallet } from 'lx/src/features/accounts/store/utils/wallets'
 import { useAccountsStoreContext } from 'wallet/src/features/accounts/store/provider'
 
 export const useAccountsStore = createUseAccountsStore(useAccountsStoreContext)

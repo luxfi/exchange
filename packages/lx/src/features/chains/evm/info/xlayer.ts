@@ -6,19 +6,19 @@ import {
   DEFAULT_NATIVE_ADDRESS_LEGACY,
   DEFAULT_RETRY_OPTIONS,
   getQuicknodeEndpointUrl,
-} from 'uniswap/src/features/chains/evm/rpc'
-import { buildChainTokens } from 'uniswap/src/features/chains/evm/tokens'
-import { GENERIC_L2_GAS_CONFIG } from 'uniswap/src/features/chains/gasDefaults'
+} from 'lx/src/features/chains/evm/rpc'
+import { buildChainTokens } from 'lx/src/features/chains/evm/tokens'
+import { GENERIC_L2_GAS_CONFIG } from 'lx/src/features/chains/gasDefaults'
 import {
   GqlChainId,
   NetworkLayer,
   RPCType,
   UniverseChainId,
   UniverseChainInfo,
-} from 'uniswap/src/features/chains/types'
-import { Platform } from 'uniswap/src/features/platforms/types/Platform'
-import { ElementName } from 'uniswap/src/features/telemetry/constants'
-import { buildUSDC } from 'uniswap/src/features/tokens/stablecoin'
+} from 'lx/src/features/chains/types'
+import { Platform } from 'lx/src/features/platforms/types/Platform'
+import { ElementName } from 'lx/src/features/telemetry/constants'
+import { buildUSDC } from 'lx/src/features/tokens/stablecoin'
 import { xLayer } from 'wagmi/chains'
 
 const tokens = buildChainTokens({

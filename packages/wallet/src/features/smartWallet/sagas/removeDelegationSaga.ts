@@ -1,11 +1,11 @@
 import { TransactionRequest, TransactionResponse } from '@ethersproject/providers'
 import { call } from 'typed-redux-saga'
-import { fetchGasFeeQuery } from 'uniswap/src/data/apiClients/uniswapApi/useGasFeeQuery'
-import { SignerMnemonicAccountMeta } from 'uniswap/src/features/accounts/types'
-import { DEFAULT_NATIVE_ADDRESS } from 'uniswap/src/features/chains/evm/defaults'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { TransactionOriginType, TransactionType } from 'uniswap/src/features/transactions/types/transactionDetails'
-import { createMonitoredSaga } from 'uniswap/src/utils/saga'
+import { fetchGasFeeQuery } from 'lx/src/data/apiClients/uniswapApi/useGasFeeQuery'
+import { SignerMnemonicAccountMeta } from 'lx/src/features/accounts/types'
+import { DEFAULT_NATIVE_ADDRESS } from 'lx/src/features/chains/evm/defaults'
+import { UniverseChainId } from 'lx/src/features/chains/types'
+import { TransactionOriginType, TransactionType } from 'lx/src/features/transactions/types/transactionDetails'
+import { createMonitoredSaga } from 'lx/src/utils/saga'
 import { logger } from 'utilities/src/logger/logger'
 import {
   ExecuteTransactionParams,

@@ -1,4 +1,4 @@
-import { createSafeMigration, createSafeMigrationFactory } from 'uniswap/src/state/createSafeMigration'
+import { createSafeMigration, createSafeMigrationFactory } from 'lx/src/state/createSafeMigration'
 import { vi } from 'vitest'
 
 type TestState = {

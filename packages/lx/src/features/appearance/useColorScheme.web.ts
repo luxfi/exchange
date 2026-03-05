@@ -1,5 +1,5 @@
 import { useEffect, useLayoutEffect, useState } from 'react'
-import { type ColorScheme } from 'uniswap/src/features/appearance/types'
+import { type ColorScheme } from 'lx/src/features/appearance/types'
 import { logger } from 'utilities/src/logger/logger'
 import { isBrowser } from 'utilities/src/platform'
 import { useEvent } from 'utilities/src/react/hooks'

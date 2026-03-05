@@ -1,4 +1,4 @@
-import { CONNECTION_PROVIDER_IDS } from 'uniswap/src/constants/web3'
+import { CONNECTION_PROVIDER_IDS } from 'lx/src/constants/web3'
 import { WalletConnectorOption } from '~/components/WalletModal/WalletConnectorOption'
 import { useWalletWithId } from '~/features/accounts/store/hooks'
 

@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query'
-import { useUnitagsClaimEligibilityQuery } from 'uniswap/src/data/apiClients/unitagsApi/useUnitagsClaimEligibilityQuery'
+import { useUnitagsClaimEligibilityQuery } from 'lx/src/data/apiClients/unitagsApi/useUnitagsClaimEligibilityQuery'
 import { uniqueIdQuery } from 'utilities/src/device/uniqueIdQuery'
 import { useActiveAccountAddressWithThrow } from 'wallet/src/features/wallet/hooks'
 

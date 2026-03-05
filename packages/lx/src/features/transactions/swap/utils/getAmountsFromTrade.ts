@@ -5,12 +5,12 @@ import {
   ExactInputSwapTransactionInfo,
   ExactOutputSwapTransactionInfo,
   PlanTransactionInfo,
-} from 'uniswap/src/features/transactions/types/transactionDetails'
+} from 'lx/src/features/transactions/types/transactionDetails'
 import {
   isBridgeTypeInfo,
   isConfirmedSwapTypeInfo,
   isPlanTransactionInfo,
-} from 'uniswap/src/features/transactions/types/utils'
+} from 'lx/src/features/transactions/types/utils'
 
 export function getAmountsFromTrade(
   typeInfo:

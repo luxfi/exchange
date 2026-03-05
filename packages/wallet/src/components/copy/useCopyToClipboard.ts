@@ -1,4 +1,4 @@
-import { CopyNotificationType } from 'uniswap/src/features/notifications/slice/types'
+import { CopyNotificationType } from 'lx/src/features/notifications/slice/types'
 import { PlatformSplitStubError } from 'utilities/src/errors'
 
 export interface CopyToClipboardParams {

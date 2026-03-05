@@ -8,7 +8,7 @@ import { OnboardingScreens } from 'lx/src/types/screens/mobile'
 import { setHasCopiedPrivateKeys } from 'wallet/src/features/behaviorHistory/slice'
 import { restoreMnemonicComplete } from 'wallet/src/features/wallet/slice'
 
-jest.mock('uniswap/src/features/telemetry/send', () => ({
+jest.mock('lx/src/features/telemetry/send', () => ({
   sendAnalyticsEvent: jest.fn(),
 }))
 

@@ -1,13 +1,13 @@
 import { useCallback, useMemo } from 'react'
-import type { ActivityItem } from 'uniswap/src/components/activity/generateActivityItemRenderer'
-import type { SwapSummaryCallbacks } from 'uniswap/src/components/activity/types'
+import type { ActivityItem } from 'lx/src/components/activity/generateActivityItemRenderer'
+import type { SwapSummaryCallbacks } from 'lx/src/components/activity/types'
 import {
   type ActivityRenderData,
   type UseActivityDataProps,
   useActivityData,
-} from 'uniswap/src/features/activity/hooks/useActivityData'
-import { useMostRecentSwapTx } from 'uniswap/src/features/transactions/swap/hooks/useMostRecentSwapTx'
-import type { TransactionState } from 'uniswap/src/features/transactions/types/transactionState'
+} from 'lx/src/features/activity/hooks/useActivityData'
+import { useMostRecentSwapTx } from 'lx/src/features/transactions/swap/hooks/useMostRecentSwapTx'
+import type { TransactionState } from 'lx/src/features/transactions/types/transactionState'
 import { useWalletNavigation } from 'wallet/src/contexts/WalletNavigationContext'
 import { useRestOnRampAuth } from 'wallet/src/features/activity/useRestOnRampAuth'
 import { useCreateSwapFormState } from 'wallet/src/features/transactions/hooks/useCreateSwapFormState'

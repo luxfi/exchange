@@ -1,4 +1,4 @@
-import type { Warning } from 'uniswap/src/components/modals/WarningModal/types'
+import type { Warning } from 'lx/src/components/modals/WarningModal/types'
 
 export interface PendingSwapButtonProps {
   disabled: boolean

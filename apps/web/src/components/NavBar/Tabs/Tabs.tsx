@@ -1,8 +1,8 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { NavLink, useLocation } from 'react-router'
 import { Flex, Popover, styled, Text } from 'ui/src'
-import { ElementName } from 'uniswap/src/features/telemetry/constants'
-import Trace from 'uniswap/src/features/telemetry/Trace'
+import { ElementName } from 'lx/src/features/telemetry/constants'
+import Trace from 'lx/src/features/telemetry/Trace'
 import { NavDropdown, NavDropdownTabWrapper } from '~/components/NavBar/NavDropdown/index'
 import { TabsItem, TabsSection, useTabsContent } from '~/components/NavBar/Tabs/TabsContent'
 

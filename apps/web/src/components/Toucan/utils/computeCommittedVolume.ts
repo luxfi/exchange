@@ -1,4 +1,4 @@
-import type { CurrencyInfo } from 'uniswap/src/features/dataApi/types'
+import type { CurrencyInfo } from 'lx/src/features/dataApi/types'
 import { approximateNumberFromRaw, formatTokenAmountWithSymbol } from '~/components/Toucan/Auction/utils/fixedPointFdv'
 import type { AuctionWithCurrencyInfo } from '~/state/explore/topAuctions/useTopAuctions'
 

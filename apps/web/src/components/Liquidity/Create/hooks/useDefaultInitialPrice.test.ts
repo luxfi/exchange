@@ -1,14 +1,14 @@
 import { CurrencyAmount, TradeType } from '@uniswap/sdk-core'
 import JSBI from 'jsbi'
-import { PollingInterval } from 'uniswap/src/constants/misc'
-import { USDC } from 'uniswap/src/constants/tokens'
-import { useTrade } from 'uniswap/src/features/transactions/swap/hooks/useTrade'
-import { ETH } from 'uniswap/src/test/fixtures/lib/sdk'
+import { PollingInterval } from 'lx/src/constants/misc'
+import { USDC } from 'lx/src/constants/tokens'
+import { useTrade } from 'lx/src/features/transactions/swap/hooks/useTrade'
+import { ETH } from 'lx/src/test/fixtures/lib/sdk'
 import { useDefaultInitialPrice } from '~/components/Liquidity/Create/hooks/useDefaultInitialPrice'
 import { renderHook } from '~/test-utils/render'
 import { PositionField } from '~/types/position'
 
-vi.mock('uniswap/src/features/transactions/swap/hooks/useTrade', () => ({
+vi.mock('lx/src/features/transactions/swap/hooks/useTrade', () => ({
   useTrade: vi.fn(),
 }))
 

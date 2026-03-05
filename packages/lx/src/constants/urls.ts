@@ -6,7 +6,7 @@ import {
   TrafficFlows,
 } from '@universe/api'
 import { FeatureFlags, getFeatureFlag } from '@universe/gating'
-import { config } from 'uniswap/src/config'
+import { config } from 'lx/src/config'
 import { isDevEnv, isPlaywrightEnv } from 'utilities/src/environment/env'
 import { isWebApp } from 'utilities/src/platform'
 

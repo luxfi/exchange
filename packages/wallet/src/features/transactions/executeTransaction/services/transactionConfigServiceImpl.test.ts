@@ -1,5 +1,5 @@
 import { FeatureFlags } from '@universe/gating'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { UniverseChainId } from 'lx/src/features/chains/types'
 import { logger as loggerUtil } from 'utilities/src/logger/logger'
 import { isPrivateRpcSupportedOnChain } from 'wallet/src/features/providers/utils'
 import { FeatureFlagService } from 'wallet/src/features/transactions/executeTransaction/services/featureFlagService'

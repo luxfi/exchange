@@ -1,8 +1,8 @@
 import { permit2Address } from '@uniswap/permit2-sdk'
 import { Currency, CurrencyAmount } from '@uniswap/sdk-core'
 import { GasEstimate, TradingApi } from '@universe/api'
-import { ValidatedSwapTxContext } from 'uniswap/src/features/transactions/swap/types/swapTxAndGasInfo'
-import { tradeToTransactionInfo } from 'uniswap/src/features/transactions/swap/utils/trade'
+import { ValidatedSwapTxContext } from 'lx/src/features/transactions/swap/types/swapTxAndGasInfo'
+import { tradeToTransactionInfo } from 'lx/src/features/transactions/swap/utils/trade'
 import {
   ApproveTransactionInfo,
   BridgeTransactionInfo,
@@ -13,7 +13,7 @@ import {
   TransactionOriginType,
   TransactionType,
   WrapTransactionInfo,
-} from 'uniswap/src/features/transactions/types/transactionDetails'
+} from 'lx/src/features/transactions/types/transactionDetails'
 import { SubmitTransactionParamsWithTypeInfo } from 'wallet/src/features/transactions/executeTransaction/services/TransactionService/transactionService'
 import { SignedTransactionRequest } from 'wallet/src/features/transactions/executeTransaction/types'
 import { SubmitUniswapXOrderParams } from 'wallet/src/features/transactions/swap/submitOrderSaga'

@@ -1,5 +1,5 @@
 import { OriginApplication } from '@uniswap/analytics'
-import { uniswapUrls } from 'uniswap/src/constants/urls'
+import { uniswapUrls } from 'lx/src/constants/urls'
 import { isTestEnv } from 'utilities/src/environment/env'
 import { logger } from 'utilities/src/logger/logger'
 import { ApplicationTransport } from 'utilities/src/telemetry/analytics/ApplicationTransport'

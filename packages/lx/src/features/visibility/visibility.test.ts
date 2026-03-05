@@ -1,11 +1,11 @@
 /* biome-ignore-all lint/suspicious/noExplicitAny: legacy code needs review */
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { UniverseChainId } from 'lx/src/features/chains/types'
 import {
   selectActivityVisibility,
   selectNftsVisibility,
   selectPositionsVisibility,
   selectTokensVisibility,
-} from 'uniswap/src/features/visibility/selectors'
+} from 'lx/src/features/visibility/selectors'
 import {
   setActivityVisibility,
   setNftVisibility,
@@ -13,11 +13,11 @@ import {
   setTokenVisibility,
   VisibilityState,
   visibilityReducer,
-} from 'uniswap/src/features/visibility/slice'
-import { getUniquePositionId } from 'uniswap/src/features/visibility/utils'
+} from 'lx/src/features/visibility/slice'
+import { getUniquePositionId } from 'lx/src/features/visibility/utils'
 import type { Mock } from 'vitest'
 
-vi.mock('uniswap/src/features/visibility/utils', () => ({
+vi.mock('lx/src/features/visibility/utils', () => ({
   getUniquePositionId: vi.fn(),
 }))
 

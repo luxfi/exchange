@@ -8,7 +8,7 @@ import { type SignRequest } from 'src/features/walletConnect/walletConnectSlice'
 import { Flex, UniversalImage, useIsDarkMode } from 'ui/src'
 import { UniversalImageResizeMode } from 'ui/src/components/UniversalImage/types'
 import { spacing } from 'ui/src/theme'
-import { ModalName } from 'uniswap/src/features/telemetry/constants'
+import { ModalName } from 'lx/src/features/telemetry/constants'
 
 type Props = {
   onClose: () => void

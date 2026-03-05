@@ -26,8 +26,8 @@ const HIDDEN_KEYBOARD_Y = Dimensions.get('window').height
 const SHOWN_KEYBOARD_Y = HIDDEN_KEYBOARD_Y - KEYBOARD_HEIGHT
 
 // Use native useKeyboardLayout implementation
-vi.mock('uniswap/src/utils/useKeyboardLayout', async (importOriginal) => {
-  return await vi.importActual('uniswap/src/utils/useKeyboardLayout.native.ts')
+vi.mock('lx/src/utils/useKeyboardLayout', async (importOriginal) => {
+  return await vi.importActual('lx/src/utils/useKeyboardLayout.native.ts')
 })
 
 const showKeyboard = async (): Promise<void> => {

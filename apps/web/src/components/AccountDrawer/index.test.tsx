@@ -1,4 +1,4 @@
-import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+import { TestID } from 'lx/src/test/fixtures/testIDs'
 import AccountDrawer, { MODAL_WIDTH } from '~/components/AccountDrawer'
 import { useIsUniswapExtensionConnected } from '~/hooks/useIsUniswapExtensionConnected'
 import { mocked } from '~/test-utils/mocked'
@@ -22,7 +22,7 @@ vi.mock('~/components/AccountDrawer/MiniPortfolio/hooks', async (importOriginal)
   }
 })
 
-vi.mock('uniswap/src/features/accounts/store/hooks', () => ({
+vi.mock('lx/src/features/accounts/store/hooks', () => ({
   useActiveAddresses: vi.fn(() => ({
     evmAddress: '0x0000000000000000000000000000000000000000',
     svmAddress: undefined,
@@ -53,7 +53,7 @@ vi.mock('tamagui', async () => {
   }
 })
 
-vi.mock('uniswap/src/components/AnimatedNumber/AnimatedNumber', () => {
+vi.mock('lx/src/components/AnimatedNumber/AnimatedNumber', () => {
   const mockAnimatedNumber = ({ value }: { value: number }) => {
     return <div>{value}</div>
   }

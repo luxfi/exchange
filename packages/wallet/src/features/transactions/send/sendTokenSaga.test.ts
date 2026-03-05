@@ -2,16 +2,16 @@ import { BigNumber } from '@ethersproject/bignumber'
 import { call } from '@redux-saga/core/effects'
 import { expectSaga } from 'redux-saga-test-plan'
 import * as matchers from 'redux-saga-test-plan/matchers'
-import { getNativeAddress } from 'uniswap/src/constants/addresses'
-import { DAI } from 'uniswap/src/constants/tokens'
-import { AssetType } from 'uniswap/src/entities/assets'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { getNativeAddress } from 'lx/src/constants/addresses'
+import { DAI } from 'lx/src/constants/tokens'
+import { AssetType } from 'lx/src/entities/assets'
+import { UniverseChainId } from 'lx/src/features/chains/types'
 import {
   SendTokenTransactionInfo,
   TransactionOriginType,
   TransactionType,
-} from 'uniswap/src/features/transactions/types/transactionDetails'
-import { getTxFixtures } from 'uniswap/src/test/fixtures'
+} from 'lx/src/features/transactions/types/transactionDetails'
+import { getTxFixtures } from 'lx/src/test/fixtures'
 import { noOpFunction } from 'utilities/src/test/utils'
 import { executeTransaction } from 'wallet/src/features/transactions/executeTransaction/executeTransactionSaga'
 import { sendToken } from 'wallet/src/features/transactions/send/sendTokenSaga'
@@ -20,7 +20,7 @@ import { getContractManager, getProvider } from 'wallet/src/features/wallet/cont
 import { signerMnemonicAccount } from 'wallet/src/test/fixtures'
 import { getTxProvidersMocks, mockContractManager } from 'wallet/src/test/mocks'
 
-jest.mock('uniswap/src/features/telemetry/send')
+jest.mock('lx/src/features/telemetry/send')
 
 const account = signerMnemonicAccount()
 

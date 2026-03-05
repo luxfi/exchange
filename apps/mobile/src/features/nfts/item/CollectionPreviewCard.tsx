@@ -6,8 +6,8 @@ import { PriceAmount } from 'src/features/nfts/collection/ListPriceCard'
 import { Flex, Text, TouchableArea, useSporeColors } from 'ui/src'
 import { RotatableChevron, Verified } from 'ui/src/components/icons'
 import { imageSizes, spacing } from 'ui/src/theme'
-import { NFTViewer } from 'uniswap/src/components/nfts/NFTViewer'
-import { NFTItem } from 'uniswap/src/features/nfts/types'
+import { NFTViewer } from 'lx/src/components/nfts/NFTViewer'
+import { NFTItem } from 'lx/src/features/nfts/types'
 
 type Collection = NonNullable<
   NonNullable<NonNullable<GraphQLApi.NftItemScreenQuery['nftAssets']>>['edges'][0]

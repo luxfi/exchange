@@ -2,12 +2,12 @@ import { memo, ReactNode } from 'react'
 import { Flex } from 'ui/src'
 import { Shuffle } from 'ui/src/components/icons/Shuffle'
 import { zIndexes } from 'ui/src/theme'
-import { CurrencyLogo, STATUS_RATIO } from 'uniswap/src/components/CurrencyLogo/CurrencyLogo'
-import { TransactionSummaryNetworkLogo } from 'uniswap/src/components/CurrencyLogo/NetworkLogo'
-import { TokenLogo } from 'uniswap/src/components/CurrencyLogo/TokenLogo'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { CurrencyInfo } from 'uniswap/src/features/dataApi/types'
-import { TransactionStatus } from 'uniswap/src/features/transactions/types/transactionDetails'
+import { CurrencyLogo, STATUS_RATIO } from 'lx/src/components/CurrencyLogo/CurrencyLogo'
+import { TransactionSummaryNetworkLogo } from 'lx/src/components/CurrencyLogo/NetworkLogo'
+import { TokenLogo } from 'lx/src/components/CurrencyLogo/TokenLogo'
+import { UniverseChainId } from 'lx/src/features/chains/types'
+import { CurrencyInfo } from 'lx/src/features/dataApi/types'
+import { TransactionStatus } from 'lx/src/features/transactions/types/transactionDetails'
 
 interface Props {
   inputCurrencyInfo: Maybe<CurrencyInfo>

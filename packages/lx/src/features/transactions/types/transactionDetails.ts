@@ -3,12 +3,12 @@ import { Protocol } from '@uniswap/router-sdk'
 import { Currency, CurrencyAmount, TradeType } from '@uniswap/sdk-core'
 import { GasEstimate, GraphQLApi, TradingApi } from '@universe/api'
 import { providers } from 'ethers/lib/ethers'
-import { AssetType } from 'uniswap/src/entities/assets'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import type { SwapRouting } from 'uniswap/src/features/telemetry/types'
-import { ValueType } from 'uniswap/src/features/tokens/getCurrencyAmount'
-import { CurrencyId } from 'uniswap/src/types/currency'
-import { DappRequestInfo, EthTransaction } from 'uniswap/src/types/walletConnect'
+import { AssetType } from 'lx/src/entities/assets'
+import { UniverseChainId } from 'lx/src/features/chains/types'
+import type { SwapRouting } from 'lx/src/features/telemetry/types'
+import { ValueType } from 'lx/src/features/tokens/getCurrencyAmount'
+import { CurrencyId } from 'lx/src/types/currency'
+import { DappRequestInfo, EthTransaction } from 'lx/src/types/walletConnect'
 
 export type ChainIdToTxIdToDetails = Partial<
   Record<UniverseChainId, { [txId: string]: TransactionDetails | InterfaceTransactionDetails }>

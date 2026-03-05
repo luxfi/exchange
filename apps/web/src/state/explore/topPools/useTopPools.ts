@@ -1,5 +1,5 @@
 import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { UniverseChainId } from 'lx/src/features/chains/types'
 import { PoolTableSortState } from '~/appGraphql/data/pools/useTopPools'
 import { useExploreContextTopPools } from '~/state/explore/topPools'
 import { useBackendSortedTopPools } from '~/state/explore/topPools/useBackendSortedTopPools'

@@ -1,4 +1,4 @@
-import { type ColorScheme } from 'uniswap/src/features/appearance/types'
+import { type ColorScheme } from 'lx/src/features/appearance/types'
 import { PlatformSplitStubError } from 'utilities/src/errors'
 
 export const useColorScheme = (): ColorScheme => {

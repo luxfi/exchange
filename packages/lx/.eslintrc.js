@@ -64,7 +64,7 @@ module.exports = {
           'error',
           {
             allowSameFolder: false,
-            prefix: 'uniswap',
+            prefix: 'lx',
           },
         ],
       },

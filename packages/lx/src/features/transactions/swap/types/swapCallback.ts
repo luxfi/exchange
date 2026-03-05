@@ -1,7 +1,7 @@
 import { Currency, CurrencyAmount } from '@uniswap/sdk-core'
-import type { PresetPercentage } from 'uniswap/src/components/CurrencyInputPanel/AmountInputPresets/types'
-import { TransactionStep } from 'uniswap/src/features/transactions/steps/types'
-import { ValidatedSwapTxContext } from 'uniswap/src/features/transactions/swap/types/swapTxAndGasInfo'
+import type { PresetPercentage } from 'lx/src/components/CurrencyInputPanel/AmountInputPresets/types'
+import { TransactionStep } from 'lx/src/features/transactions/steps/types'
+import { ValidatedSwapTxContext } from 'lx/src/features/transactions/swap/types/swapTxAndGasInfo'
 
 export type SetCurrentStepFn = (args: { step: TransactionStep; accepted: boolean }) => void
 

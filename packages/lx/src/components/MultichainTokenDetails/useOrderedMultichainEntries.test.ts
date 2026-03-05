@@ -1,10 +1,10 @@
-import type { MultichainTokenEntry } from 'uniswap/src/components/MultichainTokenDetails/useOrderedMultichainEntries'
-import { useOrderedMultichainEntries } from 'uniswap/src/components/MultichainTokenDetails/useOrderedMultichainEntries'
-import { useOrderedChainIds } from 'uniswap/src/features/chains/hooks/useOrderedChainIds'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { renderHook } from 'uniswap/src/test/test-utils'
+import type { MultichainTokenEntry } from 'lx/src/components/MultichainTokenDetails/useOrderedMultichainEntries'
+import { useOrderedMultichainEntries } from 'lx/src/components/MultichainTokenDetails/useOrderedMultichainEntries'
+import { useOrderedChainIds } from 'lx/src/features/chains/hooks/useOrderedChainIds'
+import { UniverseChainId } from 'lx/src/features/chains/types'
+import { renderHook } from 'lx/src/test/test-utils'
 
-vi.mock('uniswap/src/features/chains/hooks/useOrderedChainIds', () => ({
+vi.mock('lx/src/features/chains/hooks/useOrderedChainIds', () => ({
   useOrderedChainIds: vi.fn(),
 }))
 

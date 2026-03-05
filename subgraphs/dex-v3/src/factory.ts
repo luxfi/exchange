@@ -1,0 +1,172 @@
+import { PoolCreated } from '../generated/Factory/Factory'
+import { Pool, Token, Factory, Bundle } from '../generated/schema'
+import { Pool as PoolTemplate } from '../generated/templates'
+import { ERC20 } from '../generated/Factory/ERC20'
+import { BigInt, BigDecimal, Address } from '@graphprotocol/graph-ts'
+
+let ZERO_BD = BigDecimal.fromString('0')
+let ZERO_BI = BigInt.fromI32(0)
+let ONE_BI = BigInt.fromI32(1)
+let FACTORY_ADDRESS = '0x80bBc7C4C7a59C899D1B37BC14539A22D5830a84'
+
+// Tracked tokens for price derivation (Lux C-chain)
+let WLUX_ADDRESS = '0x3C18bB6B17eb3F0879d4653e0120a531aF4d86E3'
+let LUSDC_ADDRESS = '0x57f9E717dc080a6A76fB6F77BecA8C9C1D266B96'
+let LETH_ADDRESS = '0x5a88986958ea76Dd043f834542724F081cA1443B'
+let LBTC_ADDRESS = '0x8a3fad1c7FB94461621351aa6A983B6f814F039c'
+
+export let WHITELIST_TOKENS: string[] = [
+  WLUX_ADDRESS,
+  LUSDC_ADDRESS,
+  LETH_ADDRESS,
+  LBTC_ADDRESS,
+]
+
+function fetchTokenSymbol(tokenAddress: Address): string {
+  let contract = ERC20.bind(tokenAddress)
+  let result = contract.try_symbol()
+  return result.reverted ? 'unknown' : result.value
+}
+
+function fetchTokenName(tokenAddress: Address): string {
+  let contract = ERC20.bind(tokenAddress)
+  let result = contract.try_name()
+  return result.reverted ? 'unknown' : result.value
+}
+
+function fetchTokenDecimals(tokenAddress: Address): BigInt {
+  let contract = ERC20.bind(tokenAddress)
+  let result = contract.try_decimals()
+  return result.reverted ? BigInt.fromI32(18) : BigInt.fromI32(result.value)
+}
+
+function fetchTokenTotalSupply(tokenAddress: Address): BigInt {
+  let contract = ERC20.bind(tokenAddress)
+  let result = contract.try_totalSupply()
+  return result.reverted ? ZERO_BI : result.value
+}
+
+export function handlePoolCreated(event: PoolCreated): void {
+  // Load or create factory
+  let factory = Factory.load(FACTORY_ADDRESS)
+  if (factory === null) {
+    factory = new Factory(FACTORY_ADDRESS)
+    factory.poolCount = ZERO_BI
+    factory.totalVolumeUSD = ZERO_BD
+    factory.totalVolumeETH = ZERO_BD
+    factory.totalValueLockedUSD = ZERO_BD
+    factory.totalValueLockedETH = ZERO_BD
+    factory.txCount = ZERO_BI
+    factory.owner = FACTORY_ADDRESS
+
+    // Create bundle for LUX/ETH price tracking
+    let bundle = new Bundle('1')
+    bundle.ethPriceUSD = ZERO_BD
+    bundle.luxPriceUSD = ZERO_BD
+    bundle.save()
+  }
+  factory.poolCount = factory.poolCount.plus(ONE_BI)
+
+  // Create or load token0
+  let token0 = Token.load(event.params.token0.toHexString())
+  if (token0 === null) {
+    token0 = new Token(event.params.token0.toHexString())
+    token0.symbol = fetchTokenSymbol(event.params.token0)
+    token0.name = fetchTokenName(event.params.token0)
+    token0.decimals = fetchTokenDecimals(event.params.token0)
+    token0.totalSupply = fetchTokenTotalSupply(event.params.token0)
+    token0.volume = ZERO_BD
+    token0.volumeUSD = ZERO_BD
+    token0.untrackedVolumeUSD = ZERO_BD
+    token0.feesUSD = ZERO_BD
+    token0.txCount = ZERO_BI
+    token0.poolCount = ZERO_BI
+    token0.totalValueLocked = ZERO_BD
+    token0.totalValueLockedUSD = ZERO_BD
+    token0.totalValueLockedUSDUntracked = ZERO_BD
+    token0.derivedETH = ZERO_BD
+    token0.derivedUSD = ZERO_BD
+    token0.whitelistPools = []
+  }
+
+  // Create or load token1
+  let token1 = Token.load(event.params.token1.toHexString())
+  if (token1 === null) {
+    token1 = new Token(event.params.token1.toHexString())
+    token1.symbol = fetchTokenSymbol(event.params.token1)
+    token1.name = fetchTokenName(event.params.token1)
+    token1.decimals = fetchTokenDecimals(event.params.token1)
+    token1.totalSupply = fetchTokenTotalSupply(event.params.token1)
+    token1.volume = ZERO_BD
+    token1.volumeUSD = ZERO_BD
+    token1.untrackedVolumeUSD = ZERO_BD
+    token1.feesUSD = ZERO_BD
+    token1.txCount = ZERO_BI
+    token1.poolCount = ZERO_BI
+    token1.totalValueLocked = ZERO_BD
+    token1.totalValueLockedUSD = ZERO_BD
+    token1.totalValueLockedUSDUntracked = ZERO_BD
+    token1.derivedETH = ZERO_BD
+    token1.derivedUSD = ZERO_BD
+    token1.whitelistPools = []
+  }
+
+  // Create the pool
+  let pool = new Pool(event.params.pool.toHexString())
+  pool.createdAtTimestamp = event.block.timestamp
+  pool.createdAtBlockNumber = event.block.number
+  pool.token0 = token0.id
+  pool.token1 = token1.id
+  pool.feeTier = BigInt.fromI32(event.params.fee)
+  pool.liquidity = ZERO_BI
+  pool.sqrtPrice = ZERO_BI
+  pool.feeGrowthGlobal0X128 = ZERO_BI
+  pool.feeGrowthGlobal1X128 = ZERO_BI
+  pool.token0Price = ZERO_BD
+  pool.token1Price = ZERO_BD
+  pool.tick = null
+  pool.observationIndex = ZERO_BI
+  pool.volumeToken0 = ZERO_BD
+  pool.volumeToken1 = ZERO_BD
+  pool.volumeUSD = ZERO_BD
+  pool.untrackedVolumeUSD = ZERO_BD
+  pool.feesUSD = ZERO_BD
+  pool.txCount = ZERO_BI
+  pool.collectedFeesToken0 = ZERO_BD
+  pool.collectedFeesToken1 = ZERO_BD
+  pool.collectedFeesUSD = ZERO_BD
+  pool.totalValueLockedToken0 = ZERO_BD
+  pool.totalValueLockedToken1 = ZERO_BD
+  pool.totalValueLockedETH = ZERO_BD
+  pool.totalValueLockedUSD = ZERO_BD
+  pool.totalValueLockedUSDUntracked = ZERO_BD
+  pool.liquidityProviderCount = ZERO_BI
+
+  // Add pool to whitelist tracking for each token
+  let token0Id = token0.id.toLowerCase()
+  let token1Id = token1.id.toLowerCase()
+  for (let i = 0; i < WHITELIST_TOKENS.length; i++) {
+    if (token0Id == WHITELIST_TOKENS[i].toLowerCase()) {
+      let newPools = token1.whitelistPools
+      newPools.push(pool.id)
+      token1.whitelistPools = newPools
+    }
+    if (token1Id == WHITELIST_TOKENS[i].toLowerCase()) {
+      let newPools = token0.whitelistPools
+      newPools.push(pool.id)
+      token0.whitelistPools = newPools
+    }
+  }
+
+  token0.poolCount = token0.poolCount.plus(ONE_BI)
+  token1.poolCount = token1.poolCount.plus(ONE_BI)
+
+  // Create the tracked pool from template
+  PoolTemplate.create(event.params.pool)
+
+  // Save all entities
+  pool.save()
+  token0.save()
+  token1.save()
+  factory.save()
+}

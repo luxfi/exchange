@@ -4,13 +4,13 @@ import { iconSizes } from 'ui/src/theme'
 import {
   TwoTokenDetails,
   useTokenAmountInfo,
-} from 'uniswap/src/components/activity/details/transactions/utilityComponents'
-import { CurrencyLogo } from 'uniswap/src/components/CurrencyLogo/CurrencyLogo'
-import { useCurrencyInfo } from 'uniswap/src/features/tokens/useCurrencyInfo'
-import { useIntermediaryPlanState } from 'uniswap/src/features/transactions/swap/plan/intermediaryState/useIntermediaryPlanState'
-import { useIntermediaryPlanStateDescriptor } from 'uniswap/src/features/transactions/swap/plan/intermediaryState/useIntermediaryPlanStateDescriptor'
-import { PlanTransactionInfo, TransactionStatus } from 'uniswap/src/features/transactions/types/transactionDetails'
-import { currencyId } from 'uniswap/src/utils/currencyId'
+} from 'lx/src/components/activity/details/transactions/utilityComponents'
+import { CurrencyLogo } from 'lx/src/components/CurrencyLogo/CurrencyLogo'
+import { useCurrencyInfo } from 'lx/src/features/tokens/useCurrencyInfo'
+import { useIntermediaryPlanState } from 'lx/src/features/transactions/swap/plan/intermediaryState/useIntermediaryPlanState'
+import { useIntermediaryPlanStateDescriptor } from 'lx/src/features/transactions/swap/plan/intermediaryState/useIntermediaryPlanStateDescriptor'
+import { PlanTransactionInfo, TransactionStatus } from 'lx/src/features/transactions/types/transactionDetails'
+import { currencyId } from 'lx/src/utils/currencyId'
 
 /**
  * This component displays the details of a plan transaction. If partially executed,

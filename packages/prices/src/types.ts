@@ -28,7 +28,7 @@ export interface TokenPriceData {
 /**
  * Key used to identify a token price in the store.
  * Format: "chainId-address" (e.g., "1-0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2")
- * Matches CurrencyId convention from uniswap/src/utils/currencyId.ts
+ * Matches CurrencyId convention from lx/src/utils/currencyId.ts
  */
 export type PriceKey = string
 

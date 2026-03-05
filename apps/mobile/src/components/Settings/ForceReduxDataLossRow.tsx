@@ -3,9 +3,9 @@ import { DevSettings } from 'react-native'
 import { MMKV } from 'react-native-mmkv'
 import { Flex, type IconProps, Text, TouchableArea } from 'ui/src'
 import { RotatableChevron, UniswapLogo } from 'ui/src/components/icons'
-import { WarningSeverity } from 'uniswap/src/components/modals/WarningModal/types'
-import { WarningModal } from 'uniswap/src/components/modals/WarningModal/WarningModal'
-import { ModalName } from 'uniswap/src/features/telemetry/constants'
+import { WarningSeverity } from 'lx/src/components/modals/WarningModal/types'
+import { WarningModal } from 'lx/src/components/modals/WarningModal/WarningModal'
+import { ModalName } from 'lx/src/features/telemetry/constants'
 import { logger } from 'utilities/src/logger/logger'
 
 /**

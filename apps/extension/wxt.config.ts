@@ -317,7 +317,7 @@ export default defineConfig({
         // !isPreparePhase && isProduction
         //   ? tamaguiPlugin({
         //       config: '../../packages/ui/src/tamagui.config.ts',
-        //       components: ['ui', 'uniswap', 'utilities'],
+        //       components: ['ui', 'lx', 'utilities'],
         //       optimize: true,
         //       importsWhitelist: ['constants.js'],
         //     })

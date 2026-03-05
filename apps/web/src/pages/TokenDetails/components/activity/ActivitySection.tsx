@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Flex, styled, Text } from 'ui/src'
-import { isSVMChain } from 'uniswap/src/features/platforms/utils/chains'
+import { isSVMChain } from 'lx/src/features/platforms/utils/chains'
 import { TokenDetailsPoolsTable } from '~/pages/TokenDetails/components/activity/TokenDetailsPoolsTable'
 import { TransactionsTable } from '~/pages/TokenDetails/components/activity/TransactionsTable'
 import { useTDPContext } from '~/pages/TokenDetails/context/TDPContext'

@@ -5,7 +5,7 @@ import { ScrollView } from 'react-native-gesture-handler'
 import { Flex, Text, TouchableArea, useSporeColors } from 'ui/src'
 import { Signature } from 'ui/src/components/icons'
 import { fonts, spacing } from 'ui/src/theme'
-import { CopyNotificationType } from 'uniswap/src/features/notifications/slice/types'
+import { CopyNotificationType } from 'lx/src/features/notifications/slice/types'
 import { isWebPlatform } from 'utilities/src/platform'
 import { useCopyToClipboard } from 'wallet/src/components/copy/useCopyToClipboard'
 

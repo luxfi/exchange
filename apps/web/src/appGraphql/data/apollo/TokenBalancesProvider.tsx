@@ -1,9 +1,9 @@
 import { useQueryClient } from '@tanstack/react-query'
 import { GraphQLApi } from '@universe/api'
 import { PropsWithChildren, useCallback, useEffect, useMemo, useState } from 'react'
-import { useEnabledChains } from 'uniswap/src/features/chains/hooks/useEnabledChains'
+import { useEnabledChains } from 'lx/src/features/chains/hooks/useEnabledChains'
 // biome-ignore lint/style/noRestrictedImports: This import is needed for fetching portfolio value modifiers despite being restricted
-import { usePortfolioValueModifiers } from 'uniswap/src/features/dataApi/balances/balances'
+import { usePortfolioValueModifiers } from 'lx/src/features/dataApi/balances/balances'
 import { usePrevious } from 'utilities/src/react/hooks'
 import { AdaptiveTokenBalancesProvider } from '~/appGraphql/data/apollo/AdaptiveTokenBalancesProvider'
 import { apolloClient } from '~/appGraphql/data/apollo/client'

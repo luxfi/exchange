@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { Flex, Popover, TouchableArea, useMedia } from 'ui/src'
 import { QuestionInCircleFilled } from 'ui/src/components/icons/QuestionInCircleFilled'
 import { zIndexes } from 'ui/src/theme'
-import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+import { TestID } from 'lx/src/test/fixtures/testIDs'
 import { HelpContent } from '~/components/HelpModal/HelpContent'
 import { ClickableTamaguiStyle } from '~/theme/components/styles'
 

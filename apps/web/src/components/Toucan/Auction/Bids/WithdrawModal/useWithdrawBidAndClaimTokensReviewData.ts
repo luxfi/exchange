@@ -1,7 +1,7 @@
 import { Currency, CurrencyAmount } from '@uniswap/sdk-core'
 import { useCallback, useEffect, useMemo, useState } from 'react'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { useNativeCurrencyInfo } from 'uniswap/src/features/tokens/useCurrencyInfo'
+import { UniverseChainId } from 'lx/src/features/chains/types'
+import { useNativeCurrencyInfo } from 'lx/src/features/tokens/useCurrencyInfo'
 import { useFormattedGasFee } from '~/components/Toucan/Auction/hooks/useFormattedGasFee'
 import {
   PreparedWithdrawBidAndClaimTokensTransaction,

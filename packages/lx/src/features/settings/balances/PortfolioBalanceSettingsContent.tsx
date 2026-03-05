@@ -2,13 +2,13 @@ import { useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useDispatch } from 'react-redux'
 import { Flex, Switch, Text, TouchableArea } from 'ui/src'
-import { useEnabledChains } from 'uniswap/src/features/chains/hooks/useEnabledChains'
+import { useEnabledChains } from 'lx/src/features/chains/hooks/useEnabledChains'
 import {
   useHideReportedActivitySetting,
   useHideSmallBalancesSetting,
   useHideSpamTokensSetting,
-} from 'uniswap/src/features/settings/hooks'
-import { setHideReportedActivity, setHideSmallBalances, setHideSpamTokens } from 'uniswap/src/features/settings/slice'
+} from 'lx/src/features/settings/hooks'
+import { setHideReportedActivity, setHideSmallBalances, setHideSpamTokens } from 'lx/src/features/settings/slice'
 import { isWebApp } from 'utilities/src/platform'
 
 // avoids rendering during animation which makes it laggy

@@ -1,14 +1,14 @@
 /* eslint-disable @typescript-eslint/no-unnecessary-condition */
 import { createContext, PropsWithChildren, useContext } from 'react'
-import { getNativeAddress } from 'uniswap/src/constants/addresses'
-import { NavigateToNftItemArgs } from 'uniswap/src/contexts/UniswapContext'
-import { AssetType } from 'uniswap/src/entities/assets'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { FiatOnRampCurrency } from 'uniswap/src/features/fiatOnRamp/types'
-import { ModalNameType } from 'uniswap/src/features/telemetry/constants'
-import { getSwapPrefilledState } from 'uniswap/src/features/transactions/swap/form/hooks/useSwapPrefilledState'
-import { TransactionState } from 'uniswap/src/features/transactions/types/transactionState'
-import { CurrencyField } from 'uniswap/src/types/currency'
+import { getNativeAddress } from 'lx/src/constants/addresses'
+import { NavigateToNftItemArgs } from 'lx/src/contexts/UniswapContext'
+import { AssetType } from 'lx/src/entities/assets'
+import { UniverseChainId } from 'lx/src/features/chains/types'
+import { FiatOnRampCurrency } from 'lx/src/features/fiatOnRamp/types'
+import { ModalNameType } from 'lx/src/features/telemetry/constants'
+import { getSwapPrefilledState } from 'lx/src/features/transactions/swap/form/hooks/useSwapPrefilledState'
+import { TransactionState } from 'lx/src/features/transactions/types/transactionState'
+import { CurrencyField } from 'lx/src/types/currency'
 import { getSendPrefilledState } from 'wallet/src/features/transactions/send/getSendPrefilledState'
 
 type NavigateToTransactionFlowTransactionState = {

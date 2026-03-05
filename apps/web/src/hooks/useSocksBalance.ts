@@ -1,6 +1,6 @@
 import { SOCKS_CONTROLLER_ADDRESSES, Token } from '@uniswap/sdk-core'
 import { useMemo } from 'react'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { UniverseChainId } from 'lx/src/features/chains/types'
 import { useAccount } from '~/hooks/useAccount'
 import { useTokenBalance } from '~/lib/hooks/useCurrencyBalance'
 

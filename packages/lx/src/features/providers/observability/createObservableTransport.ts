@@ -1,4 +1,4 @@
-import { generateRequestId, type RpcObserver } from 'uniswap/src/features/providers/observability/rpcObserver'
+import { generateRequestId, type RpcObserver } from 'lx/src/features/providers/observability/rpcObserver'
 import { Chain, ClientConfig, EIP1193RequestFn, Transport, TransportConfig } from 'viem'
 
 export function createObservableTransport({

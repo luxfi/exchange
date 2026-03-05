@@ -1,5 +1,5 @@
-import { DAI } from 'uniswap/src/constants/tokens'
-import { SwapTab } from 'uniswap/src/types/screens/interface'
+import { DAI } from 'lx/src/constants/tokens'
+import { SwapTab } from 'lx/src/types/screens/interface'
 import { shortenAddress } from 'utilities/src/addresses'
 import { SendRecipientForm } from '~/pages/Swap/Send/SendRecipientForm'
 import { MultichainContext } from '~/state/multichain/types'

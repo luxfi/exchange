@@ -1,13 +1,13 @@
 import { TradingApi } from '@universe/api'
 import { call, delay, SagaGenerator, select } from 'typed-redux-saga'
-import { TradingApiClient } from 'uniswap/src/data/apiClients/tradingApi/TradingApiClient'
-import { makeSelectTransaction } from 'uniswap/src/features/transactions/selectors'
-import { toTradingApiSupportedChainId } from 'uniswap/src/features/transactions/swap/utils/tradingApi'
+import { TradingApiClient } from 'lx/src/data/apiClients/tradingApi/TradingApiClient'
+import { makeSelectTransaction } from 'lx/src/features/transactions/selectors'
+import { toTradingApiSupportedChainId } from 'lx/src/features/transactions/swap/utils/tradingApi'
 import {
   TransactionDetails,
   TransactionStatus,
   TransactionType,
-} from 'uniswap/src/features/transactions/types/transactionDetails'
+} from 'lx/src/features/transactions/types/transactionDetails'
 import { logger } from 'utilities/src/logger/logger'
 import {
   FINALIZED_SWAP_STATUS,

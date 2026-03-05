@@ -1,5 +1,5 @@
 import { ArrowRight } from 'ui/src/components/icons/ArrowRight'
-import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
+import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
 import { NumberType } from 'utilities/src/format/types'
 import Row from '~/components/deprecated/Row'
 import CurrencyLogo from '~/components/Logo/CurrencyLogo'

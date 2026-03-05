@@ -1,6 +1,6 @@
 import { usePrice } from '@universe/prices'
-import type { CurrencyId } from 'uniswap/src/types/currency'
-import { currencyIdToAddress, currencyIdToChain } from 'uniswap/src/utils/currencyId'
+import type { CurrencyId } from 'lx/src/types/currency'
+import { currencyIdToAddress, currencyIdToChain } from 'lx/src/utils/currencyId'
 
 export function useTokenSpotPriceCentralized(currencyId: CurrencyId): number | undefined {
   const chainId = currencyIdToChain(currencyId) ?? undefined

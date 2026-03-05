@@ -98,8 +98,8 @@ export function formatStakeAmount(nLux: string): string {
   return `${whole.toLocaleString()}.${frac.toString().padStart(9, '0').replace(/0+$/, '')}`
 }
 
-// Parse uptime to percentage
+// Format uptime percentage (API returns 0-100 range already)
 export function formatUptime(uptime: string): string {
-  const pct = parseFloat(uptime) * 100
+  const pct = parseFloat(uptime)
   return `${pct.toFixed(2)}%`
 }

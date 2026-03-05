@@ -1,7 +1,7 @@
 import dayjs from 'dayjs'
-import { FORMAT_DATE_MONTH, FORMAT_DATE_MONTH_YEAR, LocalizedDayjs } from 'uniswap/src/features/language/localizedDayjs'
-import { isChained, isUniswapX } from 'uniswap/src/features/transactions/swap/utils/routing'
-import { TransactionDetails, TransactionStatus } from 'uniswap/src/features/transactions/types/transactionDetails'
+import { FORMAT_DATE_MONTH, FORMAT_DATE_MONTH_YEAR, LocalizedDayjs } from 'lx/src/features/language/localizedDayjs'
+import { isChained, isUniswapX } from 'lx/src/features/transactions/swap/utils/routing'
+import { TransactionDetails, TransactionStatus } from 'lx/src/features/transactions/types/transactionDetails'
 
 export interface AllFormattedTransactions {
   todayTransactionList: TransactionDetails[]

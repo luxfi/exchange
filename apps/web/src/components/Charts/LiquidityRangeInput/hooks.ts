@@ -3,7 +3,7 @@ import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes
 import { Currency } from '@uniswap/sdk-core'
 import JSBI from 'jsbi'
 import { useMemo } from 'react'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { UniverseChainId } from 'lx/src/features/chains/types'
 import { ReactQueryCacheKey } from 'utilities/src/reactQuery/cache'
 import { calculateTokensLocked } from '~/components/Charts/LiquidityChart/utils/calculateTokensLocked'
 import { ChartEntry } from '~/components/Charts/LiquidityRangeInput/types'

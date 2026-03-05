@@ -1,18 +1,18 @@
 import { useFocusEffect } from '@react-navigation/core'
-import { SectionName } from 'uniswap/src/features/telemetry/constants'
-import Trace from 'uniswap/src/features/telemetry/Trace'
-import type { TransactionSettingConfig } from 'uniswap/src/features/transactions/components/settings/types'
-import { TransactionModalFooterContainer } from 'uniswap/src/features/transactions/components/TransactionModal/TransactionModal'
+import { SectionName } from 'lx/src/features/telemetry/constants'
+import Trace from 'lx/src/features/telemetry/Trace'
+import type { TransactionSettingConfig } from 'lx/src/features/transactions/components/settings/types'
+import { TransactionModalFooterContainer } from 'lx/src/features/transactions/components/TransactionModal/TransactionModal'
 import {
   TransactionScreen,
   useTransactionModalContext,
-} from 'uniswap/src/features/transactions/components/TransactionModal/TransactionModalContext'
-import { SwapFormButton } from 'uniswap/src/features/transactions/swap/components/SwapFormButton/SwapFormButton'
-import { UnichainInstantBalanceModal } from 'uniswap/src/features/transactions/swap/components/UnichainInstantBalanceModal/UnichainInstantBalanceModal'
-import { SwapFormScreen } from 'uniswap/src/features/transactions/swap/form/SwapFormScreen/SwapFormScreen'
-import { SwapFormWarningModals } from 'uniswap/src/features/transactions/swap/form/SwapFormScreen/SwapFormWarningModals/SwapFormWarningModals'
-import { SwapFormWarningStoreContextProvider } from 'uniswap/src/features/transactions/swap/form/stores/swapFormWarningStore/SwapFormWarningStoreContextProvider'
-import { SwapReviewScreen } from 'uniswap/src/features/transactions/swap/review/SwapReviewScreen/SwapReviewScreen'
+} from 'lx/src/features/transactions/components/TransactionModal/TransactionModalContext'
+import { SwapFormButton } from 'lx/src/features/transactions/swap/components/SwapFormButton/SwapFormButton'
+import { UnichainInstantBalanceModal } from 'lx/src/features/transactions/swap/components/UnichainInstantBalanceModal/UnichainInstantBalanceModal'
+import { SwapFormScreen } from 'lx/src/features/transactions/swap/form/SwapFormScreen/SwapFormScreen'
+import { SwapFormWarningModals } from 'lx/src/features/transactions/swap/form/SwapFormScreen/SwapFormWarningModals/SwapFormWarningModals'
+import { SwapFormWarningStoreContextProvider } from 'lx/src/features/transactions/swap/form/stores/swapFormWarningStore/SwapFormWarningStoreContextProvider'
+import { SwapReviewScreen } from 'lx/src/features/transactions/swap/review/SwapReviewScreen/SwapReviewScreen'
 import { useDelayedRender } from 'utilities/src/react/useDelayedRender'
 
 export function CurrentScreen({

@@ -1,8 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit'
-import { AppearanceSettingType, setSelectedAppearanceSettings } from 'uniswap/src/features/appearance/slice'
-import { addFavoriteToken } from 'uniswap/src/features/favorites/slice'
-import { pushNotification } from 'uniswap/src/features/notifications/slice/slice'
-import { AppNotificationType } from 'uniswap/src/features/notifications/slice/types'
+import { AppearanceSettingType, setSelectedAppearanceSettings } from 'lx/src/features/appearance/slice'
+import { addFavoriteToken } from 'lx/src/features/favorites/slice'
+import { pushNotification } from 'lx/src/features/notifications/slice/slice'
+import { AppNotificationType } from 'lx/src/features/notifications/slice/types'
 import { createWalletStateResetter } from 'wallet/src/state/createWalletStateResetter'
 import { type WalletStateReducersOnly, walletRootReducer } from 'wallet/src/state/walletReducer'
 

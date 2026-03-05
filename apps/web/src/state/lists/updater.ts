@@ -1,4 +1,4 @@
-import { getVersionUpgrade, VersionUpgrade } from 'utils/tokenListTypes'
+import { getVersionUpgrade, VersionUpgrade } from '~/utils/tokenListTypes'
 import { useWeb3React } from '@web3-react/core'
 import ms from 'ms'
 import { useCallback, useEffect } from 'react'

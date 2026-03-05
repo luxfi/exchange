@@ -1,8 +1,8 @@
 import { createParser, parseAsJson } from 'nuqs'
-import { WRAPPED_NATIVE_CURRENCY } from 'uniswap/src/constants/tokens'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { Platform } from 'uniswap/src/features/platforms/types/Platform'
-import { getValidAddress } from 'uniswap/src/utils/addresses'
+import { WRAPPED_NATIVE_CURRENCY } from 'lx/src/constants/tokens'
+import { UniverseChainId } from 'lx/src/features/chains/types'
+import { Platform } from 'lx/src/features/platforms/types/Platform'
+import { getValidAddress } from 'lx/src/utils/addresses'
 import { z } from 'zod'
 import {
   FeeData,

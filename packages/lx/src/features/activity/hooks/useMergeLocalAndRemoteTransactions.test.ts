@@ -1,30 +1,30 @@
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
 import { TradeType } from '@uniswap/sdk-core'
-import { useMergeLocalAndRemoteTransactions } from 'uniswap/src/features/activity/hooks/useMergeLocalAndRemoteTransactions'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { ValueType } from 'uniswap/src/features/tokens/getCurrencyAmount'
-import { activePlanStore } from 'uniswap/src/features/transactions/swap/review/stores/activePlan/activePlanStore'
+import { useMergeLocalAndRemoteTransactions } from 'lx/src/features/activity/hooks/useMergeLocalAndRemoteTransactions'
+import { UniverseChainId } from 'lx/src/features/chains/types'
+import { ValueType } from 'lx/src/features/tokens/getCurrencyAmount'
+import { activePlanStore } from 'lx/src/features/transactions/swap/review/stores/activePlan/activePlanStore'
 import {
   PlanTransactionDetails,
   type TransactionDetails,
   TransactionStatus,
   TransactionType,
-} from 'uniswap/src/features/transactions/types/transactionDetails'
-import { TEST_WALLET } from 'uniswap/src/test/fixtures/wallet/addresses'
+} from 'lx/src/features/transactions/types/transactionDetails'
+import { TEST_WALLET } from 'lx/src/test/fixtures/wallet/addresses'
 import {
   extractInputSwapTransactionInfo,
   transactionDetails,
   uniswapXOrderDetails,
-} from 'uniswap/src/test/fixtures/wallet/transactions'
-import { act, renderHook } from 'uniswap/src/test/test-utils'
+} from 'lx/src/test/fixtures/wallet/transactions'
+import { act, renderHook } from 'lx/src/test/test-utils'
 import type { Mock } from 'vitest'
 
 // Mock dependencies
-vi.mock('uniswap/src/features/chains/hooks/useEnabledChains', () => ({
+vi.mock('lx/src/features/chains/hooks/useEnabledChains', () => ({
   useEnabledChains: vi.fn(),
 }))
 
-import { useEnabledChains } from 'uniswap/src/features/chains/hooks/useEnabledChains'
+import { useEnabledChains } from 'lx/src/features/chains/hooks/useEnabledChains'
 
 describe('useMergeLocalAndRemoteTransactions', () => {
   beforeEach(() => {

@@ -1,5 +1,5 @@
 import { Currency, Price } from '@uniswap/sdk-core'
-import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
+import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
 import { NumberType } from 'utilities/src/format/types'
 import { PriceOrdering } from '~/components/Liquidity/types'
 import useIsTickAtLimit, { Bound } from '~/hooks/useIsTickAtLimit'

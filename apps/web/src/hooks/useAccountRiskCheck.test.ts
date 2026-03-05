@@ -1,5 +1,5 @@
-import { ModalName } from 'uniswap/src/features/telemetry/constants'
-import { useIsBlocked } from 'uniswap/src/features/trm/hooks'
+import { ModalName } from 'lx/src/features/telemetry/constants'
+import { useIsBlocked } from 'lx/src/features/trm/hooks'
 import useAccountRiskCheck from '~/hooks/useAccountRiskCheck'
 import { setOpenModal } from '~/state/application/reducer'
 import { mocked } from '~/test-utils/mocked'
@@ -15,7 +15,7 @@ vi.mock('~/state/hooks', async () => {
   }
 })
 
-vi.mock('uniswap/src/features/trm/hooks', () => ({
+vi.mock('lx/src/features/trm/hooks', () => ({
   useIsBlocked: vi.fn(),
 }))
 

@@ -1,4 +1,4 @@
-import { useUnitagsAddressesQuery } from 'uniswap/src/data/apiClients/unitagsApi/useUnitagsAddressQuery'
+import { useUnitagsAddressesQuery } from 'lx/src/data/apiClients/unitagsApi/useUnitagsAddressQuery'
 import { useSignerAccounts } from 'wallet/src/features/wallet/hooks'
 
 export function useHasAnyAccountsWithUnitag(): boolean {

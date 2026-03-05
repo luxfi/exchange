@@ -1,6 +1,6 @@
 import { Trans } from 'react-i18next'
 import { Flex, Separator, Text } from 'ui/src'
-import { ElementName } from 'uniswap/src/features/telemetry/constants'
+import { ElementName } from 'lx/src/features/telemetry/constants'
 import { EmptyWalletCards } from '~/components/emptyWallet/EmptyWalletCards'
 
 export const EmptyWallet = () => {

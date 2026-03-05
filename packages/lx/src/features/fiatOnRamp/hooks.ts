@@ -6,37 +6,37 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { getCountry } from 'react-native-localize'
 import { useDispatch } from 'react-redux'
-import { useCurrencies } from 'uniswap/src/components/TokenSelector/hooks/useCurrencies'
-import { useActiveAddress } from 'uniswap/src/features/accounts/store/hooks'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { toSupportedChainId } from 'uniswap/src/features/chains/utils'
-import { FiatCurrency } from 'uniswap/src/features/fiatCurrency/constants'
-import { useAppFiatCurrencyInfo, useFiatCurrencyInfo } from 'uniswap/src/features/fiatCurrency/hooks'
+import { useCurrencies } from 'lx/src/components/TokenSelector/hooks/useCurrencies'
+import { useActiveAddress } from 'lx/src/features/accounts/store/hooks'
+import { UniverseChainId } from 'lx/src/features/chains/types'
+import { toSupportedChainId } from 'lx/src/features/chains/utils'
+import { FiatCurrency } from 'lx/src/features/fiatCurrency/constants'
+import { useAppFiatCurrencyInfo, useFiatCurrencyInfo } from 'lx/src/features/fiatCurrency/hooks'
 import {
   useFiatOnRampAggregatorCryptoQuoteQuery,
   useFiatOnRampAggregatorGetCountryQuery,
   useFiatOnRampAggregatorSupportedFiatCurrenciesQuery,
   useFiatOnRampAggregatorSupportedTokensQuery,
-} from 'uniswap/src/features/fiatOnRamp/hooks/useFiatOnRampQueries'
-import { FiatCurrencyInfo, FiatOnRampCurrency } from 'uniswap/src/features/fiatOnRamp/types'
+} from 'lx/src/features/fiatOnRamp/hooks/useFiatOnRampQueries'
+import { FiatCurrencyInfo, FiatOnRampCurrency } from 'lx/src/features/fiatOnRamp/types'
 import {
   createOnRampTransactionId,
   isFiatOnRampApiError,
   isInvalidRequestAmountTooHigh,
   isInvalidRequestAmountTooLow,
-} from 'uniswap/src/features/fiatOnRamp/utils'
-import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
-import { Platform } from 'uniswap/src/features/platforms/types/Platform'
-import { ValueType } from 'uniswap/src/features/tokens/getCurrencyAmount'
-import { addTransaction } from 'uniswap/src/features/transactions/slice'
+} from 'lx/src/features/fiatOnRamp/utils'
+import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
+import { Platform } from 'lx/src/features/platforms/types/Platform'
+import { ValueType } from 'lx/src/features/tokens/getCurrencyAmount'
+import { addTransaction } from 'lx/src/features/transactions/slice'
 import {
   TransactionDetails,
   TransactionOriginType,
   TransactionStatus,
   TransactionType,
-} from 'uniswap/src/features/transactions/types/transactionDetails'
-import { getFormattedCurrencyAmount } from 'uniswap/src/utils/currency'
-import { areCurrencyIdsEqual, buildCurrencyId, buildNativeCurrencyId } from 'uniswap/src/utils/currencyId'
+} from 'lx/src/features/transactions/types/transactionDetails'
+import { getFormattedCurrencyAmount } from 'lx/src/utils/currency'
+import { areCurrencyIdsEqual, buildCurrencyId, buildNativeCurrencyId } from 'lx/src/utils/currencyId'
 import { NumberType } from 'utilities/src/format/types'
 import { useDebounce } from 'utilities/src/time/timing'
 
