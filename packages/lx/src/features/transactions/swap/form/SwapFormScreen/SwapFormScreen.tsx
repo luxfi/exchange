@@ -9,6 +9,7 @@ import { TransactionModalInnerContainer } from 'lx/src/features/transactions/com
 import { useTransactionModalContext } from 'lx/src/features/transactions/components/TransactionModal/TransactionModalContext'
 import { SwapFormSettings } from 'lx/src/features/transactions/swap/components/SwapFormSettings/SwapFormSettings'
 import { Slippage } from 'lx/src/features/transactions/swap/components/SwapFormSettings/settingsConfigurations/slippage/Slippage/Slippage'
+import { RoutingMethodPreference } from 'lx/src/features/transactions/swap/components/SwapFormSettings/settingsConfigurations/RoutingMethodPreference/RoutingMethodPreference'
 import { TradeRoutingPreference } from 'lx/src/features/transactions/swap/components/SwapFormSettings/settingsConfigurations/TradeRoutingPreference/TradeRoutingPreference'
 import { SwapFormCurrencyInputPanel } from 'lx/src/features/transactions/swap/form/SwapFormScreen/SwapFormCurrencyInputPanel'
 import { SwapFormCurrencyOutputPanel } from 'lx/src/features/transactions/swap/form/SwapFormScreen/SwapFormCurrencyOutputPanel'
@@ -44,7 +45,7 @@ const EXIT_STYLE: FlexProps['exitStyle'] = { opacity: 0 }
  */
 export function SwapFormScreen({
   hideContent,
-  settings = [Slippage, TradeRoutingPreference],
+  settings = [Slippage, TradeRoutingPreference, RoutingMethodPreference],
   tokenColor,
   focusHook,
 }: SwapFormScreenProps): JSX.Element {

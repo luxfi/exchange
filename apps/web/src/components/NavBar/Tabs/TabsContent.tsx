@@ -44,7 +44,11 @@ export const useTabsContent = (): TabsSection[] => {
     {
       title: t('common.trade'),
       href: '/swap',
-      isActive: pathname.startsWith('/swap') || pathname.startsWith('/limit') || pathname.startsWith('/send'),
+      isActive:
+        pathname.startsWith('/swap') ||
+        pathname.startsWith('/limit') ||
+        pathname.startsWith('/send') ||
+        pathname.startsWith('/trade'),
       icon: <CoinConvert color="$accent1" size="$icon.20" />,
       items: [
         {
@@ -75,6 +79,12 @@ export const useTabsContent = (): TabsSection[] => {
               },
             ]
           : []),
+        {
+          label: t('trade.advanced.title'),
+          icon: <SwapV2 fill={colors.neutral2.val} />,
+          href: '/trade',
+          internal: true,
+        },
       ],
     },
     {
@@ -91,6 +101,8 @@ export const useTabsContent = (): TabsSection[] => {
           internal: true,
         },
         ...(isToucanEnabled ? [{ label: 'Toucan', href: '/explore/auctions', internal: true }] : []),
+        { label: 'NFT Market', href: 'https://lux.market', internal: false },
+        { label: 'Validators', href: 'https://lux.build', internal: false },
       ],
     },
     {

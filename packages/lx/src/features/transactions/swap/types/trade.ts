@@ -458,6 +458,7 @@ export interface UseTradeArgs {
   isDebouncing?: boolean
   generatePermitAsTransaction?: boolean
   isV4HookPoolsEnabled?: boolean
+  routeVia?: 'auto' | 'amm' | 'dex-precompile'
 }
 
 export type SwapFee = {

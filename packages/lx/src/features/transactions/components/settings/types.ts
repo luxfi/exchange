@@ -28,12 +28,15 @@ export type TransactionSettingConfig = {
   Warning?: React.FunctionComponent
 }
 
+export type RoutingMethod = 'auto' | 'amm' | 'dex-precompile'
+
 export interface TransactionSettingsState {
   customSlippageTolerance?: number
   customDeadline?: number
   selectedProtocols: FrontendSupportedProtocol[]
   slippageWarningModalSeen: boolean
   isV4HookPoolsEnabled: boolean
+  routeVia: RoutingMethod
 }
 
 export type TransactionSettings = TransactionSettingsState & { autoSlippageTolerance?: number }

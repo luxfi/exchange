@@ -25,6 +25,8 @@ export function isLuxChain(chainId: number | undefined): boolean {
   return chainId !== undefined && LUX_CHAIN_IDS.has(chainId)
 }
 
+export type RouteViaMethod = 'auto' | 'amm' | 'dex-precompile'
+
 /**
  * Gateway quote request format - matches the Go server's quoteRequest struct
  */
@@ -36,6 +38,7 @@ interface GatewayQuoteRequest {
   chainId: number
   slippage?: number
   recipient?: string
+  routeVia?: RouteViaMethod
 }
 
 /**
@@ -171,7 +174,7 @@ function transformGatewayResponse(
  * Fetch quote from Lux Gateway
  */
 async function fetchLuxGatewayQuote(
-  request: QuoteRequest & { isUSDQuote?: boolean },
+  request: QuoteRequest & { isUSDQuote?: boolean; routeVia?: RouteViaMethod },
 ): Promise<DiscriminatedQuoteResponse> {
   const gatewayUrl = uniswapUrls.luxGatewayQuoteUrl
 
@@ -184,6 +187,7 @@ async function fetchLuxGatewayQuote(
     chainId: request.tokenInChainId,
     slippage: request.slippageTolerance,
     recipient: request.swapper,
+    routeVia: request.routeVia,
   }
 
   logger.debug('LuxGatewayClient', 'fetchQuote', 'Fetching from Lux Gateway', {
@@ -238,12 +242,23 @@ export function createLuxGatewayAwareTradingClient(
   return {
     ...tradingApiClient,
 
-    fetchQuote: async (params: QuoteRequest & { isUSDQuote?: boolean }) => {
-      // Route Lux/Zoo chain requests to the gateway
+    fetchQuote: async (params: QuoteRequest & { isUSDQuote?: boolean; routeVia?: RouteViaMethod }) => {
+      const routeVia = params.routeVia ?? 'auto'
+
+      // If user explicitly selected AMM, skip the gateway entirely
+      if (routeVia === 'amm') {
+        return tradingApiClient.fetchQuote(params)
+      }
+
+      // Route Lux/Zoo chain requests to the gateway (for 'auto' or 'dex-precompile')
       if (isLuxChain(params.tokenInChainId)) {
         try {
           return await fetchLuxGatewayQuote(params)
         } catch (error) {
+          // If user explicitly chose dex-precompile, don't fall back
+          if (routeVia === 'dex-precompile') {
+            throw error
+          }
           logger.warn('LuxGatewayClient', 'fetchQuote', 'Gateway request failed, falling back to TradingAPI', {
             error: error instanceof Error ? error.message : String(error),
             chainId: params.tokenInChainId,
@@ -260,7 +275,6 @@ export function createLuxGatewayAwareTradingClient(
       // Route Lux/Zoo chain requests to the gateway
       if (isLuxChain(params.tokenInChainId)) {
         try {
-          // Create a full QuoteRequest from the indicative request params
           const fullRequest: QuoteRequest = {
             ...params,
             slippageTolerance: 100, // 1% for indicative quotes

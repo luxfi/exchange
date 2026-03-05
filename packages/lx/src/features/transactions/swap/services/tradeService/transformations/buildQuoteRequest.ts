@@ -34,6 +34,7 @@ export interface QuoteRequestResult {
   urgency?: TradingApi.Urgency
   routingParams: QuoteRoutingParamsResult
   slippageParams: QuoteSlippageParamsResult
+  routeVia?: 'auto' | 'amm' | 'dex-precompile'
 }
 
 // all required fields are guaranteed to be present
@@ -49,6 +50,7 @@ export interface ValidatedTradeInput {
   tokenOutAddress: string
   generatePermitAsTransaction?: boolean
   isUSDQuote?: boolean
+  routeVia?: 'auto' | 'amm' | 'dex-precompile'
 }
 
 interface BuildQuoteRequestContext {
@@ -86,6 +88,7 @@ export function createBuildQuoteRequest(
       urgency: SWAP_GAS_URGENCY_OVERRIDE,
       routingParams,
       slippageParams,
+      routeVia: validatedInput.routeVia,
     }
   }
 }
@@ -117,6 +120,7 @@ export interface ParsedTradeInput {
   tokenOutAddress?: string
   generatePermitAsTransaction?: boolean
   isUSDQuote?: boolean
+  routeVia?: 'auto' | 'amm' | 'dex-precompile'
 }
 
 export function parseTradeInputForTradingApiQuote(input: UseTradeArgs): ParsedTradeInput {
@@ -133,6 +137,7 @@ export function parseTradeInputForTradingApiQuote(input: UseTradeArgs): ParsedTr
     tokenOutAddress: getTokenAddressForApi(currencyOut),
     generatePermitAsTransaction: input.generatePermitAsTransaction,
     isUSDQuote: input.isUSDQuote ?? false,
+    routeVia: input.routeVia,
   }
 }
 
@@ -168,6 +173,7 @@ export function validateParsedInput(input: ParsedTradeInput): ValidatedTradeInpu
     tokenOutAddress: input.tokenOutAddress,
     generatePermitAsTransaction: input.generatePermitAsTransaction,
     isUSDQuote: input.isUSDQuote,
+    routeVia: input.routeVia,
   }
 }
 

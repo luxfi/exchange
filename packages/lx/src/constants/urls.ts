@@ -147,6 +147,16 @@ export const uniswapUrls = {
   luxGatewaySwapUrl: `${getLuxGatewayUrl()}/v1/swap`,
   luxGatewayPoolsUrl: `${getLuxGatewayUrl()}/v1/pools`,
   luxGatewayPriceUrl: `${getLuxGatewayUrl()}/v1/price`,
+
+  // Lux DEX Gateway - Advanced trading (CLOB, perps, margin, vaults)
+  luxDexOrderBookUrl: `${getLuxGatewayUrl()}/api/orderbook`,
+  luxDexTradesUrl: `${getLuxGatewayUrl()}/api/trades`,
+  luxDexStatsUrl: `${getLuxGatewayUrl()}/api/stats`,
+  luxDexOrderUrl: `${getLuxGatewayUrl()}/api/order`,
+  luxDexOrdersUrl: `${getLuxGatewayUrl()}/api/orders`,
+  luxDexPositionsUrl: `${getLuxGatewayUrl()}/api/positions`,
+  luxDexVaultsUrl: `${getLuxGatewayUrl()}/api/vaults`,
+  luxDexWsUrl: getLuxGatewayUrl().replace(/^http/, 'ws') + '/ws',
   apiBaseUrlV2: config.apiBaseUrlV2Override || `${getCloudflareApiBaseUrl()}/v2`,
   graphQLUrl: config.graphqlUrlOverride || `${getCloudflareApiBaseUrl(TrafficFlows.GraphQL)}/v1/graphql`,
 

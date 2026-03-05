@@ -1,4 +1,4 @@
-import type { TransactionSettingsState } from 'lx/src/features/transactions/components/settings/types'
+import type { RoutingMethod, TransactionSettingsState } from 'lx/src/features/transactions/components/settings/types'
 import {
   DEFAULT_PROTOCOL_OPTIONS,
   type FrontendSupportedProtocol,
@@ -15,6 +15,7 @@ export const initialTransactionSettingsState: TransactionSettingsState = {
   selectedProtocols: DEFAULT_PROTOCOL_OPTIONS,
   slippageWarningModalSeen: false,
   isV4HookPoolsEnabled: true,
+  routeVia: 'auto',
 }
 
 export type TransactionSettingsStoreState = TransactionSettingsState & {
@@ -25,6 +26,7 @@ export type TransactionSettingsStoreState = TransactionSettingsState & {
     setSlippageWarningModalSeen: (seen: boolean) => void
     setIsV4HookPoolsEnabled: (enabled: boolean) => void
     toggleProtocol: (protocol: FrontendSupportedProtocol) => void
+    setRouteVia: (method: RoutingMethod) => void
   }
 }
 
@@ -50,6 +52,7 @@ export const createTransactionSettingsStore = (): { store: TransactionSettingsSt
               set({ selectedProtocols: [...selectedProtocols, protocol] })
             }
           },
+          setRouteVia: (method: RoutingMethod): void => set({ routeVia: method }),
         },
       })),
       {

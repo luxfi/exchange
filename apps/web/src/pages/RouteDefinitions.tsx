@@ -46,6 +46,7 @@ const ExtensionUninstall = lazy(() => import('pages/ExtensionUninstall/Extension
 const Portfolio = lazy(() => import('pages/Portfolio/Portfolio'))
 const ToucanToken = lazy(() => import('pages/Explore/ToucanToken'))
 const Wrapped = lazy(() => import('pages/Wrapped'))
+const Trade = lazy(() => import('pages/Trade'))
 
 interface RouterConfig {
   browserRouterEnabled?: boolean
@@ -252,6 +253,12 @@ export const routes: RouteDefinition[] = [
     path: '/swap',
     getElement: () => <Swap />,
     getTitle: () => StaticTitlesAndDescriptions.SwapTitle,
+  }),
+  createRouteDefinition({
+    path: '/trade',
+    getElement: () => <Trade />,
+    getTitle: () => i18n.t('trade.advanced.title'),
+    nestedPaths: [':symbol'],
   }),
   // Refreshed pool routes
   createRouteDefinition({
