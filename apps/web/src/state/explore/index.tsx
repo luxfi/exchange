@@ -1,11 +1,8 @@
-import { ExploreStatsResponse, ProtocolStatsResponse } from '@uniswap/client-explore/dist/uniswap/explore/v1/service_pb'
-import { ALL_NETWORKS_ARG } from '@universe/api'
+import { ExploreStatsResponse, ProtocolStatsResponse } from '@luxdex/client-explore/dist/uniswap/explore/v1/service_pb'
 import { createContext, useMemo } from 'react'
-import { useExploreStatsQuery } from 'uniswap/src/data/rest/exploreStats'
-import { useProtocolStatsQuery } from 'uniswap/src/data/rest/protocolStats'
-import { useIsSupportedChainId } from 'uniswap/src/features/chains/hooks/useSupportedChainId'
-import { UniverseChainId } from 'uniswap/src/features/chains/types'
-import { useExploreBackendSortingEnabled } from '~/state/explore/useExploreBackendSortingEnabled'
+import { useIsSupportedChainId } from 'lx/src/features/chains/hooks/useSupportedChainId'
+import { UniverseChainId } from 'lx/src/features/chains/types'
+import { useExchangeStats } from '~/state/explore/useLxdExploreStats'
 
 interface QueryResult<T> {
   data?: T
@@ -13,11 +10,6 @@ interface QueryResult<T> {
   error: boolean
 }
 
-/**
- * ExploreContextType
- * @property exploreStatsData - Data for the Explore Tokens and Pools table
- * @property protocolStatsData - Data for the Protocol Stats Graphs
- */
 interface ExploreContextType {
   exploreStats: QueryResult<ExploreStatsResponse>
   protocolStats: QueryResult<ProtocolStatsResponse>
@@ -50,24 +42,13 @@ export function ExploreContextProvider({
   children: React.ReactNode
 }) {
   const isSupportedChain = useIsSupportedChainId(chainId)
-  const isExploreBackendSortingEnabled = useExploreBackendSortingEnabled()
 
-  // Skip exploreStats query when backend sorting is enabled (tokens/pools tables use new endpoints)
+  // Use our exchange stats provider (CoinGecko + DeFi Llama + LXD Gateway)
   const {
     data: exploreStatsData,
     isLoading: exploreStatsLoading,
     error: exploreStatsError,
-  } = useExploreStatsQuery<ExploreStatsResponse>({
-    input: { chainId: isSupportedChain ? chainId.toString() : ALL_NETWORKS_ARG },
-    enabled: !isExploreBackendSortingEnabled,
-  })
-  const {
-    data: protocolStatsData,
-    isLoading: protocolStatsLoading,
-    error: protocolStatsError,
-  } = useProtocolStatsQuery({
-    chainId: isSupportedChain ? chainId.toString() : ALL_NETWORKS_ARG,
-  })
+  } = useExchangeStats(isSupportedChain ? chainId : undefined)
 
   const exploreContext = useMemo(() => {
     return {
@@ -77,18 +58,12 @@ export function ExploreContextProvider({
         error: !!exploreStatsError,
       },
       protocolStats: {
-        data: protocolStatsData,
-        isLoading: protocolStatsLoading,
-        error: !!protocolStatsError,
+        data: undefined,
+        isLoading: false,
+        error: false,
       },
     }
-  }, [
-    exploreStatsData,
-    exploreStatsError,
-    exploreStatsLoading,
-    protocolStatsData,
-    protocolStatsError,
-    protocolStatsLoading,
-  ])
+  }, [exploreStatsData, exploreStatsError, exploreStatsLoading])
+
   return <ExploreContext.Provider value={exploreContext}>{children}</ExploreContext.Provider>
 }
