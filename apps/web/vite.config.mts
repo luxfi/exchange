@@ -235,6 +235,13 @@ export default defineConfig(({ mode }) => {
     '@luxamm/sdk-core': path.resolve(__dirname, '../../node_modules/@luxamm/sdk-core'),
     '@luxamm/v2-sdk': path.resolve(__dirname, '../../node_modules/@luxamm/v2-sdk'),
     '@luxamm/v3-sdk': path.resolve(__dirname, '../../node_modules/@luxamm/v3-sdk'),
+    // Additional @luxdex/* aliases missing from original config
+    '@luxdex/analytics': path.resolve(__dirname, '../../packages/luxdex-analytics'),
+    '@luxdex/analytics-events': path.resolve(__dirname, '../../node_modules/@uniswap/analytics-events'),
+    '@luxdex/client-explore': path.resolve(__dirname, '../../node_modules/@uniswap/client-explore'),
+    '@luxdex/client-search': path.resolve(__dirname, '../../node_modules/@uniswap/client-search'),
+    '@luxdex/sdk': path.resolve(__dirname, '../../packages/luxdex-sdk'),
+    '@luxdex/conedison/format': path.resolve(__dirname, 'src/lib/conedison-format-stub.ts'),
     // react-router v7 merged react-router-dom into react-router
     'react-router-dom': path.resolve(__dirname, '../../node_modules/react-router'),
     // Lingui is not used — stub Trans/t for components that import from @lingui/macro
