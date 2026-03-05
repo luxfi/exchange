@@ -260,6 +260,15 @@ export const routes: RouteDefinition[] = [
     getTitle: () => i18n.t('trade.advanced.title'),
     nestedPaths: [':symbol'],
   }),
+  // NFT routes → redirect to lux.market
+  createRouteDefinition({
+    path: '/nfts',
+    nestedPaths: ['collection/:contractAddress', 'collection/:contractAddress/activity', 'asset/:contractAddress/:tokenId', 'profile'],
+    getElement: () => {
+      if (typeof window !== 'undefined') window.location.href = 'https://lux.market'
+      return null
+    },
+  }),
   // Refreshed pool routes
   createRouteDefinition({
     path: '/positions/create',

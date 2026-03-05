@@ -112,6 +112,24 @@ export function PortfolioNfts(): JSX.Element {
   return (
     <Trace logImpression page={InterfacePageName.PortfolioNftsPage}>
       <Flex gap="$spacing24" mt="$spacing12">
+        {/* Link to full marketplace */}
+        <Flex row justifyContent="flex-end" px="$spacing8">
+          <a
+            href="https://lux.market"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              color: '#888',
+              fontSize: 13,
+              textDecoration: 'none',
+              display: 'flex',
+              alignItems: 'center',
+              gap: 4,
+            }}
+          >
+            Trade NFTs on Lux Market &rarr;
+          </a>
+        </Flex>
         <Trace section={SectionName.PortfolioNftsTab} element={ElementName.NftsList}>
           <Flex ref={nftsContainerRef}>
             <NftsList
