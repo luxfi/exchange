@@ -238,7 +238,7 @@ export function useTrackedTokenPairs(): [Token, Token][] {
   }, [combinedList])
 }
 
-export function useRequestPositionsForSavedPairs() {
+export function useRequestPositionsForSavedPairs(): any {
   const savedSerializedPairs = useAppSelector(({ user: { pairs } }) => pairs)
   const account = useAccount()
   return useGetPositionsForPairs(savedSerializedPairs, account.address)

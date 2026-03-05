@@ -43,7 +43,7 @@ export function useTransformTokenTableData({ chainIds, limit }: { chainIds?: Uni
     evmAddress,
     svmAddress,
     chainIds,
-  })
+  }) as any
 
   return useMemo(() => {
     // Only show empty state on initial load, not during refetch
@@ -68,7 +68,7 @@ export function useTransformTokenTableData({ chainIds, limit }: { chainIds?: Uni
     }
 
     // Compute total USD across visible balances to determine allocation per token
-    const totalUSDVisible = sortedBalances.balances.reduce((sum, b) => sum + (b.balanceUSD ?? 0), 0)
+    const totalUSDVisible = sortedBalances.balances.reduce((sum: number, b: any) => sum + (b.balanceUSD ?? 0), 0)
 
     const mapBalanceToTokenData = (balance: PortfolioBalance, allocationFromTotal?: number): TokenData => {
       const balanceUSD = balance.balanceUSD ?? 0
@@ -89,13 +89,13 @@ export function useTransformTokenTableData({ chainIds, limit }: { chainIds?: Uni
       }
     }
 
-    const visible = sortedBalances.balances.map((b) => {
+    const visible = sortedBalances.balances.map((b: any) => {
       const balanceUSD = b.balanceUSD ?? 0
       const allocation = totalUSDVisible > 0 ? (balanceUSD / totalUSDVisible) * 100 : 0
       return mapBalanceToTokenData(b, allocation)
     })
 
-    const hidden = sortedBalances.hiddenBalances.map((b) => mapBalanceToTokenData(b, 0))
+    const hidden = sortedBalances.hiddenBalances.map((b: any) => mapBalanceToTokenData(b, 0))
 
     // Apply limit to visible tokens if specified
     const limitedVisible = limit ? visible.slice(0, limit) : visible

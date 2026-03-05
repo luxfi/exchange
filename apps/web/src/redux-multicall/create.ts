@@ -23,7 +23,7 @@ export interface MulticallOptions {
 }
 
 // Inspired by RTK Query's createApi
-export function createMulticall(options?: MulticallOptions) {
+export function createMulticall(options?: MulticallOptions): any {
   const reducerPath = options?.reducerPath ?? 'multicall'
   const slice = createMulticallSlice(reducerPath)
   const { actions, reducer } = slice

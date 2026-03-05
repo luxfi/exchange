@@ -21,7 +21,7 @@ import {
 /**
  * Hook to get L1 (best bid/ask) for a market
  */
-export function useLXBookL1(marketId: number) {
+export function useLXBookL1(marketId: number): any {
   const { data, isLoading, error, refetch } = useReadContract({
     address: LX.LX_BOOK,
     abi: LX_BOOK_ABI,

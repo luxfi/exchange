@@ -80,7 +80,7 @@ export function TransactionsTable({ chainId, referenceToken }: { chainId: Univer
 
   const data = useMemo(
     () =>
-      transactions.map((transaction) => {
+      transactions.map((transaction: any) => {
         const swapLeg0 = {
           address: transaction.token0.address,
           symbol: transaction.token0.symbol,

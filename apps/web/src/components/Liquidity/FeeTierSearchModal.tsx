@@ -86,8 +86,8 @@ export function FeeTierSearchModal() {
   })
 
   useEffect(() => {
-    let interval: NodeJS.Timeout
-    let holdTimeout: NodeJS.Timeout
+    let interval: ReturnType<typeof setInterval>
+    let holdTimeout: ReturnType<typeof setTimeout>
     const baseInterval = 100
     let currentInterval = baseInterval
 

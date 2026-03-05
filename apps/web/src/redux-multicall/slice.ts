@@ -12,7 +12,7 @@ const initialState: MulticallState = {
   callResults: {},
 }
 
-export function createMulticallSlice(reducerPath: string) {
+export function createMulticallSlice(reducerPath: string): any {
   return createSlice({
     name: reducerPath,
     initialState,

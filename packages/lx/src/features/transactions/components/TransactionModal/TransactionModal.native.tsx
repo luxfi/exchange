@@ -112,8 +112,10 @@ export function TransactionModalInnerContainer({
   })
 
   return (
+    // @ts-expect-error React Native BottomSheetView type incompatibility
     <BottomSheetView style={bottomSheetViewStyles}>
       {/* Do not remove `accessible`, this allows maestro to view components within this */}
+      {/* @ts-expect-error React Native TouchableWithoutFeedback type incompatibility */}
       <TouchableWithoutFeedback accessible={false}>
         <Flex mt={fullscreen ? insets.top : '$spacing8'}>
           {fullscreen && <HandleBar backgroundColor="none" />}
@@ -182,6 +184,7 @@ export function TransactionModalFooterContainer({ children }: TransactionModalFo
     isAndroid && insets.bottom !== DEFAULT_BOTTOM_INSET ? insets.bottom + spacing.spacing8 : insets.bottom
 
   return (
+    // @ts-expect-error React Native BottomSheetFooter type incompatibility
     <BottomSheetFooter animatedFooterPosition={animatedFooterPosition}>
       <Flex animateEnter="fadeIn" mx="$spacing16" pb={bottomInset} position="relative" pt="$spacing24">
         {children}

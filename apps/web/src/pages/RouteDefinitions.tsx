@@ -5,7 +5,7 @@ import { getAddLiquidityPageTitle, getPositionPageDescription, getPositionPageTi
 // High-traffic pages (index and /swap) should not be lazy-loaded.
 import Landing from 'pages/Landing'
 import Swap from 'pages/Swap'
-import { lazy, ReactNode, Suspense, useMemo } from 'react'
+import { lazy, ReactNode, Suspense, useEffect, useMemo } from 'react'
 import { matchPath, Navigate, Route, Routes, useLocation } from 'react-router'
 import { WRAPPED_PATH } from 'lx/src/components/banners/shared/utils'
 import { CHROME_EXTENSION_UNINSTALL_URL_PATH } from 'lx/src/constants/urls'
@@ -121,6 +121,14 @@ function createRouteDefinition(route: Partial<RouteDefinition>): RouteDefinition
     // overwrite the defaults
     ...route,
   }
+}
+
+/** Redirect /nfts to lux.market — must be a component so it only runs when the route matches */
+function NftRedirect() {
+  useEffect(() => {
+    window.location.href = 'https://lux.market'
+  }, [])
+  return null
 }
 
 export const routes: RouteDefinition[] = [
@@ -260,14 +268,11 @@ export const routes: RouteDefinition[] = [
     getTitle: () => i18n.t('trade.advanced.title'),
     nestedPaths: [':symbol'],
   }),
-  // NFT routes → redirect to lux.market
+  // NFT routes → redirect to lux.market (must be a component, not a side effect in getElement)
   createRouteDefinition({
     path: '/nfts',
     nestedPaths: ['collection/:contractAddress', 'collection/:contractAddress/activity', 'asset/:contractAddress/:tokenId', 'profile'],
-    getElement: () => {
-      if (typeof window !== 'undefined') window.location.href = 'https://lux.market'
-      return null
-    },
+    getElement: () => <NftRedirect />,
   }),
   // Refreshed pool routes
   createRouteDefinition({

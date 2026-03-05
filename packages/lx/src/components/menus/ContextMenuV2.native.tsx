@@ -322,13 +322,13 @@ export function ContextMenu({
                 : undefined
             }
           >
-            <Flex ref={triggerRef} onLayout={recalculateMenuPosition}>
+            <Flex ref={triggerRef as any} onLayout={recalculateMenuPosition}>
               {children}
             </Flex>
           </TouchableArea>
         ) : (
           // if openMenu is undefined, {children} controls menu open/close state. Don't want to interfere with nested TouchableAreas
-          <Flex ref={triggerRef} onLayout={recalculateMenuPosition}>
+          <Flex ref={triggerRef as any} onLayout={recalculateMenuPosition}>
             {children}
           </Flex>
         )}

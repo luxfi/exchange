@@ -125,6 +125,7 @@ describe('createPrepareSwapRequestParams', () => {
       selectedProtocols: DEFAULT_PROTOCOL_OPTIONS,
       slippageWarningModalSeen: false,
       isV4HookPoolsEnabled: false,
+      routeVia: 'auto',
     }
     const alreadyApproved = true
 

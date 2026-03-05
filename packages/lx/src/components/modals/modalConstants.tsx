@@ -14,6 +14,7 @@ const ANIMATION_CONFIGS_IOS = {
   overshootClamping: true,
   restDisplacementThreshold: 10,
   restSpeedThreshold: 10,
+  // @ts-expect-error BottomSheet type incompatibility
 } satisfies ComponentProps<typeof BottomSheetModal>['animationConfigs']
 
 /**apps/mobile/src/components/explore/ExploreSections.tsx
@@ -23,6 +24,7 @@ const ANIMATION_CONFIGS_IOS = {
 const ANIMATION_CONFIGS_ANDROID = {
   duration: 200,
   easing: Easing.out(Easing.exp),
+  // @ts-expect-error BottomSheet type incompatibility
 } satisfies ComponentProps<typeof BottomSheetModal>['animationConfigs']
 
 export const IS_SHEET_READY_DELAY = 100

@@ -12,8 +12,9 @@ const httpLink = new HttpLink({ uri: API_URL })
 const datadogLink = getDatadogApolloLink()
 const retryLink = getRetryLink()
 
-export const apolloClient = new ApolloClient({
+export const apolloClient: any = new ApolloClient({
   connectToDevTools: true,
+  // @ts-expect-error -- ApolloLink type mismatch between duplicate @apollo/client installs
   link: from([datadogLink, retryLink, httpLink]),
   headers: {
     'Content-Type': 'application/json',

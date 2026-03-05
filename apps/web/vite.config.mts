@@ -78,7 +78,7 @@ const portWarningPlugin = (isProduction: boolean) =>
 // Get git commit hash
 const commitHash = execSync('git rev-parse HEAD').toString().trim()
 
-export default defineConfig(({ mode }) => {
+export default (defineConfig as any)(({ mode }: { mode: string }) => {
   let env = loadEnv(mode, __dirname, '')
 
   // Force load .env.[mode] files since NX ignores them

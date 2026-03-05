@@ -148,10 +148,10 @@ export function useHighestBalanceNativeCurrencyId({
   svmAddress?: Address
   chainId?: UniverseChainId
 }): CurrencyId {
-  const { data } = useSortedPortfolioBalances({ evmAddress, svmAddress })
+  const { data } = useSortedPortfolioBalances({ evmAddress, svmAddress }) as { data: SortedPortfolioBalances | undefined }
   const { defaultChainId } = useEnabledChains()
   const highestBalance = data?.balances.find(
-    (balance) =>
+    (balance: PortfolioBalance) =>
       balance.currencyInfo.currency.isNative && (!chainId || balance.currencyInfo.currency.chainId === chainId),
   )?.currencyInfo.currencyId
 
@@ -327,7 +327,7 @@ export function useSortedPortfolioBalances({
       refetch,
     }),
     [shownTokens, hiddenTokens, isTestnetModeEnabled, loading, networkStatus, refetch],
-  )
+  ) as SortedPortfolioBalancesResult
 }
 
 /**

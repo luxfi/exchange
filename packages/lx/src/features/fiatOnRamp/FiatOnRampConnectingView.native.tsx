@@ -29,6 +29,7 @@ export function FiatOnRampConnectingView({
 
   const isDarkMode = useIsDarkMode()
   return (
+    // @ts-expect-error React Native ImageBackground type incompatibility
     <ImageBackground
       resizeMode="cover"
       source={isDarkMode ? FOR_CONNECTING_BACKGROUND_DARK : FOR_CONNECTING_BACKGROUND_LIGHT}
@@ -37,6 +38,7 @@ export function FiatOnRampConnectingView({
       <AnimatedFlex centered grow entering={FadeIn} exiting={FadeOut} style={{ marginBottom: insets.bottom }}>
         <Flex row gap="$spacing16" pb="$spacing16">
           <Flex alignItems="center" justifyContent="center" style={styles.uniswapLogoWrapper}>
+            {/* @ts-expect-error React Native Image type incompatibility */}
             <Image source={UNISWAP_LOGO_LARGE} style={styles.uniswapLogo} />
           </Flex>
           {serviceProviderLogo}

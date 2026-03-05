@@ -25,7 +25,7 @@ export function usePoolsFromTokenAddress({
   sortState: PoolTableSortState
   chainId: UniverseChainId
   isNative?: boolean
-}) {
+}): any {
   const chain = toGraphQLChain(chainId)
   const skipPoolQueries = isSVMChain(chainId)
 

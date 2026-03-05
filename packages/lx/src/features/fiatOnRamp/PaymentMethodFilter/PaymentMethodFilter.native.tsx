@@ -28,6 +28,7 @@ export function PaymentMethodFilter({
   const renderPaymentMethod = useRenderPaymentMethod(paymentMethod, handleOnPress)
 
   return (
+    // @ts-expect-error React Native FlatList type incompatibility
     <FlatList
       horizontal
       data={enabledPaymentMethodFilters}

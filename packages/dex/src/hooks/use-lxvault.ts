@@ -19,7 +19,7 @@ function buildAccount(main: Address, subaccountId: number = 0): LXAccount {
 /**
  * Hook to get token balance in vault
  */
-export function useLXVaultBalance(token: Address, subaccountId: number = 0) {
+export function useLXVaultBalance(token: Address, subaccountId: number = 0): any {
   const { address } = useAccount()
 
   const { data, isLoading, error, refetch } = useReadContract({
@@ -41,7 +41,7 @@ export function useLXVaultBalance(token: Address, subaccountId: number = 0) {
 /**
  * Hook to get position for a market
  */
-export function useLXVaultPosition(marketId: number, subaccountId: number = 0) {
+export function useLXVaultPosition(marketId: number, subaccountId: number = 0): any {
   const { address } = useAccount()
 
   const { data, isLoading, error, refetch } = useReadContract({
@@ -63,7 +63,7 @@ export function useLXVaultPosition(marketId: number, subaccountId: number = 0) {
 /**
  * Hook to get margin info (free margin, used margin, etc.)
  */
-export function useLXVaultMargin(subaccountId: number = 0) {
+export function useLXVaultMargin(subaccountId: number = 0): any {
   const { address } = useAccount()
 
   const { data, isLoading, error, refetch } = useReadContract({
@@ -85,7 +85,7 @@ export function useLXVaultMargin(subaccountId: number = 0) {
 /**
  * Hook to check if account is liquidatable
  */
-export function useLXVaultLiquidatable(account?: Address, subaccountId: number = 0) {
+export function useLXVaultLiquidatable(account?: Address, subaccountId: number = 0): any {
   const { address: connectedAddress } = useAccount()
   const targetAddress = account ?? connectedAddress
 
@@ -111,7 +111,7 @@ export function useLXVaultLiquidatable(account?: Address, subaccountId: number =
 /**
  * Hook to get funding rate for a market
  */
-export function useLXVaultFundingRate(marketId: number) {
+export function useLXVaultFundingRate(marketId: number): any {
   const { data, isLoading, error, refetch } = useReadContract({
     address: LX.LX_VAULT,
     abi: LX_VAULT_ABI,
@@ -295,7 +295,7 @@ export function useLXVaultLiquidate(): UseLXVaultLiquidateResult {
 /**
  * Combined hook for common vault operations
  */
-export function useLXVault(subaccountId: number = 0) {
+export function useLXVault(subaccountId: number = 0): any {
   const { address } = useAccount()
   const margin = useLXVaultMargin(subaccountId)
   const { deposit, isPending: isDepositing } = useLXVaultDeposit()

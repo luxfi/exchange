@@ -33,7 +33,7 @@ export function useTokenTransactions({
   address: string
   chainId: UniverseChainId
   filter?: TokenTransactionType[]
-}) {
+}): any {
   const skipV3V4Solana = isSVMChain(chainId) // Solana token txs data are surfaced via Gql Token.V2Transactions
 
   const {

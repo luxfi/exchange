@@ -13,8 +13,11 @@ export type ModalProps = PropsWithChildren<{
   enableDynamicSizing?: boolean
   onClose?: () => void
   snapPoints?: Array<string | number>
+  // @ts-expect-error BottomSheet type incompatibility
   stackBehavior?: ComponentProps<typeof BaseModal>['stackBehavior']
+  // @ts-expect-error BottomSheet type incompatibility
   containerComponent?: ComponentProps<typeof BaseModal>['containerComponent']
+  // @ts-expect-error BottomSheet type incompatibility
   footerComponent?: ComponentProps<typeof BaseModal>['footerComponent']
   fullScreen?: boolean
   handlebarColor?: HandleBarProps['indicatorColor']
@@ -52,5 +55,6 @@ export type ModalProps = PropsWithChildren<{
   flex?: ComponentProps<typeof View>['flex']
   zIndex?: number
   borderWidth?: number
+  // @ts-expect-error BottomSheet type incompatibility
   focusHook?: ComponentProps<typeof BottomSheetView>['focusHook']
 }>

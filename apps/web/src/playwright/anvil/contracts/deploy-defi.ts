@@ -207,7 +207,7 @@ export async function deployDeFiStack(options: DeployOptions): Promise<DeployRes
     abi: wluxAbi,
     functionName: 'deposit',
     value: parseEther('1000'),
-  })
+  } as any)
 
   // Create liquidity pools
   log('\n--- Creating Liquidity Pools ---')

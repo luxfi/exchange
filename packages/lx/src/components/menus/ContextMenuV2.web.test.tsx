@@ -45,6 +45,7 @@ describe('ContextMenu', () => {
           isOpen={true}
           closeMenu={jest.fn()}
         >
+          {/* @ts-expect-error RN View type */}
           <View testID="trigger">
             <Flex>Trigger</Flex>
           </View>
@@ -74,6 +75,7 @@ describe('ContextMenu', () => {
           isOpen={true}
           closeMenu={jest.fn()}
         >
+          {/* @ts-expect-error RN View type */}
           <View testID="trigger">
             <Flex>Trigger</Flex>
           </View>
@@ -99,6 +101,7 @@ describe('ContextMenu', () => {
     it('does not open the menu if no menuItems are provided', () => {
       const { getByTestId, queryByRole } = renderWithProviders(
         <ContextMenu menuItems={[]} triggerMode={ContextMenuTriggerMode.Secondary} isOpen={true} closeMenu={jest.fn()}>
+          {/* @ts-expect-error RN View type */}
           <View testID="trigger">
             <Flex>Trigger</Flex>
           </View>

@@ -19,6 +19,7 @@ import type {
   OrderBookUpdate,
   PerpPosition,
   PlaceOrderRequest,
+  PriceLevel,
   SetLeverageRequest,
   SetMarginModeRequest,
   WithdrawVaultRequest,

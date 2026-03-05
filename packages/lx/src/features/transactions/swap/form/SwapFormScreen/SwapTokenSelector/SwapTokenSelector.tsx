@@ -14,6 +14,7 @@ export function SwapTokenSelector({
   focusHook,
 }: {
   isModalOpen: boolean
+  // @ts-expect-error BottomSheet type incompatibility
   focusHook?: ComponentProps<typeof BottomSheetView>['focusHook']
 }): JSX.Element | null {
   const { selectingCurrencyField, input, output } = useSwapFormStore((s) => ({

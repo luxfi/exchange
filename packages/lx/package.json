@@ -39,6 +39,8 @@
     "@gorhom/bottom-sheet": "4.6.4",
     "@react-navigation/core": "7.9.2",
     "@reduxjs/toolkit": "1.9.3",
+    "immer": "9.0.21",
+    "reselect": "4.1.8",
     "@shopify/flash-list": "1.7.6",
     "@simplewebauthn/browser": "13.1.0",
     "@solana/web3.js": "1.92.0",

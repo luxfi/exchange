@@ -60,6 +60,7 @@ function ModalBackdrop({
 }: BottomSheetBackdropProps &
   Pick<ModalProps, 'fullScreen' | 'zIndex' | 'hideScrim' | 'blurredBackground' | 'isDismissible'>): JSX.Element {
   return (
+    // @ts-expect-error React Native BottomSheetBackdrop type incompatibility
     <BottomSheetBackdrop
       {...props}
       style={useMemo(
@@ -80,6 +81,7 @@ function ModalBackdrop({
 
 function DetachedModalBackdrop(props: BottomSheetBackdropProps): JSX.Element {
   return (
+    // @ts-expect-error React Native BottomSheetBackdrop type incompatibility
     <BottomSheetBackdrop
       {...props}
       style={useMemo(() => StyleSheet.flatten([props.style, { zIndex: zIndexes.popoverBackdrop }]), [props.style])}
@@ -311,6 +313,7 @@ function BottomSheetModalContents({
   }, [fullScreen, zIndex])
 
   return (
+    // @ts-expect-error React Native BottomSheetModal type incompatibility
     <BaseModal
       ref={modalRef}
       backgroundComponent={blurredBackground ? renderBlurredBg : undefined}
@@ -337,6 +340,7 @@ function BottomSheetModalContents({
           {overrideInnerContainer ? (
             children
           ) : (
+            // @ts-expect-error React Native BottomSheetView type incompatibility
             <BottomSheetView style={bottomSheetViewStyles} focusHook={focusHook}>
               {children}
             </BottomSheetView>
@@ -390,6 +394,7 @@ export function BottomSheetDetachedModal({
   const fullContentHeight = dimensions.fullHeight - insets.top - handleBarHeight
 
   return (
+    // @ts-expect-error React Native BottomSheetModal type incompatibility
     <BaseModal
       ref={modalRef}
       backdropComponent={DetachedModalBackdrop}
@@ -407,6 +412,7 @@ export function BottomSheetDetachedModal({
       onDismiss={onClose}
     >
       <Trace logImpression modal={name} properties={analyticsProperties}>
+        {/* @ts-expect-error React Native BottomSheetView type incompatibility */}
         <BottomSheetView style={fullScreen ? { height: fullContentHeight } : undefined}>{children}</BottomSheetView>
       </Trace>
     </BaseModal>
@@ -436,6 +442,8 @@ const blurViewStyle = StyleSheet.create({
   },
 })
 
+// @ts-expect-error BottomSheet type incompatibility
 export function BottomSheetTextInput(props: ComponentProps<typeof GorhomBottomSheetTextInput>): JSX.Element {
+  // @ts-expect-error React Native GorhomBottomSheetTextInput type incompatibility
   return <GorhomBottomSheetTextInput {...props} />
 }

@@ -177,7 +177,7 @@ export function ActionSheetDropdown({
         {/* collapsable property prevents removing view on Android. Without this property we were
         getting undefined in measureInWindow callback. (https://reactnative.dev/docs/view.html#collapsable-android) */}
         <Flex
-          ref={containerRef}
+          ref={containerRef as any}
           centered
           row
           collapsable={false}

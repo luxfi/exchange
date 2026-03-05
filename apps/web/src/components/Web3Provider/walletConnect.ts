@@ -47,14 +47,14 @@ export const WC_PARAMS = {
   },
 }
 
-export function uniswapWalletConnect() {
-  return createConnector((config) => {
+export function uniswapWalletConnect(): any {
+  return createConnector((config: any) => {
     const wc = walletConnect({
       ...WC_PARAMS,
       showQrModal: false,
     })(config)
 
-    config.emitter.on('message', ({ type, data }) => {
+    config.emitter.on('message', ({ type, data }: { type: string; data: any }) => {
       if (type === 'display_uri') {
         // Emits custom wallet connect code, parseable by the Uniswap Wallet
         const uniswapWalletUri = `https://lux.exchange/app/wc?uri=${data}`

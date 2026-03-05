@@ -11,7 +11,7 @@ import type { LXMarkPrice, LXFundingRate } from '../precompile/types'
 /**
  * Hook to get mark price for a market
  */
-export function useLXFeedMarkPrice(marketId: number) {
+export function useLXFeedMarkPrice(marketId: number): any {
   const { data, isLoading, error, refetch } = useReadContract({
     address: LX.LX_FEED,
     abi: LX_FEED_ABI,
@@ -30,7 +30,7 @@ export function useLXFeedMarkPrice(marketId: number) {
 /**
  * Hook to get index price for a market
  */
-export function useLXFeedIndexPrice(marketId: number) {
+export function useLXFeedIndexPrice(marketId: number): any {
   const { data, isLoading, error, refetch } = useReadContract({
     address: LX.LX_FEED,
     abi: LX_FEED_ABI,
@@ -52,7 +52,7 @@ export function useLXFeedIndexPrice(marketId: number) {
 /**
  * Hook to get funding rate for a market
  */
-export function useLXFeedFundingRate(marketId: number) {
+export function useLXFeedFundingRate(marketId: number): any {
   const { data, isLoading, error, refetch } = useReadContract({
     address: LX.LX_FEED,
     abi: LX_FEED_ABI,
@@ -74,7 +74,7 @@ export function useLXFeedFundingRate(marketId: number) {
 /**
  * Hook to get trigger price for stop/take orders
  */
-export function useLXFeedTriggerPrice(marketId: number, isBuy: boolean) {
+export function useLXFeedTriggerPrice(marketId: number, isBuy: boolean): any {
   const { data, isLoading, error, refetch } = useReadContract({
     address: LX.LX_FEED,
     abi: LX_FEED_ABI,
@@ -93,7 +93,7 @@ export function useLXFeedTriggerPrice(marketId: number, isBuy: boolean) {
 /**
  * Hook to get oracle price for token pair
  */
-export function useLXOraclePrice(baseToken: Address, quoteToken: Address) {
+export function useLXOraclePrice(baseToken: Address, quoteToken: Address): any {
   const { data, isLoading, error, refetch } = useReadContract({
     address: LX.LX_ORACLE,
     abi: LX_ORACLE_ABI,
@@ -116,7 +116,7 @@ export function useLXOracleAggregatedPrice(
   baseToken: Address,
   quoteToken: Address,
   maxStaleness: bigint = 3600n // 1 hour default
-) {
+): any {
   const { data, isLoading, error, refetch } = useReadContract({
     address: LX.LX_ORACLE,
     abi: LX_ORACLE_ABI,
@@ -139,7 +139,7 @@ export function useLXOraclePriceFresh(
   baseToken: Address,
   quoteToken: Address,
   maxStaleness: bigint = 3600n
-) {
+): any {
   const { data, isLoading, error, refetch } = useReadContract({
     address: LX.LX_ORACLE,
     abi: LX_ORACLE_ABI,

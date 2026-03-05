@@ -169,7 +169,7 @@ function createAnvilManager(configOverrides?: Partial<AnvilConfig>): AnvilManage
   let childProcess: ChildProcess | null = null
   let config: AnvilConfig | null = null
   let isRestarting = false
-  let healthCheckTimer: NodeJS.Timeout | null = null
+  let healthCheckTimer: ReturnType<typeof setInterval> | null = null
 
   // Lazy config getter
   const getConfig = (): AnvilConfig => {

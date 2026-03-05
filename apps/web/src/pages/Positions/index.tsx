@@ -338,14 +338,14 @@ export default function Pool() {
     return [
       ...loadedPositions,
       ...savedPositions
-        .filter((position) => {
+        .filter((position: any) => {
           const matchesChain = !chainFilter || position.data?.position?.chainId === chainFilter
           const matchesStatus = position.data?.position?.status && statusFilter.includes(position.data.position.status)
           const matchesVersion =
             position.data?.position?.protocolVersion && versionFilter.includes(position.data.position.protocolVersion)
           return matchesChain && matchesStatus && matchesVersion
         })
-        .map((p) => p.data?.position),
+        .map((p: any) => p.data?.position),
     ]
       .map(parseRestPosition)
       .filter((position): position is PositionInfo => !!position)

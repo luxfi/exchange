@@ -35,7 +35,7 @@ const ALL_TX_DEFAULT_QUERY_SIZE = 20
 export function useAllTransactions(
   chain: GraphQLApi.Chain,
   filter: TransactionType[] = [TransactionType.SWAP, TransactionType.ADD, TransactionType.REMOVE],
-) {
+): any {
   const isWindowVisible = useIsWindowVisible()
   const skipTransactionsQueries = !isWindowVisible || fromGraphQLChain(chain) === UniverseChainId.Solana
 

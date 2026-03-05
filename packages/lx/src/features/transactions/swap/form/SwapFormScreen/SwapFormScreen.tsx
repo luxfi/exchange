@@ -34,6 +34,7 @@ interface SwapFormScreenProps {
   hideFooter?: boolean
   settings: TransactionSettingConfig[]
   tokenColor?: string
+  // @ts-expect-error BottomSheet type incompatibility
   focusHook?: ComponentProps<typeof BottomSheetView>['focusHook']
 }
 

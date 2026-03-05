@@ -7,6 +7,6 @@ export const AboutContainer = deprecatedStyled.div`
   padding: 24px 0px;
   ${textFadeIn}
 `
-export const AboutHeader = deprecatedStyled(ThemedText.MediumHeader)`
+export const AboutHeader: any = deprecatedStyled(ThemedText.MediumHeader)`
   font-size: 28px !important;
 `

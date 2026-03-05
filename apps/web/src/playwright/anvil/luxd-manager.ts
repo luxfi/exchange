@@ -292,7 +292,7 @@ function createLuxdManager(configOverrides?: Partial<LuxdConfig>): LuxdManager {
   let assignedPort: number = 0
   let chain: Chain | null = null
   let isRestarting = false
-  let healthCheckTimer: NodeJS.Timeout | null = null
+  let healthCheckTimer: ReturnType<typeof setInterval> | null = null
   let deployedContracts: DeployedContracts | null = null
 
   // Lazy config getter

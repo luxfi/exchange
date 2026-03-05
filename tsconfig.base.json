@@ -28,56 +28,25 @@
     "noUncheckedIndexedAccess": true,
     "target": "esnext",
     "module": "esnext",
-    "lib": [
-      "es2022",
-      "dom"
-    ],
+    "lib": ["es2022", "dom"],
     "baseUrl": ".",
     "rootDir": ".",
     "outDir": "./dist/out-tsc",
-    "types": [
-      "node"
-    ],
+    "types": ["node"],
     "paths": {
-      "@universe/api": [
-        "packages/api/src/index.ts"
-      ],
-      "@universe/api/*": [
-        "packages/api/*"
-      ],
-      "@luxfi/api/*": [
-        "packages/api/*"
-      ],
-      "@luxfi/cli/*": [
-        "apps/cli/*"
-      ],
-      "@luxfi/config/*": [
-        "packages/config/*"
-      ],
-      "@luxfi/gating/*": [
-        "packages/gating/*"
-      ],
-      "@luxfi/notifications/*": [
-        "packages/notifications/*"
-      ],
-      "@luxfi/sessions/*": [
-        "packages/sessions/*"
-      ],
-      "lx/*": [
-        "packages/lx/*"
-      ],
-      "uniswap/*": [
-        "packages/lx/*"
-      ],
-      "ui/*": [
-        "packages/ui/*"
-      ],
-      "utilities/*": [
-        "packages/utilities/*"
-      ],
-      "wallet/*": [
-        "packages/wallet/*"
-      ]
+      "@luxfi/api/*": ["packages/api/*"],
+      "@luxfi/cli/*": ["apps/cli/*"],
+      "@luxfi/config/*": ["packages/config/*"],
+      "@luxfi/gating/*": ["packages/gating/*"],
+      "@luxfi/notifications/*": ["packages/notifications/*"],
+      "@luxfi/sessions/*": ["packages/sessions/*"],
+      "@universe/api": ["packages/api/src/index.ts"],
+      "@universe/api/*": ["packages/api/*"],
+      "lx/*": ["packages/lx/*"],
+      "ui/*": ["packages/ui/*"],
+      "uniswap/*": ["packages/lx/*"],
+      "utilities/*": ["packages/utilities/*"],
+      "wallet/*": ["packages/wallet/*"]
     }
   }
 }

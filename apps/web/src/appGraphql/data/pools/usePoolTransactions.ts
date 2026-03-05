@@ -73,7 +73,7 @@ export function usePoolTransactions({
   token0?: GraphQLApi.Token
   protocolVersion?: GraphQLApi.ProtocolVersion
   first?: number
-}) {
+}): any {
   const { defaultChainId } = useEnabledChains()
   const variables = { first, chain: toGraphQLChain(chainId ?? defaultChainId) }
   const isSolanaChain = chainId && isSVMChain(chainId)

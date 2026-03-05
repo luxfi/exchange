@@ -104,7 +104,7 @@ export const SearchTextInput = forwardRef<NativeTextInput, SearchTextInputProps>
     const inputMode = inputModeProp ?? 'text'
 
     const inputRef = useRef<InputRef>(null)
-    const combinedRef = useComposedRefs<InputRef>(inputRef, ref)
+    const combinedRef = useComposedRefs<InputRef>(inputRef, ref as any)
     const showCloseButton = !!onClose
     const [isFocus, setIsFocus] = useState(false)
 

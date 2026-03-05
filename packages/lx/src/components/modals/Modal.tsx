@@ -17,7 +17,10 @@ export function BottomSheetDetachedModal(_: ModalProps): JSX.Element {
 }
 
 export function BottomSheetTextInput(
-  _: ComponentProps<typeof GorhomBottomSheetTextInput | typeof TextInput>,
+  _: ComponentProps<
+    // @ts-expect-error BottomSheet type incompatibility
+    typeof GorhomBottomSheetTextInput | typeof TextInput
+  >,
 ): JSX.Element {
   throw new PlatformSplitStubError('BottomSheetTextInput')
 }

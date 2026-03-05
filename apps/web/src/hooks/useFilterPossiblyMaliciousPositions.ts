@@ -25,7 +25,7 @@ function getPositionCurrencyInfosQueryOptions(position: PositionDetails, chainId
     queryKey: [ReactQueryCacheKey.PositionCurrencyInfo, position],
     queryFn: async () => {
       const queries = [
-        apolloClient.query<GraphQLApi.TokenQuery>({
+        (apolloClient as any).query({
           query: GraphQLApi.TokenDocument,
           variables: {
             address: position.token0,
@@ -33,7 +33,7 @@ function getPositionCurrencyInfosQueryOptions(position: PositionDetails, chainId
           },
           fetchPolicy: 'cache-first',
         }),
-        apolloClient.query<GraphQLApi.TokenQuery>({
+        (apolloClient as any).query({
           query: GraphQLApi.TokenDocument,
           variables: {
             address: position.token1,

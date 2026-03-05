@@ -163,7 +163,7 @@ function useCreateTDPContext(): PendingTDPContext | LoadedTDPContext {
       multiChainMap,
       tokenColor,
       isLoading, // Combined loading state for GraphQL and G-Chain
-    }
+    } as any
   }, [
     currency,
     currencyChainInfo.backendChain.chain,

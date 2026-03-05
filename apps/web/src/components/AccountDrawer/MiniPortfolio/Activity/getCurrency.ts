@@ -37,7 +37,7 @@ export async function getCurrencyFromCurrencyId(currencyId: CurrencyId): Promise
   }
 
   // Query for token from graphql
-  const { data } = await apolloClient.query<GraphQLApi.TokenQuery>({
+  const { data } = await (apolloClient as any).query({
     query: GraphQLApi.TokenDocument,
     variables: {
       address,

@@ -175,7 +175,7 @@ export const CurrencyInputPanelInput = memo(
                   />
                 )}
                 <AmountInput
-                  ref={inputRef}
+                  ref={inputRef as any}
                   autoFocus={autoFocus ?? focus}
                   backgroundColor="$transparent"
                   borderWidth="$none"

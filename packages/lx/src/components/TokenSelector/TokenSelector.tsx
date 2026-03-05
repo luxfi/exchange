@@ -73,6 +73,7 @@ export interface TokenSelectorProps {
   isSurfaceReady?: boolean
   isLimits?: boolean
   onClose: () => void
+  // @ts-expect-error BottomSheet type incompatibility
   focusHook?: ComponentProps<typeof BottomSheetView>['focusHook']
   onSelectChain?: (chainId: UniverseChainId | null) => void
   onSelectCurrency: ({
