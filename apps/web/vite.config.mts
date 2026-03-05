@@ -194,9 +194,14 @@ export default defineConfig(({ mode }) => {
     '@universe/websocket': path.resolve(__dirname, '../../packages/websocket'),
     // @luxfi/* aliases (our custom scope that maps to workspace packages)
     '@luxfi/api': path.resolve(__dirname, '../../packages/api'),
+    '@luxfi/config': path.resolve(__dirname, '../../packages/config'),
     '@luxfi/dex': path.resolve(__dirname, '../../packages/dex'),
+    '@luxfi/exchange': path.resolve(__dirname, '../../packages/exchange'),
     '@luxfi/gating': path.resolve(__dirname, '../../packages/gating'),
     '@luxfi/notifications': path.resolve(__dirname, '../../packages/notifications'),
+    '@luxfi/sessions': path.resolve(__dirname, '../../packages/sessions'),
+    '@luxfi/ui': path.resolve(__dirname, '../../packages/ui'),
+    '@luxfi/wallet': path.resolve(__dirname, '../../packages/wallet'),
     // Bare src-relative imports (CRA baseUrl convention — pnpm strict mode needs explicit aliases)
     'components': path.resolve(__dirname, 'src/components'),
     'constants': path.resolve(__dirname, 'src/constants'),
