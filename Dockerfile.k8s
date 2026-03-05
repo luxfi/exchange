@@ -24,6 +24,9 @@ ENV DOCKER_BUILD=true
 ENV NEXT_PUBLIC_LXD_GATEWAY_URL=https://dex.lux.network
 ENV REACT_APP_LXD_GATEWAY_URL=https://dex.lux.network
 
+# Generate AJV validators (git-ignored, must be created before build)
+RUN cd apps/web && node scripts/compile-ajv-validators.js
+
 # Build the web app (direct Vite build)
 RUN cd apps/web && NODE_OPTIONS="--max-old-space-size=16384" npx vite build
 
