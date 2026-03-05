@@ -146,7 +146,7 @@
     "mobile": "bun run --cwd apps/mobile",
     "sessions": "bun run --cwd packages/sessions",
     "ui": "bun run --cwd packages/ui",
-    "uniswap": "bun run --cwd packages/uniswap",
+    "lx": "bun run --cwd packages/lx",
     "utilities": "bun run --cwd packages/utilities",
     "wallet": "bun run --cwd packages/wallet",
     "web": "bun run --cwd apps/web",

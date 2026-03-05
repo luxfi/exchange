@@ -1,8 +1,8 @@
 {
-  "name": "uniswap",
+  "name": "lx",
   "version": "0.0.0",
   "scripts": {
-    "prepare": "nx prepare uniswap",
+    "prepare": "nx prepare lx",
     "build": "nx build uniswap",
     "contracts:compile:abi": "nx contracts:compile:abi uniswap",
     "contracts:compile:v3": "nx contracts:compile:v3 uniswap",
