@@ -192,6 +192,11 @@ export default defineConfig(({ mode }) => {
     '@universe/prices': path.resolve(__dirname, '../../packages/prices'),
     '@universe/websocket/src': path.resolve(__dirname, '../../packages/websocket/src'),
     '@universe/websocket': path.resolve(__dirname, '../../packages/websocket'),
+    // @luxfi/* aliases (our custom scope that maps to workspace packages)
+    '@luxfi/api': path.resolve(__dirname, '../../packages/api'),
+    '@luxfi/dex': path.resolve(__dirname, '../../packages/dex'),
+    '@luxfi/gating': path.resolve(__dirname, '../../packages/gating'),
+    '@luxfi/notifications': path.resolve(__dirname, '../../packages/notifications'),
     // Force JSBI to use ESM build so transform plugin can add __esModule marker
     jsbi: path.resolve(__dirname, '../../node_modules/jsbi/dist/jsbi.mjs'),
     // Map @luxdex/* to @uniswap/* for packages that exist under the old namespace
