@@ -48,7 +48,10 @@
     "npm": "please-use-bun"
   },
   "manypkg": {
-    "ignoredRules": ["INTERNAL_MISMATCH", "ROOT_HAS_DEV_DEPENDENCIES"]
+    "ignoredRules": [
+      "INTERNAL_MISMATCH",
+      "ROOT_HAS_DEV_DEPENDENCIES"
+    ]
   },
   "private": true,
   "patchedDependenciesComments": {
@@ -209,7 +212,11 @@
     "websocket": "bun run --cwd packages/websocket",
     "prices": "bun run --cwd packages/prices"
   },
-  "workspaces": ["apps/*", "packages/*", "config/*", "tools/uniswap-nx", "labs/*"],
+  "workspaces": [
+    "apps/*",
+    "packages/*",
+    "config/*"
+  ],
   "patchedDependencies": {
     "multiformats@9.9.0": "patches/multiformats@9.9.0.patch",
     "react-native-context-menu-view@1.15.0": "patches/react-native-context-menu-view@1.15.0.patch",
