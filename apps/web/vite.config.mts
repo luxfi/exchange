@@ -173,6 +173,7 @@ export default defineConfig(({ mode }) => {
     'expo-blur': path.resolve(__dirname, './.storybook/__mocks__/expo-blur.jsx'),
     '@web3-react/core': path.resolve(__dirname, 'src/connection/web3reactShim.ts'),
     'uniswap/src': path.resolve(__dirname, '../../packages/uniswap/src'),
+    'lx/src': path.resolve(__dirname, '../../packages/lx/src'),
     'utilities/src': path.resolve(__dirname, '../../packages/utilities/src'),
     'ui/src': path.resolve(__dirname, '../../packages/ui/src'),
     'expo-clipboard': path.resolve(__dirname, 'src/lib/expo-clipboard.jsx'),
@@ -201,6 +202,10 @@ export default defineConfig(({ mode }) => {
     {
       find: /^uniswap\/src\/i18n$/,
       replacement: path.resolve(__dirname, '../../packages/uniswap/src/i18n/index.web-app.ts'),
+    },
+    {
+      find: /^lx\/src\/i18n$/,
+      replacement: path.resolve(__dirname, '../../packages/lx/src/i18n/index.web-app.ts'),
     },
   ]
 
