@@ -2,7 +2,7 @@ import { ExploreStatsResponse, ProtocolStatsResponse } from '@luxdex/client-expl
 import { createContext, useMemo } from 'react'
 import { useIsSupportedChainId } from 'lx/src/features/chains/hooks/useSupportedChainId'
 import { UniverseChainId } from 'lx/src/features/chains/types'
-import { useExchangeStats } from '~/state/explore/useLxdExploreStats'
+import { useExchangeStats } from './useLxdExploreStats'
 
 interface QueryResult<T> {
   data?: T

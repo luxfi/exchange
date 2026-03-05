@@ -222,7 +222,7 @@
     "@types/react": "19.0.10",
     "@types/redux-mock-store": "1.0.6",
     "@typescript/native-preview": "7.0.0-dev.20260108.1",
-    "@uniswap/eslint-config": "workspace:^",
+    "@luxfi/eslint-config": "workspace:^",
     "@welldone-software/why-did-you-render": "10.0.1",
     "babel-loader": "8.2.3",
     "babel-plugin-module-resolver": "5.0.0",

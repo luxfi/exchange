@@ -1,6 +1,4 @@
-# =============================================================================
-# .dockerignore for Docker builds (api-self-serve, mission-control)
-# =============================================================================
+# .dockerignore for Lux Exchange Docker builds
 
 # Dependencies (reinstalled in container)
 node_modules
@@ -10,20 +8,14 @@ node_modules
 .gitattributes
 
 # Build outputs (rebuilt in container)
-**/build
+# Note: apps/web/build is NOT excluded (needed for static image)
 **/dist
 **/.turbo
 **/.nx
 
-# Other apps (not needed for api-self-serve)
-apps/web
-apps/mobile
-apps/extension
-apps/cli
-
-# Mobile/native artifacts
-**/ios
-**/android
+# Mobile/native artifacts (not needed for web)
+apps/mobile/ios
+apps/mobile/android
 **/*.podspec
 
 # Tests
@@ -42,9 +34,9 @@ apps/cli
 **/.env.local
 **/.env.*.local
 
-# Docs
-*.md
-!README.md
+# Lock files for other package managers (bun.lock has stale workspace refs)
+bun.lock
+bun.lockb
 
 # Misc
 .DS_Store

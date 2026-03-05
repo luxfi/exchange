@@ -56,7 +56,7 @@
   },
   "devDependencies": {
     "@typescript/native-preview": "7.0.0-dev.20260108.1",
-    "@uniswap/eslint-config": "workspace:^",
+    "@luxfi/eslint-config": "workspace:^",
     "eslint": "8.57.1",
     "nitrogen": "0.31.10",
     "react": "19.0.3",

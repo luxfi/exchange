@@ -6,12 +6,15 @@
 FROM --platform=$BUILDPLATFORM node:22.13.1-alpine AS builder
 
 RUN apk add --no-cache python3 make g++ git bash
-RUN npm install -g pnpm
+RUN npm install -g pnpm@10.29.3
 
 WORKDIR /app
 
 # Copy entire monorepo (workspaces need each other)
 COPY . .
+
+# Remove stale bun.lock that confuses pnpm resolution
+RUN rm -f bun.lock bun.lockb
 
 # Install deps (ignore preinstall/postinstall scripts that need bash/lefthook)
 RUN pnpm install --frozen-lockfile --ignore-scripts || pnpm install --no-frozen-lockfile --ignore-scripts
@@ -48,7 +51,7 @@ ENV DEPLOY_TARGET=static
 ENV ENABLE_REACT_COMPILER=true
 ENV CLOUDFLARE_ENV=production
 ENV NODE_OPTIONS=--max-old-space-size=8192
-RUN pnpm --filter @luxfi/web exec vite build
+RUN cd apps/web && pnpm exec vite build
 
 # Stage 2: Serve with nginx
 FROM nginx:alpine AS runner

@@ -122,8 +122,9 @@ const portWarningPlugin = (isProduction: boolean) =>
         },
       }
 
-// Get git commit hash
-const commitHash = execSync('git rev-parse HEAD').toString().trim()
+// Get git commit hash (may fail in Docker where .git is excluded)
+let commitHash = 'unknown'
+try { commitHash = execSync('git rev-parse HEAD').toString().trim() } catch {}
 
 export default defineConfig(({ mode }) => {
   let env = loadEnv(mode, __dirname, '')

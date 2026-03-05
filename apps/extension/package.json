@@ -81,7 +81,7 @@
     "@types/redux-persist-webextension-storage": "1.0.3",
     "@types/ua-parser-js": "0.7.31",
     "@typescript/native-preview": "7.0.0-dev.20260108.1",
-    "@uniswap/eslint-config": "workspace:^",
+    "@luxfi/eslint-config": "workspace:^",
     "@welldone-software/why-did-you-render": "10.0.1",
     "clean-webpack-plugin": "4.0.0",
     "concurrently": "8.2.2",

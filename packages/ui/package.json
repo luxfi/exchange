@@ -48,7 +48,7 @@
     "@types/node": "22.13.1",
     "@types/qrcode": "1.5.5",
     "@typescript/native-preview": "7.0.0-dev.20260108.1",
-    "@uniswap/eslint-config": "workspace:^",
+    "@luxfi/eslint-config": "workspace:^",
     "@vitejs/plugin-react": "4.7.0",
     "camelcase": "6.3.0",
     "cheerio": "1.0.0-rc.12",
