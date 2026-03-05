@@ -236,10 +236,10 @@ export default defineConfig(({ mode }) => {
     '@luxdex/client-for': path.resolve(__dirname, '../../node_modules/@uniswap/client-for'),
     '@luxdex/client-liquidity': path.resolve(__dirname, '../../node_modules/@uniswap/client-liquidity'),
     '@luxdex/permit': path.resolve(__dirname, '../../node_modules/@uniswap/permit2-sdk'),
-    // Map @luxamm/* to @uniswap/* (forked SDKs)
-    '@luxamm/sdk-core': path.resolve(__dirname, '../../node_modules/@luxamm/sdk-core'),
-    '@luxamm/v2-sdk': path.resolve(__dirname, '../../node_modules/@luxamm/v2-sdk'),
-    '@luxamm/v3-sdk': path.resolve(__dirname, '../../node_modules/@luxamm/v3-sdk'),
+    // Map @luxamm/* to their ESM entry files (directory aliases cause EISDIR)
+    '@luxamm/sdk-core': path.resolve(__dirname, '../../node_modules/@luxamm/sdk-core/dist/sdk-core.esm.js'),
+    '@luxamm/v2-sdk': path.resolve(__dirname, '../../node_modules/@luxamm/v2-sdk/dist/v2-sdk.esm.js'),
+    '@luxamm/v3-sdk': path.resolve(__dirname, '../../node_modules/@luxamm/v3-sdk/dist/v3-sdk.esm.js'),
     // Additional @luxdex/* aliases missing from original config
     '@luxdex/analytics': path.resolve(__dirname, '../../packages/luxdex-analytics'),
     '@luxdex/analytics-events': path.resolve(__dirname, '../../node_modules/@uniswap/analytics-events'),
