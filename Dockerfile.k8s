@@ -19,6 +19,8 @@ RUN bun install --no-frozen-lockfile
 ENV NEXT_TELEMETRY_DISABLED=1
 ENV NODE_ENV=production
 ENV DOCKER_BUILD=true
+ENV NEXT_PUBLIC_LXD_GATEWAY_URL=https://dex.lux.network
+ENV REACT_APP_LXD_GATEWAY_URL=https://dex.lux.network
 
 # Build the web app via NX
 RUN bunx nx build:production web || bun run --filter @luxfi/web build || (cd apps/web && bun run build)
