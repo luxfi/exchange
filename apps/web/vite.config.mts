@@ -202,6 +202,8 @@ export default defineConfig(({ mode }) => {
     '@luxfi/sessions': path.resolve(__dirname, '../../packages/sessions'),
     '@luxfi/ui': path.resolve(__dirname, '../../packages/ui'),
     '@luxfi/wallet': path.resolve(__dirname, '../../packages/wallet'),
+    // tsconfig path alias ~ → src/
+    '~': path.resolve(__dirname, 'src'),
     // Bare src-relative imports (CRA baseUrl convention — pnpm strict mode needs explicit aliases)
     'components': path.resolve(__dirname, 'src/components'),
     'constants': path.resolve(__dirname, 'src/constants'),
