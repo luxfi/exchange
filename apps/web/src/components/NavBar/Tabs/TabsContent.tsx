@@ -42,14 +42,14 @@ export const useTabsContent = (): TabsSection[] => {
 
   return [
     {
-      title: t('common.trade'),
+      title: 'Advanced',
       href: '/swap',
       isActive:
         pathname.startsWith('/swap') ||
         pathname.startsWith('/limit') ||
         pathname.startsWith('/send') ||
         pathname.startsWith('/trade'),
-      icon: <CoinConvert color="$accent1" size="$icon.20" />,
+      icon: <Compass color="$accent1" size="$icon.20" />,
       items: [
         {
           label: t('common.swap'),
