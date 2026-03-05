@@ -69,7 +69,7 @@
     "sp-react-native-in-app-updates": "1.5.0",
     "typed-redux-saga": "1.5.0",
     "ui": "workspace:^",
-    "uniswap": "workspace:^",
+    "lx": "workspace:^",
     "utilities": "workspace:^",
     "viem": "2.30.5",
     "zod": "4.3.6",

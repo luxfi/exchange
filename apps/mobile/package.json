@@ -192,7 +192,7 @@
     "sp-react-native-in-app-updates": "1.5.0",
     "ts-node": "10.9.2",
     "typed-redux-saga": "1.5.0",
-    "uniswap": "workspace:^",
+    "lx": "workspace:^",
     "utilities": "workspace:^",
     "uuid": "9.0.0",
     "wallet": "workspace:^",
