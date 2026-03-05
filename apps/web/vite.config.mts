@@ -231,6 +231,14 @@ export default defineConfig(({ mode }) => {
     '@luxdex/client-for': path.resolve(__dirname, '../../node_modules/@uniswap/client-for'),
     '@luxdex/client-liquidity': path.resolve(__dirname, '../../node_modules/@uniswap/client-liquidity'),
     '@luxdex/permit': path.resolve(__dirname, '../../node_modules/@uniswap/permit2-sdk'),
+    // Map @luxamm/* to @uniswap/* (forked SDKs)
+    '@luxamm/sdk-core': path.resolve(__dirname, '../../node_modules/@luxamm/sdk-core'),
+    '@luxamm/v2-sdk': path.resolve(__dirname, '../../node_modules/@luxamm/v2-sdk'),
+    '@luxamm/v3-sdk': path.resolve(__dirname, '../../node_modules/@luxamm/v3-sdk'),
+    // react-router v7 merged react-router-dom into react-router
+    'react-router-dom': path.resolve(__dirname, '../../node_modules/react-router'),
+    // Lingui is not used — stub Trans/t for components that import from @lingui/macro
+    '@lingui/macro': path.resolve(__dirname, 'src/lib/lingui-stub.tsx'),
   }
 
   // Aliases that need exact matching (using resolve.alias array format)
