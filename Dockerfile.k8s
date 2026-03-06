@@ -23,6 +23,8 @@ ENV NODE_ENV=production
 ENV DOCKER_BUILD=true
 ENV NEXT_PUBLIC_LXD_GATEWAY_URL=https://dex.lux.network
 ENV REACT_APP_LXD_GATEWAY_URL=https://dex.lux.network
+ENV REACT_APP_LUX_GATEWAY_DNS=https://dex.lux.network
+ENV REACT_APP_AWS_API_ENDPOINT=https://interface.gateway.uniswap.org/v1/graphql
 ENV REACT_APP_INSIGHTS_HOST=https://insights.hanzo.ai
 ENV REACT_APP_INSIGHTS_API_KEY=phc_e16a2d5a8033442d87f090b24c606825
 

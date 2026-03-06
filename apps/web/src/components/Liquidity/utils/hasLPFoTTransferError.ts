@@ -1,4 +1,4 @@
-import { ProtocolVersion } from '@luxdex/client-data-api/dist/data/v1/poolTypes_pb'
+import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
 import { CurrencyInfo } from 'lx/src/features/dataApi/types'
 
 export function hasLPFoTTransferError(

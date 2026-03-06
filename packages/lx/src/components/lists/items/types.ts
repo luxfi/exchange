@@ -1,4 +1,4 @@
-import { ProtocolVersion } from '@luxdex/client-data-api/dist/data/v1/poolTypes_pb'
+import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
 import { UniverseChainId } from 'lx/src/features/chains/types'
 import { CurrencyInfo } from 'lx/src/features/dataApi/types'
 

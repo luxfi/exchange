@@ -1,4 +1,4 @@
-import { PositionStatus } from '@luxdex/client-data-api/dist/data/v1/poolTypes_pb'
+import { PositionStatus } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
 import { FeeAmount, TICK_SPACINGS } from '@luxamm/v3-sdk'
 import { UniverseChainId } from 'lx/src/features/chains/types'
 

@@ -1,4 +1,4 @@
-import { TradeType } from '@luxdex/sdk-core'
+import { TradeType } from '@uniswap/sdk-core'
 import { memo, useMemo } from 'react'
 import { useOnRetrySwap } from 'lx/src/components/activity/hooks/useOnRetrySwap'
 import { TransactionSummaryLayout } from 'lx/src/components/activity/summaries/TransactionSummaryLayout'

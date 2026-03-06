@@ -1,4 +1,4 @@
-import { ZERO_PERCENT } from '@luxdex/router-sdk'
+import { ZERO_PERCENT } from '@uniswap/router-sdk'
 import { Currency, CurrencyAmount, Percent, Price, TradeType } from '@luxamm/sdk-core'
 import { JupiterOrderResponse, TradingApi } from '@luxfi/api'
 import { BIPS_BASE } from 'lx/src/constants/misc'

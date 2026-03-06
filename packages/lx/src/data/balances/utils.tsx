@@ -1,4 +1,4 @@
-import { GetPortfolioResponse } from '@luxdex/client-data-api/dist/data/v1/api_pb'
+import { GetPortfolioResponse } from '@uniswap/client-data-api/dist/data/v1/api_pb'
 import { GraphQLApi } from '@luxfi/api'
 import { useEffect, useState } from 'react'
 import { getChainInfo } from 'lx/src/features/chains/chainInfo'

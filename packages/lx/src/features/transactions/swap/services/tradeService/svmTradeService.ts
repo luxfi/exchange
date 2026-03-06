@@ -1,4 +1,4 @@
-import { TradeType } from '@luxdex/sdk-core'
+import { TradeType } from '@uniswap/sdk-core'
 import { FetchError, type JupiterOrderUrlParams } from '@luxfi/api'
 import { JupiterApiClient } from 'lx/src/data/apiClients/jupiterApi/JupiterFetchClient'
 import { isSVMChain } from 'lx/src/features/platforms/utils/chains'

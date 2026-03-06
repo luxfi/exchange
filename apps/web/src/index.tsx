@@ -237,7 +237,7 @@ const RootApp = (): JSX.Element => {
   return (
     <StrictMode>
       <PostHogProvider
-        apiKey={process.env.REACT_APP_INSIGHTS_API_KEY || 'phc_e16a2d5a8033442d87f090b24c606825'}
+        apiKey={process.env.REACT_APP_INSIGHTS_API_KEY || 'hi_a5316882b930d11c9183007d70c3955b'}
         options={{
           api_host: process.env.REACT_APP_INSIGHTS_HOST || 'https://insights.hanzo.ai',
           capture_pageview: true,

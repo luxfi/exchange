@@ -15,15 +15,15 @@ const Module = require('module')
 
 // Mirror Vite alias mappings for @luxdex/* → @lux/* so Playwright can resolve them
 const LUXDEX_ALIAS_MAP: Record<string, string> = {
-  '@luxdex/sdk-core': '@uniswap/sdk-core',
-  '@luxdex/universal-router-sdk': '@uniswap/universal-router-sdk',
+  '@uniswap/sdk-core': '@uniswap/sdk-core',
+  '@uniswap/universal-router-sdk': '@uniswap/universal-router-sdk',
   '@luxdex/permit2-sdk': '@uniswap/permit2-sdk',
-  '@luxdex/v2-sdk': '@uniswap/v2-sdk',
+  '@uniswap/v2-sdk': '@uniswap/v2-sdk',
   '@luxdex/v3-sdk': '@uniswap/v3-sdk',
   '@luxdex/v4-sdk': '@uniswap/v4-sdk',
   '@luxdex/client-platform-service': '@uniswap/client-platform-service',
   '@luxdex/client-notification-service': '@uniswap/client-notification-service',
-  '@luxdex/client-data-api': '@uniswap/client-data-api',
+  '@uniswap/client-data-api': '@uniswap/client-data-api',
   '@luxdex/client-trading': '@uniswap/client-trading',
   '@luxdex/client-for': '@uniswap/client-for',
   '@luxdex/client-liquidity': '@uniswap/client-liquidity',
@@ -31,7 +31,7 @@ const LUXDEX_ALIAS_MAP: Record<string, string> = {
   '@luxdex/client-explore': '@uniswap/client-explore',
   '@luxdex/client-search': '@uniswap/client-search',
   '@luxdex/analytics-events': '@uniswap/analytics-events',
-  '@luxdex/conedison': '@uniswap/analytics',
+  '@uniswap/conedison': '@uniswap/analytics',
 }
 
 // Override module resolution to handle platform-specific files like Vite does

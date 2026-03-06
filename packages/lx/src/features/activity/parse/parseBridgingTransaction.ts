@@ -1,5 +1,5 @@
-import type { OnChainTransaction } from '@luxdex/client-data-api/dist/data/v1/types_pb'
-import { Direction } from '@luxdex/client-data-api/dist/data/v1/types_pb'
+import type { OnChainTransaction } from '@uniswap/client-data-api/dist/data/v1/types_pb'
+import { Direction } from '@uniswap/client-data-api/dist/data/v1/types_pb'
 import { GraphQLApi } from '@luxfi/api'
 import { extractDappInfo } from 'lx/src/features/activity/utils/extractDappInfo'
 import { deriveCurrencyAmountFromAssetResponse } from 'lx/src/features/activity/utils/remote'

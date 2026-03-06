@@ -1,8 +1,8 @@
 /* eslint-disable max-lines */
 import { BigNumber } from '@ethersproject/bignumber'
-import { MixedRouteSDK } from '@luxdex/router-sdk'
+import { MixedRouteSDK } from '@uniswap/router-sdk'
 import type { Currency, TradeType } from '@luxamm/sdk-core'
-// IMPORTANT: Must use @lux packages for pool/route types because @luxdex/router-sdk
+// IMPORTANT: Must use @lux packages for pool/route types because @uniswap/router-sdk
 // uses instanceof checks against @lux classes. Using @luxamm would fail those checks.
 // CurrencyAmount and Token must also be from @uniswap/sdk-core for pool constructors.
 import { CurrencyAmount, Token } from '@uniswap/sdk-core'
@@ -64,7 +64,7 @@ export function transformTradingApiResponseToTrade(params: TradingApiResponseToT
       }
 
       // Type assertions needed because we use @lux/* SDKs for route/pool types
-      // to pass instanceof checks in @luxdex/router-sdk, but ClassicTrade types
+      // to pass instanceof checks in @uniswap/router-sdk, but ClassicTrade types
       // reference @luxamm/* SDKs. The runtime behavior is correct.
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       return new ClassicTrade({
@@ -207,7 +207,7 @@ function computeRoutes({
         routev4: isOnlyV4 ? new V4Route(v4Routes.map(parseV4PoolApi), parsedCurrencyIn, parsedCurrencyOut) : null,
         routev3: isOnlyV3 ? new V3Route(route.map(parseV3PoolApi), parsedCurrencyIn, parsedCurrencyOut) : null,
         routev2: isOnlyV2 ? new V2Route(route.map(parseV2PairApi), parsedCurrencyIn, parsedCurrencyOut) : null,
-        // Type assertion needed because @luxdex/router-sdk uses @lux/* SDKs internally
+        // Type assertion needed because @uniswap/router-sdk uses @lux/* SDKs internally
         // while local code uses @luxamm/* SDKs which have incompatible private property declarations
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         mixedRoute:

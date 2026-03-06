@@ -1,4 +1,4 @@
-import { Percent } from '@luxdex/sdk-core'
+import { Percent } from '@uniswap/sdk-core'
 import { WarningSeverity } from 'lx/src/components/modals/WarningModal/types'
 import { getFeeWarning, getSeverityFromTokenProtectionWarning } from 'lx/src/features/tokens/warnings/safetyUtils'
 import { TokenProtectionWarning } from 'lx/src/features/tokens/warnings/types'

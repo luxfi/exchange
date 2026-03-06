@@ -1,4 +1,4 @@
-import { SpamCode as RestSpamCode, TokenType } from '@luxdex/client-data-api/dist/data/v1/types_pb'
+import { SpamCode as RestSpamCode, TokenType } from '@uniswap/client-data-api/dist/data/v1/types_pb'
 import { Token as SdkToken } from '@luxamm/sdk-core'
 import { GraphQLApi } from '@luxfi/api'
 import { getNativeAddress } from 'lx/src/constants/addresses'

@@ -1,4 +1,4 @@
-import { ProtocolVersion } from '@luxdex/client-data-api/dist/data/v1/poolTypes_pb'
+import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
 import { GraphQLApi } from '@luxfi/api'
 import { UniverseChainId } from 'lx/src/features/chains/types'
 import { SafetyInfo } from 'lx/src/features/dataApi/types'

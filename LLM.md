@@ -449,7 +449,7 @@ curl 'http://localhost:8080/v1/quote?chainId=96369&tokenIn=0x0&tokenOut=0xA0b869
 - `packages/config` ✓ - Chain and contract configuration
 
 ### Known SDK Type Mismatches
-The codebase uses `@luxamm/*` SDKs (forked from Uniswap) but `@luxdex/router-sdk` internally depends on `@uniswap/*` SDKs. This causes TypeScript errors when types cross boundaries.
+The codebase uses `@luxamm/*` SDKs (forked from Uniswap) but `@uniswap/router-sdk` internally depends on `@uniswap/*` SDKs. This causes TypeScript errors when types cross boundaries.
 
 **Solution Applied**: Type assertions (`as unknown as`) in:
 - `packages/lx/src/features/transactions/swap/analytics.ts`
@@ -865,7 +865,7 @@ Security: Poseidon2 is PQ-safe, Pedersen is NOT
 
 ## Next Steps
 
-1. **Fix SDK Dependencies**: Update `@luxdex/router-sdk` to use `@luxamm/*` SDKs
+1. **Fix SDK Dependencies**: Update `@uniswap/router-sdk` to use `@luxamm/*` SDKs
 2. **Connect to Standard AMM**: Wire up hooks to deployed V2/V3 contracts
 3. **Add Pool UI**: Implement pool list and add/remove liquidity
 4. **Add Positions UI**: Implement position management

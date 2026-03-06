@@ -1,4 +1,4 @@
-import { Currency } from '@luxdex/sdk-core'
+import { Currency } from '@uniswap/sdk-core'
 import { FeatureFlags, useFeatureFlag } from '@luxfi/gating'
 import { useRef } from 'react'
 import { useTranslation } from 'react-i18next'

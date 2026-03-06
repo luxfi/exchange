@@ -1,7 +1,7 @@
 import 'utilities/src/logger/mocks'
 import { PartialMessage } from '@bufbuild/protobuf'
-import { GetPortfolioResponse } from '@luxdex/client-data-api/dist/data/v1/api_pb.d'
-import { Balance } from '@luxdex/client-data-api/dist/data/v1/types_pb'
+import { GetPortfolioResponse } from '@uniswap/client-data-api/dist/data/v1/api_pb.d'
+import { Balance } from '@uniswap/client-data-api/dist/data/v1/types_pb'
 import { UniverseChainId } from 'lx/src/features/chains/types'
 import { OnChainMapRest } from 'lx/src/features/portfolio/portfolioUpdates/rest/fetchOnChainBalancesRest'
 import {

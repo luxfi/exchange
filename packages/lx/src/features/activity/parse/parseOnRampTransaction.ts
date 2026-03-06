@@ -1,4 +1,4 @@
-import { FiatOnRampTransaction } from '@luxdex/client-data-api/dist/data/v1/types_pb'
+import { FiatOnRampTransaction } from '@uniswap/client-data-api/dist/data/v1/types_pb'
 import { getAddressFromAsset } from 'lx/src/features/activity/utils/remote'
 import { fromGraphQLChain } from 'lx/src/features/chains/utils'
 import {

@@ -1,5 +1,5 @@
 import { NetworkStatus } from '@apollo/client'
-import { Token as RestToken } from '@luxdex/client-data-api/dist/data/v1/types_pb'
+import { Token as RestToken } from '@uniswap/client-data-api/dist/data/v1/types_pb'
 import { Currency } from '@luxamm/sdk-core'
 import { PortfolioBalance } from 'lx/src/features/dataApi/types'
 import { isNativeCurrencyAddress } from 'lx/src/utils/currencyId'

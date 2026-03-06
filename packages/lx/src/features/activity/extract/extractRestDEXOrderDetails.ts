@@ -2,7 +2,7 @@ import {
   UniswapXOrderType,
   UniswapXTransaction,
   UniswapXTransactionStatus,
-} from '@luxdex/client-data-api/dist/data/v1/types_pb'
+} from '@uniswap/client-data-api/dist/data/v1/types_pb'
 import { TradeType } from '@luxamm/sdk-core'
 import { TradingApi } from '@luxfi/api'
 

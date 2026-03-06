@@ -1,6 +1,6 @@
 import { PartialMessage } from '@bufbuild/protobuf'
-import { GetPortfolioResponse } from '@luxdex/client-data-api/dist/data/v1/api_pb.d'
-import { Balance } from '@luxdex/client-data-api/dist/data/v1/types_pb'
+import { GetPortfolioResponse } from '@uniswap/client-data-api/dist/data/v1/api_pb.d'
+import { Balance } from '@uniswap/client-data-api/dist/data/v1/types_pb'
 import { CurrencyAmount, NativeCurrency, Token } from '@luxamm/sdk-core'
 import { TradingApi } from '@luxfi/api'
 import { getNativeAddress } from 'lx/src/constants/addresses'

@@ -1,4 +1,4 @@
-import { Currency, CurrencyAmount } from '@luxdex/sdk-core'
+import { Currency, CurrencyAmount } from '@uniswap/sdk-core'
 import { useMemo } from 'react'
 import { CurrencyInfo } from 'lx/src/features/dataApi/types'
 import { useAppFiatCurrencyInfo } from 'lx/src/features/fiatCurrency/hooks'

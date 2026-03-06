@@ -1,5 +1,5 @@
 import { type NetworkStatus } from '@apollo/client'
-import { type Contract } from '@luxdex/client-data-api/dist/data/v1/types_pb'
+import { type Contract } from '@uniswap/client-data-api/dist/data/v1/types_pb'
 import { type Currency } from '@luxamm/sdk-core'
 import { type GraphQLApi, type SpamCode } from '@luxfi/api'
 import { type FoTPercent } from 'lx/src/features/tokens/warnings/TokenWarningModal'

@@ -1,4 +1,4 @@
-import { OnChainTransaction } from '@luxdex/client-data-api/dist/data/v1/types_pb'
+import { OnChainTransaction } from '@uniswap/client-data-api/dist/data/v1/types_pb'
 import { SpamCode } from '@luxfi/api'
 import { AssetType } from 'lx/src/entities/assets'
 import { extractDappInfo } from 'lx/src/features/activity/utils/extractDappInfo'

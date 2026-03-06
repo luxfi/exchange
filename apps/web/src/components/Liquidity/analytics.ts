@@ -1,4 +1,4 @@
-import { ProtocolVersion } from '@luxdex/client-data-api/dist/data/v1/poolTypes_pb'
+import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
 import { Currency, CurrencyAmount } from '@luxamm/sdk-core'
 import { FeeAmount } from '@luxamm/v3-sdk'
 import { LiquidityEventName } from 'lx/src/features/telemetry/constants'

@@ -1,4 +1,4 @@
-// Stub for @luxdex/conedison/format — package not available
+// Stub for @uniswap/conedison/format — package not available
 export enum NumberType {
   SwapTradeAmount = 'SwapTradeAmount',
   FiatTokenPrice = 'FiatTokenPrice',

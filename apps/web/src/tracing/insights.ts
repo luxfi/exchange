@@ -1,7 +1,7 @@
 import { isTestEnv } from 'utilities/src/environment/env'
 import { logger } from 'utilities/src/logger/logger'
 
-const INSIGHTS_API_KEY = process.env.REACT_APP_INSIGHTS_API_KEY || 'phc_e16a2d5a8033442d87f090b24c606825'
+const INSIGHTS_API_KEY = process.env.REACT_APP_INSIGHTS_API_KEY || 'hi_a5316882b930d11c9183007d70c3955b'
 const INSIGHTS_HOST = process.env.REACT_APP_INSIGHTS_HOST || 'https://insights.hanzo.ai'
 
 let insightsClient: any = null

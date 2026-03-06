@@ -223,17 +223,17 @@ export default defineConfig(({ mode }) => {
     // Force JSBI to use ESM build so transform plugin can add __esModule marker
     jsbi: path.resolve(__dirname, '../../node_modules/jsbi/dist/jsbi.mjs'),
     // Map @luxdex/* to @uniswap/* for packages that exist under the old namespace
-    '@luxdex/router-sdk': path.resolve(__dirname, '../../node_modules/@uniswap/router-sdk'),
-    '@luxdex/sdk-core': path.resolve(__dirname, '../../node_modules/@uniswap/sdk-core'),
-    '@luxdex/universal-router-sdk': path.resolve(__dirname, '../../node_modules/@uniswap/universal-router-sdk'),
+    '@uniswap/router-sdk': path.resolve(__dirname, '../../node_modules/@uniswap/router-sdk'),
+    '@uniswap/sdk-core': path.resolve(__dirname, '../../node_modules/@uniswap/sdk-core'),
+    '@uniswap/universal-router-sdk': path.resolve(__dirname, '../../node_modules/@uniswap/universal-router-sdk'),
     '@luxdex/permit2-sdk': path.resolve(__dirname, '../../node_modules/@uniswap/permit2-sdk'),
-    // '@luxdex/conedison': not available — externalized
-    '@luxdex/v2-sdk': path.resolve(__dirname, '../../node_modules/@uniswap/v2-sdk'),
+    // '@uniswap/conedison': not available — externalized
+    '@uniswap/v2-sdk': path.resolve(__dirname, '../../node_modules/@uniswap/v2-sdk'),
     '@luxdex/v3-sdk': path.resolve(__dirname, '../../node_modules/@uniswap/v3-sdk'),
     '@luxdex/v4-sdk': path.resolve(__dirname, '../../node_modules/@uniswap/v4-sdk'),
     '@luxdex/client-platform-service': path.resolve(__dirname, '../../node_modules/@uniswap/client-platform-service'),
     '@luxdex/client-notification-service': path.resolve(__dirname, '../../node_modules/@uniswap/client-notification-service'),
-    '@luxdex/client-data-api': path.resolve(__dirname, '../../node_modules/@uniswap/client-data-api'),
+    '@uniswap/client-data-api': path.resolve(__dirname, '../../node_modules/@uniswap/client-data-api'),
     '@luxdex/client-trading': path.resolve(__dirname, '../../node_modules/@uniswap/client-trading'),
     '@luxdex/client-for': path.resolve(__dirname, '../../node_modules/@uniswap/client-for'),
     '@luxdex/client-liquidity': path.resolve(__dirname, '../../node_modules/@uniswap/client-liquidity'),
@@ -249,7 +249,7 @@ export default defineConfig(({ mode }) => {
     '@luxdex/client-explore': path.resolve(__dirname, '../../node_modules/@uniswap/client-explore'),
     '@luxdex/client-search': path.resolve(__dirname, '../../node_modules/@uniswap/client-search'),
     '@luxdex/sdk': path.resolve(__dirname, '../../packages/luxdex-sdk/dist/esm/src/index.js'),
-    '@luxdex/conedison/format': path.resolve(__dirname, 'src/lib/conedison-format-stub.ts'),
+    '@uniswap/conedison/format': path.resolve(__dirname, 'src/lib/conedison-format-stub.ts'),
     // react-router v7 merged react-router-dom into react-router
     'react-router-dom': path.resolve(__dirname, '../../node_modules/react-router'),
     // Lingui is not used — stub Trans/t for components that import from @lingui/macro
@@ -559,7 +559,7 @@ export default defineConfig(({ mode }) => {
 
     build: {
       outDir: 'build',
-      sourcemap: VITE_DISABLE_SOURCEMAP ? false : (isProduction && !isVercelDeploy ? 'hidden' : true),
+      sourcemap: VITE_DISABLE_SOURCEMAP || process.env.DOCKER_BUILD ? false : (isProduction && !isVercelDeploy ? 'hidden' : true),
       minify: isProduction && !isVercelDeploy ? 'esbuild' : undefined,
       rollupOptions: {
         external: [
@@ -577,6 +577,29 @@ export default defineConfig(({ mode }) => {
           entryFileNames: 'assets/[name]-[hash].js',
           chunkFileNames: 'assets/[name]-[hash].js',
           assetFileNames: 'assets/[name]-[hash].[ext]',
+          manualChunks(id: string) {
+            // Vendor: blockchain SDKs
+            if (id.includes('node_modules/@uniswap/') || id.includes('node_modules/@luxamm/') || id.includes('node_modules/@luxdex/')) {
+              return 'vendor-sdk'
+            }
+            // Vendor: ethers/viem/wagmi
+            if (id.includes('node_modules/ethers') || id.includes('node_modules/viem') || id.includes('node_modules/wagmi') || id.includes('node_modules/@wagmi/')) {
+              return 'vendor-web3'
+            }
+            // Vendor: UI frameworks
+            if (id.includes('node_modules/tamagui') || id.includes('node_modules/@tamagui/') || id.includes('node_modules/react-native-web')) {
+              return 'vendor-ui'
+            }
+            // Vendor: data/state
+            if (id.includes('node_modules/@apollo/') || id.includes('node_modules/graphql') || id.includes('node_modules/@tanstack/') || id.includes('node_modules/@reduxjs/')) {
+              return 'vendor-data'
+            }
+            // Locale files (lazy-loadable)
+            if (id.includes('/i18n/locales/') && !id.includes('en-US')) {
+              const match = id.match(/locales\/([^/]+)\//)
+              if (match) return `locale-${match[1]}`
+            }
+          },
         },
       },
       // Increase the warning limit for larger chunks

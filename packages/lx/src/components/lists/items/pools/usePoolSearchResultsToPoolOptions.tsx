@@ -1,4 +1,4 @@
-import { ProtocolVersion } from '@luxdex/client-data-api/dist/data/v1/poolTypes_pb'
+import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
 import { useMemo } from 'react'
 import { OnchainItemListOptionType, PoolOption } from 'lx/src/components/lists/items/types'
 import { ZERO_ADDRESS } from 'lx/src/constants/misc'

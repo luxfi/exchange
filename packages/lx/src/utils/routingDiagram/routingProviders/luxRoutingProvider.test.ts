@@ -1,6 +1,6 @@
-import { Protocol } from '@luxdex/router-sdk'
+import { Protocol } from '@uniswap/router-sdk'
 import { CurrencyAmount, Token, TradeType } from '@luxamm/sdk-core'
-import { Pair } from '@luxdex/v2-sdk'
+import { Pair } from '@uniswap/v2-sdk'
 import { Pool as V3Pool } from '@luxamm/v3-sdk'
 import { Pool as V4Pool } from '@luxamm/v4-sdk'
 import { TradingApi } from '@luxfi/api'
