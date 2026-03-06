@@ -27,7 +27,8 @@ ENV REACT_APP_INSIGHTS_HOST=https://insights.hanzo.ai
 ENV REACT_APP_INSIGHTS_API_KEY=phc_e16a2d5a8033442d87f090b24c606825
 
 # Generate AJV validators (git-ignored, must be created before build)
-RUN cd apps/web && node scripts/compile-ajv-validators.js
+# Run from root so node can resolve ajv from root node_modules
+RUN NODE_PATH=/app/node_modules node apps/web/scripts/compile-ajv-validators.js
 
 # Build the web app (direct Vite build)
 # Use node_modules/.bin/vite directly — npx resolves wrong path under bun's flat node_modules
