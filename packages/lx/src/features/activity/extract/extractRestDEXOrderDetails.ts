@@ -1,7 +1,7 @@
 import {
-  DEXOrderType,
-  DEXTransaction,
-  DEXTransactionStatus,
+  UniswapXOrderType,
+  UniswapXTransaction,
+  UniswapXTransactionStatus,
 } from '@luxdex/client-data-api/dist/data/v1/types_pb'
 import { TradeType } from '@luxamm/sdk-core'
 import { TradingApi } from '@luxfi/api'
@@ -15,18 +15,18 @@ import {
 import { buildCurrencyId } from 'lx/src/utils/currencyId'
 import { logger } from 'utilities/src/logger/logger'
 
-function mapDEXStatusToLocalTxStatus(status: DEXTransactionStatus): TransactionStatus {
+function mapDEXStatusToLocalTxStatus(status: UniswapXTransactionStatus): TransactionStatus {
   switch (status) {
-    case DEXTransactionStatus.FILLED:
+    case UniswapXTransactionStatus.FILLED:
       return TransactionStatus.Success
-    case DEXTransactionStatus.OPEN:
+    case UniswapXTransactionStatus.OPEN:
       return TransactionStatus.Pending
-    case DEXTransactionStatus.CANCELLED:
+    case UniswapXTransactionStatus.CANCELLED:
       return TransactionStatus.Canceled
-    case DEXTransactionStatus.INSUFFICIENT_FUNDS:
+    case UniswapXTransactionStatus.INSUFFICIENT_FUNDS:
       return TransactionStatus.InsufficientFunds
-    case DEXTransactionStatus.ERROR:
-    case DEXTransactionStatus.EXPIRED:
+    case UniswapXTransactionStatus.ERROR:
+    case UniswapXTransactionStatus.EXPIRED:
       return TransactionStatus.Failed
     default:
       return TransactionStatus.Unknown
@@ -36,7 +36,7 @@ function mapDEXStatusToLocalTxStatus(status: DEXTransactionStatus): TransactionS
 /**
  * Parse a Lux X transaction from the REST API
  */
-export default function extractRestDEXOrderDetails(transaction: DEXTransaction): TransactionDetails | null {
+export default function extractRestDEXOrderDetails(transaction: UniswapXTransaction): TransactionDetails | null {
   try {
     const {
       chainId,
@@ -62,7 +62,7 @@ export default function extractRestDEXOrderDetails(transaction: DEXTransaction):
     return {
       id: orderHash,
       // TODO(CONS-722): update to only TradingApi.Routing.DUTCH_V2 once limit orders can be excluded from REST query
-      routing: orderType === DEXOrderType.LIMIT ? TradingApi.Routing.DUTCH_LIMIT : TradingApi.Routing.DUTCH_V2,
+      routing: orderType === UniswapXOrderType.LIMIT ? TradingApi.Routing.DUTCH_LIMIT : TradingApi.Routing.DUTCH_V2,
       chainId,
       orderHash,
       encodedOrder: encodedOrder || undefined,
@@ -71,7 +71,7 @@ export default function extractRestDEXOrderDetails(transaction: DEXTransaction):
       from: offerer, // This transaction is not on-chain, so use the offerer address as the from address
       // TODO(CONS-722): remove special limit typeInfo once limit orders can be excluded from REST query
       typeInfo:
-        orderType === DEXOrderType.LIMIT
+        orderType === UniswapXOrderType.LIMIT
           ? {
               type: TransactionType.Swap,
               tradeType: TradeType.EXACT_INPUT, // Limit orders are always exact input
