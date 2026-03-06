@@ -1,10 +1,47 @@
 # Lux Exchange - Vite SPA Dockerfile
-# Packages pre-built static assets for K8s deployment
+# Multi-stage build for production deployment (NX monorepo)
 
-FROM node:22-alpine
+# Stage 1: Builder
+FROM node:22-alpine AS builder
+RUN apk add --no-cache libc6-compat python3 make g++
+WORKDIR /app
+
+# Install bun (required for workspace: protocol resolution)
+RUN npm install -g bun
+
+# Copy entire monorepo
+COPY . .
+
+# Install dependencies with bun
+# --ignore-scripts avoids NX daemon crashes under QEMU
+# Allow partial failures (native mobile deps won't build under QEMU, not needed for web)
+RUN bun install --no-frozen-lockfile --ignore-scripts || true
+
+# Set build-time environment variables
+ENV NEXT_TELEMETRY_DISABLED=1
+ENV NODE_ENV=production
+ENV DOCKER_BUILD=true
+ENV NEXT_PUBLIC_LXD_GATEWAY_URL=https://dex.lux.network
+ENV REACT_APP_LXD_GATEWAY_URL=https://dex.lux.network
+ENV REACT_APP_INSIGHTS_HOST=https://insights.hanzo.ai
+ENV REACT_APP_INSIGHTS_API_KEY=phc_e16a2d5a8033442d87f090b24c606825
+
+# Generate AJV validators (git-ignored, must be created before build)
+RUN cd apps/web && node scripts/compile-ajv-validators.js
+
+# Build the web app (direct Vite build)
+# Use node_modules/.bin/vite directly — npx resolves wrong path under bun's flat node_modules
+RUN cd apps/web && NODE_OPTIONS="--max-old-space-size=16384" ../../node_modules/.bin/vite build
+
+# Stage 2: Runner — lightweight static file server (no nginx)
+FROM node:22-alpine AS runner
 RUN npm install -g serve@14
 WORKDIR /app
-COPY apps/web/build /app/public
+
+# Copy built static assets
+COPY --from=builder /app/apps/web/build /app/public
+
 EXPOSE 3000
+
 # serve -s enables SPA mode (all routes → index.html)
 CMD ["serve", "-s", "public", "-l", "3000"]
