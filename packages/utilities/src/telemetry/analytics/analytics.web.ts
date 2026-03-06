@@ -129,6 +129,15 @@ export const analytics: Analytics = {
       const { eventName: processedEventName, eventProperties: processedEventProperties } = processedTestnetEvent
       loggers.sendEvent(processedEventName, processedEventProperties)
       track(processedEventName, processedEventProperties)
+      // Forward to Hanzo Insights (insights.hanzo.ai)
+      try {
+        const insights = (window as any).__INSIGHTS
+        if (insights?.capture) {
+          insights.capture(processedEventName, processedEventProperties)
+        }
+      } catch {
+        // Insights not initialized yet
+      }
     }
   },
   flushEvents(): void {

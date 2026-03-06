@@ -9,7 +9,17 @@ export function sendAnalyticsEvent<EventName extends keyof UniverseEventProperti
     : [EventName, UniverseEventProperties[EventName]]
 ): void {
   const [eventName, eventProperties] = args
+  // Legacy Amplitude pipeline (will be removed once fully migrated)
   analytics.sendEvent(eventName, eventProperties as Record<string, unknown>)
+  // Forward to Hanzo Insights (insights.hanzo.ai)
+  try {
+    const insights = (window as any).__INSIGHTS
+    if (insights?.capture) {
+      insights.capture(eventName as string, eventProperties as Record<string, unknown>)
+    }
+  } catch {
+    // Insights client not yet initialized
+  }
 }
 
 export async function sendAppsFlyerEvent<EventName extends keyof AppsFlyerEventProperties>(

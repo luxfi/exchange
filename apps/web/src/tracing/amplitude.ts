@@ -8,6 +8,11 @@ import { analytics, getAnalyticsAtomDirect } from 'utilities/src/telemetry/analy
 import store from '~/state'
 import { setOriginCountry } from '~/state/user/reducer'
 
+/**
+ * Legacy Amplitude init — kept for type compatibility. Events are also forwarded to
+ * Hanzo Insights (insights.hanzo.ai) via the sendAnalyticsEvent bridge in send.web.ts.
+ * The Amplitude proxy URL will be removed once the migration is complete.
+ */
 export function setupAmplitude() {
   if (isTestEnv()) {
     logger.debug('amplitude.ts', 'setupAmplitude', 'Skipping Amplitude initialization in test environment')
