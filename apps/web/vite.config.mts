@@ -302,6 +302,20 @@ export default defineConfig(({ mode }) => {
       extensions: ['.web-app.tsx', '.web-app.ts', '.web-app.js', '.web.tsx', '.web.ts', '.web.js', '.tsx', '.ts', '.js'],
       modules: [path.resolve(root, 'node_modules')],
       dedupe: [
+        // React core — must be singleton for hooks/context
+        'react',
+        'react-dom',
+        // State/data providers — duplicate copies break React context
+        'react-redux',
+        'redux',
+        '@reduxjs/toolkit',
+        '@tanstack/react-query',
+        '@apollo/client',
+        'react-i18next',
+        'i18next',
+        'wagmi',
+        '@wagmi/core',
+        // SDK packages
         '@uniswap/sdk-core',
         '@uniswap/v2-sdk',
         '@uniswap/v3-sdk',
@@ -310,12 +324,11 @@ export default defineConfig(({ mode }) => {
         '@uniswap/universal-router-sdk',
         '@uniswap/uniswapx-sdk',
         '@uniswap/permit2-sdk',
-        '@tanstack/react-query',
+        // Other
         '@visx/responsive',
         'jsbi',
         'ethers',
-        'react',
-        'react-dom',
+        'viem',
       ],
       alias: [
         ...exactAliases,
