@@ -43,7 +43,7 @@ function BaseTooltipContent({ children, url }: { children: ReactNode; url: strin
 
 export function FOTTooltipContent() {
   return (
-    <BaseTooltipContent url="https://support.uniswap.org/hc/en-us/articles/18673568523789-What-is-a-token-fee-">
+    <BaseTooltipContent url="https://docs.lux.exchange/help/token-fees">
       <Trans i18nKey="swap.tokenOwnFees" />
     </BaseTooltipContent>
   )
@@ -52,7 +52,7 @@ export function FOTTooltipContent() {
 function SwapFeeTooltipContent({ hasFee }: { hasFee: boolean }) {
   const message = hasFee ? <Trans i18nKey="swap.fees.experience" /> : <Trans i18nKey="swap.fees.noFee" />
   return (
-    <BaseTooltipContent url="https://support.uniswap.org/hc/en-us/articles/20131678274957">
+    <BaseTooltipContent url="https://docs.lux.exchange/help/swap-fees">
       {message}
     </BaseTooltipContent>
   )
@@ -60,7 +60,7 @@ function SwapFeeTooltipContent({ hasFee }: { hasFee: boolean }) {
 
 export function SlippageTooltipContent() {
   return (
-    <BaseTooltipContent url="https://support.uniswap.org/hc/en-us/articles/20131678274957">
+    <BaseTooltipContent url="https://docs.lux.exchange/help/swap-fees">
       <Trans i18nKey="swap.slippage.tooltip" />
     </BaseTooltipContent>
   )

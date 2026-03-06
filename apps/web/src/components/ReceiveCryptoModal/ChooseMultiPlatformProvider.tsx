@@ -212,12 +212,12 @@ export function ChooseMultiPlatformProvider({
             }}
             components={{
               tosLink: (
-                <StyledLink color={colors.neutral3.val} href="https://uniswap.org/terms-of-service/">
+                <StyledLink color={colors.neutral3.val} href="https://lux.exchange/terms">
                   {t('common.termsOfService')}
                 </StyledLink>
               ),
               privacyLink: (
-                <StyledLink color={colors.neutral3.val} href="https://uniswap.org/privacy-policy">
+                <StyledLink color={colors.neutral3.val} href="https://lux.exchange/privacy">
                   {t('common.privacyPolicy')}
                 </StyledLink>
               ),

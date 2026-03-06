@@ -25,7 +25,7 @@ export default function ConnectedAccountBlocked({ isOpen, closeModal }: ModalSta
           <Text color="$neutral2" variant="body4" textAlign="center">
             <Trans
               i18nKey="common.blocked.reason"
-              components={{ link: <ExternalLink href="https://help.uniswap.org/en/articles/6149816" /> }}
+              components={{ link: <ExternalLink href="https://docs.lux.exchange/help/blocked-addresses" /> }}
             />
           </Text>
           <Text color="$neutral2" variant="body4" textAlign="center">
@@ -34,8 +34,8 @@ export default function ConnectedAccountBlocked({ isOpen, closeModal }: ModalSta
               components={{
                 emailAddress: (
                   <Flex mt="$spacing12" alignItems="center">
-                    <CopyHelper toCopy="compliance@uniswap.org" iconSize={16} color="$accent1" iconPosition="right">
-                      compliance@uniswap.org
+                    <CopyHelper toCopy="compliance@lux.exchange" iconSize={16} color="$accent1" iconPosition="right">
+                      compliance@lux.exchange
                     </CopyHelper>
                   </Flex>
                 ),

@@ -83,7 +83,7 @@ function PrivacyPolicy() {
         description: (
           <>
             {t('privacy.trm')}{' '}
-            <ExternalLink href="https://support.uniswap.org/hc/en-us/articles/8671777747597-Address-Screening-Guide">
+            <ExternalLink href="https://docs.lux.exchange/help/address-screening">
               {t('common.button.learn')}
             </ExternalLink>
           </>
@@ -111,8 +111,8 @@ function PrivacyPolicy() {
     >
       <AutoColumn gap="16px">
         <AutoColumn gap="sm" style={{ width: '100%' }}>
-          <ExternalLinkCard href="https://uniswap.org/terms-of-service">{t('privacy.uniswaptos')}</ExternalLinkCard>
-          <ExternalLinkCard href="https://uniswap.org/privacy-policy/">{t('common.privacyPolicy')}</ExternalLinkCard>
+          <ExternalLinkCard href="https://lux.exchange/terms">{t('privacy.uniswaptos')}</ExternalLinkCard>
+          <ExternalLinkCard href="https://lux.exchange/privacy">{t('common.privacyPolicy')}</ExternalLinkCard>
         </AutoColumn>
         <Text variant="body3" color="$neutral2">
           {t('privacy.thirdPartyApis')}
@@ -135,7 +135,7 @@ function PrivacyPolicy() {
           ))}
           <Row justify="center" marginBottom="1rem">
             <ExternalLink
-              href="https://help.uniswap.org/en/articles/5675203-terms-of-service-faq"
+              href="https://docs.lux.exchange/help/terms-of-service-faq"
               style={{ fontSize: 12 }}
             >
               {t('common.button.learn')}

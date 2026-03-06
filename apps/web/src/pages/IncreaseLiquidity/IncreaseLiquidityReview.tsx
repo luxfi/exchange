@@ -254,7 +254,7 @@ export function IncreaseLiquidityReview({ onClose }: { onClose: () => void }) {
                 </Flex>
               </Flex>
             )}
-            <ExternalLink href="https://support.uniswap.org/hc/en-us/articles/39530204759693-How-do-I-add-liquidity-to-an-existing-position">
+            <ExternalLink href="https://docs.lux.exchange/help/add-liquidity-existing-position">
               <Text variant="body3" color="$accent1">
                 {t('common.button.learn')}
               </Text>
