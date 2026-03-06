@@ -3,6 +3,7 @@ import '~/sideEffects'
 
 import { getDeviceId } from '@amplitude/analytics-browser'
 import { ApolloProvider } from '@apollo/client'
+import { PostHogProvider } from '@hanzo/insights-react'
 import { datadogRum } from '@datadog/browser-rum'
 import { ApiInit, getEntryGatewayUrl, provideSessionService } from '@universe/api'
 import type { StatsigUser } from '@universe/gating'
@@ -235,6 +236,15 @@ const Router = isBrowserRouterEnabled() ? BrowserRouter : HashRouter
 const RootApp = (): JSX.Element => {
   return (
     <StrictMode>
+      <PostHogProvider
+        apiKey={process.env.REACT_APP_INSIGHTS_API_KEY || 'phc_e16a2d5a8033442d87f090b24c606825'}
+        options={{
+          api_host: process.env.REACT_APP_INSIGHTS_HOST || 'https://insights.hanzo.ai',
+          capture_pageview: true,
+          capture_pageleave: true,
+          autocapture: true,
+        }}
+      >
       <HelmetProvider>
         <ReactRouterUrlProvider>
           <Provider store={store}>
@@ -284,6 +294,7 @@ const RootApp = (): JSX.Element => {
           </Provider>
         </ReactRouterUrlProvider>
       </HelmetProvider>
+      </PostHogProvider>
     </StrictMode>
   )
 }
