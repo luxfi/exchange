@@ -90,6 +90,7 @@ function _toPropertyKey(t) {
   ChainId[ChainId["MONAD_TESTNET"] = 10143] = "MONAD_TESTNET";
   ChainId[ChainId["SONEIUM"] = 1868] = "SONEIUM";
   ChainId[ChainId["MONAD"] = 143] = "MONAD";
+  ChainId[ChainId["XLAYER"] = 196] = "XLAYER";
 })(exports.ChainId || (exports.ChainId = {}));
 var SUPPORTED_CHAINS = [exports.ChainId.MAINNET, exports.ChainId.OPTIMISM, exports.ChainId.OPTIMISM_GOERLI, exports.ChainId.OPTIMISM_SEPOLIA, exports.ChainId.ARBITRUM_ONE, exports.ChainId.ARBITRUM_GOERLI, exports.ChainId.ARBITRUM_SEPOLIA, exports.ChainId.POLYGON, exports.ChainId.POLYGON_MUMBAI, exports.ChainId.GOERLI, exports.ChainId.SEPOLIA, exports.ChainId.CELO_ALFAJORES, exports.ChainId.CELO, exports.ChainId.BNB, exports.ChainId.AVALANCHE, exports.ChainId.BASE, exports.ChainId.BASE_GOERLI, exports.ChainId.BASE_SEPOLIA, exports.ChainId.ZORA, exports.ChainId.ZORA_SEPOLIA, exports.ChainId.ROOTSTOCK, exports.ChainId.BLAST, exports.ChainId.ZKSYNC, exports.ChainId.WORLDCHAIN, exports.ChainId.UNICHAIN_SEPOLIA, exports.ChainId.UNICHAIN, exports.ChainId.MONAD_TESTNET, exports.ChainId.SONEIUM, exports.ChainId.MONAD];
 (function (NativeCurrencyName) {

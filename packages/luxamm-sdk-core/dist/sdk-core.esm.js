@@ -85,6 +85,7 @@ var ChainId;
   ChainId[ChainId["MONAD_TESTNET"] = 10143] = "MONAD_TESTNET";
   ChainId[ChainId["SONEIUM"] = 1868] = "SONEIUM";
   ChainId[ChainId["MONAD"] = 143] = "MONAD";
+  ChainId[ChainId["XLAYER"] = 196] = "XLAYER";
 })(ChainId || (ChainId = {}));
 var SUPPORTED_CHAINS = [ChainId.MAINNET, ChainId.OPTIMISM, ChainId.OPTIMISM_GOERLI, ChainId.OPTIMISM_SEPOLIA, ChainId.ARBITRUM_ONE, ChainId.ARBITRUM_GOERLI, ChainId.ARBITRUM_SEPOLIA, ChainId.POLYGON, ChainId.POLYGON_MUMBAI, ChainId.GOERLI, ChainId.SEPOLIA, ChainId.CELO_ALFAJORES, ChainId.CELO, ChainId.BNB, ChainId.AVALANCHE, ChainId.BASE, ChainId.BASE_GOERLI, ChainId.BASE_SEPOLIA, ChainId.ZORA, ChainId.ZORA_SEPOLIA, ChainId.ROOTSTOCK, ChainId.BLAST, ChainId.ZKSYNC, ChainId.WORLDCHAIN, ChainId.UNICHAIN_SEPOLIA, ChainId.UNICHAIN, ChainId.MONAD_TESTNET, ChainId.SONEIUM, ChainId.MONAD];
 var NativeCurrencyName;
