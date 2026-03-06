@@ -49,7 +49,7 @@ export default function Wrapped() {
 
   const hasWallet = Boolean(walletAddressRef.current || backupWalletAddress)
   const walletAddress = walletAddressRef.current || backupWalletAddress
-  const iframeUrl = `https://wrapped.uniswap.org${walletAddress ? `?address=${walletAddress}` : ''}`
+  const iframeUrl = `https://wrapped.lux.exchange${walletAddress ? `?address=${walletAddress}` : ''}`
 
   return (
     <Flex
@@ -103,7 +103,7 @@ export default function Wrapped() {
               }}
               width="100%"
               height="100%"
-              title="Uniswap Wrapped"
+              title="Lux Wrapped"
             />
             <Trace logPress={true} element={ElementName.CloseButton}>
               <TouchableArea
@@ -116,7 +116,7 @@ export default function Wrapped() {
                 borderRadius="$roundedFull"
                 backdropFilter="blur(20px)"
                 display={hasWallet ? 'flex' : 'none'}
-                aria-label="Close Uniswap Wrapped"
+                aria-label="Close Lux Wrapped"
                 onPress={() => navigate('/swap')}
               >
                 <Text

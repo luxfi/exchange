@@ -1,7 +1,7 @@
 {
   "name": "@universe/web",
   "version": "1.1.0",
-  "description": "Uniswap Interface",
+  "description": "Lux Exchange",
   "license": "GPL-3.0-or-later",
   "scripts": {
     "prepare": "nx prepare web",

@@ -82,7 +82,7 @@ export function useRouterConfig(): RouterConfig {
 // SEO titles and descriptions sourced from https://docs.google.com/spreadsheets/d/1_6vSxGgmsx6QGEZ4mdHppv1VkuiJEro3Y_IopxUHGB4/edit#gid=0
 // getTitle and getDescription are used as static metatags for SEO. Dynamic metatags should be set in the page component itself
 const StaticTitlesAndDescriptions = {
-  UniswapTitle: i18n.t('title.uniswapTradeCrypto'),
+  LuxTitle: i18n.t('title.luxTradeCrypto'),
   SwapTitle: i18n.t('title.buySellTradeEthereum'),
   SwapDescription: i18n.t('title.swappingMadeSimple'),
   DetailsPageBaseTitle: i18n.t('common.buyAndSell'),
@@ -111,7 +111,7 @@ export interface RouteDefinition {
 function createRouteDefinition(route: Partial<RouteDefinition>): RouteDefinition {
   return {
     getElement: () => null,
-    getTitle: () => StaticTitlesAndDescriptions.UniswapTitle,
+    getTitle: () => StaticTitlesAndDescriptions.LuxTitle,
     getDescription: () => StaticTitlesAndDescriptions.SwapDescription,
     enabled: () => true,
     path: '/',
@@ -124,7 +124,7 @@ function createRouteDefinition(route: Partial<RouteDefinition>): RouteDefinition
 export const routes: RouteDefinition[] = [
   createRouteDefinition({
     path: '/',
-    getTitle: () => StaticTitlesAndDescriptions.UniswapTitle,
+    getTitle: () => StaticTitlesAndDescriptions.LuxTitle,
     getDescription: () => StaticTitlesAndDescriptions.SwapDescription,
     getElement: (args) => {
       return args.browserRouterEnabled && args.hash ? <Navigate to={args.hash.replace('#', '')} replace /> : <Landing />

@@ -75,7 +75,7 @@ export function uniswapWalletConnect(): any {
       ...wc,
       id: 'uniswapWalletConnect',
       type: 'uniswapWalletConnect',
-      name: 'Uniswap Wallet',
+      name: 'Lux Wallet',
       icon: 'https://lux.exchange/favicon.png',
     }
   })
