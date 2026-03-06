@@ -127,7 +127,7 @@ function DownloadMobile() {
       px="60px"
       my="$spacing24"
     >
-      <BadgeLink href="https://uniswapwallet.onelink.me/8q3y/m4i9qsez?af_qr=true">
+      <BadgeLink href="https://lux.exchange/wallet">
         <Suspense fallback={<Loader.Box width={200} height={200} />}>
           <LazyWalletOneLinkQR width={200} height={200} />
         </Suspense>
@@ -138,10 +138,10 @@ function DownloadMobile() {
         properties={{ connector_id: account.connector?.id }}
       >
         <Flex row justifyContent="center" gap="$spacing16">
-          <BadgeLink href="https://apps.apple.com/us/app/uniswap-crypto-nft-wallet/id6443944476">
+          <BadgeLink href="https://lux.exchange/wallet/ios">
             <Image src={AppStoreBadge} alt="App Store Badge" width={150} height={50} />
           </BadgeLink>
-          <BadgeLink href="https://play.google.com/store/apps/details?id=com.uniswap.mobile&pcampaignid=web_share">
+          <BadgeLink href="https://lux.exchange/wallet/android">
             <Image src={PlayStoreBadge} alt="Play Store Badge" width={170} height={50} />
           </BadgeLink>
         </Flex>

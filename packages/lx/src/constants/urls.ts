@@ -10,7 +10,7 @@ import { config } from 'lx/src/config'
 import { isDevEnv, isPlaywrightEnv } from 'utilities/src/environment/env'
 import { isWebApp } from 'utilities/src/platform'
 
-export const UNISWAP_WEB_HOSTNAME = 'app.uniswap.org'
+export const UNISWAP_WEB_HOSTNAME = 'lux.exchange'
 const EMBEDDED_WALLET_HOSTNAME = isPlaywrightEnv() || isDevEnv() ? 'staging.ew.unihq.org' : UNISWAP_WEB_HOSTNAME
 
 /**
@@ -31,8 +31,8 @@ export function getForApiUrl(): string {
 }
 
 export const UNISWAP_WEB_URL = `https://${UNISWAP_WEB_HOSTNAME}`
-export const UNISWAP_APP_URL = 'https://uniswap.org/app'
-export const UNISWAP_MOBILE_REDIRECT_URL = 'https://uniswap.org/mobile-redirect'
+export const UNISWAP_APP_URL = 'https://lux.exchange/app'
+export const UNISWAP_MOBILE_REDIRECT_URL = 'https://lux.exchange/mobile-redirect'
 
 // The trading api uses custom builds for testing which may not use the v1 prefix
 export const tradingApiVersionPrefix = config.tradingApiWebTestEnv === 'true' ? '' : '/v1'
@@ -125,32 +125,32 @@ export const uniswapUrls = {
     whatIsPrivateKey: createHelpArticleUrl('11306371824653-What-is-a-private-key'),
     wethExplainer: createHelpArticleUrl('16015852009997-Why-do-ETH-swaps-involve-converting-to-WETH'),
   },
-  downloadWalletUrl: 'https://wallet.uniswap.org/',
-  tradingApiDocsUrl: 'https://hub.uniswap.org/',
+  downloadWalletUrl: 'https://lux.exchange/wallet',
+  tradingApiDocsUrl: 'https://docs.lux.exchange/api',
   unichainUrl: 'https://www.unichain.org/',
-  uniswapXUrl: 'https://x.uniswap.org/',
-  helpCenterUrl: 'https://help.uniswap.org/',
-  blogUrl: 'https://blog.uniswap.org/',
-  docsUrl: 'https://docs.uniswap.org/',
-  voteUrl: 'https://vote.uniswapfoundation.org',
-  governanceUrl: 'https://uniswap.org/governance',
-  developersUrl: 'https://uniswap.org/developers',
-  aboutUrl: 'https://about.uniswap.org/',
-  careersUrl: 'https://careers.uniswap.org/',
+  uniswapXUrl: 'https://docs.lux.exchange/protocol/uniswapx',
+  helpCenterUrl: 'https://docs.lux.exchange/help',
+  blogUrl: 'https://lux.exchange/blog',
+  docsUrl: 'https://docs.lux.exchange/',
+  voteUrl: 'https://lux.exchange/governance',
+  governanceUrl: 'https://lux.exchange/governance',
+  developersUrl: 'https://docs.lux.exchange/developers',
+  aboutUrl: 'https://lux.exchange/about',
+  careersUrl: 'https://lux.exchange/careers',
   social: {
-    x: 'https://x.com/Uniswap',
-    farcaster: 'https://farcaster.xyz/Uniswap',
-    linkedin: 'https://www.linkedin.com/company/uniswaporg',
-    tiktok: 'https://www.tiktok.com/@uniswap',
+    x: 'https://x.com/luxaboratories',
+    farcaster: 'https://farcaster.xyz/luxfi',
+    linkedin: 'https://www.linkedin.com/company/luxfi',
+    tiktok: 'https://www.tiktok.com/@luxfi',
   },
-  termsOfServiceUrl: 'https://uniswap.org/terms-of-service',
-  privacyPolicyUrl: 'https://uniswap.org/privacy-policy',
-  chromeExtension: 'http://uniswap.org/ext',
+  termsOfServiceUrl: 'https://lux.exchange/terms',
+  privacyPolicyUrl: 'https://lux.exchange/privacy',
+  chromeExtension: 'https://lux.exchange/ext',
   chromeExtensionUninstallUrl: `${UNISWAP_WEB_URL}${CHROME_EXTENSION_UNINSTALL_URL_PATH}`,
 
   // Download links
-  appStoreDownloadUrl: 'https://apps.apple.com/us/app/uniswap-crypto-nft-wallet/id6443944476',
-  playStoreDownloadUrl: 'https://play.google.com/store/apps/details?id=com.uniswap.mobile&pcampaignid=web_share',
+  appStoreDownloadUrl: 'https://lux.exchange/wallet/ios',
+  playStoreDownloadUrl: 'https://lux.exchange/wallet/android',
 
   // Core API Urls
   apiOrigin: 'https://api.uniswap.org',
