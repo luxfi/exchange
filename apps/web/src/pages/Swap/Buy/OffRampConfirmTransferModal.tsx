@@ -1,5 +1,5 @@
 import { useMutation } from '@tanstack/react-query'
-import { CurrencyAmount } from '@lux/sdk-core'
+import { CurrencyAmount } from '@uniswap/sdk-core'
 import { useWeb3React } from '@web3-react/core'
 import { useCallback, useEffect, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'

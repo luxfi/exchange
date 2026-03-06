@@ -1,4 +1,4 @@
-import { Currency, Percent } from '@lux/sdk-core'
+import { Currency, Percent } from '@uniswap/sdk-core'
 import { useCallback, useEffect, useState } from 'react'
 import invariant from 'tiny-invariant'
 import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'

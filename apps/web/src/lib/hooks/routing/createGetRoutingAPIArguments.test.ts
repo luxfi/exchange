@@ -1,5 +1,5 @@
-import { Protocol } from '@lux/router-sdk'
-import { CurrencyAmount, Ether, Token, TradeType } from '@lux/sdk-core'
+import { Protocol } from '@uniswap/router-sdk'
+import { CurrencyAmount, Ether, Token, TradeType } from '@uniswap/sdk-core'
 import { UniverseChainId } from 'lx/src/features/chains/types'
 import { createGetRoutingAPIArguments, validateRoutingAPIInput } from '~/lib/hooks/routing/createGetRoutingAPIArguments'
 import { INTERNAL_ROUTER_PREFERENCE_PRICE, RouterPreference, URAQuoteType } from '~/state/routing/types'

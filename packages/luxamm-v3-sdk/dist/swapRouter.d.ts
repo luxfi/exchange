@@ -1,5 +1,5 @@
 import { Interface } from '@ethersproject/abi';
-import { BigintIsh, Currency, Percent, TradeType } from '@lux/sdk-core';
+import { BigintIsh, Currency, Percent, TradeType } from '@uniswap/sdk-core';
 import { Trade } from './entities/trade';
 import { PermitOptions } from './selfPermit';
 import { MethodParameters } from './utils/calldata';

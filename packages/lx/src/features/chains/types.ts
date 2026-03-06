@@ -1,7 +1,7 @@
 // biome-ignore lint/style/noRestrictedImports: legacy import will be migrated
-import { ChainId as LuxSDKChainId } from '@lux/sdk-core'
+import { ChainId as LuxSDKChainId } from '@uniswap/sdk-core'
 // biome-ignore lint/style/noRestrictedImports: legacy import will be migrated
-import type { CurrencyAmount, Token } from '@lux/sdk-core'
+import type { CurrencyAmount, Token } from '@uniswap/sdk-core'
 import type { GraphQLApi } from '@luxfi/api'
 import { SwapConfigKey } from '@luxfi/gating'
 import type { ImageSourcePropType } from 'react-native'

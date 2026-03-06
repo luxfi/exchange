@@ -1,4 +1,4 @@
-import { Token } from '@lux/sdk-core'
+import { Token } from '@uniswap/sdk-core'
 import type { TokenIdentifier } from '@universe/prices'
 import {
   createPriceKey,

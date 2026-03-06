@@ -1,4 +1,4 @@
-import { TradeType } from '@lux/sdk-core'
+import { TradeType } from '@uniswap/sdk-core'
 import { FeatureFlags, useFeatureFlag } from '@universe/gating'
 import { useMemo } from 'react'
 import { useLuxContextSelector } from 'lx/src/contexts/LuxContext'

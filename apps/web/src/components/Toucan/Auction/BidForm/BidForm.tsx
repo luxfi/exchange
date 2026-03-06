@@ -1,6 +1,6 @@
 //! tamagui-ignore
 // tamagui-ignore
-import { KycVerificationStatus } from '@lux/client-liquidity/dist/lux/liquidity/v1/types_pb'
+import { KycVerificationStatus } from '@uniswap/client-liquidity/dist/lux/liquidity/v1/types_pb'
 import { useCallback, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Flex, styled, useColorsFromTokenColor } from 'ui/src'

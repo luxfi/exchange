@@ -1,4 +1,4 @@
-import { SharedEventName } from '@lux/analytics-events'
+import { SharedEventName } from '@uniswap/analytics-events'
 import { BaseSyntheticEvent, memo, useCallback, useMemo, useState } from 'react'
 import { LayoutChangeEvent } from 'react-native'
 import { useDispatch } from 'react-redux'

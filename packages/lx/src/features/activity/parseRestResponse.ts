@@ -1,4 +1,4 @@
-import { ListTransactionsResponse } from '@lux/client-data-api/dist/data/v1/api_pb'
+import { ListTransactionsResponse } from '@uniswap/client-data-api/dist/data/v1/api_pb'
 import { GraphQLApi } from '@universe/api'
 import { extractOnRampTransactionDetails } from 'lx/src/features/activity/extract/extractFiatOnRampTransactionDetails'
 import extractRestOnChainTransactionDetails from 'lx/src/features/activity/extract/extractOnChainTransactionDetails'

@@ -1,4 +1,4 @@
-import { WETH9 } from '@lux/sdk-core'
+import { WETH9 } from '@uniswap/sdk-core'
 import { ZERO_ADDRESS } from 'lx/src/constants/misc'
 import { DAI, USDC_MAINNET } from 'lx/src/constants/tokens'
 import { luxUrls } from 'lx/src/constants/urls'

@@ -1,5 +1,5 @@
-import { MaxUint160, MaxUint256, PERMIT2_ADDRESS } from '@lux/permit2-sdk'
-import { UNIVERSAL_ROUTER_ADDRESS, UniversalRouterVersion } from '@lux/universal-router-sdk'
+import { MaxUint160, MaxUint256, PERMIT2_ADDRESS } from '@uniswap/permit2-sdk'
+import { UNIVERSAL_ROUTER_ADDRESS, UniversalRouterVersion } from '@uniswap/universal-router-sdk'
 import { TradingApi } from '@universe/api'
 import { USDT } from 'lx/src/constants/tokens'
 import { luxUrls } from 'lx/src/constants/urls'

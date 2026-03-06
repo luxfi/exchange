@@ -1,4 +1,4 @@
-import { UNI_ADDRESSES } from '@lux/sdk-core'
+import { UNI_ADDRESSES } from '@uniswap/sdk-core'
 import { AssetType } from 'lx/src/entities/assets'
 import { mapTAPIPlanStatusToTXStatus } from 'lx/src/features/activity/extract/statusMappers'
 import {

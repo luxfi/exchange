@@ -1,4 +1,4 @@
-import { SharedEventName } from '@lux/analytics-events'
+import { SharedEventName } from '@uniswap/analytics-events'
 import { FeatureFlags, useFeatureFlag } from '@universe/gating'
 import React, { useCallback, useEffect } from 'react'
 import { Gesture, GestureDetector, State } from 'react-native-gesture-handler'

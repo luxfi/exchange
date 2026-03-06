@@ -3,7 +3,7 @@
 /* tslint:disable */
 /* eslint-disable */
 /**
- * The unique ID of the blockchain. For a list of supported chains see the [FAQ](https://api-docs.uniswap.org/guides/faqs).
+ * The unique ID of the blockchain. For a list of supported chains see the [FAQ](https://api-docs.lux.exchange/guides/faqs).
  */
 export enum ChainId {
     '_1' = 1,

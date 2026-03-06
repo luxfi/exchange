@@ -1,5 +1,5 @@
 import { NetworkStatus } from '@apollo/client'
-import { SharedEventName } from '@lux/analytics-events'
+import { SharedEventName } from '@uniswap/analytics-events'
 import { useCallback, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { ScrollSync } from 'react-scroll-sync'

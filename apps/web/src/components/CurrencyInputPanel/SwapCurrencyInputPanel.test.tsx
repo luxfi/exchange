@@ -11,7 +11,7 @@ vi.mock('lx/src/features/accounts/store/hooks', () => ({
   useActiveAddresses: vi.fn(),
 }))
 
-import { CurrencyAmount } from '@lux/sdk-core'
+import { CurrencyAmount } from '@uniswap/sdk-core'
 import { nativeOnChain, USDT } from 'lx/src/constants/tokens'
 import { useActiveAddresses } from 'lx/src/features/accounts/store/hooks'
 import { UniverseChainId } from 'lx/src/features/chains/types'

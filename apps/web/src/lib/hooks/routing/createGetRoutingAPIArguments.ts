@@ -1,6 +1,6 @@
 import { SkipToken } from '@reduxjs/toolkit/query/react'
-import { Protocol } from '@lux/router-sdk'
-import { Currency, CurrencyAmount, TradeType } from '@lux/sdk-core'
+import { Protocol } from '@uniswap/router-sdk'
+import { Currency, CurrencyAmount, TradeType } from '@uniswap/sdk-core'
 import { UniverseChainId } from 'lx/src/features/chains/types'
 import { GetQuoteArgs, INTERNAL_ROUTER_PREFERENCE_PRICE, RouterPreference, URAQuoteType } from '~/state/routing/types'
 import { currencyAddressForSwapQuote } from '~/state/routing/utils'

@@ -1,5 +1,5 @@
 import { NetworkStatus } from '@apollo/client'
-import { Token } from '@lux/sdk-core'
+import { Token } from '@uniswap/sdk-core'
 import {
   sortPortfolioBalances,
   usePortfolioBalances,

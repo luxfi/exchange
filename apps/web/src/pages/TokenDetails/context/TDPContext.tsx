@@ -1,5 +1,5 @@
 import { QueryResult } from '@apollo/client'
-import { Currency } from '@lux/sdk-core'
+import { Currency } from '@uniswap/sdk-core'
 import { GraphQLApi } from '@universe/api'
 import { createContext, PropsWithChildren, useContext } from 'react'
 import { GqlChainId, UniverseChainId } from 'lx/src/features/chains/types'

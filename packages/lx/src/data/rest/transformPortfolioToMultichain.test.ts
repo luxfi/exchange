@@ -1,4 +1,4 @@
-import { GetPortfolioResponse } from '@lux/client-data-api/dist/data/v1/api_pb'
+import { GetPortfolioResponse } from '@uniswap/client-data-api/dist/data/v1/api_pb'
 import {
   Amount,
   Balance,
@@ -7,7 +7,7 @@ import {
   Token,
   TokenMetadata,
   TokenType,
-} from '@lux/client-data-api/dist/data/v1/types_pb'
+} from '@uniswap/client-data-api/dist/data/v1/types_pb'
 import {
   shouldTransformToMultichain,
   transformPortfolioToMultichain,

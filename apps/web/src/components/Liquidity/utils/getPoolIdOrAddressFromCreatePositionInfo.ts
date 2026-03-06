@@ -1,8 +1,8 @@
-import { ProtocolVersion } from '@lux/client-data-api/dist/data/v1/poolTypes_pb'
-import { Currency, V3_CORE_FACTORY_ADDRESSES } from '@lux/sdk-core'
-import { Pair } from '@lux/v2-sdk'
-import { computePoolAddress, Pool as V3Pool } from '@lux/v3-sdk'
-import { Pool as V4Pool } from '@lux/v4-sdk'
+import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
+import { Currency, V3_CORE_FACTORY_ADDRESSES } from '@uniswap/sdk-core'
+import { Pair } from '@uniswap/v2-sdk'
+import { computePoolAddress, Pool as V3Pool } from '@uniswap/v3-sdk'
+import { Pool as V4Pool } from '@uniswap/v4-sdk'
 
 export function getPoolIdOrAddressFromCreatePositionInfo({
   protocolVersion,

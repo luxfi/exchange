@@ -1,4 +1,4 @@
-import { Percent } from '@lux/sdk-core';
+import { Percent } from '@uniswap/sdk-core';
 import JSBI from 'jsbi';
 /**
  * @deprecated use FACTORY_ADDRESS_MAP instead

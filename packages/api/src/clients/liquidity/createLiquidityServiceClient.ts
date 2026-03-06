@@ -1,5 +1,5 @@
 import { type PromiseClient } from '@connectrpc/connect'
-import { type LiquidityService } from '@lux/client-liquidity/dist/lux/liquidity/v1/api_connect'
+import { type LiquidityService } from '@uniswap/client-liquidity/dist/lux/liquidity/v1/api_connect'
 import type {
   CheckApprovalLPRequest,
   CheckApprovalLPResponse,
@@ -21,7 +21,7 @@ import type {
   MigrateV3ToV4LPPositionResponse,
   PoolInfoRequest,
   PoolInfoResponse,
-} from '@lux/client-liquidity/dist/lux/liquidity/v1/api_pb'
+} from '@uniswap/client-liquidity/dist/lux/liquidity/v1/api_pb'
 
 interface LiquidityServiceClientContext {
   rpcClient: PromiseClient<typeof LiquidityService>

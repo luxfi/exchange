@@ -1,4 +1,4 @@
-import { Token } from '@lux/sdk-core'
+import { Token } from '@uniswap/sdk-core'
 import { DAI, nativeOnChain } from 'lx/src/constants/tokens'
 import { getChainInfo } from 'lx/src/features/chains/chainInfo'
 import { UniverseChainId } from 'lx/src/features/chains/types'

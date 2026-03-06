@@ -1,7 +1,7 @@
 import {
   GetLPPriceDiscrepancyRequest,
   GetLPPriceDiscrepancyResponse,
-} from '@lux/client-liquidity/dist/lux/liquidity/v1/api_pb'
+} from '@uniswap/client-liquidity/dist/lux/liquidity/v1/api_pb'
 import invariant from 'tiny-invariant'
 import { call, delay, spawn } from 'typed-redux-saga'
 import { ZERO_ADDRESS } from 'lx/src/constants/misc'

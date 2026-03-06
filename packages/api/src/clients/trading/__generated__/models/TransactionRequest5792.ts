@@ -14,7 +14,7 @@ export type TransactionRequest5792 = {
      */
     data: string;
     /**
-     * The quantity of ETH tokens approved for spending by the transaction, denominated in wei. Note that by default Uniswap Labs sets this to the maximum approvable spend.
+     * The quantity of ETH tokens approved for spending by the transaction, denominated in wei. Note that by default Lux Industries sets this to the maximum approvable spend.
      */
     value: string;
     gasLimit?: gasLimit;

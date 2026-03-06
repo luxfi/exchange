@@ -1,4 +1,4 @@
-import { Currency, Price } from '@lux/sdk-core'
+import { Currency, Price } from '@uniswap/sdk-core'
 import { WarningSeverity } from 'lx/src/components/modals/WarningModal/types'
 import { USDT } from 'lx/src/constants/tokens'
 import { getPriceDifference } from '~/components/Liquidity/utils/getPriceDifference'

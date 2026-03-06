@@ -1,4 +1,4 @@
-import { ChartPeriod, GetPortfolioChartResponse } from '@lux/client-data-api/dist/data/v1/api_pb'
+import { ChartPeriod, GetPortfolioChartResponse } from '@uniswap/client-data-api/dist/data/v1/api_pb'
 import { GraphQLApi } from '@universe/api'
 import { UTCTimestamp } from 'lightweight-charts'
 import { useMemo } from 'react'

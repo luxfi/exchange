@@ -2,7 +2,7 @@
 import { datadogRum } from '@datadog/browser-rum'
 import type { TransactionResponse } from '@ethersproject/abstract-provider'
 import type { JsonRpcSigner, Web3Provider } from '@ethersproject/providers'
-import { TradeType } from '@lux/sdk-core'
+import { TradeType } from '@uniswap/sdk-core'
 import { FetchError, TradingApi } from '@universe/api'
 import { BlockedAsyncSubmissionChainIdsConfigKey, DynamicConfigs, getDynamicConfigValue } from '@universe/gating'
 import ms from 'ms'

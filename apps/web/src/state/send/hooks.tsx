@@ -1,5 +1,5 @@
 import { TransactionRequest } from '@ethersproject/abstract-provider'
-import { Currency, CurrencyAmount } from '@lux/sdk-core'
+import { Currency, CurrencyAmount } from '@uniswap/sdk-core'
 import type { GasFeeResult } from '@universe/api'
 import { useWeb3React } from '@web3-react/core'
 import { useMemo } from 'react'

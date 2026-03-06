@@ -1,4 +1,4 @@
-import { ProtocolVersion } from '@lux/client-data-api/dist/data/v1/poolTypes_pb'
+import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
 import { useDynamicConfigValue } from '@universe/gating'
 import { vi } from 'vitest'
 import { useLPSlippageValue } from '~/components/Liquidity/Create/hooks/useLPSlippageValues'

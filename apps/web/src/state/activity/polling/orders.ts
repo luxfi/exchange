@@ -1,4 +1,4 @@
-import { TradeType } from '@lux/sdk-core'
+import { TradeType } from '@uniswap/sdk-core'
 import { TradingApi } from '@universe/api'
 import ms from 'ms'
 import { useEffect, useRef, useState } from 'react'

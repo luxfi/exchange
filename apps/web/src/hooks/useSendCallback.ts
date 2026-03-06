@@ -1,5 +1,5 @@
 import type { TransactionRequest } from '@ethersproject/abstract-provider'
-import type { Currency, CurrencyAmount } from '@lux/sdk-core'
+import type { Currency, CurrencyAmount } from '@uniswap/sdk-core'
 import type { GasFeeResult } from '@universe/api'
 import { useCallback, useRef } from 'react'
 import { AssetType } from 'lx/src/entities/assets'

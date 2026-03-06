@@ -1,10 +1,10 @@
-import { GetPortfolioResponse } from '@lux/client-data-api/dist/data/v1/api_pb'
+import { GetPortfolioResponse } from '@uniswap/client-data-api/dist/data/v1/api_pb'
 import {
   type Balance,
   ChainBalance,
   MultichainBalance,
   Portfolio,
-} from '@lux/client-data-api/dist/data/v1/types_pb'
+} from '@uniswap/client-data-api/dist/data/v1/types_pb'
 
 /**
  * Transforms a GetPortfolio response that uses the legacy `portfolio.balances`

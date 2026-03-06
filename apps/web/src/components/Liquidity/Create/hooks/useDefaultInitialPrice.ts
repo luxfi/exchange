@@ -1,4 +1,4 @@
-import { Currency, CurrencyAmount, Price, TradeType } from '@lux/sdk-core'
+import { Currency, CurrencyAmount, Price, TradeType } from '@uniswap/sdk-core'
 import JSBI from 'jsbi'
 import { useEffect, useMemo, useState } from 'react'
 import { PollingInterval } from 'lx/src/constants/misc'

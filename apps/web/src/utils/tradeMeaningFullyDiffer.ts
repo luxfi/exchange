@@ -1,4 +1,4 @@
-import { Percent } from '@lux/sdk-core'
+import { Percent } from '@uniswap/sdk-core'
 import { InterfaceTrade } from '~/state/routing/types'
 
 /**

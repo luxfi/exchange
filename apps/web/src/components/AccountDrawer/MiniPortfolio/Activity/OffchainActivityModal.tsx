@@ -1,4 +1,4 @@
-import { Currency, CurrencyAmount, TradeType } from '@lux/sdk-core'
+import { Currency, CurrencyAmount, TradeType } from '@uniswap/sdk-core'
 import { TradingApi } from '@universe/api'
 import { TFunction } from 'i18next'
 import { atom } from 'jotai'

@@ -1,4 +1,4 @@
-import { Currency, CurrencyAmount } from '@lux/sdk-core'
+import { Currency, CurrencyAmount } from '@uniswap/sdk-core'
 import { Trans } from 'react-i18next'
 import { Flex, Text } from 'ui/src'
 import { iconSizes } from 'ui/src/theme'

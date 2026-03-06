@@ -1,4 +1,4 @@
-import { TransactionTypeFilter } from '@lux/client-data-api/dist/data/v1/types_pb'
+import { TransactionTypeFilter } from '@uniswap/client-data-api/dist/data/v1/types_pb'
 import { Box } from 'ui/src/components/icons/Box'
 import { Coin } from 'ui/src/components/icons/Coin'
 import { CoinConvert } from 'ui/src/components/icons/CoinConvert'

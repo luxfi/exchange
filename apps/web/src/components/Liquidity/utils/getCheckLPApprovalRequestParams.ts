@@ -1,12 +1,12 @@
-import { ProtocolVersion } from '@lux/client-data-api/dist/data/v1/poolTypes_pb'
-import { CheckApprovalLPRequest } from '@lux/client-liquidity/dist/lux/liquidity/v1/api_pb'
+import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
+import { CheckApprovalLPRequest } from '@uniswap/client-liquidity/dist/lux/liquidity/v1/api_pb'
 import {
   Protocols,
   V2CheckApprovalLPRequest,
   V3CheckApprovalLPRequest,
   V4CheckApprovalLPRequest,
-} from '@lux/client-liquidity/dist/lux/liquidity/v1/types_pb'
-import { Currency, CurrencyAmount } from '@lux/sdk-core'
+} from '@uniswap/client-liquidity/dist/lux/liquidity/v1/types_pb'
+import { Currency, CurrencyAmount } from '@uniswap/sdk-core'
 import { getTokenOrZeroAddress, validateCurrencyInput } from '~/components/Liquidity/utils/currency'
 import { getProtocols } from '~/components/Liquidity/utils/protocolVersion'
 import { PositionField } from '~/types/position'

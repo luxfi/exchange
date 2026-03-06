@@ -1,4 +1,4 @@
-import { Currency, CurrencyAmount, Token } from '@lux/sdk-core'
+import { Currency, CurrencyAmount, Token } from '@uniswap/sdk-core'
 import JSBI from 'jsbi'
 import { useMemo } from 'react'
 import { getCurrencyAmount, ValueType } from 'lx/src/features/tokens/getCurrencyAmount'

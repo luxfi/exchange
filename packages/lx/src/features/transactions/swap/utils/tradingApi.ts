@@ -4,12 +4,12 @@ import { MixedRouteSDK } from '@luxdex/router-sdk'
 import type { Currency, TradeType } from '@luxamm/sdk-core'
 // IMPORTANT: Must use @lux packages for pool/route types because @luxdex/router-sdk
 // uses instanceof checks against @lux classes. Using @luxamm would fail those checks.
-// CurrencyAmount and Token must also be from @lux/sdk-core for pool constructors.
-import { CurrencyAmount, Token } from '@lux/sdk-core'
-import { Pair, Route as V2Route } from '@lux/v2-sdk'
-import type { FeeAmount } from '@lux/v3-sdk'
-import { Pool as V3Pool, Route as V3Route } from '@lux/v3-sdk'
-import { Pool as V4Pool, Route as V4Route } from '@lux/v4-sdk'
+// CurrencyAmount and Token must also be from @uniswap/sdk-core for pool constructors.
+import { CurrencyAmount, Token } from '@uniswap/sdk-core'
+import { Pair, Route as V2Route } from '@uniswap/v2-sdk'
+import type { FeeAmount } from '@uniswap/v3-sdk'
+import { Pool as V3Pool, Route as V3Route } from '@uniswap/v3-sdk'
+import { Pool as V4Pool, Route as V4Route } from '@uniswap/v4-sdk'
 import { type ClassicQuoteResponse, type DiscriminatedQuoteResponse, TradingApi } from '@luxfi/api'
 import { DynamicConfigs, getDynamicConfigValue, SwapConfigKey } from '@luxfi/gating'
 import { nativeOnChain } from 'lx/src/constants/tokens'

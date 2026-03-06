@@ -1,4 +1,4 @@
-import { Currency } from '@lux/sdk-core'
+import { Currency } from '@uniswap/sdk-core'
 import { PropsWithChildren, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Anchor, Flex, getTokenValue, Text, useSporeColors } from 'ui/src'

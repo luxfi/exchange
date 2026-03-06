@@ -3,6 +3,6 @@
 /* tslint:disable */
 /* eslint-disable */
 /**
- * The address of a cosigner who will run the auction and ensure the best executable price within the given parameters. Currently the cosigner is always Uniswap Labs.
+ * The address of a cosigner who will run the auction and ensure the best executable price within the given parameters. Currently the cosigner is always Lux Industries.
  */
 export type cosignerAddress = string;

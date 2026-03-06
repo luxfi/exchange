@@ -220,6 +220,13 @@ export type ConvertQueryVariables = Exact<{
 
 export type ConvertQuery = { __typename?: 'Query', convert?: { __typename?: 'Amount', value: number, currency?: Currency | undefined } | undefined };
 
+export type LuxPricesQueryVariables = Exact<{
+  contracts: Array<ContractInput> | ContractInput;
+}>;
+
+
+export type LuxPricesQuery = { __typename?: 'Query', tokens?: Array<{ __typename?: 'Token', id: string, address?: string | undefined, chain: Chain, standard?: TokenStandard | undefined, project?: { __typename?: 'TokenProject', id: string, markets?: Array<{ __typename?: 'TokenProjectMarket', id: string, price?: { __typename?: 'Amount', id: string, value: number } | undefined } | undefined> | undefined } | undefined } | undefined> | undefined };
+
 export type RecentTokenTransfersQueryVariables = Exact<{
   address: Scalars['String'];
   chains?: InputMaybe<Array<Chain> | Chain>;
@@ -237,13 +244,6 @@ export type TokenSpotPriceQueryVariables = Exact<{
 
 
 export type TokenSpotPriceQuery = { __typename?: 'Query', token?: { __typename?: 'Token', id: string, address?: string | undefined, chain: Chain, name?: string | undefined, symbol?: string | undefined, project?: { __typename?: 'TokenProject', id: string, markets?: Array<{ __typename?: 'TokenProjectMarket', id: string, price?: { __typename?: 'Amount', id: string, value: number } | undefined } | undefined> | undefined } | undefined } | undefined };
-
-export type UniswapPricesQueryVariables = Exact<{
-  contracts: Array<ContractInput> | ContractInput;
-}>;
-
-
-export type UniswapPricesQuery = { __typename?: 'Query', tokens?: Array<{ __typename?: 'Token', id: string, address?: string | undefined, chain: Chain, standard?: TokenStandard | undefined, project?: { __typename?: 'TokenProject', id: string, markets?: Array<{ __typename?: 'TokenProjectMarket', id: string, price?: { __typename?: 'Amount', id: string, value: number } | undefined } | undefined> | undefined } | undefined } | undefined> | undefined };
 
 export type NftAssetPartsFragment = { __typename?: 'NftAsset', id: string, name?: string | undefined, isSpam?: boolean | undefined, tokenId: string, nftContract?: { __typename?: 'NftContract', id: string, chain: Chain, address: string } | undefined, image?: { __typename?: 'Image', id: string, url: string } | undefined, collection?: { __typename?: 'NftCollection', id: string, name?: string | undefined } | undefined };
 

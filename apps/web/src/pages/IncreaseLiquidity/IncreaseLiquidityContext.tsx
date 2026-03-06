@@ -1,4 +1,4 @@
-import { Currency } from '@lux/sdk-core'
+import { Currency } from '@uniswap/sdk-core'
 import { createContext, Dispatch, PropsWithChildren, SetStateAction, useContext, useMemo, useState } from 'react'
 import { ModalName } from 'lx/src/features/telemetry/constants'
 import { TransactionStep } from 'lx/src/features/transactions/steps/types'

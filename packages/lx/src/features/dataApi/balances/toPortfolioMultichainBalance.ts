@@ -1,5 +1,5 @@
-import type { GetPortfolioResponse } from '@lux/client-data-api/dist/data/v1/api_pb'
-import type { ChainBalance, MultichainBalance, ProtectionInfo } from '@lux/client-data-api/dist/data/v1/types_pb'
+import type { GetPortfolioResponse } from '@uniswap/client-data-api/dist/data/v1/api_pb'
+import type { ChainBalance, MultichainBalance, ProtectionInfo } from '@uniswap/client-data-api/dist/data/v1/types_pb'
 import type { GraphQLApi, SpamCode } from '@universe/api'
 import { normalizeTokenAddressForCache } from 'lx/src/data/cache'
 import { type PortfolioChainBalance, type PortfolioMultichainBalance } from 'lx/src/features/dataApi/types'

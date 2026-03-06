@@ -1,5 +1,5 @@
 import type { TransactionResponse } from '@ethersproject/abstract-provider'
-import type { Currency } from '@lux/sdk-core'
+import type { Currency } from '@uniswap/sdk-core'
 import type { UniverseChainId } from 'lx/src/features/chains/types'
 import type { CollectFeesSteps } from 'lx/src/features/transactions/liquidity/steps/collectFeesSteps'
 import type { CollectLpIncentiveRewardsSteps } from 'lx/src/features/transactions/liquidity/steps/collectIncentiveRewardsSteps'

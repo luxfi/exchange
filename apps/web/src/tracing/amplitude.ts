@@ -1,4 +1,4 @@
-import { OriginApplication } from '@lux/analytics'
+import { OriginApplication } from '@uniswap/analytics'
 import { luxUrls } from 'lx/src/constants/urls'
 import { isTestEnv } from 'utilities/src/environment/env'
 import { logger } from 'utilities/src/logger/logger'

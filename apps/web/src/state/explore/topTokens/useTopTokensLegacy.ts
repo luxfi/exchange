@@ -1,4 +1,4 @@
-import { Amount, PriceHistory, TokenStats } from '@lux/client-explore/dist/lux/explore/v1/service_pb'
+import { Amount, PriceHistory, TokenStats } from '@uniswap/client-explore/dist/lux/explore/v1/service_pb'
 import { useContext, useMemo } from 'react'
 import { normalizeTokenAddressForCache } from 'lx/src/data/cache'
 import { UniverseChainId } from 'lx/src/features/chains/types'

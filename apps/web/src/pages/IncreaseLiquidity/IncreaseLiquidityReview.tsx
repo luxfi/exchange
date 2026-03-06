@@ -1,5 +1,5 @@
-import { ProtocolVersion } from '@lux/client-data-api/dist/data/v1/poolTypes_pb'
-import { CurrencyAmount } from '@lux/sdk-core'
+import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
+import { CurrencyAmount } from '@uniswap/sdk-core'
 import { useMemo, useState } from 'react'
 import { Trans, useTranslation } from 'react-i18next'
 import { useDispatch } from 'react-redux'

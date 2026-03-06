@@ -1,4 +1,4 @@
-import { CurrencyAmount, Percent, Token } from '@lux/sdk-core'
+import { CurrencyAmount, Percent, Token } from '@uniswap/sdk-core'
 import { UniverseChainId } from 'lx/src/features/chains/types'
 import type { DerivedSwapInfo } from 'lx/src/features/transactions/swap/types/derivedSwapInfo'
 import type { Trade, TradeWithStatus } from 'lx/src/features/transactions/swap/types/trade'

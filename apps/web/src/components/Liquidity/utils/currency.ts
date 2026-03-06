@@ -1,5 +1,5 @@
-import { ProtocolVersion } from '@lux/client-data-api/dist/data/v1/poolTypes_pb'
-import { Currency, Token } from '@lux/sdk-core'
+import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
+import { Currency, Token } from '@uniswap/sdk-core'
 import { ZERO_ADDRESS } from 'lx/src/constants/misc'
 import { nativeOnChain, WRAPPED_NATIVE_CURRENCY } from 'lx/src/constants/tokens'
 import { getChainInfo } from 'lx/src/features/chains/chainInfo'

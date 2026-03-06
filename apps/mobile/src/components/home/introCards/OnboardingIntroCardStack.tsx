@@ -1,4 +1,4 @@
-import { SharedEventName } from '@lux/analytics-events'
+import { SharedEventName } from '@uniswap/analytics-events'
 import { FeatureFlags, useFeatureFlag } from '@universe/gating'
 import React, { useCallback, useEffect, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'

@@ -1,4 +1,4 @@
-import { SharedEventName } from '@lux/analytics-events'
+import { SharedEventName } from '@uniswap/analytics-events'
 import { ReactNode, useEffect, useMemo, useRef } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Flex, ModalCloseIcon, Text } from 'ui/src'

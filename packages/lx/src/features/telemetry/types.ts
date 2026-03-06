@@ -4,13 +4,13 @@ import { type PartialMessage } from '@bufbuild/protobuf'
 import { type TransactionRequest as EthersTransactionRequest } from '@ethersproject/providers'
 import { type SerializedError } from '@reduxjs/toolkit'
 import { type FetchBaseQueryError } from '@reduxjs/toolkit/dist/query'
-import { type SharedEventName } from '@lux/analytics-events'
-import { type ProtocolVersion } from '@lux/client-data-api/dist/data/v1/poolTypes_pb'
+import { type SharedEventName } from '@uniswap/analytics-events'
+import { type ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
 import {
   type CreateLPPositionRequest,
   type IncreaseLPPositionRequest,
-} from '@lux/client-liquidity/dist/lux/liquidity/v1/api_pb'
-import { type Currency, type TradeType } from '@lux/sdk-core'
+} from '@uniswap/client-liquidity/dist/lux/liquidity/v1/api_pb'
+import { type Currency, type TradeType } from '@uniswap/sdk-core'
 import { type TradingApi, type UnitagClaimContext } from '@universe/api'
 import { type Experiments } from '@universe/gating'
 import type { PresetPercentage } from 'lx/src/components/CurrencyInputPanel/AmountInputPresets/types'
@@ -228,7 +228,7 @@ type BaseSwapTransactionResultProperties = {
   route?: string
   quoteId?: string
   submitViaPrivateRpc?: boolean
-  /** For Lux data sources, this should be of type Protocol from @lux/router-sdk. For other sources like Jupiter, this could be unknown values from their orderResponse.router field.*/
+  /** For Lux data sources, this should be of type Protocol from @uniswap/router-sdk. For other sources like Jupiter, this could be unknown values from their orderResponse.router field.*/
   protocol?: string
   transactedUSDValue?: number
   simulation_failure_reasons?: TradingApi.TransactionFailureReason[]

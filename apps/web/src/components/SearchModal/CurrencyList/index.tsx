@@ -1,4 +1,4 @@
-import { Currency, CurrencyAmount } from '@lux/sdk-core'
+import { Currency, CurrencyAmount } from '@uniswap/sdk-core'
 import { CSSProperties } from 'react'
 import { Flex, styled, Text, TextStyle } from 'ui/src'
 import { WarningSeverity } from 'lx/src/components/modals/WarningModal/types'

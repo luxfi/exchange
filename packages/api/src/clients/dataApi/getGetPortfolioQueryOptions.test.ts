@@ -1,4 +1,4 @@
-import type { GetPortfolioResponse } from '@lux/client-data-api/dist/data/v1/api_pb'
+import type { GetPortfolioResponse } from '@uniswap/client-data-api/dist/data/v1/api_pb'
 import type { DataApiServiceClient } from '@universe/api/src/clients/dataApi/createDataApiServiceClient'
 import { getGetPortfolioQueryOptions } from '@universe/api/src/clients/dataApi/getGetPortfolioQueryOptions'
 import { ReactQueryCacheKey } from 'utilities/src/reactQuery/cache'

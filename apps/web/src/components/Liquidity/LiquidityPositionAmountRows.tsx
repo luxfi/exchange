@@ -1,4 +1,4 @@
-import { Currency, CurrencyAmount } from '@lux/sdk-core'
+import { Currency, CurrencyAmount } from '@uniswap/sdk-core'
 import { useCallback } from 'react'
 import { useNavigate } from 'react-router'
 import { Flex, Text, TouchableArea } from 'ui/src'

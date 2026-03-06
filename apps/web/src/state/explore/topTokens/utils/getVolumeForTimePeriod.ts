@@ -1,4 +1,4 @@
-import { Token as DataApiToken } from '@lux/client-data-api/dist/data/v1/types_pb'
+import { Token as DataApiToken } from '@uniswap/client-data-api/dist/data/v1/types_pb'
 import { TimePeriod } from '~/appGraphql/data/util'
 
 /**

@@ -1,4 +1,4 @@
-import type { Currency } from '@lux/sdk-core'
+import type { Currency } from '@uniswap/sdk-core'
 import { FeatureFlags, useFeatureFlag } from '@universe/gating'
 import { useCallback, useContext, useEffect, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'

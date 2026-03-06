@@ -1,5 +1,5 @@
 import { screen } from '@testing-library/react'
-import { Token } from '@lux/sdk-core'
+import { Token } from '@uniswap/sdk-core'
 import * as chainsUtils from 'lx/src/features/platforms/utils/chains'
 import { ActivitySection } from '~/pages/TokenDetails/components/activity/ActivitySection'
 import { render } from '~/test-utils/render'

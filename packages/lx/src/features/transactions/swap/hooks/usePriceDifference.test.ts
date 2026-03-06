@@ -1,4 +1,4 @@
-import { CurrencyAmount } from '@lux/sdk-core'
+import { CurrencyAmount } from '@uniswap/sdk-core'
 import { USDC } from 'lx/src/constants/tokens'
 import { usePriceDifference } from 'lx/src/features/transactions/swap/hooks/usePriceDifference'
 import type { SwapFormStoreState } from 'lx/src/features/transactions/swap/stores/swapFormStore/types'

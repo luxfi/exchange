@@ -1,4 +1,4 @@
-import { getPortfolio } from '@lux/client-data-api/dist/data/v1/api-DataApiService_connectquery'
+import { getPortfolio } from '@uniswap/client-data-api/dist/data/v1/api-DataApiService_connectquery'
 import { luxUrls } from 'lx/src/constants/urls'
 import { TestID } from 'lx/src/test/fixtures/testIDs'
 import { shortenAddress } from 'utilities/src/addresses'

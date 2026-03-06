@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
-import { TradeType } from '@lux/sdk-core'
+import { TradeType } from '@uniswap/sdk-core'
 import { useMergeLocalAndRemoteTransactions } from 'lx/src/features/activity/hooks/useMergeLocalAndRemoteTransactions'
 import { UniverseChainId } from 'lx/src/features/chains/types'
 import { ValueType } from 'lx/src/features/tokens/getCurrencyAmount'

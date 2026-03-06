@@ -1,4 +1,4 @@
-import { Percent } from '@lux/sdk-core'
+import { Percent } from '@uniswap/sdk-core'
 import JSBI from 'jsbi'
 import { useMemo } from 'react'
 import { PositionInfo } from '~/components/Liquidity/types'

@@ -1,5 +1,5 @@
 import { type ApolloClient, type NormalizedCacheObject } from '@apollo/client'
-import { TradeType } from '@lux/sdk-core'
+import { TradeType } from '@uniswap/sdk-core'
 import { SharedQueryClient } from '@universe/api'
 import { Experiments, getExperimentValue, PrivateRpcProperties } from '@universe/gating'
 import { BigNumber } from 'ethers'

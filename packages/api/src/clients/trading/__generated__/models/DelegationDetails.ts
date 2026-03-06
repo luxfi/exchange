@@ -4,9 +4,9 @@
 /* eslint-disable */
 export type DelegationDetails = {
     /**
-     * Whether the current delegation address is a Uniswap delegation address.
+     * Whether the current delegation address is a Lux delegation address.
      */
-    isWalletDelegatedToUniswap: boolean;
+    isWalletDelegatedToLux: boolean;
     /**
      * The current delegation address of the wallet. May be null if the wallet does not currently delegate to any address.
      */

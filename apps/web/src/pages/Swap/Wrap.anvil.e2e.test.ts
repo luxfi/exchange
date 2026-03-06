@@ -1,4 +1,4 @@
-import { WETH_ADDRESS } from '@lux/universal-router-sdk'
+import { WETH_ADDRESS } from '@uniswap/universal-router-sdk'
 import { luxUrls } from 'lx/src/constants/urls'
 import { UniverseChainId } from 'lx/src/features/chains/types'
 import { TestID } from 'lx/src/test/fixtures/testIDs'

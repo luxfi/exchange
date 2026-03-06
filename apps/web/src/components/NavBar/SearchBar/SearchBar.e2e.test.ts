@@ -1,4 +1,4 @@
-import { searchTokens } from '@lux/client-search/dist/search/v1/api-searchService_connectquery'
+import { searchTokens } from '@uniswap/client-search/dist/search/v1/api-searchService_connectquery'
 import { OnchainItemSectionName } from 'lx/src/components/lists/OnchainItemList/types'
 import { UNI } from 'lx/src/constants/tokens'
 import { TestID } from 'lx/src/test/fixtures/testIDs'

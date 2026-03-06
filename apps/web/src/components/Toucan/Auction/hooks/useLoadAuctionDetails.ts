@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query'
-import { GetAuctionRequest } from '@lux/client-data-api/dist/data/v1/auction_pb'
+import { GetAuctionRequest } from '@uniswap/client-data-api/dist/data/v1/auction_pb'
 import { useEffect, useMemo, useRef } from 'react'
 import { auctionQueries } from 'lx/src/data/rest/auctions/auctionQueries'
 import { EVMUniverseChainId, UniverseChainId } from 'lx/src/features/chains/types'

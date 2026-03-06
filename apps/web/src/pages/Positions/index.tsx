@@ -1,5 +1,5 @@
 /* eslint-disable max-lines */
-import { PositionStatus, ProtocolVersion } from '@lux/client-data-api/dist/data/v1/poolTypes_pb'
+import { PositionStatus, ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
 import { FeatureFlags, useFeatureFlag } from '@universe/gating'
 import { atom, useAtom } from 'jotai'
 import { useMemo, useState } from 'react'

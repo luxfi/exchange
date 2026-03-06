@@ -1,5 +1,5 @@
 /// @vitest-environment happy-dom
-import { ChallengeType } from '@lux/client-platform-service/dist/lux/platformservice/v1/sessionService_pb'
+import { ChallengeType } from '@uniswap/client-platform-service/dist/lux/platformservice/v1/sessionService_pb'
 import { createTurnstileSolver } from '@universe/sessions/src/challenge-solvers/createTurnstileSolver'
 import { resetTurnstileState } from '@universe/sessions/src/challenge-solvers/turnstileScriptLoader'
 import type { PerformanceTracker } from '@universe/sessions/src/performance/types'

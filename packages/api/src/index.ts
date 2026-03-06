@@ -193,9 +193,9 @@ export {
   type GetPortfolioResponse,
   type ListTopPoolsResponse,
   type ListTopTokensResponse,
-} from '@lux/client-data-api/dist/data/v1/api_pb'
-export { ProtocolVersion } from '@lux/client-data-api/dist/data/v1/poolTypes_pb'
-export { type Pool as DataApiPool, type Token as DataApiToken } from '@lux/client-data-api/dist/data/v1/types_pb'
+} from '@uniswap/client-data-api/dist/data/v1/api_pb'
+export { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
+export { type Pool as DataApiPool, type Token as DataApiToken } from '@uniswap/client-data-api/dist/data/v1/types_pb'
 
 // Data Service API
 export {
@@ -256,7 +256,7 @@ export {
   TransferWidgetUrlRequest,
   WidgetUrlRequest,
   WidgetUrlResponse,
-} from '@lux/client-for/dist/for/v1/api_pb'
+} from '@uniswap/client-for/dist/for/v1/api_pb'
 
 // ConnectRPC API
 export {

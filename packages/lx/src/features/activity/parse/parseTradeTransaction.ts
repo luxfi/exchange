@@ -1,7 +1,7 @@
 // TODO(MOB-203): reduce component complexity
 /* eslint-disable complexity */
 import { BigNumber } from '@ethersproject/bignumber'
-import { Direction, OnChainTransaction, OnChainTransactionLabel } from '@lux/client-data-api/dist/data/v1/types_pb'
+import { Direction, OnChainTransaction, OnChainTransactionLabel } from '@uniswap/client-data-api/dist/data/v1/types_pb'
 import { GraphQLApi } from '@universe/api'
 import { AssetType } from 'lx/src/entities/assets'
 import { extractDappInfo } from 'lx/src/features/activity/utils/extractDappInfo'

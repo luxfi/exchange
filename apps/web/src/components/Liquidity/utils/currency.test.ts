@@ -1,4 +1,4 @@
-import { ProtocolVersion } from '@lux/client-data-api/dist/data/v1/poolTypes_pb'
+import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
 import { ZERO_ADDRESS } from 'lx/src/constants/misc'
 import { nativeOnChain, USDT } from 'lx/src/constants/tokens'
 import { getChainInfo } from 'lx/src/features/chains/chainInfo'

@@ -1,4 +1,4 @@
-import { ProtocolVersion } from '@lux/client-data-api/dist/data/v1/poolTypes_pb'
+import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
 import { useMemo } from 'react'
 import { Helmet } from 'react-helmet-async/lib/index'
 import { useTranslation } from 'react-i18next'

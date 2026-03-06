@@ -1,4 +1,4 @@
-import { Currency } from '@lux/sdk-core'
+import { Currency } from '@uniswap/sdk-core'
 import { useMemo } from 'react'
 import { Flex, Text } from 'ui/src'
 import { TestID } from 'lx/src/test/fixtures/testIDs'

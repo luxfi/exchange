@@ -18,7 +18,7 @@ import { request as __request } from '../core/request';
 export class SwapService {
     /**
      * Create swap calldata
-     * Create the calldata for a swap transaction (including wrap/unwrap) against the Uniswap Protocols. If the `quote` parameter includes the fee parameters, then the calldata will include the fee disbursement. The gas estimates will be **more precise** when the the response calldata would be valid if submitted on-chain.
+     * Create the calldata for a swap transaction (including wrap/unwrap) against the Lux Protocols. If the `quote` parameter includes the fee parameters, then the calldata will include the fee disbursement. The gas estimates will be **more precise** when the the response calldata would be valid if submitted on-chain.
      * @returns CreateSwapResponse Create swap successful.
      * @throws ApiError
      */
@@ -84,7 +84,7 @@ export class SwapService {
     }
     /**
      * Create swap EIP 5792 calldata
-     * Create the EIP 5792 calldata for a swap transaction (including wrap/unwrap and bridging) against the Uniswap Protocols. If the `quote` parameter includes the fee parameters, then the calldata will include the fee disbursement. The gas estimates will be **more precise** when the response calldata would be valid if submitted on-chain.
+     * Create the EIP 5792 calldata for a swap transaction (including wrap/unwrap and bridging) against the Lux Protocols. If the `quote` parameter includes the fee parameters, then the calldata will include the fee disbursement. The gas estimates will be **more precise** when the response calldata would be valid if submitted on-chain.
      * @returns CreateSwap5792Response Create 5792 swap successful.
      * @throws ApiError
      */
@@ -118,9 +118,9 @@ export class SwapService {
     }
     /**
      * Create swap EIP 7702 calldata
-     * Create the EIP 7702 calldata for a swap transaction (including wrap/unwrap and bridging) against the Uniswap Protocols. If the `quote` parameter includes the fee parameters, then the calldata will include the fee disbursement. The gas estimates will be **more precise** when the the response calldata would be valid if submitted on-chain.
+     * Create the EIP 7702 calldata for a swap transaction (including wrap/unwrap and bridging) against the Lux Protocols. If the `quote` parameter includes the fee parameters, then the calldata will include the fee disbursement. The gas estimates will be **more precise** when the the response calldata would be valid if submitted on-chain.
      *
-     * Native ETH / UniswapX setup: When `x-erc20eth-enabled` is `true` and the input token is native ETH, the response may include an additional native approval call (e.g. an `approveNative` step) to enable ERC20-ETH (EIP-7914) spending for the wallet. This native allowance is a prerequisite for native ETH input on UniswapX (`/quote` → `/order`) for supported wallets.
+     * Native ETH / DEX setup: When `x-erc20eth-enabled` is `true` and the input token is native ETH, the response may include an additional native approval call (e.g. an `approveNative` step) to enable ERC20-ETH (EIP-7914) spending for the wallet. This native allowance is a prerequisite for native ETH input on DEX (`/quote` → `/order`) for supported wallets.
      * @returns CreateSwap7702Response Create 7702 swap successful.
      * @throws ApiError
      */
@@ -134,7 +134,7 @@ export class SwapService {
          */
         xUniversalRouterVersion?: UniversalRouterVersion,
         /**
-         * Enable native ETH input support for UniswapX via ERC20-ETH (EIP-7914). When set to true and `tokenIn` is the native currency address (e.g. `0x0000000000000000000000000000000000000000`), the API may return UniswapX routes that spend native ETH for supported wallets.
+         * Enable native ETH input support for DEX via ERC20-ETH (EIP-7914). When set to true and `tokenIn` is the native currency address (e.g. `0x0000000000000000000000000000000000000000`), the API may return DEX routes that spend native ETH for supported wallets.
          */
         xErc20EthEnabled?: boolean,
         requestBody?: CreateSwap7702Request,

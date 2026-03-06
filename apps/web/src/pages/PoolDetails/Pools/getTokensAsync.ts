@@ -1,4 +1,4 @@
-import { Token } from '@lux/sdk-core'
+import { Token } from '@uniswap/sdk-core'
 import { Interface } from 'ethers/lib/utils'
 import ERC20_ABI from 'lx/src/abis/erc20.json'
 import { Erc20Interface } from 'lx/src/abis/types/Erc20'

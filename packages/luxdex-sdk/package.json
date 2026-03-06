@@ -33,7 +33,7 @@
   "dependencies": {
     "@ethersproject/bytes": "^5.7.0",
     "@ethersproject/providers": "^5.7.0",
-    "@lux/permit2-sdk": "^1.2.1",
+    "@uniswap/permit2-sdk": "^1.2.1",
     "@luxamm/sdk-core": "workspace:^",
     "ethers": "^5.7.0"
   },

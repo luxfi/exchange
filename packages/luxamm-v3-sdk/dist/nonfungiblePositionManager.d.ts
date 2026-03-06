@@ -1,4 +1,4 @@
-import { BigintIsh, Percent, CurrencyAmount, Currency, NativeCurrency } from '@lux/sdk-core';
+import { BigintIsh, Percent, CurrencyAmount, Currency, NativeCurrency } from '@uniswap/sdk-core';
 import { Position } from './entities/position';
 import { MethodParameters } from './utils/calldata';
 import { Interface } from '@ethersproject/abi';

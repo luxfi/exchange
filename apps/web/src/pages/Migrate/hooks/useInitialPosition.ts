@@ -1,4 +1,4 @@
-import { PositionStatus, ProtocolVersion } from '@lux/client-data-api/dist/data/v1/poolTypes_pb'
+import { PositionStatus, ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
 import { useMemo } from 'react'
 import { InitialPosition } from '~/components/Liquidity/Create/types'
 import { PositionInfo } from '~/components/Liquidity/types'

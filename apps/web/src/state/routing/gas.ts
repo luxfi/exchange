@@ -1,5 +1,5 @@
-import { MaxUint256, permit2Address } from '@lux/permit2-sdk'
-import { Currency } from '@lux/sdk-core'
+import { MaxUint256, permit2Address } from '@uniswap/permit2-sdk'
+import { Currency } from '@uniswap/sdk-core'
 import ERC20_ABI from 'lx/src/abis/erc20.json'
 import { Erc20, Weth } from 'lx/src/abis/types'
 import WETH_ABI from 'lx/src/abis/weth.json'

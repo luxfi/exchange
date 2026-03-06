@@ -3,7 +3,7 @@ import {
   Metadata,
   Notification,
   OnClick,
-} from '@lux/client-notification-service/dist/lux/notificationservice/v1/api_pb'
+} from '@uniswap/client-notification-service/dist/lux/notificationservice/v1/api_pb'
 import { ContentStyle, type InAppNotification, OnClickAction } from '@universe/api'
 import { type ReactiveCondition } from '@universe/notifications'
 import { GlobalErrorEvent } from 'src/app/events/constants'

@@ -1,4 +1,4 @@
-import { Currency, CurrencyAmount, Price } from '@lux/sdk-core'
+import { Currency, CurrencyAmount, Price } from '@uniswap/sdk-core'
 import { useMemo } from 'react'
 import { Trans } from 'react-i18next'
 import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'

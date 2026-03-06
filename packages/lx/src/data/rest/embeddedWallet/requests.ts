@@ -1,5 +1,5 @@
 import { createPromiseClient, type Transport } from '@connectrpc/connect'
-import { EmbeddedWalletService as OldEmbeddedWalletService } from '@lux/client-embeddedwallet/dist/lux/embeddedwallet/v1/service_connect'
+import { EmbeddedWalletService as OldEmbeddedWalletService } from '@uniswap/client-embeddedwallet/dist/lux/embeddedwallet/v1/service_connect'
 import type { EmbeddedWalletApiClient as EmbeddedWalletApiClientType, EmbeddedWalletClientContext } from '@universe/api'
 import { createEmbeddedWalletApiClient, getTransport } from '@universe/api'
 import { luxUrls } from 'lx/src/constants/urls'
@@ -31,7 +31,7 @@ async function getApiClient(): Promise<EmbeddedWalletApiClientType> {
       try {
         const { EmbeddedWalletService: NewEmbeddedWalletService } = await import(
           /* @vite-ignore */
-          '@lux/client-privy-embedded-wallet/dist/lux/privy-embedded-wallet/v1/service_connect'
+          '@uniswap/client-privy-embedded-wallet/dist/lux/privy-embedded-wallet/v1/service_connect'
         )
         const newRpcClient = createPromiseClient(
           NewEmbeddedWalletService,
@@ -42,7 +42,7 @@ async function getApiClient(): Promise<EmbeddedWalletApiClientType> {
           legacyRpcClient: oldEmbeddedWalletRpcClient,
         })
       } catch {
-        throw new Error('Embedded Wallet requires @lux/client-privy-embedded-wallet (private Lux package). ')
+        throw new Error('Embedded Wallet requires @uniswap/client-privy-embedded-wallet (private Lux package). ')
       }
     })()
   }

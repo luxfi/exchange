@@ -1,4 +1,4 @@
-import { CurrencyAmount } from '@lux/sdk-core'
+import { CurrencyAmount } from '@uniswap/sdk-core'
 import type { ClassicQuoteResponse, GasFeeResult } from '@universe/api'
 import { FeeType, TradingApi } from '@universe/api'
 import type { providers } from 'ethers/lib/ethers'

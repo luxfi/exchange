@@ -1,5 +1,5 @@
-import { ProtocolVersion } from '@lux/client-data-api/dist/data/v1/poolTypes_pb'
-import { Currency } from '@lux/sdk-core'
+import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
+import { Currency } from '@uniswap/sdk-core'
 import { createContext, Dispatch, PropsWithChildren, SetStateAction, useContext, useMemo, useState } from 'react'
 import { ModalName } from 'lx/src/features/telemetry/constants'
 import { TransactionStep } from 'lx/src/features/transactions/steps/types'

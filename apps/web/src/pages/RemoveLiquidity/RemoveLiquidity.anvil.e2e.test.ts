@@ -1,5 +1,5 @@
-import { getPosition } from '@lux/client-data-api/dist/data/v1/api-DataApiService_connectquery'
-import { LiquidityService } from '@lux/client-liquidity/dist/lux/liquidity/v1/api_connect'
+import { getPosition } from '@uniswap/client-data-api/dist/data/v1/api-DataApiService_connectquery'
+import { LiquidityService } from '@uniswap/client-liquidity/dist/lux/liquidity/v1/api_connect'
 import { USDT } from 'lx/src/constants/tokens'
 import { luxUrls } from 'lx/src/constants/urls'
 import { ONE_MILLION_USDT } from '~/playwright/anvil/utils'

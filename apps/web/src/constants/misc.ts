@@ -1,4 +1,4 @@
-import { Percent } from '@lux/sdk-core'
+import { Percent } from '@uniswap/sdk-core'
 
 // TODO(WEB-1984): Convert the deadline to minutes and remove unecessary conversions from
 // seconds to minutes in the codebase.

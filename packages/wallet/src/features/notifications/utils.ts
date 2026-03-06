@@ -1,4 +1,4 @@
-import { Currency, TradeType } from '@lux/sdk-core'
+import { Currency, TradeType } from '@uniswap/sdk-core'
 import { getChainLabel, toSupportedChainId } from 'lx/src/features/chains/utils'
 import { LocalizationContextState } from 'lx/src/features/language/LocalizationContext'
 import { GQLNftAsset } from 'lx/src/features/nfts/types'

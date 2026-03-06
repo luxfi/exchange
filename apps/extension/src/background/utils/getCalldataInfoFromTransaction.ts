@@ -1,5 +1,5 @@
-import { CommandParser, CommandType, type UniversalRouterCall } from '@lux/universal-router-sdk'
-import { Actions, V4BaseActionsParser, type V4RouterCall } from '@lux/v4-sdk'
+import { CommandParser, CommandType, type UniversalRouterCall } from '@uniswap/universal-router-sdk'
+import { Actions, V4BaseActionsParser, type V4RouterCall } from '@uniswap/v4-sdk'
 import { EthSendTransactionRPCActions } from 'src/app/features/dappRequests/types/DappRequestTypes'
 import { parseCalldata as parseNfPMCalldata } from 'src/app/features/dappRequests/types/NonfungiblePositionManager'
 import { type NonfungiblePositionManagerCall } from 'src/app/features/dappRequests/types/NonfungiblePositionManagerTypes'

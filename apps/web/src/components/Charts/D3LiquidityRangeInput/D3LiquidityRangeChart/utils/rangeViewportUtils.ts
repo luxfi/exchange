@@ -1,4 +1,4 @@
-import { nearestUsableTick, TickMath } from '@lux/v3-sdk'
+import { nearestUsableTick, TickMath } from '@uniswap/v3-sdk'
 import {
   CHART_BEHAVIOR,
   CHART_DIMENSIONS,

@@ -1,8 +1,8 @@
 /* eslint-disable max-lines */
 import { BigNumber } from '@ethersproject/bignumber'
 import { queryOptions, useQuery } from '@tanstack/react-query'
-import type { Currency } from '@lux/sdk-core'
-import { CurrencyAmount, TradeType } from '@lux/sdk-core'
+import type { Currency } from '@uniswap/sdk-core'
+import { CurrencyAmount, TradeType } from '@uniswap/sdk-core'
 import { TradingApi } from '@universe/api'
 import { ZERO_ADDRESS } from 'lx/src/constants/misc'
 import { nativeOnChain } from 'lx/src/constants/tokens'

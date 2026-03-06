@@ -1,5 +1,5 @@
 import { isAddress } from '@ethersproject/address'
-import { CurrencyAmount, Token } from '@lux/sdk-core'
+import { CurrencyAmount, Token } from '@uniswap/sdk-core'
 import { useState } from 'react'
 import { Button, Flex, Text, View } from 'ui/src'
 import { CloseIconWithHover } from 'ui/src/components/icons/CloseIconWithHover'

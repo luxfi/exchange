@@ -20,7 +20,7 @@ export type OpenAPIConfig = {
 };
 
 export const OpenAPI: OpenAPIConfig = {
-    BASE: 'https://trade-api.gateway.uniswap.org/v1',
+    BASE: 'https://trade-api.gateway.lux.exchange/v1',
     VERSION: '1.0.0',
     WITH_CREDENTIALS: false,
     CREDENTIALS: 'include',

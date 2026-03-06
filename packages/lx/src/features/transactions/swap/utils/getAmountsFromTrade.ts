@@ -1,4 +1,4 @@
-import { TradeType } from '@lux/sdk-core'
+import { TradeType } from '@uniswap/sdk-core'
 import {
   BridgeTransactionInfo,
   ConfirmedSwapTransactionInfo,

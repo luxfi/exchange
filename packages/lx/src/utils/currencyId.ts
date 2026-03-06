@@ -1,4 +1,4 @@
-import { Currency } from '@lux/sdk-core'
+import { Currency } from '@uniswap/sdk-core'
 import { TradingApi } from '@universe/api'
 import { getNativeAddress, getWrappedNativeAddress } from 'lx/src/constants/addresses'
 import { normalizeCurrencyIdForMapLookup, normalizeTokenAddressForCache } from 'lx/src/data/cache'

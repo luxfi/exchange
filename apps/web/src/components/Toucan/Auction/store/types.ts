@@ -1,4 +1,4 @@
-import { Auction, Checkpoint } from '@lux/client-data-api/dist/data/v1/auction_pb'
+import { Auction, Checkpoint } from '@uniswap/client-data-api/dist/data/v1/auction_pb'
 import { EVMUniverseChainId } from 'lx/src/features/chains/types'
 import { CurrencyInfo } from 'lx/src/features/dataApi/types'
 import type { ChartMode } from '~/components/Charts/ToucanChart/renderer'

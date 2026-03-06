@@ -1,10 +1,10 @@
-import { ProtocolVersion } from '@lux/client-data-api/dist/data/v1/poolTypes_pb'
+import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
 import {
   CheckApprovalLPResponse,
   CreateLPPositionResponse,
-} from '@lux/client-liquidity/dist/lux/liquidity/v1/api_pb'
-import { PermitBatch, PermitBatchData } from '@lux/client-liquidity/dist/lux/liquidity/v1/types_pb'
-import { CurrencyAmount } from '@lux/sdk-core'
+} from '@uniswap/client-liquidity/dist/lux/liquidity/v1/api_pb'
+import { PermitBatch, PermitBatchData } from '@uniswap/client-liquidity/dist/lux/liquidity/v1/types_pb'
+import { CurrencyAmount } from '@uniswap/sdk-core'
 import { ZERO_ADDRESS } from 'lx/src/constants/misc'
 import { USDT } from 'lx/src/constants/tokens'
 import { UniverseChainId } from 'lx/src/features/chains/types'

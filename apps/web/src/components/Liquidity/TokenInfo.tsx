@@ -1,5 +1,5 @@
-import { ProtocolVersion } from '@lux/client-data-api/dist/data/v1/poolTypes_pb'
-import { Currency, CurrencyAmount } from '@lux/sdk-core'
+import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
+import { Currency, CurrencyAmount } from '@uniswap/sdk-core'
 import { Flex, Text } from 'ui/src'
 import { iconSizes } from 'ui/src/theme'
 import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'

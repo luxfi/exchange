@@ -1,4 +1,4 @@
-import type { Checkpoint } from '@lux/client-data-api/dist/data/v1/auction_pb'
+import type { Checkpoint } from '@uniswap/client-data-api/dist/data/v1/auction_pb'
 import type { AuctionDetails } from '~/components/Toucan/Auction/store/types'
 
 /**

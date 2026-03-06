@@ -1,4 +1,4 @@
-import { UNI_ADDRESSES } from '@lux/sdk-core'
+import { UNI_ADDRESSES } from '@uniswap/sdk-core'
 import { parse } from 'qs'
 import { ReactNode } from 'react'
 import { DAI, nativeOnChain, UNI, USDC_OPTIMISM } from 'lx/src/constants/tokens'

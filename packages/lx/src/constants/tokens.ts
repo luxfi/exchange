@@ -1,4 +1,4 @@
-import { Currency, NativeCurrency, Token, UNI_ADDRESSES, WETH9 } from '@lux/sdk-core'
+import { Currency, NativeCurrency, Token, UNI_ADDRESSES, WETH9 } from '@uniswap/sdk-core'
 import { getChainInfo } from 'lx/src/features/chains/chainInfo'
 import { ARBITRUM_CHAIN_INFO } from 'lx/src/features/chains/evm/info/arbitrum'
 import { AVALANCHE_CHAIN_INFO } from 'lx/src/features/chains/evm/info/avalanche'
@@ -425,7 +425,7 @@ const cachedNativeCurrency: { [chainId: number]: NativeCurrencyImpl } = {}
 /**
  * @deprecated Prefer obtaining metadata via the non-sdk-based getChainInfo(chainId).nativeCurrency instead.
  *
- * Utility for obtaining an `@lux/sdk-core` `NativeCurrency` instance for a given chainId.
+ * Utility for obtaining an `@uniswap/sdk-core` `NativeCurrency` instance for a given chainId.
  */
 export function nativeOnChain(chainId: number): NativeCurrencyImpl {
   const cached = cachedNativeCurrency[chainId]

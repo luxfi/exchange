@@ -1,4 +1,4 @@
-import { getPosition } from '@lux/client-data-api/dist/data/v1/api-DataApiService_connectquery'
+import { getPosition } from '@uniswap/client-data-api/dist/data/v1/api-DataApiService_connectquery'
 import { luxUrls } from 'lx/src/constants/urls'
 import { TestID } from 'lx/src/test/fixtures/testIDs'
 import { expect, getTest } from '~/playwright/fixtures'

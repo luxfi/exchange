@@ -1,4 +1,4 @@
-import { type TokenList } from '@lux/token-lists'
+import { type TokenList } from '@uniswap/token-lists'
 import { type CombinedState } from 'redux'
 import { assert, type Equals } from 'tsafe'
 import { AppearanceSettingsState } from 'lx/src/features/appearance/slice'

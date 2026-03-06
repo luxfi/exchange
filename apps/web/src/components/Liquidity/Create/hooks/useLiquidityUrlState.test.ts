@@ -1,4 +1,4 @@
-import { WETH9 } from '@lux/sdk-core'
+import { WETH9 } from '@uniswap/sdk-core'
 import { useQueryState, useQueryStates } from 'nuqs'
 import { nativeOnChain, USDC, USDC_UNICHAIN } from 'lx/src/constants/tokens'
 import { UniverseChainId } from 'lx/src/features/chains/types'

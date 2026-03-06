@@ -1,6 +1,6 @@
 /* eslint-disable max-lines */
-import { Protocol } from '@lux/router-sdk'
-import { Currency, CurrencyAmount, TradeType } from '@lux/sdk-core'
+import { Protocol } from '@uniswap/router-sdk'
+import { Currency, CurrencyAmount, TradeType } from '@uniswap/sdk-core'
 import { GasEstimate, GraphQLApi, TradingApi } from '@universe/api'
 import { providers } from 'ethers/lib/ethers'
 import { AssetType } from 'lx/src/entities/assets'

@@ -1,4 +1,4 @@
-import { BigintIsh, Token } from '@lux/sdk-core';
+import { BigintIsh, Token } from '@uniswap/sdk-core';
 import { MethodParameters } from './utils/calldata';
 import { Interface } from '@ethersproject/abi';
 import { Pool } from './entities';

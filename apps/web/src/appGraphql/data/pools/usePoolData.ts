@@ -1,4 +1,4 @@
-import { FeeAmount, TICK_SPACINGS } from '@lux/v3-sdk'
+import { FeeAmount, TICK_SPACINGS } from '@uniswap/v3-sdk'
 import { GraphQLApi } from '@universe/api'
 import ms from 'ms'
 import { useMemo } from 'react'

@@ -306,7 +306,7 @@ describe('useFormattedTransactionDataForActivity', () => {
 
   describe('filterTransactionTypes', () => {
     it('should pass filterTransactionTypes to useListTransactions', () => {
-      const { TransactionTypeFilter } = require('@lux/client-data-api/dist/data/v1/types_pb')
+      const { TransactionTypeFilter } = require('@uniswap/client-data-api/dist/data/v1/types_pb')
       const filterTypes = [TransactionTypeFilter.SWAP]
 
       renderFormattedHook({ filterTransactionTypes: filterTypes })

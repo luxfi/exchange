@@ -1,4 +1,4 @@
-import { ChartPeriod } from '@lux/client-data-api/dist/data/v1/api_pb'
+import { ChartPeriod } from '@uniswap/client-data-api/dist/data/v1/api_pb'
 import { memo, useMemo, useState } from 'react'
 import { Flex, Separator, styled, useMedia } from 'ui/src'
 import { useGetPortfolioHistoricalValueChartQuery } from 'lx/src/data/rest/getPortfolioChart'

@@ -1,6 +1,6 @@
 import { PartialMessage } from '@bufbuild/protobuf'
-import { FiatOnRampParams } from '@lux/client-data-api/dist/data/v1/api_pb'
-import { TransactionTypeFilter } from '@lux/client-data-api/dist/data/v1/types_pb'
+import { FiatOnRampParams } from '@uniswap/client-data-api/dist/data/v1/api_pb'
+import { TransactionTypeFilter } from '@uniswap/client-data-api/dist/data/v1/types_pb'
 import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import type { StyleProp, ViewStyle } from 'react-native'

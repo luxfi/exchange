@@ -1,4 +1,4 @@
-import { Currency } from '@lux/sdk-core'
+import { Currency } from '@uniswap/sdk-core'
 import { GraphQLApi } from '@universe/api'
 import { TFunction } from 'i18next'
 import { luxUrls } from 'lx/src/constants/urls'

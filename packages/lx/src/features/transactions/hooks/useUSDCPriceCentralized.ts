@@ -1,4 +1,4 @@
-import { Currency, CurrencyAmount, Price } from '@lux/sdk-core'
+import { Currency, CurrencyAmount, Price } from '@uniswap/sdk-core'
 import { normalizeToken, usePrice } from '@universe/prices'
 import { useMemo } from 'react'
 import type { PollingInterval } from 'lx/src/constants/misc'

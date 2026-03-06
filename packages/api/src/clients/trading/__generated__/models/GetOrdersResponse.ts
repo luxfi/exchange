@@ -2,11 +2,11 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
+import type { DEXOrder } from './DEXOrder';
 import type { RequestId } from './RequestId';
-import type { UniswapXOrder } from './UniswapXOrder';
 export type GetOrdersResponse = {
     requestId: RequestId;
-    orders: Array<UniswapXOrder>;
+    orders: Array<DEXOrder>;
     cursor?: string;
 };
 

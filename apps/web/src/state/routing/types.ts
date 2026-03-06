@@ -1,9 +1,9 @@
 /* eslint-disable max-lines */
 import { BigNumber } from '@ethersproject/bignumber'
 import { AddressZero } from '@ethersproject/constants'
-import { PermitTransferFromData } from '@lux/permit2-sdk'
-import { MixedRouteSDK, ONE, Protocol, Trade } from '@lux/router-sdk'
-import { Currency, CurrencyAmount, Fraction, Percent, Price, Token, TradeType } from '@lux/sdk-core'
+import { PermitTransferFromData } from '@uniswap/permit2-sdk'
+import { MixedRouteSDK, ONE, Protocol, Trade } from '@uniswap/router-sdk'
+import { Currency, CurrencyAmount, Fraction, Percent, Price, Token, TradeType } from '@uniswap/sdk-core'
 import {
   DutchOrderInfo,
   DutchOrderInfoJSON,
@@ -18,8 +18,8 @@ import {
   UnsignedV3DutchOrderInfo,
   UnsignedV3DutchOrderInfoJSON,
 } from '@lux/dex-sdk'
-import { Route as V2Route } from '@lux/v2-sdk'
-import { Route as V3Route } from '@lux/v3-sdk'
+import { Route as V2Route } from '@uniswap/v2-sdk'
+import { Route as V3Route } from '@uniswap/v3-sdk'
 import { UniverseChainId } from 'lx/src/features/chains/types'
 import { ZERO_PERCENT } from '~/constants/misc'
 

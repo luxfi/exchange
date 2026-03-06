@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-import { Protocol } from '@lux/router-sdk'
+import { Protocol } from '@uniswap/router-sdk'
 import ms from 'ms'
 import { InterfaceEventName } from 'lx/src/features/telemetry/constants'
 import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'

@@ -1,4 +1,4 @@
-import { Token } from '@lux/sdk-core'
+import { Token } from '@uniswap/sdk-core'
 import {
   NFTCollectionOption,
   OnchainItemListOptionType,

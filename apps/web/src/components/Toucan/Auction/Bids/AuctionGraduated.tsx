@@ -1,4 +1,4 @@
-import { Currency, CurrencyAmount, Price } from '@lux/sdk-core'
+import { Currency, CurrencyAmount, Price } from '@uniswap/sdk-core'
 import JSBI from 'jsbi'
 import { useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'

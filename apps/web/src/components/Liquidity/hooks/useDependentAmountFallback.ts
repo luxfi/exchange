@@ -2,13 +2,13 @@ import { useQuery } from '@tanstack/react-query'
 import {
   CreateLPPositionRequest,
   IncreaseLPPositionRequest,
-} from '@lux/client-liquidity/dist/lux/liquidity/v1/api_pb'
+} from '@uniswap/client-liquidity/dist/lux/liquidity/v1/api_pb'
 import {
   V2CreateLPPosition,
   V3CreateLPPosition,
   V4CreateLPPosition,
-} from '@lux/client-liquidity/dist/lux/liquidity/v1/types_pb'
-import { Currency, CurrencyAmount } from '@lux/sdk-core'
+} from '@uniswap/client-liquidity/dist/lux/liquidity/v1/types_pb'
+import { Currency, CurrencyAmount } from '@uniswap/sdk-core'
 import { useEffect, useMemo, useState } from 'react'
 import { liquidityQueries } from 'lx/src/data/apiClients/liquidityService/liquidityQueries'
 import { useUSDCValue } from 'lx/src/features/transactions/hooks/useUSDCPriceWrapper'

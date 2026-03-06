@@ -1,5 +1,5 @@
 import { call, select } from '@redux-saga/core/effects'
-import { MaxUint256, TradeType } from '@lux/sdk-core'
+import { MaxUint256, TradeType } from '@uniswap/sdk-core'
 import { TradingApi, type UnwrapQuoteResponse, type WrapQuoteResponse } from '@universe/api'
 import JSBI from 'jsbi'
 import { expectSaga } from 'redux-saga-test-plan'

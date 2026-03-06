@@ -1,5 +1,5 @@
-import { permit2Address } from '@lux/permit2-sdk'
-import { CurrencyAmount, Token } from '@lux/sdk-core'
+import { permit2Address } from '@uniswap/permit2-sdk'
+import { CurrencyAmount, Token } from '@uniswap/sdk-core'
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { AVERAGE_L1_BLOCK_TIME_MS } from 'lx/src/features/transactions/hooks/usePollingIntervalByChain'
 import { useAccount } from '~/hooks/useAccount'

@@ -1,13 +1,13 @@
 import { useQuery } from '@tanstack/react-query'
-import { ProtocolVersion } from '@lux/client-data-api/dist/data/v1/poolTypes_pb'
+import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
 import {
   CheckApprovalLPResponse,
   CreateLPPositionRequest,
   CreateLPPositionResponse,
-} from '@lux/client-liquidity/dist/lux/liquidity/v1/api_pb'
-import { V4CreateLPPosition } from '@lux/client-liquidity/dist/lux/liquidity/v1/types_pb'
-import { Currency, CurrencyAmount } from '@lux/sdk-core'
-import { Pair } from '@lux/v2-sdk'
+} from '@uniswap/client-liquidity/dist/lux/liquidity/v1/api_pb'
+import { V4CreateLPPosition } from '@uniswap/client-liquidity/dist/lux/liquidity/v1/types_pb'
+import { Currency, CurrencyAmount } from '@uniswap/sdk-core'
+import { Pair } from '@uniswap/v2-sdk'
 import { FeatureFlags, useFeatureFlag } from '@universe/gating'
 import {
   createContext,

@@ -1,4 +1,4 @@
-import { Currency } from '@lux/sdk-core'
+import { Currency } from '@uniswap/sdk-core'
 import { GraphQLApi } from '@universe/api'
 import { normalizeTokenAddressForCache } from 'lx/src/data/cache'
 import { UniverseChainId } from 'lx/src/features/chains/types'

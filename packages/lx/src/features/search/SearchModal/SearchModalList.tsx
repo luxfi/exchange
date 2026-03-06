@@ -1,6 +1,6 @@
 import { ContentStyle } from '@shopify/flash-list'
-import { ProtocolVersion } from '@lux/client-data-api/dist/data/v1/poolTypes_pb'
-import { Currency } from '@lux/sdk-core'
+import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
+import { Currency } from '@uniswap/sdk-core'
 import { memo, useState } from 'react'
 import { Flex, styled, TouchableArea } from 'ui/src'
 import { MoreHorizontal } from 'ui/src/components/icons/MoreHorizontal'

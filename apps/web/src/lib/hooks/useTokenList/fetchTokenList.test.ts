@@ -1,4 +1,4 @@
-import defaultTokenList from '@lux/default-token-list'
+import defaultTokenList from '@uniswap/default-token-list'
 import { mockLogger } from 'utilities/src/logger/mocks'
 import createFetchMock from 'vitest-fetch-mock'
 import fetchTokenList from '~/lib/hooks/useTokenList/fetchTokenList'

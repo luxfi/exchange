@@ -15,7 +15,7 @@ import type { quoteId } from './quoteId';
 import type { receiverWalletAddress } from './receiverWalletAddress';
 import type { SettledAmount } from './SettledAmount';
 import type { TransactionHash } from './TransactionHash';
-export type UniswapXOrder = {
+export type DEXOrder = {
     type: OrderType;
     encodedOrder: encodedOrder;
     signature: string;

@@ -1,7 +1,7 @@
 /* eslint-disable max-lines */
-import { ProtocolVersion } from '@lux/client-data-api/dist/data/v1/poolTypes_pb'
-import { Currency, CurrencyAmount, Price, Token } from '@lux/sdk-core'
-import { Pair } from '@lux/v2-sdk'
+import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
+import { Currency, CurrencyAmount, Price, Token } from '@uniswap/sdk-core'
+import { Pair } from '@uniswap/v2-sdk'
 import {
   encodeSqrtRatioX96,
   FeeAmount,
@@ -9,8 +9,8 @@ import {
   priceToClosestTick as priceToClosestV3Tick,
   TickMath,
   Pool as V3Pool,
-} from '@lux/v3-sdk'
-import { priceToClosestTick as priceToClosestV4Tick, Pool as V4Pool } from '@lux/v4-sdk'
+} from '@uniswap/v3-sdk'
+import { priceToClosestTick as priceToClosestV4Tick, Pool as V4Pool } from '@uniswap/v4-sdk'
 import JSBI from 'jsbi'
 import { ZERO_ADDRESS } from 'lx/src/constants/misc'
 import {

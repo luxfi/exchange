@@ -1,6 +1,6 @@
 /**
  * Token list types
- * Replaces @lux/token-lists types
+ * Replaces @uniswap/token-lists types
  */
 
 export interface Version {

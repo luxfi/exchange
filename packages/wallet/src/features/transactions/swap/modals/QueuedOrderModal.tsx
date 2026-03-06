@@ -1,4 +1,4 @@
-import { CurrencyAmount, TradeType } from '@lux/sdk-core'
+import { CurrencyAmount, TradeType } from '@uniswap/sdk-core'
 import { FeatureFlags, useFeatureFlag } from '@universe/gating'
 import { useCallback, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'

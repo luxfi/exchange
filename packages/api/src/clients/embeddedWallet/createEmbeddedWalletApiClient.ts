@@ -1,5 +1,5 @@
 import { type PromiseClient } from '@connectrpc/connect'
-import { EmbeddedWalletService as OldEmbeddedWalletService } from '@lux/client-embeddedwallet/dist/lux/embeddedwallet/v1/service_connect'
+import { EmbeddedWalletService as OldEmbeddedWalletService } from '@uniswap/client-embeddedwallet/dist/lux/embeddedwallet/v1/service_connect'
 import {
   type DeleteAuthenticatorResponse,
   type ExportSeedPhraseResponse,
@@ -8,7 +8,7 @@ import {
   type AuthenticationTypes as OldAuthenticationTypes,
   type RegisterNewAuthenticatorResponse,
   type SecuredChallengeResponse,
-} from '@lux/client-embeddedwallet/dist/lux/embeddedwallet/v1/service_pb'
+} from '@uniswap/client-embeddedwallet/dist/lux/embeddedwallet/v1/service_pb'
 import {
   type ChallengeResponse,
   type CreateWalletResponse,
@@ -20,7 +20,7 @@ import {
   type SignTransactionResponse,
   type SignTypedDataResponse,
   type WalletSignInResponse,
-} from '@lux/client-privy-embedded-wallet/dist/lux/privy-embedded-wallet/v1/service_pb'
+} from '@uniswap/client-privy-embedded-wallet/dist/lux/privy-embedded-wallet/v1/service_pb'
 
 export type {
   DeleteAuthenticatorResponse,
@@ -28,7 +28,7 @@ export type {
   ListAuthenticatorsResponse,
   RegisterNewAuthenticatorResponse,
   SecuredChallengeResponse,
-} from '@lux/client-embeddedwallet/dist/lux/embeddedwallet/v1/service_pb'
+} from '@uniswap/client-embeddedwallet/dist/lux/embeddedwallet/v1/service_pb'
 export type {
   Action,
   AuthenticationTypes,
@@ -40,7 +40,7 @@ export type {
   SignTransactionResponse,
   SignTypedDataResponse,
   WalletSignInResponse,
-} from '@lux/client-privy-embedded-wallet/dist/lux/privy-embedded-wallet/v1/service_pb'
+} from '@uniswap/client-privy-embedded-wallet/dist/lux/privy-embedded-wallet/v1/service_pb'
 
 export interface EmbeddedWalletClientContext {
   rpcClient: {

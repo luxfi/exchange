@@ -1,5 +1,5 @@
-import { SharedEventName } from '@lux/analytics-events'
-import { Currency } from '@lux/sdk-core'
+import { SharedEventName } from '@uniswap/analytics-events'
+import { Currency } from '@uniswap/sdk-core'
 import React, { ReactNode, useCallback, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useDispatch } from 'react-redux'

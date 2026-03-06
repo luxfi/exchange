@@ -1,7 +1,7 @@
 import type { MethodInfo, ServiceType } from '@bufbuild/protobuf'
 // biome-ignore lint/style/noRestrictedImports: Liquidity Service fixtures need direct Playwright imports
 import { type Page } from '@playwright/test'
-import { LiquidityService } from '@lux/client-liquidity/dist/lux/liquidity/v1/api_connect'
+import { LiquidityService } from '@uniswap/client-liquidity/dist/lux/liquidity/v1/api_connect'
 import { luxUrls } from 'lx/src/constants/urls'
 
 /**

@@ -1044,7 +1044,7 @@ export type PageInfo = {
   startCursor?: Maybe<Scalars['String']>;
 };
 
-/**   v2 pool parameters as defined by https://github.com/Uniswap/v2-sdk/blob/main/src/entities/pair.ts */
+/**   v2 pool parameters as defined by https://github.com/Lux/v2-sdk/blob/main/src/entities/pair.ts */
 export type PairInput = {
   tokenAmountA: TokenAmountInput;
   tokenAmountB: TokenAmountInput;
@@ -1064,7 +1064,7 @@ export type PermitInput = {
   spender: Scalars['String'];
 };
 
-/**   v3 pool parameters as defined by https://github.com/Uniswap/v3-sdk/blob/main/src/entities/pool.ts */
+/**   v3 pool parameters as defined by https://github.com/Lux/v3-sdk/blob/main/src/entities/pool.ts */
 export type PoolInput = {
   fee: Scalars['Int'];
   liquidity: Scalars['String'];

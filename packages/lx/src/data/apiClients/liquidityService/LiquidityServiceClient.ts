@@ -1,5 +1,5 @@
 import { createPromiseClient } from '@connectrpc/connect'
-import { LiquidityService } from '@lux/client-liquidity/dist/lux/liquidity/v1/api_connect'
+import { LiquidityService } from '@uniswap/client-liquidity/dist/lux/liquidity/v1/api_connect'
 import { createLiquidityServiceClient } from '@universe/api'
 import { liquidityServiceTransport } from 'lx/src/data/apiClients/liquidityService/base'
 

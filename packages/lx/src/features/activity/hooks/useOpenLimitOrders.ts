@@ -1,4 +1,4 @@
-import { TransactionTypeFilter } from '@lux/client-data-api/dist/data/v1/types_pb'
+import { TransactionTypeFilter } from '@uniswap/client-data-api/dist/data/v1/types_pb'
 import { useMemo } from 'react'
 import { LIMIT_SUPPORTED_CHAINS } from 'lx/src/features/chains/chainInfo'
 import { useListTransactions } from 'lx/src/features/dataApi/listTransactions/listTransactions'

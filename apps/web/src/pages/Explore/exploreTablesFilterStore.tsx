@@ -1,4 +1,4 @@
-import { ProtocolVersion } from '@lux/client-data-api/dist/data/v1/poolTypes_pb'
+import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
 import { createContext, useContext, useState } from 'react'
 import { isDevEnv } from 'utilities/src/environment/env'
 import type { StoreApi, UseBoundStore } from 'zustand'

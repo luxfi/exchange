@@ -1,4 +1,4 @@
-import { Currency } from '@lux/sdk-core'
+import { Currency } from '@uniswap/sdk-core'
 import { GraphQLApi } from '@universe/api'
 import { ReactNode, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'

@@ -7,7 +7,7 @@ import {
   SignoutResponse,
   VerifyResponse,
   VerifySuccess,
-} from '@lux/client-platform-service/dist/lux/platformservice/v1/sessionService_pb'
+} from '@uniswap/client-platform-service/dist/lux/platformservice/v1/sessionService_pb'
 import { createChallengeSolverService } from '@universe/sessions/src/challenge-solvers/createChallengeSolverService'
 import type { ChallengeSolver } from '@universe/sessions/src/challenge-solvers/types'
 import type { PerformanceTracker } from '@universe/sessions/src/performance/types'

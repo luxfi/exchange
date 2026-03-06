@@ -1,5 +1,5 @@
-import { ProtocolVersion } from '@lux/client-data-api/dist/data/v1/poolTypes_pb'
-import { Currency } from '@lux/sdk-core'
+import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
+import { Currency } from '@uniswap/sdk-core'
 import { TickTooltip } from '~/components/Charts/ActiveLiquidityChart/TickTooltip'
 import { PriceDifferenceTooltips } from '~/components/Charts/D3LiquidityRangeInput/D3LiquidityRangeChart/components/PriceDifferenceTooltips'
 import { CHART_DIMENSIONS } from '~/components/Charts/D3LiquidityRangeInput/D3LiquidityRangeChart/constants'

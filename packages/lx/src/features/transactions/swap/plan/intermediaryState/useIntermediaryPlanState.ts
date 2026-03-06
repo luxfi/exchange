@@ -1,4 +1,4 @@
-import { Currency, CurrencyAmount } from '@lux/sdk-core'
+import { Currency, CurrencyAmount } from '@uniswap/sdk-core'
 import { useMemo } from 'react'
 import { getCurrencyAmount, ValueType } from 'lx/src/features/tokens/getCurrencyAmount'
 import { useCurrencyInfo } from 'lx/src/features/tokens/useCurrencyInfo'

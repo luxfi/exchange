@@ -1,6 +1,6 @@
 import { createColumnHelper, Row } from '@tanstack/react-table'
-import { SharedEventName } from '@lux/analytics-events'
-import { Currency, CurrencyAmount } from '@lux/sdk-core'
+import { SharedEventName } from '@uniswap/analytics-events'
+import { Currency, CurrencyAmount } from '@uniswap/sdk-core'
 import { TFunction } from 'i18next'
 import { memo, useCallback, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'

@@ -1,4 +1,4 @@
-import type { Token } from '@lux/sdk-core'
+import type { Token } from '@uniswap/sdk-core'
 import { useAtom } from 'jotai'
 import ms from 'ms'
 import { useEffect, useMemo } from 'react'

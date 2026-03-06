@@ -1,4 +1,4 @@
-import { ProtocolVersion } from '@lux/client-data-api/dist/data/v1/poolTypes_pb'
+import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
 import { memo } from 'react'
 import { EM_DASH, Text } from 'ui/src'
 import { PollingInterval } from 'lx/src/constants/misc'

@@ -1,20 +1,20 @@
-import { ProtocolVersion } from '@lux/client-data-api/dist/data/v1/poolTypes_pb'
+import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
 import {
   CheckApprovalLPRequest,
   MigrateV2ToV3LPPositionRequest,
   MigrateV3ToV4LPPositionRequest,
-} from '@lux/client-liquidity/dist/lux/liquidity/v1/api_pb'
+} from '@uniswap/client-liquidity/dist/lux/liquidity/v1/api_pb'
 import {
   Protocols,
   V2CheckApprovalLPRequest,
   V3CheckApprovalLPRequest,
   V3Position,
   V4Position,
-} from '@lux/client-liquidity/dist/lux/liquidity/v1/types_pb'
-import { V3_MIGRATOR_ADDRESSES } from '@lux/sdk-core'
-import { Pair } from '@lux/v2-sdk'
-import { Pool as V3Pool } from '@lux/v3-sdk'
-import { Pool as V4Pool } from '@lux/v4-sdk'
+} from '@uniswap/client-liquidity/dist/lux/liquidity/v1/types_pb'
+import { V3_MIGRATOR_ADDRESSES } from '@uniswap/sdk-core'
+import { Pair } from '@uniswap/v2-sdk'
+import { Pool as V3Pool } from '@uniswap/v3-sdk'
+import { Pool as V4Pool } from '@uniswap/v4-sdk'
 import { ZERO_ADDRESS } from 'lx/src/constants/misc'
 import { PositionState } from '~/components/Liquidity/Create/types'
 import { V2PairInfo, V3PositionInfo } from '~/components/Liquidity/types'

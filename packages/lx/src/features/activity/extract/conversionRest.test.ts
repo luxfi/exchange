@@ -6,7 +6,7 @@ import {
   OnChainTransactionStatus,
   SpamCode as RestSpamCode,
   TokenType,
-} from '@lux/client-data-api/dist/data/v1/types_pb'
+} from '@uniswap/client-data-api/dist/data/v1/types_pb'
 import { TradingApi } from '@universe/api'
 import { getNativeAddress, getWrappedNativeAddress } from 'lx/src/constants/addresses'
 import { DAI } from 'lx/src/constants/tokens'

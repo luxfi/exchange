@@ -1,4 +1,4 @@
-import { TradeType } from '@lux/sdk-core'
+import { TradeType } from '@uniswap/sdk-core'
 import { expectSaga } from 'redux-saga-test-plan'
 import { getNativeAddress } from 'lx/src/constants/addresses'
 import { AssetType } from 'lx/src/entities/assets'

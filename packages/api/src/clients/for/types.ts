@@ -15,7 +15,7 @@ import {
   SupportedCountry,
   SupportedToken,
   Transaction,
-} from '@lux/client-for/dist/for/v1/api_pb'
+} from '@uniswap/client-for/dist/for/v1/api_pb'
 
 // Plain object type aliases for protobuf types
 

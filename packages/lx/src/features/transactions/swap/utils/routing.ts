@@ -1,4 +1,4 @@
-import { ADDRESS_ZERO } from '@lux/v3-sdk'
+import { ADDRESS_ZERO } from '@uniswap/v3-sdk'
 import type { ChainedQuoteResponse } from '@universe/api'
 import { TradingApi } from '@universe/api'
 import { UnexpectedTransactionStateError } from 'lx/src/features/transactions/errors'

@@ -1,4 +1,4 @@
-import { Currency, CurrencyAmount } from '@lux/sdk-core'
+import { Currency, CurrencyAmount } from '@uniswap/sdk-core'
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { UniverseChainId } from 'lx/src/features/chains/types'
 import { useNativeCurrencyInfo } from 'lx/src/features/tokens/useCurrencyInfo'

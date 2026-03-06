@@ -1,4 +1,4 @@
-import { ProtocolStatsResponse } from '@lux/client-explore/dist/lux/explore/v1/service_pb'
+import { ProtocolStatsResponse } from '@uniswap/client-explore/dist/lux/explore/v1/service_pb'
 import { useFeatureFlagWithLoading } from '@universe/gating'
 import type { Mock } from 'vitest'
 import { ExploreContext } from '~/state/explore'

@@ -1,4 +1,4 @@
-import type { Currency } from '@lux/sdk-core'
+import type { Currency } from '@uniswap/sdk-core'
 
 /**
  * A token identifier with chain and address.

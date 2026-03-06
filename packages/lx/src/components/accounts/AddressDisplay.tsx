@@ -1,4 +1,4 @@
-import { SharedEventName } from '@lux/analytics-events'
+import { SharedEventName } from '@uniswap/analytics-events'
 import { PropsWithChildren, useMemo } from 'react'
 import type { FlexAlignType } from 'react-native'
 import { useDispatch } from 'react-redux'

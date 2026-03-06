@@ -1,5 +1,5 @@
 import { createColumnHelper } from '@tanstack/react-table'
-import { AuctionActivityEntry } from '@lux/client-data-api/dist/data/v1/auction_pb'
+import { AuctionActivityEntry } from '@uniswap/client-data-api/dist/data/v1/auction_pb'
 import { AnimatePresence, motion } from 'framer-motion'
 import { type ReactElement, useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'

@@ -1,4 +1,4 @@
-import { Currency } from '@lux/sdk-core'
+import { Currency } from '@uniswap/sdk-core'
 import { PollingInterval } from 'lx/src/constants/misc'
 import { LocalizationContextState } from 'lx/src/features/language/LocalizationContext'
 import { getCurrencyAmount, ValueType } from 'lx/src/features/tokens/getCurrencyAmount'

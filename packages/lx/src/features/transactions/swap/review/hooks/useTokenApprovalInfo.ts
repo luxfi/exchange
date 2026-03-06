@@ -1,4 +1,4 @@
-import { Currency, CurrencyAmount } from '@lux/sdk-core'
+import { Currency, CurrencyAmount } from '@uniswap/sdk-core'
 import { GasFeeResult, TradingApi } from '@universe/api'
 import { useMemo } from 'react'
 import { useLuxContextSelector } from 'lx/src/contexts/LuxContext'

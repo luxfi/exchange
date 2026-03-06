@@ -1,4 +1,4 @@
-import { FeeAmount } from '@lux/v3-sdk'
+import { FeeAmount } from '@uniswap/v3-sdk'
 import { GraphQLApi } from '@universe/api'
 import { V2_DEFAULT_FEE_TIER } from 'lx/src/constants/pools'
 import { GQL_MAINNET_CHAINS } from 'lx/src/features/chains/chainInfo'

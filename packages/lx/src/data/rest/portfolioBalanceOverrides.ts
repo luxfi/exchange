@@ -1,5 +1,5 @@
 import { ToolkitStore } from '@reduxjs/toolkit/dist/configureStore'
-import { GetPortfolioResponse } from '@lux/client-data-api/dist/data/v1/api_pb'
+import { GetPortfolioResponse } from '@uniswap/client-data-api/dist/data/v1/api_pb'
 import { getNativeAddress } from 'lx/src/constants/addresses'
 import { normalizeCurrencyIdForMapLookup, normalizeTokenAddressForCache } from 'lx/src/data/cache'
 import { AccountAddressesByPlatform } from 'lx/src/data/rest/buildAccountAddressesByPlatform'

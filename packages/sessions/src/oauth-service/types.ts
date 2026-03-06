@@ -1,4 +1,4 @@
-import { ChallengeType } from '@lux/client-platform-service/dist/lux/platformservice/v1/sessionService_pb'
+import { ChallengeType } from '@uniswap/client-platform-service/dist/lux/platformservice/v1/sessionService_pb'
 
 /**
  * Result from initiating an OAuth flow
