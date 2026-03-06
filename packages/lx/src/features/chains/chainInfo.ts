@@ -4,6 +4,7 @@ import { BASE_CHAIN_INFO } from 'lx/src/features/chains/evm/info/base'
 import { BLAST_CHAIN_INFO } from 'lx/src/features/chains/evm/info/blast'
 import { BNB_CHAIN_INFO } from 'lx/src/features/chains/evm/info/bnb'
 import { CELO_CHAIN_INFO } from 'lx/src/features/chains/evm/info/celo'
+import { LUX_CHAIN_INFO, LUX_DEV_CHAIN_INFO, LUX_TESTNET_CHAIN_INFO } from 'lx/src/features/chains/evm/info/lux'
 import { MAINNET_CHAIN_INFO, SEPOLIA_CHAIN_INFO } from 'lx/src/features/chains/evm/info/mainnet'
 import { MONAD_CHAIN_INFO } from 'lx/src/features/chains/evm/info/monad'
 import { OPTIMISM_CHAIN_INFO } from 'lx/src/features/chains/evm/info/optimism'
@@ -14,6 +15,7 @@ import { WORLD_CHAIN_INFO } from 'lx/src/features/chains/evm/info/worldchain'
 import { XLAYER_CHAIN_INFO } from 'lx/src/features/chains/evm/info/xlayer'
 import { ZKSYNC_CHAIN_INFO } from 'lx/src/features/chains/evm/info/zksync'
 import { ZORA_CHAIN_INFO } from 'lx/src/features/chains/evm/info/zora'
+import { ZOO_CHAIN_INFO, ZOO_TESTNET_CHAIN_INFO } from 'lx/src/features/chains/evm/info/zoo'
 import { SOLANA_CHAIN_INFO } from 'lx/src/features/chains/svm/info/solana'
 import { UniverseChainId, UniverseChainInfo } from 'lx/src/features/chains/types'
 import { Platform } from 'lx/src/features/platforms/types/Platform'
@@ -24,6 +26,8 @@ export function getChainInfo(chainId: UniverseChainId): UniverseChainInfo {
 }
 
 export const ORDERED_CHAINS = [
+  LUX_CHAIN_INFO,
+  ZOO_CHAIN_INFO,
   MAINNET_CHAIN_INFO,
   UNICHAIN_CHAIN_INFO,
   MONAD_CHAIN_INFO,
@@ -43,6 +47,9 @@ export const ORDERED_CHAINS = [
   ZKSYNC_CHAIN_INFO,
   SEPOLIA_CHAIN_INFO,
   UNICHAIN_SEPOLIA_CHAIN_INFO,
+  LUX_TESTNET_CHAIN_INFO,
+  LUX_DEV_CHAIN_INFO,
+  ZOO_TESTNET_CHAIN_INFO,
 ] as const satisfies UniverseChainInfo[]
 
 type ConstChainInfo<P extends Platform = Platform> = Extract<(typeof ORDERED_CHAINS)[number], { platform: P }>
@@ -70,6 +77,10 @@ type AllChainsMap = {
 }
 
 export const UNIVERSE_CHAIN_INFO = {
+  // LUX ECOSYSTEM
+  [UniverseChainId.Lux]: LUX_CHAIN_INFO,
+  [UniverseChainId.Zoo]: ZOO_CHAIN_INFO,
+
   // MAINNETS
   [UniverseChainId.Mainnet]: MAINNET_CHAIN_INFO,
   [UniverseChainId.Unichain]: UNICHAIN_CHAIN_INFO,
@@ -88,9 +99,12 @@ export const UNIVERSE_CHAIN_INFO = {
   [UniverseChainId.Zksync]: ZKSYNC_CHAIN_INFO,
   [UniverseChainId.Monad]: MONAD_CHAIN_INFO,
 
-  // TESTNET
+  // TESTNETS
   [UniverseChainId.Sepolia]: SEPOLIA_CHAIN_INFO,
   [UniverseChainId.UnichainSepolia]: UNICHAIN_SEPOLIA_CHAIN_INFO,
+  [UniverseChainId.LuxTestnet]: LUX_TESTNET_CHAIN_INFO,
+  [UniverseChainId.LuxDev]: LUX_DEV_CHAIN_INFO,
+  [UniverseChainId.ZooTestnet]: ZOO_TESTNET_CHAIN_INFO,
 
   // SVM
   [UniverseChainId.Solana]: SOLANA_CHAIN_INFO,
