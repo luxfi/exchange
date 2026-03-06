@@ -48,32 +48,32 @@ export function useMobileAppPromoBannerEligible(): boolean {
   return (isWebIOS || isWebAndroid) && !hideMobileAppPromoBanner && !persistHideMobileAppPromoBanner
 }
 
-const UNIVERSAL_DOWNLOAD_LINK = 'https://uniswapwallet.onelink.me/8q3y/39b0eeui'
+const UNIVERSAL_DOWNLOAD_LINK = 'https://lux.exchange/wallet?ref=39b0eeui'
 
 function getDownloadLink(userAgent: string, peerWalletAgent?: string): string {
   if (userAgent.includes('MetaMaskMobile')) {
-    return 'https://uniswapwallet.onelink.me/8q3y/ee713xnh'
+    return 'https://lux.exchange/wallet?ref=ee713xnh'
   }
   if (userAgent.includes('Phantom')) {
-    return 'https://uniswapwallet.onelink.me/8q3y/sjdi6xky'
+    return 'https://lux.exchange/wallet?ref=sjdi6xky'
   }
   if (userAgent.includes('OKApp')) {
-    return 'https://uniswapwallet.onelink.me/8q3y/7i8g60sb'
+    return 'https://lux.exchange/wallet?ref=7i8g60sb'
   }
   if (userAgent.includes('BitKeep')) {
-    return 'https://uniswapwallet.onelink.me/8q3y/93vro3iq'
+    return 'https://lux.exchange/wallet?ref=93vro3iq'
   }
   if (userAgent.includes('DeFiWallet')) {
-    return 'https://uniswapwallet.onelink.me/8q3y/ay1z22ab'
+    return 'https://lux.exchange/wallet?ref=ay1z22ab'
   }
   if (userAgent.includes('1inchWallet')) {
-    return 'https://uniswapwallet.onelink.me/8q3y/03e2c5cw'
+    return 'https://lux.exchange/wallet?ref=03e2c5cw'
   }
   if (userAgent.includes('RHNCW')) {
-    return 'https://uniswapwallet.onelink.me/8q3y/ipq1dx4n'
+    return 'https://lux.exchange/wallet?ref=ipq1dx4n'
   }
   if (peerWalletAgent?.includes('CoinbaseWallet CoinbaseBrowser')) {
-    return 'https://uniswapwallet.onelink.me/8q3y/24xpl5zh'
+    return 'https://lux.exchange/wallet?ref=24xpl5zh'
   }
   return UNIVERSAL_DOWNLOAD_LINK
 }

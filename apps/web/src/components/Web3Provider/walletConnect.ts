@@ -56,17 +56,17 @@ export function uniswapWalletConnect(): any {
 
     config.emitter.on('message', ({ type, data }: { type: string; data: any }) => {
       if (type === 'display_uri') {
-        // Emits custom wallet connect code, parseable by the Uniswap Wallet
-        const uniswapWalletUri = `https://lux.exchange/app/wc?uri=${data}`
+        // Emits custom wallet connect code, parseable by the Lux Wallet
+        const luxWalletUri = `https://lux.exchange/app/wc?uri=${data}`
 
-        // Emits custom event to display the Uniswap Wallet URI
-        window.dispatchEvent(new MessageEvent('display_uniswap_uri', { data: uniswapWalletUri }))
+        // Emits custom event to display the Lux Wallet URI
+        window.dispatchEvent(new MessageEvent('display_lux_uri', { data: luxWalletUri }))
 
-        // Opens deeplink to Uniswap Wallet if on mobile
+        // Opens deeplink to Lux Wallet if on mobile
         if (isWebIOS || isWebAndroid) {
           // Using window.location.href to open the deep link ensures smooth navigation and leverages OS handling for installed apps,
           // avoiding potential popup blockers or inconsistent behavior associated with window.open
-          window.location.href = `uniswap://wc?uri=${encodeURIComponent(data as string)}`
+          window.location.href = `lux://wc?uri=${encodeURIComponent(data as string)}`
         }
       }
     })

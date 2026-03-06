@@ -3,12 +3,12 @@ import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
 import { AppDownloadPlatform } from 'lx/src/features/telemetry/types'
 import { isWebAndroid, isWebIOS } from 'utilities/src/platform'
 
-// OneLink will direct to App/Play Store or microsite depending on user agent
+// Download links — redirect to Lux wallet download page
 const APP_DOWNLOAD_LINKS: Partial<{ [key in ElementName]: string }> = {
-  [ElementName.UniswapWalletModalDownloadButton]: 'https://uniswapwallet.onelink.me/8q3y/qfwlncf9',
-  [ElementName.UniswapWalletNavbarMenuDownloadButton]: 'https://uniswapwallet.onelink.me/8q3y/46tvu6pb',
-  [ElementName.UniswapWalletLandingPageDownloadButton]: 'https://uniswapwallet.onelink.me/8q3y/79gveilz',
-  [ElementName.UniswapWalletBannerDownloadButton]: 'https://uniswapwallet.onelink.me/8q3y/jh9orof3',
+  [ElementName.UniswapWalletModalDownloadButton]: 'https://lux.exchange/wallet',
+  [ElementName.UniswapWalletNavbarMenuDownloadButton]: 'https://lux.exchange/wallet',
+  [ElementName.UniswapWalletLandingPageDownloadButton]: 'https://lux.exchange/wallet',
+  [ElementName.UniswapWalletBannerDownloadButton]: 'https://lux.exchange/wallet',
 }
 
 export const MICROSITE_LINK = 'https://lux.exchange/wallet'
