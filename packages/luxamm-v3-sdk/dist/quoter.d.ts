@@ -16,7 +16,7 @@ export interface QuoteOptions {
     useQuoterV2?: boolean;
 }
 /**
- * Represents the Lux V3 QuoterV1 contract with a method for returning the formatted
+ * Represents the Uniswap V3 QuoterV1 contract with a method for returning the formatted
  * calldata needed to call the quoter contract.
  */
 export declare abstract class SwapQuoter {

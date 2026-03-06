@@ -34,7 +34,7 @@ export interface SwapOptions {
     fee?: FeeOptions;
 }
 /**
- * Represents the Lux V3 SwapRouter, and has static methods for helping execute trades.
+ * Represents the Uniswap V3 SwapRouter, and has static methods for helping execute trades.
  */
 export declare abstract class SwapRouter {
     static INTERFACE: Interface;

@@ -10,7 +10,7 @@ import ISelfPermit from '@uniswap/v3-periphery/artifacts/contracts/interfaces/IS
 import IPeripheryPaymentsWithFee from '@uniswap/v3-periphery/artifacts/contracts/interfaces/IPeripheryPaymentsWithFee.sol/IPeripheryPaymentsWithFee.json';
 import IQuoter from '@uniswap/v3-periphery/artifacts/contracts/lens/Quoter.sol/Quoter.json';
 import IQuoterV2 from '@uniswap/swap-router-contracts/artifacts/contracts/lens/QuoterV2.sol/QuoterV2.json';
-import ILuxV3Staker from '@uniswap/v3-staker/artifacts/contracts/LuxV3Staker.sol/LuxV3Staker.json';
+import IUniswapV3Staker from '@uniswap/v3-staker/artifacts/contracts/UniswapV3Staker.sol/UniswapV3Staker.json';
 import ISwapRouter from '@uniswap/v3-periphery/artifacts/contracts/SwapRouter.sol/SwapRouter.json';
 
 function _arrayLikeToArray(r, a) {
@@ -453,7 +453,7 @@ var Q192 = /*#__PURE__*/JSBI.exponentiate(Q96, /*#__PURE__*/JSBI.BigInt(2));
 
 /**
  * Computes a pool address
- * @param factoryAddress The Lux V3 factory address
+ * @param factoryAddress The Uniswap V3 factory address
  * @param tokenA The first token of the pair, irrespective of sort order
  * @param tokenB The second token of the pair, irrespective of sort order
  * @param fee The fee tier of the pool
@@ -1514,7 +1514,7 @@ var Pool = /*#__PURE__*/function () {
 }();
 
 /**
- * Represents a position on a Lux V3 Pool
+ * Represents a position on a Uniswap V3 Pool
  */
 var Position = /*#__PURE__*/function () {
   /**
@@ -2875,7 +2875,7 @@ var NonfungiblePositionManager = /*#__PURE__*/function () {
   NonfungiblePositionManager.getPermitData = function getPermitData(permit, positionManagerAddress, chainId) {
     return {
       domain: {
-        name: 'Lux V3 Positions NFT-V1',
+        name: 'Uniswap V3 Positions NFT-V1',
         chainId: chainId,
         version: '1',
         verifyingContract: positionManagerAddress
@@ -2889,7 +2889,7 @@ var NonfungiblePositionManager = /*#__PURE__*/function () {
 NonfungiblePositionManager.INTERFACE = /*#__PURE__*/new Interface(INonfungiblePositionManager.abi);
 
 /**
- * Represents the Lux V3 QuoterV1 contract with a method for returning the formatted
+ * Represents the Uniswap V3 QuoterV1 contract with a method for returning the formatted
  * calldata needed to call the quoter contract.
  */
 var SwapQuoter = /*#__PURE__*/function () {
@@ -3054,11 +3054,11 @@ var Staker = /*#__PURE__*/function () {
   };
   return Staker;
 }();
-Staker.INTERFACE = /*#__PURE__*/new Interface(ILuxV3Staker.abi);
+Staker.INTERFACE = /*#__PURE__*/new Interface(IUniswapV3Staker.abi);
 Staker.INCENTIVE_KEY_ABI = 'tuple(address rewardToken, address pool, uint256 startTime, uint256 endTime, address refundee)';
 
 /**
- * Represents the Lux V3 SwapRouter, and has static methods for helping execute trades.
+ * Represents the Uniswap V3 SwapRouter, and has static methods for helping execute trades.
  */
 var SwapRouter = /*#__PURE__*/function () {
   /**

@@ -1601,7 +1601,7 @@ function priceToClosestTick(price) {
 }
 
 /**
- * Represents a position on a Lux V4 Pool
+ * Represents a position on a Uniswap V4 Pool
  * @dev Similar to the V3 implementation
  * - using Currency instead of Token
  * - keep in mind that Pool and liquidity must be fetched from the pool manager
@@ -2201,7 +2201,7 @@ function createAction(action, parameters) {
   };
 }
 
-// Lux v4 supports native pools. Those currencies are represented by the zero address.
+// Uniswap v4 supports native pools. Those currencies are represented by the zero address.
 // TODO: Figure out if this is how we should be handling weird edge case tokens like CELO/Polygon/etc..
 // Does interface treat those like ERC20 tokens or NATIVE tokens?
 function toAddress(currency) {
@@ -3705,7 +3705,7 @@ var V4PositionManager = /*#__PURE__*/function () {
   V4PositionManager.getPermitData = function getPermitData(permit, positionManagerAddress, chainId) {
     return {
       domain: {
-        name: 'Lux V4 Positions NFT',
+        name: 'Uniswap V4 Positions NFT',
         chainId: chainId,
         verifyingContract: positionManagerAddress
       },
