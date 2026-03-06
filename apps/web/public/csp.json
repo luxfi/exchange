@@ -24,7 +24,7 @@
     "https://id.porto.sh",
     "https://wrapped.lux.exchange"
   ],
-  "mediaSrc": ["self", "*"],
+  "mediaSrc": ["'self'", "*"],
   "formAction": ["'none'"],
   "connectSrc": [
     "'self'",
