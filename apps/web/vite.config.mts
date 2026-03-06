@@ -310,6 +310,7 @@ export default defineConfig(({ mode }) => {
         '@uniswap/universal-router-sdk',
         '@uniswap/uniswapx-sdk',
         '@uniswap/permit2-sdk',
+        '@tanstack/react-query',
         '@visx/responsive',
         'jsbi',
         'ethers',
