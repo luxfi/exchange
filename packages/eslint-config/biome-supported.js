@@ -207,7 +207,7 @@ module.exports = {
     {
       paths: [
         {
-          name: '@lux/smart-order-router',
+          name: '@uniswap/smart-order-router',
           message: 'Only import types, unless you are in the client-side SOR, to preserve lazy-loading.',
           allowTypeImports: true,
         },

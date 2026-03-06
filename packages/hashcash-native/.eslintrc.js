@@ -1,8 +1,8 @@
-const biomeSupportedRules = require('@lux/eslint-config/biome-supported')
+const biomeSupportedRules = require('@luxfi/eslint-config/biome-supported')
 
 module.exports = {
   root: true,
-  extends: ['@lux/eslint-config/native'],
+  extends: ['@luxfi/eslint-config/native'],
   ignorePatterns: ['node_modules', 'lib', '.eslintrc.js'],
   parserOptions: {
     project: 'tsconfig.json',

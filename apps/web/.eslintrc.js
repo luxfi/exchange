@@ -1,10 +1,10 @@
 /* eslint-env node */
-require('@lux/eslint-config/load')
+require('@luxfi/eslint-config/load')
 
 module.exports = {
   root: true,
   ignorePatterns: ['scripts/build-vercel.ts'],
-  extends: ['@lux/eslint-config/interface', 'plugin:storybook/recommended'],
+  extends: ['@luxfi/eslint-config/interface', 'plugin:storybook/recommended'],
   parserOptions: {
     project: 'tsconfig.eslint.json',
     tsconfigRootDir: __dirname,

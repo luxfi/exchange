@@ -1,4 +1,4 @@
-import { V2_FACTORY_ADDRESSES, Percent, CurrencyAmount, sqrt, Token, Price, TradeType, Fraction, computePriceImpact, sortedInsert, validateAndParseAddress } from '@lux/sdk-core';
+import { V2_FACTORY_ADDRESSES, Percent, CurrencyAmount, sqrt, Token, Price, TradeType, Fraction, computePriceImpact, sortedInsert, validateAndParseAddress } from '@uniswap/sdk-core';
 import JSBI from 'jsbi';
 import { getCreate2Address } from '@ethersproject/address';
 import { BigNumber } from '@ethersproject/bignumber';

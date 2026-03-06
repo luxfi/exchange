@@ -6,7 +6,7 @@ const sharedRules = {
       message: "Please import from 'tamagui' directly to prevent mismatches.",
     },
     {
-      name: '@lux/sdk-core',
+      name: '@uniswap/sdk-core',
       importNames: ['ChainId'],
       message: "Don't use ChainId from @lux/sdk-core. Use the UniverseChainId from universe/lux.",
     },
@@ -20,7 +20,7 @@ const sharedRules = {
         'Please only use this for initialization, tests, flushing, and internal usage. Otherwise use `packages/lux/src/features/telemetry`',
     },
     {
-      name: '@lux/analytics',
+      name: '@uniswap/analytics',
       importNames: ['sendAnalyticsEvent'],
       message: "Please use the typed `sendAnalyticsEvent` in  'lux/src/features/telemetry/send'?",
     },
@@ -254,7 +254,7 @@ const interfaceRules = {
       message: 'Import cached/subscription-based activity hooks from `AssetActivityProvider` instead.',
     },
     {
-      name: '@lux/smart-order-router',
+      name: '@uniswap/smart-order-router',
       message: 'Only import types, unless you are in the client-side SOR, to preserve lazy-loading.',
       allowTypeImports: true,
     },

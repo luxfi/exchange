@@ -1,5 +1,5 @@
 const biomeSupportedRules = require('./biome-supported')
-const { reactNative: reactNativeImports } = require('@lux/eslint-config/restrictedImports')
+const { reactNative: reactNativeImports } = require('@luxfi/eslint-config/restrictedImports')
 
 module.exports = {
   extends: [require.resolve('./base.js')],

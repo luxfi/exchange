@@ -1,4 +1,4 @@
-const { webPlatform: restrictedImports } = require('@lux/eslint-config/restrictedImports')
+const { webPlatform: restrictedImports } = require('@luxfi/eslint-config/restrictedImports')
 
 module.exports = {
   overrides: [

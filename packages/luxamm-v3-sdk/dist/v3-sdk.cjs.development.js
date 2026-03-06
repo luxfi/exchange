@@ -4,20 +4,20 @@ Object.defineProperty(exports, '__esModule', { value: true });
 
 function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
 
-var sdkCore = require('@lux/sdk-core');
+var sdkCore = require('@uniswap/sdk-core');
 var JSBI = _interopDefault(require('jsbi'));
 var invariant = _interopDefault(require('tiny-invariant'));
 var abi = require('@ethersproject/abi');
 var address = require('@ethersproject/address');
 var solidity = require('@ethersproject/solidity');
-var IMulticall = _interopDefault(require('@lux/v3-periphery/artifacts/contracts/interfaces/IMulticall.sol/IMulticall.json'));
-var INonfungiblePositionManager = _interopDefault(require('@lux/v3-periphery/artifacts/contracts/NonfungiblePositionManager.sol/NonfungiblePositionManager.json'));
-var ISelfPermit = _interopDefault(require('@lux/v3-periphery/artifacts/contracts/interfaces/ISelfPermit.sol/ISelfPermit.json'));
-var IPeripheryPaymentsWithFee = _interopDefault(require('@lux/v3-periphery/artifacts/contracts/interfaces/IPeripheryPaymentsWithFee.sol/IPeripheryPaymentsWithFee.json'));
-var IQuoter = _interopDefault(require('@lux/v3-periphery/artifacts/contracts/lens/Quoter.sol/Quoter.json'));
-var IQuoterV2 = _interopDefault(require('@lux/swap-router-contracts/artifacts/contracts/lens/QuoterV2.sol/QuoterV2.json'));
-var ILuxV3Staker = _interopDefault(require('@lux/v3-staker/artifacts/contracts/LuxV3Staker.sol/LuxV3Staker.json'));
-var ISwapRouter = _interopDefault(require('@lux/v3-periphery/artifacts/contracts/SwapRouter.sol/SwapRouter.json'));
+var IMulticall = _interopDefault(require('@uniswap/v3-periphery/artifacts/contracts/interfaces/IMulticall.sol/IMulticall.json'));
+var INonfungiblePositionManager = _interopDefault(require('@uniswap/v3-periphery/artifacts/contracts/NonfungiblePositionManager.sol/NonfungiblePositionManager.json'));
+var ISelfPermit = _interopDefault(require('@uniswap/v3-periphery/artifacts/contracts/interfaces/ISelfPermit.sol/ISelfPermit.json'));
+var IPeripheryPaymentsWithFee = _interopDefault(require('@uniswap/v3-periphery/artifacts/contracts/interfaces/IPeripheryPaymentsWithFee.sol/IPeripheryPaymentsWithFee.json'));
+var IQuoter = _interopDefault(require('@uniswap/v3-periphery/artifacts/contracts/lens/Quoter.sol/Quoter.json'));
+var IQuoterV2 = _interopDefault(require('@uniswap/swap-router-contracts/artifacts/contracts/lens/QuoterV2.sol/QuoterV2.json'));
+var ILuxV3Staker = _interopDefault(require('@uniswap/v3-staker/artifacts/contracts/LuxV3Staker.sol/LuxV3Staker.json'));
+var ISwapRouter = _interopDefault(require('@uniswap/v3-periphery/artifacts/contracts/SwapRouter.sol/SwapRouter.json'));
 
 function _arrayLikeToArray(r, a) {
   (null == a || a > r.length) && (a = r.length);

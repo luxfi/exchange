@@ -4,7 +4,7 @@ Object.defineProperty(exports, '__esModule', { value: true });
 
 function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
 
-var sdkCore = require('@lux/sdk-core');
+var sdkCore = require('@uniswap/sdk-core');
 var JSBI = _interopDefault(require('jsbi'));
 var address = require('@ethersproject/address');
 var bignumber = require('@ethersproject/bignumber');

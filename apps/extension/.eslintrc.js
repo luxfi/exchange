@@ -4,7 +4,7 @@ rulesDirPlugin.RULES_DIR = '../../packages/lx/eslint_rules'
 
 module.exports = {
   root: true,
-  extends: ['@lux/eslint-config/extension'],
+  extends: ['@luxfi/eslint-config/extension'],
   plugins: ['rulesdir'],
   ignorePatterns: [
     'node_modules',

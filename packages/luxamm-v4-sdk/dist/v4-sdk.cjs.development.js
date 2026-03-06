@@ -6,13 +6,13 @@ function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'defau
 
 var invariant = _interopDefault(require('tiny-invariant'));
 var solidity = require('@ethersproject/solidity');
-var sdkCore = require('@lux/sdk-core');
-var v3Sdk = require('@lux/v3-sdk');
+var sdkCore = require('@uniswap/sdk-core');
+var v3Sdk = require('@uniswap/v3-sdk');
 var utils = require('ethers/lib/utils');
 var JSBI = _interopDefault(require('jsbi'));
 var ethers = require('ethers');
 var abi = require('@ethersproject/abi');
-var IMulticall = _interopDefault(require('@lux/v3-periphery/artifacts/contracts/interfaces/IMulticall.sol/IMulticall.json'));
+var IMulticall = _interopDefault(require('@uniswap/v3-periphery/artifacts/contracts/interfaces/IMulticall.sol/IMulticall.json'));
 
 function _arrayLikeToArray(r, a) {
   (null == a || a > r.length) && (a = r.length);
