@@ -494,7 +494,7 @@ export const LUSD_LUX = new Token(
 
 export const LETH_LUX = new Token(
   UniverseChainId.Lux,
-  '0xAA3AE950442618E12e4a920a4dC34DE43285e4a1',
+  '0xaA3AE950442618E12e4A920A4dC34dE43285e4A1',
   18,
   'LETH',
   'Lux ETH',
@@ -502,7 +502,7 @@ export const LETH_LUX = new Token(
 
 export const LBTC_LUX = new Token(
   UniverseChainId.Lux,
-  '0x526903Ef129C6b56e1a8dF7e2B57F0924E040e82',
+  '0x526903EF129C6b56E1A8dF7E2B57F0924E040E82',
   8,
   'LBTC',
   'Lux BTC',
@@ -510,7 +510,7 @@ export const LBTC_LUX = new Token(
 
 export const LSOL_LUX = new Token(
   UniverseChainId.Lux,
-  '0x4a2bE2aFCB2614E6F31C2881b944Cd1053De2E40',
+  '0x4a2be2aFCb2614e6f31c2881b944CD1053De2E40',
   9,
   'LSOL',
   'Lux SOL',
@@ -518,7 +518,7 @@ export const LSOL_LUX = new Token(
 
 export const LTON_LUX = new Token(
   UniverseChainId.Lux,
-  '0x5b2bE2aFCB2614E6F31C2881b944Cd1053De3F51',
+  '0x5b2be2AFCB2614E6f31C2881B944cD1053dE3F51',
   9,
   'LTON',
   'Lux TON',
@@ -526,7 +526,7 @@ export const LTON_LUX = new Token(
 
 export const LBNB_LUX = new Token(
   UniverseChainId.Lux,
-  '0x6c3cE2aFCB2614E6F31C2881b944Cd1053De4062',
+  '0x6c3ce2afcb2614E6f31C2881b944cD1053dE4062',
   18,
   'LBNB',
   'Lux BNB',
@@ -534,59 +534,37 @@ export const LBNB_LUX = new Token(
 
 export const LPOL_LUX = new Token(
   UniverseChainId.Lux,
-  '0x7d4dF2aFCB2614E6F31C2881b944Cd1053De5173',
+  '0x7D4DF2aFcB2614e6f31C2881B944cd1053de5173',
   18,
   'LPOL',
   'Lux POL',
 )
 
-export const LCELO_LUX = new Token(
-  UniverseChainId.Lux,
-  '0x8e5eG2aFCB2614E6F31C2881b944Cd1053De6284',
-  18,
-  'LCELO',
-  'Lux CELO',
-)
+// Placeholder L-tokens (not yet deployed — addresses are deterministic placeholders)
+export const LCELO_LUX = new Token(UniverseChainId.Lux, '0x8e5E000000000000000000000000000000006284', 18, 'LCELO', 'Lux CELO')
+export const LFTM_LUX = new Token(UniverseChainId.Lux, '0x8e5e000000000000000000000000000011116284', 18, 'LFTM', 'Lux FTM')
+export const LXDAI_LUX = new Token(UniverseChainId.Lux, '0x8e5E000000000000000000000000000022226284', 18, 'LXDAI', 'Lux xDAI')
+export const LBLAST_LUX = new Token(UniverseChainId.Lux, '0x8E5e000000000000000000000000000033336284', 18, 'LBLAST', 'Lux BLAST')
+export const LAVAX_LUX = new Token(UniverseChainId.Lux, '0x8e5e000000000000000000000000000044446284', 18, 'LAVAX', 'Lux AVAX')
+export const LZOO_LUX = new Token(UniverseChainId.Lux, '0x8E5E000000000000000000000000000055556284', 18, 'LZOO', 'Lux ZOO')
 
-export const LFTM_LUX = new Token(
-  UniverseChainId.Lux,
-  '0x9f6fH2aFCB2614E6F31C2881b944Cd1053De7395',
-  18,
-  'LFTM',
-  'Lux FTM',
-)
+// Placeholder S-tokens (synthetic assets, not yet deployed)
+export const SLUX_LUX = new Token(UniverseChainId.Lux, '0x8E5E000000000000000000000000000066666284', 18, 'sLUX', 'Staked LUX')
+export const SUSD_LUX = new Token(UniverseChainId.Lux, '0x8e5E000000000000000000000000000077776284', 18, 'sUSD', 'Synthetic USD')
+export const SETH_LUX = new Token(UniverseChainId.Lux, '0x8E5e000000000000000000000000000088886284', 18, 'sETH', 'Synthetic ETH')
+export const SBTC_LUX = new Token(UniverseChainId.Lux, '0x8e5E000000000000000000000000000099996284', 8, 'sBTC', 'Synthetic BTC')
+export const SAI_LUX = new Token(UniverseChainId.Lux, '0x8E5E0000000000000000000000000000Aaaa6284', 18, 'sAI', 'Synthetic AI')
+export const SSOL_LUX = new Token(UniverseChainId.Lux, '0x8e5e0000000000000000000000000000bbbb6284', 9, 'sSOL', 'Synthetic SOL')
+export const STON_LUX = new Token(UniverseChainId.Lux, '0x8E5E0000000000000000000000000000Cccc6284', 9, 'sTON', 'Synthetic TON')
+export const SADA_LUX = new Token(UniverseChainId.Lux, '0x8e5E0000000000000000000000000000DdDD6284', 6, 'sADA', 'Synthetic ADA')
+export const SAVAX_LUX = new Token(UniverseChainId.Lux, '0x8E5E0000000000000000000000000000EEEE6284', 18, 'sAVAX', 'Synthetic AVAX')
+export const SBNB_LUX = new Token(UniverseChainId.Lux, '0x8e5E0000000000000000000000000000FFfF6284', 18, 'sBNB', 'Synthetic BNB')
+export const SPOL_LUX = new Token(UniverseChainId.Lux, '0x8E5E000000000000000000000000000111106284', 18, 'sPOL', 'Synthetic POL')
+export const SZOO_LUX = new Token(UniverseChainId.Lux, '0x8e5E000000000000000000000000000122216284', 18, 'sZOO', 'Synthetic ZOO')
 
-export const LXDAI_LUX = new Token(
-  UniverseChainId.Lux,
-  '0xa070I2aFCB2614E6F31C2881b944Cd1053De84a6',
-  18,
-  'LXDAI',
-  'Lux xDAI',
-)
-
-export const LBLAST_LUX = new Token(
-  UniverseChainId.Lux,
-  '0xb181J2aFCB2614E6F31C2881b944Cd1053De95b7',
-  18,
-  'LBLAST',
-  'Lux BLAST',
-)
-
-export const LAVAX_LUX = new Token(
-  UniverseChainId.Lux,
-  '0xc292K2aFCB2614E6F31C2881b944Cd1053Dea6c8',
-  18,
-  'LAVAX',
-  'Lux AVAX',
-)
-
-export const LZOO_LUX = new Token(
-  UniverseChainId.Lux,
-  '0xd3a3L2aFCB2614E6F31C2881b944Cd1053Deb7d9',
-  18,
-  'LZOO',
-  'Lux ZOO',
-)
+// Placeholder Z-tokens on Zoo (not yet deployed)
+export const ZUSD_ZOO = new Token(UniverseChainId.Zoo, '0x8e5E000000000000000000000000000133326284', 6, 'ZUSD', 'Zoo USD')
+export const ZETH_ZOO = new Token(UniverseChainId.Zoo, '0x8E5E000000000000000000000000000144436284', 18, 'ZETH', 'Zoo ETH')
 
 // --- L-tokens: Lux Testnet (96368) ---
 
@@ -600,7 +578,7 @@ export const LUSD_LUX_TESTNET = new Token(
 
 export const LETH_LUX_TESTNET = new Token(
   UniverseChainId.LuxTestnet,
-  '0x1234567890abcdef1234567890abcdef12345678',
+  '0x1234567890AbcdEF1234567890aBcdef12345678',
   18,
   'LETH',
   'Lux ETH',
@@ -608,7 +586,7 @@ export const LETH_LUX_TESTNET = new Token(
 
 export const LBTC_LUX_TESTNET = new Token(
   UniverseChainId.LuxTestnet,
-  '0xabcdef1234567890abcdef1234567890abcdef12',
+  '0xabCDEF1234567890ABcDEF1234567890aBCDeF12',
   8,
   'LBTC',
   'Lux BTC',
@@ -640,125 +618,11 @@ export const LUSD_LUXDEV = new Token(
   'Lux USD',
 )
 
-// --- S-tokens: Synthetic assets on Lux Mainnet (96369) ---
-
-export const SLUX_LUX = new Token(
-  UniverseChainId.Lux,
-  '0xe4b4M2aFCB2614E6F31C2881b944Cd1053Dec8ea',
-  18,
-  'sLUX',
-  'Staked LUX',
-)
-
-export const SUSD_LUX = new Token(
-  UniverseChainId.Lux,
-  '0xf5c5N2aFCB2614E6F31C2881b944Cd1053Ded9fb',
-  18,
-  'sUSD',
-  'Synthetic USD',
-)
-
-export const SETH_LUX = new Token(
-  UniverseChainId.Lux,
-  '0x06d6O2aFCB2614E6F31C2881b944Cd1053Deea0c',
-  18,
-  'sETH',
-  'Synthetic ETH',
-)
-
-export const SBTC_LUX = new Token(
-  UniverseChainId.Lux,
-  '0x17e7P2aFCB2614E6F31C2881b944Cd1053Defb1d',
-  8,
-  'sBTC',
-  'Synthetic BTC',
-)
-
-export const SAI_LUX = new Token(
-  UniverseChainId.Lux,
-  '0x28f8Q2aFCB2614E6F31C2881b944Cd1053Df0c2e',
-  18,
-  'sAI',
-  'Synthetic AI',
-)
-
-export const SSOL_LUX = new Token(
-  UniverseChainId.Lux,
-  '0x3909R2aFCB2614E6F31C2881b944Cd1053Df1d3f',
-  9,
-  'sSOL',
-  'Synthetic SOL',
-)
-
-export const STON_LUX = new Token(
-  UniverseChainId.Lux,
-  '0x4a1aS2aFCB2614E6F31C2881b944Cd1053Df2e40',
-  9,
-  'sTON',
-  'Synthetic TON',
-)
-
-export const SADA_LUX = new Token(
-  UniverseChainId.Lux,
-  '0x5b2bT2aFCB2614E6F31C2881b944Cd1053Df3f51',
-  6,
-  'sADA',
-  'Synthetic ADA',
-)
-
-export const SAVAX_LUX = new Token(
-  UniverseChainId.Lux,
-  '0x6c3cU2aFCB2614E6F31C2881b944Cd1053Df4062',
-  18,
-  'sAVAX',
-  'Synthetic AVAX',
-)
-
-export const SBNB_LUX = new Token(
-  UniverseChainId.Lux,
-  '0x7d4dV2aFCB2614E6F31C2881b944Cd1053Df5173',
-  18,
-  'sBNB',
-  'Synthetic BNB',
-)
-
-export const SPOL_LUX = new Token(
-  UniverseChainId.Lux,
-  '0x8e5eW2aFCB2614E6F31C2881b944Cd1053Df6284',
-  18,
-  'sPOL',
-  'Synthetic POL',
-)
-
-export const SZOO_LUX = new Token(
-  UniverseChainId.Lux,
-  '0x9f6fX2aFCB2614E6F31C2881b944Cd1053Df7395',
-  18,
-  'sZOO',
-  'Synthetic ZOO',
-)
-
 // --- Z-tokens: Bridged assets on Zoo Network (200200) ---
-
-export const ZUSD_ZOO = new Token(
-  UniverseChainId.Zoo,
-  '0xa070Y2aFCB2614E6F31C2881b944Cd1053Df84a6',
-  6,
-  'ZUSD',
-  'Zoo USD',
-)
-
-export const ZETH_ZOO = new Token(
-  UniverseChainId.Zoo,
-  '0xb181Z2aFCB2614E6F31C2881b944Cd1053Df95b7',
-  18,
-  'ZETH',
-  'Zoo ETH',
-)
 
 export const ZBTC_ZOO = new Token(
   UniverseChainId.Zoo,
-  '0xc292a2aFCB2614E6F31C2881b944Cd1053Dfa6c8',
+  '0xC292A2AFcb2614E6F31C2881b944cd1053DFa6c8',
   8,
   'ZBTC',
   'Zoo BTC',
@@ -766,7 +630,7 @@ export const ZBTC_ZOO = new Token(
 
 export const ZSOL_ZOO = new Token(
   UniverseChainId.Zoo,
-  '0xd3a3b2aFCB2614E6F31C2881b944Cd1053Dfb7d9',
+  '0xD3A3b2afCb2614e6f31C2881b944CD1053dfB7d9',
   9,
   'ZSOL',
   'Zoo SOL',
@@ -774,7 +638,7 @@ export const ZSOL_ZOO = new Token(
 
 export const ZTON_ZOO = new Token(
   UniverseChainId.Zoo,
-  '0xe4b4c2aFCB2614E6F31C2881b944Cd1053Dfc8ea',
+  '0xE4b4c2AFcb2614E6F31c2881B944cd1053DfC8Ea',
   9,
   'ZTON',
   'Zoo TON',
@@ -782,7 +646,7 @@ export const ZTON_ZOO = new Token(
 
 export const ZLUX_ZOO = new Token(
   UniverseChainId.Zoo,
-  '0xf5c5d2aFCB2614E6F31C2881b944Cd1053Dfd9fb',
+  '0xF5c5d2AfCb2614E6F31C2881b944CD1053DfD9fB',
   18,
   'ZLUX',
   'Zoo LUX',
@@ -790,7 +654,7 @@ export const ZLUX_ZOO = new Token(
 
 export const ZBNB_ZOO = new Token(
   UniverseChainId.Zoo,
-  '0x06d6e2aFCB2614E6F31C2881b944Cd1053Dfea0c',
+  '0x06D6e2AfcB2614E6F31c2881b944Cd1053DFeA0C',
   18,
   'ZBNB',
   'Zoo BNB',
@@ -798,7 +662,7 @@ export const ZBNB_ZOO = new Token(
 
 export const ZPOL_ZOO = new Token(
   UniverseChainId.Zoo,
-  '0x17e7f2aFCB2614E6F31C2881b944Cd1053Dffb1d',
+  '0x17e7F2afcb2614e6F31C2881b944CD1053dFFb1D',
   18,
   'ZPOL',
   'Zoo POL',
@@ -806,7 +670,7 @@ export const ZPOL_ZOO = new Token(
 
 export const ZCELO_ZOO = new Token(
   UniverseChainId.Zoo,
-  '0x28f802aFCB2614E6F31C2881b944Cd1053E00c2e',
+  '0x28F802AfCB2614E6F31c2881b944CD1053E00c2e',
   18,
   'ZCELO',
   'Zoo CELO',
@@ -814,7 +678,7 @@ export const ZCELO_ZOO = new Token(
 
 export const ZFTM_ZOO = new Token(
   UniverseChainId.Zoo,
-  '0x390912aFCB2614E6F31C2881b944Cd1053E01d3f',
+  '0x390912afcB2614e6f31C2881b944CD1053E01D3F',
   18,
   'ZFTM',
   'Zoo FTM',
@@ -822,7 +686,7 @@ export const ZFTM_ZOO = new Token(
 
 export const ZXDAI_ZOO = new Token(
   UniverseChainId.Zoo,
-  '0x4a1a22aFCB2614E6F31C2881b944Cd1053E02e40',
+  '0x4a1a22AFcB2614E6F31c2881B944CD1053E02E40',
   18,
   'ZXDAI',
   'Zoo xDAI',

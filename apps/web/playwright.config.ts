@@ -13,9 +13,38 @@ const IS_CI = process.env.CI === 'true'
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const Module = require('module')
 
+// Mirror Vite alias mappings for @luxdex/* → @uniswap/* so Playwright can resolve them
+const LUXDEX_ALIAS_MAP: Record<string, string> = {
+  '@luxdex/sdk-core': '@uniswap/sdk-core',
+  '@luxdex/universal-router-sdk': '@uniswap/universal-router-sdk',
+  '@luxdex/permit2-sdk': '@uniswap/permit2-sdk',
+  '@luxdex/v2-sdk': '@uniswap/v2-sdk',
+  '@luxdex/v3-sdk': '@uniswap/v3-sdk',
+  '@luxdex/v4-sdk': '@uniswap/v4-sdk',
+  '@luxdex/client-platform-service': '@uniswap/client-platform-service',
+  '@luxdex/client-notification-service': '@uniswap/client-notification-service',
+  '@luxdex/client-data-api': '@uniswap/client-data-api',
+  '@luxdex/client-trading': '@uniswap/client-trading',
+  '@luxdex/client-for': '@uniswap/client-for',
+  '@luxdex/client-liquidity': '@uniswap/client-liquidity',
+  '@luxdex/permit': '@uniswap/permit2-sdk',
+  '@luxdex/client-explore': '@uniswap/client-explore',
+  '@luxdex/client-search': '@uniswap/client-search',
+  '@luxdex/analytics-events': '@uniswap/analytics-events',
+  '@luxdex/conedison': '@uniswap/analytics',
+}
+
 // Override module resolution to handle platform-specific files like Vite does
 const originalResolveFilename = Module._resolveFilename
-Module._resolveFilename = function (request, parent) {
+Module._resolveFilename = function (request: string, parent: any) {
+  // Resolve @luxdex/* → @uniswap/* aliases (mirrors vite.config.mts resolve.alias)
+  for (const [prefix, target] of Object.entries(LUXDEX_ALIAS_MAP)) {
+    if (request === prefix || request.startsWith(prefix + '/')) {
+      request = request.replace(prefix, target)
+      break
+    }
+  }
+
   // For getConfig imports, try .web variant first (mimics Vite behavior)
   // Use precise matching to avoid false positives with modules containing 'getConfig' as substring
   if (request.endsWith('/getConfig') || request.endsWith('\\getConfig') || request === 'getConfig') {
