@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux'
+import { appearanceSettingsReducer } from 'lx/src/features/appearance/slice'
 import { uniswapBehaviorHistoryReducer } from 'lx/src/features/behaviorHistory/slice'
 import { favoritesReducer } from 'lx/src/features/favorites/slice'
 import { fiatOnRampAggregatorApi } from 'lx/src/features/fiatOnRamp/api'
@@ -15,6 +16,7 @@ import { visibilityReducer } from 'lx/src/features/visibility/slice'
 
 export const uniswapReducers = {
   [fiatOnRampAggregatorApi.reducerPath]: fiatOnRampAggregatorApi.reducer,
+  appearanceSettings: appearanceSettingsReducer,
   swapSettings: swapSettingsReducer,
   favorites: favoritesReducer,
   notifications: notificationReducer,
