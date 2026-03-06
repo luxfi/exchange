@@ -13,7 +13,7 @@ import { buildProxyRequest } from 'lx/src/data/rest/conversionTracking/tracking'
 import { ConversionLead, PlatformIdType, TrackConversionArgs } from 'lx/src/data/rest/conversionTracking/types'
 import { useConversionProxy } from 'lx/src/data/rest/conversionTracking/useConversionProxy'
 import { getExternalConversionLeadsCookie } from 'lx/src/data/rest/conversionTracking/utils'
-import { UniswapEventName } from 'lx/src/features/telemetry/constants'
+import { LuxEventName } from 'lx/src/features/telemetry/constants'
 import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
 import { HexString } from 'utilities/src/addresses/hex'
 
@@ -77,7 +77,7 @@ export function useConversionTracking(accountAddress?: HexString): UseConversion
 
         setAsExecuted = true
 
-        sendAnalyticsEvent(UniswapEventName.ConversionEventSubmitted, {
+        sendAnalyticsEvent(LuxEventName.ConversionEventSubmitted, {
           id: lead.id,
           eventId,
           eventName,

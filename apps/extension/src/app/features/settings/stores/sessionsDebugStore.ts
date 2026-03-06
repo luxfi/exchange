@@ -4,7 +4,7 @@ import { create } from 'zustand'
 interface SessionState {
   sessionId: string | null
   deviceId: string | null
-  uniswapIdentifier: string | null
+  luxIdentifier: string | null
 }
 
 export interface LogEntry {
@@ -55,7 +55,7 @@ const initialHashcashProgress: HashcashProgress = {
 }
 
 const initialState = {
-  session: { sessionId: null, deviceId: null, uniswapIdentifier: null },
+  session: { sessionId: null, deviceId: null, luxIdentifier: null },
   challenge: null,
   isLoading: false,
   currentOperation: null,

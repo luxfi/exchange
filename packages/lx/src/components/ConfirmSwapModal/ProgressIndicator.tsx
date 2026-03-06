@@ -210,8 +210,8 @@ function Step({
     // TODO SWAP-433: Add support for TransactionStepType.SwapTransactionBatched
     case TransactionStepType.SwapTransaction:
     case TransactionStepType.SwapTransactionAsync:
-    case TransactionStepType.UniswapXSignature:
-    case TransactionStepType.UniswapXPlanSignature:
+    case TransactionStepType.DEXSignature:
+    case TransactionStepType.DEXPlanSignature:
     case TransactionStepType.SwapTransactionBatched:
       if (isPlanStep) {
         return <SwapTransactionPlanStepRow step={step as SwapSteps} {...commonProps} />

@@ -2,7 +2,7 @@ import '~/test-utils/tokens/mocks'
 
 import userEvent from '@testing-library/user-event'
 import { GraphQLApi } from '@universe/api'
-import { useUniswapContext } from 'lx/src/contexts/UniswapContext'
+import { useLuxContext } from 'lx/src/contexts/LuxContext'
 import { AccountsStore } from 'lx/src/features/accounts/store/types/AccountsState'
 import { UniverseChainId } from 'lx/src/features/chains/types'
 import { dismissTokenWarning } from 'lx/src/features/tokens/warnings/slice/slice'
@@ -22,7 +22,7 @@ vi.mock('~/pages/PoolDetails/Pools/hooks/useMultiChainPositions')
 
 vi.mock('~/hooks/useAccount')
 
-vi.mock('lx/src/contexts/UniswapContext')
+vi.mock('lx/src/contexts/LuxContext')
 
 vi.mock('lx/src/features/transactions/swap/stores/swapFormStore/SwapFormStoreContext')
 
@@ -47,7 +47,7 @@ describe('PoolDetailsStatsButton', () => {
     token1: validBEPoolToken0,
   }
 
-  const useUniswapContextReturnValue = {
+  const useLuxContextReturnValue = {
     navigateToFiatOnRamp: () => {},
     navigateToSwapFlow: () => {},
     navigateToSendFlow: () => {},
@@ -100,7 +100,7 @@ describe('PoolDetailsStatsButton', () => {
 
     mocked(useAccount).mockReturnValue(USE_DISCONNECTED_ACCOUNT)
     mocked(useMultiChainPositions).mockReturnValue(useMultiChainPositionsReturnValue)
-    mocked(useUniswapContext).mockReturnValue(useUniswapContextReturnValue)
+    mocked(useLuxContext).mockReturnValue(useLuxContextReturnValue)
 
     store.dispatch(
       dismissTokenWarning({

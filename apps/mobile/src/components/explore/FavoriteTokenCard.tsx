@@ -69,8 +69,8 @@ function FavoriteTokenCard({
   const chainId = fromGraphQLChain(token?.chain) ?? defaultChainId
 
   // Coingecko price is more accurate but lacks long tail tokens
-  // Uniswap price comes from Uniswap pools, which may be updated less frequently
-  const { price, pricePercentChange } = getCoingeckoPrice(token) ?? getUniswapPrice(token)
+  // Lux price comes from Lux pools, which may be updated less frequently
+  const { price, pricePercentChange } = getCoingeckoPrice(token) ?? getLuxPrice(token)
   const priceFormatted = useMemo(
     () => convertFiatAmountFormatted(price, NumberType.FiatTokenPrice),
     [convertFiatAmountFormatted, price],
@@ -202,7 +202,7 @@ function getCoingeckoPrice(token?: GraphQLApi.FavoriteTokenCardQuery['token']): 
   }
 }
 
-function getUniswapPrice(token?: GraphQLApi.FavoriteTokenCardQuery['token']): {
+function getLuxPrice(token?: GraphQLApi.FavoriteTokenCardQuery['token']): {
   price: number | undefined
   pricePercentChange: number | undefined
 } {

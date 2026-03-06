@@ -19,7 +19,7 @@ import { SendContext, SendContextType } from '~/state/send/SendContext'
 import { SwapAndLimitContext } from '~/state/swap/types'
 import { DAI_INFO } from '~/test-utils/constants'
 import { mocked } from '~/test-utils/mocked'
-import { act, renderWithUniswapContext, screen } from '~/test-utils/render'
+import { act, renderWithLuxContext, screen } from '~/test-utils/render'
 
 const mockMultichainContextValue = {
   reset: vi.fn(),
@@ -89,7 +89,7 @@ describe('SendCurrencyInputform', () => {
 
   it('should render placeholder values', async () => {
     const { container } = await act(() =>
-      renderWithUniswapContext(
+      renderWithLuxContext(
         <MultichainContext.Provider value={mockMultichainContextValue}>
           <SwapAndLimitContext.Provider value={mockSwapAndLimitContextValue}>
             <SendContext.Provider value={mockedSendContextDefault}>
@@ -108,7 +108,7 @@ describe('SendCurrencyInputform', () => {
 
   it('renders input in fiat correctly', async () => {
     const { container } = await act(() =>
-      renderWithUniswapContext(
+      renderWithLuxContext(
         <MultichainContext.Provider value={mockMultichainContextValue}>
           <SwapAndLimitContext.Provider value={mockSwapAndLimitContextValue}>
             <SendContext.Provider value={mockedSendContextFiatInput}>
@@ -127,7 +127,7 @@ describe('SendCurrencyInputform', () => {
 
   it('renders input in token amount correctly', async () => {
     const { container } = await act(() =>
-      renderWithUniswapContext(
+      renderWithLuxContext(
         <MultichainContext.Provider value={mockMultichainContextValue}>
           <SwapAndLimitContext.Provider value={mockSwapAndLimitContextValue}>
             <SendContext.Provider value={mockedSendContextTokenInput}>

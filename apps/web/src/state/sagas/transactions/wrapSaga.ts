@@ -1,4 +1,4 @@
-import { Currency, CurrencyAmount } from '@uniswap/sdk-core'
+import { Currency, CurrencyAmount } from '@lux/sdk-core'
 import { useCallback } from 'react'
 import { useDispatch } from 'react-redux'
 import { call } from 'typed-redux-saga'
@@ -46,7 +46,7 @@ function* wrap(params: WrapParams) {
       address,
       setCurrentStep: noop,
       shouldWaitForConfirmation: false,
-      allowDuplicativeTx: true, // Compared to UniswapX wraps, the user should not be stopped from wrapping in quick succession
+      allowDuplicativeTx: true, // Compared to DEX wraps, the user should not be stopped from wrapping in quick succession
     })
 
     popupRegistry.addPopup({ type: PopupType.Transaction, hash }, hash)

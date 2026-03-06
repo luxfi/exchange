@@ -32,7 +32,7 @@ describe('SwapPreview.tsx', () => {
     expect(screen.getByTestId('output-amount')).toHaveTextContent(`<0.00001 DEF`)
   })
 
-  it('renders ETH input token for an ETH input UniswapX swap', () => {
+  it('renders ETH input token for an ETH input DEX swap', () => {
     const { asFragment } = render(
       <SwapPreview
         inputCurrency={ETH_MAINNET}
@@ -46,7 +46,7 @@ describe('SwapPreview.tsx', () => {
     expect(screen.getByTestId('output-amount')).toHaveTextContent(`<0.00001 DEF`)
   })
 
-  it('renders ETH input token for an ETH input UniswapX v2 swap', () => {
+  it('renders ETH input token for an ETH input DEX v2 swap', () => {
     const { asFragment } = render(
       <SwapPreview
         inputCurrency={ETH_MAINNET}

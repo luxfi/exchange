@@ -1,5 +1,5 @@
 module.exports = {
-  extends: ['@uniswap/eslint-config/lib'],
+  extends: ['@lux/eslint-config/lib'],
   ignorePatterns: ['env.d.ts'],
   parserOptions: {
     tsconfigRootDir: __dirname,

@@ -1,5 +1,5 @@
 import { PersistState } from 'redux-persist'
-import { migrateDismissedTokenWarnings } from 'lx/src/state/uniswapMigrations'
+import { migrateDismissedTokenWarnings } from 'lx/src/state/luxMigrations'
 
 type PersistAppState = {
   _persist: PersistState

@@ -3,7 +3,7 @@
  * Native Go implementation at EVM level
  *
  * LX is the umbrella name for the Lux DEX stack:
- * - AMM (Uniswap v4-style)
+ * - AMM (Lux v4-style)
  * - CLOB (Hyperliquid-style)
  * - Vaults, Feeds, Routing
  *

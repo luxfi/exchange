@@ -132,7 +132,7 @@
 //
 //  Paritally migrated!
 //  - @typescript-eslint/no-restricted-imports - biome doesn't have allowTypeImports param.
-//    So, keep this eslint rule for @uniswap/smart-order-router and react-native related imports
+//    So, keep this eslint rule for @lux/smart-order-router and react-native related imports
 
 // Rules that have been migrated to Biome and should be disabled in ESLint
 // by overriding them inside .eslintrc.* files, so eslint does not check them
@@ -207,7 +207,7 @@ module.exports = {
     {
       paths: [
         {
-          name: '@uniswap/smart-order-router',
+          name: '@lux/smart-order-router',
           message: 'Only import types, unless you are in the client-side SOR, to preserve lazy-loading.',
           allowTypeImports: true,
         },

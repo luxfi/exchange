@@ -3,33 +3,33 @@ import { SignTypedDataStepFields } from 'lx/src/features/transactions/steps/perm
 import { TransactionStepType } from 'lx/src/features/transactions/steps/types'
 import { ValidatedPermit } from 'lx/src/features/transactions/swap/utils/trade'
 
-export interface UniswapXSignatureStep extends SignTypedDataStepFields {
-  type: TransactionStepType.UniswapXSignature
+export interface DEXSignatureStep extends SignTypedDataStepFields {
+  type: TransactionStepType.DEXSignature
   deadline: number
   quote: TradingApi.DutchQuoteV2 | TradingApi.DutchQuoteV3 | TradingApi.PriorityQuote
 }
 
-export function createSignUniswapXOrderStep(
+export function createSignDEXOrderStep(
   permitData: ValidatedPermit,
   quote: TradingApi.DutchQuoteV2 | TradingApi.DutchQuoteV3 | TradingApi.PriorityQuote,
-): UniswapXSignatureStep {
-  return { type: TransactionStepType.UniswapXSignature, deadline: quote.orderInfo.deadline, quote, ...permitData }
+): DEXSignatureStep {
+  return { type: TransactionStepType.DEXSignature, deadline: quote.orderInfo.deadline, quote, ...permitData }
 }
 
-export interface UniswapXPlanSignatureStep extends SignTypedDataStepFields, TradingApi.PlanStep {
-  type: TransactionStepType.UniswapXPlanSignature
+export interface DEXPlanSignatureStep extends SignTypedDataStepFields, TradingApi.PlanStep {
+  type: TransactionStepType.DEXPlanSignature
   deadline: number
 }
 
-export function createUniswapXPlanSignatureStep(
+export function createDEXPlanSignatureStep(
   permitData: ValidatedPermit,
   step: TradingApi.PlanStep,
-): UniswapXPlanSignatureStep {
-  const uniswapXPlanSignatureStep: UniswapXPlanSignatureStep = {
+): DEXPlanSignatureStep {
+  const dexPlanSignatureStep: DEXPlanSignatureStep = {
     ...step,
     ...permitData,
-    type: TransactionStepType.UniswapXPlanSignature,
+    type: TransactionStepType.DEXPlanSignature,
     deadline: Number(permitData.values['deadline']),
   }
-  return uniswapXPlanSignatureStep
+  return dexPlanSignatureStep
 }

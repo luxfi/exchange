@@ -1,7 +1,7 @@
 import { FeatureFlags, useFeatureFlag } from '@universe/gating'
 import { Trans, useTranslation } from 'react-i18next'
 import { Flex, Image, Text, useSporeColors } from 'ui/src'
-import { BINANCE_WALLET_ICON, UNISWAP_LOGO } from 'ui/src/assets'
+import { BINANCE_WALLET_ICON, LUX_LOGO } from 'ui/src/assets'
 import { Chevron } from 'ui/src/components/icons/Chevron'
 import { Passkey } from 'ui/src/components/icons/Passkey'
 import { ScanQr } from 'ui/src/components/icons/ScanQr'
@@ -44,9 +44,9 @@ function EmbeddedWalletIcon() {
   )
 }
 
-function UniswapMobileIcon({ iconSize }: { iconSize: number }) {
+function LuxMobileIcon({ iconSize }: { iconSize: number }) {
   return isMobileWeb ? (
-    <Image height={iconSize} source={UNISWAP_LOGO} width={iconSize} />
+    <Image height={iconSize} source={LUX_LOGO} width={iconSize} />
   ) : (
     <ScanQr size={iconSize} minWidth={iconSize} color="$accent1" backgroundColor="$accent2" borderRadius={8} p={7} />
   )
@@ -65,7 +65,7 @@ function OtherWalletsIcon() {
 }
 
 /**
- * We have custom icons for certain Uniswap Connectors.
+ * We have custom icons for certain Lux Connectors.
  * This function returns the correct icon for the connector.
  */
 function getIcon({
@@ -81,8 +81,8 @@ function getIcon({
 
   if (wallet.id === CONNECTION_PROVIDER_IDS.EMBEDDED_WALLET_CONNECTOR_ID) {
     return <EmbeddedWalletIcon />
-  } else if (wallet.id === CONNECTION_PROVIDER_IDS.UNISWAP_WALLET_CONNECT_CONNECTOR_ID) {
-    return <UniswapMobileIcon iconSize={iconSize} />
+  } else if (wallet.id === CONNECTION_PROVIDER_IDS.LUX_WALLET_CONNECT_CONNECTOR_ID) {
+    return <LuxMobileIcon iconSize={iconSize} />
   } else if (wallet.id === CONNECTION_PROVIDER_IDS.BINANCE_WALLET_CONNECTOR_ID) {
     return <BinanceWalletIcon iconSize={iconSize} />
   } else {
@@ -103,8 +103,8 @@ function getIcon({
 }
 
 function getConnectorText({ wallet, t }: { wallet: ExternalWallet; t: ReturnType<typeof useTranslation>['t'] }) {
-  if (wallet.id === CONNECTION_PROVIDER_IDS.UNISWAP_WALLET_CONNECT_CONNECTOR_ID) {
-    return t('common.uniswapMobile')
+  if (wallet.id === CONNECTION_PROVIDER_IDS.LUX_WALLET_CONNECT_CONNECTOR_ID) {
+    return t('common.luxMobile')
   } else if (wallet.id === CONNECTION_PROVIDER_IDS.EMBEDDED_WALLET_CONNECTOR_ID) {
     return t('account.passkey.log.in.title')
   } else {

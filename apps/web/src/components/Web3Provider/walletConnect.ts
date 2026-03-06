@@ -19,10 +19,10 @@ export function walletTypeToAmplitudeWalletType(connectionType?: string): string
     case 'coinbaseWallet': {
       return 'Coinbase Wallet'
     }
-    case 'uniswapWalletConnect': {
+    case 'luxWalletConnect': {
       return 'Wallet Connect'
     }
-    case 'embeddedUniswapWallet': {
+    case 'embeddedLuxWallet': {
       return 'Passkey'
     }
     default: {
@@ -47,7 +47,7 @@ export const WC_PARAMS = {
   },
 }
 
-export function uniswapWalletConnect(): any {
+export function luxWalletConnect(): any {
   return createConnector((config: any) => {
     const wc = walletConnect({
       ...WC_PARAMS,
@@ -73,8 +73,8 @@ export function uniswapWalletConnect(): any {
 
     return {
       ...wc,
-      id: 'uniswapWalletConnect',
-      type: 'uniswapWalletConnect',
+      id: 'luxWalletConnect',
+      type: 'luxWalletConnect',
       name: 'Lux Wallet',
       icon: 'https://lux.exchange/favicon.png',
     }

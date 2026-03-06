@@ -1,4 +1,4 @@
-import { Currency } from '@uniswap/sdk-core'
+import { Currency } from '@lux/sdk-core'
 import { PollingInterval } from 'lx/src/constants/misc'
 import { LocalizationContextState } from 'lx/src/features/language/LocalizationContext'
 import { getCurrencyAmount, ValueType } from 'lx/src/features/tokens/getCurrencyAmount'
@@ -11,7 +11,7 @@ export function useFormattedCurrencyAmountAndUSDValue({
   formatter,
   isApproximateAmount = false,
   valueType = ValueType.Raw,
-  isUniswapX = false,
+  isDEX = false,
   pollInterval = PollingInterval.Fast,
 }: {
   currency: Maybe<Currency>
@@ -19,7 +19,7 @@ export function useFormattedCurrencyAmountAndUSDValue({
   formatter: LocalizationContextState
   isApproximateAmount?: boolean
   valueType?: ValueType
-  isUniswapX?: boolean
+  isDEX?: boolean
   pollInterval?: PollingInterval
 }): { amount: string; value: string; tilde: string } {
   const currencyAmount = getCurrencyAmount({
@@ -30,7 +30,7 @@ export function useFormattedCurrencyAmountAndUSDValue({
 
   const value = useUSDCValue(currencyAmount, pollInterval)
 
-  if (isUniswapX) {
+  if (isDEX) {
     return {
       tilde: '',
       amount: `${formatter.formatNumberOrString({ value: 0 })}`,

@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next'
 import { Flex, useSporeColors } from 'ui/src'
 import { StepStatus } from 'lx/src/components/ConfirmSwapModal/types'
 import { CurrencyLogo } from 'lx/src/components/CurrencyLogo/CurrencyLogo'
-import { uniswapUrls } from 'lx/src/constants/urls'
+import { luxUrls } from 'lx/src/constants/urls'
 import { CurrencyInfo } from 'lx/src/features/dataApi/types'
 import { Sign } from '~/components/Icons/Sign'
 import { Swap } from '~/components/Icons/Swap'
@@ -68,7 +68,7 @@ export function BidProgressIndicator({
         actionRequiredTitle: t('common.wallet.approve'),
         inProgressTitle: t('common.approvePending'),
         learnMoreLinkText: t('common.whyApprove'),
-        learnMoreLinkHref: uniswapUrls.helpArticleUrls.approvalsExplainer,
+        learnMoreLinkHref: luxUrls.helpArticleUrls.approvalsExplainer,
       },
       [ConfirmModalState.PERMITTING]: {
         icon: <Sign />,
@@ -77,7 +77,7 @@ export function BidProgressIndicator({
         actionRequiredTitle: t('common.wallet.approve'),
         inProgressTitle: t('common.approvePending'),
         learnMoreLinkText: t('common.whyApprove'),
-        learnMoreLinkHref: uniswapUrls.helpArticleUrls.approvalsExplainer,
+        learnMoreLinkHref: luxUrls.helpArticleUrls.approvalsExplainer,
       },
       [ConfirmModalState.PENDING_CONFIRMATION]: {
         icon: auctionTokenInfo ? <CurrencyLogo currencyInfo={auctionTokenInfo} size={ICON_SIZE} /> : <Swap />,

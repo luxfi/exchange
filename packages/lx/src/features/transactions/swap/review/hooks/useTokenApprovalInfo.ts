@@ -1,12 +1,12 @@
-import { Currency, CurrencyAmount } from '@uniswap/sdk-core'
+import { Currency, CurrencyAmount } from '@lux/sdk-core'
 import { GasFeeResult, TradingApi } from '@universe/api'
 import { useMemo } from 'react'
-import { useUniswapContextSelector } from 'lx/src/contexts/UniswapContext'
+import { useLuxContextSelector } from 'lx/src/contexts/LuxContext'
 import { useCheckApprovalQuery } from 'lx/src/data/apiClients/tradingApi/useCheckApprovalQuery'
 import { UniverseChainId } from 'lx/src/features/chains/types'
 import { convertGasFeeToDisplayValue, useActiveGasStrategy } from 'lx/src/features/gas/hooks'
 import { ApprovalAction, TokenApprovalInfo } from 'lx/src/features/transactions/swap/types/trade'
-import { isUniswapX } from 'lx/src/features/transactions/swap/utils/routing'
+import { isDEX } from 'lx/src/features/transactions/swap/utils/routing'
 import {
   getTokenAddressForApi,
   toTradingApiSupportedChainId,
@@ -31,10 +31,10 @@ export type ApprovalTxInfo = {
 }
 
 function useApprovalWillBeBatchedWithSwap(chainId: UniverseChainId, routing: TradingApi.Routing | undefined): boolean {
-  const canBatchTransactions = useUniswapContextSelector((ctx) => ctx.getCanBatchTransactions?.(chainId))
-  const swapDelegationInfo = useUniswapContextSelector((ctx) => ctx.getSwapDelegationInfo?.(chainId))
+  const canBatchTransactions = useLuxContextSelector((ctx) => ctx.getCanBatchTransactions?.(chainId))
+  const swapDelegationInfo = useLuxContextSelector((ctx) => ctx.getSwapDelegationInfo?.(chainId))
 
-  const isBatchableFlow = Boolean(routing && !isUniswapX({ routing }))
+  const isBatchableFlow = Boolean(routing && !isDEX({ routing }))
 
   return Boolean((canBatchTransactions || swapDelegationInfo?.delegationAddress) && isBatchableFlow)
 }

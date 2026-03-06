@@ -4,11 +4,11 @@ import toucanIntroBackground from 'ui/src/assets/backgrounds/toucan-intro.png'
 import { Rocket } from 'ui/src/components/icons/Rocket'
 import { X } from 'ui/src/components/icons/X'
 import { Modal } from 'lx/src/components/modals/Modal'
-import { uniswapUrls } from 'lx/src/constants/urls'
+import { luxUrls } from 'lx/src/constants/urls'
 import { ModalName } from 'lx/src/features/telemetry/constants'
 import { ExternalLink } from '~/theme/components/Links'
 
-const LEARN_MORE_URL = uniswapUrls.helpArticleUrls.toucanIntro
+const LEARN_MORE_URL = luxUrls.helpArticleUrls.toucanIntro
 
 interface ToucanIntroModalProps {
   isOpen: boolean

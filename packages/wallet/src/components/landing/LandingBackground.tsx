@@ -15,7 +15,7 @@ import Animated, {
 import { Circle, Defs, Svg } from 'react-native-svg'
 import { Flex, FlexProps, Image, useIsDarkMode } from 'ui/src'
 import { Jiggly } from 'ui/src/animations'
-import { UNISWAP_LOGO } from 'ui/src/assets'
+import { LUX_LOGO } from 'ui/src/assets'
 import { AnimatedFlex } from 'ui/src/components/layout/AnimatedFlex'
 import { imageSizes } from 'ui/src/theme'
 import { isWebPlatform } from 'utilities/src/platform'
@@ -65,11 +65,11 @@ const OnboardingAnimation = ({
     setBoxWidth(event.nativeEvent.layout.width)
   }, [])
 
-  const uniswapLogoScale = useSharedValue(1.5)
-  const animatedStyle = useAnimatedStyle(() => ({ transform: [{ scale: uniswapLogoScale.value }] }), [uniswapLogoScale])
+  const luxLogoScale = useSharedValue(1.5)
+  const animatedStyle = useAnimatedStyle(() => ({ transform: [{ scale: luxLogoScale.value }] }), [luxLogoScale])
 
   useEffect(() => {
-    uniswapLogoScale.value = withDelay(
+    luxLogoScale.value = withDelay(
       LOGO_SCALE_DELAY,
       withTiming(1, {
         duration: LOGO_SCALE_DURATION,
@@ -99,7 +99,7 @@ const OnboardingAnimation = ({
           <Image
             height={isWebPlatform ? LOGO_SIZE_WEB : imageSizes.image100}
             resizeMode="contain"
-            source={UNISWAP_LOGO}
+            source={LUX_LOGO}
             width={isWebPlatform ? LOGO_SIZE_WEB : imageSizes.image100}
           />
         </Jiggly>

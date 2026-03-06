@@ -1,7 +1,7 @@
-import { TradeType } from '@uniswap/sdk-core'
+import { TradeType } from '@lux/sdk-core'
 import { FeatureFlags, useFeatureFlag } from '@universe/gating'
 import { useMemo } from 'react'
-import { useUniswapContextSelector } from 'lx/src/contexts/UniswapContext'
+import { useLuxContextSelector } from 'lx/src/contexts/LuxContext'
 import { useEnabledChains } from 'lx/src/features/chains/hooks/useEnabledChains'
 import { UniverseChainId } from 'lx/src/features/chains/types'
 import { useOnChainCurrencyBalance } from 'lx/src/features/portfolio/api'
@@ -89,7 +89,7 @@ export function useDerivedSwapInfo({
 
   const sendPortionEnabled = useFeatureFlag(FeatureFlags.PortionFields)
 
-  const generatePermitAsTransaction = useUniswapContextSelector((ctx) => {
+  const generatePermitAsTransaction = useLuxContextSelector((ctx) => {
     // If the account cannot sign typedData, permits should be completed as a transaction step,
     // unless the swap is going through the 7702 smart wallet flow, in which case the
     // swap_7702 endpoint consumes typedData in the process encoding the swap.

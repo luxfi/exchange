@@ -2,7 +2,7 @@ import { SignerMnemonicAccountMeta } from 'lx/src/features/accounts/types'
 import { UniverseChainId } from 'lx/src/features/chains/types'
 import {
   ValidatedSwapTxContext,
-  ValidatedUniswapXSwapTxAndGasInfo,
+  ValidatedDEXSwapTxAndGasInfo,
 } from 'lx/src/features/transactions/swap/types/swapTxAndGasInfo'
 import { ValidatedPermit } from 'lx/src/features/transactions/swap/utils/trade'
 import { SignedTransactionRequest } from 'wallet/src/features/transactions/executeTransaction/types'
@@ -41,12 +41,12 @@ interface BasePreSignedSwapTransaction {
   account: SignerMnemonicAccountMeta
 }
 
-export interface UniswapXPreSignedSwapTransaction extends BasePreSignedSwapTransaction {
+export interface DEXPreSignedSwapTransaction extends BasePreSignedSwapTransaction {
   /** The signed permit transaction */
   signedSwapPermit: SignedPermit
 
   /** The swap transaction context */
-  swapTxContext: ValidatedUniswapXSwapTxAndGasInfo
+  swapTxContext: ValidatedDEXSwapTxAndGasInfo
 }
 
 export interface OnChainPreSignedSwapTransaction extends BasePreSignedSwapTransaction {
@@ -54,17 +54,17 @@ export interface OnChainPreSignedSwapTransaction extends BasePreSignedSwapTransa
   signedSwapTx: SignedTransactionRequest
 
   /** The swap transaction context */
-  swapTxContext: Exclude<ValidatedSwapTxContext, ValidatedUniswapXSwapTxAndGasInfo>
+  swapTxContext: Exclude<ValidatedSwapTxContext, ValidatedDEXSwapTxAndGasInfo>
 }
 
 /**
  * Represents a transaction that has been prepared and pre-signed for immediate submission
  */
-export type PreSignedSwapTransaction = UniswapXPreSignedSwapTransaction | OnChainPreSignedSwapTransaction
+export type PreSignedSwapTransaction = DEXPreSignedSwapTransaction | OnChainPreSignedSwapTransaction
 
-export function isUniswapXPreSignedSwapTransaction(
+export function isDEXPreSignedSwapTransaction(
   preSignedSwapTransaction: PreSignedSwapTransaction,
-): preSignedSwapTransaction is UniswapXPreSignedSwapTransaction {
+): preSignedSwapTransaction is DEXPreSignedSwapTransaction {
   return 'signedSwapPermit' in preSignedSwapTransaction
 }
 

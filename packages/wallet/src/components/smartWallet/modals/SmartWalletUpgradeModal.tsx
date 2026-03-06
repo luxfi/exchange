@@ -1,8 +1,8 @@
-import { SharedEventName } from '@uniswap/analytics-events'
+import { SharedEventName } from '@lux/analytics-events'
 import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useDispatch } from 'react-redux'
-import { uniswapUrls } from 'lx/src/constants/urls'
+import { luxUrls } from 'lx/src/constants/urls'
 import { ElementName, ModalName } from 'lx/src/features/telemetry/constants'
 import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
 import { useEvent } from 'utilities/src/react/hooks'
@@ -99,7 +99,7 @@ export function SmartWalletUpgradeModals({
             onClick: handleEnableSmartWalletClick,
           }}
           secondaryButton={{ text: t('common.button.later'), onClick: handleSmartWalletDismiss, emphasis: 'text-only' }}
-          learnMoreUrl={uniswapUrls.helpArticleUrls.smartWalletDelegation}
+          learnMoreUrl={luxUrls.helpArticleUrls.smartWalletDelegation}
           modalName={ModalName.SmartWalletUpgradeModal}
           isDismissible={false}
           onClose={handleSmartWalletDismiss}

@@ -6,7 +6,7 @@ import { iconSizes } from 'ui/src/theme'
 import { CurrencyLogo } from 'lx/src/components/CurrencyLogo/CurrencyLogo'
 import { GetHelpHeader } from 'lx/src/components/dialog/GetHelpHeader'
 import { Modal } from 'lx/src/components/modals/Modal'
-import { uniswapUrls } from 'lx/src/constants/urls'
+import { luxUrls } from 'lx/src/constants/urls'
 import { useActiveAddress } from 'lx/src/features/accounts/store/hooks'
 import { UniverseChainId } from 'lx/src/features/chains/types'
 import { EdgeFade } from 'lx/src/features/fiatOnRamp/EdgeFade/EdgeFade'
@@ -163,7 +163,7 @@ function ChooseProviderModalContent({ closeModal }: ChooseProviderModal) {
     >
       <Flex gap="$spacing24">
         <GetHelpHeader
-          link={uniswapUrls.helpArticleUrls.fiatOnRampHelp}
+          link={luxUrls.helpArticleUrls.fiatOnRampHelp}
           closeModal={closeModal}
           closeDataTestId="ChooseProviderModal-close"
         />

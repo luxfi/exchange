@@ -2,13 +2,13 @@ import { UniverseChainId } from 'lx/src/features/chains/types'
 import {
   PlanTransactionDetails,
   TransactionType,
-  UniswapXOrderDetails,
+  DEXOrderDetails,
 } from 'lx/src/features/transactions/types/transactionDetails'
 import { ConfirmedTransactionDetails, TransactionDetails } from '~/state/transactions/types'
 
 export enum ActivityUpdateTransactionType {
   BaseTransaction = 'transaction',
-  UniswapXOrder = TransactionType.UniswapXOrder,
+  DEXOrder = TransactionType.DEXOrder,
   Plan = TransactionType.Plan,
 }
 
@@ -24,9 +24,9 @@ interface TransactionUpdate extends BaseUpdate<TransactionDetails> {
   update: Required<Pick<ConfirmedTransactionDetails, 'status' | 'typeInfo'>> & Partial<ConfirmedTransactionDetails>
 }
 
-export interface UniswapXOrderUpdate extends Omit<BaseUpdate<UniswapXOrderDetails>, 'update'> {
-  type: ActivityUpdateTransactionType.UniswapXOrder
-  update: UniswapXOrderDetails
+export interface DEXOrderUpdate extends Omit<BaseUpdate<DEXOrderDetails>, 'update'> {
+  type: ActivityUpdateTransactionType.DEXOrder
+  update: DEXOrderDetails
 }
 
 export interface ActivityPlanUpdate extends Omit<BaseUpdate<PlanTransactionDetails>, 'original'> {
@@ -34,5 +34,5 @@ export interface ActivityPlanUpdate extends Omit<BaseUpdate<PlanTransactionDetai
   update: PlanTransactionDetails
 }
 
-export type ActivityUpdate = TransactionUpdate | UniswapXOrderUpdate | ActivityPlanUpdate
+export type ActivityUpdate = TransactionUpdate | DEXOrderUpdate | ActivityPlanUpdate
 export type OnActivityUpdate<T extends ActivityUpdate = ActivityUpdate> = (update: T) => void

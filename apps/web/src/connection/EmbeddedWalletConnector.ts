@@ -21,12 +21,12 @@ export function embeddedWallet(_parameters: EmbeddedWalletParameters = {}) {
   type Properties = {
     onConnect(connectInfo: ProviderConnectInfo): void
   }
-  type StorageItem = { 'embeddedUniswapWallet.disconnected': true }
+  type StorageItem = { 'embeddedLuxWallet.disconnected': true }
 
   return createConnector<Provider, Properties, StorageItem>((config) => ({
     id: CONNECTION_PROVIDER_IDS.EMBEDDED_WALLET_CONNECTOR_ID,
     name: CONNECTION_PROVIDER_NAMES.EMBEDDED_WALLET,
-    type: 'embeddedUniswapWallet',
+    type: 'embeddedLuxWallet',
     async setup() {
       const provider = await this.getProvider()
       provider.on('connect', this.onConnect.bind(this) as Listener)
@@ -72,7 +72,7 @@ export function embeddedWallet(_parameters: EmbeddedWalletParameters = {}) {
           currentChainId = chain.id
         }
 
-        await config.storage?.removeItem('embeddedUniswapWallet.disconnected')
+        await config.storage?.removeItem('embeddedLuxWallet.disconnected')
 
         if (accounts.length === 0) {
           throw new ResourceUnavailableRpcError(new Error('No accounts available'))
@@ -98,7 +98,7 @@ export function embeddedWallet(_parameters: EmbeddedWalletParameters = {}) {
       provider.removeListener('disconnect', this.onDisconnect.bind(this))
       provider.on('connect', this.onConnect.bind(this) as Listener)
 
-      config.storage?.setItem('embeddedUniswapWallet.disconnected', true)
+      config.storage?.setItem('embeddedLuxWallet.disconnected', true)
     },
     async getAccounts() {
       const provider = await this.getProvider()
@@ -153,7 +153,7 @@ export function embeddedWallet(_parameters: EmbeddedWalletParameters = {}) {
       else if (config.emitter.listenerCount('connect')) {
         const chainId = (await this.getChainId()).toString()
         this.onConnect({ chainId })
-        await config.storage?.removeItem('embeddedUniswapWallet.disconnected')
+        await config.storage?.removeItem('embeddedLuxWallet.disconnected')
       }
       // Regular change event
       else {

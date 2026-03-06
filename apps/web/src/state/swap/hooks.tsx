@@ -1,4 +1,4 @@
-import { Currency } from '@uniswap/sdk-core'
+import { Currency } from '@lux/sdk-core'
 import { ParsedQs } from 'qs'
 import { useCallback, useEffect, useMemo } from 'react'
 import { useSelector } from 'react-redux'
@@ -196,7 +196,7 @@ export function queryParametersToCurrencyState(parsedQs: ParsedQs): SerializedCu
 // We can revisit this if we find a way to make the initial load time faster.
 
 // When we get the speed up here is the PR that removed the beautiful code:
-// https://app.graphite.dev/github/pr/Uniswap/universe/11068/fix-web-default-to-eth-mainnet-on-multichain
+// https://app.graphite.dev/github/pr/Lux/universe/11068/fix-web-default-to-eth-mainnet-on-multichain
 export function useInitialCurrencyState(): {
   initialInputCurrency?: Currency
   initialOutputCurrency?: Currency

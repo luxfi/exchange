@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next'
 import { Flex, Text } from 'ui/src'
 import { AlertTriangleFilled } from 'ui/src/components/icons/AlertTriangleFilled'
 import { LearnMoreLink } from 'lx/src/components/text/LearnMoreLink'
-import { uniswapUrls } from 'lx/src/constants/urls'
+import { luxUrls } from 'lx/src/constants/urls'
 import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
 import { SlippageInfoProps } from 'lx/src/features/transactions/swap/components/MaxSlippageRow/SlippageInfo/types'
 import { useFormatSlippageAmount } from 'lx/src/features/transactions/swap/components/MaxSlippageRow/SlippageInfo/useFormatSlippageAmount'
@@ -75,7 +75,7 @@ export function SlippageInfoCaption({
           : t('swap.settings.slippage.output.message')}{' '}
         {isWebPlatform && (
           <Flex display="inline-flex">
-            <LearnMoreLink url={uniswapUrls.helpArticleUrls.swapSlippage} textVariant="body4" />
+            <LearnMoreLink url={luxUrls.helpArticleUrls.swapSlippage} textVariant="body4" />
           </Flex>
         )}
       </Text>

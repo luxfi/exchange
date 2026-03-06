@@ -18,7 +18,7 @@ jest.mock('wallet/src/features/wallet/hooks', () => ({
 }))
 
 const SAMPLE_DAPP = 'http://example.com'
-const SAMPLE_DAPP_2 = 'http://uniswap.org'
+const SAMPLE_DAPP_2 = 'http://lux.org'
 
 const dappState: DappState = {
   [SAMPLE_DAPP]: {

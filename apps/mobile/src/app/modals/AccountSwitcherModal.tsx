@@ -14,12 +14,12 @@ import { useDeviceDimensions } from 'ui/src/hooks/useDeviceDimensions'
 import { spacing } from 'ui/src/theme'
 import { AddressDisplay } from 'lx/src/components/accounts/AddressDisplay'
 import { buildWrappedUrl } from 'lx/src/components/banners/shared/utils'
-import { UniswapWrapped2025Card } from 'lx/src/components/banners/UniswapWrapped2025Card/UniswapWrapped2025Card'
+import { LuxWrapped2025Card } from 'lx/src/components/banners/LuxWrapped2025Card/LuxWrapped2025Card'
 import { ActionSheetModal, MenuItemProp } from 'lx/src/components/modals/ActionSheetModal'
 import { Modal } from 'lx/src/components/modals/Modal'
-import { UNISWAP_WEB_URL } from 'lx/src/constants/urls'
+import { LUX_WEB_URL } from 'lx/src/constants/urls'
 import { AccountType } from 'lx/src/features/accounts/types'
-import { setHasDismissedUniswapWrapped2025Banner } from 'lx/src/features/behaviorHistory/slice'
+import { setHasDismissedLuxWrapped2025Banner } from 'lx/src/features/behaviorHistory/slice'
 import { Platform } from 'lx/src/features/platforms/types/Platform'
 import { ElementName, ModalName, WalletEventName } from 'lx/src/features/telemetry/constants'
 import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
@@ -67,7 +67,7 @@ export function AccountSwitcher({ onClose }: { onClose: () => void }): JSX.Eleme
   const isModalOpen = useIsFocused()
   const { openWalletRestoreModal, walletRestoreType } = useWalletRestore()
 
-  const isWrappedBannerEnabled = useFeatureFlag(FeatureFlags.UniswapWrapped2025)
+  const isWrappedBannerEnabled = useFeatureFlag(FeatureFlags.LuxWrapped2025)
 
   const sortedMnemonicAccounts = useSelector(selectSortedSignerMnemonicAccounts)
 
@@ -111,10 +111,10 @@ export function AccountSwitcher({ onClose }: { onClose: () => void }): JSX.Eleme
     }
 
     try {
-      const url = buildWrappedUrl(UNISWAP_WEB_URL, activeAccountAddress)
+      const url = buildWrappedUrl(LUX_WEB_URL, activeAccountAddress)
       await openUri({ uri: url, openExternalBrowser: true })
       onClose()
-      dispatch(setHasDismissedUniswapWrapped2025Banner(true))
+      dispatch(setHasDismissedLuxWrapped2025Banner(true))
     } catch (error) {
       logger.error(error, { tags: { file: 'AccountSwitcherModal', function: 'onPressWrappedCard' } })
     }
@@ -293,7 +293,7 @@ export function AccountSwitcher({ onClose }: { onClose: () => void }): JSX.Eleme
         />
         {isWrappedBannerEnabled && (
           <Flex row px="$spacing12">
-            <UniswapWrapped2025Card onPress={onPressWrappedCard} />
+            <LuxWrapped2025Card onPress={onPressWrappedCard} />
           </Flex>
         )}
         <Flex row px="$spacing12">

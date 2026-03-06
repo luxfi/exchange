@@ -10,7 +10,7 @@ import { useMemo } from 'react'
 import {
   useTokenMarketPartsFragment,
   useTokenProjectMarketsPartsFragment,
-} from 'lx/src/data/graphql/uniswap-data-api/fragments'
+} from 'lx/src/data/graphql/lux-data-api/fragments'
 import type { CurrencyId } from 'lx/src/types/currency'
 
 /**

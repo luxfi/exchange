@@ -10,7 +10,7 @@ import { DEP_accentColors, validColor } from 'ui/src/theme'
 import {
   useTokenBasicInfoPartsFragment,
   useTokenBasicProjectPartsFragment,
-} from 'lx/src/data/graphql/uniswap-data-api/fragments'
+} from 'lx/src/data/graphql/lux-data-api/fragments'
 import { useTokenMarketStats } from 'lx/src/features/dataApi/tokenDetails/useTokenDetailsData'
 import { currencyIdToContractInput } from 'lx/src/features/dataApi/utils/currencyIdToContractInput'
 import { Language } from 'lx/src/features/language/constants'

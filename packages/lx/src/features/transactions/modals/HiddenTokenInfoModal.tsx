@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next'
 import { Flex } from 'ui/src'
 import { ShieldCheck } from 'ui/src/components/icons/ShieldCheck'
 import { InfoLinkModal } from 'lx/src/components/modals/InfoLinkModal'
-import { uniswapUrls } from 'lx/src/constants/urls'
+import { luxUrls } from 'lx/src/constants/urls'
 import { ModalName, WalletEventName } from 'lx/src/features/telemetry/constants'
 import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
 
@@ -12,7 +12,7 @@ export function HiddenTokenInfoModal({ isOpen, onClose }: { isOpen: boolean; onC
 
   const handleAnalytics = useCallback((): void => {
     sendAnalyticsEvent(WalletEventName.ExternalLinkOpened, {
-      url: uniswapUrls.helpArticleUrls.hiddenTokenInfo,
+      url: luxUrls.helpArticleUrls.hiddenTokenInfo,
     })
   }, [])
 
@@ -28,7 +28,7 @@ export function HiddenTokenInfoModal({ isOpen, onClose }: { isOpen: boolean; onC
       }
       isOpen={isOpen}
       linkText={t('common.button.learn')}
-      linkUrl={uniswapUrls.helpArticleUrls.hiddenTokenInfo}
+      linkUrl={luxUrls.helpArticleUrls.hiddenTokenInfo}
       name={ModalName.HiddenTokenInfoModal}
       title={t('hidden.tokens.info.text.title')}
       onAnalyticsEvent={handleAnalytics}

@@ -22,7 +22,7 @@
  * 7. after receiving a response, we handle accordingly:
  *
  * +----------------------------+-----------------------------------------+-----------------------------------------------+
- * | Is Uniswap Default Wallet? | Provider slot occupied by other wallet? |                   Behavior                    |
+ * | Is Lux Default Wallet? | Provider slot occupied by other wallet? |                   Behavior                    |
  * +----------------------------+-----------------------------------------+-----------------------------------------------+
  * | Yes                        | Yes                                     | We override + spoof `isMetaMask`              |
  * | Yes                        | No                                      | We override + spoof `isMetaMask`              |

@@ -2,8 +2,8 @@ import { useQuery } from '@tanstack/react-query'
 import {
   CheckApprovalLPRequest,
   IncreaseLPPositionRequest,
-} from '@uniswap/client-liquidity/dist/uniswap/liquidity/v1/api_pb'
-import type { Currency, CurrencyAmount } from '@uniswap/sdk-core'
+} from '@lux/client-liquidity/dist/lux/liquidity/v1/api_pb'
+import type { Currency, CurrencyAmount } from '@lux/sdk-core'
 import { FeatureFlags, useFeatureFlag } from '@universe/gating'
 import {
   createContext,
@@ -16,7 +16,7 @@ import {
   useState,
 } from 'react'
 import { useSelector } from 'react-redux'
-import { useUniswapContextSelector } from 'lx/src/contexts/UniswapContext'
+import { useLuxContextSelector } from 'lx/src/contexts/LuxContext'
 import { liquidityQueries } from 'lx/src/data/apiClients/liquidityService/liquidityQueries'
 import { useActiveAddress } from 'lx/src/features/accounts/store/hooks'
 import { UniverseChainId } from 'lx/src/features/chains/types'
@@ -75,7 +75,7 @@ export function IncreaseLiquidityTxContextProvider({ children }: PropsWithChildr
   const accountAddress = useActiveAddress(Platform.EVM)
   const isLiquidityBatchedTransactionsEnabled = useFeatureFlag(FeatureFlags.LiquidityBatchedTransactions)
   const canBatchTransactions =
-    useUniswapContextSelector((ctx) => ctx.getCanBatchTransactions?.(positionInfo?.chainId)) &&
+    useLuxContextSelector((ctx) => ctx.getCanBatchTransactions?.(positionInfo?.chainId)) &&
     positionInfo?.chainId !== UniverseChainId.Monad &&
     isLiquidityBatchedTransactionsEnabled
 

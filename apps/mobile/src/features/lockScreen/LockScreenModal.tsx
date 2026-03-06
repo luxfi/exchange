@@ -12,7 +12,7 @@ import { useOsBiometricAuthEnabled } from 'src/features/biometrics/useOsBiometri
 import { useBiometricName, useBiometricPrompt } from 'src/features/biometricsSettings/hooks'
 import { useLockScreenState } from 'src/features/lockScreen/hooks/useLockScreenState'
 import { Button, Flex, flexStyles, TouchableArea, useIsDarkMode } from 'ui/src'
-import { UNISWAP_MONO_LOGO_LARGE } from 'ui/src/assets'
+import { LUX_MONO_LOGO_LARGE } from 'ui/src/assets'
 import { AnimatedFlex } from 'ui/src/components/layout/AnimatedFlex'
 import { useDeviceDimensions } from 'ui/src/hooks/useDeviceDimensions'
 import { spacing, zIndexes } from 'ui/src/theme'
@@ -99,7 +99,7 @@ const BlurredLockScreen = memo(function BlurredLockScreen(): JSX.Element {
       style={flexStyles.fill}
     >
       <Image
-        source={UNISWAP_MONO_LOGO_LARGE}
+        source={LUX_MONO_LOGO_LARGE}
         style={{
           position: 'absolute',
           top: (dimensions.fullHeight - SPLASH_SCREEN_IMAGE_SIZE) / 2,

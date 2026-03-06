@@ -1,11 +1,11 @@
 import { Contract } from '@ethersproject/contracts'
-import { CHAIN_TO_ADDRESSES_MAP, MULTICALL_ADDRESSES, NONFUNGIBLE_POSITION_MANAGER_ADDRESSES } from '@uniswap/sdk-core'
-import UniswapInterfaceMulticallJson from '@uniswap/v3-periphery/artifacts/contracts/lens/UniswapInterfaceMulticall.sol/UniswapInterfaceMulticall.json'
-import NonfungiblePositionManagerJson from '@uniswap/v3-periphery/artifacts/contracts/NonfungiblePositionManager.sol/NonfungiblePositionManager.json'
+import { CHAIN_TO_ADDRESSES_MAP, MULTICALL_ADDRESSES, NONFUNGIBLE_POSITION_MANAGER_ADDRESSES } from '@lux/sdk-core'
+import LuxInterfaceMulticallJson from '@lux/v3-periphery/artifacts/contracts/lens/LuxInterfaceMulticall.sol/LuxInterfaceMulticall.json'
+import NonfungiblePositionManagerJson from '@lux/v3-periphery/artifacts/contracts/NonfungiblePositionManager.sol/NonfungiblePositionManager.json'
 import { useEffect, useMemo } from 'react'
 import ERC20_ABI from 'lx/src/abis/erc20.json'
 import { Erc20, Erc721, Weth } from 'lx/src/abis/types'
-import { NonfungiblePositionManager, UniswapInterfaceMulticall } from 'lx/src/abis/types/v3'
+import { NonfungiblePositionManager, LuxInterfaceMulticall } from 'lx/src/abis/types/v3'
 import WETH_ABI from 'lx/src/abis/weth.json'
 import { WRAPPED_NATIVE_CURRENCY } from 'lx/src/constants/tokens'
 import { EVMUniverseChainId, UniverseChainId } from 'lx/src/features/chains/types'
@@ -16,7 +16,7 @@ import { logger } from 'utilities/src/logger/logger'
 import { useAccount } from '~/hooks/useAccount'
 import { useEthersProvider } from '~/hooks/useEthersProvider'
 
-const { abi: MulticallABI } = UniswapInterfaceMulticallJson
+const { abi: MulticallABI } = LuxInterfaceMulticallJson
 const { abi: NFTPositionManagerABI } = NonfungiblePositionManagerJson
 
 // returns null on errors
@@ -86,12 +86,12 @@ export function useWETHContract(withSignerIfPossible?: boolean, chainId?: Univer
 export function useInterfaceMulticall(chainId?: UniverseChainId) {
   const account = useAccount()
   const chain = chainId ?? account.chainId
-  return useContract<UniswapInterfaceMulticall>({
+  return useContract<LuxInterfaceMulticall>({
     address: chain ? MULTICALL_ADDRESSES[chain] : undefined,
     ABI: MulticallABI,
     withSignerIfPossible: false,
     chainId: chain,
-  }) as UniswapInterfaceMulticall
+  }) as LuxInterfaceMulticall
 }
 
 export function useV3NFTPositionManagerContract(

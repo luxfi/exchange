@@ -20,7 +20,7 @@ export function uriToHttpUrls(uri: string, options?: { allowLocalUri?: boolean }
       return [uri]
     case 'http':
       // In extensions, prioritize HTTP for localhost since HTTPS localhost doesn't work
-      if (typeof process !== 'undefined' && process.env.IS_UNISWAP_EXTENSION === 'true' && uri.includes('localhost')) {
+      if (typeof process !== 'undefined' && process.env.IS_LUX_EXTENSION === 'true' && uri.includes('localhost')) {
         return [uri, 'https' + uri.slice(4)]
       }
       return ['https' + uri.slice(4), uri]

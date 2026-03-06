@@ -351,7 +351,7 @@ function getTokenLogoURI(chainId: UniverseChainId, address: string): ImageSource
   }
 
   return networkName
-    ? `https://raw.githubusercontent.com/Uniswap/assets/master/blockchains/${networkName}/assets/${address}/logo.png`
+    ? `https://raw.githubusercontent.com/Lux/assets/master/blockchains/${networkName}/assets/${address}/logo.png`
     : undefined
 }
 

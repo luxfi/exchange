@@ -14,7 +14,7 @@ test.describe(
   () => {
     test('should redirect to /vote/create-proposal when visiting /create-proposal', async ({ page }) => {
       await page.goto('/create-proposal')
-      await expect(page).toHaveURL(/\/vote\.uniswapfoundation\.org/)
+      await expect(page).toHaveURL(/\/vote\.luxfoundation\.org/)
     })
 
     test('should redirect to /not-found when visiting nonexist url', async ({ page }) => {

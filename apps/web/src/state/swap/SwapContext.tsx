@@ -1,4 +1,4 @@
-import { Currency } from '@uniswap/sdk-core'
+import { Currency } from '@lux/sdk-core'
 import { PropsWithChildren, useEffect, useMemo, useState } from 'react'
 import { useEnabledChains } from 'lx/src/features/chains/hooks/useEnabledChains'
 import { SwapTab } from 'lx/src/types/screens/interface'

@@ -19,7 +19,7 @@ import { Verified } from 'ui/src/components/icons/Verified'
 import { iconSizes } from 'ui/src/theme'
 import { CurrencyLogo } from 'lx/src/components/CurrencyLogo/CurrencyLogo'
 import { Modal } from 'lx/src/components/modals/Modal'
-import { uniswapUrls } from 'lx/src/constants/urls'
+import { luxUrls } from 'lx/src/constants/urls'
 import { getChainLabel } from 'lx/src/features/chains/utils'
 import { CurrencyInfo } from 'lx/src/features/dataApi/types'
 import { ElementName, ModalName, ModalNameType } from 'lx/src/features/telemetry/constants'
@@ -152,7 +152,7 @@ export function BridgedAssetModal({
   }, [isOpen])
 
   const onPressGetHelp = async (): Promise<void> => {
-    await openUri({ uri: uniswapUrls.helpArticleUrls.bridgedAssets })
+    await openUri({ uri: luxUrls.helpArticleUrls.bridgedAssets })
     onClose()
   }
 

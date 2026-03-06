@@ -131,11 +131,11 @@ export function DisconnectedState({ parentRef }: { parentRef: RefObject<HTMLDivE
 
           <Flex alignItems="center" gap="$spacing12">
             <Text variant="heading3" color={darkColors.neutral1.val}>
-              {t('home.banner.uniswapWrapped2025.title')}
+              {t('home.banner.luxWrapped2025.title')}
             </Text>
 
             <Text color={darkColors.neutral2.val} variant="body1" textAlign="center">
-              {t('home.banner.uniswapWrapped2025.description')}
+              {t('home.banner.luxWrapped2025.description')}
             </Text>
           </Flex>
           <Flex row centered>

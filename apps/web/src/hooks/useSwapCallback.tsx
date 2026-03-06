@@ -1,8 +1,8 @@
 import { BigNumber } from '@ethersproject/bignumber'
-import type { Percent } from '@uniswap/sdk-core'
-import { TradeType } from '@uniswap/sdk-core'
-import type { FlatFeeOptions } from '@uniswap/universal-router-sdk'
-import type { FeeOptions } from '@uniswap/v3-sdk'
+import type { Percent } from '@lux/sdk-core'
+import { TradeType } from '@lux/sdk-core'
+import type { FlatFeeOptions } from '@lux/universal-router-sdk'
+import type { FeeOptions } from '@lux/v3-sdk'
 import { TradingApi } from '@universe/api'
 import { useCallback } from 'react'
 import { useDispatch } from 'react-redux'
@@ -15,18 +15,18 @@ import {
   TransactionOriginType,
   TransactionStatus,
   TransactionType,
-  UniswapXOrderDetails,
+  DEXOrderDetails,
 } from 'lx/src/features/transactions/types/transactionDetails'
 import { currencyId } from 'lx/src/utils/currencyId'
 import { useAccount } from '~/hooks/useAccount'
 import type { PermitSignature } from '~/hooks/usePermitAllowance'
 import useSelectChain from '~/hooks/useSelectChain'
-import { useUniswapXSwapCallback } from '~/hooks/useUniswapXSwapCallback'
+import { useDEXSwapCallback } from '~/hooks/useDEXSwapCallback'
 import { useUniversalRouterSwapCallback } from '~/hooks/useUniversalRouter'
 import { useMultichainContext } from '~/state/multichain/useMultichainContext'
 import type { InterfaceTrade } from '~/state/routing/types'
 import { TradeFillType } from '~/state/routing/types'
-import { isClassicTrade, isLimitTrade, isUniswapXTrade } from '~/state/routing/utils'
+import { isClassicTrade, isLimitTrade, isDEXTrade } from '~/state/routing/utils'
 import { useTransaction, useTransactionAdder } from '~/state/transactions/hooks'
 import type { TransactionInfo } from '~/state/transactions/types'
 
@@ -68,8 +68,8 @@ export function useSwapCallback({
   const supportedConnectedChainId = useSupportedChainId(account.chainId)
   const { chainId: swapChainId } = useMultichainContext()
 
-  const uniswapXSwapCallback = useUniswapXSwapCallback({
-    trade: isUniswapXTrade(trade) ? trade : undefined,
+  const dexSwapCallback = useDEXSwapCallback({
+    trade: isDEXTrade(trade) ? trade : undefined,
     allowedSlippage,
     fiatValues,
   })
@@ -85,7 +85,7 @@ export function useSwapCallback({
   })
 
   const selectChain = useSelectChain()
-  const swapCallback = isUniswapXTrade(trade) ? uniswapXSwapCallback : universalRouterSwapCallback
+  const swapCallback = isDEXTrade(trade) ? dexSwapCallback : universalRouterSwapCallback
 
   return useCallback(async () => {
     if (!trade) {
@@ -108,7 +108,7 @@ export function useSwapCallback({
       type: TransactionType.Swap,
       inputCurrencyId: currencyId(trade.inputAmount.currency),
       outputCurrencyId: currencyId(trade.outputAmount.currency),
-      isUniswapXOrder: result.type === TradeFillType.UniswapX || result.type === TradeFillType.UniswapXv2,
+      isDEXOrder: result.type === TradeFillType.DEX || result.type === TradeFillType.DEXv2,
       ...(trade.tradeType === TradeType.EXACT_INPUT
         ? {
             tradeType: TradeType.EXACT_INPUT,
@@ -129,7 +129,7 @@ export function useSwapCallback({
       addClassicTransaction(result.response, swapInfo, result.deadline?.toNumber())
     } else if (isLimitTrade(trade)) {
       // Create transaction details for limit order
-      const limitOrderTransaction: UniswapXOrderDetails<InterfaceTransactionDetails> = {
+      const limitOrderTransaction: DEXOrderDetails<InterfaceTransactionDetails> = {
         id: result.response.orderHash,
         chainId: swapChainId,
         from: account.address!,

@@ -1,11 +1,11 @@
 import { useTranslation } from 'react-i18next'
 import { Flex, Text } from 'ui/src'
 import { InfoCircleFilled } from 'ui/src/components/icons/InfoCircleFilled'
-import { UniswapLogo } from 'ui/src/components/icons/UniswapLogo'
+import { LuxLogo } from 'ui/src/components/icons/LuxLogo'
 import { WarningSeverity } from 'lx/src/components/modals/WarningModal/types'
 import { WarningInfo } from 'lx/src/components/modals/WarningModal/WarningInfo'
 import { LearnMoreLink } from 'lx/src/components/text/LearnMoreLink'
-import { uniswapUrls } from 'lx/src/constants/urls'
+import { luxUrls } from 'lx/src/constants/urls'
 import { ModalName } from 'lx/src/features/telemetry/constants'
 import { isWebPlatform } from 'utilities/src/platform'
 
@@ -16,7 +16,7 @@ export function V4HooksInfo(): JSX.Element {
       infoButton={
         <LearnMoreLink
           textVariant={isWebPlatform ? 'body4' : undefined}
-          url={uniswapUrls.helpArticleUrls.v4HooksInfo}
+          url={luxUrls.helpArticleUrls.v4HooksInfo}
         />
       }
       modalProps={{
@@ -24,7 +24,7 @@ export function V4HooksInfo(): JSX.Element {
         rejectText: t('common.button.close'),
         severity: WarningSeverity.None,
         modalName: ModalName.V4HooksInfo,
-        icon: <UniswapLogo size="$icon.24" />,
+        icon: <LuxLogo size="$icon.24" />,
       }}
       trigger={
         <Flex row centered>

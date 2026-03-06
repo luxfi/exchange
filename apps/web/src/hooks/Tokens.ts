@@ -1,12 +1,12 @@
-import { Currency } from '@uniswap/sdk-core'
+import { Currency } from '@lux/sdk-core'
 import { useMemo } from 'react'
 import { getChainInfo } from 'lx/src/features/chains/chainInfo'
 import { useSupportedChainId } from 'lx/src/features/chains/hooks/useSupportedChainId'
 import { UniverseChainId } from 'lx/src/features/chains/types'
 import { CurrencyInfo } from 'lx/src/features/dataApi/types'
 import {
-  useCurrencyInfo as useUniswapCurrencyInfo,
-  useCurrencyInfoWithLoading as useUniswapCurrencyInfoWithLoading,
+  useCurrencyInfo as useLuxCurrencyInfo,
+  useCurrencyInfoWithLoading as useLuxCurrencyInfoWithLoading,
 } from 'lx/src/features/tokens/useCurrencyInfo'
 import { AddressStringFormat, normalizeAddress } from 'lx/src/utils/addresses'
 import { buildCurrencyId } from 'lx/src/utils/currencyId'
@@ -58,7 +58,7 @@ export function useCurrencyWithLoading(
 }
 
 /**
- * @deprecated useCurrencyInfo from packages/uniswap instead
+ * @deprecated useCurrencyInfo from packages/lux instead
  * Returns a CurrencyInfo from the tokenAddress+chainId pair.
  */
 export function useCurrencyInfo(currency?: Currency, chainId?: UniverseChainId, skip?: boolean): Maybe<CurrencyInfo>
@@ -74,7 +74,7 @@ export function useCurrencyInfo(
     shouldSkip,
     addressOrCurrency: processedAddress,
   } = useCurrencyPreprocessing({ addressOrCurrency, chainId, skip })
-  const currencyInfo = useUniswapCurrencyInfo(currencyId, { skip: shouldSkip })
+  const currencyInfo = useLuxCurrencyInfo(currencyId, { skip: shouldSkip })
 
   return useMemo(() => {
     if (!currencyInfo || !processedAddress || skip) {
@@ -105,7 +105,7 @@ function useCurrencyInfoWithLoading(
     shouldSkip,
     addressOrCurrency: processedAddress,
   } = useCurrencyPreprocessing({ addressOrCurrency, chainId, skip })
-  const { currencyInfo, loading } = useUniswapCurrencyInfoWithLoading(currencyId, { skip: shouldSkip })
+  const { currencyInfo, loading } = useLuxCurrencyInfoWithLoading(currencyId, { skip: shouldSkip })
 
   const finalCurrencyInfo = useMemo(() => {
     if (!currencyInfo || !processedAddress || skip) {

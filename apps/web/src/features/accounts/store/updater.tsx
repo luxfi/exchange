@@ -250,7 +250,7 @@ export function WebAccountsStoreUpdater() {
       sendAnalyticsEvent(InterfaceEventName.WalletConnected, walletConnectedProperties)
     }
 
-    if (evmWalletName === CONNECTION_PROVIDER_NAMES.UNISWAP_EXTENSION) {
+    if (evmWalletName === CONNECTION_PROVIDER_NAMES.LUX_EXTENSION) {
       trackConversions(CONVERSION_EVENTS.Extension.Downloaded)
     }
 

@@ -1,8 +1,8 @@
-import { type TokenList } from '@uniswap/token-lists'
+import { type TokenList } from '@lux/token-lists'
 import { type CombinedState } from 'redux'
 import { assert, type Equals } from 'tsafe'
 import { AppearanceSettingsState } from 'lx/src/features/appearance/slice'
-import { type UniswapBehaviorHistoryState } from 'lx/src/features/behaviorHistory/slice'
+import { type LuxBehaviorHistoryState } from 'lx/src/features/behaviorHistory/slice'
 import { type UniverseChainId } from 'lx/src/features/chains/types'
 import { type FavoritesState } from 'lx/src/features/favorites/slice'
 import { type NotificationState } from 'lx/src/features/notifications/slice/slice'
@@ -62,9 +62,9 @@ type ExpectedAppState = CombinedState<{
   readonly saga: Record<string, SagaState>
   readonly [routingApi.reducerPath]: ReturnType<typeof routingApi.reducer>
 
-  // Uniswap State
+  // Lux State
   readonly appearanceSettings: AppearanceSettingsState
-  readonly uniswapBehaviorHistory: UniswapBehaviorHistoryState
+  readonly luxBehaviorHistory: LuxBehaviorHistoryState
   readonly favorites: FavoritesState
   readonly notifications: NotificationState
   readonly searchHistory: Readonly<SearchHistoryState>

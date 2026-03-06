@@ -5,7 +5,7 @@ import type { UniverseChainId } from 'lx/src/features/chains/types'
 import type { CurrencyInfo } from 'lx/src/features/dataApi/types'
 import type { SwapTxStoreState } from 'lx/src/features/transactions/swap/stores/swapTxStore/createSwapTxStore'
 import type { DerivedSwapInfo } from 'lx/src/features/transactions/swap/types/derivedSwapInfo'
-import type { UniswapXGasBreakdown } from 'lx/src/features/transactions/swap/types/swapTxAndGasInfo'
+import type { DEXGasBreakdown } from 'lx/src/features/transactions/swap/types/swapTxAndGasInfo'
 import type { IndicativeTrade, Trade } from 'lx/src/features/transactions/swap/types/trade'
 import type {
   FeeOnTransferFeeGroupProps,
@@ -24,7 +24,7 @@ export type SwapReviewTransactionState = {
   acceptedTrade: Trade | undefined
   swapTxContext: SwapTxStoreState
   gasFee: GasFeeResult
-  uniswapXGasBreakdown: UniswapXGasBreakdown | undefined
+  dexGasBreakdown: DEXGasBreakdown | undefined
   derivedSwapInfo: DerivedSwapInfo
   acceptedDerivedSwapInfo: DerivedSwapInfo | undefined
   isWrap: boolean

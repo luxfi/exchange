@@ -1,7 +1,7 @@
 import { Flex, Text, TouchableArea } from 'ui/src'
 import { RotatableChevron } from 'ui/src/components/icons/RotatableChevron'
 import { NFTViewer } from 'lx/src/components/nfts/NFTViewer'
-import { useUniswapContext } from 'lx/src/contexts/UniswapContext'
+import { useLuxContext } from 'lx/src/contexts/LuxContext'
 import { UniverseChainId } from 'lx/src/features/chains/types'
 import {
   NFTApproveTransactionInfo,
@@ -52,7 +52,7 @@ export function NftTransactionContent({
   nftSummaryInfo: NFTSummaryInfo
   onClose: () => void
 }): JSX.Element {
-  const { navigateToNftCollection, navigateToNftDetails } = useUniswapContext()
+  const { navigateToNftCollection, navigateToNftDetails } = useLuxContext()
 
   const onPressNft = (): void => {
     navigateToNftDetails({

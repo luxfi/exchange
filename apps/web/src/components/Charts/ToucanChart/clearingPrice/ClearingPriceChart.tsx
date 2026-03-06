@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query'
-import { GetClearingPriceHistoryRequest } from '@uniswap/client-data-api/dist/data/v1/auction_pb'
+import { GetClearingPriceHistoryRequest } from '@lux/client-data-api/dist/data/v1/auction_pb'
 import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { auctionQueries } from 'lx/src/data/rest/auctions/auctionQueries'

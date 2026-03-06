@@ -3,7 +3,7 @@ import { Trans, useTranslation } from 'react-i18next'
 import { Flex, Text, TouchableArea, useIsDarkMode, useSporeColors } from 'ui/src'
 import { iconSizes } from 'ui/src/theme'
 import { NetworkLogo } from 'lx/src/components/CurrencyLogo/NetworkLogo'
-import { UNISWAP_WEB_URL } from 'lx/src/constants/urls'
+import { LUX_WEB_URL } from 'lx/src/constants/urls'
 import { MAINNET_CHAIN_INFO } from 'lx/src/features/chains/evm/info/mainnet'
 import { useEnabledChains } from 'lx/src/features/chains/hooks/useEnabledChains'
 import { SOLANA_CHAIN_INFO } from 'lx/src/features/chains/svm/info/solana'
@@ -64,7 +64,7 @@ function ProviderPlatform({
       serviceProvider: selectedServiceProvider.serviceProvider,
       walletAddress: address ?? '', // satisfy typecheck: useFiatOnRampAggregatorTransferWidgetQuery will only query if walletAddress is defined
       externalSessionId: externalTransactionId,
-      redirectUrl: `${UNISWAP_WEB_URL}/buy`,
+      redirectUrl: `${LUX_WEB_URL}/buy`,
     }
   }, [selectedServiceProvider, address, externalTransactionId])
 
@@ -175,7 +175,7 @@ export function ChooseMultiPlatformProvider({
       <Flex alignItems="center" gap="$spacing48">
         <Flex alignItems="center" gap="$spacing24">
           <img
-            style={ServiceProviderLogoStyles.uniswapLogoWrapper}
+            style={ServiceProviderLogoStyles.luxLogoWrapper}
             height={120}
             src={getOptionalServiceProviderLogo(selectedServiceProvider.logos, isDarkMode)}
             width={120}

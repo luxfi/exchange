@@ -1,4 +1,4 @@
-import { UNI_ADDRESSES } from '@uniswap/sdk-core'
+import { UNI_ADDRESSES } from '@lux/sdk-core'
 import { AssetType } from 'lx/src/entities/assets'
 import { mapTAPIPlanStatusToTXStatus } from 'lx/src/features/activity/extract/statusMappers'
 import {
@@ -36,8 +36,8 @@ function normalizeProtocolName(name: string): string {
   if (name === 'Across API') {
     return 'Across'
   }
-  if (name === 'Uniswap V4' || name === 'Uniswap V3' || name === 'Uniswap V2') {
-    return 'Uniswap'
+  if (name === 'Lux V4' || name === 'Lux V3' || name === 'Lux V2') {
+    return 'Lux'
   }
   return name
 }

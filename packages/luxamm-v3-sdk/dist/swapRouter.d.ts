@@ -1,5 +1,5 @@
 import { Interface } from '@ethersproject/abi';
-import { BigintIsh, Currency, Percent, TradeType } from '@uniswap/sdk-core';
+import { BigintIsh, Currency, Percent, TradeType } from '@lux/sdk-core';
 import { Trade } from './entities/trade';
 import { PermitOptions } from './selfPermit';
 import { MethodParameters } from './utils/calldata';
@@ -34,7 +34,7 @@ export interface SwapOptions {
     fee?: FeeOptions;
 }
 /**
- * Represents the Uniswap V3 SwapRouter, and has static methods for helping execute trades.
+ * Represents the Lux V3 SwapRouter, and has static methods for helping execute trades.
  */
 export declare abstract class SwapRouter {
     static INTERFACE: Interface;

@@ -1,4 +1,4 @@
-import { BigintIsh, Percent, NativeCurrency } from '@uniswap/sdk-core';
+import { BigintIsh, Percent, NativeCurrency } from '@lux/sdk-core';
 import { TypedDataDomain, TypedDataField } from '@ethersproject/abstract-signer';
 import { Position } from './entities/position';
 import { MethodParameters } from './utils/calldata';

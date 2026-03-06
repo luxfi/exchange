@@ -164,7 +164,7 @@ const getTransactionTitleTable = (): {
     [TransactionStatus.Success]: i18n.t('pool.incentives.collectedRewards'),
     [TransactionStatus.Failed]: i18n.t('pool.incentives.collectFailedNoRetry'),
   },
-  [TransactionType.UniswapXOrder]: {
+  [TransactionType.DEXOrder]: {
     [TransactionStatus.Pending]: i18n.t('transaction.status.swap.pending'),
     [TransactionStatus.Success]: i18n.t('transaction.status.swap.success'),
     [TransactionStatus.Failed]: i18n.t('common.swap.failed'),
@@ -273,7 +273,7 @@ export const getCancelledTransactionTitleTable = (): { [key in TransactionType]:
   [TransactionType.Unknown]: i18n.t('common.unknown'),
   [TransactionType.SendCalls]: i18n.t('transaction.status.send.canceled'),
   [TransactionType.CreatePosition]: i18n.t('pool.createdPosition.canceled'),
-  [TransactionType.UniswapXOrder]: i18n.t('transaction.status.swap.canceled'),
+  [TransactionType.DEXOrder]: i18n.t('transaction.status.swap.canceled'),
   [TransactionType.RemoveDelegation]: i18n.t('transaction.status.removeDelegation.canceled'),
   [TransactionType.AuctionBid]: i18n.t('transaction.status.submitBid.canceled'),
   [TransactionType.AuctionClaimed]: i18n.t('transaction.status.claim.canceled'),

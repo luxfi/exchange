@@ -1,4 +1,4 @@
-import { Currency, Token, TradeType } from '@uniswap/sdk-core'
+import { Currency, Token, TradeType } from '@lux/sdk-core'
 import { nativeOnChain } from 'lx/src/constants/tokens'
 import { UniverseChainId } from 'lx/src/features/chains/types'
 import { GetQuoteArgs, PoolType, RouterPreference, TokenInRoute, URAQuoteType } from '~/state/routing/types'
@@ -21,7 +21,7 @@ const BASE_ARGS = {
   amount: '100',
   routerPreference: RouterPreference.API,
   tradeType: TradeType.EXACT_INPUT,
-  uniswapXForceSyntheticQuotes: false,
+  dexForceSyntheticQuotes: false,
   sendPortionEnabled: true,
 }
 

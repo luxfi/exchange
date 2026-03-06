@@ -4,7 +4,7 @@ import { Checkbox, Flex, Popover, Text, TouchableArea, useSporeColors } from 'ui
 import { DoubleChevronInverted } from 'ui/src/components/icons'
 import { iconSizes, spacing } from 'ui/src/theme'
 import { AddressDisplay } from 'lx/src/components/accounts/AddressDisplay'
-import { UniswapContext, useUniswapContext } from 'lx/src/contexts/UniswapContext'
+import { LuxContext, useLuxContext } from 'lx/src/contexts/LuxContext'
 import { TestID } from 'lx/src/test/fixtures/testIDs'
 import { useEvent } from 'utilities/src/react/hooks'
 import { OverlappingAccountIcons } from 'wallet/src/components/accounts/OverlappingAccountIcons'
@@ -23,7 +23,7 @@ export function AccountSelectPopover({
 }: AccountSelectPopoverProps): JSX.Element {
   const { t } = useTranslation()
   const signerAccounts = useSignerAccounts()
-  const walletUniswapContextValue = useUniswapContext()
+  const walletLuxContextValue = useLuxContext()
   const accountIsSwitchable = signerAccounts.length > 1
   const [isOpen, setIsOpen] = useState(false)
   const colors = useSporeColors()
@@ -70,8 +70,8 @@ export function AccountSelectPopover({
         p="$spacing16"
         gap="$gap20"
       >
-        {/* Bridge the Uniswap context into the popover so that the AddressDisplay component can use it */}
-        <UniswapContext.Provider value={walletUniswapContextValue}>
+        {/* Bridge the Lux context into the popover so that the AddressDisplay component can use it */}
+        <LuxContext.Provider value={walletLuxContextValue}>
           {allAccountAddresses.map((address) => {
             const isChecked = selectedAccountAddresses.includes(address)
 
@@ -110,7 +110,7 @@ export function AccountSelectPopover({
             )
           })}
           <Popover.Arrow backgroundColor={colors.surface1.val} borderColor={colors.surface3.val} />
-        </UniswapContext.Provider>
+        </LuxContext.Provider>
       </Popover.Content>
     </Popover>
   )

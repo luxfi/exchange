@@ -1,4 +1,4 @@
-import { Currency } from '@uniswap/sdk-core'
+import { Currency } from '@lux/sdk-core'
 import { parseAsBoolean, parseAsString, useQueryState, useQueryStates } from 'nuqs'
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { nativeOnChain } from 'lx/src/constants/tokens'

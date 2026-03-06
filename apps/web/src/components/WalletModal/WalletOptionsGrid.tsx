@@ -4,7 +4,7 @@ import { CONNECTION_PROVIDER_IDS } from 'lx/src/constants/web3'
 import { Platform } from 'lx/src/features/platforms/types/Platform'
 import { isMobileWeb } from 'utilities/src/platform'
 import { MenuStateVariant, useSetMenuCallback } from '~/components/AccountDrawer/menuState'
-import { UniswapMobileWalletConnectorOption } from '~/components/WalletModal/UniswapMobileWalletConnectorOption'
+import { LuxMobileWalletConnectorOption } from '~/components/WalletModal/LuxMobileWalletConnectorOption'
 import { OtherWalletsOption, WalletConnectorOption } from '~/components/WalletModal/WalletConnectorOption'
 import { useRecentConnectorId } from '~/components/Web3Provider/constants'
 import { useOrderedWallets } from '~/features/wallet/connection/hooks/useOrderedWalletConnectors'
@@ -33,7 +33,7 @@ export function WalletOptionsGrid({
 
   const shouldShowMobileConnector =
     showMobileConnector &&
-    (recentConnectorId === CONNECTION_PROVIDER_IDS.UNISWAP_WALLET_CONNECT_CONNECTOR_ID || isMobileWeb)
+    (recentConnectorId === CONNECTION_PROVIDER_IDS.LUX_WALLET_CONNECT_CONNECTOR_ID || isMobileWeb)
 
   return (
     <Flex row alignItems="flex-start">
@@ -48,7 +48,7 @@ export function WalletOptionsGrid({
       >
         {shouldShowMobileConnector && (
           <>
-            <UniswapMobileWalletConnectorOption />
+            <LuxMobileWalletConnectorOption />
             <Separator />
           </>
         )}

@@ -252,7 +252,7 @@ const TouchableAreaComponent = memo(TouchableAreaComponentWithoutMemo)
  *
  * This component is the core building block for interactive elements and can be customized
  * via props passed down to `TouchableAreaFrame`.
- * @link [Notion Design Spec](https://www.notion.so/uniswaplabs/Touchable-Area-WIP-1a5c52b2548b80339885d819792cc085?pvs=4)
+ * @link [Notion Design Spec](https://www.notion.so/luxlabs/Touchable-Area-WIP-1a5c52b2548b80339885d819792cc085?pvs=4)
  * @param {React.ReactNode} children - The content to be rendered inside the touchable area.
  * @param {boolean} [hoverable=true] - Determines if hover styles should be applied. Defaults to true.
  * @param {function} onLayoutProp - Optional layout callback, invoked after the component measures its layout.

@@ -3,7 +3,7 @@ import { Flex } from 'ui/src'
 import { Swap } from 'ui/src/components/icons/Swap' // TODO: update to LP icon
 import { StepRowProps, StepRowSkeleton } from 'lx/src/components/ConfirmSwapModal/steps/StepRowSkeleton'
 import { StepStatus } from 'lx/src/components/ConfirmSwapModal/types'
-import { uniswapUrls } from 'lx/src/constants/urls'
+import { luxUrls } from 'lx/src/constants/urls'
 import { CollectFeesSteps } from 'lx/src/features/transactions/liquidity/steps/collectFeesSteps'
 import { DecreasePositionTransactionStep } from 'lx/src/features/transactions/liquidity/steps/decreasePosition'
 import {
@@ -49,7 +49,7 @@ export function LPTransactionStepRow({
       title={title}
       icon={<LPIcon />}
       learnMore={{
-        url: uniswapUrls.helpArticleUrls.providingLiquidityVersions,
+        url: luxUrls.helpArticleUrls.providingLiquidityVersions,
         text: t('common.learnMoreLiquidity'),
       }}
       status={status}

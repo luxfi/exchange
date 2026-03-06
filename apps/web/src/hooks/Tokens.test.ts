@@ -1,8 +1,8 @@
-import { Token } from '@uniswap/sdk-core'
+import { Token } from '@lux/sdk-core'
 import { DAI, nativeOnChain } from 'lx/src/constants/tokens'
 import { getChainInfo } from 'lx/src/features/chains/chainInfo'
 import { UniverseChainId } from 'lx/src/features/chains/types'
-import { useCurrencyInfo as useUniswapCurrencyInfo } from 'lx/src/features/tokens/useCurrencyInfo'
+import { useCurrencyInfo as useLuxCurrencyInfo } from 'lx/src/features/tokens/useCurrencyInfo'
 import { NATIVE_CHAIN_ID } from '~/constants/tokens'
 import { useCurrencyInfo } from '~/hooks/Tokens'
 import { TEST_TOKEN_1 } from '~/test-utils/constants'
@@ -26,48 +26,48 @@ describe('useCurrencyInfo', () => {
   })
 
   describe('ERC20', () => {
-    it('calls useUniswapCurrencyInfo with the correct arguments', () => {
+    it('calls useLuxCurrencyInfo with the correct arguments', () => {
       renderHook(() => useCurrencyInfo(DAI.address, UniverseChainId.Mainnet))
 
-      expect(useUniswapCurrencyInfo).toHaveBeenCalledWith(`${UniverseChainId.Mainnet}-${DAI.address}`, {
+      expect(useLuxCurrencyInfo).toHaveBeenCalledWith(`${UniverseChainId.Mainnet}-${DAI.address}`, {
         skip: undefined,
       })
     })
 
-    it('calls useUniswapCurrencyInfo with the correct arguments when Currency is provided', () => {
+    it('calls useLuxCurrencyInfo with the correct arguments when Currency is provided', () => {
       const currency = new Token(UniverseChainId.Mainnet, DAI.address, 18, DAI.symbol, DAI.name)
       renderHook(() => useCurrencyInfo(currency))
 
-      expect(useUniswapCurrencyInfo).toHaveBeenCalledWith(`${UniverseChainId.Mainnet}-${DAI.address}`, {
+      expect(useLuxCurrencyInfo).toHaveBeenCalledWith(`${UniverseChainId.Mainnet}-${DAI.address}`, {
         skip: undefined,
       })
     })
   })
 
   describe(`${NATIVE_CHAIN_ID}`, () => {
-    it('calls useUniswapCurrencyInfo with the correct arguments', () => {
+    it('calls useLuxCurrencyInfo with the correct arguments', () => {
       renderHook(() => useCurrencyInfo('ETH', UniverseChainId.Mainnet))
 
-      expect(useUniswapCurrencyInfo).toHaveBeenCalledWith(
+      expect(useLuxCurrencyInfo).toHaveBeenCalledWith(
         `${UniverseChainId.Mainnet}-${getChainInfo(UniverseChainId.Mainnet).nativeCurrency.address}`,
         { skip: undefined },
       )
     })
 
-    it('calls useUniswapCurrencyInfo with the correct arguments when no address is provided', () => {
+    it('calls useLuxCurrencyInfo with the correct arguments when no address is provided', () => {
       renderHook(() => useCurrencyInfo(undefined, UniverseChainId.Mainnet))
 
-      expect(useUniswapCurrencyInfo).toHaveBeenCalledWith(
+      expect(useLuxCurrencyInfo).toHaveBeenCalledWith(
         `${UniverseChainId.Mainnet}-${getChainInfo(UniverseChainId.Mainnet).nativeCurrency.address}`,
         { skip: undefined },
       )
     })
 
-    it('calls useUniswapCurrencyInfo with the correct arguments when Currency is provided', () => {
+    it('calls useLuxCurrencyInfo with the correct arguments when Currency is provided', () => {
       const currency = nativeOnChain(UniverseChainId.Mainnet)
       renderHook(() => useCurrencyInfo(currency))
 
-      expect(useUniswapCurrencyInfo).toHaveBeenCalledWith(
+      expect(useLuxCurrencyInfo).toHaveBeenCalledWith(
         `${UniverseChainId.Mainnet}-${getChainInfo(UniverseChainId.Mainnet).nativeCurrency.address}`,
         { skip: undefined },
       )

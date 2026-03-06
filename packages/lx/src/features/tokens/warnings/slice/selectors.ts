@@ -3,15 +3,15 @@ import {
   TokenDismissInfo,
   TokenWarningDismissal,
 } from 'lx/src/features/tokens/warnings/slice/types'
-import { UniswapState } from 'lx/src/state/uniswapReducer'
+import { LuxState } from 'lx/src/state/luxReducer'
 
 // selectors
 
-export const dismissedWarningTokensSelector = (state: UniswapState): SerializedTokenMap<TokenWarningDismissal> =>
+export const dismissedWarningTokensSelector = (state: LuxState): SerializedTokenMap<TokenWarningDismissal> =>
   state.tokens.dismissedTokenWarnings
 
-export const dismissedBridgedAssetWarningsSelector = (state: UniswapState): SerializedTokenMap<TokenDismissInfo> =>
+export const dismissedBridgedAssetWarningsSelector = (state: LuxState): SerializedTokenMap<TokenDismissInfo> =>
   state.tokens.dismissedBridgedAssetWarnings
 
-export const dismissedCompatibleAddressWarningsSelector = (state: UniswapState): SerializedTokenMap<TokenDismissInfo> =>
+export const dismissedCompatibleAddressWarningsSelector = (state: LuxState): SerializedTokenMap<TokenDismissInfo> =>
   state.tokens.dismissedCompatibleAddressWarnings

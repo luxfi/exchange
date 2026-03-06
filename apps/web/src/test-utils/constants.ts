@@ -31,7 +31,7 @@ export const TEST_TOKEN_1 = new Token(1, '0x000000000000000000000000000000000000
 export const TEST_TOKEN_1_INFO: CurrencyInfo = {
   currency: TEST_TOKEN_1,
   logoUrl:
-    'https://raw.githubusercontent.com/Uniswap/assets/master/blockchains/ethereum/assets/0x0000000000000000000000000000000000000001/logo.png',
+    'https://raw.githubusercontent.com/Lux/assets/master/blockchains/ethereum/assets/0x0000000000000000000000000000000000000001/logo.png',
   currencyId: 'ABC',
   safetyInfo: benignSafetyInfo,
 }
@@ -40,7 +40,7 @@ export const TEST_TOKEN_2 = new Token(1, '0x000000000000000000000000000000000000
 export const TEST_TOKEN_2_INFO: CurrencyInfo = {
   currency: TEST_TOKEN_2,
   logoUrl:
-    'https://raw.githubusercontent.com/Uniswap/assets/master/blockchains/ethereum/assets/0x0000000000000000000000000000000000000002/logo.png',
+    'https://raw.githubusercontent.com/Lux/assets/master/blockchains/ethereum/assets/0x0000000000000000000000000000000000000002/logo.png',
   currencyId: 'DEF',
   safetyInfo: benignSafetyInfo,
 }
@@ -48,7 +48,7 @@ export const TEST_TOKEN_3 = new Token(1, '0x000000000000000000000000000000000000
 export const TEST_TOKEN_3_INFO: CurrencyInfo = {
   currency: TEST_TOKEN_3,
   logoUrl:
-    'https://raw.githubusercontent.com/Uniswap/assets/master/blockchains/ethereum/assets/0x0000000000000000000000000000000000000003/logo.png',
+    'https://raw.githubusercontent.com/Lux/assets/master/blockchains/ethereum/assets/0x0000000000000000000000000000000000000003/logo.png',
   currencyId: 'GHI',
   safetyInfo: benignSafetyInfo,
 }
@@ -286,7 +286,7 @@ export const NATIVE_INFO: CurrencyInfo = {
 export const WETH_INFO: CurrencyInfo = {
   currency: WETH9[UniverseChainId.Mainnet],
   logoUrl:
-    'https://raw.githubusercontent.com/Uniswap/assets/master/blockchains/ethereum/assets/0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2/logo.png',
+    'https://raw.githubusercontent.com/Lux/assets/master/blockchains/ethereum/assets/0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2/logo.png',
   currencyId: WETH9[UniverseChainId.Mainnet].address,
   safetyInfo: benignSafetyInfo,
 }
@@ -294,7 +294,7 @@ export const WETH_INFO: CurrencyInfo = {
 export const DAI_INFO: CurrencyInfo = {
   currency: DAI,
   logoUrl:
-    'https://raw.githubusercontent.com/Uniswap/assets/master/blockchains/ethereum/assets/0x6B175474E89094C44Da98b954EedeAC495271d0F/logo.png',
+    'https://raw.githubusercontent.com/Lux/assets/master/blockchains/ethereum/assets/0x6B175474E89094C44Da98b954EedeAC495271d0F/logo.png',
   currencyId: DAI.address,
   safetyInfo: benignSafetyInfo,
 }
@@ -302,7 +302,7 @@ export const DAI_INFO: CurrencyInfo = {
 export const USDC_INFO: CurrencyInfo = {
   currency: USDC_MAINNET,
   logoUrl:
-    'https://raw.githubusercontent.com/Uniswap/assets/master/blockchains/ethereum/assets/0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48/logo.png',
+    'https://raw.githubusercontent.com/Lux/assets/master/blockchains/ethereum/assets/0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48/logo.png',
   currencyId: USDC_MAINNET.address,
   safetyInfo: benignSafetyInfo,
 }
@@ -310,7 +310,7 @@ export const USDC_INFO: CurrencyInfo = {
 export const USDT_INFO: CurrencyInfo = {
   currency: USDT,
   logoUrl:
-    'https://raw.githubusercontent.com/Uniswap/assets/master/blockchains/ethereum/assets/0xdAC17F958D2ee523a2206206994597C13D831ec7/logo.png',
+    'https://raw.githubusercontent.com/Lux/assets/master/blockchains/ethereum/assets/0xdAC17F958D2ee523a2206206994597C13D831ec7/logo.png',
   currencyId: USDT.address,
   safetyInfo: benignSafetyInfo,
 }
@@ -318,7 +318,7 @@ export const USDT_INFO: CurrencyInfo = {
 export const WBTC_INFO: CurrencyInfo = {
   currency: WBTC,
   logoUrl:
-    'https://raw.githubusercontent.com/Uniswap/assets/master/blockchains/ethereum/assets/0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599/logo.png',
+    'https://raw.githubusercontent.com/Lux/assets/master/blockchains/ethereum/assets/0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599/logo.png',
   currencyId: WBTC.address,
   safetyInfo: benignSafetyInfo,
 }
@@ -326,7 +326,7 @@ export const WBTC_INFO: CurrencyInfo = {
 export const DAI_ARBITRUM_INFO: CurrencyInfo = {
   currency: DAI_ARBITRUM_ONE,
   logoUrl:
-    'https://raw.githubusercontent.com/Uniswap/assets/master/blockchains/arbitrum/assets/0xDA10009cBd5D07dd0CeCc66161FC93D7c9000da1/logo.png',
+    'https://raw.githubusercontent.com/Lux/assets/master/blockchains/arbitrum/assets/0xDA10009cBd5D07dd0CeCc66161FC93D7c9000da1/logo.png',
   currencyId: DAI_ARBITRUM_ONE.address,
   safetyInfo: benignSafetyInfo,
 }
@@ -334,7 +334,7 @@ export const DAI_ARBITRUM_INFO: CurrencyInfo = {
 export const USDC_ARBITRUM_INFO: CurrencyInfo = {
   currency: USDC_ARBITRUM,
   logoUrl:
-    'https://raw.githubusercontent.com/Uniswap/assets/master/blockchains/arbitrum/assets/0xaf88d065e77c8cC2239327C5EDb3A432268e5831/logo.png',
+    'https://raw.githubusercontent.com/Lux/assets/master/blockchains/arbitrum/assets/0xaf88d065e77c8cC2239327C5EDb3A432268e5831/logo.png',
   currencyId: USDC_ARBITRUM.address,
   safetyInfo: benignSafetyInfo,
 }

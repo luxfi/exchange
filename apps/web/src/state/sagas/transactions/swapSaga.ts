@@ -52,7 +52,7 @@ import {
   isClassic,
   isJupiter,
   requireRouting,
-  UNISWAPX_ROUTING_VARIANTS,
+  LUXX_ROUTING_VARIANTS,
 } from 'lx/src/features/transactions/swap/utils/routing'
 import { getClassicQuoteFromResponse } from 'lx/src/features/transactions/swap/utils/tradingApi'
 import { createMonitoredSaga } from 'lx/src/utils/saga'
@@ -70,7 +70,7 @@ import { useSetOverrideOneClickSwapFlag } from '~/pages/Swap/settings/OneClickSw
 import { handleAtomicSendCalls } from '~/state/sagas/transactions/5792'
 import { useGetOnPressRetry } from '~/state/sagas/transactions/retry'
 import { jupiterSwap } from '~/state/sagas/transactions/solana'
-import { handleUniswapXPlanSignatureStep, handleUniswapXSignatureStep } from '~/state/sagas/transactions/uniswapx'
+import { handleDEXPlanSignatureStep, handleDEXSignatureStep } from '~/state/sagas/transactions/dex'
 import {
   getDisplayableError,
   getSwapTransactionInfo,
@@ -291,9 +291,9 @@ function* swap(params: SwapParams) {
           })
           break
         }
-        case TransactionStepType.UniswapXSignature: {
-          requireRouting(trade, UNISWAPX_ROUTING_VARIANTS)
-          yield* call(handleUniswapXSignatureStep, { address, step, setCurrentStep, trade, analytics })
+        case TransactionStepType.DEXSignature: {
+          requireRouting(trade, LUXX_ROUTING_VARIANTS)
+          yield* call(handleDEXSignatureStep, { address, step, setCurrentStep, trade, analytics })
           break
         }
         default: {
@@ -429,7 +429,7 @@ export function useSwapCallback(): SwapCallback {
             handleSwapTransactionStep,
             handleSwapTransactionBatchedStep,
             handleSignatureStep,
-            handleUniswapXPlanSignatureStep,
+            handleDEXPlanSignatureStep,
             getDisplayableError: (args) => getDisplayableError({ ...args, isPlanStep: true }),
             getOnPressRetry,
             sendToast,

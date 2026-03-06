@@ -5,7 +5,7 @@ import { InfoCircleFilled } from 'ui/src/components/icons/InfoCircleFilled'
 import { TokenLogo } from 'lx/src/components/CurrencyLogo/TokenLogo'
 import { GetHelpHeader } from 'lx/src/components/dialog/GetHelpHeader'
 import { Modal } from 'lx/src/components/modals/Modal'
-import { uniswapUrls } from 'lx/src/constants/urls'
+import { luxUrls } from 'lx/src/constants/urls'
 import { useActiveAddress } from 'lx/src/features/accounts/store/hooks'
 import { Platform } from 'lx/src/features/platforms/types/Platform'
 import { ElementName, ModalName } from 'lx/src/features/telemetry/constants'
@@ -118,7 +118,7 @@ export function WithdrawModal({
   const isSubmitting = submissionStatus !== 'idle'
   const isWaitingForWallet = submissionStatus === 'waitingForWallet'
 
-  const helpLink = uniswapUrls.helpArticleUrls.toucanWithdrawHelp
+  const helpLink = luxUrls.helpArticleUrls.toucanWithdrawHelp
 
   const modalTitle = t('toucan.withdraw.title')
 

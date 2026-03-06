@@ -14,7 +14,7 @@ import {
   GetLatestCheckpointResponse,
   ListTopAuctionsRequest,
   ListTopAuctionsResponse,
-} from '@uniswap/client-data-api/dist/data/v1/auction_pb'
+} from '@lux/client-data-api/dist/data/v1/auction_pb'
 import type { AuctionServiceClient } from '@universe/api/src/clients/auctions/createAuctionServiceClient'
 import { UseQueryApiHelperHookArgs } from '@universe/api/src/hooks/shared/types'
 import { AuctionServiceClient as AuctionServiceClientInstance } from 'lx/src/data/rest/auctions/AuctionServiceClient'

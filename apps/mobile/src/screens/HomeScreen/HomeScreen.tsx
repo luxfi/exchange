@@ -50,14 +50,14 @@ import { AnimatedFlex } from 'ui/src/components/layout/AnimatedFlex'
 import { useDeviceDimensions } from 'ui/src/hooks/useDeviceDimensions'
 import { spacing } from 'ui/src/theme'
 import { buildWrappedUrl } from 'lx/src/components/banners/shared/utils'
-import { UniswapWrapped2025Banner } from 'lx/src/components/banners/UniswapWrapped2025Banner/UniswapWrapped2025Banner'
+import { LuxWrapped2025Banner } from 'lx/src/components/banners/LuxWrapped2025Banner/LuxWrapped2025Banner'
 import { NFTS_TAB_DATA_DEPENDENCIES } from 'lx/src/components/nfts/constants'
-import { UNISWAP_WEB_URL } from 'lx/src/constants/urls'
+import { LUX_WEB_URL } from 'lx/src/constants/urls'
 import { getPortfolioQuery } from 'lx/src/data/rest/getPortfolio'
 import { getListTransactionsQuery } from 'lx/src/data/rest/listTransactions'
 import { AccountType } from 'lx/src/features/accounts/types'
-import { selectHasDismissedUniswapWrapped2025Banner } from 'lx/src/features/behaviorHistory/selectors'
-import { setHasDismissedUniswapWrapped2025Banner } from 'lx/src/features/behaviorHistory/slice'
+import { selectHasDismissedLuxWrapped2025Banner } from 'lx/src/features/behaviorHistory/selectors'
+import { setHasDismissedLuxWrapped2025Banner } from 'lx/src/features/behaviorHistory/slice'
 import { useSelectAddressHasNotifications } from 'lx/src/features/notifications/slice/hooks'
 import { setNotificationStatus } from 'lx/src/features/notifications/slice/slice'
 import { PortfolioBalance } from 'lx/src/features/portfolio/PortfolioBalance/PortfolioBalance'
@@ -130,12 +130,12 @@ function HomeScreen({
   const { requiredForTransactions: requiresBiometrics } = useBiometricAppSettings()
 
   const isBottomTabsEnabled = useFeatureFlag(FeatureFlags.BottomTabs)
-  const isWrappedBannerEnabled = useFeatureFlag(FeatureFlags.UniswapWrapped2025)
+  const isWrappedBannerEnabled = useFeatureFlag(FeatureFlags.LuxWrapped2025)
   const isNotificationServiceEnabledFlag = useFeatureFlag(FeatureFlags.NotificationService)
   const isNotificationServiceEnabled =
     getIsNotificationServiceLocalOverrideEnabled() || isNotificationServiceEnabledFlag
 
-  const hasDismissedWrappedBanner = useSelector(selectHasDismissedUniswapWrapped2025Banner)
+  const hasDismissedWrappedBanner = useSelector(selectHasDismissedLuxWrapped2025Banner)
   const shouldShowWrappedBanner = isWrappedBannerEnabled && !hasDismissedWrappedBanner
 
   const { showEmptyWalletState, isTabsDataLoaded } = useHomeScreenState()
@@ -317,14 +317,14 @@ function HomeScreen({
   const viewOnlyLabel = t('home.warning.viewOnly')
 
   const handleDismissWrappedBanner = useCallback(() => {
-    dispatch(setHasDismissedUniswapWrapped2025Banner(true))
+    dispatch(setHasDismissedLuxWrapped2025Banner(true))
   }, [dispatch])
 
   const handlePressWrappedBanner = useCallback(async () => {
     try {
-      const url = buildWrappedUrl(UNISWAP_WEB_URL, activeAccount.address)
+      const url = buildWrappedUrl(LUX_WEB_URL, activeAccount.address)
       await openUri({ uri: url, openExternalBrowser: true })
-      dispatch(setHasDismissedUniswapWrapped2025Banner(true))
+      dispatch(setHasDismissedLuxWrapped2025Banner(true))
     } catch (error) {
       logger.error(error, { tags: { file: 'HomeScreen', function: 'handlePressWrappedBanner' } })
     }
@@ -357,7 +357,7 @@ function HomeScreen({
       >
         {shouldShowWrappedBanner && (
           <Flex>
-            <UniswapWrapped2025Banner
+            <LuxWrapped2025Banner
               handleDismiss={handleDismissWrappedBanner}
               handlePress={handlePressWrappedBanner}
             />

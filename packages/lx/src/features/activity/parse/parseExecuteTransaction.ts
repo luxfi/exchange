@@ -1,4 +1,4 @@
-import { OnChainTransaction } from '@uniswap/client-data-api/dist/data/v1/types_pb'
+import { OnChainTransaction } from '@lux/client-data-api/dist/data/v1/types_pb'
 import { TradingApi } from '@universe/api'
 import { parseRestApproveTransaction } from 'lx/src/features/activity/parse/parseApproveTransaction'
 import { parseRestSwapTransaction } from 'lx/src/features/activity/parse/parseTradeTransaction'

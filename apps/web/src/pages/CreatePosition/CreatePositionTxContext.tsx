@@ -1,13 +1,13 @@
 import { useQuery } from '@tanstack/react-query'
-import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
+import { ProtocolVersion } from '@lux/client-data-api/dist/data/v1/poolTypes_pb'
 import {
   CheckApprovalLPResponse,
   CreateLPPositionRequest,
   CreateLPPositionResponse,
-} from '@uniswap/client-liquidity/dist/uniswap/liquidity/v1/api_pb'
-import { V4CreateLPPosition } from '@uniswap/client-liquidity/dist/uniswap/liquidity/v1/types_pb'
-import { Currency, CurrencyAmount } from '@uniswap/sdk-core'
-import { Pair } from '@uniswap/v2-sdk'
+} from '@lux/client-liquidity/dist/lux/liquidity/v1/api_pb'
+import { V4CreateLPPosition } from '@lux/client-liquidity/dist/lux/liquidity/v1/types_pb'
+import { Currency, CurrencyAmount } from '@lux/sdk-core'
+import { Pair } from '@lux/v2-sdk'
 import { FeatureFlags, useFeatureFlag } from '@universe/gating'
 import {
   createContext,
@@ -22,7 +22,7 @@ import {
   useState,
 } from 'react'
 import { useSelector } from 'react-redux'
-import { useUniswapContextSelector } from 'lx/src/contexts/UniswapContext'
+import { useLuxContextSelector } from 'lx/src/contexts/LuxContext'
 import { liquidityQueries } from 'lx/src/data/apiClients/liquidityService/liquidityQueries'
 import { useActiveAddress } from 'lx/src/features/accounts/store/hooks'
 import { UniverseChainId } from 'lx/src/features/chains/types'
@@ -217,7 +217,7 @@ export function CreatePositionTxContextProvider({ children }: PropsWithChildren)
   }))
   const isLiquidityBatchedTransactionsEnabled = useFeatureFlag(FeatureFlags.LiquidityBatchedTransactions)
   const canBatchTransactions =
-    (useUniswapContextSelector((ctx) => ctx.getCanBatchTransactions?.(poolOrPair?.chainId)) ?? false) &&
+    (useLuxContextSelector((ctx) => ctx.getCanBatchTransactions?.(poolOrPair?.chainId)) ?? false) &&
     poolOrPair?.chainId !== UniverseChainId.Monad &&
     isLiquidityBatchedTransactionsEnabled
 

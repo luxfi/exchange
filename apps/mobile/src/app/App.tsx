@@ -114,7 +114,7 @@ import { useHeartbeatReporter } from 'wallet/src/features/telemetry/hooks/useHea
 import { useLastBalancesReporter } from 'wallet/src/features/telemetry/hooks/useLastBalancesReporter'
 import { selectAllowAnalytics } from 'wallet/src/features/telemetry/selectors'
 import { useTestnetModeForLoggingAndAnalytics } from 'wallet/src/features/testnetMode/hooks/useTestnetModeForLoggingAndAnalytics'
-import { WalletUniswapProvider } from 'wallet/src/features/transactions/contexts/WalletUniswapContext'
+import { WalletLuxProvider } from 'wallet/src/features/transactions/contexts/WalletLuxContext'
 import { TransactionHistoryUpdater } from 'wallet/src/features/transactions/TransactionHistoryUpdater'
 import { type Account } from 'wallet/src/features/wallet/accounts/types'
 import { WalletContextProvider } from 'wallet/src/features/wallet/context'
@@ -333,7 +333,7 @@ function AppOuter(): JSX.Element | null {
                     <MobileWalletNavigationProvider>
                       <NativeWalletProvider>
                         <TokenPriceProvider>
-                          <WalletUniswapProvider>
+                          <WalletLuxProvider>
                             <AccountsStoreContextProvider>
                               <DataUpdaters />
                               <BottomSheetModalProvider>
@@ -344,7 +344,7 @@ function AppOuter(): JSX.Element | null {
                               </BottomSheetModalProvider>
                               <NotificationToastWrapper />
                             </AccountsStoreContextProvider>
-                          </WalletUniswapProvider>
+                          </WalletLuxProvider>
                         </TokenPriceProvider>
                       </NativeWalletProvider>
                     </MobileWalletNavigationProvider>

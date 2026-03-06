@@ -3,12 +3,12 @@ import { addFavoriteToken } from 'lx/src/features/favorites/slice'
 import { pushNotification } from 'lx/src/features/notifications/slice/slice'
 import { AppNotificationType } from 'lx/src/features/notifications/slice/types'
 import { createAppStateResetter } from 'lx/src/state/createAppStateResetter'
-import { type UniswapState, uniswapReducer } from 'lx/src/state/uniswapReducer'
+import { type LuxState, luxReducer } from 'lx/src/state/luxReducer'
 import { sleep } from 'utilities/src/time/timing'
 import type { Mock } from 'vitest'
 
 describe('createAppStateResetter', () => {
-  let store: ReturnType<typeof configureStore<UniswapState>>
+  let store: ReturnType<typeof configureStore<LuxState>>
   let resetter: ReturnType<typeof createAppStateResetter>
   let onResetAccountHistory: Mock
   let onResetUserSettings: Mock
@@ -16,7 +16,7 @@ describe('createAppStateResetter', () => {
 
   beforeEach(() => {
     store = configureStore({
-      reducer: uniswapReducer,
+      reducer: luxReducer,
     })
     onResetAccountHistory = vi.fn()
     onResetUserSettings = vi.fn()
@@ -58,7 +58,7 @@ describe('createAppStateResetter', () => {
 
   describe('resetUserSettings', () => {
     it('dispatches user settings reset actions', async () => {
-      // Modify uniswap-specific state
+      // Modify lux-specific state
       const initialTokenCount = store.getState().favorites.tokens.length
       store.dispatch(addFavoriteToken({ currencyId: 'test-currency-id' }))
 
@@ -67,7 +67,7 @@ describe('createAppStateResetter', () => {
 
       await resetter.resetUserSettings()
 
-      // Verify uniswap state was reset
+      // Verify lux state was reset
       const state = store.getState()
       expect(state.favorites.tokens.length).toBe(initialTokenCount) // resetFavorites restores defaults
     })

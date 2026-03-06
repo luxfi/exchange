@@ -30,11 +30,11 @@ const Identifiers = deprecatedStyled.div`
 export function AccountOption({
   account,
   ensUsername,
-  uniswapUsername,
+  luxUsername,
 }: {
   account: string
   ensUsername?: string | null
-  uniswapUsername?: string
+  luxUsername?: string
 }) {
   const [isHovered, setIsHovered] = useState(false)
   const { t } = useTranslation()
@@ -51,7 +51,7 @@ export function AccountOption({
         <ThemedText.SubHeader>
           <AddressDisplay address={account} />
         </ThemedText.SubHeader>
-        {uniswapUsername || ensUsername ? (
+        {luxUsername || ensUsername ? (
           <Text variant="body4" color="neutral2">
             {isHovered ? platformAddressDisplay : shortenAddress({ address: account })}
           </Text>

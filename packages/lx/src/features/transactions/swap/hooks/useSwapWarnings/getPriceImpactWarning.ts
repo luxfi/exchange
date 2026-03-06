@@ -1,7 +1,7 @@
 import { Percent } from '@luxamm/sdk-core'
 import { TFunction } from 'i18next'
 import { Warning, WarningAction, WarningLabel, WarningSeverity } from 'lx/src/components/modals/WarningModal/types'
-import { uniswapUrls } from 'lx/src/constants/urls'
+import { luxUrls } from 'lx/src/constants/urls'
 import { LocalizationContextState } from 'lx/src/features/language/LocalizationContext'
 import { DerivedSwapInfo } from 'lx/src/features/transactions/swap/types/derivedSwapInfo'
 import { formatPriceImpact } from 'lx/src/features/transactions/swap/utils/formatPriceImpact'
@@ -46,6 +46,6 @@ export function getPriceImpactWarning({
           outputCurrencySymbol: currencies[CurrencyField.OUTPUT]?.currency.symbol ?? '',
           inputCurrencySymbol: currencies[CurrencyField.INPUT]?.currency.symbol ?? '',
         }),
-    link: uniswapUrls.helpArticleUrls.priceImpact,
+    link: luxUrls.helpArticleUrls.priceImpact,
   }
 }

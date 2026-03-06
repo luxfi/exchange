@@ -34,8 +34,8 @@ import {
   type SignMessageResponse,
   type SignTypedDataRequest,
   type SignTypedDataResponse,
-  type UniswapOpenSidebarRequest,
-  type UniswapOpenSidebarResponse,
+  type LuxOpenSidebarRequest,
+  type LuxOpenSidebarResponse,
 } from 'src/app/features/dappRequests/types/DappRequestTypes'
 import { HexadecimalNumberSchema } from 'src/app/features/dappRequests/types/utilityTypes'
 import { isWalletUnlocked } from 'src/app/hooks/useIsWalletUnlocked'
@@ -127,7 +127,7 @@ function* handleRequest(requestParams: DappRequestNoDappInfo) {
     }
   }
 
-  if (requestParams.dappRequest.type === DappRequestType.UniswapOpenSidebar) {
+  if (requestParams.dappRequest.type === DappRequestType.LuxOpenSidebar) {
     // We can auto-confirm these requests since they are only for navigating to a certain tab
     // At this point the sidebar is already open
     yield* call(handleConfirmRequestNoDappInfo, requestParams)
@@ -197,7 +197,7 @@ function* handleRequest(requestParams: DappRequestNoDappInfo) {
           error: serializeError(
             providerErrors.custom({
               code: 4902,
-              message: 'Uniswap Wallet does not support switching to this chain.',
+              message: 'Lux Wallet does not support switching to this chain.',
             }),
           ),
           requestId: requestParams.dappRequest.requestId,
@@ -523,7 +523,7 @@ export function* handleSignTypedData({
   }
 }
 
-export function* handleUniswapOpenSidebarRequest(request: UniswapOpenSidebarRequest, senderTabInfo: SenderTabInfo) {
+export function* handleLuxOpenSidebarRequest(request: LuxOpenSidebarRequest, senderTabInfo: SenderTabInfo) {
   if (request.tab) {
     yield* call(navigate, {
       pathname: AppRoutes.Home,
@@ -532,8 +532,8 @@ export function* handleUniswapOpenSidebarRequest(request: UniswapOpenSidebarRequ
       }).toString(),
     })
   }
-  const response: UniswapOpenSidebarResponse = {
-    type: DappResponseType.UniswapOpenSidebarResponse,
+  const response: LuxOpenSidebarResponse = {
+    type: DappResponseType.LuxOpenSidebarResponse,
     requestId: request.requestId,
   }
   yield* call(dappResponseMessageChannel.sendMessageToTab, senderTabInfo.id, response)

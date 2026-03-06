@@ -1,5 +1,5 @@
 /**
- *  Taken from https://github.com/Uniswap/tamperproof-transactions/blob/main/src/utils/canonicalJson.ts
+ *  Taken from https://github.com/Lux/tamperproof-transactions/blob/main/src/utils/canonicalJson.ts
  *  Can be removed if we decide to use the tamperproof-transactions package.
  */
 

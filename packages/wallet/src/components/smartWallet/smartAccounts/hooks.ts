@@ -64,13 +64,13 @@ export function useSmartWalletDelegationStatus({
       return
     }
 
-    let isDelegatedOnlyToUniswapSmartContract = false
+    let isDelegatedOnlyToLuxSmartContract = false
     for (const chain of enabledChains) {
       const result = getDelegationDetails(activeAccount.address, chain)
 
-      if (result?.currentDelegationAddress && result.isWalletDelegatedToUniswap) {
-        isDelegatedOnlyToUniswapSmartContract = true
-      } else if (result?.currentDelegationAddress && !result.isWalletDelegatedToUniswap) {
+      if (result?.currentDelegationAddress && result.isWalletDelegatedToLux) {
+        isDelegatedOnlyToLuxSmartContract = true
+      } else if (result?.currentDelegationAddress && !result.isWalletDelegatedToLux) {
         setStatus(SmartWalletDelegationAction.ShowConflict)
         setLoading(false)
         return
@@ -83,7 +83,7 @@ export function useSmartWalletDelegationStatus({
       return
     }
 
-    if (isDelegatedOnlyToUniswapSmartContract) {
+    if (isDelegatedOnlyToLuxSmartContract) {
       setStatus(SmartWalletDelegationAction.None)
       setLoading(false)
       return

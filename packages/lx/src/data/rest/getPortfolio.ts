@@ -1,9 +1,9 @@
 import { type PartialMessage } from '@bufbuild/protobuf'
 import { createPromiseClient } from '@connectrpc/connect'
 import { type Query, queryOptions, type UseQueryResult, useQuery } from '@tanstack/react-query'
-import { DataApiService } from '@uniswap/client-data-api/dist/data/v1/api_connect'
-import { type GetPortfolioRequest, type GetPortfolioResponse } from '@uniswap/client-data-api/dist/data/v1/api_pb'
-import { type Balance } from '@uniswap/client-data-api/dist/data/v1/types_pb'
+import { DataApiService } from '@lux/client-data-api/dist/data/v1/api_connect'
+import { type GetPortfolioRequest, type GetPortfolioResponse } from '@lux/client-data-api/dist/data/v1/api_pb'
+import { type Balance } from '@lux/client-data-api/dist/data/v1/types_pb'
 import {
   createDataApiServiceClient,
   getGetPortfolioQueryOptions,
@@ -11,7 +11,7 @@ import {
   transformInput,
   type WithoutWalletAccount,
 } from '@universe/api'
-import { uniswapGetTransport } from 'lx/src/data/rest/base'
+import { luxGetTransport } from 'lx/src/data/rest/base'
 import { buildAccountAddressesByPlatform } from 'lx/src/data/rest/buildAccountAddressesByPlatform'
 import {
   cleanupCaughtUpOverrides,
@@ -58,7 +58,7 @@ export interface TokenBalanceMainParts {
 }
 
 const dataApiClient = createDataApiServiceClient({
-  rpcClient: createPromiseClient(DataApiService, uniswapGetTransport),
+  rpcClient: createPromiseClient(DataApiService, luxGetTransport),
 })
 
 /**

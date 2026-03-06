@@ -7,7 +7,7 @@ import type { TradeWithGasEstimates } from 'lx/src/features/transactions/swap/se
 import { TradeWithStatus, UseTradeArgs } from 'lx/src/features/transactions/swap/types/trade'
 
 // error strings hardcoded in @l.x/unified-routing-api
-// https://github.com/Uniswap/unified-routing-api/blob/020ea371a00d4cc25ce9f9906479b00a43c65f2c/lib/util/errors.ts#L4
+// https://github.com/Lux/unified-routing-api/blob/020ea371a00d4cc25ce9f9906479b00a43c65f2c/lib/util/errors.ts#L4
 export const SWAP_QUOTE_ERROR = 'QUOTE_ERROR'
 
 export const API_RATE_LIMIT_ERROR = 'TOO_MANY_REQUESTS'

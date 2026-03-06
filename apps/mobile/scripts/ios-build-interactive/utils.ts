@@ -63,7 +63,7 @@ export const CONSTANTS = {
 // Types
 export type BuildType = 'simulator' | 'device'
 export type Configuration = 'Debug' | 'Release'
-export type Scheme = 'Uniswap'
+export type Scheme = 'Lux'
 
 export interface BuildConfig {
   buildType: BuildType

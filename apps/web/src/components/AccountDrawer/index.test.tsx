@@ -1,12 +1,12 @@
 import { TestID } from 'lx/src/test/fixtures/testIDs'
 import AccountDrawer, { MODAL_WIDTH } from '~/components/AccountDrawer'
-import { useIsUniswapExtensionConnected } from '~/hooks/useIsUniswapExtensionConnected'
+import { useIsLuxExtensionConnected } from '~/hooks/useIsLuxExtensionConnected'
 import { mocked } from '~/test-utils/mocked'
 import mockMediaSize from '~/test-utils/mockMediaSize'
 import { render, screen } from '~/test-utils/render'
 
-vi.mock('~/hooks/useIsUniswapExtensionConnected', () => ({
-  useIsUniswapExtensionConnected: vi.fn(),
+vi.mock('~/hooks/useIsLuxExtensionConnected', () => ({
+  useIsLuxExtensionConnected: vi.fn(),
 }))
 
 vi.mock('~/components/AccountDrawer/MiniPortfolio/hooks', async (importOriginal) => {
@@ -66,7 +66,7 @@ vi.mock('lx/src/components/AnimatedNumber/AnimatedNumber', () => {
 
 describe('AccountDrawer tests', () => {
   it('AccountDrawer default styles', () => {
-    mocked(useIsUniswapExtensionConnected).mockReturnValue(true)
+    mocked(useIsLuxExtensionConnected).mockReturnValue(true)
     mockMediaSize('xxl')
 
     render(<AccountDrawer />)

@@ -9,7 +9,7 @@ import type {
   VerifySessionResponse,
 } from '@universe/sessions/src/session-service/types'
 import type { SessionStorage } from '@universe/sessions/src/session-storage/types'
-import type { UniswapIdentifierService } from '@universe/sessions/src/uniswap-identifier/types'
+import type { LuxIdentifierService } from '@universe/sessions/src/lux-identifier/types'
 
 /**
  * Creates a Session Service instance.
@@ -18,7 +18,7 @@ import type { UniswapIdentifierService } from '@universe/sessions/src/uniswap-id
 export function createSessionService(ctx: {
   sessionStorage: SessionStorage
   deviceIdService: DeviceIdService
-  uniswapIdentifierService: UniswapIdentifierService
+  luxIdentifierService: LuxIdentifierService
   sessionRepository: SessionRepository
 }): SessionService {
   async function initSession(): Promise<InitSessionResponse> {
@@ -29,8 +29,8 @@ export function createSessionService(ctx: {
     if (result.deviceId) {
       await ctx.deviceIdService.setDeviceId(result.deviceId)
     }
-    if (result.extra['uniswapIdentifier']) {
-      await ctx.uniswapIdentifierService.setUniswapIdentifier(result.extra['uniswapIdentifier'])
+    if (result.extra['luxIdentifier']) {
+      await ctx.luxIdentifierService.setLuxIdentifier(result.extra['luxIdentifier'])
     }
     return result
   }

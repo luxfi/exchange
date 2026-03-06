@@ -1,7 +1,7 @@
 import '~/test-utils/tokens/mocks'
 
 import { ApolloError } from '@apollo/client'
-import { type Currency, Percent, Token } from '@uniswap/sdk-core'
+import { type Currency, Percent, Token } from '@lux/sdk-core'
 import { GraphQLApi } from '@universe/api'
 import { DEFAULT_TICK_SPACING } from 'lx/src/constants/pools'
 import { UniverseChainId } from 'lx/src/features/chains/types'

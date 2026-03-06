@@ -10,7 +10,7 @@ import type { SwapReviewTransactionState } from 'lx/src/features/transactions/sw
 import { createSwapReviewTransactionStore } from 'lx/src/features/transactions/swap/review/stores/swapReviewTransactionStore/createSwapReviewTransactionStore'
 import { SwapReviewTransactionStoreContext } from 'lx/src/features/transactions/swap/review/stores/swapReviewTransactionStore/SwapReviewTransactionStoreContext'
 import { useSwapFormStore } from 'lx/src/features/transactions/swap/stores/swapFormStore/useSwapFormStore'
-import { isClassic, isUniswapX } from 'lx/src/features/transactions/swap/utils/routing'
+import { isClassic, isDEX } from 'lx/src/features/transactions/swap/utils/routing'
 import { isWrapAction } from 'lx/src/features/transactions/swap/utils/wrap'
 import { getRelevantTokenWarningSeverity } from 'lx/src/features/transactions/TransactionDetails/utils/getRelevantTokenWarningSeverity'
 import { CurrencyField } from 'lx/src/types/currency'
@@ -40,7 +40,7 @@ export const SwapReviewTransactionStoreContextProvider = ({
       ),
   )
 
-  const uniswapXGasBreakdown = isUniswapX(swapTxContext) ? swapTxContext.gasFeeBreakdown : undefined
+  const dexGasBreakdown = isDEX(swapTxContext) ? swapTxContext.gasFeeBreakdown : undefined
 
   const {
     chainId,
@@ -69,7 +69,7 @@ export const SwapReviewTransactionStoreContextProvider = ({
       acceptedTrade: acceptedTrade ?? undefined,
       swapTxContext,
       gasFee: swapTxContext.gasFee,
-      uniswapXGasBreakdown,
+      dexGasBreakdown,
       derivedSwapInfo,
       acceptedDerivedSwapInfo,
       isWrap,
@@ -89,7 +89,7 @@ export const SwapReviewTransactionStoreContextProvider = ({
       indicativeTrade,
       acceptedTrade,
       swapTxContext,
-      uniswapXGasBreakdown,
+      dexGasBreakdown,
       derivedSwapInfo,
       acceptedDerivedSwapInfo,
       isWrap,

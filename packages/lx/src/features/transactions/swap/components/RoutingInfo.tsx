@@ -2,7 +2,7 @@ import type { GasFeeResult } from '@universe/api'
 import type { PropsWithChildren } from 'react'
 import { useMemo } from 'react'
 import { Trans, useTranslation } from 'react-i18next'
-import { Flex, Text, UniswapXText } from 'ui/src'
+import { Flex, Text, DEXText } from 'ui/src'
 import { OrderRouting } from 'ui/src/components/icons/OrderRouting'
 import { zIndexes } from 'ui/src/theme'
 import { WarningSeverity } from 'lx/src/components/modals/WarningModal/types'
@@ -15,10 +15,10 @@ import { useLocalizationContext } from 'lx/src/features/language/LocalizationCon
 import { ModalName } from 'lx/src/features/telemetry/constants'
 import {
   BestRouteTooltip,
-  BestRouteUniswapXTooltip,
+  BestRouteDEXTooltip,
 } from 'lx/src/features/transactions/swap/form/SwapFormScreen/SwapFormTooltips/BestRouteTooltip'
 import { Trade } from 'lx/src/features/transactions/swap/types/trade'
-import { isUniswapX } from 'lx/src/features/transactions/swap/utils/routing'
+import { isDEX } from 'lx/src/features/transactions/swap/utils/routing'
 import { useRoutingEntries } from 'lx/src/utils/routingDiagram/routingRegistry'
 import { NumberType } from 'utilities/src/format/types'
 import { isWebPlatform } from 'utilities/src/platform'
@@ -44,15 +44,15 @@ export function RoutingHopInfo({
     const textVariant = isWebPlatform ? 'body4' : 'body2'
     const textAlign = isWebPlatform ? 'left' : 'center'
 
-    if (isUniswapX(trade)) {
+    if (isDEX(trade)) {
       return (
         <Text variant={textVariant} textAlign={textAlign} color="$neutral2">
           <Trans
-            i18nKey="uniswapX.aggregatesLiquidity"
+            i18nKey="dex.aggregatesLiquidity"
             components={{
               logo: (
                 <>
-                  <UniswapXText variant={textVariant}>UniswapX</UniswapXText>
+                  <DEXText variant={textVariant}>DEX</DEXText>
                 </>
               ),
             }}
@@ -94,8 +94,8 @@ export function RoutingHopInfo({
           zIndex: zIndexes.popover,
         }}
         tooltipProps={{
-          text: isUniswapX(trade) ? (
-            <BestRouteUniswapXTooltip />
+          text: isDEX(trade) ? (
+            <BestRouteDEXTooltip />
           ) : routes && routes.length > 0 ? (
             <BestRouteTooltip />
           ) : (

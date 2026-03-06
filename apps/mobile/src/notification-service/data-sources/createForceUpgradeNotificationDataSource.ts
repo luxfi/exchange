@@ -5,11 +5,11 @@ import {
   Notification,
   NotificationVersion,
   OnClick,
-} from '@uniswap/client-notification-service/dist/uniswap/notificationservice/v1/api_pb'
+} from '@lux/client-notification-service/dist/lux/notificationservice/v1/api_pb'
 import { BackgroundType, ContentStyle, type InAppNotification, OnClickAction } from '@universe/api'
 import { DynamicConfigs, ForceUpgradeConfigKey, type ForceUpgradeStatus, getDynamicConfigValue } from '@universe/gating'
 import { createIntervalNotificationDataSource, type NotificationDataSource } from '@universe/notifications'
-import { UNISWAP_LOGO } from 'ui/src/assets'
+import { LUX_LOGO } from 'ui/src/assets'
 import i18n from 'lx/src/i18n'
 import { ONE_SECOND_MS } from 'utilities/src/time/time'
 import { MOBILE_APP_STORE_LINK } from 'wallet/src/constants/urls'
@@ -116,7 +116,7 @@ function createForceUpgradeNotification(status: ForceUpgradeStatus): InAppNotifi
             onClick: [OnClickAction.DISMISS, OnClickAction.ACK],
           }),
       buttons,
-      iconLink: UNISWAP_LOGO,
+      iconLink: LUX_LOGO,
       extra: JSON.stringify({
         cardType: isRequired ? 'required' : 'dismissible',
         isForceUpgrade: true,

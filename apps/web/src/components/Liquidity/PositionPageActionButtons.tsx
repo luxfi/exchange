@@ -1,4 +1,4 @@
-import { PositionStatus, ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
+import { PositionStatus, ProtocolVersion } from '@lux/client-data-api/dist/data/v1/poolTypes_pb'
 import { useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Button, DropdownMenuSheetItem, Flex, IconButton, Popover, useIsTouchDevice, useMedia } from 'ui/src'

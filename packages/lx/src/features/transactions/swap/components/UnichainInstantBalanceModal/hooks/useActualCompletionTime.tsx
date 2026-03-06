@@ -18,7 +18,7 @@ export function useActualCompletionTime(): number | undefined {
     const txRpcSubmissionTime =
       'options' in transaction
         ? transaction.addedTime + (transaction.options.rpcSubmissionDelayMs || 0)
-        : txHashReceivedTime || transaction.addedTime // transaction.addedTime is used for UniswapX
+        : txHashReceivedTime || transaction.addedTime // transaction.addedTime is used for DEX
 
     if (!txRpcSubmissionTime) {
       return undefined

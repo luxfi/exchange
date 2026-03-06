@@ -1,4 +1,4 @@
-import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
+import { ProtocolVersion } from '@lux/client-data-api/dist/data/v1/poolTypes_pb'
 import React, { ReactNode, useCallback, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { CheckCircleFilled } from 'ui/src/components/icons/CheckCircleFilled'
@@ -6,7 +6,7 @@ import { CopyAlt } from 'ui/src/components/icons/CopyAlt'
 import { ShareArrow } from 'ui/src/components/icons/ShareArrow'
 import { ContextMenu, ContextMenuProps, MenuOptionItem } from 'lx/src/components/menus/ContextMenu'
 import { ContextMenuTriggerMode } from 'lx/src/components/menus/types'
-import { UNISWAP_WEB_URL } from 'lx/src/constants/urls'
+import { LUX_WEB_URL } from 'lx/src/constants/urls'
 import { UniverseChainId } from 'lx/src/features/chains/types'
 import { getPoolDetailsURL } from 'lx/src/utils/linking'
 import { setClipboard } from 'utilities/src/clipboard/clipboard'
@@ -56,7 +56,7 @@ function _PoolOptionItemContextMenu({
   }, [closeMenu, poolId])
 
   const onShare = useCallback(async () => {
-    const url = UNISWAP_WEB_URL + getPoolDetailsURL(poolId, chainId)
+    const url = LUX_WEB_URL + getPoolDetailsURL(poolId, chainId)
     await setClipboard(url)
     setCopiedUrl(true)
     setTimeout(() => {

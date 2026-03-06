@@ -7,25 +7,25 @@ const companyMenu = [
   {
     label: 'Products',
     items: [
-      { label: 'Wallet', href: 'https://wallet.uniswap.org/' },
-      { label: 'UniswapX', href: 'https://x.uniswap.org/' },
-      { label: 'API', href: 'https://hub.uniswap.org/' },
+      { label: 'Wallet', href: 'https://wallet.lux.org/' },
+      { label: 'DEX', href: 'https://x.lux.org/' },
+      { label: 'API', href: 'https://hub.lux.org/' },
       { label: 'Unichain', href: 'https://www.unichain.org/' },
     ],
   },
   {
     label: 'Protocol',
     items: [
-      { label: 'Governance', href: 'https://uniswap.org/governance' },
-      { label: 'Developers', href: 'https://uniswap.org/developers' },
-      { label: 'Vote', href: 'https://vote.uniswapfoundation.org' },
+      { label: 'Governance', href: 'https://lux.org/governance' },
+      { label: 'Developers', href: 'https://lux.org/developers' },
+      { label: 'Vote', href: 'https://vote.luxfoundation.org' },
     ],
   },
   {
     label: 'Company',
     items: [
-      { label: 'Careers', href: 'https://careers.uniswap.org/' },
-      { label: 'Blog', href: 'https://blog.uniswap.org/' },
+      { label: 'Careers', href: 'https://careers.lux.org/' },
+      { label: 'Blog', href: 'https://blog.lux.org/' },
     ],
   },
 ]
@@ -58,7 +58,7 @@ const tabs = [
     ],
   },
 ]
-const socialMediaLinks = ['https://github.com/Uniswap', 'https://x.com/Uniswap', 'https://discord.com/invite/uniswap']
+const socialMediaLinks = ['https://github.com/Lux', 'https://x.com/Lux', 'https://discord.com/invite/lux']
 
 test.describe(
   'NavBar',
@@ -73,7 +73,7 @@ test.describe(
     test.describe('Desktop navigation', () => {
       test('clicking nav icon redirects to home page', async ({ page }) => {
         await page.goto('/swap')
-        await page.getByTestId(TestID.NavUniswapLogo).click()
+        await page.getByTestId(TestID.NavLuxLogo).click()
         await expect(page).toHaveURL(/\/\?intro=true/)
       })
 
@@ -109,7 +109,7 @@ test.describe(
         await expect(page.getByTestId(TestID.NavCompanyDropdown).getByText('Terms of Service')).toBeVisible()
 
         await expect(
-          page.getByTestId(TestID.NavCompanyDropdown).locator('a[href="https://uniswap.org/terms-of-service"]'),
+          page.getByTestId(TestID.NavCompanyDropdown).locator('a[href="https://lux.org/terms-of-service"]'),
         ).toBeVisible()
       })
 
@@ -168,7 +168,7 @@ test.describe(
         await expect(drawer.getByText('Privacy Policy')).toBeVisible()
         await expect(drawer.getByText('Terms of Service')).toBeVisible()
 
-        await expect(drawer.locator('a[href="https://uniswap.org/terms-of-service"]')).toBeVisible()
+        await expect(drawer.locator('a[href="https://lux.org/terms-of-service"]')).toBeVisible()
       })
 
       test('displays mobile-specific UI elements', async ({ page }) => {
@@ -181,11 +181,11 @@ test.describe(
         await expect(page.getByTestId(TestID.HelpModal).getByText('Contact us')).toBeVisible()
 
         await expect(
-          page.getByTestId(TestID.HelpModal).locator('a[href="https://support.uniswap.org/hc/en-us"]'),
+          page.getByTestId(TestID.HelpModal).locator('a[href="https://support.lux.org/hc/en-us"]'),
         ).toBeVisible()
-        await expect(page.getByTestId(TestID.HelpModal).locator('a[href="https://docs.uniswap.org/"]')).toBeVisible()
+        await expect(page.getByTestId(TestID.HelpModal).locator('a[href="https://docs.lux.org/"]')).toBeVisible()
         await expect(
-          page.getByTestId(TestID.HelpModal).locator('a[href="https://support.uniswap.org/hc/en-us/requests/new"]'),
+          page.getByTestId(TestID.HelpModal).locator('a[href="https://support.lux.org/hc/en-us/requests/new"]'),
         ).toBeVisible()
       })
 

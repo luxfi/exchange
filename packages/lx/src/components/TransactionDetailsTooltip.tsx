@@ -8,7 +8,7 @@ import {
   GeneratedIcon,
   IconProps,
   Text,
-  UniswapXText,
+  DEXText,
 } from 'ui/src'
 
 type OuterProps = {
@@ -26,7 +26,7 @@ const Outer = ({ children, gap }: OuterProps): JSX.Element => {
 
 type Title = {
   title: string
-  uniswapX?: boolean
+  dex?: boolean
 }
 
 const Header = ({
@@ -44,8 +44,8 @@ const Header = ({
     <Flex row alignItems="center" gap="$spacing6">
       {logo}
       {Icon && <Icon size="$icon.16" color={iconColor} />}
-      {title.uniswapX ? (
-        <UniswapXText variant="body3">{title.title}</UniswapXText>
+      {title.dex ? (
+        <DEXText variant="body3">{title.title}</DEXText>
       ) : (
         <Text variant="body3" color="$neutral1">
           {title.title}

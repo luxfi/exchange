@@ -61,8 +61,8 @@ export function getCapabilitiesForDelegationStatus(
 
     // If the user has consented to smart wallets, we can use the delegation status to determine the capabilities
     if (hasSmartWalletConsent) {
-      // If the wallet is delegated to Uniswap, it's supported, even if the delegation address is outdated
-      if (delegationStatusForChain.isWalletDelegatedToUniswap) {
+      // If the wallet is delegated to Lux, it's supported, even if the delegation address is outdated
+      if (delegationStatusForChain.isWalletDelegatedToLux) {
         status = 'supported'
       } else if (isFreshDelegation(delegationStatusForChain)) {
         status = 'ready'

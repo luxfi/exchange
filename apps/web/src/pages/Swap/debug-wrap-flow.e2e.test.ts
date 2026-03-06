@@ -1,7 +1,7 @@
 import { isLuxdMode } from 'playwright/anvil/anvil-manager'
 import { expect, getTest } from 'playwright/fixtures'
 import { stubTradingApiEndpoint } from 'playwright/fixtures/tradingApi'
-import { uniswapUrls } from 'lx/src/constants/urls'
+import { luxUrls } from 'lx/src/constants/urls'
 import { TestID } from 'lx/src/test/fixtures/testIDs'
 
 const test = getTest({ withAnvil: true })
@@ -11,8 +11,8 @@ test('debug wrap flow step by step', async ({ page }) => {
   const chainId = 1337
   const symbol = 'WLUX'
   
-  await stubTradingApiEndpoint({ page, endpoint: uniswapUrls.tradingApiPaths.quote })
-  await stubTradingApiEndpoint({ page, endpoint: uniswapUrls.tradingApiPaths.swap })
+  await stubTradingApiEndpoint({ page, endpoint: luxUrls.tradingApiPaths.quote })
+  await stubTradingApiEndpoint({ page, endpoint: luxUrls.tradingApiPaths.swap })
   
   console.log('Step 1: Navigating to swap page...')
   await page.goto(`/swap?chain=${interfaceName}`)

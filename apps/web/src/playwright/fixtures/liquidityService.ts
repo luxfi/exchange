@@ -1,14 +1,14 @@
 import type { MethodInfo, ServiceType } from '@bufbuild/protobuf'
 // biome-ignore lint/style/noRestrictedImports: Liquidity Service fixtures need direct Playwright imports
 import { type Page } from '@playwright/test'
-import { LiquidityService } from '@uniswap/client-liquidity/dist/uniswap/liquidity/v1/api_connect'
-import { uniswapUrls } from 'lx/src/constants/urls'
+import { LiquidityService } from '@lux/client-liquidity/dist/lux/liquidity/v1/api_connect'
+import { luxUrls } from 'lx/src/constants/urls'
 
 /**
  * Helper to construct the Connect/gRPC-web endpoint path from a service method
  * @example
  * const endpoint = getServiceMethodPath(LiquidityService, LiquidityService.methods.migrateV3ToV4LPPosition)
- * // Returns: "uniswap.liquidity.v1.LiquidityService/MigrateV3ToV4LPPosition"
+ * // Returns: "lux.liquidity.v1.LiquidityService/MigrateV3ToV4LPPosition"
  */
 function getServiceMethodPath(service: ServiceType, method: MethodInfo): string {
   return `${service.typeName}/${method.name}`
@@ -54,8 +54,8 @@ export async function stubLiquidityServiceEndpoint({
   const endpointPath = getServiceMethodPath(LiquidityService, endpoint)
 
   // Liquidity service uses Connect/gRPC-web protocol with specific path structure
-  // The endpoint will be something like: uniswap.liquidity.v1.LiquidityService/MigrateV3ToV4LPPosition
-  await page.route(`${uniswapUrls.liquidityServiceUrl}/${endpointPath}*`, async (route) => {
+  // The endpoint will be something like: lux.liquidity.v1.LiquidityService/MigrateV3ToV4LPPosition
+  await page.route(`${luxUrls.liquidityServiceUrl}/${endpointPath}*`, async (route) => {
     try {
       const request = route.request()
 

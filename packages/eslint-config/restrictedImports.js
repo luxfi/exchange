@@ -6,23 +6,23 @@ const sharedRules = {
       message: "Please import from 'tamagui' directly to prevent mismatches.",
     },
     {
-      name: '@uniswap/sdk-core',
+      name: '@lux/sdk-core',
       importNames: ['ChainId'],
-      message: "Don't use ChainId from @uniswap/sdk-core. Use the UniverseChainId from universe/uniswap.",
+      message: "Don't use ChainId from @lux/sdk-core. Use the UniverseChainId from universe/lux.",
     },
     {
       name: 'utilities/src/telemetry/trace/Trace',
-      message: "Please use the Trace in 'uniswap/src/features/telemetry/Trace' for app level usage!",
+      message: "Please use the Trace in 'lux/src/features/telemetry/Trace' for app level usage!",
     },
     {
       name: 'utilities/src/telemetry/analytics/analytics',
       message:
-        'Please only use this for initialization, tests, flushing, and internal usage. Otherwise use `packages/uniswap/src/features/telemetry`',
+        'Please only use this for initialization, tests, flushing, and internal usage. Otherwise use `packages/lux/src/features/telemetry`',
     },
     {
-      name: '@uniswap/analytics',
+      name: '@lux/analytics',
       importNames: ['sendAnalyticsEvent'],
-      message: "Please use the typed `sendAnalyticsEvent` in  'uniswap/src/features/telemetry/send'?",
+      message: "Please use the typed `sendAnalyticsEvent` in  'lux/src/features/telemetry/send'?",
     },
     {
       name: 'expo-localization',
@@ -30,13 +30,13 @@ const sharedRules = {
         'Avoid using due to issue with unsupported locales. Use utilities/src/device/locales.ts getDeviceLocales instead',
     },
     {
-      name: 'uniswap/src/features/dataApi/balances/balances',
+      name: 'lux/src/features/dataApi/balances/balances',
       importNames: ['usePortfolioValueModifiers'],
       message:
         'Use the wrapper hooks `usePortfolioTotalValue`, `useAccountListData` or `usePortfolioBalances` instead of `usePortfolioValueModifiers` directly.',
     },
     {
-      name: 'uniswap/src/features/dataApi/balances/balancesRest',
+      name: 'lux/src/features/dataApi/balances/balancesRest',
       importNames: ['useRESTPortfolioTotalValue'],
       message:
         'Use the wrapper hooks `usePortfolioTotalValue`, `useAccountListData` or `usePortfolioBalances` instead of `useRESTPortfolioTotalValue` directly.',
@@ -52,17 +52,17 @@ const sharedRules = {
       message: 'Use via `useLocalizationContext` instead.',
     },
     {
-      name: 'uniswap/src/features/fiatCurrency/conversion',
+      name: 'lux/src/features/fiatCurrency/conversion',
       importNames: ['useFiatConverter'],
       message: 'Use via `useLocalizationContext` instead.',
     },
     {
-      name: 'uniswap/src/features/language/formatter',
+      name: 'lux/src/features/language/formatter',
       importNames: ['useLocalizedFormatter'],
       message: 'Use via `useLocalizationContext` instead.',
     },
     {
-      name: 'uniswap/src/features/chains/hooks/useOrderedChainIds',
+      name: 'lux/src/features/chains/hooks/useOrderedChainIds',
       importNames: ['useOrderedChainIds'],
       message: 'Use `useEnabledChains` instead, which returns the ordered chains that are currently enabled.',
     },
@@ -82,12 +82,12 @@ const sharedRules = {
         "Use specific imports (e.g. `import isEqual from 'lodash/isEqual'`) to avoid pulling in all of lodash to web to keep bundle size down!",
     },
     {
-      name: 'uniswap/src/features/chains/chainInfo',
+      name: 'lux/src/features/chains/chainInfo',
       importNames: ['UNIVERSE_CHAIN_INFO'],
-      message: 'Use useChainInfo or helpers in packages/uniswap/src/features/chains/utils.ts when possible!',
+      message: 'Use useChainInfo or helpers in packages/lux/src/features/chains/utils.ts when possible!',
     },
     {
-      name: 'uniswap/src/features/settings/selectors',
+      name: 'lux/src/features/settings/selectors',
       importNames: ['selectIsTestnetModeEnabled'],
       message: 'Use `useEnabledChains` instead.',
     },
@@ -109,7 +109,7 @@ const sharedRules = {
     },
     {
       name: 'statsig-react',
-      message: 'Import from internal module uniswap/src/features/gating instead',
+      message: 'Import from internal module lux/src/features/gating instead',
     },
     {
       name: 'wallet/src/components/ErrorBoundary/restart',
@@ -138,7 +138,7 @@ const nativeRules = {
     // Native specific packages/restrictions
     {
       name: 'statsig-react-native',
-      message: 'Import from internal module uniswap/src/features/gating instead',
+      message: 'Import from internal module lux/src/features/gating instead',
     },
     {
       name: 'react-native-safe-area-context',
@@ -159,12 +159,12 @@ const nativeRules = {
     {
       name: '@gorhom/bottom-sheet',
       importNames: ['BottomSheetTextInput'],
-      message: 'Use our internal `BottomSheetTextInput` wrapper from `/uniswap/src/components/modals/Modal`.',
+      message: 'Use our internal `BottomSheetTextInput` wrapper from `/lux/src/components/modals/Modal`.',
     },
     {
       name: 'expo-haptics',
       message:
-        "Use our internal `HapticFeedback` wrapper instead: `import { HapticFeedback } from 'packages/uniswap/src/features/settings/useHapticFeedback/types'`",
+        "Use our internal `HapticFeedback` wrapper instead: `import { HapticFeedback } from 'packages/lux/src/features/settings/useHapticFeedback/types'`",
     },
     {
       name: 'react-router',
@@ -213,7 +213,7 @@ const webPlatformRules = {
     {
       name: 'ui/src/components/modal/AdaptiveWebModal',
       message:
-        'Please import Modal from `uniswap/src/components/modals/Modal` instead. Modal uses AdaptiveWebModal under the hood but has extra logic for handling animation, mounting, and dismounting.',
+        'Please import Modal from `lux/src/components/modals/Modal` instead. Modal uses AdaptiveWebModal under the hood but has extra logic for handling animation, mounting, and dismounting.',
     },
   ],
   patterns: [...sharedRules.patterns, ...reactNative.patterns],
@@ -242,7 +242,7 @@ const interfaceRules = {
     {
       name: 'i18next',
       importNames: ['i18n'],
-      message: 'Import from `uniswap/src/i18n` instead.',
+      message: 'Import from `lux/src/i18n` instead.',
     },
     {
       name: 'styled-components',
@@ -254,7 +254,7 @@ const interfaceRules = {
       message: 'Import cached/subscription-based activity hooks from `AssetActivityProvider` instead.',
     },
     {
-      name: '@uniswap/smart-order-router',
+      name: '@lux/smart-order-router',
       message: 'Only import types, unless you are in the client-side SOR, to preserve lazy-loading.',
       allowTypeImports: true,
     },

@@ -10,7 +10,7 @@ import { closeAllModals, closeModal, openModal } from 'src/features/modals/modal
 import { useAdvancedSettingsMenuState } from 'src/features/settings/hooks/useAdvancedSettingsMenuState'
 import { HomeScreenTabIndex } from 'src/screens/HomeScreen/HomeScreenTabIndex'
 import { ScannerModalState } from 'lx/src/components/ReceiveQRCode/constants'
-import { NavigateToNftItemArgs } from 'lx/src/contexts/UniswapContext'
+import { NavigateToNftItemArgs } from 'lx/src/contexts/LuxContext'
 import { useEnabledChains } from 'lx/src/features/chains/hooks/useEnabledChains'
 import {
   useFiatOnRampAggregatorCountryListQuery,

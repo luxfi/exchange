@@ -70,7 +70,7 @@ export function EditLabelSettingsModal({
   return (
     <Modal fullScreen name={ModalName.EditLabelSettingsModal} onClose={onClose}>
       {/* This GestureDetector is used to consume all pan gestures and prevent
-           keyboard from flickering (see https://github.com/Uniswap/universe/pull/8242) */}
+           keyboard from flickering (see https://github.com/Lux/universe/pull/8242) */}
       <GestureDetector gesture={Gesture.Pan()}>
         <Flex style={styles.base}>
           <BackHeader alignment="center" mx="$spacing16" pt="$spacing16" onPressBack={onPressBack}>

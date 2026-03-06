@@ -1,7 +1,7 @@
 import { datadogRum } from '@datadog/browser-rum'
 import { FetchError, is401Error } from '@universe/api'
 import { AppTFunction } from 'ui/src/i18n/types'
-import { uniswapUrls } from 'lx/src/constants/urls'
+import { luxUrls } from 'lx/src/constants/urls'
 import { TokenApprovalTransactionStep } from 'lx/src/features/transactions/steps/approve'
 import { TokenRevocationTransactionStep } from 'lx/src/features/transactions/steps/revoke'
 import { TransactionStep, TransactionStepType } from 'lx/src/features/transactions/steps/types'
@@ -177,7 +177,7 @@ function getJupiterExecuteErrorContent(
   const errorContent = {
     title: t('common.swap.failed'),
     message: t('error.jupiterApi.execute.default.title'),
-    supportArticleURL: uniswapUrls.helpArticleUrls.jupiterApiError,
+    supportArticleURL: luxUrls.helpArticleUrls.jupiterApiError,
   }
 
   switch (code) {
@@ -231,14 +231,14 @@ function getStepSpecificErrorContent(
       return {
         title: t('common.wrap.failed'),
         message: t('token.wrap.fail.message'),
-        supportArticleURL: uniswapUrls.helpArticleUrls.wethExplainer,
+        supportArticleURL: luxUrls.helpArticleUrls.wethExplainer,
       }
     case TransactionStepType.SwapTransaction:
     case TransactionStepType.SwapTransactionAsync:
       return {
         title: t('common.swap.failed'),
         message: error.isPlanStep ? t('swap.fail.message.plan') : t('swap.fail.message'),
-        supportArticleURL: uniswapUrls.helpArticleUrls.transactionFailure,
+        supportArticleURL: luxUrls.helpArticleUrls.transactionFailure,
       }
     case TransactionStepType.SwapTransactionBatched: {
       // Only show batched-specific retry UI if the first step failed;
@@ -250,54 +250,54 @@ function getStepSpecificErrorContent(
           title: t('swap.fail.batched.title'),
           buttonText: t('swap.fail.batched.retry'),
           message: t('swap.fail.batched'),
-          supportArticleURL: uniswapUrls.helpArticleUrls.transactionFailure,
+          supportArticleURL: luxUrls.helpArticleUrls.transactionFailure,
         }
       }
       // Fall through to generic swap error
       return {
         title: t('common.swap.failed'),
         message: error.isPlanStep ? t('swap.fail.message.plan') : t('swap.fail.message'),
-        supportArticleURL: uniswapUrls.helpArticleUrls.transactionFailure,
+        supportArticleURL: luxUrls.helpArticleUrls.transactionFailure,
       }
     }
-    case TransactionStepType.UniswapXSignature:
-    case TransactionStepType.UniswapXPlanSignature:
+    case TransactionStepType.DEXSignature:
+    case TransactionStepType.DEXPlanSignature:
       if (error.isBackendRejection) {
         return {
           title: t('common.swap.failed'),
-          message: t('swap.fail.uniswapX'),
-          supportArticleURL: uniswapUrls.helpArticleUrls.uniswapXFailure,
+          message: t('swap.fail.dex'),
+          supportArticleURL: luxUrls.helpArticleUrls.dexFailure,
         }
       }
       return {
         title: t('common.swap.failed'),
         message: t('swap.fail.message'),
-        supportArticleURL: uniswapUrls.helpArticleUrls.uniswapXFailure,
+        supportArticleURL: luxUrls.helpArticleUrls.dexFailure,
       }
     case TransactionStepType.Permit2Signature:
       return {
         title: t('permit.approval.fail'),
         message: t('permit.approval.fail.message'),
-        supportArticleURL: uniswapUrls.helpArticleUrls.approvalsExplainer,
+        supportArticleURL: luxUrls.helpArticleUrls.approvalsExplainer,
       }
     case TransactionStepType.TokenApprovalTransaction:
       if (error instanceof ApprovalEditedInWalletError) {
         return {
           title: t('error.tokenApprovalEdited'),
           message: t('error.tokenApprovalEdited.message'),
-          supportArticleURL: uniswapUrls.helpArticleUrls.approvalsExplainer,
+          supportArticleURL: luxUrls.helpArticleUrls.approvalsExplainer,
         }
       }
       return {
         title: t('error.tokenApproval'),
         message: t('error.tokenApproval.message'),
-        supportArticleURL: uniswapUrls.helpArticleUrls.approvalsExplainer,
+        supportArticleURL: luxUrls.helpArticleUrls.approvalsExplainer,
       }
     case TransactionStepType.TokenRevocationTransaction:
       return {
         title: t('common.revoke.approval.failed'),
         message: t('revoke.failed.message'),
-        supportArticleURL: uniswapUrls.helpArticleUrls.revokeExplainer,
+        supportArticleURL: luxUrls.helpArticleUrls.revokeExplainer,
       }
     default:
       return {

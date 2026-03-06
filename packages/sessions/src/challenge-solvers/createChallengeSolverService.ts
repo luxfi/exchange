@@ -1,4 +1,4 @@
-import { ChallengeType } from '@uniswap/client-platform-service/dist/uniswap/platformservice/v1/sessionService_pb'
+import { ChallengeType } from '@lux/client-platform-service/dist/lux/platformservice/v1/sessionService_pb'
 import { createHashcashMockSolver } from '@universe/sessions/src/challenge-solvers/createHashcashMockSolver'
 import { createNoneMockSolver } from '@universe/sessions/src/challenge-solvers/createNoneMockSolver'
 import { createTurnstileMockSolver } from '@universe/sessions/src/challenge-solvers/createTurnstileMockSolver'

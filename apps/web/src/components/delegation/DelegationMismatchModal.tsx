@@ -1,10 +1,10 @@
-import { SharedEventName } from '@uniswap/analytics-events'
+import { SharedEventName } from '@lux/analytics-events'
 import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Flex, Text, useSporeColors } from 'ui/src'
 import { Blocked } from 'ui/src/components/icons/Blocked'
 import { Dialog } from 'lx/src/components/dialog/Dialog'
-import { uniswapUrls } from 'lx/src/constants/urls'
+import { luxUrls } from 'lx/src/constants/urls'
 import { ElementName, ModalName } from 'lx/src/features/telemetry/constants'
 import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
 import { Trace } from 'lx/src/features/telemetry/Trace'
@@ -32,7 +32,7 @@ function DelegationMismatchModal({ onClose }: DelegationMismatchModalProps) {
     t('smartWallets.delegationMismatchModal.features.1ClickSwaps'),
     <>
       {t('smartWallets.delegationMismatchModal.features.gasFreeSwaps')}
-      <span style={{ color: colors.neutral2.val }}>{` (${t('uniswapx.label')})`}</span>
+      <span style={{ color: colors.neutral2.val }}>{` (${t('dex.label')})`}</span>
     </>,
     t('smartWallets.delegationMismatchModal.features.limitOrders'),
   ]
@@ -99,7 +99,7 @@ function DelegationMismatchModal({ onClose }: DelegationMismatchModalProps) {
         icon={<WalletAlertBadge walletIcon={iconSrc} />}
         primaryButton={primaryButton}
         secondaryButton={secondaryButton}
-        learnMoreUrl={uniswapUrls.helpArticleUrls.mismatchedImports}
+        learnMoreUrl={luxUrls.helpArticleUrls.mismatchedImports}
         learnMoreTextColor="$accent1"
         learnMoreTextVariant="buttonLabel3"
         onClose={onClose}

@@ -6,7 +6,7 @@ import { X } from 'ui/src/components/icons/X'
 import { WarningSeverity } from 'lx/src/components/modals/WarningModal/types'
 import { WarningModalContent } from 'lx/src/components/modals/WarningModal/WarningModal'
 import { LearnMoreLink } from 'lx/src/components/text/LearnMoreLink'
-import { uniswapUrls } from 'lx/src/constants/urls'
+import { luxUrls } from 'lx/src/constants/urls'
 import { ModalName } from 'lx/src/features/telemetry/constants'
 import {
   useTransactionSettingsActions,
@@ -41,18 +41,18 @@ export function SwapErrorScreen({
 
   const { title, message, supportArticleURL, buttonText } = getErrorContent(t, submissionError)
 
-  const isUniswapXBackendError =
+  const isDEXBackendError =
     submissionError instanceof TransactionStepFailedError &&
     submissionError.isBackendRejection &&
-    submissionError.step.type === TransactionStepType.UniswapXSignature
+    submissionError.step.type === TransactionStepType.DEXSignature
 
   const handleTryAgain = (): void => {
     if (onPressRetry) {
       onPressRetry()
-    } else if (isUniswapXBackendError) {
+    } else if (isDEXBackendError) {
       // TODO(WEB-7668): move this into onPressRetry logic.
-      // Update swap preferences for this session to exclude UniswapX if Uniswap x failed
-      const updatedProtocols = selectedProtocols.filter((protocol) => protocol !== TradingApi.ProtocolItems.UNISWAPX_V2)
+      // Update swap preferences for this session to exclude DEX if Lux x failed
+      const updatedProtocols = selectedProtocols.filter((protocol) => protocol !== TradingApi.ProtocolItems.LUXX_V2)
       setSelectedProtocols(updatedProtocols)
     } else {
       resubmitSwap()
@@ -61,7 +61,7 @@ export function SwapErrorScreen({
   }
 
   const onPressGetHelp = async (): Promise<void> => {
-    await openUri({ uri: supportArticleURL ?? uniswapUrls.helpUrl })
+    await openUri({ uri: supportArticleURL ?? luxUrls.helpUrl })
   }
 
   const caption = supportArticleURL ? (

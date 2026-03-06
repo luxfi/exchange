@@ -1,4 +1,4 @@
-import { Currency, CurrencyAmount, Price } from '@uniswap/sdk-core'
+import { Currency, CurrencyAmount, Price } from '@lux/sdk-core'
 import JSBI from 'jsbi'
 import { useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
@@ -136,7 +136,7 @@ const AuctionGraduatedSuccess = ({
     })
   }, [clearingPrice, bidTokenDecimals, auctionTokenDecimals])
 
-  // Calculate currency spent per token using Uniswap SDK Price class
+  // Calculate currency spent per token using Lux SDK Price class
   // This handles division with different decimals automatically
   const currencySpentPerTokenDecimal = useMemo(() => {
     if (tokensReceived === 0n) {

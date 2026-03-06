@@ -4,7 +4,7 @@ import {
   TransactionOriginType,
   TransactionStatus,
   TransactionType,
-  UniswapXOrderDetails,
+  DEXOrderDetails,
 } from 'lx/src/features/transactions/types/transactionDetails'
 import { useOpenLimitOrders } from '~/components/AccountDrawer/MiniPortfolio/Activity/hooks'
 import { OpenLimitOrdersButton } from '~/pages/Swap/Limit/OpenLimitOrdersButton'
@@ -19,7 +19,7 @@ vi.mock('~/components/AccountDrawer/MiniPortfolio/Activity/hooks', async () => {
   }
 })
 
-const mockLimitActivity: UniswapXOrderDetails = {
+const mockLimitActivity: DEXOrderDetails = {
   id: '0x123',
   hash: '0x123',
   orderHash: '0x123',
@@ -38,7 +38,7 @@ const mockLimitActivity: UniswapXOrderDetails = {
     expectedOutputCurrencyAmountRaw: '2000000000000000000',
     minimumOutputCurrencyAmountRaw: '2000000000000000000',
     settledOutputCurrencyAmountRaw: '2000000000000000000',
-    isUniswapXOrder: true,
+    isDEXOrder: true,
   },
 }
 

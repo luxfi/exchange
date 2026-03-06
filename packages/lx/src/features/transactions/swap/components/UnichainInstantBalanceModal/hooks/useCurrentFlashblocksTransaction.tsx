@@ -24,6 +24,6 @@ export function useCurrentFlashblocksTransaction(): TransactionDetails | Interfa
 
   const transactionFromStateByTxId = useSelectTransaction({ address: evmAddress, chainId, txId })
 
-  // UniswapX transactions are stored by tx id while classic swaps are stored by tx hash
+  // DEX transactions are stored by tx id while classic swaps are stored by tx hash
   return transactionFromStateByHash || transactionFromStateByTxId
 }

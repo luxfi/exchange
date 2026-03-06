@@ -1,5 +1,5 @@
 import { useMemo } from 'react'
-import { UNISWAP_WEB_URL } from 'lx/src/constants/urls'
+import { LUX_WEB_URL } from 'lx/src/constants/urls'
 import { FORQuoteItem } from 'lx/src/features/fiatOnRamp/FORQuoteItem'
 import { useFiatOnRampAggregatorTransferWidgetQuery } from 'lx/src/features/fiatOnRamp/hooks/useFiatOnRampQueries'
 import { FORServiceProvider } from 'lx/src/features/fiatOnRamp/types'
@@ -34,7 +34,7 @@ export function ProviderOption({ serviceProvider, setConnectedProvider, setError
       serviceProvider: serviceProvider.serviceProvider,
       walletAddress: walletAddress ?? '', // satisfy typecheck: useFiatOnRampAggregatorTransferWidgetQuery will only query if walletAddress is defined
       externalSessionId: externalTransactionId,
-      redirectUrl: `${UNISWAP_WEB_URL}/buy`,
+      redirectUrl: `${LUX_WEB_URL}/buy`,
     }
   }, [walletAddress, serviceProvider, externalTransactionId])
 

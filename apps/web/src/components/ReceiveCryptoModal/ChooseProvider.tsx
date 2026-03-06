@@ -42,7 +42,7 @@ function AccountCardItem({ address }: { address: Address }): JSX.Element {
         p="$spacing12"
       >
         <Flex fill>
-          <AccountOption account={address} ensUsername={ENSName} uniswapUsername={unitag?.username} />
+          <AccountOption account={address} ensUsername={ENSName} luxUsername={unitag?.username} />
         </Flex>
         <Flex centered row gap="$spacing12" px="$spacing8">
           <CopyToClipboard toCopy={address}>

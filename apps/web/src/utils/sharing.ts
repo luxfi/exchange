@@ -12,7 +12,7 @@ interface ShareToTwitterParams {
 export function openTwitterShareWindow({ text, url }: ShareToTwitterParams): void {
   const positionX = (window.screen.width - TWITTER_WINDOW_WIDTH) / 2
   const positionY = (window.screen.height - TWITTER_WINDOW_HEIGHT) / 2
-  const encodedText = encodeURIComponent(`${text} ${url} via @Uniswap`)
+  const encodedText = encodeURIComponent(`${text} ${url} via @Lux`)
 
   window.open(
     `https://twitter.com/intent/tweet?text=${encodedText}`,

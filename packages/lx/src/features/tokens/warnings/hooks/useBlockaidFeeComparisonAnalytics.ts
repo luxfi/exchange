@@ -2,7 +2,7 @@ import { FeatureFlags, useFeatureFlag } from '@luxfi/gating'
 import { useEffect, useRef } from 'react'
 import { getNativeAddress } from 'lx/src/constants/addresses'
 import { CurrencyInfo } from 'lx/src/features/dataApi/types'
-import { UniswapEventName } from 'lx/src/features/telemetry/constants'
+import { LuxEventName } from 'lx/src/features/telemetry/constants'
 import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
 import { getTokenProtectionFeeOnTransfer } from 'lx/src/features/tokens/warnings/safetyUtils'
 
@@ -38,7 +38,7 @@ export function useBlockaidFeeComparisonAnalytics(currencyInfo: Maybe<CurrencyIn
         ? currencyInfo.currency.address
         : getNativeAddress(currencyInfo.currency.chainId)
 
-      sendAnalyticsEvent(UniswapEventName.BlockaidFeesMismatch, {
+      sendAnalyticsEvent(LuxEventName.BlockaidFeesMismatch, {
         symbol: currencyInfo.currency.symbol,
         address,
         chainId: currencyInfo.currency.chainId,

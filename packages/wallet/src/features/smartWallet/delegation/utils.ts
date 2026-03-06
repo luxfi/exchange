@@ -29,7 +29,7 @@ export async function getAccountDelegationDetails(address: Address, chainId?: nu
     return { needsDelegation: false }
   }
 
-  if (isNonUniswapDelegation(delegationDetailsForWalletAndChain)) {
+  if (isNonLuxDelegation(delegationDetailsForWalletAndChain)) {
     return { needsDelegation: false }
   }
 
@@ -38,7 +38,7 @@ export async function getAccountDelegationDetails(address: Address, chainId?: nu
     contractAddress: delegationDetailsForWalletAndChain.latestDelegationAddress,
     currentDelegationAddress: delegationDetailsForWalletAndChain.currentDelegationAddress,
     latestDelegationAddress: delegationDetailsForWalletAndChain.latestDelegationAddress,
-    isWalletDelegatedToUniswap: delegationDetailsForWalletAndChain.isWalletDelegatedToUniswap,
+    isWalletDelegatedToLux: delegationDetailsForWalletAndChain.isWalletDelegatedToLux,
   }
 }
 
@@ -105,14 +105,14 @@ export async function getDelegationInfoForTransaction(params: {
  * @returns - True if the account is on a chain that needs delegation, false otherwise
  */
 export function doesAccountNeedDelegationForChain(delegationDetails: TradingApi.DelegationDetails): boolean {
-  return isFreshDelegation(delegationDetails) || isUpgradeUniswapDelegation(delegationDetails)
+  return isFreshDelegation(delegationDetails) || isUpgradeLuxDelegation(delegationDetails)
 }
 
 /**
- * Returns true if the current delegation is to a non-Uniswap address
+ * Returns true if the current delegation is to a non-Lux address
  */
-export function isNonUniswapDelegation(details: TradingApi.DelegationDetails): boolean {
-  return !!details.currentDelegationAddress && !details.isWalletDelegatedToUniswap
+export function isNonLuxDelegation(details: TradingApi.DelegationDetails): boolean {
+  return !!details.currentDelegationAddress && !details.isWalletDelegatedToLux
 }
 
 /**
@@ -123,8 +123,8 @@ export function isFreshDelegation(details: TradingApi.DelegationDetails): boolea
 }
 
 /**
- * Returns true if the wallet is delegated to Uniswap and the latest delegation address is different from the current
+ * Returns true if the wallet is delegated to Lux and the latest delegation address is different from the current
  */
-export function isUpgradeUniswapDelegation(details: TradingApi.DelegationDetails): boolean {
-  return details.isWalletDelegatedToUniswap && details.latestDelegationAddress !== details.currentDelegationAddress
+export function isUpgradeLuxDelegation(details: TradingApi.DelegationDetails): boolean {
+  return details.isWalletDelegatedToLux && details.latestDelegationAddress !== details.currentDelegationAddress
 }

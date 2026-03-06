@@ -11,22 +11,22 @@ import {
   useQueries,
   useQuery,
 } from '@tanstack/react-query'
-import { DataApiService } from '@uniswap/client-data-api/dist/data/v1/api_connect'
+import { DataApiService } from '@lux/client-data-api/dist/data/v1/api_connect'
 import {
   GetPositionRequest,
   GetPositionResponse,
   ListPositionsRequest,
   ListPositionsResponse,
-} from '@uniswap/client-data-api/dist/data/v1/api_pb'
-import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
-import { Pair } from '@uniswap/v2-sdk'
+} from '@lux/client-data-api/dist/data/v1/api_pb'
+import { ProtocolVersion } from '@lux/client-data-api/dist/data/v1/poolTypes_pb'
+import { Pair } from '@lux/v2-sdk'
 import { useMemo } from 'react'
-import { uniswapPostTransport } from 'lx/src/data/rest/base'
+import { luxPostTransport } from 'lx/src/data/rest/base'
 import { SerializedToken } from 'lx/src/features/tokens/warnings/slice/types'
 import { deserializeToken } from 'lx/src/utils/currency'
 import { ReactQueryCacheKey } from 'utilities/src/reactQuery/cache'
 
-const positionsClient = createPromiseClient(DataApiService, uniswapPostTransport)
+const positionsClient = createPromiseClient(DataApiService, luxPostTransport)
 
 export function useGetPositionsQuery(
   input?: PartialMessage<ListPositionsRequest>,

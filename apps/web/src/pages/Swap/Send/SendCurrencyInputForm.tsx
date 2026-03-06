@@ -1,4 +1,4 @@
-import { type Currency } from '@uniswap/sdk-core'
+import { type Currency } from '@lux/sdk-core'
 import { useCallback, useMemo, useState } from 'react'
 import { Trans, useTranslation } from 'react-i18next'
 import { Button, type ButtonProps, Flex, styled, Text } from 'ui/src'

@@ -1,10 +1,10 @@
-import { type ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
+import { type ProtocolVersion } from '@lux/client-data-api/dist/data/v1/poolTypes_pb'
 import {
   type CreateLPPositionRequest,
   type IncreaseLPPositionRequest,
   type MigrateV3ToV4LPPositionRequest,
-} from '@uniswap/client-liquidity/dist/uniswap/liquidity/v1/api_pb'
-import { type Currency, type CurrencyAmount, type Token } from '@uniswap/sdk-core'
+} from '@lux/client-liquidity/dist/lux/liquidity/v1/api_pb'
+import { type Currency, type CurrencyAmount, type Token } from '@lux/sdk-core'
 import {
   type PermitTransaction,
   type PermitTypedData,

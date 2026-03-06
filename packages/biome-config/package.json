@@ -1,7 +1,7 @@
 {
   "name": "@luxfi/biome-config",
   "version": "1.0.0",
-  "description": "Shared Biome configuration for Uniswap Universe",
+  "description": "Shared Biome configuration for Lux Universe",
   "devDependencies": {
     "jsonc-parser": "3.2.0"
   },

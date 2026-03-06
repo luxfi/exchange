@@ -1,5 +1,5 @@
 import { queryOptions, useQuery } from '@tanstack/react-query'
-import { PlatformType } from '@uniswap/client-notification-service/dist/uniswap/notificationservice/v1/api_pb'
+import { PlatformType } from '@lux/client-notification-service/dist/lux/notificationservice/v1/api_pb'
 import {
   createFetchClient,
   createNotificationsApiClient,
@@ -22,7 +22,7 @@ import ms from 'ms'
 import { useEffect, useMemo, useRef } from 'react'
 import { useLocation, useNavigate } from 'react-router'
 import { useIsDarkMode } from 'ui/src'
-import { useUniswapContext } from 'lx/src/contexts/UniswapContext'
+import { useLuxContext } from 'lx/src/contexts/LuxContext'
 import { UniverseChainId } from 'lx/src/features/chains/types'
 import { mapLocaleToBackendLocale } from 'lx/src/features/language/constants'
 import { getLocale } from 'lx/src/features/language/navigatorLocale'
@@ -68,7 +68,7 @@ function provideWebNotificationService(ctx: {
       return {
         'Content-Type': 'application/json',
         'x-request-source': REQUEST_SOURCE,
-        'x-uniswap-locale': backendLocale,
+        'x-lux-locale': backendLocale,
       }
     },
     getSessionService: () =>
@@ -206,7 +206,7 @@ export function WebNotificationServiceManager(): JSX.Element | null {
   const isDarkMode = useIsDarkMode()
 
   // Hook values that need to be passed to system alerts data source
-  const { swapInputChainId } = useUniswapContext()
+  const { swapInputChainId } = useLuxContext()
   const blockTimestamp = useCurrentBlockTimestamp({ refetchInterval: ms('5min') })
   const machineTime = useMachineTimeMs(AVERAGE_L1_BLOCK_TIME_MS)
 

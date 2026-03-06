@@ -1,12 +1,12 @@
-import { ListTransactionsResponse } from '@uniswap/client-data-api/dist/data/v1/api_pb'
+import { ListTransactionsResponse } from '@lux/client-data-api/dist/data/v1/api_pb'
 import { GraphQLApi } from '@universe/api'
 import { extractOnRampTransactionDetails } from 'lx/src/features/activity/extract/extractFiatOnRampTransactionDetails'
 import extractRestOnChainTransactionDetails from 'lx/src/features/activity/extract/extractOnChainTransactionDetails'
 import extractPlanDetails from 'lx/src/features/activity/extract/extractPlanDetails'
 import extractRestFiatOnRampDetails from 'lx/src/features/activity/extract/extractRestFiatOnRampDetails'
-import extractRestUniswapXOrderDetails from 'lx/src/features/activity/extract/extractRestUniswapXOrderDetails'
+import extractRestDEXOrderDetails from 'lx/src/features/activity/extract/extractRestDEXOrderDetails'
 import extractTransactionDetails from 'lx/src/features/activity/extract/extractTransactionDetails'
-import { extractUniswapXOrderDetails } from 'lx/src/features/activity/extract/extractUniswapXOrderDetails'
+import { extractDEXOrderDetails } from 'lx/src/features/activity/extract/extractDEXOrderDetails'
 import { getIsNftHidden } from 'lx/src/features/nfts/utils'
 import {
   TransactionDetails,
@@ -24,7 +24,7 @@ let hasLoggedMissingTransactionField = false
 
 export enum RestTransactionType {
   OnChain = 'onChain',
-  UniswapX = 'uniswapX',
+  DEX = 'dex',
   FiatOnRamp = 'fiatOnRamp',
   Plan = 'plan',
 }
@@ -61,8 +61,8 @@ export function parseDataResponseToTransactionDetails({
         if (parsed) {
           accum.push(parsed)
         }
-      } else if (t?.details.__typename === TransactionDetailsType.UniswapXOrder) {
-        const parsed = extractUniswapXOrderDetails(t as TransactionListQueryResponse)
+      } else if (t?.details.__typename === TransactionDetailsType.DEXOrder) {
+        const parsed = extractDEXOrderDetails(t as TransactionListQueryResponse)
         if (parsed) {
           accum.push(parsed)
         }
@@ -112,8 +112,8 @@ export function parseRestResponseToTransactionDetails({
         }
         break
       }
-      case RestTransactionType.UniswapX: {
-        const parsed = extractRestUniswapXOrderDetails(transaction.transaction.value)
+      case RestTransactionType.DEX: {
+        const parsed = extractRestDEXOrderDetails(transaction.transaction.value)
         if (parsed) {
           accum.push(parsed)
         }

@@ -4,15 +4,15 @@ import { createPermit2TransactionStep } from 'lx/src/features/transactions/steps
 import { createRevocationTransactionStep } from 'lx/src/features/transactions/steps/revoke'
 import { TransactionStep } from 'lx/src/features/transactions/steps/types'
 import { orderClassicSwapSteps } from 'lx/src/features/transactions/swap/steps/classicSteps'
-import { createSignUniswapXOrderStep } from 'lx/src/features/transactions/swap/steps/signOrder'
+import { createSignDEXOrderStep } from 'lx/src/features/transactions/swap/steps/signOrder'
 import {
   createSwapTransactionAsyncStep,
   createSwapTransactionStep,
   createSwapTransactionStepBatched,
 } from 'lx/src/features/transactions/swap/steps/swap'
-import { orderUniswapXSteps } from 'lx/src/features/transactions/swap/steps/uniswapxSteps'
+import { orderDEXSteps } from 'lx/src/features/transactions/swap/steps/dexSteps'
 import { isValidSwapTxContext, SwapTxAndGasInfo } from 'lx/src/features/transactions/swap/types/swapTxAndGasInfo'
-import { isBridge, isClassic, isUniswapX } from 'lx/src/features/transactions/swap/utils/routing'
+import { isBridge, isClassic, isDEX } from 'lx/src/features/transactions/swap/utils/routing'
 
 export function generateSwapTransactionSteps(txContext: SwapTxAndGasInfo): TransactionStep[] {
   const isValidSwap = isValidSwapTxContext(txContext)
@@ -65,11 +65,11 @@ export function generateSwapTransactionSteps(txContext: SwapTxAndGasInfo): Trans
         permit,
         swap: createSwapTransactionStep(txContext.txRequests[0]),
       })
-    } else if (isUniswapX(txContext)) {
-      return orderUniswapXSteps({
+    } else if (isDEX(txContext)) {
+      return orderDEXSteps({
         revocation,
         approval,
-        signOrder: createSignUniswapXOrderStep(txContext.permit.typedData, txContext.trade.quote.quote),
+        signOrder: createSignDEXOrderStep(txContext.permit.typedData, txContext.trade.quote.quote),
       })
     } else if (isBridge(txContext)) {
       if (txContext.txRequests.length > 1) {

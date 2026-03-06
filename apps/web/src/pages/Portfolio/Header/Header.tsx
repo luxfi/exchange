@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router'
 import { Flex, useMedia } from 'ui/src'
 import { UniverseChainId } from 'lx/src/features/chains/types'
-import { ElementName, InterfacePageName, UniswapEventName } from 'lx/src/features/telemetry/constants'
+import { ElementName, InterfacePageName, LuxEventName } from 'lx/src/features/telemetry/constants'
 import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
 import { TestID } from 'lx/src/test/fixtures/testIDs'
 import { useEvent } from 'utilities/src/react/hooks'
@@ -57,7 +57,7 @@ export function PortfolioHeader({ scrollY }: PortfolioHeaderProps) {
     const currentPageName = getPageNameFromTab(tab)
     const selectedChain = chainId ?? ('All' as const)
 
-    sendAnalyticsEvent(UniswapEventName.NetworkFilterSelected, {
+    sendAnalyticsEvent(LuxEventName.NetworkFilterSelected, {
       element: ElementName.PortfolioNetworkFilter,
       page: currentPageName,
       chain: selectedChain,

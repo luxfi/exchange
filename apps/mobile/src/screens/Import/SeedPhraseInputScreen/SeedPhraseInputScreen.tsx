@@ -16,7 +16,7 @@ import { useFunctionAfterNavigationTransitionEndWithDelay } from 'src/utils/hook
 import { useNavigationHeader } from 'src/utils/useNavigationHeader'
 import { Button, Flex, MobileDeviceHeight, Text, TouchableArea, useIsShortMobileDevice } from 'ui/src'
 import { PapersText, QuestionInCircleFilled } from 'ui/src/components/icons'
-import { uniswapUrls } from 'lx/src/constants/urls'
+import { luxUrls } from 'lx/src/constants/urls'
 import { ElementName, MobileEventName } from 'lx/src/features/telemetry/constants'
 import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
 import Trace from 'lx/src/features/telemetry/Trace'
@@ -98,7 +98,7 @@ export function SeedPhraseInputScreen({ navigation, route: { params } }: SeedPhr
   )
 
   const onPressRecoveryHelpButton = useCallback(
-    () => openUri({ uri: uniswapUrls.helpArticleUrls.recoveryPhraseHowToImport }),
+    () => openUri({ uri: luxUrls.helpArticleUrls.recoveryPhraseHowToImport }),
     [],
   )
 

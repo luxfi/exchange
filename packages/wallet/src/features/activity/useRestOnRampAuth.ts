@@ -1,6 +1,6 @@
 import { PartialMessage } from '@bufbuild/protobuf'
 import { queryOptions, useQuery } from '@tanstack/react-query'
-import { FiatOnRampParams } from '@uniswap/client-data-api/dist/data/v1/api_pb'
+import { FiatOnRampParams } from '@lux/client-data-api/dist/data/v1/api_pb'
 import { AccountType } from 'lx/src/features/accounts/types'
 import { logger } from 'utilities/src/logger/logger'
 import { ReactQueryCacheKey } from 'utilities/src/reactQuery/cache'

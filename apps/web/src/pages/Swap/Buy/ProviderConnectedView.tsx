@@ -27,7 +27,7 @@ export function ProviderConnectedView({ closeModal, selectedServiceProvider }: P
       <Flex alignItems="center" gap="$spacing48">
         <Flex alignItems="center" gap="$spacing24">
           <img
-            style={ServiceProviderLogoStyles.uniswapLogoWrapper}
+            style={ServiceProviderLogoStyles.luxLogoWrapper}
             height={120}
             src={getOptionalServiceProviderLogo(selectedServiceProvider.logos, isDarkMode)}
             width={120}

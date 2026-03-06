@@ -17,12 +17,12 @@ export const Mocks = {
     supported_tokens: path.resolve(__dirname, '../mocks/fiatOnRamp/supported-tokens.json'),
     quotes: path.resolve(__dirname, '../mocks/fiatOnRamp/quotes.json'),
   },
-  UniswapX: {
-    quote: path.resolve(__dirname, '../mocks/rest/uniswapX/quote.json'),
-    openOrder: path.resolve(__dirname, '../mocks/rest/uniswapX/open_order.json'),
-    filledOrders: path.resolve(__dirname, '../mocks/rest/uniswapX/filled_orders.json'),
-    expiredOrders: path.resolve(__dirname, '../mocks/rest/uniswapX/expired_orders.json'),
-    activity: path.resolve(__dirname, '../mocks/graphql/UniswapX/uniswapx_activity.json'),
+  DEX: {
+    quote: path.resolve(__dirname, '../mocks/rest/dex/quote.json'),
+    openOrder: path.resolve(__dirname, '../mocks/rest/dex/open_order.json'),
+    filledOrders: path.resolve(__dirname, '../mocks/rest/dex/filled_orders.json'),
+    expiredOrders: path.resolve(__dirname, '../mocks/rest/dex/expired_orders.json'),
+    activity: path.resolve(__dirname, '../mocks/graphql/DEX/dex_activity.json'),
   },
   PortfolioBalances: PortfolioBalancesMocks,
   Token: {

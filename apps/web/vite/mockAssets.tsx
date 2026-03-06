@@ -24,12 +24,12 @@ const createAssetModuleMock = (filename: string) => {
 
 vi.mock('ui/src/assets/backgrounds/for-connecting-v2.svg', () => createAssetModuleMock('svg'))
 vi.mock('ui/src/assets/logos/png/polygon-logo.png', () => createAssetModuleMock('png'))
-vi.mock('ui/src/assets/logos/png/uniswap-logo.png', () => createAssetModuleMock('png'))
+vi.mock('ui/src/assets/logos/png/lux-logo.png', () => createAssetModuleMock('png'))
 vi.mock('ui/src/assets/logos/png/arbitrum-logo.png', () => createAssetModuleMock('png'))
 vi.mock('ui/src/assets/logos/png/eth-logo.png', () => createAssetModuleMock('png'))
 vi.mock('ui/src/assets/logos/png/ethereum-logo.png', () => createAssetModuleMock('png'))
 vi.mock('ui/src/assets/graphics/unitag-light-small.png', () => createAssetModuleMock('png'))
-vi.mock('ui/src/assets/logos/png/uniswap-logo-large.png', () => createAssetModuleMock('png'))
+vi.mock('ui/src/assets/logos/png/lux-logo-large.png', () => createAssetModuleMock('png'))
 vi.mock('~/assets/images/dropdown.svg', () => createAssetModuleMock('svg'))
 vi.mock('~/assets/svg/search.svg', () => createAssetModuleMock('svg'))
 vi.mock('~/assets/svg/expando-icon-closed.svg', () => createAssetModuleMock('svg'))
@@ -62,10 +62,10 @@ vi.mock('ui/src/assets', () => ({
   OKB_LOGO: 'okb-logo.png',
   UNICHAIN_LOGO: 'unichain-logo.png',
   UNICHAIN_SEPOLIA_LOGO: 'unichain-sepolia-logo.png',
-  UNISWAP_LOGO: 'uniswap-logo.png',
-  UNISWAP_LOGO_LARGE: 'uniswap-logo-large.png',
-  UNISWAP_MONO_LOGO_LARGE: 'uniswap-mono-logo-large.png',
-  UNISWAP_APP_ICON: 'uniswap-app-icon.png',
+  LUX_LOGO: 'lux-logo.png',
+  LUX_LOGO_LARGE: 'lux-logo-large.png',
+  LUX_MONO_LOGO_LARGE: 'lux-mono-logo-large.png',
+  LUX_APP_ICON: 'lux-app-icon.png',
   BINANCE_WALLET_ICON: 'binance-wallet-icon.png',
   ONBOARDING_QR_ETCHING_VIDEO_LIGHT: 'light-etching.mp4',
   ONBOARDING_QR_ETCHING_VIDEO_DARK: 'dark-etching.mp4',

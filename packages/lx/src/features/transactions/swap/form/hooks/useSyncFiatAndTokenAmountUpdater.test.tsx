@@ -1,5 +1,5 @@
 import { renderHook } from '@testing-library/react'
-import { Currency, CurrencyAmount } from '@uniswap/sdk-core'
+import { Currency, CurrencyAmount } from '@lux/sdk-core'
 import { useSyncFiatAndTokenAmountUpdater } from 'lx/src/features/transactions/swap/form/hooks/useSyncFiatAndTokenAmountUpdater'
 import { SwapFormStoreState } from 'lx/src/features/transactions/swap/stores/swapFormStore/types'
 import * as useSwapFormStoreModule from 'lx/src/features/transactions/swap/stores/swapFormStore/useSwapFormStore'

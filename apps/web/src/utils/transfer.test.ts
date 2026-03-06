@@ -1,5 +1,5 @@
 import { ExternalProvider, JsonRpcProvider, JsonRpcSigner, Web3Provider } from '@ethersproject/providers'
-import { CurrencyAmount } from '@uniswap/sdk-core'
+import { CurrencyAmount } from '@lux/sdk-core'
 import { DAI, nativeOnChain } from 'lx/src/constants/tokens'
 import { UniverseChainId } from 'lx/src/features/chains/types'
 import { renderHook, waitFor } from '~/test-utils/render'

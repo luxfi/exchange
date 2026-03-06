@@ -2,11 +2,11 @@ import { Link } from 'react-router'
 import { GetHelpButtonUI } from 'lx/src/components/dialog/GetHelpButtonUI'
 import type { GetHelpHeaderProps } from 'lx/src/components/dialog/GetHelpHeader'
 import { type GetHelpButtonProps, GetHelpHeaderContent } from 'lx/src/components/dialog/GetHelpHeaderContent'
-import { uniswapUrls } from 'lx/src/constants/urls'
+import { luxUrls } from 'lx/src/constants/urls'
 
 function WebGetHelpButton({ url }: GetHelpButtonProps): JSX.Element {
   return (
-    <Link to={url ?? uniswapUrls.helpUrl} style={{ textDecoration: 'none' }} target="_blank">
+    <Link to={url ?? luxUrls.helpUrl} style={{ textDecoration: 'none' }} target="_blank">
       <GetHelpButtonUI
         width="max-content"
         animation="fast"

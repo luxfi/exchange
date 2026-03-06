@@ -2,7 +2,7 @@ import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Flex } from 'ui/src'
 import { iconSizes } from 'ui/src/theme'
-import { uniswapUrls } from 'lx/src/constants/urls'
+import { luxUrls } from 'lx/src/constants/urls'
 import { AccountIcon } from 'lx/src/features/accounts/AccountIcon'
 import { ModalName } from 'lx/src/features/telemetry/constants'
 import { SmartWalletModal } from 'wallet/src/components/smartWallet/modals/SmartWalletModal'
@@ -38,7 +38,7 @@ export function SmartWalletUnavailableModal({
       title={t('smartWallets.unavailableModal.title')}
       subtext={t('smartWallets.unavailableModal.description', { displayName })}
       modalName={ModalName.SmartWalletUnavailableModal}
-      learnMoreUrl={uniswapUrls.helpArticleUrls.mismatchedImports}
+      learnMoreUrl={luxUrls.helpArticleUrls.mismatchedImports}
       primaryButton={{ text: t('common.close'), onClick: onClose, variant: 'default', emphasis: 'secondary' }}
       onClose={onClose}
     />

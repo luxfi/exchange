@@ -1,6 +1,6 @@
 import { renderHook } from '@testing-library/react'
-import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
-import { Percent } from '@uniswap/sdk-core'
+import { ProtocolVersion } from '@lux/client-data-api/dist/data/v1/poolTypes_pb'
+import { Percent } from '@lux/sdk-core'
 import { useGetPoolsByTokens } from 'lx/src/data/rest/getPools'
 import { UniverseChainId } from 'lx/src/features/chains/types'
 import { afterEach, describe, expect, it, vi } from 'vitest'

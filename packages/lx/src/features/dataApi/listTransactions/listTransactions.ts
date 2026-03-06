@@ -1,6 +1,6 @@
 import { PartialMessage } from '@bufbuild/protobuf'
-import { FiatOnRampParams, ListTransactionsResponse } from '@uniswap/client-data-api/dist/data/v1/api_pb'
-import { TransactionTypeFilter } from '@uniswap/client-data-api/dist/data/v1/types_pb'
+import { FiatOnRampParams, ListTransactionsResponse } from '@lux/client-data-api/dist/data/v1/api_pb'
+import { TransactionTypeFilter } from '@lux/client-data-api/dist/data/v1/types_pb'
 import { useMemo } from 'react'
 import { useSelector } from 'react-redux'
 import { useListTransactionsQuery } from 'lx/src/data/rest/listTransactions'
@@ -164,7 +164,7 @@ function getUniqueTransactionId(transaction: ListTransactionsResponse['transacti
       return transaction.transaction.value.planId
     case 'onChain':
       return transaction.transaction.value.transactionHash
-    case 'uniswapX':
+    case 'dex':
       return transaction.transaction.value.orderHash
     case 'fiatOnRamp':
       return transaction.transaction.value.externalSessionId

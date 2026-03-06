@@ -25,7 +25,7 @@ import { LoaderV3 } from '~/components/Icons/LoadingSpinner'
 import { POPUP_MAX_WIDTH } from '~/components/Popups/constants'
 import { ToastRegularSimple } from '~/components/Popups/ToastRegularSimple'
 import { useIsRecentFlashblocksNotification } from '~/hooks/useIsRecentFlashblocksNotification'
-import { usePlanTransactions, useTransaction, useUniswapXOrderByOrderHash } from '~/state/transactions/hooks'
+import { usePlanTransactions, useTransaction, useDEXOrderByOrderHash } from '~/state/transactions/hooks'
 import { isPendingTx } from '~/state/transactions/utils'
 import { EllipsisTamaguiStyle } from '~/theme/components/styles'
 
@@ -184,8 +184,8 @@ export function PlanPopupContent({ planId, onClose }: { planId: string; onClose:
   return <ActivityPopupContent activity={activity} onClose={onClose} onClick={noop} />
 }
 
-export function UniswapXOrderPopupContent({ orderHash, onClose }: { orderHash: string; onClose: () => void }) {
-  const order = useUniswapXOrderByOrderHash(orderHash)
+export function DEXOrderPopupContent({ orderHash, onClose }: { orderHash: string; onClose: () => void }) {
+  const order = useDEXOrderByOrderHash(orderHash)
   const openOffchainActivityModal = useOpenOffchainActivityModal()
 
   const { formatNumberOrString } = useLocalizationContext()

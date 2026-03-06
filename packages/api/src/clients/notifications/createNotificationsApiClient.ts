@@ -1,5 +1,5 @@
 import { JsonValue } from '@bufbuild/protobuf'
-import { GetNotificationsResponse as GetNotificationsResponseMessage } from '@luxdex/client-notification-service/dist/uniswap/notificationservice/v1/api_pb'
+import { GetNotificationsResponse as GetNotificationsResponseMessage } from '@luxdex/client-notification-service/dist/lux/notificationservice/v1/api_pb'
 import type {
   AckNotificationRequest,
   AckNotificationResponse,
@@ -30,7 +30,7 @@ export function createNotificationsApiClient(ctx: NotificationsClientContext): N
 
   const getNotifications = async (params?: GetNotificationsRequest): Promise<GetNotificationsResponse> => {
     const pathPrefix = getApiPathPrefix()
-    const path = `${pathPrefix}/uniswap.notificationservice.v1.NotificationService/GetNotifications`
+    const path = `${pathPrefix}/lux.notificationservice.v1.NotificationService/GetNotifications`
 
     try {
       const response = await fetchClient.post<JsonValue>(path, {
@@ -47,7 +47,7 @@ export function createNotificationsApiClient(ctx: NotificationsClientContext): N
 
   const ackNotification = async (request: AckNotificationRequest): Promise<AckNotificationResponse> => {
     const pathPrefix = getApiPathPrefix()
-    const path = `${pathPrefix}/uniswap.notificationservice.v1.NotificationService/AckNotifications`
+    const path = `${pathPrefix}/lux.notificationservice.v1.NotificationService/AckNotifications`
 
     try {
       const response = await fetchClient.post<AckNotificationResponse>(path, {

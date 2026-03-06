@@ -5,7 +5,7 @@ import {
   BridgeTrade,
   ChainedActionTrade,
   ClassicTrade,
-  UniswapXTrade,
+  DEXTrade,
   UnwrapTrade,
   WrapTrade,
 } from 'lx/src/features/transactions/swap/types/trade'
@@ -14,7 +14,7 @@ import {
   isChained,
   isClassic,
   isJupiter,
-  isUniswapX,
+  isDEX,
   isWrap,
 } from 'lx/src/features/transactions/swap/utils/routing'
 import { ValidatedPermit } from 'lx/src/features/transactions/swap/utils/trade'
@@ -27,14 +27,14 @@ import { Prettify } from 'viem'
 
 export type SwapTxAndGasInfo =
   | ClassicSwapTxAndGasInfo
-  | UniswapXSwapTxAndGasInfo
+  | DEXSwapTxAndGasInfo
   | BridgeSwapTxAndGasInfo
   | WrapSwapTxAndGasInfo
   | SolanaSwapTxAndGasInfo
   | ChainedSwapTxAndGasInfo
 export type ValidatedSwapTxContext =
   | ValidatedClassicSwapTxAndGasInfo
-  | ValidatedUniswapXSwapTxAndGasInfo
+  | ValidatedDEXSwapTxAndGasInfo
   | ValidatedBridgeSwapTxAndGasInfo
   | ValidatedWrapSwapTxAndGasInfo
   | ValidatedSolanaSwapTxAndGasInfo
@@ -51,7 +51,7 @@ export type SwapGasFeeEstimation = {
   wrapEstimate?: GasEstimate
 }
 
-export type UniswapXGasBreakdown = {
+export type DEXGasBreakdown = {
   classicGasUseEstimateUSD?: string
   approvalCost?: string
   inputTokenSymbol?: string
@@ -59,7 +59,7 @@ export type UniswapXGasBreakdown = {
 
 export interface BaseSwapTxAndGasInfo {
   routing: TradingApi.Routing
-  trade?: ClassicTrade | UniswapXTrade | BridgeTrade | WrapTrade | UnwrapTrade | SolanaTrade | ChainedActionTrade
+  trade?: ClassicTrade | DEXTrade | BridgeTrade | WrapTrade | UnwrapTrade | SolanaTrade | ChainedActionTrade
   approveTxRequest: ValidatedTransactionRequest | undefined
   revocationTxRequest: ValidatedTransactionRequest | undefined
   gasFee: GasFeeResult
@@ -101,11 +101,11 @@ export interface WrapSwapTxAndGasInfo extends BaseSwapTxAndGasInfo {
   txRequests: PopulatedTransactionRequestArray | undefined
 }
 
-export interface UniswapXSwapTxAndGasInfo extends BaseSwapTxAndGasInfo {
+export interface DEXSwapTxAndGasInfo extends BaseSwapTxAndGasInfo {
   routing: TradingApi.Routing.DUTCH_V2 | TradingApi.Routing.DUTCH_V3 | TradingApi.Routing.PRIORITY
-  trade: UniswapXTrade
+  trade: DEXTrade
   permit: PermitTypedData | undefined
-  gasFeeBreakdown: UniswapXGasBreakdown
+  gasFeeBreakdown: DEXGasBreakdown
 }
 
 export interface BridgeSwapTxAndGasInfo extends BaseSwapTxAndGasInfo {
@@ -174,12 +174,12 @@ export type ValidatedBridgeSwapTxAndGasInfo = Prettify<
     } & Pick<BridgeSwapTxAndGasInfo, 'includesDelegation'>
 >
 
-export type ValidatedUniswapXSwapTxAndGasInfo = Prettify<
-  Required<Omit<UniswapXSwapTxAndGasInfo, 'includesDelegation'>> &
+export type ValidatedDEXSwapTxAndGasInfo = Prettify<
+  Required<Omit<DEXSwapTxAndGasInfo, 'includesDelegation'>> &
     BaseRequiredSwapTxContextFields & {
-      // Permit should always be defined for UniswapX orders
+      // Permit should always be defined for DEX orders
       permit: PermitTypedData
-    } & Pick<UniswapXSwapTxAndGasInfo, 'includesDelegation'>
+    } & Pick<DEXSwapTxAndGasInfo, 'includesDelegation'>
 >
 
 export type ValidatedSolanaSwapTxAndGasInfo = Prettify<
@@ -224,7 +224,7 @@ function validateSwapTxContext(swapTxContext: SwapTxAndGasInfo): ValidatedSwapTx
       } else {
         return undefined
       }
-    } else if (isUniswapX(swapTxContext) && swapTxContext.permit) {
+    } else if (isDEX(swapTxContext) && swapTxContext.permit) {
       const { trade, permit } = swapTxContext
       return { ...swapTxContext, trade, gasFee, permit, includesDelegation: false }
     } else if (isWrap(swapTxContext)) {

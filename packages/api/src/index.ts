@@ -1,7 +1,7 @@
 /** biome-ignore-all assist/source/organizeImports: we want to manually group exports by category */
 
 /**
- * @universe/api - Unified data layer for Uniswap Universe
+ * @universe/api - Unified data layer for Lux Universe
  *
  * This is the ONLY public entry point for the API package.
  * All exports must be explicitly listed here.
@@ -113,7 +113,7 @@ export {
 } from '@universe/api/src/clients/trading/tradeTypes'
 export {
   FeeType,
-  type FormattedUniswapXGasFeeInfo,
+  type FormattedDEXGasFeeInfo,
   type GasEstimate,
   type GasEstimateEip1559,
   type GasEstimateLegacy,
@@ -141,14 +141,14 @@ export {
   type AuctionServiceClient,
 } from '@universe/api/src/clients/auctions/createAuctionServiceClient'
 
-// Uniswap API
+// Lux API
 export {
-  createUniswapApiClient,
+  createLuxApiClient,
   type ScreenRequest,
   type ScreenResponse,
-  type UniswapApiClient,
-  type UniswapApiClientContext,
-} from '@universe/api/src/clients/uniswap/createUniswapApiClient'
+  type LuxApiClient,
+  type LuxApiClientContext,
+} from '@universe/api/src/clients/lux/createLuxApiClient'
 
 // Unitags API
 export {
@@ -193,9 +193,9 @@ export {
   type GetPortfolioResponse,
   type ListTopPoolsResponse,
   type ListTopTokensResponse,
-} from '@uniswap/client-data-api/dist/data/v1/api_pb'
-export { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
-export { type Pool as DataApiPool, type Token as DataApiToken } from '@uniswap/client-data-api/dist/data/v1/types_pb'
+} from '@lux/client-data-api/dist/data/v1/api_pb'
+export { ProtocolVersion } from '@lux/client-data-api/dist/data/v1/poolTypes_pb'
+export { type Pool as DataApiPool, type Token as DataApiToken } from '@lux/client-data-api/dist/data/v1/types_pb'
 
 // Data Service API
 export {
@@ -256,7 +256,7 @@ export {
   TransferWidgetUrlRequest,
   WidgetUrlRequest,
   WidgetUrlResponse,
-} from '@uniswap/client-for/dist/for/v1/api_pb'
+} from '@lux/client-for/dist/for/v1/api_pb'
 
 // ConnectRPC API
 export {
@@ -315,4 +315,4 @@ export { getEntryGatewayUrl, getMigratedForApiUrl } from '@universe/api/src/getE
 
 export { getWebSocketUrl } from '@universe/api/src/getWebSocketUrl'
 
-export { provideUniswapIdentifierService } from '@universe/api/src/provideUniswapIdentifierService'
+export { provideLuxIdentifierService } from '@universe/api/src/provideLuxIdentifierService'

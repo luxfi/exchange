@@ -36,7 +36,7 @@ export default defineConfig({
     alias: {
       'ui/src': path.resolve(__dirname, './src'),
       'utilities/src': path.resolve(__dirname, '../utilities/src'),
-      'uniswap/src': path.resolve(__dirname, '../uniswap/src'),
+      'lx/src': path.resolve(__dirname, '../lux/src'),
 
       // React Native aliases for testing
       'react-native': 'react-native-web',

@@ -4,7 +4,7 @@ import { GradientContainerProps } from 'lx/src/features/transactions/swap/compon
 import { useBackgroundColor } from 'lx/src/features/transactions/swap/components/UnichainInstantBalanceModal/hooks/useBackgroundColor'
 
 // Inject CSS keyframes for blob animations once
-const BLOB_KEYFRAMES_ID = 'uniswap-gradient-blob-keyframes'
+const BLOB_KEYFRAMES_ID = 'lux-gradient-blob-keyframes'
 
 function injectBlobKeyframes(): void {
   if (typeof document === 'undefined') {

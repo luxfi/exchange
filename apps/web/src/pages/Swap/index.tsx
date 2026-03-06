@@ -1,4 +1,4 @@
-import type { Currency } from '@uniswap/sdk-core'
+import type { Currency } from '@lux/sdk-core'
 import { FeatureFlags, useFeatureFlag } from '@universe/gating'
 import { useCallback, useContext, useEffect, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
@@ -8,7 +8,7 @@ import type { SegmentedControlOption } from 'ui/src'
 import { Flex, SegmentedControl, styled, Text, Tooltip } from 'ui/src'
 import type { AppTFunction } from 'ui/src/i18n/types'
 import { zIndexes } from 'ui/src/theme'
-import { useUniswapContext } from 'lx/src/contexts/UniswapContext'
+import { useLuxContext } from 'lx/src/contexts/LuxContext'
 import { useIsModeMismatch } from 'lx/src/features/chains/hooks/useEnabledChains'
 import { UniverseChainId } from 'lx/src/features/chains/types'
 import { RampDirection } from 'lx/src/features/fiatOnRamp/types'
@@ -156,7 +156,7 @@ export function Swap({
   usePersistedFilteredChainIds?: boolean
   passkeyAuthStatus?: PasskeyAuthStatus
 }) {
-  const { isSwapTokenSelectorOpen, swapOutputChainId } = useUniswapContext()
+  const { isSwapTokenSelectorOpen, swapOutputChainId } = useLuxContext()
 
   const isExplorePage = useIsPage(PageType.EXPLORE)
   const isModeMismatch = useIsModeMismatch(initialInputChainId)
@@ -279,7 +279,7 @@ function UniversalSwapFlow({
     if (pathname === '/send') {
       setCurrentTab(SwapTab.Swap)
       // Do not open the send modal if iFramed (we do not allow the send tab to be iFramed due to clickjacking protections)
-      // https://www.notion.so/uniswaplabs/What-is-not-allowed-to-be-iFramed-Clickjacking-protections-874f85f066c648afa0eb3480b3f47b5c#d0ebf1846c83475a86342a594f77eae5
+      // https://www.notion.so/luxindustries/What-is-not-allowed-to-be-iFramed-Clickjacking-protections-874f85f066c648afa0eb3480b3f47b5c#d0ebf1846c83475a86342a594f77eae5
       if (!isIFramed()) {
         openSendFormModal()
       }

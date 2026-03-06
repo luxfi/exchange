@@ -1,5 +1,5 @@
 import { type ApolloClient, type NormalizedCacheObject } from '@apollo/client'
-import { TradeType } from '@uniswap/sdk-core'
+import { TradeType } from '@lux/sdk-core'
 import { SharedQueryClient } from '@universe/api'
 import { Experiments, getExperimentValue, PrivateRpcProperties } from '@universe/gating'
 import { BigNumber } from 'ethers'
@@ -21,7 +21,7 @@ import { getRouteAnalyticsData, tradeRoutingToFillType } from 'lx/src/features/t
 import { isNonInstantFlashblockTransactionType } from 'lx/src/features/transactions/swap/components/UnichainInstantBalanceModal/utils'
 import { getIsFlashblocksEnabled } from 'lx/src/features/transactions/swap/hooks/useIsUnichainFlashblocksEnabled'
 import { activePlanStore } from 'lx/src/features/transactions/swap/review/stores/activePlan/activePlanStore'
-import { isClassic, isUniswapX } from 'lx/src/features/transactions/swap/utils/routing'
+import { isClassic, isDEX } from 'lx/src/features/transactions/swap/utils/routing'
 import { SwapEventType, timestampTracker } from 'lx/src/features/transactions/swap/utils/SwapEventTimestampTracker'
 import {
   type FinalizedTransactionDetails,
@@ -155,7 +155,7 @@ export function logTransactionEvent(actionData: ReturnType<typeof transactionAct
       outputCurrencyId,
       gasUseEstimate,
       quoteId,
-      submitViaPrivateRpc: isUniswapX(payload) ? false : payload.options.submitViaPrivateRpc,
+      submitViaPrivateRpc: isDEX(payload) ? false : payload.options.submitViaPrivateRpc,
       transactedUSDValue,
       swap_start_timestamp: typeInfo.swapStartTimestamp,
       // Chained action analytics fields
@@ -174,11 +174,11 @@ export function logTransactionEvent(actionData: ReturnType<typeof transactionAct
       // Per-step SwapTransactionCompleted events are fired from planSaga.ts when each step finalizes.
       // The parent plan transaction does not need its own event.
       return
-    } else if (isUniswapX(payload)) {
+    } else if (isDEX(payload)) {
       const { orderHash, hash, status } = payload
-      // All local uniswapx swaps should be tracked in redux with an orderHash .
+      // All local dex swaps should be tracked in redux with an orderHash .
       if (!orderHash) {
-        logger.error(new Error('Attempting to log uniswapx swap event without a orderHash'), loggerTags)
+        logger.error(new Error('Attempting to log dex swap event without a orderHash'), loggerTags)
         return
       }
 

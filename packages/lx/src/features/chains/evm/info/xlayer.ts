@@ -1,4 +1,4 @@
-import { Token } from '@uniswap/sdk-core'
+import { Token } from '@lux/sdk-core'
 import { GraphQLApi } from '@universe/api'
 import { OKB_LOGO, XLAYER_LOGO } from 'ui/src/assets'
 import {

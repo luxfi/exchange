@@ -1,6 +1,6 @@
 import { PlainMessage } from '@bufbuild/protobuf'
 import { useQuery } from '@tanstack/react-query'
-import { AuctionWithStats, ListTopAuctionsRequest } from '@uniswap/client-data-api/dist/data/v1/auction_pb'
+import { AuctionWithStats, ListTopAuctionsRequest } from '@lux/client-data-api/dist/data/v1/auction_pb'
 import { DynamicConfigs, useDynamicConfigValue, VerifiedAuctionsConfigKey } from '@universe/gating'
 import { useMemo } from 'react'
 import { useSelector } from 'react-redux'

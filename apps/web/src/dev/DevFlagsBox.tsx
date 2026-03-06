@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux'
 import { Button, Flex, useShadowPropsShort } from 'ui/src'
 import { Flag } from 'ui/src/components/icons/Flag'
 import { Settings } from 'ui/src/components/icons/Settings'
-import { resetUniswapBehaviorHistory } from 'lx/src/features/behaviorHistory/slice'
+import { resetLuxBehaviorHistory } from 'lx/src/features/behaviorHistory/slice'
 import { ModalName } from 'lx/src/features/telemetry/constants'
 import { TestID } from 'lx/src/test/fixtures/testIDs'
 import { isBetaEnv, isDevEnv } from 'utilities/src/environment/env'
@@ -36,7 +36,7 @@ export default function DevFlagsBox() {
   const dispatch = useDispatch()
 
   const onPressReset = (): void => {
-    dispatch(resetUniswapBehaviorHistory())
+    dispatch(resetLuxBehaviorHistory())
   }
 
   return (

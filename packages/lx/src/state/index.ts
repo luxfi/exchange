@@ -1,5 +1,5 @@
-import { uniswapReducer } from 'lx/src/state/uniswapReducer'
+import { luxReducer } from 'lx/src/state/luxReducer'
 
-// Utility type to be used inside the uniswap shared package
+// Utility type to be used inside the lux shared package
 // Apps and packages should re-define those with a more specific `AppState`
-export type UniswapRootState = ReturnType<typeof uniswapReducer>
+export type LuxRootState = ReturnType<typeof luxReducer>

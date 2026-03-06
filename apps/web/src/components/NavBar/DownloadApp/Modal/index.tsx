@@ -48,7 +48,7 @@ export function GetTheAppModal() {
       onClose={close}
       padding={0}
     >
-      <Flex data-testid={TestID.DownloadUniswapModal} position="relative" userSelect="none">
+      <Flex data-testid={TestID.DownloadLuxModal} position="relative" userSelect="none">
         {/* The Page enum value corresponds to the modal page's index */}
         <AnimatedPager currentIndex={page}>
           <GetStarted

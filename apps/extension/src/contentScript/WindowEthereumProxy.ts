@@ -12,9 +12,9 @@ type RequestInput = BaseEthereumRequest & { id?: number; jsonrpc?: string }
 
 const messages = {
   errors: {
-    disconnected: (): string => 'Uniswap Wallet: Disconnected from chain. Attempting to connect.',
-    invalidRequestArgs: (): string => `Uniswap Wallet: Expected a single, non-array, object argument.`,
-    invalidRequestGeneric: (): string => `Uniswap Wallet: Please check the input passed to the request method`,
+    disconnected: (): string => 'Lux Wallet: Disconnected from chain. Attempting to connect.',
+    invalidRequestArgs: (): string => `Lux Wallet: Expected a single, non-array, object argument.`,
+    invalidRequestGeneric: (): string => `Lux Wallet: Please check the input passed to the request method`,
   },
 }
 
@@ -24,13 +24,13 @@ const messages = {
  */
 export class WindowEthereumProxy extends EventEmitter {
   /**
-   * Boolean indicating that the provider is Uniswap Wallet.
+   * Boolean indicating that the provider is Lux Wallet.
    */
-  isUniswapWallet = true
+  isLuxWallet = true
 
   /**
    * Boolean to spoof MetaMask
-   * TODO(EXT-393): Remove this once more dapps support EIP-6963 or have explicit support for Uniswap Wallet.
+   * TODO(EXT-393): Remove this once more dapps support EIP-6963 or have explicit support for Lux Wallet.
    */
   isMetaMask: boolean
 

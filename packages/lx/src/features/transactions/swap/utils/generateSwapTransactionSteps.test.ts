@@ -3,7 +3,7 @@ import { USDC, WBTC } from 'lx/src/constants/tokens'
 import { TransactionStepType } from 'lx/src/features/transactions/steps/types'
 import {
   SwapTxAndGasInfo,
-  UniswapXSwapTxAndGasInfo,
+  DEXSwapTxAndGasInfo,
 } from 'lx/src/features/transactions/swap/types/swapTxAndGasInfo'
 import { ClassicTrade } from 'lx/src/features/transactions/swap/types/trade'
 import { generateSwapTransactionSteps } from 'lx/src/features/transactions/swap/utils/generateSwapTransactionSteps'
@@ -11,7 +11,7 @@ import { mockPermit } from 'lx/src/test/fixtures/permit'
 import {
   createMockCurrencyAmount,
   createMockTradeWithStatus,
-  createMockUniswapXTrade,
+  createMockDEXTrade,
 } from 'lx/src/test/fixtures/transactions/swap'
 
 // Use vi.hoisted to create a mutable mock state that can be changed between tests
@@ -50,7 +50,7 @@ describe('Swap', () => {
     createMockCurrencyAmount(WBTC, '1000000000000000000'),
   )
 
-  const mockUniswapXTrade = createMockUniswapXTrade(USDC, WBTC)
+  const mockDEXTrade = createMockDEXTrade(USDC, WBTC)
 
   const baseSwapTxContext = {
     approveTxRequest: undefined,
@@ -168,10 +168,10 @@ describe('Swap', () => {
   })
 
   describe(TradingApi.Routing.DUTCH_V2, () => {
-    it('should return steps for uniswapx trade', () => {
-      const swapTxContext: UniswapXSwapTxAndGasInfo = {
+    it('should return steps for dex trade', () => {
+      const swapTxContext: DEXSwapTxAndGasInfo = {
         ...baseSwapTxContext,
-        trade: mockUniswapXTrade,
+        trade: mockDEXTrade,
         routing: TradingApi.Routing.DUTCH_V2,
         gasFeeBreakdown: {
           approvalCost: '1000000000000000000',
@@ -184,17 +184,17 @@ describe('Swap', () => {
       expect(generateSwapTransactionSteps(swapTxContext)).toEqual([
         {
           ...swapTxContext.permit?.typedData,
-          type: TransactionStepType.UniswapXSignature,
+          type: TransactionStepType.DEXSignature,
           quote: swapTxContext.trade.quote.quote,
-          deadline: mockUniswapXTrade.quote.quote.orderInfo.deadline,
+          deadline: mockDEXTrade.quote.quote.orderInfo.deadline,
         },
       ])
     })
 
-    it('should return steps for uniswapx trade with revocation and approval required', () => {
-      const swapTxContext: UniswapXSwapTxAndGasInfo = {
+    it('should return steps for dex trade with revocation and approval required', () => {
+      const swapTxContext: DEXSwapTxAndGasInfo = {
         ...baseSwapTxContext,
-        trade: mockUniswapXTrade,
+        trade: mockDEXTrade,
         routing: TradingApi.Routing.DUTCH_V2,
         approveTxRequest: mockApproveRequest,
         revocationTxRequest: mockRevokeRequest,
@@ -216,7 +216,7 @@ describe('Swap', () => {
           type: TransactionStepType.TokenRevocationTransaction,
         },
         {
-          amount: mockUniswapXTrade.inputAmount.quotient.toString(),
+          amount: mockDEXTrade.inputAmount.quotient.toString(),
           spender: '0x000000000022d473030f116ddee9f6b43ac78ba3',
           txRequest: swapTxContext.approveTxRequest,
           chainId: USDC.chainId,
@@ -225,17 +225,17 @@ describe('Swap', () => {
         },
         {
           ...swapTxContext.permit?.typedData,
-          type: TransactionStepType.UniswapXSignature,
+          type: TransactionStepType.DEXSignature,
           quote: swapTxContext.trade.quote.quote,
-          deadline: mockUniswapXTrade.quote.quote.orderInfo.deadline,
+          deadline: mockDEXTrade.quote.quote.orderInfo.deadline,
         },
       ])
     })
 
-    it('should return steps for uniswapx trade with approval required', () => {
-      const swapTxContext: UniswapXSwapTxAndGasInfo = {
+    it('should return steps for dex trade with approval required', () => {
+      const swapTxContext: DEXSwapTxAndGasInfo = {
         ...baseSwapTxContext,
-        trade: mockUniswapXTrade,
+        trade: mockDEXTrade,
         routing: TradingApi.Routing.DUTCH_V2,
         approveTxRequest: mockApproveRequest,
         gasFeeBreakdown: {
@@ -248,7 +248,7 @@ describe('Swap', () => {
 
       expect(generateSwapTransactionSteps(swapTxContext)).toEqual([
         {
-          amount: mockUniswapXTrade.inputAmount.quotient.toString(),
+          amount: mockDEXTrade.inputAmount.quotient.toString(),
           spender: '0x000000000022d473030f116ddee9f6b43ac78ba3',
           txRequest: swapTxContext.approveTxRequest,
           chainId: USDC.chainId,
@@ -257,9 +257,9 @@ describe('Swap', () => {
         },
         {
           ...swapTxContext.permit?.typedData,
-          type: TransactionStepType.UniswapXSignature,
+          type: TransactionStepType.DEXSignature,
           quote: swapTxContext.trade.quote.quote,
-          deadline: mockUniswapXTrade.quote.quote.orderInfo.deadline,
+          deadline: mockDEXTrade.quote.quote.orderInfo.deadline,
         },
       ])
     })

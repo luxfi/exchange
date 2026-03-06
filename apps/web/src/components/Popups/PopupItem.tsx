@@ -15,7 +15,7 @@ import {
   FORTransactionPopupContent,
   PlanPopupContent,
   TransactionPopupContent,
-  UniswapXOrderPopupContent,
+  DEXOrderPopupContent,
 } from '~/components/Popups/PopupContent'
 import { ToastRegularSimple } from '~/components/Popups/ToastRegularSimple'
 import { PopupContent, PopupType, SwitchNetworkAction } from '~/components/Popups/types'
@@ -31,7 +31,7 @@ export function PopupItem({ content, onClose }: { content: PopupContent; popKey:
       return <PlanPopupContent planId={content.planId} onClose={onClose} />
     }
     case PopupType.Order: {
-      return <UniswapXOrderPopupContent orderHash={content.orderHash} onClose={onClose} />
+      return <DEXOrderPopupContent orderHash={content.orderHash} onClose={onClose} />
     }
     case PopupType.FailedSwitchNetwork: {
       return <FailedNetworkSwitchPopup chainId={content.failedSwitchNetwork} onClose={onClose} />

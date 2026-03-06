@@ -6,7 +6,7 @@ import { WarningLabel } from 'lx/src/components/modals/WarningModal/types'
 import { nativeOnChain } from 'lx/src/constants/tokens'
 import { AccountType } from 'lx/src/features/accounts/types'
 import { selectHasDismissedLowNetworkTokenWarning } from 'lx/src/features/behaviorHistory/selectors'
-import { UniswapEventName } from 'lx/src/features/telemetry/constants'
+import { LuxEventName } from 'lx/src/features/telemetry/constants'
 import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
 import { useDismissedCompatibleAddressWarnings } from 'lx/src/features/tokens/warnings/slice/hooks'
 import { useTransactionModalContext } from 'lx/src/features/transactions/components/TransactionModal/TransactionModalContext'
@@ -73,7 +73,7 @@ export function SendFormButton({
     }
 
     if (!hasDismissedLowNetworkTokenWarning && isMax && currencyInInfo?.currency.isNative) {
-      sendAnalyticsEvent(UniswapEventName.LowNetworkTokenInfoModalOpened, { location: 'send' })
+      sendAnalyticsEvent(LuxEventName.LowNetworkTokenInfoModalOpened, { location: 'send' })
       setShowMaxTransferModal(true)
       return
     }

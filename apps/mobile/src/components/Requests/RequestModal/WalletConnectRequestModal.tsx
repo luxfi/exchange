@@ -110,7 +110,7 @@ export function WalletConnectRequestModal({ onClose, request }: Props): JSX.Elem
     delegationData?.needsDelegation && enableEip5792Methods && hasSmartWalletConsent && isSelfTransaction,
   )
   const smartContractDelegationAddress = shouldDelegate
-    ? delegationData?.contractAddress // latest Uniswap delegation address
+    ? delegationData?.contractAddress // latest Lux delegation address
     : delegationData?.currentDelegationAddress
   const gasFee = useTransactionGasFee({
     tx,
@@ -297,8 +297,8 @@ export function WalletConnectRequestModal({ onClose, request }: Props): JSX.Elem
     return <ActionCannotBeCompletedContent request={request} onReject={onReject} />
   }
 
-  // KidSuper Uniswap Cafe check-in screen
-  if (request.type === EthMethod.PersonalSign && request.dappRequestInfo.name === 'Uniswap Cafe') {
+  // KidSuper Lux Cafe check-in screen
+  if (request.type === EthMethod.PersonalSign && request.dappRequestInfo.name === 'Lux Cafe') {
     return (
       <KidSuperCheckinModal request={request} onClose={handleClose} onConfirm={onConfirmPress} onReject={onReject} />
     )

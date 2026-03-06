@@ -1,7 +1,7 @@
 /* eslint-disable max-lines */
 
-import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
-import type { Currency, Percent } from '@uniswap/sdk-core'
+import { ProtocolVersion } from '@lux/client-data-api/dist/data/v1/poolTypes_pb'
+import type { Currency, Percent } from '@lux/sdk-core'
 import {
   AllowedV4WethHookAddressesConfigKey,
   DynamicConfigs,

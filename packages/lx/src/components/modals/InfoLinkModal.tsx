@@ -42,7 +42,7 @@ export function InfoLinkModal({
 }: React.PropsWithChildren<InfoModalProps>): JSX.Element {
   const colors = useSporeColors()
 
-  const openUniswapURL = async (): Promise<void> => {
+  const openLuxURL = async (): Promise<void> => {
     if (!linkUrl) {
       return
     }
@@ -51,7 +51,7 @@ export function InfoLinkModal({
       await openUri({ uri: linkUrl })
       onAnalyticsEvent?.()
     } catch (error) {
-      logger.error(error, { tags: { file: 'InfoLinkModal.tsx', function: 'openUniswapURL' } })
+      logger.error(error, { tags: { file: 'InfoLinkModal.tsx', function: 'openLuxURL' } })
     }
   }
 
@@ -86,7 +86,7 @@ export function InfoLinkModal({
         </Flex>
         {linkText && linkUrl && (
           <Flex row width="100%">
-            <Button fill emphasis="text-only" size="medium" onPress={openUniswapURL}>
+            <Button fill emphasis="text-only" size="medium" onPress={openLuxURL}>
               {linkText}
             </Button>
           </Flex>

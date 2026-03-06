@@ -12,9 +12,9 @@ import {
 } from '@testing-library/react-native'
 import { GraphQLApi } from '@universe/api'
 import React, { PropsWithChildren } from 'react'
-import { UniswapProvider } from 'lx/src/contexts/UniswapContext'
+import { LuxProvider } from 'lx/src/contexts/LuxContext'
 import { AutoMockedApolloProvider } from 'lx/src/test/mocks'
-import { mockUniswapContext } from 'lx/src/test/render'
+import { mockLuxContext } from 'lx/src/test/render'
 import { WalletNavigationContextState, WalletNavigationProvider } from 'wallet/src/contexts/WalletNavigationContext'
 import { NativeWalletProvider } from 'wallet/src/features/wallet/providers/NativeWalletProvider'
 import { SharedWalletProvider } from 'wallet/src/providers/SharedWalletProvider'
@@ -75,9 +75,9 @@ export function renderWithProviders(
       <AutoMockedApolloProvider cache={cache} resolvers={resolvers}>
         <SharedWalletProvider reduxStore={store}>
           <NativeWalletProvider>
-            <UniswapProvider {...mockUniswapContext}>
+            <LuxProvider {...mockLuxContext}>
               <WalletNavigationProvider {...mockNavigationFunctions}>{children}</WalletNavigationProvider>
-            </UniswapProvider>
+            </LuxProvider>
           </NativeWalletProvider>
         </SharedWalletProvider>
       </AutoMockedApolloProvider>

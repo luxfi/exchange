@@ -1,7 +1,7 @@
 // TODO(MOB-203): reduce component complexity
 /* eslint-disable complexity */
 import { BigNumber } from '@ethersproject/bignumber'
-import { Direction, OnChainTransaction, OnChainTransactionLabel } from '@uniswap/client-data-api/dist/data/v1/types_pb'
+import { Direction, OnChainTransaction, OnChainTransactionLabel } from '@lux/client-data-api/dist/data/v1/types_pb'
 import { GraphQLApi } from '@universe/api'
 import { AssetType } from 'lx/src/entities/assets'
 import { extractDappInfo } from 'lx/src/features/activity/utils/extractDappInfo'
@@ -37,7 +37,7 @@ type TransferAssetChange = Extract<
 export default function parseTradeTransaction(
   transaction: NonNullable<TransactionListQueryResponse>,
 ): ConfirmedSwapTransactionInfo | NFTTradeTransactionInfo | WrapTransactionInfo | undefined {
-  // ignore UniswapX transactions for now
+  // ignore DEX transactions for now
   if (transaction.details.__typename !== TransactionDetailsType.Transaction) {
     return undefined
   }
@@ -309,7 +309,7 @@ function findPrimaryTokenAndAmount(
 }
 
 /**
- * Parse a swap or on-chain uniswapX transaction from the REST API
+ * Parse a swap or on-chain dex transaction from the REST API
  */
 export function parseRestSwapTransaction(transaction: OnChainTransaction): ConfirmedSwapTransactionInfo | undefined {
   const { transfers, chainId, from: ownerAddress } = transaction

@@ -3,7 +3,7 @@ import { Button, Flex, Text, useSporeColors } from 'ui/src'
 import { ExternalLink } from 'ui/src/components/icons/ExternalLink'
 import { Passkey } from 'ui/src/components/icons/Passkey'
 import { Modal } from 'lx/src/components/modals/Modal'
-import { uniswapUrls } from 'lx/src/constants/urls'
+import { luxUrls } from 'lx/src/constants/urls'
 import { ElementName, ModalName } from 'lx/src/features/telemetry/constants'
 import Trace from 'lx/src/features/telemetry/Trace'
 import { openUri } from 'lx/src/utils/linking'
@@ -20,7 +20,7 @@ export type PasskeyManagementModalState = Omit<PasskeyManagementModalProps, 'onC
 export function PasskeyManagementModal({ isOpen, onClose, address }: PasskeyManagementModalProps): JSX.Element {
   const colors = useSporeColors()
   const { t } = useTranslation()
-  const passkeyManagementUrl = new URL(uniswapUrls.passkeysManagementUrl)
+  const passkeyManagementUrl = new URL(luxUrls.passkeysManagementUrl)
 
   const launchPasskeyManagement = async (): Promise<void> => {
     await openUri({ uri: passkeyManagementUrl.toString() + (address ? `/${address}` : '') })

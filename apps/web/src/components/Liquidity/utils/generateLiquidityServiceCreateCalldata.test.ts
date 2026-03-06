@@ -1,19 +1,19 @@
-import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
+import { ProtocolVersion } from '@lux/client-data-api/dist/data/v1/poolTypes_pb'
 import {
   CheckApprovalLPResponse,
   CreateLPPositionRequest,
-} from '@uniswap/client-liquidity/dist/uniswap/liquidity/v1/api_pb'
+} from '@lux/client-liquidity/dist/lux/liquidity/v1/api_pb'
 import {
   IndependentToken,
   Protocols,
   V2CreateLPPosition,
   V3CreateLPPosition,
   V4CreateLPPosition,
-} from '@uniswap/client-liquidity/dist/uniswap/liquidity/v1/types_pb'
-import { CurrencyAmount } from '@uniswap/sdk-core'
-import { Pair } from '@uniswap/v2-sdk'
-import { FeeAmount, nearestUsableTick, TICK_SPACINGS, TickMath, Pool as V3Pool } from '@uniswap/v3-sdk'
-import { Pool as V4Pool } from '@uniswap/v4-sdk'
+} from '@lux/client-liquidity/dist/lux/liquidity/v1/types_pb'
+import { CurrencyAmount } from '@lux/sdk-core'
+import { Pair } from '@lux/v2-sdk'
+import { FeeAmount, nearestUsableTick, TICK_SPACINGS, TickMath, Pool as V3Pool } from '@lux/v3-sdk'
+import { Pool as V4Pool } from '@lux/v4-sdk'
 import { ZERO_ADDRESS } from 'lx/src/constants/misc'
 import { USDT } from 'lx/src/constants/tokens'
 import { UniverseChainId } from 'lx/src/features/chains/types'

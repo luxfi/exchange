@@ -2,7 +2,7 @@ import {
   OnChainTransaction,
   OnChainTransactionLabel,
   OnChainTransactionStatus,
-} from '@uniswap/client-data-api/dist/data/v1/types_pb'
+} from '@lux/client-data-api/dist/data/v1/types_pb'
 import { TradingApi } from '@universe/api'
 
 import { parseRestApproveTransaction } from 'lx/src/features/activity/parse/parseApproveTransaction'
@@ -74,7 +74,7 @@ export default function extractRestOnChainTransactionDetails(transaction: OnChai
       typeInfo = parseRestReceiveTransaction(transaction)
       break
     case OnChainTransactionLabel.SWAP:
-    case OnChainTransactionLabel.UNISWAP_X:
+    case OnChainTransactionLabel.LUX_X:
       typeInfo = parseRestSwapTransaction(transaction)
       break
     case OnChainTransactionLabel.WRAP:
@@ -124,7 +124,7 @@ export default function extractRestOnChainTransactionDetails(transaction: OnChai
       }
     : undefined
 
-  const routing = label === OnChainTransactionLabel.UNISWAP_X ? TradingApi.Routing.DUTCH_V2 : TradingApi.Routing.CLASSIC
+  const routing = label === OnChainTransactionLabel.LUX_X ? TradingApi.Routing.DUTCH_V2 : TradingApi.Routing.CLASSIC
 
   return [
     {

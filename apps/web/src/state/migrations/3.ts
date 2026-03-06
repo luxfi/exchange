@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unnecessary-condition */
-import { Token } from '@uniswap/sdk-core'
+import { Token } from '@lux/sdk-core'
 import { type PersistState } from 'redux-persist'
 import { UniverseChainId } from 'lx/src/features/chains/types'
 import { createPersistState, createSafeMigration } from 'lx/src/state/createSafeMigration'

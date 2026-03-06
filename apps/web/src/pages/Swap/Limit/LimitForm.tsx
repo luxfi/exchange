@@ -1,6 +1,6 @@
 /* eslint-disable max-lines */
-import { Currency, CurrencyAmount, Token } from '@uniswap/sdk-core'
-import { UNIVERSAL_ROUTER_ADDRESS, UniversalRouterVersion } from '@uniswap/universal-router-sdk'
+import { Currency, CurrencyAmount, Token } from '@lux/sdk-core'
+import { UNIVERSAL_ROUTER_ADDRESS, UniversalRouterVersion } from '@lux/universal-router-sdk'
 import { FeatureFlags, useFeatureFlag } from '@universe/gating'
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { Trans, useTranslation } from 'react-i18next'
@@ -8,7 +8,7 @@ import { Anchor, Button, Flex, styled, Text, useIsShortMobileDevice } from 'ui/s
 import { AlertTriangleFilled } from 'ui/src/components/icons/AlertTriangleFilled'
 import { ArrowDown } from 'ui/src/components/icons/ArrowDown'
 import { nativeOnChain } from 'lx/src/constants/tokens'
-import { uniswapUrls } from 'lx/src/constants/urls'
+import { luxUrls } from 'lx/src/constants/urls'
 import { LIMIT_SUPPORTED_CHAINS } from 'lx/src/features/chains/chainInfo'
 import { useIsSupportedChainId } from 'lx/src/features/chains/hooks/useSupportedChainId'
 import { getPrimaryStablecoin } from 'lx/src/features/chains/utils'
@@ -262,7 +262,7 @@ function LimitForm({ onCurrencyChange }: LimitFormProps) {
   const allowance = usePermit2Allowance({
     amount: parsedAmounts.input?.currency.isNative ? undefined : (parsedAmounts.input as CurrencyAmount<Token>),
     spender: isLimitSupportedChain ? UNIVERSAL_ROUTER_ADDRESS(UniversalRouterVersion.V1_2, chainId) : undefined,
-    tradeFillType: TradeFillType.UniswapX,
+    tradeFillType: TradeFillType.DEX,
   })
 
   const fiatValueTradeInput = useUSDCValueWithStatus(parsedAmounts.input)
@@ -419,7 +419,7 @@ function LimitForm({ onCurrencyChange }: LimitFormProps) {
                   link: (
                     <Anchor
                       textDecorationLine="none"
-                      href={uniswapUrls.helpArticleUrls.limitsNetworkSupport}
+                      href={luxUrls.helpArticleUrls.limitsNetworkSupport}
                       target="_blank"
                     >
                       <LearnMore>
@@ -431,10 +431,10 @@ function LimitForm({ onCurrencyChange }: LimitFormProps) {
               />
             ) : (
               <Trans
-                i18nKey="limits.form.disclaimer.uniswapx"
+                i18nKey="limits.form.disclaimer.dex"
                 components={{
                   link: (
-                    <Anchor textDecorationLine="none" href={uniswapUrls.helpArticleUrls.limitsFailure} target="_blank">
+                    <Anchor textDecorationLine="none" href={luxUrls.helpArticleUrls.limitsFailure} target="_blank">
                       <LearnMore>
                         <Trans i18nKey="common.button.learn" />
                       </LearnMore>

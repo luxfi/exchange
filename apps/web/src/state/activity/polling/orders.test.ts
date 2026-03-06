@@ -1,4 +1,4 @@
-import { TradeType } from '@uniswap/sdk-core'
+import { TradeType } from '@lux/sdk-core'
 import { TradingApi } from '@universe/api'
 import ms from 'ms'
 import { DAI } from 'lx/src/constants/tokens'
@@ -8,7 +8,7 @@ import {
   TransactionOriginType,
   TransactionStatus,
   TransactionType,
-  UniswapXOrderDetails,
+  DEXOrderDetails,
 } from 'lx/src/features/transactions/types/transactionDetails'
 import { buildCurrencyId, currencyId } from 'lx/src/utils/currencyId'
 import type { Mock } from 'vitest'
@@ -28,7 +28,7 @@ vi.mock('~/state/transactions/hooks', async () => {
   const actual = await vi.importActual('~/state/transactions/hooks')
   return {
     ...actual,
-    usePendingUniswapXOrders: vi.fn(),
+    usePendingDEXOrders: vi.fn(),
   }
 })
 
@@ -63,7 +63,7 @@ vi.mock('~/hooks/useAccount', async () => {
   }
 })
 
-const mockL1Order: UniswapXOrderDetails = {
+const mockL1Order: DEXOrderDetails = {
   routing: TradingApi.Routing.DUTCH_V2,
   orderHash: '0xa9dd6f05ad6d6c79bee654c31ede4d0d2392862711be0f3bc4a9124af24a6a19',
   status: TransactionStatus.Pending,
@@ -73,7 +73,7 @@ const mockL1Order: UniswapXOrderDetails = {
   from: '0x80becb808bfade4143183e58d18f2080e84e57a1',
   transactionOriginType: TransactionOriginType.Internal,
   typeInfo: {
-    isUniswapXOrder: true,
+    isDEXOrder: true,
     type: TransactionType.Swap,
     inputCurrencyAmountRaw: '100000000',
     expectedOutputCurrencyAmountRaw: '91371770080538616664',
@@ -84,7 +84,7 @@ const mockL1Order: UniswapXOrderDetails = {
   },
 }
 
-const mockL2Order: UniswapXOrderDetails = {
+const mockL2Order: DEXOrderDetails = {
   ...mockL1Order,
   chainId: 10,
 }
@@ -150,7 +150,7 @@ describe('useStandardPolling', () => {
 
   it('should not poll when no orders exist', () => {
     const onActivityUpdate = vi.fn()
-    vi.spyOn(hooks, 'usePendingUniswapXOrders').mockReturnValue([])
+    vi.spyOn(hooks, 'usePendingDEXOrders').mockReturnValue([])
 
     renderHook(() => usePollPendingOrders(onActivityUpdate))
 
@@ -163,7 +163,7 @@ describe('useStandardPolling', () => {
 
   it('should poll L1 orders with exponential backoff', async () => {
     const onActivityUpdate = vi.fn()
-    vi.spyOn(hooks, 'usePendingUniswapXOrders').mockReturnValue([mockL1Order])
+    vi.spyOn(hooks, 'usePendingDEXOrders').mockReturnValue([mockL1Order])
     const mockResponse = { orders: [{ orderHash: mockL1Order.orderHash, orderStatus: TradingApi.OrderStatus.OPEN }] }
     ;(global.fetch as unknown as Mock).mockImplementation(() =>
       Promise.resolve({
@@ -203,7 +203,7 @@ describe('useStandardPolling', () => {
     const mockOrder = { ...mockL1Order }
 
     // Start with returning the open order
-    vi.spyOn(hooks, 'usePendingUniswapXOrders').mockReturnValue([mockOrder])
+    vi.spyOn(hooks, 'usePendingDEXOrders').mockReturnValue([mockOrder])
     ;(global.fetch as unknown as Mock)
       .mockImplementationOnce(() =>
         Promise.resolve({
@@ -228,7 +228,7 @@ describe('useStandardPolling', () => {
 
     // After the second poll returns FILLED, update the mock to return no pending orders
     setTimeout(() => {
-      vi.spyOn(hooks, 'usePendingUniswapXOrders').mockReturnValue([])
+      vi.spyOn(hooks, 'usePendingDEXOrders').mockReturnValue([])
     }, 3500)
 
     // Mock the updateTransaction to avoid errors
@@ -270,7 +270,7 @@ describe('useQuickPolling', () => {
 
   it('should not poll when no orders exist', () => {
     const onActivityUpdate = vi.fn()
-    vi.spyOn(hooks, 'usePendingUniswapXOrders').mockReturnValue([])
+    vi.spyOn(hooks, 'usePendingDEXOrders').mockReturnValue([])
 
     renderHook(() => usePollPendingOrders(onActivityUpdate))
 
@@ -291,7 +291,7 @@ describe('useQuickPolling', () => {
       addedTime: now,
     }
 
-    vi.spyOn(hooks, 'usePendingUniswapXOrders').mockReturnValue([recentOrder])
+    vi.spyOn(hooks, 'usePendingDEXOrders').mockReturnValue([recentOrder])
     ;(global.fetch as unknown as Mock).mockImplementation(() =>
       Promise.resolve({
         json: () => Promise.resolve({ orders: [{ ...recentOrder, orderStatus: TradingApi.OrderStatus.OPEN }] }),

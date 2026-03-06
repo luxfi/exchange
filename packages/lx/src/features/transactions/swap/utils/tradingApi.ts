@@ -2,14 +2,14 @@
 import { BigNumber } from '@ethersproject/bignumber'
 import { MixedRouteSDK } from '@luxdex/router-sdk'
 import type { Currency, TradeType } from '@luxamm/sdk-core'
-// IMPORTANT: Must use @uniswap packages for pool/route types because @luxdex/router-sdk
-// uses instanceof checks against @uniswap classes. Using @luxamm would fail those checks.
-// CurrencyAmount and Token must also be from @uniswap/sdk-core for pool constructors.
-import { CurrencyAmount, Token } from '@uniswap/sdk-core'
-import { Pair, Route as V2Route } from '@uniswap/v2-sdk'
-import type { FeeAmount } from '@uniswap/v3-sdk'
-import { Pool as V3Pool, Route as V3Route } from '@uniswap/v3-sdk'
-import { Pool as V4Pool, Route as V4Route } from '@uniswap/v4-sdk'
+// IMPORTANT: Must use @lux packages for pool/route types because @luxdex/router-sdk
+// uses instanceof checks against @lux classes. Using @luxamm would fail those checks.
+// CurrencyAmount and Token must also be from @lux/sdk-core for pool constructors.
+import { CurrencyAmount, Token } from '@lux/sdk-core'
+import { Pair, Route as V2Route } from '@lux/v2-sdk'
+import type { FeeAmount } from '@lux/v3-sdk'
+import { Pool as V3Pool, Route as V3Route } from '@lux/v3-sdk'
+import { Pool as V4Pool, Route as V4Route } from '@lux/v4-sdk'
 import { type ClassicQuoteResponse, type DiscriminatedQuoteResponse, TradingApi } from '@luxfi/api'
 import { DynamicConfigs, getDynamicConfigValue, SwapConfigKey } from '@luxfi/gating'
 import { nativeOnChain } from 'lx/src/constants/tokens'
@@ -23,8 +23,8 @@ import {
   ChainedActionTrade,
   ClassicTrade,
   PriorityOrderTrade,
-  UniswapXV2Trade,
-  UniswapXV3Trade,
+  DEXV2Trade,
+  DEXV3Trade,
   UnwrapTrade,
   WrapTrade,
 } from 'lx/src/features/transactions/swap/types/trade'
@@ -63,7 +63,7 @@ export function transformTradingApiResponseToTrade(params: TradingApiResponseToT
         return null
       }
 
-      // Type assertions needed because we use @uniswap/* SDKs for route/pool types
+      // Type assertions needed because we use @lux/* SDKs for route/pool types
       // to pass instanceof checks in @luxdex/router-sdk, but ClassicTrade types
       // reference @luxamm/* SDKs. The runtime behavior is correct.
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -81,7 +81,7 @@ export function transformTradingApiResponseToTrade(params: TradingApiResponseToT
     case TradingApi.Routing.DUTCH_V3:
     case TradingApi.Routing.DUTCH_V2: {
       const { quote } = data
-      // UniswapX backend response does not include decimals; local currencies must be passed to UniswapXTrade rather than tokens parsed from the api response.
+      // DEX backend response does not include decimals; local currencies must be passed to DEXTrade rather than tokens parsed from the api response.
       // We validate the token addresses match to ensure the trade is valid.
       if (
         !areAddressesEqual({
@@ -100,9 +100,9 @@ export function transformTradingApiResponseToTrade(params: TradingApiResponseToT
       if (isPriority) {
         return new PriorityOrderTrade({ quote: data, currencyIn, currencyOut, tradeType })
       } else if (data.routing === TradingApi.Routing.DUTCH_V2) {
-        return new UniswapXV2Trade({ quote: data, currencyIn, currencyOut, tradeType })
+        return new DEXV2Trade({ quote: data, currencyIn, currencyOut, tradeType })
       } else {
-        return new UniswapXV3Trade({ quote: data, currencyIn, currencyOut, tradeType })
+        return new DEXV3Trade({ quote: data, currencyIn, currencyOut, tradeType })
       }
     }
     case TradingApi.Routing.BRIDGE: {
@@ -207,7 +207,7 @@ function computeRoutes({
         routev4: isOnlyV4 ? new V4Route(v4Routes.map(parseV4PoolApi), parsedCurrencyIn, parsedCurrencyOut) : null,
         routev3: isOnlyV3 ? new V3Route(route.map(parseV3PoolApi), parsedCurrencyIn, parsedCurrencyOut) : null,
         routev2: isOnlyV2 ? new V2Route(route.map(parseV2PairApi), parsedCurrencyIn, parsedCurrencyOut) : null,
-        // Type assertion needed because @luxdex/router-sdk uses @uniswap/* SDKs internally
+        // Type assertion needed because @luxdex/router-sdk uses @lux/* SDKs internally
         // while local code uses @luxamm/* SDKs which have incompatible private property declarations
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         mixedRoute:
@@ -505,7 +505,7 @@ export function createGetQuoteRoutingParams(ctx: {
 }): GetQuoteRoutingParams {
   return (input) => {
     const { isUSDQuote } = input
-    // for USD quotes, we avoid routing through UniswapX
+    // for USD quotes, we avoid routing through DEX
     // hooksOptions should not be sent for USD quotes
     if (isUSDQuote) {
       return {

@@ -12,7 +12,7 @@ import { Flex, Text } from 'ui/src'
 import { iconSizes } from 'ui/src/theme'
 import { CurrencyLogo } from 'lx/src/components/CurrencyLogo/CurrencyLogo'
 import { LearnMoreLink } from 'lx/src/components/text/LearnMoreLink'
-import { uniswapUrls } from 'lx/src/constants/urls'
+import { luxUrls } from 'lx/src/constants/urls'
 import { DappRequestType } from 'lx/src/features/dappRequests/types'
 import { CurrencyInfo } from 'lx/src/features/dataApi/types'
 import { useCurrencyInfo } from 'lx/src/features/tokens/useCurrencyInfo'
@@ -116,7 +116,7 @@ export function ApproveRequestContent({
         </Text>
         <LearnMoreLink
           textVariant="body4"
-          url={isRevoke ? uniswapUrls.helpArticleUrls.revokeExplainer : uniswapUrls.helpArticleUrls.approvalsExplainer}
+          url={isRevoke ? luxUrls.helpArticleUrls.revokeExplainer : luxUrls.helpArticleUrls.approvalsExplainer}
         />
       </Flex>
     </DappRequestContent>

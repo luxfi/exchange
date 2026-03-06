@@ -1,12 +1,12 @@
 import { SkipToken } from '@reduxjs/toolkit/query/react'
-import { Protocol } from '@uniswap/router-sdk'
-import { Currency, CurrencyAmount, TradeType } from '@uniswap/sdk-core'
+import { Protocol } from '@lux/router-sdk'
+import { Currency, CurrencyAmount, TradeType } from '@lux/sdk-core'
 import { UniverseChainId } from 'lx/src/features/chains/types'
 import { GetQuoteArgs, INTERNAL_ROUTER_PREFERENCE_PRICE, RouterPreference, URAQuoteType } from '~/state/routing/types'
 import { currencyAddressForSwapQuote } from '~/state/routing/utils'
 
 interface RoutingAPIContext {
-  canUseUniswapX: boolean
+  canUseDEX: boolean
   isPriorityOrdersEnabled: boolean
   isDutchV3Enabled: boolean
 }
@@ -32,7 +32,7 @@ interface RoutingAPIInputValidated {
 }
 
 export function createGetRoutingAPIArguments(ctx: RoutingAPIContext) {
-  const { canUseUniswapX, isPriorityOrdersEnabled, isDutchV3Enabled } = ctx
+  const { canUseDEX, isPriorityOrdersEnabled, isDutchV3Enabled } = ctx
 
   return function getRoutingAPIArguments(input: RoutingAPIInput): GetQuoteArgs | SkipToken {
     if (!validateRoutingAPIInput(input)) {
@@ -48,7 +48,7 @@ export function createGetRoutingAPIArguments(ctx: RoutingAPIContext) {
     const isArbitrum = tokenIn.chainId === UniverseChainId.ArbitrumOne
 
     const routingType = getRoutingType({
-      canUseUniswapX,
+      canUseDEX,
       isPriorityOrder,
       isArbitrum,
       isDutchV3Enabled,
@@ -68,7 +68,7 @@ export function createGetRoutingAPIArguments(ctx: RoutingAPIContext) {
       routerPreference,
       protocolPreferences,
       tradeType,
-      uniswapXForceSyntheticQuotes: false,
+      dexForceSyntheticQuotes: false,
       sendPortionEnabled,
       routingType,
     }
@@ -86,14 +86,14 @@ export function validateRoutingAPIInput(input: RoutingAPIInput): input is Routin
 }
 
 function getRoutingType(input: {
-  canUseUniswapX: boolean
+  canUseDEX: boolean
   isPriorityOrder: boolean
   isArbitrum: boolean
   isDutchV3Enabled: boolean
 }): URAQuoteType {
-  const { canUseUniswapX, isPriorityOrder, isArbitrum, isDutchV3Enabled } = input
+  const { canUseDEX, isPriorityOrder, isArbitrum, isDutchV3Enabled } = input
 
-  if (!canUseUniswapX) {
+  if (!canUseDEX) {
     return URAQuoteType.CLASSIC
   }
 

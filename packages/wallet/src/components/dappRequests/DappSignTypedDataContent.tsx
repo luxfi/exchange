@@ -31,7 +31,7 @@ interface DappSignTypedDataContentProps {
 
 /**
  * Component that handles Blockaid scanning and display for eth_signTypedData methods
- * Supports permit2, nonstandard, standard typed data formats, and UniswapX swaps
+ * Supports permit2, nonstandard, standard typed data formats, and DEX swaps
  */
 export function DappSignTypedDataContent({
   typedData,
@@ -56,7 +56,7 @@ export function DappSignTypedDataContent({
     }
   }, [typedData])
 
-  // Get transaction sections - handles both UniswapX and regular typed data via Blockaid
+  // Get transaction sections - handles both DEX and regular typed data via Blockaid
   const { sections, riskLevel, isLoading } = useTypedDataSections({
     parsedTypedData,
     chainId,

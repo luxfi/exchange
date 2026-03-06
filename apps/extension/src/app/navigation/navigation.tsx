@@ -26,7 +26,7 @@ import { ONE_SECOND_MS } from 'utilities/src/time/time'
 import { AccountsStoreContextProvider } from 'wallet/src/features/accounts/store/provider'
 import { useHeartbeatReporter } from 'wallet/src/features/telemetry/hooks/useHeartbeatReporter'
 import { useLastBalancesReporter } from 'wallet/src/features/telemetry/hooks/useLastBalancesReporter'
-import { WalletUniswapProvider } from 'wallet/src/features/transactions/contexts/WalletUniswapContext'
+import { WalletLuxProvider } from 'wallet/src/features/transactions/contexts/WalletLuxContext'
 import { QueuedOrderModal } from 'wallet/src/features/transactions/swap/modals/QueuedOrderModal'
 import { TransactionHistoryUpdater } from 'wallet/src/features/transactions/TransactionHistoryUpdater'
 import { NativeWalletProvider } from 'wallet/src/features/wallet/providers/NativeWalletProvider'
@@ -153,14 +153,14 @@ export function WebNavigation(): JSX.Element {
     <SidebarNavigationProvider>
       <NativeWalletProvider>
         <TokenPriceProvider>
-          <WalletUniswapProvider>
+          <WalletLuxProvider>
             <AccountsStoreContextProvider>
               <NotificationToastWrapper />
               {shouldRestoreScroll && <ScrollRestoration />}
               {childrenMemo}
               {isLoggedIn && <ForceUpgradeModal />}
             </AccountsStoreContextProvider>
-          </WalletUniswapProvider>
+          </WalletLuxProvider>
         </TokenPriceProvider>
       </NativeWalletProvider>
     </SidebarNavigationProvider>

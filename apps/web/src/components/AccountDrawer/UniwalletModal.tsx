@@ -7,7 +7,7 @@ import { ElementName, InterfaceEventName, ModalName } from 'lx/src/features/tele
 import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
 import { isWebAndroid, isWebIOS } from 'utilities/src/platform'
 import { useEvent } from 'utilities/src/react/hooks'
-import MobileAppLogo from '~/assets/svg/uniswap_app_logo.svg'
+import MobileAppLogo from '~/assets/svg/lux_app_logo.svg'
 import { useConnectWallet } from '~/features/wallet/connection/hooks/useConnectWallet'
 import { openDownloadApp } from '~/utils/openDownloadApp'
 
@@ -17,21 +17,21 @@ export default function UniwalletModal() {
 
   const { isConnecting, reset } = useConnectWallet()
 
-  // Displays the modal if not on iOS/Android, a Uniswap Wallet Connection is pending, & qrcode URI is available
+  // Displays the modal if not on iOS/Android, a Lux Wallet Connection is pending, & qrcode URI is available
   const onLaunchedMobilePlatform = isWebIOS || isWebAndroid
   const open = !onLaunchedMobilePlatform && !!uri && isConnecting
 
   useEffect(() => {
     function listener({ type, data }: { type: string; data?: unknown }) {
-      if (type === 'display_uniswap_uri' && typeof data === 'string') {
+      if (type === 'display_lux_uri' && typeof data === 'string') {
         setUri(data)
       }
     }
 
-    window.addEventListener('display_uniswap_uri', listener)
+    window.addEventListener('display_lux_uri', listener)
 
     return () => {
-      window.removeEventListener('display_uniswap_uri', listener)
+      window.removeEventListener('display_lux_uri', listener)
     }
   }, [])
 
@@ -42,7 +42,7 @@ export default function UniwalletModal() {
 
   useEffect(() => {
     if (open) {
-      sendAnalyticsEvent(InterfaceEventName.UniswapWalletConnectModalOpened)
+      sendAnalyticsEvent(InterfaceEventName.LuxWalletConnectModalOpened)
     } else {
       setUri(undefined)
     }
@@ -85,7 +85,7 @@ export default function UniwalletModal() {
               size="small"
               emphasis="primary"
               variant="branded"
-              onPress={() => openDownloadApp({ element: ElementName.UniswapWalletModalDownloadButton })}
+              onPress={() => openDownloadApp({ element: ElementName.LuxWalletModalDownloadButton })}
             >
               {t('common.download')}
             </Button>

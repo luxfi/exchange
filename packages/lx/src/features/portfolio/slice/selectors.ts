@@ -1,18 +1,18 @@
 import { createSelector, Selector } from '@reduxjs/toolkit'
 import { normalizeTokenAddressForCache } from 'lx/src/data/cache'
 import { PortfolioState, TokenBalanceOverride } from 'lx/src/features/portfolio/slice/slice'
-import { UniswapState } from 'lx/src/state/uniswapReducer'
+import { LuxState } from 'lx/src/state/luxReducer'
 
-export const selectTokenBalanceOverrides = (state: UniswapState): PortfolioState['tokenBalanceOverrides'] =>
+export const selectTokenBalanceOverrides = (state: LuxState): PortfolioState['tokenBalanceOverrides'] =>
   state.portfolio.tokenBalanceOverrides
 
 export const makeSelectTokenBalanceOverridesForWalletAddress = (): Selector<
-  UniswapState,
+  LuxState,
   undefined | TokenBalanceOverride,
   [Address]
 > =>
   createSelector(
     selectTokenBalanceOverrides,
-    (_: UniswapState, walletAddress: Address) => walletAddress,
+    (_: LuxState, walletAddress: Address) => walletAddress,
     (tokenBalanceOverrides, walletAddress) => tokenBalanceOverrides[normalizeTokenAddressForCache(walletAddress)],
   )

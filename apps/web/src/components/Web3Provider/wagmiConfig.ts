@@ -1,7 +1,7 @@
 import { getWagmiConnectorV2 } from '@binance/w3w-wagmi-connector-v2'
 import { porto } from 'porto/wagmi'
-import { UNISWAP_LOGO } from 'ui/src/assets'
-import { UNISWAP_WEB_URL } from 'lx/src/constants/urls'
+import { LUX_LOGO } from 'ui/src/assets'
+import { LUX_WEB_URL } from 'lx/src/constants/urls'
 import { CONNECTION_PROVIDER_IDS } from 'lx/src/constants/web3'
 import type { getChainInfo } from 'lx/src/features/chains/chainInfo'
 import { ORDERED_EVM_CHAINS } from 'lx/src/features/chains/chainInfo'
@@ -80,10 +80,10 @@ function createWagmiConnectors(params: {
     ...(isTestEnv() && !isPlaywrightEnv() ? [] : [walletConnect(WC_PARAMS)]),
     embeddedWallet(),
     coinbaseWallet({
-      appName: 'Uniswap',
+      appName: 'Lux',
       // CB SDK doesn't pass the parent origin context to their passkey site
-      // Flagged to CB team and can remove UNISWAP_WEB_URL once fixed
-      appLogoUrl: `${UNISWAP_WEB_URL}${UNISWAP_LOGO}`,
+      // Flagged to CB team and can remove LUX_WEB_URL once fixed
+      appLogoUrl: `${LUX_WEB_URL}${LUX_LOGO}`,
       reloadOnDisconnect: false,
     }),
     safe(),

@@ -1,7 +1,7 @@
 // biome-ignore lint/style/noRestrictedImports: legacy import will be migrated
-import { ChainId as UniswapSDKChainId } from '@uniswap/sdk-core'
+import { ChainId as LuxSDKChainId } from '@lux/sdk-core'
 // biome-ignore lint/style/noRestrictedImports: legacy import will be migrated
-import type { CurrencyAmount, Token } from '@uniswap/sdk-core'
+import type { CurrencyAmount, Token } from '@lux/sdk-core'
 import type { GraphQLApi } from '@luxfi/api'
 import { SwapConfigKey } from '@luxfi/gating'
 import type { ImageSourcePropType } from 'react-native'
@@ -13,24 +13,24 @@ import { NonEmptyArray } from 'utilities/src/primitives/array'
 import { Chain as WagmiChain } from 'wagmi/chains'
 
 export enum UniverseChainId {
-  Mainnet = UniswapSDKChainId.MAINNET,
-  ArbitrumOne = UniswapSDKChainId.ARBITRUM_ONE,
-  Avalanche = UniswapSDKChainId.AVALANCHE,
-  Base = UniswapSDKChainId.BASE,
-  Blast = UniswapSDKChainId.BLAST,
-  Bnb = UniswapSDKChainId.BNB,
-  Celo = UniswapSDKChainId.CELO,
-  Monad = UniswapSDKChainId.MONAD,
-  Optimism = UniswapSDKChainId.OPTIMISM,
-  Polygon = UniswapSDKChainId.POLYGON,
-  Sepolia = UniswapSDKChainId.SEPOLIA,
-  Soneium = UniswapSDKChainId.SONEIUM,
-  Unichain = UniswapSDKChainId.UNICHAIN,
-  UnichainSepolia = UniswapSDKChainId.UNICHAIN_SEPOLIA,
-  WorldChain = UniswapSDKChainId.WORLDCHAIN,
-  XLayer = UniswapSDKChainId.XLAYER,
-  Zksync = UniswapSDKChainId.ZKSYNC,
-  Zora = UniswapSDKChainId.ZORA,
+  Mainnet = LuxSDKChainId.MAINNET,
+  ArbitrumOne = LuxSDKChainId.ARBITRUM_ONE,
+  Avalanche = LuxSDKChainId.AVALANCHE,
+  Base = LuxSDKChainId.BASE,
+  Blast = LuxSDKChainId.BLAST,
+  Bnb = LuxSDKChainId.BNB,
+  Celo = LuxSDKChainId.CELO,
+  Monad = LuxSDKChainId.MONAD,
+  Optimism = LuxSDKChainId.OPTIMISM,
+  Polygon = LuxSDKChainId.POLYGON,
+  Sepolia = LuxSDKChainId.SEPOLIA,
+  Soneium = LuxSDKChainId.SONEIUM,
+  Unichain = LuxSDKChainId.UNICHAIN,
+  UnichainSepolia = LuxSDKChainId.UNICHAIN_SEPOLIA,
+  WorldChain = LuxSDKChainId.WORLDCHAIN,
+  XLayer = LuxSDKChainId.XLAYER,
+  Zksync = LuxSDKChainId.ZKSYNC,
+  Zora = LuxSDKChainId.ZORA,
   Solana = 501000101,
   // Lux ecosystem chains
   Lux = 96369,
@@ -92,7 +92,7 @@ type ChainRPCUrls = { http: string[] }
 export interface UniverseChainInfo extends WagmiChain {
   readonly id: UniverseChainId
   readonly platform: Platform
-  readonly assetRepoNetworkName: string | undefined // Name used to index the network on this repo: https://github.com/Uniswap/assets/
+  readonly assetRepoNetworkName: string | undefined // Name used to index the network on this repo: https://github.com/Lux/assets/
   readonly backendChain: BackendChain
   readonly blockPerMainnetEpochForChainId: number
   readonly blockWaitMsBeforeWarning: number | undefined

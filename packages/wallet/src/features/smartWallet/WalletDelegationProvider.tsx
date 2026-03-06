@@ -15,7 +15,7 @@ import { MAX_REACT_QUERY_CACHE_TIME_MS, ONE_HOUR_MS } from 'utilities/src/time/t
 import { type DelegationCheckResult } from 'wallet/src/features/smartWallet/delegation/types'
 import {
   doesAccountNeedDelegationForChain,
-  isNonUniswapDelegation,
+  isNonLuxDelegation,
 } from 'wallet/src/features/smartWallet/delegation/utils'
 import { useActiveAccount } from 'wallet/src/features/wallet/hooks'
 import { selectSortedSignerMnemonicAccounts } from 'wallet/src/features/wallet/selectors'
@@ -78,7 +78,7 @@ export function useGetSwapDelegationInfoForActiveAccount(): (chainId?: UniverseC
     return {
       delegationAddress: delegationDetails?.contractAddress,
       delegationInclusion: delegationDetails?.needsDelegation ?? false,
-      isWalletDelegatedToUniswap: delegationDetails?.isWalletDelegatedToUniswap,
+      isWalletDelegatedToLux: delegationDetails?.isWalletDelegatedToLux,
     }
   })
 }
@@ -240,16 +240,16 @@ const selectDelegationDetailsByAccount = (
         continue
       }
 
-      const { currentDelegationAddress, latestDelegationAddress, isWalletDelegatedToUniswap } =
+      const { currentDelegationAddress, latestDelegationAddress, isWalletDelegatedToLux } =
         delegationDetailsForAccountAndChain
 
       // If delegated to another protocol, mark as not needing delegation
-      if (isNonUniswapDelegation(delegationDetailsForAccountAndChain)) {
+      if (isNonLuxDelegation(delegationDetailsForAccountAndChain)) {
         chainIdToDelegationDetails[supportedChainId] = {
           needsDelegation: false,
           currentDelegationAddress,
           latestDelegationAddress,
-          isWalletDelegatedToUniswap,
+          isWalletDelegatedToLux,
         }
         continue
       }
@@ -260,7 +260,7 @@ const selectDelegationDetailsByAccount = (
         contractAddress: latestDelegationAddress,
         currentDelegationAddress,
         latestDelegationAddress,
-        isWalletDelegatedToUniswap,
+        isWalletDelegatedToLux,
       }
     }
     delegationDetailsByAccount[address] = chainIdToDelegationDetails

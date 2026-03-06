@@ -1,24 +1,24 @@
 import { getScantasticQueryParams } from 'src/components/Requests/ScanSheet/util'
-import { UNISWAP_URL_SCHEME_UWU_LINK } from 'src/components/Requests/Uwulink/utils'
+import { LUX_URL_SCHEME_UWU_LINK } from 'src/components/Requests/Uwulink/utils'
 import {
-  UNISWAP_URL_SCHEME,
-  UNISWAP_URL_SCHEME_SCANTASTIC,
-  UNISWAP_URL_SCHEME_WALLETCONNECT_AS_PARAM,
-  UNISWAP_WALLETCONNECT_URL,
+  LUX_URL_SCHEME,
+  LUX_URL_SCHEME_SCANTASTIC,
+  LUX_URL_SCHEME_WALLETCONNECT_AS_PARAM,
+  LUX_WALLETCONNECT_URL,
 } from 'src/features/deepLinking/constants'
-import { UNISWAP_WEB_HOSTNAME } from 'lx/src/constants/urls'
+import { LUX_WEB_HOSTNAME } from 'lx/src/constants/urls'
 import { isCurrencyIdValid } from 'lx/src/utils/currencyId'
 import { logger } from 'utilities/src/logger/logger'
 
-const UNISWAP_URL_SCHEME_WIDGET = 'uniswap://widget/'
+const LUX_URL_SCHEME_WIDGET = 'lux://widget/'
 const WALLETCONNECT_URI_SCHEME = 'wc:' // https://eips.ethereum.org/EIPS/eip-1328
 
 export enum DeepLinkAction {
-  UniswapWebLink = 'uniswapWebLink',
-  UniswapExternalBrowserLink = 'uniswapExternalBrowserLink',
-  UniswapWalletConnect = 'uniswapWalletConnect',
+  LuxWebLink = 'luxWebLink',
+  LuxExternalBrowserLink = 'luxExternalBrowserLink',
+  LuxWalletConnect = 'luxWalletConnect',
   WalletConnectAsParam = 'walletConnectAsParam',
-  UniswapWidget = 'uniswapWidget',
+  LuxWidget = 'luxWidget',
   Scantastic = 'scantastic',
   TransactionScreen = 'transactionScreen',
   ShowTransactionAfterFiatOnRamp = 'fiatOnRamp',
@@ -82,11 +82,11 @@ export type PayloadWithFiatOnRampParams = BasePayload & {
 }
 
 export type DeepLinkActionResult =
-  | { action: DeepLinkAction.UniswapWebLink; data: BasePayload & { urlPath: string } }
-  | { action: DeepLinkAction.UniswapExternalBrowserLink; data: BasePayload & { urlPath: string } }
+  | { action: DeepLinkAction.LuxWebLink; data: BasePayload & { urlPath: string } }
+  | { action: DeepLinkAction.LuxExternalBrowserLink; data: BasePayload & { urlPath: string } }
   | { action: DeepLinkAction.WalletConnectAsParam; data: PayloadWithWcUri }
-  | { action: DeepLinkAction.UniswapWalletConnect; data: PayloadWithWcUri }
-  | { action: DeepLinkAction.UniswapWidget; data: BasePayload }
+  | { action: DeepLinkAction.LuxWalletConnect; data: PayloadWithWcUri }
+  | { action: DeepLinkAction.LuxWidget; data: BasePayload }
   | { action: DeepLinkAction.Scantastic; data: PayloadWithScantasticParams }
   | { action: DeepLinkAction.UwuLink; data: BasePayload }
   | { action: DeepLinkAction.ShowTransactionAfterFiatOnRamp; data: PayloadWithUserAddress }
@@ -122,8 +122,8 @@ export function parseDeepLinkUrl(urlString: string): DeepLinkActionResult {
     }
   }
 
-  if (isValidUniswapExternalWebLink(urlString)) {
-    return { action: DeepLinkAction.UniswapExternalBrowserLink, data: { ...data, urlPath: url.pathname } }
+  if (isValidLuxExternalWebLink(urlString)) {
+    return { action: DeepLinkAction.LuxExternalBrowserLink, data: { ...data, urlPath: url.pathname } }
   }
 
   const urlPath = url.pathname
@@ -221,12 +221,12 @@ export function parseDeepLinkUrl(urlString: string): DeepLinkActionResult {
   }
 
   // Skip non-wallet connect deep links after this point
-  if (urlString.startsWith(UNISWAP_URL_SCHEME)) {
+  if (urlString.startsWith(LUX_URL_SCHEME)) {
     return { action: DeepLinkAction.SkipNonWalletConnect, data }
   }
 
-  if (urlString.startsWith(UNISWAP_WALLETCONNECT_URL)) {
-    const wcUri = urlString.split(UNISWAP_WALLETCONNECT_URL).pop()
+  if (urlString.startsWith(LUX_WALLETCONNECT_URL)) {
+    const wcUri = urlString.split(LUX_WALLETCONNECT_URL).pop()
     return wcUri
       ? { action: DeepLinkAction.UniversalWalletConnectLink, data: { ...data, wcUri } }
       : logAndReturnError({
@@ -245,13 +245,13 @@ export function parseDeepLinkUrl(urlString: string): DeepLinkActionResult {
   return { action: DeepLinkAction.Unknown, data }
 }
 const handlers: Record<string, DeepLinkHandler> = {
-  [UNISWAP_WEB_HOSTNAME]: (url, data) => {
-    const urlParts = url.href.split(`${UNISWAP_WEB_HOSTNAME}/`)
+  [LUX_WEB_HOSTNAME]: (url, data) => {
+    const urlParts = url.href.split(`${LUX_WEB_HOSTNAME}/`)
     const urlPath = urlParts.length >= 1 ? urlParts[1] : ''
-    return { action: DeepLinkAction.UniswapWebLink, data: { ...data, urlPath: urlPath ?? '' } }
+    return { action: DeepLinkAction.LuxWebLink, data: { ...data, urlPath: urlPath ?? '' } }
   },
-  [UNISWAP_URL_SCHEME_WALLETCONNECT_AS_PARAM]: (url, data) => {
-    const wcUri = extractWalletConnectUri(url.href, UNISWAP_URL_SCHEME_WALLETCONNECT_AS_PARAM)
+  [LUX_URL_SCHEME_WALLETCONNECT_AS_PARAM]: (url, data) => {
+    const wcUri = extractWalletConnectUri(url.href, LUX_URL_SCHEME_WALLETCONNECT_AS_PARAM)
     return wcUri
       ? { action: DeepLinkAction.WalletConnectAsParam, data: { ...data, wcUri } }
       : logAndReturnError({
@@ -261,22 +261,22 @@ const handlers: Record<string, DeepLinkHandler> = {
           data,
         })
   },
-  [UNISWAP_URL_SCHEME + WALLETCONNECT_URI_SCHEME]: (url, data) => {
-    const wcUri = extractWalletConnectUri(url.href, UNISWAP_URL_SCHEME)
+  [LUX_URL_SCHEME + WALLETCONNECT_URI_SCHEME]: (url, data) => {
+    const wcUri = extractWalletConnectUri(url.href, LUX_URL_SCHEME)
     return wcUri
-      ? { action: DeepLinkAction.UniswapWalletConnect, data: { ...data, wcUri } }
+      ? { action: DeepLinkAction.LuxWalletConnect, data: { ...data, wcUri } }
       : logAndReturnError({
           errorMsg: 'No WC URI found',
-          action: DeepLinkAction.UniswapWalletConnect,
+          action: DeepLinkAction.LuxWalletConnect,
           urlString: url.href,
           data,
         })
   },
-  [UNISWAP_URL_SCHEME_WIDGET]: (_, data) => ({
-    action: DeepLinkAction.UniswapWidget,
+  [LUX_URL_SCHEME_WIDGET]: (_, data) => ({
+    action: DeepLinkAction.LuxWidget,
     data,
   }),
-  [UNISWAP_URL_SCHEME_SCANTASTIC]: (url, data) => {
+  [LUX_URL_SCHEME_SCANTASTIC]: (url, data) => {
     const scantasticQueryParams = getScantasticQueryParams(url.href)
     return scantasticQueryParams
       ? { action: DeepLinkAction.Scantastic, data: { ...data, scantasticQueryParams } }
@@ -287,21 +287,21 @@ const handlers: Record<string, DeepLinkHandler> = {
           data,
         })
   },
-  [UNISWAP_URL_SCHEME_UWU_LINK]: (_, data) => ({
+  [LUX_URL_SCHEME_UWU_LINK]: (_, data) => ({
     action: DeepLinkAction.UwuLink,
     data,
   }),
 }
 
-const UNISWAP_EXTERNAL_WEB_LINK_VALID_REGEXES = [
+const LUX_EXTERNAL_WEB_LINK_VALID_REGEXES = [
   // eslint-disable-next-line security/detect-unsafe-regex
-  /^https:\/\/([a-zA-Z0-9-]+)\.uniswap\.org(\/.*)?$/,
+  /^https:\/\/([a-zA-Z0-9-]+)\.lux\.org(\/.*)?$/,
   // eslint-disable-next-line security/detect-unsafe-regex
   /^https:\/\/cryptothegame\.com(\/.*)?$/,
 ]
 
-function isValidUniswapExternalWebLink(urlString: string): boolean {
-  return UNISWAP_EXTERNAL_WEB_LINK_VALID_REGEXES.some((regex) => regex.test(urlString))
+function isValidLuxExternalWebLink(urlString: string): boolean {
+  return LUX_EXTERNAL_WEB_LINK_VALID_REGEXES.some((regex) => regex.test(urlString))
 }
 
 /**

@@ -177,7 +177,7 @@ import { ScannerModalState } from 'lx/src/components/ReceiveQRCode/constants'
 import { USDC } from 'lx/src/constants/tokens'
 import { AccountType } from 'lx/src/features/accounts/types'
 import { initialAppearanceSettingsState } from 'lx/src/features/appearance/slice'
-import { initialUniswapBehaviorHistoryState } from 'lx/src/features/behaviorHistory/slice'
+import { initialLuxBehaviorHistoryState } from 'lx/src/features/behaviorHistory/slice'
 import { UniverseChainId } from 'lx/src/features/chains/types'
 import { initialFavoritesState } from 'lx/src/features/favorites/slice'
 import { FiatCurrency } from 'lx/src/features/fiatCurrency/constants'
@@ -194,7 +194,7 @@ import {
   testMigrateDismissedTokenWarnings,
   testMigrateSearchHistory,
   testRemoveTHBFromCurrency,
-} from 'lx/src/state/uniswapMigrationTests'
+} from 'lx/src/state/luxMigrationTests'
 import { transactionDetails } from 'lx/src/test/fixtures'
 import { DappRequestType } from 'lx/src/types/walletConnect'
 import { getAllKeysOfNestedObject } from 'utilities/src/primitives/objects'
@@ -304,7 +304,7 @@ describe('Redux state migrations', () => {
       tokens: initialTokensState,
       transactions: initialTransactionsState,
       tweaks: initialTweaksState,
-      uniswapBehaviorHistory: initialUniswapBehaviorHistoryState,
+      luxBehaviorHistory: initialLuxBehaviorHistoryState,
       userSettings: initialUserSettingsState,
       visibility: initialVisibilityState,
       wallet: initialWalletState,

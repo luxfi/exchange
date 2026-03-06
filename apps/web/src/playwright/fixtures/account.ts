@@ -1,5 +1,5 @@
-import { getPortfolio } from '@uniswap/client-data-api/dist/data/v1/api-DataApiService_connectquery'
-import { uniswapUrls } from 'lx/src/constants/urls'
+import { getPortfolio } from '@lux/client-data-api/dist/data/v1/api-DataApiService_connectquery'
+import { luxUrls } from 'lx/src/constants/urls'
 import { TestID } from 'lx/src/test/fixtures/testIDs'
 import { shortenAddress } from 'utilities/src/addresses'
 import { expect, type Page } from '~/playwright/fixtures'
@@ -22,7 +22,7 @@ export async function mockUnitagResponse({
   address: string
   unitag: string | null
 }) {
-  await page.route(`${uniswapUrls.unitagsApiUrl}/address?address=${address}`, async (route) => {
+  await page.route(`${luxUrls.unitagsApiUrl}/address?address=${address}`, async (route) => {
     await route.fulfill({
       body: JSON.stringify({
         username: unitag,

@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unnecessary-condition */
 import { BigNumber } from '@ethersproject/bignumber'
 import type { TransactionResponse } from '@ethersproject/providers'
-import type { Token } from '@uniswap/sdk-core'
+import type { Token } from '@lux/sdk-core'
 import { useCallback, useEffect, useMemo } from 'react'
 import { useEnabledChains } from 'lx/src/features/chains/hooks/useEnabledChains'
 import { UniverseChainId } from 'lx/src/features/chains/types'
@@ -9,13 +9,13 @@ import { toSupportedChainId } from 'lx/src/features/chains/utils'
 import { selectTransactions } from 'lx/src/features/transactions/selectors'
 import { addTransaction, deleteTransaction, interfaceCancelTransaction } from 'lx/src/features/transactions/slice'
 import { PLAN_MAX_AGE_MS } from 'lx/src/features/transactions/swap/plan/planPollingUtils'
-import { isUniswapX } from 'lx/src/features/transactions/swap/utils/routing'
+import { isDEX } from 'lx/src/features/transactions/swap/utils/routing'
 import type {
   InterfaceTransactionDetails,
   PlanTransactionDetails,
   TransactionDetails,
   TransactionTypeInfo as TransactionInfo,
-  UniswapXOrderDetails,
+  DEXOrderDetails,
 } from 'lx/src/features/transactions/types/transactionDetails'
 import {
   TransactionOriginType,
@@ -28,7 +28,7 @@ import {
   isPlanTransactionDetails,
   isPlanTransactionInfo,
 } from 'lx/src/features/transactions/types/utils'
-import { isUniswapXOrderPending } from 'lx/src/features/transactions/utils/uniswapX.utils'
+import { isDEXOrderPending } from 'lx/src/features/transactions/utils/dex.utils'
 import { useWallet } from 'lx/src/features/wallet/hooks/useWallet'
 import { usePrevious } from 'utilities/src/react/hooks'
 import { ONE_MINUTE_MS } from 'utilities/src/time/time'
@@ -440,7 +440,7 @@ export function usePendingLPTransactionsChangeListener(callback: () => void) {
   }, [pendingLPTransactions, callback, previousPendingCount])
 }
 
-export function useUniswapXOrderByOrderHash(orderHash?: string): UniswapXOrderDetails | undefined {
+export function useDEXOrderByOrderHash(orderHash?: string): DEXOrderDetails | undefined {
   const allTransactions = useAllTransactionsByChain()
 
   return useMemo(() => {
@@ -449,18 +449,18 @@ export function useUniswapXOrderByOrderHash(orderHash?: string): UniswapXOrderDe
     }
 
     return Object.values(allTransactions).find(
-      (tx): tx is UniswapXOrderDetails => isUniswapX(tx) && 'orderHash' in tx && tx.orderHash === orderHash,
+      (tx): tx is DEXOrderDetails => isDEX(tx) && 'orderHash' in tx && tx.orderHash === orderHash,
     )
   }, [allTransactions, orderHash])
 }
 
-export function usePendingUniswapXOrders(): UniswapXOrderDetails[] {
+export function usePendingDEXOrders(): DEXOrderDetails[] {
   const allTransactions = useAllTransactionsByChain()
   const account = useAccount()
 
   return useMemo(() => {
     return Object.values(allTransactions).filter(
-      (tx): tx is UniswapXOrderDetails => tx.from === account.address && isUniswapX(tx) && isUniswapXOrderPending(tx),
+      (tx): tx is DEXOrderDetails => tx.from === account.address && isDEX(tx) && isDEXOrderPending(tx),
     )
   }, [account.address, allTransactions])
 }

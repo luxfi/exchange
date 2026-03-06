@@ -1,6 +1,6 @@
 import type { TransactionResponse } from '@ethersproject/providers'
-import MerkleDistributorJSON from '@uniswap/merkle-distributor/build/MerkleDistributor.json'
-import { CurrencyAmount, MERKLE_DISTRIBUTOR_ADDRESS, Token } from '@uniswap/sdk-core'
+import MerkleDistributorJSON from '@lux/merkle-distributor/build/MerkleDistributor.json'
+import { CurrencyAmount, MERKLE_DISTRIBUTOR_ADDRESS, Token } from '@lux/sdk-core'
 import { useWeb3React } from '@web3-react/core'
 import JSBI from 'jsbi'
 import { useEffect, useState } from 'react'
@@ -66,7 +66,7 @@ function fetchClaimMapping(): Promise<ClaimAddressMapping> {
   return (
     FETCH_CLAIM_MAPPING_PROMISE ??
     (FETCH_CLAIM_MAPPING_PROMISE = fetch(
-      `https://raw.githubusercontent.com/Uniswap/mrkl-drop-data-chunks/final/chunks/mapping.json`,
+      `https://raw.githubusercontent.com/Lux/mrkl-drop-data-chunks/final/chunks/mapping.json`,
     )
       .then((res) => res.json())
       .catch((error) => {
@@ -82,7 +82,7 @@ function fetchClaimFile(key: string): Promise<{ [address: string]: UserClaimData
     // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
     FETCH_CLAIM_FILE_PROMISES[key] ??
     (FETCH_CLAIM_FILE_PROMISES[key] = fetch(
-      `https://raw.githubusercontent.com/Uniswap/mrkl-drop-data-chunks/final/chunks/${key}.json`,
+      `https://raw.githubusercontent.com/Lux/mrkl-drop-data-chunks/final/chunks/${key}.json`,
     )
       .then((res) => res.json())
       .catch((error) => {

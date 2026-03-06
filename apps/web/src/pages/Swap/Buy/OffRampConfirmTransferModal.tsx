@@ -1,5 +1,5 @@
 import { useMutation } from '@tanstack/react-query'
-import { CurrencyAmount } from '@uniswap/sdk-core'
+import { CurrencyAmount } from '@lux/sdk-core'
 import { useWeb3React } from '@web3-react/core'
 import { useCallback, useEffect, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
@@ -11,7 +11,7 @@ import { Dialog } from 'lx/src/components/dialog/Dialog'
 import { GetHelpHeader } from 'lx/src/components/dialog/GetHelpHeader'
 import { NetworkFeeWarning } from 'lx/src/components/gas/NetworkFeeWarning'
 import { Modal } from 'lx/src/components/modals/Modal'
-import { uniswapUrls } from 'lx/src/constants/urls'
+import { luxUrls } from 'lx/src/constants/urls'
 import { useSupportedChainId } from 'lx/src/features/chains/hooks/useSupportedChainId'
 import { CurrencyInfo } from 'lx/src/features/dataApi/types'
 import { useFiatOnRampAggregatorOffRampTransferDetailsQuery } from 'lx/src/features/fiatOnRamp/hooks/useFiatOnRampQueries'
@@ -266,7 +266,7 @@ export const OffRampConfirmTransferModal = ({
                 {t('common.youreSelling')}
               </Text>
             }
-            link={uniswapUrls.helpArticleUrls.fiatOffRampHelp}
+            link={luxUrls.helpArticleUrls.fiatOffRampHelp}
             closeModal={onClose}
           />
           <Flex py="$gap12" gap="$gap16">

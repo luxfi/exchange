@@ -1,4 +1,4 @@
-import { Currency } from '@uniswap/sdk-core'
+import { Currency } from '@lux/sdk-core'
 import { ReactNode, useEffect, useRef } from 'react'
 import { Flex, FlexProps } from 'ui/src'
 import { CurrencyInputPanel } from 'lx/src/components/CurrencyInputPanel/CurrencyInputPanel'

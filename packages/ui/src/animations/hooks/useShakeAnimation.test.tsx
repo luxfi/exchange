@@ -23,7 +23,7 @@ describe('useShakeAnimation', () => {
   afterEach(() => {
     vi.useRealTimers()
     // Clean up injected styles
-    const styleElement = document.getElementById('uniswap-shake-animation')
+    const styleElement = document.getElementById('lux-shake-animation')
     if (styleElement) {
       styleElement.remove()
     }
@@ -53,13 +53,13 @@ describe('useShakeAnimation', () => {
     })
 
     // Assert - verify CSS keyframes were injected (web implementation)
-    const styleElement = document.getElementById('uniswap-shake-animation')
+    const styleElement = document.getElementById('lux-shake-animation')
     expect(styleElement).toBeTruthy()
     expect(styleElement?.textContent).toContain('@keyframes')
     expect(styleElement?.textContent).toContain('translateX')
 
     // Assert - animation style is applied
-    expect(container.style.animation).toContain('uniswap-shake-animation')
+    expect(container.style.animation).toContain('lux-shake-animation')
 
     // Act - advance timers to complete animation
     act(() => {

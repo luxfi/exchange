@@ -1,6 +1,6 @@
 import JSBI from 'jsbi';
 import { Interface } from '@ethersproject/abi';
-import { Percent, Token } from '@uniswap/sdk-core';
+import { Percent, Token } from '@lux/sdk-core';
 export interface FeeOptions {
     /**
      * The percent of the output that will be taken as a fee.

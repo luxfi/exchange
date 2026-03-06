@@ -4,14 +4,14 @@ import { Wrench } from 'ui/src/components/icons/Wrench'
 // biome-ignore lint/style/noRestrictedImports: legacy import will be migrated
 import { useDeviceInsets } from 'ui/src/hooks/useDeviceInsets'
 import { zIndexes } from 'ui/src/theme'
-import { useUniswapContext } from 'lx/src/contexts/UniswapContext'
+import { useLuxContext } from 'lx/src/contexts/LuxContext'
 import { useEnabledChains } from 'lx/src/features/chains/hooks/useEnabledChains'
 import { TESTNET_MODE_BANNER_HEIGHT } from 'lx/src/features/settings/hooks'
 import { isMobileApp, isWebApp, isWebPlatform } from 'utilities/src/platform'
 
 export function TestnetModeBanner(props: FlexProps): JSX.Element | null {
   const { isTestnetModeEnabled } = useEnabledChains()
-  const { navigateToAdvancedSettings } = useUniswapContext()
+  const { navigateToAdvancedSettings } = useLuxContext()
   const { t } = useTranslation()
 
   const { top } = useDeviceInsets()

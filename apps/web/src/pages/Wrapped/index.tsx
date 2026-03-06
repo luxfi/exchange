@@ -8,7 +8,7 @@ import { INTERFACE_NAV_HEIGHT, opacify } from 'ui/src/theme'
 import { WRAPPED_PATH } from 'lx/src/components/banners/shared/utils'
 import { useUrlContext } from 'lx/src/contexts/UrlContext'
 import { useActiveAddresses } from 'lx/src/features/accounts/store/hooks'
-import { setHasDismissedUniswapWrapped2025Banner } from 'lx/src/features/behaviorHistory/slice'
+import { setHasDismissedLuxWrapped2025Banner } from 'lx/src/features/behaviorHistory/slice'
 import { ElementName, ModalName } from 'lx/src/features/telemetry/constants'
 import Trace from 'lx/src/features/telemetry/Trace'
 import { isAddress } from 'viem'
@@ -44,7 +44,7 @@ export default function Wrapped() {
 
   // no longer show promo banner after viewing wrapped page
   useEffect(() => {
-    dispatch(setHasDismissedUniswapWrapped2025Banner(true))
+    dispatch(setHasDismissedLuxWrapped2025Banner(true))
   }, [dispatch])
 
   const hasWallet = Boolean(walletAddressRef.current || backupWalletAddress)
@@ -74,7 +74,7 @@ export default function Wrapped() {
         display={hasWallet ? 'flex' : 'none'}
         maxHeight={MAX_CONTAINER_HEIGHT}
       >
-        <Trace logImpression={hasWallet} modal={ModalName.UniswapWrapped}>
+        <Trace logImpression={hasWallet} modal={ModalName.LuxWrapped}>
           <Flex
             centered
             maxHeight={MAX_CONTAINER_HEIGHT}
@@ -159,7 +159,7 @@ export default function Wrapped() {
         }}
         ref={containerRef}
       >
-        <Trace logImpression={!hasWallet} modal={ModalName.UniswapWrappedDisconnected}>
+        <Trace logImpression={!hasWallet} modal={ModalName.LuxWrappedDisconnected}>
           <DisconnectedState parentRef={containerRef} />
         </Trace>
       </Flex>

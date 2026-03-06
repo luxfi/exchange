@@ -3,7 +3,7 @@ import { createConnectTransport } from '@connectrpc/connect-web'
 
 interface CreateLocalHeaderTransportOptions {
   baseUrl: string
-  requestSource: 'uniswap-ios' | 'uniswap-android' | 'uniswap-extension'
+  requestSource: 'lux-ios' | 'lux-android' | 'lux-extension'
   getSessionId: () => Promise<string | null>
   getDeviceId: () => Promise<string | null>
 }

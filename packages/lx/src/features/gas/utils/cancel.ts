@@ -4,15 +4,15 @@ import { providers } from 'ethers/lib/ethers'
 import { TRANSACTION_CANCELLATION_GAS_FACTOR } from 'lx/src/constants/transactions'
 import { FeeDetails, getAdjustedGasFeeDetails } from 'lx/src/features/gas/adjustGasFee'
 import { CancellationGasFeeDetails } from 'lx/src/features/gas/hooks'
-import { isClassic, isUniswapX } from 'lx/src/features/transactions/swap/utils/routing'
-import { TransactionDetails, UniswapXOrderDetails } from 'lx/src/features/transactions/types/transactionDetails'
+import { isClassic, isDEX } from 'lx/src/features/transactions/swap/utils/routing'
+import { TransactionDetails, DEXOrderDetails } from 'lx/src/features/transactions/types/transactionDetails'
 import { logger } from 'utilities/src/logger/logger'
 
 export const CANCELLATION_TX_VALUE = '0x0'
 
 export enum CancellationType {
   Classic = 'classic',
-  UniswapX = 'uniswapx',
+  DEX = 'dex',
 }
 
 /**
@@ -20,10 +20,10 @@ export enum CancellationType {
  */
 export function getCancellationType(
   transaction: TransactionDetails,
-  orders?: UniswapXOrderDetails[],
+  orders?: DEXOrderDetails[],
 ): CancellationType {
-  return isUniswapX(transaction) || (orders !== undefined && orders.length > 0)
-    ? CancellationType.UniswapX
+  return isDEX(transaction) || (orders !== undefined && orders.length > 0)
+    ? CancellationType.DEX
     : CancellationType.Classic
 }
 
@@ -47,12 +47,12 @@ export function calculateCancellationGasFee(params: {
   transaction: TransactionDetails
   gasFee?: GasFeeResult
   cancelRequest?: providers.TransactionRequest
-  orders?: UniswapXOrderDetails[]
+  orders?: DEXOrderDetails[]
 }): CancellationGasFeeDetails | undefined {
   const { type, transaction, gasFee, cancelRequest } = params
 
-  if (type === CancellationType.UniswapX) {
-    return calculateUniswapXCancellationGas(cancelRequest, gasFee)
+  if (type === CancellationType.DEX) {
+    return calculateDEXCancellationGas(cancelRequest, gasFee)
   }
 
   return calculateClassicCancellationGas(transaction, gasFee)
@@ -141,12 +141,12 @@ export function calculateClassicCancellationGas(
 }
 
 /**
- * Pure function to calculate UniswapX order cancellation gas fee
+ * Pure function to calculate DEX order cancellation gas fee
  * @param cancelRequest - The cancellation transaction request
  * @param gasFee - Current network gas fee
  * @returns Cancellation gas fee details or undefined
  */
-export function calculateUniswapXCancellationGas(
+export function calculateDEXCancellationGas(
   cancelRequest: providers.TransactionRequest | undefined,
   gasFee: GasFeeResult | undefined,
 ): CancellationGasFeeDetails | undefined {
@@ -154,7 +154,7 @@ export function calculateUniswapXCancellationGas(
     return undefined
   }
 
-  // For UniswapX cancellations, the gas fee is directly from the cancel request estimation
+  // For DEX cancellations, the gas fee is directly from the cancel request estimation
   // No adjustment factor is needed since the transaction is different from the original
   return {
     cancelRequest,

@@ -4,7 +4,7 @@ import { sleep } from 'utilities/src/time/timing'
 import { z } from 'zod'
 
 // Common Flashbots constants
-export const FLASHBOTS_RPC_URL = 'https://rpc.flashbots.net/fast?originId=uniswapwallet'
+export const FLASHBOTS_RPC_URL = 'https://rpc.flashbots.net/fast?originId=luxwallet'
 export const FLASHBOTS_DEFAULT_REFUND_PERCENT = 50 // Default for fast mode
 export const FLASHBOTS_SIGNATURE_HEADER = 'X-Flashbots-Signature'
 export const DEFAULT_FLASHBOTS_ENABLED = true

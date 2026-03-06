@@ -3,8 +3,8 @@
 
 import { ApolloError } from '@apollo/client'
 import { createColumnHelper, Row } from '@tanstack/react-table'
-import { TokenStats } from '@uniswap/client-explore/dist/uniswap/explore/v1/service_pb'
-import { Percent, Token } from '@uniswap/sdk-core'
+import { TokenStats } from '@lux/client-explore/dist/lux/explore/v1/service_pb'
+import { Percent, Token } from '@lux/sdk-core'
 import { GraphQLApi } from '@universe/api'
 import { FeatureFlags, useFeatureFlag } from '@universe/gating'
 import { memo, ReactElement, useCallback, useEffect, useMemo } from 'react'
@@ -14,7 +14,7 @@ import { LearnMoreLink } from 'lx/src/components/text/LearnMoreLink'
 import { getNativeAddress } from 'lx/src/constants/addresses'
 import { BIPS_BASE } from 'lx/src/constants/misc'
 import { UNI } from 'lx/src/constants/tokens'
-import { uniswapUrls } from 'lx/src/constants/urls'
+import { luxUrls } from 'lx/src/constants/urls'
 import { useEnabledChains } from 'lx/src/features/chains/hooks/useEnabledChains'
 import { UniverseChainId } from 'lx/src/features/chains/types'
 import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
@@ -118,7 +118,7 @@ function PoolTableHeader({
     [PoolSortFields.RewardApr]: (
       <>
         {t('pool.incentives.merklDocs')}
-        <LearnMoreLink textVariant="buttonLabel4" url={uniswapUrls.merklDocsUrl} />
+        <LearnMoreLink textVariant="buttonLabel4" url={luxUrls.merklDocsUrl} />
       </>
     ),
   }

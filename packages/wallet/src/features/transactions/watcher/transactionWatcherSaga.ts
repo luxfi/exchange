@@ -6,16 +6,16 @@ import { AppNotificationType } from 'lx/src/features/notifications/slice/types'
 import { selectIncompleteTransactions } from 'lx/src/features/transactions/selectors'
 import {
   addTransaction,
-  cancelRemoteUniswapXOrder,
+  cancelRemoteDEXOrder,
   transactionActions,
   updateTransaction,
 } from 'lx/src/features/transactions/slice'
 import { PlanWatcher } from 'lx/src/features/transactions/swap/plan/planWatcherSaga'
-import { isUniswapX } from 'lx/src/features/transactions/swap/utils/routing'
+import { isDEX } from 'lx/src/features/transactions/swap/utils/routing'
 import { QueuedOrderStatus } from 'lx/src/features/transactions/types/transactionDetails'
 import i18n from 'lx/src/i18n'
 import { logger } from 'utilities/src/logger/logger'
-import { attemptCancelRemoteUniswapXOrder } from 'wallet/src/features/transactions/cancelTransactionSaga'
+import { attemptCancelRemoteDEXOrder } from 'wallet/src/features/transactions/cancelTransactionSaga'
 import { isFORTransaction } from 'wallet/src/features/transactions/utils'
 import { OrderWatcher } from 'wallet/src/features/transactions/watcher/orderWatcherSaga'
 import { watchFiatOnRampTransaction } from 'wallet/src/features/transactions/watcher/watchFiatOnRampSaga'
@@ -37,9 +37,9 @@ export function* transactionWatcher({
 
   yield* fork(PlanWatcher.initialize)
 
-  // Listen for remote UniswapX order cancellation requests (orders not in local Redux state)
+  // Listen for remote DEX order cancellation requests (orders not in local Redux state)
   yield* fork(function* watchRemoteOrderCancellation() {
-    yield* takeEvery(cancelRemoteUniswapXOrder.type, attemptCancelRemoteUniswapXOrder)
+    yield* takeEvery(cancelRemoteDEXOrder.type, attemptCancelRemoteDEXOrder)
   })
 
   // First, fork off watchers for any incomplete txs that are already in store
@@ -49,8 +49,8 @@ export function* transactionWatcher({
     if (isFORTransaction(transaction)) {
       yield* fork(watchFiatOnRampTransaction, transaction as FORTransactionDetails)
     } else {
-      // If the transaction was a queued UniswapX order that never became submitted, update UI to show failure
-      if (isUniswapX(transaction) && transaction.queueStatus === QueuedOrderStatus.Waiting) {
+      // If the transaction was a queued DEX order that never became submitted, update UI to show failure
+      if (isDEX(transaction) && transaction.queueStatus === QueuedOrderStatus.Waiting) {
         const updatedOrder = { ...transaction, queueStatus: QueuedOrderStatus.AppClosed }
         yield* put(transactionActions.updateTransaction(updatedOrder))
         continue

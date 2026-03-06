@@ -1,6 +1,6 @@
 import '~/test-utils/tokens/mocks'
 import { BigNumber } from '@ethersproject/bignumber'
-import { WETH9 } from '@uniswap/sdk-core'
+import { WETH9 } from '@lux/sdk-core'
 import { TradingApi } from '@universe/api'
 import { DAI } from 'lx/src/constants/tokens'
 import { UniverseChainId } from 'lx/src/features/chains/types'
@@ -8,13 +8,13 @@ import {
   TransactionOriginType,
   TransactionStatus,
   TransactionType,
-  UniswapXOrderDetails,
+  DEXOrderDetails,
 } from 'lx/src/features/transactions/types/transactionDetails'
 import { currencyId } from 'lx/src/utils/currencyId'
 import { SwapResult, useSwapTransactionStatus } from '~/hooks/useSwapCallback'
 import { Pending } from '~/pages/Swap/Limit/ConfirmSwapModal/Pending'
 import { TradeFillType } from '~/state/routing/types'
-import { useUniswapXOrderByOrderHash } from '~/state/transactions/hooks'
+import { useDEXOrderByOrderHash } from '~/state/transactions/hooks'
 import { LIMIT_ORDER_TRADE, TEST_TRADE_EXACT_INPUT } from '~/test-utils/constants'
 import { mocked } from '~/test-utils/mocked'
 import { render, screen } from '~/test-utils/render'
@@ -23,7 +23,7 @@ vi.mock('~/state/transactions/hooks', async () => {
   const actual = await vi.importActual('~/state/transactions/hooks')
   return {
     ...actual,
-    useUniswapXOrderByOrderHash: vi.fn(),
+    useDEXOrderByOrderHash: vi.fn(),
     useIsTransactionConfirmed: vi.fn(),
   }
 })
@@ -54,8 +54,8 @@ const classicSwapResult: SwapResult = {
   },
 }
 
-const uniswapXSwapResult: SwapResult = {
-  type: TradeFillType.UniswapX,
+const dexSwapResult: SwapResult = {
+  type: TradeFillType.DEX,
   response: {
     orderHash: '0x1234',
     deadline: 1234,
@@ -63,12 +63,12 @@ const uniswapXSwapResult: SwapResult = {
   },
 }
 
-const filledOrderDetails: UniswapXOrderDetails = {
+const filledOrderDetails: DEXOrderDetails = {
   routing: TradingApi.Routing.DUTCH_LIMIT,
   orderHash: '0x1234',
   status: TransactionStatus.Success,
   typeInfo: {
-    isUniswapXOrder: true,
+    isDEXOrder: true,
     type: TransactionType.Swap,
     tradeType: 0,
     inputCurrencyId: currencyId(DAI),
@@ -113,16 +113,16 @@ describe('Pending - classic trade titles', () => {
   )
 })
 
-describe('Pending - uniswapX trade titles', () => {
+describe('Pending - dex trade titles', () => {
   it.each([
-    [false, false, undefined, LIMIT_ORDER_TRADE, uniswapXSwapResult, undefined, 'Limit submitted'],
-    [false, false, undefined, LIMIT_ORDER_TRADE, uniswapXSwapResult, filledOrderDetails, 'Limit filled!'],
+    [false, false, undefined, LIMIT_ORDER_TRADE, dexSwapResult, undefined, 'Limit submitted'],
+    [false, false, undefined, LIMIT_ORDER_TRADE, dexSwapResult, filledOrderDetails, 'Limit filled!'],
     [false, false, undefined, LIMIT_ORDER_TRADE, undefined, undefined, 'Confirm limit'],
   ])(
     'renders limit order correctly, with approvalPending= %p , revocationPending= %p, wrapTxHash= %p',
     // eslint-disable-next-line max-params
     async (approvalPending, revocationPending, wrapTxHash, trade, swapResult, orderDetails, expectedTitle) => {
-      mocked(useUniswapXOrderByOrderHash).mockReturnValue(orderDetails)
+      mocked(useDEXOrderByOrderHash).mockReturnValue(orderDetails)
       const { asFragment } = render(
         <Pending
           trade={trade}

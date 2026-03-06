@@ -1,6 +1,6 @@
 import { Flex, Text } from 'ui/src'
 import { Gas } from 'ui/src/components/icons/Gas'
-import { UniswapXFee } from 'lx/src/components/gas/NetworkFee'
+import { DEXFee } from 'lx/src/components/gas/NetworkFee'
 import { NetworkFeeWarning } from 'lx/src/components/gas/NetworkFeeWarning'
 import type { GasInfo } from 'lx/src/features/transactions/swap/form/SwapFormScreen/SwapFormScreenDetails/SwapFormScreenFooter/GasAndWarningRows/types'
 import { usePriceUXEnabled } from 'lx/src/features/transactions/swap/hooks/usePriceUXEnabled'
@@ -21,11 +21,11 @@ function NetworkFeeWarningContent({ gasInfo }: { gasInfo?: GasInfo }): JSX.Eleme
       : priceUXEnabled && gasInfo.isLoading
         ? '$neutral3'
         : '$neutral2' // Avoid high gas UI on interface
-  const uniswapXSavings = gasInfo.uniswapXGasFeeInfo?.preSavingsGasFeeFormatted
+  const dexSavings = gasInfo.dexGasFeeInfo?.preSavingsGasFeeFormatted
   const isGasFeeFree = gasInfo.gasFee.value !== undefined && isZero(gasInfo.gasFee.value)
 
-  return uniswapXSavings ? (
-    <UniswapXFee gasFee={gasInfo.fiatPriceFormatted} isFree={isGasFeeFree} preSavingsGasFee={uniswapXSavings} />
+  return dexSavings ? (
+    <DEXFee gasFee={gasInfo.fiatPriceFormatted} isFree={isGasFeeFree} preSavingsGasFee={dexSavings} />
   ) : (
     <>
       <Gas color={color} size="$icon.16" />
@@ -60,7 +60,7 @@ export function GasInfoRow({ gasInfo, hidden }: { gasInfo: GasInfo; hidden?: boo
           </Flex>
         }
         disabled={hidden}
-        uniswapXGasFeeInfo={gasInfo.uniswapXGasFeeInfo}
+        dexGasFeeInfo={gasInfo.dexGasFeeInfo}
         chainId={gasInfo.chainId}
       />
     </Flex>

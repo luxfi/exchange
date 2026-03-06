@@ -15,8 +15,8 @@
     "noEmit": false,
     "paths": {
       "@universe/api/*": ["./src/*"],
-      "@uniswap/client-privy-embedded-wallet/dist/uniswap/privy-embedded-wallet/v1/service_pb": [
-        "../../node_modules/@uniswap/client-privy-embedded-wallet/dist/uniswap/privy-embedded-wallet/v1/service_pb",
+      "@lux/client-privy-embedded-wallet/dist/lux/privy-embedded-wallet/v1/service_pb": [
+        "../../node_modules/@lux/client-privy-embedded-wallet/dist/lux/privy-embedded-wallet/v1/service_pb",
         "./stubs/privy-service-pb"
       ]
     },

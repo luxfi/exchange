@@ -1,10 +1,10 @@
-import { SharedEventName } from '@uniswap/analytics-events'
+import { SharedEventName } from '@lux/analytics-events'
 import { useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Flex, UniversalImage } from 'ui/src'
 import { borderRadii } from 'ui/src/theme'
 import { DappIconPlaceholder } from 'lx/src/components/dapps/DappIconPlaceholder'
-import { uniswapUrls } from 'lx/src/constants/urls'
+import { luxUrls } from 'lx/src/constants/urls'
 import { ElementName, ModalName } from 'lx/src/features/telemetry/constants'
 import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
 import { useCloseIfConsented } from 'wallet/src/components/smartWallet/modals/hooks/useCloseIfConsented'
@@ -89,7 +89,7 @@ export function SmartWalletNudge({
       title={dappInfo ? t('smartWallets.postSwapNudge.title.dapp') : t('smartWallets.postSwapNudge.title')}
       subtext={t('smartWallets.educationalModal.description')}
       secondaryButton={{ text: t('common.button.notNow'), onClick: handleSecondaryButtonOnClick }}
-      learnMoreUrl={uniswapUrls.helpArticleUrls.smartWalletDelegation}
+      learnMoreUrl={luxUrls.helpArticleUrls.smartWalletDelegation}
       modalName={ModalName.SmartWalletNudge}
       primaryButton={{ text: t('smartWallets.postSwapNudge.enable'), onClick: handlePrimaryButtonOnClick }}
       onClose={onClose}

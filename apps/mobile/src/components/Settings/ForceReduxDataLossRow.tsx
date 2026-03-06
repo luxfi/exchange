@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { DevSettings } from 'react-native'
 import { MMKV } from 'react-native-mmkv'
 import { Flex, type IconProps, Text, TouchableArea } from 'ui/src'
-import { RotatableChevron, UniswapLogo } from 'ui/src/components/icons'
+import { RotatableChevron, LuxLogo } from 'ui/src/components/icons'
 import { WarningSeverity } from 'lx/src/components/modals/WarningModal/types'
 import { WarningModal } from 'lx/src/components/modals/WarningModal/WarningModal'
 import { ModalName } from 'lx/src/features/telemetry/constants'
@@ -50,7 +50,7 @@ export function ForceReduxDataLossRow({ iconProps }: { iconProps: IconProps }): 
         <Flex row alignItems="center" justifyContent="space-between" py="$spacing4">
           <Flex row alignItems="center">
             <Flex centered height={32} width={32}>
-              <UniswapLogo {...iconProps} />
+              <LuxLogo {...iconProps} />
             </Flex>
             <Text ml="$spacing12" variant="body1">
               Test recovery

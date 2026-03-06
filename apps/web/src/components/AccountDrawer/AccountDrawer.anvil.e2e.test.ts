@@ -31,10 +31,10 @@ test.describe(
       test('changes language', async ({ page }) => {
         await page.getByTestId(TestID.LanguageSettingsButton).click()
         await page.getByRole('link', { name: 'Spanish (Spain)' }).click()
-        await expect(page.getByText('Uniswap está disponible en:')).toBeVisible()
+        await expect(page.getByText('Lux está disponible en:')).toBeVisible()
         await page.reload()
         await expect(page.url()).toContain('lng=es-ES')
-        await expect(page.getByText('Uniswap está disponible en:')).toBeVisible()
+        await expect(page.getByText('Lux está disponible en:')).toBeVisible()
       })
 
       test('toggles testnet', async ({ page }) => {

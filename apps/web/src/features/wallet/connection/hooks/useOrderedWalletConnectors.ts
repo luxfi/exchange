@@ -86,8 +86,8 @@ function getInjectedConnectors({
     ) {
       // Special-case: Ignore coinbase eip6963-injected connector and coinbase solana wallet adapter; CB is selected separately / not treated as an injector since it can always be accessed via the CB SDK connector.
       return false
-    } else if (wallet.id === CONNECTION_PROVIDER_IDS.UNISWAP_EXTENSION_RDNS && !isEmbeddedWalletEnabled) {
-      // Special-case: Ignore the Uniswap Extension injection here if it's being displayed separately. This logic is updated with Embedded Wallet support where the Uniswap Extension is displayed with other connectors
+    } else if (wallet.id === CONNECTION_PROVIDER_IDS.LUX_EXTENSION_RDNS && !isEmbeddedWalletEnabled) {
+      // Special-case: Ignore the Lux Extension injection here if it's being displayed separately. This logic is updated with Embedded Wallet support where the Lux Extension is displayed with other connectors
       return false
     } else if (wallet.id === CONNECTION_PROVIDER_IDS.PORTO_CONNECTOR_ID) {
       // Porto is also surfacing from the injected connectors list, but we don't want to show it in the wallet modal as a detected wallet
@@ -222,8 +222,8 @@ function buildPrimaryConnectorsList({
 }
 
 /**
- * These wallets do not include Uniswap Wallets because those are
- * handled separately unless the embedded wallet is enabled. See <UniswapWalletOptions />
+ * These wallets do not include Lux Wallets because those are
+ * handled separately unless the embedded wallet is enabled. See <LuxWalletOptions />
  * Primary wallets are displayed on the first page of the modal, this included injected wallets and recent wallets
  */
 export function useOrderedWallets({

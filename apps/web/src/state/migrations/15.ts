@@ -18,7 +18,7 @@ type TokenSearchResultWeb = Omit<TokenSearchResult, 'type'> & {
   isNative?: boolean
 }
 
-function webResultToUniswapResult(webItem: TokenSearchResultWeb): PreV55SearchResult | null {
+function webResultToLuxResult(webItem: TokenSearchResultWeb): PreV55SearchResult | null {
   if (webItem.type === PreV55SearchResultType.Token) {
     return {
       type: PreV55SearchResultType.Token,
@@ -62,7 +62,7 @@ export const migration15 = createSafeMigration({
 
     // map old search items to new search items
     const translatedResults: PreV55SearchResult[] = webSearchHistory
-      .map(webResultToUniswapResult)
+      .map(webResultToLuxResult)
       .filter((r): r is PreV55SearchResult => r !== null)
 
     // set new state as this modified search history

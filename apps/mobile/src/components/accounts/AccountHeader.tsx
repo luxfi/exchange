@@ -1,4 +1,4 @@
-import { SharedEventName } from '@uniswap/analytics-events'
+import { SharedEventName } from '@lux/analytics-events'
 import { FeatureFlags, useFeatureFlag } from '@universe/gating'
 import React, { useCallback, useEffect } from 'react'
 import { Gesture, GestureDetector, State } from 'react-native-gesture-handler'
@@ -27,7 +27,7 @@ import { AnimatedUnitagDisplayName } from 'wallet/src/components/accounts/Animat
 import useIsFocused from 'wallet/src/features/focus/useIsFocused'
 import { useActiveAccount, useActiveAccountAddress, useDisplayName } from 'wallet/src/features/wallet/hooks'
 
-// Value comes from https://uniswapteam.slack.com/archives/C083LU9SD9T/p1733425965373019?thread_ts=1733362029.171999&cid=C083LU9SD9T
+// Value comes from https://luxteam.slack.com/archives/C083LU9SD9T/p1733425965373019?thread_ts=1733362029.171999&cid=C083LU9SD9T
 const SCAN_ICON_ACTIVE_SCALE = 0.72
 
 const RotatingSettingsIcon = ({ onPressSettings }: { onPressSettings(): void }): JSX.Element => {

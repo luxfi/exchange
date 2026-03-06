@@ -1,5 +1,5 @@
-import { SharedEventName } from '@uniswap/analytics-events'
-import { Currency } from '@uniswap/sdk-core'
+import { SharedEventName } from '@lux/analytics-events'
+import { Currency } from '@lux/sdk-core'
 import React, { ReactNode, useCallback, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useDispatch } from 'react-redux'
@@ -14,8 +14,8 @@ import { SendAction } from 'ui/src/components/icons/SendAction'
 import { ShareArrow } from 'ui/src/components/icons/ShareArrow'
 import { ContextMenu, ContextMenuProps, MenuOptionItem } from 'lx/src/components/menus/ContextMenu'
 import { ContextMenuTriggerMode } from 'lx/src/components/menus/types'
-import { UNISWAP_WEB_URL } from 'lx/src/constants/urls'
-import { useUniswapContext } from 'lx/src/contexts/UniswapContext'
+import { LUX_WEB_URL } from 'lx/src/constants/urls'
+import { useLuxContext } from 'lx/src/contexts/LuxContext'
 import { useActiveAddress } from 'lx/src/features/accounts/store/hooks'
 import { useEnabledChains } from 'lx/src/features/chains/hooks/useEnabledChains'
 import { UniverseChainId } from 'lx/src/features/chains/types'
@@ -68,7 +68,7 @@ function _TokenOptionItemContextMenu({
   const { t } = useTranslation()
   const evmAddress = useActiveAddress(Platform.EVM)
   const { navigateToTokenDetails, navigateToSwapFlow, navigateToSendFlow, navigateToReceive, handleShareToken } =
-    useUniswapContext()
+    useLuxContext()
   const dispatch = useDispatch()
   const { isTestnetModeEnabled } = useEnabledChains()
   const [copiedAddress, setCopiedAddress] = useState(false)
@@ -135,7 +135,7 @@ function _TokenOptionItemContextMenu({
   const onShare = useCallback(async () => {
     if (isWebPlatform) {
       const url =
-        UNISWAP_WEB_URL +
+        LUX_WEB_URL +
         getTokenDetailsURL({
           address: currencyIdToAddress(id),
           chain: currencyIdToChain(id) ?? undefined,

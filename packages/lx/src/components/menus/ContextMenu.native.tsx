@@ -8,7 +8,7 @@ import { ContextMenuProps } from 'lx/src/components/menus/ContextMenu'
 import { useContextMenuTracking } from 'lx/src/components/menus/hooks/useContextMenuTracking'
 import { ContextMenuTriggerMode } from 'lx/src/components/menus/types'
 import { useHapticFeedback } from 'lx/src/features/settings/useHapticFeedback/useHapticFeedback'
-import { UniswapEventName } from 'lx/src/features/telemetry/constants'
+import { LuxEventName } from 'lx/src/features/telemetry/constants'
 import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
 import { logger } from 'utilities/src/logger/logger'
 import { useEvent } from 'utilities/src/react/hooks'
@@ -208,7 +208,7 @@ export function ContextMenu({
                   onPressAny?.({ name: label, index, indexPath: [index] })
                   // Track analytics if enabled
                   if (trackItemClicks && elementName && sectionName) {
-                    sendAnalyticsEvent(UniswapEventName.ContextMenuItemClicked, {
+                    sendAnalyticsEvent(LuxEventName.ContextMenuItemClicked, {
                       element: elementName,
                       section: sectionName,
                       menu_item: label,

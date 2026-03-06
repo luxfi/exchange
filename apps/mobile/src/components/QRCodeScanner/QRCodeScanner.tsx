@@ -47,7 +47,7 @@ const SCAN_ICON_WIDTH_RATIO = 0.7
 const SCAN_ICON_MASK_OFFSET_RATIO = 0.02 // used for mask to match spacing in CameraScan SVG
 const LOADER_SIZE = iconSizes.icon40
 // Adjusts the center point of the QR code scanner upward to prevent content overflow on devices with smaller screens
-// Should be removed after rewriting to flex, having: https://github.com/Uniswap/universe/pull/4762 in mind
+// Should be removed after rewriting to flex, having: https://github.com/Lux/universe/pull/4762 in mind
 const BOTTOM_PADDING = 48
 
 export function QRCodeScanner(props: QRCodeScannerProps | WCScannerProps): JSX.Element {

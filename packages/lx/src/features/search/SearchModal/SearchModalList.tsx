@@ -1,6 +1,6 @@
 import { ContentStyle } from '@shopify/flash-list'
-import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
-import { Currency } from '@uniswap/sdk-core'
+import { ProtocolVersion } from '@lux/client-data-api/dist/data/v1/poolTypes_pb'
+import { Currency } from '@lux/sdk-core'
 import { memo, useState } from 'react'
 import { Flex, styled, TouchableArea } from 'ui/src'
 import { MoreHorizontal } from 'ui/src/components/icons/MoreHorizontal'
@@ -25,7 +25,7 @@ import type { OnchainItemSection } from 'lx/src/components/lists/OnchainItemList
 import { SelectorBaseList } from 'lx/src/components/lists/SelectorBaseList'
 import { ContextMenuTriggerMode } from 'lx/src/components/menus/types'
 import { useAddToSearchHistory } from 'lx/src/components/TokenSelector/hooks/useAddToSearchHistory'
-import { useUniswapContext } from 'lx/src/contexts/UniswapContext'
+import { useLuxContext } from 'lx/src/contexts/LuxContext'
 import { UniverseChainId } from 'lx/src/features/chains/types'
 import { sendSearchOptionItemClickedAnalytics } from 'lx/src/features/search/SearchModal/analytics/analytics'
 import { SearchFilterContext } from 'lx/src/features/search/SearchModal/analytics/SearchContext'
@@ -130,7 +130,7 @@ export const SearchModalList = memo(function _SearchModalList({
   contentContainerStyle,
 }: SearchModalListProps): JSX.Element {
   const { navigateToTokenDetails, navigateToExternalProfile, navigateToNftCollection, navigateToPoolDetails } =
-    useUniswapContext()
+    useLuxContext()
   const { registerSearchItem } = useAddToSearchHistory()
 
   const [focusedRowIndex, setFocusedRowIndex] = useState<number | undefined>()

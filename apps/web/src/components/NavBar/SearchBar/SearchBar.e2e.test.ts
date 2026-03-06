@@ -1,4 +1,4 @@
-import { searchTokens } from '@uniswap/client-search/dist/search/v1/api-searchService_connectquery'
+import { searchTokens } from '@lux/client-search/dist/search/v1/api-searchService_connectquery'
 import { OnchainItemSectionName } from 'lx/src/components/lists/OnchainItemList/types'
 import { UNI } from 'lx/src/constants/tokens'
 import { TestID } from 'lx/src/test/fixtures/testIDs'
@@ -28,8 +28,8 @@ test.describe(
       await page.goto('/')
       await page.getByTestId(TestID.NavSearchIcon).click()
       await page.getByTestId(TestID.ExploreSearchInput).click()
-      await page.getByTestId(TestID.ExploreSearchInput).fill('Uniswap')
-      await page.getByRole('button', { name: 'Uniswap UNI 0x1f98...F984' }).click()
+      await page.getByTestId(TestID.ExploreSearchInput).fill('Lux')
+      await page.getByRole('button', { name: 'Lux UNI 0x1f98...F984' }).click()
     })
 
     test('should yield clickable result that is then added to recent searches', async ({ page }) => {
@@ -40,7 +40,7 @@ test.describe(
     test('should go to the selected result when recent results are shown', async ({ page }) => {
       await page.getByTestId(TestID.NavSearchIcon).click()
       await expect(page.getByTestId(`section-header-${OnchainItemSectionName.RecentSearches}`)).toBeVisible()
-      await expect(page.getByRole('button', { name: 'Uniswap UNI 0x1f98...F984' })).toBeVisible()
+      await expect(page.getByRole('button', { name: 'Lux UNI 0x1f98...F984' })).toBeVisible()
     })
 
     test('should clear recent searches when the clear button is clicked', async ({ page }) => {

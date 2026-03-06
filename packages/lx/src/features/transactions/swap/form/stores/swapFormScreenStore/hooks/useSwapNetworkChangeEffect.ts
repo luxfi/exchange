@@ -1,4 +1,4 @@
-import { useUniswapContext } from 'lx/src/contexts/UniswapContext'
+import { useLuxContext } from 'lx/src/contexts/LuxContext'
 import type { UniverseChainId } from 'lx/src/features/chains/types'
 import type { SwapChains } from 'lx/src/features/transactions/swap/form/stores/swapFormScreenStore/hooks/useChainIdsChangeEffect'
 import { useChainIdsChangeEffect } from 'lx/src/features/transactions/swap/form/stores/swapFormScreenStore/hooks/useChainIdsChangeEffect'
@@ -12,7 +12,7 @@ export function useSwapNetworkChangeEffect({
   inputChainId?: UniverseChainId
   outputChainId?: UniverseChainId
 }): void {
-  const { onSwapChainsChanged } = useUniswapContext()
+  const { onSwapChainsChanged } = useLuxContext()
 
   const onChainIdsChanged = useEvent(
     ({

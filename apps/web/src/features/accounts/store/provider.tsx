@@ -368,12 +368,12 @@ function buildAccountsState({
   return { wallets, connectors, accounts, activeConnectors, connectionQueryIsPending: isConnecting }
 }
 
-// Uniswap wallet connect connector conflicts with the normal WC connector, so we leave it out of our config and add it manually here.
-const UNISWAP_WALLET_CONNECTOR = {
-  id: CONNECTION_PROVIDER_IDS.UNISWAP_WALLET_CONNECT_CONNECTOR_ID,
-  type: 'uniswapWalletConnect',
-  name: CONNECTION_PROVIDER_NAMES.UNISWAP_WALLET,
-  icon: CONNECTOR_ICON_OVERRIDE_MAP[CONNECTION_PROVIDER_NAMES.UNISWAP_WALLET],
+// Lux wallet connect connector conflicts with the normal WC connector, so we leave it out of our config and add it manually here.
+const LUX_WALLET_CONNECTOR = {
+  id: CONNECTION_PROVIDER_IDS.LUX_WALLET_CONNECT_CONNECTOR_ID,
+  type: 'luxWalletConnect',
+  name: CONNECTION_PROVIDER_NAMES.LUX_WALLET,
+  icon: CONNECTOR_ICON_OVERRIDE_MAP[CONNECTION_PROVIDER_NAMES.LUX_WALLET],
 }
 
 /** Hook that builds EVM wallet infos from wagmi connectors and account data. */
@@ -383,7 +383,7 @@ function useEVMWalletInfos(pendingConnection: ExternalWallet | undefined): Platf
   const fallbackChainId = useWagmiChainId()
 
   return useMemo(() => {
-    return [...connectors, UNISWAP_WALLET_CONNECTOR].map((connector) => {
+    return [...connectors, LUX_WALLET_CONNECTOR].map((connector) => {
       const currentConnectorIsActive =
         connector.id === wagmiAccount.connector?.id || pendingConnection?.id === connector.id
       const accountData = currentConnectorIsActive ? wagmiAccount : undefined

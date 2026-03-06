@@ -210,7 +210,7 @@ export default function FeatureFlagModal(): JSX.Element {
             <FeatureFlagOption flag={FeatureFlags.MultichainTokenUx} label="Enable Updated Multichain Token UX" />
           </FeatureFlagGroup>
           <FeatureFlagGroup name="Swap Features">
-            <FeatureFlagOption flag={FeatureFlags.NoUniswapInterfaceFees} label="Turn off Uniswap interface fees" />
+            <FeatureFlagOption flag={FeatureFlags.NoLuxInterfaceFees} label="Turn off Lux interface fees" />
             <FeatureFlagOption flag={FeatureFlags.ChainedActions} label="Enable Chained Actions" />
             <FeatureFlagOption flag={FeatureFlags.BatchedSwaps} label="Enable Batched Swaps" />
             <FeatureFlagOption flag={FeatureFlags.UnichainFlashblocks} label="Enable Unichain Flashblocks" />
@@ -229,19 +229,19 @@ export default function FeatureFlagModal(): JSX.Element {
               label="Force disable wallet get capabilities result"
             />
             <FeatureFlagOption
-              flag={FeatureFlags.AllowUniswapXOnlyRoutesInSwapSettings}
-              label="Allow UniswapX-Only Routes in Swap Settings (for local testing only)"
+              flag={FeatureFlags.AllowDEXOnlyRoutesInSwapSettings}
+              label="Allow DEX-Only Routes in Swap Settings (for local testing only)"
             />
           </FeatureFlagGroup>
-          <FeatureFlagGroup name="UniswapX">
-            <FeatureFlagOption flag={FeatureFlags.UniswapX} label="Enable UniswapX" />
+          <FeatureFlagGroup name="DEX">
+            <FeatureFlagOption flag={FeatureFlags.DEX} label="Enable DEX" />
             <FeatureFlagOption
-              flag={FeatureFlags.UniswapXPriorityOrdersBase}
-              label="UniswapX Priority Orders (on Base)"
+              flag={FeatureFlags.DEXPriorityOrdersBase}
+              label="DEX Priority Orders (on Base)"
             />
             <FeatureFlagOption
-              flag={FeatureFlags.UniswapXPriorityOrdersUnichain}
-              label="UniswapX Priority Orders (on Unichain)"
+              flag={FeatureFlags.DEXPriorityOrdersUnichain}
+              label="DEX Priority Orders (on Unichain)"
             />
             <FeatureFlagOption flag={FeatureFlags.ArbitrumDutchV3} label="Enable Dutch V3 on Arbitrum" />
           </FeatureFlagGroup>
@@ -296,7 +296,7 @@ export default function FeatureFlagModal(): JSX.Element {
           </FeatureFlagGroup>
           <FeatureFlagGroup name="Misc">
             <FeatureFlagOption flag={FeatureFlags.BridgedAssetsBannerV2} label="Enable V2 Bridged Assets Banner" />
-            <FeatureFlagOption flag={FeatureFlags.UniswapWrapped2025} label="Enable Uniswap Wrapped 2025" />
+            <FeatureFlagOption flag={FeatureFlags.LuxWrapped2025} label="Enable Lux Wrapped 2025" />
             <FeatureFlagOption flag={FeatureFlags.UnificationCopy} label="Enable Unification Copy" />
           </FeatureFlagGroup>
           <FeatureFlagGroup name="Prices">

@@ -1,10 +1,10 @@
-import { Authenticator } from '@uniswap/client-embeddedwallet/dist/uniswap/embeddedwallet/v1/service_pb'
+import { Authenticator } from '@lux/client-embeddedwallet/dist/lux/embeddedwallet/v1/service_pb'
 import type {
   Action,
   RegistrationOptions_AuthenticatorAttachment as AuthenticatorAttachment,
   ChallengeResponse,
   RegistrationOptions,
-} from '@uniswap/client-privy-embedded-wallet/dist/uniswap/privy-embedded-wallet/v1/service_pb'
+} from '@lux/client-privy-embedded-wallet/dist/lux/privy-embedded-wallet/v1/service_pb'
 import { EmbeddedWalletApiClient } from 'lx/src/data/rest/embeddedWallet/requests'
 import { authenticatePasskey, registerPasskey } from 'lx/src/features/passkey/passkey'
 import { Platform } from 'lx/src/features/platforms/types/Platform'
@@ -15,15 +15,15 @@ import { logger } from 'utilities/src/logger/logger'
 export {
   Authenticator,
   AuthenticatorNameType,
-} from '@uniswap/client-embeddedwallet/dist/uniswap/embeddedwallet/v1/service_pb'
+} from '@lux/client-embeddedwallet/dist/lux/embeddedwallet/v1/service_pb'
 export type {
   Action,
   AuthenticationTypes,
   RegistrationOptions_AuthenticatorAttachment as AuthenticatorAttachment,
-} from '@uniswap/client-privy-embedded-wallet/dist/uniswap/privy-embedded-wallet/v1/service_pb'
+} from '@lux/client-privy-embedded-wallet/dist/lux/privy-embedded-wallet/v1/service_pb'
 
 type PrivyPbModule =
-  typeof import('@uniswap/client-privy-embedded-wallet/dist/uniswap/privy-embedded-wallet/v1/service_pb')
+  typeof import('@lux/client-privy-embedded-wallet/dist/lux/privy-embedded-wallet/v1/service_pb')
 
 let _privyPbModulePromise: Promise<PrivyPbModule> | undefined
 
@@ -33,10 +33,10 @@ async function loadPrivyPbModule(): Promise<PrivyPbModule> {
       try {
         return await import(
           /* @vite-ignore */
-          '@uniswap/client-privy-embedded-wallet/dist/uniswap/privy-embedded-wallet/v1/service_pb'
+          '@lux/client-privy-embedded-wallet/dist/lux/privy-embedded-wallet/v1/service_pb'
         )
       } catch {
-        throw new Error('Embedded Wallet requires @uniswap/client-privy-embedded-wallet (private Uniswap package).')
+        throw new Error('Embedded Wallet requires @lux/client-privy-embedded-wallet (private Lux package).')
       }
     })()
   }

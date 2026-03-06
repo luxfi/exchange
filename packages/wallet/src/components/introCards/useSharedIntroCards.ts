@@ -5,11 +5,11 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useIsDarkMode } from 'ui/src'
 import {
   NO_FEES_ICON,
-  NO_UNISWAP_INTERFACE_FEES_BANNER_DARK,
-  NO_UNISWAP_INTERFACE_FEES_BANNER_LIGHT,
+  NO_LUX_INTERFACE_FEES_BANNER_DARK,
+  NO_LUX_INTERFACE_FEES_BANNER_LIGHT,
 } from 'ui/src/assets'
 import { Person, ShieldCheck } from 'ui/src/components/icons'
-import { useUniswapContext } from 'lx/src/contexts/UniswapContext'
+import { useLuxContext } from 'lx/src/contexts/LuxContext'
 import { AccountType } from 'lx/src/features/accounts/types'
 import { UniverseChainId } from 'lx/src/features/chains/types'
 import { OnboardingCardLoggingName } from 'lx/src/features/telemetry/types'
@@ -65,11 +65,11 @@ export function useSharedIntroCards({
   const shouldPromptUnitag = isSignerAccount && !hasSkippedUnitagPrompt && canClaimUnitag && !hasAnyUnitags
 
   // No app fees announcement state
-  const { navigateToSwapFlow } = useUniswapContext()
+  const { navigateToSwapFlow } = useLuxContext()
   const handleNavigateToSwapFlow = useEvent(() =>
     navigateToSwapFlow({ inputCurrencyId: buildNativeCurrencyId(UniverseChainId.Mainnet) }),
   )
-  const isNoAppFeesAnnouncementEnabled = useFeatureFlag(FeatureFlags.NoUniswapInterfaceFees)
+  const isNoAppFeesAnnouncementEnabled = useFeatureFlag(FeatureFlags.NoLuxInterfaceFees)
   const isNoAppFeesCardDismissed = useSelector(selectHasDismissedNoAppFeesAnnouncement)
 
   const handleNoAppFeesCardDismiss = useCallback(() => {
@@ -86,7 +86,7 @@ export function useSharedIntroCards({
         graphic: {
           type: IntroCardGraphicType.Gradient,
           icon: NO_FEES_ICON,
-          gradientImage: isDarkMode ? NO_UNISWAP_INTERFACE_FEES_BANNER_DARK : NO_UNISWAP_INTERFACE_FEES_BANNER_LIGHT,
+          gradientImage: isDarkMode ? NO_LUX_INTERFACE_FEES_BANNER_DARK : NO_LUX_INTERFACE_FEES_BANNER_LIGHT,
         },
         title: t('notification.noAppFees.title'),
         description: t('notification.noAppFees.subtitle'),

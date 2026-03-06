@@ -18,11 +18,11 @@ import { OnboardingRoutes, TopLevelRoutes } from 'src/app/navigation/constants'
 import { navigate } from 'src/app/navigation/state'
 import UAParser from 'ua-parser-js'
 import { Flex, Image, Square, Text, TouchableArea, useSporeColors } from 'ui/src'
-import { DOT_GRID, UNISWAP_LOGO } from 'ui/src/assets'
+import { DOT_GRID, LUX_LOGO } from 'ui/src/assets'
 import { FileListLock, Mobile, RotatableChevron, Wifi } from 'ui/src/components/icons'
 import { AnimatedFlex } from 'ui/src/components/layout/AnimatedFlex'
 import { iconSizes, zIndexes } from 'ui/src/theme'
-import { uniswapUrls } from 'lx/src/constants/urls'
+import { luxUrls } from 'lx/src/constants/urls'
 import Trace from 'lx/src/features/telemetry/Trace'
 import { ExtensionOnboardingFlow, ExtensionOnboardingScreens } from 'lx/src/types/screens/extension'
 import { logger } from 'utilities/src/logger/logger'
@@ -31,9 +31,9 @@ import { ONE_SECOND_MS } from 'utilities/src/time/time'
 import { useTimeout } from 'utilities/src/time/timing'
 import { ScantasticParamsSchema } from 'wallet/src/features/scantastic/types'
 
-const UNISWAP_LOGO_SIZE = 52
-const UNISWAP_LOGO_SCALE_LOADING = 1.2
-const UNISWAP_LOGO_SCALE_DEFAULT = 1
+const LUX_LOGO_SIZE = 52
+const LUX_LOGO_SCALE_LOADING = 1.2
+const LUX_LOGO_SCALE_DEFAULT = 1
 const QR_CODE_SIZE = 212
 
 export function ScanToOnboard(): JSX.Element {
@@ -86,7 +86,7 @@ export function ScanToOnboard(): JSX.Element {
     }
     try {
       // poll OTP state
-      const response = await fetch(`${uniswapUrls.scantasticApiUrl}/otp-state/${sessionUUID}`, {
+      const response = await fetch(`${luxUrls.scantasticApiUrl}/otp-state/${sessionUUID}`, {
         method: 'POST',
         headers: {
           Accept: 'application/json',
@@ -134,10 +134,10 @@ export function ScanToOnboard(): JSX.Element {
 
   useTimeout(resetScantastic, expirationTimestamp - Date.now())
 
-  const qrScale = useSharedValue(UNISWAP_LOGO_SCALE_DEFAULT)
+  const qrScale = useSharedValue(LUX_LOGO_SCALE_DEFAULT)
   useEffect(() => {
     if (!isLoadingUUID) {
-      qrScale.value = UNISWAP_LOGO_SCALE_DEFAULT
+      qrScale.value = LUX_LOGO_SCALE_DEFAULT
       return undefined
     }
 
@@ -148,8 +148,8 @@ export function ScanToOnboard(): JSX.Element {
     }
     qrScale.value = withRepeat(
       withSequence(
-        withSpring(UNISWAP_LOGO_SCALE_LOADING, springConfig),
-        withSpring(UNISWAP_LOGO_SCALE_DEFAULT, springConfig),
+        withSpring(LUX_LOGO_SCALE_LOADING, springConfig),
+        withSpring(LUX_LOGO_SCALE_DEFAULT, springConfig),
       ),
       0,
       true,
@@ -260,15 +260,15 @@ export function ScanToOnboard(): JSX.Element {
                   alignItems="center"
                   backgroundColor={isLoadingUUID ? '$transparent' : '$surface1'}
                   borderRadius="$rounded12"
-                  height={UNISWAP_LOGO_SIZE}
+                  height={LUX_LOGO_SIZE}
                   justifyContent="center"
                   position="absolute"
                   style={qrAnimatedStyle}
-                  top={`calc(50% - ${UNISWAP_LOGO_SIZE / 2}px)`}
-                  width={UNISWAP_LOGO_SIZE}
+                  top={`calc(50% - ${LUX_LOGO_SIZE / 2}px)`}
+                  width={LUX_LOGO_SIZE}
                   zIndex={zIndexes.default}
                 >
-                  <Image height={iconSizes.icon40} source={UNISWAP_LOGO} width={iconSizes.icon40} />
+                  <Image height={iconSizes.icon40} source={LUX_LOGO} width={iconSizes.icon40} />
                 </AnimatedFlex>
                 {isLoadingUUID ? (
                   <Image height={QR_CODE_SIZE} source={DOT_GRID} width={QR_CODE_SIZE} />

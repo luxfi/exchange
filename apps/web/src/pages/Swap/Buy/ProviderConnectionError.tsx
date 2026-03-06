@@ -1,6 +1,6 @@
 import { Trans } from 'react-i18next'
 import { Button, Flex, Image, Text, useIsDarkMode } from 'ui/src'
-import { UNISWAP_LOGO_LARGE } from 'ui/src/assets'
+import { LUX_LOGO_LARGE } from 'ui/src/assets'
 import { iconSizes } from 'ui/src/theme'
 import { ServiceProviderLogoStyles } from 'lx/src/features/fiatOnRamp/constants'
 import { FORServiceProvider } from 'lx/src/features/fiatOnRamp/types'
@@ -20,11 +20,11 @@ export function ProviderConnectionError({ onBack, closeModal, selectedServicePro
     <ConnectingViewWrapper closeModal={closeModal} onBack={onBack}>
       <Flex alignItems="center" gap="$spacing36">
         <Flex row gap="$spacing16">
-          <Flex alignItems="center" justifyContent="center" style={ServiceProviderLogoStyles.uniswapLogoWrapper}>
-            <Image height={iconSizes.icon64} source={UNISWAP_LOGO_LARGE} width={iconSizes.icon64} />
+          <Flex alignItems="center" justifyContent="center" style={ServiceProviderLogoStyles.luxLogoWrapper}>
+            <Image height={iconSizes.icon64} source={LUX_LOGO_LARGE} width={iconSizes.icon64} />
           </Flex>
           <img
-            style={ServiceProviderLogoStyles.uniswapLogoWrapper}
+            style={ServiceProviderLogoStyles.luxLogoWrapper}
             height={120}
             src={getOptionalServiceProviderLogo(selectedServiceProvider.logos, isDarkMode)}
             width={120}

@@ -1,17 +1,17 @@
 import { createPromiseClient, type Transport } from '@connectrpc/connect'
-import { EmbeddedWalletService as OldEmbeddedWalletService } from '@uniswap/client-embeddedwallet/dist/uniswap/embeddedwallet/v1/service_connect'
+import { EmbeddedWalletService as OldEmbeddedWalletService } from '@lux/client-embeddedwallet/dist/lux/embeddedwallet/v1/service_connect'
 import type { EmbeddedWalletApiClient as EmbeddedWalletApiClientType, EmbeddedWalletClientContext } from '@universe/api'
 import { createEmbeddedWalletApiClient, getTransport } from '@universe/api'
-import { uniswapUrls } from 'lx/src/constants/urls'
+import { luxUrls } from 'lx/src/constants/urls'
 import { getVersionHeader } from 'lx/src/data/getVersionHeader'
 import { isMobileApp } from 'utilities/src/platform'
 import { REQUEST_SOURCE } from 'utilities/src/platform/requestSource'
 
 function createEmbeddedWalletTransport(): Transport {
   return getTransport({
-    getBaseUrl: () => uniswapUrls.privyEmbeddedWalletUrl,
+    getBaseUrl: () => luxUrls.privyEmbeddedWalletUrl,
     getHeaders: () => ({
-      ...(isMobileApp && { Origin: uniswapUrls.requestOriginUrl }),
+      ...(isMobileApp && { Origin: luxUrls.requestOriginUrl }),
       'x-request-source': REQUEST_SOURCE,
       'x-app-version': getVersionHeader(),
     }),
@@ -31,7 +31,7 @@ async function getApiClient(): Promise<EmbeddedWalletApiClientType> {
       try {
         const { EmbeddedWalletService: NewEmbeddedWalletService } = await import(
           /* @vite-ignore */
-          '@uniswap/client-privy-embedded-wallet/dist/uniswap/privy-embedded-wallet/v1/service_connect'
+          '@lux/client-privy-embedded-wallet/dist/lux/privy-embedded-wallet/v1/service_connect'
         )
         const newRpcClient = createPromiseClient(
           NewEmbeddedWalletService,
@@ -42,7 +42,7 @@ async function getApiClient(): Promise<EmbeddedWalletApiClientType> {
           legacyRpcClient: oldEmbeddedWalletRpcClient,
         })
       } catch {
-        throw new Error('Embedded Wallet requires @uniswap/client-privy-embedded-wallet (private Uniswap package). ')
+        throw new Error('Embedded Wallet requires @lux/client-privy-embedded-wallet (private Lux package). ')
       }
     })()
   }

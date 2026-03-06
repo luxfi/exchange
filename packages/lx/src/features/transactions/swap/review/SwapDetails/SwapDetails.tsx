@@ -14,7 +14,7 @@ import { useIsUnichainFlashblocksEnabled } from 'lx/src/features/transactions/sw
 import { usePriceUXEnabled } from 'lx/src/features/transactions/swap/hooks/usePriceUXEnabled'
 import { AcceptNewQuoteRow } from 'lx/src/features/transactions/swap/review/SwapDetails/AcceptNewQuoteRow'
 import type { DerivedSwapInfo } from 'lx/src/features/transactions/swap/types/derivedSwapInfo'
-import type { UniswapXGasBreakdown } from 'lx/src/features/transactions/swap/types/swapTxAndGasInfo'
+import type { DEXGasBreakdown } from 'lx/src/features/transactions/swap/types/swapTxAndGasInfo'
 import { getSwapFeeUsdFromDerivedSwapInfo } from 'lx/src/features/transactions/swap/utils/getSwapFeeUsd'
 import { isBridge, isChained, isMultiChainGasQuote } from 'lx/src/features/transactions/swap/utils/routing'
 import { TransactionDetails } from 'lx/src/features/transactions/TransactionDetails/TransactionDetails'
@@ -35,7 +35,7 @@ interface SwapDetailsProps {
   tokenWarningChecked?: boolean
   gasFallbackUsed?: boolean
   gasFee: GasFeeResult
-  uniswapXGasBreakdown?: UniswapXGasBreakdown
+  dexGasBreakdown?: DEXGasBreakdown
   newTradeRequiresAcceptance: boolean
   warning?: Warning
   onAcceptTrade: () => void
@@ -54,7 +54,7 @@ export function SwapDetails({
   tokenWarningProps,
   tokenWarningChecked,
   gasFee,
-  uniswapXGasBreakdown,
+  dexGasBreakdown,
   newTradeRequiresAcceptance,
   warning,
   onAcceptTrade,
@@ -129,7 +129,7 @@ export function SwapDetails({
         showNetworkLogo={showNetworkLogo}
         showWarning={warning && !newTradeRequiresAcceptance}
         transactionUSDValue={derivedSwapInfo.currencyAmountsUSDValue[CurrencyField.OUTPUT]}
-        uniswapXGasBreakdown={uniswapXGasBreakdown}
+        dexGasBreakdown={dexGasBreakdown}
         warning={warning}
         estimatedSwapTime={estimatedSwapTime}
         routingType={routing}

@@ -6,7 +6,7 @@ import { useOpenSidebar } from 'src/app/features/onboarding/hooks/useOpenSidebar
 import { terminateStoreSynchronization } from 'src/store/storeSynchronization'
 import { Flex, Text } from 'ui/src'
 import { Check, GraduationCap } from 'ui/src/components/icons'
-import { uniswapUrls } from 'lx/src/constants/urls'
+import { luxUrls } from 'lx/src/constants/urls'
 
 export function ResetComplete(): JSX.Element {
   const { t } = useTranslation()
@@ -36,7 +36,7 @@ export function ResetComplete(): JSX.Element {
         <Link
           style={{ textDecoration: 'none' }}
           target="_blank"
-          to={uniswapUrls.helpArticleUrls.walletSecurityMeasures}
+          to={luxUrls.helpArticleUrls.walletSecurityMeasures}
         >
           <Flex row alignItems="center" gap="$spacing8">
             <GraduationCap color="$neutral3" size="$icon.20" />

@@ -5,7 +5,7 @@
  * and vault endpoints. Connects to the same gateway as LuxGatewayClient
  * but exposes the advanced trading surface.
  */
-import { uniswapUrls } from 'lx/src/constants/urls'
+import { luxUrls } from 'lx/src/constants/urls'
 import { logger } from 'utilities/src/logger/logger'
 
 import type {
@@ -35,7 +35,7 @@ import type {
 const LOG_TAG = 'LuxDexClient'
 
 function getBaseUrl(): string {
-  return uniswapUrls.luxGatewayUrl
+  return luxUrls.luxGatewayUrl
 }
 
 async function request<T>(method: string, path: string, body?: unknown): Promise<T> {

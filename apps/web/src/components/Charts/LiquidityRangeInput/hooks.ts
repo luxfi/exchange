@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query'
-import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
-import { Currency } from '@uniswap/sdk-core'
+import { ProtocolVersion } from '@lux/client-data-api/dist/data/v1/poolTypes_pb'
+import { Currency } from '@lux/sdk-core'
 import JSBI from 'jsbi'
 import { useMemo } from 'react'
 import { UniverseChainId } from 'lx/src/features/chains/types'

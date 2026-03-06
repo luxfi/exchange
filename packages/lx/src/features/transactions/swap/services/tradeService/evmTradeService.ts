@@ -39,19 +39,19 @@ interface EVMTradeServiceContext {
   logger?: Logger
 
   // Configuration dependencies
-  getIsUniswapXSupported?: (chainId?: number) => boolean
+  getIsDEXSupported?: (chainId?: number) => boolean
   getEnabledChains: () => UniverseChainId[]
   getIsL2ChainId: (chainId?: UniverseChainId) => boolean
   getMinAutoSlippageToleranceL2: () => number
 }
 
 export function createEVMTradeService(ctx: EVMTradeServiceContext): TradeService {
-  const { tradeRepository, getIsUniswapXSupported, getEnabledChains, getIsL2ChainId, getMinAutoSlippageToleranceL2 } =
+  const { tradeRepository, getIsDEXSupported, getEnabledChains, getIsL2ChainId, getMinAutoSlippageToleranceL2 } =
     ctx
 
   // Create protocols filter
   const getProtocolsForChain = createGetProtocolsForChain({
-    getIsUniswapXSupported,
+    getIsDEXSupported,
     getEnabledChains,
   })
 

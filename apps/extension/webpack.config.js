@@ -341,7 +341,7 @@ module.exports = (env) => {
         'process.env.NODE_ENV': JSON.stringify(NODE_ENV),
         'process.env.DEBUG': JSON.stringify(process.env.DEBUG || '0'),
         'process.env.VERSION': JSON.stringify(EXTENSION_VERSION),
-        'process.env.IS_UNISWAP_EXTENSION': '"true"',
+        'process.env.IS_LUX_EXTENSION': '"true"',
       }),
       new CleanWebpackPlugin(),
       new NodePolyfillPlugin(), // necessary to compile with reactnative-dotenv
@@ -368,8 +368,8 @@ module.exports = (env) => {
                   ...manifest.externally_connectable,
                   matches:
                     BUILD_ENV === 'prod'
-                      ? ['https://app.uniswap.org/*']
-                      : ['https://app.uniswap.org/*', 'https://ew.unihq.org/*', 'https://*.ew.unihq.org/*'],
+                      ? ['https://app.lux.org/*']
+                      : ['https://app.lux.org/*', 'https://ew.unihq.org/*', 'https://*.ew.unihq.org/*'],
                 },
                 // Ensure content scripts are registered in the webpack build (WXT handles this automatically).
                 // These mirror the matches/runAt used in the TS entrypoints.

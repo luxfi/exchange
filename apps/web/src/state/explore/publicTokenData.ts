@@ -1,6 +1,6 @@
 /**
  * Public token data provider using CoinGecko free API
- * Replaces the broken Uniswap REST API for non-Lux chains
+ * Replaces the broken Lux REST API for non-Lux chains
  */
 
 import { UniverseChainId } from 'lx/src/features/chains/types'
@@ -63,7 +63,7 @@ export const CHAIN_TOKENS: Record<number, PublicToken[]> = {
     { address: '0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599', name: 'Wrapped BTC', symbol: 'WBTC', decimals: 8, coingeckoId: 'wrapped-bitcoin', logoUrl: 'https://assets.coingecko.com/coins/images/7598/small/wrapped_bitcoin_wbtc.png' },
     { address: '0x6B175474E89094C44Da98b954EedeAC495271d0F', name: 'Dai', symbol: 'DAI', decimals: 18, coingeckoId: 'dai', logoUrl: 'https://assets.coingecko.com/coins/images/9956/small/Badge_Dai.png' },
     { address: '0x514910771AF9Ca656af840dff83E8264EcF986CA', name: 'Chainlink', symbol: 'LINK', decimals: 18, coingeckoId: 'chainlink', logoUrl: 'https://assets.coingecko.com/coins/images/877/small/chainlink-new-logo.png' },
-    { address: '0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984', name: 'Uniswap', symbol: 'UNI', decimals: 18, coingeckoId: 'uniswap', logoUrl: 'https://assets.coingecko.com/coins/images/12504/small/uni.jpg' },
+    { address: '0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984', name: 'Lux', symbol: 'UNI', decimals: 18, coingeckoId: 'lux', logoUrl: 'https://assets.coingecko.com/coins/images/12504/small/uni.jpg' },
     { address: '0x7Fc66500c84A76Ad7e9c93437bFc5Ac33E2DDaE9', name: 'Aave', symbol: 'AAVE', decimals: 18, coingeckoId: 'aave', logoUrl: 'https://assets.coingecko.com/coins/images/12645/small/aave-token-round.png' },
     { address: '0x9f8F72aA9304c8B593d555F12eF6589cC3A579A2', name: 'Maker', symbol: 'MKR', decimals: 18, coingeckoId: 'maker', logoUrl: 'https://assets.coingecko.com/coins/images/1364/small/Mark_Maker.png' },
     { address: '0x5A98FcBEA516Cf06857215779Fd812CA3beF1B32', name: 'Lido DAO', symbol: 'LDO', decimals: 18, coingeckoId: 'lido-dao', logoUrl: 'https://assets.coingecko.com/coins/images/13573/small/Lido_DAO.png' },
@@ -100,7 +100,7 @@ export const CHAIN_TOKENS: Record<number, PublicToken[]> = {
     { address: '0x1BFD67037B42Cf73acF2047067bd4F2C47D9BfD6', name: 'Wrapped BTC', symbol: 'WBTC', decimals: 8, coingeckoId: 'wrapped-bitcoin', logoUrl: 'https://assets.coingecko.com/coins/images/7598/small/wrapped_bitcoin_wbtc.png' },
     { address: '0x53E0bca35eC356BD5ddDFebbD1Fc0fD03FaBad39', name: 'Chainlink', symbol: 'LINK', decimals: 18, coingeckoId: 'chainlink', logoUrl: 'https://assets.coingecko.com/coins/images/877/small/chainlink-new-logo.png' },
     { address: '0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063', name: 'Dai', symbol: 'DAI', decimals: 18, coingeckoId: 'dai', logoUrl: 'https://assets.coingecko.com/coins/images/9956/small/Badge_Dai.png' },
-    { address: '0xb33EaAd8d922B1083446DC23f610c2567fB5180f', name: 'Uniswap', symbol: 'UNI', decimals: 18, coingeckoId: 'uniswap', logoUrl: 'https://assets.coingecko.com/coins/images/12504/small/uni.jpg' },
+    { address: '0xb33EaAd8d922B1083446DC23f610c2567fB5180f', name: 'Lux', symbol: 'UNI', decimals: 18, coingeckoId: 'lux', logoUrl: 'https://assets.coingecko.com/coins/images/12504/small/uni.jpg' },
   ],
   [UniverseChainId.Optimism]: [
     { address: '0x0000000000000000000000000000000000000000', name: 'Ether', symbol: 'ETH', decimals: 18, coingeckoId: 'ethereum', logoUrl: 'https://assets.coingecko.com/coins/images/279/small/ethereum.png' },
@@ -144,7 +144,7 @@ export const CHAIN_TOKENS: Record<number, PublicToken[]> = {
   ],
 }
 
-// Popular pool pairs per chain (real Uniswap V3 pool addresses)
+// Popular pool pairs per chain (real Lux V3 pool addresses)
 export interface PublicPool {
   address: string
   token0: { address: string; symbol: string; name: string }
@@ -163,7 +163,7 @@ export const CHAIN_POOLS: Record<number, PublicPool[]> = {
     { address: '0x3416cF6C708Da44DB2624D63ea0AAef7113527C6', token0: { address: '0x6B175474E89094C44Da98b954EedeAC495271d0F', symbol: 'DAI', name: 'Dai' }, token1: { address: '0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48', symbol: 'USDC', name: 'USD Coin' }, feeTier: 100, tvl: 180_000_000, volume24h: 25_000_000, protocolVersion: 'V3' },
     { address: '0x11b815efB8f581194ae79006d24E0d814B7697F6', token0: { address: '0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2', symbol: 'WETH', name: 'Wrapped Ether' }, token1: { address: '0xdAC17F958D2ee523a2206206994597C13D831ec7', symbol: 'USDT', name: 'Tether' }, feeTier: 500, tvl: 65_000_000, volume24h: 40_000_000, protocolVersion: 'V3' },
     { address: '0xa6Cc3C2531FdaA6Ae1A3CA84c2855806728693e8', token0: { address: '0x514910771AF9Ca656af840dff83E8264EcF986CA', symbol: 'LINK', name: 'Chainlink' }, token1: { address: '0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2', symbol: 'WETH', name: 'Wrapped Ether' }, feeTier: 3000, tvl: 42_000_000, volume24h: 12_000_000, protocolVersion: 'V3' },
-    { address: '0x1d42064Fc4Beb5F8aAF85F4617AE8b3b5B8Bd801', token0: { address: '0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984', symbol: 'UNI', name: 'Uniswap' }, token1: { address: '0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2', symbol: 'WETH', name: 'Wrapped Ether' }, feeTier: 3000, tvl: 30_000_000, volume24h: 8_000_000, protocolVersion: 'V3' },
+    { address: '0x1d42064Fc4Beb5F8aAF85F4617AE8b3b5B8Bd801', token0: { address: '0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984', symbol: 'UNI', name: 'Lux' }, token1: { address: '0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2', symbol: 'WETH', name: 'Wrapped Ether' }, feeTier: 3000, tvl: 30_000_000, volume24h: 8_000_000, protocolVersion: 'V3' },
     { address: '0x5aB53EE1d50eeF2C1DD3d5402789cd27bB52c1bB', token0: { address: '0x7f39C581F595B53c5cb19bD0b3f8dA6c935E2Ca0', symbol: 'wstETH', name: 'Wrapped stETH' }, token1: { address: '0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2', symbol: 'WETH', name: 'Wrapped Ether' }, feeTier: 100, tvl: 500_000_000, volume24h: 15_000_000, protocolVersion: 'V3' },
   ],
   [UniverseChainId.ArbitrumOne]: [

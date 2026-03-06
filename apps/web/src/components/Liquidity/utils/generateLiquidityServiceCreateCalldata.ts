@@ -1,19 +1,19 @@
-import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
+import { ProtocolVersion } from '@lux/client-data-api/dist/data/v1/poolTypes_pb'
 import {
   CheckApprovalLPResponse,
   CreateLPPositionRequest,
-} from '@uniswap/client-liquidity/dist/uniswap/liquidity/v1/api_pb'
+} from '@lux/client-liquidity/dist/lux/liquidity/v1/api_pb'
 import {
   IndependentToken,
   Protocols,
   V2CreateLPPosition,
   V3CreateLPPosition,
   V4CreateLPPosition,
-} from '@uniswap/client-liquidity/dist/uniswap/liquidity/v1/types_pb'
-import { Currency, CurrencyAmount } from '@uniswap/sdk-core'
-import { Pair } from '@uniswap/v2-sdk'
-import { Pool as V3Pool } from '@uniswap/v3-sdk'
-import { Pool as V4Pool } from '@uniswap/v4-sdk'
+} from '@lux/client-liquidity/dist/lux/liquidity/v1/types_pb'
+import { Currency, CurrencyAmount } from '@lux/sdk-core'
+import { Pair } from '@lux/v2-sdk'
+import { Pool as V3Pool } from '@lux/v3-sdk'
+import { Pool as V4Pool } from '@lux/v4-sdk'
 import { TradingApi } from '@universe/api'
 import { getTradeSettingsDeadline } from 'lx/src/data/apiClients/tradingApi/utils/getTradeSettingsDeadline'
 import { DYNAMIC_FEE_DATA, PositionState } from '~/components/Liquidity/Create/types'

@@ -1,12 +1,12 @@
 import { providers } from 'ethers'
 import { call, select } from 'typed-redux-saga'
 import { AccountType } from 'lx/src/features/accounts/types'
-import { cancelRemoteUniswapXOrder } from 'lx/src/features/transactions/slice'
-import { isBridge, isClassic, isUniswapX } from 'lx/src/features/transactions/swap/utils/routing'
+import { cancelRemoteDEXOrder } from 'lx/src/features/transactions/slice'
+import { isBridge, isClassic, isDEX } from 'lx/src/features/transactions/swap/utils/routing'
 import {
   TransactionDetails,
   TransactionOriginType,
-  UniswapXOrderDetails,
+  DEXOrderDetails,
 } from 'lx/src/features/transactions/types/transactionDetails'
 import { getValidAddress } from 'lx/src/utils/addresses'
 import { logger } from 'utilities/src/logger/logger'
@@ -17,8 +17,8 @@ import {
 import { attemptReplaceTransaction } from 'wallet/src/features/transactions/replaceTransactionSaga'
 import { selectAccounts } from 'wallet/src/features/wallet/selectors'
 
-type CancelRemoteUniswapXOrderAction = ReturnType<typeof cancelRemoteUniswapXOrder>
-type SubmitPermit2CancelTransactionParams = CancelRemoteUniswapXOrderAction['payload']
+type CancelRemoteDEXOrderAction = ReturnType<typeof cancelRemoteDEXOrder>
+type SubmitPermit2CancelTransactionParams = CancelRemoteDEXOrderAction['payload']
 
 // Note, transaction cancellation on Ethereum is inherently flaky
 // The best we can do is replace the transaction and hope the original isn't mined first
@@ -29,12 +29,12 @@ export function* attemptCancelTransaction(
 ) {
   if (isClassic(transaction) || isBridge(transaction)) {
     yield* call(attemptReplaceTransaction, { transaction, newTxRequest: cancelRequest, isCancellation: true })
-  } else if (isUniswapX(transaction)) {
+  } else if (isDEX(transaction)) {
     yield* call(cancelOrder, transaction, cancelRequest)
   }
 }
 
-function* cancelOrder(order: UniswapXOrderDetails, cancelRequest: providers.TransactionRequest) {
+function* cancelOrder(order: DEXOrderDetails, cancelRequest: providers.TransactionRequest) {
   yield* call(submitPermit2CancelTransaction, {
     chainId: order.chainId,
     address: order.from,
@@ -44,9 +44,9 @@ function* cancelOrder(order: UniswapXOrderDetails, cancelRequest: providers.Tran
 }
 
 /**
- * Submits a Permit2 nonce invalidation transaction to cancel a UniswapX order.
+ * Submits a Permit2 nonce invalidation transaction to cancel a DEX order.
  * Used by both the local order cancel flow (via cancelOrder) and the remote order cancel flow
- * (via cancelRemoteUniswapXOrder action) for orders that only exist in the GraphQL activity feed.
+ * (via cancelRemoteDEXOrder action) for orders that only exist in the GraphQL activity feed.
  */
 function* submitPermit2CancelTransaction(params: SubmitPermit2CancelTransactionParams) {
   const { chainId, address, orderHash, cancelRequest } = params
@@ -80,7 +80,7 @@ function* submitPermit2CancelTransaction(params: SubmitPermit2CancelTransactionP
       transactionOriginType: TransactionOriginType.Internal,
     }
 
-    // UniswapX Orders are cancelled via submitting a transaction to invalidate the nonce of the permit2 signature used to fill the order.
+    // DEX Orders are cancelled via submitting a transaction to invalidate the nonce of the permit2 signature used to fill the order.
     // If the permit2 tx is mined before a filler attempts to fill the order, the order is prevented; the cancellation is successful.
     // If the permit2 tx is mined after a filler successfully fills the order, the tx will succeed but have no effect; the cancellation is unsuccessful.
     yield* call(executeTransaction, executeTransactionParams)
@@ -93,10 +93,10 @@ function* submitPermit2CancelTransaction(params: SubmitPermit2CancelTransactionP
 }
 
 /**
- * Saga handler for cancelling UniswapX orders that only exist in the remote activity feed
+ * Saga handler for cancelling DEX orders that only exist in the remote activity feed
  * (not in local Redux state). This bypasses the cancelTransaction reducer + watcher pipeline
  * and directly submits the Permit2 nonce invalidation transaction.
  */
-export function* attemptCancelRemoteUniswapXOrder({ payload }: CancelRemoteUniswapXOrderAction) {
+export function* attemptCancelRemoteDEXOrder({ payload }: CancelRemoteDEXOrderAction) {
   yield* call(submitPermit2CancelTransaction, payload)
 }

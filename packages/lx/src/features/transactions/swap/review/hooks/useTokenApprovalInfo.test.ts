@@ -1,5 +1,5 @@
 import { renderHook } from '@testing-library/react'
-import { CurrencyAmount, Token } from '@uniswap/sdk-core'
+import { CurrencyAmount, Token } from '@lux/sdk-core'
 import { FeeType, GasEstimate, TradingApi } from '@universe/api'
 import { DAI, USDC } from 'lx/src/constants/tokens'
 import { useCheckApprovalQuery } from 'lx/src/data/apiClients/tradingApi/useCheckApprovalQuery'

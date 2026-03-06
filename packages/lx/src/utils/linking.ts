@@ -2,10 +2,10 @@ import { GraphQLApi } from '@universe/api'
 import * as WebBrowser from 'expo-web-browser'
 import { colorsLight } from 'ui/src/theme'
 import { NATIVE_TOKEN_PLACEHOLDER } from 'lx/src/constants/addresses'
-import { UNISWAP_WEB_URL, uniswapUrls } from 'lx/src/constants/urls'
+import { LUX_WEB_URL, luxUrls } from 'lx/src/constants/urls'
 import { getChainInfo } from 'lx/src/features/chains/chainInfo'
 import { UniverseChainId } from 'lx/src/features/chains/types'
-import { toGraphQLChain, toUniswapWebAppLink } from 'lx/src/features/chains/utils'
+import { toGraphQLChain, toLuxWebAppLink } from 'lx/src/features/chains/utils'
 import { BACKEND_NATIVE_CHAIN_ADDRESS_STRING } from 'lx/src/features/search/utils'
 import { ServiceProviderInfo } from 'lx/src/features/transactions/types/transactionDetails'
 import { currencyIdToChain, currencyIdToGraphQLAddress, isNativeCurrencyAddress } from 'lx/src/utils/currencyId'
@@ -253,24 +253,24 @@ export async function openTransactionLink(hash: string | undefined, chainId: Uni
   return openUri({ uri: explorerUrl })
 }
 
-export async function openUniswapHelpLink(): Promise<void> {
-  return openUri({ uri: uniswapUrls.helpRequestUrl })
+export async function openLuxHelpLink(): Promise<void> {
+  return openUri({ uri: luxUrls.helpRequestUrl })
 }
 
 export async function openFORSupportLink(serviceProvider: ServiceProviderInfo): Promise<void> {
-  return openUri({ uri: serviceProvider.supportUrl ?? uniswapUrls.helpRequestUrl })
+  return openUri({ uri: serviceProvider.supportUrl ?? luxUrls.helpRequestUrl })
 }
 
 export async function openOfframpPendingSupportLink(): Promise<void> {
-  return openUri({ uri: uniswapUrls.helpArticleUrls.fiatOffRampHelp })
+  return openUri({ uri: luxUrls.helpArticleUrls.fiatOffRampHelp })
 }
 
 export function getProfileUrl(walletAddress: string): string {
-  return `${uniswapUrls.webInterfaceAddressUrl}/${walletAddress}`
+  return `${luxUrls.webInterfaceAddressUrl}/${walletAddress}`
 }
 
 export function getPortfolioUrl(walletAddress: string): string {
-  return `${UNISWAP_WEB_URL}/portfolio/${walletAddress}`
+  return `${LUX_WEB_URL}/portfolio/${walletAddress}`
 }
 
 const UTM_TAGS_MOBILE = 'utm_medium=mobile&utm_source=share-tdp'
@@ -280,7 +280,7 @@ export function getTokenUrl(currencyId: string, addMobileUTMTags: boolean = fals
   if (!chainId) {
     return undefined
   }
-  const network = toUniswapWebAppLink(chainId)
+  const network = toLuxWebAppLink(chainId)
   try {
     let tokenAddress = currencyIdToGraphQLAddress(currencyId)
     // in case it's a native token
@@ -288,7 +288,7 @@ export function getTokenUrl(currencyId: string, addMobileUTMTags: boolean = fals
       // this is how web app handles native tokens
       tokenAddress = BACKEND_NATIVE_CHAIN_ADDRESS_STRING
     }
-    const tokenUrl = `${uniswapUrls.webInterfaceTokensUrl}/${network}/${tokenAddress}`
+    const tokenUrl = `${luxUrls.webInterfaceTokensUrl}/${network}/${tokenAddress}`
     return addMobileUTMTags ? tokenUrl + `?${UTM_TAGS_MOBILE}` : tokenUrl
   } catch {
     return undefined

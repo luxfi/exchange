@@ -8,5 +8,5 @@ export interface DelegatedState {
 export interface SwapDelegationInfo {
   delegationAddress?: Address
   delegationInclusion: boolean
-  isWalletDelegatedToUniswap?: boolean
+  isWalletDelegatedToLux?: boolean
 }

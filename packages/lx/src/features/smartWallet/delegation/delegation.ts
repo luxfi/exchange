@@ -58,7 +58,7 @@ export function createDelegationService(ctx: {
           'getAddressDelegations',
           `Address ${input.address} is delegated on chain ${chainId}`,
           {
-            isWalletDelegatedToUniswap: delegationInfo.isWalletDelegatedToUniswap,
+            isWalletDelegatedToLux: delegationInfo.isWalletDelegatedToLux,
             latestDelegationAddress: delegationInfo.latestDelegationAddress,
           },
         )

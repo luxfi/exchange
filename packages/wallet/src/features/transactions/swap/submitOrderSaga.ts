@@ -17,7 +17,7 @@ import {
   TransactionOriginType,
   TransactionStatus,
   TransactionTypeInfo,
-  UniswapXOrderDetails,
+  DEXOrderDetails,
 } from 'lx/src/features/transactions/types/transactionDetails'
 import { WrapType } from 'lx/src/features/transactions/types/wrap'
 import { createTransactionId } from 'lx/src/utils/createTransactionId'
@@ -33,7 +33,7 @@ import { getSignerManager } from 'wallet/src/features/wallet/context'
 // the order should not be submitted if too much time has passed as it may be stale.
 export const ORDER_STALENESS_THRESHOLD = 45 * ONE_SECOND_MS
 
-export interface SubmitUniswapXOrderParams {
+export interface SubmitDEXOrderParams {
   // internal id used for tracking transactions before they're submitted
   txId?: string
   quote: TradingApi.DutchQuoteV2 | TradingApi.DutchQuoteV3 | TradingApi.PriorityQuote
@@ -48,7 +48,7 @@ export interface SubmitUniswapXOrderParams {
   onFailure: () => void
 }
 
-export function* submitUniswapXOrder(params: SubmitUniswapXOrderParams) {
+export function* submitDEXOrder(params: SubmitDEXOrderParams) {
   const { quote, routing, permit, approveTxHash, txId, chainId, typeInfo, account, analytics, onSuccess, onFailure } =
     params
 
@@ -65,7 +65,7 @@ export function* submitUniswapXOrder(params: SubmitUniswapXOrderParams) {
     status: TransactionStatus.Pending,
     queueStatus: QueuedOrderStatus.Waiting,
     transactionOriginType: TransactionOriginType.Internal,
-  } satisfies UniswapXOrderDetails
+  } satisfies DEXOrderDetails
 
   yield* put(transactionActions.addTransaction(order))
   logger.debug('submitOrder', 'addOrder', 'order added:', { chainId, orderHash, ...typeInfo })
@@ -116,7 +116,7 @@ export function* submitUniswapXOrder(params: SubmitUniswapXOrderParams) {
     logAsMetric({
       fileName: 'submitOrderSaga',
       functionName: 'submitOrder',
-      metric: DatadogLogMetrics.UniswapXSwapFailed,
+      metric: DatadogLogMetrics.DEXSwapFailed,
       data: {
         orderHash,
         tokenInChainId: chainId,
@@ -138,7 +138,7 @@ export function* submitUniswapXOrder(params: SubmitUniswapXOrderParams) {
   logAsMetric({
     fileName: 'submitOrderSaga',
     functionName: 'submitOrder',
-    metric: DatadogLogMetrics.UniswapXSwapSubmitted,
+    metric: DatadogLogMetrics.DEXSwapSubmitted,
     data: {
       orderHash,
       tokenInChainId: chainId,

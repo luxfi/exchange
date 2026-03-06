@@ -1,6 +1,6 @@
 /**
- * Common Jest mocks for packages that depend on uniswap.
- * Note: The uniswap package itself has migrated to Vitest (see vitest-package-mocks.ts).
+ * Common Jest mocks for packages that depend on lux.
+ * Note: The lux package itself has migrated to Vitest (see vitest-package-mocks.ts).
  * This file is kept for other packages (e.g., mobile, extension, wallet) that still use Jest.
  *
  * Notes:
@@ -11,19 +11,19 @@
 
 import '@shopify/react-native-skia/jestSetup'
 import mockRNLocalize from 'react-native-localize/mock'
-import { mockLocalizationContext } from 'uniswap/src/test/mocks/locale'
-import { mockSharedPersistQueryClientProvider } from 'uniswap/src/test/mocks/mockSharedPersistQueryClientProvider'
+import { mockLocalizationContext } from 'lux/src/test/mocks/locale'
+import { mockSharedPersistQueryClientProvider } from 'lux/src/test/mocks/mockSharedPersistQueryClientProvider'
 
 jest.mock('react-native-localize', () => mockRNLocalize)
-jest.mock('uniswap/src/features/language/LocalizationContext', () => mockLocalizationContext({}))
-jest.mock('uniswap/src/data/apiClients/SharedPersistQueryClientProvider', () => mockSharedPersistQueryClientProvider)
+jest.mock('lux/src/features/language/LocalizationContext', () => mockLocalizationContext({}))
+jest.mock('lux/src/data/apiClients/SharedPersistQueryClientProvider', () => mockSharedPersistQueryClientProvider)
 
 jest.mock('utilities/src/device/uniqueId', () => {
-  return jest.requireActual('uniswap/src/test/mocks/uniqueId')
+  return jest.requireActual('lux/src/test/mocks/uniqueId')
 })
 
-jest.mock('uniswap/src/data/getVersionHeader', () => {
-  return jest.requireActual('uniswap/src/data/getVersionHeader.web')
+jest.mock('lux/src/data/getVersionHeader', () => {
+  return jest.requireActual('lux/src/data/getVersionHeader.web')
 })
 
 jest.mock('@universe/gating', () => {

@@ -1,4 +1,4 @@
-import { nearestUsableTick, TickMath } from '@uniswap/v3-sdk'
+import { nearestUsableTick, TickMath } from '@lux/v3-sdk'
 import { DefaultPriceStrategy } from '~/components/Charts/D3LiquidityRangeInput/D3LiquidityRangeChart/store/types'
 import { snapTickToSpacing } from '~/components/Charts/D3LiquidityRangeInput/D3LiquidityRangeChart/utils/tickUtils'
 

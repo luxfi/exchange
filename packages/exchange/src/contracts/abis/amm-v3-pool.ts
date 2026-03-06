@@ -1,6 +1,6 @@
 /**
  * AMM V3 Pool ABI
- * Compatible with Uniswap V3 Pool interface
+ * Compatible with Lux V3 Pool interface
  */
 export const AMM_V3_POOL_ABI = [
   {
@@ -82,4 +82,4 @@ export const AMM_V3_POOL_ABI = [
 ] as const
 
 /** @deprecated Use AMM_V3_POOL_ABI instead */
-export const UNISWAP_V3_POOL_ABI = AMM_V3_POOL_ABI
+export const LUX_V3_POOL_ABI = AMM_V3_POOL_ABI

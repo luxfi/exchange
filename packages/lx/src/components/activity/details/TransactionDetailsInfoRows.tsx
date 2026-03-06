@@ -8,7 +8,7 @@ import {
   Loader,
   Text,
   TouchableArea,
-  UniswapXText,
+  DEXText,
   UniversalImage,
   UniversalImageResizeMode,
   useIsDarkMode,
@@ -16,7 +16,7 @@ import {
 import { RotatableChevron } from 'ui/src/components/icons'
 import { CopyAlt } from 'ui/src/components/icons/CopyAlt'
 import { ExternalLink } from 'ui/src/components/icons/ExternalLink'
-import { UniswapX } from 'ui/src/components/icons/UniswapX'
+import { DEX } from 'ui/src/components/icons/DEX'
 import { borderRadii, fonts, iconSizes } from 'ui/src/theme'
 import { InfoRow } from 'lx/src/components/activity/details/InfoRow'
 import { TransactionParticipantRow } from 'lx/src/components/activity/details/TransactionParticipantRow'
@@ -29,7 +29,7 @@ import { FORMAT_DATE_TIME_MEDIUM, useFormattedDateTime } from 'lx/src/features/l
 import { pushNotification } from 'lx/src/features/notifications/slice/slice'
 import { AppNotificationType, CopyNotificationType } from 'lx/src/features/notifications/slice/types'
 import { useCurrencyInfo } from 'lx/src/features/tokens/useCurrencyInfo'
-import { isUniswapX } from 'lx/src/features/transactions/swap/utils/routing'
+import { isDEX } from 'lx/src/features/transactions/swap/utils/routing'
 import {
   BridgeTransactionInfo,
   LiquidityTransactionBaseInfos,
@@ -221,7 +221,7 @@ function useTransactionDetailsInfoRows({
 /**
  * Row shown in the transaction details screen for the network fee.
  * If gas is paid on multiple chains, the logo will be hidden.
- * If it's a uniswapx transaction, the uniswapx UI will be shown.
+ * If it's a dex transaction, the dex UI will be shown.
  */
 function NetworkFeeRow({ transactionDetails }: { transactionDetails: TransactionDetails }): JSX.Element {
   const { t } = useTranslation()
@@ -229,12 +229,12 @@ function NetworkFeeRow({ transactionDetails }: { transactionDetails: Transaction
   const isLoading = networkFeeValue === '-'
 
   const isPlanTransaction = isPlanTransactionDetails(transactionDetails)
-  const GasText = isUniswapX(transactionDetails) ? UniswapXText : Text
+  const GasText = isDEX(transactionDetails) ? DEXText : Text
   const chainIds = isPlanTransaction
     ? [...new Set(transactionDetails.typeInfo.stepDetails.map((step) => step.chainId))]
     : [transactionDetails.chainId]
   const showNetworkLogo = chainIds.length === 1
-  const Logo = isUniswapX(transactionDetails) ? UniswapX : showNetworkLogo ? NetworkLogo : undefined
+  const Logo = isDEX(transactionDetails) ? DEX : showNetworkLogo ? NetworkLogo : undefined
 
   return (
     <InfoRow key="networkFee" label={t('transaction.details.networkFee')}>

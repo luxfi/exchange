@@ -1,4 +1,4 @@
-import { Currency, CurrencyAmount } from '@uniswap/sdk-core'
+import { Currency, CurrencyAmount } from '@lux/sdk-core'
 import React, { ReactNode } from 'react'
 import { Trans } from 'react-i18next'
 import { Flex } from 'ui/src'
@@ -19,7 +19,7 @@ import { RoutingTooltip } from '~/components/swap/SwapRoute'
 import TradePrice from '~/components/swap/TradePrice'
 import { TooltipSize } from '~/components/Tooltip'
 import { InterfaceTrade, SubmittableTrade } from '~/state/routing/types'
-import { isLimitTrade, isPreviewTrade, isUniswapXTrade } from '~/state/routing/utils'
+import { isLimitTrade, isPreviewTrade, isDEXTrade } from '~/state/routing/utils'
 import { ExternalLink } from '~/theme/components/Links'
 
 export enum SwapLineItemType {
@@ -98,7 +98,7 @@ function useLineItem(props: SwapLineItemProps): LineItemData | undefined {
   const deadline = isLimitTrade(trade) ? trade.deadline : 0
   const formattedDeadline = useFormattedDateTime(localizedDayjs(deadline), FORMAT_DATE_TIME_MEDIUM)
 
-  const isUniswapX = isUniswapXTrade(trade)
+  const isDEX = isDEXTrade(trade)
   const isPreview = isPreviewTrade(trade)
 
   switch (type) {
@@ -107,7 +107,7 @@ function useLineItem(props: SwapLineItemProps): LineItemData | undefined {
         Label: () => (isLimitTrade(trade) ? <Trans i18nKey="limits.price.label" /> : <Trans i18nKey="common.rate" />),
         Value: () => <TradePrice price={trade.executionPrice} />,
         TooltipBody: !isPreview ? () => <RoutingTooltip trade={trade} /> : undefined,
-        tooltipSize: isUniswapX ? TooltipSize.Small : TooltipSize.Large,
+        tooltipSize: isDEX ? TooltipSize.Small : TooltipSize.Large,
       }
     case SwapLineItemType.NETWORK_COST:
       return {

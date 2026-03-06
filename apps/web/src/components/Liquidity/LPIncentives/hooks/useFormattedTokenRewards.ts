@@ -1,4 +1,4 @@
-import { Token } from '@uniswap/sdk-core'
+import { Token } from '@lux/sdk-core'
 import { useMemo } from 'react'
 import { formatTokenAmount } from '~/components/Liquidity/LPIncentives/utils/formatTokenAmount'
 

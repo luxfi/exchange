@@ -21,17 +21,17 @@ vi.mock('lx/src/features/transactions/swap/utils/SwapEventTimestampTracker', asy
   }
 })
 
-// Mock the @uniswap/v2-sdk package to provide Pair.getAddress
-vi.mock('@uniswap/v2-sdk', async (importOriginal) => {
-  const originalModule = await importOriginal<typeof import('@uniswap/v2-sdk')>()
+// Mock the @lux/v2-sdk package to provide Pair.getAddress
+vi.mock('@lux/v2-sdk', async (importOriginal) => {
+  const originalModule = await importOriginal<typeof import('@lux/v2-sdk')>()
   originalModule.Pair.getAddress = (): string => {
     return `0xv2PoolAddress`
   }
   return originalModule
 })
 
-vi.mock('@uniswap/v3-sdk', async (importOriginal) => {
-  const originalModule = await importOriginal<typeof import('@uniswap/v3-sdk')>()
+vi.mock('@lux/v3-sdk', async (importOriginal) => {
+  const originalModule = await importOriginal<typeof import('@lux/v3-sdk')>()
   originalModule.Pool.getAddress = (): string => {
     return `0xv3PoolAddress`
   }
@@ -43,7 +43,7 @@ const mockV2Pool = {
   token0: { address: 'token0Address' },
   token1: { address: 'token1Address' },
 }
-const { Pair: V2Pool } = await vi.importActual<typeof import('@uniswap/v2-sdk')>('@uniswap/v2-sdk')
+const { Pair: V2Pool } = await vi.importActual<typeof import('@lux/v2-sdk')>('@lux/v2-sdk')
 Object.setPrototypeOf(mockV2Pool, V2Pool.prototype)
 
 const mockV3Pool = {
@@ -51,11 +51,11 @@ const mockV3Pool = {
   token1: { address: 'token1Address' },
   fee: 0,
 }
-const { Pool: V3Pool } = await vi.importActual<typeof import('@uniswap/v3-sdk')>('@uniswap/v3-sdk')
+const { Pool: V3Pool } = await vi.importActual<typeof import('@lux/v3-sdk')>('@lux/v3-sdk')
 Object.setPrototypeOf(mockV3Pool, V3Pool.prototype)
 //
 const mockV4Pool = { poolId: '0xpool1', v4: true }
-const { Pool: V4Pool } = await vi.importActual<typeof import('@uniswap/v4-sdk')>('@uniswap/v4-sdk')
+const { Pool: V4Pool } = await vi.importActual<typeof import('@lux/v4-sdk')>('@lux/v4-sdk')
 Object.setPrototypeOf(mockV4Pool, V4Pool.prototype)
 
 // Helper to cast isClassic as a Mock
@@ -102,7 +102,7 @@ describe('analytics', () => {
       expect(result).toBeUndefined()
     })
 
-    it('returns uniswapXUsed=true for UniswapX trade', () => {
+    it('returns dexUsed=true for DEX trade', () => {
       // We need to cast to Trade because the mock isn't a complete implementation
       const mockTrade = { routing: TradingApi.Routing.DUTCH_V2 } as Trade
 
@@ -111,7 +111,7 @@ describe('analytics', () => {
         v2Used: false,
         v3Used: false,
         v4Used: false,
-        uniswapXUsed: true,
+        dexUsed: true,
         jupiterUsed: false,
       })
     })
@@ -135,7 +135,7 @@ describe('analytics', () => {
         v2Used: true,
         v3Used: true,
         v4Used: false,
-        uniswapXUsed: false,
+        dexUsed: false,
         jupiterUsed: false,
       })
     })
@@ -156,7 +156,7 @@ describe('analytics', () => {
         v2Used: false,
         v3Used: false,
         v4Used: true,
-        uniswapXUsed: false,
+        dexUsed: false,
         jupiterUsed: false,
       })
     })
@@ -175,7 +175,7 @@ describe('analytics', () => {
         v2Used: false,
         v3Used: false,
         v4Used: false,
-        uniswapXUsed: false,
+        dexUsed: false,
         jupiterUsed: false,
       })
     })

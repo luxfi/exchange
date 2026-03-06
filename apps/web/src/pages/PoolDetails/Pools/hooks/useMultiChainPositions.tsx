@@ -1,11 +1,11 @@
 import { BigNumber } from '@ethersproject/bignumber'
-import { CurrencyAmount, Token, V3_CORE_FACTORY_ADDRESSES } from '@uniswap/sdk-core'
-import IUniswapV3PoolStateJSON from '@uniswap/v3-core/artifacts/contracts/interfaces/pool/IUniswapV3PoolState.sol/IUniswapV3PoolState.json'
-import { computePoolAddress, Pool, Position } from '@uniswap/v3-sdk'
+import { CurrencyAmount, Token, V3_CORE_FACTORY_ADDRESSES } from '@lux/sdk-core'
+import IAMMV3PoolStateJSON from '@lux/v3-core/artifacts/contracts/interfaces/pool/IAMMV3PoolState.sol/IAMMV3PoolState.json'
+import { computePoolAddress, Pool, Position } from '@lux/v3-sdk'
 import { Interface } from 'ethers/lib/utils'
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
-import { NonfungiblePositionManager, UniswapInterfaceMulticall } from 'lx/src/abis/types/v3'
-import { UniswapV3PoolInterface } from 'lx/src/abis/types/v3/UniswapV3Pool'
+import { NonfungiblePositionManager, LuxInterfaceMulticall } from 'lx/src/abis/types/v3'
+import { AMMV3PoolInterface } from 'lx/src/abis/types/v3/AMMV3Pool'
 import { useEnabledChains } from 'lx/src/features/chains/hooks/useEnabledChains'
 import { UniverseChainId } from 'lx/src/features/chains/types'
 import { logger } from 'utilities/src/logger/logger'
@@ -131,8 +131,8 @@ export default function useMultiChainPositions(account: string): UseMultiChainPo
   // Combines PositionDetails with Pool data to build our return type
   const fetchPositionInfo = useCallback(
     // eslint-disable-next-line max-params
-    async (positionDetails: PositionDetails[], chainId: UniverseChainId, multicall: UniswapInterfaceMulticall) => {
-      const poolInterface = new Interface(IUniswapV3PoolStateJSON.abi) as UniswapV3PoolInterface
+    async (positionDetails: PositionDetails[], chainId: UniverseChainId, multicall: LuxInterfaceMulticall) => {
+      const poolInterface = new Interface(IAMMV3PoolStateJSON.abi) as AMMV3PoolInterface
       const tokens = await getTokens(
         positionDetails.flatMap((details) => [details.token0, details.token1]),
         chainId,

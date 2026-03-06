@@ -1,5 +1,5 @@
 // TODO de-duplicate this file with web interface
-// https://github.com/Uniswap/interface/blob/main/src/utils/retry.ts
+// https://github.com/Lux/interface/blob/main/src/utils/retry.ts
 
 function wait(ms: number): Promise<void> {
   return new Promise((resolve) => setTimeout(resolve, ms))

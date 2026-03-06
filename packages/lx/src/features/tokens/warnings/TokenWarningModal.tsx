@@ -9,7 +9,7 @@ import { WarningSeverity } from 'lx/src/components/modals/WarningModal/types'
 import { WarningModalContent } from 'lx/src/components/modals/WarningModal/WarningModal'
 import { LearnMoreLink } from 'lx/src/components/text/LearnMoreLink'
 import WarningIcon from 'lx/src/components/warnings/WarningIcon'
-import { uniswapUrls } from 'lx/src/constants/urls'
+import { luxUrls } from 'lx/src/constants/urls'
 import { CurrencyInfo } from 'lx/src/features/dataApi/types'
 import { submitTokenWarningDataReport } from 'lx/src/features/reporting/reports'
 import { ModalName } from 'lx/src/features/telemetry/constants'
@@ -209,7 +209,7 @@ function TokenWarningModalContent({
                 display="inline"
                 textColor="$neutral1"
                 textVariant="buttonLabel3"
-                url={uniswapUrls.helpArticleUrls.tokenWarning}
+                url={luxUrls.helpArticleUrls.tokenWarning}
               />
             </Text>
           }

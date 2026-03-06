@@ -17,7 +17,7 @@ import { LUX_LOGO } from 'ui/src/assets'
 import { BackArrow } from 'ui/src/components/icons/BackArrow'
 import { GoogleChromeLogo } from 'ui/src/components/logos/GoogleChromeLogo'
 import { iconSizes, zIndexes } from 'ui/src/theme'
-import { uniswapUrls } from 'lx/src/constants/urls'
+import { luxUrls } from 'lx/src/constants/urls'
 import { ElementName, ModalName } from 'lx/src/features/telemetry/constants'
 import Trace from 'lx/src/features/telemetry/Trace'
 import { useEvent } from 'utilities/src/react/hooks'
@@ -134,7 +134,7 @@ function DownloadMobile() {
       </BadgeLink>
       <Trace
         logPress
-        element={ElementName.UniswapWalletModalDownloadButton}
+        element={ElementName.LuxWalletModalDownloadButton}
         properties={{ connector_id: account.connector?.id }}
       >
         <Flex row justifyContent="center" gap="$spacing16">
@@ -171,7 +171,7 @@ function DownloadApps({ setPage }: { setPage: (page: Page) => void }) {
     <Trace logImpression modal={ModalName.DownloadApp} properties={{ connector_id: account.connector?.id }}>
       <ModalContent
         title={t('downloadApp.modal.getTheApp.title')}
-        subtext={t('downloadApp.modal.uniswapProducts.subtitle')}
+        subtext={t('downloadApp.modal.luxProducts.subtitle')}
         header={<Image height={iconSizes.icon64} source={LUX_LOGO} width={iconSizes.icon64} />}
         maxWidth="620px"
       >
@@ -189,7 +189,7 @@ function DownloadApps({ setPage }: { setPage: (page: Page) => void }) {
             <CardInfo title={t('common.luxMobile')} details={t('common.iOSAndroid')}>
               <Trace
                 logPress
-                element={ElementName.UniswapWalletModalDownloadButton}
+                element={ElementName.LuxWalletModalDownloadButton}
                 properties={{ connector_id: account.connector?.id }}
               >
                 <Flex row gap="$spacing8" alignItems="center">
@@ -206,7 +206,7 @@ function DownloadApps({ setPage }: { setPage: (page: Page) => void }) {
           <Trace logPress element={ElementName.ExtensionDownloadButton}>
             <Card
               onClick={() => {
-                window.open(uniswapUrls.chromeExtension)
+                window.open(luxUrls.chromeExtension)
                 onPressCard()
               }}
             >

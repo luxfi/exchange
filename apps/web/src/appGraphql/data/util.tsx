@@ -1,6 +1,6 @@
 import { DeepPartial } from '@apollo/client/utilities'
 import { DataTag, DefaultError, QueryKey, queryOptions, UndefinedInitialDataOptions } from '@tanstack/react-query'
-import { Currency } from '@uniswap/sdk-core'
+import { Currency } from '@lux/sdk-core'
 import { GraphQLApi } from '@universe/api'
 import { ColorTokens } from 'ui/src'
 import { nativeOnChain, WRAPPED_NATIVE_CURRENCY } from 'lx/src/constants/tokens'
@@ -177,7 +177,7 @@ const PROTOCOL_META: { [source in GraphQLApi.PriceSource]: ProtocolMeta } = {
     color: '$neutral1',
     gradient: { start: 'rgba(252, 116, 254, 0.20)', end: 'rgba(252, 116, 254, 0.00)' },
   },
-  /* [GraphQLApi.PriceSource.UniswapX]: { name: 'UniswapX', color: purple } */
+  /* [GraphQLApi.PriceSource.DEX]: { name: 'DEX', color: purple } */
 }
 
 export function getProtocolColor(priceSource: GraphQLApi.PriceSource): ColorTokens {

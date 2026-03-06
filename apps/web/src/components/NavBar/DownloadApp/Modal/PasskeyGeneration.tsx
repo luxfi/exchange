@@ -4,7 +4,7 @@ import { Button, Flex } from 'ui/src'
 import { Faceid } from 'ui/src/components/icons/Faceid'
 import { Fingerprint } from 'ui/src/components/icons/Fingerprint'
 import { Passkey } from 'ui/src/components/icons/Passkey'
-import { uniswapUrls } from 'lx/src/constants/urls'
+import { luxUrls } from 'lx/src/constants/urls'
 import { ElementName, ModalName } from 'lx/src/features/telemetry/constants'
 import { Trace } from 'lx/src/features/telemetry/Trace'
 import { TestID } from 'lx/src/test/fixtures/testIDs'
@@ -73,7 +73,7 @@ export function PasskeyGenerationModal({
             </Flex>
           </Flex>
         }
-        learnMoreLink={uniswapUrls.helpArticleUrls.passkeysInfo} // TODO(WEB-7390): add learn more link
+        learnMoreLink={luxUrls.helpArticleUrls.passkeysInfo} // TODO(WEB-7390): add learn more link
         onClose={onClose}
         goBack={goBack}
       >

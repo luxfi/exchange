@@ -1,4 +1,4 @@
-import type { Token } from '@uniswap/sdk-core'
+import type { Token } from '@lux/sdk-core'
 import { useAtom } from 'jotai'
 import ms from 'ms'
 import { useEffect, useMemo } from 'react'
@@ -23,10 +23,10 @@ import { InfoCircleFilled } from 'ui/src/components/icons/InfoCircleFilled'
 import { iconSizes } from 'ui/src/theme'
 import { LearnMoreLink } from 'lx/src/components/text/LearnMoreLink'
 import { InfoTooltip } from 'lx/src/components/tooltip/InfoTooltip'
-import { uniswapUrls } from 'lx/src/constants/urls'
+import { luxUrls } from 'lx/src/constants/urls'
 import { useGetPoolsRewards } from 'lx/src/data/rest/getPoolsRewards'
 import { UniverseChainId } from 'lx/src/features/chains/types'
-import { UniswapEventName } from 'lx/src/features/telemetry/constants'
+import { LuxEventName } from 'lx/src/features/telemetry/constants'
 import { Trace } from 'lx/src/features/telemetry/Trace'
 import { HexString } from 'utilities/src/addresses/hex'
 import { logger } from 'utilities/src/logger/logger'
@@ -246,8 +246,8 @@ function LpIncentiveRewardsCard({
                           : t('pool.incentives.administeredRewards')}
                       </Text>
                       {!rewardsError && (
-                        <Trace logPress eventOnTrigger={UniswapEventName.LpIncentiveLearnMoreCtaClicked}>
-                          <LearnMoreLink textVariant="buttonLabel4" url={uniswapUrls.helpArticleUrls.lpIncentiveInfo} />
+                        <Trace logPress eventOnTrigger={LuxEventName.LpIncentiveLearnMoreCtaClicked}>
+                          <LearnMoreLink textVariant="buttonLabel4" url={luxUrls.helpArticleUrls.lpIncentiveInfo} />
                         </Trace>
                       )}
                     </Flex>
@@ -258,7 +258,7 @@ function LpIncentiveRewardsCard({
           </Flex>
         </Flex>
         <Flex gap="$spacing2">
-          <Trace logPress eventOnTrigger={UniswapEventName.LpIncentiveLearnMoreCtaClicked}>
+          <Trace logPress eventOnTrigger={LuxEventName.LpIncentiveLearnMoreCtaClicked}>
             <TouchableArea
               group="item"
               animation={null}

@@ -6,7 +6,7 @@ import { beforeEach, describe, expect, it, vi } from 'vitest'
 import COINBASE_ICON from '~/assets/wallets/coinbase-icon.svg'
 import { applyCustomConnectorMeta } from '~/features/wallet/connection/connectors/custom'
 import type { WalletConnectorMeta } from '~/features/wallet/connection/types/WalletConnectorMeta'
-import { COINBASE_WALLET_CONNECTOR, METAMASK_CONNECTOR, UNISWAP_WALLET_CONNECTOR } from '~/test-utils/wallets/fixtures'
+import { COINBASE_WALLET_CONNECTOR, METAMASK_CONNECTOR, LUX_WALLET_CONNECTOR } from '~/test-utils/wallets/fixtures'
 
 // Mock dependencies
 vi.mock('@wagmi/core', () => ({
@@ -18,7 +18,7 @@ vi.mock('~/components/Web3Provider/wagmiConfig', () => ({
 }))
 
 vi.mock('~/components/Web3Provider/walletConnect', () => ({
-  uniswapWalletConnect: vi.fn(() => ({ id: 'uniswap-wallet-connect' })),
+  luxWalletConnect: vi.fn(() => ({ id: 'lux-wallet-connect' })),
 }))
 
 const mockSignInWithPasskeyAsync = vi.fn().mockResolvedValue(undefined)
@@ -48,7 +48,7 @@ describe('custom connectors', () => {
   })
 
   describe('applyCustomConnectorMeta', () => {
-    it('should add uniswap wallet connector meta to wallet connectors', () => {
+    it('should add lux wallet connector meta to wallet connectors', () => {
       // Arrange
       const walletConnectors: WalletConnectorMeta[] = [METAMASK_CONNECTOR]
 
@@ -58,7 +58,7 @@ describe('custom connectors', () => {
       // Assert
       expect(result).toHaveLength(2)
       expect(result[0]).toEqual(METAMASK_CONNECTOR)
-      expect(result[1]).toEqual(UNISWAP_WALLET_CONNECTOR)
+      expect(result[1]).toEqual(LUX_WALLET_CONNECTOR)
     })
 
     it('should override coinbase sdk icon with icon override map', () => {
@@ -88,7 +88,7 @@ describe('custom connectors', () => {
       const wagmiEmbeddedWalletConnector = {
         name: CONNECTION_PROVIDER_NAMES.EMBEDDED_WALLET,
         icon: 'embedded.svg',
-        wagmi: { id: CONNECTION_PROVIDER_IDS.EMBEDDED_WALLET_CONNECTOR_ID, type: 'embeddedUniswapWallet' },
+        wagmi: { id: CONNECTION_PROVIDER_IDS.EMBEDDED_WALLET_CONNECTOR_ID, type: 'embeddedLuxWallet' },
         isInjected: true,
         analyticsWalletType: 'Passkey',
       }
@@ -104,7 +104,7 @@ describe('custom connectors', () => {
         icon: PASSKEY_ICON,
         customConnectorId: CONNECTION_PROVIDER_IDS.EMBEDDED_WALLET_CONNECTOR_ID,
       })
-      expect(result[1]).toEqual(UNISWAP_WALLET_CONNECTOR)
+      expect(result[1]).toEqual(LUX_WALLET_CONNECTOR)
     })
 
     it('should not modify non-embedded wallet connector ids', () => {
@@ -118,7 +118,7 @@ describe('custom connectors', () => {
       expect(result).toHaveLength(3)
       expect(result[0]).toEqual(METAMASK_CONNECTOR)
       expect(result[1]).toEqual(COINBASE_WALLET_CONNECTOR)
-      expect(result[2]).toEqual(UNISWAP_WALLET_CONNECTOR)
+      expect(result[2]).toEqual(LUX_WALLET_CONNECTOR)
     })
 
     it('should handle empty wallet connectors array', () => {
@@ -130,15 +130,15 @@ describe('custom connectors', () => {
 
       // Assert
       expect(result).toHaveLength(1)
-      expect(result[0]).toEqual(UNISWAP_WALLET_CONNECTOR)
+      expect(result[0]).toEqual(LUX_WALLET_CONNECTOR)
     })
 
-    it('should apply both uniswap wallet and embedded wallet meta transformations', () => {
+    it('should apply both lux wallet and embedded wallet meta transformations', () => {
       // Arrange
       const wagmiEmbeddedWalletConnector = {
         name: CONNECTION_PROVIDER_NAMES.EMBEDDED_WALLET,
         icon: 'embedded.svg',
-        wagmi: { id: CONNECTION_PROVIDER_IDS.EMBEDDED_WALLET_CONNECTOR_ID, type: 'embeddedUniswapWallet' },
+        wagmi: { id: CONNECTION_PROVIDER_IDS.EMBEDDED_WALLET_CONNECTOR_ID, type: 'embeddedLuxWallet' },
         isInjected: true,
         analyticsWalletType: 'Passkey',
       }
@@ -155,7 +155,7 @@ describe('custom connectors', () => {
         icon: PASSKEY_ICON,
       })
       expect(result[1]).toEqual(METAMASK_CONNECTOR)
-      expect(result[2]).toEqual(UNISWAP_WALLET_CONNECTOR)
+      expect(result[2]).toEqual(LUX_WALLET_CONNECTOR)
     })
   })
 })

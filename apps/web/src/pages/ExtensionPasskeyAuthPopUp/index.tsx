@@ -4,8 +4,8 @@ import { useSearchParams } from 'react-router'
 import { Anchor, Button, Flex, SpinningLoader, Text } from 'ui/src'
 import { EnvelopeHeart } from 'ui/src/components/icons/EnvelopeHeart'
 import { Passkey } from 'ui/src/components/icons/Passkey'
-import { UniswapLogo } from 'ui/src/components/icons/UniswapLogo'
-import { uniswapUrls } from 'lx/src/constants/urls'
+import { LuxLogo } from 'ui/src/components/icons/LuxLogo'
+import { luxUrls } from 'lx/src/constants/urls'
 import { parseMessage } from 'lx/src/extension/messagePassing/platform'
 import {
   InterfaceToExtensionRequestType,
@@ -166,7 +166,7 @@ export default function ExtensionPasskeyAuthPopUp() {
               <Anchor
                 target="_blank"
                 rel="noreferrer"
-                href={uniswapUrls.helpArticleUrls.passkeysInfo}
+                href={luxUrls.helpArticleUrls.passkeysInfo}
                 textDecorationLine="none"
               >
                 <Button icon={<EnvelopeHeart size="$icon.16" color="$neutral2" />} size="xxsmall" emphasis="secondary">
@@ -177,7 +177,7 @@ export default function ExtensionPasskeyAuthPopUp() {
           </Flex>
 
           <Flex alignItems="center">
-            <UniswapLogo size="$icon.40" color="$accent1" />
+            <LuxLogo size="$icon.40" color="$accent1" />
           </Flex>
 
           {signInAttemptStatus === ReferrerVerification.Denied ? (

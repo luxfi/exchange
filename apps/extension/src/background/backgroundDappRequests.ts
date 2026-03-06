@@ -44,7 +44,7 @@ const REQUEST_CLASSIFICATION = {
     DappRequestType.SendTransaction,
     DappRequestType.SignMessage,
     DappRequestType.SignTypedData,
-    DappRequestType.UniswapOpenSidebar,
+    DappRequestType.LuxOpenSidebar,
     DappRequestType.RequestPermissions,
     DappRequestType.SendCalls,
   ]),

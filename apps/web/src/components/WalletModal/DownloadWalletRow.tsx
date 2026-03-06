@@ -3,7 +3,7 @@ import { Anchor, Flex, FlexProps, Text, TextProps, TouchableArea } from 'ui/src'
 import { AppStoreLogo } from 'ui/src/components/icons/AppStoreLogo'
 import { ArrowRight } from 'ui/src/components/icons/ArrowRight'
 import { GoogleChromeLogo } from 'ui/src/components/logos/GoogleChromeLogo'
-import { uniswapUrls } from 'lx/src/constants/urls'
+import { luxUrls } from 'lx/src/constants/urls'
 import { ElementName } from 'lx/src/features/telemetry/constants'
 import { Trace } from 'lx/src/features/telemetry/Trace'
 import { isMobileWeb, isWebAndroid, isWebIOS } from 'utilities/src/platform'
@@ -34,11 +34,11 @@ export function DownloadWalletRow({
         $md={{ borderRadius: '$rounded20', mt: 0, p: '$spacing16', ...rest.$md }}
       >
         <Text variant={titleTextVariant} color="$accent1" mr="auto" $md={{ variant: 'buttonLabel3' }}>
-          {isMobileWeb ? t('common.getUniswapWallet.mobile') : t('common.getUniswapWallet')}
+          {isMobileWeb ? t('common.getLuxWallet.mobile') : t('common.getLuxWallet')}
         </Text>
         <Trace logPress element={ElementName.ExtensionDownloadButton}>
           <Anchor
-            href={uniswapUrls.chromeExtension}
+            href={luxUrls.chromeExtension}
             target="_blank"
             rel="noreferrer"
             height={iconSize}
@@ -51,9 +51,9 @@ export function DownloadWalletRow({
           </Anchor>
         </Trace>
         {(isWebIOS || !isMobileWeb) && (
-          <Trace logPress element={ElementName.UniswapWalletModalDownloadButton}>
+          <Trace logPress element={ElementName.LuxWalletModalDownloadButton}>
             <Anchor
-              href={uniswapUrls.appStoreDownloadUrl}
+              href={luxUrls.appStoreDownloadUrl}
               target="_blank"
               rel="noreferrer"
               height={iconSize}
@@ -66,9 +66,9 @@ export function DownloadWalletRow({
           </Trace>
         )}
         {(isWebAndroid || !isMobileWeb) && (
-          <Trace logPress element={ElementName.UniswapWalletModalDownloadButton}>
+          <Trace logPress element={ElementName.LuxWalletModalDownloadButton}>
             <Anchor
-              href={uniswapUrls.playStoreDownloadUrl}
+              href={luxUrls.playStoreDownloadUrl}
               target="_blank"
               rel="noreferrer"
               height={iconSize}

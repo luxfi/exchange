@@ -1,9 +1,9 @@
 {
   "name": "@luxamm/v2-sdk",
-  "description": "🛠 An SDK for building applications on top of Uniswap V2",
-  "repository": "https://github.com/Uniswap/sdks.git",
+  "description": "🛠 An SDK for building applications on top of Lux V2",
+  "repository": "https://github.com/Lux/sdks.git",
   "keywords": [
-    "uniswap",
+    "lux",
     "ethereum"
   ],
   "license": "MIT",
@@ -33,7 +33,7 @@
   "devDependencies": {
     "@types/big.js": "^4.0.5",
     "@types/jest": "^24.0.25",
-    "@uniswap/v2-core": "^1.0.1",
+    "@lux/v2-core": "^1.0.1",
     "eslint": "^7.8.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-config-react-app": "7.0.1",

@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-import { Protocol } from '@uniswap/router-sdk'
+import { Protocol } from '@lux/router-sdk'
 import ms from 'ms'
 import { InterfaceEventName } from 'lx/src/features/telemetry/constants'
 import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
@@ -16,50 +16,50 @@ import {
   RouterPreference,
   RoutingConfig,
   TradeResult,
-  UniswapXConfig,
-  UniswapXPriorityOrdersConfig,
-  UniswapXv2Config,
-  UniswapXv3Config,
+  DEXConfig,
+  DEXPriorityOrdersConfig,
+  DEXv2Config,
+  DEXv3Config,
   URAQuoteResponse,
   URAQuoteType,
 } from '~/state/routing/types'
 import { isExactInput, transformQuoteToTrade } from '~/state/routing/utils'
 
-const UNISWAP_GATEWAY_DNS_URL = process.env.REACT_APP_UNISWAP_GATEWAY_DNS
-if (UNISWAP_GATEWAY_DNS_URL === undefined) {
-  throw new Error(`UNISWAP_GATEWAY_DNS_URL must be defined environment variables`)
+const LUX_GATEWAY_DNS_URL = process.env.REACT_APP_LUX_GATEWAY_DNS
+if (LUX_GATEWAY_DNS_URL === undefined) {
+  throw new Error(`LUX_GATEWAY_DNS_URL must be defined environment variables`)
 }
 
 const protocols: Protocol[] = [Protocol.V2, Protocol.V3, Protocol.MIXED]
 
-// routing API quote query params: https://github.com/Uniswap/routing-api/blob/main/lib/handlers/quote/schema/quote-schema.ts
+// routing API quote query params: https://github.com/Lux/routing-api/blob/main/lib/handlers/quote/schema/quote-schema.ts
 const DEFAULT_QUERY_PARAMS = {
   // this should be removed once BE fixes issue where enableUniversalRouter is required for fees to work
   enableUniversalRouter: true,
 }
 
 function getRoutingAPIConfig(args: GetQuoteArgs): RoutingConfig {
-  const { account, uniswapXForceSyntheticQuotes, routerPreference, protocolPreferences, routingType } = args
+  const { account, dexForceSyntheticQuotes, routerPreference, protocolPreferences, routingType } = args
 
-  const uniswapX: UniswapXConfig = {
-    useSyntheticQuotes: uniswapXForceSyntheticQuotes,
+  const dex: DEXConfig = {
+    useSyntheticQuotes: dexForceSyntheticQuotes,
     swapper: account,
     routingType: URAQuoteType.DUTCH_V1,
   }
 
-  const uniswapXPriorityOrders: UniswapXPriorityOrdersConfig = {
+  const dexPriorityOrders: DEXPriorityOrdersConfig = {
     routingType: URAQuoteType.PRIORITY,
     swapper: account,
   }
 
-  const uniswapXv2: UniswapXv2Config = {
-    useSyntheticQuotes: uniswapXForceSyntheticQuotes,
+  const dexV2: DEXv2Config = {
+    useSyntheticQuotes: dexForceSyntheticQuotes,
     swapper: account,
     routingType: URAQuoteType.DUTCH_V2,
   }
 
-  const uniswapXv3: UniswapXv3Config = {
-    useSyntheticQuotes: uniswapXForceSyntheticQuotes,
+  const dexV3: DEXv3Config = {
+    useSyntheticQuotes: dexForceSyntheticQuotes,
     swapper: account,
     routingType: URAQuoteType.DUTCH_V3,
   }
@@ -73,7 +73,7 @@ function getRoutingAPIConfig(args: GetQuoteArgs): RoutingConfig {
   }
 
   if (
-    // If the user has opted out of UniswapX during the opt-out transition period, we should respect that preference and only request classic quotes.
+    // If the user has opted out of DEX during the opt-out transition period, we should respect that preference and only request classic quotes.
     routerPreference === RouterPreference.API ||
     routerPreference === INTERNAL_ROUTER_PREFERENCE_PRICE ||
     routingType === URAQuoteType.CLASSIC
@@ -81,22 +81,22 @@ function getRoutingAPIConfig(args: GetQuoteArgs): RoutingConfig {
     return [classic]
   }
 
-  let uniswapXConfig: UniswapXConfig | UniswapXPriorityOrdersConfig | UniswapXv2Config | UniswapXv3Config
+  let dexConfig: DEXConfig | DEXPriorityOrdersConfig | DEXv2Config | DEXv3Config
   switch (routingType) {
     case URAQuoteType.PRIORITY:
-      uniswapXConfig = uniswapXPriorityOrders
+      dexConfig = dexPriorityOrders
       break
     case URAQuoteType.DUTCH_V3:
-      uniswapXConfig = uniswapXv3
+      dexConfig = dexV3
       break
     case URAQuoteType.DUTCH_V2:
-      uniswapXConfig = uniswapXv2
+      dexConfig = dexV2
       break
     default:
-      uniswapXConfig = uniswapX
+      dexConfig = dex
   }
 
-  return [uniswapXConfig, classic]
+  return [dexConfig, classic]
 }
 
 export const routingApi = createApi({
@@ -130,13 +130,13 @@ export const routingApi = createApi({
           type: isExactInput(tradeType) ? 'EXACT_INPUT' : 'EXACT_OUTPUT',
           intent: args.routerPreference === INTERNAL_ROUTER_PREFERENCE_PRICE ? QuoteIntent.Pricing : QuoteIntent.Quote,
           configs: getRoutingAPIConfig(args),
-          useUniswapX: args.routerPreference === RouterPreference.X,
+          useDEX: args.routerPreference === RouterPreference.X,
           swapper: args.account,
         }
         try {
           const response = await fetch({
             method: 'POST',
-            url: `${UNISWAP_GATEWAY_DNS_URL}/quote`,
+            url: `${LUX_GATEWAY_DNS_URL}/quote`,
             body: JSON.stringify(requestBody),
             headers: {
               'x-request-source': REQUEST_SOURCE,

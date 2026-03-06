@@ -141,7 +141,7 @@ describe('useUpdateManualOutage', () => {
     })
 
     it('should show banner when ExternalAPIError is detected', () => {
-      // The Uniswap API returns errorType at the root level of GraphQL errors,
+      // The Lux API returns errorType at the root level of GraphQL errors,
       // not in extensions. We need to cast to bypass TypeScript's strict typing.
       const externalApiError = new ApolloError({
         graphQLErrors: [

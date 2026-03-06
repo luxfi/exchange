@@ -1,4 +1,4 @@
-import { Currency, CurrencyAmount } from '@uniswap/sdk-core'
+import { Currency, CurrencyAmount } from '@lux/sdk-core'
 import { useEffect, useState } from 'react'
 import { getPrimaryStablecoin } from 'lx/src/features/chains/utils'
 import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'

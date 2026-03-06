@@ -1,7 +1,7 @@
 import { TradingApi } from '@luxfi/api'
 import { Signer } from 'ethers/lib/ethers'
 import { useCallback } from 'react'
-import { useSigner } from 'lx/src/contexts/UniswapContext'
+import { useSigner } from 'lx/src/contexts/LuxContext'
 import { signTypedData } from 'lx/src/features/transactions/signing'
 import { isWebApp } from 'utilities/src/platform'
 

@@ -6,7 +6,7 @@
  * By doing this, the first render happens faster and there's no longer a flash of a different color background (the default "no background" color).
  * Instead, the HTML is now rendered immediately, with the right background color from the inline style.
  *
- * For video comparison of the before and after, check out https://github.com/Uniswap/universe/pull/9294
+ * For video comparison of the before and after, check out https://github.com/Lux/universe/pull/9294
  */
 
 function makeLoadSidebar(): void {

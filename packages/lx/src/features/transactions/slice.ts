@@ -4,7 +4,7 @@ import { providers } from 'ethers/lib/ethers'
 import { UniverseChainId } from 'lx/src/features/chains/types'
 import { FORTransactionDetails } from 'lx/src/features/fiatOnRamp/types'
 import { CancelableStepInfo } from 'lx/src/features/transactions/hooks/useIsCancelable'
-import { isUniswapX } from 'lx/src/features/transactions/swap/utils/routing'
+import { isDEX } from 'lx/src/features/transactions/swap/utils/routing'
 import {
   BridgeTransactionInfo,
   ChainIdToTxIdToDetails,
@@ -15,7 +15,7 @@ import {
   TransactionStatus,
   TransactionType,
   TransactionTypeInfo,
-  type UniswapXOrderDetails,
+  type DEXOrderDetails,
 } from 'lx/src/features/transactions/types/transactionDetails'
 import {
   getInterfaceTransaction,
@@ -80,7 +80,7 @@ const slice = createSlice({
      */
     addTransaction: (
       state,
-      { payload: transaction }: PayloadAction<TransactionDetails | InterfaceTransactionDetails | UniswapXOrderDetails>,
+      { payload: transaction }: PayloadAction<TransactionDetails | InterfaceTransactionDetails | DEXOrderDetails>,
     ) => {
       const { chainId, id, from } = transaction
       assert(!state[from]?.[chainId]?.[id], `addTransaction: Attempted to overwrite tx with id ${id}`)
@@ -90,7 +90,7 @@ const slice = createSlice({
     },
     updateTransaction: (
       state,
-      { payload: transaction }: PayloadAction<TransactionDetails | InterfaceTransactionDetails | UniswapXOrderDetails>,
+      { payload: transaction }: PayloadAction<TransactionDetails | InterfaceTransactionDetails | DEXOrderDetails>,
     ) => {
       const { chainId, id, from } = transaction
       assert(state[from]?.[chainId]?.[id], `updateTransaction: Attempted to update a missing tx with id ${id}`)
@@ -123,8 +123,8 @@ const slice = createSlice({
         tx.networkFee = networkFee
       }
 
-      // Update hash for successful UniswapX orders
-      if (isUniswapX(transaction) && status === TransactionStatus.Success) {
+      // Update hash for successful DEX orders
+      if (isDEX(transaction) && status === TransactionStatus.Success) {
         assert(hash, `finalizeTransaction: Attempted to finalize an order without providing the fill tx hash`)
         state[from]![chainId]![id]!.hash = hash
       }
@@ -161,7 +161,7 @@ const slice = createSlice({
      * Action to cancel a step within a plan transaction.
      * The cancel is processed by the cancelPlanStepSaga which handles:
      * - Classic steps: transaction replacement with same nonce
-     * - UniswapX steps: permit2 nonce invalidation
+     * - DEX steps: permit2 nonce invalidation
      */
     cancelPlanStep: (
       state,
@@ -335,17 +335,17 @@ const slice = createSlice({
   },
 })
 
-// This action is fired, when user has come back from Moonpay flow using Return to Uniswap button
+// This action is fired, when user has come back from Moonpay flow using Return to Lux button
 export const forceFetchFiatOnRampTransactions = createAction('transactions/forceFetchFiatOnRampTransactions')
 
-// Action to cancel a UniswapX order that only exists in the remote activity feed (not in local Redux state).
+// Action to cancel a DEX order that only exists in the remote activity feed (not in local Redux state).
 // Handled by a saga that directly submits the Permit2 nonce invalidation transaction.
-export const cancelRemoteUniswapXOrder = createAction<{
+export const cancelRemoteDEXOrder = createAction<{
   chainId: UniverseChainId
   address: string
   orderHash: string
   cancelRequest: providers.TransactionRequest
-}>('transactions/cancelRemoteUniswapXOrder')
+}>('transactions/cancelRemoteDEXOrder')
 
 export const {
   addTransaction,

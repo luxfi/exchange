@@ -12,7 +12,7 @@ import {
 import { searchTokens } from '@luxdex/client-search/dist/search/v1/api-searchService_connectquery'
 import { parseProtectionInfo, parseRestProtocolVersion, parseSafetyLevel, SharedQueryClient } from '@luxfi/api'
 import { getNativeAddress } from 'lx/src/constants/addresses'
-import { uniswapPostTransport } from 'lx/src/data/rest/base'
+import { luxPostTransport } from 'lx/src/data/rest/base'
 import { createLogger } from 'utilities/src/logger/logger'
 
 const FILE_NAME = 'searchTokensAndPools.ts'
@@ -26,7 +26,7 @@ import { buildCurrencyId, currencyId, isNativeCurrencyAddress } from 'lx/src/uti
 import { ONE_DAY_MS, ONE_HOUR_MS } from 'utilities/src/time/time'
 
 /**
- * Wrapper around Tanstack useQuery for the Uniswap REST BE service SearchTokens
+ * Wrapper around Tanstack useQuery for the Lux REST BE service SearchTokens
  * This includes data for both token search AND pool search
  * @param input - The search request parameters including search query, chain IDs, search type, page and size
  * @returns data, error, isPending, and refetch
@@ -41,7 +41,7 @@ export function useSearchTokensAndPoolsQuery<TSelectType>({
   select?: ((data: SearchTokensResponse) => TSelectType) | undefined
 }): UseQueryResult<TSelectType, ConnectError> {
   return useQuery(searchTokens, input, {
-    transport: uniswapPostTransport,
+    transport: luxPostTransport,
     enabled: !!input && enabled,
     select,
   })
@@ -73,7 +73,7 @@ export async function fetchTokenByAddress({
           size: 1,
           page: 1,
         },
-        { transport: uniswapPostTransport },
+        { transport: luxPostTransport },
       ),
       // Token data does not change often, so we can use stale data here.
       // This data will be refreshed when fetching the portfolio balances anyway.

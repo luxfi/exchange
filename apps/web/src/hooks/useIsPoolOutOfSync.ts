@@ -1,7 +1,7 @@
-import { Currency, CurrencyAmount, Fraction } from '@uniswap/sdk-core'
-import { Pair } from '@uniswap/v2-sdk'
-import { Pool as V3Pool } from '@uniswap/v3-sdk'
-import { Pool as V4Pool } from '@uniswap/v4-sdk'
+import { Currency, CurrencyAmount, Fraction } from '@lux/sdk-core'
+import { Pair } from '@lux/v2-sdk'
+import { Pool as V3Pool } from '@lux/v3-sdk'
+import { Pool as V4Pool } from '@lux/v4-sdk'
 import { parseUnits } from 'ethers/lib/utils'
 import JSBI from 'jsbi'
 import { useUSDCValue } from 'lx/src/features/transactions/hooks/useUSDCPriceWrapper'
@@ -42,7 +42,7 @@ function useMarketPrice(baseCurrency?: Currency, quoteCurrency?: Currency) {
 }
 
 /**
- * In Uniswap v3, the current price is quoted as the exchange from token0 to token1. However, depending
+ * In Lux v3, the current price is quoted as the exchange from token0 to token1. However, depending
  * on liquidity conditions, the price in a particular pool can diverge from the rest of the market (i.e. other pools).
  * This hook computes the market exchange rate between two currencies and compares it to the given pool price.
  * If these prices diverge by more than WARNING_THRESHOLD, return true. Otherwise, return false.

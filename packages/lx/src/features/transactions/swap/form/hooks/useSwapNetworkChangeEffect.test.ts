@@ -1,16 +1,16 @@
 import { act, renderHook } from '@testing-library/react-native'
-import { useUniswapContext } from 'lx/src/contexts/UniswapContext'
+import { useLuxContext } from 'lx/src/contexts/LuxContext'
 import { UniverseChainId } from 'lx/src/features/chains/types'
 import { useSwapNetworkChangeEffect } from 'lx/src/features/transactions/swap/form/stores/swapFormScreenStore/hooks/useSwapNetworkChangeEffect'
 import type { Mock } from 'vitest'
 
-vi.mock('lx/src/contexts/UniswapContext', () => ({
-  useUniswapContext: vi.fn(),
+vi.mock('lx/src/contexts/LuxContext', () => ({
+  useLuxContext: vi.fn(),
 }))
 
 const onSwapChainsChangedMock = vi.fn()
 
-;(useUniswapContext as Mock).mockReturnValue({
+;(useLuxContext as Mock).mockReturnValue({
   onSwapChainsChanged: onSwapChainsChangedMock,
 })
 

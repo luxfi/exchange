@@ -34,7 +34,7 @@ enum ErrorType {
  *
  * Mnemonics and private keys are stored and accessed in secure local key-value store via associated keys formed from concatenating a constant prefix with the associated public address.
  *
- * @link https://github.com/Uniswap/universe/blob/main/apps/mobile/ios/RNEthersRS.swift
+ * @link https://github.com/Lux/universe/blob/main/apps/mobile/ios/RNEthersRS.swift
  */
 export class WebKeyring implements IKeyring {
   private keysMap: Map<string, CryptoKeyPair>

@@ -1,7 +1,7 @@
 import { getStorageDriver } from '@luxfi/api/src/storage/getStorageDriver'
 import { createSessionStorage, type SessionStorage } from '@luxfi/sessions'
 
-const SESSION_ID_KEY = 'UNISWAP_SESSION_ID'
+const SESSION_ID_KEY = 'LUX_SESSION_ID'
 
 function provideSessionStorage(): SessionStorage {
   const driver = getStorageDriver()

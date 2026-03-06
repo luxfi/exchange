@@ -55,7 +55,7 @@
       "outputs": ["{projectRoot}/src/utils/__generated__"]
     },
     "graphql:generate": {
-      "command": "echo 'GraphQL generation handled by uniswap package'",
+      "command": "echo 'GraphQL generation handled by lux package'",
       "options": {
         "cwd": "{projectRoot}"
       }

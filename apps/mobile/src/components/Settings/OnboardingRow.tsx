@@ -4,7 +4,7 @@ import { useSettingsStackNavigation } from 'src/app/navigation/types'
 import { clearOnboardingTimestamp } from 'src/features/analytics/onboardingTimestamp'
 import { useAppStateResetter } from 'src/features/appState/appStateResetter'
 import { Flex, type IconProps, Text, TouchableArea } from 'ui/src'
-import { RotatableChevron, UniswapLogo } from 'ui/src/components/icons'
+import { RotatableChevron, LuxLogo } from 'ui/src/components/icons'
 import { WarningSeverity } from 'lx/src/components/modals/WarningModal/types'
 import { WarningModal } from 'lx/src/components/modals/WarningModal/WarningModal'
 import { ModalName } from 'lx/src/features/telemetry/constants'
@@ -59,7 +59,7 @@ export function OnboardingRow({ iconProps }: { iconProps: IconProps }): JSX.Elem
         <Flex row alignItems="center" justifyContent="space-between" py="$spacing4">
           <Flex row alignItems="center">
             <Flex centered height={32} width={32}>
-              <UniswapLogo {...iconProps} />
+              <LuxLogo {...iconProps} />
             </Flex>
             <Text ml="$spacing12" variant="body1">
               Reset wallet (onboarding)

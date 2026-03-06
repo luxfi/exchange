@@ -34,7 +34,7 @@ export {
 export { StatsigCustomAppValue } from '@universe/gating/src/constants'
 export type { ExperimentProperties } from '@universe/gating/src/experiments'
 export {
-  EthAsErc20UniswapXProperties,
+  EthAsErc20DEXProperties,
   Experiments,
   ExploreBackendSortingProperties,
   LayerProperties,

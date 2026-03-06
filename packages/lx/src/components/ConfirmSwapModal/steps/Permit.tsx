@@ -4,7 +4,7 @@ import { Contract } from 'ui/src/components/icons/Contract'
 import { Sign } from 'ui/src/components/icons/Sign'
 import { StepRowProps, StepRowSkeleton } from 'lx/src/components/ConfirmSwapModal/steps/StepRowSkeleton'
 import { StepStatus } from 'lx/src/components/ConfirmSwapModal/types'
-import { uniswapUrls } from 'lx/src/constants/urls'
+import { luxUrls } from 'lx/src/constants/urls'
 import { Permit2SignatureStep } from 'lx/src/features/transactions/steps/permit2Signature'
 import { Permit2TransactionStep } from 'lx/src/features/transactions/steps/permit2Transaction'
 
@@ -28,7 +28,7 @@ export function Permit2SignatureStepRow({
       title={title}
       icon={<SignIcon />}
       learnMore={{
-        url: uniswapUrls.helpArticleUrls.approvalsExplainer,
+        url: luxUrls.helpArticleUrls.approvalsExplainer,
         text: t('common.whySign'),
       }}
       status={status}
@@ -74,7 +74,7 @@ export function Permit2TransactionStepRow({
       title={title}
       icon={<ContractIcon />}
       learnMore={{
-        url: uniswapUrls.helpArticleUrls.mismatchedImports,
+        url: luxUrls.helpArticleUrls.mismatchedImports,
         text: t('common.approvePermitTx.explainer'),
       }}
       status={status}

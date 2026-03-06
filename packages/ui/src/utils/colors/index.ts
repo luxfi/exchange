@@ -16,11 +16,11 @@ const MIN_TOKEN_COLOR_CONTRAST_THRESHOLD = 1.95
 
 const blackAndWhiteSpecialCase: Set<string> = new Set([
   // QNT
-  'https://raw.githubusercontent.com/Uniswap/assets/master/blockchains/ethereum/assets/0x4a220E6096B25EADb88358cb44068A3248254675/logo.png',
+  'https://raw.githubusercontent.com/Lux/assets/master/blockchains/ethereum/assets/0x4a220E6096B25EADb88358cb44068A3248254675/logo.png',
   // Xen
-  'https://raw.githubusercontent.com/Uniswap/assets/master/blockchains/ethereum/assets/0x06450dEe7FD2Fb8E39061434BAbCFC05599a6Fb8/logo.png',
+  'https://raw.githubusercontent.com/Lux/assets/master/blockchains/ethereum/assets/0x06450dEe7FD2Fb8E39061434BAbCFC05599a6Fb8/logo.png',
   // FWB
-  'https://raw.githubusercontent.com/Uniswap/assets/master/blockchains/ethereum/assets/0x35bD01FC9d6D5D81CA9E055Db88Dc49aa2c699A8/logo.png',
+  'https://raw.githubusercontent.com/Lux/assets/master/blockchains/ethereum/assets/0x35bD01FC9d6D5D81CA9E055Db88Dc49aa2c699A8/logo.png',
 ])
 
 type ExtractedColorsOptions = {

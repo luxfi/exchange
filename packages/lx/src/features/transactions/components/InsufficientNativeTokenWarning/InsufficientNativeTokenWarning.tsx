@@ -1,4 +1,4 @@
-import { Currency } from '@uniswap/sdk-core'
+import { Currency } from '@lux/sdk-core'
 import { GasFeeResult } from '@universe/api'
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
@@ -7,7 +7,7 @@ import { CurrencyLogo } from 'lx/src/components/CurrencyLogo/CurrencyLogo'
 import { Warning } from 'lx/src/components/modals/WarningModal/types'
 import { WarningModal } from 'lx/src/components/modals/WarningModal/WarningModal'
 import { LearnMoreLink } from 'lx/src/components/text/LearnMoreLink'
-import { uniswapUrls } from 'lx/src/constants/urls'
+import { luxUrls } from 'lx/src/constants/urls'
 import { useActiveAddresses } from 'lx/src/features/accounts/store/hooks'
 import type { AddressGroup } from 'lx/src/features/accounts/store/types/AccountsState'
 import { useBridgingTokenWithHighestBalance } from 'lx/src/features/bridging/hooks/tokens'
@@ -135,7 +135,7 @@ function InsufficientNativeTokenWarningContent({
             <LearnMoreLink
               textColor="$accent3"
               textVariant="buttonLabel3"
-              url={uniswapUrls.helpArticleUrls.networkFeeInfo}
+              url={luxUrls.helpArticleUrls.networkFeeInfo}
             />
           </Flex>
 

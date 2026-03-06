@@ -3,7 +3,7 @@ import { useCallback, useEffect, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Button, Flex } from 'ui/src'
 import { GetHelpHeader } from 'lx/src/components/dialog/GetHelpHeader'
-import { uniswapUrls } from 'lx/src/constants/urls'
+import { luxUrls } from 'lx/src/constants/urls'
 import { useActiveAddress, useConnectionStatus } from 'lx/src/features/accounts/store/hooks'
 import { useIsSmartContractAddress } from 'lx/src/features/address/useIsSmartContractAddress'
 import { useEnabledChains } from 'lx/src/features/chains/hooks/useEnabledChains'
@@ -322,7 +322,7 @@ function SendFormInner({ disableTokenInputs = false, onCurrencyChange }: SendFor
           closeHeaderComponent={
             <GetHelpHeader
               closeModal={handleCancelCompatibleAddressSpeedBump}
-              link={uniswapUrls.helpArticleUrls.bridgedAssets}
+              link={luxUrls.helpArticleUrls.bridgedAssets}
               mb="$spacing12"
             />
           }

@@ -5,14 +5,14 @@ import {
   makeSelectHasNotifications,
 } from 'lx/src/features/notifications/slice/selectors'
 import { AppNotification } from 'lx/src/features/notifications/slice/types'
-import { UniswapState } from 'lx/src/state/uniswapReducer'
+import { LuxState } from 'lx/src/state/luxReducer'
 
 export function useSelectAddressHasNotifications(address: Address | null): boolean | undefined {
   const selectHasNotifications = useMemo(makeSelectHasNotifications, [])
-  return useSelector((state: UniswapState) => selectHasNotifications(state, address))
+  return useSelector((state: LuxState) => selectHasNotifications(state, address))
 }
 
 export function useSelectAddressNotifications(address: Address | null): AppNotification[] | undefined {
   const selectAddressNotifications = useMemo(makeSelectAddressNotifications, [])
-  return useSelector((state: UniswapState) => selectAddressNotifications(state, address))
+  return useSelector((state: LuxState) => selectAddressNotifications(state, address))
 }

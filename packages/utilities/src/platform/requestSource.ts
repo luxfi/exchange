@@ -2,19 +2,19 @@ import { isAndroid, isExtensionApp, isIOS } from 'utilities/src/platform'
 
 /**
  * Returns the x-request-source header value for the current platform.
- * This header should be added to all requests to Uniswap services.
+ * This header should be added to all requests to Lux services.
  */
 function getRequestSource(): string {
   if (isIOS) {
-    return 'uniswap-ios'
+    return 'lux-ios'
   }
   if (isAndroid) {
-    return 'uniswap-android'
+    return 'lux-android'
   }
   if (isExtensionApp) {
-    return 'uniswap-extension'
+    return 'lux-extension'
   }
-  return 'uniswap-web'
+  return 'lux-web'
 }
 
 export const REQUEST_SOURCE = getRequestSource()

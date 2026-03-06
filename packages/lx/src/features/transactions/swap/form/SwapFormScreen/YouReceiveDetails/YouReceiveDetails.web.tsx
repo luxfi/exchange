@@ -1,11 +1,11 @@
-import type { Currency, CurrencyAmount } from '@uniswap/sdk-core'
-import { Percent } from '@uniswap/sdk-core'
+import type { Currency, CurrencyAmount } from '@lux/sdk-core'
+import { Percent } from '@lux/sdk-core'
 import { useTranslation } from 'react-i18next'
-import { Flex, HeightAnimator, Separator, Text, TouchableArea, UniswapXText } from 'ui/src'
+import { Flex, HeightAnimator, Separator, Text, TouchableArea, DEXText } from 'ui/src'
 import { AlertTriangleFilled } from 'ui/src/components/icons/AlertTriangleFilled'
 import { AnglesDownUp } from 'ui/src/components/icons/AnglesDownUp'
 import { SortVertical } from 'ui/src/components/icons/SortVertical'
-import { AnimatedUniswapX } from 'ui/src/components/icons/UniswapX'
+import { AnimatedDEX } from 'ui/src/components/icons/DEX'
 import { AcrossLogo } from 'ui/src/components/logos/AcrossLogo'
 import type { WarningWithStyle } from 'lx/src/components/modals/WarningModal/types'
 import { WarningLabel } from 'lx/src/components/modals/WarningModal/types'
@@ -17,7 +17,7 @@ import { useTransactionSettingsStore } from 'lx/src/features/transactions/compon
 import { AcrossRoutingInfoTooltip } from 'lx/src/features/transactions/swap/form/SwapFormScreen/SwapFormTooltips/AcrossRoutingTooltip'
 import {
   BestRouteTooltip,
-  BestRouteUniswapXTooltip,
+  BestRouteDEXTooltip,
 } from 'lx/src/features/transactions/swap/form/SwapFormScreen/SwapFormTooltips/BestRouteTooltip'
 import { SwapFeeOnTransferTooltip } from 'lx/src/features/transactions/swap/form/SwapFormScreen/SwapFormTooltips/FeeDetailsTooltip'
 import { LargePriceDifferenceTooltip } from 'lx/src/features/transactions/swap/form/SwapFormScreen/SwapFormTooltips/LargePriceDifferenceTooltip'
@@ -34,7 +34,7 @@ import { usePriceDifference } from 'lx/src/features/transactions/swap/hooks/useP
 import { useParsedSwapWarnings } from 'lx/src/features/transactions/swap/hooks/useSwapWarnings/useSwapWarnings'
 import { useSwapFormStore } from 'lx/src/features/transactions/swap/stores/swapFormStore/useSwapFormStore'
 import { useSwapTxStore } from 'lx/src/features/transactions/swap/stores/swapTxStore/useSwapTxStore'
-import { isUniswapX } from 'lx/src/features/transactions/swap/utils/routing'
+import { isDEX } from 'lx/src/features/transactions/swap/utils/routing'
 import type { FeeOnTransferFeeGroupProps } from 'lx/src/features/transactions/TransactionDetails/types'
 import { WrapType } from 'lx/src/features/transactions/types/wrap'
 import { useIsBlocked } from 'lx/src/features/trm/hooks'
@@ -240,11 +240,11 @@ function MaxSlippageDisplay({
 
 function RouteDisplay({
   isBridge,
-  isUniswapXContext,
+  isDEXContext,
   loading,
 }: {
   isBridge: boolean
-  isUniswapXContext: boolean
+  isDEXContext: boolean
   loading: boolean
 }): JSX.Element {
   const { t } = useTranslation()
@@ -254,8 +254,8 @@ function RouteDisplay({
 
   const tooltip = isBridge ? (
     <AcrossRoutingInfoTooltip />
-  ) : isUniswapXContext ? (
-    <BestRouteUniswapXTooltip />
+  ) : isDEXContext ? (
+    <BestRouteDEXTooltip />
   ) : (
     <BestRouteTooltip />
   )
@@ -268,12 +268,12 @@ function RouteDisplay({
           <AcrossLogo size="$icon.16" />
           <SwapDetailsRow.ValueLabel color={loading ? '$neutral2' : '$neutral1'} value="Across API" />
         </Flex>
-      ) : isUniswapXContext ? (
+      ) : isDEXContext ? (
         <Flex row gap="$spacing1">
-          <AnimatedUniswapX size="$icon.16" opacity={loading ? 0 : 1} animation="simple" />
-          <UniswapXText variant="body3" color={loading ? '$neutral2' : undefined}>
-            Uniswap X
-          </UniswapXText>
+          <AnimatedDEX size="$icon.16" opacity={loading ? 0 : 1} animation="simple" />
+          <DEXText variant="body3" color={loading ? '$neutral2' : undefined}>
+            Lux X
+          </DEXText>
         </Flex>
       ) : (
         <Flex row gap="$spacing6" alignItems="center">
@@ -330,7 +330,7 @@ export function YouReceiveDetails({
     inlineWarning?.warning.type === WarningLabel.PriceImpactHigh ||
     inlineWarning?.warning.type === WarningLabel.PriceImpactMedium
   const feeOnTransferProps = useFeeOnTransferAmounts(derivedSwapInfo)
-  const isUniswapXContext = useSwapTxStore((s) => isUniswapX({ routing: s.routing }))
+  const isDEXContext = useSwapTxStore((s) => isDEX({ routing: s.routing }))
   const trade = useSwapTxStore((s) => s.trade)
   const receivedAmountPostFees = derivedSwapInfo.outputAmountUserWillReceive
     ? formatCurrencyAmount({
@@ -404,7 +404,7 @@ export function YouReceiveDetails({
                 autoSlippageEnabled={!customSlippageTolerance}
               />
             )}
-            <RouteDisplay isBridge={isBridge} isUniswapXContext={isUniswapXContext} loading={!trade} />
+            <RouteDisplay isBridge={isBridge} isDEXContext={isDEXContext} loading={!trade} />
           </Flex>
         </HeightAnimator>
       </Flex>

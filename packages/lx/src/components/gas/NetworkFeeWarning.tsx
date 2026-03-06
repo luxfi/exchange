@@ -1,15 +1,15 @@
-import { FormattedUniswapXGasFeeInfo } from '@universe/api'
+import { FormattedDEXGasFeeInfo } from '@universe/api'
 import { PropsWithChildren } from 'react'
 import { Trans, useTranslation } from 'react-i18next'
-import { Text, UniswapXText, useSporeColors } from 'ui/src'
+import { Text, DEXText, useSporeColors } from 'ui/src'
 import { AlertTriangleFilled } from 'ui/src/components/icons/AlertTriangleFilled'
 import { Gas } from 'ui/src/components/icons/Gas'
 import { fonts, NATIVE_LINE_HEIGHT_SCALE, zIndexes } from 'ui/src/theme'
-import { NetworkCostTooltip, NetworkCostTooltipUniswapX } from 'lx/src/components/gas/NetworkCostTooltip'
+import { NetworkCostTooltip, NetworkCostTooltipDEX } from 'lx/src/components/gas/NetworkCostTooltip'
 import { WarningSeverity } from 'lx/src/components/modals/WarningModal/types'
 import { WarningInfo } from 'lx/src/components/modals/WarningModal/WarningInfo'
 import { InfoTooltipProps } from 'lx/src/components/tooltip/InfoTooltipProps'
-import { uniswapUrls } from 'lx/src/constants/urls'
+import { luxUrls } from 'lx/src/constants/urls'
 import { getChainInfo } from 'lx/src/features/chains/chainInfo'
 import { UniverseChainId } from 'lx/src/features/chains/types'
 import { NetworkCostBanner } from 'lx/src/features/smartWallet/banner/NetworkCostBanner'
@@ -22,7 +22,7 @@ export function NetworkFeeWarning({
   disabled = false,
   tooltipTrigger,
   placement = 'top',
-  uniswapXGasFeeInfo,
+  dexGasFeeInfo,
   chainId,
   includesDelegation,
 }: PropsWithChildren<{
@@ -30,14 +30,14 @@ export function NetworkFeeWarning({
   disabled?: boolean
   tooltipTrigger?: InfoTooltipProps['trigger']
   placement?: InfoTooltipProps['placement']
-  uniswapXGasFeeInfo?: FormattedUniswapXGasFeeInfo
+  dexGasFeeInfo?: FormattedDEXGasFeeInfo
   chainId: UniverseChainId
   includesDelegation?: boolean
 }>): JSX.Element {
   const colors = useSporeColors()
   const { t } = useTranslation()
 
-  const showHighGasFeeUI = gasFeeHighRelativeToValue && !uniswapXGasFeeInfo && !isWebApp // Avoid high gas UI on interface
+  const showHighGasFeeUI = gasFeeHighRelativeToValue && !dexGasFeeInfo && !isWebApp // Avoid high gas UI on interface
 
   return (
     <WarningInfo
@@ -46,7 +46,7 @@ export function NetworkFeeWarning({
         isMobileApp && (
           <NetworkCostBanner
             bannerText={t('smartWallet.banner.networkCost', { chainName: getChainInfo(chainId).label })}
-            url={uniswapUrls.helpArticleUrls.smartWalletDelegation}
+            url={luxUrls.helpArticleUrls.smartWalletDelegation}
           />
         )
       }
@@ -56,7 +56,7 @@ export function NetworkFeeWarning({
           <NetworkFeeText
             includesDelegation={includesDelegation}
             showHighGasFeeUI={showHighGasFeeUI}
-            uniswapXGasFeeInfo={uniswapXGasFeeInfo}
+            dexGasFeeInfo={dexGasFeeInfo}
             chainId={chainId}
           />
         ),
@@ -72,8 +72,8 @@ export function NetworkFeeWarning({
         zIndex: zIndexes.popover,
       }}
       tooltipProps={{
-        text: uniswapXGasFeeInfo ? (
-          <NetworkCostTooltipUniswapX uniswapXGasFeeInfo={uniswapXGasFeeInfo} />
+        text: dexGasFeeInfo ? (
+          <NetworkCostTooltipDEX dexGasFeeInfo={dexGasFeeInfo} />
         ) : (
           <NetworkCostTooltip chainId={chainId} includesDelegation={includesDelegation ?? false} />
         ),
@@ -93,12 +93,12 @@ export function NetworkFeeWarning({
 function NetworkFeeText({
   includesDelegation,
   showHighGasFeeUI,
-  uniswapXGasFeeInfo,
+  dexGasFeeInfo,
   chainId,
 }: {
   includesDelegation?: boolean
   showHighGasFeeUI?: boolean
-  uniswapXGasFeeInfo?: FormattedUniswapXGasFeeInfo
+  dexGasFeeInfo?: FormattedDEXGasFeeInfo
   chainId: UniverseChainId
 }): JSX.Element {
   const { t } = useTranslation()
@@ -107,17 +107,17 @@ function NetworkFeeText({
   // we need to remove `NATIVE_LINE_HEIGHT_SCALE` if we switch to a button label font
   const lineHeight = fonts[variant].lineHeight / (isWebPlatform ? 1 : NATIVE_LINE_HEIGHT_SCALE)
 
-  if (uniswapXGasFeeInfo) {
-    // TODO(WEB-4313): Remove need to manually adjust the height of the UniswapXText component for mobile.
-    const components = { gradient: <UniswapXText height={lineHeight} variant={variant} /> }
+  if (dexGasFeeInfo) {
+    // TODO(WEB-4313): Remove need to manually adjust the height of the DEXText component for mobile.
+    const components = { gradient: <DEXText height={lineHeight} variant={variant} /> }
 
     return (
       <Text color="$neutral2" textAlign={isWebPlatform ? 'left' : 'center'} variant={variant}>
         {/* TODO(WALL-5311): Investigate Trans component vertical alignment on android */}
         {chainId === UniverseChainId.Unichain ? (
-          <Trans components={components} i18nKey="swap.warning.networkFee.message.uniswapX.unichain" />
+          <Trans components={components} i18nKey="swap.warning.networkFee.message.dex.unichain" />
         ) : (
-          <Trans components={components} i18nKey="swap.warning.networkFee.message.uniswapX" />
+          <Trans components={components} i18nKey="swap.warning.networkFee.message.dex" />
         )}
       </Text>
     )

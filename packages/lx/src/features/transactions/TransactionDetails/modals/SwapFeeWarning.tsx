@@ -5,36 +5,36 @@ import { AlertCircleFilled } from 'ui/src/components/icons/AlertCircleFilled'
 import { zIndexes } from 'ui/src/theme'
 import { WarningSeverity } from 'lx/src/components/modals/WarningModal/types'
 import { WarningInfo } from 'lx/src/components/modals/WarningModal/WarningInfo'
-import { uniswapUrls } from 'lx/src/constants/urls'
+import { luxUrls } from 'lx/src/constants/urls'
 import { ModalName } from 'lx/src/features/telemetry/constants'
 import { usePriceUXEnabled } from 'lx/src/features/transactions/swap/hooks/usePriceUXEnabled'
 import { openUri } from 'lx/src/utils/linking'
 import { isWebPlatform } from 'utilities/src/platform'
 
 export function SwapFeeWarning({
-  noUniswapInterfaceFees,
+  noLuxInterfaceFees,
   noFeeOnThisSwap,
   children,
   isJupiter,
-}: PropsWithChildren<{ noUniswapInterfaceFees: boolean; noFeeOnThisSwap: boolean; isJupiter: boolean }>): JSX.Element {
+}: PropsWithChildren<{ noLuxInterfaceFees: boolean; noFeeOnThisSwap: boolean; isJupiter: boolean }>): JSX.Element {
   const priceUXEnabled = usePriceUXEnabled()
   const colors = useSporeColors()
   const { t } = useTranslation()
 
   const onPressLearnMore = async (): Promise<void> => {
-    await openUri({ uri: uniswapUrls.helpArticleUrls.swapFeeInfo })
+    await openUri({ uri: luxUrls.helpArticleUrls.swapFeeInfo })
   }
 
   const caption =
-    noUniswapInterfaceFees && !isJupiter
+    noLuxInterfaceFees && !isJupiter
       ? t('swap.warning.noInterfaceFees.message')
       : priceUXEnabled
-        ? t('fee.uniswap.description')
+        ? t('fee.lux.description')
         : noFeeOnThisSwap
-          ? t('swap.warning.uniswapFee.message.default')
+          ? t('swap.warning.luxFee.message.default')
           : isJupiter
             ? t('swap.fees.jupiter.message')
-            : t('swap.warning.uniswapFee.message.included')
+            : t('swap.warning.luxFee.message.included')
 
   return (
     <WarningInfo
@@ -60,7 +60,7 @@ export function SwapFeeWarning({
         rejectText: t('common.button.close'),
         modalName: ModalName.NetworkFeeInfo,
         severity: WarningSeverity.None,
-        title: t('swap.warning.uniswapFee.title'),
+        title: t('swap.warning.luxFee.title'),
         zIndex: zIndexes.popover,
       }}
       tooltipProps={{ text: caption, placement: 'top' }}

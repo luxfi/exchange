@@ -1,4 +1,4 @@
-import { Direction, OnChainTransaction, OnChainTransactionLabel } from '@uniswap/client-data-api/dist/data/v1/types_pb'
+import { Direction, OnChainTransaction, OnChainTransactionLabel } from '@lux/client-data-api/dist/data/v1/types_pb'
 import { extractDappInfo } from 'lx/src/features/activity/utils/extractDappInfo'
 import { AssetCase } from 'lx/src/features/activity/utils/remote'
 import {

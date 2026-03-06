@@ -7,7 +7,7 @@
     "noEmit": false,
     "paths": {
       "@universe/sessions/*": ["./src/*"],
-      "@luxdex/client-platform-service/*": ["../../node_modules/@uniswap/client-platform-service/*"]
+      "@luxdex/client-platform-service/*": ["../../node_modules/@lux/client-platform-service/*"]
     },
     "types": ["chrome", "node"]
   },

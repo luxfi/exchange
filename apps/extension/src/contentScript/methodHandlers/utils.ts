@@ -2,7 +2,7 @@ import { providerErrors, serializeError } from '@metamask/rpc-errors'
 import {
   DeprecatedEthMethods,
   ProviderDirectMethods,
-  UniswapMethods,
+  LuxMethods,
   UnsupportedEthMethods,
 } from 'src/contentScript/methodHandlers/requestMethods'
 import { PendingResponseInfo } from 'src/contentScript/methodHandlers/types'
@@ -13,8 +13,8 @@ export function isProviderDirectMethod(method: string): boolean {
   return Object.keys(ProviderDirectMethods).includes(method)
 }
 
-export function isUniswapMethod(method: string): boolean {
-  return Object.keys(UniswapMethods).includes(method)
+export function isLuxMethod(method: string): boolean {
+  return Object.keys(LuxMethods).includes(method)
 }
 
 // Since ExtensionEthMethod is a TypeScript type that doesn't exist at runtime,
@@ -59,7 +59,7 @@ export function postDeprecatedMethodError({
   source?.postMessage({
     requestId,
     error: serializeError(
-      providerErrors.unsupportedMethod(`Uniswap Wallet does not support ${method} as it is deprecated`),
+      providerErrors.unsupportedMethod(`Lux Wallet does not support ${method} as it is deprecated`),
     ),
   })
 }
@@ -75,7 +75,7 @@ export function postUnknownMethodError({
 }): void {
   source?.postMessage({
     requestId,
-    error: serializeError(providerErrors.unsupportedMethod(`Uniswap Wallet does not support ${method}`)),
+    error: serializeError(providerErrors.unsupportedMethod(`Lux Wallet does not support ${method}`)),
   })
 }
 
@@ -98,7 +98,7 @@ export function postParsingError({
   source?.postMessage({
     requestId,
     error: serializeError(
-      providerErrors.unsupportedMethod(`Uniswap Wallet could not parse the ${method} request properly`),
+      providerErrors.unsupportedMethod(`Lux Wallet could not parse the ${method} request properly`),
     ),
   })
 }

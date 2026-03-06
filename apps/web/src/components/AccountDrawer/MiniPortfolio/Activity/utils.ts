@@ -136,7 +136,7 @@ export function haveSameNonce(activity1: Activity, activity2: Activity): boolean
  * Note: All activity types set a hash value:
  * - Regular transactions: use their transaction hash
  * - Fiat on/off ramps: set hash = id in the parser
- * - UniswapX orders: set hash = orderHash
+ * - DEX orders: set hash = orderHash
  *
  * @param activities Array of activities to map
  * @returns ActivityMap keyed by transaction hash
@@ -147,7 +147,7 @@ export function createActivityMapByHash(activities: (Activity | undefined)[]): A
       return acc
     }
 
-    // Unfilled UniswapX orders will not have a hash, use the orderHash instead
+    // Unfilled DEX orders will not have a hash, use the orderHash instead
     const activityHash = activity.hash ?? activity.offchainOrderDetails?.orderHash
 
     if (!activityHash) {

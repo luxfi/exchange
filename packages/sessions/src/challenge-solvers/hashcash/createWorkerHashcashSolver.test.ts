@@ -1,4 +1,4 @@
-import { ChallengeType } from '@uniswap/client-platform-service/dist/uniswap/platformservice/v1/sessionService_pb'
+import { ChallengeType } from '@lux/client-platform-service/dist/lux/platformservice/v1/sessionService_pb'
 import { createWorkerHashcashSolver } from '@universe/sessions/src/challenge-solvers/hashcash/createWorkerHashcashSolver'
 import type { HashcashWorkerChannelFactory } from '@universe/sessions/src/challenge-solvers/hashcash/worker/types'
 import type { ChallengeData } from '@universe/sessions/src/challenge-solvers/types'
@@ -8,7 +8,7 @@ describe('createWorkerHashcashSolver', () => {
   // Real backend example data
   const backendExample = {
     difficulty: 1,
-    subject: 'Uniswap',
+    subject: 'Lux',
     algorithm: 'sha256' as const,
     nonce: 'Qlquffem7d8RrL6fmveE68XK0KxcoczdiVpFrV1qeUk=',
     max_proof_length: 10000,
@@ -61,13 +61,13 @@ describe('createWorkerHashcashSolver', () => {
     const solution = await solver.solve(challengeData)
 
     // Check format: "${subject}:${nonce}:${counter}"
-    expect(solution).toBe(`Uniswap:${backendExample.nonce}:123`)
+    expect(solution).toBe(`Lux:${backendExample.nonce}:123`)
 
     // Verify worker was called correctly
     expect(mocks.findProof).toHaveBeenCalledOnce()
     expect(mocks.findProof).toHaveBeenCalledWith({
       challenge: expect.objectContaining({
-        subject: 'Uniswap',
+        subject: 'Lux',
         difficulty: 1,
         nonce: backendExample.nonce,
       }),

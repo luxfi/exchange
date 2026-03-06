@@ -1,10 +1,10 @@
-import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
+import { ProtocolVersion } from '@lux/client-data-api/dist/data/v1/poolTypes_pb'
 import {
   CheckApprovalLPResponse,
   CreateLPPositionResponse,
-} from '@uniswap/client-liquidity/dist/uniswap/liquidity/v1/api_pb'
-import { PermitBatch, PermitBatchData } from '@uniswap/client-liquidity/dist/uniswap/liquidity/v1/types_pb'
-import { CurrencyAmount } from '@uniswap/sdk-core'
+} from '@lux/client-liquidity/dist/lux/liquidity/v1/api_pb'
+import { PermitBatch, PermitBatchData } from '@lux/client-liquidity/dist/lux/liquidity/v1/types_pb'
+import { CurrencyAmount } from '@lux/sdk-core'
 import { ZERO_ADDRESS } from 'lx/src/constants/misc'
 import { USDT } from 'lx/src/constants/tokens'
 import { UniverseChainId } from 'lx/src/features/chains/types'
@@ -57,7 +57,7 @@ describe('generateCreatePositionTxRequest', () => {
       case: 'permitBatchData',
       value: new PermitBatchData({
         domain: {
-          name: 'Uniswap',
+          name: 'Lux',
           version: '1',
           chainId: 1,
         },

@@ -34,11 +34,11 @@ describe('useIsIframed', () => {
       writable: true,
     })
     Object.defineProperty(window, 'self', {
-      value: 'https://uniswap.org',
+      value: 'https://lux.org',
       writable: true,
     })
     Object.defineProperty(window, 'top', {
-      value: 'https://uniswap.org',
+      value: 'https://lux.org',
       writable: true,
     })
     const result = isIFramed()
@@ -52,11 +52,11 @@ describe('useIsIframed', () => {
       writable: true,
     })
     Object.defineProperty(window, 'self', {
-      value: 'https://uniswap.org',
+      value: 'https://lux.org',
       writable: true,
     })
     Object.defineProperty(window, 'top', {
-      value: 'https://eviluniswap.org',
+      value: 'https://evillux.org',
       writable: true,
     })
     const result = isIFramed()
@@ -71,7 +71,7 @@ describe('useIsIframed', () => {
       writable: true,
     })
     Object.defineProperty(window, 'self', {
-      value: 'https://uniswap.org',
+      value: 'https://lux.org',
       writable: true,
     })
     Object.defineProperty(window, 'top', {

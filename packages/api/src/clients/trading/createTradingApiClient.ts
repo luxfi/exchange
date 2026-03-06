@@ -32,7 +32,7 @@ import type {
 } from '@universe/api/src/clients/trading/tradeTypes'
 import { logger } from 'utilities/src/logger/logger'
 
-// TODO(app-infra), de-duplicate with uniswapUrls.tradingApiPaths when other consumers are migrated to use TradingApiClient
+// TODO(app-infra), de-duplicate with luxUrls.tradingApiPaths when other consumers are migrated to use TradingApiClient
 export const TRADING_API_PATHS = {
   approval: 'check_approval',
   order: 'order',

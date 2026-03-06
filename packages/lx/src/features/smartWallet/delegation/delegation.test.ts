@@ -13,7 +13,7 @@ describe('delegation service', () => {
           getWalletDelegations: async () => ({
             '1': {
               currentDelegationAddress: delegatedAddress,
-              isWalletDelegatedToUniswap: true,
+              isWalletDelegatedToLux: true,
               latestDelegationAddress: '0xLatest',
             },
           }),
@@ -60,13 +60,13 @@ describe('delegation service', () => {
           getWalletDelegations: async () => ({
             '1': {
               currentDelegationAddress: '0xDelegated1',
-              isWalletDelegatedToUniswap: true,
+              isWalletDelegatedToLux: true,
               latestDelegationAddress: '0xLatest',
             },
             '137': null,
             '10': {
               currentDelegationAddress: '0xDelegated10',
-              isWalletDelegatedToUniswap: false,
+              isWalletDelegatedToLux: false,
               latestDelegationAddress: '0xLatest',
             },
           }),
@@ -91,7 +91,7 @@ describe('delegation service', () => {
           getWalletDelegations: async () => ({
             '1': {
               currentDelegationAddress: null,
-              isWalletDelegatedToUniswap: false,
+              isWalletDelegatedToLux: false,
               latestDelegationAddress: '0xLatest',
             },
           }),
@@ -134,7 +134,7 @@ describe('delegation service', () => {
           getWalletDelegations: async () => ({
             '1': {
               currentDelegationAddress: delegatedAddress,
-              isWalletDelegatedToUniswap: true,
+              isWalletDelegatedToLux: true,
               latestDelegationAddress: '0xLatest',
             },
           }),

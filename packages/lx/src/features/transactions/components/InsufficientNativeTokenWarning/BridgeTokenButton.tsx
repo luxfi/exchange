@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next'
 import { Button, Flex } from 'ui/src'
 import { validColor } from 'ui/src/theme'
-import { useUniswapContext } from 'lx/src/contexts/UniswapContext'
+import { useLuxContext } from 'lx/src/contexts/LuxContext'
 import { CurrencyInfo } from 'lx/src/features/dataApi/types'
 import { ElementName } from 'lx/src/features/telemetry/constants'
 import Trace from 'lx/src/features/telemetry/Trace'
@@ -22,7 +22,7 @@ export function BridgeTokenButton({
   const { foreground } = useNetworkColors(outputToken.currency.chainId)
   const primaryColor = validColor(foreground)
 
-  const { navigateToSwapFlow } = useUniswapContext()
+  const { navigateToSwapFlow } = useLuxContext()
 
   const onPressBridgeToken = (): void => {
     onPress?.()

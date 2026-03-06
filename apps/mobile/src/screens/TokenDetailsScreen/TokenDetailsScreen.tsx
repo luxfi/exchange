@@ -24,7 +24,7 @@ import { useCrossChainBalances } from 'lx/src/data/balances/hooks/useCrossChainB
 import {
   useTokenBasicInfoPartsFragment,
   useTokenBasicProjectPartsFragment,
-} from 'lx/src/data/graphql/uniswap-data-api/fragments'
+} from 'lx/src/data/graphql/lux-data-api/fragments'
 import { currencyIdToContractInput } from 'lx/src/features/dataApi/utils/currencyIdToContractInput'
 import Trace from 'lx/src/features/telemetry/Trace'
 import { TokenWarningCard } from 'lx/src/features/tokens/warnings/TokenWarningCard'

@@ -1,6 +1,6 @@
 /**
  * PoolManager Precompile ABI (0x0400)
- * Native Uniswap v4-style AMM implementation
+ * Native Lux v4-style AMM implementation
  */
 export const POOL_MANAGER_ABI = [
   // Pool initialization

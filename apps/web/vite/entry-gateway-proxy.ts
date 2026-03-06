@@ -2,9 +2,9 @@ import process from 'process'
 import type { ProxyOptions } from 'vite'
 
 // Entry Gateway API URLs
-const DEV_ENTRY_GATEWAY_API_BASE_URL = 'https://entry-gateway.backend-dev.api.uniswap.org'
-const STAGING_ENTRY_GATEWAY_API_BASE_URL = 'https://entry-gateway.backend-staging.api.uniswap.org'
-const PROD_ENTRY_GATEWAY_API_BASE_URL = 'https://entry-gateway.backend-prod.api.uniswap.org'
+const DEV_ENTRY_GATEWAY_API_BASE_URL = 'https://entry-gateway.backend-dev.api.lux.org'
+const STAGING_ENTRY_GATEWAY_API_BASE_URL = 'https://entry-gateway.backend-staging.api.lux.org'
+const PROD_ENTRY_GATEWAY_API_BASE_URL = 'https://entry-gateway.backend-prod.api.lux.org'
 
 /**
  * Returns the appropriate Entry Gateway API URL for the proxy target.

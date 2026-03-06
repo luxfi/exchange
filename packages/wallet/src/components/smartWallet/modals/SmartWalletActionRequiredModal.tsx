@@ -41,7 +41,7 @@ export function SmartWalletActionRequiredModal({
   const { getDelegationDetails } = useWalletDelegationContext()
 
   const delegatedChainsCount = enabledChains.filter(
-    (chainId) => getDelegationDetails(walletAddress, chainId)?.isWalletDelegatedToUniswap,
+    (chainId) => getDelegationDetails(walletAddress, chainId)?.isWalletDelegatedToLux,
   ).length
 
   const onConfirmCallback = useEvent(() => {

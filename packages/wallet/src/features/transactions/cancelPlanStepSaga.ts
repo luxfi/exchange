@@ -64,7 +64,7 @@ interface CancelPlanStepParams {
  * - Fetches transaction from chain to get nonce
  * - Uses transaction replacement (same nonce, higher gas, 0 value)
  *
- * For UniswapX steps:
+ * For DEX steps:
  * - Submits permit2 nonce invalidation transaction
  *
  * After cancellation attempt:
@@ -100,9 +100,9 @@ export function* cancelPlanStep(params: CancelPlanStepParams) {
       })
     } else {
       if (!cancelableStepInfo.orderId) {
-        throw new Error('Cannot cancel UniswapX step without orderId')
+        throw new Error('Cannot cancel DEX step without orderId')
       }
-      yield* call(cancelUniswapXPlanStep, {
+      yield* call(cancelDEXPlanStep, {
         planTransaction,
         cancelRequest,
         orderId: cancelableStepInfo.orderId,
@@ -198,9 +198,9 @@ function* cancelClassicPlanStep(params: {
 }
 
 /**
- * Cancels a UniswapX order step by submitting a permit2 nonce invalidation transaction
+ * Cancels a DEX order step by submitting a permit2 nonce invalidation transaction
  */
-function* cancelUniswapXPlanStep(params: {
+function* cancelDEXPlanStep(params: {
   planTransaction: PlanTransactionDetails
   cancelRequest: providers.TransactionRequest
   orderId: string
@@ -210,7 +210,7 @@ function* cancelUniswapXPlanStep(params: {
   const account = yield* call(getSignerAccount, {
     address: planTransaction.from,
     chainId: planTransaction.chainId,
-    errorContext: 'cancel UniswapX order',
+    errorContext: 'cancel DEX order',
   })
 
   const executeTransactionParams: ExecuteTransactionParams = {
@@ -225,7 +225,7 @@ function* cancelUniswapXPlanStep(params: {
   // Submit the permit2 invalidation transaction
   yield* call(executeTransaction, executeTransactionParams)
 
-  logger.debug('cancelPlanStepSaga', 'cancelUniswapXPlanStep', 'Permit2 invalidation submitted', {
+  logger.debug('cancelPlanStepSaga', 'cancelDEXPlanStep', 'Permit2 invalidation submitted', {
     orderId,
     planId: planTransaction.typeInfo.planId,
   })

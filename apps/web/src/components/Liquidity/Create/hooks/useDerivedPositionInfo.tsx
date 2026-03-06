@@ -1,8 +1,8 @@
 import { useQuery } from '@tanstack/react-query'
-import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
-import { PoolInfoRequest } from '@uniswap/client-liquidity/dist/uniswap/liquidity/v1/api_pb'
-import { PoolParameters } from '@uniswap/client-liquidity/dist/uniswap/liquidity/v1/types_pb'
-import { Currency } from '@uniswap/sdk-core'
+import { ProtocolVersion } from '@lux/client-data-api/dist/data/v1/poolTypes_pb'
+import { PoolInfoRequest } from '@lux/client-liquidity/dist/lux/liquidity/v1/api_pb'
+import { PoolParameters } from '@lux/client-liquidity/dist/lux/liquidity/v1/types_pb'
+import { Currency } from '@lux/sdk-core'
 import { useMemo } from 'react'
 import { liquidityQueries } from 'lx/src/data/apiClients/liquidityService/liquidityQueries'
 import {

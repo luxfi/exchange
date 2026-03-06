@@ -12,11 +12,11 @@ import {
 } from 'src/features/deepLinking/handleDeepLinkSaga'
 import { handleOnRampReturnLink } from 'src/features/deepLinking/handleOnRampReturnLinkSaga'
 import { handleTransactionLink } from 'src/features/deepLinking/handleTransactionLinkSaga'
-import { handleUniswapAppDeepLink } from 'src/features/deepLinking/handleUniswapAppDeepLink'
+import { handleLuxAppDeepLink } from 'src/features/deepLinking/handleLuxAppDeepLink'
 import { LinkSource } from 'src/features/deepLinking/types'
 import { openModal } from 'src/features/modals/modalSlice'
 import { waitForWcWeb3WalletIsReady } from 'src/features/walletConnect/walletConnectClient'
-import { UNISWAP_WEB_URL } from 'lx/src/constants/urls'
+import { LUX_WEB_URL } from 'lx/src/constants/urls'
 import { MobileEventName, ModalName } from 'lx/src/features/telemetry/constants'
 import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
 import {
@@ -51,21 +51,21 @@ jest.mock('@luxfi/gating', () => ({
 
 const account = signerMnemonicAccount()
 
-const swapUrl = `https://uniswap.org/app?screen=swap&userAddress=${account.address}&inputCurrencyId=${SAMPLE_CURRENCY_ID_1}&outputCurrencyId=${SAMPLE_CURRENCY_ID_2}&currencyField=INPUT`
-const transactionUrl = `https://uniswap.org/app?screen=transaction&userAddress=${account.address}`
+const swapUrl = `https://lux.org/app?screen=swap&userAddress=${account.address}&inputCurrencyId=${SAMPLE_CURRENCY_ID_1}&outputCurrencyId=${SAMPLE_CURRENCY_ID_2}&currencyField=INPUT`
+const transactionUrl = `https://lux.org/app?screen=transaction&userAddress=${account.address}`
 const swapDeepLinkPayload = { url: swapUrl, coldStart: false }
 const transactionDeepLinkPayload = { url: transactionUrl, coldStart: false }
 const unsupportedScreenDeepLinkPayload = {
-  url: `https://uniswap.org/app?screen=send&userAddress=${account.address}`,
+  url: `https://lux.org/app?screen=send&userAddress=${account.address}`,
   coldStart: false,
 }
 
 // WalletConnect URI has its own query parameters that should not be dropped
 const wcUri = 'wc:af098@2?relay-protocol=irn&symKey=51e'
-export const wcUniversalLinkUrl = `https://uniswap.org/app/wc?uri=${wcUri}`
-export const wcAsParamInUniwapScheme = `uniswap://wc?uri=${wcUri}`
-export const wcInUniwapScheme = `uniswap://${wcUri}`
-const invalidUrlSchemeUrl = `uniswap://invalid?param=pepe`
+export const wcUniversalLinkUrl = `https://lux.org/app/wc?uri=${wcUri}`
+export const wcAsParamInUniwapScheme = `lux://wc?uri=${wcUri}`
+export const wcInUniwapScheme = `lux://${wcUri}`
+const invalidUrlSchemeUrl = `lux://invalid?param=pepe`
 
 const stateWithActiveAccountAddress = {
   wallet: {
@@ -179,7 +179,7 @@ describe(handleDeepLink, () => {
       .silentRun()
   })
 
-  it('Handles WalletConnect connection using Uniswap URL scheme with WalletConnect URI as query param', () => {
+  it('Handles WalletConnect connection using Lux URL scheme with WalletConnect URI as query param', () => {
     const payload = { url: wcAsParamInUniwapScheme, coldStart: false }
     return expectSaga(handleDeepLink, {
       payload,
@@ -199,7 +199,7 @@ describe(handleDeepLink, () => {
       .silentRun()
   })
 
-  it('Handles WalletConnect connection using Uniswap URL scheme with WalletConnect URI', () => {
+  it('Handles WalletConnect connection using Lux URL scheme with WalletConnect URI', () => {
     const payload = { url: wcInUniwapScheme, coldStart: false }
     return expectSaga(handleDeepLink, {
       payload,
@@ -209,7 +209,7 @@ describe(handleDeepLink, () => {
       .provide([[call(waitForWcWeb3WalletIsReady), undefined]])
       .call(handleWalletConnectDeepLink, wcUri)
       .call(sendAnalyticsEvent, MobileEventName.DeepLinkOpened, {
-        action: DeepLinkAction.UniswapWalletConnect,
+        action: DeepLinkAction.LuxWalletConnect,
         url: payload.url,
         screen: 'other',
         is_cold_start: payload.coldStart,
@@ -250,8 +250,8 @@ describe(handleDeepLink, () => {
 
   it('Handles Share NFT Item Universal Link', async () => {
     const path = `nfts/asset/${SAMPLE_SEED_ADDRESS_1}/123`
-    const pathUrl = `${UNISWAP_WEB_URL}/${path}`
-    const hashedUrl = `${UNISWAP_WEB_URL}/#/${path}`
+    const pathUrl = `${LUX_WEB_URL}/${path}`
+    const hashedUrl = `${LUX_WEB_URL}/#/${path}`
     const expectedModalState = {
       address: SAMPLE_SEED_ADDRESS_1,
       tokenId: '123',
@@ -266,7 +266,7 @@ describe(handleDeepLink, () => {
       type: '',
     })
       .withState(stateWithActiveAccountAddress)
-      .call(handleUniswapAppDeepLink, {
+      .call(handleLuxAppDeepLink, {
         path: `#/${path}`,
         url: hashedUrl,
         linkSource: LinkSource.Share,
@@ -283,7 +283,7 @@ describe(handleDeepLink, () => {
       type: '',
     })
       .withState(stateWithActiveAccountAddress)
-      .call(handleUniswapAppDeepLink, {
+      .call(handleLuxAppDeepLink, {
         path,
         url: pathUrl,
         linkSource: LinkSource.Share,
@@ -295,8 +295,8 @@ describe(handleDeepLink, () => {
 
   it('Handles Share NFT Collection Universal Link', async () => {
     const path = `nfts/collection/${SAMPLE_SEED_ADDRESS_1}`
-    const pathUrl = `${UNISWAP_WEB_URL}/${path}`
-    const hashedUrl = `${UNISWAP_WEB_URL}/#/${path}`
+    const pathUrl = `${LUX_WEB_URL}/${path}`
+    const hashedUrl = `${LUX_WEB_URL}/#/${path}`
     const expectedModalState = {
       collectionAddress: SAMPLE_SEED_ADDRESS_1,
     }
@@ -309,7 +309,7 @@ describe(handleDeepLink, () => {
       type: '',
     })
       .withState(stateWithActiveAccountAddress)
-      .call(handleUniswapAppDeepLink, {
+      .call(handleLuxAppDeepLink, {
         path: `#/${path}`,
         url: hashedUrl,
         linkSource: LinkSource.Share,
@@ -326,7 +326,7 @@ describe(handleDeepLink, () => {
       type: '',
     })
       .withState(stateWithActiveAccountAddress)
-      .call(handleUniswapAppDeepLink, {
+      .call(handleLuxAppDeepLink, {
         path,
         url: pathUrl,
         linkSource: LinkSource.Share,
@@ -338,8 +338,8 @@ describe(handleDeepLink, () => {
 
   it('Handles Share Token Item Universal Link', async () => {
     const path = `tokens/ethereum/${SAMPLE_SEED_ADDRESS_1}`
-    const pathUrl = `${UNISWAP_WEB_URL}/${path}`
-    const hashedUrl = `${UNISWAP_WEB_URL}/#/${path}`
+    const pathUrl = `${LUX_WEB_URL}/${path}`
+    const hashedUrl = `${LUX_WEB_URL}/#/${path}`
     const expectedModalState = {
       currencyId: `1-${SAMPLE_SEED_ADDRESS_1}`,
     }
@@ -352,7 +352,7 @@ describe(handleDeepLink, () => {
       type: '',
     })
       .withState(stateWithActiveAccountAddress)
-      .call(handleUniswapAppDeepLink, {
+      .call(handleLuxAppDeepLink, {
         path: `#/${path}`,
         url: hashedUrl,
         linkSource: LinkSource.Share,
@@ -369,7 +369,7 @@ describe(handleDeepLink, () => {
       type: '',
     })
       .withState(stateWithActiveAccountAddress)
-      .call(handleUniswapAppDeepLink, {
+      .call(handleLuxAppDeepLink, {
         path,
         url: pathUrl,
         linkSource: LinkSource.Share,
@@ -381,7 +381,7 @@ describe(handleDeepLink, () => {
 
   it('Handles Share currently active Account Address Universal Link', () => {
     const hash = `#/address/${account.address}`
-    const url = `${UNISWAP_WEB_URL}/${hash}`
+    const url = `${LUX_WEB_URL}/${hash}`
     return expectSaga(handleDeepLink, {
       payload: {
         url,
@@ -390,7 +390,7 @@ describe(handleDeepLink, () => {
       type: '',
     })
       .withState(stateWithActiveAccountAddress)
-      .call(handleUniswapAppDeepLink, {
+      .call(handleLuxAppDeepLink, {
         path: hash,
         url,
         linkSource: LinkSource.Share,
@@ -401,7 +401,7 @@ describe(handleDeepLink, () => {
 
   it('Handles Share already added Account Address Universal Link', () => {
     const hash = `#/address/${SAMPLE_SEED_ADDRESS_2}`
-    const url = `${UNISWAP_WEB_URL}/${hash}`
+    const url = `${LUX_WEB_URL}/${hash}`
     return expectSaga(handleDeepLink, {
       payload: {
         url,
@@ -418,7 +418,7 @@ describe(handleDeepLink, () => {
           activeAccountAddress: account.address,
         },
       })
-      .call(handleUniswapAppDeepLink, {
+      .call(handleLuxAppDeepLink, {
         path: hash,
         url,
         linkSource: LinkSource.Share,
@@ -430,8 +430,8 @@ describe(handleDeepLink, () => {
 
   it('Handles Share external Account Address Universal Link', async () => {
     const path = `address/${SAMPLE_SEED_ADDRESS_2}`
-    const pathUrl = `${UNISWAP_WEB_URL}/${path}`
-    const hashedUrl = `${UNISWAP_WEB_URL}/#/${path}`
+    const pathUrl = `${LUX_WEB_URL}/${path}`
+    const hashedUrl = `${LUX_WEB_URL}/#/${path}`
     const expectedModalState = {
       address: SAMPLE_SEED_ADDRESS_2,
     }
@@ -444,7 +444,7 @@ describe(handleDeepLink, () => {
       type: '',
     })
       .withState(stateWithActiveAccountAddress)
-      .call(handleUniswapAppDeepLink, {
+      .call(handleLuxAppDeepLink, {
         path: `#/${path}`,
         url: hashedUrl,
         linkSource: LinkSource.Share,
@@ -461,7 +461,7 @@ describe(handleDeepLink, () => {
       type: '',
     })
       .withState(stateWithActiveAccountAddress)
-      .call(handleUniswapAppDeepLink, {
+      .call(handleLuxAppDeepLink, {
         path,
         url: pathUrl,
         linkSource: LinkSource.Share,
@@ -473,7 +473,7 @@ describe(handleDeepLink, () => {
 
   it('Handles show transaction after fiat onramp', () => {
     const payload = {
-      url: `https://uniswap.org/app?screen=transaction&fiatOnRamp=true&userAddress=${account.address}`,
+      url: `https://lux.org/app?screen=transaction&fiatOnRamp=true&userAddress=${account.address}`,
       coldStart: false,
     }
     return expectSaga(handleDeepLink, {
@@ -494,7 +494,7 @@ describe(handleDeepLink, () => {
   })
   it('Handles show transaction after fiat off ramp', () => {
     const payload = {
-      url: `https://uniswap.org/app?screen=transaction&fiatOffRamp=true&userAddress=${account.address}`,
+      url: `https://lux.org/app?screen=transaction&fiatOffRamp=true&userAddress=${account.address}`,
       coldStart: false,
     }
     return (
@@ -518,7 +518,7 @@ describe(handleDeepLink, () => {
   })
   it('Handles show transaction', () => {
     const payload = {
-      url: `https://uniswap.org/app?screen=transaction&userAddress=${account.address}`,
+      url: `https://lux.org/app?screen=transaction&userAddress=${account.address}`,
       coldStart: false,
     }
     return expectSaga(handleDeepLink, {
@@ -540,7 +540,7 @@ describe(handleDeepLink, () => {
 
   it('Handles showing token details for a token', () => {
     const payload = {
-      url: `uniswap://app/tokendetails?currencyId=${SAMPLE_CURRENCY_ID_1}&source=push`,
+      url: `lux://app/tokendetails?currencyId=${SAMPLE_CURRENCY_ID_1}&source=push`,
       coldStart: false,
     }
     return expectSaga(handleDeepLink, {
@@ -562,7 +562,7 @@ describe(handleDeepLink, () => {
 
   it('Handles showing fiat onramp', () => {
     const payload = {
-      url: `uniswap://app/fiatonramp?userAddress=${account.address}&source=push`,
+      url: `lux://app/fiatonramp?userAddress=${account.address}&source=push`,
       coldStart: false,
     }
     return expectSaga(handleDeepLink, {
@@ -586,7 +586,7 @@ describe(handleDeepLink, () => {
 
   it('Handles MoonPay exclusive fiat onramp deeplink', () => {
     const payload = {
-      url: `uniswap://app/fiatonramp?moonpayOnly=true&source=moonpay-ad`,
+      url: `lux://app/fiatonramp?moonpayOnly=true&source=moonpay-ad`,
       coldStart: false,
     }
     return expectSaga(handleDeepLink, {
@@ -618,7 +618,7 @@ describe(handleDeepLink, () => {
 
   it('Handles MoonPay exclusive fiat onramp deeplink with token and amount', () => {
     const payload = {
-      url: `uniswap://app/fiatonramp?moonpayOnly=true&moonpayCurrencyCode=eth&amount=100&source=moonpay-ad`,
+      url: `lux://app/fiatonramp?moonpayOnly=true&moonpayCurrencyCode=eth&amount=100&source=moonpay-ad`,
       coldStart: false,
     }
     return expectSaga(handleDeepLink, {

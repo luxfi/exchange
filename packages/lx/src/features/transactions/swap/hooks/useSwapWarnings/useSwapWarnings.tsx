@@ -3,7 +3,7 @@ import isEqual from 'lodash/isEqual'
 import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import type { ParsedWarnings, Warning } from 'lx/src/components/modals/WarningModal/types'
-import { useUniswapContext } from 'lx/src/contexts/UniswapContext'
+import { useLuxContext } from 'lx/src/contexts/LuxContext'
 import { useActiveAddress } from 'lx/src/features/accounts/store/hooks'
 import { useTransactionGasWarning } from 'lx/src/features/gas/hooks'
 import type { LocalizationContextState } from 'lx/src/features/language/LocalizationContext'
@@ -105,7 +105,7 @@ function useParsedSwapFormWarnings(): ParsedWarnings {
   const swapWarnings = useSwapWarnings(derivedSwapInfo)
 
   // Check if current wallet can pay gas fees in any token
-  const { getCanPayGasInAnyToken } = useUniswapContext()
+  const { getCanPayGasInAnyToken } = useLuxContext()
   const skipGasCheck = getCanPayGasInAnyToken?.()
 
   const gasWarning = useTransactionGasWarning({

@@ -21,8 +21,8 @@ export function DownloadHeader({ showOnMobile = true, showOnDesktop = true }: Do
   const recentConnectorId = useRecentConnectorId()
 
   const shouldShow =
-    !wallets.some((wallet) => wallet.id === CONNECTION_PROVIDER_IDS.UNISWAP_EXTENSION_RDNS) &&
-    recentConnectorId !== CONNECTION_PROVIDER_IDS.UNISWAP_WALLET_CONNECT_CONNECTOR_ID
+    !wallets.some((wallet) => wallet.id === CONNECTION_PROVIDER_IDS.LUX_EXTENSION_RDNS) &&
+    recentConnectorId !== CONNECTION_PROVIDER_IDS.LUX_WALLET_CONNECT_CONNECTOR_ID
 
   const handleOpenGetTheAppModal = useEvent(() => {
     openGetTheAppModal()

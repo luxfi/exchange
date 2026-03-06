@@ -27,10 +27,10 @@ function _AddressWithAvatar({ address, showAvatar = true }: AddressWithAvatarPro
   const { data: ENSName } = useENSName(address)
 
   // Use context Unitag if available, otherwise fallback to individual query result
-  const uniswapUsername = contextUnitag ?? unitag?.username
+  const luxUsername = contextUnitag ?? unitag?.username
 
-  const displayName = uniswapUsername ?? ENSName ?? shortenAddress({ address })
-  const hasUnitag = Boolean(uniswapUsername)
+  const displayName = luxUsername ?? ENSName ?? shortenAddress({ address })
+  const hasUnitag = Boolean(luxUsername)
 
   return (
     <Flex row alignItems="center" gap="$gap8">

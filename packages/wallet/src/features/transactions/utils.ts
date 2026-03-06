@@ -1,4 +1,4 @@
-import { Currency } from '@uniswap/sdk-core'
+import { Currency } from '@lux/sdk-core'
 import { BigNumber, providers } from 'ethers'
 import { formatEther } from 'ethers/lib/utils'
 import { getChainInfo } from 'lx/src/features/chains/chainInfo'
@@ -251,7 +251,7 @@ export function processTransactionReceipt<T extends TransactionDetails>(params: 
       return { ...transaction, sendConfirmed: true, networkFee }
     }
   } else if (isClassic(transaction)) {
-    // Classic transaction status is based on receipt, while UniswapX status is based backend response and shouldn't be updated here
+    // Classic transaction status is based on receipt, while DEX status is based backend response and shouldn't be updated here
     status = getFinalizedTransactionStatus(transaction.status, ethersReceipt.status)
   }
 

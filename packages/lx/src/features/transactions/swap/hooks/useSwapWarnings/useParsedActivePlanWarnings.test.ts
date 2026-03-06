@@ -1,4 +1,4 @@
-import { CurrencyAmount, NativeCurrency } from '@uniswap/sdk-core'
+import { CurrencyAmount, NativeCurrency } from '@lux/sdk-core'
 import { TradingApi } from '@universe/api'
 import { WarningLabel } from 'lx/src/components/modals/WarningModal/types'
 import { nativeOnChain } from 'lx/src/constants/tokens'

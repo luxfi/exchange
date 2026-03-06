@@ -16,7 +16,7 @@ import { ContextMenuTriggerMode } from 'lx/src/components/menus/types'
 import {
   useTokenBasicInfoPartsFragment,
   useTokenBasicProjectPartsFragment,
-} from 'lx/src/data/graphql/uniswap-data-api/fragments'
+} from 'lx/src/data/graphql/lux-data-api/fragments'
 import { fromGraphQLChain } from 'lx/src/features/chains/utils'
 import { TokenList } from 'lx/src/features/dataApi/types'
 import {

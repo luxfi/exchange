@@ -1,4 +1,4 @@
-import { Currency } from '@uniswap/sdk-core'
+import { Currency } from '@lux/sdk-core'
 import { memo } from 'react'
 import { Modal } from 'lx/src/components/modals/Modal'
 import {

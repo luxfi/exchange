@@ -1,5 +1,5 @@
-import { Percent, TradeType } from '@uniswap/sdk-core'
-import { Route } from '@uniswap/v3-sdk'
+import { Percent, TradeType } from '@lux/sdk-core'
+import { Route } from '@lux/v3-sdk'
 import { ClassicTrade, QuoteMethod } from '~/state/routing/types'
 import {
   TEST_POOL_13,

@@ -1,10 +1,10 @@
 /* eslint-env node */
-require('@uniswap/eslint-config/load')
+require('@lux/eslint-config/load')
 
 module.exports = {
   root: true,
   ignorePatterns: ['scripts/build-vercel.ts'],
-  extends: ['@uniswap/eslint-config/interface', 'plugin:storybook/recommended'],
+  extends: ['@lux/eslint-config/interface', 'plugin:storybook/recommended'],
   parserOptions: {
     project: 'tsconfig.eslint.json',
     tsconfigRootDir: __dirname,
@@ -178,7 +178,7 @@ module.exports = {
           {
             selector: 'CallExpression[callee.property.name="getByTestId"] > Literal',
             message:
-              'Use TestID enum from uniswap/src/test/fixtures/testIDs instead of string literals with getByTestId (e.g. TestID.SwapSettings)',
+              'Use TestID enum from lux/src/test/fixtures/testIDs instead of string literals with getByTestId (e.g. TestID.SwapSettings)',
           },
         ],
       },

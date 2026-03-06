@@ -11,7 +11,7 @@ import { getAuctionMetadata } from '~/components/Toucan/Config/config'
  * Hook to fetch auction token information (the token being auctioned off)
  * Derives symbol, name, decimals, and logoUrl from tokenAddress and chainId
  *
- * First attempts to fetch from Uniswap's GraphQL API, then falls back to on-chain
+ * First attempts to fetch from Lux's GraphQL API, then falls back to on-chain
  * RPC calls if the token is not indexed (common for testnet tokens).
  *
  * @param tokenAddress - The address of the auction token

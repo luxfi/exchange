@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next'
 import { TransactionDetailsTooltip as Tooltip } from 'lx/src/components/TransactionDetailsTooltip'
-import { uniswapUrls } from 'lx/src/constants/urls'
+import { luxUrls } from 'lx/src/constants/urls'
 
 export function LargePriceDifferenceTooltip(): JSX.Element {
   const { t } = useTranslation()
@@ -10,7 +10,7 @@ export function LargePriceDifferenceTooltip(): JSX.Element {
       <Tooltip.Header title={{ title: t('large.price.difference') }} />
       <Tooltip.Description
         text={t('large.price.difference.tooltip')}
-        learnMoreUrl={uniswapUrls.helpArticleUrls.priceImpact}
+        learnMoreUrl={luxUrls.helpArticleUrls.priceImpact}
       />
     </Tooltip.Outer>
   )

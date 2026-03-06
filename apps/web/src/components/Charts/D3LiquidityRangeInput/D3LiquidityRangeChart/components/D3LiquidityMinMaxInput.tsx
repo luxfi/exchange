@@ -1,5 +1,5 @@
-import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
-import { Token } from '@uniswap/sdk-core'
+import { ProtocolVersion } from '@lux/client-data-api/dist/data/v1/poolTypes_pb'
+import { Token } from '@lux/sdk-core'
 import { useCallback, useMemo, useState } from 'react'
 import { Flex } from 'ui/src'
 import { DEFAULT_TICK_SPACING } from 'lx/src/constants/pools'

@@ -125,7 +125,7 @@ export function getPollingIntervalByBlocktime(chainId?: UniverseChainId): Pollin
   return isMainnetChainId(chainId) ? PollingInterval.Fast : PollingInterval.LightningMcQueen
 }
 
-export function fromUniswapWebAppLink(network: string | null): UniverseChainId {
+export function fromLuxWebAppLink(network: string | null): UniverseChainId {
   switch (network) {
     case GraphQLApi.Chain.Ethereum.toLowerCase():
       return UniverseChainId.Mainnet
@@ -169,7 +169,7 @@ export function fromUniswapWebAppLink(network: string | null): UniverseChainId {
   }
 }
 
-export function toUniswapWebAppLink(chainId: UniverseChainId): string | null {
+export function toLuxWebAppLink(chainId: UniverseChainId): string | null {
   switch (chainId) {
     case UniverseChainId.Mainnet:
       return GraphQLApi.Chain.Ethereum.toLowerCase()

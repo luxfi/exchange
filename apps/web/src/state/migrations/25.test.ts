@@ -1,5 +1,5 @@
 import { Language } from 'lx/src/features/language/constants'
-import { testRemoveTHBFromCurrency } from 'lx/src/state/uniswapMigrationTests'
+import { testRemoveTHBFromCurrency } from 'lx/src/state/luxMigrationTests'
 import { migration25 } from '~/state/migrations/25'
 
 const previousState = {

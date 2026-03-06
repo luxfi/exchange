@@ -16,7 +16,7 @@ import { MultichainExplorerList } from 'lx/src/components/MultichainTokenDetails
 import type { MultichainTokenEntry } from 'lx/src/components/MultichainTokenDetails/useOrderedMultichainEntries'
 import { useOrderedMultichainEntries } from 'lx/src/components/MultichainTokenDetails/useOrderedMultichainEntries'
 import { Modal } from 'lx/src/components/modals/Modal'
-import { useTokenProjectUrlsPartsFragment } from 'lx/src/data/graphql/uniswap-data-api/fragments'
+import { useTokenProjectUrlsPartsFragment } from 'lx/src/data/graphql/lux-data-api/fragments'
 import { getChainInfo } from 'lx/src/features/chains/chainInfo'
 import { fromGraphQLChain } from 'lx/src/features/chains/utils'
 import { currencyIdToContractInput } from 'lx/src/features/dataApi/utils/currencyIdToContractInput'

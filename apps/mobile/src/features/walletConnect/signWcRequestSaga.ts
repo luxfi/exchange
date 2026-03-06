@@ -69,7 +69,7 @@ function* signWcRequest(params: SignMessageParams | SignTransactionParams) {
       // TODO: add `isCheckIn` type to uwulink request info so that this can be generalized
       if (
         params.dappRequestInfo.requestType === DappRequestType.UwULink &&
-        params.dappRequestInfo.name === 'Uniswap Cafe'
+        params.dappRequestInfo.name === 'Lux Cafe'
       ) {
         yield* put(
           pushNotification({

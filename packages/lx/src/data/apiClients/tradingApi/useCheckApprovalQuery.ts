@@ -4,7 +4,7 @@ import {
   type UseQueryWithImmediateGarbageCollectionApiHelperHookArgs,
   useQueryWithImmediateGarbageCollection,
 } from '@luxfi/api'
-import { uniswapUrls } from 'lx/src/constants/urls'
+import { luxUrls } from 'lx/src/constants/urls'
 import { TradingApiClient } from 'lx/src/data/apiClients/tradingApi/TradingApiClient'
 import { ReactQueryCacheKey } from 'utilities/src/reactQuery/cache'
 
@@ -15,7 +15,7 @@ export function useCheckApprovalQuery({
   TradingApi.ApprovalRequest,
   TradingApi.ApprovalResponse
 >): UseQueryResult<TradingApi.ApprovalResponse> {
-  const queryKey = [ReactQueryCacheKey.TradingApi, uniswapUrls.tradingApiPaths.approval, params]
+  const queryKey = [ReactQueryCacheKey.TradingApi, luxUrls.tradingApiPaths.approval, params]
 
   return useQueryWithImmediateGarbageCollection<TradingApi.ApprovalResponse>({
     queryKey,

@@ -48,8 +48,8 @@ declare global {
       STATSIG_PROXY_URL_OVERRIDE?: string
       TRADING_API_KEY?: string
       TRADING_API_URL_OVERRIDE?: string
-      UNISWAP_API_KEY?: string
-      UNISWAP_NOTIF_API_BASE_URL_OVERRIDE?: string
+      LUX_API_KEY?: string
+      LUX_NOTIF_API_BASE_URL_OVERRIDE?: string
       UNITAGS_API_URL_OVERRIDE?: string
       VERSION?: string
       VERCEL?: string

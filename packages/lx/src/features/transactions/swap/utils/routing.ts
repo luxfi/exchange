@@ -1,22 +1,22 @@
-import { ADDRESS_ZERO } from '@uniswap/v3-sdk'
+import { ADDRESS_ZERO } from '@lux/v3-sdk'
 import type { ChainedQuoteResponse } from '@universe/api'
 import { TradingApi } from '@universe/api'
 import { UnexpectedTransactionStateError } from 'lx/src/features/transactions/errors'
 import { type SwapTxAndGasInfo } from 'lx/src/features/transactions/swap/types/swapTxAndGasInfo'
 import { type ValidatedTransactionRequest } from 'lx/src/features/transactions/types/transactionRequests'
 
-export const UNISWAPX_ROUTING_VARIANTS = [
+export const LUXX_ROUTING_VARIANTS = [
   TradingApi.Routing.DUTCH_V2,
   TradingApi.Routing.DUTCH_V3,
   TradingApi.Routing.DUTCH_LIMIT,
   TradingApi.Routing.PRIORITY,
 ] as const
-type UniswapXRouting = (typeof UNISWAPX_ROUTING_VARIANTS)[number]
+type DEXRouting = (typeof LUXX_ROUTING_VARIANTS)[number]
 
-export function isUniswapX<T extends { routing: TradingApi.Routing }>(
+export function isDEX<T extends { routing: TradingApi.Routing }>(
   obj: T,
-): obj is Extract<T, { routing: UniswapXRouting }> {
-  return UNISWAPX_ROUTING_VARIANTS.includes(obj.routing as UniswapXRouting)
+): obj is Extract<T, { routing: DEXRouting }> {
+  return LUXX_ROUTING_VARIANTS.includes(obj.routing as DEXRouting)
 }
 
 export function isClassic<T extends { routing: TradingApi.Routing }>(
@@ -77,7 +77,7 @@ export function isMultiChainGasQuote(quote: { routing: TradingApi.Routing } | un
 
 // Returns the first EVM txRequest in a SwapTxAndGasInfo object if it exists, otherwise undefined
 export function getEVMTxRequest(swapTxContext: SwapTxAndGasInfo): ValidatedTransactionRequest | undefined {
-  if (isJupiter(swapTxContext) || isUniswapX(swapTxContext)) {
+  if (isJupiter(swapTxContext) || isDEX(swapTxContext)) {
     return undefined
   }
   return swapTxContext.txRequests?.[0]

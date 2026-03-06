@@ -1,5 +1,5 @@
-import { OriginApplication } from '@uniswap/analytics'
-import { uniswapUrls } from 'lx/src/constants/urls'
+import { OriginApplication } from '@lux/analytics'
+import { luxUrls } from 'lx/src/constants/urls'
 import { isTestEnv } from 'utilities/src/environment/env'
 import { logger } from 'utilities/src/logger/logger'
 import { ApplicationTransport } from 'utilities/src/telemetry/analytics/ApplicationTransport'
@@ -22,7 +22,7 @@ export function setupAmplitude() {
   getAnalyticsAtomDirect(true).then((allowAnalytics) => {
     analytics.init({
       transportProvider: new ApplicationTransport({
-        serverUrl: uniswapUrls.amplitudeProxyUrl,
+        serverUrl: luxUrls.amplitudeProxyUrl,
         appOrigin: OriginApplication.INTERFACE,
         reportOriginCountry: (country: string) => store.dispatch(setOriginCountry(country)),
       }),

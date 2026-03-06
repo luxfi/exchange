@@ -2,9 +2,9 @@ import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { LayerGroup } from 'ui/src/components/icons/LayerGroup'
 import { Unichain } from 'ui/src/components/icons/Unichain'
-import { UniswapLogo } from 'ui/src/components/icons/UniswapLogo'
-import { UniswapXGeneric } from 'ui/src/components/icons/UniswapXGeneric'
-import { uniswapUrls } from 'lx/src/constants/urls'
+import { LuxLogo } from 'ui/src/components/icons/LuxLogo'
+import { DEXGeneric } from 'ui/src/components/icons/DEXGeneric'
+import { luxUrls } from 'lx/src/constants/urls'
 import { ElementName } from 'lx/src/features/telemetry/constants'
 
 export interface MenuItem {
@@ -32,8 +32,8 @@ export enum MenuSectionTitle {
 }
 
 const MENU_ICONS = {
-  wallet: <UniswapLogo size="$icon.20" color="$accent1" />,
-  uniswapX: <UniswapXGeneric size="$icon.20" color="$accent1" />,
+  wallet: <LuxLogo size="$icon.20" color="$accent1" />,
+  dex: <DEXGeneric size="$icon.20" color="$accent1" />,
   tradingApi: <LayerGroup size="$icon.20" color="$accent1" />,
   unichain: <Unichain size="$icon.20" color="$accent1" />,
 } as const
@@ -51,28 +51,28 @@ export const useMenuContent = (args?: {
         items: [
           {
             label: t('common.wallet.label'),
-            href: uniswapUrls.downloadWalletUrl,
+            href: luxUrls.downloadWalletUrl,
             icon: MENU_ICONS.wallet,
             body: t('nav.products.wallet'),
             elementName: ElementName.NavbarCompanyMenuWallet,
           },
           {
-            label: t('common.uniswapX'),
-            href: uniswapUrls.uniswapXUrl,
-            icon: MENU_ICONS.uniswapX,
-            body: t('nav.products.uniswapX'),
-            elementName: ElementName.NavbarCompanyMenuUniswapX,
+            label: t('common.dex'),
+            href: luxUrls.dexUrl,
+            icon: MENU_ICONS.dex,
+            body: t('nav.products.dex'),
+            elementName: ElementName.NavbarCompanyMenuDEX,
           },
           {
             label: t('landing.api'),
-            href: uniswapUrls.tradingApiDocsUrl,
+            href: luxUrls.tradingApiDocsUrl,
             icon: MENU_ICONS.tradingApi,
             body: t('nav.products.tradingApi'),
             elementName: ElementName.NavbarCompanyMenuTradingApi,
           },
           {
             label: t('common.unichain'),
-            href: uniswapUrls.unichainUrl,
+            href: luxUrls.unichainUrl,
             icon: MENU_ICONS.unichain,
             body: t('nav.products.unichain'),
             elementName: ElementName.NavbarCompanyMenuUnichain,
@@ -82,15 +82,15 @@ export const useMenuContent = (args?: {
       [MenuSectionTitle.Protocol]: {
         title: t('common.protocol'),
         items: [
-          { label: t('common.vote'), href: uniswapUrls.voteUrl, elementName: ElementName.NavbarCompanyMenuVote },
+          { label: t('common.vote'), href: luxUrls.voteUrl, elementName: ElementName.NavbarCompanyMenuVote },
           {
             label: t('common.governance'),
-            href: uniswapUrls.governanceUrl,
+            href: luxUrls.governanceUrl,
             elementName: ElementName.NavbarCompanyMenuGovernance,
           },
           {
             label: t('common.developers'),
-            href: uniswapUrls.developersUrl,
+            href: luxUrls.developersUrl,
             elementName: ElementName.NavbarCompanyMenuDevelopers,
           },
         ],
@@ -98,13 +98,13 @@ export const useMenuContent = (args?: {
       [MenuSectionTitle.Company]: {
         title: t('common.company'),
         items: [
-          { label: t('common.about'), href: uniswapUrls.aboutUrl, elementName: ElementName.NavbarCompanyMenuAbout },
+          { label: t('common.about'), href: luxUrls.aboutUrl, elementName: ElementName.NavbarCompanyMenuAbout },
           {
             label: t('common.careers'),
-            href: uniswapUrls.careersUrl,
+            href: luxUrls.careersUrl,
             elementName: ElementName.NavbarCompanyMenuCareers,
           },
-          { label: t('common.blog'), href: uniswapUrls.blogUrl, elementName: ElementName.NavbarCompanyMenuBlog },
+          { label: t('common.blog'), href: luxUrls.blogUrl, elementName: ElementName.NavbarCompanyMenuBlog },
         ],
       },
       [MenuSectionTitle.NeedHelp]: {
@@ -112,12 +112,12 @@ export const useMenuContent = (args?: {
         items: [
           {
             label: t('common.helpCenter'),
-            href: uniswapUrls.helpCenterUrl,
+            href: luxUrls.helpCenterUrl,
             elementName: ElementName.NavbarCompanyMenuHelpCenter,
           },
           {
             label: t('common.contactUs.button'),
-            href: uniswapUrls.helpRequestUrl,
+            href: luxUrls.helpRequestUrl,
             elementName: ElementName.NavbarCompanyMenuContactUs,
           },
         ],

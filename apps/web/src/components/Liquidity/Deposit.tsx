@@ -1,9 +1,9 @@
-import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
+import { ProtocolVersion } from '@lux/client-data-api/dist/data/v1/poolTypes_pb'
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { Trans, useTranslation } from 'react-i18next'
 import { Button, Flex, Text } from 'ui/src'
 import { WarningSeverity } from 'lx/src/components/modals/WarningModal/types'
-import { useUniswapContext } from 'lx/src/contexts/UniswapContext'
+import { useLuxContext } from 'lx/src/contexts/LuxContext'
 import { Platform } from 'lx/src/features/platforms/types/Platform'
 import { ErrorCallout } from '~/components/ErrorCallout'
 import { useDefaultInitialPrice } from '~/components/Liquidity/Create/hooks/useDefaultInitialPrice'
@@ -32,7 +32,7 @@ export const DepositStep = () => {
   } = useCreateLiquidityContext()
 
   const { t } = useTranslation()
-  const { onConnectWallet } = useUniswapContext()
+  const { onConnectWallet } = useLuxContext()
   const account = useAccount()
   const [isReviewModalOpen, setIsReviewModalOpen] = useState(false)
   const [isConfirmModalOpen, setIsConfirmModalOpen] = useState(false)

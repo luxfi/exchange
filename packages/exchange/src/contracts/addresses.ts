@@ -46,7 +46,7 @@ export const LUX_TESTNET_CONTRACTS = {
 } as const
 
 /**
- * DEX Precompile addresses (native AMM - Uniswap v4 style singleton PoolManager)
+ * DEX Precompile addresses (native AMM - Lux v4 style singleton PoolManager)
  * These provide sub-microsecond execution via native Go implementation
  *
  * Address format: 0x0000...00LPNUMBER (addresses end with LP number)
@@ -57,7 +57,7 @@ export const LUX_TESTNET_CONTRACTS = {
  * @see ~/work/lux/dex/pkg/gateway/lux/provider.go for gateway implementation
  */
 export const DEX_PRECOMPILES = {
-  // Core DEX (LP-9010 series - Uniswap v4 style)
+  // Core DEX (LP-9010 series - Lux v4 style)
   POOL_MANAGER: '0x0000000000000000000000000000000000009010' as Address,   // LP-9010
   SWAP_ROUTER: '0x0000000000000000000000000000000000009012' as Address,    // LP-9012
   HOOKS_REGISTRY: '0x0000000000000000000000000000000000009013' as Address, // LP-9013

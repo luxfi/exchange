@@ -2,7 +2,7 @@ import { BigNumberish } from '@ethersproject/bignumber'
 import { useMemo } from 'react'
 import { useActiveAddresses } from 'lx/src/features/accounts/store/hooks'
 import { usePendingTransactions } from 'lx/src/features/transactions/hooks/usePendingTransactions'
-import { isChained, isClassic, isUniswapX } from 'lx/src/features/transactions/swap/utils/routing'
+import { isChained, isClassic, isDEX } from 'lx/src/features/transactions/swap/utils/routing'
 import { TransactionDetails } from 'lx/src/features/transactions/types/transactionDetails'
 
 function useLowestPendingNonce(): BigNumberish | undefined {
@@ -35,7 +35,7 @@ function useLowestPendingNonce(): BigNumberish | undefined {
 export function useIsQueuedTransaction(tx: TransactionDetails): boolean {
   const lowestPendingNonce = useLowestPendingNonce()
 
-  if (isUniswapX(tx) || isChained(tx)) {
+  if (isDEX(tx) || isChained(tx)) {
     return false
   }
 

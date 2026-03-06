@@ -20,7 +20,7 @@ export function createPriceSubscriptionHandler(
 
   async function subscribe(connectionId: string, params: TokenSubscriptionParams): Promise<void> {
     try {
-      await client.post('/uniswap.notificationservice.v1.EventSubscriptionService/Subscribe', {
+      await client.post('/lux.notificationservice.v1.EventSubscriptionService/Subscribe', {
         body: JSON.stringify({
           eventSubscriptionType: EVENT_SUBSCRIPTION_TYPE_TOKEN_PRICE,
           connectionId,
@@ -34,7 +34,7 @@ export function createPriceSubscriptionHandler(
 
   async function unsubscribe(connectionId: string, params: TokenSubscriptionParams): Promise<void> {
     try {
-      await client.post('/uniswap.notificationservice.v1.EventSubscriptionService/Unsubscribe', {
+      await client.post('/lux.notificationservice.v1.EventSubscriptionService/Unsubscribe', {
         body: JSON.stringify({
           eventSubscriptionType: EVENT_SUBSCRIPTION_TYPE_TOKEN_PRICE,
           connectionId,
@@ -52,7 +52,7 @@ export function createPriceSubscriptionHandler(
     }
 
     try {
-      await client.post('/uniswap.notificationservice.v1.EventSubscriptionService/Subscribe', {
+      await client.post('/lux.notificationservice.v1.EventSubscriptionService/Subscribe', {
         body: JSON.stringify({
           eventSubscriptionType: EVENT_SUBSCRIPTION_TYPE_TOKEN_PRICE,
           connectionId,
@@ -70,7 +70,7 @@ export function createPriceSubscriptionHandler(
     }
 
     try {
-      await client.post('/uniswap.notificationservice.v1.EventSubscriptionService/Unsubscribe', {
+      await client.post('/lux.notificationservice.v1.EventSubscriptionService/Unsubscribe', {
         body: JSON.stringify({
           eventSubscriptionType: EVENT_SUBSCRIPTION_TYPE_TOKEN_PRICE,
           connectionId,
@@ -84,7 +84,7 @@ export function createPriceSubscriptionHandler(
 
   async function refreshSession(connectionId: string): Promise<void> {
     try {
-      await client.post('/uniswap.notificationservice.v1.EventSubscriptionService/RefreshSession', {
+      await client.post('/lux.notificationservice.v1.EventSubscriptionService/RefreshSession', {
         body: JSON.stringify({
           eventSubscriptionType: EVENT_SUBSCRIPTION_TYPE_TOKEN_PRICE,
           connectionId,

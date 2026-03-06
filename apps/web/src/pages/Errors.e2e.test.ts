@@ -1,5 +1,5 @@
 import { USDC_MAINNET } from 'lx/src/constants/tokens'
-import { uniswapUrls } from 'lx/src/constants/urls'
+import { luxUrls } from 'lx/src/constants/urls'
 import { TestID } from 'lx/src/test/fixtures/testIDs'
 import { expect, getTest } from '~/playwright/fixtures'
 
@@ -19,7 +19,7 @@ test.describe(
       await page.goto(`/swap?inputCurrency=ETH&outputCurrency=${USDC_MAINNET.address}`)
 
       // The API response is too variable so stubbing a 404.
-      await page.route(`${uniswapUrls.tradingApiUrl}/v1/quote`, async (route) => {
+      await page.route(`${luxUrls.tradingApiUrl}/v1/quote`, async (route) => {
         await route.fulfill({
           status: 404,
           body: JSON.stringify({

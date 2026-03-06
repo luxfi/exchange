@@ -1,7 +1,7 @@
 import type { UniverseChainId } from 'lx/src/features/chains/types'
 import type {
-  TransactionDetails as UniswapTransactionDetails,
-  WrapTransactionInfo as UniswapWrapTransactionInfo,
+  TransactionDetails as LuxTransactionDetails,
+  WrapTransactionInfo as LuxWrapTransactionInfo,
 } from 'lx/src/features/transactions/types/transactionDetails'
 import { TransactionType } from 'lx/src/features/transactions/types/transactionDetails'
 import type { TransactionInfo } from '~/state/transactions/types'
@@ -19,21 +19,21 @@ const createUniverseSwapTransaction = ({
       inputCurrencyId,
       outputCurrencyId,
     },
-  } as UniswapTransactionDetails
+  } as LuxTransactionDetails
 }
 
-const createUniverseWrapTransaction = (info: UniswapWrapTransactionInfo) => {
+const createUniverseWrapTransaction = (info: LuxWrapTransactionInfo) => {
   return {
     typeInfo: {
       type: TransactionType.Wrap,
       unwrapped: info.unwrapped,
       currencyAmountRaw: info.currencyAmountRaw,
-    } satisfies UniswapWrapTransactionInfo,
-  } as UniswapTransactionDetails
+    } satisfies LuxWrapTransactionInfo,
+  } as LuxTransactionDetails
 }
 
-const createUniverseTransactionFromInfo = (typeInfo: TransactionInfo): UniswapTransactionDetails =>
-  ({ typeInfo }) as UniswapTransactionDetails
+const createUniverseTransactionFromInfo = (typeInfo: TransactionInfo): LuxTransactionDetails =>
+  ({ typeInfo }) as LuxTransactionDetails
 
 // Maps a web transaction object to a universe transaction object if we can.
 // Currently web and universe transaction types are similar but still different.
@@ -50,12 +50,12 @@ export const createUniverseTransaction = ({
   chainId: UniverseChainId
   address: string
 }) => {
-  const baseTransaction: Partial<UniswapTransactionDetails> = {
+  const baseTransaction: Partial<LuxTransactionDetails> = {
     chainId,
     from: address,
   }
 
-  let transaction: UniswapTransactionDetails | undefined
+  let transaction: LuxTransactionDetails | undefined
 
   switch (info.type) {
     case TransactionType.Swap:
@@ -103,7 +103,7 @@ export const createUniverseTransaction = ({
     case TransactionType.AuctionClaimed:
     case TransactionType.AuctionExited:
     case TransactionType.Permit2Approve:
-      return { ...baseTransaction, ...info } as UniswapTransactionDetails
+      return { ...baseTransaction, ...info } as LuxTransactionDetails
     // NFT and other transaction types that don't need special mapping
     case TransactionType.Receive:
     case TransactionType.NFTTrade:
@@ -119,12 +119,12 @@ export const createUniverseTransaction = ({
     case TransactionType.SendCalls:
     case TransactionType.RemoveDelegation:
     case TransactionType.Withdraw:
-      return { ...baseTransaction, ...info } as UniswapTransactionDetails
+      return { ...baseTransaction, ...info } as LuxTransactionDetails
     default:
       assertUnreachable(info)
   }
 
-  return { ...baseTransaction, ...transaction } satisfies UniswapTransactionDetails
+  return { ...baseTransaction, ...transaction } satisfies LuxTransactionDetails
 }
 
 function assertUnreachable(x: never): never {

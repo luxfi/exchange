@@ -17,7 +17,7 @@ const DEVTOOL_TRIGGER = 'logAccountsStore'
 export function AccountsStoreDevTool(): JSX.Element | null {
   return (
     <DevToolGate toolTrigger={DEVTOOL_TRIGGER}>
-      <UniswapAccountsStoreDevToolLogger />
+      <LuxAccountsStoreDevToolLogger />
     </DevToolGate>
   )
 }
@@ -43,7 +43,7 @@ function DevToolGate({ children, toolTrigger }: PropsWithChildren<{ toolTrigger:
   return log ? <>{children}</> : null
 }
 
-function UniswapAccountsStoreDevToolLogger() {
+function LuxAccountsStoreDevToolLogger() {
   const wallet = useActiveWallet(Platform.EVM)
   const evmConnector = useActiveConnector(Platform.EVM)
   const svmConnector = useActiveConnector(Platform.SVM)

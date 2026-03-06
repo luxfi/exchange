@@ -2,12 +2,12 @@
  * Lux Gateway Client
  *
  * Routes quote requests for Lux (96369) and Zoo (200200) chains to the
- * Lux Gateway, which provides native DEX precompile access with Uniswap
+ * Lux Gateway, which provides native DEX precompile access with Lux
  * as fallback for other operations.
  */
 import type { DiscriminatedQuoteResponse, TradingApiClient } from '@luxfi/api'
 import type { QuoteRequest, Routing, TradeType } from '@luxfi/api/src/clients/trading/__generated__'
-import { uniswapUrls } from 'lx/src/constants/urls'
+import { luxUrls } from 'lx/src/constants/urls'
 import { UniverseChainId } from 'lx/src/features/chains/types'
 import { logger } from 'utilities/src/logger/logger'
 
@@ -176,7 +176,7 @@ function transformGatewayResponse(
 async function fetchLuxGatewayQuote(
   request: QuoteRequest & { isUSDQuote?: boolean; routeVia?: RouteViaMethod },
 ): Promise<DiscriminatedQuoteResponse> {
-  const gatewayUrl = uniswapUrls.luxGatewayQuoteUrl
+  const gatewayUrl = luxUrls.luxGatewayQuoteUrl
 
   // Transform to gateway format
   const gatewayRequest: GatewayQuoteRequest = {

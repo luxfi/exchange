@@ -7,7 +7,7 @@ import {
   isBridge,
   isChained,
   isClassic,
-  isUniswapX,
+  isDEX,
   isWrap,
 } from 'lx/src/features/transactions/swap/utils/routing'
 import { isPrivateRpcSupportedOnChain } from 'wallet/src/features/providers/utils'
@@ -38,13 +38,13 @@ export type PrepareAndSignSwapSagaParams = PrepareSwapParams & {
 export function createPrepareAndSignSwapSaga(dependencies: TransactionSagaDependencies) {
   /**
    * Core business logic for preparing and signing swap transactions
-   * Handles all transaction types required for swap: approval, permit, UniswapX, classic, bridge, and wrap
+   * Handles all transaction types required for swap: approval, permit, DEX, classic, bridge, and wrap
    */
   return function* prepareAndSignSwapTransaction(params: PrepareAndSignSwapSagaParams) {
     const { swapTxContext, account, onSuccess, onFailure } = params
     const chainId = swapTxContext.trade.inputAmount.currency.chainId
 
-    // MEV protection is not needed for UniswapX approval and/or wrap transactions.
+    // MEV protection is not needed for DEX approval and/or wrap transactions.
     // We disable for bridge to avoid any potential issues with BE checking status.
     const submitViaPrivateRpc = isClassic(swapTxContext) && (yield* call(shouldSubmitViaPrivateRpc, chainId))
 
@@ -104,8 +104,8 @@ export function createPrepareAndSignSwapSaga(dependencies: TransactionSagaDepend
 
       let preSignedSwapTx: PreSignedSwapTransaction
       // Main transaction preparation based on routing type
-      if (isUniswapX(swapTxContext)) {
-        // UniswapX - Sign typed data for order
+      if (isDEX(swapTxContext)) {
+        // DEX - Sign typed data for order
         const { permit } = swapTxContext
 
         const signedTypedData = yield* call(transactionSigner.signTypedData, {

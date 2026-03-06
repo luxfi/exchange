@@ -1,7 +1,7 @@
 import { cleanup, render } from '@testing-library/react'
 import type { QRCodeErrorCorrectionLevel } from 'qrcode'
 import { QRCode } from 'ui/src/components/QRCode/QRCode'
-import { SharedUIUniswapProvider } from 'ui/src/test/render'
+import { SharedUILuxProvider } from 'ui/src/test/render'
 import { describe, expect, it } from 'vitest'
 
 const qrCodeValue = ['s', 'oneSizeBiggerValue']
@@ -25,7 +25,7 @@ describe('QRCode', () => {
     'renders the QRCode correctly for value "%s", size %d, and ecl %s',
     (qrCodeValue, size, ecl) => {
       const tree = render(
-        <SharedUIUniswapProvider>
+        <SharedUILuxProvider>
           <QRCode
             value={qrCodeValue}
             overlayColor="#FF0000"
@@ -34,7 +34,7 @@ describe('QRCode', () => {
             color="orange"
             ecl={ecl}
           />
-        </SharedUIUniswapProvider>
+        </SharedUILuxProvider>
       )
       expect(tree.container.innerHTML).toMatchSnapshot()
       cleanup()

@@ -18,12 +18,12 @@ import {
 import { ExtensionEthMethodHandler } from 'src/contentScript/methodHandlers/ExtensionEthMethodHandler'
 import { emitAccountsChanged, emitChainChanged } from 'src/contentScript/methodHandlers/emitUtils'
 import { ProviderDirectMethodHandler } from 'src/contentScript/methodHandlers/ProviderDirectMethodHandler'
-import { UniswapMethodHandler } from 'src/contentScript/methodHandlers/UniswapMethodHandler'
+import { LuxMethodHandler } from 'src/contentScript/methodHandlers/LuxMethodHandler'
 import {
   isDeprecatedMethod,
   isExtensionEthMethod,
   isProviderDirectMethod,
-  isUniswapMethod,
+  isLuxMethod,
   isUnsupportedMethod,
   postDeprecatedMethodError,
   postParsingError,
@@ -119,7 +119,7 @@ function makeInjected(): void {
     setConnectedAddressesAndMaybeEmit,
   })
 
-  const uniswapMethodHandler = new UniswapMethodHandler({
+  const luxMethodHandler = new LuxMethodHandler({
     getChainId,
     getProvider,
     getConnectedAddresses,
@@ -151,9 +151,9 @@ function makeInjected(): void {
         return
       }
 
-      if (isUniswapMethod(request.method)) {
+      if (isLuxMethod(request.method)) {
         try {
-          await uniswapMethodHandler.handleRequest(request, source)
+          await luxMethodHandler.handleRequest(request, source)
         } catch (e) {
           if (e instanceof ZodError) {
             postParsingError({ source, requestId: request.requestId, method: request.method })

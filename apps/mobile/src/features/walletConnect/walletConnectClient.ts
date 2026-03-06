@@ -42,14 +42,14 @@ export async function initializeWeb3Wallet(): Promise<void> {
     wcWeb3Wallet = await WalletKit.init({
       core: wcCore,
       metadata: {
-        name: 'Uniswap Wallet',
+        name: 'Lux Wallet',
         description:
-          'Built by the most trusted team in DeFi, Uniswap Wallet allows you to maintain full custody and control of your assets.',
-        url: 'https://uniswap.org/app',
+          'Built by the most trusted team in DeFi, Lux Wallet allows you to maintain full custody and control of your assets.',
+        url: 'https://lux.org/app',
         icons: ['https://gateway.pinata.cloud/ipfs/QmR1hYqhDMoyvJtwrQ6f1kVyfEKyK65XH3nbCimXBMkHJg'],
         redirect: {
-          native: 'uniswap://',
-          universal: 'https://uniswap.org/app',
+          native: 'lux://',
+          universal: 'https://lux.org/app',
           linkMode: true,
         },
       },

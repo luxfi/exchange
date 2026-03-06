@@ -12,7 +12,7 @@ describe('hashcash core', () => {
   // Backend example data for testing
   const backendExample: HashcashChallenge = {
     difficulty: 1,
-    subject: 'Uniswap',
+    subject: 'Lux',
     algorithm: 'sha256',
     nonce: 'Qlquffem7d8RrL6fmveE68XK0KxcoczdiVpFrV1qeUk=',
     max_proof_length: 1000,
@@ -87,24 +87,24 @@ describe('hashcash core', () => {
       const nonceString = 'AQIDBA=='
 
       const hash = await computeHash({
-        subject: 'Uniswap',
+        subject: 'Lux',
         nonce: nonceString,
         counter: 123,
       })
 
-      // The hash should be of the string "Uniswap:AQIDBA==:123"
+      // The hash should be of the string "Lux:AQIDBA==:123"
       expect(hash).toBeDefined()
       expect(hash.length).toBe(32)
 
       // Verify the expected string format
-      const expectedString = `Uniswap:${nonceString}:123`
-      expect(expectedString).toBe('Uniswap:AQIDBA==:123')
+      const expectedString = `Lux:${nonceString}:123`
+      expect(expectedString).toBe('Lux:AQIDBA==:123')
     })
 
     it('matches known SHA-256 test vector', async () => {
-      // computeHash("Uniswap:AQIDBA==:123") verified against @noble/hashes/webcrypto SHA-256
+      // computeHash("Lux:AQIDBA==:123") verified against @noble/hashes/webcrypto SHA-256
       const hash = await computeHash({
-        subject: 'Uniswap',
+        subject: 'Lux',
         nonce: 'AQIDBA==',
         counter: 123,
       })
@@ -258,7 +258,7 @@ describe('hashcash core', () => {
       expect(parts[0]).toBe('1') // Version
       expect(parts[1]).toBe('1') // Difficulty
       expect(parts[2]).toMatch(/^\d{6}$/) // Date format YYMMDD (always 6 digits)
-      expect(parts[3]).toBe('Uniswap') // Resource
+      expect(parts[3]).toBe('Lux') // Resource
       expect(parts[4]).toBe('') // Extension (empty)
       expect(parts[5]).toBe('123') // Counter
       expect(parts[6]).toMatch(/^[A-Za-z0-9+/=]+$/) // Base64 hash
@@ -289,7 +289,7 @@ describe('hashcash core', () => {
         expect(hashcashString).toBeTruthy()
 
         // Verify format includes our subject
-        expect(hashcashString).toContain('Uniswap')
+        expect(hashcashString).toContain('Lux')
       }
     })
 

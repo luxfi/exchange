@@ -9,7 +9,7 @@ import { RotatableChevron } from 'ui/src/components/icons/RotatableChevron'
 import { GetHelpHeader } from 'lx/src/components/dialog/GetHelpHeader'
 import { Modal } from 'lx/src/components/modals/Modal'
 import { LearnMoreLink } from 'lx/src/components/text/LearnMoreLink'
-import { uniswapUrls } from 'lx/src/constants/urls'
+import { luxUrls } from 'lx/src/constants/urls'
 import { ElementName, ModalName } from 'lx/src/features/telemetry/constants'
 import Trace from 'lx/src/features/telemetry/Trace'
 import { TestID } from 'lx/src/test/fixtures/testIDs'
@@ -167,7 +167,7 @@ export function HookModal({
             <Text variant="body2" color="$neutral2" textAlign="center" my="$padding8">
               {hasDangerous ? t('position.hook.warningInfo') : t('position.addingHook.disclaimer')}
             </Text>
-            <LearnMoreLink centered url={uniswapUrls.helpArticleUrls.addingV4Hooks} textVariant="buttonLabel3" />
+            <LearnMoreLink centered url={luxUrls.helpArticleUrls.addingV4Hooks} textVariant="buttonLabel3" />
           </Flex>
 
           <Flex borderRadius="$rounded16" backgroundColor="$surface2" py="$gap12" px="$gap16">

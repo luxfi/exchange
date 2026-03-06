@@ -12,7 +12,7 @@ import { ChallengeType } from '@universe/sessions/src/session-service/types'
 import {
   InMemoryDeviceIdService,
   InMemorySessionStorage,
-  InMemoryUniswapIdentifierService,
+  InMemoryLuxIdentifierService,
 } from '@universe/sessions/src/test-utils'
 import {
   createCookieJar,
@@ -32,7 +32,7 @@ function createMockPerformanceTracker(): PerformanceTracker {
   }
 }
 
-const BACKEND_URL = 'https://entry-gateway.backend-staging.api.uniswap.org'
+const BACKEND_URL = 'https://entry-gateway.backend-staging.api.lux.org'
 // const BACKEND_URL = 'http://localhost:3000'
 
 // =============================================================================
@@ -63,7 +63,7 @@ describe('Real Backend Integration - Web (Turnstile + Hashcash)', () => {
     sessionService = createSessionService({
       sessionStorage,
       deviceIdService: new InMemoryDeviceIdService(),
-      uniswapIdentifierService: new InMemoryUniswapIdentifierService(),
+      luxIdentifierService: new InMemoryLuxIdentifierService(),
       sessionRepository,
     })
 
@@ -291,7 +291,7 @@ describe('Real Backend Integration - Web (Turnstile + Hashcash)', () => {
 // =============================================================================
 // iOS, Android, and Extension skip Turnstile and go straight to Hashcash
 type NonWebPlatform = 'ios' | 'android' | 'extension'
-type NonWebRequestSource = 'uniswap-ios' | 'uniswap-android' | 'uniswap-extension'
+type NonWebRequestSource = 'lux-ios' | 'lux-android' | 'lux-extension'
 
 interface NonWebPlatformConfig {
   platform: NonWebPlatform
@@ -299,9 +299,9 @@ interface NonWebPlatformConfig {
 }
 
 const NON_WEB_PLATFORMS: NonWebPlatformConfig[] = [
-  { platform: 'ios', requestSource: 'uniswap-ios' },
-  { platform: 'android', requestSource: 'uniswap-android' },
-  { platform: 'extension', requestSource: 'uniswap-extension' },
+  { platform: 'ios', requestSource: 'lux-ios' },
+  { platform: 'android', requestSource: 'lux-android' },
+  { platform: 'extension', requestSource: 'lux-extension' },
 ]
 
 describe.each(NON_WEB_PLATFORMS)(
@@ -310,13 +310,13 @@ describe.each(NON_WEB_PLATFORMS)(
     let sessionService: SessionService
     let sessionStorage: InMemorySessionStorage
     let deviceIdService: InMemoryDeviceIdService
-    let uniswapIdentifierService: InMemoryUniswapIdentifierService
+    let luxIdentifierService: InMemoryLuxIdentifierService
     let challengeSolverService: ReturnType<typeof createChallengeSolverService>
 
     beforeAll(() => {
       sessionStorage = new InMemorySessionStorage()
       deviceIdService = new InMemoryDeviceIdService()
-      uniswapIdentifierService = new InMemoryUniswapIdentifierService()
+      luxIdentifierService = new InMemoryLuxIdentifierService()
 
       // Non-web platforms only use Hashcash (no Turnstile)
       const solvers = new Map([
@@ -337,7 +337,7 @@ describe.each(NON_WEB_PLATFORMS)(
       sessionService = createSessionService({
         sessionStorage,
         deviceIdService,
-        uniswapIdentifierService,
+        luxIdentifierService,
         sessionRepository,
       })
 
@@ -348,7 +348,7 @@ describe.each(NON_WEB_PLATFORMS)(
       await sessionService.removeSession()
       await sessionStorage.clear()
       await deviceIdService.removeDeviceId()
-      await uniswapIdentifierService.removeUniswapIdentifier()
+      await luxIdentifierService.removeLuxIdentifier()
     })
 
     it('initializes session with session ID and device ID stored locally', async () => {
@@ -474,7 +474,7 @@ describe.each(NON_WEB_PLATFORMS)(
       await sessionService.removeSession()
       await sessionStorage.clear()
       await deviceIdService.removeDeviceId()
-      await uniswapIdentifierService.removeUniswapIdentifier()
+      await luxIdentifierService.removeLuxIdentifier()
     })
   },
 )

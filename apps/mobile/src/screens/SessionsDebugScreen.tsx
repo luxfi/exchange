@@ -16,10 +16,10 @@ import { setClipboard } from 'utilities/src/clipboard/clipboard'
 import { logger } from 'utilities/src/logger/logger'
 import { useShallow } from 'zustand/shallow'
 
-// Storage keys (must match provideSessionStorage, provideDeviceIdService, provideUniswapIdentifierService)
-const SESSION_ID_KEY = 'UNISWAP_SESSION_ID'
-const DEVICE_ID_KEY = 'UNISWAP_DEVICE_ID'
-const UNISWAP_IDENTIFIER_KEY = 'UNISWAP_IDENTIFIER'
+// Storage keys (must match provideSessionStorage, provideDeviceIdService, provideLuxIdentifierService)
+const SESSION_ID_KEY = 'LUX_SESSION_ID'
+const DEVICE_ID_KEY = 'LUX_DEVICE_ID'
+const LUX_IDENTIFIER_KEY = 'LUX_IDENTIFIER'
 
 function truncateId(id: string | null, length = 16): string {
   if (!id) {
@@ -42,7 +42,7 @@ export function SessionsDebugScreen(): JSX.Element {
     useShallow((state) => ({
       sessionId: state.session.sessionId,
       deviceId: state.session.deviceId,
-      uniswapIdentifier: state.session.uniswapIdentifier,
+      luxIdentifier: state.session.luxIdentifier,
     })),
   )
   const challenge = useSessionsDebugStore((state) => state.challenge)
@@ -77,15 +77,15 @@ export function SessionsDebugScreen(): JSX.Element {
 
   const refreshSessionState = useCallback(async (): Promise<void> => {
     const driver = getStorageDriver()
-    const [sessionId, deviceId, uniswapIdentifier] = await Promise.all([
+    const [sessionId, deviceId, luxIdentifier] = await Promise.all([
       driver.get(SESSION_ID_KEY),
       driver.get(DEVICE_ID_KEY),
-      driver.get(UNISWAP_IDENTIFIER_KEY),
+      driver.get(LUX_IDENTIFIER_KEY),
     ])
     setSession({
       sessionId: sessionId || null,
       deviceId: deviceId || null,
-      uniswapIdentifier: uniswapIdentifier || null,
+      luxIdentifier: luxIdentifier || null,
     })
   }, [setSession])
 
@@ -93,15 +93,15 @@ export function SessionsDebugScreen(): JSX.Element {
   useEffect(() => {
     const loadInitialState = async (): Promise<void> => {
       const driver = getStorageDriver()
-      const [sessionId, deviceId, uniswapIdentifier] = await Promise.all([
+      const [sessionId, deviceId, luxIdentifier] = await Promise.all([
         driver.get(SESSION_ID_KEY),
         driver.get(DEVICE_ID_KEY),
-        driver.get(UNISWAP_IDENTIFIER_KEY),
+        driver.get(LUX_IDENTIFIER_KEY),
       ])
       setSession({
         sessionId: sessionId || null,
         deviceId: deviceId || null,
-        uniswapIdentifier: uniswapIdentifier || null,
+        luxIdentifier: luxIdentifier || null,
       })
     }
     loadInitialState().catch(() => undefined)
@@ -131,7 +131,7 @@ export function SessionsDebugScreen(): JSX.Element {
       await Promise.all([
         driver.remove(SESSION_ID_KEY),
         driver.remove(DEVICE_ID_KEY),
-        driver.remove(UNISWAP_IDENTIFIER_KEY),
+        driver.remove(LUX_IDENTIFIER_KEY),
       ])
       // Reset the session service ref so a fresh one is created next time
       sessionServiceRef.current = null
@@ -344,14 +344,14 @@ export function SessionsDebugScreen(): JSX.Element {
 
               <Flex row justifyContent="space-between" alignItems="center">
                 <Text variant="body2" color="$neutral2">
-                  Uniswap ID:
+                  Lux ID:
                 </Text>
                 <Flex row alignItems="center" gap="$spacing4">
-                  <Text variant="body3" color={session.uniswapIdentifier ? '$neutral1' : '$neutral3'}>
-                    {truncateId(session.uniswapIdentifier)}
+                  <Text variant="body3" color={session.luxIdentifier ? '$neutral1' : '$neutral3'}>
+                    {truncateId(session.luxIdentifier)}
                   </Text>
-                  {session.uniswapIdentifier && (
-                    <TouchableArea onPress={() => copyToClipboard(session.uniswapIdentifier, 'Uniswap ID')}>
+                  {session.luxIdentifier && (
+                    <TouchableArea onPress={() => copyToClipboard(session.luxIdentifier, 'Lux ID')}>
                       <CopyAlt color="$neutral3" size="$icon.16" />
                     </TouchableArea>
                   )}

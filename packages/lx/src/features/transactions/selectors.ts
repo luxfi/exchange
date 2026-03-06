@@ -6,25 +6,25 @@ import { SearchableRecipient } from 'lx/src/features/address/types'
 import { uniqueAddressesOnly } from 'lx/src/features/address/utils'
 import { UniverseChainId } from 'lx/src/features/chains/types'
 import { TransactionsState } from 'lx/src/features/transactions/slice'
-import { isBridge, isClassic, isUniswapX } from 'lx/src/features/transactions/swap/utils/routing'
+import { isBridge, isClassic, isDEX } from 'lx/src/features/transactions/swap/utils/routing'
 import {
   InterfaceTransactionDetails,
   PlanTransactionDetails,
   SendTokenTransactionInfo,
   TransactionDetails,
   TransactionType,
-  UniswapXOrderDetails,
+  DEXOrderDetails,
 } from 'lx/src/features/transactions/types/transactionDetails'
 import { isFinalizedTx, isPlanTransactionDetails } from 'lx/src/features/transactions/types/utils'
-import { isLimitOrder } from 'lx/src/features/transactions/utils/uniswapX.utils'
+import { isLimitOrder } from 'lx/src/features/transactions/utils/dex.utils'
 import { selectTokensVisibility } from 'lx/src/features/visibility/selectors'
 import { CurrencyIdToVisibility } from 'lx/src/features/visibility/slice'
-import { UniswapState } from 'lx/src/state/uniswapReducer'
+import { LuxState } from 'lx/src/state/luxReducer'
 import { buildCurrencyId } from 'lx/src/utils/currencyId'
 import { unique } from 'utilities/src/primitives/array'
 import { flattenObjectOfObjects } from 'utilities/src/primitives/objects'
 
-export const selectTransactions = (state: UniswapState): TransactionsState => state.transactions
+export const selectTransactions = (state: LuxState): TransactionsState => state.transactions
 
 export const selectSwapTransactionsCount = createSelector(selectTransactions, (transactions) => {
   let swapTransactionCount = 0
@@ -44,9 +44,9 @@ type PlatformAddresses = {
   svmAddress: Address | null
 }
 
-export type AddressTransactionsSelector = Selector<UniswapState, TransactionDetails[] | undefined, [PlatformAddresses]>
+export type AddressTransactionsSelector = Selector<LuxState, TransactionDetails[] | undefined, [PlatformAddresses]>
 export function makeSelectAddressTransactions(): AddressTransactionsSelector {
-  const extractAddresses = (_: UniswapState, addresses: PlatformAddresses): PlatformAddresses => addresses
+  const extractAddresses = (_: LuxState, addresses: PlatformAddresses): PlatformAddresses => addresses
 
   return createSelector(selectTransactions, extractAddresses, (transactions, { evmAddress, svmAddress }) => {
     if (!evmAddress && !svmAddress) {
@@ -111,17 +111,17 @@ export function useSelectAddressTransactions({
     () => ({ evmAddress: evmAddress ?? null, svmAddress: svmAddress ?? null }),
     [evmAddress, svmAddress],
   )
-  return useSelector((state: UniswapState) => selectAddressTransactions(state, addressParams))
+  return useSelector((state: LuxState) => selectAddressTransactions(state, addressParams))
 }
 
 export function useCurrencyIdToVisibility(addresses: Address[]): CurrencyIdToVisibility {
   const manuallySetTokenVisibility = useSelector(selectTokensVisibility)
-  const selectLocalTxCurrencyIds: (state: UniswapState, addresses: Address[]) => CurrencyIdToVisibility = useMemo(
+  const selectLocalTxCurrencyIds: (state: LuxState, addresses: Address[]) => CurrencyIdToVisibility = useMemo(
     makeSelectTokenVisibilityFromLocalTxs,
     [],
   )
 
-  const tokenVisibilityFromLocalTxs = useSelector((state: UniswapState) => selectLocalTxCurrencyIds(state, addresses))
+  const tokenVisibilityFromLocalTxs = useSelector((state: LuxState) => selectLocalTxCurrencyIds(state, addresses))
 
   return useMemo(
     () => ({
@@ -133,10 +133,10 @@ export function useCurrencyIdToVisibility(addresses: Address[]): CurrencyIdToVis
   )
 }
 
-const makeSelectTokenVisibilityFromLocalTxs = (): Selector<UniswapState, CurrencyIdToVisibility, [Address[]]> =>
+const makeSelectTokenVisibilityFromLocalTxs = (): Selector<LuxState, CurrencyIdToVisibility, [Address[]]> =>
   createSelector(
     selectTransactions,
-    (_: UniswapState, addresses: Address[]) => addresses,
+    (_: LuxState, addresses: Address[]) => addresses,
     (transactions, addresses) =>
       addresses.reduce<CurrencyIdToVisibility>((acc, address) => {
         const addressTransactions = transactions[address]
@@ -166,13 +166,13 @@ interface MakeSelectParams {
 }
 
 export const makeSelectTransaction = (): Selector<
-  UniswapState,
+  LuxState,
   TransactionDetails | InterfaceTransactionDetails | undefined,
   [MakeSelectParams]
 > =>
   createSelector(
     selectTransactions,
-    (_: UniswapState, { address, chainId, txId }: MakeSelectParams) => ({
+    (_: LuxState, { address, chainId, txId }: MakeSelectParams) => ({
       address,
       chainId,
       txId,
@@ -195,18 +195,18 @@ interface MakeSelectOrderParams {
   orderHash: string
 }
 
-export const makeSelectUniswapXOrder = (): Selector<
-  UniswapState,
-  UniswapXOrderDetails | undefined,
+export const makeSelectDEXOrder = (): Selector<
+  LuxState,
+  DEXOrderDetails | undefined,
   [MakeSelectOrderParams]
 > =>
   createSelector(
     selectTransactions,
-    (_: UniswapState, { orderHash }: MakeSelectOrderParams) => ({ orderHash }),
-    (transactions, { orderHash }): UniswapXOrderDetails | undefined => {
+    (_: LuxState, { orderHash }: MakeSelectOrderParams) => ({ orderHash }),
+    (transactions, { orderHash }): DEXOrderDetails | undefined => {
       for (const transactionsForChain of flattenObjectOfObjects(transactions)) {
         for (const tx of Object.values(transactionsForChain)) {
-          if (isUniswapX(tx) && tx.orderHash === orderHash) {
+          if (isDEX(tx) && tx.orderHash === orderHash) {
             return tx
           }
         }
@@ -220,13 +220,13 @@ interface MakeSelectPlanParams {
 }
 
 export const makeSelectPlanTransaction = (): Selector<
-  UniswapState,
+  LuxState,
   PlanTransactionDetails | undefined,
   [MakeSelectPlanParams]
 > =>
   createSelector(
     selectTransactions,
-    (_: UniswapState, { planId }: MakeSelectPlanParams) => ({ planId }),
+    (_: LuxState, { planId }: MakeSelectPlanParams) => ({ planId }),
     (transactions, { planId }): PlanTransactionDetails | undefined => {
       for (const transactionsForChain of flattenObjectOfObjects(transactions)) {
         for (const tx of Object.values(transactionsForChain)) {
@@ -241,7 +241,7 @@ export const makeSelectPlanTransaction = (): Selector<
 
 // Returns a list of past recipients ordered from most to least recent
 // TODO: [MOB-232] either revert this to return addresses or keep but also return displayName so that it's searchable for RecipientSelect
-export const selectRecipientsByRecency = (state: UniswapState): SearchableRecipient[] => {
+export const selectRecipientsByRecency = (state: LuxState): SearchableRecipient[] => {
   const transactionsByChainId = flattenObjectOfObjects(state.transactions)
   const sendTransactions = transactionsByChainId.reduce<TransactionDetails[]>((accum, transactions) => {
     const sendTransactionsWithRecipients = Object.values(transactions).filter(
@@ -260,7 +260,7 @@ export const selectRecipientsByRecency = (state: UniswapState): SearchableRecipi
   return uniqueAddressesOnly(sortedRecipients)
 }
 
-export const selectIncompleteTransactions = (state: UniswapState): TransactionDetails[] => {
+export const selectIncompleteTransactions = (state: LuxState): TransactionDetails[] => {
   const transactionsByChainId = flattenObjectOfObjects(state.transactions)
   return transactionsByChainId.reduce<TransactionDetails[]>((accum, transactions) => {
     const pendingTxs = Object.values(transactions)
@@ -284,7 +284,7 @@ interface SelectTransactionParams {
  * Returns the transaction if it exists, undefined otherwise
  */
 export const selectTransaction = (
-  state: UniswapState,
+  state: LuxState,
   params: SelectTransactionParams,
 ): TransactionDetails | InterfaceTransactionDetails | undefined => {
   const transactions = selectTransactions(state)
@@ -298,7 +298,7 @@ export const selectTransaction = (
  * Returns the transaction if it exists, undefined otherwise
  */
 export const selectPlanTransaction = (
-  state: UniswapState,
+  state: LuxState,
   params: {
     address: string
     chainId: UniverseChainId

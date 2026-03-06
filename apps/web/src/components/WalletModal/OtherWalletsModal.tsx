@@ -7,7 +7,7 @@ import { useShowMoonpayText } from '~/components/AccountDrawer/MiniPortfolio/hoo
 import { MenuStateVariant, useSetMenu } from '~/components/AccountDrawer/menuState'
 import ConnectionErrorView from '~/components/WalletModal/ConnectionErrorView'
 import PrivacyPolicyNotice from '~/components/WalletModal/PrivacyPolicyNotice'
-import { UniswapMobileWalletConnectorOption } from '~/components/WalletModal/UniswapMobileWalletConnectorOption'
+import { LuxMobileWalletConnectorOption } from '~/components/WalletModal/LuxMobileWalletConnectorOption'
 import { WalletConnectorOption } from '~/components/WalletModal/WalletConnectorOption'
 import { useRecentConnectorId } from '~/components/Web3Provider/constants'
 import { useOrderedWallets } from '~/features/wallet/connection/hooks/useOrderedWalletConnectors'
@@ -54,10 +54,10 @@ export function OtherWalletsModal() {
             transition={`${transitions.duration.fast} ${transitions.timing.inOut}`}
             data-testid="option-grid"
           >
-            {/* If uniswap mobile was the last used connector it will be show on the primary window */}
-            {recentConnectorId !== CONNECTION_PROVIDER_IDS.UNISWAP_WALLET_CONNECT_CONNECTOR_ID && (
+            {/* If lux mobile was the last used connector it will be show on the primary window */}
+            {recentConnectorId !== CONNECTION_PROVIDER_IDS.LUX_WALLET_CONNECT_CONNECTOR_ID && (
               <>
-                <UniswapMobileWalletConnectorOption />
+                <LuxMobileWalletConnectorOption />
                 {wallets.length > 0 && <Separator />}
               </>
             )}

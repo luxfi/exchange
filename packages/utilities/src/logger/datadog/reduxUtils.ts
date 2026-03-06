@@ -31,10 +31,10 @@ export function handleReduxAction({
 }
 
 const ALLOWED_REDUX_FIELDS: string[] = [
-  // Uniswap
+  // Lux
   'searchHistory',
   'transactions',
-  'uniswapBehaviorHistory',
+  'luxBehaviorHistory',
   'userSettings',
   // Wallet
   'appearanceSettings',

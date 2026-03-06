@@ -1,4 +1,4 @@
-import { Currency, Percent } from '@uniswap/sdk-core'
+import { Currency, Percent } from '@lux/sdk-core'
 import { PropsWithChildren, ReactNode, useMemo } from 'react'
 import { Trans, useTranslation } from 'react-i18next'
 import { Button, Flex, Separator, Text } from 'ui/src'

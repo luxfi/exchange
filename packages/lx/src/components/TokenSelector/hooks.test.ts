@@ -1,7 +1,7 @@
 import { ApolloError } from '@apollo/client'
 import { ConnectError } from '@connectrpc/connect'
 import { UseQueryResult } from '@tanstack/react-query'
-import { TokenRankingsResponse, TokenRankingsStat } from '@uniswap/client-explore/dist/uniswap/explore/v1/service_pb'
+import { TokenRankingsResponse, TokenRankingsStat } from '@lux/client-explore/dist/lux/explore/v1/service_pb'
 import { GraphQLApi } from '@universe/api'
 import { toIncludeSameMembers } from 'jest-extended'
 import { PreloadedState } from 'redux'
@@ -25,7 +25,7 @@ import { tokenProjectToCurrencyInfos } from 'lx/src/features/dataApi/tokenProjec
 import { SearchHistoryResultType } from 'lx/src/features/search/SearchHistoryResult'
 import { useFilterCallbacks } from 'lx/src/features/search/SearchModal/hooks/useFilterCallbacks'
 import { ModalName } from 'lx/src/features/telemetry/constants'
-import { UniswapState } from 'lx/src/state/uniswapReducer'
+import { LuxState } from 'lx/src/state/luxReducer'
 import {
   arbitrumDaiCurrencyInfo,
   daiToken,
@@ -101,7 +101,7 @@ const favoriteCurrencyIds = favoriteTokens.map((t) =>
   buildCurrencyId(fromGraphQLChain(t.chain) ?? UniverseChainId.Mainnet, t.address),
 )
 
-const preloadedState: PreloadedState<UniswapState> = {
+const preloadedState: PreloadedState<LuxState> = {
   favorites: {
     tokens: favoriteCurrencyIds,
     watchedAddresses: [],
@@ -1075,7 +1075,7 @@ describe(useFavoriteTokensOptions, () => {
 describe(useRecentlySearchedTokens, () => {
   it('does not crash when search history contains tokens with invalid chainIds', () => {
     // This simulates the exact data that caused the production crash
-    const problematicSearchHistory: PreloadedState<UniswapState> = {
+    const problematicSearchHistory: PreloadedState<LuxState> = {
       searchHistory: {
         results: [
           {
@@ -1109,7 +1109,7 @@ describe(useRecentlySearchedTokens, () => {
   })
 
   it('filters out tokens with invalid chainIds from search history', () => {
-    const mixedSearchHistory: PreloadedState<UniswapState> = {
+    const mixedSearchHistory: PreloadedState<LuxState> = {
       searchHistory: {
         results: [
           {
@@ -1141,7 +1141,7 @@ describe(useRecentlySearchedTokens, () => {
   })
 
   it('returns empty array when all tokens have invalid chainIds', () => {
-    const allInvalidSearchHistory: PreloadedState<UniswapState> = {
+    const allInvalidSearchHistory: PreloadedState<LuxState> = {
       searchHistory: {
         results: [
           {

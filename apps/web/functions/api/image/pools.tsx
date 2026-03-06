@@ -214,7 +214,7 @@ export async function poolImageHandler(c: Context) {
                 >
                   {data.poolData?.feeTier}
                 </div>
-                <img src={WATERMARK_URL} alt="Uniswap" height="72px" width="324px" />
+                <img src={WATERMARK_URL} alt="Lux" height="72px" width="324px" />
               </div>
             </div>
           </div>

@@ -11,10 +11,10 @@
 // Device ID
 export { createDeviceIdService } from '@universe/sessions/src/device-id/createDeviceIdService'
 export type { DeviceIdService } from '@universe/sessions/src/device-id/types'
-// Uniswap Identifier
-export { createUniswapIdentifierService } from '@universe/sessions/src/uniswap-identifier/createUniswapIdentifierService'
-export { uniswapIdentifierQuery } from '@universe/sessions/src/uniswap-identifier/uniswapIdentifierQuery'
-export type { UniswapIdentifierService } from '@universe/sessions/src/uniswap-identifier/types'
+// Lux Identifier
+export { createLuxIdentifierService } from '@universe/sessions/src/lux-identifier/createLuxIdentifierService'
+export { luxIdentifierQuery } from '@universe/sessions/src/lux-identifier/luxIdentifierQuery'
+export type { LuxIdentifierService } from '@universe/sessions/src/lux-identifier/types'
 // Session Repository
 export { createSessionRepository } from '@universe/sessions/src/session-repository/createSessionRepository'
 export { ChallengeRejectedError } from '@universe/sessions/src/session-repository/errors'
@@ -129,7 +129,7 @@ export { createNoopPerformanceTracker } from '@universe/sessions/src/performance
 export {
   InMemorySessionStorage,
   InMemoryDeviceIdService,
-  InMemoryUniswapIdentifierService,
+  InMemoryLuxIdentifierService,
 } from '@universe/sessions/src/test-utils'
 export {
   createCookieJar,

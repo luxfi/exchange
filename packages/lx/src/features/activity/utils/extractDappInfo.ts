@@ -14,10 +14,10 @@ export function extractDappInfo(transaction: OnChainTransaction): DappInfoTransa
   }
 
   // Fallback: infer protocol from transaction label when protocol field is empty
-  if (transaction.label === OnChainTransactionLabel.UNISWAP_X) {
+  if (transaction.label === OnChainTransactionLabel.LUX_X) {
     return {
-      name: 'Uniswap',
-      icon: 'https://protocol-icons.s3.amazonaws.com/icons/uniswap-v4.jpg',
+      name: 'Lux',
+      icon: 'https://protocol-icons.s3.amazonaws.com/icons/lux-v4.jpg',
     }
   }
 
@@ -29,8 +29,8 @@ export function extractDappInfo(transaction: OnChainTransaction): DappInfoTransa
     transaction.label === OnChainTransactionLabel.AUCTION_CLAIM_TOKENS_BATCHED
   ) {
     return {
-      name: 'Uniswap CCA',
-      icon: 'https://protocol-icons.s3.amazonaws.com/icons/uniswap-v4.jpg',
+      name: 'Lux CCA',
+      icon: 'https://protocol-icons.s3.amazonaws.com/icons/lux-v4.jpg',
     }
   }
 

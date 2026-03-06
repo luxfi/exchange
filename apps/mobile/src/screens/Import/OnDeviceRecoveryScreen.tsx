@@ -15,7 +15,7 @@ import {
 } from 'src/screens/Import/OnDeviceRecoveryWalletCard'
 import { RecoveryWalletInfo } from 'src/screens/Import/useOnDeviceRecoveryData'
 import { Flex, Image, Text, TouchableArea } from 'ui/src'
-import { UNISWAP_LOGO } from 'ui/src/assets'
+import { LUX_LOGO } from 'ui/src/assets'
 import { PapersText } from 'ui/src/components/icons'
 import { iconSizes } from 'ui/src/theme'
 import { WarningSeverity } from 'lx/src/components/modals/WarningModal/types'
@@ -194,7 +194,7 @@ export function OnDeviceRecoveryScreen({
         <Screen onLayout={hideSplashScreen}>
           <Flex grow p="$spacing24">
             <Flex alignItems="flex-start" gap="$spacing16">
-              <Image height={iconSizes.icon36} source={UNISWAP_LOGO} width={iconSizes.icon36} />
+              <Image height={iconSizes.icon36} source={LUX_LOGO} width={iconSizes.icon36} />
               <Text variant="subheading1">{t('onboarding.import.onDeviceRecovery.title')}</Text>
               <Text color="$neutral2" variant="subheading2">
                 {t('onboarding.import.onDeviceRecovery.subtitle')}

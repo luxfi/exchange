@@ -206,7 +206,7 @@ export const PARS_MAINNET_CONTRACTS: ChainContracts = {
 
 // =============================================================================
 // ETHEREUM MAINNET CONTRACTS (Chain ID: 1)
-// Standard Uniswap V2 addresses
+// Standard Lux V2 addresses
 // =============================================================================
 
 export const ETHEREUM_MAINNET_CONTRACTS: ChainContracts = {
@@ -220,7 +220,7 @@ export const ETHEREUM_MAINNET_CONTRACTS: ChainContracts = {
     LETH: "0xAA3AE951A7925F25aE8Ad65b052a76Bd8f052598" as Address,
   },
   amm: {
-    // Uniswap V2 on Ethereum
+    // Lux V2 on Ethereum
     V2_FACTORY: "0x5C69bEe701ef814a2B6a3EDD4B1652CB9cc5aA6f" as Address,
     V2_ROUTER: "0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D" as Address,
     MULTICALL: "0x5BA1e12693Dc8F9c48aAD8770482f4739bEeD696" as Address,
@@ -237,7 +237,7 @@ export const SEPOLIA_CONTRACTS: ChainContracts = {
     USDC: "0x1c7D4B196Cb0C7B01d743Fbc6116a902379C7238" as Address,
   },
   amm: {
-    // Uniswap V2 on Sepolia
+    // Lux V2 on Sepolia
     V2_FACTORY: "0x7E0987E5b3a30e3f2828572Bb659A548460a3003" as Address,
     V2_ROUTER: "0xC532a74256D3Db42D0Bf7a0400fEFDbad7694008" as Address,
     MULTICALL: "0xcA11bde05977b3631167028862bE2a173976CA11" as Address,

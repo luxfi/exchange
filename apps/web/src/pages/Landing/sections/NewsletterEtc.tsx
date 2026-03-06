@@ -6,7 +6,7 @@ import { BookOpen } from 'ui/src/components/icons/BookOpen'
 import { GraduationCap } from 'ui/src/components/icons/GraduationCap'
 import { PenLine } from 'ui/src/components/icons/PenLine'
 import { SpeechBubbles } from 'ui/src/components/icons/SpeechBubbles'
-import { uniswapUrls } from 'lx/src/constants/urls'
+import { luxUrls } from 'lx/src/constants/urls'
 import { ClickableTamaguiStyle } from '~/theme/components/styles'
 
 const SectionLayout = styled(Flex, {
@@ -132,7 +132,7 @@ export function NewsletterEtc() {
           icon={<GraduationCap size="$icon.36" fill="$neutral1" />}
           title={t('common.helpCenter')}
           description={t('landing.helpCenter.body')}
-          href={uniswapUrls.helpCenterUrl}
+          href={luxUrls.helpCenterUrl}
         />
         <UniverseRow
           icon={
@@ -142,13 +142,13 @@ export function NewsletterEtc() {
           }
           title={t('common.blog')}
           description={t('landing.blog.description')}
-          href={uniswapUrls.blogUrl}
+          href={luxUrls.blogUrl}
         />
         <UniverseRow
           icon={<BookOpen size="$icon.36" fill="$neutral1" />}
           title={t('common.docs')}
           description={t('landing.docs.description')}
-          href={uniswapUrls.docsUrl}
+          href={luxUrls.docsUrl}
         />
         <UniverseRow
           icon={<SpeechBubbles size="$icon.36" color="$neutral1" />}
@@ -157,10 +157,10 @@ export function NewsletterEtc() {
             <Trans
               i18nKey="landing.socials"
               components={{
-                LinkX: <SocialLink href={uniswapUrls.social.x} />,
-                LinkFarcaster: <SocialLink href={uniswapUrls.social.farcaster} />,
-                LinkLinkedIn: <SocialLink href={uniswapUrls.social.linkedin} />,
-                LinkTikTok: <SocialLink href={uniswapUrls.social.tiktok} />,
+                LinkX: <SocialLink href={luxUrls.social.x} />,
+                LinkFarcaster: <SocialLink href={luxUrls.social.farcaster} />,
+                LinkLinkedIn: <SocialLink href={luxUrls.social.linkedin} />,
+                LinkTikTok: <SocialLink href={luxUrls.social.tiktok} />,
               }}
             />
           }

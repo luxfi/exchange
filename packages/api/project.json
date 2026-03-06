@@ -37,7 +37,7 @@
       }
     },
     "tradingapi:schema": {
-      "command": "curl https://trading-api-labs.interface.gateway.uniswap.org/v1/api.json -o ./src/clients/trading/api.json",
+      "command": "curl https://trading-api-labs.interface.gateway.lux.exchange/v1/api.json -o ./src/clients/trading/api.json",
       "options": {
         "cwd": "{projectRoot}"
       }
@@ -71,7 +71,7 @@
       "dependsOn": ["tradingapi:generate:openapi"]
     },
     "graphql:schema": {
-      "command": "get-graphql-schema https://api.uniswap.org/v1/graphql -h Origin=https://app.uniswap.org > ./src/clients/graphql/schema.graphql",
+      "command": "get-graphql-schema https://api.lux.exchange/v1/graphql -h Origin=https://app.lux.exchange > ./src/clients/graphql/schema.graphql",
       "options": {
         "cwd": "{projectRoot}"
       }

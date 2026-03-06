@@ -1,4 +1,4 @@
-import { Currency } from '@uniswap/sdk-core'
+import { Currency } from '@lux/sdk-core'
 import { Flex, FlexProps, Text } from 'ui/src'
 import { Chevron } from 'ui/src/components/icons/Chevron'
 import { iconSizes } from 'ui/src/theme'

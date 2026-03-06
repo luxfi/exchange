@@ -1,5 +1,5 @@
 // These types are used in the gas estimation improvement experiment.
-// They are internal to uniswap, so they are not declared in the Trading API public definition.
+// They are internal to lux, so they are not declared in the Trading API public definition.
 // Once the experiment is complete, we can remove them easily or add them to the public API definition.
 
 import type { FetchError } from '@universe/api/src/clients/base/errors'
@@ -52,7 +52,7 @@ export type GasFeeResponse = {
   gasEstimates: GasEstimate[]
 }
 
-export type FormattedUniswapXGasFeeInfo = {
+export type FormattedDEXGasFeeInfo = {
   approvalFeeFormatted?: string
   swapFeeFormatted: string
   preSavingsGasFeeFormatted: string

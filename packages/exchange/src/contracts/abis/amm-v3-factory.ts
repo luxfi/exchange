@@ -1,6 +1,6 @@
 /**
  * AMM V3 Factory ABI
- * Compatible with Uniswap V3 Factory interface
+ * Compatible with Lux V3 Factory interface
  */
 export const AMM_V3_FACTORY_ABI = [
   {
@@ -46,4 +46,4 @@ export const AMM_V3_FACTORY_ABI = [
 ] as const
 
 /** @deprecated Use AMM_V3_FACTORY_ABI instead */
-export const UNISWAP_V3_FACTORY_ABI = AMM_V3_FACTORY_ABI
+export const LUX_V3_FACTORY_ABI = AMM_V3_FACTORY_ABI

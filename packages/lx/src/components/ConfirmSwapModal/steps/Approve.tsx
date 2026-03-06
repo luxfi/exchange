@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next'
 import { StepRowProps, StepRowSkeleton } from 'lx/src/components/ConfirmSwapModal/steps/StepRowSkeleton'
 import { StepStatus } from 'lx/src/components/ConfirmSwapModal/types'
-import { uniswapUrls } from 'lx/src/constants/urls'
+import { luxUrls } from 'lx/src/constants/urls'
 import { useCurrencyInfo } from 'lx/src/features/tokens/useCurrencyInfo'
 import { TokenApprovalTransactionStep } from 'lx/src/features/transactions/steps/approve'
 import { TokenRevocationTransactionStep } from 'lx/src/features/transactions/steps/revoke'
@@ -34,7 +34,7 @@ export function TokenApprovalTransactionStepRow({
       currency={currencyInfo?.currency}
       pair={pair}
       learnMore={{
-        url: uniswapUrls.helpArticleUrls.approvalsExplainer,
+        url: luxUrls.helpArticleUrls.approvalsExplainer,
         text: t('common.whyApprove'),
       }}
       status={status}

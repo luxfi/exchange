@@ -8,7 +8,7 @@ export interface CreateSessionTransportOptions {
   /** Entry gateway URL */
   baseUrl: string
 
-  /** Static headers to include in all requests (e.g., x-request-source, x-uniswap-timezone) */
+  /** Static headers to include in all requests (e.g., x-request-source, x-lux-timezone) */
   headers?: Record<string, string>
 
   /** Cookie header for SSR forwarding */
@@ -40,8 +40,8 @@ export interface CreateSessionTransportOptions {
  *   baseUrl: entryGatewayUrl,
  *   credentials: 'include',
  *   headers: {
- *     'x-request-source': 'uniswap-web',
- *     'x-uniswap-timezone': Intl.DateTimeFormat().resolvedOptions().timeZone,
+ *     'x-request-source': 'lux-web',
+ *     'x-lux-timezone': Intl.DateTimeFormat().resolvedOptions().timeZone,
  *   },
  * })
  *
@@ -51,8 +51,8 @@ export interface CreateSessionTransportOptions {
  *   baseUrl: config.entryGatewayUrl,
  *   cookie: request.headers.get('Cookie'),
  *   headers: {
- *     'x-request-source': 'uniswap-web',
- *     'x-uniswap-timezone': timezone,
+ *     'x-request-source': 'lux-web',
+ *     'x-lux-timezone': timezone,
  *   },
  * })
  *
@@ -60,7 +60,7 @@ export interface CreateSessionTransportOptions {
  * // Mobile - uses headers for session/device IDs
  * const transport = createSessionTransport({
  *   baseUrl: entryGatewayUrl,
- *   headers: { 'x-request-source': 'uniswap-mobile' },
+ *   headers: { 'x-request-source': 'lux-mobile' },
  *   getSessionId: () => sessionStorage.get().then(s => s?.sessionId ?? null),
  *   getDeviceId: () => deviceIdService.getDeviceId(),
  * })

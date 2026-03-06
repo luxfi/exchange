@@ -1,9 +1,9 @@
-const biomeSupportedRules = require('@uniswap/eslint-config/biome-supported')
-const { reactNative: reactNativeImports } = require('@uniswap/eslint-config/restrictedImports')
+const biomeSupportedRules = require('@lux/eslint-config/biome-supported')
+const { reactNative: reactNativeImports } = require('@lux/eslint-config/restrictedImports')
 
 module.exports = {
   root: true,
-  extends: ['@uniswap/eslint-config/native', '@uniswap/eslint-config/webPlatform'],
+  extends: ['@lux/eslint-config/native', '@lux/eslint-config/webPlatform'],
   ignorePatterns: [
     'node_modules',
     '.turbo',

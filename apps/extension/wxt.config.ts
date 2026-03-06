@@ -31,8 +31,8 @@ function getPublicAssetsVariant(): 'prod' | 'beta' | 'dev' | 'local' {
 
 const publicAssetsVariant = getPublicAssetsVariant()
 
-const BASE_NAME = 'Uniswap Extension'
-const BASE_DESCRIPTION = "The Uniswap Extension is a self-custody crypto wallet that's built for swapping."
+const BASE_NAME = 'Lux Extension'
+const BASE_DESCRIPTION = "The Lux Extension is a self-custody crypto wallet that's built for swapping."
 const BASE_VERSION = '1.67.1'
 
 const BUILD_NUM = parseInt(process.env.BUILD_NUM || '0')
@@ -212,8 +212,8 @@ export default defineConfig({
         ids: [],
         matches:
           BUILD_ENV === 'prod'
-            ? ['https://app.uniswap.org/*']
-            : ['https://app.uniswap.org/*', 'https://ew.unihq.org/*', 'https://*.ew.unihq.org/*'],
+            ? ['https://app.lux.org/*']
+            : ['https://app.lux.org/*', 'https://ew.unihq.org/*', 'https://*.ew.unihq.org/*'],
       },
     }
   },
@@ -241,8 +241,8 @@ export default defineConfig({
       'process.env.IS_STATIC': '""',
       'process.env.EXPO_OS': '"web"',
       ...envDefines,
-      'process.env.REACT_APP_IS_UNISWAP_INTERFACE': '"false"',
-      'process.env.IS_UNISWAP_EXTENSION': '"true"',
+      'process.env.REACT_APP_IS_LUX_INTERFACE': '"false"',
+      'process.env.IS_LUX_EXTENSION': '"true"',
     }
 
     const cacheDir = path.resolve(__dirname, 'node_modules/.vite')
@@ -269,14 +269,14 @@ export default defineConfig({
         preserveSymlinks: true,
         modules: [path.resolve(__dirname, 'node_modules')],
         dedupe: [
-          '@uniswap/sdk-core',
-          '@uniswap/v2-sdk',
-          '@uniswap/v3-sdk',
-          '@uniswap/v4-sdk',
-          '@uniswap/router-sdk',
-          '@uniswap/universal-router-sdk',
-          '@uniswap/uniswapx-sdk',
-          '@uniswap/permit2-sdk',
+          '@lux/sdk-core',
+          '@lux/v2-sdk',
+          '@lux/v3-sdk',
+          '@lux/v4-sdk',
+          '@lux/router-sdk',
+          '@lux/universal-router-sdk',
+          '@lux/dex-sdk',
+          '@lux/permit2-sdk',
           'jsbi',
           'ethers',
           'react',
@@ -386,14 +386,14 @@ export default defineConfig({
           'tamagui',
           '@tamagui/web',
           'ui',
-          '@uniswap/sdk-core',
-          '@uniswap/v2-sdk',
-          '@uniswap/v3-sdk',
-          '@uniswap/v4-sdk',
-          '@uniswap/router-sdk',
-          '@uniswap/universal-router-sdk',
-          '@uniswap/uniswapx-sdk',
-          '@uniswap/permit2-sdk',
+          '@lux/sdk-core',
+          '@lux/v2-sdk',
+          '@lux/v3-sdk',
+          '@lux/v4-sdk',
+          '@lux/router-sdk',
+          '@lux/universal-router-sdk',
+          '@lux/dex-sdk',
+          '@lux/permit2-sdk',
           'jsbi',
           'ethers',
           'react-router',
@@ -457,7 +457,7 @@ export default defineConfig({
   // See the README for more information.
   // https://wxt.dev/guide/essentials/config/browser-startup.html
   webExt: {
-    startUrls: ['https://app.uniswap.org'],
+    startUrls: ['https://app.lux.org'],
 
     chromiumArgs: ['--user-data-dir=./.wxt/chrome-data'],
 

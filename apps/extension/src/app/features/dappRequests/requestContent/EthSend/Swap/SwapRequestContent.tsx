@@ -12,7 +12,7 @@ import { useCurrencyInfo, useNativeCurrencyInfo } from 'lx/src/features/tokens/u
 import { TransactionType, TransactionTypeInfo } from 'lx/src/features/transactions/types/transactionDetails'
 import { buildCurrencyId } from 'lx/src/utils/currencyId'
 import { assert } from 'utilities/src/errors'
-import { UniswapXSwapRequest } from 'wallet/src/components/dappRequests/types/Permit2Types'
+import { DEXSwapRequest } from 'wallet/src/components/dappRequests/types/Permit2Types'
 
 function getTransactionTypeInfo({
   inputCurrencyInfo,
@@ -108,8 +108,8 @@ export function SwapRequestContent({
   )
 }
 
-// this is a special cased version of SwapRequestContent used for UniswapX swaps
-export function UniswapXSwapRequestContent({ typedData }: { typedData: UniswapXSwapRequest }): JSX.Element {
+// this is a special cased version of SwapRequestContent used for DEX swaps
+export function DEXSwapRequestContent({ typedData }: { typedData: DEXSwapRequest }): JSX.Element {
   const { defaultChainId } = useEnabledChains()
   const { chainId: domainChainId } = typedData.domain
   const activeChain = toSupportedChainId(domainChainId) || defaultChainId
@@ -137,7 +137,7 @@ export function UniswapXSwapRequestContent({ typedData }: { typedData: UniswapXS
 
   return (
     <SwapDisplay
-      isUniswapX
+      isDEX
       chainId={activeChain}
       inputAmount={inputAmount}
       inputCurrencyInfo={inputCurrencyInfo}

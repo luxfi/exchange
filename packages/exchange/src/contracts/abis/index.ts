@@ -1,18 +1,18 @@
 /**
  * Contract ABIs for Lux Exchange
  *
- * AMM V2/V3 - Concentrated liquidity AMM (Uniswap V2/V3 compatible)
- * DEX V4 - Hook-based DEX with singleton pool manager (Uniswap V4 compatible)
+ * AMM V2/V3 - Concentrated liquidity AMM (Lux V2/V3 compatible)
+ * DEX V4 - Hook-based DEX with singleton pool manager (Lux V4 compatible)
  */
 
 // AMM V2 ABIs
-export { AMM_V2_ROUTER_ABI, UNISWAP_V2_ROUTER_ABI } from './amm-v2-router'
-export { AMM_V2_FACTORY_ABI, UNISWAP_V2_FACTORY_ABI } from './amm-v2-factory'
-export { AMM_V2_PAIR_ABI, UNISWAP_V2_PAIR_ABI } from './amm-v2-pair'
+export { AMM_V2_ROUTER_ABI, LUX_V2_ROUTER_ABI } from './amm-v2-router'
+export { AMM_V2_FACTORY_ABI, LUX_V2_FACTORY_ABI } from './amm-v2-factory'
+export { AMM_V2_PAIR_ABI, LUX_V2_PAIR_ABI } from './amm-v2-pair'
 
 // AMM V3 ABIs
-export { AMM_V3_FACTORY_ABI, UNISWAP_V3_FACTORY_ABI } from './amm-v3-factory'
-export { AMM_V3_POOL_ABI, UNISWAP_V3_POOL_ABI } from './amm-v3-pool'
+export { AMM_V3_FACTORY_ABI, LUX_V3_FACTORY_ABI } from './amm-v3-factory'
+export { AMM_V3_POOL_ABI, LUX_V3_POOL_ABI } from './amm-v3-pool'
 
 // AMM V3 Periphery ABIs
 export { SWAP_ROUTER_ABI } from './swap-router'

@@ -27,7 +27,7 @@ import { SendCurrencyParams } from 'wallet/src/features/transactions/send/types'
 
 const UWULINK_MAX_TXN_VALUE = '0.001'
 
-export const UNISWAP_URL_SCHEME_UWU_LINK = 'uniswap://uwulink?'
+export const LUX_URL_SCHEME_UWU_LINK = 'lux://uwulink?'
 export const UWULINK_PREFIX = 'uwulink' as const
 
 // uwulink{...} format for uwulink direct link
@@ -37,13 +37,13 @@ export function isUwULinkDirectLink(uri: string): boolean {
   return uri.startsWith(`${UWULINK_PREFIX}{`)
 }
 
-// uniswap://uwulink?uwulink{...} format for uwulink deep link
-export function isUwuLinkUniswapDeepLink(uri: string): boolean {
-  return uri.startsWith(`${UNISWAP_URL_SCHEME_UWU_LINK}${UWULINK_PREFIX}`)
+// lux://uwulink?uwulink{...} format for uwulink deep link
+export function isUwuLinkLuxDeepLink(uri: string): boolean {
+  return uri.startsWith(`${LUX_URL_SCHEME_UWU_LINK}${UWULINK_PREFIX}`)
 }
 
 export function parseUwuLinkDataFromDeeplink(uri: string): string {
-  return uri.slice(UNISWAP_URL_SCHEME_UWU_LINK.length + UWULINK_PREFIX.length).replaceAll('\\', '')
+  return uri.slice(LUX_URL_SCHEME_UWU_LINK.length + UWULINK_PREFIX.length).replaceAll('\\', '')
 }
 
 // Gets the UWULink contract allow list from statsig dynamic config.

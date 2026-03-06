@@ -1,7 +1,7 @@
 import { SharedEventName } from '@luxdex/analytics-events'
 import { ExtensionEventName } from 'lx/src/features/telemetry/constants/extension'
 import { SwapEventName } from 'lx/src/features/telemetry/constants/features'
-import { UniswapEventName } from 'lx/src/features/telemetry/constants/uniswap'
+import { LuxEventName } from 'lx/src/features/telemetry/constants/lux'
 // biome-ignore lint/style/noRestrictedImports: legacy import will be migrated
 import type { TestnetModeConfig } from 'utilities/src/telemetry/analytics/analytics'
 
@@ -46,9 +46,9 @@ export const WALLET_TESTNET_CONFIG: TestnetModeConfig = {
   allowlistEvents: [
     SharedEventName.PAGE_VIEWED,
     SharedEventName.ELEMENT_CLICKED,
-    UniswapEventName.NetworkFilterSelected,
-    UniswapEventName.TokenSelected,
-    UniswapEventName.TooltipOpened,
+    LuxEventName.NetworkFilterSelected,
+    LuxEventName.TokenSelected,
+    LuxEventName.TooltipOpened,
     WalletEventName.ExternalLinkOpened,
     WalletEventName.SwapSubmitted,
     WalletEventName.TransferCompleted,

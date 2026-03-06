@@ -6,7 +6,7 @@ import { Flex, Separator, useSporeColors } from 'ui/src'
 import { Modal } from 'lx/src/components/modals/Modal'
 import { selectHasDismissedLowNetworkTokenWarning } from 'lx/src/features/behaviorHistory/selectors'
 import { UniverseChainId } from 'lx/src/features/chains/types'
-import { ModalName, SectionName, UniswapEventName } from 'lx/src/features/telemetry/constants'
+import { ModalName, SectionName, LuxEventName } from 'lx/src/features/telemetry/constants'
 import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
 import Trace from 'lx/src/features/telemetry/Trace'
 import { InsufficientNativeTokenWarning } from 'lx/src/features/transactions/components/InsufficientNativeTokenWarning/InsufficientNativeTokenWarning'
@@ -115,7 +115,7 @@ export function SendFormScreen(): JSX.Element {
 
   const onPressReview = useCallback(() => {
     if (!hasDismissedLowNetworkTokenWarning && isMax && currencyInInfo?.currency.isNative) {
-      sendAnalyticsEvent(UniswapEventName.LowNetworkTokenInfoModalOpened, { location: 'send' })
+      sendAnalyticsEvent(LuxEventName.LowNetworkTokenInfoModalOpened, { location: 'send' })
       handleShowMaxTransferModal()
       return
     }

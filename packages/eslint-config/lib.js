@@ -2,7 +2,7 @@ const biomeSupportedRules = require('./biome-supported')
 
 module.exports = {
   root: true,
-  extends: ['@uniswap/eslint-config/native', '@uniswap/eslint-config/webPlatform'],
+  extends: ['@lux/eslint-config/native', '@lux/eslint-config/webPlatform'],
   ignorePatterns: [
     'node_modules',
     '.turbo',

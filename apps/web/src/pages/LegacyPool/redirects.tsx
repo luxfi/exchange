@@ -1,4 +1,4 @@
-import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
+import { ProtocolVersion } from '@lux/client-data-api/dist/data/v1/poolTypes_pb'
 import { lazy, Suspense } from 'react'
 import { Navigate, useParams, useSearchParams } from 'react-router'
 import { Loader } from 'ui/src/loading/Loader'

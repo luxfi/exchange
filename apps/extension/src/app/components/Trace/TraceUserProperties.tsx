@@ -1,7 +1,7 @@
 import { datadogRum } from '@datadog/browser-rum'
 import { useQuery } from '@tanstack/react-query'
-import { provideUniswapIdentifierService } from '@universe/api'
-import { uniswapIdentifierQuery } from '@universe/sessions'
+import { provideLuxIdentifierService } from '@universe/api'
+import { luxIdentifierQuery } from '@universe/sessions'
 import { useEffect } from 'react'
 import { useIsDarkMode } from 'ui/src'
 import { DisplayNameType } from 'lx/src/features/accounts/types'
@@ -33,7 +33,7 @@ export function TraceUserProperties(): null {
   const { isTestnetModeEnabled } = useEnabledChains()
   const displayName = useDisplayName(activeAccount?.address)
 
-  const { data: uniswapIdentifier } = useQuery(uniswapIdentifierQuery(provideUniswapIdentifierService))
+  const { data: luxIdentifier } = useQuery(luxIdentifierQuery(provideLuxIdentifierService))
 
   useGatingUserPropertyUsernames()
 
@@ -44,10 +44,10 @@ export function TraceUserProperties(): null {
   }, [activeAccount?.address])
 
   useEffect(() => {
-    if (uniswapIdentifier) {
-      datadogRum.setUserProperty(ExtensionUserPropertyName.UniswapIdentifier, uniswapIdentifier)
+    if (luxIdentifier) {
+      datadogRum.setUserProperty(ExtensionUserPropertyName.LuxIdentifier, luxIdentifier)
     }
-  }, [uniswapIdentifier])
+  }, [luxIdentifier])
 
   // Set user properties for amplitude
 

@@ -219,7 +219,7 @@ const resetMetroCache = async (): Promise<void> => {
 const buildForSimulator = async (config: BuildConfig): Promise<void> => {
   printBuildInfo(config, 'iOS Simulator')
 
-  const args = ['expo', 'run:ios', '--scheme', 'Uniswap', '--configuration', config.configuration]
+  const args = ['expo', 'run:ios', '--scheme', 'Lux', '--configuration', config.configuration]
 
   if (config.simulator) {
     const simulatorName = config.simulator.split('(')[0]?.trim()
@@ -349,7 +349,7 @@ const main = async (): Promise<void> => {
 
     const config: BuildConfig = {
       ...answers,
-      scheme: 'Uniswap',
+      scheme: 'Lux',
       cleanBuild: utilities.includes('clean'),
       resetMetroCache: utilities.includes('resetCache'),
     }

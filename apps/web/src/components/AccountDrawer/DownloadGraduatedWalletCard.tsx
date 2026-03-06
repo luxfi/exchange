@@ -32,7 +32,7 @@ export function DownloadGraduatedWalletCard(): JSX.Element | null {
   const isEmbeddedWallet = account.connector?.id === CONNECTION_PROVIDER_IDS.EMBEDDED_WALLET_CONNECTOR_ID
   const isEWBackedUp = useAppSelector((state) => state.user.isEmbeddedWalletBackedUp)
   const dismissedTimestamp = useAppSelector(
-    (state) => state.uniswapBehaviorHistory.embeddedWalletGraduateCardDismissed?.[account.address ?? ''],
+    (state) => state.luxBehaviorHistory.embeddedWalletGraduateCardDismissed?.[account.address ?? ''],
   )
 
   const isSessionDismissed = useAppSelector((state) =>
@@ -91,7 +91,7 @@ export function DownloadGraduatedWalletCard(): JSX.Element | null {
           <Flex row flex={1} py="$spacing16" px="$spacing12">
             <Flex flex={0} gap="$spacing4" pl="$spacing12">
               <Text variant="buttonLabel3" color="$neutral1">
-                {t('common.downloadUniswapWallet')}
+                {t('common.downloadLuxWallet')}
               </Text>
               <Text variant="body3" color="$neutral2">
                 {t('account.downloadWallet.subtitle')}

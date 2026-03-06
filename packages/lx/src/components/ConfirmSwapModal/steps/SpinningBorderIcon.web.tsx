@@ -2,7 +2,7 @@ import { PropsWithChildren, useEffect } from 'react'
 import { Flex } from 'ui/src'
 
 // Inject CSS keyframes for spinning animation once
-const SPINNER_KEYFRAMES_ID = 'uniswap-spinner-keyframes'
+const SPINNER_KEYFRAMES_ID = 'lux-spinner-keyframes'
 
 function injectSpinnerKeyframes(): void {
   if (typeof document === 'undefined') {
@@ -14,7 +14,7 @@ function injectSpinnerKeyframes(): void {
   const style = document.createElement('style')
   style.id = SPINNER_KEYFRAMES_ID
   style.textContent = `
-    @keyframes uniswap-spin {
+    @keyframes lux-spin {
       from { transform: rotate(0deg); }
       to { transform: rotate(360deg); }
     }
@@ -50,7 +50,7 @@ export function SpinningBorderIcon({
           borderLeftColor: 'transparent',
           borderBottomColor: 'transparent',
           borderRightColor: 'transparent',
-          animation: 'uniswap-spin 750ms linear infinite',
+          animation: 'lux-spin 750ms linear infinite',
         }}
       />
       {children}

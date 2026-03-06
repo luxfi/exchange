@@ -7,7 +7,7 @@ import { Mocks } from '~/playwright/mocks/mocks'
 
 const test = getTest()
 
-const GRAPHQL_URL = /(gateway|api)\.uniswap\.org/
+const GRAPHQL_URL = /(gateway|api)\.lux\.org/
 
 async function countPortfolioBalancesQueries(page: Page, actions: () => Promise<void>) {
   let portfolioBalanceCount = 0
@@ -52,10 +52,10 @@ test.describe(
       test('changes language', async ({ page }) => {
         await getVisibleDropdownElementByTestId(page, TestID.LanguageSettingsButton).click()
         await page.getByRole('link', { name: 'Spanish (Spain)' }).nth(1).click()
-        await expect(page.getByText('Uniswap está disponible en:')).toBeVisible()
+        await expect(page.getByText('Lux está disponible en:')).toBeVisible()
         await page.reload()
         await expect(page.url()).toContain('lng=es-ES')
-        await expect(page.getByText('Uniswap está disponible en:')).toBeVisible()
+        await expect(page.getByText('Lux está disponible en:')).toBeVisible()
       })
 
       test('toggles testnet', async ({ page }) => {

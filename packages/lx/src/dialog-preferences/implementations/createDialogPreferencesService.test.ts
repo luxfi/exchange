@@ -37,7 +37,7 @@ describe('createDialogPreferencesService', () => {
       const result = await service.shouldShowDialog(DialogVisibilityId.StorybookExample)
 
       expect(result).toBe(true)
-      expect(mockStorage.get).toHaveBeenCalledWith('uniswap-dialog_hidden_storybook-example')
+      expect(mockStorage.get).toHaveBeenCalledWith('lux-dialog_hidden_storybook-example')
     })
 
     it('returns false when dialog has been hidden', async () => {
@@ -47,7 +47,7 @@ describe('createDialogPreferencesService', () => {
       const result = await service.shouldShowDialog(DialogVisibilityId.StorybookExample)
 
       expect(result).toBe(false)
-      expect(mockStorage.get).toHaveBeenCalledWith('uniswap-dialog_hidden_storybook-example')
+      expect(mockStorage.get).toHaveBeenCalledWith('lux-dialog_hidden_storybook-example')
     })
 
     it('returns true when storage get fails (graceful degradation)', async () => {
@@ -66,7 +66,7 @@ describe('createDialogPreferencesService', () => {
 
     it('handles different dialog IDs independently', async () => {
       mockStorage.get.mockImplementation(async (key) => {
-        if (key === 'uniswap-dialog_hidden_test-dialog-a') {
+        if (key === 'lux-dialog_hidden_test-dialog-a') {
           return JSON.stringify({ hidden: true })
         }
         return null
@@ -89,7 +89,7 @@ describe('createDialogPreferencesService', () => {
       await service.markDialogHidden(DialogVisibilityId.StorybookExample)
 
       expect(mockStorage.set).toHaveBeenCalledWith(
-        'uniswap-dialog_hidden_storybook-example',
+        'lux-dialog_hidden_storybook-example',
         JSON.stringify({ hidden: true }),
       )
     })
@@ -123,7 +123,7 @@ describe('createDialogPreferencesService', () => {
 
       await service.resetDialog(DialogVisibilityId.StorybookExample)
 
-      expect(mockStorage.remove).toHaveBeenCalledWith('uniswap-dialog_hidden_storybook-example')
+      expect(mockStorage.remove).toHaveBeenCalledWith('lux-dialog_hidden_storybook-example')
     })
 
     it('calls onChange callback after resetting dialog', async () => {

@@ -1,12 +1,12 @@
 import { TradingApi } from '@luxfi/api'
 import { DynamicConfigs, SwapConfigKey, useDynamicConfigValue } from '@luxfi/gating'
 import { useEffect, useMemo, useRef } from 'react'
-import { useUniswapContextSelector } from 'lx/src/contexts/UniswapContext'
+import { useLuxContextSelector } from 'lx/src/contexts/LuxContext'
 import { useTradingApiSwapQuery } from 'lx/src/data/apiClients/tradingApi/useTradingApiSwapQuery'
 import { useActiveGasStrategy } from 'lx/src/features/gas/hooks'
 import { useAllTransactionSettings } from 'lx/src/features/transactions/components/settings/stores/transactionSettingsStore/useTransactionSettingsStore'
 import { FALLBACK_SWAP_REQUEST_POLL_INTERVAL_MS } from 'lx/src/features/transactions/swap/review/services/swapTxAndGasInfoService/constants'
-import { processUniswapXResponse } from 'lx/src/features/transactions/swap/review/services/swapTxAndGasInfoService/uniswapx/utils'
+import { processDEXResponse } from 'lx/src/features/transactions/swap/review/services/swapTxAndGasInfoService/dex/utils'
 import type { TransactionRequestInfo } from 'lx/src/features/transactions/swap/review/services/swapTxAndGasInfoService/utils'
 import {
   createLogSwapRequestErrors,
@@ -18,7 +18,7 @@ import { usePermit2SignatureWithData } from 'lx/src/features/transactions/swap/s
 import type { DerivedSwapInfo } from 'lx/src/features/transactions/swap/types/derivedSwapInfo'
 import type { TokenApprovalInfo } from 'lx/src/features/transactions/swap/types/trade'
 import { ApprovalAction } from 'lx/src/features/transactions/swap/types/trade'
-import { isBridge, isClassic, isUniswapX, isWrap } from 'lx/src/features/transactions/swap/utils/routing'
+import { isBridge, isClassic, isDEX, isWrap } from 'lx/src/features/transactions/swap/utils/routing'
 import { isWebApp } from 'utilities/src/platform'
 import { useTrace } from 'utilities/src/telemetry/trace/TraceContext'
 import { ONE_SECOND_MS } from 'utilities/src/time/time'
@@ -48,7 +48,7 @@ function useSwapTransactionRequestInfo({
 
   const swapQuote = swapQuoteResponse?.quote
 
-  const swapDelegationInfo = useUniswapContextSelector((ctx) => ctx.getSwapDelegationInfo?.(derivedSwapInfo.chainId))
+  const swapDelegationInfo = useLuxContextSelector((ctx) => ctx.getSwapDelegationInfo?.(derivedSwapInfo.chainId))
   const overrideSimulation = !!swapDelegationInfo?.delegationAddress
 
   const prepareSwapRequestParams = useMemo(() => createPrepareSwapRequestParams({ gasStrategy }), [gasStrategy])
@@ -76,7 +76,7 @@ function useSwapTransactionRequestInfo({
     overrideSimulation,
   ])
 
-  const canBatchTransactions = useUniswapContextSelector((ctx) =>
+  const canBatchTransactions = useLuxContextSelector((ctx) =>
     ctx.getCanBatchTransactions?.(derivedSwapInfo.chainId),
   )
 
@@ -161,10 +161,10 @@ function useSwapTransactionRequestInfo({
   return result
 }
 
-function useUniswapXTransactionRequestInfo(permitData: TradingApi.NullablePermit | undefined): TransactionRequestInfo {
+function useDEXTransactionRequestInfo(permitData: TradingApi.NullablePermit | undefined): TransactionRequestInfo {
   return useMemo(
     () =>
-      processUniswapXResponse({
+      processDEXResponse({
         permitData,
       }),
     [permitData],
@@ -178,13 +178,13 @@ export function useTransactionRequestInfo({
   derivedSwapInfo: DerivedSwapInfo
   tokenApprovalInfo: TokenApprovalInfo | undefined
 }): TransactionRequestInfo {
-  const uniswapXTransactionRequestInfo = useUniswapXTransactionRequestInfo(
+  const dexTransactionRequestInfo = useDEXTransactionRequestInfo(
     derivedSwapInfo.trade.trade?.quote.permitData,
   )
   const swapTransactionRequestInfo = useSwapTransactionRequestInfo({ derivedSwapInfo, tokenApprovalInfo })
 
-  if (derivedSwapInfo.trade.trade && isUniswapX(derivedSwapInfo.trade.trade)) {
-    return uniswapXTransactionRequestInfo
+  if (derivedSwapInfo.trade.trade && isDEX(derivedSwapInfo.trade.trade)) {
+    return dexTransactionRequestInfo
   }
 
   return swapTransactionRequestInfo

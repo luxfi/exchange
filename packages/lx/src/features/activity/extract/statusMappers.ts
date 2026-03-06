@@ -2,8 +2,8 @@ import {
   PlanStatus as DataApiPlanStatus,
   PlanStepStatus as DataApiPlanStepStatus,
   SwapType,
-} from '@uniswap/client-data-api/dist/data/v1/plan_pb'
-import { PlanActivity } from '@uniswap/client-data-api/dist/data/v1/types_pb'
+} from '@lux/client-data-api/dist/data/v1/plan_pb'
+import { PlanActivity } from '@lux/client-data-api/dist/data/v1/types_pb'
 import { TradingApi } from '@universe/api'
 import { TransactionStatus } from 'lx/src/features/transactions/types/transactionDetails'
 

@@ -5,8 +5,8 @@ import { InterfaceEventName } from 'lx/src/features/telemetry/constants'
 import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
 import { buildBatchCancellation } from 'lx/src/features/transactions/cancel/cancelOrderFactory'
 import { hasValidCancellationData } from 'lx/src/features/transactions/cancel/validation'
-import { UniswapXOrderDetails } from 'lx/src/features/transactions/types/transactionDetails'
-import { hasEncodedOrder } from 'lx/src/features/transactions/utils/uniswapX.utils'
+import { DEXOrderDetails } from 'lx/src/features/transactions/types/transactionDetails'
+import { hasEncodedOrder } from 'lx/src/features/transactions/utils/dex.utils'
 import { logger } from 'utilities/src/logger/logger'
 
 interface OrderWithEncodedData {
@@ -26,10 +26,10 @@ export type LimitOrdersFetcher = (orderHashes: string[]) => Promise<LimitOrderRe
 /**
  * Sends analytics event for order cancellation
  */
-export function trackOrderCancellation(orders: UniswapXOrderDetails[]): void {
+export function trackOrderCancellation(orders: DEXOrderDetails[]): void {
   const orderHashes = orders.map((order) => order.orderHash).filter((hash): hash is string => hash !== undefined)
 
-  sendAnalyticsEvent(InterfaceEventName.UniswapXOrderCancelInitiated, {
+  sendAnalyticsEvent(InterfaceEventName.DEXOrderCancelInitiated, {
     orders: orderHashes,
   })
 }
@@ -39,7 +39,7 @@ export function trackOrderCancellation(orders: UniswapXOrderDetails[]): void {
  * Returns the data needed to execute the cancellation transaction.
  * Only processes orders that already have encodedOrder available locally.
  */
-export function extractCancellationData(orders: UniswapXOrderDetails[]): Array<OrderWithEncodedData> {
+export function extractCancellationData(orders: DEXOrderDetails[]): Array<OrderWithEncodedData> {
   const result: OrderWithEncodedData[] = []
 
   // Only process orders that have encodedOrder locally
@@ -63,7 +63,7 @@ export function extractCancellationData(orders: UniswapXOrderDetails[]): Array<O
  * Returns only entries corresponding to the provided orders array.
  */
 export async function fetchLimitOrdersEncodedOrderData(
-  orders: UniswapXOrderDetails[],
+  orders: DEXOrderDetails[],
   limitOrdersFetcher?: LimitOrdersFetcher,
 ): Promise<Array<OrderWithEncodedData>> {
   // Early return if no fetcher provided or no orders
@@ -115,14 +115,14 @@ export async function fetchLimitOrdersEncodedOrderData(
  * based on the available cancellation data
  */
 export function getOrdersMatchingCancellationData(
-  allOrders: UniswapXOrderDetails[],
+  allOrders: DEXOrderDetails[],
   cancellationData: Array<{ orderHash: string }>,
-): UniswapXOrderDetails[] {
+): DEXOrderDetails[] {
   const cancellableHashes = new Set(cancellationData.map((order) => order.orderHash))
   return allOrders.filter((order) => order.orderHash && cancellableHashes.has(order.orderHash))
 }
 
-export async function getCancelMultipleUniswapXOrdersTransaction({
+export async function getCancelMultipleDEXOrdersTransaction({
   orders,
   chainId,
   from,
@@ -155,7 +155,7 @@ export async function getCancelMultipleUniswapXOrdersTransaction({
     return tx ?? undefined
   } catch (error) {
     const wrappedError = new Error('could not populate cancel transaction', { cause: error })
-    logger.debug('useCancelMultipleOrders', 'getCancelMultipleUniswapXOrdersTransaction', wrappedError.message, {
+    logger.debug('useCancelMultipleOrders', 'getCancelMultipleDEXOrdersTransaction', wrappedError.message, {
       error: wrappedError,
       orders,
     })
@@ -163,7 +163,7 @@ export async function getCancelMultipleUniswapXOrdersTransaction({
   }
 }
 
-export async function cancelMultipleUniswapXOrders({
+export async function cancelMultipleDEXOrders({
   orders,
   chainId,
   signerAddress,
@@ -180,7 +180,7 @@ export async function cancelMultipleUniswapXOrders({
 
   // Early return if no signer address provided
   if (!signerAddress) {
-    logger.warn('cancelMultipleOrders', 'cancelMultipleUniswapXOrders', 'No signer address provided', {
+    logger.warn('cancelMultipleOrders', 'cancelMultipleDEXOrders', 'No signer address provided', {
       orders,
       chainId,
     })
@@ -217,7 +217,7 @@ export async function cancelMultipleUniswapXOrders({
 
     return sentTransactions
   } catch (error) {
-    logger.debug('useCancelMultipleOrders', 'cancelMultipleUniswapXOrders', 'Failed to cancel multiple orders', {
+    logger.debug('useCancelMultipleOrders', 'cancelMultipleDEXOrders', 'Failed to cancel multiple orders', {
       error,
       orders,
     })

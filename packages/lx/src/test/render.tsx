@@ -16,15 +16,15 @@ import { PropsWithChildren } from 'react'
 import { Provider as ReduxProvider } from 'react-redux'
 import { TamaguiProvider as OGTamaguiProvider, TamaguiProviderProps } from 'ui/src'
 import { config } from 'ui/src/tamagui.config'
-import { UniswapProvider } from 'lx/src/contexts/UniswapContext'
+import { LuxProvider } from 'lx/src/contexts/LuxContext'
 import { UrlContext } from 'lx/src/contexts/UrlContext'
 import { SharedPersistQueryClientProvider } from 'lx/src/data/apiClients/SharedPersistQueryClientProvider'
 import 'lx/src/i18n'
-import { UniswapState, uniswapReducer } from 'lx/src/state/uniswapReducer'
+import { LuxState, luxReducer } from 'lx/src/state/luxReducer'
 import { createMockFn } from 'lx/src/test/mockFn'
 import { AutoMockedApolloProvider } from 'lx/src/test/mocks'
 
-export const mockUniswapContext = {
+export const mockLuxContext = {
   navigateToBuyOrReceiveWithEmptyWallet: createMockFn(),
   navigateToFiatOnRamp: createMockFn(),
   navigateToSwapFlow: createMockFn(),
@@ -53,8 +53,8 @@ export const mockUniswapContext = {
 type ExtendedRenderOptions = RenderOptions & {
   cache?: InMemoryCache
   resolvers?: Resolvers
-  preloadedState?: PreloadedState<UniswapState>
-  store?: EnhancedStore<UniswapState>
+  preloadedState?: PreloadedState<LuxState>
+  store?: EnhancedStore<LuxState>
 }
 
 /**
@@ -72,7 +72,7 @@ export function renderWithProviders(
     preloadedState = {},
     // Automatically create a store instance if no store was passed in
     store = configureStore({
-      reducer: uniswapReducer,
+      reducer: luxReducer,
       preloadedState,
       middleware: (getDefaultMiddleware) => getDefaultMiddleware(),
     }),
@@ -85,7 +85,7 @@ export function renderWithProviders(
     return (
       <AutoMockedApolloProvider cache={cache} resolvers={resolvers}>
         <ReduxProvider store={store}>
-          <SharedUniswapProvider>{children}</SharedUniswapProvider>
+          <SharedLuxProvider>{children}</SharedLuxProvider>
         </ReduxProvider>
       </AutoMockedApolloProvider>
     )
@@ -100,8 +100,8 @@ export function renderWithProviders(
 type ExtendedRenderHookOptions<P> = RenderHookOptions<P> & {
   cache?: InMemoryCache
   resolvers?: Resolvers
-  preloadedState?: PreloadedState<UniswapState>
-  store?: EnhancedStore<UniswapState>
+  preloadedState?: PreloadedState<LuxState>
+  store?: EnhancedStore<LuxState>
 }
 
 type RenderHookWithProvidersResult<R, P extends any[] | undefined = undefined> = Omit<
@@ -141,7 +141,7 @@ export function renderHookWithProviders<P extends any[], R>(
     preloadedState = {},
     // Automatically create a store instance if no store was passed in
     store = configureStore({
-      reducer: uniswapReducer,
+      reducer: luxReducer,
       preloadedState,
       middleware: (getDefaultMiddleware) => getDefaultMiddleware(),
     }),
@@ -152,7 +152,7 @@ export function renderHookWithProviders<P extends any[], R>(
     return (
       <AutoMockedApolloProvider cache={cache} resolvers={resolvers}>
         <ReduxProvider store={store}>
-          <SharedUniswapProvider>{children}</SharedUniswapProvider>
+          <SharedLuxProvider>{children}</SharedLuxProvider>
         </ReduxProvider>
       </AutoMockedApolloProvider>
     )
@@ -174,9 +174,9 @@ export function renderHookWithProviders<P extends any[], R>(
   }
 }
 
-function SharedUniswapProvider({ children }: Pick<TamaguiProviderProps, 'children'>): JSX.Element {
+function SharedLuxProvider({ children }: Pick<TamaguiProviderProps, 'children'>): JSX.Element {
   return (
-    <UniswapProvider {...mockUniswapContext}>
+    <LuxProvider {...mockLuxContext}>
       <UrlContext.Provider value={{ useParsedQueryString: () => ({}) as ParsedQs, usePathname: () => '' }}>
         <SharedPersistQueryClientProvider>
           <OGTamaguiProvider config={config} defaultTheme="dark">
@@ -184,6 +184,6 @@ function SharedUniswapProvider({ children }: Pick<TamaguiProviderProps, 'childre
           </OGTamaguiProvider>
         </SharedPersistQueryClientProvider>
       </UrlContext.Provider>
-    </UniswapProvider>
+    </LuxProvider>
   )
 }

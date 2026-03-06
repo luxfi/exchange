@@ -1,4 +1,4 @@
-import { Currency } from '@uniswap/sdk-core'
+import { Currency } from '@lux/sdk-core'
 import { useMemo, useRef, useState } from 'react'
 import { WRAPPED_NATIVE_CURRENCY } from 'lx/src/constants/tokens'
 import { InterfaceEventName } from 'lx/src/features/telemetry/constants'
@@ -103,7 +103,7 @@ export default function useWrapCallback({
                   type: WrapType.Wrap,
                 })
                 const error = new Error(`Invalid WETH contract
-Please file a bug detailing how this happened - https://github.com/Uniswap/interface/issues/new?labels=bug&template=bug-report.md&title=Invalid%20WETH%20contract`)
+Please file a bug detailing how this happened - https://github.com/Lux/interface/issues/new?labels=bug&template=bug-report.md&title=Invalid%20WETH%20contract`)
                 setError(error)
                 throw error
               }

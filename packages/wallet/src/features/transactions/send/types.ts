@@ -1,4 +1,4 @@
-import { Currency, CurrencyAmount } from '@uniswap/sdk-core'
+import { Currency, CurrencyAmount } from '@lux/sdk-core'
 import { GasEstimate } from '@universe/api'
 import { AssetType, NFTAssetType } from 'lx/src/entities/assets'
 import { SignerMnemonicAccountMeta } from 'lx/src/features/accounts/types'

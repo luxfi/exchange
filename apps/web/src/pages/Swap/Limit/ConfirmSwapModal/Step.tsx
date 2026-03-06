@@ -20,7 +20,7 @@ export interface StepDetails {
   actionRequiredTitle: string | ReactElement
   // Text shown when user input has been accepted and step has yet to complete
   inProgressTitle?: string
-  // Amount of time in seconds the user has to take action on a step (e.g. UniswapX exclusivity window)
+  // Amount of time in seconds the user has to take action on a step (e.g. DEX exclusivity window)
   timeToStart?: number
   // Text shown when timeToStart is exceeded (countdown reaches zero)
   delayedStartTitle?: string

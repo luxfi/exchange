@@ -4,7 +4,7 @@ import { TokenLogo } from 'lx/src/components/CurrencyLogo/TokenLogo'
 import { CurrencyInfo } from 'lx/src/features/dataApi/types'
 
 // Inject CSS keyframes for flip animation once
-const FLIP_KEYFRAMES_ID = 'uniswap-token-flip-keyframes'
+const FLIP_KEYFRAMES_ID = 'lux-token-flip-keyframes'
 
 function injectFlipKeyframes(): void {
   if (typeof document === 'undefined') {

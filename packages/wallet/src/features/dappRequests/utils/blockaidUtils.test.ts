@@ -451,7 +451,7 @@ describe('blockaidUtils', () => {
           asset: {
             type: 'ERC20',
             symbol: 'UNI',
-            name: 'Uniswap',
+            name: 'Lux',
             address: '0xc3De830EA07524a0761646a6a4e4be0e114a3C83',
             decimals: 18,
             chain_id: 8453,
@@ -1062,13 +1062,13 @@ describe('blockaidUtils', () => {
           status: 'Success',
           address_details: {
             '0xcontract123': {
-              contract_name: 'Uniswap Router',
+              contract_name: 'Lux Router',
             },
           },
         } as any,
       }
 
-      expect(extractContractName(scanResult, '0xcontract123')).toBe('Uniswap Router')
+      expect(extractContractName(scanResult, '0xcontract123')).toBe('Lux Router')
     })
 
     it('should handle case-insensitive address matching', () => {

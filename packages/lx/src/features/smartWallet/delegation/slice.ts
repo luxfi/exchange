@@ -4,9 +4,9 @@ import {
   getHandleOnUpdateDelegatedState,
 } from 'lx/src/features/smartWallet/delegation/effects'
 import type { DelegatedState } from 'lx/src/features/smartWallet/delegation/types'
-import { UniswapEventName } from 'lx/src/features/telemetry/constants'
+import { LuxEventName } from 'lx/src/features/telemetry/constants'
 import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
-import { setUserProperty, UniswapUserPropertyName } from 'lx/src/features/telemetry/user'
+import { setUserProperty, LuxUserPropertyName } from 'lx/src/features/telemetry/user'
 import { getDevLogger } from 'utilities/src/logger/logger'
 
 const initialState: DelegatedState = {
@@ -67,7 +67,7 @@ function handleNewDelegateState(input: { delegations: Record<string, string> }):
     `Updating user property for delegated EOA: ${JSON.stringify(Object.keys(input.delegations))}`,
   )
 
-  setUserProperty(UniswapUserPropertyName.IsDelegatedEOA, Object.keys(input.delegations))
+  setUserProperty(LuxUserPropertyName.IsDelegatedEOA, Object.keys(input.delegations))
 }
 
 function handleDelegationDetected(input: { chainId: number; address: string; isActiveChain: boolean }): void {
@@ -77,7 +77,7 @@ function handleDelegationDetected(input: { chainId: number; address: string; isA
     `Sending analytics event for delegation detected: ${JSON.stringify(input)}`,
   )
 
-  sendAnalyticsEvent(UniswapEventName.DelegationDetected, {
+  sendAnalyticsEvent(LuxEventName.DelegationDetected, {
     chainId: input.chainId,
     delegationAddress: input.address,
     isActiveChain: input.isActiveChain,

@@ -94,7 +94,7 @@ describe('FlashbotsRpcClient', () => {
       // Check refund parameter (default 50%)
       expect(requestUrl).toContain(`refund=${testAddress}:50`)
       // Check origin ID
-      expect(requestUrl).toContain('originId=uniswapwallet')
+      expect(requestUrl).toContain('originId=luxwallet')
 
       // Verify client properties
       expect(client).toBeDefined()

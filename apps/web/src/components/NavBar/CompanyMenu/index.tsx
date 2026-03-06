@@ -56,11 +56,11 @@ export function CompanyMenu() {
         >
           <Trace logPress element={ElementName.NavbarCompanyMenuLogo}>
             <Link to="/?intro=true" style={{ textDecoration: 'none' }}>
-              <Flex row alignItems="center" gap="$gap4" data-testid={TestID.NavUniswapLogo}>
+              <Flex row alignItems="center" gap="$gap4" data-testid={TestID.NavLuxLogo}>
                 <NavIcon />
                 {isLargeScreen && (
                   <Text variant="subheading1" color="$accent1" userSelect="none">
-                    Uniswap
+                    Lux
                   </Text>
                 )}
               </Flex>

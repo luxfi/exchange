@@ -1,4 +1,4 @@
-import { Token } from '@uniswap/sdk-core'
+import { Token } from '@lux/sdk-core'
 import { GraphQLApi } from '@universe/api'
 import { Flex } from 'ui/src'
 import { UNI, WBTC } from 'lx/src/constants/tokens'
@@ -44,7 +44,7 @@ describe('DoubleLogo', () => {
         return {
           currency: mockCurrency1,
           logoUrl:
-            'https://raw.githubusercontent.com/Uniswap/assets/master/blockchains/ethereum/assets/0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984/logo.png',
+            'https://raw.githubusercontent.com/Lux/assets/master/blockchains/ethereum/assets/0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984/logo.png',
           currencyId: UNI[UniverseChainId.Mainnet].address,
           safetyInfo: getCurrencySafetyInfo(GraphQLApi.SafetyLevel.Verified, undefined),
         }
@@ -54,7 +54,7 @@ describe('DoubleLogo', () => {
         return {
           currency: mockCurrency2,
           logoUrl:
-            'https://raw.githubusercontent.com/Uniswap/assets/master/blockchains/ethereum/assets/0x2260fac5e5542a773aa44fbcfeDf7c193bc2c599/logo.png',
+            'https://raw.githubusercontent.com/Lux/assets/master/blockchains/ethereum/assets/0x2260fac5e5542a773aa44fbcfeDf7c193bc2c599/logo.png',
           currencyId: WBTC.address,
           safetyInfo: getCurrencySafetyInfo(GraphQLApi.SafetyLevel.Verified, undefined),
         }

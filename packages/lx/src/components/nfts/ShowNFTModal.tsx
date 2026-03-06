@@ -4,7 +4,7 @@ import { Flex } from 'ui/src'
 import { ShieldCheck } from 'ui/src/components/icons/ShieldCheck'
 import { InformationBanner } from 'lx/src/components/banners/InformationBanner'
 import { InfoLinkModal } from 'lx/src/components/modals/InfoLinkModal'
-import { uniswapUrls } from 'lx/src/constants/urls'
+import { luxUrls } from 'lx/src/constants/urls'
 import { ModalName, WalletEventName } from 'lx/src/features/telemetry/constants'
 import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
 import { isMobileApp } from 'utilities/src/platform'
@@ -23,7 +23,7 @@ export function ShowNFTModal(): JSX.Element {
 
   const handleAnalytics = (): void => {
     sendAnalyticsEvent(WalletEventName.ExternalLinkOpened, {
-      url: uniswapUrls.helpArticleUrls.hiddenNFTInfo,
+      url: luxUrls.helpArticleUrls.hiddenNFTInfo,
     })
   }
 
@@ -44,7 +44,7 @@ export function ShowNFTModal(): JSX.Element {
         }
         isOpen={isModalVisible}
         linkText={t('common.button.learn')}
-        linkUrl={uniswapUrls.helpArticleUrls.hiddenNFTInfo}
+        linkUrl={luxUrls.helpArticleUrls.hiddenNFTInfo}
         name={ModalName.HiddenNFTInfoModal}
         title={t('hidden.nfts.info.text.title')}
         onAnalyticsEvent={handleAnalytics}

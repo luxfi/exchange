@@ -1,6 +1,6 @@
 import { LPTransactionSettingsStoreContextProvider } from 'lx/src/features/transactions/components/settings/stores/transactionSettingsStore/LPTransactionSettingsStoreContextProvider'
 import { LiquidityModalHeader } from '~/components/Liquidity/LiquidityModalHeader'
-import { WebUniswapProvider } from '~/components/Web3Provider/WebUniswapContext'
+import { WebLuxProvider } from '~/components/Web3Provider/WebLuxContext'
 import { ExternalWalletProvider } from '~/features/wallet/providers/ExternalWalletProvider'
 import { act, fireEvent, render } from '~/test-utils/render'
 
@@ -9,11 +9,11 @@ describe('LiquidityModalHeader', () => {
     const onClose = vi.fn()
     const { getByText, getByTestId } = render(
       <ExternalWalletProvider>
-        <WebUniswapProvider>
+        <WebLuxProvider>
           <LPTransactionSettingsStoreContextProvider>
             <LiquidityModalHeader title="Test Title" closeModal={onClose} />
           </LPTransactionSettingsStoreContextProvider>
-        </WebUniswapProvider>
+        </WebLuxProvider>
       </ExternalWalletProvider>,
     )
     expect(getByText('Test Title')).toBeInTheDocument()

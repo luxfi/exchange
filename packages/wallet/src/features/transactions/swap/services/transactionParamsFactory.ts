@@ -1,5 +1,5 @@
-import { permit2Address } from '@uniswap/permit2-sdk'
-import { Currency, CurrencyAmount } from '@uniswap/sdk-core'
+import { permit2Address } from '@lux/permit2-sdk'
+import { Currency, CurrencyAmount } from '@lux/sdk-core'
 import { GasEstimate, TradingApi } from '@universe/api'
 import { ValidatedSwapTxContext } from 'lx/src/features/transactions/swap/types/swapTxAndGasInfo'
 import { tradeToTransactionInfo } from 'lx/src/features/transactions/swap/utils/trade'
@@ -16,7 +16,7 @@ import {
 } from 'lx/src/features/transactions/types/transactionDetails'
 import { SubmitTransactionParamsWithTypeInfo } from 'wallet/src/features/transactions/executeTransaction/services/TransactionService/transactionService'
 import { SignedTransactionRequest } from 'wallet/src/features/transactions/executeTransaction/types'
-import { SubmitUniswapXOrderParams } from 'wallet/src/features/transactions/swap/submitOrderSaga'
+import { SubmitDEXOrderParams } from 'wallet/src/features/transactions/swap/submitOrderSaga'
 import { SignedPermit } from 'wallet/src/features/transactions/swap/types/preSignedTransaction'
 import { BaseTransactionContext } from 'wallet/src/features/transactions/swap/types/transactionExecutor'
 
@@ -46,7 +46,7 @@ export interface WrapTransactionData {
   gasEstimate?: GasEstimate
 }
 
-export interface UniswapXOrderTransactionData {
+export interface DEXOrderTransactionData {
   signedPermit: SignedPermit
   quote: TradingApi.DutchQuoteV2 | TradingApi.DutchQuoteV3 | TradingApi.PriorityQuote
   routing: TradingApi.Routing.DUTCH_V2 | TradingApi.Routing.DUTCH_V3 | TradingApi.Routing.PRIORITY
@@ -81,7 +81,7 @@ export interface TransactionParamsFactory {
   createPermitParams(data: PermitTransactionData): SubmitTransactionParamsWithTypeInfo
   createSwapParams(data: SwapTransactionData): SubmitTransactionParamsWithTypeInfo
   createWrapParams(data: WrapTransactionData): SubmitTransactionParamsWithTypeInfo
-  createUniswapXOrderParams(data: UniswapXOrderTransactionData): SubmitUniswapXOrderParams
+  createDEXOrderParams(data: DEXOrderTransactionData): SubmitDEXOrderParams
 }
 
 /**
@@ -201,7 +201,7 @@ export function createTransactionParamsFactory(context: BaseTransactionContext):
     })
   }
 
-  function createUniswapXOrderParams(data: UniswapXOrderTransactionData): SubmitUniswapXOrderParams {
+  function createDEXOrderParams(data: DEXOrderTransactionData): SubmitDEXOrderParams {
     const {
       signedPermit,
       quote,
@@ -223,7 +223,7 @@ export function createTransactionParamsFactory(context: BaseTransactionContext):
       isFinalStep: context.analytics.is_final_step,
     })
 
-    const submitOrderParams: SubmitUniswapXOrderParams = {
+    const submitOrderParams: SubmitDEXOrderParams = {
       account: context.account,
       analytics: context.analytics,
       approveTxHash,
@@ -245,6 +245,6 @@ export function createTransactionParamsFactory(context: BaseTransactionContext):
     createPermitParams,
     createSwapParams,
     createWrapParams,
-    createUniswapXOrderParams,
+    createDEXOrderParams,
   }
 }

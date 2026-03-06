@@ -64,7 +64,7 @@ export function useRouterConfig(): RouterConfig {
   const browserRouterEnabled = isBrowserRouterEnabled()
   const { hash } = useLocation()
   const isEmbeddedWalletEnabled = useFeatureFlag(FeatureFlags.EmbeddedWallet)
-  const isWrappedEnabled = useFeatureFlag(FeatureFlags.UniswapWrapped2025)
+  const isWrappedEnabled = useFeatureFlag(FeatureFlags.LuxWrapped2025)
   const isToucanLaunchAuctionEnabled = useFeatureFlag(FeatureFlags.ToucanLaunchAuction)
 
   return useMemo(
@@ -206,14 +206,14 @@ export const routes: RouteDefinition[] = [
   createRouteDefinition({
     path: '/vote/*',
     getTitle: () => i18n.t('title.voteOnGov'),
-    getDescription: () => i18n.t('title.uniToken'),
+    getDescription: () => i18n.t('title.luxToken'),
     getElement: () => {
       return (
         <Routes>
           <Route
             path="*"
             Component={() => {
-              window.location.href = 'https://vote.uniswapfoundation.org'
+              window.location.href = 'https://vote.luxfoundation.org'
               return null
             }}
           ></Route>
@@ -409,17 +409,17 @@ export const routes: RouteDefinition[] = [
       ':walletAddress/activity',
     ],
   }),
-  // Uniswap Extension Uninstall Page
+  // Lux Extension Uninstall Page
   createRouteDefinition({
     path: CHROME_EXTENSION_UNINSTALL_URL_PATH,
     getElement: () => <ExtensionUninstall />,
     getTitle: () => i18n.t('title.extension.uninstall'),
   }),
-  // Uniswap Wrapped
+  // Lux Wrapped
   createRouteDefinition({
     path: WRAPPED_PATH,
     getElement: () => <Wrapped />,
-    getTitle: () => 'Uniswap Wrapped',
+    getTitle: () => 'Lux Wrapped',
     enabled: (args) => args.isWrappedEnabled ?? false,
   }),
   createRouteDefinition({ path: '*', getElement: () => <Navigate to="/not-found" replace /> }),

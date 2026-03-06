@@ -4,7 +4,7 @@ const chrome = getChromeWithThrow()
 
 type AreaName = keyof Pick<typeof chrome.storage, 'sync' | 'local' | 'managed' | 'session'>
 
-export const prefix = 'com.uniswap.web'
+export const prefix = 'com.lux.web'
 export const ENCRYPTION_KEY_STORAGE_KEY = `${prefix}.encryptionKey`
 
 /**

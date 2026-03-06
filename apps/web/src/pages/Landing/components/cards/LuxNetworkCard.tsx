@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next'
 import { Image } from 'ui/src'
 import { LuxLogo } from 'ui/src/components/icons/LuxLogo'
 import { opacify } from 'ui/src/theme'
-import { uniswapUrls } from 'lx/src/constants/urls'
+import { luxUrls } from 'lx/src/constants/urls'
 
 const primary = '#FFFFFF'
 
@@ -14,7 +14,7 @@ export function LuxNetworkCard() {
 
   return (
     <ValuePropCard
-      href={uniswapUrls.luxNetworkUrl}
+      href={luxUrls.luxNetworkUrl}
       smaller
       color={primary}
       backgroundColor={opacify(6, primary)}

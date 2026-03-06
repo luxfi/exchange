@@ -1,5 +1,5 @@
-import { ChainId } from '@uniswap/client-liquidity/dist/uniswap/liquidity/v1/types_pb'
-import { Currency, CurrencyAmount } from '@uniswap/sdk-core'
+import { ChainId } from '@lux/client-liquidity/dist/lux/liquidity/v1/types_pb'
+import { Currency, CurrencyAmount } from '@lux/sdk-core'
 import { useCallback, useRef, useState } from 'react'
 import { useSubmitBidMutation } from 'lx/src/data/rest/auctions/useSubmitBidMutation'
 import { TransactionStep } from 'lx/src/features/transactions/steps/types'
@@ -268,8 +268,8 @@ export function useBidFormSubmit({
         bidTokenAddress: currencyLower,
         requestId,
         dappInfo: {
-          name: 'Uniswap CCA',
-          icon: 'https://protocol-icons.s3.amazonaws.com/icons/uniswap-v4.jpg',
+          name: 'Lux CCA',
+          icon: 'https://protocol-icons.s3.amazonaws.com/icons/lux-v4.jpg',
         },
       }
 

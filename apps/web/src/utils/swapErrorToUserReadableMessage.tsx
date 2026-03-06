@@ -67,16 +67,16 @@ export function swapErrorToUserReadableMessage(t: TFunction, error: any): string
   }
 
   switch (reason) {
-    case 'UniswapV2Router: EXPIRED':
+    case 'AMMV2Router: EXPIRED':
       return t('swap.error.v2.expired')
-    case 'UniswapV2Router: INSUFFICIENT_OUTPUT_AMOUNT':
-    case 'UniswapV2Router: EXCESSIVE_INPUT_AMOUNT':
+    case 'AMMV2Router: INSUFFICIENT_OUTPUT_AMOUNT':
+    case 'AMMV2Router: EXCESSIVE_INPUT_AMOUNT':
       return t('swap.error.v2.slippage')
     case 'TransferHelper: TRANSFER_FROM_FAILED':
       return t('swap.error.v2.transferInput')
-    case 'UniswapV2: TRANSFER_FAILED':
+    case 'AMMV2: TRANSFER_FAILED':
       return t('swap.error.v2.transferOutput')
-    case 'UniswapV2: K':
+    case 'AMMV2: K':
       return t('swap.error.v2.k')
     case 'Too little received':
     case 'Too much requested':

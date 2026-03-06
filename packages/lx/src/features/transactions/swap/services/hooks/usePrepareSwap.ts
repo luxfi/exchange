@@ -1,5 +1,5 @@
 import { useMemo } from 'react'
-import { useUniswapContext } from 'lx/src/contexts/UniswapContext'
+import { useLuxContext } from 'lx/src/contexts/LuxContext'
 import { useAccountsStore } from 'lx/src/features/accounts/store/hooks'
 import { AccountType } from 'lx/src/features/accounts/types'
 import { Platform } from 'lx/src/features/platforms/types/Platform'
@@ -43,7 +43,7 @@ export function usePrepareSwap(ctx: { warningService: WarningService }): () => v
 
   const wallet = useWallet()
   const activeAccount = isSVMChain(chainId) ? wallet.svmAccount : wallet.evmAccount
-  const { onConnectWallet } = useUniswapContext()
+  const { onConnectWallet } = useLuxContext()
 
   // needsTokenProtectionWarning is only true in interface, where swap component might be prefilled with a token that has a protection warning
   const { needsTokenProtectionWarning } = usePrefilledNeedsTokenProtectionWarning(derivedSwapInfo, prefilledCurrencies)

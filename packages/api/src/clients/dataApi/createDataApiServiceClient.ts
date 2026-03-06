@@ -1,6 +1,6 @@
 import { type PartialMessage } from '@bufbuild/protobuf'
 import { type PromiseClient } from '@connectrpc/connect'
-import { type DataApiService } from '@uniswap/client-data-api/dist/data/v1/api_connect'
+import { type DataApiService } from '@lux/client-data-api/dist/data/v1/api_connect'
 import type {
   GetPortfolioRequest,
   GetPortfolioResponse,
@@ -8,7 +8,7 @@ import type {
   ListTopPoolsResponse,
   ListTopTokensRequest,
   ListTopTokensResponse,
-} from '@uniswap/client-data-api/dist/data/v1/api_pb'
+} from '@lux/client-data-api/dist/data/v1/api_pb'
 
 export interface DataApiServiceClientContext {
   rpcClient: PromiseClient<typeof DataApiService>

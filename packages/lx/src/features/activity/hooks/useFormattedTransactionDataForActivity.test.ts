@@ -5,7 +5,7 @@ import dayjs from 'dayjs'
 import { useFormattedTransactionDataForActivity } from 'lx/src/features/activity/hooks/useFormattedTransactionDataForActivity'
 import { UniverseChainId } from 'lx/src/features/chains/types'
 import { TransactionStatus } from 'lx/src/features/transactions/types/transactionDetails'
-import { transactionDetails, uniswapXOrderDetails } from 'lx/src/test/fixtures/wallet/transactions'
+import { transactionDetails, dexOrderDetails } from 'lx/src/test/fixtures/wallet/transactions'
 import { renderHook } from 'lx/src/test/test-utils'
 import type { MockedFunction } from 'vitest'
 
@@ -164,7 +164,7 @@ describe('useFormattedTransactionDataForActivity', () => {
         id: 'regular-swap',
         routing: TradingApi.Routing.CLASSIC,
       })
-      const limitOrder = uniswapXOrderDetails({
+      const limitOrder = dexOrderDetails({
         id: 'limit-order',
         routing: TradingApi.Routing.DUTCH_LIMIT,
         chainId: UniverseChainId.Mainnet,
@@ -286,7 +286,7 @@ describe('useFormattedTransactionDataForActivity', () => {
         chainId: UniverseChainId.ArbitrumOne,
         routing: TradingApi.Routing.CLASSIC,
       })
-      const limitOrder = uniswapXOrderDetails({
+      const limitOrder = dexOrderDetails({
         id: 'limit',
         chainId: UniverseChainId.Mainnet,
         routing: TradingApi.Routing.DUTCH_LIMIT,
@@ -306,7 +306,7 @@ describe('useFormattedTransactionDataForActivity', () => {
 
   describe('filterTransactionTypes', () => {
     it('should pass filterTransactionTypes to useListTransactions', () => {
-      const { TransactionTypeFilter } = require('@uniswap/client-data-api/dist/data/v1/types_pb')
+      const { TransactionTypeFilter } = require('@lux/client-data-api/dist/data/v1/types_pb')
       const filterTypes = [TransactionTypeFilter.SWAP]
 
       renderFormattedHook({ filterTransactionTypes: filterTypes })

@@ -23,7 +23,7 @@ export function useReportTotalBalancesUsdForAnalytics() {
       wallets: account.address ? [account.address] : [],
     })
 
-    if (account.connector?.name === CONNECTION_PROVIDER_NAMES.UNISWAP_EXTENSION) {
+    if (account.connector?.name === CONNECTION_PROVIDER_NAMES.LUX_EXTENSION) {
       trackConversions(CONVERSION_EVENTS.Extension.WalletFunded)
     }
 

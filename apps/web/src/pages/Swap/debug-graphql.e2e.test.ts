@@ -11,7 +11,7 @@ test('debug graphql requests for token selector', async ({ page }) => {
     const url = request.url()
     if (
       url.includes('graphql') ||
-      url.includes('gateway.uniswap.org') ||
+      url.includes('gateway.lux.org') ||
       url.includes('interface.gateway') ||
       url.includes('/api')
     ) {
@@ -38,7 +38,7 @@ test('debug graphql requests for token selector', async ({ page }) => {
     const url = response.url()
     if (
       url.includes('graphql') ||
-      url.includes('gateway.uniswap.org') ||
+      url.includes('gateway.lux.org') ||
       url.includes('interface.gateway') ||
       url.includes('/api')
     ) {

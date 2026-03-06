@@ -236,8 +236,8 @@ function useCAIP25Session(activeAddress?: string): CAIP25Session {
         expiry: '0',
         walletInfo: {
           uuid: 'local',
-          rdns: 'org.uniswap.app',
-          name: 'Uniswap Wallet',
+          rdns: 'org.lux.app',
+          name: 'Lux Wallet',
         },
       },
     }

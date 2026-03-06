@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query'
-import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
-import { ClaimLPFeesRequest } from '@uniswap/client-liquidity/dist/uniswap/liquidity/v1/api_pb'
+import { ProtocolVersion } from '@lux/client-data-api/dist/data/v1/poolTypes_pb'
+import { ClaimLPFeesRequest } from '@lux/client-liquidity/dist/lux/liquidity/v1/api_pb'
 import {
   V2Pool,
   V2Position,
@@ -8,8 +8,8 @@ import {
   V3Position,
   V4Pool,
   V4Position,
-} from '@uniswap/client-liquidity/dist/uniswap/liquidity/v1/types_pb'
-import { Currency, CurrencyAmount } from '@uniswap/sdk-core'
+} from '@lux/client-liquidity/dist/lux/liquidity/v1/types_pb'
+import { Currency, CurrencyAmount } from '@lux/sdk-core'
 import { Dispatch, SetStateAction, useMemo, useState } from 'react'
 import { Trans, useTranslation } from 'react-i18next'
 import { Button, Flex, Switch, Text } from 'ui/src'
@@ -20,7 +20,7 @@ import { GetHelpHeader } from 'lx/src/components/dialog/GetHelpHeader'
 import { Modal } from 'lx/src/components/modals/Modal'
 import { PollingInterval, ZERO_ADDRESS } from 'lx/src/constants/misc'
 import { nativeOnChain } from 'lx/src/constants/tokens'
-import { uniswapUrls } from 'lx/src/constants/urls'
+import { luxUrls } from 'lx/src/constants/urls'
 import { liquidityQueries } from 'lx/src/data/apiClients/liquidityService/liquidityQueries'
 import { UniverseChainId } from 'lx/src/features/chains/types'
 import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
@@ -351,7 +351,7 @@ export function ClaimFeeModal() {
     <Modal name={ModalName.ClaimFee} onClose={closeModal} isDismissible>
       <Flex gap="$gap16">
         <GetHelpHeader
-          link={uniswapUrls.helpRequestUrl}
+          link={luxUrls.helpRequestUrl}
           title={t('pool.collectFees')}
           closeModal={closeModal}
           closeDataTestId="ClaimFeeModal-close-icon"

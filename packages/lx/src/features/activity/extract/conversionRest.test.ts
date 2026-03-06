@@ -6,7 +6,7 @@ import {
   OnChainTransactionStatus,
   SpamCode as RestSpamCode,
   TokenType,
-} from '@uniswap/client-data-api/dist/data/v1/types_pb'
+} from '@lux/client-data-api/dist/data/v1/types_pb'
 import { TradingApi } from '@universe/api'
 import { getNativeAddress, getWrappedNativeAddress } from 'lx/src/constants/addresses'
 import { DAI } from 'lx/src/constants/tokens'
@@ -152,7 +152,7 @@ const MOCK_ERC20_APPROVE: OnChainTransaction = {
     },
   ],
   protocol: {
-    name: 'Uniswap',
+    name: 'Lux',
     logoUrl: 'https://logo.url',
   },
 } as OnChainTransaction
@@ -168,7 +168,7 @@ describe(parseRestApproveTransaction, () => {
       spender: TO_ADDRESS,
       approvalAmount: '1',
       dappInfo: {
-        name: 'Uniswap',
+        name: 'Lux',
         icon: 'https://logo.url',
       },
     })
@@ -465,9 +465,9 @@ const MOCK_NATIVE_SWAP: OnChainTransaction = {
   ],
 } as OnChainTransaction
 
-const MOCK_UNISWAP_X_SWAP: OnChainTransaction = {
+const MOCK_LUX_X_SWAP: OnChainTransaction = {
   ...MOCK_ERC20_SWAP,
-  label: OnChainTransactionLabel.UNISWAP_X,
+  label: OnChainTransactionLabel.LUX_X,
 } as OnChainTransaction
 
 const MOCK_MULTI_TRANSFER_SWAP: OnChainTransaction = {
@@ -571,8 +571,8 @@ describe(parseRestSwapTransaction, () => {
       outputCurrencyAmountRaw: '1000000000000000000',
     })
   })
-  it('Swap: parse UniswapX swap', () => {
-    expect(parseRestSwapTransaction(MOCK_UNISWAP_X_SWAP)).toEqual({
+  it('Swap: parse DEX swap', () => {
+    expect(parseRestSwapTransaction(MOCK_LUX_X_SWAP)).toEqual({
       type: TransactionType.Swap,
       inputCurrencyId: `1-${ERC20_ASSET_ADDRESS}`,
       outputCurrencyId: `1-${WRAPPED_NATIVE_ADDRESS}`,
@@ -580,8 +580,8 @@ describe(parseRestSwapTransaction, () => {
       inputCurrencyAmountRaw: '1000000000000000000',
       outputCurrencyAmountRaw: '1000000000000000000',
       dappInfo: {
-        name: 'Uniswap',
-        icon: 'https://protocol-icons.s3.amazonaws.com/icons/uniswap-v4.jpg',
+        name: 'Lux',
+        icon: 'https://protocol-icons.s3.amazonaws.com/icons/lux-v4.jpg',
       },
     })
   })
@@ -979,7 +979,7 @@ const MOCK_LIQUIDITY_INCREASE: OnChainTransaction = {
     },
   ],
   protocol: {
-    name: 'Uniswap V3',
+    name: 'Lux V3',
     logoUrl: 'https://logo.url',
   },
 } as OnChainTransaction
@@ -1014,7 +1014,7 @@ const MOCK_LIQUIDITY_DECREASE: OnChainTransaction = {
     },
   ],
   protocol: {
-    name: 'Uniswap V3',
+    name: 'Lux V3',
     logoUrl: 'https://logo.url',
   },
 } as OnChainTransaction
@@ -1049,7 +1049,7 @@ const MOCK_CREATE_POOL: OnChainTransaction = {
     },
   ],
   protocol: {
-    name: 'Uniswap V3',
+    name: 'Lux V3',
     logoUrl: 'https://logo.url',
   },
 } as OnChainTransaction
@@ -1072,7 +1072,7 @@ const MOCK_COLLECT_FEES: OnChainTransaction = {
     },
   ],
   protocol: {
-    name: 'Uniswap',
+    name: 'Lux',
     logoUrl: 'https://logo.url',
   },
 } as OnChainTransaction
@@ -1107,7 +1107,7 @@ const MOCK_COLLECT_FEES_TWO_TOKENS: OnChainTransaction = {
     },
   ],
   protocol: {
-    name: 'Uniswap V3',
+    name: 'Lux V3',
     logoUrl: 'https://logo.url',
   },
 } as OnChainTransaction
@@ -1127,7 +1127,7 @@ describe(parseRestLiquidityTransaction, () => {
       currency1AmountRaw: '500000000000000000',
       isSpam: false,
       dappInfo: {
-        name: 'Uniswap V3',
+        name: 'Lux V3',
         icon: 'https://logo.url',
       },
     })
@@ -1142,7 +1142,7 @@ describe(parseRestLiquidityTransaction, () => {
       currency1AmountRaw: '400000000000000000',
       isSpam: false,
       dappInfo: {
-        name: 'Uniswap V3',
+        name: 'Lux V3',
         icon: 'https://logo.url',
       },
     })
@@ -1157,7 +1157,7 @@ describe(parseRestLiquidityTransaction, () => {
       currency1AmountRaw: '1000000000000000000',
       isSpam: false,
       dappInfo: {
-        name: 'Uniswap V3',
+        name: 'Lux V3',
         icon: 'https://logo.url',
       },
     })
@@ -1172,7 +1172,7 @@ describe(parseRestLiquidityTransaction, () => {
       currency1AmountRaw: undefined,
       isSpam: false,
       dappInfo: {
-        name: 'Uniswap',
+        name: 'Lux',
         icon: 'https://logo.url',
       },
     })
@@ -1187,7 +1187,7 @@ describe(parseRestLiquidityTransaction, () => {
       currency1AmountRaw: '150000000000000000',
       isSpam: false,
       dappInfo: {
-        name: 'Uniswap V3',
+        name: 'Lux V3',
         icon: 'https://logo.url',
       },
     })
@@ -1225,8 +1225,8 @@ describe(extractRestOnChainTransactionDetails, () => {
     expect(txns[0]?.typeInfo.type).toEqual(TransactionType.Swap)
     expect(txns[0]?.routing).toEqual(TradingApi.Routing.CLASSIC)
   })
-  it('UniswapX swap', () => {
-    const txns = extractRestOnChainTransactionDetails(MOCK_UNISWAP_X_SWAP)
+  it('DEX swap', () => {
+    const txns = extractRestOnChainTransactionDetails(MOCK_LUX_X_SWAP)
     expect(txns).toHaveLength(1)
     expect(txns[0]?.typeInfo.type).toEqual(TransactionType.Swap)
     expect(txns[0]?.routing).toEqual(TradingApi.Routing.DUTCH_V2)

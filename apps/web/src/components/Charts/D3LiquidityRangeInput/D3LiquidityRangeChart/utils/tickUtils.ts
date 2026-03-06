@@ -1,6 +1,6 @@
-import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
-import { Currency, Price, Token } from '@uniswap/sdk-core'
-import { nearestUsableTick, TickMath } from '@uniswap/v3-sdk'
+import { ProtocolVersion } from '@lux/client-data-api/dist/data/v1/poolTypes_pb'
+import { Currency, Price, Token } from '@lux/sdk-core'
+import { nearestUsableTick, TickMath } from '@lux/v3-sdk'
 import { ChartEntry } from '~/components/Charts/LiquidityRangeInput/types'
 import { getTickToPrice, getV4TickToPrice } from '~/utils/getTickToPrice'
 

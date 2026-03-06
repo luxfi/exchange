@@ -53,7 +53,7 @@ export const ExploreStatsSection = ({ shouldHideStats = false }: { shouldHideSta
           { label: t('common.protocol.v2'), value: protocolVolumes.v2 },
         ],
       },
-      { label: t('common.totalUniswapTVL'), value: formatPrice(totalTVL), change: totalTVL24hrChangePercent },
+      { label: t('common.totalLuxTVL'), value: formatPrice(totalTVL), change: totalTVL24hrChangePercent },
       { label: t('explore.v2TVL'), value: formatPrice(protocolTVL.v2), change: protocolChangePercent.v2 },
       { label: t('explore.v3TVL'), value: formatPrice(protocolTVL.v3), change: protocolChangePercent.v3 },
       { label: t('explore.v4TVL'), value: formatPrice(protocolTVL.v4), change: protocolChangePercent.v4 },

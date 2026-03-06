@@ -1,4 +1,4 @@
-import { REACTOR_ADDRESS_MAPPING } from '@uniswap/uniswapx-sdk'
+import { REACTOR_ADDRESS_MAPPING } from '@lux/dex-sdk'
 import { TypeDefinitionSchema } from 'wallet/src/components/dappRequests/types/EIP712Types'
 import { z } from 'zod'
 
@@ -40,15 +40,15 @@ export function isPermit2(data: unknown): data is Permit2 {
   return Permit2Schema.safeParse(data).success
 }
 
-function isValidUniswapXSpender(data: {
+function isValidDEXSpender(data: {
   message: { spender: string }
   domain: { chainId: string | number | bigint }
 }): boolean {
   try {
     const { message, domain } = data
     const spender = message.spender.toLowerCase()
-    const uniswapXAddress = REACTOR_ADDRESS_MAPPING[Number(domain.chainId)]?.Dutch_V2?.toLowerCase()
-    return Boolean(uniswapXAddress && spender === uniswapXAddress)
+    const dexAddress = REACTOR_ADDRESS_MAPPING[Number(domain.chainId)]?.Dutch_V2?.toLowerCase()
+    return Boolean(dexAddress && spender === dexAddress)
   } catch {
     return false
   }
@@ -99,12 +99,12 @@ const DutchOrderSchema = z.object({
   primaryType: z.string(),
 })
 
-const UniswapXSwapRequestSchema = DutchOrderSchema.refine(isValidUniswapXSpender, {
-  message: 'Invalid UniswapX request',
+const DEXSwapRequestSchema = DutchOrderSchema.refine(isValidDEXSpender, {
+  message: 'Invalid DEX request',
 })
 
-export type UniswapXSwapRequest = z.infer<typeof UniswapXSwapRequestSchema>
+export type DEXSwapRequest = z.infer<typeof DEXSwapRequestSchema>
 
-export function isUniswapXSwapRequest(data: unknown): data is UniswapXSwapRequest {
-  return UniswapXSwapRequestSchema.safeParse(data).success
+export function isDEXSwapRequest(data: unknown): data is DEXSwapRequest {
+  return DEXSwapRequestSchema.safeParse(data).success
 }

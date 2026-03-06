@@ -16,7 +16,7 @@ import {
   getSwapTransactionCount,
 } from 'wallet/src/features/transactions/swap/confirmation'
 import { createExecuteSwapSaga } from 'wallet/src/features/transactions/swap/executeSwapSaga'
-import { submitUniswapXOrder } from 'wallet/src/features/transactions/swap/submitOrderSaga'
+import { submitDEXOrder } from 'wallet/src/features/transactions/swap/submitOrderSaga'
 import {
   mockSignerAccount as account,
   createMockSignedApproveTx,
@@ -33,8 +33,8 @@ import {
   prepareExecuteSwapSagaParams,
   preparePreSignedSwapTransaction,
   prepareSwapTxContext,
-  prepareUniswapXPreSignedSwapTransaction,
-  prepareUniswapXSwapTxContext,
+  prepareDEXPreSignedSwapTransaction,
+  prepareDEXSwapTxContext,
 } from 'wallet/src/features/transactions/swap/types/fixtures'
 import {
   type TransactionExecutionResult,
@@ -56,7 +56,7 @@ const mockGetShouldWaitBetweenTransactions = jest.mocked(getShouldWaitBetweenTra
 const mockGetSwapTransactionCount = jest.mocked(getSwapTransactionCount) as jest.MockedFunction<
   typeof getSwapTransactionCount
 >
-const mockSubmitUniswapXOrder = jest.mocked(submitUniswapXOrder) as jest.MockedFunction<typeof submitUniswapXOrder>
+const mockSubmitDEXOrder = jest.mocked(submitDEXOrder) as jest.MockedFunction<typeof submitDEXOrder>
 
 const mockExecutionResult: TransactionExecutionResult = {
   hash: '0xmockhash',
@@ -422,21 +422,21 @@ describe('executeSwapSaga', () => {
     })
   })
 
-  describe('UniswapX routing', () => {
-    it('should execute a UniswapX order', async () => {
+  describe('DEX routing', () => {
+    it('should execute a DEX order', async () => {
       const params = prepareExecuteSwapSagaParams({
-        swapTxContext: prepareUniswapXSwapTxContext(),
-        preSignedTransaction: prepareUniswapXPreSignedSwapTransaction(),
+        swapTxContext: prepareDEXSwapTxContext(),
+        preSignedTransaction: prepareDEXPreSignedSwapTransaction(),
       })
 
       await expectSaga(executeSwapSaga, params)
-        .provide([...sharedProviders, [call(submitUniswapXOrder, expect.any(Object)), undefined]])
+        .provide([...sharedProviders, [call(submitDEXOrder, expect.any(Object)), undefined]])
         .call(params.onPending)
         .not.call(params.onSuccess)
         .not.call(params.onFailure)
         .run()
 
-      expect(mockSubmitUniswapXOrder).toHaveBeenCalledWith(
+      expect(mockSubmitDEXOrder).toHaveBeenCalledWith(
         expect.objectContaining({
           permit: {
             permit: mockPermit.typedData,
@@ -452,8 +452,8 @@ describe('executeSwapSaga', () => {
       )
     })
 
-    it('should execute a UniswapX order with approval', async () => {
-      const preSignedTransaction = prepareUniswapXPreSignedSwapTransaction({
+    it('should execute a DEX order with approval', async () => {
+      const preSignedTransaction = prepareDEXPreSignedSwapTransaction({
         signedSwapPermit: {
           permit: mockPermit.typedData,
           signedData: '0xsignedPermit',
@@ -462,12 +462,12 @@ describe('executeSwapSaga', () => {
       })
 
       const params = prepareExecuteSwapSagaParams({
-        swapTxContext: prepareUniswapXSwapTxContext(),
+        swapTxContext: prepareDEXSwapTxContext(),
         preSignedTransaction,
       })
 
       await expectSaga(executeSwapSaga, params)
-        .provide([...sharedProviders, [call(submitUniswapXOrder, expect.any(Object)), undefined]])
+        .provide([...sharedProviders, [call(submitDEXOrder, expect.any(Object)), undefined]])
         .call(params.onPending)
         .not.call(params.onSuccess)
         .not.call(params.onFailure)
@@ -481,7 +481,7 @@ describe('executeSwapSaga', () => {
         }),
         shouldWait: false,
       })
-      expect(mockSubmitUniswapXOrder).toHaveBeenCalledWith(
+      expect(mockSubmitDEXOrder).toHaveBeenCalledWith(
         expect.objectContaining({
           approveTxHash: '0xmockhash',
         }),
@@ -489,7 +489,7 @@ describe('executeSwapSaga', () => {
     })
 
     it('should call onFailure and log error when approval transaction fails', async () => {
-      const preSignedTransaction = prepareUniswapXPreSignedSwapTransaction({
+      const preSignedTransaction = prepareDEXPreSignedSwapTransaction({
         signedSwapPermit: {
           permit: mockPermit.typedData,
           signedData: '0xsignedPermit',
@@ -498,7 +498,7 @@ describe('executeSwapSaga', () => {
       })
 
       const params = prepareExecuteSwapSagaParams({
-        swapTxContext: prepareUniswapXSwapTxContext(),
+        swapTxContext: prepareDEXSwapTxContext(),
         preSignedTransaction,
       })
 

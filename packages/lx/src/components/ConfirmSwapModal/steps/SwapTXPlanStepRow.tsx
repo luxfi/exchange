@@ -9,12 +9,12 @@ import { StepRowProps, StepRowSkeleton } from 'lx/src/components/ConfirmSwapModa
 import { StepStatus } from 'lx/src/components/ConfirmSwapModal/types'
 import { useSecondsUntilDeadline } from 'lx/src/components/ConfirmSwapModal/useSecondsUntilDeadline'
 import { SplitLogo } from 'lx/src/components/CurrencyLogo/SplitLogo'
-import { uniswapUrls } from 'lx/src/constants/urls'
+import { luxUrls } from 'lx/src/constants/urls'
 import { getChainInfo } from 'lx/src/features/chains/chainInfo'
 import { UniverseChainId } from 'lx/src/features/chains/types'
 import { useCurrencyInfo } from 'lx/src/features/tokens/useCurrencyInfo'
 import { TransactionStepType } from 'lx/src/features/transactions/steps/types'
-import { UniswapXSignatureStep } from 'lx/src/features/transactions/swap/steps/signOrder'
+import { DEXSignatureStep } from 'lx/src/features/transactions/swap/steps/signOrder'
 import {
   SwapTransactionStep,
   SwapTransactionStepAsync,
@@ -26,7 +26,7 @@ import { logger } from 'utilities/src/logger/logger'
 export type SwapSteps = (
   | SwapTransactionStep
   | SwapTransactionStepAsync
-  | UniswapXSignatureStep
+  | DEXSignatureStep
   | SwapTransactionStepBatched
 ) &
   TradingApi.PlanStep
@@ -44,7 +44,7 @@ export function SwapTransactionPlanStepRow({
   const { t } = useTranslation()
   const colors = useSporeColors()
 
-  const deadline = step.type === TransactionStepType.UniswapXSignature ? step.deadline : undefined
+  const deadline = step.type === TransactionStepType.DEXSignature ? step.deadline : undefined
   const { secondsRemaining, ranOutOfTimeTitle } = useSecondsUntilDeadline(deadline, status)
 
   const inputChain = getChainInfo(step.tokenInChainId as unknown as UniverseChainId)
@@ -98,8 +98,8 @@ export function SwapTransactionPlanStepRow({
       learnMore={{
         url:
           step.type === TransactionStepType.SwapTransactionBatched
-            ? uniswapUrls.helpArticleUrls.batchedSwaps
-            : uniswapUrls.helpArticleUrls.howToSwapTokens,
+            ? luxUrls.helpArticleUrls.batchedSwaps
+            : luxUrls.helpArticleUrls.howToSwapTokens,
         text: t('common.learnMoreSwap'),
       }}
       status={status}

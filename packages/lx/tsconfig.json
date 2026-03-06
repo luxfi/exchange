@@ -30,12 +30,12 @@
   "compilerOptions": {
     "types": ["chrome", "vitest/globals"],
     "paths": {
-      "@uniswap/client-privy-embedded-wallet/dist/uniswap/privy-embedded-wallet/v1/service_pb": [
-        "../../node_modules/@uniswap/client-privy-embedded-wallet/dist/uniswap/privy-embedded-wallet/v1/service_pb",
+      "@lux/client-privy-embedded-wallet/dist/lux/privy-embedded-wallet/v1/service_pb": [
+        "../../node_modules/@lux/client-privy-embedded-wallet/dist/lux/privy-embedded-wallet/v1/service_pb",
         "../api/stubs/privy-service-pb"
       ],
-      "@uniswap/client-privy-embedded-wallet/dist/uniswap/privy-embedded-wallet/v1/service_connect": [
-        "../../node_modules/@uniswap/client-privy-embedded-wallet/dist/uniswap/privy-embedded-wallet/v1/service_connect",
+      "@lux/client-privy-embedded-wallet/dist/lux/privy-embedded-wallet/v1/service_connect": [
+        "../../node_modules/@lux/client-privy-embedded-wallet/dist/lux/privy-embedded-wallet/v1/service_connect",
         "../api/stubs/privy-service-connect"
       ]
     }

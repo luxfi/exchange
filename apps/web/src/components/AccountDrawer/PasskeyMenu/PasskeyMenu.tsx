@@ -8,7 +8,7 @@ import { Windows } from 'ui/src/components/icons/Windows'
 import { GoogleChromeLogo } from 'ui/src/components/logos/GoogleChromeLogo'
 import { UseSporeColorsReturn } from 'ui/src/hooks/useSporeColors'
 import { iconSizes } from 'ui/src/theme'
-import { uniswapUrls } from 'lx/src/constants/urls'
+import { luxUrls } from 'lx/src/constants/urls'
 import {
   Authenticator,
   AuthenticatorNameType,
@@ -288,7 +288,7 @@ export default function PasskeyMenu({ onClose }: { onClose: () => void }) {
             <Anchor
               target="_blank"
               rel="noreferrer"
-              href={uniswapUrls.helpArticleUrls.passkeysInfo}
+              href={luxUrls.helpArticleUrls.passkeysInfo}
               {...ClickableTamaguiStyle}
             >
               <Buoy size="$icon.20" color="$neutral2" />

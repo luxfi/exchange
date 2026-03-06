@@ -1,7 +1,7 @@
-import { Trade } from '@uniswap/router-sdk'
-import { Currency, CurrencyAmount, Fraction, Percent, TradeType } from '@uniswap/sdk-core'
-import { Pair } from '@uniswap/v2-sdk'
-import { FeeAmount } from '@uniswap/v3-sdk'
+import { Trade } from '@lux/router-sdk'
+import { Currency, CurrencyAmount, Fraction, Percent, TradeType } from '@lux/sdk-core'
+import { Pair } from '@lux/v2-sdk'
+import { FeeAmount } from '@lux/v3-sdk'
 import { PriceChartData } from '~/components/Charts/PriceChart'
 import {
   ALLOWED_PRICE_IMPACT_HIGH,

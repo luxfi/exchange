@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query'
-import { provideUniswapIdentifierService } from '@universe/api'
-import { uniswapIdentifierQuery } from '@universe/sessions'
+import { provideLuxIdentifierService } from '@universe/api'
+import { luxIdentifierQuery } from '@universe/sessions'
 import { useEffect, useMemo } from 'react'
 import { NativeModules, useWindowDimensions } from 'react-native'
 import { OneSignal } from 'react-native-onesignal'
@@ -61,7 +61,7 @@ export function TraceUserProperties(): null {
   // Effects must check this and ensure they are setting properties for when analytics is reenabled
   const allowAnalytics = useSelector(selectAllowAnalytics)
 
-  const { data: uniswapIdentifier } = useQuery(uniswapIdentifierQuery(provideUniswapIdentifierService))
+  const { data: luxIdentifier } = useQuery(luxIdentifierQuery(provideLuxIdentifierService))
 
   useGatingUserPropertyUsernames()
 
@@ -96,8 +96,8 @@ export function TraceUserProperties(): null {
   // Set user properties for datadog
 
   useEffect(() => {
-    setDatadogUserWithUniqueId(activeAccount?.address, uniswapIdentifier)
-  }, [activeAccount?.address, uniswapIdentifier])
+    setDatadogUserWithUniqueId(activeAccount?.address, luxIdentifier)
+  }, [activeAccount?.address, luxIdentifier])
 
   // Set user properties for amplitude
 

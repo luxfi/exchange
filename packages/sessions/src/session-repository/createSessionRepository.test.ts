@@ -1,5 +1,5 @@
 import type { PromiseClient } from '@connectrpc/connect'
-import type { SessionService } from '@uniswap/client-platform-service/dist/uniswap/platformservice/v1/sessionService_connect'
+import type { SessionService } from '@lux/client-platform-service/dist/lux/platformservice/v1/sessionService_connect'
 import {
   ChallengeFailure,
   ChallengeFailure_Reason,
@@ -7,7 +7,7 @@ import {
   GetChallengeTypesResponse,
   InitSessionResponse,
   SignoutResponse,
-} from '@uniswap/client-platform-service/dist/uniswap/platformservice/v1/sessionService_pb'
+} from '@lux/client-platform-service/dist/lux/platformservice/v1/sessionService_pb'
 import { createSessionRepository } from '@universe/sessions/src/session-repository/createSessionRepository'
 import { ChallengeRejectedError } from '@universe/sessions/src/session-repository/errors'
 import { ChallengeType } from '@universe/sessions/src/session-service/types'

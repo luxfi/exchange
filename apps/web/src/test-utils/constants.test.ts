@@ -60,7 +60,7 @@ describe('test-utils/constants', () => {
     expect(TEST_ALLOWED_SLIPPAGE).toBeDefined()
   })
 
-  it('should load UniswapX trade constants', () => {
+  it('should load DEX trade constants', () => {
     expect(TEST_DUTCH_TRADE_ETH_INPUT).toBeDefined()
     expect(TEST_DUTCH_V2_TRADE_ETH_INPUT).toBeDefined()
   })

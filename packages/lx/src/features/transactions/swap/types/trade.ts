@@ -1,6 +1,6 @@
 /* eslint-disable max-lines */
-import { MixedRouteSDK, Trade as RouterSDKTrade, ZERO_PERCENT } from '@uniswap/router-sdk'
-import { Currency, CurrencyAmount, Percent, Price, TradeType } from '@uniswap/sdk-core'
+import { MixedRouteSDK, Trade as RouterSDKTrade, ZERO_PERCENT } from '@lux/router-sdk'
+import { Currency, CurrencyAmount, Percent, Price, TradeType } from '@lux/sdk-core'
 import {
   PriorityOrderTrade as IPriorityOrderTrade,
   UnsignedPriorityOrderInfo,
@@ -8,10 +8,10 @@ import {
   UnsignedV3DutchOrderInfo,
   V2DutchOrderTrade,
   V3DutchOrderTrade,
-} from '@uniswap/uniswapx-sdk'
-import { Route as V2RouteSDK } from '@uniswap/v2-sdk'
-import { Route as V3RouteSDK } from '@uniswap/v3-sdk'
-import { Route as V4RouteSDK } from '@uniswap/v4-sdk'
+} from '@lux/dex-sdk'
+import { Route as V2RouteSDK } from '@lux/v2-sdk'
+import { Route as V3RouteSDK } from '@lux/v3-sdk'
+import { Route as V4RouteSDK } from '@lux/v4-sdk'
 import type {
   BridgeQuoteResponse,
   ChainedQuoteResponse,
@@ -104,8 +104,8 @@ function getQuoteOutputAmountUserWillReceive<T extends QuoteResponseWithAggregat
     : CurrencyAmount.fromRawAmount(outputCurrency, '0')
 }
 
-export type UniswapXTrade = UniswapXV2Trade | UniswapXV3Trade | PriorityOrderTrade
-export class UniswapXV2Trade extends V2DutchOrderTrade<Currency, Currency, TradeType> {
+export type DEXTrade = DEXV2Trade | DEXV3Trade | PriorityOrderTrade
+export class DEXV2Trade extends V2DutchOrderTrade<Currency, Currency, TradeType> {
   readonly routing = TradingApi.Routing.DUTCH_V2
   readonly quote: DutchQuoteResponse
   readonly slippageTolerance: number
@@ -174,7 +174,7 @@ export class UniswapXV2Trade extends V2DutchOrderTrade<Currency, Currency, Trade
   }
 }
 
-export class UniswapXV3Trade extends V3DutchOrderTrade<Currency, Currency, TradeType> {
+export class DEXV3Trade extends V3DutchOrderTrade<Currency, Currency, TradeType> {
   readonly routing = TradingApi.Routing.DUTCH_V3
   readonly quote: DutchV3QuoteResponse
   readonly slippageTolerance: number
@@ -420,7 +420,7 @@ export type Trade<
   TTradeType extends TradeType = TradeType,
 > =
   | ClassicTrade<TInput, TOutput, TTradeType>
-  | UniswapXTrade
+  | DEXTrade
   | BridgeTrade
   | WrapTrade
   | UnwrapTrade

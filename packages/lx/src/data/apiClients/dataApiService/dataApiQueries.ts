@@ -1,5 +1,5 @@
 import { infiniteQueryOptions } from '@tanstack/react-query'
-import type { ListTopPoolsResponse, ListTopTokensResponse } from '@uniswap/client-data-api/dist/data/v1/api_pb'
+import type { ListTopPoolsResponse, ListTopTokensResponse } from '@lux/client-data-api/dist/data/v1/api_pb'
 import {
   getListTopPoolsQueryOptions,
   type ListTopPoolsInput,

@@ -40,7 +40,7 @@ const config: StorybookConfig = {
     config.plugins.push(
       new DefinePlugin({
         __DEV__: process.env.NODE_ENV === 'development',
-        'process.env.IS_UNISWAP_EXTENSION': JSON.stringify(process.env.STORYBOOK_EXTENSION || 'false'),
+        'process.env.IS_LUX_EXTENSION': JSON.stringify(process.env.STORYBOOK_EXTENSION || 'false'),
       }),
     )
 
@@ -72,7 +72,7 @@ const config: StorybookConfig = {
       config.module.rules.push({
         test: /\.(tsx?|jsx?)$/,
         // Exclude node_modules except for expo packages and related modules
-        exclude: /node_modules\/(?!(expo-.*|@expo|@react-native|@uniswap\/.*)\/).*/,
+        exclude: /node_modules\/(?!(expo-.*|@expo|@react-native|@lux\/.*)\/).*/,
         use: {
           loader: 'babel-loader',
           options: {
@@ -91,7 +91,7 @@ const config: StorybookConfig = {
       config.module.rules.push({
         test: /\.(tsx?|jsx?)$/,
         // Exclude node_modules except for expo packages and related modules
-        exclude: /node_modules\/(?!(expo-.*|@expo|@react-native|@uniswap\/.*)\/).*/,
+        exclude: /node_modules\/(?!(expo-.*|@expo|@react-native|@lux\/.*)\/).*/,
         use: {
           loader: 'babel-loader',
           options: {

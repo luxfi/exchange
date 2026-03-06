@@ -22,7 +22,7 @@ interface CancelPlanStepPayload {
  * Saga to cancel a step within a plan on web.
  *
  * This saga listens for `cancelPlanStep` actions from the Redux slice and executes
- * the cancellation transaction for UniswapX orders (permit2 nonce invalidation).
+ * the cancellation transaction for DEX orders (permit2 nonce invalidation).
  *
  * For classic swaps, the plan is marked as cancelled to stop future steps, but no
  * cancellation transaction is submitted (the user must wait for the transaction to
@@ -65,7 +65,7 @@ async function handleCancelPlanStep(payload: CancelPlanStepPayload): Promise<voi
 
   try {
     if (!cancelableStepInfo.orderId) {
-      throw new Error('Cannot cancel UniswapX step without orderId')
+      throw new Error('Cannot cancel DEX step without orderId')
     }
 
     await handleCancelOrder({

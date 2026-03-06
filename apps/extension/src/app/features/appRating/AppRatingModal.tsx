@@ -5,7 +5,7 @@ import { Button, Flex, Text, TouchableArea } from 'ui/src'
 import { Feedback, LikeSquare, MessageText, X } from 'ui/src/components/icons'
 import { IconSizeTokens, zIndexes } from 'ui/src/theme'
 import { Modal } from 'lx/src/components/modals/Modal'
-import { uniswapUrls } from 'lx/src/constants/urls'
+import { luxUrls } from 'lx/src/constants/urls'
 import { ModalName, WalletEventName } from 'lx/src/features/telemetry/constants'
 import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
 import { appRatingPromptedMsSelector, appRatingProvidedMsSelector } from 'wallet/src/features/wallet/selectors'
@@ -66,7 +66,7 @@ export default function AppRatingModal({ onClose }: AppRatingModalProps): JSX.El
       iconSize: '$icon.18' as IconSizeTokens,
       onSecondaryButtonPress: onRemindLater,
       onPrimaryButtonPress: (): void => {
-        window.open(uniswapUrls.walletFeedbackForm)
+        window.open(luxUrls.walletFeedbackForm)
         dispatch(setAppRating({ feedbackProvided: true }))
         sendAnalyticsEvent(WalletEventName.AppRating, {
           type: 'feedback-form',
@@ -85,7 +85,7 @@ export default function AppRatingModal({ onClose }: AppRatingModalProps): JSX.El
       iconSize: '$icon.24' as IconSizeTokens,
       onSecondaryButtonPress: onRemindLater,
       onPrimaryButtonPress: (): void => {
-        window.open(`https://chromewebstore.google.com/detail/uniswap-extension/${chrome.runtime.id}/reviews`)
+        window.open(`https://chromewebstore.google.com/detail/lux-extension/${chrome.runtime.id}/reviews`)
         dispatch(setAppRating({ ratingProvided: true }))
         sendAnalyticsEvent(WalletEventName.AppRating, {
           type: 'store-review',

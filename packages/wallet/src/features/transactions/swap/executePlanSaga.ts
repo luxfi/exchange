@@ -7,7 +7,7 @@ import { AppNotificationType } from 'lx/src/features/notifications/slice/types'
 import { WalletEventName } from 'lx/src/features/telemetry/constants'
 import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
 import type { SwapTradeBaseProperties } from 'lx/src/features/telemetry/types'
-import { HandleUniswapXPlanSignatureStepParams } from 'lx/src/features/transactions/steps/types'
+import { HandleDEXPlanSignatureStepParams } from 'lx/src/features/transactions/steps/types'
 import { plan } from 'lx/src/features/transactions/swap/plan/planSaga'
 import { SwapExecutionCallbacks } from 'lx/src/features/transactions/swap/types/swapCallback'
 import type { ValidatedSwapTxContext } from 'lx/src/features/transactions/swap/types/swapTxAndGasInfo'
@@ -113,10 +113,10 @@ function* executeChainedPlan(params: ExecutePlanParams, dependencies: Transactio
       })
       return result
     },
-    *handleUniswapXPlanSignatureStep(
-      handleUniswapXPlanSignatureStepParams: HandleUniswapXPlanSignatureStepParams,
+    *handleDEXPlanSignatureStep(
+      handleDEXPlanSignatureStepParams: HandleDEXPlanSignatureStepParams,
     ): SagaGenerator<string> {
-      const payload = handleUniswapXPlanSignatureStepParams.step
+      const payload = handleDEXPlanSignatureStepParams.step
       const { transactionSigner } = yield* prepareServicesForChain(payload.domain.chainId as UniverseChainId)
       const result = yield* call([transactionSigner, transactionSigner.signTypedData], {
         domain: payload.domain,

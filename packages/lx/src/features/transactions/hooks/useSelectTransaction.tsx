@@ -6,7 +6,7 @@ import {
   InterfaceTransactionDetails,
   TransactionDetails,
 } from 'lx/src/features/transactions/types/transactionDetails'
-import { UniswapState } from 'lx/src/state/uniswapReducer'
+import { LuxState } from 'lx/src/state/luxReducer'
 
 export function useSelectTransaction({
   address,
@@ -18,5 +18,5 @@ export function useSelectTransaction({
   txId?: string
 }): TransactionDetails | InterfaceTransactionDetails | undefined {
   const selectTransaction = useMemo(makeSelectTransaction, [])
-  return useSelector((state: UniswapState) => selectTransaction(state, { address, chainId, txId }))
+  return useSelector((state: LuxState) => selectTransaction(state, { address, chainId, txId }))
 }

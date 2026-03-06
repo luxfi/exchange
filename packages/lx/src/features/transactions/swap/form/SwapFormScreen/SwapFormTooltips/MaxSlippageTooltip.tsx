@@ -5,7 +5,7 @@ import { ShieldCheck } from 'ui/src/components/icons/ShieldCheck'
 import { VerticalDotLine } from 'ui/src/components/icons/VerticalDotLine'
 import { CurrencyLogo } from 'lx/src/components/CurrencyLogo/CurrencyLogo'
 import { TransactionDetailsTooltip as Tooltip } from 'lx/src/components/TransactionDetailsTooltip'
-import { uniswapUrls } from 'lx/src/constants/urls'
+import { luxUrls } from 'lx/src/constants/urls'
 import { useSwapFormStoreDerivedSwapInfo } from 'lx/src/features/transactions/swap/stores/swapFormStore/useSwapFormStore'
 import { CurrencyField } from 'lx/src/types/currency'
 import { isMobileApp } from 'utilities/src/platform'
@@ -73,10 +73,10 @@ export function MaxSlippageTooltip({
     <Tooltip.Outer>
       <Tooltip.Header
         title={{
-          title: t('swap.details.slippage.uniswap'),
+          title: t('swap.details.slippage.lux'),
         }}
         Icon={ShieldCheck}
-        iconColor="$uniswapXPurple"
+        iconColor="$dexPurple"
       />
       <Tooltip.Content>
         <Tooltip.Row>
@@ -92,7 +92,7 @@ export function MaxSlippageTooltip({
           />
         </Tooltip.Row>
         <Flex position="absolute" left={4} top={19}>
-          <VerticalDotLine minHeight={12} color="$uniswapXPurple" />
+          <VerticalDotLine minHeight={12} color="$dexPurple" />
         </Flex>
         <Tooltip.Row>
           <Flex row gap="$spacing4" position="relative">
@@ -113,7 +113,7 @@ export function MaxSlippageTooltip({
               style={{ animation: 'shield-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite' }}
             >
               <Flex opacity={0.6} style={{ animation: 'shield-icon-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite' }}>
-                <ShieldCheck size="$icon.12" color="$uniswapXPurple" />
+                <ShieldCheck size="$icon.12" color="$dexPurple" />
               </Flex>
             </Flex>
             <Tooltip.LineItemLabel label={t('settings.maxSlippage.amount', { amount: currentSlippageTolerance })} />
@@ -121,7 +121,7 @@ export function MaxSlippageTooltip({
           </Flex>
         </Tooltip.Row>
         <Flex position="absolute" left={4} top={50}>
-          <VerticalDotLine minHeight={12} color="$uniswapXPurple" />
+          <VerticalDotLine minHeight={12} color="$dexPurple" />
         </Flex>
         <Tooltip.Row>
           <Flex row gap="$spacing4">
@@ -137,7 +137,7 @@ export function MaxSlippageTooltip({
       <Tooltip.Separator />
       <Tooltip.Description
         text={t('swap.slippage.description')}
-        learnMoreUrl={uniswapUrls.helpArticleUrls.swapSlippage}
+        learnMoreUrl={luxUrls.helpArticleUrls.swapSlippage}
       />
     </Tooltip.Outer>
   )

@@ -1,6 +1,6 @@
 import { provideDeviceIdService } from '@luxfi/api/src/provideDeviceIdService'
 import { provideSessionStorage } from '@luxfi/api/src/provideSessionStorage'
-import { provideUniswapIdentifierService } from '@luxfi/api/src/provideUniswapIdentifierService'
+import { provideLuxIdentifierService } from '@luxfi/api/src/provideLuxIdentifierService'
 import { getTransport } from '@luxfi/api/src/transport'
 import {
   createNoopSessionService,
@@ -33,12 +33,12 @@ function getMobileSessionService(ctx: { getBaseUrl: () => string; getLogger?: ()
 
   const sessionStorage = provideSessionStorage()
   const deviceIdService = provideDeviceIdService()
-  const uniswapIdentifierService = provideUniswapIdentifierService()
+  const luxIdentifierService = provideLuxIdentifierService()
   const sessionRepository = createSessionRepository({ client: sessionClient, getLogger: ctx.getLogger })
   return createSessionService({
     sessionStorage,
     deviceIdService,
-    uniswapIdentifierService,
+    luxIdentifierService,
     sessionRepository,
   })
 }

@@ -3,7 +3,7 @@ import 'src/app/Global.css'
 import 'symbol-observable' // Needed by `reduxed-chrome-storage` as polyfill, order matters
 
 import { EXTENSION_ORIGIN_APPLICATION } from 'src/app/version'
-import { uniswapUrls } from 'lx/src/constants/urls'
+import { luxUrls } from 'lx/src/constants/urls'
 import { getUniqueId } from 'utilities/src/device/uniqueId'
 import { isTestEnv } from 'utilities/src/environment/env'
 import { logger } from 'utilities/src/logger/logger'
@@ -20,7 +20,7 @@ export async function initExtensionAnalytics(): Promise<void> {
   const analyticsAllowed = await getAnalyticsAtomDirect(true)
   await analytics.init({
     transportProvider: new ApplicationTransport({
-      serverUrl: uniswapUrls.amplitudeProxyUrl,
+      serverUrl: luxUrls.amplitudeProxyUrl,
       appOrigin: EXTENSION_ORIGIN_APPLICATION,
     }),
     allowed: analyticsAllowed,

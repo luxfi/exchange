@@ -62,7 +62,7 @@ describe('useFilterPossiblyMaliciousPositions', () => {
     mocked(useTokenContractsConstant).mockReturnValue([])
   })
   it('filters out unsafe positions', async () => {
-    mocked(useTokenContractsConstant).mockReturnValue([{ result: 'Uniswap-LP.org' }, { result: 'Claim Rewards' }])
+    mocked(useTokenContractsConstant).mockReturnValue([{ result: 'Lux-LP.org' }, { result: 'Claim Rewards' }])
 
     const { result } = renderHook(() => useFilterPossiblyMaliciousPositions(positions))
 

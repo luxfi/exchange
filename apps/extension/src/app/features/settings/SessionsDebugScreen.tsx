@@ -16,9 +16,9 @@ import { logger } from 'utilities/src/logger/logger'
 import { useShallow } from 'zustand/shallow'
 
 // Storage keys (must match session storage)
-const SESSION_ID_KEY = 'UNISWAP_SESSION_ID'
-const DEVICE_ID_KEY = 'UNISWAP_DEVICE_ID'
-const UNISWAP_IDENTIFIER_KEY = 'UNISWAP_IDENTIFIER'
+const SESSION_ID_KEY = 'LUX_SESSION_ID'
+const DEVICE_ID_KEY = 'LUX_DEVICE_ID'
+const LUX_IDENTIFIER_KEY = 'LUX_IDENTIFIER'
 
 function formatTime(date: Date): string {
   return date.toLocaleTimeString('en-US', {
@@ -184,7 +184,7 @@ export function SessionsDebugScreen(): JSX.Element {
     useShallow((state) => ({
       sessionId: state.session.sessionId,
       deviceId: state.session.deviceId,
-      uniswapIdentifier: state.session.uniswapIdentifier,
+      luxIdentifier: state.session.luxIdentifier,
     })),
   )
   const challenge = useSessionsDebugStore((state) => state.challenge)
@@ -218,30 +218,30 @@ export function SessionsDebugScreen(): JSX.Element {
   }, [])
 
   const refreshSessionState = useCallback(async (): Promise<void> => {
-    const [sessionId, deviceId, uniswapIdentifier] = await Promise.all([
+    const [sessionId, deviceId, luxIdentifier] = await Promise.all([
       localStorage.getItem(SESSION_ID_KEY),
       localStorage.getItem(DEVICE_ID_KEY),
-      localStorage.getItem(UNISWAP_IDENTIFIER_KEY),
+      localStorage.getItem(LUX_IDENTIFIER_KEY),
     ])
     setSession({
       sessionId: sessionId || null,
       deviceId: deviceId || null,
-      uniswapIdentifier: uniswapIdentifier || null,
+      luxIdentifier: luxIdentifier || null,
     })
   }, [setSession])
 
   // Initial load
   useEffect(() => {
     const loadInitialState = async (): Promise<void> => {
-      const [sessionId, deviceId, uniswapIdentifier] = await Promise.all([
+      const [sessionId, deviceId, luxIdentifier] = await Promise.all([
         localStorage.getItem(SESSION_ID_KEY),
         localStorage.getItem(DEVICE_ID_KEY),
-        localStorage.getItem(UNISWAP_IDENTIFIER_KEY),
+        localStorage.getItem(LUX_IDENTIFIER_KEY),
       ])
       setSession({
         sessionId: sessionId || null,
         deviceId: deviceId || null,
-        uniswapIdentifier: uniswapIdentifier || null,
+        luxIdentifier: luxIdentifier || null,
       })
     }
     loadInitialState()
@@ -269,7 +269,7 @@ export function SessionsDebugScreen(): JSX.Element {
     try {
       localStorage.removeItem(SESSION_ID_KEY)
       localStorage.removeItem(DEVICE_ID_KEY)
-      localStorage.removeItem(UNISWAP_IDENTIFIER_KEY)
+      localStorage.removeItem(LUX_IDENTIFIER_KEY)
       sessionServiceRef.current = null
       setChallenge(null)
       reset()
@@ -482,14 +482,14 @@ export function SessionsDebugScreen(): JSX.Element {
 
             <Flex row justifyContent="space-between" alignItems="center">
               <Text variant="body2" color="$neutral2">
-                Uniswap ID:
+                Lux ID:
               </Text>
               <Flex row alignItems="center" gap="$spacing4">
-                <Text variant="body3" color={session.uniswapIdentifier ? '$neutral1' : '$neutral3'}>
-                  {truncateId(session.uniswapIdentifier)}
+                <Text variant="body3" color={session.luxIdentifier ? '$neutral1' : '$neutral3'}>
+                  {truncateId(session.luxIdentifier)}
                 </Text>
-                {session.uniswapIdentifier && (
-                  <TouchableArea onPress={() => copyToClipboard(session.uniswapIdentifier, 'Uniswap ID')}>
+                {session.luxIdentifier && (
+                  <TouchableArea onPress={() => copyToClipboard(session.luxIdentifier, 'Lux ID')}>
                     <CopyAlt color="$neutral3" size="$icon.16" />
                   </TouchableArea>
                 )}

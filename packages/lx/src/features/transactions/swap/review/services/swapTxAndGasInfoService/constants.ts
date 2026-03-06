@@ -12,7 +12,7 @@ export class SlippageTooLowError extends Error {
   }
 }
 
-// TODO(UniswapX): add fallback gas limits per chain? l2s have higher costs
+// TODO(DEX): add fallback gas limits per chain? l2s have higher costs
 export const WRAP_FALLBACK_GAS_LIMIT_IN_GWEI = 45_000
 
 export const FALLBACK_SWAP_REQUEST_POLL_INTERVAL_MS = 1000

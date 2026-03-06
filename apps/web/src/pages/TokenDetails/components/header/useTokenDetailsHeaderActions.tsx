@@ -1,4 +1,4 @@
-import { Currency } from '@uniswap/sdk-core'
+import { Currency } from '@lux/sdk-core'
 import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { ChartBarCrossed } from 'ui/src/components/icons/ChartBarCrossed'

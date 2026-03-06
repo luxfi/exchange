@@ -1,12 +1,12 @@
 import invariant from 'tiny-invariant';
 import { keccak256 } from '@ethersproject/solidity';
-import { Price, CurrencyAmount, TradeType, Fraction, Percent, sortedInsert, MaxUint256, validateAndParseAddress } from '@uniswap/sdk-core';
-import { TickMath, TickListDataProvider, v3Swap, NoTickDataProvider, encodeSqrtRatioX96, maxLiquidityForAmounts, SqrtPriceMath } from '@uniswap/v3-sdk';
+import { Price, CurrencyAmount, TradeType, Fraction, Percent, sortedInsert, MaxUint256, validateAndParseAddress } from '@lux/sdk-core';
+import { TickMath, TickListDataProvider, v3Swap, NoTickDataProvider, encodeSqrtRatioX96, maxLiquidityForAmounts, SqrtPriceMath } from '@lux/v3-sdk';
 import { isAddress, defaultAbiCoder } from 'ethers/lib/utils';
 import JSBI from 'jsbi';
 import { constants, ethers } from 'ethers';
 import { Interface } from '@ethersproject/abi';
-import IMulticall from '@uniswap/v3-periphery/artifacts/contracts/interfaces/IMulticall.sol/IMulticall.json';
+import IMulticall from '@lux/v3-periphery/artifacts/contracts/interfaces/IMulticall.sol/IMulticall.json';
 
 function _arrayLikeToArray(r, a) {
   (null == a || a > r.length) && (a = r.length);
@@ -1601,7 +1601,7 @@ function priceToClosestTick(price) {
 }
 
 /**
- * Represents a position on a Uniswap V4 Pool
+ * Represents a position on a Lux V4 Pool
  * @dev Similar to the V3 implementation
  * - using Currency instead of Token
  * - keep in mind that Pool and liquidity must be fetched from the pool manager
@@ -2201,7 +2201,7 @@ function createAction(action, parameters) {
   };
 }
 
-// Uniswap v4 supports native pools. Those currencies are represented by the zero address.
+// Lux v4 supports native pools. Those currencies are represented by the zero address.
 // TODO: Figure out if this is how we should be handling weird edge case tokens like CELO/Polygon/etc..
 // Does interface treat those like ERC20 tokens or NATIVE tokens?
 function toAddress(currency) {
@@ -3705,7 +3705,7 @@ var V4PositionManager = /*#__PURE__*/function () {
   V4PositionManager.getPermitData = function getPermitData(permit, positionManagerAddress, chainId) {
     return {
       domain: {
-        name: 'Uniswap V4 Positions NFT',
+        name: 'Lux V4 Positions NFT',
         chainId: chainId,
         verifyingContract: positionManagerAddress
       },

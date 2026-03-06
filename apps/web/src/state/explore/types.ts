@@ -1,5 +1,5 @@
-import { Amount, PoolStats, TokenStats } from '@uniswap/client-explore/dist/uniswap/explore/v1/service_pb'
-import { Percent } from '@uniswap/sdk-core'
+import { Amount, PoolStats, TokenStats } from '@lux/client-explore/dist/lux/explore/v1/service_pb'
+import { Percent } from '@lux/sdk-core'
 import { GraphQLApi } from '@universe/api'
 import { FeeData as CreatePositionFeeData } from '~/components/Liquidity/Create/types'
 

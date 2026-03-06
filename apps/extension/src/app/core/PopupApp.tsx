@@ -9,7 +9,7 @@ import { BaseAppContainer } from 'src/app/core/BaseAppContainer'
 import { DatadogAppNameTag } from 'src/app/datadog'
 import { initExtensionAnalytics } from 'src/app/utils/analytics'
 import { Button, Flex, Image, Text } from 'ui/src'
-import { UNISWAP_LOGO } from 'ui/src/assets'
+import { LUX_LOGO } from 'ui/src/assets'
 import { GoogleChromeLogo } from 'ui/src/components/logos/GoogleChromeLogo'
 import { iconSizes, spacing } from 'ui/src/theme'
 import { ElementName } from 'lx/src/features/telemetry/constants'
@@ -42,7 +42,7 @@ function PopupContent(): JSX.Element {
       <Flex fill gap="$spacing16" height="100%" px="$spacing24" py="$spacing24">
         <Flex row>
           <Flex position="relative">
-            <Image height={iconSizes.icon40} source={UNISWAP_LOGO} width={iconSizes.icon40} />
+            <Image height={iconSizes.icon40} source={LUX_LOGO} width={iconSizes.icon40} />
             <Flex
               backgroundColor="$surface1"
               borderColor="$surface3"

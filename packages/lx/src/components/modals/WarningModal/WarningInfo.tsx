@@ -4,7 +4,7 @@ import { InfoCircle } from 'ui/src/components/icons/InfoCircle'
 import { WarningModal, WarningModalProps } from 'lx/src/components/modals/WarningModal/WarningModal'
 import { InfoTooltip } from 'lx/src/components/tooltip/InfoTooltip'
 import { InfoTooltipProps } from 'lx/src/components/tooltip/InfoTooltipProps'
-import { UniswapEventName } from 'lx/src/features/telemetry/constants'
+import { LuxEventName } from 'lx/src/features/telemetry/constants'
 import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
 import { usePriceUXEnabled } from 'lx/src/features/transactions/swap/hooks/usePriceUXEnabled'
 import { isWebPlatform } from 'utilities/src/platform'
@@ -55,7 +55,7 @@ export function WarningInfo({
       }
 
       hasHoverBeenTracked.current = true
-      sendAnalyticsEvent(UniswapEventName.TooltipOpened, {
+      sendAnalyticsEvent(LuxEventName.TooltipOpened, {
         ...trace,
         tooltip_name: analyticsTitle,
         is_price_ux_enabled: isPriceUXEnabled,

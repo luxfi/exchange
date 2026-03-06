@@ -11,7 +11,7 @@ import { isLuxdMode } from 'playwright/anvil/anvil-manager'
 import { expect, getTest } from 'playwright/fixtures'
 import { stubLuxGatewayEndpoint, stubTradingApiEndpoint } from 'playwright/fixtures/tradingApi'
 import { WRAPPED_NATIVE_CURRENCY } from 'lx/src/constants/tokens'
-import { uniswapUrls } from 'lx/src/constants/urls'
+import { luxUrls } from 'lx/src/constants/urls'
 import { UniverseChainId } from 'lx/src/features/chains/types'
 import { TestID } from 'lx/src/test/fixtures/testIDs'
 import { assume0xAddress } from 'utils/wagmi'
@@ -62,8 +62,8 @@ test.describe(
 
       // Stub API endpoints
       await stubLuxGatewayEndpoint({ page })
-      await stubTradingApiEndpoint({ page, endpoint: uniswapUrls.tradingApiPaths.quote })
-      await stubTradingApiEndpoint({ page, endpoint: uniswapUrls.tradingApiPaths.swap })
+      await stubTradingApiEndpoint({ page, endpoint: luxUrls.tradingApiPaths.quote })
+      await stubTradingApiEndpoint({ page, endpoint: luxUrls.tradingApiPaths.swap })
     })
 
     test('should verify LXPool precompile is accessible', async ({ anvil }) => {

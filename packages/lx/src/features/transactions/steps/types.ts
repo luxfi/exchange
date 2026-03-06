@@ -1,5 +1,5 @@
 import type { TransactionResponse } from '@ethersproject/abstract-provider'
-import type { Currency } from '@uniswap/sdk-core'
+import type { Currency } from '@lux/sdk-core'
 import type { UniverseChainId } from 'lx/src/features/chains/types'
 import type { CollectFeesSteps } from 'lx/src/features/transactions/liquidity/steps/collectFeesSteps'
 import type { CollectLpIncentiveRewardsSteps } from 'lx/src/features/transactions/liquidity/steps/collectIncentiveRewardsSteps'
@@ -13,13 +13,13 @@ import type { TokenRevocationTransactionStep } from 'lx/src/features/transaction
 import type { WrapTransactionStep } from 'lx/src/features/transactions/steps/wrap'
 import type { PlanSagaAnalytics } from 'lx/src/features/transactions/swap/plan/types'
 import type { ClassicSwapSteps } from 'lx/src/features/transactions/swap/steps/classicSteps'
-import type { UniswapXPlanSignatureStep } from 'lx/src/features/transactions/swap/steps/signOrder'
+import type { DEXPlanSignatureStep } from 'lx/src/features/transactions/swap/steps/signOrder'
 import type {
   SwapTransactionStep,
   SwapTransactionStepAsync,
   SwapTransactionStepBatched,
 } from 'lx/src/features/transactions/swap/steps/swap'
-import type { UniswapXSwapSteps } from 'lx/src/features/transactions/swap/steps/uniswapxSteps'
+import type { DEXSwapSteps } from 'lx/src/features/transactions/swap/steps/dexSteps'
 import type { SetCurrentStepFn } from 'lx/src/features/transactions/swap/types/swapCallback'
 import type { BridgeTrade, ChainedActionTrade, ClassicTrade } from 'lx/src/features/transactions/swap/types/trade'
 import type { ToucanBidTransactionStep } from 'lx/src/features/transactions/toucan/steps/submitBid'
@@ -36,13 +36,13 @@ export enum TransactionStepType {
   WrapTransaction = 'WrapTransaction',
   Permit2Signature = 'Permit2Signature',
   Permit2Transaction = 'Permit2Transaction',
-  UniswapXSignature = 'UniswapXSignature',
+  DEXSignature = 'DEXSignature',
   /**
-   * UniswapX type for use in a /plan execution which uses a different flow
-   * than UniswapXSignatureStep. The signature is submitted to the TAPI which
+   * DEX type for use in a /plan execution which uses a different flow
+   * than DEXSignatureStep. The signature is submitted to the TAPI which
    * then submits the order.
    */
-  UniswapXPlanSignature = 'UniswapXPlanSignature',
+  DEXPlanSignature = 'DEXPlanSignature',
   IncreasePositionTransaction = 'IncreasePositionTransaction',
   IncreasePositionTransactionAsync = 'IncreasePositionTransactionAsync',
   IncreasePositionTransactionBatched = 'IncreasePositionTransactionBatched',
@@ -58,8 +58,8 @@ export enum TransactionStepType {
 // TODO: add v4 lp flow
 export type TransactionStep =
   | ClassicSwapSteps
-  | UniswapXSwapSteps
-  | UniswapXPlanSignatureStep
+  | DEXSwapSteps
+  | DEXPlanSignatureStep
   | IncreaseLiquiditySteps
   | DecreaseLiquiditySteps
   | MigrationSteps
@@ -149,6 +149,6 @@ export interface HandleSwapBatchedStepParams extends Omit<HandleOnChainStepParam
   analytics: PlanSagaAnalytics
   disableOneClickSwap: () => void
 }
-export interface HandleUniswapXPlanSignatureStepParams extends HandleSignatureStepParams<UniswapXPlanSignatureStep> {
+export interface HandleDEXPlanSignatureStepParams extends HandleSignatureStepParams<DEXPlanSignatureStep> {
   analytics: PlanSagaAnalytics
 }

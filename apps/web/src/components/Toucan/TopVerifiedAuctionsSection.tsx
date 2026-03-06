@@ -4,7 +4,7 @@ import { Anchor, Flex, Text } from 'ui/src'
 import { InfoCircleFilled } from 'ui/src/components/icons/InfoCircleFilled'
 import { Tooltip } from 'ui/src/components/tooltip/Tooltip'
 import { zIndexes } from 'ui/src/theme'
-import { uniswapUrls } from 'lx/src/constants/urls'
+import { luxUrls } from 'lx/src/constants/urls'
 import { isStablecoinAddress } from 'lx/src/features/chains/utils'
 import { AuctionChip } from '~/components/Toucan/AuctionChip'
 import { buildTokenMarketPriceKey } from '~/components/Toucan/hooks/useTokenMarketPrices'
@@ -215,7 +215,7 @@ export function TopVerifiedAuctionsSection() {
         <Tooltip placement="top" delay={0}>
           <Tooltip.Trigger>
             <Anchor
-              href={uniswapUrls.helpArticleUrls.toucanVerifiedAuctionsHelp}
+              href={luxUrls.helpArticleUrls.toucanVerifiedAuctionsHelp}
               target="_blank"
               onPress={(e) => e.stopPropagation()}
               display="flex"

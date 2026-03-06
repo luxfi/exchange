@@ -18,7 +18,7 @@ declare type ChainAddresses = {
     v4QuoterAddress?: string;
 };
 export declare const UNI_ADDRESSES: AddressMap;
-export declare const UNISWAP_NFT_AIRDROP_CLAIM_ADDRESS = "0x8B799381ac40b838BBA4131ffB26197C432AFe78";
+export declare const LUX_NFT_AIRDROP_CLAIM_ADDRESS = "0x8B799381ac40b838BBA4131ffB26197C432AFe78";
 /**
  * @deprecated use V2_FACTORY_ADDRESSES instead
  */

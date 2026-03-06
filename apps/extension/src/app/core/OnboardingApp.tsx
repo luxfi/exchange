@@ -44,7 +44,7 @@ import { ExtensionEventName } from 'lx/src/features/telemetry/constants'
 import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
 import { ExtensionOnboardingFlow } from 'lx/src/types/screens/extension'
 import { AccountsStoreContextProvider } from 'wallet/src/features/accounts/store/provider'
-import { WalletUniswapProvider } from 'wallet/src/features/transactions/contexts/WalletUniswapContext'
+import { WalletLuxProvider } from 'wallet/src/features/transactions/contexts/WalletLuxContext'
 import { getReduxPersistor } from 'wallet/src/state/persistor'
 
 const supportsSidePanel = checksIfSupportsSidePanel()
@@ -196,12 +196,12 @@ export default function OnboardingApp(): JSX.Element {
     <PersistGate persistor={getReduxPersistor()}>
       <BaseAppContainer appName={DatadogAppNameTag.Onboarding}>
         <OnboardingNavigationProvider>
-          <WalletUniswapProvider>
+          <WalletLuxProvider>
             <AccountsStoreContextProvider>
               <PrimaryAppInstanceDebuggerLazy />
               <RouterProvider router={router} />
             </AccountsStoreContextProvider>
-          </WalletUniswapProvider>
+          </WalletLuxProvider>
         </OnboardingNavigationProvider>
       </BaseAppContainer>
     </PersistGate>

@@ -1,15 +1,15 @@
 import { parseUri } from '@walletconnect/utils'
 import {
   isUwULinkDirectLink,
-  isUwuLinkUniswapDeepLink,
+  isUwuLinkLuxDeepLink,
   parseUwuLinkDataFromDeeplink,
   UWULINK_PREFIX,
 } from 'src/components/Requests/Uwulink/utils'
 import {
-  UNISWAP_URL_SCHEME,
-  UNISWAP_URL_SCHEME_SCANTASTIC,
-  UNISWAP_URL_SCHEME_WALLETCONNECT_AS_PARAM,
-  UNISWAP_WALLETCONNECT_URL,
+  LUX_URL_SCHEME,
+  LUX_URL_SCHEME_SCANTASTIC,
+  LUX_URL_SCHEME_WALLETCONNECT_AS_PARAM,
+  LUX_WALLETCONNECT_URL,
 } from 'src/features/deepLinking/constants'
 import { Platform } from 'lx/src/features/platforms/types/Platform'
 import { getValidAddress } from 'lx/src/utils/addresses'
@@ -73,9 +73,9 @@ export async function getSupportedURI(
   // parseUri(hello_uniwallet:[valid_wc_uri]) also returns version 2
   const { uri: maybeCustomWcUri, type } =
     (await getWcUriWithCustomPrefix(uri, CUSTOM_UNI_QR_CODE_PREFIX)) ||
-    (await getWcUriWithCustomPrefix(uri, UNISWAP_URL_SCHEME_WALLETCONNECT_AS_PARAM)) ||
-    (await getWcUriWithCustomPrefix(uri, UNISWAP_URL_SCHEME)) ||
-    (await getWcUriWithCustomPrefix(uri, UNISWAP_WALLETCONNECT_URL)) ||
+    (await getWcUriWithCustomPrefix(uri, LUX_URL_SCHEME_WALLETCONNECT_AS_PARAM)) ||
+    (await getWcUriWithCustomPrefix(uri, LUX_URL_SCHEME)) ||
+    (await getWcUriWithCustomPrefix(uri, LUX_WALLETCONNECT_URL)) ||
     {}
 
   if (maybeCustomWcUri && type) {
@@ -100,7 +100,7 @@ export async function getSupportedURI(
     return { type: URIType.UwULink, value: uri.slice(UWULINK_PREFIX.length).replaceAll('\\', '') }
   }
 
-  if (isUwuLinkUniswapDeepLink(uri)) {
+  if (isUwuLinkLuxDeepLink(uri)) {
     return {
       type: URIType.UwULink,
       // remove escape strings from the stringified JSON before parsing it
@@ -135,9 +135,9 @@ function getMetamaskAddress(uri: string): Nullable<string> {
   return getValidAddress({ address: uriParts[1], platform: Platform.EVM, withEVMChecksum: true, log: false })
 }
 
-// format is uniswap://scantastic?<params>
+// format is lux://scantastic?<params>
 export function getScantasticQueryParams(uri: string): Nullable<string> {
-  if (!uri.startsWith(UNISWAP_URL_SCHEME_SCANTASTIC)) {
+  if (!uri.startsWith(LUX_URL_SCHEME_SCANTASTIC)) {
     return null
   }
 

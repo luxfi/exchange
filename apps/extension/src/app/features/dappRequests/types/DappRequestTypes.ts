@@ -48,11 +48,11 @@ export const SignTransactionRequestSchema = BaseDappRequestSchema.extend({
 })
 export type SignTransactionRequest = z.infer<typeof SignTransactionRequestSchema>
 
-export const UniswapOpenSidebarRequestSchema = BaseDappRequestSchema.extend({
-  type: z.literal(DappRequestType.UniswapOpenSidebar),
+export const LuxOpenSidebarRequestSchema = BaseDappRequestSchema.extend({
+  type: z.literal(DappRequestType.LuxOpenSidebar),
   tab: z.nativeEnum(HomeTabs).optional(),
 })
-export type UniswapOpenSidebarRequest = z.infer<typeof UniswapOpenSidebarRequestSchema>
+export type LuxOpenSidebarRequest = z.infer<typeof LuxOpenSidebarRequestSchema>
 
 // ENUMS
 export enum EthSendTransactionRPCActions {
@@ -224,10 +224,10 @@ export const RevokePermissionsResponseSchema = BaseDappResponseSchema.extend({
 })
 export type RevokePermissionsResponse = z.infer<typeof RevokePermissionsResponseSchema>
 
-export const UniswapOpenSidebarResponseSchema = BaseDappResponseSchema.extend({
-  type: z.literal(DappResponseType.UniswapOpenSidebarResponse),
+export const LuxOpenSidebarResponseSchema = BaseDappResponseSchema.extend({
+  type: z.literal(DappResponseType.LuxOpenSidebarResponse),
 })
-export type UniswapOpenSidebarResponse = z.infer<typeof UniswapOpenSidebarResponseSchema>
+export type LuxOpenSidebarResponse = z.infer<typeof LuxOpenSidebarResponseSchema>
 
 export const ErrorResponseSchema = BaseDappResponseSchema.extend({
   type: z.literal(DappResponseType.ErrorResponse),
@@ -312,7 +312,7 @@ export const DappRequestSchema = z.union([
   SignMessageRequestSchema,
   SignTypedDataRequestSchema,
   SignTransactionRequestSchema,
-  UniswapOpenSidebarRequestSchema,
+  LuxOpenSidebarRequestSchema,
   SendCallsRequestSchema,
   GetCallsStatusRequestSchema,
   GetCapabilitiesRequestSchema,
@@ -329,7 +329,7 @@ const DappResponseSchema = z.union([
   SignTypedDataResponseSchema,
   SignTransactionResponseSchema,
   SendTransactionResponseSchema,
-  UniswapOpenSidebarResponseSchema,
+  LuxOpenSidebarResponseSchema,
   SendCallsResponseSchema,
   GetCallsStatusResponseSchema,
   GetCapabilitiesResponseSchema,

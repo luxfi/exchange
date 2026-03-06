@@ -1,5 +1,5 @@
 /* eslint-disable max-lines */
-import { PositionStatus, ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
+import { PositionStatus, ProtocolVersion } from '@lux/client-data-api/dist/data/v1/poolTypes_pb'
 import { FeatureFlags, useFeatureFlag } from '@universe/gating'
 import { atom, useAtom } from 'jotai'
 import { useMemo, useState } from 'react'
@@ -11,12 +11,12 @@ import { CloseIconWithHover } from 'ui/src/components/icons/CloseIconWithHover'
 import { InfoCircleFilled } from 'ui/src/components/icons/InfoCircleFilled'
 import { Pools } from 'ui/src/components/icons/Pools'
 import { Wallet } from 'ui/src/components/icons/Wallet'
-import { uniswapUrls } from 'lx/src/constants/urls'
+import { luxUrls } from 'lx/src/constants/urls'
 import { useGetPositionsInfiniteQuery } from 'lx/src/data/rest/getPositions'
 import { useEnabledChains } from 'lx/src/features/chains/hooks/useEnabledChains'
 import { UniverseChainId } from 'lx/src/features/chains/types'
 import { Platform } from 'lx/src/features/platforms/types/Platform'
-import { InterfacePageName, UniswapEventName } from 'lx/src/features/telemetry/constants'
+import { InterfacePageName, LuxEventName } from 'lx/src/features/telemetry/constants'
 import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
 import Trace from 'lx/src/features/telemetry/Trace'
 import { useIsMissingPlatformWallet } from 'lx/src/features/transactions/swap/components/SwapFormButton/hooks/useIsMissingPlatformWallet'
@@ -122,13 +122,13 @@ function DisconnectedWalletView() {
             width="100%"
             img={PROVIDE_LIQUIDITY}
             text={t('liquidity.provideOnProtocols')}
-            link={uniswapUrls.helpArticleUrls.providingLiquidityInfo}
+            link={luxUrls.helpArticleUrls.providingLiquidityInfo}
           />
           <LearnMoreTile
             width="100%"
             img={V4_HOOK}
             text={t('liquidity.hooks')}
-            link={uniswapUrls.helpArticleUrls.v4HooksInfo}
+            link={luxUrls.helpArticleUrls.v4HooksInfo}
           />
         </Flex>
       </Flex>
@@ -425,7 +425,7 @@ export default function Pool() {
             <LpIncentiveRewardsCard
               walletAddress={account.address}
               onCollectRewards={() => {
-                sendAnalyticsEvent(UniswapEventName.LpIncentiveCollectRewardsButtonClicked)
+                sendAnalyticsEvent(LuxEventName.LpIncentiveCollectRewardsButtonClicked)
                 openModal()
               }}
               setTokenRewards={setTokenRewards}
@@ -535,15 +535,15 @@ export default function Pool() {
                 <LearnMoreTile
                   img={PROVIDE_LIQUIDITY}
                   text={t('liquidity.provideOnProtocols')}
-                  link={uniswapUrls.helpArticleUrls.providingLiquidityInfo}
+                  link={luxUrls.helpArticleUrls.providingLiquidityInfo}
                 />
                 <LearnMoreTile
                   img={V4_HOOK}
                   text={t('liquidity.hooks')}
-                  link={uniswapUrls.helpArticleUrls.v4HooksInfo}
+                  link={luxUrls.helpArticleUrls.v4HooksInfo}
                 />
               </Flex>
-              <ExternalArrowLink href={uniswapUrls.helpArticleUrls.positionsLearnMore}>
+              <ExternalArrowLink href={luxUrls.helpArticleUrls.positionsLearnMore}>
                 {t('common.button.learn')}
               </ExternalArrowLink>
             </Flex>
@@ -555,7 +555,7 @@ export default function Pool() {
           isOpen={isModalOpen}
           onClose={() => closeModal()}
           onSuccess={() => {
-            sendAnalyticsEvent(UniswapEventName.LpIncentiveCollectRewardsSuccess, {
+            sendAnalyticsEvent(LuxEventName.LpIncentiveCollectRewardsSuccess, {
               token_rewards: tokenRewards,
             })
             onTransactionSuccess()

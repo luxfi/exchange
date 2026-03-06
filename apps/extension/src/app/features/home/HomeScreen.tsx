@@ -1,5 +1,5 @@
 import { useApolloClient } from '@apollo/client'
-import { SharedEventName } from '@uniswap/analytics-events'
+import { SharedEventName } from '@lux/analytics-events'
 import { FeatureFlags, useFeatureFlag } from '@universe/gating'
 import { getIsNotificationServiceLocalOverrideEnabled } from '@universe/notifications'
 import React, { memo, useCallback, useEffect, useState } from 'react'
@@ -22,11 +22,11 @@ import { ExtensionNotificationServiceManager } from 'src/notification-service/Ex
 import { Flex, Loader, styled, Text, TouchableArea } from 'ui/src'
 import { SMART_WALLET_UPGRADE_VIDEO } from 'ui/src/assets'
 import { buildWrappedUrl } from 'lx/src/components/banners/shared/utils'
-import { UniswapWrapped2025Banner } from 'lx/src/components/banners/UniswapWrapped2025Banner/UniswapWrapped2025Banner'
+import { LuxWrapped2025Banner } from 'lx/src/components/banners/LuxWrapped2025Banner/LuxWrapped2025Banner'
 import { NFTS_TAB_DATA_DEPENDENCIES } from 'lx/src/components/nfts/constants'
-import { UNISWAP_WEB_URL } from 'lx/src/constants/urls'
-import { selectHasDismissedUniswapWrapped2025Banner } from 'lx/src/features/behaviorHistory/selectors'
-import { setHasDismissedUniswapWrapped2025Banner } from 'lx/src/features/behaviorHistory/slice'
+import { LUX_WEB_URL } from 'lx/src/constants/urls'
+import { selectHasDismissedLuxWrapped2025Banner } from 'lx/src/features/behaviorHistory/selectors'
+import { setHasDismissedLuxWrapped2025Banner } from 'lx/src/features/behaviorHistory/slice'
 import { useSelectAddressHasNotifications } from 'lx/src/features/notifications/slice/hooks'
 import { setNotificationStatus } from 'lx/src/features/notifications/slice/slice'
 import { PortfolioBalance } from 'lx/src/features/portfolio/PortfolioBalance/PortfolioBalance'
@@ -77,9 +77,9 @@ export const HomeScreen = memo(function _HomeScreen(): JSX.Element {
   const [isSmartWalletEnabledModalOpen, setIsSmartWalletEnabledModalOpen] = useState(false)
   const dispatch = useDispatch()
 
-  // UniswapWrapped2025 banner state
-  const isWrappedBannerEnabled = useFeatureFlag(FeatureFlags.UniswapWrapped2025)
-  const hasDismissedWrappedBanner = useSelector(selectHasDismissedUniswapWrapped2025Banner)
+  // LuxWrapped2025 banner state
+  const isWrappedBannerEnabled = useFeatureFlag(FeatureFlags.LuxWrapped2025)
+  const hasDismissedWrappedBanner = useSelector(selectHasDismissedLuxWrapped2025Banner)
   const shouldShowWrappedBanner = isWrappedBannerEnabled && !hasDismissedWrappedBanner
 
   // Notification service feature flag
@@ -88,14 +88,14 @@ export const HomeScreen = memo(function _HomeScreen(): JSX.Element {
     getIsNotificationServiceLocalOverrideEnabled() || isNotificationServiceEnabledFlag
 
   const handleDismissWrappedBanner = useCallback(() => {
-    dispatch(setHasDismissedUniswapWrapped2025Banner(true))
+    dispatch(setHasDismissedLuxWrapped2025Banner(true))
   }, [dispatch])
 
   const handlePressWrappedBanner = useCallback(() => {
     try {
-      const url = buildWrappedUrl(UNISWAP_WEB_URL, address)
+      const url = buildWrappedUrl(LUX_WEB_URL, address)
       window.open(url, '_blank')
-      dispatch(setHasDismissedUniswapWrapped2025Banner(true))
+      dispatch(setHasDismissedLuxWrapped2025Banner(true))
     } catch (error) {
       logger.error(error, { tags: { file: 'HomeScreen', function: 'handlePressWrappedBanner' } })
     }
@@ -198,7 +198,7 @@ export const HomeScreen = memo(function _HomeScreen(): JSX.Element {
           )}
           {shouldShowWrappedBanner && (
             <Flex width="calc(100% + 24px)" ml={-12} mt={-12}>
-              <UniswapWrapped2025Banner
+              <LuxWrapped2025Banner
                 handleDismiss={handleDismissWrappedBanner}
                 handlePress={handlePressWrappedBanner}
                 bannerHeight={80}

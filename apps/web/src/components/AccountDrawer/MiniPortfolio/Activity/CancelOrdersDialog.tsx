@@ -1,4 +1,4 @@
-import { CurrencyAmount } from '@uniswap/sdk-core'
+import { CurrencyAmount } from '@lux/sdk-core'
 import { TradingApi } from '@universe/api'
 import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
@@ -12,7 +12,7 @@ import { UniverseChainId } from 'lx/src/features/chains/types'
 import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
 import { ModalName } from 'lx/src/features/telemetry/constants'
 import { useUSDCValue } from 'lx/src/features/transactions/hooks/useUSDCPriceWrapper'
-import { UniswapXOrderDetails } from 'lx/src/features/transactions/types/transactionDetails'
+import { DEXOrderDetails } from 'lx/src/features/transactions/types/transactionDetails'
 import { ExplorerDataType, getExplorerLink } from 'lx/src/utils/linking'
 import { NumberType } from 'utilities/src/format/types'
 import { useCancelOrdersGasEstimate } from '~/components/AccountDrawer/MiniPortfolio/Activity/hooks'
@@ -44,7 +44,7 @@ export enum CancellationState {
 }
 
 interface CancelOrdersDialogProps {
-  orders: UniswapXOrderDetails[]
+  orders: DEXOrderDetails[]
   cancelState: CancellationState
   cancelTxHash?: string
   onConfirm: () => void
@@ -54,7 +54,7 @@ interface CancelOrdersDialogProps {
 
 function useCancelOrdersDialogContent(
   state: CancellationState,
-  orders: UniswapXOrderDetails[],
+  orders: DEXOrderDetails[],
 ): { title?: string; icon: JSX.Element } {
   const { t } = useTranslation()
   const colors = useSporeColors()

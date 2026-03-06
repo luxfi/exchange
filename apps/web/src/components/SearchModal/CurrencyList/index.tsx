@@ -1,11 +1,11 @@
-import { Currency, CurrencyAmount } from '@uniswap/sdk-core'
+import { Currency, CurrencyAmount } from '@lux/sdk-core'
 import { CSSProperties } from 'react'
 import { Flex, styled, Text, TextStyle } from 'ui/src'
 import { WarningSeverity } from 'lx/src/components/modals/WarningModal/types'
 import WarningIcon from 'lx/src/components/warnings/WarningIcon'
 import { CurrencyInfo } from 'lx/src/features/dataApi/types'
 import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
-import { ElementName, UniswapEventName } from 'lx/src/features/telemetry/constants'
+import { ElementName, LuxEventName } from 'lx/src/features/telemetry/constants'
 import Trace from 'lx/src/features/telemetry/Trace'
 import { getTokenWarningSeverity } from 'lx/src/features/tokens/warnings/safetyUtils'
 import { shortenAddress } from 'utilities/src/addresses'
@@ -133,7 +133,7 @@ export function CurrencyRow({
     <Trace
       logPress
       logKeyPress
-      eventOnTrigger={UniswapEventName.TokenSelected}
+      eventOnTrigger={LuxEventName.TokenSelected}
       properties={{ ...eventProperties, token_balance_usd: usdValue }}
       element={ElementName.TokenSelectorRow}
     >

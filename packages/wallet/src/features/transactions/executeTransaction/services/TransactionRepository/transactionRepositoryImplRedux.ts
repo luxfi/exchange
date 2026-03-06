@@ -10,7 +10,7 @@ import {
   type TransactionDetails,
   TransactionStatus,
 } from 'lx/src/features/transactions/types/transactionDetails'
-import type { UniswapState } from 'lx/src/state/uniswapReducer'
+import type { LuxState } from 'lx/src/state/luxReducer'
 import { logger } from 'utilities/src/logger/logger'
 import type { TransactionRepository } from 'wallet/src/features/transactions/executeTransaction/services/TransactionRepository/transactionRepository'
 import { RunSagaEffect } from 'wallet/src/state/createSagaEffectRunner'
@@ -113,7 +113,7 @@ function createSagaTransactionRepository(ctx: TransactionRepositoryReduxContext)
 
   const getPendingPrivateTransactionCount: SagaTransactionRepository['getPendingPrivateTransactionCount'] = (input) => {
     // Return a select effect that will get and filter transactions
-    return select((state: UniswapState) => {
+    return select((state: LuxState) => {
       const pendingTransactions = selectAddressTransactions(state, { evmAddress: input.address, svmAddress: null })
 
       if (!pendingTransactions) {
@@ -136,7 +136,7 @@ function createSagaTransactionRepository(ctx: TransactionRepositoryReduxContext)
 
   const getTransactionsByAddress: SagaTransactionRepository['getTransactionsByAddress'] = (input) => {
     // Return a select effect
-    return select((state: UniswapState) => {
+    return select((state: LuxState) => {
       const transactions = selectAddressTransactions(state, { evmAddress: input.address, svmAddress: null })
 
       if (!transactions) {

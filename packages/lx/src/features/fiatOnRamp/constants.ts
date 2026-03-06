@@ -1,6 +1,6 @@
 import { FeatureFlags, getFeatureFlag } from '@universe/gating'
 import { config } from 'lx/src/config'
-import { uniswapUrls } from 'lx/src/constants/urls'
+import { luxUrls } from 'lx/src/constants/urls'
 import { getVersionHeader } from 'lx/src/data/getVersionHeader'
 import { isMobileApp } from 'utilities/src/platform'
 import { REQUEST_SOURCE } from 'utilities/src/platform/requestSource'
@@ -18,10 +18,10 @@ export function getForApiHeaders(): Record<string, string> {
   return {
     'Content-Type': 'application/json',
     // Only include API key when sessions are disabled (legacy auth flow)
-    ...(!getFeatureFlag(FeatureFlags.ForSessionsEnabled) ? { 'X-API-KEY': config.uniswapApiKey } : {}),
+    ...(!getFeatureFlag(FeatureFlags.ForSessionsEnabled) ? { 'X-API-KEY': config.luxApiKey } : {}),
     'x-request-source': REQUEST_SOURCE,
     ...(isMobileApp ? { 'x-app-version': getVersionHeader() } : {}),
-    Origin: uniswapUrls.requestOriginUrl,
+    Origin: luxUrls.requestOriginUrl,
   }
 }
 
@@ -31,10 +31,10 @@ export function getForApiHeaders(): Record<string, string> {
  */
 export const FOR_API_HEADERS: Record<string, string> = {
   'Content-Type': 'application/json',
-  'X-API-KEY': config.uniswapApiKey,
+  'X-API-KEY': config.luxApiKey,
   'x-request-source': REQUEST_SOURCE,
   ...(isMobileApp ? { 'x-app-version': getVersionHeader() } : {}),
-  Origin: uniswapUrls.requestOriginUrl,
+  Origin: luxUrls.requestOriginUrl,
 }
 
 export const FOR_MODAL_SNAP_POINTS = ['70%', '100%']
@@ -47,7 +47,7 @@ export const ServiceProviderLogoStyles = {
     width: SERVICE_PROVIDER_ICON_SIZE,
     borderRadius: SERVICE_PROVIDER_ICON_BORDER_RADIUS,
   },
-  uniswapLogoWrapper: {
+  luxLogoWrapper: {
     backgroundColor: '#FFEFF8', // #FFD8EF with 40% opacity on a white background
     borderRadius: SERVICE_PROVIDER_ICON_BORDER_RADIUS,
     height: SERVICE_PROVIDER_ICON_SIZE,

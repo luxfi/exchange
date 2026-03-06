@@ -1,9 +1,9 @@
 {
   "name": "@luxamm/v4-sdk",
-  "description": "⚒️ An SDK for building applications on top of Uniswap V4",
-  "repository": "https://github.com/Uniswap/sdks.git",
+  "description": "⚒️ An SDK for building applications on top of Lux V4",
+  "repository": "https://github.com/Lux/sdks.git",
   "keywords": [
-    "uniswap",
+    "lux",
     "ethereum"
   ],
   "license": "MIT",

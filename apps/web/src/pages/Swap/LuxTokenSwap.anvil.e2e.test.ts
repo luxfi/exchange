@@ -3,7 +3,7 @@ import { createExpectSingleTransaction } from 'playwright/anvil/transactions'
 import { expect, getTest } from 'playwright/fixtures'
 import { stubTradingApiEndpoint } from 'playwright/fixtures/tradingApi'
 import { TEST_WALLET_ADDRESS } from 'playwright/fixtures/wallets'
-import { uniswapUrls } from 'lx/src/constants/urls'
+import { luxUrls } from 'lx/src/constants/urls'
 import { UniverseChainId } from 'lx/src/features/chains/types'
 import { TestID } from 'lx/src/test/fixtures/testIDs'
 import { assume0xAddress } from 'utils/wagmi'
@@ -53,9 +53,9 @@ test.describe(
         return
       }
 
-      await stubTradingApiEndpoint({ page, endpoint: uniswapUrls.tradingApiPaths.quote })
-      await stubTradingApiEndpoint({ page, endpoint: uniswapUrls.tradingApiPaths.swap })
-      await stubTradingApiEndpoint({ page, endpoint: uniswapUrls.tradingApiPaths.approval })
+      await stubTradingApiEndpoint({ page, endpoint: luxUrls.tradingApiPaths.quote })
+      await stubTradingApiEndpoint({ page, endpoint: luxUrls.tradingApiPaths.swap })
+      await stubTradingApiEndpoint({ page, endpoint: luxUrls.tradingApiPaths.approval })
     })
 
     test('should swap WLUX for LETH', async ({ page, anvil }) => {

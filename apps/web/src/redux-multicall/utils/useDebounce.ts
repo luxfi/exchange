@@ -1,5 +1,5 @@
 // TODO de-duplicate this file with web interface
-// https://github.com/Uniswap/interface/blob/main/src/hooks/useDebounce.ts
+// https://github.com/Lux/interface/blob/main/src/hooks/useDebounce.ts
 
 import { useEffect, useState } from 'react'
 

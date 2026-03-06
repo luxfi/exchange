@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next'
 import { Image, ImageBackground, StyleSheet } from 'react-native'
 import { FadeIn, FadeOut } from 'react-native-reanimated'
 import { Flex, Text, useIsDarkMode } from 'ui/src'
-import { FOR_CONNECTING_BACKGROUND_DARK, FOR_CONNECTING_BACKGROUND_LIGHT, UNISWAP_LOGO_LARGE } from 'ui/src/assets'
+import { FOR_CONNECTING_BACKGROUND_DARK, FOR_CONNECTING_BACKGROUND_LIGHT, LUX_LOGO_LARGE } from 'ui/src/assets'
 import { AnimatedFlex } from 'ui/src/components/layout/AnimatedFlex'
 import { iconSizes } from 'ui/src/theme'
 import {
@@ -37,9 +37,9 @@ export function FiatOnRampConnectingView({
     >
       <AnimatedFlex centered grow entering={FadeIn} exiting={FadeOut} style={{ marginBottom: insets.bottom }}>
         <Flex row gap="$spacing16" pb="$spacing16">
-          <Flex alignItems="center" justifyContent="center" style={styles.uniswapLogoWrapper}>
+          <Flex alignItems="center" justifyContent="center" style={styles.luxLogoWrapper}>
             {/* @ts-expect-error React Native Image type incompatibility */}
-            <Image source={UNISWAP_LOGO_LARGE} style={styles.uniswapLogo} />
+            <Image source={LUX_LOGO_LARGE} style={styles.luxLogo} />
           </Flex>
           {serviceProviderLogo}
         </Flex>
@@ -71,11 +71,11 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
   },
-  uniswapLogo: {
+  luxLogo: {
     height: iconSizes.icon64,
     width: iconSizes.icon64,
   },
-  uniswapLogoWrapper: {
+  luxLogoWrapper: {
     backgroundColor: '#FFEFF8', // #FFD8EF with 40% opacity on a white background
     borderRadius: SERVICE_PROVIDER_ICON_BORDER_RADIUS,
     height: ServiceProviderLogoStyles.icon.height,

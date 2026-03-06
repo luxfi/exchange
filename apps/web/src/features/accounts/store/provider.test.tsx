@@ -231,7 +231,7 @@ describe('Web Accounts Store Provider', () => {
 
       // Should have only one wallet (deduplicated)
       const walletIds = Object.keys(state.wallets)
-      expect(walletIds).toHaveLength(2) // Uniswap wallet connect connector is added manually to store, so its always defined, hence length is 2
+      expect(walletIds).toHaveLength(2) // Lux wallet connect connector is added manually to store, so its always defined, hence length is 2
       expect(walletIds[0]).toBe('metamask') // EVM library ID takes precedence
 
       const wallet = state.wallets.metamask

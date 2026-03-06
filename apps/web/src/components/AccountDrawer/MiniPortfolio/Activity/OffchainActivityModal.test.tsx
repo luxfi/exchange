@@ -1,6 +1,6 @@
 import '~/test-utils/tokens/mocks'
 import 'utilities/src/logger/mocks'
-import { WETH9 } from '@uniswap/sdk-core'
+import { WETH9 } from '@lux/sdk-core'
 import { TradingApi } from '@universe/api'
 import { DAI } from 'lx/src/constants/tokens'
 import { UniverseChainId } from 'lx/src/features/chains/types'
@@ -8,7 +8,7 @@ import {
   TransactionOriginType,
   TransactionStatus,
   TransactionType,
-  UniswapXOrderDetails,
+  DEXOrderDetails,
 } from 'lx/src/features/transactions/types/transactionDetails'
 import { currencyId } from 'lx/src/utils/currencyId'
 import { OrderContent } from '~/components/AccountDrawer/MiniPortfolio/Activity/OffchainActivityModal'
@@ -23,7 +23,7 @@ vi.mock('lx/src/features/language/localizedDayjs', () => ({
 
 describe('OrderContent', () => {
   it('should render without error, filled order', () => {
-    const order: UniswapXOrderDetails = {
+    const order: DEXOrderDetails = {
       hash: '0xad7a8f73f28fd0cc16459111899dd1632164ae139fcf5281a1bced56e1ff6564',
       orderHash: '0xad7a8f73f28fd0cc16459111899dd1632164ae139fcf5281a1bced56e1ff6564',
       from: '0xSenderAddress',
@@ -34,7 +34,7 @@ describe('OrderContent', () => {
       addedTime: 1701715079,
       transactionOriginType: TransactionOriginType.Internal,
       typeInfo: {
-        isUniswapXOrder: true,
+        isDEXOrder: true,
         type: TransactionType.Swap,
         tradeType: 0,
         inputCurrencyId: currencyId(DAI),
@@ -51,7 +51,7 @@ describe('OrderContent', () => {
   })
 
   it('should render without error, open order', () => {
-    const order: UniswapXOrderDetails = {
+    const order: DEXOrderDetails = {
       chainId: 1,
       routing: TradingApi.Routing.DUTCH_V2,
       status: TransactionStatus.Pending,
@@ -64,7 +64,7 @@ describe('OrderContent', () => {
       id: 'tx123',
       transactionOriginType: TransactionOriginType.Internal,
       typeInfo: {
-        isUniswapXOrder: true,
+        isDEXOrder: true,
         type: TransactionType.Swap,
         tradeType: 0,
         inputCurrencyId: currencyId(DAI),
@@ -82,7 +82,7 @@ describe('OrderContent', () => {
   })
 
   it('should render without error, limit order', () => {
-    const order: UniswapXOrderDetails = {
+    const order: DEXOrderDetails = {
       chainId: UniverseChainId.Mainnet,
       routing: TradingApi.Routing.DUTCH_LIMIT,
       status: TransactionStatus.Pending,
@@ -95,7 +95,7 @@ describe('OrderContent', () => {
       id: 'tx123',
       transactionOriginType: TransactionOriginType.Internal,
       typeInfo: {
-        isUniswapXOrder: true,
+        isDEXOrder: true,
         type: TransactionType.Swap,
         tradeType: 0,
         inputCurrencyId: currencyId(DAI),

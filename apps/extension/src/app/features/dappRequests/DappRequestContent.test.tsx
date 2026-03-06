@@ -196,11 +196,11 @@ describe('DappRequestContent - Stale Request Rendering', () => {
     renderDappRequestContent({
       createdAt: freshCreatedAt,
       isRequestStale: false,
-      frameUrl: 'https://app.uniswap.org',
+      frameUrl: 'https://app.lux.org',
     })
 
-    // Should show "app.uniswap.org via example.com" in the URL label
-    expect(screen.queryByText(/app\.uniswap\.org via example\.com/i)).not.toBeNull()
+    // Should show "app.lux.org via example.com" in the URL label
+    expect(screen.queryByText(/app\.lux\.org via example\.com/i)).not.toBeNull()
   })
 
   it('should display only top-level URL when frameUrl is not present', async () => {

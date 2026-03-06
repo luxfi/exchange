@@ -1,4 +1,4 @@
-import { Currency, CurrencyAmount, Price } from '@uniswap/sdk-core'
+import { Currency, CurrencyAmount, Price } from '@lux/sdk-core'
 import { useMemo } from 'react'
 import { Trans } from 'react-i18next'
 import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
@@ -7,7 +7,7 @@ import {
   useFormattedDateTime,
   useLocalizedDayjs,
 } from 'lx/src/features/language/localizedDayjs'
-import { UniswapXOrderDetails } from 'lx/src/features/transactions/types/transactionDetails'
+import { DEXOrderDetails } from 'lx/src/features/transactions/types/transactionDetails'
 import { ellipseMiddle } from 'utilities/src/addresses'
 import { NumberType } from 'utilities/src/format/types'
 import { DetailLineItem, LineItemData } from '~/components/swap/DetailLineItem'
@@ -31,12 +31,12 @@ export type OffchainOrderLineItemProps =
     }
   | {
       type: OffchainOrderLineItemType.EXPIRY
-      order: UniswapXOrderDetails
+      order: DEXOrderDetails
     }
   | {
       type: OffchainOrderLineItemType.TRANSACTION_ID
       explorerLink: string
-      order: UniswapXOrderDetails
+      order: DEXOrderDetails
     }
   | {
       type: OffchainOrderLineItemType.NETWORK_COST

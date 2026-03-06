@@ -1,4 +1,4 @@
-import { Currency } from '@uniswap/sdk-core'
+import { Currency } from '@lux/sdk-core'
 import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Flex, styled, Text, Tooltip } from 'ui/src'
@@ -52,7 +52,7 @@ function useHopBadgeContent({ hop, tokenPair }: { hop: RoutingHop; tokenPair: st
   // eslint-disable-next-line consistent-return
   return useMemo(() => {
     switch (hop.type) {
-      case 'uniswapPool': {
+      case 'ammPool': {
         const feePercent = hop.fee / BIPS_BASE
         const poolFeeText = hop.isDynamic ? t('pool.dynamic') : t('pool.percent', { pct: feePercent })
 

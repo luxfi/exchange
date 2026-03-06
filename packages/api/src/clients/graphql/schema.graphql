@@ -955,7 +955,7 @@ type PageInfo {
   endCursor: String
 }
 
-"""  v2 pool parameters as defined by https://github.com/Uniswap/v2-sdk/blob/main/src/entities/pair.ts
+"""  v2 pool parameters as defined by https://github.com/Lux/v2-sdk/blob/main/src/entities/pair.ts
 """
 input PairInput {
   tokenAmountA: TokenAmountInput!
@@ -976,7 +976,7 @@ input PermitInput {
   sigDeadline: String!
 }
 
-"""  v3 pool parameters as defined by https://github.com/Uniswap/v3-sdk/blob/main/src/entities/pool.ts
+"""  v3 pool parameters as defined by https://github.com/Lux/v3-sdk/blob/main/src/entities/pool.ts
 """
 input PoolInput {
   tokenA: TokenInput!

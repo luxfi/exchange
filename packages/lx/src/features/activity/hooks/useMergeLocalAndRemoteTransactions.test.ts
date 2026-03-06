@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
-import { TradeType } from '@uniswap/sdk-core'
+import { TradeType } from '@lux/sdk-core'
 import { useMergeLocalAndRemoteTransactions } from 'lx/src/features/activity/hooks/useMergeLocalAndRemoteTransactions'
 import { UniverseChainId } from 'lx/src/features/chains/types'
 import { ValueType } from 'lx/src/features/tokens/getCurrencyAmount'
@@ -14,7 +14,7 @@ import { TEST_WALLET } from 'lx/src/test/fixtures/wallet/addresses'
 import {
   extractInputSwapTransactionInfo,
   transactionDetails,
-  uniswapXOrderDetails,
+  dexOrderDetails,
 } from 'lx/src/test/fixtures/wallet/transactions'
 import { act, renderHook } from 'lx/src/test/test-utils'
 import type { Mock } from 'vitest'
@@ -46,9 +46,9 @@ describe('useMergeLocalAndRemoteTransactions', () => {
       ...overrides,
     })
 
-  // Helper to create UniswapX order with common defaults
+  // Helper to create DEX order with common defaults
   const createTestOrder = (overrides = {}) =>
-    uniswapXOrderDetails({
+    dexOrderDetails({
       chainId: UniverseChainId.Mainnet,
       from: TEST_WALLET,
       ...overrides,
@@ -236,7 +236,7 @@ describe('useMergeLocalAndRemoteTransactions', () => {
     })
   })
 
-  describe('UniswapX order deduplication', () => {
+  describe('DEX order deduplication', () => {
     it('should deduplicate orders using orderHash', () => {
       const ORDER_HASH = '0xorderhash123'
       const FILL_HASH = '0xfillhash456'

@@ -51,12 +51,12 @@ import {
   Passkey,
   Sliders,
   TouchId,
-  UniswapLogo,
+  LuxLogo,
   WavePulse,
   Wrench,
 } from 'ui/src/components/icons'
 import { iconSizes } from 'ui/src/theme'
-import { uniswapUrls } from 'lx/src/constants/urls'
+import { luxUrls } from 'lx/src/constants/urls'
 import { useCurrentAppearanceSetting } from 'lx/src/features/appearance/hooks'
 import { useEnabledChains } from 'lx/src/features/chains/hooks/useEnabledChains'
 import { useAppFiatCurrencyInfo } from 'lx/src/features/fiatCurrency/hooks'
@@ -318,7 +318,7 @@ export function SettingsScreen(): JSX.Element {
           {
             screen: MobileScreens.WebView,
             screenProps: {
-              uriLink: uniswapUrls.walletFeedbackForm,
+              uriLink: luxUrls.walletFeedbackForm,
               headerTitle: t('settings.action.feedback'),
             },
             text: t('settings.action.feedback'),
@@ -327,7 +327,7 @@ export function SettingsScreen(): JSX.Element {
           {
             screen: MobileScreens.WebView,
             screenProps: {
-              uriLink: uniswapUrls.helpArticleUrls.mobileWalletHelp,
+              uriLink: luxUrls.helpArticleUrls.mobileWalletHelp,
               headerTitle: t('settings.action.help'),
             },
             text: t('settings.action.help'),
@@ -341,7 +341,7 @@ export function SettingsScreen(): JSX.Element {
           {
             screen: MobileScreens.WebView,
             screenProps: {
-              uriLink: uniswapUrls.privacyPolicyUrl,
+              uriLink: luxUrls.privacyPolicyUrl,
               headerTitle: t('settings.action.privacy'),
             },
             text: t('settings.action.privacy'),
@@ -350,7 +350,7 @@ export function SettingsScreen(): JSX.Element {
           {
             screen: MobileScreens.WebView,
             screenProps: {
-              uriLink: uniswapUrls.termsOfServiceUrl,
+              uriLink: luxUrls.termsOfServiceUrl,
               headerTitle: t('settings.action.terms'),
             },
             text: t('settings.action.terms'),
@@ -365,18 +365,18 @@ export function SettingsScreen(): JSX.Element {
           {
             navigationModal: ModalName.Experiments,
             text: 'Dev Modal',
-            icon: <UniswapLogo {...svgProps} />,
+            icon: <LuxLogo {...svgProps} />,
             testID: TestID.AppSettingsDevModal,
           },
           {
             screen: MobileScreens.Dev,
             text: 'Dev options',
-            icon: <UniswapLogo {...svgProps} />,
+            icon: <LuxLogo {...svgProps} />,
           },
           {
             screen: MobileScreens.DebugScreens,
             text: 'Debug Screens',
-            icon: <UniswapLogo {...svgProps} />,
+            icon: <LuxLogo {...svgProps} />,
           },
           { component: <OnboardingRow iconProps={svgProps} /> },
           { component: <ResetBehaviorHistoryRow iconProps={svgProps} /> },

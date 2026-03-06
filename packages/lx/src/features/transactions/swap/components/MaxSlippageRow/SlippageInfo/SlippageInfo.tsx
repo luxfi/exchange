@@ -5,7 +5,7 @@ import { zIndexes } from 'ui/src/theme'
 import { WarningSeverity } from 'lx/src/components/modals/WarningModal/types'
 import { WarningInfo } from 'lx/src/components/modals/WarningModal/WarningInfo'
 import { LearnMoreLink } from 'lx/src/components/text/LearnMoreLink'
-import { uniswapUrls } from 'lx/src/constants/urls'
+import { luxUrls } from 'lx/src/constants/urls'
 import { ModalName } from 'lx/src/features/telemetry/constants'
 import { SlippageInfoCaption } from 'lx/src/features/transactions/swap/components/MaxSlippageRow/SlippageInfo/SlippageInfoCaption'
 import type { SlippageInfoProps } from 'lx/src/features/transactions/swap/components/MaxSlippageRow/SlippageInfo/types'
@@ -48,7 +48,7 @@ export function SlippageInfo({
 
   return (
     <WarningInfo
-      infoButton={isMobileApp ? <LearnMoreLink url={uniswapUrls.helpArticleUrls.swapSlippage} /> : null}
+      infoButton={isMobileApp ? <LearnMoreLink url={luxUrls.helpArticleUrls.swapSlippage} /> : null}
       modalProps={{
         backgroundIconColor: colors.surface2.get(),
         captionComponent: captionContent,

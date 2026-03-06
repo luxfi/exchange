@@ -8,7 +8,7 @@ import { TokenLogo } from 'lx/src/components/CurrencyLogo/TokenLogo'
 import {
   useTokenBasicInfoPartsFragment,
   useTokenBasicProjectPartsFragment,
-} from 'lx/src/data/graphql/uniswap-data-api/fragments'
+} from 'lx/src/data/graphql/lux-data-api/fragments'
 import { selectHasViewedContractAddressExplainer } from 'lx/src/features/behaviorHistory/selectors'
 import { fromGraphQLChain } from 'lx/src/features/chains/utils'
 import { TestID } from 'lx/src/test/fixtures/testIDs'

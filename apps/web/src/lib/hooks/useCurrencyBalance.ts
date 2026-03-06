@@ -1,4 +1,4 @@
-import { Currency, CurrencyAmount, Token } from '@uniswap/sdk-core'
+import { Currency, CurrencyAmount, Token } from '@lux/sdk-core'
 import JSBI from 'jsbi'
 import { useMemo } from 'react'
 import { getCurrencyAmount, ValueType } from 'lx/src/features/tokens/getCurrencyAmount'
@@ -160,7 +160,7 @@ function useGqlCurrencyBalances(
 }
 
 /**
- * @deprecated use usePortfolioBalances & getOnChainBalancesFetch from packages/uniswap instead
+ * @deprecated use usePortfolioBalances & getOnChainBalancesFetch from packages/lux instead
  *
  * Returns balances for tokens on currently-connected chainId via RPC.
  * Falls back to graphql TokenBalances if user is not connected to chain, a.k.a !isSynced.

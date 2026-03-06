@@ -4,11 +4,11 @@ import { Swap } from 'ui/src/components/icons/Swap'
 import { StepRowProps, StepRowSkeleton } from 'lx/src/components/ConfirmSwapModal/steps/StepRowSkeleton'
 import { StepStatus } from 'lx/src/components/ConfirmSwapModal/types'
 import { useSecondsUntilDeadline } from 'lx/src/components/ConfirmSwapModal/useSecondsUntilDeadline'
-import { uniswapUrls } from 'lx/src/constants/urls'
+import { luxUrls } from 'lx/src/constants/urls'
 import { TransactionStepType } from 'lx/src/features/transactions/steps/types'
 import {
-  UniswapXPlanSignatureStep,
-  UniswapXSignatureStep,
+  DEXPlanSignatureStep,
+  DEXSignatureStep,
 } from 'lx/src/features/transactions/swap/steps/signOrder'
 import {
   SwapTransactionStep,
@@ -25,8 +25,8 @@ const SwapIcon = (): JSX.Element => (
 type SwapSteps =
   | SwapTransactionStep
   | SwapTransactionStepAsync
-  | UniswapXSignatureStep
-  | UniswapXPlanSignatureStep
+  | DEXSignatureStep
+  | DEXPlanSignatureStep
   | SwapTransactionStepBatched
 
 /**
@@ -41,7 +41,7 @@ export function SwapTransactionStepRow({
   const { t } = useTranslation()
 
   const deadline =
-    step.type === TransactionStepType.UniswapXSignature || step.type === TransactionStepType.UniswapXPlanSignature
+    step.type === TransactionStepType.DEXSignature || step.type === TransactionStepType.DEXPlanSignature
       ? step.deadline
       : undefined
 
@@ -65,8 +65,8 @@ export function SwapTransactionStepRow({
       learnMore={{
         url:
           step.type === TransactionStepType.SwapTransactionBatched
-            ? uniswapUrls.helpArticleUrls.batchedSwaps
-            : uniswapUrls.helpArticleUrls.howToSwapTokens,
+            ? luxUrls.helpArticleUrls.batchedSwaps
+            : luxUrls.helpArticleUrls.howToSwapTokens,
         text: t('common.learnMoreSwap'),
       }}
       status={status}

@@ -36,15 +36,15 @@ export function useWagmiConnectorWithId(id: ConnectorID, options?: { shouldThrow
 }
 
 export enum ExtensionRequestMethods {
-  OPEN_SIDEBAR = 'uniswap_openSidebar',
+  OPEN_SIDEBAR = 'lux_openSidebar',
 }
 
 const ExtensionRequestArguments = {
   [ExtensionRequestMethods.OPEN_SIDEBAR]: ['Tokens', 'Activity'],
 } as const
 
-export function useUniswapExtensionRequest() {
-  const connector = useWagmiConnectorWithId(CONNECTION_PROVIDER_IDS.UNISWAP_EXTENSION_RDNS)
+export function useLuxExtensionRequest() {
+  const connector = useWagmiConnectorWithId(CONNECTION_PROVIDER_IDS.LUX_EXTENSION_RDNS)
   const extensionRequest = useCallback(
     async <
       Type extends keyof typeof ExtensionRequestArguments,

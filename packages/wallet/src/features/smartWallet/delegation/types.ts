@@ -6,5 +6,5 @@ export interface DelegationCheckResult {
   contractAddress?: Address
   currentDelegationAddress?: Address | null
   latestDelegationAddress?: Address
-  isWalletDelegatedToUniswap?: boolean
+  isWalletDelegatedToLux?: boolean
 }

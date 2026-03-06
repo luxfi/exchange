@@ -1,5 +1,5 @@
 import { queryOptions } from '@tanstack/react-query'
-import { PlatformType } from '@uniswap/client-notification-service/dist/uniswap/notificationservice/v1/api_pb'
+import { PlatformType } from '@lux/client-notification-service/dist/lux/notificationservice/v1/api_pb'
 import {
   createFetchClient,
   createNotificationsApiClient,
@@ -20,7 +20,7 @@ import {
 } from '@universe/notifications'
 import ms from 'ms'
 import { UnitagClaimRoutes } from 'src/app/navigation/constants'
-import { focusOrCreateUniswapInterfaceTab, focusOrCreateUnitagTab } from 'src/app/navigation/utils'
+import { focusOrCreateLuxInterfaceTab, focusOrCreateUnitagTab } from 'src/app/navigation/utils'
 import { createChromeStorageAdapter } from 'src/notification-service/createChromeStorageAdapter'
 import { createExtensionLegacyBannersNotificationDataSource } from 'src/notification-service/data-sources/createExtensionLegacyBannersNotificationDataSource'
 import { createStorageWarningCondition } from 'src/notification-service/data-sources/reactive/storageWarningCondition'
@@ -29,7 +29,7 @@ import { extensionNotificationStore } from 'src/notification-service/notificatio
 import { getNotificationTelemetry } from 'src/notification-service/notification-telemetry/getNotificationTelemetry'
 import { createExtensionLocalTriggerDataSource } from 'src/notification-service/triggers/createExtensionLocalTriggerDataSource'
 import { getReduxStore } from 'src/store/store'
-import { uniswapUrls } from 'lx/src/constants/urls'
+import { luxUrls } from 'lx/src/constants/urls'
 import { mapLocaleToBackendLocale } from 'lx/src/features/language/constants'
 import { getLocale } from 'lx/src/features/language/navigatorLocale'
 import { selectCurrentLanguage } from 'lx/src/features/settings/selectors'
@@ -68,7 +68,7 @@ function provideExtensionNotificationService(ctx: {
       return {
         'Content-Type': 'application/json',
         'x-request-source': REQUEST_SOURCE,
-        'x-uniswap-locale': backendLocale,
+        'x-lux-locale': backendLocale,
       }
     },
     getSessionService: () =>
@@ -137,8 +137,8 @@ function provideExtensionNotificationService(ctx: {
   const onNavigate = (url: string) => {
     // Handle explore paths by opening in web interface
     if (url.startsWith('/explore/')) {
-      focusOrCreateUniswapInterfaceTab({
-        url: `${uniswapUrls.requestOriginUrl}${url}`,
+      focusOrCreateLuxInterfaceTab({
+        url: `${luxUrls.requestOriginUrl}${url}`,
       }).catch((error) => {
         getLogger().error(error, {
           tags: {

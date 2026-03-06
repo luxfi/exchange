@@ -1,11 +1,11 @@
 import { type Dispatch } from '@reduxjs/toolkit'
 import { resetAppearanceSettings } from 'lx/src/features/appearance/slice'
-import { resetUniswapBehaviorHistory } from 'lx/src/features/behaviorHistory/slice'
+import { resetLuxBehaviorHistory } from 'lx/src/features/behaviorHistory/slice'
 import { resetFavorites } from 'lx/src/features/favorites/slice'
 import { clearNotificationQueue, resetNotifications } from 'lx/src/features/notifications/slice/slice'
 import { resetPortfolio } from 'lx/src/features/portfolio/slice/slice'
 import { clearSearchHistory } from 'lx/src/features/search/searchHistorySlice'
-import { resetUserSettings as resetUniswapUserSettings } from 'lx/src/features/settings/slice'
+import { resetUserSettings as resetLuxUserSettings } from 'lx/src/features/settings/slice'
 import { resetDelegation } from 'lx/src/features/smartWallet/delegation/slice'
 import { resetTiming } from 'lx/src/features/timing/slice'
 import { resetTokens } from 'lx/src/features/tokens/warnings/slice/slice'
@@ -67,8 +67,8 @@ export function createAppStateResetter({
     dispatch(resetFavorites())
     dispatch(resetNotifications())
     dispatch(resetTokens())
-    dispatch(resetUniswapBehaviorHistory())
-    dispatch(resetUniswapUserSettings())
+    dispatch(resetLuxBehaviorHistory())
+    dispatch(resetLuxUserSettings())
     dispatch(resetVisibility())
 
     await onResetUserSettings()

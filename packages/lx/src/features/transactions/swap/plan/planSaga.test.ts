@@ -215,7 +215,7 @@ function createPlanParams(trade: ChainedActionTrade): {
         return '0xsig'
       }),
       // biome-ignore lint/correctness/useYield: saga mock
-      handleUniswapXPlanSignatureStep: vi.fn().mockImplementation(function* () {
+      handleDEXPlanSignatureStep: vi.fn().mockImplementation(function* () {
         return '0xsig'
       }),
       getDisplayableError: vi.fn().mockReturnValue(undefined),

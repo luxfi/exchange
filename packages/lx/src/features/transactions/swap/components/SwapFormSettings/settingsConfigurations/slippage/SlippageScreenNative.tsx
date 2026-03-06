@@ -9,7 +9,7 @@ import { fonts, iconSizes, spacing } from 'ui/src/theme'
 import { BottomSheetTextInput } from 'lx/src/components/modals/Modal'
 import { LearnMoreLink } from 'lx/src/components/text/LearnMoreLink'
 import { MAX_CUSTOM_SLIPPAGE_TOLERANCE, SLIPPAGE_CRITICAL_TOLERANCE } from 'lx/src/constants/transactions'
-import { uniswapUrls } from 'lx/src/constants/urls'
+import { luxUrls } from 'lx/src/constants/urls'
 import { useSlippageSettings } from 'lx/src/features/transactions/components/settings/settingsConfigurations/slippage/useSlippageSettings'
 import { useFormatSlippageAmount } from 'lx/src/features/transactions/swap/components/MaxSlippageRow/SlippageInfo/useFormatSlippageAmount'
 import { useSwapFormStoreDerivedSwapInfo } from 'lx/src/features/transactions/swap/stores/swapFormStore/useSwapFormStore'
@@ -133,7 +133,7 @@ export function SlippageScreenNative(): JSX.Element {
           {t('swap.settings.slippage.description')}
         </Text>
       )}
-      {!isBridgeTrade && <LearnMoreLink url={uniswapUrls.helpArticleUrls.swapSlippage} />}
+      {!isBridgeTrade && <LearnMoreLink url={luxUrls.helpArticleUrls.swapSlippage} />}
       <Flex gap="$spacing12">
         <Flex centered row gap="$spacing16" mt="$spacing12">
           <PlusMinusButton

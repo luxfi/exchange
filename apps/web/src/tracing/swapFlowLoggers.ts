@@ -83,12 +83,12 @@ const ROUTING_TO_SWAP_ROUTING: Partial<Record<TradingApi.Routing, SwapRouting>> 
   [TradingApi.Routing.CLASSIC]: 'classic',
   [TradingApi.Routing.DUTCH_LIMIT]: 'limit_order',
   [TradingApi.Routing.PRIORITY]: 'priority_order',
-  [TradingApi.Routing.DUTCH_V2]: 'uniswap_x_v2',
-  [TradingApi.Routing.DUTCH_V3]: 'uniswap_x_v3',
+  [TradingApi.Routing.DUTCH_V2]: 'dex_v2',
+  [TradingApi.Routing.DUTCH_V3]: 'dex_v3',
   [TradingApi.Routing.BRIDGE]: 'bridge',
 }
 
-export function logUniswapXSwapFinalized({
+export function logDEXSwapFinalized({
   id,
   hash,
   orderHash,

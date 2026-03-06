@@ -5,7 +5,7 @@ import { InterfaceEventName, InterfacePageName } from 'lx/src/features/telemetry
 import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
 import Trace from 'lx/src/features/telemetry/Trace'
 import { ExtensionUninstallFeedbackOptions } from 'lx/src/features/telemetry/types'
-import MobileAppLogo from '~/assets/svg/uniswap_app_logo.svg'
+import MobileAppLogo from '~/assets/svg/lux_app_logo.svg'
 
 const LOGO_SIZE = 60
 const MAX_WIDTH = 500

@@ -38,10 +38,10 @@ export function KidSuperCheckinModal({ onClose, onConfirm, onReject, request }: 
   )
 }
 
-function useUniswapCafeLogo(): string | undefined {
+function useLuxCafeLogo(): string | undefined {
   const isDarkMode = useIsDarkMode()
   const uwuLinkContractAllowlist = useUwuLinkContractAllowlist()
-  const logos = uwuLinkContractAllowlist.tokenRecipients.find((recipient) => recipient.name === 'Uniswap Cafe')?.logo
+  const logos = uwuLinkContractAllowlist.tokenRecipients.find((recipient) => recipient.name === 'Lux Cafe')?.logo
 
   if (!logos) {
     return undefined
@@ -56,7 +56,7 @@ function KidSuperCheckinModalContent({ request }: { request: SignRequest }): JSX
     height: animatedFooterHeight.value,
   }))
 
-  const logo = useUniswapCafeLogo()
+  const logo = useLuxCafeLogo()
 
   return (
     <Flex centered gap="$spacing12" justifyContent="space-between" pb="$spacing12">

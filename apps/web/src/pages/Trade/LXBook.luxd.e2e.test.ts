@@ -9,7 +9,7 @@
 import { isLuxdMode } from 'playwright/anvil/anvil-manager'
 import { expect, getTest } from 'playwright/fixtures'
 import { stubLuxGatewayEndpoint, stubTradingApiEndpoint } from 'playwright/fixtures/tradingApi'
-import { uniswapUrls } from 'lx/src/constants/urls'
+import { luxUrls } from 'lx/src/constants/urls'
 import { TestID } from 'lx/src/test/fixtures/testIDs'
 import { parseEther, parseUnits, encodeFunctionData, type Address } from 'viem'
 
@@ -97,7 +97,7 @@ test.describe(
 
       // Stub API endpoints
       await stubLuxGatewayEndpoint({ page })
-      await stubTradingApiEndpoint({ page, endpoint: uniswapUrls.tradingApiPaths.quote })
+      await stubTradingApiEndpoint({ page, endpoint: luxUrls.tradingApiPaths.quote })
     })
 
     test('should verify LXBook precompile is accessible', async ({ anvil }) => {

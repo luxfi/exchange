@@ -10,12 +10,12 @@ import {
   createSessionRepository,
   createSessionService,
   createSessionStorage,
-  createUniswapIdentifierService,
+  createLuxIdentifierService,
   type DeviceIdService,
   type SessionInitializationService,
   type SessionService,
   type SessionStorage,
-  type UniswapIdentifierService,
+  type LuxIdentifierService,
 } from '@luxfi/sessions'
 import React from 'react'
 import { sleep } from 'utilities/src/time/timing'
@@ -39,7 +39,7 @@ describe('ApiInit Integration', () => {
   }
   let sessionStorage: SessionStorage
   let deviceIdService: DeviceIdService
-  let uniswapIdentifierService: UniswapIdentifierService
+  let luxIdentifierService: LuxIdentifierService
   let sessionService: SessionService
   let initService: SessionInitializationService
   let isSessionServiceEnabled: boolean
@@ -89,13 +89,13 @@ describe('ApiInit Integration', () => {
       },
     })
 
-    uniswapIdentifierService = createUniswapIdentifierService({
-      getUniswapIdentifier: async () => mockStorage.get('uniswapIdentifier') || null,
-      setUniswapIdentifier: async (identifier) => {
-        mockStorage.set('uniswapIdentifier', identifier)
+    luxIdentifierService = createLuxIdentifierService({
+      getLuxIdentifier: async () => mockStorage.get('luxIdentifier') || null,
+      setLuxIdentifier: async (identifier) => {
+        mockStorage.set('luxIdentifier', identifier)
       },
-      removeUniswapIdentifier: async () => {
-        mockStorage.delete('uniswapIdentifier')
+      removeLuxIdentifier: async () => {
+        mockStorage.delete('luxIdentifier')
       },
     })
 
@@ -106,7 +106,7 @@ describe('ApiInit Integration', () => {
     sessionService = createSessionService({
       sessionStorage,
       deviceIdService,
-      uniswapIdentifierService,
+      luxIdentifierService,
       sessionRepository,
     })
 

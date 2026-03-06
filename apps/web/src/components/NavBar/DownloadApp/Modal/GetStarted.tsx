@@ -2,7 +2,7 @@ import { FeatureFlags, useFeatureFlag } from '@universe/gating'
 import { Dispatch, SetStateAction } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Button, Flex, Image } from 'ui/src'
-import { UNISWAP_MONO_LOGO_LARGE } from 'ui/src/assets'
+import { LUX_MONO_LOGO_LARGE } from 'ui/src/assets'
 import { iconSizes } from 'ui/src/theme'
 import { ElementName, ModalName } from 'lx/src/features/telemetry/constants'
 import { Trace } from 'lx/src/features/telemetry/Trace'
@@ -32,7 +32,7 @@ function Header() {
           backdropFilter: 'blur(10.799999237060547px)',
         }}
       >
-        <Image source={UNISWAP_MONO_LOGO_LARGE} height={iconSizes.icon48} width={iconSizes.icon48} />
+        <Image source={LUX_MONO_LOGO_LARGE} height={iconSizes.icon48} width={iconSizes.icon48} />
       </Flex>
     </Flex>
   )

@@ -3,7 +3,7 @@ import { Trans, useTranslation } from 'react-i18next'
 import { Flex, Separator, Text } from 'ui/src'
 import { DoubleChevron } from 'ui/src/components/icons/DoubleChevron'
 import { DoubleChevronInverted } from 'ui/src/components/icons/DoubleChevronInverted'
-import { UniswapWalletOptions } from '~/components/WalletModal/UniswapWalletOptions'
+import { LuxWalletOptions } from '~/components/WalletModal/LuxWalletOptions'
 import { WalletModalLayout } from '~/components/WalletModal/WalletModalLayout'
 import { WalletOptionsGrid } from '~/components/WalletModal/WalletOptionsGrid'
 import { ClickableTamaguiStyle } from '~/theme/components/styles'
@@ -18,7 +18,7 @@ export function StandardWalletModal(): JSX.Element {
     </Flex>
   )
 
-  const uniswapOptions = <UniswapWalletOptions />
+  const luxOptions = <LuxWalletOptions />
 
   const expandToggle = (
     <Flex row alignItems="center" py={8} userSelect="none" onPress={toggleExpandMoreWallets} {...ClickableTamaguiStyle}>
@@ -51,7 +51,7 @@ export function StandardWalletModal(): JSX.Element {
       header={
         <Flex gap="$gap16">
           {header}
-          {uniswapOptions}
+          {luxOptions}
           {expandToggle}
         </Flex>
       }

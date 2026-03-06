@@ -1,6 +1,6 @@
 /**
  * DEX Precompile Types
- * Native Uniswap v4-style AMM implementation
+ * Native Lux v4-style AMM implementation
  */
 import type { Address } from 'viem'
 

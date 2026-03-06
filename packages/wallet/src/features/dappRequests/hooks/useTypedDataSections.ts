@@ -1,9 +1,9 @@
 import type { BlockaidScanJsonRpcRequest } from '@universe/api'
 import { useMemo } from 'react'
 import type { UniverseChainId } from 'lx/src/features/chains/types'
-import { isUniswapXSwapRequest, UniswapXSwapRequest } from 'wallet/src/components/dappRequests/types/Permit2Types'
+import { isDEXSwapRequest, DEXSwapRequest } from 'wallet/src/components/dappRequests/types/Permit2Types'
 import { useBlockaidJsonRpcScan } from 'wallet/src/features/dappRequests/hooks/useBlockaidJsonRpcScan'
-import { useParseUniswapXSwap } from 'wallet/src/features/dappRequests/hooks/useParseUniswapXSwap'
+import { useParseDEXSwap } from 'wallet/src/features/dappRequests/hooks/useParseDEXSwap'
 import type { ParsedTransactionData } from 'wallet/src/features/dappRequests/types'
 import { parseTransactionSections } from 'wallet/src/features/dappRequests/utils/blockaidUtils'
 import { buildBlockaidScanJsonRpcRequest } from 'wallet/src/features/dappRequests/utils/buildBlockaidScanJsonRpcRequest'
@@ -23,7 +23,7 @@ interface UseTypedDataSectionsResult extends ParsedTransactionData {
 
 /**
  * Hook that returns transaction sections for typed data requests.
- * Handles both UniswapX swaps (with custom parsing) and regular typed data (via Blockaid scanning).
+ * Handles both DEX swaps (with custom parsing) and regular typed data (via Blockaid scanning).
  * Risk level always comes from Blockaid.
  */
 export function useTypedDataSections({
@@ -34,9 +34,9 @@ export function useTypedDataSections({
   params,
   dappUrl,
 }: UseTypedDataSectionsParams): UseTypedDataSectionsResult {
-  // Detect UniswapX swap requests
-  const isUniswapX = isUniswapXSwapRequest(parsedTypedData)
-  const uniswapXTypedData = isUniswapX ? (parsedTypedData as UniswapXSwapRequest) : null
+  // Detect DEX swap requests
+  const isDEX = isDEXSwapRequest(parsedTypedData)
+  const dexTypedData = isDEX ? (parsedTypedData as DEXSwapRequest) : null
 
   // Build Blockaid scan request (always needed for risk level)
   const blockaidRequest = useMemo(
@@ -54,8 +54,8 @@ export function useTypedDataSections({
   // Scan with Blockaid (for risk level and fallback sections)
   const { scanResult, isLoading: isBlockaidLoading } = useBlockaidJsonRpcScan(blockaidRequest, Boolean(blockaidRequest))
 
-  // Parse UniswapX sections (returns empty when not UniswapX)
-  const { sections: uniswapXSections, isLoading: isUniswapXLoading } = useParseUniswapXSwap(uniswapXTypedData, chainId)
+  // Parse DEX sections (returns empty when not DEX)
+  const { sections: dexSections, isLoading: isDEXLoading } = useParseDEXSwap(dexTypedData, chainId)
 
   // Parse Blockaid result for risk level and sections
   const { sections: blockaidSections, riskLevel } = useMemo(
@@ -63,11 +63,11 @@ export function useTypedDataSections({
     [scanResult, chainId],
   )
 
-  // Use UniswapX sections if available, otherwise fall back to Blockaid sections
-  const sections = isUniswapX ? uniswapXSections : blockaidSections
+  // Use DEX sections if available, otherwise fall back to Blockaid sections
+  const sections = isDEX ? dexSections : blockaidSections
 
-  // Loading: wait for Blockaid (always), plus UniswapX parsing if applicable
-  const isLoading = isBlockaidLoading || (isUniswapX && isUniswapXLoading)
+  // Loading: wait for Blockaid (always), plus DEX parsing if applicable
+  const isLoading = isBlockaidLoading || (isDEX && isDEXLoading)
 
   return {
     sections,

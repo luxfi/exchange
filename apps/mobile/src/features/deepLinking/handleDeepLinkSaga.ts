@@ -20,7 +20,7 @@ import { handleOffRampReturnLink } from 'src/features/deepLinking/handleOffRampR
 import { handleOnRampReturnLink } from 'src/features/deepLinking/handleOnRampReturnLinkSaga'
 import { handleSwapLink } from 'src/features/deepLinking/handleSwapLinkSaga'
 import { handleTransactionLink } from 'src/features/deepLinking/handleTransactionLinkSaga'
-import { handleUniswapAppDeepLink } from 'src/features/deepLinking/handleUniswapAppDeepLink'
+import { handleLuxAppDeepLink } from 'src/features/deepLinking/handleLuxAppDeepLink'
 import { parseSwapLinkMobileFormatOrThrow } from 'src/features/deepLinking/parseSwapLink'
 import { LinkSource } from 'src/features/deepLinking/types'
 import { closeAllModals, openModal } from 'src/features/modals/modalSlice'
@@ -63,31 +63,31 @@ export function* handleDeepLink(action: ReturnType<typeof openDeepLink>) {
     const activeAccount = yield* select(selectActiveAccount)
 
     if (!activeAccount) {
-      if (deepLinkAction.action === DeepLinkAction.UniswapWebLink) {
+      if (deepLinkAction.action === DeepLinkAction.LuxWebLink) {
         yield* call(openUri, { uri: deepLinkAction.data.url.toString(), openExternalBrowser: true })
       }
       // If there is no active account, we don't want to handle other deep links
     } else {
       switch (deepLinkAction.action) {
-        case DeepLinkAction.UniswapWebLink: {
-          yield* call(handleUniswapAppDeepLink, {
+        case DeepLinkAction.LuxWebLink: {
+          yield* call(handleLuxAppDeepLink, {
             path: deepLinkAction.data.urlPath,
             url: deepLinkAction.data.url.href,
             linkSource: LinkSource.Share,
           })
           break
         }
-        case DeepLinkAction.UniswapExternalBrowserLink: {
+        case DeepLinkAction.LuxExternalBrowserLink: {
           yield* call(openUri, { uri: deepLinkAction.data.url.toString(), openExternalBrowser: true })
           break
         }
         case DeepLinkAction.WalletConnectAsParam:
-        case DeepLinkAction.UniswapWalletConnect: {
+        case DeepLinkAction.LuxWalletConnect: {
           yield* call(handleWalletConnectDeepLink, deepLinkAction.data.wcUri)
           break
         }
-        case DeepLinkAction.UniswapWidget: {
-          yield* call(handleUniswapAppDeepLink, {
+        case DeepLinkAction.LuxWidget: {
+          yield* call(handleLuxAppDeepLink, {
             path: deepLinkAction.data.url.hash,
             url: deepLinkAction.data.url.toString(),
             linkSource: LinkSource.Widget,

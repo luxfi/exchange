@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next'
 import { Flex, Text, TouchableArea } from 'ui/src'
 import { ArrowLeft } from 'ui/src/components/icons/ArrowLeft'
 import { Platform } from 'lx/src/features/platforms/types/Platform'
-import { UniswapWalletOptions } from '~/components/WalletModal/UniswapWalletOptions'
+import { LuxWalletOptions } from '~/components/WalletModal/LuxWalletOptions'
 import { WalletModalLayout } from '~/components/WalletModal/WalletModalLayout'
 import { WalletOptionsGrid } from '~/components/WalletModal/WalletOptionsGrid'
 
@@ -36,7 +36,7 @@ export function SwitchWalletModal({
     </Flex>
   )
 
-  const uniswapOptions = <UniswapWalletOptions />
+  const luxOptions = <LuxWalletOptions />
 
   const walletOptions = (
     <WalletOptionsGrid
@@ -53,7 +53,7 @@ export function SwitchWalletModal({
       header={
         <Flex gap="$gap16">
           {header}
-          {connectOnPlatform !== Platform.SVM ? uniswapOptions : null}
+          {connectOnPlatform !== Platform.SVM ? luxOptions : null}
         </Flex>
       }
     >

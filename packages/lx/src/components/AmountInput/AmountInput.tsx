@@ -106,7 +106,7 @@ export const AmountInput = forwardRef<Input, Props>(function _AmountInput(
       ...(adjustWidthToContent ? { fontSize } : {}),
       ...(width !== undefined ? { width } : {}),
     }),
-    // biome-ignore lint/correctness/useExhaustiveDependencies: TODO https://linear.app/uniswap/issue/INFRA-1031/optimize-memoization-in
+    // biome-ignore lint/correctness/useExhaustiveDependencies: TODO https://linear.app/lux/issue/INFRA-1031/optimize-memoization-in
     [ref, value, dimTextColor, formattedValue, handleChange, rest, width, adjustWidthToContent, fontSize],
   )
 

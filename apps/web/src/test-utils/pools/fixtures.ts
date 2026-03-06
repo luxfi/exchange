@@ -1,6 +1,6 @@
 import { BigNumber } from '@ethersproject/bignumber'
-import { Currency, WETH9 } from '@uniswap/sdk-core'
-import { FeeAmount, Pool, Position } from '@uniswap/v3-sdk'
+import { Currency, WETH9 } from '@lux/sdk-core'
+import { FeeAmount, Pool, Position } from '@lux/v3-sdk'
 import { GraphQLApi } from '@universe/api'
 import { DEFAULT_TICK_SPACING } from 'lx/src/constants/pools'
 import { USDC_MAINNET } from 'lx/src/constants/tokens'
@@ -24,7 +24,7 @@ const validPoolToken0 = {
     tokens: [],
     logo: {
       id: '0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48',
-      url: 'https://raw.githubusercontent.com/Uniswap/assets/master/blockchains/ethereum/assets/0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48/logo.png',
+      url: 'https://raw.githubusercontent.com/Lux/assets/master/blockchains/ethereum/assets/0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48/logo.png',
     },
   },
 }
@@ -61,7 +61,7 @@ const validPoolToken1 = {
     tokens: [],
     logo: {
       id: '0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2',
-      url: 'https://raw.githubusercontent.com/Uniswap/assets/master/blockchains/ethereum/assets/0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2/logo.png',
+      url: 'https://raw.githubusercontent.com/Lux/assets/master/blockchains/ethereum/assets/0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2/logo.png',
     },
   },
 }

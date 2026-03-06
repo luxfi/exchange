@@ -20,6 +20,6 @@ describe('CTAcard links', () => {
     })
 
     render(<CTACards />)
-    expect(screen.getByTestId('cta-infolink')).toHaveAttribute('href', 'https://info.uniswap.org/#/pools')
+    expect(screen.getByTestId('cta-infolink')).toHaveAttribute('href', 'https://info.lux.org/#/pools')
   })
 })

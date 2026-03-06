@@ -2,9 +2,9 @@ import { TradingApi } from '@universe/api'
 import { providers } from 'ethers/lib/ethers'
 import { buildSingleCancellation } from 'lx/src/features/transactions/cancel/cancelOrderFactory'
 import { getOrders } from 'lx/src/features/transactions/swap/orders'
-import { UniswapXOrderDetails } from 'lx/src/features/transactions/types/transactionDetails'
+import { DEXOrderDetails } from 'lx/src/features/transactions/types/transactionDetails'
 
-export async function getCancelOrderTxRequest(tx: UniswapXOrderDetails): Promise<providers.TransactionRequest | null> {
+export async function getCancelOrderTxRequest(tx: DEXOrderDetails): Promise<providers.TransactionRequest | null> {
   const { orderHash, chainId, from, routing, encodedOrder: localEncodedOrder } = tx
 
   if (!orderHash) {

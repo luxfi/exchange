@@ -5,7 +5,7 @@ import type {
 import type { DialogVisibilityId } from 'lx/src/dialog-preferences/types'
 import { logger } from 'utilities/src/logger/logger'
 
-const STORAGE_KEY_PREFIX = 'uniswap-dialog_hidden_'
+const STORAGE_KEY_PREFIX = 'lux-dialog_hidden_'
 const getStorageKey = (dialogId: string): string => `${STORAGE_KEY_PREFIX}${dialogId}`
 
 /**

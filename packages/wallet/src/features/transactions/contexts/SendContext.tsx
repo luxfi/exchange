@@ -1,12 +1,12 @@
 import { TransactionRequest } from '@ethersproject/providers'
-import { Currency } from '@uniswap/sdk-core'
+import { Currency } from '@lux/sdk-core'
 import { GasFeeResult } from '@universe/api'
 import { providers } from 'ethers'
 import { createContext, ReactNode, useCallback, useContext, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { ParsedWarnings, WarningAction } from 'lx/src/components/modals/WarningModal/types'
 import { getNativeAddress } from 'lx/src/constants/addresses'
-import { useUniswapContext } from 'lx/src/contexts/UniswapContext'
+import { useLuxContext } from 'lx/src/contexts/LuxContext'
 import { AssetType } from 'lx/src/entities/assets'
 import { useEnabledChains } from 'lx/src/features/chains/hooks/useEnabledChains'
 import { UniverseChainId } from 'lx/src/features/chains/types'
@@ -109,7 +109,7 @@ export function SendContextProvider({
     [gasFee.params, txRequest],
   )
   // Check if current wallet can pay gas fees in any token
-  const { getCanPayGasInAnyToken } = useUniswapContext()
+  const { getCanPayGasInAnyToken } = useLuxContext()
   const skipGasCheck = getCanPayGasInAnyToken?.()
 
   const gasWarning = useTransactionGasWarning({

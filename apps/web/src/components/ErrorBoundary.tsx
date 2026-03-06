@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next'
 import { Button, Flex, Switch, Text, TouchableArea } from 'ui/src'
 import { CopyAlt } from 'ui/src/components/icons/CopyAlt'
 import { RotatableChevron } from 'ui/src/components/icons/RotatableChevron'
-import { uniswapUrls } from 'lx/src/constants/urls'
+import { luxUrls } from 'lx/src/constants/urls'
 import { logger } from 'utilities/src/logger/logger'
 import { useIsMobile } from '~/hooks/screenSize/useIsMobile'
 import { deprecatedStyled } from '~/lib/deprecated-styled'
@@ -98,7 +98,7 @@ const Fallback = ({ error, eventId }: { error: Error; eventId: string | null }) 
           <ExternalLink
             style={{ flexGrow: 1, flexBasis: 0 }}
             id="get-support-on-discord"
-            href={uniswapUrls.helpRequestUrl}
+            href={luxUrls.helpRequestUrl}
             target="_blank"
           >
             <Flex row>

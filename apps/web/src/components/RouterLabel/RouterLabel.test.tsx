@@ -8,23 +8,23 @@ import { render, screen } from '~/test-utils/render'
 import RouterLabel from '.'
 
 describe('RouterLabel', () => {
-  it('renders correct label for UniswapX trade', () => {
+  it('renders correct label for DEX trade', () => {
     render(<RouterLabel trade={TEST_DUTCH_TRADE_ETH_INPUT} />)
-    expect(screen.getByText('Uniswap X')).toBeInTheDocument()
+    expect(screen.getByText('Lux X')).toBeInTheDocument()
   })
 
-  it('renders correct label for UniswapX v2 trade', () => {
+  it('renders correct label for DEX v2 trade', () => {
     render(<RouterLabel trade={TEST_DUTCH_V2_TRADE_ETH_INPUT} />)
-    expect(screen.getByText('Uniswap X')).toBeInTheDocument()
+    expect(screen.getByText('Lux X')).toBeInTheDocument()
   })
 
   it('renders correct label for classic trade with client routing', () => {
     render(<RouterLabel trade={TEST_TRADE_EXACT_INPUT} />)
-    expect(screen.getByText('Uniswap Client')).toBeInTheDocument()
+    expect(screen.getByText('Lux Client')).toBeInTheDocument()
   })
 
   it('renders correct label for classic trade with API routing', () => {
     render(<RouterLabel trade={TEST_TRADE_EXACT_INPUT_API} />)
-    expect(screen.getByText('Uniswap API')).toBeInTheDocument()
+    expect(screen.getByText('Lux API')).toBeInTheDocument()
   })
 })

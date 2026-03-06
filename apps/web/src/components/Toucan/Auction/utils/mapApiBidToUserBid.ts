@@ -1,4 +1,4 @@
-import type { Bid as ApiBid } from '@uniswap/client-data-api/dist/data/v1/auction_pb'
+import type { Bid as ApiBid } from '@lux/client-data-api/dist/data/v1/auction_pb'
 import { AuctionBidStatus, UserBid } from '~/components/Toucan/Auction/store/types'
 
 function normalizeBidStatus(status?: string): AuctionBidStatus {

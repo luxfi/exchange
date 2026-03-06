@@ -13,7 +13,7 @@ const config: CodegenConfig = {
   overwrite: true,
   schema: 'src/clients/graphql/schema.graphql',
   // pulls every graphql files into a single config
-  documents: ['../../apps/{mobile,extension}/src/**/*.graphql', '../../packages/{wallet,uniswap,api}/src/**/*.graphql'],
+  documents: ['../../apps/{mobile,extension}/src/**/*.graphql', '../../packages/{wallet,lux,api}/src/**/*.graphql'],
   generates: {
     // generates base schema types (standalone)
     'src/clients/graphql/__generated__/schema-types.ts': {

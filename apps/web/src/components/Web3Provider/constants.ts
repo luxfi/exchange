@@ -6,12 +6,12 @@ import GNOSIS_ICON from '~/assets/images/gnosis.png'
 import COINBASE_ICON from '~/assets/wallets/coinbase-icon.svg'
 import METAMASK_ICON from '~/assets/wallets/metamask-icon.svg'
 import PHANTOM_ICON from '~/assets/wallets/phantom-icon.png'
-import UNIWALLET_ICON from '~/assets/wallets/uniswap-wallet-icon.png'
+import UNIWALLET_ICON from '~/assets/wallets/lux-wallet-icon.png'
 import WALLET_CONNECT_ICON from '~/assets/wallets/walletconnect-icon.svg'
 
 export const CONNECTOR_ICON_OVERRIDE_MAP: { [name in string]?: string } = {
   [CONNECTION_PROVIDER_NAMES.METAMASK]: METAMASK_ICON,
-  [CONNECTION_PROVIDER_NAMES.UNISWAP_WALLET]: UNIWALLET_ICON,
+  [CONNECTION_PROVIDER_NAMES.LUX_WALLET]: UNIWALLET_ICON,
   [CONNECTION_PROVIDER_NAMES.EMBEDDED_WALLET]: PASSKEY_ICON,
   [CONNECTION_PROVIDER_NAMES.COINBASE_SDK]: COINBASE_ICON,
   [CONNECTION_PROVIDER_NAMES.WALLET_CONNECT]: WALLET_CONNECT_ICON,

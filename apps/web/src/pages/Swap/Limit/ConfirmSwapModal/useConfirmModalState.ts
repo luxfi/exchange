@@ -1,4 +1,4 @@
-import { Currency, Percent } from '@uniswap/sdk-core'
+import { Currency, Percent } from '@lux/sdk-core'
 import { useCallback, useEffect, useState } from 'react'
 import invariant from 'tiny-invariant'
 import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
@@ -67,7 +67,7 @@ export function useConfirmModalState({
   // at the bottom of the modal, even after they complete steps 1 and 2.
   const generateRequiredSteps = useCallback(() => {
     const steps: PendingConfirmModalState[] = []
-    // Limit orders still require wrapping ETH to WETH (unlike regular UniswapX swaps which now support native ETH)
+    // Limit orders still require wrapping ETH to WETH (unlike regular DEX swaps which now support native ETH)
     if (isLimitTrade(trade) && trade.wrapInfo.needsWrap) {
       steps.push(ConfirmModalState.WRAPPING)
     }

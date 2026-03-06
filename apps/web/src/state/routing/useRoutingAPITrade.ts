@@ -1,6 +1,6 @@
 import { skipToken } from '@reduxjs/toolkit/query/react'
-import { Protocol } from '@uniswap/router-sdk'
-import { Currency, CurrencyAmount, Percent, TradeType } from '@uniswap/sdk-core'
+import { Protocol } from '@lux/router-sdk'
+import { Currency, CurrencyAmount, Percent, TradeType } from '@lux/sdk-core'
 import ms from 'ms'
 import { useMemo } from 'react'
 import { UniverseChainId } from 'lx/src/features/chains/types'

@@ -1,4 +1,4 @@
-import { uniswapUrls } from 'lx/src/constants/urls'
+import { luxUrls } from 'lx/src/constants/urls'
 import { TestID } from 'lx/src/test/fixtures/testIDs'
 import { expect, getTest } from '~/playwright/fixtures'
 import { setupWebAuthn } from '~/playwright/mocks/webAuthn'
@@ -25,7 +25,7 @@ test.describe(
       await page.goto(`https://app.corn-staging.com/?eagerlyConnect=false&featureFlagOverride=embedded_wallet`)
 
       // stub the response for unitag
-      await page.route(`${uniswapUrls.unitagsApiUrl}/username?username=${UNITAG_NAME}`, async (route) => {
+      await page.route(`${luxUrls.unitagsApiUrl}/username?username=${UNITAG_NAME}`, async (route) => {
         await route.fulfill({
           body: JSON.stringify({ available: true, requiresEnsMatch: false }),
         })

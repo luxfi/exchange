@@ -1,5 +1,5 @@
-import { Protocol } from '@uniswap/router-sdk'
-import { TradeType } from '@uniswap/sdk-core'
+import { Protocol } from '@lux/router-sdk'
+import { TradeType } from '@lux/sdk-core'
 import { TradingApi } from '@universe/api'
 import { testSaga } from 'redux-saga-test-plan'
 import { nativeOnChain } from 'lx/src/constants/tokens'
@@ -16,15 +16,15 @@ import {
   TransactionOriginType,
   TransactionStatus,
   TransactionType,
-  UniswapXOrderDetails,
+  DEXOrderDetails,
 } from 'lx/src/features/transactions/types/transactionDetails'
 import { WrapType } from 'lx/src/features/transactions/types/wrap'
 import { mockPermit } from 'lx/src/test/fixtures/permit'
 import { currencyId } from 'lx/src/utils/currencyId'
 import {
   ORDER_STALENESS_THRESHOLD,
-  SubmitUniswapXOrderParams,
-  submitUniswapXOrder,
+  SubmitDEXOrderParams,
+  submitDEXOrder,
 } from 'wallet/src/features/transactions/swap/submitOrderSaga'
 import { getSignerManager } from 'wallet/src/features/wallet/context'
 import { signerMnemonicAccount } from 'wallet/src/test/fixtures'
@@ -49,7 +49,7 @@ const baseSubmitOrderParams = {
     protocol: Protocol.V3,
   },
   analytics: {
-    routing: 'uniswap_x_v2',
+    routing: 'dex_v2',
     transactionOriginType: TransactionOriginType.Internal,
   },
   txId: '1',
@@ -62,9 +62,9 @@ const baseSubmitOrderParams = {
     orderInfo: {} as TradingApi.DutchOrderInfo,
   } as unknown as TradingApi.DutchQuoteV2,
   permit: mockPermit.typedData,
-} satisfies SubmitUniswapXOrderParams
+} satisfies SubmitDEXOrderParams
 
-const baseExpectedInitialOrderDetails: UniswapXOrderDetails = {
+const baseExpectedInitialOrderDetails: DEXOrderDetails = {
   routing: TradingApi.Routing.DUTCH_V2,
   orderHash: '0xMockOrderHash',
   id: baseSubmitOrderParams.txId,
@@ -83,21 +83,21 @@ const expectedOrderRequest: TradingApi.OrderRequest = {
   routing: TradingApi.Routing.DUTCH_V2,
 }
 
-describe(submitUniswapXOrder, () => {
+describe(submitDEXOrder, () => {
   beforeEach(() => {
     let mockTimestamp = 1
     Date.now = jest.fn(() => mockTimestamp++)
   })
 
   describe('with ValidatedPermit', () => {
-    it('sends a uniswapx order', async () => {
+    it('sends a dex order', async () => {
       const expectedSubmittedOrderDetails = {
         ...baseExpectedInitialOrderDetails,
         addedTime: 2,
         queueStatus: QueuedOrderStatus.Submitted,
-      } satisfies UniswapXOrderDetails
+      } satisfies DEXOrderDetails
 
-      testSaga(submitUniswapXOrder, baseSubmitOrderParams)
+      testSaga(submitDEXOrder, baseSubmitOrderParams)
         .next()
         .put({ type: addTransaction.type, payload: baseExpectedInitialOrderDetails })
         .next()
@@ -117,13 +117,13 @@ describe(submitUniswapXOrder, () => {
         .call(TradingApiClient.submitOrder, expectedOrderRequest)
         .next()
         .call(sendAnalyticsEvent, WalletEventName.SwapSubmitted, {
-          routing: 'uniswap_x_v2',
+          routing: 'dex_v2',
           order_hash: baseExpectedInitialOrderDetails.orderHash,
           transactionOriginType: TransactionOriginType.Internal,
           v2Used: false,
           v3Used: false,
           v4Used: false,
-          uniswapXUsed: true,
+          dexUsed: true,
           jupiterUsed: false,
         })
         .next()
@@ -141,7 +141,7 @@ describe(submitUniswapXOrder, () => {
         queueStatus: QueuedOrderStatus.Submitted,
       }
 
-      testSaga(submitUniswapXOrder, baseSubmitOrderParams)
+      testSaga(submitDEXOrder, baseSubmitOrderParams)
         .next()
         .put({ type: addTransaction.type, payload: baseExpectedInitialOrderDetails })
         .next()
@@ -185,14 +185,14 @@ describe(submitUniswapXOrder, () => {
       permit: mockSignedPermit,
     }
 
-    it('sends a uniswapx order without calling signer', async () => {
+    it('sends a dex order without calling signer', async () => {
       const expectedSubmittedOrderDetails = {
         ...baseExpectedInitialOrderDetails,
         addedTime: 2,
         queueStatus: QueuedOrderStatus.Submitted,
-      } satisfies UniswapXOrderDetails
+      } satisfies DEXOrderDetails
 
-      testSaga(submitUniswapXOrder, signedPermitParams)
+      testSaga(submitDEXOrder, signedPermitParams)
         .next()
         .put({ type: addTransaction.type, payload: baseExpectedInitialOrderDetails })
         .next()
@@ -203,13 +203,13 @@ describe(submitUniswapXOrder, () => {
         .call(TradingApiClient.submitOrder, expectedOrderRequest)
         .next()
         .call(sendAnalyticsEvent, WalletEventName.SwapSubmitted, {
-          routing: 'uniswap_x_v2',
+          routing: 'dex_v2',
           order_hash: baseExpectedInitialOrderDetails.orderHash,
           transactionOriginType: TransactionOriginType.Internal,
           v2Used: false,
           v3Used: false,
           v4Used: false,
-          uniswapXUsed: true,
+          dexUsed: true,
           jupiterUsed: false,
         })
         .next()
@@ -227,7 +227,7 @@ describe(submitUniswapXOrder, () => {
         queueStatus: QueuedOrderStatus.Submitted,
       }
 
-      testSaga(submitUniswapXOrder, signedPermitParams)
+      testSaga(submitDEXOrder, signedPermitParams)
         .next()
         .put({ type: addTransaction.type, payload: baseExpectedInitialOrderDetails })
         .next()
@@ -252,14 +252,14 @@ describe(submitUniswapXOrder, () => {
   describe('blocking tx edge cases', () => {
     const approveTxHash = '0xMockApprovalTxHash'
 
-    it('waits for approval and then sends a uniswapx order', async () => {
+    it('waits for approval and then sends a dex order', async () => {
       const expectedSubmittedOrderDetails = {
         ...baseExpectedInitialOrderDetails,
         addedTime: 4,
         queueStatus: QueuedOrderStatus.Submitted,
-      } satisfies UniswapXOrderDetails
+      } satisfies DEXOrderDetails
 
-      testSaga(submitUniswapXOrder, { ...baseSubmitOrderParams, approveTxHash })
+      testSaga(submitDEXOrder, { ...baseSubmitOrderParams, approveTxHash })
         .next()
         .put({ type: addTransaction.type, payload: baseExpectedInitialOrderDetails })
         .next()
@@ -283,13 +283,13 @@ describe(submitUniswapXOrder, () => {
         .call(TradingApiClient.submitOrder, expectedOrderRequest)
         .next()
         .call(sendAnalyticsEvent, WalletEventName.SwapSubmitted, {
-          routing: 'uniswap_x_v2',
+          routing: 'dex_v2',
           order_hash: baseExpectedInitialOrderDetails.orderHash,
           transactionOriginType: TransactionOriginType.Internal,
           v2Used: false,
           v3Used: false,
           v4Used: false,
-          uniswapXUsed: true,
+          dexUsed: true,
           jupiterUsed: false,
         })
         .next()
@@ -301,7 +301,7 @@ describe(submitUniswapXOrder, () => {
     })
 
     it('updates state if an approval fails', async () => {
-      testSaga(submitUniswapXOrder, { ...baseSubmitOrderParams, approveTxHash })
+      testSaga(submitDEXOrder, { ...baseSubmitOrderParams, approveTxHash })
         .next()
         .put({ type: addTransaction.type, payload: baseExpectedInitialOrderDetails })
         .next()
@@ -329,7 +329,7 @@ describe(submitUniswapXOrder, () => {
         return timestamp
       })
 
-      testSaga(submitUniswapXOrder, { ...baseSubmitOrderParams, approveTxHash })
+      testSaga(submitDEXOrder, { ...baseSubmitOrderParams, approveTxHash })
         .next()
         .put({ type: addTransaction.type, payload: baseExpectedInitialOrderDetails })
         .next()

@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next'
 import { StyleSheet } from 'react-native'
 import Svg, { Circle } from 'react-native-svg'
 import { Button, Flex, Image, Text, useSporeColors } from 'ui/src'
-import { UNISWAP_LOGO } from 'ui/src/assets'
+import { LUX_LOGO } from 'ui/src/assets'
 import { imageSizes } from 'ui/src/theme'
 import { NewTag } from 'lx/src/components/pill/NewTag'
 import { isWebPlatform } from 'utilities/src/platform'
@@ -70,7 +70,7 @@ export function ForceUpgradeModalContent({
           elevationAndroid={8}
         >
           <Flex position="relative">
-            <Image height={imageSizes.image64} resizeMode="contain" source={UNISWAP_LOGO} width={imageSizes.image64} />
+            <Image height={imageSizes.image64} resizeMode="contain" source={LUX_LOGO} width={imageSizes.image64} />
             <Flex position="absolute" top={-15} right={-8} transform={[{ rotate: '10deg' }]}>
               <NewTag exclamation backgroundColor="$accent1" textColor="$white" />
             </Flex>

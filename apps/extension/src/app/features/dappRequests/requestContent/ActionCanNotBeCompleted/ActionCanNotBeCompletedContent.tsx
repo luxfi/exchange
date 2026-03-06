@@ -3,7 +3,7 @@ import { DappRequestContent } from 'src/app/features/dappRequests/DappRequestCon
 import { Flex, Text } from 'ui/src'
 import { AlertTriangleFilled } from 'ui/src/components/icons'
 import { LearnMoreLink } from 'lx/src/components/text/LearnMoreLink'
-import { uniswapUrls } from 'lx/src/constants/urls'
+import { luxUrls } from 'lx/src/constants/urls'
 import { WalletEventName } from 'lx/src/features/telemetry/constants'
 import Trace from 'lx/src/features/telemetry/Trace'
 
@@ -35,7 +35,7 @@ export function ActionCanNotBeCompletedContent(): JSX.Element {
               </Text>
               <LearnMoreLink
                 textVariant="buttonLabel4"
-                url={uniswapUrls.helpArticleUrls.mismatchedImports}
+                url={luxUrls.helpArticleUrls.mismatchedImports}
                 textColor="$neutral1"
               />
             </Flex>

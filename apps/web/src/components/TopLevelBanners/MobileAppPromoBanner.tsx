@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next'
 import { Anchor, Flex, styled, Text, TouchableArea } from 'ui/src'
 import { X } from 'ui/src/components/icons/X'
 import { isWebAndroid, isWebIOS } from 'utilities/src/platform'
-import { ReactComponent as UniswapLogo } from '~/assets/svg/uniswap_app_logo.svg'
+import { ReactComponent as LuxLogo } from '~/assets/svg/lux_app_logo.svg'
 import { useEthersWeb3Provider } from '~/hooks/useEthersProvider'
 import { hideMobileAppPromoBannerAtom, persistHideMobileAppPromoBannerAtom } from '~/state/application/atoms'
 import { getWalletMeta } from '~/utils/walletMeta'
@@ -40,7 +40,7 @@ const StyledButton = styled(Anchor, {
  * - The user is on a mobile device our app supports
  * - The user is not using Safari (since we don't want to conflict with the Safari-native Smart App Banner)
  * - The user has not dismissed the banner during this session
- * - The user has not clicked the Uniswap wallet or Get Uniswap Wallet buttons in wallet options
+ * - The user has not clicked the Lux wallet or Get Lux Wallet buttons in wallet options
  */
 export function useMobileAppPromoBannerEligible(): boolean {
   const hideMobileAppPromoBanner = useAtomValue(hideMobileAppPromoBannerAtom)
@@ -92,7 +92,7 @@ export function MobileAppPromoBanner() {
         <TouchableArea data-testid="mobile-promo-banner-close-button" onPress={() => setHideMobileAppPromoBanner(true)}>
           <X size="$icon.20" color="$neutral2" />
         </TouchableArea>
-        <UniswapLogo width="32px" height="32px" />
+        <LuxLogo width="32px" height="32px" />
         <Flex shrink>
           <Text variant="body3">{t('mobileAppPromo.banner.title')}</Text>
           <Text variant="body4" color="$neutral2">

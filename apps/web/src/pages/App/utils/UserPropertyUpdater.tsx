@@ -1,8 +1,8 @@
 import { datadogRum } from '@datadog/browser-rum'
 import { useQuery } from '@tanstack/react-query'
-import { getBrowser, SharedEventName } from '@uniswap/analytics-events'
-import { provideUniswapIdentifierService } from '@universe/api'
-import { uniswapIdentifierQuery } from '@universe/sessions'
+import { getBrowser, SharedEventName } from '@lux/analytics-events'
+import { provideLuxIdentifierService } from '@universe/api'
+import { luxIdentifierQuery } from '@universe/sessions'
 import { useEffect } from 'react'
 import { useIsDarkMode } from 'ui/src'
 import { useEnabledChains } from 'lx/src/features/chains/hooks/useEnabledChains'
@@ -23,20 +23,20 @@ export function UserPropertyUpdater() {
   const [routerPreference] = useRouterPreference()
   const rehydrated = useAppSelector((state) => state._persist.rehydrated)
 
-  const { data: uniswapIdentifier } = useQuery(uniswapIdentifierQuery(provideUniswapIdentifierService))
+  const { data: luxIdentifier } = useQuery(luxIdentifierQuery(provideLuxIdentifierService))
 
-  // Update Statsig user with address and uniswap_identifier for experiment targeting
+  // Update Statsig user with address and lux_identifier for experiment targeting
   useSyncStatsigUserIdentifiers({
     address,
-    uniswapIdentifier,
+    luxIdentifier,
   })
 
   useEffect(() => {
-    if (uniswapIdentifier) {
-      setUserProperty(InterfaceUserPropertyName.UniswapIdentifier, uniswapIdentifier)
-      datadogRum.setUserProperty(InterfaceUserPropertyName.UniswapIdentifier, uniswapIdentifier)
+    if (luxIdentifier) {
+      setUserProperty(InterfaceUserPropertyName.LuxIdentifier, luxIdentifier)
+      datadogRum.setUserProperty(InterfaceUserPropertyName.LuxIdentifier, luxIdentifier)
     }
-  }, [uniswapIdentifier])
+  }, [luxIdentifier])
 
   useEffect(() => {
     // User properties *must* be set before sending corresponding event properties,

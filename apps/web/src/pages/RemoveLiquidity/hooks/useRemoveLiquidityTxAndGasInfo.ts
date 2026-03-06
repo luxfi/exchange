@@ -1,9 +1,9 @@
 import { useQuery } from '@tanstack/react-query'
-import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
+import { ProtocolVersion } from '@lux/client-data-api/dist/data/v1/poolTypes_pb'
 import {
   CheckApprovalLPRequest,
   DecreaseLPPositionRequest,
-} from '@uniswap/client-liquidity/dist/uniswap/liquidity/v1/api_pb'
+} from '@lux/client-liquidity/dist/lux/liquidity/v1/api_pb'
 import {
   Protocols,
   V2CheckApprovalLPRequest,
@@ -13,8 +13,8 @@ import {
   V3Position,
   V4Pool,
   V4Position,
-} from '@uniswap/client-liquidity/dist/uniswap/liquidity/v1/types_pb'
-import { Currency } from '@uniswap/sdk-core'
+} from '@lux/client-liquidity/dist/lux/liquidity/v1/types_pb'
+import { Currency } from '@lux/sdk-core'
 import JSBI from 'jsbi'
 import { useEffect, useMemo, useState } from 'react'
 import { liquidityQueries } from 'lx/src/data/apiClients/liquidityService/liquidityQueries'

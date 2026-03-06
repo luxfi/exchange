@@ -22,7 +22,7 @@ import {
   handleSendTransaction,
   handleSignMessage,
   handleSignTypedData,
-  handleUniswapOpenSidebarRequest,
+  handleLuxOpenSidebarRequest,
 } from 'src/app/features/dappRequests/saga'
 import type {
   DappRequestNoDappInfo,
@@ -58,8 +58,8 @@ import {
   SignMessageRequestSchema,
   SignTypedDataRequest,
   SignTypedDataRequestSchema,
-  UniswapOpenSidebarRequest,
-  UniswapOpenSidebarRequestSchema,
+  LuxOpenSidebarRequest,
+  LuxOpenSidebarRequestSchema,
 } from 'src/app/features/dappRequests/types/DappRequestTypes'
 import { dappResponseMessageChannel } from 'src/background/messagePassing/messageChannels'
 import { call, put, select, takeEvery } from 'typed-redux-saga'
@@ -274,11 +274,11 @@ function* dappRequestApproval({
           })
           break
         }
-        case DappRequestType.UniswapOpenSidebar: {
-          const validatedRequest: UniswapOpenSidebarRequest = UniswapOpenSidebarRequestSchema.parse(
+        case DappRequestType.LuxOpenSidebar: {
+          const validatedRequest: LuxOpenSidebarRequest = LuxOpenSidebarRequestSchema.parse(
             confirmedRequest.dappRequest,
           )
-          yield* call(handleUniswapOpenSidebarRequest, validatedRequest, confirmedRequest.senderTabInfo)
+          yield* call(handleLuxOpenSidebarRequest, validatedRequest, confirmedRequest.senderTabInfo)
           break
         }
       }

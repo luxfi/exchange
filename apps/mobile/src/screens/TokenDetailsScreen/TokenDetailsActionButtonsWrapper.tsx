@@ -18,7 +18,7 @@ import { ArrowDownCircle, ArrowUpCircle, Bank, SendRoundedAirplane } from 'ui/sr
 import { AnimatedFlex } from 'ui/src/components/layout/AnimatedFlex'
 import type { MenuOptionItem } from 'lx/src/components/menus/ContextMenu'
 import { Modal } from 'lx/src/components/modals/Modal'
-import { useTokenBasicInfoPartsFragment } from 'lx/src/data/graphql/uniswap-data-api/fragments'
+import { useTokenBasicInfoPartsFragment } from 'lx/src/data/graphql/lux-data-api/fragments'
 import { useBridgingTokenWithHighestBalance } from 'lx/src/features/bridging/hooks/tokens'
 import { getChainInfo } from 'lx/src/features/chains/chainInfo'
 import { useEnabledChains } from 'lx/src/features/chains/hooks/useEnabledChains'

@@ -55,7 +55,7 @@ import { apolloClient } from '~/appGraphql/data/apollo/client'
 import { TokenBalancesProvider } from '~/appGraphql/data/apollo/TokenBalancesProvider'
 import { QueryClientPersistProvider } from '~/components/PersistQueryClient'
 import { createWeb3Provider, WalletCapabilitiesEffects } from '~/components/Web3Provider/createWeb3Provider'
-import { WebUniswapProvider } from '~/components/Web3Provider/WebUniswapContext'
+import { WebLuxProvider } from '~/components/Web3Provider/WebLuxContext'
 import { wagmiConfig } from '~/components/Web3Provider/wagmiConfig'
 import { AccountsStoreDevTool } from '~/features/accounts/store/devtools'
 import { WebAccountsStoreProvider } from '~/features/accounts/store/provider'
@@ -259,7 +259,7 @@ const RootApp = (): JSX.Element => {
                           <ExternalWalletProvider>
                             <ConnectWalletMutationProvider>
                               <WebAccountsStoreProvider>
-                                <WebUniswapProvider>
+                                <WebLuxProvider>
                                   <TokenPriceProvider>
                                     <GraphqlProviders>
                                       <LivePricesProvider>
@@ -280,7 +280,7 @@ const RootApp = (): JSX.Element => {
                                       </LivePricesProvider>
                                     </GraphqlProviders>
                                   </TokenPriceProvider>
-                                </WebUniswapProvider>
+                                </WebLuxProvider>
                               </WebAccountsStoreProvider>
                             </ConnectWalletMutationProvider>
                           </ExternalWalletProvider>

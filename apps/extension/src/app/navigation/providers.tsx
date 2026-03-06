@@ -5,10 +5,10 @@ import { AppRoutes, HomeQueryParams, HomeTabs } from 'src/app/navigation/constan
 import { navigate } from 'src/app/navigation/state'
 import {
   focusOrCreateTokensExploreTab,
-  focusOrCreateUniswapInterfaceTab,
+  focusOrCreateLuxInterfaceTab,
   SidebarLocationState,
 } from 'src/app/navigation/utils'
-import { uniswapUrls } from 'lx/src/constants/urls'
+import { luxUrls } from 'lx/src/constants/urls'
 import { useEnabledChains } from 'lx/src/features/chains/hooks/useEnabledChains'
 import { UniverseChainId } from 'lx/src/features/chains/types'
 import { useNavigateToNftExplorerLink } from 'lx/src/features/nfts/hooks/useNavigateToNftExplorerLink'
@@ -83,7 +83,7 @@ function SharedExtensionNavigationProvider({
   }, [])
   const navigateToFiatOnRamp = useNavigateToFiatOnRamp()
   const navigateToExternalProfile = useCallback(({ address }: NavigateToExternalProfileArgs) => {
-    focusOrCreateUniswapInterfaceTab({ url: getPortfolioUrl(address) })
+    focusOrCreateLuxInterfaceTab({ url: getPortfolioUrl(address) })
   }, [])
   const navigateToPoolDetails = useNavigateToPoolDetails()
   const navigateToAdvancedSettings = useNavigateToAdvancedSettings()
@@ -206,11 +206,11 @@ function useNavigateToTokenDetails(): (currencyId: string) => void {
 
 function useNavigateToPoolDetails(): (args: { poolId: Address; chainId: UniverseChainId }) => void {
   return useCallback(async ({ poolId, chainId }: { poolId: Address; chainId: UniverseChainId }): Promise<void> => {
-    await focusOrCreateUniswapInterfaceTab({
+    await focusOrCreateLuxInterfaceTab({
       url: getPoolDetailsURL(poolId, chainId),
       // We want to reuse the active tab only if it's already in any other PDP.
       // eslint-disable-next-line security/detect-non-literal-regexp
-      reuseActiveTabIfItMatches: new RegExp(`^${escapeRegExp(uniswapUrls.webInterfacePoolsUrl)}`),
+      reuseActiveTabIfItMatches: new RegExp(`^${escapeRegExp(luxUrls.webInterfacePoolsUrl)}`),
     })
   }, [])
 }

@@ -4,7 +4,7 @@
  * These must match parameter names on Statsig within an experiment
  */
 export enum Experiments {
-  EthAsErc20UniswapX = 'eth_as_erc20_uniswapx_experiment',
+  EthAsErc20DEX = 'eth_as_erc20_luxx_experiment',
   ExploreBackendSorting = 'explore_backend_sorting',
   NativeTokenPercentageBuffer = 'lp_native_buffer',
   PriceUxUpdate = 'price_ux_update',
@@ -53,7 +53,7 @@ export enum ExploreBackendSortingProperties {
 export enum SwapLayerProperties {
   UpdatedPriceUX = 'updatedPriceUX',
   FlashblocksModalEnabled = 'flashblocksModalEnabled',
-  EthAsErc20UniswapXEnabled = 'ethAsErc20UniswapXEnabled',
+  EthAsErc20DEXEnabled = 'ethAsErc20DEXEnabled',
   MinEthErc20USDValueThresholdByChain = 'minEthErc20USDValueThresholdByChain',
 }
 
@@ -65,14 +65,14 @@ export enum UnichainFlashblocksProperties {
   FlashblocksModalEnabled = SwapLayerProperties.FlashblocksModalEnabled,
 }
 
-export enum EthAsErc20UniswapXProperties {
-  EthAsErc20UniswapXEnabled = SwapLayerProperties.EthAsErc20UniswapXEnabled,
+export enum EthAsErc20DEXProperties {
+  EthAsErc20DEXEnabled = SwapLayerProperties.EthAsErc20DEXEnabled,
   MinEthErc20USDValueThresholdByChain = SwapLayerProperties.MinEthErc20USDValueThresholdByChain,
 }
 
 // Ordered alphabetically.
 export type ExperimentProperties = {
-  [Experiments.EthAsErc20UniswapX]: EthAsErc20UniswapXProperties
+  [Experiments.EthAsErc20DEX]: EthAsErc20DEXProperties
   [Experiments.ExploreBackendSorting]: ExploreBackendSortingProperties
   [Experiments.NativeTokenPercentageBuffer]: NativeTokenPercentageBufferProperties
   [Experiments.PriceUxUpdate]: PriceUxUpdateProperties

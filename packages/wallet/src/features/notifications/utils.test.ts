@@ -1,4 +1,4 @@
-import { TradeType } from '@uniswap/sdk-core'
+import { TradeType } from '@lux/sdk-core'
 import { DAI, USDC } from 'lx/src/constants/tokens'
 import { Locale } from 'lx/src/features/language/constants'
 import { TransactionStatus } from 'lx/src/features/transactions/types/transactionDetails'

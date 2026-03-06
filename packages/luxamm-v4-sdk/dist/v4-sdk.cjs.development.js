@@ -6,13 +6,13 @@ function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'defau
 
 var invariant = _interopDefault(require('tiny-invariant'));
 var solidity = require('@ethersproject/solidity');
-var sdkCore = require('@uniswap/sdk-core');
-var v3Sdk = require('@uniswap/v3-sdk');
+var sdkCore = require('@lux/sdk-core');
+var v3Sdk = require('@lux/v3-sdk');
 var utils = require('ethers/lib/utils');
 var JSBI = _interopDefault(require('jsbi'));
 var ethers = require('ethers');
 var abi = require('@ethersproject/abi');
-var IMulticall = _interopDefault(require('@uniswap/v3-periphery/artifacts/contracts/interfaces/IMulticall.sol/IMulticall.json'));
+var IMulticall = _interopDefault(require('@lux/v3-periphery/artifacts/contracts/interfaces/IMulticall.sol/IMulticall.json'));
 
 function _arrayLikeToArray(r, a) {
   (null == a || a > r.length) && (a = r.length);
@@ -1606,7 +1606,7 @@ function priceToClosestTick(price) {
 }
 
 /**
- * Represents a position on a Uniswap V4 Pool
+ * Represents a position on a Lux V4 Pool
  * @dev Similar to the V3 implementation
  * - using Currency instead of Token
  * - keep in mind that Pool and liquidity must be fetched from the pool manager
@@ -2198,7 +2198,7 @@ function createAction(action, parameters) {
   };
 }
 
-// Uniswap v4 supports native pools. Those currencies are represented by the zero address.
+// Lux v4 supports native pools. Those currencies are represented by the zero address.
 // TODO: Figure out if this is how we should be handling weird edge case tokens like CELO/Polygon/etc..
 // Does interface treat those like ERC20 tokens or NATIVE tokens?
 function toAddress(currency) {
@@ -3702,7 +3702,7 @@ var V4PositionManager = /*#__PURE__*/function () {
   V4PositionManager.getPermitData = function getPermitData(permit, positionManagerAddress, chainId) {
     return {
       domain: {
-        name: 'Uniswap V4 Positions NFT',
+        name: 'Lux V4 Positions NFT',
         chainId: chainId,
         verifyingContract: positionManagerAddress
       },

@@ -2,7 +2,7 @@ import { getNativeAddress } from 'lx/src/constants/addresses'
 import { AssetType, CurrencyAsset } from 'lx/src/entities/assets'
 import { ALL_CHAIN_IDS } from 'lx/src/features/chains/chainInfo'
 import { UniverseChainId } from 'lx/src/features/chains/types'
-import { fromUniswapWebAppLink, isTestnetChain } from 'lx/src/features/chains/utils'
+import { fromLuxWebAppLink, isTestnetChain } from 'lx/src/features/chains/utils'
 import { TransactionState } from 'lx/src/features/transactions/types/transactionState'
 import { CurrencyField } from 'lx/src/types/currency'
 import { areAddressesEqual, getValidAddress } from 'lx/src/utils/addresses'
@@ -180,8 +180,8 @@ function parseWebChainData(
   chain: string | null,
   outputChain: string | null,
 ): { finalInputChainId: UniverseChainId; finalOutputChainId: UniverseChainId } {
-  const inputChainId = chain ? fromUniswapWebAppLink(chain) : null
-  const outputChainId = outputChain ? fromUniswapWebAppLink(outputChain) : null
+  const inputChainId = chain ? fromLuxWebAppLink(chain) : null
+  const outputChainId = outputChain ? fromLuxWebAppLink(outputChain) : null
 
   if (chain && !inputChainId) {
     throw new Error(`Invalid chain: ${chain}`)

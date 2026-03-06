@@ -10,8 +10,8 @@ import { SlippageTolerance } from '~/state/user/types'
 const previousState: PersistAppStateV5 = {
   user: {
     userRouterPreference: RouterPreference.API,
-    optedOutOfUniswapX: false,
-    disabledUniswapX: false,
+    optedOutOfDEX: false,
+    disabledDEX: false,
     userLocale: null,
     userHideClosedPositions: false,
     userSlippageTolerance: SlippageTolerance.Auto,
@@ -41,8 +41,8 @@ describe('migration to v5', () => {
     )
     const result: any = await migrator(previousState, 5)
     expect(result?.user?.userRouterPreference).toEqual(RouterPreference.X)
-    expect(result?.user?.disabledUniswapX).toBeUndefined()
-    expect(result?.user?.optedOutOfUniswapX).toBeUndefined()
+    expect(result?.user?.disabledDEX).toBeUndefined()
+    expect(result?.user?.optedOutOfDEX).toBeUndefined()
     expect(result?._persist.version).toEqual(5)
   })
 
@@ -62,13 +62,13 @@ describe('migration to v5', () => {
         ...previousState,
         user: {
           ...previousState.user,
-          optedOutOfUniswapX: true,
+          optedOutOfDEX: true,
         },
       } as PersistAppStateV5,
       5,
     )
     expect(result?.user?.userRouterPreference).toEqual(RouterPreference.API)
-    expect(result?.user?.optedOutOfUniswapX).toBeUndefined()
+    expect(result?.user?.optedOutOfDEX).toBeUndefined()
     expect(result?._persist.version).toEqual(5)
   })
 

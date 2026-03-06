@@ -90,7 +90,7 @@ const createMockAccountsState = (wallets: ExternalWallet[]) => {
             wallet.id === CONNECTION_PROVIDER_IDS.PORTO_CONNECTOR_ID ||
             wallet.id === CONNECTION_PROVIDER_IDS.BINANCE_WALLET_RDNS ||
             wallet.id === CONNECTION_PROVIDER_IDS.COINBASE_RDNS ||
-            wallet.id === CONNECTION_PROVIDER_IDS.UNISWAP_EXTENSION_RDNS
+            wallet.id === CONNECTION_PROVIDER_IDS.LUX_EXTENSION_RDNS
               ? 'Injected'
               : 'SDK',
           externalLibraryId: wallet.id,
@@ -466,20 +466,20 @@ describe('useOrderedWallets', () => {
     expect(result.current.length).toEqual(expectedWalletIds.length)
   })
 
-  it('should not return uniswap connections when embedded wallet is disabled', () => {
-    const walletsWithUniswap = [
+  it('should not return lux connections when embedded wallet is disabled', () => {
+    const walletsWithLux = [
       ...DEFAULT_WALLETS,
       createExternalWallet({
-        id: CONNECTION_PROVIDER_IDS.UNISWAP_EXTENSION_RDNS,
-        name: 'Uniswap Extension',
+        id: CONNECTION_PROVIDER_IDS.LUX_EXTENSION_RDNS,
+        name: 'Lux Extension',
         connectorIds: {
-          [Platform.EVM]: `WagmiConnector_${CONNECTION_PROVIDER_IDS.UNISWAP_EXTENSION_RDNS}`,
+          [Platform.EVM]: `WagmiConnector_${CONNECTION_PROVIDER_IDS.LUX_EXTENSION_RDNS}`,
         },
         analyticsWalletType: 'Browser Extension',
       }),
     ]
     mocked(useAccountsStore).mockImplementation((selector) => {
-      const mockState = createMockAccountsState(walletsWithUniswap)
+      const mockState = createMockAccountsState(walletsWithLux)
       return selector(mockState)
     })
     const { result } = renderHook(() => useOrderedWallets({ showSecondaryConnectors: false }))

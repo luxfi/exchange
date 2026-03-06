@@ -13,7 +13,7 @@ describe('getTsconfigAliases', () => {
     const result = getTsconfigAliases()
 
     // Verify we got aliases for some known packages
-    expect(result).toHaveProperty('uniswap')
+    expect(result).toHaveProperty('lux')
     expect(result).toHaveProperty('@universe/api')
 
     // Verify paths are absolute and point to the packages directory

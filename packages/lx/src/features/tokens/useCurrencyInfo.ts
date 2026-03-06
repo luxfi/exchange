@@ -40,7 +40,7 @@ function useCurrencyInfoQuery(
         // Creating new object to avoid error "Cannot assign to read only property"
         const copyCommonBase = { ...commonBase }
         // Related to TODO(WEB-5111)
-        // Some common base images are broken so this'll ensure we read from uniswap images
+        // Some common base images are broken so this'll ensure we read from lux images
         if (queryResult.data?.token?.project?.logoUrl) {
           copyCommonBase.logoUrl = queryResult.data.token.project.logoUrl
         }

@@ -19,7 +19,7 @@ export interface ExistingPlanRequest {
 export interface UpdatePlanRequestWithPlanId extends UpdatePlanRequest, ExistingPlanRequest {}
 
 // TradingAPI team is looking into updating type generation to produce the following types for it's current QuoteResponse type:
-// See: https://linear.app/uniswap/issue/API-236/explore-changing-the-quote-schema-to-pull-out-a-basequoteresponse
+// See: https://linear.app/lux/issue/API-236/explore-changing-the-quote-schema-to-pull-out-a-basequoteresponse
 export type DiscriminatedQuoteResponse =
   | ClassicQuoteResponse
   | DutchQuoteResponse

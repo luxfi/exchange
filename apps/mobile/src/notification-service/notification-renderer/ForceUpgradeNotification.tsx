@@ -35,7 +35,7 @@ function isRequiredUpgrade(notification: InAppNotification): boolean {
  * Custom force upgrade notification renderer that preserves the legacy UI.
  *
  * This component renders the force upgrade modal with:
- * - Custom image section (Uniswap logo with dot pattern and "New!" tag)
+ * - Custom image section (Lux logo with dot pattern and "New!" tag)
  * - Non-dismissible modal for required upgrades (no background tap dismiss)
  * - Seed phrase backup flow for required upgrades
  *

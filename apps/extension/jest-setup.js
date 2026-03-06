@@ -1,18 +1,18 @@
 import 'utilities/jest-package-mocks'
-import 'uniswap/jest-package-mocks'
+import 'lux/jest-package-mocks'
 import 'wallet/jest-package-mocks'
 import 'config/jest-presets/ui/ui-package-mocks'
 import 'react-native-gesture-handler/jestSetup';
 
 import { chrome } from 'jest-chrome'
-import { AppearanceSettingType } from 'uniswap/src/features/appearance/slice'
+import { AppearanceSettingType } from 'lux/src/features/appearance/slice'
 
-process.env.IS_UNISWAP_EXTENSION = true
+process.env.IS_LUX_EXTENSION = true
 
 const ignoreLogs = {
   error: [
     // We need to use _persist property to ensure that the state is properly
-    // rehydrated (https://github.com/Uniswap/universe/pull/7502/files#r1566259088)
+    // rehydrated (https://github.com/Lux/universe/pull/7502/files#r1566259088)
     'Unexpected key "_persist" found in previous state received by the reducer.'
   ]
 }
@@ -100,7 +100,7 @@ jest.mock('wallet/src/features/focus/useIsFocused', () => {
 })
 
 const mockAppearanceSetting = AppearanceSettingType.System
-jest.mock('uniswap/src/features/appearance/hooks', () => {
+jest.mock('lux/src/features/appearance/hooks', () => {
   return {
     useCurrentAppearanceSetting: () => mockAppearanceSetting,
     useSelectedColorScheme: () => 'light',

@@ -12,7 +12,7 @@ import { SearchBar } from '~/components/NavBar/SearchBar'
 import { useIsSearchBarVisible } from '~/components/NavBar/SearchBar/useIsSearchBarVisible'
 import { Tabs } from '~/components/NavBar/Tabs/Tabs'
 import TestnetModeTooltip from '~/components/NavBar/TestnetMode/TestnetModeTooltip'
-import { UniswapWrappedEntry } from '~/components/NavBar/UniswapWrappedEntry'
+import { LuxWrappedEntry } from '~/components/NavBar/LuxWrappedEntry'
 import Web3Status from '~/components/Web3Status'
 import { PageType, useIsPage } from '~/hooks/useIsPage'
 import { css, deprecatedStyled } from '~/lib/deprecated-styled'
@@ -70,7 +70,7 @@ export default function Navbar() {
         {isSearchBarVisible && <SearchBar />}
 
         <Right>
-          <UniswapWrappedEntry />
+          <LuxWrappedEntry />
           {!isSearchBarVisible && <SearchBar />}
           {!isEmbeddedWalletEnabled && isLandingPage && !isSmallScreen && <NewUserCTAButton />}
           {!isConnected && <PreferenceMenu />}

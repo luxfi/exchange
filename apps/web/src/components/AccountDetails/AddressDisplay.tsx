@@ -16,12 +16,12 @@ export function AddressDisplay({ address }: { address: Address }) {
   const { data: unitag } = useUnitagsAddressQuery({
     params: address ? { address } : undefined,
   })
-  const uniswapUsername = unitag?.username
+  const luxUsername = unitag?.username
 
   return (
     <Flex row gap="2px" alignItems="center" data-testid={TestID.AddressDisplay}>
-      <IdentifierText>{uniswapUsername ?? ENSName ?? shortenAddress({ address })}</IdentifierText>
-      {uniswapUsername && (
+      <IdentifierText>{luxUsername ?? ENSName ?? shortenAddress({ address })}</IdentifierText>
+      {luxUsername && (
         <Flex pt="$spacing2">
           <Unitag size={18} />
         </Flex>

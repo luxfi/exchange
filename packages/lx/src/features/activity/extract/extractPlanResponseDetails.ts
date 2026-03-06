@@ -1,4 +1,4 @@
-import { TradeType } from '@uniswap/sdk-core'
+import { TradeType } from '@lux/sdk-core'
 import { TradingApi } from '@universe/api'
 import { createTransactionDetails } from 'lx/src/features/activity/extract/extractPlanUtils'
 import {

@@ -22,7 +22,7 @@ global.fetch = mockFetch
 import { TradingApi } from '@universe/api'
 import { TRADING_API_PATHS } from '@universe/api/src/clients/trading/createTradingApiClient'
 import {
-  EthAsErc20UniswapXProperties,
+  EthAsErc20DEXProperties,
   Experiments,
   FeatureFlags,
   getExperimentValue,
@@ -58,7 +58,7 @@ describe('checkWalletDelegation', () => {
     delegationDetails: {
       [mockAddress1]: {
         '1': {
-          isWalletDelegatedToUniswap: true,
+          isWalletDelegatedToLux: true,
           currentDelegationAddress: '0xdeadbeef',
           latestDelegationAddress: '0xdeadbeef',
         },
@@ -150,12 +150,12 @@ describe('checkWalletDelegation', () => {
         delegationDetails: {
           [mockAddress1]: {
             '1': {
-              isWalletDelegatedToUniswap: true,
+              isWalletDelegatedToLux: true,
               currentDelegationAddress: '0xdeadbeef',
               latestDelegationAddress: '0xdeadbeef',
             },
             '137': {
-              isWalletDelegatedToUniswap: false,
+              isWalletDelegatedToLux: false,
               currentDelegationAddress: null,
               latestDelegationAddress: '0xfeedface',
             },
@@ -168,12 +168,12 @@ describe('checkWalletDelegation', () => {
         delegationDetails: {
           [mockAddress2]: {
             '1': {
-              isWalletDelegatedToUniswap: false,
+              isWalletDelegatedToLux: false,
               currentDelegationAddress: null,
               latestDelegationAddress: '0xdeadbeef',
             },
             '137': {
-              isWalletDelegatedToUniswap: true,
+              isWalletDelegatedToLux: true,
               currentDelegationAddress: '0xfeedface',
               latestDelegationAddress: '0xfeedface',
             },
@@ -186,12 +186,12 @@ describe('checkWalletDelegation', () => {
         delegationDetails: {
           [mockAddress3]: {
             '1': {
-              isWalletDelegatedToUniswap: true,
+              isWalletDelegatedToLux: true,
               currentDelegationAddress: '0xbadcafe',
               latestDelegationAddress: '0xbadcafe',
             },
             '137': {
-              isWalletDelegatedToUniswap: false,
+              isWalletDelegatedToLux: false,
               currentDelegationAddress: null,
               latestDelegationAddress: '0xcafebabe',
             },
@@ -231,12 +231,12 @@ describe('checkWalletDelegation', () => {
         delegationDetails: {
           [mockAddress1]: {
             '1': {
-              isWalletDelegatedToUniswap: true,
+              isWalletDelegatedToLux: true,
               currentDelegationAddress: '0xdeadbeef',
               latestDelegationAddress: '0xdeadbeef',
             },
             '137': {
-              isWalletDelegatedToUniswap: false,
+              isWalletDelegatedToLux: false,
               currentDelegationAddress: null,
               latestDelegationAddress: '0xfeedface',
             },
@@ -249,12 +249,12 @@ describe('checkWalletDelegation', () => {
         delegationDetails: {
           [mockAddress2]: {
             '1': {
-              isWalletDelegatedToUniswap: false,
+              isWalletDelegatedToLux: false,
               currentDelegationAddress: null,
               latestDelegationAddress: '0xdeadbeef',
             },
             '137': {
-              isWalletDelegatedToUniswap: true,
+              isWalletDelegatedToLux: true,
               currentDelegationAddress: '0xfeedface',
               latestDelegationAddress: '0xfeedface',
             },
@@ -312,12 +312,12 @@ describe('checkWalletDelegation', () => {
         delegationDetails: {
           [mockAddress1]: {
             '1': {
-              isWalletDelegatedToUniswap: true,
+              isWalletDelegatedToLux: true,
               currentDelegationAddress: '0xdeadbeef',
               latestDelegationAddress: '0xdeadbeef',
             },
             '137': {
-              isWalletDelegatedToUniswap: false,
+              isWalletDelegatedToLux: false,
               currentDelegationAddress: null,
               latestDelegationAddress: '0xfeedface',
             },
@@ -344,14 +344,14 @@ describe('checkWalletDelegation', () => {
         delegationDetails: {
           [mockAddress1]: {
             '1': {
-              isWalletDelegatedToUniswap: true,
+              isWalletDelegatedToLux: true,
               currentDelegationAddress: '0xdeadbeef',
               latestDelegationAddress: '0xdeadbeef',
             },
           },
           [mockAddress2]: {
             '1': {
-              isWalletDelegatedToUniswap: false,
+              isWalletDelegatedToLux: false,
               currentDelegationAddress: null,
               latestDelegationAddress: '0xdeadbeef',
             },
@@ -409,12 +409,12 @@ describe('checkWalletDelegation', () => {
         delegationDetails: {
           [mockAddress1]: {
             '1': {
-              isWalletDelegatedToUniswap: true,
+              isWalletDelegatedToLux: true,
               currentDelegationAddress: '0xdeadbeef',
               latestDelegationAddress: '0xdeadbeef',
             },
             '137': {
-              isWalletDelegatedToUniswap: false,
+              isWalletDelegatedToLux: false,
               currentDelegationAddress: null,
               latestDelegationAddress: '0xfeedface',
             },
@@ -530,8 +530,8 @@ describe('getFeatureFlaggedHeaders', () => {
     it(`Endpoint: ${path} should/should not include Erc20EthEnabled header when experiment is enabled`, () => {
       mockGetExperimentValue.mockImplementation(({ experiment, param }: { experiment: string; param: string }) => {
         if (
-          experiment === Experiments.EthAsErc20UniswapX &&
-          param === EthAsErc20UniswapXProperties.EthAsErc20UniswapXEnabled
+          experiment === Experiments.EthAsErc20DEX &&
+          param === EthAsErc20DEXProperties.EthAsErc20DEXEnabled
         ) {
           return true
         }

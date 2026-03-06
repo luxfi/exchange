@@ -11,7 +11,7 @@ import { MenuOptionItem } from 'lx/src/components/menus/ContextMenu'
 import { Modal } from 'lx/src/components/modals/Modal'
 import { WarningSeverity } from 'lx/src/components/modals/WarningModal/types'
 import { WarningModal } from 'lx/src/components/modals/WarningModal/WarningModal'
-import { uniswapUrls } from 'lx/src/constants/urls'
+import { luxUrls } from 'lx/src/constants/urls'
 import { AccountType } from 'lx/src/features/accounts/types'
 import { AuthTrigger } from 'lx/src/features/auth/types'
 import { pushNotification } from 'lx/src/features/notifications/slice/slice'
@@ -26,16 +26,16 @@ import { useIsCancelable } from 'lx/src/features/transactions/hooks/useIsCancela
 import { useSelectTransaction } from 'lx/src/features/transactions/hooks/useSelectTransaction'
 import {
   cancelPlanStep,
-  cancelRemoteUniswapXOrder,
+  cancelRemoteDEXOrder,
   cancelTransaction,
   finalizeTransaction,
 } from 'lx/src/features/transactions/slice'
-import { isBridge, isClassic, isUniswapX } from 'lx/src/features/transactions/swap/utils/routing'
+import { isBridge, isClassic, isDEX } from 'lx/src/features/transactions/swap/utils/routing'
 import {
   TransactionDetails,
   TransactionStatus,
   TransactionType,
-  UniswapXOrderDetails,
+  DEXOrderDetails,
 } from 'lx/src/features/transactions/types/transactionDetails'
 import { isFinalizedTx } from 'lx/src/features/transactions/types/utils'
 import { useIsActivityHidden } from 'lx/src/features/visibility/hooks/useIsActivityHidden'
@@ -116,14 +116,14 @@ export function useTransactionActions({
             cancelableStepInfo: planCancellationInfo.cancelableStepInfo,
           }),
         )
-      } else if (!isInLocalState && isUniswapX(transaction)) {
-        // Remote UniswapX order (e.g. submitted from web app) — bypass Redux cancelTransaction
+      } else if (!isInLocalState && isDEX(transaction)) {
+        // Remote DEX order (e.g. submitted from web app) — bypass Redux cancelTransaction
         // reducer and directly submit the Permit2 nonce invalidation transaction via saga.
         dispatch(
-          cancelRemoteUniswapXOrder({
+          cancelRemoteDEXOrder({
             chainId: transaction.chainId,
             address: transaction.from,
-            orderHash: (transaction as UniswapXOrderDetails).orderHash ?? transaction.id,
+            orderHash: (transaction as DEXOrderDetails).orderHash ?? transaction.id,
             cancelRequest: txRequest,
           }),
         )
@@ -359,10 +359,10 @@ async function openSupportLink(transactionDetails: TransactionDetails): Promise<
       return openFORSupportLink(transactionDetails.typeInfo.serviceProvider)
     default:
       params.append(SupportLinkParams.WalletAddress, transactionDetails.ownerAddress ?? '') // Wallet Address
-      params.append(SupportLinkParams.ReportType, isWebPlatform ? 'uniswap_extension_issue' : 'uw_ios_app') // Report Type Dropdown
+      params.append(SupportLinkParams.ReportType, isWebPlatform ? 'lux_extension_issue' : 'uw_ios_app') // Report Type Dropdown
       params.append(SupportLinkParams.IssueType, 'uw_transaction_details_page_submission') // Issue type Dropdown
       params.append(SupportLinkParams.TransactionId, transactionDetails.hash ?? 'N/A') // Transaction id
-      return openUri({ uri: uniswapUrls.helpRequestUrl + '?' + params.toString() }).catch((e) =>
+      return openUri({ uri: luxUrls.helpRequestUrl + '?' + params.toString() }).catch((e) =>
         logger.error(e, { tags: { file: 'TransactionActionsModal', function: 'getHelpLink' } }),
       )
   }

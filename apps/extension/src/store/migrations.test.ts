@@ -44,7 +44,7 @@ import {
 } from 'src/store/schema'
 import { USDC } from 'lx/src/constants/tokens'
 import { initialAppearanceSettingsState } from 'lx/src/features/appearance/slice'
-import { initialUniswapBehaviorHistoryState } from 'lx/src/features/behaviorHistory/slice'
+import { initialLuxBehaviorHistoryState } from 'lx/src/features/behaviorHistory/slice'
 import { UniverseChainId } from 'lx/src/features/chains/types'
 import { initialFavoritesState } from 'lx/src/features/favorites/slice'
 import { FiatCurrency } from 'lx/src/features/fiatCurrency/constants'
@@ -60,7 +60,7 @@ import {
   testMigrateDismissedTokenWarnings,
   testMigrateSearchHistory,
   testRemoveTHBFromCurrency,
-} from 'lx/src/state/uniswapMigrationTests'
+} from 'lx/src/state/luxMigrationTests'
 import { getAllKeysOfNestedObject } from 'utilities/src/primitives/objects'
 import { initialBatchedTransactionsState } from 'wallet/src/features/batchedTransactions/slice'
 import { initialBehaviorHistoryState } from 'wallet/src/features/behaviorHistory/slice'
@@ -138,7 +138,7 @@ describe('Redux state migrations', () => {
       tokenLists: {},
       tokens: initialTokensState,
       transactions: initialTransactionsState,
-      uniswapBehaviorHistory: initialUniswapBehaviorHistoryState,
+      luxBehaviorHistory: initialLuxBehaviorHistoryState,
       userSettings: initialUserSettingsState,
       visibility: initialVisibilityState,
       wallet: initialWalletState,

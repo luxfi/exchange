@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next'
 import { Bank } from 'ui/src/components/icons/Bank'
 import { FlexProps } from 'ui/src/components/layout/Flex'
-import { useUniswapContext } from 'lx/src/contexts/UniswapContext'
+import { useLuxContext } from 'lx/src/contexts/LuxContext'
 import { ElementName } from 'lx/src/features/telemetry/constants'
 import Trace from 'lx/src/features/telemetry/Trace'
 import { TestID } from 'lx/src/test/fixtures/testIDs'
@@ -10,7 +10,7 @@ import { ActionTileWithIconAnimation } from '~/components/ActionTiles/ActionTile
 
 export function BuyActionTile({ padding = '$spacing12' }: { padding?: FlexProps['p'] }) {
   const { t } = useTranslation()
-  const { navigateToFiatOnRamp } = useUniswapContext()
+  const { navigateToFiatOnRamp } = useLuxContext()
 
   const onPressBuy = useEvent(() => {
     navigateToFiatOnRamp({})

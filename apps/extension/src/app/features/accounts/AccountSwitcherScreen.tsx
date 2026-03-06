@@ -20,14 +20,14 @@ import { Ellipsis, Globe, Person, TrashFilled, WalletFilled, X } from 'ui/src/co
 import { spacing } from 'ui/src/theme'
 import { AddressDisplay } from 'lx/src/components/accounts/AddressDisplay'
 import { buildWrappedUrl } from 'lx/src/components/banners/shared/utils'
-import { UniswapWrapped2025Card } from 'lx/src/components/banners/UniswapWrapped2025Card/UniswapWrapped2025Card'
+import { LuxWrapped2025Card } from 'lx/src/components/banners/LuxWrapped2025Card/LuxWrapped2025Card'
 import { ContextMenu, MenuOptionItem } from 'lx/src/components/menus/ContextMenu'
 import { ContextMenuTriggerMode } from 'lx/src/components/menus/types'
 import { WarningSeverity } from 'lx/src/components/modals/WarningModal/types'
 import { WarningModal } from 'lx/src/components/modals/WarningModal/WarningModal'
-import { UNISWAP_WEB_URL } from 'lx/src/constants/urls'
+import { LUX_WEB_URL } from 'lx/src/constants/urls'
 import { AccountType, DisplayNameType } from 'lx/src/features/accounts/types'
-import { setHasDismissedUniswapWrapped2025Banner } from 'lx/src/features/behaviorHistory/slice'
+import { setHasDismissedLuxWrapped2025Banner } from 'lx/src/features/behaviorHistory/slice'
 import { Platform } from 'lx/src/features/platforms/types/Platform'
 import { ModalName, WalletEventName } from 'lx/src/features/telemetry/constants'
 import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
@@ -67,7 +67,7 @@ export function AccountSwitcherScreen(): JSX.Element {
   const activeAddress = activeAccount.address
   const isViewOnly = activeAccount.type === AccountType.Readonly
 
-  const isWrappedBannerEnabled = useFeatureFlag(FeatureFlags.UniswapWrapped2025)
+  const isWrappedBannerEnabled = useFeatureFlag(FeatureFlags.LuxWrapped2025)
 
   const accounts = useSignerAccounts()
   const accountAddresses = useMemo(
@@ -87,7 +87,7 @@ export function AccountSwitcherScreen(): JSX.Element {
 
   const connectedAccounts = useDappConnectedAccounts(dappUrl)
 
-  // TODO: EXT-899 https://linear.app/uniswap/issue/EXT-899/enable-unitag-edit-button-is-account-header
+  // TODO: EXT-899 https://linear.app/lux/issue/EXT-899/enable-unitag-edit-button-is-account-header
   const activeAccountDisplayName = useDisplayName(activeAddress)
   const activeAccountHasUnitag = activeAccountDisplayName?.type === DisplayNameType.Unitag
   const activeAccountHasENS = activeAccountDisplayName?.type === DisplayNameType.ENS
@@ -166,9 +166,9 @@ export function AccountSwitcherScreen(): JSX.Element {
 
   const onPressWrappedCard = useCallback(() => {
     try {
-      const url = buildWrappedUrl(UNISWAP_WEB_URL, activeAddress)
+      const url = buildWrappedUrl(LUX_WEB_URL, activeAddress)
       window.open(url, '_blank')
-      dispatch(setHasDismissedUniswapWrapped2025Banner(true))
+      dispatch(setHasDismissedLuxWrapped2025Banner(true))
       navigate(-1)
     } catch (error) {
       logger.error(error, { tags: { file: 'AccountSwitcherScreen', function: 'onPressWrappedCard' } })
@@ -306,7 +306,7 @@ export function AccountSwitcherScreen(): JSX.Element {
 
           {isWrappedBannerEnabled && (
             <Flex pt="$spacing16">
-              <UniswapWrapped2025Card onPress={onPressWrappedCard} />
+              <LuxWrapped2025Card onPress={onPressWrappedCard} />
             </Flex>
           )}
 

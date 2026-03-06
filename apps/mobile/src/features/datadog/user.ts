@@ -2,10 +2,10 @@ import { DdSdkReactNative } from '@datadog/mobile-react-native'
 import { getUniqueIdSync } from 'react-native-device-info'
 import { MobileUserPropertyName } from 'lx/src/features/telemetry/user'
 
-export function setDatadogUserWithUniqueId(activeAddress: Maybe<Address>, uniswapIdentifier?: string | null): void {
+export function setDatadogUserWithUniqueId(activeAddress: Maybe<Address>, luxIdentifier?: string | null): void {
   DdSdkReactNative.setUser({
     id: getUniqueIdSync(),
     ...(activeAddress ? { [MobileUserPropertyName.ActiveWalletAddress]: activeAddress } : {}),
-    ...(uniswapIdentifier ? { [MobileUserPropertyName.UniswapIdentifier]: uniswapIdentifier } : {}),
+    ...(luxIdentifier ? { [MobileUserPropertyName.LuxIdentifier]: luxIdentifier } : {}),
   }).catch(() => undefined)
 }

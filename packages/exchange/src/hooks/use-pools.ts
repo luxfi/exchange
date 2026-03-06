@@ -3,7 +3,7 @@
 import { useQuery } from '@tanstack/react-query'
 import { usePublicClient } from 'wagmi'
 import { getContracts } from '../contracts'
-import { UNISWAP_V3_FACTORY_ABI, UNISWAP_V3_POOL_ABI } from '../contracts/abis'
+import { LUX_V3_FACTORY_ABI, LUX_V3_POOL_ABI } from '../contracts/abis'
 import type { Address } from 'viem'
 
 export interface Pool {
@@ -38,7 +38,7 @@ export function usePool(
         // Get pool address from factory
         const poolAddress = await publicClient.readContract({
           address: contracts.V3_FACTORY,
-          abi: UNISWAP_V3_FACTORY_ABI,
+          abi: LUX_V3_FACTORY_ABI,
           functionName: 'getPool',
           args: [token0, token1, fee],
         })
@@ -51,17 +51,17 @@ export function usePool(
         const [slot0, liquidity, tickSpacing] = await Promise.all([
           publicClient.readContract({
             address: poolAddress,
-            abi: UNISWAP_V3_POOL_ABI,
+            abi: LUX_V3_POOL_ABI,
             functionName: 'slot0',
           }),
           publicClient.readContract({
             address: poolAddress,
-            abi: UNISWAP_V3_POOL_ABI,
+            abi: LUX_V3_POOL_ABI,
             functionName: 'liquidity',
           }),
           publicClient.readContract({
             address: poolAddress,
-            abi: UNISWAP_V3_POOL_ABI,
+            abi: LUX_V3_POOL_ABI,
             functionName: 'tickSpacing',
           }),
         ])

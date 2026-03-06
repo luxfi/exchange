@@ -27,8 +27,8 @@ import {
   Sliders,
   Wrench,
 } from 'ui/src/components/icons'
-import { uniswapUrls } from 'lx/src/constants/urls'
-import { resetUniswapBehaviorHistory } from 'lx/src/features/behaviorHistory/slice'
+import { luxUrls } from 'lx/src/constants/urls'
+import { resetLuxBehaviorHistory } from 'lx/src/features/behaviorHistory/slice'
 import { useEnabledChains } from 'lx/src/features/chains/hooks/useEnabledChains'
 import { FiatCurrency, ORDERED_CURRENCIES } from 'lx/src/features/fiatCurrency/constants'
 import { getFiatCurrencyName, useAppFiatCurrencyInfo } from 'lx/src/features/fiatCurrency/hooks'
@@ -201,7 +201,7 @@ export function SettingsScreen(): JSX.Element {
                   title="Clear behavior history"
                   onPress={() => {
                     dispatch(resetWalletBehaviorHistory())
-                    dispatch(resetUniswapBehaviorHistory())
+                    dispatch(resetLuxBehaviorHistory())
                   }}
                 />
               )}
@@ -289,7 +289,7 @@ export function SettingsScreen(): JSX.Element {
               <SettingsItem
                 Icon={HelpCenter}
                 title={t('settings.setting.helpCenter.title')}
-                url={uniswapUrls.helpArticleUrls.extensionHelp}
+                url={luxUrls.helpArticleUrls.extensionHelp}
                 RightIcon={ArrowUpRight}
               />
               <Text

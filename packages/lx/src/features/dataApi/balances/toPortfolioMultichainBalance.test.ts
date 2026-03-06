@@ -1,4 +1,4 @@
-import type { ChainBalance, MultichainBalance } from '@uniswap/client-data-api/dist/data/v1/types_pb'
+import type { ChainBalance, MultichainBalance } from '@lux/client-data-api/dist/data/v1/types_pb'
 import {
   getPortfolioMultichainBalancesById,
   toPortfolioMultichainBalance,

@@ -1,7 +1,7 @@
 // biome-ignore lint/style/noRestrictedImports: Anvil test fixtures need direct ethers imports
 import { test as base } from '@playwright/test'
-import { MaxUint160, MaxUint256, permit2Address } from '@uniswap/permit2-sdk'
-import { WETH_ADDRESS } from '@uniswap/universal-router-sdk'
+import { MaxUint160, MaxUint256, permit2Address } from '@lux/permit2-sdk'
+import { WETH_ADDRESS } from '@lux/universal-router-sdk'
 import PERMIT2_ABI from 'lx/src/abis/permit2'
 import { ZERO_ADDRESS } from 'lx/src/constants/misc'
 import { DAI, USDT } from 'lx/src/constants/tokens'

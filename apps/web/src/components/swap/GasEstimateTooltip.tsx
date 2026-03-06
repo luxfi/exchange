@@ -5,13 +5,13 @@ import { NumberType } from 'utilities/src/format/types'
 import Row, { RowFixed } from '~/components/deprecated/Row'
 import { Gas } from '~/components/Icons/Gas'
 import { LoadingOpacityContainer } from '~/components/Loader/styled'
-import { UniswapXGradient, UniswapXRouterIcon } from '~/components/RouterLabel/UniswapXRouterLabel'
+import { DEXGradient, DEXRouterIcon } from '~/components/RouterLabel/DEXRouterLabel'
 import { GasBreakdownTooltip } from '~/components/swap/GasBreakdownTooltip'
 import { MouseoverTooltip, TooltipSize } from '~/components/Tooltip'
 import { deprecatedStyled } from '~/lib/deprecated-styled'
 import { useMultichainContext } from '~/state/multichain/useMultichainContext'
 import { SubmittableTrade } from '~/state/routing/types'
-import { isUniswapXTrade } from '~/state/routing/utils'
+import { isDEXTrade } from '~/state/routing/utils'
 import { ThemedText } from '~/theme/components'
 
 const StyledGasIcon = deprecatedStyled(Gas)`
@@ -44,18 +44,18 @@ export default function GasEstimateTooltip({ trade, loading }: { trade?: Submitt
     >
       <LoadingOpacityContainer $loading={loading}>
         <RowFixed gap="xs">
-          {isUniswapXTrade(trade) ? <UniswapXRouterIcon testId="gas-estimate-uniswapx-icon" /> : <StyledGasIcon />}
+          {isDEXTrade(trade) ? <DEXRouterIcon testId="gas-estimate-dex-icon" /> : <StyledGasIcon />}
           <ThemedText.BodySmall color="neutral2">
             <Row gap="sm">
-              {isUniswapXTrade(trade) ? (
-                <UniswapXGradient>
+              {isDEXTrade(trade) ? (
+                <DEXGradient>
                   {convertFiatAmountFormatted(trade.totalGasUseEstimateUSD, NumberType.FiatGasPrice)}
-                </UniswapXGradient>
+                </DEXGradient>
               ) : (
                 <>{convertFiatAmountFormatted(trade.totalGasUseEstimateUSD, NumberType.FiatGasPrice)}</>
               )}
 
-              {isUniswapXTrade(trade) && (trade.classicGasUseEstimateUSD ?? 0) > 0 && (
+              {isDEXTrade(trade) && (trade.classicGasUseEstimateUSD ?? 0) > 0 && (
                 <>
                   <s>{convertFiatAmountFormatted(trade.classicGasUseEstimateUSD, NumberType.FiatGasPrice)}</s>
                 </>

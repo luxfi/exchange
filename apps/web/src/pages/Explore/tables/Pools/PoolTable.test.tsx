@@ -1,6 +1,6 @@
 import '~/test-utils/tokens/mocks'
 
-import { Percent } from '@uniswap/sdk-core'
+import { Percent } from '@lux/sdk-core'
 import { GraphQLApi } from '@universe/api'
 import { DEFAULT_TICK_SPACING } from 'lx/src/constants/pools'
 import { ExploreTablesFilterStoreContextProvider } from '~/pages/Explore/exploreTablesFilterStore'

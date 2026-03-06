@@ -30,7 +30,7 @@ export function ENSAddressOptionItem({ ensAddressOption, onPress }: ENSAddressOp
    * Fetch primary ENS associated with `address` since it may resolve to an
    * ENS different than the `ensName` searched
    * ex. if searching `uni.eth` resolves to 0x123, and the primary ENS for 0x123
-   * is `uniswap.eth`, then we should show "uni.eth | owned by uniswap.eth"
+   * is `lux.eth`, then we should show "uni.eth | owned by lux.eth"
    */
   const { data: fetchedPrimaryENSName, isLoading: isFetchingPrimaryENSName } = useENSName(
     savedPrimaryENSName ? undefined : address,

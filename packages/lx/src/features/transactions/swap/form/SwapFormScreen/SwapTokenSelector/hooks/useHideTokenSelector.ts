@@ -1,4 +1,4 @@
-import { useUniswapContext } from 'lx/src/contexts/UniswapContext'
+import { useLuxContext } from 'lx/src/contexts/LuxContext'
 import { useSwapFormStore } from 'lx/src/features/transactions/swap/stores/swapFormStore/useSwapFormStore'
 import { useEvent } from 'utilities/src/react/hooks'
 
@@ -7,7 +7,7 @@ export const useHideTokenSelector = (): (() => void) => {
     updateSwapForm: s.updateSwapForm,
     isSelectingCurrencyFieldPrefilled: s.isSelectingCurrencyFieldPrefilled,
   }))
-  const { setIsSwapTokenSelectorOpen } = useUniswapContext()
+  const { setIsSwapTokenSelectorOpen } = useLuxContext()
 
   return useEvent(() => {
     updateSwapForm({

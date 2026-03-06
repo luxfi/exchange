@@ -1,4 +1,4 @@
-import type { Currency, Token } from '@uniswap/sdk-core'
+import type { Currency, Token } from '@lux/sdk-core'
 import type { PriceKey, TokenIdentifier, TokenInput, TokenSubscriptionParams } from '@universe/prices'
 import { isEVMAddress } from 'utilities/src/addresses/evm/evm'
 
@@ -6,7 +6,7 @@ import { isEVMAddress } from 'utilities/src/addresses/evm/evm'
 const DEFAULT_NATIVE_ADDRESS_LEGACY = '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee'
 
 /**
- * Type guard to check if input is a Currency object (from @uniswap/sdk-core).
+ * Type guard to check if input is a Currency object (from @lux/sdk-core).
  * Currency objects have isNative and isToken properties from the SDK.
  */
 export function isCurrency(token: TokenInput): token is Currency {

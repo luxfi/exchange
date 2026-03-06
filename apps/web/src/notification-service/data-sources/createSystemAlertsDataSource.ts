@@ -3,13 +3,13 @@ import {
   ContentStyle,
   Notification,
   OnClick,
-} from '@uniswap/client-notification-service/dist/uniswap/notificationservice/v1/api_pb'
+} from '@lux/client-notification-service/dist/lux/notificationservice/v1/api_pb'
 import { type InAppNotification, OnClickAction } from '@universe/api'
 import { DynamicConfigs, getDynamicConfigValue, OutageBannerChainIdConfigKey } from '@universe/gating'
 import { createNotificationDataSource } from '@universe/notifications/src/notification-data-source/implementations/createNotificationDataSource'
 import { type NotificationDataSource } from '@universe/notifications/src/notification-data-source/NotificationDataSource'
 import { capitalize } from 'tsafe'
-import { uniswapUrls } from 'lx/src/constants/urls'
+import { luxUrls } from 'lx/src/constants/urls'
 import { getChainInfo } from 'lx/src/features/chains/chainInfo'
 import { DEFAULT_MS_BEFORE_WARNING } from 'lx/src/features/chains/evm/rpc'
 import { UniverseChainId } from 'lx/src/features/chains/types'
@@ -56,7 +56,7 @@ const OUTAGE_DISPLAY_PAGES: InterfacePageName[] = [
  * These are passed as getter functions to allow checking at poll time.
  */
 interface CreateSystemAlertsDataSourceContext {
-  /** Get the current swap input chain ID (from UniswapContext) */
+  /** Get the current swap input chain ID (from LuxContext) */
   getSwapInputChainId: () => UniverseChainId | undefined
   /** Get the current block timestamp (from useCurrentBlockTimestamp) */
   getBlockTimestamp: () => bigint | undefined
@@ -193,7 +193,7 @@ function checkOutage(ctx: {
       chainId: outage.chainId,
       chainName,
       version: outage.version?.toString(),
-      helpUrl: uniswapUrls.helpArticleUrls.subgraphDowntime,
+      helpUrl: luxUrls.helpArticleUrls.subgraphDowntime,
     }),
   }
 }

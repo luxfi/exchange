@@ -8,7 +8,7 @@ import {
   SignoutResponse,
   UpdateSessionResponse,
   VerifyResponse,
-} from '@luxdex/client-platform-service/dist/uniswap/platformservice/v1/sessionService_pb'
+} from '@luxdex/client-platform-service/dist/lux/platformservice/v1/sessionService_pb'
 import { createSessionRepository } from '@luxfi/sessions/src/session-repository/createSessionRepository'
 import { createSessionService } from '@luxfi/sessions/src/session-service/createSessionService'
 import type { SessionService } from '@luxfi/sessions/src/session-service/types'
@@ -16,7 +16,7 @@ import {
   createMockSessionClient,
   InMemoryDeviceIdService,
   InMemorySessionStorage,
-  InMemoryUniswapIdentifierService,
+  InMemoryLuxIdentifierService,
   type MockEndpoints,
 } from '@luxfi/sessions/src/test-utils'
 import { afterEach, beforeEach, describe, expect, it } from 'vitest'
@@ -24,7 +24,7 @@ import { afterEach, beforeEach, describe, expect, it } from 'vitest'
 describe('Session Lifecycle Integration Tests', () => {
   let sessionStorage: InMemorySessionStorage
   let deviceIdService: InMemoryDeviceIdService
-  let uniswapIdentifierService: InMemoryUniswapIdentifierService
+  let luxIdentifierService: InMemoryLuxIdentifierService
   let sessionService: SessionService
   let mockEndpoints: MockEndpoints
 
@@ -32,42 +32,42 @@ describe('Session Lifecycle Integration Tests', () => {
     // Initialize in-memory storage
     sessionStorage = new InMemorySessionStorage()
     deviceIdService = new InMemoryDeviceIdService()
-    uniswapIdentifierService = new InMemoryUniswapIdentifierService()
+    luxIdentifierService = new InMemoryLuxIdentifierService()
 
     // Set up mock endpoints with default responses
     mockEndpoints = {
-      '/uniswap.platformservice.v1.SessionService/InitSession': async (): Promise<InitSessionResponse> => {
+      '/lux.platformservice.v1.SessionService/InitSession': async (): Promise<InitSessionResponse> => {
         return new InitSessionResponse({
           sessionId: 'test-session-123',
           needChallenge: false,
           extra: {},
         })
       },
-      '/uniswap.platformservice.v1.SessionService/Challenge': async (): Promise<ChallengeResponse> => {
+      '/lux.platformservice.v1.SessionService/Challenge': async (): Promise<ChallengeResponse> => {
         return new ChallengeResponse({
           challengeId: 'challenge-123',
           challengeType: ChallengeType.TURNSTILE,
           extra: { sitekey: 'test-key' },
         })
       },
-      '/uniswap.platformservice.v1.SessionService/Verify': async (): Promise<VerifyResponse> => {
+      '/lux.platformservice.v1.SessionService/Verify': async (): Promise<VerifyResponse> => {
         return new VerifyResponse({
           retry: false,
         })
       },
-      '/uniswap.platformservice.v1.SessionService/DeleteSession': async (): Promise<DeleteSessionResponse> => {
+      '/lux.platformservice.v1.SessionService/DeleteSession': async (): Promise<DeleteSessionResponse> => {
         return new DeleteSessionResponse({})
       },
-      '/uniswap.platformservice.v1.SessionService/IntrospectSession': async (): Promise<IntrospectSessionResponse> => {
+      '/lux.platformservice.v1.SessionService/IntrospectSession': async (): Promise<IntrospectSessionResponse> => {
         return new IntrospectSessionResponse({})
       },
-      '/uniswap.platformservice.v1.SessionService/UpdateSession': async (): Promise<UpdateSessionResponse> => {
+      '/lux.platformservice.v1.SessionService/UpdateSession': async (): Promise<UpdateSessionResponse> => {
         return new UpdateSessionResponse({})
       },
-      '/uniswap.platformservice.v1.SessionService/GetChallengeTypes': async (): Promise<GetChallengeTypesResponse> => {
+      '/lux.platformservice.v1.SessionService/GetChallengeTypes': async (): Promise<GetChallengeTypesResponse> => {
         return new GetChallengeTypesResponse({ challengeTypes: [] })
       },
-      '/uniswap.platformservice.v1.SessionService/Signout': async (): Promise<SignoutResponse> => {
+      '/lux.platformservice.v1.SessionService/Signout': async (): Promise<SignoutResponse> => {
         return new SignoutResponse({})
       },
     }
@@ -84,7 +84,7 @@ describe('Session Lifecycle Integration Tests', () => {
     sessionService = createSessionService({
       sessionStorage,
       deviceIdService,
-      uniswapIdentifierService,
+      luxIdentifierService,
       sessionRepository,
     })
   })
@@ -111,7 +111,7 @@ describe('Session Lifecycle Integration Tests', () => {
 
   it('handles session initialization without challenge requirement', async () => {
     // Override default to return needChallenge: false
-    mockEndpoints['/uniswap.platformservice.v1.SessionService/InitSession'] =
+    mockEndpoints['/lux.platformservice.v1.SessionService/InitSession'] =
       async (): Promise<InitSessionResponse> => {
         return new InitSessionResponse({
           sessionId: 'simple-session-123',
@@ -151,7 +151,7 @@ describe('Session Lifecycle Integration Tests', () => {
   })
 
   it('stores session ID when provided (mobile/extension behavior)', async () => {
-    mockEndpoints['/uniswap.platformservice.v1.SessionService/InitSession'] =
+    mockEndpoints['/lux.platformservice.v1.SessionService/InitSession'] =
       async (): Promise<InitSessionResponse> => {
         return new InitSessionResponse({
           sessionId: 'mobile-session-123',
@@ -170,7 +170,7 @@ describe('Session Lifecycle Integration Tests', () => {
   })
 
   it('handles web sessions without storing session ID when undefined', async () => {
-    mockEndpoints['/uniswap.platformservice.v1.SessionService/InitSession'] =
+    mockEndpoints['/lux.platformservice.v1.SessionService/InitSession'] =
       async (): Promise<InitSessionResponse> => {
         return new InitSessionResponse({
           sessionId: undefined,
@@ -216,7 +216,7 @@ describe('Session Lifecycle Integration Tests', () => {
     expect(firstSession?.sessionId).toBe('test-session-123')
 
     // Update mock to return different session
-    mockEndpoints['/uniswap.platformservice.v1.SessionService/InitSession'] =
+    mockEndpoints['/lux.platformservice.v1.SessionService/InitSession'] =
       async (): Promise<InitSessionResponse> => {
         return new InitSessionResponse({
           sessionId: 'new-session-789',
@@ -233,7 +233,7 @@ describe('Session Lifecycle Integration Tests', () => {
   })
 
   it('sets and retrieves device ID through init response', async () => {
-    mockEndpoints['/uniswap.platformservice.v1.SessionService/InitSession'] =
+    mockEndpoints['/lux.platformservice.v1.SessionService/InitSession'] =
       async (): Promise<InitSessionResponse> => {
         return new InitSessionResponse({
           sessionId: 'device-test-session',

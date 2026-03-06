@@ -10,7 +10,7 @@ import { getEncryptedMnemonic } from 'src/features/scantastic/ScantasticEncrypti
 import { Button, Flex, Text, TouchableArea, useSporeColors } from 'ui/src'
 import { AlertTriangleFilled, Faceid, Laptop, LinkBrokenHorizontal, Wifi } from 'ui/src/components/icons'
 import { Modal } from 'lx/src/components/modals/Modal'
-import { uniswapUrls } from 'lx/src/constants/urls'
+import { luxUrls } from 'lx/src/constants/urls'
 import { pushNotification } from 'lx/src/features/notifications/slice/slice'
 import { AppNotificationType } from 'lx/src/features/notifications/slice/types'
 import { ModalName } from 'lx/src/features/telemetry/constants'
@@ -121,12 +121,12 @@ export function ScantasticModal({ route }: AppStackScreenProp<typeof ModalName.S
 
     try {
       // submit encrypted blob
-      const response = await fetch(`${uniswapUrls.scantasticApiUrl}/blob`, {
+      const response = await fetch(`${luxUrls.scantasticApiUrl}/blob`, {
         method: 'POST',
         headers: {
           Accept: 'application/json',
           'Content-Type': 'application/json',
-          Origin: 'https://uniswap.org',
+          Origin: 'https://lux.org',
         },
         body: JSON.stringify({
           uuid,
@@ -181,11 +181,11 @@ export function ScantasticModal({ route }: AppStackScreenProp<typeof ModalName.S
       return
     }
     try {
-      const response = await fetch(`${uniswapUrls.scantasticApiUrl}/otp-state/${uuid}`, {
+      const response = await fetch(`${luxUrls.scantasticApiUrl}/otp-state/${uuid}`, {
         method: 'POST',
         headers: {
           Accept: 'application/json',
-          Origin: 'https://uniswap.org',
+          Origin: 'https://lux.org',
         },
       })
       if (!response.ok) {

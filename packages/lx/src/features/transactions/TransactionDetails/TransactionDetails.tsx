@@ -1,4 +1,4 @@
-import type { Currency, CurrencyAmount } from '@uniswap/sdk-core'
+import type { Currency, CurrencyAmount } from '@lux/sdk-core'
 import type { GasFeeResult } from '@universe/api'
 import { TradingApi } from '@universe/api'
 import type { PropsWithChildren, ReactNode } from 'react'
@@ -14,7 +14,7 @@ import { TransactionSettingsModal } from 'lx/src/features/transactions/component
 import { EstimatedSwapTime } from 'lx/src/features/transactions/swap/components/EstimatedBridgeTime'
 import { SlippageUpdate } from 'lx/src/features/transactions/swap/components/SwapFormSettings/settingsConfigurations/slippageUpdate/SlippageUpdate'
 import { usePriceUXEnabled } from 'lx/src/features/transactions/swap/hooks/usePriceUXEnabled'
-import type { UniswapXGasBreakdown } from 'lx/src/features/transactions/swap/types/swapTxAndGasInfo'
+import type { DEXGasBreakdown } from 'lx/src/features/transactions/swap/types/swapTxAndGasInfo'
 import type { SwapFee as SwapFeeType } from 'lx/src/features/transactions/swap/types/trade'
 import { isBridge, isChained } from 'lx/src/features/transactions/swap/utils/routing'
 import { ExpectedFailureBanner } from 'lx/src/features/transactions/TransactionDetails/ExpectedFailureBanner'
@@ -37,7 +37,7 @@ interface TransactionDetailsProps {
   gasFee: GasFeeResult
   swapFee?: SwapFeeType
   swapFeeUsd?: number
-  uniswapXGasBreakdown?: UniswapXGasBreakdown
+  dexGasBreakdown?: DEXGasBreakdown
   showExpandedChildren?: boolean
   showGasFeeError?: boolean
   showNetworkLogo?: boolean
@@ -71,7 +71,7 @@ export function TransactionDetails({
   chainId,
   gasFee,
   outputCurrency,
-  uniswapXGasBreakdown,
+  dexGasBreakdown,
   swapFee,
   swapFeeUsd,
   showGasFeeError = true,
@@ -155,7 +155,7 @@ export function TransactionDetails({
             gasFee={gasFee}
             indicative={indicative}
             transactionUSDValue={transactionUSDValue}
-            uniswapXGasBreakdown={uniswapXGasBreakdown}
+            dexGasBreakdown={dexGasBreakdown}
             includesDelegation={includesDelegation}
             showNetworkLogo={showNetworkLogo}
           />

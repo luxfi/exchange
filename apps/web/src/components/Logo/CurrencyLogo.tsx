@@ -1,4 +1,4 @@
-import { Currency } from '@uniswap/sdk-core'
+import { Currency } from '@lux/sdk-core'
 import { CurrencyLogo as UniverseCurrencyLogo } from 'lx/src/components/CurrencyLogo/CurrencyLogo'
 import { useCurrencyInfo } from 'lx/src/features/tokens/useCurrencyInfo'
 import { buildCurrencyId, currencyAddress } from 'lx/src/utils/currencyId'

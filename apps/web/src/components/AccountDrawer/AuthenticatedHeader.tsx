@@ -1,10 +1,10 @@
 import { NetworkStatus } from '@apollo/client'
-import { CurrencyAmount, Token } from '@uniswap/sdk-core'
+import { CurrencyAmount, Token } from '@lux/sdk-core'
 import { FeatureFlags, useFeatureFlag } from '@universe/gating'
 import { useCallback, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Button, Flex, IconButton, Image, useSporeColors } from 'ui/src'
-import { UNISWAP_LOGO } from 'ui/src/assets'
+import { LUX_LOGO } from 'ui/src/assets'
 import { Shine } from 'ui/src/loading/Shine'
 import { iconSizes } from 'ui/src/theme'
 import AnimatedNumber, {
@@ -36,9 +36,9 @@ import { LimitedSupportBanner } from '~/components/Banner/LimitedSupportBanner'
 import DelegationMismatchModal from '~/components/delegation/DelegationMismatchModal'
 import { Settings } from '~/components/Icons/Settings'
 import StatusIcon from '~/components/StatusIcon'
-import { ExtensionRequestMethods, useUniswapExtensionRequest } from '~/components/WalletModal/useWagmiConnectorWithId'
+import { ExtensionRequestMethods, useLuxExtensionRequest } from '~/components/WalletModal/useWagmiConnectorWithId'
 import { useAccountsStore } from '~/features/accounts/store/hooks'
-import { useIsUniswapExtensionConnected } from '~/hooks/useIsUniswapExtensionConnected'
+import { useIsLuxExtensionConnected } from '~/hooks/useIsLuxExtensionConnected'
 import { useModalState } from '~/hooks/useModalState'
 import { useIsPortfolioZero } from '~/pages/Portfolio/Overview/hooks/useIsPortfolioZero'
 import { useUserHasAvailableClaim, useUserUnclaimedAmount } from '~/state/claim/hooks'
@@ -61,9 +61,9 @@ export default function AuthenticatedHeader({
     return Boolean(evmWalletId && svmWalletId && evmWalletId !== svmWalletId)
   }) // if different wallets are connected, do not show mini wallet icon
 
-  const isUniswapExtensionConnected = useIsUniswapExtensionConnected()
-  const uniswapExtensionRequest = useUniswapExtensionRequest()
-  const shouldShowExtensionButton = isUniswapExtensionConnected && !isSolanaConnected
+  const isLuxExtensionConnected = useIsLuxExtensionConnected()
+  const luxExtensionRequest = useLuxExtensionRequest()
+  const shouldShowExtensionButton = isLuxExtensionConnected && !isSolanaConnected
   const isRightToLeft = i18next.dir() === 'rtl'
 
   const unclaimedAmount: CurrencyAmount<Token> | undefined = useUserUnclaimedAmount(evmAddress)
@@ -100,9 +100,9 @@ export default function AuthenticatedHeader({
     (currency === FiatCurrency.UnitedStatesDollar || currency === FiatCurrency.Euro) && currencyComponents.symbolAtFront
 
   const handleOpenExtensionSidebar = useCallback(() => {
-    uniswapExtensionRequest?.(ExtensionRequestMethods.OPEN_SIDEBAR, 'Tokens')
+    luxExtensionRequest?.(ExtensionRequestMethods.OPEN_SIDEBAR, 'Tokens')
     accountDrawer.close()
-  }, [uniswapExtensionRequest, accountDrawer])
+  }, [luxExtensionRequest, accountDrawer])
 
   return (
     <>
@@ -120,7 +120,7 @@ export default function AuthenticatedHeader({
                 <IconButton
                   size="small"
                   emphasis="text-only"
-                  icon={<Image height={iconSizes.icon24} source={UNISWAP_LOGO} width={iconSizes.icon24} />}
+                  icon={<Image height={iconSizes.icon24} source={LUX_LOGO} width={iconSizes.icon24} />}
                   borderRadius="$rounded32"
                   hoverStyle={{
                     backgroundColor: '$surface2',

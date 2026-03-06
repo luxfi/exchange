@@ -142,7 +142,7 @@ export async function metaTagInjectionMiddleware(c: Context, next: Next): Promis
     } else {
       const imageUri = requestURL.origin + '/images/1200x630_Rich_Link_Preview_Image.png'
       data = {
-        title: 'Uniswap Interface',
+        title: 'Lux Interface',
         image: imageUri,
         url: c.req.url,
         description:

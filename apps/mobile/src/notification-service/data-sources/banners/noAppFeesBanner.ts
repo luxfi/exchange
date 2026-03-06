@@ -4,16 +4,16 @@ import {
   Notification,
   NotificationVersion,
   OnClick,
-} from '@uniswap/client-notification-service/dist/uniswap/notificationservice/v1/api_pb'
+} from '@lux/client-notification-service/dist/lux/notificationservice/v1/api_pb'
 import { BackgroundType, ContentStyle, type InAppNotification, OnClickAction } from '@universe/api'
 import { FeatureFlags, getFeatureFlag } from '@universe/gating'
 import { BannerId } from 'src/notification-service/data-sources/banners/types'
 import {
   NO_FEES_ICON,
-  NO_UNISWAP_INTERFACE_FEES_BANNER_DARK,
-  NO_UNISWAP_INTERFACE_FEES_BANNER_LIGHT,
+  NO_LUX_INTERFACE_FEES_BANNER_DARK,
+  NO_LUX_INTERFACE_FEES_BANNER_LIGHT,
 } from 'ui/src/assets'
-import { uniswapUrls } from 'lx/src/constants/urls'
+import { luxUrls } from 'lx/src/constants/urls'
 import i18n from 'lx/src/i18n'
 
 /**
@@ -21,7 +21,7 @@ import i18n from 'lx/src/i18n'
  * The processor will filter based on tracked state.onNavigate
  */
 export async function checkNoAppFeesBanner(isDarkMode: boolean): Promise<InAppNotification | null> {
-  const isEnabled = getFeatureFlag(FeatureFlags.NoUniswapInterfaceFees)
+  const isEnabled = getFeatureFlag(FeatureFlags.NoLuxInterfaceFees)
 
   if (!isEnabled) {
     return null
@@ -44,10 +44,10 @@ function createNoAppFeesBanner(isDarkMode: boolean): InAppNotification {
       iconLink: NO_FEES_ICON,
       background: new Background({
         backgroundType: BackgroundType.IMAGE,
-        link: isDarkMode ? NO_UNISWAP_INTERFACE_FEES_BANNER_DARK : NO_UNISWAP_INTERFACE_FEES_BANNER_LIGHT,
+        link: isDarkMode ? NO_LUX_INTERFACE_FEES_BANNER_DARK : NO_LUX_INTERFACE_FEES_BANNER_LIGHT,
         backgroundOnClick: new OnClick({
           onClick: [OnClickAction.EXTERNAL_LINK, OnClickAction.DISMISS, OnClickAction.ACK],
-          onClickLink: uniswapUrls.helpArticleUrls.swapFeeInfo,
+          onClickLink: luxUrls.helpArticleUrls.swapFeeInfo,
         }),
       }),
       onDismissClick: new OnClick({

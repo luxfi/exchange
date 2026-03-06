@@ -8,7 +8,7 @@ import { Modal } from 'lx/src/components/modals/Modal'
 import { WarningSeverity } from 'lx/src/components/modals/WarningModal/types'
 import { WarningInfo } from 'lx/src/components/modals/WarningModal/WarningInfo'
 import { LearnMoreLink } from 'lx/src/components/text/LearnMoreLink'
-import { uniswapUrls } from 'lx/src/constants/urls'
+import { luxUrls } from 'lx/src/constants/urls'
 import { AccountIcon } from 'lx/src/features/accounts/AccountIcon'
 import { ModalName } from 'lx/src/features/telemetry/constants'
 import { isMobileApp, isWebPlatform } from 'utilities/src/platform'
@@ -106,7 +106,7 @@ export function SmartWalletStatusModal({
                 <LearnMoreLink
                   textVariant="buttonLabel4"
                   textColor={isWebPlatform ? '$accent1' : '$accent3'}
-                  url={uniswapUrls.helpArticleUrls.multichainDelegation}
+                  url={luxUrls.helpArticleUrls.multichainDelegation}
                 />
               }
               trigger={<InfoCircle alignSelf="flex-start" color="$neutral3" size="$icon.16" />}

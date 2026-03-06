@@ -1,6 +1,6 @@
 /**
  * Token list version utilities
- * Replaces @uniswap/token-lists functions
+ * Replaces @lux/token-lists functions
  */
 
 export interface Version {

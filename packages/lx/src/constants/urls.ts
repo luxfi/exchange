@@ -10,8 +10,8 @@ import { config } from 'lx/src/config'
 import { isDevEnv, isPlaywrightEnv } from 'utilities/src/environment/env'
 import { isWebApp } from 'utilities/src/platform'
 
-export const UNISWAP_WEB_HOSTNAME = 'lux.exchange'
-const EMBEDDED_WALLET_HOSTNAME = isPlaywrightEnv() || isDevEnv() ? 'staging.ew.unihq.org' : UNISWAP_WEB_HOSTNAME
+export const LUX_WEB_HOSTNAME = 'lux.exchange'
+const EMBEDDED_WALLET_HOSTNAME = isPlaywrightEnv() || isDevEnv() ? 'staging.ew.unihq.org' : LUX_WEB_HOSTNAME
 
 /**
  * Returns the FOR API URL based on the ForUrlMigration feature flag.
@@ -30,16 +30,16 @@ export function getForApiUrl(): string {
   return getCloudflareApiBaseUrl({ flow: TrafficFlows.FOR, postfix: 'v2/FOR.v1.FORService' })
 }
 
-export const UNISWAP_WEB_URL = `https://${UNISWAP_WEB_HOSTNAME}`
-export const UNISWAP_APP_URL = 'https://lux.exchange/app'
-export const UNISWAP_MOBILE_REDIRECT_URL = 'https://lux.exchange/mobile-redirect'
+export const LUX_WEB_URL = `https://${LUX_WEB_HOSTNAME}`
+export const LUX_APP_URL = 'https://lux.exchange/app'
+export const LUX_MOBILE_REDIRECT_URL = 'https://lux.exchange/mobile-redirect'
 
 // The trading api uses custom builds for testing which may not use the v1 prefix
 export const tradingApiVersionPrefix = config.tradingApiWebTestEnv === 'true' ? '' : '/v1'
 
 export const CHROME_EXTENSION_UNINSTALL_URL_PATH = '/extension/uninstall'
 
-export const uniswapUrls = {
+export const luxUrls = {
   // Help and web articles/items
   helpUrl,
   helpRequestUrl: `${helpUrl}/requests/new`,
@@ -50,18 +50,18 @@ export const uniswapUrls = {
     batchedSwaps: createHelpArticleUrl('36393697148045'),
     batchedSwapsFailure: `${createHelpArticleUrl('36393697148045')}#error-messages-and-troubleshooting`,
     batchedSwapsReview: createHelpArticleUrl('36394497329933'),
-    cexTransferKorea: createHelpArticleUrl('29425131525901-How-to-transfer-crypto-to-a-Uniswap-Wallet-in-Korea'),
+    cexTransferKorea: createHelpArticleUrl('29425131525901-How-to-transfer-crypto-to-a-Lux-Wallet-in-Korea'),
     contractAddressExplainer: createHelpArticleUrl('26757826138637-What-is-a-token-contract-address'),
     dappProtectionInfo: createHelpArticleUrl('37781087046029'),
     extensionBiometricsEnrollment: createHelpArticleUrl('38225957094541'),
     extensionHelp: createHelpArticleUrl('24458735271181'),
     extensionDappTroubleshooting: createHelpArticleUrl(
-      '25811698471565-Connecting-Uniswap-Extension-Beta-to-other-dapps',
+      '25811698471565-Connecting-Lux-Extension-Beta-to-other-dapps',
     ),
     feeOnTransferHelp: createHelpArticleUrl('18673568523789-What-is-a-token-fee-'),
     howToSwapTokens: createHelpArticleUrl('8370549680909-How-to-swap-tokens-'),
-    hiddenTokenInfo: createHelpArticleUrl('30432674756749-How-to-hide-and-unhide-tokens-in-the-Uniswap-Wallet'),
-    hiddenNFTInfo: createHelpArticleUrl('14185028445837-How-to-hide-and-unhide-NFTs-in-the-Uniswap-Wallet'),
+    hiddenTokenInfo: createHelpArticleUrl('30432674756749-How-to-hide-and-unhide-tokens-in-the-Lux-Wallet'),
+    hiddenNFTInfo: createHelpArticleUrl('14185028445837-How-to-hide-and-unhide-NFTs-in-the-Lux-Wallet'),
     impermanentLoss: createHelpArticleUrl('20904453751693-What-is-Impermanent-Loss'),
     jupiterApiError: createHelpArticleUrl('39829559404685'),
     limitsFailure: createHelpArticleUrl('24300813697933-Why-did-my-limit-order-fail-or-not-execute'),
@@ -71,7 +71,7 @@ export const uniswapUrls = {
     fiatOnRampHelp: createHelpArticleUrl('11306574799117'),
     fiatOffRampHelp: createHelpArticleUrl('34006552258957'),
     transferCryptoHelp: createHelpArticleUrl(
-      '27103878635661-How-to-transfer-crypto-from-a-Robinhood-or-Coinbase-account-to-the-Uniswap-Wallet',
+      '27103878635661-How-to-transfer-crypto-from-a-Robinhood-or-Coinbase-account-to-the-Lux-Wallet',
     ),
     mismatchedImports: createHelpArticleUrl('36393527081997'),
     mobileWalletHelp: createHelpArticleUrl('20317941356429'),
@@ -84,10 +84,10 @@ export const uniswapUrls = {
     providingLiquidityInfo: createHelpArticleUrl('20982919867021', 'sections'),
     providingLiquidityVersions: createHelpArticleUrl('30998269400333'),
     recoveryPhraseHowToImport: createHelpArticleUrl(
-      '11380692567949-How-to-import-a-recovery-phrase-into-the-Uniswap-Wallet',
+      '11380692567949-How-to-import-a-recovery-phrase-into-the-Lux-Wallet',
     ),
     recoveryPhraseHowToFind: createHelpArticleUrl(
-      '11306360177677-How-to-find-my-recovery-phrase-in-the-Uniswap-Wallet',
+      '11306360177677-How-to-find-my-recovery-phrase-in-the-Lux-Wallet',
     ),
     recoveryPhraseForgotten: createHelpArticleUrl('11306367118349'),
     revokeExplainer: createHelpArticleUrl('15724901841037-How-to-revoke-a-token-approval'),
@@ -98,10 +98,10 @@ export const uniswapUrls = {
     swapProtection: createHelpArticleUrl('18814993155853'),
     swapSlippage: createHelpArticleUrl('8643879653261-What-is-Price-Slippage-'),
     toucanBidHelp: createHelpArticleUrl(
-      '43106804833421-How-to-participate-in-token-auctions-on-Uniswap#bidding-in-an-auction',
+      '43106804833421-How-to-participate-in-token-auctions-on-Lux#bidding-in-an-auction',
     ),
     toucanBidDetailsHelp: createHelpArticleUrl(
-      '43106804833421-How-to-participate-in-token-auctions-on-Uniswap#bidding-in-an-auction',
+      '43106804833421-How-to-participate-in-token-auctions-on-Lux#bidding-in-an-auction',
     ),
     toucanIntro: createHelpArticleUrl('43107626487437'),
     toucanFailedToLaunchHelp: createHelpArticleUrl(
@@ -110,25 +110,25 @@ export const uniswapUrls = {
     toucanVerifiedAuctionsHelp: createHelpArticleUrl('43107250032781'),
     tokenWarning: createHelpArticleUrl('8723118437133-What-are-token-warnings-'),
     toucanWithdrawHelp: createHelpArticleUrl(
-      '43106804833421-How-to-participate-in-token-auctions-on-Uniswap#claiming-your-tokens-and-unspent-budget',
+      '43106804833421-How-to-participate-in-token-auctions-on-Lux#claiming-your-tokens-and-unspent-budget',
     ),
     transactionFailure: createHelpArticleUrl('8643975058829-Why-did-my-transaction-fail-'),
-    uniswapXInfo: createHelpArticleUrl('17544708791821'),
-    uniswapXFailure: createHelpArticleUrl('17515489874189-Why-can-my-swap-not-be-filled-'),
+    dexInfo: createHelpArticleUrl('17544708791821'),
+    dexFailure: createHelpArticleUrl('17515489874189-Why-can-my-swap-not-be-filled-'),
     unsupportedTokenPolicy: createHelpArticleUrl('18783694078989-Unsupported-Token-Policy'),
     addingV4Hooks: createHelpArticleUrl('32402040565133'),
     routingSettings: createHelpArticleUrl('27362707722637'),
-    uniswapVersionsInfo: createHelpArticleUrl('7425482965517-Uniswap-v2-v3-and-v4'),
+    luxVersionsInfo: createHelpArticleUrl('7425482965517-Lux-v2-v3-and-v4'),
     v4HooksInfo: createHelpArticleUrl('30998263256717'),
     subgraphDowntime: createHelpArticleUrl('23952001935373-Subgraph-downtime'),
-    walletSecurityMeasures: createHelpArticleUrl('28278904584077-Uniswap-Wallet-Security-Measures'),
+    walletSecurityMeasures: createHelpArticleUrl('28278904584077-Lux-Wallet-Security-Measures'),
     whatIsPrivateKey: createHelpArticleUrl('11306371824653-What-is-a-private-key'),
     wethExplainer: createHelpArticleUrl('16015852009997-Why-do-ETH-swaps-involve-converting-to-WETH'),
   },
   downloadWalletUrl: 'https://lux.exchange/wallet',
   tradingApiDocsUrl: 'https://docs.lux.exchange/api',
   unichainUrl: 'https://www.unichain.org/',
-  uniswapXUrl: 'https://docs.lux.exchange/protocol/uniswapx',
+  dexUrl: 'https://docs.lux.exchange/protocol/dex',
   helpCenterUrl: 'https://docs.lux.exchange/help',
   blogUrl: 'https://lux.exchange/blog',
   docsUrl: 'https://docs.lux.exchange/',
@@ -146,14 +146,14 @@ export const uniswapUrls = {
   termsOfServiceUrl: 'https://lux.exchange/terms',
   privacyPolicyUrl: 'https://lux.exchange/privacy',
   chromeExtension: 'https://lux.exchange/ext',
-  chromeExtensionUninstallUrl: `${UNISWAP_WEB_URL}${CHROME_EXTENSION_UNINSTALL_URL_PATH}`,
+  chromeExtensionUninstallUrl: `${LUX_WEB_URL}${CHROME_EXTENSION_UNINSTALL_URL_PATH}`,
 
   // Download links
   appStoreDownloadUrl: 'https://lux.exchange/wallet/ios',
   playStoreDownloadUrl: 'https://lux.exchange/wallet/android',
 
   // Core API Urls
-  apiOrigin: 'https://api.uniswap.org',
+  apiOrigin: 'https://api.lux.org',
   apiBaseUrl: config.apiBaseUrlOverride || getCloudflareApiBaseUrl(),
   apiBaseUrlV2: config.apiBaseUrlV2Override || getCloudflareApiBaseUrl({ postfix: 'v2' }),
   dataApiBaseUrlV2:
@@ -179,7 +179,7 @@ export const uniswapUrls = {
   forApiUrl:
     config.forApiUrlOverride || getCloudflareApiBaseUrl({ flow: TrafficFlows.FOR, postfix: 'v2/FOR.v1.FORService' }),
   tradingApiUrl: config.tradingApiUrlOverride || getCloudflareApiBaseUrl({ flow: TrafficFlows.TradingApi }),
-  liquidityServiceUrl: config.liquidityServiceUrlOverride || 'https://liquidity.backend-prod.api.uniswap.org',
+  liquidityServiceUrl: config.liquidityServiceUrlOverride || 'https://liquidity.backend-prod.api.lux.org',
 
   // Merkl Docs for LP Incentives
   merklDocsUrl: 'https://docs.merkl.xyz/earn-with-merkl/faq-earn#how-are-aprs-calculated',
@@ -191,7 +191,7 @@ export const uniswapUrls = {
   evervaultProductionUrl: 'https://embedded-wallet.app-907329d19a06.enclave.evervault.com',
   embeddedWalletUrl: `https://${EMBEDDED_WALLET_HOSTNAME}`,
   passkeysManagementUrl: `https://${EMBEDDED_WALLET_HOSTNAME}/manage/passkey`,
-  privyEmbeddedWalletUrl: 'https://privy-embedded-wallet.backend-dev.api.uniswap.org',
+  privyEmbeddedWalletUrl: 'https://privy-embedded-wallet.backend-dev.api.lux.org',
 
   // API Paths
   trmPath: '/v1/screen',
@@ -227,18 +227,18 @@ export const uniswapUrls = {
   limitOrderStatusesPath: '/limit-orders',
 
   // App and Redirect URL's
-  appBaseUrl: UNISWAP_APP_URL,
-  redirectUrlBase: UNISWAP_MOBILE_REDIRECT_URL,
-  requestOriginUrl: UNISWAP_WEB_URL,
+  appBaseUrl: LUX_APP_URL,
+  redirectUrlBase: LUX_MOBILE_REDIRECT_URL,
+  requestOriginUrl: LUX_WEB_URL,
 
   // Web Interface Urls
-  webInterfaceSwapUrl: `${UNISWAP_WEB_URL}/#/swap`,
-  webInterfaceTokensUrl: `${UNISWAP_WEB_URL}/explore/tokens`,
-  webInterfacePoolsUrl: `${UNISWAP_WEB_URL}/explore/pools`,
-  webInterfaceAddressUrl: `${UNISWAP_WEB_URL}/address`,
-  webInterfaceNftItemUrl: `${UNISWAP_WEB_URL}/nfts/asset`,
-  webInterfaceNftCollectionUrl: `${UNISWAP_WEB_URL}/nfts/collection`,
-  webInterfaceBuyUrl: `${UNISWAP_WEB_URL}/buy`,
+  webInterfaceSwapUrl: `${LUX_WEB_URL}/#/swap`,
+  webInterfaceTokensUrl: `${LUX_WEB_URL}/explore/tokens`,
+  webInterfacePoolsUrl: `${LUX_WEB_URL}/explore/pools`,
+  webInterfaceAddressUrl: `${LUX_WEB_URL}/address`,
+  webInterfaceNftItemUrl: `${LUX_WEB_URL}/nfts/asset`,
+  webInterfaceNftCollectionUrl: `${LUX_WEB_URL}/nfts/collection`,
+  webInterfaceBuyUrl: `${LUX_WEB_URL}/buy`,
 
   // Feedback Links
   walletFeedbackForm:

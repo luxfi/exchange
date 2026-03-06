@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query'
-import { ClaimLPRewardsRequest } from '@uniswap/client-liquidity/dist/uniswap/liquidity/v1/api_pb'
-import { Distributor } from '@uniswap/client-liquidity/dist/uniswap/liquidity/v1/types_pb'
-import { Token } from '@uniswap/sdk-core'
+import { ClaimLPRewardsRequest } from '@lux/client-liquidity/dist/lux/liquidity/v1/api_pb'
+import { Distributor } from '@lux/client-liquidity/dist/lux/liquidity/v1/types_pb'
+import { Token } from '@lux/sdk-core'
 import { useEffect, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useDispatch } from 'react-redux'
@@ -11,7 +11,7 @@ import { Dialog } from 'lx/src/components/dialog/Dialog'
 import { InlineWarningCard } from 'lx/src/components/InlineWarningCard/InlineWarningCard'
 import { WarningSeverity } from 'lx/src/components/modals/WarningModal/types'
 import { liquidityQueries } from 'lx/src/data/apiClients/liquidityService/liquidityQueries'
-import { ModalName, UniswapEventName } from 'lx/src/features/telemetry/constants'
+import { ModalName, LuxEventName } from 'lx/src/features/telemetry/constants'
 import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
 import { TransactionStep } from 'lx/src/features/transactions/steps/types'
 import { logger } from 'utilities/src/logger/logger'
@@ -73,7 +73,7 @@ export function LpIncentiveClaimModal({
 
   useEffect(() => {
     if (calldataError) {
-      sendAnalyticsEvent(UniswapEventName.LpIncentiveCollectRewardsErrorThrown, {
+      sendAnalyticsEvent(LuxEventName.LpIncentiveCollectRewardsErrorThrown, {
         error: calldataError.message,
       })
     }
@@ -85,7 +85,7 @@ export function LpIncentiveClaimModal({
     }
 
     if (!skipAnalytics) {
-      sendAnalyticsEvent(UniswapEventName.LpIncentiveCollectRewardsRetry)
+      sendAnalyticsEvent(LuxEventName.LpIncentiveCollectRewardsRetry)
     }
 
     setError(null)

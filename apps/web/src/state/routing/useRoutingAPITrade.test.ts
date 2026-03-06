@@ -1,6 +1,6 @@
 import { skipToken } from '@reduxjs/toolkit/query/react'
 import { renderHook } from '@testing-library/react'
-import { CurrencyAmount, TradeType } from '@uniswap/sdk-core'
+import { CurrencyAmount, TradeType } from '@lux/sdk-core'
 import ms from 'ms'
 import { USDC_MAINNET } from 'lx/src/constants/tokens'
 import { useIsMismatchAccountQuery } from 'lx/src/features/smartWallet/mismatch/hooks'
@@ -69,7 +69,7 @@ const MOCK_ARGS: GetQuoteArgs = {
   tokenOutSymbol: ETH_MAINNET.wrapped.symbol,
   routerPreference: RouterPreference.API,
   tradeType: TradeType.EXACT_INPUT,
-  uniswapXForceSyntheticQuotes: false,
+  dexForceSyntheticQuotes: false,
   sendPortionEnabled: true,
   protocolPreferences: undefined,
   routingType: URAQuoteType.DUTCH_V2,

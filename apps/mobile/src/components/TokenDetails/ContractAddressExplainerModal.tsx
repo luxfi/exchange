@@ -3,7 +3,7 @@ import { Text } from 'ui/src'
 import { WarningSeverity } from 'lx/src/components/modals/WarningModal/types'
 import { WarningModal } from 'lx/src/components/modals/WarningModal/WarningModal'
 import { LearnMoreLink } from 'lx/src/components/text/LearnMoreLink'
-import { uniswapUrls } from 'lx/src/constants/urls'
+import { luxUrls } from 'lx/src/constants/urls'
 import { ModalName } from 'lx/src/features/telemetry/constants'
 import { TestID } from 'lx/src/test/fixtures/testIDs'
 
@@ -33,7 +33,7 @@ export function ContractAddressExplainerModal({
             display="inline"
             textColor="$neutral1"
             textVariant="buttonLabel3"
-            url={uniswapUrls.helpArticleUrls.contractAddressExplainer}
+            url={luxUrls.helpArticleUrls.contractAddressExplainer}
           />
         </>
       }

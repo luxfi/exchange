@@ -4,7 +4,7 @@ import { UniverseChainId } from 'lx/src/features/chains/types'
 import {
   TransactionOptions,
   TransactionStatus,
-  UniswapXOrderDetails,
+  DEXOrderDetails,
 } from 'lx/src/features/transactions/types/transactionDetails'
 
 /**
@@ -17,7 +17,7 @@ export type Activity = {
   chainId: UniverseChainId
   outputChainId?: UniverseChainId
   status: TransactionStatus
-  offchainOrderDetails?: UniswapXOrderDetails
+  offchainOrderDetails?: DEXOrderDetails
   statusMessage?: string
   timestamp: number
   title: string

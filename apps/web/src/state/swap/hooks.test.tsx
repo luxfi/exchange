@@ -1,8 +1,8 @@
-import { UNI_ADDRESSES } from '@uniswap/sdk-core'
+import { UNI_ADDRESSES } from '@lux/sdk-core'
 import { parse } from 'qs'
 import { ReactNode } from 'react'
 import { DAI, nativeOnChain, UNI, USDC_OPTIMISM } from 'lx/src/constants/tokens'
-import { useUniswapContext } from 'lx/src/contexts/UniswapContext'
+import { useLuxContext } from 'lx/src/contexts/LuxContext'
 import { useUrlContext } from 'lx/src/contexts/UrlContext'
 import { AccountsStore } from 'lx/src/features/accounts/store/types/AccountsState'
 import { GQL_MAINNET_CHAINS, GQL_TESTNET_CHAINS } from 'lx/src/features/chains/chainInfo'
@@ -28,7 +28,7 @@ vi.mock('@universe/gating', async (importOriginal) => {
   }
 })
 
-vi.mock('lx/src/contexts/UniswapContext')
+vi.mock('lx/src/contexts/LuxContext')
 
 vi.mock('lx/src/features/chains/hooks/useEnabledChains', async () => {
   const actual = await vi.importActual('lx/src/features/chains/hooks/useEnabledChains')
@@ -311,7 +311,7 @@ describe('hooks', () => {
 
   describe('#useInitialCurrencyState', () => {
     beforeEach(() => {
-      return mocked(useUniswapContext).mockReturnValue({
+      return mocked(useLuxContext).mockReturnValue({
         swapInputChainId: undefined,
         navigateToSwapFlow: () => {},
         navigateToFiatOnRamp: () => {},

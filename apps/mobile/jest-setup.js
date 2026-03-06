@@ -4,11 +4,11 @@ import { setUpTests } from 'react-native-reanimated';
 // Other
 import 'core-js' // necessary so setImmediate works in tests
 import 'utilities/jest-package-mocks'
-import 'uniswap/jest-package-mocks'
+import 'lux/jest-package-mocks'
 import 'wallet/jest-package-mocks'
 import 'config/jest-presets/ui/ui-package-mocks'
 
-import 'uniswap/src/i18n' // Uses real translations for tests
+import 'lux/src/i18n' // Uses real translations for tests
 
 import mockRNCNetInfo from '@react-native-community/netinfo/jest/netinfo-mock.js'
 
@@ -17,7 +17,7 @@ setUpTests()
 // Silence the warning: Animated: `useNativeDriver` is not supported because the native animated module is missing
 jest.mock('react-native/Libraries/Animated/NativeAnimatedModule');
 
-jest.mock('@uniswap/client-explore/dist/uniswap/explore/v1/service-ExploreStatsService_connectquery', () => {})
+jest.mock('@lux/client-explore/dist/lux/explore/v1/service-ExploreStatsService_connectquery', () => {})
 
 jest.mock('@walletconnect/react-native-compat', () => ({}))
 

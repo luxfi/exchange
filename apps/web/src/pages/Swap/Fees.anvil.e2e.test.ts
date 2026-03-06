@@ -1,5 +1,5 @@
 import { USDC_MAINNET } from 'lx/src/constants/tokens'
-import { uniswapUrls } from 'lx/src/constants/urls'
+import { luxUrls } from 'lx/src/constants/urls'
 import { TestID } from 'lx/src/test/fixtures/testIDs'
 import { expect, getTest } from '~/playwright/fixtures'
 import { stubTradingApiEndpoint } from '~/playwright/fixtures/tradingApi'
@@ -18,15 +18,15 @@ test.describe(
   },
   () => {
     test('swaps ETH for USDC exact-in with swap fee', async ({ page, anvil }) => {
-      await stubTradingApiEndpoint({ page, endpoint: uniswapUrls.tradingApiPaths.swap })
-      await stubTradingApiEndpoint({ page, endpoint: uniswapUrls.tradingApiPaths.quote })
+      await stubTradingApiEndpoint({ page, endpoint: luxUrls.tradingApiPaths.swap })
+      await stubTradingApiEndpoint({ page, endpoint: luxUrls.tradingApiPaths.quote })
 
       await page.goto(`/swap?inputCurrency=ETH&outputCurrency=${USDC_MAINNET.address}`)
 
       // Set up swap
       await page.getByTestId(TestID.AmountInputOut).fill('1')
 
-      const response = await page.waitForResponse(`${uniswapUrls.tradingApiUrl}/v1/quote`)
+      const response = await page.waitForResponse(`${luxUrls.tradingApiUrl}/v1/quote`)
       const {
         quote: { portionBips, portionRecipient },
       } = await response.json()

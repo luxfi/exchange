@@ -1,4 +1,4 @@
-import { Currency, Percent, TradeType } from '@uniswap/sdk-core';
+import { Currency, Percent, TradeType } from '@lux/sdk-core';
 import { Trade } from './entities';
 /**
  * Options for producing the arguments to send call to the router.
@@ -31,11 +31,11 @@ export interface TradeOptionsDeadline extends Omit<TradeOptions, 'ttl'> {
     deadline: number;
 }
 /**
- * The parameters to use in the call to the Uniswap V2 Router to execute a trade.
+ * The parameters to use in the call to the Lux V2 Router to execute a trade.
  */
 export interface SwapParameters {
     /**
-     * The method to call on the Uniswap V2 Router.
+     * The method to call on the Lux V2 Router.
      */
     methodName: string;
     /**
@@ -48,7 +48,7 @@ export interface SwapParameters {
     value: string;
 }
 /**
- * Represents the Uniswap V2 Router, and has static methods for helping execute trades.
+ * Represents the Lux V2 Router, and has static methods for helping execute trades.
  */
 export declare abstract class Router {
     /**

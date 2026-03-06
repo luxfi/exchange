@@ -10,8 +10,8 @@ import {
 import { useAccountsStore } from '~/features/accounts/store/hooks'
 import type { ExternalConnector, ExternalWallet } from '~/features/accounts/store/types'
 import {
-  useUniswapEmbeddedConnectionService,
-  useUniswapMobileConnectionService,
+  useLuxEmbeddedConnectionService,
+  useLuxMobileConnectionService,
 } from '~/features/wallet/connection/connectors/custom'
 import { useSolanaConnectionService } from '~/features/wallet/connection/connectors/solana'
 import { getEVMConnectionService } from '~/features/wallet/connection/connectors/wagmi'
@@ -48,15 +48,15 @@ export function useGetConnectionService(): GetConnectionServiceFn {
     })
   }, [evmConnectionService, svmConnectionService, accountDrawer.close, onRejectSVMConnection])
 
-  const uniswapEmbeddedService = useUniswapEmbeddedConnectionService()
-  const uniswapMobileService = useUniswapMobileConnectionService()
+  const luxEmbeddedService = useLuxEmbeddedConnectionService()
+  const luxMobileService = useLuxMobileConnectionService()
 
   const overrides: Partial<Record<string, ConnectionService>> = useMemo(() => {
     return {
-      [CONNECTION_PROVIDER_IDS.EMBEDDED_WALLET_CONNECTOR_ID]: uniswapEmbeddedService,
-      [CONNECTION_PROVIDER_IDS.UNISWAP_WALLET_CONNECT_CONNECTOR_ID]: uniswapMobileService,
+      [CONNECTION_PROVIDER_IDS.EMBEDDED_WALLET_CONNECTOR_ID]: luxEmbeddedService,
+      [CONNECTION_PROVIDER_IDS.LUX_WALLET_CONNECT_CONNECTOR_ID]: luxMobileService,
     }
-  }, [uniswapEmbeddedService, uniswapMobileService])
+  }, [luxEmbeddedService, luxMobileService])
 
   return useEvent((params) => {
     // For wallets that have non-standard connection behavior

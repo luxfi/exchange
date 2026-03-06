@@ -3,7 +3,7 @@ import { CurrencyInputPanelProps } from 'lx/src/components/CurrencyInputPanel/ty
 import { usePrevious } from 'utilities/src/react/hooks'
 
 // CSS keyframes for pulse animation - injected once into the document
-const PULSE_KEYFRAMES_NAME = 'uniswap-refetch-pulse-animation'
+const PULSE_KEYFRAMES_NAME = 'lux-refetch-pulse-animation'
 
 function injectPulseKeyframes(): void {
   if (typeof document === 'undefined') {

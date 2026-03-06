@@ -1,6 +1,6 @@
 /* eslint-disable max-lines */
-import { Protocol } from '@uniswap/router-sdk'
-import { Currency, CurrencyAmount, TradeType } from '@uniswap/sdk-core'
+import { Protocol } from '@lux/router-sdk'
+import { Currency, CurrencyAmount, TradeType } from '@lux/sdk-core'
 import { GasEstimate, GraphQLApi, TradingApi } from '@universe/api'
 import { providers } from 'ethers/lib/ethers'
 import { AssetType } from 'lx/src/entities/assets'
@@ -50,8 +50,8 @@ export interface TransactionDetailsCore extends TransactionId {
    * Note:
    * - Classic: hash is mandatory for classic transactions. It may also become optional for classic
    * if we start tracking txs before they're actually sent
-   * - UniswapX: For UniswapX orders hash may be undefined for non-successful transactions,
-   * as the uniswapx backend does not provide hashes for cancelled, failed, or expired orders.
+   * - DEX: For DEX orders hash may be undefined for non-successful transactions,
+   * as the dex backend does not provide hashes for cancelled, failed, or expired orders.
    * - Plan: Hash is undefined for plan itself, but is defined for each step in the plan.
    */
   hash?: string
@@ -97,7 +97,7 @@ export type TransactionNetworkFee = {
 }
 
 // Transaction type extensions that can be combined with any base type
-export interface UniswapXOrderExtension {
+export interface DEXOrderExtension {
   routing:
     | TradingApi.Routing.DUTCH_V3
     | TradingApi.Routing.DUTCH_V2
@@ -105,17 +105,17 @@ export interface UniswapXOrderExtension {
     | TradingApi.Routing.PRIORITY
 
   // Note: `orderHash` is an off-chain value used to track orders before they're filled on-chain.
-  // UniswapX orders will also have a transaction `hash` if they become filled.
+  // DEX orders will also have a transaction `hash` if they become filled.
   // `orderHash` will be an undefined if the object is built from a filled order received from graphql. Once filled, it is not needed for any tracking.
   orderHash?: string
 
   // Used to track status of the order before it is submitted
   queueStatus?: QueuedOrderStatus
 
-  // Contains the serialized/encoded UniswapX order data that gets submitted to the UniswapX system for execution.
+  // Contains the serialized/encoded DEX order data that gets submitted to the DEX system for execution.
   encodedOrder?: string
 
-  // The Unix timestamp when the UniswapX order expires and can no longer be filled
+  // The Unix timestamp when the DEX order expires and can no longer be filled
   // TODO(CONS-344): Unify `expiry` field with wallet
   expiry?: number
 }
@@ -155,8 +155,8 @@ export interface WrapUnwrapTransactionExtension {
 }
 
 // Transaction types using intersection types for flexibility
-export type UniswapXOrderDetails<TBase extends TransactionDetailsCore = WalletBaseTransactionDetails> = TBase &
-  UniswapXOrderExtension
+export type DEXOrderDetails<TBase extends TransactionDetailsCore = WalletBaseTransactionDetails> = TBase &
+  DEXOrderExtension
 
 export type ClassicTransactionDetails<TBase extends TransactionDetailsCore = WalletBaseTransactionDetails> = TBase &
   ClassicTransactionExtension
@@ -187,7 +187,7 @@ export type OnChainTransactionDetails<TBase extends TransactionDetailsCore = Wal
   | WrapUnwrapTransactionDetails<TBase>
 
 export type TransactionDetails<TBase extends TransactionDetailsCore = WalletBaseTransactionDetails> =
-  | UniswapXOrderDetails<TBase>
+  | DEXOrderDetails<TBase>
   | OnChainTransactionDetails<TBase>
   | SolanaTransactionDetails<TBase>
   | PlanTransactionDetails<TransactionTypeInfo, TBase>
@@ -348,7 +348,7 @@ export enum TransactionType {
   LPIncentivesClaimRewards = 'lp-incentives-claim-rewards',
   ToucanBid = 'toucan-bid',
   ToucanWithdrawBidAndClaimTokens = 'toucan-withdraw-bid-and-claim-tokens',
-  UniswapXOrder = 'uniswapx-order',
+  DEXOrder = 'dex-order',
 
   AuctionBid = 'auction-bid',
   AuctionClaimed = 'auction-claimed',
@@ -436,7 +436,7 @@ export interface BaseSwapTransactionInfo extends BaseTransactionInfo, PlanSwapTr
   /**
    * @deprecated This is used on interface only and will be deleted soon as part of WALL-7143
    * */
-  isUniswapXOrder?: boolean
+  isDEXOrder?: boolean
 
   /** Timestamp when the swap flow started (from Redux timing.swap.startTimestamp) */
   swapStartTimestamp?: number
@@ -482,7 +482,7 @@ export interface WrapTransactionInfo extends BaseTransactionInfo {
   currencyAmountRaw: string
   dappInfo?: DappInfoTransactionDetails
   // The id of the swap TransactionDetails object submitted after this wrap on the current client, if applicable.
-  // Currently, this will only be set for wraps that are part of a UniswapX native-input swap.
+  // Currently, this will only be set for wraps that are part of a DEX native-input swap.
   swapTxId?: string
 }
 
@@ -827,5 +827,5 @@ export enum TransactionDetailsType {
   Transaction = 'TransactionDetails',
   OnRamp = 'OnRampTransactionDetails',
   OffRamp = 'OffRampTransactionDetails',
-  UniswapXOrder = 'SwapOrderDetails',
+  DEXOrder = 'SwapOrderDetails',
 }

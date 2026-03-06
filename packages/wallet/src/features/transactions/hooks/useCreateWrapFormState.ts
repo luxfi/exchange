@@ -1,4 +1,4 @@
-import { Currency } from '@uniswap/sdk-core'
+import { Currency } from '@lux/sdk-core'
 import { useMemo } from 'react'
 import { UniverseChainId } from 'lx/src/features/chains/types'
 import { useSelectTransaction } from 'lx/src/features/transactions/hooks/useSelectTransaction'

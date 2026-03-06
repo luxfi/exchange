@@ -1,8 +1,8 @@
 import * as wcUtils from '@walletconnect/utils'
 import { CUSTOM_UNI_QR_CODE_PREFIX, getSupportedURI, URIType } from 'src/components/Requests/ScanSheet/util'
 import {
-  UNISWAP_URL_SCHEME_WALLETCONNECT_AS_PARAM,
-  UNISWAP_WALLETCONNECT_URL,
+  LUX_URL_SCHEME_WALLETCONNECT_AS_PARAM,
+  LUX_WALLETCONNECT_URL,
 } from 'src/features/deepLinking/constants'
 import {
   wcAsParamInUniwapScheme,
@@ -55,38 +55,38 @@ describe('getSupportedURI', () => {
     expect(result).toEqual({ type: URIType.WalletConnectV2URL, value: VALID_WC_V2_URI })
   })
 
-  it('should return undefined for uniswap scheme v1 URI with wc URI as query param', async () => {
+  it('should return undefined for lux scheme v1 URI with wc URI as query param', async () => {
     const result = await getSupportedURI(wcAsParamInUniwapScheme + VALID_WC_V1_URI)
     expect(result).toBeUndefined()
   })
 
-  it('should return correct values for uniswap scheme v2 URI with wc URI as query param', async () => {
-    const result = await getSupportedURI('uniswap://wc?uri=' + VALID_WC_V2_URI)
+  it('should return correct values for lux scheme v2 URI with wc URI as query param', async () => {
+    const result = await getSupportedURI('lux://wc?uri=' + VALID_WC_V2_URI)
     expect(result).toEqual({ type: URIType.WalletConnectV2URL, value: VALID_WC_V2_URI })
   })
 
-  it('should return undefined for uniswap scheme v1 URI', async () => {
+  it('should return undefined for lux scheme v1 URI', async () => {
     const result = await getSupportedURI(wcInUniwapScheme + VALID_WC_V1_URI)
     expect(result).toBeUndefined()
   })
 
-  it('should return correct values for uniswap scheme v2 URI', async () => {
-    const result = await getSupportedURI('uniswap://' + VALID_WC_V2_URI)
+  it('should return correct values for lux scheme v2 URI', async () => {
+    const result = await getSupportedURI('lux://' + VALID_WC_V2_URI)
     expect(result).toEqual({ type: URIType.WalletConnectV2URL, value: VALID_WC_V2_URI })
   })
 
-  it('should return undefined for uniswap scheme deep link URI', async () => {
-    const result = await getSupportedURI('uniswap://widget/' + VALID_WC_V2_URI)
+  it('should return undefined for lux scheme deep link URI', async () => {
+    const result = await getSupportedURI('lux://widget/' + VALID_WC_V2_URI)
     expect(result).toBeUndefined()
   })
 
-  it('should return undefined for uniswap app URL v1 URI', async () => {
+  it('should return undefined for lux app URL v1 URI', async () => {
     const result = await getSupportedURI(wcUniversalLinkUrl + VALID_WC_V1_URI)
     expect(result).toBeUndefined()
   })
 
-  it('should return correct values for uniswap app URL v2 URI', async () => {
-    const result = await getSupportedURI('https://uniswap.org/app/wc?uri=' + VALID_WC_V2_URI)
+  it('should return correct values for lux app URL v2 URI', async () => {
+    const result = await getSupportedURI('https://lux.org/app/wc?uri=' + VALID_WC_V2_URI)
     expect(result).toEqual({ type: URIType.WalletConnectV2URL, value: VALID_WC_V2_URI })
   })
 
@@ -149,29 +149,29 @@ describe('getSupportedURI', () => {
       expect(result).toEqual({ type: URIType.WalletConnectV2URL, value: VALID_WC_V2_URI })
     })
 
-    it('should handle percent-encoded uniswap scheme URI with query param', async () => {
-      const fullUri = UNISWAP_URL_SCHEME_WALLETCONNECT_AS_PARAM + VALID_WC_V2_URI
+    it('should handle percent-encoded lux scheme URI with query param', async () => {
+      const fullUri = LUX_URL_SCHEME_WALLETCONNECT_AS_PARAM + VALID_WC_V2_URI
       const encodedUri = encodeURIComponent(fullUri)
       const result = await getSupportedURI(encodedUri)
       expect(result).toEqual({ type: URIType.WalletConnectV2URL, value: VALID_WC_V2_URI })
     })
 
-    it('should handle HTML entity-encoded uniswap scheme URI with query param', async () => {
-      const fullUri = UNISWAP_URL_SCHEME_WALLETCONNECT_AS_PARAM + VALID_WC_V2_URI
+    it('should handle HTML entity-encoded lux scheme URI with query param', async () => {
+      const fullUri = LUX_URL_SCHEME_WALLETCONNECT_AS_PARAM + VALID_WC_V2_URI
       const htmlEncodedUri = fullUri.replace(/&/g, '&amp;')
       const result = await getSupportedURI(htmlEncodedUri)
       expect(result).toEqual({ type: URIType.WalletConnectV2URL, value: VALID_WC_V2_URI })
     })
 
-    it('should handle percent-encoded uniswap app URL', async () => {
-      const fullUri = UNISWAP_WALLETCONNECT_URL + VALID_WC_V2_URI
+    it('should handle percent-encoded lux app URL', async () => {
+      const fullUri = LUX_WALLETCONNECT_URL + VALID_WC_V2_URI
       const encodedUri = encodeURIComponent(fullUri)
       const result = await getSupportedURI(encodedUri)
       expect(result).toEqual({ type: URIType.WalletConnectV2URL, value: VALID_WC_V2_URI })
     })
 
-    it('should handle HTML entity-encoded uniswap app URL', async () => {
-      const fullUri = UNISWAP_WALLETCONNECT_URL + VALID_WC_V2_URI
+    it('should handle HTML entity-encoded lux app URL', async () => {
+      const fullUri = LUX_WALLETCONNECT_URL + VALID_WC_V2_URI
       const htmlEncodedUri = fullUri.replace(/&/g, '&amp;')
       const result = await getSupportedURI(htmlEncodedUri)
       expect(result).toEqual({ type: URIType.WalletConnectV2URL, value: VALID_WC_V2_URI })
@@ -193,7 +193,7 @@ describe('getSupportedURI', () => {
 
     it('should handle malformed percent-encoded URI without crashing', async () => {
       // Malformed URI with invalid percent encoding (% not followed by valid hex)
-      const malformedUri = 'uniswap://wc?uri=%E0%A4%A'
+      const malformedUri = 'lux://wc?uri=%E0%A4%A'
       // Should not throw an error, even with malformed encoding
       await expect(getSupportedURI(malformedUri)).resolves.not.toThrow()
     })

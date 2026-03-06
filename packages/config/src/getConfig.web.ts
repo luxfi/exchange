@@ -57,9 +57,9 @@ export const getConfig = (): Config => {
     tradingApiWebTestEnv: process.env.REACT_APP_TRADING_API_TEST_ENV || '',
     liquidityServiceUrlOverride:
       process.env.REACT_APP_LIQUIDITY_SERVICE_URL_OVERRIDE || process.env.LIQUIDITY_SERVICE_URL_OVERRIDE || '',
-    uniswapApiKey: process.env.UNISWAP_API_KEY || '',
+    luxApiKey: process.env.LUX_API_KEY || '',
     unitagsApiUrlOverride: process.env.UNITAGS_API_URL_OVERRIDE || '',
-    uniswapNotifApiBaseUrlOverride: process.env.UNISWAP_NOTIF_API_BASE_URL_OVERRIDE || '',
+    luxNotifApiBaseUrlOverride: process.env.LUX_NOTIF_API_BASE_URL_OVERRIDE || '',
     entryGatewayApiUrlOverride: process.env.ENTRY_GATEWAY_API_URL_OVERRIDE || '',
     luxGatewayUrlOverride: process.env['REACT_APP_LUX_GATEWAY_URL'] || process.env['LUX_GATEWAY_URL'] || '',
     walletConnectProjectId:

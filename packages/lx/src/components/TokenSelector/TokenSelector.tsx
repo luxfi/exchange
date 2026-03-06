@@ -1,5 +1,5 @@
 import type { BottomSheetView } from '@gorhom/bottom-sheet'
-import { Currency } from '@uniswap/sdk-core'
+import { Currency } from '@lux/sdk-core'
 import { hasStringAsync } from 'expo-clipboard'
 import { ComponentProps, memo, useCallback, useEffect, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
@@ -20,7 +20,7 @@ import { TokenSelectorSwapList } from 'lx/src/components/TokenSelector/lists/Tok
 import { TokenSelectorFlow } from 'lx/src/components/TokenSelector/types'
 import { UnsupportedChainedActionsBanner } from 'lx/src/components/TokenSelector/UnsupportedChainedActionsBanner'
 import { flowToModalName } from 'lx/src/components/TokenSelector/utils'
-import { useUniswapContext } from 'lx/src/contexts/UniswapContext'
+import { useLuxContext } from 'lx/src/contexts/LuxContext'
 import { TradeableAsset } from 'lx/src/entities/assets'
 import type { AddressGroup } from 'lx/src/features/accounts/store/types/AccountsState'
 import { useEnabledChains } from 'lx/src/features/chains/hooks/useEnabledChains'
@@ -34,7 +34,7 @@ import {
   InterfaceEventName,
   ModalName,
   SectionName,
-  UniswapEventName,
+  LuxEventName,
 } from 'lx/src/features/telemetry/constants'
 import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
 import Trace from 'lx/src/features/telemetry/Trace'
@@ -112,7 +112,7 @@ export function TokenSelectorContent({
   const debouncedSearchFilter = useDebounce(searchFilter)
   const debouncedParsedSearchFilter = useDebounce(parsedSearchFilter)
   const scrollbarStyles = useScrollbarStyles()
-  const { navigateToBuyOrReceiveWithEmptyWallet } = useUniswapContext()
+  const { navigateToBuyOrReceiveWithEmptyWallet } = useLuxContext()
 
   const oppositeToken = currencyField === CurrencyField.INPUT ? output : input
 
@@ -164,7 +164,7 @@ export function TokenSelectorContent({
       // log event that a currency was selected
       const tokenOption = section.data[index]
       const balanceUSD = Array.isArray(tokenOption) ? undefined : (tokenOption?.balanceUSD ?? undefined)
-      sendAnalyticsEvent(UniswapEventName.TokenSelected, {
+      sendAnalyticsEvent(LuxEventName.TokenSelected, {
         name: currencyInfo.currency.name,
         address: currencyAddress(currencyInfo.currency),
         chain: currencyInfo.currency.chainId,

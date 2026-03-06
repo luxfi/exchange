@@ -25,10 +25,10 @@ export class WrongChainError extends Error {
   }
 }
 
-export class UniswapXv2HardQuoteError extends Error {
+export class DEXv2HardQuoteError extends Error {
   constructor() {
-    super(i18n.t('uniswapx.v2QuoteFailed'))
-    this.name = 'UniswapXv2HardQuoteError'
+    super(i18n.t('dex.v2QuoteFailed'))
+    this.name = 'DEXv2HardQuoteError'
   }
 }
 

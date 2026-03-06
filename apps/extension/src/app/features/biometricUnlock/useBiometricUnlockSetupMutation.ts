@@ -94,7 +94,7 @@ async function assertIsUserVerifyingPlatformAuthenticatorAvailable(): Promise<vo
   }
 }
 
-const CREDENTIAL_NAME = 'Uniswap Extension'
+const CREDENTIAL_NAME = 'Lux Extension'
 
 // These algorithms provide a good balance of security, performance, and compatibility across different platforms.
 // The order matters - the authenticator will typically choose the first algorithm it supports from this list.

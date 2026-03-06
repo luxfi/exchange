@@ -1,4 +1,4 @@
-import { V2_FACTORY_ADDRESSES, Percent, CurrencyAmount, sqrt, Token, Price, TradeType, Fraction, computePriceImpact, sortedInsert, validateAndParseAddress } from '@uniswap/sdk-core';
+import { V2_FACTORY_ADDRESSES, Percent, CurrencyAmount, sqrt, Token, Price, TradeType, Fraction, computePriceImpact, sortedInsert, validateAndParseAddress } from '@lux/sdk-core';
 import JSBI from 'jsbi';
 import { getCreate2Address } from '@ethersproject/address';
 import { BigNumber } from '@ethersproject/bignumber';
@@ -182,7 +182,7 @@ var Pair = /*#__PURE__*/function () {
   function Pair(currencyAmountA, tokenAmountB) {
     var tokenAmounts = currencyAmountA.currency.sortsBefore(tokenAmountB.currency) // does safety checks
     ? [currencyAmountA, tokenAmountB] : [tokenAmountB, currencyAmountA];
-    this.liquidityToken = new Token(tokenAmounts[0].currency.chainId, Pair.getAddress(tokenAmounts[0].currency, tokenAmounts[1].currency), 18, 'UNI-V2', 'Uniswap V2');
+    this.liquidityToken = new Token(tokenAmounts[0].currency.chainId, Pair.getAddress(tokenAmounts[0].currency, tokenAmounts[1].currency), 18, 'UNI-V2', 'Lux V2');
     this.tokenAmounts = tokenAmounts;
   }
   Pair.getAddress = function getAddress(tokenA, tokenB) {
@@ -222,7 +222,7 @@ var Pair = /*#__PURE__*/function () {
   }
   /**
    * getAmountOut is the linear algebra of reserve ratio against amountIn:amountOut.
-   * https://ethereum.stackexchange.com/questions/101629/what-is-math-for-uniswap-calculates-the-amountout-and-amountin-why-997-and-1000
+   * https://ethereum.stackexchange.com/questions/101629/what-is-math-for-lux-calculates-the-amountout-and-amountin-why-997-and-1000
    * has the math deduction for the reserve calculation without fee-on-transfer fees.
    *
    * With fee-on-transfer tax, intuitively it's just:
@@ -311,7 +311,7 @@ var Pair = /*#__PURE__*/function () {
   }
   /**
    * getAmountIn is the linear algebra of reserve ratio against amountIn:amountOut.
-   * https://ethereum.stackexchange.com/questions/101629/what-is-math-for-uniswap-calculates-the-amountout-and-amountin-why-997-and-1000
+   * https://ethereum.stackexchange.com/questions/101629/what-is-math-for-lux-calculates-the-amountout-and-amountin-why-997-and-1000
    * has the math deduction for the reserve calculation without fee-on-transfer fees.
    *
    * With fee-on-transfer fees, intuitively it's just:
@@ -799,7 +799,7 @@ function toHex(currencyAmount) {
 }
 var ZERO_HEX = '0x0';
 /**
- * Represents the Uniswap V2 Router, and has static methods for helping execute trades.
+ * Represents the Lux V2 Router, and has static methods for helping execute trades.
  */
 var Router = /*#__PURE__*/function () {
   /**

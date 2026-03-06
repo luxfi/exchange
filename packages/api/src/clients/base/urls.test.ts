@@ -91,63 +91,63 @@ describe('urls', () => {
       it.each([
         // Web
         {
-          expectedUrl: 'https://trading-api-labs.interface.gateway.uniswap.org',
+          expectedUrl: 'https://trading-api-labs.interface.gateway.lux.org',
           env: envConfigs.webProd,
         },
         {
-          expectedUrl: 'https://beta.trading-api-labs.interface.gateway.uniswap.org',
+          expectedUrl: 'https://beta.trading-api-labs.interface.gateway.lux.org',
           env: envConfigs.webDev,
         },
         {
-          expectedUrl: 'https://trading-api-labs.interface.gateway.uniswap.org',
+          expectedUrl: 'https://trading-api-labs.interface.gateway.lux.org',
           env: envConfigs.webBeta,
         },
         // Mobile iOS
         {
-          expectedUrl: 'https://trading-api-labs.ios.wallet.gateway.uniswap.org',
+          expectedUrl: 'https://trading-api-labs.ios.wallet.gateway.lux.org',
           env: envConfigs.mobileIosProd,
         },
         {
-          expectedUrl: 'https://beta.trading-api-labs.ios.wallet.gateway.uniswap.org',
+          expectedUrl: 'https://beta.trading-api-labs.ios.wallet.gateway.lux.org',
           env: envConfigs.mobileIosDev,
         },
         {
-          expectedUrl: 'https://trading-api-labs.ios.wallet.gateway.uniswap.org',
+          expectedUrl: 'https://trading-api-labs.ios.wallet.gateway.lux.org',
           env: envConfigs.mobileIosBeta,
         },
         // Mobile Android
         {
-          expectedUrl: 'https://trading-api-labs.android.wallet.gateway.uniswap.org',
+          expectedUrl: 'https://trading-api-labs.android.wallet.gateway.lux.org',
           env: envConfigs.mobileAndroidProd,
         },
         {
-          expectedUrl: 'https://beta.trading-api-labs.android.wallet.gateway.uniswap.org',
+          expectedUrl: 'https://beta.trading-api-labs.android.wallet.gateway.lux.org',
           env: envConfigs.mobileAndroidDev,
         },
         {
-          expectedUrl: 'https://trading-api-labs.android.wallet.gateway.uniswap.org',
+          expectedUrl: 'https://trading-api-labs.android.wallet.gateway.lux.org',
           env: envConfigs.mobileAndroidBeta,
         },
         // Extension
         {
-          expectedUrl: 'https://trading-api-labs.extension.gateway.uniswap.org',
+          expectedUrl: 'https://trading-api-labs.extension.gateway.lux.org',
           env: envConfigs.extensionProd,
         },
         {
-          expectedUrl: 'https://beta.trading-api-labs.extension.gateway.uniswap.org',
+          expectedUrl: 'https://beta.trading-api-labs.extension.gateway.lux.org',
           env: envConfigs.extensionDev,
         },
         {
-          expectedUrl: 'https://trading-api-labs.extension.gateway.uniswap.org',
+          expectedUrl: 'https://trading-api-labs.extension.gateway.lux.org',
           env: envConfigs.extensionBeta,
         },
         // Playwright
         {
-          expectedUrl: 'https://trading-api-labs.interface.gateway.uniswap.org',
+          expectedUrl: 'https://trading-api-labs.interface.gateway.lux.org',
           env: envConfigs.playwrightDev,
         },
         {
-          expectedUrl: 'https://trading-api-labs.interface.gateway.uniswap.org',
+          expectedUrl: 'https://trading-api-labs.interface.gateway.lux.org',
           env: envConfigs.playwrightProd,
         },
       ])('generates correct URL for $env', async ({ expectedUrl, env }) => {
@@ -160,24 +160,24 @@ describe('urls', () => {
     describe('DataApi', () => {
       it.each([
         // Web
-        { expectedUrl: 'https://beta.gateway.uniswap.org', env: envConfigs.webDev },
-        { expectedUrl: 'https://interface.gateway.uniswap.org', env: envConfigs.webBeta },
-        { expectedUrl: 'https://interface.gateway.uniswap.org', env: envConfigs.webProd },
+        { expectedUrl: 'https://beta.gateway.lux.org', env: envConfigs.webDev },
+        { expectedUrl: 'https://interface.gateway.lux.org', env: envConfigs.webBeta },
+        { expectedUrl: 'https://interface.gateway.lux.org', env: envConfigs.webProd },
         // Mobile iOS
-        { expectedUrl: 'https://beta.gateway.uniswap.org', env: envConfigs.mobileIosDev },
-        { expectedUrl: 'https://ios.wallet.gateway.uniswap.org', env: envConfigs.mobileIosBeta },
-        { expectedUrl: 'https://ios.wallet.gateway.uniswap.org', env: envConfigs.mobileIosProd },
+        { expectedUrl: 'https://beta.gateway.lux.org', env: envConfigs.mobileIosDev },
+        { expectedUrl: 'https://ios.wallet.gateway.lux.org', env: envConfigs.mobileIosBeta },
+        { expectedUrl: 'https://ios.wallet.gateway.lux.org', env: envConfigs.mobileIosProd },
         // Mobile Android
-        { expectedUrl: 'https://beta.gateway.uniswap.org', env: envConfigs.mobileAndroidDev },
-        { expectedUrl: 'https://android.wallet.gateway.uniswap.org', env: envConfigs.mobileAndroidBeta },
-        { expectedUrl: 'https://android.wallet.gateway.uniswap.org', env: envConfigs.mobileAndroidProd },
+        { expectedUrl: 'https://beta.gateway.lux.org', env: envConfigs.mobileAndroidDev },
+        { expectedUrl: 'https://android.wallet.gateway.lux.org', env: envConfigs.mobileAndroidBeta },
+        { expectedUrl: 'https://android.wallet.gateway.lux.org', env: envConfigs.mobileAndroidProd },
         // Extension
-        { expectedUrl: 'https://beta.gateway.uniswap.org', env: envConfigs.extensionDev },
-        { expectedUrl: 'https://extension.gateway.uniswap.org', env: envConfigs.extensionBeta },
-        { expectedUrl: 'https://extension.gateway.uniswap.org', env: envConfigs.extensionProd },
+        { expectedUrl: 'https://beta.gateway.lux.org', env: envConfigs.extensionDev },
+        { expectedUrl: 'https://extension.gateway.lux.org', env: envConfigs.extensionBeta },
+        { expectedUrl: 'https://extension.gateway.lux.org', env: envConfigs.extensionProd },
         // Playwright
-        { expectedUrl: 'https://interface.gateway.uniswap.org', env: envConfigs.playwrightDev },
-        { expectedUrl: 'https://interface.gateway.uniswap.org', env: envConfigs.playwrightProd },
+        { expectedUrl: 'https://interface.gateway.lux.org', env: envConfigs.playwrightDev },
+        { expectedUrl: 'https://interface.gateway.lux.org', env: envConfigs.playwrightProd },
       ])('generates correct URL for $env', async ({ expectedUrl, env }) => {
         mockEnvironmentAndPlatform(env)
         const { getCloudflareApiBaseUrl } = await import('./urls')
@@ -189,24 +189,24 @@ describe('urls', () => {
   describe('Default Flow', () => {
     it.each([
       // Web
-      { expectedUrl: 'https://interface.gateway.uniswap.org', env: envConfigs.webDev },
-      { expectedUrl: 'https://interface.gateway.uniswap.org', env: envConfigs.webBeta },
-      { expectedUrl: 'https://interface.gateway.uniswap.org', env: envConfigs.webProd },
+      { expectedUrl: 'https://interface.gateway.lux.org', env: envConfigs.webDev },
+      { expectedUrl: 'https://interface.gateway.lux.org', env: envConfigs.webBeta },
+      { expectedUrl: 'https://interface.gateway.lux.org', env: envConfigs.webProd },
       // Mobile iOS
-      { expectedUrl: 'https://ios.wallet.gateway.uniswap.org', env: envConfigs.mobileIosDev },
-      { expectedUrl: 'https://ios.wallet.gateway.uniswap.org', env: envConfigs.mobileIosBeta },
-      { expectedUrl: 'https://ios.wallet.gateway.uniswap.org', env: envConfigs.mobileIosProd },
+      { expectedUrl: 'https://ios.wallet.gateway.lux.org', env: envConfigs.mobileIosDev },
+      { expectedUrl: 'https://ios.wallet.gateway.lux.org', env: envConfigs.mobileIosBeta },
+      { expectedUrl: 'https://ios.wallet.gateway.lux.org', env: envConfigs.mobileIosProd },
       // Mobile Android
-      { expectedUrl: 'https://android.wallet.gateway.uniswap.org', env: envConfigs.mobileAndroidDev },
-      { expectedUrl: 'https://android.wallet.gateway.uniswap.org', env: envConfigs.mobileAndroidBeta },
-      { expectedUrl: 'https://android.wallet.gateway.uniswap.org', env: envConfigs.mobileAndroidProd },
+      { expectedUrl: 'https://android.wallet.gateway.lux.org', env: envConfigs.mobileAndroidDev },
+      { expectedUrl: 'https://android.wallet.gateway.lux.org', env: envConfigs.mobileAndroidBeta },
+      { expectedUrl: 'https://android.wallet.gateway.lux.org', env: envConfigs.mobileAndroidProd },
       // Extension
-      { expectedUrl: 'https://extension.gateway.uniswap.org', env: envConfigs.extensionDev },
-      { expectedUrl: 'https://extension.gateway.uniswap.org', env: envConfigs.extensionBeta },
-      { expectedUrl: 'https://extension.gateway.uniswap.org', env: envConfigs.extensionProd },
+      { expectedUrl: 'https://extension.gateway.lux.org', env: envConfigs.extensionDev },
+      { expectedUrl: 'https://extension.gateway.lux.org', env: envConfigs.extensionBeta },
+      { expectedUrl: 'https://extension.gateway.lux.org', env: envConfigs.extensionProd },
       // Playwright
-      { expectedUrl: 'https://interface.gateway.uniswap.org', env: envConfigs.playwrightDev },
-      { expectedUrl: 'https://interface.gateway.uniswap.org', env: envConfigs.playwrightProd },
+      { expectedUrl: 'https://interface.gateway.lux.org', env: envConfigs.playwrightDev },
+      { expectedUrl: 'https://interface.gateway.lux.org', env: envConfigs.playwrightProd },
     ])('generates correct URL for $env', async ({ expectedUrl, env }) => {
       mockEnvironmentAndPlatform(env)
       const { getCloudflareApiBaseUrl } = await import('./urls')
@@ -247,7 +247,7 @@ describe('urls', () => {
     const { getCloudflareApiBaseUrl } = await import('./urls')
     const result = getCloudflareApiBaseUrl({ flow: TrafficFlows.GraphQL })
 
-    expect(result).toBe('https://graphql.interface.gateway.uniswap.org')
+    expect(result).toBe('https://graphql.interface.gateway.lux.org')
   })
 })
 

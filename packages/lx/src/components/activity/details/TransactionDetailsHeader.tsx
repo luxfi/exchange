@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next'
 import { Flex, Text } from 'ui/src'
 import { AlertTriangleFilled } from 'ui/src/components/icons'
 import { Ellipsis } from 'ui/src/components/icons/Ellipsis'
-import { UniswapX } from 'ui/src/components/icons/UniswapX'
+import { DEX } from 'ui/src/components/icons/DEX'
 import { zIndexes } from 'ui/src/theme'
 import { TransactionDetailsHeaderLogo } from 'lx/src/components/activity/details/TransactionDetailsHeaderLogo'
 import { ContextMenu, MenuOptionItem } from 'lx/src/components/menus/ContextMenu'
@@ -39,7 +39,7 @@ export function TransactionDetailsHeader({
         <Flex flexDirection="column" flexShrink={1}>
           <Flex centered row gap="$spacing4" justifyContent="flex-start">
             {(transactionDetails.routing === TradingApi.Routing.DUTCH_V2 ||
-              transactionDetails.routing === TradingApi.Routing.DUTCH_LIMIT) && <UniswapX size="$icon.16" />}
+              transactionDetails.routing === TradingApi.Routing.DUTCH_LIMIT) && <DEX size="$icon.16" />}
             <Text variant="body2">{title}</Text>
           </Flex>
           <Text color="$neutral2" variant="body4">

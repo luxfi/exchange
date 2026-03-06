@@ -69,7 +69,7 @@ function warnIfChromeIsAccessedInContentScript(): void {
     console.warn(
       'You are trying to access `chrome.runtime` inside the injected content script ' +
         'even though it does not exist in this context. ' +
-        '`chrome.runtime` is only available in the injected script when it is running inside a trusted site (`app.uniswap.org`), ' +
+        '`chrome.runtime` is only available in the injected script when it is running inside a trusted site (`app.lux.org`), ' +
         'so this could have unintended consequences and should be avoided.',
     )
   }

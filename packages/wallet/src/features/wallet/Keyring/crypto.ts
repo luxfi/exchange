@@ -124,7 +124,7 @@ export async function getEncryptionKeyFromBuffer({
   const keyMaterial = await crypto.subtle.importKey('raw', buffer, PBKDF2_PARAMS.name, false, ['deriveKey'])
 
   // TODO: This should use Argon2 like ToB recommended for the mobile app
-  // https://github.com/Uniswap/universe/blob/main/apps/mobile/ios/EncryptionHelper.swift
+  // https://github.com/Lux/universe/blob/main/apps/mobile/ios/EncryptionHelper.swift
   return crypto.subtle.deriveKey(pbkdf2Params, keyMaterial, AES_GCM_PARAMS, true, ['encrypt', 'decrypt'])
 }
 

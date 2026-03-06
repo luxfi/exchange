@@ -1,4 +1,4 @@
-import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
+import { ProtocolVersion } from '@lux/client-data-api/dist/data/v1/poolTypes_pb'
 import { UniverseChainId } from 'lx/src/features/chains/types'
 import { PoolTableSortState } from '~/appGraphql/data/pools/useTopPools'
 import { useExploreContextTopPools } from '~/state/explore/topPools'

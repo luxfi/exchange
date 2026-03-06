@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next'
 import { Flex, Text } from 'ui/src'
-import { UniswapLogo } from 'ui/src/components/icons/UniswapLogo'
+import { LuxLogo } from 'ui/src/components/icons/LuxLogo'
 import { DownloadHeader } from '~/components/WalletModal/DownloadHeader'
 import { WalletModalLayout } from '~/components/WalletModal/WalletModalLayout'
 import { WalletOptionsGrid } from '~/components/WalletModal/WalletOptionsGrid'
@@ -16,7 +16,7 @@ export function EmbeddedWalletModal(): JSX.Element {
 
   const logo = (
     <Flex justifyContent="center" alignItems="center" py={8}>
-      <UniswapLogo size={48} color="$accent1" />
+      <LuxLogo size={48} color="$accent1" />
     </Flex>
   )
 

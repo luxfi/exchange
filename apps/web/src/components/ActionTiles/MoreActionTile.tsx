@@ -6,7 +6,7 @@ import { CoinConvert } from 'ui/src/components/icons/CoinConvert'
 import { MoreHorizontal } from 'ui/src/components/icons/MoreHorizontal'
 import { Plus } from 'ui/src/components/icons/Plus'
 import { iconSizes } from 'ui/src/theme'
-import { useUniswapContext } from 'lx/src/contexts/UniswapContext'
+import { useLuxContext } from 'lx/src/contexts/LuxContext'
 import { ElementName } from 'lx/src/features/telemetry/constants'
 import Trace from 'lx/src/features/telemetry/Trace'
 import { TestID } from 'lx/src/test/fixtures/testIDs'
@@ -20,7 +20,7 @@ import { Limit } from '~/components/Icons/Limit'
 export function MoreActionTile({ padding = '$spacing12' }: { padding?: FlexProps['p'] }) {
   const { t } = useTranslation()
   const colors = useSporeColors()
-  const { navigateToSwapFlow } = useUniswapContext()
+  const { navigateToSwapFlow } = useLuxContext()
   const navigate = useNavigate()
   const { value: isDropdownOpen, setFalse: closeDropdown, toggle: toggleDropdown } = useBooleanState(false)
 

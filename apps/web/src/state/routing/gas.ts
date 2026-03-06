@@ -1,5 +1,5 @@
-import { MaxUint256, permit2Address } from '@uniswap/permit2-sdk'
-import { Currency } from '@uniswap/sdk-core'
+import { MaxUint256, permit2Address } from '@lux/permit2-sdk'
+import { Currency } from '@lux/sdk-core'
 import ERC20_ABI from 'lx/src/abis/erc20.json'
 import { Erc20, Weth } from 'lx/src/abis/types'
 import WETH_ABI from 'lx/src/abis/weth.json'
@@ -10,7 +10,7 @@ import { getContract } from 'utilities/src/contracts/getContract'
 import { RPC_PROVIDERS } from '~/constants/providers'
 import { ApproveInfo, WrapInfo } from '~/state/routing/types'
 
-// TODO(UniswapX): add fallback gas limits per chain? l2s have higher costs
+// TODO(DEX): add fallback gas limits per chain? l2s have higher costs
 const APPROVE_FALLBACK_GAS_LIMIT_IN_GWEI = 65_000
 
 export async function getApproveInfo({

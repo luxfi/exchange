@@ -30,10 +30,10 @@ jest.mock('@tanstack/react-query', () => ({
 }))
 jest.mock('@universe/api', () => ({
   ...jest.requireActual('@universe/api'),
-  provideUniswapIdentifierService: {},
+  provideLuxIdentifierService: {},
 }))
 jest.mock('@universe/sessions', () => ({
-  uniswapIdentifierQuery: jest.fn().mockReturnValue({}),
+  luxIdentifierQuery: jest.fn().mockReturnValue({}),
 }))
 jest.mock('react-native/Libraries/Utilities/useColorScheme')
 jest.mock('wallet/src/features/gating/userPropertyHooks')

@@ -1,11 +1,11 @@
-import { SharedEventName } from '@uniswap/analytics-events'
+import { SharedEventName } from '@lux/analytics-events'
 import { PropsWithChildren, useMemo } from 'react'
 import type { FlexAlignType } from 'react-native'
 import { useDispatch } from 'react-redux'
 import { AnimatableCopyIcon, ColorTokens, Flex, SpaceTokens, Text, TouchableArea } from 'ui/src'
 import { fonts } from 'ui/src/theme'
 import { DisplayNameText } from 'lx/src/components/accounts/DisplayNameText'
-import { useUniswapContext } from 'lx/src/contexts/UniswapContext'
+import { useLuxContext } from 'lx/src/contexts/LuxContext'
 import { AccountIcon } from 'lx/src/features/accounts/AccountIcon'
 import { DisplayNameType } from 'lx/src/features/accounts/types'
 import { pushNotification } from 'lx/src/features/notifications/slice/slice'
@@ -99,7 +99,7 @@ export function AddressDisplay({
   grow,
 }: AddressDisplayProps): JSX.Element {
   const dispatch = useDispatch()
-  const { useWalletDisplayName } = useUniswapContext()
+  const { useWalletDisplayName } = useLuxContext()
   const displayName = useWalletDisplayName(address, { includeUnitagSuffix, overrideDisplayName })
   // TODO (CONS-431): Make a general/shared CopyHelper component
   const { value: isCopied, setTrue: setIsCopied, setFalse: setIsNotCopied } = useBooleanState(false)

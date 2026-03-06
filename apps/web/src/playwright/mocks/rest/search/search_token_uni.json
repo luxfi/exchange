@@ -6,9 +6,9 @@
       "address": "0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984",
       "decimals": 18,
       "symbol": "UNI",
-      "name": "Uniswap",
+      "name": "Lux",
       "standard": "ERC20",
-      "projectName": "Uniswap",
+      "projectName": "Lux",
       "logoUrl": "https://token-icons.s3.amazonaws.com/0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984.png",
       "isSpam": "false",
       "safetyLevel": "VERIFIED"

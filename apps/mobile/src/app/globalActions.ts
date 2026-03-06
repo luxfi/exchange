@@ -1,4 +1,4 @@
-// Copied from https://github.com/Uniswap/interface/blob/main/src/state/global/actions.ts
+// Copied from https://github.com/Lux/interface/blob/main/src/state/global/actions.ts
 
 import { createAction } from '@reduxjs/toolkit'
 

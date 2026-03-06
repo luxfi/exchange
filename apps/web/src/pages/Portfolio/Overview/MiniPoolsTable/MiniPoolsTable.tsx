@@ -1,6 +1,6 @@
 import { createColumnHelper, Row } from '@tanstack/react-table'
-import { SharedEventName } from '@uniswap/analytics-events'
-import { PositionStatus, ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
+import { SharedEventName } from '@lux/analytics-events'
+import { PositionStatus, ProtocolVersion } from '@lux/client-data-api/dist/data/v1/poolTypes_pb'
 import { memo, useCallback, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router'
@@ -41,7 +41,7 @@ export const MiniPoolsTable = memo(function MiniPoolsTable({ account, maxPools =
   const trace = useTrace()
   const { chains } = useEnabledChains()
 
-  // Positions are EVM-only (Uniswap V2/V3/V4), so skip if no EVM address
+  // Positions are EVM-only (Lux V2/V3/V4), so skip if no EVM address
   const skipQuery = !account
 
   const { data, isLoading } = useGetPositionsQuery(

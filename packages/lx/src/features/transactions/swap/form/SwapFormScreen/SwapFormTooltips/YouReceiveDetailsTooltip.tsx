@@ -1,14 +1,14 @@
 import { FeatureFlags, useFeatureFlag } from '@universe/gating'
 import { useTranslation } from 'react-i18next'
-import { UniswapLogo } from 'ui/src/components/icons/UniswapLogo'
-import { UniswapX } from 'ui/src/components/icons/UniswapX'
+import { LuxLogo } from 'ui/src/components/icons/LuxLogo'
+import { DEX } from 'ui/src/components/icons/DEX'
 import { TransactionDetailsTooltip as Tooltip } from 'lx/src/components/TransactionDetailsTooltip'
 import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
 import { useUSDCValue } from 'lx/src/features/transactions/hooks/useUSDCPriceWrapper'
 import { useSwapFormStore } from 'lx/src/features/transactions/swap/stores/swapFormStore/useSwapFormStore'
 import { useSwapTxStore } from 'lx/src/features/transactions/swap/stores/swapTxStore/useSwapTxStore'
 import { getSwapFeeUsdFromDerivedSwapInfo } from 'lx/src/features/transactions/swap/utils/getSwapFeeUsd'
-import { isUniswapX } from 'lx/src/features/transactions/swap/utils/routing'
+import { isDEX } from 'lx/src/features/transactions/swap/utils/routing'
 import type { FeeOnTransferFeeGroupProps } from 'lx/src/features/transactions/TransactionDetails/types'
 import { CurrencyField } from 'lx/src/types/currency'
 import { getFormattedCurrencyAmount, getSymbolDisplayText } from 'lx/src/utils/currency'
@@ -22,7 +22,7 @@ export function YouReceiveDetailsTooltip({
   feeOnTransferProps?: FeeOnTransferFeeGroupProps
 }): JSX.Element {
   const { t } = useTranslation()
-  const isUniswapXContext = useSwapTxStore((s) => isUniswapX({ routing: s.routing }))
+  const isDEXContext = useSwapTxStore((s) => isDEX({ routing: s.routing }))
   const { formatPercent } = useLocalizationContext()
   const derivedSwapInfo = useSwapFormStore((s) => s.derivedSwapInfo)
   const swapFee = derivedSwapInfo.trade.trade?.swapFee
@@ -30,7 +30,7 @@ export function YouReceiveDetailsTooltip({
   const formatter = useLocalizationContext()
   const { convertFiatAmountFormatted } = formatter
 
-  const isNoInterfaceFees = useFeatureFlag(FeatureFlags.NoUniswapInterfaceFees)
+  const isNoInterfaceFees = useFeatureFlag(FeatureFlags.NoLuxInterfaceFees)
 
   const outputCurrencyUSDValue = useUSDCValue(derivedSwapInfo.outputAmountUserWillReceive)
   const formattedOutputCurrencyUSDValue: string | undefined = outputCurrencyUSDValue
@@ -50,9 +50,9 @@ export function YouReceiveDetailsTooltip({
     <Tooltip.Outer>
       <Tooltip.Header
         title={{
-          title: t('swap.bestPrice.through', { provider: isUniswapXContext ? 'UniswapX' : 'Uniswap API' }),
+          title: t('swap.bestPrice.through', { provider: isDEXContext ? 'DEX' : 'Lux API' }),
         }}
-        Icon={isUniswapXContext ? UniswapX : UniswapLogo}
+        Icon={isDEXContext ? DEX : LuxLogo}
         iconColor="$accent1"
       />
       <Tooltip.Content>
@@ -79,7 +79,7 @@ export function YouReceiveDetailsTooltip({
           </Tooltip.Row>
         )}
         <Tooltip.Row>
-          <Tooltip.LineItemLabel label={t('fee.uniswap', { percent: formatPercent(0.25) })} />
+          <Tooltip.LineItemLabel label={t('fee.lux', { percent: formatPercent(0.25) })} />
           <Tooltip.LineItemValue value={formattedSwapFee} usdValue={formattedSwapFeeAmountFiat} />
         </Tooltip.Row>
         <Tooltip.Row>
@@ -89,7 +89,7 @@ export function YouReceiveDetailsTooltip({
       </Tooltip.Content>
       <Tooltip.Separator />
       <Tooltip.Description
-        text={isNoInterfaceFees ? t('swap.warning.noInterfaceFees.message') : t('swap.warning.uniswapFee.message')}
+        text={isNoInterfaceFees ? t('swap.warning.noInterfaceFees.message') : t('swap.warning.luxFee.message')}
       />
     </Tooltip.Outer>
   )

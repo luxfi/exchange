@@ -1,4 +1,4 @@
-// Type stubs for @uniswap/client-privy-embedded-wallet when the private package is not installed.
+// Type stubs for @lux/client-privy-embedded-wallet when the private package is not installed.
 
 export declare enum AuthenticationTypes {
   AUTHENTICATION_TYPE_UNSPECIFIED = 0,

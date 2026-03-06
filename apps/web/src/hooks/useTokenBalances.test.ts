@@ -1,5 +1,5 @@
 import { NetworkStatus } from '@apollo/client'
-import { NativeCurrency, Token } from '@uniswap/sdk-core'
+import { NativeCurrency, Token } from '@lux/sdk-core'
 import { DAI, USDC } from 'lx/src/constants/tokens'
 import { normalizeTokenAddressForCache } from 'lx/src/data/cache'
 import { usePortfolioBalances } from 'lx/src/features/dataApi/balances/balances'

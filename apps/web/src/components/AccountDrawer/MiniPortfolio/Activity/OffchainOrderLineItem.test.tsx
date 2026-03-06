@@ -1,5 +1,5 @@
 import 'utilities/src/logger/mocks'
-import { CurrencyAmount, WETH9 } from '@uniswap/sdk-core'
+import { CurrencyAmount, WETH9 } from '@lux/sdk-core'
 import { TradingApi } from '@universe/api'
 import { DAI, USDC_MAINNET } from 'lx/src/constants/tokens'
 import { UniverseChainId } from 'lx/src/features/chains/types'
@@ -43,7 +43,7 @@ describe('OffchainOrderLineItem', () => {
           routing: TradingApi.Routing.DUTCH_V2,
           status: TransactionStatus.Success,
           typeInfo: {
-            isUniswapXOrder: true,
+            isDEXOrder: true,
             type: TransactionType.Swap,
             tradeType: 0,
             inputCurrencyId: currencyId(DAI),
@@ -82,7 +82,7 @@ describe('OffchainOrderLineItem', () => {
           routing: TradingApi.Routing.DUTCH_V2,
           status: TransactionStatus.Success,
           typeInfo: {
-            isUniswapXOrder: true,
+            isDEXOrder: true,
             type: TransactionType.Swap,
             tradeType: 0,
             inputCurrencyId: currencyId(DAI),

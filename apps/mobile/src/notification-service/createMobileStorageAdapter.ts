@@ -3,7 +3,7 @@ import { MMKV } from 'react-native-mmkv'
 import { getLogger } from 'utilities/src/logger/logger'
 import { z } from 'zod'
 
-const NOTIFICATION_STORAGE_KEY = 'uniswap_notifications_processed'
+const NOTIFICATION_STORAGE_KEY = 'lux_notifications_processed'
 
 const NotificationStorageSchema = z.record(
   z.string(),

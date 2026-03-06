@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { useEnabledChains } from 'lx/src/features/chains/hooks/useEnabledChains'
 import { UniverseChainId } from 'lx/src/features/chains/types'
-import { ModalNameType, UniswapEventName } from 'lx/src/features/telemetry/constants'
+import { ModalNameType, LuxEventName } from 'lx/src/features/telemetry/constants'
 import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
 import { parseChainFromTokenSearchQuery } from 'lx/src/utils/search/parseChainFromTokenSearchQuery'
 
@@ -44,7 +44,7 @@ export function useFilterCallbacks(
   const onChangeChainFilter = useCallback(
     (newChainFilter: typeof chainFilter) => {
       setChainFilter(newChainFilter)
-      sendAnalyticsEvent(UniswapEventName.NetworkFilterSelected, {
+      sendAnalyticsEvent(LuxEventName.NetworkFilterSelected, {
         chain: newChainFilter ?? 'All',
         modal: modalName,
       })

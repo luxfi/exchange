@@ -5,21 +5,21 @@ import {
   TransactionOriginType,
   TransactionStatus,
   TransactionType,
-  UniswapXOrderDetails,
+  DEXOrderDetails,
 } from 'lx/src/features/transactions/types/transactionDetails'
 
 /**
- * Creates a mock UniswapXOrderDetails object for testing
+ * Creates a mock DEXOrderDetails object for testing
  * @param overrides - Partial overrides for the default values
- * @returns A complete UniswapXOrderDetails object
+ * @returns A complete DEXOrderDetails object
  */
-export function createMockUniswapXOrder(overrides?: Partial<UniswapXOrderDetails>): UniswapXOrderDetails {
-  const defaults: UniswapXOrderDetails = {
+export function createMockDEXOrder(overrides?: Partial<DEXOrderDetails>): DEXOrderDetails {
+  const defaults: DEXOrderDetails = {
     routing: TradingApi.Routing.DUTCH_V2,
     orderHash: '0xdefault-order-hash',
     status: TransactionStatus.Pending,
     typeInfo: {
-      isUniswapXOrder: true,
+      isDEXOrder: true,
       type: TransactionType.Swap,
       tradeType: TradeType.EXACT_INPUT,
       inputCurrencyId: 'DAI',
@@ -45,5 +45,5 @@ export function createMockUniswapXOrder(overrides?: Partial<UniswapXOrderDetails
       ...defaults.typeInfo,
       ...(overrides?.typeInfo || {}),
     },
-  } as UniswapXOrderDetails
+  } as DEXOrderDetails
 }

@@ -39,7 +39,7 @@ export function createTradingApiDelegationRepository(ctx: {
         if (delegationDetails) {
           result[String(chainId)] = {
             currentDelegationAddress: delegationDetails.currentDelegationAddress,
-            isWalletDelegatedToUniswap: delegationDetails.isWalletDelegatedToUniswap,
+            isWalletDelegatedToLux: delegationDetails.isWalletDelegatedToLux,
             latestDelegationAddress: delegationDetails.latestDelegationAddress,
           }
         } else {

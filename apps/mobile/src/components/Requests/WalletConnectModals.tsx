@@ -40,7 +40,7 @@ export function WalletConnectModals(): JSX.Element {
    * Reset didOpenFromDeepLink state when app is backgrounded, since we only want
    * to call `returnToPreviousApp` when the app was deep linked to from another app.
    * Handles case where user opens app via WalletConnect deep link, backgrounds app, then
-   * opens Uniswap app via Spotlight search – we don't want `returnToPreviousApp` to return
+   * opens Lux app via Spotlight search – we don't want `returnToPreviousApp` to return
    * to Spotlight search.
    * */
   useAppStateTrigger({

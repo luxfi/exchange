@@ -1,5 +1,5 @@
 import { useMemo } from 'react'
-import { useUniswapContextSelector } from 'lx/src/contexts/UniswapContext'
+import { useLuxContextSelector } from 'lx/src/contexts/LuxContext'
 import { useEnabledChains } from 'lx/src/features/chains/hooks/useEnabledChains'
 import { UniverseChainId } from 'lx/src/features/chains/types'
 import { isL2ChainId } from 'lx/src/features/chains/utils'
@@ -27,7 +27,7 @@ import { getLogger } from 'utilities/src/logger/logger'
 
 interface TradeServiceContext {
   // dependencies from React layer
-  getIsUniswapXSupported?: (chainId?: number) => boolean
+  getIsDEXSupported?: (chainId?: number) => boolean
   getEnabledChains: () => UniverseChainId[]
 }
 
@@ -41,11 +41,11 @@ interface TradeServiceContext {
  * @returns A trade service that orchestrates the swap flow
  */
 export function getTradeService(ctx: TradeServiceContext): TradeService {
-  const { getIsUniswapXSupported, getEnabledChains } = ctx
+  const { getIsDEXSupported, getEnabledChains } = ctx
 
   const evmTradeService = createEVMTradeService({
     tradeRepository: getEVMTradeRepository(),
-    getIsUniswapXSupported,
+    getIsDEXSupported,
     getEnabledChains,
     getIsL2ChainId: (chainId?: UniverseChainId) => (chainId ? isL2ChainId(chainId) : false),
     getMinAutoSlippageToleranceL2,
@@ -67,15 +67,15 @@ export function getTradeService(ctx: TradeServiceContext): TradeService {
 
 export function useTradeService(): TradeService {
   const withQuoteLogging = useWithQuoteLogging()
-  const getIsUniswapXSupported = useUniswapContextSelector((state) => state.getIsUniswapXSupported)
+  const getIsDEXSupported = useLuxContextSelector((state) => state.getIsDEXSupported)
   const enabledChains = useEnabledChains()
 
   return useMemo(() => {
     const baseService = getTradeService({
-      getIsUniswapXSupported: getIsUniswapXSupported ?? ((): boolean => false),
+      getIsDEXSupported: getIsDEXSupported ?? ((): boolean => false),
       getEnabledChains: () => enabledChains.chains,
     })
 
     return withQuoteLogging(baseService)
-  }, [getIsUniswapXSupported, enabledChains, withQuoteLogging])
+  }, [getIsDEXSupported, enabledChains, withQuoteLogging])
 }

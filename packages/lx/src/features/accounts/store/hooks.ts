@@ -1,4 +1,4 @@
-import { useUniswapContext } from 'lx/src/contexts/UniswapContext'
+import { useLuxContext } from 'lx/src/contexts/LuxContext'
 import type { AccountsStore } from 'lx/src/features/accounts/store/types/AccountsState'
 import { createUseActiveAccount } from 'lx/src/features/accounts/store/utils/accounts'
 import { createUseActiveAddress, createUseActiveAddresses } from 'lx/src/features/accounts/store/utils/addresses'
@@ -9,9 +9,9 @@ import {
 import { createUseAccountsStore } from 'lx/src/features/accounts/store/utils/createUseAccountsStore'
 import { createUseActiveWallet, createUseWalletWithId } from 'lx/src/features/accounts/store/utils/wallets'
 
-/** Gets AccountsStoreContext for the current app, passed by the app to this package via `UniswapProvider`. */
+/** Gets AccountsStoreContext for the current app, passed by the app to this package via `LuxProvider`. */
 function useCurrentAppAccountStoreContext(): AccountsStore {
-  const useAccountsStoreContextHook = useUniswapContext().useAccountsStoreContextHook
+  const useAccountsStoreContextHook = useLuxContext().useAccountsStoreContextHook
   return useAccountsStoreContextHook()
 }
 

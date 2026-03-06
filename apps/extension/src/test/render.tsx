@@ -12,9 +12,9 @@ import { GraphQLApi } from '@luxfi/api'
 import React, { PropsWithChildren } from 'react'
 import { ExtensionState, extensionReducer } from 'src/store/extensionReducer'
 import { AppStore } from 'src/store/store'
-import { UniswapProvider } from 'lx/src/contexts/UniswapContext'
+import { LuxProvider } from 'lx/src/contexts/LuxContext'
 import { AutoMockedApolloProvider } from 'lx/src/test/mocks'
-import { mockUniswapContext } from 'lx/src/test/render'
+import { mockLuxContext } from 'lx/src/test/render'
 import { SharedWalletProvider } from 'wallet/src/providers/SharedWalletProvider'
 
 // This type extends the default options for render from RTL, as well
@@ -50,11 +50,11 @@ export function renderWithProviders(
 } {
   function Wrapper({ children }: PropsWithChildren<unknown>): JSX.Element {
     return (
-      <UniswapProvider {...mockUniswapContext}>
+      <LuxProvider {...mockLuxContext}>
         <AutoMockedApolloProvider resolvers={resolvers}>
           <SharedWalletProvider reduxStore={store}>{children}</SharedWalletProvider>
         </AutoMockedApolloProvider>
-      </UniswapProvider>
+      </LuxProvider>
     )
   }
 
@@ -112,11 +112,11 @@ export function renderHookWithProviders<P, R>(
 
   function Wrapper({ children }: PropsWithChildren<unknown>): JSX.Element {
     return (
-      <UniswapProvider {...mockUniswapContext}>
+      <LuxProvider {...mockLuxContext}>
         <AutoMockedApolloProvider resolvers={resolvers}>
           <SharedWalletProvider reduxStore={store}>{children}</SharedWalletProvider>
         </AutoMockedApolloProvider>
-      </UniswapProvider>
+      </LuxProvider>
     )
   }
 

@@ -80,7 +80,7 @@ jest.mock('lx/src/data/balances/hooks/useCrossChainBalances', () => ({
   useCrossChainBalances: () => mockCrossChainResult,
 }))
 
-jest.mock('lx/src/data/graphql/uniswap-data-api/fragments', () => ({
+jest.mock('lx/src/data/graphql/lux-data-api/fragments', () => ({
   // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
   useTokenBasicProjectPartsFragment: () => ({
     data: { project: { tokens: [] } },

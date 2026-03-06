@@ -2,7 +2,7 @@ import ReactNativeIdfaAaid from '@sparkfabrik/react-native-idfa-aaid'
 import { ANONYMOUS_DEVICE_ID, OriginApplication } from '@luxdex/analytics'
 import DeviceInfo from 'react-native-device-info'
 import { call, delay, fork, select } from 'typed-redux-saga'
-import { uniswapUrls } from 'lx/src/constants/urls'
+import { luxUrls } from 'lx/src/constants/urls'
 import { MobileUserPropertyName } from 'lx/src/features/telemetry/user'
 import { getUniqueId } from 'utilities/src/device/uniqueId'
 import { isTestEnv } from 'utilities/src/environment/env'
@@ -24,9 +24,9 @@ export function* telemetrySaga() {
 
     yield* call(analytics.init, {
       transportProvider: new ApplicationTransport({
-        serverUrl: uniswapUrls.amplitudeProxyUrl,
+        serverUrl: luxUrls.amplitudeProxyUrl,
         appOrigin: OriginApplication.MOBILE,
-        originOverride: uniswapUrls.apiOrigin,
+        originOverride: luxUrls.apiOrigin,
         appBuild: DeviceInfo.getBundleId(),
       }),
       allowed: allowAnalytics,

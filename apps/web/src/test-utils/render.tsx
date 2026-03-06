@@ -11,7 +11,7 @@ import { MismatchContextProvider } from 'lx/src/features/smartWallet/mismatch/Mi
 import { AssetActivityProvider } from '~/appGraphql/data/apollo/AssetActivityProvider'
 import { TokenBalancesProvider } from '~/appGraphql/data/apollo/TokenBalancesProvider'
 import TestWeb3Provider from '~/components/Web3Provider/TestWeb3Provider'
-import { WebUniswapProvider } from '~/components/Web3Provider/WebUniswapContext'
+import { WebLuxProvider } from '~/components/Web3Provider/WebLuxContext'
 import { WebAccountsStoreProvider } from '~/features/accounts/store/provider'
 import { WebAccountsStoreUpdater } from '~/features/accounts/store/updater'
 import { ConnectWalletMutationProvider } from '~/features/wallet/connection/hooks/useConnectWalletMutation'
@@ -67,8 +67,8 @@ function CommonTestProviders({ children }: PropsWithChildren) {
 
 function BaseWrapper({
   children,
-  includeUniswapContext = false,
-}: PropsWithChildren<{ includeUniswapContext?: boolean }>) {
+  includeLuxContext = false,
+}: PropsWithChildren<{ includeLuxContext?: boolean }>) {
   return (
     <HelmetProvider>
       <Provider store={store}>
@@ -78,11 +78,11 @@ function BaseWrapper({
               <ConnectWalletMutationProvider>
                 <WebAccountsStoreProvider>
                   <ExternalWalletProvider>
-                    {/* TODO: figure out how to properly mock `WebUniswapProvider` so that we can include it in all tests */}
-                    {includeUniswapContext ? (
-                      <WebUniswapProvider>
+                    {/* TODO: figure out how to properly mock `WebLuxProvider` so that we can include it in all tests */}
+                    {includeLuxContext ? (
+                      <WebLuxProvider>
                         <CommonTestProviders>{children}</CommonTestProviders>
-                      </WebUniswapProvider>
+                      </WebLuxProvider>
                     ) : (
                       <CommonTestProviders>{children}</CommonTestProviders>
                     )}
@@ -98,8 +98,8 @@ function BaseWrapper({
 }
 
 const WithProviders = ({ children }: { children?: ReactNode }) => <BaseWrapper>{children}</BaseWrapper>
-const WithUniswapProviders = ({ children }: { children?: ReactNode }) => (
-  <BaseWrapper includeUniswapContext>{children}</BaseWrapper>
+const WithLuxProviders = ({ children }: { children?: ReactNode }) => (
+  <BaseWrapper includeLuxContext>{children}</BaseWrapper>
 )
 
 type CustomRenderOptions = Omit<RenderOptions, 'wrapper'>
@@ -108,8 +108,8 @@ const customRender = (ui: ReactElement, options?: CustomRenderOptions) => {
   return render<typeof queries>(ui, { ...options, wrapper: WithProviders })
 }
 
-const customRenderWithUniswapContext = (ui: ReactElement, options?: CustomRenderOptions) => {
-  return render<typeof queries>(ui, { ...options, wrapper: WithUniswapProviders })
+const customRenderWithLuxContext = (ui: ReactElement, options?: CustomRenderOptions) => {
+  return render<typeof queries>(ui, { ...options, wrapper: WithLuxProviders })
 }
 
 type CustomRenderHookOptions<Props> = Omit<RenderHookOptions<Props>, 'wrapper'>
@@ -125,6 +125,6 @@ const customRenderHook = <Result, Props>(
 export * from '@testing-library/react'
 export {
   customRender as render,
-  customRenderWithUniswapContext as renderWithUniswapContext,
+  customRenderWithLuxContext as renderWithLuxContext,
   customRenderHook as renderHook,
 }

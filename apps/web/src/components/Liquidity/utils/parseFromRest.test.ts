@@ -7,12 +7,12 @@ import {
   Position as RestPosition,
   Token as RestToken,
   V4Position as RestV4Position,
-} from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
-import { ChainId, PoolInformation } from '@uniswap/client-liquidity/dist/uniswap/liquidity/v1/types_pb'
-import { CurrencyAmount, Token } from '@uniswap/sdk-core'
-import { Pair } from '@uniswap/v2-sdk'
-import { FeeAmount, TICK_SPACINGS, Pool as V3Pool, Position as V3Position } from '@uniswap/v3-sdk'
-import { Pool as V4Pool, Position as V4Position } from '@uniswap/v4-sdk'
+} from '@lux/client-data-api/dist/data/v1/poolTypes_pb'
+import { ChainId, PoolInformation } from '@lux/client-liquidity/dist/lux/liquidity/v1/types_pb'
+import { CurrencyAmount, Token } from '@lux/sdk-core'
+import { Pair } from '@lux/v2-sdk'
+import { FeeAmount, TICK_SPACINGS, Pool as V3Pool, Position as V3Position } from '@lux/v3-sdk'
+import { Pool as V4Pool, Position as V4Position } from '@lux/v4-sdk'
 import { ZERO_ADDRESS } from 'lx/src/constants/misc'
 import { DAI, USDT } from 'lx/src/constants/tokens'
 import { UniverseChainId } from 'lx/src/features/chains/types'
@@ -161,7 +161,7 @@ describe('parseRestPosition', () => {
     address: '0xb2839134B8151964f19f6f3c7D59C70ae52852F5',
     symbol: 'UNI-V2',
     decimals: 18,
-    name: 'Uniswap V2',
+    name: 'Lux V2',
   }
   const liquidityToken = new Token(
     liquidityTokenRest.chainId,

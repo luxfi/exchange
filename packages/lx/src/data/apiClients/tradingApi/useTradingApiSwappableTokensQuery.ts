@@ -3,7 +3,7 @@ import { skipToken, useQuery, useQueryClient } from '@tanstack/react-query'
 import type { TradingApi, UseQueryApiHelperHookArgs } from '@luxfi/api'
 import { type SwappableTokensParams } from '@luxfi/api'
 import { useEffect } from 'react'
-import { uniswapUrls } from 'lx/src/constants/urls'
+import { luxUrls } from 'lx/src/constants/urls'
 import { TradingApiClient } from 'lx/src/data/apiClients/tradingApi/TradingApiClient'
 import type { TradeableAsset } from 'lx/src/entities/assets'
 import {
@@ -80,7 +80,7 @@ export function usePrefetchSwappableTokens(input: Maybe<TradeableAsset>): void {
 }
 
 const swappableTokensQueryKey = (params?: SwappableTokensParams): QueryKey => {
-  return [ReactQueryCacheKey.TradingApi, uniswapUrls.tradingApiPaths.swappableTokens, params]
+  return [ReactQueryCacheKey.TradingApi, luxUrls.tradingApiPaths.swappableTokens, params]
 }
 
 const swappableTokensQueryFn = (

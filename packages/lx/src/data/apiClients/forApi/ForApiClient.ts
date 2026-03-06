@@ -23,8 +23,8 @@ import { getForApiHeaders } from 'lx/src/features/fiatOnRamp/constants'
  * ### When ForUrlMigration flag is ENABLED (new structure):
  * | Environment | URL                                                          |
  * |-------------|--------------------------------------------------------------|
- * | Dev/Beta    | https://for.backend-staging.api.uniswap.org/FOR.v1.FORService |
- * | Prod        | https://for.backend-prod.api.uniswap.org/FOR.v1.FORService    |
+ * | Dev/Beta    | https://for.backend-staging.api.lux.org/FOR.v1.FORService |
+ * | Prod        | https://for.backend-prod.api.lux.org/FOR.v1.FORService    |
  *
  * ### When ForUrlMigration flag is DISABLED (legacy structure):
  * Uses the cloudflare gateway URL with v2 prefix.

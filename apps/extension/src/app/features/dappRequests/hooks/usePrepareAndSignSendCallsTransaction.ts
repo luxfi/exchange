@@ -3,7 +3,7 @@ import { useMemo } from 'react'
 import { usePrepareAndSignDappTransaction } from 'src/app/features/dappRequests/hooks/usePrepareAndSignDappTransaction'
 import { useTransactionGasEstimation } from 'src/app/features/dappRequests/hooks/useTransactionGasEstimation'
 import { DappRequestStoreItemForSendCallsTxn } from 'src/app/features/dappRequests/slice'
-import { UNISWAP_DELEGATION_ADDRESS } from 'lx/src/constants/addresses'
+import { LUX_DELEGATION_ADDRESS } from 'lx/src/constants/addresses'
 import { useWalletEncode7702Query } from 'lx/src/data/apiClients/tradingApi/useWalletEncode7702Query'
 import { UniverseChainId } from 'lx/src/features/chains/types'
 import { EthTransaction } from 'lx/src/types/walletConnect'
@@ -57,7 +57,7 @@ export function usePrepareAndSignSendCallsTransaction({
             accountAddress: account.address,
           })
         : [],
-      smartContractDelegationAddress: UNISWAP_DELEGATION_ADDRESS,
+      smartContractDelegationAddress: LUX_DELEGATION_ADDRESS,
       walletAddress: account.address,
     },
   })

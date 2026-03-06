@@ -5,7 +5,7 @@ import { navigate } from 'src/app/navigation/rootNavigation'
 import { wcWeb3Wallet } from 'src/features/walletConnect/walletConnectClient'
 import { addRequest, WalletSendCallsRequest } from 'src/features/walletConnect/walletConnectSlice'
 import { call, put, select } from 'typed-redux-saga'
-import { UNISWAP_DELEGATION_ADDRESS } from 'lx/src/constants/addresses'
+import { LUX_DELEGATION_ADDRESS } from 'lx/src/constants/addresses'
 import { checkWalletDelegation, TradingApiClient } from 'lx/src/data/apiClients/tradingApi/TradingApiClient'
 import { UniverseChainId } from 'lx/src/features/chains/types'
 import { Platform } from 'lx/src/features/platforms/types/Platform'
@@ -127,7 +127,7 @@ export function* handleSendCalls({
           chainId: request.chainId,
           accountAddress: request.account,
         }),
-        smartContractDelegationAddress: UNISWAP_DELEGATION_ADDRESS,
+        smartContractDelegationAddress: LUX_DELEGATION_ADDRESS,
         walletAddress: request.account,
       },
     )
@@ -209,7 +209,7 @@ export function* handleGetCapabilities({
 
     if (detailsMap) {
       const hasAtLeastOneDelegation = Object.values(detailsMap).some(
-        (details) => !!details.currentDelegationAddress && !details.isWalletDelegatedToUniswap,
+        (details) => !!details.currentDelegationAddress && !details.isWalletDelegatedToLux,
       )
 
       hasNoExistingDelegations = !hasAtLeastOneDelegation

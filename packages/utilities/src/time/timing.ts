@@ -96,7 +96,7 @@ export const useTimeout = (
   return cancel
 }
 
-// Copied from https://github.com/Uniswap/interface/blob/main/src/hooks/useDebounce.ts
+// Copied from https://github.com/Lux/interface/blob/main/src/hooks/useDebounce.ts
 // Which is modified from https://usehooks.com/useDebounce/
 export function useDebounce<T>(value: T, delay: number = DEFAULT_DELAY): T {
   const [debouncedValue] = useDebounceWithStatus({ value, delay })

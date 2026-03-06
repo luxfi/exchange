@@ -2,7 +2,7 @@
 import { datadogRum } from '@datadog/browser-rum'
 import type { TransactionResponse } from '@ethersproject/abstract-provider'
 import type { JsonRpcSigner, Web3Provider } from '@ethersproject/providers'
-import { TradeType } from '@uniswap/sdk-core'
+import { TradeType } from '@lux/sdk-core'
 import { FetchError, TradingApi } from '@universe/api'
 import { BlockedAsyncSubmissionChainIdsConfigKey, DynamicConfigs, getDynamicConfigValue } from '@universe/gating'
 import ms from 'ms'
@@ -43,9 +43,9 @@ import type {
   BridgeTrade,
   ChainedActionTrade,
   ClassicTrade,
-  UniswapXTrade,
+  DEXTrade,
 } from 'lx/src/features/transactions/swap/types/trade'
-import { isUniswapX } from 'lx/src/features/transactions/swap/utils/routing'
+import { isDEX } from 'lx/src/features/transactions/swap/utils/routing'
 import type {
   ApproveTransactionInfo,
   BridgeTransactionInfo,
@@ -497,7 +497,7 @@ function* waitForTransaction(hash: string | undefined, step: TransactionStep) {
   while (true) {
     const { payload } = yield* take<ReturnType<typeof finalizeTransaction>>(finalizeTransaction.type)
     // Note: This function is only used for classic/bridge transactions that have immediate transaction hashes.
-    // UniswapX orders use a different flow (handleUniswapXSignatureStep) and don't call this function.
+    // DEX orders use a different flow (handleDEXSignatureStep) and don't call this function.
     if (payload.id === hash) {
       if (payload.status === TransactionStatus.Success) {
         return payload
@@ -546,16 +546,16 @@ export function getSwapTransactionInfo(params: {
   planAnalytics?: PlanSwapTransactionInfoFields
 }): SwapInfo | BridgeTransactionInfo
 export function getSwapTransactionInfo(params: {
-  trade: UniswapXTrade
+  trade: DEXTrade
   swapStartTimestamp?: number
   planAnalytics?: PlanSwapTransactionInfoFields
-}): SwapInfo & { isUniswapXOrder: true }
+}): SwapInfo & { isDEXOrder: true }
 export function getSwapTransactionInfo({
   trade,
   swapStartTimestamp,
   planAnalytics,
 }: {
-  trade: ClassicTrade | BridgeTrade | UniswapXTrade | SolanaTrade | ChainedActionTrade
+  trade: ClassicTrade | BridgeTrade | DEXTrade | SolanaTrade | ChainedActionTrade
   swapStartTimestamp?: number
   planAnalytics?: PlanSwapTransactionInfoFields
 }): SwapInfo | BridgeTransactionInfo {
@@ -580,7 +580,7 @@ export function getSwapTransactionInfo({
   return {
     type: TransactionType.Swap,
     ...commonAttributes,
-    isUniswapXOrder: isUniswapX(trade),
+    isDEXOrder: isDEX(trade),
     ...(trade.tradeType === TradeType.EXACT_INPUT
       ? {
           tradeType: TradeType.EXACT_INPUT,

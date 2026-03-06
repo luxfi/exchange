@@ -55,10 +55,10 @@ import {
   SignTypedDataRequestSchema,
   SignTypedDataResponse,
   SignTypedDataResponseSchema,
-  UniswapOpenSidebarRequest,
-  UniswapOpenSidebarRequestSchema,
-  UniswapOpenSidebarResponse,
-  UniswapOpenSidebarResponseSchema,
+  LuxOpenSidebarRequest,
+  LuxOpenSidebarRequestSchema,
+  LuxOpenSidebarResponse,
+  LuxOpenSidebarResponseSchema,
 } from 'src/app/features/dappRequests/types/DappRequestTypes'
 import { TypedPortMessageChannel, TypedRuntimeMessageChannel } from 'src/background/messagePassing/platform'
 import {
@@ -170,7 +170,7 @@ type ContentScriptToBackgroundMessageSchemas = {
   [DappRequestType.SignMessage]: SignMessageRequest
   [DappRequestType.SignTransaction]: SignTransactionRequest
   [DappRequestType.SignTypedData]: SignTypedDataRequest
-  [DappRequestType.UniswapOpenSidebar]: UniswapOpenSidebarRequest
+  [DappRequestType.LuxOpenSidebar]: LuxOpenSidebarRequest
   [DappRequestType.SendCalls]: SendCallsRequest
   [DappRequestType.GetCallsStatus]: GetCallsStatusRequest
   [DappRequestType.GetCapabilities]: GetCapabilitiesRequest
@@ -192,8 +192,8 @@ const contentScriptToBackgroundMessageParsers: MessageParsers<
   [DappRequestType.SignMessage]: (message): SignMessageRequest => SignMessageRequestSchema.parse(message),
   [DappRequestType.SignTransaction]: (message): SignTransactionRequest => SignTransactionRequestSchema.parse(message),
   [DappRequestType.SignTypedData]: (message): SignTypedDataRequest => SignTypedDataRequestSchema.parse(message),
-  [DappRequestType.UniswapOpenSidebar]: (message): UniswapOpenSidebarRequest =>
-    UniswapOpenSidebarRequestSchema.parse(message),
+  [DappRequestType.LuxOpenSidebar]: (message): LuxOpenSidebarRequest =>
+    LuxOpenSidebarRequestSchema.parse(message),
   [DappRequestType.SendCalls]: (message): SendCallsRequest => SendCallsRequestSchema.parse(message),
   [DappRequestType.GetCallsStatus]: (message): GetCallsStatusRequest => GetCallsStatusRequestSchema.parse(message),
   [DappRequestType.GetCapabilities]: (message): GetCapabilitiesRequest => GetCapabilitiesRequestSchema.parse(message),
@@ -222,7 +222,7 @@ type DappResponseMessageSchemas = {
   [DappResponseType.SignMessageResponse]: SignMessageResponse
   [DappResponseType.SignTransactionResponse]: SignTransactionResponse
   [DappResponseType.SignTypedDataResponse]: SignTypedDataResponse
-  [DappResponseType.UniswapOpenSidebarResponse]: UniswapOpenSidebarResponse
+  [DappResponseType.LuxOpenSidebarResponse]: LuxOpenSidebarResponse
   [DappResponseType.SendCallsResponse]: SendCallsResponse
   [DappResponseType.GetCallsStatusResponse]: GetCallsStatusResponse
   [DappResponseType.GetCapabilitiesResponse]: GetCapabilitiesResponse
@@ -245,8 +245,8 @@ const dappResponseMessageParsers: MessageParsers<DappResponseType, DappResponseM
     SignTransactionResponseSchema.parse(message),
   [DappResponseType.SignTypedDataResponse]: (message): SignTypedDataResponse =>
     SignTypedDataResponseSchema.parse(message),
-  [DappResponseType.UniswapOpenSidebarResponse]: (message): UniswapOpenSidebarResponse =>
-    UniswapOpenSidebarResponseSchema.parse(message),
+  [DappResponseType.LuxOpenSidebarResponse]: (message): LuxOpenSidebarResponse =>
+    LuxOpenSidebarResponseSchema.parse(message),
   [DappResponseType.SendCallsResponse]: (message): SendCallsResponse => SendCallsResponseSchema.parse(message),
   [DappResponseType.GetCallsStatusResponse]: (message): GetCallsStatusResponse =>
     GetCallsStatusResponseSchema.parse(message),

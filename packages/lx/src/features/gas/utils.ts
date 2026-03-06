@@ -1,5 +1,5 @@
 import type { TransactionRequest } from '@ethersproject/providers'
-import { type Currency, type CurrencyAmount } from '@uniswap/sdk-core'
+import { type Currency, type CurrencyAmount } from '@lux/sdk-core'
 import {
   type GasEstimate,
   type GasFeeResult,

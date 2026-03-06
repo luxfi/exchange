@@ -28,7 +28,7 @@ export interface OrderCancellationParams {
 }
 
 /**
- * Builds a transaction to cancel a single UniswapX order
+ * Builds a transaction to cancel a single DEX order
  */
 export async function buildSingleCancellation(
   order: OrderCancellationParams,
@@ -59,7 +59,7 @@ export async function buildSingleCancellation(
 }
 
 /**
- * Builds transactions to cancel multiple UniswapX orders
+ * Builds transactions to cancel multiple DEX orders
  * Returns array of transactions when multiple word/mask pairs are needed
  */
 export async function buildBatchCancellation(

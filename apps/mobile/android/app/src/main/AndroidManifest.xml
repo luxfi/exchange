@@ -1,6 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
   xmlns:tools="http://schemas.android.com/tools"
-  package="com.uniswap">
+  package="com.lux">
 
   <uses-permission android:name="android.permission.INTERNET" />
   <uses-permission android:name="android.permission.CAMERA" />
@@ -33,7 +33,7 @@
 
     <meta-data
       android:name="com.onesignal.NotificationServiceExtension"
-      android:value="com.uniswap.notifications.SilentPushNotificationServiceExtension" />
+      android:value="com.lux.notifications.SilentPushNotificationServiceExtension" />
 
     <!-- We use FCM for WalletConnect push notifications -->
 
@@ -64,7 +64,7 @@
         <category android:name="android.intent.category.DEFAULT" />
         <category android:name="android.intent.category.BROWSABLE" />
 
-        <data android:scheme="uniswap" />
+        <data android:scheme="lux" />
       </intent-filter>
       <intent-filter>
         <action android:name="android.intent.action.VIEW" />
@@ -82,37 +82,37 @@
 
         <data
           android:scheme="https"
-          android:host="app.uniswap.org"
+          android:host="app.lux.exchange"
           android:pathPrefix="/nfts/asset/" />
 
         <data
           android:scheme="https"
-          android:host="app.uniswap.org"
+          android:host="app.lux.exchange"
           android:pathPrefix="/nfts/collection/" />
 
         <data
           android:scheme="https"
-          android:host="app.uniswap.org"
+          android:host="app.lux.exchange"
           android:pathPrefix="/tokens" />
 
         <data
           android:scheme="https"
-          android:host="app.uniswap.org"
+          android:host="app.lux.exchange"
           android:pathPrefix="/address/" />
 
         <data
           android:scheme="https"
-          android:host="app.uniswap.org"
+          android:host="app.lux.exchange"
           android:pathPrefix="/explore/tokens" />
 
         <data
           android:scheme="https"
-          android:host="app.uniswap.org"
+          android:host="app.lux.exchange"
           android:pathPrefix="/swap" />
 
         <data
           android:scheme="https"
-          android:host="app.uniswap.org"
+          android:host="app.lux.exchange"
           android:pathPrefix="/buy" />
       </intent-filter>
       <intent-filter android:autoVerify="true">
@@ -123,12 +123,12 @@
 
         <data
           android:scheme="https"
-          android:host="uniswap.org"
+          android:host="lux.exchange"
           android:pathPrefix="/app" />
 
         <data
           android:scheme="https"
-          android:host="uniswap.org"
+          android:host="lux.exchange"
           android:pathPrefix="/app/wc" />
       </intent-filter>
     </activity>

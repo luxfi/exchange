@@ -1,9 +1,9 @@
 /* eslint-disable max-lines */
-import { Protocol } from '@uniswap/router-sdk'
-import type { Currency, CurrencyAmount, TradeType } from '@uniswap/sdk-core'
-import { Pair } from '@uniswap/v2-sdk'
-import { Pool as V3Pool } from '@uniswap/v3-sdk'
-import { Pool as V4Pool } from '@uniswap/v4-sdk'
+import { Protocol } from '@lux/router-sdk'
+import type { Currency, CurrencyAmount, TradeType } from '@lux/sdk-core'
+import { Pair } from '@lux/v2-sdk'
+import { Pool as V3Pool } from '@lux/v3-sdk'
+import { Pool as V4Pool } from '@lux/v4-sdk'
 import { TradingApi } from '@universe/api'
 import { useEffect } from 'react'
 import type { PresetPercentage } from 'lx/src/components/CurrencyInputPanel/AmountInputPresets/types'
@@ -21,7 +21,7 @@ import type { TransactionSettings } from 'lx/src/features/transactions/component
 import type { DerivedSwapInfo } from 'lx/src/features/transactions/swap/types/derivedSwapInfo'
 import type { ClassicTrade, Trade } from 'lx/src/features/transactions/swap/types/trade'
 import { getSwapFeeUsd } from 'lx/src/features/transactions/swap/utils/getSwapFeeUsd'
-import { isChained, isClassic, isJupiter, isUniswapX } from 'lx/src/features/transactions/swap/utils/routing'
+import { isChained, isClassic, isJupiter, isDEX } from 'lx/src/features/transactions/swap/utils/routing'
 import { SwapEventType, timestampTracker } from 'lx/src/features/transactions/swap/utils/SwapEventTimestampTracker'
 import { getProtocolVersionFromTrade } from 'lx/src/features/transactions/swap/utils/trade'
 import { getClassicQuoteFromResponse } from 'lx/src/features/transactions/swap/utils/tradingApi'
@@ -50,7 +50,7 @@ export interface SwapRoutesAnalyticsData {
   v2Used: boolean
   v3Used: boolean
   v4Used: boolean
-  uniswapXUsed: boolean
+  dexUsed: boolean
   jupiterUsed: boolean
 }
 
@@ -58,7 +58,7 @@ const DEFAULT_RESULT = {
   v2Used: false,
   v3Used: false,
   v4Used: false,
-  uniswapXUsed: false,
+  dexUsed: false,
   jupiterUsed: false,
 }
 
@@ -172,7 +172,7 @@ function isNonBridgeCrossChainSwap(trade: Trade): boolean {
 
 /**
  * Extract route data from a trade for analytics purposes.
- * Handles Classic (with detailed pool information), UniswapX, and Jupiter routing.
+ * Handles Classic (with detailed pool information), DEX, and Jupiter routing.
  * @param trade The trade object containing route information
  * @returns Structured route data for analytics or undefined if route data is not available
  */
@@ -208,17 +208,17 @@ export function getRouteAnalyticsData({
       v2Used,
       v3Used,
       v4Used,
-      uniswapXUsed: false,
+      dexUsed: false,
       jupiterUsed: false,
     }
   }
 
-  if (isUniswapX({ routing })) {
-    // For UniswapX trades, we don't have detailed route information in the same way
+  if (isDEX({ routing })) {
+    // For DEX trades, we don't have detailed route information in the same way
     // But we can mark it as using X
     return {
       ...DEFAULT_RESULT,
-      uniswapXUsed: true,
+      dexUsed: true,
     }
   }
 
@@ -236,7 +236,7 @@ export function getRouteAnalyticsData({
 }
 
 export function getPriceImpact(trade: Trade | null | undefined): string | undefined {
-  if (!trade || isUniswapX(trade) || isChained(trade)) {
+  if (!trade || isDEX(trade) || isChained(trade)) {
     return undefined
   }
   return trade.priceImpact?.multiply(100).toSignificant()
@@ -283,7 +283,7 @@ function getQuoteRequestIdFields(trade: Trade): {
   }
 
   // Backwards compatibility with old ura_request_id field
-  if (isClassic(trade) || isUniswapX(trade)) {
+  if (isClassic(trade) || isDEX(trade)) {
     uraRequestId = requestId
   }
 
@@ -564,11 +564,11 @@ export function tradeRoutingToFillType({
 
   switch (routing) {
     case TradingApi.Routing.DUTCH_V3:
-      return 'uniswap_x_v3'
+      return 'dex_v3'
     case TradingApi.Routing.DUTCH_V2:
-      return 'uniswap_x_v2'
+      return 'dex_v2'
     case TradingApi.Routing.DUTCH_LIMIT:
-      return 'uniswap_x'
+      return 'dex_x'
     case TradingApi.Routing.PRIORITY:
       return 'priority_order'
     case TradingApi.Routing.LIMIT_ORDER:

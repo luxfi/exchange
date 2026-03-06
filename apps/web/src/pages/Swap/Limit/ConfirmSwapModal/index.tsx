@@ -1,4 +1,4 @@
-import { Currency, Percent } from '@uniswap/sdk-core'
+import { Currency, Percent } from '@lux/sdk-core'
 import { useCallback, useEffect, useMemo } from 'react'
 import { Flex } from 'ui/src'
 // biome-ignore lint/style/noRestrictedImports: ui constant needed for modal animation timing
@@ -22,11 +22,11 @@ import { ConfirmModalState } from '~/pages/Swap/Limit/ConfirmSwapModal/state'
 import { useConfirmModalState } from '~/pages/Swap/Limit/ConfirmSwapModal/useConfirmModalState'
 import { useSuppressPopups } from '~/state/application/hooks'
 import { InterfaceTrade } from '~/state/routing/types'
-import { isLimitTrade, isPreviewTrade, isUniswapXTradeType } from '~/state/routing/utils'
-import { useUniswapXOrderByOrderHash } from '~/state/transactions/hooks'
+import { isLimitTrade, isPreviewTrade, isDEXTradeType } from '~/state/routing/utils'
+import { useDEXOrderByOrderHash } from '~/state/transactions/hooks'
 import { ThemeProvider } from '~/theme'
 import { FadePresence } from '~/theme/components/FadePresence'
-import { SignatureExpiredError, UniswapXv2HardQuoteError } from '~/utils/errors'
+import { SignatureExpiredError, DEXv2HardQuoteError } from '~/utils/errors'
 import { formatSwapPriceUpdatedEventProperties } from '~/utils/loggingFormatters'
 import { didUserReject } from '~/utils/swapErrorToUserReadableMessage'
 
@@ -87,15 +87,15 @@ export function ConfirmSwapModal({
 
   // Get status depending on swap type
   const swapStatus = useSwapTransactionStatus(swapResult)
-  const uniswapXOrder = useUniswapXOrderByOrderHash(
-    isUniswapXTradeType(swapResult?.type) ? swapResult.response.orderHash : '',
+  const dexOrder = useDEXOrderByOrderHash(
+    isDEXTradeType(swapResult?.type) ? swapResult.response.orderHash : '',
   )
 
   // Has the transaction been confirmed onchain?
-  const swapConfirmed = swapStatus === TransactionStatus.Success || uniswapXOrder?.status === TransactionStatus.Success
+  const swapConfirmed = swapStatus === TransactionStatus.Success || dexOrder?.status === TransactionStatus.Success
 
   // Has a limit order been submitted?
-  const limitPlaced = isLimitTrade(trade) && uniswapXOrder?.status === TransactionStatus.Pending
+  const limitPlaced = isLimitTrade(trade) && dexOrder?.status === TransactionStatus.Pending
 
   // Has the transaction failed locally (i.e. before network or submission), or has it been reverted onchain?
   const localSwapFailure = Boolean(swapError) && !didUserReject(swapError)
@@ -108,7 +108,7 @@ export function ConfirmSwapModal({
     if (swapError instanceof SignatureExpiredError) {
       return undefined
     }
-    if (swapError instanceof UniswapXv2HardQuoteError) {
+    if (swapError instanceof DEXv2HardQuoteError) {
       return PendingModalError.XV2_HARD_QUOTE_ERROR
     }
     if (swapError && !didUserReject(swapError)) {
@@ -240,7 +240,7 @@ export function ConfirmSwapModal({
                 tokenApprovalPending={allowance.state === AllowanceState.REQUIRED && allowance.isApprovalPending}
                 revocationPending={allowance.state === AllowanceState.REQUIRED && allowance.isRevocationPending}
                 swapError={swapError}
-                onRetryUniswapXSignature={onConfirm}
+                onRetryDEXSignature={onConfirm}
               />
             </FadePresence>
           </Flex>

@@ -28,7 +28,7 @@ export function isDevEnv(): boolean {
       // biome-ignore lint/suspicious/noConsole: Console logging needed for debugging
       console.warn(
         'Avoid using `isDevEnv()` inside the injected script. Use `__DEV__` instead. ' +
-          '`chrome.runtime` is only available when the injected script is running inside a trusted site (`app.uniswap.org`). ' +
+          '`chrome.runtime` is only available when the injected script is running inside a trusted site (`app.lux.org`). ' +
           'This helper only works reliably when running the app locally but not when publishing the Dev build.',
       )
       return __DEV__
@@ -56,7 +56,7 @@ export function isBetaEnv(): boolean {
       // biome-ignore lint/suspicious/noConsole: Console logging needed for debugging
       console.warn(
         'Avoid using `isBetaEnv()` inside the injected script. ' +
-          '`chrome.runtime` is only available when the injected script is running inside a trusted site (`app.uniswap.org`). ' +
+          '`chrome.runtime` is only available when the injected script is running inside a trusted site (`app.lux.org`). ' +
           'This helper always returns `false` when running inside the injected script on other websites.',
       )
       return false
@@ -79,7 +79,7 @@ export function isProdEnv(): boolean {
       // biome-ignore lint/suspicious/noConsole: Console logging needed for debugging
       console.warn(
         'Avoid using `isProdEnv()` inside the injected script. ' +
-          '`chrome.runtime` is only available when the injected script is running inside a trusted site (`app.uniswap.org`). ' +
+          '`chrome.runtime` is only available when the injected script is running inside a trusted site (`app.lux.org`). ' +
           'This helper always returns `true` when running inside the injected script on other websites.',
       )
       return true

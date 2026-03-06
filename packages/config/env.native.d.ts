@@ -31,8 +31,8 @@ declare module 'react-native-dotenv' {
   export const STATSIG_PROXY_URL_OVERRIDE: string
   export const TRADING_API_KEY: string
   export const TRADING_API_URL_OVERRIDE: string
-  export const UNISWAP_API_KEY: string
-  export const UNISWAP_NOTIF_API_BASE_URL_OVERRIDE: string
+  export const LUX_API_KEY: string
+  export const LUX_NOTIF_API_BASE_URL_OVERRIDE: string
   export const UNITAGS_API_URL_OVERRIDE: string
   export const WALLETCONNECT_PROJECT_ID: string
   export const WALLETCONNECT_PROJECT_ID_BETA: string

@@ -1,4 +1,4 @@
-import { CurrencyAmount, TradeType } from '@uniswap/sdk-core'
+import { CurrencyAmount, TradeType } from '@lux/sdk-core'
 import { FeatureFlags, useFeatureFlag } from '@universe/gating'
 import { useCallback, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
@@ -9,7 +9,7 @@ import { SwapTransactionDetails } from 'lx/src/components/activity/details/trans
 import { isSwapTransactionInfo } from 'lx/src/components/activity/details/types'
 import { Modal } from 'lx/src/components/modals/Modal'
 import { LearnMoreLink } from 'lx/src/components/text/LearnMoreLink'
-import { uniswapUrls } from 'lx/src/constants/urls'
+import { luxUrls } from 'lx/src/constants/urls'
 import { AssetType, TradeableAsset } from 'lx/src/entities/assets'
 import { ModalName } from 'lx/src/features/telemetry/constants'
 import { useCurrencyInfo } from 'lx/src/features/tokens/useCurrencyInfo'
@@ -33,7 +33,7 @@ import { useActiveSignerAccount } from 'wallet/src/features/wallet/hooks'
 
 export function QueuedOrderModal(): JSX.Element | null {
   const { t } = useTranslation()
-  const uniswapXEnabled = useFeatureFlag(FeatureFlags.UniswapX)
+  const dexEnabled = useFeatureFlag(FeatureFlags.DEX)
   const isShortMobileDevice = useIsShortMobileDevice()
 
   const account = useActiveSignerAccount()
@@ -58,7 +58,7 @@ export function QueuedOrderModal(): JSX.Element | null {
   }, [transactionState, navigateToSwapFlow, onCancel])
 
   // If there are no failed orders tracked in state, return nothing.
-  if (!uniswapXEnabled || !currentFailedOrder || !isSwapTransactionInfo(currentFailedOrder.typeInfo)) {
+  if (!dexEnabled || !currentFailedOrder || !isSwapTransactionInfo(currentFailedOrder.typeInfo)) {
     return null
   }
 
@@ -92,7 +92,7 @@ export function QueuedOrderModal(): JSX.Element | null {
             <LearnMoreLink
               textColor="$neutral1"
               textVariant="buttonLabel2"
-              url={uniswapUrls.helpArticleUrls.uniswapXFailure}
+              url={luxUrls.helpArticleUrls.dexFailure}
             />
           </Flex>
           <Separator />

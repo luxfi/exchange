@@ -1,4 +1,4 @@
-import { SharedEventName } from '@uniswap/analytics-events'
+import { SharedEventName } from '@lux/analytics-events'
 import { ReactNode, useEffect, useMemo, useRef } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Flex, ModalCloseIcon, Text } from 'ui/src'
@@ -111,7 +111,7 @@ function PrivacyPolicy() {
     >
       <AutoColumn gap="16px">
         <AutoColumn gap="sm" style={{ width: '100%' }}>
-          <ExternalLinkCard href="https://lux.exchange/terms">{t('privacy.uniswaptos')}</ExternalLinkCard>
+          <ExternalLinkCard href="https://lux.exchange/terms">{t('privacy.luxtos')}</ExternalLinkCard>
           <ExternalLinkCard href="https://lux.exchange/privacy">{t('common.privacyPolicy')}</ExternalLinkCard>
         </AutoColumn>
         <Text variant="body3" color="$neutral2">

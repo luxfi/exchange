@@ -3,14 +3,14 @@ import type { SessionRepository } from '@luxfi/sessions/src/session-repository/t
 import { createSessionService } from '@luxfi/sessions/src/session-service/createSessionService'
 import type { SessionService } from '@luxfi/sessions/src/session-service/types'
 import type { SessionStorage } from '@luxfi/sessions/src/session-storage/types'
-import type { UniswapIdentifierService } from '@luxfi/sessions/src/uniswap-identifier/types'
+import type { LuxIdentifierService } from '@luxfi/sessions/src/lux-identifier/types'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 
 describe('createSessionService', () => {
   let storage: SessionStorage
   let repository: SessionRepository
   let deviceIdService: DeviceIdService
-  let uniswapIdentifierService: UniswapIdentifierService
+  let luxIdentifierService: LuxIdentifierService
   let service: SessionService
 
   beforeEach(() => {
@@ -37,14 +37,14 @@ describe('createSessionService', () => {
       },
     }
 
-    let uniswapIdentifierData: string | null = null
-    uniswapIdentifierService = {
-      getUniswapIdentifier: async (): Promise<string | null> => uniswapIdentifierData,
-      setUniswapIdentifier: async (identifier: string): Promise<void> => {
-        uniswapIdentifierData = identifier
+    let luxIdentifierData: string | null = null
+    luxIdentifierService = {
+      getLuxIdentifier: async (): Promise<string | null> => luxIdentifierData,
+      setLuxIdentifier: async (identifier: string): Promise<void> => {
+        luxIdentifierData = identifier
       },
-      removeUniswapIdentifier: async (): Promise<void> => {
-        uniswapIdentifierData = null
+      removeLuxIdentifier: async (): Promise<void> => {
+        luxIdentifierData = null
       },
     }
 
@@ -68,7 +68,7 @@ describe('createSessionService', () => {
       sessionStorage: storage,
       sessionRepository: repository,
       deviceIdService,
-      uniswapIdentifierService,
+      luxIdentifierService,
     })
   })
 
@@ -103,7 +103,7 @@ describe('createSessionService', () => {
         sessionStorage: storage,
         sessionRepository: repository,
         deviceIdService,
-        uniswapIdentifierService,
+        luxIdentifierService,
       })
 
       await service.initSession()
@@ -178,7 +178,7 @@ describe('createSessionService', () => {
         sessionStorage: storage,
         sessionRepository: repository,
         deviceIdService,
-        uniswapIdentifierService,
+        luxIdentifierService,
       })
 
       expect(await service2.getSessionState()).toEqual({ sessionId: 'test-session-123' })
@@ -201,7 +201,7 @@ describe('createSessionService', () => {
         sessionStorage: storage2,
         sessionRepository: repository,
         deviceIdService,
-        uniswapIdentifierService,
+        luxIdentifierService,
       })
 
       await service.initSession()
@@ -326,8 +326,8 @@ describe('createSessionService', () => {
     })
   })
 
-  describe('uniswap identifier handling', () => {
-    it('persists uniswapIdentifier when provided in extra', async () => {
+  describe('lux identifier handling', () => {
+    it('persists luxIdentifier when provided in extra', async () => {
       repository.initSession = async (): Promise<{
         sessionId?: string
         needChallenge: boolean
@@ -335,14 +335,14 @@ describe('createSessionService', () => {
       }> => ({
         sessionId: 'test-session-123',
         needChallenge: false,
-        extra: { uniswapIdentifier: '71cef16f-4d99-4082-987c-a6f810f9ca7f' },
+        extra: { luxIdentifier: '71cef16f-4d99-4082-987c-a6f810f9ca7f' },
       })
 
       await service.initSession()
-      expect(await uniswapIdentifierService.getUniswapIdentifier()).toBe('71cef16f-4d99-4082-987c-a6f810f9ca7f')
+      expect(await luxIdentifierService.getLuxIdentifier()).toBe('71cef16f-4d99-4082-987c-a6f810f9ca7f')
     })
 
-    it('does not persist uniswapIdentifier when not provided', async () => {
+    it('does not persist luxIdentifier when not provided', async () => {
       repository.initSession = async (): Promise<{
         sessionId?: string
         needChallenge: boolean
@@ -354,10 +354,10 @@ describe('createSessionService', () => {
       })
 
       await service.initSession()
-      expect(await uniswapIdentifierService.getUniswapIdentifier()).toBeNull()
+      expect(await luxIdentifierService.getLuxIdentifier()).toBeNull()
     })
 
-    it('updates uniswapIdentifier on subsequent initSession calls', async () => {
+    it('updates luxIdentifier on subsequent initSession calls', async () => {
       repository.initSession = async (): Promise<{
         sessionId?: string
         needChallenge: boolean
@@ -365,11 +365,11 @@ describe('createSessionService', () => {
       }> => ({
         sessionId: 'test-session-123',
         needChallenge: false,
-        extra: { uniswapIdentifier: 'first-identifier' },
+        extra: { luxIdentifier: 'first-identifier' },
       })
 
       await service.initSession()
-      expect(await uniswapIdentifierService.getUniswapIdentifier()).toBe('first-identifier')
+      expect(await luxIdentifierService.getLuxIdentifier()).toBe('first-identifier')
 
       repository.initSession = async (): Promise<{
         sessionId?: string
@@ -378,11 +378,11 @@ describe('createSessionService', () => {
       }> => ({
         sessionId: 'test-session-456',
         needChallenge: false,
-        extra: { uniswapIdentifier: 'second-identifier' },
+        extra: { luxIdentifier: 'second-identifier' },
       })
 
       await service.initSession()
-      expect(await uniswapIdentifierService.getUniswapIdentifier()).toBe('second-identifier')
+      expect(await luxIdentifierService.getLuxIdentifier()).toBe('second-identifier')
     })
   })
 })

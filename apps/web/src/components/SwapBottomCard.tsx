@@ -15,7 +15,7 @@ import { X } from 'ui/src/components/icons/X'
 import { opacify } from 'ui/src/theme'
 import { CardImage } from 'lx/src/components/cards/image'
 import { NewTag } from 'lx/src/components/pill/NewTag'
-import { useUniswapContext } from 'lx/src/contexts/UniswapContext'
+import { useLuxContext } from 'lx/src/contexts/LuxContext'
 import { useIsBridgingChain } from 'lx/src/features/bridging/hooks/chains'
 import { getChainInfo } from 'lx/src/features/chains/chainInfo'
 import { useIsSupportedChainId } from 'lx/src/features/chains/hooks/useSupportedChainId'
@@ -30,7 +30,7 @@ import { ClickableTamaguiStyle } from '~/theme/components/styles'
 
 export function SwapBottomCard() {
   const { chainId: oldFlowChainId } = useMultichainContext()
-  const { swapInputChainId: newFlowChainId } = useUniswapContext()
+  const { swapInputChainId: newFlowChainId } = useLuxContext()
   const chainId = newFlowChainId ?? oldFlowChainId
 
   const isSupportedChain = useIsSupportedChainId(chainId)

@@ -1,4 +1,4 @@
-import { CurrencyAmount } from '@uniswap/sdk-core'
+import { CurrencyAmount } from '@lux/sdk-core'
 import { TradingApi } from '@universe/api'
 import { UNI, WBTC } from 'lx/src/constants/tokens'
 import { UniverseChainId } from 'lx/src/features/chains/types'

@@ -22,7 +22,7 @@ export default defineConfig({
     ],
     testTimeout: 15000,
     deps: {
-      inline: [/packages\/ui/, /packages\/utilities/, /packages\/uniswap/],
+      inline: [/packages\/ui/, /packages\/utilities/, /packages\/lux/],
     },
     reporters: ['verbose'],
     coverage: {
@@ -51,7 +51,7 @@ export default defineConfig({
   },
   plugins: [react()],
   optimizeDeps: {
-    include: ['ui/src', 'utilities/src', 'uniswap/src'],
+    include: ['ui/src', 'utilities/src', 'lux/src'],
     exclude: ['d3-array'],
   },
   resolve: {
@@ -59,14 +59,14 @@ export default defineConfig({
     alias: [
       // Tilde prefix for src directory
       { find: /^~\/(.*)$/, replacement: path.resolve(__dirname, 'src/$1') },
-      // Use web app-specific i18n entry that doesn't import wallet's i18n-setup (must be before general uniswap/src alias)
+      // Use web app-specific i18n entry that doesn't import wallet's i18n-setup (must be before general lux/src alias)
       {
-        find: /^uniswap\/src\/i18n$/,
+        find: /^lux\/src\/i18n$/,
         replacement: path.resolve(__dirname, '../../packages/lx/src/i18n/index.web-app.ts'),
       },
       { find: 'ui/src', replacement: path.resolve(__dirname, '../../packages/ui/src') },
       { find: 'utilities/src', replacement: path.resolve(__dirname, '../../packages/utilities/src') },
-      { find: 'uniswap/src', replacement: path.resolve(__dirname, '../../packages/lx/src') },
+      { find: 'lux/src', replacement: path.resolve(__dirname, '../../packages/lx/src') },
       { find: 'd3-array', replacement: path.resolve(__dirname, '../../node_modules/d3-array/dist/d3-array.min.js') },
       { find: 'react-native', replacement: 'react-native-web' },
       { find: 'react-native-gesture-handler', replacement: require.resolve('react-native-gesture-handler') },

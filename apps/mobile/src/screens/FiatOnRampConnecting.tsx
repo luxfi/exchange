@@ -9,7 +9,7 @@ import { useFiatOnRampContext } from 'src/features/fiatOnRamp/FiatOnRampContext'
 import { closeModal } from 'src/features/modals/modalSlice'
 import { Flex, Text, UniversalImage, useIsDarkMode } from 'ui/src'
 import { spacing } from 'ui/src/theme'
-import { uniswapUrls } from 'lx/src/constants/urls'
+import { luxUrls } from 'lx/src/constants/urls'
 import { UniverseChainId } from 'lx/src/features/chains/types'
 import { useLocalFiatToUSDConverter } from 'lx/src/features/fiatCurrency/hooks'
 import { ServiceProviderLogoStyles } from 'lx/src/features/fiatOnRamp/constants'
@@ -90,7 +90,7 @@ export function FiatOnRampConnectingScreen({ navigation }: Props): JSX.Element |
           sourceCurrencyCode: baseCurrencyInfo.code,
           walletAddress: activeAccountAddress,
           externalSessionId: externalTransactionId,
-          redirectUrl: `${uniswapUrls.redirectUrlBase}?screen=transaction&fiatOnRamp=true&userAddress=${activeAccountAddress}`,
+          redirectUrl: `${luxUrls.redirectUrlBase}?screen=transaction&fiatOnRamp=true&userAddress=${activeAccountAddress}`,
         }
       : skipToken,
   )
@@ -110,7 +110,7 @@ export function FiatOnRampConnectingScreen({ navigation }: Props): JSX.Element |
           refundWalletAddress: activeAccountAddress,
           externalCustomerId: activeAccountAddress,
           externalSessionId: externalTransactionId,
-          redirectUrl: `${uniswapUrls.redirectUrlBase}?screen=transaction&fiatOffRamp=true&userAddress=${activeAccountAddress}&externalTransactionId=${externalTransactionId}`,
+          redirectUrl: `${luxUrls.redirectUrlBase}?screen=transaction&fiatOffRamp=true&userAddress=${activeAccountAddress}&externalTransactionId=${externalTransactionId}`,
         }
       : skipToken,
   )

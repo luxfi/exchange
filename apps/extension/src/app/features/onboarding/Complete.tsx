@@ -8,7 +8,7 @@ import { KeyboardKey } from 'src/app/features/onboarding/KeyboardKey'
 import { useOpeningKeyboardShortCut } from 'src/app/hooks/useOpeningKeyboardShortCut'
 import { terminateStoreSynchronization } from 'src/store/storeSynchronization'
 import { Flex, Image, Text } from 'ui/src'
-import { UNISWAP_LOGO } from 'ui/src/assets'
+import { LUX_LOGO } from 'ui/src/assets'
 import { iconSizes } from 'ui/src/theme'
 import { ExtensionOnboardingFlow } from 'lx/src/types/screens/extension'
 import { useOnboardingContext } from 'wallet/src/features/onboarding/OnboardingContext'
@@ -52,7 +52,7 @@ export function Complete({
       <Flex alignItems="center">
         <Flex alignItems="center" gap="$spacing24" justifyContent="center">
           <Flex alignItems="center" gap="$spacing12" justifyContent="center">
-            <Image height={iconSizes.icon64} source={UNISWAP_LOGO} width={iconSizes.icon64} />
+            <Image height={iconSizes.icon64} source={LUX_LOGO} width={iconSizes.icon64} />
             <Text color="$neutral1" variant="heading3">
               {t('onboarding.complete.title')}
             </Text>

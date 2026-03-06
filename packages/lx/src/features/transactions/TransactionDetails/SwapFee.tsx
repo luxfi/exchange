@@ -47,16 +47,16 @@ export function SwapFee({
       }
     : undefined
 
-  const isNoUniswapInterfaceFees = useFeatureFlag(FeatureFlags.NoUniswapInterfaceFees)
+  const isNoLuxInterfaceFees = useFeatureFlag(FeatureFlags.NoLuxInterfaceFees)
   const isJupiterSwap = currency.chainId === UniverseChainId.Solana
 
-  if (isNoUniswapInterfaceFees && !isJupiterSwap && (!swapFeeInfo || swapFeeInfo.noFeeCharged)) {
+  if (isNoLuxInterfaceFees && !isJupiterSwap && (!swapFeeInfo || swapFeeInfo.noFeeCharged)) {
     return (
       <Flex row alignItems="center" justifyContent="space-between">
-        <SwapFeeWarning noUniswapInterfaceFees noFeeOnThisSwap isJupiter={false}>
+        <SwapFeeWarning noLuxInterfaceFees noFeeOnThisSwap isJupiter={false}>
           <Flex centered row gap="$spacing4">
             <Text color="$neutral2" variant="body3">
-              {t('swap.details.uniswapFee')}
+              {t('swap.details.luxFee')}
             </Text>
           </Flex>
         </SwapFeeWarning>
@@ -84,13 +84,13 @@ export function SwapFee({
     return (
       <Flex row alignItems="center" justifyContent="space-between">
         <SwapFeeWarning
-          noUniswapInterfaceFees={false}
+          noLuxInterfaceFees={false}
           noFeeOnThisSwap={Boolean(swapFeeInfo?.noFeeCharged)}
           isJupiter={isJupiterSwap}
         >
           <Flex centered row gap="$spacing4">
             <Text color="$neutral2" variant="body3">
-              {isJupiterSwap ? t('swap.fees.jupiter.label') : t('swap.details.uniswapFee')}
+              {isJupiterSwap ? t('swap.fees.jupiter.label') : t('swap.details.luxFee')}
               {showFeePercentage && ` (${swapFeeInfo.formattedPercent})`}
             </Text>
           </Flex>

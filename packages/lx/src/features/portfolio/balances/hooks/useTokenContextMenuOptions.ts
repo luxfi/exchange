@@ -1,5 +1,5 @@
-import { SharedEventName } from '@uniswap/analytics-events'
-import { isNativeCurrency } from '@uniswap/universal-router-sdk'
+import { SharedEventName } from '@lux/analytics-events'
+import { isNativeCurrency } from '@lux/universal-router-sdk'
 import { useCallback, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
@@ -13,7 +13,7 @@ import { ReceiveAlt } from 'ui/src/components/icons/ReceiveAlt'
 import { SendAction } from 'ui/src/components/icons/SendAction'
 import { ShareArrow } from 'ui/src/components/icons/ShareArrow'
 import { MenuOptionItemWithId } from 'lx/src/components/menus/ContextMenu'
-import { useUniswapContext } from 'lx/src/contexts/UniswapContext'
+import { useLuxContext } from 'lx/src/contexts/LuxContext'
 import { normalizeCurrencyIdForMapLookup } from 'lx/src/data/cache'
 import { useActiveAddresses } from 'lx/src/features/accounts/store/hooks'
 import { selectHasViewedContractAddressExplainer } from 'lx/src/features/behaviorHistory/selectors'
@@ -82,7 +82,7 @@ export function useTokenContextMenuOptions({
   const activeAddresses = useActiveAddresses()
 
   const { navigateToSwapFlow, navigateToReceive, navigateToSendFlow, handleShareToken, navigateToTokenDetails } =
-    useUniswapContext()
+    useLuxContext()
 
   const activeAccountHoldsToken =
     portfolioBalance && areCurrencyIdsEqual(currencyId, portfolioBalance.currencyInfo.currencyId)

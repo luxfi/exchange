@@ -27,7 +27,7 @@ export default defineConfig({
         /ui\/src\/theme/,
         /packages\/ui/,
         /packages\/utilities/,
-        /packages\/uniswap/,
+        /packages\/lux/,
         /tamagui/,
         /@testing-library\/react-native/,
         /@react-navigation\/core/,
@@ -61,7 +61,7 @@ export default defineConfig({
     ...vitestPreset.resolve,
     extensions: ['.web.ts', '.web.tsx', '.ts', '.tsx', '.js', '.jsx', '.json'],
     alias: {
-      'uniswap/src': path.resolve(__dirname, './src'),
+      'lux/src': path.resolve(__dirname, './src'),
       'ui/src': path.resolve(__dirname, '../ui/src'),
       'utilities/src': path.resolve(__dirname, '../utilities/src'),
 

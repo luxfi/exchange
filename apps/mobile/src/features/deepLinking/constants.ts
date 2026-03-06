@@ -1,6 +1,6 @@
-import { uniswapUrls } from 'lx/src/constants/urls'
+import { luxUrls } from 'lx/src/constants/urls'
 
-export const UNISWAP_URL_SCHEME = 'uniswap://'
-export const UNISWAP_URL_SCHEME_WALLETCONNECT_AS_PARAM = 'uniswap://wc?uri='
-export const UNISWAP_URL_SCHEME_SCANTASTIC = 'uniswap://scantastic?'
-export const UNISWAP_WALLETCONNECT_URL = uniswapUrls.appBaseUrl + '/wc?uri='
+export const LUX_URL_SCHEME = 'lux://'
+export const LUX_URL_SCHEME_WALLETCONNECT_AS_PARAM = 'lux://wc?uri='
+export const LUX_URL_SCHEME_SCANTASTIC = 'lux://scantastic?'
+export const LUX_WALLETCONNECT_URL = luxUrls.appBaseUrl + '/wc?uri='

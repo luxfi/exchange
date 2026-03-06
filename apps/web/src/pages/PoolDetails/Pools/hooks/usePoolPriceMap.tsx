@@ -24,7 +24,7 @@ export function usePoolPriceMap(positions: PositionInfo[] | undefined) {
     return Object.values(contractMap)
   }, [defaultChainId, positions])
 
-  const { data, loading } = GraphQLApi.useUniswapPricesQuery({ variables: { contracts }, skip: !contracts.length })
+  const { data, loading } = GraphQLApi.useLuxPricesQuery({ variables: { contracts }, skip: !contracts.length })
 
   const priceMap = useMemo(
     () =>

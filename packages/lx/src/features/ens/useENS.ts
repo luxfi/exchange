@@ -1,4 +1,4 @@
-// Copied from https://github.com/Uniswap/interface/blob/main/src/hooks/useENS.ts
+// Copied from https://github.com/Lux/interface/blob/main/src/hooks/useENS.ts
 
 import { UniverseChainId } from 'lx/src/features/chains/types'
 import { useAddressFromEns, useENSName } from 'lx/src/features/ens/api'

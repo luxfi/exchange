@@ -1,5 +1,5 @@
 import { nanoid } from '@reduxjs/toolkit'
-import { TokenList } from '@uniswap/token-lists'
+import { TokenList } from '@lux/token-lists'
 import { useCallback } from 'react'
 import { UniverseChainId } from 'lx/src/features/chains/types'
 import { logger } from 'utilities/src/logger/logger'

@@ -1,5 +1,5 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit'
-import { Ether } from '@uniswap/sdk-core'
+import { Ether } from '@lux/sdk-core'
 import { WBTC } from 'lx/src/constants/tokens'
 import { normalizeCurrencyIdForMapLookup } from 'lx/src/data/cache'
 import { UniverseChainId } from 'lx/src/features/chains/types'

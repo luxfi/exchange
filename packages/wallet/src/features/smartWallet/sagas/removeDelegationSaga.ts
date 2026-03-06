@@ -1,6 +1,6 @@
 import { TransactionRequest, TransactionResponse } from '@ethersproject/providers'
 import { call } from 'typed-redux-saga'
-import { fetchGasFeeQuery } from 'lx/src/data/apiClients/uniswapApi/useGasFeeQuery'
+import { fetchGasFeeQuery } from 'lx/src/data/apiClients/luxApi/useGasFeeQuery'
 import { SignerMnemonicAccountMeta } from 'lx/src/features/accounts/types'
 import { DEFAULT_NATIVE_ADDRESS } from 'lx/src/features/chains/evm/defaults'
 import { UniverseChainId } from 'lx/src/features/chains/types'

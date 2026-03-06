@@ -14,7 +14,7 @@ export function createLocalCookieTransport(options: { baseUrl: string; cookieJar
     interceptors: [
       (next) => async (request) => {
         // Add required headers that backend expects
-        request.header.set('x-request-source', 'uniswap-web')
+        request.header.set('x-request-source', 'lux-web')
 
         // Simulate browser cookie behavior: add stored cookies to request
         if (cookieJar.size > 0) {

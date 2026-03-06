@@ -7,7 +7,7 @@ import {
   SignoutResponse,
   VerifyResponse,
   VerifySuccess,
-} from '@uniswap/client-platform-service/dist/uniswap/platformservice/v1/sessionService_pb'
+} from '@lux/client-platform-service/dist/lux/platformservice/v1/sessionService_pb'
 import { createChallengeSolverService } from '@universe/sessions/src/challenge-solvers/createChallengeSolverService'
 import type { ChallengeSolver } from '@universe/sessions/src/challenge-solvers/types'
 import type { PerformanceTracker } from '@universe/sessions/src/performance/types'
@@ -23,7 +23,7 @@ import {
   createTestTransport,
   InMemoryDeviceIdService,
   InMemorySessionStorage,
-  InMemoryUniswapIdentifierService,
+  InMemoryLuxIdentifierService,
   type MockEndpoints,
 } from '@universe/sessions/src/test-utils'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
@@ -52,7 +52,7 @@ const mockTurnstileSolve = vi.fn()
 describe('Challenge Flow Integration Tests', () => {
   let sessionStorage: InMemorySessionStorage
   let deviceIdService: InMemoryDeviceIdService
-  let uniswapIdentifierService: InMemoryUniswapIdentifierService
+  let luxIdentifierService: InMemoryLuxIdentifierService
   let sessionService: SessionService
   let sessionInitializationService: SessionInitializationService
   let mockEndpoints: MockEndpoints
@@ -61,18 +61,18 @@ describe('Challenge Flow Integration Tests', () => {
     // Initialize in-memory storage
     sessionStorage = new InMemorySessionStorage()
     deviceIdService = new InMemoryDeviceIdService()
-    uniswapIdentifierService = new InMemoryUniswapIdentifierService()
+    luxIdentifierService = new InMemoryLuxIdentifierService()
 
     // Set up mock endpoints with default responses
     mockEndpoints = {
-      '/uniswap.platformservice.v1.SessionService/InitSession': async (): Promise<InitSessionResponse> => {
+      '/lux.platformservice.v1.SessionService/InitSession': async (): Promise<InitSessionResponse> => {
         return new InitSessionResponse({
           sessionId: 'test-session-123',
           needChallenge: true,
           extra: {},
         })
       },
-      '/uniswap.platformservice.v1.SessionService/Challenge': async (): Promise<ChallengeResponse> => {
+      '/lux.platformservice.v1.SessionService/Challenge': async (): Promise<ChallengeResponse> => {
         return new ChallengeResponse({
           challengeId: '02c241f3-8d45-4a88-842a-d364c30a6c44',
           challengeType: ChallengeType.TURNSTILE,
@@ -81,16 +81,16 @@ describe('Challenge Flow Integration Tests', () => {
           },
         })
       },
-      '/uniswap.platformservice.v1.SessionService/Verify': async (): Promise<VerifyResponse> => {
+      '/lux.platformservice.v1.SessionService/Verify': async (): Promise<VerifyResponse> => {
         return createSuccessVerifyResponse()
       },
-      '/uniswap.platformservice.v1.SessionService/DeleteSession': async (): Promise<DeleteSessionResponse> => {
+      '/lux.platformservice.v1.SessionService/DeleteSession': async (): Promise<DeleteSessionResponse> => {
         return new DeleteSessionResponse({})
       },
-      '/uniswap.platformservice.v1.SessionService/GetChallengeTypes': async (): Promise<GetChallengeTypesResponse> => {
+      '/lux.platformservice.v1.SessionService/GetChallengeTypes': async (): Promise<GetChallengeTypesResponse> => {
         return new GetChallengeTypesResponse({ challengeTypes: [] })
       },
-      '/uniswap.platformservice.v1.SessionService/Signout': async (): Promise<SignoutResponse> => {
+      '/lux.platformservice.v1.SessionService/Signout': async (): Promise<SignoutResponse> => {
         return new SignoutResponse({})
       },
     } as unknown as MockEndpoints
@@ -110,7 +110,7 @@ describe('Challenge Flow Integration Tests', () => {
     sessionService = createSessionService({
       sessionStorage,
       deviceIdService,
-      uniswapIdentifierService,
+      luxIdentifierService,
       sessionRepository,
     })
 
@@ -149,7 +149,7 @@ describe('Challenge Flow Integration Tests', () => {
 
   it('initializes a session with needChallenge: true and completes challenge flow', async () => {
     // Update mock to return needChallenge: true
-    mockEndpoints['/uniswap.platformservice.v1.SessionService/InitSession'] =
+    mockEndpoints['/lux.platformservice.v1.SessionService/InitSession'] =
       async (): Promise<InitSessionResponse> => {
         return new InitSessionResponse({
           sessionId: '776973bd-bbc2-452b-9c35-1b72c475afbd',
@@ -164,8 +164,8 @@ describe('Challenge Flow Integration Tests', () => {
     const verifyCalls: Array<{ request: any; headers: Record<string, string> }> = []
 
     // Wrap handlers to track calls
-    const originalInit = mockEndpoints['/uniswap.platformservice.v1.SessionService/InitSession']
-    mockEndpoints['/uniswap.platformservice.v1.SessionService/InitSession'] = async (
+    const originalInit = mockEndpoints['/lux.platformservice.v1.SessionService/InitSession']
+    mockEndpoints['/lux.platformservice.v1.SessionService/InitSession'] = async (
       request,
       headers,
     ): Promise<InitSessionResponse> => {
@@ -173,8 +173,8 @@ describe('Challenge Flow Integration Tests', () => {
       return originalInit(request, headers)
     }
 
-    const originalChallenge = mockEndpoints['/uniswap.platformservice.v1.SessionService/Challenge']
-    mockEndpoints['/uniswap.platformservice.v1.SessionService/Challenge'] = async (
+    const originalChallenge = mockEndpoints['/lux.platformservice.v1.SessionService/Challenge']
+    mockEndpoints['/lux.platformservice.v1.SessionService/Challenge'] = async (
       request,
       headers,
     ): Promise<ChallengeResponse> => {
@@ -182,8 +182,8 @@ describe('Challenge Flow Integration Tests', () => {
       return originalChallenge(request, headers)
     }
 
-    const originalVerify = mockEndpoints['/uniswap.platformservice.v1.SessionService/Verify']
-    mockEndpoints['/uniswap.platformservice.v1.SessionService/Verify'] = async (
+    const originalVerify = mockEndpoints['/lux.platformservice.v1.SessionService/Verify']
+    mockEndpoints['/lux.platformservice.v1.SessionService/Verify'] = async (
       request,
       headers,
     ): Promise<VerifyResponse> => {
@@ -254,7 +254,7 @@ describe('Challenge Flow Integration Tests', () => {
 
     // Track calls
     let initCallCount = 0
-    mockEndpoints['/uniswap.platformservice.v1.SessionService/InitSession'] =
+    mockEndpoints['/lux.platformservice.v1.SessionService/InitSession'] =
       async (): Promise<InitSessionResponse> => {
         initCallCount++
         // Backend returns the same session ID (simulating session reuse)
@@ -279,7 +279,7 @@ describe('Challenge Flow Integration Tests', () => {
 
   it('handles challenge retry when upgrade fails', async () => {
     // Set up to require challenge
-    mockEndpoints['/uniswap.platformservice.v1.SessionService/InitSession'] =
+    mockEndpoints['/lux.platformservice.v1.SessionService/InitSession'] =
       async (): Promise<InitSessionResponse> => {
         return new InitSessionResponse({
           sessionId: 'retry-session-123',
@@ -290,7 +290,7 @@ describe('Challenge Flow Integration Tests', () => {
 
     // Make first verify attempt fail with retry
     let verifyAttempts = 0
-    mockEndpoints['/uniswap.platformservice.v1.SessionService/Verify'] = async (): Promise<VerifyResponse> => {
+    mockEndpoints['/lux.platformservice.v1.SessionService/Verify'] = async (): Promise<VerifyResponse> => {
       verifyAttempts++
       if (verifyAttempts === 1) {
         return new VerifyResponse({ retry: true })
@@ -300,8 +300,8 @@ describe('Challenge Flow Integration Tests', () => {
 
     // Track challenge calls
     const challengeCalls: any[] = []
-    const originalChallenge = mockEndpoints['/uniswap.platformservice.v1.SessionService/Challenge']
-    mockEndpoints['/uniswap.platformservice.v1.SessionService/Challenge'] = async (
+    const originalChallenge = mockEndpoints['/lux.platformservice.v1.SessionService/Challenge']
+    mockEndpoints['/lux.platformservice.v1.SessionService/Challenge'] = async (
       request,
       headers,
     ): Promise<ChallengeResponse> => {
@@ -323,7 +323,7 @@ describe('Challenge Flow Integration Tests', () => {
 
   it('respects maximum retry limit for challenges', async () => {
     // Set up to require challenge
-    mockEndpoints['/uniswap.platformservice.v1.SessionService/InitSession'] =
+    mockEndpoints['/lux.platformservice.v1.SessionService/InitSession'] =
       async (): Promise<InitSessionResponse> => {
         return new InitSessionResponse({
           sessionId: 'max-retry-session',
@@ -333,7 +333,7 @@ describe('Challenge Flow Integration Tests', () => {
       }
 
     // Always return retry: true
-    mockEndpoints['/uniswap.platformservice.v1.SessionService/Verify'] = async (): Promise<VerifyResponse> => {
+    mockEndpoints['/lux.platformservice.v1.SessionService/Verify'] = async (): Promise<VerifyResponse> => {
       return new VerifyResponse({ retry: true })
     }
 
@@ -341,8 +341,8 @@ describe('Challenge Flow Integration Tests', () => {
     const challengeCalls: any[] = []
     const verifyCalls: any[] = []
 
-    const originalChallenge = mockEndpoints['/uniswap.platformservice.v1.SessionService/Challenge']
-    mockEndpoints['/uniswap.platformservice.v1.SessionService/Challenge'] = async (
+    const originalChallenge = mockEndpoints['/lux.platformservice.v1.SessionService/Challenge']
+    mockEndpoints['/lux.platformservice.v1.SessionService/Challenge'] = async (
       request,
       headers,
     ): Promise<ChallengeResponse> => {
@@ -350,8 +350,8 @@ describe('Challenge Flow Integration Tests', () => {
       return originalChallenge(request, headers)
     }
 
-    const originalVerify = mockEndpoints['/uniswap.platformservice.v1.SessionService/Verify']
-    mockEndpoints['/uniswap.platformservice.v1.SessionService/Verify'] = async (
+    const originalVerify = mockEndpoints['/lux.platformservice.v1.SessionService/Verify']
+    mockEndpoints['/lux.platformservice.v1.SessionService/Verify'] = async (
       request,
       headers,
     ): Promise<VerifyResponse> => {
@@ -374,8 +374,8 @@ describe('Challenge Flow Integration Tests', () => {
 
     // Track challenge request to verify headers
     let capturedHeaders: Record<string, string> = {}
-    const originalChallenge = mockEndpoints['/uniswap.platformservice.v1.SessionService/Challenge']
-    mockEndpoints['/uniswap.platformservice.v1.SessionService/Challenge'] = async (
+    const originalChallenge = mockEndpoints['/lux.platformservice.v1.SessionService/Challenge']
+    mockEndpoints['/lux.platformservice.v1.SessionService/Challenge'] = async (
       request,
       headers,
     ): Promise<ChallengeResponse> => {
@@ -397,8 +397,8 @@ describe('Challenge Flow Integration Tests', () => {
 
     // Track challenge request to verify headers
     let capturedHeaders: Record<string, string> = {}
-    const originalChallenge = mockEndpoints['/uniswap.platformservice.v1.SessionService/Challenge']
-    mockEndpoints['/uniswap.platformservice.v1.SessionService/Challenge'] = async (
+    const originalChallenge = mockEndpoints['/lux.platformservice.v1.SessionService/Challenge']
+    mockEndpoints['/lux.platformservice.v1.SessionService/Challenge'] = async (
       request,
       headers,
     ): Promise<ChallengeResponse> => {
@@ -416,7 +416,7 @@ describe('Challenge Flow Integration Tests', () => {
 
   it('submits empty solution when solver throws, allowing verify-retry fallback', async () => {
     // Set up to require challenge
-    mockEndpoints['/uniswap.platformservice.v1.SessionService/InitSession'] =
+    mockEndpoints['/lux.platformservice.v1.SessionService/InitSession'] =
       async (): Promise<InitSessionResponse> => {
         return new InitSessionResponse({
           sessionId: 'error-session-123',
@@ -430,7 +430,7 @@ describe('Challenge Flow Integration Tests', () => {
 
     // Verify endpoint accepts empty solution (no retry needed for this test)
     const verifyCalls: Array<{ request: any }> = []
-    mockEndpoints['/uniswap.platformservice.v1.SessionService/Verify'] = async (request): Promise<VerifyResponse> => {
+    mockEndpoints['/lux.platformservice.v1.SessionService/Verify'] = async (request): Promise<VerifyResponse> => {
       verifyCalls.push({ request })
       return createSuccessVerifyResponse()
     }
@@ -462,7 +462,7 @@ describe('Challenge Flow Integration Tests', () => {
 
   it('Turnstile solver fails → empty verify → retry → Hashcash succeeds end-to-end', async () => {
     // Set up to require challenge
-    mockEndpoints['/uniswap.platformservice.v1.SessionService/InitSession'] =
+    mockEndpoints['/lux.platformservice.v1.SessionService/InitSession'] =
       async (): Promise<InitSessionResponse> => {
         return new InitSessionResponse({
           sessionId: 'fallback-e2e-session',
@@ -473,7 +473,7 @@ describe('Challenge Flow Integration Tests', () => {
 
     // First challenge returns Turnstile, second returns Hashcash
     let challengeRequestCount = 0
-    mockEndpoints['/uniswap.platformservice.v1.SessionService/Challenge'] = async (): Promise<ChallengeResponse> => {
+    mockEndpoints['/lux.platformservice.v1.SessionService/Challenge'] = async (): Promise<ChallengeResponse> => {
       challengeRequestCount++
       if (challengeRequestCount === 1) {
         return new ChallengeResponse({
@@ -495,7 +495,7 @@ describe('Challenge Flow Integration Tests', () => {
 
     // First verify rejects empty solution, second succeeds
     let verifyCount = 0
-    mockEndpoints['/uniswap.platformservice.v1.SessionService/Verify'] = async (): Promise<VerifyResponse> => {
+    mockEndpoints['/lux.platformservice.v1.SessionService/Verify'] = async (): Promise<VerifyResponse> => {
       verifyCount++
       if (verifyCount === 1) {
         return new VerifyResponse({ retry: true })
@@ -544,7 +544,7 @@ describe('Challenge Flow Integration Tests', () => {
 
   it('falls back to Hashcash via verify-retry when mock Turnstile token is rejected', async () => {
     // Set up to require challenge
-    mockEndpoints['/uniswap.platformservice.v1.SessionService/InitSession'] =
+    mockEndpoints['/lux.platformservice.v1.SessionService/InitSession'] =
       async (): Promise<InitSessionResponse> => {
         return new InitSessionResponse({
           sessionId: 'fallback-session-123',
@@ -556,7 +556,7 @@ describe('Challenge Flow Integration Tests', () => {
     // First challenge returns Turnstile, second returns Hashcash
     // (backend switches after failed verification)
     let challengeRequestCount = 0
-    mockEndpoints['/uniswap.platformservice.v1.SessionService/Challenge'] = async (): Promise<ChallengeResponse> => {
+    mockEndpoints['/lux.platformservice.v1.SessionService/Challenge'] = async (): Promise<ChallengeResponse> => {
       challengeRequestCount++
       if (challengeRequestCount === 1) {
         return new ChallengeResponse({
@@ -578,7 +578,7 @@ describe('Challenge Flow Integration Tests', () => {
 
     // First verify rejects mock token, second succeeds
     let verifyCount = 0
-    mockEndpoints['/uniswap.platformservice.v1.SessionService/Verify'] = async (): Promise<VerifyResponse> => {
+    mockEndpoints['/lux.platformservice.v1.SessionService/Verify'] = async (): Promise<VerifyResponse> => {
       verifyCount++
       if (verifyCount === 1) {
         return new VerifyResponse({ retry: true })

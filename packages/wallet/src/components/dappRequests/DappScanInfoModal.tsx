@@ -5,7 +5,7 @@ import { FileListCheck } from 'ui/src/components/icons'
 import { defaultHitslop, zIndexes } from 'ui/src/theme'
 import { PoweredByBlockaid } from 'lx/src/components/logos/PoweredByBlockaid'
 import { Modal } from 'lx/src/components/modals/Modal'
-import { uniswapUrls } from 'lx/src/constants/urls'
+import { luxUrls } from 'lx/src/constants/urls'
 import { ModalName } from 'lx/src/features/telemetry/constants'
 import { openUri } from 'lx/src/utils/linking'
 import { logger } from 'utilities/src/logger/logger'
@@ -23,7 +23,7 @@ export function DappScanInfoModal({ isOpen, onClose, title, description }: DappS
   const colors = useSporeColors()
 
   const handleLearnMore = useCallback((): void => {
-    openUri({ uri: uniswapUrls.helpArticleUrls.dappProtectionInfo }).catch((e) => {
+    openUri({ uri: luxUrls.helpArticleUrls.dappProtectionInfo }).catch((e) => {
       logger.error(e, { tags: { file: 'DappScanInfoModal', function: 'handleLearnMore' } })
     })
   }, [])

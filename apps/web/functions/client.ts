@@ -1,6 +1,6 @@
 import { ApolloClient, InMemoryCache } from '@apollo/client'
 
-const GRAPHQL_ENDPOINT = 'https://interface.gateway.uniswap.org/v1/graphql'
+const GRAPHQL_ENDPOINT = 'https://interface.gateway.lux.org/v1/graphql'
 
 //TODO: Figure out how to make ApolloClient global variable
 export default new ApolloClient({
@@ -8,7 +8,7 @@ export default new ApolloClient({
   uri: GRAPHQL_ENDPOINT,
   headers: {
     'Content-Type': 'application/json',
-    Origin: 'https://app.uniswap.org',
+    Origin: 'https://app.lux.org',
     'User-Agent':
       'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.5735.110 Safari/537.36',
   },

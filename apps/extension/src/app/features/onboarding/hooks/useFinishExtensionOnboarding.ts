@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { saveDappConnection } from 'src/app/features/dapp/actions'
-import { UNISWAP_WEB_URL } from 'lx/src/constants/urls'
+import { LUX_WEB_URL } from 'lx/src/constants/urls'
 import { ImportType } from 'lx/src/types/onboarding'
 import { ExtensionOnboardingFlow } from 'lx/src/types/screens/extension'
 import { logger } from 'utilities/src/logger/logger'
@@ -8,7 +8,7 @@ import { useOnboardingContext } from 'wallet/src/features/onboarding/OnboardingC
 
 /**
  * Activates onboarding accounts on component mount,
- * and auto-connects to app.uniswap.org.
+ * and auto-connects to app.lux.org.
  */
 export function useFinishExtensionOnboarding({
   callback,
@@ -36,7 +36,7 @@ export function useFinishExtensionOnboarding({
 
       const account = getOnboardingOrImportedAccount()
       if (account) {
-        await saveDappConnection({ dappUrl: UNISWAP_WEB_URL, account })
+        await saveDappConnection({ dappUrl: LUX_WEB_URL, account })
       }
 
       callback?.()

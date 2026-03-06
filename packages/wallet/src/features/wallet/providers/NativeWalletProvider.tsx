@@ -13,13 +13,13 @@ import { useEvent } from 'utilities/src/react/hooks'
 import { useActiveAccount } from 'wallet/src/features/wallet/hooks'
 import { WalletState } from 'wallet/src/state/walletReducer'
 
-const NATIVE_UNISWAP_WALLET_ID = 'native-uniswap-wallet'
-const NATIVE_UNISWAP_WALLET_NAME = 'Native Uniswap Wallet'
+const NATIVE_LUX_WALLET_ID = 'native-lux-wallet'
+const NATIVE_LUX_WALLET_NAME = 'Native Lux Wallet'
 
-export function getUniswapWalletMeta(): WalletMeta {
+export function getLuxWalletMeta(): WalletMeta {
   return {
-    id: NATIVE_UNISWAP_WALLET_ID,
-    name: NATIVE_UNISWAP_WALLET_NAME,
+    id: NATIVE_LUX_WALLET_ID,
+    name: NATIVE_LUX_WALLET_NAME,
   }
 }
 
@@ -35,7 +35,7 @@ function useNativeWalletService(): WalletService {
   })
 
   return useMemo(
-    () => createEVMWalletService({ getWalletMeta: getUniswapWalletMeta, getAccountType }),
+    () => createEVMWalletService({ getWalletMeta: getLuxWalletMeta, getAccountType }),
     [getAccountType],
   )
 }

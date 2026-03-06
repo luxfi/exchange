@@ -5,7 +5,7 @@ import { type Animated } from 'react-native'
 import { useDispatch } from 'react-redux'
 import { useDappLastChainId } from 'src/app/features/dapp/hooks'
 import { useDappRequestQueueContext } from 'src/app/features/dappRequests/DappRequestQueueContext'
-import { handleExternallySubmittedUniswapXOrder } from 'src/app/features/dappRequests/handleUniswapX'
+import { handleExternallySubmittedDEXOrder } from 'src/app/features/dappRequests/handleDEX'
 import { useIsDappRequestConfirming } from 'src/app/features/dappRequests/hooks'
 import { useIsRequestStale } from 'src/app/features/dappRequests/hooks/useIsRequestStale'
 import { type DappRequestStoreItem } from 'src/app/features/dappRequests/shared'
@@ -46,7 +46,7 @@ interface DappRequestFooterProps {
   showSmartWalletActivation?: boolean
   showAddressFooter?: boolean
   transactionGasFeeResult?: GasFeeResult
-  isUniswapX?: boolean
+  isDEX?: boolean
   disableConfirm?: boolean
   contentHorizontalPadding?: number | Animated.AnimatedNode | GetThemeValueForKey<'paddingHorizontal'> | null
 }
@@ -92,7 +92,7 @@ export function DappRequestContent({
   showSmartWalletActivation,
   transactionGasFeeResult,
   children,
-  isUniswapX,
+  isDEX,
   disableConfirm,
   showAddressFooter = true,
   contentHorizontalPadding = '$spacing12',
@@ -124,7 +124,7 @@ export function DappRequestContent({
         chainId={chainId}
         confirmText={confirmText}
         connectedAccountAddress={connectedAccountAddress}
-        isUniswapX={isUniswapX}
+        isDEX={isDEX}
         maybeCloseOnConfirm={maybeCloseOnConfirm}
         showNetworkCost={showNetworkCost}
         showSmartWalletActivation={showSmartWalletActivation}
@@ -151,7 +151,7 @@ function DappRequestFooter({
   showSmartWalletActivation,
   showAddressFooter,
   transactionGasFeeResult,
-  isUniswapX,
+  isDEX,
   disableConfirm,
 }: DappRequestFooterProps): JSX.Element {
   const { t } = useTranslation()
@@ -209,8 +209,8 @@ function DappRequestFooter({
       onConfirm()
     } else {
       await defaultOnConfirm({ request })
-      if (isUniswapX) {
-        await handleExternallySubmittedUniswapXOrder(activeAccount.address, dispatch)
+      if (isDEX) {
+        await handleExternallySubmittedDEXOrder(activeAccount.address, dispatch)
       }
     }
 
@@ -260,7 +260,7 @@ function DappRequestFooter({
           <NetworkFeeFooter
             chainId={currentChainId}
             gasFee={transactionGasFeeResult}
-            isUniswapX={isUniswapX}
+            isDEX={isDEX}
             showNetworkLogo={!!transactionGasFeeResult}
             requestMethod={request.dappRequest.type}
             showSmartWalletActivation={showSmartWalletActivation}

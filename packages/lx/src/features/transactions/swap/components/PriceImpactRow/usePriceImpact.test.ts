@@ -7,7 +7,7 @@ import { Trade, TradeWithStatus } from 'lx/src/features/transactions/swap/types/
 import { renderHook } from 'lx/src/test/test-utils'
 import { CurrencyField } from 'lx/src/types/currency'
 
-const mockUniswapXTrade = {
+const mockDEXTrade = {
   quote: {
     quote: {
       classicGasUseEstimateUSD: '5.32',
@@ -50,10 +50,10 @@ describe('usePriceImpact', () => {
     })
   })
 
-  it('should calculate UniswapX price impact correctly', () => {
+  it('should calculate DEX price impact correctly', () => {
     const swapInfo: DerivedSwapInfo = {
       ...baseSwapInfo,
-      trade: { trade: mockUniswapXTrade } as TradeWithStatus,
+      trade: { trade: mockDEXTrade } as TradeWithStatus,
     }
 
     const { result } = renderHook(() => usePriceImpact({ derivedSwapInfo: swapInfo }))
@@ -74,7 +74,7 @@ describe('usePriceImpact', () => {
 
   it('should handle negative price impact formatting', () => {
     const negativeImpactTrade = {
-      ...mockUniswapXTrade,
+      ...mockDEXTrade,
       quote: {
         quote: {
           classicGasUseEstimateUSD: '2.01',

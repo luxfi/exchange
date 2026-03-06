@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next'
 import { Flex, LabeledCheckbox, Text, TouchableArea } from 'ui/src'
 import { WarningSeverity } from 'lx/src/components/modals/WarningModal/types'
 import { WarningModal } from 'lx/src/components/modals/WarningModal/WarningModal'
-import { uniswapUrls } from 'lx/src/constants/urls'
+import { luxUrls } from 'lx/src/constants/urls'
 import { getChainLabel } from 'lx/src/features/chains/utils'
 import { CurrencyInfo } from 'lx/src/features/dataApi/types'
 import { ElementName, ModalName } from 'lx/src/features/telemetry/constants'
@@ -52,7 +52,7 @@ export function CompatibleAddressModal({
               <Trace logPress element={ElementName.GetHelp}>
                 <TouchableArea
                   display="inline"
-                  onPress={() => openUri({ uri: uniswapUrls.helpArticleUrls.bridgedAssets })}
+                  onPress={() => openUri({ uri: luxUrls.helpArticleUrls.bridgedAssets })}
                 >
                   <Text variant="buttonLabel4" color="$neutral1" mt="$spacing4">
                     {t('common.button.learn')}

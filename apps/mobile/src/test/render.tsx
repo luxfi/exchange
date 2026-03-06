@@ -15,10 +15,10 @@ import { MobileWalletNavigationProvider } from 'src/app/MobileWalletNavigationPr
 import type { MobileState } from 'src/app/mobileReducer'
 import { navigationRef } from 'src/app/navigation/navigationRef'
 import { store as appStore, persistedReducer } from 'src/app/store'
-import { UniswapProvider } from 'lx/src/contexts/UniswapContext'
+import { LuxProvider } from 'lx/src/contexts/LuxContext'
 import { BlankUrlProvider } from 'lx/src/contexts/UrlContext'
 import { AutoMockedApolloProvider } from 'lx/src/test/mocks'
-import { mockUniswapContext } from 'lx/src/test/render'
+import { mockLuxContext } from 'lx/src/test/render'
 import { SharedWalletProvider } from 'wallet/src/providers/SharedWalletProvider'
 
 type AppStore = typeof appStore
@@ -56,7 +56,7 @@ export function renderWithProviders(
 } {
   function Wrapper({ children }: PropsWithChildren<unknown>): JSX.Element {
     return (
-      <UniswapProvider {...mockUniswapContext}>
+      <LuxProvider {...mockLuxContext}>
         <AutoMockedApolloProvider resolvers={resolvers}>
           <BlankUrlProvider>
             <SharedWalletProvider reduxStore={store}>
@@ -66,7 +66,7 @@ export function renderWithProviders(
             </SharedWalletProvider>
           </BlankUrlProvider>
         </AutoMockedApolloProvider>
-      </UniswapProvider>
+      </LuxProvider>
     )
   }
 
@@ -124,7 +124,7 @@ export function renderHookWithProviders<P, R>(
 
   function Wrapper({ children }: PropsWithChildren<unknown>): JSX.Element {
     return (
-      <UniswapProvider {...mockUniswapContext}>
+      <LuxProvider {...mockLuxContext}>
         <AutoMockedApolloProvider resolvers={resolvers}>
           <BlankUrlProvider>
             <NavigationContainer ref={navigationRef}>
@@ -134,7 +134,7 @@ export function renderHookWithProviders<P, R>(
             </NavigationContainer>
           </BlankUrlProvider>
         </AutoMockedApolloProvider>
-      </UniswapProvider>
+      </LuxProvider>
     )
   }
 

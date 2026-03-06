@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unnecessary-condition */
 import { createContext, PropsWithChildren, useContext } from 'react'
 import { getNativeAddress } from 'lx/src/constants/addresses'
-import { NavigateToNftItemArgs } from 'lx/src/contexts/UniswapContext'
+import { NavigateToNftItemArgs } from 'lx/src/contexts/LuxContext'
 import { AssetType } from 'lx/src/entities/assets'
 import { UniverseChainId } from 'lx/src/features/chains/types'
 import { FiatOnRampCurrency } from 'lx/src/features/fiatOnRamp/types'

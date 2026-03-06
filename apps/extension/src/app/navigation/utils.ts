@@ -1,7 +1,7 @@
 import { To, useLocation } from 'react-router'
 import { UnitagClaimRoutes } from 'src/app/navigation/constants'
 import { navigate } from 'src/app/navigation/state'
-import { uniswapUrls } from 'lx/src/constants/urls'
+import { luxUrls } from 'lx/src/constants/urls'
 import { TransactionState } from 'lx/src/features/transactions/types/transactionState'
 import { getTokenUrl } from 'lx/src/utils/linking'
 import { logger } from 'utilities/src/logger/logger'
@@ -88,11 +88,11 @@ export async function focusOrCreateDappRequestWindow(tabId: number | undefined, 
 
 /**
  * To avoid opening too many tabs while also ensuring that we don't take over the user's active tab,
- * we only update the URL of the active tab if it's already in a specific route of the Uniswap interface.
+ * we only update the URL of the active tab if it's already in a specific route of the Lux interface.
  *
  * If the current tab is not in that route, we open a new tab instead.
  */
-export async function focusOrCreateUniswapInterfaceTab({
+export async function focusOrCreateLuxInterfaceTab({
   url,
   reuseActiveTabIfItMatches,
 }: {
@@ -133,11 +133,11 @@ export async function focusOrCreateTokensExploreTab({ currencyId }: { currencyId
     return undefined
   }
 
-  return focusOrCreateUniswapInterfaceTab({
+  return focusOrCreateLuxInterfaceTab({
     url,
     // We want to reuse the active tab only if it's already in any other TDP.
     // eslint-disable-next-line security/detect-non-literal-regexp
-    reuseActiveTabIfItMatches: new RegExp(`^${escapeRegExp(uniswapUrls.webInterfaceTokensUrl)}`),
+    reuseActiveTabIfItMatches: new RegExp(`^${escapeRegExp(luxUrls.webInterfaceTokensUrl)}`),
   })
 }
 

@@ -46,9 +46,9 @@ export function useSmartWalletData(): WalletData[] {
       let status = WalletStatus.Inactive
 
       if (walletDelegationData) {
-        // Check for mismatched delegations first (delegated but not to Uniswap)
+        // Check for mismatched delegations first (delegated but not to Lux)
         const hasMismatchedDelegations = Object.values(walletDelegationData).some(
-          (details) => details.currentDelegationAddress && !details.isWalletDelegatedToUniswap,
+          (details) => details.currentDelegationAddress && !details.isWalletDelegatedToLux,
         )
 
         if (hasMismatchedDelegations) {
@@ -100,7 +100,7 @@ export function useSmartWalletData(): WalletData[] {
         derivedStatus = WalletStatus.Active
       }
 
-      // No consent, but has active delegations to Uniswap
+      // No consent, but has active delegations to Lux
       if (
         wallet.status === WalletStatus.Inactive &&
         !hasConsent &&

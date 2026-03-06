@@ -3,7 +3,7 @@ rulesDirPlugin.RULES_DIR = '../../packages/lx/eslint_rules'
 
 module.exports = {
   root: true,
-  extends: ['@uniswap/eslint-config/mobile'],
+  extends: ['@lux/eslint-config/mobile'],
   plugins: ['rulesdir'],
   ignorePatterns: [
     '.storybook/storybook.requires.ts',

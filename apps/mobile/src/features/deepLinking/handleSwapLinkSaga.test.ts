@@ -45,7 +45,7 @@ function formSwapUrl({
   amount?: string
 }): URL {
   return new URL(
-    `https://uniswap.org/app?screen=swap
+    `https://lux.org/app?screen=swap
 &userAddress=${userAddress}
 &inputCurrencyId=${chain}-${inputAddress}
 &outputCurrencyId=${chain}-${outputAddress}

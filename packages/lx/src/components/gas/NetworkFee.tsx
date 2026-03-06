@@ -1,26 +1,26 @@
-import { Currency, CurrencyAmount } from '@uniswap/sdk-core'
+import { Currency, CurrencyAmount } from '@lux/sdk-core'
 import { GasFeeResult } from '@universe/api'
 import { useTranslation } from 'react-i18next'
-import { Flex, Text, UniswapXText } from 'ui/src'
-import { UniswapX } from 'ui/src/components/icons/UniswapX'
+import { Flex, Text, DEXText } from 'ui/src'
+import { DEX } from 'ui/src/components/icons/DEX'
 import { iconSizes } from 'ui/src/theme'
 import { NetworkLogo } from 'lx/src/components/CurrencyLogo/NetworkLogo'
 import { NetworkFeeWarning } from 'lx/src/components/gas/NetworkFeeWarning'
 import { IndicativeLoadingWrapper } from 'lx/src/components/misc/IndicativeLoadingWrapper'
 import { UniverseChainId } from 'lx/src/features/chains/types'
 import {
-  useFormattedUniswapXGasFeeInfo,
+  useFormattedDEXGasFeeInfo,
   useGasFeeFormattedDisplayAmounts,
   useGasFeeHighRelativeToValue,
 } from 'lx/src/features/gas/hooks'
-import { UniswapXGasBreakdown } from 'lx/src/features/transactions/swap/types/swapTxAndGasInfo'
+import { DEXGasBreakdown } from 'lx/src/features/transactions/swap/types/swapTxAndGasInfo'
 import { isZero } from 'lx/src/utils/number'
 import { isWebApp } from 'utilities/src/platform'
 
 export function NetworkFee({
   chainId,
   gasFee,
-  uniswapXGasBreakdown,
+  dexGasBreakdown,
   transactionUSDValue,
   indicative,
   includesDelegation,
@@ -28,7 +28,7 @@ export function NetworkFee({
 }: {
   chainId: UniverseChainId
   gasFee: GasFeeResult
-  uniswapXGasBreakdown?: UniswapXGasBreakdown
+  dexGasBreakdown?: DEXGasBreakdown
   transactionUSDValue?: Maybe<CurrencyAmount<Currency>>
   indicative?: boolean
   includesDelegation?: boolean
@@ -43,7 +43,7 @@ export function NetworkFee({
     includesDelegation,
   })
 
-  const uniswapXGasFeeInfo = useFormattedUniswapXGasFeeInfo(uniswapXGasBreakdown, chainId)
+  const dexGasFeeInfo = useFormattedDEXGasFeeInfo(dexGasBreakdown, chainId)
   const isGasFeeFree = gasFee.value !== undefined && isZero(gasFee.value)
 
   const gasFeeHighRelativeToValue = useGasFeeHighRelativeToValue(gasFeeUSD, transactionUSDValue)
@@ -55,7 +55,7 @@ export function NetworkFee({
         <NetworkFeeWarning
           includesDelegation={includesDelegation}
           gasFeeHighRelativeToValue={gasFeeHighRelativeToValue}
-          uniswapXGasFeeInfo={uniswapXGasFeeInfo}
+          dexGasFeeInfo={dexGasFeeInfo}
           chainId={chainId}
         >
           <Text color="$neutral2" flexShrink={1} numberOfLines={3} variant="body3">
@@ -63,19 +63,19 @@ export function NetworkFee({
           </Text>
         </NetworkFeeWarning>
         <IndicativeLoadingWrapper loading={indicative || (!gasFee.value && gasFee.isLoading)}>
-          <Flex row alignItems="center" gap={uniswapXGasBreakdown ? '$spacing4' : '$spacing8'}>
-            {(!uniswapXGasBreakdown || gasFee.error) && showNetworkLogo && (
+          <Flex row alignItems="center" gap={dexGasBreakdown ? '$spacing4' : '$spacing8'}>
+            {(!dexGasBreakdown || gasFee.error) && showNetworkLogo && (
               <NetworkLogo chainId={chainId} shape="square" size={iconSizes.icon16} />
             )}
             {gasFee.error ? (
               <Text color="$neutral2" variant="body3">
                 {t('common.text.notAvailable')}
               </Text>
-            ) : uniswapXGasBreakdown ? (
-              <UniswapXFee
+            ) : dexGasBreakdown ? (
+              <DEXFee
                 gasFee={gasFeeFormatted}
                 isFree={isGasFeeFree}
-                preSavingsGasFee={uniswapXGasFeeInfo?.preSavingsGasFeeFormatted}
+                preSavingsGasFee={dexGasFeeInfo?.preSavingsGasFeeFormatted}
               />
             ) : (
               <Text
@@ -97,14 +97,14 @@ export function NetworkFee({
   )
 }
 
-type UniswapXFeeProps = {
+type DEXFeeProps = {
   gasFee: string
   isFree?: boolean
   preSavingsGasFee?: string
   smaller?: boolean
   loading?: boolean
 }
-export function UniswapXFee({ gasFee, isFree, preSavingsGasFee, smaller = false }: UniswapXFeeProps): JSX.Element {
+export function DEXFee({ gasFee, isFree, preSavingsGasFee, smaller = false }: DEXFeeProps): JSX.Element {
   const { t } = useTranslation()
   const gasFeeDisplayed = isFree ? t('common.free') : gasFee
 
@@ -115,8 +115,8 @@ export function UniswapXFee({ gasFee, isFree, preSavingsGasFee, smaller = false 
           {preSavingsGasFee}
         </Text>
       )}
-      <UniswapX marginEnd="$spacing2" size={smaller ? '$icon.12' : '$icon.16'} />
-      <UniswapXText variant={smaller ? 'body4' : 'body3'}>{gasFeeDisplayed}</UniswapXText>
+      <DEX marginEnd="$spacing2" size={smaller ? '$icon.12' : '$icon.16'} />
+      <DEXText variant={smaller ? 'body4' : 'body3'}>{gasFeeDisplayed}</DEXText>
     </Flex>
   )
 }

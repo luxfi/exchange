@@ -19,18 +19,18 @@ interface AppConfig {
 
 // ── Shared constants ─────────────────────────────────────────────────
 export const ENTRY_GATEWAY_URLS = {
-  development: 'https://entry-gateway.backend-staging.api.uniswap.org',
-  staging: 'https://entry-gateway.backend-staging.api.uniswap.org',
-  production: 'https://entry-gateway.backend-prod.api.uniswap.org',
+  development: 'https://entry-gateway.backend-staging.api.lux.org',
+  staging: 'https://entry-gateway.backend-staging.api.lux.org',
+  production: 'https://entry-gateway.backend-prod.api.lux.org',
 } as const
 
 // Statsig proxy via Cloudflare gateway — the URL is constant for the web app
 // (platform prefix "interface", service prefix "gating")
-const STATSIG_PROXY_TARGET = 'https://gating.interface.gateway.uniswap.org'
+const STATSIG_PROXY_TARGET = 'https://gating.interface.gateway.lux.org'
 export const WEBSOCKET_URLS = {
-  development: 'https://websockets.backend-prod.api.uniswap.org',
-  staging: 'https://websockets.backend-prod.api.uniswap.org',
-  production: 'https://websockets.backend-prod.api.uniswap.org',
+  development: 'https://websockets.backend-prod.api.lux.org',
+  staging: 'https://websockets.backend-prod.api.lux.org',
+  production: 'https://websockets.backend-prod.api.lux.org',
 } as const
 
 // ── Cache-Control middleware for image routes ───────────────────────────
@@ -78,7 +78,7 @@ export function createApp({ fetchSpaHtml, getEntryGatewayUrl, getWebSocketUrl, g
       redirect: 'manual',
     })
 
-    // Rewrite Set-Cookie headers so cookies work on non-.uniswap.org domains
+    // Rewrite Set-Cookie headers so cookies work on non-.lux.org domains
     // (Vercel previews, staging, etc.)
     return rewriteProxiedCookies(response)
   })

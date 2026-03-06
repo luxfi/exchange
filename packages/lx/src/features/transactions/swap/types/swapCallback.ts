@@ -1,4 +1,4 @@
-import { Currency, CurrencyAmount } from '@uniswap/sdk-core'
+import { Currency, CurrencyAmount } from '@lux/sdk-core'
 import type { PresetPercentage } from 'lx/src/components/CurrencyInputPanel/AmountInputPresets/types'
 import { TransactionStep } from 'lx/src/features/transactions/steps/types'
 import { ValidatedSwapTxContext } from 'lx/src/features/transactions/swap/types/swapTxAndGasInfo'

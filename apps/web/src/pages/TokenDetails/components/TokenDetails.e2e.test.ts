@@ -38,7 +38,7 @@ test.describe(
       await page.goto(`/explore/tokens/ethereum/${UNI_ADDRESS}`)
       // Wait for the GraphQL response to complete before checking UI elements
       await graphql.waitForResponse('TokenWeb')
-      await expect(page.getByText('Uniswap').first()).toBeVisible()
+      await expect(page.getByText('Lux').first()).toBeVisible()
 
       // Stats should have: TVL, FDV, market cap
       await expect(page.getByTestId(TestID.TokenDetailsStats)).toBeVisible()
@@ -63,10 +63,10 @@ test.describe(
       )
 
       const websiteLink = infoLinks.getByRole('link', { name: 'Website' })
-      await expect(websiteLink).toHaveAttribute('href', /uniswap\.org/)
+      await expect(websiteLink).toHaveAttribute('href', /lux\.org/)
 
       const twitterLink = infoLinks.getByRole('link', { name: 'Twitter' })
-      await expect(twitterLink).toHaveAttribute('href', new RegExp('x.com/Uniswap'))
+      await expect(twitterLink).toHaveAttribute('href', new RegExp('x.com/Lux'))
 
       // Contract address should be displayed in header
       await expect(

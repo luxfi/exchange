@@ -1,7 +1,7 @@
 import { TFunction } from 'i18next'
 import { ReactNode, useMemo, useRef } from 'react'
 import { Trans, useTranslation } from 'react-i18next'
-import { uniswapUrls } from 'lx/src/constants/urls'
+import { luxUrls } from 'lx/src/constants/urls'
 import { UniverseChainId } from 'lx/src/features/chains/types'
 import { TransactionStatus } from 'lx/src/features/transactions/types/transactionDetails'
 import { ExplorerDataType, getExplorerLink } from 'lx/src/utils/linking'
@@ -21,8 +21,8 @@ import {
 } from '~/pages/Swap/Limit/ConfirmSwapModal/PendingStatusIcons'
 import { TradeSummary } from '~/pages/Swap/Limit/ConfirmSwapModal/TradeSummary'
 import { InterfaceTrade, TradeFillType } from '~/state/routing/types'
-import { isLimitTrade, isUniswapXTradeType } from '~/state/routing/utils'
-import { useIsTransactionConfirmed, useUniswapXOrderByOrderHash } from '~/state/transactions/hooks'
+import { isLimitTrade, isDEXTradeType } from '~/state/routing/utils'
+import { useIsTransactionConfirmed, useDEXOrderByOrderHash } from '~/state/transactions/hooks'
 import { AnimationType } from '~/theme/components/FadePresence'
 import { ExternalLink } from '~/theme/components/Links'
 import { ThemedText } from '~/theme/components/text'
@@ -115,12 +115,12 @@ export function Pending({
   const { t } = useTranslation()
 
   const swapStatus = useSwapTransactionStatus(swapResult)
-  const uniswapXOrder = useUniswapXOrderByOrderHash(
-    isUniswapXTradeType(swapResult?.type) ? swapResult.response.orderHash : '',
+  const dexOrder = useDEXOrderByOrderHash(
+    isDEXTradeType(swapResult?.type) ? swapResult.response.orderHash : '',
   )
 
-  const limitPlaced = isLimitTrade(initialTrade) && uniswapXOrder?.status === TransactionStatus.Pending
-  const swapConfirmed = swapStatus === TransactionStatus.Success || uniswapXOrder?.status === TransactionStatus.Success
+  const limitPlaced = isLimitTrade(initialTrade) && dexOrder?.status === TransactionStatus.Pending
+  const swapConfirmed = swapStatus === TransactionStatus.Success || dexOrder?.status === TransactionStatus.Success
   const wrapConfirmed = useIsTransactionConfirmed(wrapTxHash)
 
   const swapPending = swapResult !== undefined && !swapConfirmed
@@ -137,8 +137,8 @@ export function Pending({
     let txHash
     if (swapResult && swapResult.type === TradeFillType.Classic) {
       txHash = swapResult.response.hash
-    } else if (uniswapXOrder && uniswapXOrder.status === TransactionStatus.Success) {
-      txHash = uniswapXOrder.hash
+    } else if (dexOrder && dexOrder.status === TransactionStatus.Success) {
+      txHash = dexOrder.hash
     } else {
       return undefined
     }
@@ -147,15 +147,15 @@ export function Pending({
       data: txHash,
       type: ExplorerDataType.TRANSACTION,
     })
-  }, [chainId, swapResult, uniswapXOrder])
+  }, [chainId, swapResult, dexOrder])
 
-  // Handle special statuses for UniswapX orders
+  // Handle special statuses for DEX orders
   if (
-    uniswapXOrder &&
-    uniswapXOrder.status !== TransactionStatus.Pending &&
-    uniswapXOrder.status !== TransactionStatus.Success
+    dexOrder &&
+    dexOrder.status !== TransactionStatus.Pending &&
+    dexOrder.status !== TransactionStatus.Success
   ) {
-    return <OrderContent order={uniswapXOrder} />
+    return <OrderContent order={dexOrder} />
   }
 
   return (
@@ -188,27 +188,27 @@ export function Pending({
             <ThemedText.BodySmall color="neutral2">{t('common.proceedInWallet')}</ThemedText.BodySmall>
           </Row>
         )}
-        {/* Display while UniswapX order is still pending */}
-        {uniswapXOrder && uniswapXOrder.status === TransactionStatus.Pending && (
+        {/* Display while DEX order is still pending */}
+        {dexOrder && dexOrder.status === TransactionStatus.Pending && (
           <Row justify="center" marginTop="32px" minHeight="24px">
             <ThemedText.BodySmall color="neutral2">
               <ExternalLink
                 href={
                   isLimitTrade(initialTrade)
-                    ? uniswapUrls.helpArticleUrls.limitsInfo
-                    : uniswapUrls.helpArticleUrls.uniswapXInfo
+                    ? luxUrls.helpArticleUrls.limitsInfo
+                    : luxUrls.helpArticleUrls.dexInfo
                 }
               >
                 {isLimitTrade(initialTrade) ? (
                   <Trans i18nKey="limits.learnMore" />
                 ) : (
-                  <Trans i18nKey="uniswapX.learnMore" />
+                  <Trans i18nKey="dex.learnMore" />
                 )}
               </ExternalLink>
             </ThemedText.BodySmall>
           </Row>
         )}
-        {/* Display after submitting Classic swap or after filling UniswapX order */}
+        {/* Display after submitting Classic swap or after filling DEX order */}
         {explorerLink && (
           <Row justify="center" marginTop="32px" minHeight="24px">
             <ThemedText.BodySmall color="neutral2">

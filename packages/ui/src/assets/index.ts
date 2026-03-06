@@ -18,10 +18,10 @@ export const XLAYER_LOGO = require('./logos/png/xlayer-logo.png')
 export const OKB_LOGO = require('./logos/png/okb-logo.png')
 export const UNICHAIN_LOGO = require('./logos/png/unichain-logo.png')
 export const UNICHAIN_SEPOLIA_LOGO = require('./logos/png/unichain-sepolia-logo.png')
-export const UNISWAP_LOGO = require('./logos/png/uniswap-logo.png')
-export const UNISWAP_LOGO_LARGE = require('./logos/png/uniswap-logo-large.png')
-export const UNISWAP_MONO_LOGO_LARGE = require('./logos/png/uniswap-mono-logo-large.png')
-export const UNISWAP_APP_ICON = require('./logos/png/uniswap-app-icon.png')
+export const LUX_LOGO = require('./logos/png/lux-logo.png')
+export const LUX_LOGO_LARGE = require('./logos/png/lux-logo-large.png')
+export const LUX_MONO_LOGO_LARGE = require('./logos/png/lux-mono-logo-large.png')
+export const LUX_APP_ICON = require('./logos/png/lux-app-icon.png')
 
 // Lux branding logos
 export const LUX_LOGO = require('./logos/png/lux-logo.png')
@@ -115,6 +115,6 @@ export const UNITAGS_SPENCER_DARK = require('./graphics/unitags/spencer-dark.png
 export const SMART_WALLET_UPGRADE_VIDEO = require('./videos/smart-wallet-upgrade.mp4')
 export const SMART_WALLET_UPGRADE_FALLBACK = require('./graphics/smart-wallet-image.png')
 
-export const NO_UNISWAP_INTERFACE_FEES_BANNER_LIGHT = require('./backgrounds/dots-banner-light.png')
-export const NO_UNISWAP_INTERFACE_FEES_BANNER_DARK = require('./backgrounds/dots-banner-dark.png')
+export const NO_LUX_INTERFACE_FEES_BANNER_LIGHT = require('./backgrounds/dots-banner-light.png')
+export const NO_LUX_INTERFACE_FEES_BANNER_DARK = require('./backgrounds/dots-banner-dark.png')
 export const NO_FEES_ICON = require('./graphics/zero-percent.png')

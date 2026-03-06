@@ -7,7 +7,7 @@ declare module 'react-native-dotenv' {
   export const DATADOG_CLIENT_TOKEN: string
   export const DATADOG_PROJECT_ID: string
   export const IS_E2E_TEST: string
-  export const UNISWAP_API_KEY: string
+  export const LUX_API_KEY: string
   export const INFURA_KEY: string
   export const SIMPLEHASH_API_KEY: string
   export const SIMPLEHASH_API_URL: string
@@ -30,7 +30,7 @@ declare module 'react-native-dotenv' {
   export const STATSIG_PROXY_URL_OVERRIDE: string
   export const TRADING_API_URL_OVERRIDE: string
   export const UNITAGS_API_URL_OVERRIDE: string
-  export const UNISWAP_NOTIF_API_BASE_URL_OVERRIDE: string
+  export const LUX_NOTIF_API_BASE_URL_OVERRIDE: string
   export const ENTRY_GATEWAY_API_URL_OVERRIDE: string
   export const INCLUDE_PROTOTYPE_FEATURES: string
   export const ENABLE_SESSION_SERVICE: string

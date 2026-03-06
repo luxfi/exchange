@@ -1,6 +1,6 @@
 import { UniverseChainId } from 'lx/src/features/chains/types'
-import { UniswapXOrderDetails } from 'lx/src/features/transactions/types/transactionDetails'
-import { hasEncodedOrder } from 'lx/src/features/transactions/utils/uniswapX.utils'
+import { DEXOrderDetails } from 'lx/src/features/transactions/types/transactionDetails'
+import { hasEncodedOrder } from 'lx/src/features/transactions/utils/dex.utils'
 
 /**
  * Result of order validation
@@ -20,7 +20,7 @@ export type ValidationResult =
 /**
  * Type guard to check if an order has all required data for cancellation
  */
-export function hasValidCancellationData(order: UniswapXOrderDetails): order is UniswapXOrderDetails & {
+export function hasValidCancellationData(order: DEXOrderDetails): order is DEXOrderDetails & {
   orderHash: string
   encodedOrder: string
 } {
@@ -34,7 +34,7 @@ export function hasValidCancellationData(order: UniswapXOrderDetails): order is 
  * @param orders - Orders to validate for batch cancellation
  * @returns Validation result with chainId if valid, or error message if invalid
  */
-export function validateOrdersForCancellation(orders: UniswapXOrderDetails[]): ValidationResult {
+export function validateOrdersForCancellation(orders: DEXOrderDetails[]): ValidationResult {
   // Get the chain ID from the first order
   const firstOrder = orders[0]
   if (!firstOrder) {

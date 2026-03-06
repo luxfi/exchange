@@ -22,7 +22,7 @@ export function OpenSidebarButton({
         emphasis={openedSideBar ? 'primary' : 'secondary'}
         onPress={openedSideBar ? handleOpenWebApp : handleOpenSidebar}
       >
-        {openedSideBar ? t('onboarding.complete.go_to_uniswap') : t('onboarding.complete.button')}
+        {openedSideBar ? t('onboarding.complete.go_to_lux') : t('onboarding.complete.button')}
       </Button>
     </Flex>
   )

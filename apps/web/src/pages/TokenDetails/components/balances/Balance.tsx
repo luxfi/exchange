@@ -1,4 +1,4 @@
-import { Currency } from '@uniswap/sdk-core'
+import { Currency } from '@lux/sdk-core'
 import { useMemo } from 'react'
 import { Flex, Text, TouchableArea } from 'ui/src'
 import { UniverseChainId } from 'lx/src/features/chains/types'

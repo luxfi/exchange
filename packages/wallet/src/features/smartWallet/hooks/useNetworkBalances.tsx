@@ -1,6 +1,6 @@
 import { useStatsigClientStatus } from '@universe/gating'
 import { useEffect, useState } from 'react'
-import { fetchGasFeeQuery } from 'lx/src/data/apiClients/uniswapApi/useGasFeeQuery'
+import { fetchGasFeeQuery } from 'lx/src/data/apiClients/luxApi/useGasFeeQuery'
 import { getChainInfo } from 'lx/src/features/chains/chainInfo'
 import { DEFAULT_NATIVE_ADDRESS } from 'lx/src/features/chains/evm/defaults'
 import { createEthersProvider } from 'lx/src/features/providers/createEthersProvider'
@@ -30,7 +30,7 @@ export const useNetworkBalances = (account?: Address): NetworkInfo[] => {
       const networkInfoPromises = enabledChains.map(async (chainId): Promise<NetworkInfo | undefined> => {
         const result = getDelegationDetails(account, chainId)
 
-        if (result?.latestDelegationAddress && result.isWalletDelegatedToUniswap) {
+        if (result?.latestDelegationAddress && result.isWalletDelegatedToLux) {
           try {
             const provider = createEthersProvider({ chainId })
             const balance = await provider?.getBalance(account)

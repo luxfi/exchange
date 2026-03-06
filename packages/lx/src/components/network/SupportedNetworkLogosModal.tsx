@@ -6,7 +6,7 @@ import { X } from 'ui/src/components/icons/X'
 import { borderRadii, iconSizes, zIndexes } from 'ui/src/theme'
 import { Modal } from 'lx/src/components/modals/Modal'
 import { LearnMoreLink } from 'lx/src/components/text/LearnMoreLink'
-import { uniswapUrls } from 'lx/src/constants/urls'
+import { luxUrls } from 'lx/src/constants/urls'
 import { getChainInfo } from 'lx/src/features/chains/chainInfo'
 import { UniverseChainId } from 'lx/src/features/chains/types'
 import { ModalName } from 'lx/src/features/telemetry/constants'
@@ -86,7 +86,7 @@ export function SupportedNetworkLogosModal({
         <LearnMoreLink
           textColor="$neutral1"
           textVariant="buttonLabel3"
-          url={uniswapUrls.helpArticleUrls.supportedNetworks}
+          url={luxUrls.helpArticleUrls.supportedNetworks}
         />
 
         <Flex row width="100%">
