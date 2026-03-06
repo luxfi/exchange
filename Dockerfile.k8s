@@ -12,10 +12,10 @@ RUN npm install -g bun
 # Copy entire monorepo
 COPY . .
 
-# Install dependencies with bun
+# Install dependencies with bun (NODE_ENV must NOT be production during install)
 # --ignore-scripts avoids NX daemon crashes under QEMU
 # Allow partial failures (native mobile deps won't build under QEMU, not needed for web)
-RUN bun install --no-frozen-lockfile --ignore-scripts || true
+RUN NODE_ENV=development bun install --no-frozen-lockfile --ignore-scripts || true
 
 # Set build-time environment variables
 ENV NEXT_TELEMETRY_DISABLED=1
