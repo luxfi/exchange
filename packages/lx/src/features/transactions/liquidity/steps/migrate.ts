@@ -1,4 +1,4 @@
-import { MigrateV3ToV4LPPositionRequest } from '@uniswap/client-liquidity/dist/lux/liquidity/v1/api_pb'
+import { MigrateV3ToV4LPPositionRequest } from '@uniswap/client-liquidity/dist/uniswap/liquidity/v1/api_pb'
 import { LiquidityServiceClient } from 'lx/src/data/apiClients/liquidityService/LiquidityServiceClient'
 import { InterfaceEventName } from 'lx/src/features/telemetry/constants'
 import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'

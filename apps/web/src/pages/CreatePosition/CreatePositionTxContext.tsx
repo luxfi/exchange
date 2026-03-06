@@ -4,8 +4,8 @@ import {
   CheckApprovalLPResponse,
   CreateLPPositionRequest,
   CreateLPPositionResponse,
-} from '@uniswap/client-liquidity/dist/lux/liquidity/v1/api_pb'
-import { V4CreateLPPosition } from '@uniswap/client-liquidity/dist/lux/liquidity/v1/types_pb'
+} from '@uniswap/client-liquidity/dist/uniswap/liquidity/v1/api_pb'
+import { V4CreateLPPosition } from '@uniswap/client-liquidity/dist/uniswap/liquidity/v1/types_pb'
 import { Currency, CurrencyAmount } from '@uniswap/sdk-core'
 import { Pair } from '@uniswap/v2-sdk'
 import { FeatureFlags, useFeatureFlag } from '@universe/gating'

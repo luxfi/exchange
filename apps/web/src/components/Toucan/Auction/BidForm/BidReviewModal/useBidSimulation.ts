@@ -1,4 +1,4 @@
-import { ChainId } from '@uniswap/client-liquidity/dist/lux/liquidity/v1/types_pb'
+import { ChainId } from '@uniswap/client-liquidity/dist/uniswap/liquidity/v1/types_pb'
 import { useCallback, useRef, useState } from 'react'
 import { useSubmitBidMutation } from 'lx/src/data/rest/auctions/useSubmitBidMutation'
 import { logger } from 'utilities/src/logger/logger'

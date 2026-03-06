@@ -3,7 +3,7 @@ import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes
 import {
   CheckApprovalLPRequest,
   DecreaseLPPositionRequest,
-} from '@uniswap/client-liquidity/dist/lux/liquidity/v1/api_pb'
+} from '@uniswap/client-liquidity/dist/uniswap/liquidity/v1/api_pb'
 import {
   Protocols,
   V2CheckApprovalLPRequest,
@@ -13,7 +13,7 @@ import {
   V3Position,
   V4Pool,
   V4Position,
-} from '@uniswap/client-liquidity/dist/lux/liquidity/v1/types_pb'
+} from '@uniswap/client-liquidity/dist/uniswap/liquidity/v1/types_pb'
 import { Currency } from '@uniswap/sdk-core'
 import JSBI from 'jsbi'
 import { useEffect, useMemo, useState } from 'react'

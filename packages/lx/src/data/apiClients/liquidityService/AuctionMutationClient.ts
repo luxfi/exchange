@@ -1,5 +1,5 @@
 import { createPromiseClient } from '@connectrpc/connect'
-import { AuctionService } from '@uniswap/client-liquidity/dist/lux/liquidity/v1/auction_connect'
+import { AuctionService } from '@uniswap/client-liquidity/dist/uniswap/liquidity/v1/auction_connect'
 import { createAuctionMutationClient } from '@universe/api'
 import { liquidityServiceTransport } from 'lx/src/data/apiClients/liquidityService/base'
 

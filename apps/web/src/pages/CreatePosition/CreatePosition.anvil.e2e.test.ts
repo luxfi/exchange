@@ -1,4 +1,4 @@
-import { LiquidityService } from '@uniswap/client-liquidity/dist/lux/liquidity/v1/api_connect'
+import { LiquidityService } from '@uniswap/client-liquidity/dist/uniswap/liquidity/v1/api_connect'
 import { V2_FACTORY_ADDRESSES } from '@uniswap/sdk-core'
 import { computePairAddress } from '@uniswap/v2-sdk'
 import { USDT } from 'lx/src/constants/tokens'

@@ -2,8 +2,8 @@ import { PartialMessage } from '@bufbuild/protobuf'
 import { ConnectError } from '@connectrpc/connect'
 import { useQuery } from '@connectrpc/connect-query'
 import { UseQueryResult } from '@tanstack/react-query'
-import { ExploreStatsRequest, ExploreStatsResponse } from '@luxdex/client-explore/dist/lux/explore/v1/service_pb'
-import { exploreStats } from '@luxdex/client-explore/dist/lux/explore/v1/service-ExploreStatsService_connectquery'
+import { ExploreStatsRequest, ExploreStatsResponse } from '@luxdex/client-explore/dist/uniswap/explore/v1/service_pb'
+import { exploreStats } from '@luxdex/client-explore/dist/uniswap/explore/v1/service-ExploreStatsService_connectquery'
 import { luxGetTransport } from 'lx/src/data/rest/base'
 
 /**

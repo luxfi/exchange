@@ -3,14 +3,14 @@ import {
   CheckApprovalLPRequest,
   MigrateV2ToV3LPPositionRequest,
   MigrateV3ToV4LPPositionRequest,
-} from '@uniswap/client-liquidity/dist/lux/liquidity/v1/api_pb'
+} from '@uniswap/client-liquidity/dist/uniswap/liquidity/v1/api_pb'
 import {
   Protocols,
   V2CheckApprovalLPRequest,
   V3CheckApprovalLPRequest,
   V3Position,
   V4Position,
-} from '@uniswap/client-liquidity/dist/lux/liquidity/v1/types_pb'
+} from '@uniswap/client-liquidity/dist/uniswap/liquidity/v1/types_pb'
 import { V3_MIGRATOR_ADDRESSES } from '@uniswap/sdk-core'
 import { Pair } from '@uniswap/v2-sdk'
 import { Pool as V3Pool } from '@uniswap/v3-sdk'

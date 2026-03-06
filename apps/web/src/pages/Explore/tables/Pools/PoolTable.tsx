@@ -3,7 +3,7 @@
 
 import { ApolloError } from '@apollo/client'
 import { createColumnHelper, Row } from '@tanstack/react-table'
-import { TokenStats } from '@uniswap/client-explore/dist/lux/explore/v1/service_pb'
+import { TokenStats } from '@uniswap/client-explore/dist/uniswap/explore/v1/service_pb'
 import { Percent, Token } from '@uniswap/sdk-core'
 import { GraphQLApi } from '@universe/api'
 import { FeatureFlags, useFeatureFlag } from '@universe/gating'

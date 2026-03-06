@@ -1,7 +1,7 @@
 import { type PlainMessage } from '@bufbuild/protobuf'
 import { Platform, type PlatformAddress, type WalletAccount } from '@luxdex/client-data-api/dist/data/v1/api_pb'
 import { ProtocolVersion } from '@luxdex/client-data-api/dist/data/v1/poolTypes_pb'
-import { type ProtectionInfo as ProtectionInfoProtobuf } from '@luxdex/client-explore/dist/lux/explore/v1/service_pb'
+import { type ProtectionInfo as ProtectionInfoProtobuf } from '@luxdex/client-explore/dist/uniswap/explore/v1/service_pb'
 import {
   ProtectionAttackType,
   type ProtectionInfo,

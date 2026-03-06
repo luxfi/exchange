@@ -2,13 +2,13 @@ import { useQuery } from '@tanstack/react-query'
 import {
   CreateLPPositionRequest,
   IncreaseLPPositionRequest,
-} from '@uniswap/client-liquidity/dist/lux/liquidity/v1/api_pb'
+} from '@uniswap/client-liquidity/dist/uniswap/liquidity/v1/api_pb'
 import {
   IndependentToken,
   Protocols,
   V3CreateLPPosition,
   V3IncreaseLPPosition,
-} from '@uniswap/client-liquidity/dist/lux/liquidity/v1/types_pb'
+} from '@uniswap/client-liquidity/dist/uniswap/liquidity/v1/types_pb'
 import { Currency, CurrencyAmount } from '@uniswap/sdk-core'
 import JSBI from 'jsbi'
 import { USDC_MAINNET } from 'lx/src/constants/tokens'

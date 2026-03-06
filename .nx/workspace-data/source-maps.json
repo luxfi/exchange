@@ -6112,7 +6112,7 @@
       "packages/lx/package.json",
       "nx/core/package-json"
     ],
-    "tags.scope:uniswap": [
+    "tags.scope:lux": [
       "packages/lx/project.json",
       "nx/core/project-json"
     ],
@@ -13196,7 +13196,7 @@
       "packages/luxamm-sdk-core/package.json",
       "nx/core/package-json"
     ],
-    "tags.npm:uniswap": [
+    "tags.npm:lux": [
       "packages/luxamm-sdk-core/package.json",
       "nx/core/package-json"
     ],
@@ -13486,7 +13486,7 @@
       "packages/luxamm-v2-sdk/package.json",
       "nx/core/package-json"
     ],
-    "tags.npm:uniswap": [
+    "tags.npm:lux": [
       "packages/luxamm-v2-sdk/package.json",
       "nx/core/package-json"
     ],
@@ -13776,7 +13776,7 @@
       "packages/luxamm-v3-sdk/package.json",
       "nx/core/package-json"
     ],
-    "tags.npm:uniswap": [
+    "tags.npm:lux": [
       "packages/luxamm-v3-sdk/package.json",
       "nx/core/package-json"
     ],
@@ -14066,7 +14066,7 @@
       "packages/luxamm-v4-sdk/package.json",
       "nx/core/package-json"
     ],
-    "tags.npm:uniswap": [
+    "tags.npm:lux": [
       "packages/luxamm-v4-sdk/package.json",
       "nx/core/package-json"
     ],
@@ -14356,7 +14356,7 @@
       "packages/luxdex-sdk/package.json",
       "nx/core/package-json"
     ],
-    "tags.npm:uniswap": [
+    "tags.npm:lux": [
       "packages/luxdex-sdk/package.json",
       "nx/core/package-json"
     ],

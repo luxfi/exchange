@@ -2,8 +2,8 @@ import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes
 import {
   CheckApprovalLPResponse,
   CreateLPPositionResponse,
-} from '@uniswap/client-liquidity/dist/lux/liquidity/v1/api_pb'
-import { PermitBatch, PermitBatchData } from '@uniswap/client-liquidity/dist/lux/liquidity/v1/types_pb'
+} from '@uniswap/client-liquidity/dist/uniswap/liquidity/v1/api_pb'
+import { PermitBatch, PermitBatchData } from '@uniswap/client-liquidity/dist/uniswap/liquidity/v1/types_pb'
 import { CurrencyAmount } from '@uniswap/sdk-core'
 import { ZERO_ADDRESS } from 'lx/src/constants/misc'
 import { USDT } from 'lx/src/constants/tokens'

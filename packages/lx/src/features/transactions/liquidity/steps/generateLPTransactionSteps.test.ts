@@ -1,4 +1,4 @@
-import { IncreaseLPPositionRequest } from '@uniswap/client-liquidity/dist/lux/liquidity/v1/api_pb'
+import { IncreaseLPPositionRequest } from '@uniswap/client-liquidity/dist/uniswap/liquidity/v1/api_pb'
 import {
   ChainId,
   IndependentToken,
@@ -6,7 +6,7 @@ import {
   V3IncreaseLPPosition,
   V3Pool,
   V3Position,
-} from '@uniswap/client-liquidity/dist/lux/liquidity/v1/types_pb'
+} from '@uniswap/client-liquidity/dist/uniswap/liquidity/v1/types_pb'
 import { DEFAULT_TICK_SPACING } from 'lx/src/constants/pools'
 import { USDC, USDT } from 'lx/src/constants/tokens'
 import { generateLPTransactionSteps } from 'lx/src/features/transactions/liquidity/steps/generateLPTransactionSteps'

@@ -1,5 +1,5 @@
 import { getPosition } from '@uniswap/client-data-api/dist/data/v1/api-DataApiService_connectquery'
-import { LiquidityService } from '@uniswap/client-liquidity/dist/lux/liquidity/v1/api_connect'
+import { LiquidityService } from '@uniswap/client-liquidity/dist/uniswap/liquidity/v1/api_connect'
 import { PERMIT2_ADDRESS } from '@uniswap/permit2-sdk'
 import { USDT } from 'lx/src/constants/tokens'
 import { luxUrls } from 'lx/src/constants/urls'

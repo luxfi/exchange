@@ -1,4 +1,4 @@
-import { ChallengeType } from '@luxdex/client-platform-service/dist/lux/platformservice/v1/sessionService_pb'
+import { ChallengeType } from '@luxdex/client-platform-service/dist/uniswap/platformservice/v1/sessionService_pb'
 
 /**
  * Typed challenge data for Turnstile bot detection

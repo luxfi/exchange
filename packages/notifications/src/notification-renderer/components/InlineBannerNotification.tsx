@@ -1,4 +1,4 @@
-import { BackgroundType } from '@uniswap/client-notification-service/dist/lux/notificationservice/v1/api_pb'
+import { BackgroundType } from '@uniswap/client-notification-service/dist/uniswap/notificationservice/v1/api_pb'
 import type { InAppNotification } from '@universe/api'
 import {
   BannerTemplate,

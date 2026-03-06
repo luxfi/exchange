@@ -6,7 +6,7 @@
  * - Other chains: CoinGecko (tokens) + DeFi Llama (pools)
  */
 import { useQuery } from '@tanstack/react-query'
-import { ExploreStatsResponse } from '@luxdex/client-explore/dist/lux/explore/v1/service_pb'
+import { ExploreStatsResponse } from '@luxdex/client-explore/dist/uniswap/explore/v1/service_pb'
 import { GraphQLApi } from '@luxfi/api'
 import { fetchLxdTokens, fetchLxdPools, isLxdChain, LxdToken, LxdPool } from 'lx/src/data/rest/lxdGateway'
 import { UniverseChainId } from 'lx/src/features/chains/types'

@@ -4,7 +4,7 @@ import {
   TokenRankingsResponse,
   TokenRankingsStat,
   TokenStats,
-} from '@luxdex/client-explore/dist/lux/explore/v1/service_pb'
+} from '@luxdex/client-explore/dist/uniswap/explore/v1/service_pb'
 import { ALL_NETWORKS_ARG } from '@luxfi/api'
 import { FeatureFlags, useFeatureFlag } from '@luxfi/gating'
 import React, { memo, useCallback, useEffect, useMemo, useRef, useState } from 'react'

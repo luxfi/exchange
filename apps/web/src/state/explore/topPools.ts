@@ -1,5 +1,5 @@
 import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
-import { ExploreStatsResponse, PoolStats } from '@uniswap/client-explore/dist/lux/explore/v1/service_pb'
+import { ExploreStatsResponse, PoolStats } from '@uniswap/client-explore/dist/uniswap/explore/v1/service_pb'
 import { useContext, useMemo } from 'react'
 import { DEFAULT_TICK_SPACING, V2_DEFAULT_FEE_TIER } from 'lx/src/constants/pools'
 import { normalizeTokenAddressForCache } from 'lx/src/data/cache'

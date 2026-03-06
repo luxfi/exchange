@@ -8,7 +8,7 @@ import {
   Token as RestToken,
   V4Position as RestV4Position,
 } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
-import { ChainId, PoolInformation } from '@uniswap/client-liquidity/dist/lux/liquidity/v1/types_pb'
+import { ChainId, PoolInformation } from '@uniswap/client-liquidity/dist/uniswap/liquidity/v1/types_pb'
 import { CurrencyAmount, Token } from '@uniswap/sdk-core'
 import { Pair } from '@uniswap/v2-sdk'
 import { FeeAmount, TICK_SPACINGS, Pool as V3Pool, Position as V3Position } from '@uniswap/v3-sdk'

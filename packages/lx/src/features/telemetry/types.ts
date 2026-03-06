@@ -9,7 +9,7 @@ import { type ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/pool
 import {
   type CreateLPPositionRequest,
   type IncreaseLPPositionRequest,
-} from '@uniswap/client-liquidity/dist/lux/liquidity/v1/api_pb'
+} from '@uniswap/client-liquidity/dist/uniswap/liquidity/v1/api_pb'
 import { type Currency, type TradeType } from '@uniswap/sdk-core'
 import { type TradingApi, type UnitagClaimContext } from '@universe/api'
 import { type Experiments } from '@universe/gating'
