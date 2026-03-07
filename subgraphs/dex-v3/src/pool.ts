@@ -295,8 +295,12 @@ function updateTokenHourData(token: Token, timestamp: BigInt): TokenHourData {
   return tokenHourData as TokenHourData
 }
 
-let POOL_TVL_CAP = BigDecimal.fromString('100000000') // $100M per pool max
-let TOKEN_TVL_CAP = BigDecimal.fromString('500000000') // $500M per token max
+// Realistic caps for a young chain — prevents deployer-initialized pools
+// from producing misleading aggregate stats while keeping per-entity data honest
+let POOL_TVL_CAP = BigDecimal.fromString('5000000')   // $5M per pool
+let TOKEN_TVL_CAP = BigDecimal.fromString('25000000')  // $25M per token
+let MAX_TOKEN_PRICE = BigDecimal.fromString('200000')  // $200K max per token unit
+let MAX_SWAP_USD = BigDecimal.fromString('500000')     // $500K max per swap
 
 function clampTVL(value: BigDecimal, cap: BigDecimal): BigDecimal {
   if (value.lt(ZERO_BD)) return ZERO_BD
@@ -314,12 +318,17 @@ function updateDerivedUSD(token: Token): void {
     return
   }
 
-  // Derive price from whitelist pools
-  // Use native liquidity (not USD TVL) to pick the best pool — avoids
-  // chicken-and-egg problem where USD TVL requires prices that require USD TVL
+  // Derive price from whitelist pools, preferring direct stablecoin pairs.
+  // Strategy:
+  //   1. First pass: look for a direct LUSD pair (most trustworthy)
+  //   2. Second pass: derive through WLUX or other whitelist tokens (1-hop)
+  // Within each tier, pick the pool with the highest native liquidity.
+  // Require minimum liquidity to avoid deriving from drained/dead pools.
   let whitelistPools = token.whitelistPools
-  let largestLiquidity = ZERO_BI
-  let priceSoFar = ZERO_BD
+  let bestDirectLiq = ZERO_BI
+  let directPrice = ZERO_BD
+  let bestIndirectLiq = ZERO_BI
+  let indirectPrice = ZERO_BD
 
   for (let i = 0; i < whitelistPools.length; i++) {
     let poolAddress = whitelistPools[i]
@@ -327,35 +336,50 @@ function updateDerivedUSD(token: Token): void {
     if (pool === null) continue
     if (pool.liquidity.equals(ZERO_BI)) continue
 
+    // Check if this token is token0 in the pool
     if (pool.token0 == token.id) {
       let token1 = Token.load(pool.token1)
       if (token1 === null) continue
-      let token1PriceUSD = token1.derivedUSD
-      if (token1PriceUSD.gt(ZERO_BD)) {
-        if (pool.liquidity.gt(largestLiquidity)) {
-          largestLiquidity = pool.liquidity
-          // token0Price = how many token1 per token0, so token0 USD = token0Price * token1 USD
-          priceSoFar = pool.token0Price.times(token1PriceUSD)
+      if (token1.derivedUSD.le(ZERO_BD)) continue
+      let price = pool.token0Price.times(token1.derivedUSD)
+      let isDirect = token1.id.toLowerCase() == lusdId
+      if (isDirect) {
+        if (pool.liquidity.gt(bestDirectLiq)) {
+          bestDirectLiq = pool.liquidity
+          directPrice = price
+        }
+      } else {
+        if (pool.liquidity.gt(bestIndirectLiq)) {
+          bestIndirectLiq = pool.liquidity
+          indirectPrice = price
         }
       }
     }
+    // Check if this token is token1 in the pool
     if (pool.token1 == token.id) {
       let token0 = Token.load(pool.token0)
       if (token0 === null) continue
-      let token0PriceUSD = token0.derivedUSD
-      if (token0PriceUSD.gt(ZERO_BD)) {
-        if (pool.liquidity.gt(largestLiquidity)) {
-          largestLiquidity = pool.liquidity
-          // token1Price = how many token0 per token1, so token1 USD = token1Price * token0 USD
-          priceSoFar = pool.token1Price.times(token0PriceUSD)
+      if (token0.derivedUSD.le(ZERO_BD)) continue
+      let price = pool.token1Price.times(token0.derivedUSD)
+      let isDirect = token0.id.toLowerCase() == lusdId
+      if (isDirect) {
+        if (pool.liquidity.gt(bestDirectLiq)) {
+          bestDirectLiq = pool.liquidity
+          directPrice = price
+        }
+      } else {
+        if (pool.liquidity.gt(bestIndirectLiq)) {
+          bestIndirectLiq = pool.liquidity
+          indirectPrice = price
         }
       }
     }
   }
 
-  // Sanity cap: no single token should exceed $200K per unit
-  // LBTC at ~$85K is the highest legitimate price; anything above $200K is likely a bad derivation
-  let MAX_TOKEN_PRICE = BigDecimal.fromString('200000')
+  // Prefer direct stablecoin pair, fall back to indirect
+  let priceSoFar = directPrice.gt(ZERO_BD) ? directPrice : indirectPrice
+
+  // Cap: no token should exceed $200K per unit
   if (priceSoFar.gt(MAX_TOKEN_PRICE)) {
     priceSoFar = ZERO_BD
   }
@@ -637,9 +661,8 @@ export function handleSwap(event: SwapEvent): void {
 
   let amountTotalUSDRaw = getTrackedAmountUSD(amount0Abs, token0, amount1Abs, token1)
 
-  // Sanity cap: no single swap should exceed $10M on Lux
-  let TEN_MILLION = BigDecimal.fromString('10000000')
-  let amountTotalUSD = amountTotalUSDRaw.gt(TEN_MILLION) ? ZERO_BD : amountTotalUSDRaw
+  // Cap per-swap volume — prevents deployer's large initial swaps from inflating stats
+  let amountTotalUSD = amountTotalUSDRaw.gt(MAX_SWAP_USD) ? ZERO_BD : amountTotalUSDRaw
 
   // Fee calculation (feeTier is in hundredths of a bip, e.g., 3000 = 0.3%)
   let feesUSD = amountTotalUSD.times(pool.feeTier.toBigDecimal()).div(BigDecimal.fromString('1000000'))

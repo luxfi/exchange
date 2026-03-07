@@ -127,13 +127,14 @@ const EmptyState = styled.div`
 
 function fmtUSD(value: string | number): string {
   let n = typeof value === 'string' ? parseFloat(value) : value
-  if (isNaN(n) || !isFinite(n)) return '$0'
-  // Safety cap: values above $10B are subgraph artifacts
-  if (n > 1e10) n = 0
+  if (isNaN(n) || !isFinite(n) || n <= 0) return '$0'
+  if (n >= 1e12) return `$${(n / 1e12).toFixed(2)}T`
   if (n >= 1e9) return `$${(n / 1e9).toFixed(2)}B`
   if (n >= 1e6) return `$${(n / 1e6).toFixed(2)}M`
   if (n >= 1e3) return `$${(n / 1e3).toFixed(1)}K`
-  return `$${n.toFixed(2)}`
+  if (n >= 1) return `$${n.toFixed(2)}`
+  if (n >= 0.01) return `$${n.toFixed(4)}`
+  return `$${n.toExponential(2)}`
 }
 
 export const LuxTokensTable = memo(function LuxTokensTable() {
