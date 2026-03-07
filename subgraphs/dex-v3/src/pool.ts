@@ -295,6 +295,15 @@ function updateTokenHourData(token: Token, timestamp: BigInt): TokenHourData {
   return tokenHourData as TokenHourData
 }
 
+let POOL_TVL_CAP = BigDecimal.fromString('100000000') // $100M per pool max
+let TOKEN_TVL_CAP = BigDecimal.fromString('500000000') // $500M per token max
+
+function clampTVL(value: BigDecimal, cap: BigDecimal): BigDecimal {
+  if (value.lt(ZERO_BD)) return ZERO_BD
+  if (value.gt(cap)) return cap
+  return value
+}
+
 function updateDerivedUSD(token: Token): void {
   let tokenId = token.id.toLowerCase()
   let lusdId = LUSD_ADDRESS.toLowerCase()
@@ -415,12 +424,12 @@ export function handleMint(event: MintEvent): void {
   // Update token0
   token0.txCount = token0.txCount.plus(ONE_BI)
   token0.totalValueLocked = token0.totalValueLocked.plus(amount0)
-  token0.totalValueLockedUSD = token0.totalValueLocked.times(token0.derivedUSD)
+  token0.totalValueLockedUSD = clampTVL(token0.totalValueLocked.times(token0.derivedUSD), TOKEN_TVL_CAP)
 
   // Update token1
   token1.txCount = token1.txCount.plus(ONE_BI)
   token1.totalValueLocked = token1.totalValueLocked.plus(amount1)
-  token1.totalValueLockedUSD = token1.totalValueLocked.times(token1.derivedUSD)
+  token1.totalValueLockedUSD = clampTVL(token1.totalValueLocked.times(token1.derivedUSD), TOKEN_TVL_CAP)
 
   // Update pool
   pool.txCount = pool.txCount.plus(ONE_BI)
@@ -430,8 +439,9 @@ export function handleMint(event: MintEvent): void {
 
   // Update factory TVL using delta (not accumulation)
   let oldPoolTVLMint = pool.totalValueLockedUSD
-  pool.totalValueLockedUSD = pool.totalValueLockedToken0.times(token0.derivedUSD)
+  let rawPoolTVLMint = pool.totalValueLockedToken0.times(token0.derivedUSD)
     .plus(pool.totalValueLockedToken1.times(token1.derivedUSD))
+  pool.totalValueLockedUSD = clampTVL(rawPoolTVLMint, POOL_TVL_CAP)
   factory.totalValueLockedUSD = factory.totalValueLockedUSD
     .minus(oldPoolTVLMint)
     .plus(pool.totalValueLockedUSD)
@@ -523,12 +533,12 @@ export function handleBurn(event: BurnEvent): void {
   // Update token0
   token0.txCount = token0.txCount.plus(ONE_BI)
   token0.totalValueLocked = token0.totalValueLocked.minus(amount0)
-  token0.totalValueLockedUSD = token0.totalValueLocked.times(token0.derivedUSD)
+  token0.totalValueLockedUSD = clampTVL(token0.totalValueLocked.times(token0.derivedUSD), TOKEN_TVL_CAP)
 
   // Update token1
   token1.txCount = token1.txCount.plus(ONE_BI)
   token1.totalValueLocked = token1.totalValueLocked.minus(amount1)
-  token1.totalValueLockedUSD = token1.totalValueLocked.times(token1.derivedUSD)
+  token1.totalValueLockedUSD = clampTVL(token1.totalValueLocked.times(token1.derivedUSD), TOKEN_TVL_CAP)
 
   // Update pool
   pool.txCount = pool.txCount.plus(ONE_BI)
@@ -538,8 +548,9 @@ export function handleBurn(event: BurnEvent): void {
 
   // Update factory TVL using delta (not accumulation)
   let oldPoolTVLBurn = pool.totalValueLockedUSD
-  pool.totalValueLockedUSD = pool.totalValueLockedToken0.times(token0.derivedUSD)
+  let rawPoolTVLBurn = pool.totalValueLockedToken0.times(token0.derivedUSD)
     .plus(pool.totalValueLockedToken1.times(token1.derivedUSD))
+  pool.totalValueLockedUSD = clampTVL(rawPoolTVLBurn, POOL_TVL_CAP)
   factory.totalValueLockedUSD = factory.totalValueLockedUSD
     .minus(oldPoolTVLBurn)
     .plus(pool.totalValueLockedUSD)
@@ -677,10 +688,11 @@ export function handleSwap(event: SwapEvent): void {
 
   // Recalculate TVL in USD (subtract old pool TVL, add new)
   let oldPoolTVL = pool.totalValueLockedUSD
-  pool.totalValueLockedUSD = pool.totalValueLockedToken0.times(token0.derivedUSD)
+  let rawPoolTVLSwap = pool.totalValueLockedToken0.times(token0.derivedUSD)
     .plus(pool.totalValueLockedToken1.times(token1.derivedUSD))
-  token0.totalValueLockedUSD = token0.totalValueLocked.times(token0.derivedUSD)
-  token1.totalValueLockedUSD = token1.totalValueLocked.times(token1.derivedUSD)
+  pool.totalValueLockedUSD = clampTVL(rawPoolTVLSwap, POOL_TVL_CAP)
+  token0.totalValueLockedUSD = clampTVL(token0.totalValueLocked.times(token0.derivedUSD), TOKEN_TVL_CAP)
+  token1.totalValueLockedUSD = clampTVL(token1.totalValueLocked.times(token1.derivedUSD), TOKEN_TVL_CAP)
 
   // Update factory TVL (delta, not accumulation)
   factory.totalValueLockedUSD = factory.totalValueLockedUSD
@@ -823,8 +835,9 @@ export function handleCollect(event: CollectEvent): void {
   // Collecting fees reduces TVL
   pool.totalValueLockedToken0 = pool.totalValueLockedToken0.minus(amount0)
   pool.totalValueLockedToken1 = pool.totalValueLockedToken1.minus(amount1)
-  pool.totalValueLockedUSD = pool.totalValueLockedToken0.times(token0.derivedUSD)
+  let rawPoolTVLCollect = pool.totalValueLockedToken0.times(token0.derivedUSD)
     .plus(pool.totalValueLockedToken1.times(token1.derivedUSD))
+  pool.totalValueLockedUSD = clampTVL(rawPoolTVLCollect, POOL_TVL_CAP)
 
   let transaction = loadOrCreateTransaction(
     event.transaction.hash.toHexString(),
