@@ -344,10 +344,10 @@ function updateDerivedUSD(token: Token): void {
     }
   }
 
-  // Sanity cap: no single token should exceed $1M per unit
-  // Tokens like LBTC at ~$100K are fine; anything above $1M is likely a bad derivation
-  let ONE_MILLION = BigDecimal.fromString('1000000')
-  if (priceSoFar.gt(ONE_MILLION)) {
+  // Sanity cap: no single token should exceed $200K per unit
+  // LBTC at ~$85K is the highest legitimate price; anything above $200K is likely a bad derivation
+  let MAX_TOKEN_PRICE = BigDecimal.fromString('200000')
+  if (priceSoFar.gt(MAX_TOKEN_PRICE)) {
     priceSoFar = ZERO_BD
   }
 
@@ -427,11 +427,14 @@ export function handleMint(event: MintEvent): void {
   pool.liquidity = pool.liquidity.plus(event.params.amount)
   pool.totalValueLockedToken0 = pool.totalValueLockedToken0.plus(amount0)
   pool.totalValueLockedToken1 = pool.totalValueLockedToken1.plus(amount1)
+
+  // Update factory TVL using delta (not accumulation)
+  let oldPoolTVLMint = pool.totalValueLockedUSD
   pool.totalValueLockedUSD = pool.totalValueLockedToken0.times(token0.derivedUSD)
     .plus(pool.totalValueLockedToken1.times(token1.derivedUSD))
-
-  // Update factory TVL
-  factory.totalValueLockedUSD = factory.totalValueLockedUSD.plus(amountUSD)
+  factory.totalValueLockedUSD = factory.totalValueLockedUSD
+    .minus(oldPoolTVLMint)
+    .plus(pool.totalValueLockedUSD)
 
   // Create or update ticks
   let lowerTickIdx = event.params.tickLower
@@ -532,11 +535,14 @@ export function handleBurn(event: BurnEvent): void {
   pool.liquidity = pool.liquidity.minus(event.params.amount)
   pool.totalValueLockedToken0 = pool.totalValueLockedToken0.minus(amount0)
   pool.totalValueLockedToken1 = pool.totalValueLockedToken1.minus(amount1)
+
+  // Update factory TVL using delta (not accumulation)
+  let oldPoolTVLBurn = pool.totalValueLockedUSD
   pool.totalValueLockedUSD = pool.totalValueLockedToken0.times(token0.derivedUSD)
     .plus(pool.totalValueLockedToken1.times(token1.derivedUSD))
-
-  // Update factory TVL
-  factory.totalValueLockedUSD = factory.totalValueLockedUSD.minus(amountUSD)
+  factory.totalValueLockedUSD = factory.totalValueLockedUSD
+    .minus(oldPoolTVLBurn)
+    .plus(pool.totalValueLockedUSD)
 
   // Update ticks
   let lowerTickId = poolAddress.concat('#').concat(BigInt.fromI32(event.params.tickLower).toString())
@@ -618,7 +624,11 @@ export function handleSwap(event: SwapEvent): void {
   let amount0Abs = amount0.lt(ZERO_BD) ? amount0.neg() : amount0
   let amount1Abs = amount1.lt(ZERO_BD) ? amount1.neg() : amount1
 
-  let amountTotalUSD = getTrackedAmountUSD(amount0Abs, token0, amount1Abs, token1)
+  let amountTotalUSDRaw = getTrackedAmountUSD(amount0Abs, token0, amount1Abs, token1)
+
+  // Sanity cap: no single swap should exceed $10M on Lux
+  let TEN_MILLION = BigDecimal.fromString('10000000')
+  let amountTotalUSD = amountTotalUSDRaw.gt(TEN_MILLION) ? ZERO_BD : amountTotalUSDRaw
 
   // Fee calculation (feeTier is in hundredths of a bip, e.g., 3000 = 0.3%)
   let feesUSD = amountTotalUSD.times(pool.feeTier.toBigDecimal()).div(BigDecimal.fromString('1000000'))

@@ -15,9 +15,9 @@ const CHAIN_SUBGRAPH_URL: Record<number, string> = {
 
   [SupportedChainId.CELO]: 'https://api.thegraph.com/subgraphs/name/jesse-sawa/uniswap-celo',
 
-  [SupportedChainId.LUX]: 'https://graph.lux.network/subgraphs/name/lux/uniswap-v3',
+  [SupportedChainId.LUX]: 'https://api-exchange.lux.network/subgraph/v3',
 
-  [SupportedChainId.ZOO]: 'https://graph.zoo.network/subgraphs/name/zoo/uniswap-v3',
+  [SupportedChainId.ZOO]: 'https://api-exchange.lux.network/subgraph/v3',
 }
 
 const httpLink = new HttpLink({ uri: CHAIN_SUBGRAPH_URL[SupportedChainId.MAINNET] })
@@ -45,7 +45,7 @@ export const apolloClient = new ApolloClient({
 
 export const luxNetClient = new ApolloClient({
   link: new HttpLink({
-    uri: "https://graph.lux.network/subgraphs/name/lux/uniswap-v3",
+    uri: "https://api-exchange.lux.network/subgraph/v3",
   }),
   cache: new InMemoryCache(),
 })
@@ -53,7 +53,7 @@ export const luxNetClient = new ApolloClient({
 
 export const zooNetClient = new ApolloClient({
   link: new HttpLink({
-    uri: "https://graph.zoo.network/subgraphs/name/zoo/uniswap-v3",
+    uri: "https://api-exchange.lux.network/subgraph/v3",
   }),
   cache: new InMemoryCache(),
 })

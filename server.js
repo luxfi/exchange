@@ -1,6 +1,4 @@
 const express = require('express');
-const { Pool } = require('pg');
-const Redis = require('ioredis');
 const cors = require('cors');
 const { ethers } = require('ethers');
 
@@ -8,170 +6,254 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Database connection
-const db = new Pool({
-  connectionString: process.env.DATABASE_URL,
-});
+// Configuration from environment
+const RPC_URL = process.env.RPC_URL || 'https://api.lux.network/ext/bc/C/rpc';
+const SUBGRAPH_V2_URL = process.env.SUBGRAPH_URL || process.env.SUBGRAPH_V2_URL || 'http://graph-node.lux-explorer.svc:8000/subgraphs/name/luxfi/uniswap-v2';
+const SUBGRAPH_V3_URL = process.env.SUBGRAPH_V3_URL || 'http://graph-node.lux-explorer.svc:8000/subgraphs/name/luxfi/amm-v3';
+const BLOCKSCOUT_API = process.env.BLOCKSCOUT_API || 'https://api-explore.lux.network';
 
-// Redis connection
-const redis = new Redis(process.env.REDIS_URL);
+// Ethereum provider for on-chain queries
+let provider;
+try {
+  provider = new ethers.JsonRpcProvider(RPC_URL);
+} catch (e) {
+  console.error('Failed to create provider:', e.message);
+}
 
-// Ethereum provider
-const provider = new ethers.JsonRpcProvider(process.env.RPC_URL);
+// V3 Factory and known token addresses (verified on-chain)
+const V3_FACTORY = '0x80bBc7C4C7a59C899D1B37BC14539A22D5830a84';
+const TOKENS = {
+  WLUX:  { address: '0x4888e4a2ee0f03051c72d2bd3acf755ed3498b3e', symbol: 'WLUX',  name: 'Wrapped LUX',  decimals: 18 },
+  LUSD:  { address: '0x848Cff46eb323f323b6Bbe1Df274E40793d7f2c2', symbol: 'LUSD',  name: 'Lux USD',       decimals: 18 },
+  LETH:  { address: '0x60E0a8167FC13dE89348978860466C9ceC24B9ba', symbol: 'LETH',  name: 'Lux Ether',     decimals: 18 },
+  LBTC:  { address: '0x1E48D32a4F5e9f08DB9aE4959163300FaF8A6C8e', symbol: 'LBTC',  name: 'Lux Bitcoin',   decimals: 8 },
+  LSOL:  { address: '0x26B40f650156C7EbF9e087Dd0dca181Fe87625B7', symbol: 'LSOL',  name: 'Lux SOL',       decimals: 18 },
+  LTON:  { address: '0x3141b94b89691009b950c96e97Bff48e0C543E3C', symbol: 'LTON',  name: 'Lux TON',       decimals: 9 },
+  LAVAX: { address: '0x0e4bD0DD67c15dECfBBBdbbE07FC9d51D737693D', symbol: 'LAVAX', name: 'Lux AVAX',      decimals: 18 },
+};
 
-// Health check endpoint
+// Simple in-memory cache
+const cache = new Map();
+function cached(key, ttlMs, fn) {
+  const entry = cache.get(key);
+  if (entry && Date.now() - entry.ts < ttlMs) return entry.data;
+  return fn().then(data => { cache.set(key, { data, ts: Date.now() }); return data; });
+}
+
+// Query subgraph helper
+async function querySubgraph(url, query, variables = {}) {
+  const res = await fetch(url, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ query, variables }),
+  });
+  const json = await res.json();
+  if (json.errors) throw new Error(json.errors[0].message);
+  return json.data;
+}
+
+// Health check
 app.get('/health', async (req, res) => {
+  const checks = { status: 'healthy' };
   try {
-    await db.query('SELECT 1');
-    await redis.ping();
-    const blockNumber = await provider.getBlockNumber();
-    
-    res.json({
-      status: 'healthy',
-      services: {
-        database: 'connected',
-        redis: 'connected',
-        blockchain: 'connected',
-        blockNumber
-      }
-    });
-  } catch (error) {
-    res.status(503).json({
-      status: 'unhealthy',
-      error: error.message
-    });
-  }
-});
-
-// Token list endpoint
-app.get('/api/tokens', async (req, res) => {
-  try {
-    const cached = await redis.get('tokens:list');
-    if (cached) {
-      return res.json(JSON.parse(cached));
+    if (provider) {
+      checks.blockNumber = await provider.getBlockNumber();
+      checks.blockchain = 'connected';
     }
-    
-    // In production, fetch from database or smart contracts
-    const tokens = [
-      {
-        address: '0x0000000000000000000000000000000000000000',
-        symbol: 'LUX',
-        name: 'Lux Network',
-        decimals: 18,
-        logoURI: '/tokens/lux.png'
-      },
-      {
-        address: '0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48',
-        symbol: 'USDC',
-        name: 'USD Coin',
-        decimals: 6,
-        logoURI: '/tokens/usdc.png'
-      },
-      {
-        address: '0xdAC17F958D2ee523a2206206994597C13D831ec7',
-        symbol: 'USDT',
-        name: 'Tether USD',
-        decimals: 6,
-        logoURI: '/tokens/usdt.png'
-      }
-    ];
-    
-    await redis.setex('tokens:list', 300, JSON.stringify(tokens));
-    res.json(tokens);
-  } catch (error) {
-    res.status(500).json({ error: error.message });
+  } catch (e) {
+    checks.blockchain = 'disconnected';
   }
+  try {
+    await querySubgraph(SUBGRAPH_V3_URL, '{ _meta { block { number } } }');
+    checks.subgraphV3 = 'connected';
+  } catch (e) {
+    checks.subgraphV3 = 'syncing';
+  }
+  res.json(checks);
 });
 
-// Pool list endpoint
+// Token list — real verified addresses
+app.get('/api/tokens', (req, res) => {
+  const tokens = [
+    { address: '0x0000000000000000000000000000000000000000', symbol: 'LUX', name: 'Lux', decimals: 18, logoURI: '/tokens/lux.png' },
+    ...Object.values(TOKENS).map(t => ({ ...t, logoURI: `/tokens/${t.symbol.toLowerCase()}.png` })),
+  ];
+  res.json(tokens);
+});
+
+// Pools — query V3 subgraph for live pool data
 app.get('/api/pools', async (req, res) => {
   try {
     const { limit = 20, offset = 0 } = req.query;
-    
-    // Query pools from Graph Node
-    const graphUrl = process.env.GRAPH_NODE_URL || 'http://localhost:8000';
-    const query = `
-      query GetPools($limit: Int!, $offset: Int!) {
-        pairs(first: $limit, skip: $offset, orderBy: reserveUSD, orderDirection: desc) {
-          id
-          token0 {
+    const data = await cached(`pools:${limit}:${offset}`, 30000, () =>
+      querySubgraph(SUBGRAPH_V3_URL, `
+        query GetPools($limit: Int!, $offset: Int!) {
+          pools(first: $limit, skip: $offset, orderBy: totalValueLockedUSD, orderDirection: desc) {
             id
-            symbol
-            name
+            token0 { id symbol name decimals }
+            token1 { id symbol name decimals }
+            feeTier
+            liquidity
+            sqrtPrice
+            tick
+            totalValueLockedUSD
+            totalValueLockedToken0
+            totalValueLockedToken1
+            volumeUSD
+            txCount
           }
-          token1 {
-            id
-            symbol
-            name
-          }
-          reserve0
-          reserve1
-          reserveUSD
-          volumeUSD
-          txCount
         }
-      }
-    `;
-    
-    // For now, return mock data
-    const pools = [
-      {
-        id: '0x1234567890abcdef',
-        token0: { symbol: 'LUX', name: 'Lux Network' },
-        token1: { symbol: 'USDC', name: 'USD Coin' },
-        reserve0: '1000000',
-        reserve1: '1250000',
-        reserveUSD: '2500000',
-        volumeUSD: '10000000',
-        txCount: '1523'
-      }
-    ];
-    
-    res.json({ pools, total: pools.length });
+      `, { limit: Number(limit), offset: Number(offset) })
+    );
+    res.json({ pools: data.pools || [], total: (data.pools || []).length });
   } catch (error) {
-    res.status(500).json({ error: error.message });
+    // Fallback: query V2 subgraph
+    try {
+      const data = await querySubgraph(SUBGRAPH_V2_URL, `{
+        pairs(first: 20, orderBy: reserveUSD, orderDirection: desc) {
+          id
+          token0 { id symbol name }
+          token1 { id symbol name }
+          reserve0 reserve1 reserveUSD volumeUSD txCount
+        }
+      }`);
+      res.json({ pools: data.pairs || [], total: (data.pairs || []).length, source: 'v2' });
+    } catch (e2) {
+      res.status(503).json({ error: 'Subgraphs syncing', detail: error.message });
+    }
   }
 });
 
-// Trading history endpoint
+// Swaps — query V3 subgraph for trade history
 app.get('/api/trades', async (req, res) => {
   try {
-    const { address, limit = 50 } = req.query;
-    
-    // In production, query from database or subgraph
-    const trades = [];
-    
-    res.json({ trades });
+    const { pool, limit = 50 } = req.query;
+    const where = pool ? `where: { pool: "${pool}" }` : '';
+    const data = await cached(`trades:${pool}:${limit}`, 15000, () =>
+      querySubgraph(SUBGRAPH_V3_URL, `{
+        swaps(first: ${Number(limit)}, orderBy: timestamp, orderDirection: desc, ${where}) {
+          id
+          timestamp
+          pool { id token0 { symbol } token1 { symbol } }
+          sender
+          recipient
+          amount0
+          amount1
+          amountUSD
+          sqrtPriceX96
+          tick
+        }
+      }`)
+    );
+    res.json({ trades: data.swaps || [] });
+  } catch (error) {
+    res.status(503).json({ error: 'Subgraph syncing', detail: error.message });
+  }
+});
+
+// Token price — live from V3 pool slot0 on-chain
+app.get('/api/price/:symbol', async (req, res) => {
+  try {
+    const sym = req.params.symbol.toUpperCase();
+    const price = await cached(`price:${sym}`, 10000, async () => {
+      if (sym === 'LUSD') return 1.0;
+      if (!provider) return 0;
+
+      // Get LUX price from WLUX/LUSD pool
+      const factory = new ethers.Contract(V3_FACTORY, [
+        'function getPool(address,address,uint24) view returns (address)'
+      ], provider);
+
+      const poolAddr = await factory.getPool(TOKENS.WLUX.address, TOKENS.LUSD.address, 3000);
+      if (poolAddr === ethers.ZeroAddress) return 0;
+
+      const pool = new ethers.Contract(poolAddr, [
+        'function slot0() view returns (uint160 sqrtPriceX96, int24 tick, uint16 observationIndex, uint16 observationCardinality, uint16 observationCardinalityNext, uint8 feeProtocol, bool unlocked)'
+      ], provider);
+
+      const slot0 = await pool.slot0();
+      const sqrtPriceX96 = BigInt(slot0.sqrtPriceX96.toString());
+      // WLUX < LUSD by address, so WLUX=token0, LUSD=token1
+      // price = (sqrtPriceX96 / 2^96)^2 = LUSD per WLUX
+      const luxPrice = Number(sqrtPriceX96 * sqrtPriceX96 * 10n**18n / (2n**192n)) / 1e18;
+
+      if (sym === 'LUX' || sym === 'WLUX') return luxPrice;
+
+      // Get other token price via WLUX pool
+      const token = TOKENS[sym];
+      if (!token) return 0;
+
+      try {
+        const pairPool = await factory.getPool(token.address, TOKENS.WLUX.address, 3000);
+        if (pairPool === ethers.ZeroAddress) return 0;
+        const pairContract = new ethers.Contract(pairPool, [
+          'function slot0() view returns (uint160 sqrtPriceX96, int24 tick, uint16, uint16, uint16, uint8, bool)'
+        ], provider);
+        const pairSlot0 = await pairContract.slot0();
+        const pairSqrt = BigInt(pairSlot0.sqrtPriceX96.toString());
+        const decDiff = BigInt(token.decimals - 18);
+        // Compute price and adjust for decimals
+        let rawPrice = Number(pairSqrt * pairSqrt) / Number(2n**192n);
+        if (decDiff !== 0n) rawPrice *= Math.pow(10, Number(decDiff));
+        // Determine if token is token0 or token1
+        const tokenLower = token.address.toLowerCase() < TOKENS.WLUX.address.toLowerCase();
+        const priceInWLUX = tokenLower ? rawPrice : (rawPrice > 0 ? 1 / rawPrice : 0);
+        return priceInWLUX * luxPrice;
+      } catch {
+        return 0;
+      }
+    });
+
+    res.json({ symbol: req.params.symbol.toUpperCase(), priceUSD: price, timestamp: Date.now() });
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
 });
 
-// User portfolio endpoint
+// Token day data from subgraph
+app.get('/api/token/:address/history', async (req, res) => {
+  try {
+    const { address } = req.params;
+    const { days = 30 } = req.query;
+    const data = await cached(`history:${address}:${days}`, 60000, () =>
+      querySubgraph(SUBGRAPH_V3_URL, `{
+        tokenDayDatas(first: ${Number(days)}, orderBy: date, orderDirection: desc, where: { token: "${address.toLowerCase()}" }) {
+          date
+          priceUSD
+          volumeUSD
+          totalValueLockedUSD
+          open high low close
+        }
+      }`)
+    );
+    res.json(data.tokenDayDatas || []);
+  } catch (error) {
+    res.status(503).json({ error: 'Subgraph syncing' });
+  }
+});
+
+// Portfolio — query on-chain balances
 app.get('/api/portfolio/:address', async (req, res) => {
   try {
     const { address } = req.params;
-    
-    // Mock portfolio data
-    const portfolio = {
-      address,
-      totalValueUSD: '10000',
-      tokens: [
-        {
-          symbol: 'LUX',
-          balance: '5000',
-          valueUSD: '6250'
-        },
-        {
-          symbol: 'USDC',
-          balance: '3750',
-          valueUSD: '3750'
-        }
-      ],
-      positions: []
-    };
-    
-    res.json(portfolio);
+    if (!provider) return res.status(503).json({ error: 'No RPC provider' });
+
+    const erc20ABI = ['function balanceOf(address) view returns (uint256)'];
+    const balances = await Promise.all(
+      Object.values(TOKENS).map(async (t) => {
+        try {
+          const contract = new ethers.Contract(t.address, erc20ABI, provider);
+          const bal = await contract.balanceOf(address);
+          return { ...t, balance: ethers.formatUnits(bal, t.decimals) };
+        } catch { return { ...t, balance: '0' }; }
+      })
+    );
+
+    // Also get native LUX balance
+    const nativeBal = await provider.getBalance(address);
+    balances.unshift({ address: '0x0000000000000000000000000000000000000000', symbol: 'LUX', name: 'Lux', decimals: 18, balance: ethers.formatEther(nativeBal) });
+
+    res.json({ address, tokens: balances.filter(b => b.balance !== '0') });
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
@@ -180,4 +262,7 @@ app.get('/api/portfolio/:address', async (req, res) => {
 const PORT = process.env.PORT || 3010;
 app.listen(PORT, () => {
   console.log(`Exchange API running on port ${PORT}`);
+  console.log(`  RPC: ${RPC_URL}`);
+  console.log(`  V2 Subgraph: ${SUBGRAPH_V2_URL}`);
+  console.log(`  V3 Subgraph: ${SUBGRAPH_V3_URL}`);
 });
