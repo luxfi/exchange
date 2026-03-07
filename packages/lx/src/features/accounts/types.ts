@@ -1,5 +1,6 @@
 export enum AccountType {
   SignerMnemonic = 'signerMnemonic', // Key lives in native keystore
+  SignerMPC = 'signerMPC', // Key shares distributed via MPC (non-custodial)
   Readonly = 'readonly', // Accounts without keys (e.g. so user can track balances)
 }
 
@@ -8,12 +9,18 @@ export interface SignerMnemonicAccountMeta {
   address: Address
 }
 
+export interface SignerMPCAccountMeta {
+  type: AccountType.SignerMPC
+  address: Address
+  walletId?: string // MPC wallet ID for signing
+}
+
 export interface ReadOnlyAccountMeta {
   type: AccountType.Readonly
   address: Address
 }
 
-export type AccountMeta = SignerMnemonicAccountMeta | ReadOnlyAccountMeta
+export type AccountMeta = SignerMnemonicAccountMeta | SignerMPCAccountMeta | ReadOnlyAccountMeta
 
 export type DisplayName = {
   name: string

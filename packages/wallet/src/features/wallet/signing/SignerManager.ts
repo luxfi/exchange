@@ -12,7 +12,7 @@ export class SignerManager {
       return signer
     }
 
-    if (account.type === AccountType.SignerMnemonic) {
+    if (account.type === AccountType.SignerMnemonic || account.type === AccountType.SignerMPC) {
       const addresses = await Keyring.getAddressesForStoredPrivateKeys()
       if (!addresses.includes(account.address)) {
         throw new Error('No private key found for address')
