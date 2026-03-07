@@ -10,14 +10,15 @@ let ONE_BI = BigInt.fromI32(1)
 let FACTORY_ADDRESS = '0x80bBc7C4C7a59C899D1B37BC14539A22D5830a84'
 
 // Tracked tokens for price derivation (Lux C-chain)
-let WLUX_ADDRESS = '0x3C18bB6B17eb3F0879d4653e0120a531aF4d86E3'
-let LUSDC_ADDRESS = '0x57f9E717dc080a6A76fB6F77BecA8C9C1D266B96'
-let LETH_ADDRESS = '0x5a88986958ea76Dd043f834542724F081cA1443B'
-let LBTC_ADDRESS = '0x8a3fad1c7FB94461621351aa6A983B6f814F039c'
+// These MUST match the actual on-chain token addresses used in V3 pools
+let WLUX_ADDRESS = '0x4888e4a2ee0f03051c72d2bd3acf755ed3498b3e'
+let LUSD_ADDRESS = '0x848Cff46eb323f323b6Bbe1Df274E40793d7f2c2'
+let LETH_ADDRESS = '0x60E0a8167FC13dE89348978860466C9ceC24B9ba'
+let LBTC_ADDRESS = '0x1E48D32a4F5e9f08DB9aE4959163300FaF8A6C8e'
 
 export let WHITELIST_TOKENS: string[] = [
   WLUX_ADDRESS,
-  LUSDC_ADDRESS,
+  LUSD_ADDRESS,
   LETH_ADDRESS,
   LBTC_ADDRESS,
 ]
@@ -25,34 +26,34 @@ export let WHITELIST_TOKENS: string[] = [
 // Known token metadata (avoids eth_call on nodes without historical state)
 function knownSymbol(addr: string): string {
   let a = addr.toLowerCase()
-  if (a == '0x3c18bb6b17eb3f0879d4653e0120a531af4d86e3') return 'WLUX'
-  if (a == '0x57f9e717dc080a6a76fb6f77beca8c9c1d266b96') return 'LUSDC'
-  if (a == '0x5a88986958ea76dd043f834542724f081ca1443b') return 'LETH'
-  if (a == '0x8a3fad1c7fb94461621351aa6a983b6f814f039c') return 'LBTC'
+  if (a == '0x4888e4a2ee0f03051c72d2bd3acf755ed3498b3e') return 'WLUX'
+  if (a == '0x848cff46eb323f323b6bbe1df274e40793d7f2c2') return 'LUSD'
+  if (a == '0x60e0a8167fc13de89348978860466c9cec24b9ba') return 'LETH'
+  if (a == '0x1e48d32a4f5e9f08db9ae4959163300faf8a6c8e') return 'LBTC'
   if (a == '0x26b40f650156c7ebf9e087dd0dca181fe87625b7') return 'LSOL'
   if (a == '0x5e5290f350352768bd2bfc59c2da15dd04a7cb88') return 'LZOO'
   if (a == '0x3141b94b89691009b950c96e97bff48e0c543e3c') return 'LTON'
-  if (a == '0x848cff46eb323f323b6bbe1df274e40793d7f2c2') return 'LUSD'
+  if (a == '0x0e4bd0dd67c15decfbbbdbbe07fc9d51d737693d') return 'LAVAX'
   return ''
 }
 
 function knownName(addr: string): string {
   let a = addr.toLowerCase()
-  if (a == '0x3c18bb6b17eb3f0879d4653e0120a531af4d86e3') return 'Wrapped LUX'
-  if (a == '0x57f9e717dc080a6a76fb6f77beca8c9c1d266b96') return 'Lux USDC'
-  if (a == '0x5a88986958ea76dd043f834542724f081ca1443b') return 'Lux Ether'
-  if (a == '0x8a3fad1c7fb94461621351aa6a983b6f814f039c') return 'Lux Bitcoin'
+  if (a == '0x4888e4a2ee0f03051c72d2bd3acf755ed3498b3e') return 'Wrapped LUX'
+  if (a == '0x848cff46eb323f323b6bbe1df274e40793d7f2c2') return 'Lux USD'
+  if (a == '0x60e0a8167fc13de89348978860466c9cec24b9ba') return 'Lux Ether'
+  if (a == '0x1e48d32a4f5e9f08db9ae4959163300faf8a6c8e') return 'Lux Bitcoin'
   if (a == '0x26b40f650156c7ebf9e087dd0dca181fe87625b7') return 'Lux Solana'
   if (a == '0x5e5290f350352768bd2bfc59c2da15dd04a7cb88') return 'Lux Zoo'
   if (a == '0x3141b94b89691009b950c96e97bff48e0c543e3c') return 'Lux Toncoin'
-  if (a == '0x848cff46eb323f323b6bbe1df274e40793d7f2c2') return 'Lux USD'
+  if (a == '0x0e4bd0dd67c15decfbbbdbbe07fc9d51d737693d') return 'Lux AVAX'
   return ''
 }
 
 function knownDecimals(addr: string): i32 {
   let a = addr.toLowerCase()
-  if (a == '0x8a3fad1c7fb94461621351aa6a983b6f814f039c') return 8 // LBTC
-  if (a == '0x57f9e717dc080a6a76fb6f77beca8c9c1d266b96') return 6 // LUSDC
+  if (a == '0x1e48d32a4f5e9f08db9ae4959163300faf8a6c8e') return 8 // LBTC
+  if (a == '0x3141b94b89691009b950c96e97bff48e0c543e3c') return 9 // LTON
   return 18
 }
 

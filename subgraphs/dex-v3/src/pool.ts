@@ -31,8 +31,8 @@ let ZERO_BI = BigInt.fromI32(0)
 let ONE_BI = BigInt.fromI32(1)
 let ONE_BD = BigDecimal.fromString('1')
 let FACTORY_ADDRESS = '0x80bBc7C4C7a59C899D1B37BC14539A22D5830a84'
-let LUSDC_ADDRESS = '0x57f9E717dc080a6A76fB6F77BecA8C9C1D266B96'
-let WLUX_ADDRESS = '0x3C18bB6B17eb3F0879d4653e0120a531aF4d86E3'
+let LUSD_ADDRESS = '0x848Cff46eb323f323b6Bbe1Df274E40793d7f2c2'
+let WLUX_ADDRESS = '0x4888e4a2ee0f03051c72d2bd3acf755ed3498b3e'
 
 function exponentToBigDecimal(decimals: BigInt): BigDecimal {
   let bd = BigDecimal.fromString('1')
@@ -297,17 +297,19 @@ function updateTokenHourData(token: Token, timestamp: BigInt): TokenHourData {
 
 function updateDerivedUSD(token: Token): void {
   let tokenId = token.id.toLowerCase()
-  let lusdcId = LUSDC_ADDRESS.toLowerCase()
+  let lusdId = LUSD_ADDRESS.toLowerCase()
 
-  // LUSDC is $1
-  if (tokenId == lusdcId) {
+  // LUSD is the $1 anchor stablecoin
+  if (tokenId == lusdId) {
     token.derivedUSD = ONE_BD
     return
   }
 
   // Derive price from whitelist pools
+  // Use native liquidity (not USD TVL) to pick the best pool — avoids
+  // chicken-and-egg problem where USD TVL requires prices that require USD TVL
   let whitelistPools = token.whitelistPools
-  let largestLiquidityUSD = ZERO_BD
+  let largestLiquidity = ZERO_BI
   let priceSoFar = ZERO_BD
 
   for (let i = 0; i < whitelistPools.length; i++) {
@@ -321,9 +323,8 @@ function updateDerivedUSD(token: Token): void {
       if (token1 === null) continue
       let token1PriceUSD = token1.derivedUSD
       if (token1PriceUSD.gt(ZERO_BD)) {
-        let poolTVL = pool.totalValueLockedUSD
-        if (poolTVL.gt(largestLiquidityUSD)) {
-          largestLiquidityUSD = poolTVL
+        if (pool.liquidity.gt(largestLiquidity)) {
+          largestLiquidity = pool.liquidity
           // token0Price = how many token1 per token0, so token0 USD = token0Price * token1 USD
           priceSoFar = pool.token0Price.times(token1PriceUSD)
         }
@@ -334,14 +335,20 @@ function updateDerivedUSD(token: Token): void {
       if (token0 === null) continue
       let token0PriceUSD = token0.derivedUSD
       if (token0PriceUSD.gt(ZERO_BD)) {
-        let poolTVL = pool.totalValueLockedUSD
-        if (poolTVL.gt(largestLiquidityUSD)) {
-          largestLiquidityUSD = poolTVL
+        if (pool.liquidity.gt(largestLiquidity)) {
+          largestLiquidity = pool.liquidity
           // token1Price = how many token0 per token1, so token1 USD = token1Price * token0 USD
           priceSoFar = pool.token1Price.times(token0PriceUSD)
         }
       }
     }
+  }
+
+  // Sanity cap: no single token should exceed $1M per unit
+  // Tokens like LBTC at ~$100K are fine; anything above $1M is likely a bad derivation
+  let ONE_MILLION = BigDecimal.fromString('1000000')
+  if (priceSoFar.gt(ONE_MILLION)) {
+    priceSoFar = ZERO_BD
   }
 
   token.derivedUSD = priceSoFar
