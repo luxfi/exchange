@@ -28,39 +28,9 @@ dataSources:
         - event: PoolCreated(indexed address,indexed address,indexed uint24,int24,address)
           handler: handlePoolCreated
       file: ./src/factory.ts
-  - kind: ethereum
-    name: NonfungiblePositionManager
-    network: lux
-    source:
-      address: "0x7a4C48B9dae0b7c396569b34042fcA604150Ee28"
-      abi: NonfungiblePositionManager
-      startBlock: 0
-    mapping:
-      kind: ethereum/events
-      apiVersion: 0.0.7
-      language: wasm/assemblyscript
-      entities:
-        - Position
-        - PositionSnapshot
-      abis:
-        - name: NonfungiblePositionManager
-          file: ./abis/NonfungiblePositionManager.json
-        - name: Pool
-          file: ./abis/Pool.json
-        - name: Factory
-          file: ./abis/Factory.json
-        - name: ERC20
-          file: ../dex-factory/abis/ERC20.json
-      eventHandlers:
-        - event: IncreaseLiquidity(indexed uint256,uint128,uint256,uint256)
-          handler: handleIncreaseLiquidity
-        - event: DecreaseLiquidity(indexed uint256,uint128,uint256,uint256)
-          handler: handleDecreaseLiquidity
-        - event: Collect(indexed uint256,address,uint256,uint256)
-          handler: handleCollect
-        - event: Transfer(indexed address,indexed address,indexed uint256)
-          handler: handleTransfer
-      file: ./src/position-manager.ts
+  # NonfungiblePositionManager disabled — requires eth_call which fails on
+  # nodes without historical state (RLP-imported chains). Position tracking
+  # is not needed for price/volume/TVL calculations.
 templates:
   - kind: ethereum/contract
     name: Pool

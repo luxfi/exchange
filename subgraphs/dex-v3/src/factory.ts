@@ -22,28 +22,59 @@ export let WHITELIST_TOKENS: string[] = [
   LBTC_ADDRESS,
 ]
 
+// Known token metadata (avoids eth_call on nodes without historical state)
+function knownSymbol(addr: string): string {
+  let a = addr.toLowerCase()
+  if (a == '0x3c18bb6b17eb3f0879d4653e0120a531af4d86e3') return 'WLUX'
+  if (a == '0x57f9e717dc080a6a76fb6f77beca8c9c1d266b96') return 'LUSDC'
+  if (a == '0x5a88986958ea76dd043f834542724f081ca1443b') return 'LETH'
+  if (a == '0x8a3fad1c7fb94461621351aa6a983b6f814f039c') return 'LBTC'
+  if (a == '0x26b40f650156c7ebf9e087dd0dca181fe87625b7') return 'LSOL'
+  if (a == '0x5e5290f350352768bd2bfc59c2da15dd04a7cb88') return 'LZOO'
+  if (a == '0x3141b94b89691009b950c96e97bff48e0c543e3c') return 'LTON'
+  if (a == '0x848cff46eb323f323b6bbe1df274e40793d7f2c2') return 'LUSD'
+  return ''
+}
+
+function knownName(addr: string): string {
+  let a = addr.toLowerCase()
+  if (a == '0x3c18bb6b17eb3f0879d4653e0120a531af4d86e3') return 'Wrapped LUX'
+  if (a == '0x57f9e717dc080a6a76fb6f77beca8c9c1d266b96') return 'Lux USDC'
+  if (a == '0x5a88986958ea76dd043f834542724f081ca1443b') return 'Lux Ether'
+  if (a == '0x8a3fad1c7fb94461621351aa6a983b6f814f039c') return 'Lux Bitcoin'
+  if (a == '0x26b40f650156c7ebf9e087dd0dca181fe87625b7') return 'Lux Solana'
+  if (a == '0x5e5290f350352768bd2bfc59c2da15dd04a7cb88') return 'Lux Zoo'
+  if (a == '0x3141b94b89691009b950c96e97bff48e0c543e3c') return 'Lux Toncoin'
+  if (a == '0x848cff46eb323f323b6bbe1df274e40793d7f2c2') return 'Lux USD'
+  return ''
+}
+
+function knownDecimals(addr: string): i32 {
+  let a = addr.toLowerCase()
+  if (a == '0x8a3fad1c7fb94461621351aa6a983b6f814f039c') return 8 // LBTC
+  if (a == '0x57f9e717dc080a6a76fb6f77beca8c9c1d266b96') return 6 // LUSDC
+  return 18
+}
+
 function fetchTokenSymbol(tokenAddress: Address): string {
-  let contract = ERC20.bind(tokenAddress)
-  let result = contract.try_symbol()
-  return result.reverted ? 'unknown' : result.value
+  let known = knownSymbol(tokenAddress.toHexString())
+  if (known != '') return known
+  // Return address fragment for unknown tokens (no eth_call — node may lack historical state)
+  return tokenAddress.toHexString().slice(0, 10)
 }
 
 function fetchTokenName(tokenAddress: Address): string {
-  let contract = ERC20.bind(tokenAddress)
-  let result = contract.try_name()
-  return result.reverted ? 'unknown' : result.value
+  let known = knownName(tokenAddress.toHexString())
+  if (known != '') return known
+  return 'Token ' + tokenAddress.toHexString().slice(0, 10)
 }
 
 function fetchTokenDecimals(tokenAddress: Address): BigInt {
-  let contract = ERC20.bind(tokenAddress)
-  let result = contract.try_decimals()
-  return result.reverted ? BigInt.fromI32(18) : BigInt.fromI32(result.value)
+  return BigInt.fromI32(knownDecimals(tokenAddress.toHexString()))
 }
 
 function fetchTokenTotalSupply(tokenAddress: Address): BigInt {
-  let contract = ERC20.bind(tokenAddress)
-  let result = contract.try_totalSupply()
-  return result.reverted ? ZERO_BI : result.value
+  return ZERO_BI
 }
 
 export function handlePoolCreated(event: PoolCreated): void {
