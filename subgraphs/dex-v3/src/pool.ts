@@ -32,6 +32,7 @@ let ONE_BI = BigInt.fromI32(1)
 let ONE_BD = BigDecimal.fromString('1')
 let FACTORY_ADDRESS = '0x80bBc7C4C7a59C899D1B37BC14539A22D5830a84'
 let LUSDC_ADDRESS = '0x57f9E717dc080a6A76fB6F77BecA8C9C1D266B96'
+let WLUX_ADDRESS = '0x3C18bB6B17eb3F0879d4653e0120a531aF4d86E3'
 
 function exponentToBigDecimal(decimals: BigInt): BigDecimal {
   let bd = BigDecimal.fromString('1')
@@ -323,7 +324,8 @@ function updateDerivedUSD(token: Token): void {
         let poolTVL = pool.totalValueLockedUSD
         if (poolTVL.gt(largestLiquidityUSD)) {
           largestLiquidityUSD = poolTVL
-          priceSoFar = pool.token1Price.times(token1PriceUSD)
+          // token0Price = how many token1 per token0, so token0 USD = token0Price * token1 USD
+          priceSoFar = pool.token0Price.times(token1PriceUSD)
         }
       }
     }
@@ -335,13 +337,27 @@ function updateDerivedUSD(token: Token): void {
         let poolTVL = pool.totalValueLockedUSD
         if (poolTVL.gt(largestLiquidityUSD)) {
           largestLiquidityUSD = poolTVL
-          priceSoFar = pool.token0Price.times(token0PriceUSD)
+          // token1Price = how many token0 per token1, so token1 USD = token1Price * token0 USD
+          priceSoFar = pool.token1Price.times(token0PriceUSD)
         }
       }
     }
   }
 
   token.derivedUSD = priceSoFar
+}
+
+function updateBundlePrices(): void {
+  let bundle = Bundle.load('1')
+  if (bundle === null) return
+
+  // LUX price = WLUX.derivedUSD
+  let wlux = Token.load(WLUX_ADDRESS)
+  if (wlux !== null && wlux.derivedUSD.gt(ZERO_BD)) {
+    bundle.luxPriceUSD = wlux.derivedUSD
+    bundle.ethPriceUSD = wlux.derivedUSD
+  }
+  bundle.save()
 }
 
 export function handleInitialize(event: Initialize): void {
@@ -366,15 +382,8 @@ export function handleInitialize(event: Initialize): void {
   token0.save()
   token1.save()
 
-  // Update bundle
-  let bundle = Bundle.load('1')
-  if (bundle !== null) {
-    let lusdc = Token.load(LUSDC_ADDRESS)
-    if (lusdc !== null) {
-      // If we have LUSDC pools we can derive ETH/LUX prices
-      bundle.save()
-    }
-  }
+  // Update bundle with LUX price
+  updateBundlePrices()
 }
 
 export function handleMint(event: MintEvent): void {
@@ -646,14 +655,19 @@ export function handleSwap(event: SwapEvent): void {
   updateDerivedUSD(token0)
   updateDerivedUSD(token1)
 
-  // Recalculate TVL in USD
+  // Update bundle LUX/ETH price
+  updateBundlePrices()
+
+  // Recalculate TVL in USD (subtract old pool TVL, add new)
+  let oldPoolTVL = pool.totalValueLockedUSD
   pool.totalValueLockedUSD = pool.totalValueLockedToken0.times(token0.derivedUSD)
     .plus(pool.totalValueLockedToken1.times(token1.derivedUSD))
   token0.totalValueLockedUSD = token0.totalValueLocked.times(token0.derivedUSD)
   token1.totalValueLockedUSD = token1.totalValueLocked.times(token1.derivedUSD)
 
-  // Update factory TVL
+  // Update factory TVL (delta, not accumulation)
   factory.totalValueLockedUSD = factory.totalValueLockedUSD
+    .minus(oldPoolTVL)
     .plus(pool.totalValueLockedUSD)
 
   // Create transaction
