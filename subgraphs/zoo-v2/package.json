@@ -1,0 +1,15 @@
+{
+  "name": "@luxfi/subgraph-zoo-amm-v2",
+  "version": "1.0.0",
+  "description": "Subgraph for Zoo AMM V2 (factory 0xF034942c1140125b5c278aE9cEE1B488e915B2FE)",
+  "scripts": {
+    "codegen": "graph codegen",
+    "build": "graph build",
+    "deploy:local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 luxfi/zoo-amm-v2",
+    "create:local": "graph create --node http://localhost:8020/ luxfi/zoo-amm-v2"
+  },
+  "devDependencies": {
+    "@graphprotocol/graph-cli": "^0.68.0",
+    "@graphprotocol/graph-ts": "^0.32.0"
+  }
+}

@@ -10,6 +10,10 @@ app.use(express.json());
 const RPC_URL = process.env.RPC_URL || 'https://api.lux.network/ext/bc/C/rpc';
 const SUBGRAPH_V2_URL = process.env.SUBGRAPH_URL || process.env.SUBGRAPH_V2_URL || 'http://graph-node.lux-explorer.svc:8000/subgraphs/name/luxfi/uniswap-v2';
 const SUBGRAPH_V3_URL = process.env.SUBGRAPH_V3_URL || 'http://graph-node.lux-explorer.svc:8000/subgraphs/name/luxfi/amm-v3';
+const ZOO_SUBGRAPH_V3_URL = process.env.ZOO_SUBGRAPH_V3_URL || 'http://graph-node.lux-explorer.svc:8000/subgraphs/name/luxfi/zoo-amm-v3';
+const SUBGRAPH_ZOO_V2_URL = process.env.SUBGRAPH_ZOO_V2_URL || 'http://graph-node.lux-explorer.svc:8000/subgraphs/name/luxfi/zoo-amm-v2';
+const SUBGRAPH_PARS_V2_URL = process.env.SUBGRAPH_PARS_V2_URL || 'http://graph-node.lux-explorer.svc:8000/subgraphs/name/luxfi/pars-amm-v2';
+const SUBGRAPH_HANZO_V2_URL = process.env.SUBGRAPH_HANZO_V2_URL || 'http://graph-node.lux-explorer.svc:8000/subgraphs/name/luxfi/hanzo-amm-v2';
 const BLOCKSCOUT_API = process.env.BLOCKSCOUT_API || 'https://api-explore.lux.network';
 
 // Ethereum provider for on-chain queries
@@ -259,10 +263,74 @@ app.get('/api/portfolio/:address', async (req, res) => {
   }
 });
 
+// Lux V3 subgraph proxy
+app.post('/subgraph/v3', async (req, res) => {
+  try {
+    const data = await querySubgraph(SUBGRAPH_V3_URL, req.body.query, req.body.variables);
+    res.json({ data });
+  } catch (error) {
+    res.status(502).json({ errors: [{ message: error.message }] });
+  }
+});
+
+// Lux V2 subgraph proxy
+app.post('/subgraph/v2', async (req, res) => {
+  try {
+    const data = await querySubgraph(SUBGRAPH_V2_URL, req.body.query, req.body.variables);
+    res.json({ data });
+  } catch (error) {
+    res.status(502).json({ errors: [{ message: error.message }] });
+  }
+});
+
+// Zoo V3 subgraph proxy
+app.post('/subgraph/zoo/v3', async (req, res) => {
+  try {
+    const data = await querySubgraph(ZOO_SUBGRAPH_V3_URL, req.body.query, req.body.variables);
+    res.json({ data });
+  } catch (error) {
+    res.status(502).json({ errors: [{ message: error.message }] });
+  }
+});
+
+// Zoo V2 subgraph proxy
+app.post('/subgraph/zoo/v2', async (req, res) => {
+  try {
+    const data = await querySubgraph(SUBGRAPH_ZOO_V2_URL, req.body.query, req.body.variables);
+    res.json({ data });
+  } catch (error) {
+    res.status(502).json({ errors: [{ message: error.message }] });
+  }
+});
+
+// Pars V2 subgraph proxy
+app.post('/subgraph/pars/v2', async (req, res) => {
+  try {
+    const data = await querySubgraph(SUBGRAPH_PARS_V2_URL, req.body.query, req.body.variables);
+    res.json({ data });
+  } catch (error) {
+    res.status(502).json({ errors: [{ message: error.message }] });
+  }
+});
+
+// Hanzo V2 subgraph proxy
+app.post('/subgraph/hanzo/v2', async (req, res) => {
+  try {
+    const data = await querySubgraph(SUBGRAPH_HANZO_V2_URL, req.body.query, req.body.variables);
+    res.json({ data });
+  } catch (error) {
+    res.status(502).json({ errors: [{ message: error.message }] });
+  }
+});
+
 const PORT = process.env.PORT || 3010;
 app.listen(PORT, () => {
   console.log(`Exchange API running on port ${PORT}`);
   console.log(`  RPC: ${RPC_URL}`);
-  console.log(`  V2 Subgraph: ${SUBGRAPH_V2_URL}`);
-  console.log(`  V3 Subgraph: ${SUBGRAPH_V3_URL}`);
+  console.log(`  Lux V2 Subgraph: ${SUBGRAPH_V2_URL}`);
+  console.log(`  Lux V3 Subgraph: ${SUBGRAPH_V3_URL}`);
+  console.log(`  Zoo V3 Subgraph: ${ZOO_SUBGRAPH_V3_URL}`);
+  console.log(`  Zoo V2 Subgraph: ${SUBGRAPH_ZOO_V2_URL}`);
+  console.log(`  Pars V2 Subgraph: ${SUBGRAPH_PARS_V2_URL}`);
+  console.log(`  Hanzo V2 Subgraph: ${SUBGRAPH_HANZO_V2_URL}`);
 });

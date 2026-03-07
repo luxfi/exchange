@@ -1,0 +1,15 @@
+{
+  "name": "@luxfi/subgraph-hanzo-amm-v2",
+  "version": "1.0.0",
+  "description": "Subgraph for Hanzo AMM V2 (factory 0xDc384E006BAec602b0b2B2fe6f2712646EFb1e9D)",
+  "scripts": {
+    "codegen": "graph codegen",
+    "build": "graph build",
+    "deploy:local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 luxfi/hanzo-amm-v2",
+    "create:local": "graph create --node http://localhost:8020/ luxfi/hanzo-amm-v2"
+  },
+  "devDependencies": {
+    "@graphprotocol/graph-cli": "^0.68.0",
+    "@graphprotocol/graph-ts": "^0.32.0"
+  }
+}

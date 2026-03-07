@@ -17,7 +17,7 @@ const CHAIN_SUBGRAPH_URL: Record<number, string> = {
 
   [SupportedChainId.LUX]: 'https://api-exchange.lux.network/subgraph/v3',
 
-  [SupportedChainId.ZOO]: 'https://api-exchange.lux.network/subgraph/v3',
+  [SupportedChainId.ZOO]: 'https://api-exchange.lux.network/subgraph/zoo/v3',
 }
 
 const httpLink = new HttpLink({ uri: CHAIN_SUBGRAPH_URL[SupportedChainId.MAINNET] })
@@ -53,7 +53,7 @@ export const luxNetClient = new ApolloClient({
 
 export const zooNetClient = new ApolloClient({
   link: new HttpLink({
-    uri: "https://api-exchange.lux.network/subgraph/v3",
+    uri: "https://api-exchange.lux.network/subgraph/zoo/v3",
   }),
   cache: new InMemoryCache(),
 })

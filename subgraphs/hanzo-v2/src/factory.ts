@@ -7,13 +7,13 @@ import { BigInt, BigDecimal, Address } from '@graphprotocol/graph-ts'
 let ZERO_BD = BigDecimal.fromString('0')
 let ZERO_BI = BigInt.fromI32(0)
 let ONE_BI = BigInt.fromI32(1)
-let FACTORY_ADDRESS = '0xeac0a50112b5ee20cc18e42ba4d37777012afd0d'
+let FACTORY_ADDRESS = '0xDc384E006BAec602b0b2B2fe6f2712646EFb1e9D'
 
-// Tracked tokens for price derivation (Lux C-chain)
-let WLUX_ADDRESS = '0x3C18bB6B17eb3F0879d4653e0120a531aF4d86E3'
-let LUSDC_ADDRESS = '0x57f9E717dc080a6A76fB6F77BecA8C9C1D266B96'
-let LETH_ADDRESS = '0x5a88986958ea76Dd043f834542724F081cA1443B'
-let LBTC_ADDRESS = '0x8a3fad1c7FB94461621351aa6A983B6f814F039c'
+// Tracked tokens for price derivation (Hanzo mainnet)
+let WLUX_ADDRESS = '0xc65ea8882020Af7CDa7854d590C6Fcd34BF364ec'
+let LUSDC_ADDRESS = '0x51c3408B9A6a0B2446CCB78c72C846CEB76201FA'
+let LETH_ADDRESS = '0x9378b62fC172d2A4f715d7ecF49DE0362f1BB702'
+let LBTC_ADDRESS = '0x7fC4f8a926E47Fa3587C0d7658C00E7489e67916'
 
 function fetchTokenSymbol(tokenAddress: Address): string {
   let contract = ERC20.bind(tokenAddress)

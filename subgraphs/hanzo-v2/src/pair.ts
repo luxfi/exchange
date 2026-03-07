@@ -23,10 +23,10 @@ let ZERO_BD = BigDecimal.fromString('0')
 let ZERO_BI = BigInt.fromI32(0)
 let ONE_BI = BigInt.fromI32(1)
 let ADDRESS_ZERO = '0x0000000000000000000000000000000000000000'
-let FACTORY_ADDRESS = '0xeac0a50112b5ee20cc18e42ba4d37777012afd0d'
+let FACTORY_ADDRESS = '0xDc384E006BAec602b0b2B2fe6f2712646EFb1e9D'
 
-// Stablecoin addresses on Lux C-chain for USD derivation
-let LUSDC_ADDRESS = '0x57f9E717dc080a6A76fB6F77BecA8C9C1D266B96'
+// Stablecoin addresses on Hanzo mainnet for USD derivation
+let LUSDC_ADDRESS = '0x51c3408B9A6a0B2446CCB78c72C846CEB76201FA'
 
 function exponentToBigDecimal(decimals: BigInt): BigDecimal {
   let bd = BigDecimal.fromString('1')
