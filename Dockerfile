@@ -1,63 +1,10 @@
 # Lux Exchange - Vite SPA Dockerfile
-# Multi-stage build: pnpm install + vite build -> nginx static serve
+# Pre-built locally, packaged into nginx
 
-# Stage 1: Build (pin exact node version to match engines requirement)
-# Use BUILDPLATFORM so the builder runs natively (fast) even during cross-compilation
-FROM --platform=$BUILDPLATFORM node:22.13.1-alpine AS builder
+FROM nginx:alpine
 
-RUN apk add --no-cache python3 make g++ git bash
-RUN npm install -g pnpm@10.29.3
-
-WORKDIR /app
-
-# Copy entire monorepo (workspaces need each other)
-COPY . .
-
-# Remove stale bun.lock that confuses pnpm resolution
-RUN rm -f bun.lock bun.lockb
-
-# Install deps (ignore preinstall/postinstall scripts that need bash/lefthook)
-RUN pnpm install --frozen-lockfile --ignore-scripts || pnpm install --no-frozen-lockfile --ignore-scripts
-
-# Patch @noble/hashes v1.3.3 for v2 compat needed by @scure/bip32@1.7.0
-# Adds: ./legacy export, ./sha2.js mapping, abytes/anumber to utils
-RUN node -e '\
-const fs = require("fs");\
-const polyfill = "function abytes(b,...l){if(!(b instanceof Uint8Array))throw new Error(\"Uint8Array expected\");if(l.length>0&&!l.includes(b.length))throw new Error(\"wrong length\")}\nfunction anumber(n){if(!Number.isSafeInteger(n)||n<0)throw new Error(\"positive integer expected\")}\n";\
-const dirs = ["node_modules/.pnpm/@noble+hashes@1.3.3/node_modules/@noble/hashes","node_modules/@noble/hashes"];\
-dirs.filter(d => fs.existsSync(d + "/package.json")).forEach(d => {\
-  const pkg = JSON.parse(fs.readFileSync(d + "/package.json", "utf8"));\
-  if (pkg.version !== "1.3.3") return;\
-  pkg.exports["./legacy"] = { types: "./utils.d.ts", import: "./esm/legacy.js", default: "./legacy.js" };\
-  if (!pkg.exports["./sha2.js"]) pkg.exports["./sha2.js"] = pkg.exports["./sha2"];\
-  fs.writeFileSync(d + "/package.json", JSON.stringify(pkg, null, 2));\
-  let cjs = fs.readFileSync(d + "/utils.js", "utf8");\
-  if (!cjs.includes("abytes")) { cjs += "\n" + polyfill + "exports.abytes=abytes;exports.anumber=anumber;\n"; fs.writeFileSync(d + "/utils.js", cjs); }\
-  let esm = fs.readFileSync(d + "/esm/utils.js", "utf8");\
-  if (!esm.includes("abytes")) { esm += "\nexport " + polyfill.trim().split("\n").join("\nexport ") + "\n"; fs.writeFileSync(d + "/esm/utils.js", esm); }\
-  fs.writeFileSync(d + "/legacy.js", "const u=require(\"./utils\");const r=require(\"./ripemd160\");const s=require(\"./sha256\");const s5=require(\"./sha512\");module.exports={...u,...r,...s,...s5};");\
-  fs.writeFileSync(d + "/esm/legacy.js", "export * from \"./utils.js\";export{ripemd160}from\"./ripemd160.js\";export{sha256}from\"./sha256.js\";export{sha384,sha512,sha512_256}from\"./sha512.js\";");\
-});'
-
-# Run the ajv prepare step needed before build
-RUN cd apps/web && node scripts/compile-ajv-validators.js || true
-
-# Build the web app as a static SPA
-# Use ENABLE_REACT_COMPILER=true to use @vitejs/plugin-react (Babel) instead of
-# @vitejs/plugin-react-oxc which requires rolldown-vite (strict module resolution
-# causes @noble/hashes v1/v2 compat issues in Docker)
-ENV NODE_ENV=production
-ENV DEPLOY_TARGET=static
-ENV ENABLE_REACT_COMPILER=true
-ENV CLOUDFLARE_ENV=production
-ENV NODE_OPTIONS=--max-old-space-size=8192
-RUN cd apps/web && pnpm exec vite build
-
-# Stage 2: Serve with nginx
-FROM nginx:alpine AS runner
-
-# Copy built static files (vite outDir is 'build')
-COPY --from=builder /app/apps/web/build /usr/share/nginx/html
+# Copy pre-built static files (build/client/ is the Vite SPA output)
+COPY apps/web/build/client /usr/share/nginx/html
 
 # Nginx config for SPA routing
 RUN printf 'server {\n\

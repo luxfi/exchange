@@ -37,7 +37,8 @@ export function useAllTransactions(
   filter: TransactionType[] = [TransactionType.SWAP, TransactionType.ADD, TransactionType.REMOVE],
 ) {
   const isWindowVisible = useIsWindowVisible()
-  const skipTransactionsQueries = !isWindowVisible || fromGraphQLChain(chain) === UniverseChainId.Solana
+  // Skip for Solana (unsupported) and empty chain (Lux/Zoo use their own subgraph)
+  const skipTransactionsQueries = !isWindowVisible || !chain || fromGraphQLChain(chain) === UniverseChainId.Solana
 
   const {
     data: dataV4,

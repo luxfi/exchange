@@ -386,7 +386,7 @@ export default defineConfig(({ mode }) => {
       },
       portWarningPlugin(isProduction),
       reactPlugin(),
-      isProduction || isStaging
+      (isProduction || isStaging) && process.env.DISABLE_EXTRACTION !== '1'
         ? tamaguiPlugin({
             config: '../../packages/ui/src/tamagui.config.ts',
             components: ['ui', 'lx', 'utilities'],
@@ -578,27 +578,33 @@ export default defineConfig(({ mode }) => {
           chunkFileNames: 'assets/[name]-[hash].js',
           assetFileNames: 'assets/[name]-[hash].[ext]',
           manualChunks(id: string) {
-            // Vendor: blockchain SDKs
-            if (id.includes('node_modules/@uniswap/') || id.includes('node_modules/@luxamm/') || id.includes('node_modules/@luxdex/')) {
-              return 'vendor-sdk'
-            }
-            // Vendor: ethers/viem/wagmi
-            if (id.includes('node_modules/ethers') || id.includes('node_modules/viem') || id.includes('node_modules/wagmi') || id.includes('node_modules/@wagmi/')) {
-              return 'vendor-web3'
-            }
-            // Vendor: UI frameworks
-            if (id.includes('node_modules/tamagui') || id.includes('node_modules/@tamagui/') || id.includes('node_modules/react-native-web')) {
-              return 'vendor-ui'
-            }
-            // Vendor: data/state
-            if (id.includes('node_modules/@apollo/') || id.includes('node_modules/graphql') || id.includes('node_modules/@tanstack/') || id.includes('node_modules/@reduxjs/')) {
-              return 'vendor-data'
-            }
             // Locale files (lazy-loadable)
             if (id.includes('/i18n/locales/') && !id.includes('en-US')) {
               const match = id.match(/locales\/([^/]+)\//)
               if (match) return `locale-${match[1]}`
             }
+            // Vendor: web3 SDKs — NO CJS require('react'), safe to split
+            if (
+              id.includes('node_modules/ethers') ||
+              id.includes('node_modules/viem') ||
+              id.includes('node_modules/@noble/') ||
+              id.includes('node_modules/@scure/') ||
+              id.includes('node_modules/wagmi') ||
+              id.includes('node_modules/@wagmi/') ||
+              id.includes('node_modules/@uniswap/') ||
+              id.includes('node_modules/@luxamm/') ||
+              id.includes('node_modules/@luxdex/')
+            ) {
+              return 'vendor-web3'
+            }
+            // Vendor: data fetching — Apollo has NO CJS require('react'), safe to split
+            if (id.includes('node_modules/@apollo/') || id.includes('node_modules/graphql')) {
+              return 'vendor-data'
+            }
+            // DO NOT split: @tanstack, @reduxjs, react-redux, tamagui, @tamagui, react-native-web
+            // These all use CJS require('react') and MUST stay in the same chunk as React.
+            // Splitting them causes the CJS interop wrapper to create a broken factory
+            // function instead of the real React module, making createContext undefined.
           },
         },
       },

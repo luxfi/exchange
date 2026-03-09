@@ -34,7 +34,7 @@ export const ZOO_CHAIN_INFO = {
   assetRepoNetworkName: 'zoo',
   backendChain: {
     chain: GraphQLApi.Chain.Ethereum as GqlChainId, // Fallback to Ethereum until Zoo is added to GraphQL
-    backendSupported: true, // Using LXD Gateway for Zoo chain data
+    backendSupported: true, // Using Lux Gateway for Zoo chain data
     nativeTokenBackendAddress: undefined,
   },
   blockPerMainnetEpochForChainId: 1,
@@ -105,7 +105,7 @@ export const ZOO_TESTNET_CHAIN_INFO = {
   assetRepoNetworkName: 'zoo-testnet',
   backendChain: {
     chain: GraphQLApi.Chain.Ethereum as GqlChainId, // Fallback to Ethereum until Zoo is added to GraphQL
-    backendSupported: true, // Using LXD Gateway for Zoo chain data
+    backendSupported: true, // Using Lux Gateway for Zoo chain data
     nativeTokenBackendAddress: undefined,
   },
   blockPerMainnetEpochForChainId: 1,

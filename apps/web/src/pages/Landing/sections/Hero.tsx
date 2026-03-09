@@ -82,6 +82,26 @@ export function Hero({ scrollToRef, transition }: HeroProps) {
       pt={INTERFACE_NAV_HEIGHT}
       pointerEvents="none"
     >
+      {/* Background video */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          objectFit: 'cover',
+          zIndex: -1,
+          opacity: 0.4,
+        }}
+      >
+        <source src="/videos/lux-hero.mp4" type="video/mp4" />
+      </video>
+
       {!media.sm && <TokenCloud />}
 
       <Flex

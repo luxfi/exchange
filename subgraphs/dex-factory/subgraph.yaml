@@ -6,7 +6,7 @@ dataSources:
     name: Factory
     network: lux
     source:
-      address: "0xD173926A10A0C4eCd3A51B1422270b65Df0551c1"
+      address: "0xeac0a50112b5ee20cc18e42ba4d37777012afd0d"
       abi: Factory
       startBlock: 0
     mapping:

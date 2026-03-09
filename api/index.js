@@ -1,7 +1,7 @@
 const { createProxyMiddleware } = require('http-proxy-middleware')
 
 const apiProxy = createProxyMiddleware('/api', {
-  target: 'https://beta.api.uniswap.org/v1/graphql',
+  target: 'https://api-exchange.lux.network/v1/graphql',
   changeOrigin: true,
   includePrefix: false,
   pathRewrite: {

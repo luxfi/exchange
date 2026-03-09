@@ -9,7 +9,7 @@ import { useAccount } from '~/hooks/useAccount'
 import { ExploreTablesFilterStoreContextProvider } from '~/pages/Explore/exploreTablesFilterStore'
 import { TopPoolsSection } from '~/pages/Positions/TopPoolsSection'
 import { useTopPoolsLegacy } from '~/state/explore/topPools'
-import { useExchangeStats } from '~/state/explore/useLxdExploreStats'
+import { useExchangeStats } from '~/state/explore/useExchangeStats'
 
 const MAX_BOOSTED_POOLS = 3
 

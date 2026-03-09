@@ -32,7 +32,8 @@
       "~/*": ["./src/*"],
       "ui/src/*": ["../../packages/ui/src/*"],
       "utilities/src/*": ["../../packages/utilities/src/*"],
-      "lx/src/*": ["../../packages/lx/src/*"]
+      "lx/src/*": ["../../packages/lx/src/*"],
+      "dex/src/*": ["../../packages/dex/src/*"]
     }
   },
   "include": [

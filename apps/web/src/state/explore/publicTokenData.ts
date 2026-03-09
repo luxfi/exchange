@@ -63,7 +63,7 @@ export const CHAIN_TOKENS: Record<number, PublicToken[]> = {
     { address: '0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599', name: 'Wrapped BTC', symbol: 'WBTC', decimals: 8, coingeckoId: 'wrapped-bitcoin', logoUrl: 'https://assets.coingecko.com/coins/images/7598/small/wrapped_bitcoin_wbtc.png' },
     { address: '0x6B175474E89094C44Da98b954EedeAC495271d0F', name: 'Dai', symbol: 'DAI', decimals: 18, coingeckoId: 'dai', logoUrl: 'https://assets.coingecko.com/coins/images/9956/small/Badge_Dai.png' },
     { address: '0x514910771AF9Ca656af840dff83E8264EcF986CA', name: 'Chainlink', symbol: 'LINK', decimals: 18, coingeckoId: 'chainlink', logoUrl: 'https://assets.coingecko.com/coins/images/877/small/chainlink-new-logo.png' },
-    { address: '0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984', name: 'Lux', symbol: 'UNI', decimals: 18, coingeckoId: 'lux', logoUrl: 'https://assets.coingecko.com/coins/images/12504/small/uni.jpg' },
+    { address: '0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984', name: 'Uniswap', symbol: 'UNI', decimals: 18, coingeckoId: 'uniswap', logoUrl: 'https://assets.coingecko.com/coins/images/12504/small/uni.jpg' },
     { address: '0x7Fc66500c84A76Ad7e9c93437bFc5Ac33E2DDaE9', name: 'Aave', symbol: 'AAVE', decimals: 18, coingeckoId: 'aave', logoUrl: 'https://assets.coingecko.com/coins/images/12645/small/aave-token-round.png' },
     { address: '0x9f8F72aA9304c8B593d555F12eF6589cC3A579A2', name: 'Maker', symbol: 'MKR', decimals: 18, coingeckoId: 'maker', logoUrl: 'https://assets.coingecko.com/coins/images/1364/small/Mark_Maker.png' },
     { address: '0x5A98FcBEA516Cf06857215779Fd812CA3beF1B32', name: 'Lido DAO', symbol: 'LDO', decimals: 18, coingeckoId: 'lido-dao', logoUrl: 'https://assets.coingecko.com/coins/images/13573/small/Lido_DAO.png' },
@@ -100,7 +100,7 @@ export const CHAIN_TOKENS: Record<number, PublicToken[]> = {
     { address: '0x1BFD67037B42Cf73acF2047067bd4F2C47D9BfD6', name: 'Wrapped BTC', symbol: 'WBTC', decimals: 8, coingeckoId: 'wrapped-bitcoin', logoUrl: 'https://assets.coingecko.com/coins/images/7598/small/wrapped_bitcoin_wbtc.png' },
     { address: '0x53E0bca35eC356BD5ddDFebbD1Fc0fD03FaBad39', name: 'Chainlink', symbol: 'LINK', decimals: 18, coingeckoId: 'chainlink', logoUrl: 'https://assets.coingecko.com/coins/images/877/small/chainlink-new-logo.png' },
     { address: '0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063', name: 'Dai', symbol: 'DAI', decimals: 18, coingeckoId: 'dai', logoUrl: 'https://assets.coingecko.com/coins/images/9956/small/Badge_Dai.png' },
-    { address: '0xb33EaAd8d922B1083446DC23f610c2567fB5180f', name: 'Lux', symbol: 'UNI', decimals: 18, coingeckoId: 'lux', logoUrl: 'https://assets.coingecko.com/coins/images/12504/small/uni.jpg' },
+    { address: '0xb33EaAd8d922B1083446DC23f610c2567fB5180f', name: 'Uniswap', symbol: 'UNI', decimals: 18, coingeckoId: 'uniswap', logoUrl: 'https://assets.coingecko.com/coins/images/12504/small/uni.jpg' },
   ],
   [UniverseChainId.Optimism]: [
     { address: '0x0000000000000000000000000000000000000000', name: 'Ether', symbol: 'ETH', decimals: 18, coingeckoId: 'ethereum', logoUrl: 'https://assets.coingecko.com/coins/images/279/small/ethereum.png' },
@@ -126,21 +126,26 @@ export const CHAIN_TOKENS: Record<number, PublicToken[]> = {
     { address: '0x49D5c2BdFfac6CE2BFdB6640F4F80f226bc10bAB', name: 'Wrapped Ether', symbol: 'WETH.e', decimals: 18, coingeckoId: 'weth', logoUrl: 'https://assets.coingecko.com/coins/images/2518/small/weth.png' },
     { address: '0x152b9d0FdC40C096DE20232Db4820c92EE4c4d0b', name: 'Wrapped BTC', symbol: 'BTC.b', decimals: 8, coingeckoId: 'wrapped-bitcoin', logoUrl: 'https://assets.coingecko.com/coins/images/7598/small/wrapped_bitcoin_wbtc.png' },
   ],
-  // Lux C-chain (96369) — V2 factory 0xD173926A, V3 factory 0x80bBc7C4, 27 pools, 100k+ historic swaps
+  // Lux C-chain (96369) — V3 factory 0x80bBc7C4C7a59C899D1B37BC14539A22D5830a84
+  // Addresses from live V3 subgraph. Lux chain prices come from AMM, not CoinGecko.
   [UniverseChainId.Lux]: [
-    { address: '0x0000000000000000000000000000000000000000', name: 'LUX', symbol: 'LUX', decimals: 18, coingeckoId: 'lux', logoUrl: '/tokens/lux.svg' },
-    { address: '0x3C18bB6B17eb3F0879d4653e0120a531aF4d86E3', name: 'Wrapped LUX', symbol: 'WLUX', decimals: 18, coingeckoId: 'lux', logoUrl: '/tokens/wlux.svg' },
-    { address: '0x57f9E717dc080a6A76fB6F77BecA8C9C1D266B96', name: 'Lux USDC', symbol: 'LUSDC', decimals: 6, coingeckoId: 'usd-coin', logoUrl: '/tokens/lusd.svg' },
-    { address: '0x5a88986958ea76Dd043f834542724F081cA1443B', name: 'Lux ETH', symbol: 'LETH', decimals: 18, coingeckoId: 'ethereum', logoUrl: '/tokens/leth.svg' },
-    { address: '0x8a3fad1c7FB94461621351aa6A983B6f814F039c', name: 'Lux BTC', symbol: 'LBTC', decimals: 8, coingeckoId: 'wrapped-bitcoin', logoUrl: '/tokens/lbtc.svg' },
+    { address: '0x0000000000000000000000000000000000000000', name: 'LUX', symbol: 'LUX', decimals: 18, coingeckoId: 'lux-network', logoUrl: '/tokens/lux.svg' },
+    { address: '0x4888e4a2ee0f03051c72d2bd3acf755ed3498b3e', name: 'Wrapped LUX', symbol: 'WLUX', decimals: 18, coingeckoId: 'lux-wlux', logoUrl: '/tokens/wlux.svg' },
+    { address: '0x848cff46eb323f323b6bbe1df274e40793d7f2c2', name: 'Lux USD', symbol: 'LUSD', decimals: 18, coingeckoId: 'lux-lusd', logoUrl: '/tokens/lusd.svg' },
+    { address: '0xdf1de693c31e2a5eb869c329529623556b20abf3', name: 'Tether', symbol: 'USDT', decimals: 18, coingeckoId: 'tether', logoUrl: 'https://assets.coingecko.com/coins/images/325/small/Tether.png' },
+    { address: '0x8031e9b0d02a792cfefaa2bdca6e1289d385426f', name: 'USD Coin', symbol: 'USDC', decimals: 18, coingeckoId: 'usd-coin', logoUrl: 'https://assets.coingecko.com/coins/images/6319/small/usdc.png' },
+    { address: '0x60e0a8167fc13de89348978860466c9cec24b9ba', name: 'Lux Ether', symbol: 'LETH', decimals: 18, coingeckoId: 'ethereum', logoUrl: '/tokens/leth.svg' },
+    { address: '0x1e48d32a4f5e9f08db9ae4959163300faf8a6c8e', name: 'Lux Bitcoin', symbol: 'LBTC', decimals: 8, coingeckoId: 'bitcoin', logoUrl: '/tokens/lbtc.svg' },
+    { address: '0x5e5290f350352768bd2bfc59c2da15dd04a7cb88', name: 'Lux ZOO', symbol: 'LZOO', decimals: 18, coingeckoId: 'lux-lzoo', logoUrl: '/tokens/lzoo.svg' },
+    { address: '0x26b40f650156c7ebf9e087dd0dca181fe87625b7', name: 'Lux SOL', symbol: 'LSOL', decimals: 18, coingeckoId: 'solana', logoUrl: '/tokens/lsol.svg' },
   ],
   // Zoo Network (200200) — V2 factory 0xF034942c
   [UniverseChainId.Zoo]: [
-    { address: '0x0000000000000000000000000000000000000000', name: 'ZOO', symbol: 'ZOO', decimals: 18, coingeckoId: 'zoo', logoUrl: '/tokens/zoo.svg' },
-    { address: '0x5491216406daB99b7032b83765F36790E27F8A61', name: 'Wrapped LUX', symbol: 'WLUX', decimals: 18, coingeckoId: 'lux', logoUrl: '/tokens/wlux.svg' },
-    { address: '0xb2ee1CE7b84853b83AA08702aD0aD4D79711882D', name: 'Lux USDC', symbol: 'LUSDC', decimals: 6, coingeckoId: 'usd-coin', logoUrl: '/tokens/lusd.svg' },
-    { address: '0x4870621EA8be7a383eFCfdA225249d35888bD9f2', name: 'Lux ETH', symbol: 'LETH', decimals: 18, coingeckoId: 'ethereum', logoUrl: '/tokens/leth.svg' },
-    { address: '0x6fc44509a32E513bE1aa00d27bb298e63830C6A8', name: 'Lux BTC', symbol: 'LBTC', decimals: 8, coingeckoId: 'wrapped-bitcoin', logoUrl: '/tokens/lbtc.svg' },
+    { address: '0x0000000000000000000000000000000000000000', name: 'ZOO', symbol: 'ZOO', decimals: 18, coingeckoId: 'zoo-token', logoUrl: '/tokens/zoo.svg' },
+    { address: '0x5491216406daB99b7032b83765F36790E27F8A61', name: 'Wrapped LUX', symbol: 'WLUX', decimals: 18, coingeckoId: 'zoo-wlux', logoUrl: '/tokens/wlux.svg' },
+    { address: '0xb2ee1CE7b84853b83AA08702aD0aD4D79711882D', name: 'Lux USDC', symbol: 'LUSDC', decimals: 6, coingeckoId: 'zoo-lusdc', logoUrl: '/tokens/lusd.svg' },
+    { address: '0x4870621EA8be7a383eFCfdA225249d35888bD9f2', name: 'Lux ETH', symbol: 'LETH', decimals: 18, coingeckoId: 'zoo-leth', logoUrl: '/tokens/leth.svg' },
+    { address: '0x6fc44509a32E513bE1aa00d27bb298e63830C6A8', name: 'Lux BTC', symbol: 'LBTC', decimals: 8, coingeckoId: 'zoo-lbtc', logoUrl: '/tokens/lbtc.svg' },
   ],
 }
 
@@ -177,20 +182,10 @@ export const CHAIN_POOLS: Record<number, PublicPool[]> = {
   [UniverseChainId.Polygon]: [
     { address: '0x45dDa9cb7c25131DF268515131f647d726f50608', token0: { address: '0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359', symbol: 'USDC', name: 'USD Coin' }, token1: { address: '0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619', symbol: 'WETH', name: 'Wrapped Ether' }, feeTier: 500, tvl: 25_000_000, volume24h: 12_000_000, protocolVersion: 'V3' },
   ],
-  // Lux C-chain V3 pools (factory 0x80bBc7C4, 27 pools active, 100k+ historic swaps)
-  // Pool addresses are deployed via V3 factory CREATE2 — indexed from block 0
-  [UniverseChainId.Lux]: [
-    { address: '0x0000000000000000000000000000000000000000', token0: { address: '0x3C18bB6B17eb3F0879d4653e0120a531aF4d86E3', symbol: 'WLUX', name: 'Wrapped LUX' }, token1: { address: '0x57f9E717dc080a6A76fB6F77BecA8C9C1D266B96', symbol: 'LUSDC', name: 'Lux USDC' }, feeTier: 3000, tvl: 2_500_000, volume24h: 850_000, protocolVersion: 'V3' },
-    { address: '0x0000000000000000000000000000000000000001', token0: { address: '0x3C18bB6B17eb3F0879d4653e0120a531aF4d86E3', symbol: 'WLUX', name: 'Wrapped LUX' }, token1: { address: '0x5a88986958ea76Dd043f834542724F081cA1443B', symbol: 'LETH', name: 'Lux ETH' }, feeTier: 3000, tvl: 1_800_000, volume24h: 620_000, protocolVersion: 'V3' },
-    { address: '0x0000000000000000000000000000000000000002', token0: { address: '0x57f9E717dc080a6A76fB6F77BecA8C9C1D266B96', symbol: 'LUSDC', name: 'Lux USDC' }, token1: { address: '0x5a88986958ea76Dd043f834542724F081cA1443B', symbol: 'LETH', name: 'Lux ETH' }, feeTier: 500, tvl: 3_200_000, volume24h: 1_100_000, protocolVersion: 'V3' },
-    { address: '0x0000000000000000000000000000000000000003', token0: { address: '0x3C18bB6B17eb3F0879d4653e0120a531aF4d86E3', symbol: 'WLUX', name: 'Wrapped LUX' }, token1: { address: '0x8a3fad1c7FB94461621351aa6A983B6f814F039c', symbol: 'LBTC', name: 'Lux BTC' }, feeTier: 3000, tvl: 950_000, volume24h: 280_000, protocolVersion: 'V3' },
-    { address: '0x0000000000000000000000000000000000000004', token0: { address: '0x57f9E717dc080a6A76fB6F77BecA8C9C1D266B96', symbol: 'LUSDC', name: 'Lux USDC' }, token1: { address: '0x8a3fad1c7FB94461621351aa6A983B6f814F039c', symbol: 'LBTC', name: 'Lux BTC' }, feeTier: 500, tvl: 1_500_000, volume24h: 420_000, protocolVersion: 'V3' },
-  ],
-  // Zoo Network V2 pools (factory 0xF034942c)
-  [UniverseChainId.Zoo]: [
-    { address: '0x0000000000000000000000000000000000000000', token0: { address: '0x5491216406daB99b7032b83765F36790E27F8A61', symbol: 'WLUX', name: 'Wrapped LUX' }, token1: { address: '0xb2ee1CE7b84853b83AA08702aD0aD4D79711882D', symbol: 'LUSDC', name: 'Lux USDC' }, feeTier: 3000, tvl: 450_000, volume24h: 120_000, protocolVersion: 'V2' },
-    { address: '0x0000000000000000000000000000000000000001', token0: { address: '0x5491216406daB99b7032b83765F36790E27F8A61', symbol: 'WLUX', name: 'Wrapped LUX' }, token1: { address: '0x4870621EA8be7a383eFCfdA225249d35888bD9f2', symbol: 'LETH', name: 'Lux ETH' }, feeTier: 3000, tvl: 320_000, volume24h: 85_000, protocolVersion: 'V2' },
-  ],
+  // Lux C-chain V2 pools (factory 0xb06B31521A) — pool addresses populated by subgraph once synced
+  [UniverseChainId.Lux]: [],
+  // Zoo Network V2 pools (factory 0xF034942c) — pool addresses populated by subgraph once synced
+  [UniverseChainId.Zoo]: [],
 }
 
 /**

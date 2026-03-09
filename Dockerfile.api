@@ -1,37 +1,13 @@
 # Exchange API Backend Dockerfile
-FROM node:22-alpine AS builder
-
-WORKDIR /app
-
-# Install bun
-RUN npm install -g bun
-
-# Copy package files
-COPY package.json bun.lockb* ./
-
-# Install dependencies
-RUN bun install --frozen-lockfile
-
-# Copy source code
-COPY . .
-
-# Build if needed
-RUN if [ -f "tsconfig.json" ]; then bun run build || true; fi
-
-# Production stage
 FROM node:22-alpine
 
 WORKDIR /app
 
-# Install bun for production
-RUN npm install -g bun
+# Install only the dependencies server.js needs
+RUN npm install express cors ethers
 
-# Install production dependencies only
-COPY package.json bun.lockb* ./
-RUN bun install --frozen-lockfile --production
-
-# Copy built application
-COPY --from=builder /app .
+# Copy server
+COPY server.js .
 
 # Create non-root user
 RUN addgroup -g 1001 -S nodejs && \
@@ -39,7 +15,6 @@ RUN addgroup -g 1001 -S nodejs && \
 
 USER nodejs
 
-EXPOSE 3010
+EXPOSE 4000
 
-# Start the API server
 CMD ["node", "server.js"]

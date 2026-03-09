@@ -1,6 +1,6 @@
 # Lux Exchange - Static SPA image
 # Uses pre-built Vite output from apps/web/build/
-FROM nginx:alpine
+FROM --platform=$TARGETPLATFORM nginx:alpine
 
 COPY apps/web/build /usr/share/nginx/html
 

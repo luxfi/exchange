@@ -17,6 +17,8 @@ import {
   UnsignedV2DutchOrderInfoJSON,
   UnsignedV3DutchOrderInfo,
   UnsignedV3DutchOrderInfoJSON,
+  REACTOR_ADDRESS_MAPPING,
+  OrderType,
 } from '@uniswap/uniswapx-sdk'
 import { Route as V2Route } from '@uniswap/v2-sdk'
 import { Route as V3Route } from '@uniswap/v3-sdk'
@@ -772,8 +774,8 @@ export class PreviewTrade {
   }
 }
 
-// TODO(limits): get this from dex-sdk
-const LUXX_REACTOR = '0x6000da47483062a0d734ba3dc7576ce6a0b645c4'
+// Reactor address for limit orders — sourced from @uniswap/uniswapx-sdk
+const LX_REACTOR = REACTOR_ADDRESS_MAPPING[UniverseChainId.Mainnet]?.[OrderType.Dutch] ?? AddressZero
 
 export class LimitOrderTrade {
   public readonly fillType = TradeFillType.DEX
@@ -856,7 +858,7 @@ export class LimitOrderTrade {
       currencyIn: this.amountIn.currency,
       currenciesOut: [this.amountOut.currency],
       orderInfo: {
-        reactor: LUXX_REACTOR,
+        reactor: LX_REACTOR,
         swapper: options?.swapper ?? this.swapper,
         deadline: (nowSecs + this.deadlineBufferSecs) * 1000,
         additionalValidationContract: AddressZero,

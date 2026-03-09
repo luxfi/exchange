@@ -115,6 +115,17 @@ export * from './loading/Shine'
 export * from './loading/Skeleton'
 export * from './loading/SpinningLoader'
 export * from './loading/TransactionLoader'
+// Trading components (white-label primitives)
+export { tradingColors, type TradingSide } from './components/trading/theme'
+export { ActionButton, type ActionButtonProps } from './components/trading/ActionButton'
+export { BuySellToggle as BuySellToggleWidget, type BuySellToggleProps } from './components/trading/BuySellToggle'
+export { StatBar, type StatBarProps, type StatItem } from './components/trading/StatBar'
+export { SwapArrow, type SwapArrowProps } from './components/trading/SwapArrow'
+export { TokenInput, type TokenInputProps } from './components/trading/TokenInput'
+export { TokenPill as TokenPillWidget, type TokenPillProps } from './components/trading/TokenPill'
+export { TradeRow as TradeRowWidget, type TradeRowProps } from './components/trading/TradeRow'
+// Chart theme (shared lightweight-charts config generators)
+export { chartColors, getChartOptions, getCandlestickOptions, getVolumeOptions } from './components/charts/theme'
 // Theme
 export * from './styles/ScrollbarStyles'
 export * from './theme/shadows'

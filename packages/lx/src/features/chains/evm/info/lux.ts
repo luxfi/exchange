@@ -36,7 +36,7 @@ export const LUX_CHAIN_INFO = {
   assetRepoNetworkName: 'lux',
   backendChain: {
     chain: GraphQLApi.Chain.Ethereum as GqlChainId, // Fallback to Ethereum until Lux is added to GraphQL
-    backendSupported: true, // Using LXD Gateway for Lux chain data
+    backendSupported: true, // Using Lux Gateway for Lux chain data
     nativeTokenBackendAddress: undefined,
   },
   blockPerMainnetEpochForChainId: 1,
@@ -107,7 +107,7 @@ export const LUX_TESTNET_CHAIN_INFO = {
   assetRepoNetworkName: 'lux-testnet',
   backendChain: {
     chain: GraphQLApi.Chain.Ethereum as GqlChainId, // Fallback to Ethereum until Lux is added to GraphQL
-    backendSupported: true, // Using LXD Gateway for Lux chain data
+    backendSupported: true, // Using Lux Gateway for Lux chain data
     nativeTokenBackendAddress: undefined,
   },
   blockPerMainnetEpochForChainId: 1,

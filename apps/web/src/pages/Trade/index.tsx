@@ -1,746 +1,1210 @@
 'use client'
 
-import { useState, useMemo } from 'react'
-import styled from 'styled-components'
-import {
-  useMarketStats,
-  useOrderBook,
-  useRecentTrades,
-  useOpenOrders,
-  usePositions,
-  usePlaceOrder,
-  useCancelOrder,
-  useFundingRate,
-  useMarginAccount,
-} from 'lx/src/data/apiClients/tradingApi/dex/hooks'
-import {
-  OrderType,
-  OrderSide,
-  TimeInForce,
-  MarginMode,
-  type PlaceOrderRequest,
-  type PriceLevel,
-  type Order,
-  type PerpPosition,
-} from 'lx/src/data/apiClients/tradingApi/dex/types'
+import { useState, useEffect, useRef, useMemo, useCallback } from 'react'
+import styled, { keyframes, css } from 'styled-components'
+import { useQuery } from '@tanstack/react-query'
+import { createChart, ColorType, type IChartApi } from 'lightweight-charts'
+import { useNavigate } from 'react-router'
+import { useAccount } from '~/hooks/useAccount'
+import { useAccountDrawer } from '~/components/AccountDrawer/MiniPortfolio/hooks'
 
-const DEFAULT_SYMBOL = 'LUX-USDC'
+// Shared theme tokens (canonical source: packages/ui/src/components/{charts,trading}/theme.ts)
+import { tradingColors } from '~/theme/tradingTheme'
+import { chartColors, getChartOptions, getCandlestickOptions, getVolumeOptions } from '~/theme/chartTheme'
 
-// ─── Styled Components ───────────────────────────────────────────────
+// ─── Constants ──────────────────────────────────────────────────────
+
+const SUBGRAPH_URL = 'https://api-exchange.lux.network/subgraph/v3'
+
+// ─── Subgraph Types ─────────────────────────────────────────────────
+
+interface SGToken {
+  id: string
+  symbol: string
+  name: string
+  decimals: string
+}
+
+interface SGPool {
+  id: string
+  token0: SGToken
+  token1: SGToken
+  feeTier: string
+  liquidity: string
+  totalValueLockedUSD: string
+  volumeUSD: string
+  token0Price: string
+  token1Price: string
+  txCount: string
+}
+
+interface SGSwap {
+  id: string
+  timestamp: string
+  amount0: string
+  amount1: string
+  amountUSD: string
+  sender: string
+}
+
+interface SGPoolDayData {
+  date: number
+  volumeUSD: string
+  tvlUSD: string
+  open: string
+  high: string
+  low: string
+  close: string
+}
+
+interface SGFactory {
+  poolCount: string
+  txCount: string
+  totalVolumeUSD: string
+  totalValueLockedUSD: string
+}
+
+// ─── Subgraph Query Helper ──────────────────────────────────────────
+
+async function sgQuery<T>(query: string): Promise<T> {
+  const res = await fetch(SUBGRAPH_URL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ query }),
+  })
+  const json = await res.json()
+  if (json.errors) {
+    throw new Error(json.errors[0].message)
+  }
+  return json.data
+}
+
+// ─── React Query Hooks ──────────────────────────────────────────────
+
+function usePools() {
+  return useQuery({
+    queryKey: ['v3-pools'],
+    queryFn: () =>
+      sgQuery<{ pools: SGPool[] }>(`{
+        pools(first: 30, orderBy: totalValueLockedUSD, orderDirection: desc) {
+          id token0 { id symbol name decimals } token1 { id symbol name decimals }
+          feeTier liquidity totalValueLockedUSD volumeUSD token0Price token1Price txCount
+        }
+      }`),
+    refetchInterval: 15000,
+    select: (d) => d.pools,
+  })
+}
+
+function usePoolDayData(poolId: string) {
+  return useQuery({
+    queryKey: ['v3-pool-day', poolId],
+    queryFn: () =>
+      sgQuery<{ poolDayDatas: SGPoolDayData[] }>(`{
+        poolDayDatas(first: 90, orderBy: date, orderDirection: desc, where: { pool: "${poolId}" }) {
+          date volumeUSD tvlUSD open high low close
+        }
+      }`),
+    select: (d) => d.poolDayDatas.slice().reverse(),
+    refetchInterval: 60000,
+    enabled: !!poolId,
+  })
+}
+
+function usePoolSwaps(poolId: string) {
+  return useQuery({
+    queryKey: ['v3-swaps', poolId],
+    queryFn: () =>
+      sgQuery<{ swaps: SGSwap[] }>(`{
+        swaps(first: 50, orderBy: timestamp, orderDirection: desc, where: { pool: "${poolId}" }) {
+          id timestamp amount0 amount1 amountUSD sender
+        }
+      }`),
+    select: (d) => d.swaps,
+    refetchInterval: 10000,
+    enabled: !!poolId,
+  })
+}
+
+function useFactory() {
+  return useQuery({
+    queryKey: ['v3-factory'],
+    queryFn: () =>
+      sgQuery<{ factories: SGFactory[] }>(`{
+        factories(first: 1) { poolCount txCount totalVolumeUSD totalValueLockedUSD }
+      }`),
+    select: (d) => d.factories[0],
+    refetchInterval: 30000,
+  })
+}
+
+// ─── Format Utilities ───────────────────────────────────────────────
+
+function fmtPrice(value: string | number): string {
+  const n = typeof value === 'string' ? parseFloat(value) : value
+  if (isNaN(n) || n === 0) return '0.00'
+  const abs = Math.abs(n)
+  if (abs >= 1e6) return n.toLocaleString(undefined, { maximumFractionDigits: 0 })
+  if (abs >= 1000) return n.toLocaleString(undefined, { maximumFractionDigits: 2 })
+  if (abs >= 1) return n.toFixed(4)
+  if (abs >= 0.001) return n.toFixed(6)
+  if (abs >= 0.000001) return n.toFixed(9)
+  return n.toExponential(4)
+}
+
+function fmtUSD(value: string | number): string {
+  const n = typeof value === 'string' ? parseFloat(value) : value
+  if (isNaN(n)) return '$0'
+  if (n >= 1e9) return `$${(n / 1e9).toFixed(2)}B`
+  if (n >= 1e6) return `$${(n / 1e6).toFixed(2)}M`
+  if (n >= 1e3) return `$${(n / 1e3).toFixed(1)}K`
+  return `$${n.toFixed(2)}`
+}
+
+function fmtAmount(value: string): string {
+  const n = parseFloat(value)
+  const abs = Math.abs(n)
+  if (abs === 0) return '0'
+  if (abs < 0.0001) return n.toExponential(2)
+  if (abs < 1) return n.toFixed(6)
+  if (abs < 10000) return n.toFixed(4)
+  return n.toLocaleString(undefined, { maximumFractionDigits: 2 })
+}
+
+function fmtFeeTier(fee: string): string {
+  const n = parseInt(fee) / 10000
+  return `${n}%`
+}
+
+function pairName(pool: SGPool): string {
+  const t0 = pool.token0.symbol.replace(/^W/, '')
+  const t1 = pool.token1.symbol.replace(/^W/, '')
+  return `${t0}/${t1}`
+}
+
+function timeAgo(ts: string): string {
+  const sec = Math.floor(Date.now() / 1000 - parseInt(ts))
+  if (sec < 60) return `${sec}s`
+  if (sec < 3600) return `${Math.floor(sec / 60)}m`
+  if (sec < 86400) return `${Math.floor(sec / 3600)}h`
+  return `${Math.floor(sec / 86400)}d`
+}
+
+// ─── Animations ─────────────────────────────────────────────────────
+
+const fadeIn = keyframes`
+  from { opacity: 0; }
+  to { opacity: 1; }
+`
+
+const slideUp = keyframes`
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+`
+
+const fadeInRow = keyframes`
+  from { opacity: 0; transform: translateX(-4px); }
+  to { opacity: 1; transform: translateX(0); }
+`
+
+const pulseGlow = keyframes`
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+`
+
+// ─── Chart Component ────────────────────────────────────────────────
+
+function PriceChart({ data }: { data: SGPoolDayData[] | undefined }) {
+  const containerRef = useRef<HTMLDivElement>(null)
+  const chartRef = useRef<IChartApi | null>(null)
+
+  useEffect(() => {
+    if (!containerRef.current) return
+
+    const opts = getChartOptions()
+    const chart = createChart(containerRef.current, {
+      ...opts,
+      layout: {
+        ...opts.layout,
+        background: { type: ColorType.Solid, color: opts.layout.background.color },
+      },
+      width: containerRef.current.clientWidth,
+      height: containerRef.current.clientHeight,
+    })
+
+    const candleOpts = getCandlestickOptions()
+    const candleSeries = chart.addCandlestickSeries(candleOpts)
+
+    const volOpts = getVolumeOptions()
+    const volumeSeries = chart.addHistogramSeries(volOpts)
+    volumeSeries.priceScale().applyOptions({
+      scaleMargins: { top: 0.85, bottom: 0 },
+    })
+
+    if (data?.length) {
+      candleSeries.setData(
+        data.map((d) => ({
+          time: d.date as any,
+          open: parseFloat(d.open),
+          high: parseFloat(d.high),
+          low: parseFloat(d.low),
+          close: parseFloat(d.close),
+        })),
+      )
+      volumeSeries.setData(
+        data.map((d) => ({
+          time: d.date as any,
+          value: parseFloat(d.volumeUSD),
+          color:
+            parseFloat(d.close) >= parseFloat(d.open)
+              ? chartColors.upMuted
+              : chartColors.downMuted,
+        })),
+      )
+      chart.timeScale().fitContent()
+    }
+
+    chartRef.current = chart
+
+    const ro = new ResizeObserver((entries) => {
+      for (const entry of entries) {
+        chart.applyOptions({
+          width: entry.contentRect.width,
+          height: entry.contentRect.height,
+        })
+      }
+    })
+    ro.observe(containerRef.current)
+
+    return () => {
+      ro.disconnect()
+      chart.remove()
+      chartRef.current = null
+    }
+  }, [data])
+
+  return <ChartContainer ref={containerRef} />
+}
+
+// ─── Styled Components ──────────────────────────────────────────────
 
 const Page = styled.div`
   display: flex;
   flex-direction: column;
   height: calc(100vh - 72px);
-  background: var(--surface1);
-  color: var(--neutral1);
+  width: 100vw;
+  max-width: 100vw;
+  background: ${tradingColors.bgPrimary};
+  color: ${tradingColors.textPrimary};
   overflow: hidden;
+  position: fixed;
+  top: 72px;
+  left: 0;
+  z-index: 1;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  animation: ${fadeIn} 0.3s ease;
+  -webkit-font-smoothing: antialiased;
 `
 
 const TopBar = styled.div`
   display: flex;
   align-items: center;
   gap: 24px;
-  padding: 12px 16px;
-  border-bottom: 1px solid var(--surface3);
-  background: var(--surface2);
+  padding: 0 20px;
+  height: 52px;
+  border-bottom: 1px solid ${tradingColors.border};
   font-size: 13px;
+  flex-shrink: 0;
+  animation: ${slideUp} 0.3s ease;
 `
 
-const SymbolSelect = styled.select`
-  background: var(--surface3);
+const PairSelector = styled.select`
+  background: transparent;
   border: none;
-  border-radius: 8px;
-  color: var(--neutral1);
-  padding: 6px 12px;
-  font-size: 15px;
+  color: ${tradingColors.textPrimary};
+  padding: 6px 0;
+  font-size: 16px;
   font-weight: 700;
+  cursor: pointer;
+  outline: none;
+  letter-spacing: -0.02em;
+  appearance: none;
+
+  option {
+    background: #111;
+    color: ${tradingColors.textPrimary};
+  }
 `
 
-const StatValue = styled.span<{ $color?: string }>`
-  font-weight: 600;
-  color: ${(p) => p.$color || 'var(--neutral1)'};
+const StatGroup = styled.div`
+  display: flex;
+  gap: 24px;
+  align-items: center;
+`
+
+const Stat = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
 `
 
 const StatLabel = styled.span`
-  color: var(--neutral2);
-  margin-right: 4px;
+  font-size: 10px;
+  color: ${tradingColors.textTertiary};
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  font-weight: 500;
+`
+
+const StatValue = styled.span<{ $color?: string }>`
+  font-size: 13px;
+  font-weight: 600;
+  color: ${(p) => p.$color || 'rgba(255,255,255,0.8)'};
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.01em;
+  transition: color 0.3s ease;
+`
+
+const FeeBadge = styled.span`
+  padding: 3px 8px;
+  background: ${tradingColors.bgHover};
+  color: ${tradingColors.textSecondary};
+  border-radius: 100px;
+  font-size: 11px;
+  font-weight: 600;
 `
 
 const MainGrid = styled.div`
   display: grid;
-  grid-template-columns: 280px 1fr 320px;
+  grid-template-columns: 240px 1fr 320px;
   flex: 1;
   overflow: hidden;
+  min-height: 0;
 `
 
-const Panel = styled.div`
-  border-right: 1px solid var(--surface3);
+const LeftPanel = styled.div`
+  border-right: 1px solid ${tradingColors.border};
   overflow-y: auto;
   display: flex;
   flex-direction: column;
-`
+  animation: ${fadeIn} 0.4s ease 0.1s both;
 
-const PanelHeader = styled.div`
-  padding: 10px 12px;
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--neutral2);
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  border-bottom: 1px solid var(--surface3);
-  position: sticky;
-  top: 0;
-  background: var(--surface1);
-  z-index: 1;
-`
-
-const BookRow = styled.div<{ $side: 'bid' | 'ask' }>`
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  padding: 2px 12px;
-  font-size: 12px;
-  font-family: monospace;
-  cursor: pointer;
-  &:hover {
-    background: var(--surface2);
-  }
-  & > span:first-child {
-    color: ${(p) => (p.$side === 'bid' ? 'var(--statusSuccess)' : 'var(--statusCritical)')};
-  }
-`
-
-const TradeRow = styled.div<{ $side: string }>`
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  padding: 2px 12px;
-  font-size: 12px;
-  font-family: monospace;
-  & > span:first-child {
-    color: ${(p) => (p.$side === 'buy' ? 'var(--statusSuccess)' : 'var(--statusCritical)')};
-  }
-`
-
-const OrderFormPanel = styled.div`
-  display: flex;
-  flex-direction: column;
-  border-left: 1px solid var(--surface3);
-  overflow-y: auto;
-`
-
-const TabBar = styled.div`
-  display: flex;
-  border-bottom: 1px solid var(--surface3);
-`
-
-const Tab = styled.button<{ $active?: boolean }>`
-  flex: 1;
-  padding: 10px;
-  background: ${(p) => (p.$active ? 'var(--surface2)' : 'transparent')};
-  border: none;
-  border-bottom: ${(p) => (p.$active ? '2px solid var(--accent1)' : '2px solid transparent')};
-  color: ${(p) => (p.$active ? 'var(--neutral1)' : 'var(--neutral2)')};
-  font-size: 13px;
-  font-weight: 600;
-  cursor: pointer;
-`
-
-const SideToggle = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4px;
-  padding: 12px;
-`
-
-const SideButton = styled.button<{ $side: 'buy' | 'sell'; $active: boolean }>`
-  padding: 10px;
-  border: none;
-  border-radius: 8px;
-  font-weight: 700;
-  font-size: 14px;
-  cursor: pointer;
-  background: ${(p) => {
-    if (!p.$active) {
-      return 'var(--surface3)'
-    }
-    return p.$side === 'buy' ? 'var(--statusSuccess)' : 'var(--statusCritical)'
-  }};
-  color: ${(p) => (p.$active ? '#000' : 'var(--neutral2)')};
-`
-
-const FormGroup = styled.div`
-  padding: 0 12px;
-  margin-bottom: 12px;
-`
-
-const FormLabel = styled.label`
-  display: block;
-  font-size: 11px;
-  color: var(--neutral2);
-  margin-bottom: 4px;
-  text-transform: uppercase;
-  letter-spacing: 0.3px;
-`
-
-const FormInput = styled.input`
-  width: 100%;
-  padding: 10px 12px;
-  background: var(--surface3);
-  border: 1px solid var(--surface3);
-  border-radius: 8px;
-  color: var(--neutral1);
-  font-size: 14px;
-  font-family: monospace;
-  outline: none;
-  &:focus {
-    border-color: var(--accent1);
-  }
-`
-
-const FormSelect = styled.select`
-  width: 100%;
-  padding: 10px 12px;
-  background: var(--surface3);
-  border: 1px solid var(--surface3);
-  border-radius: 8px;
-  color: var(--neutral1);
-  font-size: 13px;
-`
-
-const SubmitButton = styled.button<{ $side: 'buy' | 'sell' }>`
-  margin: 12px;
-  padding: 14px;
-  border: none;
-  border-radius: 10px;
-  font-weight: 700;
-  font-size: 16px;
-  cursor: pointer;
-  background: ${(p) => (p.$side === 'buy' ? 'var(--statusSuccess)' : 'var(--statusCritical)')};
-  color: #000;
-  &:disabled {
-    opacity: 0.4;
-    cursor: not-allowed;
-  }
-`
-
-const CheckboxRow = styled.label`
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  padding: 0 12px;
-  margin-bottom: 8px;
-  font-size: 12px;
-  color: var(--neutral2);
-  cursor: pointer;
-`
-
-const BottomPanel = styled.div`
-  border-top: 1px solid var(--surface3);
-  max-height: 200px;
-  overflow-y: auto;
-`
-
-const BottomTabs = styled.div`
-  display: flex;
-  gap: 0;
-  border-bottom: 1px solid var(--surface3);
-`
-
-const OrderRow = styled.div`
-  display: grid;
-  grid-template-columns: 80px 80px 80px 100px 80px 60px 80px 1fr;
-  padding: 4px 12px;
-  font-size: 12px;
-  font-family: monospace;
-  border-bottom: 1px solid var(--surface3);
-  align-items: center;
-`
-
-const PositionRow = styled.div`
-  display: grid;
-  grid-template-columns: 80px 60px 80px 80px 80px 100px 80px 1fr;
-  padding: 4px 12px;
-  font-size: 12px;
-  font-family: monospace;
-  border-bottom: 1px solid var(--surface3);
-  align-items: center;
-`
-
-const CancelBtn = styled.button`
-  background: var(--surface3);
-  border: none;
-  border-radius: 4px;
-  padding: 2px 8px;
-  font-size: 11px;
-  color: var(--statusCritical);
-  cursor: pointer;
+  &::-webkit-scrollbar { width: 0; }
 `
 
 const CenterPanel = styled.div`
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  min-height: 0;
+  animation: ${fadeIn} 0.4s ease 0.15s both;
 `
 
-const LeverageRow = styled.div`
+const RightPanel = styled.div`
+  border-left: 1px solid ${tradingColors.border};
+  overflow-y: auto;
   display: flex;
-  gap: 4px;
-  padding: 0 12px;
-  margin-bottom: 12px;
+  flex-direction: column;
+  animation: ${fadeIn} 0.4s ease 0.2s both;
+
+  &::-webkit-scrollbar { width: 0; }
 `
 
-const LeverageBtn = styled.button<{ $active: boolean }>`
+const PanelHeader = styled.div`
+  padding: 14px 16px 10px;
+  font-size: 11px;
+  font-weight: 600;
+  color: ${tradingColors.textTertiary};
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-bottom: 1px solid ${tradingColors.border};
+  position: sticky;
+  top: 0;
+  background: ${tradingColors.bgPrimary};
+  z-index: 2;
+`
+
+const ChartContainer = styled.div`
   flex: 1;
-  padding: 6px;
-  background: ${(p) => (p.$active ? 'var(--accent1)' : 'var(--surface3)')};
-  color: ${(p) => (p.$active ? '#000' : 'var(--neutral2)')};
+  min-height: 300px;
+  animation: ${fadeIn} 0.5s ease 0.2s both;
+`
+
+// ─── Trade Rows ─────────────────────────────────────────────────────
+
+const TradeRow = styled.div<{ $isSell?: boolean; $index?: number }>`
+  display: grid;
+  grid-template-columns: 1fr 1fr 52px;
+  padding: 4px 16px;
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+  font-family: 'SF Mono', 'Fira Code', 'JetBrains Mono', monospace;
+  cursor: default;
+  transition: background 0.15s ease;
+  animation: ${fadeInRow} 0.2s ease ${(p) => ((p.$index ?? 0) * 0.02)}s both;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.02);
+  }
+
+  & > span:first-child {
+    color: ${(p) => (p.$isSell ? tradingColors.sell : tradingColors.buy)};
+  }
+`
+
+const TradeHeaderRow = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr 52px;
+  padding: 8px 16px;
+  font-size: 10px;
+  font-weight: 600;
+  color: ${tradingColors.textTertiary};
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+`
+
+// ─── Swap Widget ────────────────────────────────────────────────────
+
+const SwapWidget = styled.div`
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 20px;
+  gap: 0;
+  animation: ${slideUp} 0.35s ease 0.25s both;
+`
+
+const SwapHeader = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+`
+
+const SwapTitle = styled.span`
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+`
+
+const BuySellToggle = styled.div`
+  display: flex;
+  background: ${tradingColors.bgHover};
+  border-radius: 10px;
+  padding: 3px;
+  gap: 2px;
+`
+
+const ToggleBtn = styled.button<{ $active?: boolean; $variant?: 'buy' | 'sell' }>`
+  padding: 6px 16px;
   border: none;
-  border-radius: 6px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  background: ${(p) =>
+    p.$active
+      ? p.$variant === 'sell'
+        ? tradingColors.sellMuted
+        : tradingColors.buyMuted
+      : 'transparent'};
+  color: ${(p) =>
+    p.$active
+      ? p.$variant === 'sell'
+        ? tradingColors.sell
+        : tradingColors.buy
+      : tradingColors.textTertiary};
+
+  &:hover {
+    color: ${(p) =>
+      p.$active
+        ? undefined
+        : tradingColors.textSecondary};
+  }
+`
+
+const SwapBody = styled.div`
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: space-between;
+`
+
+const InputSection = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+`
+
+const InputBlock = styled.div<{ $focused?: boolean }>`
+  padding: 16px;
+  background: ${tradingColors.bgSecondary};
+  border: 1px solid ${(p) => (p.$focused ? tradingColors.borderFocus : 'rgba(255,255,255,0.04)')};
+  border-radius: 16px;
+  transition: all 0.2s ease;
+
+  &:hover {
+    border-color: rgba(255, 255, 255, 0.08);
+  }
+`
+
+const InputLabel = styled.div`
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.35);
+  font-weight: 500;
+  margin-bottom: 8px;
+`
+
+const InputRow = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 8px;
+`
+
+const AmountInput = styled.input`
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: ${tradingColors.textPrimary};
+  font-size: 28px;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+  outline: none;
+  min-width: 0;
+  transition: opacity 0.2s ease;
+
+  &::placeholder {
+    color: ${tradingColors.textMuted};
+  }
+
+  &:disabled {
+    opacity: 0.3;
+  }
+`
+
+const TokenPill = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background: ${tradingColors.border};
+  border-radius: 100px;
+  font-size: 15px;
+  font-weight: 700;
+  color: ${tradingColors.textPrimary};
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: background 0.15s ease;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.08);
+  }
+`
+
+const SwapArrowBtn = styled.button`
+  width: 36px;
+  height: 36px;
+  border-radius: 12px;
+  border: 1px solid ${tradingColors.border};
+  background: #111;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin: -14px auto;
+  position: relative;
+  z-index: 1;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover {
+    background: #1a1a1a;
+    border-color: ${tradingColors.borderFocus};
+    transform: rotate(180deg);
+  }
+
+  svg {
+    transition: inherit;
+  }
+`
+
+const RateInfo = styled.div`
+  text-align: center;
+  padding: 8px 0 0;
+  font-size: 12px;
+  color: ${tradingColors.textTertiary};
+  font-variant-numeric: tabular-nums;
+  animation: ${fadeIn} 0.2s ease;
+`
+
+const ActionArea = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-top: 16px;
+`
+
+const PrimaryBtn = styled.button<{ $disabled?: boolean }>`
+  width: 100%;
+  padding: 18px;
+  border: none;
+  border-radius: 14px;
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: -0.01em;
+  cursor: ${(p) => (p.$disabled ? 'default' : 'pointer')};
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+
+  ${(p) =>
+    p.$disabled
+      ? css`
+          background: ${tradingColors.bgHover};
+          color: rgba(255, 255, 255, 0.2);
+        `
+      : css`
+          background: ${tradingColors.textPrimary};
+          color: ${tradingColors.bgPrimary};
+
+          &:hover {
+            background: rgba(255, 255, 255, 0.92);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1);
+          }
+
+          &:active {
+            transform: translateY(0);
+            background: rgba(255, 255, 255, 0.85);
+          }
+        `}
+`
+
+const ConnectBtn = styled.button`
+  width: 100%;
+  padding: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 14px;
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: -0.01em;
+  cursor: pointer;
+  background: transparent;
+  color: ${tradingColors.textPrimary};
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover {
+    background: ${tradingColors.bgHover};
+    border-color: rgba(255, 255, 255, 0.18);
+    transform: translateY(-1px);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+`
+
+// ─── Bottom Panel ───────────────────────────────────────────────────
+
+const BottomPanel = styled.div`
+  border-top: 1px solid ${tradingColors.border};
+  max-height: 220px;
+  overflow-y: auto;
+  flex-shrink: 0;
+  animation: ${slideUp} 0.3s ease 0.3s both;
+
+  &::-webkit-scrollbar { width: 0; }
+`
+
+const BottomTabs = styled.div`
+  display: flex;
+  gap: 0;
+  border-bottom: 1px solid ${tradingColors.border};
+  position: sticky;
+  top: 0;
+  background: ${tradingColors.bgPrimary};
+  z-index: 2;
+`
+
+const Tab = styled.button<{ $active?: boolean }>`
+  padding: 12px 20px;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid ${(p) => (p.$active ? tradingColors.textPrimary : 'transparent')};
+  color: ${(p) => (p.$active ? tradingColors.textPrimary : tradingColors.textTertiary)};
   font-size: 12px;
   font-weight: 600;
   cursor: pointer;
+  transition: all 0.2s ease;
+  letter-spacing: 0.02em;
+
+  &:hover {
+    color: ${(p) => (p.$active ? tradingColors.textPrimary : tradingColors.textSecondary)};
+  }
 `
 
-const MarginBadge = styled.span`
-  padding: 2px 8px;
-  background: var(--surface3);
-  border-radius: 4px;
-  font-size: 11px;
-  color: var(--neutral2);
-  cursor: pointer;
-`
-
-const FundingInfo = styled.div`
-  display: flex;
-  gap: 16px;
+const TableRow = styled.div<{ $clickable?: boolean; $selected?: boolean }>`
+  display: grid;
+  grid-template-columns: 160px 80px 110px 110px 100px 80px 1fr;
+  padding: 8px 20px;
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
   align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.02);
+  cursor: ${(p) => (p.$clickable ? 'pointer' : 'default')};
+  transition: background 0.15s ease;
+  background: ${(p) => (p.$selected ? tradingColors.bgSecondary : 'transparent')};
+
+  &:hover {
+    background: ${(p) => (p.$clickable ? tradingColors.bgSecondary : 'transparent')};
+  }
 `
 
-// ─── Component ───────────────────────────────────────────────────────
+const TableHeader = styled(TableRow)`
+  color: ${tradingColors.textTertiary};
+  font-weight: 600;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  position: sticky;
+  top: 42px;
+  background: ${tradingColors.bgPrimary};
+  z-index: 1;
+  border-bottom: 1px solid ${tradingColors.border};
+  cursor: default;
+  &:hover { background: ${tradingColors.bgPrimary}; }
+`
+
+const EmptyState = styled.div`
+  padding: 40px 20px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.2);
+  font-size: 13px;
+  animation: ${fadeIn} 0.3s ease;
+`
+
+const LiveDot = styled.span`
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: ${tradingColors.buy};
+  animation: ${pulseGlow} 2s ease-in-out infinite;
+  margin-right: 6px;
+`
+
+const LoadingSkeleton = styled.div`
+  height: 100%;
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.15);
+  font-size: 14px;
+  animation: ${fadeIn} 0.3s ease;
+`
+
+const PriceRef = styled.div`
+  padding: 16px;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.35);
+  line-height: 1.8;
+  font-variant-numeric: tabular-nums;
+  animation: ${fadeIn} 0.3s ease;
+`
+
+const Separator = styled.div`
+  height: 1px;
+  background: rgba(255, 255, 255, 0.04);
+`
+
+// ─── Arrow Icon ─────────────────────────────────────────────────────
+
+const ArrowDownIcon = () => (
+  <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+    <path
+      d="M7 2.5v9m0 0L4 8.5m3 3l3-3"
+      stroke="rgba(255,255,255,0.5)"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>
+)
+
+// ─── Main Component ─────────────────────────────────────────────────
 
 export default function TradePage() {
-  const [symbol, setSymbol] = useState(DEFAULT_SYMBOL)
-  const [orderType, setOrderType] = useState<OrderType>(OrderType.Limit)
-  const [side, setSide] = useState<OrderSide>(OrderSide.Buy)
-  const [price, setPrice] = useState('')
-  const [size, setSize] = useState('')
-  const [stopPrice, setStopPrice] = useState('')
-  const [takeProfit, setTakeProfit] = useState('')
-  const [stopLoss, setStopLoss] = useState('')
-  const [tif, setTif] = useState<TimeInForce>(TimeInForce.GTC)
-  const [postOnly, setPostOnly] = useState(false)
-  const [reduceOnly, setReduceOnly] = useState(false)
-  const [leverage, setLeverage] = useState(1)
-  const [bottomTab, setBottomTab] = useState<'orders' | 'positions' | 'history'>('orders')
+  const navigate = useNavigate()
+  const { data: pools, isLoading: poolsLoading } = usePools()
+  const { data: factory } = useFactory()
 
-  const { data: stats } = useMarketStats(symbol)
-  const { data: orderBookData } = useOrderBook(symbol, 25)
-  const { data: trades } = useRecentTrades(symbol, 50)
-  const { data: openOrders } = useOpenOrders(symbol)
-  const { data: positions } = usePositions()
-  const { data: funding } = useFundingRate(symbol)
-  const { data: account } = useMarginAccount()
-  const placeOrder = usePlaceOrder()
-  const cancelOrder = useCancelOrder()
+  const account = useAccount()
+  const accountDrawer = useAccountDrawer()
+  const isConnected = !!account.address
 
-  const asks = useMemo(() => (orderBookData?.asks ?? []).slice(0, 15).reverse(), [orderBookData])
-  const bids = useMemo(() => (orderBookData?.bids ?? []).slice(0, 15), [orderBookData])
+  const [selectedPoolId, setSelectedPoolId] = useState<string>('')
+  const [inputAmount, setInputAmount] = useState('')
+  const [bottomTab, setBottomTab] = useState<'pools' | 'trades'>('pools')
+  const [side, setSide] = useState<'buy' | 'sell'>('buy')
+  const [payFocused, setPayFocused] = useState(false)
 
-  const handleSubmit = () => {
-    const req: PlaceOrderRequest = {
-      symbol,
-      type: orderType,
-      side,
-      size,
-      ...(orderType !== OrderType.Market && price ? { price } : {}),
-      ...(stopPrice ? { stopPrice } : {}),
-      ...(takeProfit ? { takeProfit } : {}),
-      ...(stopLoss ? { stopLoss } : {}),
-      timeInForce: tif,
-      postOnly,
-      reduceOnly,
+  // Select first pool by default
+  const selectedPool = useMemo(() => {
+    if (!pools?.length) return undefined
+    if (selectedPoolId) return pools.find((p) => p.id === selectedPoolId) ?? pools[0]
+    return pools[0]
+  }, [pools, selectedPoolId])
+
+  useEffect(() => {
+    if (pools?.length && !selectedPoolId) {
+      setSelectedPoolId(pools[0].id)
     }
-    placeOrder.mutate(req)
+  }, [pools, selectedPoolId])
+
+  const poolId = selectedPool?.id ?? ''
+  const { data: dayData } = usePoolDayData(poolId)
+  const { data: swaps } = usePoolSwaps(poolId)
+
+  const priceChange = useMemo(() => {
+    if (!dayData || dayData.length < 2) return null
+    const latest = parseFloat(dayData[dayData.length - 1].close)
+    const prev = parseFloat(dayData[dayData.length - 2].close)
+    if (prev === 0) return null
+    const pct = ((latest - prev) / prev) * 100
+    return { pct, isPositive: pct >= 0 }
+  }, [dayData])
+
+  const estimatedOutput = useMemo(() => {
+    if (!inputAmount || !selectedPool) return ''
+    const amt = parseFloat(inputAmount)
+    if (isNaN(amt) || amt <= 0) return ''
+    const price = parseFloat(side === 'buy' ? selectedPool.token0Price : selectedPool.token1Price)
+    if (price === 0) return ''
+    return (amt * price).toFixed(6)
+  }, [inputAmount, selectedPool, side])
+
+  const payToken = side === 'buy' ? selectedPool?.token0 : selectedPool?.token1
+  const receiveToken = side === 'buy' ? selectedPool?.token1 : selectedPool?.token0
+
+  const handleSwap = useCallback(() => {
+    if (!selectedPool) return
+    const params = new URLSearchParams({
+      inputCurrency: side === 'buy' ? selectedPool.token0.id : selectedPool.token1.id,
+      outputCurrency: side === 'buy' ? selectedPool.token1.id : selectedPool.token0.id,
+    })
+    navigate(`/swap?${params.toString()}`)
+  }, [selectedPool, navigate, side])
+
+  if (poolsLoading) {
+    return (
+      <Page>
+        <LoadingSkeleton>Loading...</LoadingSkeleton>
+      </Page>
+    )
   }
-
-  const isFormValid = size && (orderType === OrderType.Market || price)
-
-  const changePct = stats?.changePct24h ? parseFloat(stats.changePct24h) : 0
-  const isPositive = changePct >= 0
 
   return (
     <Page>
-      {/* Top bar with market stats */}
+      {/* ─── Top Bar ────────────────────────────────────────────── */}
       <TopBar>
-        <SymbolSelect value={symbol} onChange={(e) => setSymbol(e.target.value)}>
-          <option value="LUX-USDC">LUX / USDC</option>
-          <option value="LUX-LETH">LUX / LETH</option>
-          <option value="LETH-USDC">LETH / USDC</option>
-          <option value="LBTC-USDC">LBTC / USDC</option>
-          <option value="ZOO-LUX">ZOO / LUX</option>
-        </SymbolSelect>
+        <PairSelector value={selectedPoolId} onChange={(e) => setSelectedPoolId(e.target.value)}>
+          {(pools ?? []).map((pool) => (
+            <option key={pool.id} value={pool.id}>
+              {pairName(pool)} {fmtFeeTier(pool.feeTier)}
+            </option>
+          ))}
+        </PairSelector>
 
-        <div>
-          <StatLabel>Last</StatLabel>
-          <StatValue>{stats?.lastPrice ?? '—'}</StatValue>
-        </div>
-        <div>
-          <StatLabel>24h</StatLabel>
-          <StatValue $color={isPositive ? 'var(--statusSuccess)' : 'var(--statusCritical)'}>
-            {stats?.changePct24h ? `${isPositive ? '+' : ''}${changePct.toFixed(2)}%` : '—'}
-          </StatValue>
-        </div>
-        <div>
-          <StatLabel>High</StatLabel>
-          <StatValue>{stats?.high24h ?? '—'}</StatValue>
-        </div>
-        <div>
-          <StatLabel>Low</StatLabel>
-          <StatValue>{stats?.low24h ?? '—'}</StatValue>
-        </div>
-        <div>
-          <StatLabel>Vol</StatLabel>
-          <StatValue>{stats?.volumeUsd24h ? `$${Number(stats.volumeUsd24h).toLocaleString()}` : '—'}</StatValue>
-        </div>
+        {selectedPool && (
+          <StatGroup>
+            <Stat>
+              <StatLabel>Price</StatLabel>
+              <StatValue>{fmtPrice(selectedPool.token0Price)}</StatValue>
+            </Stat>
+            {priceChange && (
+              <Stat>
+                <StatLabel>24h</StatLabel>
+                <StatValue $color={priceChange.isPositive ? tradingColors.buy : tradingColors.sell}>
+                  {priceChange.isPositive ? '+' : ''}
+                  {priceChange.pct.toFixed(2)}%
+                </StatValue>
+              </Stat>
+            )}
+            <Stat>
+              <StatLabel>TVL</StatLabel>
+              <StatValue>{fmtUSD(selectedPool.totalValueLockedUSD)}</StatValue>
+            </Stat>
+            <Stat>
+              <StatLabel>Volume</StatLabel>
+              <StatValue>{fmtUSD(selectedPool.volumeUSD)}</StatValue>
+            </Stat>
+            <FeeBadge>{fmtFeeTier(selectedPool.feeTier)}</FeeBadge>
+          </StatGroup>
+        )}
 
-        <FundingInfo>
-          <div>
-            <StatLabel>Mark</StatLabel>
-            <StatValue>{stats?.markPrice ?? '—'}</StatValue>
-          </div>
-          <div>
-            <StatLabel>Index</StatLabel>
-            <StatValue>{stats?.indexPrice ?? '—'}</StatValue>
-          </div>
-          <div>
-            <StatLabel>Funding</StatLabel>
-            <StatValue $color={funding && parseFloat(funding.rate) >= 0 ? 'var(--statusSuccess)' : 'var(--statusCritical)'}>
-              {funding?.rate ? `${(parseFloat(funding.rate) * 100).toFixed(4)}%` : '—'}
-            </StatValue>
-          </div>
-          <div>
-            <StatLabel>OI</StatLabel>
-            <StatValue>{stats?.openInterest ? `$${Number(stats.openInterest).toLocaleString()}` : '—'}</StatValue>
-          </div>
-        </FundingInfo>
-
-        {account && (
-          <div style={{ marginLeft: 'auto', display: 'flex', gap: 16 }}>
-            <div>
-              <StatLabel>Equity</StatLabel>
-              <StatValue>{Number(account.equity).toLocaleString()} USDC</StatValue>
+        {factory && (
+          <StatGroup style={{ marginLeft: 'auto' }}>
+            <Stat>
+              <StatLabel>TVL</StatLabel>
+              <StatValue>{fmtUSD(factory.totalValueLockedUSD)}</StatValue>
+            </Stat>
+            <Stat>
+              <StatLabel>Pools</StatLabel>
+              <StatValue>{factory.poolCount}</StatValue>
+            </Stat>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
+              <LiveDot />
+              <span style={{ fontSize: 11, color: tradingColors.textTertiary, fontWeight: 500 }}>Live</span>
             </div>
-            <div>
-              <StatLabel>Free</StatLabel>
-              <StatValue>{Number(account.freeMargin).toLocaleString()} USDC</StatValue>
-            </div>
-            <MarginBadge>{account.accountType.toUpperCase()}</MarginBadge>
-          </div>
+          </StatGroup>
         )}
       </TopBar>
 
+      {/* ─── Main Grid ──────────────────────────────────────────── */}
       <MainGrid>
-        {/* Left: Order Book */}
-        <Panel>
-          <PanelHeader>Order Book</PanelHeader>
-          <BookRow $side="ask" style={{ color: 'var(--neutral2)', fontWeight: 600, padding: '6px 12px' }}>
+        {/* Left: Recent Trades */}
+        <LeftPanel>
+          <PanelHeader>Trades</PanelHeader>
+          <TradeHeaderRow>
             <span>Price</span>
-            <span style={{ textAlign: 'right' }}>Size</span>
-            <span style={{ textAlign: 'right' }}>Total</span>
-          </BookRow>
-          {asks.map((level: PriceLevel, i: number) => (
-            <BookRow key={`ask-${i}`} $side="ask" onClick={() => setPrice(level.price)}>
-              <span>{level.price}</span>
-              <span style={{ textAlign: 'right' }}>{level.size}</span>
-              <span style={{ textAlign: 'right', color: 'var(--neutral2)' }}>{level.count}</span>
-            </BookRow>
-          ))}
-
-          {/* Spread / Last Price */}
-          <div
-            style={{
-              padding: '8px 12px',
-              textAlign: 'center',
-              fontWeight: 700,
-              fontSize: 16,
-              color: isPositive ? 'var(--statusSuccess)' : 'var(--statusCritical)',
-              borderTop: '1px solid var(--surface3)',
-              borderBottom: '1px solid var(--surface3)',
-            }}
-          >
-            {stats?.lastPrice ?? '—'}
-          </div>
-
-          {bids.map((level: PriceLevel, i: number) => (
-            <BookRow key={`bid-${i}`} $side="bid" onClick={() => setPrice(level.price)}>
-              <span>{level.price}</span>
-              <span style={{ textAlign: 'right' }}>{level.size}</span>
-              <span style={{ textAlign: 'right', color: 'var(--neutral2)' }}>{level.count}</span>
-            </BookRow>
-          ))}
-
-          {/* Recent Trades */}
-          <PanelHeader>Recent Trades</PanelHeader>
-          <TradeRow $side="buy" style={{ color: 'var(--neutral2)', fontWeight: 600, padding: '6px 12px' }}>
-            <span>Price</span>
-            <span style={{ textAlign: 'right' }}>Size</span>
+            <span style={{ textAlign: 'right' }}>Amount</span>
             <span style={{ textAlign: 'right' }}>Time</span>
-          </TradeRow>
-          {(trades ?? []).slice(0, 20).map((t) => (
-            <TradeRow key={t.id} $side={t.side}>
-              <span>{t.price}</span>
-              <span style={{ textAlign: 'right' }}>{t.size}</span>
-              <span style={{ textAlign: 'right', color: 'var(--neutral2)' }}>
-                {new Date(t.timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' })}
-              </span>
-            </TradeRow>
-          ))}
-        </Panel>
+          </TradeHeaderRow>
+          {(swaps ?? []).map((swap, i) => {
+            const amt0 = parseFloat(swap.amount0)
+            const amt1 = parseFloat(swap.amount1)
+            const isSell = amt0 > 0
+            const price = amt1 !== 0 ? Math.abs(amt0 / amt1) : 0
+            return (
+              <TradeRow key={swap.id} $isSell={isSell} $index={i}>
+                <span>{fmtPrice(price)}</span>
+                <span style={{ textAlign: 'right', color: 'rgba(255,255,255,0.45)' }}>
+                  {fmtAmount(swap.amount0)}
+                </span>
+                <span style={{ textAlign: 'right', color: 'rgba(255,255,255,0.2)' }}>
+                  {timeAgo(swap.timestamp)}
+                </span>
+              </TradeRow>
+            )
+          })}
+          {(!swaps || swaps.length === 0) && <EmptyState>No recent trades</EmptyState>}
 
-        {/* Center: Chart placeholder + bottom orders/positions */}
+          <Separator />
+
+          {selectedPool && (
+            <PriceRef>
+              <div>
+                1 {selectedPool.token0.symbol} = {fmtPrice(selectedPool.token0Price)}{' '}
+                {selectedPool.token1.symbol}
+              </div>
+              <div>
+                1 {selectedPool.token1.symbol} = {fmtPrice(selectedPool.token1Price)}{' '}
+                {selectedPool.token0.symbol}
+              </div>
+            </PriceRef>
+          )}
+        </LeftPanel>
+
+        {/* Center: Chart + Bottom Tables */}
         <CenterPanel>
-          <div
-            style={{
-              flex: 1,
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              color: 'var(--neutral2)',
-              fontSize: 14,
-              background: 'var(--surface2)',
-            }}
-          >
-            TradingView Chart — {symbol}
-          </div>
+          <PriceChart data={dayData} />
 
           <BottomPanel>
             <BottomTabs>
-              <Tab $active={bottomTab === 'orders'} onClick={() => setBottomTab('orders')}>
-                Open Orders ({openOrders?.length ?? 0})
+              <Tab $active={bottomTab === 'pools'} onClick={() => setBottomTab('pools')}>
+                Pools ({pools?.length ?? 0})
               </Tab>
-              <Tab $active={bottomTab === 'positions'} onClick={() => setBottomTab('positions')}>
-                Positions ({positions?.length ?? 0})
-              </Tab>
-              <Tab $active={bottomTab === 'history'} onClick={() => setBottomTab('history')}>
+              <Tab $active={bottomTab === 'trades'} onClick={() => setBottomTab('trades')}>
                 History
               </Tab>
             </BottomTabs>
 
-            {bottomTab === 'orders' && (
+            {bottomTab === 'pools' && (
               <div>
-                <OrderRow style={{ fontWeight: 600, color: 'var(--neutral2)' }}>
-                  <span>Symbol</span>
-                  <span>Type</span>
-                  <span>Side</span>
-                  <span>Price</span>
-                  <span>Size</span>
-                  <span>Filled</span>
-                  <span>Status</span>
-                  <span></span>
-                </OrderRow>
-                {(openOrders ?? []).map((o: Order) => (
-                  <OrderRow key={o.orderId}>
-                    <span>{o.symbol}</span>
-                    <span>{o.type}</span>
-                    <span style={{ color: o.side === OrderSide.Buy ? 'var(--statusSuccess)' : 'var(--statusCritical)' }}>
-                      {o.side.toUpperCase()}
+                <TableHeader>
+                  <span>Pool</span>
+                  <span>Fee</span>
+                  <span style={{ textAlign: 'right' }}>TVL</span>
+                  <span style={{ textAlign: 'right' }}>Volume</span>
+                  <span style={{ textAlign: 'right' }}>Price</span>
+                  <span style={{ textAlign: 'right' }}>Txns</span>
+                  <span />
+                </TableHeader>
+                {(pools ?? []).map((pool) => (
+                  <TableRow
+                    key={pool.id}
+                    $clickable
+                    $selected={pool.id === selectedPoolId}
+                    onClick={() => setSelectedPoolId(pool.id)}
+                  >
+                    <span style={{ fontWeight: pool.id === selectedPoolId ? 600 : 400 }}>
+                      {pairName(pool)}
                     </span>
-                    <span>{o.price}</span>
-                    <span>{o.size}</span>
-                    <span>{o.filledSize}</span>
-                    <span>{o.status}</span>
-                    <CancelBtn onClick={() => cancelOrder.mutate({ orderId: o.orderId })}>Cancel</CancelBtn>
-                  </OrderRow>
+                    <span>
+                      <FeeBadge>{fmtFeeTier(pool.feeTier)}</FeeBadge>
+                    </span>
+                    <span style={{ textAlign: 'right', fontWeight: 500 }}>
+                      {fmtUSD(pool.totalValueLockedUSD)}
+                    </span>
+                    <span style={{ textAlign: 'right', color: 'rgba(255,255,255,0.4)' }}>
+                      {fmtUSD(pool.volumeUSD)}
+                    </span>
+                    <span
+                      style={{
+                        textAlign: 'right',
+                        fontFamily: "'SF Mono', monospace",
+                        fontSize: 11,
+                      }}
+                    >
+                      {fmtPrice(pool.token0Price)}
+                    </span>
+                    <span style={{ textAlign: 'right', color: tradingColors.textTertiary }}>
+                      {parseInt(pool.txCount).toLocaleString()}
+                    </span>
+                    <span />
+                  </TableRow>
                 ))}
-                {(!openOrders || openOrders.length === 0) && (
-                  <div style={{ padding: 16, color: 'var(--neutral2)', fontSize: 13, textAlign: 'center' }}>
-                    No open orders
-                  </div>
-                )}
               </div>
             )}
 
-            {bottomTab === 'positions' && (
+            {bottomTab === 'trades' && (
               <div>
-                <PositionRow style={{ fontWeight: 600, color: 'var(--neutral2)' }}>
-                  <span>Symbol</span>
-                  <span>Side</span>
-                  <span>Size</span>
-                  <span>Entry</span>
-                  <span>Mark</span>
-                  <span>PnL</span>
-                  <span>Liq.</span>
-                  <span>Margin</span>
-                </PositionRow>
-                {(positions ?? []).map((p: PerpPosition) => {
-                  const pnl = parseFloat(p.unrealizedPnl)
-                  return (
-                    <PositionRow key={p.symbol}>
-                      <span>{p.symbol}</span>
-                      <span style={{ color: p.side === 'long' ? 'var(--statusSuccess)' : 'var(--statusCritical)' }}>
-                        {p.side.toUpperCase()}
-                      </span>
-                      <span>{p.size}</span>
-                      <span>{p.entryPrice}</span>
-                      <span>{p.markPrice}</span>
-                      <span style={{ color: pnl >= 0 ? 'var(--statusSuccess)' : 'var(--statusCritical)' }}>
-                        {pnl >= 0 ? '+' : ''}{pnl.toFixed(2)}
-                      </span>
-                      <span>{p.liquidationPrice}</span>
-                      <span>{p.margin}</span>
-                    </PositionRow>
-                  )
-                })}
-                {(!positions || positions.length === 0) && (
-                  <div style={{ padding: 16, color: 'var(--neutral2)', fontSize: 13, textAlign: 'center' }}>
-                    No open positions
-                  </div>
-                )}
+                <TableHeader>
+                  <span>Pair</span>
+                  <span>Token 0</span>
+                  <span style={{ textAlign: 'right' }}>Token 1</span>
+                  <span style={{ textAlign: 'right' }}>Value</span>
+                  <span style={{ textAlign: 'right' }}>Sender</span>
+                  <span style={{ textAlign: 'right' }}>Time</span>
+                  <span />
+                </TableHeader>
+                {(swaps ?? []).map((swap) => (
+                  <TableRow key={swap.id}>
+                    <span>{selectedPool ? pairName(selectedPool) : '—'}</span>
+                    <span
+                      style={{ color: parseFloat(swap.amount0) > 0 ? tradingColors.buy : tradingColors.sell }}
+                    >
+                      {fmtAmount(swap.amount0)}
+                    </span>
+                    <span
+                      style={{
+                        textAlign: 'right',
+                        color: parseFloat(swap.amount1) > 0 ? tradingColors.buy : tradingColors.sell,
+                      }}
+                    >
+                      {fmtAmount(swap.amount1)}
+                    </span>
+                    <span style={{ textAlign: 'right' }}>{fmtUSD(swap.amountUSD)}</span>
+                    <span style={{ textAlign: 'right', color: tradingColors.textTertiary }}>
+                      {swap.sender.slice(0, 6)}...{swap.sender.slice(-4)}
+                    </span>
+                    <span style={{ textAlign: 'right', color: tradingColors.textTertiary }}>
+                      {timeAgo(swap.timestamp)}
+                    </span>
+                    <span />
+                  </TableRow>
+                ))}
               </div>
             )}
           </BottomPanel>
         </CenterPanel>
 
-        {/* Right: Order Form */}
-        <OrderFormPanel>
-          <TabBar>
-            {[OrderType.Limit, OrderType.Market, OrderType.Stop, OrderType.StopLimit, OrderType.Bracket].map((t) => (
-              <Tab key={t} $active={orderType === t} onClick={() => setOrderType(t)}>
-                {t === OrderType.StopLimit ? 'Stop Limit' : t.charAt(0).toUpperCase() + t.slice(1)}
-              </Tab>
-            ))}
-          </TabBar>
+        {/* Right: Swap Widget */}
+        <RightPanel>
+          <SwapWidget>
+            <SwapHeader>
+              <SwapTitle>Trade</SwapTitle>
+              <BuySellToggle>
+                <ToggleBtn
+                  $active={side === 'buy'}
+                  $variant="buy"
+                  onClick={() => setSide('buy')}
+                >
+                  Buy
+                </ToggleBtn>
+                <ToggleBtn
+                  $active={side === 'sell'}
+                  $variant="sell"
+                  onClick={() => setSide('sell')}
+                >
+                  Sell
+                </ToggleBtn>
+              </BuySellToggle>
+            </SwapHeader>
 
-          <SideToggle>
-            <SideButton $side="buy" $active={side === OrderSide.Buy} onClick={() => setSide(OrderSide.Buy)}>
-              Buy / Long
-            </SideButton>
-            <SideButton $side="sell" $active={side === OrderSide.Sell} onClick={() => setSide(OrderSide.Sell)}>
-              Sell / Short
-            </SideButton>
-          </SideToggle>
+            <SwapBody>
+              <InputSection>
+                <InputBlock $focused={payFocused}>
+                  <InputLabel>You pay</InputLabel>
+                  <InputRow>
+                    <AmountInput
+                      type="text"
+                      inputMode="decimal"
+                      placeholder="0"
+                      value={inputAmount}
+                      disabled={!isConnected}
+                      onFocus={() => setPayFocused(true)}
+                      onBlur={() => setPayFocused(false)}
+                      onChange={(e) => {
+                        const val = e.target.value
+                        if (/^[0-9]*[.,]?[0-9]*$/.test(val)) {
+                          setInputAmount(val)
+                        }
+                      }}
+                    />
+                    <TokenPill>{payToken?.symbol ?? '—'}</TokenPill>
+                  </InputRow>
+                </InputBlock>
 
-          {/* Leverage selector */}
-          <FormGroup>
-            <FormLabel>Leverage</FormLabel>
-          </FormGroup>
-          <LeverageRow>
-            {[1, 2, 5, 10, 25, 50, 100].map((l) => (
-              <LeverageBtn key={l} $active={leverage === l} onClick={() => setLeverage(l)}>
-                {l}x
-              </LeverageBtn>
-            ))}
-          </LeverageRow>
+                <SwapArrowBtn
+                  onClick={() => setSide(side === 'buy' ? 'sell' : 'buy')}
+                  type="button"
+                >
+                  <ArrowDownIcon />
+                </SwapArrowBtn>
 
-          {/* Price input (not for market orders) */}
-          {orderType !== OrderType.Market && (
-            <FormGroup>
-              <FormLabel>Price</FormLabel>
-              <FormInput
-                type="text"
-                value={price}
-                onChange={(e) => setPrice(e.target.value)}
-                placeholder="0.00"
-              />
-            </FormGroup>
-          )}
+                <InputBlock>
+                  <InputLabel>You receive</InputLabel>
+                  <InputRow>
+                    <AmountInput
+                      type="text"
+                      placeholder="0"
+                      value={estimatedOutput}
+                      readOnly
+                      disabled
+                      style={{ opacity: estimatedOutput ? 0.8 : 0.2 }}
+                    />
+                    <TokenPill>{receiveToken?.symbol ?? '—'}</TokenPill>
+                  </InputRow>
+                </InputBlock>
 
-          {/* Stop price (for stop, stop-limit, bracket) */}
-          {(orderType === OrderType.Stop || orderType === OrderType.StopLimit || orderType === OrderType.Bracket) && (
-            <FormGroup>
-              <FormLabel>Stop Price</FormLabel>
-              <FormInput
-                type="text"
-                value={stopPrice}
-                onChange={(e) => setStopPrice(e.target.value)}
-                placeholder="0.00"
-              />
-            </FormGroup>
-          )}
+                {inputAmount && estimatedOutput && selectedPool && (
+                  <RateInfo>
+                    1 {payToken?.symbol} = {fmtPrice(side === 'buy' ? selectedPool.token0Price : selectedPool.token1Price)}{' '}
+                    {receiveToken?.symbol}
+                  </RateInfo>
+                )}
+              </InputSection>
 
-          {/* Size */}
-          <FormGroup>
-            <FormLabel>Size</FormLabel>
-            <FormInput
-              type="text"
-              value={size}
-              onChange={(e) => setSize(e.target.value)}
-              placeholder="0.00"
-            />
-          </FormGroup>
-
-          {/* Bracket: TP/SL */}
-          {orderType === OrderType.Bracket && (
-            <>
-              <FormGroup>
-                <FormLabel>Take Profit</FormLabel>
-                <FormInput
-                  type="text"
-                  value={takeProfit}
-                  onChange={(e) => setTakeProfit(e.target.value)}
-                  placeholder="0.00"
-                />
-              </FormGroup>
-              <FormGroup>
-                <FormLabel>Stop Loss</FormLabel>
-                <FormInput
-                  type="text"
-                  value={stopLoss}
-                  onChange={(e) => setStopLoss(e.target.value)}
-                  placeholder="0.00"
-                />
-              </FormGroup>
-            </>
-          )}
-
-          {/* Time in Force */}
-          {orderType !== OrderType.Market && (
-            <FormGroup>
-              <FormLabel>Time in Force</FormLabel>
-              <FormSelect value={tif} onChange={(e) => setTif(e.target.value as TimeInForce)}>
-                <option value={TimeInForce.GTC}>Good Till Cancelled</option>
-                <option value={TimeInForce.IOC}>Immediate or Cancel</option>
-                <option value={TimeInForce.FOK}>Fill or Kill</option>
-                <option value={TimeInForce.PostOnly}>Post Only</option>
-              </FormSelect>
-            </FormGroup>
-          )}
-
-          {/* Flags */}
-          <CheckboxRow>
-            <input type="checkbox" checked={postOnly} onChange={(e) => setPostOnly(e.target.checked)} />
-            Post Only
-          </CheckboxRow>
-          <CheckboxRow>
-            <input type="checkbox" checked={reduceOnly} onChange={(e) => setReduceOnly(e.target.checked)} />
-            Reduce Only
-          </CheckboxRow>
-
-          {/* Order summary */}
-          {isFormValid && (
-            <div style={{ padding: '0 12px', marginBottom: 8, fontSize: 12, color: 'var(--neutral2)' }}>
-              {orderType === OrderType.Market ? 'Market' : `${price}`} &times; {size} = ~
-              {orderType === OrderType.Market ? '—' : (parseFloat(price || '0') * parseFloat(size || '0')).toFixed(2)}{' '}
-              USDC &middot; {leverage}x leverage
-            </div>
-          )}
-
-          <SubmitButton
-            $side={side === OrderSide.Buy ? 'buy' : 'sell'}
-            disabled={!isFormValid || placeOrder.isPending}
-            onClick={handleSubmit}
-          >
-            {placeOrder.isPending
-              ? 'Placing...'
-              : `${side === OrderSide.Buy ? 'Buy / Long' : 'Sell / Short'} ${symbol.split('-')[0]}`}
-          </SubmitButton>
-
-          {placeOrder.isError && (
-            <div style={{ padding: '0 12px', fontSize: 12, color: 'var(--statusCritical)' }}>
-              {placeOrder.error?.message ?? 'Order failed'}
-            </div>
-          )}
-        </OrderFormPanel>
+              <ActionArea>
+                {!isConnected ? (
+                  <ConnectBtn onClick={accountDrawer.open}>Connect wallet</ConnectBtn>
+                ) : (
+                  <PrimaryBtn
+                    $disabled={!inputAmount || !estimatedOutput}
+                    onClick={!inputAmount || !estimatedOutput ? undefined : handleSwap}
+                  >
+                    {!inputAmount
+                      ? 'Enter an amount'
+                      : side === 'buy'
+                        ? `Buy ${receiveToken?.symbol ?? ''}`
+                        : `Sell ${payToken?.symbol ?? ''}`}
+                  </PrimaryBtn>
+                )}
+              </ActionArea>
+            </SwapBody>
+          </SwapWidget>
+        </RightPanel>
       </MainGrid>
     </Page>
   )

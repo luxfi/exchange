@@ -11,8 +11,8 @@ import { formatCurrency, formatPercent, cn } from "@/lib/utils"
 import { type Token, getTokensForChain } from "@/lib/tokens"
 import { luxMainnet, isLuxEcosystem } from "@/lib/chains"
 
-// LXD Gateway URL for live data
-const LXD_GATEWAY_URL = process.env.NEXT_PUBLIC_LXD_GATEWAY_URL || "http://localhost:8080"
+// Lux Gateway URL for live data
+const LUX_GATEWAY_URL = process.env.NEXT_PUBLIC_LUX_GATEWAY_URL || "http://localhost:8080"
 
 interface TokenWithStats extends Token {
   price: number
@@ -21,7 +21,7 @@ interface TokenWithStats extends Token {
   marketCap: number
 }
 
-interface LxdTokenStats {
+interface LuxTokenStats {
   address: string
   price: number
   priceChange24h: number
@@ -30,24 +30,24 @@ interface LxdTokenStats {
   tvl: number
 }
 
-async function fetchTokenStats(chainId: number): Promise<Map<string, LxdTokenStats>> {
+async function fetchTokenStats(chainId: number): Promise<Map<string, LuxTokenStats>> {
   try {
-    const response = await fetch(`${LXD_GATEWAY_URL}/v1/tokens/stats?chainId=${chainId}`)
+    const response = await fetch(`${LUX_GATEWAY_URL}/v1/tokens/stats?chainId=${chainId}`)
     if (!response.ok) {
-      console.warn("LXD Gateway not available, using fallback")
+      console.warn("Lux Gateway not available, using fallback")
       return new Map()
     }
     const data = await response.json()
     if (!data.success || !Array.isArray(data.data)) {
       return new Map()
     }
-    const stats = new Map<string, LxdTokenStats>()
+    const stats = new Map<string, LuxTokenStats>()
     for (const token of data.data) {
       stats.set(token.address?.toLowerCase() || "native", token)
     }
     return stats
   } catch (error) {
-    console.warn("Failed to fetch token stats from LXD Gateway:", error)
+    console.warn("Failed to fetch token stats from Lux Gateway:", error)
     return new Map()
   }
 }
@@ -67,8 +67,8 @@ export function TokenList() {
     try {
       const chainTokens = getTokensForChain(effectiveChainId)
       
-      // Try to get live stats from LXD gateway if on Lux ecosystem
-      let stats = new Map<string, LxdTokenStats>()
+      // Try to get live stats from Lux Gateway if on Lux ecosystem
+      let stats = new Map<string, LuxTokenStats>()
       if (isLuxEcosystem(effectiveChainId)) {
         stats = await fetchTokenStats(effectiveChainId)
       }

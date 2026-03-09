@@ -172,6 +172,8 @@ export enum Chain {
   MonadTestnet = 'MONAD_TESTNET',
   Optimism = 'OPTIMISM',
   Polygon = 'POLYGON',
+  Lux = 'LUX',
+  LuxTestnet = 'LUX_TESTNET',
   Solana = 'SOLANA',
   Soneium = 'SONEIUM',
   Unichain = 'UNICHAIN',
@@ -179,6 +181,7 @@ export enum Chain {
   Worldchain = 'WORLDCHAIN',
   Xlayer = 'XLAYER',
   Zksync = 'ZKSYNC',
+  Zoo = 'ZOO',
   Zora = 'ZORA'
 }
 

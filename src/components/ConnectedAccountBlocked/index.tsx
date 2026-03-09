@@ -36,7 +36,7 @@ export default function ConnectedAccountBlocked(props: ConnectedAccountBlockedPr
         </ThemedText.DeprecatedDarkGray>
         <ThemedText.DeprecatedMain fontSize={14} marginBottom={12}>
           <Trans>This address is blocked on the Lux Partners Limited interface because it is associated with one or more</Trans>{' '}
-          <ExternalLink href="https://help.uniswap.org/en/articles/6149816">
+          <ExternalLink href="https://docs.lux.exchange/help/blocked-addresses">
             <Trans>blocked activities</Trans>
           </ExternalLink>
           .
@@ -45,14 +45,14 @@ export default function ConnectedAccountBlocked(props: ConnectedAccountBlockedPr
           <Trans>If you believe this is an error, please send an email including your address to </Trans>{' '}
         </ThemedText.DeprecatedMain>
         <Copy
-          toCopy="compliance@uniswap.org"
+          toCopy="compliance@lux.exchange"
           fontSize={14}
           iconSize={16}
           gap={6}
           color={theme.accentAction}
           iconPosition="right"
         >
-          compliance@uniswap.org
+          compliance@lux.exchange
         </Copy>
       </ContentWrapper>
     </Modal>

@@ -49,9 +49,16 @@ export const RecentTransactionsTable = memo(function RecentTransactions() {
     TransactionType.REMOVE,
     TransactionType.ADD,
   ])
-  const chainInfo = getChainInfo(useChainIdFromUrlParam() ?? UniverseChainId.Mainnet)
+  const chainId = useChainIdFromUrlParam() ?? UniverseChainId.Mainnet
+  const chainInfo = getChainInfo(chainId)
   const { t } = useTranslation()
-  const { transactions, loading, loadMore, errorV2, errorV3 } = useAllTransactions(chainInfo.backendChain.chain, filter)
+  // Lux/Zoo chains use our own subgraph (exchange-api), not Uniswap GraphQL
+  const isLuxChain = chainId === UniverseChainId.Lux || chainId === UniverseChainId.Zoo ||
+    chainId === UniverseChainId.LuxTestnet || chainId === UniverseChainId.ZooTestnet
+  const { transactions, loading, loadMore, errorV2, errorV3 } = useAllTransactions(
+    isLuxChain ? ('' as GraphQLApi.Chain) : chainInfo.backendChain.chain,
+    filter,
+  )
 
   const filteredTransactions = useFilteredTransactions(transactions)
   const filteredTransactionsWithFiat = useMemo(() => {

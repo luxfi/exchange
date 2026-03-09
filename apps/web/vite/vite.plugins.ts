@@ -32,15 +32,20 @@ export function cspMetaTagPlugin(mode?: string): Plugin {
         return html
       }
 
-      // Load base CSP - adjust path to be relative to the project root
-      const baseCSPPath = path.resolve(process.cwd(), 'public', 'csp.json')
+      // Load base CSP - try apps/web/public first, fall back to cwd/public
+      const webRoot = path.resolve(process.cwd(), 'apps', 'web')
+      const baseCSPPath = fs.existsSync(path.resolve(webRoot, 'public', 'csp.json'))
+        ? path.resolve(webRoot, 'public', 'csp.json')
+        : path.resolve(process.cwd(), 'public', 'csp.json')
       const baseCSP = JSON.parse(fs.readFileSync(baseCSPPath, 'utf-8'))
 
       // Optionally extend with dev/staging
       const envConfigFile = env === 'development' ? 'dev-csp.json' : env === 'staging' ? 'staging-csp.json' : null
 
       if (envConfigFile) {
-        const extraCSPPath = path.resolve(process.cwd(), 'public', envConfigFile)
+        const extraCSPPath = fs.existsSync(path.resolve(webRoot, 'public', envConfigFile))
+          ? path.resolve(webRoot, 'public', envConfigFile)
+          : path.resolve(process.cwd(), 'public', envConfigFile)
         const extraCSP = JSON.parse(fs.readFileSync(extraCSPPath, 'utf-8'))
         for (const [key, value] of Object.entries(extraCSP)) {
           if (Array.isArray(value)) {

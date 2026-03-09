@@ -7,8 +7,10 @@ import {
   TokenTableSortStoreContextProvider,
   useTokenTableSortStore,
 } from '~/pages/Explore/tables/Tokens/tokenTableSortStore'
+import { LuxTokensTable } from '~/pages/Explore/tables/LuxTokensTable'
 import { TABLE_PAGE_SIZE } from '~/state/explore'
 import { useTopTokens } from '~/state/explore/topTokens/useTopTokens'
+import { isLuxChainId } from '~/state/explore/luxSubgraph'
 import { useChainIdFromUrlParam } from '~/utils/chainParams'
 
 const TableWrapper = styled(Flex, {
@@ -16,7 +18,7 @@ const TableWrapper = styled(Flex, {
   maxWidth: MAX_WIDTH_MEDIA_BREAKPOINT,
 })
 
-function TopTokensTableContent(): JSX.Element {
+function DefaultTokensTableContent(): JSX.Element {
   const chainId = useChainIdFromUrlParam()
   const sortOptions = useTokenTableSortStore((s) => ({
     sortMethod: s.sortMethod,
@@ -40,6 +42,16 @@ function TopTokensTableContent(): JSX.Element {
       />
     </TableWrapper>
   )
+}
+
+function TopTokensTableContent(): JSX.Element {
+  const chainId = useChainIdFromUrlParam()
+
+  if (isLuxChainId(chainId as number | undefined)) {
+    return <LuxTokensTable />
+  }
+
+  return <DefaultTokensTableContent />
 }
 
 export const TopTokensTable = memo(function TopTokensTable() {

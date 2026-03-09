@@ -1,22 +1,21 @@
 /**
- * LXD Gateway API client for Lux chain data
- * This provides token and pool data for Lux mainnet
+ * Lux Gateway API client for Lux chain data
+ * Provides token and pool data for Lux mainnet
  *
  * Data source priority:
  * 1. G-Chain GraphQL (native blockchain data)
- * 2. LXD Gateway REST API
+ * 2. Lux Gateway REST API
  * 3. Static fallback token lists
  */
 
 import { UniverseChainId } from 'lx/src/features/chains/types'
 import { getTopTokens, getTopPools, type GChainToken, type GChainPool } from 'lx/src/data/gchain'
 
-// LXD Gateway base URL - can be overridden via environment
-const LXD_GATEWAY_URL =
-  process.env.LXD_GATEWAY_URL ||
-  process.env.REACT_APP_LXD_GATEWAY_URL ||
-  process.env.NEXT_PUBLIC_LXD_GATEWAY_URL ||
+// Lux Gateway base URL - can be overridden via environment
+const LUX_GATEWAY_URL =
   process.env.LUX_GATEWAY_URL ||
+  process.env.REACT_APP_LUX_GATEWAY_URL ||
+  process.env.NEXT_PUBLIC_LUX_GATEWAY_URL ||
   'http://localhost:8080'
 
 // Check if G-Chain should be used as primary data source
@@ -26,7 +25,7 @@ const USE_GCHAIN =
   process.env.USE_GCHAIN === 'true'
 
 // Static fallback token data for Lux/Zoo chains with correct deployed addresses
-const FALLBACK_TOKENS: Record<number, LxdToken[]> = {
+const FALLBACK_TOKENS: Record<number, LuxToken[]> = {
   // Lux Dev (chain ID 1337) - DeployFullStack.s.sol via anvil account 0 (deterministic CREATE addresses)
   // Nonces: WLUX(0), LETH(1), LBTC(2), LUSD(3)
   [UniverseChainId.LuxDev]: [
@@ -38,10 +37,14 @@ const FALLBACK_TOKENS: Record<number, LxdToken[]> = {
   ],
   [UniverseChainId.Lux]: [
     { chainId: 96369, address: '0x0000000000000000000000000000000000000000', name: 'LUX', symbol: 'LUX', decimals: 18 },
-    { chainId: 96369, address: '0x3C18bB6B17eb3F0879d4653e0120a531aF4d86E3', name: 'Wrapped LUX', symbol: 'WLUX', decimals: 18 },
-    { chainId: 96369, address: '0x57f9E717dc080a6A76fB6F77BecA8C9C1D266B96', name: 'Lux USDC', symbol: 'LUSDC', decimals: 6 },
-    { chainId: 96369, address: '0x5a88986958ea76Dd043f834542724F081cA1443B', name: 'Lux ETH', symbol: 'LETH', decimals: 18 },
-    { chainId: 96369, address: '0x8a3fad1c7FB94461621351aa6A983B6f814F039c', name: 'Lux BTC', symbol: 'LBTC', decimals: 8 },
+    { chainId: 96369, address: '0x4888e4a2ee0f03051c72d2bd3acf755ed3498b3e', name: 'Wrapped LUX', symbol: 'WLUX', decimals: 18 },
+    { chainId: 96369, address: '0x848cff46eb323f323b6bbe1df274e40793d7f2c2', name: 'Lux USD', symbol: 'LUSD', decimals: 18 },
+    { chainId: 96369, address: '0xdf1de693c31e2a5eb869c329529623556b20abf3', name: 'Tether', symbol: 'USDT', decimals: 18 },
+    { chainId: 96369, address: '0x8031e9b0d02a792cfefaa2bdca6e1289d385426f', name: 'USD Coin', symbol: 'USDC', decimals: 18 },
+    { chainId: 96369, address: '0x60e0a8167fc13de89348978860466c9cec24b9ba', name: 'Lux Ether', symbol: 'LETH', decimals: 18 },
+    { chainId: 96369, address: '0x1e48d32a4f5e9f08db9ae4959163300faf8a6c8e', name: 'Lux Bitcoin', symbol: 'LBTC', decimals: 8 },
+    { chainId: 96369, address: '0x5e5290f350352768bd2bfc59c2da15dd04a7cb88', name: 'Lux ZOO', symbol: 'LZOO', decimals: 18 },
+    { chainId: 96369, address: '0x26b40f650156c7ebf9e087dd0dca181fe87625b7', name: 'Lux SOL', symbol: 'LSOL', decimals: 18 },
   ],
   [UniverseChainId.Zoo]: [
     { chainId: 200200, address: '0x0000000000000000000000000000000000000000', name: 'ZOO', symbol: 'ZOO', decimals: 18 },
@@ -53,13 +56,13 @@ const FALLBACK_TOKENS: Record<number, LxdToken[]> = {
 }
 
 // Static fallback pool data (empty until pools are created on-chain)
-const FALLBACK_POOLS: Record<number, LxdPool[]> = {
+const FALLBACK_POOLS: Record<number, LuxPool[]> = {
   [UniverseChainId.LuxDev]: [],
   [UniverseChainId.Lux]: [],
   [UniverseChainId.Zoo]: [],
 }
 
-export interface LxdToken {
+export interface LuxToken {
   address: string
   chainId: number
   decimals: number
@@ -67,12 +70,12 @@ export interface LxdToken {
   name: string
 }
 
-export interface LxdPool {
+export interface LuxPool {
   address: string
   chainId: number
   protocol: string
-  token0: LxdToken
-  token1: LxdToken
+  token0: LuxToken
+  token1: LuxToken
   fee: number
   tvl: number
   apr: number
@@ -83,7 +86,7 @@ export interface LxdPool {
   }>
 }
 
-export interface LxdQuoteRequest {
+export interface LuxQuoteRequest {
   chainId: number
   tokenIn: string
   tokenOut: string
@@ -91,7 +94,7 @@ export interface LxdQuoteRequest {
   slippage?: number
 }
 
-export interface LxdQuoteResponse {
+export interface LuxQuoteResponse {
   success: boolean
   data?: {
     amountOut: string
@@ -105,24 +108,24 @@ export interface LxdQuoteResponse {
   }
 }
 
-async function fetchLxd<T>(endpoint: string): Promise<T> {
-  const response = await fetch(`${LXD_GATEWAY_URL}${endpoint}`)
+async function fetchLux<T>(endpoint: string): Promise<T> {
+  const response = await fetch(`${LUX_GATEWAY_URL}${endpoint}`)
   if (!response.ok) {
-    throw new Error(`LXD Gateway error: ${response.statusText}`)
+    throw new Error(`Lux Gateway error: ${response.statusText}`)
   }
   const result = await response.json()
   if (!result.success) {
-    throw new Error('LXD Gateway returned unsuccessful response')
+    throw new Error('Lux Gateway returned unsuccessful response')
   }
   return result.data
 }
 
 /**
- * Check if the LXD Gateway is healthy
+ * Check if the Lux Gateway is healthy
  */
-export async function checkLxdHealth(): Promise<boolean> {
+export async function checkLuxHealth(): Promise<boolean> {
   try {
-    const response = await fetch(`${LXD_GATEWAY_URL}/health`, { 
+    const response = await fetch(`${LUX_GATEWAY_URL}/health`, { 
       signal: AbortSignal.timeout(2000) // 2 second timeout
     })
     const data = await response.json()
@@ -135,9 +138,9 @@ export async function checkLxdHealth(): Promise<boolean> {
 }
 
 /**
- * Convert G-Chain token to LxdToken format
+ * Convert G-Chain token to LuxToken format
  */
-function gchainTokenToLxdToken(token: GChainToken, chainId: number): LxdToken {
+function gchainTokenToLuxToken(token: GChainToken, chainId: number): LuxToken {
   return {
     address: token.id,
     chainId,
@@ -148,9 +151,9 @@ function gchainTokenToLxdToken(token: GChainToken, chainId: number): LxdToken {
 }
 
 /**
- * Convert G-Chain pool to LxdPool format
+ * Convert G-Chain pool to LuxPool format
  */
-function gchainPoolToLxdPool(pool: GChainPool, chainId: number): LxdPool {
+function gchainPoolToLuxPool(pool: GChainPool, chainId: number): LuxPool {
   return {
     address: pool.id,
     chainId,
@@ -170,71 +173,71 @@ function gchainPoolToLxdPool(pool: GChainPool, chainId: number): LxdPool {
       name: pool.token1.symbol,
     },
     fee: pool.feeTier,
-    tvl: parseFloat(pool.totalValueLockedUSD) * 1e18,
+    tvl: parseFloat(pool.totalValueLockedUSD),
     apr: 0,
     tickData: [],
   }
 }
 
 /**
- * Fetch tokens from G-Chain (primary) or LXD Gateway (fallback)
- * Data source priority: G-Chain GraphQL > LXD Gateway > Static fallback
+ * Fetch tokens from G-Chain (primary) or Lux Gateway (fallback)
+ * Data source priority: G-Chain GraphQL > Lux Gateway > Static fallback
  */
-export async function fetchLxdTokens(chainId: number = UniverseChainId.Lux): Promise<LxdToken[]> {
+export async function fetchLuxTokens(chainId: number = UniverseChainId.Lux): Promise<LuxToken[]> {
   // Try G-Chain first (native blockchain data)
-  if (USE_GCHAIN || isLxdChain(chainId)) {
+  if (USE_GCHAIN || isLuxChain(chainId)) {
     try {
       const gchainTokens = await getTopTokens(50)
       if (gchainTokens.length > 0) {
-        return gchainTokens.map((t) => gchainTokenToLxdToken(t, chainId))
+        return gchainTokens.map((t) => gchainTokenToLuxToken(t, chainId))
       }
     } catch (error) {
-      console.warn('G-Chain token fetch failed, trying LXD Gateway:', error)
+      console.warn('G-Chain token fetch failed, trying Lux Gateway:', error)
     }
   }
 
-  // Try LXD Gateway
+  // Try Lux Gateway
   try {
-    return await fetchLxd<LxdToken[]>(`/v1/tokens?chainId=${chainId}`)
+    return await fetchLux<LuxToken[]>(`/v1/tokens?chainId=${chainId}`)
   } catch (error) {
     // Fallback to static tokens
-    console.warn('LXD Gateway unavailable, using fallback token list:', error)
+    console.warn('Lux Gateway unavailable, using fallback token list:', error)
     return FALLBACK_TOKENS[chainId] || []
   }
 }
 
 /**
- * Fetch pools from G-Chain (primary) or LXD Gateway (fallback)
- * Data source priority: G-Chain GraphQL > LXD Gateway > Static fallback
+ * Fetch pools from G-Chain (primary) or Lux Gateway (fallback)
+ * Data source priority: G-Chain GraphQL > Lux Gateway > Static fallback
  */
-export async function fetchLxdPools(chainId: number = UniverseChainId.Lux): Promise<LxdPool[]> {
+export async function fetchLuxPools(chainId: number = UniverseChainId.Lux): Promise<LuxPool[]> {
   // Try G-Chain first (native blockchain data)
-  if (USE_GCHAIN || isLxdChain(chainId)) {
+  if (USE_GCHAIN || isLuxChain(chainId)) {
     try {
       const gchainPools = await getTopPools(50)
       if (gchainPools.length > 0) {
-        return gchainPools.map((p) => gchainPoolToLxdPool(p, chainId))
+        return gchainPools.map((p) => gchainPoolToLuxPool(p, chainId))
       }
     } catch (error) {
-      console.warn('G-Chain pool fetch failed, trying LXD Gateway:', error)
+      console.warn('G-Chain pool fetch failed, trying Lux Gateway:', error)
     }
   }
 
-  // Try LXD Gateway
+  // Try Lux Gateway
   try {
-    return await fetchLxd<LxdPool[]>(`/v1/pools?chainId=${chainId}`)
+    return await fetchLux<LuxPool[]>(`/v1/pools?chainId=${chainId}`)
   } catch (error) {
     // Fallback to empty pools (no pools yet)
-    console.warn('LXD Gateway unavailable, using fallback pool list:', error)
+    console.warn('Lux Gateway unavailable, using fallback pool list:', error)
     return FALLBACK_POOLS[chainId] || []
   }
 }
 
 /**
- * Get a swap quote from LXD Gateway
+ * Get a swap quote from Lux Gateway
  */
-export async function fetchLxdQuote(request: LxdQuoteRequest): Promise<LxdQuoteResponse> {
-  const response = await fetch(`${LXD_GATEWAY_URL}/v1/quote`, {
+export async function fetchLuxQuote(request: LuxQuoteRequest): Promise<LuxQuoteResponse> {
+  const response = await fetch(`${LUX_GATEWAY_URL}/v1/quote`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -245,9 +248,9 @@ export async function fetchLxdQuote(request: LxdQuoteRequest): Promise<LxdQuoteR
 }
 
 /**
- * Check if a chain ID should use LXD Gateway
+ * Check if a chain ID should use Lux Gateway
  */
-export function isLxdChain(chainId: number): boolean {
+export function isLuxChain(chainId: number): boolean {
   return chainId === UniverseChainId.LuxDev || chainId === UniverseChainId.Lux || chainId === UniverseChainId.Zoo
 }
 
@@ -255,14 +258,14 @@ export function isLxdChain(chainId: number): boolean {
  * Search tokens on Lux/Zoo chains using G-Chain or fallback data
  * Searches by symbol, name, or address
  */
-export async function searchLxdTokens(
+export async function searchLuxTokens(
   query: string,
   chainId: number = UniverseChainId.Lux
-): Promise<LxdToken[]> {
+): Promise<LuxToken[]> {
   const normalizedQuery = query.toLowerCase().trim()
 
   // Fetch all tokens first
-  const allTokens = await fetchLxdTokens(chainId)
+  const allTokens = await fetchLuxTokens(chainId)
 
   // Filter by query
   return allTokens.filter((token) => {
@@ -281,11 +284,11 @@ export async function searchLxdTokens(
 export async function getTokenByAddress(
   address: string,
   chainId: number = UniverseChainId.Lux
-): Promise<LxdToken | null> {
+): Promise<LuxToken | null> {
   const normalizedAddress = address.toLowerCase()
 
   // Fetch all tokens
-  const allTokens = await fetchLxdTokens(chainId)
+  const allTokens = await fetchLuxTokens(chainId)
 
   // Find by address
   return allTokens.find((t) => t.address.toLowerCase() === normalizedAddress) || null

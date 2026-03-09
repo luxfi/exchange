@@ -52,6 +52,8 @@ import {
 import { TABLE_PAGE_SIZE } from '~/state/explore'
 import { useTopPools } from '~/state/explore/topPools/useTopPools'
 import { PoolStat } from '~/state/explore/types'
+import { isLuxChainId } from '~/state/explore/luxSubgraph'
+import { LuxPoolsTable } from '~/pages/Explore/tables/LuxPoolsTable'
 import { getChainUrlParam, useChainIdFromUrlParam } from '~/utils/chainParams'
 
 const TableWrapper = styled(Flex, {
@@ -156,7 +158,7 @@ interface TopPoolTableProps {
   isError: boolean
   loadMore?: ({ onComplete }: { onComplete?: () => void }) => void
 }
-function ExploreTopPoolTableContent(): JSX.Element {
+function DefaultPoolTableContent(): JSX.Element {
   const chainId = useChainIdFromUrlParam()
   const { sortMethod, sortAscending } = usePoolTableStore((s) => ({
     sortMethod: s.sortMethod,
@@ -179,6 +181,17 @@ function ExploreTopPoolTableContent(): JSX.Element {
   })
 
   return <TopPoolTable topPoolData={{ topPools, isLoading, isError, loadMore }} />
+}
+
+function ExploreTopPoolTableContent(): JSX.Element {
+  const chainId = useChainIdFromUrlParam()
+
+  // Use Lux V3 subgraph data when filtered to Lux chain
+  if (isLuxChainId(chainId as number | undefined)) {
+    return <LuxPoolsTable />
+  }
+
+  return <DefaultPoolTableContent />
 }
 
 export const ExploreTopPoolTable = memo(function ExploreTopPoolTable() {

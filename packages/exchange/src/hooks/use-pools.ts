@@ -4,6 +4,7 @@ import { useQuery } from '@tanstack/react-query'
 import { usePublicClient } from 'wagmi'
 import { getContracts } from '../contracts'
 import { LUX_V3_FACTORY_ABI, LUX_V3_POOL_ABI } from '../contracts/abis'
+import { LUX_MAINNET_CONTRACTS } from '../contracts/addresses'
 import type { Address } from 'viem'
 
 export interface Pool {
@@ -28,6 +29,7 @@ export function usePool(
 ) {
   const publicClient = usePublicClient({ chainId })
   const contracts = getContracts(chainId)
+  const v3Factory = 'V3_FACTORY' in contracts ? contracts.V3_FACTORY : LUX_MAINNET_CONTRACTS.V3_FACTORY
 
   return useQuery({
     queryKey: ['pool', token0, token1, fee, chainId],
@@ -37,7 +39,7 @@ export function usePool(
       try {
         // Get pool address from factory
         const poolAddress = await publicClient.readContract({
-          address: contracts.V3_FACTORY,
+          address: v3Factory,
           abi: LUX_V3_FACTORY_ABI,
           functionName: 'getPool',
           args: [token0, token1, fee],

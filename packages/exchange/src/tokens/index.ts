@@ -38,7 +38,7 @@ export const NATIVE_ZOO: Token = {
  * Wrapped native tokens
  */
 export const WLUX_MAINNET: Token = {
-  address: '0x3C18bB6B17eb3F0879d4653e0120a531aF4d86E3',
+  address: '0x4888e4a2ee0f03051c72d2bd3acf755ed3498b3e',
   chainId: 96369,
   decimals: 18,
   symbol: 'WLUX',
@@ -65,12 +65,12 @@ export const WLUX_DEV: Token = {
 /**
  * Stablecoins
  */
-export const LUSDC: Token = {
-  address: '0x57f9E717dc080a6A76fB6F77BecA8C9C1D266B96',
+export const LUSD: Token = {
+  address: '0x848Cff46eb323f323b6Bbe1Df274E40793d7f2c2',
   chainId: 96369,
-  decimals: 6, // USDC-compatible decimals
-  symbol: 'LUSDC',
-  name: 'Lux USDC',
+  decimals: 18,
+  symbol: 'LUSD',
+  name: 'Lux USD',
 }
 
 /**
@@ -78,7 +78,7 @@ export const LUSDC: Token = {
  * These are the canonical mainnet addresses from @luxfi/config
  */
 export const LETH: Token = {
-  address: '0x5a88986958ea76Dd043f834542724F081cA1443B',
+  address: '0x60E0a8167FC13dE89348978860466C9ceC24B9ba',
   chainId: 96369,
   decimals: 18,
   symbol: 'LETH',
@@ -86,11 +86,35 @@ export const LETH: Token = {
 }
 
 export const LBTC: Token = {
-  address: '0x8a3fad1c7FB94461621351aa6A983B6f814F039c',
+  address: '0x1E48D32a4F5e9f08DB9aE4959163300FaF8A6C8e',
   chainId: 96369,
   decimals: 8,
   symbol: 'LBTC',
   name: 'Lux BTC',
+}
+
+export const LSOL: Token = {
+  address: '0x26B40f650156C7EbF9e087Dd0dca181Fe87625B7',
+  chainId: 96369,
+  decimals: 18,
+  symbol: 'LSOL',
+  name: 'Lux SOL',
+}
+
+export const LTON: Token = {
+  address: '0x3141b94b89691009b950c96e97Bff48e0C543E3C',
+  chainId: 96369,
+  decimals: 9,
+  symbol: 'LTON',
+  name: 'Lux TON',
+}
+
+export const LAVAX: Token = {
+  address: '0x0e4bD0DD67c15dECfBBBdbbE07FC9d51D737693D',
+  chainId: 96369,
+  decimals: 18,
+  symbol: 'LAVAX',
+  name: 'Lux AVAX',
 }
 
 /**
@@ -194,35 +218,35 @@ export const DAI_LUX: Token = {
  * Zoo chain tokens
  */
 export const WZOO: Token = {
-  address: '0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE',
+  address: '0x5491216406daB99b7032b83765F36790E27F8A61',
   chainId: 200200,
   decimals: 18,
   symbol: 'WZOO',
   name: 'Wrapped ZOO',
 }
 
-export const USDC_ZOO: Token = {
-  address: '0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48',
-  chainId: 200200,
-  decimals: 6,
-  symbol: 'USDC',
-  name: 'USD Coin',
-}
-
-export const USDT_ZOO: Token = {
-  address: '0xdAC17F958D2ee523a2206206994597C13D831ec7',
-  chainId: 200200,
-  decimals: 6,
-  symbol: 'USDT',
-  name: 'Tether USD',
-}
-
-export const WETH_ZOO: Token = {
-  address: '0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2',
+export const LETH_ZOO: Token = {
+  address: '0x4870621EA8be7a383eFCfdA225249d35888bD9f2',
   chainId: 200200,
   decimals: 18,
-  symbol: 'WETH',
-  name: 'Wrapped Ether',
+  symbol: 'LETH',
+  name: 'Lux ETH',
+}
+
+export const LBTC_ZOO: Token = {
+  address: '0x6fc44509a32E513bE1aa00d27bb298e63830C6A8',
+  chainId: 200200,
+  decimals: 8,
+  symbol: 'LBTC',
+  name: 'Lux BTC',
+}
+
+export const LUSD_ZOO: Token = {
+  address: '0xb2ee1CE7b84853b83AA08702aD0aD4D79711882D',
+  chainId: 200200,
+  decimals: 18,
+  symbol: 'LUSD',
+  name: 'Lux USD',
 }
 
 /**
@@ -231,14 +255,12 @@ export const WETH_ZOO: Token = {
 export const LUX_MAINNET_TOKENS: Token[] = [
   NATIVE_LUX,
   WLUX_MAINNET,
-  USDC_LUX,
-  USDT_LUX,
-  WETH_LUX,
-  WBTC_LUX,
-  DAI_LUX,
+  LUSD,
   LETH,
   LBTC,
-  LUSDC,
+  LSOL,
+  LTON,
+  LAVAX,
 ]
 
 /**
@@ -247,9 +269,9 @@ export const LUX_MAINNET_TOKENS: Token[] = [
 export const ZOO_MAINNET_TOKENS: Token[] = [
   NATIVE_ZOO,
   WZOO,
-  USDC_ZOO,
-  USDT_ZOO,
-  WETH_ZOO,
+  LUSD_ZOO,
+  LETH_ZOO,
+  LBTC_ZOO,
 ]
 
 /**

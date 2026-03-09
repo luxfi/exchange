@@ -2,6 +2,7 @@ import { FeatureFlags, useFeatureFlag } from '@universe/gating'
 import { useTranslation } from 'react-i18next'
 import { useLocation } from 'react-router'
 import { useSporeColors } from 'ui/src'
+import { Chart } from 'ui/src/components/icons/Chart'
 import { CoinConvert } from 'ui/src/components/icons/CoinConvert'
 import { Compass } from 'ui/src/components/icons/Compass'
 import { CreditCard } from 'ui/src/components/icons/CreditCard'
@@ -42,7 +43,7 @@ export const useTabsContent = (): TabsSection[] => {
     {
       title: t('common.trade'),
       href: '/swap',
-      isActive: pathname.startsWith('/swap') || pathname.startsWith('/limit') || pathname.startsWith('/send'),
+      isActive: pathname.startsWith('/swap') || pathname.startsWith('/limit') || pathname.startsWith('/send') || pathname.startsWith('/advanced'),
       icon: <CoinConvert color="$accent1" size="$icon.20" />,
       elementName: ElementName.NavbarTradeTab,
       items: [
@@ -73,6 +74,13 @@ export const useTabsContent = (): TabsSection[] => {
           href: '/sell',
           internal: true,
           elementName: ElementName.NavbarTradeDropdownSell,
+        },
+        {
+          label: t('common.advanced', { defaultValue: 'Advanced' }),
+          icon: <Chart color="$neutral2" size="$icon.24" />,
+          href: '/advanced',
+          internal: true,
+          elementName: ElementName.NavbarTradeTab,
         },
       ],
     },

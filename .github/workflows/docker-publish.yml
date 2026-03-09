@@ -12,7 +12,49 @@ env:
   IMAGE_NAME: luxfi/exchange
 
 jobs:
+  # E2E tests must pass before publishing
+  e2e-gate:
+    name: E2E Gate Tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Install Playwright browsers
+        run: npx playwright install chromium
+
+      - name: Run critical e2e tests
+        run: |
+          npx playwright test \
+            e2e/advanced.spec.ts \
+            e2e/lux-explore.spec.ts \
+            --grep "@critical" \
+            --reporter=list \
+            --retries=2
+        env:
+          BASE_URL: https://exchange.lux.network
+
+      - name: Upload test results on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: e2e-gate-results
+          path: apps/web/test-results/
+          retention-days: 7
+
   build-and-push:
+    needs: [e2e-gate]
     runs-on: ubuntu-latest
     permissions:
       contents: read

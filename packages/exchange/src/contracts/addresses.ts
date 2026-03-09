@@ -7,23 +7,28 @@ import type { Address } from 'viem'
  * Contract addresses for Lux Mainnet (96369)
  */
 export const LUX_MAINNET_CONTRACTS = {
-  // Core — WLUX wiped by 2026-03-01 re-genesis, needs redeployment
-  WLUX: '0x3C18bB6B17eb3F0879d4653e0120a531aF4d86E3' as Address,
+  // Core — verified on-chain 2026-03-05 (149M supply)
+  WLUX: '0x4888e4a2ee0f03051c72d2bd3acf755ed3498b3e' as Address,
   MULTICALL: '0xd25F88CBdAe3c2CCA3Bb75FC4E723b44C0Ea362F' as Address,
 
-  // Bridge tokens — wiped by re-genesis, need redeployment
-  LETH: '0x5a88986958ea76Dd043f834542724F081cA1443B' as Address,
-  LBTC: '0x8a3fad1c7FB94461621351aa6A983B6f814F039c' as Address,
-  LUSDC: '0x57f9E717dc080a6A76fB6F77BecA8C9C1D266B96' as Address,
+  // Bridge tokens — verified on-chain via V3 pools and bridge MPC
+  LETH: '0x60E0a8167FC13dE89348978860466C9ceC24B9ba' as Address,
+  LBTC: '0x1E48D32a4F5e9f08DB9aE4959163300FaF8A6C8e' as Address,
+  LUSD: '0x848Cff46eb323f323b6Bbe1Df274E40793d7f2c2' as Address,
+  LSOL: '0x26B40f650156C7EbF9e087Dd0dca181Fe87625B7' as Address,
+  LTON: '0x3141b94b89691009b950c96e97Bff48e0C543E3C' as Address,
+  LAVAX: '0x0e4bD0DD67c15dECfBBBdbbE07FC9d51D737693D' as Address,
 
-  // AMM V2 (CREATE2) — survived re-genesis
+  // AMM V2 (CREATE2) — 1 pair on-chain
   V2_FACTORY: '0xD173926A10A0C4eCd3A51B1422270b65Df0551c1' as Address,
   V2_ROUTER: '0xAe2cf1E403aAFE6C05A5b8Ef63EB19ba591d8511' as Address,
 
-  // AMM V3 (CREATE2) — 27 pools, 100k+ swaps
+  // AMM V3 (CREATE2) — 8+ pools, active trading, verified on-chain
   V3_FACTORY: '0x80bBc7C4C7a59C899D1B37BC14539A22D5830a84' as Address,
-  V3_ROUTER: '0x939bC0Bca6F9B9c52E6e3AD8A3C590b5d9B9D10E' as Address,
+  V3_SWAP_ROUTER: '0xE8fb25086C8652c92f5AF90D730Bac7C63Fc9A58' as Address,
+  V3_SWAP_ROUTER_02: '0x939bC0Bca6F9B9c52E6e3AD8A3C590b5d9B9D10E' as Address,
   V3_QUOTER: '0x12e2B76FaF4dDA5a173a4532916bb6Bfa3645275' as Address,
+  V3_QUOTER_V2: '0x15C729fdd833Ba675edd466Dfc63E1B737925A4c' as Address,
   V3_NFT_POSITION_MANAGER: '0x7a4C48B9dae0b7c396569b34042fcA604150Ee28' as Address,
 } as const
 

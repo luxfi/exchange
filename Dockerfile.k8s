@@ -24,7 +24,7 @@ ENV DOCKER_BUILD=true
 ENV NEXT_PUBLIC_LXD_GATEWAY_URL=https://dex.lux.network
 ENV REACT_APP_LXD_GATEWAY_URL=https://dex.lux.network
 ENV REACT_APP_LUX_GATEWAY_DNS=https://dex.lux.network
-ENV REACT_APP_AWS_API_ENDPOINT=https://interface.gateway.uniswap.org/v1/graphql
+ENV REACT_APP_AWS_API_ENDPOINT=https://api-exchange.lux.network/v1/graphql
 ENV REACT_APP_INSIGHTS_HOST=https://insights.hanzo.ai
 ENV REACT_APP_INSIGHTS_API_KEY=hi_a5316882b930d11c9183007d70c3955b
 
@@ -34,7 +34,7 @@ RUN NODE_PATH=/app/node_modules node apps/web/scripts/compile-ajv-validators.js
 
 # Build the web app (direct Vite build)
 # Use node_modules/.bin/vite directly — npx resolves wrong path under bun's flat node_modules
-RUN cd apps/web && NODE_OPTIONS="--max-old-space-size=16384" ../../node_modules/.bin/vite build
+RUN cd apps/web && DISABLE_EXTRACTION=1 NODE_OPTIONS="--max-old-space-size=16384" ../../node_modules/.bin/vite build
 
 # Stage 2: Runner — lightweight static file server (no nginx)
 FROM node:22-alpine AS runner

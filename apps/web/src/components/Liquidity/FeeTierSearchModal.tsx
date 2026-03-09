@@ -271,11 +271,6 @@ export function FeeTierSearchModal() {
                 <Text variant="heading3">+</Text>
               </Flex>
             </Flex>
-            {/* TODO(WEB-4920): search existing fee tiers for a match and optionally show this, with real TVL value */}
-            {/* <Text variant="body2" color="$neutral2" textAlign="center">
-              {t('fee.tier.alreadyExists', { formattedTVL: '$289.6K' })}
-            </Text> */}
-            {/* TODO(WEB-4920): search existing fee tiers for close matches and optionally similar list */}
             <Flex row>
               <Button
                 variant="default"

@@ -48,6 +48,7 @@ const Portfolio = lazy(() => import('~/pages/Portfolio/Portfolio'))
 const ToucanToken = lazy(() => import('~/pages/Explore/ToucanToken'))
 const CreateAuction = lazy(() => import('~/pages/Liquidity/CreateAuction/CreateAuction'))
 const Wrapped = lazy(() => import('~/pages/Wrapped'))
+const TradePage = lazy(() => import('~/pages/Trade'))
 
 interface RouterConfig {
   browserRouterEnabled?: boolean
@@ -94,8 +95,7 @@ const StaticTitlesAndDescriptions = {
   MigrateDescriptionV4: i18n.t('title.easilyRemoveV4'),
   AddLiquidityDescription: i18n.t('title.earnFees'),
   PasskeyManagementTitle: i18n.t('title.managePasskeys'),
-  // TODO(LP-295): Update after launch
-  ToucanPlaceholderDescription: 'Placeholder description for Toucan page',
+  ToucanDescription: i18n.t('title.toucanDescription'),
 }
 
 export interface RouteDefinition {
@@ -185,7 +185,7 @@ export const routes: RouteDefinition[] = [
   createRouteDefinition({
     path: '/explore/auctions/:chainName/:auctionAddress',
     getTitle: () => StaticTitlesAndDescriptions.DetailsPageBaseTitle,
-    getDescription: () => StaticTitlesAndDescriptions.ToucanPlaceholderDescription,
+    getDescription: () => StaticTitlesAndDescriptions.ToucanDescription,
     getElement: () => (
       <Suspense fallback={null}>
         <ToucanToken />
@@ -195,7 +195,7 @@ export const routes: RouteDefinition[] = [
   createRouteDefinition({
     path: '/liquidity/launch-auction',
     getTitle: () => i18n.t('toucan.createAuction.title'),
-    getDescription: () => StaticTitlesAndDescriptions.ToucanPlaceholderDescription,
+    getDescription: () => StaticTitlesAndDescriptions.ToucanDescription,
     enabled: (args) => args.isToucanLaunchAuctionEnabled ?? false,
     getElement: () => (
       <Suspense fallback={null}>
@@ -421,6 +421,16 @@ export const routes: RouteDefinition[] = [
     getElement: () => <Wrapped />,
     getTitle: () => 'Lux Wrapped',
     enabled: (args) => args.isWrappedEnabled ?? false,
+  }),
+  createRouteDefinition({
+    path: '/advanced',
+    getTitle: () => i18n.t('title.advancedTrading', { defaultValue: 'Advanced Trading — Lux Exchange' }),
+    getDescription: () => i18n.t('title.advancedTradingDesc', { defaultValue: 'Advanced order book trading with limit, stop, and bracket orders on Lux Exchange' }),
+    getElement: () => (
+      <Suspense fallback={null}>
+        <TradePage />
+      </Suspense>
+    ),
   }),
   createRouteDefinition({ path: '*', getElement: () => <Navigate to="/not-found" replace /> }),
   createRouteDefinition({ path: '/not-found', getElement: () => <NotFound /> }),

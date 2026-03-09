@@ -212,6 +212,9 @@ enum Chain {
   BASE_SEPOLIA
   SOLANA
   XLAYER
+  LUX
+  LUX_TESTNET
+  ZOO
   UNKNOWN_CHAIN
 }
 

@@ -10,7 +10,7 @@ import {
   AckNotificationResponse as ProtoAckNotificationResponse,
   GetNotificationsRequest as ProtoGetNotificationsRequest,
   GetNotificationsResponse as ProtoGetNotificationsResponse,
-} from '@luxdex/client-notification-service/dist/uniswap/notificationservice/v1/api_pb'
+} from '@uniswap/client-notification-service/dist/uniswap/notificationservice/v1/api_pb'
 import { FetchClient } from '@luxfi/api/src/clients/base/types'
 
 export interface NotificationsClientContext {

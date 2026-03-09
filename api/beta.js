@@ -1,7 +1,7 @@
 const { createProxyMiddleware } = require('http-proxy-middleware')
 
 const apiProxy = createProxyMiddleware('/beta', {
-  target: 'https://temp.api.uniswap.org/v1',
+  target: 'https://api-exchange.lux.network/v1',
   changeOrigin: true,
   includePrefix: false,
   pathRewrite: {
@@ -11,7 +11,7 @@ const apiProxy = createProxyMiddleware('/beta', {
     proxyReq.setHeader('origin', 'http://localhost:3000')
     proxyReq.setHeader('Content-Type', 'application/json')
     proxyReq.setHeader('Referer', 'http://localhost:3000/')
-    proxyReq.setHeader('Host', 'temp.api.uniswap.org')
+    proxyReq.setHeader('Host', 'api-exchange.lux.network')
     proxyReq.setHeader('TE', 'trailers')
     proxyReq.setHeader('User-Agent', 'User-Agent Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:109.0) Gecko/20100101 Firefox/110.0')
   },
