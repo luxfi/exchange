@@ -166,7 +166,7 @@ const HistoryTd = styled.td`
   color: #333;
   border-bottom: 1px solid rgba(0, 0, 0, 0.03);
   font-variant-numeric: tabular-nums;
-  font-family: 'SF Mono', 'Fira Code', monospace;
+  font-family: 'Geist Mono', monospace;
 
   &:not(:first-child) {
     text-align: right;
@@ -351,7 +351,7 @@ export const LuxPoolsTable = memo(function LuxPoolsTable() {
               <Td>{fmtFeeTier(pool.feeTier)}</Td>
               <Td style={{ fontWeight: 600 }}>{fmtUSD(pool.totalValueLockedUSD)}</Td>
               <Td style={{ color: 'rgba(0,0,0,0.5)' }}>{fmtUSD(pool.volumeUSD)}</Td>
-              <Td style={{ fontFamily: "'SF Mono', monospace" }}>
+              <Td style={{ fontFamily: "'Geist Mono', monospace" }}>
                 {parseFloat(pool.token0Price).toFixed(6)}
               </Td>
               <Td style={{ color: 'rgba(0,0,0,0.45)' }}>{parseInt(pool.txCount).toLocaleString()}</Td>

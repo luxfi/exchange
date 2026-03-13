@@ -438,7 +438,7 @@ const TradeRow = styled.div<{ $isSell?: boolean; $index?: number }>`
   padding: 4px 16px;
   font-size: 12px;
   font-variant-numeric: tabular-nums;
-  font-family: 'SF Mono', 'Fira Code', 'JetBrains Mono', monospace;
+  font-family: 'Geist Mono', monospace;
   cursor: default;
   transition: background 0.15s ease;
   animation: ${fadeInRow} 0.2s ease ${(p) => ((p.$index ?? 0) * 0.02)}s both;
@@ -1052,7 +1052,7 @@ export default function TradePage() {
                     <span
                       style={{
                         textAlign: 'right',
-                        fontFamily: "'SF Mono', monospace",
+                        fontFamily: "'Geist Mono', monospace",
                         fontSize: 11,
                       }}
                     >
