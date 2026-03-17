@@ -29,6 +29,9 @@ export interface TokenAddresses {
   LETH?: Address
   LBTC?: Address
   LUSD?: Address
+  LSOL?: Address
+  LPOL?: Address
+  LZOO?: Address
   WZOO?: Address
   WETH?: Address
   USDC?: Address
@@ -83,9 +86,12 @@ export const LUX_MAINNET_CONTRACTS: ChainContracts = {
     
     
     WLUX: "0x4888E4a2Ee0F03051c72d2bD3acf755Ed3498b3E" as Address,
-    LETH: "0x5a88986958ea76Dd043f834542724F081cA1443B" as Address,
-    LBTC: "0x8a3fad1c7FB94461621351aa6A983B6f814F039c" as Address,
-    LUSD: "0x57f9E717dc080a6A76fB6F77BecA8C9C1D266B96" as Address,
+    LETH: "0x60E0a8167FC13dE89348978860466C9ceC24B9ba" as Address,
+    LBTC: "0x1E48D32a4F5e9f08DB9aE4959163300FaF8A6C8e" as Address,
+    LUSD: "0x848Cff46eb323f323b6Bbe1Df274E40793d7f2c2" as Address,
+    LSOL: "0x26B40f650156C7EbF9e087Dd0dca181Fe87625B7" as Address,
+    LPOL: "0x28BfC5DD4B7E15659e41190983e5fE3df1132bB9" as Address,
+    LZOO: "0x5E5290f350352768bD2bfC59c2DA15DD04A7cB88" as Address,
   },
   amm: {
     // V2 (CREATE2) — survived re-genesis, has code but different ABI
