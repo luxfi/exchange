@@ -80,9 +80,9 @@ export const LUX_DEV_CONTRACTS: ChainContracts = {
 
 export const LUX_MAINNET_CONTRACTS: ChainContracts = {
   tokens: {
-    // NOTE: WLUX and bridge tokens were wiped by 2026-03-01 re-genesis
-    // These addresses need redeployment — currently no code on-chain
-    WLUX: "0x3C18bB6B17eb3F0879d4653e0120a531aF4d86E3" as Address,
+    
+    
+    WLUX: "0x4888E4a2Ee0F03051c72d2bD3acf755Ed3498b3E" as Address,
     LETH: "0x5a88986958ea76Dd043f834542724F081cA1443B" as Address,
     LBTC: "0x8a3fad1c7FB94461621351aa6A983B6f814F039c" as Address,
     LUSD: "0x57f9E717dc080a6A76fB6F77BecA8C9C1D266B96" as Address,
