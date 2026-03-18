@@ -131,6 +131,12 @@ const CHAIN_THEME_LIGHT: Record<UniverseChainId, ChainTheme> = {
   [UniverseChainId.WorldChain]: { bgColor: 'rgba(0, 0, 0, 0.12)', textColor: '#000000' },
   [UniverseChainId.Zksync]: { bgColor: 'rgba(54, 103, 246, 0.12)', textColor: '#3667F6' },
   [UniverseChainId.Zora]: { bgColor: 'rgba(0, 0, 0, 0.12)', textColor: '#000000' },
+  // Lux ecosystem
+  [UniverseChainId.Lux]: { bgColor: '#F5456233', textColor: '#F54562' },
+  [UniverseChainId.LuxTestnet]: { bgColor: '#F5456233', textColor: '#F54562' },
+  [UniverseChainId.LuxDev]: { bgColor: '#F5456233', textColor: '#F54562' },
+  [UniverseChainId.Zoo]: { bgColor: '#9945FF33', textColor: '#9945FF' },
+  [UniverseChainId.ZooTestnet]: { bgColor: '#9945FF33', textColor: '#9945FF' },
 }
 
 const CHAIN_THEME_DARK: Record<UniverseChainId, ChainTheme> = {
@@ -145,9 +151,15 @@ const CHAIN_THEME_DARK: Record<UniverseChainId, ChainTheme> = {
   [UniverseChainId.Zora]: { bgColor: 'rgba(255, 255, 255, 0.12)', textColor: '#FFFFFF' },
 }
 
+const DEFAULT_CHAIN_THEME: ChainTheme = { bgColor: 'rgba(0, 0, 0, 0.12)', textColor: '#000000' }
+const DEFAULT_CHAIN_THEME_DARK: ChainTheme = { bgColor: 'rgba(255, 255, 255, 0.12)', textColor: '#FFFFFF' }
+
 function useChainTheme(chainId: UniverseChainId): ChainTheme {
   const isDarkMode = useIsDarkMode()
-  return isDarkMode ? CHAIN_THEME_DARK[chainId] : CHAIN_THEME_LIGHT[chainId]
+  if (isDarkMode) {
+    return CHAIN_THEME_DARK[chainId] ?? DEFAULT_CHAIN_THEME_DARK
+  }
+  return CHAIN_THEME_LIGHT[chainId] ?? DEFAULT_CHAIN_THEME
 }
 
 function MaybeExternalBridgeCard({ chainId }: { chainId: UniverseChainId }) {
