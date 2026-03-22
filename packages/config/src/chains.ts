@@ -153,6 +153,26 @@ export const parsMainnet = defineChain({
 })
 
 /**
+ * Liquid EVM (Liquidity Network) Chain Definition
+ */
+export const liquidEvm = defineChain({
+  id: 8675311,
+  name: 'Liquid Network',
+  nativeCurrency: {
+    name: 'LQDTY',
+    symbol: 'LQDTY',
+    decimals: 18,
+  },
+  rpcUrls: {
+    default: { http: ['https://rpc.next.satschel.com'] },
+    public: { http: ['https://rpc.next.satschel.com'] },
+  },
+  blockExplorers: {
+    default: { name: 'Liquid Explorer', url: 'https://explore.next.satschel.com' },
+  },
+})
+
+/**
  * Dev Chain Definition (for running local node with --dev)
  */
 export const luxDev = defineChain({
@@ -183,6 +203,7 @@ export const ZOO_TESTNET_ID = 200201
 export const HANZO_MAINNET_ID = 36963
 export const SPC_MAINNET_ID = 36911
 export const PARS_MAINNET_ID = 494949
+export const LIQUID_EVM_ID = 8675311
 export const LUX_DEV_ID = 1337
 
 /**
@@ -196,6 +217,7 @@ export const supportedChains = [
   hanzoMainnet,
   spcMainnet,
   parsMainnet,
+  liquidEvm,
   luxDev,
 ] as const
 

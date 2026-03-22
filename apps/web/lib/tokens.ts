@@ -14,6 +14,7 @@ import {
   hanzoMainnet,
   spcMainnet,
   parsMainnet,
+  liquidEvm,
   ethereum,
   sepolia,
   isLuxChain,
@@ -739,6 +740,23 @@ export const PARS_MAINNET_TOKENS: Token[] = [
 ]
 
 // =============================================================================
+// LIQUID EVM TOKENS (Chain ID: 8675311)
+// Liquidity Network L2 on Lux
+// =============================================================================
+
+export const LIQUID_EVM_TOKENS: Token[] = [
+  {
+    symbol: "LQDTY",
+    name: "Liquidity",
+    decimals: 18,
+    address: null,
+    logoUri: "/tokens/lqdty.svg",
+    chainId: liquidEvm.id,
+    isNative: true,
+  },
+]
+
+// =============================================================================
 // ETHEREUM MAINNET TOKENS (Chain ID: 1)
 // =============================================================================
 
@@ -840,6 +858,7 @@ export const TOKENS_BY_CHAIN: Record<number, Token[]> = {
   [hanzoMainnet.id]: HANZO_MAINNET_TOKENS,
   [spcMainnet.id]: SPC_MAINNET_TOKENS,
   [parsMainnet.id]: PARS_MAINNET_TOKENS,
+  [liquidEvm.id]: LIQUID_EVM_TOKENS,
   [ethereum.id]: ETHEREUM_MAINNET_TOKENS,
   [sepolia.id]: SEPOLIA_TOKENS,
 }

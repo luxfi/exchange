@@ -158,6 +158,23 @@ export const parsMainnet = {
   },
 } as const satisfies Chain
 
+export const liquidEvm = {
+  id: 8675311,
+  name: "Liquid Network",
+  nativeCurrency: {
+    decimals: 18,
+    name: "LQDTY",
+    symbol: "LQDTY",
+  },
+  rpcUrls: {
+    default: { http: ["https://rpc.next.satschel.com"] },
+    public: { http: ["https://rpc.next.satschel.com"] },
+  },
+  blockExplorers: {
+    default: { name: "Liquid Explorer", url: "https://explore.next.satschel.com" },
+  },
+} as const satisfies Chain
+
 // =============================================================================
 // ETHEREUM CHAINS (for bridging reference)
 // =============================================================================
@@ -211,6 +228,7 @@ export const SUPPORTED_CHAINS = [
   hanzoMainnet,
   spcMainnet,
   parsMainnet,
+  liquidEvm,
   luxTestnet,
   zooTestnet,
   ethereum,
@@ -220,7 +238,7 @@ export const SUPPORTED_CHAINS = [
 /**
  * Mainnet chains only (no testnets)
  */
-export const MAINNET_CHAINS = [luxMainnet, zooMainnet, hanzoMainnet, spcMainnet, parsMainnet, ethereum] as const
+export const MAINNET_CHAINS = [luxMainnet, zooMainnet, hanzoMainnet, spcMainnet, parsMainnet, liquidEvm, ethereum] as const
 
 /**
  * Testnet chains only
@@ -236,6 +254,7 @@ export const LUX_ECOSYSTEM_CHAINS = [
   hanzoMainnet,
   spcMainnet,
   parsMainnet,
+  liquidEvm,
   luxTestnet,
   zooTestnet,
 ] as const
@@ -256,6 +275,7 @@ export const CHAIN_BY_ID: Record<number, Chain> = {
   [hanzoMainnet.id]: hanzoMainnet,
   [spcMainnet.id]: spcMainnet,
   [parsMainnet.id]: parsMainnet,
+  [liquidEvm.id]: liquidEvm,
   [ethereum.id]: ethereum,
   [sepolia.id]: sepolia,
 }
@@ -271,7 +291,7 @@ export function getChainById(chainId: number): Chain | undefined {
  * Check if chain is a Lux ecosystem chain
  */
 export function isLuxEcosystem(chainId: number): boolean {
-  const luxEcosystemIds: number[] = [luxMainnet.id, luxTestnet.id, zooMainnet.id, zooTestnet.id, hanzoMainnet.id, spcMainnet.id, parsMainnet.id]
+  const luxEcosystemIds: number[] = [luxMainnet.id, luxTestnet.id, zooMainnet.id, zooTestnet.id, hanzoMainnet.id, spcMainnet.id, parsMainnet.id, liquidEvm.id]
   return luxEcosystemIds.includes(chainId)
 }
 
@@ -324,6 +344,8 @@ export function getChainIcon(chainId: number): string {
       return "/tokens/spc.svg"
     case parsMainnet.id:
       return "/tokens/pars.svg"
+    case liquidEvm.id:
+      return "/tokens/lqdty.svg"
     case ethereum.id:
     case sepolia.id:
       return "/tokens/eth.svg"

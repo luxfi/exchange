@@ -10,6 +10,7 @@ export {
   hanzoMainnet,
   spcMainnet,
   parsMainnet,
+  liquidEvm,
   LUX_MAINNET_ID,
   LUX_TESTNET_ID,
   ZOO_MAINNET_ID,
@@ -17,6 +18,7 @@ export {
   HANZO_MAINNET_ID,
   SPC_MAINNET_ID,
   PARS_MAINNET_ID,
+  LIQUID_EVM_ID,
   supportedChains,
   type SupportedChainId,
 } from './chains'
