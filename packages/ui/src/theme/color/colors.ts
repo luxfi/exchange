@@ -359,6 +359,9 @@ export const colorsLight = {
   // Lux ecosystem
   chain_96369: networkColors.lux.light,
   chain_200200: networkColors.zoo.light,
+  chain_36963: networkColors.lux.light, // Hanzo Network
+  chain_36911: networkColors.lux.light, // SPC Network
+  chain_494949: networkColors.lux.light, // Pars Network
 
   // Testnets
   chain_11155111: networkColors.ethereum.light,
@@ -457,6 +460,9 @@ export const colorsDark = {
   // Lux ecosystem
   chain_96369: networkColors.lux.dark,
   chain_200200: networkColors.zoo.dark,
+  chain_36963: networkColors.lux.dark, // Hanzo Network
+  chain_36911: networkColors.lux.dark, // SPC Network
+  chain_494949: networkColors.lux.dark, // Pars Network
 
   // Testnets
   chain_11155111: networkColors.ethereum.dark,

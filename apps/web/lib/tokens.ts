@@ -18,6 +18,7 @@ import {
   sepolia,
   isLuxChain,
   isZooChain,
+  isLuxEcosystem,
 } from "./chains"
 
 // =============================================================================
@@ -915,10 +916,14 @@ export function getDefaultInputToken(chainId: number): Token | undefined {
  */
 export function getDefaultOutputToken(chainId: number): Token | undefined {
   if (isLuxChain(chainId)) {
-    return getTokenBySymbol(chainId, "LUSD")
+    return getTokenBySymbol(chainId, "LUSDC") || getTokenBySymbol(chainId, "LUSD")
   }
   if (isZooChain(chainId)) {
     return getTokenBySymbol(chainId, "WZOO")
+  }
+  // Subnet chains (Hanzo, SPC, Pars) -- try LUSDC first, then wrapped native
+  if (isLuxEcosystem(chainId)) {
+    return getTokenBySymbol(chainId, "LUSDC") || getWrappedNativeToken(chainId)
   }
   // Ethereum/Sepolia
   return getTokenBySymbol(chainId, "USDC")

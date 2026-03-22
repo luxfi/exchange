@@ -879,6 +879,42 @@ Security: Poseidon2 is PQ-safe, Pedersen is NOT
 12. **Receipt Registry**: Deploy and wire up receipt registry on Z-chain
 13. **Groth16 Export**: Add receipt-to-Groth16 proof export for external EVMs
 
+### RPC URL Fix and Multi-Chain Transport Fix (2026-03-22)
+
+**Root cause of crashes on Zoo/Pars/subnet markets:**
+
+1. **Broken RPC URLs**: `apps/web/lib/chains.ts` used `https://api.lux.network/rpc` (returns 404).
+   Correct URL: `https://api.lux.network/mainnet/ext/bc/C/rpc`. Same issue for testnet.
+   Also fixed in `src/constants/networks.ts` (legacy codebase).
+
+2. **Missing wagmi transports**: `web3-provider.tsx` only configured transports for 6 of 9 chains
+   in SUPPORTED_CHAINS. Hanzo (36963), SPC (36911), and Pars (494949) had no transport --
+   wagmi throws when switching to those chains.
+
+3. **Broken default output token**: `getDefaultOutputToken()` only handled `isLuxChain` and
+   `isZooChain`. Subnet chains (Hanzo/SPC/Pars) fell through to Ethereum case, tried to find
+   USDC which doesn't exist on those chains. Fixed to check `isLuxEcosystem` and try LUSDC/wrapped native.
+
+4. **Missing chain colors**: `packages/ui/src/theme/color/colors.ts` had no entries for
+   chain_36963, chain_36911, chain_494949.
+
+**Working RPC URLs** (verified 2026-03-22):
+- Lux Mainnet: `https://api.lux.network/mainnet/ext/bc/C/rpc` (chain 96369)
+- Lux Testnet: `https://api.lux.network/testnet/ext/bc/C/rpc` (chain 96368)
+- Zoo Mainnet: `https://api.zoo.network/rpc` (chain 200200)
+- Zoo Testnet: `https://api.zoo-test.network/rpc` (down -- error 1033)
+- Pars: `https://api.lux.network/mainnet/ext/bc/2pUskxqaL5Bpx7uRUGG1fDjPckjxQ4UKX4sLKeaS1NdSVBJd3F/rpc` (404 -- chain offline)
+
+**V4 Pool Status (2026-03-22):**
+- DEX precompile (LP-9010) at `0x0000000000000000000000000000000000009010` returns `0x` (no code) on both Lux mainnet and Zoo mainnet
+- V4 pools via precompile are **NOT available** -- requires node upgrade to activate DEX precompiles
+- No standalone V4 PoolManager contract exists in lux/standard for deployment
+- `UniswapV4Adapter.sol` points to Ethereum mainnet V4 address, not Lux
+- Liquid EVM (chain 8675311) RPC is unreachable (502 -- TLS/DNS issue on rpc.next.satschel.com)
+
+**Token naming inconsistency**: Lux mainnet uses `LUSDC` (6 decimals), Lux testnet uses `LUSD` (18 decimals).
+Subnet chains (Hanzo/SPC/Pars) all use `LUSDC`. Keep this in mind when writing token lookups.
+
 ## Rules for AI Assistants
 
 1. **ALWAYS** update LLM.md with significant discoveries

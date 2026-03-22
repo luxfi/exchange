@@ -20,8 +20,8 @@ export const luxMainnet = {
     symbol: "LUX",
   },
   rpcUrls: {
-    default: { http: ["https://api.lux.network/rpc"] },
-    public: { http: ["https://api.lux.network/rpc"] },
+    default: { http: ["https://api.lux.network/mainnet/ext/bc/C/rpc"] },
+    public: { http: ["https://api.lux.network/mainnet/ext/bc/C/rpc"] },
   },
   blockExplorers: {
     default: { name: "Lux Explorer", url: "https://explore.lux.network" },
@@ -37,8 +37,8 @@ export const luxTestnet = {
     symbol: "LUX",
   },
   rpcUrls: {
-    default: { http: ["https://api.lux-test.network/rpc"] },
-    public: { http: ["https://api.lux-test.network/rpc"] },
+    default: { http: ["https://api.lux.network/testnet/ext/bc/C/rpc"] },
+    public: { http: ["https://api.lux.network/testnet/ext/bc/C/rpc"] },
   },
   blockExplorers: {
     default: { name: "Lux Explorer", url: "https://explore.lux-test.network" },

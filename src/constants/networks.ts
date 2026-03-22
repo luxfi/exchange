@@ -104,13 +104,13 @@ export const FALLBACK_URLS: { [key in SupportedChainId]: string[] } = {
     `https://alfajores-forno.celo-testnet.org`,
   ],
   [SupportedChainId.LUX]: [
-    `https://api.lux.network/`,
+    `https://api.lux.network/mainnet/ext/bc/C/rpc`,
   ],
   [SupportedChainId.LUX_TESTNET]: [
-    `https://api.lux-test.network/`,
+    `https://api.lux.network/testnet/ext/bc/C/rpc`,
   ],
   [SupportedChainId.ZOO]: [
-    `https://api.zoo.network/`,
+    `https://api.zoo.network/rpc`,
   ],
 }
 
