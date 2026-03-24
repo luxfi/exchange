@@ -915,6 +915,28 @@ Security: Poseidon2 is PQ-safe, Pedersen is NOT
 **Token naming inconsistency**: Lux mainnet uses `LUSDC` (6 decimals), Lux testnet uses `LUSD` (18 decimals).
 Subnet chains (Hanzo/SPC/Pars) all use `LUSDC`. Keep this in mind when writing token lookups.
 
+### SwapFormStore Context Fix and Subnet Chain Integration (2026-03-24)
+
+**SwapFormStoreContextProvider crash fix:**
+- Routes `/swap`, `/send`, `/add`, `/positions/create/*`, `/buy`, `/sell`, `/limit` wrapped with `SwapFormStoreContextProvider` via `WithSwapFormStore` wrapper in `RouteDefinitions.tsx`
+- Shared components (CurrencyInputPanel, TokenRate, TokenOptions) call `useSwapFormStoreDerivedSwapInfo` which throws if the context is missing
+- The `<Swap />` component has its own internal provider, but the outer wrapper ensures the context is available before child components render
+
+**Subnet chains added to chain selector (Vite SPA):**
+- Added `Hanzo = 36963`, `SPC = 36911`, `Pars = 494949` to `UniverseChainId` enum in `packages/lx/src/features/chains/types.ts`
+- Created chain info files: `packages/lx/src/features/chains/evm/info/{hanzo,spc,pars}.ts`
+- Added `ChainHanzo`, `ChainSPC`, `ChainPars` to `ElementName` enum
+- Registered in `ORDERED_CHAINS`, `UNIVERSE_CHAIN_INFO`, block explorer logos, and GraphQL/URL mapping functions
+- No feature flag gating (enabled by default via `filterChainIdsByFeatureFlag` default behavior)
+- Chain colors already existed in `packages/ui/src/theme/color/colors.ts`
+
+**Architecture notes:**
+- The exchange has TWO UIs: Vite SPA (production, `apps/web/src/`) and Next.js App Router (experimental, `apps/web/app/`)
+- Dev command: `vite dev` (NOT `next dev`). Build: `vite build`. The SPA routes use react-router (`RouteDefinitions.tsx`)
+- The Next.js `app/` directory has a standalone `SwapWidget` that does NOT use `SwapFormStore` at all
+- `ORDERED_EVM_CHAINS` auto-includes new chains from `ORDERED_CHAINS` (filtered by `Platform.EVM`)
+- wagmi transports are auto-configured from chain info `rpcUrls` via `orderedTransportUrls(chain)`
+
 ## Rules for AI Assistants
 
 1. **ALWAYS** update LLM.md with significant discoveries

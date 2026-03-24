@@ -1,10 +1,11 @@
 import { FeatureFlags, useFeatureFlag } from '@universe/gating'
-import { lazy, ReactNode, Suspense, useMemo } from 'react'
+import { lazy, type PropsWithChildren, ReactNode, Suspense, useMemo } from 'react'
 import { matchPath, Navigate, Route, Routes, useLocation } from 'react-router'
 import { WRAPPED_PATH } from 'lx/src/components/banners/shared/utils'
 import { CHROME_EXTENSION_UNINSTALL_URL_PATH } from 'lx/src/constants/urls'
 import { WRAPPED_SOL_ADDRESS_SOLANA } from 'lx/src/features/chains/svm/defaults'
 import { EXTENSION_PASSKEY_AUTH_PATH } from 'lx/src/features/passkey/constants'
+import { SwapFormStoreContextProvider } from 'lx/src/features/transactions/swap/stores/swapFormStore/SwapFormStoreContextProvider'
 import i18n from 'lx/src/i18n'
 import { getExploreDescription, getExploreTitle } from '~/pages/getExploreTitle'
 import { getPortfolioDescription, getPortfolioTitle } from '~/pages/getPortfolioTitle'
@@ -49,6 +50,16 @@ const ToucanToken = lazy(() => import('~/pages/Explore/ToucanToken'))
 const CreateAuction = lazy(() => import('~/pages/Liquidity/CreateAuction/CreateAuction'))
 const Wrapped = lazy(() => import('~/pages/Wrapped'))
 const TradePage = lazy(() => import('~/pages/Trade'))
+
+/**
+ * Wrapper that provides SwapFormStoreContextProvider for routes that use
+ * shared components (CurrencyInputPanel, TokenRate, etc.) which depend on
+ * the swap form store context. Without this, those components throw
+ * "useSwapFormStore must be used within SwapFormStoreContextProvider".
+ */
+function WithSwapFormStore({ children }: PropsWithChildren): JSX.Element {
+  return <SwapFormStoreContextProvider>{children}</SwapFormStoreContextProvider>
+}
 
 interface RouterConfig {
   browserRouterEnabled?: boolean
@@ -229,17 +240,17 @@ export const routes: RouteDefinition[] = [
   }),
   createRouteDefinition({
     path: '/buy',
-    getElement: () => <Swap />,
+    getElement: () => <WithSwapFormStore><Swap /></WithSwapFormStore>,
     getTitle: () => StaticTitlesAndDescriptions.SwapTitle,
   }),
   createRouteDefinition({
     path: '/sell',
-    getElement: () => <Swap />,
+    getElement: () => <WithSwapFormStore><Swap /></WithSwapFormStore>,
     getTitle: () => StaticTitlesAndDescriptions.SwapTitle,
   }),
   createRouteDefinition({
     path: '/send',
-    getElement: () => <Swap />,
+    getElement: () => <WithSwapFormStore><Swap /></WithSwapFormStore>,
     getTitle: () => i18n.t('title.sendTokens'),
   }),
   createRouteDefinition({
@@ -249,23 +260,18 @@ export const routes: RouteDefinition[] = [
   }),
   createRouteDefinition({
     path: '/limit',
-    getElement: () => <Swap />,
+    getElement: () => <WithSwapFormStore><Swap /></WithSwapFormStore>,
     getTitle: () => i18n.t('title.placeLimit'),
   }),
   createRouteDefinition({
-    path: '/buy',
-    getElement: () => <Swap />,
-    getTitle: () => StaticTitlesAndDescriptions.SwapTitle,
-  }),
-  createRouteDefinition({
     path: '/swap',
-    getElement: () => <Swap />,
+    getElement: () => <WithSwapFormStore><Swap /></WithSwapFormStore>,
     getTitle: () => StaticTitlesAndDescriptions.SwapTitle,
   }),
   // Refreshed pool routes
   createRouteDefinition({
     path: '/positions/create',
-    getElement: () => <CreatePosition />,
+    getElement: () => <WithSwapFormStore><CreatePosition /></WithSwapFormStore>,
     getTitle: getPositionPageTitle,
     getDescription: getPositionPageDescription,
     nestedPaths: [':protocolVersion'],
@@ -352,7 +358,7 @@ export const routes: RouteDefinition[] = [
   createRouteDefinition({
     path: '/add/v2',
     nestedPaths: [':currencyIdA', ':currencyIdA/:currencyIdB'],
-    getElement: () => <AddLiquidityV2WithTokenRedirects />,
+    getElement: () => <WithSwapFormStore><AddLiquidityV2WithTokenRedirects /></WithSwapFormStore>,
     getTitle: getAddLiquidityPageTitle,
     getDescription: () => StaticTitlesAndDescriptions.AddLiquidityDescription,
   }),
@@ -364,7 +370,7 @@ export const routes: RouteDefinition[] = [
       ':currencyIdA/:currencyIdB/:feeAmount',
       ':currencyIdA/:currencyIdB/:feeAmount/:tokenId',
     ],
-    getElement: () => <AddLiquidityV3WithTokenRedirects />,
+    getElement: () => <WithSwapFormStore><AddLiquidityV3WithTokenRedirects /></WithSwapFormStore>,
     getTitle: getAddLiquidityPageTitle,
     getDescription: () => StaticTitlesAndDescriptions.AddLiquidityDescription,
   }),

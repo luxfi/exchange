@@ -38,6 +38,10 @@ export enum UniverseChainId {
   LuxDev = 1337, // Dev mode (lux dev start) - single-node K=1 consensus on port 8545
   Zoo = 200200,
   ZooTestnet = 200201,
+  // Lux subnet chains
+  Hanzo = 36963,
+  SPC = 36911,
+  Pars = 494949,
 }
 
 export type UniverseChainIdByPlatform<T extends Platform> = ((typeof UNIVERSE_CHAIN_INFO)[UniverseChainId] & {
