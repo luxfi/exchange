@@ -17,7 +17,7 @@ import { ONE_MINUTE_MS } from 'utilities/src/time/time'
 
 const tokens = buildChainTokens({
   stables: {
-    USDC: buildUSDC('0x57f9E717dc080a6A76fB6F77BecA8C9C1D266B96', UniverseChainId.Hanzo), // LUSDC on Hanzo
+    USDC: buildUSDC('0x51c3408B9A6a0B2446CCB78c72C846CEB76201FA', UniverseChainId.Hanzo), // LUSDC on Hanzo Mainnet
   },
 })
 
@@ -44,8 +44,8 @@ export const HANZO_CHAIN_INFO = {
   label: 'Hanzo',
   logo: LUX_NETWORK_LOGO, // Uses Lux ecosystem logo
   nativeCurrency: {
-    name: 'HANZO',
-    symbol: 'HANZO',
+    name: 'AI',
+    symbol: 'AI',
     decimals: 18,
     address: DEFAULT_NATIVE_ADDRESS_LEGACY,
     explorerLink: 'https://explore-hanzo.lux.network/stats',
@@ -55,16 +55,16 @@ export const HANZO_CHAIN_INFO = {
   pendingTransactionsRetryOptions: undefined,
   rpcUrls: {
     [RPCType.Public]: {
-      http: ['https://api.lux.network/mainnet/ext/bc/2GiQb73CeJESjc4omFv2YtQHZrRgJf25NXPzAr5J6UNHRcDV2F/rpc'],
+      http: ['https://api.lux.network/mainnet/ext/bc/hanzo/rpc'],
     },
     [RPCType.Default]: {
-      http: ['https://api.lux.network/mainnet/ext/bc/2GiQb73CeJESjc4omFv2YtQHZrRgJf25NXPzAr5J6UNHRcDV2F/rpc'],
+      http: ['https://api.lux.network/mainnet/ext/bc/hanzo/rpc'],
     },
     [RPCType.Fallback]: {
-      http: ['https://api.lux.network/mainnet/ext/bc/2GiQb73CeJESjc4omFv2YtQHZrRgJf25NXPzAr5J6UNHRcDV2F/rpc'],
+      http: ['https://api.lux.network/mainnet/ext/bc/hanzo/rpc'],
     },
     [RPCType.Interface]: {
-      http: ['https://api.lux.network/mainnet/ext/bc/2GiQb73CeJESjc4omFv2YtQHZrRgJf25NXPzAr5J6UNHRcDV2F/rpc'],
+      http: ['https://api.lux.network/mainnet/ext/bc/hanzo/rpc'],
     },
   },
   urlParam: 'hanzo',
@@ -73,10 +73,10 @@ export const HANZO_CHAIN_INFO = {
   supportsV4: false,
   supportsNFTs: false,
   wrappedNativeCurrency: {
-    name: 'Wrapped HANZO',
-    symbol: 'WHANZO',
+    name: 'Wrapped AI',
+    symbol: 'WAI',
     decimals: 18,
-    address: '0x3C18bB6B17eb3F0879d4653e0120a531aF4d86E3', // WLUX-equivalent on Hanzo
+    address: '0xc65ea8882020Af7CDa7854d590C6Fcd34BF364ec', // WAI (Wrapped AI) on Hanzo Mainnet
   },
   gasConfig: {
     send: {

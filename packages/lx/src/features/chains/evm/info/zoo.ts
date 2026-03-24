@@ -17,7 +17,7 @@ import { ONE_MINUTE_MS } from 'utilities/src/time/time'
 
 const tokens = buildChainTokens({
   stables: {
-    USDC: buildUSDC('0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48', UniverseChainId.Zoo), // Placeholder - update with actual USDC address on Zoo
+    USDC: buildUSDC('0xb2ee1CE7b84853b83AA08702aD0aD4D79711882D', UniverseChainId.Zoo), // LUSDC on Zoo Mainnet
   },
 })
 
@@ -82,7 +82,7 @@ export const ZOO_CHAIN_INFO = {
     name: 'Wrapped ZOO',
     symbol: 'WZOO',
     decimals: 18,
-    address: '0x0000000000000000000000000000000000000000', // Placeholder - update with actual WZOO address
+    address: '0x5491216406daB99b7032b83765F36790E27F8A61', // WZOO (Wrapped ZOO) on Zoo Mainnet
   },
   gasConfig: {
     send: {

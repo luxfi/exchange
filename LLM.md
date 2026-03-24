@@ -1,6 +1,6 @@
 # AI Assistant Knowledge Base
 
-**Last Updated**: 2025-12-30
+**Last Updated**: 2026-03-24
 **Project**: Lux Exchange Monorepo
 **Organization**: luxfi
 
@@ -86,12 +86,24 @@ pnpm nx run @luxfi/web:dev
 
 ## Supported Chains
 
+### Primary Chains
 | Chain | Chain ID | RPC |
 |-------|----------|-----|
-| Lux Mainnet | 96369 | https://api.lux.network/rpc |
-| Lux Testnet | 96368 | https://api.lux-test.network/rpc |
-| Zoo Mainnet | 200200 | https://api.zoo.network/rpc |
-| Zoo Testnet | 200201 | https://api.zoo-test.network/rpc |
+| Lux Mainnet | 96369 | `https://api.lux.network/mainnet/ext/bc/C/rpc` |
+| Lux Testnet | 96368 | `https://api.lux.network/testnet/ext/bc/C/rpc` |
+| Zoo Mainnet | 200200 | `https://api.zoo.network/rpc` |
+| Zoo Testnet | 200201 | `https://api.zoo-test.network/rpc` |
+
+**CRITICAL**: Do NOT use `https://api.lux.network/rpc` -- it returns 404. Use full path with network prefix.
+
+### Subnet Chains (source of truth: NETWORKS.yaml)
+| Chain | Coin | Chain ID (Mainnet) | Chain ID (Testnet) |
+|-------|------|-------------------|-------------------|
+| Hanzo | AI | 36963 | 36964 |
+| SPC | SPC | 36911 | 36910 |
+| Pars | PARS | 494949 | 7071 |
+
+Note: Hanzo coin is **AI**, not HANZO. These chains are in the chain selector (Vite SPA) and wagmi transports.
 
 ## Contract Addresses
 
@@ -936,6 +948,30 @@ Subnet chains (Hanzo/SPC/Pars) all use `LUSDC`. Keep this in mind when writing t
 - The Next.js `app/` directory has a standalone `SwapWidget` that does NOT use `SwapFormStore` at all
 - `ORDERED_EVM_CHAINS` auto-includes new chains from `ORDERED_CHAINS` (filtered by `Platform.EVM`)
 - wagmi transports are auto-configured from chain info `rpcUrls` via `orderedTransportUrls(chain)`
+
+## White-Label Branding
+
+The exchange supports white-label deployments via `apps/web/config/brand.ts`.
+All branding is driven by `NEXT_PUBLIC_BRAND_*` env vars at build time. Defaults are for Lux Exchange.
+
+### Brand Deployments
+| Domain | Primary Chain | Coin |
+|--------|---------------|------|
+| lux.exchange | Lux C-Chain (96369) | LUX |
+| zoo.exchange | Zoo EVM (200200) | ZOO |
+| pars.market | Pars EVM (494949) | PARS |
+| liquidity.io | Liquid EVM | LQDTY |
+
+### Key Brand Env Vars
+```
+NEXT_PUBLIC_BRAND_NAME        # e.g. "Lux Exchange"
+NEXT_PUBLIC_BRAND_URL         # e.g. "https://lux.exchange"
+NEXT_PUBLIC_NETWORK_NAME      # e.g. "Lux Network"
+NEXT_PUBLIC_COIN_NAME         # e.g. "LUX" (or "AI" for Hanzo, "ZOO" for Zoo)
+NEXT_PUBLIC_LOGO_URL          # e.g. "/tokens/lux.svg"
+NEXT_PUBLIC_PRIMARY_COLOR     # e.g. "#7C3AED"
+NEXT_PUBLIC_API_ENDPOINT      # e.g. "https://api.lux.network"
+```
 
 ## Rules for AI Assistants
 

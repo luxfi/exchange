@@ -17,7 +17,7 @@ import { ONE_MINUTE_MS } from 'utilities/src/time/time'
 
 const tokens = buildChainTokens({
   stables: {
-    USDC: buildUSDC('0x57f9E717dc080a6A76fB6F77BecA8C9C1D266B96', UniverseChainId.SPC), // LUSDC on SPC
+    USDC: buildUSDC('0x0000000000000000000000000000000000000000', UniverseChainId.SPC), // NOT DEPLOYED on SPC mainnet
   },
 })
 
@@ -55,16 +55,16 @@ export const SPC_CHAIN_INFO = {
   pendingTransactionsRetryOptions: undefined,
   rpcUrls: {
     [RPCType.Public]: {
-      http: ['https://api.lux.network/mainnet/ext/bc/rtjwvtE1tEvrokmpeYdTq7b2zqZgmybKwR5MLjKMGAR1W78dQ/rpc'],
+      http: ['https://api.lux.network/mainnet/ext/bc/spc/rpc'],
     },
     [RPCType.Default]: {
-      http: ['https://api.lux.network/mainnet/ext/bc/rtjwvtE1tEvrokmpeYdTq7b2zqZgmybKwR5MLjKMGAR1W78dQ/rpc'],
+      http: ['https://api.lux.network/mainnet/ext/bc/spc/rpc'],
     },
     [RPCType.Fallback]: {
-      http: ['https://api.lux.network/mainnet/ext/bc/rtjwvtE1tEvrokmpeYdTq7b2zqZgmybKwR5MLjKMGAR1W78dQ/rpc'],
+      http: ['https://api.lux.network/mainnet/ext/bc/spc/rpc'],
     },
     [RPCType.Interface]: {
-      http: ['https://api.lux.network/mainnet/ext/bc/rtjwvtE1tEvrokmpeYdTq7b2zqZgmybKwR5MLjKMGAR1W78dQ/rpc'],
+      http: ['https://api.lux.network/mainnet/ext/bc/spc/rpc'],
     },
   },
   urlParam: 'spc',
@@ -76,7 +76,7 @@ export const SPC_CHAIN_INFO = {
     name: 'Wrapped SPC',
     symbol: 'WSPC',
     decimals: 18,
-    address: '0x3C18bB6B17eb3F0879d4653e0120a531aF4d86E3', // WLUX-equivalent on SPC
+    address: '0x0000000000000000000000000000000000000000', // NOT DEPLOYED on SPC mainnet
   },
   gasConfig: {
     send: {

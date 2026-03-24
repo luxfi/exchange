@@ -17,7 +17,7 @@ import { ONE_MINUTE_MS } from 'utilities/src/time/time'
 
 const tokens = buildChainTokens({
   stables: {
-    USDC: buildUSDC('0x57f9E717dc080a6A76fB6F77BecA8C9C1D266B96', UniverseChainId.Pars), // LUSDC on Pars
+    USDC: buildUSDC('0xC5e4A6f54Be469551a342872C1aB83AB46f61b22', UniverseChainId.Pars), // LUSDC on Pars Mainnet
   },
 })
 
@@ -55,16 +55,16 @@ export const PARS_CHAIN_INFO = {
   pendingTransactionsRetryOptions: undefined,
   rpcUrls: {
     [RPCType.Public]: {
-      http: ['https://api.lux.network/mainnet/ext/bc/2pUskxqaL5Bpx7uRUGG1fDjPckjxQ4UKX4sLKeaS1NdSVBJd3F/rpc'],
+      http: ['https://api.lux.network/mainnet/ext/bc/pars/rpc'],
     },
     [RPCType.Default]: {
-      http: ['https://api.lux.network/mainnet/ext/bc/2pUskxqaL5Bpx7uRUGG1fDjPckjxQ4UKX4sLKeaS1NdSVBJd3F/rpc'],
+      http: ['https://api.lux.network/mainnet/ext/bc/pars/rpc'],
     },
     [RPCType.Fallback]: {
-      http: ['https://api.lux.network/mainnet/ext/bc/2pUskxqaL5Bpx7uRUGG1fDjPckjxQ4UKX4sLKeaS1NdSVBJd3F/rpc'],
+      http: ['https://api.lux.network/mainnet/ext/bc/pars/rpc'],
     },
     [RPCType.Interface]: {
-      http: ['https://api.lux.network/mainnet/ext/bc/2pUskxqaL5Bpx7uRUGG1fDjPckjxQ4UKX4sLKeaS1NdSVBJd3F/rpc'],
+      http: ['https://api.lux.network/mainnet/ext/bc/pars/rpc'],
     },
   },
   urlParam: 'pars',
@@ -76,7 +76,7 @@ export const PARS_CHAIN_INFO = {
     name: 'Wrapped PARS',
     symbol: 'WPARS',
     decimals: 18,
-    address: '0x3C18bB6B17eb3F0879d4653e0120a531aF4d86E3', // WLUX-equivalent on Pars
+    address: '0x548F54Dfb32ea6cE4fa3515236696CF3d1b7D26a', // WPARS (Wrapped PARS) on Pars Mainnet
   },
   gasConfig: {
     send: {
