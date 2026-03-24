@@ -93,6 +93,6 @@ export function debounce<T extends (...args: unknown[]) => unknown>(
  * Get the absolute URL for a path
  */
 export function absoluteUrl(path: string): string {
-  const baseUrl = process.env.NEXT_PUBLIC_APP_URL || "https://lux.exchange"
+  const baseUrl = process.env.NEXT_PUBLIC_APP_URL || process.env.NEXT_PUBLIC_BRAND_URL || "https://lux.exchange"
   return `${baseUrl}${path}`
 }

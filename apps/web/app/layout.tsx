@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next"
 import { Inter, IBM_Plex_Mono } from "next/font/google"
 import { Providers } from "@/components/providers/providers"
+import { brand } from "@/config/brand"
 import "./globals.css"
 
 const inter = Inter({
@@ -16,29 +17,29 @@ const ibmPlexMono = IBM_Plex_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Lux Exchange",
-    template: "%s | Lux Exchange",
+    default: brand.title,
+    template: `%s | ${brand.title}`,
   },
-  description: "Trade tokens on the Lux Network",
-  keywords: ["DeFi", "DEX", "Lux", "Swap", "Trading", "Cryptocurrency"],
-  authors: [{ name: "Lux Partners" }],
-  creator: "Lux Partners",
+  description: brand.description,
+  keywords: ["DeFi", "DEX", brand.shortName, "Swap", "Trading", "Cryptocurrency"],
+  authors: [{ name: brand.author }],
+  creator: brand.author,
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://lux.exchange",
-    title: "Lux Exchange",
-    description: "Trade tokens on the Lux Network",
-    siteName: "Lux Exchange",
+    url: brand.url,
+    title: brand.title,
+    description: brand.description,
+    siteName: brand.siteName,
   },
   twitter: {
     card: "summary_large_image",
-    title: "Lux Exchange",
-    description: "Trade tokens on the Lux Network",
-    creator: "@luxnetwork",
+    title: brand.title,
+    description: brand.description,
+    creator: brand.twitterHandle,
   },
   icons: {
-    icon: "/favicon.ico",
+    icon: brand.faviconUrl,
     shortcut: "/favicon-16x16.png",
     apple: "/apple-touch-icon.png",
   },

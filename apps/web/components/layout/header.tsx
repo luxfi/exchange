@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 import { ConnectButton } from "@/components/wallet/connect-button"
 import { ChainSelector } from "@/components/wallet/chain-selector"
+import { brand } from "@/config/brand"
 
 interface HeaderProps {
   className?: string
@@ -40,14 +41,14 @@ export function Header({ className }: HeaderProps) {
         <div className="flex items-center gap-6">
           <Link href="/" className="flex items-center gap-2">
             <Image
-              src="/tokens/lux.svg"
-              alt="Lux"
+              src={brand.logoUrl}
+              alt={brand.shortName}
               width={32}
               height={32}
               className="rounded-full"
               unoptimized
             />
-            <span className="text-xl font-bold">Lux</span>
+            <span className="text-xl font-bold">{brand.shortName}</span>
             <span className="text-sm text-muted-foreground hidden sm:inline">
               Exchange
             </span>

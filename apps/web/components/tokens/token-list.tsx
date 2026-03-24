@@ -10,6 +10,7 @@ import { TokenIcon } from "@/components/ui/token-icon"
 import { formatCurrency, formatPercent, cn } from "@/lib/utils"
 import { type Token, getTokensForChain } from "@/lib/tokens"
 import { luxMainnet, isLuxEcosystem } from "@/lib/chains"
+import { brand } from "@/config/brand"
 
 // Lux Gateway URL for live data
 const LUX_GATEWAY_URL = process.env.NEXT_PUBLIC_LUX_GATEWAY_URL || "http://localhost:8080"
@@ -137,7 +138,7 @@ export function TokenList() {
         <div>
           <h1 className="text-2xl font-bold">Tokens</h1>
           <p className="text-muted-foreground">
-            Explore tokens on Lux Exchange
+            Explore tokens on {brand.name}
           </p>
         </div>
         <Button

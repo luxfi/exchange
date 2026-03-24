@@ -1,10 +1,11 @@
 import { Metadata } from "next"
 import { SwapWidget } from "@/components/swap/swap-widget"
 import { Header } from "@/components/layout/header"
+import { brand } from "@/config/brand"
 
 export const metadata: Metadata = {
   title: "Swap",
-  description: "Swap tokens instantly on Lux Exchange",
+  description: `Swap tokens instantly on ${brand.name}`,
 }
 
 export default function SwapPage() {
