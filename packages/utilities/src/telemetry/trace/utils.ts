@@ -27,7 +27,7 @@ export function getEventHandlers({
   for (const event of triggers) {
     eventHandlers[event] = (eventHandlerArgs: unknown): void => {
       // Some interface elements don't have handlers defined.
-      // TODO(WEB-4252): Potentially can remove isWebApp check once web is fully converted to tamagui
+      // TODO(WEB-4252): Potentially can remove isWebApp check once web is fully converted to gui
       if (!child.props[event] && !isWebApp) {
         logger.info('trace/utils.ts', 'getEventHandlers', 'Found a null handler while logging an event', {
           eventName,

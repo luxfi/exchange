@@ -14,8 +14,8 @@ import {
 import { ParsedQs } from 'qs'
 import { PropsWithChildren } from 'react'
 import { Provider as ReduxProvider } from 'react-redux'
-import { TamaguiProvider as OGTamaguiProvider, TamaguiProviderProps } from 'ui/src'
-import { config } from 'ui/src/tamagui.config'
+import { GuiProvider as OGGuiProvider, GuiProviderProps } from 'ui/src'
+import { config } from 'ui/src/gui.config'
 import { LuxProvider } from 'lx/src/contexts/LuxContext'
 import { UrlContext } from 'lx/src/contexts/UrlContext'
 import { SharedPersistQueryClientProvider } from 'lx/src/data/apiClients/SharedPersistQueryClientProvider'
@@ -174,14 +174,14 @@ export function renderHookWithProviders<P extends any[], R>(
   }
 }
 
-function SharedLuxProvider({ children }: Pick<TamaguiProviderProps, 'children'>): JSX.Element {
+function SharedLuxProvider({ children }: Pick<GuiProviderProps, 'children'>): JSX.Element {
   return (
     <LuxProvider {...mockLuxContext}>
       <UrlContext.Provider value={{ useParsedQueryString: () => ({}) as ParsedQs, usePathname: () => '' }}>
         <SharedPersistQueryClientProvider>
-          <OGTamaguiProvider config={config} defaultTheme="dark">
+          <OGGuiProvider config={config} defaultTheme="dark">
             {children}
-          </OGTamaguiProvider>
+          </OGGuiProvider>
         </SharedPersistQueryClientProvider>
       </UrlContext.Provider>
     </LuxProvider>

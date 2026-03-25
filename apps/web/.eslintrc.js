@@ -24,7 +24,7 @@ module.exports = {
   overrides: [
     {
       // Portfolio pages must not use useAccount directly. Use usePortfolioAddress (or a domain-specific hook) instead.
-      // NOTE: This override also includes the Tamagui Tooltip restriction from the **/*.ts, **/*.tsx override below,
+      // NOTE: This override also includes the Gui Tooltip restriction from the **/*.ts, **/*.tsx override below,
       // because ESLint doesn't merge no-restricted-imports rules from multiple matching overrides - the later one
       // takes precedence. Without duplicating the Tooltip restriction here, it would silently disable the useAccount restriction.
       files: ['src/pages/Portfolio/*.{ts,tsx}', 'src/pages/Portfolio/**/*.{ts,tsx}'],
@@ -39,10 +39,10 @@ module.exports = {
                   "Do not import 'useAccount' in portfolio pages. Use 'pages/Portfolio/hooks/usePortfolioAddress' (or a domain-specific hook) instead.",
               },
               {
-                name: 'tamagui',
+                name: 'gui',
                 importNames: ['Tooltip'],
                 message:
-                  "Do not import 'Tooltip' directly from 'tamagui'. Use the Tooltip component from 'ui/src/components/tooltip' instead.",
+                  "Do not import 'Tooltip' directly from '@hanzo/gui'. Use the Tooltip component from 'ui/src/components/tooltip' instead.",
               },
             ],
           },
@@ -117,15 +117,15 @@ module.exports = {
           {
             paths: [
               {
-                name: 'tamagui',
+                name: 'gui',
                 importNames: ['Tooltip'],
                 message:
-                  "Do not import 'Tooltip' directly from 'tamagui'. Use the Tooltip component from 'ui/src/components/tooltip' instead.",
+                  "Do not import 'Tooltip' directly from '@hanzo/gui'. Use the Tooltip component from 'ui/src/components/tooltip' instead.",
               },
               {
                 name: 'react-native-reanimated',
                 message:
-                  "Do not import 'react-native-reanimated' in web code. Use CSS animations, Tamagui's animation system, or create a platform-specific file (.native.ts/.web.ts).",
+                  "Do not import 'react-native-reanimated' in web code. Use CSS animations, Gui's animation system, or create a platform-specific file (.native.ts/.web.ts).",
               },
             ],
           },

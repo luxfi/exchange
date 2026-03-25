@@ -8,7 +8,7 @@ import { CurrencyInfo } from 'lx/src/features/dataApi/types'
 import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
 import { NumberType } from 'utilities/src/format/types'
 import { getTokenDetailsURL } from '~/appGraphql/data/util'
-import { ClickableTamaguiStyle } from '~/theme/components/styles'
+import { ClickableGuiStyle } from '~/theme/components/styles'
 import { getChainUrlParam } from '~/utils/chainParams'
 
 type AmountRow = {
@@ -40,7 +40,7 @@ export function LiquidityPositionAmountRows({ rows }: LiquidityPositionAmountRow
     <Flex gap="$gap16">
       {rows.map((row) => (
         <Flex row alignItems="center" justifyContent="space-between" key={row.currencyInfo.currencyId}>
-          <TouchableArea onPress={() => navigate(getLink(row.currencyInfo))} {...ClickableTamaguiStyle}>
+          <TouchableArea onPress={() => navigate(getLink(row.currencyInfo))} {...ClickableGuiStyle}>
             <Flex row alignItems="center" gap="$gap12" maxWidth={160}>
               <CurrencyLogo currencyInfo={row.currencyInfo} size={24} />
               <Text variant="subheading1" color="neutral1" $lg={{ variant: 'subheading2' }}>

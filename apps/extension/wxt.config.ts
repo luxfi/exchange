@@ -313,10 +313,10 @@ export default defineConfig({
           // ignores tsconfig files in Nx generator template directories
           skip: (dir) => dir.includes('files'),
         }),
-        // TODO(INFRA-299): enable tamagui in production once building works
+        // TODO(INFRA-299): enable gui in production once building works
         // !isPreparePhase && isProduction
-        //   ? tamaguiPlugin({
-        //       config: '../../packages/ui/src/tamagui.config.ts',
+        //   ? guiPlugin({
+        //       config: '../../packages/ui/src/gui.config.ts',
         //       components: ['ui', 'lx', 'utilities'],
         //       optimize: true,
         //       importsWhitelist: ['constants.js'],
@@ -383,8 +383,8 @@ export default defineConfig({
           'expo-blur',
           'expo-modules-core',
           'react-native-web',
-          'tamagui',
-          '@tamagui/web',
+          'gui',
+          '@hanzogui/web',
           'ui',
           '@uniswap/sdk-core',
           '@uniswap/v2-sdk',

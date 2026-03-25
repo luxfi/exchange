@@ -19,7 +19,7 @@ import { ExternalWalletProvider } from '~/features/wallet/providers/ExternalWall
 import { BlockNumberContext } from '~/lib/hooks/useBlockNumber'
 import store from '~/state'
 import { ThemeProvider } from '~/theme'
-import { TamaguiProvider } from '~/theme/tamaguiProvider'
+import { GuiProvider } from '~/theme/guiProvider'
 
 const queryClient = new QueryClient()
 
@@ -52,10 +52,10 @@ function CommonTestProviders({ children }: PropsWithChildren) {
           <ReactRouterUrlProvider>
             <MockedBlockNumberProvider>
               <ThemeProvider>
-                <TamaguiProvider>
+                <GuiProvider>
                   <WebAccountsStoreUpdater />
                   <MockedMismatchProvider>{children}</MockedMismatchProvider>
-                </TamaguiProvider>
+                </GuiProvider>
               </ThemeProvider>
             </MockedBlockNumberProvider>
           </ReactRouterUrlProvider>

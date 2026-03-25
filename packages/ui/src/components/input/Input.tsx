@@ -1,9 +1,9 @@
 /**
- * Re-exports Tamagui's Input component with proper typing
+ * Re-exports Gui's Input component with proper typing
  */
 import { type ComponentRef } from 'react'
-import { Input as TamaguiInput, type InputProps as TamaguiInputProps } from 'tamagui'
+import { Input as GuiInput, type InputProps as GuiInputProps } from '@hanzo/gui'
 
-export const Input = TamaguiInput
-export type InputProps = TamaguiInputProps
-export type InputRef = ComponentRef<typeof TamaguiInput>
+export const Input = GuiInput
+export type InputProps = GuiInputProps
+export type InputRef = ComponentRef<typeof GuiInput>

@@ -1,5 +1,5 @@
-import type { GetProps } from 'tamagui'
-import { Switch as TSwitch } from 'tamagui'
+import type { GetProps } from '@hanzo/gui'
+import { Switch as TSwitch } from '@hanzo/gui'
 
 export type SwitchProps = GetProps<typeof TSwitch> & {
   switchSize?: 'sm' | 'md' | 'lg'

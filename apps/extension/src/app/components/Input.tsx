@@ -1,5 +1,5 @@
 import { forwardRef } from 'react'
-import { Input as TamaguiInput, InputProps as TamaguiInputProps } from 'ui/src'
+import { Input as GuiInput, InputProps as GuiInputProps } from 'ui/src'
 import { inputStyles } from 'ui/src/components/input/utils'
 import { fonts } from 'ui/src/theme/fonts'
 
@@ -7,16 +7,16 @@ export type InputProps = {
   large?: boolean
   hideInput?: boolean
   centered?: boolean
-} & TamaguiInputProps
+} & GuiInputProps
 
-export type Input = TamaguiInput
+export type Input = GuiInput
 
 export const Input = forwardRef<Input, InputProps>(function _Input(
   { large = false, hideInput = false, centered = false, ...rest }: InputProps,
   ref,
 ): JSX.Element {
   return (
-    <TamaguiInput
+    <GuiInput
       ref={ref}
       backgroundColor={large ? '$surface1' : '$surface2'}
       borderColor="$surface3"

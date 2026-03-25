@@ -21,7 +21,7 @@ import { Dropdown, InternalMenuItem } from '~/components/Dropdowns/Dropdown'
 import { ChainLogo } from '~/components/Logo/ChainLogo'
 import { useFilteredChainIds } from '~/components/NetworkFilter/useFilteredChains'
 import { ExploreTab } from '~/pages/Explore/constants'
-import { EllipsisTamaguiStyle } from '~/theme/components/styles'
+import { EllipsisGuiStyle } from '~/theme/components/styles'
 
 const NetworkLabel = styled(Flex, {
   flexDirection: 'row',
@@ -242,7 +242,7 @@ const TableNetworkItem = memo(function TableNetworkItem({
           )}
           <ElementAfterText
             text={isAllNetworks ? t('transaction.network.all') : chainInfo.label}
-            textProps={{ variant: 'body2', ...EllipsisTamaguiStyle }}
+            textProps={{ variant: 'body2', ...EllipsisGuiStyle }}
             element={isNew && !unsupported ? <NewTag /> : undefined}
           />
         </NetworkLabel>

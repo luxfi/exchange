@@ -1,5 +1,5 @@
 import { forwardRef } from 'react'
-import { type TamaguiElement, withStaticProperties } from 'tamagui'
+import { type GuiElement, withStaticProperties } from '@hanzo/gui'
 import { useLayoutAnimationOnChange } from 'ui/src/animations'
 import { CustomButtonFrame } from 'ui/src/components/buttons/Button/components/CustomButtonFrame/CustomButtonFrame'
 import { CustomButtonText } from 'ui/src/components/buttons/Button/components/CustomButtonText/CustomButtonText'
@@ -10,7 +10,7 @@ import type { ButtonProps } from 'ui/src/components/buttons/Button/types'
 import { getIconPosition } from 'ui/src/components/buttons/Button/utils/getIconPosition'
 import { getIsButtonDisabled } from 'ui/src/components/buttons/Button/utils/getIsButtonDisabled'
 
-const ButtonComponent = forwardRef<TamaguiElement, ButtonProps>(function Button(
+const ButtonComponent = forwardRef<GuiElement, ButtonProps>(function Button(
   {
     children,
     icon,

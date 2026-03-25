@@ -36,7 +36,7 @@ import { StyledPercentInput } from '~/components/PercentInput'
 import { useCreateLiquidityContext } from '~/pages/CreatePosition/CreateLiquidityContextProvider'
 import { NumericalInputMimic, NumericalInputSymbolContainer } from '~/pages/Swap/common/shared'
 import { useMultichainContext } from '~/state/multichain/useMultichainContext'
-import { ClickableTamaguiStyle } from '~/theme/components/styles'
+import { ClickableGuiStyle } from '~/theme/components/styles'
 
 const FeeTierPercentInput = styled(StyledPercentInput)`
   flex-grow: 0;
@@ -170,7 +170,7 @@ export function FeeTierSearchModal() {
       <Flex width="100%" gap="$gap20">
         <Flex row justifyContent="space-between" alignItems="center" gap="$spacing4" width="100%">
           {createModeEnabled && (
-            <Flex {...ClickableTamaguiStyle} onPress={() => setCreateModeEnabled(false)}>
+            <Flex {...ClickableGuiStyle} onPress={() => setCreateModeEnabled(false)}>
               <BackArrow size="$icon.24" color="$neutral2" />
             </Flex>
           )}
@@ -217,7 +217,7 @@ export function FeeTierSearchModal() {
                     return newValue.toFixed(MAX_FEE_TIER_DECIMALS)
                   })
                 }}
-                {...ClickableTamaguiStyle}
+                {...ClickableGuiStyle}
               >
                 <Text variant="heading3" mb="$spacing4">
                   -
@@ -266,7 +266,7 @@ export function FeeTierSearchModal() {
                     return validateFeeTier(newValue.toFixed(MAX_FEE_TIER_DECIMALS))
                   })
                 }}
-                {...ClickableTamaguiStyle}
+                {...ClickableGuiStyle}
               >
                 <Text variant="heading3">+</Text>
               </Flex>
@@ -369,7 +369,7 @@ export function FeeTierSearchModal() {
                     key={pool.id + pool.formattedFee}
                     py="$padding12"
                     justifyContent="space-between"
-                    {...ClickableTamaguiStyle}
+                    {...ClickableGuiStyle}
                     onPress={() => {
                       if (isDynamicFeeTier(pool.fee)) {
                         setDynamicFeeTierSpeedbumpData({

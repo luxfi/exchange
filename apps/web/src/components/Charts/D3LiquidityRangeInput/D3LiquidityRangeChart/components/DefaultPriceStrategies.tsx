@@ -10,7 +10,7 @@ import { useLiquidityChartStoreActions } from '~/components/Charts/D3LiquidityRa
 import { POPUP_MEDIUM_DISMISS_MS } from '~/components/Popups/constants'
 import { popupRegistry } from '~/components/Popups/registry'
 import { PopupType } from '~/components/Popups/types'
-import { ClickableTamaguiStyle } from '~/theme/components/styles'
+import { ClickableGuiStyle } from '~/theme/components/styles'
 
 const Container = styled(Flex, {
   flex: 1,
@@ -25,7 +25,7 @@ const Container = styled(Flex, {
     p: '$spacing8',
     gap: '$spacing4',
   },
-  ...ClickableTamaguiStyle,
+  ...ClickableGuiStyle,
 })
 
 type PriceStrategy = {

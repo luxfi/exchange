@@ -93,7 +93,7 @@ vi.mock('ui/src/hooks/useDeviceInsets', () => ({
   }),
 }))
 
-// Mock moti (used by tamagui animations)
+// Mock moti (used by gui animations)
 vi.mock('moti', () => ({
   View: React.forwardRef((props: any, ref) => React.createElement('div', { ...props, ref })),
   Text: React.forwardRef((props: any, ref) => React.createElement('span', { ...props, ref })),
@@ -107,8 +107,8 @@ vi.mock('moti', () => ({
 // Mock moti/author specifically to fix ES module import issue
 vi.mock('moti/author', () => ({}))
 
-// Mock @tamagui/animations-moti
-vi.mock('@tamagui/animations-moti', () => ({
+// Mock @hanzogui/animations-moti
+vi.mock('@hanzogui/animations-moti', () => ({
   createAnimations: vi.fn(() => ({})),
 }))
 

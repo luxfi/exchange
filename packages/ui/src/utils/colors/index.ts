@@ -151,7 +151,7 @@ enum LOGOLESS_COLORS {
   PURPLE = 'PURPLE',
 }
 
-type TamaguiColor =
+type GuiColor =
   | ColorTokens
   | 'transparent'
   | `rgba(${string})`
@@ -161,8 +161,8 @@ type TamaguiColor =
   | `#${string}`
 
 type ColorScheme = {
-  light: { foreground: TamaguiColor; background: TamaguiColor }
-  dark: { foreground: TamaguiColor; background: TamaguiColor }
+  light: { foreground: GuiColor; background: GuiColor }
+  dark: { foreground: GuiColor; background: GuiColor }
 }
 
 type LogolessColorSchemes = {
@@ -233,8 +233,8 @@ function useLogolessColorScheme(tokenName: string): ColorScheme {
  * @returns the foreground and background colors for the color scheme
  */
 export function useColorSchemeFromSeed(seed: string): {
-  foreground: TamaguiColor
-  background: TamaguiColor
+  foreground: GuiColor
+  background: GuiColor
 } {
   const isDarkMode = useIsDarkMode()
   const logolessColorScheme = useLogolessColorScheme(seed)

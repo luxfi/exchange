@@ -104,7 +104,7 @@ function SwapReviewContent(): JSX.Element | null {
   }
 
   if (isSwapMissingParams) {
-    // This should never happen, but sometimes it does because tamagui renders the mobile web drawer when isModalOpen is false.
+    // This should never happen, but sometimes it does because gui renders the mobile web drawer when isModalOpen is false.
     logger.error('Missing required props in `derivedSwapInfo` to render `SwapReview` screen.', {
       tags: {
         file: 'SwapReviewScreen',

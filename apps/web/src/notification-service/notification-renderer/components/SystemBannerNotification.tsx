@@ -9,11 +9,11 @@ import { iconSizes, zIndexes } from 'ui/src/theme'
 import { useShadowPropsShort } from 'ui/src/theme/shadows'
 import { getCustomIconComponent } from 'lx/src/components/notifications/iconUtils'
 import { ExternalLink } from '~/theme/components/Links'
-import { ClickableTamaguiStyle } from '~/theme/components/styles'
+import { ClickableGuiStyle } from '~/theme/components/styles'
 
 // Close button container - Flex handles onPress→onClick on web, unlike raw SVG icons
 const CloseButtonContainer = styled(Flex, {
-  ...ClickableTamaguiStyle,
+  ...ClickableGuiStyle,
   centered: true,
   p: '$spacing4',
   right: 6,
@@ -52,7 +52,7 @@ interface SystemBannerNotificationProps {
  * - Outage banners
  * - Limited data warnings
  *
- * Styling matches the existing OutageBanner design with Tamagui.
+ * Styling matches the existing OutageBanner design with Gui.
  */
 export const SystemBannerNotification = memo(function SystemBannerNotification({
   notification,

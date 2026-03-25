@@ -183,9 +183,9 @@ const config: StorybookConfig = {
               name: 'vendors',
               priority: 10,
             },
-            tamagui: {
-              test: /[\\/]node_modules[\\/]tamagui[\\/]/,
-              name: 'tamagui',
+            gui: {
+              test: /[\\/]node_modules[\\/]gui[\\/]/,
+              name: 'gui',
               priority: 20,
             },
             reactNative: {
@@ -211,9 +211,9 @@ const config: StorybookConfig = {
               name: 'vendors',
               priority: 10,
             },
-            tamagui: {
-              test: /[\\/]node_modules[\\/]tamagui[\\/]/,
-              name: 'tamagui',
+            gui: {
+              test: /[\\/]node_modules[\\/]gui[\\/]/,
+              name: 'gui',
               priority: 20,
             },
             reactNative: {

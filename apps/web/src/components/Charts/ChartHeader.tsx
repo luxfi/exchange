@@ -8,7 +8,7 @@ import { FiatNumberType, NumberType } from 'utilities/src/format/types'
 import { getProtocolColor, getProtocolName } from '~/appGraphql/data/util'
 import { useHeaderDateFormatter } from '~/components/Charts/hooks/useHeaderDateFormatter'
 import { PROTOCOL_LEGEND_ELEMENT_ID } from '~/components/Charts/types'
-import { EllipsisTamaguiStyle } from '~/theme/components/styles'
+import { EllipsisGuiStyle } from '~/theme/components/styles'
 
 type ChartHeaderProtocolInfo = { protocol: GraphQLApi.PriceSource; value?: number }
 
@@ -52,7 +52,7 @@ function ProtocolLegend({ protocolData }: { protocolData?: ChartHeaderProtocolIn
                 </Text>
 
                 <Flex borderRadius="$rounded4" width={12} height={12} backgroundColor={getProtocolColor(protocol)} />
-                <Text variant="body4" textAlign="right" lineHeight={12} {...EllipsisTamaguiStyle}>
+                <Text variant="body4" textAlign="right" lineHeight={12} {...EllipsisGuiStyle}>
                   {display}
                 </Text>
               </Flex>
@@ -79,7 +79,7 @@ function HeaderValueDisplay({ value, valueFormatterType = NumberType.FiatTokenSt
   }
 
   return (
-    <Text variant="heading2" {...EllipsisTamaguiStyle}>
+    <Text variant="heading2" {...EllipsisGuiStyle}>
       {convertFiatAmountFormatted(value, valueFormatterType)}
     </Text>
   )
@@ -137,7 +137,7 @@ export function ChartHeader({
       <Flex position="absolute" gap="$gap4" pb="$padding8" pr="$padding8" pointerEvents="none">
         <ChartBackgroundGradient />
         <HeaderValueDisplay value={value} valueFormatterType={valueFormatterType} />
-        <Flex row gap="$gap8" $sm={{ flexDirection: 'column' }} {...EllipsisTamaguiStyle}>
+        <Flex row gap="$gap8" $sm={{ flexDirection: 'column' }} {...EllipsisGuiStyle}>
           {additionalFields}
           <HeaderTimeDisplay time={time} timePlaceholder={timePlaceholder} />
         </Flex>

@@ -70,7 +70,7 @@ import { onHashcashSolveCompleted, onTurnstileSolveCompleted, sessionInitAnalyti
 import store from '~/state'
 import { LivePricesProvider } from '~/state/livePrices/LivePricesProvider'
 import { ThemedGlobalStyle, ThemeProvider } from '~/theme'
-import { TamaguiProvider } from '~/theme/tamaguiProvider'
+import { GuiProvider } from '~/theme/guiProvider'
 import { isBrowserRouterEnabled } from '~/utils/env'
 import { unregister as unregisterServiceWorker } from '~/utils/serviceWorker'
 import { getCanonicalUrl } from '~/utils/urlRoutes'
@@ -268,13 +268,13 @@ const RootApp = (): JSX.Element => {
                                           <BlockNumberProvider>
                                             <Updaters />
                                             <ThemeProvider>
-                                              <TamaguiProvider>
+                                              <GuiProvider>
                                                 <PortalProvider>
                                                   <WebNotificationServiceManager />
                                                   <ThemedGlobalStyle />
                                                   <App />
                                                 </PortalProvider>
-                                              </TamaguiProvider>
+                                              </GuiProvider>
                                             </ThemeProvider>
                                           </BlockNumberProvider>
                                         </LocalizationContextProvider>

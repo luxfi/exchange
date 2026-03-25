@@ -26,7 +26,7 @@ import { EmptyWalletCards } from '~/components/emptyWallet/EmptyWalletCards'
 import { PageType, useIsPage } from '~/hooks/useIsPage'
 import { useMultichainContext } from '~/state/multichain/useMultichainContext'
 import { ExternalLink } from '~/theme/components/Links'
-import { ClickableTamaguiStyle } from '~/theme/components/styles'
+import { ClickableGuiStyle } from '~/theme/components/styles'
 
 export function SwapBottomCard() {
   const { chainId: oldFlowChainId } = useMultichainContext()
@@ -89,7 +89,7 @@ export function ImagePromoBanner({
   onPress: () => void
 }): JSX.Element {
   return (
-    <TouchableArea {...ClickableTamaguiStyle} onPress={onPress}>
+    <TouchableArea {...ClickableGuiStyle} onPress={onPress}>
       <CardInner
         isAbsoluteImage
         image={

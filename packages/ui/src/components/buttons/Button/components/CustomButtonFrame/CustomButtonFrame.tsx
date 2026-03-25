@@ -1,4 +1,4 @@
-import { type GetProps, styled, XStack } from 'tamagui'
+import { type GetProps, styled, XStack } from '@hanzo/gui'
 import { FOCUS_SCALE } from 'ui/src/components/buttons/Button/components/CustomButtonFrame/constants'
 import { withCommonPressStyle } from 'ui/src/components/buttons/Button/components/CustomButtonFrame/utils'
 import { variantEmphasisHash } from 'ui/src/components/buttons/Button/components/CustomButtonFrame/variantEmphasisHash'
@@ -31,7 +31,7 @@ const CustomButtonFrameWithoutCustomProps = styled(XStack, {
   },
   cursor: 'pointer',
   height: 'auto',
-  // `variants` is a Tamagui term that allows us to define variants for the component
+  // `variants` is a Gui term that allows us to define variants for the component
   variants: {
     // By default, the button scales up and down in both directions, slightly more in the Y direction
     // The best strategy will depend on the Button' parent's styling
@@ -68,7 +68,7 @@ const CustomButtonFrameWithoutCustomProps = styled(XStack, {
 
     // `variant` refers to ButtonVariantProps['variant']
     variant: {
-      // See tamagui docs on string, boolean, and number variants
+      // See gui docs on string, boolean, and number variants
       // https://arc.net/l/quote/lpoqmiea
 
       ':string': (untypedVariant, { props }) => {

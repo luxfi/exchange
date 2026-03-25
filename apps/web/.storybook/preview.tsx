@@ -2,7 +2,7 @@ import type { Preview } from '@storybook/react'
 import { Provider } from 'react-redux'
 import { ReactRouterUrlProvider } from 'lx/src/contexts/UrlContext'
 import store from '~/state'
-import { TamaguiProvider } from '../src/theme/tamaguiProvider'
+import { GuiProvider } from '../src/theme/guiProvider'
 
 import '@reach/dialog/styles.css'
 import { MemoryRouter } from 'react-router'
@@ -15,10 +15,10 @@ const preview: Preview = {
       <MemoryRouter>
         <ReactRouterUrlProvider>
           <Provider store={store}>
-            <TamaguiProvider>
+            <GuiProvider>
               {/* 👇 Decorators in Storybook also accept a function. Replace <Story/> with Story() to enable it  */}
               <Story />
-            </TamaguiProvider>
+            </GuiProvider>
           </Provider>
         </ReactRouterUrlProvider>
       </MemoryRouter>

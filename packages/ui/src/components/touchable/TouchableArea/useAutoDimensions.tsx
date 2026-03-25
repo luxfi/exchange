@@ -1,6 +1,6 @@
 import { useCallback, useState } from 'react'
 import type { LayoutChangeEvent } from 'react-native'
-import type { YStackProps } from 'tamagui'
+import type { YStackProps } from '@hanzo/gui'
 import { isMobileApp } from 'utilities/src/platform'
 
 type PossiblyNumber = PossiblyUndefined<number>

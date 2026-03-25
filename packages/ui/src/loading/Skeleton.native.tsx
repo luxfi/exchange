@@ -8,7 +8,7 @@ import Reanimated, {
   withRepeat,
   withTiming,
 } from 'react-native-reanimated'
-import { LinearGradient } from 'tamagui/linear-gradient'
+import { LinearGradient } from 'gui/linear-gradient'
 import { Flex } from 'ui/src/components/layout/Flex'
 import type { SkeletonProps } from 'ui/src/loading/SkeletonProps'
 

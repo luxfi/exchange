@@ -2,7 +2,7 @@ import type { ForwardedRef } from 'react'
 import { forwardRef, memo, useMemo, useRef } from 'react'
 import type { GestureResponderEvent } from 'react-native'
 import { Linking } from 'react-native'
-import { type ColorTokens, styled, type TamaguiElement } from 'tamagui'
+import { type ColorTokens, styled, type GuiElement } from '@hanzo/gui'
 import { Text, type TextProps } from 'ui/src/components/text'
 import { TouchableAreaFrame } from 'ui/src/components/touchable/TouchableArea/TouchableAreaFrame'
 import type { TouchableAreaProps } from 'ui/src/components/touchable/TouchableArea/types'
@@ -53,7 +53,7 @@ const TouchableTextLinkFrame = styled(TouchableAreaFrame, {
 
 TouchableTextLinkFrame.displayName = 'TouchableTextLinkFrame'
 
-const TouchableTextLink_ = forwardRef<TamaguiElement, TouchableTextLinkProps>(function TouchableTextLink(
+const TouchableTextLink_ = forwardRef<GuiElement, TouchableTextLinkProps>(function TouchableTextLink(
   {
     children,
     variant = 'buttonLabel1',
@@ -70,7 +70,7 @@ const TouchableTextLink_ = forwardRef<TamaguiElement, TouchableTextLinkProps>(fu
   },
   ref
 ) {
-  const textRef = useRef<TamaguiElement>(undefined) as unknown as ForwardedRef<TamaguiElement>
+  const textRef = useRef<GuiElement>(undefined) as unknown as ForwardedRef<GuiElement>
 
   const hoveredColor = getMaybeHoverColor(color)
 
@@ -198,7 +198,7 @@ const TouchableTextLink_ = forwardRef<TamaguiElement, TouchableTextLinkProps>(fu
  * @param {boolean} [onlyUseText=false] - If true, the component will only use the text and not the TouchableAreaFrame. This is useful for when you want to render `TouchableTextLink` as a child of a `Text` component for inline links.
  * @param {string} [link] - The URL to navigate to when the text is pressed. On Web, it will render as an anchor (`<a>`) tag. On Native, it will open the link in the device's default browser.
  * @param {TouchableTextLinkProps} props - Additional props passed down to the underlying `TouchableTextLinkFrame`.
- * @param {React.Ref<TamaguiElement>} ref - Forwarded ref to the underlying `TouchableTextLinkFrame` element.
+ * @param {React.Ref<GuiElement>} ref - Forwarded ref to the underlying `TouchableTextLinkFrame` element.
  * @returns {JSX.Element} The rendered TouchableTextLink component.
  * @see Text for text styling options.
  * @see TouchableAreaFrame for the underlying touchable wrapper.

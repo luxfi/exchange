@@ -1,6 +1,6 @@
-// until the web app needs all of tamagui, avoid heavy imports there
-// biome-ignore lint/style/noRestrictedImports: until the web app needs all of tamagui, avoid heavy imports there
-import { type ColorTokens, createTokens } from '@tamagui/core'
+// until the web app needs all of gui, avoid heavy imports there
+// biome-ignore lint/style/noRestrictedImports: until the web app needs all of gui, avoid heavy imports there
+import { type ColorTokens, createTokens } from '@hanzogui/core'
 import type { DynamicColor } from 'ui/src/hooks/useSporeColors'
 import { borderRadii } from 'ui/src/theme/borderRadii'
 import { colors as color } from 'ui/src/theme/color/colors'
@@ -78,8 +78,8 @@ export const tokens = createTokens({
 })
 
 /**
- * We have enabled allowedStyleValues: 'somewhat-strict-web' on createTamagui
- * which means our Tamagui components only accept valid tokens.
+ * We have enabled allowedStyleValues: 'somewhat-strict-web' on createGui
+ * which means our Gui components only accept valid tokens.
  *
  * But, sometimes we want to accept one-off values that aren't in the design system
  * especially as we migrate over.
@@ -89,7 +89,7 @@ export const tokens = createTokens({
  */
 
 // it would be a bit nicer if this was cast to Token
-// but we'd need another new Tamagui release to support that (coming soon)
+// but we'd need another new Gui release to support that (coming soon)
 
 type ColorValue = DynamicColor | string | undefined | null
 

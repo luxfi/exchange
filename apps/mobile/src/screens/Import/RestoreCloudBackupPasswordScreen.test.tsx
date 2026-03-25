@@ -5,7 +5,7 @@ import { OnboardingStackParamList } from 'src/app/navigation/types'
 import { RestoreCloudBackupPasswordScreen } from 'src/screens/Import/RestoreCloudBackupPasswordScreen'
 import { render } from 'src/test/test-utils'
 import { OnboardingScreens } from 'lx/src/types/screens/mobile'
-import { TamaguiProvider } from 'wallet/src/providers/tamagui-provider'
+import { GuiProvider } from 'wallet/src/providers/gui-provider'
 
 const setOptionsSpy = jest.fn()
 const routeProp = { params: {} } as RouteProp<OnboardingStackParamList, OnboardingScreens.RestoreCloudBackupPassword>
@@ -13,7 +13,7 @@ const routeProp = { params: {} } as RouteProp<OnboardingStackParamList, Onboardi
 describe(RestoreCloudBackupPasswordScreen, () => {
   it('renders correctly', () => {
     const tree = render(
-      <TamaguiProvider>
+      <GuiProvider>
         <RestoreCloudBackupPasswordScreen
           navigation={
             {
@@ -29,7 +29,7 @@ describe(RestoreCloudBackupPasswordScreen, () => {
           }
           route={routeProp}
         />
-      </TamaguiProvider>,
+      </GuiProvider>,
     ).toJSON()
 
     expect(tree).toMatchSnapshot()

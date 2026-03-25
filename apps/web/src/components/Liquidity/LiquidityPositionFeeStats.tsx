@@ -13,7 +13,7 @@ import LPIncentiveFeeStatTooltip from '~/components/Liquidity/LPIncentives/LPInc
 import { LPIncentiveRewardsBadge } from '~/components/Liquidity/LPIncentives/LPIncentiveRewardsBadge'
 import { PriceOrdering } from '~/components/Liquidity/types'
 import { MouseoverTooltip, TooltipSize } from '~/components/Tooltip'
-import { ClickableTamaguiStyle } from '~/theme/components/styles'
+import { ClickableGuiStyle } from '~/theme/components/styles'
 
 interface LiquidityPositionFeeStatsProps extends LiquidityPositionMinMaxRangeProps {
   version: ProtocolVersion
@@ -247,7 +247,7 @@ export function MinMaxRange({
                 e.stopPropagation()
                 setPricesInverted((prevInverted) => !prevInverted)
               }}
-              {...ClickableTamaguiStyle}
+              {...ClickableGuiStyle}
               display="none"
               $group-item-hover={{ display: 'flex' }}
             >

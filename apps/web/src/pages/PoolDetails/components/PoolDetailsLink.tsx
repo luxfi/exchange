@@ -21,13 +21,13 @@ import { MouseoverTooltip, TooltipSize } from '~/components/Tooltip'
 import { NATIVE_CHAIN_ID } from '~/constants/tokens'
 import useCopyClipboard from '~/hooks/useCopyClipboard'
 import { ExternalLink } from '~/theme/components/Links'
-import { ClickableTamaguiStyle, EllipsisTamaguiStyle } from '~/theme/components/styles'
+import { ClickableGuiStyle, EllipsisGuiStyle } from '~/theme/components/styles'
 import { getChainUrlParam } from '~/utils/chainParams'
 
 const TokenName = styled(Text, {
   display: 'none',
   minWidth: 0,
-  ...EllipsisTamaguiStyle,
+  ...EllipsisGuiStyle,
   $xl: {
     display: 'block',
   },
@@ -45,7 +45,7 @@ const TokenTextWrapper = styled(Flex, {
   overflow: 'hidden',
   variants: {
     isClickable: {
-      true: ClickableTamaguiStyle,
+      true: ClickableGuiStyle,
     },
   },
 })
@@ -60,7 +60,7 @@ const TokenTextContent = styled(Flex, {
 
 const SymbolText = styled(Text, {
   minWidth: 0,
-  ...EllipsisTamaguiStyle,
+  ...EllipsisGuiStyle,
   $xl: {
     color: '$neutral2',
   },
@@ -86,7 +86,7 @@ const ExplorerWrapper = styled(View, {
   borderRadius: 20,
   backgroundColor: '$surface3',
   display: 'flex',
-  ...ClickableTamaguiStyle,
+  ...ClickableGuiStyle,
 })
 
 const ButtonsRow = styled(Flex, {

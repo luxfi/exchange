@@ -50,7 +50,7 @@ module.exports = {
     'comma-dangle': 0,
     'no-trailing-spaces': 0,
 
-    // tamagui encourages inline styles and makes them fast
+    // gui encourages inline styles and makes them fast
     'react-native/no-inline-styles': 'off',
 
     '@typescript-eslint/no-unused-expressions': [

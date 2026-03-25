@@ -1,9 +1,9 @@
 /**
  * Trading UI theme tokens
- * Colors aligned with Tamagui sporeDark theme tokens:
+ * Colors aligned with Gui sporeDark theme tokens:
  *   statusSuccess = '#21C95E', statusCritical = '#FF593C'
  *
- * Override these via Tamagui theme to white-label.
+ * Override these via Gui theme to white-label.
  */
 
 export const tradingColors = {

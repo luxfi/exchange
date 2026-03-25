@@ -30,7 +30,7 @@ import { SendInputError } from '~/state/send/hooks'
 import { useSendContext } from '~/state/send/SendContext'
 import { type CurrencyState } from '~/state/swap/types'
 import { ThemedText } from '~/theme/components'
-import { ClickableTamaguiStyle } from '~/theme/components/styles'
+import { ClickableGuiStyle } from '~/theme/components/styles'
 import { maxAmountSpend } from '~/utils/maxAmountSpend'
 
 const Wrapper = styled(Flex, {
@@ -298,7 +298,7 @@ export default function SendCurrencyInputForm({
           <Flex
             row
             justifyContent="space-between"
-            {...ClickableTamaguiStyle}
+            {...ClickableGuiStyle}
             onPress={() => setTokenSelectorOpen(true)}
           >
             <Flex row alignItems="center" gap="$gap12">

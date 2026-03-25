@@ -12,17 +12,17 @@ declare global {
   }
 }
 
-import { config } from 'ui/src/tamagui.config'
+import { config } from 'ui/src/gui.config'
 import { shorthands } from 'ui/src/theme/shorthands'
 
 type Conf = typeof config
 
-// Explicit shorthand mappings for Tamagui type system
+// Explicit shorthand mappings for Gui type system
 type ShorthandMap = typeof shorthands
 
-declare module 'tamagui' {
+declare module 'gui' {
   // eslint-disable-next-line @typescript-eslint/no-empty-interface
-  interface TamaguiCustomConfig extends Conf {
+  interface GuiCustomConfig extends Conf {
     shorthands: ShorthandMap
   }
 
@@ -31,9 +31,9 @@ declare module 'tamagui' {
   }
 }
 
-declare module '@tamagui/core' {
+declare module '@hanzogui/core' {
   // eslint-disable-next-line @typescript-eslint/no-empty-interface
-  interface TamaguiCustomConfig extends Conf {
+  interface GuiCustomConfig extends Conf {
     shorthands: ShorthandMap
   }
 
@@ -42,9 +42,9 @@ declare module '@tamagui/core' {
   }
 }
 
-declare module '@tamagui/web' {
+declare module '@hanzogui/web' {
   // eslint-disable-next-line @typescript-eslint/no-empty-interface
-  interface TamaguiCustomConfig extends Conf {
+  interface GuiCustomConfig extends Conf {
     shorthands: ShorthandMap
   }
 

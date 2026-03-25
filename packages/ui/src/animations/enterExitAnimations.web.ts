@@ -2,7 +2,7 @@
  * Web implementation - exports no-op animation builders.
  *
  * On web, AnimatedFlex renders as a regular Flex that uses CSS animations
- * via Tamagui. The entering/exiting props from react-native-reanimated
+ * via Gui. The entering/exiting props from react-native-reanimated
  * are not supported, so we export no-op builders that return undefined.
  *
  * These builders support the same chainable API as Reanimated animations

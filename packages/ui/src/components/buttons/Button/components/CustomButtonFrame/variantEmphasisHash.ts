@@ -1,4 +1,4 @@
-import type { XStackProps } from 'tamagui'
+import type { XStackProps } from '@hanzo/gui'
 import {
   brandedFocusVisibleStyle,
   criticalFocusVisibleStyle,

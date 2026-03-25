@@ -22,7 +22,7 @@ const PolicyLink = styled(Text, {
   color: '$neutral2',
   cursor: 'pointer',
   hoverStyle: { color: '$neutral1' },
-  // Tamagui bug. Animation property breaks theme value transition, needs to use style instead
+  // Gui bug. Animation property breaks theme value transition, needs to use style instead
   style: { transition: '100ms' },
 })
 

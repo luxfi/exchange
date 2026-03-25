@@ -1,5 +1,5 @@
-import type { StackProps, TextProps } from 'tamagui'
-import { Stack, styled, Text } from 'tamagui'
+import type { StackProps, TextProps } from '@hanzo/gui'
+import { Stack, styled, Text } from '@hanzo/gui'
 
 type BadgeVariant = 'default' | 'primary' | 'success' | 'warning' | 'error' | 'outline'
 type BadgeSize = 'sm' | 'md' | 'lg'

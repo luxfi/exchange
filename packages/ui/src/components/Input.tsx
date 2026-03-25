@@ -1,6 +1,6 @@
 import { forwardRef } from 'react'
-import type { GetProps } from 'tamagui'
-import { styled, XStack } from 'tamagui'
+import type { GetProps } from '@hanzo/gui'
+import { styled, XStack } from '@hanzo/gui'
 
 type InputSize = 'sm' | 'md' | 'lg'
 

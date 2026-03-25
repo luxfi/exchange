@@ -9,7 +9,7 @@ import { renderWithProviders } from 'src/test/render'
 import { render } from 'src/test/test-utils'
 import { ImportType, OnboardingEntryPoint } from 'lx/src/types/onboarding'
 import { MobileScreens, OnboardingScreens } from 'lx/src/types/screens/mobile'
-import { TamaguiProvider } from 'wallet/src/providers/tamagui-provider'
+import { GuiProvider } from 'wallet/src/providers/gui-provider'
 import { ACCOUNT, preloadedWalletPackageState } from 'wallet/src/test/fixtures'
 
 jest.mock('wallet/src/features/wallet/accounts/utils', () => ({
@@ -48,9 +48,9 @@ describe(BackupScreen, () => {
 
   it('renders backup options when some are completed', async () => {
     const tree = renderWithProviders(
-      <TamaguiProvider>
+      <GuiProvider>
         <BackupScreen navigation={navigationProp} route={routeProp} />
-      </TamaguiProvider>,
+      </GuiProvider>,
       { preloadedState: preloadedWalletPackageState({ account: ACCOUNT }) },
     )
 

@@ -1,5 +1,5 @@
 import { forwardRef } from 'react'
-import { styled, type TamaguiElement } from 'tamagui'
+import { styled, type GuiElement } from '@hanzo/gui'
 import { CustomButtonFrame } from 'ui/src/components/buttons/Button/components/CustomButtonFrame/CustomButtonFrame'
 import { ThemedIcon } from 'ui/src/components/buttons/Button/components/ThemedIcon'
 import { ThemedSpinningLoader } from 'ui/src/components/buttons/Button/components/ThemedSpinnerLoader'
@@ -53,7 +53,7 @@ const IconButtonFrame = styled(CustomButtonFrame, {
 
 IconButtonFrame.displayName = 'IconButtonFrame'
 
-export const IconButton = forwardRef<TamaguiElement, IconButtonProps>(function IconButton(
+export const IconButton = forwardRef<GuiElement, IconButtonProps>(function IconButton(
   {
     icon,
     shouldAnimateBetweenLoadingStates = true,

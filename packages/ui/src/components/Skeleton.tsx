@@ -1,5 +1,5 @@
-import type { StackProps } from 'tamagui'
-import { Stack, styled } from 'tamagui'
+import type { StackProps } from '@hanzo/gui'
+import { Stack, styled } from '@hanzo/gui'
 
 type SkeletonVariant = 'text' | 'circular' | 'rectangular'
 type SkeletonWidth = 'sm' | 'md' | 'lg' | 'full'

@@ -1,6 +1,6 @@
-// until the web app needs all of tamagui, avoid heavy imports there
-// biome-ignore lint/style/noRestrictedImports: until the web app needs all of tamagui, avoid heavy imports there
-import type { CreateTamaguiProps } from '@tamagui/core'
+// until the web app needs all of gui, avoid heavy imports there
+// biome-ignore lint/style/noRestrictedImports: until the web app needs all of gui, avoid heavy imports there
+import type { CreateGuiProps } from '@hanzogui/core'
 import { allFonts } from 'ui/src/theme/fonts'
 import { media } from 'ui/src/theme/media'
 import { shorthands } from 'ui/src/theme/shorthands'
@@ -26,6 +26,6 @@ export const configWithoutAnimations = {
     autocompleteSpecificTokens: 'except-special',
     fastSchemeChange: true,
   },
-} satisfies CreateTamaguiProps
+} satisfies CreateGuiProps
 
-export type TamaguiGroupNames = 'item' | 'card'
+export type GuiGroupNames = 'item' | 'card'

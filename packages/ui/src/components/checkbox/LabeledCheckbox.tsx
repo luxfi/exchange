@@ -1,6 +1,6 @@
 import { useMemo } from 'react'
 import type { GestureResponderEvent, StyleProp, ViewStyle } from 'react-native'
-import type { ColorTokens, SpaceTokens } from 'tamagui'
+import type { ColorTokens, SpaceTokens } from '@hanzo/gui'
 import type { CheckboxSizeTokens } from 'ui/src/components/checkbox/Checkbox'
 import { Checkbox } from 'ui/src/components/checkbox/Checkbox'
 import type { FlexProps } from 'ui/src/components/layout'

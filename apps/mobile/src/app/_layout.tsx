@@ -1,5 +1,5 @@
 import { Stack } from 'expo-router'
-import { TamaguiProvider } from 'tamagui'
+import { GuiProvider } from '@hanzo/gui'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { StatusBar } from 'expo-status-bar'
 

@@ -1,7 +1,7 @@
 import { FlexProps } from 'ui/src'
 import { css } from '~/lib/deprecated-styled'
 
-/** @deprecated use tamagui and ClickableTamaguiStyle instead */
+/** @deprecated use gui and ClickableGuiStyle instead */
 export const ClickableStyle = css`
   text-decoration: none;
   cursor: pointer;
@@ -14,7 +14,7 @@ export const ClickableStyle = css`
     opacity: ${({ theme }) => theme.opacity.click};
   }
 `
-export const ClickableTamaguiStyle = {
+export const ClickableGuiStyle = {
   cursor: 'pointer',
   '$platform-web': {
     textDecoration: 'none',
@@ -27,6 +27,6 @@ export const ClickableTamaguiStyle = {
   pressStyle: {
     opacity: 0.6,
   },
-  // Tamagui bug. Animation property breaks theme value transition, must use style instead
+  // Gui bug. Animation property breaks theme value transition, must use style instead
   style: { transition: '100ms' },
 } satisfies FlexProps

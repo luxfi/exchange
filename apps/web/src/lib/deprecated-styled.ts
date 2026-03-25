@@ -1,5 +1,5 @@
 /**
- * Note: we're deprecating styled-components in favor of Tamagui, which you
+ * Note: we're deprecating styled-components in favor of Gui, which you
  * should import from `ui/src`. It should cover most of what styled-components
  * handles.
  *

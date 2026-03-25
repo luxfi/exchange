@@ -1,6 +1,6 @@
 /* eslint-disable complexity */
 import { useEffect, useState } from 'react'
-import { type ColorTokens, Image } from 'tamagui'
+import { type ColorTokens, Image } from '@hanzo/gui'
 import { Flex } from 'ui/src/components/layout/Flex'
 import { FastImageWrapper } from 'ui/src/components/UniversalImage/internal/FastImageWrapper'
 import { PlainImage } from 'ui/src/components/UniversalImage/internal/PlainImage'

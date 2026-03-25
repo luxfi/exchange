@@ -58,7 +58,7 @@ const Badge = styled(Flex, {
   },
 })
 
-// using a custom animation as Tamagui preset was very laggy
+// using a custom animation as Gui preset was very laggy
 const RisingTextContainer = styled(Flex, {
   position: 'relative',
   opacity: 0,

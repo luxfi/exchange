@@ -2,19 +2,19 @@ import React from 'react'
 import { GenericImportForm } from 'src/features/import/GenericImportForm'
 import { render, screen } from 'src/test/test-utils'
 import { noOpFunction } from 'utilities/src/test/utils'
-import { TamaguiProvider } from 'wallet/src/providers/tamagui-provider'
+import { GuiProvider } from 'wallet/src/providers/gui-provider'
 
 describe(GenericImportForm, () => {
   it('renders a placeholder when there is no value', async () => {
     const tree = render(
-      <TamaguiProvider>
+      <GuiProvider>
         <GenericImportForm
           errorMessage={undefined}
           placeholderLabel="seed phrase"
           value={undefined}
           onChange={noOpFunction}
         />
-      </TamaguiProvider>,
+      </GuiProvider>,
     )
 
     expect(await screen.findByText('seed phrase')).toBeDefined()
@@ -23,14 +23,14 @@ describe(GenericImportForm, () => {
 
   it('renders a value', async () => {
     render(
-      <TamaguiProvider>
+      <GuiProvider>
         <GenericImportForm
           errorMessage={undefined}
           placeholderLabel="seed phrase"
           value="hello"
           onChange={noOpFunction}
         />
-      </TamaguiProvider>,
+      </GuiProvider>,
     )
 
     expect(await screen.queryByText('seed phrase')).toBeNull()
@@ -39,14 +39,14 @@ describe(GenericImportForm, () => {
 
   it('renders an error message', async () => {
     render(
-      <TamaguiProvider>
+      <GuiProvider>
         <GenericImportForm
           errorMessage="there is an error"
           placeholderLabel="seed phrase"
           value="wrong value"
           onChange={noOpFunction}
         />
-      </TamaguiProvider>,
+      </GuiProvider>,
     )
 
     expect(await screen.findByText('there is an error')).toBeDefined()

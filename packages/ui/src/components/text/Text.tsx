@@ -1,5 +1,5 @@
 import type { PropsWithChildren } from 'react'
-import { type GetProps, styled, Text as TamaguiText } from 'tamagui'
+import { type GetProps, styled, Text as GuiText } from '@hanzo/gui'
 import { Flex } from 'ui/src/components/layout'
 import { HiddenFromScreenReaders } from 'ui/src/components/text/HiddenFromScreenReaders'
 import { useEnableFontScaling } from 'ui/src/components/text/useEnableFontScaling'
@@ -7,7 +7,7 @@ import { Skeleton } from 'ui/src/loading/Skeleton'
 import { fonts } from 'ui/src/theme/fonts'
 import { isWebPlatform } from 'utilities/src/platform'
 
-export const TextFrame = styled(TamaguiText, {
+export const TextFrame = styled(GuiText, {
   fontFamily: '$body',
   wordWrap: 'break-word',
 

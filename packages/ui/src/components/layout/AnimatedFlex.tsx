@@ -3,7 +3,7 @@ import { Flex, type FlexProps } from 'ui/src/components/layout/Flex'
 
 /**
  * Extended FlexProps that accepts Reanimated entering/exiting props and animated styles.
- * On web, Reanimated props are ignored - animations use CSS via Tamagui instead.
+ * On web, Reanimated props are ignored - animations use CSS via Gui instead.
  */
 export type AnimatedFlexProps = Omit<FlexProps, 'style'> & {
   // Style prop that accepts both regular and animated styles from useAnimatedStyle
@@ -26,7 +26,7 @@ type AnimatedFlexComponent = React.ForwardRefExoticComponent<
 /**
  * @deprecated Prefer `<Flex animation="" />`
  *
- *    See: https://tamagui.dev/docs/core/animations
+ *    See: https://gui.dev/docs/core/animations
  *
  * TODO(MOB-1948): Remove this
  *

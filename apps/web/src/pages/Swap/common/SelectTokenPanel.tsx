@@ -6,7 +6,7 @@ import { PortfolioBalance } from 'lx/src/features/dataApi/types'
 import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
 import { NumberType } from 'utilities/src/format/types'
 import CurrencyLogo from '~/components/Logo/CurrencyLogo'
-import { ClickableTamaguiStyle } from '~/theme/components/styles'
+import { ClickableGuiStyle } from '~/theme/components/styles'
 
 export const SelectTokenPanel = ({
   currency,
@@ -26,7 +26,7 @@ export const SelectTokenPanel = ({
       p="$spacing16"
       gap="$spacing12"
       alignItems="center"
-      {...ClickableTamaguiStyle}
+      {...ClickableGuiStyle}
       {...rest}
     >
       <CurrencyLogo currency={currency} size={iconSizes.icon40} />

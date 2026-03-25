@@ -1,4 +1,4 @@
-import { Paragraph, styled, Tooltip as TTooltip } from 'tamagui'
+import { Paragraph, styled, Tooltip as TTooltip } from '@hanzo/gui'
 
 const TooltipContent = styled(TTooltip.Content, {
   name: 'TooltipContent',

@@ -12,7 +12,7 @@ import { UniverseChainId } from 'lx/src/features/chains/types'
 import { Dropdown } from '~/components/Dropdowns/Dropdown'
 import { lpStatusConfig } from '~/components/Liquidity/constants'
 import { getProtocolStatusLabel, getProtocolVersionLabel } from '~/components/Liquidity/utils/protocolVersion'
-import { ClickableTamaguiStyle } from '~/theme/components/styles'
+import { ClickableGuiStyle } from '~/theme/components/styles'
 
 const StyledDropdownButton = {
   borderRadius: '$rounded16',
@@ -21,7 +21,7 @@ const StyledDropdownButton = {
   backgroundColor: '$surface3',
   borderWidth: 0,
   hoverStyle: {
-    ...ClickableTamaguiStyle.hoverStyle,
+    ...ClickableGuiStyle.hoverStyle,
     backgroundColor: 'none',
   },
 }
@@ -107,7 +107,7 @@ export function PositionsHeader({
           <Flex
             key={`PositionsHeader-create-${protocolVersionLabel}`}
             p="$spacing8"
-            {...ClickableTamaguiStyle}
+            {...ClickableGuiStyle}
             onPress={() => {
               navigate(`/positions/create/${protocolVersionLabel}`)
             }}
@@ -141,7 +141,7 @@ export function PositionsHeader({
                 $sm={{ justifyContent: 'center' }}
                 justifyContent="flex-start"
                 flexGrow={1}
-                {...ClickableTamaguiStyle}
+                {...ClickableGuiStyle}
                 onPress={() => {
                   navigate('/positions/create/v4')
                 }}
@@ -161,7 +161,7 @@ export function PositionsHeader({
                     justifyContent="center"
                     alignItems="center"
                     p="$padding8"
-                    {...ClickableTamaguiStyle}
+                    {...ClickableGuiStyle}
                   >
                     <RotatableChevron direction="down" size="$icon.20" color="$surface1" />
                   </Flex>
@@ -210,7 +210,7 @@ export function PositionsHeader({
                 borderRadius="$rounded16"
                 px="$padding12"
                 height="100%"
-                {...ClickableTamaguiStyle}
+                {...ClickableGuiStyle}
               >
                 <NetworkFilter
                   includeAllNetworks

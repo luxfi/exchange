@@ -16,7 +16,7 @@ export const TextInput = forwardRef<InputRef, TextInputProps>(function _TextInpu
   useEffect(() => {
     // Ensure virtualkeyboardpolicy is set to "auto" on the DOM element
     // otherwise the virtual keyboard will not show on android mobile
-    // TODO (WEB-5798): remove tamagui input hack
+    // TODO (WEB-5798): remove gui input hack
     if (ref && 'current' in ref && ref.current && isWebApp) {
       const inputElement = ref.current as unknown as HTMLElement
       inputElement.setAttribute('virtualkeyboardpolicy', 'auto')

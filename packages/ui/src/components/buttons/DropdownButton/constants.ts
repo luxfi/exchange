@@ -1,5 +1,5 @@
-import type { ColorTokens } from 'tamagui'
-import { createStyledContext } from 'tamagui'
+import type { ColorTokens } from '@hanzo/gui'
+import { createStyledContext } from '@hanzo/gui'
 import type { DropdownButtonVariantProps } from 'ui/src/components/buttons/DropdownButton/types'
 
 export const EXPANDED_COLOR: ColorTokens = '$neutral2'

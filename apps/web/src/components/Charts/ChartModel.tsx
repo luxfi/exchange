@@ -12,7 +12,7 @@ import {
   TimeChartOptions,
 } from 'lightweight-charts'
 import { ReactElement, TouchEvent, useEffect, useMemo, useRef, useState } from 'react'
-import { assertWebElement, ColorTokens, Flex, TamaguiElement, useMedia, useSporeColors } from 'ui/src'
+import { assertWebElement, ColorTokens, Flex, GuiElement, useMedia, useSporeColors } from 'ui/src'
 import { useCurrentLocale } from 'lx/src/features/language/hooks'
 import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
 import { NumberType } from 'utilities/src/format/types'
@@ -339,7 +339,7 @@ export function Chart<TParamType extends ChartDataParams<TDataType>, TDataType e
   const setRefitChartContent = useUpdateAtom(refitChartContentAtom)
   // Lightweight-charts injects a canvas into the page through the div referenced below
   // It is stored in state to cause a re-render upon div mount, avoiding delay in chart creation
-  const [chartDivElement, setChartDivElement] = useState<TamaguiElement | null>(null)
+  const [chartDivElement, setChartDivElement] = useState<GuiElement | null>(null)
   const [crosshairData, setCrosshairData] = useState<TDataType | undefined>(undefined)
   const [hoverCoordinates, setHoverCoordinates] = useState<{ x: number; y: number } | null>(null)
   const [isZoomed, setIsZoomed] = useState(false)
@@ -475,7 +475,7 @@ export function Chart<TParamType extends ChartDataParams<TDataType>, TDataType e
       {/* Header/content outside background */}
       {children && children(crosshairData)}
       {TooltipBody && crosshairData && (
-        // @ts-expect-error - Tamagui variant type inference issue
+        // @ts-expect-error - Gui variant type inference issue
         <ChartTooltip id={chartModelRef.current?.tooltipId} includeBorder={!params.hideTooltipBorder}>
           <TooltipBody data={crosshairData} />
         </ChartTooltip>

@@ -1,17 +1,17 @@
 /**
- * Platform-specific Tamagui animations configuration.
+ * Platform-specific Gui animations configuration.
  *
- * - Web: Uses CSS animations (@tamagui/animations-css) - index.web.ts
- * - Native: Uses moti/reanimated (@tamagui/animations-moti) - index.native.ts
+ * - Web: Uses CSS animations (@hanzogui/animations-css) - index.web.ts
+ * - Native: Uses moti/reanimated (@hanzogui/animations-moti) - index.native.ts
  *
  * This base file exports CSS animations for compatibility with:
- * 1. Tamagui extractor (runs in Node.js at build time)
+ * 1. Gui extractor (runs in Node.js at build time)
  * 2. Any other build-time tooling that doesn't understand platform extensions
  *
  * At runtime, platform-specific bundlers (Metro, Vite, Webpack) will resolve
  * to the appropriate .native.ts or .web.ts file.
  */
-import { createAnimations } from '@tamagui/animations-css'
+import { createAnimations } from '@hanzogui/animations-css'
 
 // CSS equivalents for the moti/reanimated spring and timing animations
 // Spring animations are approximated using CSS cubic-bezier timing functions

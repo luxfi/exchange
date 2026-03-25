@@ -72,7 +72,7 @@ export function FormStepsWrapper({
       <AnimatePresence>
         {(step === PositionFlowStep.PRICE_RANGE || step === PositionFlowStep.DEPOSIT) && (
           <Container
-            // @ts-ignore - ignoring animation prop type issue with tamagui
+            // @ts-ignore - ignoring animation prop type issue with gui
             animation={['200ms', { delay: 210 }]}
             enterStyle={{ y: -10, opacity: 0 }}
             exitStyle={{ opacity: 0 }}

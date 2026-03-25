@@ -1,10 +1,10 @@
-// until the web app needs all of tamagui, avoid heavy imports there
-// biome-ignore lint/style/noRestrictedImports: until the web app needs all of tamagui, avoid heavy imports there
-import { createFont, isAndroid } from '@tamagui/core'
+// until the web app needs all of gui, avoid heavy imports there
+// biome-ignore lint/style/noRestrictedImports: until the web app needs all of gui, avoid heavy imports there
+import { createFont, isAndroid } from '@hanzogui/core'
 import { needsSmallFont } from 'ui/src/utils/needs-small-font'
 import { isWebApp, isWebPlatform } from 'utilities/src/platform'
 
-// TODO(EXT-148): remove this type and use Tamagui's FontTokens
+// TODO(EXT-148): remove this type and use Gui's FontTokens
 export type TextVariantTokens = keyof typeof fonts
 
 const adjustedSize = (fontSize: number): number => {
@@ -194,7 +194,7 @@ export const fonts = {
   },
 } as const
 
-// TODO: Tamagui breaks font weights on Android if face *not* defined
+// TODO: Gui breaks font weights on Android if face *not* defined
 // but breaks iOS if face is defined
 const face = {
   [defaultWeights.book]: { normal: baselBook },
@@ -235,8 +235,8 @@ export const subHeadingFont = createFont({
   },
 })
 
-// for now tamagui is inferring all the font size from body, but we have differences in the diff fonts
-// so i'm filling in blanks (adding medium here), but will need to fix this properly in tamagui...
+// for now gui is inferring all the font size from body, but we have differences in the diff fonts
+// so i'm filling in blanks (adding medium here), but will need to fix this properly in gui...
 
 export const bodyFont = createFont({
   family: baselBook,

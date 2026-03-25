@@ -27,7 +27,7 @@ import { MouseoverTooltip, TooltipSize } from '~/components/Tooltip'
 import useCopyClipboard from '~/hooks/useCopyClipboard'
 import { useSwapTaxes } from '~/hooks/useSwapTaxes'
 import { MultiChainMap, useTDPContext } from '~/pages/TokenDetails/context/TDPContext'
-import { EllipsisTamaguiStyle } from '~/theme/components/styles'
+import { EllipsisGuiStyle } from '~/theme/components/styles'
 
 const TRUNCATE_CHARACTER_COUNT = 300
 const MULTICHAIN_POPOVER_WIDTH = 280
@@ -63,7 +63,7 @@ const TokenDescriptionContainer = styled(Text, {
   color: '$neutral1',
   maxWidth: '100%',
   maxHeight: 'fit-content',
-  ...EllipsisTamaguiStyle,
+  ...EllipsisGuiStyle,
   whiteSpace: 'pre-wrap',
   lineHeight: 24,
 })

@@ -1,4 +1,4 @@
-import type { ColorTokens } from 'tamagui'
+import type { ColorTokens } from '@hanzo/gui'
 import { TransitionItem } from 'ui/src/animations/components/AnimatePresencePager'
 import { CheckmarkCircle } from 'ui/src/components/icons/CheckmarkCircle'
 import { CopySheets } from 'ui/src/components/icons/CopySheets'

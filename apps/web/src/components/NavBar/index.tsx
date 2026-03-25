@@ -1,5 +1,5 @@
 import { FeatureFlags, useFeatureFlag } from '@universe/gating'
-import { Flex, styled, Nav as TamaguiNav, useMedia } from 'ui/src'
+import { Flex, styled, Nav as GuiNav, useMedia } from 'ui/src'
 import { breakpoints, INTERFACE_NAV_HEIGHT, zIndexes } from 'ui/src/theme'
 import { useConnectionStatus } from 'lx/src/features/accounts/store/hooks'
 import { useEnabledChains } from 'lx/src/features/chains/hooks/useEnabledChains'
@@ -22,7 +22,7 @@ import { css, deprecatedStyled } from '~/lib/deprecated-styled'
 const UnpositionedFlex = styled(Flex, {
   position: 'unset',
 })
-const Nav = styled(TamaguiNav, {
+const Nav = styled(GuiNav, {
   position: 'unset',
   px: '$padding12',
   width: '100%',

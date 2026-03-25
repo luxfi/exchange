@@ -7,7 +7,7 @@ import { useLocalizationContext } from 'lx/src/features/language/LocalizationCon
 import { NumberType } from 'utilities/src/format/types'
 import { PortfolioLogo } from '~/components/AccountDrawer/MiniPortfolio/PortfolioLogo'
 import { ChainLogo } from '~/components/Logo/ChainLogo'
-import { ClickableTamaguiStyle } from '~/theme/components/styles'
+import { ClickableGuiStyle } from '~/theme/components/styles'
 
 export function Balance({
   currency,
@@ -64,7 +64,7 @@ export function Balance({
   }
 
   return (
-    <TouchableArea onPress={onClick} {...(onClick ? ClickableTamaguiStyle : {})}>
+    <TouchableArea onPress={onClick} {...(onClick ? ClickableGuiStyle : {})}>
       <Flex my="$spacing8" row alignItems="center">
         {showChainLogoOnly ? (
           <ChainLogo chainId={chainId} size={24} borderRadius={6} />

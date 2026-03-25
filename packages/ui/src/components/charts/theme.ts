@@ -1,6 +1,6 @@
 /**
  * Unified chart theme tokens
- * Colors aligned with Tamagui sporeDark theme tokens:
+ * Colors aligned with Gui sporeDark theme tokens:
  *   statusSuccess = '#21C95E', statusCritical = '#FF593C'
  *
  * Use getChartOptions() / getCandlestickOptions() / getVolumeOptions() to

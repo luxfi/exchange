@@ -4,7 +4,7 @@ import { Flex, Text } from 'ui/src'
 import { INTERFACE_NAV_HEIGHT } from 'ui/src/theme'
 import { assert } from 'utilities/src/errors'
 import { useStickyHeaderBorder } from '~/hooks/useStickyHeaderBorder'
-import { ClickableTamaguiStyle } from '~/theme/components/styles'
+import { ClickableGuiStyle } from '~/theme/components/styles'
 
 interface PoolProgressStep {
   label: string
@@ -36,7 +36,7 @@ export function PoolProgressIndicator({ steps }: { steps: PoolProgressStep[] }) 
             gap="$gap12"
             alignItems="center"
             onPress={step.onPress}
-            {...(step.onPress ? ClickableTamaguiStyle : {})}
+            {...(step.onPress ? ClickableGuiStyle : {})}
           >
             <Flex
               height="$spacing32"

@@ -1,5 +1,5 @@
-import type { StackProps } from 'tamagui'
-import { Image, Stack, styled, Text } from 'tamagui'
+import type { StackProps } from '@hanzo/gui'
+import { Image, Stack, styled, Text } from '@hanzo/gui'
 
 type TokenLogoSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl'
 

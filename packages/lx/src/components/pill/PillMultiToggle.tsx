@@ -7,7 +7,7 @@ interface PillMultiToggleOption {
   display?: JSX.Element | string
 }
 
-// Based on this example: https://tamagui.dev/ui/tabs?subpath=tabs#animations
+// Based on this example: https://gui.dev/ui/tabs?subpath=tabs#animations
 // TODO: WALL-4572 add tests for this component
 export function PillMultiToggle({
   options,

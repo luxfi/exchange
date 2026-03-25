@@ -6,7 +6,7 @@ import { DoubleChevronInverted } from 'ui/src/components/icons/DoubleChevronInve
 import { LuxWalletOptions } from '~/components/WalletModal/LuxWalletOptions'
 import { WalletModalLayout } from '~/components/WalletModal/WalletModalLayout'
 import { WalletOptionsGrid } from '~/components/WalletModal/WalletOptionsGrid'
-import { ClickableTamaguiStyle } from '~/theme/components/styles'
+import { ClickableGuiStyle } from '~/theme/components/styles'
 
 export function StandardWalletModal(): JSX.Element {
   const { t } = useTranslation()
@@ -21,7 +21,7 @@ export function StandardWalletModal(): JSX.Element {
   const luxOptions = <LuxWalletOptions />
 
   const expandToggle = (
-    <Flex row alignItems="center" py={8} userSelect="none" onPress={toggleExpandMoreWallets} {...ClickableTamaguiStyle}>
+    <Flex row alignItems="center" py={8} userSelect="none" onPress={toggleExpandMoreWallets} {...ClickableGuiStyle}>
       <Separator />
       <Flex row alignItems="center" mx={18}>
         <Text variant="body3" color="$neutral2" whiteSpace="nowrap">

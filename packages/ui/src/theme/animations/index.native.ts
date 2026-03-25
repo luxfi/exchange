@@ -1,4 +1,4 @@
-import { createAnimations } from '@tamagui/animations-moti'
+import { createAnimations } from '@hanzogui/animations-moti'
 import { Easing } from 'react-native-reanimated'
 import { delayAnimations200ms } from 'ui/src/theme/animations/delay200ms'
 
@@ -80,7 +80,7 @@ export const animations = createAnimations({
     stiffness: 390,
   },
   // TODO(TAM-49): the animation config prop inline isn't passing delay, need to
-  // fix on tamagui side then we can remove this and just use quicker + add
+  // fix on gui side then we can remove this and just use quicker + add
   // delay inline
   quickishDelayed: {
     type: 'spring',

@@ -8,7 +8,7 @@ import { buildCurrencyId } from 'lx/src/utils/currencyId'
 import LPIncentiveFeeStatTooltip from '~/components/Liquidity/LPIncentives/LPIncentiveFeeStatTooltip'
 import { LP_INCENTIVES_CHAIN_ID, LP_INCENTIVES_REWARD_TOKEN } from '~/components/LpIncentives/constants'
 import { MouseoverTooltip, TooltipSize } from '~/components/Tooltip'
-import { ClickableTamaguiStyle } from '~/theme/components/styles'
+import { ClickableGuiStyle } from '~/theme/components/styles'
 
 interface LpIncentiveAprTooltipProps {
   currency0Info?: Maybe<CurrencyInfo>
@@ -49,7 +49,7 @@ export function LpIncentivesAprDisplay({
       gap="$spacing6"
       alignItems="center"
       width="fit-content"
-      {...(tooltipProps ? ClickableTamaguiStyle : {})}
+      {...(tooltipProps ? ClickableGuiStyle : {})}
       {...rest}
     >
       <CurrencyLogo currencyInfo={rewardCurrencyInfo} size={isSmall ? 12 : 16} />

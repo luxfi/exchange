@@ -2,8 +2,8 @@
 const sharedRules = {
   paths: [
     {
-      name: '@tamagui/core',
-      message: "Please import from 'tamagui' directly to prevent mismatches.",
+      name: '@hanzogui/core',
+      message: "Please import from '@hanzo/gui' directly to prevent mismatches.",
     },
     {
       name: '@uniswap/sdk-core',

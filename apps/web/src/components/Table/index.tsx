@@ -433,7 +433,7 @@ export function Table<T extends RowData>({
         )}
       </>
       <ScrollSyncPane group={scrollGroup}>
-        {/* @ts-expect-error - Tamagui variant type inference issue */}
+        {/* @ts-expect-error - Gui variant type inference issue */}
         <TableBodyContainer maxHeight={computedBodyMaxHeight} v2={v2}>
           <TableBody
             loading={loading}

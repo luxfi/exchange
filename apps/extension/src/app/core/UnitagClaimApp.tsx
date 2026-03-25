@@ -1,4 +1,4 @@
-import '@tamagui/core/reset.css'
+import '@hanzogui/core/reset.css'
 import 'src/app/Global.css'
 
 import { PropsWithChildren, useEffect } from 'react'

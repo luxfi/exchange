@@ -9,7 +9,7 @@ type AnimatedFlexComponent = React.ForwardRefExoticComponent<
 /**
  * Web-specific AnimatedFlex that uses CSS animations instead of react-native-reanimated.
  *
- * On web, the Tamagui animation system (configured in theme/animations/index.web.ts)
+ * On web, the Gui animation system (configured in theme/animations/index.web.ts)
  * uses CSS transitions. This component simply renders a Flex with the animation prop
  * and applies any style passed in.
  *
@@ -19,7 +19,7 @@ type AnimatedFlexComponent = React.ForwardRefExoticComponent<
  * The Reanimated props (entering, exiting, layout) are accepted for compatibility
  * with native code but are ignored on web.
  *
- * @deprecated Prefer `<Flex animation="" />` - see: https://tamagui.dev/docs/core/animations
+ * @deprecated Prefer `<Flex animation="" />` - see: https://gui.dev/docs/core/animations
  * TODO(MOB-1948): Remove this
  */
 export const AnimatedFlex: AnimatedFlexComponent = forwardRef<ComponentRef<typeof Flex>, AnimatedFlexProps>(

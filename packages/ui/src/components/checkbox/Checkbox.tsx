@@ -3,9 +3,9 @@ import {
   AnimatePresence,
   type GetThemeValueForKey,
   getTokenValue,
-  Checkbox as TamaguiCheckbox,
-  type CheckboxProps as TamaguiCheckboxPops,
-} from 'tamagui'
+  Checkbox as GuiCheckbox,
+  type CheckboxProps as GuiCheckboxPops,
+} from '@hanzo/gui'
 import { Check } from 'ui/src/components/icons'
 import { Flex, type FlexProps } from 'ui/src/components/layout'
 import type { SporeComponentVariant } from 'ui/src/components/types'
@@ -40,7 +40,7 @@ type CheckboxProps = {
   variant?: SporeComponentVariant
   checked: boolean
   size?: CheckboxSizeTokens
-} & Omit<TamaguiCheckboxPops, 'size'>
+} & Omit<GuiCheckboxPops, 'size'>
 
 const animationProp = isTestEnv() ? undefined : ({ animation: 'simple' } satisfies FlexProps['animation'])
 
@@ -73,7 +73,7 @@ export function Checkbox({ checked, variant = 'default', size = '$icon.20', ...r
       width={sizes.FocusRing}
       testID={rest.testID}
     >
-      <TamaguiCheckbox
+      <GuiCheckbox
         {...rest}
         unstyled
         alignItems="center"
@@ -101,8 +101,8 @@ export function Checkbox({ checked, variant = 'default', size = '$icon.20', ...r
         onMouseLeave={() => setIsHovered(false)}
         onMouseUp={() => setIsPressed(false)}
       >
-        {/* TamaguiCheckbox.Indicator is a container around the inner checkmark icon which is shown when the item is selected. */}
-        <TamaguiCheckbox.Indicator
+        {/* GuiCheckbox.Indicator is a container around the inner checkmark icon which is shown when the item is selected. */}
+        <GuiCheckbox.Indicator
           unstyled
           alignItems="center"
           animation="simple"
@@ -115,7 +115,7 @@ export function Checkbox({ checked, variant = 'default', size = '$icon.20', ...r
             color={rest.disabled ? '$neutral2' : variant === 'branded' ? 'white' : '$surface1'}
             size={isPressed ? sizes.CheckSizePressed : sizes.CheckSizeDefault}
           />
-        </TamaguiCheckbox.Indicator>
+        </GuiCheckbox.Indicator>
         {/* This is an inner dot shown in in *unselected* hovered states. */}
         {!checked && (
           <AnimatePresence initial>
@@ -134,7 +134,7 @@ export function Checkbox({ checked, variant = 'default', size = '$icon.20', ...r
             )}
           </AnimatePresence>
         )}
-      </TamaguiCheckbox>
+      </GuiCheckbox>
     </Flex>
   )
 }

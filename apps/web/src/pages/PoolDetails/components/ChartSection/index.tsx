@@ -41,7 +41,7 @@ import { SubscriptZeroPrice } from '~/components/Toucan/Shared/SubscriptZeroPric
 import { usePoolPriceChartData } from '~/hooks/usePoolPriceChartData'
 import tryParseCurrencyAmount from '~/lib/utils/tryParseCurrencyAmount'
 import { usePDPVolumeChartData } from '~/pages/PoolDetails/components/ChartSection/hooks'
-import { EllipsisTamaguiStyle } from '~/theme/components/styles'
+import { EllipsisGuiStyle } from '~/theme/components/styles'
 
 const PDP_CHART_HEIGHT_PX = 356
 const PDP_CHART_SELECTOR_OPTIONS = [ChartType.VOLUME, ChartType.PRICE, ChartType.LIQUIDITY] as const
@@ -260,7 +260,7 @@ const PriceDisplayContainer = styled(Flex, {
 
 const ChartPriceText = styled(Text, {
   variant: 'heading2',
-  ...EllipsisTamaguiStyle,
+  ...EllipsisGuiStyle,
   $md: {
     fontSize: 24,
     lineHeight: 32,

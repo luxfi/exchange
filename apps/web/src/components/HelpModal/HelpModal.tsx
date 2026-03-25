@@ -4,7 +4,7 @@ import { QuestionInCircleFilled } from 'ui/src/components/icons/QuestionInCircle
 import { zIndexes } from 'ui/src/theme'
 import { TestID } from 'lx/src/test/fixtures/testIDs'
 import { HelpContent } from '~/components/HelpModal/HelpContent'
-import { ClickableTamaguiStyle } from '~/theme/components/styles'
+import { ClickableGuiStyle } from '~/theme/components/styles'
 
 export function HelpModal({ showOnXL = false }: { showOnXL?: boolean }) {
   const [isOpen, setIsOpen] = useState(false)
@@ -39,7 +39,7 @@ export function HelpModal({ showOnXL = false }: { showOnXL?: boolean }) {
         onOpenChange={(open) => setIsOpen(open)}
       >
         <Popover.Trigger>
-          <TouchableArea hoverable {...ClickableTamaguiStyle}>
+          <TouchableArea hoverable {...ClickableGuiStyle}>
             <QuestionInCircleFilled size={20} data-testid={TestID.HelpIcon} />
           </TouchableArea>
         </Popover.Trigger>

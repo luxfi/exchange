@@ -1,5 +1,5 @@
 import { Children, type ReactNode, useEffect, useState } from 'react'
-import { AnimatePresence, styled } from 'tamagui'
+import { AnimatePresence, styled } from '@hanzo/gui'
 import { Flex } from 'ui/src/components/layout'
 import type { animations } from 'ui/src/theme/animations'
 import { usePrevious } from 'utilities/src/react/hooks'

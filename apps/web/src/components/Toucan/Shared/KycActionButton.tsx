@@ -1,5 +1,5 @@
-//! tamagui-ignore
-// tamagui-ignore
+//! gui-ignore
+// gui-ignore
 import { useTranslation } from 'react-i18next'
 import { Button, Flex, Text } from 'ui/src'
 import { UserLock } from 'ui/src/components/icons/UserLock'

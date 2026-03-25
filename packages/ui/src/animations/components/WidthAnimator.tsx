@@ -1,6 +1,6 @@
 import { useCallback, useState } from 'react'
 import type { LayoutChangeEvent } from 'react-native'
-import { View, type ViewProps } from 'tamagui'
+import { View, type ViewProps } from '@hanzo/gui'
 
 const enterStyle = { opacity: 0 } satisfies ViewProps['enterStyle']
 const exitStyle = { opacity: 0 } satisfies ViewProps['exitStyle']

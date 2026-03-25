@@ -12,7 +12,7 @@ import { InternalLink } from '~/components/InternalLink'
 import { AddressWithAvatar } from '~/pages/Portfolio/Activity/ActivityTable/AddressWithAvatar'
 import { buildActivityRowFragments } from '~/pages/Portfolio/Activity/ActivityTable/registry'
 import { buildPortfolioUrl } from '~/pages/Portfolio/utils/portfolioUrls'
-import { ClickableTamaguiStyle } from '~/theme/components/styles'
+import { ClickableGuiStyle } from '~/theme/components/styles'
 
 interface ActivityAddressCellProps {
   transaction: TransactionDetails
@@ -92,7 +92,7 @@ function _ActivityAddressCell({ transaction }: ActivityAddressCellProps) {
       <AddressHoverCard address={otherPartyAddress} platform={chainInfo.platform}>
         <InternalLink
           to={buildPortfolioUrl({ externalAddress: otherPartyAddress! })}
-          hoverStyle={ClickableTamaguiStyle.hoverStyle}
+          hoverStyle={ClickableGuiStyle.hoverStyle}
         >
           <AddressWithAvatar address={otherPartyAddress} />
         </InternalLink>

@@ -37,7 +37,7 @@ export function CurrentScreen({
       </Trace>
 
       {/*
-          We want to render the `Modal` from the start to allow the tamagui animation to happen once we switch the `isModalOpen` prop to `true`.
+          We want to render the `Modal` from the start to allow the gui animation to happen once we switch the `isModalOpen` prop to `true`.
           We only render `SwapReviewScreen` once the user is truly on that step though.
         */}
       <Modal

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import type { OpaqueColorValue } from 'react-native'
-import type { ColorTokens, GetThemeValueForKey } from 'tamagui'
-import { Switch as TamaguiSwitch } from 'tamagui'
+import type { ColorTokens, GetThemeValueForKey } from '@hanzo/gui'
+import { Switch as GuiSwitch } from '@hanzo/gui'
 import { Check } from 'ui/src/components/icons'
 import type { FlexProps } from 'ui/src/components/layout'
 import { Flex } from 'ui/src/components/layout'
@@ -98,7 +98,7 @@ export function Switch({
   const INNER_RING_DISTANCE = -5
 
   return (
-    <TamaguiSwitch
+    <GuiSwitch
       alignItems="center"
       {...animationProp}
       aria-disabled={disabled}
@@ -130,7 +130,7 @@ export function Switch({
       onCheckedChange={disabled ? undefined : onCheckedChange}
       {...rest}
     >
-      <TamaguiSwitch.Thumb
+      <GuiSwitch.Thumb
         alignItems="center"
         {...animationProp}
         backgroundColor={thumbBackgroundColor}
@@ -160,7 +160,7 @@ export function Switch({
           width="$spacing24"
           zIndex={-2}
         />
-      </TamaguiSwitch.Thumb>
+      </GuiSwitch.Thumb>
 
       {/* focus ring outer */}
       <Flex
@@ -199,6 +199,6 @@ export function Switch({
         top={INNER_RING_DISTANCE}
         zIndex={-1}
       />
-    </TamaguiSwitch>
+    </GuiSwitch>
   )
 }

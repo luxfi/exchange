@@ -214,7 +214,7 @@
     "@storybook/addon-ondevice-controls": "8.5.2",
     "@storybook/react": "8.5.2",
     "@storybook/react-native": "8.5.2",
-    "@tamagui/babel-plugin": "1.136.1",
+    "@hanzogui/babel-plugin": "2.0.0",
     "@testing-library/react-native": "13.3.3",
     "@types/inquirer": "9.0.8",
     "@types/jest": "29.5.14",

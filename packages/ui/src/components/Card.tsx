@@ -1,5 +1,5 @@
-import type { GetProps, StackProps } from 'tamagui'
-import { H3, Stack, styled, Text } from 'tamagui'
+import type { GetProps, StackProps } from '@hanzo/gui'
+import { H3, Stack, styled, Text } from '@hanzo/gui'
 
 type CardVariant = 'default' | 'elevated' | 'outline' | 'ghost'
 type CardSize = 'sm' | 'md' | 'lg'

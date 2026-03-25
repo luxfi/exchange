@@ -1,5 +1,5 @@
-import type { StackProps } from 'tamagui'
-import { Stack, styled } from 'tamagui'
+import type { StackProps } from '@hanzo/gui'
+import { Stack, styled } from '@hanzo/gui'
 
 type SpinnerSize = 'sm' | 'md' | 'lg' | 'xl'
 

@@ -14,11 +14,11 @@ module.exports = function (api) {
     // process.env.NODE_ENV === 'test'
     //   ? null
     //   : [
-    //       '@tamagui/babel-plugin',
+    //       '@hanzogui/babel-plugin',
     //       {
     //         components: ['ui'],
     //         // experimentalFlattenThemesOnNative: true,
-    //         config: '../../packages/ui/src/tamagui.config.ts',
+    //         config: '../../packages/ui/src/gui.config.ts',
     //       },
     //     ],
 
@@ -60,7 +60,7 @@ module.exports = function (api) {
   return {
     ignore: [
       // speeds up compile
-      '**/@tamagui/**/dist/**',
+      '**/@hanzogui/**/dist/**',
     ],
     presets: ['babel-preset-expo'],
     plugins,

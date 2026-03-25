@@ -1,4 +1,4 @@
-import { Stack, styled, Text } from 'tamagui'
+import { Stack, styled, Text } from '@hanzo/gui'
 
 const PillFrame = styled(Stack, {
   name: 'TokenPill',

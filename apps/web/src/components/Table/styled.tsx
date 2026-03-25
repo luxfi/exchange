@@ -17,7 +17,7 @@ import { useAbbreviatedTimeString } from '~/components/Table/utils'
 import { MouseoverTooltip, TooltipSize } from '~/components/Tooltip'
 import { NATIVE_CHAIN_ID } from '~/constants/tokens'
 import { useCurrency } from '~/hooks/Tokens'
-import { ClickableTamaguiStyle } from '~/theme/components/styles'
+import { ClickableGuiStyle } from '~/theme/components/styles'
 
 export const SHOW_RETURN_TO_TOP_OFFSET = 500
 export const LOAD_MORE_BOTTOM_OFFSET = 50
@@ -188,13 +188,13 @@ export const CellContainer = styled(Flex, {
 
 const StyledExternalLink = styled(Anchor, {
   textDecorationLine: 'none',
-  ...ClickableTamaguiStyle,
+  ...ClickableGuiStyle,
   color: '$neutral1',
   target: '_blank',
   rel: 'noopener noreferrer',
 })
 const StyledInternalLink = styled(Link, {
-  ...ClickableTamaguiStyle,
+  ...ClickableGuiStyle,
   color: '$neutral1',
   '$platform-web': {
     textDecoration: 'none',
@@ -213,7 +213,7 @@ export const ClickableHeaderRow = styled(Flex, {
   alignItems: 'center',
   justifyContent: 'flex-end',
 
-  ...ClickableTamaguiStyle,
+  ...ClickableGuiStyle,
 })
 
 export function HeaderArrow({
@@ -247,11 +247,11 @@ export const FilterHeaderRow = styled(Flex, {
   userSelect: 'none',
   gap: '$gap4',
   transition: 'all 0.1s ease-in-out',
-  ...ClickableTamaguiStyle,
+  ...ClickableGuiStyle,
 
   variants: {
     clickable: {
-      true: ClickableTamaguiStyle,
+      true: ClickableGuiStyle,
     },
   } as const,
 })

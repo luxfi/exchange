@@ -1,5 +1,5 @@
-//! tamagui-ignore
-// TODO(EXT-732): fix encoding error in tamagui optimizer on this file
+//! gui-ignore
+// TODO(EXT-732): fix encoding error in gui optimizer on this file
 import { useState } from 'react'
 import { ElementAfterText, Flex, Text, TouchableArea, useShadowPropsShort } from 'ui/src'
 import {

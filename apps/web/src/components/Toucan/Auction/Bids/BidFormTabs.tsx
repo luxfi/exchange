@@ -1,5 +1,5 @@
-//! tamagui-ignore
-// tamagui-ignore
+//! gui-ignore
+// gui-ignore
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Flex, SpinningLoader, Text, useMedia, useSporeColors } from 'ui/src'

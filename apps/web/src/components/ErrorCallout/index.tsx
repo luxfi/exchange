@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next'
 import { Flex, Text, TouchableArea } from 'ui/src'
 import { AlertTriangleFilled } from 'ui/src/components/icons/AlertTriangleFilled'
 import { RotateLeft } from 'ui/src/components/icons/RotateLeft'
-import { ClickableTamaguiStyle } from '~/theme/components/styles'
+import { ClickableGuiStyle } from '~/theme/components/styles'
 
 export function ErrorCallout({
   errorMessage,
@@ -51,7 +51,7 @@ export function ErrorCallout({
           </Text>
         )}
         {Boolean(onPress) && (
-          <TouchableArea row {...ClickableTamaguiStyle} onPress={onPress} mt="$spacing2">
+          <TouchableArea row {...ClickableGuiStyle} onPress={onPress} mt="$spacing2">
             <Flex row gap="$gap4">
               {pressIcon}
               <Text variant="buttonLabel3">{action || t('common.button.tryAgain')}</Text>

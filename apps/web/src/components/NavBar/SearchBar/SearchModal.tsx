@@ -65,7 +65,7 @@ export const SearchModal = memo(function _SearchModal(): JSX.Element {
 
   const { chains: enabledChains } = useEnabledChains()
 
-  // Tamagui Dialog/Sheets should remove background scroll by default but does not work to disable ArrowUp/Down key scrolling
+  // Gui Dialog/Sheets should remove background scroll by default but does not work to disable ArrowUp/Down key scrolling
   useUpdateScrollLock({ isModalOpen })
 
   return (
@@ -85,7 +85,7 @@ export const SearchModal = memo(function _SearchModal(): JSX.Element {
       analyticsProperties={{
         search_tab: activeTab,
       }}
-      // Use percent mode to avoid Tamagui bug where 'fit' snapped
+      // Use percent mode to avoid Gui bug where 'fit' snapped
       // modals may incorrectly resize on their own when keyboard is visible
       snapPointsMode="percent"
       snapPoints={[85]}

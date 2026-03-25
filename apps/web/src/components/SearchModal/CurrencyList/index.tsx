@@ -142,7 +142,7 @@ export function CurrencyRow({
         text={<ThemedText.Caption textAlign="center">{tooltip}</ThemedText.Caption>}
         size={TooltipSize.ExtraSmall}
       >
-        {/* biome-ignore lint/correctness/noRestrictedElements: Wrapper needs DOM props (onKeyDown, onClick, tabIndex) for a11y; MenuItem is Tamagui Flex and doesn't type them */}
+        {/* biome-ignore lint/correctness/noRestrictedElements: Wrapper needs DOM props (onKeyDown, onClick, tabIndex) for a11y; MenuItem is Gui Flex and doesn't type them */}
         <div
           role="button"
           tabIndex={0}

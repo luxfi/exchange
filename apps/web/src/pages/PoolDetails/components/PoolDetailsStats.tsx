@@ -18,7 +18,7 @@ import { LoadingBubble } from '~/components/Tokens/loading'
 import { NATIVE_CHAIN_ID } from '~/constants/tokens'
 import { useCurrency } from '~/hooks/Tokens'
 import { DetailBubble } from '~/pages/PoolDetails/components/shared'
-import { ClickableTamaguiStyle } from '~/theme/components/styles'
+import { ClickableGuiStyle } from '~/theme/components/styles'
 
 const HeaderText = styled(Text, {
   fontWeight: '$book',
@@ -100,7 +100,7 @@ const StyledLink = styled(Link, {
   display: 'flex',
   alignItems: 'center',
   color: '$neutral1',
-  ...ClickableTamaguiStyle,
+  ...ClickableGuiStyle,
 })
 
 const BalanceChartSide = ({ percent, color, isLeft }: { percent: number; color: string; isLeft: boolean }) => (

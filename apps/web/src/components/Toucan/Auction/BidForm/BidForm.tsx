@@ -1,5 +1,5 @@
-//! tamagui-ignore
-// tamagui-ignore
+//! gui-ignore
+// gui-ignore
 import { KycVerificationStatus } from '@uniswap/client-liquidity/dist/uniswap/liquidity/v1/types_pb'
 import { useCallback, useState } from 'react'
 import { useTranslation } from 'react-i18next'

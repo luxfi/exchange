@@ -14,7 +14,7 @@ import Trace from 'lx/src/features/telemetry/Trace'
 import { GenericPasskeyMenuModal, PasskeyMenuModalState } from '~/components/AccountDrawer/PasskeyMenu/PasskeyMenuModal'
 import { useAccount } from '~/hooks/useAccount'
 import { usePasskeyAuthWithHelpModal } from '~/hooks/usePasskeyAuthWithHelpModal'
-import { ClickableTamaguiStyle } from '~/theme/components/styles'
+import { ClickableGuiStyle } from '~/theme/components/styles'
 
 export function AddPasskeyMenu({
   show,
@@ -91,7 +91,7 @@ export function AddPasskeyMenu({
                 justifyContent="center"
                 alignItems="center"
                 width="100%"
-                {...ClickableTamaguiStyle}
+                {...ClickableGuiStyle}
               >
                 <Flex p="$padding6" background={colors.pinkLight} borderRadius="$rounded6" height="min-content">
                   <Cloud size="$icon.20" color="$accent1" />
@@ -125,7 +125,7 @@ export function AddPasskeyMenu({
                 justifyContent="center"
                 alignItems="center"
                 width="100%"
-                {...ClickableTamaguiStyle}
+                {...ClickableGuiStyle}
               >
                 <Flex p="$padding6" background={colors.pinkLight} borderRadius="$rounded6" height="min-content">
                   <Mobile size="$icon.20" color="$accent1" />

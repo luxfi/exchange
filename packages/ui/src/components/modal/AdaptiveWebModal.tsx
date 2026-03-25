@@ -1,4 +1,4 @@
-import { RemoveScroll } from '@tamagui/remove-scroll'
+import { RemoveScroll } from '@hanzogui/remove-scroll'
 import { type PropsWithChildren, type ReactNode, useCallback, useEffect, useRef, useState } from 'react'
 import type { DimensionValue } from 'react-native'
 import {
@@ -11,7 +11,7 @@ import {
   useMedia,
   type View,
   VisuallyHidden,
-} from 'tamagui'
+} from '@hanzo/gui'
 import { type CloseIconProps, CloseIconWithHover } from 'ui/src/components/icons/CloseIconWithHover'
 import { Flex, type FlexProps } from 'ui/src/components/layout'
 import { useScrollbarStyles } from 'ui/src/styles/ScrollbarStyles'
@@ -65,7 +65,7 @@ export function WebBottomSheet({
   const isTouchDevice = useIsTouchDevice()
   const [isHandlePressed, setHandlePressed] = useState(false)
 
-  // TODO(INFRA-644): Remove this workaround once Tamagui sheet bug is fixed
+  // TODO(INFRA-644): Remove this workaround once Gui sheet bug is fixed
   // Force a new key to remount the Sheet on touch devices on sheet close
   // This is a workaround for bug where sheet does not respect disableDrag value changes unless remounted
   const touchDeviceSheetKey = useIncrementTouchDeviceSheetKey({ isOpen, isTouchDevice })
@@ -265,7 +265,7 @@ export function AdaptiveWebModal({
         <Dialog.Title />
       </VisuallyHidden>
       {adaptToSheet &&
-        !isTopAligned && ( // Tamagui Sheets always animate in from the bottom, so we cannot use Sheets on top aligned modals
+        !isTopAligned && ( // Gui Sheets always animate in from the bottom, so we cannot use Sheets on top aligned modals
           <Adapt when="md">
             <WebBottomSheet
               isOpen={isOpen}
@@ -368,7 +368,7 @@ export function WebModalWithBottomAttachment({
         <Dialog.Title />
       </VisuallyHidden>
       {adaptToSheet &&
-        !isTopAligned && ( // Tamagui Sheets always animate in from the bottom, so we cannot use Sheets on top aligned modals
+        !isTopAligned && ( // Gui Sheets always animate in from the bottom, so we cannot use Sheets on top aligned modals
           <Adapt when="md">
             <WebBottomSheet
               isOpen={isOpen}

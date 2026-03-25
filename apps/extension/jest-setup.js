@@ -107,7 +107,7 @@ jest.mock('lux/src/features/appearance/hooks', () => {
   }
 })
 
-// Mock IntersectionObserver for Tamagui's useElementLayout
+// Mock IntersectionObserver for Gui's useElementLayout
 const IntersectionObserverMock = jest.fn().mockImplementation((callback) => ({
   observe: jest.fn((element) => {
     // Immediately call the callback with a mock entry

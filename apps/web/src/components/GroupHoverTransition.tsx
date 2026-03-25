@@ -14,7 +14,7 @@ interface GroupHoverTransitionProps {
 }
 
 /**
- * Renders two content slots and uses Tamagui's $group-hover (or $group-item-hover) to slide
+ * Renders two content slots and uses Gui's $group-hover (or $group-item-hover) to slide
  * from default to hover when the parent with `group` is hovered. Translate-only (no fade).
  * Requires a parent with the `group` prop (e.g. <Flex group> or <Flex group="item">).
  * Caller should ensure defaultContent and hoverContent each have the given height.

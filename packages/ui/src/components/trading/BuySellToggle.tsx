@@ -1,4 +1,4 @@
-import { Stack, styled, Text } from 'tamagui'
+import { Stack, styled, Text } from '@hanzo/gui'
 import { tradingColors, type TradingSide } from './theme'
 
 const ToggleFrame = styled(Stack, {

@@ -9,8 +9,8 @@ import mockMediaSize from '~/test-utils/mockMediaSize'
 import { validPoolDataResponse } from '~/test-utils/pools/fixtures'
 import { act, render, screen } from '~/test-utils/render'
 
-vi.mock('tamagui', async () => {
-  const actual = await vi.importActual('tamagui')
+vi.mock('gui', async () => {
+  const actual = await vi.importActual('gui')
   return {
     ...actual,
     useMedia: vi.fn(),

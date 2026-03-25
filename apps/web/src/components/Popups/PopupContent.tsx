@@ -27,7 +27,7 @@ import { ToastRegularSimple } from '~/components/Popups/ToastRegularSimple'
 import { useIsRecentFlashblocksNotification } from '~/hooks/useIsRecentFlashblocksNotification'
 import { usePlanTransactions, useTransaction, useDEXOrderByOrderHash } from '~/state/transactions/hooks'
 import { isPendingTx } from '~/state/transactions/utils'
-import { EllipsisTamaguiStyle } from '~/theme/components/styles'
+import { EllipsisGuiStyle } from '~/theme/components/styles'
 
 export function FailedNetworkSwitchPopup({ chainId, onClose }: { chainId: UniverseChainId; onClose: () => void }) {
   const isSupportedChain = useIsSupportedChainId(chainId)
@@ -103,7 +103,7 @@ function ActivityPopupContent({ activity, onClick, onClose }: ActivityPopupConte
             <Text variant="body2" color="$neutral1">
               {activity.title}
             </Text>
-            <Text variant="body3" color="$neutral2" {...EllipsisTamaguiStyle}>
+            <Text variant="body3" color="$neutral2" {...EllipsisGuiStyle}>
               {activity.descriptor}
             </Text>
           </Flex>

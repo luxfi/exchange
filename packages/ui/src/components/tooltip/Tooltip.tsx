@@ -1,15 +1,15 @@
-import { type Tooltip as TamaguiTooltip, type TooltipProps, withStaticProperties } from 'tamagui'
+import { type Tooltip as GuiTooltip, type TooltipProps, withStaticProperties } from '@hanzo/gui'
 import { PlatformSplitStubError } from 'utilities/src/errors'
 
-export type { TooltipProps } from 'tamagui'
+export type { TooltipProps } from '@hanzo/gui'
 
-type TriggerProps = React.ComponentProps<typeof TamaguiTooltip.Trigger>
-export type TooltipContentProps = Omit<React.ComponentProps<typeof TamaguiTooltip.Content>, 'zIndex'> & {
+type TriggerProps = React.ComponentProps<typeof GuiTooltip.Trigger>
+export type TooltipContentProps = Omit<React.ComponentProps<typeof GuiTooltip.Content>, 'zIndex'> & {
   animationDirection?: 'left' | 'right' | 'top' | 'bottom'
   // zIndex is required to properly display components
-  zIndex: NonNullable<React.ComponentProps<typeof TamaguiTooltip.Content>['zIndex']>
+  zIndex: NonNullable<React.ComponentProps<typeof GuiTooltip.Content>['zIndex']>
 }
-type ArrowProps = React.ComponentProps<typeof TamaguiTooltip.Arrow>
+type ArrowProps = React.ComponentProps<typeof GuiTooltip.Arrow>
 
 export const Tooltip = withStaticProperties(
   (_props: TooltipProps) => {

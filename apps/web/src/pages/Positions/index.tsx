@@ -41,7 +41,7 @@ import { ExpandoRow } from '~/pages/Positions/ExpandoRow'
 import { TopPools } from '~/pages/Positions/TopPools'
 import { usePendingLPTransactionsChangeListener } from '~/state/transactions/hooks'
 import { useRequestPositionsForSavedPairs } from '~/state/user/hooks'
-import { ClickableTamaguiStyle } from '~/theme/components/styles'
+import { ClickableGuiStyle } from '~/theme/components/styles'
 
 // The BE limits the number of positions by chain and protocol version.
 // PAGE_SIZE=25 means the limit is at most 25 positions * x chains * y protocol versions.
@@ -213,7 +213,7 @@ function LearnMoreTile({
       target="_blank"
       rel="noopener noreferrer"
       width={width}
-      {...ClickableTamaguiStyle}
+      {...ClickableGuiStyle}
       hoverStyle={{ backgroundColor: '$surface1Hovered', borderColor: '$surface3Hovered' }}
     >
       <Flex
@@ -519,7 +519,7 @@ export default function Pool() {
                 {t('pool.import.link.description')}
               </Text>
               <Anchor href="/pools/v2/find" textDecorationLine="none">
-                <Text variant="body3" color="$neutral1" {...ClickableTamaguiStyle}>
+                <Text variant="body3" color="$neutral1" {...ClickableGuiStyle}>
                   {t('pool.import.positions.v2')}
                 </Text>
               </Anchor>

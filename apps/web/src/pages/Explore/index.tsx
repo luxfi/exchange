@@ -31,7 +31,7 @@ import { TopTokensTable } from '~/pages/Explore/tables/Tokens/TopTokensTable'
 import { setOpenModal } from '~/state/application/reducer'
 import { ExploreContextProvider } from '~/state/explore'
 import { useManualChainOutageStore } from '~/state/outage/store'
-import { ClickableTamaguiStyle } from '~/theme/components/styles'
+import { ClickableGuiStyle } from '~/theme/components/styles'
 import { getChainUrlParam, useChainIdFromUrlParam } from '~/utils/chainParams'
 
 interface Page {
@@ -73,7 +73,7 @@ function usePages(): Array<Page> {
 }
 
 const HeaderTab = styled(Text, {
-  ...ClickableTamaguiStyle,
+  ...ClickableGuiStyle,
   variant: 'heading3',
   userSelect: 'none',
   color: '$neutral2',

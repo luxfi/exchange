@@ -1,6 +1,6 @@
 import type React from 'react'
 import type { Insets } from 'react-native'
-import { type GetProps, type SizeTokens, type SpaceTokens, styled, type TamaguiElement, View } from 'tamagui'
+import { type GetProps, type SizeTokens, type SpaceTokens, styled, type GuiElement, View } from '@hanzo/gui'
 import { animationsEnter, animationsEnterExit, animationsExit } from 'ui/src/animations/presets'
 
 export const flexStyles = {
@@ -106,14 +106,14 @@ const FlexFrame = styled(View, {
 
 type FlexFrameProps = GetProps<typeof FlexFrame>
 
-// Extend FlexProps with shorthand types that Tamagui supports at runtime
+// Extend FlexProps with shorthand types that Gui supports at runtime
 export type FlexProps = FlexFrameProps & ShorthandSpaceProps
 
 /**
  * Flex component with shorthand spacing props (p, px, py, m, mt, mb, etc.)
- * These shorthands work at runtime through Tamagui but need explicit typing.
+ * These shorthands work at runtime through Gui but need explicit typing.
  *
- * The type assertion is necessary because Tamagui supports shorthands at runtime
+ * The type assertion is necessary because Gui supports shorthands at runtime
  * but the TypeScript types from styled() don't include them.
  */
-export const Flex = FlexFrame as React.ForwardRefExoticComponent<FlexProps & React.RefAttributes<TamaguiElement>>
+export const Flex = FlexFrame as React.ForwardRefExoticComponent<FlexProps & React.RefAttributes<GuiElement>>

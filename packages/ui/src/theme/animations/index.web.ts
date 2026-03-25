@@ -1,6 +1,6 @@
 // Web-specific animations using CSS transitions instead of react-native-reanimated
 // This avoids issues with reanimated's worklet system being tree-shaken during production builds
-import { createAnimations } from '@tamagui/animations-css'
+import { createAnimations } from '@hanzogui/animations-css'
 
 // CSS equivalents for the moti/reanimated spring and timing animations
 // Spring animations are approximated using CSS cubic-bezier timing functions

@@ -1,5 +1,5 @@
 import type { OpaqueColorValue } from 'react-native'
-import type { GetThemeValueForKey } from 'tamagui'
+import type { GetThemeValueForKey } from '@hanzo/gui'
 
 type HexColor = `#${string}${string}${string}` | `#${string}${string}${string}${string}${string}${string}`
 type RgbColor = `rgb(${number}, ${number}, ${number})` | `rgba(${number}, ${number}, ${number}, ${number})`

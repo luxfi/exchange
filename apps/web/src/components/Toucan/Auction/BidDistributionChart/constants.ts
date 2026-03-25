@@ -132,7 +132,7 @@ export const DEFAULT_Y_AXIS_LEVELS = [0, 20000, 40000, 60000, 80000, 100000] as 
 
 // Typography for canvas rendering
 // Matches the theme font stack from packages/ui/src/theme/fonts.ts (baselBook/baselMedium)
-// Used for lightweight-charts and other canvas-based rendering where React/Tamagui theming isn't available
+// Used for lightweight-charts and other canvas-based rendering where React/Gui theming isn't available
 export const CHART_FONT_FAMILY =
   'Basel, -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif'
 

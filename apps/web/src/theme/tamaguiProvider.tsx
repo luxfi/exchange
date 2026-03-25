@@ -1,12 +1,12 @@
-import { TamaguiProvider as OGTamaguiProvider, TamaguiProviderProps } from 'ui/src'
-import config from 'ui/src/tamagui.config'
+import { GuiProvider as OGGuiProvider, GuiProviderProps } from 'ui/src'
+import config from 'ui/src/gui.config'
 import { useSelectedColorScheme } from 'lx/src/features/appearance/hooks'
 
-export function TamaguiProvider({ children, ...rest }: Omit<TamaguiProviderProps, 'config'>): JSX.Element {
+export function GuiProvider({ children, ...rest }: Omit<GuiProviderProps, 'config'>): JSX.Element {
   const darkMode = useSelectedColorScheme() === 'dark'
   return (
-    <OGTamaguiProvider config={config} defaultTheme={darkMode ? 'dark' : 'light'} {...rest}>
+    <OGGuiProvider config={config} defaultTheme={darkMode ? 'dark' : 'light'} {...rest}>
       {children}
-    </OGTamaguiProvider>
+    </OGGuiProvider>
   )
 }

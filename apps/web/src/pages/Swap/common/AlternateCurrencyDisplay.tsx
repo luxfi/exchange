@@ -4,7 +4,7 @@ import { ArrowDownArrowUp } from 'ui/src/components/icons/ArrowDownArrowUp'
 import { useAppFiatCurrency } from 'lx/src/features/fiatCurrency/hooks'
 import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
 import { NumberType } from 'utilities/src/format/types'
-import { ClickableTamaguiStyle } from '~/theme/components/styles'
+import { ClickableGuiStyle } from '~/theme/components/styles'
 
 export const AlternateCurrencyDisplay = ({
   inputCurrency,
@@ -44,7 +44,7 @@ export const AlternateCurrencyDisplay = ({
       justifyContent="center"
       gap="$gap4"
       onPress={disabled ? undefined : onToggle}
-      {...(!disabled ? ClickableTamaguiStyle : {})}
+      {...(!disabled ? ClickableGuiStyle : {})}
     >
       <Text variant="body2" color="$neutral2">
         {formattedAlternateCurrency}

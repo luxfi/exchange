@@ -5,7 +5,7 @@ import { Arrow } from 'ui/src/components/arrow/Arrow'
 import { Clock } from 'ui/src/components/icons/Clock'
 import { iconSizes } from 'ui/src/theme'
 import { useOpenLimitOrders } from '~/components/AccountDrawer/MiniPortfolio/Activity/hooks'
-import { ClickableTamaguiStyle } from '~/theme/components/styles'
+import { ClickableGuiStyle } from '~/theme/components/styles'
 
 function getExtraWarning(openLimitOrders: any[]) {
   if (openLimitOrders.length >= 100) {
@@ -38,7 +38,7 @@ function TabButton({ text, icon, extraWarning, onClick, disabled }: TabButtonPro
       justifyContent="space-between"
       alignItems="center"
       mt="$spacing12"
-      {...ClickableTamaguiStyle}
+      {...ClickableGuiStyle}
     >
       <Flex row justifyContent="space-between" alignItems="center" gap="$spacing12" width="100%">
         <Flex row gap="$spacing8">

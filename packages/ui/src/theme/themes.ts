@@ -2,19 +2,19 @@ import { colorsDark, colorsLight } from 'ui/src/theme/color/colors'
 
 // remove $none from theme because it causes issues where $none tokens always resolve to transparent color
 // even if they are technically a gap or other space/size property
-// tamagui could make this so that themes only apply to color based properties, but would need a release
-const { none: darkTransparent, ...tamaguiColorsDark } = colorsDark
-const { none: lightTransparent, ...tamaguiColorsLight } = colorsLight
+// gui could make this so that themes only apply to color based properties, but would need a release
+const { none: darkTransparent, ...guiColorsDark } = colorsDark
+const { none: lightTransparent, ...guiColorsLight } = colorsLight
 
 // TODO can convert tokens to createTokens() and then use them here
-// Tamagui will automatically convert them though, so it just saves a small amount of performance
+// Gui will automatically convert them though, so it just saves a small amount of performance
 const light = {
   // Lux Design System
-  ...tamaguiColorsLight,
+  ...guiColorsLight,
   transparent: lightTransparent,
 
-  // Tamagui Theme
-  // Tamagui components expect the following
+  // Gui Theme
+  // Gui components expect the following
   background: colorsLight.surface1,
   backgroundHover: colorsLight.surface2,
   backgroundPress: colorsLight.surface2,
@@ -34,7 +34,7 @@ const light = {
 type BaseTheme = typeof light
 
 const dark: BaseTheme = {
-  ...tamaguiColorsDark,
+  ...guiColorsDark,
   transparent: darkTransparent,
   background: colorsDark.surface1,
   backgroundHover: colorsDark.surface2,

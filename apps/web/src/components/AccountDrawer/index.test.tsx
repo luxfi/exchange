@@ -45,8 +45,8 @@ vi.mock('lx/src/features/accounts/store/hooks', () => ({
   }),
 }))
 
-vi.mock('tamagui', async () => {
-  const actual = await vi.importActual('tamagui')
+vi.mock('gui', async () => {
+  const actual = await vi.importActual('gui')
   return {
     ...actual,
     useMedia: vi.fn(),

@@ -1,12 +1,12 @@
-import { config, TamaguiGroupNames } from 'ui/src/tamagui.config'
+import { config, GuiGroupNames } from 'ui/src/gui.config'
 
 type Conf = typeof config
 
-declare module 'tamagui' {
+declare module 'gui' {
   // eslint-disable-next-line @typescript-eslint/no-empty-interface
-  interface TamaguiCustomConfig extends Conf {}
+  interface GuiCustomConfig extends Conf {}
 
   interface TypeOverride {
-    groupNames(): TamaguiGroupNames
+    groupNames(): GuiGroupNames
   }
 }

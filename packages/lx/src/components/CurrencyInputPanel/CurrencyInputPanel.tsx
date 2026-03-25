@@ -1,5 +1,5 @@
-//! tamagui-ignore
-// tamagui-ignore
+//! gui-ignore
+// gui-ignore
 /* eslint-disable complexity */
 import { forwardRef, memo, useCallback } from 'react'
 import { Flex, TouchableArea, useIsShortMobileDevice, useShakeAnimation } from 'ui/src'

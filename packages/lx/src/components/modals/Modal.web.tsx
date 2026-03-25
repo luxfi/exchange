@@ -49,7 +49,7 @@ export function Modal({
   }
 
   // Not the greatest, we are syncing 200 here to 200ms animation
-  // TODO(EXT-745): Add Tamagui onFullyClosed callback and replace here
+  // TODO(EXT-745): Add Gui onFullyClosed callback and replace here
   useEffect(() => {
     if (!isModalOpen) {
       const tm = setTimeout(() => {

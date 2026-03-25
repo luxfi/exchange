@@ -7,7 +7,7 @@ import { GraduationCap } from 'ui/src/components/icons/GraduationCap'
 import { PenLine } from 'ui/src/components/icons/PenLine'
 import { SpeechBubbles } from 'ui/src/components/icons/SpeechBubbles'
 import { luxUrls } from 'lx/src/constants/urls'
-import { ClickableTamaguiStyle } from '~/theme/components/styles'
+import { ClickableGuiStyle } from '~/theme/components/styles'
 
 const SectionLayout = styled(Flex, {
   width: '100%',
@@ -96,7 +96,7 @@ function UniverseRow({
         target="_blank"
         rel="noopener noreferrer"
         textDecorationLine="none"
-        {...ClickableTamaguiStyle}
+        {...ClickableGuiStyle}
       >
         <RowContent icon={icon} title={title} description={description} showArrow={showArrow} />
       </Anchor>
@@ -113,7 +113,7 @@ const SocialLink = styled(Anchor, {
   color: '$neutral2',
   target: '_blank',
   rel: 'noopener noreferrer',
-  ...ClickableTamaguiStyle,
+  ...ClickableGuiStyle,
   style: {
     textDecoration: 'none',
   },

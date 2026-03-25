@@ -1,4 +1,4 @@
-import { Stack, styled, Text, Input } from 'tamagui'
+import { Stack, styled, Text, Input } from '@hanzo/gui'
 import { tradingColors } from './theme'
 import { TokenPill } from './TokenPill'
 

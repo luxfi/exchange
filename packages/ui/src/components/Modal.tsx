@@ -1,4 +1,4 @@
-import { Dialog, Stack, styled, Text } from 'tamagui'
+import { Dialog, Stack, styled, Text } from '@hanzo/gui'
 import { IconButton } from './IconButton'
 import { X } from './icons/X'
 

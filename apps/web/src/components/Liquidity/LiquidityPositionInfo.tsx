@@ -19,7 +19,7 @@ import {
 import { TextLoader } from '~/components/Liquidity/Loader'
 import { PositionInfo } from '~/components/Liquidity/types'
 import { LpIncentivesAprDisplay } from '~/components/LpIncentives/LpIncentivesAprDisplay'
-import { ClickableTamaguiStyle } from '~/theme/components/styles'
+import { ClickableGuiStyle } from '~/theme/components/styles'
 import { isV4UnsupportedChain } from '~/utils/networkSupportsV4'
 
 interface LiquidityPositionInfoProps {
@@ -110,7 +110,7 @@ export function LiquidityPositionInfo({
           <Flex>
             {linkToPool ? (
               <Anchor href={getPoolDetailsURL(positionInfo.poolId, positionInfo.chainId)} textDecorationLine="none">
-                <Text variant="subheading1" {...ClickableTamaguiStyle}>
+                <Text variant="subheading1" {...ClickableGuiStyle}>
                   {currency0Amount.currency.symbol} / {currency1Amount.currency.symbol}
                 </Text>
               </Anchor>

@@ -1,4 +1,4 @@
-import '@tamagui/core/reset.css'
+import '@hanzogui/core/reset.css'
 import 'src/app/Global.css'
 import 'symbol-observable' // Needed by `reduxed-chrome-storage` as polyfill, order matters
 

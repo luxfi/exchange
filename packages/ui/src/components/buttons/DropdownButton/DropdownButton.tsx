@@ -1,6 +1,6 @@
 import { cloneElement, Fragment, forwardRef, useMemo } from 'react'
-import type { TamaguiElement } from 'tamagui'
-import { withStaticProperties } from 'tamagui'
+import type { GuiElement } from '@hanzo/gui'
+import { withStaticProperties } from '@hanzo/gui'
 import { ThemedIcon } from 'ui/src/components/buttons/Button/components/ThemedIcon'
 import { useIsStringOrTransTag } from 'ui/src/components/buttons/Button/hooks/useIsStringOrTransTag'
 import { getIconPosition } from 'ui/src/components/buttons/Button/utils/getIconPosition'
@@ -29,7 +29,7 @@ const LeftContainer = ({ elementPositioning, children, icon, label }: LeftContai
   return <Fragment>{children}</Fragment>
 }
 
-const DropdownButtonComponent = forwardRef<TamaguiElement, DropdownButtonProps>(function DropdownButton(
+const DropdownButtonComponent = forwardRef<GuiElement, DropdownButtonProps>(function DropdownButton(
   { children, emphasis = 'secondary', icon, isDisabled, elementPositioning = 'equal', isExpanded, ...props },
   ref
 ) {

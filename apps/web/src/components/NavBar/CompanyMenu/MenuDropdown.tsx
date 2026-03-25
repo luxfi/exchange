@@ -15,7 +15,7 @@ import { useTabsVisible } from '~/components/NavBar/ScreenSizes'
 import { useTabsContent } from '~/components/NavBar/Tabs/TabsContent'
 import { Socials } from '~/pages/Landing/sections/Footer'
 import { ExternalLink } from '~/theme/components/Links'
-import { ClickableTamaguiStyle } from '~/theme/components/styles'
+import { ClickableGuiStyle } from '~/theme/components/styles'
 
 const Container = styled(Flex, {
   width: '400px',
@@ -122,7 +122,7 @@ function ProductSection({ items }: { items: MenuItem[] }) {
               href={item.href}
               target="_blank"
               rel="noopener noreferrer"
-              {...ClickableTamaguiStyle}
+              {...ClickableGuiStyle}
               aria-label={item.label}
             >
               <Flex row gap="$gap8" minWidth={168}>

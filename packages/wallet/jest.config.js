@@ -38,11 +38,11 @@ module.exports = {
   setupFiles: [
     './jest-setup.js',
   ],
-  // we map core to tamagui's test bundle, this just makes setup simpler for jest
+  // we map core to gui's test bundle, this just makes setup simpler for jest
   moduleNameMapper: {
     ...preset.moduleNameMapper,
-    '@tamagui/core': '@tamagui/core/native-test',
-    '@tamagui/web': '@tamagui/core/native-test',
+    '@hanzogui/core': '@hanzogui/core/native-test',
+    '@hanzogui/web': '@hanzogui/core/native-test',
     // Map theme animations to native version for tests (base index.ts uses CSS animations now)
     'ui/src/theme/animations$': '<rootDir>/../ui/src/theme/animations/index.native.ts',
     // Map platform-specific animation components to native versions for tests

@@ -18,7 +18,7 @@ import { shortenAddress } from 'utilities/src/addresses'
 import StatusIcon from '~/components/StatusIcon'
 import { useAccountsStore, useActiveAddresses } from '~/features/accounts/store/hooks'
 import { CopyHelper } from '~/theme/components/CopyHelper'
-import { EllipsisTamaguiStyle } from '~/theme/components/styles'
+import { EllipsisGuiStyle } from '~/theme/components/styles'
 
 function AddressDisplay({
   unitag,
@@ -31,7 +31,7 @@ function AddressDisplay({
 }) {
   return (
     <Flex row gap="$spacing2" alignItems="center" data-testid={TestID.AddressDisplay}>
-      <Text variant="subheading1" color="$neutral1" {...EllipsisTamaguiStyle}>
+      <Text variant="subheading1" color="$neutral1" {...EllipsisGuiStyle}>
         {unitag ?? ensName ?? shortenedAddress}
       </Text>
       {unitag && (

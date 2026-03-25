@@ -1,6 +1,6 @@
 import type { PropsWithChildren } from 'react'
-import type { GetProps } from 'tamagui'
-import type { LinearGradientProps } from 'tamagui/linear-gradient'
+import type { GetProps } from '@hanzo/gui'
+import type { LinearGradientProps } from 'gui/linear-gradient'
 import { Text } from 'ui/src/components/text'
 
 export type GradientTextProps = PropsWithChildren<GetProps<typeof Text> & { gradient: LinearGradientProps }>

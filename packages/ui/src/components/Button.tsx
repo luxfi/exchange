@@ -1,5 +1,5 @@
-import type { StackProps, TextProps } from 'tamagui'
-import { Stack, styled, Text } from 'tamagui'
+import type { StackProps, TextProps } from '@hanzo/gui'
+import { Stack, styled, Text } from '@hanzo/gui'
 
 type ButtonVariant = 'primary' | 'secondary' | 'outline' | 'ghost' | 'destructive'
 type ButtonSize = 'sm' | 'md' | 'lg' | 'xl'

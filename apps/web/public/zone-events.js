@@ -1,6 +1,6 @@
 /**
- * zone-events.ts  – TEMP shim for Tamagui scroll-lock bug
- *   → Must run **before** `@tamagui/polyfill-dev` is imported.
+ * zone-events.ts  – TEMP shim for Gui scroll-lock bug
+ *   → Must run **before** `@hanzogui/polyfill-dev` is imported.
  */
 
 // Browsers that default key events (`touchmove`, `wheel`) to passive:true

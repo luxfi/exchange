@@ -1,5 +1,5 @@
 // Test shorthand types
-import type { Shorthands, StackProps } from 'tamagui'
+import type { Shorthands, StackProps } from '@hanzo/gui'
 import { Flex, type FlexProps } from 'ui/src'
 
 // Test: Check if Shorthands has the correct keys

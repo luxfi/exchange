@@ -9,7 +9,7 @@ import {
   GeneratedIcon,
   IconProps,
   LinearGradient,
-  Image as TamaguiImage,
+  Image as GuiImage,
   Text,
   useIsDarkMode,
   useShadowPropsShort,
@@ -159,7 +159,7 @@ export function IntroCard({
           flexShrink={0}
         >
           {hasIconImage ? (
-            <TamaguiImage source={graphic.icon} style={{ width: 32, height: 32 }} resizeMode="contain" />
+            <GuiImage source={graphic.icon} style={{ width: 32, height: 32 }} resizeMode="contain" />
           ) : graphic.FallbackIcon ? (
             <graphic.FallbackIcon color={iconColor} size="$icon.20" />
           ) : null}
@@ -236,7 +236,7 @@ export function IntroCard({
     }
     return (
       <Flex position="absolute" left={0} top={0} bottom={0} width={120}>
-        <TamaguiImage
+        <GuiImage
           source={graphic.gradientImage}
           style={{
             position: 'absolute',

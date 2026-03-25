@@ -3,7 +3,7 @@ import '@testing-library/jest-dom' // jest custom assertions
 import 'jest-styled-components' // adds style diffs to snapshot tests
 import '~/polyfills' // add polyfills
 // eslint-disable-next-line
-import './test-utils/mockTamagui' // mock problematic Tamagui components
+import './test-utils/mockGui' // mock problematic Gui components
 
 import { type createPopper } from '@popperjs/core'
 import {
@@ -148,7 +148,7 @@ const IntersectionObserverMock = vi.fn(() => ({
 
 vi.stubGlobal('IntersectionObserver', IntersectionObserverMock)
 
-vi.mock('react-native-svg', () => require('@tamagui/react-native-svg'))
+vi.mock('react-native-svg', () => require('@hanzogui/react-native-svg'))
 
 vi.mock('expo-blur', () => ({
   BlurView: ({ children }: any) => {
@@ -178,7 +178,7 @@ vi.mock('@uniswap/analytics-events', () => {
   }
 })
 
-vi.mock('@tamagui/animations-moti', () => ({
+vi.mock('@hanzogui/animations-moti', () => ({
   createAnimations: () => ({
     '100ms': {
       type: 'timing',
@@ -378,7 +378,7 @@ failOnConsole({
   shouldFailOnWarn: true,
   allowMessage: (message, type) => {
     if (type === 'error') {
-      // TODO(TAM-47): remove this allowed warning once Tamagui is upgraded >= 1.100
+      // TODO(TAM-47): remove this allowed warning once Gui is upgraded >= 1.100
       if (message.startsWith('[moti]: Invalid transform value.')) {
         return true
       }
@@ -392,9 +392,9 @@ failOnConsole({
       ) {
         return true
       }
-      // Nuances from tamagui causing issues with React 19
+      // Nuances from gui causing issues with React 19
       if (message.includes('React does not recognize the') && message.includes('prop on a DOM element')) {
-        // This is coming from tamagui passing through props to the DOM element
+        // This is coming from gui passing through props to the DOM element
         return true
       }
 

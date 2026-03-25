@@ -71,7 +71,7 @@ import { usePositionTokenURI } from '~/hooks/usePositionTokenURI'
 import NotFound from '~/pages/NotFound'
 import { MultichainContextProvider } from '~/state/multichain/MultichainContext'
 import { usePendingLPTransactionsChangeListener } from '~/state/transactions/hooks'
-import { ClickableTamaguiStyle } from '~/theme/components/styles'
+import { ClickableGuiStyle } from '~/theme/components/styles'
 import { useChainIdFromUrlParam } from '~/utils/chainParams'
 
 const BodyWrapper = styled(Main, {
@@ -456,7 +456,7 @@ function PositionPage({ chainId }: { chainId: EVMUniverseChainId | undefined }) 
                       borderColor="$surface3"
                       borderWidth="$spacing1"
                       gap="$gap6"
-                      {...ClickableTamaguiStyle}
+                      {...ClickableGuiStyle}
                     >
                       {mainViewOptions.find((p) => p.value === mainView)?.display}
                       <RotatableChevron direction="down" size="$icon.16" color="$neutral2" />
@@ -516,7 +516,7 @@ function PositionPage({ chainId }: { chainId: EVMUniverseChainId | undefined }) 
                         borderColor="$surface3"
                         borderWidth="$spacing1"
                         gap="$gap6"
-                        {...ClickableTamaguiStyle}
+                        {...ClickableGuiStyle}
                       >
                         {timePeriodOptions.options.find((p) => p.value === timePeriodOptions.selected)?.display}
                         <RotatableChevron direction="down" size="$icon.16" color="$neutral2" />

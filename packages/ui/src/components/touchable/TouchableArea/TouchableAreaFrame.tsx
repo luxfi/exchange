@@ -1,4 +1,4 @@
-import { styled, YStack, type YStackProps } from 'tamagui'
+import { styled, YStack, type YStackProps } from '@hanzo/gui'
 import { FOCUS_SCALE } from 'ui/src/components/buttons/Button/components/CustomButtonFrame/constants'
 import { withCommonPressStyle } from 'ui/src/components/buttons/Button/components/CustomButtonFrame/utils'
 import { isWebPlatform } from 'utilities/src/platform'
@@ -126,7 +126,7 @@ export const TouchableAreaFrame = styled(YStack, {
       }),
       raised: (_: unknown, { props: { hoverable, disabled } }: PropsWithHoverableAndDisabled): Partial<YStackProps> => {
         return {
-          // We can't nest `$theme-[dark/light]` within `$platform-web` because Tamagui doesn't support it
+          // We can't nest `$theme-[dark/light]` within `$platform-web` because Gui doesn't support it
           '$theme-dark': {
             boxShadow: disabled
               ? undefined

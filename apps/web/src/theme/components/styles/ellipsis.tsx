@@ -1,14 +1,14 @@
 import { TextStyle } from 'ui/src'
 import { css } from '~/lib/deprecated-styled'
 
-/** @deprecated use tamagui and EllipsisTamaguiStyle instead */
+/** @deprecated use gui and EllipsisGuiStyle instead */
 export const EllipsisStyle = css`
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 `
 
-export const EllipsisTamaguiStyle = {
+export const EllipsisGuiStyle = {
   '$platform-web': {
     whiteSpace: 'nowrap',
     overflow: 'hidden',

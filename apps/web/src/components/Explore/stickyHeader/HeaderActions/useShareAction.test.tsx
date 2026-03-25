@@ -5,8 +5,8 @@ import { useShareAction } from '~/components/Explore/stickyHeader/HeaderActions/
 const mockSetCopied = vi.fn()
 const mockOpenTwitterShareWindow = vi.fn()
 
-vi.mock('@tamagui/core', async (importOriginal) => {
-  const actual = await importOriginal<typeof import('@tamagui/core')>()
+vi.mock('@hanzogui/core', async (importOriginal) => {
+  const actual = await importOriginal<typeof import('@hanzogui/core')>()
   return {
     ...actual,
     useTheme: () => ({

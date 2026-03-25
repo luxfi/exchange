@@ -1,4 +1,4 @@
-import { Stack, styled } from 'tamagui'
+import { Stack, styled } from '@hanzo/gui'
 
 const ArrowFrame = styled(Stack, {
   name: 'SwapArrow',

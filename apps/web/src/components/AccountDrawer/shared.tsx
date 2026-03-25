@@ -3,7 +3,7 @@ import type { To } from 'react-router'
 import { Link } from 'react-router'
 import { Flex, styled, Text } from 'ui/src'
 import { Check } from 'ui/src/components/icons/Check'
-import { ClickableTamaguiStyle } from '~/theme/components/styles'
+import { ClickableGuiStyle } from '~/theme/components/styles'
 
 const InternalLinkMenuItem = styled(Link, {
   flex: 1,
@@ -13,7 +13,7 @@ const InternalLinkMenuItem = styled(Link, {
   py: '$spacing12',
   justifyContent: 'space-between',
   color: '$neutral1',
-  ...ClickableTamaguiStyle,
+  ...ClickableGuiStyle,
 
   '$platform-web': {
     textDecoration: 'none',

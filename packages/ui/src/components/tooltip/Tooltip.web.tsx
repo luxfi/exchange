@@ -1,15 +1,15 @@
-import { AdaptParent } from '@tamagui/adapt'
+import { AdaptParent } from '@hanzogui/adapt'
 import { useEffect, useId } from 'react'
-import { styled, Tooltip as TamaguiTooltip, withStaticProperties } from 'tamagui'
+import { styled, Tooltip as GuiTooltip, withStaticProperties } from '@hanzo/gui'
 import type { TooltipContentProps } from 'ui/src/components/tooltip/Tooltip'
 import { useEvent } from 'utilities/src/react/hooks'
 import { useBooleanState } from 'utilities/src/react/useBooleanState'
 
-export type { TooltipProps } from 'tamagui'
+export type { TooltipProps } from '@hanzo/gui'
 
 const ANIMATION_OFFSET = 4
 
-const StyledContent = styled(TamaguiTooltip.Content)
+const StyledContent = styled(GuiTooltip.Content)
 StyledContent.displayName = 'StyledContent'
 
 const HigherOrderStyledContent = StyledContent.styleable<TooltipContentProps>((props) => {
@@ -69,7 +69,7 @@ const Content = styled(HigherOrderStyledContent, {
 
 Content.displayName = 'Content'
 
-const Arrow = styled(TamaguiTooltip.Arrow, {
+const Arrow = styled(GuiTooltip.Arrow, {
   size: '$spacing12',
   backgroundColor: '$surface1',
   borderWidth: 1,
@@ -84,7 +84,7 @@ const Arrow = styled(TamaguiTooltip.Arrow, {
 
 Arrow.displayName = 'Arrow'
 
-const TooltipRoot = styled(TamaguiTooltip, {
+const TooltipRoot = styled(GuiTooltip, {
   offset: {
     mainAxis: 16,
   },
@@ -94,7 +94,7 @@ const TooltipRoot = styled(TamaguiTooltip, {
 
 TooltipRoot.displayName = 'TooltipRoot'
 
-function TooltipBase(props: React.ComponentProps<typeof TamaguiTooltip>): JSX.Element {
+function TooltipBase(props: React.ComponentProps<typeof GuiTooltip>): JSX.Element {
   const { open: openProp, onOpenChange, ...rest } = props
 
   const isControlled = openProp !== undefined
@@ -128,7 +128,7 @@ function TooltipBase(props: React.ComponentProps<typeof TamaguiTooltip>): JSX.El
 }
 
 export const Tooltip = withStaticProperties(TooltipBase, {
-  Trigger: TamaguiTooltip.Trigger,
+  Trigger: GuiTooltip.Trigger,
   Content,
   Arrow,
 })

@@ -1,5 +1,5 @@
 import { cloneElement, memo } from 'react'
-import { useStyle } from 'tamagui'
+import { useStyle } from '@hanzo/gui'
 import { CustomButtonText } from 'ui/src/components/buttons/Button/components/CustomButtonText/CustomButtonText'
 import type { TypeOfButton } from 'ui/src/components/buttons/Button/components/types'
 import { useIconSizes } from 'ui/src/components/buttons/Button/hooks/useIconSizes'
@@ -25,7 +25,7 @@ const _ThemedIcon = ({
 }: ThemedIconProps): JSX.Element | null => {
   const iconSizes = useIconSizes(typeOfButton)
 
-  // @ts-expect-error we know the color will be there; deficiency in tamagui's types
+  // @ts-expect-error we know the color will be there; deficiency in gui's types
   // TODO: possibly look into this as a performance bottleneck (refer to typedef for more info)
   const { color, '$group-item-hover': groupItemHover } = useStyle(
     { variant, emphasis, isDisabled, 'custom-background-color': customBackgroundColor },

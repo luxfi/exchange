@@ -31,11 +31,11 @@ vi.mock('react-native', async (importOriginal) => {
   return actualReactNative
 })
 
-vi.mock('tamagui', async (importOriginal) => {
-  const actualTamagui = await importOriginal<typeof import('tamagui')>()
+vi.mock('gui', async (importOriginal) => {
+  const actualGui = await importOriginal<typeof import('gui')>()
 
   return {
-    ...actualTamagui,
+    ...actualGui,
     Portal: ({ children }: { children: ReactNode }): ReactNode => children,
   }
 })

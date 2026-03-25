@@ -11,11 +11,11 @@ import { HEADER_TRANSITION } from '~/components/Explore/stickyHeader/constants'
 import { getHeaderTitleVariant } from '~/components/Explore/stickyHeader/getHeaderLogoSize'
 import { FeeData } from '~/components/Liquidity/Create/types'
 import { LiquidityPositionInfoBadges } from '~/components/Liquidity/LiquidityPositionInfoBadges'
-import { ClickableTamaguiStyle } from '~/theme/components/styles'
+import { ClickableGuiStyle } from '~/theme/components/styles'
 
 const StyledLink = styled(Link, {
   color: '$neutral1',
-  ...ClickableTamaguiStyle,
+  ...ClickableGuiStyle,
   '$platform-web': {
     textDecoration: 'none',
   },
@@ -73,7 +73,7 @@ export function PoolDetailsTitle({
       </Flex>
       <TouchableArea
         hoverable
-        {...ClickableTamaguiStyle}
+        {...ClickableGuiStyle}
         onPress={toggleReversed}
         testID="toggle-tokens-reverse-arrows"
       >

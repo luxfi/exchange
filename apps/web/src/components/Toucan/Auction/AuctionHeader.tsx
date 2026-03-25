@@ -11,7 +11,7 @@ import { getChainInfo } from 'lx/src/features/chains/chainInfo'
 import { getTokenDetailsURL } from '~/appGraphql/data/util'
 import { BreadcrumbNavContainer, BreadcrumbNavLink, CurrentPageBreadcrumb } from '~/components/BreadcrumbNav'
 import { useAuctionStore } from '~/components/Toucan/Auction/store/useAuctionStore'
-import { EllipsisTamaguiStyle } from '~/theme/components/styles'
+import { EllipsisGuiStyle } from '~/theme/components/styles'
 
 // TODO | Toucan - Investigate why BreadcrumbNavLink doesn't re-render on theme change in this component tree.
 // The same component works correctly in PoolDetailsHeader.tsx. This memo + useIsDarkMode is a workaround
@@ -61,7 +61,7 @@ const AuctionTokenInfo = ({
       />
       <Flex gap={4} justifyContent="center">
         <Flex row gap="$gap4">
-          <Text variant="heading3" $lg={{ variant: 'subheading1' }} minWidth={40} {...EllipsisTamaguiStyle}>
+          <Text variant="heading3" $lg={{ variant: 'subheading1' }} minWidth={40} {...EllipsisGuiStyle}>
             {name}
           </Text>
           {verified && <CheckmarkCircle size="$icon.16" color="$accent1" />}

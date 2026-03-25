@@ -4,7 +4,7 @@ import { InfoCircleFilled } from 'ui/src/components/icons/InfoCircleFilled'
 import { ElementName } from 'lx/src/features/telemetry/constants'
 import Trace from 'lx/src/features/telemetry/Trace'
 import { MouseoverTooltip } from '~/components/Tooltip'
-import { ClickableTamaguiStyle } from '~/theme/components/styles'
+import { ClickableGuiStyle } from '~/theme/components/styles'
 
 export function AdvancedButton({
   title,
@@ -31,7 +31,7 @@ export function AdvancedButton({
             textDecorationLine="underline"
             textDecorationStyle="dashed"
             onPress={onPress}
-            {...ClickableTamaguiStyle}
+            {...ClickableGuiStyle}
           >
             {title}
           </Text>

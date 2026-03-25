@@ -1,5 +1,5 @@
-export { PortalProvider } from '@tamagui/portal'
-export { RemoveScroll } from '@tamagui/remove-scroll'
+export { PortalProvider } from '@hanzogui/portal'
+export { RemoveScroll } from '@hanzogui/remove-scroll'
 export type {
   Adapt,
   AnchorProps,
@@ -13,21 +13,21 @@ export type {
   SpaceTokens,
   TabLayout,
   TabsTabProps,
-  TamaguiElement,
-  TamaguiProviderProps,
+  GuiElement,
+  GuiProviderProps,
   TextStyle,
   ThemeKeys,
   ThemeName,
   Tokens,
   ViewProps,
-} from 'tamagui'
+} from '@hanzo/gui'
 export {
   Accordion,
   Anchor,
   AnimatePresence,
   Avatar,
   Circle,
-  createTamagui,
+  createGui,
   getToken,
   getTokenValue,
   Image,
@@ -48,7 +48,7 @@ export {
   Square,
   styled,
   Tabs,
-  TamaguiProvider,
+  GuiProvider,
   Theme,
   useComposedRefs,
   useIsTouchDevice,
@@ -58,8 +58,8 @@ export {
   View,
   VisuallyHidden,
   YGroup,
-} from 'tamagui'
-export { LinearGradient, type LinearGradientProps } from 'tamagui/linear-gradient'
+} from '@hanzo/gui'
+export { LinearGradient, type LinearGradientProps } from 'gui/linear-gradient'
 export * from 'ui/src/animations'
 export * from './components/AnimatableCopyIcon/AnimatableCopyIcon'
 export * from './components/AnimatedCopyLabel/AnimatedCopyLabel'
@@ -76,7 +76,7 @@ export * from './components/dropdownMenuSheet/DropdownMenuSheetItem'
 export { getMenuItemColor } from './components/dropdownMenuSheet/utils'
 export type { GeneratedIcon, IconProps } from './components/factories/createIcon'
 export * from './components/InlineCard/InlineCard'
-// Re-export Input from tamagui
+// Re-export Input from gui
 export { Input, type InputProps, type InputRef } from './components/input/Input'
 export * from './components/input/utils'
 export { type AnimatedScrollView, Flex, type FlexProps, flexStyles, Inset, Separator } from './components/layout'
@@ -131,4 +131,4 @@ export * from './styles/ScrollbarStyles'
 export * from './theme/shadows'
 export * from './utils/colors'
 export { EM_DASH } from './utils/constants'
-export * from './utils/tamagui'
+export * from './utils/gui'

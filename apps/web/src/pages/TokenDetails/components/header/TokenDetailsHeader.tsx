@@ -21,7 +21,7 @@ import { useModalState } from '~/hooks/useModalState'
 import { useTokenDetailsHeaderActions } from '~/pages/TokenDetails/components/header/useTokenDetailsHeaderActions'
 import { useTDPContext } from '~/pages/TokenDetails/context/TDPContext'
 import { CopyHelper } from '~/theme/components/CopyHelper'
-import { EllipsisTamaguiStyle } from '~/theme/components/styles'
+import { EllipsisGuiStyle } from '~/theme/components/styles'
 
 interface TokenDetailsHeaderProps {
   isCompact: boolean
@@ -92,7 +92,7 @@ export function TokenDetailsHeader({ isCompact }: TokenDetailsHeaderProps) {
               tag="h1"
               variant={getHeaderTitleVariant({ isCompact, isMobile: media.md })}
               transition={HEADER_TRANSITION}
-              {...EllipsisTamaguiStyle}
+              {...EllipsisGuiStyle}
             >
               {currency.name ?? t('tdp.nameNotFound')}
             </Text>

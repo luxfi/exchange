@@ -52,7 +52,7 @@ import { useLpIncentivesFormattedEarnings } from '~/hooks/useLpIncentivesFormatt
 import useSelectChain from '~/hooks/useSelectChain'
 import { setOpenModal } from '~/state/application/reducer'
 import { useAppDispatch } from '~/state/hooks'
-import { ClickableTamaguiStyle } from '~/theme/components/styles'
+import { ClickableGuiStyle } from '~/theme/components/styles'
 import { isV4UnsupportedChain } from '~/utils/networkSupportsV4'
 
 export function LiquidityPositionCardLoader() {
@@ -507,7 +507,7 @@ function MiniPositionCard({
       </Flex>
       {priceOrdering.priceLower && priceOrdering.priceUpper && !isFullRange ? (
         <TouchableArea
-          {...ClickableTamaguiStyle}
+          {...ClickableGuiStyle}
           onPress={(e) => {
             e.preventDefault()
             e.stopPropagation()

@@ -1,8 +1,8 @@
-import type { AnimationKeys } from 'tamagui'
+import type { AnimationKeys } from '@hanzo/gui'
 
 // Animation delay keys matching the pattern in animations/index.ts
 // Uses the format '200msDelay-{delay}' where delay is in ms
-// The return type is AnimationKeys to ensure compatibility with Tamagui components
+// The return type is AnimationKeys to ensure compatibility with Gui components
 
 // maintain alignment with animations defined in animations/index.ts
 const DELAY_VALUES = [0, 50, 100, 150, 200, 250, 300, 350, 400] as const

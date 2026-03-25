@@ -1,4 +1,4 @@
-import type { GetProps } from 'tamagui'
+import type { GetProps } from '@hanzo/gui'
 import type { CustomButtonFrame } from 'ui/src/components/buttons/Button/components/CustomButtonFrame/CustomButtonFrame'
 import type { FlexProps } from 'ui/src/components/layout'
 
@@ -20,7 +20,7 @@ export type ButtonVariantProps = {
   'custom-background-color'?: FlexProps['backgroundColor']
 }
 
-// TODO(WEB-6347): don't allow people to set disabled prop until Tamagui issue resolved
+// TODO(WEB-6347): don't allow people to set disabled prop until Gui issue resolved
 export type ButtonProps = Omit<CustomButtonFrameProps, 'variant' | 'disabled'> &
   ButtonVariantProps & {
     /**

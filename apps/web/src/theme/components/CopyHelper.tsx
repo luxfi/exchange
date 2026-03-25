@@ -3,7 +3,7 @@ import { Trans } from 'react-i18next'
 import { AnimatableCopyIcon, ColorTokens, Flex, isTouchable, Text, TextProps } from 'ui/src'
 import { ReactComponent as TooltipTriangle } from '~/assets/svg/tooltip_triangle.svg'
 import useCopyClipboard from '~/hooks/useCopyClipboard'
-import { ClickableTamaguiStyle, EllipsisTamaguiStyle } from '~/theme/components/styles'
+import { ClickableGuiStyle, EllipsisGuiStyle } from '~/theme/components/styles'
 
 const TOOLTIP_WIDTH = 60
 
@@ -50,7 +50,7 @@ export function CopyToClipboard({ toCopy, children }: PropsWithChildren<{ toCopy
       justifyContent="center"
       alignItems="center"
       position="relative"
-      {...ClickableTamaguiStyle}
+      {...ClickableGuiStyle}
       $platform-web={{
         textDecoration: 'none',
       }}
@@ -133,7 +133,7 @@ export const CopyHelper = forwardRef<CopyHelperRefType, CopyHelperProps>(
         gap={displayGap}
         onMouseEnter={onHover}
         onMouseLeave={offHover}
-        {...(!disabled && ClickableTamaguiStyle)}
+        {...(!disabled && ClickableGuiStyle)}
         position="relative"
         alignItems="center"
         $platform-web={{
@@ -149,7 +149,7 @@ export const CopyHelper = forwardRef<CopyHelperRefType, CopyHelperProps>(
             dataTestId={dataTestId}
           />
         )}
-        <Flex ref={textRef} maxWidth={`calc(100% - ${offset + 'px'})`} {...EllipsisTamaguiStyle}>
+        <Flex ref={textRef} maxWidth={`calc(100% - ${offset + 'px'})`} {...EllipsisGuiStyle}>
           {isCopied && iconPosition === 'left' ? (
             <Text variant="body3" color="neutral3" {...textProps}>
               <Trans i18nKey="common.copied" />

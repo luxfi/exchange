@@ -1,7 +1,7 @@
 import { Anchor, Flex, Text } from 'ui/src'
 import { Arrow } from 'ui/src/components/arrow/Arrow'
 import { iconSizes } from 'ui/src/theme'
-import { ClickableTamaguiStyle } from '~/theme/components/styles'
+import { ClickableGuiStyle } from '~/theme/components/styles'
 
 export function ExternalArrowLink({
   href,
@@ -17,7 +17,7 @@ export function ExternalArrowLink({
       textDecorationLine="none"
       href={href}
       target={openInNewTab ? '_blank' : undefined}
-      {...ClickableTamaguiStyle}
+      {...ClickableGuiStyle}
     >
       <Flex gap="$gap8" alignItems="center" row>
         <Text variant="buttonLabel3" color="$neutral2">

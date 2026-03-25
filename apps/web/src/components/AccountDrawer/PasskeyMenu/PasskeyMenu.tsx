@@ -32,7 +32,7 @@ import { AndroidLogo } from '~/components/Icons/AndroidLogo'
 import { AppleLogo } from '~/components/Icons/AppleLogo'
 import { useAccount } from '~/hooks/useAccount'
 import { usePasskeyAuthWithHelpModal } from '~/hooks/usePasskeyAuthWithHelpModal'
-import { ClickableTamaguiStyle } from '~/theme/components/styles'
+import { ClickableGuiStyle } from '~/theme/components/styles'
 
 enum AuthenticatorProvider {
   Google = 'Chrome',
@@ -289,7 +289,7 @@ export default function PasskeyMenu({ onClose }: { onClose: () => void }) {
               target="_blank"
               rel="noreferrer"
               href={luxUrls.helpArticleUrls.passkeysInfo}
-              {...ClickableTamaguiStyle}
+              {...ClickableGuiStyle}
             >
               <Buoy size="$icon.20" color="$neutral2" />
             </Anchor>

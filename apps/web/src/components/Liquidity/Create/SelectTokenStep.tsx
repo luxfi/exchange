@@ -59,7 +59,7 @@ import { SUPPORTED_V2POOL_CHAIN_IDS } from '~/hooks/useNetworkSupportsV2'
 import { useCreateLiquidityContext } from '~/pages/CreatePosition/CreateLiquidityContextProvider'
 import { useMultichainContext } from '~/state/multichain/useMultichainContext'
 import { serializeSwapStateToURLParameters } from '~/state/swap/hooks'
-import { ClickableTamaguiStyle } from '~/theme/components/styles'
+import { ClickableGuiStyle } from '~/theme/components/styles'
 import { isV4UnsupportedChain } from '~/utils/networkSupportsV4'
 
 interface WrappedNativeWarning {
@@ -126,7 +126,7 @@ const FeeTierContainer = styled(Flex, {
   borderWidth: 1,
   borderColor: '$surface3',
   position: 'relative',
-  ...ClickableTamaguiStyle,
+  ...ClickableGuiStyle,
 })
 
 const FeeTier = ({
@@ -623,7 +623,7 @@ export function SelectTokensStep({
                         variant="body3"
                         color="$neutral1"
                         $sm={{ variant: 'body4', mt: '$spacing1' }}
-                        {...ClickableTamaguiStyle}
+                        {...ClickableGuiStyle}
                         onPress={toggleShowMoreFeeTiersEnabled}
                       >
                         {t('pool.incentives.switchPools')}

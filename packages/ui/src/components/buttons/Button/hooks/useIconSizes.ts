@@ -1,5 +1,5 @@
 import { useMemo } from 'react'
-import { getTokenValue } from 'tamagui'
+import { getTokenValue } from '@hanzo/gui'
 import type { TypeOfButton } from 'ui/src/components/buttons/Button/components/types'
 import { lineHeights } from 'ui/src/components/buttons/Button/constants'
 import type { ButtonProps } from 'ui/src/components/buttons/Button/types'
@@ -26,7 +26,7 @@ const getIconSizesForIconButton = (): Record<Size, number> => ({
   large: getTokenValue('$icon.24'),
 })
 
-// We declare this because there could potentially be a race condition where `getConfig()` is called before the tamagui config is initialized
+// We declare this because there could potentially be a race condition where `getConfig()` is called before the gui config is initialized
 // So, we create `getIconSizes` and wrap is with `useMemo` so it's used when the component actually needs it
 export const useIconSizes = (
   typeOfButton: TypeOfButton

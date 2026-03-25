@@ -5,7 +5,7 @@ import {
   RadioGroup,
   type RadioGroupItemProps,
   type RadioGroupProps,
-} from 'tamagui'
+} from '@hanzo/gui'
 import { Flex } from 'ui/src/components/layout'
 import type { SporeComponentVariant } from 'ui/src/components/types'
 

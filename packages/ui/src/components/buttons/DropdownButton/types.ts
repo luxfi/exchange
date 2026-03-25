@@ -1,4 +1,4 @@
-import type { GetProps } from 'tamagui'
+import type { GetProps } from '@hanzo/gui'
 import type { ButtonProps, ButtonVariantProps } from 'ui/src/components/buttons/Button/types'
 import type { DropdownButtonFrame } from 'ui/src/components/buttons/DropdownButton/DropdownButtonFrame'
 
