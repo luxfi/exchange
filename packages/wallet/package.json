@@ -1,5 +1,5 @@
 {
-  "name": "wallet",
+  "name": "@luxfi/wallet",
   "version": "0.0.0",
   "scripts": {
     "check:deps:usage": "nx check:deps:usage wallet",
@@ -37,9 +37,9 @@
     "@uniswap/router-sdk": "2.3.2",
     "@uniswap/sdk-core": "7.10.1",
     "@uniswap/uniswapx-sdk": "3.0.0-beta.7",
-    "@universe/api": "workspace:^",
-    "@universe/gating": "workspace:^",
-    "@universe/sessions": "workspace:^",
+    "@luxexchange/api": "workspace:^",
+    "@luxexchange/gating": "workspace:^",
+    "@luxexchange/sessions": "workspace:^",
     "apollo3-cache-persist": "0.14.1",
     "dayjs": "1.11.7",
     "ethers": "5.7.2",
@@ -68,9 +68,9 @@
     "redux-saga-test-plan": "4.0.4",
     "sp-react-native-in-app-updates": "1.5.0",
     "typed-redux-saga": "1.5.0",
-    "ui": "workspace:^",
-    "lx": "workspace:^",
-    "utilities": "workspace:^",
+    "@luxfi/ui": "workspace:^",
+    "@luxexchange/lx": "workspace:^",
+    "@luxfi/utilities": "workspace:^",
     "viem": "2.30.5",
     "zod": "4.3.6",
     "zxcvbn": "4.4.2"

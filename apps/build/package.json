@@ -1,5 +1,5 @@
 {
-  "name": "@luxfi/build",
+  "name": "@luxexchange/build",
   "version": "1.0.0",
   "description": "Lux Build - Validator management, staking, and delegation",
   "private": true,

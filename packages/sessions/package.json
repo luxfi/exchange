@@ -1,5 +1,5 @@
 {
-  "name": "@universe/sessions",
+  "name": "@luxexchange/sessions",
   "version": "0.0.0",
   "scripts": {
     "typecheck": "nx typecheck sessions",
@@ -26,7 +26,7 @@
     "@tanstack/react-query": "5.90.20",
     "@uniswap/client-platform-service": "0.0.14",
     "bidc": "0.0.3",
-    "utilities": "workspace:^",
+    "@luxfi/utilities": "workspace:^",
     "zod": "4.3.6"
   },
   "devDependencies": {

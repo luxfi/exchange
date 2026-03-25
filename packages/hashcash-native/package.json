@@ -1,5 +1,5 @@
 {
-  "name": "@universe/hashcash-native",
+  "name": "@luxexchange/hashcash-native",
   "version": "0.0.1",
   "description": "Native hashcash proof-of-work solver for React Native",
   "author": "Lux Industries",

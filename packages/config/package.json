@@ -1,9 +1,9 @@
 {
-  "name": "@universe/config",
+  "name": "@luxexchange/config",
   "version": "0.0.0",
   "dependencies": {
     "react-native-dotenv": "3.2.0",
-    "utilities": "workspace:^"
+    "@luxfi/utilities": "workspace:^"
   },
   "devDependencies": {
     "@types/node": "22.13.1",

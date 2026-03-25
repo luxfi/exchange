@@ -1,12 +1,12 @@
 {
-  "name": "@universe/prices",
+  "name": "@luxexchange/prices",
   "version": "0.0.0",
   "dependencies": {
     "@tanstack/react-query": "5.90.20",
     "@uniswap/sdk-core": "7.10.1",
-    "@universe/api": "workspace:^",
-    "@universe/websocket": "workspace:^",
-    "utilities": "workspace:^"
+    "@luxexchange/api": "workspace:^",
+    "@luxexchange/websocket": "workspace:^",
+    "@luxfi/utilities": "workspace:^"
   },
   "peerDependencies": {
     "react": "19.0.3"

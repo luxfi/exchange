@@ -1,5 +1,5 @@
 {
-  "name": "@universe/api",
+  "name": "@luxexchange/api",
   "version": "0.0.0",
   "scripts": {
     "lint:biome": "nx lint:biome api",
@@ -35,12 +35,12 @@
     "@uniswap/client-for": "0.1.5",
     "@uniswap/client-liquidity": "0.0.23",
     "@uniswap/client-notification-service": "0.0.11",
-    "@universe/config": "workspace:^",
-    "@universe/sessions": "workspace:^",
+    "@luxexchange/config": "workspace:^",
+    "@luxexchange/sessions": "workspace:^",
     "expo-secure-store": "14.0.1",
     "graphql": "16.6.0",
     "react": "19.0.3",
-    "utilities": "workspace:^"
+    "@luxfi/utilities": "workspace:^"
   },
   "devDependencies": {
     "@graphql-codegen/cli": "3.3.1",

@@ -1,5 +1,5 @@
 {
-  "name": "@lux/mobile",
+  "name": "@luxexchange/mobile",
   "version": "0.0.1",
   "private": true,
   "license": "GPL-3.0-or-later",
@@ -214,7 +214,7 @@
     "@storybook/addon-ondevice-controls": "8.5.2",
     "@storybook/react": "8.5.2",
     "@storybook/react-native": "8.5.2",
-    "@hanzogui/babel-plugin": "2.0.0",
+    "@hanzogui/babel-plugin": "2.0.1",
     "@testing-library/react-native": "13.3.3",
     "@types/inquirer": "9.0.8",
     "@types/jest": "29.5.14",
