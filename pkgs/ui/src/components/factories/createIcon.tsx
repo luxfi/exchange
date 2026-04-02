@@ -1,7 +1,7 @@
 import type { IconProps as GuiIconProps } from '@hanzogui/helpers-icon'
 import { createElement, forwardRef, useState } from 'react'
 import { Svg, SvgProps } from 'react-native-svg'
-import { ColorTokens, SpecificTokens, Stack, styled, ThemeKeys, usePropsAndStyle, View } from '@hanzo/gui'
+import { ColorTokens, SpecificTokens, View as Stack, styled, ThemeKeys, usePropsAndStyle, View } from '@hanzo/gui'
 import { withAnimated } from '@luxfi/ui/src/components/factories/animated'
 import { DynamicColor } from '@luxfi/ui/src/hooks/useSporeColors'
 import { IconSizeTokens } from '@luxfi/ui/src/theme'
