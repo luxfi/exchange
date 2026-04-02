@@ -40,7 +40,7 @@ export function useTokenMarketPrices(contracts: GraphQLApi.ContractInput[]): {
   priceMap: PriceMap
   loading: boolean
 } {
-  const { data, loading } = GraphQLApi.useLuxPricesQuery({
+  const { data, loading } = GraphQLApi.useUniswapPricesQuery({
     variables: { contracts },
     skip: !contracts.length,
   })
