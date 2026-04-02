@@ -1,6 +1,6 @@
 # components
 
-This directory contains **reusable UI components, hooks, and utilities** that are shared across the swap transaction flows in the Uniswap application. The goal is to centralize logic and presentation for common swap-related features, ensuring consistency and maintainability across platforms (web, mobile, extension).
+This directory contains **reusable UI components, hooks, and utilities** that are shared across the swap transaction flows in the Lux Exchange application. The goal is to centralize logic and presentation for common swap-related features, ensuring consistency and maintainability across platforms (web, mobile, extension).
 
 ## Purpose
 

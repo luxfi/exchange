@@ -4,7 +4,7 @@ This file provides guidance to AI agents when working with code in this reposito
 
 ## Project Overview
 
-Uniswap Universe is a monorepo containing all Uniswap front-end interfaces:
+Lux Universe is a monorepo containing all Lux front-end interfaces:
 
 - **Web** (`apps/web/`) - Decentralized exchange web interface
 - **Mobile** (`apps/mobile/`) - React Native app for iOS/Android
@@ -129,14 +129,14 @@ bun i18n:extract                # Extract localized strings (run after changing 
 Core shared packages:
 
 - `pkgs/ui/` - Cross-platform UI components and theme
-- `pkgs/uniswap/` - Core business logic and utilities
+- `pkgs/lux/` - Core business logic and utilities
 - `pkgs/wallet/` - Wallet functionality
 - `pkgs/utilities/` - Common utilities
 
 ## Blockchain Integration
 
 - Support for multiple chains (Ethereum, Arbitrum, Optimism, etc.)
-- Uniswap Protocol v2, v3, v4, and UniswapX support
+- Lux Protocol v2, v3, v4, and LX support
 - Multiple wallet providers (WalletConnect, Metamask, etc.)
 - Transaction building and gas estimation
 

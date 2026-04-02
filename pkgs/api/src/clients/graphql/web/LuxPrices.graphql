@@ -1,4 +1,4 @@
-query UniswapPrices($contracts: [ContractInput!]!) {
+query LuxPrices($contracts: [ContractInput!]!) {
   tokens(contracts: $contracts) {
     id
     address

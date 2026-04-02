@@ -1,6 +1,6 @@
 /**
  * Lux AMM V2 Pair ABI
- * Compatible with Uniswap V2 Pair interface
+ * Compatible with V2 Pair interface
  */
 export declare const LUX_AMM_V2_PAIR_ABI: readonly [{
     readonly type: "function";
@@ -118,7 +118,6 @@ export declare const LUX_AMM_V2_PAIR_ABI: readonly [{
     }];
 }];
 /** @deprecated Use LUX_AMM_V2_PAIR_ABI instead */
-export declare const UNISWAP_V2_PAIR_ABI: readonly [{
     readonly type: "function";
     readonly name: "token0";
     readonly inputs: readonly [];

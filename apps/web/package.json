@@ -324,7 +324,7 @@
     "@l.x/lx": "workspace:^",
     "@luxfi/ui": "workspace:^",
     "@luxfi/utilities": "workspace:^",
-    "@luxamm/sdk": "npm:@uniswap/uniswapx-sdk@3.0.2"
+    "@luxamm/sdk": "3.0.3"
   },
   "engines": {
     "npm": "please-use-bun",

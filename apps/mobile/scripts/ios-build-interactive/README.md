@@ -19,7 +19,7 @@ bun ios:interactive
 
 - Choose between simulator and device builds
 - Select Debug or Release configurations
-- Pick from multiple app schemes (Uniswap, Dev, Beta, Production)
+- Pick from multiple app schemes (Lux, Dev, Beta, Production)
 - Auto-detect available simulators and devices
 - Metro bundler management
 - Build cleaning and cache reset options

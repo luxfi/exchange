@@ -1,10 +1,10 @@
 # @universe/config
 
-Configuration management package for the Uniswap Universe monorepo.
+Configuration management package for the Lux Exchange monorepo.
 
 ## Overview
 
-This package provides centralized configuration management for all Uniswap applications (web, mobile, and extension). It handles environment variables and provides a platform-specific implementation for accessing configuration values.
+This package provides centralized configuration management for all Lux Exchange applications (web, mobile, and extension). It handles environment variables and provides a platform-specific implementation for accessing configuration values.
 
 ## Usage
 

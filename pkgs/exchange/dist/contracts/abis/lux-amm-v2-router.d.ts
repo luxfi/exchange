@@ -1,6 +1,6 @@
 /**
  * Lux AMM V2 Router ABI
- * Compatible with Uniswap V2 Router02 interface
+ * Compatible with V2 Router02 interface
  */
 export declare const LUX_AMM_V2_ROUTER_ABI: readonly [{
     readonly type: "function";
@@ -248,7 +248,6 @@ export declare const LUX_AMM_V2_ROUTER_ABI: readonly [{
     readonly stateMutability: "nonpayable";
 }];
 /** @deprecated Use LUX_AMM_V2_ROUTER_ABI instead */
-export declare const UNISWAP_V2_ROUTER_ABI: readonly [{
     readonly type: "function";
     readonly name: "factory";
     readonly inputs: readonly [];

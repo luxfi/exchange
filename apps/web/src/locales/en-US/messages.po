@@ -55,8 +55,8 @@ msgstr "24H volume"
 
 #: src/components/Pools/PoolDetails/StatsSection.tsx:93
 #: src/components/Tokens/TokenDetails/StatsSection.tsx:93
-msgid "24H volume is the amount of the asset that has been traded on Uniswap v3 during the past 24 hours."
-msgstr "24H volume is the amount of the asset that has been traded on Uniswap v3 during the past 24 hours."
+msgid "24H volume is the amount of the asset that has been traded on Lux Exchange v3 during the past 24 hours."
+msgstr "24H volume is the amount of the asset that has been traded on Lux Exchange v3 during the past 24 hours."
 
 #: src/pages/RemoveLiquidity/V3.tsx:324
 msgid "25%"
@@ -158,8 +158,8 @@ msgid "Add"
 msgstr "Add"
 
 #: src/components/AccountDetails/TransactionSummary.tsx:261
-msgid "Add <0/> and <1/> to Uniswap V2"
-msgstr "Add <0/> and <1/> to Uniswap V2"
+msgid "Add <0/> and <1/> to Lux Exchange V2"
+msgstr "Add <0/> and <1/> to Lux Exchange V2"
 
 #: src/components/vote/DelegateModal.tsx:115
 msgid "Add Delegate +"
@@ -249,8 +249,8 @@ msgid "Amount"
 msgstr "Amount"
 
 #: src/utils/swapErrorToUserReadableMessage.tsx:47
-msgid "An error occurred when trying to execute this swap. You may need to increase your slippage tolerance. If that does not work, there may be an incompatibility with the token you are trading. Note: fee on transfer and rebase tokens are incompatible with Uniswap V3."
-msgstr "An error occurred when trying to execute this swap. You may need to increase your slippage tolerance. If that does not work, there may be an incompatibility with the token you are trading. Note: fee on transfer and rebase tokens are incompatible with Uniswap V3."
+msgid "An error occurred when trying to execute this swap. You may need to increase your slippage tolerance. If that does not work, there may be an incompatibility with the token you are trading. Note: fee on transfer and rebase tokens are incompatible with Lux Exchange V3."
+msgstr "An error occurred when trying to execute this swap. You may need to increase your slippage tolerance. If that does not work, there may be an incompatibility with the token you are trading. Note: fee on transfer and rebase tokens are incompatible with Lux Exchange V3."
 
 #: src/pages/Swap/index.tsx:833
 msgid "Approval pending"
@@ -424,8 +424,8 @@ msgid "Claim UNI reward for {0}"
 msgstr "Claim UNI reward for {0}"
 
 #: src/components/WalletDropdown/AuthenticatedHeader.tsx:368
-msgid "Claim Uniswap NFT Airdrop"
-msgstr "Claim Uniswap NFT Airdrop"
+msgid "Claim Lux Exchange NFT Airdrop"
+msgstr "Claim Lux Exchange NFT Airdrop"
 
 #: src/pages/Pool/PositionPage.tsx:595
 msgid "Claim fees"
@@ -731,8 +731,8 @@ msgid "Don’t see one of your v2 positions? <0>Import it.</0>"
 msgstr "Don’t see one of your v2 positions? <0>Import it.</0>"
 
 #: src/components/vote/DelegateModal.tsx:102
-msgid "Earned UNI tokens represent voting shares in Uniswap governance."
-msgstr "Earned UNI tokens represent voting shares in Uniswap governance."
+msgid "Earned UNI tokens represent voting shares in Lux Exchange governance."
+msgstr "Earned UNI tokens represent voting shares in Lux Exchange governance."
 
 #: src/components/FeeSelector/index.tsx:178
 msgid "Edit"
@@ -904,8 +904,8 @@ msgid "For"
 msgstr "For"
 
 #: src/pages/MigrateV2/index.tsx:129
-msgid "For each pool shown below, click migrate to remove your liquidity from Uniswap V2 and deposit it into Uniswap V3."
-msgstr "For each pool shown below, click migrate to remove your liquidity from Uniswap V2 and deposit it into Uniswap V3."
+msgid "For each pool shown below, click migrate to remove your liquidity from Lux Exchange V2 and deposit it into Lux Exchange V3."
+msgstr "For each pool shown below, click migrate to remove your liquidity from Lux Exchange V2 and deposit it into Lux Exchange V3."
 
 #: src/pages/Swap/index.tsx:605
 msgid "From"
@@ -1191,8 +1191,8 @@ msgid "Migrate V2 Liquidity"
 msgstr "Migrate V2 Liquidity"
 
 #: src/pages/MigrateV2/index.tsx:124
-msgid "Migrate your liquidity tokens from Uniswap V2 to Uniswap V3."
-msgstr "Migrate your liquidity tokens from Uniswap V2 to Uniswap V3."
+msgid "Migrate your liquidity tokens from Lux Exchange V2 to Lux Exchange V3."
+msgstr "Migrate your liquidity tokens from Lux Exchange V2 to Lux Exchange V3."
 
 #: src/components/AccountDetails/TransactionSummary.tsx:194
 msgid "Migrate {0}/{1} liquidity to V3"
@@ -1230,8 +1230,8 @@ msgstr "Missing dependencies"
 
 #: src/components/Pools/PoolDetails/PriceChart.tsx:151
 #: src/components/Tokens/TokenDetails/PriceChart.tsx:151
-msgid "Missing price data due to recently low trading volume on Uniswap v3"
-msgstr "Missing price data due to recently low trading volume on Uniswap v3"
+msgid "Missing price data due to recently low trading volume on Lux Exchange v3"
+msgstr "Missing price data due to recently low trading volume on Lux Exchange v3"
 
 #: src/components/FiatOnrampModal/index.tsx:127
 msgid "Moonpay Fiat On-ramp iframe"
@@ -1897,8 +1897,8 @@ msgid "The % you will earn in fees."
 msgstr "The % you will earn in fees."
 
 #: src/utils/swapErrorToUserReadableMessage.tsx:38
-msgid "The Uniswap invariant x*y=k was not satisfied by the swap. This usually means one of the tokens you are swapping incorporates custom behavior on transfer."
-msgstr "The Uniswap invariant x*y=k was not satisfied by the swap. This usually means one of the tokens you are swapping incorporates custom behavior on transfer."
+msgid "The Lux Exchange invariant x*y=k was not satisfied by the swap. This usually means one of the tokens you are swapping incorporates custom behavior on transfer."
+msgstr "The Lux Exchange invariant x*y=k was not satisfied by the swap. This usually means one of the tokens you are swapping incorporates custom behavior on transfer."
 
 #: src/components/swap/AdvancedSwapDetails.tsx:72
 msgid "The amount you expect to receive at the current market price. You may receive less or more if the market price changes while your transaction is pending."
@@ -1962,8 +1962,8 @@ msgid "The output token cannot be transferred. There may be an issue with the ou
 msgstr "The output token cannot be transferred. There may be an issue with the output token."
 
 #: src/utils/swapErrorToUserReadableMessage.tsx:44
-msgid "The output token cannot be transferred. There may be an issue with the output token. Note: fee on transfer and rebase tokens are incompatible with Uniswap V3."
-msgstr "The output token cannot be transferred. There may be an issue with the output token. Note: fee on transfer and rebase tokens are incompatible with Uniswap V3."
+msgid "The output token cannot be transferred. There may be an issue with the output token. Note: fee on transfer and rebase tokens are incompatible with Lux Exchange V3."
+msgstr "The output token cannot be transferred. There may be an issue with the output token. Note: fee on transfer and rebase tokens are incompatible with Lux Exchange V3."
 
 #: src/components/Badge/RangeBadge.tsx:64
 msgid "The price of this pool is outside of your selected range. Your position is not currently earning fees."
@@ -2024,8 +2024,8 @@ msgid "This tool will safely migrate your {0} liquidity to V3. The process is co
 msgstr "This tool will safely migrate your {0} liquidity to V3. The process is completely trustless thanks to the"
 
 #: src/utils/swapErrorToUserReadableMessage.tsx:42
-msgid "This transaction will not succeed due to price movement. Try increasing your slippage tolerance. Note: fee on transfer and rebase tokens are incompatible with Uniswap V3."
-msgstr "This transaction will not succeed due to price movement. Try increasing your slippage tolerance. Note: fee on transfer and rebase tokens are incompatible with Uniswap V3."
+msgid "This transaction will not succeed due to price movement. Try increasing your slippage tolerance. Note: fee on transfer and rebase tokens are incompatible with Lux Exchange V3."
+msgstr "This transaction will not succeed due to price movement. Try increasing your slippage tolerance. Note: fee on transfer and rebase tokens are incompatible with Lux Exchange V3."
 
 #: src/utils/swapErrorToUserReadableMessage.tsx:32
 msgid "This transaction will not succeed either due to price movement or fee on transfer. Try increasing your slippage tolerance."
@@ -2047,8 +2047,8 @@ msgid "To (at least)"
 msgstr "To (at least)"
 
 #: src/components/Popups/FailedNetworkSwitchPopup.tsx:32
-msgid "To use Uniswap on {0}, switch the network in your wallet’s settings."
-msgstr "To use Uniswap on {0}, switch the network in your wallet’s settings."
+msgid "To use Lux Exchange on {0}, switch the network in your wallet’s settings."
+msgstr "To use Lux Exchange on {0}, switch the network in your wallet’s settings."
 
 #: src/components/Tokens/TokenTable/TokenRow.tsx:386
 msgid "Token name"
@@ -2159,12 +2159,12 @@ msgid "Unexpected issue with estimating the gas. Please try again."
 msgstr "Unexpected issue with estimating the gas. Please try again."
 
 #: src/components/vote/ProposalEmptyState.tsx:46
-msgid "Uniswap governance is only available on Layer 1. Switch your network to Ethereum Mainnet to view Proposals and Vote."
-msgstr "Uniswap governance is only available on Layer 1. Switch your network to Ethereum Mainnet to view Proposals and Vote."
+msgid "Lux Exchange governance is only available on Layer 1. Switch your network to Ethereum Mainnet to view Proposals and Vote."
+msgstr "Lux Exchange governance is only available on Layer 1. Switch your network to Ethereum Mainnet to view Proposals and Vote."
 
 #: src/pages/MigrateV2/MigrateV2Pair.tsx:393
-msgid "Uniswap migration contract↗"
-msgstr "Uniswap migration contract↗"
+msgid "Lux Exchange migration contract↗"
+msgstr "Lux Exchange migration contract↗"
 
 #: src/pages/Vote/Landing.tsx:153
 #: src/pages/Vote/VotePage.tsx:286
@@ -2405,8 +2405,8 @@ msgid "You are creating a pool"
 msgstr "You are creating a pool"
 
 #: src/pages/MigrateV2/MigrateV2Pair.tsx:444
-msgid "You are the first liquidity provider for this Uniswap V3 pool. Your liquidity will migrate at the current {0} price."
-msgstr "You are the first liquidity provider for this Uniswap V3 pool. Your liquidity will migrate at the current {0} price."
+msgid "You are the first liquidity provider for this Lux Exchange V3 pool. Your liquidity will migrate at the current {0} price."
+msgstr "You are the first liquidity provider for this Lux Exchange V3 pool. Your liquidity will migrate at the current {0} price."
 
 #: src/pages/AddLiquidityV2/index.tsx:351
 msgid "You are the first liquidity provider."
@@ -2449,8 +2449,8 @@ msgid "You receive"
 msgstr "You receive"
 
 #: src/pages/MigrateV2/MigrateV2Pair.tsx:513
-msgid "You should only deposit liquidity into Uniswap V3 at a price you believe is correct. <0/>If the price seems incorrect, you can either make a swap to move the price or wait for someone else to do so."
-msgstr "You should only deposit liquidity into Uniswap V3 at a price you believe is correct. <0/>If the price seems incorrect, you can either make a swap to move the price or wait for someone else to do so."
+msgid "You should only deposit liquidity into Lux Exchange V3 at a price you believe is correct. <0/>If the price seems incorrect, you can either make a swap to move the price or wait for someone else to do so."
+msgstr "You should only deposit liquidity into Lux Exchange V3 at a price you believe is correct. <0/>If the price seems incorrect, you can either make a swap to move the price or wait for someone else to do so."
 
 #: src/pages/RemoveLiquidity/V3.tsx:231
 msgid "You will also collect fees earned from this position."
@@ -2624,16 +2624,16 @@ msgid "{0, plural, =1 {Listing} other {Listings}}"
 msgstr "{0, plural, =1 {Listing} other {Listings}}"
 
 #: src/constants/tokenSafety.tsx:32
-msgid "{0, plural, =1 {This token isn't traded on leading U.S. centralized exchanges or frequently swapped on Uniswap.} other {These tokens aren't traded on leading U.S. centralized exchanges or frequently swapped on Uniswap.}}"
-msgstr "{0, plural, =1 {This token isn't traded on leading U.S. centralized exchanges or frequently swapped on Uniswap.} other {These tokens aren't traded on leading U.S. centralized exchanges or frequently swapped on Uniswap.}}"
+msgid "{0, plural, =1 {This token isn't traded on leading U.S. centralized exchanges or frequently swapped on Lux Exchange.} other {These tokens aren't traded on leading U.S. centralized exchanges or frequently swapped on Lux Exchange.}}"
+msgstr "{0, plural, =1 {This token isn't traded on leading U.S. centralized exchanges or frequently swapped on Lux Exchange.} other {These tokens aren't traded on leading U.S. centralized exchanges or frequently swapped on Lux Exchange.}}"
 
 #: src/constants/tokenSafety.tsx:22
 msgid "{0, plural, =1 {This token isn't traded on leading U.S. centralized exchanges.} other {These tokens aren't traded on leading U.S. centralized exchanges.}}"
 msgstr "{0, plural, =1 {This token isn't traded on leading U.S. centralized exchanges.} other {These tokens aren't traded on leading U.S. centralized exchanges.}}"
 
 #: src/constants/tokenSafety.tsx:42
-msgid "{0, plural, =1 {You can't trade this token using the Uniswap App.} other {You can't trade these tokens using the Uniswap App.}}"
-msgstr "{0, plural, =1 {You can't trade this token using the Uniswap App.} other {You can't trade these tokens using the Uniswap App.}}"
+msgid "{0, plural, =1 {You can't trade this token using the Lux Exchange App.} other {You can't trade these tokens using the Lux Exchange App.}}"
+msgstr "{0, plural, =1 {You can't trade this token using the Lux Exchange App.} other {You can't trade these tokens using the Lux Exchange App.}}"
 
 #: src/components/CurrencyInputPanel/FiatValue.tsx:64
 #: src/components/ErrorBoundary/index.tsx:107
@@ -2724,10 +2724,10 @@ msgstr "{0}% select"
 #: src/utils/swapErrorToUserReadableMessage.tsx:49
 msgid ""
 "{0}. Try increasing your slippage tolerance.\n"
-"Note: fee-on-transfer and rebase tokens are incompatible with Uniswap V3."
+"Note: fee-on-transfer and rebase tokens are incompatible with Lux Exchange V3."
 msgstr ""
 "{0}. Try increasing your slippage tolerance.\n"
-"Note: fee-on-transfer and rebase tokens are incompatible with Uniswap V3."
+"Note: fee-on-transfer and rebase tokens are incompatible with Lux Exchange V3."
 
 #: src/pages/MigrateV2/MigrateV2Pair.tsx:427
 msgid "{0}/{1} LP NFT"

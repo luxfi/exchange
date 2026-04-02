@@ -1,6 +1,6 @@
 # @universe/mycelium
 
-Mycelium is Uniswap's shared Tailwind CSS design system for Tailwind v4.
+Mycelium is Lux Exchange's shared Tailwind CSS design system for Tailwind v4.
 
 ## Usage
 

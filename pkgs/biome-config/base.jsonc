@@ -48,7 +48,7 @@
       "**/*.jsonc",
       "!.vscode/settings.json",
       "!.vscode/extensions.json",
-      "!tools/uniswap-nx/src/generators",
+      "!tools/lux-nx/src/generators",
       "!**/.vercel/**"
     ],
     "experimentalScannerIgnores": [
@@ -213,13 +213,13 @@
             // Global path restrictions that can be included in overrides using __INCLUDE_GLOBAL_VALUES__
             "paths": {
               "utilities/src/telemetry/analytics/analytics": {
-                "message": "Please only use this for initialization, tests, flushing, and internal usage. Otherwise use `packages/uniswap/src/features/telemetry`"
+                "message": "Please only use this for initialization, tests, flushing, and internal usage. Otherwise use `packages/lux/src/features/telemetry`"
               },
               "utilities/src/telemetry/trace/Trace": {
-                "message": "Please use the Trace in 'uniswap/src/features/telemetry/Trace' for app level usage!"
+                "message": "Please use the Trace in 'lux/src/features/telemetry/Trace' for app level usage!"
               },
               "ui/src/components/modal/AdaptiveWebModal": {
-                "message": "Please import Modal from `uniswap/src/components/modals/Modal` instead. Modal uses AdaptiveWebModal under the hood but has extra logic for handling animation, mounting, and dismounting."
+                "message": "Please import Modal from `lux/src/components/modals/Modal` instead. Modal uses AdaptiveWebModal under the hood but has extra logic for handling animation, mounting, and dismounting."
               },
               "react-native": {
                 "importNames": ["Switch", "Keyboard"],
@@ -247,28 +247,28 @@
               "utilities/src/format/localeBased": {
                 "message": "Use via `useLocalizationContext` instead."
               },
-              "uniswap/src/features/fiatCurrency/conversion": {
+              "lux/src/features/fiatCurrency/conversion": {
                 "importNames": ["useFiatConverter"],
                 "message": "Use via `useLocalizationContext` instead."
               },
-              "uniswap/src/features/language/formatter": {
+              "lux/src/features/language/formatter": {
                 "importNames": ["useLocalizedFormatter"],
                 "message": "Use via `useLocalizationContext` instead."
               },
-              "uniswap/src/features/dataApi/balances/balances": {
+              "lux/src/features/dataApi/balances/balances": {
                 "importNames": ["usePortfolioValueModifiers"],
                 "message": "Use the wrapper hooks `usePortfolioTotalValue`, `useAccountListData` or `usePortfolioBalances` instead of `usePortfolioValueModifiers` directly."
               },
               "@gorhom/bottom-sheet": {
                 "importNames": ["BottomSheetTextInput"],
-                "message": "Use our internal BottomSheetTextInput wrapper from /uniswap/src/components/modals/Modal."
+                "message": "Use our internal BottomSheetTextInput wrapper from /lux/src/components/modals/Modal."
               },
               "expo-haptics": {
-                "message": "Use our internal HapticFeedback wrapper instead: import { HapticFeedback } from packages/uniswap/src/features/settings/useHapticFeedback/types"
+                "message": "Use our internal HapticFeedback wrapper instead: import { HapticFeedback } from packages/lux/src/features/settings/useHapticFeedback/types"
               },
-              "@uniswap/analytics": {
+              "@lux/analytics": {
                 "importNames": ["sendAnalyticsEvent"],
-                "message": "Please use the typed `sendAnalyticsEvent` in 'uniswap/src/features/telemetry/send'"
+                "message": "Please use the typed `sendAnalyticsEvent` in 'lux/src/features/telemetry/send'"
               },
               "@tamagui/core": {
                 "message": "Please import from 'tamagui' directly to prevent mismatches."
@@ -569,14 +569,14 @@
         "rules": {}
       }
     },
-    // packages/uniswap
+    // packages/lux
     {
       "includes": [
-        "packages/uniswap/**",
-        "!packages/uniswap/**/*.test.ts",
-        "!packages/uniswap/**/*.test.tsx",
-        "!packages/uniswap/**/test/**",
-        "!packages/uniswap/**/tests/**"
+        "packages/lux/**",
+        "!packages/lux/**/*.test.ts",
+        "!packages/lux/**/*.test.tsx",
+        "!packages/lux/**/test/**",
+        "!packages/lux/**/tests/**"
       ],
       "linter": {
         "rules": {
@@ -586,26 +586,26 @@
               "options": {
                 "paths": {
                   "__INCLUDE_GLOBAL_VALUES__": true,
-                  "uniswap/src": {
-                    "message": "Avoid importing directly from uniswap/src from within the uniswap package which causes circular imports."
+                  "lux/src": {
+                    "message": "Avoid importing directly from lux/src from within the lux package which causes circular imports."
                   },
-                  "@uniswap/sdk-core": {
+                  "@lux/sdk-core": {
                     "importNames": ["ChainId"],
-                    "message": "Don't use ChainId from @uniswap/sdk-core. Use the UniverseChainId from universe/uniswap."
+                    "message": "Don't use ChainId from @lux/sdk-core. Use the UniverseChainId from universe/lux."
                   },
-                  "uniswap/src/features/chains/hooks/useOrderedChainIds": {
+                  "lux/src/features/chains/hooks/useOrderedChainIds": {
                     "importNames": ["useOrderedChainIds"],
                     "message": "Use `useEnabledChains` instead, which returns the ordered chains that are currently enabled."
                   },
-                  "uniswap/src/features/settings/selectors": {
+                  "lux/src/features/settings/selectors": {
                     "importNames": ["selectIsTestnetModeEnabled"],
                     "message": "Use `useEnabledChains` instead."
                   },
-                  "uniswap/src/features/chains/chainInfo": {
+                  "lux/src/features/chains/chainInfo": {
                     "importNames": ["UNIVERSE_CHAIN_INFO"],
-                    "message": "Use useChainInfo or helpers in packages/uniswap/src/features/chains/utils.ts when possible!"
+                    "message": "Use useChainInfo or helpers in packages/lux/src/features/chains/utils.ts when possible!"
                   },
-                  "uniswap/src/data/graphql/uniswap-data-api/__generated__/react-hooks": {
+                  "lux/src/data/graphql/lux-data-api/__generated__/react-hooks": {
                     "importNames": ["useAccountListQuery"],
                     "message": "Use `useAccountListData` instead."
                   }
@@ -619,12 +619,12 @@
     },
     {
       "includes": [
-        "packages/uniswap/src/index.ts",
-        "packages/uniswap/src/features/telemetry/constants/index.ts",
-        "packages/uniswap/src/features/telemetry/constants/trace/index.ts",
-        "packages/uniswap/src/i18n/index.ts",
-        "packages/uniswap/src/state/index.ts",
-        "packages/uniswap/src/test/**"
+        "packages/lux/src/index.ts",
+        "packages/lux/src/features/telemetry/constants/index.ts",
+        "packages/lux/src/features/telemetry/constants/trace/index.ts",
+        "packages/lux/src/i18n/index.ts",
+        "packages/lux/src/state/index.ts",
+        "packages/lux/src/test/**"
       ],
       "linter": {
         "rules": {
@@ -634,7 +634,7 @@
               "options": {
                 "paths": {
                   "__INCLUDE_GLOBAL_VALUES__": true,
-                  "uniswap/src": "off",
+                  "lux/src": "off",
                   "utilities/src/format/localeBased": "off"
                 },
                 "patterns": ["__INCLUDE_GLOBAL_VALUES__"]
@@ -645,13 +645,13 @@
       }
     },
     {
-      "includes": ["packages/uniswap/src/data/**/__generated__/**", "packages/uniswap/src/abis/types/**"],
+      "includes": ["packages/lux/src/data/**/__generated__/**", "packages/lux/src/abis/types/**"],
       "linter": {
         "enabled": false
       }
     },
     {
-      "includes": ["packages/uniswap/vite/**"],
+      "includes": ["packages/lux/vite/**"],
       "linter": {
         "enabled": false
       }
@@ -929,9 +929,9 @@
                     ],
                     "message": "Import wrapped utilities from internal hooks instead: useAccount from `hooks/useAccount`, useConnect from `hooks/useConnect`, useDisconnect from `hooks/useDisconnect`, useBlockNumber from `hooks/useBlockNumber`."
                   },
-                  "uniswap/src/features/chains/chainInfo": {
+                  "lux/src/features/chains/chainInfo": {
                     "importNames": ["UNIVERSE_CHAIN_INFO"],
-                    "message": "Use useChainInfo or helpers in packages/uniswap/src/features/chains/utils.ts when possible!"
+                    "message": "Use useChainInfo or helpers in packages/lux/src/features/chains/utils.ts when possible!"
                   }
                 },
                 "patterns": ["__INCLUDE_GLOBAL_VALUES__"]
@@ -994,7 +994,7 @@
                   "wallet/src": {
                     "message": "Avoid importing directly from wallet/src from within the wallet package which causes circular imports."
                   },
-                  "uniswap/src/features/dataApi/balances/balancesRest": {
+                  "lux/src/features/dataApi/balances/balancesRest": {
                     "importNames": ["useRESTPortfolioTotalValue"],
                     "message": "Use the wrapper hooks `usePortfolioTotalValue`, `useAccountListData` or `usePortfolioBalances` instead of `useRESTPortfolioTotalValue` directly."
                   },

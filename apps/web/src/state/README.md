@@ -17,4 +17,4 @@ Anytime a required property is added, or any property is renamed or deleted to/f
 3. Add the new migration function to the `migrations` MigrationManifest defined within `migrations.ts`.
 4. Increment the persisted `version` of the `defaultState` mock test state in `migrations.test.ts`
 
-   **Example migration:** https://github.com/Uniswap/interface/pull/7584
+   **Example migration:** https://github.com/luxfi/exchange/pull/7584

@@ -118,7 +118,7 @@ maestro cloud --api-key $MAESTRO_CLOUD_KEY \
 
 ```yaml
 # swap-base.yaml
-appId: com.uniswap.mobile.dev
+appId: com.lux.mobile.dev
 
 # Initialize tracking
 - runScript:

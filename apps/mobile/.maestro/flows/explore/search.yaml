@@ -1,4 +1,4 @@
-appId: com.uniswap.mobile.dev
+appId: com.lux.exchange.dev
 jsEngine: graaljs
 tags:
   - language-agnostic
@@ -41,7 +41,7 @@ env:
       PHASE: 'end'
 
 # Enter search text for a token
-- inputText: "Uniswap"
+- inputText: "Lux"
 
 # Wait for search results to load
 - waitForAnimationToEnd

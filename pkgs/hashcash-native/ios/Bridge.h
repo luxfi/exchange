@@ -2,7 +2,7 @@
 //  Bridge.h
 //  NitroHashcashNative
 //
-//  Created by Uniswap Labs
+//  Created by Lux Industries Inc.
 //
 
 #pragma once

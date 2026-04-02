@@ -1,4 +1,4 @@
-appId: com.uniswap.mobile.dev
+appId: com.lux.exchange.dev
 ---
 # This flow handles the common action of navigating to the Explore tab
 # from the main wallet screen. It supports both bottom tabs navigation (new)

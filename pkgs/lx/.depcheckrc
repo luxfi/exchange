@@ -12,7 +12,7 @@ ignores: [
     "@shopify/react-native-skia",
     # Dependencies that depcheck thinks are missing but are actually present or never used
     ## Internal packages / workspaces
-    "uniswap",
+    "lx",
     "utilities",
     "src",
     "tsconfig",

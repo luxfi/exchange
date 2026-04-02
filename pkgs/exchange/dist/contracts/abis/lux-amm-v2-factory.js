@@ -1,6 +1,6 @@
 /**
  * Lux AMM V2 Factory ABI
- * Compatible with Uniswap V2 Factory interface
+ * Compatible with V2 Factory interface
  */
 export const LUX_AMM_V2_FACTORY_ABI = [
     {
@@ -49,4 +49,3 @@ export const LUX_AMM_V2_FACTORY_ABI = [
     },
 ];
 /** @deprecated Use LUX_AMM_V2_FACTORY_ABI instead */
-export const UNISWAP_V2_FACTORY_ABI = LUX_AMM_V2_FACTORY_ABI;

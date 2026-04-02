@@ -1,6 +1,6 @@
 ---
 name: Bug Report
-about: Report a bug or unexpected behavior in the Uniswap interfaces.
+about: Report a bug or unexpected behavior in the Lux interfaces.
 title: "[Bug] "
 labels: bug
 ---
@@ -9,8 +9,8 @@ labels: bug
 
 Which application are you experiencing issues with?
 
-- [ ] Web ([app.uniswap.org](https://app.uniswap.org))
-- [ ] Wallet Extension ([wallet.uniswap.org](https://wallet.uniswap.org))
+- [ ] Web ([app.lux.exchange](https://app.lux.exchange))
+- [ ] Wallet Extension ([wallet.lux.exchange](https://wallet.lux.exchange))
 - [ ] Wallet Mobile App
   - [ ] iOS
   - [ ] Android
@@ -33,7 +33,7 @@ Please provide details about your environment:
 - Browser (name + version):
 - OS / Platform (e.g. iOS 17, Windows 11, Android 14):
 - Device (e.g. iPhone 14 Pro, Pixel 7, MacBook Pro 2023):
-- Wallet used (e.g. Uniswap Wallet, MetaMask, Rainbow):
+- Wallet used (e.g. Lux Wallet, MetaMask, Rainbow):
 - Network (e.g. Ethereum Mainnet, Arbitrum, Base, etc.):
 
 ---

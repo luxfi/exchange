@@ -1,6 +1,6 @@
 /**
  * Lux AMM V2 Router ABI
- * Compatible with Uniswap V2 Router02 interface
+ * Compatible with V2 Router02 interface
  */
 export const LUX_AMM_V2_ROUTER_ABI = [
     {
@@ -146,4 +146,3 @@ export const LUX_AMM_V2_ROUTER_ABI = [
     },
 ];
 /** @deprecated Use LUX_AMM_V2_ROUTER_ABI instead */
-export const UNISWAP_V2_ROUTER_ABI = LUX_AMM_V2_ROUTER_ABI;

@@ -1,4 +1,4 @@
-# Uniswap Extension
+# Lux Extension
 
 ## Developer Quickstart
 

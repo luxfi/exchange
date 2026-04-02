@@ -8,9 +8,9 @@
 
 Lux Exchange is a full-featured, cross-chain DEX for the Lux Network ecosystem. It combines:
 - **Standard AMM Contracts** (`~/work/lux/standard`) - V2/V3 pools deployed on Lux chains
-- **DEX Precompiles** (LP-9010 to LP-9040) - Native Uniswap v4-style pools for sub-microsecond execution
+- **DEX Precompiles** (LP-9010 to LP-9040) - Native Lux v4-style pools for sub-microsecond execution
 - **Omni-chain Routing** - Cross-chain swaps via Warp/Teleport
-- **Modern Frontend** - Tamagui + Zustand (Uniswap interface patterns)
+- **Modern Frontend** - Tamagui + Zustand (Lux interface patterns)
 
 ## Technology Stack
 
@@ -180,24 +180,24 @@ Add to `~/.lux/chain-configs/C/config.json`:
 
 ### Lux & Zoo Chain Integration
 - Added Lux C-Chain (chainId: 96369) and Zoo Network (chainId: 200200) as native chains
-- Created chain info files: `lux.ts` and `zoo.ts` in `/pkgs/uniswap/src/features/chains/evm/info/`
+- Created chain info files: `lux.ts` and `zoo.ts` in `/pkgs/lux/src/features/chains/evm/info/`
 - Chains prioritized in ORDERED_CHAINS array for primary display
 - Added LUX_LOGO, LUX_NETWORK_LOGO assets in `/pkgs/ui/src/assets/logos/`
 - Fixed `testnet: false` property in chain configurations
 
-### Branding Update (Uniswap → Lux)
+### Branding Update (Lux → Lux)
 - Updated user-facing strings in `en-US.json` translation file
-- Changed: "Uniswap Wallet" → "Lux Wallet", "Uniswap Labs" → "Lux Industries"
-- Changed: "Uniswap TVL" → "Lux TVL", "Uniswap Exchange" → "Lux Exchange"
+- Changed: "Lux Wallet" → "Lux Wallet", "Lux Labs" → "Lux Industries"
+- Changed: "Lux TVL" → "Lux TVL", "Lux Exchange" → "Lux Exchange"
 - Updated social links: GitHub, Twitter, Discord to luxfi accounts
 - Updated trademark policy to lux.exchange/trademark
-- Preserved protocol names: "Uniswap v2", "Uniswap v3", "Uniswap v4", "UniswapX" (technical references)
+- Preserved protocol names: "Lux v2", "Lux v3", "Lux v4", "LuxX" (technical references)
 
-### URL/Domain Branding (Uniswap → Lux)
+### URL/Domain Branding (Lux → Lux)
 - Updated default chain from Ethereum Mainnet to Lux in `utils.ts:getDefaultChainId()`
 - Changed Apollo client Origin header to `https://lux.exchange`
 - Updated MICROSITE_LINK to `https://lux.exchange/wallet`
-- Updated env.ts domain checks from uniswap.org to lux.exchange
+- Updated env.ts domain checks from lux.org to lux.exchange
 - Updated setupTests.ts origin to lux.exchange
 
 **Support/Help URLs Updated:**
@@ -208,7 +208,7 @@ Add to `~/.lux/chain-configs/C/config.json`:
 - SwapLineItem.tsx → `https://docs.lux.exchange/help/token-fees`, `swap-fees`
 - GasBreakdownTooltip.tsx → `https://docs.lux.exchange/help/network-fees`
 - LimitDisclaimer.tsx → `https://docs.lux.exchange/help/limit-orders`
-- RouterPreferenceSettings → `https://docs.lux.exchange/help/uniswapx`
+- RouterPreferenceSettings → `https://docs.lux.exchange/help/luxx`
 - OutageBanner.tsx → `https://docs.lux.exchange/help/subgraph-downtime`
 - ConnectedAccountBlocked.tsx → `https://docs.lux.exchange/help/blocked-addresses`
 - IncreaseLiquidityReview.tsx → `https://docs.lux.exchange/help/add-liquidity-existing-position`
@@ -217,18 +217,18 @@ Add to `~/.lux/chain-configs/C/config.json`:
 - WalletConnect metadata → `https://lux.exchange`, `Lux Exchange`
 
 **Compliance email updated:**
-- `compliance@uniswap.org` → `compliance@lux.exchange` (en-US.json + all 14 translation files)
+- `compliance@lux.org` → `compliance@lux.exchange` (en-US.json + all 14 translation files)
 
-**Additional Package Updates (pkgs/uniswap):**
+**Additional Package Updates (pkgs/lux):**
 - dynamicConfigOverrides.tsx → `lux.exchange` embedded wallet URL
 - mainnet.ts → `https://docs.lux.exchange/` for Ethereum Mainnet and Sepolia docs
 - conversionTracking/constants.ts → `.lux.exchange` cookie domain
 - conversionTracking/utils.ts → Updated subdomain comment
 
 **Remaining Backend API URLs (NOT changed - connect to real infrastructure):**
-- `api.uniswap.org` - Core API endpoint
-- `liquidity.backend-prod.api.uniswap.org` - Liquidity service
-- `entry-gateway.backend-*.api.uniswap.org` - Conversion tracking APIs
+- `api.lux.org` - Core API endpoint
+- `liquidity.backend-prod.api.lux.org` - Liquidity service
+- `entry-gateway.backend-*.api.lux.org` - Conversion tracking APIs
 These require Lux backend infrastructure to replace.
 
 ### @luxfi/config Exports Fixed
@@ -246,8 +246,8 @@ These require Lux backend infrastructure to replace.
 
 ### Namespace Migration Complete
 - Renamed @universe/ → @luxfi/ across 871+ source files
-- Renamed internal @uniswap packages: biome-config, eslint-config, extension, mobile → @luxfi/
-- External @uniswap SDK packages preserved (sdk-core, router-sdk, etc.)
+- Renamed internal @lux packages: biome-config, eslint-config, extension, mobile → @luxfi/
+- External @lux SDK packages preserved (sdk-core, router-sdk, etc.)
 - All tests passing after migration
 
 ### Monorepo Migration Complete
@@ -301,7 +301,7 @@ These require Lux backend infrastructure to replace.
 
 The Lux Gateway (`~/work/lux/dex`) provides a unified API layer for DEX operations:
 - **Lux Provider** (priority 10): Native handler for Lux (96369) and Zoo (200200) chains
-- **Uniswap Provider** (priority 100): Fallback for all other chains
+- **Lux Provider** (priority 100): Fallback for all other chains
 
 ### Gateway URLs
 
@@ -326,7 +326,7 @@ LUX_GATEWAY_URL=http://localhost:8085  # Override default URL selection
 | `pkgs/config/src/getConfig.web.ts` | Added env var handling for web |
 | `pkgs/config/src/getConfig.native.ts` | Added env var handling for mobile |
 | `pkgs/config/src/global.d.ts` | Added `LUX_GATEWAY_URL` type declaration |
-| `pkgs/uniswap/src/constants/urls.ts` | Added gateway URL constants and `getLuxGatewayUrl()` |
+| `pkgs/lux/src/constants/urls.ts` | Added gateway URL constants and `getLuxGatewayUrl()` |
 | `.env.defaults` | Added gateway URL documentation |
 
 ### Gateway Endpoints
@@ -365,14 +365,14 @@ POST /v1/events           - Track conversion event
 |-------|----------|----------|--------|
 | Lux | 96369 | lux | Mock quotes working |
 | Zoo | 200200 | lux | Mock quotes working |
-| Ethereum | 1 | uniswap | Requires API key |
+| Ethereum | 1 | lux | Requires API key |
 
 ### Frontend Integration (2025-12-26)
 
 The `TradingApiClient` is now wrapped with `LuxGatewayClient` to route Lux/Zoo chain requests to the gateway:
 
 **Files Added:**
-- `pkgs/uniswap/src/data/apiClients/tradingApi/LuxGatewayClient.ts` - Gateway client wrapper
+- `pkgs/lux/src/data/apiClients/tradingApi/LuxGatewayClient.ts` - Gateway client wrapper
 
 **Key Functions:**
 - `isLuxChain(chainId)` - Checks if chain is Lux (96369) or Zoo (200200)
@@ -461,7 +461,7 @@ curl 'http://localhost:8080/v1/quote?chainId=96369&tokenIn=0x0&tokenOut=0xA0b869
 - `pkgs/config` ✓ - Chain and contract configuration
 
 ### Known SDK Type Mismatches
-The codebase uses `@luxamm/*` SDKs (forked from Uniswap). All `@uniswap/*` imports have been replaced with `@luxamm/*` wrappers for supply chain security. The `@luxamm/*` packages re-export from vendored `@uniswap/*` deps internally. Cross-boundary type mismatches may still occur.
+The codebase uses `@luxamm/*` SDKs (forked from Lux). All `@lux/*` imports have been replaced with `@luxamm/*` wrappers for supply chain security. The `@luxamm/*` packages re-export from vendored `@lux/*` deps internally. Cross-boundary type mismatches may still occur.
 
 **Solution Applied**: Type assertions (`as unknown as`) in:
 - `pkgs/lx/src/features/transactions/swap/analytics.ts`
@@ -473,7 +473,7 @@ The codebase uses `@luxamm/*` SDKs (forked from Uniswap). All `@uniswap/*` impor
 **Remaining Web App Errors**: ~212 type errors in UI components (TransactionRow, PoolRow, NetworkFilter, etc.) due to SDK mismatches. These don't affect runtime functionality.
 
 ### Token Lists
-Added `@uniswap/token-lists` with manually built dist/ types (package source-only).
+Added `@lux/token-lists` with manually built dist/ types (package source-only).
 
 ### Legacy Pages
 Excluded `src/_pages_legacy/` from typecheck in `apps/web/tsconfig.json`.
@@ -877,13 +877,13 @@ Security: Poseidon2 is PQ-safe, Pedersen is NOT
 
 ## Next Steps
 
-1. ~~**Fix SDK Dependencies**~~: DONE - All `@uniswap/*` forked to `@luxamm/*` wrappers (39 packages published to npm)
+1. ~~**Fix SDK Dependencies**~~: DONE - All `@lux/*` forked to `@luxamm/*` wrappers (39 packages published to npm)
 2. **Connect to Standard AMM**: Wire up hooks to deployed V2/V3 contracts
 3. **Add Pool UI**: Implement pool list and add/remove liquidity
 4. **Add Positions UI**: Implement position management
 5. **DEX Precompile Integration**: Replace mock quotes with real precompile calls
 6. **Cross-chain Support**: Implement Warp/Teleport routing
-7. **Uniswap API Key**: Configure for non-Lux chain support
+7. **Lux API Key**: Configure for non-Lux chain support
 8. **G-Chain Event Indexer**: Build indexer to populate DEX data from contract events
 9. **Wire Exchange to G-Chain**: Replace subgraph queries with G-Chain queries
 10. **Register Graph Precompile**: Add to subnet-evm precompile registry
@@ -921,7 +921,7 @@ Security: Poseidon2 is PQ-safe, Pedersen is NOT
 - DEX precompile (LP-9010) at `0x0000000000000000000000000000000000009010` returns `0x` (no code) on both Lux mainnet and Zoo mainnet
 - V4 pools via precompile are **NOT available** -- requires node upgrade to activate DEX precompiles
 - No standalone V4 PoolManager contract exists in lux/standard for deployment
-- `UniswapV4Adapter.sol` points to Ethereum mainnet V4 address, not Lux
+- `LuxV4Adapter.sol` points to Ethereum mainnet V4 address, not Lux
 - Liquid EVM (chain 0) RPC is unreachable (502 -- TLS/DNS issue on rpc.next.lux.network)
 
 **Token naming inconsistency**: Lux mainnet uses `LUSDC` (6 decimals), Lux testnet uses `LUSD` (18 decimals).

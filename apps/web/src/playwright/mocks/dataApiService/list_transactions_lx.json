@@ -2,7 +2,7 @@
   "transactions": [
     {
       "transaction": {
-        "case": "uniswapX",
+        "case": "lxOrder",
         "value": {
           "chainId": 1,
           "timestampMillis": "1686339087000",

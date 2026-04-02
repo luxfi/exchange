@@ -129,7 +129,7 @@ The package uses several code generation tools:
 
 This package is consumed by:
 
-- `apps/web` - Uniswap web interface
+- `apps/web` - Lux Exchange web interface
 - `apps/mobile` - React Native mobile app
 - `apps/extension` - Browser extension
 

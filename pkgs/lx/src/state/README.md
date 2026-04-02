@@ -1,3 +1,3 @@
-# Uniswap State
+# Lux Exchange State
 
-TODO consolidate state README's
+Consolidate state README's

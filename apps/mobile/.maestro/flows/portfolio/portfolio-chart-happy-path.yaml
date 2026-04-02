@@ -1,4 +1,4 @@
-appId: com.uniswap.mobile.dev
+appId: com.lux.exchange.dev
 jsEngine: graaljs
 env:
   E2E_RECOVERY_PHRASE: ${E2E_RECOVERY_PHRASE}
@@ -14,7 +14,7 @@ env:
 
 - runFlow: ../../shared-flows/start.yaml
 - runFlow: ../../shared-flows/recover-fast.yaml
-- openLink: uniswap://e2e/override-gates?gates=profit_loss
+- openLink: lux://e2e/override-gates?gates=profit_loss
 - tapOn:
     text: "Open"
     optional: true

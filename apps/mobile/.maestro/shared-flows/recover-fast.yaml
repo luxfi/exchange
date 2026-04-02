@@ -1,6 +1,6 @@
 # this flow is used for flows that test the app with a pre-existing wallet
 # check flows/onboarding for all onboarding specific flows
-appId: com.uniswap.mobile.dev
+appId: com.lux.exchange.dev
 jsEngine: graaljs
 env:
   E2E_RECOVERY_PHRASE: ${E2E_RECOVERY_PHRASE}

@@ -58,12 +58,10 @@
       "@luxfi/wallet/*": ["./pkgs/wallet/*"],
       "@luxfi/dex/*": ["./pkgs/dex/*"],
       "@luxfi/exchange/*": ["./pkgs/exchange/*"],
-      "@luxamm/client-privy-embedded-wallet/dist/uniswap/privy-embedded-wallet/v1/service_pb": [
-        "./node_modules/@luxamm/client-privy-embedded-wallet/node_modules/@luxamm/client-privy-embedded-wallet/dist/uniswap/privy-embedded-wallet/v1/service_pb",
+      "@luxamm/client-privy-embedded-wallet/dist/lx/privy-embedded-wallet/v1/service_pb": [
         "./pkgs/api/stubs/privy-service-pb"
       ],
-      "@luxamm/client-privy-embedded-wallet/dist/uniswap/privy-embedded-wallet/v1/service_connect": [
-        "./node_modules/@luxamm/client-privy-embedded-wallet/node_modules/@luxamm/client-privy-embedded-wallet/dist/uniswap/privy-embedded-wallet/v1/service_connect",
+      "@luxamm/client-privy-embedded-wallet/dist/lx/privy-embedded-wallet/v1/service_connect": [
         "./pkgs/api/stubs/privy-service-connect"
       ]
     }

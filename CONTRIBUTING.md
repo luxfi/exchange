@@ -1,15 +1,15 @@
-# Contributing to Uniswap Interface
+# Contributing to Lux Exchange Interface
 
-👋 Thanks for your interest in contributing to Uniswap!  
-This repository is the **public mirror** of Uniswap Labs' front-end interfaces, including the web app, wallet mobile app, and wallet browser extension.
+👋 Thanks for your interest in contributing to Lux Exchange!  
+This repository is the **public mirror** of Lux Industries Inc.' front-end interfaces, including the web app, wallet mobile app, and wallet browser extension.
 
 ## Development Workflow
 
-Uniswap Labs maintains and develops all interfaces in a **private repository**. At the end of each development cycle:
+Lux Industries Inc. maintains and develops all interfaces in a **private repository**. At the end of each development cycle:
 
 1. A **production release** is created internally.
 2. The release is then **published to this public repository**.
-3. All releases are tagged and visible in the [Releases](https://github.com/Uniswap/interface/releases) tab.
+3. All releases are tagged and visible in the [Releases](https://github.com/Lux Exchange/interface/releases) tab.
 
 Because of this private development model:
 
@@ -21,7 +21,7 @@ We still welcome your ideas, feedback, and issue reports. The best ways to contr
 
 ### Reporting Bugs
 
-Open a [GitHub Issue](https://github.com/Uniswap/interface/issues/new?template=bug_report.md) and fill out the template. Be sure to include:
+Open a [GitHub Issue](https://github.com/Lux Exchange/interface/issues/new?template=bug_report.md) and fill out the template. Be sure to include:
 
 - Which app is affected (web, mobile, or extension)
 - Platform (iOS, Android, browser version, etc.)
@@ -30,7 +30,7 @@ Open a [GitHub Issue](https://github.com/Uniswap/interface/issues/new?template=b
 
 ### Suggesting Features or Improvements
 
-Start a [Discussion](https://github.com/Uniswap/interface/discussions) to propose ideas, gather feedback, or brainstorm improvements.
+Start a [Discussion](https://github.com/Lux Exchange/interface/discussions) to propose ideas, gather feedback, or brainstorm improvements.
 
 ## Repo Overview
 

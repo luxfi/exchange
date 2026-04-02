@@ -1,6 +1,6 @@
 # Extension E2E Tests
 
-End-to-end tests for the Uniswap Chrome Extension using Playwright.
+End-to-end tests for the Lux Chrome Extension using Playwright.
 
 ## Setup
 

@@ -187,7 +187,7 @@ export default defineConfig(({ mode }) => {
 
   // Env vars that should be overridable from Vercel/CI (process.env takes precedence over .env files)
   const VERCEL_OVERRIDABLE_ENV_VARS = [
-    'UNISWAP_GATEWAY_DNS',
+    'LUX_GATEWAY_DNS',
     'API_BASE_URL_V2_OVERRIDE',
     'ENTRY_GATEWAY_API_URL_OVERRIDE',
   ]
@@ -211,7 +211,7 @@ export default defineConfig(({ mode }) => {
     'react-native': 'react-native-web',
     'expo-blur': path.resolve(__dirname, 'src/lib/expo-blur-mock.jsx'),
     '@web3-react/core': path.resolve(__dirname, 'src/connection/web3reactShim.ts'),
-    'uniswap/src': path.resolve(__dirname, '../../pkgs/lx/src'),
+    'lx/src': path.resolve(__dirname, '../../pkgs/lx/src'),
     'lx/src': path.resolve(__dirname, '../../pkgs/lx/src'),
     'utilities/src': path.resolve(__dirname, '../../pkgs/utilities/src'),
     'ui/src': path.resolve(__dirname, '../../pkgs/ui/src'),
@@ -370,7 +370,7 @@ export default defineConfig(({ mode }) => {
         '@luxamm/v4-sdk',
         '@luxamm/router-sdk',
         '@luxamm/universal-router-sdk',
-        '@luxamm/uniswapx-sdk',
+        '@luxamm/sdk',
         '@luxamm/permit2-sdk',
         // Other
         '@visx/responsive',
@@ -574,7 +574,7 @@ export default defineConfig(({ mode }) => {
         '@luxamm/v4-sdk',
         '@luxamm/router-sdk',
         '@luxamm/universal-router-sdk',
-        '@luxamm/uniswapx-sdk',
+        '@luxamm/sdk',
         '@luxamm/permit2-sdk',
         'jsbi',
         'ethers',

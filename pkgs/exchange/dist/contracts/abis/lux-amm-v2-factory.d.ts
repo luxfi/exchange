@@ -1,6 +1,6 @@
 /**
  * Lux AMM V2 Factory ABI
- * Compatible with Uniswap V2 Factory interface
+ * Compatible with V2 Factory interface
  */
 export declare const LUX_AMM_V2_FACTORY_ABI: readonly [{
     readonly type: "function";
@@ -74,7 +74,6 @@ export declare const LUX_AMM_V2_FACTORY_ABI: readonly [{
     }];
 }];
 /** @deprecated Use LUX_AMM_V2_FACTORY_ABI instead */
-export declare const UNISWAP_V2_FACTORY_ABI: readonly [{
     readonly type: "function";
     readonly name: "getPair";
     readonly inputs: readonly [{
