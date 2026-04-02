@@ -1,7 +1,6 @@
-import { useBottomSheetInternal } from '@gorhom/bottom-sheet'
 import { useTranslation } from 'react-i18next'
 import { TouchableOpacity } from 'react-native'
-import Animated, { useAnimatedStyle } from 'react-native-reanimated'
+import Animated, { useAnimatedStyle, useSharedValue } from 'react-native-reanimated'
 import { ModalWithOverlay } from 'src/components/Requests/ModalWithOverlay/ModalWithOverlay'
 import { ClientDetails } from 'src/components/Requests/RequestModal/ClientDetails'
 import { WalletConnectSigningRequest } from 'src/features/walletConnect/walletConnectSlice'
@@ -48,7 +47,9 @@ function ActionCannotBeCompletedModalContent({
   onLearnMore: () => Promise<void>
 }): JSX.Element {
   const { t } = useTranslation()
-  const { animatedFooterHeight } = useBottomSheetInternal()
+  // In @gorhom/bottom-sheet v5, animatedFooterHeight was removed from useBottomSheetInternal().
+  // Default to 0; the footer manages its own height via BottomSheetFooter.
+  const animatedFooterHeight = useSharedValue(0)
   const bottomSpacerStyle = useAnimatedStyle(() => ({
     height: animatedFooterHeight.value - spacing.spacing12,
   }))

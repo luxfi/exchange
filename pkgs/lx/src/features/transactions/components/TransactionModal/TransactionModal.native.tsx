@@ -1,4 +1,4 @@
-import { BottomSheetFooter, BottomSheetView, KEYBOARD_STATE, useBottomSheetInternal } from '@gorhom/bottom-sheet'
+import { BottomSheetFooter, BottomSheetView, KEYBOARD_STATUS, useBottomSheetInternal } from '@gorhom/bottom-sheet'
 import { useMemo, useState } from 'react'
 import { type StyleProp, TouchableWithoutFeedback, type ViewStyle } from 'react-native'
 import { Extrapolation, interpolate, useAnimatedStyle, useDerivedValue, useSharedValue } from 'react-native-reanimated'
@@ -104,7 +104,9 @@ export function TransactionModalInnerContainer({
 }: TransactionModalInnerContainerProps): JSX.Element {
   const insets = useAppInsets()
 
-  const { animatedFooterHeight } = useBottomSheetInternal()
+  // In @gorhom/bottom-sheet v5, animatedFooterHeight was removed from useBottomSheetInternal().
+  // Default to 0 since no footer is rendered in this container's context.
+  const animatedFooterHeight = useSharedValue(0)
 
   const animatedPaddingBottom = useAnimatedStyle(() => {
     return { paddingBottom: animatedFooterHeight.value }
@@ -144,18 +146,21 @@ export function TransactionModalFooterContainer({ children }: TransactionModalFo
   // Most of this logic is based on the `BottomSheetFooterContainer` component from `@gorhom/bottom-sheet`.
   const {
     animatedContainerHeight,
-    animatedFooterHeight,
     animatedHandleHeight,
     animatedKeyboardHeightInContainer,
     animatedKeyboardState,
     animatedPosition,
   } = useBottomSheetInternal()
 
+  // In @gorhom/bottom-sheet v5, animatedFooterHeight was removed from useBottomSheetInternal().
+  // Default to 0; the BottomSheetFooter component manages its own height internally.
+  const animatedFooterHeight = useSharedValue(0)
+
   const animatedFooterPosition = useDerivedValue(() => {
     const keyboardHeight = animatedKeyboardHeightInContainer.value
     let footerTranslateY = Math.max(0, animatedContainerHeight.value - animatedPosition.value)
 
-    if (animatedKeyboardState.value === KEYBOARD_STATE.SHOWN) {
+    if (animatedKeyboardState.value === KEYBOARD_STATUS.SHOWN) {
       footerTranslateY = footerTranslateY - keyboardHeight
     }
 

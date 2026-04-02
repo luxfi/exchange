@@ -31,7 +31,7 @@
     "jsbi": "3.2.5",
     "promise": "8.3.0",
     "react": "19.0.3",
-    "react-native": "0.79.5",
+    "react-native": "catalog:",
     "react-native-device-info": "10.11.0",
     "redux": "4.2.1",
     "subscriptions-transport-ws": "0.11.0",

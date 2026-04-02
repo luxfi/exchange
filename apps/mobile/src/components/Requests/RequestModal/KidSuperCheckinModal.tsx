@@ -1,6 +1,5 @@
-import { useBottomSheetInternal } from '@gorhom/bottom-sheet'
 import { useTranslation } from 'react-i18next'
-import Animated, { useAnimatedStyle } from 'react-native-reanimated'
+import Animated, { useAnimatedStyle, useSharedValue } from 'react-native-reanimated'
 import { ModalWithOverlay } from 'src/components/Requests/ModalWithOverlay/ModalWithOverlay'
 import { RequestDetailsContent } from 'src/components/Requests/RequestModal/RequestDetails'
 import { useUwuLinkContractAllowlist } from 'src/components/Requests/Uwulink/utils'
@@ -51,7 +50,9 @@ function useLuxCafeLogo(): string | undefined {
 }
 
 function KidSuperCheckinModalContent({ request }: { request: SignRequest }): JSX.Element {
-  const { animatedFooterHeight } = useBottomSheetInternal()
+  // In @gorhom/bottom-sheet v5, animatedFooterHeight was removed from useBottomSheetInternal().
+  // Default to 0; the footer manages its own height via BottomSheetFooter.
+  const animatedFooterHeight = useSharedValue(0)
   const bottomSpacerStyle = useAnimatedStyle(() => ({
     height: animatedFooterHeight.value,
   }))

@@ -1,9 +1,8 @@
-import { useBottomSheetInternal } from '@gorhom/bottom-sheet'
 import { FeatureFlags, useFeatureFlag } from '@luxfi/gating'
 import { getSdkError } from '@walletconnect/utils'
 import React, { useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import Animated, { useAnimatedStyle } from 'react-native-reanimated'
+import Animated, { useAnimatedStyle, useSharedValue } from 'react-native-reanimated'
 import { useDispatch, useSelector } from 'react-redux'
 import { ModalWithOverlay, ModalWithOverlayProps } from 'src/components/Requests/ModalWithOverlay/ModalWithOverlay'
 import { selectDidOpenFromDeepLink } from 'src/features/walletConnect/selectors'
@@ -244,7 +243,9 @@ function PendingConnectionModalContent({
   confirmedWarning,
 }: PendingConnectionModalContentProps): JSX.Element {
   const { t } = useTranslation()
-  const { animatedFooterHeight } = useBottomSheetInternal()
+  // In @gorhom/bottom-sheet v5, animatedFooterHeight was removed from useBottomSheetInternal().
+  // Default to 0; the footer manages its own height via BottomSheetFooter.
+  const animatedFooterHeight = useSharedValue(0)
 
   const bottomSpacerStyle = useAnimatedStyle(() => ({
     height: animatedFooterHeight.value,

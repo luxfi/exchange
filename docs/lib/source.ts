@@ -1,5 +1,5 @@
 import { docs } from "@/.source"
-import { loader } from "fumadocs-core/source"
+import { loader } from "@hanzo/docs-core/source"
 
 // Create a single source instance that is reused
 // This prevents circular references and stack overflow issues
@@ -9,7 +9,7 @@ export function getSource() {
   if (!_source) {
     _source = loader({
       baseUrl: "/docs",
-      source: docs.toFumadocsSource(),
+      source: docs.toHanzoDocsSource(),
     })
   }
   return _source

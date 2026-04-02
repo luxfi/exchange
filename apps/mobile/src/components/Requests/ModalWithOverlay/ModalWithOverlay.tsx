@@ -12,7 +12,7 @@ import {
   View,
   ViewStyle,
 } from 'react-native'
-import { AnimatedStyle, useDerivedValue } from 'react-native-reanimated'
+import { AnimatedStyle, useDerivedValue, useSharedValue } from 'react-native-reanimated'
 import { ScrollDownOverlay } from 'src/components/Requests/ModalWithOverlay/ScrollDownOverlay'
 import { Button, ButtonProps, Flex } from '@luxfi/ui/src'
 import { spacing } from '@luxfi/ui/src/theme'
@@ -181,8 +181,12 @@ function ModalFooter({
 }: ModalFooterProps): JSX.Element {
   const { t } = useTranslation()
   const insets = useAppInsets()
-  const { animatedPosition, animatedHandleHeight, animatedFooterHeight, animatedContainerHeight } =
+  const { animatedPosition, animatedHandleHeight, animatedContainerHeight } =
     useBottomSheetInternal()
+
+  // In @gorhom/bottom-sheet v5, animatedFooterHeight was removed from useBottomSheetInternal().
+  // Default to 0; the BottomSheetFooter component manages its own height internally.
+  const animatedFooterHeight = useSharedValue(0)
 
   // Calculate position of the modal footer to ensure it stays at the bottom of the screen
   // when the modal content is scrolled

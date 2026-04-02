@@ -1,8 +1,7 @@
-import { useBottomSheetInternal } from '@gorhom/bottom-sheet'
 import { useNetInfo } from '@react-native-community/netinfo'
 import { GasFeeResult } from '@l.x/api'
 import { useTranslation } from 'react-i18next'
-import Animated, { useAnimatedStyle } from 'react-native-reanimated'
+import Animated, { useAnimatedStyle, useSharedValue } from 'react-native-reanimated'
 import { ClientDetails, PermitInfo } from 'src/components/Requests/RequestModal/ClientDetails'
 import {
   isBatchedTransactionRequest,
@@ -79,7 +78,9 @@ export function WalletConnectRequestModalContent({
   const permitInfo = getPermitInfo(request)
   const nativeCurrency = getChainInfo(chainId).nativeCurrency
 
-  const { animatedFooterHeight } = useBottomSheetInternal()
+  // In @gorhom/bottom-sheet v5, animatedFooterHeight was removed from useBottomSheetInternal().
+  // Default to 0; the footer manages its own height via BottomSheetFooter.
+  const animatedFooterHeight = useSharedValue(0)
 
   const netInfo = useNetInfo()
 

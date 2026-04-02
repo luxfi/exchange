@@ -1,5 +1,5 @@
 @import "tailwindcss";
-@import "fumadocs-ui/style.css";
+@import "@hanzo/docs-ui/style.css";
 
 @custom-variant dark (&:is(.dark *));
 

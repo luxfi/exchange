@@ -2,3 +2,15 @@ packages:
   - "apps/*"
   - "pkgs/*"
   - "config/*"
+
+catalog:
+  react-native: "npm:@hanzogui/react-native@0.79.5-fork.1"
+  react-native-reanimated: "npm:@hanzogui/react-native-reanimated@3.19.3-fork.1"
+  react-native-sortables: "npm:@hanzogui/react-native-sortables@1.7.1-fork.1"
+  react-native-svg: "npm:@hanzogui/react-native-svg@15.13.0-fork.1"
+  "@react-native/gradle-plugin": "npm:@hanzogui/react-native-gradle-plugin@0.79.5-fork.1"
+  "@shopify/react-native-performance": "npm:@hanzogui/react-native-performance@4.1.2-fork.1"
+  "@expo/config-plugins": "npm:@hanzogui/expo-config-plugins@10.1.1-fork.1"
+  zod: "npm:@hanzogui/zod@4.3.6-fork.1"
+  immer: "npm:@hanzogui/immer@9.0.21-fork.1"
+  multiformats: "npm:@hanzogui/multiformats@9.9.0-fork.1"

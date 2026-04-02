@@ -10,7 +10,7 @@
  *
  * Usage: see vercel.json buildCommand
  */
-import { cpSync, existsSync, mkdirSync, rmSync, statSync, writeFileSync } from 'node:fs'
+import { cpSync, existsSync, mkdirSync, readdirSync, rmSync, statSync, writeFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 
 const ROOT = resolve(import.meta.dirname, '..')
@@ -102,8 +102,16 @@ console.log('[build-vercel] Serverless function bundled successfully')
 // @vercel/og uses readFileSync(import.meta.url + '/../<file>') at module load
 // for its font, layout engine (yoga), and SVG renderer (resvg). Since we bundle
 // into a single .mjs, these files must sit alongside it.
-const ogAssets = ['noto-sans-v27-latin-regular.ttf', 'yoga.wasm', 'resvg.wasm']
+//
+// The default font changed across versions:
+//   0.5.x  -> noto-sans-v27-latin-regular.ttf
+//   0.11.x -> Geist-Regular.ttf
+// Instead of hardcoding a filename, discover the .ttf dynamically.
 const ogDistDir = resolve(ROOT, '../../node_modules/@vercel/og/dist')
+const ogFonts = existsSync(ogDistDir)
+  ? readdirSync(ogDistDir).filter((f) => f.endsWith('.ttf'))
+  : []
+const ogAssets = [...ogFonts, 'yoga.wasm', 'resvg.wasm']
 for (const asset of ogAssets) {
   const src = resolve(ogDistDir, asset)
   if (existsSync(src)) {

@@ -1,6 +1,5 @@
-import { SCREEN_WIDTH } from '@gorhom/bottom-sheet'
 import { useEffect, useMemo, useRef, useState } from 'react'
-import type { LayoutChangeEvent, TextStyle, ViewStyle } from 'react-native'
+import { Dimensions, type LayoutChangeEvent, type TextStyle, type ViewStyle } from 'react-native'
 import Animated, {
   useAnimatedStyle,
   useSharedValue,
@@ -26,6 +25,8 @@ const SPACE_SIZE = 2
 export const DIGIT_HEIGHT = 40 // matches heading2 lineHeight
 export const DIGIT_MAX_WIDTH = 29
 export const ADDITIONAL_WIDTH_FOR_ANIMATIONS = 8
+
+const SCREEN_WIDTH = Dimensions.get('window').width
 
 const ICON_LEFT_MARGIN = 4
 

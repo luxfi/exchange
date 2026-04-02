@@ -60,7 +60,7 @@
     "eslint": "8.57.1",
     "nitrogen": "0.31.10",
     "react": "19.0.3",
-    "react-native": "0.79.5",
+    "react-native": "catalog:",
     "react-native-nitro-modules": "0.31.10",
     "typescript": "5.8.3"
   },

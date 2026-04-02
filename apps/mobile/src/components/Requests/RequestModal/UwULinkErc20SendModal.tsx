@@ -1,8 +1,7 @@
-import { useBottomSheetInternal } from '@gorhom/bottom-sheet'
 import { type GasFeeResult } from '@l.x/api'
 import { formatUnits } from 'ethers/lib/utils'
 import { useTranslation } from 'react-i18next'
-import Animated, { useAnimatedStyle } from 'react-native-reanimated'
+import Animated, { useAnimatedStyle, useSharedValue } from 'react-native-reanimated'
 import { ModalWithOverlay } from 'src/components/Requests/ModalWithOverlay/ModalWithOverlay'
 import { type UwuLinkErc20Request } from 'src/features/walletConnect/walletConnectSlice'
 import { Flex, SpinningLoader, Text, UniversalImage, useIsDarkMode } from '@luxfi/ui/src'
@@ -92,7 +91,9 @@ function UwULinkErc20SendModalContent({
 }): JSX.Element {
   const { t } = useTranslation()
   const isDarkMode = useIsDarkMode()
-  const { animatedFooterHeight } = useBottomSheetInternal()
+  // In @gorhom/bottom-sheet v5, animatedFooterHeight was removed from useBottomSheetInternal().
+  // Default to 0; the footer manages its own height via BottomSheetFooter.
+  const animatedFooterHeight = useSharedValue(0)
   const bottomSpacerStyle = useAnimatedStyle(() => ({
     height: animatedFooterHeight.value,
   }))
