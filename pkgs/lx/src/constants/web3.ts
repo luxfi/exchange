@@ -1,3 +1,5 @@
+import { brand } from '@l.x/config'
+
 export const CONNECTION_PROVIDER_IDS = {
   WALLET_CONNECT_CONNECTOR_ID: 'walletConnect',
   NATIVE_WALLET_CONNECT_CONNECTOR_ID: 'nativeWalletConnect',
@@ -35,8 +37,8 @@ export const CONNECTION_PROVIDER_NAMES = {
 }
 
 function _getBrandShort(): string {
-  try { return require('@l.x/config').brand.shortName || 'Exchange' } catch { return 'Exchange' }
+  return brand.shortName || 'Exchange'
 }
 function _getBrandWalletName(): string {
-  try { return require('@l.x/config').brand.walletName || 'Wallet' } catch { return 'Wallet' }
+  return brand.walletName || 'Wallet'
 }
