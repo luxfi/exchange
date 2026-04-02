@@ -1,3 +1,4 @@
+import { brand } from '@l.x/config'
 import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { lazy, type PropsWithChildren, ReactNode, Suspense, useMemo } from 'react'
 import { matchPath, Navigate, Route, Routes, useLocation } from 'react-router'
@@ -5,6 +6,7 @@ import { WRAPPED_PATH } from '@l.x/lx/src/components/banners/shared/utils'
 import { CHROME_EXTENSION_UNINSTALL_URL_PATH } from '@l.x/lx/src/constants/urls'
 import { WRAPPED_SOL_ADDRESS_SOLANA } from '@l.x/lx/src/features/chains/svm/defaults'
 import { EXTENSION_PASSKEY_AUTH_PATH } from '@l.x/lx/src/features/passkey/constants'
+import { SwapTransactionSettingsStoreContextProvider } from '@l.x/lx/src/features/transactions/components/settings/stores/transactionSettingsStore/SwapTransactionSettingsStoreContextProvider'
 import { SwapFormStoreContextProvider } from '@l.x/lx/src/features/transactions/swap/stores/swapFormStore/SwapFormStoreContextProvider'
 import i18n from '@l.x/lx/src/i18n'
 import { getExploreDescription, getExploreTitle } from '~/pages/getExploreTitle'
@@ -63,7 +65,11 @@ const PrivacyPolicyPage = lazy(() => import('~/pages/Legal/PrivacyPolicy'))
  * "useSwapFormStore must be used within SwapFormStoreContextProvider".
  */
 function WithSwapFormStore({ children }: PropsWithChildren): JSX.Element {
-  return <SwapFormStoreContextProvider>{children}</SwapFormStoreContextProvider>
+  return (
+    <SwapTransactionSettingsStoreContextProvider>
+      <SwapFormStoreContextProvider>{children}</SwapFormStoreContextProvider>
+    </SwapTransactionSettingsStoreContextProvider>
+  )
 }
 
 interface RouterConfig {
@@ -98,20 +104,21 @@ export function useRouterConfig(): RouterConfig {
 
 // SEO titles and descriptions sourced from https://docs.google.com/spreadsheets/d/1_6vSxGgmsx6QGEZ4mdHppv1VkuiJEro3Y_IopxUHGB4/edit#gid=0
 // getTitle and getDescription are used as static metatags for SEO. Dynamic metatags should be set in the page component itself
+// Lazy getters so i18n.t() runs at render time (after brand config injects defaultVariables)
 const StaticTitlesAndDescriptions = {
-  LuxTitle: i18n.t('title.luxTradeCrypto'),
-  SwapTitle: i18n.t('title.buySellTradeEthereum'),
-  SwapDescription: i18n.t('title.swappingMadeSimple'),
-  DetailsPageBaseTitle: i18n.t('common.buyAndSell'),
-  TDPDescription: i18n.t('title.realTime'),
-  PDPDescription: i18n.t('title.tradeTokens'),
-  MigrateTitle: i18n.t('title.migratev2'),
-  MigrateTitleV3: i18n.t('title.migratev3'),
-  MigrateDescription: i18n.t('title.easilyRemove'),
-  MigrateDescriptionV4: i18n.t('title.easilyRemoveV4'),
-  AddLiquidityDescription: i18n.t('title.earnFees'),
-  PasskeyManagementTitle: i18n.t('title.managePasskeys'),
-  ToucanDescription: i18n.t('title.toucanDescription'),
+  get LuxTitle() { return i18n.t('title.lxTradeCrypto') },
+  get SwapTitle() { return i18n.t('title.buySellTradeEthereum') },
+  get SwapDescription() { return i18n.t('title.swappingMadeSimple') },
+  get DetailsPageBaseTitle() { return i18n.t('common.buyAndSell') },
+  get TDPDescription() { return i18n.t('title.realTime') },
+  get PDPDescription() { return i18n.t('title.tradeTokens') },
+  get MigrateTitle() { return i18n.t('title.migratev2') },
+  get MigrateTitleV3() { return i18n.t('title.migratev3') },
+  get MigrateDescription() { return i18n.t('title.easilyRemove') },
+  get MigrateDescriptionV4() { return i18n.t('title.easilyRemoveV4') },
+  get AddLiquidityDescription() { return i18n.t('title.earnFees') },
+  get PasskeyManagementTitle() { return i18n.t('title.managePasskeys') },
+  get ToucanDescription() { return i18n.t('title.toucanDescription') },
 }
 
 export interface RouteDefinition {
@@ -440,7 +447,7 @@ export const routes: RouteDefinition[] = [
   createRouteDefinition({
     path: WRAPPED_PATH,
     getElement: () => <Wrapped />,
-    getTitle: () => 'Lux Wrapped',
+    getTitle: () => `${brand.shortName || 'LX'} Wrapped`,
     enabled: (args) => args.isWrappedEnabled ?? false,
   }),
   createRouteDefinition({
@@ -455,7 +462,7 @@ export const routes: RouteDefinition[] = [
   }),
   createRouteDefinition({
     path: '/preview',
-    getTitle: () => 'Lx Preview',
+    getTitle: () => `${brand.shortName || 'LX'} Preview`,
     getElement: () => (
       <Suspense fallback={null}>
         <BetaPage />

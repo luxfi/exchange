@@ -24,8 +24,15 @@ function getComplianceApiBaseUrl(): string {
   return PROD_ENTRY_GATEWAY_API_BASE_URL
 }
 
+// These are getters so they read brand values at access time, not at module load time
+export function getLxWebHostname(): string {
+  return brand.appDomain
+}
+// Kept for backward compat - consumers that only use it in template literals will get current brand value
 export const LX_WEB_HOSTNAME = brand.appDomain
-const EMBEDDED_WALLET_HOSTNAME = isPlaywrightEnv() || isDevEnv() ? `staging.ew.${brand.appDomain}` : LX_WEB_HOSTNAME
+function getEmbeddedWalletHostname(): string {
+  return isPlaywrightEnv() || isDevEnv() ? `staging.ew.${brand.appDomain}` : brand.appDomain
+}
 
 function getPrivyEmbeddedWalletUrl(): string {
   const apiHost = `api.${brand.appDomain}`
@@ -55,6 +62,9 @@ export function getForApiUrl(): string {
   return getCloudflareApiBaseUrl({ flow: TrafficFlows.FOR, postfix: 'v2/FOR.v1.FORService' })
 }
 
+export function getLxWebUrl(): string {
+  return `https://${brand.appDomain}`
+}
 export const LX_WEB_URL = `https://${LX_WEB_HOSTNAME}`
 export const LUX_APP_URL = getBrandUrl('/app')
 export const LUX_MOBILE_REDIRECT_URL = getBrandUrl('/mobile-redirect')
@@ -64,7 +74,10 @@ export const tradingApiVersionPrefix = config.tradingApiWebTestEnv === 'true' ? 
 
 export const CHROME_EXTENSION_UNINSTALL_URL_PATH = '/extension/uninstall'
 
-export const lxUrls = {
+// Lazily initialized to ensure brand config is loaded before URLs are computed
+let _lxUrlsCache: Record<string, any> | undefined
+function buildLxUrls(): Record<string, any> {
+  return {
   // Help and web articles/items
   helpUrl,
   helpRequestUrl: `${helpUrl}/requests/new`,
@@ -153,7 +166,7 @@ export const lxUrls = {
   },
   downloadWalletUrl: brand.downloadUrl,
   tradingApiDocsUrl: getDocsUrl('/api'),
-  unichainUrl: 'https://www.unichain.org/',
+  protocolUrl: getDocsUrl('/protocol'),
   dexUrl: getDocsUrl('/protocol/dex'),
   helpCenterUrl: brand.helpUrl,
   blogUrl: getBrandUrl('/blog'),
@@ -165,9 +178,9 @@ export const lxUrls = {
   careersUrl: getBrandUrl('/careers'),
   social: {
     x: brand.twitter,
-    farcaster: 'https://farcaster.xyz/luxfi',
-    linkedin: 'https://www.linkedin.com/company/luxfi',
-    tiktok: 'https://www.tiktok.com/@luxfi',
+    farcaster: brand.farcaster,
+    linkedin: brand.linkedin,
+    tiktok: brand.tiktok,
   },
   termsOfServiceUrl: brand.termsUrl,
   privacyPolicyUrl: brand.privacyUrl,
@@ -216,8 +229,8 @@ export const lxUrls = {
   evervaultDevUrl: 'https://embedded-wallet-dev.app-907329d19a06.enclave.evervault.com',
   evervaultStagingUrl: 'https://embedded-wallet-staging.app-907329d19a06.enclave.evervault.com',
   evervaultProductionUrl: 'https://embedded-wallet.app-907329d19a06.enclave.evervault.com',
-  embeddedWalletUrl: `https://${EMBEDDED_WALLET_HOSTNAME}`,
-  passkeysManagementUrl: `https://${EMBEDDED_WALLET_HOSTNAME}/manage/passkey`,
+  embeddedWalletUrl: `https://${getEmbeddedWalletHostname()}`,
+  passkeysManagementUrl: `https://${getEmbeddedWalletHostname()}/manage/passkey`,
   privyEmbeddedWalletUrl: getPrivyEmbeddedWalletUrl(),
 
   // API Paths
@@ -269,4 +282,15 @@ export const lxUrls = {
     'https://docs.google.com/forms/d/e/1FAIpQLSepzL5aMuSfRhSgw0zDw_gVmc2aeVevfrb1UbOwn6WGJ--46w/viewform',
 
   dataApiServiceUrl: getCloudflareApiBaseUrl({ postfix: 'v2/data.v1.DataApiService' }),
+  }
 }
+
+// Proxy that lazily builds the URLs on first property access (after brand config is loaded)
+export const lxUrls: ReturnType<typeof buildLxUrls> = new Proxy({} as any, {
+  get(_, prop) {
+    if (!_lxUrlsCache) {
+      _lxUrlsCache = buildLxUrls()
+    }
+    return _lxUrlsCache[prop as string]
+  },
+})

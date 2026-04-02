@@ -288,7 +288,7 @@ export class EmbeddedWalletProvider {
   }
   updateChainId(chainId: UniverseChainId) {
     this.chainId = chainId
-    localStorage.setItem('embeddedLuxWallet.chainId', `${chainId}`)
+    localStorage.setItem('embeddedWallet.chainId', `${chainId}`)
     this.emit('chainChanged', chainId)
   }
 

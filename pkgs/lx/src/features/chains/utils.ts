@@ -1,6 +1,7 @@
 import { BigNumber, BigNumberish } from '@ethersproject/bignumber'
 import { Token } from '@luxamm/sdk-core'
 import { GraphQLApi } from '@luxfi/api'
+import { brand as runtimeBrand } from '@l.x/config'
 import { PollingInterval } from '@l.x/lx/src/constants/misc'
 import { getVisibleChainIds } from '@l.x/lx/src/features/branding/config'
 import { ALL_CHAIN_IDS, getChainInfo, ORDERED_CHAINS } from '@l.x/lx/src/features/chains/chainInfo'
@@ -308,7 +309,19 @@ function getDefaultChainId({
     return isTestnetModeEnabled ? UniverseChainId.LiquidityTestnet : UniverseChainId.LiquidityMainnet
   }
 
-  // Lux network is the default chain
+  // Use runtime brand config defaultChainId if set (from /config.json)
+  const brandDefault = runtimeBrand.defaultChainId as UniverseChainId | undefined
+  if (brandDefault && ALL_CHAIN_IDS.includes(brandDefault)) {
+    // For testnet mode, try to find the corresponding testnet chain
+    if (isTestnetModeEnabled) {
+      if (brandDefault === UniverseChainId.Zoo) return UniverseChainId.ZooTestnet
+      if (brandDefault === UniverseChainId.Lux) return UniverseChainId.LuxTestnet
+      return UniverseChainId.Sepolia // generic fallback
+    }
+    return brandDefault
+  }
+
+  // Fallback: Lux network
   return isTestnetModeEnabled ? UniverseChainId.LuxTestnet : UniverseChainId.Lux
 }
 

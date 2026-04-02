@@ -1,3 +1,4 @@
+import { brand as runtimeBrand } from '@l.x/config'
 import { UniverseChainId } from 'lx/src/features/chains/types'
 
 export interface BrandConfig {
@@ -49,9 +50,7 @@ export function getBrandConfig(): BrandConfig {
 
 /**
  * Returns the set of chain IDs that should be visible in the UI.
- * If the brand config has a non-empty chains array, only those chains are shown.
- * If the NEXT_PUBLIC_CHAIN_FILTER env var is set to 'liquidity', only Liquidity chains are shown.
- * Otherwise, all chains are visible.
+ * Priority: env var override > runtime config.json > static brand config > null (show all)
  */
 export function getVisibleChainIds(): UniverseChainId[] | null {
   // Check env var override first
@@ -60,7 +59,12 @@ export function getVisibleChainIds(): UniverseChainId[] | null {
     return LIQUIDITY_BRAND.chains
   }
 
-  // Fall back to brand config
+  // Check runtime brand config (loaded from /config.json by loadBrandConfig())
+  if (runtimeBrand.supportedChainIds && runtimeBrand.supportedChainIds.length > 0) {
+    return runtimeBrand.supportedChainIds as UniverseChainId[]
+  }
+
+  // Fall back to static brand config
   const brand = getBrandConfig()
   if (brand.chains.length > 0) {
     return brand.chains

@@ -3,7 +3,7 @@ import { Trans, useTranslation } from 'react-i18next'
 import { Flex, Separator, Text } from '@luxfi/ui/src'
 import { ChevronsIn } from '@luxfi/ui/src/components/icons/ChevronsIn'
 import { ChevronsOut } from '@luxfi/ui/src/components/icons/ChevronsOut'
-import { LXWalletOptions } from '~/components/WalletModal/LXWalletOptions'
+import { LXWalletOptions } from '~/components/WalletModal/LuxWalletOptions'
 import { WalletModalLayout } from '~/components/WalletModal/WalletModalLayout'
 import { WalletOptionsGrid } from '~/components/WalletModal/WalletOptionsGrid'
 import { ClickableGuiStyle } from '~/theme/components/styles'
@@ -18,7 +18,7 @@ export function StandardWalletModal(): JSX.Element {
     </Flex>
   )
 
-  const luxOptions = <LuxWalletOptions />
+  const luxOptions = <LXWalletOptions />
 
   const expandToggle = (
     <Flex row alignItems="center" py={8} userSelect="none" onPress={toggleExpandMoreWallets} {...ClickableGuiStyle}>

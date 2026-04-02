@@ -1,5 +1,5 @@
 import { SVGProps } from 'react'
-import { Flex, Image, styled, useSporeColors } from '@luxfi/ui/src'
+import { Flex, styled, useSporeColors } from '@luxfi/ui/src'
 import { brand } from '@l.x/config'
 
 // Default logo — simple triangle (used when no brand logoUrl is set)
@@ -42,12 +42,13 @@ export const NavIcon = ({ clickable, onClick }: NavIconProps) => {
   return (
     <Container clickable={clickable}>
       {brand.logoUrl ? (
-        <Image
-          source={{ uri: brand.logoUrl }}
+        <img
+          src={brand.logoUrl}
+          alt={brand.shortName || brand.name || ''}
           width={24}
           height={24}
-          style={{ cursor: onClick ? 'pointer' : 'auto' }}
-          onPress={onClick}
+          style={{ cursor: onClick ? 'pointer' : 'auto', objectFit: 'contain' }}
+          onClick={onClick}
         />
       ) : (
         <DefaultLogo color={colors.accent1.val} onClick={onClick} />

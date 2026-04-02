@@ -9,6 +9,7 @@ const NORMALIZATION_RULES = [
 ]
 
 export function normalizeWalletName(name: string) {
+  if (!name) return ''
   return NORMALIZATION_RULES.reduce((name, rule) => rule(name), name)
 }
 

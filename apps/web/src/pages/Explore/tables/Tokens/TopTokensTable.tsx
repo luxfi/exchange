@@ -9,6 +9,7 @@ import {
   useTokenTableSortStore,
 } from '~/pages/Explore/tables/Tokens/tokenTableSortStore'
 import { LuxTokensTable } from '~/pages/Explore/tables/LuxTokensTable'
+import { isLuxChainId } from '~/state/explore/luxSubgraph'
 import { TABLE_PAGE_SIZE } from '~/state/explore'
 import { useListTokens } from '~/state/explore/listTokens/useListTokens'
 import { useChainIdFromUrlParam } from '~/utils/chainParams'

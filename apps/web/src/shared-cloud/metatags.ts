@@ -1,3 +1,5 @@
+import { brand } from '@l.x/config'
+
 export type MetaTagInjectorInput = {
   title: string
   image?: string
@@ -5,12 +7,17 @@ export type MetaTagInjectorInput = {
   description?: string
 }
 
+function getBrandShort(): string {
+  return brand.shortName || 'Exchange'
+}
+
 export function formatTokenMetatagTitleName(symbol: string | undefined, name: string | undefined) {
+  const b = getBrandShort()
   if (symbol) {
-    return 'Get ' + symbol + ' on Lux'
+    return 'Get ' + symbol + ' on ' + b
   }
   if (name) {
-    return 'Get ' + name + ' on Lux'
+    return 'Get ' + name + ' on ' + b
   }
-  return 'View Token on Lux'
+  return 'View Token on ' + b
 }

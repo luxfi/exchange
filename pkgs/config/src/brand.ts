@@ -1,46 +1,64 @@
 /**
- * Runtime brand configuration for white-label exchange deployments.
- * Zero baked-in brands — everything loaded from /config.json at runtime.
+ * Runtime brand configuration for white-label deployments.
+ *
+ * Single source of truth: brand.json from @luxfi/brand or @zooai/brand.
  *
  * How it works:
- * 1. Default config.json ships in the Docker image (Lux defaults)
- * 2. K8s mounts a ConfigMap over /config.json per deployment
+ * 1. Build copies brand.json from the brand package into the static dir
+ * 2. K8s mounts a ConfigMap over /brand.json per deployment
  * 3. SPA calls loadBrandConfig() before first render
  * 4. All brand references use the `brand` export which updates in place
  *
- * For zoo.exchange: mount a ConfigMap with Zoo branding over /config.json
- * For any L2: same image, different ConfigMap
- *
- * KMS integration: set KMS_BRAND_SECRET env var to load brand config from
- * KMS (Infisical) instead of a ConfigMap. The secret should contain the
- * full RuntimeConfig JSON. The /config.json endpoint in the serving layer
- * should proxy to KMS when this env var is set.
+ * Secrets: Use Lux KMS for any sensitive values (API keys, WalletConnect project IDs).
  */
 
-/** Theme color overrides applied on top of the default dark/light themes */
+/** Theme color overrides applied on top of the default dark/light themes.
+ * All fields are optional — only set what you want to customize.
+ * The exchange UI is monochrome by default; accent1 is the primary brand color.
+ */
 export interface BrandTheme {
-  /** Primary accent color (buttons, links) */
+  /** Primary accent color (buttons, links, active states) */
   accent1?: string
-  /** Background color */
+  /** Accent hover state */
+  accent1Hovered?: string
+  /** Secondary accent (derived from accent1 + surface1 if not set) */
+  accent2?: string
+  /** Tertiary accent */
+  accent3?: string
+  /** Primary background */
   surface1?: string
-  /** Secondary surface */
+  /** Secondary background (cards, panels) */
   surface2?: string
-  /** Tertiary surface */
+  /** Tertiary background (inputs, wells) */
   surface3?: string
-  /** Primary text color */
+  /** Primary text */
   neutral1?: string
-  /** Secondary text color */
+  /** Secondary text */
   neutral2?: string
-  /** Success status color */
+  /** Tertiary text */
+  neutral3?: string
+  /** Text on accent backgrounds (auto-derived from accent1 if not set) */
+  neutralContrast?: string
+  /** Page background (defaults to surface1 if not set) */
+  background?: string
+  /** Success color (positive price changes, confirmed actions) */
   statusSuccess?: string
-  /** Critical/error status color */
+  /** Critical/error color (negative price changes, failed actions) */
   statusCritical?: string
+  /** Warning color */
+  statusWarning?: string
+  /** Scrim/overlay color */
+  scrim?: string
 }
 
 export interface BrandConfig {
   name: string
   title: string
   description: string
+  /** Short product abbreviation, e.g. "LX" or "Zoo" — used in UI labels */
+  shortName: string
+  /** Casual lab name, e.g. "Lux Labs" or "Zoo Labs" — used in social/legal text */
+  labsName: string
   /** Legal entity name for Terms/Privacy, e.g. "Lux Industries Inc." */
   legalEntity: string
   /** Wallet product name, e.g. "Zoo Wallet" or "Lux Wallet" */
@@ -61,6 +79,9 @@ export interface BrandConfig {
   complianceEmail: string
   supportEmail: string
   twitter: string
+  farcaster: string
+  linkedin: string
+  tiktok: string
   github: string
   discord: string
   logoUrl: string
@@ -101,6 +122,8 @@ export const brand: BrandConfig = {
   name: '',
   title: '',
   description: '',
+  shortName: '',
+  labsName: '',
   legalEntity: '',
   walletName: '',
   protocolName: '',
@@ -117,6 +140,9 @@ export const brand: BrandConfig = {
   complianceEmail: '',
   supportEmail: '',
   twitter: '',
+  farcaster: '',
+  linkedin: '',
+  tiktok: '',
   github: '',
   discord: '',
   logoUrl: '',
@@ -137,13 +163,12 @@ export let runtimeConfig: RuntimeConfig | null = null
  * The config.json is either the default shipped in the image, or a
  * ConfigMap mounted by K8s for white-label deployments.
  *
- * KMS integration: when the serving layer sets KMS_BRAND_SECRET, it should
- * proxy /config.json to fetch the secret value from KMS (Infisical). The
- * SPA itself always fetches /config.json — KMS resolution is server-side.
+ * Loads /brand.json. In K8s, this is a ConfigMap mount.
+ * Secrets (API keys) come from Lux KMS, injected server-side.
  */
 export async function loadBrandConfig(): Promise<RuntimeConfig> {
   try {
-    const res = await fetch('/config.json')
+    const res = await fetch('/brand.json')
     if (!res.ok) throw new Error(`${res.status}`)
     const config: RuntimeConfig = await res.json()
 
@@ -153,11 +178,19 @@ export async function loadBrandConfig(): Promise<RuntimeConfig> {
     }
 
     // Derive convenience fields from name if not explicitly set
-    if (!brand.walletName && brand.name) {
-      brand.walletName = brand.name.replace(/\s*exchange\s*/i, '') + ' Wallet'
+    const baseName = brand.name.replace(/\s*exchange\s*/i, '').trim()
+    if (!brand.shortName && baseName) {
+      // "Lux" → "LX", "Zoo" → "Zoo", "Liquid" → "Liquid"
+      brand.shortName = baseName.length <= 3 ? baseName.toUpperCase() : baseName
     }
-    if (!brand.protocolName && brand.name) {
-      brand.protocolName = brand.name.replace(/\s*exchange\s*/i, '') + ' Protocol'
+    if (!brand.labsName && baseName) {
+      brand.labsName = baseName + ' Labs'
+    }
+    if (!brand.walletName && baseName) {
+      brand.walletName = brand.shortName + ' Wallet'
+    }
+    if (!brand.protocolName && baseName) {
+      brand.protocolName = brand.shortName + ' Protocol'
     }
     if (!brand.copyrightHolder) {
       brand.copyrightHolder = brand.legalEntity
@@ -188,6 +221,36 @@ export async function loadBrandConfig(): Promise<RuntimeConfig> {
         const link = document.querySelector("link[rel*='icon']") as HTMLLinkElement | null
         if (link) {
           link.href = config.brand.faviconUrl
+        }
+      }
+    }
+
+    // Inject brand theme colors as CSS custom property overrides.
+    // This overrides both the styled-components theme and the Tamagui/Spore
+    // theme tokens (--accent1, --surface1, --neutral1, etc.) at runtime.
+    if (typeof document !== 'undefined' && brand.theme) {
+      const prefersDark = window.matchMedia?.('(prefers-color-scheme: dark)').matches
+      const bt = prefersDark ? brand.theme.dark : brand.theme.light
+      if (bt) {
+        const root = document.documentElement
+        const set = (prop: string, val?: string) => { if (val) root.style.setProperty(prop, val) }
+        set('--accent1', bt.accent1)
+        set('--accent1Hovered', bt.accent1Hovered)
+        set('--accent2', bt.accent2)
+        set('--accent3', bt.accent3)
+        set('--surface1', bt.surface1)
+        set('--surface1Hovered', bt.surface1)
+        set('--surface2', bt.surface2)
+        set('--surface3', bt.surface3)
+        set('--neutral1', bt.neutral1)
+        set('--neutral2', bt.neutral2)
+        set('--neutral3', bt.neutral3)
+        set('--neutralContrast', bt.neutralContrast)
+        set('--statusSuccess', bt.statusSuccess)
+        set('--statusCritical', bt.statusCritical)
+        // Also override the page background
+        if (bt.background || bt.surface1) {
+          root.style.setProperty('background', bt.background || bt.surface1 || '')
         }
       }
     }

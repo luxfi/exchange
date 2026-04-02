@@ -57,7 +57,7 @@ import { TokenBalancesProvider } from '~/appGraphql/data/apollo/TokenBalancesPro
 import { QueryClientPersistProvider } from '~/components/PersistQueryClient'
 import { createWeb3Provider, WalletCapabilitiesEffects } from '~/components/Web3Provider/createWeb3Provider'
 import { WebLuxProvider } from '~/components/Web3Provider/WebLuxContext'
-import { wagmiConfig } from '~/components/Web3Provider/wagmiConfig'
+import { initWagmiConfig, wagmiConfig } from '~/components/Web3Provider/wagmiConfig'
 import { AccountsStoreDevTool } from '~/features/accounts/store/devtools'
 import { WebAccountsStoreProvider } from '~/features/accounts/store/provider'
 import { ConnectWalletMutationProvider } from '~/features/wallet/connection/hooks/useConnectWalletMutation'
@@ -184,8 +184,9 @@ function Updaters() {
   )
 }
 
-// Production Web3Provider – always reconnects on mount and runs capability effects.
-const Web3Provider = createWeb3Provider({ wagmiConfig })
+// Web3Provider is created lazily after brand config loads (see loadBrandConfig below).
+// This ensures wagmi sees the correct default chain from config.json.
+let Web3Provider: ReturnType<typeof createWeb3Provider>
 
 function GraphqlProviders({ children }: { children: React.ReactNode }) {
   return (
@@ -325,6 +326,32 @@ const RootApp = (): JSX.Element => {
 import { brand, loadBrandConfig } from '@l.x/config'
 
 loadBrandConfig().then(() => {
+  // Inject brand values as i18n interpolation defaults so {{brandName}} etc. work in translations
+  const brandVars = {
+    brandName: brand.name,
+    brandTitle: brand.title,
+    brandShort: brand.shortName,
+    labsName: brand.labsName,
+    legalEntity: brand.legalEntity,
+    walletName: brand.walletName,
+    protocolName: brand.protocolName,
+    copyrightHolder: brand.copyrightHolder,
+    appDomain: brand.appDomain,
+  }
+  // Set on i18n options (for future reference)
+  i18n.options.interpolation = { ...i18n.options.interpolation, defaultVariables: brandVars }
+  // Also set on the Interpolator instance directly (i18next caches its own copy)
+  const interpolator = (i18n.services as any)?.interpolator
+  if (interpolator?.options) {
+    interpolator.options.defaultVariables = brandVars
+  }
+
+  // Initialize the ONE wagmi config with the brand's default chain.
+  // No wagmi config exists until this point — the Proxy export throws if
+  // accessed before this, ensuring nothing uses a stale default chain.
+  const brandWagmiConfig = initWagmiConfig(brand.defaultChainId)
+  Web3Provider = createWeb3Provider({ wagmiConfig: brandWagmiConfig })
+
   createRoot(container).render(<RootApp />)
 })
 

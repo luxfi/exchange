@@ -35,7 +35,7 @@ const MENU_ICONS = {
   wallet: <LuxLogo size="$icon.20" color="$accent1" />,
   dex: <DEXGeneric size="$icon.20" color="$accent1" />,
   tradingApi: <LayerGroup size="$icon.20" color="$accent1" />,
-  unichain: <Unichain size="$icon.20" color="$accent1" />,
+  protocol: <LuxLogo size="$icon.20" color="$accent1" />,
 } as const
 
 export const useMenuContent = (args?: {

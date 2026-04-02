@@ -54,7 +54,8 @@ export default async function getPool({
   const token0 = data.token0
   const token1 = data.token1
   const name = `${token0?.symbol}/${token1?.symbol}`
-  const title = `${name} on Lux`
+  const { brand } = await import('@l.x/config')
+  const title = `${name} on ${brand.shortName || 'Exchange'}`
 
   const formattedAsset: Data = {
     title,

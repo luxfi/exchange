@@ -247,7 +247,7 @@ export async function renderPoolOgImage({
                   </div>
                 )}
               </div>
-              <img src={WATERMARK_URL} alt="Lx" height="72px" width="324px" />
+              <img src={WATERMARK_URL} alt="" height="72px" width="324px" />
             </div>
           </div>
         </div>

@@ -1,13 +1,15 @@
 import { ApolloClient, InMemoryCache } from '@apollo/client'
+import { brand, getGatewayUrl } from '@l.x/config'
 
-const GRAPHQL_ENDPOINT = 'https://api-exchange.lux.network/v1/graphql'
+// GraphQL endpoint derived from brand config (falls back to Lux gateway)
+const GRAPHQL_ENDPOINT = getGatewayUrl('/v1/graphql')
 
 export default new ApolloClient({
   connectToDevTools: false,
   uri: GRAPHQL_ENDPOINT,
   headers: {
     'Content-Type': 'application/json',
-    Origin: 'https://lux.exchange',
+    Origin: `https://${brand.appDomain || 'lux.exchange'}`,
     'User-Agent':
       'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.5735.110 Safari/537.36',
   },

@@ -20,9 +20,12 @@ export function walletTypeToAmplitudeWalletType(connectionType?: string): string
     case 'coinbaseWallet': {
       return 'Coinbase Wallet'
     }
+    case 'nativeWalletConnect':
+    case 'brandWalletConnect':
     case 'luxWalletConnect': {
       return 'Wallet Connect'
     }
+    case 'embeddedWallet':
     case 'embeddedLuxWallet': {
       return 'Passkey'
     }
@@ -35,8 +38,8 @@ export function walletTypeToAmplitudeWalletType(connectionType?: string): string
 export const WC_PARAMS = {
   projectId: WALLET_CONNECT_PROJECT_ID,
   metadata: {
-    name: 'Lux Exchange',
-    description: 'Lux Exchange Interface',
+    name: brand.name || 'Exchange',
+    description: (brand.name || 'Exchange') + ' Interface',
     url: getBrandUrl(''),
     icons: [getBrandUrl('/favicon.png')],
   },
@@ -48,7 +51,8 @@ export const WC_PARAMS = {
   },
 }
 
-export function lxWalletConnect(): CreateConnectorFn {
+// Brand-native WalletConnect connector — ID is generic, display name comes from config.json
+export function brandWalletConnect(): CreateConnectorFn {
   return createConnector((config) => {
     const wc = walletConnect({
       ...WC_PARAMS,
@@ -57,29 +61,27 @@ export function lxWalletConnect(): CreateConnectorFn {
 
     config.emitter.on('message', ({ type, data }: { type: string; data: any }) => {
       if (type === 'display_uri') {
-        // Emits custom wallet connect code, parseable by the Lux Wallet
-        const luxWalletUri = getBrandUrl('/app/wc?uri=${data}')
+        const walletUri = getBrandUrl(`/app/wc?uri=${data}`)
+        window.dispatchEvent(new MessageEvent('display_brand_wallet_uri', { data: walletUri }))
 
-        // Emits custom event to display the Lux Wallet URI
-        window.dispatchEvent(new MessageEvent('display_lux_uri', { data: luxWalletUri }))
-
-        // Opens deeplink to Lux Wallet if on mobile
         if (isWebIOS || isWebAndroid) {
-          // Using window.location.href to open the deep link ensures smooth navigation and leverages OS handling for installed apps,
-          // avoiding potential popup blockers or inconsistent behavior associated with window.open
-          window.location.href = `lux://wc?uri=${encodeURIComponent(data as string)}`
+          // Deep link using brand's app domain slug as scheme
+          const scheme = (brand.appDomain || 'lux.exchange').split('.')[0]
+          window.location.href = `${scheme}://wc?uri=${encodeURIComponent(data as string)}`
         }
       }
     })
 
     return {
       ...wc,
-      id: 'luxWalletConnect',
-      type: 'luxWalletConnect',
-      name: 'Lux Wallet',
+      id: 'nativeWalletConnect',
+      type: 'nativeWalletConnect',
+      name: brand.walletName || 'Wallet',
       icon: getBrandUrl('/favicon.png'),
     }
   })
 }
 
-export const luxWalletConnect = lxWalletConnect
+// Legacy aliases
+export const lxWalletConnect = brandWalletConnect
+export const luxWalletConnect = brandWalletConnect

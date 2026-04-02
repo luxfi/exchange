@@ -1,3 +1,4 @@
+import { brand } from '@l.x/config'
 import { Data } from 'functions/utils/cache'
 import getPool from 'functions/utils/getPool'
 import getPosition from 'functions/utils/getPosition'
@@ -197,11 +198,10 @@ export async function metaTagInjectionMiddleware(c: Context, next: Next): Promis
     } else {
       const imageUri = requestURL.origin + '/images/1200x630_Rich_Link_Preview_Image.png'
       data = {
-        title: 'Lux Exchange',
+        title: brand.name || 'Exchange',
         image: imageUri,
         url: c.req.url,
-        description:
-          'Swap and trade crypto on Lux, Ethereum, Arbitrum, Base, Polygon and more. Decentralized exchange powered by Lux Network.',
+        description: brand.description || 'Swap and trade crypto across multiple networks. Decentralized exchange.',
       }
     }
 

@@ -1,3 +1,4 @@
+import { brand, getGatewayUrl, getWsUrl } from '@l.x/config'
 import { poolImageHandler } from 'functions/api/image/pools'
 import { positionImageHandler } from 'functions/api/image/positions'
 import { tokenImageHandler } from 'functions/api/image/tokens'
@@ -18,20 +19,20 @@ interface AppConfig {
   getTrustedClientIp: (c: Context) => string | undefined
 }
 
-// ── Shared constants ─────────────────────────────────────────────────
+// ── Shared constants (derived from runtime brand config) ─────────────
 export const ENTRY_GATEWAY_URLS = {
-  development: 'https://gw.lux.exchange/conversion',
-  staging: 'https://gw.lux.exchange/conversion',
-  production: 'https://gw.lux.exchange/conversion',
+  get development() { return getGatewayUrl('/conversion') },
+  get staging() { return getGatewayUrl('/conversion') },
+  get production() { return getGatewayUrl('/conversion') },
 } as const
 
-// Statsig proxy -- routed through gw.lux.exchange in production
-const STATSIG_PROXY_TARGET = 'https://gw.lux.exchange/gateway'
+// Statsig proxy -- routed through gateway in production
+const STATSIG_PROXY_TARGET_FN = () => getGatewayUrl('/gateway')
 
 export const WEBSOCKET_URLS = {
-  development: 'wss://ws.lux.exchange/staging',
-  staging: 'wss://ws.lux.exchange/staging',
-  production: 'wss://ws.lux.exchange',
+  get development() { return getWsUrl('/staging') },
+  get staging() { return getWsUrl('/staging') },
+  get production() { return getWsUrl('') },
 } as const
 
 // ── Cache-Control middleware for image routes ───────────────────────────
@@ -39,7 +40,11 @@ function cacheControl(maxAge: number) {
   return async (c: Context, next: () => Promise<void>) => {
     await next()
     if (c.res.ok) {
-      c.res.headers.set('Cache-Control', `public, max-age=${maxAge}`)
+      c.res = new Response(c.res.body, {
+        status: c.res.status,
+        statusText: c.res.statusText,
+        headers: new Headers([...c.res.headers.entries(), ['Cache-Control', `public, max-age=${maxAge}`]]),
+      })
     }
   }
 }
@@ -48,14 +53,21 @@ export function createApp({ fetchSpaHtml, getEntryGatewayUrl, getWebSocketUrl, g
   const app = new Hono<{ Bindings: Bindings }>()
 
   // ── Security headers middleware ──────────────────────────────────────
+  // Create a new Response to avoid "Can't modify immutable headers" in Vite dev
   app.use('*', async (c, next) => {
     await next()
-    c.res.headers.set('X-Frame-Options', 'DENY')
-    c.res.headers.set('X-Content-Type-Options', 'nosniff')
-    c.res.headers.set('Strict-Transport-Security', 'max-age=31536000; includeSubDomains; preload')
-    c.res.headers.set('Referrer-Policy', 'strict-origin-when-cross-origin')
-    c.res.headers.set('Permissions-Policy', 'camera=(), microphone=(), geolocation=(), interest-cohort=()')
-    c.res.headers.set('X-DNS-Prefetch-Control', 'on')
+    const secHeaders = new Headers(c.res.headers)
+    secHeaders.set('X-Frame-Options', 'DENY')
+    secHeaders.set('X-Content-Type-Options', 'nosniff')
+    secHeaders.set('Strict-Transport-Security', 'max-age=31536000; includeSubDomains; preload')
+    secHeaders.set('Referrer-Policy', 'strict-origin-when-cross-origin')
+    secHeaders.set('Permissions-Policy', 'camera=(), microphone=(), geolocation=(), interest-cohort=()')
+    secHeaders.set('X-DNS-Prefetch-Control', 'on')
+    c.res = new Response(c.res.body, {
+      status: c.res.status,
+      statusText: c.res.statusText,
+      headers: secHeaders,
+    })
   })
 
   // ── OG image routes ────────────────────────────────────────────────────
@@ -102,7 +114,7 @@ export function createApp({ fetchSpaHtml, getEntryGatewayUrl, getWebSocketUrl, g
     const path = c.req.path.replace(/^\/config/, '/v1/statsig-proxy')
     const query = new URL(c.req.url).search
 
-    return proxy(`${STATSIG_PROXY_TARGET}${path}${query}`, {
+    return proxy(`${STATSIG_PROXY_TARGET_FN()}${path}${query}`, {
       ...c.req,
       headers: {
         ...c.req.header(),

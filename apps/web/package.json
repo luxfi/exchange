@@ -12,6 +12,7 @@
     "check:deps:usage": "nx check:deps:usage web",
     "check:circular": "nx check:circular web",
     "sitemap:generate": "nx sitemap:generate web",
+    "seo:generate": "node scripts/generate-seo-pages.js",
     "start": "nx start web",
     "dev": "nx dev web",
     "build:production": "nx build:production web",

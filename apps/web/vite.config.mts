@@ -270,7 +270,23 @@ export default defineConfig(({ mode }) => {
     'wallet': path.resolve(__dirname, '../../pkgs/wallet'),
     'lx/src': path.resolve(__dirname, '../../pkgs/lx/src'),
     'lx': path.resolve(__dirname, '../../pkgs/lx'),
-    // @luxamm package aliases (pnpm overrides handle npm resolution, but vite needs explicit paths)
+    // @luxamm package aliases — these are `export * from '@uniswap/*'` re-exports.
+    // Vite's optimizer can't handle the CJS→ESM conversion for conditional require() entries,
+    // so we point directly to the upstream ESM dist files.
+    '@luxamm/sdk-core': path.resolve(__dirname, '../../node_modules/@uniswap/sdk-core/dist/sdk-core.esm.js'),
+    '@luxamm/router-sdk': path.resolve(__dirname, '../../node_modules/@uniswap/router-sdk/dist/router-sdk.esm.js'),
+    '@luxamm/v2-sdk': path.resolve(__dirname, '../../node_modules/@uniswap/v2-sdk/dist/v2-sdk.esm.js'),
+    '@uniswap/sdk-core': path.resolve(__dirname, '../../node_modules/@uniswap/sdk-core/dist/sdk-core.esm.js'),
+    '@uniswap/router-sdk': path.resolve(__dirname, '../../node_modules/@uniswap/router-sdk/dist/router-sdk.esm.js'),
+    '@uniswap/v2-sdk': path.resolve(__dirname, '../../node_modules/@uniswap/v2-sdk/dist/v2-sdk.esm.js'),
+    '@luxamm/luxswap-sdk': path.resolve(__dirname, '../../node_modules/@uniswap/uniswapx-sdk'),
+    // Stub out private privy-embedded-wallet package when not installed
+    ...(!privyPackageInstalled ? {
+      '@luxamm/client-privy-embedded-wallet/dist/lx/privy-embedded-wallet/v1/service_pb':
+        path.resolve(__dirname, '../../pkgs/api/stubs/privy-service-pb.js'),
+      '@luxamm/client-privy-embedded-wallet/dist/lx/privy-embedded-wallet/v1/service_connect':
+        path.resolve(__dirname, '../../pkgs/api/stubs/privy-service-connect.js'),
+    } : {}),
     // tsconfig path alias ~ → src/
     '~': path.resolve(__dirname, 'src'),
     // Bare src-relative imports (CRA baseUrl convention — pnpm strict mode needs explicit aliases)
@@ -330,6 +346,7 @@ export default defineConfig(({ mode }) => {
     'process.env.REACT_APP_GIT_COMMIT_HASH': JSON.stringify(commitHash),
     'process.env.REACT_APP_STAGING': JSON.stringify(mode === 'staging'),
     'process.env.REACT_APP_WEB_BUILD_TYPE': JSON.stringify('vite'),
+    'process.env.IS_WEB': JSON.stringify('true'),
     // Enable Tamagui's global z-index stacking to fix modal stacking issues
     'process.env.TAMAGUI_STACK_Z_INDEX_GLOBAL': JSON.stringify('true'),
     // So getConfig().isVercelEnvironment is true in the client on Vercel; enables direct staging WS URL to match EGW
@@ -367,12 +384,13 @@ export default defineConfig(({ mode }) => {
         'i18next',
         'wagmi',
         '@wagmi/core',
-        // SDK packages
-        '@luxamm/sdk-core',
-        '@luxamm/v2-sdk',
+        // SDK packages — pure re-export wrappers resolve to upstream @uniswap/* packages
+        '@uniswap/sdk-core',
+        '@uniswap/v2-sdk',
+        '@uniswap/router-sdk',
+        // These have their own dist (not pure re-exports)
         '@luxamm/v3-sdk',
         '@luxamm/v4-sdk',
-        '@luxamm/router-sdk',
         '@luxamm/universal-router-sdk',
         '@luxamm/sdk',
         '@luxamm/permit2-sdk',
@@ -572,11 +590,11 @@ export default defineConfig(({ mode }) => {
         'tamagui',
         '@tamagui/web',
         'ui',
-        '@luxamm/sdk-core',
-        '@luxamm/v2-sdk',
+        '@uniswap/sdk-core',
+        '@uniswap/v2-sdk',
+        '@uniswap/router-sdk',
         '@luxamm/v3-sdk',
         '@luxamm/v4-sdk',
-        '@luxamm/router-sdk',
         '@luxamm/universal-router-sdk',
         '@luxamm/sdk',
         '@luxamm/permit2-sdk',
