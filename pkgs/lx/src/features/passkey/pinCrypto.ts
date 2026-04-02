@@ -1,5 +1,5 @@
 import { gcm } from '@noble/ciphers/aes.js'
-import { p256 } from '@noble/curves/nist.js'
+import { p256 } from '@noble/curves/p256'
 import { argon2id } from '@noble/hashes/argon2.js'
 import { hkdf } from '@noble/hashes/hkdf.js'
 import { sha256 } from '@noble/hashes/sha2.js'
