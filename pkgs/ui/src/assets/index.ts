@@ -33,8 +33,9 @@ export const LIQUIDITY_LOGO = require('./logos/png/lux-network-logo.png')
 export const BINANCE_WALLET_ICON = require('./logos/png/binance-icon.png')
 export const BETA_LOGO = require('./logos/png/beta-logo.png')
 
-export const ONBOARDING_QR_ETCHING_VIDEO_LIGHT = require('./videos/light-etching.mp4')
-export const ONBOARDING_QR_ETCHING_VIDEO_DARK = require('./videos/dark-etching.mp4')
+// Video assets are mobile-only (not bundled in web builds)
+export const ONBOARDING_QR_ETCHING_VIDEO_LIGHT = undefined
+export const ONBOARDING_QR_ETCHING_VIDEO_DARK = undefined
 export const AVATARS_LIGHT = require('./misc/avatars-light.png')
 export const AVATARS_DARK = require('./misc/avatars-dark.png')
 export const APP_SCREENSHOT_LIGHT = require('./misc/app-screenshot-light.png')
