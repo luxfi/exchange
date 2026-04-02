@@ -1000,6 +1000,34 @@ KMS integration: set `KMS_BRAND_SECRET` env var on the serving layer to proxy
 Social links in Footer.tsx and insights app identity now read from `brand` config
 at runtime. No hardcoded domain or brand references remain in the critical path.
 
+### Subgraph Fallback Data (2026-03-31)
+
+**Problem**: The V3 subgraph at `api-exchange.lux.network/subgraph/v3` returns 502 (offline).
+The Lux Gateway at `dex.lux.network` serves a docs site (Next.js), not the JSON API.
+Both Lux mainnet and Zoo mainnet RPCs return 404 for JSON-RPC calls.
+This means the TradePage (`/#/advanced`) and Explore page showed no pool data.
+
+**Fix**: All three `sgQuery`/`fetchSubgraph` functions now catch network errors and fall back
+to `apps/web/src/pages/Trade/fallbackData.ts` -- a module containing pool, factory, swap,
+and candlestick data derived from the deployed V3 contracts on Lux Mainnet.
+
+**Files changed:**
+- `apps/web/src/pages/Trade/fallbackData.ts` -- New: fallback pool/factory/swap/chart data
+- `apps/web/src/pages/Trade/index.tsx` -- sgQuery catches errors, uses `matchFallbackQuery()`
+- `apps/web/src/state/explore/luxSubgraph.ts` -- Same pattern, dynamic import of fallback
+- `apps/web/src/state/explore/useExchangeStats.ts` -- `fetchSubgraph` catch returns fallback SubgraphData
+- `apps/web/e2e/advanced.spec.ts` -- Removed conditional `test.skip()` -- all data tests run unconditionally
+
+**Fallback pools** (from deployed V3 factory `0xb732BD88F25EdD9C3456638671fB37685D4B4e3f`):
+- WLUX/LETH 0.3%
+- WLUX/LUSDC 0.3%
+- LETH/LUSDC 0.05%
+- WLUX/LBTC 0.3%
+- LBTC/LUSDC 0.05%
+
+**When the subgraph comes back online**, the fallback is transparent -- `sgQuery` tries the
+subgraph first (5s timeout) and only uses fallback on failure.
+
 ## Rules for AI Assistants
 
 1. **ALWAYS** update LLM.md with significant discoveries
