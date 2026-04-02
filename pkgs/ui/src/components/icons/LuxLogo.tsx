@@ -37,5 +37,3 @@ getIcon: (props) => (
 ),
 
 })
-
-export { LuxLogo as LXLogo }
