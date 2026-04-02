@@ -519,6 +519,7 @@
     "@hanzogui/fonts": "2.0.5",
     "@hanzogui/colors": "2.0.5",
     "@hanzogui/calc": "2.0.5",
-    "@hanzogui/assert": "2.0.5"
+    "@hanzogui/assert": "2.0.5",
+    "@luxamm/sdk": "npm:@uniswap/uniswapx-sdk@3.0.2"
   }
 }

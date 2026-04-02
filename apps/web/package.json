@@ -240,10 +240,7 @@
     "@luxamm/v4-sdk": "1.29.4",
     "@luxamm/token-lists": "1.0.2",
     "@luxamm/default-token-list": "18.10.202",
-    "@luxamm/merkle-distributor": "1.0.202",
     "@luxamm/client-trading": "0.1.107",
-    "@luxamm/v3-core": "1.0.103",
-    "@luxamm/v3-periphery": "1.4.106",
     "@luxamm/luxswap-sdk": "3.0.0-beta.8",
     "@luxamm/conedison": "^1.8.3",
     "@l.x/api": "workspace:^",
@@ -326,7 +323,8 @@
     "@radix-ui/react-dialog": "^1.1.6",
     "@l.x/lx": "workspace:^",
     "@luxfi/ui": "workspace:^",
-    "@luxfi/utilities": "workspace:^"
+    "@luxfi/utilities": "workspace:^",
+    "@luxamm/sdk": "npm:@uniswap/uniswapx-sdk@3.0.2"
   },
   "engines": {
     "npm": "please-use-bun",
