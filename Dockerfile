@@ -51,6 +51,9 @@ WORKDIR /app
 # Copy source code (separate from deps for caching)
 COPY . .
 
+# Run postinstall scripts that need source (skipped during deps stage)
+RUN cd pkgs/biome-config && node scripts/generate.js || true
+
 # Generate gitignored types
 RUN cd pkgs/api && pnpm exec openapi \
       --input ./src/clients/trading/api.json \

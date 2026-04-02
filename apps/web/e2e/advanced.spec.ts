@@ -42,7 +42,7 @@ test.describe('Advanced Trading Page @critical', () => {
 
   test('should render three-panel layout', async ({ page }) => {
     // Left panel with trades
-    await expect(page.getByText('TRADES')).toBeVisible({ timeout: LOAD_TIMEOUT })
+    await expect(page.getByText('Trades', { exact: true }).first()).toBeVisible({ timeout: LOAD_TIMEOUT })
     // Center with chart (canvas element from lightweight-charts)
     const canvas = page.locator('canvas')
     await expect(canvas.first()).toBeVisible({ timeout: LOAD_TIMEOUT })
