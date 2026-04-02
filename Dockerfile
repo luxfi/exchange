@@ -55,3 +55,4 @@ EXPOSE 3000
 
 # serve -s enables SPA mode (all routes -> index.html)
 CMD ["serve", "-s", "public", "-l", "3000"]
+
