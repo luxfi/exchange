@@ -111,3 +111,23 @@ CLAUDE.local.md
 packages/lx/CLAUDE.md
 .nx/
 CLAUDE.md
+
+# Build artifacts (NEVER commit)
+.next/
+dist/
+.nx/
+.swc/
+*.tsbuildinfo
+*.pack
+*.pack.gz
+*.sst
+*.log
+*.mp4
+.gui/
+cypress/screenshots/
+cypress/videos/
+
+# Secrets (NEVER commit)
+.env.production
+.env.local
+.env.staging
