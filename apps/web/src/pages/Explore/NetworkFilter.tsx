@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router'
-import { useMedia } from '@luxfi/ui/src'
+import { useMedia } from '@l.x/ui/src'
 import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { useEvent } from '@luxfi/utilities/src/react/hooks'
 import { NetworkFilter } from '~/components/NetworkFilter/NetworkFilter'

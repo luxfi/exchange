@@ -1,6 +1,6 @@
 import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { useTranslation } from 'react-i18next'
-import { Flex, useIsTouchDevice, useMedia } from '@luxfi/ui/src'
+import { Flex, useIsTouchDevice, useMedia } from '@l.x/ui/src'
 import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { fromGraphQLChain, getChainLabel } from '@l.x/lx/src/features/chains/utils'
 import { InterfacePageName } from '@l.x/lx/src/features/telemetry/constants'

@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next'
-import { Button, Flex } from '@luxfi/ui/src'
+import { Button, Flex } from '@l.x/ui/src'
 import { WarningLabel } from '@l.x/lx/src/components/modals/WarningModal/types'
 import { nativeOnChain } from '@l.x/lx/src/constants/tokens'
 import { ElementName } from '@l.x/lx/src/features/telemetry/constants'

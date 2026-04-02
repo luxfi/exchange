@@ -1,5 +1,5 @@
 import { utils, wordlists } from 'ethers'
-import { type AppTFunction } from '@luxfi/ui/src/i18n/types'
+import { type AppTFunction } from '@l.x/ui/src/i18n/types'
 import { normalizeTextInput } from '@luxfi/utilities/src/primitives/string'
 import { MNEMONIC_LENGTH_MAX, MNEMONIC_LENGTH_MIN } from '@luxfi/wallet/src/constants/accounts'
 

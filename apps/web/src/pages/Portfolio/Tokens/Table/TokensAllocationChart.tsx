@@ -1,6 +1,6 @@
 import { useMemo } from 'react'
-import { useSporeColors } from '@luxfi/ui/src'
-import { iconSizes } from '@luxfi/ui/src/theme'
+import { useSporeColors } from '@l.x/ui/src'
+import { iconSizes } from '@l.x/ui/src/theme'
 import { NetworkLogo } from 'lx/src/components/CurrencyLogo/NetworkLogo'
 import {
   PercentageAllocationChart,

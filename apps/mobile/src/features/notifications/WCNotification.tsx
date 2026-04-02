@@ -1,7 +1,7 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
 import { openModal } from 'src/features/modals/modalSlice'
-import { iconSizes } from '@luxfi/ui/src/theme'
+import { iconSizes } from '@l.x/ui/src/theme'
 import { DappLogoWithTxStatus } from '@l.x/lx/src/components/CurrencyLogo/LogoWithTxStatus'
 import { NotificationToast } from '@l.x/lx/src/components/notifications/NotificationToast'
 import { ScannerModalState } from '@l.x/lx/src/components/ReceiveQRCode/constants'

@@ -1,7 +1,7 @@
 import { getWagmiConnectorV2 } from '@binance/w3w-wagmi-connector-v2'
 import { porto } from 'porto/wagmi'
 import { brand } from '@l.x/config'
-import { LUX_LOGO } from '@luxfi/ui/src/assets'
+import { LUX_LOGO } from '@l.x/ui/src/assets'
 import { LX_WEB_URL } from '@l.x/lx/src/constants/urls'
 import { CONNECTION_PROVIDER_IDS } from '@l.x/lx/src/constants/web3'
 import type { getChainInfo } from '@l.x/lx/src/features/chains/chainInfo'

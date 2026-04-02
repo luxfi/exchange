@@ -1,9 +1,9 @@
 import { useStyle } from '@hanzo/gui'
-import { CustomButtonText } from '@luxfi/ui/src/components/buttons/Button/components/CustomButtonText/CustomButtonText'
-import type { TypeOfButton } from '@luxfi/ui/src/components/buttons/Button/components/types'
-import { useIconSizes } from '@luxfi/ui/src/components/buttons/Button/hooks/useIconSizes'
-import type { ButtonVariantProps } from '@luxfi/ui/src/components/buttons/Button/types'
-import { SpinningLoader } from '@luxfi/ui/src/loading/SpinningLoader'
+import { CustomButtonText } from '@l.x/ui/src/components/buttons/Button/components/CustomButtonText/CustomButtonText'
+import type { TypeOfButton } from '@l.x/ui/src/components/buttons/Button/components/types'
+import { useIconSizes } from '@l.x/ui/src/components/buttons/Button/hooks/useIconSizes'
+import type { ButtonVariantProps } from '@l.x/ui/src/components/buttons/Button/types'
+import { SpinningLoader } from '@l.x/ui/src/loading/SpinningLoader'
 
 type ThemedSpinningLoaderProps = Pick<ButtonVariantProps, 'size' | 'variant' | 'emphasis' | 'isDisabled'> & {
   typeOfButton: TypeOfButton

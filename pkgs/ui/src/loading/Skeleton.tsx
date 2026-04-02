@@ -1,4 +1,4 @@
-import { SkeletonProps } from '@luxfi/ui/src/loading/SkeletonProps'
+import { SkeletonProps } from '@l.x/ui/src/loading/SkeletonProps'
 import { PlatformSplitStubError } from 'utilities/src/errors'
 
 export function Skeleton(_props: SkeletonProps): JSX.Element {

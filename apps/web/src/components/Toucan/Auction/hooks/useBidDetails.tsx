@@ -1,6 +1,6 @@
 import { type ReactNode, useMemo } from 'react'
 import { Trans, useTranslation } from 'react-i18next'
-import { Text } from '@luxfi/ui/src'
+import { Text } from '@l.x/ui/src'
 import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
 import { NumberType } from '@luxfi/utilities/src/format/types'
 import { formatUnits } from 'viem'

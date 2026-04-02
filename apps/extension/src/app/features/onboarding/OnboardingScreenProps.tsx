@@ -1,4 +1,4 @@
-import { ButtonEmphasis, ButtonVariant } from '@luxfi/ui/src'
+import { ButtonEmphasis, ButtonVariant } from '@l.x/ui/src'
 
 export type OnboardingScreenProps = {
   Icon?: JSX.Element

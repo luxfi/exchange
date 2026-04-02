@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { SwipeableCardStack } from '@luxfi/ui/src'
+import { SwipeableCardStack } from '@l.x/ui/src'
 import { isExtensionApp } from '@luxfi/utilities/src/platform'
 import { useEvent } from '@luxfi/utilities/src/react/hooks'
 import { IntroCard, IntroCardProps } from '@luxfi/wallet/src/components/introCards/IntroCard'

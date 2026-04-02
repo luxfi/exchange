@@ -1,6 +1,6 @@
 import { memo } from 'react'
-import { Flex } from '@luxfi/ui/src'
-import { zIndexes } from '@luxfi/ui/src/theme'
+import { Flex } from '@l.x/ui/src'
+import { zIndexes } from '@l.x/ui/src/theme'
 import Navbar from '~/components/NavBar/index'
 import {
   MobileAppPromoBanner,

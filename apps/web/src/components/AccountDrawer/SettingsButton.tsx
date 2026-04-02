@@ -1,6 +1,6 @@
 import { ReactNode } from 'react'
-import { Flex, Text, TouchableArea } from '@luxfi/ui/src'
-import { RotatableChevron } from '@luxfi/ui/src/components/icons/RotatableChevron'
+import { Flex, Text, TouchableArea } from '@l.x/ui/src'
+import { RotatableChevron } from '@l.x/ui/src/components/icons/RotatableChevron'
 
 export function SettingsButton({
   title,

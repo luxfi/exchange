@@ -1,5 +1,5 @@
 import { useId } from 'react'
-import { useSporeColors } from '@luxfi/ui/src'
+import { useSporeColors } from '@l.x/ui/src'
 import { EmblemProps } from '~/pages/Portfolio/components/AnimatedStyledBanner/Emblems/types'
 
 export function EmblemC({ fill = '#FF37C7', opacity = 1, ...props }: EmblemProps): JSX.Element {

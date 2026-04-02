@@ -1,7 +1,7 @@
 import { GetProps } from '@hanzo/gui'
-import { Text } from '@luxfi/ui/src/components/text'
-import { GradientText } from '@luxfi/ui/src/components/text/GradientText'
-import { colors } from '@luxfi/ui/src/theme/color/colors'
+import { Text } from '@l.x/ui/src/components/text'
+import { GradientText } from '@l.x/ui/src/components/text/GradientText'
+import { colors } from '@l.x/ui/src/theme/color/colors'
 
 export function LXText({ children, ...props }: GetProps<typeof Text>): JSX.Element {
   return (

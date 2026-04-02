@@ -1,5 +1,5 @@
 import { Currency, Price } from '@luxamm/sdk-core'
-import { Text, TextProps } from '@luxfi/ui/src'
+import { Text, TextProps } from '@l.x/ui/src'
 import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
 import { useUSDCValue } from '@l.x/lx/src/features/transactions/hooks/useUSDCPriceWrapper'
 import { NumberType } from '@luxfi/utilities/src/format/types'

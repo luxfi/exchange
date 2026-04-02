@@ -1,5 +1,5 @@
 import { ForwardedRef, forwardRef, PropsWithChildren } from 'react'
-import { Flex, FlexProps, GuiElement, useMedia } from '@luxfi/ui/src'
+import { Flex, FlexProps, GuiElement, useMedia } from '@l.x/ui/src'
 import { LoadingBubble } from '~/components/Tokens/loading'
 
 export const Cell = forwardRef(

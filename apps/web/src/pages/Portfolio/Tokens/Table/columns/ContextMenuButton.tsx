@@ -1,5 +1,5 @@
 import { memo } from 'react'
-import { Flex, useIsTouchDevice } from '@luxfi/ui/src'
+import { Flex, useIsTouchDevice } from '@l.x/ui/src'
 import { ContextMenuTriggerButton } from 'lx/src/components/menus/ContextMenuTriggerButton'
 import { ContextMenuTriggerMode } from 'lx/src/components/menus/types'
 import { TestID } from 'lx/src/test/fixtures/testIDs'

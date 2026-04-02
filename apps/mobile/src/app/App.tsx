@@ -82,7 +82,7 @@ import { SystemBannerPortalProvider } from 'src/notification-service/notificatio
 import { initDynamicIntlPolyfills } from 'src/polyfills/intl-delayed'
 import { useDatadogUserAttributesTracking } from 'src/screens/HomeScreen/useDatadogUserAttributesTracking'
 import { useAppStateTrigger } from 'src/utils/useAppStateTrigger'
-import { flexStyles, ImageSettingsProvider, useIsDarkMode } from '@luxfi/ui/src'
+import { flexStyles, ImageSettingsProvider, useIsDarkMode } from '@l.x/ui/src'
 import { TestnetModeBanner } from 'lx/src/components/banners/TestnetModeBanner'
 import { BlankUrlProvider } from 'lx/src/contexts/UrlContext'
 import { initializePortfolioQueryOverrides } from 'lx/src/data/rest/portfolioBalanceOverrides'

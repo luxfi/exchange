@@ -1,6 +1,6 @@
 import { memo } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Flex, styled, Text, useMedia } from '@luxfi/ui/src'
+import { Flex, styled, Text, useMedia } from '@l.x/ui/src'
 import { ActivityRenderData } from '@l.x/lx/src/features/activity/hooks/useActivityData'
 import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
 import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'

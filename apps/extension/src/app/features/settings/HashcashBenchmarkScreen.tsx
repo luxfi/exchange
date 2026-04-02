@@ -9,7 +9,7 @@ import {
   type LogEntry,
   useHashcashBenchmarkStore,
 } from 'src/app/features/settings/stores/hashcashBenchmarkStore'
-import { Button, Flex, ScrollView, Text, TouchableArea } from '@luxfi/ui/src'
+import { Button, Flex, ScrollView, Text, TouchableArea } from '@l.x/ui/src'
 import { logger } from '@luxfi/utilities/src/logger/logger'
 import { useShallow } from 'zustand/shallow'
 

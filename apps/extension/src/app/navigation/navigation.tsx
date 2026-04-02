@@ -17,7 +17,7 @@ import { HideContentsWhenSidebarBecomesInactive } from 'src/app/navigation/HideC
 import { SidebarNavigationProvider } from 'src/app/navigation/providers'
 import { useRouterState } from 'src/app/navigation/state'
 import { isOnboardedSelector } from 'src/app/utils/isOnboardedSelector'
-import { AnimatePresence, Flex, SpinningLoader, styled } from '@luxfi/ui/src'
+import { AnimatePresence, Flex, SpinningLoader, styled } from '@l.x/ui/src'
 import { TestnetModeBanner } from '@l.x/lx/src/components/banners/TestnetModeBanner'
 import { useIsChromeWindowFocusedWithTimeout } from '@l.x/lx/src/extension/useIsChromeWindowFocused'
 import { TokenPriceProvider } from '@l.x/lx/src/features/prices/TokenPriceContext'

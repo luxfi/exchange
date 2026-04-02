@@ -1,4 +1,4 @@
-import { useExtractedTokenColor, useIsDarkMode, useSporeColors } from '@luxfi/ui/src'
+import { useExtractedTokenColor, useIsDarkMode, useSporeColors } from '@l.x/ui/src'
 import {
   useTokenBasicInfoPartsFragment,
   useTokenBasicProjectPartsFragment,

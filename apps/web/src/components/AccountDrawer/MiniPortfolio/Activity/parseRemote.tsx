@@ -2,9 +2,9 @@
 
 import type { Currency } from '@luxamm/sdk-core'
 import { GraphQLApi } from '@l.x/api'
-import { Flex, styled, Text } from '@luxfi/ui/src'
-import { Arrow } from '@luxfi/ui/src/components/arrow/Arrow'
-import { iconSizes } from '@luxfi/ui/src/theme'
+import { Flex, styled, Text } from '@l.x/ui/src'
+import { Arrow } from '@l.x/ui/src/components/arrow/Arrow'
+import { iconSizes } from '@l.x/ui/src/theme'
 import { NetworkLogo } from '@l.x/lx/src/components/CurrencyLogo/NetworkLogo'
 import {
   CrossChainCurrencyRow,

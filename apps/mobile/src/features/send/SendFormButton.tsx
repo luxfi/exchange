@@ -1,7 +1,7 @@
 import React, { Dispatch, SetStateAction, useCallback, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
-import { Button, Flex } from '@luxfi/ui/src'
+import { Button, Flex } from '@l.x/ui/src'
 import { WarningLabel } from '@l.x/lx/src/components/modals/WarningModal/types'
 import { nativeOnChain } from '@l.x/lx/src/constants/tokens'
 import { AccountType } from '@l.x/lx/src/features/accounts/types'

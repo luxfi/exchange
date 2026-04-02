@@ -1,4 +1,4 @@
-import { Flex } from '@luxfi/ui/src'
+import { Flex } from '@l.x/ui/src'
 import { NetworkFeeDisplay } from '@luxfi/wallet/src/components/smartWallet/NetworkFeeDisplay'
 import { GroupedGasFee } from '@luxfi/wallet/src/features/smartWallet/utils/gasFeeUtils'
 

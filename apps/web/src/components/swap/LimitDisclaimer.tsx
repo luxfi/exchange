@@ -1,6 +1,6 @@
 import { brand, getBrandUrl, getDocsUrl } from '@l.x/config'
 import { Trans } from 'react-i18next'
-import { Flex, FlexProps, styled, Text } from '@luxfi/ui/src'
+import { Flex, FlexProps, styled, Text } from '@l.x/ui/src'
 import { ExternalLink } from '~/theme/components/Links'
 
 const DisclaimerText = styled(Text, {

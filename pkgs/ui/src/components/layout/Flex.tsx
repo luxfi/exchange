@@ -1,6 +1,6 @@
 import type { Insets } from 'react-native'
 import { GetProps, SizeTokens, styled, View } from '@hanzo/gui'
-import { animationsEnter, animationsEnterExit, animationsExit } from '@luxfi/ui/src/animations/presets'
+import { animationsEnter, animationsEnterExit, animationsExit } from '@l.x/ui/src/animations/presets'
 
 export const flexStyles = {
   fill: { flex: 1 },

@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next'
-import { FlexProps } from '@luxfi/ui/src'
-import { SendAction } from '@luxfi/ui/src/components/icons/SendAction'
+import { FlexProps } from '@l.x/ui/src'
+import { SendAction } from '@l.x/ui/src/components/icons/SendAction'
 import { useLuxContext } from '@l.x/lx/src/contexts/LuxContext'
 import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { ElementName } from '@l.x/lx/src/features/telemetry/constants'

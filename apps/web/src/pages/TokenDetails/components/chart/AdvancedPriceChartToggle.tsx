@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next'
-import { ColorTokens, Flex, SegmentedControl, useMedia, useSporeColors } from '@luxfi/ui/src'
+import { ColorTokens, Flex, SegmentedControl, useMedia, useSporeColors } from '@l.x/ui/src'
 import { ReactComponent as CandlestickChartIcon } from '~/assets/svg/candlestick-chart-icon.svg'
 import { ReactComponent as LineChartIcon } from '~/assets/svg/line-chart-icon.svg'
 import { PriceChartType } from '~/components/Charts/utils'

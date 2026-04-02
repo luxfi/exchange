@@ -3,7 +3,7 @@ import { type NotificationClickTarget } from '@l.x/notifications'
 import { useCallback, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import { BANNER_HEIGHT, BottomBanner } from 'src/components/banners/BottomBanner'
-import { InfoCircle } from '@luxfi/ui/src/components/icons/InfoCircle'
+import { InfoCircle } from '@l.x/ui/src/components/icons/InfoCircle'
 
 const EXTRA_MARGIN = 5
 

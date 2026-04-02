@@ -1,4 +1,4 @@
-import { SkeletonProps } from '@luxfi/ui/src/loading/SkeletonProps'
+import { SkeletonProps } from '@l.x/ui/src/loading/SkeletonProps'
 
 /**
  * Replaces Skeleton component during e2e testing to avoid test freezes

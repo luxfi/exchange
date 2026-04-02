@@ -1,5 +1,5 @@
 import { memo } from 'react'
-import { Text } from '@luxfi/ui/src'
+import { Text } from '@l.x/ui/src'
 import { HeaderCell } from '~/components/Table/styled'
 
 interface ColumnHeaderProps {

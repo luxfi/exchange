@@ -18,9 +18,9 @@ import {
   TouchableArea,
   UniversalImage,
   UniversalImageResizeMode,
-} from '@luxfi/ui/src'
-import { Power, RotatableChevron, X } from '@luxfi/ui/src/components/icons'
-import { borderRadii, iconSizes } from '@luxfi/ui/src/theme'
+} from '@l.x/ui/src'
+import { Power, RotatableChevron, X } from '@l.x/ui/src/components/icons'
+import { borderRadii, iconSizes } from '@l.x/ui/src/theme'
 import { NetworkLogo } from '@l.x/lx/src/components/CurrencyLogo/NetworkLogo'
 import { DappIconPlaceholder } from '@l.x/lx/src/components/dapps/DappIconPlaceholder'
 import { lxUrls } from '@l.x/lx/src/constants/urls'

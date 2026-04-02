@@ -1,10 +1,10 @@
 import type { PropsWithChildren } from 'react'
 import { type GetProps, styled, Text as GuiText } from '@hanzo/gui'
-import { Flex } from '@luxfi/ui/src/components/layout'
-import { HiddenFromScreenReaders } from '@luxfi/ui/src/components/text/HiddenFromScreenReaders'
-import { useEnableFontScaling } from '@luxfi/ui/src/components/text/useEnableFontScaling'
-import { Skeleton } from '@luxfi/ui/src/loading/Skeleton'
-import { fonts } from '@luxfi/ui/src/theme/fonts'
+import { Flex } from '@l.x/ui/src/components/layout'
+import { HiddenFromScreenReaders } from '@l.x/ui/src/components/text/HiddenFromScreenReaders'
+import { useEnableFontScaling } from '@l.x/ui/src/components/text/useEnableFontScaling'
+import { Skeleton } from '@l.x/ui/src/loading/Skeleton'
+import { fonts } from '@l.x/ui/src/theme/fonts'
 import { isWebPlatform } from 'utilities/src/platform'
 
 type GuiTextProps = GetProps<typeof GuiText>

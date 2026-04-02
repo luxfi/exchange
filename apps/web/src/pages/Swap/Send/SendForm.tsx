@@ -1,7 +1,7 @@
 import { useMutation } from '@tanstack/react-query'
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Button, Flex } from '@luxfi/ui/src'
+import { Button, Flex } from '@l.x/ui/src'
 import { GetHelpHeader } from '@l.x/lx/src/components/dialog/GetHelpHeader'
 import { lxUrls } from '@l.x/lx/src/constants/urls'
 import { useActiveAddress, useConnectionStatus } from '@l.x/lx/src/features/accounts/store/hooks'

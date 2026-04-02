@@ -1,9 +1,9 @@
 import { Fragment, PropsWithChildren } from 'react'
 import { Spacer } from '@hanzo/gui'
-import { Flex } from '@luxfi/ui/src/components/layout'
-import { Separator } from '@luxfi/ui/src/components/layout/Separator'
-import { Text } from '@luxfi/ui/src/components/text/Text'
-import { TouchableTextLink } from '@luxfi/ui/src/components/touchable/TouchableTextLink/TouchableTextLink'
+import { Flex } from '@l.x/ui/src/components/layout'
+import { Separator } from '@l.x/ui/src/components/layout/Separator'
+import { Text } from '@l.x/ui/src/components/text/Text'
+import { TouchableTextLink } from '@l.x/ui/src/components/touchable/TouchableTextLink/TouchableTextLink'
 
 const SectionHeader = ({ title }: { title: string }): JSX.Element => (
   <>

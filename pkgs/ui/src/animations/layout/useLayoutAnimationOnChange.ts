@@ -1,4 +1,4 @@
-import { easeInEaseOutLayoutAnimation } from '@luxfi/ui/src/animations/layout/layoutAnimation'
+import { easeInEaseOutLayoutAnimation } from '@l.x/ui/src/animations/layout/layoutAnimation'
 import { useHasValueChanged } from 'utilities/src/react/useHasValueChanged'
 
 export function useLayoutAnimationOnChange<ValueType>(

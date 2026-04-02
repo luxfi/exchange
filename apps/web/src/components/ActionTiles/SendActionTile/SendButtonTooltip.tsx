@@ -1,8 +1,8 @@
 import Portal from '@reach/portal'
 import { PropsWithChildren, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Flex, Text, useSporeColors } from '@luxfi/ui/src'
-import { InfoCircleFilled } from '@luxfi/ui/src/components/icons/InfoCircleFilled'
+import { Flex, Text, useSporeColors } from '@l.x/ui/src'
+import { InfoCircleFilled } from '@l.x/ui/src/components/icons/InfoCircleFilled'
 import { logger } from '@luxfi/utilities/src/logger/logger'
 import { useEvent } from '@luxfi/utilities/src/react/hooks'
 

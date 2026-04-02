@@ -1,6 +1,6 @@
 import { PropsWithChildren, useMemo } from 'react'
 import { brand } from '@l.x/config'
-import { breakpoints } from '@luxfi/ui/src/theme'
+import { breakpoints } from '@l.x/ui/src/theme'
 import { useSelectedColorScheme } from '@l.x/lx/src/features/appearance/hooks'
 import { createGlobalStyle, css, ThemeProvider as StyledComponentsThemeProvider } from '~/lib/deprecated-styled'
 import { darkTheme, lightTheme, ThemeColors } from '~/theme/colors'

@@ -1,6 +1,6 @@
-import { Flex, Text } from '@luxfi/ui/src'
-import { AlertTriangleFilled } from '@luxfi/ui/src/components/icons/AlertTriangleFilled'
-import { InfoCircleFilled } from '@luxfi/ui/src/components/icons/InfoCircleFilled'
+import { Flex, Text } from '@l.x/ui/src'
+import { AlertTriangleFilled } from '@l.x/ui/src/components/icons/AlertTriangleFilled'
+import { InfoCircleFilled } from '@l.x/ui/src/components/icons/InfoCircleFilled'
 
 type InlineAlertBannerVariant = 'info' | 'warning'
 

@@ -1,5 +1,5 @@
 import { Link } from 'react-router'
-import { Flex, Separator, Text } from '@luxfi/ui/src'
+import { Flex, Separator, Text } from '@l.x/ui/src'
 import { ElementName, InterfacePageName } from '@l.x/lx/src/features/telemetry/constants'
 import Trace from '@l.x/lx/src/features/telemetry/Trace'
 import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'

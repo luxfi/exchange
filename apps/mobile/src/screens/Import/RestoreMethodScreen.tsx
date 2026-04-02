@@ -11,9 +11,9 @@ import {
   restoreWalletWithSeedPhraseOption,
 } from 'src/screens/Import/constants'
 import { useNavigationHeader } from 'src/utils/useNavigationHeader'
-import { Flex, Text, TouchableArea } from '@luxfi/ui/src'
-import { WalletFilled } from '@luxfi/ui/src/components/icons'
-import { useIsDarkMode } from '@luxfi/ui/src/hooks/useIsDarkMode'
+import { Flex, Text, TouchableArea } from '@l.x/ui/src'
+import { WalletFilled } from '@l.x/ui/src/components/icons'
+import { useIsDarkMode } from '@l.x/ui/src/hooks/useIsDarkMode'
 import { ElementName, ModalName } from '@l.x/lx/src/features/telemetry/constants'
 import Trace from '@l.x/lx/src/features/telemetry/Trace'
 import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'

@@ -1,7 +1,7 @@
 import React, { ComponentProps } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useChartDimensions } from 'src/components/PriceExplorer/useChartDimensions'
-import { Flex, Text } from '@luxfi/ui/src'
+import { Flex, Text } from '@l.x/ui/src'
 import { BaseCard } from '@l.x/lx/src/components/BaseCard/BaseCard'
 
 export function PriceExplorerError({

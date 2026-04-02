@@ -1,6 +1,6 @@
 import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { memo, useMemo } from 'react'
-import { Text, TextProps } from '@luxfi/ui/src'
+import { Text, TextProps } from '@l.x/ui/src'
 import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
 import { NumberType } from '@luxfi/utilities/src/format/types'
 import { EllipsisText } from '~/components/Table/shared/TableText'

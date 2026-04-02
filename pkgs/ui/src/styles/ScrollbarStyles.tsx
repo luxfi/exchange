@@ -1,5 +1,5 @@
 import { CSSProperties } from 'react'
-import { useSporeColors } from '@luxfi/ui/src/hooks/useSporeColors'
+import { useSporeColors } from '@l.x/ui/src/hooks/useSporeColors'
 
 export function useScrollbarStyles(): CSSProperties {
   const colors = useSporeColors()

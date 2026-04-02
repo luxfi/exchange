@@ -1,4 +1,4 @@
-import { Flex } from '@luxfi/ui/src'
+import { Flex } from '@l.x/ui/src'
 import { PortfolioConnectWalletBanner } from '~/pages/Portfolio/ConnectWalletBanner'
 import { ConnectWalletFixedBottomButton } from '~/pages/Portfolio/ConnectWalletFixedBottomButton'
 import { PortfolioHeader } from '~/pages/Portfolio/Header/Header'

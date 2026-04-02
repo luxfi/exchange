@@ -1,5 +1,5 @@
 import { GetProps } from '@hanzo/gui'
-import { Text } from '@luxfi/ui/src/components/text'
+import { Text } from '@l.x/ui/src/components/text'
 
 const gradientStyle = `
   .lx-gradient {

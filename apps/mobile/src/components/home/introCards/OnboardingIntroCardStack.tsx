@@ -8,9 +8,9 @@ import {
   NotificationPermission,
   useNotificationOSPermissionsEnabled,
 } from 'src/features/notifications/hooks/useNotificationOSPermissionsEnabled'
-import { Flex } from '@luxfi/ui/src'
-import { PUSH_NOTIFICATIONS_CARD_BANNER } from '@luxfi/ui/src/assets'
-import { Buy } from '@luxfi/ui/src/components/icons'
+import { Flex } from '@l.x/ui/src'
+import { PUSH_NOTIFICATIONS_CARD_BANNER } from '@l.x/ui/src/assets'
+import { Buy } from '@l.x/ui/src/components/icons'
 import { AccountType } from 'lx/src/features/accounts/types'
 import { ElementName, ModalName, WalletEventName } from 'lx/src/features/telemetry/constants'
 import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'

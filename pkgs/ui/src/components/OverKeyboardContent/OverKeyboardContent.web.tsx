@@ -1,4 +1,4 @@
-import type { OverKeyboardContentProps } from '@luxfi/ui/src/components/OverKeyboardContent/OverKeyboardContent'
+import type { OverKeyboardContentProps } from '@l.x/ui/src/components/OverKeyboardContent/OverKeyboardContent'
 
 export function OverKeyboardContent({
   visible,

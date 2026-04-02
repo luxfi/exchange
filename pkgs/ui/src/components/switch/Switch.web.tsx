@@ -2,12 +2,12 @@ import { useEffect, useState } from 'react'
 import { type OpaqueColorValue } from 'react-native'
 import type { ColorTokens, GetThemeValueForKey } from '@hanzo/gui'
 import { Switch as GuiSwitch } from '@hanzo/gui'
-import { Check } from '@luxfi/ui/src/components/icons'
-import type { FlexProps } from '@luxfi/ui/src/components/layout'
-import { Flex } from '@luxfi/ui/src/components/layout'
-import { SWITCH_THUMB_HEIGHT, SWITCH_TRACK_HEIGHT, SWITCH_TRACK_WIDTH } from '@luxfi/ui/src/components/switch/shared'
-import type { SwitchProps } from '@luxfi/ui/src/components/switch/types'
-import { useSporeColors } from '@luxfi/ui/src/hooks/useSporeColors'
+import { Check } from '@l.x/ui/src/components/icons'
+import type { FlexProps } from '@l.x/ui/src/components/layout'
+import { Flex } from '@l.x/ui/src/components/layout'
+import { SWITCH_THUMB_HEIGHT, SWITCH_TRACK_HEIGHT, SWITCH_TRACK_WIDTH } from '@l.x/ui/src/components/switch/shared'
+import type { SwitchProps } from '@l.x/ui/src/components/switch/types'
+import { useSporeColors } from '@l.x/ui/src/hooks/useSporeColors'
 
 const animationProp = {
   animation: [

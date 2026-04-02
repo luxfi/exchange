@@ -1,7 +1,7 @@
 import React, { useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Flex } from '@luxfi/ui/src'
-import { Text } from '@luxfi/ui/src/components/text'
+import { Flex } from '@l.x/ui/src'
+import { Text } from '@l.x/ui/src/components/text'
 import useResizeObserver from 'use-resize-observer'
 
 export interface PercentageAllocationItem {

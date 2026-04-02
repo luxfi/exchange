@@ -1,5 +1,5 @@
 import { I18nManager } from 'react-native'
-import type { ButtonProps } from '@luxfi/ui/src/components/buttons/Button/types'
+import type { ButtonProps } from '@l.x/ui/src/components/buttons/Button/types'
 
 /**
  * Determines the icon position based on the current layout direction.

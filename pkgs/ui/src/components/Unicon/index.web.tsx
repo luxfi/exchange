@@ -1,8 +1,8 @@
 import React, { lazy, Suspense } from 'react'
-import { Flex } from '@luxfi/ui/src/components/layout/Flex'
-import { UniconProps } from '@luxfi/ui/src/components/Unicon/types'
-import { getUniconColors, getUniconsDeterministicHash } from '@luxfi/ui/src/components/Unicon/utils'
-import { useIsDarkMode } from '@luxfi/ui/src/hooks/useIsDarkMode'
+import { Flex } from '@l.x/ui/src/components/layout/Flex'
+import { UniconProps } from '@l.x/ui/src/components/Unicon/types'
+import { getUniconColors, getUniconsDeterministicHash } from '@l.x/ui/src/components/Unicon/utils'
+import { useIsDarkMode } from '@l.x/ui/src/hooks/useIsDarkMode'
 import { isEVMAddressWithChecksum } from 'utilities/src/addresses/evm/evm'
 import { isSVMAddress } from 'utilities/src/addresses/svm/svm'
 

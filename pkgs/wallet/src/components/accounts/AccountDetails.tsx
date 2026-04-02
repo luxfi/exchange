@@ -1,6 +1,6 @@
-import { ColorTokens, Flex, Text } from '@luxfi/ui/src'
-import { RotatableChevron } from '@luxfi/ui/src/components/icons'
-import { iconSizes } from '@luxfi/ui/src/theme'
+import { ColorTokens, Flex, Text } from '@l.x/ui/src'
+import { RotatableChevron } from '@l.x/ui/src/components/icons'
+import { iconSizes } from '@l.x/ui/src/theme'
 import { AddressDisplay } from '@l.x/lx/src/components/accounts/AddressDisplay'
 import { shortenAddress } from '@luxfi/utilities/src/addresses'
 

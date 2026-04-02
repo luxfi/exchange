@@ -1,8 +1,8 @@
 /* eslint-disable max-lines */
 import type { IChartApi, ISeriesApi, UTCTimestamp } from 'lightweight-charts'
 import { memo, useCallback, useEffect, useMemo, useRef, useState } from 'react'
-import { Flex, useMedia, useSporeColors } from '@luxfi/ui/src'
-import { opacify } from '@luxfi/ui/src/theme'
+import { Flex, useMedia, useSporeColors } from '@l.x/ui/src'
+import { opacify } from '@l.x/ui/src/theme'
 import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
 import { NumberType } from '@luxfi/utilities/src/format/types'
 import { useEvent } from '@luxfi/utilities/src/react/hooks'

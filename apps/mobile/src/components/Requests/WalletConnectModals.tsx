@@ -13,8 +13,8 @@ import {
   WalletConnectSigningRequest,
 } from 'src/features/walletConnect/walletConnectSlice'
 import { useAppStateTrigger } from 'src/utils/useAppStateTrigger'
-import { Flex } from '@luxfi/ui/src'
-import { Eye } from '@luxfi/ui/src/components/icons'
+import { Flex } from '@l.x/ui/src'
+import { Eye } from '@l.x/ui/src/components/icons'
 import { WarningSeverity } from '@l.x/lx/src/components/modals/WarningModal/types'
 import { WarningModal } from '@l.x/lx/src/components/modals/WarningModal/WarningModal'
 import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'

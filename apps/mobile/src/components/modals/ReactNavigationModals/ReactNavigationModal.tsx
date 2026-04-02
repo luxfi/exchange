@@ -1,7 +1,7 @@
 import { type ComponentType, memo } from 'react'
 import type { AppStackParamList, AppStackScreenProp } from 'src/app/navigation/types'
 import { useReactNavigationModal } from 'src/components/modals/useReactNavigationModal'
-import type { GetProps } from '@luxfi/ui/src'
+import type { GetProps } from '@l.x/ui/src'
 import { BridgedAssetModal } from '@l.x/lx/src/components/BridgedAsset/BridgedAssetModal'
 import { WormholeModal } from '@l.x/lx/src/components/BridgedAsset/WormholeModal'
 import { ReportTokenDataModal } from '@l.x/lx/src/components/reporting/ReportTokenDataModal'

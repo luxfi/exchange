@@ -1,6 +1,6 @@
 import { GetProps } from '@hanzo/gui'
-import { ButtonProps, ButtonVariantProps } from '@luxfi/ui/src/components/buttons/Button/types'
-import { DropdownButtonFrame } from '@luxfi/ui/src/components/buttons/DropdownButton/DropdownButtonFrame'
+import { ButtonProps, ButtonVariantProps } from '@l.x/ui/src/components/buttons/Button/types'
+import { DropdownButtonFrame } from '@l.x/ui/src/components/buttons/DropdownButton/DropdownButtonFrame'
 
 export type DropdownButtonVariantProps = ButtonVariantProps & {
   isExpanded: boolean

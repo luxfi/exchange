@@ -1,5 +1,5 @@
 import { ReactNode, Suspense } from 'react'
-import { Loader } from '@luxfi/ui/src/loading/Loader'
+import { Loader } from '@l.x/ui/src/loading/Loader'
 import { FiatCurrency } from '@l.x/lx/src/features/fiatCurrency/constants'
 import {
   ARS_ICON,

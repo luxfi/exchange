@@ -13,11 +13,11 @@ import {
   Text,
   TouchableArea,
   useSporeColors,
-} from '@luxfi/ui/src'
-import { LUX_LOGO } from '@luxfi/ui/src/assets'
-import { BackArrow } from '@luxfi/ui/src/components/icons/BackArrow'
-import { GoogleChromeLogo } from '@luxfi/ui/src/components/logos/GoogleChromeLogo'
-import { iconSizes, zIndexes } from '@luxfi/ui/src/theme'
+} from '@l.x/ui/src'
+import { LUX_LOGO } from '@l.x/ui/src/assets'
+import { BackArrow } from '@l.x/ui/src/components/icons/BackArrow'
+import { GoogleChromeLogo } from '@l.x/ui/src/components/logos/GoogleChromeLogo'
+import { iconSizes, zIndexes } from '@l.x/ui/src/theme'
 import { lxUrls } from '@l.x/lx/src/constants/urls'
 import { ElementName, ModalName } from '@l.x/lx/src/features/telemetry/constants'
 import Trace from '@l.x/lx/src/features/telemetry/Trace'

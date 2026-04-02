@@ -1,6 +1,6 @@
 import type { CSSProperties } from 'react'
 import { useCallback, useRef } from 'react'
-import { Flex, Text } from '@luxfi/ui/src'
+import { Flex, Text } from '@l.x/ui/src'
 import {
   FORMAT_DATE_MEDIUM,
   FORMAT_DATE_TIME_MEDIUM,

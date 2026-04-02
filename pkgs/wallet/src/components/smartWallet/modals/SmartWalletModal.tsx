@@ -1,6 +1,6 @@
 import React from 'react'
 import { Trans } from 'react-i18next'
-import { Button, Flex, GetThemeValueForKey, Text } from '@luxfi/ui/src'
+import { Button, Flex, GetThemeValueForKey, Text } from '@l.x/ui/src'
 import { ButtonConfig as DialogButtonConfig } from '@l.x/lx/src/components/dialog/DialogButtons'
 import { Modal } from '@l.x/lx/src/components/modals/Modal'
 import { LearnMoreLink } from '@l.x/lx/src/components/text/LearnMoreLink'

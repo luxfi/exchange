@@ -1,6 +1,6 @@
 import { ReactElement } from 'react'
 import { LinearGradient, Stop } from 'react-native-svg'
-import { useIsDarkMode } from '@luxfi/ui/src'
+import { useIsDarkMode } from '@l.x/ui/src'
 
 // Exported from figma
 export function InnerCircleGradient({ id }: { id: string }): ReactElement<LinearGradient> {

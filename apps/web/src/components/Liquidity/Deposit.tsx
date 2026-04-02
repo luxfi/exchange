@@ -1,7 +1,7 @@
 import { ProtocolVersion } from '@luxamm/client-data-api/dist/data/v1/poolTypes_pb'
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { Trans, useTranslation } from 'react-i18next'
-import { Button, Flex, Text } from '@luxfi/ui/src'
+import { Button, Flex, Text } from '@l.x/ui/src'
 import { WarningSeverity } from 'lx/src/components/modals/WarningModal/types'
 import { SLIPPAGE_CRITICAL_TOLERANCE } from 'lx/src/constants/transactions'
 import { useLuxContext } from 'lx/src/contexts/LuxContext'

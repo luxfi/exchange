@@ -1,6 +1,6 @@
 import { useMemo } from 'react'
 import type { ColorTokens } from '@hanzo/gui'
-import { opacify, validColor } from '@luxfi/ui/src/theme'
+import { opacify, validColor } from '@l.x/ui/src/theme'
 
 export const useColorsFromTokenColor = (
   tokenColor?: string,

@@ -19,11 +19,11 @@ import {
   useExtractedColors,
   useIsDarkMode,
   useSporeColors,
-} from '@luxfi/ui/src'
-import { ENS_LOGO } from '@luxfi/ui/src/assets'
-import { SendAction, XTwitter } from '@luxfi/ui/src/components/icons'
-import { AnimatedFlex } from '@luxfi/ui/src/components/layout/AnimatedFlex'
-import { DEP_accentColors, iconSizes, imageSizes, spacing, validColor } from '@luxfi/ui/src/theme'
+} from '@l.x/ui/src'
+import { ENS_LOGO } from '@l.x/ui/src/assets'
+import { SendAction, XTwitter } from '@l.x/ui/src/components/icons'
+import { AnimatedFlex } from '@l.x/ui/src/components/layout/AnimatedFlex'
+import { DEP_accentColors, iconSizes, imageSizes, spacing, validColor } from '@l.x/ui/src/theme'
 import { AddressDisplay } from '@l.x/lx/src/components/accounts/AddressDisplay'
 import { DisplayNameType } from '@l.x/lx/src/features/accounts/types'
 import { useAvatar } from '@l.x/lx/src/features/address/avatar'

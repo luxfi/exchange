@@ -8,8 +8,8 @@ import {
   ApproveSendTransactionRequest,
   DappRequest as DappRequestBaseType,
 } from 'src/app/features/dappRequests/types/DappRequestTypes'
-import { Flex, Text } from '@luxfi/ui/src'
-import { iconSizes } from '@luxfi/ui/src/theme'
+import { Flex, Text } from '@l.x/ui/src'
+import { iconSizes } from '@l.x/ui/src/theme'
 import { CurrencyLogo } from '@l.x/lx/src/components/CurrencyLogo/CurrencyLogo'
 import { LearnMoreLink } from '@l.x/lx/src/components/text/LearnMoreLink'
 import { lxUrls } from '@l.x/lx/src/constants/urls'

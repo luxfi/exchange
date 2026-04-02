@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next'
-import { Flex, Text, TouchableArea, useSporeColors } from '@luxfi/ui/src'
-import { AlertTriangleFilled } from '@luxfi/ui/src/components/icons/AlertTriangleFilled'
-import { InfoCircleFilled } from '@luxfi/ui/src/components/icons/InfoCircleFilled'
+import { Flex, Text, TouchableArea, useSporeColors } from '@l.x/ui/src'
+import { AlertTriangleFilled } from '@l.x/ui/src/components/icons/AlertTriangleFilled'
+import { InfoCircleFilled } from '@l.x/ui/src/components/icons/InfoCircleFilled'
 import { ElementName } from '@l.x/lx/src/features/telemetry/constants'
 import Trace from '@l.x/lx/src/features/telemetry/Trace'
 

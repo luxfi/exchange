@@ -1,6 +1,6 @@
 import { ChartPeriod } from '@luxamm/client-data-api/dist/data/v1/api_pb'
 import { memo, useMemo, useState } from 'react'
-import { Flex, Separator, styled, useMedia } from '@luxfi/ui/src'
+import { Flex, Separator, styled, useMedia } from '@l.x/ui/src'
 import { useGetPortfolioHistoricalValueChartQuery } from 'lx/src/data/rest/getPortfolioChart'
 import { useActivityData } from 'lx/src/features/activity/hooks/useActivityData'
 import { useEnabledChains } from 'lx/src/features/chains/hooks/useEnabledChains'

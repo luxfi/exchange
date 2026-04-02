@@ -1,6 +1,6 @@
 import { SCREEN_ITEM_HORIZONTAL_PAD } from 'src/app/constants'
 import { SettingsDropdown, SettingsDropdownProps } from 'src/app/features/settings/SettingsDropdown'
-import { Flex, GeneratedIcon, Text, TouchableArea } from '@luxfi/ui/src'
+import { Flex, GeneratedIcon, Text, TouchableArea } from '@l.x/ui/src'
 
 type SettingsItemWithDropdownProps = {
   Icon: GeneratedIcon

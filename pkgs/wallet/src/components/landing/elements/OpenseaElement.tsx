@@ -1,6 +1,6 @@
-import { Flex, Image } from '@luxfi/ui/src'
-import { OPENSEA_LOGO } from '@luxfi/ui/src/assets'
-import { DEP_accentColors, imageSizes, validColor } from '@luxfi/ui/src/theme'
+import { Flex, Image } from '@l.x/ui/src'
+import { OPENSEA_LOGO } from '@l.x/ui/src/assets'
+import { DEP_accentColors, imageSizes, validColor } from '@l.x/ui/src/theme'
 
 export const OpenseaElement = (): JSX.Element => {
   return (

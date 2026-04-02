@@ -1,4 +1,4 @@
-import { Flex } from '@luxfi/ui/src/components/layout'
+import { Flex } from '@l.x/ui/src/components/layout'
 
 const pulseKeyframe = `
   @keyframes pulse {

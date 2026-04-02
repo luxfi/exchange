@@ -1,5 +1,5 @@
 import { memo } from 'react'
-import { Flex, Progress, Text } from '@luxfi/ui/src'
+import { Flex, Progress, Text } from '@l.x/ui/src'
 import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
 
 export const Allocation = memo(function Allocation({ value }: { value: number }): JSX.Element {

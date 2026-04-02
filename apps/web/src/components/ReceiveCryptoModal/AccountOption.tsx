@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Text } from '@luxfi/ui/src'
+import { Text } from '@l.x/ui/src'
 import { MAINNET_CHAIN_INFO } from '@l.x/lx/src/features/chains/evm/info/mainnet'
 import { useEnabledChains } from '@l.x/lx/src/features/chains/hooks/useEnabledChains'
 import { SOLANA_CHAIN_INFO } from '@l.x/lx/src/features/chains/svm/info/solana'

@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { PADDING_STRENGTH_INDICATOR, PasswordInput } from 'src/app/components/PasswordInput'
-import { Button, Flex, Text } from '@luxfi/ui/src'
+import { Button, Flex, Text } from '@l.x/ui/src'
 import { ExtensionEventName } from '@l.x/lx/src/features/telemetry/constants'
 import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
 import { Keyring } from '@luxfi/wallet/src/features/wallet/Keyring/Keyring'

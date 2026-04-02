@@ -1,5 +1,5 @@
 import { memo, useMemo } from 'react'
-import { Flex, Text, TextProps } from '@luxfi/ui/src'
+import { Flex, Text, TextProps } from '@l.x/ui/src'
 import { useFormattedTimeForActivity } from '@l.x/lx/src/components/activity/hooks/useFormattedTime'
 import { FORMAT_TIME_SHORT, useLocalizedDayjs } from '@l.x/lx/src/features/language/localizedDayjs'
 import { GroupHoverTransition } from '~/components/GroupHoverTransition'

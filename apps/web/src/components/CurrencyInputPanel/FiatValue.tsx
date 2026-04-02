@@ -1,7 +1,7 @@
 import { Percent } from '@luxamm/sdk-core'
 import { useMemo } from 'react'
 import { Trans } from 'react-i18next'
-import { Flex, Text } from '@luxfi/ui/src'
+import { Flex, Text } from '@l.x/ui/src'
 import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
 import { NumberType } from '@luxfi/utilities/src/format/types'
 import { LoadingBubble } from '~/components/Tokens/loading'

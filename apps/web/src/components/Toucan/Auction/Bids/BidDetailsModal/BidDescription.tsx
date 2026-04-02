@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react'
-import { Text } from '@luxfi/ui/src'
+import { Text } from '@l.x/ui/src'
 
 interface BidDescriptionProps {
   description: ReactNode

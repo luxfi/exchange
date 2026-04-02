@@ -1,5 +1,5 @@
-import { Flex } from '@luxfi/ui/src'
-import { SmartWallet } from '@luxfi/ui/src/components/icons'
+import { Flex } from '@l.x/ui/src'
+import { SmartWallet } from '@l.x/ui/src/components/icons'
 
 const IMAGE_SIZE: number = 48
 

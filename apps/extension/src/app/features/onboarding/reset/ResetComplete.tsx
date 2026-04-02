@@ -4,8 +4,8 @@ import { OpenSidebarButton } from 'src/app/components/buttons/OpenSidebarButton'
 import { useFinishExtensionOnboarding } from 'src/app/features/onboarding/hooks/useFinishExtensionOnboarding'
 import { useOpenSidebar } from 'src/app/features/onboarding/hooks/useOpenSidebar'
 import { terminateStoreSynchronization } from 'src/store/storeSynchronization'
-import { Flex, Text } from '@luxfi/ui/src'
-import { Check, GraduationCap } from '@luxfi/ui/src/components/icons'
+import { Flex, Text } from '@l.x/ui/src'
+import { Check, GraduationCap } from '@l.x/ui/src/components/icons'
 import { lxUrls } from '@l.x/lx/src/constants/urls'
 
 export function ResetComplete(): JSX.Element {

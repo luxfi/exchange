@@ -1,7 +1,7 @@
 import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { ReactNode, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Flex, FlexProps, Text } from '@luxfi/ui/src'
+import { Flex, FlexProps, Text } from '@l.x/ui/src'
 import { useTokenMarketStats } from 'lx/src/features/dataApi/tokenDetails/useTokenDetailsData'
 import { useTokenSpotPrice } from 'lx/src/features/dataApi/tokenDetails/useTokenSpotPriceWrapper'
 import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'

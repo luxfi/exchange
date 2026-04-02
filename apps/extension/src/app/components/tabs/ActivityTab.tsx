@@ -1,5 +1,5 @@
 import { memo } from 'react'
-import { Flex, Loader, ScrollView } from '@luxfi/ui/src'
+import { Flex, Loader, ScrollView } from '@l.x/ui/src'
 import { useInfiniteScroll } from '@luxfi/utilities/src/react/useInfiniteScroll'
 import { useActivityDataWallet } from '@luxfi/wallet/src/features/activity/useActivityDataWallet'
 

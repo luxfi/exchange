@@ -1,4 +1,4 @@
-import { Flex, View } from '@luxfi/ui/src'
+import { Flex, View } from '@l.x/ui/src'
 import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
 import QueryTokenLogo from '~/components/Logo/QueryTokenLogo'
 import { EllipsisText, TableText } from '~/components/Table/shared/TableText'

@@ -1,5 +1,5 @@
 import { Trans } from 'react-i18next'
-import { X } from '@luxfi/ui/src/components/icons/X'
+import { X } from '@l.x/ui/src/components/icons/X'
 import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
 import Row from '~/components/deprecated/Row'
 import { css, deprecatedStyled } from '~/lib/deprecated-styled'

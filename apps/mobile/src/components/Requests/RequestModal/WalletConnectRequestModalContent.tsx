@@ -8,8 +8,8 @@ import {
   isTransactionRequest,
   WalletConnectSigningRequest,
 } from 'src/features/walletConnect/walletConnectSlice'
-import { Flex, Text } from '@luxfi/ui/src'
-import { AlertTriangleFilled } from '@luxfi/ui/src/components/icons'
+import { Flex, Text } from '@l.x/ui/src'
+import { AlertTriangleFilled } from '@l.x/ui/src/components/icons'
 import { BaseCard } from '@l.x/lx/src/components/BaseCard/BaseCard'
 import { getChainInfo } from '@l.x/lx/src/features/chains/chainInfo'
 import { EthMethod } from '@l.x/lx/src/features/dappRequests/types'

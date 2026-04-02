@@ -1,4 +1,4 @@
-import { Flex, Text } from '@luxfi/ui/src'
+import { Flex, Text } from '@l.x/ui/src'
 import { toSupportedChainId } from '@l.x/lx/src/features/chains/utils'
 import { ExplorerDataType, getExplorerLink } from '@l.x/lx/src/utils/linking'
 import { MaybeExplorerLinkedAddress } from '@luxfi/wallet/src/components/dappRequests/SignTypedData/MaybeExplorerLinkedAddress'

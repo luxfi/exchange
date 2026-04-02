@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next'
-import { opacify } from '@luxfi/ui/src/theme'
+import { opacify } from '@l.x/ui/src/theme'
 import { CardContents } from '~/pages/Landing/components/cards/CardContents'
 import { PillButton } from '~/pages/Landing/components/cards/PillButton'
 import ValuePropCard from '~/pages/Landing/components/cards/ValuePropCard'

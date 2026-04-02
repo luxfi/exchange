@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next'
-import { Flex } from '@luxfi/ui/src'
+import { Flex } from '@l.x/ui/src'
 import { DownloadWalletCard } from '~/pages/Landing/components/cards/DownloadWalletCard'
 import { LiquidityCard } from '~/pages/Landing/components/cards/LiquidityCard'
 import { TradingApiCard } from '~/pages/Landing/components/cards/TradingApiCard'

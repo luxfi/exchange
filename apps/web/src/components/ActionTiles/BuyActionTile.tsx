@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next'
-import { Bank } from '@luxfi/ui/src/components/icons/Bank'
-import { FlexProps } from '@luxfi/ui/src/components/layout/Flex'
+import { Bank } from '@l.x/ui/src/components/icons/Bank'
+import { FlexProps } from '@l.x/ui/src/components/layout/Flex'
 import { useLuxContext } from '@l.x/lx/src/contexts/LuxContext'
 import { ElementName } from '@l.x/lx/src/features/telemetry/constants'
 import Trace from '@l.x/lx/src/features/telemetry/Trace'

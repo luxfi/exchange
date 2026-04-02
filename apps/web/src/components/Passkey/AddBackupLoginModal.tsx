@@ -3,7 +3,7 @@ import { useLoginWithEmail, useLoginWithOAuth, usePrivy } from '@privy-io/react-
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { useEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Flex } from '@luxfi/ui/src'
+import { Flex } from '@l.x/ui/src'
 import { Modal } from 'lx/src/components/modals/Modal'
 import {
   authorizeAndCompleteRecovery,

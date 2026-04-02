@@ -5,9 +5,9 @@ import { atom } from 'jotai'
 import { useAtomValue, useUpdateAtom } from 'jotai/utils'
 import { useCallback, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Button, Flex, styled, TouchableArea } from '@luxfi/ui/src'
-import { ArrowDown } from '@luxfi/ui/src/components/icons/ArrowDown'
-import { X } from '@luxfi/ui/src/components/icons/X'
+import { Button, Flex, styled, TouchableArea } from '@l.x/ui/src'
+import { ArrowDown } from '@l.x/ui/src/components/icons/ArrowDown'
+import { X } from '@l.x/ui/src/components/icons/X'
 import { Modal } from '@l.x/lx/src/components/modals/Modal'
 import {
   FORMAT_DATE_TIME_SHORT,

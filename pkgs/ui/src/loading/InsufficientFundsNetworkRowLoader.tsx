@@ -1,6 +1,6 @@
-import { Flex } from '@luxfi/ui/src/components/layout/Flex'
-import { Text } from '@luxfi/ui/src/components/text/Text'
-import { iconSizes } from '@luxfi/ui/src/theme'
+import { Flex } from '@l.x/ui/src/components/layout/Flex'
+import { Text } from '@l.x/ui/src/components/text/Text'
+import { iconSizes } from '@l.x/ui/src/theme'
 
 export const InsufficientFundsNetworkRowLoader = ({ opacity }: { opacity: number }): JSX.Element => {
   return (

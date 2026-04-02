@@ -1,4 +1,4 @@
-import { AlertTriangleFilled, CheckmarkCircle } from '@luxfi/ui/src/components/icons'
+import { AlertTriangleFilled, CheckmarkCircle } from '@l.x/ui/src/components/icons'
 import { LogoWithTxStatus } from '@l.x/lx/src/components/CurrencyLogo/LogoWithTxStatus'
 import { NotificationToast } from '@l.x/lx/src/components/notifications/NotificationToast'
 import { AssetType } from '@l.x/lx/src/entities/assets'

@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next'
-import { AlertTriangleFilled } from '@luxfi/ui/src/components/icons'
+import { AlertTriangleFilled } from '@l.x/ui/src/components/icons'
 import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
 import { SmartWalletModal } from '@luxfi/wallet/src/components/smartWallet/modals/SmartWalletModal'
 

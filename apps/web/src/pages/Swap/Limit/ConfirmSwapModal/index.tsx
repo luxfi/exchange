@@ -1,8 +1,8 @@
 import { Currency, Percent } from '@luxamm/sdk-core'
 import { useCallback, useEffect, useMemo } from 'react'
-import { Flex } from '@luxfi/ui/src'
+import { Flex } from '@l.x/ui/src'
 // biome-ignore lint/style/noRestrictedImports: ui constant needed for modal animation timing
-import { ADAPTIVE_MODAL_ANIMATION_DURATION } from '@luxfi/ui/src/components/modal/AdaptiveWebModal'
+import { ADAPTIVE_MODAL_ANIMATION_DURATION } from '@l.x/ui/src/components/modal/AdaptiveWebModal'
 import { SwapEventName } from '@l.x/lx/src/features/telemetry/constants'
 import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
 import { SwapPriceUpdateUserResponse } from '@l.x/lx/src/features/telemetry/types'

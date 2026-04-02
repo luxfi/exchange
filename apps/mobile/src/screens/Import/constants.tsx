@@ -1,6 +1,6 @@
 import React from 'react'
-import { OSDynamicCloudIcon, PaperStack, Passkey } from '@luxfi/ui/src/components/icons'
-import { AppTFunction } from '@luxfi/ui/src/i18n/types'
+import { OSDynamicCloudIcon, PaperStack, Passkey } from '@l.x/ui/src/components/icons'
+import { AppTFunction } from '@l.x/ui/src/i18n/types'
 import { ElementName } from '@l.x/lx/src/features/telemetry/constants'
 import { TestID, TestIDType } from '@l.x/lx/src/test/fixtures/testIDs'
 import { ImportType } from '@l.x/lx/src/types/onboarding'

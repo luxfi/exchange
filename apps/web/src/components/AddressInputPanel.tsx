@@ -1,6 +1,6 @@
 import { ChangeEvent, ReactNode, useCallback } from 'react'
 import { Trans, useTranslation } from 'react-i18next'
-import { Text, useSporeColors } from '@luxfi/ui/src'
+import { Text, useSporeColors } from '@l.x/ui/src'
 import { useENS } from '@l.x/lx/src/features/ens/useENS'
 import { ExplorerDataType, getExplorerLink } from '@l.x/lx/src/utils/linking'
 import { AutoColumn } from '~/components/deprecated/Column'

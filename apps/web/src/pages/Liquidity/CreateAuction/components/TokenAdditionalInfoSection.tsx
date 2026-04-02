@@ -1,11 +1,11 @@
 import { useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Flex, Input, Text, TouchableArea } from '@luxfi/ui/src'
-import { Check } from '@luxfi/ui/src/components/icons/Check'
-import { ExternalLink } from '@luxfi/ui/src/components/icons/ExternalLink'
-import { QuestionInCircleFilled } from '@luxfi/ui/src/components/icons/QuestionInCircleFilled'
-import { XTwitter } from '@luxfi/ui/src/components/icons/XTwitter'
-import { fonts } from '@luxfi/ui/src/theme'
+import { Flex, Input, Text, TouchableArea } from '@l.x/ui/src'
+import { Check } from '@l.x/ui/src/components/icons/Check'
+import { ExternalLink } from '@l.x/ui/src/components/icons/ExternalLink'
+import { QuestionInCircleFilled } from '@l.x/ui/src/components/icons/QuestionInCircleFilled'
+import { XTwitter } from '@l.x/ui/src/components/icons/XTwitter'
+import { fonts } from '@l.x/ui/src/theme'
 import {
   useCreateAuctionStore,
   useCreateAuctionStoreActions,

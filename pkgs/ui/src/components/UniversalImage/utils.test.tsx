@@ -1,4 +1,4 @@
-import { fetchSVG } from '@luxfi/ui/src/components/UniversalImage/utils'
+import { fetchSVG } from '@l.x/ui/src/components/UniversalImage/utils'
 import { describe, expect, it, vi } from 'vitest'
 
 const REGULAR_SVG = '<svg viewBox="0 0 10 20"></svg>'

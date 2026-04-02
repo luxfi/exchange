@@ -1,5 +1,5 @@
-import { Flex, Text } from '@luxfi/ui/src'
-import { colors, opacify } from '@luxfi/ui/src/theme'
+import { Flex, Text } from '@l.x/ui/src'
+import { colors, opacify } from '@l.x/ui/src/theme'
 
 export const EmojiElement = ({ emoji }: { emoji: string }): JSX.Element => {
   return (

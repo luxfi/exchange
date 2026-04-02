@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next'
-import { Text } from '@luxfi/ui/src'
+import { Text } from '@l.x/ui/src'
 import { WarningSeverity } from '@l.x/lx/src/components/modals/WarningModal/types'
 import { WarningModal } from '@l.x/lx/src/components/modals/WarningModal/WarningModal'
 import { LearnMoreLink } from '@l.x/lx/src/components/text/LearnMoreLink'

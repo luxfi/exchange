@@ -12,7 +12,7 @@ import { ONBOARDING_CONTENT_WIDTH, ONBOARDING_INITIAL_FRAME_HEIGHT } from 'src/a
 import { TopLevelRoutes } from 'src/app/navigation/constants'
 import { navigate } from 'src/app/navigation/state'
 import { isOnboardedSelector } from 'src/app/utils/isOnboardedSelector'
-import { AnimatePresence, Flex, styled, useWindowDimensions } from '@luxfi/ui/src'
+import { AnimatePresence, Flex, styled, useWindowDimensions } from '@l.x/ui/src'
 
 export * from './OnboardingStepsContext'
 

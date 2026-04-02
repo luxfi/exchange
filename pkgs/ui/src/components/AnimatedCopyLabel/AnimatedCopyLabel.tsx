@@ -1,11 +1,11 @@
 import { ReactNode } from 'react'
 import { ColorTokens } from '@hanzo/gui'
-import { TransitionItem } from '@luxfi/ui/src/animations/components/AnimatePresencePager'
-import { CheckmarkCircle } from '@luxfi/ui/src/components/icons/CheckmarkCircle'
-import { CopySheets } from '@luxfi/ui/src/components/icons/CopySheets'
-import { Flex } from '@luxfi/ui/src/components/layout'
-import { Text } from '@luxfi/ui/src/components/text'
-import { iconSizes } from '@luxfi/ui/src/theme'
+import { TransitionItem } from '@l.x/ui/src/animations/components/AnimatePresencePager'
+import { CheckmarkCircle } from '@l.x/ui/src/components/icons/CheckmarkCircle'
+import { CopySheets } from '@l.x/ui/src/components/icons/CopySheets'
+import { Flex } from '@l.x/ui/src/components/layout'
+import { Text } from '@l.x/ui/src/components/text'
+import { iconSizes } from '@l.x/ui/src/theme'
 
 interface AnimatedCopyLabelProps {
   isCopied: boolean

@@ -1,6 +1,6 @@
 import { TFunction } from 'i18next'
 import { useTranslation } from 'react-i18next'
-import { SpinningLoader } from '@luxfi/ui/src'
+import { SpinningLoader } from '@l.x/ui/src'
 import { NotificationToast } from '@l.x/lx/src/components/notifications/NotificationToast'
 import { SwapPendingNotification as SwapPendingNotificationType } from '@l.x/lx/src/features/notifications/slice/types'
 import { WrapType } from '@l.x/lx/src/features/transactions/types/wrap'

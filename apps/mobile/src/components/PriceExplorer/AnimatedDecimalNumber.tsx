@@ -3,9 +3,9 @@ import { useWindowDimensions } from 'react-native'
 import { useAnimatedStyle, useDerivedValue } from 'react-native-reanimated'
 import { ValueAndFormatted } from 'src/components/PriceExplorer/usePrice'
 import { AnimatedText } from 'src/components/text/AnimatedText'
-import { Flex, useSporeColors } from '@luxfi/ui/src'
-import { useDeviceDimensions } from '@luxfi/ui/src/hooks/useDeviceDimensions'
-import { fonts, TextVariantTokens } from '@luxfi/ui/src/theme'
+import { Flex, useSporeColors } from '@l.x/ui/src'
+import { useDeviceDimensions } from '@l.x/ui/src/hooks/useDeviceDimensions'
+import { fonts, TextVariantTokens } from '@l.x/ui/src/theme'
 import { TestIDType } from '@l.x/lx/src/test/fixtures/testIDs'
 
 type AnimatedDecimalNumberProps = {

@@ -1,4 +1,4 @@
-import { breakpoints } from '@luxfi/ui/src/theme'
+import { breakpoints } from '@l.x/ui/src/theme'
 import { deprecatedStyled } from '~/lib/deprecated-styled'
 import { Body } from '~/pages/App/Body'
 import { Header } from '~/pages/App/Header'

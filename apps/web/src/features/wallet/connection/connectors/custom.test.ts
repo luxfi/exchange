@@ -1,6 +1,6 @@
 // Import mocked modules to get references to their functions
 
-import PASSKEY_ICON from '@luxfi/ui/src/assets/icons/passkey.svg'
+import PASSKEY_ICON from '@l.x/ui/src/assets/icons/passkey.svg'
 import { CONNECTION_PROVIDER_IDS, CONNECTION_PROVIDER_NAMES } from '@l.x/lx/src/constants/web3'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 import COINBASE_ICON from '~/assets/wallets/coinbase-icon.svg'

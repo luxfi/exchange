@@ -9,7 +9,7 @@ import {
 import { BackgroundType, ContentStyle, type InAppNotification, OnClickAction } from '@l.x/api'
 import { DynamicConfigs, ForceUpgradeConfigKey, type ForceUpgradeStatus, getDynamicConfigValue } from '@l.x/gating'
 import { createIntervalNotificationDataSource, type NotificationDataSource } from '@l.x/notifications'
-import { LUX_LOGO } from '@luxfi/ui/src/assets'
+import { LUX_LOGO } from '@l.x/ui/src/assets'
 import i18n from '@l.x/lx/src/i18n'
 import { ONE_SECOND_MS } from '@luxfi/utilities/src/time/time'
 import { MOBILE_APP_STORE_LINK } from '@luxfi/wallet/src/constants/urls'

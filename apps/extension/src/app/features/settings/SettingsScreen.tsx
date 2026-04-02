@@ -12,7 +12,7 @@ import { ThemeToggleWithLabel } from 'src/app/features/settings/ThemeToggle'
 import { AppRoutes, SettingsRoutes } from 'src/app/navigation/constants'
 import { useExtensionNavigation } from 'src/app/navigation/utils'
 import { getIsDefaultProviderFromStorage, setIsDefaultProviderToStorage } from 'src/app/utils/provider'
-import { Button, Flex, ScrollView, Text } from '@luxfi/ui/src'
+import { Button, Flex, ScrollView, Text } from '@l.x/ui/src'
 import {
   ArrowUpRight,
   Chart,
@@ -26,7 +26,7 @@ import {
   Settings,
   Sliders,
   Wrench,
-} from '@luxfi/ui/src/components/icons'
+} from '@l.x/ui/src/components/icons'
 import { lxUrls } from '@l.x/lx/src/constants/urls'
 import { resetLuxBehaviorHistory } from '@l.x/lx/src/features/behaviorHistory/slice'
 import { useEnabledChains } from '@l.x/lx/src/features/chains/hooks/useEnabledChains'

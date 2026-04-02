@@ -18,14 +18,14 @@ import {
   Text,
   TouchableArea,
   useSporeColors,
-} from '@luxfi/ui/src'
-import { ArrowLeft } from '@luxfi/ui/src/components/icons/ArrowLeft'
-import { ExchangeHorizontal } from '@luxfi/ui/src/components/icons/ExchangeHorizontal'
-import { Flag } from '@luxfi/ui/src/components/icons/Flag'
-import { InfoCircleFilled } from '@luxfi/ui/src/components/icons/InfoCircleFilled'
-import { RotatableChevron } from '@luxfi/ui/src/components/icons/RotatableChevron'
-import { useDeviceDimensions } from '@luxfi/ui/src/hooks/useDeviceDimensions'
-import { breakpoints } from '@luxfi/ui/src/theme/breakpoints'
+} from '@l.x/ui/src'
+import { ArrowLeft } from '@l.x/ui/src/components/icons/ArrowLeft'
+import { ExchangeHorizontal } from '@l.x/ui/src/components/icons/ExchangeHorizontal'
+import { Flag } from '@l.x/ui/src/components/icons/Flag'
+import { InfoCircleFilled } from '@l.x/ui/src/components/icons/InfoCircleFilled'
+import { RotatableChevron } from '@l.x/ui/src/components/icons/RotatableChevron'
+import { useDeviceDimensions } from '@l.x/ui/src/hooks/useDeviceDimensions'
+import { breakpoints } from '@l.x/ui/src/theme/breakpoints'
 import { CurrencyLogo } from '@l.x/lx/src/components/CurrencyLogo/CurrencyLogo'
 import { PollingInterval, ZERO_ADDRESS } from '@l.x/lx/src/constants/misc'
 import { useGetPositionQuery } from '@l.x/lx/src/data/rest/getPosition'

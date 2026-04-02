@@ -1,6 +1,6 @@
 import { Currency } from '@luxamm/sdk-core'
 import { useCallback, useEffect } from 'react'
-import { Flex } from '@luxfi/ui/src'
+import { Flex } from '@l.x/ui/src'
 import { TokenSelectorContent } from 'lx/src/components/TokenSelector/TokenSelector'
 import { TokenSelectorFlow, TokenSelectorVariation } from 'lx/src/components/TokenSelector/types'
 import { useActiveAddresses } from 'lx/src/features/accounts/store/hooks'

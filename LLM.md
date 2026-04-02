@@ -172,7 +172,7 @@ Add to `~/.lux/chain-configs/C/config.json`:
   └── @luxfi/exchange
       ├── @luxfi/config
       └── @luxfi/api
-  └── @luxfi/ui
+  └── @l.x/ui
       └── @luxfi/config
 ```
 
@@ -274,7 +274,7 @@ These require Lux backend infrastructure to replace.
 - Hooks: useSwapQuote, useSwap, usePools, usePositions, useTokenBalance, useTokenAllowance
 - Stores: swapStore, tokenStore, settingsStore
 
-**@luxfi/ui**
+**@l.x/ui**
 - Tamagui design tokens and themes (light/dark)
 - Components: Button, Card, IconButton, TokenLogo
 
@@ -925,6 +925,17 @@ Security: Poseidon2 is PQ-safe, Pedersen is NOT
 
 **Token naming inconsistency**: Lux mainnet uses `LUSDC` (6 decimals), Lux testnet uses `LUSD` (18 decimals).
 Subnet chains (Hanzo/SPC/Pars) all use `LUSDC`. Keep this in mind when writing token lookups.
+
+### Package Rename: @luxfi/ui to @l.x/ui (2026-03-31)
+
+Renamed `@luxfi/ui` to `@l.x/ui` across the entire monorepo (1314 files). The exchange's UI package
+is a Tamagui/React Native cross-platform library (forked from Uniswap) that collided with the real
+`@luxfi/ui` npm package (Radix+Tailwind library from `~/work/lux/ui`). Other exchange packages already
+use the `@l.x/` namespace (`@l.x/extension`, `@l.x/api`, `@l.x/lx`, etc.).
+
+Changed `pkgs/wallet/package.json` from `"@luxfi/ui": "^6.1.3"` (npm) to `"@l.x/ui": "workspace:^"`.
+
+No other `@luxfi/*` packages were touched.
 
 ### SwapFormStore Context Fix and Subnet Chain Integration (2026-03-24)
 

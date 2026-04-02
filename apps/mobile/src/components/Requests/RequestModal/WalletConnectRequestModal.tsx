@@ -26,7 +26,7 @@ import {
   setDidOpenFromDeepLink,
   WalletConnectSigningRequest,
 } from 'src/features/walletConnect/walletConnectSlice'
-import { spacing } from '@luxfi/ui/src/theme'
+import { spacing } from '@l.x/ui/src/theme'
 import { EthMethod } from '@l.x/lx/src/features/dappRequests/types'
 import { isSelfCallWithData, isSignTypedDataRequest } from '@l.x/lx/src/features/dappRequests/utils'
 import { useTransactionGasFee } from '@l.x/lx/src/features/gas/hooks'

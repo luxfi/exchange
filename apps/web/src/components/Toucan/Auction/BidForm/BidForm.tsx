@@ -3,7 +3,7 @@
 import { KycVerificationStatus } from '@luxamm/client-liquidity/dist/lx/liquidity/v1/types_pb'
 import { useCallback, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Flex, styled, useColorsFromTokenColor } from '@luxfi/ui/src'
+import { Flex, styled, useColorsFromTokenColor } from '@l.x/ui/src'
 import { WarningSeverity } from 'lx/src/components/modals/WarningModal/types'
 import { UniverseChainId } from 'lx/src/features/chains/types'
 import { AuctionEventName } from 'lx/src/features/telemetry/constants'

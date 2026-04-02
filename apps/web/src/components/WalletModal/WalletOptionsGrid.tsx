@@ -1,6 +1,6 @@
 import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { Fragment } from 'react'
-import { Flex, Separator } from '@luxfi/ui/src'
+import { Flex, Separator } from '@l.x/ui/src'
 import { CONNECTION_PROVIDER_IDS } from '@l.x/lx/src/constants/web3'
 import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
 import { isMobileWeb } from '@luxfi/utilities/src/platform'

@@ -1,6 +1,6 @@
 import { GraphQLApi } from '@l.x/api'
 import { Trans } from 'react-i18next'
-import { Flex, Text } from '@luxfi/ui/src'
+import { Flex, Text } from '@l.x/ui/src'
 import { useEnabledChains } from '@l.x/lx/src/features/chains/hooks/useEnabledChains'
 import { toGraphQLChain } from '@l.x/lx/src/features/chains/utils'
 import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'

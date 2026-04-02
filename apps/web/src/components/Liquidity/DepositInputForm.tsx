@@ -1,6 +1,6 @@
 import { Currency } from '@luxamm/sdk-core'
 import { ReactNode, useEffect, useRef } from 'react'
-import { Flex, FlexProps } from '@luxfi/ui/src'
+import { Flex, FlexProps } from '@l.x/ui/src'
 import { CurrencyInputPanel } from '@l.x/lx/src/components/CurrencyInputPanel/CurrencyInputPanel'
 import { CurrencyInputPanelRef } from '@l.x/lx/src/components/CurrencyInputPanel/types'
 import { CurrencyField } from '@l.x/lx/src/types/currency'

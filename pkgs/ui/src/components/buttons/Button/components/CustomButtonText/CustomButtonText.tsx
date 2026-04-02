@@ -1,10 +1,10 @@
 import type { GetProps } from '@hanzo/gui'
 import { styled, Text } from '@hanzo/gui'
-import { variantEmphasisHash } from '@luxfi/ui/src/components/buttons/Button/components/CustomButtonText/variantEmphasisHash'
-import { buttonStyledContext, lineHeights } from '@luxfi/ui/src/components/buttons/Button/constants'
-import type { ButtonEmphasis, ButtonVariantProps } from '@luxfi/ui/src/components/buttons/Button/types'
-import { getMaybeHexOrRGBColor } from '@luxfi/ui/src/components/buttons/Button/utils/getMaybeHexOrRGBColor'
-import { getContrastPassingTextColor } from '@luxfi/ui/src/utils/colors'
+import { variantEmphasisHash } from '@l.x/ui/src/components/buttons/Button/components/CustomButtonText/variantEmphasisHash'
+import { buttonStyledContext, lineHeights } from '@l.x/ui/src/components/buttons/Button/constants'
+import type { ButtonEmphasis, ButtonVariantProps } from '@l.x/ui/src/components/buttons/Button/types'
+import { getMaybeHexOrRGBColor } from '@l.x/ui/src/components/buttons/Button/utils/getMaybeHexOrRGBColor'
+import { getContrastPassingTextColor } from '@l.x/ui/src/utils/colors'
 
 type GuiTextProps = GetProps<typeof Text>
 

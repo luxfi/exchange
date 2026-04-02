@@ -12,10 +12,10 @@ import {
   removeSession,
   WalletConnectSession,
 } from 'src/features/walletConnect/walletConnectSlice'
-import { Flex, Text, TouchableArea } from '@luxfi/ui/src'
-import { Scan } from '@luxfi/ui/src/components/icons'
-import { useDeviceDimensions } from '@luxfi/ui/src/hooks/useDeviceDimensions'
-import { spacing } from '@luxfi/ui/src/theme'
+import { Flex, Text, TouchableArea } from '@l.x/ui/src'
+import { Scan } from '@l.x/ui/src/components/icons'
+import { useDeviceDimensions } from '@l.x/ui/src/hooks/useDeviceDimensions'
+import { spacing } from '@l.x/ui/src/theme'
 import { ScannerModalState } from '@l.x/lx/src/components/ReceiveQRCode/constants'
 import { pushNotification } from '@l.x/lx/src/features/notifications/slice/slice'
 import { AppNotificationType } from '@l.x/lx/src/features/notifications/slice/types'

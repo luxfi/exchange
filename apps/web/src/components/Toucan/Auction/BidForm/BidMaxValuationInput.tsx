@@ -1,6 +1,6 @@
 import { t } from 'i18next'
 import { useCallback } from 'react'
-import { Flex, Text } from '@luxfi/ui/src'
+import { Flex, Text } from '@l.x/ui/src'
 import { CurrencyInputPanel } from '@l.x/lx/src/components/CurrencyInputPanel/CurrencyInputPanel'
 import { CurrencyField } from '@l.x/lx/src/types/currency'
 import { BidMaxValuationSlider } from '~/components/Toucan/Auction/BidForm/BidMaxValuationSlider'

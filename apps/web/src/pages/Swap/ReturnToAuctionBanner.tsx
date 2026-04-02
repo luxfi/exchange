@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next'
 import { useNavigate, useSearchParams } from 'react-router'
-import { Flex, Text, TouchableArea } from '@luxfi/ui/src'
-import { ArrowBack } from '@luxfi/ui/src/components/icons/ArrowBack'
+import { Flex, Text, TouchableArea } from '@l.x/ui/src'
+import { ArrowBack } from '@l.x/ui/src/components/icons/ArrowBack'
 
 const VALID_RETURN_PATH_PREFIX = '/explore/auctions/'
 

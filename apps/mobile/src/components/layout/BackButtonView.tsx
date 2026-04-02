@@ -1,8 +1,8 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
-import { ColorTokens, Flex, Text } from '@luxfi/ui/src'
-import { RotatableChevron } from '@luxfi/ui/src/components/icons'
-import { IconSizeTokens } from '@luxfi/ui/src/theme/tokens'
+import { ColorTokens, Flex, Text } from '@l.x/ui/src'
+import { RotatableChevron } from '@l.x/ui/src/components/icons'
+import { IconSizeTokens } from '@l.x/ui/src/theme/tokens'
 
 type Props = {
   size?: IconSizeTokens

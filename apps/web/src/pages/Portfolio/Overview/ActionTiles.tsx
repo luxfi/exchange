@@ -1,5 +1,5 @@
 import { memo } from 'react'
-import { Flex, styled, useMedia } from '@luxfi/ui/src'
+import { Flex, styled, useMedia } from '@l.x/ui/src'
 import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
 import { BuyActionTile } from '~/components/ActionTiles/BuyActionTile'
 import { CopyAddressActionTile } from '~/components/ActionTiles/CopyAddressActionTile'

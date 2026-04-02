@@ -1,5 +1,5 @@
 import { useAtomValue } from 'jotai/utils'
-import { Flex, SegmentedControl, useMedia } from '@luxfi/ui/src'
+import { Flex, SegmentedControl, useMedia } from '@l.x/ui/src'
 import { refitChartContentAtom } from '~/components/Charts/ChartModel'
 import { ChartType, PriceChartType } from '~/components/Charts/utils'
 import { ChartActionsContainer } from '~/components/Explore/chart/ChartActionsContainer'

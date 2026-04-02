@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next'
 import { useOpenReceiveModal } from 'src/features/modals/hooks/useOpenReceiveModal'
-import { Button, Flex } from '@luxfi/ui/src'
+import { Button, Flex } from '@l.x/ui/src'
 import { ElementName } from '@l.x/lx/src/features/telemetry/constants'
 import Trace from '@l.x/lx/src/features/telemetry/Trace'
 

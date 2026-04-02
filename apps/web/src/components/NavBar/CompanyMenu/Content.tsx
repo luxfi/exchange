@@ -1,9 +1,9 @@
 import { brand, getBrandUrl } from '@l.x/config'
 import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
-import { LayerGroup } from '@luxfi/ui/src/components/icons/LayerGroup'
-import { LuxLogo } from '@luxfi/ui/src/components/icons/LuxLogo'
-import { DEXGeneric } from '@luxfi/ui/src/components/icons/DEXGeneric'
+import { LayerGroup } from '@l.x/ui/src/components/icons/LayerGroup'
+import { LuxLogo } from '@l.x/ui/src/components/icons/LuxLogo'
+import { DEXGeneric } from '@l.x/ui/src/components/icons/DEXGeneric'
 import { lxUrls } from '@l.x/lx/src/constants/urls'
 import { ElementName } from '@l.x/lx/src/features/telemetry/constants'
 

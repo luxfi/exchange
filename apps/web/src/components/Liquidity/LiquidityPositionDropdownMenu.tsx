@@ -1,6 +1,6 @@
 import { memo } from 'react'
-import { Flex, TouchableArea, useIsTouchDevice } from '@luxfi/ui/src'
-import { MoreHorizontal } from '@luxfi/ui/src/components/icons/MoreHorizontal'
+import { Flex, TouchableArea, useIsTouchDevice } from '@l.x/ui/src'
+import { MoreHorizontal } from '@l.x/ui/src/components/icons/MoreHorizontal'
 import { ContextMenu } from 'lx/src/components/menus/ContextMenu'
 import { ContextMenuTriggerMode } from 'lx/src/components/menus/types'
 import { ElementName, SectionName } from 'lx/src/features/telemetry/constants'

@@ -1,4 +1,4 @@
-import { FlexProps } from '@luxfi/ui/src'
+import { FlexProps } from '@l.x/ui/src'
 import { css } from '~/lib/deprecated-styled'
 
 /** @deprecated use gui and ClickableGuiStyle instead */

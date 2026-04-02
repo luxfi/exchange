@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next'
 import { useDispatch } from 'react-redux'
-import { Wrench } from '@luxfi/ui/src/components/icons/Wrench'
+import { Wrench } from '@l.x/ui/src/components/icons/Wrench'
 import { useEnabledChains } from 'lx/src/features/chains/hooks/useEnabledChains'
 import { setIsTestnetModeEnabled } from 'lx/src/features/settings/slice'
 import { ModalName } from 'lx/src/features/telemetry/constants'

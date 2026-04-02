@@ -1,6 +1,6 @@
-import { Flex, FlexProps } from '@luxfi/ui/src/components/layout/Flex'
-import { Text, TextProps } from '@luxfi/ui/src/components/text/Text'
-import { usePostTextElementPositionProps } from '@luxfi/ui/src/utils/layout'
+import { Flex, FlexProps } from '@l.x/ui/src/components/layout/Flex'
+import { Text, TextProps } from '@l.x/ui/src/components/text/Text'
+import { usePostTextElementPositionProps } from '@l.x/ui/src/utils/layout'
 import { isWebAppDesktop } from 'utilities/src/platform'
 
 type ElementAfterTextProps = {

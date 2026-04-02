@@ -13,8 +13,8 @@ import {
 } from 'react-native'
 import Animated, { SharedValue } from 'react-native-reanimated'
 import { Route } from 'react-native-tab-view'
-import { Flex, Text } from '@luxfi/ui/src'
-import { colorsLight, spacing } from '@luxfi/ui/src/theme'
+import { Flex, Text } from '@l.x/ui/src'
+import { colorsLight, spacing } from '@l.x/ui/src/theme'
 import { TestIDType } from '@l.x/lx/src/test/fixtures/testIDs'
 import { PendingNotificationBadge } from '@luxfi/wallet/src/features/notifications/components/PendingNotificationBadge'
 

@@ -5,7 +5,7 @@ import { StorageWarningModal } from 'src/app/features/warnings/StorageWarningMod
 import { onboardingMessageChannel } from 'src/background/messagePassing/messageChannels'
 import { OnboardingMessageType } from 'src/background/messagePassing/types/ExtensionMessages'
 import { ONBOARDING_BACKGROUND_DARK, ONBOARDING_BACKGROUND_LIGHT } from 'src/public/assets'
-import { Flex, Image, useIsDarkMode } from '@luxfi/ui/src'
+import { Flex, Image, useIsDarkMode } from '@l.x/ui/src'
 import { isProdEnv } from '@luxfi/utilities/src/environment/env'
 import { OnboardingContextProvider } from '@luxfi/wallet/src/features/onboarding/OnboardingContext'
 import { useTestnetModeForLoggingAndAnalytics } from '@luxfi/wallet/src/features/testnetMode/hooks/useTestnetModeForLoggingAndAnalytics'

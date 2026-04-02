@@ -9,7 +9,7 @@ import { BackgroundType, ContentStyle, type InAppNotification, OnClickAction } f
 import { FeatureFlags, getFeatureFlag } from '@l.x/gating'
 import { checkNotifications, type PermissionStatus } from 'react-native-permissions'
 import { BannerId } from 'src/notification-service/data-sources/banners/types'
-import { PUSH_NOTIFICATIONS_CARD_BANNER } from '@luxfi/ui/src/assets'
+import { PUSH_NOTIFICATIONS_CARD_BANNER } from '@l.x/ui/src/assets'
 import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
 import i18n from '@l.x/lx/src/i18n'
 

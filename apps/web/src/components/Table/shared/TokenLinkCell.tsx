@@ -1,7 +1,7 @@
 import { GraphQLApi } from '@l.x/api'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router'
-import { Flex, styled } from '@luxfi/ui/src/index'
+import { Flex, styled } from '@l.x/ui/src/index'
 import { useEnabledChains } from 'lx/src/features/chains/hooks/useEnabledChains'
 import { fromGraphQLChain } from 'lx/src/features/chains/utils'
 import { getTokenDetailsURL, unwrapToken } from '~/appGraphql/data/util'

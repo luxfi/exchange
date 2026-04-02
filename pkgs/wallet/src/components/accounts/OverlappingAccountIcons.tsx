@@ -1,6 +1,6 @@
 import { FlatList, ListRenderItemInfo } from 'react-native'
-import { Flex } from '@luxfi/ui/src'
-import { iconSizes } from '@luxfi/ui/src/theme'
+import { Flex } from '@l.x/ui/src'
+import { iconSizes } from '@l.x/ui/src/theme'
 import { AccountIcon } from '@l.x/lx/src/features/accounts/AccountIcon'
 
 export const OverlappingAccountIcons = ({

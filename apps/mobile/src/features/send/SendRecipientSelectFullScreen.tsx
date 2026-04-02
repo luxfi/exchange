@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import { RecipientSelect } from 'src/components/RecipientSelect/RecipientSelect'
 import { SEND_CONTENT_RENDER_DELAY_MS } from 'src/features/send/constants'
-import { Spacer } from '@luxfi/ui/src'
+import { Spacer } from '@l.x/ui/src'
 import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { TransactionModalInnerContainer } from '@l.x/lx/src/features/transactions/components/TransactionModal/TransactionModal'
 import { useTransactionModalContext } from '@l.x/lx/src/features/transactions/components/TransactionModal/TransactionModalContext'

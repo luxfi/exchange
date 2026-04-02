@@ -1,4 +1,4 @@
-import { LineChartDots } from '@luxfi/ui/src/components/icons/LineChartDots'
+import { LineChartDots } from '@l.x/ui/src/components/icons/LineChartDots'
 import { SettingsToggle } from '~/components/AccountDrawer/SettingsToggle'
 import { act, render } from '~/test-utils/render'
 

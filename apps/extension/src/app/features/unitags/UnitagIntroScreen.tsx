@@ -4,8 +4,8 @@ import { useOnboardingSteps } from 'src/app/features/onboarding/OnboardingStepsC
 import { Terms } from 'src/app/features/onboarding/Terms'
 import { UnitagClaimRoutes } from 'src/app/navigation/constants'
 import { navigate } from 'src/app/navigation/state'
-import { Button, Flex, GeneratedIcon, Text } from '@luxfi/ui/src'
-import { Bolt, Coupon, Person } from '@luxfi/ui/src/components/icons'
+import { Button, Flex, GeneratedIcon, Text } from '@l.x/ui/src'
+import { Bolt, Coupon, Person } from '@l.x/ui/src/components/icons'
 import { useUnitagsAddressQuery } from '@l.x/lx/src/data/apiClients/unitagsApi/useUnitagsAddressQuery'
 import { useAccountAddressFromUrlWithThrow } from '@luxfi/wallet/src/features/wallet/hooks'
 

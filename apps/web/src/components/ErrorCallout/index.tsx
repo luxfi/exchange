@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next'
-import { Flex, Text, TouchableArea } from '@luxfi/ui/src'
-import { AlertTriangleFilled } from '@luxfi/ui/src/components/icons/AlertTriangleFilled'
-import { RotateLeft } from '@luxfi/ui/src/components/icons/RotateLeft'
+import { Flex, Text, TouchableArea } from '@l.x/ui/src'
+import { AlertTriangleFilled } from '@l.x/ui/src/components/icons/AlertTriangleFilled'
+import { RotateLeft } from '@l.x/ui/src/components/icons/RotateLeft'
 import { ClickableGuiStyle } from '~/theme/components/styles'
 
 export function ErrorCallout({

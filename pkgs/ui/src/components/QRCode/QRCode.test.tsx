@@ -1,7 +1,7 @@
 import { cleanup, render } from '@testing-library/react'
 import { QRCodeErrorCorrectionLevel } from 'qrcode'
-import { QRCode } from '@luxfi/ui/src/components/QRCode/QRCode'
-import { SharedUILuxProvider } from '@luxfi/ui/src/test/render'
+import { QRCode } from '@l.x/ui/src/components/QRCode/QRCode'
+import { SharedUILuxProvider } from '@l.x/ui/src/test/render'
 import { describe, expect, it } from 'vitest'
 
 const qrCodeValue = ['s', 'oneSizeBiggerValue']

@@ -1,5 +1,5 @@
-import { Flex, Image } from '@luxfi/ui/src'
-import { WalletAlert } from '@luxfi/ui/src/components/icons/WalletAlert'
+import { Flex, Image } from '@l.x/ui/src'
+import { WalletAlert } from '@l.x/ui/src/components/icons/WalletAlert'
 import { BorderedAlertTriangle } from '~/components/Icons/BorderedAlertTriangle'
 import { normalizeBase64Image } from '~/utils/images'
 

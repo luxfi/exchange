@@ -1,5 +1,5 @@
 import { memo } from 'react'
-import { Flex, styled, Text } from '@luxfi/ui/src'
+import { Flex, styled, Text } from '@l.x/ui/src'
 import { NFTViewer } from '@l.x/lx/src/components/nfts/NFTViewer'
 
 interface NftAmountDisplayProps {

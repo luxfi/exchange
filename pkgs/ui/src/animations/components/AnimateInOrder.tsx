@@ -1,5 +1,5 @@
 import { PropsWithChildren, useEffect, useState } from 'react'
-import { Flex, FlexProps } from '@luxfi/ui/src/components/layout'
+import { Flex, FlexProps } from '@l.x/ui/src/components/layout'
 
 export const AnimateInOrder = ({
   children,

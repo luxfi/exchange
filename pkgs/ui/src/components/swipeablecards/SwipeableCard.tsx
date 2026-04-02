@@ -1,4 +1,4 @@
-import { SwipeableCardProps } from '@luxfi/ui/src/components/swipeablecards/props'
+import { SwipeableCardProps } from '@l.x/ui/src/components/swipeablecards/props'
 import { PlatformSplitStubError } from 'utilities/src/errors'
 
 export function SwipeableCard(_props: SwipeableCardProps): JSX.Element {

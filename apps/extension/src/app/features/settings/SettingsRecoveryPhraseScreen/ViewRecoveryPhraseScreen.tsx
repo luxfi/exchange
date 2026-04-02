@@ -6,8 +6,8 @@ import { SeedPhraseDisplay } from 'src/app/features/settings/SettingsRecoveryPhr
 import { SettingsRecoveryPhrase } from 'src/app/features/settings/SettingsRecoveryPhraseScreen/SettingsRecoveryPhrase'
 import { AppRoutes, RemoveRecoveryPhraseRoutes, SettingsRoutes } from 'src/app/navigation/constants'
 import { navigate } from 'src/app/navigation/state'
-import { Button, Flex, Text } from '@luxfi/ui/src'
-import { AlertTriangleFilled, Eye, Key, Laptop } from '@luxfi/ui/src/components/icons'
+import { Button, Flex, Text } from '@l.x/ui/src'
+import { AlertTriangleFilled, Eye, Key, Laptop } from '@l.x/ui/src/components/icons'
 import { useSignerAccounts } from '@luxfi/wallet/src/features/wallet/hooks'
 
 const enum ViewStep {

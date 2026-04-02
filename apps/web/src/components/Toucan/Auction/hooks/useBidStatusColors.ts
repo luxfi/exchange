@@ -1,5 +1,5 @@
-import { useSporeColors } from '@luxfi/ui/src'
-import { opacify } from '@luxfi/ui/src/theme'
+import { useSporeColors } from '@l.x/ui/src'
+import { opacify } from '@l.x/ui/src/theme'
 import { type BidDisplayState } from '~/components/Toucan/Auction/utils/bidDetails'
 
 export function useBidStatusColors() {

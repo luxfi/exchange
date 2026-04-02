@@ -1,5 +1,5 @@
 import { useMemo } from 'react'
-import { opacifyRaw } from '@luxfi/ui/src/theme/color/utils'
+import { opacifyRaw } from '@l.x/ui/src/theme/color/utils'
 
 interface UseTokenLaunchedBannerDataProps {
   tokenColor?: string

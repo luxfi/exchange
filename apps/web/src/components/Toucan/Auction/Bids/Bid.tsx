@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next'
-import { Flex, Text, TouchableArea } from '@luxfi/ui/src'
+import { Flex, Text, TouchableArea } from '@l.x/ui/src'
 import { useEvent } from '@luxfi/utilities/src/react/hooks'
 import { BidProgressIndicator } from '~/components/Toucan/Auction/Bids/BidProgressIndicator'
 import { getDisplayStateColor, useBidStatusColors } from '~/components/Toucan/Auction/hooks/useBidStatusColors'

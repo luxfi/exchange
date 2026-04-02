@@ -12,7 +12,7 @@ declare global {
   }
 }
 
-import { config } from '@luxfi/ui/src/gui.config'
+import { config } from '@l.x/ui/src/gui.config'
 
 type Conf = typeof config
 

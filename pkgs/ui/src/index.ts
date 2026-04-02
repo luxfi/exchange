@@ -77,7 +77,7 @@ export function useWindowDimensions() {
 }
 // Web-compatible LinearGradient stub (native uses expo-linear-gradient)
 export const LinearGradient = styled(View, { name: 'LinearGradient' }) as any
-export * from '@luxfi/ui/src/animations'
+export * from '@l.x/ui/src/animations'
 export * from './components/AnimatableCopyIcon/AnimatableCopyIcon'
 export * from './components/AnimatedCopyLabel/AnimatedCopyLabel'
 export { Button } from './components/buttons/Button/Button'
@@ -154,4 +154,4 @@ export * from './utils/gui'
 export { DEXText } from './components/text/DEXText'
 export { DEXGeneric } from './components/icons/DEXGeneric'
 
-export { assertWebElement } from '@luxfi/ui/src/utils/gui'
+export { assertWebElement } from '@l.x/ui/src/utils/gui'

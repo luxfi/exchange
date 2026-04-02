@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next'
-import { Flex, Text, TouchableArea } from '@luxfi/ui/src'
-import { Search } from '@luxfi/ui/src/components/icons/Search'
+import { Flex, Text, TouchableArea } from '@l.x/ui/src'
+import { Search } from '@l.x/ui/src/components/icons/Search'
 import { ElementName, InterfaceEventName, ModalName, SectionName } from '@l.x/lx/src/features/telemetry/constants'
 import Trace from '@l.x/lx/src/features/telemetry/Trace'
 import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'

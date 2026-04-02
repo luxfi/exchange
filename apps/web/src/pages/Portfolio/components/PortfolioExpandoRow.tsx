@@ -1,7 +1,7 @@
-import { Flex, FlexProps, Text, TextProps, TouchableArea } from '@luxfi/ui/src'
-import { ChevronsIn } from '@luxfi/ui/src/components/icons/ChevronsIn'
-import { ChevronsOut } from '@luxfi/ui/src/components/icons/ChevronsOut'
-import { IconSizeTokens } from '@luxfi/ui/src/theme'
+import { Flex, FlexProps, Text, TextProps, TouchableArea } from '@l.x/ui/src'
+import { ChevronsIn } from '@l.x/ui/src/components/icons/ChevronsIn'
+import { ChevronsOut } from '@l.x/ui/src/components/icons/ChevronsOut'
+import { IconSizeTokens } from '@l.x/ui/src/theme'
 
 interface PortfolioExpandoRowProps {
   isExpanded: boolean

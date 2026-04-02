@@ -1,5 +1,5 @@
 import type { IChartApi, ISeriesApi, UTCTimestamp } from 'lightweight-charts'
-import type { UseSporeColorsReturn } from '@luxfi/ui/src/hooks/useSporeColors'
+import type { UseSporeColorsReturn } from '@l.x/ui/src/hooks/useSporeColors'
 import type { ChartMode, ToucanChartData, ToucanChartSeriesOptions } from '~/components/Charts/ToucanChart/renderer'
 import type { BidConcentrationResult } from '~/components/Toucan/Auction/BidDistributionChart/utils/bidConcentration'
 import type { BidTokenInfo, UserBid } from '~/components/Toucan/Auction/store/types'

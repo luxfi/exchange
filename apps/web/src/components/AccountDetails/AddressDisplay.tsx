@@ -1,5 +1,5 @@
-import { Flex } from '@luxfi/ui/src'
-import { Unitag } from '@luxfi/ui/src/components/icons/Unitag'
+import { Flex } from '@l.x/ui/src'
+import { Unitag } from '@l.x/ui/src/components/icons/Unitag'
 import { useUnitagsAddressQuery } from '@l.x/lx/src/data/apiClients/unitagsApi/useUnitagsAddressQuery'
 import { useENSName } from '@l.x/lx/src/features/ens/api'
 import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'

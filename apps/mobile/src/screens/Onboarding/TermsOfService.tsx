@@ -1,5 +1,5 @@
 import { Trans } from 'react-i18next'
-import { Text } from '@luxfi/ui/src'
+import { Text } from '@l.x/ui/src'
 import { lxUrls } from '@l.x/lx/src/constants/urls'
 import { openUri } from '@l.x/lx/src/utils/linking'
 

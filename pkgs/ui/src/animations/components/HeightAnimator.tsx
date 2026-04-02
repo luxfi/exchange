@@ -1,7 +1,7 @@
 import { useCallback, useState } from 'react'
 import { LayoutChangeEvent } from 'react-native'
 import { View, type ViewProps } from '@hanzo/gui'
-import { type FlexProps } from '@luxfi/ui/src/components/layout'
+import { type FlexProps } from '@l.x/ui/src/components/layout'
 import { isTestEnv } from 'utilities/src/environment/env'
 
 export interface HeightAnimatorProps {

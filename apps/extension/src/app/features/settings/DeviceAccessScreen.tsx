@@ -13,9 +13,9 @@ import { PasswordResetFlowState, usePasswordResetFlow } from 'src/app/features/s
 import { SettingsItemWithDropdown } from 'src/app/features/settings/SettingsItemWithDropdown'
 import { builtInBiometricCapabilitiesQuery } from 'src/app/utils/device/builtInBiometricCapabilitiesQuery'
 import { ExtensionState } from 'src/store/extensionReducer'
-import { Flex, ScrollView } from '@luxfi/ui/src'
-import { Stopwatch } from '@luxfi/ui/src/components/icons'
-import { Key } from '@luxfi/ui/src/components/icons/Key'
+import { Flex, ScrollView } from '@l.x/ui/src'
+import { Stopwatch } from '@l.x/ui/src/components/icons'
+import { Key } from '@l.x/ui/src/components/icons/Key'
 import { DeviceAccessTimeout, ORDERED_DEVICE_ACCESS_TIMEOUTS } from '@l.x/lx/src/features/settings/constants'
 import { setDeviceAccessTimeout } from '@l.x/lx/src/features/settings/slice'
 

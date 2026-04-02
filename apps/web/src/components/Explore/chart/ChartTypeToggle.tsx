@@ -1,6 +1,6 @@
 import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
-import { SegmentedControl, SegmentedControlOption, useMedia } from '@luxfi/ui/src'
+import { SegmentedControl, SegmentedControlOption, useMedia } from '@l.x/ui/src'
 import { ChartType } from '~/components/Charts/utils'
 import { MouseoverTooltip } from '~/components/Tooltip'
 

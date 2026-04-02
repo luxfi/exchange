@@ -1,5 +1,5 @@
 import { memo } from 'react'
-import { Text } from '@luxfi/ui/src'
+import { Text } from '@l.x/ui/src'
 import { PollingInterval } from '@l.x/lx/src/constants/misc'
 import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
 import { useUSDCValue } from '@l.x/lx/src/features/transactions/hooks/useUSDCPriceWrapper'

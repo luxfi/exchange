@@ -1,7 +1,7 @@
 import { ReactNode } from 'react'
-import { Anchor, Button, ButtonEmphasis, Flex, Text, TouchableArea, useSporeColors } from '@luxfi/ui/src'
-import { X } from '@luxfi/ui/src/components/icons'
-import { zIndexes } from '@luxfi/ui/src/theme'
+import { Anchor, Button, ButtonEmphasis, Flex, Text, TouchableArea, useSporeColors } from '@l.x/ui/src'
+import { X } from '@l.x/ui/src/components/icons'
+import { zIndexes } from '@l.x/ui/src/theme'
 import { Modal } from '@l.x/lx/src/components/modals/Modal'
 import { ModalNameType } from '@l.x/lx/src/features/telemetry/constants'
 

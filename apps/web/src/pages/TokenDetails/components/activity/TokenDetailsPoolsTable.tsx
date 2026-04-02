@@ -1,7 +1,7 @@
 import { ApolloError } from '@apollo/client'
 import { type Currency } from '@luxamm/sdk-core'
 import { useMemo } from 'react'
-import { Flex } from '@luxfi/ui/src'
+import { Flex } from '@l.x/ui/src'
 import { AddressStringFormat, normalizeAddress } from '@l.x/lx/src/utils/addresses'
 import { usePoolsFromTokenAddress } from '~/appGraphql/data/pools/usePoolsFromTokenAddress'
 import { PoolSortFields } from '~/appGraphql/data/pools/useTopPools'

@@ -6,7 +6,7 @@
  *
  * Usage:
  * ```tsx
- * import { FadeIn, FadeOut } from '@luxfi/ui/src/animations/enterExitAnimations'
+ * import { FadeIn, FadeOut } from '@l.x/ui/src/animations/enterExitAnimations'
  * <AnimatedFlex entering={FadeIn} exiting={FadeOut} />
  * ```
  *

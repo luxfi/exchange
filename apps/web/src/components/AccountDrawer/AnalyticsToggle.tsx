@@ -1,8 +1,8 @@
 import { useCallback, useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { InfoCircle } from '@luxfi/ui/src/components/icons/InfoCircle'
-import { LineChartDots } from '@luxfi/ui/src/components/icons/LineChartDots'
-import { Flex, Text, Tooltip } from '@luxfi/ui/src/index'
+import { InfoCircle } from '@l.x/ui/src/components/icons/InfoCircle'
+import { LineChartDots } from '@l.x/ui/src/components/icons/LineChartDots'
+import { Flex, Text, Tooltip } from '@l.x/ui/src/index'
 // biome-ignore lint/style/noRestrictedImports: Direct analytics import needed for toggling analytics settings
 import { analytics, getAnalyticsAtomDirect } from '@luxfi/utilities/src/telemetry/analytics/analytics'
 import { SettingsToggle } from '~/components/AccountDrawer/SettingsToggle'

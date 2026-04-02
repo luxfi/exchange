@@ -1,8 +1,8 @@
-import { GeneratedIcon } from '@luxfi/ui/src'
-import { Flag } from '@luxfi/ui/src/components/icons/Flag'
-import { Pools } from '@luxfi/ui/src/components/icons/Pools'
-import { SwapDotted } from '@luxfi/ui/src/components/icons/SwapDotted'
-import { AppTFunction } from '@luxfi/ui/src/i18n/types'
+import { GeneratedIcon } from '@l.x/ui/src'
+import { Flag } from '@l.x/ui/src/components/icons/Flag'
+import { Pools } from '@l.x/ui/src/components/icons/Pools'
+import { SwapDotted } from '@l.x/ui/src/components/icons/SwapDotted'
+import { AppTFunction } from '@l.x/ui/src/i18n/types'
 
 export enum HookFlag {
   BeforeAddLiquidity = 'before-add-liquidity',

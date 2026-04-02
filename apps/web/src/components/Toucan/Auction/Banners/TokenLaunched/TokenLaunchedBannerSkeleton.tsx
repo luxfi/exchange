@@ -1,4 +1,4 @@
-import { Flex, Skeleton } from '@luxfi/ui/src'
+import { Flex, Skeleton } from '@l.x/ui/src'
 
 export function TokenLaunchedBannerSkeleton() {
   return (

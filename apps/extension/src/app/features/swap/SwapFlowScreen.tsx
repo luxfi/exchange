@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useExtensionNavigation } from 'src/app/navigation/utils'
-import { Flex } from '@luxfi/ui/src'
+import { Flex } from '@l.x/ui/src'
 import { useEnabledChains } from '@l.x/lx/src/features/chains/hooks/useEnabledChains'
 import { useHighestBalanceNativeCurrencyId } from '@l.x/lx/src/features/dataApi/balances/balances'
 import { clearNotificationsByType } from '@l.x/lx/src/features/notifications/slice/slice'

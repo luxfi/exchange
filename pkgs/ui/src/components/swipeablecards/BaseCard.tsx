@@ -1,6 +1,6 @@
 import { PropsWithChildren, useEffect, useState } from 'react'
-import { type SharedValue, useAnimatedStyle, useSharedValue, withSpring } from '@luxfi/ui/src/animations'
-import { AnimatedFlex } from '@luxfi/ui/src/components/layout/AnimatedFlex'
+import { type SharedValue, useAnimatedStyle, useSharedValue, withSpring } from '@l.x/ui/src/animations'
+import { AnimatedFlex } from '@l.x/ui/src/components/layout/AnimatedFlex'
 
 export const SWIPEABLE_CARD_Y_OFFSET = 8
 const SCALE_FACTOR = 0.025

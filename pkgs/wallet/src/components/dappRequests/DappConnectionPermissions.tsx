@@ -1,6 +1,6 @@
 import { useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Flex, LabeledCheckbox, Text, TouchableArea } from '@luxfi/ui/src'
+import { Flex, LabeledCheckbox, Text, TouchableArea } from '@l.x/ui/src'
 import {
   AlertCircleFilled,
   AlertTriangleFilled,
@@ -9,8 +9,8 @@ import {
   GlobeFilled,
   OctagonExclamation,
   RotatableChevron,
-} from '@luxfi/ui/src/components/icons'
-import { defaultHitslop } from '@luxfi/ui/src/theme'
+} from '@l.x/ui/src/components/icons'
+import { defaultHitslop } from '@l.x/ui/src/theme'
 import { useBooleanState } from '@luxfi/utilities/src/react/useBooleanState'
 import { DappScanInfoModal } from '@luxfi/wallet/src/components/dappRequests/DappScanInfoModal'
 import { DappVerificationStatus } from '@luxfi/wallet/src/features/dappRequests/types'

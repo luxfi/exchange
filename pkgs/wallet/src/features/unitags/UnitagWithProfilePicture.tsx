@@ -1,5 +1,5 @@
-import { Flex, Text, useIsDarkMode } from '@luxfi/ui/src'
-import { imageSizes } from '@luxfi/ui/src/theme'
+import { Flex, Text, useIsDarkMode } from '@l.x/ui/src'
+import { imageSizes } from '@l.x/ui/src/theme'
 import { UNITAG_SUFFIX } from '@l.x/lx/src/features/unitags/constants'
 import { UnitagProfilePicture } from '@luxfi/wallet/src/features/unitags/UnitagProfilePicture'
 

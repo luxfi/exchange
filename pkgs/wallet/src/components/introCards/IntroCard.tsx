@@ -13,8 +13,8 @@ import {
   Text,
   useIsDarkMode,
   useShadowPropsShort,
-} from '@luxfi/ui/src'
-import { X } from '@luxfi/ui/src/components/icons'
+} from '@l.x/ui/src'
+import { X } from '@l.x/ui/src/components/icons'
 import { CardImage, CardImageGraphicSizeInfo } from '@l.x/lx/src/components/cards/image'
 import { NewTag } from '@l.x/lx/src/components/pill/NewTag'
 import { WalletEventName } from '@l.x/lx/src/features/telemetry/constants'

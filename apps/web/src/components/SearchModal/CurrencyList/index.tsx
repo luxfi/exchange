@@ -1,6 +1,6 @@
 import { Currency, CurrencyAmount } from '@luxamm/sdk-core'
 import { CSSProperties } from 'react'
-import { Flex, styled, Text, TextStyle } from '@luxfi/ui/src'
+import { Flex, styled, Text, TextStyle } from '@l.x/ui/src'
 import { WarningSeverity } from '@l.x/lx/src/components/modals/WarningModal/types'
 import WarningIcon from '@l.x/lx/src/components/warnings/WarningIcon'
 import { CurrencyInfo } from '@l.x/lx/src/features/dataApi/types'

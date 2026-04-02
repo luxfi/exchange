@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next'
-import { Flex, GeneratedIcon, Text } from '@luxfi/ui/src'
-import { InfoCircleFilled } from '@luxfi/ui/src/components/icons/InfoCircleFilled'
+import { Flex, GeneratedIcon, Text } from '@l.x/ui/src'
+import { InfoCircleFilled } from '@l.x/ui/src/components/icons/InfoCircleFilled'
 import { ElementName } from '@l.x/lx/src/features/telemetry/constants'
 import Trace from '@l.x/lx/src/features/telemetry/Trace'
 import { MouseoverTooltip } from '~/components/Tooltip'

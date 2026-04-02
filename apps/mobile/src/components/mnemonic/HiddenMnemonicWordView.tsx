@@ -1,8 +1,8 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
-import { Flex, Text, TouchableArea, useShadowPropsShort } from '@luxfi/ui/src'
-import { EyeSlash } from '@luxfi/ui/src/components/icons'
-import { HiddenWordView } from '@luxfi/ui/src/components/placeholders/HiddenWordView'
+import { Flex, Text, TouchableArea, useShadowPropsShort } from '@l.x/ui/src'
+import { EyeSlash } from '@l.x/ui/src/components/icons'
+import { HiddenWordView } from '@l.x/ui/src/components/placeholders/HiddenWordView'
 
 const ROWS = 6
 const COLUMNS = 2

@@ -1,5 +1,5 @@
 import { createStyledContext, type GetThemeValueForKey } from '@hanzo/gui'
-import type { ButtonVariantProps } from '@luxfi/ui/src/components/buttons/Button/types'
+import type { ButtonVariantProps } from '@l.x/ui/src/components/buttons/Button/types'
 
 // this ensures that the variant can be passed to the frame but will also thread down to the inner text
 export const buttonStyledContext = createStyledContext<ButtonVariantProps>({

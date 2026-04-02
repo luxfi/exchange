@@ -1,4 +1,4 @@
-import { Flex, styled } from '@luxfi/ui/src'
+import { Flex, styled } from '@l.x/ui/src'
 
 export enum PreferencesView {
   SETTINGS = 'Settings',

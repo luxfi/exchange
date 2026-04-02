@@ -1,4 +1,4 @@
-import { Flex, Shine, styled, Text } from '@luxfi/ui/src'
+import { Flex, Shine, styled, Text } from '@l.x/ui/src'
 import { ElementName } from '@l.x/lx/src/features/telemetry/constants'
 import Trace from '@l.x/lx/src/features/telemetry/Trace'
 import i18n from '@l.x/lx/src/i18n'

@@ -1,6 +1,6 @@
 import { Currency, Percent, TradeType } from '@luxamm/sdk-core'
 import { Trans } from 'react-i18next'
-import { Flex, Text } from '@luxfi/ui/src'
+import { Flex, Text } from '@l.x/ui/src'
 import { useUSDCValue } from '@l.x/lx/src/features/transactions/hooks/useUSDCPriceWrapper'
 import { CurrencyField } from '@l.x/lx/src/types/currency'
 import { AutoColumn } from '~/components/deprecated/Column'

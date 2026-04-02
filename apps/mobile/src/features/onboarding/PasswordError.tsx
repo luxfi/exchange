@@ -1,7 +1,7 @@
 import React from 'react'
 import { StyleProp, ViewStyle } from 'react-native'
-import { Flex, Text } from '@luxfi/ui/src'
-import { AnimatedFlex } from '@luxfi/ui/src/components/layout/AnimatedFlex'
+import { Flex, Text } from '@l.x/ui/src'
+import { AnimatedFlex } from '@l.x/ui/src/components/layout/AnimatedFlex'
 
 interface PasswordErrorProps {
   errorText: string

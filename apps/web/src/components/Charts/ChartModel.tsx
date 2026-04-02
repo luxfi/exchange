@@ -12,7 +12,7 @@ import {
   TimeChartOptions,
 } from 'lightweight-charts'
 import { ReactElement, TouchEvent, useEffect, useMemo, useRef, useState } from 'react'
-import { assertWebElement, ColorTokens, Flex, GuiElement, useMedia, useSporeColors } from '@luxfi/ui/src'
+import { assertWebElement, ColorTokens, Flex, GuiElement, useMedia, useSporeColors } from '@l.x/ui/src'
 import { useCurrentLocale } from '@l.x/lx/src/features/language/hooks'
 import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
 import { NumberType } from '@luxfi/utilities/src/format/types'

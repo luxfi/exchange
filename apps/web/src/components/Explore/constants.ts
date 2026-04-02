@@ -1,5 +1,5 @@
 import { TFunction } from 'i18next'
-import { SegmentedControlOption } from '@luxfi/ui/src'
+import { SegmentedControlOption } from '@l.x/ui/src'
 import { TimePeriod } from '~/appGraphql/data/util'
 
 export function getTimePeriodLabel(t: TFunction, period: TimePeriod): string {

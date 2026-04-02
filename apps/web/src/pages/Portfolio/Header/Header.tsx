@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router'
-import { Flex, useMedia } from '@luxfi/ui/src'
+import { Flex, useMedia } from '@l.x/ui/src'
 import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { ElementName, InterfacePageName, LXEventName } from '@l.x/lx/src/features/telemetry/constants'
 import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'

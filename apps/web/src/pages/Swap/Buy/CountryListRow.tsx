@@ -1,8 +1,8 @@
 import { CSSProperties } from 'react'
-import { Avatar, Flex, styled } from '@luxfi/ui/src'
-import { Check } from '@luxfi/ui/src/components/icons/Check'
-import { Text } from '@luxfi/ui/src/components/text/Text'
-import { iconSizes } from '@luxfi/ui/src/theme'
+import { Avatar, Flex, styled } from '@l.x/ui/src'
+import { Check } from '@l.x/ui/src/components/icons/Check'
+import { Text } from '@l.x/ui/src/components/text/Text'
+import { iconSizes } from '@l.x/ui/src/theme'
 import { FORCountry } from '@l.x/lx/src/features/fiatOnRamp/types'
 import { getCountryFlagSvgUrl } from '@l.x/lx/src/features/fiatOnRamp/utils'
 

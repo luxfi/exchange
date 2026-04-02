@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import { parseToRgb } from 'polished'
-import { Flex, Text, useSporeColors } from '@luxfi/ui/src'
-import { opacify } from '@luxfi/ui/src/theme'
+import { Flex, Text, useSporeColors } from '@l.x/ui/src'
+import { opacify } from '@l.x/ui/src/theme'
 import { useCurrentLocale } from '@l.x/lx/src/features/language/hooks'
 import { deprecatedStyled, keyframes } from '~/lib/deprecated-styled'
 

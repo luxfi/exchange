@@ -1,7 +1,7 @@
 import { ProtocolVersion } from '@luxamm/client-data-api/dist/data/v1/poolTypes_pb'
 import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Button, Flex, Switch, Text } from '@luxfi/ui/src'
+import { Button, Flex, Switch, Text } from '@l.x/ui/src'
 import { nativeOnChain } from '@l.x/lx/src/constants/tokens'
 import { ErrorCallout } from '~/components/ErrorCallout'
 import { DepositInputForm } from '~/components/Liquidity/DepositInputForm'

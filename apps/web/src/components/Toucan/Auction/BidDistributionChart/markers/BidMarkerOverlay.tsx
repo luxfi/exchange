@@ -1,4 +1,4 @@
-import { Flex } from '@luxfi/ui/src'
+import { Flex } from '@l.x/ui/src'
 import { BidMarker } from '~/components/Toucan/Auction/BidDistributionChart/markers/BidMarker'
 import { MarkerPosition } from '~/components/Toucan/Auction/BidDistributionChart/markers/types'
 import { BidTokenInfo } from '~/components/Toucan/Auction/store/types'

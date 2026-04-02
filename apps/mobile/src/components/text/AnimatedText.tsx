@@ -1,8 +1,8 @@
 import React from 'react'
 import { TextProps as RNTextProps, StyleSheet, TextInput, TextInputProps, useWindowDimensions } from 'react-native'
 import Animated, { createAnimatedPropAdapter, useAnimatedProps } from 'react-native-reanimated'
-import { Flex, TextProps as TamaTextProps, TextFrame, TextLoaderWrapper, usePropsAndStyle } from '@luxfi/ui/src'
-import { fonts } from '@luxfi/ui/src/theme'
+import { Flex, TextProps as TamaTextProps, TextFrame, TextLoaderWrapper, usePropsAndStyle } from '@l.x/ui/src'
+import { fonts } from '@l.x/ui/src/theme'
 
 // base animated text component using a TextInput
 // forked from https://github.com/wcandillon/react-native-redash/blob/master/src/ReText.tsx

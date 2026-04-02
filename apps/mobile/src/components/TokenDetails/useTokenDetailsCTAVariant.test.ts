@@ -1,6 +1,6 @@
 import { renderHook } from '@testing-library/react'
 import { useMultichainBuyVariant } from 'src/components/TokenDetails/useTokenDetailsCTAVariant'
-import { Bank } from '@luxfi/ui/src/components/icons'
+import { Bank } from '@l.x/ui/src/components/icons'
 
 const defaultHandlers = {
   onPressBuyWithCash: jest.fn(),

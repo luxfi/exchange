@@ -1,6 +1,6 @@
 import { IChartApi, UTCTimestamp } from 'lightweight-charts'
 import { useCallback } from 'react'
-import { UseSporeColorsReturn } from '@luxfi/ui/src/hooks/useSporeColors'
+import { UseSporeColorsReturn } from '@l.x/ui/src/hooks/useSporeColors'
 import { LABEL_CONFIG } from '~/components/Toucan/Auction/BidDistributionChart/constants'
 import { formatTokenPriceSubscript } from '~/components/Toucan/Auction/BidDistributionChart/utils/tokenFormatters'
 import { calculateDynamicLabelIncrement } from '~/components/Toucan/Auction/BidDistributionChart/utils/utils'

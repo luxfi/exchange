@@ -1,5 +1,5 @@
 import { keccak256, toUtf8Bytes } from 'ethers/lib/utils'
-import { UNICON_COLORS } from '@luxfi/ui/src/components/Unicon/Colors'
+import { UNICON_COLORS } from '@l.x/ui/src/components/Unicon/Colors'
 import { isEVMAddressWithChecksum } from 'utilities/src/addresses/evm/evm'
 import { isSVMAddress } from 'utilities/src/addresses/svm/svm'
 

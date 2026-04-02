@@ -1,5 +1,5 @@
 import React from 'react'
-import { Flex, Text } from '@luxfi/ui/src'
+import { Flex, Text } from '@l.x/ui/src'
 import { TXN_HISTORY_ICON_SIZE } from '@l.x/lx/src/components/activity/utils'
 
 interface TransactionLoaderProps {

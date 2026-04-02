@@ -1,4 +1,4 @@
-import type { FlexProps } from '@luxfi/ui/src/components/layout'
+import type { FlexProps } from '@l.x/ui/src/components/layout'
 
 export type ShineProps = {
   shimmerDurationSeconds?: number

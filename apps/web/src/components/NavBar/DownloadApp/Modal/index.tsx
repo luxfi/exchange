@@ -1,7 +1,7 @@
 import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { atom, useAtom } from 'jotai'
 import { useCallback, useEffect, useState } from 'react'
-import { AnimatedPager, Flex } from '@luxfi/ui/src'
+import { AnimatedPager, Flex } from '@l.x/ui/src'
 import { Modal } from 'lx/src/components/modals/Modal'
 import { ModalName } from 'lx/src/features/telemetry/constants'
 import { TestID } from 'lx/src/test/fixtures/testIDs'

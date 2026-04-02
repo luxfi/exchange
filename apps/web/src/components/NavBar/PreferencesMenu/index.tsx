@@ -1,6 +1,6 @@
 import { useCallback, useState } from 'react'
-import { AnimateTransition, Popover } from '@luxfi/ui/src'
-import { MoreHorizontal } from '@luxfi/ui/src/components/icons/MoreHorizontal'
+import { AnimateTransition, Popover } from '@l.x/ui/src'
+import { MoreHorizontal } from '@l.x/ui/src/components/icons/MoreHorizontal'
 import { ElementName } from '@l.x/lx/src/features/telemetry/constants'
 import Trace from '@l.x/lx/src/features/telemetry/Trace'
 import { NavDropdown, NavDropdownDefaultWrapper } from '~/components/NavBar/NavDropdown/index'

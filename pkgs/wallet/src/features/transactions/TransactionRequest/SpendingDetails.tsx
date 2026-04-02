@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next'
-import { Flex, Text } from '@luxfi/ui/src'
-import { iconSizes } from '@luxfi/ui/src/theme'
+import { Flex, Text } from '@l.x/ui/src'
+import { iconSizes } from '@l.x/ui/src/theme'
 import { CurrencyLogo } from '@l.x/lx/src/components/CurrencyLogo/CurrencyLogo'
 import { ContentRow } from '@l.x/lx/src/components/transactions/requests/ContentRow'
 import { UniverseChainId } from '@l.x/lx/src/features/chains/types'

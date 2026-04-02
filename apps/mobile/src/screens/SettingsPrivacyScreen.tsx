@@ -2,7 +2,7 @@ import React from 'react'
 import { useTranslation } from 'react-i18next'
 import { BackHeader } from 'src/components/layout/BackHeader'
 import { Screen } from 'src/components/layout/Screen'
-import { Text } from '@luxfi/ui/src'
+import { Text } from '@l.x/ui/src'
 import { AnalyticsToggleLineSwitch } from '@luxfi/wallet/src/components/settings/AnalyticsToggleLineSwitch'
 
 export function SettingsPrivacyScreen(): JSX.Element {

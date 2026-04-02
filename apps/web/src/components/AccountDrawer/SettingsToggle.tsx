@@ -1,5 +1,5 @@
 import { ReactNode } from 'react'
-import { Flex, Switch, Text } from '@luxfi/ui/src'
+import { Flex, Switch, Text } from '@l.x/ui/src'
 
 interface SettingsToggleProps {
   title: string | ReactNode

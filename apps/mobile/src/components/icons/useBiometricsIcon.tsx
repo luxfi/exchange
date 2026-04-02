@@ -1,5 +1,5 @@
 import { useDeviceSupportsBiometricAuth } from 'src/features/biometrics/useDeviceSupportsBiometricAuth'
-import { Faceid, Fingerprint } from '@luxfi/ui/src/components/icons'
+import { Faceid, Fingerprint } from '@l.x/ui/src/components/icons'
 
 export type BiometricsIconProps = {
   color?: string

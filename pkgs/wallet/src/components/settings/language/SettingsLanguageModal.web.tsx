@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next'
-import { Button, Flex, Text } from '@luxfi/ui/src'
-import { Language } from '@luxfi/ui/src/components/icons'
-import { DEP_accentColors, opacify } from '@luxfi/ui/src/theme'
+import { Button, Flex, Text } from '@l.x/ui/src'
+import { Language } from '@l.x/ui/src/components/icons'
+import { DEP_accentColors, opacify } from '@l.x/ui/src/theme'
 import { Modal } from '@l.x/lx/src/components/modals/Modal'
 import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
 

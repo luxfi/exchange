@@ -1,7 +1,7 @@
 import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Flex, Text, useMedia } from '@luxfi/ui/src'
-import { Chevron } from '@luxfi/ui/src/components/icons/Chevron'
+import { Flex, Text, useMedia } from '@l.x/ui/src'
+import { Chevron } from '@l.x/ui/src/components/icons/Chevron'
 import { BreadcrumbNavContainer, BreadcrumbNavLink } from '~/components/BreadcrumbNav'
 import {
   PoolProgressIndicator,

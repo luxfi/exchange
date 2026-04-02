@@ -1,5 +1,5 @@
 import { type ChartOptions, CrosshairMode, type DeepPartial, LineStyle, LineType } from 'lightweight-charts'
-import { opacify } from '@luxfi/ui/src/theme'
+import { opacify } from '@l.x/ui/src/theme'
 import type { ClearingPriceChartControllerCreateParams } from '~/components/Charts/ToucanChart/clearingPrice/types'
 import { CHART_FONT_FAMILY, LABEL_CONFIG } from '~/components/Toucan/Auction/BidDistributionChart/constants'
 

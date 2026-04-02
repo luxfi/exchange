@@ -1,6 +1,6 @@
 import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Flex, useSporeColors } from '@luxfi/ui/src'
+import { Flex, useSporeColors } from '@l.x/ui/src'
 import { StepStatus } from '@l.x/lx/src/components/ConfirmSwapModal/types'
 import { CurrencyLogo } from '@l.x/lx/src/components/CurrencyLogo/CurrencyLogo'
 import { lxUrls } from '@l.x/lx/src/constants/urls'

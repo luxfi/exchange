@@ -1,7 +1,7 @@
 import { useMemo } from 'react'
-import { Flex, FlexProps, Text, TouchableArea, TouchableAreaProps, useSporeColors } from '@luxfi/ui/src'
-import { ExternalLink } from '@luxfi/ui/src/components/icons'
-import { iconSizes, TextVariantTokens } from '@luxfi/ui/src/theme'
+import { Flex, FlexProps, Text, TouchableArea, TouchableAreaProps, useSporeColors } from '@l.x/ui/src'
+import { ExternalLink } from '@l.x/ui/src/components/icons'
+import { iconSizes, TextVariantTokens } from '@l.x/ui/src/theme'
 import { openUri } from '@l.x/lx/src/utils/linking'
 
 interface LinkButtonProps extends Omit<TouchableAreaProps, 'onPress' | 'children' | 'variant'> {

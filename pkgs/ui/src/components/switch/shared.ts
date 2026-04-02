@@ -1,4 +1,4 @@
-import { spacing } from '@luxfi/ui/src/theme'
+import { spacing } from '@l.x/ui/src/theme'
 
 export const SWITCH_THUMB_HEIGHT = spacing.spacing24
 export const SWITCH_THUMB_PADDING = spacing.spacing4

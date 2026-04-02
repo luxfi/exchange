@@ -13,9 +13,9 @@ import {
   useExtractedColors,
   useIsDarkMode,
   useSporeColors,
-} from '@luxfi/ui/src'
-import { Pen } from '@luxfi/ui/src/components/icons'
-import { borderRadii, fonts, iconSizes, imageSizes, spacing } from '@luxfi/ui/src/theme'
+} from '@l.x/ui/src'
+import { Pen } from '@l.x/ui/src/components/icons'
+import { borderRadii, fonts, iconSizes, imageSizes, spacing } from '@l.x/ui/src/theme'
 import { DisplayNameText } from '@l.x/lx/src/components/accounts/DisplayNameText'
 import { TextInput } from '@l.x/lx/src/components/input/TextInput'
 import { UnitagsApiClient } from '@l.x/lx/src/data/apiClients/unitagsApi/UnitagsApiClient'

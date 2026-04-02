@@ -1,6 +1,6 @@
-import { CircleSpinner, EmptySpinner } from '@luxfi/ui/src/components/icons'
-import { Flex } from '@luxfi/ui/src/components/layout'
-import { SpinningLoaderProps } from '@luxfi/ui/src/loading/types'
+import { CircleSpinner, EmptySpinner } from '@l.x/ui/src/components/icons'
+import { Flex } from '@l.x/ui/src/components/layout'
+import { SpinningLoaderProps } from '@l.x/ui/src/loading/types'
 
 const rotateCSS = `
   @keyframes rotate360 {

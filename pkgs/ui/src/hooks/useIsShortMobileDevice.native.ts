@@ -1,7 +1,7 @@
 import { useSafeAreaFrame } from 'react-native-safe-area-context'
-import { DEFAULT_BOTTOM_INSET, MobileDeviceHeight } from '@luxfi/ui/src/hooks/constants'
+import { DEFAULT_BOTTOM_INSET, MobileDeviceHeight } from '@l.x/ui/src/hooks/constants'
 // biome-ignore lint/style/noRestrictedImports: Use `useAppInsets` instead
-import { useDeviceInsets } from '@luxfi/ui/src/hooks/useDeviceInsets'
+import { useDeviceInsets } from '@l.x/ui/src/hooks/useDeviceInsets'
 
 /**
  * @param deviceHeight - The type of device to check the height against. Defaults to MobileDeviceHeight.iPhone12 (812 height). @default MobileDeviceHeight.iPhone12

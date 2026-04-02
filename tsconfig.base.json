@@ -53,7 +53,7 @@
       "@l.x/react-query/*": ["./pkgs/react-query/*"],
       "@l.x/analytics/*": ["./pkgs/analytics/*"],
       "@l.x/trpc/*": ["./pkgs/trpc/*"],
-      "@luxfi/ui/*": ["./pkgs/ui/*"],
+      "@l.x/ui/*": ["./pkgs/ui/*"],
       "@luxfi/utilities/*": ["./pkgs/utilities/*"],
       "@luxfi/wallet/*": ["./pkgs/wallet/*"],
       "@luxfi/dex/*": ["./pkgs/dex/*"],

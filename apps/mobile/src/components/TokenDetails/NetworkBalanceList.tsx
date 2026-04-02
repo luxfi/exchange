@@ -1,6 +1,6 @@
 import { memo, useMemo } from 'react'
-import { Flex, Text, TouchableArea } from '@luxfi/ui/src'
-import { borderRadii, iconSizes } from '@luxfi/ui/src/theme'
+import { Flex, Text, TouchableArea } from '@l.x/ui/src'
+import { borderRadii, iconSizes } from '@l.x/ui/src/theme'
 import { NetworkLogo } from '@l.x/lx/src/components/CurrencyLogo/NetworkLogo'
 import { getChainInfo } from '@l.x/lx/src/features/chains/chainInfo'
 import { PortfolioBalance } from '@l.x/lx/src/features/dataApi/types'

@@ -1,7 +1,7 @@
 import { memo, useCallback, useEffect, useMemo, useRef } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router'
-import { Flex, useMedia } from '@luxfi/ui/src'
+import { Flex, useMedia } from '@l.x/ui/src'
 import { NftsList } from '@l.x/lx/src/components/nfts/NftsList'
 import { NftsListEmptyState } from '@l.x/lx/src/components/nfts/NftsListEmptyState'
 import { PollingInterval } from '@l.x/lx/src/constants/misc'

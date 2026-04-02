@@ -1,4 +1,4 @@
-import { iconSizes, TextVariantTokens } from '@luxfi/ui/src/theme'
+import { iconSizes, TextVariantTokens } from '@l.x/ui/src/theme'
 import { useEnabledChains } from '@l.x/lx/src/features/chains/hooks/useEnabledChains'
 import { toSupportedChainId } from '@l.x/lx/src/features/chains/utils'
 import { useENSName } from '@l.x/lx/src/features/ens/api'

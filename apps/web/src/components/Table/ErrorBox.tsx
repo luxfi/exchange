@@ -1,5 +1,5 @@
-import { Flex, Text } from '@luxfi/ui/src'
-import { ChartBarCrossed } from '@luxfi/ui/src/components/icons/ChartBarCrossed'
+import { Flex, Text } from '@l.x/ui/src'
+import { ChartBarCrossed } from '@l.x/ui/src/components/icons/ChartBarCrossed'
 
 export function ChartBarCrossedWithBackground(): JSX.Element {
   return (

@@ -1,6 +1,6 @@
 import React from 'react'
-import { Flex, Text, TouchableArea, useIsDarkMode } from '@luxfi/ui/src'
-import { iconSizes } from '@luxfi/ui/src/theme'
+import { Flex, Text, TouchableArea, useIsDarkMode } from '@l.x/ui/src'
+import { iconSizes } from '@l.x/ui/src/theme'
 import { ElementName } from '@l.x/lx/src/features/telemetry/constants'
 import Trace from '@l.x/lx/src/features/telemetry/Trace'
 import { TestIDType } from '@l.x/lx/src/test/fixtures/testIDs'

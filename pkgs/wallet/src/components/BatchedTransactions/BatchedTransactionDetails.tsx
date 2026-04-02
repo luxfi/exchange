@@ -11,9 +11,9 @@ import {
   ViewStyle,
 } from 'react-native'
 import { FlatList } from 'react-native-gesture-handler'
-import { Flex, Text, TouchableArea, useSporeColors } from '@luxfi/ui/src'
-import { CopySheets } from '@luxfi/ui/src/components/icons'
-import { iconSizes, spacing } from '@luxfi/ui/src/theme'
+import { Flex, Text, TouchableArea, useSporeColors } from '@l.x/ui/src'
+import { CopySheets } from '@l.x/ui/src/components/icons'
+import { iconSizes, spacing } from '@l.x/ui/src/theme'
 import { GradientOverlay, ScrollArrow } from '@l.x/lx/src/components/BatchedTransactions/CarouselControls'
 import { ExpandoRow } from '@l.x/lx/src/components/ExpandoRow/ExpandoRow'
 import { ContentRow } from '@l.x/lx/src/components/transactions/requests/ContentRow'

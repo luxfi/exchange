@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
-import { TouchableArea } from '@luxfi/ui/src/components/touchable'
-import { RefreshIcon } from '@luxfi/ui/src/loading/RefreshIcon'
+import { TouchableArea } from '@l.x/ui/src/components/touchable'
+import { RefreshIcon } from '@l.x/ui/src/loading/RefreshIcon'
 import { ONE_SECOND_MS } from 'utilities/src/time/time'
 
 /**

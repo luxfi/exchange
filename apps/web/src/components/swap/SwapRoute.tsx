@@ -1,5 +1,5 @@
 import { Trans } from 'react-i18next'
-import { Separator } from '@luxfi/ui/src'
+import { Separator } from '@l.x/ui/src'
 import Column from '~/components/deprecated/Column'
 import { RowBetween } from '~/components/deprecated/Row'
 import RouterLabel from '~/components/RouterLabel'

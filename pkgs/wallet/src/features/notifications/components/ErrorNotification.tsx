@@ -1,4 +1,4 @@
-import { AlertTriangleFilled } from '@luxfi/ui/src/components/icons'
+import { AlertTriangleFilled } from '@l.x/ui/src/components/icons'
 import { NotificationToast } from '@l.x/lx/src/components/notifications/NotificationToast'
 import { AppErrorNotification } from '@l.x/lx/src/features/notifications/slice/types'
 

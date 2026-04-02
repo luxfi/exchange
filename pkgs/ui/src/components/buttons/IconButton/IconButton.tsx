@@ -1,11 +1,11 @@
 import { forwardRef } from 'react'
 import { styled, type GuiElement } from '@hanzo/gui'
-import { CustomButtonFrame } from '@luxfi/ui/src/components/buttons/Button/components/CustomButtonFrame/CustomButtonFrame'
-import { ThemedIcon } from '@luxfi/ui/src/components/buttons/Button/components/ThemedIcon'
-import { ThemedSpinningLoader } from '@luxfi/ui/src/components/buttons/Button/components/ThemedSpinnerLoader'
-import { useButtonAnimationOnChange } from '@luxfi/ui/src/components/buttons/Button/hooks/useButtonAnimationOnChange'
-import type { ButtonProps } from '@luxfi/ui/src/components/buttons/Button/types'
-import { getIsButtonDisabled } from '@luxfi/ui/src/components/buttons/Button/utils/getIsButtonDisabled'
+import { CustomButtonFrame } from '@l.x/ui/src/components/buttons/Button/components/CustomButtonFrame/CustomButtonFrame'
+import { ThemedIcon } from '@l.x/ui/src/components/buttons/Button/components/ThemedIcon'
+import { ThemedSpinningLoader } from '@l.x/ui/src/components/buttons/Button/components/ThemedSpinnerLoader'
+import { useButtonAnimationOnChange } from '@l.x/ui/src/components/buttons/Button/hooks/useButtonAnimationOnChange'
+import type { ButtonProps } from '@l.x/ui/src/components/buttons/Button/types'
+import { getIsButtonDisabled } from '@l.x/ui/src/components/buttons/Button/utils/getIsButtonDisabled'
 
 // Helper to omit keys from a type that have a certain string (lowercased) in the name
 type OmitIncludingToLowercase<T, Str extends string> = {

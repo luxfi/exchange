@@ -1,5 +1,5 @@
-import { Flex, Text } from '@luxfi/ui/src'
-import { iconSizes } from '@luxfi/ui/src/theme'
+import { Flex, Text } from '@l.x/ui/src'
+import { iconSizes } from '@l.x/ui/src/theme'
 import { NetworkLogo } from '@l.x/lx/src/components/CurrencyLogo/NetworkLogo'
 
 interface FiatFeeDisplayProps {

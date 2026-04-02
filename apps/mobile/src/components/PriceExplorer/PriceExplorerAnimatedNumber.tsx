@@ -12,8 +12,8 @@ import Animated, {
 } from 'react-native-reanimated'
 import { ValueAndFormattedWithAnimation } from 'src/components/PriceExplorer/usePrice'
 import { PriceNumberOfDigits } from 'src/components/PriceExplorer/usePriceHistory'
-import { TextLoaderWrapper, useSporeColors } from '@luxfi/ui/src'
-import { fonts } from '@luxfi/ui/src/theme'
+import { TextLoaderWrapper, useSporeColors } from '@l.x/ui/src'
+import { fonts } from '@l.x/ui/src/theme'
 import {
   ADDITIONAL_WIDTH_FOR_ANIMATIONS,
   AnimatedCharStyles,

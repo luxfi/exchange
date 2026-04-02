@@ -1,5 +1,5 @@
-import { Flex, UniversalImage } from '@luxfi/ui/src'
-import { borderRadii, iconSizes } from '@luxfi/ui/src/theme'
+import { Flex, UniversalImage } from '@l.x/ui/src'
+import { borderRadii, iconSizes } from '@l.x/ui/src/theme'
 import { CurrencyLogo } from '@l.x/lx/src/components/CurrencyLogo/CurrencyLogo'
 import { DappIconPlaceholder } from '@l.x/lx/src/components/dapps/DappIconPlaceholder'
 import { CurrencyInfo } from '@l.x/lx/src/features/dataApi/types'

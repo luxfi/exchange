@@ -1,5 +1,5 @@
 import { Trans, useTranslation } from 'react-i18next'
-import { Button, Flex, Text } from '@luxfi/ui/src'
+import { Button, Flex, Text } from '@l.x/ui/src'
 import { LearnMoreLink } from '@l.x/lx/src/components/text/LearnMoreLink'
 import { lxUrls } from '@l.x/lx/src/constants/urls'
 import { ExplorerDataType, getExplorerLink } from '@l.x/lx/src/utils/linking'

@@ -4,9 +4,9 @@ import { useTranslation } from 'react-i18next'
 import Animated, { FadeIn, FadeOut } from 'react-native-reanimated'
 import { useTokenDetailsContext } from 'src/components/TokenDetails/TokenDetailsContext'
 import { LongText } from 'src/components/text/LongText'
-import { Flex, Text, TouchableArea, useSporeColors } from '@luxfi/ui/src'
-import { ChartBar, ChartPie, ChartPyramid, Language as LanguageIcon, TrendDown, TrendUp } from '@luxfi/ui/src/components/icons'
-import { DEP_accentColors, validColor } from '@luxfi/ui/src/theme'
+import { Flex, Text, TouchableArea, useSporeColors } from '@l.x/ui/src'
+import { ChartBar, ChartPie, ChartPyramid, Language as LanguageIcon, TrendDown, TrendUp } from '@l.x/ui/src/components/icons'
+import { DEP_accentColors, validColor } from '@l.x/ui/src/theme'
 import {
   useTokenBasicInfoPartsFragment,
   useTokenBasicProjectPartsFragment,

@@ -1,15 +1,15 @@
 // until the web app needs all of gui, avoid heavy imports there
 // biome-ignore lint/style/noRestrictedImports: until the web app needs all of gui, avoid heavy imports there
 import { type ColorTokens, createTokens } from '@hanzogui/core'
-import type { DynamicColor } from '@luxfi/ui/src/hooks/useSporeColors'
-import { borderRadii } from '@luxfi/ui/src/theme/borderRadii'
-import { colors as color } from '@luxfi/ui/src/theme/color/colors'
-import { fonts } from '@luxfi/ui/src/theme/fonts'
-import { iconSizes } from '@luxfi/ui/src/theme/iconSizes'
-import { imageSizes } from '@luxfi/ui/src/theme/imageSizes'
-import { gap, padding, spacing } from '@luxfi/ui/src/theme/spacing'
-import { themes } from '@luxfi/ui/src/theme/themes'
-import { zIndexes } from '@luxfi/ui/src/theme/zIndexes'
+import type { DynamicColor } from '@l.x/ui/src/hooks/useSporeColors'
+import { borderRadii } from '@l.x/ui/src/theme/borderRadii'
+import { colors as color } from '@l.x/ui/src/theme/color/colors'
+import { fonts } from '@l.x/ui/src/theme/fonts'
+import { iconSizes } from '@l.x/ui/src/theme/iconSizes'
+import { imageSizes } from '@l.x/ui/src/theme/imageSizes'
+import { gap, padding, spacing } from '@l.x/ui/src/theme/spacing'
+import { themes } from '@l.x/ui/src/theme/themes'
+import { zIndexes } from '@l.x/ui/src/theme/zIndexes'
 
 const space = { ...spacing, ...padding, ...gap, true: spacing.spacing8 }
 

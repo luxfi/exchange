@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next'
-import { Button, Flex, GeneratedIcon, Square, Text, useSporeColors } from '@luxfi/ui/src'
-import { HelpCenter } from '@luxfi/ui/src/components/icons'
+import { Button, Flex, GeneratedIcon, Square, Text, useSporeColors } from '@l.x/ui/src'
+import { HelpCenter } from '@l.x/ui/src/components/icons'
 import { Modal } from '@l.x/lx/src/components/modals/Modal'
 import { lxUrls } from '@l.x/lx/src/constants/urls'
 import { ModalName } from '@l.x/lx/src/features/telemetry/constants'

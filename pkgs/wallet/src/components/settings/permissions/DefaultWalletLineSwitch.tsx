@@ -1,4 +1,4 @@
-import { Flex, Switch, Text } from '@luxfi/ui/src'
+import { Flex, Switch, Text } from '@l.x/ui/src'
 
 type DefaultWalletLineSwitchProps = {
   description: string

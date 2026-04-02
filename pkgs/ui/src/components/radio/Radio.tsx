@@ -1,7 +1,7 @@
 import { createContext, PropsWithChildren, ReactElement, useContext, useState } from 'react'
 import { AnimatePresence, GetThemeValueForKey, RadioGroup, RadioGroupItemProps, RadioGroupProps } from '@hanzo/gui'
-import { Flex } from '@luxfi/ui/src/components/layout'
-import { SporeComponentVariant } from '@luxfi/ui/src/components/types'
+import { Flex } from '@l.x/ui/src/components/layout'
+import { SporeComponentVariant } from '@l.x/ui/src/components/types'
 
 // Used to pass the selected value of the RadioGroup down to the RadioButtons.
 const RadioButtonGroupContext = createContext<string | undefined>(undefined)

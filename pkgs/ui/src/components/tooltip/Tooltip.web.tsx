@@ -1,7 +1,7 @@
 import { AdaptParent } from '@hanzogui/adapt'
 import { useEffect, useId } from 'react'
 import { styled, Tooltip as GuiTooltip, withStaticProperties } from '@hanzo/gui'
-import { TooltipContentProps } from '@luxfi/ui/src/components/tooltip/Tooltip'
+import { TooltipContentProps } from '@l.x/ui/src/components/tooltip/Tooltip'
 import { useEvent } from 'utilities/src/react/hooks'
 import { useBooleanState } from 'utilities/src/react/useBooleanState'
 

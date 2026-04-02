@@ -1,6 +1,6 @@
 import { Token } from '@luxamm/sdk-core'
 import { GraphQLApi } from '@l.x/api'
-import { Flex } from '@luxfi/ui/src'
+import { Flex } from '@l.x/ui/src'
 import { UNI, WBTC } from '@l.x/lx/src/constants/tokens'
 import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { getCurrencySafetyInfo } from '@l.x/lx/src/features/dataApi/utils/getCurrencySafetyInfo'

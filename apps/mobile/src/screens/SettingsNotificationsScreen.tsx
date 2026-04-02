@@ -7,9 +7,9 @@ import {
   useAddressNotificationToggle,
   useSettingNotificationToggle,
 } from 'src/features/notifications/hooks/useNotificationsToggle'
-import { Flex, Switch, Text } from '@luxfi/ui/src'
-import { useDeviceDimensions } from '@luxfi/ui/src/hooks/useDeviceDimensions'
-import { iconSizes, spacing } from '@luxfi/ui/src/theme'
+import { Flex, Switch, Text } from '@l.x/ui/src'
+import { useDeviceDimensions } from '@l.x/ui/src/hooks/useDeviceDimensions'
+import { iconSizes, spacing } from '@l.x/ui/src/theme'
 import { AddressDisplay } from '@l.x/lx/src/components/accounts/AddressDisplay'
 import { AccountType } from '@l.x/lx/src/features/accounts/types'
 import { MobileEventName } from '@l.x/lx/src/features/telemetry/constants'

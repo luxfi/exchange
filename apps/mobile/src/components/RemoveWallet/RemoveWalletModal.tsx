@@ -1,7 +1,7 @@
 import { AppStackScreenProp } from 'src/app/navigation/types'
 import { useReactNavigationModal } from 'src/components/modals/useReactNavigationModal'
 import { RemoveWalletContent } from 'src/components/RemoveWallet/RemoveWalletContent'
-import { useSporeColors } from '@luxfi/ui/src'
+import { useSporeColors } from '@l.x/ui/src'
 import { Modal } from '@l.x/lx/src/components/modals/Modal'
 import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
 

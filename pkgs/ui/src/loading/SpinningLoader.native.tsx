@@ -7,9 +7,9 @@ import {
   withRepeat,
   withTiming,
 } from 'react-native-reanimated'
-import { CircleSpinner, EmptySpinner } from '@luxfi/ui/src/components/icons'
-import { AnimatedFlex } from '@luxfi/ui/src/components/layout/AnimatedFlex'
-import { SpinningLoaderProps } from '@luxfi/ui/src/loading/types'
+import { CircleSpinner, EmptySpinner } from '@l.x/ui/src/components/icons'
+import { AnimatedFlex } from '@l.x/ui/src/components/layout/AnimatedFlex'
+import { SpinningLoaderProps } from '@l.x/ui/src/loading/types'
 
 export function SpinningLoader({ size = 20, disabled, color }: SpinningLoaderProps): JSX.Element {
   const rotation = useSharedValue(0)

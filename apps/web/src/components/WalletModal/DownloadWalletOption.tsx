@@ -1,7 +1,7 @@
 import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { useState } from 'react'
 import { Trans } from 'react-i18next'
-import { Flex, Image, Text } from '@luxfi/ui/src'
+import { Flex, Image, Text } from '@l.x/ui/src'
 import { ElementName, ModalName } from '@l.x/lx/src/features/telemetry/constants'
 import Trace from '@l.x/lx/src/features/telemetry/Trace'
 import { useEvent } from '@luxfi/utilities/src/react/hooks'

@@ -1,6 +1,6 @@
 import { memo, useCallback, useEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Flex, type Input, Text, TouchableArea, useMedia, useScrollbarStyles, useSporeColors } from '@luxfi/ui/src'
+import { Flex, type Input, Text, TouchableArea, useMedia, useScrollbarStyles, useSporeColors } from '@l.x/ui/src'
 import { Modal } from '@l.x/lx/src/components/modals/Modal'
 import { useUpdateScrollLock } from '@l.x/lx/src/components/modals/ScrollLock'
 import { NetworkFilter } from '@l.x/lx/src/components/network/NetworkFilter'

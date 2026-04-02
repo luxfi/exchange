@@ -1,6 +1,6 @@
 import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Flex } from '@luxfi/ui/src'
+import { Flex } from '@l.x/ui/src'
 import { useTokenPriceChange } from '@l.x/lx/src/features/dataApi/tokenDetails/useTokenDetailsData'
 import { currencyId } from '@l.x/lx/src/utils/currencyId'
 import { TimePeriod, toHistoryDuration } from '~/appGraphql/data/util'

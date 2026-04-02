@@ -1,6 +1,6 @@
-import { Flex, Text } from '@luxfi/ui/src'
-import { AlertTriangleFilled } from '@luxfi/ui/src/components/icons/AlertTriangleFilled'
-import { iconSizes } from '@luxfi/ui/src/theme'
+import { Flex, Text } from '@l.x/ui/src'
+import { AlertTriangleFilled } from '@l.x/ui/src/components/icons/AlertTriangleFilled'
+import { iconSizes } from '@l.x/ui/src/theme'
 
 type WarningBoxProps = {
   level: 'warning' | 'critical'

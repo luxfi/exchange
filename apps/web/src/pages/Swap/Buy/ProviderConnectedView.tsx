@@ -1,6 +1,6 @@
 import { brand, getBrandUrl, getDocsUrl } from '@l.x/config'
 import { Trans, useTranslation } from 'react-i18next'
-import { Flex, Text, useIsDarkMode, useSporeColors } from '@luxfi/ui/src'
+import { Flex, Text, useIsDarkMode, useSporeColors } from '@l.x/ui/src'
 import { ServiceProviderLogoStyles } from '@l.x/lx/src/features/fiatOnRamp/constants'
 import { FORServiceProvider } from '@l.x/lx/src/features/fiatOnRamp/types'
 import { getOptionalServiceProviderLogo } from '@l.x/lx/src/features/fiatOnRamp/utils'

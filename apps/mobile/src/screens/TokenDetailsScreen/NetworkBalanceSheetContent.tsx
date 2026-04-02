@@ -1,8 +1,8 @@
 import { BottomSheetScrollView } from '@gorhom/bottom-sheet'
 import { useTranslation } from 'react-i18next'
 import { NetworkBalanceList } from 'src/components/TokenDetails/NetworkBalanceList'
-import { Flex, Text } from '@luxfi/ui/src'
-import { spacing } from '@luxfi/ui/src/theme'
+import { Flex, Text } from '@l.x/ui/src'
+import { spacing } from '@l.x/ui/src/theme'
 import { PortfolioBalance } from '@l.x/lx/src/features/dataApi/types'
 
 const STICKY_HEADER_INDICES = [0]

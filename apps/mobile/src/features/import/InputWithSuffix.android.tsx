@@ -1,7 +1,7 @@
 import { useCallback, useRef, useState } from 'react'
 import { LayoutChangeEvent } from 'react-native'
 import { InputWithSuffixProps } from 'src/features/import/InputWIthSuffixProps'
-import { Flex } from '@luxfi/ui/src'
+import { Flex } from '@l.x/ui/src'
 import { TextInput } from '@l.x/lx/src/components/input/TextInput'
 import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
 

@@ -1,10 +1,10 @@
 import { memo, useMemo } from 'react'
 import { I18nManager } from 'react-native'
 import { ColorTokens } from '@hanzo/gui'
-import { IconProps } from '@luxfi/ui/src/components/factories/createIcon'
-import { Chevron } from '@luxfi/ui/src/components/icons'
-import { Flex, FlexProps } from '@luxfi/ui/src/components/layout'
-import { IconSizeTokens } from '@luxfi/ui/src/theme/tokens'
+import { IconProps } from '@l.x/ui/src/components/factories/createIcon'
+import { Chevron } from '@l.x/ui/src/components/icons'
+import { Flex, FlexProps } from '@l.x/ui/src/components/layout'
+import { IconSizeTokens } from '@l.x/ui/src/theme/tokens'
 
 type Props = {
   size?: IconSizeTokens

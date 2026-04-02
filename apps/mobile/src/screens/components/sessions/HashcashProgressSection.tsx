@@ -1,6 +1,6 @@
 import React, { memo } from 'react'
 import { useSessionsDebugStore } from 'src/screens/stores/sessionsDebugStore'
-import { Flex, Text } from '@luxfi/ui/src'
+import { Flex, Text } from '@l.x/ui/src'
 import { useShallow } from 'zustand/shallow'
 
 export const HashcashProgressSection = memo(function HashcashProgressSection(): JSX.Element | null {

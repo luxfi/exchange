@@ -2,13 +2,13 @@ import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { useCallback, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
-import { useIsDarkMode } from '@luxfi/ui/src'
+import { useIsDarkMode } from '@l.x/ui/src'
 import {
   NO_FEES_ICON,
   NO_LX_INTERFACE_FEES_BANNER_DARK,
   NO_LX_INTERFACE_FEES_BANNER_LIGHT,
-} from '@luxfi/ui/src/assets'
-import { Person, ShieldCheck } from '@luxfi/ui/src/components/icons'
+} from '@l.x/ui/src/assets'
+import { Person, ShieldCheck } from '@l.x/ui/src/components/icons'
 import { useLuxContext } from '@l.x/lx/src/contexts/LuxContext'
 import { AccountType } from '@l.x/lx/src/features/accounts/types'
 import { UniverseChainId } from '@l.x/lx/src/features/chains/types'

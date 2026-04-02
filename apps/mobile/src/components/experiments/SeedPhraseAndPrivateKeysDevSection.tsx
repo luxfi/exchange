@@ -1,6 +1,6 @@
 import React from 'react'
 import { Alert } from 'react-native'
-import { Accordion, Flex } from '@luxfi/ui/src'
+import { Accordion, Flex } from '@l.x/ui/src'
 import { GatingButton } from '@l.x/lx/src/components/gating/GatingButton'
 import { AccordionHeader } from '@l.x/lx/src/components/gating/GatingOverrides'
 import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'

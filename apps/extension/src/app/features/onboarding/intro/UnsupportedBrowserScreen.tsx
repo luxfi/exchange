@@ -1,8 +1,8 @@
 import { useTranslation } from 'react-i18next'
 import { MainIntroWrapper } from 'src/app/features/onboarding/intro/MainIntroWrapper'
 import { isAndroid } from 'src/app/utils/chrome'
-import { Flex, Text } from '@luxfi/ui/src'
-import { AlertTriangleFilled } from '@luxfi/ui/src/components/icons'
+import { Flex, Text } from '@l.x/ui/src'
+import { AlertTriangleFilled } from '@l.x/ui/src/components/icons'
 import Trace from '@l.x/lx/src/features/telemetry/Trace'
 import { ExtensionScreens } from '@l.x/lx/src/types/screens/extension'
 

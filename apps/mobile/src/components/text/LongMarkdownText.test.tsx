@@ -3,7 +3,7 @@ import { MarkdownProps } from 'react-native-markdown-display'
 import { ReactTestInstance } from 'react-test-renderer'
 import { LongMarkdownText } from 'src/components/text/LongMarkdownText'
 import { fireEvent, render, within } from 'src/test/test-utils'
-import { fonts } from '@luxfi/ui/src/theme'
+import { fonts } from '@l.x/ui/src/theme'
 import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
 
 const TEXT_VARIANT = 'body2'

@@ -1,5 +1,5 @@
 import { act, render, renderHook } from '@testing-library/react'
-import { useShakeAnimation } from '@luxfi/ui/src/animations/hooks/useShakeAnimation'
+import { useShakeAnimation } from '@l.x/ui/src/animations/hooks/useShakeAnimation'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
 // Test component that uses useShakeAnimation

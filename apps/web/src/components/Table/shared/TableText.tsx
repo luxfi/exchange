@@ -1,6 +1,6 @@
 import { PropsWithChildren } from 'react'
-import { Text, TextProps } from '@luxfi/ui/src'
-import { breakpoints } from '@luxfi/ui/src/theme'
+import { Text, TextProps } from '@l.x/ui/src'
+import { breakpoints } from '@l.x/ui/src/theme'
 import { useTableSize } from '~/components/Table/TableSizeProvider'
 
 export const TableText = ({ children, ...props }: PropsWithChildren<TextProps>) => {

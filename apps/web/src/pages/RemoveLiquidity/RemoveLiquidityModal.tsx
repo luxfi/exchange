@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next'
-import { HeightAnimator } from '@luxfi/ui/src'
+import { HeightAnimator } from '@l.x/ui/src'
 import { Modal } from '@l.x/lx/src/components/modals/Modal'
 import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
 import { LPTransactionSettingsStoreContextProvider } from '@l.x/lx/src/features/transactions/components/settings/stores/transactionSettingsStore/LPTransactionSettingsStoreContextProvider'

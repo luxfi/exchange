@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next'
-import { AnimatableCopyIcon, Flex, FlexProps } from '@luxfi/ui/src'
+import { AnimatableCopyIcon, Flex, FlexProps } from '@l.x/ui/src'
 import { ElementName } from '@l.x/lx/src/features/telemetry/constants'
 import Trace from '@l.x/lx/src/features/telemetry/Trace'
 import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'

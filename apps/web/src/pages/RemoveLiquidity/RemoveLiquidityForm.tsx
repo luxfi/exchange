@@ -1,6 +1,6 @@
 import { useMemo } from 'react'
 import { Trans, useTranslation } from 'react-i18next'
-import { Button, Flex, Switch, Text } from '@luxfi/ui/src'
+import { Button, Flex, Switch, Text } from '@l.x/ui/src'
 import { nativeOnChain } from '@l.x/lx/src/constants/tokens'
 import useResizeObserver from 'use-resize-observer'
 import { ErrorCallout } from '~/components/ErrorCallout'

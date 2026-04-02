@@ -2,7 +2,7 @@
 const nextConfig = {
   // Monorepo: transpile workspace packages
   transpilePackages: [
-    '@luxfi/ui',
+    '@l.x/ui',
     '@luxfi/exchange',
     '@luxfi/api',
     '@luxfi/config',

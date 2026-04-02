@@ -1,7 +1,7 @@
 import { WalletOptionsGrid } from 'components/WalletModal/WalletOptionsGrid'
 import { useTranslation } from 'react-i18next'
-import { Flex, Text } from '@luxfi/ui/src'
-import { Wallet } from '@luxfi/ui/src/components/icons/Wallet'
+import { Flex, Text } from '@l.x/ui/src'
+import { Wallet } from '@l.x/ui/src/components/icons/Wallet'
 
 /**
  * Compact version of the wallet connection modal.

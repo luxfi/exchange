@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import { useAnimatedStyle, useDerivedValue, withSequence, withTiming } from 'react-native-reanimated'
-import { Flex, useSporeColors } from '@luxfi/ui/src'
-import { HeartWithFill } from '@luxfi/ui/src/components/icons'
+import { Flex, useSporeColors } from '@l.x/ui/src'
+import { HeartWithFill } from '@l.x/ui/src/components/icons'
 
 interface FavoriteButtonProps {
   isFavorited: boolean

@@ -1,4 +1,4 @@
-import { Flex, Unicon, UniversalImage } from '@luxfi/ui/src'
+import { Flex, Unicon, UniversalImage } from '@l.x/ui/src'
 import { AccountIcon } from '@l.x/lx/src/features/accounts/AccountIcon'
 
 export function UnitagProfilePicture({

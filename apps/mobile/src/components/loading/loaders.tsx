@@ -1,7 +1,7 @@
 import React, { memo } from 'react'
 import { TransactionLoader } from 'src/components/loading/parts/TransactionLoader'
 import { WaveLoader } from 'src/components/loading/parts/WaveLoader'
-import { Flex, FlexLoader, FlexLoaderProps, getToken, Skeleton } from '@luxfi/ui/src'
+import { Flex, FlexLoader, FlexLoaderProps, getToken, Skeleton } from '@l.x/ui/src'
 
 function Graph(): JSX.Element {
   return (

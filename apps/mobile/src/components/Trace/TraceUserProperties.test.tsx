@@ -6,7 +6,7 @@ import * as biometricAppSettingsHooks from 'src/features/biometrics/useBiometric
 import * as deviceBiometricHooks from 'src/features/biometrics/useDeviceSupportsBiometricAuth'
 import { AuthMethod } from 'src/features/telemetry/utils'
 import * as versionUtils from 'src/utils/version'
-import * as useIsDarkModeFile from '@luxfi/ui/src/hooks/useIsDarkMode'
+import * as useIsDarkModeFile from '@l.x/ui/src/hooks/useIsDarkMode'
 import { AccountType } from '@l.x/lx/src/features/accounts/types'
 import { FiatCurrency } from '@l.x/lx/src/features/fiatCurrency/constants'
 import * as fiatCurrencyHooks from '@l.x/lx/src/features/fiatCurrency/hooks'

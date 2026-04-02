@@ -1,5 +1,5 @@
 import { useEffect, useMemo } from 'react'
-import { ColorTokens, useSporeColors } from '@luxfi/ui/src'
+import { ColorTokens, useSporeColors } from '@l.x/ui/src'
 import { useActiveAddress } from '@l.x/lx/src/features/accounts/store/hooks'
 import { EVMUniverseChainId, UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'

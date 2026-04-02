@@ -1,4 +1,4 @@
-import { getMaybeHexOrRGBColor } from '@luxfi/ui/src/components/buttons/Button/utils/getMaybeHexOrRGBColor'
+import { getMaybeHexOrRGBColor } from '@l.x/ui/src/components/buttons/Button/utils/getMaybeHexOrRGBColor'
 import { describe, expect, it } from 'vitest'
 
 describe('getMaybeHexOrRGBColor', () => {

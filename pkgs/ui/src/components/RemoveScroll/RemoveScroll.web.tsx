@@ -1,7 +1,7 @@
 import { RemoveScroll as GuiRemoveScroll } from '@hanzogui/remove-scroll'
 import type { ReactNode } from 'react'
 import { RemoveScroll as ReactRemoveScroll } from 'react-remove-scroll'
-import type { RemoveScrollProps } from '@luxfi/ui/src/components/RemoveScroll/RemoveScroll'
+import type { RemoveScrollProps } from '@l.x/ui/src/components/RemoveScroll/RemoveScroll'
 import { isMobileWeb } from 'utilities/src/platform'
 
 /**

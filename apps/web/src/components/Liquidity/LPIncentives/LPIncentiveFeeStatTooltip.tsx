@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next'
-import { Flex, Text } from '@luxfi/ui/src'
-import { Magic } from '@luxfi/ui/src/components/icons/Magic'
+import { Flex, Text } from '@l.x/ui/src'
+import { Magic } from '@l.x/ui/src/components/icons/Magic'
 import { SplitLogo } from '@l.x/lx/src/components/CurrencyLogo/SplitLogo'
 import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { CurrencyInfo } from '@l.x/lx/src/features/dataApi/types'

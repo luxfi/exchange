@@ -1,8 +1,8 @@
 import { RefObject, useCallback, useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Button, Flex, styled, Text, useWindowDimensions } from '@luxfi/ui/src'
-import { Gift } from '@luxfi/ui/src/components/icons/Gift'
-import { useSporeColorsForTheme } from '@luxfi/ui/src/hooks/useSporeColors'
+import { Button, Flex, styled, Text, useWindowDimensions } from '@l.x/ui/src'
+import { Gift } from '@l.x/ui/src/components/icons/Gift'
+import { useSporeColorsForTheme } from '@l.x/ui/src/hooks/useSporeColors'
 import {
   MouseGlow,
   renderSnowflakesWeb,

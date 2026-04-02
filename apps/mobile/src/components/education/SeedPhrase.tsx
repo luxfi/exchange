@@ -5,8 +5,8 @@ import { runOnJS } from 'react-native-reanimated'
 import { OnboardingStackBaseParams, useOnboardingStackNavigation } from 'src/app/navigation/types'
 import { CloseButton } from 'src/components/buttons/CloseButton'
 import { CarouselContext } from 'src/components/carousel/Carousel'
-import { Flex, Text } from '@luxfi/ui/src'
-import { useDeviceDimensions } from '@luxfi/ui/src/hooks/useDeviceDimensions'
+import { Flex, Text } from '@l.x/ui/src'
+import { useDeviceDimensions } from '@l.x/ui/src/hooks/useDeviceDimensions'
 import { getCloudProviderName } from '@l.x/lx/src/utils/cloud-backup/getCloudProviderName'
 
 function Page({ text, params }: { text: ReactNode; params: OnboardingStackBaseParams }): JSX.Element {

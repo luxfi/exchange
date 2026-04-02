@@ -21,7 +21,7 @@ import {
 import ms from 'ms'
 import { useEffect, useMemo, useRef } from 'react'
 import { useLocation, useNavigate } from 'react-router'
-import { useIsDarkMode } from '@luxfi/ui/src'
+import { useIsDarkMode } from '@l.x/ui/src'
 import { useLuxContext } from '@l.x/lx/src/contexts/LuxContext'
 import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { mapLocaleToBackendLocale } from '@l.x/lx/src/features/language/constants'

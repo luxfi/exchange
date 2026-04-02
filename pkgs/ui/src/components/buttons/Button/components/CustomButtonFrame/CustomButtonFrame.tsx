@@ -1,11 +1,11 @@
 import { GetProps, styled, XStack } from '@hanzo/gui'
-import { FOCUS_SCALE } from '@luxfi/ui/src/components/buttons/Button/components/CustomButtonFrame/constants'
-import { withCommonPressStyle } from '@luxfi/ui/src/components/buttons/Button/components/CustomButtonFrame/utils'
-import { variantEmphasisHash } from '@luxfi/ui/src/components/buttons/Button/components/CustomButtonFrame/variantEmphasisHash'
-import { buttonStyledContext } from '@luxfi/ui/src/components/buttons/Button/constants'
-import type { ButtonVariantProps } from '@luxfi/ui/src/components/buttons/Button/types'
-import { getMaybeHexOrRGBColor } from '@luxfi/ui/src/components/buttons/Button/utils/getMaybeHexOrRGBColor'
-import { getHoverCssFilter } from '@luxfi/ui/src/utils/colors'
+import { FOCUS_SCALE } from '@l.x/ui/src/components/buttons/Button/components/CustomButtonFrame/constants'
+import { withCommonPressStyle } from '@l.x/ui/src/components/buttons/Button/components/CustomButtonFrame/utils'
+import { variantEmphasisHash } from '@l.x/ui/src/components/buttons/Button/components/CustomButtonFrame/variantEmphasisHash'
+import { buttonStyledContext } from '@l.x/ui/src/components/buttons/Button/constants'
+import type { ButtonVariantProps } from '@l.x/ui/src/components/buttons/Button/types'
+import { getMaybeHexOrRGBColor } from '@l.x/ui/src/components/buttons/Button/utils/getMaybeHexOrRGBColor'
+import { getHoverCssFilter } from '@l.x/ui/src/utils/colors'
 
 const CustomButtonFrameWithoutCustomProps = styled(XStack, {
   context: buttonStyledContext,

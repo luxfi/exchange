@@ -1,7 +1,7 @@
 import { memo } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Flex, SpinningLoader, Text } from '@luxfi/ui/src'
-import { Receipt } from '@luxfi/ui/src/components/icons/Receipt'
+import { Flex, SpinningLoader, Text } from '@l.x/ui/src'
+import { Receipt } from '@l.x/ui/src/components/icons/Receipt'
 import { getTransactionSummaryTitle } from '@l.x/lx/src/features/activity/utils/getTransactionSummaryTitle'
 import {
   TEMPORARY_TRANSACTION_STATUSES,

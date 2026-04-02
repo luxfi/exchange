@@ -10,9 +10,9 @@ import { useOnboardingSteps } from 'src/app/features/onboarding/OnboardingStepsC
 import { OnboardingRoutes, TopLevelRoutes } from 'src/app/navigation/constants'
 import { navigate } from 'src/app/navigation/state'
 import { bringWindowToFront, closeWindow, openPopupWindow } from 'src/app/navigation/utils'
-import { Button, Flex, IconButton, SpinningLoader, Text } from '@luxfi/ui/src'
-import { X } from '@luxfi/ui/src/components/icons'
-import { LuxLogo } from '@luxfi/ui/src/components/icons/LuxLogo'
+import { Button, Flex, IconButton, SpinningLoader, Text } from '@l.x/ui/src'
+import { X } from '@l.x/ui/src/components/icons'
+import { LuxLogo } from '@l.x/ui/src/components/icons/LuxLogo'
 import { EmbeddedWalletApiClient } from '@l.x/lx/src/data/rest/embeddedWallet/requests'
 import { parseMessage } from '@l.x/lx/src/extension/messagePassing/platform'
 import {

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Flex, Image, PulseRipple, useSporeColors } from '@luxfi/ui/src'
+import { Flex, Image, PulseRipple, useSporeColors } from '@l.x/ui/src'
 
 interface WalletIconWithRippleProps {
   src?: string

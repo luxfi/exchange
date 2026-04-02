@@ -1,8 +1,8 @@
 import { createGui } from '@hanzo/gui'
-import { animations } from '@luxfi/ui/src/theme/animations'
-import { configWithoutAnimations } from '@luxfi/ui/src/theme/config'
+import { animations } from '@l.x/ui/src/theme/animations'
+import { configWithoutAnimations } from '@l.x/ui/src/theme/config'
 
-export type { GuiGroupNames } from '@luxfi/ui/src/theme/config'
+export type { GuiGroupNames } from '@l.x/ui/src/theme/config'
 
 export const config = createGui({
   animations,

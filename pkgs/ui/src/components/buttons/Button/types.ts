@@ -1,6 +1,6 @@
 import type { GetProps } from '@hanzo/gui'
-import { CustomButtonFrame } from '@luxfi/ui/src/components/buttons/Button/components/CustomButtonFrame/CustomButtonFrame'
-import type { FlexProps } from '@luxfi/ui/src/components/layout'
+import { CustomButtonFrame } from '@l.x/ui/src/components/buttons/Button/components/CustomButtonFrame/CustomButtonFrame'
+import type { FlexProps } from '@l.x/ui/src/components/layout'
 
 export type ButtonVariant = 'default' | 'branded' | 'critical' | 'warning'
 export type ButtonEmphasis = 'primary' | 'secondary' | 'tertiary' | 'text-only'

@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next'
-import { Button, type ButtonProps, useIsShortMobileDevice } from '@luxfi/ui/src'
+import { Button, type ButtonProps, useIsShortMobileDevice } from '@l.x/ui/src'
 import { MAINNET_CHAIN_INFO } from '@l.x/lx/src/features/chains/evm/info/mainnet'
 import { SOLANA_CHAIN_INFO } from '@l.x/lx/src/features/chains/svm/info/solana'
 import { isSVMChain } from '@l.x/lx/src/features/platforms/utils/chains'

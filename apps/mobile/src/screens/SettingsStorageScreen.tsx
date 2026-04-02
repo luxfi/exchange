@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next'
 import { ScreenWithHeader } from 'src/components/layout/screens/ScreenWithHeader'
 import { useAppStateResetter } from 'src/features/appState/appStateResetter'
-import { Flex, Text } from '@luxfi/ui/src'
+import { Flex, Text } from '@l.x/ui/src'
 import { StorageHelpIcon, StorageSettingsContent } from '@l.x/lx/src/features/settings/storage/StorageSettingsContent'
 import { useEvent } from '@luxfi/utilities/src/react/hooks'
 

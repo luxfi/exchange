@@ -1,5 +1,5 @@
 import { memo } from 'react'
-import { ArrowDown } from '@luxfi/ui/src/components/icons/ArrowDown'
+import { ArrowDown } from '@l.x/ui/src/components/icons/ArrowDown'
 
 type Direction = 'n' | 'e' | 's' | 'w' | 'ne' | 'se'
 

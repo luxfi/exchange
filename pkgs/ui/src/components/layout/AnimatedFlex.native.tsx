@@ -1,5 +1,5 @@
 import Animated from 'react-native-reanimated'
-import { Flex } from '@luxfi/ui/src/components/layout/Flex'
+import { Flex } from '@l.x/ui/src/components/layout/Flex'
 
 /**
  * @deprecated  Prefer `<Flex animation="" />`

@@ -1,6 +1,6 @@
 import { useEffect, useMemo } from 'react'
-import { Flex } from '@luxfi/ui/src'
-import { TransitionItem } from '@luxfi/ui/src/animations'
+import { Flex } from '@l.x/ui/src'
+import { TransitionItem } from '@l.x/ui/src/animations'
 import { InterfaceEventName } from 'lx/src/features/telemetry/constants'
 import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
 import LanguageMenu from '~/components/AccountDrawer/LanguageMenu'

@@ -2,7 +2,7 @@ import { ProtocolVersion } from '@luxamm/client-data-api/dist/data/v1/poolTypes_
 import { Currency } from '@luxamm/sdk-core'
 import { GraphQLApi } from '@l.x/api'
 import * as d3 from 'd3'
-import { UseSporeColorsReturn } from '@luxfi/ui/src/hooks/useSporeColors'
+import { UseSporeColorsReturn } from '@l.x/ui/src/hooks/useSporeColors'
 import { TickData } from '~/appGraphql/data/AllV3TicksQuery'
 import { BucketChartEntry } from '~/components/Charts/D3LiquidityRangeInput/D3LiquidityRangeChart/utils/liquidityBucketing/liquidityBucketing'
 import { TickAlignment } from '~/components/Charts/D3LiquidityRangeInput/D3LiquidityRangeChart/utils/priceToY'

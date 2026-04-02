@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Flex, Text, useMedia } from '@luxfi/ui/src'
+import { Flex, Text, useMedia } from '@l.x/ui/src'
 import { BidDistributionChartTab } from '~/components/Toucan/Auction/AuctionChartShared'
 
 interface BidDistributionChartHeaderProps {

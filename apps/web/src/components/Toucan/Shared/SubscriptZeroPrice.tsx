@@ -1,5 +1,5 @@
 import { useMemo } from 'react'
-import { Flex, Text, TextProps } from '@luxfi/ui/src'
+import { Flex, Text, TextProps } from '@l.x/ui/src'
 import { getSubscriptNotationParts } from '~/components/Charts/utils/subscriptFormat'
 import { roundForDisplay } from '~/components/Toucan/Auction/BidDistributionChart/utils/tokenFormatters'
 

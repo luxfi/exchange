@@ -1,6 +1,6 @@
 import { brand, getBrandUrl, getDocsUrl } from '@l.x/config'
 import { Trans } from 'react-i18next'
-import { Text } from '@luxfi/ui/src'
+import { Text } from '@l.x/ui/src'
 import { deprecatedStyled } from '~/lib/deprecated-styled'
 import { ExternalLink } from '~/theme/components/Links'
 

@@ -114,7 +114,7 @@
     "@hanzo/gui": "2.0.3",
     "tiny-invariant": "1.3.1",
     "typed-redux-saga": "1.5.0",
-    "@luxfi/ui": "workspace:^",
+    "@l.x/ui": "workspace:^",
     "@luxfi/utilities": "workspace:^",
     "uuid": "9.0.0",
     "viem": "2.30.5",

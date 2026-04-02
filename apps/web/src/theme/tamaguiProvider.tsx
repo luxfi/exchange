@@ -1,5 +1,5 @@
-import { GuiProvider as OGGuiProvider, GuiProviderProps } from '@luxfi/ui/src'
-import config from '@luxfi/ui/src/gui.config'
+import { GuiProvider as OGGuiProvider, GuiProviderProps } from '@l.x/ui/src'
+import config from '@l.x/ui/src/gui.config'
 import { useSelectedColorScheme } from '@l.x/lx/src/features/appearance/hooks'
 
 export function GuiProvider({ children, ...rest }: Omit<GuiProviderProps, 'config'>): JSX.Element {

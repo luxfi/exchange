@@ -1,5 +1,5 @@
 import { ReactNode, useMemo } from 'react'
-import { Button, ButtonEmphasis, ButtonProps, getContrastPassingTextColor, useColorsFromTokenColor } from '@luxfi/ui/src'
+import { Button, ButtonEmphasis, ButtonProps, getContrastPassingTextColor, useColorsFromTokenColor } from '@l.x/ui/src'
 import { ElementName } from '@l.x/lx/src/features/telemetry/constants'
 import { Trace } from '@l.x/lx/src/features/telemetry/Trace'
 import { MouseoverTooltip } from '~/components/Tooltip'

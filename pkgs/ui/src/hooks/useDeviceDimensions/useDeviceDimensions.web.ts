@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useWindowDimensions } from 'react-native'
-import { DeviceDimensions } from '@luxfi/ui/src/hooks/useDeviceDimensions/useDeviceDimensions'
-import { breakpoints } from '@luxfi/ui/src/theme'
+import { DeviceDimensions } from '@l.x/ui/src/hooks/useDeviceDimensions/useDeviceDimensions'
+import { breakpoints } from '@l.x/ui/src/theme'
 import { isExtensionApp } from 'utilities/src/platform'
 
 const isClient = typeof window === 'object'

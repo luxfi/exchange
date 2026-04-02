@@ -1,6 +1,6 @@
 import ms from 'ms'
 import { useEffect, useState } from 'react'
-import { AnimateTransition } from '@luxfi/ui/src'
+import { AnimateTransition } from '@l.x/ui/src'
 import { GetHelpHeader } from '@l.x/lx/src/components/dialog/GetHelpHeader'
 import { Modal } from '@l.x/lx/src/components/modals/Modal'
 import { ReceiveQRCode } from '@l.x/lx/src/components/ReceiveQRCode/ReceiveQRCode'

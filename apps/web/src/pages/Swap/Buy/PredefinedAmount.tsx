@@ -1,4 +1,4 @@
-import { useSporeColors } from '@luxfi/ui/src'
+import { useSporeColors } from '@l.x/ui/src'
 import { Pill, PillProps } from '@l.x/lx/src/components/pill/Pill'
 
 interface PredefinedAmountProps {

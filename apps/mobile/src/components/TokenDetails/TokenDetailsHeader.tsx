@@ -1,9 +1,9 @@
 import React, { memo } from 'react'
 import { useSelector } from 'react-redux'
 import { useTokenDetailsContext } from 'src/components/TokenDetails/TokenDetailsContext'
-import { EM_DASH, Flex, flexStyles, Text, TouchableArea } from '@luxfi/ui/src'
-import { CopyAlt } from '@luxfi/ui/src/components/icons'
-import { iconSizes } from '@luxfi/ui/src/theme'
+import { EM_DASH, Flex, flexStyles, Text, TouchableArea } from '@l.x/ui/src'
+import { CopyAlt } from '@l.x/ui/src/components/icons'
+import { iconSizes } from '@l.x/ui/src/theme'
 import { TokenLogo } from '@l.x/lx/src/components/CurrencyLogo/TokenLogo'
 import {
   useTokenBasicInfoPartsFragment,

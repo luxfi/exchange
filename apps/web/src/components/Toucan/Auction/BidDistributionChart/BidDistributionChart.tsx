@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Flex } from '@luxfi/ui/src'
+import { Flex } from '@l.x/ui/src'
 import { useActiveAddress } from '@l.x/lx/src/features/accounts/store/hooks'
 import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { isGroupingMeaningful } from '~/components/Charts/ToucanChart/bidDistribution/utils/tickGrouping'

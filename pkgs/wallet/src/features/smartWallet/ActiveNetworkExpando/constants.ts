@@ -1,4 +1,4 @@
-import { fonts, padding } from '@luxfi/ui/src/theme'
+import { fonts, padding } from '@l.x/ui/src/theme'
 
 export const ITEM_PADDING = padding.padding12
 export const TEXT_VARIANT: keyof typeof fonts = 'body4'

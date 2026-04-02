@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query'
 import { GetClearingPriceHistoryRequest } from '@luxamm/client-data-api/dist/data/v1/auction_pb'
 import { useMemo } from 'react'
-import { useSporeColors } from '@luxfi/ui/src'
+import { useSporeColors } from '@l.x/ui/src'
 import { auctionQueries } from '@l.x/lx/src/data/rest/auctions/auctionQueries'
 import { logger } from '@luxfi/utilities/src/logger/logger'
 import { TokenLaunchedBannerInner } from '~/components/Toucan/Auction/Banners/TokenLaunched/TokenLaunchedBannerInner'

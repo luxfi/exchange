@@ -1,6 +1,6 @@
 import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
-import { Flex, styled, Nav as GuiNav, useMedia } from '@luxfi/ui/src'
-import { breakpoints, INTERFACE_NAV_HEIGHT, zIndexes } from '@luxfi/ui/src/theme'
+import { Flex, styled, Nav as GuiNav, useMedia } from '@l.x/ui/src'
+import { breakpoints, INTERFACE_NAV_HEIGHT, zIndexes } from '@l.x/ui/src/theme'
 import { useConnectionStatus } from '@l.x/lx/src/features/accounts/store/hooks'
 import { useEnabledChains } from '@l.x/lx/src/features/chains/hooks/useEnabledChains'
 import Row from '~/components/deprecated/Row'

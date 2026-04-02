@@ -1,4 +1,4 @@
-import { Flex, Text } from '@luxfi/ui/src'
+import { Flex, Text } from '@l.x/ui/src'
 import Badge, { BadgeVariant } from '@l.x/lx/src/components/badge/Badge'
 import CurrencyLogo from '~/components/Logo/CurrencyLogo'
 import { LP_INCENTIVES_REWARD_TOKEN } from '~/components/LpIncentives/constants'

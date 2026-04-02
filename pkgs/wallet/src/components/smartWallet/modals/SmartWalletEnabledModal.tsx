@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next'
-import { Flex, Text } from '@luxfi/ui/src'
-import { CheckCircleFilled } from '@luxfi/ui/src/components/icons/CheckCircleFilled'
-import { zIndexes } from '@luxfi/ui/src/theme'
+import { Flex, Text } from '@l.x/ui/src'
+import { CheckCircleFilled } from '@l.x/ui/src/components/icons/CheckCircleFilled'
+import { zIndexes } from '@l.x/ui/src/theme'
 import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
 import { SmartWalletModal } from '@luxfi/wallet/src/components/smartWallet/modals/SmartWalletModal'
 

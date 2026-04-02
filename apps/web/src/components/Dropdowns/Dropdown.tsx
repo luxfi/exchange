@@ -1,6 +1,6 @@
 import { useMemo } from 'react'
-import { Flex, FlexProps, styled, Text } from '@luxfi/ui/src'
-import { RotatableChevron } from '@luxfi/ui/src/components/icons/RotatableChevron'
+import { Flex, FlexProps, styled, Text } from '@l.x/ui/src'
+import { RotatableChevron } from '@l.x/ui/src/components/icons/RotatableChevron'
 import { AdaptiveDropdown, SharedDropdownProps } from '~/components/Dropdowns/AdaptiveDropdown'
 import FilterButton from '~/components/Dropdowns/FilterButton'
 

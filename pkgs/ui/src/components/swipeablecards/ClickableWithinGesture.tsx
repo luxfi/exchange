@@ -1,4 +1,4 @@
-import { ClickableWithinGestureProps } from '@luxfi/ui/src/components/swipeablecards/props'
+import { ClickableWithinGestureProps } from '@l.x/ui/src/components/swipeablecards/props'
 import { PlatformSplitStubError } from 'utilities/src/errors'
 
 export function ClickableWithinGesture(_props: ClickableWithinGestureProps): JSX.Element {

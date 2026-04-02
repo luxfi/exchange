@@ -1,7 +1,7 @@
 import { cloneElement, useState } from 'react'
 import { AnimatePresence, ColorTokens, SpaceTokens, styled, TabLayout, Tabs, TabsTabProps } from '@hanzo/gui'
-import { Flex } from '@luxfi/ui/src/components/layout/Flex'
-import { Text } from '@luxfi/ui/src/components/text/Text'
+import { Flex } from '@l.x/ui/src/components/layout/Flex'
+import { Text } from '@l.x/ui/src/components/text/Text'
 import { assert } from 'utilities/src/errors'
 import { isMobileApp, isWebPlatform } from 'utilities/src/platform'
 

@@ -1,6 +1,6 @@
-import { Flex, SpinningLoader } from '@luxfi/ui/src'
-import { AlertCircle, CheckmarkCircle } from '@luxfi/ui/src/components/icons'
-import { iconSizes } from '@luxfi/ui/src/theme'
+import { Flex, SpinningLoader } from '@l.x/ui/src'
+import { AlertCircle, CheckmarkCircle } from '@l.x/ui/src/components/icons'
+import { iconSizes } from '@l.x/ui/src/theme'
 import {
   useSelectAddressHasNotifications,
   useSelectAddressNotifications,

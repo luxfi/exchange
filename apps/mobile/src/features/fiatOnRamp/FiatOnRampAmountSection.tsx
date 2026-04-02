@@ -12,12 +12,12 @@ import {
   useIsShortMobileDevice,
   useShakeAnimation,
   useSporeColors,
-} from '@luxfi/ui/src'
-import { ArrowDownArrowUp } from '@luxfi/ui/src/components/icons'
-import { AnimatedFlex } from '@luxfi/ui/src/components/layout/AnimatedFlex'
-import { useDeviceDimensions } from '@luxfi/ui/src/hooks/useDeviceDimensions'
-import { useDynamicFontSizing } from '@luxfi/ui/src/hooks/useDynamicFontSizing'
-import { fonts, spacing } from '@luxfi/ui/src/theme'
+} from '@l.x/ui/src'
+import { ArrowDownArrowUp } from '@l.x/ui/src/components/icons'
+import { AnimatedFlex } from '@l.x/ui/src/components/layout/AnimatedFlex'
+import { useDeviceDimensions } from '@l.x/ui/src/hooks/useDeviceDimensions'
+import { useDynamicFontSizing } from '@l.x/ui/src/hooks/useDynamicFontSizing'
+import { fonts, spacing } from '@l.x/ui/src/theme'
 import { AmountInput } from '@l.x/lx/src/components/AmountInput/AmountInput'
 import { TextInput } from '@l.x/lx/src/components/input/TextInput'
 import { Pill } from '@l.x/lx/src/components/pill/Pill'

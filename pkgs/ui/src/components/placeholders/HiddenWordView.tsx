@@ -1,4 +1,4 @@
-import { Flex, FlexProps } from '@luxfi/ui/src/components/layout/Flex'
+import { Flex, FlexProps } from '@l.x/ui/src/components/layout/Flex'
 
 type HiddenWordViewProps = {
   rows: number

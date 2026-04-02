@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next'
-import { Flex, Separator, Text } from '@luxfi/ui/src'
-import { Clear, Signature } from '@luxfi/ui/src/components/icons'
+import { Flex, Separator, Text } from '@l.x/ui/src'
+import { Clear, Signature } from '@l.x/ui/src/components/icons'
 import { InlineWarningCard } from '@l.x/lx/src/components/InlineWarningCard/InlineWarningCard'
 import { WarningSeverity } from '@l.x/lx/src/components/modals/WarningModal/types'
 

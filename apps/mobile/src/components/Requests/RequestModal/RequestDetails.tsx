@@ -7,7 +7,7 @@ import {
   SignRequest,
   WalletConnectSigningRequest,
 } from 'src/features/walletConnect/walletConnectSlice'
-import { Flex, Text } from '@luxfi/ui/src'
+import { Flex, Text } from '@l.x/ui/src'
 import { ContentRow } from '@l.x/lx/src/components/transactions/requests/ContentRow'
 import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { EthMethod } from '@l.x/lx/src/features/dappRequests/types'

@@ -1,5 +1,5 @@
 import { lighten } from 'polished'
-import { FlexProps, Shine, useSporeColors, View, ViewProps } from '@luxfi/ui/src'
+import { FlexProps, Shine, useSporeColors, View, ViewProps } from '@l.x/ui/src'
 
 interface LoadingBubbleProps {
   delay?: string

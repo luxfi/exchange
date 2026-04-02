@@ -1,6 +1,6 @@
 import { type ComponentRef, forwardRef } from 'react'
-import type { AnimatedFlexProps } from '@luxfi/ui/src/components/layout/AnimatedFlex'
-import { Flex, type FlexProps } from '@luxfi/ui/src/components/layout/Flex'
+import type { AnimatedFlexProps } from '@l.x/ui/src/components/layout/AnimatedFlex'
+import { Flex, type FlexProps } from '@l.x/ui/src/components/layout/Flex'
 
 type AnimatedFlexComponent = React.ForwardRefExoticComponent<
   AnimatedFlexProps & React.RefAttributes<ComponentRef<typeof Flex>>

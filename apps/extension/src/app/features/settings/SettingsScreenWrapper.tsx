@@ -1,5 +1,5 @@
 import { Outlet } from 'react-router'
-import { Flex } from '@luxfi/ui/src'
+import { Flex } from '@l.x/ui/src'
 
 /**
  * SettingsScreenWrapper is a wrapper used by all settings screens.

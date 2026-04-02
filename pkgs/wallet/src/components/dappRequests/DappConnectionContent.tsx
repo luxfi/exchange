@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next'
-import { Flex, Text } from '@luxfi/ui/src'
+import { Flex, Text } from '@l.x/ui/src'
 import { AccountSelectPopover } from '@luxfi/wallet/src/components/dappRequests/AccountSelectPopover'
 import { DappConnectionPermissions } from '@luxfi/wallet/src/components/dappRequests/DappConnectionPermissions'
 import { DappVerificationStatus } from '@luxfi/wallet/src/features/dappRequests/types'

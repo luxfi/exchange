@@ -1,4 +1,4 @@
-import { Flex, useMedia } from '@luxfi/ui/src'
+import { Flex, useMedia } from '@l.x/ui/src'
 import { HEADER_TRANSITION } from '~/components/Explore/stickyHeader/constants'
 import { useAppHeaderHeight } from '~/hooks/useAppHeaderHeight'
 

@@ -1,6 +1,6 @@
 import type { GasFeeResult } from '@l.x/api'
 import { useEffect, useMemo } from 'react'
-import { Flex } from '@luxfi/ui/src'
+import { Flex } from '@l.x/ui/src'
 import type { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { EthMethod } from '@l.x/lx/src/features/dappRequests/types'
 import { DappRequestFooter } from '@luxfi/wallet/src/components/dappRequests/DappRequestFooter'

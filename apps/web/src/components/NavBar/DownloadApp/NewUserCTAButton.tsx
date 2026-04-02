@@ -1,6 +1,6 @@
 import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { useTranslation } from 'react-i18next'
-import { Button } from '@luxfi/ui/src'
+import { Button } from '@l.x/ui/src'
 import { ElementName, ModalName } from '@l.x/lx/src/features/telemetry/constants'
 import { Trace } from '@l.x/lx/src/features/telemetry/Trace'
 import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'

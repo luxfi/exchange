@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next'
-import { Flex, Text } from '@luxfi/ui/src'
-import { Clear } from '@luxfi/ui/src/components/icons'
+import { Flex, Text } from '@l.x/ui/src'
+import { Clear } from '@l.x/ui/src/components/icons'
 
 export type TransactionErrorType = 'decode_message' | 'decode_transaction' | 'contract_interaction'
 

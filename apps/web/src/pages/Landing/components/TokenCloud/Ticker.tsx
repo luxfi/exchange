@@ -1,6 +1,6 @@
 import { GraphQLApi } from '@l.x/api'
 import { useMemo } from 'react'
-import { Flex, Text } from '@luxfi/ui/src'
+import { Flex, Text } from '@l.x/ui/src'
 import { ItemPoint } from '@l.x/lx/src/components/IconCloud/IconCloud'
 import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
 import { DeltaArrow } from '~/components/DeltaArrow/DeltaArrow'

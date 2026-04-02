@@ -1,6 +1,6 @@
 import { curveCardinal, scaleLinear } from 'd3'
 import { memo } from 'react'
-import { Flex, useSporeColors } from '@luxfi/ui/src'
+import { Flex, useSporeColors } from '@l.x/ui/src'
 import { normalizeTokenAddressForCache } from '@l.x/lx/src/data/cache'
 import { getChainInfo } from '@l.x/lx/src/features/chains/chainInfo'
 import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'

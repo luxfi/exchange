@@ -1,5 +1,5 @@
 import { CSSProperties } from 'react'
-import { FlexProps } from '@luxfi/ui/src/components/layout'
+import { FlexProps } from '@l.x/ui/src/components/layout'
 
 import { getChainInfo } from '@l.x/lx/src/features/chains/chainInfo'
 import { UniverseChainId } from '@l.x/lx/src/features/chains/types'

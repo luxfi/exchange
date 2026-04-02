@@ -1,6 +1,6 @@
-import { Flex } from '@luxfi/ui/src/components/layout'
-import { Text } from '@luxfi/ui/src/components/text'
-import { iconSizes } from '@luxfi/ui/src/theme'
+import { Flex } from '@l.x/ui/src/components/layout'
+import { Text } from '@l.x/ui/src/components/text'
+import { iconSizes } from '@l.x/ui/src/theme'
 import { isWebPlatform } from 'utilities/src/platform'
 
 interface TokenLoaderProps {

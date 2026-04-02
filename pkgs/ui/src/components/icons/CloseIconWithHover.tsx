@@ -1,6 +1,6 @@
-import { X } from '@luxfi/ui/src/components/icons/X'
-import { TouchableArea } from '@luxfi/ui/src/components/touchable'
-import { IconSizeTokens } from '@luxfi/ui/src/theme'
+import { X } from '@l.x/ui/src/components/icons/X'
+import { TouchableArea } from '@l.x/ui/src/components/touchable'
+import { IconSizeTokens } from '@l.x/ui/src/theme'
 
 export type CloseIconProps = {
   onClose: () => void

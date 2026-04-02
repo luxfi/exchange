@@ -1,4 +1,4 @@
-import { CheckmarkCircle } from '@luxfi/ui/src/components/icons'
+import { CheckmarkCircle } from '@l.x/ui/src/components/icons'
 import { NotificationToast } from '@l.x/lx/src/components/notifications/NotificationToast'
 import { AppNotificationDefault } from '@l.x/lx/src/features/notifications/slice/types'
 

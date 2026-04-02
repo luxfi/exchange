@@ -1,8 +1,8 @@
 import { useCallback, useEffect, useState } from 'react'
-import { Flex } from '@luxfi/ui/src/components/layout'
-import { SWIPEABLE_CARD_Y_OFFSET } from '@luxfi/ui/src/components/swipeablecards/BaseCard'
-import { PickedCardProps, SwipeableCardStackProps } from '@luxfi/ui/src/components/swipeablecards/props'
-import { SwipeableCard } from '@luxfi/ui/src/components/swipeablecards/SwipeableCard'
+import { Flex } from '@l.x/ui/src/components/layout'
+import { SWIPEABLE_CARD_Y_OFFSET } from '@l.x/ui/src/components/swipeablecards/BaseCard'
+import { PickedCardProps, SwipeableCardStackProps } from '@l.x/ui/src/components/swipeablecards/props'
+import { SwipeableCard } from '@l.x/ui/src/components/swipeablecards/SwipeableCard'
 import { usePrevious } from 'utilities/src/react/hooks'
 
 // Extra padding at the bottom of the container to prevent card shadows from being clipped

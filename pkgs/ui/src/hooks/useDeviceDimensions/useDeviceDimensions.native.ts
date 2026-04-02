@@ -1,5 +1,5 @@
 import { Dimensions } from 'react-native'
-import { DeviceDimensions } from '@luxfi/ui/src/hooks/useDeviceDimensions/useDeviceDimensions'
+import { DeviceDimensions } from '@l.x/ui/src/hooks/useDeviceDimensions/useDeviceDimensions'
 
 export const useDeviceDimensions = (): DeviceDimensions => {
   // We need to use screen height instead of the window height

@@ -1,7 +1,7 @@
 import { BaseSyntheticEvent } from 'react'
-import { GeneratedIcon, IconProps } from '@luxfi/ui/src/components/factories/createIcon'
-import { TextProps } from '@luxfi/ui/src/components/text'
-import { TouchableAreaProps } from '@luxfi/ui/src/components/touchable'
+import { GeneratedIcon, IconProps } from '@l.x/ui/src/components/factories/createIcon'
+import { TextProps } from '@l.x/ui/src/components/text'
+import { TouchableAreaProps } from '@l.x/ui/src/components/touchable'
 
 export type MenuContentItem = {
   label: string

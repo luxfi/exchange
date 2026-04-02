@@ -1,4 +1,4 @@
-import { Wallet } from '@luxfi/ui/src/components/icons'
+import { Wallet } from '@l.x/ui/src/components/icons'
 import { OnboardingCardLoggingName } from '@l.x/lx/src/features/telemetry/types'
 import { CardType, IntroCard, IntroCardGraphicType, IntroCardProps } from '@luxfi/wallet/src/components/introCards/IntroCard'
 import { render, screen } from '@luxfi/wallet/src/test/test-utils'

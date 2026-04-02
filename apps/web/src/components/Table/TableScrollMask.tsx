@@ -1,5 +1,5 @@
-import { styled, View } from '@luxfi/ui/src'
-import { zIndexes } from '@luxfi/ui/src/theme'
+import { styled, View } from '@l.x/ui/src'
+import { zIndexes } from '@l.x/ui/src/theme'
 
 /** Right-edge fade overlay when table has pinned columns and can scroll horizontally. Used in both header (SideScrollButtons) and body areas. */
 export const TableScrollMask = styled(View, {

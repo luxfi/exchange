@@ -1,5 +1,5 @@
-import { Flex, styled, Text, type TextProps, TouchableArea } from '@luxfi/ui/src'
-import { CheckCircleFilled } from '@luxfi/ui/src/components/icons/CheckCircleFilled'
+import { Flex, styled, Text, type TextProps, TouchableArea } from '@l.x/ui/src'
+import { CheckCircleFilled } from '@l.x/ui/src/components/icons/CheckCircleFilled'
 
 export const HookTileContainer = styled(TouchableArea, {
   flex: 1,

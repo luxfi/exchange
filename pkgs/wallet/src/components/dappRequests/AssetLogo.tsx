@@ -1,4 +1,4 @@
-import { Flex, Loader, UniversalImage, useSporeColors } from '@luxfi/ui/src'
+import { Flex, Loader, UniversalImage, useSporeColors } from '@l.x/ui/src'
 import { CurrencyLogo } from '@l.x/lx/src/components/CurrencyLogo/CurrencyLogo'
 import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { useCurrencyInfoWithLoading } from '@l.x/lx/src/features/tokens/useCurrencyInfo'

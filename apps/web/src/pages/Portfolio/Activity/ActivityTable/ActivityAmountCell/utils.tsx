@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next'
-import { iconSizes } from '@luxfi/ui/src/theme/iconSizes'
+import { iconSizes } from '@l.x/ui/src/theme/iconSizes'
 import { SplitLogo } from '@l.x/lx/src/components/CurrencyLogo/SplitLogo'
 import { TokenLogo } from '@l.x/lx/src/components/CurrencyLogo/TokenLogo'
 import { CurrencyInfo } from '@l.x/lx/src/features/dataApi/types'

@@ -1,5 +1,5 @@
-import { Flex, styled, useSporeColors } from '@luxfi/ui/src'
-import { iconSizes } from '@luxfi/ui/src/theme'
+import { Flex, styled, useSporeColors } from '@l.x/ui/src'
+import { iconSizes } from '@l.x/ui/src/theme'
 import { FadePresence, FadePresenceAnimationType } from '~/theme/components/FadePresence'
 
 const LOGO_SIZE = iconSizes.icon64

@@ -1,7 +1,7 @@
 import { Alert } from 'react-native'
 import { isCloudStorageAvailable } from 'src/features/CloudBackup/RNCloudStorageBackupsManager'
 import { openSettings } from 'src/utils/linking'
-import { AppTFunction } from '@luxfi/ui/src/i18n/types'
+import { AppTFunction } from '@l.x/ui/src/i18n/types'
 import { isAndroid } from '@luxfi/utilities/src/platform'
 
 /**

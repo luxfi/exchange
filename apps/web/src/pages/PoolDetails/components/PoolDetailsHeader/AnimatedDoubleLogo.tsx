@@ -1,6 +1,6 @@
 import { GraphQLApi } from '@l.x/api'
 import { useMemo } from 'react'
-import { Flex, useMedia } from '@luxfi/ui/src'
+import { Flex, useMedia } from '@l.x/ui/src'
 import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
 import { gqlToCurrency } from '~/appGraphql/data/util'
 import { HEADER_LOGO_SIZE, HEADER_TRANSITION } from '~/components/Explore/stickyHeader/constants'

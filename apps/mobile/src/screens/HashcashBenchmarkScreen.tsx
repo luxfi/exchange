@@ -12,7 +12,7 @@ import {
   type Implementation,
   useHashcashBenchmarkStore,
 } from 'src/screens/stores/hashcashBenchmarkStore'
-import { Button, Flex, Text, TouchableArea } from '@luxfi/ui/src'
+import { Button, Flex, Text, TouchableArea } from '@l.x/ui/src'
 import { logger } from '@luxfi/utilities/src/logger/logger'
 
 function formatDuration(ms: number): string {

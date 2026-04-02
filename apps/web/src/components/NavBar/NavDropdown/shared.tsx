@@ -1,5 +1,5 @@
-import { styled } from '@luxfi/ui/src'
-import { Flex } from '@luxfi/ui/src/components/layout'
+import { styled } from '@l.x/ui/src'
+import { Flex } from '@l.x/ui/src/components/layout'
 
 export const NavDropdownDefaultWrapper = styled(Flex, {
   width: '100%',

@@ -1,7 +1,7 @@
 import { Percent } from '@luxamm/sdk-core'
 import { GraphQLApi } from '@l.x/api'
 import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
-import { Flex, Text } from '@luxfi/ui/src'
+import { Flex, Text } from '@l.x/ui/src'
 import { shortenHash } from '@luxfi/utilities/src/addresses'
 import { FeeData } from '~/components/Liquidity/Create/types'
 import { LpIncentivesAprDisplay } from '~/components/LpIncentives/LpIncentivesAprDisplay'

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { SEND_CONTENT_RENDER_DELAY_MS } from 'src/features/send/constants'
-import { Flex } from '@luxfi/ui/src/components/layout/Flex'
+import { Flex } from '@l.x/ui/src/components/layout/Flex'
 import { useHapticFeedback } from '@l.x/lx/src/features/settings/useHapticFeedback/useHapticFeedback'
 import { TransactionModalInnerContainer } from '@l.x/lx/src/features/transactions/components/TransactionModal/TransactionModal'
 import { useTransactionModalContext } from '@l.x/lx/src/features/transactions/components/TransactionModal/TransactionModalContext'

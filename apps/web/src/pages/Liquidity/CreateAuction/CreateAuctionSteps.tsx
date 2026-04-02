@@ -1,4 +1,4 @@
-import { AnimatePresence, Flex, HeightAnimator } from '@luxfi/ui/src'
+import { AnimatePresence, Flex, HeightAnimator } from '@l.x/ui/src'
 import { useCreateAuctionStore } from '~/pages/Liquidity/CreateAuction/CreateAuctionContext'
 import { AddTokenInfoStep } from '~/pages/Liquidity/CreateAuction/steps/AddTokenInfoStep'
 import { ConfigureAuctionStep } from '~/pages/Liquidity/CreateAuction/steps/ConfigureAuctionStep'

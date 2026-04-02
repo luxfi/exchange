@@ -1,7 +1,7 @@
 import { ProtocolVersion } from '@luxamm/client-data-api/dist/data/v1/poolTypes_pb'
 import { GraphQLApi, parseRestProtocolVersion } from '@l.x/api'
 import { useTranslation } from 'react-i18next'
-import { Flex, useMedia } from '@luxfi/ui/src'
+import { Flex, useMedia } from '@l.x/ui/src'
 import { ReportPoolDataModal } from '@l.x/lx/src/components/reporting/ReportPoolDataModal'
 import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { useEvent } from '@luxfi/utilities/src/react/hooks'

@@ -1,6 +1,6 @@
 import { act, renderHook } from '@testing-library/react'
 import type { LayoutChangeEvent } from 'react-native'
-import { getHitSlop, useAutoHitSlop } from '@luxfi/ui/src/components/touchable/TouchableArea/useAutoHitSlop'
+import { getHitSlop, useAutoHitSlop } from '@l.x/ui/src/components/touchable/TouchableArea/useAutoHitSlop'
 import { isIOS } from 'utilities/src/platform'
 import { describe, expect, it, vi } from 'vitest'
 

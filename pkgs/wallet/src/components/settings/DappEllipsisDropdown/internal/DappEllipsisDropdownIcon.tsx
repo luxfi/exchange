@@ -1,5 +1,5 @@
-import { TouchableArea } from '@luxfi/ui/src'
-import { Ellipsis } from '@luxfi/ui/src/components/icons'
+import { TouchableArea } from '@l.x/ui/src'
+import { Ellipsis } from '@l.x/ui/src/components/icons'
 
 export function DappEllipsisDropdownIcon(): JSX.Element {
   return (

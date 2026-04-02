@@ -3,8 +3,8 @@ import { Edge } from 'react-native-safe-area-context'
 import { BackButton } from 'src/components/buttons/BackButton'
 import { Screen } from 'src/components/layout/Screen'
 import { HorizontalEdgeGestureTarget } from 'src/components/layout/screens/EdgeGestureTarget'
-import { ColorTokens, Flex, flexStyles } from '@luxfi/ui/src'
-import { iconSizes } from '@luxfi/ui/src/theme'
+import { ColorTokens, Flex, flexStyles } from '@l.x/ui/src'
+import { iconSizes } from '@l.x/ui/src/theme'
 import { useAppInsets } from '@l.x/lx/src/hooks/useAppInsets'
 
 type ScreenWithHeaderProps = {

@@ -1,6 +1,6 @@
-import { Flex, useIsDarkMode } from '@luxfi/ui/src'
-import { SendAction } from '@luxfi/ui/src/components/icons'
-import { colors, iconSizes, opacify, validColor } from '@luxfi/ui/src/theme'
+import { Flex, useIsDarkMode } from '@l.x/ui/src'
+import { SendAction } from '@l.x/ui/src/components/icons'
+import { colors, iconSizes, opacify, validColor } from '@l.x/ui/src/theme'
 
 export const SendElement = (): JSX.Element => {
   const isDarkMode = useIsDarkMode()

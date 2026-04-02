@@ -1,5 +1,5 @@
 import { type ComponentRef, forwardRef } from 'react'
-import { Flex, type FlexProps } from '@luxfi/ui/src/components/layout/Flex'
+import { Flex, type FlexProps } from '@l.x/ui/src/components/layout/Flex'
 
 /**
  * Extended FlexProps that accepts Reanimated entering/exiting props and animated styles.

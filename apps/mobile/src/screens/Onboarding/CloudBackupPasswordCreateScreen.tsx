@@ -4,8 +4,8 @@ import { useTranslation } from 'react-i18next'
 import { OnboardingStackParamList } from 'src/app/navigation/types'
 import { CloudBackupPassword } from 'src/features/CloudBackup/CloudBackupForm/CloudBackupPassword'
 import { SafeKeyboardOnboardingScreen } from 'src/features/onboarding/SafeKeyboardOnboardingScreen'
-import { Flex } from '@luxfi/ui/src'
-import { Cloud } from '@luxfi/ui/src/components/icons'
+import { Flex } from '@l.x/ui/src'
+import { Cloud } from '@l.x/ui/src/components/icons'
 import { OnboardingScreens } from '@l.x/lx/src/types/screens/mobile'
 
 export function CloudBackupPasswordCreateScreen({

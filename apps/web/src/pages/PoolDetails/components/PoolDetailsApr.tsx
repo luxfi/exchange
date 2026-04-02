@@ -1,6 +1,6 @@
 import { Percent } from '@luxamm/sdk-core'
 import { useTranslation } from 'react-i18next'
-import { Flex, Text } from '@luxfi/ui/src'
+import { Flex, Text } from '@l.x/ui/src'
 import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
 import { LpIncentivesAprDisplay } from '~/components/LpIncentives/LpIncentivesAprDisplay'
 import { calculateTotalApr } from '~/components/LpIncentives/utils'

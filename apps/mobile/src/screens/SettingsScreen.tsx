@@ -31,7 +31,7 @@ import {
 import { useAdvancedSettingsMenuState } from 'src/features/settings/hooks/useAdvancedSettingsMenuState'
 import { useWalletRestore } from 'src/features/wallet/useWalletRestore'
 import { importFromCloudBackupOption, restoreFromCloudBackupOption } from 'src/screens/Import/constants'
-import { Flex, IconProps, Text, useSporeColors } from '@luxfi/ui/src'
+import { Flex, IconProps, Text, useSporeColors } from '@l.x/ui/src'
 import {
   Bell,
   BookOpen,
@@ -54,8 +54,8 @@ import {
   LuxLogo,
   WavePulse,
   Wrench,
-} from '@luxfi/ui/src/components/icons'
-import { iconSizes } from '@luxfi/ui/src/theme'
+} from '@l.x/ui/src/components/icons'
+import { iconSizes } from '@l.x/ui/src/theme'
 import { lxUrls } from '@l.x/lx/src/constants/urls'
 import { useCurrentAppearanceSetting } from '@l.x/lx/src/features/appearance/hooks'
 import { useEnabledChains } from '@l.x/lx/src/features/chains/hooks/useEnabledChains'

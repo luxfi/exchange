@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next'
-import { Flex, Text } from '@luxfi/ui/src'
+import { Flex, Text } from '@l.x/ui/src'
 import { Modal } from '@l.x/lx/src/components/modals/Modal'
 import { PortfolioBalanceSettingsContent } from '@l.x/lx/src/features/settings/balances/PortfolioBalanceSettingsContent'
 import { ModalName } from '@l.x/lx/src/features/telemetry/constants'

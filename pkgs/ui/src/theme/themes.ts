@@ -1,4 +1,4 @@
-import { colorsDark, colorsLight } from '@luxfi/ui/src/theme/color/colors'
+import { colorsDark, colorsLight } from '@l.x/ui/src/theme/color/colors'
 
 // remove $none from theme because it causes issues where $none tokens always resolve to transparent color
 // even if they are technically a gap or other space/size property

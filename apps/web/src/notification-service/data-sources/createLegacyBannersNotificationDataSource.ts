@@ -22,7 +22,7 @@ import {
   SOLANA_BANNER_DARK,
   SOLANA_BANNER_LIGHT,
   SOLANA_LOGO,
-} from '@luxfi/ui/src/assets'
+} from '@l.x/ui/src/assets'
 import { lxUrls } from '@l.x/lx/src/constants/urls'
 import i18n from '@l.x/lx/src/i18n'
 import { logger } from '@luxfi/utilities/src/logger/logger'

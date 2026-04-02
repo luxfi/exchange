@@ -4,9 +4,9 @@ import { StyleProp, ViewStyle } from 'react-native'
 import Animated, { Extrapolate, interpolate, SharedValue, useAnimatedStyle } from 'react-native-reanimated'
 import { BackButton } from 'src/components/buttons/BackButton'
 import { WithScrollToTop } from 'src/components/layout/screens/WithScrollToTop'
-import { ColorTokens, Flex } from '@luxfi/ui/src'
-import { AnimatedFlex } from '@luxfi/ui/src/components/layout/AnimatedFlex'
-import { iconSizes, zIndexes } from '@luxfi/ui/src/theme'
+import { ColorTokens, Flex } from '@l.x/ui/src'
+import { AnimatedFlex } from '@l.x/ui/src/components/layout/AnimatedFlex'
+import { iconSizes, zIndexes } from '@l.x/ui/src/theme'
 import { useAppInsets } from '@l.x/lx/src/hooks/useAppInsets'
 
 type ScrollHeaderProps = {

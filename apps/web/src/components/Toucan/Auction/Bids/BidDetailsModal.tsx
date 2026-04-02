@@ -1,6 +1,6 @@
 import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Flex, Text, useMedia } from '@luxfi/ui/src'
+import { Flex, Text, useMedia } from '@l.x/ui/src'
 import { Modal } from '@l.x/lx/src/components/modals/Modal'
 import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
 import { BidAveragePriceSection } from '~/components/Toucan/Auction/Bids/BidDetailsModal/BidAveragePriceSection'

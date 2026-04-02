@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react'
 import { Edge, NativeSafeAreaViewProps } from 'react-native-safe-area-context'
-import { Flex, FlexProps } from '@luxfi/ui/src'
+import { Flex, FlexProps } from '@l.x/ui/src'
 import { useAppInsets } from '@l.x/lx/src/hooks/useAppInsets'
 
 // Used to determine amount of top padding for short screens

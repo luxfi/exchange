@@ -1,4 +1,4 @@
-import { ArrowRight } from '@luxfi/ui/src/components/icons/ArrowRight'
+import { ArrowRight } from '@l.x/ui/src/components/icons/ArrowRight'
 import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
 import { NumberType } from '@luxfi/utilities/src/format/types'
 import Row from '~/components/deprecated/Row'

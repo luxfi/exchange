@@ -1,9 +1,9 @@
 import { ReactNode } from 'react'
 import { Trans, useTranslation } from 'react-i18next'
-import { Flex, Text, TouchableArea } from '@luxfi/ui/src'
-import { Arrow } from '@luxfi/ui/src/components/arrow/Arrow'
-import { Clock } from '@luxfi/ui/src/components/icons/Clock'
-import { iconSizes } from '@luxfi/ui/src/theme'
+import { Flex, Text, TouchableArea } from '@l.x/ui/src'
+import { Arrow } from '@l.x/ui/src/components/arrow/Arrow'
+import { Clock } from '@l.x/ui/src/components/icons/Clock'
+import { iconSizes } from '@l.x/ui/src/theme'
 import { useOpenLimitOrders } from '~/components/AccountDrawer/MiniPortfolio/Activity/hooks'
 import { ClickableGuiStyle } from '~/theme/components/styles'
 

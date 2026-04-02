@@ -1,6 +1,6 @@
 import { Currency } from '@luxamm/sdk-core'
-import { Flex, Text } from '@luxfi/ui/src'
-import { ArrowDownArrowUp } from '@luxfi/ui/src/components/icons/ArrowDownArrowUp'
+import { Flex, Text } from '@l.x/ui/src'
+import { ArrowDownArrowUp } from '@l.x/ui/src/components/icons/ArrowDownArrowUp'
 import { useAppFiatCurrency } from '@l.x/lx/src/features/fiatCurrency/hooks'
 import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
 import { NumberType } from '@luxfi/utilities/src/format/types'

@@ -9,7 +9,7 @@ import { BiometricAuthModal } from 'src/app/features/settings/BiometricUnlock/Bi
 import { SettingsToggleRow } from 'src/app/features/settings/components/SettingsToggleRow'
 import { EnterPasswordModal } from 'src/app/features/settings/password/EnterPasswordModal'
 import { builtInBiometricCapabilitiesQuery } from 'src/app/utils/device/builtInBiometricCapabilitiesQuery'
-import { Fingerprint } from '@luxfi/ui/src/components/icons'
+import { Fingerprint } from '@l.x/ui/src/components/icons'
 import { useEvent } from '@luxfi/utilities/src/react/hooks'
 
 enum ShowModal {

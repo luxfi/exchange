@@ -1,7 +1,7 @@
 import { forwardRef } from 'react'
 import { TextInput } from 'react-native'
-import { Flex, TouchableArea } from '@luxfi/ui/src'
-import { RotatableChevron } from '@luxfi/ui/src/components/icons'
+import { Flex, TouchableArea } from '@l.x/ui/src'
+import { RotatableChevron } from '@l.x/ui/src/components/icons'
 import { SearchTextInput, SearchTextInputProps } from '@l.x/lx/src/features/search/SearchTextInput'
 import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
 

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Flex, styled, Text } from '@luxfi/ui/src'
+import { Flex, styled, Text } from '@l.x/ui/src'
 import { isSVMChain } from '@l.x/lx/src/features/platforms/utils/chains'
 import { TokenDetailsPoolsTable } from '~/pages/TokenDetails/components/activity/TokenDetailsPoolsTable'
 import { TransactionsTable } from '~/pages/TokenDetails/components/activity/TransactionsTable'

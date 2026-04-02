@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next'
-import { UniversalImage } from '@luxfi/ui/src'
-import { borderRadii, iconSizes } from '@luxfi/ui/src/theme'
+import { UniversalImage } from '@l.x/ui/src'
+import { borderRadii, iconSizes } from '@l.x/ui/src/theme'
 import { NotificationToast } from '@l.x/lx/src/components/notifications/NotificationToast'
 import { DappConnectedNotification as DappConnectedNotificationType } from '@l.x/lx/src/features/notifications/slice/types'
 

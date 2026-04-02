@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next'
-import { FlexProps } from '@luxfi/ui/src'
-import { ArrowDownCircleFilled } from '@luxfi/ui/src/components/icons/ArrowDownCircleFilled'
+import { FlexProps } from '@l.x/ui/src'
+import { ArrowDownCircleFilled } from '@l.x/ui/src/components/icons/ArrowDownCircleFilled'
 import { ElementName } from '@l.x/lx/src/features/telemetry/constants'
 import Trace from '@l.x/lx/src/features/telemetry/Trace'
 import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'

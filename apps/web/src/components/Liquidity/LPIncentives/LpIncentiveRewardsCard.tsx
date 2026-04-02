@@ -17,10 +17,10 @@ import {
   useMedia,
   useShadowPropsMedium,
   useShadowPropsShort,
-} from '@luxfi/ui/src'
-import { ArrowRight } from '@luxfi/ui/src/components/icons/ArrowRight'
-import { InfoCircleFilled } from '@luxfi/ui/src/components/icons/InfoCircleFilled'
-import { iconSizes } from '@luxfi/ui/src/theme'
+} from '@l.x/ui/src'
+import { ArrowRight } from '@l.x/ui/src/components/icons/ArrowRight'
+import { InfoCircleFilled } from '@l.x/ui/src/components/icons/InfoCircleFilled'
+import { iconSizes } from '@l.x/ui/src/theme'
 import { LearnMoreLink } from '@l.x/lx/src/components/text/LearnMoreLink'
 import { InfoTooltip } from '@l.x/lx/src/components/tooltip/InfoTooltip'
 import { lxUrls } from '@l.x/lx/src/constants/urls'

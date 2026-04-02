@@ -7,7 +7,7 @@ import { ActionCanNotBeCompletedContent } from 'src/app/features/dappRequests/re
 import { DEXSwapRequestContent } from 'src/app/features/dappRequests/requestContent/EthSend/Swap/SwapRequestContent'
 import { NonStandardTypedDataRequestContent } from 'src/app/features/dappRequests/requestContent/SignTypeData/NonStandardTypedDataRequestContent'
 import { SignTypedDataRequest } from 'src/app/features/dappRequests/types/DappRequestTypes'
-import { Flex } from '@luxfi/ui/src'
+import { Flex } from '@l.x/ui/src'
 import { toSupportedChainId } from '@l.x/lx/src/features/chains/utils'
 import { useHasAccountMismatchCallback } from '@l.x/lx/src/features/smartWallet/mismatch/hooks'
 import { logger } from '@luxfi/utilities/src/logger/logger'

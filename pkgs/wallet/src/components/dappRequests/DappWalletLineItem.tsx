@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next'
-import { Flex, Text } from '@luxfi/ui/src'
+import { Flex, Text } from '@l.x/ui/src'
 import { AddressDisplay } from '@l.x/lx/src/components/accounts/AddressDisplay'
 import { ContentRow } from '@l.x/lx/src/components/transactions/requests/ContentRow'
 import { isExtensionApp, isMobileApp } from '@luxfi/utilities/src/platform'

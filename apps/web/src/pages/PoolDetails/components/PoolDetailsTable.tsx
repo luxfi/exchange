@@ -1,7 +1,7 @@
 import { GraphQLApi } from '@l.x/api'
 import { useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Flex, styled, Text, TouchableArea } from '@luxfi/ui/src'
+import { Flex, styled, Text, TouchableArea } from '@l.x/ui/src'
 import { useGetPositionsQuery } from '@l.x/lx/src/data/rest/getPositions'
 import { PositionInfo } from '~/components/Liquidity/types'
 import { parseRestPosition } from '~/components/Liquidity/utils/parseFromRest'

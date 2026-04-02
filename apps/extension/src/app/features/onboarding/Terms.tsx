@@ -1,7 +1,7 @@
 import { PropsWithChildren } from 'react'
 import { Trans } from 'react-i18next'
 import { Link, LinkProps } from 'react-router'
-import { Text } from '@luxfi/ui/src'
+import { Text } from '@l.x/ui/src'
 import { lxUrls } from '@l.x/lx/src/constants/urls'
 
 export function Terms(): JSX.Element {

@@ -1,5 +1,5 @@
 import type { ImageRequireSource } from 'react-native'
-import type { FlexProps } from '@luxfi/ui/src/components/layout/Flex'
+import type { FlexProps } from '@l.x/ui/src/components/layout/Flex'
 
 /** Dimension value compatible with both web CSS and React Native */
 export type UniversalImageStyleDimensionValue = number | `${number}%` | 'auto' | undefined

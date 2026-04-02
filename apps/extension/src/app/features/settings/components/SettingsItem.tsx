@@ -1,6 +1,6 @@
 import { Link } from 'react-router'
-import { ColorTokens, Flex, GeneratedIcon, Text, TouchableArea, useSporeColors } from '@luxfi/ui/src'
-import { RotatableChevron } from '@luxfi/ui/src/components/icons'
+import { ColorTokens, Flex, GeneratedIcon, Text, TouchableArea, useSporeColors } from '@l.x/ui/src'
+import { RotatableChevron } from '@l.x/ui/src/components/icons'
 
 export function SettingsItem({
   Icon,

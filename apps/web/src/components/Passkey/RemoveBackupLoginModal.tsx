@@ -1,6 +1,6 @@
 import { useQueryClient } from '@tanstack/react-query'
 import { useTranslation } from 'react-i18next'
-import { Button, Flex, Text } from '@luxfi/ui/src'
+import { Button, Flex, Text } from '@l.x/ui/src'
 import { Modal } from 'lx/src/components/modals/Modal'
 import WarningIcon from 'lx/src/components/warnings/WarningIcon'
 import { deleteRecoveryMethod } from 'lx/src/features/passkey/embeddedWallet'

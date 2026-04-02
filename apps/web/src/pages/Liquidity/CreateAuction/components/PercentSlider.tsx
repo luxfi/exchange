@@ -1,5 +1,5 @@
 import type { RefObject } from 'react'
-import { Flex } from '@luxfi/ui/src'
+import { Flex } from '@l.x/ui/src'
 
 const THUMB_SHADOW = '0 1px 3px rgba(0, 0, 0, 0.25)'
 

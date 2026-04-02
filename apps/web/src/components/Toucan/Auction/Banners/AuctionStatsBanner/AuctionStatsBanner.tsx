@@ -10,7 +10,7 @@ import {
   Tooltip,
   useMedia,
   useSporeColors,
-} from '@luxfi/ui/src'
+} from '@l.x/ui/src'
 import { useAppFiatCurrencyInfo } from '@l.x/lx/src/features/fiatCurrency/hooks'
 import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
 import { ArrowChangeDown } from '~/components/Icons/ArrowChangeDown'

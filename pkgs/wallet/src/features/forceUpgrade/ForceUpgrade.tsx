@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { useSporeColors } from '@luxfi/ui/src'
+import { useSporeColors } from '@l.x/ui/src'
 import { Modal } from '@l.x/lx/src/components/modals/Modal'
 import { useForceUpgradeStatus } from '@l.x/lx/src/features/forceUpgrade/hooks/useForceUpgradeStatus'
 import { useForceUpgradeTranslations } from '@l.x/lx/src/features/forceUpgrade/hooks/useForceUpgradeTranslations'

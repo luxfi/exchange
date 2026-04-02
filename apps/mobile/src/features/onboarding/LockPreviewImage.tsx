@@ -1,5 +1,5 @@
-import { Flex, useShadowPropsShort } from '@luxfi/ui/src'
-import { Lock } from '@luxfi/ui/src/components/icons'
+import { Flex, useShadowPropsShort } from '@l.x/ui/src'
+import { Lock } from '@l.x/ui/src/components/icons'
 
 const BOX_ROW_COUNT = 4
 const BOX_COL_COUNT = 2

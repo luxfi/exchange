@@ -9,10 +9,10 @@ import {
   TouchableAreaEvent,
   useIsDarkMode,
   useSporeColors,
-} from '@luxfi/ui/src'
-import { ArrowUpRight } from '@luxfi/ui/src/components/icons/ArrowUpRight'
-import { X } from '@luxfi/ui/src/components/icons/X'
-import { opacify } from '@luxfi/ui/src/theme'
+} from '@l.x/ui/src'
+import { ArrowUpRight } from '@l.x/ui/src/components/icons/ArrowUpRight'
+import { X } from '@l.x/ui/src/components/icons/X'
+import { opacify } from '@l.x/ui/src/theme'
 import { CardImage } from '@l.x/lx/src/components/cards/image'
 import { NewTag } from '@l.x/lx/src/components/pill/NewTag'
 import { useLuxContext } from '@l.x/lx/src/contexts/LuxContext'

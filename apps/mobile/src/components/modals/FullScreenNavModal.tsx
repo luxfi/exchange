@@ -2,7 +2,7 @@ import React, { PropsWithChildren } from 'react'
 import { useDispatch } from 'react-redux'
 import { ModalsState } from 'src/features/modals/ModalsState'
 import { closeModal } from 'src/features/modals/modalSlice'
-import { useSporeColors } from '@luxfi/ui/src'
+import { useSporeColors } from '@l.x/ui/src'
 import { Modal } from '@l.x/lx/src/components/modals/Modal'
 import { ModalProps } from '@l.x/lx/src/components/modals/ModalProps'
 

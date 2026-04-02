@@ -1,6 +1,6 @@
-import { Flex, useIsDarkMode } from '@luxfi/ui/src'
-import { Buy } from '@luxfi/ui/src/components/icons'
-import { colors, opacify, validColor } from '@luxfi/ui/src/theme'
+import { Flex, useIsDarkMode } from '@l.x/ui/src'
+import { Buy } from '@l.x/ui/src/components/icons'
+import { colors, opacify, validColor } from '@l.x/ui/src/theme'
 
 export const BuyElement = (): JSX.Element => {
   const isDarkMode = useIsDarkMode()

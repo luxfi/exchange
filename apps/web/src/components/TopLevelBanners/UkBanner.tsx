@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next'
-import { Flex, styled, Text } from '@luxfi/ui/src'
+import { Flex, styled, Text } from '@l.x/ui/src'
 import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
 import { useModalState } from '~/hooks/useModalState'
 import { useAppSelector } from '~/state/hooks'

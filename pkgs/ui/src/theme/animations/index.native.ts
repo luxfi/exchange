@@ -1,6 +1,6 @@
 import { createAnimations } from '@hanzogui/animations-moti'
 import { Easing } from 'react-native-reanimated'
-import { delayAnimations200ms } from '@luxfi/ui/src/theme/animations/delay200ms'
+import { delayAnimations200ms } from '@l.x/ui/src/theme/animations/delay200ms'
 
 export const animations = createAnimations({
   '100ms': {

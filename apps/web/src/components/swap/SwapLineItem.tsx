@@ -2,7 +2,7 @@ import { brand, getBrandUrl, getDocsUrl } from '@l.x/config'
 import { Currency, CurrencyAmount } from '@luxamm/sdk-core'
 import React, { ReactNode } from 'react'
 import { Trans } from 'react-i18next'
-import { Flex } from '@luxfi/ui/src'
+import { Flex } from '@l.x/ui/src'
 import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
 import {
   FORMAT_DATE_TIME_MEDIUM,

@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next'
-import { Anchor, Button, Flex, Text, TouchableArea } from '@luxfi/ui/src'
-import { UserLock } from '@luxfi/ui/src/components/icons/UserLock'
-import { X } from '@luxfi/ui/src/components/icons/X'
+import { Anchor, Button, Flex, Text, TouchableArea } from '@l.x/ui/src'
+import { UserLock } from '@l.x/ui/src/components/icons/UserLock'
+import { X } from '@l.x/ui/src/components/icons/X'
 import { Modal } from '@l.x/lx/src/components/modals/Modal'
 import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
 

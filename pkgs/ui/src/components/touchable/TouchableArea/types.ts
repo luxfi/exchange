@@ -1,6 +1,6 @@
 import type { GestureResponderEvent } from 'react-native'
 import type { GetProps } from '@hanzo/gui'
-import type { TouchableAreaFrame } from '@luxfi/ui/src/components/touchable/TouchableArea/TouchableAreaFrame'
+import type { TouchableAreaFrame } from '@l.x/ui/src/components/touchable/TouchableArea/TouchableAreaFrame'
 
 type TouchableAreaFrameProps = GetProps<typeof TouchableAreaFrame>
 

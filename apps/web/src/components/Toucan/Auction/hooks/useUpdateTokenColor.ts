@@ -1,5 +1,5 @@
 import { useLayoutEffect } from 'react'
-import { useSporeColors } from '@luxfi/ui/src'
+import { useSporeColors } from '@l.x/ui/src'
 import { useAuctionStore, useAuctionStoreActions } from '~/components/Toucan/Auction/store/useAuctionStore'
 import { useSrcColor } from '~/hooks/useColor'
 

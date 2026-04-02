@@ -12,7 +12,7 @@ import {
   NO_FEES_ICON,
   NO_LUX_INTERFACE_FEES_BANNER_DARK,
   NO_LUX_INTERFACE_FEES_BANNER_LIGHT,
-} from '@luxfi/ui/src/assets'
+} from '@l.x/ui/src/assets'
 import { lxUrls } from '@l.x/lx/src/constants/urls'
 import i18n from '@l.x/lx/src/i18n'
 

@@ -8,7 +8,7 @@ import { WalletRestoreType } from 'src/components/RestoreWalletModal/RestoreWall
 import { useBiometricAppSpeedBump } from 'src/features/biometrics/useBiometricAppSpeedBump'
 import { useLockScreenOnBlur } from 'src/features/lockScreen/hooks/useLockScreenOnBlur'
 import { useWalletRestore } from 'src/features/wallet/useWalletRestore'
-import { Button, Flex } from '@luxfi/ui/src'
+import { Button, Flex } from '@l.x/ui/src'
 import { WarningSeverity } from '@l.x/lx/src/components/modals/WarningModal/types'
 import { WarningModal } from '@l.x/lx/src/components/modals/WarningModal/WarningModal'
 import { ModalName } from '@l.x/lx/src/features/telemetry/constants'

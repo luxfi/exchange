@@ -1,5 +1,5 @@
-import { Flex, styled } from '@luxfi/ui/src'
-import { fonts, TextVariantTokens } from '@luxfi/ui/src/theme'
+import { Flex, styled } from '@l.x/ui/src'
+import { fonts, TextVariantTokens } from '@l.x/ui/src/theme'
 
 const LOADER_PADDING = 2
 export function TextLoader({ variant, width }: { variant: TextVariantTokens; width: number }) {

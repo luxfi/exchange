@@ -1,5 +1,5 @@
-import { Flex } from '@luxfi/ui/src'
-import { Unitag } from '@luxfi/ui/src/components/icons'
+import { Flex } from '@l.x/ui/src'
+import { Unitag } from '@l.x/ui/src/components/icons'
 import { LogoWithTxStatus } from '@l.x/lx/src/components/CurrencyLogo/LogoWithTxStatus'
 import { NotificationToast } from '@l.x/lx/src/components/notifications/NotificationToast'
 import { DisplayNameType } from '@l.x/lx/src/features/accounts/types'

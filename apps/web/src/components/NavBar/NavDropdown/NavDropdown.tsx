@@ -1,6 +1,6 @@
 import { ReactNode, RefObject } from 'react'
-import { Flex, FlexProps, Popover, styled, useScrollbarStyles, useShadowPropsMedium, WebBottomSheet } from '@luxfi/ui/src'
-import { INTERFACE_NAV_HEIGHT, zIndexes } from '@luxfi/ui/src/theme'
+import { Flex, FlexProps, Popover, styled, useScrollbarStyles, useShadowPropsMedium, WebBottomSheet } from '@l.x/ui/src'
+import { INTERFACE_NAV_HEIGHT, zIndexes } from '@l.x/ui/src/theme'
 
 const NavDropdownContent = styled(Flex, {
   borderRadius: '$rounded16',

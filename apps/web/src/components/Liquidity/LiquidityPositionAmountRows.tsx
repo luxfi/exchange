@@ -1,7 +1,7 @@
 import { Currency, CurrencyAmount } from '@luxamm/sdk-core'
 import { useCallback } from 'react'
 import { useNavigate } from 'react-router'
-import { Flex, Text, TouchableArea } from '@luxfi/ui/src'
+import { Flex, Text, TouchableArea } from '@l.x/ui/src'
 import { CurrencyLogo } from '@l.x/lx/src/components/CurrencyLogo/CurrencyLogo'
 import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { CurrencyInfo } from '@l.x/lx/src/features/dataApi/types'

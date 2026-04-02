@@ -1,8 +1,8 @@
 import { ReactNode } from 'react'
 import type { To } from 'react-router'
 import { Link } from 'react-router'
-import { Flex, styled, Text } from '@luxfi/ui/src'
-import { Check } from '@luxfi/ui/src/components/icons/Check'
+import { Flex, styled, Text } from '@l.x/ui/src'
+import { Check } from '@l.x/ui/src/components/icons/Check'
 import { ClickableGuiStyle } from '~/theme/components/styles'
 
 const InternalLinkMenuItem = styled(Link, {

@@ -1,6 +1,6 @@
 import { useInView } from 'pages/Landing/sections/useInView'
 import { useTranslation } from 'react-i18next'
-import { Flex, styled, Text } from '@luxfi/ui/src'
+import { Flex, styled, Text } from '@l.x/ui/src'
 
 const Container = styled(Flex, {
   width: '100%',

@@ -1,9 +1,9 @@
 import { useTranslation } from 'react-i18next'
 import { requireNativeComponent, StyleProp, ViewProps } from 'react-native'
 import { useNativeComponentKey } from 'src/app/hooks'
-import { FlexProps, flexStyles, HiddenFromScreenReaders } from '@luxfi/ui/src'
-import { useDeviceDimensions } from '@luxfi/ui/src/hooks/useDeviceDimensions'
-import { spacing } from '@luxfi/ui/src/theme'
+import { FlexProps, flexStyles, HiddenFromScreenReaders } from '@l.x/ui/src'
+import { useDeviceDimensions } from '@l.x/ui/src/hooks/useDeviceDimensions'
+import { spacing } from '@l.x/ui/src/theme'
 import { isAndroid } from '@luxfi/utilities/src/platform'
 
 interface NativeMnemonicConfirmationProps {

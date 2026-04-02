@@ -8,8 +8,8 @@ import Animated, {
   withTiming,
 } from 'react-native-reanimated'
 import { useChartDimensions } from 'src/components/PriceExplorer/useChartDimensions'
-import { Flex, useSporeColors } from '@luxfi/ui/src'
-import Wave from '@luxfi/ui/src/assets/backgrounds/wave.svg'
+import { Flex, useSporeColors } from '@l.x/ui/src'
+import Wave from '@l.x/ui/src/assets/backgrounds/wave.svg'
 
 const WAVE_WIDTH = 416
 const WAVE_DURATION = 2000

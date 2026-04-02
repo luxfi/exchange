@@ -1,5 +1,5 @@
 import { SkeletonBox } from 'src/app/components/loading/SkeletonBox'
-import { Flex } from '@luxfi/ui/src'
+import { Flex } from '@l.x/ui/src'
 import { WALLET_PREVIEW_CARD_MIN_HEIGHT } from '@luxfi/wallet/src/components/WalletPreviewCard/WalletPreviewCard'
 
 export function SelectWalletsSkeleton({ repeat = 3 }: { repeat?: number }): JSX.Element {

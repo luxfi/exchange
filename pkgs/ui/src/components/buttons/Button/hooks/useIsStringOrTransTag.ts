@@ -1,6 +1,6 @@
 import { Children, isValidElement, type ReactNode, useMemo } from 'react'
 import { Trans } from 'react-i18next'
-import { Flex } from '@luxfi/ui/src/components/layout'
+import { Flex } from '@l.x/ui/src/components/layout'
 
 /**
  * Function to check if a child is either a direct Trans component or if it's a function component that resolves to render Trans

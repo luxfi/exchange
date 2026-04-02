@@ -1,6 +1,6 @@
 import { GestureHandlerRootView } from 'react-native-gesture-handler'
-import { BaseSwipeableCardStack } from '@luxfi/ui/src/components/swipeablecards/BaseSwipeableCardStack'
-import { PickedCardProps, SwipeableCardStackProps } from '@luxfi/ui/src/components/swipeablecards/props'
+import { BaseSwipeableCardStack } from '@l.x/ui/src/components/swipeablecards/BaseSwipeableCardStack'
+import { PickedCardProps, SwipeableCardStackProps } from '@l.x/ui/src/components/swipeablecards/props'
 
 export function SwipeableCardStack<T extends PickedCardProps>({
   cards,

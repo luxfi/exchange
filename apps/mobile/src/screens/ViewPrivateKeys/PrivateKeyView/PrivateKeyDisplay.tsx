@@ -4,7 +4,7 @@ import {
   NativePrivateKeyDisplayInternalProps,
   NativePrivateKeyDisplayProps,
 } from 'src/screens/ViewPrivateKeys/PrivateKeyView/types'
-import { Flex } from '@luxfi/ui/src/components/layout/Flex'
+import { Flex } from '@l.x/ui/src/components/layout/Flex'
 import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
 
 /**

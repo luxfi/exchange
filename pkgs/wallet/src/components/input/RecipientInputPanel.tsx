@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next'
-import { Flex, Text, TouchableArea } from '@luxfi/ui/src'
+import { Flex, Text, TouchableArea } from '@l.x/ui/src'
 import { AddressDisplay } from '@l.x/lx/src/components/accounts/AddressDisplay'
 import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
 import { dismissNativeKeyboard } from '@luxfi/utilities/src/device/keyboard/dismissNativeKeyboard'

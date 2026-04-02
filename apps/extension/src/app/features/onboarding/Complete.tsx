@@ -7,9 +7,9 @@ import { MainContentWrapper } from 'src/app/features/onboarding/intro/MainConten
 import { KeyboardKey } from 'src/app/features/onboarding/KeyboardKey'
 import { useOpeningKeyboardShortCut } from 'src/app/hooks/useOpeningKeyboardShortCut'
 import { terminateStoreSynchronization } from 'src/store/storeSynchronization'
-import { Flex, Image, Text } from '@luxfi/ui/src'
-import { LUX_LOGO } from '@luxfi/ui/src/assets'
-import { iconSizes } from '@luxfi/ui/src/theme'
+import { Flex, Image, Text } from '@l.x/ui/src'
+import { LUX_LOGO } from '@l.x/ui/src/assets'
+import { iconSizes } from '@l.x/ui/src/theme'
 import { ExtensionOnboardingFlow } from '@l.x/lx/src/types/screens/extension'
 import { useOnboardingContext } from '@luxfi/wallet/src/features/onboarding/OnboardingContext'
 

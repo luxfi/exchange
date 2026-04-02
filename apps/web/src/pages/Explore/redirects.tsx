@@ -1,6 +1,6 @@
 import { lazy, Suspense } from 'react'
 import { Navigate, useLocation, useParams } from 'react-router'
-import { Loader } from '@luxfi/ui/src/loading/Loader'
+import { Loader } from '@l.x/ui/src/loading/Loader'
 import { ExploreTab } from '~/pages/Explore/constants'
 
 const Explore = lazy(() => import('~/pages/Explore'))

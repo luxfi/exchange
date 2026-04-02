@@ -1,8 +1,8 @@
 import { ColorTokens } from '@hanzo/gui'
-import { GeneratedIcon, IconProps } from '@luxfi/ui/src/components/factories/createIcon'
-import { Flex, FlexProps } from '@luxfi/ui/src/components/layout/Flex'
-import { Text } from '@luxfi/ui/src/components/text/Text'
-import { TouchableArea } from '@luxfi/ui/src/components/touchable/TouchableArea/TouchableArea'
+import { GeneratedIcon, IconProps } from '@l.x/ui/src/components/factories/createIcon'
+import { Flex, FlexProps } from '@l.x/ui/src/components/layout/Flex'
+import { Text } from '@l.x/ui/src/components/text/Text'
+import { TouchableArea } from '@l.x/ui/src/components/touchable/TouchableArea/TouchableArea'
 
 type InlineCardProps = {
   Icon: GeneratedIcon | ((props: IconProps) => JSX.Element)

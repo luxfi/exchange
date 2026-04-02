@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next'
-import { Button, Flex } from '@luxfi/ui/src'
+import { Button, Flex } from '@l.x/ui/src'
 import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
 import { ChangeUnitagConfirmButtonProps } from '@luxfi/wallet/src/features/unitags/ChangeUnitagConfirmButton'
 

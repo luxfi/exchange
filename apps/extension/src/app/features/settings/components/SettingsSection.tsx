@@ -1,5 +1,5 @@
 import { SCREEN_ITEM_HORIZONTAL_PAD } from 'src/app/constants'
-import { Flex, Text } from '@luxfi/ui/src'
+import { Flex, Text } from '@l.x/ui/src'
 
 export function SettingsSection({
   title,

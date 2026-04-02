@@ -1,6 +1,6 @@
-import { Anchor, Flex, Text } from '@luxfi/ui/src'
-import { Arrow } from '@luxfi/ui/src/components/arrow/Arrow'
-import { iconSizes } from '@luxfi/ui/src/theme'
+import { Anchor, Flex, Text } from '@l.x/ui/src'
+import { Arrow } from '@l.x/ui/src/components/arrow/Arrow'
+import { iconSizes } from '@l.x/ui/src/theme'
 import { ClickableGuiStyle } from '~/theme/components/styles'
 
 export function ExternalArrowLink({

@@ -1,6 +1,6 @@
 import { ReactNode } from 'react'
 import { Trans } from 'react-i18next'
-import { Button, Flex, useIsDarkMode } from '@luxfi/ui/src'
+import { Button, Flex, useIsDarkMode } from '@l.x/ui/src'
 import { InterfacePageName } from '@l.x/lx/src/features/telemetry/constants'
 import Trace from '@l.x/lx/src/features/telemetry/Trace'
 import darkImage from '~/assets/images/404-page-dark.png'

@@ -1,7 +1,7 @@
 import { TFunction } from 'i18next'
 import { useEffect, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { ColorTokens } from '@luxfi/ui/src'
+import { ColorTokens } from '@l.x/ui/src'
 import { useDebounce } from '@luxfi/utilities/src/time/timing'
 import zxcvbn from 'zxcvbn'
 

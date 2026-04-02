@@ -1,6 +1,6 @@
 import { ReactNode } from 'react'
 import { useNavigate } from 'react-router'
-import { TouchableArea } from '@luxfi/ui/src'
+import { TouchableArea } from '@l.x/ui/src'
 import { useEvent } from '@luxfi/utilities/src/react/hooks'
 
 interface InternalLinkProps {

@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next'
-import { Flex, FlexProps, Text } from '@luxfi/ui/src'
+import { Flex, FlexProps, Text } from '@l.x/ui/src'
 import { CurrencyLogo } from '@l.x/lx/src/components/CurrencyLogo/CurrencyLogo'
 import { CurrencyInfo } from '@l.x/lx/src/features/dataApi/types'
 import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'

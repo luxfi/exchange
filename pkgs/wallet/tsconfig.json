@@ -9,7 +9,7 @@
   ],
   "references": [
     {
-      "path": "../lx"
+      "path": "../config"
     },
     {
       "path": "../utilities"

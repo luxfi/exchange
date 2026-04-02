@@ -1,6 +1,6 @@
-import { Flex } from '@luxfi/ui/src'
-import { Home, Search, SearchFilled, TimePast } from '@luxfi/ui/src/components/icons'
-import { iconSizes } from '@luxfi/ui/src/theme'
+import { Flex } from '@l.x/ui/src'
+import { Home, Search, SearchFilled, TimePast } from '@l.x/ui/src/components/icons'
+import { iconSizes } from '@l.x/ui/src/theme'
 import { useSelectAddressHasNotifications } from '@l.x/lx/src/features/notifications/slice/hooks'
 import { useActiveAccountAddress } from '@luxfi/wallet/src/features/wallet/hooks'
 

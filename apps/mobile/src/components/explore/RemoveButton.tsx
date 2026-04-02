@@ -1,5 +1,5 @@
-import { AnimatedTouchableArea, Flex, TouchableAreaProps } from '@luxfi/ui/src'
-import { imageSizes } from '@luxfi/ui/src/theme'
+import { AnimatedTouchableArea, Flex, TouchableAreaProps } from '@l.x/ui/src'
+import { imageSizes } from '@l.x/ui/src/theme'
 
 type RemoveButtonProps = TouchableAreaProps & {
   visible?: boolean

@@ -1,5 +1,5 @@
-import type { FlexProps } from '@luxfi/ui/src'
-import { styled, Text } from '@luxfi/ui/src'
+import type { FlexProps } from '@l.x/ui/src'
+import { styled, Text } from '@l.x/ui/src'
 
 export const baseActionButtonStyles = {
   backgroundColor: '$surface1',

@@ -1,12 +1,12 @@
 import { Image as ExpoImage, type ImageContentFit } from 'expo-image'
 import { useState } from 'react'
 import { Image } from 'react-native'
-import { useImageSettings } from '@luxfi/ui/src/components/UniversalImage/ImageSettingsContext'
+import { useImageSettings } from '@l.x/ui/src/components/UniversalImage/ImageSettingsContext'
 import {
   type PlainImageExpoProps,
   type PlainImageProps,
   UniversalImageResizeMode,
-} from '@luxfi/ui/src/components/UniversalImage/types'
+} from '@l.x/ui/src/components/UniversalImage/types'
 
 export function PlainImage(props: PlainImageProps): JSX.Element {
   const { uri, size, fallback, resizeMode, style, testID, onLoad, onError } = props

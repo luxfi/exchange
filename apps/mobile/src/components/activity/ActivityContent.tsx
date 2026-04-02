@@ -16,7 +16,7 @@ import { useBiometricAppSettings } from 'src/features/biometrics/useBiometricApp
 import { useBiometricPrompt } from 'src/features/biometricsSettings/hooks'
 import { openModal } from 'src/features/modals/modalSlice'
 import { removePendingSession } from 'src/features/walletConnect/walletConnectSlice'
-import { Flex, Loader, useSporeColors } from '@luxfi/ui/src'
+import { Flex, Loader, useSporeColors } from '@l.x/ui/src'
 import { ScannerModalState } from '@l.x/lx/src/components/ReceiveQRCode/constants'
 import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
 import { useAppInsets } from '@l.x/lx/src/hooks/useAppInsets'

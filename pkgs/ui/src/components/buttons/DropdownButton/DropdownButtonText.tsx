@@ -1,10 +1,10 @@
 import { styled } from '@hanzo/gui'
-import { CustomButtonText } from '@luxfi/ui/src/components/buttons/Button/components/CustomButtonText/CustomButtonText'
+import { CustomButtonText } from '@l.x/ui/src/components/buttons/Button/components/CustomButtonText/CustomButtonText'
 import {
   dropdownButtonStyledContext,
   EXPANDED_COLOR,
   EXPANDED_HOVER_COLOR,
-} from '@luxfi/ui/src/components/buttons/DropdownButton/constants'
+} from '@l.x/ui/src/components/buttons/DropdownButton/constants'
 
 export const DropdownButtonText = styled(CustomButtonText, {
   context: dropdownButtonStyledContext,

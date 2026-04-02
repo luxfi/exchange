@@ -1,11 +1,11 @@
 import { useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Flex } from '@luxfi/ui/src/components/layout'
-import type { RefreshButtonProps } from '@luxfi/ui/src/components/RefreshButton/RefreshButton'
-import { RefreshButtonIcon } from '@luxfi/ui/src/components/RefreshButton/RefreshButtonIcon'
-import { Text } from '@luxfi/ui/src/components/text'
-import { Tooltip } from '@luxfi/ui/src/components/tooltip/Tooltip'
-import { zIndexes } from '@luxfi/ui/src/theme'
+import { Flex } from '@l.x/ui/src/components/layout'
+import type { RefreshButtonProps } from '@l.x/ui/src/components/RefreshButton/RefreshButton'
+import { RefreshButtonIcon } from '@l.x/ui/src/components/RefreshButton/RefreshButtonIcon'
+import { Text } from '@l.x/ui/src/components/text'
+import { Tooltip } from '@l.x/ui/src/components/tooltip/Tooltip'
+import { zIndexes } from '@l.x/ui/src/theme'
 import { isWebPlatform } from 'utilities/src/platform'
 
 /**

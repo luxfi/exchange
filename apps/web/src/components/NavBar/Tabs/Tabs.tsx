@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { NavLink, useLocation } from 'react-router'
-import { Flex, Popover, styled, Text } from '@luxfi/ui/src'
+import { Flex, Popover, styled, Text } from '@l.x/ui/src'
 import { ElementName } from '@l.x/lx/src/features/telemetry/constants'
 import Trace from '@l.x/lx/src/features/telemetry/Trace'
 import { NavDropdown, NavDropdownTabWrapper } from '~/components/NavBar/NavDropdown/index'

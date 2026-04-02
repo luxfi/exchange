@@ -3,8 +3,8 @@ import { ListRenderItemInfo } from 'react-native'
 import Animated, { useAnimatedScrollHandler, useSharedValue } from 'react-native-reanimated'
 import { AnimatedIndicator } from 'src/components/carousel/Indicator'
 import { AnimatedFlatList } from 'src/components/layout/AnimatedFlatList'
-import { Flex } from '@luxfi/ui/src'
-import { useDeviceDimensions } from '@luxfi/ui/src/hooks/useDeviceDimensions'
+import { Flex } from '@l.x/ui/src'
+import { useDeviceDimensions } from '@l.x/ui/src/hooks/useDeviceDimensions'
 
 interface CarouselContextProps {
   current: number

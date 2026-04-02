@@ -1,5 +1,5 @@
-import { Flex } from '@luxfi/ui/src/components/layout'
-import { ShineProps } from '@luxfi/ui/src/loading/ShineProps'
+import { Flex } from '@l.x/ui/src/components/layout'
+import { ShineProps } from '@l.x/ui/src/loading/ShineProps'
 
 const shineKeyframe = `
   @keyframes shine {

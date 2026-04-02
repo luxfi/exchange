@@ -1,4 +1,4 @@
-import { getContrastPassingTextColor } from '@luxfi/ui/src/utils/colors/getContrastPassingTextColor'
+import { getContrastPassingTextColor } from '@l.x/ui/src/utils/colors/getContrastPassingTextColor'
 import { describe, expect, it, vi } from 'vitest'
 
 // Mocking the colorsLight object

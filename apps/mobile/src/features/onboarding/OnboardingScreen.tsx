@@ -8,9 +8,9 @@ import { HeaderSkipButton, renderHeaderBackButton } from 'src/app/navigation/com
 import { useOnboardingStackNavigation } from 'src/app/navigation/types'
 import { Screen, SHORT_SCREEN_HEADER_HEIGHT_RATIO } from 'src/components/layout/Screen'
 import { useRegionalizedLineHeight } from 'src/components/text/useRegionalizedLineHeight'
-import { Flex, GeneratedIcon, SpaceTokens, Text, useMedia } from '@luxfi/ui/src'
-import { AnimatedFlex } from '@luxfi/ui/src/components/layout/AnimatedFlex'
-import { fonts } from '@luxfi/ui/src/theme'
+import { Flex, GeneratedIcon, SpaceTokens, Text, useMedia } from '@l.x/ui/src'
+import { AnimatedFlex } from '@l.x/ui/src/components/layout/AnimatedFlex'
+import { fonts } from '@l.x/ui/src/theme'
 import { useAppInsets } from '@l.x/lx/src/hooks/useAppInsets'
 import { isIOS } from '@luxfi/utilities/src/platform'
 

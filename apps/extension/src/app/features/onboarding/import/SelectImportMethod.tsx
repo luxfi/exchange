@@ -8,9 +8,9 @@ import {
 import { OnboardingScreen } from 'src/app/features/onboarding/OnboardingScreen'
 import { OnboardingRoutes, TopLevelRoutes } from 'src/app/navigation/constants'
 import { navigate } from 'src/app/navigation/state'
-import { Flex, Square, Text } from '@luxfi/ui/src'
-import { PapersText, Passkey, QrCode, WalletFilled } from '@luxfi/ui/src/components/icons'
-import { iconSizes } from '@luxfi/ui/src/theme'
+import { Flex, Square, Text } from '@l.x/ui/src'
+import { PapersText, Passkey, QrCode, WalletFilled } from '@l.x/ui/src/components/icons'
+import { iconSizes } from '@l.x/ui/src/theme'
 import Trace from '@l.x/lx/src/features/telemetry/Trace'
 import { ExtensionOnboardingFlow, ExtensionOnboardingScreens } from '@l.x/lx/src/types/screens/extension'
 

@@ -3,8 +3,8 @@ import { useTranslation } from 'react-i18next'
 import { TextInput } from 'react-native'
 import { Input, InputProps } from 'src/app/components/Input'
 import { useShouldShowBiometricUnlock } from 'src/app/features/biometricUnlock/useShouldShowBiometricUnlock'
-import { Flex, FlexProps, IconProps, Text, TouchableArea } from '@luxfi/ui/src'
-import { Eye, EyeOff, Fingerprint } from '@luxfi/ui/src/components/icons'
+import { Flex, FlexProps, IconProps, Text, TouchableArea } from '@l.x/ui/src'
+import { Eye, EyeOff, Fingerprint } from '@l.x/ui/src/components/icons'
 import { getPasswordStrengthTextAndColor, PasswordStrength } from '@luxfi/wallet/src/utils/password'
 
 export const PADDING_STRENGTH_INDICATOR = 76

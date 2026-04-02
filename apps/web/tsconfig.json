@@ -31,7 +31,7 @@
     "paths": {
       "@/*": ["./*"],
       "~/*": ["./src/*"],
-      "@luxfi/ui/src/*": ["../../pkgs/ui/src/*"],
+      "@l.x/ui/src/*": ["../../pkgs/ui/src/*"],
       "@luxfi/utilities/src/*": ["../../pkgs/utilities/src/*"],
       "@l.x/lx/src/*": ["../../pkgs/lx/src/*"],
       "@luxfi/dex/src/*": ["../../pkgs/dex/src/*"],
@@ -61,10 +61,10 @@
       "path": "../../pkgs/websocket"
     },
     {
-      "path": "../../pkgs/prices"
+      "path": "../../pkgs/sessions"
     },
     {
-      "path": "../../pkgs/sessions"
+      "path": "../../pkgs/prices"
     },
     {
       "path": "../../pkgs/notifications"
@@ -76,10 +76,16 @@
       "path": "../../pkgs/ui"
     },
     {
+      "path": "../../pkgs/config"
+    },
+    {
       "path": "../../pkgs/api"
     },
     {
       "path": "../../pkgs/lx"
+    },
+    {
+      "path": "../../pkgs/eslint-config"
     }
   ]
 }

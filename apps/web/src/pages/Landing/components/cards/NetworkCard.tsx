@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next'
-import { Flex, Text } from '@luxfi/ui/src'
-import { opacify } from '@luxfi/ui/src/theme'
+import { Flex, Text } from '@l.x/ui/src'
+import { opacify } from '@l.x/ui/src/theme'
 import { brand, getBrandUrl } from '@l.x/config'
 import { CardContents } from '~/pages/Landing/components/cards/CardContents'
 import { PillButton } from '~/pages/Landing/components/cards/PillButton'

@@ -4,7 +4,7 @@ import { TextInput } from 'react-native'
 import { PasswordInput } from 'src/components/input/PasswordInput'
 import { useCloudBackupPasswordFormContext } from 'src/features/CloudBackup/CloudBackupForm/CloudBackupPasswordFormContext'
 import { PasswordError } from 'src/features/onboarding/PasswordError'
-import { Flex, Text } from '@luxfi/ui/src'
+import { Flex, Text } from '@l.x/ui/src'
 import { useDebounce } from '@luxfi/utilities/src/time/timing'
 import {
   getPasswordStrengthTextAndColor,

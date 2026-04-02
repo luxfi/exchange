@@ -1,5 +1,5 @@
 import { Link } from 'react-router'
-import { Flex } from '@luxfi/ui/src'
+import { Flex } from '@l.x/ui/src'
 import { LiquidityPositionCard } from '~/components/Liquidity/LiquidityPositionCard'
 import { PositionInfo } from '~/components/Liquidity/types'
 import { getPositionUrl } from '~/components/Liquidity/utils/getPositionUrl'

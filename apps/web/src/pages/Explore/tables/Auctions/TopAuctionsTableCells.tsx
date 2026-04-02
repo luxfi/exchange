@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next'
-import { Flex } from '@luxfi/ui/src'
-import { CheckmarkCircle } from '@luxfi/ui/src/components/icons/CheckmarkCircle'
+import { Flex } from '@l.x/ui/src'
+import { CheckmarkCircle } from '@l.x/ui/src/components/icons/CheckmarkCircle'
 import { TokenLogo } from '@l.x/lx/src/components/CurrencyLogo/TokenLogo'
 import { useEvent } from '@luxfi/utilities/src/react/hooks'
 import { OrderDirection } from '~/appGraphql/data/util'

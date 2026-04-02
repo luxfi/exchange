@@ -4,9 +4,9 @@ import { ModalWithOverlay } from 'src/components/Requests/ModalWithOverlay/Modal
 import { RequestDetailsContent } from 'src/components/Requests/RequestModal/RequestDetails'
 import { useUwuLinkContractAllowlist } from 'src/components/Requests/Uwulink/utils'
 import { type SignRequest } from 'src/features/walletConnect/walletConnectSlice'
-import { Flex, UniversalImage, useIsDarkMode } from '@luxfi/ui/src'
-import { UniversalImageResizeMode } from '@luxfi/ui/src/components/UniversalImage/types'
-import { spacing } from '@luxfi/ui/src/theme'
+import { Flex, UniversalImage, useIsDarkMode } from '@l.x/ui/src'
+import { UniversalImageResizeMode } from '@l.x/ui/src/components/UniversalImage/types'
+import { spacing } from '@l.x/ui/src/theme'
 import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
 
 type Props = {

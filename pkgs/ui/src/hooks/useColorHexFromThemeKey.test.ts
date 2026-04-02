@@ -1,6 +1,6 @@
 import { renderHook } from '@testing-library/react'
-import { useColorHexFromThemeKey } from '@luxfi/ui/src/hooks/useColorHexFromThemeKey'
-import { useSporeColors } from '@luxfi/ui/src/hooks/useSporeColors'
+import { useColorHexFromThemeKey } from '@l.x/ui/src/hooks/useColorHexFromThemeKey'
+import { useSporeColors } from '@l.x/ui/src/hooks/useSporeColors'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 
 // Mock the useSporeColors hook

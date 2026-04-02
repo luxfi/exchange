@@ -1,6 +1,6 @@
-import { BaseCard } from '@luxfi/ui/src/components/swipeablecards/BaseCard'
-import { SwipeableCardProps } from '@luxfi/ui/src/components/swipeablecards/props'
-import { TouchableArea } from '@luxfi/ui/src/components/touchable'
+import { BaseCard } from '@l.x/ui/src/components/swipeablecards/BaseCard'
+import { SwipeableCardProps } from '@l.x/ui/src/components/swipeablecards/props'
+import { TouchableArea } from '@l.x/ui/src/components/touchable'
 
 export function SwipeableCard({
   children,

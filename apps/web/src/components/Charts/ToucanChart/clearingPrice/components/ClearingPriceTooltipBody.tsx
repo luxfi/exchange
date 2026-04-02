@@ -1,5 +1,5 @@
 import { useMemo } from 'react'
-import { Flex, Text } from '@luxfi/ui/src'
+import { Flex, Text } from '@l.x/ui/src'
 import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
 import { NumberType } from '@luxfi/utilities/src/format/types'
 import type { ClearingPriceChartPoint } from '~/components/Charts/ToucanChart/clearingPrice/types'

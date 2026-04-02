@@ -1,5 +1,5 @@
-import { Circle, Flex, GeneratedIcon, Text, TouchableArea } from '@luxfi/ui/src'
-import { iconSizes } from '@luxfi/ui/src/theme'
+import { Circle, Flex, GeneratedIcon, Text, TouchableArea } from '@l.x/ui/src'
+import { iconSizes } from '@l.x/ui/src/theme'
 
 export function OptionCard({
   Icon,

@@ -1,6 +1,6 @@
 // Based mostly on https://github.com/Lux/interface/blob/main/src/theme/index.tsx
 
-import { colorsDark, colorsLight } from '@luxfi/ui/src/theme'
+import { colorsDark, colorsLight } from '@l.x/ui/src/theme'
 
 export const colors = {
   white: '#FFFFFF',

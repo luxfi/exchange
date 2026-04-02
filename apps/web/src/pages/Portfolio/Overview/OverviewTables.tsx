@@ -1,5 +1,5 @@
 import { memo } from 'react'
-import { Flex } from '@luxfi/ui/src'
+import { Flex } from '@l.x/ui/src'
 import { ActivityRenderData } from '@l.x/lx/src/features/activity/hooks/useActivityData'
 import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import {

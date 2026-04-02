@@ -15,7 +15,7 @@ import {
   setDidOpenFromDeepLink,
   WalletConnectPendingSession,
 } from 'src/features/walletConnect/walletConnectSlice'
-import { Flex } from '@luxfi/ui/src'
+import { Flex } from '@l.x/ui/src'
 import { AccountType } from '@l.x/lx/src/features/accounts/types'
 import { pushNotification } from '@l.x/lx/src/features/notifications/slice/slice'
 import { AppNotificationType } from '@l.x/lx/src/features/notifications/slice/types'

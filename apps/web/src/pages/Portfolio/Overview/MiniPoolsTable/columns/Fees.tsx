@@ -1,6 +1,6 @@
 import { ProtocolVersion } from '@luxamm/client-data-api/dist/data/v1/poolTypes_pb'
 import { memo } from 'react'
-import { EM_DASH, Text } from '@luxfi/ui/src'
+import { EM_DASH, Text } from '@l.x/ui/src'
 import { PollingInterval } from '@l.x/lx/src/constants/misc'
 import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
 import { useUSDCValue } from '@l.x/lx/src/features/transactions/hooks/useUSDCPriceWrapper'

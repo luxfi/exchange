@@ -1,7 +1,7 @@
 /* eslint-disable max-lines -- TODO(Toucan): keep controller small; current file is an orchestration hub */
 
 import { IChartApi, ISeriesApi, MouseEventParams, Time, UTCTimestamp } from 'lightweight-charts'
-import { opacify } from '@luxfi/ui/src/theme'
+import { opacify } from '@l.x/ui/src/theme'
 import { logger } from '@luxfi/utilities/src/logger/logger'
 import { initToucanBidDistributionChart } from '~/components/Charts/ToucanChart/bidDistribution/controller/lifecycle/init'
 import { computeBidLineTooltipState } from '~/components/Charts/ToucanChart/bidDistribution/controller/logic/bidLineTooltip'

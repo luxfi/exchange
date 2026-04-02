@@ -1,6 +1,6 @@
 import { memo } from 'react'
-import { Flex, Text } from '@luxfi/ui/src'
-import { iconSizes } from '@luxfi/ui/src/theme'
+import { Flex, Text } from '@l.x/ui/src'
+import { iconSizes } from '@l.x/ui/src/theme'
 import { NetworkLogo } from '@l.x/lx/src/components/CurrencyLogo/NetworkLogo'
 import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'

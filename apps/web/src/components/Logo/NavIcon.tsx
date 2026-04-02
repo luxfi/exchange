@@ -1,5 +1,5 @@
 import { SVGProps } from 'react'
-import { Flex, styled, useSporeColors } from '@luxfi/ui/src'
+import { Flex, styled, useSporeColors } from '@l.x/ui/src'
 import { brand } from '@l.x/config'
 
 // Default logo — simple triangle (used when no brand logoUrl is set)

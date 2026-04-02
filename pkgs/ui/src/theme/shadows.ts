@@ -1,7 +1,7 @@
 import { useMemo } from 'react'
-import type { FlexProps } from '@luxfi/ui/src/components/layout'
-import { useIsDarkMode } from '@luxfi/ui/src/hooks/useIsDarkMode'
-import { colors, colorsDark, opacify } from '@luxfi/ui/src/theme/color'
+import type { FlexProps } from '@l.x/ui/src/components/layout'
+import { useIsDarkMode } from '@l.x/ui/src/hooks/useIsDarkMode'
+import { colors, colorsDark, opacify } from '@l.x/ui/src/theme/color'
 import { isWebApp } from 'utilities/src/platform'
 
 type ShadowProps = Pick<FlexProps, 'shadowColor' | 'shadowOffset' | 'shadowRadius' | '$platform-web'>

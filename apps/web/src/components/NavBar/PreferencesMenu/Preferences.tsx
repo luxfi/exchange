@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next'
-import { ColorTokens, Flex, Text, TouchableArea, useSporeColors } from '@luxfi/ui/src'
-import { RotatableChevron } from '@luxfi/ui/src/components/icons/RotatableChevron'
+import { ColorTokens, Flex, Text, TouchableArea, useSporeColors } from '@l.x/ui/src'
+import { RotatableChevron } from '@l.x/ui/src/components/icons/RotatableChevron'
 import { ThemeToggle } from '@l.x/lx/src/components/appearance/ThemeToggle'
 import { useAppFiatCurrency } from '@l.x/lx/src/features/fiatCurrency/hooks'
 import { useCurrentLanguage, useLanguageInfo } from '@l.x/lx/src/features/language/hooks'

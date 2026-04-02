@@ -1,4 +1,4 @@
-import { ColorTokens } from '@luxfi/ui/src'
+import { ColorTokens } from '@l.x/ui/src'
 import { ProgressBar } from '~/components/Toucan/Shared/ProgressBar'
 
 interface AuctionProgressBarProps {

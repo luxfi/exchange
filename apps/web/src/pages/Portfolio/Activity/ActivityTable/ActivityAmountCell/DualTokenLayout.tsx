@@ -1,5 +1,5 @@
-import { Flex, Text } from '@luxfi/ui/src'
-import { ArrowRight } from '@luxfi/ui/src/components/icons/ArrowRight'
+import { Flex, Text } from '@l.x/ui/src'
+import { ArrowRight } from '@l.x/ui/src/components/icons/ArrowRight'
 import { CurrencyInfo } from '@l.x/lx/src/features/dataApi/types'
 import { EmptyCell } from '~/pages/Portfolio/Activity/ActivityTable/ActivityAmountCell/EmptyCell'
 import { TokenAmountDisplay } from '~/pages/Portfolio/Activity/ActivityTable/TokenAmountDisplay'

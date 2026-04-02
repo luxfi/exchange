@@ -1,7 +1,7 @@
 import { ProtocolVersion } from '@luxamm/client-data-api/dist/data/v1/poolTypes_pb'
 import { lazy, Suspense } from 'react'
 import { Navigate, useParams, useSearchParams } from 'react-router'
-import { Loader } from '@luxfi/ui/src/loading/Loader'
+import { Loader } from '@l.x/ui/src/loading/Loader'
 import { useEnabledChains } from '@l.x/lx/src/features/chains/hooks/useEnabledChains'
 import { toGraphQLChain } from '@l.x/lx/src/features/chains/utils'
 import { currencyIdToAddress, currencyIdToChain } from '@l.x/lx/src/utils/currencyId'

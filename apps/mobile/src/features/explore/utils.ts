@@ -1,5 +1,5 @@
 import { CustomRankingType, RankingType } from '@luxfi/api'
-import { AppTFunction } from '@luxfi/ui/src/i18n/types'
+import { AppTFunction } from '@l.x/ui/src/i18n/types'
 import { ExploreOrderBy, TokenMetadataDisplayType } from '@luxfi/wallet/src/features/wallet/types'
 
 export function getTokenMetadataDisplayType(orderBy: ExploreOrderBy): TokenMetadataDisplayType {

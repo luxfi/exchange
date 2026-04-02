@@ -1,4 +1,4 @@
-import type { TextProps } from '@luxfi/ui/src'
+import type { TextProps } from '@l.x/ui/src'
 
 export type HeaderActionDropdownItem = {
   title: string

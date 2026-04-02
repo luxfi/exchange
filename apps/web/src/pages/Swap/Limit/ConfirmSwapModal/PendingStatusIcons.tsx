@@ -1,5 +1,5 @@
-import { Flex, styled } from '@luxfi/ui/src'
-import { iconSizes } from '@luxfi/ui/src/theme'
+import { Flex, styled } from '@l.x/ui/src'
+import { iconSizes } from '@l.x/ui/src/theme'
 import { ConfirmedIcon, SubmittedIcon } from '~/components/AccountDrawer/MiniPortfolio/Activity/Logos'
 import { LoaderV3 } from '~/components/Icons/LoadingSpinner'
 import { FadePresence } from '~/theme/components/FadePresence'

@@ -1,7 +1,7 @@
 import { forwardRef } from 'react'
-import { Input as GuiInput, InputProps as GuiInputProps } from '@luxfi/ui/src'
-import { inputStyles } from '@luxfi/ui/src/components/input/utils'
-import { fonts } from '@luxfi/ui/src/theme/fonts'
+import { Input as GuiInput, InputProps as GuiInputProps } from '@l.x/ui/src'
+import { inputStyles } from '@l.x/ui/src/components/input/utils'
+import { fonts } from '@l.x/ui/src/theme/fonts'
 
 export type InputProps = {
   large?: boolean

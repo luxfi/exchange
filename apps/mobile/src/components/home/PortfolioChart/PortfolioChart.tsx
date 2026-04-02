@@ -7,9 +7,9 @@ import { I18nManager, StyleSheet } from 'react-native'
 import { DotGrid } from 'src/components/charts/DotGrid'
 import { type ChartData, SparklineChart } from 'src/components/home/PortfolioChart/SparklineChart'
 import { Loader } from 'src/components/loading/loaders'
-import { Flex, Separator, Text, TouchableArea, useSporeColors } from '@luxfi/ui/src'
-import { useDeviceDimensions } from '@luxfi/ui/src/hooks/useDeviceDimensions'
-import { opacify } from '@luxfi/ui/src/theme'
+import { Flex, Separator, Text, TouchableArea, useSporeColors } from '@l.x/ui/src'
+import { useDeviceDimensions } from '@l.x/ui/src/hooks/useDeviceDimensions'
+import { opacify } from '@l.x/ui/src/theme'
 import { TestID } from 'lx/src/test/fixtures/testIDs'
 
 const EXPANDED_CHART_HEIGHT = 180

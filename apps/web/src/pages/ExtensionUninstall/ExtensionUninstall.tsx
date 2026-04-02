@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router'
-import { Flex, Image, Text, TouchableArea } from '@luxfi/ui/src'
+import { Flex, Image, Text, TouchableArea } from '@l.x/ui/src'
 import { InterfaceEventName, InterfacePageName } from '@l.x/lx/src/features/telemetry/constants'
 import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
 import Trace from '@l.x/lx/src/features/telemetry/Trace'

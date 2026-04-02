@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next'
-import { AlertTriangleFilled } from '@luxfi/ui/src/components/icons'
+import { AlertTriangleFilled } from '@l.x/ui/src/components/icons'
 import { NotificationToast } from '@l.x/lx/src/components/notifications/NotificationToast'
 import { NotSupportedNetworkNotification as NotSupportedNetworkNotificationType } from '@l.x/lx/src/features/notifications/slice/types'
 

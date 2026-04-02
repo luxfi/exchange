@@ -1,15 +1,15 @@
 import { memo, useEffect, useMemo } from 'react'
 import { Pressable, type PressableProps, type StyleProp, StyleSheet, type ViewStyle } from 'react-native'
 import Animated, { Easing, interpolate, useAnimatedStyle, useSharedValue, withTiming } from 'react-native-reanimated'
-import { Check } from '@luxfi/ui/src/components/icons'
+import { Check } from '@l.x/ui/src/components/icons'
 import {
   SWITCH_THUMB_HEIGHT,
   SWITCH_THUMB_PADDING,
   SWITCH_TRACK_HEIGHT,
   SWITCH_TRACK_WIDTH,
-} from '@luxfi/ui/src/components/switch/shared'
-import type { SwitchProps } from '@luxfi/ui/src/components/switch/types'
-import { useSporeColors } from '@luxfi/ui/src/hooks/useSporeColors'
+} from '@l.x/ui/src/components/switch/shared'
+import type { SwitchProps } from '@l.x/ui/src/components/switch/types'
+import { useSporeColors } from '@l.x/ui/src/hooks/useSporeColors'
 import { useEvent } from 'utilities/src/react/hooks'
 
 const ANIMATION_CONFIG = {

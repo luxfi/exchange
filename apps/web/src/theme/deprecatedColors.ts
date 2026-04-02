@@ -1,4 +1,4 @@
-import { opacify } from '@luxfi/ui/src/theme'
+import { opacify } from '@l.x/ui/src/theme'
 import { colors } from '~/theme/colors'
 
 function getDeprecatedTheme(darkMode: boolean) {

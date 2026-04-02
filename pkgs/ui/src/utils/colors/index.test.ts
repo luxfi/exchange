@@ -1,5 +1,5 @@
-import { colorsLight } from '@luxfi/ui/src/theme'
-import { isGrayColor, passesContrast } from '@luxfi/ui/src/utils/colors'
+import { colorsLight } from '@l.x/ui/src/theme'
+import { isGrayColor, passesContrast } from '@l.x/ui/src/utils/colors'
 import { describe, expect, it } from 'vitest'
 
 describe('isGrayColor', () => {

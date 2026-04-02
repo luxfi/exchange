@@ -1,5 +1,5 @@
-import type { RefreshButtonProps } from '@luxfi/ui/src/components/RefreshButton/RefreshButton'
-import { RefreshButtonIcon } from '@luxfi/ui/src/components/RefreshButton/RefreshButtonIcon'
+import type { RefreshButtonProps } from '@l.x/ui/src/components/RefreshButton/RefreshButton'
+import { RefreshButtonIcon } from '@l.x/ui/src/components/RefreshButton/RefreshButtonIcon'
 
 /**
  * A button component that allows users to refresh their balance with a visual indicator

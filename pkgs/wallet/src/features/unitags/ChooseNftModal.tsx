@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next'
-import { Flex, FlexProps, SpaceTokens, Text, useSporeColors } from '@luxfi/ui/src'
-import { X } from '@luxfi/ui/src/components/icons'
-import { spacing } from '@luxfi/ui/src/theme'
+import { Flex, FlexProps, SpaceTokens, Text, useSporeColors } from '@l.x/ui/src'
+import { X } from '@l.x/ui/src/components/icons'
+import { spacing } from '@l.x/ui/src/theme'
 import { Modal } from '@l.x/lx/src/components/modals/Modal'
 import { ModalProps } from '@l.x/lx/src/components/modals/ModalProps'
 // This is intentionally imported from the native file as only the web app requires a web specific implementation

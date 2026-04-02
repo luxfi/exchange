@@ -1,3 +1,3 @@
-import { Shine } from '@luxfi/ui/src/loading/Shine'
+import { Shine } from '@l.x/ui/src/loading/Shine'
 
 export const Skeleton = Shine

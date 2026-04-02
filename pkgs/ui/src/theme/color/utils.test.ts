@@ -1,4 +1,4 @@
-import { opacifyRaw } from '@luxfi/ui/src/theme'
+import { opacifyRaw } from '@l.x/ui/src/theme'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 
 const { mockLogger } = vi.hoisted(() => ({

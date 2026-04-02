@@ -1,5 +1,5 @@
 import { TextProps } from '@hanzo/gui'
-import type { ButtonEmphasis, ButtonVariant } from '@luxfi/ui/src/components/buttons/Button/types'
+import type { ButtonEmphasis, ButtonVariant } from '@l.x/ui/src/components/buttons/Button/types'
 
 type TextStyleLookup = {
   [variant in ButtonVariant]: {

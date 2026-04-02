@@ -1,4 +1,4 @@
-import { Flex, Text } from '@luxfi/ui/src'
+import { Flex, Text } from '@l.x/ui/src'
 
 const SHADOW_OFFSET = { width: 0, height: 7 }
 const MAC_OS_COMMAND_SYMBOL = '⌘'

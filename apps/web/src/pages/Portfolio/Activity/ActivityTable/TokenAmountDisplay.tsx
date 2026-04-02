@@ -1,5 +1,5 @@
 import { memo } from 'react'
-import { Flex, Text } from '@luxfi/ui/src'
+import { Flex, Text } from '@l.x/ui/src'
 import { CurrencyLogo } from '@l.x/lx/src/components/CurrencyLogo/CurrencyLogo'
 import { useCurrencyInfo } from '@l.x/lx/src/features/tokens/useCurrencyInfo'
 

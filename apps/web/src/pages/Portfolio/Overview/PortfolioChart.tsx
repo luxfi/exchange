@@ -12,7 +12,7 @@ import {
   Text,
   useMedia,
   useSporeColors,
-} from '@luxfi/ui/src'
+} from '@l.x/ui/src'
 import { useAppFiatCurrencyInfo } from '@l.x/lx/src/features/fiatCurrency/hooks'
 import { useCurrentLocale } from '@l.x/lx/src/features/language/hooks'
 import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
