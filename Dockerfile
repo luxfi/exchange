@@ -69,5 +69,7 @@ FROM node:22-alpine AS runner
 RUN npm install -g serve@14
 WORKDIR /app
 COPY --from=builder /app/apps/web/build /app/public
+COPY docker/entrypoint.sh /app/entrypoint.sh
 EXPOSE 3000
+ENTRYPOINT ["/app/entrypoint.sh"]
 CMD ["serve", "-s", "public", "-l", "3000"]

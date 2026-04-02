@@ -1,52 +1,64 @@
-# Lux Exchange - Default deployment
-# Namespace: lux-exchange
-# Domain: lux.exchange
-#
-# Usage:
-#   kubectl apply -f lux-exchange.yaml
-#   Mount config.json into the container:
-#     volumes:
-#       - name: exchange-config
-#         configMap:
-#           name: exchange-config
-#     volumeMounts:
-#       - name: exchange-config
-#         mountPath: /app/public/config.json
-#         subPath: config.json
-#         readOnly: true
+# Lux Exchange (default brand — no BRAND_PACKAGE needed, uses baked-in brand.json)
 ---
-apiVersion: v1
-kind: ConfigMap
+apiVersion: apps/v1
+kind: Deployment
 metadata:
-  name: exchange-config
+  name: lux-exchange
   namespace: lux-exchange
   labels:
     app: exchange
     brand: lux
-data:
-  config.json: |
-    {
-      "brand": {
-        "name": "Lux Exchange",
-        "title": "Lux Exchange | Trade",
-        "description": "The decentralized exchange for the Lux ecosystem",
-        "legalEntity": "Lux Industries Inc.",
-        "appDomain": "lux.exchange",
-        "docsDomain": "docs.lux.exchange",
-        "infoDomain": "info.lux.exchange",
-        "gatewayDomain": "gw.lux.exchange",
-        "wsDomain": "ws.lux.exchange",
-        "helpUrl": "https://docs.lux.exchange/help",
-        "termsUrl": "/terms",
-        "privacyUrl": "/privacy",
-        "downloadUrl": "https://lux.exchange/wallet",
-        "complianceEmail": "compliance@lux.exchange",
-        "supportEmail": "hi@lux.exchange",
-        "twitter": "https://x.com/luxfi",
-        "github": "https://github.com/luxfi",
-        "discord": "https://discord.gg/lux",
-        "primaryColor": "#000000",
-        "defaultChainId": 96369,
-        "supportedChainIds": [96369, 200200, 36963, 36911, 494949, 96368]
-      }
-    }
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: exchange
+      brand: lux
+  template:
+    metadata:
+      labels:
+        app: exchange
+        brand: lux
+    spec:
+      containers:
+        - name: exchange
+          image: ghcr.io/luxfi/exchange:main
+          ports:
+            - containerPort: 3000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: lux-exchange
+  namespace: lux-exchange
+spec:
+  selector:
+    app: exchange
+    brand: lux
+  ports:
+    - port: 80
+      targetPort: 3000
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: lux-exchange
+  namespace: lux-exchange
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+spec:
+  tls:
+    - hosts:
+        - lux.exchange
+      secretName: lux-exchange-tls
+  rules:
+    - host: lux.exchange
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: lux-exchange
+                port:
+                  number: 80
