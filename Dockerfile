@@ -46,10 +46,9 @@ WORKDIR /app
 # Copy built static assets (includes default config.json for Lux)
 COPY --from=builder /app/apps/web/build /app/public
 
-# Mount point: K8s ConfigMap mounts brand-specific config here
+# K8s ConfigMap mounts brand-specific config at /app/public/config.json
 # kubectl create configmap exchange-brand --from-file=config.json=zoo-config.json
 # volumeMounts: [{name: brand, mountPath: /app/public/config.json, subPath: config.json}]
-VOLUME ["/app/public/config.json"]
 
 EXPOSE 3000
 
