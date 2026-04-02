@@ -45,7 +45,6 @@ bun.lockb
 **/storybook-static
 node_modules
 .pnpm-store
-pnpm-lock.yaml
 bun.lock
 bun.lockb
 .turbo
