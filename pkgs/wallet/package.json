@@ -68,7 +68,7 @@
     "redux-saga-test-plan": "4.0.4",
     "sp-react-native-in-app-updates": "1.5.0",
     "typed-redux-saga": "1.5.0",
-    "@l.x/ui": "workspace:^",
+    "@l.x/ui": "^6.2.0",
     "@l.x/lx": "^1.0.5",
     "@luxfi/utilities": "^1.0.6",
     "viem": "2.30.5",

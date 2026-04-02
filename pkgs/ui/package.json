@@ -1,6 +1,6 @@
 {
   "name": "@l.x/ui",
-  "version": "6.1.3",
+  "version": "6.2.0",
   "dependencies": {
     "@gorhom/bottom-sheet": "5.2.8",
     "@react-native-masked-view/masked-view": "0.3.2",
@@ -37,7 +37,7 @@
     "react-remove-scroll": "2.7.2",
     "uuid": "9.0.0",
     "wcag-contrast": "3.0.0",
-    "@luxfi/utilities": "workspace:^",
+    "@luxfi/utilities": "^1.0.6",
     "@hanzogui/dialog": "3.0.2",
     "@hanzogui/sheet": "3.0.2",
     "@hanzogui/visually-hidden": "3.0.2",
@@ -55,7 +55,7 @@
     "@types/node": "22.13.1",
     "@types/qrcode": "1.5.5",
     "@typescript/native-preview": "7.0.0-dev.20260311.1",
-    "@luxfi/eslint-config": "workspace:^",
+    "@luxfi/eslint-config": "^1.0.6",
     "@vitejs/plugin-react": "4.7.0",
     "camelcase": "6.3.0",
     "cheerio": "1.0.0-rc.12",
@@ -66,9 +66,10 @@
     "typescript": "5.8.3",
     "uppercamelcase": "3.0.0",
     "vitest": "3.2.1",
-    "vitest-presets": "workspace:^"
+    "vitest-presets": "^0.0.1"
   },
   "files": [
+    "src",
     "types",
     "dist"
   ],

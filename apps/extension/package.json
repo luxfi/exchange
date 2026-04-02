@@ -59,7 +59,7 @@
     "zod": "catalog:",
     "zustand": "5.0.6",
     "@l.x/lx": "workspace:^",
-    "@l.x/ui": "workspace:^",
+    "@l.x/ui": "^6.2.0",
     "@luxfi/utilities": "workspace:^",
     "@luxfi/wallet": "workspace:^"
   },
