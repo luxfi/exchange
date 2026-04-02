@@ -230,7 +230,7 @@
   },
   "pnpm": {
     "overrides": {
-      "@hanzo/gui": "3.0.1"
+      "@hanzo/gui": "3.0.2"
     }
   },
   "packageManager": "pnpm@9.15.9",
