@@ -17,7 +17,7 @@ env:
 jobs:
   e2e-critical:
     name: Critical Path E2E Tests
-    runs-on: lux-build-linux-amd64
+    runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
@@ -75,7 +75,7 @@ jobs:
 
   e2e-full:
     name: Full E2E Suite
-    runs-on: lux-build-linux-amd64
+    runs-on: ubuntu-latest
     timeout-minutes: 25
     steps:
       - uses: actions/checkout@v4
@@ -133,7 +133,7 @@ jobs:
   deploy-gate:
     name: Deploy Gate
     needs: [e2e-critical]
-    runs-on: lux-build-linux-amd64
+    runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
     steps:
       - name: Critical tests passed
