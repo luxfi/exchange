@@ -1,7 +1,7 @@
 /**
  * Brand configuration loaded entirely from environment variables.
  *
- * Every deployment (lux.exchange, zoo.exchange, pars.market, lux.exchange)
+ * Every deployment (lux.exchange, zoo.exchange, pars.market)
  * can be fully customized by setting NEXT_PUBLIC_BRAND_* env vars at build time.
  *
  * Defaults are for Lux Exchange — the canonical deployment.

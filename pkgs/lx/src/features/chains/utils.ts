@@ -303,12 +303,6 @@ function getDefaultChainId({
     return UniverseChainId.Solana
   }
 
-  // When white-labeled for Liquidity, default to Liquidity chain
-  const visibleChains = getVisibleChainIds()
-  if (visibleChains !== null && visibleChains.includes(UniverseChainId.LiquidityMainnet)) {
-    return isTestnetModeEnabled ? UniverseChainId.LiquidityTestnet : UniverseChainId.LiquidityMainnet
-  }
-
   // Use runtime brand config defaultChainId if set (from /config.json)
   const brandDefault = runtimeBrand.defaultChainId as UniverseChainId | undefined
   if (brandDefault && ALL_CHAIN_IDS.includes(brandDefault)) {

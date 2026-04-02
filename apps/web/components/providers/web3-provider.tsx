@@ -13,7 +13,6 @@ import {
   hanzoMainnet,
   spcMainnet,
   parsMainnet,
-  liquidEvm,
   ethereum,
   sepolia,
 } from "@/lib/chains"
@@ -36,7 +35,6 @@ function createWagmiConfig() {
       [hanzoMainnet.id]: http(),
       [spcMainnet.id]: http(),
       [parsMainnet.id]: http(),
-      [liquidEvm.id]: http(),
       [ethereum.id]: http(),
       [sepolia.id]: http(),
     },
@@ -83,7 +81,6 @@ export {
   hanzoMainnet,
   spcMainnet,
   parsMainnet,
-  liquidEvm,
   ethereum,
   sepolia,
 }

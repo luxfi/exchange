@@ -43,10 +43,6 @@ export enum UniverseChainId {
   Hanzo = 36963,
   SPC = 36911,
   Pars = 494949,
-  // Liquidity chain (Lux L2 subnet)
-  LiquidityMainnet = 0,
-  LiquidityTestnet = 0,
-  LiquidityDevnet = 0,
 }
 
 export type UniverseChainIdByPlatform<T extends Platform> = ((typeof UNIVERSE_CHAIN_INFO)[UniverseChainId] & {

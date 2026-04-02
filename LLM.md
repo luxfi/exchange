@@ -922,7 +922,6 @@ Security: Poseidon2 is PQ-safe, Pedersen is NOT
 - V4 pools via precompile are **NOT available** -- requires node upgrade to activate DEX precompiles
 - No standalone V4 PoolManager contract exists in lux/standard for deployment
 - `LuxV4Adapter.sol` points to Ethereum mainnet V4 address, not Lux
-- Liquid EVM (chain 0) RPC is unreachable (502 -- TLS/DNS issue on rpc.next.lux.network)
 
 **Token naming inconsistency**: Lux mainnet uses `LUSDC` (6 decimals), Lux testnet uses `LUSD` (18 decimals).
 Subnet chains (Hanzo/SPC/Pars) all use `LUSDC`. Keep this in mind when writing token lookups.
@@ -960,7 +959,6 @@ All branding is driven by `NEXT_PUBLIC_BRAND_*` env vars at build time. Defaults
 | lux.exchange | Lux C-Chain (96369) | LUX |
 | zoo.exchange | Zoo EVM (200200) | ZOO |
 | pars.market | Pars EVM (494949) | PARS |
-| lux.exchange | Liquid EVM | LUX |
 
 ### Runtime Brand Config (White-Label)
 

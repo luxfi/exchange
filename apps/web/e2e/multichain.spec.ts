@@ -41,7 +41,7 @@ async function openChainSelector(page: Page) {
   // dropdown trigger button that is NOT the Connect Wallet button and NOT
   // a nav link button.
   const chainButton = header.locator("button").filter({
-    hasText: /Mainnet|Network|Testnet|Lux|Zoo|Hanzo|SPC|Pars|Liquid|Ethereum|Sepolia/,
+    hasText: /Mainnet|Network|Testnet|Lux|Zoo|Hanzo|SPC|Pars|Ethereum|Sepolia/,
   }).first()
 
   // If we cannot find by text (name might be hidden on small screens),

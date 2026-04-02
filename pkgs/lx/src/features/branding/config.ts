@@ -13,17 +13,6 @@ export interface BrandConfig {
   chains: UniverseChainId[]
 }
 
-const LIQUIDITY_BRAND: BrandConfig = {
-  name: 'Liquid DEX',
-  title: 'Liquid DEX',
-  description: 'Regulated digital asset exchange',
-  url: 'https://lux.exchange',
-  coinName: 'LUX',
-  networkName: 'Liquidity Network',
-  primaryColor: '#3B82F6',
-  chains: [UniverseChainId.LiquidityMainnet, UniverseChainId.LiquidityTestnet, UniverseChainId.LiquidityDevnet],
-}
-
 const LUX_BRAND: BrandConfig = {
   name: 'Lux Exchange',
   title: 'Lux Exchange',
@@ -37,14 +26,10 @@ const LUX_BRAND: BrandConfig = {
 
 /**
  * Returns the brand configuration based on the NEXT_PUBLIC_BRAND_NAME env var.
- * When set to 'Liquid DEX' or 'Liquidity', returns the Liquidity brand config
- * which restricts the visible chains to only Liquidity Mainnet/Testnet/Devnet.
+ * Defaults to Lux Exchange brand. White-label brands are configured via
+ * runtime /config.json (see @l.x/config BrandConfig).
  */
 export function getBrandConfig(): BrandConfig {
-  const brand = typeof process !== 'undefined' ? process.env.NEXT_PUBLIC_BRAND_NAME : undefined
-  if (brand === 'Liquid DEX' || brand === 'Liquidity') {
-    return LIQUIDITY_BRAND
-  }
   return LUX_BRAND
 }
 
@@ -53,12 +38,6 @@ export function getBrandConfig(): BrandConfig {
  * Priority: env var override > runtime config.json > static brand config > null (show all)
  */
 export function getVisibleChainIds(): UniverseChainId[] | null {
-  // Check env var override first
-  const chainFilter = typeof process !== 'undefined' ? process.env.NEXT_PUBLIC_CHAIN_FILTER : undefined
-  if (chainFilter === 'liquidity') {
-    return LIQUIDITY_BRAND.chains
-  }
-
   // Check runtime brand config (loaded from /config.json by loadBrandConfig())
   if (runtimeBrand.supportedChainIds && runtimeBrand.supportedChainIds.length > 0) {
     return runtimeBrand.supportedChainIds as UniverseChainId[]

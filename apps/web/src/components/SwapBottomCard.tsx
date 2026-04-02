@@ -141,10 +141,6 @@ const CHAIN_THEME_LIGHT: Partial<Record<UniverseChainId, ChainTheme>> = {
   [UniverseChainId.Hanzo]: { bgColor: '#00D4AA33', textColor: '#00D4AA' },
   [UniverseChainId.SPC]: { bgColor: '#FF69B433', textColor: '#FF69B4' },
   [UniverseChainId.Pars]: { bgColor: '#FFB80033', textColor: '#FFB800' },
-  // Liquidity chains
-  [UniverseChainId.LiquidityMainnet]: { bgColor: '#F5456233', textColor: '#F54562' },
-  [UniverseChainId.LiquidityTestnet]: { bgColor: '#F5456233', textColor: '#F54562' },
-  [UniverseChainId.LiquidityDevnet]: { bgColor: '#F5456233', textColor: '#F54562' },
 }
 
 const CHAIN_THEME_DARK: Partial<Record<UniverseChainId, ChainTheme>> = {
