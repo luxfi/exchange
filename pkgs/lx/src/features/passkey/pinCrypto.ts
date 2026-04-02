@@ -5,9 +5,12 @@ import { hkdf } from '@noble/hashes/hkdf.js'
 import { sha256 } from '@noble/hashes/sha2.js'
 import { bytesToHex } from '@noble/hashes/utils.js'
 
-// OPRF types (lazy-loaded to code-split @cloudflare/voprf-ts)
-type OprfClient = InstanceType<typeof import('@cloudflare/voprf-ts').OPRFClient>
-type FinalizeData = import('@cloudflare/voprf-ts').FinalizeData
+// OPRF types — use `any` to avoid Vite trying to resolve @cloudflare/voprf-ts at build time
+// The actual module is lazy-loaded at runtime via dynamic import
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type OprfClient = any
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type FinalizeData = any
 
 export interface OprfBlindState {
   finalizationData: FinalizeData
@@ -22,9 +25,10 @@ const IV_LENGTH = 12
 
 // --- OPRF ---
 
-async function getOprfModule(): Promise<typeof import('@cloudflare/voprf-ts')> {
-  // @vite-ignore: bare specifier resolved by bundler; Vite can't statically analyze this dynamic import
-  return await import(/* @vite-ignore */ '@cloudflare/voprf-ts')
+// Dynamic import with string indirection to prevent Vite from analyzing the specifier
+const OPRF_PKG = '@cloudflare/voprf-ts'
+async function getOprfModule(): Promise<any> {
+  return await import(/* @vite-ignore */ OPRF_PKG)
 }
 
 export async function blindPin(pin: string): Promise<{ blindedElement: string; blindState: OprfBlindState }> {
