@@ -42,7 +42,6 @@ COPY config/tsconfig/package.json config/tsconfig/
 
 # Install deps — this layer is cached unless manifests change
 RUN NODE_ENV=development pnpm install --no-frozen-lockfile --ignore-scripts
-RUN pnpm rebuild || true
 
 # Stage 2: Build (cached unless source changes)
 FROM deps AS builder
@@ -51,7 +50,8 @@ WORKDIR /app
 # Copy source code (separate from deps for caching)
 COPY . .
 
-# Run postinstall scripts that need source (skipped during deps stage)
+# Rebuild native modules and run postinstall scripts now that source is available
+RUN pnpm rebuild || true
 RUN cd pkgs/biome-config && node scripts/generate.js || true
 
 # Generate gitignored types
