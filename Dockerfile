@@ -1,60 +1,70 @@
 # Lux Exchange - White-Label DEX
-# One image, any brand. Config via /config.json mounted by K8s ConfigMap.
+# Target: <2min builds with layer caching
 
-# Stage 1: Builder
-FROM node:22-alpine AS builder
+# Stage 1: Dependencies (cached unless package.json/lockfile changes)
+FROM node:22-alpine AS deps
 RUN apk add --no-cache libc6-compat python3 make g++ git
 WORKDIR /app
-
-# Install pnpm
 RUN corepack enable && corepack prepare pnpm@9.15.9 --activate
 
-# Copy entire monorepo
+# Copy ONLY dependency manifests first — maximizes cache hits
+COPY package.json pnpm-lock.yaml pnpm-workspace.yaml .npmrc ./
+COPY apps/web/package.json apps/web/
+COPY apps/mobile/package.json apps/mobile/
+COPY apps/extension/package.json apps/extension/
+COPY pkgs/api/package.json pkgs/api/
+COPY pkgs/lx/package.json pkgs/lx/
+COPY pkgs/ui/package.json pkgs/ui/
+COPY pkgs/wallet/package.json pkgs/wallet/
+COPY pkgs/utilities/package.json pkgs/utilities/
+COPY pkgs/config/package.json pkgs/config/
+COPY pkgs/sessions/package.json pkgs/sessions/
+COPY pkgs/gating/package.json pkgs/gating/
+COPY pkgs/notifications/package.json pkgs/notifications/
+COPY pkgs/prices/package.json pkgs/prices/
+COPY pkgs/exchange/package.json pkgs/exchange/
+COPY pkgs/dex/package.json pkgs/dex/
+COPY pkgs/websocket/package.json pkgs/websocket/
+COPY pkgs/logger/package.json pkgs/logger/
+COPY pkgs/privacy/package.json pkgs/privacy/
+COPY pkgs/analytics/package.json pkgs/analytics/
+COPY pkgs/datadog-cloud/package.json pkgs/datadog-cloud/
+COPY pkgs/biome-config/package.json pkgs/biome-config/
+COPY pkgs/eslint-config/package.json pkgs/eslint-config/
+COPY pkgs/react-query/package.json pkgs/react-query/
+COPY pkgs/trpc/package.json pkgs/trpc/
+COPY pkgs/mycelium/package.json pkgs/mycelium/
+COPY pkgs/hashcash-native/package.json pkgs/hashcash-native/
+
+# Install deps — this layer is cached unless manifests change
+RUN NODE_ENV=development pnpm install --no-frozen-lockfile --ignore-scripts
+RUN pnpm rebuild || true
+
+# Stage 2: Build (cached unless source changes)
+FROM deps AS builder
+WORKDIR /app
+
+# Copy source code (separate from deps for caching)
 COPY . .
 
-# Install dependencies — run lifecycle scripts but tolerate failures
-ARG CACHE_BUST=1
-RUN NODE_ENV=development pnpm install --no-frozen-lockfile
-RUN pnpm rebuild || true
-RUN pnpm list vite --depth=0 2>/dev/null || (echo "vite not found after install" && exit 1)
-
-# Build-time env — brand-neutral, no hardcoded domains
-ENV NEXT_TELEMETRY_DISABLED=1
-ENV NODE_ENV=production
-ENV DOCKER_BUILD=true
-
-# Generate gitignored types before build
+# Generate gitignored types
 RUN cd pkgs/api && pnpm exec openapi \
       --input ./src/clients/trading/api.json \
       --output ./src/clients/trading/__generated__ \
       --useOptions --exportServices true --exportModels true \
     || (mkdir -p src/clients/trading/__generated__/models src/clients/trading/__generated__/core src/clients/trading/__generated__/services && \
         echo 'export {}' > src/clients/trading/__generated__/index.ts)
-RUN mkdir -p pkgs/lx/src/abis/types/v3 && \
-    echo 'export {}' > pkgs/lx/src/abis/types/v3/index.ts
-# compile-ajv-validators needs ajv from pnpm store
+RUN mkdir -p pkgs/lx/src/abis/types/v3 && echo 'export {}' > pkgs/lx/src/abis/types/v3/index.ts
 RUN cd apps/web && pnpm exec node scripts/compile-ajv-validators.js || true
 
-# Build the web app (Vite SPA) — brand-neutral
-RUN cd apps/web && DISABLE_EXTRACTION=1 NODE_OPTIONS="--max-old-space-size=16384" pnpm exec vite build
+# Build — brand-neutral
+ENV NEXT_TELEMETRY_DISABLED=1 NODE_ENV=production DOCKER_BUILD=true
+RUN cd apps/web && DISABLE_EXTRACTION=1 NODE_OPTIONS="--max-old-space-size=8192" pnpm exec vite build
 
-# Stage 2: Runner
+# Stage 3: Runner (tiny — just serve + static files)
 FROM node:22-alpine AS runner
 RUN npm install -g serve@14
 WORKDIR /app
-
-# Copy built static assets (includes default config.json for Lux)
 COPY --from=builder /app/apps/web/build /app/public
-
-# K8s ConfigMap mounts brand-specific config at /app/public/config.json
-# kubectl create configmap exchange-brand --from-file=config.json=zoo-config.json
-# volumeMounts: [{name: brand, mountPath: /app/public/config.json, subPath: config.json}]
-
 EXPOSE 3000
-
-# serve -s enables SPA mode (all routes -> index.html)
 CMD ["serve", "-s", "public", "-l", "3000"]
-
-# Fri Mar 27 13:43:26 PDT 2026
-
-
