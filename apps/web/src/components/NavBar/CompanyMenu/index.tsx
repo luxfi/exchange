@@ -1,4 +1,4 @@
-import { brand } from '@luxexchange/config'
+import { brand } from '@l.x/config'
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { Link, useLocation } from 'react-router'
 import { Flex, Popover, styled, Text, useIsTouchDevice, useMedia } from '@luxfi/ui/src'

@@ -1,6 +1,6 @@
 import { SVGProps } from 'react'
 import { Flex, Image, styled, useSporeColors } from '@luxfi/ui/src'
-import { brand } from '@luxexchange/config'
+import { brand } from '@l.x/config'
 
 // Default logo — simple triangle (used when no brand logoUrl is set)
 function DefaultLogo({ color, onClick }: { color: string; onClick?: () => void }) {

@@ -1,4 +1,4 @@
-import { brand, getBrandUrl } from '@luxexchange/config'
+import { brand, getBrandUrl } from '@l.x/config'
 import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { LayerGroup } from '@luxfi/ui/src/components/icons/LayerGroup'

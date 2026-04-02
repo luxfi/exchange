@@ -1,4 +1,4 @@
-import { brand, getBrandUrl } from '@luxexchange/config'
+import { brand, getBrandUrl } from '@l.x/config'
 import { Fragment } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Anchor, Flex, FlexProps, Separator, styled, Text, TouchableArea } from '@luxfi/ui/src'
