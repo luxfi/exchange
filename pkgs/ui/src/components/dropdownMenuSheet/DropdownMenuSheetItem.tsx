@@ -1,6 +1,7 @@
 import { type BaseSyntheticEvent, useMemo } from 'react'
 import { I18nManager, type Role } from 'react-native'
-import { Spacer, type YStackProps } from '@hanzo/gui'
+import { type YStackProps } from '@hanzo/gui'
+import { Spacer } from '@hanzogui/spacer'
 import { getMenuItemColor } from '@luxfi/ui/src/components/dropdownMenuSheet/utils'
 import { CheckCircleFilled, ExternalLink } from '@luxfi/ui/src/components/icons'
 import { Flex, type FlexProps } from '@luxfi/ui/src/components/layout'

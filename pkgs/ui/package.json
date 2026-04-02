@@ -43,7 +43,8 @@
     "@hanzogui/visually-hidden": "2.0.5",
     "@hanzo/gui": "2.0.6",
     "@hanzogui/stacks": "2.0.5",
-    "@hanzogui/web": "2.0.5"
+    "@hanzogui/web": "2.0.5",
+    "@hanzogui/spacer": "2.0.5"
   },
   "devDependencies": {
     "@storybook/test": "8.5.2",
