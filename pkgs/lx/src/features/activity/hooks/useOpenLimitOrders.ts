@@ -4,7 +4,7 @@ import { LIMIT_SUPPORTED_CHAINS } from 'lx/src/features/chains/chainInfo'
 import { useListTransactions } from 'lx/src/features/dataApi/listTransactions/listTransactions'
 import { BaseResult } from 'lx/src/features/dataApi/types'
 import { LXOrderDetails } from 'lx/src/features/transactions/types/transactionDetails'
-import { isLimitOrder, isLXOrderPending } from 'lx/src/features/transactions/utils/lxOrder.utils'
+import { isLimitOrder, isLXOrderPending } from 'lx/src/features/transactions/utils/lx.utils'
 
 /**
  * Custom hook that fetches open limit orders using the ListTransactions API

@@ -1,8 +1,8 @@
 import { datadogRum } from '@datadog/browser-rum'
 import { useQuery } from '@tanstack/react-query'
 import { getBrowser, SharedEventName } from '@luxamm/analytics-events'
-import { provideLuxIdentifierService } from '@l.x/api'
-import { luxIdentifierQuery } from '@l.x/sessions'
+import { provideLXIdentifierService } from '@l.x/api'
+import { lxIdentifierQuery } from '@l.x/sessions'
 import { useEffect } from 'react'
 import { useIsDarkMode } from '@luxfi/ui/src'
 import { useEnabledChains } from 'lx/src/features/chains/hooks/useEnabledChains'
@@ -23,7 +23,7 @@ export function UserPropertyUpdater() {
   const [routerPreference] = useRouterPreference()
   const rehydrated = useAppSelector((state) => state._persist.rehydrated)
 
-  const { data: luxIdentifier } = useQuery(luxIdentifierQuery(provideLuxIdentifierService))
+  const { data: luxIdentifier } = useQuery(lxIdentifierQuery(provideLXIdentifierService))
 
   // Update Statsig user with address and lux_identifier for experiment targeting
   useSyncStatsigUserIdentifiers({

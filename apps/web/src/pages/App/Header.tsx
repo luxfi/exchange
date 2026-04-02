@@ -7,7 +7,7 @@ import {
   useMobileAppPromoBannerEligible,
 } from '~/components/TopLevelBanners/MobileAppPromoBanner'
 import { UkBanner, useRenderUkBanner } from '~/components/TopLevelBanners/UkBanner'
-import { useRenderLuxWrapped2025Banner } from '~/components/TopLevelBanners/LuxWrapped2025Banner'
+import { useRenderLxWrapped2025Banner } from '~/components/TopLevelBanners/LuxWrapped2025Banner'
 import { PageType, useIsPage } from '~/hooks/useIsPage'
 import { useScroll } from '~/hooks/useScroll'
 import { GRID_AREAS } from '~/pages/App/utils/shared'
@@ -20,7 +20,7 @@ export const Header = memo(function Header() {
   const navHasBottomBorder = isScrolledDown
   const renderUkBanner = useRenderUkBanner()
   const extensionEligible = useMobileAppPromoBannerEligible()
-  const renderLuxWrapped2025Banner = useRenderLuxWrapped2025Banner()
+  const renderLuxWrapped2025Banner = useRenderLxWrapped2025Banner()
 
   return (
     <Flex

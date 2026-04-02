@@ -38,7 +38,7 @@ import { Settings } from '~/components/Icons/Settings'
 import StatusIcon from '~/components/StatusIcon'
 import { ExtensionRequestMethods, useLuxExtensionRequest } from '~/components/WalletModal/useWagmiConnectorWithId'
 import { useAccountsStore } from '~/features/accounts/store/hooks'
-import { useIsLuxExtensionConnected } from '~/hooks/useIsLuxExtensionConnected'
+import { useIsLxExtensionConnected } from '~/hooks/useIsLuxExtensionConnected'
 import { useModalState } from '~/hooks/useModalState'
 import { useIsPortfolioZero } from '~/pages/Portfolio/Overview/hooks/useIsPortfolioZero'
 import { useUserHasAvailableClaim, useUserUnclaimedAmount } from '~/state/claim/hooks'
@@ -61,7 +61,7 @@ export default function AuthenticatedHeader({
     return Boolean(evmWalletId && svmWalletId && evmWalletId !== svmWalletId)
   }) // if different wallets are connected, do not show mini wallet icon
 
-  const isLuxExtensionConnected = useIsLuxExtensionConnected()
+  const isLuxExtensionConnected = useIsLxExtensionConnected()
   const luxExtensionRequest = useLuxExtensionRequest()
   const shouldShowExtensionButton = isLuxExtensionConnected && !isSolanaConnected
   const isRightToLeft = i18next.dir() === 'rtl'

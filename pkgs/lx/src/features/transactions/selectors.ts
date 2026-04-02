@@ -16,7 +16,7 @@ import {
   LXOrderDetails,
 } from 'lx/src/features/transactions/types/transactionDetails'
 import { isFinalizedTx, isPlanTransactionDetails } from 'lx/src/features/transactions/types/utils'
-import { isLimitOrder } from 'lx/src/features/transactions/utils/lxOrder.utils'
+import { isLimitOrder } from 'lx/src/features/transactions/utils/lx.utils'
 import { selectTokensVisibility } from 'lx/src/features/visibility/selectors'
 import { CurrencyIdToVisibility } from 'lx/src/features/visibility/slice'
 import { LXState } from 'lx/src/state/lxReducer'

@@ -25,7 +25,8 @@ Circle as _Circle,
 // eslint-disable-next-line no-relative-import-paths/no-relative-import-paths
 import { createIcon } from '../factories/createIcon'
 
-export const [LXLogo, AnimatedLxLogo] = createIcon({
+// Primary: LXLogo, compat alias: LuxLogo
+const [_LXLogo, _AnimatedLxLogo] = createIcon({
 name: 'LXLogo',
 getIcon: (props) => (
   <Svg   fill="none" viewBox="0 0 96 96" {...props}>
@@ -37,3 +38,7 @@ getIcon: (props) => (
 ),
 
 })
+
+export const LXLogo = _LXLogo
+export const AnimatedLxLogo = _AnimatedLxLogo
+export { LXLogo as LuxLogo }

@@ -5,12 +5,13 @@ import {
   FlexProps,
   IconButton,
   Image,
-  LinearGradient,
   styled,
   Text,
   useIsDarkMode,
   useMedia,
 } from 'ui/src'
+// LinearGradient is native-only; stub for web builds (guarded by isMobileApp)
+const LinearGradient = Flex as any
 import { X } from 'ui/src/components/icons/X'
 import { Modal } from 'lx/src/components/modals/Modal'
 import { parseCustomIconLink } from 'lx/src/components/notifications/iconUtils'

@@ -11,7 +11,7 @@ import {
   TransactionOriginType,
   TransactionType,
 } from 'lx/src/features/transactions/types/transactionDetails'
-import { remoteOrderStatusToLocalTxStatus } from 'lx/src/features/transactions/utils/lxOrder.utils'
+import { remoteOrderStatusToLocalTxStatus } from 'lx/src/features/transactions/utils/lx.utils'
 import { buildCurrencyId } from 'lx/src/utils/currencyId'
 
 export function extractLXOrderDetails(transaction: TransactionListQueryResponse): TransactionDetails | null {

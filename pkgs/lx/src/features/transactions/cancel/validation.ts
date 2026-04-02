@@ -1,6 +1,6 @@
 import { UniverseChainId } from 'lx/src/features/chains/types'
 import { LXOrderDetails } from 'lx/src/features/transactions/types/transactionDetails'
-import { hasEncodedOrder } from 'lx/src/features/transactions/utils/lxOrder.utils'
+import { hasEncodedOrder } from 'lx/src/features/transactions/utils/lx.utils'
 
 /**
  * Result of order validation

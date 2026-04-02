@@ -6,7 +6,7 @@ import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
 import { buildBatchCancellation } from 'lx/src/features/transactions/cancel/cancelOrderFactory'
 import { hasValidCancellationData } from 'lx/src/features/transactions/cancel/validation'
 import { LXOrderDetails } from 'lx/src/features/transactions/types/transactionDetails'
-import { hasEncodedOrder } from 'lx/src/features/transactions/utils/lxOrder.utils'
+import { hasEncodedOrder } from 'lx/src/features/transactions/utils/lx.utils'
 import { logger } from 'utilities/src/logger/logger'
 
 interface OrderWithEncodedData {

@@ -8,7 +8,7 @@ import { useShowMoonpayText } from '~/components/AccountDrawer/MiniPortfolio/hoo
 import { MenuStateVariant, useSetMenu } from '~/components/AccountDrawer/menuState'
 import ConnectionErrorView from '~/components/WalletModal/ConnectionErrorView'
 import PrivacyPolicyNotice from '~/components/WalletModal/PrivacyPolicyNotice'
-import { LuxMobileWalletConnectorOption } from '~/components/WalletModal/LuxMobileWalletConnectorOption'
+import { LXMobileWalletConnectorOption } from '~/components/WalletModal/LXMobileWalletConnectorOption'
 import { WalletConnectorOption } from '~/components/WalletModal/WalletConnectorOption'
 import { useRecentConnectorId } from '~/components/Web3Provider/constants'
 import { useOrderedWallets } from '~/features/wallet/connection/hooks/useOrderedWalletConnectors'

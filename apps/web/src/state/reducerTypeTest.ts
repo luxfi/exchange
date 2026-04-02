@@ -2,7 +2,7 @@ import { type TokenList } from '@luxamm/token-lists'
 import { type CombinedState } from 'redux'
 import { assert, type Equals } from 'tsafe'
 import { AppearanceSettingsState } from '@l.x/lx/src/features/appearance/slice'
-import { type LuxBehaviorHistoryState } from '@l.x/lx/src/features/behaviorHistory/slice'
+import { type LXBehaviorHistoryState } from '@l.x/lx/src/features/behaviorHistory/slice'
 import { type UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { type FavoritesState } from '@l.x/lx/src/features/favorites/slice'
 import { type NotificationState } from '@l.x/lx/src/features/notifications/slice/slice'
@@ -64,7 +64,7 @@ type ExpectedAppState = CombinedState<{
 
   // Lux State
   readonly appearanceSettings: AppearanceSettingsState
-  readonly luxBehaviorHistory: LuxBehaviorHistoryState
+  readonly luxBehaviorHistory: LXBehaviorHistoryState
   readonly favorites: FavoritesState
   readonly notifications: NotificationState
   readonly searchHistory: Readonly<SearchHistoryState>

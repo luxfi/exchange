@@ -10,7 +10,7 @@ import {
   convertOrderStatusToTransactionStatus,
   convertOrderTypeToRouting,
   isLimitOrder,
-} from 'lx/src/features/transactions/utils/lxOrder.utils'
+} from 'lx/src/features/transactions/utils/lx.utils'
 
 describe('LX Utils', () => {
   describe('convertOrderTypeToRouting', () => {

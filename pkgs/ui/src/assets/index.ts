@@ -20,6 +20,7 @@ export const OKB_LOGO = require('./logos/png/okb-logo.png')
 export const UNICHAIN_LOGO = require('./logos/png/unichain-logo.png')
 export const UNICHAIN_SEPOLIA_LOGO = require('./logos/png/unichain-sepolia-logo.png')
 export const LUX_LOGO = require('./logos/png/lux-logo.png')
+export { LUX_LOGO as LX_LOGO }
 export const LUX_LOGO_LARGE = require('./logos/png/lux-logo-large.png')
 export const LUX_MONO_LOGO_LARGE = require('./logos/png/lux-mono-logo-large.png')
 export const LUX_APP_ICON = require('./logos/png/lux-app-icon.png')

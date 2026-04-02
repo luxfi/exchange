@@ -20,7 +20,7 @@ import { LuxProvider } from '@l.x/lx/src/contexts/LuxContext'
 import { UrlContext } from '@l.x/lx/src/contexts/UrlContext'
 import { SharedPersistQueryClientProvider } from '@l.x/lx/src/data/apiClients/SharedPersistQueryClientProvider'
 import 'lx/src/i18n'
-import { LuxState, luxReducer } from '@l.x/lx/src/state/luxReducer'
+import { LXState, lxReducer } from '@l.x/lx/src/state/lxReducer'
 import { createMockFn } from '@l.x/lx/src/test/mockFn'
 import { AutoMockedApolloProvider } from '@l.x/lx/src/test/mocks'
 
@@ -52,8 +52,8 @@ export const mockLuxContext = {
 type ExtendedRenderOptions = RenderOptions & {
   cache?: InMemoryCache
   resolvers?: Resolvers
-  preloadedState?: PreloadedState<LuxState>
-  store?: EnhancedStore<LuxState>
+  preloadedState?: PreloadedState<LXState>
+  store?: EnhancedStore<LXState>
 }
 
 /**
@@ -71,7 +71,7 @@ export function renderWithProviders(
     preloadedState = {},
     // Automatically create a store instance if no store was passed in
     store = configureStore({
-      reducer: luxReducer,
+      reducer: lxReducer,
       preloadedState,
       middleware: (getDefaultMiddleware) => getDefaultMiddleware(),
     }),
@@ -99,8 +99,8 @@ export function renderWithProviders(
 type ExtendedRenderHookOptions<P> = RenderHookOptions<P> & {
   cache?: InMemoryCache
   resolvers?: Resolvers
-  preloadedState?: PreloadedState<LuxState>
-  store?: EnhancedStore<LuxState>
+  preloadedState?: PreloadedState<LXState>
+  store?: EnhancedStore<LXState>
 }
 
 type RenderHookWithProvidersResult<R, P extends any[] | undefined = undefined> = Omit<
@@ -140,7 +140,7 @@ export function renderHookWithProviders<P extends any[], R>(
     preloadedState = {},
     // Automatically create a store instance if no store was passed in
     store = configureStore({
-      reducer: luxReducer,
+      reducer: lxReducer,
       preloadedState,
       middleware: (getDefaultMiddleware) => getDefaultMiddleware(),
     }),

@@ -1,4 +1,4 @@
-import { createTamagui as createGui } from '@hanzo/gui'
+import { createGui } from '@hanzo/gui'
 import { animations } from '@luxfi/ui/src/theme/animations'
 import { configWithoutAnimations } from '@luxfi/ui/src/theme/config'
 

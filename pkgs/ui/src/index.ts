@@ -1,8 +1,6 @@
 export { PortalProvider } from '@hanzogui/portal'
 export type {
   Adapt,
-  AnchorProps,
-  CircleProps,
   ColorTokens,
   GetProps,
   GetRef,
@@ -12,8 +10,6 @@ export type {
   SpaceTokens,
   TabLayout,
   TabsTabProps,
-  TamaguiElement as GuiElement,
-  TamaguiProviderProps as GuiProviderProps,
   TextStyle,
   ThemeKeys,
   ThemeName,
@@ -22,13 +18,12 @@ export type {
 } from '@hanzo/gui'
 export {
   Accordion,
-  Anchor,
   AnimatePresence,
   Avatar,
-  Circle,
   createGui,
   getToken,
   getTokenValue,
+  GuiProvider,
   Image,
   isTouchable,
   ListItem,
@@ -44,21 +39,44 @@ export {
   Sheet,
   Slider,
   Spacer,
-  Square,
   styled,
   Tabs,
-  TamaguiProvider as GuiProvider,
   Theme,
   useComposedRefs,
   useIsTouchDevice,
   useMedia,
   usePropsAndStyle,
-  useWindowDimensions,
   View,
   VisuallyHidden,
   YGroup,
 } from '@hanzo/gui'
-// linear-gradient is native-only, not needed for web SPA build
+
+// Missing from @hanzo/gui@3.0.4 — local stubs
+import { styled, View, type GetProps } from '@hanzo/gui'
+
+export const Anchor = styled(View, { name: 'Anchor', tag: 'a', accessibilityRole: 'link' })
+export type AnchorProps = GetProps<typeof Anchor>
+
+export const Circle = styled(View, {
+  name: 'Circle',
+  variants: { size: { '...size': (size: any) => ({ width: size, height: size, borderRadius: 100000 }) } } as const,
+})
+export type CircleProps = GetProps<typeof Circle>
+
+export const Square = styled(View, {
+  name: 'Square',
+  variants: { size: { '...size': (size: any) => ({ width: size, height: size }) } } as const,
+})
+
+export type GuiElement = any
+export type GuiProviderProps = any
+
+export function useWindowDimensions() {
+  if (typeof window === 'undefined') return { width: 0, height: 0 }
+  return { width: window.innerWidth, height: window.innerHeight }
+}
+// Web-compatible LinearGradient stub (native uses expo-linear-gradient)
+export const LinearGradient = styled(View, { name: 'LinearGradient' }) as any
 export * from '@luxfi/ui/src/animations'
 export * from './components/AnimatableCopyIcon/AnimatableCopyIcon'
 export * from './components/AnimatedCopyLabel/AnimatedCopyLabel'
@@ -126,7 +144,7 @@ export { TokenInput, type TokenInputProps } from './components/trading/TokenInpu
 export { TokenPill as TokenPillWidget, type TokenPillProps } from './components/trading/TokenPill'
 export { TradeRow as TradeRowWidget, type TradeRowProps } from './components/trading/TradeRow'
 // Chart theme (shared lightweight-charts config generators)
-export { chartColors, getChartOptions, getCandlestickOptions, getVolumeOptions } from './components/charts/theme'
+export { chartColors } from './components/charts/theme'
 // Theme
 export * from './styles/ScrollbarStyles'
 export * from './theme/shadows'
