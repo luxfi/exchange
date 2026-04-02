@@ -1,3 +1,4 @@
+import { brand, getBrandUrl, getDocsUrl } from '@l.x/config'
 import { Trans } from '@lingui/macro'
 import { Trace, TraceEvent } from '@luxamm/analytics'
 import { BrowserEvent, InterfaceElementName, InterfaceEventName, InterfacePageName } from '@luxamm/analytics-events'
@@ -248,7 +249,7 @@ export default function Pool() {
           <BookOpen size={16} />
         </PoolMenuItem>
       ),
-      link: 'https://docs.lux.exchange/',
+      link: getDocsUrl('/'),
       external: true,
     },
   ]

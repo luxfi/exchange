@@ -1,3 +1,4 @@
+import { brand, getBrandUrl, getDocsUrl } from '@l.x/config'
 import { SharedEventName } from '@luxamm/analytics-events'
 import { ReactNode, useEffect, useMemo, useRef } from 'react'
 import { useTranslation } from 'react-i18next'
@@ -83,7 +84,7 @@ function PrivacyPolicy() {
         description: (
           <>
             {t('privacy.trm')}{' '}
-            <ExternalLink href="https://docs.lux.exchange/help/address-screening">
+            <ExternalLink href={getDocsUrl('/help/address-screening')}>
               {t('common.button.learn')}
             </ExternalLink>
           </>
@@ -111,8 +112,8 @@ function PrivacyPolicy() {
     >
       <AutoColumn gap="16px">
         <AutoColumn gap="sm" style={{ width: '100%' }}>
-          <ExternalLinkCard href="https://lux.exchange/terms">{t('privacy.luxtos')}</ExternalLinkCard>
-          <ExternalLinkCard href="https://lux.exchange/privacy">{t('common.privacyPolicy')}</ExternalLinkCard>
+          <ExternalLinkCard href={getBrandUrl("/terms")}>{t('privacy.luxtos')}</ExternalLinkCard>
+          <ExternalLinkCard href={getBrandUrl("/privacy")}>{t('common.privacyPolicy')}</ExternalLinkCard>
         </AutoColumn>
         <Text variant="body3" color="$neutral2">
           {t('privacy.thirdPartyApis')}
@@ -135,7 +136,7 @@ function PrivacyPolicy() {
           ))}
           <Row justify="center" marginBottom="1rem">
             <ExternalLink
-              href="https://docs.lux.exchange/help/terms-of-service-faq"
+              href={getDocsUrl('/help/terms-of-service-faq')}
               style={{ fontSize: 12 }}
             >
               {t('common.button.learn')}

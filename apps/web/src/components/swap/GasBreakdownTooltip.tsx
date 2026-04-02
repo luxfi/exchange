@@ -1,3 +1,4 @@
+import { brand, getBrandUrl, getDocsUrl } from '@l.x/config'
 import { Currency } from '@luxamm/sdk-core'
 import { ReactNode } from 'react'
 import { Trans } from 'react-i18next'
@@ -96,7 +97,7 @@ function NetworkCostDescription({ native }: { native: Currency }) {
   return (
     <ThemedText.LabelMicro>
       <Trans i18nKey="swap.networkCost.paidIn" values={{ sym: native.symbol, chainName }} />{' '}
-      <ExternalLink href="https://docs.lux.exchange/help/network-fees">
+      <ExternalLink href={getDocsUrl('/help/network-fees')}>
         <Trans i18nKey="common.button.learn" />
       </ExternalLink>
     </ThemedText.LabelMicro>

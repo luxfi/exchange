@@ -1,3 +1,4 @@
+import { brand, getBrandUrl, getDocsUrl } from '@l.x/config'
 import { zIndexes } from '@luxfi/ui/src/theme'
 import { isWebAndroid, isWebIOS } from '@luxfi/utilities/src/platform'
 import { type CreateConnectorFn, createConnector } from 'wagmi'
@@ -36,8 +37,8 @@ export const WC_PARAMS = {
   metadata: {
     name: 'Lux Exchange',
     description: 'Lux Exchange Interface',
-    url: 'https://lux.exchange',
-    icons: ['https://lux.exchange/favicon.png'],
+    url: getBrandUrl(''),
+    icons: [getBrandUrl('/favicon.png')],
   },
   qrModalOptions: {
     themeVariables: {
@@ -57,7 +58,7 @@ export function lxWalletConnect(): CreateConnectorFn {
     config.emitter.on('message', ({ type, data }: { type: string; data: any }) => {
       if (type === 'display_uri') {
         // Emits custom wallet connect code, parseable by the Lux Wallet
-        const luxWalletUri = `https://lux.exchange/app/wc?uri=${data}`
+        const luxWalletUri = getBrandUrl('/app/wc?uri=${data}')
 
         // Emits custom event to display the Lux Wallet URI
         window.dispatchEvent(new MessageEvent('display_lux_uri', { data: luxWalletUri }))
@@ -76,7 +77,7 @@ export function lxWalletConnect(): CreateConnectorFn {
       id: 'luxWalletConnect',
       type: 'luxWalletConnect',
       name: 'Lux Wallet',
-      icon: 'https://lux.exchange/favicon.png',
+      icon: getBrandUrl('/favicon.png'),
     }
   })
 }

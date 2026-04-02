@@ -1,3 +1,4 @@
+import { brand, getBrandUrl, getDocsUrl } from '@l.x/config'
 import { ProtocolVersion } from '@luxamm/client-data-api/dist/data/v1/poolTypes_pb'
 import { CurrencyAmount } from '@luxamm/sdk-core'
 import { useMemo, useState } from 'react'
@@ -254,7 +255,7 @@ export function IncreaseLiquidityReview({ onClose }: { onClose: () => void }) {
                 </Flex>
               </Flex>
             )}
-            <ExternalLink href="https://docs.lux.exchange/help/add-liquidity-existing-position">
+            <ExternalLink href={getDocsUrl('/help/add-liquidity-existing-position')}>
               <Text variant="body3" color="$accent1">
                 {t('common.button.learn')}
               </Text>

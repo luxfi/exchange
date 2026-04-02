@@ -1,3 +1,4 @@
+import { brand, getBrandUrl, getDocsUrl } from '@l.x/config'
 import { Currency, CurrencyAmount } from '@luxamm/sdk-core'
 import React, { ReactNode } from 'react'
 import { Trans } from 'react-i18next'
@@ -43,7 +44,7 @@ function BaseTooltipContent({ children, url }: { children: ReactNode; url: strin
 
 export function FOTTooltipContent() {
   return (
-    <BaseTooltipContent url="https://docs.lux.exchange/help/token-fees">
+    <BaseTooltipContent url={getDocsUrl('/help/token-fees')}>
       <Trans i18nKey="swap.tokenOwnFees" />
     </BaseTooltipContent>
   )
@@ -52,7 +53,7 @@ export function FOTTooltipContent() {
 function SwapFeeTooltipContent({ hasFee }: { hasFee: boolean }) {
   const message = hasFee ? <Trans i18nKey="swap.fees.experience" /> : <Trans i18nKey="swap.fees.noFee" />
   return (
-    <BaseTooltipContent url="https://docs.lux.exchange/help/swap-fees">
+    <BaseTooltipContent url={getDocsUrl('/help/swap-fees')}>
       {message}
     </BaseTooltipContent>
   )
@@ -60,7 +61,7 @@ function SwapFeeTooltipContent({ hasFee }: { hasFee: boolean }) {
 
 export function SlippageTooltipContent() {
   return (
-    <BaseTooltipContent url="https://docs.lux.exchange/help/swap-fees">
+    <BaseTooltipContent url={getDocsUrl('/help/swap-fees')}>
       <Trans i18nKey="swap.slippage.tooltip" />
     </BaseTooltipContent>
   )

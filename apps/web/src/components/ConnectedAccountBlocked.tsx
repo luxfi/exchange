@@ -1,3 +1,4 @@
+import { brand, getBrandUrl, getDocsUrl } from '@l.x/config'
 import { Trans, useTranslation } from 'react-i18next'
 import { Flex, Text } from '@luxfi/ui/src'
 import { Blocked } from '@luxfi/ui/src/components/icons/Blocked'
@@ -25,7 +26,7 @@ export default function ConnectedAccountBlocked({ isOpen, closeModal }: ModalSta
           <Text color="$neutral2" variant="body4" textAlign="center">
             <Trans
               i18nKey="common.blocked.reason"
-              components={{ link: <ExternalLink href="https://docs.lux.exchange/help/blocked-addresses" /> }}
+              components={{ link: <ExternalLink href={getDocsUrl('/help/blocked-addresses')} /> }}
             />
           </Text>
           <Text color="$neutral2" variant="body4" textAlign="center">

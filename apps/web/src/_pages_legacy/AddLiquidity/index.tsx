@@ -1,3 +1,4 @@
+import { brand, getBrandUrl, getDocsUrl } from '@l.x/config'
 import { BigNumber } from '@ethersproject/bignumber'
 import type { TransactionResponse } from '@ethersproject/providers'
 import { Trans } from '@lingui/macro'
@@ -862,7 +863,7 @@ export default function AddLiquidity() {
                                       Full range positions may earn less fees than concentrated positions. Learn more{' '}
                                       <ExternalLink
                                         style={{ color: theme.deprecated_yellow3, textDecoration: 'underline' }}
-                                        href="https://docs.lux.exchange/help/liquidity-full-range-v3"
+                                        href={getDocsUrl('/help/liquidity-full-range-v3')}
                                       >
                                         here
                                       </ExternalLink>

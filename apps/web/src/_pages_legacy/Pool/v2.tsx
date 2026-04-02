@@ -1,3 +1,4 @@
+import { brand, getBrandUrl, getDocsUrl } from '@l.x/config'
 import { Trans } from '@lingui/macro'
 import { Trace } from '@luxamm/analytics'
 import { InterfacePageName } from '@luxamm/analytics-events'
@@ -164,7 +165,7 @@ export default function Pool() {
                 <ExternalLink
                   style={{ color: theme.white, textDecoration: 'underline' }}
                   target="_blank"
-                  href="https://docs.lux.exchange/protocol/v2/core-concepts/pools"
+                  href={getDocsUrl('/protocol/v2/core-concepts/pools')}
                 >
                   <ThemedText.DeprecatedWhite fontSize={14}>
                     <Trans>Read more about providing liquidity</Trans>
@@ -231,7 +232,7 @@ export default function Pool() {
                     <ButtonSecondary>
                       <RowBetween>
                         <Trans>
-                          <ExternalLink href={'https://info.lux.exchange/v2/account/' + account}>
+                          <ExternalLink href={getDocsUrl('/v2/account/') + account}>
                             Account analytics and accrued fees
                           </ExternalLink>
                           <span> ↗ </span>

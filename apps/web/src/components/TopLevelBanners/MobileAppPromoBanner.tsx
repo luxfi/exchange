@@ -1,3 +1,4 @@
+import { brand, getBrandUrl, getDocsUrl } from '@l.x/config'
 import { useAtom } from 'jotai'
 import { useAtomValue } from 'jotai/utils'
 import { useTranslation } from 'react-i18next'
@@ -48,32 +49,32 @@ export function useMobileAppPromoBannerEligible(): boolean {
   return (isWebIOS || isWebAndroid) && !hideMobileAppPromoBanner && !persistHideMobileAppPromoBanner
 }
 
-const UNIVERSAL_DOWNLOAD_LINK = 'https://lux.exchange/wallet?ref=39b0eeui'
+const UNIVERSAL_DOWNLOAD_LINK = getBrandUrl('/wallet?ref=39b0eeui')
 
 function getDownloadLink(userAgent: string, peerWalletAgent?: string): string {
   if (userAgent.includes('MetaMaskMobile')) {
-    return 'https://lux.exchange/wallet?ref=ee713xnh'
+    return getBrandUrl('/wallet?ref=ee713xnh')
   }
   if (userAgent.includes('Phantom')) {
-    return 'https://lux.exchange/wallet?ref=sjdi6xky'
+    return getBrandUrl('/wallet?ref=sjdi6xky')
   }
   if (userAgent.includes('OKApp')) {
-    return 'https://lux.exchange/wallet?ref=7i8g60sb'
+    return getBrandUrl('/wallet?ref=7i8g60sb')
   }
   if (userAgent.includes('BitKeep')) {
-    return 'https://lux.exchange/wallet?ref=93vro3iq'
+    return getBrandUrl('/wallet?ref=93vro3iq')
   }
   if (userAgent.includes('DeFiWallet')) {
-    return 'https://lux.exchange/wallet?ref=ay1z22ab'
+    return getBrandUrl('/wallet?ref=ay1z22ab')
   }
   if (userAgent.includes('1inchWallet')) {
-    return 'https://lux.exchange/wallet?ref=03e2c5cw'
+    return getBrandUrl('/wallet?ref=03e2c5cw')
   }
   if (userAgent.includes('RHNCW')) {
-    return 'https://lux.exchange/wallet?ref=ipq1dx4n'
+    return getBrandUrl('/wallet?ref=ipq1dx4n')
   }
   if (peerWalletAgent?.includes('CoinbaseWallet CoinbaseBrowser')) {
-    return 'https://lux.exchange/wallet?ref=24xpl5zh'
+    return getBrandUrl('/wallet?ref=24xpl5zh')
   }
   return UNIVERSAL_DOWNLOAD_LINK
 }

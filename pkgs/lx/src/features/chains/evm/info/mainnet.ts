@@ -1,3 +1,4 @@
+import { brand, getBrandUrl, getDocsUrl } from '@l.x/config'
 import { CurrencyAmount } from '@luxamm/sdk-core'
 import { GraphQLApi } from '@luxfi/api'
 import { SwapConfigKey } from '@luxfi/gating'
@@ -49,7 +50,7 @@ export const MAINNET_CHAIN_INFO = {
   blockPerMainnetEpochForChainId: 1,
   blockWaitMsBeforeWarning: isWebApp ? DEFAULT_MS_BEFORE_WARNING : ONE_MINUTE_MS,
   bridge: undefined,
-  docs: 'https://docs.lux.exchange/',
+  docs: 'https://docs.lux.network/',
   elementName: ElementName.ChainEthereum,
   explorer: {
     name: 'Etherscan',
@@ -135,7 +136,7 @@ export const SEPOLIA_CHAIN_INFO = {
   blockPerMainnetEpochForChainId: 1,
   blockWaitMsBeforeWarning: undefined,
   bridge: undefined,
-  docs: 'https://docs.lux.exchange/',
+  docs: 'https://docs.lux.network/',
   elementName: ElementName.ChainSepolia,
   explorer: {
     name: 'Etherscan',

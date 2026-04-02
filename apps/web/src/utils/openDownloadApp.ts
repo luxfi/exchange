@@ -1,3 +1,4 @@
+import { brand, getBrandUrl, getDocsUrl } from '@l.x/config'
 import { ElementName, InterfaceEventName } from '@l.x/lx/src/features/telemetry/constants'
 import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
 import { AppDownloadPlatform } from '@l.x/lx/src/features/telemetry/types'
@@ -5,13 +6,13 @@ import { isWebAndroid, isWebIOS } from '@luxfi/utilities/src/platform'
 
 // Download links — redirect to Lux wallet download page
 const APP_DOWNLOAD_LINKS: Partial<{ [key in ElementName]: string }> = {
-  [ElementName.LuxWalletModalDownloadButton]: 'https://lux.exchange/wallet',
-  [ElementName.LuxWalletNavbarMenuDownloadButton]: 'https://lux.exchange/wallet',
-  [ElementName.LuxWalletLandingPageDownloadButton]: 'https://lux.exchange/wallet',
-  [ElementName.LuxWalletBannerDownloadButton]: 'https://lux.exchange/wallet',
+  [ElementName.LuxWalletModalDownloadButton]: getBrandUrl('/wallet'),
+  [ElementName.LuxWalletNavbarMenuDownloadButton]: getBrandUrl('/wallet'),
+  [ElementName.LuxWalletLandingPageDownloadButton]: getBrandUrl('/wallet'),
+  [ElementName.LuxWalletBannerDownloadButton]: getBrandUrl('/wallet'),
 }
 
-export const MICROSITE_LINK = 'https://lux.exchange/wallet'
+export const MICROSITE_LINK = getBrandUrl('/wallet')
 
 type OpenDownloadAppOptions = {
   element: ElementName

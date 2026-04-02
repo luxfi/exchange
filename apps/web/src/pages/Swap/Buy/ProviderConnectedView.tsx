@@ -1,3 +1,4 @@
+import { brand, getBrandUrl, getDocsUrl } from '@l.x/config'
 import { Trans, useTranslation } from 'react-i18next'
 import { Flex, Text, useIsDarkMode, useSporeColors } from '@luxfi/ui/src'
 import { ServiceProviderLogoStyles } from '@l.x/lx/src/features/fiatOnRamp/constants'
@@ -52,12 +53,12 @@ export function ProviderConnectedView({ closeModal, selectedServiceProvider }: P
             }}
             components={{
               tosLink: (
-                <StyledLink color={colors.neutral3.val} href="https://lux.exchange/terms">
+                <StyledLink color={colors.neutral3.val} href={getBrandUrl("/terms")}>
                   {t('common.termsOfService')}
                 </StyledLink>
               ),
               privacyLink: (
-                <StyledLink color={colors.neutral3.val} href="https://lux.exchange/privacy">
+                <StyledLink color={colors.neutral3.val} href={getBrandUrl("/privacy")}>
                   {t('common.privacyPolicy')}
                 </StyledLink>
               ),

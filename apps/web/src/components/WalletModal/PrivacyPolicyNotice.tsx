@@ -1,3 +1,4 @@
+import { brand, getBrandUrl, getDocsUrl } from '@l.x/config'
 import { Trans } from 'react-i18next'
 import { Text } from '@luxfi/ui/src'
 import { deprecatedStyled } from '~/lib/deprecated-styled'
@@ -14,8 +15,8 @@ export default function PrivacyPolicyNotice() {
       <Trans
         i18nKey="wallet.connectingAgreement"
         components={{
-          termsLink: <StyledLink href="https://lux.exchange/terms" />,
-          privacyLink: <StyledLink href="https://lux.exchange/privacy" />,
+          termsLink: <StyledLink href={getBrandUrl("/terms")} />,
+          privacyLink: <StyledLink href={getBrandUrl("/privacy")} />,
         }}
       />
     </Text>

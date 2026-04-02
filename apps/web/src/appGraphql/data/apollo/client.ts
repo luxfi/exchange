@@ -1,3 +1,4 @@
+import { brand, getBrandUrl, getDocsUrl } from '@l.x/config'
 import { ApolloClient, from, HttpLink } from '@apollo/client'
 import { setupSharedApolloCache } from '@l.x/lx/src/data/cache'
 import { getDatadogApolloLink } from '@luxfi/utilities/src/logger/datadog/datadogLink'
@@ -15,7 +16,7 @@ export const apolloClient: any = new ApolloClient({
   link: from([datadogLink, retryLink, httpLink]),
   headers: {
     'Content-Type': 'application/json',
-    Origin: 'https://lux.exchange',
+    Origin: getBrandUrl(''),
   },
   cache: setupSharedApolloCache(),
   defaultOptions: {

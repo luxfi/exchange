@@ -1,3 +1,4 @@
+import { brand, getBrandUrl, getDocsUrl } from '@l.x/config'
 import { lazy, PropsWithChildren, ReactNode, Suspense, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useDispatch } from 'react-redux'
@@ -127,7 +128,7 @@ function DownloadMobile() {
       px="60px"
       my="$spacing24"
     >
-      <BadgeLink href="https://lux.exchange/wallet">
+      <BadgeLink href=getBrandUrl('/wallet')>
         <Suspense fallback={<Loader.Box width={200} height={200} />}>
           <LazyWalletOneLinkQR width={200} height={200} />
         </Suspense>
@@ -138,10 +139,10 @@ function DownloadMobile() {
         properties={{ connector_id: account.connector?.id }}
       >
         <Flex row justifyContent="center" gap="$spacing16">
-          <BadgeLink href="https://lux.exchange/wallet/ios">
+          <BadgeLink href={getBrandUrl("/wallet/ios")}>
             <Image src={AppStoreBadge} alt="App Store Badge" width={150} height={50} />
           </BadgeLink>
-          <BadgeLink href="https://lux.exchange/wallet/android">
+          <BadgeLink href={getBrandUrl("/wallet/android")}>
             <Image src={PlayStoreBadge} alt="Play Store Badge" width={170} height={50} />
           </BadgeLink>
         </Flex>
