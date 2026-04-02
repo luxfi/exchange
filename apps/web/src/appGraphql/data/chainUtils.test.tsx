@@ -1,6 +1,6 @@
-import { GraphQLApi } from '@luxexchange/api'
-import { UniverseChainId } from '@luxexchange/lx/src/features/chains/types'
-import { isBackendSupportedChain } from '@luxexchange/lx/src/features/chains/utils'
+import { GraphQLApi } from '@l.x/api'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { isBackendSupportedChain } from '@l.x/lx/src/features/chains/utils'
 import { supportedChainIdFromGQLChain } from '~/appGraphql/data/chainUtils'
 
 describe('fromGraphQLChain', () => {

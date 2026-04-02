@@ -1,4 +1,4 @@
-import { GraphQLApi, TradingApi } from '@luxexchange/api'
+import { GraphQLApi, TradingApi } from '@l.x/api'
 import { isLxSwap } from 'lx/src/features/transactions/swap/utils/routing'
 import {
   TransactionDetails,

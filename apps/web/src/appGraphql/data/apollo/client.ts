@@ -1,5 +1,5 @@
 import { ApolloClient, from, HttpLink } from '@apollo/client'
-import { setupSharedApolloCache } from '@luxexchange/lx/src/data/cache'
+import { setupSharedApolloCache } from '@l.x/lx/src/data/cache'
 import { getDatadogApolloLink } from '@luxfi/utilities/src/logger/datadog/datadogLink'
 import { getRetryLink } from '~/appGraphql/data/apollo/retryLink'
 

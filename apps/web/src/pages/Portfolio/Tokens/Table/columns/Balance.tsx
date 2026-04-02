@@ -1,4 +1,4 @@
-import { FeatureFlags, useFeatureFlag } from '@luxexchange/gating'
+import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { memo, useMemo } from 'react'
 import { Text, TextProps } from '@luxfi/ui/src'
 import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'

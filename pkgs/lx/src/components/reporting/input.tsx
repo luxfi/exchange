@@ -1,5 +1,5 @@
 import { fonts } from 'ui/src/theme'
-import { TextInput, TextInputProps } from '@luxexchange/lx/src/components/input/TextInput'
+import { TextInput, TextInputProps } from '@l.x/lx/src/components/input/TextInput'
 import { isMobileApp } from 'utilities/src/platform'
 
 const MAX_REPORT_TEXT_LENGTH = 500

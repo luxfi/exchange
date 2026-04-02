@@ -1,6 +1,6 @@
 /* eslint-disable no-restricted-syntax */
 import { expect, getTest } from 'playwright/fixtures'
-import { TestID } from '@luxexchange/lx/src/test/fixtures/testIDs'
+import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
 
 // Account Drawer tests require anvil for wallet connection
 const test = getTest({ withAnvil: true })

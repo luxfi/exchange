@@ -1,5 +1,5 @@
 import { CurrencyAmount, TradeType } from '@luxamm/sdk-core'
-import { FeatureFlags, useFeatureFlag } from '@luxexchange/gating'
+import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { useCallback, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useDispatch } from 'react-redux'

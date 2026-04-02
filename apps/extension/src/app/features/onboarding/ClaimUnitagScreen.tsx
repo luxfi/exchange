@@ -7,9 +7,9 @@ import { navigate } from 'src/app/navigation/state'
 import { Flex, Square } from '@luxfi/ui/src'
 import { Person } from '@luxfi/ui/src/components/icons'
 import { iconSizes } from '@luxfi/ui/src/theme'
-import Trace from '@luxexchange/lx/src/features/telemetry/Trace'
-import { ClaimUnitagContent } from '@luxexchange/lx/src/features/unitags/ClaimUnitagContent'
-import { ExtensionOnboardingFlow, ExtensionOnboardingScreens } from '@luxexchange/lx/src/types/screens/extension'
+import Trace from '@l.x/lx/src/features/telemetry/Trace'
+import { ClaimUnitagContent } from '@l.x/lx/src/features/unitags/ClaimUnitagContent'
+import { ExtensionOnboardingFlow, ExtensionOnboardingScreens } from '@l.x/lx/src/types/screens/extension'
 import { useOnboardingContext } from '@luxfi/wallet/src/features/onboarding/OnboardingContext'
 
 export function ClaimUnitagScreen(): JSX.Element {

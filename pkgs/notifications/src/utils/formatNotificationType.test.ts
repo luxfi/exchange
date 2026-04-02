@@ -1,5 +1,5 @@
-import { ContentStyle } from '@luxexchange/api'
-import { formatNotificationType } from '@luxexchange/notifications/src/utils/formatNotificationType'
+import { ContentStyle } from '@l.x/api'
+import { formatNotificationType } from '@l.x/notifications/src/utils/formatNotificationType'
 import { describe, expect, it } from 'vitest'
 
 describe('formatNotificationType', () => {

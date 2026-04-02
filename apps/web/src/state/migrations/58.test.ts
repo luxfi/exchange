@@ -1,4 +1,4 @@
-import { Language } from '@luxexchange/lx/src/features/language/constants'
+import { Language } from '@l.x/lx/src/features/language/constants'
 import { migration58 } from '~/state/migrations/58'
 
 const previousState = {

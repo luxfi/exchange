@@ -1,5 +1,5 @@
 import { TradeType } from '@luxamm/sdk-core'
-import { TradingApi } from '@luxexchange/api'
+import { TradingApi } from '@l.x/api'
 import { createTransactionDetails } from 'lx/src/features/activity/extract/extractPlanUtils'
 import {
   mapTAPIPlanStatusToTXStatus,

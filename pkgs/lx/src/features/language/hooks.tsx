@@ -1,4 +1,4 @@
-import { ForceUpgradeTranslations } from '@luxexchange/gating'
+import { ForceUpgradeTranslations } from '@l.x/gating'
 import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'

@@ -16,10 +16,10 @@ import { AnimatedStyle, useDerivedValue } from 'react-native-reanimated'
 import { ScrollDownOverlay } from 'src/components/Requests/ModalWithOverlay/ScrollDownOverlay'
 import { Button, ButtonProps, Flex } from '@luxfi/ui/src'
 import { spacing } from '@luxfi/ui/src/theme'
-import { Modal } from '@luxexchange/lx/src/components/modals/Modal'
-import { ModalProps } from '@luxexchange/lx/src/components/modals/ModalProps'
-import { useAppInsets } from '@luxexchange/lx/src/hooks/useAppInsets'
-import { TestID } from '@luxexchange/lx/src/test/fixtures/testIDs'
+import { Modal } from '@l.x/lx/src/components/modals/Modal'
+import { ModalProps } from '@l.x/lx/src/components/modals/ModalProps'
+import { useAppInsets } from '@l.x/lx/src/hooks/useAppInsets'
+import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
 
 const MEASURE_LAYOUT_TIMEOUT = 100
 

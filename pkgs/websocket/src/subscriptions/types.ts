@@ -1,4 +1,4 @@
-import type { SubscriptionHandler } from '@luxexchange/websocket/src/types'
+import type { SubscriptionHandler } from '@l.x/websocket/src/types'
 
 export interface SubscriptionEntry<TParams, TMessage> {
   channel: string

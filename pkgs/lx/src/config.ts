@@ -1,3 +1,3 @@
-import { getConfig } from '@luxexchange/config'
+import { getConfig } from '@l.x/config'
 
 export const config = getConfig()

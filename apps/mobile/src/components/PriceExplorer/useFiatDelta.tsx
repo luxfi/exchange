@@ -1,8 +1,8 @@
 import { useCallback, useMemo } from 'react'
 import { runOnJS, SharedValue, useAnimatedReaction, useDerivedValue, useSharedValue } from 'react-native-reanimated'
 import { useLineChart } from 'react-native-wagmi-charts'
-import { useFormatChartFiatDelta } from '@luxexchange/lx/src/features/fiatCurrency/hooks/useFormatChartFiatDelta'
-import { useLocalizationContext } from '@luxexchange/lx/src/features/language/LocalizationContext'
+import { useFormatChartFiatDelta } from '@l.x/lx/src/features/fiatCurrency/hooks/useFormatChartFiatDelta'
+import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
 
 interface UseFiatDeltaParams {
   startingPrice?: number

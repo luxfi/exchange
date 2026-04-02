@@ -1,5 +1,5 @@
 import { NetworkStatus } from '@apollo/client'
-import { isWarmLoadingStatus } from '@luxexchange/api'
+import { isWarmLoadingStatus } from '@l.x/api'
 import isEqual from 'lodash/isEqual'
 import {
   createContext,

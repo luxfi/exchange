@@ -1,6 +1,6 @@
-import { GraphQLApi } from '@luxexchange/api'
+import { GraphQLApi } from '@l.x/api'
 import { useMemo } from 'react'
-import { normalizeTokenAddressForCache } from '@luxexchange/lx/src/data/cache'
+import { normalizeTokenAddressForCache } from '@l.x/lx/src/data/cache'
 import { normalizeTextInput } from '@luxfi/utilities/src/primitives/string'
 import { useExploreTablesFilterStore } from '~/pages/Explore/exploreTablesFilterStore'
 

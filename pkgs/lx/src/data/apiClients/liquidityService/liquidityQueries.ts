@@ -19,7 +19,7 @@ import type {
   PoolInfoRequest,
   PoolInfoResponse,
 } from '@luxamm/client-liquidity/dist/lx/liquidity/v1/api_pb'
-import { type UseQueryApiHelperHookArgs } from '@luxexchange/api'
+import { type UseQueryApiHelperHookArgs } from '@l.x/api'
 import { LiquidityServiceClient } from 'lx/src/data/apiClients/liquidityService/LiquidityServiceClient'
 import { ReactQueryCacheKey } from 'utilities/src/reactQuery/cache'
 import { type QueryOptionsResult } from 'utilities/src/reactQuery/queryOptions'

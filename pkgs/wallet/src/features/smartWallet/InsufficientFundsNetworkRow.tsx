@@ -1,4 +1,4 @@
-import { type GasFeeResultWithoutState } from '@luxexchange/api'
+import { type GasFeeResultWithoutState } from '@l.x/api'
 import { memo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Flex, Text } from 'ui/src'

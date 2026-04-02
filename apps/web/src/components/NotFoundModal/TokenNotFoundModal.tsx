@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next'
-import { ModalName } from '@luxexchange/lx/src/features/telemetry/constants'
+import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
 import NotFoundModal from '~/components/NotFoundModal/NotFoundModal'
 import { useModalState } from '~/hooks/useModalState'
 

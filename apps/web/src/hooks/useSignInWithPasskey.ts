@@ -1,15 +1,15 @@
 import { connect } from '@wagmi/core'
 import { useDispatch } from 'react-redux'
-import { CONNECTION_PROVIDER_IDS } from '@luxexchange/lx/src/constants/web3'
+import { CONNECTION_PROVIDER_IDS } from '@l.x/lx/src/constants/web3'
 import {
   createNewEmbeddedWallet,
   signInWithPasskey as signInWithPasskeyAPI,
   signMessageWithPasskey,
-} from '@luxexchange/lx/src/features/passkey/embeddedWallet'
-import { InterfaceEventName } from '@luxexchange/lx/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from '@luxexchange/lx/src/features/telemetry/send'
-import { WalletConnectionResult } from '@luxexchange/lx/src/features/telemetry/types'
-import { useClaimUnitag } from '@luxexchange/lx/src/features/unitags/hooks/useClaimUnitag'
+} from '@l.x/lx/src/features/passkey/embeddedWallet'
+import { InterfaceEventName } from '@l.x/lx/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
+import { WalletConnectionResult } from '@l.x/lx/src/features/telemetry/types'
+import { useClaimUnitag } from '@l.x/lx/src/features/unitags/hooks/useClaimUnitag'
 import { logger } from '@luxfi/utilities/src/logger/logger'
 import { useWagmiConnectorWithId } from '~/components/WalletModal/useWagmiConnectorWithId'
 import { wagmiConfig } from '~/components/Web3Provider/wagmiConfig'

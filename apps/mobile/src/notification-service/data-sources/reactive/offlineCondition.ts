@@ -5,8 +5,8 @@ import {
   Notification,
   OnClick,
 } from '@luxamm/client-notification-service/dist/lx/notificationservice/v1/api_pb'
-import { type InAppNotification, OnClickAction } from '@luxexchange/api'
-import { type ReactiveCondition } from '@luxexchange/notifications'
+import { type InAppNotification, OnClickAction } from '@l.x/api'
+import { type ReactiveCondition } from '@l.x/notifications'
 import { type MobileState } from 'src/app/mobileReducer'
 import { selectSomeModalOpen } from 'src/features/modals/selectSomeModalOpen'
 import { selectFinishedOnboarding } from '@luxfi/wallet/src/features/wallet/selectors'

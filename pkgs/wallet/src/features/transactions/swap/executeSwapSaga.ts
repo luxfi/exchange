@@ -1,4 +1,4 @@
-import { DynamicConfigs, getDynamicConfigValue, SyncTransactionSubmissionChainIdsConfigKey } from '@luxexchange/gating'
+import { DynamicConfigs, getDynamicConfigValue, SyncTransactionSubmissionChainIdsConfigKey } from '@l.x/gating'
 import { call, put } from 'typed-redux-saga'
 import { AccountType } from 'lx/src/features/accounts/types'
 import { CAIP25Session } from 'lx/src/features/capabilities/caip25/types'

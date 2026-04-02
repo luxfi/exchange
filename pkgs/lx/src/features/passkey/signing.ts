@@ -1,5 +1,5 @@
 import type { Action } from '@luxamm/client-privy-embedded-wallet/dist/lx/privy-embedded-wallet/v1/service_pb'
-import type { SignAuth } from '@luxexchange/api'
+import type { SignAuth } from '@l.x/api'
 import { EmbeddedWalletApiClient } from 'lx/src/data/rest/embeddedWallet/requests'
 import { getDeviceSession, signWithDeviceKey } from 'lx/src/features/passkey/deviceSession'
 import { authenticateWithPasskey, loadPrivyPbModule } from 'lx/src/features/passkey/embeddedWallet'

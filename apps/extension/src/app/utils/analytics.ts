@@ -3,7 +3,7 @@ import 'src/app/Global.css'
 import 'symbol-observable' // Needed by `reduxed-chrome-storage` as polyfill, order matters
 
 import { EXTENSION_ORIGIN_APPLICATION } from 'src/app/version'
-import { lxUrls } from '@luxexchange/lx/src/constants/urls'
+import { lxUrls } from '@l.x/lx/src/constants/urls'
 import { getUniqueId } from '@luxfi/utilities/src/device/uniqueId'
 import { isTestEnv } from '@luxfi/utilities/src/environment/env'
 import { logger } from '@luxfi/utilities/src/logger/logger'

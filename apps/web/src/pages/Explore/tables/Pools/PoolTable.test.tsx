@@ -1,8 +1,8 @@
 import '~/test-utils/tokens/mocks'
 
 import { Percent } from '@luxamm/sdk-core'
-import { GraphQLApi } from '@luxexchange/api'
-import { DEFAULT_TICK_SPACING } from '@luxexchange/lx/src/constants/pools'
+import { GraphQLApi } from '@l.x/api'
+import { DEFAULT_TICK_SPACING } from '@l.x/lx/src/constants/pools'
 import { ExploreTablesFilterStoreContextProvider } from '~/pages/Explore/exploreTablesFilterStore'
 import { ExploreTopPoolTable } from '~/pages/Explore/tables/Pools/PoolTable'
 import { useTopPools } from '~/state/explore/topPools/useTopPools'

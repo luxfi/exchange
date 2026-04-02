@@ -1,5 +1,5 @@
 import { useMemo } from 'react'
-import { useAppFiatCurrencyInfo } from '@luxexchange/lx/src/features/fiatCurrency/hooks'
+import { useAppFiatCurrencyInfo } from '@l.x/lx/src/features/fiatCurrency/hooks'
 
 interface ParsedCurrencyAmountParts {
   prefixSymbol: string

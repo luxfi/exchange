@@ -3,7 +3,7 @@ import {
   type UnitagClaimEligibilityRequest,
   type UnitagClaimEligibilityResponse,
   type UseQueryApiHelperHookArgs,
-} from '@luxexchange/api'
+} from '@l.x/api'
 import { UnitagsApiClient } from 'lx/src/data/apiClients/unitagsApi/UnitagsApiClient'
 import { ReactQueryCacheKey } from 'utilities/src/reactQuery/cache'
 import { ONE_MINUTE_MS } from 'utilities/src/time/time'

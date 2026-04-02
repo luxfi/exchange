@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { TransactionType } from '@luxexchange/lx/src/features/transactions/types/transactionDetails'
+import { TransactionType } from '@l.x/lx/src/features/transactions/types/transactionDetails'
 import { usePendingTransactions } from '~/state/transactions/hooks'
 
 export function useLpIncentivesTransactionState() {

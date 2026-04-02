@@ -3,8 +3,8 @@ import { useDispatch } from 'react-redux'
 import { ModalsState } from 'src/features/modals/ModalsState'
 import { closeModal } from 'src/features/modals/modalSlice'
 import { useSporeColors } from '@luxfi/ui/src'
-import { Modal } from '@luxexchange/lx/src/components/modals/Modal'
-import { ModalProps } from '@luxexchange/lx/src/components/modals/ModalProps'
+import { Modal } from '@l.x/lx/src/components/modals/Modal'
+import { ModalProps } from '@l.x/lx/src/components/modals/ModalProps'
 
 /**
  * This is a wrapper around the Modal component intended but not limited to

@@ -1,4 +1,4 @@
-import { TradingApi } from '@luxexchange/api'
+import { TradingApi } from '@l.x/api'
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { useAnimatedStyle, useSharedValue, withSequence, withTiming } from 'react-native-reanimated'
 import { Button, CustomButtonFrame, Flex, ThemedSpinningLoader, useIsShortMobileDevice, useSporeColors } from 'ui/src'

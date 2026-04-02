@@ -1,4 +1,4 @@
-import { GraphQLApi } from '@luxexchange/api'
+import { GraphQLApi } from '@l.x/api'
 import { daiToken, ethToken } from 'lx/src/test/fixtures/gql/assets'
 import { faker } from 'lx/src/test/shared'
 import { createFixture, randomEnumValue } from 'lx/src/test/utils'

@@ -1,8 +1,8 @@
 import { ProtocolVersion } from '@luxamm/client-data-api/dist/data/v1/poolTypes_pb'
-import { ZERO_ADDRESS } from '@luxexchange/lx/src/constants/misc'
-import { nativeOnChain, USDT } from '@luxexchange/lx/src/constants/tokens'
-import { getChainInfo } from '@luxexchange/lx/src/features/chains/chainInfo'
-import { UniverseChainId } from '@luxexchange/lx/src/features/chains/types'
+import { ZERO_ADDRESS } from '@l.x/lx/src/constants/misc'
+import { nativeOnChain, USDT } from '@l.x/lx/src/constants/tokens'
+import { getChainInfo } from '@l.x/lx/src/features/chains/chainInfo'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import {
   canUnwrapCurrency,
   getCurrencyForProtocol,

@@ -11,7 +11,7 @@
     "emitDeclarationOnly": true,
     "noEmit": false,
     "paths": {
-      "@luxexchange/sessions/*": ["./src/*"]
+      "@l.x/sessions/*": ["./src/*"]
     },
     "types": ["chrome", "node"]
   },

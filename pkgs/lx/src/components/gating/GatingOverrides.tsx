@@ -10,7 +10,7 @@ import {
   Layers,
   useFeatureFlagWithExposureLoggingDisabled,
   WALLET_FEATURE_FLAG_NAMES,
-} from '@luxexchange/gating'
+} from '@l.x/gating'
 import React, { PropsWithChildren, useCallback } from 'react'
 import { Accordion, Flex, Separator, Switch, Text } from 'ui/src'
 import { RotatableChevron } from 'ui/src/components/icons/RotatableChevron'

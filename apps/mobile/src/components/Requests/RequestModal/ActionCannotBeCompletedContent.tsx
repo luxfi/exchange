@@ -8,9 +8,9 @@ import { WalletConnectSigningRequest } from 'src/features/walletConnect/walletCo
 import { Flex, Text } from '@luxfi/ui/src'
 import { AlertTriangleFilled } from '@luxfi/ui/src/components/icons'
 import { spacing } from '@luxfi/ui/src/theme'
-import { lxUrls } from '@luxexchange/lx/src/constants/urls'
-import { ModalName } from '@luxexchange/lx/src/features/telemetry/constants'
-import { openUri } from '@luxexchange/lx/src/utils/linking'
+import { lxUrls } from '@l.x/lx/src/constants/urls'
+import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
+import { openUri } from '@l.x/lx/src/utils/linking'
 import { AddressFooter } from '@luxfi/wallet/src/features/transactions/TransactionRequest/AddressFooter'
 
 export function ActionCannotBeCompletedContent({

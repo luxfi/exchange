@@ -1,6 +1,6 @@
 import { PersistState } from 'redux-persist'
-import { Language, mapLocaleToLanguage } from '@luxexchange/lx/src/features/language/constants'
-import { navigatorLocale } from '@luxexchange/lx/src/features/language/navigatorLocale'
+import { Language, mapLocaleToLanguage } from '@l.x/lx/src/features/language/constants'
+import { navigatorLocale } from '@l.x/lx/src/features/language/navigatorLocale'
 
 type PersistAppStateV58 = {
   _persist: PersistState

@@ -1,16 +1,16 @@
 /* eslint-disable max-params */
 
 import type { Currency } from '@luxamm/sdk-core'
-import { GraphQLApi } from '@luxexchange/api'
+import { GraphQLApi } from '@l.x/api'
 import { Flex, styled, Text } from '@luxfi/ui/src'
 import { Arrow } from '@luxfi/ui/src/components/arrow/Arrow'
 import { iconSizes } from '@luxfi/ui/src/theme'
-import { NetworkLogo } from '@luxexchange/lx/src/components/CurrencyLogo/NetworkLogo'
+import { NetworkLogo } from '@l.x/lx/src/components/CurrencyLogo/NetworkLogo'
 import {
   CrossChainCurrencyRow,
   CrossChainCurrencyRowProps,
-} from '@luxexchange/lx/src/features/transactions/swap/components/CrossChainCurrencyRow'
-import i18n from '@luxexchange/lx/src/i18n'
+} from '@l.x/lx/src/features/transactions/swap/components/CrossChainCurrencyRow'
+import i18n from '@l.x/lx/src/i18n'
 import { supportedChainIdFromGQLChain } from '~/appGraphql/data/chainUtils'
 
 function getChainIdFromGqlTokenOrCurrency(token?: GraphQLApi.TokenAssetPartsFragment | Currency): number | null {

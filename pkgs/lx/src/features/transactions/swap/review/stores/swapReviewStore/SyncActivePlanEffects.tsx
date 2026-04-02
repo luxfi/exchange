@@ -1,4 +1,4 @@
-import { TradingApi } from '@luxexchange/api'
+import { TradingApi } from '@l.x/api'
 import { useEffect, useMemo } from 'react'
 import { TransactionAndPlanStep } from 'lx/src/features/transactions/swap/plan/planStepTransformer'
 import {

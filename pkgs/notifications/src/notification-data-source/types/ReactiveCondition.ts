@@ -1,4 +1,4 @@
-import { type InAppNotification } from '@luxexchange/api'
+import { type InAppNotification } from '@l.x/api'
 
 /**
  * A reactive condition for state-driven notifications.

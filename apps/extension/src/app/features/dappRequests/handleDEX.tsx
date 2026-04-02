@@ -1,19 +1,19 @@
 import { TradingApi } from '@luxfi/api'
 import { Dispatch } from 'redux'
-import { TradingApiClient } from '@luxexchange/lx/src/data/apiClients/tradingApi/TradingApiClient'
-import { isUniverseChainId } from '@luxexchange/lx/src/features/chains/utils'
-import { transactionActions } from '@luxexchange/lx/src/features/transactions/slice'
+import { TradingApiClient } from '@l.x/lx/src/data/apiClients/tradingApi/TradingApiClient'
+import { isUniverseChainId } from '@l.x/lx/src/features/chains/utils'
+import { transactionActions } from '@l.x/lx/src/features/transactions/slice'
 import {
   QueuedOrderStatus,
   TransactionOriginType,
   TransactionType,
   DEXOrderDetails,
-} from '@luxexchange/lx/src/features/transactions/types/transactionDetails'
+} from '@l.x/lx/src/features/transactions/types/transactionDetails'
 import {
   convertOrderStatusToTransactionStatus,
   convertOrderTypeToRouting,
-} from '@luxexchange/lx/src/features/transactions/utils/dexUtils'
-import { buildCurrencyId } from '@luxexchange/lx/src/utils/currencyId'
+} from '@l.x/lx/src/features/transactions/utils/dexUtils'
+import { buildCurrencyId } from '@l.x/lx/src/utils/currencyId'
 import { logger } from '@luxfi/utilities/src/logger/logger'
 import { ONE_SECOND_MS } from '@luxfi/utilities/src/time/time'
 import { sleep } from '@luxfi/utilities/src/time/timing'

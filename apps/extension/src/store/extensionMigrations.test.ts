@@ -13,7 +13,7 @@ import {
   removeDappInfoToChromeLocalStorage,
   setLanguageToNavigatorLanguage,
 } from 'src/store/extensionMigrations'
-import { Language } from '@luxexchange/lx/src/features/language/constants'
+import { Language } from '@l.x/lx/src/features/language/constants'
 import { createThrowingProxy } from '@luxfi/utilities/src/test/utils'
 
 describe('removeDappInfoToChromeLocalStorage', () => {

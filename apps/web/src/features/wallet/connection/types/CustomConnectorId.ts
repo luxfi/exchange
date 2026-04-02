@@ -1,4 +1,4 @@
-import { CONNECTION_PROVIDER_IDS } from '@luxexchange/lx/src/constants/web3'
+import { CONNECTION_PROVIDER_IDS } from '@l.x/lx/src/constants/web3'
 
 const CUSTOM_CONNECTOR_IDS = [
   CONNECTION_PROVIDER_IDS.LUX_WALLET_CONNECT_CONNECTOR_ID,

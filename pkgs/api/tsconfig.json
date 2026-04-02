@@ -19,7 +19,7 @@
     "emitDeclarationOnly": true,
     "noEmit": false,
     "paths": {
-      "@luxexchange/api/*": ["./src/*"],
+      "@l.x/api/*": ["./src/*"],
       "@luxamm/client-privy-embedded-wallet/dist/lx/privy-embedded-wallet/v1/service_pb": [
         "../../node_modules/@luxamm/client-privy-embedded-wallet/node_modules/@luxamm/client-privy-embedded-wallet/dist/lx/privy-embedded-wallet/v1/service_pb",
         "./stubs/privy-service-pb"

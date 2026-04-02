@@ -4,10 +4,10 @@ import {
   Notification,
   OnClick,
 } from '@luxamm/client-notification-service/dist/lx/notificationservice/v1/api_pb'
-import { ContentStyle, type InAppNotification, OnClickAction } from '@luxexchange/api'
-import { type TriggerCondition } from '@luxexchange/notifications/src/notification-data-source/implementations/createLocalTriggerDataSource'
+import { ContentStyle, type InAppNotification, OnClickAction } from '@l.x/api'
+import { type TriggerCondition } from '@l.x/notifications/src/notification-data-source/implementations/createLocalTriggerDataSource'
 import { type MobileState } from 'src/app/mobileReducer'
-import { AccountType } from '@luxexchange/lx/src/features/accounts/types'
+import { AccountType } from '@l.x/lx/src/features/accounts/types'
 import { ONE_DAY_MS } from '@luxfi/utilities/src/time/time'
 import { selectBackupReminderLastSeenTs } from '@luxfi/wallet/src/features/behaviorHistory/selectors'
 import { setBackupReminderLastSeenTs } from '@luxfi/wallet/src/features/behaviorHistory/slice'

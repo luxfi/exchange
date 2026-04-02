@@ -1,6 +1,6 @@
 import { getOverrideAdapter, useStatsigClientStatus } from '@luxfi/gating'
 import { useEffect } from 'react'
-import { useUrlContext } from '@luxexchange/lx/src/contexts/UrlContext'
+import { useUrlContext } from '@l.x/lx/src/contexts/UrlContext'
 import { isProdEnv } from '@luxfi/utilities/src/environment/env'
 
 export function useFeatureFlagUrlOverrides() {

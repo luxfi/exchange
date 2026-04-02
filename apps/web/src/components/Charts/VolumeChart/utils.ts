@@ -3,7 +3,7 @@
  * Modifications are called out with comments.
  */
 
-import { GraphQLApi } from '@luxexchange/api'
+import { GraphQLApi } from '@l.x/api'
 import { CustomData, UTCTimestamp } from 'lightweight-charts'
 
 // Modification: custom implementations of lw-chart's histogram data types

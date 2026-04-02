@@ -1,5 +1,5 @@
 import { Ether, Token } from '@luxamm/sdk-core'
-import type { TokenIdentifier } from '@luxexchange/prices'
+import type { TokenIdentifier } from '@l.x/prices'
 import {
   createPriceKey,
   createPriceKeyFromToken,
@@ -9,7 +9,7 @@ import {
   normalizeToken,
   parsePriceKey,
   toSubscriptionParams,
-} from '@luxexchange/prices'
+} from '@l.x/prices'
 import { describe, expect, it } from 'vitest'
 
 const WETH_ADDRESS = '0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2'

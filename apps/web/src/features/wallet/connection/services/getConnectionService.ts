@@ -1,6 +1,6 @@
 import { useMemo } from 'react'
-import { CONNECTION_PROVIDER_IDS } from '@luxexchange/lx/src/constants/web3'
-import { Platform } from '@luxexchange/lx/src/features/platforms/types/Platform'
+import { CONNECTION_PROVIDER_IDS } from '@l.x/lx/src/constants/web3'
+import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
 import { useEvent } from '@luxfi/utilities/src/react/hooks'
 import { useAccountDrawer } from '~/components/AccountDrawer/MiniPortfolio/hooks'
 import {

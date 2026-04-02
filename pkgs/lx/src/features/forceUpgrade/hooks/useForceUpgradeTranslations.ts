@@ -3,7 +3,7 @@ import {
   ForceUpgradeConfigKey,
   ForceUpgradeTranslations,
   useDynamicConfigValue,
-} from '@luxexchange/gating'
+} from '@l.x/gating'
 
 export function useForceUpgradeTranslations(): ForceUpgradeTranslations {
   return useDynamicConfigValue({

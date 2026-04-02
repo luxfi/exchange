@@ -1,6 +1,6 @@
 import { useUpdateAtom } from 'jotai/utils'
 import { PropsWithChildren, useCallback, useEffect, useMemo, useState } from 'react'
-import { UniverseChainId } from '@luxexchange/lx/src/features/chains/types'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { multicallUpdaterSwapChainIdAtom } from '~/lib/hooks/useBlockNumber'
 import { MultichainContext } from '~/state/multichain/types'
 

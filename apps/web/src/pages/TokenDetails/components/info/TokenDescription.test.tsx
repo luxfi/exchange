@@ -1,8 +1,8 @@
 import userEvent from '@testing-library/user-event'
-import { GraphQLApi } from '@luxexchange/api'
-import { FeatureFlags, useFeatureFlag } from '@luxexchange/gating'
-import { USDC_MAINNET } from '@luxexchange/lx/src/constants/tokens'
-import { TestID } from '@luxexchange/lx/src/test/fixtures/testIDs'
+import { GraphQLApi } from '@l.x/api'
+import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
+import { USDC_MAINNET } from '@l.x/lx/src/constants/tokens'
+import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
 import { useCurrency } from '~/hooks/Tokens'
 import { TokenDescription } from '~/pages/TokenDetails/components/info/TokenDescription'
 import type { TDPState } from '~/pages/TokenDetails/context/createTDPStore'
@@ -19,7 +19,7 @@ vi.mock('~/pages/TokenDetails/context/useTDPStore', () => ({
   useTDPStore: vi.fn(),
 }))
 
-vi.mock('@luxexchange/gating', async (importOriginal) => {
+vi.mock('@l.x/gating', async (importOriginal) => {
   return {
     ...(await importOriginal()),
     useFeatureFlag: vi.fn(),

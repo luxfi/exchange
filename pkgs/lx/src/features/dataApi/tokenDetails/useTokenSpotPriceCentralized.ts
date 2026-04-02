@@ -1,4 +1,4 @@
-import { usePrice } from '@luxexchange/prices'
+import { usePrice } from '@l.x/prices'
 import { DEFAULT_NATIVE_ADDRESS } from 'lx/src/features/chains/evm/defaults'
 import { useTokenSpotPrice as useTokenSpotPriceLegacy } from 'lx/src/features/dataApi/tokenDetails/useTokenDetailsData'
 import { isPriceServiceSupportedChain } from 'lx/src/features/prices/isPriceServiceSupportedChain'

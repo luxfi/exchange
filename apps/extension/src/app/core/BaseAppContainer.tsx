@@ -1,4 +1,4 @@
-import { ApiInit, getEntryGatewayUrl, provideSessionService } from '@luxexchange/api'
+import { ApiInit, getEntryGatewayUrl, provideSessionService } from '@l.x/api'
 import {
   getIsHashcashSolverEnabled,
   getIsSessionServiceEnabled,
@@ -6,7 +6,7 @@ import {
   getIsSessionUpgradeAutoEnabled,
   getIsTurnstileSolverEnabled,
   useIsSessionServiceEnabled,
-} from '@luxexchange/gating'
+} from '@l.x/gating'
 import {
   type ChallengeSolver,
   ChallengeType,
@@ -18,7 +18,7 @@ import {
   createSessionInitializationService,
   createTurnstileMockSolver,
   type SessionInitializationService,
-} from '@luxexchange/sessions'
+} from '@l.x/sessions'
 import { PropsWithChildren, useEffect } from 'react'
 import { I18nextProvider } from 'react-i18next'
 import { GraphqlProvider } from 'src/app/apollo'
@@ -63,7 +63,7 @@ const provideSessionInitializationService = (): SessionInitializationService => 
           createHashcashWorkerChannel({
             getWorker: () =>
               new Worker(
-                new URL('@luxexchange/sessions/src/challenge-solvers/hashcash/worker/hashcash.worker.ts', import.meta.url),
+                new URL('@l.x/sessions/src/challenge-solvers/hashcash/worker/hashcash.worker.ts', import.meta.url),
                 { type: 'module' },
               ),
           }),

@@ -4,9 +4,9 @@ import { Pair } from '@luxamm/v2-sdk'
 import { FeeAmount, nearestUsableTick, TICK_SPACINGS, TickMath, Pool as V3Pool } from '@luxamm/v3-sdk'
 import { Pool as V4Pool } from '@luxamm/v4-sdk'
 import JSBI from 'jsbi'
-import { ZERO_ADDRESS } from '@luxexchange/lx/src/constants/misc'
-import { nativeOnChain, USDT } from '@luxexchange/lx/src/constants/tokens'
-import { UniverseChainId } from '@luxexchange/lx/src/features/chains/types'
+import { ZERO_ADDRESS } from '@l.x/lx/src/constants/misc'
+import { nativeOnChain, USDT } from '@l.x/lx/src/constants/tokens'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import {
   CreateV2PositionInfo,
   CreateV3PositionInfo,

@@ -1,5 +1,5 @@
 // Client-safe exports — no Node.js dependencies.
-// Server-only exports (createServerLogger, createStackResolver, etc.) live in @luxexchange/logger/server.
+// Server-only exports (createServerLogger, createStackResolver, etc.) live in @l.x/logger/server.
 
 export { createClientLogger, createClientLoggerFactory } from './clientLogger'
 export { consoleLoggerFactory, createConsoleLogger, createConsoleLoggerFactory, noopLogger } from './consoleLogger'
@@ -20,5 +20,5 @@ export type { LogIngestionClient } from './transports/trpc'
 export { createTrpcLogTransport } from './transports/trpc'
 export type { LogContext, LogEntry, Logger, LoggerFactory, LogLevel, LogTransport } from './types'
 export { LOG_LEVEL_ORDER } from './types'
-// Types only — value exports in @luxexchange/logger/server
+// Types only — value exports in @l.x/logger/server
 export type { ErrorSource, SerializedError, WideEvent, WideEventFactory } from './wideEvent'

@@ -1,6 +1,6 @@
 import { Token } from '@luxamm/sdk-core'
 import { createMigrate } from 'redux-persist'
-import { UniverseChainId } from '@luxexchange/lx/src/features/chains/types'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { createThrowingProxy } from '@luxfi/utilities/src/test/utils'
 import { vi } from 'vitest'
 import { migration1 } from '~/state/migrations/1'

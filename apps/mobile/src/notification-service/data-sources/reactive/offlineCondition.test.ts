@@ -1,5 +1,5 @@
 import { type NetInfoState } from '@react-native-community/netinfo'
-import { ContentStyle } from '@luxexchange/api'
+import { ContentStyle } from '@l.x/api'
 import { selectSomeModalOpen } from 'src/features/modals/selectSomeModalOpen'
 import {
   createOfflineCondition,

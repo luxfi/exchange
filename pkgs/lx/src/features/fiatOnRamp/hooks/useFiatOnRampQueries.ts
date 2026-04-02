@@ -20,8 +20,8 @@ import {
   useIsSessionInitialized,
   WidgetUrlRequest,
   WidgetUrlResponse,
-} from '@luxexchange/api'
-import { FeatureFlags, useFeatureFlag } from '@luxexchange/gating'
+} from '@l.x/api'
+import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { config } from 'lx/src/config'
 import { ForApiClient } from 'lx/src/data/apiClients/forApi/ForApiClient'
 import { ReactQueryCacheKey } from 'utilities/src/reactQuery/cache'

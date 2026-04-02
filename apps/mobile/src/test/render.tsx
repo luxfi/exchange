@@ -9,16 +9,16 @@ import {
   render as RNRender,
   renderHook as RNRenderHook,
 } from '@testing-library/react-native'
-import { GraphQLApi } from '@luxexchange/api'
+import { GraphQLApi } from '@l.x/api'
 import React, { PropsWithChildren } from 'react'
 import { MobileWalletNavigationProvider } from 'src/app/MobileWalletNavigationProvider'
 import type { MobileState } from 'src/app/mobileReducer'
 import { navigationRef } from 'src/app/navigation/navigationRef'
 import { store as appStore, persistedReducer } from 'src/app/store'
-import { LuxProvider } from '@luxexchange/lx/src/contexts/LuxContext'
-import { BlankUrlProvider } from '@luxexchange/lx/src/contexts/UrlContext'
-import { AutoMockedApolloProvider } from '@luxexchange/lx/src/test/mocks'
-import { mockLuxContext } from '@luxexchange/lx/src/test/render'
+import { LuxProvider } from '@l.x/lx/src/contexts/LuxContext'
+import { BlankUrlProvider } from '@l.x/lx/src/contexts/UrlContext'
+import { AutoMockedApolloProvider } from '@l.x/lx/src/test/mocks'
+import { mockLuxContext } from '@l.x/lx/src/test/render'
 import { SharedWalletProvider } from '@luxfi/wallet/src/providers/SharedWalletProvider'
 
 type AppStore = typeof appStore

@@ -30,8 +30,8 @@ import {
   V4SwapExactOutParamSchema,
   V4SwapExactOutSingleParamSchema,
 } from 'src/app/features/dappRequests/types/UniversalRouterTypes'
-import { DEFAULT_NATIVE_ADDRESS, DEFAULT_NATIVE_ADDRESS_LEGACY } from '@luxexchange/lx/src/features/chains/evm/defaults'
-import { buildCurrencyId } from '@luxexchange/lx/src/utils/currencyId'
+import { DEFAULT_NATIVE_ADDRESS, DEFAULT_NATIVE_ADDRESS_LEGACY } from '@l.x/lx/src/features/chains/evm/defaults'
+import { buildCurrencyId } from '@l.x/lx/src/utils/currencyId'
 
 // Like ethers.formatUnits except it parses specific constants
 export function formatUnits(amount: BigNumberish, units: number): string {

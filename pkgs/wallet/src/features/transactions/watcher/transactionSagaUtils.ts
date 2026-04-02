@@ -1,4 +1,4 @@
-import { TradingApi } from '@luxexchange/api'
+import { TradingApi } from '@l.x/api'
 import { put } from 'typed-redux-saga'
 import { transactionActions } from 'lx/src/features/transactions/slice'
 import { TransactionDetails, TransactionStatus } from 'lx/src/features/transactions/types/transactionDetails'

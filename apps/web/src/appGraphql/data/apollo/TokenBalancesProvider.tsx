@@ -1,9 +1,9 @@
 import { useQueryClient } from '@tanstack/react-query'
-import { GraphQLApi } from '@luxexchange/api'
+import { GraphQLApi } from '@l.x/api'
 import { PropsWithChildren, useCallback, useEffect, useMemo, useState } from 'react'
-import { useEnabledChains } from '@luxexchange/lx/src/features/chains/hooks/useEnabledChains'
+import { useEnabledChains } from '@l.x/lx/src/features/chains/hooks/useEnabledChains'
 // biome-ignore lint/style/noRestrictedImports: This import is needed for fetching portfolio value modifiers despite being restricted
-import { usePortfolioValueModifiers } from '@luxexchange/lx/src/features/dataApi/balances/balances'
+import { usePortfolioValueModifiers } from '@l.x/lx/src/features/dataApi/balances/balances'
 import { usePrevious } from '@luxfi/utilities/src/react/hooks'
 import { AdaptiveTokenBalancesProvider } from '~/appGraphql/data/apollo/AdaptiveTokenBalancesProvider'
 import { apolloClient } from '~/appGraphql/data/apollo/client'

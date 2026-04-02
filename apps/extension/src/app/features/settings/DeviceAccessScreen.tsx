@@ -16,8 +16,8 @@ import { ExtensionState } from 'src/store/extensionReducer'
 import { Flex, ScrollView } from '@luxfi/ui/src'
 import { Stopwatch } from '@luxfi/ui/src/components/icons'
 import { Key } from '@luxfi/ui/src/components/icons/Key'
-import { DeviceAccessTimeout, ORDERED_DEVICE_ACCESS_TIMEOUTS } from '@luxexchange/lx/src/features/settings/constants'
-import { setDeviceAccessTimeout } from '@luxexchange/lx/src/features/settings/slice'
+import { DeviceAccessTimeout, ORDERED_DEVICE_ACCESS_TIMEOUTS } from '@l.x/lx/src/features/settings/constants'
+import { setDeviceAccessTimeout } from '@l.x/lx/src/features/settings/slice'
 
 function getDeviceAccessTimeoutLabel(t: ReturnType<typeof useTranslation>['t'], timeout: DeviceAccessTimeout): string {
   switch (timeout) {

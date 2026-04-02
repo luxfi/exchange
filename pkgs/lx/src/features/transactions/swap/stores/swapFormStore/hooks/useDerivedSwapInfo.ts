@@ -1,5 +1,5 @@
 import { TradeType } from '@luxamm/sdk-core'
-import { FeatureFlags, useFeatureFlag } from '@luxexchange/gating'
+import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { useMemo } from 'react'
 import { useLuxContextSelector } from 'lx/src/contexts/LuxContext'
 import { useEnabledChains } from 'lx/src/features/chains/hooks/useEnabledChains'

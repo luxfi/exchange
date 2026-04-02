@@ -1,4 +1,4 @@
-import { GraphQLApi, TradingApi } from '@luxexchange/api'
+import { GraphQLApi, TradingApi } from '@l.x/api'
 
 import { deriveCurrencyAmountFromAssetResponse } from 'lx/src/features/activity/utils/remote'
 import { UniverseChainId } from 'lx/src/features/chains/types'

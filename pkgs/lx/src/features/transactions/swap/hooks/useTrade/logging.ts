@@ -1,5 +1,5 @@
 import { TradeType } from '@luxamm/sdk-core'
-import { FetchError } from '@luxexchange/api'
+import { FetchError } from '@l.x/api'
 import { UniverseChainId } from 'lx/src/features/chains/types'
 import { SwapEventName } from 'lx/src/features/telemetry/constants/features'
 import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'

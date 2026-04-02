@@ -1,5 +1,5 @@
-import { ContentStyle } from '@luxexchange/api'
-import { createNotificationTelemetry } from '@luxexchange/notifications/src/notification-telemetry/implementations/createNotificationTelemetry'
+import { ContentStyle } from '@l.x/api'
+import { createNotificationTelemetry } from '@l.x/notifications/src/notification-telemetry/implementations/createNotificationTelemetry'
 import { describe, expect, it, vi } from 'vitest'
 
 describe('createNotificationTelemetry', () => {

@@ -26,8 +26,8 @@ import {
 import { waitForTransactionStatus } from '@luxfi/wallet/src/features/transactions/watcher/watchTransactionSaga'
 import { getProvider } from '@luxfi/wallet/src/features/wallet/context'
 
-jest.mock('@luxexchange/api', () => ({
-  ...jest.requireActual('@luxexchange/api'),
+jest.mock('@l.x/api', () => ({
+  ...jest.requireActual('@l.x/api'),
   provideSessionService: jest.fn(() => ({
     createSession: jest.fn(),
     getSession: jest.fn(),

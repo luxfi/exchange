@@ -5,16 +5,16 @@ import {
   NotificationVersion,
   OnClick,
 } from '@luxamm/client-notification-service/dist/lx/notificationservice/v1/api_pb'
-import { BackgroundType, ContentStyle, type InAppNotification, OnClickAction } from '@luxexchange/api'
-import { FeatureFlags, getFeatureFlag } from '@luxexchange/gating'
+import { BackgroundType, ContentStyle, type InAppNotification, OnClickAction } from '@l.x/api'
+import { FeatureFlags, getFeatureFlag } from '@l.x/gating'
 import { BannerId } from 'src/notification-service/data-sources/banners/types'
 import {
   NO_FEES_ICON,
   NO_LUX_INTERFACE_FEES_BANNER_DARK,
   NO_LUX_INTERFACE_FEES_BANNER_LIGHT,
 } from '@luxfi/ui/src/assets'
-import { lxUrls } from '@luxexchange/lx/src/constants/urls'
-import i18n from '@luxexchange/lx/src/i18n'
+import { lxUrls } from '@l.x/lx/src/constants/urls'
+import i18n from '@l.x/lx/src/i18n'
 
 /**
  * Check if No App Fees banner should be shown based on feature flag.

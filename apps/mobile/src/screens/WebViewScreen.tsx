@@ -4,8 +4,8 @@ import { AppStackScreenProp, SettingsStackScreenProp } from 'src/app/navigation/
 import { BackHeader } from 'src/components/layout/BackHeader'
 import { Screen } from 'src/components/layout/Screen'
 import { Separator, Text } from '@luxfi/ui/src'
-import { lxUrls } from '@luxexchange/lx/src/constants/urls'
-import { MobileScreens } from '@luxexchange/lx/src/types/screens/mobile'
+import { lxUrls } from '@l.x/lx/src/constants/urls'
+import { MobileScreens } from '@l.x/lx/src/types/screens/mobile'
 import { useActiveAccountAddress } from '@luxfi/wallet/src/features/wallet/hooks'
 
 export function WebViewScreen({

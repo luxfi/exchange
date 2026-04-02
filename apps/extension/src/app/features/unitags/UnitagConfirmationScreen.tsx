@@ -5,7 +5,7 @@ import { useOnboardingSteps } from 'src/app/features/onboarding/OnboardingStepsC
 import { useUnitagClaimContext } from 'src/app/features/unitags/UnitagClaimContext'
 import { closeCurrentTab } from 'src/app/navigation/utils'
 import { Button, Flex, Text } from '@luxfi/ui/src'
-import { UNITAG_SUFFIX } from '@luxexchange/lx/src/features/unitags/constants'
+import { UNITAG_SUFFIX } from '@l.x/lx/src/features/unitags/constants'
 import { logger } from '@luxfi/utilities/src/logger/logger'
 import { UnitagWithProfilePicture } from '@luxfi/wallet/src/features/unitags/UnitagWithProfilePicture'
 import { useAccountAddressFromUrlWithThrow } from '@luxfi/wallet/src/features/wallet/hooks'

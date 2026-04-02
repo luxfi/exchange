@@ -1,14 +1,14 @@
-import { TradingApi } from '@luxexchange/api'
+import { TradingApi } from '@l.x/api'
 import ms from 'ms'
 import { useCallback, useEffect, useMemo } from 'react'
-import { TradingApiClient } from '@luxexchange/lx/src/data/apiClients/tradingApi/TradingApiClient'
-import type { UniverseChainId } from '@luxexchange/lx/src/features/chains/types'
-import { toTradingApiSupportedChainId } from '@luxexchange/lx/src/features/transactions/swap/utils/tradingApi'
+import { TradingApiClient } from '@l.x/lx/src/data/apiClients/tradingApi/TradingApiClient'
+import type { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { toTradingApiSupportedChainId } from '@l.x/lx/src/features/transactions/swap/utils/tradingApi'
 import type {
   BridgeTransactionInfo,
   InterfaceTransactionDetails,
-} from '@luxexchange/lx/src/features/transactions/types/transactionDetails'
-import { TransactionStatus, TransactionType } from '@luxexchange/lx/src/features/transactions/types/transactionDetails'
+} from '@l.x/lx/src/features/transactions/types/transactionDetails'
+import { TransactionStatus, TransactionType } from '@l.x/lx/src/features/transactions/types/transactionDetails'
 import { logger } from '@luxfi/utilities/src/logger/logger'
 import { ActivityUpdateTransactionType, type OnActivityUpdate } from '~/state/activity/types'
 import { useMultichainTransactions } from '~/state/transactions/hooks'

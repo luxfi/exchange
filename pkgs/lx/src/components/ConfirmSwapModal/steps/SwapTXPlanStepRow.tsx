@@ -1,4 +1,4 @@
-import { TradingApi } from '@luxexchange/api'
+import { TradingApi } from '@l.x/api'
 import { TFunction } from 'i18next'
 import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'

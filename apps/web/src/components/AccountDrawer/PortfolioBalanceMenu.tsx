@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next'
-import { PortfolioBalanceSettingsContent } from '@luxexchange/lx/src/features/settings/balances/PortfolioBalanceSettingsContent'
+import { PortfolioBalanceSettingsContent } from '@l.x/lx/src/features/settings/balances/PortfolioBalanceSettingsContent'
 import { SlideOutMenu } from '~/components/AccountDrawer/SlideOutMenu'
 
 export default function PortfolioBalanceMenu({ onClose }: { onClose: () => void }) {

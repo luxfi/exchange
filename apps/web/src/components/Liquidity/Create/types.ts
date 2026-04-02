@@ -3,8 +3,8 @@ import { Currency, Price, Token } from '@luxamm/sdk-core'
 import { Pair } from '@luxamm/v2-sdk'
 import { FeeAmount, TICK_SPACINGS, Pool as V3Pool } from '@luxamm/v3-sdk'
 import { Pool as V4Pool } from '@luxamm/v4-sdk'
-import { WarningSeverity } from '@luxexchange/lx/src/components/modals/WarningModal/types'
-import { DEFAULT_TICK_SPACING, DYNAMIC_FEE_AMOUNT } from '@luxexchange/lx/src/constants/pools'
+import { WarningSeverity } from '@l.x/lx/src/components/modals/WarningModal/types'
+import { DEFAULT_TICK_SPACING, DYNAMIC_FEE_AMOUNT } from '@l.x/lx/src/constants/pools'
 import { PositionField } from '~/types/position'
 
 export type FeeData = {

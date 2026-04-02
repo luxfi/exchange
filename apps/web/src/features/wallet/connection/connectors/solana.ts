@@ -1,7 +1,7 @@
 import { WalletError } from '@solana/wallet-adapter-base'
 import { useWallet as useSolanaWalletContext } from '@solana/wallet-adapter-react'
 import { useMemo } from 'react'
-import { Platform } from '@luxexchange/lx/src/features/platforms/types/Platform'
+import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
 import { useEvent } from '@luxfi/utilities/src/react/hooks'
 import { sleep } from '@luxfi/utilities/src/time/timing'
 import type { ExternalConnector } from '~/features/accounts/store/types'

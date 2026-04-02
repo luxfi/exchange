@@ -7,7 +7,7 @@ import { CloseButton } from 'src/components/buttons/CloseButton'
 import { CarouselContext } from 'src/components/carousel/Carousel'
 import { Flex, Text } from '@luxfi/ui/src'
 import { useDeviceDimensions } from '@luxfi/ui/src/hooks/useDeviceDimensions'
-import { getCloudProviderName } from '@luxexchange/lx/src/utils/cloud-backup/getCloudProviderName'
+import { getCloudProviderName } from '@l.x/lx/src/utils/cloud-backup/getCloudProviderName'
 
 function Page({ text, params }: { text: ReactNode; params: OnboardingStackBaseParams }): JSX.Element {
   const { t } = useTranslation()

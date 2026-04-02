@@ -2,8 +2,8 @@ import { useTranslation } from 'react-i18next'
 import { Button, Flex, Text, TouchableArea } from 'ui/src'
 import { AlertTriangleFilled } from 'ui/src/components/icons/AlertTriangleFilled'
 import { X } from 'ui/src/components/icons/X'
-import { Modal } from '@luxexchange/lx/src/components/modals/Modal'
-import { ModalName } from '@luxexchange/lx/src/features/telemetry/constants'
+import { Modal } from '@l.x/lx/src/components/modals/Modal'
+import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
 import { isMobileApp, isMobileWeb } from 'utilities/src/platform'
 
 interface SlippageWarningModalProps {

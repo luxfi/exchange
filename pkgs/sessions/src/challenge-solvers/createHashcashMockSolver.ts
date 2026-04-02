@@ -1,4 +1,4 @@
-import type { ChallengeData, ChallengeSolver } from '@luxexchange/sessions/src/challenge-solvers/types'
+import type { ChallengeData, ChallengeSolver } from '@l.x/sessions/src/challenge-solvers/types'
 import { sleep } from 'utilities/src/time/timing'
 
 /**

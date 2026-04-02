@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next'
 import { Flex } from '@luxfi/ui/src'
 import { CheckmarkCircle } from '@luxfi/ui/src/components/icons/CheckmarkCircle'
-import { TokenLogo } from '@luxexchange/lx/src/components/CurrencyLogo/TokenLogo'
+import { TokenLogo } from '@l.x/lx/src/components/CurrencyLogo/TokenLogo'
 import { useEvent } from '@luxfi/utilities/src/react/hooks'
 import { OrderDirection } from '~/appGraphql/data/util'
 import { ClickableHeaderRow, HeaderArrow, HeaderSortText } from '~/components/Table/shared/SortableHeader'

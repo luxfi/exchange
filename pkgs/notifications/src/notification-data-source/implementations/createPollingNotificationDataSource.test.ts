@@ -6,10 +6,10 @@ import {
   Notification,
   PlatformType,
 } from '@luxamm/client-notification-service/dist/lx/notificationservice/v1/api_pb'
-import type { InAppNotification, NotificationsApiClient } from '@luxexchange/api'
-import { ContentStyle } from '@luxexchange/api'
-import { getNotificationQueryOptions } from '@luxexchange/notifications/src/notification-data-source/getNotificationQueryOptions'
-import { createPollingNotificationDataSource } from '@luxexchange/notifications/src/notification-data-source/implementations/createPollingNotificationDataSource'
+import type { InAppNotification, NotificationsApiClient } from '@l.x/api'
+import { ContentStyle } from '@l.x/api'
+import { getNotificationQueryOptions } from '@l.x/notifications/src/notification-data-source/getNotificationQueryOptions'
+import { createPollingNotificationDataSource } from '@l.x/notifications/src/notification-data-source/implementations/createPollingNotificationDataSource'
 import { ReactQueryCacheKey } from 'utilities/src/reactQuery/cache'
 import { afterEach, beforeEach, describe, expect, it, type Mock, vi } from 'vitest'
 

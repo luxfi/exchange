@@ -4,10 +4,10 @@ import { useReactNavigationModal } from 'src/components/modals/useReactNavigatio
 import { Button, Flex, Text, useIsDarkMode } from '@luxfi/ui/src'
 import ViewOnlyWalletDark from '@luxfi/ui/src/assets/graphics/view-only-wallet-dark.svg'
 import ViewOnlyWalletLight from '@luxfi/ui/src/assets/graphics/view-only-wallet-light.svg'
-import { Modal } from '@luxexchange/lx/src/components/modals/Modal'
-import { ModalName } from '@luxexchange/lx/src/features/telemetry/constants'
-import { ImportType, OnboardingEntryPoint } from '@luxexchange/lx/src/types/onboarding'
-import { MobileScreens, OnboardingScreens } from '@luxexchange/lx/src/types/screens/mobile'
+import { Modal } from '@l.x/lx/src/components/modals/Modal'
+import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
+import { ImportType, OnboardingEntryPoint } from '@l.x/lx/src/types/onboarding'
+import { MobileScreens, OnboardingScreens } from '@l.x/lx/src/types/screens/mobile'
 import { useActiveAccountAddress, useNativeAccountExists } from '@luxfi/wallet/src/features/wallet/hooks'
 
 const WALLET_IMAGE_ASPECT_RATIO = 327 / 215

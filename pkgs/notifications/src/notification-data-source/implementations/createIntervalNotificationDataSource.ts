@@ -1,6 +1,6 @@
-import { type InAppNotification } from '@luxexchange/api'
-import { createNotificationDataSource } from '@luxexchange/notifications/src/notification-data-source/implementations/createNotificationDataSource'
-import { type NotificationDataSource } from '@luxexchange/notifications/src/notification-data-source/NotificationDataSource'
+import { type InAppNotification } from '@l.x/api'
+import { createNotificationDataSource } from '@l.x/notifications/src/notification-data-source/implementations/createNotificationDataSource'
+import { type NotificationDataSource } from '@l.x/notifications/src/notification-data-source/NotificationDataSource'
 import { getLogger } from 'utilities/src/logger/logger'
 
 interface CreateIntervalNotificationDataSourceContext {

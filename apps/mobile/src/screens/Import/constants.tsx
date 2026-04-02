@@ -1,10 +1,10 @@
 import React from 'react'
 import { OSDynamicCloudIcon, PaperStack, Passkey } from '@luxfi/ui/src/components/icons'
 import { AppTFunction } from '@luxfi/ui/src/i18n/types'
-import { ElementName } from '@luxexchange/lx/src/features/telemetry/constants'
-import { TestID, TestIDType } from '@luxexchange/lx/src/test/fixtures/testIDs'
-import { ImportType } from '@luxexchange/lx/src/types/onboarding'
-import { OnboardingScreens } from '@luxexchange/lx/src/types/screens/mobile'
+import { ElementName } from '@l.x/lx/src/features/telemetry/constants'
+import { TestID, TestIDType } from '@l.x/lx/src/test/fixtures/testIDs'
+import { ImportType } from '@l.x/lx/src/types/onboarding'
+import { OnboardingScreens } from '@l.x/lx/src/types/screens/mobile'
 import { isAndroid } from '@luxfi/utilities/src/platform'
 
 type ImportMethodScreens =

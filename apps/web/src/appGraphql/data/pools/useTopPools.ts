@@ -1,6 +1,6 @@
 import { Percent } from '@luxamm/sdk-core'
-import { GraphQLApi } from '@luxexchange/api'
-import { BIPS_BASE } from '@luxexchange/lx/src/constants/misc'
+import { GraphQLApi } from '@l.x/api'
+import { BIPS_BASE } from '@l.x/lx/src/constants/misc'
 import { OrderDirection } from '~/appGraphql/data/util'
 import { FeeData } from '~/components/Liquidity/Create/types'
 

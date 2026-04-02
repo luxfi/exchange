@@ -9,8 +9,8 @@
 import { isLuxdMode } from 'playwright/anvil/anvil-manager'
 import { expect, getTest } from 'playwright/fixtures'
 import { stubLuxGatewayEndpoint, stubTradingApiEndpoint } from 'playwright/fixtures/tradingApi'
-import { lxUrls } from '@luxexchange/lx/src/constants/urls'
-import { TestID } from '@luxexchange/lx/src/test/fixtures/testIDs'
+import { lxUrls } from '@l.x/lx/src/constants/urls'
+import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
 import { parseEther, parseUnits, encodeFunctionData, type Address } from 'viem'
 
 const test = getTest({ withAnvil: true })

@@ -1,4 +1,4 @@
-import { TradingApi } from '@luxexchange/api'
+import { TradingApi } from '@l.x/api'
 import dayjs from 'dayjs'
 import { useTranslation } from 'react-i18next'
 import { Flex, Text } from 'ui/src'

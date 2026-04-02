@@ -4,8 +4,8 @@ import {
   planReducer,
   planSagaName,
   planWrappedSaga,
-} from '@luxexchange/lx/src/features/transactions/swap/plan/planSaga'
-import { getMonitoredSagaReducers, type MonitoredSaga, waitForRehydration } from '@luxexchange/lx/src/utils/saga'
+} from '@l.x/lx/src/features/transactions/swap/plan/planSaga'
+import { getMonitoredSagaReducers, type MonitoredSaga, waitForRehydration } from '@l.x/lx/src/utils/saga'
 import { liquiditySaga } from '~/state/sagas/liquidity/liquiditySaga'
 import { lpIncentivesClaimSaga } from '~/state/sagas/lp_incentives/lpIncentivesSaga'
 import { submitToucanBidSaga } from '~/state/sagas/toucan/submitBidSaga'

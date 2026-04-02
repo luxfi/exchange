@@ -92,14 +92,14 @@ import {
   WETH_AVALANCHE,
   WETH_POLYGON,
   WRAPPED_NATIVE_CURRENCY,
-} from '@luxexchange/lx/src/constants/tokens'
-import { getChainInfo } from '@luxexchange/lx/src/features/chains/chainInfo'
-import { UniverseChainId } from '@luxexchange/lx/src/features/chains/types'
-import { CurrencyInfo, TokenList } from '@luxexchange/lx/src/features/dataApi/types'
-import { buildCurrencyInfo } from '@luxexchange/lx/src/features/dataApi/utils/buildCurrency'
-import { Platform } from '@luxexchange/lx/src/features/platforms/types/Platform'
-import { areAddressesEqual } from '@luxexchange/lx/src/utils/addresses'
-import { isNativeCurrencyAddress } from '@luxexchange/lx/src/utils/currencyId'
+} from '@l.x/lx/src/constants/tokens'
+import { getChainInfo } from '@l.x/lx/src/features/chains/chainInfo'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { CurrencyInfo, TokenList } from '@l.x/lx/src/features/dataApi/types'
+import { buildCurrencyInfo } from '@l.x/lx/src/features/dataApi/utils/buildCurrency'
+import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
+import { areAddressesEqual } from '@l.x/lx/src/utils/addresses'
+import { isNativeCurrencyAddress } from '@l.x/lx/src/utils/currencyId'
 
 type ChainCurrencyList = {
   readonly [chainId: number]: CurrencyInfo[]

@@ -1,6 +1,6 @@
 import { Currency, Percent } from '@luxamm/sdk-core'
-import { SwapPriceUpdateUserResponse } from '@luxexchange/lx/src/features/telemetry/types'
-import { TransactionOriginType } from '@luxexchange/lx/src/features/transactions/types/transactionDetails'
+import { SwapPriceUpdateUserResponse } from '@l.x/lx/src/features/telemetry/types'
+import { TransactionOriginType } from '@l.x/lx/src/features/transactions/types/transactionDetails'
 import { SwapResult } from '~/hooks/useSwapCallback'
 import {
   formatPercentInBasisPointsNumber,

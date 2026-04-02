@@ -2,13 +2,13 @@ import { fireEvent } from '@testing-library/react-native'
 import React from 'react'
 import { NetworkBalanceList } from 'src/components/TokenDetails/NetworkBalanceList'
 import { render } from 'src/test/test-utils'
-import { UniverseChainId } from '@luxexchange/lx/src/features/chains/types'
-import { PortfolioBalance } from '@luxexchange/lx/src/features/dataApi/types'
-import { ON_PRESS_EVENT_PAYLOAD } from '@luxexchange/lx/src/test/fixtures'
-import { TestID } from '@luxexchange/lx/src/test/fixtures/testIDs'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { PortfolioBalance } from '@l.x/lx/src/features/dataApi/types'
+import { ON_PRESS_EVENT_PAYLOAD } from '@l.x/lx/src/test/fixtures'
+import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
 
-jest.mock('@luxexchange/gating', () => ({
-  ...jest.requireActual('@luxexchange/gating'),
+jest.mock('@l.x/gating', () => ({
+  ...jest.requireActual('@l.x/gating'),
   useFeatureFlag: jest.fn().mockReturnValue(false),
   useFeatureFlagWithLoading: jest.fn().mockReturnValue({ value: false, isLoading: false }),
   useFeatureFlagWithExposureLoggingDisabled: jest.fn().mockReturnValue(false),

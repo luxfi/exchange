@@ -1,4 +1,4 @@
-import { GraphQLApi } from '@luxexchange/api'
+import { GraphQLApi } from '@l.x/api'
 import { ColorTokens, GeneratedIcon } from 'ui/src'
 import { AlertTriangleFilled } from 'ui/src/components/icons/AlertTriangleFilled'
 import { Blocked } from 'ui/src/components/icons/Blocked'

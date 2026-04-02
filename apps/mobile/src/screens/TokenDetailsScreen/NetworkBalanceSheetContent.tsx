@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next'
 import { NetworkBalanceList } from 'src/components/TokenDetails/NetworkBalanceList'
 import { Flex, Text } from '@luxfi/ui/src'
 import { spacing } from '@luxfi/ui/src/theme'
-import { PortfolioBalance } from '@luxexchange/lx/src/features/dataApi/types'
+import { PortfolioBalance } from '@l.x/lx/src/features/dataApi/types'
 
 const STICKY_HEADER_INDICES = [0]
 const NETWORK_SHEET_CONTENT_STYLE = { paddingBottom: spacing.spacing48 }

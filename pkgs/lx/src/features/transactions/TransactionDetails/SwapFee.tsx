@@ -1,5 +1,5 @@
 import { Currency } from '@luxamm/sdk-core'
-import { FeatureFlags, useFeatureFlag } from '@luxexchange/gating'
+import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { useRef } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Flex, Text } from 'ui/src'

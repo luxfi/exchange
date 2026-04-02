@@ -1,4 +1,4 @@
-import { DynamicConfigs, ForceUpgradeConfigKey, ForceUpgradeStatus, useDynamicConfigValue } from '@luxexchange/gating'
+import { DynamicConfigs, ForceUpgradeConfigKey, ForceUpgradeStatus, useDynamicConfigValue } from '@l.x/gating'
 
 export function useForceUpgradeStatus(): ForceUpgradeStatus {
   return useDynamicConfigValue({

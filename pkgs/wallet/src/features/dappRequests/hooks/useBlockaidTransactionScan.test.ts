@@ -1,5 +1,5 @@
 import { waitFor } from '@testing-library/react-native'
-import { BlockaidScanTransactionRequest, SharedQueryClient } from '@luxexchange/api'
+import { BlockaidScanTransactionRequest, SharedQueryClient } from '@l.x/api'
 import { BlockaidApiClient } from 'lx/src/data/apiClients/blockaidApi/BlockaidApiClient'
 import { useBlockaidTransactionScan } from '@luxfi/wallet/src/features/dappRequests/hooks/useBlockaidTransactionScan'
 import { renderHook } from '@luxfi/wallet/src/test/test-utils'

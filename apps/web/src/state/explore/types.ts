@@ -1,6 +1,6 @@
 import { Amount, PoolStats, TokenStats } from '@luxamm/client-explore/dist/lx/explore/v1/service_pb'
 import { Percent } from '@luxamm/sdk-core'
-import { GraphQLApi } from '@luxexchange/api'
+import { GraphQLApi } from '@l.x/api'
 import { FeeData as CreatePositionFeeData } from '~/components/Liquidity/Create/types'
 
 type PricePoint = { timestamp: number; value: number }

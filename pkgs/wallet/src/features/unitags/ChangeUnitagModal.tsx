@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query'
-import { UnitagErrorCodes } from '@luxexchange/api'
+import { UnitagErrorCodes } from '@l.x/api'
 import { useState } from 'react'
 import { Trans, useTranslation } from 'react-i18next'
 import { KeyboardAvoidingView } from 'react-native-keyboard-controller'

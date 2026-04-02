@@ -1,8 +1,8 @@
-import { GraphQLApi } from '@luxexchange/api'
+import { GraphQLApi } from '@l.x/api'
 import { useCallback, useMemo, useRef } from 'react'
-import { UniverseChainId } from '@luxexchange/lx/src/features/chains/types'
-import { fromGraphQLChain } from '@luxexchange/lx/src/features/chains/utils'
-import i18n from '@luxexchange/lx/src/i18n'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { fromGraphQLChain } from '@l.x/lx/src/features/chains/utils'
+import i18n from '@l.x/lx/src/i18n'
 import { useIsWindowVisible } from '@luxfi/utilities/src/react/useIsWindowVisible'
 
 export enum TransactionType {

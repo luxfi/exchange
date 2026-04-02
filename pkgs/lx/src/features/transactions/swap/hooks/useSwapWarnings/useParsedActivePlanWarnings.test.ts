@@ -1,5 +1,5 @@
 import { CurrencyAmount, NativeCurrency } from '@luxamm/sdk-core'
-import { TradingApi } from '@luxexchange/api'
+import { TradingApi } from '@l.x/api'
 import { WarningLabel } from 'lx/src/components/modals/WarningModal/types'
 import { nativeOnChain } from 'lx/src/constants/tokens'
 import { UniverseChainId } from 'lx/src/features/chains/types'

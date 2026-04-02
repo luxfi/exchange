@@ -1,5 +1,5 @@
-import { getStorageDriver } from '@luxexchange/api/src/storage/getStorageDriver'
-import { createSessionStorage, type SessionStorage } from '@luxexchange/sessions'
+import { getStorageDriver } from '@l.x/api/src/storage/getStorageDriver'
+import { createSessionStorage, type SessionStorage } from '@l.x/sessions'
 
 const SESSION_ID_KEY = 'LX_SESSION_ID'
 

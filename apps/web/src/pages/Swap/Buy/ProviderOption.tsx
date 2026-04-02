@@ -1,10 +1,10 @@
 import { skipToken } from '@tanstack/react-query'
 import { useMemo } from 'react'
-import { FORQuoteItem } from '@luxexchange/lx/src/features/fiatOnRamp/FORQuoteItem'
+import { FORQuoteItem } from '@l.x/lx/src/features/fiatOnRamp/FORQuoteItem'
 import {
   useFiatOnRampAggregatorOffRampWidgetQuery,
   useFiatOnRampAggregatorWidgetQuery,
-} from '@luxexchange/lx/src/features/fiatOnRamp/hooks/useFiatOnRampQueries'
+} from '@l.x/lx/src/features/fiatOnRamp/hooks/useFiatOnRampQueries'
 import {
   FiatCurrencyInfo,
   FORCountry,
@@ -12,10 +12,10 @@ import {
   FORQuote,
   FORServiceProvider,
   RampDirection,
-} from '@luxexchange/lx/src/features/fiatOnRamp/types'
-import { createOnRampTransactionId } from '@luxexchange/lx/src/features/fiatOnRamp/utils'
-import { FiatOffRampEventName, FiatOnRampEventName } from '@luxexchange/lx/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from '@luxexchange/lx/src/features/telemetry/send'
+} from '@l.x/lx/src/features/fiatOnRamp/types'
+import { createOnRampTransactionId } from '@l.x/lx/src/features/fiatOnRamp/utils'
+import { FiatOffRampEventName, FiatOnRampEventName } from '@l.x/lx/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
 import { useAddFiatOnRampTransaction } from '~/state/fiatOnRampTransactions/hooks'
 import { FiatOnRampTransactionStatus, FiatOnRampTransactionType } from '~/state/fiatOnRampTransactions/types'
 

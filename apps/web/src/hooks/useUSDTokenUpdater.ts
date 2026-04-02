@@ -1,9 +1,9 @@
 import { Currency } from '@luxamm/sdk-core'
 import { useMemo } from 'react'
-import { useSupportedChainId } from '@luxexchange/lx/src/features/chains/hooks/useSupportedChainId'
-import { getPrimaryStablecoin } from '@luxexchange/lx/src/features/chains/utils'
-import { useLocalizationContext } from '@luxexchange/lx/src/features/language/LocalizationContext'
-import { useUSDCPrice } from '@luxexchange/lx/src/features/transactions/hooks/useUSDCPriceWrapper'
+import { useSupportedChainId } from '@l.x/lx/src/features/chains/hooks/useSupportedChainId'
+import { getPrimaryStablecoin } from '@l.x/lx/src/features/chains/utils'
+import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
+import { useUSDCPrice } from '@l.x/lx/src/features/transactions/hooks/useUSDCPriceWrapper'
 import { NumberType } from '@luxfi/utilities/src/format/types'
 import tryParseCurrencyAmount from '~/lib/utils/tryParseCurrencyAmount'
 

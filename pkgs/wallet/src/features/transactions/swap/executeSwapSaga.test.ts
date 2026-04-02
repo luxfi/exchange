@@ -1,5 +1,5 @@
 import { call } from '@redux-saga/core/effects'
-import { TradingApi } from '@luxexchange/api'
+import { TradingApi } from '@l.x/api'
 import { expectSaga } from 'redux-saga-test-plan'
 import type { EffectProviders, StaticProvider } from 'redux-saga-test-plan/providers'
 import { AccountType } from 'lx/src/features/accounts/types'

@@ -1,5 +1,5 @@
-import { usePricesContext } from '@luxexchange/prices/src/context/PriceServiceContext'
-import type { ConnectionStatus } from '@luxexchange/websocket'
+import { usePricesContext } from '@l.x/prices/src/context/PriceServiceContext'
+import type { ConnectionStatus } from '@l.x/websocket'
 import { useSyncExternalStore } from 'react'
 
 /**

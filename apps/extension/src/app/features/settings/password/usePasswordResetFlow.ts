@@ -3,8 +3,8 @@ import { useDispatch } from 'react-redux'
 import { useBiometricUnlockDisableMutation } from 'src/app/features/biometricUnlock/useBiometricUnlockDisableMutation'
 import { useChangePasswordWithBiometricMutation } from 'src/app/features/biometricUnlock/useChangePasswordWithBiometricMutation'
 import { useHasBiometricUnlockCredential } from 'src/app/features/biometricUnlock/useShouldShowBiometricUnlock'
-import { pushNotification } from '@luxexchange/lx/src/features/notifications/slice/slice'
-import { AppNotificationType } from '@luxexchange/lx/src/features/notifications/slice/types'
+import { pushNotification } from '@l.x/lx/src/features/notifications/slice/slice'
+import { AppNotificationType } from '@l.x/lx/src/features/notifications/slice/types'
 import { useEvent } from '@luxfi/utilities/src/react/hooks'
 
 /**

@@ -1,5 +1,5 @@
 import { createPrepareAndSignDappTransactionSaga } from 'src/app/features/dappRequests/sagas/prepareAndSignDappTransactionSaga'
-import { createMonitoredSaga } from '@luxexchange/lx/src/utils/saga'
+import { createMonitoredSaga } from '@l.x/lx/src/utils/saga'
 import { getSharedTransactionSagaDependencies } from '@luxfi/wallet/src/features/transactions/configuredSagas'
 
 // Create configured saga instance using shared transaction dependencies

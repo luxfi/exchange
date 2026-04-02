@@ -1,5 +1,5 @@
 import { Currency, CurrencyAmount } from '@luxamm/sdk-core'
-import { GasEstimate } from '@luxexchange/api'
+import { GasEstimate } from '@l.x/api'
 import { ValidatedTransactionRequest } from 'lx/src/features/transactions/types/transactionRequests'
 import { WrapType } from 'lx/src/features/transactions/types/wrap'
 

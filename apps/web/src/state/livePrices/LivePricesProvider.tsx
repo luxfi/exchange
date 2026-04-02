@@ -4,9 +4,9 @@ import {
   getWebSocketUrl,
   provideSessionService,
   SharedQueryClient,
-} from '@luxexchange/api'
-import { FeatureFlags, getIsSessionServiceEnabled, useFeatureFlag } from '@luxexchange/gating'
-import type { TokenPriceMessage, TokenSubscriptionParams } from '@luxexchange/prices'
+} from '@l.x/api'
+import { FeatureFlags, getIsSessionServiceEnabled, useFeatureFlag } from '@l.x/gating'
+import type { TokenPriceMessage, TokenSubscriptionParams } from '@l.x/prices'
 import {
   createPriceKey,
   createPriceSubscriptionHandler,
@@ -15,9 +15,9 @@ import {
   parseTokenPriceMessage,
   priceKeys,
   RestPriceBatcher,
-} from '@luxexchange/prices'
-import type { WebSocketClient } from '@luxexchange/websocket'
-import { createWebSocketClient, createZustandConnectionStore } from '@luxexchange/websocket'
+} from '@l.x/prices'
+import type { WebSocketClient } from '@l.x/websocket'
+import { createWebSocketClient, createZustandConnectionStore } from '@l.x/websocket'
 import type { ReactElement, ReactNode } from 'react'
 import { useState } from 'react'
 import { isDevEnv } from '@luxfi/utilities/src/environment/env'

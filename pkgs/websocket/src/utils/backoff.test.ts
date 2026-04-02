@@ -1,4 +1,4 @@
-import { addJitter, getDefaultJitteredDelay } from '@luxexchange/websocket/src/utils/backoff'
+import { addJitter, getDefaultJitteredDelay } from '@l.x/websocket/src/utils/backoff'
 import { describe, expect, it, vi } from 'vitest'
 
 describe('backoff utilities', () => {

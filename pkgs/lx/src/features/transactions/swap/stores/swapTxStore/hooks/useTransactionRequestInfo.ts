@@ -1,5 +1,5 @@
-import { TradingApi } from '@luxexchange/api'
-import { DynamicConfigs, SwapConfigKey, useDynamicConfigValue } from '@luxexchange/gating'
+import { TradingApi } from '@l.x/api'
+import { DynamicConfigs, SwapConfigKey, useDynamicConfigValue } from '@l.x/gating'
 import { useEffect, useMemo, useRef } from 'react'
 import { useLuxContextSelector } from 'lx/src/contexts/LuxContext'
 import { useTradingApiSwapQuery } from 'lx/src/data/apiClients/tradingApi/useTradingApiSwapQuery'

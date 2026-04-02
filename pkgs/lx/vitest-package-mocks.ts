@@ -71,6 +71,6 @@ vi.mock('utilities/src/device/uniqueId', async () => {
   return await vi.importActual('./src/test/mocks/uniqueId')
 })
 
-// Note: @luxexchange/gating partial mocks should be done in individual test files that need them
+// Note: @l.x/gating partial mocks should be done in individual test files that need them
 // The global mock was causing issues because vi.importActual returns a promise that wasn't
 // being properly resolved before the mock was accessed

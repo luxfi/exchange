@@ -6,9 +6,9 @@ import {
   getEntryGatewayUrl,
   provideSessionService,
   SharedQueryClient,
-} from '@luxexchange/api'
-import { SESSION_INIT_QUERY_KEY } from '@luxexchange/api/src/components/ApiInit'
-import { getIsSessionServiceEnabled } from '@luxexchange/gating'
+} from '@l.x/api'
+import { SESSION_INIT_QUERY_KEY } from '@l.x/api/src/components/ApiInit'
+import { getIsSessionServiceEnabled } from '@l.x/gating'
 import {
   createApiNotificationTracker,
   createBaseNotificationProcessor,
@@ -17,7 +17,7 @@ import {
   createReactiveDataSource,
   getNotificationQueryOptions,
   type NotificationService,
-} from '@luxexchange/notifications'
+} from '@l.x/notifications'
 import ms from 'ms'
 import { UnitagClaimRoutes } from 'src/app/navigation/constants'
 import { focusOrCreateLuxInterfaceTab, focusOrCreateUnitagTab } from 'src/app/navigation/utils'
@@ -29,10 +29,10 @@ import { extensionNotificationStore } from 'src/notification-service/notificatio
 import { getNotificationTelemetry } from 'src/notification-service/notification-telemetry/getNotificationTelemetry'
 import { createExtensionLocalTriggerDataSource } from 'src/notification-service/triggers/createExtensionLocalTriggerDataSource'
 import { getReduxStore } from 'src/store/store'
-import { lxUrls } from '@luxexchange/lx/src/constants/urls'
-import { mapLocaleToBackendLocale } from '@luxexchange/lx/src/features/language/constants'
-import { getLocale } from '@luxexchange/lx/src/features/language/navigatorLocale'
-import { selectCurrentLanguage } from '@luxexchange/lx/src/features/settings/selectors'
+import { lxUrls } from '@l.x/lx/src/constants/urls'
+import { mapLocaleToBackendLocale } from '@l.x/lx/src/features/language/constants'
+import { getLocale } from '@l.x/lx/src/features/language/navigatorLocale'
+import { selectCurrentLanguage } from '@l.x/lx/src/features/settings/selectors'
 import { getLogger } from '@luxfi/utilities/src/logger/logger'
 import { REQUEST_SOURCE } from '@luxfi/utilities/src/platform/requestSource'
 import { ReactQueryCacheKey } from '@luxfi/utilities/src/reactQuery/cache'

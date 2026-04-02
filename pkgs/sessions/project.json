@@ -1,5 +1,5 @@
 {
-  "name": "@luxexchange/sessions",
+  "name": "@l.x/sessions",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "pkgs/sessions/src",
   "projectType": "library",

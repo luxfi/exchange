@@ -3,7 +3,7 @@ import { loadDevMessages, loadErrorMessages } from '@apollo/client/dev'
 import { DdRum, RumActionType } from '@datadog/mobile-react-native'
 import { BottomSheetModalProvider } from '@gorhom/bottom-sheet'
 import { PerformanceProfiler, type RenderPassReport } from '@shopify/react-native-performance'
-import { ApiInit, getEntryGatewayUrl, provideSessionService } from '@luxexchange/api'
+import { ApiInit, getEntryGatewayUrl, provideSessionService } from '@l.x/api'
 import {
   DatadogSessionSampleRateKey,
   DynamicConfigs,
@@ -22,7 +22,7 @@ import {
   useFeatureFlag,
   useIsSessionServiceEnabled,
   WALLET_FEATURE_FLAG_NAMES,
-} from '@luxexchange/gating'
+} from '@l.x/gating'
 import {
   type ChallengeSolver,
   ChallengeType,
@@ -33,7 +33,7 @@ import {
   createSessionInitializationService,
   createTurnstileMockSolver,
   type SessionInitializationService,
-} from '@luxexchange/sessions'
+} from '@l.x/sessions'
 import { MMKVWrapper } from 'apollo3-cache-persist'
 import { default as React, StrictMode, useCallback, useEffect, useMemo, useRef } from 'react'
 import { I18nextProvider } from 'react-i18next'

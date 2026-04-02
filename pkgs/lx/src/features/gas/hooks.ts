@@ -1,6 +1,6 @@
 import { type Currency, type CurrencyAmount } from '@luxamm/sdk-core'
-import { type FormattedDEXGasFeeInfo, type GasFeeResult, type GasStrategy } from '@luxexchange/api'
-import { type GasStrategyType, useStatsigClientStatus } from '@luxexchange/gating'
+import { type FormattedDEXGasFeeInfo, type GasFeeResult, type GasStrategy } from '@l.x/api'
+import { type GasStrategyType, useStatsigClientStatus } from '@l.x/gating'
 import { BigNumber, type providers } from 'ethers/lib/ethers'
 import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'

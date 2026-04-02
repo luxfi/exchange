@@ -1,5 +1,5 @@
 import React from 'react'
-import { WRAPPED_SOL_ADDRESS_SOLANA } from '@luxexchange/lx/src/features/chains/svm/defaults'
+import { WRAPPED_SOL_ADDRESS_SOLANA } from '@l.x/lx/src/features/chains/svm/defaults'
 import { getExploreTitle } from '~/pages/getExploreTitle'
 import {
   getAddLiquidityPageTitle,

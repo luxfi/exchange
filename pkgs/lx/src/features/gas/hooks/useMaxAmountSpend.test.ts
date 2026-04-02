@@ -8,8 +8,8 @@ import { MAINNET_CURRENCY } from 'lx/src/test/fixtures/wallet/currencies'
 
 const mockUseDynamicConfigValue = vi.fn()
 
-vi.mock('@luxexchange/gating', async (importOriginal) => {
-  const actual = await importOriginal<typeof import('@luxexchange/gating')>()
+vi.mock('@l.x/gating', async (importOriginal) => {
+  const actual = await importOriginal<typeof import('@l.x/gating')>()
   return {
     ...actual,
     useDynamicConfigValue: (params: { config: unknown; key: unknown; defaultValue: unknown }): unknown =>

@@ -8,13 +8,13 @@ import {
   NotificationVersion,
   OnClick,
 } from '@luxamm/client-notification-service/dist/lx/notificationservice/v1/api_pb'
-import { BackgroundType, ContentStyle, type InAppNotification, OnClickAction } from '@luxexchange/api'
-import { FeatureFlags, getFeatureFlag } from '@luxexchange/gating'
+import { BackgroundType, ContentStyle, type InAppNotification, OnClickAction } from '@l.x/api'
+import { FeatureFlags, getFeatureFlag } from '@l.x/gating'
 import {
   createNotificationDataSource,
   type NotificationDataSource,
   type NotificationTracker,
-} from '@luxexchange/notifications'
+} from '@l.x/notifications'
 import {
   NO_FEES_ICON,
   NO_LUX_INTERFACE_FEES_BANNER_DARK,
@@ -23,8 +23,8 @@ import {
   SOLANA_BANNER_LIGHT,
   SOLANA_LOGO,
 } from '@luxfi/ui/src/assets'
-import { lxUrls } from '@luxexchange/lx/src/constants/urls'
-import i18n from '@luxexchange/lx/src/i18n'
+import { lxUrls } from '@l.x/lx/src/constants/urls'
+import i18n from '@l.x/lx/src/i18n'
 import { logger } from '@luxfi/utilities/src/logger/logger'
 import store from '~/state/index'
 

@@ -1,5 +1,5 @@
 {
-  "name": "@luxexchange/privacy",
+  "name": "@l.x/privacy",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "pkgs/privacy/src",
   "projectType": "library",

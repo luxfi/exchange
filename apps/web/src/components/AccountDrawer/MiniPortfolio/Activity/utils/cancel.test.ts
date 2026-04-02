@@ -1,15 +1,15 @@
 import 'utilities/src/logger/mocks'
-import { TradingApi } from '@luxexchange/api'
-import { UniverseChainId } from '@luxexchange/lx/src/features/chains/types'
+import { TradingApi } from '@l.x/api'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import {
   cancelMultipleDEXOrders,
   extractCancellationData,
   fetchLimitOrdersEncodedOrderData,
   getOrdersMatchingCancellationData,
-} from '@luxexchange/lx/src/features/transactions/cancel/cancelMultipleOrders'
-import { validateOrdersForCancellation } from '@luxexchange/lx/src/features/transactions/cancel/validation'
-import { TransactionStatus, DEXOrderDetails } from '@luxexchange/lx/src/features/transactions/types/transactionDetails'
-import { createPermit2ContractForChain } from '@luxexchange/lx/src/features/transactions/utils/permit2'
+} from '@l.x/lx/src/features/transactions/cancel/cancelMultipleOrders'
+import { validateOrdersForCancellation } from '@l.x/lx/src/features/transactions/cancel/validation'
+import { TransactionStatus, DEXOrderDetails } from '@l.x/lx/src/features/transactions/types/transactionDetails'
+import { createPermit2ContractForChain } from '@l.x/lx/src/features/transactions/utils/permit2'
 import { vi } from 'vitest'
 import { useCancelMultipleOrdersCallback } from '~/components/AccountDrawer/MiniPortfolio/Activity/utils/cancel'
 import { useAccount } from '~/hooks/useAccount'

@@ -1,4 +1,4 @@
-import { TradingApi } from '@luxexchange/api'
+import { TradingApi } from '@l.x/api'
 import { SignTypedDataStepFields } from 'lx/src/features/transactions/steps/permit2Signature'
 import { TransactionStepType } from 'lx/src/features/transactions/steps/types'
 import { ValidatedPermit } from 'lx/src/features/transactions/swap/utils/trade'

@@ -7,8 +7,8 @@ import {
   LX_URL_SCHEME_WALLETCONNECT_AS_PARAM,
   LX_WALLETCONNECT_URL,
 } from 'src/features/deepLinking/constants'
-import { LX_WEB_HOSTNAME } from '@luxexchange/lx/src/constants/urls'
-import { isCurrencyIdValid } from '@luxexchange/lx/src/utils/currencyId'
+import { LX_WEB_HOSTNAME } from '@l.x/lx/src/constants/urls'
+import { isCurrencyIdValid } from '@l.x/lx/src/utils/currencyId'
 import { logger } from '@luxfi/utilities/src/logger/logger'
 
 const LUX_URL_SCHEME_WIDGET = 'lux://widget/'

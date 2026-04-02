@@ -15,8 +15,8 @@ import {
   ListTopAuctionsRequest,
   ListTopAuctionsResponse,
 } from '@luxamm/client-data-api/dist/data/v1/auction_pb'
-import type { AuctionServiceClient } from '@luxexchange/api/src/clients/auctions/createAuctionServiceClient'
-import { UseQueryApiHelperHookArgs } from '@luxexchange/api/src/hooks/shared/types'
+import type { AuctionServiceClient } from '@l.x/api/src/clients/auctions/createAuctionServiceClient'
+import { UseQueryApiHelperHookArgs } from '@l.x/api/src/hooks/shared/types'
 import { AuctionServiceClient as AuctionServiceClientInstance } from 'lx/src/data/rest/auctions/AuctionServiceClient'
 import { AUCTION_DEFAULT_RETRY, AuctionStaleTime } from 'lx/src/data/rest/auctions/queryTypes'
 import { ReactQueryCacheKey } from 'utilities/src/reactQuery/cache'

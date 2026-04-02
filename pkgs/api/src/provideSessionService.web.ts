@@ -1,7 +1,7 @@
-import { provideDeviceIdService } from '@luxexchange/api/src/provideDeviceIdService'
-import { provideSessionStorage } from '@luxexchange/api/src/provideSessionStorage'
-import { provideLxIdentifierService } from '@luxexchange/api/src/provideLxIdentifierService'
-import { getTransport } from '@luxexchange/api/src/transport'
+import { provideDeviceIdService } from '@l.x/api/src/provideDeviceIdService'
+import { provideSessionStorage } from '@l.x/api/src/provideSessionStorage'
+import { provideLxIdentifierService } from '@l.x/api/src/provideLxIdentifierService'
+import { getTransport } from '@l.x/api/src/transport'
 import {
   createNoopSessionService,
   createSessionClient,
@@ -9,7 +9,7 @@ import {
   createSessionService,
   type SessionService,
   type LxIdentifierService,
-} from '@luxexchange/sessions'
+} from '@l.x/sessions'
 import type { Logger } from 'utilities/src/logger/logger'
 import { isWebApp } from 'utilities/src/platform'
 import { REQUEST_SOURCE } from 'utilities/src/platform/requestSource'

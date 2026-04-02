@@ -1,5 +1,5 @@
-import { TransactionStatus, TransactionType } from '@luxexchange/lx/src/features/transactions/types/transactionDetails'
-import i18n from '@luxexchange/lx/src/i18n'
+import { TransactionStatus, TransactionType } from '@l.x/lx/src/features/transactions/types/transactionDetails'
+import i18n from '@l.x/lx/src/i18n'
 import { logger } from '@luxfi/utilities/src/logger/logger'
 
 type TransactionStatusWeb = TransactionStatus.Success | TransactionStatus.Failed | TransactionStatus.Pending

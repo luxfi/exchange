@@ -1,4 +1,4 @@
-import { objectToQueryString } from '@luxexchange/api/src/clients/base/utils'
+import { objectToQueryString } from '@l.x/api/src/clients/base/utils'
 
 export type AuthData = {
   'x-uni-address': Address

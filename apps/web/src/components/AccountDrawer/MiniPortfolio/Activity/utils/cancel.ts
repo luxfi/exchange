@@ -1,4 +1,4 @@
-import { TradingApi } from '@luxexchange/api'
+import { TradingApi } from '@l.x/api'
 import { ContractTransaction } from 'ethers/lib/ethers'
 import { useCallback, useMemo } from 'react'
 import {
@@ -8,10 +8,10 @@ import {
   getOrdersMatchingCancellationData,
   LimitOrdersFetcher,
   trackOrderCancellation,
-} from '@luxexchange/lx/src/features/transactions/cancel/cancelMultipleOrders'
-import { validateOrdersForCancellation } from '@luxexchange/lx/src/features/transactions/cancel/validation'
-import { updateTransaction } from '@luxexchange/lx/src/features/transactions/slice'
-import { TransactionStatus, DEXOrderDetails } from '@luxexchange/lx/src/features/transactions/types/transactionDetails'
+} from '@l.x/lx/src/features/transactions/cancel/cancelMultipleOrders'
+import { validateOrdersForCancellation } from '@l.x/lx/src/features/transactions/cancel/validation'
+import { updateTransaction } from '@l.x/lx/src/features/transactions/slice'
+import { TransactionStatus, DEXOrderDetails } from '@l.x/lx/src/features/transactions/types/transactionDetails'
 import { logger } from '@luxfi/utilities/src/logger/logger'
 import { useAccount } from '~/hooks/useAccount'
 import { useEthersWeb3Provider } from '~/hooks/useEthersProvider'

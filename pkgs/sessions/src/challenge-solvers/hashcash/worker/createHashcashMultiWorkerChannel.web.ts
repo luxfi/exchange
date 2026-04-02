@@ -9,12 +9,12 @@
  * - 8 workers ~= 8x speedup (diminishing returns beyond core count)
  */
 
-import type { ProofResult } from '@luxexchange/sessions/src/challenge-solvers/hashcash/core'
+import type { ProofResult } from '@l.x/sessions/src/challenge-solvers/hashcash/core'
 import type {
   FindProofParams,
   HashcashWorkerAPI,
   HashcashWorkerChannel,
-} from '@luxexchange/sessions/src/challenge-solvers/hashcash/worker/types'
+} from '@l.x/sessions/src/challenge-solvers/hashcash/worker/types'
 import { createChannel } from 'bidc'
 
 /**

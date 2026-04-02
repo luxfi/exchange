@@ -1,5 +1,5 @@
 import { Token as SDKToken } from '@luxamm/sdk-core'
-import { GraphQLApi } from '@luxexchange/api'
+import { GraphQLApi } from '@l.x/api'
 import {
   DAI,
   USDC,

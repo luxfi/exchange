@@ -2,11 +2,11 @@ import {
   AuctionBidAnalyticsProperties,
   AuctionBidInputtedAnalyticsProperties,
   AuctionWithdrawAnalyticsProperties,
-} from '@luxexchange/lx/src/features/telemetry/types'
+} from '@l.x/lx/src/features/telemetry/types'
 import {
   ToucanBidTransactionInfo,
   ToucanWithdrawBidAndClaimTokensTransactionInfo,
-} from '@luxexchange/lx/src/features/transactions/types/transactionDetails'
+} from '@l.x/lx/src/features/transactions/types/transactionDetails'
 import { ITraceContext } from '@luxfi/utilities/src/telemetry/trace/TraceContext'
 
 /**

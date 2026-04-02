@@ -3,14 +3,14 @@ import {
   Metadata,
   Notification,
 } from '@luxamm/client-notification-service/dist/lx/notificationservice/v1/api_pb'
-import type { InAppNotification } from '@luxexchange/api'
-import { ContentStyle } from '@luxexchange/api'
+import type { InAppNotification } from '@l.x/api'
+import { ContentStyle } from '@l.x/api'
 import {
   createLocalTriggerDataSource,
   getTriggerById,
   type TriggerCondition,
-} from '@luxexchange/notifications/src/notification-data-source/implementations/createLocalTriggerDataSource'
-import { type NotificationTracker } from '@luxexchange/notifications/src/notification-tracker/NotificationTracker'
+} from '@l.x/notifications/src/notification-data-source/implementations/createLocalTriggerDataSource'
+import { type NotificationTracker } from '@l.x/notifications/src/notification-tracker/NotificationTracker'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
 function createMockNotification(id: string): InAppNotification {

@@ -1,5 +1,5 @@
-import { brand } from '@luxexchange/config'
-import { ForceUpgradeStatus, ForceUpgradeTranslations } from '@luxexchange/gating'
+import { brand } from '@l.x/config'
+import { ForceUpgradeStatus, ForceUpgradeTranslations } from '@l.x/gating'
 import { ComponentProps } from 'react'
 import { DynamicConfigDropdown } from 'lx/src/components/gating/DynamicConfigDropdown'
 

@@ -1,6 +1,6 @@
 import { type Currency, CurrencyAmount, TradeType } from '@luxamm/sdk-core'
 import { FeeAmount, Pool, Route } from '@luxamm/v3-sdk'
-import { type ClassicQuoteResponse, TradingApi } from '@luxexchange/api'
+import { type ClassicQuoteResponse, TradingApi } from '@l.x/api'
 import { UNI, WBTC } from 'lx/src/constants/tokens'
 import { UniverseChainId } from 'lx/src/features/chains/types'
 import { BridgeTrade, ClassicTrade } from 'lx/src/features/transactions/swap/types/trade'

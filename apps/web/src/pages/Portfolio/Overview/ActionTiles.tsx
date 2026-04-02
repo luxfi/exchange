@@ -1,6 +1,6 @@
 import { memo } from 'react'
 import { Flex, styled, useMedia } from '@luxfi/ui/src'
-import { TestID } from '@luxexchange/lx/src/test/fixtures/testIDs'
+import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
 import { BuyActionTile } from '~/components/ActionTiles/BuyActionTile'
 import { CopyAddressActionTile } from '~/components/ActionTiles/CopyAddressActionTile'
 import { MoreActionTile } from '~/components/ActionTiles/MoreActionTile'

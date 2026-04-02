@@ -2,7 +2,7 @@ import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { GeneratedIcon } from '@luxfi/ui/src'
 import { Bank, SwapDotted } from '@luxfi/ui/src/components/icons'
-import { CurrencyField } from '@luxexchange/lx/src/types/currency'
+import { CurrencyField } from '@l.x/lx/src/types/currency'
 
 interface TokenCTAButtonVariant {
   title: string

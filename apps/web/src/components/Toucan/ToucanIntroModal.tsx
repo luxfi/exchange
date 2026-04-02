@@ -3,9 +3,9 @@ import { Button, Flex, Image, Text, TouchableArea, useSporeColors } from '@luxfi
 import toucanIntroBackground from '@luxfi/ui/src/assets/backgrounds/toucan-intro.png'
 import { Rocket } from '@luxfi/ui/src/components/icons/Rocket'
 import { X } from '@luxfi/ui/src/components/icons/X'
-import { Modal } from '@luxexchange/lx/src/components/modals/Modal'
-import { lxUrls } from '@luxexchange/lx/src/constants/urls'
-import { ModalName } from '@luxexchange/lx/src/features/telemetry/constants'
+import { Modal } from '@l.x/lx/src/components/modals/Modal'
+import { lxUrls } from '@l.x/lx/src/constants/urls'
+import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
 import { ExternalLink } from '~/theme/components/Links'
 
 const LEARN_MORE_URL = lxUrls.helpArticleUrls.toucanIntro

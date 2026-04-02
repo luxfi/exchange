@@ -5,21 +5,21 @@
 /* eslint-disable max-lines */
 
 import dayjs from 'dayjs'
-import { AccountType } from '@luxexchange/lx/src/features/accounts/types'
-import { UniverseChainId } from '@luxexchange/lx/src/features/chains/types'
-import { toSupportedChainId } from '@luxexchange/lx/src/features/chains/utils'
-import { FiatCurrency } from '@luxexchange/lx/src/features/fiatCurrency/constants'
-import { Language } from '@luxexchange/lx/src/features/language/constants'
-import { getNFTAssetKey } from '@luxexchange/lx/src/features/nfts/utils'
-import { ModalName } from '@luxexchange/lx/src/features/telemetry/constants'
-import { type TransactionsState } from '@luxexchange/lx/src/features/transactions/slice'
+import { AccountType } from '@l.x/lx/src/features/accounts/types'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { toSupportedChainId } from '@l.x/lx/src/features/chains/utils'
+import { FiatCurrency } from '@l.x/lx/src/features/fiatCurrency/constants'
+import { Language } from '@l.x/lx/src/features/language/constants'
+import { getNFTAssetKey } from '@l.x/lx/src/features/nfts/utils'
+import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
+import { type TransactionsState } from '@l.x/lx/src/features/transactions/slice'
 import {
   type ChainIdToTxIdToDetails,
   TransactionStatus,
   TransactionType,
-} from '@luxexchange/lx/src/features/transactions/types/transactionDetails'
-import { createSafeMigrationFactory } from '@luxexchange/lx/src/state/createSafeMigration'
-import { DappRequestType } from '@luxexchange/lx/src/types/walletConnect'
+} from '@l.x/lx/src/features/transactions/types/transactionDetails'
+import { createSafeMigrationFactory } from '@l.x/lx/src/state/createSafeMigration'
+import { DappRequestType } from '@l.x/lx/src/types/walletConnect'
 import { type Account } from '@luxfi/wallet/src/features/wallet/accounts/types'
 import { SwapProtectionSetting } from '@luxfi/wallet/src/features/wallet/slice'
 

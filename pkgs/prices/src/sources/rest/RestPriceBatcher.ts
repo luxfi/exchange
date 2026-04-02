@@ -1,7 +1,7 @@
-import { BATCH_DELAY_MS, MAX_BATCH_SIZE } from '@luxexchange/prices/src/sources/rest/constants'
-import type { RestPriceClient } from '@luxexchange/prices/src/sources/rest/types'
-import type { TokenIdentifier, TokenPriceData } from '@luxexchange/prices/src/types'
-import { createPriceKey } from '@luxexchange/prices/src/utils/tokenIdentifier'
+import { BATCH_DELAY_MS, MAX_BATCH_SIZE } from '@l.x/prices/src/sources/rest/constants'
+import type { RestPriceClient } from '@l.x/prices/src/sources/rest/types'
+import type { TokenIdentifier, TokenPriceData } from '@l.x/prices/src/types'
+import { createPriceKey } from '@l.x/prices/src/utils/tokenIdentifier'
 
 interface PendingRequest {
   token: TokenIdentifier

@@ -1,7 +1,7 @@
 import { toPlainMessage } from '@bufbuild/protobuf'
 import { queryOptions } from '@tanstack/react-query'
 import { PlatformType } from '@luxamm/client-notification-service/dist/lx/notificationservice/v1/api_pb'
-import type { InAppNotification, NotificationsApiClient } from '@luxexchange/api'
+import type { InAppNotification, NotificationsApiClient } from '@l.x/api'
 import { getLogger } from 'utilities/src/logger/logger'
 import { ReactQueryCacheKey } from 'utilities/src/reactQuery/cache'
 import { type QueryOptionsResult } from 'utilities/src/reactQuery/queryOptions'
@@ -22,7 +22,7 @@ interface GetNotificationQueryOptionsContext {
  *
  * @example
  * ```typescript
- * import { getNotificationQueryOptions } from '@luxexchange/notifications'
+ * import { getNotificationQueryOptions } from '@l.x/notifications'
  * import { useQuery } from '@tanstack/react-query'
  *
  * // Use in a hook

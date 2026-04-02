@@ -1,8 +1,8 @@
 import { useMemo, useRef } from 'react'
-import { ActivityItem } from '@luxexchange/lx/src/components/activity/generateActivityItemRenderer'
-import { useActivityData } from '@luxexchange/lx/src/features/activity/hooks/useActivityData'
-import { UniverseChainId } from '@luxexchange/lx/src/features/chains/types'
-import { TransactionDetails } from '@luxexchange/lx/src/features/transactions/types/transactionDetails'
+import { ActivityItem } from '@l.x/lx/src/components/activity/generateActivityItemRenderer'
+import { useActivityData } from '@l.x/lx/src/features/activity/hooks/useActivityData'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { TransactionDetails } from '@l.x/lx/src/features/transactions/types/transactionDetails'
 import { useInfiniteScroll } from '@luxfi/utilities/src/react/useInfiniteScroll'
 import { ONE_DAY_MS } from '@luxfi/utilities/src/time/time'
 import {

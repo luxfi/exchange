@@ -1,5 +1,5 @@
 import { QueryClient } from '@tanstack/react-query'
-import { FetchError } from '@luxexchange/api/src/clients/base/errors'
+import { FetchError } from '@l.x/api/src/clients/base/errors'
 import { hashKey } from 'utilities/src/reactQuery/hashKey'
 import { ONE_DAY_MS, ONE_SECOND_MS } from 'utilities/src/time/time'
 

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useLocation } from 'react-router'
-import i18n from '@luxexchange/lx/src/i18n'
+import i18n from '@l.x/lx/src/i18n'
 import { MetaTagInjectorInput } from '~/shared-cloud/metatags'
 
 const DEFAULT_METATAGS: MetaTagInjectorInput = {

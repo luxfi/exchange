@@ -1,4 +1,4 @@
-import i18n from '@luxexchange/lx/src/i18n'
+import i18n from '@l.x/lx/src/i18n'
 
 export const getPositionPageTitle = (path?: string) => {
   const parts = path?.split('/').filter((part) => part !== '')

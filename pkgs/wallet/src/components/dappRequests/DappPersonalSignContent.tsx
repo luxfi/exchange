@@ -1,4 +1,4 @@
-import type { GasFeeResult } from '@luxexchange/api'
+import type { GasFeeResult } from '@l.x/api'
 import { useEffect, useMemo } from 'react'
 import { Flex } from 'ui/src'
 import type { UniverseChainId } from 'lx/src/features/chains/types'

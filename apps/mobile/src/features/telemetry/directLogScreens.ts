@@ -1,4 +1,4 @@
-import { MobileScreens } from '@luxexchange/lx/src/types/screens/mobile'
+import { MobileScreens } from '@l.x/lx/src/types/screens/mobile'
 
 export const DIRECT_LOG_ONLY_SCREENS: string[] = [MobileScreens.TokenDetails, MobileScreens.ExternalProfile]
 

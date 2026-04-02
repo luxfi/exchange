@@ -3,7 +3,7 @@ import {
   OnChainTransactionLabel,
   OnChainTransactionStatus,
 } from '@luxamm/client-data-api/dist/data/v1/types_pb'
-import { TradingApi } from '@luxexchange/api'
+import { TradingApi } from '@l.x/api'
 
 import { parseRestApproveTransaction } from 'lx/src/features/activity/parse/parseApproveTransaction'
 import { parseRestAuctionTransaction } from 'lx/src/features/activity/parse/parseAuctionTransaction'

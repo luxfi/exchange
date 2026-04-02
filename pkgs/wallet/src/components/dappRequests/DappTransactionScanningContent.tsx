@@ -1,4 +1,4 @@
-import type { BlockaidScanTransactionRequest, GasFeeResult } from '@luxexchange/api'
+import type { BlockaidScanTransactionRequest, GasFeeResult } from '@l.x/api'
 import { useEffect, useMemo } from 'react'
 import { Flex } from 'ui/src'
 import type { UniverseChainId } from 'lx/src/features/chains/types'

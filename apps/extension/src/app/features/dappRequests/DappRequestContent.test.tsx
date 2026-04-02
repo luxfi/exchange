@@ -4,8 +4,8 @@ import type { DappRequestStoreItem } from 'src/app/features/dappRequests/shared'
 import { DappRequestStatus } from 'src/app/features/dappRequests/shared'
 import type { WithMetadata } from 'src/app/features/dappRequests/slice'
 import { render, screen } from 'src/test/test-utils'
-import { AccountType } from '@luxexchange/lx/src/features/accounts/types'
-import { DappRequestType } from '@luxexchange/lx/src/features/dappRequests/types'
+import { AccountType } from '@l.x/lx/src/features/accounts/types'
+import { DappRequestType } from '@l.x/lx/src/features/dappRequests/types'
 
 // Mock wagmi to avoid ESM import issues
 jest.mock('wagmi', () => ({

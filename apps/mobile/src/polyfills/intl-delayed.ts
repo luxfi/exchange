@@ -1,4 +1,4 @@
-import { getWalletDeviceLocale } from '@luxexchange/lx/src/i18n/utils'
+import { getWalletDeviceLocale } from '@l.x/lx/src/i18n/utils'
 
 export function initDynamicIntlPolyfills(): void {
   const locale = getWalletDeviceLocale()

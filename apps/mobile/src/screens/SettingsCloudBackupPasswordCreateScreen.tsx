@@ -7,10 +7,10 @@ import { SafeKeyboardScreen } from 'src/components/layout/SafeKeyboardScreen'
 import { CloudBackupPassword } from 'src/features/CloudBackup/CloudBackupForm/CloudBackupPassword'
 import { Button, Flex, Text, useSporeColors } from '@luxfi/ui/src'
 import { OSDynamicCloudIcon } from '@luxfi/ui/src/components/icons'
-import { Modal } from '@luxexchange/lx/src/components/modals/Modal'
-import { ModalName } from '@luxexchange/lx/src/features/telemetry/constants'
-import { MobileScreens } from '@luxexchange/lx/src/types/screens/mobile'
-import { getCloudProviderName } from '@luxexchange/lx/src/utils/cloud-backup/getCloudProviderName'
+import { Modal } from '@l.x/lx/src/components/modals/Modal'
+import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
+import { MobileScreens } from '@l.x/lx/src/types/screens/mobile'
+import { getCloudProviderName } from '@l.x/lx/src/utils/cloud-backup/getCloudProviderName'
 
 type Props = NativeStackScreenProps<SettingsStackParamList, MobileScreens.SettingsCloudBackupPasswordCreate>
 

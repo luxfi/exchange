@@ -1,4 +1,4 @@
-import { GasFeeResult } from '@luxexchange/api'
+import { GasFeeResult } from '@l.x/api'
 import { useTranslation } from 'react-i18next'
 import { DappRequestContent } from 'src/app/features/dappRequests/DappRequestContent'
 import { LPSendTransactionRequest } from 'src/app/features/dappRequests/types/DappRequestTypes'

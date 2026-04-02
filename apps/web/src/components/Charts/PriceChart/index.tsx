@@ -1,4 +1,4 @@
-import { GraphQLApi } from '@luxexchange/api'
+import { GraphQLApi } from '@l.x/api'
 import {
   AreaData,
   AreaSeriesPartialOptions,
@@ -15,9 +15,9 @@ import { useMemo } from 'react'
 import { Trans } from 'react-i18next'
 import { Flex, styled, Text } from '@luxfi/ui/src'
 import { opacify } from '@luxfi/ui/src/theme'
-import { isLowVarianceRange } from '@luxexchange/lx/src/components/charts/utils'
-import { useFormatChartFiatDelta } from '@luxexchange/lx/src/features/fiatCurrency/hooks/useFormatChartFiatDelta'
-import { useLocalizationContext } from '@luxexchange/lx/src/features/language/LocalizationContext'
+import { isLowVarianceRange } from '@l.x/lx/src/components/charts/utils'
+import { useFormatChartFiatDelta } from '@l.x/lx/src/features/fiatCurrency/hooks/useFormatChartFiatDelta'
+import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
 import { NumberType } from '@luxfi/utilities/src/format/types'
 import { ChartHeader } from '~/components/Charts/ChartHeader'
 import {

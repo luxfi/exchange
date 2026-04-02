@@ -9,11 +9,11 @@
 
 import { NotImplementedError } from 'utilities/src/errors'
 
-export type { HashcashChallenge, ProofResult } from '@luxexchange/sessions/src/challenge-solvers/hashcash/shared'
+export type { HashcashChallenge, ProofResult } from '@l.x/sessions/src/challenge-solvers/hashcash/shared'
 // Re-export shared types and platform-agnostic functions
-export { checkDifficulty, formatHashcashString } from '@luxexchange/sessions/src/challenge-solvers/hashcash/shared'
+export { checkDifficulty, formatHashcashString } from '@l.x/sessions/src/challenge-solvers/hashcash/shared'
 
-import type { HashcashChallenge, ProofResult } from '@luxexchange/sessions/src/challenge-solvers/hashcash/shared'
+import type { HashcashChallenge, ProofResult } from '@l.x/sessions/src/challenge-solvers/hashcash/shared'
 
 export async function computeHash(_params: { subject: string; nonce: string; counter: number }): Promise<Uint8Array> {
   throw new NotImplementedError('computeHash - mobile uses native Nitro modules')

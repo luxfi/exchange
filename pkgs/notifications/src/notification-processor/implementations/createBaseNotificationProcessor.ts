@@ -1,10 +1,10 @@
-import { ContentStyle, type InAppNotification, OnClickAction } from '@luxexchange/api'
-import { createNotificationProcessor } from '@luxexchange/notifications/src/notification-processor/implementations/createNotificationProcessor'
+import { ContentStyle, type InAppNotification, OnClickAction } from '@l.x/api'
+import { createNotificationProcessor } from '@l.x/notifications/src/notification-processor/implementations/createNotificationProcessor'
 import {
   type NotificationProcessor,
   type NotificationProcessorResult,
-} from '@luxexchange/notifications/src/notification-processor/NotificationProcessor'
-import { type NotificationTracker } from '@luxexchange/notifications/src/notification-tracker/NotificationTracker'
+} from '@l.x/notifications/src/notification-processor/NotificationProcessor'
+import { type NotificationTracker } from '@l.x/notifications/src/notification-tracker/NotificationTracker'
 import { getLogger } from 'utilities/src/logger/logger'
 
 /**

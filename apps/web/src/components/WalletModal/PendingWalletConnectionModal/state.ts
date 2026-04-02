@@ -1,6 +1,6 @@
 import { useAtom } from 'jotai'
 import { atomWithStorage } from 'jotai/utils'
-import { CONNECTION_PROVIDER_IDS } from '@luxexchange/lx/src/constants/web3'
+import { CONNECTION_PROVIDER_IDS } from '@l.x/lx/src/constants/web3'
 
 /** Wallets that require separate user consent for EVM vs SVM connections (currently just MetaMask). */
 const SEPARATE_PROMPT_WALLET_IDS = new Set<string>([CONNECTION_PROVIDER_IDS.METAMASK_RDNS])

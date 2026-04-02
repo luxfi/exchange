@@ -1,4 +1,4 @@
-import { OnchainItemListOption } from '@luxexchange/lx/src/components/lists/items/types'
+import { OnchainItemListOption } from '@l.x/lx/src/components/lists/items/types'
 
 export enum OnchainItemSectionName {
   SearchResults = 'searchResults',

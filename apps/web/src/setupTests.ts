@@ -12,16 +12,16 @@ import {
   type WalletName,
   WalletReadyState,
 } from '@solana/wallet-adapter-base'
-import { useFeatureFlag } from '@luxexchange/gating'
+import { useFeatureFlag } from '@l.x/gating'
 import { useWeb3React } from '@web3-react/core'
 import { config as loadEnv } from 'dotenv'
 import failOnConsole from 'jest-fail-on-console'
 import { disableNetConnect, restore as restoreNetConnect } from 'nock'
 import React from 'react'
 import { Readable } from 'stream'
-import { type UniverseChainId } from '@luxexchange/lx/src/features/chains/types'
-import { setupi18n } from '@luxexchange/lx/src/i18n/i18n-setup-interface'
-import { mockLocalizationContext } from '@luxexchange/lx/src/test/mocks/locale'
+import { type UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { setupi18n } from '@l.x/lx/src/i18n/i18n-setup-interface'
+import { mockLocalizationContext } from '@l.x/lx/src/test/mocks/locale'
 import { TextDecoder, TextEncoder } from 'util'
 import { toBeVisible } from '~/test-utils/matchers'
 import { mocked } from '~/test-utils/mocked'
@@ -420,7 +420,7 @@ failOnConsole({
   },
 })
 
-vi.mock('@luxexchange/gating', async (importOriginal) => {
+vi.mock('@l.x/gating', async (importOriginal) => {
   return {
     ...(await importOriginal()),
     useFeatureFlag: vi.fn(),

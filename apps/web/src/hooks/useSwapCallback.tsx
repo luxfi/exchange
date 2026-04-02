@@ -3,12 +3,12 @@ import type { Percent } from '@luxamm/sdk-core'
 import { TradeType } from '@luxamm/sdk-core'
 import type { FlatFeeOptions } from '@luxamm/universal-router-sdk'
 import type { FeeOptions } from '@luxamm/v3-sdk'
-import { TradingApi } from '@luxexchange/api'
+import { TradingApi } from '@l.x/api'
 import { useCallback } from 'react'
 import { useDispatch } from 'react-redux'
-import { useSupportedChainId } from '@luxexchange/lx/src/features/chains/hooks/useSupportedChainId'
-import { isEVMChain } from '@luxexchange/lx/src/features/platforms/utils/chains'
-import { addTransaction } from '@luxexchange/lx/src/features/transactions/slice'
+import { useSupportedChainId } from '@l.x/lx/src/features/chains/hooks/useSupportedChainId'
+import { isEVMChain } from '@l.x/lx/src/features/platforms/utils/chains'
+import { addTransaction } from '@l.x/lx/src/features/transactions/slice'
 import {
   InterfaceTransactionDetails,
   QueuedOrderStatus,
@@ -16,8 +16,8 @@ import {
   TransactionStatus,
   TransactionType,
   DEXOrderDetails,
-} from '@luxexchange/lx/src/features/transactions/types/transactionDetails'
-import { currencyId } from '@luxexchange/lx/src/utils/currencyId'
+} from '@l.x/lx/src/features/transactions/types/transactionDetails'
+import { currencyId } from '@l.x/lx/src/utils/currencyId'
 import { useAccount } from '~/hooks/useAccount'
 import type { PermitSignature } from '~/hooks/usePermitAllowance'
 import useSelectChain from '~/hooks/useSelectChain'

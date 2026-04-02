@@ -1,6 +1,6 @@
 import type { Preview } from '@storybook/react'
 import { Provider } from 'react-redux'
-import { ReactRouterUrlProvider } from '@luxexchange/lx/src/contexts/UrlContext'
+import { ReactRouterUrlProvider } from '@l.x/lx/src/contexts/UrlContext'
 import store from '~/state'
 import { GuiProvider } from '../src/theme/guiProvider'
 

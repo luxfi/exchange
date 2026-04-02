@@ -1,10 +1,10 @@
 import { useMemo } from 'react'
-import { CurrencyTransferContent } from '@luxexchange/lx/src/components/activity/details/transactions/TransferTransactionDetails'
-import { isOnRampPurchaseTransactionInfo } from '@luxexchange/lx/src/components/activity/details/types'
-import { useFormattedCurrencyAmountAndUSDValue } from '@luxexchange/lx/src/components/activity/hooks/useFormattedCurrencyAmountAndUSDValue'
-import { useLocalizationContext } from '@luxexchange/lx/src/features/language/LocalizationContext'
-import { ValueType } from '@luxexchange/lx/src/features/tokens/getCurrencyAmount'
-import { useCurrencyInfo } from '@luxexchange/lx/src/features/tokens/useCurrencyInfo'
+import { CurrencyTransferContent } from '@l.x/lx/src/components/activity/details/transactions/TransferTransactionDetails'
+import { isOnRampPurchaseTransactionInfo } from '@l.x/lx/src/components/activity/details/types'
+import { useFormattedCurrencyAmountAndUSDValue } from '@l.x/lx/src/components/activity/hooks/useFormattedCurrencyAmountAndUSDValue'
+import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
+import { ValueType } from '@l.x/lx/src/features/tokens/getCurrencyAmount'
+import { useCurrencyInfo } from '@l.x/lx/src/features/tokens/useCurrencyInfo'
 import {
   OnRampPurchaseInfo,
   OnRampTransferInfo,

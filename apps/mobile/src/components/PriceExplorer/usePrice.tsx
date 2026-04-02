@@ -2,8 +2,8 @@ import { useMemo } from 'react'
 import { SharedValue, useAnimatedReaction, useDerivedValue, useSharedValue } from 'react-native-reanimated'
 import { useLineChart, useLineChartPrice as useRNWagmiChartLineChartPrice } from 'react-native-wagmi-charts'
 import { numberToLocaleStringWorklet, numberToPercentWorklet } from 'src/utils/reanimated'
-import { useAppFiatCurrencyInfo } from '@luxexchange/lx/src/features/fiatCurrency/hooks'
-import { useCurrentLocale } from '@luxexchange/lx/src/features/language/hooks'
+import { useAppFiatCurrencyInfo } from '@l.x/lx/src/features/fiatCurrency/hooks'
+import { useCurrentLocale } from '@l.x/lx/src/features/language/hooks'
 
 export type ValueAndFormatted = {
   value: Readonly<SharedValue<number>>

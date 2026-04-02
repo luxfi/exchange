@@ -1,4 +1,4 @@
-import type { GasStrategy } from '@luxexchange/api'
+import type { GasStrategy } from '@l.x/api'
 import { UniverseChainId } from 'lx/src/features/chains/types'
 
 // Normal speed strategy - Lower multipliers for economical transactions

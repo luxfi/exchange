@@ -4,7 +4,7 @@ import { ReactTestInstance } from 'react-test-renderer'
 import { LongMarkdownText } from 'src/components/text/LongMarkdownText'
 import { fireEvent, render, within } from 'src/test/test-utils'
 import { fonts } from '@luxfi/ui/src/theme'
-import { TestID } from '@luxexchange/lx/src/test/fixtures/testIDs'
+import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
 
 const TEXT_VARIANT = 'body2'
 const LINE_HEIGHT = fonts[TEXT_VARIANT].lineHeight

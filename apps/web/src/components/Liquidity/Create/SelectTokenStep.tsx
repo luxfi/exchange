@@ -8,7 +8,7 @@ import {
   FeatureFlags,
   useDynamicConfigValue,
   useFeatureFlag,
-} from '@luxexchange/gating'
+} from '@l.x/gating'
 import type { Dispatch, SetStateAction } from 'react'
 import { useCallback, useEffect, useMemo, useReducer, useState } from 'react'
 import { Trans, useTranslation } from 'react-i18next'

@@ -1,5 +1,5 @@
-import { USDC_MAINNET } from '@luxexchange/lx/src/constants/tokens'
-import { UniverseChainId } from '@luxexchange/lx/src/features/chains/types'
+import { USDC_MAINNET } from '@l.x/lx/src/constants/tokens'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { LoadingTitle, TokenDetailsPageSkeleton } from '~/pages/TokenDetails/components/skeleton/Skeleton'
 import { render } from '~/test-utils/render'
 

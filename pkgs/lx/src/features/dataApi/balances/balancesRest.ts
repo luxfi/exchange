@@ -33,12 +33,12 @@ import { currencyIdToRestContractInput } from 'lx/src/features/dataApi/utils/cur
 import {
   getRestCurrencySafetyInfo,
   getRestTokenSafetyInfo,
-} from '@luxexchange/lx/src/features/dataApi/utils/getCurrencySafetyInfo'
-import { useHideSmallBalancesSetting, useHideSpamTokensSetting } from '@luxexchange/lx/src/features/settings/hooks'
-import { useCurrencyIdToVisibility } from '@luxexchange/lx/src/features/transactions/selectors'
-import { CurrencyId } from '@luxexchange/lx/src/types/currency'
-import { currencyId } from '@luxexchange/lx/src/utils/currencyId'
-import { usePlatformBasedFetchPolicy } from '@luxexchange/lx/src/utils/usePlatformBasedFetchPolicy'
+} from '@l.x/lx/src/features/dataApi/utils/getCurrencySafetyInfo'
+import { useHideSmallBalancesSetting, useHideSpamTokensSetting } from '@l.x/lx/src/features/settings/hooks'
+import { useCurrencyIdToVisibility } from '@l.x/lx/src/features/transactions/selectors'
+import { CurrencyId } from '@l.x/lx/src/types/currency'
+import { currencyId } from '@l.x/lx/src/utils/currencyId'
+import { usePlatformBasedFetchPolicy } from '@l.x/lx/src/utils/usePlatformBasedFetchPolicy'
 import { useEvent } from 'utilities/src/react/hooks'
 
 export type RestTokenOverrides = {

@@ -1,4 +1,4 @@
-import { FeatureFlags, useFeatureFlag } from '@luxexchange/gating'
+import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { useCallback, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useDispatch } from 'react-redux'
@@ -9,9 +9,9 @@ import { openModal } from 'src/features/modals/modalSlice'
 import { Flex, Text, TouchableArea } from '@luxfi/ui/src'
 import { GeneratedIcon } from '@luxfi/ui/src/components/factories/createIcon'
 import { ArrowUpCircle, Bank, CoinConvert } from '@luxfi/ui/src/components/icons'
-import { Modal } from '@luxexchange/lx/src/components/modals/Modal'
-import { ElementName, ModalName } from '@luxexchange/lx/src/features/telemetry/constants'
-import { Trace } from '@luxexchange/lx/src/features/telemetry/Trace'
+import { Modal } from '@l.x/lx/src/components/modals/Modal'
+import { ElementName, ModalName } from '@l.x/lx/src/features/telemetry/constants'
+import { Trace } from '@l.x/lx/src/features/telemetry/Trace'
 
 type ActionRow = {
   Icon: GeneratedIcon

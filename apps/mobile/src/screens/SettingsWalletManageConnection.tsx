@@ -4,7 +4,7 @@ import { SettingsStackParamList } from 'src/app/navigation/types'
 import { Screen } from 'src/components/layout/Screen'
 import { ConnectedDappsList } from 'src/components/Requests/ConnectedDapps/ConnectedDappsList'
 import { useWalletConnect } from 'src/features/walletConnect/useWalletConnect'
-import { MobileScreens } from '@luxexchange/lx/src/types/screens/mobile'
+import { MobileScreens } from '@l.x/lx/src/types/screens/mobile'
 
 type Props = NativeStackScreenProps<SettingsStackParamList, MobileScreens.SettingsWalletManageConnection>
 

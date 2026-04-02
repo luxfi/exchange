@@ -1,9 +1,9 @@
 import { useWallet as useSolanaWalletContext } from '@solana/wallet-adapter-react'
 import { useMemo } from 'react'
-import { AccountType } from '@luxexchange/lx/src/features/accounts/types'
-import { Platform } from '@luxexchange/lx/src/features/platforms/types/Platform'
-import type { WalletService } from '@luxexchange/lx/src/features/wallet/services/IWalletService'
-import { WalletMeta } from '@luxexchange/lx/src/features/wallet/types/WalletMeta'
+import { AccountType } from '@l.x/lx/src/features/accounts/types'
+import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
+import type { WalletService } from '@l.x/lx/src/features/wallet/services/IWalletService'
+import { WalletMeta } from '@l.x/lx/src/features/wallet/types/WalletMeta'
 
 export function useExternalSVMWalletService(): WalletService {
   const solanaWalletMeta = useSolanaWalletMeta()

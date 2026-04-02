@@ -10,12 +10,12 @@ import {
   USDC_MAINNET,
   USDT,
   WBTC,
-} from '@luxexchange/lx/src/constants/tokens'
-import { UniverseChainId } from '@luxexchange/lx/src/features/chains/types'
-import { CurrencyInfo } from '@luxexchange/lx/src/features/dataApi/types'
-import { FORCountry } from '@luxexchange/lx/src/features/fiatOnRamp/types'
-import { benignSafetyInfo } from '@luxexchange/lx/src/test/fixtures/wallet/currencies'
-import { LimitsExpiry } from '@luxexchange/lx/src/types/limits'
+} from '@l.x/lx/src/constants/tokens'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { CurrencyInfo } from '@l.x/lx/src/features/dataApi/types'
+import { FORCountry } from '@l.x/lx/src/features/fiatOnRamp/types'
+import { benignSafetyInfo } from '@l.x/lx/src/test/fixtures/wallet/currencies'
+import { LimitsExpiry } from '@l.x/lx/src/types/limits'
 import { UseAccountReturnType, type Register as WagmiRegister } from 'wagmi'
 import { expiryToDeadlineSeconds } from '~/state/limit/expiryToDeadlineSeconds'
 import {

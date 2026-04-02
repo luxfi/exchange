@@ -5,12 +5,12 @@ import {
   getEntryGatewayUrl,
   provideSessionService,
   reinitializeSession,
-} from '@luxexchange/api'
-import type { PlanEndpoints } from '@luxexchange/api/src/clients/trading/createTradingApiClient'
-import { getConfig } from '@luxexchange/config'
-import { FeatureFlags, getFeatureFlag } from '@luxexchange/gating'
-import { BASE_LX_HEADERS } from '@luxexchange/lx/src/data/apiClients/createLxFetchClient'
-import { getFeatureFlaggedHeaders } from '@luxexchange/lx/src/data/apiClients/tradingApi/TradingApiClient'
+} from '@l.x/api'
+import type { PlanEndpoints } from '@l.x/api/src/clients/trading/createTradingApiClient'
+import { getConfig } from '@l.x/config'
+import { FeatureFlags, getFeatureFlag } from '@l.x/gating'
+import { BASE_LX_HEADERS } from '@l.x/lx/src/data/apiClients/createLxFetchClient'
+import { getFeatureFlaggedHeaders } from '@l.x/lx/src/data/apiClients/tradingApi/TradingApiClient'
 import { logger } from 'utilities/src/logger/logger'
 
 function getHeaders(): HeadersInit {

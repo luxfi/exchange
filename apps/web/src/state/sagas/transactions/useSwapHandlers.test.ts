@@ -1,4 +1,4 @@
-import { FeeType, TradingApi } from '@luxexchange/api'
+import { FeeType, TradingApi } from '@l.x/api'
 import { AccountType } from 'lx/src/features/accounts/types'
 import { DEFAULT_GAS_STRATEGY } from 'lx/src/features/gas/consts'
 import { Platform } from 'lx/src/features/platforms/types/Platform'
@@ -6,10 +6,10 @@ import { ExecuteSwapParams } from 'lx/src/features/transactions/swap/types/swapH
 import {
   ValidatedClassicSwapTxAndGasInfo,
   ValidatedSwapTxContext,
-} from '@luxexchange/lx/src/features/transactions/swap/types/swapTxAndGasInfo'
-import { isWrap } from '@luxexchange/lx/src/features/transactions/swap/utils/routing'
-import { WrapType } from '@luxexchange/lx/src/features/transactions/types/wrap'
-import { SignerMnemonicAccountDetails } from '@luxexchange/lx/src/features/wallet/types/AccountDetails'
+} from '@l.x/lx/src/features/transactions/swap/types/swapTxAndGasInfo'
+import { isWrap } from '@l.x/lx/src/features/transactions/swap/utils/routing'
+import { WrapType } from '@l.x/lx/src/features/transactions/types/wrap'
+import { SignerMnemonicAccountDetails } from '@l.x/lx/src/features/wallet/types/AccountDetails'
 import { useSwapCallback } from '~/state/sagas/transactions/swapSaga'
 import { useSwapHandlers, validateWrapParams } from '~/state/sagas/transactions/useSwapHandlers'
 import { renderHook } from '~/test-utils/render'

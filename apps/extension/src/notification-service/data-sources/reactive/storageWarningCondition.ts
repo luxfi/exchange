@@ -4,8 +4,8 @@ import {
   Notification,
   OnClick,
 } from '@luxamm/client-notification-service/dist/lx/notificationservice/v1/api_pb'
-import { ContentStyle, type InAppNotification, OnClickAction } from '@luxexchange/api'
-import { type ReactiveCondition } from '@luxexchange/notifications'
+import { ContentStyle, type InAppNotification, OnClickAction } from '@l.x/api'
+import { type ReactiveCondition } from '@l.x/notifications'
 import { GlobalErrorEvent } from 'src/app/events/constants'
 import { globalEventEmitter } from 'src/app/events/global'
 import { logger } from '@luxfi/utilities/src/logger/logger'

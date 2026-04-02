@@ -9,10 +9,10 @@ import { useBiometricAppSpeedBump } from 'src/features/biometrics/useBiometricAp
 import { useLockScreenOnBlur } from 'src/features/lockScreen/hooks/useLockScreenOnBlur'
 import { useWalletRestore } from 'src/features/wallet/useWalletRestore'
 import { Button, Flex } from '@luxfi/ui/src'
-import { WarningSeverity } from '@luxexchange/lx/src/components/modals/WarningModal/types'
-import { WarningModal } from '@luxexchange/lx/src/components/modals/WarningModal/WarningModal'
-import { ModalName } from '@luxexchange/lx/src/features/telemetry/constants'
-import { TestID } from '@luxexchange/lx/src/test/fixtures/testIDs'
+import { WarningSeverity } from '@l.x/lx/src/components/modals/WarningModal/types'
+import { WarningModal } from '@l.x/lx/src/components/modals/WarningModal/WarningModal'
+import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
+import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
 
 type Props = {
   mnemonicId: string

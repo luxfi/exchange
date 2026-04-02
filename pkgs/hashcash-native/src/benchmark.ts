@@ -48,7 +48,7 @@ export async function benchmarkNative(difficulty: number): Promise<BenchmarkResu
 
 /**
  * Run a single benchmark with the JS implementation
- * Requires passing in the findProof function from @luxexchange/sessions
+ * Requires passing in the findProof function from @l.x/sessions
  */
 export async function benchmarkJS(
   difficulty: number,

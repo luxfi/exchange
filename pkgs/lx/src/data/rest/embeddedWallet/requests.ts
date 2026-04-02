@@ -1,9 +1,9 @@
 import { createPromiseClient, type Transport } from '@connectrpc/connect'
 import { EmbeddedWalletService as OldEmbeddedWalletService } from '@luxamm/client-embeddedwallet/dist/lx/embeddedwallet/v1/service_connect'
-import type { EmbeddedWalletApiClient as EmbeddedWalletApiClientType, EmbeddedWalletClientContext } from '@luxexchange/api'
-import { createEmbeddedWalletApiClient, getTransport } from '@luxexchange/api'
-import { lxUrls } from '@luxexchange/lx/src/constants/urls'
-import { getVersionHeader } from '@luxexchange/lx/src/data/getVersionHeader'
+import type { EmbeddedWalletApiClient as EmbeddedWalletApiClientType, EmbeddedWalletClientContext } from '@l.x/api'
+import { createEmbeddedWalletApiClient, getTransport } from '@l.x/api'
+import { lxUrls } from '@l.x/lx/src/constants/urls'
+import { getVersionHeader } from '@l.x/lx/src/data/getVersionHeader'
 import { isMobileApp } from 'utilities/src/platform'
 import { REQUEST_SOURCE } from 'utilities/src/platform/requestSource'
 

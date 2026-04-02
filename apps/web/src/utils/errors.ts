@@ -1,4 +1,4 @@
-import i18n from '@luxexchange/lx/src/i18n'
+import i18n from '@l.x/lx/src/i18n'
 import { v4 as uuid } from 'uuid'
 
 // You may throw an instance of this class when the user rejects a request in their wallet.

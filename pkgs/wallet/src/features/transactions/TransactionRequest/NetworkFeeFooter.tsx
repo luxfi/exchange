@@ -1,4 +1,4 @@
-import { GasFeeResult } from '@luxexchange/api'
+import { GasFeeResult } from '@l.x/api'
 import { useTranslation } from 'react-i18next'
 import { Flex, Text } from 'ui/src'
 import { iconSizes } from 'ui/src/theme'

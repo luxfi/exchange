@@ -5,8 +5,8 @@ import { PasswordInputWithBiometrics } from 'src/app/components/PasswordInput'
 import { reauthenticateWithBiometricCredential } from 'src/app/features/biometricUnlock/useUnlockWithBiometricCredentialMutation'
 import { Button, Flex, inputStyles, Square, Text, useSporeColors } from '@luxfi/ui/src'
 import { Lock } from '@luxfi/ui/src/components/icons'
-import { Modal } from '@luxexchange/lx/src/components/modals/Modal'
-import { ModalName } from '@luxexchange/lx/src/features/telemetry/constants'
+import { Modal } from '@l.x/lx/src/components/modals/Modal'
+import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
 import { Keyring } from '@luxfi/wallet/src/features/wallet/Keyring/Keyring'
 
 export function EnterPasswordModal({

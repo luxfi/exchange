@@ -1,6 +1,6 @@
 import { ProtocolVersion } from '@luxamm/client-data-api/dist/data/v1/poolTypes_pb'
 import { Currency } from '@luxamm/sdk-core'
-import { GraphQLApi } from '@luxexchange/api'
+import { GraphQLApi } from '@l.x/api'
 import * as d3 from 'd3'
 import { UseSporeColorsReturn } from '@luxfi/ui/src/hooks/useSporeColors'
 import { TickData } from '~/appGraphql/data/AllV3TicksQuery'

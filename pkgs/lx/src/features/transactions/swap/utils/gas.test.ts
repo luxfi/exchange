@@ -1,4 +1,4 @@
-import { GasFeeResult } from '@luxexchange/api'
+import { GasFeeResult } from '@l.x/api'
 import { mergeGasFeeResults, sumGasFees } from 'lx/src/features/transactions/swap/utils/gas'
 
 describe('sumGasFees', () => {

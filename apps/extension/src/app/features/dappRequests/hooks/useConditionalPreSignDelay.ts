@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef } from 'react'
 import { useTransactionConfirmationTracker } from 'src/app/features/dappRequests/context/TransactionConfirmationTracker'
-import { UniverseChainId } from '@luxexchange/lx/src/features/chains/types'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { logger } from '@luxfi/utilities/src/logger/logger'
 
 /**

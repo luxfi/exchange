@@ -1,21 +1,21 @@
 import { useCallback } from 'react'
-import { isL2ChainId } from '@luxexchange/lx/src/features/chains/utils'
+import { isL2ChainId } from '@l.x/lx/src/features/chains/utils'
 import {
   finalizeTransaction,
   interfaceApplyTransactionHashToBatch,
   interfaceConfirmBridgeDeposit,
   updateTransaction,
-} from '@luxexchange/lx/src/features/transactions/slice'
-import { isNonInstantFlashblockTransactionType } from '@luxexchange/lx/src/features/transactions/swap/components/UnichainInstantBalanceModal/utils'
-import { getIsFlashblocksEnabled } from '@luxexchange/lx/src/features/transactions/swap/hooks/useIsUnichainFlashblocksEnabled'
+} from '@l.x/lx/src/features/transactions/slice'
+import { isNonInstantFlashblockTransactionType } from '@l.x/lx/src/features/transactions/swap/components/UnichainInstantBalanceModal/utils'
+import { getIsFlashblocksEnabled } from '@l.x/lx/src/features/transactions/swap/hooks/useIsUnichainFlashblocksEnabled'
 import {
   extractPlanFieldsFromTypeInfo,
   type InterfaceTransactionDetails,
   TransactionStatus,
   TransactionType,
-} from '@luxexchange/lx/src/features/transactions/types/transactionDetails'
-import { isFinalizedTx } from '@luxexchange/lx/src/features/transactions/types/utils'
-import { currencyIdToChain } from '@luxexchange/lx/src/utils/currencyId'
+} from '@l.x/lx/src/features/transactions/types/transactionDetails'
+import { isFinalizedTx } from '@l.x/lx/src/features/transactions/types/utils'
+import { currencyIdToChain } from '@l.x/lx/src/utils/currencyId'
 import { logger } from '@luxfi/utilities/src/logger/logger'
 import { useTrace } from '@luxfi/utilities/src/telemetry/trace/TraceContext'
 import { popupRegistry } from '~/components/Popups/registry'

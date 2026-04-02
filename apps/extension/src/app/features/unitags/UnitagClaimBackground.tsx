@@ -19,7 +19,7 @@ import {
   UNITAGS_SPENCER_LIGHT,
 } from '@luxfi/ui/src/assets'
 import { zIndexes } from '@luxfi/ui/src/theme'
-import { IconCloud } from '@luxexchange/lx/src/components/IconCloud/IconCloud'
+import { IconCloud } from '@l.x/lx/src/components/IconCloud/IconCloud'
 
 export function UnitagClaimBackground({ children }: PropsWithChildren<{ blurAll: boolean }>): JSX.Element {
   const isDarkMode = useIsDarkMode()

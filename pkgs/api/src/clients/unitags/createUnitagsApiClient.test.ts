@@ -1,20 +1,20 @@
 import { beforeEach, describe, expect, it, type Mock, vi } from 'vitest'
 import 'utilities/src/logger/mocks'
 
-vi.mock('@luxexchange/config', () => ({
+vi.mock('@l.x/config', () => ({
   getConfig: vi.fn(() => ({
     unitagsApiUrlOverride: undefined,
   })),
 }))
 
-vi.mock('@luxexchange/api/src/clients/base/urls', () => ({
+vi.mock('@l.x/api/src/clients/base/urls', () => ({
   getCloudflareApiBaseUrl: vi.fn(() => 'https://api.test.com'),
   TrafficFlows: {
     Unitags: 'unitags',
   },
 }))
 
-vi.mock('@luxexchange/api/src/clients/base/createFetchClient', () => ({
+vi.mock('@l.x/api/src/clients/base/createFetchClient', () => ({
   createFetchClient: vi.fn(() => ({
     get: vi.fn(),
     post: vi.fn(),
@@ -23,12 +23,12 @@ vi.mock('@luxexchange/api/src/clients/base/createFetchClient', () => ({
   })),
 }))
 
-vi.mock('@luxexchange/api/src/clients/base/auth', () => ({
+vi.mock('@l.x/api/src/clients/base/auth', () => ({
   createSignedRequestBody: vi.fn(),
   createSignedRequestParams: vi.fn(),
 }))
 
-vi.mock('@luxexchange/api/src/clients/base/utils', () => ({
+vi.mock('@l.x/api/src/clients/base/utils', () => ({
   createFetcher: vi.fn(),
 }))
 
@@ -55,8 +55,8 @@ const mockFetchClient = {
 }
 
 // Import after mocks are set up
-import { createSignedRequestBody, createSignedRequestParams } from '@luxexchange/api/src/clients/base/auth'
-import { createFetcher } from '@luxexchange/api/src/clients/base/utils'
+import { createSignedRequestBody, createSignedRequestParams } from '@l.x/api/src/clients/base/auth'
+import { createFetcher } from '@l.x/api/src/clients/base/utils'
 
 describe('UnitagsApiClient', () => {
   const mockCreateFetcher = createFetcher as unknown as Mock

@@ -1,4 +1,4 @@
-import type { ApiNotificationTrackerContext } from '@luxexchange/notifications'
+import type { ApiNotificationTrackerContext } from '@l.x/notifications'
 import { MMKV } from 'react-native-mmkv'
 import { getLogger } from '@luxfi/utilities/src/logger/logger'
 import { z } from 'zod'

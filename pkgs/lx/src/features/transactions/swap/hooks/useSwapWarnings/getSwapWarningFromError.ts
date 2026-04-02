@@ -1,4 +1,4 @@
-import { FetchError, isRateLimitFetchError, TradingApi } from '@luxexchange/api'
+import { FetchError, isRateLimitFetchError, TradingApi } from '@l.x/api'
 import { TFunction } from 'i18next'
 import { Warning, WarningAction, WarningLabel, WarningSeverity } from 'lx/src/components/modals/WarningModal/types'
 

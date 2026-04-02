@@ -1,5 +1,5 @@
-import { ReportAssetType, TokenReportEventType } from '@luxexchange/api'
-import { FeatureFlags, useFeatureFlag } from '@luxexchange/gating'
+import { ReportAssetType, TokenReportEventType } from '@l.x/api'
+import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { useCallback, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'

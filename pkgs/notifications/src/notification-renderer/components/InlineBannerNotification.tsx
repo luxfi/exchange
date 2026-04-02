@@ -1,11 +1,11 @@
 import { BackgroundType } from '@luxamm/client-notification-service/dist/lx/notificationservice/v1/api_pb'
-import type { InAppNotification } from '@luxexchange/api'
+import type { InAppNotification } from '@l.x/api'
 import {
   BannerTemplate,
   type BannerTemplateButton,
-} from '@luxexchange/notifications/src/notification-renderer/components/BannerTemplate'
-import { parseCustomIconLink } from '@luxexchange/notifications/src/notification-renderer/utils/iconUtils'
-import { type NotificationClickTarget } from '@luxexchange/notifications/src/notification-service/NotificationService'
+} from '@l.x/notifications/src/notification-renderer/components/BannerTemplate'
+import { parseCustomIconLink } from '@l.x/notifications/src/notification-renderer/utils/iconUtils'
+import { type NotificationClickTarget } from '@l.x/notifications/src/notification-service/NotificationService'
 import { memo, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 

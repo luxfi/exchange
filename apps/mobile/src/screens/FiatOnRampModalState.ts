@@ -1,4 +1,4 @@
-import { FiatOnRampCurrency } from '@luxexchange/lx/src/features/fiatOnRamp/types'
+import { FiatOnRampCurrency } from '@l.x/lx/src/features/fiatOnRamp/types'
 
 export type FiatOnRampModalState = {
   prefilledCurrency?: FiatOnRampCurrency

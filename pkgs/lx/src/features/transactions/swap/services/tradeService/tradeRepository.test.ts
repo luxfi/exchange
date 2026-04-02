@@ -1,5 +1,5 @@
-import type { DiscriminatedQuoteResponse } from '@luxexchange/api'
-import { TradingApi } from '@luxexchange/api'
+import type { DiscriminatedQuoteResponse } from '@l.x/api'
+import { TradingApi } from '@l.x/api'
 import { logSwapQuoteFetch } from 'lx/src/features/transactions/swap/analytics'
 import {
   createTradeRepository,

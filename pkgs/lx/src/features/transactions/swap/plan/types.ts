@@ -1,4 +1,4 @@
-import { TradingApi } from '@luxexchange/api'
+import { TradingApi } from '@l.x/api'
 import { SagaGenerator } from 'typed-redux-saga'
 import { CAIP25Session } from 'lx/src/features/capabilities/caip25/types'
 import { AppNotification } from 'lx/src/features/notifications/slice/types'

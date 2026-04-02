@@ -1,4 +1,4 @@
-import { TradingApi } from '@luxexchange/api'
+import { TradingApi } from '@l.x/api'
 import { runSaga, stdChannel } from 'redux-saga'
 import { UNI, WBTC } from 'lx/src/constants/tokens'
 import { UniverseChainId } from 'lx/src/features/chains/types'

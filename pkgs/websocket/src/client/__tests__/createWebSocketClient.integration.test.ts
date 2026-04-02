@@ -1,6 +1,6 @@
-import type { TestMessage } from '@luxexchange/websocket/src/client/__tests__/testUtils'
-import { connectViaSubscribe, createTestClient } from '@luxexchange/websocket/src/client/__tests__/testUtils'
-import type { ConnectionStatus } from '@luxexchange/websocket/src/types'
+import type { TestMessage } from '@l.x/websocket/src/client/__tests__/testUtils'
+import { connectViaSubscribe, createTestClient } from '@l.x/websocket/src/client/__tests__/testUtils'
+import type { ConnectionStatus } from '@l.x/websocket/src/types'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
 describe('createWebSocketClient integration', () => {

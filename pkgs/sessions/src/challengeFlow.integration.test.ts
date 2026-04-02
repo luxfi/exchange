@@ -8,16 +8,16 @@ import {
   VerifyResponse,
   VerifySuccess,
 } from '@luxamm/client-platform-service/dist/lx/platformservice/v1/sessionService_pb'
-import { createChallengeSolverService } from '@luxexchange/sessions/src/challenge-solvers/createChallengeSolverService'
-import type { ChallengeSolver } from '@luxexchange/sessions/src/challenge-solvers/types'
-import type { PerformanceTracker } from '@luxexchange/sessions/src/performance/types'
+import { createChallengeSolverService } from '@l.x/sessions/src/challenge-solvers/createChallengeSolverService'
+import type { ChallengeSolver } from '@l.x/sessions/src/challenge-solvers/types'
+import type { PerformanceTracker } from '@l.x/sessions/src/performance/types'
 import {
   createSessionInitializationService,
   type SessionInitializationService,
-} from '@luxexchange/sessions/src/session-initialization/createSessionInitializationService'
-import { createSessionRepository } from '@luxexchange/sessions/src/session-repository/createSessionRepository'
-import { createSessionService } from '@luxexchange/sessions/src/session-service/createSessionService'
-import type { SessionService } from '@luxexchange/sessions/src/session-service/types'
+} from '@l.x/sessions/src/session-initialization/createSessionInitializationService'
+import { createSessionRepository } from '@l.x/sessions/src/session-repository/createSessionRepository'
+import { createSessionService } from '@l.x/sessions/src/session-service/createSessionService'
+import type { SessionService } from '@l.x/sessions/src/session-service/types'
 import {
   createMockSessionClient,
   createTestTransport,
@@ -25,7 +25,7 @@ import {
   InMemorySessionStorage,
   InMemoryLxIdentifierService,
   type MockEndpoints,
-} from '@luxexchange/sessions/src/test-utils'
+} from '@l.x/sessions/src/test-utils'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
 // Helper: create a VerifyResponse with a success outcome (proto3 validation requires outcome.case)

@@ -7,12 +7,12 @@ import { E2EPixel } from 'src/test/E2EPixel'
 import { getFullAppVersion } from 'src/utils/version'
 import { Accordion, Text } from '@luxfi/ui/src'
 import { spacing } from '@luxfi/ui/src/theme'
-import { CacheConfig } from '@luxexchange/lx/src/components/gating/CacheConfig'
-import { GatingOverrides } from '@luxexchange/lx/src/components/gating/GatingOverrides'
-import { Modal } from '@luxexchange/lx/src/components/modals/Modal'
-import { ModalName } from '@luxexchange/lx/src/features/telemetry/constants'
-import { useAppInsets } from '@luxexchange/lx/src/hooks/useAppInsets'
-import { TestID } from '@luxexchange/lx/src/test/fixtures/testIDs'
+import { CacheConfig } from '@l.x/lx/src/components/gating/CacheConfig'
+import { GatingOverrides } from '@l.x/lx/src/components/gating/GatingOverrides'
+import { Modal } from '@l.x/lx/src/components/modals/Modal'
+import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
+import { useAppInsets } from '@l.x/lx/src/hooks/useAppInsets'
+import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
 
 export function ExperimentsModal(): JSX.Element {
   const insets = useAppInsets()

@@ -1,5 +1,5 @@
-import type { FetchClient } from '@luxexchange/api/src/clients/base/types'
-import { createFetcher } from '@luxexchange/api/src/clients/base/utils'
+import type { FetchClient } from '@l.x/api/src/clients/base/types'
+import { createFetcher } from '@l.x/api/src/clients/base/utils'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 
 describe('createFetcher', () => {

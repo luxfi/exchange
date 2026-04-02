@@ -1,0 +1,52 @@
+# Lux Exchange - Default deployment
+# Namespace: lux-exchange
+# Domain: lux.exchange
+#
+# Usage:
+#   kubectl apply -f lux-exchange.yaml
+#   Mount config.json into the container:
+#     volumes:
+#       - name: exchange-config
+#         configMap:
+#           name: exchange-config
+#     volumeMounts:
+#       - name: exchange-config
+#         mountPath: /app/public/config.json
+#         subPath: config.json
+#         readOnly: true
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: exchange-config
+  namespace: lux-exchange
+  labels:
+    app: exchange
+    brand: lux
+data:
+  config.json: |
+    {
+      "brand": {
+        "name": "Lux Exchange",
+        "title": "Lux Exchange | Trade",
+        "description": "The decentralized exchange for the Lux ecosystem",
+        "legalEntity": "Lux Industries Inc.",
+        "appDomain": "lux.exchange",
+        "docsDomain": "docs.lux.exchange",
+        "infoDomain": "info.lux.exchange",
+        "gatewayDomain": "gw.lux.exchange",
+        "wsDomain": "ws.lux.exchange",
+        "helpUrl": "https://docs.lux.exchange/help",
+        "termsUrl": "/terms",
+        "privacyUrl": "/privacy",
+        "downloadUrl": "https://lux.exchange/wallet",
+        "complianceEmail": "compliance@lux.exchange",
+        "supportEmail": "hi@lux.exchange",
+        "twitter": "https://x.com/luxfi",
+        "github": "https://github.com/luxfi",
+        "discord": "https://discord.gg/lux",
+        "primaryColor": "#FC72FF",
+        "defaultChainId": 96369,
+        "supportedChainIds": [96369, 200200, 36963, 36911, 494949, 96368]
+      }
+    }

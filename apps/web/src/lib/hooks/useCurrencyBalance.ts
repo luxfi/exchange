@@ -1,7 +1,7 @@
 import { Currency, CurrencyAmount, Token } from '@luxamm/sdk-core'
 import JSBI from 'jsbi'
 import { useMemo } from 'react'
-import { getCurrencyAmount, ValueType } from '@luxexchange/lx/src/features/tokens/getCurrencyAmount'
+import { getCurrencyAmount, ValueType } from '@l.x/lx/src/features/tokens/getCurrencyAmount'
 import { isEVMAddress } from '@luxfi/utilities/src/addresses/evm/evm'
 import { erc20Abi } from 'viem'
 import { useBalance, useReadContracts } from 'wagmi'

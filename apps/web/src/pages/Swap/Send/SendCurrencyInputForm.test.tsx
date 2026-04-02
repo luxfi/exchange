@@ -10,8 +10,8 @@ vi.mock('lx/src/features/accounts/store/hooks', () => {
   }
 })
 
-import { DAI } from '@luxexchange/lx/src/constants/tokens'
-import { SwapTab } from '@luxexchange/lx/src/types/screens/interface'
+import { DAI } from '@l.x/lx/src/constants/tokens'
+import { SwapTab } from '@l.x/lx/src/types/screens/interface'
 import { useCurrencyInfo } from '~/hooks/Tokens'
 import SendCurrencyInputForm from '~/pages/Swap/Send/SendCurrencyInputForm'
 import { MultichainContext } from '~/state/multichain/types'

@@ -1,5 +1,5 @@
-import { getStorageDriver } from '@luxexchange/api/src/storage/getStorageDriver'
-import { createDeviceIdService, DeviceIdService } from '@luxexchange/sessions'
+import { getStorageDriver } from '@l.x/api/src/storage/getStorageDriver'
+import { createDeviceIdService, DeviceIdService } from '@l.x/sessions'
 
 const DEVICE_ID_KEY = 'LX_DEVICE_ID'
 

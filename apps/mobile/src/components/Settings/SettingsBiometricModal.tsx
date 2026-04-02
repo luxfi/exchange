@@ -20,8 +20,8 @@ import {
 } from 'src/features/biometricsSettings/slice'
 import { openSettings } from 'src/utils/linking'
 import { Flex, Switch, Text, TouchableArea } from '@luxfi/ui/src'
-import { Modal } from '@luxexchange/lx/src/components/modals/Modal'
-import { ModalName } from '@luxexchange/lx/src/features/telemetry/constants'
+import { Modal } from '@l.x/lx/src/components/modals/Modal'
+import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
 import { isAndroid, isIOS } from '@luxfi/utilities/src/platform'
 
 interface BiometricAuthSetting {

@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next'
 import { Flex, styled, Text } from '@luxfi/ui/src'
-import { ModalName } from '@luxexchange/lx/src/features/telemetry/constants'
+import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
 import { useModalState } from '~/hooks/useModalState'
 import { useAppSelector } from '~/state/hooks'
 import { InterfaceState } from '~/state/webReducer'

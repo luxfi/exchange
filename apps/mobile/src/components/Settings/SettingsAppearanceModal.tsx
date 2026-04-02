@@ -4,10 +4,10 @@ import { useDispatch } from 'react-redux'
 import { useReactNavigationModal } from 'src/components/modals/useReactNavigationModal'
 import { Flex, GeneratedIcon, Text, TouchableArea } from '@luxfi/ui/src'
 import { Check, Contrast, Moon, Sun } from '@luxfi/ui/src/components/icons'
-import { Modal } from '@luxexchange/lx/src/components/modals/Modal'
-import { useCurrentAppearanceSetting } from '@luxexchange/lx/src/features/appearance/hooks'
-import { AppearanceSettingType, setSelectedAppearanceSettings } from '@luxexchange/lx/src/features/appearance/slice'
-import { ModalName } from '@luxexchange/lx/src/features/telemetry/constants'
+import { Modal } from '@l.x/lx/src/components/modals/Modal'
+import { useCurrentAppearanceSetting } from '@l.x/lx/src/features/appearance/hooks'
+import { AppearanceSettingType, setSelectedAppearanceSettings } from '@l.x/lx/src/features/appearance/slice'
+import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
 
 export function SettingsAppearanceModal(): JSX.Element {
   const { t } = useTranslation()

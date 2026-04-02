@@ -1,4 +1,4 @@
-import { type GasFeeResult } from '@luxexchange/api'
+import { type GasFeeResult } from '@l.x/api'
 import { type PropsWithChildren } from 'react'
 import { useTranslation } from 'react-i18next'
 import { type Animated } from 'react-native'

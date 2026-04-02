@@ -1,6 +1,6 @@
 import { memo } from 'react'
 import { Flex, styled, Text } from '@luxfi/ui/src'
-import { NFTViewer } from '@luxexchange/lx/src/components/nfts/NFTViewer'
+import { NFTViewer } from '@l.x/lx/src/components/nfts/NFTViewer'
 
 interface NftAmountDisplayProps {
   nftImageUrl?: string

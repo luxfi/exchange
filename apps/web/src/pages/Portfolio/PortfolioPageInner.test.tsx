@@ -1,5 +1,5 @@
-import { useActiveAddresses } from '@luxexchange/lx/src/features/accounts/store/hooks'
-import { SAMPLE_SEED_ADDRESS_1 } from '@luxexchange/lx/src/test/fixtures/gql/assets/constants'
+import { useActiveAddresses } from '@l.x/lx/src/features/accounts/store/hooks'
+import { SAMPLE_SEED_ADDRESS_1 } from '@l.x/lx/src/test/fixtures/gql/assets/constants'
 import { usePortfolioRoutes } from '~/pages/Portfolio/Header/hooks/usePortfolioRoutes'
 import { PortfolioPageInner } from '~/pages/Portfolio/PortfolioPageInner'
 import { PortfolioTab } from '~/pages/Portfolio/types'

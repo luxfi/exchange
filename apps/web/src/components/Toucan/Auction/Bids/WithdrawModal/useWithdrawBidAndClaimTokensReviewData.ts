@@ -1,7 +1,7 @@
 import { Currency, CurrencyAmount } from '@luxamm/sdk-core'
 import { useCallback, useEffect, useMemo, useState } from 'react'
-import { UniverseChainId } from '@luxexchange/lx/src/features/chains/types'
-import { useNativeCurrencyInfo } from '@luxexchange/lx/src/features/tokens/useCurrencyInfo'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { useNativeCurrencyInfo } from '@l.x/lx/src/features/tokens/useCurrencyInfo'
 import { useFormattedGasFee } from '~/components/Toucan/Auction/hooks/useFormattedGasFee'
 import {
   PreparedWithdrawBidAndClaimTokensTransaction,

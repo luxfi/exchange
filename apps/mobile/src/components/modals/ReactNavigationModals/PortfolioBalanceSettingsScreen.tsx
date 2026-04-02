@@ -1,6 +1,6 @@
 import { AppStackScreenProp } from 'src/app/navigation/types'
 import { ReactNavigationModal } from 'src/components/modals/ReactNavigationModals/ReactNavigationModal'
-import { ModalName } from '@luxexchange/lx/src/features/telemetry/constants'
+import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
 import { PortfolioBalanceModal } from '@luxfi/wallet/src/components/settings/portfolioBalance/PortfolioBalanceModal'
 
 export const PortfolioBalanceSettingsScreen = (

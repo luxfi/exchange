@@ -1,5 +1,5 @@
 import { Currency, Price } from '@luxamm/sdk-core'
-import { useLocalizationContext } from '@luxexchange/lx/src/features/language/LocalizationContext'
+import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
 import { NumberType } from '@luxfi/utilities/src/format/types'
 import { PriceOrdering } from '~/components/Liquidity/types'
 import useIsTickAtLimit, { Bound } from '~/hooks/useIsTickAtLimit'

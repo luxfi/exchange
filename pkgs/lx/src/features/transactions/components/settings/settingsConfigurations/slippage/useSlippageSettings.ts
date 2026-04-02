@@ -7,12 +7,12 @@ import {
   MAX_AUTO_SLIPPAGE_TOLERANCE,
   MAX_CUSTOM_SLIPPAGE_TOLERANCE,
   SLIPPAGE_CRITICAL_TOLERANCE,
-} from '@luxexchange/lx/src/constants/transactions'
+} from '@l.x/lx/src/constants/transactions'
 import {
   useTransactionSettingsActions,
   useTransactionSettingsAutoSlippageToleranceStore,
   useTransactionSettingsStore,
-} from '@luxexchange/lx/src/features/transactions/components/settings/stores/transactionSettingsStore/useTransactionSettingsStore'
+} from '@l.x/lx/src/features/transactions/components/settings/stores/transactionSettingsStore/useTransactionSettingsStore'
 
 const SLIPPAGE_INCREMENT = 0.1
 

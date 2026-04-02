@@ -14,8 +14,8 @@ vi.mock('react-i18next', () => ({
   useTranslation: (): { t: typeof mockT } => ({ t: mockT }),
 }))
 
-vi.mock('@luxexchange/gating', async (importOriginal) => {
-  const actual = await importOriginal<typeof import('@luxexchange/gating')>()
+vi.mock('@l.x/gating', async (importOriginal) => {
+  const actual = await importOriginal<typeof import('@l.x/gating')>()
   return {
     ...actual,
     useFeatureFlag: vi.fn(),
@@ -113,7 +113,7 @@ vi.mock('utilities/src/react/hooks', () => ({
   useEvent: <T extends (...args: never[]) => unknown>(handler: T): T => handler,
 }))
 
-import { FeatureFlags, useFeatureFlag } from '@luxexchange/gating'
+import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { useColorsFromTokenColor } from 'ui/src'
 import { nativeOnChain } from 'lx/src/constants/tokens'
 import { useActiveAccount, useConnectionStatus } from 'lx/src/features/accounts/store/hooks'

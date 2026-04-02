@@ -1,4 +1,4 @@
-import { TradingApi } from '@luxexchange/api'
+import { TradingApi } from '@l.x/api'
 import { createApprovalTransactionStep } from 'lx/src/features/transactions/steps/approve'
 import { createPermit2SignatureStep } from 'lx/src/features/transactions/steps/permit2Signature'
 import { TransactionStep } from 'lx/src/features/transactions/steps/types'

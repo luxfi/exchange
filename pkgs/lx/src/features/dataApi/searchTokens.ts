@@ -1,6 +1,6 @@
 import { SearchTokensResponse, SearchType } from '@luxamm/client-search/dist/search/v1/api_pb'
-import { GqlResult } from '@luxexchange/api'
-import { FeatureFlags, useFeatureFlag } from '@luxexchange/gating'
+import { GqlResult } from '@l.x/api'
+import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { useMemo } from 'react'
 import {
   multichainTokenToCurrencyInfos,

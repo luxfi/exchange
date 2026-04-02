@@ -1,4 +1,4 @@
-import { TradingApi } from '@luxexchange/api'
+import { TradingApi } from '@l.x/api'
 import type { Platform } from 'lx/src/features/platforms/types/Platform'
 import type { TransactionSettingConfig } from 'lx/src/features/transactions/components/settings/types'
 

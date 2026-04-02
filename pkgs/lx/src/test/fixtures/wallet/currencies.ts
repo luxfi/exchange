@@ -1,5 +1,5 @@
 import { Currency } from '@luxamm/sdk-core'
-import { GraphQLApi } from '@luxexchange/api'
+import { GraphQLApi } from '@l.x/api'
 import { nativeOnChain } from 'lx/src/constants/tokens'
 import { UniverseChainId } from 'lx/src/features/chains/types'
 import { CurrencyInfo, SafetyInfo, TokenList } from 'lx/src/features/dataApi/types'

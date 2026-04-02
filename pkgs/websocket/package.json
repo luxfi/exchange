@@ -1,5 +1,5 @@
 {
-  "name": "@luxexchange/websocket",
+  "name": "@l.x/websocket",
   "version": "1.0.3",
   "dependencies": {
     "partysocket": "1.1.10",

@@ -3,7 +3,7 @@ import { CurrencyAmount, Token, TradeType } from '@luxamm/sdk-core'
 import { Pair } from '@luxamm/v2-sdk'
 import { Pool as V3Pool } from '@luxamm/v3-sdk'
 import { Pool as V4Pool } from '@luxamm/v4-sdk'
-import { TradingApi } from '@luxexchange/api'
+import { TradingApi } from '@l.x/api'
 import { DYNAMIC_FEE_AMOUNT, V2_DEFAULT_FEE_TIER } from 'lx/src/constants/pools'
 import { lxRoutingProvider } from 'lx/src/utils/routingDiagram/routingProviders/lxRoutingProvider'
 

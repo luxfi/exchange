@@ -1,12 +1,12 @@
 import { TradingApi } from '@luxfi/api'
 import { createExternallySubmittedDEXOrder } from 'src/app/features/dappRequests/handleDEX'
-import { UniverseChainId } from '@luxexchange/lx/src/features/chains/types'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import {
   QueuedOrderStatus,
   TransactionOriginType,
   TransactionStatus,
   TransactionType,
-} from '@luxexchange/lx/src/features/transactions/types/transactionDetails'
+} from '@l.x/lx/src/features/transactions/types/transactionDetails'
 import { logger } from '@luxfi/utilities/src/logger/logger'
 
 jest.mock('utilities/src/logger/logger', () => ({

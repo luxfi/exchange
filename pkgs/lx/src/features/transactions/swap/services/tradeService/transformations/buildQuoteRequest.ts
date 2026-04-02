@@ -1,5 +1,5 @@
 import { Currency, CurrencyAmount } from '@luxamm/sdk-core'
-import { GasStrategy, TradingApi } from '@luxexchange/api'
+import { GasStrategy, TradingApi } from '@l.x/api'
 import { getActiveGasStrategy } from 'lx/src/features/gas/utils'
 import {
   isZeroAmount,

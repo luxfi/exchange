@@ -9,16 +9,16 @@ import {
   UpdateSessionResponse,
   VerifyResponse,
 } from '@luxamm/client-platform-service/dist/lx/platformservice/v1/sessionService_pb'
-import { createSessionRepository } from '@luxexchange/sessions/src/session-repository/createSessionRepository'
-import { createSessionService } from '@luxexchange/sessions/src/session-service/createSessionService'
-import type { SessionService } from '@luxexchange/sessions/src/session-service/types'
+import { createSessionRepository } from '@l.x/sessions/src/session-repository/createSessionRepository'
+import { createSessionService } from '@l.x/sessions/src/session-service/createSessionService'
+import type { SessionService } from '@l.x/sessions/src/session-service/types'
 import {
   createMockSessionClient,
   InMemoryDeviceIdService,
   InMemorySessionStorage,
   InMemoryLxIdentifierService,
   type MockEndpoints,
-} from '@luxexchange/sessions/src/test-utils'
+} from '@l.x/sessions/src/test-utils'
 import { afterEach, beforeEach, describe, expect, it } from 'vitest'
 
 describe('Session Lifecycle Integration Tests', () => {

@@ -4,7 +4,7 @@ import {
   getOrderedConnectedAddresses,
   isConnectedAccount,
 } from 'src/app/features/dapp/utils'
-import { SAMPLE_SEED_ADDRESS_1, SAMPLE_SEED_ADDRESS_2, SAMPLE_SEED_ADDRESS_3 } from '@luxexchange/lx/src/test/fixtures'
+import { SAMPLE_SEED_ADDRESS_1, SAMPLE_SEED_ADDRESS_2, SAMPLE_SEED_ADDRESS_3 } from '@l.x/lx/src/test/fixtures'
 import { extractNameFromUrl } from '@luxfi/utilities/src/format/extractNameFromUrl'
 import { promiseTimeout } from '@luxfi/utilities/src/time/timing'
 import { Account } from '@luxfi/wallet/src/features/wallet/accounts/types'

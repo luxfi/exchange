@@ -1,5 +1,5 @@
 import { Flex, Shine, styled, useMedia } from '@luxfi/ui/src'
-import { TestID } from '@luxexchange/lx/src/test/fixtures/testIDs'
+import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
 import { ACTION_BUBBLE_SIZE } from '~/components/Explore/stickyHeader/constants'
 import { getHeaderLogoSize, getHeaderTitleLineHeight } from '~/components/Explore/stickyHeader/getHeaderLogoSize'
 

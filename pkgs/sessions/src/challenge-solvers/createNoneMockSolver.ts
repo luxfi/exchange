@@ -1,4 +1,4 @@
-import type { ChallengeData, ChallengeSolver } from '@luxexchange/sessions/src/challenge-solvers/types'
+import type { ChallengeData, ChallengeSolver } from '@l.x/sessions/src/challenge-solvers/types'
 
 function createNoneMockSolver(): ChallengeSolver {
   async function solve(_challengeData: ChallengeData): Promise<string> {

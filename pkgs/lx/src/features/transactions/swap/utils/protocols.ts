@@ -1,5 +1,5 @@
-import { TradingApi } from '@luxexchange/api'
-import { FeatureFlags, getFeatureFlag, useFeatureFlag } from '@luxexchange/gating'
+import { TradingApi } from '@l.x/api'
+import { FeatureFlags, getFeatureFlag, useFeatureFlag } from '@l.x/gating'
 import { useMemo } from 'react'
 import { useLuxContextSelector } from 'lx/src/contexts/LuxContext'
 import { createGetSupportedChainId } from 'lx/src/features/chains/hooks/useSupportedChainId'

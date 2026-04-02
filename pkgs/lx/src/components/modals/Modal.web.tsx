@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react'
 // biome-ignore lint/style/noRestrictedImports: needed here
 import { AdaptiveWebModal, WebModalWithBottomAttachment } from 'ui/src/components/modal/AdaptiveWebModal'
 import { INTERFACE_NAV_HEIGHT } from 'ui/src/theme'
-import type { ModalProps } from '@luxexchange/lx/src/components/modals/ModalProps'
-import Trace from '@luxexchange/lx/src/features/telemetry/Trace'
+import type { ModalProps } from '@l.x/lx/src/components/modals/ModalProps'
+import Trace from '@l.x/lx/src/features/telemetry/Trace'
 import { isExtensionApp, isWebApp } from 'utilities/src/platform'
 
 const ANIMATION_MS = 200

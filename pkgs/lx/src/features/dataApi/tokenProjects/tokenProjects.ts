@@ -1,4 +1,4 @@
-import { GqlResult, GraphQLApi } from '@luxexchange/api'
+import { GqlResult, GraphQLApi } from '@l.x/api'
 import { useCallback, useMemo } from 'react'
 import { tokenProjectToCurrencyInfos } from 'lx/src/features/dataApi/tokenProjects/utils/tokenProjectToCurrencyInfos'
 import { CurrencyInfo } from 'lx/src/features/dataApi/types'

@@ -1,8 +1,8 @@
 import { Currency, Token } from '@luxamm/sdk-core'
 import { Tags, TokenInfo, TokenList } from 'utils/tokenListTypes'
-import { normalizeTokenAddressForCache } from '@luxexchange/lx/src/data/cache'
-import { Platform } from '@luxexchange/lx/src/features/platforms/types/Platform'
-import { areAddressesEqual, getValidAddress } from '@luxexchange/lx/src/utils/addresses'
+import { normalizeTokenAddressForCache } from '@l.x/lx/src/data/cache'
+import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
+import { areAddressesEqual, getValidAddress } from '@l.x/lx/src/utils/addresses'
 
 type TagDetails = Tags[keyof Tags]
 interface TagInfo extends TagDetails {

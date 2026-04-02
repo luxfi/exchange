@@ -16,7 +16,7 @@
     "emitDeclarationOnly": true,
     "noEmit": false,
     "paths": {
-      "@luxexchange/notifications/*": ["./*"]
+      "@l.x/notifications/*": ["./*"]
     },
     "types": ["node", "vitest/globals"]
   },

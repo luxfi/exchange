@@ -36,7 +36,7 @@ import {
   OnboardingScreens,
   SharedUnitagScreenParams,
   UnitagStackParamList,
-} from '@luxexchange/lx/src/types/screens/mobile'
+} from '@l.x/lx/src/types/screens/mobile'
 import { SmartWalletAdvancedSettingsModalState } from '@luxfi/wallet/src/components/smartWallet/modals/SmartWalletAdvancedSettingsModal'
 import { SmartWalletEnabledModalState } from '@luxfi/wallet/src/components/smartWallet/modals/SmartWalletEnabledModal'
 import { SmartWalletNudgeState } from '@luxfi/wallet/src/components/smartWallet/modals/SmartWalletNudge'

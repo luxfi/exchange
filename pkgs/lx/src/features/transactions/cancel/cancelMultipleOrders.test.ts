@@ -1,5 +1,5 @@
 import 'utilities/src/logger/mocks'
-import { TradingApi } from '@luxexchange/api'
+import { TradingApi } from '@l.x/api'
 import { ContractTransaction, providers } from 'ethers/lib/ethers'
 import { UniverseChainId } from 'lx/src/features/chains/types'
 import { InterfaceEventName } from 'lx/src/features/telemetry/constants'

@@ -6,7 +6,7 @@ import { useOpenSidebar } from 'src/app/features/onboarding/hooks/useOpenSidebar
 import { terminateStoreSynchronization } from 'src/store/storeSynchronization'
 import { Flex, Text } from '@luxfi/ui/src'
 import { Check, GraduationCap } from '@luxfi/ui/src/components/icons'
-import { lxUrls } from '@luxexchange/lx/src/constants/urls'
+import { lxUrls } from '@l.x/lx/src/constants/urls'
 
 export function ResetComplete(): JSX.Element {
   const { t } = useTranslation()

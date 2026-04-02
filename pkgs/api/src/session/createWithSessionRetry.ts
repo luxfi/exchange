@@ -1,4 +1,4 @@
-import { is401Error } from '@luxexchange/api/src/clients/base/errors'
+import { is401Error } from '@l.x/api/src/clients/base/errors'
 
 /** Creates a function that will attempt to reinitialize the app session and retry the input function once, if the first invocation of the function fails. */
 export function createWithSessionRetry(ctx: {

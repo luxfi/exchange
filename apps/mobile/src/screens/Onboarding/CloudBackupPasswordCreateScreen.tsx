@@ -6,7 +6,7 @@ import { CloudBackupPassword } from 'src/features/CloudBackup/CloudBackupForm/Cl
 import { SafeKeyboardOnboardingScreen } from 'src/features/onboarding/SafeKeyboardOnboardingScreen'
 import { Flex } from '@luxfi/ui/src'
 import { Cloud } from '@luxfi/ui/src/components/icons'
-import { OnboardingScreens } from '@luxexchange/lx/src/types/screens/mobile'
+import { OnboardingScreens } from '@l.x/lx/src/types/screens/mobile'
 
 export function CloudBackupPasswordCreateScreen({
   navigation,

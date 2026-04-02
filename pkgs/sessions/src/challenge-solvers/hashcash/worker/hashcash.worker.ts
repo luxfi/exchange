@@ -5,9 +5,9 @@
  * Uses BIDC for bidirectional async communication.
  */
 
-import type { ProofResult } from '@luxexchange/sessions/src/challenge-solvers/hashcash/core'
-import { findProof } from '@luxexchange/sessions/src/challenge-solvers/hashcash/core'
-import type { FindProofParams } from '@luxexchange/sessions/src/challenge-solvers/hashcash/worker/types'
+import type { ProofResult } from '@l.x/sessions/src/challenge-solvers/hashcash/core'
+import { findProof } from '@l.x/sessions/src/challenge-solvers/hashcash/core'
+import type { FindProofParams } from '@l.x/sessions/src/challenge-solvers/hashcash/worker/types'
 import type { SerializableValue } from 'bidc'
 import { createChannel } from 'bidc'
 

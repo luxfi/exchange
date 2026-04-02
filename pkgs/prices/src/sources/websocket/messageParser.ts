@@ -1,5 +1,5 @@
-import type { ConnectionEstablishedMessage, RawTokenPriceMessage, TokenPriceMessage } from '@luxexchange/prices/src/types'
-import { createPriceKey } from '@luxexchange/prices/src/utils/tokenIdentifier'
+import type { ConnectionEstablishedMessage, RawTokenPriceMessage, TokenPriceMessage } from '@l.x/prices/src/types'
+import { createPriceKey } from '@l.x/prices/src/utils/tokenIdentifier'
 
 /**
  * Type guard for RawTokenPriceMessage

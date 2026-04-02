@@ -1,6 +1,6 @@
 import { CurrencyAmount, Price, Token } from '@luxamm/sdk-core'
-import { DAI, USDC_MAINNET } from '@luxexchange/lx/src/constants/tokens'
-import { UniverseChainId } from '@luxexchange/lx/src/features/chains/types'
+import { DAI, USDC_MAINNET } from '@l.x/lx/src/constants/tokens'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import {
   getCrosshairProps,
   isEffectivelyInfinity,

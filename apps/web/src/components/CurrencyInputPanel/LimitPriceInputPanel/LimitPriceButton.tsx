@@ -1,6 +1,6 @@
 import { Trans } from 'react-i18next'
 import { X } from '@luxfi/ui/src/components/icons/X'
-import { useLocalizationContext } from '@luxexchange/lx/src/features/language/LocalizationContext'
+import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
 import Row from '~/components/deprecated/Row'
 import { css, deprecatedStyled } from '~/lib/deprecated-styled'
 import { ThemedText } from '~/theme/components'

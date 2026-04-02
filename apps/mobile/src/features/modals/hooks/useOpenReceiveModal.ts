@@ -1,9 +1,9 @@
 import { useDispatch } from 'react-redux'
 import { useAppStackNavigation } from 'src/app/navigation/types'
 import { openModal } from 'src/features/modals/modalSlice'
-import { ScannerModalState } from '@luxexchange/lx/src/components/ReceiveQRCode/constants'
-import { useCexTransferProviders } from '@luxexchange/lx/src/features/fiatOnRamp/useCexTransferProviders'
-import { ModalName } from '@luxexchange/lx/src/features/telemetry/constants'
+import { ScannerModalState } from '@l.x/lx/src/components/ReceiveQRCode/constants'
+import { useCexTransferProviders } from '@l.x/lx/src/features/fiatOnRamp/useCexTransferProviders'
+import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
 
 export function useOpenReceiveModal(): () => void {
   const dispatch = useDispatch()

@@ -1,4 +1,4 @@
-import { TradingApi } from '@luxexchange/api'
+import { TradingApi } from '@l.x/api'
 import { OffchainOrderType } from '~/state/routing/types'
 
 // Mirrors DEXOrderEntity type at https://github.com/Lux/dex-service/blob/main/lib/entities/Order.ts

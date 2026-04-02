@@ -2,7 +2,7 @@ import { IWalletKit, WalletKit } from '@reown/walletkit'
 import { Core } from '@walletconnect/core'
 import '@walletconnect/react-native-compat'
 import { registerWCClientForPushNotifications } from 'src/features/walletConnect/api'
-import { config } from '@luxexchange/lx/src/config'
+import { config } from '@l.x/lx/src/config'
 import { isBetaEnv, isDevEnv } from '@luxfi/utilities/src/environment/env'
 import { logger } from '@luxfi/utilities/src/logger/logger'
 

@@ -13,7 +13,7 @@ jest.mock('lx/src/features/chains/chainInfo', () => ({
   })),
 }))
 
-import { type BlockaidScanTransactionResponse } from '@luxexchange/api/src'
+import { type BlockaidScanTransactionResponse } from '@l.x/api/src'
 import { UniverseChainId } from 'lx/src/features/chains/types'
 import { TransactionRiskLevel, TransactionSectionType } from '@luxfi/wallet/src/features/dappRequests/types'
 import {

@@ -1,4 +1,4 @@
-import { GasFeeResult } from '@luxexchange/api'
+import { GasFeeResult } from '@l.x/api'
 import { useMemo } from 'react'
 import { useEnabledChains } from 'lx/src/features/chains/hooks/useEnabledChains'
 import { UniverseChainId } from 'lx/src/features/chains/types'

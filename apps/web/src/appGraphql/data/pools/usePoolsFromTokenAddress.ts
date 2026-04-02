@@ -1,10 +1,10 @@
-import { GraphQLApi } from '@luxexchange/api'
+import { GraphQLApi } from '@l.x/api'
 import { useCallback, useMemo, useRef } from 'react'
-import { DEFAULT_TICK_SPACING, V2_DEFAULT_FEE_TIER } from '@luxexchange/lx/src/constants/pools'
-import { DEFAULT_NATIVE_ADDRESS } from '@luxexchange/lx/src/features/chains/evm/rpc'
-import { UniverseChainId } from '@luxexchange/lx/src/features/chains/types'
-import { toGraphQLChain } from '@luxexchange/lx/src/features/chains/utils'
-import { isSVMChain } from '@luxexchange/lx/src/features/platforms/utils/chains'
+import { DEFAULT_TICK_SPACING, V2_DEFAULT_FEE_TIER } from '@l.x/lx/src/constants/pools'
+import { DEFAULT_NATIVE_ADDRESS } from '@l.x/lx/src/features/chains/evm/rpc'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { toGraphQLChain } from '@l.x/lx/src/features/chains/utils'
+import { isSVMChain } from '@l.x/lx/src/features/platforms/utils/chains'
 import { removeDuplicatesBy } from '@luxfi/utilities/src/primitives/array'
 import {
   calculate1DVolOverTvl,

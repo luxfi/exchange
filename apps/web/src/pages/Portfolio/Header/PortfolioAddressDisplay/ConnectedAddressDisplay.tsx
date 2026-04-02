@@ -3,7 +3,7 @@
 import { useMemo } from 'react'
 import { Flex } from '@luxfi/ui/src'
 import { iconSizes } from '@luxfi/ui/src/theme/iconSizes'
-import { Platform } from '@luxexchange/lx/src/features/platforms/types/Platform'
+import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
 import { MultiBlockchainAddressDisplay } from '~/components/AccountDetails/MultiBlockchainAddressDisplay'
 import StatusIcon from '~/components/StatusIcon'
 import { useResolvedAddresses } from '~/pages/Portfolio/hooks/useResolvedAddresses'

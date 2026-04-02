@@ -4,8 +4,8 @@ import { LayoutChangeEvent } from 'react-native'
 import Markdown, { MarkdownProps } from 'react-native-markdown-display'
 import { Flex, SpaceTokens, Text, useSporeColors } from '@luxfi/ui/src'
 import { fonts } from '@luxfi/ui/src/theme'
-import { TestID } from '@luxexchange/lx/src/test/fixtures/testIDs'
-import { openUri } from '@luxexchange/lx/src/utils/linking'
+import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
+import { openUri } from '@l.x/lx/src/utils/linking'
 
 type LongMarkdownTextProps = {
   initialDisplayedLines?: number

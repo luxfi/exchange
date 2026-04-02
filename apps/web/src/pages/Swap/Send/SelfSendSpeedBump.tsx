@@ -1,8 +1,8 @@
 import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useSporeColors } from '@luxfi/ui/src'
-import { Dialog } from '@luxexchange/lx/src/components/dialog/Dialog'
-import { ModalName } from '@luxexchange/lx/src/features/telemetry/constants'
+import { Dialog } from '@l.x/lx/src/components/dialog/Dialog'
+import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
 import AlertTriangleFilled from '~/components/Icons/AlertTriangleFilled'
 import { SendModalProps } from '~/pages/Swap/Send/SendReviewModal'
 

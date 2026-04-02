@@ -1,5 +1,5 @@
 import { Currency } from '@luxamm/sdk-core'
-import { TradingApi } from '@luxexchange/api'
+import { TradingApi } from '@l.x/api'
 import { getNativeAddress, getWrappedNativeAddress } from 'lx/src/constants/addresses'
 import { normalizeCurrencyIdForMapLookup, normalizeTokenAddressForCache } from 'lx/src/data/cache'
 import { TradeableAsset } from 'lx/src/entities/assets'

@@ -1,6 +1,6 @@
 import { StatsigClient, StatsigCustomAppValue, StatsigUser } from '@luxfi/gating'
-import { config } from '@luxexchange/lx/src/config'
-import { statsigBaseConfig } from '@luxexchange/lx/src/features/gating/statsigBaseConfig'
+import { config } from '@l.x/lx/src/config'
+import { statsigBaseConfig } from '@l.x/lx/src/features/gating/statsigBaseConfig'
 import { getUniqueId } from '@luxfi/utilities/src/device/uniqueId'
 import { logger } from '@luxfi/utilities/src/logger/logger'
 

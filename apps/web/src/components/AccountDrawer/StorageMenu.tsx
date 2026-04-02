@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next'
-import { StorageHelpIcon, StorageSettingsContent } from '@luxexchange/lx/src/features/settings/storage/StorageSettingsContent'
+import { StorageHelpIcon, StorageSettingsContent } from '@l.x/lx/src/features/settings/storage/StorageSettingsContent'
 import { useEvent } from '@luxfi/utilities/src/react/hooks'
 import { SlideOutMenu } from '~/components/AccountDrawer/SlideOutMenu'
 import { useAppStateResetter } from '~/state/reset/appResetter'

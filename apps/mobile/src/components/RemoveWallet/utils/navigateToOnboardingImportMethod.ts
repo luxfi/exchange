@@ -1,7 +1,7 @@
 import { CommonActions } from '@react-navigation/core'
 import { dispatchNavigationAction } from 'src/app/navigation/rootNavigation'
-import { ImportType, OnboardingEntryPoint } from '@luxexchange/lx/src/types/onboarding'
-import { MobileScreens, OnboardingScreens } from '@luxexchange/lx/src/types/screens/mobile'
+import { ImportType, OnboardingEntryPoint } from '@l.x/lx/src/types/onboarding'
+import { MobileScreens, OnboardingScreens } from '@l.x/lx/src/types/screens/mobile'
 
 // This fast-forwards user to the same app state as if
 // they have pressed "Get Started" on Landing and should now see import method view

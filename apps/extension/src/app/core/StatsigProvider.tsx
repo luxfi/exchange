@@ -3,8 +3,8 @@ import { SharedQueryClient } from '@luxfi/api'
 import { StatsigCustomAppValue, StatsigUser } from '@luxfi/gating'
 import { useEffect, useState } from 'react'
 import { makeStatsigUser } from 'src/app/core/initStatSigForBrowserScripts'
-import { StatsigProviderWrapper } from '@luxexchange/lx/src/features/gating/StatsigProviderWrapper'
-import { initializeDatadog } from '@luxexchange/lx/src/utils/datadog'
+import { StatsigProviderWrapper } from '@l.x/lx/src/features/gating/StatsigProviderWrapper'
+import { initializeDatadog } from '@l.x/lx/src/utils/datadog'
 import { uniqueIdQuery } from '@luxfi/utilities/src/device/uniqueIdQuery'
 
 export function ExtensionStatsigProvider({

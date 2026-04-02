@@ -1,5 +1,5 @@
-import { FeatureFlags, useFeatureFlag } from '@luxexchange/gating'
-import { Platform } from '@luxexchange/lx/src/features/platforms/types/Platform'
+import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
+import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
 import { MenuStateVariant, useSetMenuCallback } from '~/components/AccountDrawer/menuState'
 import { EmbeddedWalletConnectionsModal } from '~/components/WalletModal/EmbeddedWalletModal'
 import { StandardWalletModal } from '~/components/WalletModal/StandardWalletModal'

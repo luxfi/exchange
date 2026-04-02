@@ -2,7 +2,7 @@ import type {
   SubscribeInput,
   SubscriptionEntry,
   SubscriptionManagerOptions,
-} from '@luxexchange/websocket/src/subscriptions/types'
+} from '@l.x/websocket/src/subscriptions/types'
 
 /**
  * Manages subscription lifecycle with reference counting and microtask batching.

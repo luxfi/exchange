@@ -1,4 +1,4 @@
-import { TradingApi } from '@luxexchange/api'
+import { TradingApi } from '@l.x/api'
 import { providers } from 'ethers/lib/ethers'
 import { buildSingleCancellation } from 'lx/src/features/transactions/cancel/cancelOrderFactory'
 import { getOrders } from 'lx/src/features/transactions/swap/orders'

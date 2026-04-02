@@ -7,13 +7,13 @@
  * This is the web platform implementation used by both web app and extension.
  */
 
-import type { ProofResult } from '@luxexchange/sessions/src/challenge-solvers/hashcash/core'
+import type { ProofResult } from '@l.x/sessions/src/challenge-solvers/hashcash/core'
 import type {
   CreateHashcashWorkerChannelContext,
   FindProofParams,
   HashcashWorkerAPI,
   HashcashWorkerChannel,
-} from '@luxexchange/sessions/src/challenge-solvers/hashcash/worker/types'
+} from '@l.x/sessions/src/challenge-solvers/hashcash/worker/types'
 import { createChannel } from 'bidc'
 
 // Singleton worker instance for reuse

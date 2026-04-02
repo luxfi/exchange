@@ -1,5 +1,5 @@
 import { hashKey, useQuery } from '@tanstack/react-query'
-import type { BlockaidScanJsonRpcRequest, BlockaidScanTransactionResponse } from '@luxexchange/api'
+import type { BlockaidScanJsonRpcRequest, BlockaidScanTransactionResponse } from '@l.x/api'
 import { BlockaidApiClient } from 'lx/src/data/apiClients/blockaidApi/BlockaidApiClient'
 import { ReactQueryCacheKey } from 'utilities/src/reactQuery/cache'
 import { ONE_MINUTE_MS } from 'utilities/src/time/time'

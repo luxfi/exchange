@@ -1,15 +1,15 @@
-import { createNotificationTracker } from '@luxexchange/notifications/src/notification-tracker/implementations/createNotificationTracker'
+import { createNotificationTracker } from '@l.x/notifications/src/notification-tracker/implementations/createNotificationTracker'
 import {
   NotificationTracker,
   TrackingMetadata,
-} from '@luxexchange/notifications/src/notification-tracker/NotificationTracker'
+} from '@l.x/notifications/src/notification-tracker/NotificationTracker'
 
 /**
  * Creates a no-op notification tracker that doesn't persist any state.
  *
  * Example usage:
  * ```typescript
- * import { createNoopNotificationTracker } from '@luxexchange/notifications'
+ * import { createNoopNotificationTracker } from '@l.x/notifications'
  *
  * const tracker = createNoopNotificationTracker()
  *

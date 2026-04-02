@@ -1,6 +1,6 @@
 import { Page } from '@playwright/test'
 import { listTransactions } from '@luxamm/client-data-api/dist/data/v1/api-DataApiService_connectquery'
-import { TestID } from '@luxexchange/lx/src/test/fixtures/testIDs'
+import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
 import { expect, getTest } from '~/playwright/fixtures'
 import { mockGetPortfolioResponse } from '~/playwright/fixtures/account'
 import { getVisibleDropdownElementByTestId } from '~/playwright/fixtures/utils'

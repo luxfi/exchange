@@ -1,11 +1,11 @@
 import { ProtocolStatsResponse } from '@luxamm/client-explore/dist/lx/explore/v1/service_pb'
-import { useFeatureFlagWithLoading } from '@luxexchange/gating'
+import { useFeatureFlagWithLoading } from '@l.x/gating'
 import type { Mock } from 'vitest'
 import { ExploreContext } from '~/state/explore'
 import { use24hProtocolVolume, useDailyTVLWithChange } from '~/state/explore/protocolStats'
 import { render, screen } from '~/test-utils/render'
 
-vi.mock('@luxexchange/gating', async (importOriginal) => {
+vi.mock('@l.x/gating', async (importOriginal) => {
   return {
     ...(await importOriginal()),
     useFeatureFlagWithLoading: vi.fn(() => ({ value: true, isLoading: false })), // Ensure mock returns value immediately

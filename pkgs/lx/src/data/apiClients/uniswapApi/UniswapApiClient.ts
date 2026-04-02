@@ -1,4 +1,4 @@
-import { createLxApiClient, type GasFeeResponse, type GasStrategy } from '@luxexchange/api'
+import { createLxApiClient, type GasFeeResponse, type GasStrategy } from '@l.x/api'
 import { config } from 'lx/src/config'
 import { lxUrls } from 'lx/src/constants/urls'
 import { createLxFetchClient } from 'lx/src/data/apiClients/createLxFetchClient'

@@ -1,5 +1,5 @@
 import { type Currency, type CurrencyAmount, TradeType as SdkTradeType } from '@luxamm/sdk-core'
-import { type DiscriminatedQuoteResponse, type GasEstimate, TradingApi } from '@luxexchange/api'
+import { type DiscriminatedQuoteResponse, type GasEstimate, TradingApi } from '@l.x/api'
 import { type QuoteCurrencyData } from 'lx/src/features/transactions/swap/hooks/useTrade/parseQuoteCurrencies'
 import { getGasEstimate } from 'lx/src/features/transactions/swap/services/tradeService/transformations/estimateGas'
 import {

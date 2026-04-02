@@ -1,5 +1,5 @@
-import { ChainedQuoteResponse, TradingApi } from '@luxexchange/api'
-import { WalletExecutionContext } from '@luxexchange/api/src/clients/trading/__generated__/models/WalletExecutionContext'
+import { ChainedQuoteResponse, TradingApi } from '@l.x/api'
+import { WalletExecutionContext } from '@l.x/api/src/clients/trading/__generated__/models/WalletExecutionContext'
 import { TradingApiSessionClient } from 'lx/src/data/apiClients/tradingApi/TradingApiSessionClient'
 import { getChainInfo } from 'lx/src/features/chains/chainInfo'
 import { TransactionAndPlanStep } from 'lx/src/features/transactions/swap/plan/planStepTransformer'

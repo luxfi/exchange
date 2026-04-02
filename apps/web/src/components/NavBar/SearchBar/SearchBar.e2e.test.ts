@@ -1,7 +1,7 @@
 import { searchTokens } from '@luxamm/client-search/dist/search/v1/api-searchService_connectquery'
-import { OnchainItemSectionName } from '@luxexchange/lx/src/components/lists/OnchainItemList/types'
-import { UNI } from '@luxexchange/lx/src/constants/tokens'
-import { TestID } from '@luxexchange/lx/src/test/fixtures/testIDs'
+import { OnchainItemSectionName } from '@l.x/lx/src/components/lists/OnchainItemList/types'
+import { UNI } from '@l.x/lx/src/constants/tokens'
+import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
 import { expect, getTest, type Page } from '~/playwright/fixtures'
 import { Mocks } from '~/playwright/mocks/mocks'
 

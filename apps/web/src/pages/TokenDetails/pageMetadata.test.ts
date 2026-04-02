@@ -1,7 +1,7 @@
 import { Token } from '@luxamm/sdk-core'
-import { ZERO_ADDRESS } from '@luxexchange/lx/src/constants/misc'
-import { UniverseChainId } from '@luxexchange/lx/src/features/chains/types'
-import i18n from '@luxexchange/lx/src/i18n'
+import { ZERO_ADDRESS } from '@l.x/lx/src/constants/misc'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import i18n from '@l.x/lx/src/i18n'
 import { getTokenPageDescription, getTokenPageTitle } from '~/pages/TokenDetails/pageMetadata'
 
 describe('pages/TokenDetails/util', () => {

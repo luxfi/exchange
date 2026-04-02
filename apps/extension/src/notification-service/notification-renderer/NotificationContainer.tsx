@@ -1,6 +1,6 @@
-import { ContentStyle, type InAppNotification } from '@luxexchange/api'
-import { type NotificationClickTarget } from '@luxexchange/notifications'
-import { InlineBannerNotification } from '@luxexchange/notifications/src/notification-renderer/components/InlineBannerNotification'
+import { ContentStyle, type InAppNotification } from '@l.x/api'
+import { type NotificationClickTarget } from '@l.x/notifications'
+import { InlineBannerNotification } from '@l.x/notifications/src/notification-renderer/components/InlineBannerNotification'
 import { memo, useEffect, useMemo } from 'react'
 import { isStorageWarningNotification } from 'src/notification-service/data-sources/reactive/storageWarningCondition'
 import {
@@ -11,7 +11,7 @@ import { AppRatingModalRenderer } from 'src/notification-service/renderers/AppRa
 import { StorageWarningModalRenderer } from 'src/notification-service/renderers/StorageWarningModalRenderer'
 import { isAppRatingNotification } from 'src/notification-service/triggers/appRatingTrigger'
 import { isLocalTriggerNotification } from 'src/notification-service/triggers/createExtensionLocalTriggerDataSource'
-import { ModalNotification } from '@luxexchange/lx/src/components/notifications/ModalNotification'
+import { ModalNotification } from '@l.x/lx/src/components/notifications/ModalNotification'
 import { getLogger } from '@luxfi/utilities/src/logger/logger'
 import { useEvent } from '@luxfi/utilities/src/react/hooks'
 import { type IntroCardProps } from '@luxfi/wallet/src/components/introCards/IntroCard'

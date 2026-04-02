@@ -1,5 +1,5 @@
-import { PERFORMANCE_TRACKING_DISABLED } from '@luxexchange/sessions/src/performance/createPerformanceTracker'
-import type { PerformanceTracker } from '@luxexchange/sessions/src/performance/types'
+import { PERFORMANCE_TRACKING_DISABLED } from '@l.x/sessions/src/performance/createPerformanceTracker'
+import type { PerformanceTracker } from '@l.x/sessions/src/performance/types'
 
 /**
  * Creates a noop performance tracker that always returns the disabled sentinel.

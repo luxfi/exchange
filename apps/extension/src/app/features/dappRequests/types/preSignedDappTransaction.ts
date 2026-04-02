@@ -1,6 +1,6 @@
-import { SignerMnemonicAccountMeta } from '@luxexchange/lx/src/features/accounts/types'
-import { UniverseChainId } from '@luxexchange/lx/src/features/chains/types'
-import { ValidatedTransactionRequest } from '@luxexchange/lx/src/features/transactions/types/transactionRequests'
+import { SignerMnemonicAccountMeta } from '@l.x/lx/src/features/accounts/types'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { ValidatedTransactionRequest } from '@l.x/lx/src/features/transactions/types/transactionRequests'
 import { SignedTransactionRequest } from '@luxfi/wallet/src/features/transactions/executeTransaction/types'
 
 export interface PrepareAndSignDappTransactionParams {

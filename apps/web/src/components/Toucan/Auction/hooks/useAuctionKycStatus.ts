@@ -1,9 +1,9 @@
 import { ChainId, KycVerificationStatus } from '@luxamm/client-liquidity/dist/lx/liquidity/v1/types_pb'
-import { FeatureFlags, useFeatureFlag } from '@luxexchange/gating'
+import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { useCallback, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
-import { toLegacyVerifyWalletResponse, useVerifyWalletQuery } from '@luxexchange/lx/src/data/rest/auctions/useVerifyWallet'
-import { UniverseChainId } from '@luxexchange/lx/src/features/chains/types'
+import { toLegacyVerifyWalletResponse, useVerifyWalletQuery } from '@l.x/lx/src/data/rest/auctions/useVerifyWallet'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 
 interface UseAuctionKycStatusParams {
   walletAddress?: string

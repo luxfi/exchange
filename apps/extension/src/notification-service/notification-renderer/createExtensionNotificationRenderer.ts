@@ -1,5 +1,5 @@
-import { ContentStyle, type InAppNotification } from '@luxexchange/api'
-import { createNotificationRenderer, type NotificationRenderer } from '@luxexchange/notifications'
+import { ContentStyle, type InAppNotification } from '@l.x/api'
+import { createNotificationRenderer, type NotificationRenderer } from '@l.x/notifications'
 import { type NotificationState } from 'src/notification-service/notification-renderer/notificationStore'
 import { type StoreApi, type UseBoundStore } from 'zustand'
 

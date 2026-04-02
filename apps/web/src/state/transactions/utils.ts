@@ -1,7 +1,7 @@
-import { UniverseChainId } from '@luxexchange/lx/src/features/chains/types'
-import { selectTransaction } from '@luxexchange/lx/src/features/transactions/selectors'
-import type { InterfaceTransactionDetails } from '@luxexchange/lx/src/features/transactions/types/transactionDetails'
-import { TransactionStatus, TransactionType } from '@luxexchange/lx/src/features/transactions/types/transactionDetails'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { selectTransaction } from '@l.x/lx/src/features/transactions/selectors'
+import type { InterfaceTransactionDetails } from '@l.x/lx/src/features/transactions/types/transactionDetails'
+import { TransactionStatus, TransactionType } from '@l.x/lx/src/features/transactions/types/transactionDetails'
 import store from '~/state'
 import { ConfirmedTransactionDetails, PendingTransactionDetails } from '~/state/transactions/types'
 

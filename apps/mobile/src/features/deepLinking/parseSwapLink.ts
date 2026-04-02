@@ -1,12 +1,12 @@
-import { getNativeAddress } from '@luxexchange/lx/src/constants/addresses'
-import { AssetType, CurrencyAsset } from '@luxexchange/lx/src/entities/assets'
-import { ALL_CHAIN_IDS } from '@luxexchange/lx/src/features/chains/chainInfo'
-import { UniverseChainId } from '@luxexchange/lx/src/features/chains/types'
-import { fromLuxWebAppLink, isTestnetChain } from '@luxexchange/lx/src/features/chains/utils'
-import { TransactionState } from '@luxexchange/lx/src/features/transactions/types/transactionState'
-import { CurrencyField } from '@luxexchange/lx/src/types/currency'
-import { areAddressesEqual, getValidAddress } from '@luxexchange/lx/src/utils/addresses'
-import { currencyIdToAddress, currencyIdToChain } from '@luxexchange/lx/src/utils/currencyId'
+import { getNativeAddress } from '@l.x/lx/src/constants/addresses'
+import { AssetType, CurrencyAsset } from '@l.x/lx/src/entities/assets'
+import { ALL_CHAIN_IDS } from '@l.x/lx/src/features/chains/chainInfo'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { fromLuxWebAppLink, isTestnetChain } from '@l.x/lx/src/features/chains/utils'
+import { TransactionState } from '@l.x/lx/src/features/transactions/types/transactionState'
+import { CurrencyField } from '@l.x/lx/src/types/currency'
+import { areAddressesEqual, getValidAddress } from '@l.x/lx/src/utils/addresses'
+import { currencyIdToAddress, currencyIdToChain } from '@l.x/lx/src/utils/currencyId'
 
 /**
  * Supported swap link formats:

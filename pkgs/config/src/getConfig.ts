@@ -1,4 +1,4 @@
-import { Config } from '@luxexchange/config/src/config-types'
+import { Config } from '@l.x/config/src/config-types'
 import { PlatformSplitStubError } from 'utilities/src/errors'
 
 export function getConfig(): Config {

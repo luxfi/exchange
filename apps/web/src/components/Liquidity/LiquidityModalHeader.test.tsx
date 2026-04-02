@@ -1,4 +1,4 @@
-import { LPTransactionSettingsStoreContextProvider } from '@luxexchange/lx/src/features/transactions/components/settings/stores/transactionSettingsStore/LPTransactionSettingsStoreContextProvider'
+import { LPTransactionSettingsStoreContextProvider } from '@l.x/lx/src/features/transactions/components/settings/stores/transactionSettingsStore/LPTransactionSettingsStoreContextProvider'
 import { LiquidityModalHeader } from '~/components/Liquidity/LiquidityModalHeader'
 import { WebLuxProvider } from '~/components/Web3Provider/WebLuxContext'
 import { ExternalWalletProvider } from '~/features/wallet/providers/ExternalWalletProvider'

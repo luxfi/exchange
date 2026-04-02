@@ -1,8 +1,8 @@
 import { Currency } from '@luxamm/sdk-core'
-import { GraphQLApi } from '@luxexchange/api'
-import { normalizeTokenAddressForCache } from '@luxexchange/lx/src/data/cache'
-import { UniverseChainId } from '@luxexchange/lx/src/features/chains/types'
-import { fromGraphQLChain } from '@luxexchange/lx/src/features/chains/utils'
+import { GraphQLApi } from '@l.x/api'
+import { normalizeTokenAddressForCache } from '@l.x/lx/src/data/cache'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { fromGraphQLChain } from '@l.x/lx/src/features/chains/utils'
 import { NATIVE_CHAIN_ID } from '~/constants/tokens'
 
 export type CurrencyKey = string

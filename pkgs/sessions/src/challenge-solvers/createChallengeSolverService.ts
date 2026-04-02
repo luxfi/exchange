@@ -1,8 +1,8 @@
 import { ChallengeType } from '@luxamm/client-platform-service/dist/lx/platformservice/v1/sessionService_pb'
-import { createHashcashMockSolver } from '@luxexchange/sessions/src/challenge-solvers/createHashcashMockSolver'
-import { createNoneMockSolver } from '@luxexchange/sessions/src/challenge-solvers/createNoneMockSolver'
-import { createTurnstileMockSolver } from '@luxexchange/sessions/src/challenge-solvers/createTurnstileMockSolver'
-import type { ChallengeSolver, ChallengeSolverService } from '@luxexchange/sessions/src/challenge-solvers/types'
+import { createHashcashMockSolver } from '@l.x/sessions/src/challenge-solvers/createHashcashMockSolver'
+import { createNoneMockSolver } from '@l.x/sessions/src/challenge-solvers/createNoneMockSolver'
+import { createTurnstileMockSolver } from '@l.x/sessions/src/challenge-solvers/createTurnstileMockSolver'
+import type { ChallengeSolver, ChallengeSolverService } from '@l.x/sessions/src/challenge-solvers/types'
 import type { Logger } from 'utilities/src/logger/logger'
 
 interface CreateChallengeSolverServiceContext {

@@ -1,5 +1,5 @@
-import { TradingApi } from '@luxexchange/api'
-import { FeatureFlags, getFeatureFlagName, getStatsigClient } from '@luxexchange/gating'
+import { TradingApi } from '@l.x/api'
+import { FeatureFlags, getFeatureFlagName, getStatsigClient } from '@l.x/gating'
 import { SagaGenerator, take } from 'typed-redux-saga'
 import { getDelegationService } from 'lx/src/domains/services'
 import { UniverseChainId } from 'lx/src/features/chains/types'

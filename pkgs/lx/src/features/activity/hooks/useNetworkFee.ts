@@ -1,10 +1,10 @@
-import { useFormattedCurrencyAmountAndUSDValue } from '@luxexchange/lx/src/components/activity/hooks/useFormattedCurrencyAmountAndUSDValue'
-import { useLocalizationContext } from '@luxexchange/lx/src/features/language/LocalizationContext'
-import { useCurrencyInfo } from '@luxexchange/lx/src/features/tokens/useCurrencyInfo'
-import { isLxSwap } from '@luxexchange/lx/src/features/transactions/swap/utils/routing'
-import { TransactionDetails } from '@luxexchange/lx/src/features/transactions/types/transactionDetails'
-import { isFinalizedTx } from '@luxexchange/lx/src/features/transactions/types/utils'
-import { buildCurrencyId, buildNativeCurrencyId } from '@luxexchange/lx/src/utils/currencyId'
+import { useFormattedCurrencyAmountAndUSDValue } from '@l.x/lx/src/components/activity/hooks/useFormattedCurrencyAmountAndUSDValue'
+import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
+import { useCurrencyInfo } from '@l.x/lx/src/features/tokens/useCurrencyInfo'
+import { isLxSwap } from '@l.x/lx/src/features/transactions/swap/utils/routing'
+import { TransactionDetails } from '@l.x/lx/src/features/transactions/types/transactionDetails'
+import { isFinalizedTx } from '@l.x/lx/src/features/transactions/types/utils'
+import { buildCurrencyId, buildNativeCurrencyId } from '@l.x/lx/src/utils/currencyId'
 
 export function useNetworkFee(transactionDetails: TransactionDetails): {
   value: string

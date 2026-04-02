@@ -5,12 +5,12 @@ import { iconSizes } from 'ui/src/theme'
 import {
   TwoTokenDetails,
   useTokenAmountInfo,
-} from '@luxexchange/lx/src/components/activity/details/transactions/utilityComponents'
-import { SwapTypeTransactionInfo } from '@luxexchange/lx/src/components/activity/details/types'
-import { CurrencyInfo } from '@luxexchange/lx/src/features/dataApi/types'
-import { useCurrencyInfo } from '@luxexchange/lx/src/features/tokens/useCurrencyInfo'
-import { getAmountsFromTrade } from '@luxexchange/lx/src/features/transactions/swap/utils/getAmountsFromTrade'
-import { isConfirmedSwapTypeInfo } from '@luxexchange/lx/src/features/transactions/types/utils'
+} from '@l.x/lx/src/components/activity/details/transactions/utilityComponents'
+import { SwapTypeTransactionInfo } from '@l.x/lx/src/components/activity/details/types'
+import { CurrencyInfo } from '@l.x/lx/src/features/dataApi/types'
+import { useCurrencyInfo } from '@l.x/lx/src/features/tokens/useCurrencyInfo'
+import { getAmountsFromTrade } from '@l.x/lx/src/features/transactions/swap/utils/getAmountsFromTrade'
+import { isConfirmedSwapTypeInfo } from '@l.x/lx/src/features/transactions/types/utils'
 
 export function SwapTransactionDetails({
   typeInfo,

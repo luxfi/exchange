@@ -1,4 +1,4 @@
-import { AppearanceSettingType } from '@luxexchange/lx/src/features/appearance/slice'
+import { AppearanceSettingType } from '@l.x/lx/src/features/appearance/slice'
 import { migration61, PersistAppStateV60, themeSettingAtomName } from '~/state/migrations/61'
 
 const previousState: PersistAppStateV60 = {

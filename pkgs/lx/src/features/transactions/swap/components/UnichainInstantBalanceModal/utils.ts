@@ -1,6 +1,6 @@
 import { BigNumber } from '@ethersproject/bignumber'
 import { Log, TransactionReceipt } from '@ethersproject/providers'
-import { TradingApi } from '@luxexchange/api'
+import { TradingApi } from '@l.x/api'
 import { getWrappedNativeAddress } from 'lx/src/constants/addresses'
 import { normalizeTokenAddressForCache } from 'lx/src/data/cache'
 import { isUniverseChainId } from 'lx/src/features/chains/utils'

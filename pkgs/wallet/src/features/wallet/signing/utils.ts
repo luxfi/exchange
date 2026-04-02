@@ -1,4 +1,4 @@
-import { SignMessageFunc } from '@luxexchange/api'
+import { SignMessageFunc } from '@l.x/api'
 import { arrayify, isHexString } from 'ethers/lib/utils'
 import { Account } from '@luxfi/wallet/src/features/wallet/accounts/types'
 import { SignerManager } from '@luxfi/wallet/src/features/wallet/signing/SignerManager'

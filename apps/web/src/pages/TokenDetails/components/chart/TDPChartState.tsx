@@ -1,4 +1,4 @@
-import { GraphQLApi } from '@luxexchange/api'
+import { GraphQLApi } from '@l.x/api'
 import { useMemo, useState } from 'react'
 import { fromGraphQLChain } from 'lx/src/features/chains/utils'
 import { useTokenSpotPrice } from 'lx/src/features/dataApi/tokenDetails/useTokenSpotPriceWrapper'

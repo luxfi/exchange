@@ -1,6 +1,6 @@
 import { PropsWithChildren, useEffect } from 'react'
 import { Flex } from '@luxfi/ui/src'
-import { useIsChromeWindowFocusedWithTimeout } from '@luxexchange/lx/src/extension/useIsChromeWindowFocused'
+import { useIsChromeWindowFocusedWithTimeout } from '@l.x/lx/src/extension/useIsChromeWindowFocused'
 import { ONE_MINUTE_MS } from '@luxfi/utilities/src/time/time'
 import { LandingBackground } from '@luxfi/wallet/src/components/landing/LandingBackground'
 import { useWalletNavigation } from '@luxfi/wallet/src/contexts/WalletNavigationContext'

@@ -1,4 +1,4 @@
-import { TradingApi } from '@luxexchange/api'
+import { TradingApi } from '@l.x/api'
 import { toGqlSafetyLevel } from 'lx/src/components/TokenSelector/utils'
 import { getNativeAddress } from 'lx/src/constants/addresses'
 import { toSupportedChainId } from 'lx/src/features/chains/utils'

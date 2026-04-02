@@ -2,21 +2,21 @@ import '~/test-utils/tokens/mocks'
 
 import type { Token } from '@luxamm/sdk-core'
 import { TradeType as MockTradeType } from '@luxamm/sdk-core'
-import { TradingApi } from '@luxexchange/api'
-import { DAI as MockDAI, USDC_MAINNET as MockUSDC_MAINNET } from '@luxexchange/lx/src/constants/tokens'
-import { UniverseChainId } from '@luxexchange/lx/src/features/chains/types'
-import { useLocalizationContext } from '@luxexchange/lx/src/features/language/LocalizationContext'
+import { TradingApi } from '@l.x/api'
+import { DAI as MockDAI, USDC_MAINNET as MockUSDC_MAINNET } from '@l.x/lx/src/constants/tokens'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
 import type {
   ExactInputSwapTransactionInfo,
   ExactOutputSwapTransactionInfo,
   InterfaceTransactionDetails,
-} from '@luxexchange/lx/src/features/transactions/types/transactionDetails'
+} from '@l.x/lx/src/features/transactions/types/transactionDetails'
 import {
   TransactionOriginType,
   TransactionStatus,
   TransactionType,
-} from '@luxexchange/lx/src/features/transactions/types/transactionDetails'
-import { currencyId } from '@luxexchange/lx/src/utils/currencyId'
+} from '@l.x/lx/src/features/transactions/types/transactionDetails'
+import { currencyId } from '@l.x/lx/src/utils/currencyId'
 import { transactionToActivity, useLocalActivities } from '~/components/AccountDrawer/MiniPortfolio/Activity/parseLocal'
 import type { TransactionInfo } from '~/state/transactions/types'
 import { act, renderHook, waitFor } from '~/test-utils/render'

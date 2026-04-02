@@ -1,7 +1,7 @@
 import { useCallback, useEffect } from 'react'
 import { useOnboardingSteps } from 'src/app/features/onboarding/OnboardingSteps'
 import { Password } from 'src/app/features/onboarding/Password'
-import { ExtensionOnboardingFlow } from '@luxexchange/lx/src/types/screens/extension'
+import { ExtensionOnboardingFlow } from '@l.x/lx/src/types/screens/extension'
 import { logger } from '@luxfi/utilities/src/logger/logger'
 import { useOnboardingContext } from '@luxfi/wallet/src/features/onboarding/OnboardingContext'
 import { validateMnemonic } from '@luxfi/wallet/src/utils/mnemonics'

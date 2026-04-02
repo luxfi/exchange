@@ -5,9 +5,9 @@ export {
   isRawTokenPriceMessage,
   parseConnectionMessage,
   parseTokenPriceMessage,
-} from '@luxexchange/prices/src/sources/websocket/messageParser'
+} from '@l.x/prices/src/sources/websocket/messageParser'
 // Internals (testing / custom setups)
-export { createPriceSubscriptionHandler } from '@luxexchange/prices/src/sources/websocket/subscriptionApi'
+export { createPriceSubscriptionHandler } from '@l.x/prices/src/sources/websocket/subscriptionApi'
 export type {
   ConnectionEstablishedMessage,
   Logger,
@@ -19,7 +19,7 @@ export type {
   TokenPriceData,
   TokenPriceMessage,
   TokenSubscriptionParams,
-} from '@luxexchange/prices/src/types'
+} from '@l.x/prices/src/types'
 export {
   createPriceKey,
   createPriceKeyFromToken,
@@ -29,8 +29,8 @@ export {
   normalizeToken,
   parsePriceKey,
   toSubscriptionParams,
-} from '@luxexchange/prices/src/utils/tokenIdentifier'
-export type { ConnectionStatus } from '@luxexchange/websocket'
+} from '@l.x/prices/src/utils/tokenIdentifier'
+export type { ConnectionStatus } from '@l.x/websocket'
 export { PriceServiceProvider, usePricesContext } from './context/PriceServiceContext'
 export { useConnectionStatus } from './hooks/useConnectionStatus'
 // Consumer hooks

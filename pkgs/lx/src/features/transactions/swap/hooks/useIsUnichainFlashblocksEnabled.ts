@@ -1,4 +1,4 @@
-import { TradingApi } from '@luxexchange/api'
+import { TradingApi } from '@l.x/api'
 import {
   Experiments,
   FeatureFlags,
@@ -8,7 +8,7 @@ import {
   UnichainFlashblocksProperties,
   useExperimentValueFromLayer,
   useFeatureFlag,
-} from '@luxexchange/gating'
+} from '@l.x/gating'
 import { UniverseChainId } from 'lx/src/features/chains/types'
 import { shouldShowFlashblocksUI } from 'lx/src/features/transactions/swap/components/UnichainInstantBalanceModal/utils'
 import { isWebApp } from 'utilities/src/platform'

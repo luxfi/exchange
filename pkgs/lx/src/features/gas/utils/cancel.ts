@@ -1,5 +1,5 @@
 import { BigNumber } from '@ethersproject/bignumber'
-import { FeeType, GasFeeResult } from '@luxexchange/api'
+import { FeeType, GasFeeResult } from '@l.x/api'
 import { providers } from 'ethers/lib/ethers'
 import { TRANSACTION_CANCELLATION_GAS_FACTOR } from 'lx/src/constants/transactions'
 import { FeeDetails, getAdjustedGasFeeDetails } from 'lx/src/features/gas/adjustGasFee'

@@ -1,4 +1,4 @@
-import { UnitagErrorCodes } from '@luxexchange/api'
+import { UnitagErrorCodes } from '@l.x/api'
 import { TFunction } from 'i18next'
 import { UNITAG_VALID_REGEX } from 'lx/src/features/unitags/constants'
 

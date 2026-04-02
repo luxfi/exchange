@@ -1,4 +1,4 @@
-import { SubscriptionManager } from '@luxexchange/websocket/src/subscriptions/SubscriptionManager'
+import { SubscriptionManager } from '@l.x/websocket/src/subscriptions/SubscriptionManager'
 import type {
   ConnectionStatus,
   CreateWebSocketClientOptions,
@@ -6,8 +6,8 @@ import type {
   SubscriptionOptions,
   WebSocketClient,
   WebSocketLike,
-} from '@luxexchange/websocket/src/types'
-import { getDefaultJitteredDelay } from '@luxexchange/websocket/src/utils/backoff'
+} from '@l.x/websocket/src/types'
+import { getDefaultJitteredDelay } from '@l.x/websocket/src/utils/backoff'
 import { WebSocket as PartySocket } from 'partysocket'
 
 /** Default socket factory using PartySocket */

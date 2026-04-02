@@ -6,8 +6,8 @@ import {
   getEntryGatewayUrl,
   provideSessionService,
   SharedQueryClient,
-} from '@luxexchange/api'
-import { getIsSessionServiceEnabled } from '@luxexchange/gating'
+} from '@l.x/api'
+import { getIsSessionServiceEnabled } from '@l.x/gating'
 import {
   createApiNotificationTracker,
   createBaseNotificationProcessor,
@@ -16,7 +16,7 @@ import {
   createReactiveDataSource,
   getNotificationQueryOptions,
   type NotificationService,
-} from '@luxexchange/notifications'
+} from '@l.x/notifications'
 import { Appearance } from 'react-native'
 import DeviceInfo from 'react-native-device-info'
 import { MobileState } from 'src/app/mobileReducer'
@@ -30,11 +30,11 @@ import { createMobileNotificationRenderer } from 'src/notification-service/notif
 import { mobileNotificationStore } from 'src/notification-service/notification-renderer/notificationStore'
 import { getNotificationTelemetry } from 'src/notification-service/notification-telemetry/getNotificationTelemetry'
 import { createMobileLocalTriggerDataSource } from 'src/notification-service/triggers/createMobileLocalTriggerDataSource'
-import { getPortfolioQuery } from '@luxexchange/lx/src/data/rest/getPortfolio'
-import { AppearanceSettingType } from '@luxexchange/lx/src/features/appearance/slice'
-import { mapLocaleToBackendLocale } from '@luxexchange/lx/src/features/language/constants'
-import { getLocale } from '@luxexchange/lx/src/features/language/navigatorLocale'
-import { selectCurrentLanguage } from '@luxexchange/lx/src/features/settings/selectors'
+import { getPortfolioQuery } from '@l.x/lx/src/data/rest/getPortfolio'
+import { AppearanceSettingType } from '@l.x/lx/src/features/appearance/slice'
+import { mapLocaleToBackendLocale } from '@l.x/lx/src/features/language/constants'
+import { getLocale } from '@l.x/lx/src/features/language/navigatorLocale'
+import { selectCurrentLanguage } from '@l.x/lx/src/features/settings/selectors'
 import { isDevEnv } from '@luxfi/utilities/src/environment/env'
 import { REQUEST_SOURCE } from '@luxfi/utilities/src/platform/requestSource'
 import { ReactQueryCacheKey } from '@luxfi/utilities/src/reactQuery/cache'

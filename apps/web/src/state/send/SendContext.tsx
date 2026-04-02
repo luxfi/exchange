@@ -9,7 +9,7 @@ import {
   useMemo,
   useState,
 } from 'react'
-import { useEnabledChains } from '@luxexchange/lx/src/features/chains/hooks/useEnabledChains'
+import { useEnabledChains } from '@l.x/lx/src/features/chains/hooks/useEnabledChains'
 import { RecipientData, SendInfo, useDerivedSendInfo } from '~/state/send/hooks'
 import { useSwapAndLimitContext } from '~/state/swap/useSwapContext'
 

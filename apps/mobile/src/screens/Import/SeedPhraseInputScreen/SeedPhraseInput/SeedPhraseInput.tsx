@@ -9,8 +9,8 @@ import {
   NativeSeedPhraseInputProps,
   NativeSeedPhraseInputRef,
 } from 'src/screens/Import/SeedPhraseInputScreen/SeedPhraseInput/types'
-import { TestID } from '@luxexchange/lx/src/test/fixtures/testIDs'
-import { OnboardingScreens } from '@luxexchange/lx/src/types/screens/mobile'
+import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
+import { OnboardingScreens } from '@l.x/lx/src/types/screens/mobile'
 import { isAndroid } from '@luxfi/utilities/src/platform'
 
 const styles = StyleSheet.create({

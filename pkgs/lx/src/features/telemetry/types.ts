@@ -11,14 +11,14 @@ import {
   type IncreaseLPPositionRequest,
 } from '@luxamm/client-liquidity/dist/lx/liquidity/v1/api_pb'
 import { type Currency, type TradeType } from '@luxamm/sdk-core'
-import { type TradingApi, type UnitagClaimContext } from '@luxexchange/api'
-import { type Experiments } from '@luxexchange/gating'
-import type { PresetPercentage } from '@luxexchange/lx/src/components/CurrencyInputPanel/AmountInputPresets/types'
-import { type OnchainItemSectionName } from '@luxexchange/lx/src/components/lists/OnchainItemList/types'
-import { type UniverseChainId } from '@luxexchange/lx/src/features/chains/types'
-import { type EthMethod } from '@luxexchange/lx/src/features/dappRequests/types'
-import { type FiatCurrency } from '@luxexchange/lx/src/features/fiatCurrency/constants'
-import { type Platform } from '@luxexchange/lx/src/features/platforms/types/Platform'
+import { type TradingApi, type UnitagClaimContext } from '@l.x/api'
+import { type Experiments } from '@l.x/gating'
+import type { PresetPercentage } from '@l.x/lx/src/components/CurrencyInputPanel/AmountInputPresets/types'
+import { type OnchainItemSectionName } from '@l.x/lx/src/components/lists/OnchainItemList/types'
+import { type UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { type EthMethod } from '@l.x/lx/src/features/dappRequests/types'
+import { type FiatCurrency } from '@l.x/lx/src/features/fiatCurrency/constants'
+import { type Platform } from '@l.x/lx/src/features/platforms/types/Platform'
 import {
   type AuctionEventName,
   type ExtensionEventName,
@@ -35,20 +35,20 @@ import {
   type LxEventName,
   type UnitagEventName,
   type WalletEventName,
-} from '@luxexchange/lx/src/features/telemetry/constants'
-import { type TokenProtectionWarning } from '@luxexchange/lx/src/features/tokens/warnings/types'
-import { type TransactionType } from '@luxexchange/lx/src/features/transactions/types/transactionDetails'
-import { type WrapType } from '@luxexchange/lx/src/features/transactions/types/wrap'
-import { type CurrencyField } from '@luxexchange/lx/src/types/currency'
-import { type LimitsExpiry } from '@luxexchange/lx/src/types/limits'
-import { type ImportType } from '@luxexchange/lx/src/types/onboarding'
-import { type RenderPassReport } from '@luxexchange/lx/src/types/RenderPassReport'
-import { type ExtensionOnboardingFlow } from '@luxexchange/lx/src/types/screens/extension'
-import { type SwapTab } from '@luxexchange/lx/src/types/screens/interface'
-import { type OnboardingScreens } from '@luxexchange/lx/src/types/screens/mobile'
-import { type ShareableEntity } from '@luxexchange/lx/src/types/sharing'
-import { type UwULinkMethod, type WCEventType, type WCRequestOutcome } from '@luxexchange/lx/src/types/walletConnect'
-import { type WidgetEvent, type WidgetType } from '@luxexchange/lx/src/types/widgets'
+} from '@l.x/lx/src/features/telemetry/constants'
+import { type TokenProtectionWarning } from '@l.x/lx/src/features/tokens/warnings/types'
+import { type TransactionType } from '@l.x/lx/src/features/transactions/types/transactionDetails'
+import { type WrapType } from '@l.x/lx/src/features/transactions/types/wrap'
+import { type CurrencyField } from '@l.x/lx/src/types/currency'
+import { type LimitsExpiry } from '@l.x/lx/src/types/limits'
+import { type ImportType } from '@l.x/lx/src/types/onboarding'
+import { type RenderPassReport } from '@l.x/lx/src/types/RenderPassReport'
+import { type ExtensionOnboardingFlow } from '@l.x/lx/src/types/screens/extension'
+import { type SwapTab } from '@l.x/lx/src/types/screens/interface'
+import { type OnboardingScreens } from '@l.x/lx/src/types/screens/mobile'
+import { type ShareableEntity } from '@l.x/lx/src/types/sharing'
+import { type UwULinkMethod, type WCEventType, type WCRequestOutcome } from '@l.x/lx/src/types/walletConnect'
+import { type WidgetEvent, type WidgetType } from '@l.x/lx/src/types/widgets'
 import { type ITraceContext } from 'utilities/src/telemetry/trace/TraceContext'
 
 export enum ExtensionUninstallFeedbackOptions {

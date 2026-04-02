@@ -1,4 +1,4 @@
-import { type BlockaidScanTransactionRequest } from '@luxexchange/api'
+import { type BlockaidScanTransactionRequest } from '@l.x/api'
 import type { UniverseChainId } from 'lx/src/features/chains/types'
 import type { EthTransaction } from 'lx/src/types/walletConnect'
 

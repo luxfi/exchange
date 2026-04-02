@@ -1,5 +1,5 @@
 import { GetPortfolioResponse } from '@luxamm/client-data-api/dist/data/v1/api_pb'
-import { GraphQLApi } from '@luxexchange/api'
+import { GraphQLApi } from '@l.x/api'
 import { useEffect, useState } from 'react'
 import { getChainInfo } from 'lx/src/features/chains/chainInfo'
 import { useEnabledChains } from 'lx/src/features/chains/hooks/useEnabledChains'

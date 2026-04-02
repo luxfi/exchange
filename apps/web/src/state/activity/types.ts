@@ -1,9 +1,9 @@
-import { UniverseChainId } from '@luxexchange/lx/src/features/chains/types'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import {
   PlanTransactionDetails,
   TransactionType,
   DEXOrderDetails,
-} from '@luxexchange/lx/src/features/transactions/types/transactionDetails'
+} from '@l.x/lx/src/features/transactions/types/transactionDetails'
 import { ConfirmedTransactionDetails, TransactionDetails } from '~/state/transactions/types'
 
 export enum ActivityUpdateTransactionType {

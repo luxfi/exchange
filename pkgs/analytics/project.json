@@ -1,5 +1,5 @@
 {
-  "name": "@luxexchange/analytics",
+  "name": "@l.x/analytics",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "pkgs/analytics/src",
   "projectType": "library",

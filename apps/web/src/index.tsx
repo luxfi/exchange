@@ -6,8 +6,8 @@ import { ApolloProvider } from '@apollo/client'
 import { InsightsProvider } from '@hanzo/insights-react'
 import { datadogRum } from '@datadog/browser-rum'
 import { PrivyProvider } from '@privy-io/react-auth'
-import { ApiInit, getEntryGatewayUrl, provideSessionService } from '@luxexchange/api'
-import type { StatsigUser } from '@luxexchange/gating'
+import { ApiInit, getEntryGatewayUrl, provideSessionService } from '@l.x/api'
+import type { StatsigUser } from '@l.x/gating'
 import {
   getIsHashcashSolverEnabled,
   getIsSessionServiceEnabled,
@@ -15,7 +15,7 @@ import {
   getIsSessionUpgradeAutoEnabled,
   getIsTurnstileSolverEnabled,
   useIsSessionServiceEnabled,
-} from '@luxexchange/gating'
+} from '@l.x/gating'
 import {
   type ChallengeSolver,
   ChallengeType,
@@ -27,7 +27,7 @@ import {
   createSessionInitializationService,
   createTurnstileMockSolver,
   createTurnstileSolver,
-} from '@luxexchange/sessions'
+} from '@l.x/sessions'
 import { NuqsAdapter } from 'nuqs/adapters/react-router/v7'
 import type { PropsWithChildren, ReactNode } from 'react'
 import { StrictMode, useEffect, useMemo } from 'react'
@@ -39,13 +39,13 @@ import { configureReanimatedLogger } from 'react-native-reanimated'
 import { Provider } from 'react-redux'
 import { BrowserRouter, HashRouter, useLocation } from 'react-router'
 import { PortalProvider } from '@luxfi/ui/src'
-import { ReactRouterUrlProvider } from '@luxexchange/lx/src/contexts/UrlContext'
-import { initializePortfolioQueryOverrides } from '@luxexchange/lx/src/data/rest/portfolioBalanceOverrides'
-import { StatsigProviderWrapper } from '@luxexchange/lx/src/features/gating/StatsigProviderWrapper'
-import { LocalizationContextProvider } from '@luxexchange/lx/src/features/language/LocalizationContext'
-import { TokenPriceProvider } from '@luxexchange/lx/src/features/prices/TokenPriceContext'
-import i18n from '@luxexchange/lx/src/i18n'
-import { initializeDatadog } from '@luxexchange/lx/src/utils/datadog'
+import { ReactRouterUrlProvider } from '@l.x/lx/src/contexts/UrlContext'
+import { initializePortfolioQueryOverrides } from '@l.x/lx/src/data/rest/portfolioBalanceOverrides'
+import { StatsigProviderWrapper } from '@l.x/lx/src/features/gating/StatsigProviderWrapper'
+import { LocalizationContextProvider } from '@l.x/lx/src/features/language/LocalizationContext'
+import { TokenPriceProvider } from '@l.x/lx/src/features/prices/TokenPriceContext'
+import i18n from '@l.x/lx/src/i18n'
+import { initializeDatadog } from '@l.x/lx/src/utils/datadog'
 import { localDevDatadogEnabled } from '@luxfi/utilities/src/environment/constants'
 import { isDevEnv, isTestEnv } from '@luxfi/utilities/src/environment/env'
 import { getLogger } from '@luxfi/utilities/src/logger/logger'
@@ -125,7 +125,7 @@ const provideSessionInitService = () => {
           createHashcashWorkerChannel({
             getWorker: () => {
               return new Worker(
-                new URL('@luxexchange/sessions/src/challenge-solvers/hashcash/worker/hashcash.worker.ts', import.meta.url),
+                new URL('@l.x/sessions/src/challenge-solvers/hashcash/worker/hashcash.worker.ts', import.meta.url),
                 { type: 'module' },
               )
             },
@@ -318,7 +318,7 @@ const RootApp = (): JSX.Element => {
 }
 
 // Load runtime brand config before rendering (fetches /config.json)
-import { loadBrandConfig } from '@luxexchange/config'
+import { loadBrandConfig } from '@l.x/config'
 
 loadBrandConfig().then(() => {
   createRoot(container).render(<RootApp />)

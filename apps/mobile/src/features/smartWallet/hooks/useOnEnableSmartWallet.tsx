@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux'
 import { navigate } from 'src/app/navigation/rootNavigation'
 import { useBiometricAppSettings } from 'src/features/biometrics/useBiometricAppSettings'
 import { useBiometricPrompt } from 'src/features/biometricsSettings/hooks'
-import { ModalName } from '@luxexchange/lx/src/features/telemetry/constants'
+import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
 import { useActiveAccount } from '@luxfi/wallet/src/features/wallet/hooks'
 import { setSmartWalletConsent } from '@luxfi/wallet/src/features/wallet/slice'
 

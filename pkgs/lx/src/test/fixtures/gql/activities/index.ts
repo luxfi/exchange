@@ -1,4 +1,4 @@
-import { GraphQLApi } from '@luxexchange/api'
+import { GraphQLApi } from '@l.x/api'
 import { STALE_TRANSACTION_TIME_MS } from 'lx/src/features/notifications/constants'
 import {
   erc20ApproveAssetChange,

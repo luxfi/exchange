@@ -1,5 +1,5 @@
 import { getRewards } from '@luxamm/client-data-api/dist/data/v1/api-DataApiService_connectquery'
-import { FeatureFlags } from '@luxexchange/gating'
+import { FeatureFlags } from '@l.x/gating'
 import { lxUrls } from 'lx/src/constants/urls'
 import { expect, getTest } from '~/playwright/fixtures'
 import { createTestUrlBuilder } from '~/playwright/fixtures/urls'

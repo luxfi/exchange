@@ -1,14 +1,14 @@
-import { getChainInfo } from '@luxexchange/lx/src/features/chains/chainInfo'
-import { UniverseChainId } from '@luxexchange/lx/src/features/chains/types'
+import { getChainInfo } from '@l.x/lx/src/features/chains/chainInfo'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import {
   signMessageWithPasskey,
   signTransactionWithPasskey,
   signTypedDataWithPasskey,
-} from '@luxexchange/lx/src/features/passkey/embeddedWallet'
-import { Platform } from '@luxexchange/lx/src/features/platforms/types/Platform'
-import { createObservableTransport } from '@luxexchange/lx/src/features/providers/observability/createObservableTransport'
-import { getRpcObserver } from '@luxexchange/lx/src/features/providers/observability/rpcObserver'
-import { getValidAddress } from '@luxexchange/lx/src/utils/addresses'
+} from '@l.x/lx/src/features/passkey/embeddedWallet'
+import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
+import { createObservableTransport } from '@l.x/lx/src/features/providers/observability/createObservableTransport'
+import { getRpcObserver } from '@l.x/lx/src/features/providers/observability/rpcObserver'
+import { getValidAddress } from '@l.x/lx/src/utils/addresses'
 import { HexString, isValidHexString } from '@luxfi/utilities/src/addresses/hex'
 import { logger } from '@luxfi/utilities/src/logger/logger'
 import { Account, createPublicClient, fallback, Hash, http, SignableMessage } from 'viem'

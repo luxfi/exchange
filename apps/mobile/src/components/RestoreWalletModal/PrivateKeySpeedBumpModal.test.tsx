@@ -2,8 +2,8 @@ import React from 'react'
 import { useReactNavigationModal } from 'src/components/modals/useReactNavigationModal'
 import { PrivateKeySpeedBumpModal } from 'src/components/RestoreWalletModal/PrivateKeySpeedBumpModal'
 import { fireEvent, render } from 'src/test/test-utils'
-import { TestID } from '@luxexchange/lx/src/test/fixtures/testIDs'
-import { MobileScreens } from '@luxexchange/lx/src/types/screens/mobile'
+import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
+import { MobileScreens } from '@l.x/lx/src/types/screens/mobile'
 
 jest.mock('src/components/modals/useReactNavigationModal', () => ({
   useReactNavigationModal: jest.fn(),

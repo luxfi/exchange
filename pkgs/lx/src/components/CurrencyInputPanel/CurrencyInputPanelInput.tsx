@@ -5,8 +5,8 @@ import type { ShakeAnimation } from 'ui/src/animations/hooks/useShakeAnimation'
 import { AnimatedFlex } from 'ui/src/components/layout/AnimatedFlex'
 import { FontSizeOptions } from 'ui/src/hooks/useDynamicFontSizing'
 import { fonts, spacing } from 'ui/src/theme'
-import { AmountInput } from '@luxexchange/lx/src/components/AmountInput/AmountInput'
-import { DefaultTokenOptions } from '@luxexchange/lx/src/components/CurrencyInputPanel/DefaultTokenOptions/DefaultTokenOptions'
+import { AmountInput } from '@l.x/lx/src/components/AmountInput/AmountInput'
+import { DefaultTokenOptions } from '@l.x/lx/src/components/CurrencyInputPanel/DefaultTokenOptions/DefaultTokenOptions'
 import {
   MIN_INPUT_FONT_SIZE,
   useCurrencyInputFontSize,

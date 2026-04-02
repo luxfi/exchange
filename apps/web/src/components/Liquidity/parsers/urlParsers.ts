@@ -1,8 +1,8 @@
 import { createParser, parseAsJson } from 'nuqs'
-import { WRAPPED_NATIVE_CURRENCY } from '@luxexchange/lx/src/constants/tokens'
-import { UniverseChainId } from '@luxexchange/lx/src/features/chains/types'
-import { Platform } from '@luxexchange/lx/src/features/platforms/types/Platform'
-import { getValidAddress } from '@luxexchange/lx/src/utils/addresses'
+import { WRAPPED_NATIVE_CURRENCY } from '@l.x/lx/src/constants/tokens'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
+import { getValidAddress } from '@l.x/lx/src/utils/addresses'
 import { z } from 'zod'
 import {
   FeeData,

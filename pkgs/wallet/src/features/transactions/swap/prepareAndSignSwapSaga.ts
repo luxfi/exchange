@@ -1,4 +1,4 @@
-import { FeatureFlags, getFeatureFlagName, getStatsigClient } from '@luxexchange/gating'
+import { FeatureFlags, getFeatureFlagName, getStatsigClient } from '@l.x/gating'
 import { call, select } from 'typed-redux-saga'
 import type { SignerMnemonicAccountMeta } from 'lx/src/features/accounts/types'
 import type { PrepareSwapParams } from 'lx/src/features/transactions/swap/types/swapHandlers'

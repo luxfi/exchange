@@ -1,9 +1,9 @@
-import { ChangeAssetVisibilityNotification } from '@luxexchange/lx/src/components/notifications/notifications/ChangeAssetVisibilityNotification'
-import { CopiedNotification } from '@luxexchange/lx/src/components/notifications/notifications/CopiedNotification'
-import { SuccessNotification } from '@luxexchange/lx/src/components/notifications/notifications/SuccessNotification'
-import { useSelectAddressNotifications } from '@luxexchange/lx/src/features/notifications/slice/hooks'
-import { AppNotification, AppNotificationType } from '@luxexchange/lx/src/features/notifications/slice/types'
-import { Platform } from '@luxexchange/lx/src/features/platforms/types/Platform'
+import { ChangeAssetVisibilityNotification } from '@l.x/lx/src/components/notifications/notifications/ChangeAssetVisibilityNotification'
+import { CopiedNotification } from '@l.x/lx/src/components/notifications/notifications/CopiedNotification'
+import { SuccessNotification } from '@l.x/lx/src/components/notifications/notifications/SuccessNotification'
+import { useSelectAddressNotifications } from '@l.x/lx/src/features/notifications/slice/hooks'
+import { AppNotification, AppNotificationType } from '@l.x/lx/src/features/notifications/slice/types'
+import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
 import { useActiveAddress } from '~/features/accounts/store/hooks'
 
 export function WebNotificationToastWrapper(): JSX.Element | null {

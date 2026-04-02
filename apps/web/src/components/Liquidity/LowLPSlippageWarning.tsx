@@ -1,4 +1,4 @@
-import { FeatureFlags, useFeatureFlag } from '@luxexchange/gating'
+import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { useTranslation } from 'react-i18next'
 import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
 import { isLowSlippage } from 'lx/src/features/transactions/components/settings/settingsConfigurations/slippage/SlippageLPWarning'

@@ -1,5 +1,5 @@
 import { Token } from '@luxamm/sdk-core'
-import { GraphQLApi } from '@luxexchange/api'
+import { GraphQLApi } from '@l.x/api'
 import { LIQUIDITY_LOGO } from 'ui/src/assets'
 import { DEFAULT_NATIVE_ADDRESS_LEGACY } from 'lx/src/features/chains/evm/rpc'
 import { buildChainTokens } from 'lx/src/features/chains/evm/tokens'

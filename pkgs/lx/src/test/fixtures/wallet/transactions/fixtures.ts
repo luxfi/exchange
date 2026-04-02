@@ -1,6 +1,6 @@
 import { TransactionRequest } from '@ethersproject/providers'
 import { TradeType } from '@luxamm/sdk-core'
-import { TradingApi } from '@luxexchange/api'
+import { TradingApi } from '@l.x/api'
 import { DAI, USDC_MAINNET } from 'lx/src/constants/tokens'
 import { AssetType } from 'lx/src/entities/assets'
 import { ALL_EVM_CHAIN_IDS } from 'lx/src/features/chains/chainInfo'

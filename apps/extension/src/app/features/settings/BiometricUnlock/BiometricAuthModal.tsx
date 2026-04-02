@@ -1,9 +1,9 @@
 import { useTranslation } from 'react-i18next'
 import { Button, Flex, GeneratedIcon, Square, Text, useSporeColors } from '@luxfi/ui/src'
 import { HelpCenter } from '@luxfi/ui/src/components/icons'
-import { Modal } from '@luxexchange/lx/src/components/modals/Modal'
-import { lxUrls } from '@luxexchange/lx/src/constants/urls'
-import { ModalName } from '@luxexchange/lx/src/features/telemetry/constants'
+import { Modal } from '@l.x/lx/src/components/modals/Modal'
+import { lxUrls } from '@l.x/lx/src/constants/urls'
+import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
 import { useEvent } from '@luxfi/utilities/src/react/hooks'
 
 export function BiometricAuthModal({

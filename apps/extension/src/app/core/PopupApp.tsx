@@ -12,9 +12,9 @@ import { Button, Flex, Image, Text } from '@luxfi/ui/src'
 import { LUX_LOGO } from '@luxfi/ui/src/assets'
 import { GoogleChromeLogo } from '@luxfi/ui/src/components/logos/GoogleChromeLogo'
 import { iconSizes, spacing } from '@luxfi/ui/src/theme'
-import { ElementName } from '@luxexchange/lx/src/features/telemetry/constants'
-import Trace from '@luxexchange/lx/src/features/telemetry/Trace'
-import { ExtensionScreens } from '@luxexchange/lx/src/types/screens/extension'
+import { ElementName } from '@l.x/lx/src/features/telemetry/constants'
+import Trace from '@l.x/lx/src/features/telemetry/Trace'
+import { ExtensionScreens } from '@l.x/lx/src/types/screens/extension'
 import { useTestnetModeForLoggingAndAnalytics } from '@luxfi/wallet/src/features/testnetMode/hooks/useTestnetModeForLoggingAndAnalytics'
 
 const router = createHashRouter([

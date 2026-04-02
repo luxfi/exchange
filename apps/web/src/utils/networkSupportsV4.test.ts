@@ -1,4 +1,4 @@
-import { UniverseChainId } from '@luxexchange/lx/src/features/chains/types'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { isV4UnsupportedChain } from '~/utils/networkSupportsV4'
 
 describe('isV4UnsupportedChain', () => {

@@ -1,4 +1,4 @@
-import { CreateAuctionConfigKey, DynamicConfigs, useDynamicConfigValue } from '@luxexchange/gating'
+import { CreateAuctionConfigKey, DynamicConfigs, useDynamicConfigValue } from '@l.x/gating'
 import { UniverseChainId } from 'lx/src/features/chains/types'
 import { isUniverseChainIdArrayType } from 'lx/src/features/gating/typeGuards'
 

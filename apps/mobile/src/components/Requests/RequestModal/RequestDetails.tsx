@@ -8,12 +8,12 @@ import {
   WalletConnectSigningRequest,
 } from 'src/features/walletConnect/walletConnectSlice'
 import { Flex, Text } from '@luxfi/ui/src'
-import { ContentRow } from '@luxexchange/lx/src/components/transactions/requests/ContentRow'
-import { UniverseChainId } from '@luxexchange/lx/src/features/chains/types'
-import { EthMethod } from '@luxexchange/lx/src/features/dappRequests/types'
-import { Platform } from '@luxexchange/lx/src/features/platforms/types/Platform'
-import { EthTransaction } from '@luxexchange/lx/src/types/walletConnect'
-import { getValidAddress } from '@luxexchange/lx/src/utils/addresses'
+import { ContentRow } from '@l.x/lx/src/components/transactions/requests/ContentRow'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { EthMethod } from '@l.x/lx/src/features/dappRequests/types'
+import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
+import { EthTransaction } from '@l.x/lx/src/types/walletConnect'
+import { getValidAddress } from '@l.x/lx/src/utils/addresses'
 import { logger } from '@luxfi/utilities/src/logger/logger'
 import { AddressButton } from '@luxfi/wallet/src/components/buttons/AddressButton'
 import {

@@ -1,5 +1,5 @@
 import { NetworkStatus } from '@apollo/client'
-import { FeatureFlags, useFeatureFlag } from '@luxexchange/gating'
+import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { useMemo } from 'react'
 import { UniverseChainId } from 'lx/src/features/chains/types'
 import { useSortedPortfolioBalancesMultichain } from 'lx/src/features/dataApi/balances/balances'

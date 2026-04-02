@@ -8,8 +8,8 @@ import { SwapLongPressOverlay } from 'src/app/navigation/tabs/SwapLongPressOverl
 import { Flex, TouchableArea, useIsDarkMode, useSporeColors } from '@luxfi/ui/src'
 import { AnimatedFlex } from '@luxfi/ui/src/components/layout/AnimatedFlex'
 import { iconSizes, spacing } from '@luxfi/ui/src/theme'
-import { useHapticFeedback } from '@luxexchange/lx/src/features/settings/useHapticFeedback/useHapticFeedback'
-import { useAppInsets } from '@luxexchange/lx/src/hooks/useAppInsets'
+import { useHapticFeedback } from '@l.x/lx/src/features/settings/useHapticFeedback/useHapticFeedback'
+import { useAppInsets } from '@l.x/lx/src/hooks/useAppInsets'
 import { useEvent } from '@luxfi/utilities/src/react/hooks'
 import { useBooleanState } from '@luxfi/utilities/src/react/useBooleanState'
 

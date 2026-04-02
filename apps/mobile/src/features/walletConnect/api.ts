@@ -1,5 +1,5 @@
 import { getOneSignalPushToken } from 'src/features/notifications/Onesignal'
-import { config } from '@luxexchange/lx/src/config'
+import { config } from '@l.x/lx/src/config'
 import { isTestEnv } from '@luxfi/utilities/src/environment/env'
 import { logger } from '@luxfi/utilities/src/logger/logger'
 import { isAndroid } from '@luxfi/utilities/src/platform'

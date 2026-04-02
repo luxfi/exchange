@@ -3,7 +3,7 @@ import { createPromiseClient } from '@connectrpc/connect'
 import { infiniteQueryOptions } from '@tanstack/react-query'
 import { DataApiService } from '@luxamm/client-data-api/dist/data/v1/api_connect'
 import type { ListTopPoolsRequest, ListTopPoolsResponse } from '@luxamm/client-data-api/dist/data/v1/api_pb'
-import { createDataApiServiceClient } from '@luxexchange/api'
+import { createDataApiServiceClient } from '@l.x/api'
 import { lxGetTransport } from 'lx/src/data/rest/base'
 import { ReactQueryCacheKey } from 'utilities/src/reactQuery/cache'
 

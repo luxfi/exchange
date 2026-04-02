@@ -6,9 +6,9 @@ import { Flex, Text, TouchableArea, UniversalImage, useIsDarkMode } from '@luxfi
 import { AnimatedFlex } from '@luxfi/ui/src/components/layout/AnimatedFlex'
 import { UniversalImageResizeMode } from '@luxfi/ui/src/components/UniversalImage/types'
 import { iconSizes } from '@luxfi/ui/src/theme'
-import { FORServiceProvider } from '@luxexchange/lx/src/features/fiatOnRamp/types'
-import { getOptionalServiceProviderLogo } from '@luxexchange/lx/src/features/fiatOnRamp/utils'
-import { ModalName } from '@luxexchange/lx/src/features/telemetry/constants'
+import { FORServiceProvider } from '@l.x/lx/src/features/fiatOnRamp/types'
+import { getOptionalServiceProviderLogo } from '@l.x/lx/src/features/fiatOnRamp/utils'
+import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
 
 function key(item: FORServiceProvider): string {
   return item.serviceProvider

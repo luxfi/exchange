@@ -1,4 +1,4 @@
-import { GqlResult } from '@luxexchange/api'
+import { GqlResult } from '@l.x/api'
 import { memo, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Flex } from 'ui/src'

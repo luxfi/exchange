@@ -18,18 +18,18 @@ import { CopyAlt } from 'ui/src/components/icons/CopyAlt'
 import { ExternalLink } from 'ui/src/components/icons/ExternalLink'
 import { DEX } from 'ui/src/components/icons/DEX'
 import { borderRadii, fonts, iconSizes } from 'ui/src/theme'
-import { InfoRow } from '@luxexchange/lx/src/components/activity/details/InfoRow'
-import { TransactionParticipantRow } from '@luxexchange/lx/src/components/activity/details/TransactionParticipantRow'
-import { SwapTypeTransactionInfo } from '@luxexchange/lx/src/components/activity/details/types'
-import { NetworkLogo } from '@luxexchange/lx/src/components/CurrencyLogo/NetworkLogo'
-import { useNetworkFee } from '@luxexchange/lx/src/features/activity/hooks/useNetworkFee'
-import { getFormattedSwapRatio } from '@luxexchange/lx/src/features/activity/utils/swapInfo'
-import { useLocalizationContext } from '@luxexchange/lx/src/features/language/LocalizationContext'
-import { FORMAT_DATE_TIME_MEDIUM, useFormattedDateTime } from '@luxexchange/lx/src/features/language/localizedDayjs'
-import { pushNotification } from '@luxexchange/lx/src/features/notifications/slice/slice'
-import { AppNotificationType, CopyNotificationType } from '@luxexchange/lx/src/features/notifications/slice/types'
-import { useCurrencyInfo } from '@luxexchange/lx/src/features/tokens/useCurrencyInfo'
-import { isLxSwap } from '@luxexchange/lx/src/features/transactions/swap/utils/routing'
+import { InfoRow } from '@l.x/lx/src/components/activity/details/InfoRow'
+import { TransactionParticipantRow } from '@l.x/lx/src/components/activity/details/TransactionParticipantRow'
+import { SwapTypeTransactionInfo } from '@l.x/lx/src/components/activity/details/types'
+import { NetworkLogo } from '@l.x/lx/src/components/CurrencyLogo/NetworkLogo'
+import { useNetworkFee } from '@l.x/lx/src/features/activity/hooks/useNetworkFee'
+import { getFormattedSwapRatio } from '@l.x/lx/src/features/activity/utils/swapInfo'
+import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
+import { FORMAT_DATE_TIME_MEDIUM, useFormattedDateTime } from '@l.x/lx/src/features/language/localizedDayjs'
+import { pushNotification } from '@l.x/lx/src/features/notifications/slice/slice'
+import { AppNotificationType, CopyNotificationType } from '@l.x/lx/src/features/notifications/slice/types'
+import { useCurrencyInfo } from '@l.x/lx/src/features/tokens/useCurrencyInfo'
+import { isLxSwap } from '@l.x/lx/src/features/transactions/swap/utils/routing'
 import {
   BridgeTransactionInfo,
   LiquidityTransactionBaseInfos,
@@ -38,9 +38,9 @@ import {
   OnRampTransferInfo,
   TransactionDetails,
   TransactionType,
-} from '@luxexchange/lx/src/features/transactions/types/transactionDetails'
-import { isPlanTransactionDetails } from '@luxexchange/lx/src/features/transactions/types/utils'
-import { ExplorerDataType, getExplorerLink, openTransactionLink, openUri } from '@luxexchange/lx/src/utils/linking'
+} from '@l.x/lx/src/features/transactions/types/transactionDetails'
+import { isPlanTransactionDetails } from '@l.x/lx/src/features/transactions/types/utils'
+import { ExplorerDataType, getExplorerLink, openTransactionLink, openUri } from '@l.x/lx/src/utils/linking'
 import { shortenAddress, shortenHash } from 'utilities/src/addresses'
 import { setClipboard } from 'utilities/src/clipboard/clipboard'
 

@@ -12,7 +12,7 @@ import {
 } from '@luxamm/v3-sdk'
 import { priceToClosestTick as priceToClosestV4Tick, Pool as V4Pool } from '@luxamm/v4-sdk'
 import JSBI from 'jsbi'
-import { ZERO_ADDRESS } from '@luxexchange/lx/src/constants/misc'
+import { ZERO_ADDRESS } from '@l.x/lx/src/constants/misc'
 import {
   CreatePositionInfo,
   CreateV2PositionInfo,

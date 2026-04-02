@@ -10,7 +10,7 @@ import {
   SharedQueryClient,
   transformInput,
   type WithoutWalletAccount,
-} from '@luxexchange/api'
+} from '@l.x/api'
 import { lxGetTransport } from 'lx/src/data/rest/base'
 import { buildAccountAddressesByPlatform } from 'lx/src/data/rest/buildAccountAddressesByPlatform'
 import {

@@ -1,5 +1,5 @@
 {
-  "name": "@luxexchange/datadog-cloud",
+  "name": "@l.x/datadog-cloud",
   "version": "1.0.0",
   "description": "Datadog monitors and dashboards for Universe services",
   "main": "index.ts",

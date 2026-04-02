@@ -1,24 +1,24 @@
-import { ChainedQuoteResponse, TradingApi } from '@luxexchange/api'
-import { PlanResponse } from '@luxexchange/api/src/clients/trading/__generated__/models/PlanResponse'
-import { WalletExecutionContext } from '@luxexchange/api/src/clients/trading/__generated__/models/WalletExecutionContext'
+import { ChainedQuoteResponse, TradingApi } from '@l.x/api'
+import { PlanResponse } from '@l.x/api/src/clients/trading/__generated__/models/PlanResponse'
+import { WalletExecutionContext } from '@l.x/api/src/clients/trading/__generated__/models/WalletExecutionContext'
 import { call, race, SagaGenerator, take } from 'typed-redux-saga'
-import { CAIP25Session } from '@luxexchange/lx/src/features/capabilities/caip25/types'
-import { UniverseChainId } from '@luxexchange/lx/src/features/chains/types'
-import { toSupportedChainId } from '@luxexchange/lx/src/features/chains/utils'
-import { AppNotificationType, SwapPendingNotification } from '@luxexchange/lx/src/features/notifications/slice/types'
+import { CAIP25Session } from '@l.x/lx/src/features/capabilities/caip25/types'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { toSupportedChainId } from '@l.x/lx/src/features/chains/utils'
+import { AppNotificationType, SwapPendingNotification } from '@l.x/lx/src/features/notifications/slice/types'
 import {
   TransformPlanParams,
   transformPlanResponseToChainedQuote,
-} from '@luxexchange/lx/src/features/transactions/swap/hooks/useTradeFromExistingPlan'
-import { TransactionAndPlanStep, transformSteps } from '@luxexchange/lx/src/features/transactions/swap/plan/planStepTransformer'
-import { consumePrefetchedPlan } from '@luxexchange/lx/src/features/transactions/swap/plan/prefetchedPlanStore'
-import { getPlanCompoundSlippageTolerance } from '@luxexchange/lx/src/features/transactions/swap/plan/slippage'
+} from '@l.x/lx/src/features/transactions/swap/hooks/useTradeFromExistingPlan'
+import { TransactionAndPlanStep, transformSteps } from '@l.x/lx/src/features/transactions/swap/plan/planStepTransformer'
+import { consumePrefetchedPlan } from '@l.x/lx/src/features/transactions/swap/plan/prefetchedPlanStore'
+import { getPlanCompoundSlippageTolerance } from '@l.x/lx/src/features/transactions/swap/plan/slippage'
 import {
   AbortPlanError,
   ExpectedPlanError,
   PlanParams,
   PlanValidationError,
-} from '@luxexchange/lx/src/features/transactions/swap/plan/types'
+} from '@l.x/lx/src/features/transactions/swap/plan/types'
 import {
   createOrRefreshPlan,
   findFirstActiveStep,

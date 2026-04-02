@@ -1,5 +1,5 @@
 import { CurrencyAmount, TradeType } from '@luxamm/sdk-core'
-import { DAI, USDC_MAINNET } from '@luxexchange/lx/src/constants/tokens'
+import { DAI, USDC_MAINNET } from '@l.x/lx/src/constants/tokens'
 import { LIMIT_ORDER_TRADE } from '~/test-utils/constants'
 
 describe('LimitOrderTrade', () => {

@@ -1,12 +1,12 @@
 import { InfiniteData, useInfiniteQuery } from '@tanstack/react-query'
-import { type DataApiPool, type ListTopPoolsResponse, ProtocolVersion, TopPoolsOrderBy } from '@luxexchange/api'
+import { type DataApiPool, type ListTopPoolsResponse, ProtocolVersion, TopPoolsOrderBy } from '@l.x/api'
 import { useMemo } from 'react'
-import { DEFAULT_TICK_SPACING } from '@luxexchange/lx/src/constants/pools'
-import { dataApiQueries } from '@luxexchange/lx/src/data/apiClients/dataApiService/dataApiQueries'
-import { normalizeTokenAddressForCache } from '@luxexchange/lx/src/data/cache'
-import { useEnabledChains } from '@luxexchange/lx/src/features/chains/hooks/useEnabledChains'
-import { UniverseChainId } from '@luxexchange/lx/src/features/chains/types'
-import { toGraphQLChain } from '@luxexchange/lx/src/features/chains/utils'
+import { DEFAULT_TICK_SPACING } from '@l.x/lx/src/constants/pools'
+import { dataApiQueries } from '@l.x/lx/src/data/apiClients/dataApiService/dataApiQueries'
+import { normalizeTokenAddressForCache } from '@l.x/lx/src/data/cache'
+import { useEnabledChains } from '@l.x/lx/src/features/chains/hooks/useEnabledChains'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { toGraphQLChain } from '@l.x/lx/src/features/chains/utils'
 import {
   calculate1DVolOverTvl,
   calculateApr,

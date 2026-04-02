@@ -18,7 +18,7 @@
     "noEmit": false,
     "types": ["node"],
     "paths": {
-      "@luxexchange/config/*": ["./src/*"]
+      "@l.x/config/*": ["./src/*"]
     }
   },
   "references": [

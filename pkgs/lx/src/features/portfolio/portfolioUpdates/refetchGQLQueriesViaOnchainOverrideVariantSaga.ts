@@ -1,7 +1,7 @@
 import { ApolloClient, NormalizedCacheObject, Reference } from '@apollo/client'
 import { AsStoreObject, isArray, isReference } from '@apollo/client/utilities'
 import { QueryClient } from '@tanstack/react-query'
-import { GraphQLApi } from '@luxexchange/api'
+import { GraphQLApi } from '@l.x/api'
 import { call, delay, put } from 'typed-redux-saga'
 import { getNativeAddress } from 'lx/src/constants/addresses'
 import { normalizeCurrencyIdForMapLookup } from 'lx/src/data/cache'

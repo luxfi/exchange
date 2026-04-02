@@ -9,7 +9,7 @@ import {
   PARS_MAINNET_CONTRACTS,
   DEX_PRECOMPILES,
   getContracts,
-} from '@luxexchange/exchange/contracts/addresses'
+} from '@l.x/exchange/contracts/addresses'
 
 // ---- helpers ----
 

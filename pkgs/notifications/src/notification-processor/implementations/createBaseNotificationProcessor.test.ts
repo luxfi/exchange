@@ -1,6 +1,6 @@
-import { ContentStyle, type InAppNotification, OnClickAction } from '@luxexchange/api'
-import { createBaseNotificationProcessor } from '@luxexchange/notifications/src/notification-processor/implementations/createBaseNotificationProcessor'
-import type { NotificationTracker } from '@luxexchange/notifications/src/notification-tracker/NotificationTracker'
+import { ContentStyle, type InAppNotification, OnClickAction } from '@l.x/api'
+import { createBaseNotificationProcessor } from '@l.x/notifications/src/notification-processor/implementations/createBaseNotificationProcessor'
+import type { NotificationTracker } from '@l.x/notifications/src/notification-tracker/NotificationTracker'
 import { describe, expect, it } from 'vitest'
 
 describe('createBaseNotificationProcessor', () => {

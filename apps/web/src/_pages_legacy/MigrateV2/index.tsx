@@ -23,8 +23,8 @@ import { StyledInternalLink } from 'theme/components/Links'
 import { Flex, Text, TouchableArea } from '@luxfi/ui/src'
 import { Arrow } from '@luxfi/ui/src/components/arrow/Arrow'
 import { iconSizes } from '@luxfi/ui/src/theme'
-import { InterfacePageName } from '@luxexchange/lx/src/features/telemetry/constants'
-import Trace from '@luxexchange/lx/src/features/telemetry/Trace'
+import { InterfacePageName } from '@l.x/lx/src/features/telemetry/constants'
+import Trace from '@l.x/lx/src/features/telemetry/Trace'
 
 function EmptyState({ message }: { message: ReactNode }) {
   return (

@@ -1,4 +1,4 @@
-import type { Config } from '@luxexchange/config/src/config-types'
+import type { Config } from '@l.x/config/src/config-types'
 import {
   ALCHEMY_API_KEY,
   AMPLITUDE_PROXY_URL_OVERRIDE,

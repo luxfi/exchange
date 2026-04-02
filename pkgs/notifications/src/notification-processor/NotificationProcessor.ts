@@ -1,4 +1,4 @@
-import { type InAppNotification } from '@luxexchange/api'
+import { type InAppNotification } from '@l.x/api'
 
 /**
  * Result of processing notifications, separating primary notifications

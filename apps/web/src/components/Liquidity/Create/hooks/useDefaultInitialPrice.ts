@@ -1,8 +1,8 @@
 import { Currency, CurrencyAmount, Price, TradeType } from '@luxamm/sdk-core'
 import JSBI from 'jsbi'
 import { useEffect, useMemo, useState } from 'react'
-import { PollingInterval } from '@luxexchange/lx/src/constants/misc'
-import { useTrade } from '@luxexchange/lx/src/features/transactions/swap/hooks/useTrade'
+import { PollingInterval } from '@l.x/lx/src/constants/misc'
+import { useTrade } from '@l.x/lx/src/features/transactions/swap/hooks/useTrade'
 import { PositionField } from '~/types/position'
 
 export function useDefaultInitialPrice({

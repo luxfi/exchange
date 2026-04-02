@@ -1,6 +1,6 @@
 import { ProtocolVersion } from '@luxamm/client-data-api/dist/data/v1/poolTypes_pb'
 import { PoolStats } from '@luxamm/client-explore/dist/lx/explore/v1/service_pb'
-import { parseRestProtocolVersion } from '@luxexchange/api'
+import { parseRestProtocolVersion } from '@l.x/api'
 import { useMemo } from 'react'
 import { OnchainItemListOptionType, PoolOption } from 'lx/src/components/lists/items/types'
 import { getNativeAddress } from 'lx/src/constants/addresses'

@@ -9,7 +9,7 @@ import { ScrollHeader } from 'src/components/layout/screens/ScrollHeader'
 import { VirtualizedList } from 'src/components/layout/VirtualizedList'
 import { ColorTokens, Flex, flexStyles, useSporeColors } from '@luxfi/ui/src'
 import { iconSizes } from '@luxfi/ui/src/theme'
-import { HandleBar } from '@luxexchange/lx/src/components/modals/HandleBar'
+import { HandleBar } from '@l.x/lx/src/components/modals/HandleBar'
 
 // Distance to scroll to show scrolled state header elements
 const SHOW_HEADER_SCROLL_Y_DISTANCE = 50

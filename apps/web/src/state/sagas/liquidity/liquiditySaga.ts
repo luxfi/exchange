@@ -4,40 +4,40 @@ import {
 } from '@luxamm/client-liquidity/dist/lx/liquidity/v1/api_pb'
 import invariant from 'tiny-invariant'
 import { call, delay, spawn } from 'typed-redux-saga'
-import { ZERO_ADDRESS } from '@luxexchange/lx/src/constants/misc'
-import { LiquidityServiceClient } from '@luxexchange/lx/src/data/apiClients/liquidityService/LiquidityServiceClient'
-import { UniverseChainId } from '@luxexchange/lx/src/features/chains/types'
-import { InterfaceEventName, LiquidityEventName } from '@luxexchange/lx/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from '@luxexchange/lx/src/features/telemetry/send'
-import type { UniverseEventProperties } from '@luxexchange/lx/src/features/telemetry/types'
-import type { CollectFeesTransactionStep } from '@luxexchange/lx/src/features/transactions/liquidity/steps/collectFees'
-import type { DecreasePositionTransactionStep } from '@luxexchange/lx/src/features/transactions/liquidity/steps/decreasePosition'
-import { generateLPTransactionSteps } from '@luxexchange/lx/src/features/transactions/liquidity/steps/generateLPTransactionSteps'
+import { ZERO_ADDRESS } from '@l.x/lx/src/constants/misc'
+import { LiquidityServiceClient } from '@l.x/lx/src/data/apiClients/liquidityService/LiquidityServiceClient'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { InterfaceEventName, LiquidityEventName } from '@l.x/lx/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
+import type { UniverseEventProperties } from '@l.x/lx/src/features/telemetry/types'
+import type { CollectFeesTransactionStep } from '@l.x/lx/src/features/transactions/liquidity/steps/collectFees'
+import type { DecreasePositionTransactionStep } from '@l.x/lx/src/features/transactions/liquidity/steps/decreasePosition'
+import { generateLPTransactionSteps } from '@l.x/lx/src/features/transactions/liquidity/steps/generateLPTransactionSteps'
 import type {
   IncreasePositionTransactionStep,
   IncreasePositionTransactionStepAsync,
   IncreasePositionTransactionStepBatched,
-} from '@luxexchange/lx/src/features/transactions/liquidity/steps/increasePosition'
+} from '@l.x/lx/src/features/transactions/liquidity/steps/increasePosition'
 import type {
   MigratePositionTransactionStep,
   MigratePositionTransactionStepAsync,
-} from '@luxexchange/lx/src/features/transactions/liquidity/steps/migrate'
-import type { LiquidityAction, ValidatedLiquidityTxContext } from '@luxexchange/lx/src/features/transactions/liquidity/types'
-import { LiquidityTransactionType } from '@luxexchange/lx/src/features/transactions/liquidity/types'
-import type { HandleOnChainStepParams, TransactionStep } from '@luxexchange/lx/src/features/transactions/steps/types'
-import { TransactionStepType } from '@luxexchange/lx/src/features/transactions/steps/types'
-import type { SetCurrentStepFn } from '@luxexchange/lx/src/features/transactions/swap/types/swapCallback'
+} from '@l.x/lx/src/features/transactions/liquidity/steps/migrate'
+import type { LiquidityAction, ValidatedLiquidityTxContext } from '@l.x/lx/src/features/transactions/liquidity/types'
+import { LiquidityTransactionType } from '@l.x/lx/src/features/transactions/liquidity/types'
+import type { HandleOnChainStepParams, TransactionStep } from '@l.x/lx/src/features/transactions/steps/types'
+import { TransactionStepType } from '@l.x/lx/src/features/transactions/steps/types'
+import type { SetCurrentStepFn } from '@l.x/lx/src/features/transactions/swap/types/swapCallback'
 import type {
   CollectFeesTransactionInfo,
   CreatePoolTransactionInfo,
   LiquidityDecreaseTransactionInfo,
   LiquidityIncreaseTransactionInfo,
   MigrateV3LiquidityToV4TransactionInfo,
-} from '@luxexchange/lx/src/features/transactions/types/transactionDetails'
-import { TransactionType } from '@luxexchange/lx/src/features/transactions/types/transactionDetails'
-import { SignerMnemonicAccountDetails } from '@luxexchange/lx/src/features/wallet/types/AccountDetails'
-import { currencyId, isNativeCurrencyAddress } from '@luxexchange/lx/src/utils/currencyId'
-import { createSaga } from '@luxexchange/lx/src/utils/saga'
+} from '@l.x/lx/src/features/transactions/types/transactionDetails'
+import { TransactionType } from '@l.x/lx/src/features/transactions/types/transactionDetails'
+import { SignerMnemonicAccountDetails } from '@l.x/lx/src/features/wallet/types/AccountDetails'
+import { currencyId, isNativeCurrencyAddress } from '@l.x/lx/src/utils/currencyId'
+import { createSaga } from '@l.x/lx/src/utils/saga'
 import { logger } from '@luxfi/utilities/src/logger/logger'
 import { getLiquidityEventName } from '~/components/Liquidity/analytics'
 import { getProtocols } from '~/components/Liquidity/utils/protocolVersion'

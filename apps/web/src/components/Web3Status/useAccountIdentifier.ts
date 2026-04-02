@@ -1,5 +1,5 @@
-import { useUnitagsAddressQuery } from '@luxexchange/lx/src/data/apiClients/unitagsApi/useUnitagsAddressQuery'
-import { useActiveAddresses } from '@luxexchange/lx/src/features/accounts/store/hooks'
+import { useUnitagsAddressQuery } from '@l.x/lx/src/data/apiClients/unitagsApi/useUnitagsAddressQuery'
+import { useActiveAddresses } from '@l.x/lx/src/features/accounts/store/hooks'
 import { shortenAddress } from '@luxfi/utilities/src/addresses'
 import { useEnsName } from 'wagmi'
 

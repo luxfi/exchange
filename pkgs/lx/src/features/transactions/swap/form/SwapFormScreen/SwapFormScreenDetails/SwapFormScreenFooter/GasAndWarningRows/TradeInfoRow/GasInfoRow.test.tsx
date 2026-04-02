@@ -1,4 +1,4 @@
-import { type GasFeeResult } from '@luxexchange/api'
+import { type GasFeeResult } from '@l.x/api'
 import { UniverseChainId } from 'lx/src/features/chains/types'
 import { GasInfoRow } from 'lx/src/features/transactions/swap/form/SwapFormScreen/SwapFormScreenDetails/SwapFormScreenFooter/GasAndWarningRows/TradeInfoRow/GasInfoRow'
 import { GasInfo } from 'lx/src/features/transactions/swap/form/SwapFormScreen/SwapFormScreenDetails/SwapFormScreenFooter/GasAndWarningRows/types'

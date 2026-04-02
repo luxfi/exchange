@@ -5,9 +5,9 @@ import {
   ExecuteSwapParams,
   PrepareSwapCallback,
   SwapHandlers,
-} from '@luxexchange/lx/src/features/transactions/swap/types/swapHandlers'
-import { isWrap } from '@luxexchange/lx/src/features/transactions/swap/utils/routing'
-import { WrapType } from '@luxexchange/lx/src/features/transactions/types/wrap'
+} from '@l.x/lx/src/features/transactions/swap/types/swapHandlers'
+import { isWrap } from '@l.x/lx/src/features/transactions/swap/utils/routing'
+import { WrapType } from '@l.x/lx/src/features/transactions/types/wrap'
 import { useSwapCallback } from '~/state/sagas/transactions/swapSaga'
 import { useWrapCallback } from '~/state/sagas/transactions/wrapSaga'
 

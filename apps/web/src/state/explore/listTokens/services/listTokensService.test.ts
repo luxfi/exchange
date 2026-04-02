@@ -6,7 +6,7 @@ import {
   TokenStats,
   TokenType,
 } from '@luxamm/client-data-api/dist/data/v1/types_pb'
-import { TokensOrderBy } from '@luxexchange/api'
+import { TokensOrderBy } from '@l.x/api'
 import { describe, expect, it, vi } from 'vitest'
 import { TimePeriod } from '~/appGraphql/data/util'
 import { TokenSortMethod } from '~/components/Tokens/constants'

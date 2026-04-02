@@ -1,13 +1,13 @@
 import { Currency, CurrencyAmount, Price } from '@luxamm/sdk-core'
 import { useMemo } from 'react'
 import { Trans } from 'react-i18next'
-import { useLocalizationContext } from '@luxexchange/lx/src/features/language/LocalizationContext'
+import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
 import {
   FORMAT_DATE_TIME_SHORT,
   useFormattedDateTime,
   useLocalizedDayjs,
-} from '@luxexchange/lx/src/features/language/localizedDayjs'
-import { DEXOrderDetails } from '@luxexchange/lx/src/features/transactions/types/transactionDetails'
+} from '@l.x/lx/src/features/language/localizedDayjs'
+import { DEXOrderDetails } from '@l.x/lx/src/features/transactions/types/transactionDetails'
 import { ellipseMiddle } from '@luxfi/utilities/src/addresses'
 import { NumberType } from '@luxfi/utilities/src/format/types'
 import { DetailLineItem, LineItemData } from '~/components/swap/DetailLineItem'

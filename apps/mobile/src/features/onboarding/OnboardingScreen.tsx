@@ -11,7 +11,7 @@ import { useRegionalizedLineHeight } from 'src/components/text/useRegionalizedLi
 import { Flex, GeneratedIcon, SpaceTokens, Text, useMedia } from '@luxfi/ui/src'
 import { AnimatedFlex } from '@luxfi/ui/src/components/layout/AnimatedFlex'
 import { fonts } from '@luxfi/ui/src/theme'
-import { useAppInsets } from '@luxexchange/lx/src/hooks/useAppInsets'
+import { useAppInsets } from '@l.x/lx/src/hooks/useAppInsets'
 import { isIOS } from '@luxfi/utilities/src/platform'
 
 type OnboardingScreenProps = {

@@ -1,5 +1,5 @@
 import type { Currency, Token } from '@luxamm/sdk-core'
-import type { PriceKey, TokenIdentifier, TokenInput, TokenSubscriptionParams } from '@luxexchange/prices'
+import type { PriceKey, TokenIdentifier, TokenInput, TokenSubscriptionParams } from '@l.x/prices'
 import { isEVMAddress } from 'utilities/src/addresses/evm/evm'
 
 /** Address that represents native currencies on ETH, Arbitrum, etc. */

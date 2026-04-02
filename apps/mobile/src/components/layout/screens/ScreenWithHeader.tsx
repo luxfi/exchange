@@ -5,7 +5,7 @@ import { Screen } from 'src/components/layout/Screen'
 import { HorizontalEdgeGestureTarget } from 'src/components/layout/screens/EdgeGestureTarget'
 import { ColorTokens, Flex, flexStyles } from '@luxfi/ui/src'
 import { iconSizes } from '@luxfi/ui/src/theme'
-import { useAppInsets } from '@luxexchange/lx/src/hooks/useAppInsets'
+import { useAppInsets } from '@l.x/lx/src/hooks/useAppInsets'
 
 type ScreenWithHeaderProps = {
   centerElement?: JSX.Element

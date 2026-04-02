@@ -6,9 +6,9 @@ import type { GraphQLApi } from '@luxfi/api'
 import { SwapConfigKey } from '@luxfi/gating'
 import type { ImageSourcePropType } from 'react-native'
 // biome-ignore lint/style/noRestrictedImports: legacy import will be migrated
-import { type UNIVERSE_CHAIN_INFO } from '@luxexchange/lx/src/features/chains/chainInfo'
-import { Platform } from '@luxexchange/lx/src/features/platforms/types/Platform'
-import { ElementName } from '@luxexchange/lx/src/features/telemetry/constants'
+import { type UNIVERSE_CHAIN_INFO } from '@l.x/lx/src/features/chains/chainInfo'
+import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
+import { ElementName } from '@l.x/lx/src/features/telemetry/constants'
 import { NonEmptyArray } from 'utilities/src/primitives/array'
 import { Chain as WagmiChain } from 'wagmi/chains'
 

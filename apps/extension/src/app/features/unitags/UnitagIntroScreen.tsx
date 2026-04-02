@@ -6,7 +6,7 @@ import { UnitagClaimRoutes } from 'src/app/navigation/constants'
 import { navigate } from 'src/app/navigation/state'
 import { Button, Flex, GeneratedIcon, Text } from '@luxfi/ui/src'
 import { Bolt, Coupon, Person } from '@luxfi/ui/src/components/icons'
-import { useUnitagsAddressQuery } from '@luxexchange/lx/src/data/apiClients/unitagsApi/useUnitagsAddressQuery'
+import { useUnitagsAddressQuery } from '@l.x/lx/src/data/apiClients/unitagsApi/useUnitagsAddressQuery'
 import { useAccountAddressFromUrlWithThrow } from '@luxfi/wallet/src/features/wallet/hooks'
 
 const CONTAINER_WIDTH = 531

@@ -2,8 +2,8 @@ import { type NetworkStatus } from '@apollo/client'
 import { type Contract } from '@luxamm/client-data-api/dist/data/v1/types_pb'
 import { type Currency } from '@luxamm/sdk-core'
 import { type GraphQLApi, type SpamCode } from '@luxfi/api'
-import { type FoTPercent } from '@luxexchange/lx/src/features/tokens/warnings/TokenWarningModal'
-import { type CurrencyId } from '@luxexchange/lx/src/types/currency'
+import { type FoTPercent } from '@l.x/lx/src/features/tokens/warnings/TokenWarningModal'
+import { type CurrencyId } from '@l.x/lx/src/types/currency'
 
 export type RestContract = Pick<Contract, 'chainId' | 'address'>
 

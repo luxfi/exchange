@@ -1,5 +1,5 @@
 {
-  "name": "@luxexchange/mycelium",
+  "name": "@l.x/mycelium",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "pkgs/mycelium/src",
   "projectType": "library",

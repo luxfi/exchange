@@ -5,7 +5,7 @@ import { ScreenWithHeader } from 'src/components/layout/screens/ScreenWithHeader
 import { Flex, Text, TouchableArea } from '@luxfi/ui/src'
 import { Clock, Wrench } from '@luxfi/ui/src/components/icons'
 import { iconSizes } from '@luxfi/ui/src/theme'
-import { MobileScreens } from '@luxexchange/lx/src/types/screens/mobile'
+import { MobileScreens } from '@l.x/lx/src/types/screens/mobile'
 
 interface DebugScreenItem {
   id: string

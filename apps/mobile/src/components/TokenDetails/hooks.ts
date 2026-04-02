@@ -1,9 +1,9 @@
 import { GraphQLApi } from '@luxfi/api'
 import { useCallback, useMemo } from 'react'
 import { useAppStackNavigation } from 'src/app/navigation/types'
-import { currencyIdToContractInput } from '@luxexchange/lx/src/features/dataApi/utils/currencyIdToContractInput'
-import { CurrencyId } from '@luxexchange/lx/src/types/currency'
-import { MobileScreens } from '@luxexchange/lx/src/types/screens/mobile'
+import { currencyIdToContractInput } from '@l.x/lx/src/features/dataApi/utils/currencyIdToContractInput'
+import { CurrencyId } from '@l.x/lx/src/types/currency'
+import { MobileScreens } from '@l.x/lx/src/types/screens/mobile'
 
 /** Utility hook to simplify navigating to token details screen */
 export function useTokenDetailsNavigation(): {

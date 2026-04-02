@@ -1,8 +1,8 @@
 import { Currency } from '@luxamm/sdk-core'
 import { Flex, Text } from '@luxfi/ui/src'
 import { ArrowDownArrowUp } from '@luxfi/ui/src/components/icons/ArrowDownArrowUp'
-import { useAppFiatCurrency } from '@luxexchange/lx/src/features/fiatCurrency/hooks'
-import { useLocalizationContext } from '@luxexchange/lx/src/features/language/LocalizationContext'
+import { useAppFiatCurrency } from '@l.x/lx/src/features/fiatCurrency/hooks'
+import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
 import { NumberType } from '@luxfi/utilities/src/format/types'
 import { ClickableGuiStyle } from '~/theme/components/styles'
 

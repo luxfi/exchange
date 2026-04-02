@@ -1,7 +1,7 @@
 /* eslint-disable max-lines */
 /* eslint-disable complexity */
 import { type NativeStackScreenProps } from '@react-navigation/native-stack'
-import { FeatureFlags, useFeatureFlag } from '@luxexchange/gating'
+import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { Image } from 'expo-image'
 import React, { type ComponentProps, useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
@@ -21,29 +21,29 @@ import { FiatOnRampTokenSelectorModal } from 'src/features/fiatOnRamp/FiatOnRamp
 import { OffRampPopover } from 'src/features/fiatOnRamp/OffRampPopover'
 import { Flex, useIsDarkMode, useIsShortMobileDevice } from '@luxfi/ui/src'
 import { AnimatedFlex } from '@luxfi/ui/src/components/layout/AnimatedFlex'
-import { useBottomSheetContext } from '@luxexchange/lx/src/components/modals/BottomSheetContext'
-import { HandleBar } from '@luxexchange/lx/src/components/modals/HandleBar'
-import { PillMultiToggle } from '@luxexchange/lx/src/components/pill/PillMultiToggle'
-import { MAX_FIAT_INPUT_DECIMALS } from '@luxexchange/lx/src/constants/transactions'
-import { usePortfolioBalances } from '@luxexchange/lx/src/features/dataApi/balances/balances'
-import { FiatOnRampCountryPicker } from '@luxexchange/lx/src/features/fiatOnRamp/FiatOnRampCountryPicker'
+import { useBottomSheetContext } from '@l.x/lx/src/components/modals/BottomSheetContext'
+import { HandleBar } from '@l.x/lx/src/components/modals/HandleBar'
+import { PillMultiToggle } from '@l.x/lx/src/components/pill/PillMultiToggle'
+import { MAX_FIAT_INPUT_DECIMALS } from '@l.x/lx/src/constants/transactions'
+import { usePortfolioBalances } from '@l.x/lx/src/features/dataApi/balances/balances'
+import { FiatOnRampCountryPicker } from '@l.x/lx/src/features/fiatOnRamp/FiatOnRampCountryPicker'
 import {
   useFiatOnRampQuotes,
   useFiatOnRampSupportedTokens,
   useIsFORLoading,
   useMeldFiatCurrencySupportInfo,
   useParseFiatOnRampError,
-} from '@luxexchange/lx/src/features/fiatOnRamp/hooks'
-import { useFiatOnRampAggregatorGetCountryQuery } from '@luxexchange/lx/src/features/fiatOnRamp/hooks/useFiatOnRampQueries'
-import { TokenSelectorBalanceDisplay } from '@luxexchange/lx/src/features/fiatOnRamp/TokenSelectorBalanceDisplay'
+} from '@l.x/lx/src/features/fiatOnRamp/hooks'
+import { useFiatOnRampAggregatorGetCountryQuery } from '@l.x/lx/src/features/fiatOnRamp/hooks/useFiatOnRampQueries'
+import { TokenSelectorBalanceDisplay } from '@l.x/lx/src/features/fiatOnRamp/TokenSelectorBalanceDisplay'
 import {
   type FiatOnRampCurrency,
   type FORCurrencyOrBalance,
   type FORServiceProvider,
   RampDirection,
   RampToggle,
-} from '@luxexchange/lx/src/features/fiatOnRamp/types'
-import UnsupportedTokenModal from '@luxexchange/lx/src/features/fiatOnRamp/UnsupportedTokenModal'
+} from '@l.x/lx/src/features/fiatOnRamp/types'
+import UnsupportedTokenModal from '@l.x/lx/src/features/fiatOnRamp/UnsupportedTokenModal'
 import {
   getOptionalServiceProviderLogo,
   isSupportedFORCurrency,

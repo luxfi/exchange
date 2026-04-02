@@ -1,5 +1,5 @@
 import { Token } from '@luxamm/sdk-core'
-import { GraphQLApi } from '@luxexchange/api'
+import { GraphQLApi } from '@l.x/api'
 import i18next from 'i18next'
 import { WarningAction, WarningLabel, WarningSeverity } from 'lx/src/components/modals/WarningModal/types'
 import { UniverseChainId } from 'lx/src/features/chains/types'

@@ -1,7 +1,7 @@
 import { FavoriteHeaderRow } from 'src/components/explore/FavoriteHeaderRow'
 import { fireEvent, render } from 'src/test/test-utils'
-import { ON_PRESS_EVENT_PAYLOAD } from '@luxexchange/lx/src/test/fixtures'
-import { TestID } from '@luxexchange/lx/src/test/fixtures/testIDs'
+import { ON_PRESS_EVENT_PAYLOAD } from '@l.x/lx/src/test/fixtures'
+import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
 
 const defaultProps = {
   title: 'Title',

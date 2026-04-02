@@ -1,4 +1,4 @@
-import { DappVerificationStatus } from '@luxexchange/api'
+import { DappVerificationStatus } from '@l.x/api'
 import { type UniverseChainId } from 'lx/src/features/chains/types'
 import { z } from 'zod'
 

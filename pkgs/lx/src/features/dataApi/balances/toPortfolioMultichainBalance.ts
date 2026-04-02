@@ -1,6 +1,6 @@
 import type { GetPortfolioResponse } from '@luxamm/client-data-api/dist/data/v1/api_pb'
 import type { ChainBalance, MultichainBalance, ProtectionInfo } from '@luxamm/client-data-api/dist/data/v1/types_pb'
-import type { GraphQLApi, SpamCode } from '@luxexchange/api'
+import type { GraphQLApi, SpamCode } from '@l.x/api'
 import { normalizeTokenAddressForCache } from 'lx/src/data/cache'
 import { type PortfolioChainBalance, type PortfolioMultichainBalance } from 'lx/src/features/dataApi/types'
 import { buildCurrency, buildCurrencyInfo } from 'lx/src/features/dataApi/utils/buildCurrency'

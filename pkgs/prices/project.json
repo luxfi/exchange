@@ -1,5 +1,5 @@
 {
-  "name": "@luxexchange/prices",
+  "name": "@l.x/prices",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "pkgs/prices/src",
   "projectType": "library",

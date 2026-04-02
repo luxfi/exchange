@@ -2,7 +2,7 @@
 /* eslint-disable complexity */
 import { BigNumber } from '@ethersproject/bignumber'
 import { Direction, OnChainTransaction, OnChainTransactionLabel } from '@luxamm/client-data-api/dist/data/v1/types_pb'
-import { GraphQLApi } from '@luxexchange/api'
+import { GraphQLApi } from '@l.x/api'
 import { AssetType } from 'lx/src/entities/assets'
 import { extractDappInfo } from 'lx/src/features/activity/utils/extractDappInfo'
 import {

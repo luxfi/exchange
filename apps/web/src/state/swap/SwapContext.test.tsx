@@ -1,5 +1,5 @@
 import { Flex } from '@luxfi/ui/src'
-import { SwapTab } from '@luxexchange/lx/src/types/screens/interface'
+import { SwapTab } from '@l.x/lx/src/types/screens/interface'
 import { MultichainContextProvider } from '~/state/multichain/MultichainContext'
 import { SwapAndLimitContextProvider } from '~/state/swap/SwapContext'
 import { useSwapAndLimitContext } from '~/state/swap/useSwapContext'

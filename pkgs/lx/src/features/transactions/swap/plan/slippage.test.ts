@@ -1,4 +1,4 @@
-import { TradingApi } from '@luxexchange/api'
+import { TradingApi } from '@l.x/api'
 import {
   calculatePlanCompoundSlippage,
   getPlanCompoundSlippageTolerance,

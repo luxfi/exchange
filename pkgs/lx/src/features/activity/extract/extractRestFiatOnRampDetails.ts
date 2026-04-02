@@ -1,5 +1,5 @@
 import { FiatOnRampTransaction, FiatOnRampTransactionStatus } from '@luxamm/client-data-api/dist/data/v1/types_pb'
-import { TradingApi } from '@luxexchange/api'
+import { TradingApi } from '@l.x/api'
 
 import { parseRestOnRampTransaction } from 'lx/src/features/activity/parse/parseOnRampTransaction'
 import { ValueType } from 'lx/src/features/tokens/getCurrencyAmount'

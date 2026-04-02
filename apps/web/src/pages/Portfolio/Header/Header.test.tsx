@@ -1,5 +1,5 @@
-import { Platform } from '@luxexchange/lx/src/features/platforms/types/Platform'
-import { SAMPLE_SEED_ADDRESS_1 } from '@luxexchange/lx/src/test/fixtures/gql/assets/constants'
+import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
+import { SAMPLE_SEED_ADDRESS_1 } from '@l.x/lx/src/test/fixtures/gql/assets/constants'
 import { PortfolioHeader } from '~/pages/Portfolio/Header/Header'
 import { usePortfolioRoutes } from '~/pages/Portfolio/Header/hooks/usePortfolioRoutes'
 import { PortfolioTab } from '~/pages/Portfolio/types'

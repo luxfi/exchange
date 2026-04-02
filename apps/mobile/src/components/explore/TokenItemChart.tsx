@@ -4,8 +4,8 @@ import { LineChart, LineChartProvider } from 'react-native-wagmi-charts'
 import { TokenItemData } from 'src/components/explore/TokenItemData'
 import { useTokenPriceHistory } from 'src/components/PriceExplorer/usePriceHistory'
 import { useExtractedTokenColor, useSporeColors } from '@luxfi/ui/src'
-import { useLocalizationContext } from '@luxexchange/lx/src/features/language/LocalizationContext'
-import { buildCurrencyId, buildNativeCurrencyId } from '@luxexchange/lx/src/utils/currencyId'
+import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
+import { buildCurrencyId, buildNativeCurrencyId } from '@l.x/lx/src/utils/currencyId'
 
 // Used to divide the number of data points for a smoother charts
 // Necessary because graphql query does not support a time resolution parameter

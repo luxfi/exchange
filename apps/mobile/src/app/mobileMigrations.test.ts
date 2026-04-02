@@ -77,13 +77,13 @@ import {
   transformNotificationCountToStatus,
   updateLanguageSettings,
 } from 'src/app/mobileMigrations'
-import { AccountType } from '@luxexchange/lx/src/features/accounts/types'
-import { UniverseChainId } from '@luxexchange/lx/src/features/chains/types'
-import { FiatCurrency } from '@luxexchange/lx/src/features/fiatCurrency/constants'
-import { Language } from '@luxexchange/lx/src/features/language/constants'
-import { ModalName } from '@luxexchange/lx/src/features/telemetry/constants'
-import { TransactionStatus, TransactionType } from '@luxexchange/lx/src/features/transactions/types/transactionDetails'
-import { DappRequestType } from '@luxexchange/lx/src/types/walletConnect'
+import { AccountType } from '@l.x/lx/src/features/accounts/types'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { FiatCurrency } from '@l.x/lx/src/features/fiatCurrency/constants'
+import { Language } from '@l.x/lx/src/features/language/constants'
+import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
+import { TransactionStatus, TransactionType } from '@l.x/lx/src/features/transactions/types/transactionDetails'
+import { DappRequestType } from '@l.x/lx/src/types/walletConnect'
 import { createThrowingProxy } from '@luxfi/utilities/src/test/utils'
 import { SwapProtectionSetting } from '@luxfi/wallet/src/features/wallet/slice'
 

@@ -1,5 +1,5 @@
 import { PrecomputedEvaluationsInterface } from '@statsig/js-client'
-import { getOverrideAdapter } from '@luxexchange/gating/src/sdk/statsig'
+import { getOverrideAdapter } from '@l.x/gating/src/sdk/statsig'
 
 export function isStatsigReady(client: PrecomputedEvaluationsInterface): boolean {
   return client.loadingStatus === 'Ready'

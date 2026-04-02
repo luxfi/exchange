@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux'
 import { useSmartWalletNudges } from 'src/app/context/SmartWalletNudgesContext'
-import { ModalName } from '@luxexchange/lx/src/features/telemetry/constants'
+import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
 import { SmartWalletCreatedModal } from '@luxfi/wallet/src/components/smartWallet/modals/SmartWalletCreatedModal'
 import { SmartWalletEnabledModal } from '@luxfi/wallet/src/components/smartWallet/modals/SmartWalletEnabledModal'
 import { SmartWalletNudge } from '@luxfi/wallet/src/components/smartWallet/modals/SmartWalletNudge'

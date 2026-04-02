@@ -1,12 +1,12 @@
-import { FeatureFlags, useFeatureFlag } from '@luxexchange/gating'
+import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { lazy, type PropsWithChildren, ReactNode, Suspense, useMemo } from 'react'
 import { matchPath, Navigate, Route, Routes, useLocation } from 'react-router'
-import { WRAPPED_PATH } from '@luxexchange/lx/src/components/banners/shared/utils'
-import { CHROME_EXTENSION_UNINSTALL_URL_PATH } from '@luxexchange/lx/src/constants/urls'
-import { WRAPPED_SOL_ADDRESS_SOLANA } from '@luxexchange/lx/src/features/chains/svm/defaults'
-import { EXTENSION_PASSKEY_AUTH_PATH } from '@luxexchange/lx/src/features/passkey/constants'
-import { SwapFormStoreContextProvider } from '@luxexchange/lx/src/features/transactions/swap/stores/swapFormStore/SwapFormStoreContextProvider'
-import i18n from '@luxexchange/lx/src/i18n'
+import { WRAPPED_PATH } from '@l.x/lx/src/components/banners/shared/utils'
+import { CHROME_EXTENSION_UNINSTALL_URL_PATH } from '@l.x/lx/src/constants/urls'
+import { WRAPPED_SOL_ADDRESS_SOLANA } from '@l.x/lx/src/features/chains/svm/defaults'
+import { EXTENSION_PASSKEY_AUTH_PATH } from '@l.x/lx/src/features/passkey/constants'
+import { SwapFormStoreContextProvider } from '@l.x/lx/src/features/transactions/swap/stores/swapFormStore/SwapFormStoreContextProvider'
+import i18n from '@l.x/lx/src/i18n'
 import { getExploreDescription, getExploreTitle } from '~/pages/getExploreTitle'
 import { getPortfolioDescription, getPortfolioTitle } from '~/pages/getPortfolioTitle'
 import {
@@ -52,6 +52,7 @@ const XOAuthCallbackPage = lazy(() => import('~/pages/Liquidity/CreateAuction/XO
 const BetaPage = lazy(() => import('~/pages/Beta'))
 const Wrapped = lazy(() => import('~/pages/Wrapped'))
 const TradePage = lazy(() => import('~/pages/Trade'))
+const Bridge = lazy(() => import('~/pages/Bridge'))
 const TermsOfService = lazy(() => import('~/pages/Legal/TermsOfService'))
 const PrivacyPolicyPage = lazy(() => import('~/pages/Legal/PrivacyPolicy'))
 
@@ -441,6 +442,16 @@ export const routes: RouteDefinition[] = [
     getElement: () => <Wrapped />,
     getTitle: () => 'Lux Wrapped',
     enabled: (args) => args.isWrappedEnabled ?? false,
+  }),
+  createRouteDefinition({
+    path: '/bridge',
+    getTitle: () => 'Bridge | Cross-Chain Transfer',
+    getDescription: () => 'Transfer tokens across chains with one click',
+    getElement: () => (
+      <Suspense fallback={null}>
+        <Bridge />
+      </Suspense>
+    ),
   }),
   createRouteDefinition({
     path: '/preview',

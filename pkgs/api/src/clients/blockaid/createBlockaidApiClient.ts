@@ -1,4 +1,4 @@
-import type { FetchClient } from '@luxexchange/api/src/clients/base/types'
+import type { FetchClient } from '@l.x/api/src/clients/base/types'
 import {
   type BlockaidScanJsonRpcRequest,
   type BlockaidScanSiteRequest,
@@ -8,7 +8,7 @@ import {
   DappVerificationStatus,
   getBlockaidScanSiteResponseSchema,
   getBlockaidScanTransactionResponseSchema,
-} from '@luxexchange/api/src/clients/blockaid/types'
+} from '@l.x/api/src/clients/blockaid/types'
 import { logger } from 'utilities/src/logger/logger'
 
 export interface BlockaidApiClient {

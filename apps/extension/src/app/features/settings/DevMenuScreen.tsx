@@ -4,8 +4,8 @@ import { AppRoutes, SettingsRoutes } from 'src/app/navigation/constants'
 import { useExtensionNavigation } from 'src/app/navigation/utils'
 import { Accordion, Flex, ScrollView, Text } from '@luxfi/ui/src'
 import { Clock, Wrench } from '@luxfi/ui/src/components/icons'
-import { CacheConfig } from '@luxexchange/lx/src/components/gating/CacheConfig'
-import { GatingOverrides } from '@luxexchange/lx/src/components/gating/GatingOverrides'
+import { CacheConfig } from '@l.x/lx/src/components/gating/CacheConfig'
+import { GatingOverrides } from '@l.x/lx/src/components/gating/GatingOverrides'
 
 /**
  * When modifying this component, take into consideration that this is used

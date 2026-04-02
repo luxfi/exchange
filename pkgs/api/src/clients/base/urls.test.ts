@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
 
-import { TrafficFlows } from '@luxexchange/api/src/clients/base/urls'
+import { TrafficFlows } from '@l.x/api/src/clients/base/urls'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
 // Mock the platform and environment utilities

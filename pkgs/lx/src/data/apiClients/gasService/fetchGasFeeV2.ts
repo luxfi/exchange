@@ -1,5 +1,5 @@
 import { type TransactionRequest } from '@ethersproject/providers'
-import { type GasFeeResultWithoutState, type GasStrategy } from '@luxexchange/api'
+import { type GasFeeResultWithoutState, type GasStrategy } from '@l.x/api'
 import { GasServiceClient } from 'lx/src/data/apiClients/gasService/GasServiceClient'
 import { mapGasServiceV2Response } from 'lx/src/data/apiClients/gasService/mapGasServiceV2Response'
 import { mapToEstimateGasFeeRequest } from 'lx/src/data/apiClients/gasService/mapToEstimateGasFeeRequest'

@@ -1,4 +1,4 @@
-import { FeatureFlags, useFeatureFlag } from '@luxexchange/gating'
+import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { useMemo } from 'react'
 import { dataApiServiceClient } from 'lx/src/data/apiClients/dataApiService/listTokens'
 import { useEvent } from '@luxfi/utilities/src/react/hooks'

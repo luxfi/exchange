@@ -7,10 +7,10 @@ import {
   MouseGlow,
   renderSnowflakesWeb,
   SnowflakeContainer,
-} from '@luxexchange/lx/src/components/banners/shared/SharedSnowflakeComponents'
-import { ElementName } from '@luxexchange/lx/src/features/telemetry/constants'
-import Trace from '@luxexchange/lx/src/features/telemetry/Trace'
-import { useSnowflakeAnimation } from '@luxexchange/lx/src/hooks/useSnowflakeAnimation'
+} from '@l.x/lx/src/components/banners/shared/SharedSnowflakeComponents'
+import { ElementName } from '@l.x/lx/src/features/telemetry/constants'
+import Trace from '@l.x/lx/src/features/telemetry/Trace'
+import { useSnowflakeAnimation } from '@l.x/lx/src/hooks/useSnowflakeAnimation'
 import { isMobileWeb } from '@luxfi/utilities/src/platform'
 import { useAccountDrawer } from '~/components/AccountDrawer/MiniPortfolio/hooks'
 import { MenuStateVariant, useSetMenuCallback } from '~/components/AccountDrawer/menuState'

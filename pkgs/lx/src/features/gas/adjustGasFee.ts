@@ -1,5 +1,5 @@
 import { BigNumber, BigNumberish } from '@ethersproject/bignumber'
-import { FeeType, GasFeeResult } from '@luxexchange/api'
+import { FeeType, GasFeeResult } from '@l.x/api'
 import { providers } from 'ethers/lib/ethers'
 import { BigNumberMax } from 'lx/src/utils/number'
 

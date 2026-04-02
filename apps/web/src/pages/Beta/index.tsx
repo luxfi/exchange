@@ -1,4 +1,4 @@
-import { FeatureFlags, useFeatureFlag } from '@luxexchange/gating'
+import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { Navigate } from 'react-router'
 import { BetaPasscodeModal } from '~/pages/Beta/BetaPasscodeModal'
 import Landing from '~/pages/Landing'

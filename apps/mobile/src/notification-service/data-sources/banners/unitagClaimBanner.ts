@@ -5,15 +5,15 @@ import {
   NotificationVersion,
   OnClick,
 } from '@luxamm/client-notification-service/dist/lx/notificationservice/v1/api_pb'
-import { BackgroundType, ContentStyle, type InAppNotification, OnClickAction, SharedQueryClient } from '@luxexchange/api'
+import { BackgroundType, ContentStyle, type InAppNotification, OnClickAction, SharedQueryClient } from '@l.x/api'
 import type { MobileState } from 'src/app/mobileReducer'
 import { BannerId, UNITAG_NAV_PREFIX } from 'src/notification-service/data-sources/banners/types'
-import { AccountType } from '@luxexchange/lx/src/features/accounts/types'
-import { Platform } from '@luxexchange/lx/src/features/platforms/types/Platform'
-import { UNITAG_SUFFIX_NO_LEADING_DOT } from '@luxexchange/lx/src/features/unitags/constants'
-import i18n from '@luxexchange/lx/src/i18n'
-import { UnitagScreens } from '@luxexchange/lx/src/types/screens/mobile'
-import { getValidAddress } from '@luxexchange/lx/src/utils/addresses'
+import { AccountType } from '@l.x/lx/src/features/accounts/types'
+import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
+import { UNITAG_SUFFIX_NO_LEADING_DOT } from '@l.x/lx/src/features/unitags/constants'
+import i18n from '@l.x/lx/src/i18n'
+import { UnitagScreens } from '@l.x/lx/src/types/screens/mobile'
+import { getValidAddress } from '@l.x/lx/src/utils/addresses'
 import { ReactQueryCacheKey } from '@luxfi/utilities/src/reactQuery/cache'
 
 /**

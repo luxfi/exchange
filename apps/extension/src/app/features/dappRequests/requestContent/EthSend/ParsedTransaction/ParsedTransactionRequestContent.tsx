@@ -1,4 +1,4 @@
-import type { GasFeeResult } from '@luxexchange/api'
+import type { GasFeeResult } from '@l.x/api'
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useDappLastChainId } from 'src/app/features/dapp/hooks'

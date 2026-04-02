@@ -1,6 +1,6 @@
 import { QueryResult } from '@apollo/client'
 import { Currency } from '@luxamm/sdk-core'
-import { GraphQLApi } from '@luxexchange/api'
+import { GraphQLApi } from '@l.x/api'
 import { createContext } from 'react'
 import { GqlChainId, UniverseChainId } from 'lx/src/features/chains/types'
 import { PortfolioBalance } from 'lx/src/features/dataApi/types'

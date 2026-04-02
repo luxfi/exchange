@@ -1,4 +1,4 @@
-import { FeatureFlags, useFeatureFlag } from '@luxexchange/gating'
+import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { useTranslation } from 'react-i18next'
 import { nativeOnChain } from 'lx/src/constants/tokens'
 import { useConnectionStatus } from 'lx/src/features/accounts/store/hooks'

@@ -1,4 +1,4 @@
-import { EVMUniverseChainId } from '@luxexchange/lx/src/features/chains/types'
+import { EVMUniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { Address, erc20Abi } from 'viem'
 import { useReadContract } from 'wagmi'
 // Since v2 positions are ERC20s, when they are closed, the liquidity token is burned.

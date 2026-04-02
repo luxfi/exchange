@@ -4,9 +4,9 @@ import { Keyboard, TextInput as NativeTextInput } from 'react-native'
 import InputWithSuffix from 'src/features/import/InputWithSuffix'
 import { ColorTokens, Flex, Text, useMedia } from '@luxfi/ui/src'
 import { fonts } from '@luxfi/ui/src/theme'
-import PasteButton from '@luxexchange/lx/src/components/buttons/PasteButton'
-import { SectionName } from '@luxexchange/lx/src/features/telemetry/constants'
-import Trace from '@luxexchange/lx/src/features/telemetry/Trace'
+import PasteButton from '@l.x/lx/src/components/buttons/PasteButton'
+import { SectionName } from '@l.x/lx/src/features/telemetry/constants'
+import Trace from '@l.x/lx/src/features/telemetry/Trace'
 
 interface Props {
   value: string | undefined

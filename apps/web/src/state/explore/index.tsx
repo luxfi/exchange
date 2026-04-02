@@ -1,7 +1,7 @@
 import { ExploreStatsResponse, ProtocolStatsResponse } from '@luxamm/client-explore/dist/lx/explore/v1/service_pb'
 import { createContext, useMemo } from 'react'
-import { useIsSupportedChainId } from '@luxexchange/lx/src/features/chains/hooks/useSupportedChainId'
-import { UniverseChainId } from '@luxexchange/lx/src/features/chains/types'
+import { useIsSupportedChainId } from '@l.x/lx/src/features/chains/hooks/useSupportedChainId'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { useExchangeStats } from './useExchangeStats'
 
 interface QueryResult<T> {

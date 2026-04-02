@@ -3,7 +3,7 @@ import {
   Metadata,
   Notification,
 } from '@luxamm/client-notification-service/dist/lx/notificationservice/v1/api_pb'
-import { ContentStyle } from '@luxexchange/api'
+import { ContentStyle } from '@l.x/api'
 import {
   APP_RATING_NOTIFICATION_ID,
   createAppRatingTrigger,

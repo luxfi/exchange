@@ -13,19 +13,19 @@ import { bringWindowToFront, closeWindow, openPopupWindow } from 'src/app/naviga
 import { Button, Flex, IconButton, SpinningLoader, Text } from '@luxfi/ui/src'
 import { X } from '@luxfi/ui/src/components/icons'
 import { LuxLogo } from '@luxfi/ui/src/components/icons/LuxLogo'
-import { EmbeddedWalletApiClient } from '@luxexchange/lx/src/data/rest/embeddedWallet/requests'
-import { parseMessage } from '@luxexchange/lx/src/extension/messagePassing/platform'
+import { EmbeddedWalletApiClient } from '@l.x/lx/src/data/rest/embeddedWallet/requests'
+import { parseMessage } from '@l.x/lx/src/extension/messagePassing/platform'
 import {
   ExtensionToInterfaceRequestType,
   PasskeyCredentialRetrievedSchema,
   PasskeyRequest,
   PasskeySignInFlowOpenedSchema,
-} from '@luxexchange/lx/src/extension/messagePassing/types/requests'
-import { EXTENSION_PASSKEY_AUTH_PATH } from '@luxexchange/lx/src/features/passkey/constants'
-import { getPrivyEnums } from '@luxexchange/lx/src/features/passkey/embeddedWallet'
-import { useEmbeddedWalletBaseUrl } from '@luxexchange/lx/src/features/passkey/hooks/useEmbeddedWalletBaseUrl'
-import Trace from '@luxexchange/lx/src/features/telemetry/Trace'
-import { ExtensionOnboardingFlow, ExtensionOnboardingScreens } from '@luxexchange/lx/src/types/screens/extension'
+} from '@l.x/lx/src/extension/messagePassing/types/requests'
+import { EXTENSION_PASSKEY_AUTH_PATH } from '@l.x/lx/src/features/passkey/constants'
+import { getPrivyEnums } from '@l.x/lx/src/features/passkey/embeddedWallet'
+import { useEmbeddedWalletBaseUrl } from '@l.x/lx/src/features/passkey/hooks/useEmbeddedWalletBaseUrl'
+import Trace from '@l.x/lx/src/features/telemetry/Trace'
+import { ExtensionOnboardingFlow, ExtensionOnboardingScreens } from '@l.x/lx/src/types/screens/extension'
 import { logger } from '@luxfi/utilities/src/logger/logger'
 import { useEvent } from '@luxfi/utilities/src/react/hooks'
 import { useInterval } from '@luxfi/utilities/src/time/timing'

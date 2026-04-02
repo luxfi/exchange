@@ -2,9 +2,9 @@ import { Trans } from 'react-i18next'
 import { Button, Flex, Image, Text, useIsDarkMode } from '@luxfi/ui/src'
 import { LUX_LOGO_LARGE } from '@luxfi/ui/src/assets'
 import { iconSizes } from '@luxfi/ui/src/theme'
-import { ServiceProviderLogoStyles } from '@luxexchange/lx/src/features/fiatOnRamp/constants'
-import { FORServiceProvider } from '@luxexchange/lx/src/features/fiatOnRamp/types'
-import { getOptionalServiceProviderLogo } from '@luxexchange/lx/src/features/fiatOnRamp/utils'
+import { ServiceProviderLogoStyles } from '@l.x/lx/src/features/fiatOnRamp/constants'
+import { FORServiceProvider } from '@l.x/lx/src/features/fiatOnRamp/types'
+import { getOptionalServiceProviderLogo } from '@l.x/lx/src/features/fiatOnRamp/utils'
 import { ConnectingViewWrapper } from '~/pages/Swap/Buy/shared'
 
 interface ProviderConnectionErrorProps {

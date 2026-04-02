@@ -1,16 +1,16 @@
-import { TradingApi } from '@luxexchange/api'
-import { getChainLabel } from '@luxexchange/lx/src/features/chains/utils'
-import { SwapEventName } from '@luxexchange/lx/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from '@luxexchange/lx/src/features/telemetry/send'
-import type { SwapRouting } from '@luxexchange/lx/src/features/telemetry/types'
-import { planAnalyticsToSnakeCase } from '@luxexchange/lx/src/features/transactions/swap/plan/types'
-import { SwapEventType, timestampTracker } from '@luxexchange/lx/src/features/transactions/swap/utils/SwapEventTimestampTracker'
+import { TradingApi } from '@l.x/api'
+import { getChainLabel } from '@l.x/lx/src/features/chains/utils'
+import { SwapEventName } from '@l.x/lx/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
+import type { SwapRouting } from '@l.x/lx/src/features/telemetry/types'
+import { planAnalyticsToSnakeCase } from '@l.x/lx/src/features/transactions/swap/plan/types'
+import { SwapEventType, timestampTracker } from '@l.x/lx/src/features/transactions/swap/utils/SwapEventTimestampTracker'
 import {
   type PlanSwapTransactionInfoFields,
   TransactionOriginType,
   TransactionStatus,
   TransactionType,
-} from '@luxexchange/lx/src/features/transactions/types/transactionDetails'
+} from '@l.x/lx/src/features/transactions/types/transactionDetails'
 import { logger } from '@luxfi/utilities/src/logger/logger'
 import type { ITraceContext } from '@luxfi/utilities/src/telemetry/trace/TraceContext'
 import type { ConfirmedTransactionDetails } from '~/state/transactions/types'

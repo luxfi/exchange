@@ -1,8 +1,8 @@
 import { GraphQLApi } from '@luxfi/api'
 import { TokenItemData } from 'src/components/explore/TokenItemData'
-import { UniverseChainId } from '@luxexchange/lx/src/features/chains/types'
-import { token } from '@luxexchange/lx/src/test/fixtures'
-import { createFixture } from '@luxexchange/lx/src/test/utils'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { token } from '@l.x/lx/src/test/fixtures'
+import { createFixture } from '@l.x/lx/src/test/utils'
 
 type TokenItemDataOptions = {
   token: GraphQLApi.Token | null

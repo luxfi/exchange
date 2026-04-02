@@ -1,12 +1,12 @@
-import { TradingApi } from '@luxexchange/api'
-import { SwapEventName } from '@luxexchange/lx/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from '@luxexchange/lx/src/features/telemetry/send'
-import { maybeLogFirstSwapAction } from '@luxexchange/lx/src/features/transactions/swap/utils/maybeLogFirstSwapAction'
+import { TradingApi } from '@l.x/api'
+import { SwapEventName } from '@l.x/lx/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
+import { maybeLogFirstSwapAction } from '@l.x/lx/src/features/transactions/swap/utils/maybeLogFirstSwapAction'
 import {
   TransactionOriginType,
   TransactionStatus,
   TransactionType,
-} from '@luxexchange/lx/src/features/transactions/types/transactionDetails'
+} from '@l.x/lx/src/features/transactions/types/transactionDetails'
 import { logSwapFinalized, logLxSwapSwapFinalized } from '~/tracing/swapFlowLoggers'
 
 vi.mock('lx/src/features/telemetry/send', () => ({

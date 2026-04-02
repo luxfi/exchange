@@ -1,6 +1,6 @@
 import { SpamCode as RestSpamCode, TokenType } from '@luxamm/client-data-api/dist/data/v1/types_pb'
 import { Token as SdkToken } from '@luxamm/sdk-core'
-import { GraphQLApi } from '@luxexchange/api'
+import { GraphQLApi } from '@l.x/api'
 import { getNativeAddress } from 'lx/src/constants/addresses'
 import { nativeOnChain } from 'lx/src/constants/tokens'
 import { AssetType } from 'lx/src/entities/assets'

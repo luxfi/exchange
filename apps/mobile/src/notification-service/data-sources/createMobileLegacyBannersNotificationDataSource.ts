@@ -1,9 +1,9 @@
-import { type InAppNotification } from '@luxexchange/api'
+import { type InAppNotification } from '@l.x/api'
 import {
   createIntervalNotificationDataSource,
   type NotificationDataSource,
   type NotificationTracker,
-} from '@luxexchange/notifications'
+} from '@l.x/notifications'
 import type { MobileState } from 'src/app/mobileReducer'
 import { checkFundWalletBanner } from 'src/notification-service/data-sources/banners/fundWalletBanner'
 import { checkNoAppFeesBanner } from 'src/notification-service/data-sources/banners/noAppFeesBanner'

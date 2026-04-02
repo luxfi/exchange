@@ -1,10 +1,10 @@
-import { UniverseChainId } from '@luxexchange/lx/src/features/chains/types'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import {
   SAMPLE_SEED_ADDRESS_1,
   SAMPLE_SEED_ADDRESS_2,
   SAMPLE_SEED_ADDRESS_3,
   SAMPLE_SEED_ADDRESS_4,
-} from '@luxexchange/lx/src/test/fixtures/gql/assets/constants'
+} from '@l.x/lx/src/test/fixtures/gql/assets/constants'
 import { PortfolioTab } from '~/pages/Portfolio/types'
 import { buildPortfolioUrl, pathToPortfolioTab } from '~/pages/Portfolio/utils/portfolioUrls'
 

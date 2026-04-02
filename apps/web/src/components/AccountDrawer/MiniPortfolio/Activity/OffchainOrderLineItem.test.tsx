@@ -1,14 +1,14 @@
 import 'utilities/src/logger/mocks'
 import { CurrencyAmount, WETH9 } from '@luxamm/sdk-core'
-import { TradingApi } from '@luxexchange/api'
-import { DAI, USDC_MAINNET } from '@luxexchange/lx/src/constants/tokens'
-import { UniverseChainId } from '@luxexchange/lx/src/features/chains/types'
+import { TradingApi } from '@l.x/api'
+import { DAI, USDC_MAINNET } from '@l.x/lx/src/constants/tokens'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import {
   TransactionOriginType,
   TransactionStatus,
   TransactionType,
-} from '@luxexchange/lx/src/features/transactions/types/transactionDetails'
-import { currencyId } from '@luxexchange/lx/src/utils/currencyId'
+} from '@l.x/lx/src/features/transactions/types/transactionDetails'
+import { currencyId } from '@l.x/lx/src/utils/currencyId'
 import {
   OffchainOrderLineItem,
   OffchainOrderLineItemType,

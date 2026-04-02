@@ -1,9 +1,9 @@
 import React from 'react'
 import { Alert } from 'react-native'
 import { Accordion, Flex } from '@luxfi/ui/src'
-import { GatingButton } from '@luxexchange/lx/src/components/gating/GatingButton'
-import { AccordionHeader } from '@luxexchange/lx/src/components/gating/GatingOverrides'
-import { TestID } from '@luxexchange/lx/src/test/fixtures/testIDs'
+import { GatingButton } from '@l.x/lx/src/components/gating/GatingButton'
+import { AccordionHeader } from '@l.x/lx/src/components/gating/GatingOverrides'
+import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
 import { Keyring } from '@luxfi/wallet/src/features/wallet/Keyring/Keyring'
 
 export function SeedPhraseAndPrivateKeysDevSection(): JSX.Element {

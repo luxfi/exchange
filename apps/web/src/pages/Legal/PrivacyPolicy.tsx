@@ -1,5 +1,5 @@
-import { brand } from '@luxexchange/config'
-import { LEGAL_UPDATED } from '@luxexchange/config/src/legal'
+import { brand } from '@l.x/config'
+import { LEGAL_UPDATED } from '@l.x/config/src/legal'
 
 /**
  * Privacy Policy page — served at /privacy on all Lux ecosystem apps.

@@ -11,10 +11,10 @@ import {
   RPCType,
   UniverseChainId,
   UniverseChainInfo,
-} from '@luxexchange/lx/src/features/chains/types'
-import { Platform } from '@luxexchange/lx/src/features/platforms/types/Platform'
-import { ElementName } from '@luxexchange/lx/src/features/telemetry/constants'
-import { buildDAI, buildUSDC, buildUSDT } from '@luxexchange/lx/src/features/tokens/stablecoin'
+} from '@l.x/lx/src/features/chains/types'
+import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
+import { ElementName } from '@l.x/lx/src/features/telemetry/constants'
+import { buildDAI, buildUSDC, buildUSDT } from '@l.x/lx/src/features/tokens/stablecoin'
 import { polygon } from 'wagmi/chains'
 
 const tokens = buildChainTokens({

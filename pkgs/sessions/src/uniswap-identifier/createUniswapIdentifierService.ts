@@ -1,4 +1,4 @@
-import type { LxIdentifierService } from '@luxexchange/sessions/src/lx-identifier/types'
+import type { LxIdentifierService } from '@l.x/sessions/src/lx-identifier/types'
 
 function createLxIdentifierService(ctx: {
   getLxIdentifier: () => Promise<string | null>

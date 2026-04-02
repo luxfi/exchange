@@ -2,9 +2,9 @@ import { Percent } from '@luxamm/sdk-core'
 import { scaleLinear } from 'd3'
 import { useMemo } from 'react'
 import { Flex, Text } from '@luxfi/ui/src'
-import { CurrencyLogo } from '@luxexchange/lx/src/components/CurrencyLogo/CurrencyLogo'
-import { CurrencyInfo } from '@luxexchange/lx/src/features/dataApi/types'
-import { useLocalizationContext } from '@luxexchange/lx/src/features/language/LocalizationContext'
+import { CurrencyLogo } from '@l.x/lx/src/components/CurrencyLogo/CurrencyLogo'
+import { CurrencyInfo } from '@l.x/lx/src/features/dataApi/types'
+import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
 
 type Bar = {
   value: Percent

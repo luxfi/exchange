@@ -1,5 +1,5 @@
 import { memo, Suspense } from 'react'
-import { ModalName, ModalNameType } from '@luxexchange/lx/src/features/telemetry/constants'
+import { ModalName, ModalNameType } from '@l.x/lx/src/features/telemetry/constants'
 import { logger } from '@luxfi/utilities/src/logger/logger'
 import ErrorBoundary from '~/components/ErrorBoundary'
 import { ModalRegistry, ModalWrapperProps } from '~/components/TopLevelModals/types'

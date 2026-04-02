@@ -1,5 +1,5 @@
-import { FeatureFlags } from '@luxexchange/gating/src/flags'
-import { getFeatureFlag, useFeatureFlag } from '@luxexchange/gating/src/hooks'
+import { FeatureFlags } from '@l.x/gating/src/flags'
+import { getFeatureFlag, useFeatureFlag } from '@l.x/gating/src/hooks'
 
 function getIsHashcashSolverEnabled(): boolean {
   return getFeatureFlag(FeatureFlags.HashcashSolverEnabled)

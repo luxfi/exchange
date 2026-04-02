@@ -5,7 +5,7 @@
  * Phase 1 feature: routeVia setting (Auto / Standard AMM / DEX Precompile).
  */
 import { expect, getTest } from 'playwright/fixtures'
-import { TestID } from '@luxexchange/lx/src/test/fixtures/testIDs'
+import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
 
 const test = getTest()
 

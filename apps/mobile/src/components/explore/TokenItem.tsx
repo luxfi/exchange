@@ -10,17 +10,17 @@ import { TokenMetadata } from 'src/components/tokens/TokenMetadata'
 import { Flex, FlexProps, Text, TouchableArea, useSporeColors } from '@luxfi/ui/src'
 import { AnimatedFlex } from '@luxfi/ui/src/components/layout/AnimatedFlex'
 import { spacing } from '@luxfi/ui/src/theme'
-import { TokenLogo } from '@luxexchange/lx/src/components/CurrencyLogo/TokenLogo'
-import { RelativeChange } from '@luxexchange/lx/src/components/RelativeChange/RelativeChange'
-import { useLocalizationContext } from '@luxexchange/lx/src/features/language/LocalizationContext'
-import { MobileEventName, SectionName } from '@luxexchange/lx/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from '@luxexchange/lx/src/features/telemetry/send'
+import { TokenLogo } from '@l.x/lx/src/components/CurrencyLogo/TokenLogo'
+import { RelativeChange } from '@l.x/lx/src/components/RelativeChange/RelativeChange'
+import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
+import { MobileEventName, SectionName } from '@l.x/lx/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
 import {
   buildCurrencyId,
   buildNativeCurrencyId,
   currencyIdToAddress,
   currencyIdToChain,
-} from '@luxexchange/lx/src/utils/currencyId'
+} from '@l.x/lx/src/utils/currencyId'
 import { NumberType } from '@luxfi/utilities/src/format/types'
 import { useEvent } from '@luxfi/utilities/src/react/hooks'
 import { noop } from '@luxfi/utilities/src/react/noop'

@@ -1,7 +1,7 @@
-import { NftTransactionDetails } from '@luxexchange/lx/src/components/activity/details/transactions/NftTransactionDetails'
-import { NFTMintTransactionInfo, TransactionDetails } from '@luxexchange/lx/src/features/transactions/types/transactionDetails'
-import { SAMPLE_SEED_ADDRESS_1 } from '@luxexchange/lx/src/test/fixtures'
-import { render } from '@luxexchange/lx/src/test/test-utils'
+import { NftTransactionDetails } from '@l.x/lx/src/components/activity/details/transactions/NftTransactionDetails'
+import { NFTMintTransactionInfo, TransactionDetails } from '@l.x/lx/src/features/transactions/types/transactionDetails'
+import { SAMPLE_SEED_ADDRESS_1 } from '@l.x/lx/src/test/fixtures'
+import { render } from '@l.x/lx/src/test/test-utils'
 
 const mockWalletAddress = (): Address => SAMPLE_SEED_ADDRESS_1
 vi.mock('lx/src/features/wallet/hooks/useWallet', () => ({

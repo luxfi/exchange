@@ -1,4 +1,4 @@
-import type { SessionService, LxIdentifierService } from '@luxexchange/sessions'
+import type { SessionService, LxIdentifierService } from '@l.x/sessions'
 import { PlatformSplitStubError } from 'utilities/src/errors'
 import type { Logger } from 'utilities/src/logger/logger'
 

@@ -7,7 +7,7 @@ import type {
   GetNotificationsResponse,
   NotificationsApiClient,
   NotificationsClientContext,
-} from '@luxexchange/api/src/clients/notifications/types'
+} from '@l.x/api/src/clients/notifications/types'
 
 /**
  * Factory function to create a NotificationsApiClient

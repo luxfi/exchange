@@ -1,5 +1,5 @@
 import { useEffect, useMemo } from 'react'
-import { EVMUniverseChainId } from '@luxexchange/lx/src/features/chains/types'
+import { EVMUniverseChainId } from '@l.x/lx/src/features/chains/types'
 // biome-ignore lint/style/noRestrictedImports: Use wagmi version because it supports a chain being passed in
 import { useBlockNumber } from 'wagmi'
 import { useAuctionStore, useAuctionStoreActions } from '~/components/Toucan/Auction/store/useAuctionStore'

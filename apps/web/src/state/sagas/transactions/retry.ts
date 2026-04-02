@@ -1,5 +1,5 @@
-import { TransactionStepFailedError } from '@luxexchange/lx/src/features/transactions/errors'
-import { TransactionStepType } from '@luxexchange/lx/src/features/transactions/steps/types'
+import { TransactionStepFailedError } from '@l.x/lx/src/features/transactions/errors'
+import { TransactionStepType } from '@l.x/lx/src/features/transactions/steps/types'
 import { useEvent } from '@luxfi/utilities/src/react/hooks'
 import { useSetOverrideOneClickSwapFlag } from '~/pages/Swap/settings/OneClickSwap'
 

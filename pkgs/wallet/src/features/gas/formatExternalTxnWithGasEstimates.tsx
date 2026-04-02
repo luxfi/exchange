@@ -1,4 +1,4 @@
-import { GasFeeResult } from '@luxexchange/api'
+import { GasFeeResult } from '@l.x/api'
 import { providers } from 'ethers'
 
 /**

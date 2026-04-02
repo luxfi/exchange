@@ -1,4 +1,4 @@
-import type { FetchClient } from '@luxexchange/api/src/clients/base/types'
+import type { FetchClient } from '@l.x/api/src/clients/base/types'
 import {
   type JupiterExecuteResponse,
   type JupiterExecuteUrlParams,
@@ -6,8 +6,8 @@ import {
   type JupiterOrderUrlParams,
   jupiterExecuteResponseSchema,
   jupiterOrderResponseSchema,
-} from '@luxexchange/api/src/clients/jupiter/types'
-import { buildQuery } from '@luxexchange/api/src/clients/jupiter/utils'
+} from '@l.x/api/src/clients/jupiter/types'
+import { buildQuery } from '@l.x/api/src/clients/jupiter/utils'
 
 export interface JupiterApiClient {
   fetchOrder: (params: JupiterOrderUrlParams) => Promise<JupiterOrderResponse>

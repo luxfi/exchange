@@ -1,0 +1,52 @@
+# Hanzo Exchange - White-label deployment for Hanzo AI
+# Namespace: lux-exchange
+# Domain: hanzo.exchange
+#
+# Usage:
+#   kubectl apply -f hanzo-exchange.yaml
+#   Mount config.json into the container:
+#     volumes:
+#       - name: exchange-config
+#         configMap:
+#           name: exchange-config
+#     volumeMounts:
+#       - name: exchange-config
+#         mountPath: /app/public/config.json
+#         subPath: config.json
+#         readOnly: true
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: exchange-config
+  namespace: lux-exchange
+  labels:
+    app: exchange
+    brand: hanzo
+data:
+  config.json: |
+    {
+      "brand": {
+        "name": "Hanzo Exchange",
+        "title": "Hanzo Exchange | Trade",
+        "description": "The decentralized exchange for the Hanzo AI ecosystem",
+        "legalEntity": "Hanzo AI Inc.",
+        "appDomain": "hanzo.exchange",
+        "docsDomain": "docs.hanzo.exchange",
+        "infoDomain": "info.hanzo.exchange",
+        "gatewayDomain": "gw.hanzo.exchange",
+        "wsDomain": "ws.hanzo.exchange",
+        "helpUrl": "https://docs.hanzo.exchange/help",
+        "termsUrl": "/terms",
+        "privacyUrl": "/privacy",
+        "downloadUrl": "https://hanzo.exchange/wallet",
+        "complianceEmail": "compliance@hanzo.exchange",
+        "supportEmail": "hi@hanzo.exchange",
+        "twitter": "https://x.com/hanaboratory",
+        "github": "https://github.com/hanzoai",
+        "discord": "https://discord.gg/hanzo",
+        "primaryColor": "#7C3AED",
+        "defaultChainId": 36963,
+        "supportedChainIds": [36963, 96369]
+      }
+    }

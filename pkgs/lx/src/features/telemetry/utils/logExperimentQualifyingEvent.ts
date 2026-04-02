@@ -1,4 +1,4 @@
-import { Experiments } from '@luxexchange/gating'
+import { Experiments } from '@l.x/gating'
 import { LxEventName } from 'lx/src/features/telemetry/constants'
 import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
 

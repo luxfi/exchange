@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router'
 import { Flex, styled, Text, TextProps, useMedia } from '@luxfi/ui/src'
 import { iconSizes } from '@luxfi/ui/src/theme'
-import { TestID } from '@luxexchange/lx/src/test/fixtures/testIDs'
+import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
 import { shortenAddress } from '@luxfi/utilities/src/addresses'
 import { CopyHelper } from '~/theme/components/CopyHelper'
 

@@ -1,6 +1,6 @@
-import { ElementName, InterfaceEventName } from '@luxexchange/lx/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from '@luxexchange/lx/src/features/telemetry/send'
-import { AppDownloadPlatform } from '@luxexchange/lx/src/features/telemetry/types'
+import { ElementName, InterfaceEventName } from '@l.x/lx/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
+import { AppDownloadPlatform } from '@l.x/lx/src/features/telemetry/types'
 import { isWebAndroid, isWebIOS } from '@luxfi/utilities/src/platform'
 
 // Download links — redirect to Lux wallet download page

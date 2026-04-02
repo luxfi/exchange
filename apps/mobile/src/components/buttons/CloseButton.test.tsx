@@ -1,6 +1,6 @@
 import { CloseButton } from 'src/components/buttons/CloseButton'
 import { fireEvent, render } from 'src/test/test-utils'
-import { ON_PRESS_EVENT_PAYLOAD } from '@luxexchange/lx/src/test/fixtures'
+import { ON_PRESS_EVENT_PAYLOAD } from '@l.x/lx/src/test/fixtures'
 
 describe(CloseButton, () => {
   it('renders without error', () => {

@@ -1,6 +1,6 @@
 import { ADDRESS_ZERO } from '@luxamm/v3-sdk'
-import type { ChainedQuoteResponse } from '@luxexchange/api'
-import { TradingApi } from '@luxexchange/api'
+import type { ChainedQuoteResponse } from '@l.x/api'
+import { TradingApi } from '@l.x/api'
 import { UnexpectedTransactionStateError } from 'lx/src/features/transactions/errors'
 import { type SwapTxAndGasInfo } from 'lx/src/features/transactions/swap/types/swapTxAndGasInfo'
 import { type ValidatedTransactionRequest } from 'lx/src/features/transactions/types/transactionRequests'

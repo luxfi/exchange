@@ -1,4 +1,4 @@
-import { GraphQLApi } from '@luxexchange/api'
+import { GraphQLApi } from '@l.x/api'
 /* eslint-disable @typescript-eslint/no-unsafe-return */
 import { GQL_CHAINS } from 'lx/src/test/fixtures'
 import { faker, MAX_FIXTURE_TIMESTAMP } from 'lx/src/test/shared'

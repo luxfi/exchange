@@ -1,4 +1,4 @@
-import { SerializedTokenMap, TokenDismissInfo } from '@luxexchange/lx/src/features/tokens/warnings/slice/types'
+import { SerializedTokenMap, TokenDismissInfo } from '@l.x/lx/src/features/tokens/warnings/slice/types'
 import { UserState } from '~/state/user/reducer'
 
 export type PreV16UserState = UserState & {

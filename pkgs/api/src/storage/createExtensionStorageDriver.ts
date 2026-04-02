@@ -1,4 +1,4 @@
-import type { StorageDriver } from '@luxexchange/api/src/storage/types'
+import type { StorageDriver } from '@l.x/api/src/storage/types'
 import { getChromeWithThrow } from 'utilities/src/chrome/chrome'
 
 export function createExtensionStorageDriver(): StorageDriver {

@@ -8,12 +8,12 @@
  */
 import { sha256 } from '@noble/hashes/webcrypto.js'
 
-export type { HashcashChallenge, ProofResult } from '@luxexchange/sessions/src/challenge-solvers/hashcash/shared'
+export type { HashcashChallenge, ProofResult } from '@l.x/sessions/src/challenge-solvers/hashcash/shared'
 // Re-export shared types and platform-agnostic functions
-export { checkDifficulty, formatHashcashString } from '@luxexchange/sessions/src/challenge-solvers/hashcash/shared'
+export { checkDifficulty, formatHashcashString } from '@l.x/sessions/src/challenge-solvers/hashcash/shared'
 
-import type { HashcashChallenge, ProofResult } from '@luxexchange/sessions/src/challenge-solvers/hashcash/shared'
-import { checkDifficulty } from '@luxexchange/sessions/src/challenge-solvers/hashcash/shared'
+import type { HashcashChallenge, ProofResult } from '@l.x/sessions/src/challenge-solvers/hashcash/shared'
+import { checkDifficulty } from '@l.x/sessions/src/challenge-solvers/hashcash/shared'
 
 // Pre-allocated TextEncoder for memory efficiency (avoids creating new instance per hash)
 const encoder = new TextEncoder()

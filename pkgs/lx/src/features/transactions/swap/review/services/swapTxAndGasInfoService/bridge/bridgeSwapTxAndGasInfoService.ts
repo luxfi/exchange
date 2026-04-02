@@ -1,4 +1,4 @@
-import type { GasStrategy } from '@luxexchange/api'
+import type { GasStrategy } from '@l.x/api'
 import type { TransactionSettings } from 'lx/src/features/transactions/components/settings/types'
 import type { EVMSwapInstructionsService } from 'lx/src/features/transactions/swap/review/services/swapTxAndGasInfoService/evm/evmSwapInstructionsService'
 import { createGetEVMSwapTransactionRequestInfo } from 'lx/src/features/transactions/swap/review/services/swapTxAndGasInfoService/evm/utils'

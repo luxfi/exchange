@@ -1,5 +1,5 @@
-import { getStorageDriver } from '@luxexchange/api/src/storage/getStorageDriver'
-import { createLxIdentifierService, LxIdentifierService } from '@luxexchange/sessions'
+import { getStorageDriver } from '@l.x/api/src/storage/getStorageDriver'
+import { createLxIdentifierService, LxIdentifierService } from '@l.x/sessions'
 
 const LX_IDENTIFIER_KEY = 'LX_IDENTIFIER'
 

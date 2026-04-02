@@ -1,4 +1,4 @@
-import { GraphQLApi } from '@luxexchange/api'
+import { GraphQLApi } from '@l.x/api'
 import { assetActivity } from 'lx/src/test/fixtures/gql'
 import { amount } from 'lx/src/test/fixtures/gql/amounts'
 import { tokenBalance } from 'lx/src/test/fixtures/gql/assets'

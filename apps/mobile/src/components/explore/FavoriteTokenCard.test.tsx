@@ -2,8 +2,8 @@ import configureMockStore from 'redux-mock-store'
 import { thunk } from 'redux-thunk'
 import FavoriteTokenCard, { FavoriteTokenCardProps } from 'src/components/explore/FavoriteTokenCard'
 import { act, cleanup, fireEvent, render, waitFor } from 'src/test/test-utils'
-import { FiatCurrency } from '@luxexchange/lx/src/features/fiatCurrency/constants'
-import { Language } from '@luxexchange/lx/src/features/language/constants'
+import { FiatCurrency } from '@l.x/lx/src/features/fiatCurrency/constants'
+import { Language } from '@l.x/lx/src/features/language/constants'
 import {
   amount,
   ethToken,
@@ -12,10 +12,10 @@ import {
   tokenMarket,
   tokenProject,
   tokenProjectMarket,
-} from '@luxexchange/lx/src/test/fixtures'
-import { TestID } from '@luxexchange/lx/src/test/fixtures/testIDs'
-import { queryResolvers } from '@luxexchange/lx/src/test/utils'
-import { getSymbolDisplayText } from '@luxexchange/lx/src/utils/currency'
+} from '@l.x/lx/src/test/fixtures'
+import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
+import { queryResolvers } from '@l.x/lx/src/test/utils'
+import { getSymbolDisplayText } from '@l.x/lx/src/utils/currency'
 
 const mockedNavigation = {
   navigate: jest.fn(),

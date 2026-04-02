@@ -1,6 +1,6 @@
 /* eslint-disable max-lines */
 import { ProtocolVersion } from '@luxamm/client-data-api/dist/data/v1/poolTypes_pb'
-import { FeatureFlags, useFeatureFlag } from '@luxexchange/gating'
+import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Flex, Shine, Text, TouchableArea, useIsTouchDevice, useMedia } from '@luxfi/ui/src'

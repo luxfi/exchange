@@ -1,8 +1,8 @@
 import { act, renderHook } from '@testing-library/react'
 import { useNetworkBalanceSheet } from 'src/screens/TokenDetailsScreen/useNetworkBalanceSheet'
-import { UniverseChainId } from '@luxexchange/lx/src/features/chains/types'
-import { PortfolioBalance } from '@luxexchange/lx/src/features/dataApi/types'
-import { CurrencyField } from '@luxexchange/lx/src/types/currency'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { PortfolioBalance } from '@l.x/lx/src/features/dataApi/types'
+import { CurrencyField } from '@l.x/lx/src/types/currency'
 
 const mockNavigateToSwapFlow = jest.fn()
 const mockNavigateToSend = jest.fn()

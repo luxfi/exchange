@@ -1,5 +1,5 @@
 import { Percent } from '@luxamm/sdk-core'
-import { ClassicQuoteResponse, DiscriminatedQuoteResponse, TradingApi } from '@luxexchange/api'
+import { ClassicQuoteResponse, DiscriminatedQuoteResponse, TradingApi } from '@l.x/api'
 import { getTradingApiSwapFee } from 'lx/src/features/transactions/swap/types/getTradingApiSwapFee'
 import { CurrencyField } from 'lx/src/types/currency'
 

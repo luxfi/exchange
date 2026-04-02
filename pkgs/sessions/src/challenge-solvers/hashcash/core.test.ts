@@ -5,7 +5,7 @@ import {
   formatHashcashString,
   type HashcashChallenge,
   verifyProof,
-} from '@luxexchange/sessions/src/challenge-solvers/hashcash/core'
+} from '@l.x/sessions/src/challenge-solvers/hashcash/core'
 import { describe, expect, it } from 'vitest'
 
 describe('hashcash core', () => {

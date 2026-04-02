@@ -3,9 +3,9 @@ import { ProtocolVersion } from '@luxamm/client-data-api/dist/data/v1/poolTypes_
 import { Currency, Percent } from '@luxamm/sdk-core'
 import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
-import { BIPS_BASE } from '@luxexchange/lx/src/constants/misc'
-import { useGetPoolsByTokens } from '@luxexchange/lx/src/data/rest/getPools'
-import { useLocalizationContext } from '@luxexchange/lx/src/features/language/LocalizationContext'
+import { BIPS_BASE } from '@l.x/lx/src/constants/misc'
+import { useGetPoolsByTokens } from '@l.x/lx/src/data/rest/getPools'
+import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
 import { FeeTierData } from '~/components/Liquidity/types'
 import { getTokenOrZeroAddress } from '~/components/Liquidity/utils/currency'
 import {

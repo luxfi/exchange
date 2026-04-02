@@ -1,19 +1,19 @@
 import { TradeType } from '@luxamm/sdk-core'
-import { TradingApi } from '@luxexchange/api'
+import { TradingApi } from '@l.x/api'
 import ms from 'ms'
 import { useEffect, useRef, useState } from 'react'
-import { lxUrls } from '@luxexchange/lx/src/constants/urls'
-import { isL2ChainId } from '@luxexchange/lx/src/features/chains/utils'
-import { InterfaceEventName } from '@luxexchange/lx/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from '@luxexchange/lx/src/features/telemetry/send'
-import { tradeRoutingToFillType } from '@luxexchange/lx/src/features/transactions/swap/analytics'
+import { lxUrls } from '@l.x/lx/src/constants/urls'
+import { isL2ChainId } from '@l.x/lx/src/features/chains/utils'
+import { InterfaceEventName } from '@l.x/lx/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
+import { tradeRoutingToFillType } from '@l.x/lx/src/features/transactions/swap/analytics'
 import {
   ExactInputSwapTransactionInfo,
   TransactionStatus,
   DEXOrderDetails,
-} from '@luxexchange/lx/src/features/transactions/types/transactionDetails'
-import { isFinalizedTxStatus } from '@luxexchange/lx/src/features/transactions/types/utils'
-import { convertOrderStatusToTransactionStatus } from '@luxexchange/lx/src/features/transactions/utils/dexUtils'
+} from '@l.x/lx/src/features/transactions/types/transactionDetails'
+import { isFinalizedTxStatus } from '@l.x/lx/src/features/transactions/types/utils'
+import { convertOrderStatusToTransactionStatus } from '@l.x/lx/src/features/transactions/utils/dexUtils'
 import { logger } from '@luxfi/utilities/src/logger/logger'
 import { useAccount } from '~/hooks/useAccount'
 import { ActivityUpdateTransactionType, OnActivityUpdate } from '~/state/activity/types'

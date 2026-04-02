@@ -1,7 +1,7 @@
 import { AppStackScreenProp } from 'src/app/navigation/types'
 import { ReactNavigationModal } from 'src/components/modals/ReactNavigationModals/ReactNavigationModal'
-import { ReportTokenIssueModal } from '@luxexchange/lx/src/components/reporting/ReportTokenIssueModal'
-import { ModalName } from '@luxexchange/lx/src/features/telemetry/constants'
+import { ReportTokenIssueModal } from '@l.x/lx/src/components/reporting/ReportTokenIssueModal'
+import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
 
 export const ReportTokenIssueModalScreen = (
   props: AppStackScreenProp<typeof ModalName.ReportTokenIssue>,

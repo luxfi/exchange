@@ -16,16 +16,16 @@ import { handleLuxAppDeepLink } from 'src/features/deepLinking/handleLuxAppDeepL
 import { LinkSource } from 'src/features/deepLinking/types'
 import { openModal } from 'src/features/modals/modalSlice'
 import { waitForWcWeb3WalletIsReady } from 'src/features/walletConnect/walletConnectClient'
-import { LUX_WEB_URL } from '@luxexchange/lx/src/constants/urls'
-import { MobileEventName, ModalName } from '@luxexchange/lx/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from '@luxexchange/lx/src/features/telemetry/send'
+import { LUX_WEB_URL } from '@l.x/lx/src/constants/urls'
+import { MobileEventName, ModalName } from '@l.x/lx/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
 import {
   SAMPLE_CURRENCY_ID_1,
   SAMPLE_CURRENCY_ID_2,
   SAMPLE_SEED_ADDRESS_1,
   SAMPLE_SEED_ADDRESS_2,
-} from '@luxexchange/lx/src/test/fixtures'
-import { MobileScreens } from '@luxexchange/lx/src/types/screens/mobile'
+} from '@l.x/lx/src/test/fixtures'
+import { MobileScreens } from '@l.x/lx/src/types/screens/mobile'
 import { setAccountAsActive } from '@luxfi/wallet/src/features/wallet/slice'
 import { signerMnemonicAccount } from '@luxfi/wallet/src/test/fixtures'
 

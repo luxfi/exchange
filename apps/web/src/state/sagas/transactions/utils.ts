@@ -3,32 +3,32 @@ import { datadogRum } from '@datadog/browser-rum'
 import type { TransactionResponse } from '@ethersproject/abstract-provider'
 import type { JsonRpcSigner, Web3Provider } from '@ethersproject/providers'
 import { TradeType } from '@luxamm/sdk-core'
-import { FetchError, TradingApi } from '@luxexchange/api'
-import { BlockedAsyncSubmissionChainIdsConfigKey, DynamicConfigs, getDynamicConfigValue } from '@luxexchange/gating'
+import { FetchError, TradingApi } from '@l.x/api'
+import { BlockedAsyncSubmissionChainIdsConfigKey, DynamicConfigs, getDynamicConfigValue } from '@l.x/gating'
 import ms from 'ms'
 import type { Action } from 'redux'
 import type { SagaGenerator } from 'typed-redux-saga'
 import { call, cancel, delay, fork, put, race, select, spawn, take } from 'typed-redux-saga'
-import { UniverseChainId } from '@luxexchange/lx/src/features/chains/types'
-import { isL2ChainId, isUniverseChainId } from '@luxexchange/lx/src/features/chains/utils'
-import { AppNotification, AppNotificationType } from '@luxexchange/lx/src/features/notifications/slice/types'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { isL2ChainId, isUniverseChainId } from '@l.x/lx/src/features/chains/utils'
+import { AppNotification, AppNotificationType } from '@l.x/lx/src/features/notifications/slice/types'
 import {
   ApprovalEditedInWalletError,
   HandledTransactionInterrupt,
   TransactionError,
   TransactionStepFailedError,
   UnexpectedTransactionStateError,
-} from '@luxexchange/lx/src/features/transactions/errors'
+} from '@l.x/lx/src/features/transactions/errors'
 import {
   addTransaction,
   finalizeTransaction,
   interfaceApplyTransactionHashToBatch,
   interfaceUpdateTransactionInfo,
   type TransactionsState,
-} from '@luxexchange/lx/src/features/transactions/slice'
-import { TokenApprovalTransactionStep } from '@luxexchange/lx/src/features/transactions/steps/approve'
-import type { Permit2TransactionStep } from '@luxexchange/lx/src/features/transactions/steps/permit2Transaction'
-import { TokenRevocationTransactionStep } from '@luxexchange/lx/src/features/transactions/steps/revoke'
+} from '@l.x/lx/src/features/transactions/slice'
+import { TokenApprovalTransactionStep } from '@l.x/lx/src/features/transactions/steps/approve'
+import type { Permit2TransactionStep } from '@l.x/lx/src/features/transactions/steps/permit2Transaction'
+import { TokenRevocationTransactionStep } from '@l.x/lx/src/features/transactions/steps/revoke'
 import type {
   HandleApprovalStepParams,
   HandleOnChainPermit2TransactionStep,
@@ -36,16 +36,16 @@ import type {
   HandleSignatureStepParams,
   OnChainTransactionStep,
   TransactionStep,
-} from '@luxexchange/lx/src/features/transactions/steps/types'
-import { TransactionStepType } from '@luxexchange/lx/src/features/transactions/steps/types'
-import { SolanaTrade } from '@luxexchange/lx/src/features/transactions/swap/types/solana'
+} from '@l.x/lx/src/features/transactions/steps/types'
+import { TransactionStepType } from '@l.x/lx/src/features/transactions/steps/types'
+import { SolanaTrade } from '@l.x/lx/src/features/transactions/swap/types/solana'
 import type {
   BridgeTrade,
   ChainedActionTrade,
   ClassicTrade,
   LxSwapTrade,
-} from '@luxexchange/lx/src/features/transactions/swap/types/trade'
-import { isLxSwap } from '@luxexchange/lx/src/features/transactions/swap/utils/routing'
+} from '@l.x/lx/src/features/transactions/swap/types/trade'
+import { isLxSwap } from '@l.x/lx/src/features/transactions/swap/utils/routing'
 import type {
   ApproveTransactionInfo,
   BridgeTransactionInfo,
@@ -54,17 +54,17 @@ import type {
   InterfaceTransactionDetails,
   Permit2ApproveTransactionInfo,
   PlanSwapTransactionInfoFields,
-} from '@luxexchange/lx/src/features/transactions/types/transactionDetails'
+} from '@l.x/lx/src/features/transactions/types/transactionDetails'
 import {
   TransactionOriginType,
   TransactionStatus,
   TransactionType,
-} from '@luxexchange/lx/src/features/transactions/types/transactionDetails'
-import { getInterfaceTransaction, isInterfaceTransaction } from '@luxexchange/lx/src/features/transactions/types/utils'
-import { areAddressesEqual } from '@luxexchange/lx/src/utils/addresses'
-import { parseERC20ApproveCalldata } from '@luxexchange/lx/src/utils/approvals'
-import { currencyId } from '@luxexchange/lx/src/utils/currencyId'
-import { interruptTransactionFlow } from '@luxexchange/lx/src/utils/saga'
+} from '@l.x/lx/src/features/transactions/types/transactionDetails'
+import { getInterfaceTransaction, isInterfaceTransaction } from '@l.x/lx/src/features/transactions/types/utils'
+import { areAddressesEqual } from '@l.x/lx/src/utils/addresses'
+import { parseERC20ApproveCalldata } from '@l.x/lx/src/utils/approvals'
+import { currencyId } from '@l.x/lx/src/utils/currencyId'
+import { interruptTransactionFlow } from '@l.x/lx/src/utils/saga'
 import { HexString, isValidHexString } from '@luxfi/utilities/src/addresses/hex'
 import { logger } from '@luxfi/utilities/src/logger/logger'
 import { noop } from '@luxfi/utilities/src/react/noop'

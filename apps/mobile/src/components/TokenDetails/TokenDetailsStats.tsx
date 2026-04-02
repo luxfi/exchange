@@ -10,13 +10,13 @@ import { DEP_accentColors, validColor } from '@luxfi/ui/src/theme'
 import {
   useTokenBasicInfoPartsFragment,
   useTokenBasicProjectPartsFragment,
-} from '@luxexchange/lx/src/data/graphql/lux-data-api/fragments'
-import { useTokenMarketStats } from '@luxexchange/lx/src/features/dataApi/tokenDetails/useTokenDetailsData'
-import { currencyIdToContractInput } from '@luxexchange/lx/src/features/dataApi/utils/currencyIdToContractInput'
-import { Language } from '@luxexchange/lx/src/features/language/constants'
-import { useCurrentLanguage, useCurrentLanguageInfo } from '@luxexchange/lx/src/features/language/hooks'
-import { useLocalizationContext } from '@luxexchange/lx/src/features/language/LocalizationContext'
-import { TestID } from '@luxexchange/lx/src/test/fixtures/testIDs'
+} from '@l.x/lx/src/data/graphql/lux-data-api/fragments'
+import { useTokenMarketStats } from '@l.x/lx/src/features/dataApi/tokenDetails/useTokenDetailsData'
+import { currencyIdToContractInput } from '@l.x/lx/src/features/dataApi/utils/currencyIdToContractInput'
+import { Language } from '@l.x/lx/src/features/language/constants'
+import { useCurrentLanguage, useCurrentLanguageInfo } from '@l.x/lx/src/features/language/hooks'
+import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
+import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
 import { NumberType } from '@luxfi/utilities/src/format/types'
 
 const StatsRow = memo(function _StatsRow({

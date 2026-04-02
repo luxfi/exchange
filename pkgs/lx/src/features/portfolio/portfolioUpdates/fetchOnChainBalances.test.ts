@@ -1,5 +1,5 @@
 import { ApolloCache, NormalizedCacheObject } from '@apollo/client'
-import { GraphQLApi } from '@luxexchange/api'
+import { GraphQLApi } from '@l.x/api'
 import { UniverseChainId } from 'lx/src/features/chains/types'
 import { fetchOnChainCurrencyBalance } from 'lx/src/features/portfolio/api'
 import { fetchOnChainBalances } from 'lx/src/features/portfolio/portfolioUpdates/fetchOnChainBalances'

@@ -6,9 +6,9 @@ import { CheckCircleFilled } from '@luxfi/ui/src/components/icons/CheckCircleFil
 import { Eye } from '@luxfi/ui/src/components/icons/Eye'
 import { Shuffle } from '@luxfi/ui/src/components/icons/Shuffle'
 import { spacing } from '@luxfi/ui/src/theme'
-import { NetworkLogo } from '@luxexchange/lx/src/components/CurrencyLogo/NetworkLogo'
-import { getChainInfo } from '@luxexchange/lx/src/features/chains/chainInfo'
-import { UniverseChainId } from '@luxexchange/lx/src/features/chains/types'
+import { NetworkLogo } from '@l.x/lx/src/components/CurrencyLogo/NetworkLogo'
+import { getChainInfo } from '@l.x/lx/src/features/chains/chainInfo'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { MismatchToastItem } from '~/components/Popups/MismatchToastItem'
 import {
   FailedNetworkSwitchPopup,

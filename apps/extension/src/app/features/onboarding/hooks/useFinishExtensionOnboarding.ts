@@ -1,8 +1,8 @@
 import { useEffect, useRef } from 'react'
 import { saveDappConnection } from 'src/app/features/dapp/actions'
-import { LUX_WEB_URL } from '@luxexchange/lx/src/constants/urls'
-import { ImportType } from '@luxexchange/lx/src/types/onboarding'
-import { ExtensionOnboardingFlow } from '@luxexchange/lx/src/types/screens/extension'
+import { LUX_WEB_URL } from '@l.x/lx/src/constants/urls'
+import { ImportType } from '@l.x/lx/src/types/onboarding'
+import { ExtensionOnboardingFlow } from '@l.x/lx/src/types/screens/extension'
 import { logger } from '@luxfi/utilities/src/logger/logger'
 import { useOnboardingContext } from '@luxfi/wallet/src/features/onboarding/OnboardingContext'
 

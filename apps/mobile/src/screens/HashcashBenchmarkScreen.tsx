@@ -1,5 +1,5 @@
-import { HashcashNative } from '@luxexchange/hashcash-native'
-import { findProof as jsFindProof } from '@luxexchange/sessions/src/challenge-solvers/hashcash/core'
+import { HashcashNative } from '@l.x/hashcash-native'
+import { findProof as jsFindProof } from '@l.x/sessions/src/challenge-solvers/hashcash/core'
 import React, { memo, useCallback, useEffect, useMemo } from 'react'
 import { ScrollView } from 'react-native'
 import { BackButton } from 'src/components/buttons/BackButton'

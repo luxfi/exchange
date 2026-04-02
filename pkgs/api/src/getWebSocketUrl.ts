@@ -1,5 +1,5 @@
-import { PROD_WEBSOCKET_BASE_URL, STAGING_WEBSOCKET_BASE_URL } from '@luxexchange/api/src/clients/base/urls'
-import { getConfig } from '@luxexchange/config'
+import { PROD_WEBSOCKET_BASE_URL, STAGING_WEBSOCKET_BASE_URL } from '@l.x/api/src/clients/base/urls'
+import { getConfig } from '@l.x/config'
 import { Environment, getCurrentEnv } from 'utilities/src/environment/getCurrentEnv'
 
 /**

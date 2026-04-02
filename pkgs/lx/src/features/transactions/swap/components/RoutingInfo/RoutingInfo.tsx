@@ -1,4 +1,4 @@
-import type { GasFeeResult } from '@luxexchange/api'
+import type { GasFeeResult } from '@l.x/api'
 import type { UniverseChainId } from 'lx/src/features/chains/types'
 import { AcrossRoutingInfo } from 'lx/src/features/transactions/swap/components/RoutingInfo/AcrossRoutingInfo'
 import { PlanRoutingInfo } from 'lx/src/features/transactions/swap/components/RoutingInfo/ChainedRoutingInfo'

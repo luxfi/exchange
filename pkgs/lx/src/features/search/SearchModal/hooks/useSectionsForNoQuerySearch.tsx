@@ -1,23 +1,23 @@
 import { ExploreStatsResponse, PoolStats } from '@luxamm/client-explore/dist/lx/explore/v1/service_pb'
-import { ALL_NETWORKS_ARG, GqlResult } from '@luxexchange/api'
+import { ALL_NETWORKS_ARG, GqlResult } from '@l.x/api'
 import { useMemo } from 'react'
-import { usePoolStatsToPoolOptions } from '@luxexchange/lx/src/components/lists/items/pools/usePoolStatsToPoolOptions'
-import { SearchModalOption } from '@luxexchange/lx/src/components/lists/items/types'
-import { useFavoriteWalletOptions } from '@luxexchange/lx/src/components/lists/items/wallets/useFavoriteWalletOptions'
-import { OnchainItemSection, OnchainItemSectionName } from '@luxexchange/lx/src/components/lists/OnchainItemList/types'
-import { useOnchainItemListSection } from '@luxexchange/lx/src/components/lists/utils'
-import { useCurrencyInfosToTokenOptions } from '@luxexchange/lx/src/components/TokenSelector/hooks/useCurrencyInfosToTokenOptions'
-import { useTrendingTokensCurrencyInfos } from '@luxexchange/lx/src/components/TokenSelector/hooks/useTrendingTokensCurrencyInfos'
-import { useExploreStatsQuery } from '@luxexchange/lx/src/data/rest/exploreStats'
-import { UniverseChainId } from '@luxexchange/lx/src/features/chains/types'
-import { ClearRecentSearchesButton } from '@luxexchange/lx/src/features/search/ClearRecentSearchesButton'
+import { usePoolStatsToPoolOptions } from '@l.x/lx/src/components/lists/items/pools/usePoolStatsToPoolOptions'
+import { SearchModalOption } from '@l.x/lx/src/components/lists/items/types'
+import { useFavoriteWalletOptions } from '@l.x/lx/src/components/lists/items/wallets/useFavoriteWalletOptions'
+import { OnchainItemSection, OnchainItemSectionName } from '@l.x/lx/src/components/lists/OnchainItemList/types'
+import { useOnchainItemListSection } from '@l.x/lx/src/components/lists/utils'
+import { useCurrencyInfosToTokenOptions } from '@l.x/lx/src/components/TokenSelector/hooks/useCurrencyInfosToTokenOptions'
+import { useTrendingTokensCurrencyInfos } from '@l.x/lx/src/components/TokenSelector/hooks/useTrendingTokensCurrencyInfos'
+import { useExploreStatsQuery } from '@l.x/lx/src/data/rest/exploreStats'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { ClearRecentSearchesButton } from '@l.x/lx/src/features/search/ClearRecentSearchesButton'
 import {
   NUMBER_OF_RESULTS_LONG,
   NUMBER_OF_RESULTS_MEDIUM,
   NUMBER_OF_RESULTS_SHORT,
-} from '@luxexchange/lx/src/features/search/SearchModal/constants'
-import { useRecentlySearchedOptions } from '@luxexchange/lx/src/features/search/SearchModal/hooks/useRecentlySearchedOptions'
-import { SearchTab } from '@luxexchange/lx/src/features/search/SearchModal/types'
+} from '@l.x/lx/src/features/search/SearchModal/constants'
+import { useRecentlySearchedOptions } from '@l.x/lx/src/features/search/SearchModal/hooks/useRecentlySearchedOptions'
+import { SearchTab } from '@l.x/lx/src/features/search/SearchModal/types'
 import { isMobileApp, isWebApp, isWebPlatform } from 'utilities/src/platform'
 
 export function useSectionsForNoQuerySearch({

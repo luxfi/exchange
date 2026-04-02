@@ -1,6 +1,6 @@
 import { NativeEventEmitter, NativeModules, Platform } from 'react-native'
-import { WalletEventName } from '@luxexchange/lx/src/features/telemetry/constants/wallet'
-import { sendAnalyticsEvent } from '@luxexchange/lx/src/features/telemetry/send'
+import { WalletEventName } from '@l.x/lx/src/features/telemetry/constants/wallet'
+import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
 import { logger } from '@luxfi/utilities/src/logger/logger'
 import { isMobileApp } from '@luxfi/utilities/src/platform'
 

@@ -1,6 +1,6 @@
 import { PersistState } from 'redux-persist'
-import { VisibilityState } from '@luxexchange/lx/src/features/visibility/slice'
-import { addActivityVisibility } from '@luxexchange/lx/src/state/luxMigrations'
+import { VisibilityState } from '@l.x/lx/src/features/visibility/slice'
+import { addActivityVisibility } from '@l.x/lx/src/state/luxMigrations'
 
 type PersistAppState = {
   _persist: PersistState

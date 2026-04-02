@@ -1,5 +1,5 @@
 import { useWallet as useSolanaWalletContext } from '@solana/wallet-adapter-react'
-import { Platform } from '@luxexchange/lx/src/features/platforms/types/Platform'
+import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
 import { tryCatch } from '@luxfi/utilities/src/errors'
 import { logger } from '@luxfi/utilities/src/logger/logger'
 import { useEvent } from '@luxfi/utilities/src/react/hooks'

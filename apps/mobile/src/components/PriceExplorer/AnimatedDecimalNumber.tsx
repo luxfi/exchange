@@ -6,7 +6,7 @@ import { AnimatedText } from 'src/components/text/AnimatedText'
 import { Flex, useSporeColors } from '@luxfi/ui/src'
 import { useDeviceDimensions } from '@luxfi/ui/src/hooks/useDeviceDimensions'
 import { fonts, TextVariantTokens } from '@luxfi/ui/src/theme'
-import { TestIDType } from '@luxexchange/lx/src/test/fixtures/testIDs'
+import { TestIDType } from '@l.x/lx/src/test/fixtures/testIDs'
 
 type AnimatedDecimalNumberProps = {
   number: ValueAndFormatted

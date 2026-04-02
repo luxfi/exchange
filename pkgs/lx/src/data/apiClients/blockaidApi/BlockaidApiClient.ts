@@ -1,4 +1,4 @@
-import { type BlockaidApiClient as BlockaidApiClientType, createBlockaidApiClient } from '@luxexchange/api'
+import { type BlockaidApiClient as BlockaidApiClientType, createBlockaidApiClient } from '@l.x/api'
 import { config } from 'lx/src/config'
 import { createLxFetchClient } from 'lx/src/data/apiClients/createLxFetchClient'
 

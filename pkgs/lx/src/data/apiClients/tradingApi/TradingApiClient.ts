@@ -1,5 +1,5 @@
-import { createTradingApiClient, TradingApi, type TradingApiClient as TradingApiClientType } from '@luxexchange/api'
-import { TRADING_API_PATHS } from '@luxexchange/api/src/clients/trading/createTradingApiClient'
+import { createTradingApiClient, TradingApi, type TradingApiClient as TradingApiClientType } from '@l.x/api'
+import { TRADING_API_PATHS } from '@l.x/api/src/clients/trading/createTradingApiClient'
 import {
   EthAsErc20DEXProperties,
   Experiments,
@@ -7,12 +7,12 @@ import {
   getExperimentValueFromLayer,
   getFeatureFlag,
   Layers,
-} from '@luxexchange/gating'
-import { config } from '@luxexchange/lx/src/config'
-import { tradingApiVersionPrefix, lxUrls } from '@luxexchange/lx/src/constants/urls'
-import { createLxFetchClient } from '@luxexchange/lx/src/data/apiClients/createLxFetchClient'
-import { filterChainIdsByPlatform } from '@luxexchange/lx/src/features/chains/utils'
-import { Platform } from '@luxexchange/lx/src/features/platforms/types/Platform'
+} from '@l.x/gating'
+import { config } from '@l.x/lx/src/config'
+import { tradingApiVersionPrefix, lxUrls } from '@l.x/lx/src/constants/urls'
+import { createLxFetchClient } from '@l.x/lx/src/data/apiClients/createLxFetchClient'
+import { filterChainIdsByPlatform } from '@l.x/lx/src/features/chains/utils'
+import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
 
 const TradingFetchClient = createLxFetchClient({
   baseUrl: lxUrls.tradingApiUrl,

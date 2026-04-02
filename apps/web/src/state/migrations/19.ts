@@ -1,5 +1,5 @@
 import { type PersistState } from 'redux-persist'
-import { type Language, Locale, mapLocaleToLanguage } from '@luxexchange/lx/src/features/language/constants'
+import { type Language, Locale, mapLocaleToLanguage } from '@l.x/lx/src/features/language/constants'
 
 export type PersistAppStateV19 = {
   _persist: PersistState

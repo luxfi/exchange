@@ -1,61 +1,61 @@
-import { TradingApi } from '@luxexchange/api'
-import { Experiments } from '@luxexchange/gating'
+import { TradingApi } from '@l.x/api'
+import { Experiments } from '@l.x/gating'
 import ms from 'ms'
 import { useCallback } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { call, type SagaGenerator } from 'typed-redux-saga'
-import { resolvePlatform } from '@luxexchange/lx/src/features/accounts/store/utils/flexibleInput'
-import { type UniverseChainId } from '@luxexchange/lx/src/features/chains/types'
-import { isL2ChainId } from '@luxexchange/lx/src/features/chains/utils'
-import { useLocalizationContext } from '@luxexchange/lx/src/features/language/LocalizationContext'
-import { Platform } from '@luxexchange/lx/src/features/platforms/types/Platform'
-import { SwapEventName } from '@luxexchange/lx/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from '@luxexchange/lx/src/features/telemetry/send'
-import { type SwapTradeBaseProperties } from '@luxexchange/lx/src/features/telemetry/types'
-import { logExperimentQualifyingEvent } from '@luxexchange/lx/src/features/telemetry/utils/logExperimentQualifyingEvent'
-import { selectSwapStartTimestamp } from '@luxexchange/lx/src/features/timing/selectors'
-import { updateSwapStartTimestamp } from '@luxexchange/lx/src/features/timing/slice'
-import { UnexpectedTransactionStateError } from '@luxexchange/lx/src/features/transactions/errors'
+import { resolvePlatform } from '@l.x/lx/src/features/accounts/store/utils/flexibleInput'
+import { type UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { isL2ChainId } from '@l.x/lx/src/features/chains/utils'
+import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
+import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
+import { SwapEventName } from '@l.x/lx/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
+import { type SwapTradeBaseProperties } from '@l.x/lx/src/features/telemetry/types'
+import { logExperimentQualifyingEvent } from '@l.x/lx/src/features/telemetry/utils/logExperimentQualifyingEvent'
+import { selectSwapStartTimestamp } from '@l.x/lx/src/features/timing/selectors'
+import { updateSwapStartTimestamp } from '@l.x/lx/src/features/timing/slice'
+import { UnexpectedTransactionStateError } from '@l.x/lx/src/features/transactions/errors'
 import {
   HandleSwapBatchedStepParams,
   type HandleSwapStepParams,
   type TransactionStep,
   TransactionStepType,
-} from '@luxexchange/lx/src/features/transactions/steps/types'
+} from '@l.x/lx/src/features/transactions/steps/types'
 import {
   type ExtractedBaseTradeAnalyticsProperties,
   getBaseTradeAnalyticsProperties,
-} from '@luxexchange/lx/src/features/transactions/swap/analytics'
-import { getFlashblocksExperimentStatus } from '@luxexchange/lx/src/features/transactions/swap/hooks/useIsUnichainFlashblocksEnabled'
-import { planActions } from '@luxexchange/lx/src/features/transactions/swap/plan/planSaga'
-import { type PlanAnalyticsFields, planAnalyticsToCamelCase } from '@luxexchange/lx/src/features/transactions/swap/plan/types'
-import { handleSwitchChains } from '@luxexchange/lx/src/features/transactions/swap/plan/utils'
-import { getSwapTxRequest } from '@luxexchange/lx/src/features/transactions/swap/steps/swap'
-import { useSwapFormStore } from '@luxexchange/lx/src/features/transactions/swap/stores/swapFormStore/useSwapFormStore'
+} from '@l.x/lx/src/features/transactions/swap/analytics'
+import { getFlashblocksExperimentStatus } from '@l.x/lx/src/features/transactions/swap/hooks/useIsUnichainFlashblocksEnabled'
+import { planActions } from '@l.x/lx/src/features/transactions/swap/plan/planSaga'
+import { type PlanAnalyticsFields, planAnalyticsToCamelCase } from '@l.x/lx/src/features/transactions/swap/plan/types'
+import { handleSwitchChains } from '@l.x/lx/src/features/transactions/swap/plan/utils'
+import { getSwapTxRequest } from '@l.x/lx/src/features/transactions/swap/steps/swap'
+import { useSwapFormStore } from '@l.x/lx/src/features/transactions/swap/stores/swapFormStore/useSwapFormStore'
 import {
   type SwapCallback,
   type SwapCallbackParams,
   type SwapExecutionCallbacks,
-} from '@luxexchange/lx/src/features/transactions/swap/types/swapCallback'
+} from '@l.x/lx/src/features/transactions/swap/types/swapCallback'
 import {
   PermitMethod,
   type ValidatedSwapTxContext,
-} from '@luxexchange/lx/src/features/transactions/swap/types/swapTxAndGasInfo'
+} from '@l.x/lx/src/features/transactions/swap/types/swapTxAndGasInfo'
 import {
   type BridgeTrade,
   type ChainedActionTrade,
   type ClassicTrade,
-} from '@luxexchange/lx/src/features/transactions/swap/types/trade'
-import { slippageToleranceToPercent } from '@luxexchange/lx/src/features/transactions/swap/utils/format'
-import { generateSwapTransactionSteps } from '@luxexchange/lx/src/features/transactions/swap/utils/generateSwapTransactionSteps'
+} from '@l.x/lx/src/features/transactions/swap/types/trade'
+import { slippageToleranceToPercent } from '@l.x/lx/src/features/transactions/swap/utils/format'
+import { generateSwapTransactionSteps } from '@l.x/lx/src/features/transactions/swap/utils/generateSwapTransactionSteps'
 import {
   isClassic,
   isJupiter,
   requireRouting,
   LXSWAP_ROUTING_VARIANTS,
-} from '@luxexchange/lx/src/features/transactions/swap/utils/routing'
-import { getClassicQuoteFromResponse } from '@luxexchange/lx/src/features/transactions/swap/utils/tradingApi'
-import { createMonitoredSaga } from '@luxexchange/lx/src/utils/saga'
+} from '@l.x/lx/src/features/transactions/swap/utils/routing'
+import { getClassicQuoteFromResponse } from '@l.x/lx/src/features/transactions/swap/utils/tradingApi'
+import { createMonitoredSaga } from '@l.x/lx/src/utils/saga'
 import { logger } from '@luxfi/utilities/src/logger/logger'
 import { useEvent } from '@luxfi/utilities/src/react/hooks'
 import { useTrace } from '@luxfi/utilities/src/telemetry/trace/TraceContext'

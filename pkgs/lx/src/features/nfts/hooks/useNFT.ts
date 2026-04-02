@@ -1,4 +1,4 @@
-import { GqlResult, GraphQLApi } from '@luxexchange/api'
+import { GqlResult, GraphQLApi } from '@l.x/api'
 import { useMemo } from 'react'
 import { PollingInterval } from 'lx/src/constants/misc'
 import { GQLNftAsset } from 'lx/src/features/nfts/types'

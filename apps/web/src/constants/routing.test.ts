@@ -1,5 +1,5 @@
-import { COMMON_BASES } from '@luxexchange/lx/src/constants/routing'
-import { UniverseChainId } from '@luxexchange/lx/src/features/chains/types'
+import { COMMON_BASES } from '@l.x/lx/src/constants/routing'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 
 describe('Routing', () => {
   describe('COMMON_BASES', () => {

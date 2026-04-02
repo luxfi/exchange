@@ -1,7 +1,7 @@
-import { FeatureFlags, useFeatureFlag } from '@luxexchange/gating'
-import { CONNECTION_PROVIDER_IDS } from '@luxexchange/lx/src/constants/web3'
-import { SigningCapability } from '@luxexchange/lx/src/features/accounts/store/types/Wallet'
-import { Platform } from '@luxexchange/lx/src/features/platforms/types/Platform'
+import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
+import { CONNECTION_PROVIDER_IDS } from '@l.x/lx/src/constants/web3'
+import { SigningCapability } from '@l.x/lx/src/features/accounts/store/types/Wallet'
+import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
 import { useRecentConnectorId } from '~/components/Web3Provider/constants'
 import { createAccountsStoreGetters } from '~/features/accounts/store/getters'
 import { useAccountsStore } from '~/features/accounts/store/hooks'
@@ -37,7 +37,7 @@ vi.mock('~/components/Web3Provider/constants', async () => {
   }
 })
 
-vi.mock('@luxexchange/gating', async (importOriginal) => {
+vi.mock('@l.x/gating', async (importOriginal) => {
   return {
     ...(await importOriginal()),
     useFeatureFlag: vi.fn(),

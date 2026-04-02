@@ -1,5 +1,5 @@
 import { PersistQueryClientProvider } from '@tanstack/react-query-persist-client'
-import { SharedQueryClient } from '@luxexchange/api'
+import { SharedQueryClient } from '@l.x/api'
 import { PropsWithChildren } from 'react'
 import { createPersister } from 'lx/src/data/apiClients/createPersister'
 import { sharedDehydrateOptions } from 'lx/src/data/apiClients/sharedDehydrateOptions'

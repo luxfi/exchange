@@ -1,4 +1,4 @@
-import { TradingApi } from '@luxexchange/api'
+import { TradingApi } from '@l.x/api'
 import { checkWalletDelegation } from 'lx/src/data/apiClients/tradingApi/TradingApiClient'
 import { DappResponseType } from 'lx/src/features/dappRequests/types'
 import { EthTransaction } from 'lx/src/types/walletConnect'

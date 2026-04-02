@@ -1,5 +1,5 @@
 import { createMigrate } from 'redux-persist'
-import { DEFAULT_LOCALE } from '@luxexchange/lx/src/features/language/constants'
+import { DEFAULT_LOCALE } from '@l.x/lx/src/features/language/constants'
 import { migration1 } from '~/state/migrations/1'
 import { migration2 } from '~/state/migrations/2'
 import { migration3 } from '~/state/migrations/3'

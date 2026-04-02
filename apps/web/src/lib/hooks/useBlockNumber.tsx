@@ -4,7 +4,7 @@
 import { atom } from 'jotai'
 import { useAtomValue } from 'jotai/utils'
 import { createContext, PropsWithChildren, useCallback, useContext, useEffect, useMemo, useState } from 'react'
-import { UniverseChainId } from '@luxexchange/lx/src/features/chains/types'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { useIsWindowVisible } from '@luxfi/utilities/src/react/useIsWindowVisible'
 import { RPC_PROVIDERS } from '~/constants/providers'
 import { useAccount } from '~/hooks/useAccount'

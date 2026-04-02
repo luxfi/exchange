@@ -1,8 +1,8 @@
 {
-  "name": "@luxexchange/logger",
+  "name": "@l.x/logger",
   "version": "0.0.0",
   "dependencies": {
-    "@luxexchange/privacy": "workspace:*",
+    "@l.x/privacy": "workspace:*",
     "source-map-js": "1.2.1"
   },
   "devDependencies": {

@@ -7,8 +7,8 @@ import { SettingsToggleRow } from 'src/app/features/settings/components/Settings
 import { builtInBiometricCapabilitiesQuery } from 'src/app/utils/device/builtInBiometricCapabilitiesQuery'
 import { Flex, Loader, Square } from '@luxfi/ui/src'
 import { iconSizes } from '@luxfi/ui/src/theme'
-import Trace from '@luxexchange/lx/src/features/telemetry/Trace'
-import { ExtensionOnboardingFlow, ExtensionOnboardingScreens } from '@luxexchange/lx/src/types/screens/extension'
+import Trace from '@l.x/lx/src/features/telemetry/Trace'
+import { ExtensionOnboardingFlow, ExtensionOnboardingScreens } from '@l.x/lx/src/types/screens/extension'
 import { logger } from '@luxfi/utilities/src/logger/logger'
 import { useEvent } from '@luxfi/utilities/src/react/hooks'
 

@@ -7,8 +7,8 @@ import {
   isRequestPermissionsRequest,
 } from 'src/app/features/dappRequests/types/DappRequestTypes'
 import { ExtensionState } from 'src/store/extensionReducer'
-import { getBridgingDappUrls } from '@luxexchange/lx/src/features/bridging/constants'
-import { useBridgingSupportedChainIds, useNumBridgingChains } from '@luxexchange/lx/src/features/bridging/hooks/chains'
+import { getBridgingDappUrls } from '@l.x/lx/src/features/bridging/constants'
+import { useBridgingSupportedChainIds, useNumBridgingChains } from '@l.x/lx/src/features/bridging/hooks/chains'
 import { selectHasViewedDappRequestBridgingBanner } from '@luxfi/wallet/src/features/behaviorHistory/selectors'
 import { WalletState } from '@luxfi/wallet/src/state/walletReducer'
 

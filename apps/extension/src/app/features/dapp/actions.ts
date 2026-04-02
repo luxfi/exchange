@@ -6,8 +6,8 @@ import {
   ExtensionToDappRequestType,
   UpdateConnectionRequest,
 } from 'src/background/messagePassing/types/requests'
-import { UniverseChainId } from '@luxexchange/lx/src/features/chains/types'
-import { chainIdToHexadecimalString } from '@luxexchange/lx/src/features/chains/utils'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { chainIdToHexadecimalString } from '@l.x/lx/src/features/chains/utils'
 import { Account } from '@luxfi/wallet/src/features/wallet/accounts/types'
 import { getProviderSync } from '@luxfi/wallet/src/features/wallet/context'
 

@@ -8,8 +8,8 @@
  * Adds Datadog correlation fields for trace/log correlation.
  */
 
-import type { Scrubber } from '@luxexchange/privacy'
-import { createScrubber } from '@luxexchange/privacy'
+import type { Scrubber } from '@l.x/privacy'
+import { createScrubber } from '@l.x/privacy'
 import type { LogContext, Logger, LoggerFactory, LogLevel } from './types'
 import { LOG_LEVEL_ORDER } from './types'
 import { serializeErrorForWideEvent } from './wideEvent'

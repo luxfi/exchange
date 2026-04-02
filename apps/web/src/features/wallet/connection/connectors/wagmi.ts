@@ -1,5 +1,5 @@
 import { connect, getConnectors } from '@wagmi/core'
-import { Platform } from '@luxexchange/lx/src/features/platforms/types/Platform'
+import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
 import { isPlaywrightEnv } from '@luxfi/utilities/src/environment/env'
 import { sleep } from '@luxfi/utilities/src/time/timing'
 import { wagmiConfig } from '~/components/Web3Provider/wagmiConfig'

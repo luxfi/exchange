@@ -1,4 +1,4 @@
-import { TestID } from '@luxexchange/lx/src/test/fixtures/testIDs'
+import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
 import AccountDrawer, { MODAL_WIDTH } from '~/components/AccountDrawer'
 import { useIsLuxExtensionConnected } from '~/hooks/useIsLuxExtensionConnected'
 import { mocked } from '~/test-utils/mocked'

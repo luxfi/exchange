@@ -4,7 +4,7 @@ import {
   useTokenMarketPartsFragment as useTokenMarketPartsFragmentFromApi,
   useTokenProjectMarketsPartsFragment as useTokenProjectMarketsPartsFragmentFromApi,
   useTokenProjectUrlsPartsFragment as useTokenProjectUrlsPartsFragmentFromApi,
-} from '@luxexchange/api'
+} from '@l.x/api'
 import { toGraphQLChain } from 'lx/src/features/chains/utils'
 import { currencyIdToChain, currencyIdToGraphQLAddress } from 'lx/src/utils/currencyId'
 

@@ -11,7 +11,7 @@ import {
   GetNotificationsRequest as ProtoGetNotificationsRequest,
   GetNotificationsResponse as ProtoGetNotificationsResponse,
 } from '@luxamm/client-notification-service/dist/lx/notificationservice/v1/api_pb'
-import { FetchClient } from '@luxexchange/api/src/clients/base/types'
+import { FetchClient } from '@l.x/api/src/clients/base/types'
 
 export interface NotificationsClientContext {
   fetchClient: FetchClient

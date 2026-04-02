@@ -1,4 +1,4 @@
-import { TradingApi } from '@luxexchange/api'
+import { TradingApi } from '@l.x/api'
 import invariant from 'tiny-invariant'
 import { TradingApiClient } from 'lx/src/data/apiClients/tradingApi/TradingApiClient'
 import { UnexpectedTransactionStateError } from 'lx/src/features/transactions/errors'

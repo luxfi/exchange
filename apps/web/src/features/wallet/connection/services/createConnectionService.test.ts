@@ -1,5 +1,5 @@
-import { SigningCapability } from '@luxexchange/lx/src/features/accounts/store/types/Wallet'
-import { Platform } from '@luxexchange/lx/src/features/platforms/types/Platform'
+import { SigningCapability } from '@l.x/lx/src/features/accounts/store/types/Wallet'
+import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
 import { beforeEach, describe, expect, it, Mock, vi } from 'vitest'
 import { ExternalConnector, ExternalWallet } from '~/features/accounts/store/types'
 import { GetConnectorFn } from '~/features/wallet/connection/services/createConnectionService'

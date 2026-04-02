@@ -1,4 +1,4 @@
-import { type ContentStyle } from '@luxexchange/api'
+import { type ContentStyle } from '@l.x/api'
 
 /**
  * Telemetry interface for tracking notification lifecycle events

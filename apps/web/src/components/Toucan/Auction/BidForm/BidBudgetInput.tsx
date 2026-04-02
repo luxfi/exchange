@@ -1,5 +1,5 @@
-import { CurrencyInputPanel } from '@luxexchange/lx/src/components/CurrencyInputPanel/CurrencyInputPanel'
-import { CurrencyField } from '@luxexchange/lx/src/types/currency'
+import { CurrencyInputPanel } from '@l.x/lx/src/components/CurrencyInputPanel/CurrencyInputPanel'
+import { CurrencyField } from '@l.x/lx/src/types/currency'
 import { BudgetFieldState } from '~/components/Toucan/Auction/hooks/useBidBudgetField'
 
 interface BidBudgetInputProps {

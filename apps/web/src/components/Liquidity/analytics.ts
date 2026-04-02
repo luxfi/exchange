@@ -1,10 +1,10 @@
 import { ProtocolVersion } from '@luxamm/client-data-api/dist/data/v1/poolTypes_pb'
 import { Currency, CurrencyAmount } from '@luxamm/sdk-core'
 import { FeeAmount } from '@luxamm/v3-sdk'
-import { LiquidityEventName } from '@luxexchange/lx/src/features/telemetry/constants'
-import { LiquidityAnalyticsProperties } from '@luxexchange/lx/src/features/telemetry/types'
-import { TransactionStepType } from '@luxexchange/lx/src/features/transactions/steps/types'
-import { currencyId, currencyIdToAddress } from '@luxexchange/lx/src/utils/currencyId'
+import { LiquidityEventName } from '@l.x/lx/src/features/telemetry/constants'
+import { LiquidityAnalyticsProperties } from '@l.x/lx/src/features/telemetry/types'
+import { TransactionStepType } from '@l.x/lx/src/features/transactions/steps/types'
+import { currencyId, currencyIdToAddress } from '@l.x/lx/src/utils/currencyId'
 import { ITraceContext } from '@luxfi/utilities/src/telemetry/trace/TraceContext'
 
 export function getLPBaseAnalyticsProperties({

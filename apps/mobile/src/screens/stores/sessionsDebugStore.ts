@@ -1,4 +1,4 @@
-import type { ChallengeResponse, HashcashSolveAnalytics } from '@luxexchange/sessions'
+import type { ChallengeResponse, HashcashSolveAnalytics } from '@l.x/sessions'
 import { create } from 'zustand'
 
 interface SessionState {

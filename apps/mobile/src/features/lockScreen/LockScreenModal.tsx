@@ -15,7 +15,7 @@ import { LUX_MONO_LOGO_LARGE } from '@luxfi/ui/src/assets'
 import { AnimatedFlex } from '@luxfi/ui/src/components/layout/AnimatedFlex'
 import { useDeviceDimensions } from '@luxfi/ui/src/hooks/useDeviceDimensions'
 import { spacing, zIndexes } from '@luxfi/ui/src/theme'
-import { useAppInsets } from '@luxexchange/lx/src/hooks/useAppInsets'
+import { useAppInsets } from '@l.x/lx/src/hooks/useAppInsets'
 import { isAndroid } from '@luxfi/utilities/src/platform'
 import { useEvent } from '@luxfi/utilities/src/react/hooks'
 

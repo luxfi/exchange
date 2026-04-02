@@ -3,7 +3,7 @@ import { configureStore } from '@reduxjs/toolkit'
 import { RenderHookOptions, RenderHookResult, renderHook } from '@testing-library/react'
 import { PropsWithChildren } from 'react'
 import { Provider } from 'react-redux'
-import { luxReducer } from '@luxexchange/lx/src/state/luxReducer'
+import { luxReducer } from '@l.x/lx/src/state/luxReducer'
 
 // Type for the lux state
 type LuxState = ReturnType<typeof luxReducer>

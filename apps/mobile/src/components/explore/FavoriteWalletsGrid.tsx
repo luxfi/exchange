@@ -12,8 +12,8 @@ import FavoriteWalletCard from 'src/components/explore/FavoriteWalletCard'
 import { Loader } from 'src/components/loading/loaders'
 import { Flex } from '@luxfi/ui/src'
 import { AnimatedFlex } from '@luxfi/ui/src/components/layout/AnimatedFlex'
-import { selectWatchedAddressSet } from '@luxexchange/lx/src/features/favorites/selectors'
-import { setFavoriteWallets } from '@luxexchange/lx/src/features/favorites/slice'
+import { selectWatchedAddressSet } from '@l.x/lx/src/features/favorites/selectors'
+import { setFavoriteWallets } from '@l.x/lx/src/features/favorites/slice'
 
 const NUM_COLUMNS = 2
 const ITEM_FLEX = { flex: 1 / NUM_COLUMNS }

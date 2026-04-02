@@ -1,7 +1,7 @@
 import type { QueryClient } from '@tanstack/react-query'
 import { useQueryClient } from '@tanstack/react-query'
 import type { Currency } from '@luxamm/sdk-core'
-import { TradingApi } from '@luxexchange/api'
+import { TradingApi } from '@l.x/api'
 import { useMemo } from 'react'
 import { getSwappableTokensQueryData } from 'lx/src/data/apiClients/tradingApi/useTradingApiSwappableTokensQuery'
 

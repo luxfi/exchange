@@ -1,8 +1,8 @@
 import { useTranslation } from 'react-i18next'
 import { Flex, Text } from '@luxfi/ui/src'
-import { TokenLogo } from '@luxexchange/lx/src/components/CurrencyLogo/TokenLogo'
-import { GetHelpHeader } from '@luxexchange/lx/src/components/dialog/GetHelpHeader'
-import { lxUrls } from '@luxexchange/lx/src/constants/urls'
+import { TokenLogo } from '@l.x/lx/src/components/CurrencyLogo/TokenLogo'
+import { GetHelpHeader } from '@l.x/lx/src/components/dialog/GetHelpHeader'
+import { lxUrls } from '@l.x/lx/src/constants/urls'
 import { AuctionDetails } from '~/components/Toucan/Auction/store/types'
 
 interface BidReviewHeaderProps {

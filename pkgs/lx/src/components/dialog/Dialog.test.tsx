@@ -1,5 +1,5 @@
 import { fireEvent, waitFor } from '@testing-library/react-native'
-import { SharedQueryClient } from '@luxexchange/api'
+import { SharedQueryClient } from '@l.x/api'
 import { Flex, Text } from 'ui/src'
 import { Dialog } from 'lx/src/components/dialog/Dialog.web'
 import type { DialogPreferencesService } from 'lx/src/dialog-preferences'

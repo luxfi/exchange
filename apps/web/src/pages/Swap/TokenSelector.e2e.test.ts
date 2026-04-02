@@ -1,6 +1,6 @@
-import { FeatureFlags } from '@luxexchange/gating'
-import { OnchainItemSectionName } from '@luxexchange/lx/src/components/lists/OnchainItemList/types'
-import { TestID } from '@luxexchange/lx/src/test/fixtures/testIDs'
+import { FeatureFlags } from '@l.x/gating'
+import { OnchainItemSectionName } from '@l.x/lx/src/components/lists/OnchainItemList/types'
+import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
 import { expect, getTest } from '~/playwright/fixtures'
 import { createTestUrlBuilder } from '~/playwright/fixtures/urls'
 

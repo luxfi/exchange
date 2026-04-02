@@ -4,8 +4,8 @@ import {
   Notification,
   OnClick,
 } from '@luxamm/client-notification-service/dist/lx/notificationservice/v1/api_pb'
-import { ContentStyle, type InAppNotification, OnClickAction } from '@luxexchange/api'
-import { type TriggerCondition } from '@luxexchange/notifications/src/notification-data-source/implementations/createLocalTriggerDataSource'
+import { ContentStyle, type InAppNotification, OnClickAction } from '@l.x/api'
+import { type TriggerCondition } from '@l.x/notifications/src/notification-data-source/implementations/createLocalTriggerDataSource'
 import { type ExtensionState } from 'src/store/extensionReducer'
 import { appRatingStateSelector } from '@luxfi/wallet/src/features/appRating/selectors'
 import { setAppRating } from '@luxfi/wallet/src/features/wallet/slice'

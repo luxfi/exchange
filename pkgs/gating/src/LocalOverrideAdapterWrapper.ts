@@ -1,5 +1,5 @@
 import { LocalOverrideAdapter } from '@statsig/js-local-overrides'
-import { getStatsigClient } from '@luxexchange/gating/src/sdk/statsig'
+import { getStatsigClient } from '@l.x/gating/src/sdk/statsig'
 
 // Workaround for @statsig 3.x.x refreshing client after applying overrides to get the result without reloading
 // Should be removed after statsig add real time override apply functionality

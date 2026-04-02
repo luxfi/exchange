@@ -1,12 +1,12 @@
 import { FeeAmount, TICK_SPACINGS } from '@luxamm/v3-sdk'
-import { GraphQLApi } from '@luxexchange/api'
+import { GraphQLApi } from '@l.x/api'
 import ms from 'ms'
 import { useMemo } from 'react'
-import { V2_DEFAULT_FEE_TIER } from '@luxexchange/lx/src/constants/pools'
-import { useEnabledChains } from '@luxexchange/lx/src/features/chains/hooks/useEnabledChains'
-import { UniverseChainId } from '@luxexchange/lx/src/features/chains/types'
-import { toGraphQLChain } from '@luxexchange/lx/src/features/chains/utils'
-import { isSVMChain } from '@luxexchange/lx/src/features/platforms/utils/chains'
+import { V2_DEFAULT_FEE_TIER } from '@l.x/lx/src/constants/pools'
+import { useEnabledChains } from '@l.x/lx/src/features/chains/hooks/useEnabledChains'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { toGraphQLChain } from '@l.x/lx/src/features/chains/utils'
+import { isSVMChain } from '@l.x/lx/src/features/platforms/utils/chains'
 import { FeeData } from '~/components/Liquidity/Create/types'
 
 interface RewardsCampaign {

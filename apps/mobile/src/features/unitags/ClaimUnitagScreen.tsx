@@ -5,17 +5,17 @@ import { navigate } from 'src/app/navigation/rootNavigation'
 import { SafeKeyboardOnboardingScreen } from 'src/features/onboarding/SafeKeyboardOnboardingScreen'
 import { useNavigationHeader } from 'src/utils/useNavigationHeader'
 import { Person } from '@luxfi/ui/src/components/icons'
-import { UnitagEventName } from '@luxexchange/lx/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from '@luxexchange/lx/src/features/telemetry/send'
-import { ClaimUnitagContent } from '@luxexchange/lx/src/features/unitags/ClaimUnitagContent'
-import { ImportType, OnboardingEntryPoint } from '@luxexchange/lx/src/types/onboarding'
+import { UnitagEventName } from '@l.x/lx/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
+import { ClaimUnitagContent } from '@l.x/lx/src/features/unitags/ClaimUnitagContent'
+import { ImportType, OnboardingEntryPoint } from '@l.x/lx/src/types/onboarding'
 import {
   MobileScreens,
   OnboardingScreens,
   SharedUnitagScreenParams,
   UnitagScreens,
   UnitagStackParamList,
-} from '@luxexchange/lx/src/types/screens/mobile'
+} from '@l.x/lx/src/types/screens/mobile'
 import {
   useCreateOnboardingAccountIfNone,
   useOnboardingContext,

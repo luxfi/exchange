@@ -1,5 +1,5 @@
 import { ArrowRight } from '@luxfi/ui/src/components/icons/ArrowRight'
-import { useLocalizationContext } from '@luxexchange/lx/src/features/language/LocalizationContext'
+import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
 import { NumberType } from '@luxfi/utilities/src/format/types'
 import Row from '~/components/deprecated/Row'
 import CurrencyLogo from '~/components/Logo/CurrencyLogo'

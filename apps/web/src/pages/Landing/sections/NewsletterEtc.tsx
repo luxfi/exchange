@@ -6,7 +6,7 @@ import { BookOpen } from '@luxfi/ui/src/components/icons/BookOpen'
 import { GraduationCap } from '@luxfi/ui/src/components/icons/GraduationCap'
 import { PenLine } from '@luxfi/ui/src/components/icons/PenLine'
 import { SpeechBubbles } from '@luxfi/ui/src/components/icons/SpeechBubbles'
-import { lxUrls } from '@luxexchange/lx/src/constants/urls'
+import { lxUrls } from '@l.x/lx/src/constants/urls'
 import { ClickableGuiStyle } from '~/theme/components/styles'
 
 const SectionLayout = styled(Flex, {

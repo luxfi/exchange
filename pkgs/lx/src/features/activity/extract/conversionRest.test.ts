@@ -7,7 +7,7 @@ import {
   SpamCode as RestSpamCode,
   TokenType,
 } from '@luxamm/client-data-api/dist/data/v1/types_pb'
-import { TradingApi } from '@luxexchange/api'
+import { TradingApi } from '@l.x/api'
 import { getNativeAddress, getWrappedNativeAddress } from 'lx/src/constants/addresses'
 import { DAI } from 'lx/src/constants/tokens'
 

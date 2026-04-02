@@ -19,9 +19,9 @@ import {
   readDeviceAccessTimeoutMinutesFromStorage,
   readIsOnboardedFromStorage,
 } from 'src/background/utils/persistedStateUtils'
-import { lxUrls } from '@luxexchange/lx/src/constants/urls'
-import { ExtensionEventName } from '@luxexchange/lx/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from '@luxexchange/lx/src/features/telemetry/send'
+import { lxUrls } from '@l.x/lx/src/constants/urls'
+import { ExtensionEventName } from '@l.x/lx/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
 import { logger } from '@luxfi/utilities/src/logger/logger'
 import { Keyring } from '@luxfi/wallet/src/features/wallet/Keyring/Keyring'
 import { defineBackground } from 'wxt/utils/define-background'

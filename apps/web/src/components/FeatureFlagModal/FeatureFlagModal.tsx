@@ -1,4 +1,4 @@
-import type { DynamicConfigKeys } from '@luxexchange/gating'
+import type { DynamicConfigKeys } from '@l.x/gating'
 import {
   DynamicConfigs,
   ExternallyConnectableExtensionConfigKey,
@@ -9,7 +9,7 @@ import {
   NetworkRequestsConfigKey,
   useDynamicConfigValue,
   useFeatureFlagWithExposureLoggingDisabled,
-} from '@luxexchange/gating'
+} from '@l.x/gating'
 import type { PropsWithChildren, ReactNode } from 'react'
 import { memo } from 'react'
 import { Button, Flex, FlexProps, ModalCloseIcon, Switch, styled, Text, TouchableArea } from '@luxfi/ui/src'

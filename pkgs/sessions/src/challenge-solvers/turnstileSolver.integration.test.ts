@@ -1,8 +1,8 @@
 /// @vitest-environment happy-dom
 import { ChallengeType } from '@luxamm/client-platform-service/dist/lx/platformservice/v1/sessionService_pb'
-import { createTurnstileSolver } from '@luxexchange/sessions/src/challenge-solvers/createTurnstileSolver'
-import { resetTurnstileState } from '@luxexchange/sessions/src/challenge-solvers/turnstileScriptLoader'
-import type { PerformanceTracker } from '@luxexchange/sessions/src/performance/types'
+import { createTurnstileSolver } from '@l.x/sessions/src/challenge-solvers/createTurnstileSolver'
+import { resetTurnstileState } from '@l.x/sessions/src/challenge-solvers/turnstileScriptLoader'
+import type { PerformanceTracker } from '@l.x/sessions/src/performance/types'
 import { afterAll, afterEach, beforeAll, beforeEach, describe, expect, it, vi } from 'vitest'
 
 // Mock performance tracker for testing

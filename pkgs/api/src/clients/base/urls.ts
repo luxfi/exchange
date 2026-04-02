@@ -1,4 +1,4 @@
-import { brand, getGatewayUrl, getWsUrl } from '@luxexchange/config'
+import { brand, getGatewayUrl, getWsUrl } from '@l.x/config'
 import { isBetaEnv, isDevEnv, isPlaywrightEnv, isTestEnv } from 'utilities/src/environment/env'
 import { isAndroid, isExtensionApp, isMobileApp, isWebApp } from 'utilities/src/platform'
 

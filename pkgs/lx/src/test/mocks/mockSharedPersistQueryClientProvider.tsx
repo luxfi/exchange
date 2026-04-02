@@ -1,5 +1,5 @@
 import { QueryClientProvider } from '@tanstack/react-query'
-import { SharedQueryClient } from '@luxexchange/api'
+import { SharedQueryClient } from '@l.x/api'
 import { PropsWithChildren } from 'react'
 import { createMockFn } from 'lx/src/test/mockFn'
 

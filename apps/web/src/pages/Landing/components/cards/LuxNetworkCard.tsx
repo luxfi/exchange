@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next'
 import { Image } from '@luxfi/ui/src'
 import { LuxLogo } from '@luxfi/ui/src/components/icons/LuxLogo'
 import { opacify } from '@luxfi/ui/src/theme'
-import { lxUrls } from '@luxexchange/lx/src/constants/urls'
+import { lxUrls } from '@l.x/lx/src/constants/urls'
 
 const primary = '#FFFFFF'
 

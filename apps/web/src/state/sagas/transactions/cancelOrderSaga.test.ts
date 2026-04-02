@@ -1,8 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit'
 import createSagaMiddleware from 'redux-saga'
-import { UniverseChainId } from '@luxexchange/lx/src/features/chains/types'
-import { cancelTransaction } from '@luxexchange/lx/src/features/transactions/slice'
-import { TransactionStatus } from '@luxexchange/lx/src/features/transactions/types/transactionDetails'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { cancelTransaction } from '@l.x/lx/src/features/transactions/slice'
+import { TransactionStatus } from '@l.x/lx/src/features/transactions/types/transactionDetails'
 import { cancelOrderSaga } from '~/state/sagas/transactions/cancelOrderSaga'
 
 const { mockGetSigner, mockLogger, mockUpdateTransaction, mockAppStore } = vi.hoisted(() => ({

@@ -15,7 +15,7 @@ import type { Logger, LoggerFactory, LogLevel } from './types'
 export interface ServerLoggerCtx {
   /** The AsyncLocalStorage instance — created by the app */
   requestStore: RequestStore
-  /** Map-based fallback context (import { requestContext } from '@luxexchange/logger') */
+  /** Map-based fallback context (import { requestContext } from '@l.x/logger') */
   requestContext: { get(traceId: string): RequestScopedContext | undefined }
   /** Minimum log level (defaults to 'info') */
   minLevel?: LogLevel

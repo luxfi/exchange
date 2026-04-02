@@ -1,6 +1,6 @@
 import type { OnChainTransaction } from '@luxamm/client-data-api/dist/data/v1/types_pb'
 import { Direction } from '@luxamm/client-data-api/dist/data/v1/types_pb'
-import { GraphQLApi } from '@luxexchange/api'
+import { GraphQLApi } from '@l.x/api'
 import { extractDappInfo } from 'lx/src/features/activity/utils/extractDappInfo'
 import { deriveCurrencyAmountFromAssetResponse } from 'lx/src/features/activity/utils/remote'
 import { fromGraphQLChain } from 'lx/src/features/chains/utils'

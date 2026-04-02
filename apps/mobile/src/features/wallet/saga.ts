@@ -1,10 +1,10 @@
 import { CommonActions } from '@react-navigation/core'
 import { dispatchNavigationAction } from 'src/app/navigation/rootNavigation'
 import { call, put, takeEvery } from 'typed-redux-saga'
-import { pushNotification } from '@luxexchange/lx/src/features/notifications/slice/slice'
-import { AppNotificationType } from '@luxexchange/lx/src/features/notifications/slice/types'
-import i18n from '@luxexchange/lx/src/i18n'
-import { MobileScreens } from '@luxexchange/lx/src/types/screens/mobile'
+import { pushNotification } from '@l.x/lx/src/features/notifications/slice/slice'
+import { AppNotificationType } from '@l.x/lx/src/features/notifications/slice/types'
+import i18n from '@l.x/lx/src/i18n'
+import { MobileScreens } from '@l.x/lx/src/types/screens/mobile'
 import { restoreMnemonicComplete } from '@luxfi/wallet/src/features/wallet/slice'
 
 /**

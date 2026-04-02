@@ -7,7 +7,7 @@ import {
   type ProtectionInfo,
   ProtectionResult,
   SafetyLevel,
-} from '@luxexchange/api/src/clients/graphql/__generated__/schema-types'
+} from '@l.x/api/src/clients/graphql/__generated__/schema-types'
 import { logger } from 'utilities/src/logger/logger'
 
 /**

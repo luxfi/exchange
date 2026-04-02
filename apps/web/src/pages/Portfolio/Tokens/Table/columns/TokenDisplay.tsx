@@ -1,4 +1,4 @@
-import { FeatureFlags, useFeatureFlag } from '@luxexchange/gating'
+import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { memo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { EM_DASH, Flex, Text } from '@luxfi/ui/src'

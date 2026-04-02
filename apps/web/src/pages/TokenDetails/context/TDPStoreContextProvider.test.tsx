@@ -1,4 +1,4 @@
-import { GraphQLApi } from '@luxexchange/api'
+import { GraphQLApi } from '@l.x/api'
 import { useContext, useEffect, useRef } from 'react'
 import { useParams } from 'react-router'
 import { UniverseChainId } from 'lx/src/features/chains/types'

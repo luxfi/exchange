@@ -1,7 +1,7 @@
 /* eslint-disable import/no-unused-modules */
 
 import { PropsWithChildren, useEffect, useState } from 'react'
-import { Platform } from '@luxexchange/lx/src/features/platforms/types/Platform'
+import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
 import {
   useActiveAddress,
   useActiveAddresses,

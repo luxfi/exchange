@@ -1,4 +1,4 @@
-import { DAI } from '@luxexchange/lx/src/constants/tokens'
+import { DAI } from '@l.x/lx/src/constants/tokens'
 import { SelfSendSpeedBumpModal } from '~/pages/Swap/Send/SelfSendSpeedBump'
 import { SendContext, SendContextType } from '~/state/send/SendContext'
 import { render, screen } from '~/test-utils/render'

@@ -1,5 +1,5 @@
 import { Flex, View } from '@luxfi/ui/src'
-import { TestID } from '@luxexchange/lx/src/test/fixtures/testIDs'
+import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
 import QueryTokenLogo from '~/components/Logo/QueryTokenLogo'
 import { EllipsisText, TableText } from '~/components/Table/shared/TableText'
 import { TokenStat } from '~/state/explore/types'

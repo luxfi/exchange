@@ -1,8 +1,8 @@
 import { MutationFunctionContext, UseMutationOptions, UseMutationResult, useMutation } from '@tanstack/react-query'
 import { atom } from 'jotai'
 import { useUpdateAtom } from 'jotai/utils'
-import { PasskeysHelpModalTypes } from '@luxexchange/lx/src/features/passkey/PasskeysHelpModal'
-import { ModalName } from '@luxexchange/lx/src/features/telemetry/constants'
+import { PasskeysHelpModalTypes } from '@l.x/lx/src/features/passkey/PasskeysHelpModal'
+import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
 import { logger } from '@luxfi/utilities/src/logger/logger'
 import { useModalState } from '~/hooks/useModalState'
 

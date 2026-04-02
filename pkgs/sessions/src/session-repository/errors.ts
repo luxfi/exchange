@@ -1,4 +1,4 @@
-import { SessionError } from '@luxexchange/sessions/src/session-initialization/sessionErrors'
+import { SessionError } from '@l.x/sessions/src/session-initialization/sessionErrors'
 
 /**
  * Error thrown when the Entry Gateway rejects a challenge request.

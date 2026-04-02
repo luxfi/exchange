@@ -1,13 +1,13 @@
-import { FormattedDEXGasFeeInfo } from '@luxexchange/api'
+import { FormattedDEXGasFeeInfo } from '@l.x/api'
 import { useTranslation } from 'react-i18next'
 import { Flex, Text } from 'ui/src'
 import { DEX } from 'ui/src/components/icons/DEX'
 import { DEXText } from 'ui/src/components/text/DEXText'
-import { NetworkLogo } from '@luxexchange/lx/src/components/CurrencyLogo/NetworkLogo'
-import { TransactionDetailsTooltip as Tooltip } from '@luxexchange/lx/src/components/TransactionDetailsTooltip'
-import { lxUrls } from '@luxexchange/lx/src/constants/urls'
-import { getChainInfo } from '@luxexchange/lx/src/features/chains/chainInfo'
-import { UniverseChainId } from '@luxexchange/lx/src/features/chains/types'
+import { NetworkLogo } from '@l.x/lx/src/components/CurrencyLogo/NetworkLogo'
+import { TransactionDetailsTooltip as Tooltip } from '@l.x/lx/src/components/TransactionDetailsTooltip'
+import { lxUrls } from '@l.x/lx/src/constants/urls'
+import { getChainInfo } from '@l.x/lx/src/features/chains/chainInfo'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 
 export function NetworkCostTooltip({
   chainId,

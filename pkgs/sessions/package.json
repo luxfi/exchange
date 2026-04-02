@@ -1,5 +1,5 @@
 {
-  "name": "@luxexchange/sessions",
+  "name": "@l.x/sessions",
   "version": "1.0.3",
   "scripts": {
     "typecheck": "nx typecheck sessions",

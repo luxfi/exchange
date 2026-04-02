@@ -1,15 +1,15 @@
 import { Currency } from '@luxamm/sdk-core'
 import { useMemo } from 'react'
-import { getChainInfo } from '@luxexchange/lx/src/features/chains/chainInfo'
-import { useSupportedChainId } from '@luxexchange/lx/src/features/chains/hooks/useSupportedChainId'
-import { UniverseChainId } from '@luxexchange/lx/src/features/chains/types'
-import { CurrencyInfo } from '@luxexchange/lx/src/features/dataApi/types'
+import { getChainInfo } from '@l.x/lx/src/features/chains/chainInfo'
+import { useSupportedChainId } from '@l.x/lx/src/features/chains/hooks/useSupportedChainId'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { CurrencyInfo } from '@l.x/lx/src/features/dataApi/types'
 import {
   useCurrencyInfo as useLuxCurrencyInfo,
   useCurrencyInfoWithLoading as useLuxCurrencyInfoWithLoading,
-} from '@luxexchange/lx/src/features/tokens/useCurrencyInfo'
-import { AddressStringFormat, normalizeAddress } from '@luxexchange/lx/src/utils/addresses'
-import { buildCurrencyId } from '@luxexchange/lx/src/utils/currencyId'
+} from '@l.x/lx/src/features/tokens/useCurrencyInfo'
+import { AddressStringFormat, normalizeAddress } from '@l.x/lx/src/utils/addresses'
+import { buildCurrencyId } from '@l.x/lx/src/utils/currencyId'
 import { NATIVE_CHAIN_ID } from '~/constants/tokens'
 import { useAccount } from '~/hooks/useAccount'
 

@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react'
 import { Edge, NativeSafeAreaViewProps } from 'react-native-safe-area-context'
 import { Flex, FlexProps } from '@luxfi/ui/src'
-import { useAppInsets } from '@luxexchange/lx/src/hooks/useAppInsets'
+import { useAppInsets } from '@l.x/lx/src/hooks/useAppInsets'
 
 // Used to determine amount of top padding for short screens
 export const SHORT_SCREEN_HEADER_HEIGHT_RATIO = 0.88

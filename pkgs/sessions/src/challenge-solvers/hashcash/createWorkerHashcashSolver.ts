@@ -4,10 +4,10 @@
  * Offloads proof-of-work computation to a Web Worker to avoid
  * blocking the main thread.
  */
-import { parseHashcashChallenge } from '@luxexchange/sessions/src/challenge-solvers/createHashcashSolver'
-import type { HashcashChallenge } from '@luxexchange/sessions/src/challenge-solvers/hashcash/core'
-import type { HashcashWorkerChannelFactory } from '@luxexchange/sessions/src/challenge-solvers/hashcash/worker/types'
-import type { ChallengeData, ChallengeSolver } from '@luxexchange/sessions/src/challenge-solvers/types'
+import { parseHashcashChallenge } from '@l.x/sessions/src/challenge-solvers/createHashcashSolver'
+import type { HashcashChallenge } from '@l.x/sessions/src/challenge-solvers/hashcash/core'
+import type { HashcashWorkerChannelFactory } from '@l.x/sessions/src/challenge-solvers/hashcash/worker/types'
+import type { ChallengeData, ChallengeSolver } from '@l.x/sessions/src/challenge-solvers/types'
 
 interface CreateWorkerHashcashSolverContext {
   /**

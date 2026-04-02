@@ -16,9 +16,9 @@ import { Flex, Skeleton, Switch, Text, TouchableArea, useSporeColors } from '@lu
 import { Arrow } from '@luxfi/ui/src/components/arrow/Arrow'
 import { RotatableChevron } from '@luxfi/ui/src/components/icons'
 import { iconSizes } from '@luxfi/ui/src/theme'
-import { ModalName } from '@luxexchange/lx/src/features/telemetry/constants'
-import { MobileScreens } from '@luxexchange/lx/src/types/screens/mobile'
-import { openUri } from '@luxexchange/lx/src/utils/linking'
+import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
+import { MobileScreens } from '@l.x/lx/src/types/screens/mobile'
+import { openUri } from '@l.x/lx/src/utils/linking'
 import { SmartWalletAdvancedSettingsModalState } from '@luxfi/wallet/src/components/smartWallet/modals/SmartWalletAdvancedSettingsModal'
 
 export const SETTINGS_ROW_HEIGHT = 60

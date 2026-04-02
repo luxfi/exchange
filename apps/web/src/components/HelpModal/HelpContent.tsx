@@ -5,8 +5,8 @@ import { ExternalLink } from '@luxfi/ui/src/components/icons/ExternalLink'
 import { GraduationCap } from '@luxfi/ui/src/components/icons/GraduationCap'
 import { SpeechBubbles } from '@luxfi/ui/src/components/icons/SpeechBubbles'
 import { X } from '@luxfi/ui/src/components/icons/X'
-import { lxUrls } from '@luxexchange/lx/src/constants/urls'
-import { TestID } from '@luxexchange/lx/src/test/fixtures/testIDs'
+import { lxUrls } from '@l.x/lx/src/constants/urls'
+import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
 
 interface HelpContentProps {
   onClose?: () => void

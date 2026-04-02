@@ -7,9 +7,9 @@ import { AnimatePresence, Button, Flex, Text } from '@luxfi/ui/src'
 import { AnimateInOrder } from '@luxfi/ui/src/animations'
 import { useDeviceDimensions } from '@luxfi/ui/src/hooks/useDeviceDimensions'
 import { spacing } from '@luxfi/ui/src/theme'
-import { UNITAG_SUFFIX } from '@luxexchange/lx/src/features/unitags/constants'
-import { useAppInsets } from '@luxexchange/lx/src/hooks/useAppInsets'
-import { MobileScreens, UnitagScreens } from '@luxexchange/lx/src/types/screens/mobile'
+import { UNITAG_SUFFIX } from '@l.x/lx/src/features/unitags/constants'
+import { useAppInsets } from '@l.x/lx/src/hooks/useAppInsets'
+import { MobileScreens, UnitagScreens } from '@l.x/lx/src/types/screens/mobile'
 import {
   EmojiElement,
   ENSElement,

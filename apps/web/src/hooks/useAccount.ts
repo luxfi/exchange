@@ -1,6 +1,6 @@
 import { useMemo } from 'react'
-import { useSupportedChainId } from '@luxexchange/lx/src/features/chains/hooks/useSupportedChainId'
-import { EVMUniverseChainId } from '@luxexchange/lx/src/features/chains/types'
+import { useSupportedChainId } from '@l.x/lx/src/features/chains/hooks/useSupportedChainId'
+import { EVMUniverseChainId } from '@l.x/lx/src/features/chains/types'
 import {
   type Register,
   type UseAccountReturnType as UseAccountReturnTypeWagmi,

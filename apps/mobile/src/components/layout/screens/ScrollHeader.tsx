@@ -7,7 +7,7 @@ import { WithScrollToTop } from 'src/components/layout/screens/WithScrollToTop'
 import { ColorTokens, Flex } from '@luxfi/ui/src'
 import { AnimatedFlex } from '@luxfi/ui/src/components/layout/AnimatedFlex'
 import { iconSizes, zIndexes } from '@luxfi/ui/src/theme'
-import { useAppInsets } from '@luxexchange/lx/src/hooks/useAppInsets'
+import { useAppInsets } from '@l.x/lx/src/hooks/useAppInsets'
 
 type ScrollHeaderProps = {
   scrollY: SharedValue<number>

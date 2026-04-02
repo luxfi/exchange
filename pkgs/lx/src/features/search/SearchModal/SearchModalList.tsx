@@ -7,8 +7,8 @@ import { PoolOptionItem } from 'lx/src/components/lists/items/pools/PoolOptionIt
 import {
   PoolContextMenuAction,
   PoolOptionItemContextMenu,
-} from '@luxexchange/lx/src/components/lists/items/pools/PoolOptionItemContextMenu'
-import { TokenContextMenuVariant, TokenOptionItem } from '@luxexchange/lx/src/components/lists/items/tokens/TokenOptionItem'
+} from '@l.x/lx/src/components/lists/items/pools/PoolOptionItemContextMenu'
+import { TokenContextMenuVariant, TokenOptionItem } from '@l.x/lx/src/components/lists/items/tokens/TokenOptionItem'
 import {
   TokenContextMenuAction,
   TokenOptionItemContextMenu,

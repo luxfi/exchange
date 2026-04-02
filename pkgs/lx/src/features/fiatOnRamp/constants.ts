@@ -1,4 +1,4 @@
-import { FeatureFlags, getFeatureFlag } from '@luxexchange/gating'
+import { FeatureFlags, getFeatureFlag } from '@l.x/gating'
 import { config } from 'lx/src/config'
 import { lxUrls } from 'lx/src/constants/urls'
 import { getVersionHeader } from 'lx/src/data/getVersionHeader'

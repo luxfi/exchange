@@ -1,5 +1,5 @@
-import { USDT } from '@luxexchange/lx/src/constants/tokens'
-import { TestID } from '@luxexchange/lx/src/test/fixtures/testIDs'
+import { USDT } from '@l.x/lx/src/constants/tokens'
+import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
 import { expect, getTest } from '~/playwright/fixtures'
 
 const test = getTest()

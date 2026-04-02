@@ -1,4 +1,4 @@
-import { DAI } from '@luxexchange/lx/src/constants/tokens'
+import { DAI } from '@l.x/lx/src/constants/tokens'
 import { NewAddressSpeedBumpModal } from '~/pages/Swap/Send/NewAddressSpeedBump'
 import { SendContext, SendContextType } from '~/state/send/SendContext'
 import { render, screen } from '~/test-utils/render'
@@ -22,7 +22,7 @@ const mockSendContext: SendContextType = {
   setSendState: vi.fn(),
 }
 
-vi.mock('@luxexchange/gating', async (importOriginal) => {
+vi.mock('@l.x/gating', async (importOriginal) => {
   return {
     ...(await importOriginal()),
     useFeatureFlag: vi.fn(),

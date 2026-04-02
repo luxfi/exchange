@@ -6,7 +6,7 @@ import {
   SpamCode as RestSpamCode,
   TokenMetadata,
 } from '@luxamm/client-data-api/dist/data/v1/types_pb'
-import { GraphQLApi, SpamCode } from '@luxexchange/api'
+import { GraphQLApi, SpamCode } from '@l.x/api'
 import { AttackType, SafetyInfo, TokenList } from 'lx/src/features/dataApi/types'
 
 function getTokenListFromSafetyLevel(safetyInfo?: GraphQLApi.SafetyLevel): TokenList {

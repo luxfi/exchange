@@ -1,5 +1,5 @@
-import { TradingApi } from '@luxexchange/api'
-import { FeatureFlags, getFeatureFlag } from '@luxexchange/gating'
+import { TradingApi } from '@l.x/api'
+import { FeatureFlags, getFeatureFlag } from '@l.x/gating'
 import { createGetSupportedChainId } from 'lx/src/features/chains/hooks/useSupportedChainId'
 import { UniverseChainId } from 'lx/src/features/chains/types'
 import { createGetV4SwapEnabled } from 'lx/src/features/transactions/swap/hooks/useV4SwapEnabled'
@@ -11,8 +11,8 @@ import {
 } from 'lx/src/features/transactions/swap/utils/protocols'
 import type { Mock } from 'vitest'
 
-vi.mock('@luxexchange/gating', async (importOriginal) => {
-  const actual = await importOriginal<typeof import('@luxexchange/gating')>()
+vi.mock('@l.x/gating', async (importOriginal) => {
+  const actual = await importOriginal<typeof import('@l.x/gating')>()
   return {
     ...actual,
     useFeatureFlag: vi.fn(),

@@ -1,4 +1,4 @@
-import { ContentStyle } from '@luxexchange/api'
+import { ContentStyle } from '@l.x/api'
 
 /**
  * Converts a ContentStyle enum value to a human-readable string for logging/telemetry

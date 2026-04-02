@@ -1,5 +1,5 @@
 import { Token } from '@luxamm/sdk-core'
-import { DAI } from '@luxexchange/lx/src/constants/tokens'
+import { DAI } from '@l.x/lx/src/constants/tokens'
 import { tryParsePrice } from '~/state/mint/v3/utils'
 
 describe('hooks', () => {

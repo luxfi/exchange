@@ -6,9 +6,9 @@ import {
   PROD_ENTRY_GATEWAY_API_BASE_URL,
   STAGING_ENTRY_GATEWAY_API_BASE_URL,
   TrafficFlows,
-} from '@luxexchange/api'
-import { brand, getBrandUrl, getDocsUrl } from '@luxexchange/config'
-import { FeatureFlags, getFeatureFlag } from '@luxexchange/gating'
+} from '@l.x/api'
+import { brand, getBrandUrl, getDocsUrl } from '@l.x/config'
+import { FeatureFlags, getFeatureFlag } from '@l.x/gating'
 import { config } from 'lx/src/config'
 import { isBetaEnv, isDevEnv, isPlaywrightEnv } from 'utilities/src/environment/env'
 import { isWebApp } from 'utilities/src/platform'

@@ -6,9 +6,9 @@ import { useUnitagClaimContext } from 'src/app/features/unitags/UnitagClaimConte
 import { Flex, Square } from '@luxfi/ui/src'
 import { Person } from '@luxfi/ui/src/components/icons'
 import { iconSizes } from '@luxfi/ui/src/theme'
-import Trace from '@luxexchange/lx/src/features/telemetry/Trace'
-import { ClaimUnitagContent, ClaimUnitagContentProps } from '@luxexchange/lx/src/features/unitags/ClaimUnitagContent'
-import { ExtensionScreens, ExtensionUnitagClaimScreens } from '@luxexchange/lx/src/types/screens/extension'
+import Trace from '@l.x/lx/src/features/telemetry/Trace'
+import { ClaimUnitagContent, ClaimUnitagContentProps } from '@l.x/lx/src/features/unitags/ClaimUnitagContent'
+import { ExtensionScreens, ExtensionUnitagClaimScreens } from '@l.x/lx/src/types/screens/extension'
 import { useAccountAddressFromUrlWithThrow } from '@luxfi/wallet/src/features/wallet/hooks'
 
 type onNavigateContinueType = Exclude<ClaimUnitagContentProps['onNavigateContinue'], undefined>

@@ -1,5 +1,5 @@
 import { Currency, CurrencyAmount } from '@luxamm/sdk-core'
-import { GasEstimate } from '@luxexchange/api'
+import { GasEstimate } from '@l.x/api'
 import { providers } from 'ethers'
 import { useMemo } from 'react'
 import { useDispatch } from 'react-redux'

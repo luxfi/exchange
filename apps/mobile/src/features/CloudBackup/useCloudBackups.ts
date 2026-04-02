@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from 'react'
 import { getCloudBackupList } from 'src/features/CloudBackup/RNCloudStorageBackupsManager'
 import { CloudStorageMnemonicBackup } from 'src/features/CloudBackup/types'
-import { config } from '@luxexchange/lx/src/config'
+import { config } from '@l.x/lx/src/config'
 
 type UseCloudBackup = {
   backups: CloudStorageMnemonicBackup[]

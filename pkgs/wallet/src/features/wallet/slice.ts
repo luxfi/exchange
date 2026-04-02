@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { RankingType } from '@luxexchange/api'
+import { RankingType } from '@l.x/api'
 import { AccountType } from 'lx/src/features/accounts/types'
 import { Platform } from 'lx/src/features/platforms/types/Platform'
 import { areAddressesEqual, getValidAddress } from 'lx/src/utils/addresses'

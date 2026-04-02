@@ -11,7 +11,7 @@ import {
   getStatsigClient,
   WALLET_FEATURE_FLAG_NAMES,
   WEB_FEATURE_FLAG_NAMES,
-} from '@luxexchange/gating'
+} from '@l.x/gating'
 import { config } from 'lx/src/config'
 import { getUniqueId } from 'utilities/src/device/uniqueId'
 import { datadogEnabledBuild, localDevDatadogEnabled } from 'utilities/src/environment/constants'

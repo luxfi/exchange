@@ -1,4 +1,4 @@
-import { createConnectTransportWithDefaults, getEntryGatewayUrl } from '@luxexchange/api'
+import { createConnectTransportWithDefaults, getEntryGatewayUrl } from '@l.x/api'
 
 export const auctionsTransport = createConnectTransportWithDefaults({
   baseUrl: getEntryGatewayUrl(),

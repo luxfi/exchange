@@ -1,6 +1,6 @@
 import { ChainId } from '@luxamm/client-liquidity/dist/lx/liquidity/v1/types_pb'
 import { useCallback, useRef, useState } from 'react'
-import { useSubmitBidMutation } from '@luxexchange/lx/src/data/rest/auctions/useSubmitBidMutation'
+import { useSubmitBidMutation } from '@l.x/lx/src/data/rest/auctions/useSubmitBidMutation'
 import { logger } from '@luxfi/utilities/src/logger/logger'
 import { PreparedBidTransaction } from '~/components/Toucan/Auction/hooks/useBidFormSubmit'
 

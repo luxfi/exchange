@@ -1,4 +1,4 @@
-import { DynamicConfigs, useDynamicConfigValue, VerifiedAuctionsConfigKey } from '@luxexchange/gating'
+import { DynamicConfigs, useDynamicConfigValue, VerifiedAuctionsConfigKey } from '@l.x/gating'
 import { memo, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router'

@@ -1,10 +1,10 @@
 import type { TransactionRequest } from '@ethersproject/providers'
-import type { FetchClient } from '@luxexchange/api/src/clients/base/types'
+import type { FetchClient } from '@l.x/api/src/clients/base/types'
 import {
   type GasFeeResponse,
   type GasFeeResultWithoutState,
   type GasStrategy,
-} from '@luxexchange/api/src/clients/trading/types'
+} from '@l.x/api/src/clients/trading/types'
 import { isWebApp } from 'utilities/src/platform'
 
 // TODO(app-infra), de-duplicate with lxUrls when other consumers are migrated to use this client

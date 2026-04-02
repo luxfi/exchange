@@ -1,4 +1,4 @@
-import { FeatureFlags, useFeatureFlag } from '@luxexchange/gating'
+import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { useEnabledChains } from 'lx/src/features/chains/hooks/useEnabledChains'
 import type { UniverseChainId } from 'lx/src/features/chains/types'
 import { useSwapFormStore } from 'lx/src/features/transactions/swap/stores/swapFormStore/useSwapFormStore'

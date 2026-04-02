@@ -3,7 +3,7 @@ import {
   EmbeddedWalletBetaPassphrasesKey,
   getDynamicConfigValue,
   getOverrideAdapter,
-} from '@luxexchange/gating'
+} from '@l.x/gating'
 import { useCallback, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router'

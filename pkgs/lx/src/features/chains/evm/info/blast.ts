@@ -7,18 +7,18 @@ import {
   DEFAULT_NATIVE_ADDRESS_LEGACY,
   DEFAULT_RETRY_OPTIONS,
   getQuicknodeEndpointUrl,
-} from '@luxexchange/lx/src/features/chains/evm/rpc'
-import { buildChainTokens } from '@luxexchange/lx/src/features/chains/evm/tokens'
-import { GENERIC_L2_GAS_CONFIG } from '@luxexchange/lx/src/features/chains/gasDefaults'
+} from '@l.x/lx/src/features/chains/evm/rpc'
+import { buildChainTokens } from '@l.x/lx/src/features/chains/evm/tokens'
+import { GENERIC_L2_GAS_CONFIG } from '@l.x/lx/src/features/chains/gasDefaults'
 import {
   GqlChainId,
   NetworkLayer,
   RPCType,
   UniverseChainId,
   UniverseChainInfo,
-} from '@luxexchange/lx/src/features/chains/types'
-import { Platform } from '@luxexchange/lx/src/features/platforms/types/Platform'
-import { ElementName } from '@luxexchange/lx/src/features/telemetry/constants'
+} from '@l.x/lx/src/features/chains/types'
+import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
+import { ElementName } from '@l.x/lx/src/features/telemetry/constants'
 import { blast } from 'wagmi/chains'
 
 const tokens = buildChainTokens({

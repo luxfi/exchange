@@ -1,5 +1,5 @@
 {
-  "name": "@luxexchange/gating",
+  "name": "@l.x/gating",
   "version": "1.0.3",
   "dependencies": {
     "@statsig/client-core": "3.12.2",
@@ -7,8 +7,8 @@
     "@statsig/js-local-overrides": "3.12.2",
     "@statsig/react-bindings": "3.12.2",
     "@statsig/react-native-bindings": "3.12.2",
-    "@luxexchange/api": "workspace:*",
-    "@luxexchange/config": "workspace:*",
+    "@l.x/api": "workspace:*",
+    "@l.x/config": "workspace:*",
     "@luxfi/utilities": "workspace:*"
   },
   "devDependencies": {

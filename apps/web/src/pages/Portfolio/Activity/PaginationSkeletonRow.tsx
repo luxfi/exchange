@@ -1,6 +1,6 @@
 import { CellContext, flexRender, getCoreRowModel, useReactTable } from '@tanstack/react-table'
 import { memo } from 'react'
-import { TransactionDetails } from '@luxexchange/lx/src/features/transactions/types/transactionDetails'
+import { TransactionDetails } from '@l.x/lx/src/features/transactions/types/transactionDetails'
 import { CellContainer, DataRow } from '~/components/Table/styled'
 import { getColumnSizingStyles } from '~/components/Table/utils/getColumnSizingStyles'
 import { useActivityTableColumns } from '~/pages/Portfolio/Activity/ActivityTable/ActivityTable'

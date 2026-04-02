@@ -2,8 +2,8 @@ import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Flex, ModalCloseIcon, Text, TouchableArea } from '@luxfi/ui/src'
 import { BackArrow } from '@luxfi/ui/src/components/icons/BackArrow'
-import { Deadline } from '@luxexchange/lx/src/features/transactions/components/settings/settingsConfigurations/deadline/Deadline/Deadline'
-import { Slippage } from '@luxexchange/lx/src/features/transactions/components/settings/settingsConfigurations/slippage/Slippage/Slippage'
+import { Deadline } from '@l.x/lx/src/features/transactions/components/settings/settingsConfigurations/deadline/Deadline/Deadline'
+import { Slippage } from '@l.x/lx/src/features/transactions/components/settings/settingsConfigurations/slippage/Slippage/Slippage'
 import { LPSettings } from '~/components/LPSettings'
 
 export function LiquidityModalHeader({

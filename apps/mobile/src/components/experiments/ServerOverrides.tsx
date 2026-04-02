@@ -3,11 +3,11 @@ import { useDispatch, useSelector } from 'react-redux'
 import { selectCustomEndpoint } from 'src/features/tweaks/selectors'
 import { setCustomEndpoint } from 'src/features/tweaks/slice'
 import { Accordion, Flex, Text } from '@luxfi/ui/src'
-import { GatingButton } from '@luxexchange/lx/src/components/gating/GatingButton'
-import { AccordionHeader } from '@luxexchange/lx/src/components/gating/GatingOverrides'
-import { TextInput } from '@luxexchange/lx/src/components/input/TextInput'
-import { pushNotification } from '@luxexchange/lx/src/features/notifications/slice/slice'
-import { AppNotificationType } from '@luxexchange/lx/src/features/notifications/slice/types'
+import { GatingButton } from '@l.x/lx/src/components/gating/GatingButton'
+import { AccordionHeader } from '@l.x/lx/src/components/gating/GatingOverrides'
+import { TextInput } from '@l.x/lx/src/components/input/TextInput'
+import { pushNotification } from '@l.x/lx/src/features/notifications/slice/slice'
+import { AppNotificationType } from '@l.x/lx/src/features/notifications/slice/types'
 
 export function ServerOverrides(): JSX.Element {
   const dispatch = useDispatch()

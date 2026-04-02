@@ -2,7 +2,7 @@ import { ProtocolVersion } from '@luxamm/client-data-api/dist/data/v1/poolTypes_
 import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Button, Flex, Switch, Text } from '@luxfi/ui/src'
-import { nativeOnChain } from '@luxexchange/lx/src/constants/tokens'
+import { nativeOnChain } from '@l.x/lx/src/constants/tokens'
 import { ErrorCallout } from '~/components/ErrorCallout'
 import { DepositInputForm } from '~/components/Liquidity/DepositInputForm'
 import { useUpdatedAmountsFromDependentAmount } from '~/components/Liquidity/hooks/useDependentAmountFallback'

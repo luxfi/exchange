@@ -1,5 +1,5 @@
 import { Nft, OnChainTransaction, Token } from '@luxamm/client-data-api/dist/data/v1/types_pb'
-import { SpamCode } from '@luxexchange/api'
+import { SpamCode } from '@l.x/api'
 import { AssetType } from 'lx/src/entities/assets'
 import { extractDappInfo } from 'lx/src/features/activity/utils/extractDappInfo'
 import {

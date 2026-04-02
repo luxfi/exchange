@@ -1,6 +1,6 @@
 import { Auction, Checkpoint } from '@luxamm/client-data-api/dist/data/v1/auction_pb'
-import { EVMUniverseChainId } from '@luxexchange/lx/src/features/chains/types'
-import { CurrencyInfo } from '@luxexchange/lx/src/features/dataApi/types'
+import { EVMUniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { CurrencyInfo } from '@l.x/lx/src/features/dataApi/types'
 import type { ChartMode } from '~/components/Charts/ToucanChart/renderer'
 
 export type BidDistributionData = Map<string, string>

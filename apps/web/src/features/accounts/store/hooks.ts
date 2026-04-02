@@ -1,17 +1,17 @@
 /* eslint-disable import/no-unused-modules */
 
 import { useMemo } from 'react'
-import { CONNECTION_PROVIDER_IDS } from '@luxexchange/lx/src/constants/web3'
-import { AccessPattern } from '@luxexchange/lx/src/features/accounts/store/types/Connector'
-import { createUseActiveAccount } from '@luxexchange/lx/src/features/accounts/store/utils/accounts'
-import { createUseActiveAddress, createUseActiveAddresses } from '@luxexchange/lx/src/features/accounts/store/utils/addresses'
+import { CONNECTION_PROVIDER_IDS } from '@l.x/lx/src/constants/web3'
+import { AccessPattern } from '@l.x/lx/src/features/accounts/store/types/Connector'
+import { createUseActiveAccount } from '@l.x/lx/src/features/accounts/store/utils/accounts'
+import { createUseActiveAddress, createUseActiveAddresses } from '@l.x/lx/src/features/accounts/store/utils/addresses'
 import {
   createUseActiveConnector,
   createUseConnectionStatus,
-} from '@luxexchange/lx/src/features/accounts/store/utils/connection'
-import { createUseAccountsStore } from '@luxexchange/lx/src/features/accounts/store/utils/createUseAccountsStore'
-import { createUseActiveWallet, createUseWalletWithId } from '@luxexchange/lx/src/features/accounts/store/utils/wallets'
-import { Platform } from '@luxexchange/lx/src/features/platforms/types/Platform'
+} from '@l.x/lx/src/features/accounts/store/utils/connection'
+import { createUseAccountsStore } from '@l.x/lx/src/features/accounts/store/utils/createUseAccountsStore'
+import { createUseActiveWallet, createUseWalletWithId } from '@l.x/lx/src/features/accounts/store/utils/wallets'
+import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
 import { useAccountsStoreContext } from '~/features/accounts/store/provider'
 
 export const useAccountsStore = createUseAccountsStore(useAccountsStoreContext)

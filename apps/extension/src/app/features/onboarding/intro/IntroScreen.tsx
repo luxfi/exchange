@@ -10,8 +10,8 @@ import { navigate } from 'src/app/navigation/state'
 import { checksIfSupportsSidePanel } from 'src/app/utils/chrome'
 import { isOnboardedSelector } from 'src/app/utils/isOnboardedSelector'
 import { Button, Flex, Text } from '@luxfi/ui/src'
-import Trace from '@luxexchange/lx/src/features/telemetry/Trace'
-import { ExtensionOnboardingScreens } from '@luxexchange/lx/src/types/screens/extension'
+import Trace from '@l.x/lx/src/features/telemetry/Trace'
+import { ExtensionOnboardingScreens } from '@l.x/lx/src/types/screens/extension'
 import { useTimeout } from '@luxfi/utilities/src/time/timing'
 
 export function IntroScreen(): JSX.Element {

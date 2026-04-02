@@ -1,5 +1,5 @@
-import { useSelectAddressNotifications } from '@luxexchange/lx/src/features/notifications/slice/hooks'
-import { AppNotification, AppNotificationType } from '@luxexchange/lx/src/features/notifications/slice/types'
+import { useSelectAddressNotifications } from '@l.x/lx/src/features/notifications/slice/hooks'
+import { AppNotification, AppNotificationType } from '@l.x/lx/src/features/notifications/slice/types'
 import { DappConnectedNotification } from '@luxfi/wallet/src/features/notifications/components/DappConnectedNotification'
 import { DappDisconnectedNotification } from '@luxfi/wallet/src/features/notifications/components/DappDisconnectedNotification'
 import { NotSupportedNetworkNotification } from '@luxfi/wallet/src/features/notifications/components/NotSupportedNetworkNotification'

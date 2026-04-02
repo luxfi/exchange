@@ -1,4 +1,4 @@
-import { GraphQLApi } from '@luxexchange/api'
+import { GraphQLApi } from '@l.x/api'
 import { normalizeTokenAddressForCache } from 'lx/src/data/cache'
 import { EMPTY_NFT_ITEM, HIDDEN_NFTS_ROW } from 'lx/src/features/nfts/constants'
 import { NFTItem } from 'lx/src/features/nfts/types'

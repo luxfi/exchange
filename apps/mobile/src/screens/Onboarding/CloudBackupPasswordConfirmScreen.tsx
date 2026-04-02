@@ -7,8 +7,8 @@ import { BackupSpeedBumpModal } from 'src/features/onboarding/BackupSpeedBumpMod
 import { SafeKeyboardOnboardingScreen } from 'src/features/onboarding/SafeKeyboardOnboardingScreen'
 import { Flex } from '@luxfi/ui/src'
 import { Cloud } from '@luxfi/ui/src/components/icons'
-import { OnboardingEntryPoint } from '@luxexchange/lx/src/types/onboarding'
-import { OnboardingScreens } from '@luxexchange/lx/src/types/screens/mobile'
+import { OnboardingEntryPoint } from '@l.x/lx/src/types/onboarding'
+import { OnboardingScreens } from '@l.x/lx/src/types/screens/mobile'
 import { dismissNativeKeyboard } from '@luxfi/utilities/src/device/keyboard/dismissNativeKeyboard'
 import { BackupType } from '@luxfi/wallet/src/features/wallet/accounts/types'
 

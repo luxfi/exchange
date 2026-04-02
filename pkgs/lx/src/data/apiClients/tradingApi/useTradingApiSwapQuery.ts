@@ -3,7 +3,7 @@ import {
   type TradingApi,
   type UseQueryWithImmediateGarbageCollectionApiHelperHookArgs,
   useQueryWithImmediateGarbageCollection,
-} from '@luxexchange/api'
+} from '@l.x/api'
 import { lxUrls } from 'lx/src/constants/urls'
 import { TradingApiClient } from 'lx/src/data/apiClients/tradingApi/TradingApiClient'
 import {

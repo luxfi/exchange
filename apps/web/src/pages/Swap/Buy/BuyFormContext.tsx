@@ -1,14 +1,14 @@
 import { skipToken } from '@tanstack/react-query'
 import { createContext, Dispatch, PropsWithChildren, SetStateAction, useContext, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { buildPartialCurrencyInfo } from '@luxexchange/lx/src/constants/routing'
-import { nativeOnChain } from '@luxexchange/lx/src/constants/tokens'
-import { useActiveAddress } from '@luxexchange/lx/src/features/accounts/store/hooks'
-import { UniverseChainId } from '@luxexchange/lx/src/features/chains/types'
+import { buildPartialCurrencyInfo } from '@l.x/lx/src/constants/routing'
+import { nativeOnChain } from '@l.x/lx/src/constants/tokens'
+import { useActiveAddress } from '@l.x/lx/src/features/accounts/store/hooks'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import {
   useFiatOnRampAggregatorCountryListQuery,
   useFiatOnRampAggregatorCryptoQuoteQuery,
-} from '@luxexchange/lx/src/features/fiatOnRamp/hooks/useFiatOnRampQueries'
+} from '@l.x/lx/src/features/fiatOnRamp/hooks/useFiatOnRampQueries'
 import {
   FiatCurrencyInfo,
   FiatOnRampCurrency,
@@ -17,7 +17,7 @@ import {
   FORQuoteResponse,
   RampDirection,
   SupportedCountriesResponse,
-} from '@luxexchange/lx/src/features/fiatOnRamp/types'
+} from '@l.x/lx/src/features/fiatOnRamp/types'
 import {
   InvalidRequestAmountTooHigh,
   InvalidRequestAmountTooLow,
@@ -26,9 +26,9 @@ import {
   isFiatOnRampApiError,
   isInvalidRequestAmountTooHigh,
   isInvalidRequestAmountTooLow,
-} from '@luxexchange/lx/src/features/fiatOnRamp/utils'
-import { useLocalizationContext } from '@luxexchange/lx/src/features/language/LocalizationContext'
-import { getSymbolDisplayText } from '@luxexchange/lx/src/utils/currency'
+} from '@l.x/lx/src/features/fiatOnRamp/utils'
+import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
+import { getSymbolDisplayText } from '@l.x/lx/src/utils/currency'
 import { useDebounce } from '@luxfi/utilities/src/time/timing'
 import { useUSDTokenUpdater } from '~/hooks/useUSDTokenUpdater'
 import useCurrencyBalance from '~/lib/hooks/useCurrencyBalance'

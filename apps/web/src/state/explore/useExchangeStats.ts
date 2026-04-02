@@ -7,9 +7,9 @@
  */
 import { useQuery } from '@tanstack/react-query'
 import { ExploreStatsResponse } from '@luxamm/client-explore/dist/lx/explore/v1/service_pb'
-import { GraphQLApi } from '@luxexchange/api'
-import { isLuxChain } from '@luxexchange/lx/src/data/rest/luxGateway'
-import { UniverseChainId } from '@luxexchange/lx/src/features/chains/types'
+import { GraphQLApi } from '@l.x/api'
+import { isLuxChain } from '@l.x/lx/src/data/rest/luxGateway'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import {
   CHAIN_TO_GQL,
   fetchCoinGeckoPrices,

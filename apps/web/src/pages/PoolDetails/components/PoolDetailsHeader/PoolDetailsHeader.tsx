@@ -1,6 +1,6 @@
 import { Percent } from '@luxamm/sdk-core'
-import { GraphQLApi } from '@luxexchange/api'
-import { FeatureFlags, useFeatureFlag } from '@luxexchange/gating'
+import { GraphQLApi } from '@l.x/api'
+import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { Flex, Text } from '@luxfi/ui/src'
 import { shortenHash } from '@luxfi/utilities/src/addresses'
 import { FeeData } from '~/components/Liquidity/Create/types'

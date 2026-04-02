@@ -2,7 +2,7 @@ import { isOnboardedSelector } from 'src/app/utils/isOnboardedSelector'
 import { STATE_STORAGE_KEY } from 'src/store/constants'
 import { ExtensionState } from 'src/store/extensionReducer'
 import { EXTENSION_STATE_VERSION } from 'src/store/migrations'
-import { deviceAccessTimeoutToMinutes } from '@luxexchange/lx/src/features/settings/constants'
+import { deviceAccessTimeoutToMinutes } from '@l.x/lx/src/features/settings/constants'
 import { logger } from '@luxfi/utilities/src/logger/logger'
 
 export async function readReduxStateFromStorage(storageChanges?: {

@@ -6,15 +6,15 @@ import {
   StatsigContext,
   useGateValue,
   useLayer,
-} from '@luxexchange/gating'
+} from '@l.x/gating'
 import { memo, useContext, useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { Button, Flex, Switch, Text, useShadowPropsShort } from '@luxfi/ui/src'
 import { Flag } from '@luxfi/ui/src/components/icons/Flag'
 import { Settings } from '@luxfi/ui/src/components/icons/Settings'
-import { resetLuxBehaviorHistory } from '@luxexchange/lx/src/features/behaviorHistory/slice'
-import { ModalName } from '@luxexchange/lx/src/features/telemetry/constants'
-import { TestID } from '@luxexchange/lx/src/test/fixtures/testIDs'
+import { resetLuxBehaviorHistory } from '@l.x/lx/src/features/behaviorHistory/slice'
+import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
+import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
 import { isBetaEnv, isDevEnv } from '@luxfi/utilities/src/environment/env'
 import { useEvent } from '@luxfi/utilities/src/react/hooks'
 import { GatingRowContent, GatingSwitch } from '~/components/FeatureFlagModal/FeatureFlagModal'

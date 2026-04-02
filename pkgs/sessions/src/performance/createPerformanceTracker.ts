@@ -1,4 +1,4 @@
-import type { PerformanceTracker } from '@luxexchange/sessions/src/performance/types'
+import type { PerformanceTracker } from '@l.x/sessions/src/performance/types'
 
 /** Sentinel value indicating performance tracking is disabled */
 export const PERFORMANCE_TRACKING_DISABLED = -1

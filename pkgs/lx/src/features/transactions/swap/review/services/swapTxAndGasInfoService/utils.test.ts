@@ -1,6 +1,6 @@
 import { CurrencyAmount } from '@luxamm/sdk-core'
-import type { ClassicQuoteResponse, GasFeeResult } from '@luxexchange/api'
-import { FeeType, TradingApi } from '@luxexchange/api'
+import type { ClassicQuoteResponse, GasFeeResult } from '@l.x/api'
+import { FeeType, TradingApi } from '@l.x/api'
 import type { providers } from 'ethers/lib/ethers'
 import { DAI, USDC } from 'lx/src/constants/tokens'
 import { DEFAULT_GAS_STRATEGY } from 'lx/src/features/gas/consts'
@@ -13,13 +13,13 @@ import {
   getShouldSkipSwapRequest,
   getSimulationError,
   processWrapResponse,
-} from '@luxexchange/lx/src/features/transactions/swap/review/services/swapTxAndGasInfoService/utils'
-import type { DerivedSwapInfo } from '@luxexchange/lx/src/features/transactions/swap/types/derivedSwapInfo'
-import type { TokenApprovalInfo, TradeWithStatus } from '@luxexchange/lx/src/features/transactions/swap/types/trade'
-import { ApprovalAction } from '@luxexchange/lx/src/features/transactions/swap/types/trade'
-import { DEFAULT_PROTOCOL_OPTIONS } from '@luxexchange/lx/src/features/transactions/swap/utils/protocols'
-import { WrapType } from '@luxexchange/lx/src/features/transactions/types/wrap'
-import { CurrencyField } from '@luxexchange/lx/src/types/currency'
+} from '@l.x/lx/src/features/transactions/swap/review/services/swapTxAndGasInfoService/utils'
+import type { DerivedSwapInfo } from '@l.x/lx/src/features/transactions/swap/types/derivedSwapInfo'
+import type { TokenApprovalInfo, TradeWithStatus } from '@l.x/lx/src/features/transactions/swap/types/trade'
+import { ApprovalAction } from '@l.x/lx/src/features/transactions/swap/types/trade'
+import { DEFAULT_PROTOCOL_OPTIONS } from '@l.x/lx/src/features/transactions/swap/utils/protocols'
+import { WrapType } from '@l.x/lx/src/features/transactions/types/wrap'
+import { CurrencyField } from '@l.x/lx/src/types/currency'
 
 const mockPermitData = { fakePermitField: 'hi' } as unknown as TradingApi.NullablePermit
 

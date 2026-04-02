@@ -1,4 +1,4 @@
-import { GqlResult } from '@luxexchange/api'
+import { GqlResult } from '@l.x/api'
 import { useMemo } from 'react'
 import { OnchainItemListOptionType, TokenOption } from 'lx/src/components/lists/items/types'
 import { filter } from 'lx/src/components/TokenSelector/filter'

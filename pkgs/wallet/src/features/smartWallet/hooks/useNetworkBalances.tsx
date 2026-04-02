@@ -1,4 +1,4 @@
-import { useStatsigClientStatus } from '@luxexchange/gating'
+import { useStatsigClientStatus } from '@l.x/gating'
 import { useEffect, useState } from 'react'
 import { fetchGasFeeQuery } from 'lx/src/data/apiClients/lxApi/useGasFeeQuery'
 import { getChainInfo } from 'lx/src/features/chains/chainInfo'

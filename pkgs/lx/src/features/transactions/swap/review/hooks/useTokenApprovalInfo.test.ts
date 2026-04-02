@@ -1,6 +1,6 @@
 import { renderHook } from '@testing-library/react'
 import { CurrencyAmount, Token } from '@luxamm/sdk-core'
-import { FeeType, GasEstimate, TradingApi } from '@luxexchange/api'
+import { FeeType, GasEstimate, TradingApi } from '@l.x/api'
 import { DAI, USDC } from 'lx/src/constants/tokens'
 import { useCheckApprovalQuery } from 'lx/src/data/apiClients/tradingApi/useCheckApprovalQuery'
 import { UniverseChainId } from 'lx/src/features/chains/types'

@@ -3,7 +3,7 @@ import { AppStackScreenProp, EducationContentType } from 'src/app/navigation/typ
 import { Carousel } from 'src/components/carousel/Carousel'
 import { SeedPhraseEducationContent } from 'src/components/education/SeedPhrase'
 import { Screen } from 'src/components/layout/Screen'
-import { MobileScreens } from '@luxexchange/lx/src/types/screens/mobile'
+import { MobileScreens } from '@l.x/lx/src/types/screens/mobile'
 import { isIOS } from '@luxfi/utilities/src/platform'
 
 const educationContent = {

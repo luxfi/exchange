@@ -1,6 +1,6 @@
 import { Transport } from '@connectrpc/connect'
 import { ConnectTransportOptions } from '@connectrpc/connect-web'
-import { getEntryGatewayUrl, getTransport } from '@luxexchange/api'
+import { getEntryGatewayUrl, getTransport } from '@l.x/api'
 import { lxUrls } from 'lx/src/constants/urls'
 import { BASE_LX_HEADERS } from 'lx/src/data/apiClients/createLxFetchClient'
 import { isWebApp } from 'utilities/src/platform'

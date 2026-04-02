@@ -1,4 +1,4 @@
-import { FeatureFlags, useFeatureFlag } from '@luxexchange/gating'
+import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { useCallback, useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { AccountType } from 'lx/src/features/accounts/types'

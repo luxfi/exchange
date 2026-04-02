@@ -1,4 +1,4 @@
-import type { JupiterOrderUrlParams } from '@luxexchange/api/src/clients/jupiter/types'
+import type { JupiterOrderUrlParams } from '@l.x/api/src/clients/jupiter/types'
 
 export function buildQuery(params: JupiterOrderUrlParams): URLSearchParams {
   const query = new URLSearchParams()

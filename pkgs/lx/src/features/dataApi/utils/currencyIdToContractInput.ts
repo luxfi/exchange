@@ -1,4 +1,4 @@
-import { GraphQLApi } from '@luxexchange/api'
+import { GraphQLApi } from '@l.x/api'
 import { DEFAULT_NATIVE_ADDRESS } from 'lx/src/features/chains/evm/rpc'
 import { UniverseChainId } from 'lx/src/features/chains/types'
 import { toGraphQLChain } from 'lx/src/features/chains/utils'

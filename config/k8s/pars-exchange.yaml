@@ -1,0 +1,52 @@
+# Pars Market - White-label deployment for Pars Network
+# Namespace: lux-exchange
+# Domain: pars.market
+#
+# Usage:
+#   kubectl apply -f pars-exchange.yaml
+#   Mount config.json into the container:
+#     volumes:
+#       - name: exchange-config
+#         configMap:
+#           name: exchange-config
+#     volumeMounts:
+#       - name: exchange-config
+#         mountPath: /app/public/config.json
+#         subPath: config.json
+#         readOnly: true
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: exchange-config
+  namespace: lux-exchange
+  labels:
+    app: exchange
+    brand: pars
+data:
+  config.json: |
+    {
+      "brand": {
+        "name": "Pars Market",
+        "title": "Pars Market | Trade",
+        "description": "The decentralized exchange for the Pars ecosystem",
+        "legalEntity": "Pars Network Foundation",
+        "appDomain": "pars.market",
+        "docsDomain": "docs.pars.market",
+        "infoDomain": "info.pars.market",
+        "gatewayDomain": "gw.pars.market",
+        "wsDomain": "ws.pars.market",
+        "helpUrl": "https://docs.pars.market/help",
+        "termsUrl": "/terms",
+        "privacyUrl": "/privacy",
+        "downloadUrl": "https://pars.market/wallet",
+        "complianceEmail": "compliance@pars.market",
+        "supportEmail": "hi@pars.market",
+        "twitter": "https://x.com/parsnetwork",
+        "github": "https://github.com/luxfi",
+        "discord": "https://discord.gg/pars",
+        "primaryColor": "#F97316",
+        "defaultChainId": 494949,
+        "supportedChainIds": [494949, 96369]
+      }
+    }

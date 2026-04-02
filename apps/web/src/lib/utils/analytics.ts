@@ -1,8 +1,8 @@
 import { Currency, CurrencyAmount, Percent, Price, Token } from '@luxamm/sdk-core'
-import { TradingApi } from '@luxexchange/api'
-import { SwapTradeBaseProperties } from '@luxexchange/lx/src/features/telemetry/types'
-import { getRouteAnalyticsData, tradeRoutingToFillType } from '@luxexchange/lx/src/features/transactions/swap/analytics'
-import { planAnalyticsToSnakeCase } from '@luxexchange/lx/src/features/transactions/swap/plan/types'
+import { TradingApi } from '@l.x/api'
+import { SwapTradeBaseProperties } from '@l.x/lx/src/features/telemetry/types'
+import { getRouteAnalyticsData, tradeRoutingToFillType } from '@l.x/lx/src/features/transactions/swap/analytics'
+import { planAnalyticsToSnakeCase } from '@l.x/lx/src/features/transactions/swap/plan/types'
 import {
   BridgeTrade,
   ChainedActionTrade,
@@ -11,12 +11,12 @@ import {
   LxSwapTrade,
   LxSwapV2Trade,
   LxSwapV3Trade,
-} from '@luxexchange/lx/src/features/transactions/swap/types/trade'
-import { isClassic } from '@luxexchange/lx/src/features/transactions/swap/utils/routing'
+} from '@l.x/lx/src/features/transactions/swap/types/trade'
+import { isClassic } from '@l.x/lx/src/features/transactions/swap/utils/routing'
 import {
   type PlanSwapTransactionInfoFields,
   TransactionOriginType,
-} from '@luxexchange/lx/src/features/transactions/types/transactionDetails'
+} from '@l.x/lx/src/features/transactions/types/transactionDetails'
 import { ITraceContext } from '@luxfi/utilities/src/telemetry/trace/TraceContext'
 import { NATIVE_CHAIN_ID } from '~/constants/tokens'
 import { InterfaceTrade, OffchainOrderType, QuoteMethod, SubmittableTrade } from '~/state/routing/types'

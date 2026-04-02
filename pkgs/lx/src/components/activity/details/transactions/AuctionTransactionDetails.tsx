@@ -1,16 +1,16 @@
-import { CurrencyTransferContent } from '@luxexchange/lx/src/components/activity/details/transactions/TransferTransactionDetails'
-import { useFormattedCurrencyAmountAndUSDValue } from '@luxexchange/lx/src/components/activity/hooks/useFormattedCurrencyAmountAndUSDValue'
-import { useLocalizationContext } from '@luxexchange/lx/src/features/language/LocalizationContext'
-import { useCurrencyInfo } from '@luxexchange/lx/src/features/tokens/useCurrencyInfo'
+import { CurrencyTransferContent } from '@l.x/lx/src/components/activity/details/transactions/TransferTransactionDetails'
+import { useFormattedCurrencyAmountAndUSDValue } from '@l.x/lx/src/components/activity/hooks/useFormattedCurrencyAmountAndUSDValue'
+import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
+import { useCurrencyInfo } from '@l.x/lx/src/features/tokens/useCurrencyInfo'
 import {
   AuctionBidTransactionInfo,
   AuctionClaimedTransactionInfo,
   AuctionExitedTransactionInfo,
   TransactionDetails,
   TransactionType,
-} from '@luxexchange/lx/src/features/transactions/types/transactionDetails'
-import { getSymbolDisplayText } from '@luxexchange/lx/src/utils/currency'
-import { buildCurrencyId } from '@luxexchange/lx/src/utils/currencyId'
+} from '@l.x/lx/src/features/transactions/types/transactionDetails'
+import { getSymbolDisplayText } from '@l.x/lx/src/utils/currency'
+import { buildCurrencyId } from '@l.x/lx/src/utils/currencyId'
 
 export function AuctionTransactionDetails({
   transactionDetails,

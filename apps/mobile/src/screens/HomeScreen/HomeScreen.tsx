@@ -1,9 +1,9 @@
 /* eslint-disable max-lines */
 import { useApolloClient } from '@apollo/client'
 import { useIsFocused, useScrollToTop } from '@react-navigation/native'
-import { SharedQueryClient } from '@luxexchange/api'
-import { FeatureFlags, useFeatureFlag } from '@luxexchange/gating'
-import { getIsNotificationServiceLocalOverrideEnabled } from '@luxexchange/notifications'
+import { SharedQueryClient } from '@l.x/api'
+import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
+import { getIsNotificationServiceLocalOverrideEnabled } from '@l.x/notifications'
 import { Dispatch, SetStateAction, useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { Freeze } from 'react-freeze'
 import { useTranslation } from 'react-i18next'

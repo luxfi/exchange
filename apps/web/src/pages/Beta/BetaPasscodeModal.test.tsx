@@ -1,4 +1,4 @@
-import { getOverrideAdapter } from '@luxexchange/gating'
+import { getOverrideAdapter } from '@l.x/gating'
 import { TestID } from 'lx/src/test/fixtures/testIDs'
 import { BetaPasscodeModal } from '~/pages/Beta/BetaPasscodeModal'
 import { act, fireEvent, render, screen } from '~/test-utils/render'
@@ -14,8 +14,8 @@ vi.mock('ui/src/assets', async (importOriginal) => {
 const mockGetDynamicConfigValue = vi.fn().mockReturnValue([])
 const mockNavigate = vi.fn()
 
-vi.mock('@luxexchange/gating', async (importOriginal) => {
-  const actual = await importOriginal<typeof import('@luxexchange/gating')>()
+vi.mock('@l.x/gating', async (importOriginal) => {
+  const actual = await importOriginal<typeof import('@l.x/gating')>()
   return {
     ...actual,
     getDynamicConfigValue: (...args: unknown[]) => mockGetDynamicConfigValue(...args),

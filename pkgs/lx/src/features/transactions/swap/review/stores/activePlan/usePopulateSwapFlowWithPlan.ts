@@ -1,4 +1,4 @@
-import { PlanResponse } from '@luxexchange/api/src/clients/trading/__generated__/models/PlanResponse'
+import { PlanResponse } from '@l.x/api/src/clients/trading/__generated__/models/PlanResponse'
 import { AssetType } from 'lx/src/entities/assets'
 import { extractPlanResponseAssetDetails } from 'lx/src/features/activity/extract/extractPlanResponseDetails'
 import { useSwapFormStore } from 'lx/src/features/transactions/swap/stores/swapFormStore/useSwapFormStore'

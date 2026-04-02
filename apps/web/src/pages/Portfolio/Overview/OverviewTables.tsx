@@ -1,7 +1,7 @@
 import { memo } from 'react'
 import { Flex } from '@luxfi/ui/src'
-import { ActivityRenderData } from '@luxexchange/lx/src/features/activity/hooks/useActivityData'
-import { UniverseChainId } from '@luxexchange/lx/src/features/chains/types'
+import { ActivityRenderData } from '@l.x/lx/src/features/activity/hooks/useActivityData'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import {
   MAX_ACTIVITY_ROWS,
   MAX_POOLS_ROWS,

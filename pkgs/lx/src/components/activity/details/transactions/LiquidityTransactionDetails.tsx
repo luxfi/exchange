@@ -5,12 +5,12 @@ import {
   TwoTokenDetails,
   useTokenAmountInfo,
   ValueText,
-} from '@luxexchange/lx/src/components/activity/details/transactions/utilityComponents'
-import { useTokenDetailsNavigation } from '@luxexchange/lx/src/components/activity/hooks/useTokenDetailsNavigation'
-import { CurrencyLogo } from '@luxexchange/lx/src/components/CurrencyLogo/CurrencyLogo'
-import { CurrencyInfo } from '@luxexchange/lx/src/features/dataApi/types'
-import { useCurrencyInfo } from '@luxexchange/lx/src/features/tokens/useCurrencyInfo'
-import { LiquidityTransactionBaseInfos } from '@luxexchange/lx/src/features/transactions/types/transactionDetails'
+} from '@l.x/lx/src/components/activity/details/transactions/utilityComponents'
+import { useTokenDetailsNavigation } from '@l.x/lx/src/components/activity/hooks/useTokenDetailsNavigation'
+import { CurrencyLogo } from '@l.x/lx/src/components/CurrencyLogo/CurrencyLogo'
+import { CurrencyInfo } from '@l.x/lx/src/features/dataApi/types'
+import { useCurrencyInfo } from '@l.x/lx/src/features/tokens/useCurrencyInfo'
+import { LiquidityTransactionBaseInfos } from '@l.x/lx/src/features/transactions/types/transactionDetails'
 
 export function LiquidityTransactionDetails({
   typeInfo,

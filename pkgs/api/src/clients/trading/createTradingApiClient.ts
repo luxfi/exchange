@@ -1,5 +1,5 @@
-import type { FetchClient } from '@luxexchange/api/src/clients/base/types'
-import { createFetcher } from '@luxexchange/api/src/clients/base/utils'
+import type { FetchClient } from '@l.x/api/src/clients/base/types'
+import { createFetcher } from '@l.x/api/src/clients/base/utils'
 import type {
   ApprovalRequest,
   ApprovalResponse,
@@ -22,14 +22,14 @@ import type {
   WalletCheckDelegationRequestBody,
   WalletCheckDelegationResponseBody,
   WalletEncode7702RequestBody,
-} from '@luxexchange/api/src/clients/trading/__generated__'
-import { CreatePlanRequest, PlanResponse, RoutingPreference } from '@luxexchange/api/src/clients/trading/__generated__'
+} from '@l.x/api/src/clients/trading/__generated__'
+import { CreatePlanRequest, PlanResponse, RoutingPreference } from '@l.x/api/src/clients/trading/__generated__'
 import type {
   DiscriminatedQuoteResponse,
   ExistingPlanRequest,
   SwappableTokensParams,
   UpdatePlanRequestWithPlanId,
-} from '@luxexchange/api/src/clients/trading/tradeTypes'
+} from '@l.x/api/src/clients/trading/tradeTypes'
 import { logger } from 'utilities/src/logger/logger'
 
 // TODO(app-infra), de-duplicate with lxUrls.tradingApiPaths when other consumers are migrated to use TradingApiClient

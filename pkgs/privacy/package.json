@@ -1,5 +1,5 @@
 {
-  "name": "@luxexchange/privacy",
+  "name": "@l.x/privacy",
   "version": "0.0.0",
   "dependencies": {
     "fast-redact": "3.5.0"

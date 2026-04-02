@@ -11,7 +11,7 @@ import {
   PredicateKycVerificationData,
   ValidationType,
 } from '@luxamm/client-liquidity/dist/lx/liquidity/v1/types_pb'
-import { FeatureFlags, useFeatureFlag } from '@luxexchange/gating'
+import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { PollingInterval } from 'lx/src/constants/misc'
 import { AuctionMutationClient } from 'lx/src/data/apiClients/liquidityService/AuctionMutationClient'
 import { AUCTION_DEFAULT_RETRY, AuctionStaleTime } from 'lx/src/data/rest/auctions/queryTypes'

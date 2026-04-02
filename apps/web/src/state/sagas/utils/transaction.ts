@@ -1,9 +1,9 @@
-import type { UniverseChainId } from '@luxexchange/lx/src/features/chains/types'
+import type { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import type {
   TransactionDetails as LuxTransactionDetails,
   WrapTransactionInfo as LuxWrapTransactionInfo,
-} from '@luxexchange/lx/src/features/transactions/types/transactionDetails'
-import { TransactionType } from '@luxexchange/lx/src/features/transactions/types/transactionDetails'
+} from '@l.x/lx/src/features/transactions/types/transactionDetails'
+import { TransactionType } from '@l.x/lx/src/features/transactions/types/transactionDetails'
 import type { TransactionInfo } from '~/state/transactions/types'
 
 const createUniverseSwapTransaction = ({

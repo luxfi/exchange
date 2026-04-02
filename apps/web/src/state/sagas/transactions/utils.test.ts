@@ -44,8 +44,8 @@ vi.mock('~/state/activity/utils', () => ({
   getRoutingForTransaction: vi.fn().mockReturnValue('CLASSIC'),
 }))
 
-vi.mock('@luxexchange/gating', async (importOriginal) => {
-  const actual = await importOriginal<typeof import('@luxexchange/gating')>()
+vi.mock('@l.x/gating', async (importOriginal) => {
+  const actual = await importOriginal<typeof import('@l.x/gating')>()
   return {
     ...actual,
     getDynamicConfigValue: vi.fn().mockReturnValue([]),
@@ -97,7 +97,7 @@ describe('handleOnChainStep', () => {
     vi.clearAllMocks()
 
     // Force sync submission path by including chainId in blocked list
-    const gating = await import('@luxexchange/gating')
+    const gating = await import('@l.x/gating')
     vi.mocked(gating.getDynamicConfigValue).mockReturnValue([chainId])
 
     // Return modified data to trigger onModification path

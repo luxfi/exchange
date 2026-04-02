@@ -1,4 +1,4 @@
-import { GasFeeResult } from '@luxexchange/api'
+import { GasFeeResult } from '@l.x/api'
 import { useTranslation } from 'react-i18next'
 import { FadeIn } from 'react-native-reanimated'
 import { Flex, SpinningLoader, Text } from 'ui/src'

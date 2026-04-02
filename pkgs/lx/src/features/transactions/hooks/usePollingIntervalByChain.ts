@@ -1,4 +1,4 @@
-import { DynamicConfigs, FeatureFlags, SwapConfigKey, useDynamicConfigValue, useFeatureFlag } from '@luxexchange/gating'
+import { DynamicConfigs, FeatureFlags, SwapConfigKey, useDynamicConfigValue, useFeatureFlag } from '@l.x/gating'
 import { UniverseChainId } from 'lx/src/features/chains/types'
 import { isMainnetChainId } from 'lx/src/features/chains/utils'
 import { ONE_SECOND_MS } from 'utilities/src/time/time'

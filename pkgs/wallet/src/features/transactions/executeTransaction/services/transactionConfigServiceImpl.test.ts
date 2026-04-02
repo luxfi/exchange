@@ -1,4 +1,4 @@
-import { FeatureFlags } from '@luxexchange/gating'
+import { FeatureFlags } from '@l.x/gating'
 import { UniverseChainId } from 'lx/src/features/chains/types'
 import { logger as loggerUtil } from 'utilities/src/logger/logger'
 import { isPrivateRpcSupportedOnChain } from '@luxfi/wallet/src/features/providers/utils'

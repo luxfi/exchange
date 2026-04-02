@@ -1,4 +1,4 @@
-import { FeeType } from '@luxexchange/api'
+import { FeeType } from '@l.x/api'
 import { mapGasServiceV2Response } from 'lx/src/data/apiClients/gasService/mapGasServiceV2Response'
 import { describe, expect, it } from 'vitest'
 

@@ -4,7 +4,7 @@ import { PoolInfoRequest } from '@luxamm/client-liquidity/dist/lx/liquidity/v1/a
 import { PoolParameters } from '@luxamm/client-liquidity/dist/lx/liquidity/v1/types_pb'
 import { Currency } from '@luxamm/sdk-core'
 import { useMemo } from 'react'
-import { liquidityQueries } from '@luxexchange/lx/src/data/apiClients/liquidityService/liquidityQueries'
+import { liquidityQueries } from '@l.x/lx/src/data/apiClients/liquidityService/liquidityQueries'
 import {
   CreatePositionInfo,
   CreateV2PositionInfo,

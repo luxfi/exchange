@@ -1,4 +1,4 @@
-import { TradingApi } from '@luxexchange/api'
+import { TradingApi } from '@l.x/api'
 import { call, delay, fork, select, take } from 'typed-redux-saga'
 import { makeSelectLxSwapOrder } from 'lx/src/features/transactions/selectors'
 import { updateTransaction } from 'lx/src/features/transactions/slice'

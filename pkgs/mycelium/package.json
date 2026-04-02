@@ -1,5 +1,5 @@
 {
-  "name": "@luxexchange/mycelium",
+  "name": "@l.x/mycelium",
   "version": "0.0.0",
   "private": false,
   "main": "src/index.ts",
@@ -32,15 +32,15 @@
     "typescript": "5.8.3"
   },
   "scripts": {
-    "typecheck": "nx typecheck @luxexchange/mycelium",
-    "typecheck:tsgo": "nx typecheck:tsgo @luxexchange/mycelium",
-    "lint": "nx lint @luxexchange/mycelium",
-    "lint:fix": "nx lint:fix @luxexchange/mycelium",
-    "lint:biome": "nx lint:biome @luxexchange/mycelium",
-    "lint:biome:fix": "nx lint:biome:fix @luxexchange/mycelium",
-    "lint:eslint": "nx lint:eslint @luxexchange/mycelium",
-    "lint:eslint:fix": "nx lint:eslint:fix @luxexchange/mycelium",
-    "check:deps:usage": "nx check:deps:usage @luxexchange/mycelium"
+    "typecheck": "nx typecheck @l.x/mycelium",
+    "typecheck:tsgo": "nx typecheck:tsgo @l.x/mycelium",
+    "lint": "nx lint @l.x/mycelium",
+    "lint:fix": "nx lint:fix @l.x/mycelium",
+    "lint:biome": "nx lint:biome @l.x/mycelium",
+    "lint:biome:fix": "nx lint:biome:fix @l.x/mycelium",
+    "lint:eslint": "nx lint:eslint @l.x/mycelium",
+    "lint:eslint:fix": "nx lint:eslint:fix @l.x/mycelium",
+    "check:deps:usage": "nx check:deps:usage @l.x/mycelium"
   },
   "nx": {
     "includedScripts": []

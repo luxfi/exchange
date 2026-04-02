@@ -7,12 +7,12 @@ import * as deviceBiometricHooks from 'src/features/biometrics/useDeviceSupports
 import { AuthMethod } from 'src/features/telemetry/utils'
 import * as versionUtils from 'src/utils/version'
 import * as useIsDarkModeFile from '@luxfi/ui/src/hooks/useIsDarkMode'
-import { AccountType } from '@luxexchange/lx/src/features/accounts/types'
-import { FiatCurrency } from '@luxexchange/lx/src/features/fiatCurrency/constants'
-import * as fiatCurrencyHooks from '@luxexchange/lx/src/features/fiatCurrency/hooks'
-import * as languageHooks from '@luxexchange/lx/src/features/language/hooks'
-import * as userSettingsHooks from '@luxexchange/lx/src/features/settings/hooks'
-import { MobileUserPropertyName } from '@luxexchange/lx/src/features/telemetry/user'
+import { AccountType } from '@l.x/lx/src/features/accounts/types'
+import { FiatCurrency } from '@l.x/lx/src/features/fiatCurrency/constants'
+import * as fiatCurrencyHooks from '@l.x/lx/src/features/fiatCurrency/hooks'
+import * as languageHooks from '@l.x/lx/src/features/language/hooks'
+import * as userSettingsHooks from '@l.x/lx/src/features/settings/hooks'
+import { MobileUserPropertyName } from '@l.x/lx/src/features/telemetry/user'
 import { analytics } from '@luxfi/utilities/src/telemetry/analytics/analytics'
 import { BackupType, SignerMnemonicAccount } from '@luxfi/wallet/src/features/wallet/accounts/types'
 import * as walletHooks from '@luxfi/wallet/src/features/wallet/hooks'
@@ -28,11 +28,11 @@ jest.mock('@tanstack/react-query', () => ({
   ...jest.requireActual('@tanstack/react-query'),
   useQuery: jest.fn().mockReturnValue({ data: undefined }),
 }))
-jest.mock('@luxexchange/api', () => ({
-  ...jest.requireActual('@luxexchange/api'),
+jest.mock('@l.x/api', () => ({
+  ...jest.requireActual('@l.x/api'),
   provideLuxIdentifierService: {},
 }))
-jest.mock('@luxexchange/sessions', () => ({
+jest.mock('@l.x/sessions', () => ({
   luxIdentifierQuery: jest.fn().mockReturnValue({}),
 }))
 jest.mock('react-native/Libraries/Utilities/useColorScheme')

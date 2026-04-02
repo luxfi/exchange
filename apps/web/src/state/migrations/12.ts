@@ -1,7 +1,7 @@
-import { GraphQLApi } from '@luxexchange/api'
+import { GraphQLApi } from '@l.x/api'
 import { PersistState } from 'redux-persist'
-import { UniverseChainId } from '@luxexchange/lx/src/features/chains/types'
-import { createPersistState, createSafeMigration } from '@luxexchange/lx/src/state/createSafeMigration'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { createPersistState, createSafeMigration } from '@l.x/lx/src/state/createSafeMigration'
 import { TransactionInfo } from '~/state/transactions/types'
 
 interface SerializableTransactionReceipt {

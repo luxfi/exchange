@@ -2,11 +2,11 @@ import { JsonRpcProvider } from '@ethersproject/providers'
 import { providerErrors, serializeError } from '@metamask/rpc-errors'
 import { changeChain } from 'src/app/features/dapp/changeChain'
 import { dappStore } from 'src/app/features/dapp/store'
-import { UniverseChainId } from '@luxexchange/lx/src/features/chains/types'
-import { chainIdToHexadecimalString } from '@luxexchange/lx/src/features/chains/utils'
-import { DappResponseType } from '@luxexchange/lx/src/features/dappRequests/types'
-import { ExtensionEventName } from '@luxexchange/lx/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from '@luxexchange/lx/src/features/telemetry/send'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { chainIdToHexadecimalString } from '@l.x/lx/src/features/chains/utils'
+import { DappResponseType } from '@l.x/lx/src/features/dappRequests/types'
+import { ExtensionEventName } from '@l.x/lx/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
 
 // Mock dependencies
 jest.mock('@ethersproject/providers')

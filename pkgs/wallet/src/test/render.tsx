@@ -10,7 +10,7 @@ import {
   render as RNRender,
   renderHook as RNRenderHook,
 } from '@testing-library/react-native'
-import { GraphQLApi } from '@luxexchange/api'
+import { GraphQLApi } from '@l.x/api'
 import React, { PropsWithChildren } from 'react'
 import { LuxProvider } from 'lx/src/contexts/LuxContext'
 import { AutoMockedApolloProvider } from 'lx/src/test/mocks'

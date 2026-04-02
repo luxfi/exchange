@@ -1,9 +1,9 @@
 import { navigate } from 'src/app/navigation/rootNavigation'
 import { createSwapTransactionState, ParseSwapLinkFunction } from 'src/features/deepLinking/parseSwapLink'
-import { isTestnetChain } from '@luxexchange/lx/src/features/chains/utils'
-import { Platform } from '@luxexchange/lx/src/features/platforms/types/Platform'
-import { getEnabledChainIdsSaga } from '@luxexchange/lx/src/features/settings/saga'
-import { ModalName } from '@luxexchange/lx/src/features/telemetry/constants'
+import { isTestnetChain } from '@l.x/lx/src/features/chains/utils'
+import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
+import { getEnabledChainIdsSaga } from '@l.x/lx/src/features/settings/saga'
+import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
 import { logger } from '@luxfi/utilities/src/logger/logger'
 
 /**

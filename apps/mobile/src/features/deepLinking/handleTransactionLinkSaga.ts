@@ -3,7 +3,7 @@ import { navigate } from 'src/app/navigation/rootNavigation'
 import { closeAllModals } from 'src/features/modals/modalSlice'
 import { HomeScreenTabIndex } from 'src/screens/HomeScreen/HomeScreenTabIndex'
 import { call, put } from 'typed-redux-saga'
-import { MobileScreens } from '@luxexchange/lx/src/types/screens/mobile'
+import { MobileScreens } from '@l.x/lx/src/types/screens/mobile'
 
 export function* handleTransactionLink() {
   const isBottomTabsEnabled = getFeatureFlag(FeatureFlags.BottomTabs)

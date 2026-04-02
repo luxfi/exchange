@@ -1,4 +1,4 @@
-import { GasEstimate, GasFeeResult, TradingApi } from '@luxexchange/api'
+import { GasEstimate, GasFeeResult, TradingApi } from '@l.x/api'
 import { ValidatedGasFeeResult, validateGasFeeResult } from 'lx/src/features/gas/utils'
 import { SolanaTrade } from 'lx/src/features/transactions/swap/types/solana'
 import {

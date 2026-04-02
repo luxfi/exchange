@@ -1,4 +1,4 @@
-import { UnitagAvatarUploadCredentials } from '@luxexchange/api'
+import { UnitagAvatarUploadCredentials } from '@l.x/api'
 import { logger } from 'utilities/src/logger/logger'
 
 // Web-specific: data URLs and blob URLs as local files

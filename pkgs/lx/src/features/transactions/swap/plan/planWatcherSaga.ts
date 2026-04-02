@@ -1,4 +1,4 @@
-import { FeatureFlags, getFeatureFlag, getStatsigClient } from '@luxexchange/gating'
+import { FeatureFlags, getFeatureFlag, getStatsigClient } from '@l.x/gating'
 import { call, delay, fork, select } from 'typed-redux-saga'
 import { makeSelectPlanTransaction } from 'lx/src/features/transactions/selectors'
 import {

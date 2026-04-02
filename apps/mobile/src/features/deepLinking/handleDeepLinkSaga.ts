@@ -1,5 +1,5 @@
 import { createAction } from '@reduxjs/toolkit'
-import { FeatureFlags, getFeatureFlagName, getOverrideAdapter, getStatsigClient } from '@luxexchange/gating'
+import { FeatureFlags, getFeatureFlagName, getOverrideAdapter, getStatsigClient } from '@l.x/gating'
 import { parseUri } from '@walletconnect/utils'
 import { Alert } from 'react-native'
 import { navigate } from 'src/app/navigation/rootNavigation'

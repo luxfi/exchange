@@ -4,14 +4,14 @@ import {
   TurnstileScriptLoadError,
   TurnstileTimeoutError,
   TurnstileTokenExpiredError,
-} from '@luxexchange/sessions/src/challenge-solvers/turnstileErrors'
-import { ensureTurnstileScript } from '@luxexchange/sessions/src/challenge-solvers/turnstileScriptLoader'
+} from '@l.x/sessions/src/challenge-solvers/turnstileErrors'
+import { ensureTurnstileScript } from '@l.x/sessions/src/challenge-solvers/turnstileScriptLoader'
 import type {
   ChallengeData,
   ChallengeSolver,
   TurnstileScriptOptions,
-} from '@luxexchange/sessions/src/challenge-solvers/types'
-import type { PerformanceTracker } from '@luxexchange/sessions/src/performance/types'
+} from '@l.x/sessions/src/challenge-solvers/types'
+import type { PerformanceTracker } from '@l.x/sessions/src/performance/types'
 import type { Logger } from 'utilities/src/logger/logger'
 
 /**

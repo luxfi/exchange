@@ -1,9 +1,9 @@
-import { FeatureFlags, useFeatureFlag } from '@luxexchange/gating'
+import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { useTranslation } from 'react-i18next'
 import { Button } from '@luxfi/ui/src'
-import { ElementName, ModalName } from '@luxexchange/lx/src/features/telemetry/constants'
-import { Trace } from '@luxexchange/lx/src/features/telemetry/Trace'
-import { TestID } from '@luxexchange/lx/src/test/fixtures/testIDs'
+import { ElementName, ModalName } from '@l.x/lx/src/features/telemetry/constants'
+import { Trace } from '@l.x/lx/src/features/telemetry/Trace'
+import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
 import { useModalState } from '~/hooks/useModalState'
 
 export function NewUserCTAButton() {

@@ -1,4 +1,4 @@
-import { ForApiClient } from '@luxexchange/lx/src/data/apiClients/forApi/ForApiClient'
+import { ForApiClient } from '@l.x/lx/src/data/apiClients/forApi/ForApiClient'
 import { useFiatOnRampTransactions } from '~/state/fiatOnRampTransactions/hooks'
 import { FiatOnRampTransactionStatus, FiatOnRampTransactionType } from '~/state/fiatOnRampTransactions/types'
 import Updater from '~/state/fiatOnRampTransactions/updater'

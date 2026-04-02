@@ -1,14 +1,14 @@
 import { useDispatch } from 'react-redux'
-import { OnchainItemListOptionType, PoolOption, SearchModalOption } from '@luxexchange/lx/src/components/lists/items/types'
-import { getNativeAddress } from '@luxexchange/lx/src/constants/addresses'
-import { CurrencyInfo } from '@luxexchange/lx/src/features/dataApi/types'
+import { OnchainItemListOptionType, PoolOption, SearchModalOption } from '@l.x/lx/src/components/lists/items/types'
+import { getNativeAddress } from '@l.x/lx/src/constants/addresses'
+import { CurrencyInfo } from '@l.x/lx/src/features/dataApi/types'
 import {
   PoolSearchHistoryResult,
   SearchHistoryResultType,
   TokenSearchHistoryResult,
-} from '@luxexchange/lx/src/features/search/SearchHistoryResult'
-import { addToSearchHistory } from '@luxexchange/lx/src/features/search/searchHistorySlice'
-import { tokenAddressOrNativeAddress } from '@luxexchange/lx/src/features/search/utils'
+} from '@l.x/lx/src/features/search/SearchHistoryResult'
+import { addToSearchHistory } from '@l.x/lx/src/features/search/searchHistorySlice'
+import { tokenAddressOrNativeAddress } from '@l.x/lx/src/features/search/utils'
 
 export function useAddToSearchHistory(): {
   registerSearchItem: (item: SearchModalOption) => void

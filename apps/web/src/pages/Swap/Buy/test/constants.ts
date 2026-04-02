@@ -1,4 +1,4 @@
-import { RampDirection } from '@luxexchange/lx/src/features/fiatOnRamp/types'
+import { RampDirection } from '@l.x/lx/src/features/fiatOnRamp/types'
 import { getFiatCurrencyComponents } from '@luxfi/utilities/src/format/localeBased'
 import { ethCurrencyInfo } from '~/pages/Swap/Buy/BuyFormContext'
 

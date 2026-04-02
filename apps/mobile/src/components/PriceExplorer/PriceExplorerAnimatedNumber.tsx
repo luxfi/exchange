@@ -21,10 +21,10 @@ import {
   DIGIT_HEIGHT,
   NUMBER_ARRAY,
   NUMBER_WIDTH_ARRAY,
-} from '@luxexchange/lx/src/components/AnimatedNumber/AnimatedNumber'
-import { TopAndBottomGradient } from '@luxexchange/lx/src/components/AnimatedNumber/TopAndBottomGradient'
-import { FiatCurrencyInfo } from '@luxexchange/lx/src/features/fiatOnRamp/types'
-import { TestID } from '@luxexchange/lx/src/test/fixtures/testIDs'
+} from '@l.x/lx/src/components/AnimatedNumber/AnimatedNumber'
+import { TopAndBottomGradient } from '@l.x/lx/src/components/AnimatedNumber/TopAndBottomGradient'
+import { FiatCurrencyInfo } from '@l.x/lx/src/features/fiatOnRamp/types'
+import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
 
 // if price per token has > 3 numbers before the decimal, start showing decimals in neutral3
 // otherwise, show entire price in neutral1

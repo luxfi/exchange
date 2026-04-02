@@ -1,11 +1,11 @@
-import { TradingApi } from '@luxexchange/api'
-import { UniverseChainId } from '@luxexchange/lx/src/features/chains/types'
+import { TradingApi } from '@l.x/api'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import {
   TransactionOriginType,
   TransactionStatus,
   TransactionType,
   DEXOrderDetails,
-} from '@luxexchange/lx/src/features/transactions/types/transactionDetails'
+} from '@l.x/lx/src/features/transactions/types/transactionDetails'
 import { useOpenLimitOrders } from '~/components/AccountDrawer/MiniPortfolio/Activity/hooks'
 import { OpenLimitOrdersButton } from '~/pages/Swap/Limit/OpenLimitOrdersButton'
 import { mocked } from '~/test-utils/mocked'

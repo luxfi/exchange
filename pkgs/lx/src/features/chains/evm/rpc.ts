@@ -1,6 +1,6 @@
-import { config } from '@luxexchange/lx/src/config'
+import { config } from '@l.x/lx/src/config'
 
-import { RetryOptions, RPCType, UniverseChainId } from '@luxexchange/lx/src/features/chains/types'
+import { RetryOptions, RPCType, UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { ONE_MINUTE_MS } from 'utilities/src/time/time'
 
 /** Address that represents native currencies on ETH, Arbitrum, etc. */

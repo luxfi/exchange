@@ -12,9 +12,9 @@ import { GraphQLApi } from '@luxfi/api'
 import React, { PropsWithChildren } from 'react'
 import { ExtensionState, extensionReducer } from 'src/store/extensionReducer'
 import { AppStore } from 'src/store/store'
-import { LuxProvider } from '@luxexchange/lx/src/contexts/LuxContext'
-import { AutoMockedApolloProvider } from '@luxexchange/lx/src/test/mocks'
-import { mockLuxContext } from '@luxexchange/lx/src/test/render'
+import { LuxProvider } from '@l.x/lx/src/contexts/LuxContext'
+import { AutoMockedApolloProvider } from '@l.x/lx/src/test/mocks'
+import { mockLuxContext } from '@l.x/lx/src/test/render'
 import { SharedWalletProvider } from '@luxfi/wallet/src/providers/SharedWalletProvider'
 
 // This type extends the default options for render from RTL, as well

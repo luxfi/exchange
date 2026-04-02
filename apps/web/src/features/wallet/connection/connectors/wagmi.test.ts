@@ -1,8 +1,8 @@
 import { renderHook } from '@testing-library/react'
 // Import mocked modules to get references to their functions
 import { Connector, CreateConnectorFn, connect, getConnectors } from '@wagmi/core'
-import { AccessPattern, ConnectorStatus } from '@luxexchange/lx/src/features/accounts/store/types/Connector'
-import { Platform } from '@luxexchange/lx/src/features/platforms/types/Platform'
+import { AccessPattern, ConnectorStatus } from '@l.x/lx/src/features/accounts/store/types/Connector'
+import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 import { useConnectors } from 'wagmi'
 import { activateWagmiConnector } from '~/features/wallet/connection/connectors/wagmi'

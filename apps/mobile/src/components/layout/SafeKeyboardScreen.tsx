@@ -4,7 +4,7 @@ import { KeyboardAvoidingView } from 'react-native-keyboard-controller'
 import { Screen, ScreenProps } from 'src/components/layout/Screen'
 import { Flex, flexStyles } from '@luxfi/ui/src'
 import { spacing } from '@luxfi/ui/src/theme'
-import { useKeyboardLayout } from '@luxexchange/lx/src/utils/useKeyboardLayout'
+import { useKeyboardLayout } from '@l.x/lx/src/utils/useKeyboardLayout'
 import { isIOS } from '@luxfi/utilities/src/platform'
 
 type OnboardingScreenProps = ScreenProps & {

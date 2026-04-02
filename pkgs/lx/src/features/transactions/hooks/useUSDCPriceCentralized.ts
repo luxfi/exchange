@@ -1,6 +1,6 @@
 import { parseUnits } from '@ethersproject/units'
 import { Currency, CurrencyAmount, Price } from '@luxamm/sdk-core'
-import { normalizeToken, usePrice } from '@luxexchange/prices'
+import { normalizeToken, usePrice } from '@l.x/prices'
 import { useMemo } from 'react'
 import type { PollingInterval } from 'lx/src/constants/misc'
 import { getPrimaryStablecoin, isUniverseChainId } from 'lx/src/features/chains/utils'

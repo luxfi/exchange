@@ -1,7 +1,7 @@
 import { memo } from 'react'
 import { Flex, Text } from '@luxfi/ui/src'
-import { CurrencyLogo } from '@luxexchange/lx/src/components/CurrencyLogo/CurrencyLogo'
-import { useCurrencyInfo } from '@luxexchange/lx/src/features/tokens/useCurrencyInfo'
+import { CurrencyLogo } from '@l.x/lx/src/components/CurrencyLogo/CurrencyLogo'
+import { useCurrencyInfo } from '@l.x/lx/src/features/tokens/useCurrencyInfo'
 
 interface TokenAmountDisplayProps {
   currencyInfo: ReturnType<typeof useCurrencyInfo>

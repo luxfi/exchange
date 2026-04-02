@@ -1,4 +1,4 @@
-import { GraphQLApi } from '@luxexchange/api'
+import { GraphQLApi } from '@l.x/api'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router'
 import { Flex, styled } from '@luxfi/ui/src/index'

@@ -1,5 +1,5 @@
 import { type ApolloClient, type NormalizedCacheObject, useApolloClient } from '@apollo/client'
-import { createSignedRequestParams, type GraphQLApi, objectToQueryString } from '@luxexchange/api'
+import { createSignedRequestParams, type GraphQLApi, objectToQueryString } from '@l.x/api'
 import { useCallback } from 'react'
 import { type Account } from '@luxfi/wallet/src/features/wallet/accounts/types'
 import { type SignerManager } from '@luxfi/wallet/src/features/wallet/signing/SignerManager'

@@ -1,5 +1,5 @@
 /**
- * Re-exported from @luxexchange/notifications for backwards compatibility.
+ * Re-exported from @l.x/notifications for backwards compatibility.
  * The canonical source is packages/notifications/src/notification-renderer/utils/iconUtils.ts
  */
 export {
@@ -7,4 +7,4 @@ export {
   getCustomIconComponent,
   type ParsedCustomIcon,
   parseCustomIconLink,
-} from '@luxexchange/notifications/src/notification-renderer/utils/iconUtils'
+} from '@l.x/notifications/src/notification-renderer/utils/iconUtils'

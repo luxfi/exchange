@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query'
-import { FeatureFlags, useFeatureFlag } from '@luxexchange/gating'
-import { getIsNotificationServiceLocalOverrideEnabled } from '@luxexchange/notifications'
+import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
+import { getIsNotificationServiceLocalOverrideEnabled } from '@l.x/notifications'
 import React, { useEffect } from 'react'
 import { navigate } from 'src/app/navigation/state'
 import { getNotificationServiceQueryOptions } from 'src/notification-service/ExtensionNotificationService'

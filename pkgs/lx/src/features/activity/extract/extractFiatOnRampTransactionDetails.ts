@@ -1,4 +1,4 @@
-import { FORTransactionStatus, GraphQLApi, TradingApi } from '@luxexchange/api'
+import { FORTransactionStatus, GraphQLApi, TradingApi } from '@l.x/api'
 import parseGraphQLOnRampTransaction from 'lx/src/features/activity/parse/parseOnRampTransaction'
 import { remoteTxStatusToLocalTxStatus } from 'lx/src/features/activity/utils/remote'
 import { UniverseChainId } from 'lx/src/features/chains/types'

@@ -1,6 +1,6 @@
 import { Store } from '@reduxjs/toolkit'
 import { persistStore } from 'redux-persist'
-import { initialTransactionsState } from '@luxexchange/lx/src/features/transactions/slice'
+import { initialTransactionsState } from '@l.x/lx/src/features/transactions/slice'
 import { createDefaultStore } from '~/state'
 import { initialState as initialListsState } from '~/state/lists/reducer'
 import { PERSIST_VERSION } from '~/state/migrations'

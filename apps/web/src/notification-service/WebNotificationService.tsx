@@ -7,8 +7,8 @@ import {
   provideSessionService,
   SESSION_INIT_QUERY_KEY,
   SharedQueryClient,
-} from '@luxexchange/api'
-import { getIsSessionServiceEnabled } from '@luxexchange/gating'
+} from '@l.x/api'
+import { getIsSessionServiceEnabled } from '@l.x/gating'
 import {
   createApiNotificationTracker,
   createBaseNotificationProcessor,
@@ -17,17 +17,17 @@ import {
   getNotificationQueryOptions,
   type NotificationDataSource,
   type NotificationService,
-} from '@luxexchange/notifications'
+} from '@l.x/notifications'
 import ms from 'ms'
 import { useEffect, useMemo, useRef } from 'react'
 import { useLocation, useNavigate } from 'react-router'
 import { useIsDarkMode } from '@luxfi/ui/src'
-import { useLuxContext } from '@luxexchange/lx/src/contexts/LuxContext'
-import { UniverseChainId } from '@luxexchange/lx/src/features/chains/types'
-import { mapLocaleToBackendLocale } from '@luxexchange/lx/src/features/language/constants'
-import { getLocale } from '@luxexchange/lx/src/features/language/navigatorLocale'
-import { selectCurrentLanguage } from '@luxexchange/lx/src/features/settings/selectors'
-import { AVERAGE_L1_BLOCK_TIME_MS } from '@luxexchange/lx/src/features/transactions/hooks/usePollingIntervalByChain'
+import { useLuxContext } from '@l.x/lx/src/contexts/LuxContext'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { mapLocaleToBackendLocale } from '@l.x/lx/src/features/language/constants'
+import { getLocale } from '@l.x/lx/src/features/language/navigatorLocale'
+import { selectCurrentLanguage } from '@l.x/lx/src/features/settings/selectors'
+import { AVERAGE_L1_BLOCK_TIME_MS } from '@l.x/lx/src/features/transactions/hooks/usePollingIntervalByChain'
 import { isPlaywrightEnv } from '@luxfi/utilities/src/environment/env'
 import { getLogger } from '@luxfi/utilities/src/logger/logger'
 import { REQUEST_SOURCE } from '@luxfi/utilities/src/platform/requestSource'

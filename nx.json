@@ -226,7 +226,7 @@
     "applyChanges": true
   },
   "parallel": 3,
-  "defaultProject": "@luxexchange/web",
+  "defaultProject": "@l.x/web",
   "generators": {
     "@nx/js:library": {
       "buildable": false

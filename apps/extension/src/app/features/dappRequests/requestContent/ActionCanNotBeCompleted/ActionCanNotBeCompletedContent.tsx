@@ -2,10 +2,10 @@ import { useTranslation } from 'react-i18next'
 import { DappRequestContent } from 'src/app/features/dappRequests/DappRequestContent'
 import { Flex, Text } from '@luxfi/ui/src'
 import { AlertTriangleFilled } from '@luxfi/ui/src/components/icons'
-import { LearnMoreLink } from '@luxexchange/lx/src/components/text/LearnMoreLink'
-import { lxUrls } from '@luxexchange/lx/src/constants/urls'
-import { WalletEventName } from '@luxexchange/lx/src/features/telemetry/constants'
-import Trace from '@luxexchange/lx/src/features/telemetry/Trace'
+import { LearnMoreLink } from '@l.x/lx/src/components/text/LearnMoreLink'
+import { lxUrls } from '@l.x/lx/src/constants/urls'
+import { WalletEventName } from '@l.x/lx/src/features/telemetry/constants'
+import Trace from '@l.x/lx/src/features/telemetry/Trace'
 
 export function ActionCanNotBeCompletedContent(): JSX.Element {
   const { t } = useTranslation()

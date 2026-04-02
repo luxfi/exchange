@@ -1,5 +1,5 @@
 import { useRef } from 'react'
-import { EVMUniverseChainId } from '@luxexchange/lx/src/features/chains/types'
+import { EVMUniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { getDurationRemainingString } from '@luxfi/utilities/src/time/duration'
 import { ONE_MINUTE_MS, ONE_SECOND_MS } from '@luxfi/utilities/src/time/time'
 import { useBlockTimestamp } from '~/hooks/useBlockTimestamp'

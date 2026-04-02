@@ -1,6 +1,6 @@
 /* eslint-disable no-restricted-syntax */
 
-import { TestID } from '@luxexchange/lx/src/test/fixtures/testIDs'
+import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
 import { shortenAddress } from '@luxfi/utilities/src/addresses'
 import { expect, getTest } from '~/playwright/fixtures'
 import { Mocks } from '~/playwright/mocks/mocks'

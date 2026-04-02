@@ -1,6 +1,6 @@
 import { ZERO_PERCENT } from '@luxamm/router-sdk'
 import { Currency, CurrencyAmount, Percent, Price, TradeType } from '@luxamm/sdk-core'
-import { JupiterOrderResponse, TradingApi } from '@luxexchange/api'
+import { JupiterOrderResponse, TradingApi } from '@l.x/api'
 import { BIPS_BASE } from 'lx/src/constants/misc'
 import { BlockingTradeError } from 'lx/src/features/transactions/swap/types/BlockingTradeError'
 import { SwapFee } from 'lx/src/features/transactions/swap/types/trade'

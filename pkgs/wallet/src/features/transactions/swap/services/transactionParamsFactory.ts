@@ -1,6 +1,6 @@
 import { permit2Address } from '@luxamm/permit2-sdk'
 import { Currency, CurrencyAmount } from '@luxamm/sdk-core'
-import { GasEstimate, TradingApi } from '@luxexchange/api'
+import { GasEstimate, TradingApi } from '@l.x/api'
 import { ValidatedSwapTxContext } from 'lx/src/features/transactions/swap/types/swapTxAndGasInfo'
 import { tradeToTransactionInfo } from 'lx/src/features/transactions/swap/utils/trade'
 import {

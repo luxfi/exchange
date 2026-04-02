@@ -1,6 +1,6 @@
 import { TouchableOpacity } from 'react-native'
-import { config } from '@luxexchange/lx/src/config'
-import { TestID } from '@luxexchange/lx/src/test/fixtures/testIDs'
+import { config } from '@l.x/lx/src/config'
+import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
 /**
  * Workaround for E2E tests for the runner to access actions that
  * are hard to get to.

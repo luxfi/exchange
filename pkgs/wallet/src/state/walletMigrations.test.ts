@@ -6,7 +6,7 @@
  *
  * For tests of the full migration chain, see walletMigrationsTests.ts.
  */
-import { RankingType } from '@luxexchange/api'
+import { RankingType } from '@l.x/api'
 import { FiatCurrency } from 'lx/src/features/fiatCurrency/constants'
 import { TransactionType } from 'lx/src/features/transactions/types/transactionDetails'
 import { createThrowingProxy } from 'utilities/src/test/utils'

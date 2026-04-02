@@ -1,4 +1,4 @@
-import { GasFeeResult } from '@luxexchange/api'
+import { GasFeeResult } from '@l.x/api'
 import { useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useDappLastChainId } from 'src/app/features/dapp/hooks'
@@ -8,9 +8,9 @@ import { isNonZeroBigNumber } from 'src/app/features/dappRequests/requestContent
 import { SendTransactionRequest } from 'src/app/features/dappRequests/types/DappRequestTypes'
 import { Anchor, Flex, Text, TouchableArea } from '@luxfi/ui/src'
 import { AnimatedCopySheets, ExternalLink } from '@luxfi/ui/src/components/icons'
-import { ContentRow } from '@luxexchange/lx/src/components/transactions/requests/ContentRow'
-import { CopyNotificationType } from '@luxexchange/lx/src/features/notifications/slice/types'
-import { ExplorerDataType, getExplorerLink } from '@luxexchange/lx/src/utils/linking'
+import { ContentRow } from '@l.x/lx/src/components/transactions/requests/ContentRow'
+import { CopyNotificationType } from '@l.x/lx/src/features/notifications/slice/types'
+import { ExplorerDataType, getExplorerLink } from '@l.x/lx/src/utils/linking'
 import { ellipseMiddle, shortenAddress } from '@luxfi/utilities/src/addresses'
 import { useCopyToClipboard } from '@luxfi/wallet/src/components/copy/useCopyToClipboard'
 import {

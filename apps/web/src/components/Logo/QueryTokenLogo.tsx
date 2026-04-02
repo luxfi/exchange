@@ -1,5 +1,5 @@
 import { useMemo } from 'react'
-import { UniverseChainId } from '@luxexchange/lx/src/features/chains/types'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { PortfolioLogo } from '~/components/AccountDrawer/MiniPortfolio/PortfolioLogo'
 import { AssetLogoBaseProps } from '~/components/Logo/AssetLogo'
 import { NATIVE_CHAIN_ID } from '~/constants/tokens'

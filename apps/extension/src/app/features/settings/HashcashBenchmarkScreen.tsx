@@ -1,6 +1,6 @@
 /* eslint-disable max-lines */
-import { createHashcashMultiWorkerChannel, createHashcashWorkerChannel } from '@luxexchange/sessions'
-import { findProof as jsFindProof } from '@luxexchange/sessions/src/challenge-solvers/hashcash/core'
+import { createHashcashMultiWorkerChannel, createHashcashWorkerChannel } from '@l.x/sessions'
+import { findProof as jsFindProof } from '@l.x/sessions/src/challenge-solvers/hashcash/core'
 import { memo, useCallback, useEffect, useMemo } from 'react'
 import { ScreenHeader } from 'src/app/components/layout/ScreenHeader'
 import {
@@ -427,7 +427,7 @@ export function HashcashBenchmarkScreen(): JSX.Element {
     const channel = createHashcashWorkerChannel({
       getWorker: () =>
         new Worker(
-          new URL('@luxexchange/sessions/src/challenge-solvers/hashcash/worker/hashcash.worker.ts', import.meta.url),
+          new URL('@l.x/sessions/src/challenge-solvers/hashcash/worker/hashcash.worker.ts', import.meta.url),
           { type: 'module' },
         ),
     })
@@ -518,7 +518,7 @@ export function HashcashBenchmarkScreen(): JSX.Element {
       workerCount,
       getWorker: () =>
         new Worker(
-          new URL('@luxexchange/sessions/src/challenge-solvers/hashcash/worker/hashcash.worker.ts', import.meta.url),
+          new URL('@l.x/sessions/src/challenge-solvers/hashcash/worker/hashcash.worker.ts', import.meta.url),
           { type: 'module' },
         ),
     })

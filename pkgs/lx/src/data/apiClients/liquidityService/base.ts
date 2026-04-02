@@ -1,4 +1,4 @@
-import { createConnectTransportWithDefaults } from '@luxexchange/api'
+import { createConnectTransportWithDefaults } from '@l.x/api'
 import { config } from 'lx/src/config'
 import { lxUrls } from 'lx/src/constants/urls'
 

@@ -1,8 +1,8 @@
 import { Fragment, useCallback } from 'react'
 import { DropdownMenuSheetItem, DropdownMenuSheetItemProps, Flex, FlexProps, getMenuItemColor, Separator } from 'ui/src'
-import { MenuOptionItem } from '@luxexchange/lx/src/components/menus/ContextMenu'
-import { ElementName, SectionName, LxEventName } from '@luxexchange/lx/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from '@luxexchange/lx/src/features/telemetry/send'
+import { MenuOptionItem } from '@l.x/lx/src/components/menus/ContextMenu'
+import { ElementName, SectionName, LxEventName } from '@l.x/lx/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
 import { isWebPlatform } from 'utilities/src/platform'
 import { useTrace } from 'utilities/src/telemetry/trace/TraceContext'
 

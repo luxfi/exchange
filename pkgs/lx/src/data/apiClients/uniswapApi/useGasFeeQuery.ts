@@ -5,8 +5,8 @@ import {
   type GasStrategy,
   type UseQueryWithImmediateGarbageCollectionApiHelperHookArgs,
   useQueryWithImmediateGarbageCollection,
-} from '@luxexchange/api'
-import { FeatureFlags, getFeatureFlag, useStatsigClientStatus } from '@luxexchange/gating'
+} from '@l.x/api'
+import { FeatureFlags, getFeatureFlag, useStatsigClientStatus } from '@l.x/gating'
 import { lxUrls } from 'lx/src/constants/urls'
 import { fetchGasFeeV2 } from 'lx/src/data/apiClients/gasService/fetchGasFeeV2'
 import { LxApiClient } from 'lx/src/data/apiClients/lxApi/LxApiClient'

@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next'
 import { Flex, Text, useSporeColors } from '@luxfi/ui/src'
 import { AlertTriangleFilled } from '@luxfi/ui/src/components/icons/AlertTriangleFilled'
 import { opacifyRaw, zIndexes } from '@luxfi/ui/src/theme'
-import { lxUrls } from '@luxexchange/lx/src/constants/urls'
+import { lxUrls } from '@l.x/lx/src/constants/urls'
 import { TokenLaunchedBannerWrapper } from '~/components/Toucan/Auction/Banners/TokenLaunched/TokenLaunchedBannerWrapper'
 import { ExternalLink } from '~/theme/components/Links'
 

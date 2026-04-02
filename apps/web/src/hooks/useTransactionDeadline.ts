@@ -1,6 +1,6 @@
 import { BigNumber } from '@ethersproject/bignumber'
 import { useCallback } from 'react'
-import { isL2ChainId } from '@luxexchange/lx/src/features/chains/utils'
+import { isL2ChainId } from '@l.x/lx/src/features/chains/utils'
 import { useInterfaceMulticall } from '~/hooks/useContract'
 import { useAppSelector } from '~/state/hooks'
 import { useMultichainContext } from '~/state/multichain/useMultichainContext'

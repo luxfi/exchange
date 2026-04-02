@@ -2,21 +2,21 @@ import { Fragment, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Button, Flex, getTokenValue, Text, VerticalDottedLineSeparator } from 'ui/src'
 import { ArrowRight, ArrowRightDashed } from 'ui/src/components/icons'
-import { PLAN_STEP_ITEM_WIDTH, PlanStepItem } from '@luxexchange/lx/src/components/activity/details/plan/PlanStepItem'
-import { ResumePlanButton } from '@luxexchange/lx/src/components/activity/details/plan/ResumePlanButton'
-import { CurrencyLogo } from '@luxexchange/lx/src/components/CurrencyLogo/CurrencyLogo'
-import { getTransactionSummaryTitle } from '@luxexchange/lx/src/features/activity/utils/getTransactionSummaryTitle'
-import { useCurrencyInfo } from '@luxexchange/lx/src/features/tokens/useCurrencyInfo'
-import { useCanResumePlan } from '@luxexchange/lx/src/features/transactions/swap/plan/intermediaryState/useCanResumePlan'
-import { useIntermediaryPlanState } from '@luxexchange/lx/src/features/transactions/swap/plan/intermediaryState/useIntermediaryPlanState'
-import { useIntermediaryPlanStateDescriptor } from '@luxexchange/lx/src/features/transactions/swap/plan/intermediaryState/useIntermediaryPlanStateDescriptor'
+import { PLAN_STEP_ITEM_WIDTH, PlanStepItem } from '@l.x/lx/src/components/activity/details/plan/PlanStepItem'
+import { ResumePlanButton } from '@l.x/lx/src/components/activity/details/plan/ResumePlanButton'
+import { CurrencyLogo } from '@l.x/lx/src/components/CurrencyLogo/CurrencyLogo'
+import { getTransactionSummaryTitle } from '@l.x/lx/src/features/activity/utils/getTransactionSummaryTitle'
+import { useCurrencyInfo } from '@l.x/lx/src/features/tokens/useCurrencyInfo'
+import { useCanResumePlan } from '@l.x/lx/src/features/transactions/swap/plan/intermediaryState/useCanResumePlan'
+import { useIntermediaryPlanState } from '@l.x/lx/src/features/transactions/swap/plan/intermediaryState/useIntermediaryPlanState'
+import { useIntermediaryPlanStateDescriptor } from '@l.x/lx/src/features/transactions/swap/plan/intermediaryState/useIntermediaryPlanStateDescriptor'
 import {
   PlanTransactionInfo,
   TransactionDetails,
   TransactionStatus,
   TransactionType,
-} from '@luxexchange/lx/src/features/transactions/types/transactionDetails'
-import { buildNativeCurrencyId, buildWrappedNativeCurrencyId } from '@luxexchange/lx/src/utils/currencyId'
+} from '@l.x/lx/src/features/transactions/types/transactionDetails'
+import { buildNativeCurrencyId, buildWrappedNativeCurrencyId } from '@l.x/lx/src/utils/currencyId'
 import { isWebPlatform } from 'utilities/src/platform'
 
 interface PlanDetailsViewProps {

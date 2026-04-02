@@ -1,5 +1,5 @@
-import { type InAppNotification } from '@luxexchange/api'
-import { type NotificationRenderer } from '@luxexchange/notifications/src/notification-renderer/NotificationRenderer'
+import { type InAppNotification } from '@l.x/api'
+import { type NotificationRenderer } from '@l.x/notifications/src/notification-renderer/NotificationRenderer'
 
 export function createNotificationRenderer(ctx: {
   render: (notification: InAppNotification) => () => void

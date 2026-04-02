@@ -7,7 +7,7 @@ import {
   getCancelMultipleParams,
   getCancelSingleParams,
 } from '@luxamm/sdk'
-import { TradingApi } from '@luxexchange/api'
+import { TradingApi } from '@l.x/api'
 import { providers } from 'ethers/lib/ethers'
 import { UniverseChainId } from 'lx/src/features/chains/types'
 import { createPermit2Contract } from 'lx/src/features/transactions/utils/permit2'

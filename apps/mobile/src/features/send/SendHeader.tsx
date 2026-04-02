@@ -2,7 +2,7 @@ import React, { Dispatch, SetStateAction } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Flex, Text, TouchableArea } from '@luxfi/ui/src'
 import { Eye } from '@luxfi/ui/src/components/icons'
-import { AccountType } from '@luxexchange/lx/src/features/accounts/types'
+import { AccountType } from '@l.x/lx/src/features/accounts/types'
 import { useActiveAccountWithThrow } from '@luxfi/wallet/src/features/wallet/hooks'
 
 type HeaderContentProps = {

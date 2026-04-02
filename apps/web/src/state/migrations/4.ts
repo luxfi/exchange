@@ -1,5 +1,5 @@
 import { PersistState } from 'redux-persist'
-import { DEFAULT_LOCALE } from '@luxexchange/lx/src/features/language/constants'
+import { DEFAULT_LOCALE } from '@l.x/lx/src/features/language/constants'
 import { PreV16UserState } from '~/state/migrations/oldTypes'
 
 export type PersistAppStateV4 = {

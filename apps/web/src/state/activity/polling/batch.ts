@@ -1,6 +1,6 @@
 import { Web3Provider } from '@ethersproject/providers'
 import { useEffect, useMemo } from 'react'
-import { TransactionStatus } from '@luxexchange/lx/src/features/transactions/types/transactionDetails'
+import { TransactionStatus } from '@l.x/lx/src/features/transactions/types/transactionDetails'
 import { HexString } from '@luxfi/utilities/src/addresses/hex'
 import { logger } from '@luxfi/utilities/src/logger/logger'
 import { useEvent } from '@luxfi/utilities/src/react/hooks'

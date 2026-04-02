@@ -1,16 +1,16 @@
-import { GqlResult, GraphQLApi } from '@luxexchange/api'
+import { GqlResult, GraphQLApi } from '@l.x/api'
 import { useMemo } from 'react'
-import { getCommonBase } from '@luxexchange/lx/src/constants/routing'
-import { UniverseChainId } from '@luxexchange/lx/src/features/chains/types'
-import { CurrencyInfo } from '@luxexchange/lx/src/features/dataApi/types'
-import { currencyIdToContractInput } from '@luxexchange/lx/src/features/dataApi/utils/currencyIdToContractInput'
-import { gqlTokenToCurrencyInfo } from '@luxexchange/lx/src/features/dataApi/utils/gqlTokenToCurrencyInfo'
+import { getCommonBase } from '@l.x/lx/src/constants/routing'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { CurrencyInfo } from '@l.x/lx/src/features/dataApi/types'
+import { currencyIdToContractInput } from '@l.x/lx/src/features/dataApi/utils/currencyIdToContractInput'
+import { gqlTokenToCurrencyInfo } from '@l.x/lx/src/features/dataApi/utils/gqlTokenToCurrencyInfo'
 import {
   buildNativeCurrencyId,
   buildWrappedNativeCurrencyId,
   currencyIdToAddress,
   currencyIdToChain,
-} from '@luxexchange/lx/src/utils/currencyId'
+} from '@l.x/lx/src/utils/currencyId'
 
 function useCurrencyInfoQuery(
   _currencyId?: string,

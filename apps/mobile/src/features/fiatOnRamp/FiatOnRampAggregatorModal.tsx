@@ -1,7 +1,7 @@
 import React from 'react'
 import { FiatOnRampStackNavigator } from 'src/app/navigation/navigation'
 import { FullScreenNavModal } from 'src/components/modals/FullScreenNavModal'
-import { ModalName } from '@luxexchange/lx/src/features/telemetry/constants'
+import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
 
 export function FiatOnRampAggregatorModal(): JSX.Element {
   return (

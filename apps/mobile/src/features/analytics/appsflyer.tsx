@@ -1,5 +1,5 @@
 import appsFlyer from 'react-native-appsflyer'
-import { config } from '@luxexchange/lx/src/config'
+import { config } from '@l.x/lx/src/config'
 import { isBetaEnv, isDevEnv } from '@luxfi/utilities/src/environment/env'
 import { logger } from '@luxfi/utilities/src/logger/logger'
 

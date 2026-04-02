@@ -1,4 +1,4 @@
-import { ExtensionOnboardingFlow, ExtensionScreens } from '@luxexchange/lx/src/types/screens/extension'
+import { ExtensionOnboardingFlow, ExtensionScreens } from '@l.x/lx/src/types/screens/extension'
 
 export enum MobileScreens {
   Activity = 'Activity',

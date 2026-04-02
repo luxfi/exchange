@@ -1,8 +1,8 @@
 /* eslint-disable max-lines */
 import { RankingType } from '@luxfi/api'
-import { FiatCurrency } from '@luxexchange/lx/src/features/fiatCurrency/constants'
-import { Language } from '@luxexchange/lx/src/features/language/constants'
-import { ModalName } from '@luxexchange/lx/src/features/telemetry/constants'
+import { FiatCurrency } from '@l.x/lx/src/features/fiatCurrency/constants'
+import { Language } from '@l.x/lx/src/features/language/constants'
+import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
 import { SwapProtectionSetting } from '@luxfi/wallet/src/features/wallet/slice'
 
 // only add fields that are persisted

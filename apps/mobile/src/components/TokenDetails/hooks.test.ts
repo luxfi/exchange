@@ -2,8 +2,8 @@ import { NetworkStatus } from '@apollo/client'
 import { useTokenDetailsNavigation } from 'src/components/TokenDetails/hooks'
 import { preloadedMobileState } from 'src/test/fixtures'
 import { act, renderHook, waitFor } from 'src/test/test-utils'
-import { useCrossChainBalances } from '@luxexchange/lx/src/data/balances/hooks/useCrossChainBalances'
-import { usePortfolioBalances } from '@luxexchange/lx/src/features/dataApi/balances/balances'
+import { useCrossChainBalances } from '@l.x/lx/src/data/balances/hooks/useCrossChainBalances'
+import { usePortfolioBalances } from '@l.x/lx/src/features/dataApi/balances/balances'
 import {
   portfolio,
   portfolioBalances,
@@ -12,9 +12,9 @@ import {
   tokenBalance,
   usdcArbitrumToken,
   usdcBaseToken,
-} from '@luxexchange/lx/src/test/fixtures'
-import { MobileScreens } from '@luxexchange/lx/src/types/screens/mobile'
-import { portfolioBalancesById } from '@luxexchange/lx/src/utils/balances'
+} from '@l.x/lx/src/test/fixtures'
+import { MobileScreens } from '@l.x/lx/src/types/screens/mobile'
+import { portfolioBalancesById } from '@l.x/lx/src/utils/balances'
 
 const mockedNavigation = {
   navigate: jest.fn(),

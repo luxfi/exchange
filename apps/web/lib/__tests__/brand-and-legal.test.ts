@@ -1,7 +1,7 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest'
-import { brand } from '@luxexchange/config'
-import type { BrandConfig } from '@luxexchange/config'
-import { loadBrandConfig } from '@luxexchange/config/brand'
+import { brand } from '@l.x/config'
+import type { BrandConfig } from '@l.x/config'
+import { loadBrandConfig } from '@l.x/config/brand'
 import {
   LEGAL_UPDATED,
   LEGAL_URLS,
@@ -10,7 +10,7 @@ import {
   COOKIE_NOTICE,
   NON_CUSTODIAL_NOTICE,
   getLegalUrls,
-} from '@luxexchange/config/legal'
+} from '@l.x/config/legal'
 
 // ---------------------------------------------------------------------------
 // 1. BrandConfig interface completeness

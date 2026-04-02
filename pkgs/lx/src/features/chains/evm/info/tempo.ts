@@ -1,5 +1,5 @@
 import { Token } from '@luxamm/sdk-core'
-import { GraphQLApi } from '@luxexchange/api'
+import { GraphQLApi } from '@l.x/api'
 import { TEMPO_LOGO } from 'ui/src/assets'
 import {
   DEFAULT_MS_BEFORE_WARNING,

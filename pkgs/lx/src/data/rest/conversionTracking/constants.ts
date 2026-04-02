@@ -1,5 +1,5 @@
 import ms from 'ms'
-import { PlatformIdType } from '@luxexchange/lx/src/data/rest/conversionTracking/types'
+import { PlatformIdType } from '@l.x/lx/src/data/rest/conversionTracking/types'
 
 export const CONVERSION_LEADS_EXPIRATION_MS = ms('30d')
 export const CONVERSION_LEADS_STORAGE_KEY = 'conversion.leads'

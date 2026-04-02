@@ -1,12 +1,12 @@
 import { memo, useMemo } from 'react'
 import { Flex, Text, TouchableArea } from '@luxfi/ui/src'
 import { borderRadii, iconSizes } from '@luxfi/ui/src/theme'
-import { NetworkLogo } from '@luxexchange/lx/src/components/CurrencyLogo/NetworkLogo'
-import { getChainInfo } from '@luxexchange/lx/src/features/chains/chainInfo'
-import { PortfolioBalance } from '@luxexchange/lx/src/features/dataApi/types'
-import { useLocalizationContext } from '@luxexchange/lx/src/features/language/LocalizationContext'
-import { TestID } from '@luxexchange/lx/src/test/fixtures/testIDs'
-import { getSymbolDisplayText } from '@luxexchange/lx/src/utils/currency'
+import { NetworkLogo } from '@l.x/lx/src/components/CurrencyLogo/NetworkLogo'
+import { getChainInfo } from '@l.x/lx/src/features/chains/chainInfo'
+import { PortfolioBalance } from '@l.x/lx/src/features/dataApi/types'
+import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
+import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
+import { getSymbolDisplayText } from '@l.x/lx/src/utils/currency'
 import { NumberType } from '@luxfi/utilities/src/format/types'
 
 interface NetworkBalanceRowProps {

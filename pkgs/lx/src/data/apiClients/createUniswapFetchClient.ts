@@ -1,5 +1,5 @@
-import { createFetchClient, type FetchClient, provideSessionService } from '@luxexchange/api'
-import { getIsSessionServiceEnabled } from '@luxexchange/gating'
+import { createFetchClient, type FetchClient, provideSessionService } from '@l.x/api'
+import { getIsSessionServiceEnabled } from '@l.x/gating'
 import { lxUrls } from 'lx/src/constants/urls'
 import { getVersionHeader } from 'lx/src/data/getVersionHeader'
 import { isMobileApp, isWebApp } from 'utilities/src/platform'

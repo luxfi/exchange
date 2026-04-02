@@ -1,5 +1,5 @@
 import { Percent } from '@luxamm/sdk-core'
-import { type JupiterOrderResponse, TradingApi } from '@luxexchange/api'
+import { type JupiterOrderResponse, TradingApi } from '@l.x/api'
 import { UniverseChainId } from 'lx/src/features/chains/types'
 import { SolanaTrade } from 'lx/src/features/transactions/swap/types/solana'
 import { jupiterRoutingProvider } from 'lx/src/utils/routingDiagram/routingProviders/jupiterRoutingProvider'

@@ -8,10 +8,10 @@ import { useTranslation } from 'react-i18next'
 import { Button, Flex, Image, ImageProps, Text, TouchableArea, useMedia } from '@luxfi/ui/src'
 import { X } from '@luxfi/ui/src/components/icons/X'
 import { iconSizes } from '@luxfi/ui/src/theme'
-import { Modal } from '@luxexchange/lx/src/components/modals/Modal'
-import { ElementName, ModalNameType } from '@luxexchange/lx/src/features/telemetry/constants'
-import Trace from '@luxexchange/lx/src/features/telemetry/Trace'
-import { openUri } from '@luxexchange/lx/src/utils/linking'
+import { Modal } from '@l.x/lx/src/components/modals/Modal'
+import { ElementName, ModalNameType } from '@l.x/lx/src/features/telemetry/constants'
+import Trace from '@l.x/lx/src/features/telemetry/Trace'
+import { openUri } from '@l.x/lx/src/utils/linking'
 import {
   LAUNCH_MODAL_DESKTOP_MAX_HEIGHT,
   LAUNCH_MODAL_DESKTOP_MAX_WIDTH,

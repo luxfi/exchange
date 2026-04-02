@@ -1,11 +1,11 @@
 import { AppStackScreenProp } from 'src/app/navigation/types'
 import { useReactNavigationModal } from 'src/components/modals/useReactNavigationModal'
-import { BridgedAssetModal } from '@luxexchange/lx/src/components/BridgedAsset/BridgedAssetModal'
-import { useEnabledChains } from '@luxexchange/lx/src/features/chains/hooks/useEnabledChains'
-import { ModalName } from '@luxexchange/lx/src/features/telemetry/constants'
-import { useCurrencyInfo } from '@luxexchange/lx/src/features/tokens/useCurrencyInfo'
-import { useDismissedBridgedAssetWarnings } from '@luxexchange/lx/src/features/tokens/warnings/slice/hooks'
-import { currencyIdToAddress, currencyIdToChain, isNativeCurrencyAddress } from '@luxexchange/lx/src/utils/currencyId'
+import { BridgedAssetModal } from '@l.x/lx/src/components/BridgedAsset/BridgedAssetModal'
+import { useEnabledChains } from '@l.x/lx/src/features/chains/hooks/useEnabledChains'
+import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
+import { useCurrencyInfo } from '@l.x/lx/src/features/tokens/useCurrencyInfo'
+import { useDismissedBridgedAssetWarnings } from '@l.x/lx/src/features/tokens/warnings/slice/hooks'
+import { currencyIdToAddress, currencyIdToChain, isNativeCurrencyAddress } from '@l.x/lx/src/utils/currencyId'
 
 export function BridgedAssetWarningWrapper({
   route,

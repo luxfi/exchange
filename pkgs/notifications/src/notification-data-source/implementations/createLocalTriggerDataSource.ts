@@ -1,7 +1,7 @@
-import { type InAppNotification } from '@luxexchange/api'
-import { createNotificationDataSource } from '@luxexchange/notifications/src/notification-data-source/implementations/createNotificationDataSource'
-import { type NotificationDataSource } from '@luxexchange/notifications/src/notification-data-source/NotificationDataSource'
-import { type NotificationTracker } from '@luxexchange/notifications/src/notification-tracker/NotificationTracker'
+import { type InAppNotification } from '@l.x/api'
+import { createNotificationDataSource } from '@l.x/notifications/src/notification-data-source/implementations/createNotificationDataSource'
+import { type NotificationDataSource } from '@l.x/notifications/src/notification-data-source/NotificationDataSource'
+import { type NotificationTracker } from '@l.x/notifications/src/notification-tracker/NotificationTracker'
 import { getLogger } from 'utilities/src/logger/logger'
 
 /**

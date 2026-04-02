@@ -1,7 +1,7 @@
 import { PlainMessage } from '@bufbuild/protobuf'
 import { useQuery } from '@tanstack/react-query'
 import { AuctionWithStats, ListTopAuctionsRequest } from '@luxamm/client-data-api/dist/data/v1/auction_pb'
-import { DynamicConfigs, useDynamicConfigValue, VerifiedAuctionsConfigKey } from '@luxexchange/gating'
+import { DynamicConfigs, useDynamicConfigValue, VerifiedAuctionsConfigKey } from '@l.x/gating'
 import { useMemo } from 'react'
 import { useSelector } from 'react-redux'
 import { auctionQueries } from 'lx/src/data/rest/auctions/auctionQueries'

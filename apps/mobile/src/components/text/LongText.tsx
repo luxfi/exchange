@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next'
 import { NativeSyntheticEvent, TextLayoutEventData } from 'react-native'
 import { Flex, SpaceTokens, Text, useSporeColors } from '@luxfi/ui/src'
 import { fonts } from '@luxfi/ui/src/theme'
-import { TestID } from '@luxexchange/lx/src/test/fixtures/testIDs'
+import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
 
 type LongTextProps = {
   initialDisplayedLines?: number

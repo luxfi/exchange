@@ -1,6 +1,6 @@
 import { BigNumber } from '@ethersproject/bignumber'
 import { TradeType } from '@luxamm/sdk-core'
-import { GasFeeResult, TradingApi } from '@luxexchange/api'
+import { GasFeeResult, TradingApi } from '@l.x/api'
 import { providers } from 'ethers/lib/ethers'
 import { UniverseChainId } from 'lx/src/features/chains/types'
 import {

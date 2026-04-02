@@ -1,4 +1,4 @@
-import { TradingApi } from '@luxexchange/api'
+import { TradingApi } from '@l.x/api'
 import { useMemo } from 'react'
 import { useTradingApiSwappableTokensQuery } from 'lx/src/data/apiClients/tradingApi/useTradingApiSwappableTokensQuery'
 import { UniverseChainId } from 'lx/src/features/chains/types'

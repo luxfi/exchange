@@ -1,4 +1,4 @@
-import { TradingApi } from '@luxexchange/api'
+import { TradingApi } from '@l.x/api'
 import { Platform } from 'lx/src/features/platforms/types/Platform'
 import { chainIdToPlatform } from 'lx/src/features/platforms/utils/chains'
 import { LxEventName } from 'lx/src/features/telemetry/constants'

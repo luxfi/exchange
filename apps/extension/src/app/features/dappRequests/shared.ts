@@ -1,7 +1,7 @@
 import type { DappInfo } from 'src/app/features/dapp/store'
 import type { DappRequest, ErrorResponse } from 'src/app/features/dappRequests/types/DappRequestTypes'
 import type { DappRequestMessageSchema } from 'src/background/messagePassing/types/requests'
-import type { TransactionTypeInfo } from '@luxexchange/lx/src/features/transactions/types/transactionDetails'
+import type { TransactionTypeInfo } from '@l.x/lx/src/features/transactions/types/transactionDetails'
 import type { SignedTransactionRequest } from '@luxfi/wallet/src/features/transactions/executeTransaction/types'
 import type { z } from 'zod'
 

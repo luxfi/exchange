@@ -1,7 +1,7 @@
-import { BATCH_DELAY_MS, MAX_BATCH_SIZE } from '@luxexchange/prices/src/sources/rest/constants'
-import { RestPriceBatcher } from '@luxexchange/prices/src/sources/rest/RestPriceBatcher'
-import type { RestPriceClient } from '@luxexchange/prices/src/sources/rest/types'
-import type { TokenPriceData } from '@luxexchange/prices/src/types'
+import { BATCH_DELAY_MS, MAX_BATCH_SIZE } from '@l.x/prices/src/sources/rest/constants'
+import { RestPriceBatcher } from '@l.x/prices/src/sources/rest/RestPriceBatcher'
+import type { RestPriceClient } from '@l.x/prices/src/sources/rest/types'
+import type { TokenPriceData } from '@l.x/prices/src/types'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
 function createMockClient(

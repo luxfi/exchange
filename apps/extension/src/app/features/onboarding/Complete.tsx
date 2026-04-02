@@ -10,7 +10,7 @@ import { terminateStoreSynchronization } from 'src/store/storeSynchronization'
 import { Flex, Image, Text } from '@luxfi/ui/src'
 import { LUX_LOGO } from '@luxfi/ui/src/assets'
 import { iconSizes } from '@luxfi/ui/src/theme'
-import { ExtensionOnboardingFlow } from '@luxexchange/lx/src/types/screens/extension'
+import { ExtensionOnboardingFlow } from '@l.x/lx/src/types/screens/extension'
 import { useOnboardingContext } from '@luxfi/wallet/src/features/onboarding/OnboardingContext'
 
 export function Complete({

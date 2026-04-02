@@ -1,4 +1,4 @@
-import { DAI, USDC_MAINNET } from '@luxexchange/lx/src/constants/tokens'
+import { DAI, USDC_MAINNET } from '@l.x/lx/src/constants/tokens'
 import { LimitPriceErrorType } from '~/components/CurrencyInputPanel/LimitPriceInputPanel/useCurrentPriceAdjustment'
 import { LimitPriceError } from '~/pages/Swap/Limit/LimitPriceError'
 import { render } from '~/test-utils/render'

@@ -1,5 +1,5 @@
 import { UseQueryResult } from '@tanstack/react-query'
-import { useQueryWithImmediateGarbageCollection } from '@luxexchange/api'
+import { useQueryWithImmediateGarbageCollection } from '@l.x/api'
 import { useRef } from 'react'
 import { useTradeService } from 'lx/src/features/services'
 import { usePollingIntervalByChain } from 'lx/src/features/transactions/hooks/usePollingIntervalByChain'

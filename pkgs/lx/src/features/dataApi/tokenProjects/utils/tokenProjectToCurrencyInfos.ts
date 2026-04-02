@@ -1,4 +1,4 @@
-import { GraphQLApi } from '@luxexchange/api'
+import { GraphQLApi } from '@l.x/api'
 import { UniverseChainId } from 'lx/src/features/chains/types'
 import { fromGraphQLChain } from 'lx/src/features/chains/utils'
 import { CurrencyInfo } from 'lx/src/features/dataApi/types'

@@ -1,4 +1,4 @@
-import { getStatsigClient } from '@luxexchange/gating'
+import { getStatsigClient } from '@l.x/gating'
 import { useEffect } from 'react'
 import { logger } from 'utilities/src/logger/logger'
 

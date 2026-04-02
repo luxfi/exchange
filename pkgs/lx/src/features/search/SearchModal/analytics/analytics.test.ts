@@ -4,13 +4,13 @@ import {
   TokenOption,
   UnitagOption,
   WalletOption,
-} from '@luxexchange/lx/src/components/lists/items/types'
-import { OnchainItemSection, OnchainItemSectionName } from '@luxexchange/lx/src/components/lists/OnchainItemList/types'
-import { sendSearchOptionItemClickedAnalytics } from '@luxexchange/lx/src/features/search/SearchModal/analytics/analytics'
-import { SearchFilterContext } from '@luxexchange/lx/src/features/search/SearchModal/analytics/SearchContext'
-import { SearchTab } from '@luxexchange/lx/src/features/search/SearchModal/types'
-import { InterfaceEventName, MobileEventName } from '@luxexchange/lx/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from '@luxexchange/lx/src/features/telemetry/send'
+} from '@l.x/lx/src/components/lists/items/types'
+import { OnchainItemSection, OnchainItemSectionName } from '@l.x/lx/src/components/lists/OnchainItemList/types'
+import { sendSearchOptionItemClickedAnalytics } from '@l.x/lx/src/features/search/SearchModal/analytics/analytics'
+import { SearchFilterContext } from '@l.x/lx/src/features/search/SearchModal/analytics/SearchContext'
+import { SearchTab } from '@l.x/lx/src/features/search/SearchModal/types'
+import { InterfaceEventName, MobileEventName } from '@l.x/lx/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
 import type { Mock } from 'vitest'
 
 // Use vi.hoisted to create a mutable mock value that can be changed between tests

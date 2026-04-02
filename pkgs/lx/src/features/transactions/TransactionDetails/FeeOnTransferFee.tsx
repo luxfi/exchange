@@ -1,13 +1,13 @@
 import { useTranslation } from 'react-i18next'
 import { Flex, Text } from 'ui/src'
-import WarningIcon from '@luxexchange/lx/src/components/warnings/WarningIcon'
-import { FeeOnTransferWarning } from '@luxexchange/lx/src/features/transactions/TransactionDetails/modals/FeeOnTransferWarning'
+import WarningIcon from '@l.x/lx/src/components/warnings/WarningIcon'
+import { FeeOnTransferWarning } from '@l.x/lx/src/features/transactions/TransactionDetails/modals/FeeOnTransferWarning'
 import {
   FeeOnTransferFeeGroupProps,
   FoTFeeType,
   TokenFeeInfo,
-} from '@luxexchange/lx/src/features/transactions/TransactionDetails/types'
-import { getFeeSeverity } from '@luxexchange/lx/src/features/transactions/TransactionDetails/utils/getFeeSeverity'
+} from '@l.x/lx/src/features/transactions/TransactionDetails/types'
+import { getFeeSeverity } from '@l.x/lx/src/features/transactions/TransactionDetails/utils/getFeeSeverity'
 
 export function FeeOnTransferFeeGroup({
   inputTokenInfo,

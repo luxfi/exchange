@@ -1,4 +1,4 @@
-import { createZustandConnectionStore } from '@luxexchange/websocket/src/store/createZustandConnectionStore'
+import { createZustandConnectionStore } from '@l.x/websocket/src/store/createZustandConnectionStore'
 import { describe, expect, it, vi } from 'vitest'
 
 describe('createZustandConnectionStore', () => {

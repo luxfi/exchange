@@ -3,7 +3,7 @@
 /* eslint-disable @typescript-eslint/no-unsafe-return */
 /* biome-ignore-all lint/suspicious/noExplicitAny: Migration types require dynamic typing */
 
-import { RankingType } from '@luxexchange/api'
+import { RankingType } from '@l.x/api'
 import { AccountType } from 'lx/src/features/accounts/types'
 import { FiatCurrency } from 'lx/src/features/fiatCurrency/constants'
 import { Language } from 'lx/src/features/language/constants'

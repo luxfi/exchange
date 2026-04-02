@@ -8,7 +8,7 @@ import { GoogleLogo } from 'ui/src/components/icons/GoogleLogo'
 import { PaypalLogo } from 'ui/src/components/icons/PaypalLogo'
 import { VenmoLogo } from 'ui/src/components/icons/VenmoLogo'
 import { iconSizes } from 'ui/src/theme'
-import { FORFilters, FORFiltersMap, FORQuote } from '@luxexchange/lx/src/features/fiatOnRamp/types'
+import { FORFilters, FORFiltersMap, FORQuote } from '@l.x/lx/src/features/fiatOnRamp/types'
 import { isAndroid, isIOS, isWebAndroid, isWebIOS } from 'utilities/src/platform'
 
 export type PaymentMethodFilterProps = FlexProps & {

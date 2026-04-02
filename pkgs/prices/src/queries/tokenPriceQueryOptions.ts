@@ -1,8 +1,8 @@
 import { type QueryClient, queryOptions, skipToken } from '@tanstack/react-query'
-import { priceKeys } from '@luxexchange/prices/src/queries/priceKeys'
-import { REST_POLL_INTERVAL_MS } from '@luxexchange/prices/src/sources/rest/constants'
-import type { RestPriceBatcher } from '@luxexchange/prices/src/sources/rest/RestPriceBatcher'
-import type { TokenPriceData } from '@luxexchange/prices/src/types'
+import { priceKeys } from '@l.x/prices/src/queries/priceKeys'
+import { REST_POLL_INTERVAL_MS } from '@l.x/prices/src/sources/rest/constants'
+import type { RestPriceBatcher } from '@l.x/prices/src/sources/rest/RestPriceBatcher'
+import type { TokenPriceData } from '@l.x/prices/src/types'
 
 export interface TokenPriceQueryOptionsParams {
   chainId: number

@@ -1,4 +1,4 @@
-import type { WebSocketLike } from '@luxexchange/websocket/src/types'
+import type { WebSocketLike } from '@l.x/websocket/src/types'
 
 type EventHandler = (event: unknown) => void
 

@@ -12,7 +12,7 @@ import {
   V4Position,
 } from '@luxamm/client-liquidity/dist/lx/liquidity/v1/types_pb'
 import type { Currency } from '@luxamm/sdk-core'
-import { getTradeSettingsDeadline } from '@luxexchange/lx/src/data/apiClients/tradingApi/utils/getTradeSettingsDeadline'
+import { getTradeSettingsDeadline } from '@l.x/lx/src/data/apiClients/tradingApi/utils/getTradeSettingsDeadline'
 import { PositionInfo } from '~/components/Liquidity/types'
 import { getTokenOrZeroAddress } from '~/components/Liquidity/utils/currency'
 import { PositionField } from '~/types/position'

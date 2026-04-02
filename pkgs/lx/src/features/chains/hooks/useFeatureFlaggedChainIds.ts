@@ -1,7 +1,7 @@
 import { FeatureFlags, getFeatureFlag, useFeatureFlag } from '@luxfi/gating'
 import { useMemo } from 'react'
-import { UniverseChainId } from '@luxexchange/lx/src/features/chains/types'
-import { filterChainIdsByFeatureFlag } from '@luxexchange/lx/src/features/chains/utils'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { filterChainIdsByFeatureFlag } from '@l.x/lx/src/features/chains/utils'
 
 export const getFeatureFlaggedChainIds = createGetFeatureFlaggedChainIds({
   getMonadStatus: () => getFeatureFlag(FeatureFlags.Monad),

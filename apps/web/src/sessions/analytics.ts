@@ -1,6 +1,6 @@
-import type { HashcashSolveAnalytics, SessionInitAnalytics, TurnstileSolveAnalytics } from '@luxexchange/sessions'
-import { SessionsEventName } from '@luxexchange/lx/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from '@luxexchange/lx/src/features/telemetry/send'
+import type { HashcashSolveAnalytics, SessionInitAnalytics, TurnstileSolveAnalytics } from '@l.x/sessions'
+import { SessionsEventName } from '@l.x/lx/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
 
 /**
  * Sanitizes error messages before sending to analytics.

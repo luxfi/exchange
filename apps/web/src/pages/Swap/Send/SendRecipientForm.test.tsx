@@ -1,5 +1,5 @@
-import { DAI } from '@luxexchange/lx/src/constants/tokens'
-import { SwapTab } from '@luxexchange/lx/src/types/screens/interface'
+import { DAI } from '@l.x/lx/src/constants/tokens'
+import { SwapTab } from '@l.x/lx/src/types/screens/interface'
 import { shortenAddress } from '@luxfi/utilities/src/addresses'
 import { SendRecipientForm } from '~/pages/Swap/Send/SendRecipientForm'
 import { MultichainContext } from '~/state/multichain/types'

@@ -1,13 +1,13 @@
-import { FeatureFlags, useFeatureFlag } from '@luxexchange/gating'
+import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { useEffect, useMemo, useRef } from 'react'
 import {
   PLAN_POLLING_INITIAL_DELAY_MS,
   PLAN_POLLING_INTERVAL_MS,
   pollPlanStatus,
   shouldPollPlan,
-} from '@luxexchange/lx/src/features/transactions/swap/plan/planPollingUtils'
-import { activePlanStore } from '@luxexchange/lx/src/features/transactions/swap/review/stores/activePlan/activePlanStore'
-import { isFinalizedTxStatus, isPlanTransactionDetails } from '@luxexchange/lx/src/features/transactions/types/utils'
+} from '@l.x/lx/src/features/transactions/swap/plan/planPollingUtils'
+import { activePlanStore } from '@l.x/lx/src/features/transactions/swap/review/stores/activePlan/activePlanStore'
+import { isFinalizedTxStatus, isPlanTransactionDetails } from '@l.x/lx/src/features/transactions/types/utils'
 import { logger } from '@luxfi/utilities/src/logger/logger'
 import { useStore } from 'zustand'
 import { ActivityPlanUpdate, ActivityUpdateTransactionType, type OnActivityUpdate } from '~/state/activity/types'

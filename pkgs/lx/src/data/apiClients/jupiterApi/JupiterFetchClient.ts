@@ -1,4 +1,4 @@
-import { createJupiterApiClient, JupiterApiClient as JupiterApiClientType } from '@luxexchange/api'
+import { createJupiterApiClient, JupiterApiClient as JupiterApiClientType } from '@l.x/api'
 import { config } from 'lx/src/config'
 import { createLxFetchClient } from 'lx/src/data/apiClients/createLxFetchClient'
 

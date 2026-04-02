@@ -1,4 +1,4 @@
-import { ChainsConfigKey, DynamicConfigs, useDynamicConfigValue } from '@luxexchange/gating'
+import { ChainsConfigKey, DynamicConfigs, useDynamicConfigValue } from '@l.x/gating'
 import { useMemo } from 'react'
 import { UniverseChainId } from 'lx/src/features/chains/types'
 import { isUniverseChainId } from 'lx/src/features/chains/utils'

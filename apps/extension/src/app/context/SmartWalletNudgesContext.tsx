@@ -1,7 +1,7 @@
 import { createContext, ReactNode, useCallback, useContext, useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useGet5792DappInfo } from 'src/app/hooks/useGet5792DappInfo'
-import { ModalName, ModalNameType } from '@luxexchange/lx/src/features/telemetry/constants'
+import { ModalName, ModalNameType } from '@l.x/lx/src/features/telemetry/constants'
 import { extractUrlHost } from '@luxfi/utilities/src/format/urls'
 import { useEvent } from '@luxfi/utilities/src/react/hooks'
 import { ONE_DAY_MS } from '@luxfi/utilities/src/time/time'

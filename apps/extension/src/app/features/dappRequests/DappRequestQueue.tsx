@@ -27,8 +27,8 @@ import {
 import { AnimatePresence, Flex, Text, TouchableArea, useSporeColors } from '@luxfi/ui/src'
 import { ReceiptText, RotatableChevron } from '@luxfi/ui/src/components/icons'
 import { zIndexes } from '@luxfi/ui/src/theme'
-import { Modal } from '@luxexchange/lx/src/components/modals/Modal'
-import { ModalName } from '@luxexchange/lx/src/features/telemetry/constants'
+import { Modal } from '@l.x/lx/src/components/modals/Modal'
+import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
 
 const REJECT_MESSAGE_HEIGHT = 48
 

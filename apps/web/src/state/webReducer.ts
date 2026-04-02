@@ -1,5 +1,5 @@
 import { combineReducers } from '@reduxjs/toolkit'
-import { luxPersistedStateList, luxReducers } from '@luxexchange/lx/src/state/luxReducer'
+import { luxPersistedStateList, luxReducers } from '@l.x/lx/src/state/luxReducer'
 import application from '~/state/application/reducer'
 import fiatOnRampTransactions from '~/state/fiatOnRampTransactions/reducer'
 import lists from '~/state/lists/reducer'

@@ -1,5 +1,5 @@
 import { capitalize } from 'tsafe/capitalize'
-import i18n from '@luxexchange/lx/src/i18n'
+import i18n from '@l.x/lx/src/i18n'
 import { logger } from '@luxfi/utilities/src/logger/logger'
 import { ExploreTab } from '~/pages/Explore/constants'
 import { isChainUrlParam } from '~/utils/chainParams'

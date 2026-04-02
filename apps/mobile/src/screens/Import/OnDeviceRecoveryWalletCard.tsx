@@ -4,9 +4,9 @@ import { ViewProps } from 'react-native'
 import { RecoveryWalletInfo, useOnDeviceRecoveryData } from 'src/screens/Import/useOnDeviceRecoveryData'
 import { Button, Flex, FlexProps, Loader, Text, TouchableArea } from '@luxfi/ui/src'
 import { fonts, iconSizes } from '@luxfi/ui/src/theme'
-import { AddressDisplay } from '@luxexchange/lx/src/components/accounts/AddressDisplay'
-import { AccountIcon } from '@luxexchange/lx/src/features/accounts/AccountIcon'
-import { useLocalizationContext } from '@luxexchange/lx/src/features/language/LocalizationContext'
+import { AddressDisplay } from '@l.x/lx/src/components/accounts/AddressDisplay'
+import { AccountIcon } from '@l.x/lx/src/features/accounts/AccountIcon'
+import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
 import { NumberType } from '@luxfi/utilities/src/format/types'
 
 const cardProps: FlexProps & ViewProps = {

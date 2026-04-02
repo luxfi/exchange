@@ -1,4 +1,4 @@
-import { PreV55SearchResultType } from '@luxexchange/lx/src/state/oldTypes'
+import { PreV55SearchResultType } from '@l.x/lx/src/state/oldTypes'
 import { migration55 } from '~/state/migrations/55'
 
 const previousState = {

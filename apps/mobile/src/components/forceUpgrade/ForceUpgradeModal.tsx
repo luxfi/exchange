@@ -1,5 +1,5 @@
-import { FeatureFlags, useFeatureFlag } from '@luxexchange/gating'
-import { getIsNotificationServiceLocalOverrideEnabled } from '@luxexchange/notifications'
+import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
+import { getIsNotificationServiceLocalOverrideEnabled } from '@l.x/notifications'
 import React from 'react'
 import { useTranslation } from 'react-i18next'
 import { BackButtonView } from 'src/components/layout/BackButtonView'

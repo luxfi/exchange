@@ -1,3 +1,3 @@
 declare module 'react-native-dotenv' {
-  export * from '@luxexchange/lx/src/react-native-dotenv.d.ts'
+  export * from '@l.x/lx/src/react-native-dotenv.d.ts'
 }

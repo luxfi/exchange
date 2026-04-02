@@ -10,7 +10,7 @@ import { ExploreScreen } from 'src/screens/ExploreScreen'
 import { ExternalProfileScreen } from 'src/screens/ExternalProfileScreen'
 import { TokenDetailsScreen } from 'src/screens/TokenDetailsScreen/TokenDetailsScreen'
 import { useSporeColors } from '@luxfi/ui/src'
-import { MobileScreens } from '@luxexchange/lx/src/types/screens/mobile'
+import { MobileScreens } from '@l.x/lx/src/types/screens/mobile'
 
 const ExploreStack = createNativeStackNavigator<ExploreStackParamList>()
 

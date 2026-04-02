@@ -1,4 +1,4 @@
-import { isError, isNonPollingRequestInFlight } from '@luxexchange/api'
+import { isError, isNonPollingRequestInFlight } from '@l.x/api'
 import { memo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Flex, FlexProps, Loader } from 'ui/src'

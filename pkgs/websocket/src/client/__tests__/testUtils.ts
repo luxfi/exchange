@@ -1,8 +1,8 @@
-import { MockWebSocket } from '@luxexchange/websocket/src/client/__tests__/MockWebSocket'
-import { createWebSocketClient } from '@luxexchange/websocket/src/client/createWebSocketClient'
-import { createZustandConnectionStore } from '@luxexchange/websocket/src/store/createZustandConnectionStore'
-import type { ConnectionStore } from '@luxexchange/websocket/src/store/types'
-import type { CreateWebSocketClientOptions, WebSocketClient } from '@luxexchange/websocket/src/types'
+import { MockWebSocket } from '@l.x/websocket/src/client/__tests__/MockWebSocket'
+import { createWebSocketClient } from '@l.x/websocket/src/client/createWebSocketClient'
+import { createZustandConnectionStore } from '@l.x/websocket/src/store/createZustandConnectionStore'
+import type { ConnectionStore } from '@l.x/websocket/src/store/types'
+import type { CreateWebSocketClientOptions, WebSocketClient } from '@l.x/websocket/src/types'
 import { vi } from 'vitest'
 
 export interface TestParams {

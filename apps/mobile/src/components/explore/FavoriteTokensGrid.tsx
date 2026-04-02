@@ -12,10 +12,10 @@ import FavoriteTokenCard from 'src/components/explore/FavoriteTokenCard'
 import { getTokenValue } from '@luxfi/ui/src'
 import { AnimatedFlex } from '@luxfi/ui/src/components/layout/AnimatedFlex'
 import { Flex } from '@luxfi/ui/src/components/layout/Flex'
-import { ExpandoRow } from '@luxexchange/lx/src/components/ExpandoRow/ExpandoRow'
-import { selectFavoriteTokens } from '@luxexchange/lx/src/features/favorites/selectors'
-import { setFavoriteTokens } from '@luxexchange/lx/src/features/favorites/slice'
-import { useHapticFeedback } from '@luxexchange/lx/src/features/settings/useHapticFeedback/useHapticFeedback'
+import { ExpandoRow } from '@l.x/lx/src/components/ExpandoRow/ExpandoRow'
+import { selectFavoriteTokens } from '@l.x/lx/src/features/favorites/selectors'
+import { setFavoriteTokens } from '@l.x/lx/src/features/favorites/slice'
+import { useHapticFeedback } from '@l.x/lx/src/features/settings/useHapticFeedback/useHapticFeedback'
 
 const NUM_COLUMNS = 2
 const DEFAULT_TOKENS_TO_DISPLAY = 4

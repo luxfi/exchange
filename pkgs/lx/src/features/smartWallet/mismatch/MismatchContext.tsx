@@ -1,4 +1,4 @@
-import { FeatureFlags, useFeatureFlag } from '@luxexchange/gating'
+import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import React, { createContext, PropsWithChildren, useContext, useMemo } from 'react'
 import { UniverseChainId } from 'lx/src/features/chains/types'
 import { MismatchAccountEffects } from 'lx/src/features/smartWallet/mismatch/MismatchAccountEffects'

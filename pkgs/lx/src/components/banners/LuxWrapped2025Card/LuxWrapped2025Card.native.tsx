@@ -7,9 +7,9 @@ import { useSporeColorsForTheme } from 'ui/src/hooks/useSporeColors'
 import {
   renderSnowflakesNative,
   SnowflakeContainer,
-} from '@luxexchange/lx/src/components/banners/shared/SharedSnowflakeComponents'
-import { LuxWrapped2025CardProps } from '@luxexchange/lx/src/components/banners/LuxWrapped2025Card/types'
-import { useSnowflakeAnimation } from '@luxexchange/lx/src/hooks/useSnowflakeAnimation'
+} from '@l.x/lx/src/components/banners/shared/SharedSnowflakeComponents'
+import { LuxWrapped2025CardProps } from '@l.x/lx/src/components/banners/LuxWrapped2025Card/types'
+import { useSnowflakeAnimation } from '@l.x/lx/src/hooks/useSnowflakeAnimation'
 
 const CARD_HEIGHT = 82
 

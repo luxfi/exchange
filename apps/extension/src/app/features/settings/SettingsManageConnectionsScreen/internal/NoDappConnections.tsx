@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router'
 import { Flex, Text } from '@luxfi/ui/src'
-import { lxUrls } from '@luxexchange/lx/src/constants/urls'
+import { lxUrls } from '@l.x/lx/src/constants/urls'
 
 export function NoDappConnections(): JSX.Element {
   const { t } = useTranslation()

@@ -1,4 +1,4 @@
-import { SubscriptionManager } from '@luxexchange/websocket/src/subscriptions/SubscriptionManager'
+import { SubscriptionManager } from '@l.x/websocket/src/subscriptions/SubscriptionManager'
 import { describe, expect, it, vi } from 'vitest'
 
 interface TestParams {

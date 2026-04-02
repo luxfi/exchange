@@ -18,10 +18,10 @@ import {
   type VerifyRequest,
   type VerifyResponse,
 } from '@luxamm/client-platform-service/dist/lx/platformservice/v1/sessionService_pb'
-import type { DeviceIdService } from '@luxexchange/sessions/src/device-id/types'
-import type { SessionServiceClient } from '@luxexchange/sessions/src/session-repository/createSessionClient'
-import type { SessionState, SessionStorage } from '@luxexchange/sessions/src/session-storage/types'
-import type { LxIdentifierService } from '@luxexchange/sessions/src/lx-identifier/types'
+import type { DeviceIdService } from '@l.x/sessions/src/device-id/types'
+import type { SessionServiceClient } from '@l.x/sessions/src/session-repository/createSessionClient'
+import type { SessionState, SessionStorage } from '@l.x/sessions/src/session-storage/types'
+import type { LxIdentifierService } from '@l.x/sessions/src/lx-identifier/types'
 // Types for our test transport
 export interface MockEndpointHandler {
   (request: any, headers: Record<string, string>): Promise<any>

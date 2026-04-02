@@ -1,6 +1,6 @@
 import { useTokenDetailsContext } from 'src/components/TokenDetails/TokenDetailsContext'
-import { useBalances } from '@luxexchange/lx/src/data/balances/hooks/useBalances'
-import { PortfolioBalance } from '@luxexchange/lx/src/features/dataApi/types'
+import { useBalances } from '@l.x/lx/src/data/balances/hooks/useBalances'
+import { PortfolioBalance } from '@l.x/lx/src/features/dataApi/types'
 import { useActiveAccountAddressWithThrow } from '@luxfi/wallet/src/features/wallet/hooks'
 
 export function useTokenDetailsCurrentChainBalance(): PortfolioBalance | null {

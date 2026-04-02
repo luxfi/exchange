@@ -2,8 +2,8 @@ import { useTranslation } from 'react-i18next'
 import { Flex, Text, TouchableArea, useSporeColors } from '@luxfi/ui/src'
 import { AlertTriangleFilled } from '@luxfi/ui/src/components/icons/AlertTriangleFilled'
 import { InfoCircleFilled } from '@luxfi/ui/src/components/icons/InfoCircleFilled'
-import { ElementName } from '@luxexchange/lx/src/features/telemetry/constants'
-import Trace from '@luxexchange/lx/src/features/telemetry/Trace'
+import { ElementName } from '@l.x/lx/src/features/telemetry/constants'
+import Trace from '@l.x/lx/src/features/telemetry/Trace'
 
 interface LimitedSupportBannerProps {
   onPress: () => void

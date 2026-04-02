@@ -1,23 +1,23 @@
 import { call, put, SagaGenerator } from 'typed-redux-saga'
-import { TradingApiClient } from '@luxexchange/lx/src/data/apiClients/tradingApi/TradingApiClient'
-import { InterfaceEventName, SwapEventName } from '@luxexchange/lx/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from '@luxexchange/lx/src/features/telemetry/send'
-import { SwapTradeBaseProperties } from '@luxexchange/lx/src/features/telemetry/types'
-import { HandledTransactionInterrupt } from '@luxexchange/lx/src/features/transactions/errors'
-import { addTransaction } from '@luxexchange/lx/src/features/transactions/slice'
+import { TradingApiClient } from '@l.x/lx/src/data/apiClients/tradingApi/TradingApiClient'
+import { InterfaceEventName, SwapEventName } from '@l.x/lx/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
+import { SwapTradeBaseProperties } from '@l.x/lx/src/features/telemetry/types'
+import { HandledTransactionInterrupt } from '@l.x/lx/src/features/transactions/errors'
+import { addTransaction } from '@l.x/lx/src/features/transactions/slice'
 import {
   HandleSignatureStepParams,
   HandleDEXPlanSignatureStepParams,
-} from '@luxexchange/lx/src/features/transactions/steps/types'
-import { DEXSignatureStep } from '@luxexchange/lx/src/features/transactions/swap/steps/signOrder'
-import { LxSwapTrade } from '@luxexchange/lx/src/features/transactions/swap/types/trade'
-import { slippageToleranceToPercent } from '@luxexchange/lx/src/features/transactions/swap/utils/format'
+} from '@l.x/lx/src/features/transactions/steps/types'
+import { DEXSignatureStep } from '@l.x/lx/src/features/transactions/swap/steps/signOrder'
+import { LxSwapTrade } from '@l.x/lx/src/features/transactions/swap/types/trade'
+import { slippageToleranceToPercent } from '@l.x/lx/src/features/transactions/swap/utils/format'
 import {
   QueuedOrderStatus,
   TransactionOriginType,
   TransactionStatus,
   DEXOrderDetails,
-} from '@luxexchange/lx/src/features/transactions/types/transactionDetails'
+} from '@l.x/lx/src/features/transactions/types/transactionDetails'
 import { popupRegistry } from '~/components/Popups/registry'
 import { PopupType } from '~/components/Popups/types'
 import { formatSwapSignedAnalyticsEventProperties } from '~/lib/utils/analytics'

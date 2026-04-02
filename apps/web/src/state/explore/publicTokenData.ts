@@ -3,7 +3,7 @@
  * Replaces the broken Lux REST API for non-Lux chains
  */
 
-import { UniverseChainId } from '@luxexchange/lx/src/features/chains/types'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 
 // CoinGecko platform IDs mapped to chain IDs
 const COINGECKO_PLATFORMS: Record<number, string> = {

@@ -1,4 +1,4 @@
-import { getMonitoredSagaReducers, type MonitoredSaga } from '@luxexchange/lx/src/utils/saga'
+import { getMonitoredSagaReducers, type MonitoredSaga } from '@l.x/lx/src/utils/saga'
 import {
   removeDelegationActions,
   removeDelegationReducer,

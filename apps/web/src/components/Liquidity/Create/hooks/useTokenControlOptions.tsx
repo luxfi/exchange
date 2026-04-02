@@ -1,7 +1,7 @@
 import { Currency } from '@luxamm/sdk-core'
 import { useMemo } from 'react'
 import { Flex, Text } from '@luxfi/ui/src'
-import { TestID } from '@luxexchange/lx/src/test/fixtures/testIDs'
+import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
 import { PortfolioLogo } from '~/components/AccountDrawer/MiniPortfolio/PortfolioLogo'
 
 export function useTokenControlOptions(currencies: [Maybe<Currency>, Maybe<Currency>], size: 'small' | 'large') {

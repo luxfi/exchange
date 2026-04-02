@@ -5,12 +5,12 @@ import {
   NotificationVersion,
   OnClick,
 } from '@luxamm/client-notification-service/dist/lx/notificationservice/v1/api_pb'
-import { BackgroundType, ContentStyle, type InAppNotification, OnClickAction } from '@luxexchange/api'
+import { BackgroundType, ContentStyle, type InAppNotification, OnClickAction } from '@l.x/api'
 import type { MobileState } from 'src/app/mobileReducer'
 import { BannerId, MOBILE_NAV_PREFIX } from 'src/notification-service/data-sources/banners/types'
-import { AccountType } from '@luxexchange/lx/src/features/accounts/types'
-import { ModalName } from '@luxexchange/lx/src/features/telemetry/constants'
-import i18n from '@luxexchange/lx/src/i18n'
+import { AccountType } from '@l.x/lx/src/features/accounts/types'
+import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
+import i18n from '@l.x/lx/src/i18n'
 import { selectHasBalanceOrActivityForAddress } from '@luxfi/wallet/src/features/wallet/selectors'
 
 /**

@@ -1,4 +1,4 @@
-import { InterfacePageName } from '@luxexchange/lx/src/features/telemetry/constants'
+import { InterfacePageName } from '@l.x/lx/src/features/telemetry/constants'
 import { getCanonicalUrl, getCurrentPageFromLocation } from '~/utils/urlRoutes'
 
 describe('getCurrentPageFromLocation', () => {

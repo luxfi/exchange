@@ -1,5 +1,5 @@
 {
-  "name": "@luxexchange/analytics",
+  "name": "@l.x/analytics",
   "version": "0.0.0",
   "dependencies": {
     "@amplitude/analytics-node": "1.5.36"

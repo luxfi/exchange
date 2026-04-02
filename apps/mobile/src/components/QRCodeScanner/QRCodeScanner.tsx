@@ -15,7 +15,7 @@ import { AnimatedFlex } from '@luxfi/ui/src/components/layout/AnimatedFlex'
 import { useDeviceDimensions } from '@luxfi/ui/src/hooks/useDeviceDimensions'
 import { useSporeColorsForTheme } from '@luxfi/ui/src/hooks/useSporeColors'
 import { iconSizes, spacing } from '@luxfi/ui/src/theme'
-import PasteButton from '@luxexchange/lx/src/components/buttons/PasteButton'
+import PasteButton from '@l.x/lx/src/components/buttons/PasteButton'
 import { logger } from '@luxfi/utilities/src/logger/logger'
 
 enum BarcodeType {

@@ -1,4 +1,4 @@
-import type { TokenIdentifier, TokenPriceData } from '@luxexchange/prices/src/types'
+import type { TokenIdentifier, TokenPriceData } from '@l.x/prices/src/types'
 
 /**
  * Contract for fetching token prices via REST.

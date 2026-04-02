@@ -7,11 +7,11 @@ import { getSupportedURI, URIType } from 'src/components/Requests/ScanSheet/util
 import { Flex, Text, TouchableArea, useIsDarkMode } from '@luxfi/ui/src'
 import { QrCode, Scan } from '@luxfi/ui/src/components/icons'
 import { useSporeColorsForTheme } from '@luxfi/ui/src/hooks/useSporeColors'
-import { Modal } from '@luxexchange/lx/src/components/modals/Modal'
-import { ScannerModalState } from '@luxexchange/lx/src/components/ReceiveQRCode/constants'
-import { ReceiveQRCode } from '@luxexchange/lx/src/components/ReceiveQRCode/ReceiveQRCode'
-import { ModalName } from '@luxexchange/lx/src/features/telemetry/constants'
-import { TestID } from '@luxexchange/lx/src/test/fixtures/testIDs'
+import { Modal } from '@l.x/lx/src/components/modals/Modal'
+import { ScannerModalState } from '@l.x/lx/src/components/ReceiveQRCode/constants'
+import { ReceiveQRCode } from '@l.x/lx/src/components/ReceiveQRCode/ReceiveQRCode'
+import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
+import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
 import { useActiveAccountAddress } from '@luxfi/wallet/src/features/wallet/hooks'
 
 type Props = {

@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unnecessary-condition, max-lines */
 import { createColumnHelper } from '@tanstack/react-table'
-import { FeatureFlags, useFeatureFlag } from '@luxexchange/gating'
+import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { useAtom } from 'jotai'
 import { atomWithReset } from 'jotai/utils'
 import { memo, ReactElement, useMemo } from 'react'

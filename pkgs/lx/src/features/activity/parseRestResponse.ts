@@ -1,5 +1,5 @@
 import { ListTransactionsResponse } from '@luxamm/client-data-api/dist/data/v1/api_pb'
-import { GraphQLApi } from '@luxexchange/api'
+import { GraphQLApi } from '@l.x/api'
 import { extractOnRampTransactionDetails } from 'lx/src/features/activity/extract/extractFiatOnRampTransactionDetails'
 import extractRestOnChainTransactionDetails from 'lx/src/features/activity/extract/extractOnChainTransactionDetails'
 import extractPlanDetails from 'lx/src/features/activity/extract/extractPlanDetails'

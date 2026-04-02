@@ -5,10 +5,10 @@ import { SendFormScreen } from 'src/app/features/send/SendFormScreen/SendFormScr
 import { useExtensionNavigation } from 'src/app/navigation/utils'
 import { Flex } from '@luxfi/ui/src'
 import { X } from '@luxfi/ui/src/components/icons'
-import { ModalName } from '@luxexchange/lx/src/features/telemetry/constants'
-import { TransactionSettingsStoreContextProvider } from '@luxexchange/lx/src/features/transactions/components/settings/stores/transactionSettingsStore/TransactionSettingsStoreContextProvider'
-import { TransactionModal } from '@luxexchange/lx/src/features/transactions/components/TransactionModal/TransactionModal'
-import { SwapFormStoreContextProvider } from '@luxexchange/lx/src/features/transactions/swap/stores/swapFormStore/SwapFormStoreContextProvider'
+import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
+import { TransactionSettingsStoreContextProvider } from '@l.x/lx/src/features/transactions/components/settings/stores/transactionSettingsStore/TransactionSettingsStoreContextProvider'
+import { TransactionModal } from '@l.x/lx/src/features/transactions/components/TransactionModal/TransactionModal'
+import { SwapFormStoreContextProvider } from '@l.x/lx/src/features/transactions/swap/stores/swapFormStore/SwapFormStoreContextProvider'
 import { SendContextProvider } from '@luxfi/wallet/src/features/transactions/contexts/SendContext'
 
 export function SendFlow(): JSX.Element {

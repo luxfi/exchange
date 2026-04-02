@@ -1,7 +1,7 @@
 import { type ApolloCache, ApolloLink, type NormalizedCacheObject } from '@apollo/client'
 import { asyncMap, type Reference } from '@apollo/client/utilities'
 import { type ToolkitStore } from '@reduxjs/toolkit/dist/configureStore'
-import { GQLQueries, GraphQLApi } from '@luxexchange/api'
+import { GQLQueries, GraphQLApi } from '@l.x/api'
 import { Buffer } from 'buffer'
 import { getNativeAddress } from 'lx/src/constants/addresses'
 import { normalizeCurrencyIdForMapLookup } from 'lx/src/data/cache'

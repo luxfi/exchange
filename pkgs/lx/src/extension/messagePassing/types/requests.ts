@@ -1,4 +1,4 @@
-import { MessageSchema } from '@luxexchange/lx/src/extension/messagePassing/messageTypes'
+import { MessageSchema } from '@l.x/lx/src/extension/messagePassing/messageTypes'
 import { z } from 'zod'
 
 // Requests from the Extension to the Interface (Web App) and vice versa

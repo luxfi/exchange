@@ -1,7 +1,7 @@
 /**
  * FOR (Fiat On-Ramp) Types
  *
- * This file re-exports protobuf types from @luxexchange/api and defines
+ * This file re-exports protobuf types from @l.x/api and defines
  * app-specific types that extend or combine protobuf types with app data.
  */
 
@@ -15,7 +15,7 @@ export type {
   FORSupportedFiatCurrency,
   FORSupportedToken,
   FORTransaction,
-} from '@luxexchange/api'
+} from '@l.x/api'
 
 // Re-export protobuf values (enums/classes) for consumer packages
 export {
@@ -24,7 +24,7 @@ export {
   OffRampTransferDetailsResponse,
   RampDirection,
   SupportedCountriesResponse,
-} from '@luxexchange/api'
+} from '@l.x/api'
 
 import { CurrencyInfo, PortfolioBalance } from 'lx/src/features/dataApi/types'
 import {

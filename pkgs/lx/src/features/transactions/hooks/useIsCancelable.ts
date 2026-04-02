@@ -1,4 +1,4 @@
-import { TradingApi } from '@luxexchange/api'
+import { TradingApi } from '@l.x/api'
 import { useEffect, useState } from 'react'
 import { useActiveConnector } from 'lx/src/features/accounts/store/hooks'
 import { AccessPattern } from 'lx/src/features/accounts/store/types/Connector'

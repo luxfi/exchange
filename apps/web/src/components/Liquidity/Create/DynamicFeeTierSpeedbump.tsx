@@ -2,9 +2,9 @@ import { useCallback, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Flex } from '@luxfi/ui/src'
 import { InfoCircleFilled } from '@luxfi/ui/src/components/icons/InfoCircleFilled'
-import { Dialog } from '@luxexchange/lx/src/components/dialog/Dialog'
-import { ModalName } from '@luxexchange/lx/src/features/telemetry/constants'
-import { TestID } from '@luxexchange/lx/src/test/fixtures/testIDs'
+import { Dialog } from '@l.x/lx/src/components/dialog/Dialog'
+import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
+import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
 import { useCreateLiquidityContext } from '~/pages/CreatePosition/CreateLiquidityContextProvider'
 
 export const DynamicFeeTierSpeedbump = () => {

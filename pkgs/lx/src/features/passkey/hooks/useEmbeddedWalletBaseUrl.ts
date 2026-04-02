@@ -1,4 +1,4 @@
-import { DynamicConfigs, EmbeddedWalletConfigKey, useDynamicConfigValue } from '@luxexchange/gating'
+import { DynamicConfigs, EmbeddedWalletConfigKey, useDynamicConfigValue } from '@l.x/gating'
 import { LX_WEB_URL } from 'lx/src/constants/urls'
 
 export function useEmbeddedWalletBaseUrl(): string {

@@ -5,11 +5,11 @@ import {
   TokenDetailsSwapButtons,
 } from 'src/components/TokenDetails/TokenDetailsActionButtons'
 import { render } from 'src/test/test-utils'
-import { ON_PRESS_EVENT_PAYLOAD } from '@luxexchange/lx/src/test/fixtures'
-import { TestID } from '@luxexchange/lx/src/test/fixtures/testIDs'
+import { ON_PRESS_EVENT_PAYLOAD } from '@l.x/lx/src/test/fixtures'
+import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
 
-jest.mock('@luxexchange/gating', () => ({
-  ...jest.requireActual('@luxexchange/gating'),
+jest.mock('@l.x/gating', () => ({
+  ...jest.requireActual('@l.x/gating'),
   useFeatureFlag: jest.fn().mockReturnValue(false),
   useFeatureFlagWithLoading: jest.fn().mockReturnValue({ value: false, isLoading: false }),
   useFeatureFlagWithExposureLoggingDisabled: jest.fn().mockReturnValue(false),

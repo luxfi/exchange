@@ -1,6 +1,6 @@
 import { Currency, Price } from '@luxamm/sdk-core'
-import { WarningSeverity } from '@luxexchange/lx/src/components/modals/WarningModal/types'
-import { USDT } from '@luxexchange/lx/src/constants/tokens'
+import { WarningSeverity } from '@l.x/lx/src/components/modals/WarningModal/types'
+import { USDT } from '@l.x/lx/src/constants/tokens'
 import { getPriceDifference } from '~/components/Liquidity/utils/getPriceDifference'
 import tryParseCurrencyAmount from '~/lib/utils/tryParseCurrencyAmount'
 import { ETH_MAINNET } from '~/test-utils/constants'

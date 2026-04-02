@@ -1,5 +1,5 @@
 import { createContext, PropsWithChildren, useContext, useState } from 'react'
-import { LimitsExpiry } from '@luxexchange/lx/src/types/limits'
+import { LimitsExpiry } from '@l.x/lx/src/types/limits'
 import { useDerivedLimitInfo } from '~/state/limit/hooks'
 import { LimitContextType, LimitState } from '~/state/limit/types'
 

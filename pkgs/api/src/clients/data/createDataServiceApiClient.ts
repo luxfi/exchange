@@ -1,4 +1,4 @@
-import type { FetchClient } from '@luxexchange/api/src/clients/base/types'
+import type { FetchClient } from '@l.x/api/src/clients/base/types'
 import { logger } from 'utilities/src/logger/logger'
 
 export const DATA_SERVICE_API_PATHS = {

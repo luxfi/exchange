@@ -1,0 +1,52 @@
+# Zoo Exchange - White-label deployment for Zoo ecosystem
+# Namespace: lux-exchange
+# Domain: zoo.exchange
+#
+# Usage:
+#   kubectl apply -f zoo-exchange.yaml
+#   Mount config.json into the container:
+#     volumes:
+#       - name: exchange-config
+#         configMap:
+#           name: exchange-config
+#     volumeMounts:
+#       - name: exchange-config
+#         mountPath: /app/public/config.json
+#         subPath: config.json
+#         readOnly: true
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: exchange-config
+  namespace: lux-exchange
+  labels:
+    app: exchange
+    brand: zoo
+data:
+  config.json: |
+    {
+      "brand": {
+        "name": "Zoo Exchange",
+        "title": "Zoo Exchange | Trade",
+        "description": "The decentralized exchange for the Zoo ecosystem",
+        "legalEntity": "Zoo Labs Foundation",
+        "appDomain": "zoo.exchange",
+        "docsDomain": "docs.zoo.exchange",
+        "infoDomain": "info.zoo.exchange",
+        "gatewayDomain": "gw.zoo.exchange",
+        "wsDomain": "ws.zoo.exchange",
+        "helpUrl": "https://docs.zoo.exchange/help",
+        "termsUrl": "/terms",
+        "privacyUrl": "/privacy",
+        "downloadUrl": "https://zoo.exchange/wallet",
+        "complianceEmail": "compliance@zoo.exchange",
+        "supportEmail": "hi@zoo.exchange",
+        "twitter": "https://x.com/zaboratory",
+        "github": "https://github.com/luxfi",
+        "discord": "https://discord.gg/zoo",
+        "primaryColor": "#9945FF",
+        "defaultChainId": 200200,
+        "supportedChainIds": [200200, 200201, 96369]
+      }
+    }

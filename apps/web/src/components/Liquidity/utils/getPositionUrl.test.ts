@@ -2,7 +2,7 @@ import { PositionStatus, ProtocolVersion } from '@luxamm/client-data-api/dist/da
 import { CurrencyAmount } from '@luxamm/sdk-core'
 import { Pair } from '@luxamm/v2-sdk'
 import JSBI from 'jsbi'
-import { EVMUniverseChainId, UniverseChainId } from '@luxexchange/lx/src/features/chains/types'
+import { EVMUniverseChainId, UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { describe, expect, it } from 'vitest'
 import { PositionInfo } from '~/components/Liquidity/types'
 import { getPositionUrl } from '~/components/Liquidity/utils/getPositionUrl'

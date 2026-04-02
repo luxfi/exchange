@@ -3,10 +3,10 @@ import { useTranslation } from 'react-i18next'
 import { useReactNavigationModal } from 'src/components/modals/useReactNavigationModal'
 import { Button, Flex, Text, TouchableArea, useSporeColors } from '@luxfi/ui/src'
 import { SmartWallet } from '@luxfi/ui/src/components/icons'
-import { Modal } from '@luxexchange/lx/src/components/modals/Modal'
-import { lxUrls } from '@luxexchange/lx/src/constants/urls'
-import { ModalName } from '@luxexchange/lx/src/features/telemetry/constants'
-import { openUri } from '@luxexchange/lx/src/utils/linking'
+import { Modal } from '@l.x/lx/src/components/modals/Modal'
+import { lxUrls } from '@l.x/lx/src/constants/urls'
+import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
+import { openUri } from '@l.x/lx/src/utils/linking'
 
 const onPressLearnMore = (url: string): Promise<void> => openUri({ uri: url })
 

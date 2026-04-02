@@ -1,5 +1,5 @@
 /* eslint-disable max-lines */
-import { TradingApi } from '@luxexchange/api'
+import { TradingApi } from '@l.x/api'
 import ms from 'ms'
 import { call, cancel, delay, fork } from 'typed-redux-saga'
 import { TradingApiSessionClient } from 'lx/src/data/apiClients/tradingApi/TradingApiSessionClient'
@@ -25,12 +25,12 @@ import {
   unlockPlanExecution,
   updateGlobalStateProofPending,
   updateGlobalStateWithLatestSteps,
-} from '@luxexchange/lx/src/features/transactions/swap/plan/planSagaUtils'
+} from '@l.x/lx/src/features/transactions/swap/plan/planSagaUtils'
 import {
   logPlanStepTradeAnalytics,
   logLxSwapPlanOrderSubmitted,
-} from '@luxexchange/lx/src/features/transactions/swap/plan/planStepAnalytics'
-import { TransactionAndPlanStep } from '@luxexchange/lx/src/features/transactions/swap/plan/planStepTransformer'
+} from '@l.x/lx/src/features/transactions/swap/plan/planStepAnalytics'
+import { TransactionAndPlanStep } from '@l.x/lx/src/features/transactions/swap/plan/planStepTransformer'
 import {
   AbortPlanError,
   ExpectedPlanError,
@@ -38,10 +38,10 @@ import {
   PlanPriceChangeInterrupt,
   type PlanSagaAnalytics,
   ShouldRetryPlanError,
-} from '@luxexchange/lx/src/features/transactions/swap/plan/types'
-import { findFirstActionableStep } from '@luxexchange/lx/src/features/transactions/swap/plan/utils'
-import { WatchPlanStepParams, watchPlanStep } from '@luxexchange/lx/src/features/transactions/swap/plan/watchPlanStepSaga'
-import { ValidatedChainedSwapTxAndGasInfo } from '@luxexchange/lx/src/features/transactions/swap/types/swapTxAndGasInfo'
+} from '@l.x/lx/src/features/transactions/swap/plan/types'
+import { findFirstActionableStep } from '@l.x/lx/src/features/transactions/swap/plan/utils'
+import { WatchPlanStepParams, watchPlanStep } from '@l.x/lx/src/features/transactions/swap/plan/watchPlanStepSaga'
+import { ValidatedChainedSwapTxAndGasInfo } from '@l.x/lx/src/features/transactions/swap/types/swapTxAndGasInfo'
 import {
   isChained,
   planStepTypeToTradingRoute,

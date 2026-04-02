@@ -1,9 +1,9 @@
-import { TokenSelectorOption } from '@luxexchange/lx/src/components/lists/items/types'
-import type { OnchainItemSection } from '@luxexchange/lx/src/components/lists/OnchainItemList/types'
-import { TradeableAsset } from '@luxexchange/lx/src/entities/assets'
-import type { AddressGroup } from '@luxexchange/lx/src/features/accounts/store/types/AccountsState'
-import { UniverseChainId } from '@luxexchange/lx/src/features/chains/types'
-import { CurrencyInfo } from '@luxexchange/lx/src/features/dataApi/types'
+import { TokenSelectorOption } from '@l.x/lx/src/components/lists/items/types'
+import type { OnchainItemSection } from '@l.x/lx/src/components/lists/OnchainItemList/types'
+import { TradeableAsset } from '@l.x/lx/src/entities/assets'
+import type { AddressGroup } from '@l.x/lx/src/features/accounts/store/types/AccountsState'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { CurrencyInfo } from '@l.x/lx/src/features/dataApi/types'
 import { FiatNumberType } from 'utilities/src/format/types'
 
 export type OnSelectCurrency = (

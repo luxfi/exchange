@@ -5,7 +5,7 @@ import {
   NativePrivateKeyDisplayProps,
 } from 'src/screens/ViewPrivateKeys/PrivateKeyView/types'
 import { Flex } from '@luxfi/ui/src/components/layout/Flex'
-import { TestID } from '@luxexchange/lx/src/test/fixtures/testIDs'
+import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
 
 /**
  * For the given address, displays the private key in a native component so

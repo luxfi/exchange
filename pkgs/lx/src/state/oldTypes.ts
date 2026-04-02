@@ -1,5 +1,5 @@
 import { ProtocolVersion } from '@luxamm/client-data-api/dist/data/v1/poolTypes_pb'
-import { GraphQLApi } from '@luxexchange/api'
+import { GraphQLApi } from '@l.x/api'
 import { UniverseChainId } from 'lx/src/features/chains/types'
 import { SafetyInfo } from 'lx/src/features/dataApi/types'
 import { CurrencyId } from 'lx/src/types/currency'

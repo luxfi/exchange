@@ -1,4 +1,4 @@
-import { type GasFeeResult, type GasStrategy, TradingApi } from '@luxexchange/api'
+import { type GasFeeResult, type GasStrategy, TradingApi } from '@l.x/api'
 import type { UniverseChainId } from 'lx/src/features/chains/types'
 import { convertGasFeeToDisplayValue } from 'lx/src/features/gas/hooks'
 import type { SwapDelegationInfo } from 'lx/src/features/smartWallet/delegation/types'

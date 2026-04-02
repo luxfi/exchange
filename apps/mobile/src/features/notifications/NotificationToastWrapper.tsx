@@ -1,8 +1,8 @@
 import React from 'react'
 import { ScantasticCompleteNotification } from 'src/features/notifications/ScantasticCompleteNotification'
 import { WCNotification } from 'src/features/notifications/WCNotification'
-import { useSelectAddressNotifications } from '@luxexchange/lx/src/features/notifications/slice/hooks'
-import { AppNotification, AppNotificationType } from '@luxexchange/lx/src/features/notifications/slice/types'
+import { useSelectAddressNotifications } from '@l.x/lx/src/features/notifications/slice/hooks'
+import { AppNotification, AppNotificationType } from '@l.x/lx/src/features/notifications/slice/types'
 import { WalletNotificationToastRouter } from '@luxfi/wallet/src/features/notifications/components/SharedNotificationToastRouter'
 import { useActiveAccountAddress } from '@luxfi/wallet/src/features/wallet/hooks'
 

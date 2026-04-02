@@ -1,14 +1,14 @@
 import { UNI_ADDRESSES } from '@luxamm/sdk-core'
 import { parse } from 'qs'
 import { ReactNode } from 'react'
-import { DAI, nativeOnChain, UNI, USDC_OPTIMISM } from '@luxexchange/lx/src/constants/tokens'
-import { useLuxContext } from '@luxexchange/lx/src/contexts/LuxContext'
-import { useUrlContext } from '@luxexchange/lx/src/contexts/UrlContext'
-import { AccountsStore } from '@luxexchange/lx/src/features/accounts/store/types/AccountsState'
-import { GQL_MAINNET_CHAINS, GQL_TESTNET_CHAINS } from '@luxexchange/lx/src/features/chains/chainInfo'
-import { useEnabledChains } from '@luxexchange/lx/src/features/chains/hooks/useEnabledChains'
-import { UniverseChainId } from '@luxexchange/lx/src/features/chains/types'
-import { CurrencyField } from '@luxexchange/lx/src/types/currency'
+import { DAI, nativeOnChain, UNI, USDC_OPTIMISM } from '@l.x/lx/src/constants/tokens'
+import { useLuxContext } from '@l.x/lx/src/contexts/LuxContext'
+import { useUrlContext } from '@l.x/lx/src/contexts/UrlContext'
+import { AccountsStore } from '@l.x/lx/src/features/accounts/store/types/AccountsState'
+import { GQL_MAINNET_CHAINS, GQL_TESTNET_CHAINS } from '@l.x/lx/src/features/chains/chainInfo'
+import { useEnabledChains } from '@l.x/lx/src/features/chains/hooks/useEnabledChains'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { CurrencyField } from '@l.x/lx/src/types/currency'
 import { NATIVE_CHAIN_ID } from '~/constants/tokens'
 import {
   queryParametersToCurrencyState,
@@ -20,7 +20,7 @@ import { ETH_MAINNET, ETH_SEPOLIA } from '~/test-utils/constants'
 import { mocked } from '~/test-utils/mocked'
 import { renderHook, waitFor } from '~/test-utils/render'
 
-vi.mock('@luxexchange/gating', async (importOriginal) => {
+vi.mock('@l.x/gating', async (importOriginal) => {
   return {
     ...(await importOriginal()),
     useFeatureFlag: vi.fn(),

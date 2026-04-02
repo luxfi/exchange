@@ -1,5 +1,5 @@
-import { CHROME_EXTENSION_UNINSTALL_URL_PATH } from '@luxexchange/lx/src/constants/urls'
-import { InterfacePageName } from '@luxexchange/lx/src/features/telemetry/constants'
+import { CHROME_EXTENSION_UNINSTALL_URL_PATH } from '@l.x/lx/src/constants/urls'
+import { InterfacePageName } from '@l.x/lx/src/features/telemetry/constants'
 import { NATIVE_CHAIN_ID } from '~/constants/tokens'
 
 export function getCurrentPageFromLocation(locationPathname: string): InterfacePageName | undefined {

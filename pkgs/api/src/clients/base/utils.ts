@@ -1,4 +1,4 @@
-import { type CustomOptions, type FetchClient } from '@luxexchange/api/src/clients/base/types'
+import { type CustomOptions, type FetchClient } from '@l.x/api/src/clients/base/types'
 
 type TransformRequestResult = {
   url?: string

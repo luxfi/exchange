@@ -11,7 +11,7 @@ import { PolygonscanLogoDark } from 'ui/src/components/logos/PolygonscanLogoDark
 import { PolygonscanLogoLight } from 'ui/src/components/logos/PolygonscanLogoLight'
 import { SolscanLogoDark } from 'ui/src/components/logos/SolscanLogoDark'
 import { SolscanLogoLight } from 'ui/src/components/logos/SolscanLogoLight'
-import { UniverseChainId } from '@luxexchange/lx/src/features/chains/types'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 
 // Keeping this separate from UNIVERSE_CHAIN_INFO to avoid import issues on extension content script
 export function useBlockExplorerLogo(chainId?: UniverseChainId): GeneratedIcon {

@@ -6,12 +6,12 @@ import { Flex, Popover, Text, TouchableArea } from '@luxfi/ui/src'
 import { CheckCircleFilled, RotatableChevron } from '@luxfi/ui/src/components/icons'
 import { usePreventOverflowBelowFold } from '@luxfi/ui/src/hooks/usePreventOverflowBelowFold'
 import { iconSizes } from '@luxfi/ui/src/theme'
-import { NetworkLogo } from '@luxexchange/lx/src/components/CurrencyLogo/NetworkLogo'
-import { useEnabledChains } from '@luxexchange/lx/src/features/chains/hooks/useEnabledChains'
-import { UniverseChainId } from '@luxexchange/lx/src/features/chains/types'
-import { getChainLabel } from '@luxexchange/lx/src/features/chains/utils'
-import { ExtensionEventName } from '@luxexchange/lx/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from '@luxexchange/lx/src/features/telemetry/send'
+import { NetworkLogo } from '@l.x/lx/src/components/CurrencyLogo/NetworkLogo'
+import { useEnabledChains } from '@l.x/lx/src/features/chains/hooks/useEnabledChains'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { getChainLabel } from '@l.x/lx/src/features/chains/utils'
+import { ExtensionEventName } from '@l.x/lx/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
 
 const BUTTON_OFFSET = 20
 

@@ -2,7 +2,7 @@
  * Core types for generic WebSocket client functionality
  */
 
-import type { ConnectionStore } from '@luxexchange/websocket/src/store/types'
+import type { ConnectionStore } from '@l.x/websocket/src/store/types'
 
 export type ConnectionStatus = 'disconnected' | 'connecting' | 'connected' | 'reconnecting'
 

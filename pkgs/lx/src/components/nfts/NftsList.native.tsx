@@ -1,6 +1,6 @@
 import { NetworkStatus } from '@apollo/client'
 import { FlashList } from '@shopify/flash-list'
-import { isNonPollingRequestInFlight } from '@luxexchange/api'
+import { isNonPollingRequestInFlight } from '@l.x/api'
 import { forwardRef, useCallback, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import type { ListRenderItemInfo } from 'react-native'

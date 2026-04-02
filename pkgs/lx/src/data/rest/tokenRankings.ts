@@ -8,7 +8,7 @@ import {
   TokenRankingsStat,
 } from '@luxamm/client-explore/dist/lx/explore/v1/service_pb'
 import { tokenRankings } from '@luxamm/client-explore/dist/lx/explore/v1/service-ExploreStatsService_connectquery'
-import { parseProtectionInfo, parseSafetyLevel } from '@luxexchange/api'
+import { parseProtectionInfo, parseSafetyLevel } from '@l.x/api'
 import { lxGetTransport } from 'lx/src/data/rest/base'
 import { fromGraphQLChain } from 'lx/src/features/chains/utils'
 import { CurrencyInfo } from 'lx/src/features/dataApi/types'

@@ -2,7 +2,7 @@ import { FlashList } from '@shopify/flash-list'
 import { useCallback } from 'react'
 import { FlatList } from 'react-native'
 import { useAnimatedRef, useAnimatedScrollHandler, useSharedValue } from 'react-native-reanimated'
-import { TokenBalanceListRow } from '@luxexchange/lx/src/features/portfolio/types'
+import { TokenBalanceListRow } from '@l.x/lx/src/features/portfolio/types'
 
 // biome-ignore lint/suspicious/noExplicitAny: Generic type needed for scroll ref
 type FlashListAnyType = FlashList<any>

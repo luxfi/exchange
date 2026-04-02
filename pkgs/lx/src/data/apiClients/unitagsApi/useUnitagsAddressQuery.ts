@@ -5,7 +5,7 @@ import {
   type UnitagAddressRequest,
   type UnitagAddressResponse,
   type UseQueryApiHelperHookArgs,
-} from '@luxexchange/api'
+} from '@l.x/api'
 import { UnitagsApiClient } from 'lx/src/data/apiClients/unitagsApi/UnitagsApiClient'
 import { isEVMAddress } from 'utilities/src/addresses/evm/evm'
 import { ReactQueryCacheKey } from 'utilities/src/reactQuery/cache'

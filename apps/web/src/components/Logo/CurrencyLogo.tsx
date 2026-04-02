@@ -1,7 +1,7 @@
 import { Currency } from '@luxamm/sdk-core'
-import { CurrencyLogo as UniverseCurrencyLogo } from '@luxexchange/lx/src/components/CurrencyLogo/CurrencyLogo'
-import { useCurrencyInfo } from '@luxexchange/lx/src/features/tokens/useCurrencyInfo'
-import { buildCurrencyId, currencyAddress } from '@luxexchange/lx/src/utils/currencyId'
+import { CurrencyLogo as UniverseCurrencyLogo } from '@l.x/lx/src/components/CurrencyLogo/CurrencyLogo'
+import { useCurrencyInfo } from '@l.x/lx/src/features/tokens/useCurrencyInfo'
+import { buildCurrencyId, currencyAddress } from '@l.x/lx/src/utils/currencyId'
 import { AssetLogoBaseProps } from '~/components/Logo/AssetLogo'
 
 export default function CurrencyLogo(

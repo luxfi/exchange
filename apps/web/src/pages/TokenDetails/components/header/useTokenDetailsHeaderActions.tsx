@@ -6,9 +6,9 @@ import { Ellipsis } from '@luxfi/ui/src/components/icons/Ellipsis'
 import { Flag } from '@luxfi/ui/src/components/icons/Flag'
 import { GlobeFilled } from '@luxfi/ui/src/components/icons/GlobeFilled'
 import { XTwitter } from '@luxfi/ui/src/components/icons/XTwitter'
-import { getBlockExplorerIcon } from '@luxexchange/lx/src/components/chains/BlockExplorerIcon'
-import { getChainInfo } from '@luxexchange/lx/src/features/chains/chainInfo'
-import { ExplorerDataType, getExplorerLink } from '@luxexchange/lx/src/utils/linking'
+import { getBlockExplorerIcon } from '@l.x/lx/src/components/chains/BlockExplorerIcon'
+import { getChainInfo } from '@l.x/lx/src/features/chains/chainInfo'
+import { ExplorerDataType, getExplorerLink } from '@l.x/lx/src/utils/linking'
 import { deriveFromSections } from '~/components/Explore/stickyHeader/HeaderActions/deriveHeaderActions'
 import {
   type HeaderAction,

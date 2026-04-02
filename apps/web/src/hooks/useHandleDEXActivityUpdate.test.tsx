@@ -1,13 +1,13 @@
-import { TradingApi } from '@luxexchange/api'
-import { UniverseChainId } from '@luxexchange/lx/src/features/chains/types'
-import { finalizeTransaction, updateTransaction } from '@luxexchange/lx/src/features/transactions/slice'
+import { TradingApi } from '@l.x/api'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { finalizeTransaction, updateTransaction } from '@l.x/lx/src/features/transactions/slice'
 import {
   TransactionOriginType,
   TransactionStatus,
   TransactionType,
   type DEXOrderDetails,
-} from '@luxexchange/lx/src/features/transactions/types/transactionDetails'
-import { isFinalizedTx } from '@luxexchange/lx/src/features/transactions/types/utils'
+} from '@l.x/lx/src/features/transactions/types/transactionDetails'
+import { isFinalizedTx } from '@l.x/lx/src/features/transactions/types/utils'
 import { popupRegistry } from '~/components/Popups/registry'
 import { PopupType } from '~/components/Popups/types'
 import { useHandleDEXActivityUpdate } from '~/hooks/useHandleDEXActivityUpdate'

@@ -1,10 +1,10 @@
-import { FetchError } from '@luxexchange/api/src/clients/base/errors'
+import { FetchError } from '@l.x/api/src/clients/base/errors'
 import type {
   CustomOptions,
   FetchClient,
   FetchClientContext,
   StandardFetchOptions,
-} from '@luxexchange/api/src/clients/base/types'
+} from '@l.x/api/src/clients/base/types'
 
 export function createFetchClient({
   baseUrl,

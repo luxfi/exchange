@@ -5,7 +5,7 @@ import Animated, { SharedValue, useAnimatedStyle, useSharedValue } from 'react-n
 import { ESTIMATED_BOTTOM_TABS_HEIGHT } from 'src/app/navigation/tabs/CustomTabBar/constants'
 import { TAB_BAR_HEIGHT } from 'src/components/layout/TabHelpers'
 import { useDeviceDimensions } from '@luxfi/ui/src/hooks/useDeviceDimensions'
-import { useAppInsets } from '@luxexchange/lx/src/hooks/useAppInsets'
+import { useAppInsets } from '@l.x/lx/src/hooks/useAppInsets'
 import { useActiveAccount } from '@luxfi/wallet/src/features/wallet/hooks'
 
 export function useAdaptiveFooter(contentContainerStyle?: StyleProp<ViewStyle>): {

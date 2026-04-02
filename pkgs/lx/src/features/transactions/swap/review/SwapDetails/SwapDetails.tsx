@@ -1,5 +1,5 @@
-import type { GasFeeResult } from '@luxexchange/api'
-import { type TradingApi } from '@luxexchange/api'
+import type { GasFeeResult } from '@l.x/api'
+import { type TradingApi } from '@l.x/api'
 import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Flex, HeightAnimator, Text } from 'ui/src'
@@ -20,8 +20,8 @@ import { TransactionDetails } from 'lx/src/features/transactions/TransactionDeta
 import type {
   FeeOnTransferFeeGroupProps,
   TokenWarningProps,
-} from '@luxexchange/lx/src/features/transactions/TransactionDetails/types'
-import { CurrencyField } from '@luxexchange/lx/src/types/currency'
+} from '@l.x/lx/src/features/transactions/TransactionDetails/types'
+import { CurrencyField } from '@l.x/lx/src/types/currency'
 import { isMobileApp, isMobileWeb } from 'utilities/src/platform'
 
 interface SwapDetailsProps {

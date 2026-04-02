@@ -1,10 +1,10 @@
 import { ProtocolVersion } from '@luxamm/client-data-api/dist/data/v1/poolTypes_pb'
 import { Currency, Token } from '@luxamm/sdk-core'
-import { ZERO_ADDRESS } from '@luxexchange/lx/src/constants/misc'
-import { nativeOnChain, WRAPPED_NATIVE_CURRENCY } from '@luxexchange/lx/src/constants/tokens'
-import { getChainInfo } from '@luxexchange/lx/src/features/chains/chainInfo'
-import { UniverseChainId } from '@luxexchange/lx/src/features/chains/types'
-import { areCurrenciesEqual } from '@luxexchange/lx/src/utils/currencyId'
+import { ZERO_ADDRESS } from '@l.x/lx/src/constants/misc'
+import { nativeOnChain, WRAPPED_NATIVE_CURRENCY } from '@l.x/lx/src/constants/tokens'
+import { getChainInfo } from '@l.x/lx/src/features/chains/chainInfo'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { areCurrenciesEqual } from '@l.x/lx/src/utils/currencyId'
 import { PositionField } from '~/types/position'
 
 export function getCurrencyForProtocol(

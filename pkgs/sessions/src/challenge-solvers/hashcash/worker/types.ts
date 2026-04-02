@@ -1,4 +1,4 @@
-import type { HashcashChallenge, ProofResult } from '@luxexchange/sessions/src/challenge-solvers/hashcash/core'
+import type { HashcashChallenge, ProofResult } from '@l.x/sessions/src/challenge-solvers/hashcash/core'
 
 /**
  * Parameters for finding a hashcash proof

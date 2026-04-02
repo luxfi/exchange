@@ -1,5 +1,5 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit'
-import { type CustomEndpoint } from '@luxexchange/lx/src/data/links'
+import { type CustomEndpoint } from '@l.x/lx/src/data/links'
 
 export interface TweaksState {
   customEndpoint?: CustomEndpoint

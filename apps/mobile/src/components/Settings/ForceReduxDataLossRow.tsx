@@ -3,9 +3,9 @@ import { DevSettings } from 'react-native'
 import { MMKV } from 'react-native-mmkv'
 import { Flex, type IconProps, Text, TouchableArea } from '@luxfi/ui/src'
 import { RotatableChevron, LuxLogo } from '@luxfi/ui/src/components/icons'
-import { WarningSeverity } from '@luxexchange/lx/src/components/modals/WarningModal/types'
-import { WarningModal } from '@luxexchange/lx/src/components/modals/WarningModal/WarningModal'
-import { ModalName } from '@luxexchange/lx/src/features/telemetry/constants'
+import { WarningSeverity } from '@l.x/lx/src/components/modals/WarningModal/types'
+import { WarningModal } from '@l.x/lx/src/components/modals/WarningModal/WarningModal'
+import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
 import { logger } from '@luxfi/utilities/src/logger/logger'
 
 /**

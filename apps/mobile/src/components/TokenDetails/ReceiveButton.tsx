@@ -1,8 +1,8 @@
 import { useTranslation } from 'react-i18next'
 import { useOpenReceiveModal } from 'src/features/modals/hooks/useOpenReceiveModal'
 import { Button, Flex } from '@luxfi/ui/src'
-import { ElementName } from '@luxexchange/lx/src/features/telemetry/constants'
-import Trace from '@luxexchange/lx/src/features/telemetry/Trace'
+import { ElementName } from '@l.x/lx/src/features/telemetry/constants'
+import Trace from '@l.x/lx/src/features/telemetry/Trace'
 
 export function ReceiveButton({ onPress }: { onPress: () => void }): JSX.Element {
   const { t } = useTranslation()

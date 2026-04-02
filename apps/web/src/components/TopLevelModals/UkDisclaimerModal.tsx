@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next'
 import { Button, Flex, ModalCloseIcon, Spacer, Text } from '@luxfi/ui/src'
-import { Modal } from '@luxexchange/lx/src/components/modals/Modal'
-import { ModalName } from '@luxexchange/lx/src/features/telemetry/constants'
+import { Modal } from '@l.x/lx/src/components/modals/Modal'
+import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
 import { useModalState } from '~/hooks/useModalState'
 
 export function UkDisclaimerModal() {

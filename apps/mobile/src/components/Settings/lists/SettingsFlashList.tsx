@@ -4,7 +4,7 @@ import { SectionData, SectionInfo, SettingsListProps } from 'src/components/Sett
 import { SETTINGS_ROW_HEIGHT, SettingsSection } from 'src/components/Settings/SettingsRow'
 import { useDeviceDimensions } from '@luxfi/ui/src/hooks/useDeviceDimensions'
 import { spacing } from '@luxfi/ui/src/theme'
-import { useAppInsets } from '@luxexchange/lx/src/hooks/useAppInsets'
+import { useAppInsets } from '@l.x/lx/src/hooks/useAppInsets'
 
 export function SettingsFlashList({
   sections,

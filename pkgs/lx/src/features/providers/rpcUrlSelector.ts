@@ -1,4 +1,4 @@
-import { Experiments, getExperimentValue, PrivateRpcProperties } from '@luxexchange/gating'
+import { Experiments, getExperimentValue, PrivateRpcProperties } from '@l.x/gating'
 import { getChainInfo } from 'lx/src/features/chains/chainInfo'
 import { RPCType, UniverseChainId } from 'lx/src/features/chains/types'
 import {

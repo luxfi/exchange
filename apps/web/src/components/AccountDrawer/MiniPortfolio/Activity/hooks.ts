@@ -1,21 +1,21 @@
-import { TradingApi } from '@luxexchange/api'
+import { TradingApi } from '@l.x/api'
 import { useEffect, useMemo } from 'react'
 import { useDispatch } from 'react-redux'
-import { useMergeLocalAndRemoteTransactions } from '@luxexchange/lx/src/features/activity/hooks/useMergeLocalAndRemoteTransactions'
-import { useOpenLimitOrders as useOpenLimitOrdersREST } from '@luxexchange/lx/src/features/activity/hooks/useOpenLimitOrders'
-import { UniverseChainId } from '@luxexchange/lx/src/features/chains/types'
-import { isL2ChainId } from '@luxexchange/lx/src/features/chains/utils'
-import { CancellationGasFeeDetails } from '@luxexchange/lx/src/features/gas/hooks'
-import { useCancellationGasFeeInfo } from '@luxexchange/lx/src/features/gas/hooks/useCancellationGasFeeInfo'
-import { addTransaction } from '@luxexchange/lx/src/features/transactions/slice'
-import { isLxSwap } from '@luxexchange/lx/src/features/transactions/swap/utils/routing'
+import { useMergeLocalAndRemoteTransactions } from '@l.x/lx/src/features/activity/hooks/useMergeLocalAndRemoteTransactions'
+import { useOpenLimitOrders as useOpenLimitOrdersREST } from '@l.x/lx/src/features/activity/hooks/useOpenLimitOrders'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { isL2ChainId } from '@l.x/lx/src/features/chains/utils'
+import { CancellationGasFeeDetails } from '@l.x/lx/src/features/gas/hooks'
+import { useCancellationGasFeeInfo } from '@l.x/lx/src/features/gas/hooks/useCancellationGasFeeInfo'
+import { addTransaction } from '@l.x/lx/src/features/transactions/slice'
+import { isLxSwap } from '@l.x/lx/src/features/transactions/swap/utils/routing'
 import {
   TransactionDetails,
   TransactionStatus,
   TransactionType,
   DEXOrderDetails,
-} from '@luxexchange/lx/src/features/transactions/types/transactionDetails'
-import { isLimitOrder, isLxSwapOrderPending } from '@luxexchange/lx/src/features/transactions/utils/dexUtils'
+} from '@l.x/lx/src/features/transactions/types/transactionDetails'
+import { isLimitOrder, isLxSwapOrderPending } from '@l.x/lx/src/features/transactions/utils/dexUtils'
 import { usePendingTransactions, usePendingDEXOrders } from '~/state/transactions/hooks'
 import { isExistingTransaction } from '~/state/transactions/utils'
 

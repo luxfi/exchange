@@ -7,7 +7,7 @@ import {
   createWithSessionRetry,
   type GasServiceClient as GasServiceClientType,
   reinitializeSession,
-} from '@luxexchange/api'
+} from '@l.x/api'
 import { entryGatewayPostTransport } from 'lx/src/data/rest/base'
 import { logger } from 'utilities/src/logger/logger'
 

@@ -1,4 +1,4 @@
-import { GraphQLApi } from '@luxexchange/api'
+import { GraphQLApi } from '@l.x/api'
 import { GraphQLJSON } from 'graphql-scalars'
 import { priceHistory, tokenProject } from 'lx/src/test/fixtures'
 

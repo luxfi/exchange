@@ -1,4 +1,4 @@
-import { RetryOptions } from '@luxexchange/lx/src/features/chains/types'
+import { RetryOptions } from '@l.x/lx/src/features/chains/types'
 
 function wait(ms: number): Promise<void> {
   return new Promise((resolve) => setTimeout(resolve, ms))

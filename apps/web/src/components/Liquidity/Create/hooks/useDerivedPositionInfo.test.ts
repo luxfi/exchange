@@ -5,9 +5,9 @@ import { CurrencyAmount } from '@luxamm/sdk-core'
 import { Pair } from '@luxamm/v2-sdk'
 import { FeeAmount, TICK_SPACINGS, Pool as V3Pool } from '@luxamm/v3-sdk'
 import { Pool as V4Pool } from '@luxamm/v4-sdk'
-import { ZERO_ADDRESS } from '@luxexchange/lx/src/constants/misc'
-import { DAI, nativeOnChain, USDT } from '@luxexchange/lx/src/constants/tokens'
-import { UniverseChainId } from '@luxexchange/lx/src/features/chains/types'
+import { ZERO_ADDRESS } from '@l.x/lx/src/constants/misc'
+import { DAI, nativeOnChain, USDT } from '@l.x/lx/src/constants/tokens'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 import {
   getSortedCurrenciesForProtocol,

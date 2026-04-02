@@ -1,4 +1,4 @@
-import { TradingApi } from '@luxexchange/api'
+import { TradingApi } from '@l.x/api'
 import { useTranslation } from 'react-i18next'
 import { Accordion, Flex, Text } from 'ui/src'
 import {

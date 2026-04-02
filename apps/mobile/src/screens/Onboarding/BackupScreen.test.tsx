@@ -7,8 +7,8 @@ import { AppStackParamList, OnboardingStackParamList } from 'src/app/navigation/
 import { BackupScreen } from 'src/screens/Onboarding/BackupScreen'
 import { renderWithProviders } from 'src/test/render'
 import { render } from 'src/test/test-utils'
-import { ImportType, OnboardingEntryPoint } from '@luxexchange/lx/src/types/onboarding'
-import { MobileScreens, OnboardingScreens } from '@luxexchange/lx/src/types/screens/mobile'
+import { ImportType, OnboardingEntryPoint } from '@l.x/lx/src/types/onboarding'
+import { MobileScreens, OnboardingScreens } from '@l.x/lx/src/types/screens/mobile'
 import { GuiProvider } from '@luxfi/wallet/src/providers/gui-provider'
 import { ACCOUNT, preloadedWalletPackageState } from '@luxfi/wallet/src/test/fixtures'
 

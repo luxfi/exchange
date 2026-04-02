@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next'
 import { Flex, Text } from '@luxfi/ui/src'
 import { Receipt } from '@luxfi/ui/src/components/icons/Receipt'
 import { iconSizes } from '@luxfi/ui/src/theme'
-import { TransactionDetails } from '@luxexchange/lx/src/features/transactions/types/transactionDetails'
+import { TransactionDetails } from '@l.x/lx/src/features/transactions/types/transactionDetails'
 import { shortenHash } from '@luxfi/utilities/src/addresses'
 import { ActivityProtocolInfo } from '~/pages/Portfolio/Activity/ActivityTable/activityTableModels'
 

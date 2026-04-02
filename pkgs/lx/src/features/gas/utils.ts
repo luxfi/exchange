@@ -7,14 +7,14 @@ import {
   type GasStrategy,
   type TransactionEip1559FeeParams,
   type TransactionLegacyFeeParams,
-} from '@luxexchange/api'
+} from '@l.x/api'
 import {
   DynamicConfigs,
   type GasStrategies,
   type GasStrategyType,
   type GasStrategyWithConditions,
   getStatsigClient,
-} from '@luxexchange/gating'
+} from '@l.x/gating'
 import JSBI from 'jsbi'
 import { UniverseChainId } from 'lx/src/features/chains/types'
 import {

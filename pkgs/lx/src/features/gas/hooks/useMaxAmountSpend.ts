@@ -1,5 +1,5 @@
 import { Currency, CurrencyAmount } from '@luxamm/sdk-core'
-import { DynamicConfigs, SwapConfigKey, useDynamicConfigValue } from '@luxexchange/gating'
+import { DynamicConfigs, SwapConfigKey, useDynamicConfigValue } from '@l.x/gating'
 import JSBI from 'jsbi'
 import { getChainInfo } from 'lx/src/features/chains/chainInfo'
 import { GENERIC_L2_GAS_CONFIG } from 'lx/src/features/chains/gasDefaults'

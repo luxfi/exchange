@@ -1,4 +1,4 @@
-import type { GasFeeResult } from '@luxexchange/api'
+import type { GasFeeResult } from '@l.x/api'
 import { Flex } from 'ui/src'
 import type { UniverseChainId } from 'lx/src/features/chains/types'
 import { DappWalletLineItem } from '@luxfi/wallet/src/components/dappRequests/DappWalletLineItem'

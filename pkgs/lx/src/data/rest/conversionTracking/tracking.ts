@@ -1,5 +1,5 @@
 import type { PartialMessage } from '@bufbuild/protobuf'
-import { type ConversionTrackingApi } from '@luxexchange/api'
+import { type ConversionTrackingApi } from '@l.x/api'
 import { format } from 'date-fns'
 import ms from 'ms'
 import {

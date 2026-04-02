@@ -1,5 +1,5 @@
-import { GasEstimate } from '@luxexchange/api'
-import type { JupiterOrderUrlParams } from '@luxexchange/api/src/clients/jupiter/types'
+import { GasEstimate } from '@l.x/api'
+import type { JupiterOrderUrlParams } from '@l.x/api/src/clients/jupiter/types'
 import { Platform } from 'lx/src/features/platforms/types/Platform'
 import { chainIdToPlatform } from 'lx/src/features/platforms/utils/chains'
 import { type ValidatedTradeInput } from 'lx/src/features/transactions/swap/services/tradeService/transformations/buildQuoteRequest'

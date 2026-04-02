@@ -1,4 +1,4 @@
-import { FeatureFlags, useFeatureFlag } from '@luxexchange/gating'
+import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useSearchParams } from 'react-router'
@@ -6,18 +6,18 @@ import {
   getFiatCurrencyName,
   useAppFiatCurrency,
   useFiatCurrencyComponents,
-} from '@luxexchange/lx/src/features/fiatCurrency/hooks'
+} from '@l.x/lx/src/features/fiatCurrency/hooks'
 import {
   useFiatOnRampAggregatorSupportedFiatCurrenciesQuery,
   useFiatOnRampAggregatorSupportedTokensQuery,
-} from '@luxexchange/lx/src/features/fiatOnRamp/hooks/useFiatOnRampQueries'
+} from '@l.x/lx/src/features/fiatOnRamp/hooks/useFiatOnRampQueries'
 import {
   FiatCurrencyInfo,
   FiatOnRampCurrency,
   FORCountry,
   OffRampTransferDetailsRequest,
   RampDirection,
-} from '@luxexchange/lx/src/features/fiatOnRamp/types'
+} from '@l.x/lx/src/features/fiatOnRamp/types'
 // biome-ignore lint/style/noRestrictedImports: Buy hooks need direct SDK imports
 import { getFiatCurrencyComponents } from '@luxfi/utilities/src/format/localeBased'
 import { useMeldSupportedCurrencyToCurrencyInfo } from '~/appGraphql/data/types'

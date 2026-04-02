@@ -1,12 +1,12 @@
-import { type InAppNotification, OnClickAction } from '@luxexchange/api'
-import type { NotificationDataSource } from '@luxexchange/notifications/src/notification-data-source/NotificationDataSource'
-import type { NotificationProcessor } from '@luxexchange/notifications/src/notification-processor/NotificationProcessor'
-import type { NotificationRenderer } from '@luxexchange/notifications/src/notification-renderer/NotificationRenderer'
-import { createNotificationService } from '@luxexchange/notifications/src/notification-service/implementations/createNotificationService'
+import { type InAppNotification, OnClickAction } from '@l.x/api'
+import type { NotificationDataSource } from '@l.x/notifications/src/notification-data-source/NotificationDataSource'
+import type { NotificationProcessor } from '@l.x/notifications/src/notification-processor/NotificationProcessor'
+import type { NotificationRenderer } from '@l.x/notifications/src/notification-renderer/NotificationRenderer'
+import { createNotificationService } from '@l.x/notifications/src/notification-service/implementations/createNotificationService'
 import type {
   NotificationTracker,
   TrackingMetadata,
-} from '@luxexchange/notifications/src/notification-tracker/NotificationTracker'
+} from '@l.x/notifications/src/notification-tracker/NotificationTracker'
 import { sleep } from 'utilities/src/time/timing'
 import { describe, expect, it, vi } from 'vitest'
 

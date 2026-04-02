@@ -8,7 +8,7 @@ vi.mock('lx/src/utils/search/doesTokenMatchSearchTerm', () => ({
   doesTokenMatchSearchTerm: vi.fn(),
 }))
 
-import { doesTokenMatchSearchTerm } from '@luxexchange/lx/src/utils/search/doesTokenMatchSearchTerm'
+import { doesTokenMatchSearchTerm } from '@l.x/lx/src/utils/search/doesTokenMatchSearchTerm'
 
 const mockDoesTokenMatchSearchTerm = vi.mocked(doesTokenMatchSearchTerm)
 

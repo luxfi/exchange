@@ -1,5 +1,5 @@
-import { TradingApi } from '@luxexchange/api'
-import { useFeatureFlag } from '@luxexchange/gating'
+import { TradingApi } from '@l.x/api'
+import { useFeatureFlag } from '@l.x/gating'
 import { UniverseChainId } from 'lx/src/features/chains/types'
 import type { FrontendSupportedProtocol } from 'lx/src/features/transactions/swap/utils/protocols'
 import { useProtocolsForChain } from 'lx/src/features/transactions/swap/utils/protocols'
@@ -7,8 +7,8 @@ import { useQuoteRoutingParams } from 'lx/src/features/transactions/swap/utils/t
 import { renderHook } from 'lx/src/test/test-utils'
 import type { Mock } from 'vitest'
 
-vi.mock('@luxexchange/gating', async (importOriginal) => {
-  const actual = await importOriginal<typeof import('@luxexchange/gating')>()
+vi.mock('@l.x/gating', async (importOriginal) => {
+  const actual = await importOriginal<typeof import('@l.x/gating')>()
   return {
     ...actual,
     useFeatureFlag: vi.fn(),

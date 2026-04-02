@@ -1,5 +1,5 @@
-import { ModalName } from '@luxexchange/lx/src/features/telemetry/constants'
-import { useIsBlocked } from '@luxexchange/lx/src/features/trm/hooks'
+import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
+import { useIsBlocked } from '@l.x/lx/src/features/trm/hooks'
 import useAccountRiskCheck from '~/hooks/useAccountRiskCheck'
 import { setOpenModal } from '~/state/application/reducer'
 import { mocked } from '~/test-utils/mocked'

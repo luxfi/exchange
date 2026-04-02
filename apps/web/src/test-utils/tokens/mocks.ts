@@ -5,12 +5,12 @@ vi.mock('~/hooks/Tokens')
 vi.mock('~/components/AccountDrawer/MiniPortfolio/Activity/getCurrency')
 
 import { Currency, WETH9 } from '@luxamm/sdk-core'
-import { COMMON_BASES } from '@luxexchange/lx/src/constants/routing'
-import { DAI, DAI_ARBITRUM_ONE, USDC_ARBITRUM, USDC_MAINNET, USDT, WBTC } from '@luxexchange/lx/src/constants/tokens'
-import { UniverseChainId } from '@luxexchange/lx/src/features/chains/types'
-import { Platform } from '@luxexchange/lx/src/features/platforms/types/Platform'
-import { areAddressesEqual } from '@luxexchange/lx/src/utils/addresses'
-import { currencyIdToAddress, currencyIdToChain, isNativeCurrencyAddress } from '@luxexchange/lx/src/utils/currencyId'
+import { COMMON_BASES } from '@l.x/lx/src/constants/routing'
+import { DAI, DAI_ARBITRUM_ONE, USDC_ARBITRUM, USDC_MAINNET, USDT, WBTC } from '@l.x/lx/src/constants/tokens'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
+import { areAddressesEqual } from '@l.x/lx/src/utils/addresses'
+import { currencyIdToAddress, currencyIdToChain, isNativeCurrencyAddress } from '@l.x/lx/src/utils/currencyId'
 import { getCurrencyFromCurrencyId } from '~/components/AccountDrawer/MiniPortfolio/Activity/getCurrency'
 import { useCurrency, useCurrencyInfo } from '~/hooks/Tokens'
 import {

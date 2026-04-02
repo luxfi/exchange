@@ -6,11 +6,11 @@ import { useDispatch } from 'react-redux'
 import { useReactNavigationModal } from 'src/components/modals/useReactNavigationModal'
 import { Flex, Text, TouchableArea } from '@luxfi/ui/src'
 import { Check } from '@luxfi/ui/src/components/icons'
-import { Modal } from '@luxexchange/lx/src/components/modals/Modal'
-import { FiatCurrency, ORDERED_CURRENCIES } from '@luxexchange/lx/src/features/fiatCurrency/constants'
-import { useAppFiatCurrency, useFiatCurrencyInfo } from '@luxexchange/lx/src/features/fiatCurrency/hooks'
-import { setCurrentFiatCurrency } from '@luxexchange/lx/src/features/settings/slice'
-import { ModalName } from '@luxexchange/lx/src/features/telemetry/constants'
+import { Modal } from '@l.x/lx/src/components/modals/Modal'
+import { FiatCurrency, ORDERED_CURRENCIES } from '@l.x/lx/src/features/fiatCurrency/constants'
+import { useAppFiatCurrency, useFiatCurrencyInfo } from '@l.x/lx/src/features/fiatCurrency/hooks'
+import { setCurrentFiatCurrency } from '@l.x/lx/src/features/settings/slice'
+import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
 
 export function SettingsFiatCurrencyModal(): JSX.Element {
   const { t } = useTranslation()

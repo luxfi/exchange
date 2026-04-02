@@ -10,9 +10,9 @@ import { Pools } from '@luxfi/ui/src/components/icons/Pools'
 import { ReceiveAlt } from '@luxfi/ui/src/components/icons/ReceiveAlt'
 import { SendAction } from '@luxfi/ui/src/components/icons/SendAction'
 import { AppTFunction } from '@luxfi/ui/src/i18n/types'
-import { ActivityItem } from '@luxexchange/lx/src/components/activity/generateActivityItemRenderer'
-import { isLoadingItem, isSectionHeader } from '@luxexchange/lx/src/components/activity/utils'
-import { TransactionDetails, TransactionType } from '@luxexchange/lx/src/features/transactions/types/transactionDetails'
+import { ActivityItem } from '@l.x/lx/src/components/activity/generateActivityItemRenderer'
+import { isLoadingItem, isSectionHeader } from '@l.x/lx/src/components/activity/utils'
+import { TransactionDetails, TransactionType } from '@l.x/lx/src/features/transactions/types/transactionDetails'
 import { SelectOption } from '~/components/Dropdowns/DropdownSelector'
 
 export enum ActivityFilterType {

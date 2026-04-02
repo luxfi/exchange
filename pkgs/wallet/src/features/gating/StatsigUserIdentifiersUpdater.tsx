@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query'
-import { provideLxIdentifierService } from '@luxexchange/api'
-import { lxIdentifierQuery } from '@luxexchange/sessions'
+import { provideLxIdentifierService } from '@l.x/api'
+import { lxIdentifierQuery } from '@l.x/sessions'
 import { useSyncStatsigUserIdentifiers } from 'lx/src/features/gating/useSyncStatsigUserIdentifiers'
 import { useActiveAccountAddress } from '@luxfi/wallet/src/features/wallet/hooks'
 

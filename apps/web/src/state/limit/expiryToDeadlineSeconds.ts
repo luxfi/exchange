@@ -1,5 +1,5 @@
 import ms from 'ms'
-import { LimitsExpiry } from '@luxexchange/lx/src/types/limits'
+import { LimitsExpiry } from '@l.x/lx/src/types/limits'
 
 const DAY_SECS = ms('1d') / 1000
 

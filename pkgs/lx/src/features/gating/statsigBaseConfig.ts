@@ -1,4 +1,4 @@
-import { getOverrideAdapter, getStatsigEnvName, StatsigOptions } from '@luxexchange/gating'
+import { getOverrideAdapter, getStatsigEnvName, StatsigOptions } from '@l.x/gating'
 import { lxUrls } from 'lx/src/constants/urls'
 
 export const statsigBaseConfig: StatsigOptions = {

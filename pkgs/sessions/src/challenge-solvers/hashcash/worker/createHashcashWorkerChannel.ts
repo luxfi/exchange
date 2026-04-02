@@ -6,7 +6,7 @@
 import type {
   CreateHashcashWorkerChannelContext,
   HashcashWorkerChannel,
-} from '@luxexchange/sessions/src/challenge-solvers/hashcash/worker/types'
+} from '@l.x/sessions/src/challenge-solvers/hashcash/worker/types'
 import { PlatformSplitStubError } from 'utilities/src/errors'
 
 function createHashcashWorkerChannel(_ctx: CreateHashcashWorkerChannelContext): HashcashWorkerChannel {

@@ -1,4 +1,4 @@
-import i18n from '@luxexchange/lx/src/i18n'
+import i18n from '@l.x/lx/src/i18n'
 import { PoolData } from '~/appGraphql/data/pools/usePoolData'
 import { getPoolDetailPageTitle } from '~/pages/PoolDetails/utils'
 import { validPoolDataResponse } from '~/test-utils/pools/fixtures'

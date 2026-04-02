@@ -3,14 +3,14 @@ import {
   Metadata,
   Notification,
 } from '@luxamm/client-notification-service/dist/lx/notificationservice/v1/api_pb'
-import { ContentStyle } from '@luxexchange/api'
+import { ContentStyle } from '@l.x/api'
 import { type MobileState } from 'src/app/mobileReducer'
 import {
   BACKUP_REMINDER_NOTIFICATION_ID,
   createBackupReminderTrigger,
   isBackupReminderNotification,
 } from 'src/notification-service/triggers/backupReminderTrigger'
-import { AccountType } from '@luxexchange/lx/src/features/accounts/types'
+import { AccountType } from '@l.x/lx/src/features/accounts/types'
 import { ONE_DAY_MS } from '@luxfi/utilities/src/time/time'
 import { selectBackupReminderLastSeenTs } from '@luxfi/wallet/src/features/behaviorHistory/selectors'
 import { setBackupReminderLastSeenTs } from '@luxfi/wallet/src/features/behaviorHistory/slice'

@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next'
 import { Button, Flex, Text } from '@luxfi/ui/src'
-import { ElementName, InterfaceEventName } from '@luxexchange/lx/src/features/telemetry/constants'
-import Trace from '@luxexchange/lx/src/features/telemetry/Trace'
+import { ElementName, InterfaceEventName } from '@l.x/lx/src/features/telemetry/constants'
+import Trace from '@l.x/lx/src/features/telemetry/Trace'
 import { useAccountDrawer } from '~/components/AccountDrawer/MiniPortfolio/hooks'
 import { AnimatedStyledBanner } from '~/pages/Portfolio/components/AnimatedStyledBanner/AnimatedStyledBanner'
 

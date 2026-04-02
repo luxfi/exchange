@@ -4,7 +4,7 @@ import {
   type StatsigUser,
   type StorageProvider,
   useClientAsyncInit,
-} from '@luxexchange/gating'
+} from '@l.x/gating'
 import { type ReactNode, useEffect, useMemo } from 'react'
 import { config } from 'lx/src/config'
 import { statsigBaseConfig } from 'lx/src/features/gating/statsigBaseConfig'

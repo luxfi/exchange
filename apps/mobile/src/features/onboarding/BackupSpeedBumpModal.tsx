@@ -3,8 +3,8 @@ import { useTranslation } from 'react-i18next'
 import { LockPreviewImage } from 'src/features/onboarding/LockPreviewImage'
 import { Button, Flex, LabeledCheckbox, Text, useIsDarkMode, useShadowPropsShort } from '@luxfi/ui/src'
 import { CheckCircleFilled } from '@luxfi/ui/src/components/icons'
-import { Modal } from '@luxexchange/lx/src/components/modals/Modal'
-import { ModalName } from '@luxexchange/lx/src/features/telemetry/constants'
+import { Modal } from '@l.x/lx/src/components/modals/Modal'
+import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
 import { BackupType } from '@luxfi/wallet/src/features/wallet/accounts/types'
 
 const PREVIEW_BOX_HEIGHT = 122

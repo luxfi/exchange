@@ -1,6 +1,6 @@
 import { ContentStyle } from '@shopify/flash-list'
-import { GqlResult } from '@luxexchange/api'
-import { FeatureFlags, useFeatureFlag } from '@luxexchange/gating'
+import { GqlResult } from '@l.x/api'
+import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { memo, useCallback, useEffect, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { usePoolSearchResultsToPoolOptions } from 'lx/src/components/lists/items/pools/usePoolSearchResultsToPoolOptions'

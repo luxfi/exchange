@@ -6,8 +6,8 @@ import { useOnboardingSteps } from 'src/app/features/onboarding/OnboardingStepsC
 import { OnboardingRoutes, TopLevelRoutes } from 'src/app/navigation/constants'
 import { navigate } from 'src/app/navigation/state'
 import { Flex } from '@luxfi/ui/src'
-import Trace from '@luxexchange/lx/src/features/telemetry/Trace'
-import { ExtensionOnboardingFlow, ExtensionOnboardingScreens } from '@luxexchange/lx/src/types/screens/extension'
+import Trace from '@l.x/lx/src/features/telemetry/Trace'
+import { ExtensionOnboardingFlow, ExtensionOnboardingScreens } from '@l.x/lx/src/types/screens/extension'
 import { PasskeyImportLoading } from '@luxfi/wallet/src/features/onboarding/PasskeyImportLoading'
 import { WelcomeSplash } from '@luxfi/wallet/src/features/onboarding/WelcomeSplash'
 

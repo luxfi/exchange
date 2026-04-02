@@ -8,15 +8,15 @@ import { Screen } from 'src/components/layout/Screen'
 import { Flex, Switch, Text, TouchableArea } from '@luxfi/ui/src'
 import { CheckmarkCircle, CopyAlt } from '@luxfi/ui/src/components/icons'
 import { spacing } from '@luxfi/ui/src/theme'
-import { pushNotification } from '@luxexchange/lx/src/features/notifications/slice/slice'
-import { AppNotificationType } from '@luxexchange/lx/src/features/notifications/slice/types'
+import { pushNotification } from '@l.x/lx/src/features/notifications/slice/slice'
+import { AppNotificationType } from '@l.x/lx/src/features/notifications/slice/types'
 import {
   resetDismissedBridgedAssetWarnings,
   resetDismissedCompatibleAddressWarnings,
   resetDismissedWarnings,
-} from '@luxexchange/lx/src/features/tokens/warnings/slice/slice'
-import { useAppInsets } from '@luxexchange/lx/src/hooks/useAppInsets'
-import { MobileScreens } from '@luxexchange/lx/src/types/screens/mobile'
+} from '@l.x/lx/src/features/tokens/warnings/slice/slice'
+import { useAppInsets } from '@l.x/lx/src/hooks/useAppInsets'
+import { MobileScreens } from '@l.x/lx/src/types/screens/mobile'
 import { setClipboard } from '@luxfi/utilities/src/clipboard/clipboard'
 import { logger } from '@luxfi/utilities/src/logger/logger'
 import { UniconSampleSheet } from '@luxfi/wallet/src/components/DevelopmentOnly/UniconSampleSheet'

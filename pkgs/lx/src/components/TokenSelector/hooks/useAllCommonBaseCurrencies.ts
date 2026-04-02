@@ -1,4 +1,4 @@
-import { GqlResult } from '@luxexchange/api'
+import { GqlResult } from '@l.x/api'
 import { useCurrencies } from 'lx/src/components/TokenSelector/hooks/useCurrencies'
 import { USDC, USDT, WBTC } from 'lx/src/constants/tokens'
 import { useEnabledChains } from 'lx/src/features/chains/hooks/useEnabledChains'

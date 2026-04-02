@@ -3,9 +3,9 @@ import React from 'react'
 import { Trans } from 'react-i18next'
 import { WalletConnectSigningRequest } from 'src/features/walletConnect/walletConnectSlice'
 import { Text } from '@luxfi/ui/src'
-import { EthMethod, WalletConnectEthMethod } from '@luxexchange/lx/src/features/dappRequests/types'
-import { getCurrencyAmount, ValueType } from '@luxexchange/lx/src/features/tokens/getCurrencyAmount'
-import { UwULinkMethod } from '@luxexchange/lx/src/types/walletConnect'
+import { EthMethod, WalletConnectEthMethod } from '@l.x/lx/src/features/dappRequests/types'
+import { getCurrencyAmount, ValueType } from '@l.x/lx/src/features/tokens/getCurrencyAmount'
+import { UwULinkMethod } from '@l.x/lx/src/types/walletConnect'
 
 export function HeaderText({
   request,

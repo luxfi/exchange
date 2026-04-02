@@ -10,12 +10,12 @@ import {
 import { Flex, Switch, Text } from '@luxfi/ui/src'
 import { useDeviceDimensions } from '@luxfi/ui/src/hooks/useDeviceDimensions'
 import { iconSizes, spacing } from '@luxfi/ui/src/theme'
-import { AddressDisplay } from '@luxexchange/lx/src/components/accounts/AddressDisplay'
-import { AccountType } from '@luxexchange/lx/src/features/accounts/types'
-import { MobileEventName } from '@luxexchange/lx/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from '@luxexchange/lx/src/features/telemetry/send'
-import { NotificationToggleLoggingType } from '@luxexchange/lx/src/features/telemetry/types'
-import { useAppInsets } from '@luxexchange/lx/src/hooks/useAppInsets'
+import { AddressDisplay } from '@l.x/lx/src/components/accounts/AddressDisplay'
+import { AccountType } from '@l.x/lx/src/features/accounts/types'
+import { MobileEventName } from '@l.x/lx/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
+import { NotificationToggleLoggingType } from '@l.x/lx/src/features/telemetry/types'
+import { useAppInsets } from '@l.x/lx/src/hooks/useAppInsets'
 import { useAccountsList } from '@luxfi/wallet/src/features/wallet/hooks'
 
 const ROW_ITEM_HEIGHT = 40

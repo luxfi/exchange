@@ -1,6 +1,6 @@
 import { atom, useAtom } from 'jotai'
 import { useUpdateAtom } from 'jotai/utils'
-import { Platform } from '@luxexchange/lx/src/features/platforms/types/Platform'
+import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
 import { useEvent } from '@luxfi/utilities/src/react/hooks'
 
 export enum MenuStateVariant {

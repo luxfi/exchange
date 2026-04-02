@@ -1,4 +1,4 @@
-import { GraphQLApi } from '@luxexchange/api'
+import { GraphQLApi } from '@l.x/api'
 import { NUM_FIRST_NFTS } from 'lx/src/components/nfts/constants'
 import { useEnabledChains } from 'lx/src/features/chains/hooks/useEnabledChains'
 import { formatNftItems } from 'lx/src/features/nfts/utils'

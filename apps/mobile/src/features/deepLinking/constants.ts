@@ -1,4 +1,4 @@
-import { lxUrls } from '@luxexchange/lx/src/constants/urls'
+import { lxUrls } from '@l.x/lx/src/constants/urls'
 
 export const LX_URL_SCHEME = 'lx://'
 export const LX_URL_SCHEME_WALLETCONNECT_AS_PARAM = 'lx://wc?uri='

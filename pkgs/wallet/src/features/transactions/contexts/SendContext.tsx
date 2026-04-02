@@ -1,6 +1,6 @@
 import { TransactionRequest } from '@ethersproject/providers'
 import { Currency } from '@luxamm/sdk-core'
-import { GasFeeResult } from '@luxexchange/api'
+import { GasFeeResult } from '@l.x/api'
 import { providers } from 'ethers'
 import { createContext, ReactNode, useCallback, useContext, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'

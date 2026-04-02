@@ -278,10 +278,10 @@
               },
               {
                 "group": [
-                  "@luxexchange/*/src",
-                  "@luxexchange/*/src/*"
+                  "@l.x/*/src",
+                  "@l.x/*/src/*"
                 ],
-                "message": "Deep imports from @luxexchange/* packages are forbidden. Import from the package root instead (e.g., '@luxexchange/api', '@luxexchange/config'). All public APIs are exported from package roots."
+                "message": "Deep imports from @l.x/* packages are forbidden. Import from the package root instead (e.g., '@l.x/api', '@l.x/config'). All public APIs are exported from package roots."
               }
             ]
           }
@@ -554,10 +554,10 @@
                   },
                   {
                     "group": [
-                      "@luxexchange/*/src",
-                      "@luxexchange/*/src/*"
+                      "@l.x/*/src",
+                      "@l.x/*/src/*"
                     ],
-                    "message": "Deep imports from @luxexchange/* packages are forbidden. Import from the package root instead (e.g., '@luxexchange/api', '@luxexchange/config'). All public APIs are exported from package roots."
+                    "message": "Deep imports from @l.x/* packages are forbidden. Import from the package root instead (e.g., '@l.x/api', '@l.x/config'). All public APIs are exported from package roots."
                   }
                 ]
               }
@@ -672,10 +672,10 @@
                   },
                   {
                     "group": [
-                      "@luxexchange/*/src",
-                      "@luxexchange/*/src/*"
+                      "@l.x/*/src",
+                      "@l.x/*/src/*"
                     ],
-                    "message": "Deep imports from @luxexchange/* packages are forbidden. Import from the package root instead (e.g., '@luxexchange/api', '@luxexchange/config'). All public APIs are exported from package roots."
+                    "message": "Deep imports from @l.x/* packages are forbidden. Import from the package root instead (e.g., '@l.x/api', '@l.x/config'). All public APIs are exported from package roots."
                   }
                 ]
               }
@@ -790,10 +790,10 @@
                   },
                   {
                     "group": [
-                      "@luxexchange/*/src",
-                      "@luxexchange/*/src/*"
+                      "@l.x/*/src",
+                      "@l.x/*/src/*"
                     ],
-                    "message": "Deep imports from @luxexchange/* packages are forbidden. Import from the package root instead (e.g., '@luxexchange/api', '@luxexchange/config'). All public APIs are exported from package roots."
+                    "message": "Deep imports from @l.x/* packages are forbidden. Import from the package root instead (e.g., '@l.x/api', '@l.x/config'). All public APIs are exported from package roots."
                   }
                 ]
               }
@@ -908,10 +908,10 @@
                   },
                   {
                     "group": [
-                      "@luxexchange/*/src",
-                      "@luxexchange/*/src/*"
+                      "@l.x/*/src",
+                      "@l.x/*/src/*"
                     ],
-                    "message": "Deep imports from @luxexchange/* packages are forbidden. Import from the package root instead (e.g., '@luxexchange/api', '@luxexchange/config'). All public APIs are exported from package roots."
+                    "message": "Deep imports from @l.x/* packages are forbidden. Import from the package root instead (e.g., '@l.x/api', '@l.x/config'). All public APIs are exported from package roots."
                   }
                 ]
               }
@@ -1026,10 +1026,10 @@
                   },
                   {
                     "group": [
-                      "@luxexchange/*/src",
-                      "@luxexchange/*/src/*"
+                      "@l.x/*/src",
+                      "@l.x/*/src/*"
                     ],
-                    "message": "Deep imports from @luxexchange/* packages are forbidden. Import from the package root instead (e.g., '@luxexchange/api', '@luxexchange/config'). All public APIs are exported from package roots."
+                    "message": "Deep imports from @l.x/* packages are forbidden. Import from the package root instead (e.g., '@l.x/api', '@l.x/config'). All public APIs are exported from package roots."
                   }
                 ]
               }
@@ -1144,10 +1144,10 @@
                   },
                   {
                     "group": [
-                      "@luxexchange/*/src",
-                      "@luxexchange/*/src/*"
+                      "@l.x/*/src",
+                      "@l.x/*/src/*"
                     ],
-                    "message": "Deep imports from @luxexchange/* packages are forbidden. Import from the package root instead (e.g., '@luxexchange/api', '@luxexchange/config'). All public APIs are exported from package roots."
+                    "message": "Deep imports from @l.x/* packages are forbidden. Import from the package root instead (e.g., '@l.x/api', '@l.x/config'). All public APIs are exported from package roots."
                   }
                 ]
               }
@@ -1262,10 +1262,10 @@
                   },
                   {
                     "group": [
-                      "@luxexchange/*/src",
-                      "@luxexchange/*/src/*"
+                      "@l.x/*/src",
+                      "@l.x/*/src/*"
                     ],
-                    "message": "Deep imports from @luxexchange/* packages are forbidden. Import from the package root instead (e.g., '@luxexchange/api', '@luxexchange/config'). All public APIs are exported from package roots."
+                    "message": "Deep imports from @l.x/* packages are forbidden. Import from the package root instead (e.g., '@l.x/api', '@l.x/config'). All public APIs are exported from package roots."
                   }
                 ]
               }
@@ -1380,10 +1380,10 @@
                   },
                   {
                     "group": [
-                      "@luxexchange/*/src",
-                      "@luxexchange/*/src/*"
+                      "@l.x/*/src",
+                      "@l.x/*/src/*"
                     ],
-                    "message": "Deep imports from @luxexchange/* packages are forbidden. Import from the package root instead (e.g., '@luxexchange/api', '@luxexchange/config'). All public APIs are exported from package roots."
+                    "message": "Deep imports from @l.x/* packages are forbidden. Import from the package root instead (e.g., '@l.x/api', '@l.x/config'). All public APIs are exported from package roots."
                   }
                 ]
               }
@@ -1498,10 +1498,10 @@
                   },
                   {
                     "group": [
-                      "@luxexchange/*/src",
-                      "@luxexchange/*/src/*"
+                      "@l.x/*/src",
+                      "@l.x/*/src/*"
                     ],
-                    "message": "Deep imports from @luxexchange/* packages are forbidden. Import from the package root instead (e.g., '@luxexchange/api', '@luxexchange/config'). All public APIs are exported from package roots."
+                    "message": "Deep imports from @l.x/* packages are forbidden. Import from the package root instead (e.g., '@l.x/api', '@l.x/config'). All public APIs are exported from package roots."
                   }
                 ]
               }
@@ -1616,10 +1616,10 @@
                   },
                   {
                     "group": [
-                      "@luxexchange/*/src",
-                      "@luxexchange/*/src/*"
+                      "@l.x/*/src",
+                      "@l.x/*/src/*"
                     ],
-                    "message": "Deep imports from @luxexchange/* packages are forbidden. Import from the package root instead (e.g., '@luxexchange/api', '@luxexchange/config'). All public APIs are exported from package roots."
+                    "message": "Deep imports from @l.x/* packages are forbidden. Import from the package root instead (e.g., '@l.x/api', '@l.x/config'). All public APIs are exported from package roots."
                   }
                 ]
               }
@@ -1734,10 +1734,10 @@
                   },
                   {
                     "group": [
-                      "@luxexchange/*/src",
-                      "@luxexchange/*/src/*"
+                      "@l.x/*/src",
+                      "@l.x/*/src/*"
                     ],
-                    "message": "Deep imports from @luxexchange/* packages are forbidden. Import from the package root instead (e.g., '@luxexchange/api', '@luxexchange/config'). All public APIs are exported from package roots."
+                    "message": "Deep imports from @l.x/* packages are forbidden. Import from the package root instead (e.g., '@l.x/api', '@l.x/config'). All public APIs are exported from package roots."
                   }
                 ]
               }
@@ -1852,10 +1852,10 @@
                   },
                   {
                     "group": [
-                      "@luxexchange/*/src",
-                      "@luxexchange/*/src/*"
+                      "@l.x/*/src",
+                      "@l.x/*/src/*"
                     ],
-                    "message": "Deep imports from @luxexchange/* packages are forbidden. Import from the package root instead (e.g., '@luxexchange/api', '@luxexchange/config'). All public APIs are exported from package roots."
+                    "message": "Deep imports from @l.x/* packages are forbidden. Import from the package root instead (e.g., '@l.x/api', '@l.x/config'). All public APIs are exported from package roots."
                   }
                 ]
               }
@@ -2030,10 +2030,10 @@
                   },
                   {
                     "group": [
-                      "@luxexchange/*/src",
-                      "@luxexchange/*/src/*"
+                      "@l.x/*/src",
+                      "@l.x/*/src/*"
                     ],
-                    "message": "Deep imports from @luxexchange/* packages are forbidden. Import from the package root instead (e.g., '@luxexchange/api', '@luxexchange/config'). All public APIs are exported from package roots."
+                    "message": "Deep imports from @l.x/* packages are forbidden. Import from the package root instead (e.g., '@l.x/api', '@l.x/config'). All public APIs are exported from package roots."
                   }
                 ]
               }
@@ -2152,10 +2152,10 @@
                   },
                   {
                     "group": [
-                      "@luxexchange/*/src",
-                      "@luxexchange/*/src/*"
+                      "@l.x/*/src",
+                      "@l.x/*/src/*"
                     ],
-                    "message": "Deep imports from @luxexchange/* packages are forbidden. Import from the package root instead (e.g., '@luxexchange/api', '@luxexchange/config'). All public APIs are exported from package roots."
+                    "message": "Deep imports from @l.x/* packages are forbidden. Import from the package root instead (e.g., '@l.x/api', '@l.x/config'). All public APIs are exported from package roots."
                   }
                 ]
               }
@@ -2315,10 +2315,10 @@
                   },
                   {
                     "group": [
-                      "@luxexchange/*/src",
-                      "@luxexchange/*/src/*"
+                      "@l.x/*/src",
+                      "@l.x/*/src/*"
                     ],
-                    "message": "Deep imports from @luxexchange/* packages are forbidden. Import from the package root instead (e.g., '@luxexchange/api', '@luxexchange/config'). All public APIs are exported from package roots."
+                    "message": "Deep imports from @l.x/* packages are forbidden. Import from the package root instead (e.g., '@l.x/api', '@l.x/config'). All public APIs are exported from package roots."
                   }
                 ]
               }
@@ -2432,10 +2432,10 @@
                   },
                   {
                     "group": [
-                      "@luxexchange/*/src",
-                      "@luxexchange/*/src/*"
+                      "@l.x/*/src",
+                      "@l.x/*/src/*"
                     ],
-                    "message": "Deep imports from @luxexchange/* packages are forbidden. Import from the package root instead (e.g., '@luxexchange/api', '@luxexchange/config'). All public APIs are exported from package roots."
+                    "message": "Deep imports from @l.x/* packages are forbidden. Import from the package root instead (e.g., '@l.x/api', '@l.x/config'). All public APIs are exported from package roots."
                   }
                 ]
               }
@@ -2607,10 +2607,10 @@
                   },
                   {
                     "group": [
-                      "@luxexchange/*/src",
-                      "@luxexchange/*/src/*"
+                      "@l.x/*/src",
+                      "@l.x/*/src/*"
                     ],
-                    "message": "Deep imports from @luxexchange/* packages are forbidden. Import from the package root instead (e.g., '@luxexchange/api', '@luxexchange/config'). All public APIs are exported from package roots."
+                    "message": "Deep imports from @l.x/* packages are forbidden. Import from the package root instead (e.g., '@l.x/api', '@l.x/config'). All public APIs are exported from package roots."
                   }
                 ]
               }
@@ -2775,10 +2775,10 @@
                   },
                   {
                     "group": [
-                      "@luxexchange/*/src",
-                      "@luxexchange/*/src/*"
+                      "@l.x/*/src",
+                      "@l.x/*/src/*"
                     ],
-                    "message": "Deep imports from @luxexchange/* packages are forbidden. Import from the package root instead (e.g., '@luxexchange/api', '@luxexchange/config'). All public APIs are exported from package roots."
+                    "message": "Deep imports from @l.x/* packages are forbidden. Import from the package root instead (e.g., '@l.x/api', '@l.x/config'). All public APIs are exported from package roots."
                   }
                 ]
               }
@@ -3042,10 +3042,10 @@
                   },
                   {
                     "group": [
-                      "@luxexchange/*/src",
-                      "@luxexchange/*/src/*"
+                      "@l.x/*/src",
+                      "@l.x/*/src/*"
                     ],
-                    "message": "Deep imports from @luxexchange/* packages are forbidden. Import from the package root instead (e.g., '@luxexchange/api', '@luxexchange/config'). All public APIs are exported from package roots."
+                    "message": "Deep imports from @l.x/* packages are forbidden. Import from the package root instead (e.g., '@l.x/api', '@l.x/config'). All public APIs are exported from package roots."
                   }
                 ]
               }
@@ -3214,10 +3214,10 @@
                   },
                   {
                     "group": [
-                      "@luxexchange/*/src",
-                      "@luxexchange/*/src/*"
+                      "@l.x/*/src",
+                      "@l.x/*/src/*"
                     ],
-                    "message": "Deep imports from @luxexchange/* packages are forbidden. Import from the package root instead (e.g., '@luxexchange/api', '@luxexchange/config'). All public APIs are exported from package roots."
+                    "message": "Deep imports from @l.x/* packages are forbidden. Import from the package root instead (e.g., '@l.x/api', '@l.x/config'). All public APIs are exported from package roots."
                   }
                 ]
               }
@@ -3332,10 +3332,10 @@
                   },
                   {
                     "group": [
-                      "@luxexchange/*/src",
-                      "@luxexchange/*/src/*"
+                      "@l.x/*/src",
+                      "@l.x/*/src/*"
                     ],
-                    "message": "Deep imports from @luxexchange/* packages are forbidden. Import from the package root instead (e.g., '@luxexchange/api', '@luxexchange/config'). All public APIs are exported from package roots."
+                    "message": "Deep imports from @l.x/* packages are forbidden. Import from the package root instead (e.g., '@l.x/api', '@l.x/config'). All public APIs are exported from package roots."
                   }
                 ]
               }

@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Flex, Text, useMedia } from '@luxfi/ui/src'
-import { ElementName } from '@luxexchange/lx/src/features/telemetry/constants'
+import { ElementName } from '@l.x/lx/src/features/telemetry/constants'
 import { useEvent } from '@luxfi/utilities/src/react/hooks'
 import { Bid } from '~/components/Toucan/Auction/Bids/Bid'
 import { BidDetailsModal } from '~/components/Toucan/Auction/Bids/BidDetailsModal'

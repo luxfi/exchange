@@ -1,4 +1,4 @@
-import { AccountType } from '@luxexchange/lx/src/features/accounts/types'
+import { AccountType } from '@l.x/lx/src/features/accounts/types'
 import { extractNameFromUrl } from '@luxfi/utilities/src/format/extractNameFromUrl'
 import { bubbleToTop } from '@luxfi/utilities/src/primitives/array'
 import { ONE_SECOND_MS } from '@luxfi/utilities/src/time/time'

@@ -1,5 +1,5 @@
 import { useQueryClient } from '@tanstack/react-query'
-import { SESSION_INIT_QUERY_KEY } from '@luxexchange/api/src/components/ApiInit'
+import { SESSION_INIT_QUERY_KEY } from '@l.x/api/src/components/ApiInit'
 
 /**
  * Hook to check if session initialization is complete.

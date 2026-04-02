@@ -4,12 +4,12 @@ import { FadeIn, FadeOut } from 'react-native-reanimated'
 import { TokenFiatOnRampList } from 'src/components/TokenSelector/TokenFiatOnRampList'
 import { Flex, Text, useSporeColors } from '@luxfi/ui/src'
 import { AnimatedFlex } from '@luxfi/ui/src/components/layout/AnimatedFlex'
-import { Modal } from '@luxexchange/lx/src/components/modals/Modal'
-import { PortfolioBalance } from '@luxexchange/lx/src/features/dataApi/types'
-import { FOR_MODAL_SNAP_POINTS } from '@luxexchange/lx/src/features/fiatOnRamp/constants'
-import { FiatOnRampCurrency } from '@luxexchange/lx/src/features/fiatOnRamp/types'
-import { ElementName, ModalName, SectionName } from '@luxexchange/lx/src/features/telemetry/constants'
-import Trace from '@luxexchange/lx/src/features/telemetry/Trace'
+import { Modal } from '@l.x/lx/src/components/modals/Modal'
+import { PortfolioBalance } from '@l.x/lx/src/features/dataApi/types'
+import { FOR_MODAL_SNAP_POINTS } from '@l.x/lx/src/features/fiatOnRamp/constants'
+import { FiatOnRampCurrency } from '@l.x/lx/src/features/fiatOnRamp/types'
+import { ElementName, ModalName, SectionName } from '@l.x/lx/src/features/telemetry/constants'
+import Trace from '@l.x/lx/src/features/telemetry/Trace'
 
 interface Props {
   onSelectCurrency: (currency: FiatOnRampCurrency) => void

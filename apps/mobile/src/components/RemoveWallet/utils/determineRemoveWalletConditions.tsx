@@ -1,5 +1,5 @@
-import { Platform } from '@luxexchange/lx/src/features/platforms/types/Platform'
-import { areAddressesEqual } from '@luxexchange/lx/src/utils/addresses'
+import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
+import { areAddressesEqual } from '@l.x/lx/src/utils/addresses'
 import { Account, SignerMnemonicAccount } from '@luxfi/wallet/src/features/wallet/accounts/types'
 
 type RemoveWalletConditions = {

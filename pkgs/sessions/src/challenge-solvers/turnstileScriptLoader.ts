@@ -1,5 +1,5 @@
-import { TurnstileScriptLoadError } from '@luxexchange/sessions/src/challenge-solvers/turnstileErrors'
-import type { TurnstileScriptOptions } from '@luxexchange/sessions/src/challenge-solvers/types'
+import { TurnstileScriptLoadError } from '@l.x/sessions/src/challenge-solvers/turnstileErrors'
+import type { TurnstileScriptOptions } from '@l.x/sessions/src/challenge-solvers/types'
 
 type TurnstileState = 'unloaded' | 'loading' | 'ready'
 

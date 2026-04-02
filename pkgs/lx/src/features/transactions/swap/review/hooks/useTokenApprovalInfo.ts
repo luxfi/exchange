@@ -1,5 +1,5 @@
 import { Currency, CurrencyAmount } from '@luxamm/sdk-core'
-import { GasFeeResult, TradingApi } from '@luxexchange/api'
+import { GasFeeResult, TradingApi } from '@l.x/api'
 import { useMemo } from 'react'
 import { useLuxContextSelector } from 'lx/src/contexts/LuxContext'
 import { useCheckApprovalQuery } from 'lx/src/data/apiClients/tradingApi/useCheckApprovalQuery'

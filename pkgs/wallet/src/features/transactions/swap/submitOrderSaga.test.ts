@@ -1,6 +1,6 @@
 import { Protocol } from '@luxamm/router-sdk'
 import { TradeType } from '@luxamm/sdk-core'
-import { TradingApi } from '@luxexchange/api'
+import { TradingApi } from '@l.x/api'
 import { testSaga } from 'redux-saga-test-plan'
 import { nativeOnChain } from 'lx/src/constants/tokens'
 import { TradingApiClient } from 'lx/src/data/apiClients/tradingApi/TradingApiClient'

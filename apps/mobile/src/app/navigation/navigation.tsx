@@ -1,7 +1,7 @@
 import { NavigationContainer, NavigationIndependentTree } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { createStackNavigator, TransitionPresets } from '@react-navigation/stack'
-import { FeatureFlags, useFeatureFlag } from '@luxexchange/gating'
+import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import React, { useEffect } from 'react'
 import { DevSettings } from 'react-native'
 import { INCLUDE_PROTOTYPE_FEATURES, IS_E2E_TEST } from 'react-native-dotenv'
@@ -114,16 +114,16 @@ import { ViewPrivateKeysScreen } from 'src/screens/ViewPrivateKeys/ViewPrivateKe
 import { WebViewScreen } from 'src/screens/WebViewScreen'
 import { useSporeColors } from '@luxfi/ui/src'
 import { spacing } from '@luxfi/ui/src/theme'
-import { ModalName } from '@luxexchange/lx/src/features/telemetry/constants'
-import { useAppInsets } from '@luxexchange/lx/src/hooks/useAppInsets'
-import { OnboardingEntryPoint } from '@luxexchange/lx/src/types/onboarding'
+import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
+import { useAppInsets } from '@l.x/lx/src/hooks/useAppInsets'
+import { OnboardingEntryPoint } from '@l.x/lx/src/types/onboarding'
 import {
   FiatOnRampScreens,
   MobileScreens,
   OnboardingScreens,
   UnitagScreens,
   type UnitagStackParamList,
-} from '@luxexchange/lx/src/types/screens/mobile'
+} from '@l.x/lx/src/types/screens/mobile'
 import { OnboardingContextProvider } from '@luxfi/wallet/src/features/onboarding/OnboardingContext'
 import { selectFinishedOnboarding } from '@luxfi/wallet/src/features/wallet/selectors'
 

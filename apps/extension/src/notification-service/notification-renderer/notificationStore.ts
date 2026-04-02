@@ -1,4 +1,4 @@
-import { type InAppNotification } from '@luxexchange/api'
+import { type InAppNotification } from '@l.x/api'
 import { create, type StoreApi, type UseBoundStore } from 'zustand'
 
 export interface NotificationState {

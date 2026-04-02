@@ -1,4 +1,4 @@
-import { GraphQLApi } from '@luxexchange/api'
+import { GraphQLApi } from '@l.x/api'
 import { ColorTokens, Flex, IconProps } from 'ui/src'
 import { WarningSeverity } from 'lx/src/components/modals/WarningModal/types'
 import {

@@ -1,4 +1,4 @@
-import { SwapConfigKey } from '@luxexchange/gating'
+import { SwapConfigKey } from '@l.x/gating'
 
 /**
  * Shared gas configuration constants.

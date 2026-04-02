@@ -1,16 +1,16 @@
 import { TradeType } from '@luxamm/sdk-core'
-import { TradingApi } from '@luxexchange/api'
+import { TradingApi } from '@l.x/api'
 import ms from 'ms'
-import { DAI } from '@luxexchange/lx/src/constants/tokens'
-import { UniverseChainId } from '@luxexchange/lx/src/features/chains/types'
-import { updateTransaction } from '@luxexchange/lx/src/features/transactions/slice'
+import { DAI } from '@l.x/lx/src/constants/tokens'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { updateTransaction } from '@l.x/lx/src/features/transactions/slice'
 import {
   TransactionOriginType,
   TransactionStatus,
   TransactionType,
   DEXOrderDetails,
-} from '@luxexchange/lx/src/features/transactions/types/transactionDetails'
-import { buildCurrencyId, currencyId } from '@luxexchange/lx/src/utils/currencyId'
+} from '@l.x/lx/src/features/transactions/types/transactionDetails'
+import { buildCurrencyId, currencyId } from '@l.x/lx/src/utils/currencyId'
 import type { Mock } from 'vitest'
 import {
   getQuickPollingInterval,

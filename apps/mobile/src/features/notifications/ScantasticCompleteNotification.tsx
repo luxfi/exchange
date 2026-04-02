@@ -2,8 +2,8 @@ import React from 'react'
 import { useTranslation } from 'react-i18next'
 import { Flex } from '@luxfi/ui/src'
 import { Check, Laptop } from '@luxfi/ui/src/components/icons'
-import { NotificationToast } from '@luxexchange/lx/src/components/notifications/NotificationToast'
-import { ScantasticCompleteNotification as ScantasticCompleteNotificationType } from '@luxexchange/lx/src/features/notifications/slice/types'
+import { NotificationToast } from '@l.x/lx/src/components/notifications/NotificationToast'
+import { ScantasticCompleteNotification as ScantasticCompleteNotificationType } from '@l.x/lx/src/features/notifications/slice/types'
 
 export function ScantasticCompleteNotification({
   notification: { hideDelay },

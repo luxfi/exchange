@@ -1,5 +1,5 @@
 /* eslint-disable-next-line no-restricted-imports, no-restricted-syntax */
-import { useActiveAddresses } from '@luxexchange/lx/src/features/accounts/store/hooks'
+import { useActiveAddresses } from '@l.x/lx/src/features/accounts/store/hooks'
 import { usePortfolioRoutes } from '~/pages/Portfolio/Header/hooks/usePortfolioRoutes'
 
 /**

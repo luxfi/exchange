@@ -1,5 +1,5 @@
 import { ProtocolVersion } from '@luxamm/client-data-api/dist/data/v1/poolTypes_pb'
-import { CurrencyInfo } from '@luxexchange/lx/src/features/dataApi/types'
+import { CurrencyInfo } from '@l.x/lx/src/features/dataApi/types'
 
 export function hasLPFoTTransferError(
   currencyInfo: Maybe<CurrencyInfo>,

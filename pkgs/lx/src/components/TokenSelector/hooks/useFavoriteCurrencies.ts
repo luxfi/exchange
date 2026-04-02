@@ -1,5 +1,5 @@
 import { ApolloError } from '@apollo/client'
-import { GqlResult } from '@luxexchange/api'
+import { GqlResult } from '@l.x/api'
 import { useMemo } from 'react'
 import { useSelector } from 'react-redux'
 import { useTokenProjects } from 'lx/src/features/dataApi/tokenProjects/tokenProjects'

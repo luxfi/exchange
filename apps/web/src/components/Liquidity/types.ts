@@ -4,7 +4,7 @@ import { Pair } from '@luxamm/v2-sdk'
 import { Pool as V3Pool, Position as V3Position } from '@luxamm/v3-sdk'
 import { Pool as V4Pool, Position as V4Position } from '@luxamm/v4-sdk'
 import { ReactNode } from 'react'
-import { EVMUniverseChainId } from '@luxexchange/lx/src/features/chains/types'
+import { EVMUniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { FeeData } from '~/components/Liquidity/Create/types'
 import { PositionField } from '~/types/position'
 

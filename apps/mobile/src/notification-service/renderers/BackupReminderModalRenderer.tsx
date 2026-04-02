@@ -1,5 +1,5 @@
-import { type InAppNotification } from '@luxexchange/api'
-import { type NotificationClickTarget } from '@luxexchange/notifications'
+import { type InAppNotification } from '@l.x/api'
+import { type NotificationClickTarget } from '@l.x/notifications'
 import { useEffect } from 'react'
 import { BackupReminderModal } from 'src/app/modals/BackupReminderModal'
 

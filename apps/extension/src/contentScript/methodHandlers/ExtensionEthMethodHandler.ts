@@ -43,14 +43,14 @@ import {
   WalletSwitchEthereumChainRequest,
   WalletSwitchEthereumChainRequestSchema,
 } from 'src/contentScript/WindowEthereumRequestTypes'
-import { UniverseChainId } from '@luxexchange/lx/src/features/chains/types'
-import { chainIdToHexadecimalString, toSupportedChainId } from '@luxexchange/lx/src/features/chains/utils'
-import { DappRequestType, DappResponseType, EthMethod } from '@luxexchange/lx/src/features/dappRequests/types'
-import { isSelfCallWithData } from '@luxexchange/lx/src/features/dappRequests/utils'
-import { Platform } from '@luxexchange/lx/src/features/platforms/types/Platform'
-import { InstrumentedJsonRpcProvider } from '@luxexchange/lx/src/features/providers/observability/InstrumentedJsonRpcProvider'
-import { getRpcObserver } from '@luxexchange/lx/src/features/providers/observability/rpcObserver'
-import { areAddressesEqual } from '@luxexchange/lx/src/utils/addresses'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { chainIdToHexadecimalString, toSupportedChainId } from '@l.x/lx/src/features/chains/utils'
+import { DappRequestType, DappResponseType, EthMethod } from '@l.x/lx/src/features/dappRequests/types'
+import { isSelfCallWithData } from '@l.x/lx/src/features/dappRequests/utils'
+import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
+import { InstrumentedJsonRpcProvider } from '@l.x/lx/src/features/providers/observability/InstrumentedJsonRpcProvider'
+import { getRpcObserver } from '@l.x/lx/src/features/providers/observability/rpcObserver'
+import { areAddressesEqual } from '@l.x/lx/src/utils/addresses'
 import { extractBaseUrl } from '@luxfi/utilities/src/format/urls'
 
 export class ExtensionEthMethodHandler extends BaseMethodHandler<WindowEthereumRequest> {

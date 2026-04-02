@@ -1,5 +1,5 @@
-vi.mock('@luxexchange/gating', async (importOriginal) => {
-  const actual = await importOriginal<typeof import('@luxexchange/gating')>()
+vi.mock('@l.x/gating', async (importOriginal) => {
+  const actual = await importOriginal<typeof import('@l.x/gating')>()
   return {
     ...actual,
     getFeatureFlag: vi.fn(),
@@ -7,9 +7,9 @@ vi.mock('@luxexchange/gating', async (importOriginal) => {
   }
 })
 
-vi.mock('@luxexchange/config', async () => {
-  const { getConfig } = await vi.importActual<typeof import('@luxexchange/config/src/getConfig.web')>(
-    '@luxexchange/config/src/getConfig.web',
+vi.mock('@l.x/config', async () => {
+  const { getConfig } = await vi.importActual<typeof import('@l.x/config/src/getConfig.web')>(
+    '@l.x/config/src/getConfig.web',
   )
   return {
     getConfig,
@@ -19,21 +19,21 @@ vi.mock('@luxexchange/config', async () => {
 const mockFetch = vi.fn()
 global.fetch = mockFetch
 
-import { TradingApi } from '@luxexchange/api'
-import { TRADING_API_PATHS } from '@luxexchange/api/src/clients/trading/createTradingApiClient'
+import { TradingApi } from '@l.x/api'
+import { TRADING_API_PATHS } from '@l.x/api/src/clients/trading/createTradingApiClient'
 import {
   EthAsErc20DEXProperties,
   FeatureFlags,
   getExperimentValueFromLayer,
   getFeatureFlag,
   Layers,
-} from '@luxexchange/gating'
+} from '@l.x/gating'
 import {
   checkWalletDelegation,
   getFeatureFlaggedHeaders,
   getQuoteHeaders,
   TradingApiHeaders,
-} from '@luxexchange/lx/src/data/apiClients/tradingApi/TradingApiClient'
+} from '@l.x/lx/src/data/apiClients/tradingApi/TradingApiClient'
 import type { MockedFunction } from 'vitest'
 
 // Helper function to create a mock Response

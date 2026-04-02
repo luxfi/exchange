@@ -1,4 +1,4 @@
-import { GqlResult } from '@luxexchange/api'
+import { GqlResult } from '@l.x/api'
 import { useCallback, useMemo } from 'react'
 import { TokenOption } from 'lx/src/components/lists/items/types'
 import { filter } from 'lx/src/components/TokenSelector/filter'

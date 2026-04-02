@@ -2,9 +2,9 @@ import { skipToken } from '@reduxjs/toolkit/query/react'
 import { renderHook } from '@testing-library/react'
 import { CurrencyAmount, TradeType } from '@luxamm/sdk-core'
 import ms from 'ms'
-import { USDC_MAINNET } from '@luxexchange/lx/src/constants/tokens'
-import { useIsMismatchAccountQuery } from '@luxexchange/lx/src/features/smartWallet/mismatch/hooks'
-import { AVERAGE_L1_BLOCK_TIME_MS } from '@luxexchange/lx/src/features/transactions/hooks/usePollingIntervalByChain'
+import { USDC_MAINNET } from '@l.x/lx/src/constants/tokens'
+import { useIsMismatchAccountQuery } from '@l.x/lx/src/features/smartWallet/mismatch/hooks'
+import { AVERAGE_L1_BLOCK_TIME_MS } from '@l.x/lx/src/features/transactions/hooks/usePollingIntervalByChain'
 import { useIsWindowVisible } from '@luxfi/utilities/src/react/useIsWindowVisible'
 import { useGetQuoteQuery, useGetQuoteQueryState } from '~/state/routing/slice'
 import { GetQuoteArgs, INTERNAL_ROUTER_PREFERENCE_PRICE, RouterPreference, URAQuoteType } from '~/state/routing/types'
@@ -24,7 +24,7 @@ vi.mock('./slice', () => {
   }
 })
 vi.mock('~/state/user/hooks')
-vi.mock('@luxexchange/gating', async (importOriginal) => {
+vi.mock('@l.x/gating', async (importOriginal) => {
   return {
     ...(await importOriginal()),
     useFeatureFlag: vi.fn(),

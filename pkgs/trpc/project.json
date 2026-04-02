@@ -1,5 +1,5 @@
 {
-  "name": "@luxexchange/trpc",
+  "name": "@l.x/trpc",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "pkgs/trpc/src",
   "projectType": "library",

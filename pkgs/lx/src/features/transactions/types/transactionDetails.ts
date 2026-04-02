@@ -1,7 +1,7 @@
 /* eslint-disable max-lines */
 import { Protocol } from '@luxamm/router-sdk'
 import { Currency, CurrencyAmount, TradeType } from '@luxamm/sdk-core'
-import { GasEstimate, GraphQLApi, TradingApi } from '@luxexchange/api'
+import { GasEstimate, GraphQLApi, TradingApi } from '@l.x/api'
 import { providers } from 'ethers/lib/ethers'
 import { AssetType } from 'lx/src/entities/assets'
 import { UniverseChainId } from 'lx/src/features/chains/types'

@@ -5,8 +5,8 @@ import type {
   OAuthService,
   OAuthVerificationResult,
   OAuthVerifyParams,
-} from '@luxexchange/sessions/src/oauth-service/types'
-import type { SessionRepository } from '@luxexchange/sessions/src/session-repository/types'
+} from '@l.x/sessions/src/oauth-service/types'
+import type { SessionRepository } from '@l.x/sessions/src/session-repository/types'
 
 /**
  * Context (dependencies) for creating an OAuthService

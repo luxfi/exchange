@@ -3,13 +3,13 @@ import { CurrencyAmount } from '@luxamm/sdk-core'
 import { Pair } from '@luxamm/v2-sdk'
 import { FeeAmount, nearestUsableTick, TICK_SPACINGS, TickMath, Pool as V3Pool } from '@luxamm/v3-sdk'
 import { Pool as V4Pool } from '@luxamm/v4-sdk'
-import { useDynamicConfigValue } from '@luxexchange/gating'
+import { useDynamicConfigValue } from '@l.x/gating'
 import JSBI from 'jsbi'
-import { ZERO_ADDRESS } from '@luxexchange/lx/src/constants/misc'
-import { USDC, USDT } from '@luxexchange/lx/src/constants/tokens'
-import { useMaxAmountSpend } from '@luxexchange/lx/src/features/gas/hooks/useMaxAmountSpend'
-import { useOnChainCurrencyBalance } from '@luxexchange/lx/src/features/portfolio/api'
-import { useUSDCValue } from '@luxexchange/lx/src/features/transactions/hooks/useUSDCPriceWrapper'
+import { ZERO_ADDRESS } from '@l.x/lx/src/constants/misc'
+import { USDC, USDT } from '@l.x/lx/src/constants/tokens'
+import { useMaxAmountSpend } from '@l.x/lx/src/features/gas/hooks/useMaxAmountSpend'
+import { useOnChainCurrencyBalance } from '@l.x/lx/src/features/portfolio/api'
+import { useUSDCValue } from '@l.x/lx/src/features/transactions/hooks/useUSDCPriceWrapper'
 import { useDepositInfo } from '~/components/Liquidity/Create/hooks/useDepositInfo'
 import { useNativeTokenPercentageBufferExperiment } from '~/components/Liquidity/Create/hooks/useNativeTokenPercentageBufferExperiment'
 import { ETH_MAINNET } from '~/test-utils/constants'
@@ -26,7 +26,7 @@ vi.mock('lx/src/features/portfolio/api', async (importOriginal) => ({
   useOnChainCurrencyBalance: vi.fn(),
 }))
 
-vi.mock('@luxexchange/gating', async (importOriginal) => ({
+vi.mock('@l.x/gating', async (importOriginal) => ({
   ...(await importOriginal()),
   useDynamicConfigValue: vi.fn(),
 }))

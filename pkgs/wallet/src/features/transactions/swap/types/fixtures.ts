@@ -1,5 +1,5 @@
 import { MaxUint256, TradeType } from '@luxamm/sdk-core'
-import { TradingApi } from '@luxexchange/api'
+import { TradingApi } from '@l.x/api'
 import { BigNumber } from 'ethers'
 import JSBI from 'jsbi'
 import { USDC } from 'lx/src/constants/tokens'

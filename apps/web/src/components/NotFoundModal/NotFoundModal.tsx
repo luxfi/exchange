@@ -1,9 +1,9 @@
 import { useTranslation } from 'react-i18next'
 import { Button, Flex, Text } from '@luxfi/ui/src'
 import { AlertTriangleFilled } from '@luxfi/ui/src/components/icons/AlertTriangleFilled'
-import { GetHelpHeader } from '@luxexchange/lx/src/components/dialog/GetHelpHeader'
-import { Modal } from '@luxexchange/lx/src/components/modals/Modal'
-import { ModalName } from '@luxexchange/lx/src/features/telemetry/constants'
+import { GetHelpHeader } from '@l.x/lx/src/components/dialog/GetHelpHeader'
+import { Modal } from '@l.x/lx/src/components/modals/Modal'
+import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
 
 function NotFoundModal({
   title,

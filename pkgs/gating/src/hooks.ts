@@ -1,7 +1,7 @@
 import { StatsigClientEventCallback, StatsigLoadingStatus } from '@statsig/client-core'
-import { DynamicConfigKeys } from '@luxexchange/gating/src/configs'
-import { ExperimentProperties, Experiments } from '@luxexchange/gating/src/experiments'
-import { FeatureFlags, getFeatureFlagName } from '@luxexchange/gating/src/flags'
+import { DynamicConfigKeys } from '@l.x/gating/src/configs'
+import { ExperimentProperties, Experiments } from '@l.x/gating/src/experiments'
+import { FeatureFlags, getFeatureFlagName } from '@l.x/gating/src/flags'
 import {
   getStatsigClient,
   TypedReturn,
@@ -11,7 +11,7 @@ import {
   useGateValue,
   useLayer,
   useStatsigClient,
-} from '@luxexchange/gating/src/sdk/statsig'
+} from '@l.x/gating/src/sdk/statsig'
 import { useEffect, useMemo, useState } from 'react'
 import { logger } from 'utilities/src/logger/logger'
 

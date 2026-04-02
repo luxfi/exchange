@@ -1,5 +1,5 @@
 {
-  "name": "@luxexchange/react-query",
+  "name": "@l.x/react-query",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "pkgs/react-query/src",
   "projectType": "library",

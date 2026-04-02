@@ -1,4 +1,4 @@
-import { ExploreBackendSortingProperties, Layers, useExperimentValueFromLayer } from '@luxexchange/gating'
+import { ExploreBackendSortingProperties, Layers, useExperimentValueFromLayer } from '@l.x/gating'
 
 /**
  * Hook that returns whether backend sorting is enabled for the Explore page.

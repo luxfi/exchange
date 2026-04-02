@@ -1,5 +1,5 @@
-import { type InAppNotification } from '@luxexchange/api'
-import { type NotificationClickTarget } from '@luxexchange/notifications'
+import { type InAppNotification } from '@l.x/api'
+import { type NotificationClickTarget } from '@l.x/notifications'
 import { useCallback, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import { ONBOARDING_CONTENT_WIDTH } from 'src/app/features/onboarding/utils'
@@ -7,9 +7,9 @@ import { AppRoutes, SettingsRoutes } from 'src/app/navigation/constants'
 import { useExtensionNavigation } from 'src/app/navigation/utils'
 import { getIsOnboardingFromNotification } from 'src/notification-service/data-sources/reactive/storageWarningCondition'
 import { spacing } from '@luxfi/ui/src/theme'
-import { WarningSeverity } from '@luxexchange/lx/src/components/modals/WarningModal/types'
-import { WarningModal } from '@luxexchange/lx/src/components/modals/WarningModal/WarningModal'
-import { ModalName } from '@luxexchange/lx/src/features/telemetry/constants'
+import { WarningSeverity } from '@l.x/lx/src/components/modals/WarningModal/types'
+import { WarningModal } from '@l.x/lx/src/components/modals/WarningModal/WarningModal'
+import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
 
 interface StorageWarningModalRendererProps {
   notification: InAppNotification

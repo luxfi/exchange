@@ -1,5 +1,5 @@
 import { Percent } from '@luxamm/sdk-core'
-import { type DiscriminatedQuoteResponse } from '@luxexchange/api'
+import { type DiscriminatedQuoteResponse } from '@l.x/api'
 import { SwapFee } from 'lx/src/features/transactions/swap/types/trade'
 import { isWrap } from 'lx/src/features/transactions/swap/utils/routing'
 import { CurrencyField } from 'lx/src/types/currency'

@@ -4,8 +4,8 @@ import { LayerGroup } from '@luxfi/ui/src/components/icons/LayerGroup'
 import { Unichain } from '@luxfi/ui/src/components/icons/Unichain'
 import { LuxLogo } from '@luxfi/ui/src/components/icons/LuxLogo'
 import { DEXGeneric } from '@luxfi/ui/src/components/icons/DEXGeneric'
-import { lxUrls } from '@luxexchange/lx/src/constants/urls'
-import { ElementName } from '@luxexchange/lx/src/features/telemetry/constants'
+import { lxUrls } from '@l.x/lx/src/constants/urls'
+import { ElementName } from '@l.x/lx/src/features/telemetry/constants'
 
 export interface MenuItem {
   label: string

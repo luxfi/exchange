@@ -1,4 +1,4 @@
-import { TradingApi } from '@luxexchange/api'
+import { TradingApi } from '@l.x/api'
 import { Signer } from 'ethers/lib/ethers'
 import { useCallback } from 'react'
 import { useSigner } from 'lx/src/contexts/LuxContext'

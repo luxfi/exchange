@@ -3,7 +3,7 @@ import { ProtocolVersion } from '@luxamm/client-data-api/dist/data/v1/poolTypes_
 import { Currency } from '@luxamm/sdk-core'
 import JSBI from 'jsbi'
 import { useMemo } from 'react'
-import { UniverseChainId } from '@luxexchange/lx/src/features/chains/types'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { ReactQueryCacheKey } from '@luxfi/utilities/src/reactQuery/cache'
 import { calculateTokensLocked } from '~/components/Charts/LiquidityChart/utils/calculateTokensLocked'
 import { ChartEntry } from '~/components/Charts/LiquidityRangeInput/types'

@@ -16,7 +16,7 @@ import {
 } from '@luxfi/gating'
 import { PropsWithChildren, default as React, useEffect, useState } from 'react'
 import { DatadogContext } from 'src/features/datadog/DatadogContext'
-import { config } from '@luxexchange/lx/src/config'
+import { config } from '@l.x/lx/src/config'
 import { datadogEnabledBuild, isTestRun, localDevDatadogEnabled } from '@luxfi/utilities/src/environment/constants'
 import { setAttributesToDatadog } from '@luxfi/utilities/src/logger/datadog/Datadog'
 import { getDatadogEnvironment } from '@luxfi/utilities/src/logger/datadog/env'

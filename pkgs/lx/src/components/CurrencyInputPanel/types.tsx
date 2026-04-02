@@ -3,10 +3,10 @@ import { ReactNode, RefObject } from 'react'
 import type { TextInput, TextInputProps } from 'react-native'
 import { FlexProps, TextProps } from 'ui/src'
 import { FontSizeOptions } from 'ui/src/hooks/useDynamicFontSizing'
-import type { PresetPercentage } from '@luxexchange/lx/src/components/CurrencyInputPanel/AmountInputPresets/types'
-import { CurrencyInfo } from '@luxexchange/lx/src/features/dataApi/types'
-import { TransactionType } from '@luxexchange/lx/src/features/transactions/types/transactionDetails'
-import { CurrencyField } from '@luxexchange/lx/src/types/currency'
+import type { PresetPercentage } from '@l.x/lx/src/components/CurrencyInputPanel/AmountInputPresets/types'
+import { CurrencyInfo } from '@l.x/lx/src/features/dataApi/types'
+import { TransactionType } from '@l.x/lx/src/features/transactions/types/transactionDetails'
+import { CurrencyField } from '@l.x/lx/src/types/currency'
 
 export type CurrencyInputPanelRef = {
   textInputRef: RefObject<TextInput | null>

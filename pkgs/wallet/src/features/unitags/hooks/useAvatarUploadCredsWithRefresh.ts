@@ -1,4 +1,4 @@
-import { UnitagGetAvatarUploadUrlResponse } from '@luxexchange/api'
+import { UnitagGetAvatarUploadUrlResponse } from '@l.x/api'
 import { useEffect, useState } from 'react'
 import { UnitagsApiClient } from 'lx/src/data/apiClients/unitagsApi/UnitagsApiClient'
 import { AVATAR_UPLOAD_CREDS_EXPIRY_SECONDS } from 'lx/src/features/unitags/constants'

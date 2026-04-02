@@ -1,4 +1,4 @@
-import { GraphQLApi } from '@luxexchange/api'
+import { GraphQLApi } from '@l.x/api'
 
 export type GQLNftAsset = NonNullable<
   NonNullable<NonNullable<NonNullable<GraphQLApi.NftsQuery['portfolios']>[0]>['nftBalances']>[0]

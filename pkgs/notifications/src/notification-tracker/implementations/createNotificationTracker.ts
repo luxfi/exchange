@@ -1,7 +1,7 @@
 import {
   NotificationTracker,
   TrackingMetadata,
-} from '@luxexchange/notifications/src/notification-tracker/NotificationTracker'
+} from '@l.x/notifications/src/notification-tracker/NotificationTracker'
 
 /**
  * Basic implementation of the NotificationTracker interface.

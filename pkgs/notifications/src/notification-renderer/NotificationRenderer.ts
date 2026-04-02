@@ -1,4 +1,4 @@
-import { type InAppNotification } from '@luxexchange/api'
+import { type InAppNotification } from '@l.x/api'
 
 export interface NotificationRenderer {
   // Render a notification and return cleanup function

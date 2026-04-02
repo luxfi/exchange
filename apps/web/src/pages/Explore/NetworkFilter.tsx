@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router'
 import { useMedia } from '@luxfi/ui/src'
-import { UniverseChainId } from '@luxexchange/lx/src/features/chains/types'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { useEvent } from '@luxfi/utilities/src/react/hooks'
 import { NetworkFilter } from '~/components/NetworkFilter/NetworkFilter'
 import { ExploreTab } from '~/pages/Explore/constants'

@@ -1,8 +1,8 @@
 import { Currency, CurrencyAmount } from '@luxamm/sdk-core'
-import { CurrencyInfo } from '@luxexchange/lx/src/features/dataApi/types'
-import { DerivedSwapInfo } from '@luxexchange/lx/src/features/transactions/swap/types/derivedSwapInfo'
-import { WrapType } from '@luxexchange/lx/src/features/transactions/types/wrap'
-import { CurrencyField } from '@luxexchange/lx/src/types/currency'
+import { CurrencyInfo } from '@l.x/lx/src/features/dataApi/types'
+import { DerivedSwapInfo } from '@l.x/lx/src/features/transactions/swap/types/derivedSwapInfo'
+import { WrapType } from '@l.x/lx/src/features/transactions/types/wrap'
+import { CurrencyField } from '@l.x/lx/src/types/currency'
 
 type TradeAmounts = {
   inputCurrencyAmount: Maybe<CurrencyAmount<Currency>>

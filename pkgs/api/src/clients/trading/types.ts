@@ -2,7 +2,7 @@
 // They are internal to lx, so they are not declared in the Trading API public definition.
 // Once the experiment is complete, we can remove them easily or add them to the public API definition.
 
-import type { FetchError } from '@luxexchange/api/src/clients/base/errors'
+import type { FetchError } from '@l.x/api/src/clients/base/errors'
 
 export enum FeeType {
   LEGACY = 'legacy',
