@@ -236,6 +236,8 @@ export default defineConfig(({ mode }) => {
     '@l.x/websocket/src': path.resolve(__dirname, '../../pkgs/websocket/src'),
     '@l.x/websocket': path.resolve(__dirname, '../../pkgs/websocket'),
     // @l.x/* aliases (workspace package scope)
+    '@l.x/options/src': path.resolve(__dirname, '../../pkgs/options/src'),
+    '@l.x/options': path.resolve(__dirname, '../../pkgs/options'),
     '@l.x/lx/src': path.resolve(__dirname, '../../pkgs/lx/src'),
     '@l.x/lx': path.resolve(__dirname, '../../pkgs/lx'),
     '@l.x/config': path.resolve(__dirname, '../../pkgs/config'),

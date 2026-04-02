@@ -54,6 +54,7 @@ const XOAuthCallbackPage = lazy(() => import('~/pages/Liquidity/CreateAuction/XO
 const BetaPage = lazy(() => import('~/pages/Beta'))
 const Wrapped = lazy(() => import('~/pages/Wrapped'))
 const TradePage = lazy(() => import('~/pages/Trade'))
+const Options = lazy(() => import('~/pages/Options'))
 const Bridge = lazy(() => import('~/pages/Bridge'))
 const TermsOfService = lazy(() => import('~/pages/Legal/TermsOfService'))
 const PrivacyPolicyPage = lazy(() => import('~/pages/Legal/PrivacyPolicy'))
@@ -449,6 +450,16 @@ export const routes: RouteDefinition[] = [
     getElement: () => <Wrapped />,
     getTitle: () => `${brand.shortName || 'LX'} Wrapped`,
     enabled: (args) => args.isWrappedEnabled ?? false,
+  }),
+  createRouteDefinition({
+    path: '/options',
+    getTitle: () => 'Options | Derivatives Trading',
+    getDescription: () => 'Trade on-chain options, futures, and multi-leg strategies',
+    getElement: () => (
+      <Suspense fallback={null}>
+        <Options />
+      </Suspense>
+    ),
   }),
   createRouteDefinition({
     path: '/bridge',

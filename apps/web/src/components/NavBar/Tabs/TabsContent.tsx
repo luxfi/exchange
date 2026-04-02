@@ -149,6 +149,13 @@ export const useTabsContent = (): TabsSection[] => {
       ],
     },
     {
+      title: t('common.options', { defaultValue: 'Options' }),
+      href: '/options',
+      isActive: pathname.startsWith('/options'),
+      icon: <Chart color="$accent1" size="$icon.20" />,
+      elementName: ElementName.NavbarOptionsTab,
+    },
+    {
       title: t('common.portfolio'),
       href: buildPortfolioUrl({
         tab: PortfolioTab.Overview,

@@ -240,6 +240,9 @@ export enum ElementName {
   NavbarExploreDropdownToucan = 'navbar-explore-dropdown-toucan',
   NavbarExploreTab = 'navbar-explore-tab',
 
+  // Navbar Options
+  NavbarOptionsTab = 'navbar-options-tab',
+
   // Navbar Pool Dropdown
   NavbarPoolDropdownCreatePosition = 'navbar-pool-dropdown-create-position',
   NavbarPoolDropdownLaunchAuction = 'navbar-pool-dropdown-launch-auction',

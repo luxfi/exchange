@@ -15,6 +15,11 @@
 set -e
 
 if [ -n "$BRAND_PACKAGE" ]; then
+  # Validate BRAND_PACKAGE: known scope + strict package name (no path traversal)
+  if ! echo "$BRAND_PACKAGE" | grep -qE '^@(luxfi|zooai|hanzoai|l\.x)/[a-z0-9._-]+(@[a-z0-9._-]+)?$'; then
+    echo "ERROR: BRAND_PACKAGE must be @luxfi/, @zooai/, @hanzoai/, or @l.x/ with valid package name"
+    exit 1
+  fi
   # BRAND_PACKAGE can be:
   #   @zooai/brand          -> latest version
   #   @zooai/brand@1.2.0    -> pinned version
