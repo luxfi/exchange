@@ -35,13 +35,13 @@
     "react-native-svg": "15.13.0",
     "react-native-webview": "13.13.5",
     "react-remove-scroll": "2.7.2",
-    "tamagui": "1.136.1",
     "uuid": "9.0.0",
     "wcag-contrast": "3.0.0",
     "@luxfi/utilities": "workspace:^",
     "@hanzogui/dialog": "2.0.5",
     "@hanzogui/sheet": "2.0.5",
-    "@hanzogui/visually-hidden": "2.0.5"
+    "@hanzogui/visually-hidden": "2.0.5",
+    "@hanzo/gui": "2.0.5"
   },
   "devDependencies": {
     "@storybook/test": "8.5.2",
