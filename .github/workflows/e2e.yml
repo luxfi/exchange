@@ -39,7 +39,7 @@ jobs:
 
       - name: Start preview server
         run: |
-          cd apps/web && npx serve -s build -l 3000 &
+          cd apps/web && npx serve -s build/client -l 3000 &
           for i in {1..15}; do
             if curl -s -o /dev/null -w '%{http_code}' http://localhost:3000 2>/dev/null | grep -qE '^[23]'; then
               echo "Preview server ready on port 3000"
@@ -97,7 +97,7 @@ jobs:
 
       - name: Start preview server
         run: |
-          cd apps/web && npx serve -s build -l 3000 &
+          cd apps/web && npx serve -s build/client -l 3000 &
           for i in {1..15}; do
             if curl -s -o /dev/null -w '%{http_code}' http://localhost:3000 2>/dev/null | grep -qE '^[23]'; then
               echo "Preview server ready on port 3000"
