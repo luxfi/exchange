@@ -6,7 +6,7 @@ import { RotatableChevron, LuxLogo } from '@l.x/ui/src/components/icons'
 import { WarningSeverity } from '@l.x/lx/src/components/modals/WarningModal/types'
 import { WarningModal } from '@l.x/lx/src/components/modals/WarningModal/WarningModal'
 import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
-import { logger } from '@luxfi/utilities/src/logger/logger'
+import { logger } from '@l.x/utils/src/logger/logger'
 
 /**
  * Dev tool to simulate complete Redux data loss while keeping Keyring intact.

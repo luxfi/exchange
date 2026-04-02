@@ -17,8 +17,8 @@ import { createHasMismatchUtil } from '@l.x/lx/src/features/smartWallet/mismatch
 import { useGetCanSignPermits } from '@l.x/lx/src/features/transactions/hooks/useGetCanSignPermits'
 import { prepareSwapFormState } from '@l.x/lx/src/features/transactions/types/transactionState'
 import { CurrencyField } from '@l.x/lx/src/types/currency'
-import { getLogger, logger } from '@luxfi/utilities/src/logger/logger'
-import { useEvent } from '@luxfi/utilities/src/react/hooks'
+import { getLogger, logger } from '@l.x/utils/src/logger/logger'
+import { useEvent } from '@l.x/utils/src/react/hooks'
 import { useWalletNavigation } from '@luxfi/wallet/src/contexts/WalletNavigationContext'
 import { useAccountsStoreContext } from '@luxfi/wallet/src/features/accounts/store/provider'
 import {

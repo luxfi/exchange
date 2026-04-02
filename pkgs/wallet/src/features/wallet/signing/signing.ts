@@ -1,5 +1,5 @@
 import { ethers } from 'ethers'
-import { PlatformSplitStubError } from '@luxfi/utilities/src/errors'
+import { PlatformSplitStubError } from '@l.x/utils/src/errors'
 import { Account } from '@luxfi/wallet/src/features/wallet/accounts/types'
 import { SignerManager } from '@luxfi/wallet/src/features/wallet/signing/SignerManager'
 

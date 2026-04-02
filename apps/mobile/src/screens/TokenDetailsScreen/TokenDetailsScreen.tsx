@@ -30,8 +30,8 @@ import Trace from '@l.x/lx/src/features/telemetry/Trace'
 import { TokenWarningCard } from '@l.x/lx/src/features/tokens/warnings/TokenWarningCard'
 import { MobileScreens } from '@l.x/lx/src/types/screens/mobile'
 import { AddressStringFormat, normalizeAddress } from '@l.x/lx/src/utils/addresses'
-import { useEvent } from '@luxfi/utilities/src/react/hooks'
-import { useDelayedRender } from '@luxfi/utilities/src/react/useDelayedRender'
+import { useEvent } from '@l.x/utils/src/react/hooks'
+import { useDelayedRender } from '@l.x/utils/src/react/useDelayedRender'
 import { useActiveAccountAddressWithThrow } from '@luxfi/wallet/src/features/wallet/hooks'
 
 const CONTEXT_MENU_RENDER_DELAY_MS = 1000

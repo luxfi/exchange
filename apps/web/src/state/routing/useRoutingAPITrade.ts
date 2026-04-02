@@ -5,7 +5,7 @@ import ms from 'ms'
 import { useMemo } from 'react'
 import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { AVERAGE_L1_BLOCK_TIME_MS } from '@l.x/lx/src/features/transactions/hooks/usePollingIntervalByChain'
-import { useIsWindowVisible } from '@luxfi/utilities/src/react/useIsWindowVisible'
+import { useIsWindowVisible } from '@l.x/utils/src/react/useIsWindowVisible'
 import { useRoutingAPIArguments } from '~/lib/hooks/routing/useRoutingAPIArguments'
 import { useGetQuoteQuery, useGetQuoteQueryState } from '~/state/routing/slice'
 import {

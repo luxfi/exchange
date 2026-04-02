@@ -2,7 +2,7 @@ import { SignerMnemonicAccountMeta } from '@l.x/lx/src/features/accounts/types'
 import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
 import { signTypedData as signTypedDataFunction } from '@l.x/lx/src/features/transactions/signing'
 import { getValidAddress } from '@l.x/lx/src/utils/addresses'
-import { HexString } from '@luxfi/utilities/src/addresses/hex'
+import { HexString } from '@l.x/utils/src/addresses/hex'
 import { PublicClient } from 'viem'
 import { DelegationCheckResult } from '@luxfi/wallet/src/features/smartWallet/delegation/types'
 import {

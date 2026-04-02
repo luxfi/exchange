@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { getChainInfo } from '@l.x/lx/src/features/chains/chainInfo'
 import { EVMUniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { AVERAGE_L2_BLOCK_TIME_MS } from '@l.x/lx/src/features/transactions/hooks/usePollingIntervalByChain'
-import { ONE_SECOND_MS } from '@luxfi/utilities/src/time/time'
+import { ONE_SECOND_MS } from '@l.x/utils/src/time/time'
 import { useBlock } from 'wagmi'
 
 /**

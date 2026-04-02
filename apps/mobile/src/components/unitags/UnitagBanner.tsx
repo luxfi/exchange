@@ -9,7 +9,7 @@ import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
 import { UNITAG_SUFFIX_NO_LEADING_DOT } from '@l.x/lx/src/features/unitags/constants'
 import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
 import { MobileScreens, UnitagScreens } from '@l.x/lx/src/types/screens/mobile'
-import { dismissNativeKeyboard } from '@luxfi/utilities/src/device/keyboard/dismissNativeKeyboard'
+import { dismissNativeKeyboard } from '@l.x/utils/src/device/keyboard/dismissNativeKeyboard'
 import { useUnitagClaimHandler } from '@luxfi/wallet/src/features/unitags/useUnitagClaimHandler'
 
 const IMAGE_ASPECT_RATIO = 0.42

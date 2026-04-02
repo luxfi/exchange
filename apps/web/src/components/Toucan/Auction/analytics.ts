@@ -7,7 +7,7 @@ import {
   ToucanBidTransactionInfo,
   ToucanWithdrawBidAndClaimTokensTransactionInfo,
 } from '@l.x/lx/src/features/transactions/types/transactionDetails'
-import { ITraceContext } from '@luxfi/utilities/src/telemetry/trace/TraceContext'
+import { ITraceContext } from '@l.x/utils/src/telemetry/trace/TraceContext'
 
 /**
  * Returns base analytics properties for auction withdraw, excluding transaction_hash

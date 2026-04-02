@@ -6,7 +6,7 @@ import {
   useDebounceWithStatus,
   useInterval,
   useTimeout,
-} from '@luxfi/utilities/src/time/timing'
+} from '@l.x/utils/src/time/timing'
 import { vi } from 'vitest'
 
 vi.useFakeTimers()

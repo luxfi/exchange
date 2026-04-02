@@ -1,4 +1,4 @@
-import { maxDecimalsReached, truncateToMaxDecimals } from '@luxfi/utilities/src/format/truncateToMaxDecimals'
+import { maxDecimalsReached, truncateToMaxDecimals } from '@l.x/utils/src/format/truncateToMaxDecimals'
 
 describe('truncateToMaxDecimals', () => {
   it('returns the same string if it has less than max decimals', () => {

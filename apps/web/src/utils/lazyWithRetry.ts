@@ -14,7 +14,7 @@
  */
 
 import { ComponentType, LazyExoticComponent, lazy } from 'react'
-import { logger } from '@luxfi/utilities/src/logger/logger'
+import { logger } from '@l.x/utils/src/logger/logger'
 
 interface RetryOptions {
   maxRetries?: number

@@ -6,8 +6,8 @@ import { navigate } from 'src/app/navigation/state'
 import { TokenBalanceListWeb } from '@l.x/lx/src/components/portfolio/TokenBalanceListWeb'
 import { ReportTokenIssueModal } from '@l.x/lx/src/components/reporting/ReportTokenIssueModal'
 import { ElementName } from '@l.x/lx/src/features/telemetry/constants'
-import { useEvent } from '@luxfi/utilities/src/react/hooks'
-import { useBooleanState } from '@luxfi/utilities/src/react/useBooleanState'
+import { useEvent } from '@l.x/utils/src/react/hooks'
+import { useBooleanState } from '@l.x/utils/src/react/useBooleanState'
 import { usePortfolioEmptyStateBackground } from '@luxfi/wallet/src/components/portfolio/empty'
 
 export const ExtensionTokenBalanceList = memo(function _ExtensionTokenBalanceList({

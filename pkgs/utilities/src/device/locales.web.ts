@@ -1,6 +1,6 @@
-import { getChromeWithThrow } from '@luxfi/utilities/src/chrome/chrome'
-import { DEFAULT_LANGUAGE_CODE, DEFAULT_LANGUAGE_TAG, DeviceLocale } from '@luxfi/utilities/src/device/constants'
-import { logger } from '@luxfi/utilities/src/logger/logger'
+import { getChromeWithThrow } from '@l.x/utils/src/chrome/chrome'
+import { DEFAULT_LANGUAGE_CODE, DEFAULT_LANGUAGE_TAG, DeviceLocale } from '@l.x/utils/src/device/constants'
+import { logger } from '@l.x/utils/src/logger/logger'
 
 export function getDeviceLocales(): DeviceLocale[] {
   try {

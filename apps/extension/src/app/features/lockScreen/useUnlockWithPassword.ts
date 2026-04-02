@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux'
-import { useEvent } from '@luxfi/utilities/src/react/hooks'
+import { useEvent } from '@l.x/utils/src/react/hooks'
 import { authActions } from '@luxfi/wallet/src/features/auth/saga'
 import { AuthActionType } from '@luxfi/wallet/src/features/auth/types'
 

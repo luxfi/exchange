@@ -6,8 +6,8 @@ import { Flex, Separator, Text } from '@l.x/ui/src'
 import { spacing } from '@l.x/ui/src/theme'
 import { WalletEventName } from '@l.x/lx/src/features/telemetry/constants'
 import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
-import { setClipboard } from '@luxfi/utilities/src/clipboard/clipboard'
-import { logger } from '@luxfi/utilities/src/logger/logger'
+import { setClipboard } from '@l.x/utils/src/clipboard/clipboard'
+import { logger } from '@l.x/utils/src/logger/logger'
 import { mnemonicUnlockedQuery } from '@luxfi/wallet/src/features/wallet/Keyring/queries'
 
 function SeedPhraseColumnGroup({ recoveryPhraseArray }: { recoveryPhraseArray: string[] }): JSX.Element {

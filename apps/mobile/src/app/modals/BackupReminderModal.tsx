@@ -14,7 +14,7 @@ import { ElementName, ModalName } from '@l.x/lx/src/features/telemetry/constants
 import Trace from '@l.x/lx/src/features/telemetry/Trace'
 import { ImportType, OnboardingEntryPoint } from '@l.x/lx/src/types/onboarding'
 import { MobileScreens, OnboardingScreens } from '@l.x/lx/src/types/screens/mobile'
-import { NumberType } from '@luxfi/utilities/src/format/types'
+import { NumberType } from '@l.x/utils/src/format/types'
 import { setBackupReminderLastSeenTs } from '@luxfi/wallet/src/features/behaviorHistory/slice'
 import { useActiveAccountAddress } from '@luxfi/wallet/src/features/wallet/hooks'
 

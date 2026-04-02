@@ -1,4 +1,4 @@
-import { isEVMAddress, isEVMAddressWithChecksum } from '@luxfi/utilities/src/addresses/evm/evm'
+import { isEVMAddress, isEVMAddressWithChecksum } from '@l.x/utils/src/addresses/evm/evm'
 
 describe('utils', () => {
   describe('#isEVMAddress', () => {

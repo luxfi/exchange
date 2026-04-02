@@ -1,7 +1,7 @@
 import { GraphQLApi } from '@l.x/api'
 import { useMemo } from 'react'
 import { normalizeTokenAddressForCache } from '@l.x/lx/src/data/cache'
-import { normalizeTextInput } from '@luxfi/utilities/src/primitives/string'
+import { normalizeTextInput } from '@l.x/utils/src/primitives/string'
 import { useExploreTablesFilterStore } from '~/pages/Explore/exploreTablesFilterStore'
 
 // Filters transactions in Explore by hash, token symbol, or token address

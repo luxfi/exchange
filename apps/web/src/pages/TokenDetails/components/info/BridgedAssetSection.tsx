@@ -4,8 +4,8 @@ import { BridgedAssetModalAtom } from '@l.x/lx/src/components/BridgedAsset/Bridg
 import { BridgedAssetTDPSection } from '@l.x/lx/src/components/BridgedAsset/BridgedAssetTDPSection'
 import { CurrencyInfo } from '@l.x/lx/src/features/dataApi/types'
 import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
-import { logger } from '@luxfi/utilities/src/logger/logger'
-import { useEvent } from '@luxfi/utilities/src/react/hooks'
+import { logger } from '@l.x/utils/src/logger/logger'
+import { useEvent } from '@l.x/utils/src/react/hooks'
 import { TokenQueryData } from '~/appGraphql/data/Token'
 import { useModalState } from '~/hooks/useModalState'
 

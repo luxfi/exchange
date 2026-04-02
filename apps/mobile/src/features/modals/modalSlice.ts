@@ -5,7 +5,7 @@ import { ScannerModalState } from '@l.x/lx/src/components/ReceiveQRCode/constant
 import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
 import { type TransactionScreen } from '@l.x/lx/src/features/transactions/components/TransactionModal/TransactionModalContext'
 import { type TransactionState } from '@l.x/lx/src/features/transactions/types/transactionState'
-import { getKeys } from '@luxfi/utilities/src/primitives/objects'
+import { getKeys } from '@l.x/utils/src/primitives/objects'
 
 /**
  * *********** DEPRECATION NOTICE ***********

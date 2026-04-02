@@ -4,7 +4,7 @@ import { iconSizes } from '@l.x/ui/src/theme'
 import { AddressDisplay } from '@l.x/lx/src/components/accounts/AddressDisplay'
 import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
 import { ElementName } from '@l.x/lx/src/features/telemetry/constants'
-import { NumberType } from '@luxfi/utilities/src/format/types'
+import { NumberType } from '@l.x/utils/src/format/types'
 
 interface Props {
   address: string

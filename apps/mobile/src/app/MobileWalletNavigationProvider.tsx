@@ -24,9 +24,9 @@ import { MobileScreens } from 'lx/src/types/screens/mobile'
 import { ShareableEntity } from 'lx/src/types/sharing'
 import { buildCurrencyId } from 'lx/src/utils/currencyId'
 import { getTokenUrl } from 'lx/src/utils/linking'
-import { closeKeyboardBeforeCallback } from '@luxfi/utilities/src/device/keyboard/dismissNativeKeyboard'
-import { logger } from '@luxfi/utilities/src/logger/logger'
-import { noop } from '@luxfi/utilities/src/react/noop'
+import { closeKeyboardBeforeCallback } from '@l.x/utils/src/device/keyboard/dismissNativeKeyboard'
+import { logger } from '@l.x/utils/src/logger/logger'
+import { noop } from '@l.x/utils/src/react/noop'
 import {
   getNavigateToSendFlowArgsInitialState,
   getNavigateToSwapFlowArgsInitialState,

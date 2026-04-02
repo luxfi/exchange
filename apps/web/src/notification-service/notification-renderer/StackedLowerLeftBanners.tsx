@@ -6,7 +6,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { memo, useEffect } from 'react'
 import { Portal, useMedia } from '@l.x/ui/src'
 import { zIndexes } from '@l.x/ui/src/theme'
-import { useEvent } from '@luxfi/utilities/src/react/hooks'
+import { useEvent } from '@l.x/utils/src/react/hooks'
 import { calculateStackingProps, MAX_STACKED_BANNERS } from '~/notification-service/notification-renderer/stackingUtils'
 
 interface StackedLowerLeftBannersProps {

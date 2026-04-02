@@ -9,7 +9,7 @@ import {
 } from 'src/features/deepLinking/constants'
 import { LX_WEB_HOSTNAME } from '@l.x/lx/src/constants/urls'
 import { isCurrencyIdValid } from '@l.x/lx/src/utils/currencyId'
-import { logger } from '@luxfi/utilities/src/logger/logger'
+import { logger } from '@l.x/utils/src/logger/logger'
 
 const LUX_URL_SCHEME_WIDGET = 'lux://widget/'
 const WALLETCONNECT_URI_SCHEME = 'wc:' // https://eips.ethereum.org/EIPS/eip-1328

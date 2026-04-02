@@ -17,9 +17,9 @@ import { WalletEventName } from '@l.x/lx/src/features/telemetry/constants'
 import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
 import { ShareableEntity } from '@l.x/lx/src/types/sharing'
 import { getPoolDetailsURL, getPortfolioUrl, getTokenUrl } from '@l.x/lx/src/utils/linking'
-import { logger } from '@luxfi/utilities/src/logger/logger'
-import { escapeRegExp } from '@luxfi/utilities/src/primitives/string'
-import { noop } from '@luxfi/utilities/src/react/noop'
+import { logger } from '@l.x/utils/src/logger/logger'
+import { escapeRegExp } from '@l.x/utils/src/primitives/string'
+import { noop } from '@l.x/utils/src/react/noop'
 import { useCopyToClipboard } from '@luxfi/wallet/src/components/copy/useCopyToClipboard'
 import {
   getNavigateToSendFlowArgsInitialState,

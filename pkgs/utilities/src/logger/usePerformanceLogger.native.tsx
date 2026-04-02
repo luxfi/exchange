@@ -1,8 +1,8 @@
 import { DdRum, RumActionType } from '@datadog/mobile-react-native'
 import { DependencyList, useEffect, useRef } from 'react'
 import { InteractionManager } from 'react-native'
-import { DDRumAction } from '@luxfi/utilities/src/logger/datadog/datadogEvents'
-import { logger } from '@luxfi/utilities/src/logger/logger'
+import { DDRumAction } from '@l.x/utils/src/logger/datadog/datadogEvents'
+import { logger } from '@l.x/utils/src/logger/logger'
 
 /**
  * Hook for measuring performance between renders on target dependencies.

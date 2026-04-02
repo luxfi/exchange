@@ -12,7 +12,7 @@ import {
 import { validateOrdersForCancellation } from '@l.x/lx/src/features/transactions/cancel/validation'
 import { updateTransaction } from '@l.x/lx/src/features/transactions/slice'
 import { TransactionStatus, DEXOrderDetails } from '@l.x/lx/src/features/transactions/types/transactionDetails'
-import { logger } from '@luxfi/utilities/src/logger/logger'
+import { logger } from '@l.x/utils/src/logger/logger'
 import { useAccount } from '~/hooks/useAccount'
 import { useEthersWeb3Provider } from '~/hooks/useEthersProvider'
 import { useFetchLimitOrders } from '~/hooks/useFetchLimitOrders'

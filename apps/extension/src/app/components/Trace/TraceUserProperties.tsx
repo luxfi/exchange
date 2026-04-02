@@ -11,7 +11,7 @@ import { useCurrentLanguage } from '@l.x/lx/src/features/language/hooks'
 import { useHideSmallBalancesSetting, useHideSpamTokensSetting } from '@l.x/lx/src/features/settings/hooks'
 import { ExtensionUserPropertyName, setUserProperty } from '@l.x/lx/src/features/telemetry/user'
 // biome-ignore lint/style/noRestrictedImports: Direct analytics import required for user property tracking
-import { analytics } from '@luxfi/utilities/src/telemetry/analytics/analytics'
+import { analytics } from '@l.x/utils/src/telemetry/analytics/analytics'
 import { useGatingUserPropertyUsernames } from '@luxfi/wallet/src/features/gating/userPropertyHooks'
 import {
   useActiveAccount,

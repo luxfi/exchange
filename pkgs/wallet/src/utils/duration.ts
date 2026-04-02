@@ -1,5 +1,5 @@
 import i18n from '@l.x/lx/src/i18n'
-import { getDurationRemaining } from '@luxfi/utilities/src/time/duration'
+import { getDurationRemaining } from '@l.x/utils/src/time/duration'
 
 export function getOtpDurationString(expirationTime: number): string {
   const timeLeft = expirationTime - Date.now()

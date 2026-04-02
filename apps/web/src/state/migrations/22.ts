@@ -1,7 +1,7 @@
 import { PersistState } from 'redux-persist'
 import { Language } from '@l.x/lx/src/features/language/constants'
 import { getCurrentLanguageFromNavigator } from '@l.x/lx/src/features/language/utils'
-import { isWebApp } from '@luxfi/utilities/src/platform'
+import { isWebApp } from '@l.x/utils/src/platform'
 
 type PersistAppStateV22 = {
   _persist: PersistState

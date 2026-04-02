@@ -5,7 +5,7 @@ import { useTransactionGasEstimation } from 'src/app/features/dappRequests/hooks
 import { PollingInterval } from '@l.x/lx/src/constants/misc'
 import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { useTransactionGasFee } from '@l.x/lx/src/features/gas/hooks'
-import { logger } from '@luxfi/utilities/src/logger/logger'
+import { logger } from '@l.x/utils/src/logger/logger'
 
 // Mock dependencies
 jest.mock('lx/src/features/gas/hooks', () => ({

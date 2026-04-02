@@ -1,6 +1,6 @@
 import { Page } from '@playwright/test'
 import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
-import { shortenAddress } from '@luxfi/utilities/src/addresses'
+import { shortenAddress } from '@l.x/utils/src/addresses'
 import { expect, getTest } from '~/playwright/fixtures'
 import { getVisibleDropdownElementByTestId } from '~/playwright/fixtures/utils'
 import { HAYDEN_ADDRESS } from '~/playwright/fixtures/wallets'

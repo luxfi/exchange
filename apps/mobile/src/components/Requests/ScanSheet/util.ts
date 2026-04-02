@@ -13,7 +13,7 @@ import {
 } from 'src/features/deepLinking/constants'
 import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
 import { getValidAddress } from '@l.x/lx/src/utils/addresses'
-import { logger } from '@luxfi/utilities/src/logger/logger'
+import { logger } from '@l.x/utils/src/logger/logger'
 import { ScantasticParams, ScantasticParamsSchema } from '@luxfi/wallet/src/features/scantastic/types'
 
 export enum URIType {

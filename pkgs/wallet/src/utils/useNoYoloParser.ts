@@ -5,7 +5,7 @@ import { RPCType, UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { InstrumentedJsonRpcProvider } from '@l.x/lx/src/features/providers/observability/InstrumentedJsonRpcProvider'
 import { getRpcObserver } from '@l.x/lx/src/features/providers/observability/rpcObserver'
 import { EthTransaction } from '@l.x/lx/src/types/walletConnect'
-import { logger } from '@luxfi/utilities/src/logger/logger'
+import { logger } from '@l.x/utils/src/logger/logger'
 
 export function useNoYoloParser(
   transaction: EthTransaction,

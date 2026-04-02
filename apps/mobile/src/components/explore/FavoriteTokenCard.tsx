@@ -21,10 +21,10 @@ import { useLocalizationContext } from '@l.x/lx/src/features/language/Localizati
 import { SectionName } from '@l.x/lx/src/features/telemetry/constants'
 import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
 import { getSymbolDisplayText } from '@l.x/lx/src/utils/currency'
-import { NumberType } from '@luxfi/utilities/src/format/types'
-import { isIOS } from '@luxfi/utilities/src/platform'
-import { useEvent } from '@luxfi/utilities/src/react/hooks'
-import { noop } from '@luxfi/utilities/src/react/noop'
+import { NumberType } from '@l.x/utils/src/format/types'
+import { isIOS } from '@l.x/utils/src/platform'
+import { useEvent } from '@l.x/utils/src/react/hooks'
+import { noop } from '@l.x/utils/src/react/noop'
 
 const ESTIMATED_FAVORITE_TOKEN_CARD_LOADER_HEIGHT = 116
 

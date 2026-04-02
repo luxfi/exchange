@@ -1,4 +1,4 @@
-import { isNumeric, isSafeNumber } from '@luxfi/utilities/src/primitives/integer'
+import { isNumeric, isSafeNumber } from '@l.x/utils/src/primitives/integer'
 
 describe(isSafeNumber, () => {
   it('returns true for a safe number', () => {

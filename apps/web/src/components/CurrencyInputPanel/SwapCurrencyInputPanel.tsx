@@ -11,7 +11,7 @@ import { useLocalizationContext } from '@l.x/lx/src/features/language/Localizati
 import { ElementName } from '@l.x/lx/src/features/telemetry/constants'
 import Trace from '@l.x/lx/src/features/telemetry/Trace'
 import { CurrencyField } from '@l.x/lx/src/types/currency'
-import { NumberType } from '@luxfi/utilities/src/format/types'
+import { NumberType } from '@l.x/utils/src/format/types'
 import { PrefetchBalancesWrapper } from '~/appGraphql/data/apollo/AdaptiveTokenBalancesProvider'
 import { ReactComponent as DropDown } from '~/assets/images/dropdown.svg'
 import { FiatValue } from '~/components/CurrencyInputPanel/FiatValue'

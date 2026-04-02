@@ -6,7 +6,7 @@
     "@luxamm/sdk-core": "7.12.3",
     "@l.x/api": "workspace:^",
     "@l.x/websocket": "workspace:^",
-    "@luxfi/utilities": "workspace:^"
+    "@l.x/utils": "^1.1.0"
   },
   "peerDependencies": {
     "react": "19.0.3"

@@ -9,7 +9,7 @@ import { ContentRow } from '@l.x/lx/src/components/transactions/requests/Content
 import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { DappRequestType, EthMethod, EthSignMethod } from '@l.x/lx/src/features/dappRequests/types'
 import { useGasFeeFormattedDisplayAmounts } from '@l.x/lx/src/features/gas/hooks'
-import { isMobileApp } from '@luxfi/utilities/src/platform'
+import { isMobileApp } from '@l.x/utils/src/platform'
 
 interface NetworkFeeFooterProps {
   chainId: UniverseChainId

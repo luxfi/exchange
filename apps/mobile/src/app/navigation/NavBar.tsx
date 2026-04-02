@@ -30,7 +30,7 @@ import { useAppInsets } from '@l.x/lx/src/hooks/useAppInsets'
 import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
 import { CurrencyField } from '@l.x/lx/src/types/currency'
 import { MobileScreens } from '@l.x/lx/src/types/screens/mobile'
-import { isAndroid, isIOS } from '@luxfi/utilities/src/platform'
+import { isAndroid, isIOS } from '@l.x/utils/src/platform'
 import { setHasUsedExplore } from '@luxfi/wallet/src/features/behaviorHistory/slice'
 import { useActiveAccountAddressWithThrow } from '@luxfi/wallet/src/features/wallet/hooks'
 

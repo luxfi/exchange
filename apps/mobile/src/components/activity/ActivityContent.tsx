@@ -21,10 +21,10 @@ import { ScannerModalState } from '@l.x/lx/src/components/ReceiveQRCode/constant
 import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
 import { useAppInsets } from '@l.x/lx/src/hooks/useAppInsets'
 import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
-import { DDRumManualTiming } from '@luxfi/utilities/src/logger/datadog/datadogEvents'
-import { usePerformanceLogger } from '@luxfi/utilities/src/logger/usePerformanceLogger'
-import { isAndroid } from '@luxfi/utilities/src/platform'
-import { useEvent } from '@luxfi/utilities/src/react/hooks'
+import { DDRumManualTiming } from '@l.x/utils/src/logger/datadog/datadogEvents'
+import { usePerformanceLogger } from '@l.x/utils/src/logger/usePerformanceLogger'
+import { isAndroid } from '@l.x/utils/src/platform'
+import { useEvent } from '@l.x/utils/src/react/hooks'
 import { useActivityDataWallet } from '@luxfi/wallet/src/features/activity/useActivityDataWallet'
 
 const ESTIMATED_ITEM_SIZE = 92

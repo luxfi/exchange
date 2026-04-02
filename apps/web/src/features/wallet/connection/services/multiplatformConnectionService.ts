@@ -1,5 +1,5 @@
 import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
-import { sleep } from '@luxfi/utilities/src/time/timing'
+import { sleep } from '@l.x/utils/src/time/timing'
 import { getWalletRequiresSeparatePrompt } from '~/components/WalletModal/PendingWalletConnectionModal/state'
 import { ConnectionService } from '~/features/wallet/connection/services/IConnectionService'
 

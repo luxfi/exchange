@@ -70,7 +70,7 @@
     "typed-redux-saga": "1.5.0",
     "@l.x/ui": "^6.2.0",
     "@l.x/lx": "^1.0.5",
-    "@luxfi/utilities": "^1.0.6",
+    "@l.x/utils": "^1.1.0",
     "viem": "2.30.5",
     "zod": "catalog:",
     "zxcvbn": "4.4.2"

@@ -4,7 +4,7 @@ import { Flex, styled, Text, useMedia } from '@l.x/ui/src'
 import { ActivityRenderData } from '@l.x/lx/src/features/activity/hooks/useActivityData'
 import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
 import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
-import { NumberType } from '@luxfi/utilities/src/format/types'
+import { NumberType } from '@l.x/utils/src/format/types'
 import { ValueWithFadedDecimals } from '~/pages/Portfolio/components/ValueWithFadedDecimals/ValueWithFadedDecimals'
 import { useSwapsThisWeek } from '~/pages/Portfolio/Overview/hooks/useSwapsThisWeek'
 

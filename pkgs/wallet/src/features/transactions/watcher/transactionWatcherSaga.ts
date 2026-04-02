@@ -14,7 +14,7 @@ import { PlanWatcher } from '@l.x/lx/src/features/transactions/swap/plan/planWat
 import { isLX } from '@l.x/lx/src/features/transactions/swap/utils/routing'
 import { QueuedOrderStatus } from '@l.x/lx/src/features/transactions/types/transactionDetails'
 import i18n from '@l.x/lx/src/i18n'
-import { logger } from '@luxfi/utilities/src/logger/logger'
+import { logger } from '@l.x/utils/src/logger/logger'
 import { attemptCancelRemoteLXOrder } from '@luxfi/wallet/src/features/transactions/cancelTransactionSaga'
 import { isFORTransaction } from '@luxfi/wallet/src/features/transactions/utils'
 import { OrderWatcher } from '@luxfi/wallet/src/features/transactions/watcher/orderWatcherSaga'

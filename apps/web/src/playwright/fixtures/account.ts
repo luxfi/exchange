@@ -1,7 +1,7 @@
 import { getPortfolio } from '@luxamm/client-data-api/dist/data/v1/api-DataApiService_connectquery'
 import { lxUrls } from '@l.x/lx/src/constants/urls'
 import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
-import { shortenAddress } from '@luxfi/utilities/src/addresses'
+import { shortenAddress } from '@l.x/utils/src/addresses'
 import { expect, type Page } from '~/playwright/fixtures'
 import { Mocks } from '~/playwright/mocks/mocks'
 

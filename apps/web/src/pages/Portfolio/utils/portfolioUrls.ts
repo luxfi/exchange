@@ -1,6 +1,6 @@
 import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
-import { isEVMAddress } from '@luxfi/utilities/src/addresses/evm/evm'
-import { isSVMAddress } from '@luxfi/utilities/src/addresses/svm/svm'
+import { isEVMAddress } from '@l.x/utils/src/addresses/evm/evm'
+import { isSVMAddress } from '@l.x/utils/src/addresses/svm/svm'
 import { isPortfolioTab, PortfolioTab } from '~/pages/Portfolio/types'
 import { getChainUrlParam } from '~/utils/chainParams'
 

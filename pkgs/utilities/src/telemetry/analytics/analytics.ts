@@ -1,5 +1,5 @@
-import { PlatformSplitStubError } from '@luxfi/utilities/src/errors'
-import { ApplicationTransport } from '@luxfi/utilities/src/telemetry/analytics/ApplicationTransport'
+import { PlatformSplitStubError } from '@l.x/utils/src/errors'
+import { ApplicationTransport } from '@l.x/utils/src/telemetry/analytics/ApplicationTransport'
 
 // matches amplitude supported values, not using amplitude's type to decouple from underlying library
 export type UserPropertyValue = number | string | boolean | Array<string | number>

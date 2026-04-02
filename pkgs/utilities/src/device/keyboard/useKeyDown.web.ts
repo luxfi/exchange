@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { KeyAction, UseKeyDownProps } from '@luxfi/utilities/src/device/keyboard/types'
+import { KeyAction, UseKeyDownProps } from '@l.x/utils/src/device/keyboard/types'
 
 export const useKeyDown = ({
   callback,

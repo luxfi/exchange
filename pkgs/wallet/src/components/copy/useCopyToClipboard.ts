@@ -1,5 +1,5 @@
 import { CopyNotificationType } from '@l.x/lx/src/features/notifications/slice/types'
-import { PlatformSplitStubError } from '@luxfi/utilities/src/errors'
+import { PlatformSplitStubError } from '@l.x/utils/src/errors'
 
 export interface CopyToClipboardParams {
   textToCopy: string

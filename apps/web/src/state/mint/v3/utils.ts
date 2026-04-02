@@ -1,7 +1,7 @@
 import { Currency, Price, Token } from '@luxamm/sdk-core'
 import { encodeSqrtRatioX96, FeeAmount, nearestUsableTick, TICK_SPACINGS, TickMath } from '@luxamm/v3-sdk'
 import JSBI from 'jsbi'
-import { convertScientificNotationToNumber } from '@luxfi/utilities/src/format/convertScientificNotation'
+import { convertScientificNotationToNumber } from '@l.x/utils/src/format/convertScientificNotation'
 
 export function tryParsePrice<T extends Currency>({
   baseToken,

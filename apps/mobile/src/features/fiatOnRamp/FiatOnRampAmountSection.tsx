@@ -29,8 +29,8 @@ import { useLocalizationContext } from '@l.x/lx/src/features/language/Localizati
 import { getCurrencyAmount, ValueType } from '@l.x/lx/src/features/tokens/getCurrencyAmount'
 import { TransactionType } from '@l.x/lx/src/features/transactions/types/transactionDetails'
 import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
-import { usePrevious } from '@luxfi/utilities/src/react/hooks'
-import { DEFAULT_DELAY, useDebounce } from '@luxfi/utilities/src/time/timing'
+import { usePrevious } from '@l.x/utils/src/react/hooks'
+import { DEFAULT_DELAY, useDebounce } from '@l.x/utils/src/time/timing'
 
 const MAX_INPUT_FONT_SIZE = 52
 const MIN_INPUT_FONT_SIZE = 32

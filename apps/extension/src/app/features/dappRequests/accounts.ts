@@ -23,7 +23,7 @@ import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
 import { getEnabledChainIdsSaga } from '@l.x/lx/src/features/settings/saga'
 import { ExtensionEventName } from '@l.x/lx/src/features/telemetry/constants'
 import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
-import { extractBaseUrl } from '@luxfi/utilities/src/format/urls'
+import { extractBaseUrl } from '@l.x/utils/src/format/urls'
 import { getProvider } from '@luxfi/wallet/src/features/wallet/context'
 import { selectActiveAccount } from '@luxfi/wallet/src/features/wallet/selectors'
 

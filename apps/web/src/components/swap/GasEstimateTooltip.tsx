@@ -1,7 +1,7 @@
 import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
 import { ElementName, SwapEventName } from '@l.x/lx/src/features/telemetry/constants'
 import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
-import { NumberType } from '@luxfi/utilities/src/format/types'
+import { NumberType } from '@l.x/utils/src/format/types'
 import Row, { RowFixed } from '~/components/deprecated/Row'
 import { Gas } from '~/components/Icons/Gas'
 import { LoadingOpacityContainer } from '~/components/Loader/styled'

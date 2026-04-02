@@ -5,7 +5,7 @@ import { Input } from 'src/app/components/Input'
 import { Flex, Text } from '@l.x/ui/src'
 import { Check } from '@l.x/ui/src/components/icons'
 import { zIndexes } from '@l.x/ui/src/theme'
-import { useDebounce } from '@luxfi/utilities/src/time/timing'
+import { useDebounce } from '@l.x/utils/src/time/timing'
 import { PASSWORD_VALIDATION_DEBOUNCE_MS } from '@luxfi/wallet/src/utils/password'
 
 type InputStackBaseProps = {

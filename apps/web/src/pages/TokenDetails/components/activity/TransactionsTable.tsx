@@ -15,8 +15,8 @@ import { useLocalizationContext } from '@l.x/lx/src/features/language/Localizati
 import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
 import { areAddressesEqual } from '@l.x/lx/src/utils/addresses'
 import { ExplorerDataType, getExplorerLink } from '@l.x/lx/src/utils/linking'
-import { shortenAddress } from '@luxfi/utilities/src/addresses'
-import { NumberType } from '@luxfi/utilities/src/format/types'
+import { shortenAddress } from '@l.x/utils/src/addresses'
+import { NumberType } from '@l.x/utils/src/format/types'
 import {
   getTokenTransactionTypeTranslation,
   TokenTransactionType,

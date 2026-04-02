@@ -1,7 +1,7 @@
 import 'utilities/src/logger/mocks'
 import { act, render, renderHook } from '@testing-library/react'
 import { useEffect } from 'react'
-import { useInfiniteScroll } from '@luxfi/utilities/src/react/useInfiniteScroll'
+import { useInfiniteScroll } from '@l.x/utils/src/react/useInfiniteScroll'
 import { beforeAll, beforeEach, describe, expect, it, vi } from 'vitest'
 
 // Mock IntersectionObserver

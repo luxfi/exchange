@@ -11,7 +11,7 @@ import { CurrencyInfo } from '@l.x/lx/src/features/dataApi/types'
 import { useCurrencyInfo, useNativeCurrencyInfo } from '@l.x/lx/src/features/tokens/useCurrencyInfo'
 import { TransactionType, TransactionTypeInfo } from '@l.x/lx/src/features/transactions/types/transactionDetails'
 import { buildCurrencyId } from '@l.x/lx/src/utils/currencyId'
-import { assert } from '@luxfi/utilities/src/errors'
+import { assert } from '@l.x/utils/src/errors'
 import { DEXSwapRequest } from '@luxfi/wallet/src/components/dappRequests/types/Permit2Types'
 
 function getTransactionTypeInfo({

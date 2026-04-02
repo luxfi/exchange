@@ -25,8 +25,8 @@ import {
 } from '@l.x/lx/src/features/portfolio/balances/hooks/useTokenContextMenuOptions'
 import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
 import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
-import { useEvent } from '@luxfi/utilities/src/react/hooks'
-import { useBooleanState } from '@luxfi/utilities/src/react/useBooleanState'
+import { useEvent } from '@l.x/utils/src/react/hooks'
+import { useBooleanState } from '@l.x/utils/src/react/useBooleanState'
 
 export const HeaderTitleElement = memo(function HeaderTitleElement(): JSX.Element {
   const { t } = useTranslation()

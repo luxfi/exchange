@@ -1,6 +1,6 @@
 import { memo } from 'react'
 import { Flex, Loader, ScrollView } from '@l.x/ui/src'
-import { useInfiniteScroll } from '@luxfi/utilities/src/react/useInfiniteScroll'
+import { useInfiniteScroll } from '@l.x/utils/src/react/useInfiniteScroll'
 import { useActivityDataWallet } from '@luxfi/wallet/src/features/activity/useActivityDataWallet'
 
 export const ActivityTab = memo(function _ActivityTab({

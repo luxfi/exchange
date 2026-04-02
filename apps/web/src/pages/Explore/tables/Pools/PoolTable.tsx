@@ -21,7 +21,7 @@ import { useLocalizationContext } from '@l.x/lx/src/features/language/Localizati
 import { ElementName } from '@l.x/lx/src/features/telemetry/constants'
 import { useCurrencyInfo } from '@l.x/lx/src/features/tokens/useCurrencyInfo'
 import { buildCurrencyId } from '@l.x/lx/src/utils/currencyId'
-import { NumberType } from '@luxfi/utilities/src/format/types'
+import { NumberType } from '@l.x/utils/src/format/types'
 import { supportedChainIdFromGQLChain } from '~/appGraphql/data/chainUtils'
 import { PoolSortFields, TablePool } from '~/appGraphql/data/pools/useTopPools'
 import { gqlToCurrency, OrderDirection, unwrapToken } from '~/appGraphql/data/util'

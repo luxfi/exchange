@@ -5,8 +5,8 @@ import { AccountType } from '@l.x/lx/src/features/accounts/types'
 import { DEFAULT_TOAST_HIDE_DELAY } from '@l.x/lx/src/features/notifications/constants'
 import { useSuccessfulSwapCompleted } from '@l.x/lx/src/features/transactions/hooks/useSuccessfulSwapCompleted'
 import { type TransactionDetails } from '@l.x/lx/src/features/transactions/types/transactionDetails'
-import { logger } from '@luxfi/utilities/src/logger/logger'
-import { ONE_SECOND_MS } from '@luxfi/utilities/src/time/time'
+import { logger } from '@l.x/utils/src/logger/logger'
+import { ONE_SECOND_MS } from '@l.x/utils/src/time/time'
 import {
   selectHasDismissedSmartWalletHomeScreenNudge,
   selectShouldShowPostSwapNudge,

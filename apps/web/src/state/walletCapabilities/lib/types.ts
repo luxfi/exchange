@@ -1,4 +1,4 @@
-import type { HexString } from '@luxfi/utilities/src/addresses/hex'
+import type { HexString } from '@l.x/utils/src/addresses/hex'
 
 export interface ChainCapabilities {
   [capabilityName: string]:

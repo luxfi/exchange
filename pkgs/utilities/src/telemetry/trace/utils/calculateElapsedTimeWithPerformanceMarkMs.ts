@@ -1,4 +1,4 @@
-import { PlatformSplitStubError } from '@luxfi/utilities/src/errors'
+import { PlatformSplitStubError } from '@l.x/utils/src/errors'
 
 /**
  * Returns the time elapsed between page load and now in milliseconds.

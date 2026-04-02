@@ -1,5 +1,5 @@
 import { MMKV } from 'react-native-mmkv'
-import { logger } from '@luxfi/utilities/src/logger/logger'
+import { logger } from '@l.x/utils/src/logger/logger'
 
 const storage = new MMKV({ id: 'onboarding-timestamp' })
 const ONBOARDING_TIMESTAMP_KEY = 'onboardingCompletedTimestamp'

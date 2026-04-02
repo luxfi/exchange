@@ -5,7 +5,7 @@ import JSBI from 'jsbi'
 import { useMemo } from 'react'
 import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
 import { useUSDCPrice } from '@l.x/lx/src/features/transactions/hooks/useUSDCPriceWrapper'
-import { NumberType } from '@luxfi/utilities/src/format/types'
+import { NumberType } from '@l.x/utils/src/format/types'
 import { PositionInfo } from '~/components/Liquidity/types'
 import { LP_INCENTIVES_REWARD_TOKEN } from '~/components/LpIncentives/constants'
 

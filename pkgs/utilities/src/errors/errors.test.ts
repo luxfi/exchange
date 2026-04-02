@@ -1,4 +1,4 @@
-import { assert, errorToString, NotImplementedError, PlatformSplitStubError } from '@luxfi/utilities/src/errors'
+import { assert, errorToString, NotImplementedError, PlatformSplitStubError } from '@l.x/utils/src/errors'
 
 describe(NotImplementedError, () => {
   it('throws an error with the correct message', () => {

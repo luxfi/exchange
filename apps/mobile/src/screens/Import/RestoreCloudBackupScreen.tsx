@@ -14,7 +14,7 @@ import { DisplayNameType } from '@l.x/lx/src/features/accounts/types'
 import { FORMAT_DATE_TIME_SHORT, useLocalizedDayjs } from '@l.x/lx/src/features/language/localizedDayjs'
 import { OnboardingScreens } from '@l.x/lx/src/types/screens/mobile'
 import { getCloudProviderName } from '@l.x/lx/src/utils/cloud-backup/getCloudProviderName'
-import { useEvent } from '@luxfi/utilities/src/react/hooks'
+import { useEvent } from '@l.x/utils/src/react/hooks'
 import { useDisplayName } from '@luxfi/wallet/src/features/wallet/hooks'
 
 type Props = NativeStackScreenProps<OnboardingStackParamList, OnboardingScreens.RestoreCloudBackup>

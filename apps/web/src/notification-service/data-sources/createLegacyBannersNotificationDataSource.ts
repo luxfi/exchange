@@ -25,7 +25,7 @@ import {
 } from '@l.x/ui/src/assets'
 import { lxUrls } from '@l.x/lx/src/constants/urls'
 import i18n from '@l.x/lx/src/i18n'
-import { logger } from '@luxfi/utilities/src/logger/logger'
+import { logger } from '@l.x/utils/src/logger/logger'
 import store from '~/state/index'
 
 // Legacy storage keys from the old banner implementation

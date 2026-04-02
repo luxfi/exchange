@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next'
 import { Flex, Text, useSporeColors } from '@l.x/ui/src'
 import { Verified } from '@l.x/ui/src/components/icons'
-import { formatDappURL } from '@luxfi/utilities/src/format/urls'
+import { formatDappURL } from '@l.x/utils/src/format/urls'
 import { LinkButton } from '@luxfi/wallet/src/components/buttons/LinkButton'
 import { DappHeaderIcon } from '@luxfi/wallet/src/components/dappRequests/DappHeaderIcon'
 import { type DappConnectionInfo, DappVerificationStatus } from '@luxfi/wallet/src/features/dappRequests/types'

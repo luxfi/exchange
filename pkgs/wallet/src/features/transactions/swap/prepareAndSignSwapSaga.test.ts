@@ -10,7 +10,7 @@ import { PermitMethod } from '@l.x/lx/src/features/transactions/swap/types/swapT
 import { type LXTrade, UnwrapTrade, WrapTrade } from '@l.x/lx/src/features/transactions/swap/types/trade'
 import { ETH, WETH } from '@l.x/lx/src/test/fixtures'
 import { mockPermit } from '@l.x/lx/src/test/fixtures/permit'
-import { ensure0xHex } from '@luxfi/utilities/src/addresses/hex'
+import { ensure0xHex } from '@l.x/utils/src/addresses/hex'
 import { isPrivateRpcSupportedOnChain } from '@luxfi/wallet/src/features/providers/utils'
 import { createTransactionServices } from '@luxfi/wallet/src/features/transactions/factories/createTransactionServices'
 import {

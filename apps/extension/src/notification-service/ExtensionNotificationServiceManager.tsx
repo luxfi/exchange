@@ -6,7 +6,7 @@ import { navigate } from 'src/app/navigation/state'
 import { getNotificationServiceQueryOptions } from 'src/notification-service/ExtensionNotificationService'
 import { NotificationContainer } from 'src/notification-service/notification-renderer/NotificationContainer'
 import { getReduxStore } from 'src/store/store'
-import { getLogger } from '@luxfi/utilities/src/logger/logger'
+import { getLogger } from '@l.x/utils/src/logger/logger'
 
 /**
  * Manages the lifecycle of the notification service in the extension.

@@ -11,8 +11,8 @@ import {
 } from '@l.x/lx/src/features/transactions/types/transactionDetails'
 import { isFinalizedTxStatus } from '@l.x/lx/src/features/transactions/types/utils'
 import { convertOrderStatusToTransactionStatus } from '@l.x/lx/src/features/transactions/utils/lxOrder.utils'
-import { logger } from '@luxfi/utilities/src/logger/logger'
-import { ONE_SECOND_MS } from '@luxfi/utilities/src/time/time'
+import { logger } from '@l.x/utils/src/logger/logger'
+import { ONE_SECOND_MS } from '@l.x/utils/src/time/time'
 
 // If the backend cannot provide a status for an order, we can assume after a certain threshold the submission failed.
 const ORDER_TIMEOUT_BUFFER = 20 * ONE_SECOND_MS

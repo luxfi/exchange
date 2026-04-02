@@ -1,5 +1,5 @@
 import { createContext, PropsWithChildren, useCallback, useContext, useMemo, useState } from 'react'
-import { dismissNativeKeyboard } from '@luxfi/utilities/src/device/keyboard/dismissNativeKeyboard'
+import { dismissNativeKeyboard } from '@l.x/utils/src/device/keyboard/dismissNativeKeyboard'
 import {
   getPasswordStrength,
   isPasswordStrongEnough,

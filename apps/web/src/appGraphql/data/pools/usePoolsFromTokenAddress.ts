@@ -5,7 +5,7 @@ import { DEFAULT_NATIVE_ADDRESS } from '@l.x/lx/src/features/chains/evm/rpc'
 import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { toGraphQLChain } from '@l.x/lx/src/features/chains/utils'
 import { isSVMChain } from '@l.x/lx/src/features/platforms/utils/chains'
-import { removeDuplicatesBy } from '@luxfi/utilities/src/primitives/array'
+import { removeDuplicatesBy } from '@l.x/utils/src/primitives/array'
 import {
   calculate1DVolOverTvl,
   calculateApr,

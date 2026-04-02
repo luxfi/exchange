@@ -1,5 +1,5 @@
-import { formatNumber } from '@luxfi/utilities/src/format/localeBased'
-import { NumberType } from '@luxfi/utilities/src/format/types'
+import { formatNumber } from '@l.x/utils/src/format/localeBased'
+import { NumberType } from '@l.x/utils/src/format/types'
 
 it('formats token reference numbers correctly', () => {
   expect(formatNumber({ input: 1234567000000000, type: NumberType.TokenNonTx, locale: 'en-US' })).toBe('>999T')

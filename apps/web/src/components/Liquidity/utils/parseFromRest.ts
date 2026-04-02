@@ -14,7 +14,7 @@ import { Pool as V4Pool, Position as V4Position } from '@luxamm/v4-sdk'
 import { ZERO_ADDRESS } from '@l.x/lx/src/constants/misc'
 import { DEFAULT_TICK_SPACING } from '@l.x/lx/src/constants/pools'
 import { nativeOnChain } from '@l.x/lx/src/constants/tokens'
-import { logger } from '@luxfi/utilities/src/logger/logger'
+import { logger } from '@l.x/utils/src/logger/logger'
 import { DYNAMIC_FEE_DATA, FeeData } from '~/components/Liquidity/Create/types'
 import { PositionInfo } from '~/components/Liquidity/types'
 

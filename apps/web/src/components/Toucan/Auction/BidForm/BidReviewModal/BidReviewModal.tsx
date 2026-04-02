@@ -9,8 +9,8 @@ import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
 import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
 import { TransactionStep, TransactionStepType } from '@l.x/lx/src/features/transactions/steps/types'
-import { NumberType } from '@luxfi/utilities/src/format/types'
-import { useEvent } from '@luxfi/utilities/src/react/hooks'
+import { NumberType } from '@l.x/utils/src/format/types'
+import { useEvent } from '@l.x/utils/src/react/hooks'
 import CurrencyLogo from '~/components/Logo/CurrencyLogo'
 import {
   BidProgressIndicator,

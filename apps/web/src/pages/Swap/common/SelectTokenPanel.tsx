@@ -4,7 +4,7 @@ import { Chevron } from '@l.x/ui/src/components/icons/Chevron'
 import { iconSizes } from '@l.x/ui/src/theme'
 import { PortfolioBalance } from '@l.x/lx/src/features/dataApi/types'
 import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
-import { NumberType } from '@luxfi/utilities/src/format/types'
+import { NumberType } from '@l.x/utils/src/format/types'
 import CurrencyLogo from '~/components/Logo/CurrencyLogo'
 import { ClickableGuiStyle } from '~/theme/components/styles'
 

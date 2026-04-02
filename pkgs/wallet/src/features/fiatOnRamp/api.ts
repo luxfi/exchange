@@ -4,8 +4,8 @@ import { ForApiClient } from '@l.x/lx/src/data/apiClients/forApi/ForApiClient'
 import { extractFORTransactionDetails } from '@l.x/lx/src/features/activity/extract/extractFiatOnRampTransactionDetails'
 import { FORTransactionDetails } from '@l.x/lx/src/features/fiatOnRamp/types'
 import { TransactionStatus } from '@l.x/lx/src/features/transactions/types/transactionDetails'
-import { logger } from '@luxfi/utilities/src/logger/logger'
-import { ONE_MINUTE_MS } from '@luxfi/utilities/src/time/time'
+import { logger } from '@l.x/utils/src/logger/logger'
+import { ONE_MINUTE_MS } from '@l.x/utils/src/time/time'
 import { isOffRampTransaction } from '@luxfi/wallet/src/features/transactions/utils'
 
 const FIAT_ONRAMP_STALE_TX_TIMEOUT = ONE_MINUTE_MS * 20

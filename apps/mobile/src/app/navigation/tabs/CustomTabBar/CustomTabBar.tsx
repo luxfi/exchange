@@ -10,8 +10,8 @@ import { AnimatedFlex } from '@l.x/ui/src/components/layout/AnimatedFlex'
 import { iconSizes, spacing } from '@l.x/ui/src/theme'
 import { useHapticFeedback } from '@l.x/lx/src/features/settings/useHapticFeedback/useHapticFeedback'
 import { useAppInsets } from '@l.x/lx/src/hooks/useAppInsets'
-import { useEvent } from '@luxfi/utilities/src/react/hooks'
-import { useBooleanState } from '@luxfi/utilities/src/react/useBooleanState'
+import { useEvent } from '@l.x/utils/src/react/hooks'
+import { useBooleanState } from '@l.x/utils/src/react/useBooleanState'
 
 interface TabItemProps {
   tab: (typeof TAB_ITEMS)[number]

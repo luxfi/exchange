@@ -1,4 +1,4 @@
-import { getClipboard, setClipboard, setClipboardImage } from '@luxfi/utilities/src/clipboard/clipboard.web'
+import { getClipboard, setClipboard, setClipboardImage } from '@l.x/utils/src/clipboard/clipboard.web'
 import { describe, expect, it, vi } from 'vitest'
 
 vi.mock('utilities/src/logger/logger', () => ({

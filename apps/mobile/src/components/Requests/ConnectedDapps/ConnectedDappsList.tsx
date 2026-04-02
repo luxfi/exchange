@@ -21,8 +21,8 @@ import { pushNotification } from '@l.x/lx/src/features/notifications/slice/slice
 import { AppNotificationType } from '@l.x/lx/src/features/notifications/slice/types'
 import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
 import { WalletConnectEvent } from '@l.x/lx/src/types/walletConnect'
-import { logger } from '@luxfi/utilities/src/logger/logger'
-import { ONE_SECOND_MS } from '@luxfi/utilities/src/time/time'
+import { logger } from '@l.x/utils/src/logger/logger'
+import { ONE_SECOND_MS } from '@l.x/utils/src/time/time'
 import { DappEllipsisDropdown } from '@luxfi/wallet/src/components/settings/DappEllipsisDropdown/DappEllipsisDropdown'
 import { useActiveAccountWithThrow } from '@luxfi/wallet/src/features/wallet/hooks'
 

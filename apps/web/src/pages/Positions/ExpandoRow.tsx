@@ -2,7 +2,7 @@ import { PropsWithChildren, useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Button, Flex, HeightAnimator, Text } from '@l.x/ui/src'
 import { RotatableChevron } from '@l.x/ui/src/components/icons/RotatableChevron'
-import { useTimeout } from '@luxfi/utilities/src/time/timing'
+import { useTimeout } from '@l.x/utils/src/time/timing'
 
 type ExpandoRowProps = PropsWithChildren<{
   title?: string

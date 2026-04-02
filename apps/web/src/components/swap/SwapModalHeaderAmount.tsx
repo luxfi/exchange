@@ -5,7 +5,7 @@ import { useDeviceDimensions } from '@l.x/ui/src/hooks/useDeviceDimensions'
 import { breakpoints } from '@l.x/ui/src/theme'
 import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
 import { CurrencyField } from '@l.x/lx/src/types/currency'
-import { NumberType } from '@luxfi/utilities/src/format/types'
+import { NumberType } from '@l.x/utils/src/format/types'
 import CurrencyLogo from '~/components/Logo/CurrencyLogo'
 import { MouseoverTooltip } from '~/components/Tooltip'
 

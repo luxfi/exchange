@@ -22,8 +22,8 @@ import { pushNotification } from '@l.x/lx/src/features/notifications/slice/slice
 import { AppNotificationType } from '@l.x/lx/src/features/notifications/slice/types'
 import { ExtensionEventName } from '@l.x/lx/src/features/telemetry/constants'
 import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
-import { extractBaseUrl } from '@luxfi/utilities/src/format/urls'
-import { logger } from '@luxfi/utilities/src/logger/logger'
+import { extractBaseUrl } from '@l.x/utils/src/format/urls'
+import { logger } from '@l.x/utils/src/logger/logger'
 
 export function getPermissions(dappUrl: string | undefined, connectedAddresses: Address[] | undefined): Permission[] {
   const permissions: Permission[] = []

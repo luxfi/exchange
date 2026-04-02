@@ -14,7 +14,7 @@ import { useHapticFeedback } from '@l.x/lx/src/features/settings/useHapticFeedba
 import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
 import { updateSwapStartTimestamp } from '@l.x/lx/src/features/timing/slice'
 import { useSwapPrefilledState } from '@l.x/lx/src/features/transactions/swap/form/hooks/useSwapPrefilledState'
-import { logger } from '@luxfi/utilities/src/logger/logger'
+import { logger } from '@l.x/utils/src/logger/logger'
 import { WalletSwapFlow } from '@luxfi/wallet/src/features/transactions/swap/WalletSwapFlow'
 import { invalidateAndRefetchWalletDelegationQueries } from '@luxfi/wallet/src/features/transactions/watcher/transactionFinalizationSaga'
 

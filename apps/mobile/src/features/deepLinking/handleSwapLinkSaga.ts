@@ -4,7 +4,7 @@ import { isTestnetChain } from '@l.x/lx/src/features/chains/utils'
 import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
 import { getEnabledChainIdsSaga } from '@l.x/lx/src/features/settings/saga'
 import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
-import { logger } from '@luxfi/utilities/src/logger/logger'
+import { logger } from '@l.x/utils/src/logger/logger'
 
 /**
  * Opens swap modal with the provided swap link parameters; prompts testnet switch modal if necessary.

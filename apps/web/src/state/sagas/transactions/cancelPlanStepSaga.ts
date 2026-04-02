@@ -5,7 +5,7 @@ import { CancelableStepInfo } from '@l.x/lx/src/features/transactions/hooks/useI
 import { cancelPlanStep } from '@l.x/lx/src/features/transactions/slice'
 import { activePlanStore } from '@l.x/lx/src/features/transactions/swap/review/stores/activePlan/activePlanStore'
 import { signalPlanCancellation } from '@l.x/lx/src/utils/saga'
-import { logger } from '@luxfi/utilities/src/logger/logger'
+import { logger } from '@l.x/utils/src/logger/logger'
 import store from '~/state'
 import { handleCancelOrder } from '~/state/sagas/transactions/cancelOrderSaga'
 

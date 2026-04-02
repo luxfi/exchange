@@ -1,4 +1,4 @@
-import { jsonParse, jsonStringify } from '@luxfi/utilities/src/serialization/json'
+import { jsonParse, jsonStringify } from '@l.x/utils/src/serialization/json'
 import { describe, expect, it } from 'vitest'
 
 describe('BigInt serialization utilities', () => {

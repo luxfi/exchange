@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux'
 import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { pushNotification } from '@l.x/lx/src/features/notifications/slice/slice'
 import { AppNotificationType } from '@l.x/lx/src/features/notifications/slice/types'
-import { ONE_SECOND_MS } from '@luxfi/utilities/src/time/time'
+import { ONE_SECOND_MS } from '@l.x/utils/src/time/time'
 
 const HIDE_DELAY = ONE_SECOND_MS * 2
 

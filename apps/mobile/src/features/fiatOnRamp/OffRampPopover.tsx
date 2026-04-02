@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
 import { Popover, Text } from '@l.x/ui/src'
-import { isAndroid } from '@luxfi/utilities/src/platform'
+import { isAndroid } from '@l.x/utils/src/platform'
 import { selectHasViewedOffRampTooltip } from '@luxfi/wallet/src/features/behaviorHistory/selectors'
 import { setHasViewedOffRampTooltip } from '@luxfi/wallet/src/features/behaviorHistory/slice'
 

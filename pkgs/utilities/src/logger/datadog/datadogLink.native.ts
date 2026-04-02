@@ -3,7 +3,7 @@ import {
   DATADOG_GRAPH_QL_OPERATION_NAME_HEADER,
   DATADOG_GRAPH_QL_OPERATION_TYPE_HEADER,
 } from '@datadog/mobile-react-native'
-import { getOperationName, getOperationType } from '@luxfi/utilities/src/logger/datadog/datadogLinkUtils'
+import { getOperationName, getOperationType } from '@l.x/utils/src/logger/datadog/datadogLinkUtils'
 
 export const getDatadogApolloLink = (): ApolloLink => {
   return new DatadogLink()

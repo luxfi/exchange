@@ -8,8 +8,8 @@ import { NonfungiblePositionManager, LXInterfaceMulticall } from '@l.x/lx/src/ab
 import { AMMV3PoolInterface } from '@l.x/lx/src/abis/types/v3/AMMV3Pool'
 import { useEnabledChains } from '@l.x/lx/src/features/chains/hooks/useEnabledChains'
 import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
-import { logger } from '@luxfi/utilities/src/logger/logger'
-import { DEFAULT_ERC20_DECIMALS } from '@luxfi/utilities/src/tokens/constants'
+import { logger } from '@l.x/utils/src/logger/logger'
+import { DEFAULT_ERC20_DECIMALS } from '@l.x/utils/src/tokens/constants'
 import {
   PositionInfo,
   useCachedPositions,

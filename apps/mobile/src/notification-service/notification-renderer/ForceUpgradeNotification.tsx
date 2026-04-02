@@ -6,7 +6,7 @@ import { SeedPhraseModalContent } from 'src/components/forceUpgrade/ForceUpgrade
 import { useSporeColors } from '@l.x/ui/src'
 import { Modal } from '@l.x/lx/src/components/modals/Modal'
 import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
-import { useEvent } from '@luxfi/utilities/src/react/hooks'
+import { useEvent } from '@l.x/utils/src/react/hooks'
 import { ForceUpgradeModalContent } from '@luxfi/wallet/src/features/forceUpgrade/ForceUpgradeModalContent'
 import { SignerMnemonicAccount } from '@luxfi/wallet/src/features/wallet/accounts/types'
 import { useSignerAccounts } from '@luxfi/wallet/src/features/wallet/hooks'

@@ -1,10 +1,10 @@
 import { OriginApplication } from '@luxamm/analytics'
 import { lxUrls } from 'lx/src/constants/urls'
-import { isPlaywrightEnv, isTestEnv } from '@luxfi/utilities/src/environment/env'
-import { logger } from '@luxfi/utilities/src/logger/logger'
-import { ApplicationTransport } from '@luxfi/utilities/src/telemetry/analytics/ApplicationTransport'
+import { isPlaywrightEnv, isTestEnv } from '@l.x/utils/src/environment/env'
+import { logger } from '@l.x/utils/src/logger/logger'
+import { ApplicationTransport } from '@l.x/utils/src/telemetry/analytics/ApplicationTransport'
 // biome-ignore lint/style/noRestrictedImports: Need direct analytics import for Amplitude initialization
-import { analytics, getAnalyticsAtomDirect } from '@luxfi/utilities/src/telemetry/analytics/analytics'
+import { analytics, getAnalyticsAtomDirect } from '@l.x/utils/src/telemetry/analytics/analytics'
 import store from '~/state'
 import { setOriginCountry } from '~/state/user/reducer'
 

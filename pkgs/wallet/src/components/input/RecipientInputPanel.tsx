@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next'
 import { Flex, Text, TouchableArea } from '@l.x/ui/src'
 import { AddressDisplay } from '@l.x/lx/src/components/accounts/AddressDisplay'
 import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
-import { dismissNativeKeyboard } from '@luxfi/utilities/src/device/keyboard/dismissNativeKeyboard'
+import { dismissNativeKeyboard } from '@l.x/utils/src/device/keyboard/dismissNativeKeyboard'
 import { useAllTransactionsBetweenAddresses } from '@luxfi/wallet/src/features/transactions/hooks/useAllTransactionsBetweenAddresses'
 import { useActiveAccountAddressWithThrow } from '@luxfi/wallet/src/features/wallet/hooks'
 

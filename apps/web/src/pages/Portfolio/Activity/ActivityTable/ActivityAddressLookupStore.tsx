@@ -1,7 +1,7 @@
 import { useEffect, useMemo } from 'react'
 import { useUnitagsAddressesQuery } from '@l.x/lx/src/data/apiClients/unitagsApi/useUnitagsAddressQuery'
 import { TransactionDetails, TransactionType } from '@l.x/lx/src/features/transactions/types/transactionDetails'
-import { isEVMAddress } from '@luxfi/utilities/src/addresses/evm/evm'
+import { isEVMAddress } from '@l.x/utils/src/addresses/evm/evm'
 import { create, type StoreApi, type UseBoundStore } from 'zustand'
 import { useShallow } from 'zustand/react/shallow'
 import { buildActivityRowFragments } from '~/pages/Portfolio/Activity/ActivityTable/registry'

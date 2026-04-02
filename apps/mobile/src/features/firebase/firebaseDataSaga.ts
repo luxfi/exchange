@@ -9,8 +9,8 @@ import { Language } from '@l.x/lx/src/features/language/constants'
 import { getLocale } from '@l.x/lx/src/features/language/navigatorLocale'
 import { selectCurrentLanguage } from '@l.x/lx/src/features/settings/selectors'
 import { setCurrentLanguage } from '@l.x/lx/src/features/settings/slice'
-import { logger } from '@luxfi/utilities/src/logger/logger'
-import { getKeys } from '@luxfi/utilities/src/primitives/objects'
+import { logger } from '@l.x/utils/src/logger/logger'
+import { getKeys } from '@l.x/utils/src/primitives/objects'
 import {
   EditAccountAction,
   editAccountActions,

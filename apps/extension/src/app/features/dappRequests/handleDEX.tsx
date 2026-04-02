@@ -14,9 +14,9 @@ import {
   convertOrderTypeToRouting,
 } from '@l.x/lx/src/features/transactions/utils/dexUtils'
 import { buildCurrencyId } from '@l.x/lx/src/utils/currencyId'
-import { logger } from '@luxfi/utilities/src/logger/logger'
-import { ONE_SECOND_MS } from '@luxfi/utilities/src/time/time'
-import { sleep } from '@luxfi/utilities/src/time/timing'
+import { logger } from '@l.x/utils/src/logger/logger'
+import { ONE_SECOND_MS } from '@l.x/utils/src/time/time'
+import { sleep } from '@l.x/utils/src/time/timing'
 
 /**
  * Factory function that creates a handler for externally submitted DEX orders.

@@ -1,4 +1,4 @@
-import { currentTimeInSeconds, inXMinutesUnix, isStale } from '@luxfi/utilities/src/time/time'
+import { currentTimeInSeconds, inXMinutesUnix, isStale } from '@l.x/utils/src/time/time'
 
 vi.useFakeTimers()
 

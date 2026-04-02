@@ -6,7 +6,7 @@ import { WormholeModalAtom } from '@l.x/lx/src/components/BridgedAsset/WormholeM
 import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
 import { useCurrencyInfo } from '@l.x/lx/src/features/tokens/useCurrencyInfo'
 import { buildCurrencyId } from '@l.x/lx/src/utils/currencyId'
-import { useEvent } from '@luxfi/utilities/src/react/hooks'
+import { useEvent } from '@l.x/utils/src/react/hooks'
 import { useModalState } from '~/hooks/useModalState'
 import { useTDPStore } from '~/pages/TokenDetails/context/useTDPStore'
 

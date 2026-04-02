@@ -6,7 +6,7 @@ import WETH_ABI from '@l.x/lx/src/abis/weth.json'
 import { WRAPPED_NATIVE_CURRENCY } from '@l.x/lx/src/constants/tokens'
 import { EVMUniverseChainId, UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { WRAP_FALLBACK_GAS_LIMIT_IN_GWEI } from '@l.x/lx/src/features/transactions/swap/review/services/swapTxAndGasInfoService/constants'
-import { getContract } from '@luxfi/utilities/src/contracts/getContract'
+import { getContract } from '@l.x/utils/src/contracts/getContract'
 import { RPC_PROVIDERS } from '~/constants/providers'
 import { ApproveInfo, WrapInfo } from '~/state/routing/types'
 

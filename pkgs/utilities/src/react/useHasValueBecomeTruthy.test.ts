@@ -1,5 +1,5 @@
 import { renderHook } from '@testing-library/react'
-import { useHasValueBecomeTruthy } from '@luxfi/utilities/src/react/useHasValueBecomeTruthy'
+import { useHasValueBecomeTruthy } from '@l.x/utils/src/react/useHasValueBecomeTruthy'
 
 describe('useHasValueBecomeTruthy', () => {
   it('should return false on initial render with truthy value', () => {

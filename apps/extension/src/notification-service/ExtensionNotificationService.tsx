@@ -33,10 +33,10 @@ import { lxUrls } from '@l.x/lx/src/constants/urls'
 import { mapLocaleToBackendLocale } from '@l.x/lx/src/features/language/constants'
 import { getLocale } from '@l.x/lx/src/features/language/navigatorLocale'
 import { selectCurrentLanguage } from '@l.x/lx/src/features/settings/selectors'
-import { getLogger } from '@luxfi/utilities/src/logger/logger'
-import { REQUEST_SOURCE } from '@luxfi/utilities/src/platform/requestSource'
-import { ReactQueryCacheKey } from '@luxfi/utilities/src/reactQuery/cache'
-import { type QueryOptionsResult } from '@luxfi/utilities/src/reactQuery/queryOptions'
+import { getLogger } from '@l.x/utils/src/logger/logger'
+import { REQUEST_SOURCE } from '@l.x/utils/src/platform/requestSource'
+import { ReactQueryCacheKey } from '@l.x/utils/src/reactQuery/cache'
+import { type QueryOptionsResult } from '@l.x/utils/src/reactQuery/queryOptions'
 
 /**
  * Checks if the session has been initialized by looking at the React Query cache.

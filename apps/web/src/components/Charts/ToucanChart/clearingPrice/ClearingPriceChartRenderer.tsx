@@ -1,7 +1,7 @@
 import { createChart, type IChartApi, type UTCTimestamp } from 'lightweight-charts'
 import { useEffect, useRef, useState } from 'react'
 import { Flex, useSporeColors } from '@l.x/ui/src'
-import { useEvent } from '@luxfi/utilities/src/react/hooks'
+import { useEvent } from '@l.x/utils/src/react/hooks'
 import { LiveDotRenderer } from '~/components/Charts/LiveDotRenderer'
 import { ClearingPriceTooltipBody } from '~/components/Charts/ToucanChart/clearingPrice/components/ClearingPriceTooltipBody'
 import { createTimeScaleOptions } from '~/components/Charts/ToucanChart/clearingPrice/controller/chartOptions'

@@ -1,4 +1,4 @@
-import { logger } from '@luxfi/utilities/src/logger/logger'
+import { logger } from '@l.x/utils/src/logger/logger'
 
 /**
  * Datadog Log Metrics used to create custom metrics in Datadog

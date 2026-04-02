@@ -10,7 +10,7 @@ import {
   useLocalizedDayjs,
 } from '@l.x/lx/src/features/language/localizedDayjs'
 import { useUSDCValue } from '@l.x/lx/src/features/transactions/hooks/useUSDCPriceWrapper'
-import { NumberType } from '@luxfi/utilities/src/format/types'
+import { NumberType } from '@l.x/utils/src/format/types'
 import Row from '~/components/deprecated/Row'
 import { LoadingRow } from '~/components/Loader/styled'
 import { DetailLineItem, LineItemData } from '~/components/swap/DetailLineItem'

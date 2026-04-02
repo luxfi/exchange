@@ -325,7 +325,7 @@
     "@l.x/lx": "workspace:^",
     "@l.x/options": "workspace:^",
     "@l.x/ui": "^6.2.0",
-    "@luxfi/utilities": "workspace:^",
+    "@l.x/utils": "^1.1.0",
     "@luxamm/sdk": "3.0.3"
   },
   "engines": {

@@ -3,8 +3,8 @@ import { PropsWithChildren, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Flex, Text, useSporeColors } from '@l.x/ui/src'
 import { InfoCircleFilled } from '@l.x/ui/src/components/icons/InfoCircleFilled'
-import { logger } from '@luxfi/utilities/src/logger/logger'
-import { useEvent } from '@luxfi/utilities/src/react/hooks'
+import { logger } from '@l.x/utils/src/logger/logger'
+import { useEvent } from '@l.x/utils/src/react/hooks'
 
 export function SendButtonTooltip({
   children,

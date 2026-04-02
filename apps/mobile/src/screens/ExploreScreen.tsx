@@ -24,8 +24,8 @@ import { CancelBehaviorType, SearchTextInput } from '@l.x/lx/src/features/search
 import { MobileEventName, ModalName, SectionName } from '@l.x/lx/src/features/telemetry/constants'
 import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
 import { MobileScreens } from '@l.x/lx/src/types/screens/mobile'
-import { isAndroid } from '@luxfi/utilities/src/platform'
-import { useEvent } from '@luxfi/utilities/src/react/hooks'
+import { isAndroid } from '@l.x/utils/src/platform'
+import { useEvent } from '@l.x/utils/src/react/hooks'
 import { setHasUsedExplore } from '@luxfi/wallet/src/features/behaviorHistory/slice'
 
 // From design to avoid layout thrash as icons show and hide

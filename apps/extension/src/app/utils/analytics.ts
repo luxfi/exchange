@@ -4,12 +4,12 @@ import 'symbol-observable' // Needed by `reduxed-chrome-storage` as polyfill, or
 
 import { EXTENSION_ORIGIN_APPLICATION } from 'src/app/version'
 import { lxUrls } from '@l.x/lx/src/constants/urls'
-import { getUniqueId } from '@luxfi/utilities/src/device/uniqueId'
-import { isTestEnv } from '@luxfi/utilities/src/environment/env'
-import { logger } from '@luxfi/utilities/src/logger/logger'
-import { ApplicationTransport } from '@luxfi/utilities/src/telemetry/analytics/ApplicationTransport'
+import { getUniqueId } from '@l.x/utils/src/device/uniqueId'
+import { isTestEnv } from '@l.x/utils/src/environment/env'
+import { logger } from '@l.x/utils/src/logger/logger'
+import { ApplicationTransport } from '@l.x/utils/src/telemetry/analytics/ApplicationTransport'
 // biome-ignore lint/style/noRestrictedImports: Direct utilities import required for analytics initialization
-import { analytics, getAnalyticsAtomDirect } from '@luxfi/utilities/src/telemetry/analytics/analytics'
+import { analytics, getAnalyticsAtomDirect } from '@l.x/utils/src/telemetry/analytics/analytics'
 
 export async function initExtensionAnalytics(): Promise<void> {
   if (isTestEnv()) {

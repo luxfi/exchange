@@ -5,7 +5,7 @@ import { createContext, PropsWithChildren, useCallback, useContext, useEffect, u
 import { call, getContext } from 'typed-redux-saga'
 import { SignerMnemonicAccountMeta } from '@l.x/lx/src/features/accounts/types'
 import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
-import { logger } from '@luxfi/utilities/src/logger/logger'
+import { logger } from '@l.x/utils/src/logger/logger'
 import { ContractManager } from '@luxfi/wallet/src/features/contracts/ContractManager'
 import { ProviderManager } from '@luxfi/wallet/src/features/providers/ProviderManager'
 import { ViemClientManager } from '@luxfi/wallet/src/features/providers/ViemClientManager'

@@ -10,7 +10,7 @@ import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
 import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
 import { MobileScreens } from '@l.x/lx/src/types/screens/mobile'
 import { openUri } from '@l.x/lx/src/utils/linking'
-import { SPACE_STRING } from '@luxfi/utilities/src/primitives/string'
+import { SPACE_STRING } from '@l.x/utils/src/primitives/string'
 
 /**
  * This modal is used as an informational speedbump before the user

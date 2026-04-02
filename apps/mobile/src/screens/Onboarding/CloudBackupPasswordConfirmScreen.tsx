@@ -9,7 +9,7 @@ import { Flex } from '@l.x/ui/src'
 import { Cloud } from '@l.x/ui/src/components/icons'
 import { OnboardingEntryPoint } from '@l.x/lx/src/types/onboarding'
 import { OnboardingScreens } from '@l.x/lx/src/types/screens/mobile'
-import { dismissNativeKeyboard } from '@luxfi/utilities/src/device/keyboard/dismissNativeKeyboard'
+import { dismissNativeKeyboard } from '@l.x/utils/src/device/keyboard/dismissNativeKeyboard'
 import { BackupType } from '@luxfi/wallet/src/features/wallet/accounts/types'
 
 export function CloudBackupPasswordConfirmScreen({

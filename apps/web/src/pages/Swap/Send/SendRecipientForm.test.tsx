@@ -1,6 +1,6 @@
 import { DAI } from '@l.x/lx/src/constants/tokens'
 import { SwapTab } from '@l.x/lx/src/types/screens/interface'
-import { shortenAddress } from '@luxfi/utilities/src/addresses'
+import { shortenAddress } from '@l.x/utils/src/addresses'
 import { SendRecipientForm } from '~/pages/Swap/Send/SendRecipientForm'
 import { MultichainContext } from '~/state/multichain/types'
 import { SendContext, SendContextType } from '~/state/send/SendContext'

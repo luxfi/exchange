@@ -8,8 +8,8 @@ import {
   useLocalizedDayjs,
 } from '@l.x/lx/src/features/language/localizedDayjs'
 import { DEXOrderDetails } from '@l.x/lx/src/features/transactions/types/transactionDetails'
-import { ellipseMiddle } from '@luxfi/utilities/src/addresses'
-import { NumberType } from '@luxfi/utilities/src/format/types'
+import { ellipseMiddle } from '@l.x/utils/src/addresses'
+import { NumberType } from '@l.x/utils/src/format/types'
 import { DetailLineItem, LineItemData } from '~/components/swap/DetailLineItem'
 import TradePrice from '~/components/swap/TradePrice'
 import { ExternalLink } from '~/theme/components/Links'

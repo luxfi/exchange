@@ -18,8 +18,8 @@ import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
 import { ElementName } from '@l.x/lx/src/features/telemetry/constants'
 import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
 import { ExplorerDataType, getExplorerLink, openUri } from '@l.x/lx/src/utils/linking'
-import { NumberType } from '@luxfi/utilities/src/format/types'
-import { ONE_SECOND_MS } from '@luxfi/utilities/src/time/time'
+import { NumberType } from '@l.x/utils/src/format/types'
+import { ONE_SECOND_MS } from '@l.x/utils/src/time/time'
 import useCopyClipboard from '~/hooks/useCopyClipboard'
 
 const iconButtonProps = {

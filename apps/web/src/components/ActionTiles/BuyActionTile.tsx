@@ -5,7 +5,7 @@ import { useLuxContext } from '@l.x/lx/src/contexts/LuxContext'
 import { ElementName } from '@l.x/lx/src/features/telemetry/constants'
 import Trace from '@l.x/lx/src/features/telemetry/Trace'
 import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
-import { useEvent } from '@luxfi/utilities/src/react/hooks'
+import { useEvent } from '@l.x/utils/src/react/hooks'
 import { ActionTileWithIconAnimation } from '~/components/ActionTiles/ActionTileWithIconAnimation'
 
 export function BuyActionTile({ padding = '$spacing12' }: { padding?: FlexProps['p'] }) {

@@ -1,8 +1,8 @@
-import { logger } from '@luxfi/utilities/src/logger/logger'
-import { isWebApp } from '@luxfi/utilities/src/platform'
+import { logger } from '@l.x/utils/src/logger/logger'
+import { isWebApp } from '@l.x/utils/src/platform'
 // biome-ignore lint/style/noRestrictedImports: Platform-specific implementation needs internal types
-import { analytics } from '@luxfi/utilities/src/telemetry/analytics/analytics'
-import { ITraceContext } from '@luxfi/utilities/src/telemetry/trace/TraceContext'
+import { analytics } from '@l.x/utils/src/telemetry/analytics/analytics'
+import { ITraceContext } from '@l.x/utils/src/telemetry/trace/TraceContext'
 
 /**
  * Given a set of child element and action props, returns a spreadable

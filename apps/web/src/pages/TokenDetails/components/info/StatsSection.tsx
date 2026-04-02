@@ -7,7 +7,7 @@ import { useTokenSpotPrice } from 'lx/src/features/dataApi/tokenDetails/useToken
 import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
 import { TestID } from 'lx/src/test/fixtures/testIDs'
 import { currencyId } from 'lx/src/utils/currencyId'
-import { FiatNumberType, NumberType } from '@luxfi/utilities/src/format/types'
+import { FiatNumberType, NumberType } from '@l.x/utils/src/format/types'
 import { TokenQueryData } from '~/appGraphql/data/Token'
 import { HEADER_DESCRIPTIONS, TokenSortMethod } from '~/components/Tokens/constants'
 import { MouseoverTooltip } from '~/components/Tooltip'

@@ -6,7 +6,7 @@ import { useConditionalPreSignDelay } from 'src/app/features/dappRequests/hooks/
 import { AccountType } from '@l.x/lx/src/features/accounts/types'
 import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { isValidTransactionRequest } from '@l.x/lx/src/features/transactions/types/transactionRequests'
-import { logger } from '@luxfi/utilities/src/logger/logger'
+import { logger } from '@l.x/utils/src/logger/logger'
 import { SignedTransactionRequest } from '@luxfi/wallet/src/features/transactions/executeTransaction/types'
 import { Account } from '@luxfi/wallet/src/features/wallet/accounts/types'
 

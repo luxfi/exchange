@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { PaginatedModalRenderer, PaginatedModals } from '@l.x/lx/src/components/modals/PaginatedModals'
-import { dismissNativeKeyboard } from '@luxfi/utilities/src/device/keyboard/dismissNativeKeyboard'
+import { dismissNativeKeyboard } from '@l.x/utils/src/device/keyboard/dismissNativeKeyboard'
 
 export type ConditionalModalRenderer = {
   renderModal: PaginatedModalRenderer

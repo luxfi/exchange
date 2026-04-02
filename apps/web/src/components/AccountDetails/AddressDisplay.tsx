@@ -3,7 +3,7 @@ import { Unitag } from '@l.x/ui/src/components/icons/Unitag'
 import { useUnitagsAddressQuery } from '@l.x/lx/src/data/apiClients/unitagsApi/useUnitagsAddressQuery'
 import { useENSName } from '@l.x/lx/src/features/ens/api'
 import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
-import { shortenAddress } from '@luxfi/utilities/src/addresses'
+import { shortenAddress } from '@l.x/utils/src/addresses'
 import { deprecatedStyled } from '~/lib/deprecated-styled'
 import { EllipsisStyle } from '~/theme/components/styles'
 

@@ -1,7 +1,7 @@
 import { GuiProvider as OGGuiProvider, GuiProviderProps } from '@l.x/ui/src'
 import { config } from '@l.x/ui/src/gui.config'
 import { useSelectedColorScheme } from '@l.x/lx/src/features/appearance/hooks'
-import { isTestEnv } from '@luxfi/utilities/src/environment/env'
+import { isTestEnv } from '@l.x/utils/src/environment/env'
 
 // without <NavigationProvider>
 // this exported Provider is useful for tests

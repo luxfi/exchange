@@ -2,7 +2,7 @@ import { Currency, Price } from '@luxamm/sdk-core'
 import { Text, TextProps } from '@l.x/ui/src'
 import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
 import { useUSDCValue } from '@l.x/lx/src/features/transactions/hooks/useUSDCPriceWrapper'
-import { NumberType } from '@luxfi/utilities/src/format/types'
+import { NumberType } from '@l.x/utils/src/format/types'
 import tryParseCurrencyAmount from '~/lib/utils/tryParseCurrencyAmount'
 
 export function BaseQuoteFiatAmount({

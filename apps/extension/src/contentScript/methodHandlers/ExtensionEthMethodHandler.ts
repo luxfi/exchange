@@ -51,7 +51,7 @@ import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
 import { InstrumentedJsonRpcProvider } from '@l.x/lx/src/features/providers/observability/InstrumentedJsonRpcProvider'
 import { getRpcObserver } from '@l.x/lx/src/features/providers/observability/rpcObserver'
 import { areAddressesEqual } from '@l.x/lx/src/utils/addresses'
-import { extractBaseUrl } from '@luxfi/utilities/src/format/urls'
+import { extractBaseUrl } from '@l.x/utils/src/format/urls'
 
 export class ExtensionEthMethodHandler extends BaseMethodHandler<WindowEthereumRequest> {
   private readonly requestIdToSourceMap: Map<string, PendingResponseInfo> = new Map()

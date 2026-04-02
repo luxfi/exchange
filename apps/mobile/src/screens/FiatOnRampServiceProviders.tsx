@@ -23,7 +23,7 @@ import { useLocalizationContext } from '@l.x/lx/src/features/language/Localizati
 import { FiatOffRampEventName, FiatOnRampEventName } from '@l.x/lx/src/features/telemetry/constants'
 import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
 import { FiatOnRampScreens } from '@l.x/lx/src/types/screens/mobile'
-import { NumberType } from '@luxfi/utilities/src/format/types'
+import { NumberType } from '@l.x/utils/src/format/types'
 
 type Props = NativeStackScreenProps<FiatOnRampStackParamList, FiatOnRampScreens.ServiceProviders>
 

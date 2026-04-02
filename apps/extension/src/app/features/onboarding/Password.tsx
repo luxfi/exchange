@@ -12,7 +12,7 @@ import { Lock } from '@l.x/ui/src/components/icons'
 import { iconSizes } from '@l.x/ui/src/theme'
 import Trace from '@l.x/lx/src/features/telemetry/Trace'
 import { ExtensionOnboardingFlow, ExtensionOnboardingScreens } from '@l.x/lx/src/types/screens/extension'
-import { useEvent } from '@luxfi/utilities/src/react/hooks'
+import { useEvent } from '@l.x/utils/src/react/hooks'
 import { useOnboardingContext } from '@luxfi/wallet/src/features/onboarding/OnboardingContext'
 import { usePasswordForm } from '@luxfi/wallet/src/utils/password'
 

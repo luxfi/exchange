@@ -15,7 +15,7 @@ import {
 import i18n from '@l.x/lx/src/i18n'
 import { getValidAddress } from '@l.x/lx/src/utils/addresses'
 import { createTransactionId } from '@l.x/lx/src/utils/createTransactionId'
-import { logger } from '@luxfi/utilities/src/logger/logger'
+import { logger } from '@l.x/utils/src/logger/logger'
 import {
   ExecuteTransactionParams,
   executeTransaction,

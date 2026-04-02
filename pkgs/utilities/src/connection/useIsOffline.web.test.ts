@@ -1,5 +1,5 @@
 import { renderHook } from '@testing-library/react'
-import { useIsOffline } from '@luxfi/utilities/src/connection/useIsOffline.web'
+import { useIsOffline } from '@l.x/utils/src/connection/useIsOffline.web'
 
 describe('useIsOffline web hook', () => {
   beforeEach(() => {

@@ -12,7 +12,7 @@ import {
   TransactionStatus,
   TransactionType,
 } from '@l.x/lx/src/features/transactions/types/transactionDetails'
-import { logger } from '@luxfi/utilities/src/logger/logger'
+import { logger } from '@l.x/utils/src/logger/logger'
 import { createTransactionRepositoryRedux } from '@luxfi/wallet/src/features/transactions/executeTransaction/services/TransactionRepository/transactionRepositoryImplRedux'
 import { createSagaEffectRunner } from '@luxfi/wallet/src/state/createSagaEffectRunner'
 

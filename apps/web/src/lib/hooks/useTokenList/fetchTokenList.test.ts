@@ -1,5 +1,5 @@
 import defaultTokenList from '@luxamm/default-token-list'
-import { mockLogger } from '@luxfi/utilities/src/logger/mocks'
+import { mockLogger } from '@l.x/utils/src/logger/mocks'
 import createFetchMock from 'vitest-fetch-mock'
 import fetchTokenList from '~/lib/hooks/useTokenList/fetchTokenList'
 import contenthashToUri from '~/lib/utils/contenthashToUri'

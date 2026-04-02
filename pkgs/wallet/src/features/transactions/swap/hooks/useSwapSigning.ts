@@ -6,7 +6,7 @@ import { ValidatedSwapTxContext } from '@l.x/lx/src/features/transactions/swap/t
 import { requireAcceptNewTrade } from '@l.x/lx/src/features/transactions/swap/utils/trade'
 import { useWallet } from '@l.x/lx/src/features/wallet/hooks/useWallet'
 import { isSignerMnemonicAccountDetails } from '@l.x/lx/src/features/wallet/types/AccountDetails'
-import { ONE_SECOND_MS } from '@luxfi/utilities/src/time/time'
+import { ONE_SECOND_MS } from '@l.x/utils/src/time/time'
 import { prepareAndSignSwapActions } from '@luxfi/wallet/src/features/transactions/swap/configuredSagas'
 import { PreSignedSwapTransaction } from '@luxfi/wallet/src/features/transactions/swap/types/preSignedTransaction'
 

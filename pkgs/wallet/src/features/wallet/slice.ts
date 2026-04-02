@@ -3,7 +3,7 @@ import { RankingType } from '@l.x/api'
 import { AccountType } from '@l.x/lx/src/features/accounts/types'
 import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
 import { areAddressesEqual, getValidAddress } from '@l.x/lx/src/utils/addresses'
-import { logger } from '@luxfi/utilities/src/logger/logger'
+import { logger } from '@l.x/utils/src/logger/logger'
 import { Account } from '@luxfi/wallet/src/features/wallet/accounts/types'
 import { ExploreOrderBy } from '@luxfi/wallet/src/features/wallet/types'
 

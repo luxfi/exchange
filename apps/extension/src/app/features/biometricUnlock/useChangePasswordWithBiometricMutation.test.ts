@@ -3,7 +3,7 @@ import { waitFor } from '@testing-library/react'
 import { BiometricUnlockStorage } from 'src/app/features/biometricUnlock/BiometricUnlockStorage'
 import { useChangePasswordWithBiometricMutation } from 'src/app/features/biometricUnlock/useChangePasswordWithBiometricMutation'
 import { renderHookWithProviders } from 'src/test/render'
-import { logger } from '@luxfi/utilities/src/logger/logger'
+import { logger } from '@l.x/utils/src/logger/logger'
 import { encodeForStorage, encrypt, generateNew256BitRandomBuffer } from '@luxfi/wallet/src/features/wallet/Keyring/crypto'
 import { Keyring } from '@luxfi/wallet/src/features/wallet/Keyring/Keyring'
 

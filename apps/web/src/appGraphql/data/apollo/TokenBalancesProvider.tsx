@@ -4,7 +4,7 @@ import { PropsWithChildren, useCallback, useEffect, useMemo, useState } from 're
 import { useEnabledChains } from '@l.x/lx/src/features/chains/hooks/useEnabledChains'
 // biome-ignore lint/style/noRestrictedImports: This import is needed for fetching portfolio value modifiers despite being restricted
 import { usePortfolioValueModifiers } from '@l.x/lx/src/features/dataApi/balances/balances'
-import { usePrevious } from '@luxfi/utilities/src/react/hooks'
+import { usePrevious } from '@l.x/utils/src/react/hooks'
 import { AdaptiveTokenBalancesProvider } from '~/appGraphql/data/apollo/AdaptiveTokenBalancesProvider'
 import { apolloClient } from '~/appGraphql/data/apollo/client'
 import { usePendingActivity } from '~/components/AccountDrawer/MiniPortfolio/Activity/hooks'

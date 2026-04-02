@@ -1,4 +1,4 @@
-import { trimToLength } from '@luxfi/utilities/src/primitives/string'
+import { trimToLength } from '@l.x/utils/src/primitives/string'
 
 export class PlatformSplitStubError extends Error {
   constructor(functionName: string) {

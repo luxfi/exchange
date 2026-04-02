@@ -9,7 +9,7 @@ import { TokenLogo } from '@l.x/lx/src/components/CurrencyLogo/TokenLogo'
 import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { useCurrencyInfo } from '@l.x/lx/src/features/tokens/useCurrencyInfo'
 import { buildCurrencyId, currencyAddress } from '@l.x/lx/src/utils/currencyId'
-import { isMobileApp } from '@luxfi/utilities/src/platform'
+import { isMobileApp } from '@l.x/utils/src/platform'
 import { deprecatedStyled } from '~/lib/deprecated-styled'
 
 const MissingImageLogo = deprecatedStyled.div<{ $size?: string; $textColor: string; $backgroundColor: string }>`

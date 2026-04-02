@@ -10,7 +10,7 @@ import * as ensHooks from '@l.x/lx/src/features/ens/api'
 import { ON_PRESS_EVENT_PAYLOAD, SAMPLE_SEED_ADDRESS_1 } from '@l.x/lx/src/test/fixtures'
 import { MobileScreens } from '@l.x/lx/src/types/screens/mobile'
 import { sanitizeAddressText } from '@l.x/lx/src/utils/addresses'
-import { shortenAddress } from '@luxfi/utilities/src/addresses'
+import { shortenAddress } from '@l.x/utils/src/addresses'
 import { preloadedWalletReducerState, signerMnemonicAccount } from '@luxfi/wallet/src/test/fixtures'
 
 const mockedNavigation = {

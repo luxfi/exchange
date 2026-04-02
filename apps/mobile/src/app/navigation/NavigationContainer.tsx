@@ -19,10 +19,10 @@ import { useSporeColors } from '@l.x/ui/src'
 import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
 import Trace from '@l.x/lx/src/features/telemetry/Trace'
 import { MobileNavScreen } from '@l.x/lx/src/types/screens/mobile'
-import { datadogEnabledBuild } from '@luxfi/utilities/src/environment/constants'
-import { logger } from '@luxfi/utilities/src/logger/logger'
-import { useEvent } from '@luxfi/utilities/src/react/hooks'
-import { sleep } from '@luxfi/utilities/src/time/timing'
+import { datadogEnabledBuild } from '@l.x/utils/src/environment/constants'
+import { logger } from '@l.x/utils/src/logger/logger'
+import { useEvent } from '@l.x/utils/src/react/hooks'
+import { sleep } from '@l.x/utils/src/time/timing'
 
 interface Props {
   onReady?: (navigationRef: NavigationContainerRefWithCurrent<ReactNavigation.RootParamList>) => void

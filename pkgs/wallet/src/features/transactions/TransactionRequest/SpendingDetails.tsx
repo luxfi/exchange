@@ -10,8 +10,8 @@ import { useLocalizationContext } from '@l.x/lx/src/features/language/Localizati
 import { getCurrencyAmount, ValueType } from '@l.x/lx/src/features/tokens/getCurrencyAmount'
 import { useNativeCurrencyInfo } from '@l.x/lx/src/features/tokens/useCurrencyInfo'
 import { getSymbolDisplayText } from '@l.x/lx/src/utils/currency'
-import { NumberType } from '@luxfi/utilities/src/format/types'
-import { isMobileApp } from '@luxfi/utilities/src/platform'
+import { NumberType } from '@l.x/utils/src/format/types'
+import { isMobileApp } from '@l.x/utils/src/platform'
 
 export function SpendingEthDetails({ value, chainId }: { value: string; chainId: UniverseChainId }): JSX.Element {
   const variant = isMobileApp ? 'body3' : 'body4'

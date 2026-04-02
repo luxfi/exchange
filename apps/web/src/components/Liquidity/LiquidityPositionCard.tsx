@@ -11,7 +11,7 @@ import { useLocalizationContext } from 'lx/src/features/language/LocalizationCon
 import { useCurrencyInfo } from 'lx/src/features/tokens/useCurrencyInfo'
 import { useUSDCValue } from 'lx/src/features/transactions/hooks/useUSDCPriceWrapper'
 import { buildCurrencyId, currencyAddress } from 'lx/src/utils/currencyId'
-import { NumberType } from '@luxfi/utilities/src/format/types'
+import { NumberType } from '@l.x/utils/src/format/types'
 import {
   CHART_HEIGHT,
   CHART_WIDTH,

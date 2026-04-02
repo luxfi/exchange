@@ -19,7 +19,7 @@ import { useLocalizationContext } from 'lx/src/features/language/LocalizationCon
 import { ModalName } from 'lx/src/features/telemetry/constants'
 import { TestID } from 'lx/src/test/fixtures/testIDs'
 import { ExplorerDataType, getExplorerLink, openUri } from 'lx/src/utils/linking'
-import { shortenAddress } from '@luxfi/utilities/src/addresses'
+import { shortenAddress } from '@l.x/utils/src/addresses'
 import { FOTTooltipContent } from '~/components/swap/SwapLineItem'
 import { MouseoverTooltip, TooltipSize } from '~/components/Tooltip'
 import useCopyClipboard from '~/hooks/useCopyClipboard'

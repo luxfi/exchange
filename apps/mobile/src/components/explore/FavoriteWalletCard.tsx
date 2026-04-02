@@ -11,8 +11,8 @@ import { DisplayNameText } from '@l.x/lx/src/components/accounts/DisplayNameText
 import { AccountIcon } from '@l.x/lx/src/features/accounts/AccountIcon'
 import { DisplayNameType } from '@l.x/lx/src/features/accounts/types'
 import { removeWatchedAddress } from '@l.x/lx/src/features/favorites/slice'
-import { isIOS } from '@luxfi/utilities/src/platform'
-import { noop } from '@luxfi/utilities/src/react/noop'
+import { isIOS } from '@l.x/utils/src/platform'
+import { noop } from '@l.x/utils/src/react/noop'
 import { useDisplayName } from '@luxfi/wallet/src/features/wallet/hooks'
 
 export type FavoriteWalletCardProps = {

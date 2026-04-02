@@ -1,6 +1,6 @@
 import { ApolloLink } from '@apollo/client'
 import { datadogRum } from '@datadog/browser-rum'
-import { getOperationName, getOperationType } from '@luxfi/utilities/src/logger/datadog/datadogLinkUtils'
+import { getOperationName, getOperationType } from '@l.x/utils/src/logger/datadog/datadogLinkUtils'
 
 const DATADOG_CUSTOM_HEADER_PREFIX = '_dd-custom-header'
 const DATADOG_GRAPH_QL_OPERATION_NAME_HEADER = `${DATADOG_CUSTOM_HEADER_PREFIX}-graph-ql-operation-name`

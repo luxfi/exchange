@@ -4,7 +4,7 @@ import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { useTokenProjects } from '@l.x/lx/src/features/dataApi/tokenProjects/tokenProjects'
 import { CurrencyInfo } from '@l.x/lx/src/features/dataApi/types'
 import { buildCurrencyId } from '@l.x/lx/src/utils/currencyId'
-import { isEVMAddressWithChecksum } from '@luxfi/utilities/src/addresses/evm/evm'
+import { isEVMAddressWithChecksum } from '@l.x/utils/src/addresses/evm/evm'
 
 export function useTransactionCurrencies(args: {
   chainId?: UniverseChainId

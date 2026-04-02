@@ -6,9 +6,9 @@ import { getNativeAddress } from '@l.x/lx/src/constants/addresses'
 import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { TransactionStatus } from '@l.x/lx/src/features/transactions/types/transactionDetails'
 import i18n from '@l.x/lx/src/i18n'
-import { logger } from '@luxfi/utilities/src/logger/logger'
-import { ONE_SECOND_MS } from '@luxfi/utilities/src/time/time'
-import { DEFAULT_ERC20_DECIMALS } from '@luxfi/utilities/src/tokens/constants'
+import { logger } from '@l.x/utils/src/logger/logger'
+import { ONE_SECOND_MS } from '@l.x/utils/src/time/time'
+import { DEFAULT_ERC20_DECIMALS } from '@l.x/utils/src/tokens/constants'
 import { Activity, ActivityMap } from '~/components/AccountDrawer/MiniPortfolio/Activity/types'
 
 interface ActivityGroup {

@@ -9,7 +9,7 @@ import { ON_PRESS_EVENT_PAYLOAD } from '@l.x/lx/src/test/fixtures'
 import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
 import { MobileScreens } from '@l.x/lx/src/types/screens/mobile'
 import { sanitizeAddressText } from '@l.x/lx/src/utils/addresses'
-import { shortenAddress } from '@luxfi/utilities/src/addresses'
+import { shortenAddress } from '@l.x/utils/src/addresses'
 import { ACCOUNT, preloadedWalletPackageState, signerMnemonicAccount } from '@luxfi/wallet/src/test/fixtures'
 
 const preloadedState = preloadedWalletPackageState({ account: ACCOUNT })

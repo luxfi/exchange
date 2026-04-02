@@ -12,7 +12,7 @@ import { BETA_LOGO } from '@l.x/ui/src/assets'
 import { Modal } from 'lx/src/components/modals/Modal'
 import { ModalName } from 'lx/src/features/telemetry/constants'
 import { TestID } from 'lx/src/test/fixtures/testIDs'
-import { useTimeout } from '@luxfi/utilities/src/time/timing'
+import { useTimeout } from '@l.x/utils/src/time/timing'
 
 export function BetaPasscodeModal(): JSX.Element {
   const { t } = useTranslation()

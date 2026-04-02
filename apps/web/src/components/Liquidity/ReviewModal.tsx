@@ -18,7 +18,7 @@ import { ModalNameType } from '@l.x/lx/src/features/telemetry/constants'
 import { useUSDCValue } from '@l.x/lx/src/features/transactions/hooks/useUSDCPriceWrapper'
 import { TransactionStep } from '@l.x/lx/src/features/transactions/steps/types'
 import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
-import { NumberType } from '@luxfi/utilities/src/format/types'
+import { NumberType } from '@l.x/utils/src/format/types'
 import {
   getLiquidityRangeChartProps,
   WrappedLiquidityPositionRangeChart,

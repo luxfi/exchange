@@ -29,8 +29,8 @@ import { ElementName, ModalName } from '@l.x/lx/src/features/telemetry/constants
 import Trace from '@l.x/lx/src/features/telemetry/Trace'
 import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
 import { UwULinkRequest } from '@l.x/lx/src/types/walletConnect'
-import { isBetaEnv, isDevEnv } from '@luxfi/utilities/src/environment/env'
-import { logger } from '@luxfi/utilities/src/logger/logger'
+import { isBetaEnv, isDevEnv } from '@l.x/utils/src/environment/env'
+import { logger } from '@l.x/utils/src/logger/logger'
 import { useContractManager, useProviderManager } from '@luxfi/wallet/src/features/wallet/context'
 import { useActiveAccount } from '@luxfi/wallet/src/features/wallet/hooks'
 

@@ -197,7 +197,7 @@
     "zod": "catalog:",
     "zustand": "5.0.6",
     "@l.x/lx": "workspace:^",
-    "@luxfi/utilities": "workspace:^",
+    "@l.x/utils": "^1.1.0",
     "@luxfi/wallet": "workspace:^"
   },
   "devDependencies": {

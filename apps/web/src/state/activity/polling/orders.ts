@@ -14,7 +14,7 @@ import {
 } from '@l.x/lx/src/features/transactions/types/transactionDetails'
 import { isFinalizedTxStatus } from '@l.x/lx/src/features/transactions/types/utils'
 import { convertOrderStatusToTransactionStatus } from '@l.x/lx/src/features/transactions/utils/dexUtils'
-import { logger } from '@luxfi/utilities/src/logger/logger'
+import { logger } from '@l.x/utils/src/logger/logger'
 import { useAccount } from '~/hooks/useAccount'
 import { ActivityUpdateTransactionType, OnActivityUpdate } from '~/state/activity/types'
 import { usePendingDEXOrders } from '~/state/transactions/hooks'

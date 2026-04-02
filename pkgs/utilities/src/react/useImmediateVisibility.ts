@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { useEvent } from '@luxfi/utilities/src/react/hooks'
+import { useEvent } from '@l.x/utils/src/react/hooks'
 
 /**
  * Manages visibility state with immediate UI response to user actions.

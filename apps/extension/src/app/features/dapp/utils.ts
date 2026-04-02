@@ -1,8 +1,8 @@
 import { AccountType } from '@l.x/lx/src/features/accounts/types'
-import { extractNameFromUrl } from '@luxfi/utilities/src/format/extractNameFromUrl'
-import { bubbleToTop } from '@luxfi/utilities/src/primitives/array'
-import { ONE_SECOND_MS } from '@luxfi/utilities/src/time/time'
-import { promiseTimeout } from '@luxfi/utilities/src/time/timing'
+import { extractNameFromUrl } from '@l.x/utils/src/format/extractNameFromUrl'
+import { bubbleToTop } from '@l.x/utils/src/primitives/array'
+import { ONE_SECOND_MS } from '@l.x/utils/src/time/time'
+import { promiseTimeout } from '@l.x/utils/src/time/timing'
 import { Account, SignerMnemonicAccount } from '@luxfi/wallet/src/features/wallet/accounts/types'
 
 const MAX_TAB_QUERY_TIME = ONE_SECOND_MS

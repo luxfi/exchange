@@ -16,9 +16,9 @@ import { attemptPinDecryption, executeRecovery } from 'lx/src/features/passkey/r
 import { InterfaceEventName, ModalName } from 'lx/src/features/telemetry/constants'
 import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
 import { WalletConnectionResult } from 'lx/src/features/telemetry/types'
-import { shortenAddress } from '@luxfi/utilities/src/addresses'
-import { logger } from '@luxfi/utilities/src/logger/logger'
-import { useEvent } from '@luxfi/utilities/src/react/hooks'
+import { shortenAddress } from '@l.x/utils/src/addresses'
+import { logger } from '@l.x/utils/src/logger/logger'
+import { useEvent } from '@l.x/utils/src/react/hooks'
 import { LIST_AUTHENTICATORS_QUERY_KEY } from '~/components/AccountDrawer/PasskeyMenu/PasskeyMenu'
 import { useDigitInput } from '~/components/Passkey/BackupLoginComponents'
 import {

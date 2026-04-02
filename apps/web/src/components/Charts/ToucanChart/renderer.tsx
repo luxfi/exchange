@@ -10,7 +10,7 @@ import {
   Time,
   UTCTimestamp,
 } from 'lightweight-charts'
-import { logger } from '@luxfi/utilities/src/logger/logger'
+import { logger } from '@l.x/utils/src/logger/logger'
 import { roundRect } from '~/components/Charts/utils'
 import { ColumnPosition, calculateColumnPositionsInPlace, positionsBox } from '~/components/Charts/VolumeChart/utils'
 import {

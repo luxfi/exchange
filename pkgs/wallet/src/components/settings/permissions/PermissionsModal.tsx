@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next'
 import { Flex, Text } from '@l.x/ui/src'
 import { Modal } from '@l.x/lx/src/components/modals/Modal'
 import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
-import { isExtensionApp } from '@luxfi/utilities/src/platform'
+import { isExtensionApp } from '@l.x/utils/src/platform'
 import { AnalyticsToggleLineSwitch } from '@luxfi/wallet/src/components/settings/AnalyticsToggleLineSwitch'
 import { DefaultWalletLineSwitch } from '@luxfi/wallet/src/components/settings/permissions/DefaultWalletLineSwitch'
 

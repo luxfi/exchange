@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux'
 import { useIsWalletUnlocked } from 'src/app/hooks/useIsWalletUnlocked'
 import { useIsChromeWindowFocused } from '@l.x/lx/src/extension/useIsChromeWindowFocused'
 import { selectDeviceAccessTimeoutMinutes } from '@l.x/lx/src/features/settings/selectors'
-import { logger } from '@luxfi/utilities/src/logger/logger'
+import { logger } from '@l.x/utils/src/logger/logger'
 
 export const AUTO_LOCK_ALARM_NAME = 'AutoLockAlarm'
 

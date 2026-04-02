@@ -5,7 +5,7 @@ import { AccountType } from '@l.x/lx/src/features/accounts/types'
 import { MobileAppsFlyerEvents } from '@l.x/lx/src/features/telemetry/constants'
 import { sendAppsFlyerEvent } from '@l.x/lx/src/features/telemetry/send'
 import { useWallet } from '@l.x/lx/src/features/wallet/hooks/useWallet'
-import { logger } from '@luxfi/utilities/src/logger/logger'
+import { logger } from '@l.x/utils/src/logger/logger'
 import { usePortfolioDataForReporting } from '@luxfi/wallet/src/features/telemetry/hooks/usePortfolioDataForReporting'
 import {
   selectLastBalancesReport,

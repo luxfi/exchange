@@ -5,7 +5,7 @@ import { LiquidityEventName } from '@l.x/lx/src/features/telemetry/constants'
 import { LiquidityAnalyticsProperties } from '@l.x/lx/src/features/telemetry/types'
 import { TransactionStepType } from '@l.x/lx/src/features/transactions/steps/types'
 import { currencyId, currencyIdToAddress } from '@l.x/lx/src/utils/currencyId'
-import { ITraceContext } from '@luxfi/utilities/src/telemetry/trace/TraceContext'
+import { ITraceContext } from '@l.x/utils/src/telemetry/trace/TraceContext'
 
 export function getLPBaseAnalyticsProperties({
   trace,

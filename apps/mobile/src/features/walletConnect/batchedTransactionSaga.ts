@@ -11,7 +11,7 @@ import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
 import { getEnabledChainIdsSaga } from '@l.x/lx/src/features/settings/saga'
 import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
-import { logger } from '@luxfi/utilities/src/logger/logger'
+import { logger } from '@l.x/utils/src/logger/logger'
 import { getCallsStatusHelper } from '@luxfi/wallet/src/features/batchedTransactions/eip5792Utils'
 import {
   getCapabilitiesForDelegationStatus,

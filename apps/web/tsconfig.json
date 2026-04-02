@@ -32,7 +32,7 @@
       "@/*": ["./*"],
       "~/*": ["./src/*"],
       "@l.x/ui/src/*": ["../../pkgs/ui/src/*"],
-      "@luxfi/utilities/src/*": ["../../pkgs/utilities/src/*"],
+      "@l.x/utils/src/*": ["../../pkgs/utilities/src/*"],
       "@l.x/lx/src/*": ["../../pkgs/lx/src/*"],
       "@luxfi/dex/src/*": ["../../pkgs/dex/src/*"],
       "@luxfi/exchange/src/*": ["../../pkgs/exchange/src/*"]

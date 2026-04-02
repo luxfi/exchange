@@ -1,5 +1,5 @@
-import type { IClipboard } from '@luxfi/utilities/src/clipboard/clipboard'
-import { logger } from '@luxfi/utilities/src/logger/logger'
+import type { IClipboard } from '@l.x/utils/src/clipboard/clipboard'
+import { logger } from '@l.x/utils/src/logger/logger'
 
 /**
  * Legacy clipboard copy using execCommand.

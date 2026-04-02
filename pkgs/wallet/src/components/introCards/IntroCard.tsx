@@ -24,7 +24,7 @@ import {
   DappRequestCardLoggingName,
   OnboardingCardLoggingName,
 } from '@l.x/lx/src/features/telemetry/types'
-import { isExtensionApp } from '@luxfi/utilities/src/platform'
+import { isExtensionApp } from '@l.x/utils/src/platform'
 
 const DESCRIPTION_LENGTH_THRESHOLD = 66
 

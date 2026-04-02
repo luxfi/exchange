@@ -1,7 +1,7 @@
 import { useMemo } from 'react'
 import { CONNECTION_PROVIDER_IDS } from '@l.x/lx/src/constants/web3'
 import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
-import { useEvent } from '@luxfi/utilities/src/react/hooks'
+import { useEvent } from '@l.x/utils/src/react/hooks'
 import { useAccountDrawer } from '~/components/AccountDrawer/MiniPortfolio/hooks'
 import {
   getWalletRequiresSeparatePrompt,

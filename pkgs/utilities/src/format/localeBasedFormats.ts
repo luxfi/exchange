@@ -2,7 +2,7 @@
 // Number formatting in our app should follow the guide in this doc:
 // https://www.notion.so/luxlabs/Number-standards-fbb9f533f10e4e22820722c2f66d23c0
 
-import { NumberType } from '@luxfi/utilities/src/format/types'
+import { NumberType } from '@l.x/utils/src/format/types'
 
 const numberFormatCache: Record<string, Intl.NumberFormat> = {}
 

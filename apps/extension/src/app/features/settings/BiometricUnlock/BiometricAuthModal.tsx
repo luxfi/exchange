@@ -4,7 +4,7 @@ import { HelpCenter } from '@l.x/ui/src/components/icons'
 import { Modal } from '@l.x/lx/src/components/modals/Modal'
 import { lxUrls } from '@l.x/lx/src/constants/urls'
 import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
-import { useEvent } from '@luxfi/utilities/src/react/hooks'
+import { useEvent } from '@l.x/utils/src/react/hooks'
 
 export function BiometricAuthModal({
   onClose,

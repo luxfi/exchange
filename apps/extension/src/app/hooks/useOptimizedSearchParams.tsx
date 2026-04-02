@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { createSearchParams } from 'react-router'
 import { getRouter } from 'src/app/navigation/state'
-import { sleep } from '@luxfi/utilities/src/time/timing'
+import { sleep } from '@l.x/utils/src/time/timing'
 
 const getSearchParams = (): URLSearchParams => createSearchParams(new URLSearchParams(window.location.hash.slice(2)))
 

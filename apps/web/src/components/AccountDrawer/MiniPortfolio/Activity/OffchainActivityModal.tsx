@@ -23,7 +23,7 @@ import { isLimitCancellable } from '@l.x/lx/src/features/transactions/utils/dexU
 import { CurrencyField } from '@l.x/lx/src/types/currency'
 import { currencyIdToAddress } from '@l.x/lx/src/utils/currencyId'
 import { ExplorerDataType, getExplorerLink } from '@l.x/lx/src/utils/linking'
-import { logger } from '@luxfi/utilities/src/logger/logger'
+import { logger } from '@l.x/utils/src/logger/logger'
 import {
   CancellationState,
   CancelOrdersDialog,

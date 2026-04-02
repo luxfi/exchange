@@ -1,7 +1,7 @@
 import { ProtocolVersion } from '@luxamm/client-data-api/dist/data/v1/poolTypes_pb'
 import { Currency } from '@luxamm/sdk-core'
 import { nearestUsableTick } from '@luxamm/v3-sdk'
-import { logger } from '@luxfi/utilities/src/logger/logger'
+import { logger } from '@l.x/utils/src/logger/logger'
 import { TickData } from '~/appGraphql/data/AllV3TicksQuery'
 import { ChartEntry } from '~/components/Charts/LiquidityRangeInput/types'
 import { getDisplayPriceFromTick } from '~/utils/getTickToPrice'

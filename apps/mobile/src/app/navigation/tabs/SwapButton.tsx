@@ -13,7 +13,7 @@ import Trace from '@l.x/lx/src/features/telemetry/Trace'
 import { selectFilteredChainIds } from '@l.x/lx/src/features/transactions/swap/state/selectors'
 import { prepareSwapFormState } from '@l.x/lx/src/features/transactions/types/transactionState'
 import { CurrencyField } from '@l.x/lx/src/types/currency'
-import { useEvent } from '@luxfi/utilities/src/react/hooks'
+import { useEvent } from '@l.x/utils/src/react/hooks'
 import { useActiveAccountAddressWithThrow } from '@luxfi/wallet/src/features/wallet/hooks'
 
 const ACTIVE_SCALE = 0.96

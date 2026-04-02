@@ -1,6 +1,6 @@
 import { brand, getBrandUrl, getDocsUrl } from '@l.x/config'
 import { zIndexes } from '@l.x/ui/src/theme'
-import { isWebAndroid, isWebIOS } from '@luxfi/utilities/src/platform'
+import { isWebAndroid, isWebIOS } from '@l.x/utils/src/platform'
 import { type CreateConnectorFn, createConnector } from 'wagmi'
 import { walletConnect } from 'wagmi/connectors'
 

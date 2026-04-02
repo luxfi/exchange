@@ -18,7 +18,7 @@ import { isWrap } from '@l.x/lx/src/features/transactions/swap/utils/routing'
 import { TransactionType } from '@l.x/lx/src/features/transactions/types/transactionDetails'
 import { isFinalizedTx } from '@l.x/lx/src/features/transactions/types/utils'
 import { WrapType } from '@l.x/lx/src/features/transactions/types/wrap'
-import type { Logger } from '@luxfi/utilities/src/logger/logger'
+import type { Logger } from '@l.x/utils/src/logger/logger'
 import { apolloClientRef } from '@luxfi/wallet/src/data/apollo/usePersistedApolloClient'
 import { createTransactionServices } from '@luxfi/wallet/src/features/transactions/factories/createTransactionServices'
 import {

@@ -13,7 +13,7 @@ import { lxUrls } from '@l.x/lx/src/constants/urls'
 import { ElementName, ModalName } from '@l.x/lx/src/features/telemetry/constants'
 import Trace from '@l.x/lx/src/features/telemetry/Trace'
 import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
-import { shortenAddress } from '@luxfi/utilities/src/addresses'
+import { shortenAddress } from '@l.x/utils/src/addresses'
 import {
   type FlagWarning,
   getFlagsFromContractAddress,

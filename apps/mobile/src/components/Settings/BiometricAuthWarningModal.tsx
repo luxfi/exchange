@@ -4,7 +4,7 @@ import { useBiometricName } from 'src/features/biometricsSettings/hooks'
 import { WarningSeverity } from '@l.x/lx/src/components/modals/WarningModal/types'
 import { WarningModal, WarningModalProps } from '@l.x/lx/src/components/modals/WarningModal/WarningModal'
 import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
-import { isAndroid } from '@luxfi/utilities/src/platform'
+import { isAndroid } from '@l.x/utils/src/platform'
 
 type Props = {
   isOpen: boolean

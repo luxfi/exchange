@@ -1,4 +1,4 @@
-import { isAndroid, isExtensionApp, isIOS } from '@luxfi/utilities/src/platform'
+import { isAndroid, isExtensionApp, isIOS } from '@l.x/utils/src/platform'
 
 /**
  * Returns the x-request-source header value for the current platform.

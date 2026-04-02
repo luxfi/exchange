@@ -11,7 +11,7 @@ import {
 } from 'src/screens/Import/SeedPhraseInputScreen/SeedPhraseInput/types'
 import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
 import { OnboardingScreens } from '@l.x/lx/src/types/screens/mobile'
-import { isAndroid } from '@luxfi/utilities/src/platform'
+import { isAndroid } from '@l.x/utils/src/platform'
 
 const styles = StyleSheet.create({
   input: {

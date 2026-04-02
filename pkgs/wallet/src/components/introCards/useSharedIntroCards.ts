@@ -15,8 +15,8 @@ import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { OnboardingCardLoggingName } from '@l.x/lx/src/features/telemetry/types'
 import { UNITAG_SUFFIX_NO_LEADING_DOT } from '@l.x/lx/src/features/unitags/constants'
 import { buildNativeCurrencyId } from '@l.x/lx/src/utils/currencyId'
-import { isExtensionApp } from '@luxfi/utilities/src/platform'
-import { useEvent } from '@luxfi/utilities/src/react/hooks'
+import { isExtensionApp } from '@l.x/utils/src/platform'
+import { useEvent } from '@l.x/utils/src/react/hooks'
 import { CardType, IntroCardGraphicType, IntroCardProps } from '@luxfi/wallet/src/components/introCards/IntroCard'
 import {
   selectHasDismissedNoAppFeesAnnouncement,

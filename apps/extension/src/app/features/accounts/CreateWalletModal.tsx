@@ -6,7 +6,7 @@ import { TextInput } from '@l.x/lx/src/components/input/TextInput'
 import { Modal } from '@l.x/lx/src/components/modals/Modal'
 import { AccountIcon } from '@l.x/lx/src/features/accounts/AccountIcon'
 import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
-import { shortenAddress } from '@luxfi/utilities/src/addresses'
+import { shortenAddress } from '@l.x/utils/src/addresses'
 import { SignerMnemonicAccount } from '@luxfi/wallet/src/features/wallet/accounts/types'
 
 type CreateWalletModalProps = {

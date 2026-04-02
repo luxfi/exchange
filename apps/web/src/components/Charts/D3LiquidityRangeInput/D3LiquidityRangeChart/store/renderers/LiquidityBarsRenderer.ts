@@ -1,6 +1,6 @@
 import { nearestUsableTick, TickMath } from '@luxamm/v3-sdk'
 import * as d3 from 'd3'
-import { logger } from '@luxfi/utilities/src/logger/logger'
+import { logger } from '@l.x/utils/src/logger/logger'
 import {
   CHART_BEHAVIOR,
   CHART_DIMENSIONS,

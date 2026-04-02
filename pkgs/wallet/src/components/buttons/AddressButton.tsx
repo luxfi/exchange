@@ -3,7 +3,7 @@ import { useEnabledChains } from '@l.x/lx/src/features/chains/hooks/useEnabledCh
 import { toSupportedChainId } from '@l.x/lx/src/features/chains/utils'
 import { useENSName } from '@l.x/lx/src/features/ens/api'
 import { ExplorerDataType, getExplorerLink } from '@l.x/lx/src/utils/linking'
-import { shortenAddress } from '@luxfi/utilities/src/addresses'
+import { shortenAddress } from '@l.x/utils/src/addresses'
 import { LinkButton } from '@luxfi/wallet/src/components/buttons/LinkButton'
 
 type AddressButtonProps = {

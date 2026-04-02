@@ -14,7 +14,7 @@ import { DEFAULT_FLASHBOTS_ENABLED } from '@l.x/lx/src/features/providers/Flashb
 import { makeSelectAddressTransactions } from '@l.x/lx/src/features/transactions/selectors'
 import { isClassic } from '@l.x/lx/src/features/transactions/swap/utils/routing'
 import { TransactionStatus } from '@l.x/lx/src/features/transactions/types/transactionDetails'
-import { logger } from '@luxfi/utilities/src/logger/logger'
+import { logger } from '@l.x/utils/src/logger/logger'
 import { isPrivateRpcSupportedOnChain } from '@luxfi/wallet/src/features/providers/utils'
 import { getPrivateProvider, getProvider } from '@luxfi/wallet/src/features/wallet/context'
 

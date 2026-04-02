@@ -2,7 +2,7 @@
  *  Taken from https://github.com/Lx/tamperproof-transactions/blob/main/src/utils/canonicalJson.ts
  *  Can be removed if we decide to use the tamperproof-transactions package.
  */
-import { canonicalStringify, serializeRequestPayload } from '@luxfi/utilities/src/format/canonicalJson'
+import { canonicalStringify, serializeRequestPayload } from '@l.x/utils/src/format/canonicalJson'
 
 describe('canonicalJson utilities', () => {
   describe('canonicalStringify', () => {

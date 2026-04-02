@@ -1,6 +1,6 @@
 import { ProtocolVersion } from '@luxamm/client-data-api/dist/data/v1/poolTypes_pb'
 import { createContext, useContext, useState } from 'react'
-import { isDevEnv } from '@luxfi/utilities/src/environment/env'
+import { isDevEnv } from '@l.x/utils/src/environment/env'
 import type { StoreApi, UseBoundStore } from 'zustand'
 import { create, useStore } from 'zustand'
 import { devtools } from 'zustand/middleware'

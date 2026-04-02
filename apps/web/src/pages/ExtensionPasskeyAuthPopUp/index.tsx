@@ -18,10 +18,10 @@ import {
 import { authenticatePasskey } from '@l.x/lx/src/features/passkey/passkey'
 import { InterfacePageName } from '@l.x/lx/src/features/telemetry/constants'
 import Trace from '@l.x/lx/src/features/telemetry/Trace'
-import { getChromeRuntime, getChromeRuntimeWithThrow } from '@luxfi/utilities/src/chrome/chrome'
-import { logger } from '@luxfi/utilities/src/logger/logger'
-import { ONE_SECOND_MS } from '@luxfi/utilities/src/time/time'
-import { useTimeout } from '@luxfi/utilities/src/time/timing'
+import { getChromeRuntime, getChromeRuntimeWithThrow } from '@l.x/utils/src/chrome/chrome'
+import { logger } from '@l.x/utils/src/logger/logger'
+import { ONE_SECOND_MS } from '@l.x/utils/src/time/time'
+import { useTimeout } from '@l.x/utils/src/time/timing'
 import { useExternallyConnectableExtensionId } from '~/pages/ExtensionPasskeyAuthPopUp/useExternallyConnectableExtensionId'
 
 // Passkey Auth Flow: Extension <> Web App

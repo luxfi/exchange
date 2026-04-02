@@ -5,7 +5,7 @@ import { QuestionInCircleFilled } from '@l.x/ui/src/components/icons/QuestionInC
 import { Tooltip } from '@l.x/ui/src/components/tooltip/Tooltip'
 import { zIndexes } from '@l.x/ui/src/theme'
 import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
-import { NumberType } from '@luxfi/utilities/src/format/types'
+import { NumberType } from '@l.x/utils/src/format/types'
 import { useSliderRef } from '~/pages/Liquidity/CreateAuction/components/useSliderRef'
 import { percentOfAmount } from '~/pages/Liquidity/CreateAuction/utils'
 

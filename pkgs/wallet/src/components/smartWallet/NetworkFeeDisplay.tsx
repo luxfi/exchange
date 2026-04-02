@@ -5,7 +5,7 @@ import { NetworkLogo } from '@l.x/lx/src/components/CurrencyLogo/NetworkLogo'
 import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
 import { getCurrencyAmount, ValueType } from '@l.x/lx/src/features/tokens/getCurrencyAmount'
-import { NumberType } from '@luxfi/utilities/src/format/types'
+import { NumberType } from '@l.x/utils/src/format/types'
 import { GroupedGasFee } from '@luxfi/wallet/src/features/smartWallet/utils/gasFeeUtils'
 
 interface NetworkFeeDisplayProps {

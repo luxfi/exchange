@@ -1,5 +1,5 @@
 import { hasRequiredDataForBalancesReport } from '@l.x/lx/src/features/accounts/reportBalancesForAnalytics'
-import { ONE_MINUTE_MS } from '@luxfi/utilities/src/time/time'
+import { ONE_MINUTE_MS } from '@l.x/utils/src/time/time'
 
 /**
  * Pure business logic for balance reporting timing and validation

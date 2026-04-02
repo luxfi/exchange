@@ -12,7 +12,7 @@ import { isNonInstantFlashblockTransactionType } from '@l.x/lx/src/features/tran
 import { TransactionStatus } from '@l.x/lx/src/features/transactions/types/transactionDetails'
 import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
 import { ExplorerDataType, getExplorerLink } from '@l.x/lx/src/utils/linking'
-import { noop } from '@luxfi/utilities/src/react/noop'
+import { noop } from '@l.x/utils/src/react/noop'
 import { useOpenOffchainActivityModal } from '~/components/AccountDrawer/MiniPortfolio/Activity/OffchainActivityModal'
 import {
   getFORTransactionToActivityQueryOptions,

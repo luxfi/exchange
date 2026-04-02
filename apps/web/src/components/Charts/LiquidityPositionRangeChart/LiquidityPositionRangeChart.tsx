@@ -17,8 +17,8 @@ import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import useResizeObserver from 'use-resize-observer'
 // Not using the formatters in a react context, so we need to import the formatter directly.
 // biome-ignore lint/style/noRestrictedImports: Need direct formatter import for chart formatting outside React context
-import { formatNumber } from '@luxfi/utilities/src/format/localeBased'
-import { isMobileWeb } from '@luxfi/utilities/src/platform'
+import { formatNumber } from '@l.x/utils/src/format/localeBased'
+import { isMobileWeb } from '@l.x/utils/src/platform'
 import { ActiveLiquidityChart } from '~/components/Charts/ActiveLiquidityChart/ActiveLiquidityChart'
 import { BandsIndicator } from '~/components/Charts/BandsIndicator/bands-indicator'
 import { cloneReadonly } from '~/components/Charts/BandsIndicator/helpers/simple-clone'

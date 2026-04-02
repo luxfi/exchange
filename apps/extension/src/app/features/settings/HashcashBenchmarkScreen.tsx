@@ -10,7 +10,7 @@ import {
   useHashcashBenchmarkStore,
 } from 'src/app/features/settings/stores/hashcashBenchmarkStore'
 import { Button, Flex, ScrollView, Text, TouchableArea } from '@l.x/ui/src'
-import { logger } from '@luxfi/utilities/src/logger/logger'
+import { logger } from '@l.x/utils/src/logger/logger'
 import { useShallow } from 'zustand/shallow'
 
 function formatTime(date: Date): string {

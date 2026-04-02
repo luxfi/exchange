@@ -9,7 +9,7 @@ import {
   isValidTransactionRequest,
   ValidatedTransactionRequest,
 } from '@l.x/lx/src/features/transactions/types/transactionRequests'
-import { logger } from '@luxfi/utilities/src/logger/logger'
+import { logger } from '@l.x/utils/src/logger/logger'
 import { SignedTransactionRequest } from '@luxfi/wallet/src/features/transactions/executeTransaction/types'
 import { Account, SignerMnemonicAccount } from '@luxfi/wallet/src/features/wallet/accounts/types'
 

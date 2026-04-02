@@ -10,8 +10,8 @@ import {
   TransactionType,
   TransactionTypeInfo,
 } from '@l.x/lx/src/features/transactions/types/transactionDetails'
-import { ensure0xHex } from '@luxfi/utilities/src/addresses/hex'
-import { logger } from '@luxfi/utilities/src/logger/logger'
+import { ensure0xHex } from '@l.x/utils/src/addresses/hex'
+import { logger } from '@l.x/utils/src/logger/logger'
 import { isPrivateRpcSupportedOnChain } from '@luxfi/wallet/src/features/providers/utils'
 import { ExecuteTransactionParams } from '@luxfi/wallet/src/features/transactions/executeTransaction/executeTransactionSaga'
 import { AnalyticsService } from '@luxfi/wallet/src/features/transactions/executeTransaction/services/analyticsService'

@@ -1,5 +1,5 @@
-import { logger } from '@luxfi/utilities/src/logger/logger'
-import { sleep } from '@luxfi/utilities/src/time/timing'
+import { logger } from '@l.x/utils/src/logger/logger'
+import { sleep } from '@l.x/utils/src/time/timing'
 
 /** Backoff strategy for retries. */
 export enum BackoffStrategy {

@@ -1,8 +1,8 @@
 import { getOneSignalPushToken } from 'src/features/notifications/Onesignal'
 import { config } from '@l.x/lx/src/config'
-import { isTestEnv } from '@luxfi/utilities/src/environment/env'
-import { logger } from '@luxfi/utilities/src/logger/logger'
-import { isAndroid } from '@luxfi/utilities/src/platform'
+import { isTestEnv } from '@l.x/utils/src/environment/env'
+import { logger } from '@l.x/utils/src/logger/logger'
+import { isAndroid } from '@l.x/utils/src/platform'
 
 const WC_HOSTED_PUSH_SERVER_URL = `https://echo.walletconnect.com/${config.walletConnectProjectId}`
 

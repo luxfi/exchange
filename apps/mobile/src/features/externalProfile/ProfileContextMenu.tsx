@@ -17,9 +17,9 @@ import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
 import { MobileScreens } from 'lx/src/types/screens/mobile'
 import { ShareableEntity } from 'lx/src/types/sharing'
 import { ExplorerDataType, getExplorerLink, getPortfolioUrl, openUri } from 'lx/src/utils/linking'
-import { setClipboard } from '@luxfi/utilities/src/clipboard/clipboard'
-import { logger } from '@luxfi/utilities/src/logger/logger'
-import { noop } from '@luxfi/utilities/src/react/noop'
+import { setClipboard } from '@l.x/utils/src/clipboard/clipboard'
+import { logger } from '@l.x/utils/src/logger/logger'
+import { noop } from '@l.x/utils/src/react/noop'
 
 type MenuAction = {
   title: string

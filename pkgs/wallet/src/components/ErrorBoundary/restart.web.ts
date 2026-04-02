@@ -1,4 +1,4 @@
-import { getChromeWithThrow } from '@luxfi/utilities/src/chrome/chrome'
+import { getChromeWithThrow } from '@l.x/utils/src/chrome/chrome'
 
 export const restart = (): void => {
   const chrome = getChromeWithThrow()

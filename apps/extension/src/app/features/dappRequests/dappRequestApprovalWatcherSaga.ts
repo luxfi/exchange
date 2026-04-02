@@ -66,7 +66,7 @@ import { call, put, select, takeEvery } from 'typed-redux-saga'
 import { DappRequestType, DappResponseType } from '@l.x/lx/src/features/dappRequests/types'
 import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
 import { getEnabledChainIdsSaga } from '@l.x/lx/src/features/settings/saga'
-import { logger } from '@luxfi/utilities/src/logger/logger'
+import { logger } from '@l.x/utils/src/logger/logger'
 
 function* dappRequestApproval({
   type,

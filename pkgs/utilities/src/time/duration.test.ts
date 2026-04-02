@@ -1,5 +1,5 @@
-import { getDurationRemainingString } from '@luxfi/utilities/src/time/duration'
-import { ONE_DAY_MS, ONE_HOUR_MS, ONE_MINUTE_MS, ONE_SECOND_MS } from '@luxfi/utilities/src/time/time'
+import { getDurationRemainingString } from '@l.x/utils/src/time/duration'
+import { ONE_DAY_MS, ONE_HOUR_MS, ONE_MINUTE_MS, ONE_SECOND_MS } from '@l.x/utils/src/time/time'
 
 describe('getDurationRemainingString', () => {
   describe('future timestamps', () => {

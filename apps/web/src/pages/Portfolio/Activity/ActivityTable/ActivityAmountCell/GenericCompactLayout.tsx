@@ -4,7 +4,7 @@ import { Flex, Text } from '@l.x/ui/src'
 import { Receipt } from '@l.x/ui/src/components/icons/Receipt'
 import { iconSizes } from '@l.x/ui/src/theme'
 import { TransactionDetails } from '@l.x/lx/src/features/transactions/types/transactionDetails'
-import { shortenHash } from '@luxfi/utilities/src/addresses'
+import { shortenHash } from '@l.x/utils/src/addresses'
 import { ActivityProtocolInfo } from '~/pages/Portfolio/Activity/ActivityTable/activityTableModels'
 
 interface GenericCompactLayoutProps {

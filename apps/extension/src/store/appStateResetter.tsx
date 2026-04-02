@@ -7,7 +7,7 @@ import { dappRequestActions } from 'src/app/features/dappRequests/slice'
 import { resetAlerts } from 'src/app/features/onboarding/alerts/slice'
 import { resetPopups } from 'src/app/features/popups/slice'
 import { type AppStateResetter } from '@l.x/lx/src/state/createAppStateResetter'
-import { createLogger } from '@luxfi/utilities/src/logger/logger'
+import { createLogger } from '@l.x/utils/src/logger/logger'
 import { createWalletStateResetter } from '@luxfi/wallet/src/state/createWalletStateResetter'
 
 /**

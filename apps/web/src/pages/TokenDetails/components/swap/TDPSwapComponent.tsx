@@ -11,7 +11,7 @@ import { TokenWarningCard } from '@l.x/lx/src/features/tokens/warnings/TokenWarn
 import TokenWarningModal from '@l.x/lx/src/features/tokens/warnings/TokenWarningModal'
 import { areAddressesEqual } from '@l.x/lx/src/utils/addresses'
 import { areCurrenciesEqual, currencyId } from '@l.x/lx/src/utils/currencyId'
-import { useEvent } from '@luxfi/utilities/src/react/hooks'
+import { useEvent } from '@l.x/utils/src/react/hooks'
 import { getTokenDetailsURL } from '~/appGraphql/data/util'
 import { POPUP_MEDIUM_DISMISS_MS } from '~/components/Popups/constants'
 import { popupRegistry } from '~/components/Popups/registry'

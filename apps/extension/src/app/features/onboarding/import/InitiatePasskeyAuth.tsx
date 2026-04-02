@@ -26,9 +26,9 @@ import { getPrivyEnums } from '@l.x/lx/src/features/passkey/embeddedWallet'
 import { useEmbeddedWalletBaseUrl } from '@l.x/lx/src/features/passkey/hooks/useEmbeddedWalletBaseUrl'
 import Trace from '@l.x/lx/src/features/telemetry/Trace'
 import { ExtensionOnboardingFlow, ExtensionOnboardingScreens } from '@l.x/lx/src/types/screens/extension'
-import { logger } from '@luxfi/utilities/src/logger/logger'
-import { useEvent } from '@luxfi/utilities/src/react/hooks'
-import { useInterval } from '@luxfi/utilities/src/time/timing'
+import { logger } from '@l.x/utils/src/logger/logger'
+import { useEvent } from '@l.x/utils/src/react/hooks'
+import { useInterval } from '@l.x/utils/src/time/timing'
 import { v4 as uuid } from 'uuid'
 
 /**************************************************************************************************************

@@ -5,7 +5,7 @@ import type { ColorTokens, IconProps } from '@l.x/ui/src'
 import { Flex, LabeledCheckbox, Text, TouchableArea } from '@l.x/ui/src'
 import { AlertCircleFilled, AlertTriangleFilled, OctagonExclamation } from '@l.x/ui/src/components/icons'
 import { defaultHitslop } from '@l.x/ui/src/theme'
-import { useBooleanState } from '@luxfi/utilities/src/react/useBooleanState'
+import { useBooleanState } from '@l.x/utils/src/react/useBooleanState'
 import { DappScanInfoModal } from '@luxfi/wallet/src/components/dappRequests/DappScanInfoModal'
 import { TransactionRiskLevel } from '@luxfi/wallet/src/features/dappRequests/types'
 

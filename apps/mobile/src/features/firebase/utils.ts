@@ -1,7 +1,7 @@
 import type { ReactNativeFirebase } from '@react-native-firebase/app'
 import '@react-native-firebase/auth'
 import firestore, { FirebaseFirestoreTypes } from '@react-native-firebase/firestore'
-import { isBetaEnv, isDevEnv } from '@luxfi/utilities/src/environment/env'
+import { isBetaEnv, isDevEnv } from '@l.x/utils/src/environment/env'
 
 const ADDRESS_DATA_COLLECTION = 'address_data'
 const DEV_ADDRESS_DATA_COLLECTION = 'dev_address_data'

@@ -11,7 +11,7 @@ import { NetworkPill } from '@l.x/lx/src/components/network/NetworkPill'
 import { useEnabledChains } from '@l.x/lx/src/features/chains/hooks/useEnabledChains'
 import type { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
-import { useEvent } from '@luxfi/utilities/src/react/hooks'
+import { useEvent } from '@l.x/utils/src/react/hooks'
 
 const keyExtractor = (chainId: UniverseChainId): string => chainId.toString()
 

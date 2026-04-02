@@ -1,6 +1,6 @@
 import { expect } from '@playwright/test'
 import { freshExtensionTest as test } from 'e2e/fixtures/extension.fixture'
-import { ONE_SECOND_MS } from '@luxfi/utilities/src/time/time'
+import { ONE_SECOND_MS } from '@l.x/utils/src/time/time'
 
 test.describe('Extension Onboarding Flow', () => {
   test('onboarding tab opens automatically on fresh install', async ({ context }) => {

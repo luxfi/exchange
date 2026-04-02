@@ -12,7 +12,7 @@ import { getErrorMessageToDisplay } from '@l.x/lx/src/features/transactions/liqu
 import { TransactionStep } from '@l.x/lx/src/features/transactions/steps/types'
 import { useWallet } from '@l.x/lx/src/features/wallet/hooks/useWallet'
 import { isSignerMnemonicAccountDetails } from '@l.x/lx/src/features/wallet/types/AccountDetails'
-import { useTrace } from '@luxfi/utilities/src/telemetry/trace/TraceContext'
+import { useTrace } from '@l.x/utils/src/telemetry/trace/TraceContext'
 import { getLPBaseAnalyticsProperties } from '~/components/Liquidity/analytics'
 import { ReviewModal, ReviewModalProps } from '~/components/Liquidity/ReviewModal'
 import { getPoolIdOrAddressFromCreatePositionInfo } from '~/components/Liquidity/utils/getPoolIdOrAddressFromCreatePositionInfo'

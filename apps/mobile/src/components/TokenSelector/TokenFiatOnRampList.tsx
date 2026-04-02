@@ -14,7 +14,7 @@ import { getTokenProtectionWarning } from '@l.x/lx/src/features/tokens/warnings/
 import { useDismissedTokenWarnings } from '@l.x/lx/src/features/tokens/warnings/slice/hooks'
 import { ListSeparatorToggle } from '@l.x/lx/src/features/transactions/TransactionDetails/ListSeparatorToggle'
 import { CurrencyId } from '@l.x/lx/src/types/currency'
-import { NumberType } from '@luxfi/utilities/src/format/types'
+import { NumberType } from '@l.x/utils/src/format/types'
 
 interface Props {
   onSelectCurrency: (currency: FiatOnRampCurrency) => void

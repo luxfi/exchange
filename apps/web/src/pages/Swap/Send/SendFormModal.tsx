@@ -13,7 +13,7 @@ import {
   useTransactionModalContext,
 } from '@l.x/lx/src/features/transactions/components/TransactionModal/TransactionModalContext'
 import { SwapTab } from '@l.x/lx/src/types/screens/interface'
-import { noop } from '@luxfi/utilities/src/react/noop'
+import { noop } from '@l.x/utils/src/react/noop'
 import { useCurrency } from '~/hooks/Tokens'
 import { SendForm, SendFormProps } from '~/pages/Swap/Send/SendForm'
 import { SendContextProvider } from '~/state/send/SendContext'

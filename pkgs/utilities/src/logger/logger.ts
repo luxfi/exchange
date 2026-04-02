@@ -1,9 +1,9 @@
 /* eslint-disable max-params */
-import { datadogEnabledBuild, localDevDatadogEnabled } from '@luxfi/utilities/src/environment/constants'
-import { isDevEnv, isTestEnv } from '@luxfi/utilities/src/environment/env'
-import { logErrorToDatadog, logToDatadog, logWarningToDatadog } from '@luxfi/utilities/src/logger/datadog/Datadog'
-import { type LoggerErrorContext, type LogLevel } from '@luxfi/utilities/src/logger/types'
-import { isMobileApp, isWebApp, isWebPlatform } from '@luxfi/utilities/src/platform'
+import { datadogEnabledBuild, localDevDatadogEnabled } from '@l.x/utils/src/environment/constants'
+import { isDevEnv, isTestEnv } from '@l.x/utils/src/environment/env'
+import { logErrorToDatadog, logToDatadog, logWarningToDatadog } from '@l.x/utils/src/logger/datadog/Datadog'
+import { type LoggerErrorContext, type LogLevel } from '@l.x/utils/src/logger/types'
+import { isMobileApp, isWebApp, isWebPlatform } from '@l.x/utils/src/platform'
 
 // weird temp fix: the web app is complaining about __DEV__ being global
 // i tried declaring it in a variety of places:

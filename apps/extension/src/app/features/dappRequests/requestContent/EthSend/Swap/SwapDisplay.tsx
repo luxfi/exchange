@@ -11,7 +11,7 @@ import { CurrencyInfo } from '@l.x/lx/src/features/dataApi/types'
 import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
 import { getCurrencyAmount, ValueType } from '@l.x/lx/src/features/tokens/getCurrencyAmount'
 import { useUSDCValue } from '@l.x/lx/src/features/transactions/hooks/useUSDCPriceWrapper'
-import { NumberType } from '@luxfi/utilities/src/format/types'
+import { NumberType } from '@l.x/utils/src/format/types'
 
 export function SwapDisplay({
   inputAmount,

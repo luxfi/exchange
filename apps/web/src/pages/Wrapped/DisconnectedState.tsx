@@ -11,7 +11,7 @@ import {
 import { ElementName } from '@l.x/lx/src/features/telemetry/constants'
 import Trace from '@l.x/lx/src/features/telemetry/Trace'
 import { useSnowflakeAnimation } from '@l.x/lx/src/hooks/useSnowflakeAnimation'
-import { isMobileWeb } from '@luxfi/utilities/src/platform'
+import { isMobileWeb } from '@l.x/utils/src/platform'
 import { useAccountDrawer } from '~/components/AccountDrawer/MiniPortfolio/hooks'
 import { MenuStateVariant, useSetMenuCallback } from '~/components/AccountDrawer/menuState'
 import { useActiveAddresses } from '~/features/accounts/store/hooks'

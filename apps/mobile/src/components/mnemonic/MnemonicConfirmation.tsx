@@ -4,7 +4,7 @@ import { useNativeComponentKey } from 'src/app/hooks'
 import { FlexProps, flexStyles, HiddenFromScreenReaders } from '@l.x/ui/src'
 import { useDeviceDimensions } from '@l.x/ui/src/hooks/useDeviceDimensions'
 import { spacing } from '@l.x/ui/src/theme'
-import { isAndroid } from '@luxfi/utilities/src/platform'
+import { isAndroid } from '@l.x/utils/src/platform'
 
 interface NativeMnemonicConfirmationProps {
   mnemonicId: Address

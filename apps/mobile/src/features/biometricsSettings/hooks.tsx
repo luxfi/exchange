@@ -2,7 +2,7 @@ import { hasHardwareAsync, isEnrolledAsync } from 'expo-local-authentication'
 import { useCallback } from 'react'
 import { useDispatch } from 'react-redux'
 import { triggerAuthentication } from 'src/features/biometrics/biometricsSlice'
-import { isAndroid } from '@luxfi/utilities/src/platform'
+import { isAndroid } from '@l.x/utils/src/platform'
 
 type TriggerArgs<T> = {
   params?: T

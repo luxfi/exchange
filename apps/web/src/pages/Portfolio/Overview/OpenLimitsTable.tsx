@@ -14,9 +14,9 @@ import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
 import { useCurrencyInfo } from '@l.x/lx/src/features/tokens/useCurrencyInfo'
 import { DEXOrderDetails } from '@l.x/lx/src/features/transactions/types/transactionDetails'
 import { currencyId } from '@l.x/lx/src/utils/currencyId'
-import { NumberType } from '@luxfi/utilities/src/format/types'
-import { useTrace } from '@luxfi/utilities/src/telemetry/trace/TraceContext'
-import { getDurationRemainingString } from '@luxfi/utilities/src/time/duration'
+import { NumberType } from '@l.x/utils/src/format/types'
+import { useTrace } from '@l.x/utils/src/telemetry/trace/TraceContext'
+import { getDurationRemainingString } from '@l.x/utils/src/time/duration'
 import { useOpenLimitOrders } from '~/components/AccountDrawer/MiniPortfolio/Activity/hooks'
 import {
   useOpenOffchainActivityModal,

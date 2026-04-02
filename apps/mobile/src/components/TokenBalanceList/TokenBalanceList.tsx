@@ -31,11 +31,11 @@ import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
 import { useAppInsets } from '@l.x/lx/src/hooks/useAppInsets'
 import { CurrencyId } from '@l.x/lx/src/types/currency'
 import { MobileScreens } from '@l.x/lx/src/types/screens/mobile'
-import { setClipboard } from '@luxfi/utilities/src/clipboard/clipboard'
-import { DDRumManualTiming } from '@luxfi/utilities/src/logger/datadog/datadogEvents'
-import { usePerformanceLogger } from '@luxfi/utilities/src/logger/usePerformanceLogger'
-import { isAndroid } from '@luxfi/utilities/src/platform'
-import { noop } from '@luxfi/utilities/src/react/noop'
+import { setClipboard } from '@l.x/utils/src/clipboard/clipboard'
+import { DDRumManualTiming } from '@l.x/utils/src/logger/datadog/datadogEvents'
+import { usePerformanceLogger } from '@l.x/utils/src/logger/usePerformanceLogger'
+import { isAndroid } from '@l.x/utils/src/platform'
+import { noop } from '@l.x/utils/src/react/noop'
 
 type TokenBalanceListProps = TabProps & {
   empty?: JSX.Element | null

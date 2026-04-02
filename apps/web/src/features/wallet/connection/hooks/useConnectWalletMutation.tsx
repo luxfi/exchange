@@ -1,7 +1,7 @@
 import { useMutation } from '@tanstack/react-query'
 import { createContext, useContext, useMemo } from 'react'
 import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
-import { useEvent } from '@luxfi/utilities/src/react/hooks'
+import { useEvent } from '@l.x/utils/src/react/hooks'
 import { ExternalWallet } from '~/features/accounts/store/types'
 import { ConnectionService } from '~/features/wallet/connection/services/IConnectionService'
 

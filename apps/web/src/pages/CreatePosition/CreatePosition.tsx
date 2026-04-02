@@ -14,7 +14,7 @@ import { Deadline } from '@l.x/lx/src/features/transactions/components/settings/
 import { Slippage } from '@l.x/lx/src/features/transactions/components/settings/settingsConfigurations/slippage/Slippage/Slippage'
 import { LPTransactionSettingsStoreContextProvider } from '@l.x/lx/src/features/transactions/components/settings/stores/transactionSettingsStore/LPTransactionSettingsStoreContextProvider'
 import { useTransactionSettingsStore } from '@l.x/lx/src/features/transactions/components/settings/stores/transactionSettingsStore/useTransactionSettingsStore'
-import { usePrevious } from '@luxfi/utilities/src/react/hooks'
+import { usePrevious } from '@l.x/utils/src/react/hooks'
 import { Dropdown } from '~/components/Dropdowns/Dropdown'
 import { DynamicFeeTierSpeedbump } from '~/components/Liquidity/Create/DynamicFeeTierSpeedbump'
 import { FormStepsWrapper, FormWrapper } from '~/components/Liquidity/Create/FormWrapper'

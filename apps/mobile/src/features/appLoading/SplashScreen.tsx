@@ -3,7 +3,7 @@ import { Image, StyleSheet } from 'react-native'
 import { Flex, useIsDarkMode } from '@l.x/ui/src'
 import { LUX_MONO_LOGO_LARGE } from '@l.x/ui/src/assets'
 import { useDeviceDimensions } from '@l.x/ui/src/hooks/useDeviceDimensions'
-import { isAndroid } from '@luxfi/utilities/src/platform'
+import { isAndroid } from '@l.x/utils/src/platform'
 
 export const SPLASH_SCREEN_IMAGE_SIZE = 150
 

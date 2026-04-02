@@ -14,7 +14,7 @@ import {
   setLanguageToNavigatorLanguage,
 } from 'src/store/extensionMigrations'
 import { Language } from '@l.x/lx/src/features/language/constants'
-import { createThrowingProxy } from '@luxfi/utilities/src/test/utils'
+import { createThrowingProxy } from '@l.x/utils/src/test/utils'
 
 describe('removeDappInfoToChromeLocalStorage', () => {
   it('removes dapp from state', () => {

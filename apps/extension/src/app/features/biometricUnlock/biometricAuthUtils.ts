@@ -1,7 +1,7 @@
 import { BiometricUnlockStorageData } from 'src/app/features/biometricUnlock/BiometricUnlockStorage'
 import { assertAuthenticatorAssertionResponse } from 'src/app/features/biometricUnlock/utils/assertAuthenticatorAssertionResponse'
 import { assertPublicKeyCredential } from 'src/app/features/biometricUnlock/utils/assertPublicKeyCredential'
-import { ONE_SECOND_MS } from '@luxfi/utilities/src/time/time'
+import { ONE_SECOND_MS } from '@l.x/utils/src/time/time'
 import {
   addEncryptedCiphertextToSecretPayload,
   convertBytesToCryptoKey,

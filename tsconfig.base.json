@@ -54,7 +54,7 @@
       "@l.x/analytics/*": ["./pkgs/analytics/*"],
       "@l.x/trpc/*": ["./pkgs/trpc/*"],
       "@l.x/ui/*": ["./pkgs/ui/*"],
-      "@luxfi/utilities/*": ["./pkgs/utilities/*"],
+      "@l.x/utils/*": ["./pkgs/utilities/*"],
       "@luxfi/wallet/*": ["./pkgs/wallet/*"],
       "@luxfi/dex/*": ["./pkgs/dex/*"],
       "@luxfi/exchange/*": ["./pkgs/exchange/*"],

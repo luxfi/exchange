@@ -5,7 +5,7 @@ import { iconSizes } from '@l.x/ui/src/theme'
 import { useUnitagsAddressQuery } from '@l.x/lx/src/data/apiClients/unitagsApi/useUnitagsAddressQuery'
 import { AccountIcon } from '@l.x/lx/src/features/accounts/AccountIcon'
 import { useENSName } from '@l.x/lx/src/features/ens/api'
-import { shortenAddress } from '@luxfi/utilities/src/addresses'
+import { shortenAddress } from '@l.x/utils/src/addresses'
 import { useActivityAddressLookupValue } from '~/pages/Portfolio/Activity/ActivityTable/ActivityAddressLookupStore'
 
 interface AddressWithAvatarProps {

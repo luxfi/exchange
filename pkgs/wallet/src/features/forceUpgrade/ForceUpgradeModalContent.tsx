@@ -6,7 +6,7 @@ import { Button, Flex, Image, Text, useSporeColors } from '@l.x/ui/src'
 import { LX_LOGO } from '@l.x/ui/src/assets'
 import { imageSizes } from '@l.x/ui/src/theme'
 import { NewTag } from '@l.x/lx/src/components/pill/NewTag'
-import { isWebPlatform } from '@luxfi/utilities/src/platform'
+import { isWebPlatform } from '@l.x/utils/src/platform'
 
 interface ForceUpgradeModalContentProps {
   title: string

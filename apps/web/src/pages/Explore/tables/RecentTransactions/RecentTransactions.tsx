@@ -12,8 +12,8 @@ import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { useAppFiatCurrency } from '@l.x/lx/src/features/fiatCurrency/hooks'
 import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
 import { ExplorerDataType, getExplorerLink } from '@l.x/lx/src/utils/linking'
-import { shortenAddress } from '@luxfi/utilities/src/addresses'
-import { NumberType } from '@luxfi/utilities/src/format/types'
+import { shortenAddress } from '@l.x/utils/src/addresses'
+import { NumberType } from '@l.x/utils/src/format/types'
 import {
   BETypeToTransactionType,
   getTransactionTypeTranslation,

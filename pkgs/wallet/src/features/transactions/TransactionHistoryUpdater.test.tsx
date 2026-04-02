@@ -5,7 +5,7 @@ import { fromGraphQLChain } from '@l.x/lx/src/features/chains/utils'
 import { TransactionStatus } from '@l.x/lx/src/features/transactions/types/transactionDetails'
 import { erc20RecentReceiveAssetActivity, erc20StaleReceiveAssetActivity, portfolio } from '@l.x/lx/src/test/fixtures'
 import { queryResolvers } from '@l.x/lx/src/test/utils'
-import { ONE_MINUTE_MS } from '@luxfi/utilities/src/time/time'
+import { ONE_MINUTE_MS } from '@l.x/utils/src/time/time'
 import {
   getReceiveNotificationFromData,
   TransactionHistoryUpdater,

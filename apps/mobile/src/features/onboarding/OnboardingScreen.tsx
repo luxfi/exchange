@@ -12,7 +12,7 @@ import { Flex, GeneratedIcon, SpaceTokens, Text, useMedia } from '@l.x/ui/src'
 import { AnimatedFlex } from '@l.x/ui/src/components/layout/AnimatedFlex'
 import { fonts } from '@l.x/ui/src/theme'
 import { useAppInsets } from '@l.x/lx/src/hooks/useAppInsets'
-import { isIOS } from '@luxfi/utilities/src/platform'
+import { isIOS } from '@l.x/utils/src/platform'
 
 type OnboardingScreenProps = {
   subtitle?: string

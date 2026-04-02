@@ -8,7 +8,7 @@ import { UniverseChainId } from 'lx/src/features/chains/types'
 import { getChainLabel } from 'lx/src/features/chains/utils'
 import { PortfolioBalance } from 'lx/src/features/dataApi/types'
 import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
-import { NumberType } from '@luxfi/utilities/src/format/types'
+import { NumberType } from '@l.x/utils/src/format/types'
 import { ChainLogo } from '~/components/Logo/ChainLogo'
 import { MouseoverTooltip, TooltipSize } from '~/components/Tooltip'
 

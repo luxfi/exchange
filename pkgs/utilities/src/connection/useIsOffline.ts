@@ -1,4 +1,4 @@
-import { PlatformSplitStubError } from '@luxfi/utilities/src/errors'
+import { PlatformSplitStubError } from '@l.x/utils/src/errors'
 
 export function useIsOffline(): boolean {
   throw new PlatformSplitStubError('useIsOffline')

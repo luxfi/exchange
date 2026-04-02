@@ -2,7 +2,7 @@ import { Signer } from '@ethersproject/abstract-signer'
 import { AddressZero } from '@ethersproject/constants'
 import { Contract, ContractInterface } from '@ethersproject/contracts'
 import { JsonRpcProvider, Provider } from '@ethersproject/providers'
-import { isEVMAddressWithChecksum } from '@luxfi/utilities/src/addresses/evm/evm'
+import { isEVMAddressWithChecksum } from '@l.x/utils/src/addresses/evm/evm'
 
 export function getContract({
   address,

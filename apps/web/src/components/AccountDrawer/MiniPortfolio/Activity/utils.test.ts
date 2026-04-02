@@ -3,7 +3,7 @@ import { BigNumber } from '@ethersproject/bignumber'
 import { GraphQLApi } from '@l.x/api'
 import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { TransactionStatus } from '@l.x/lx/src/features/transactions/types/transactionDetails'
-import { DEFAULT_ERC20_DECIMALS } from '@luxfi/utilities/src/tokens/constants'
+import { DEFAULT_ERC20_DECIMALS } from '@l.x/utils/src/tokens/constants'
 import { vi } from 'vitest'
 import { type Activity } from '~/components/AccountDrawer/MiniPortfolio/Activity/types'
 import {

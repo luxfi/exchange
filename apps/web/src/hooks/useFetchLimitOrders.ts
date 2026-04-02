@@ -1,6 +1,6 @@
 import { useMutation } from '@tanstack/react-query'
 import { LimitOrderResponse } from '@l.x/lx/src/features/transactions/cancel/cancelMultipleOrders'
-import { logger } from '@luxfi/utilities/src/logger/logger'
+import { logger } from '@l.x/utils/src/logger/logger'
 import { fetchOpenLimitOrders } from '~/state/activity/polling/orders'
 
 /**

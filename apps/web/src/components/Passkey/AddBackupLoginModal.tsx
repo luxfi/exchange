@@ -13,8 +13,8 @@ import {
 } from 'lx/src/features/passkey/embeddedWallet'
 import { validatePin } from 'lx/src/features/passkey/pinValidation'
 import { ModalName } from 'lx/src/features/telemetry/constants'
-import { logger } from '@luxfi/utilities/src/logger/logger'
-import { useEvent } from '@luxfi/utilities/src/react/hooks'
+import { logger } from '@l.x/utils/src/logger/logger'
+import { useEvent } from '@l.x/utils/src/react/hooks'
 import { LIST_AUTHENTICATORS_QUERY_KEY } from '~/components/AccountDrawer/PasskeyMenu/PasskeyMenu'
 import { ConfirmPasscodeExtra, SuccessStep } from '~/components/Passkey/AddBackupLoginFinalSteps'
 import {

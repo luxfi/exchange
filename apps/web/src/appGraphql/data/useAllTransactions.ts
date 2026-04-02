@@ -3,7 +3,7 @@ import { useCallback, useMemo, useRef } from 'react'
 import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { fromGraphQLChain } from '@l.x/lx/src/features/chains/utils'
 import i18n from '@l.x/lx/src/i18n'
-import { useIsWindowVisible } from '@luxfi/utilities/src/react/useIsWindowVisible'
+import { useIsWindowVisible } from '@l.x/utils/src/react/useIsWindowVisible'
 
 export enum TransactionType {
   SWAP = 'Swap',

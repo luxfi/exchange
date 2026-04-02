@@ -1,4 +1,4 @@
-import { PlatformSplitStubError } from '@luxfi/utilities/src/errors'
+import { PlatformSplitStubError } from '@l.x/utils/src/errors'
 
 /** Dummy clipboard class. Overridden by mobile or extension related code. */
 

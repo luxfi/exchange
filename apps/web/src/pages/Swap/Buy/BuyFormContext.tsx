@@ -29,7 +29,7 @@ import {
 } from '@l.x/lx/src/features/fiatOnRamp/utils'
 import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
 import { getSymbolDisplayText } from '@l.x/lx/src/utils/currency'
-import { useDebounce } from '@luxfi/utilities/src/time/timing'
+import { useDebounce } from '@l.x/utils/src/time/timing'
 import { useUSDTokenUpdater } from '~/hooks/useUSDTokenUpdater'
 import useCurrencyBalance from '~/lib/hooks/useCurrencyBalance'
 import { useFiatOnRampSupportedTokens, useMeldFiatCurrencyInfo } from '~/pages/Swap/Buy/hooks'

@@ -15,7 +15,7 @@ import { AppNotificationType, CopyNotificationType } from '@l.x/lx/src/features/
 import { ElementName, ModalName } from '@l.x/lx/src/features/telemetry/constants'
 import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
 import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
-import { setClipboard } from '@luxfi/utilities/src/clipboard/clipboard'
+import { setClipboard } from '@l.x/utils/src/clipboard/clipboard'
 import { useActiveAccountAddressWithThrow } from '@luxfi/wallet/src/features/wallet/hooks'
 
 const ACCOUNT_IMAGE_SIZE = 52

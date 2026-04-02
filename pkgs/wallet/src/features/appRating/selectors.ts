@@ -6,8 +6,8 @@ import {
   TransactionStatus,
   TransactionType,
 } from '@l.x/lx/src/features/transactions/types/transactionDetails'
-import { flattenObjectOfObjects } from '@luxfi/utilities/src/primitives/objects'
-import { ONE_DAY_MS, ONE_MINUTE_MS } from '@luxfi/utilities/src/time/time'
+import { flattenObjectOfObjects } from '@l.x/utils/src/primitives/objects'
+import { ONE_DAY_MS, ONE_MINUTE_MS } from '@l.x/utils/src/time/time'
 import {
   appRatingFeedbackProvidedMsSelector,
   appRatingPromptedMsSelector,

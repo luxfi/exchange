@@ -2,7 +2,7 @@ import { createListenerMiddleware, createSlice } from '@reduxjs/toolkit'
 import { InterfaceEventName } from '@l.x/lx/src/features/telemetry/constants'
 import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
 import { InterfaceUserPropertyName, setUserProperty } from '@l.x/lx/src/features/telemetry/user'
-import { hexToNumber } from '@luxfi/utilities/src/addresses/hex'
+import { hexToNumber } from '@l.x/utils/src/addresses/hex'
 import { createOnSetCapabilitiesByChainEffect } from '~/state/walletCapabilities/effects'
 import {
   isAtomicBatchingSupported,

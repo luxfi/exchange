@@ -1,4 +1,4 @@
-import { extractNameFromUrl } from '@luxfi/utilities/src/format/extractNameFromUrl'
+import { extractNameFromUrl } from '@l.x/utils/src/format/extractNameFromUrl'
 
 describe('extractNameFromUrl', () => {
   it('should extract second-level domain from a valid URL', () => {

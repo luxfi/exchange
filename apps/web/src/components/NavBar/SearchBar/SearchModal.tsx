@@ -13,8 +13,8 @@ import { SearchTextInput } from '@l.x/lx/src/features/search/SearchTextInput'
 import { ElementName, InterfaceEventName, ModalName, SectionName } from '@l.x/lx/src/features/telemetry/constants'
 import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
 import { Trace } from '@l.x/lx/src/features/telemetry/Trace'
-import { useTrace } from '@luxfi/utilities/src/telemetry/trace/TraceContext'
-import { useDebounce } from '@luxfi/utilities/src/time/timing'
+import { useTrace } from '@l.x/utils/src/telemetry/trace/TraceContext'
+import { useDebounce } from '@l.x/utils/src/time/timing'
 import { useModalState } from '~/hooks/useModalState'
 
 export const SearchModal = memo(function _SearchModal(): JSX.Element {

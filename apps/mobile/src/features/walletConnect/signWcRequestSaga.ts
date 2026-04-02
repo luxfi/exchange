@@ -19,7 +19,7 @@ import { getEnabledChainIdsSaga } from '@l.x/lx/src/features/settings/saga'
 import { TransactionOriginType, TransactionType } from '@l.x/lx/src/features/transactions/types/transactionDetails'
 import { DappRequestInfo, DappRequestType, UwULinkMethod, WalletConnectEvent } from '@l.x/lx/src/types/walletConnect'
 import { createSaga } from '@l.x/lx/src/utils/saga'
-import { logger } from '@luxfi/utilities/src/logger/logger'
+import { logger } from '@l.x/utils/src/logger/logger'
 import { addBatchedTransaction } from '@luxfi/wallet/src/features/batchedTransactions/slice'
 import { SendCallsResult } from '@luxfi/wallet/src/features/dappRequests/types'
 import {

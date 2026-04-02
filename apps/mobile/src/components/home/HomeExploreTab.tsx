@@ -20,7 +20,7 @@ import { isContractInputArrayType } from '@l.x/lx/src/features/gating/typeGuards
 import { MobileEventName } from '@l.x/lx/src/features/telemetry/constants'
 import { useAppInsets } from '@l.x/lx/src/hooks/useAppInsets'
 import { MobileScreens } from '@l.x/lx/src/types/screens/mobile'
-import { isAndroid } from '@luxfi/utilities/src/platform'
+import { isAndroid } from '@l.x/utils/src/platform'
 import { selectHasUsedExplore } from '@luxfi/wallet/src/features/behaviorHistory/selectors'
 import { TokenMetadataDisplayType } from '@luxfi/wallet/src/features/wallet/types'
 

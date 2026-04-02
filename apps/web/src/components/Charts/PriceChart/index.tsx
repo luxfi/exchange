@@ -18,7 +18,7 @@ import { opacify } from '@l.x/ui/src/theme'
 import { isLowVarianceRange } from '@l.x/lx/src/components/charts/utils'
 import { useFormatChartFiatDelta } from '@l.x/lx/src/features/fiatCurrency/hooks/useFormatChartFiatDelta'
 import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
-import { NumberType } from '@luxfi/utilities/src/format/types'
+import { NumberType } from '@l.x/utils/src/format/types'
 import { ChartHeader } from '~/components/Charts/ChartHeader'
 import {
   Chart,

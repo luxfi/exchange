@@ -8,7 +8,7 @@ import { initAndPersistCache, shouldResetCache, storeCacheVersion } from '@luxfi
 jest.mock('@apollo/client')
 jest.mock('apollo3-cache-persist')
 jest.mock('@l.x/lx/src/data/cache')
-jest.mock('@luxfi/utilities/src/logger/logger')
+jest.mock('@l.x/utils/src/logger/logger')
 
 const mockPersistCache = persistCache as jest.MockedFunction<typeof persistCache>
 const mockSetupSharedApolloCache = setupSharedApolloCache as jest.MockedFunction<typeof setupSharedApolloCache>

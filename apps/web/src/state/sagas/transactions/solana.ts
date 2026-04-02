@@ -18,8 +18,8 @@ import {
   TransactionOriginType,
   TransactionStatus,
 } from '@l.x/lx/src/features/transactions/types/transactionDetails'
-import { tryCatch } from '@luxfi/utilities/src/errors'
-import { ONE_SECOND_MS } from '@luxfi/utilities/src/time/time'
+import { tryCatch } from '@l.x/utils/src/errors'
+import { ONE_SECOND_MS } from '@l.x/utils/src/time/time'
 import { popupRegistry } from '~/components/Popups/registry'
 import { PopupType } from '~/components/Popups/types'
 import { signSolanaTransactionWithCurrentWallet } from '~/components/Web3Provider/signSolanaTransaction'

@@ -16,7 +16,7 @@ import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
 import { UNITAG_SUFFIX } from '@l.x/lx/src/features/unitags/constants'
 import { useAppInsets } from '@l.x/lx/src/hooks/useAppInsets'
 import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
-import { isWebPlatform } from '@luxfi/utilities/src/platform'
+import { isWebPlatform } from '@l.x/utils/src/platform'
 
 export type RecipientSection = SectionListData<SearchableRecipient> & {
   title?: string

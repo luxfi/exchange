@@ -8,7 +8,7 @@ import { useEnabledChains } from '@l.x/lx/src/features/chains/hooks/useEnabledCh
 import { useSupportedChainId } from '@l.x/lx/src/features/chains/hooks/useSupportedChainId'
 import { getChainLabel } from '@l.x/lx/src/features/chains/utils'
 import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
-import { NumberType } from '@luxfi/utilities/src/format/types'
+import { NumberType } from '@l.x/utils/src/format/types'
 import { AutoColumn } from '~/components/deprecated/Column'
 import Row from '~/components/deprecated/Row'
 import DEXRouterLabel, { DEXGradient } from '~/components/RouterLabel/DEXRouterLabel'

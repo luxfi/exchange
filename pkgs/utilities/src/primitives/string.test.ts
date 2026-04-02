@@ -1,4 +1,4 @@
-import { concatStrings, escapeRegExp, normalizeTextInput, trimToLength } from '@luxfi/utilities/src/primitives/string'
+import { concatStrings, escapeRegExp, normalizeTextInput, trimToLength } from '@l.x/utils/src/primitives/string'
 
 describe(trimToLength, () => {
   it('handles empty string', () => {

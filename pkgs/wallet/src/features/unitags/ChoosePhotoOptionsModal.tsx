@@ -4,7 +4,7 @@ import { Button, Flex, useSporeColors } from '@l.x/ui/src'
 import { Camera, PhotoStacked, Share, Trash } from '@l.x/ui/src/components/icons'
 import { Modal } from '@l.x/lx/src/components/modals/Modal'
 import { ElementName, ModalName } from '@l.x/lx/src/features/telemetry/constants'
-import { isExtensionApp } from '@luxfi/utilities/src/platform'
+import { isExtensionApp } from '@l.x/utils/src/platform'
 import { ChooseNftModal, ChooseNftModalProps } from '@luxfi/wallet/src/features/unitags/ChooseNftModal'
 import { selectPhotoFromLibrary } from '@luxfi/wallet/src/features/unitags/photoSelection'
 

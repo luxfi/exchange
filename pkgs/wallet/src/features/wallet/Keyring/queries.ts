@@ -1,5 +1,5 @@
-import { ReactQueryCacheKey } from '@luxfi/utilities/src/reactQuery/cache'
-import { QueryOptionsResult, queryWithoutCache } from '@luxfi/utilities/src/reactQuery/queryOptions'
+import { ReactQueryCacheKey } from '@l.x/utils/src/reactQuery/cache'
+import { QueryOptionsResult, queryWithoutCache } from '@l.x/utils/src/reactQuery/queryOptions'
 import { Keyring } from '@luxfi/wallet/src/features/wallet/Keyring/Keyring'
 
 export function mnemonicUnlockedQuery(

@@ -9,7 +9,7 @@ import { TransferCurrencyTxNotification } from '@l.x/lx/src/features/notificatio
 import { useCurrencyInfo } from '@l.x/lx/src/features/tokens/useCurrencyInfo'
 import { TransactionStatus, TransactionType } from '@l.x/lx/src/features/transactions/types/transactionDetails'
 import { buildCurrencyId } from '@l.x/lx/src/utils/currencyId'
-import { isAndroid } from '@luxfi/utilities/src/platform'
+import { isAndroid } from '@l.x/utils/src/platform'
 import { useWalletNavigation } from '@luxfi/wallet/src/contexts/WalletNavigationContext'
 import { formTransferCurrencyNotificationTitle } from '@luxfi/wallet/src/features/notifications/utils'
 import { useDisplayName } from '@luxfi/wallet/src/features/wallet/hooks'

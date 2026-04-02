@@ -14,9 +14,9 @@ import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
 import { ExtensionScreens } from '@l.x/lx/src/types/screens/extension'
 import { MobileScreens } from '@l.x/lx/src/types/screens/mobile'
 import { sanitizeAddressText } from '@l.x/lx/src/utils/addresses'
-import { shortenAddress } from '@luxfi/utilities/src/addresses'
-import { setClipboard } from '@luxfi/utilities/src/clipboard/clipboard'
-import { isExtensionApp, isMobileApp } from '@luxfi/utilities/src/platform'
+import { shortenAddress } from '@l.x/utils/src/addresses'
+import { setClipboard } from '@l.x/utils/src/clipboard/clipboard'
+import { isExtensionApp, isMobileApp } from '@l.x/utils/src/platform'
 import { AnimatedUnitagDisplayNameProps } from '@luxfi/wallet/src/components/accounts/AnimatedUnitagDisplayName'
 
 export function AnimatedUnitagDisplayName({

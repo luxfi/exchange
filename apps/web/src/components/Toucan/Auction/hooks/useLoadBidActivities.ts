@@ -3,7 +3,7 @@ import { GetAuctionActivityRequest } from '@luxamm/client-data-api/dist/data/v1/
 import { useMemo } from 'react'
 import { auctionQueries } from '@l.x/lx/src/data/rest/auctions/auctionQueries'
 import { EVMUniverseChainId } from '@l.x/lx/src/features/chains/types'
-import { ONE_SECOND_MS } from '@luxfi/utilities/src/time/time'
+import { ONE_SECOND_MS } from '@l.x/utils/src/time/time'
 import { AuctionProgressState } from '~/components/Toucan/Auction/store/types'
 import { useAuctionStore } from '~/components/Toucan/Auction/store/useAuctionStore'
 

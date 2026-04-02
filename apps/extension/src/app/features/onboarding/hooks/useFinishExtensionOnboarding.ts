@@ -3,7 +3,7 @@ import { saveDappConnection } from 'src/app/features/dapp/actions'
 import { LX_WEB_URL } from '@l.x/lx/src/constants/urls'
 import { ImportType } from '@l.x/lx/src/types/onboarding'
 import { ExtensionOnboardingFlow } from '@l.x/lx/src/types/screens/extension'
-import { logger } from '@luxfi/utilities/src/logger/logger'
+import { logger } from '@l.x/utils/src/logger/logger'
 import { useOnboardingContext } from '@luxfi/wallet/src/features/onboarding/OnboardingContext'
 
 /**

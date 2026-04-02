@@ -1,6 +1,6 @@
 import SpInAppUpdates, { IAUUpdateKind, StartUpdateOptions } from 'sp-react-native-in-app-updates'
-import { logger } from '@luxfi/utilities/src/logger/logger'
-import { isAndroid } from '@luxfi/utilities/src/platform'
+import { logger } from '@l.x/utils/src/logger/logger'
+import { isAndroid } from '@l.x/utils/src/platform'
 
 /**
  * Checks for available updates and starts the update flow if one is available.

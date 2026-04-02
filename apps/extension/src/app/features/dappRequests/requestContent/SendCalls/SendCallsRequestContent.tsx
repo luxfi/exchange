@@ -15,7 +15,7 @@ import {
 } from 'src/app/features/dappRequests/types/DappRequestTypes'
 import { type UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { TransactionType, type TransactionTypeInfo } from '@l.x/lx/src/features/transactions/types/transactionDetails'
-import { useBooleanState } from '@luxfi/utilities/src/react/useBooleanState'
+import { useBooleanState } from '@l.x/utils/src/react/useBooleanState'
 import { BatchedRequestDetailsContent } from '@luxfi/wallet/src/components/BatchedTransactions/BatchedTransactionDetails'
 import { DappSendCallsScanningContent } from '@luxfi/wallet/src/components/dappRequests/DappSendCallsScanningContent'
 import { type TransactionRiskLevel } from '@luxfi/wallet/src/features/dappRequests/types'

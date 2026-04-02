@@ -15,7 +15,7 @@ import { getReduxStore } from 'src/store/store'
 import { ExtensionAppLocation, StoreSynchronization } from 'src/store/storeSynchronization'
 import { initializeScrollWatcher } from '@l.x/lx/src/components/modals/ScrollLock'
 import { initializePortfolioQueryOverrides } from '@l.x/lx/src/data/rest/portfolioBalanceOverrides'
-import { logger } from '@luxfi/utilities/src/logger/logger'
+import { logger } from '@l.x/utils/src/logger/logger'
 // biome-ignore lint/suspicious/noExplicitAny: Global polyfill cleanup requires any type for runtime modification
 ;(globalThis as any).regeneratorRuntime = undefined
 

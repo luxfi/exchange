@@ -4,7 +4,7 @@ import { Carousel } from 'src/components/carousel/Carousel'
 import { SeedPhraseEducationContent } from 'src/components/education/SeedPhrase'
 import { Screen } from 'src/components/layout/Screen'
 import { MobileScreens } from '@l.x/lx/src/types/screens/mobile'
-import { isIOS } from '@luxfi/utilities/src/platform'
+import { isIOS } from '@l.x/utils/src/platform'
 
 const educationContent = {
   [EducationContentType.SeedPhrase]: SeedPhraseEducationContent,

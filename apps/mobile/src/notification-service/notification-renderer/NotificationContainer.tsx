@@ -18,8 +18,8 @@ import { isBackupReminderNotification } from 'src/notification-service/triggers/
 import { isLocalTriggerNotification } from 'src/notification-service/triggers/createMobileLocalTriggerDataSource'
 import { Flex } from '@l.x/ui/src'
 import { ModalNotification } from '@l.x/lx/src/components/notifications/ModalNotification'
-import { getLogger } from '@luxfi/utilities/src/logger/logger'
-import { useEvent } from '@luxfi/utilities/src/react/hooks'
+import { getLogger } from '@l.x/utils/src/logger/logger'
+import { useEvent } from '@l.x/utils/src/react/hooks'
 import { type IntroCardProps } from '@luxfi/wallet/src/components/introCards/IntroCard'
 import { IntroCardStack } from '@luxfi/wallet/src/components/introCards/IntroCardStack'
 import {

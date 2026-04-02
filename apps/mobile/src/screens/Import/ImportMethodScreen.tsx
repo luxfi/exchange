@@ -25,7 +25,7 @@ import Trace from '@l.x/lx/src/features/telemetry/Trace'
 import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
 import { ImportType, OnboardingEntryPoint } from '@l.x/lx/src/types/onboarding'
 import { OnboardingScreens } from '@l.x/lx/src/types/screens/mobile'
-import { logger } from '@luxfi/utilities/src/logger/logger'
+import { logger } from '@l.x/utils/src/logger/logger'
 
 const options: ImportMethodOption[] = [seedPhraseImportOption, importFromCloudBackupOption, passKeySignInOption]
 

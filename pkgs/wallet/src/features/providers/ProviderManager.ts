@@ -2,7 +2,7 @@ import { providers as ethersProviders, Signer } from 'ethers'
 import { Task } from 'redux-saga'
 import { RPCType, UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { createEthersProvider } from '@l.x/lx/src/features/providers/createEthersProvider'
-import { logger } from '@luxfi/utilities/src/logger/logger'
+import { logger } from '@l.x/utils/src/logger/logger'
 
 enum ProviderStatus {
   Disconnected = 0,

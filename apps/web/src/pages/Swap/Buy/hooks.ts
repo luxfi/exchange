@@ -19,7 +19,7 @@ import {
   RampDirection,
 } from '@l.x/lx/src/features/fiatOnRamp/types'
 // biome-ignore lint/style/noRestrictedImports: Buy hooks need direct SDK imports
-import { getFiatCurrencyComponents } from '@luxfi/utilities/src/format/localeBased'
+import { getFiatCurrencyComponents } from '@l.x/utils/src/format/localeBased'
 import { useMeldSupportedCurrencyToCurrencyInfo } from '~/appGraphql/data/types'
 
 type FiatOnRampCurrencyInfo = {

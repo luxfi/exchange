@@ -7,7 +7,7 @@ import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { toSupportedChainId } from '@l.x/lx/src/features/chains/utils'
 import { SignsTypedData } from '@l.x/lx/src/features/transactions/signing'
 import { areAddressesEqual } from '@l.x/lx/src/utils/addresses'
-import { HexString, isValidHexString } from '@luxfi/utilities/src/addresses/hex'
+import { HexString, isValidHexString } from '@l.x/utils/src/addresses/hex'
 import { Keyring } from '@luxfi/wallet/src/features/wallet/Keyring/Keyring'
 
 /**

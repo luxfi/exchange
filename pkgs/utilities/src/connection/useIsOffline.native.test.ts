@@ -1,5 +1,5 @@
 import { NetInfoStateType } from '@react-native-community/netinfo'
-import { isOffline } from '@luxfi/utilities/src/connection/useIsOffline.native'
+import { isOffline } from '@l.x/utils/src/connection/useIsOffline.native'
 
 const networkUnknown = {
   isConnected: null,

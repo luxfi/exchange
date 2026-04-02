@@ -3,7 +3,7 @@ import { ScreenWithHeader } from 'src/components/layout/screens/ScreenWithHeader
 import { useAppStateResetter } from 'src/features/appState/appStateResetter'
 import { Flex, Text } from '@l.x/ui/src'
 import { StorageHelpIcon, StorageSettingsContent } from '@l.x/lx/src/features/settings/storage/StorageSettingsContent'
-import { useEvent } from '@luxfi/utilities/src/react/hooks'
+import { useEvent } from '@l.x/utils/src/react/hooks'
 
 export function SettingsStorageScreen(): JSX.Element {
   const { t } = useTranslation()

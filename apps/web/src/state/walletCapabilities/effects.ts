@@ -1,4 +1,4 @@
-import { Logger } from '@luxfi/utilities/src/logger/logger'
+import { Logger } from '@l.x/utils/src/logger/logger'
 import { deepEqual } from 'wagmi'
 import { getAtomicSupportedChainIds } from '~/state/walletCapabilities/lib/handleGetCapabilities'
 import type { GetCapabilitiesResult } from '~/state/walletCapabilities/lib/types'

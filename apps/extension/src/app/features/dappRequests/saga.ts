@@ -57,8 +57,8 @@ import {
   TransactionType,
   type TransactionTypeInfo,
 } from '@l.x/lx/src/features/transactions/types/transactionDetails'
-import { extractBaseUrl } from '@luxfi/utilities/src/format/urls'
-import { logger } from '@luxfi/utilities/src/logger/logger'
+import { extractBaseUrl } from '@l.x/utils/src/format/urls'
+import { logger } from '@l.x/utils/src/logger/logger'
 import { getCallsStatusHelper } from '@luxfi/wallet/src/features/batchedTransactions/eip5792Utils'
 import { addBatchedTransaction } from '@luxfi/wallet/src/features/batchedTransactions/slice'
 import { generateBatchId, getCapabilitiesResponse } from '@luxfi/wallet/src/features/batchedTransactions/utils'

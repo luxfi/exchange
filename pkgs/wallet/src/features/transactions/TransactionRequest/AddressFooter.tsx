@@ -6,7 +6,7 @@ import { AddressDisplay } from '@l.x/lx/src/components/accounts/AddressDisplay'
 import { ContentRow } from '@l.x/lx/src/components/transactions/requests/ContentRow'
 import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
 import { areAddressesEqual } from '@l.x/lx/src/utils/addresses'
-import { isExtensionApp, isMobileApp } from '@luxfi/utilities/src/platform'
+import { isExtensionApp, isMobileApp } from '@l.x/utils/src/platform'
 
 export function AddressFooter({
   connectedAccountAddress,

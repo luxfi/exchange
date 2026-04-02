@@ -16,8 +16,8 @@ import { AnimatedFlex } from '@l.x/ui/src/components/layout/AnimatedFlex'
 import { useDeviceDimensions } from '@l.x/ui/src/hooks/useDeviceDimensions'
 import { spacing, zIndexes } from '@l.x/ui/src/theme'
 import { useAppInsets } from '@l.x/lx/src/hooks/useAppInsets'
-import { isAndroid } from '@luxfi/utilities/src/platform'
-import { useEvent } from '@luxfi/utilities/src/react/hooks'
+import { isAndroid } from '@l.x/utils/src/platform'
+import { useEvent } from '@l.x/utils/src/react/hooks'
 
 const fadeIn = FadeIn.duration(250)
 const fadeOut = FadeOut.duration(250)

@@ -6,7 +6,7 @@ import { useEnabledChains } from '@l.x/lx/src/features/chains/hooks/useEnabledCh
 import { usePortfolioValueModifiers } from '@l.x/lx/src/features/dataApi/balances/balances'
 import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
 import { areAddressesEqual } from '@l.x/lx/src/utils/addresses'
-import { logger } from '@luxfi/utilities/src/logger/logger'
+import { logger } from '@l.x/utils/src/logger/logger'
 import {
   AddressWithBalanceAndName,
   hasBalanceOrName,

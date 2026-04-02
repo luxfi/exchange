@@ -11,7 +11,7 @@ import { createApprovalTransactionStep } from '@l.x/lx/src/features/transactions
 import { Permit2TransactionStep } from '@l.x/lx/src/features/transactions/steps/permit2Transaction'
 import { TransactionStep, TransactionStepType } from '@l.x/lx/src/features/transactions/steps/types'
 import { validateTransactionRequest } from '@l.x/lx/src/features/transactions/swap/utils/trade'
-import { useEvent } from '@luxfi/utilities/src/react/hooks'
+import { useEvent } from '@l.x/utils/src/react/hooks'
 import { AuctionDetails } from '~/components/Toucan/Auction/store/types'
 import { useAccount } from '~/hooks/useAccount'
 import { useEthersProvider } from '~/hooks/useEthersProvider'

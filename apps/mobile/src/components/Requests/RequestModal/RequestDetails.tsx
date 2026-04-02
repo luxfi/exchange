@@ -14,7 +14,7 @@ import { EthMethod } from '@l.x/lx/src/features/dappRequests/types'
 import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
 import { EthTransaction } from '@l.x/lx/src/types/walletConnect'
 import { getValidAddress } from '@l.x/lx/src/utils/addresses'
-import { logger } from '@luxfi/utilities/src/logger/logger'
+import { logger } from '@l.x/utils/src/logger/logger'
 import { AddressButton } from '@luxfi/wallet/src/components/buttons/AddressButton'
 import {
   SpendingDetails,

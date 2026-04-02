@@ -3,7 +3,7 @@ import { useAtomValue, useUpdateAtom } from 'jotai/utils'
 import { Switch } from '@l.x/ui/src'
 import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
 import { TransactionSettingConfig } from '@l.x/lx/src/features/transactions/components/settings/types'
-import { useEvent } from '@luxfi/utilities/src/react/hooks'
+import { useEvent } from '@l.x/utils/src/react/hooks'
 
 const oneClickSwapAtom = atom(true)
 

@@ -1,5 +1,5 @@
-import { shortenAddress, shortenHash } from '@luxfi/utilities/src/addresses'
-import { INVALID_ADDRESS_TOO_LONG, INVALID_ADDRESS_TOO_SHORT } from '@luxfi/utilities/src/test/fixtures'
+import { shortenAddress, shortenHash } from '@l.x/utils/src/addresses'
+import { INVALID_ADDRESS_TOO_LONG, INVALID_ADDRESS_TOO_SHORT } from '@l.x/utils/src/test/fixtures'
 
 describe('utils', () => {
   describe('#shortenAddress', () => {

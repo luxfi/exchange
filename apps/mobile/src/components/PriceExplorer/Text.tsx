@@ -19,7 +19,7 @@ import { FiatCurrency } from '@l.x/lx/src/features/fiatCurrency/constants'
 import { useAppFiatCurrency, useAppFiatCurrencyInfo } from '@l.x/lx/src/features/fiatCurrency/hooks'
 import { useCurrentLocale } from '@l.x/lx/src/features/language/hooks'
 import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
-import { isAndroid } from '@luxfi/utilities/src/platform'
+import { isAndroid } from '@l.x/utils/src/platform'
 
 export function PriceText({ maxWidth }: { loading: boolean; maxWidth?: number }): JSX.Element {
   const price = useLineChartPrice()

@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux'
 import { lxUrls } from '@l.x/lx/src/constants/urls'
 import { ElementName, ModalName } from '@l.x/lx/src/features/telemetry/constants'
 import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
-import { useEvent } from '@luxfi/utilities/src/react/hooks'
+import { useEvent } from '@l.x/utils/src/react/hooks'
 import { SmartWalletModal } from '@luxfi/wallet/src/components/smartWallet/modals/SmartWalletModal'
 import { SmartWalletUnavailableModal } from '@luxfi/wallet/src/components/smartWallet/modals/SmartWalletUnavailableModal'
 import {

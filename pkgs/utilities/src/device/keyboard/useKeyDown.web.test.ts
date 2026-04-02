@@ -1,6 +1,6 @@
 import { fireEvent, renderHook } from '@testing-library/react'
-import { KeyAction } from '@luxfi/utilities/src/device/keyboard/types'
-import { useKeyDown } from '@luxfi/utilities/src/device/keyboard/useKeyDown.web'
+import { KeyAction } from '@l.x/utils/src/device/keyboard/types'
+import { useKeyDown } from '@l.x/utils/src/device/keyboard/useKeyDown.web'
 import { type Mock, type MockInstance, vi } from 'vitest'
 
 describe('useKeyDown', () => {

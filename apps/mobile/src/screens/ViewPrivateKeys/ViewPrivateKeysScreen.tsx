@@ -22,7 +22,7 @@ import { ElementName, ModalName } from '@l.x/lx/src/features/telemetry/constants
 import { Trace } from '@l.x/lx/src/features/telemetry/Trace'
 import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
 import { MobileScreens } from '@l.x/lx/src/types/screens/mobile'
-import { logger } from '@luxfi/utilities/src/logger/logger'
+import { logger } from '@l.x/utils/src/logger/logger'
 import { setHasCopiedPrivateKeys } from '@luxfi/wallet/src/features/behaviorHistory/slice'
 import { useSignerAccounts } from '@luxfi/wallet/src/features/wallet/hooks'
 

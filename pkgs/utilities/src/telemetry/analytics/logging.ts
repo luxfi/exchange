@@ -1,7 +1,7 @@
-import { isNonTestDev } from '@luxfi/utilities/src/environment/constants'
-import { logger } from '@luxfi/utilities/src/logger/logger'
+import { isNonTestDev } from '@l.x/utils/src/environment/constants'
+import { logger } from '@l.x/utils/src/logger/logger'
 // biome-ignore lint/style/noRestrictedImports: Platform-specific implementation needs internal types
-import { UserPropertyValue } from '@luxfi/utilities/src/telemetry/analytics/analytics'
+import { UserPropertyValue } from '@l.x/utils/src/telemetry/analytics/analytics'
 
 interface ErrorLoggers {
   init(err: unknown): void

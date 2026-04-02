@@ -3,7 +3,7 @@ import { Flex, GeneratedIcon, LinearGradient, Text, TouchableArea } from '@l.x/u
 import { ArrowLeft } from '@l.x/ui/src/components/icons/ArrowLeft'
 import { ArrowRight } from '@l.x/ui/src/components/icons/ArrowRight'
 import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
-import { useEvent } from '@luxfi/utilities/src/react/hooks'
+import { useEvent } from '@l.x/utils/src/react/hooks'
 import { MouseoverTooltip, TooltipSize } from '~/components/Tooltip'
 import {
   CARD_SPACING,

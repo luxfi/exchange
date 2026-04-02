@@ -6,7 +6,7 @@ import { Flex, Text } from '@l.x/ui/src'
 import { spacing } from '@l.x/ui/src/theme'
 import { AddressDisplay } from '@l.x/lx/src/components/accounts/AddressDisplay'
 import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
-import { NumberType } from '@luxfi/utilities/src/format/types'
+import { NumberType } from '@l.x/utils/src/format/types'
 import { useAccountListData } from '@luxfi/wallet/src/features/accounts/useAccountListData'
 import { Account } from '@luxfi/wallet/src/features/wallet/accounts/types'
 

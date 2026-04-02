@@ -1,7 +1,7 @@
 import appsFlyer from 'react-native-appsflyer'
 import { config } from '@l.x/lx/src/config'
-import { isBetaEnv, isDevEnv } from '@luxfi/utilities/src/environment/env'
-import { logger } from '@luxfi/utilities/src/logger/logger'
+import { isBetaEnv, isDevEnv } from '@l.x/utils/src/environment/env'
+import { logger } from '@l.x/utils/src/logger/logger'
 
 export function initAppsFlyer(): void {
   appsFlyer.initSdk(

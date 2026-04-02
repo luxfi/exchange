@@ -3,7 +3,7 @@ import { Flex, Text } from '@l.x/ui/src'
 import { Modal } from '@l.x/lx/src/components/modals/Modal'
 import { PortfolioBalanceSettingsContent } from '@l.x/lx/src/features/settings/balances/PortfolioBalanceSettingsContent'
 import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
-import { isExtensionApp } from '@luxfi/utilities/src/platform'
+import { isExtensionApp } from '@l.x/utils/src/platform'
 
 type PortfolioBalanceModalProps = {
   isOpen: boolean

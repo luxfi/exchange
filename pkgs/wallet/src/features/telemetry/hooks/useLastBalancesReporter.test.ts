@@ -5,7 +5,7 @@ import * as reportBalancesForAnalytics from '@l.x/lx/src/features/accounts/repor
 import { AccountType } from '@l.x/lx/src/features/accounts/types'
 import * as telemetrySend from '@l.x/lx/src/features/telemetry/send'
 import * as walletHooks from '@l.x/lx/src/features/wallet/hooks/useWallet'
-import { ONE_MINUTE_MS } from '@luxfi/utilities/src/time/time'
+import { ONE_MINUTE_MS } from '@l.x/utils/src/time/time'
 import { useLastBalancesReporter } from '@luxfi/wallet/src/features/telemetry/hooks/useLastBalancesReporter'
 import * as portfolioData from '@luxfi/wallet/src/features/telemetry/hooks/usePortfolioDataForReporting'
 import * as balanceReporter from '@luxfi/wallet/src/features/telemetry/utils/balanceReporter'

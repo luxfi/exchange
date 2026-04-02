@@ -26,7 +26,7 @@ import {
 import { TransactionState } from '@l.x/lx/src/features/transactions/types/transactionState'
 import { CurrencyField } from '@l.x/lx/src/types/currency'
 import { currencyAddress } from '@l.x/lx/src/utils/currencyId'
-import { isMobileApp, isWebPlatform } from '@luxfi/utilities/src/platform'
+import { isMobileApp, isWebPlatform } from '@l.x/utils/src/platform'
 import { ErrorBoundary } from '@luxfi/wallet/src/components/ErrorBoundary/ErrorBoundary'
 import { useWalletNavigation } from '@luxfi/wallet/src/contexts/WalletNavigationContext'
 import { useActiveSignerAccount } from '@luxfi/wallet/src/features/wallet/hooks'

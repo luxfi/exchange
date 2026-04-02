@@ -6,7 +6,7 @@ import { Modal } from '@l.x/lx/src/components/modals/Modal'
 import { LearnMoreLink } from '@l.x/lx/src/components/text/LearnMoreLink'
 import { ModalNameType } from '@l.x/lx/src/features/telemetry/constants'
 import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
-import { isExtensionApp } from '@luxfi/utilities/src/platform'
+import { isExtensionApp } from '@l.x/utils/src/platform'
 
 type ButtonConfig =
   | (Pick<DialogButtonConfig, 'text' | 'variant' | 'emphasis'> & {

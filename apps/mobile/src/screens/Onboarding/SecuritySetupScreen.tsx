@@ -20,7 +20,7 @@ import { ElementName } from '@l.x/lx/src/features/telemetry/constants'
 import Trace from '@l.x/lx/src/features/telemetry/Trace'
 import { ImportType } from '@l.x/lx/src/types/onboarding'
 import { OnboardingScreens } from '@l.x/lx/src/types/screens/mobile'
-import { isIOS } from '@luxfi/utilities/src/platform'
+import { isIOS } from '@l.x/utils/src/platform'
 
 type Props = NativeStackScreenProps<OnboardingStackParamList, OnboardingScreens.Security>
 

@@ -6,7 +6,7 @@ import { onboardingMessageChannel } from 'src/background/messagePassing/messageC
 import { OnboardingMessageType } from 'src/background/messagePassing/types/ExtensionMessages'
 import { ONBOARDING_BACKGROUND_DARK, ONBOARDING_BACKGROUND_LIGHT } from 'src/public/assets'
 import { Flex, Image, useIsDarkMode } from '@l.x/ui/src'
-import { isProdEnv } from '@luxfi/utilities/src/environment/env'
+import { isProdEnv } from '@l.x/utils/src/environment/env'
 import { OnboardingContextProvider } from '@luxfi/wallet/src/features/onboarding/OnboardingContext'
 import { useTestnetModeForLoggingAndAnalytics } from '@luxfi/wallet/src/features/testnetMode/hooks/useTestnetModeForLoggingAndAnalytics'
 

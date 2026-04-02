@@ -5,8 +5,8 @@ import { selectCurrentLanguage } from '@l.x/lx/src/features/settings/selectors'
 import { setCurrentLanguage } from '@l.x/lx/src/features/settings/slice'
 import i18n from '@l.x/lx/src/i18n'
 import { getWalletDeviceLanguage, getWalletDeviceLocale } from '@l.x/lx/src/i18n/utils'
-import { logger } from '@luxfi/utilities/src/logger/logger'
-import { isMobileApp } from '@luxfi/utilities/src/platform'
+import { logger } from '@l.x/utils/src/logger/logger'
+import { isMobileApp } from '@l.x/utils/src/platform'
 import { restartApp } from '@luxfi/wallet/src/components/ErrorBoundary/restartApp'
 
 function createAppStateChannel(): EventChannel<string> {

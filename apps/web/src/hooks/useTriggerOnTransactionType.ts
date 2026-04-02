@@ -1,6 +1,6 @@
 import { useEffect, useMemo } from 'react'
 import { TransactionType } from '@l.x/lx/src/features/transactions/types/transactionDetails'
-import { usePrevious } from '@luxfi/utilities/src/react/hooks'
+import { usePrevious } from '@l.x/utils/src/react/hooks'
 import { usePendingTransactions } from '~/state/transactions/hooks'
 
 /**

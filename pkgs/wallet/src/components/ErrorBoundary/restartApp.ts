@@ -1,4 +1,4 @@
-import { logger } from '@luxfi/utilities/src/logger/logger'
+import { logger } from '@l.x/utils/src/logger/logger'
 // This should be the only file that imports `restart`.
 // All other files should import `restartApp` instead.
 // biome-ignore lint/style/noRestrictedImports: This is the wrapper function that should import restart

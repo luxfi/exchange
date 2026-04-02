@@ -47,8 +47,8 @@ import { getEnabledChainIdsSaga } from '@l.x/lx/src/features/settings/saga'
 import i18n from '@l.x/lx/src/i18n'
 import { DappRequestType, EthEvent, WalletConnectEvent } from '@l.x/lx/src/types/walletConnect'
 import { areAddressesEqual } from '@l.x/lx/src/utils/addresses'
-import { logger } from '@luxfi/utilities/src/logger/logger'
-import { ONE_SECOND_MS } from '@luxfi/utilities/src/time/time'
+import { logger } from '@l.x/utils/src/logger/logger'
+import { ONE_SECOND_MS } from '@l.x/utils/src/time/time'
 import {
   selectAccounts,
   selectActiveAccountAddress,

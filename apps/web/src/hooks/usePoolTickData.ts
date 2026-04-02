@@ -13,7 +13,7 @@ import { useSupportedChainId } from '@l.x/lx/src/features/chains/hooks/useSuppor
 import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { toGraphQLChain } from '@l.x/lx/src/features/chains/utils'
 import { AddressStringFormat, normalizeAddress } from '@l.x/lx/src/utils/addresses'
-import { logger } from '@luxfi/utilities/src/logger/logger'
+import { logger } from '@l.x/utils/src/logger/logger'
 import { TickData, Ticks } from '~/appGraphql/data/AllV3TicksQuery'
 import { getTokenOrZeroAddress } from '~/components/Liquidity/utils/currency'
 import { poolEnabledProtocolVersion } from '~/components/Liquidity/utils/protocolVersion'

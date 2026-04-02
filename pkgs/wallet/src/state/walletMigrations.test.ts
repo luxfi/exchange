@@ -9,7 +9,7 @@
 import { RankingType } from '@l.x/api'
 import { FiatCurrency } from '@l.x/lx/src/features/fiatCurrency/constants'
 import { TransactionType } from '@l.x/lx/src/features/transactions/types/transactionDetails'
-import { createThrowingProxy } from '@luxfi/utilities/src/test/utils'
+import { createThrowingProxy } from '@l.x/utils/src/test/utils'
 import {
   addBatchedTransactions,
   addCreatedOnboardingRedesignAccountBehaviorHistory,

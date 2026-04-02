@@ -12,7 +12,7 @@ import { Currency, CurrencyAmount } from '@luxamm/sdk-core'
 import { useEffect, useMemo, useState } from 'react'
 import { liquidityQueries } from '@l.x/lx/src/data/apiClients/liquidityService/liquidityQueries'
 import { useUSDCValue } from '@l.x/lx/src/features/transactions/hooks/useUSDCPriceWrapper'
-import { ONE_SECOND_MS } from '@luxfi/utilities/src/time/time'
+import { ONE_SECOND_MS } from '@l.x/utils/src/time/time'
 import { DepositInfo } from '~/components/Liquidity/types'
 import { PositionField } from '~/types/position'
 

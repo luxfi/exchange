@@ -1,4 +1,4 @@
-import { convertScientificNotationToNumber } from '@luxfi/utilities/src/format/convertScientificNotation'
+import { convertScientificNotationToNumber } from '@l.x/utils/src/format/convertScientificNotation'
 
 describe('convertScientificNotationToNumber', () => {
   it('does not do anything to a regular number', () => {

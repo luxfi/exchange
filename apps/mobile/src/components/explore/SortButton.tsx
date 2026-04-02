@@ -9,7 +9,7 @@ import { MenuItemProp } from '@l.x/lx/src/components/modals/ActionSheetModal'
 import { MobileEventName } from '@l.x/lx/src/features/telemetry/constants'
 import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
 import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
-import { logger } from '@luxfi/utilities/src/logger/logger'
+import { logger } from '@l.x/utils/src/logger/logger'
 import { ExploreOrderBy } from '@luxfi/wallet/src/features/wallet/types'
 
 const MIN_MENU_ITEM_WIDTH = 220

@@ -21,9 +21,9 @@ import {
 } from '@l.x/lx/src/features/transactions/types/transactionDetails'
 import { WrapType } from '@l.x/lx/src/features/transactions/types/wrap'
 import { createTransactionId } from '@l.x/lx/src/utils/createTransactionId'
-import { DatadogLogMetrics, logAsMetric } from '@luxfi/utilities/src/logger/datadog/datadogLogMetrics'
-import { logger } from '@luxfi/utilities/src/logger/logger'
-import { ONE_SECOND_MS } from '@luxfi/utilities/src/time/time'
+import { DatadogLogMetrics, logAsMetric } from '@l.x/utils/src/logger/datadog/datadogLogMetrics'
+import { logger } from '@l.x/utils/src/logger/logger'
+import { ONE_SECOND_MS } from '@l.x/utils/src/time/time'
 
 import { waitForTransactionConfirmation } from '@luxfi/wallet/src/features/transactions/swap/confirmation'
 import { isSignedPermit, SignedPermit } from '@luxfi/wallet/src/features/transactions/swap/types/preSignedTransaction'

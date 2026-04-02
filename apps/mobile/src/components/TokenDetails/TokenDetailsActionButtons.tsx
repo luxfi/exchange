@@ -12,7 +12,7 @@ import { ElementName, MobileEventName, SectionName } from '@l.x/lx/src/features/
 import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
 import Trace from '@l.x/lx/src/features/telemetry/Trace'
 import { TestID, TestIDType } from '@l.x/lx/src/test/fixtures/testIDs'
-import { useBooleanState } from '@luxfi/utilities/src/react/useBooleanState'
+import { useBooleanState } from '@l.x/utils/src/react/useBooleanState'
 
 function CTAButton({
   title,

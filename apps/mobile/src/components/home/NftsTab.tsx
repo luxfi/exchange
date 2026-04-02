@@ -13,7 +13,7 @@ import { NFTItem } from 'lx/src/features/nfts/types'
 import { useAppInsets } from 'lx/src/hooks/useAppInsets'
 import { TestID } from 'lx/src/test/fixtures/testIDs'
 import { getOpenseaLink, openUri } from 'lx/src/utils/linking'
-import { isAndroid } from '@luxfi/utilities/src/platform'
+import { isAndroid } from '@l.x/utils/src/platform'
 import { useAccounts } from '@luxfi/wallet/src/features/wallet/hooks'
 
 export const NftsTab = memo(

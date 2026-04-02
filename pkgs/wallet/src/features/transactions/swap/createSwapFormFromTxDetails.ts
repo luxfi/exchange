@@ -7,7 +7,7 @@ import { TransactionState } from '@l.x/lx/src/features/transactions/types/transa
 import { isBridgeTypeInfo } from '@l.x/lx/src/features/transactions/types/utils'
 import { CurrencyField } from '@l.x/lx/src/types/currency'
 import { currencyAddress, currencyIdToAddress, currencyIdToChain } from '@l.x/lx/src/utils/currencyId'
-import { logger } from '@luxfi/utilities/src/logger/logger'
+import { logger } from '@l.x/utils/src/logger/logger'
 
 interface Props {
   transactionDetails: TransactionDetails

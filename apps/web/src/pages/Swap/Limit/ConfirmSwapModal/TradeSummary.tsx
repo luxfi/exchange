@@ -1,6 +1,6 @@
 import { ArrowRight } from '@l.x/ui/src/components/icons/ArrowRight'
 import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
-import { NumberType } from '@luxfi/utilities/src/format/types'
+import { NumberType } from '@l.x/utils/src/format/types'
 import Row from '~/components/deprecated/Row'
 import CurrencyLogo from '~/components/Logo/CurrencyLogo'
 import { InterfaceTrade } from '~/state/routing/types'

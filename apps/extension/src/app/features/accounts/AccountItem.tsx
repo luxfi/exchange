@@ -20,9 +20,9 @@ import { pushNotification } from '@l.x/lx/src/features/notifications/slice/slice
 import { AppNotificationType, CopyNotificationType } from '@l.x/lx/src/features/notifications/slice/types'
 import { ElementName, ModalName } from '@l.x/lx/src/features/telemetry/constants'
 import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
-import { setClipboard } from '@luxfi/utilities/src/clipboard/clipboard'
-import { NumberType } from '@luxfi/utilities/src/format/types'
-import { useBooleanState } from '@luxfi/utilities/src/react/useBooleanState'
+import { setClipboard } from '@l.x/utils/src/clipboard/clipboard'
+import { NumberType } from '@l.x/utils/src/format/types'
+import { useBooleanState } from '@l.x/utils/src/react/useBooleanState'
 import { EditAccountAction, editAccountActions } from '@luxfi/wallet/src/features/wallet/accounts/editAccountSaga'
 import { useDisplayName, useSignerAccounts } from '@luxfi/wallet/src/features/wallet/hooks'
 

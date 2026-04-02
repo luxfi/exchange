@@ -1,4 +1,4 @@
-import { ONE_DAY_MS, ONE_HOUR_MS, ONE_MINUTE_MS, ONE_SECOND_MS } from '@luxfi/utilities/src/time/time'
+import { ONE_DAY_MS, ONE_HOUR_MS, ONE_MINUTE_MS, ONE_SECOND_MS } from '@l.x/utils/src/time/time'
 
 export function getDurationRemainingString(expirationTime: number, currentTime?: number): string {
   const { days, hours, minutes, seconds, isPast } = getDurationRemaining(expirationTime, currentTime)

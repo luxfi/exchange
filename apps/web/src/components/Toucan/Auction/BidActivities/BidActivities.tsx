@@ -8,7 +8,7 @@ import { useColorHexFromThemeKey } from '@l.x/ui/src/hooks/useColorHexFromThemeK
 import { opacifyRaw } from '@l.x/ui/src/theme'
 import { useAppFiatCurrencyInfo } from '@l.x/lx/src/features/fiatCurrency/hooks'
 import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
-import { shortenAddress } from '@luxfi/utilities/src/addresses'
+import { shortenAddress } from '@l.x/utils/src/addresses'
 import { Table } from '~/components/Table'
 import { Cell } from '~/components/Table/Cell'
 import { TableText } from '~/components/Table/shared/TableText'

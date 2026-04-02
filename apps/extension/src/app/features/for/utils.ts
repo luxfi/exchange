@@ -8,7 +8,7 @@ import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { ElementName } from '@l.x/lx/src/features/telemetry/constants'
 import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
 import { ExtensionScreens } from '@l.x/lx/src/types/screens/extension'
-import { logger } from '@luxfi/utilities/src/logger/logger'
+import { logger } from '@l.x/utils/src/logger/logger'
 
 export function useInterfaceBuyNavigator(element?: ElementName): () => void {
   const { dappUrl } = useDappContext()

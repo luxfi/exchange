@@ -4,7 +4,7 @@ import { MoreHorizontal } from '@l.x/ui/src/components/icons/MoreHorizontal'
 import { ContextMenu } from 'lx/src/components/menus/ContextMenu'
 import { ContextMenuTriggerMode } from 'lx/src/components/menus/types'
 import { ElementName, SectionName } from 'lx/src/features/telemetry/constants'
-import { useBooleanState } from '@luxfi/utilities/src/react/useBooleanState'
+import { useBooleanState } from '@l.x/utils/src/react/useBooleanState'
 import { useLiquidityPositionDropdownOptions } from '~/components/Liquidity/hooks/useLiquidityPositionDropdownOptions'
 import { PositionInfo } from '~/components/Liquidity/types'
 

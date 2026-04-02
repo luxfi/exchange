@@ -7,7 +7,7 @@ import { ISeriesApi, UTCTimestamp } from 'lightweight-charts'
 import { useEffect, useState } from 'react'
 import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
-import { NumberType } from '@luxfi/utilities/src/format/types'
+import { NumberType } from '@l.x/utils/src/format/types'
 import { ChartHoverData, ChartModel, ChartModelParams } from '~/components/Charts/ChartModel'
 import { LiquidityBarSeries } from '~/components/Charts/LiquidityChart/liquidity-bar-series'
 import {

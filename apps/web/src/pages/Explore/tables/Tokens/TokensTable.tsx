@@ -14,7 +14,7 @@ import { useLocalizationContext } from 'lx/src/features/language/LocalizationCon
 import { ElementName } from 'lx/src/features/telemetry/constants'
 import { TestID } from 'lx/src/test/fixtures/testIDs'
 import { buildCurrencyId } from 'lx/src/utils/currencyId'
-import { FiatNumberType, NumberType } from '@luxfi/utilities/src/format/types'
+import { FiatNumberType, NumberType } from '@l.x/utils/src/format/types'
 import { SparklineMap } from '~/appGraphql/data/types'
 import { getTokenDetailsURL, OrderDirection, unwrapToken } from '~/appGraphql/data/util'
 import SparklineChart from '~/components/Charts/SparklineChart'

@@ -15,7 +15,7 @@ import { useBottomSheetSafeKeyboard } from '@l.x/lx/src/components/modals/useBot
 import { useUnitagsAddressQuery } from '@l.x/lx/src/data/apiClients/unitagsApi/useUnitagsAddressQuery'
 import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
 import { MobileScreens } from '@l.x/lx/src/types/screens/mobile'
-import { dismissNativeKeyboard } from '@luxfi/utilities/src/device/keyboard/dismissNativeKeyboard'
+import { dismissNativeKeyboard } from '@l.x/utils/src/device/keyboard/dismissNativeKeyboard'
 import { ChangeUnitagModal } from '@luxfi/wallet/src/features/unitags/ChangeUnitagModal'
 import { DeleteUnitagModal } from '@luxfi/wallet/src/features/unitags/DeleteUnitagModal'
 import { EditUnitagProfileContent } from '@luxfi/wallet/src/features/unitags/EditUnitagProfileContent'

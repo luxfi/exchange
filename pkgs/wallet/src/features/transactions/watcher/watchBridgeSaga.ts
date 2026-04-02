@@ -8,7 +8,7 @@ import {
   TransactionStatus,
   TransactionType,
 } from '@l.x/lx/src/features/transactions/types/transactionDetails'
-import { logger } from '@luxfi/utilities/src/logger/logger'
+import { logger } from '@l.x/utils/src/logger/logger'
 import {
   FINALIZED_SWAP_STATUS,
   MIN_BRIDGE_WAIT_TIME,

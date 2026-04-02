@@ -33,7 +33,7 @@ import { ModalName } from 'lx/src/features/telemetry/constants'
 import { useAppInsets } from 'lx/src/hooks/useAppInsets'
 import { CurrencyField } from 'lx/src/types/currency'
 import { buildCurrencyId, isNativeCurrencyAddress } from 'lx/src/utils/currencyId'
-import { useEvent } from '@luxfi/utilities/src/react/hooks'
+import { useEvent } from '@l.x/utils/src/react/hooks'
 import { useWalletNavigation } from '@luxfi/wallet/src/contexts/WalletNavigationContext'
 import { useActiveAccountAddressWithThrow } from '@luxfi/wallet/src/features/wallet/hooks'
 

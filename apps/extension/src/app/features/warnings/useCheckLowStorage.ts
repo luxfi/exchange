@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from 'react'
 import { GlobalErrorEvent } from 'src/app/events/constants'
 import { globalEventEmitter } from 'src/app/events/global'
-import { logger } from '@luxfi/utilities/src/logger/logger'
+import { logger } from '@l.x/utils/src/logger/logger'
 
 const REMAINING_STORAGE_THRESHOLD_BYTES = 500000 // 500KB
 

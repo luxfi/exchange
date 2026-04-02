@@ -11,7 +11,7 @@ import { NftViewWithContextMenu } from '@l.x/lx/src/components/nfts/NftViewWithC
 import { NFTItem } from '@l.x/lx/src/features/nfts/types'
 import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
 import { useAppInsets } from '@l.x/lx/src/hooks/useAppInsets'
-import { isMobileApp, isWebPlatform } from '@luxfi/utilities/src/platform'
+import { isMobileApp, isWebPlatform } from '@l.x/utils/src/platform'
 import { ChoosePhotoOptionsProps } from '@luxfi/wallet/src/features/unitags/ChoosePhotoOptionsModal'
 import { useAccounts } from '@luxfi/wallet/src/features/wallet/hooks'
 

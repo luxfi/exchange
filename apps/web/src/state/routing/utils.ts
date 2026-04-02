@@ -21,7 +21,7 @@ import { BIPS_BASE } from '@l.x/lx/src/constants/misc'
 import { nativeOnChain } from '@l.x/lx/src/constants/tokens'
 import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { isEVMChain } from '@l.x/lx/src/features/platforms/utils/chains'
-import { logger } from '@luxfi/utilities/src/logger/logger'
+import { logger } from '@l.x/utils/src/logger/logger'
 import { getApproveInfo } from '~/state/routing/gas'
 import {
   ClassicQuoteData,

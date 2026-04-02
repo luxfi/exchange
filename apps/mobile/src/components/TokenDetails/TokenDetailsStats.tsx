@@ -17,7 +17,7 @@ import { Language } from '@l.x/lx/src/features/language/constants'
 import { useCurrentLanguage, useCurrentLanguageInfo } from '@l.x/lx/src/features/language/hooks'
 import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
 import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
-import { NumberType } from '@luxfi/utilities/src/format/types'
+import { NumberType } from '@l.x/utils/src/format/types'
 
 const StatsRow = memo(function _StatsRow({
   label,

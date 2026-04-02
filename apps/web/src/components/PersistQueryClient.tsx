@@ -3,7 +3,7 @@ import { PersistQueryClientProvider } from '@tanstack/react-query-persist-client
 import { SharedQueryClient } from '@l.x/api'
 import { type PropsWithChildren } from 'react'
 import { sharedDehydrateOptions } from '@l.x/lx/src/data/apiClients/sharedDehydrateOptions'
-import { MAX_REACT_QUERY_CACHE_TIME_MS } from '@luxfi/utilities/src/time/time'
+import { MAX_REACT_QUERY_CACHE_TIME_MS } from '@l.x/utils/src/time/time'
 
 const persistOptions: React.ComponentProps<typeof PersistQueryClientProvider>['persistOptions'] = {
   // Change this unique string whenever we want to bust the entire cache.

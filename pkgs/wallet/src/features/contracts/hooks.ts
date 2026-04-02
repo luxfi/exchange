@@ -4,7 +4,7 @@ import { useCallback } from 'react'
 import ERC20_ABI from '@l.x/lx/src/abis/erc20.json'
 import { useIsSmartContractAddress } from '@l.x/lx/src/features/address/useIsSmartContractAddress'
 import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
-import { ReactQueryCacheKey } from '@luxfi/utilities/src/reactQuery/cache'
+import { ReactQueryCacheKey } from '@l.x/utils/src/reactQuery/cache'
 import { useProvider } from '@luxfi/wallet/src/features/wallet/context'
 
 export function useIsErc20Contract(

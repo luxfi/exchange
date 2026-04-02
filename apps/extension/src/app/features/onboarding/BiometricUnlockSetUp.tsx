@@ -9,8 +9,8 @@ import { Flex, Loader, Square } from '@l.x/ui/src'
 import { iconSizes } from '@l.x/ui/src/theme'
 import Trace from '@l.x/lx/src/features/telemetry/Trace'
 import { ExtensionOnboardingFlow, ExtensionOnboardingScreens } from '@l.x/lx/src/types/screens/extension'
-import { logger } from '@luxfi/utilities/src/logger/logger'
-import { useEvent } from '@luxfi/utilities/src/react/hooks'
+import { logger } from '@l.x/utils/src/logger/logger'
+import { useEvent } from '@l.x/utils/src/react/hooks'
 
 export function BiometricUnlockSetUp({
   flow,

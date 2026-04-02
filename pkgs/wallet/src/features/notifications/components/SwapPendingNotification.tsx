@@ -4,7 +4,7 @@ import { SpinningLoader } from '@l.x/ui/src'
 import { NotificationToast } from '@l.x/lx/src/components/notifications/NotificationToast'
 import { SwapPendingNotification as SwapPendingNotificationType } from '@l.x/lx/src/features/notifications/slice/types'
 import { WrapType } from '@l.x/lx/src/features/transactions/types/wrap'
-import { ONE_SECOND_MS } from '@luxfi/utilities/src/time/time'
+import { ONE_SECOND_MS } from '@l.x/utils/src/time/time'
 
 // We roughly track the L1 block time, accuracy isnt crucial because we have other pending states,
 // and when a txn confirms it ll replace this toast.

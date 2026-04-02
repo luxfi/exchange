@@ -1,6 +1,6 @@
 import { useUnitagsAddressQuery } from '@l.x/lx/src/data/apiClients/unitagsApi/useUnitagsAddressQuery'
 import { useActiveAddresses } from '@l.x/lx/src/features/accounts/store/hooks'
-import { shortenAddress } from '@luxfi/utilities/src/addresses'
+import { shortenAddress } from '@l.x/utils/src/addresses'
 import { useEnsName } from 'wagmi'
 
 // Returns an identifier for the current or recently connected account, prioritizing unitag -> ENS name -> address

@@ -1,7 +1,7 @@
 // biome-ignore lint/style/noRestrictedImports: Platform-specific implementation needs internal types
 import { getLocales } from 'expo-localization'
-import { DEFAULT_LANGUAGE_CODE, DEFAULT_LANGUAGE_TAG, DeviceLocale } from '@luxfi/utilities/src/device/constants'
-import { logger } from '@luxfi/utilities/src/logger/logger'
+import { DEFAULT_LANGUAGE_CODE, DEFAULT_LANGUAGE_TAG, DeviceLocale } from '@l.x/utils/src/device/constants'
+import { logger } from '@l.x/utils/src/logger/logger'
 
 export function getDeviceLocales(): DeviceLocale[] {
   try {

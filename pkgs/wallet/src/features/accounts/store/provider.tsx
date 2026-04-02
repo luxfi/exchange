@@ -10,8 +10,8 @@ import { DEFAULT_EVM_METHODS, EVM_NAMESPACE_IDENTIFIER } from '@l.x/lx/src/featu
 import { CAIP25Session } from '@l.x/lx/src/features/capabilities/caip25/types'
 import { useEnabledChains } from '@l.x/lx/src/features/chains/hooks/useEnabledChains'
 import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
-import { ensure0xHex } from '@luxfi/utilities/src/addresses/hex'
-import { isNonEmptyArray, NonEmptyArray } from '@luxfi/utilities/src/primitives/array'
+import { ensure0xHex } from '@l.x/utils/src/addresses/hex'
+import { isNonEmptyArray, NonEmptyArray } from '@l.x/utils/src/primitives/array'
 import { createAccountsStoreGetters } from '@luxfi/wallet/src/features/accounts/store/getters'
 import {
   DerivedAddresses,

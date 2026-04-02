@@ -5,7 +5,7 @@ import { ElementName } from '@l.x/lx/src/features/telemetry/constants'
 import { TestID, TestIDType } from '@l.x/lx/src/test/fixtures/testIDs'
 import { ImportType } from '@l.x/lx/src/types/onboarding'
 import { OnboardingScreens } from '@l.x/lx/src/types/screens/mobile'
-import { isAndroid } from '@luxfi/utilities/src/platform'
+import { isAndroid } from '@l.x/utils/src/platform'
 
 type ImportMethodScreens =
   | OnboardingScreens.SeedPhraseInput

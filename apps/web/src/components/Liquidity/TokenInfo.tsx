@@ -4,7 +4,7 @@ import { Flex, Text } from '@l.x/ui/src'
 import { iconSizes } from '@l.x/ui/src/theme'
 import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
 import { getSymbolDisplayText } from '@l.x/lx/src/utils/currency'
-import { NumberType } from '@luxfi/utilities/src/format/types'
+import { NumberType } from '@l.x/utils/src/format/types'
 import { getCurrencyForProtocol } from '~/components/Liquidity/utils/currency'
 import CurrencyLogo from '~/components/Logo/CurrencyLogo'
 

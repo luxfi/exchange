@@ -11,7 +11,7 @@ import { CurrencyInfo } from '@l.x/lx/src/features/dataApi/types'
 import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
 import { TransactionType } from '@l.x/lx/src/features/transactions/types/transactionDetails'
 import { CurrencyField } from '@l.x/lx/src/types/currency'
-import { NumberType } from '@luxfi/utilities/src/format/types'
+import { NumberType } from '@l.x/utils/src/format/types'
 import { useActiveAddresses } from '@luxfi/wallet/src/features/accounts/store/hooks'
 
 interface TokenSelectorPanelProps {

@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next'
 import { WarningSeverity } from '@l.x/lx/src/components/modals/WarningModal/types'
 import { WarningModal } from '@l.x/lx/src/components/modals/WarningModal/WarningModal'
 import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
-import { useEvent } from '@luxfi/utilities/src/react/hooks'
+import { useEvent } from '@l.x/utils/src/react/hooks'
 import { useConnectWallet } from '~/features/wallet/connection/hooks/useConnectWallet'
 
 export default function ConnectionErrorView() {

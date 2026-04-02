@@ -84,7 +84,7 @@ import { Language } from '@l.x/lx/src/features/language/constants'
 import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
 import { TransactionStatus, TransactionType } from '@l.x/lx/src/features/transactions/types/transactionDetails'
 import { DappRequestType } from '@l.x/lx/src/types/walletConnect'
-import { createThrowingProxy } from '@luxfi/utilities/src/test/utils'
+import { createThrowingProxy } from '@l.x/utils/src/test/utils'
 import { SwapProtectionSetting } from '@luxfi/wallet/src/features/wallet/slice'
 
 describe('restructureTransactionsAndNotifications', () => {

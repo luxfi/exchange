@@ -1,5 +1,5 @@
 import { brand } from '@l.x/config'
-import { isBetaEnv, isProdEnv } from '@luxfi/utilities/src/environment/env'
+import { isBetaEnv, isProdEnv } from '@l.x/utils/src/environment/env'
 
 /** Check if we are running on a known production exchange domain */
 function isKnownExchangeDomain({ hostname }: { hostname: string }): boolean {

@@ -11,7 +11,7 @@ import { DynamicConfigs, ForceUpgradeConfigKey, type ForceUpgradeStatus, getDyna
 import { createIntervalNotificationDataSource, type NotificationDataSource } from '@l.x/notifications'
 import { LUX_LOGO } from '@l.x/ui/src/assets'
 import i18n from '@l.x/lx/src/i18n'
-import { ONE_SECOND_MS } from '@luxfi/utilities/src/time/time'
+import { ONE_SECOND_MS } from '@l.x/utils/src/time/time'
 import { MOBILE_APP_STORE_LINK } from '@luxfi/wallet/src/constants/urls'
 
 // Using 'local:' prefix to indicate these are client-only notifications

@@ -9,7 +9,7 @@ import { CurrencyField } from '@l.x/lx/src/types/currency'
 import { ImportType, OnboardingEntryPoint } from '@l.x/lx/src/types/onboarding'
 import { MobileScreens, OnboardingScreens, UnitagScreens } from '@l.x/lx/src/types/screens/mobile'
 import { openUri } from '@l.x/lx/src/utils/linking'
-import { getLogger } from '@luxfi/utilities/src/logger/logger'
+import { getLogger } from '@l.x/utils/src/logger/logger'
 
 /**
  * Chain name to UniverseChainId mapping for swap navigation

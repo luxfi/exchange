@@ -1,5 +1,5 @@
 import { Locale } from 'expo-localization'
-import { getDeviceLocales } from '@luxfi/utilities/src/device/locales.native'
+import { getDeviceLocales } from '@l.x/utils/src/device/locales.native'
 
 const MOCK_LANGUAGE_CODE = 'es'
 const MOCK_LANGUAGE_TAG = 'es-ES'

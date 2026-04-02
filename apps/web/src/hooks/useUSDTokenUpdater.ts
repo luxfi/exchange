@@ -4,7 +4,7 @@ import { useSupportedChainId } from '@l.x/lx/src/features/chains/hooks/useSuppor
 import { getPrimaryStablecoin } from '@l.x/lx/src/features/chains/utils'
 import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
 import { useUSDCPrice } from '@l.x/lx/src/features/transactions/hooks/useUSDCPriceWrapper'
-import { NumberType } from '@luxfi/utilities/src/format/types'
+import { NumberType } from '@l.x/utils/src/format/types'
 import tryParseCurrencyAmount from '~/lib/utils/tryParseCurrencyAmount'
 
 const NUM_DECIMALS_USD = 2

@@ -8,7 +8,7 @@ import { Wrench } from '@l.x/ui/src/components/icons/Wrench'
 import { iconSizes } from '@l.x/ui/src/theme'
 import { Modal } from '@l.x/lx/src/components/modals/Modal'
 import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
-import { isMobileApp } from '@luxfi/utilities/src/platform'
+import { isMobileApp } from '@l.x/utils/src/platform'
 
 const iconProps: IconProps = {
   color: '$neutral2',

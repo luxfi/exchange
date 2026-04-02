@@ -3,7 +3,7 @@ import EventEmitter from 'eventemitter3'
 import { addWindowMessageListener, removeWindowMessageListener } from 'src/background/messagePassing/messageUtils'
 import { ExtensionResponse, isValidExtensionResponse } from 'src/contentScript/types'
 import { BaseEthereumRequest, BaseEthereumRequestSchema } from 'src/contentScript/WindowEthereumRequestTypes'
-import { logger } from '@luxfi/utilities/src/logger/logger'
+import { logger } from '@l.x/utils/src/logger/logger'
 import { v4 as uuidv4 } from 'uuid'
 import { ZodError } from 'zod'
 

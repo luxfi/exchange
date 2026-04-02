@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { logger } from '@luxfi/utilities/src/logger/logger'
+import { logger } from '@l.x/utils/src/logger/logger'
 
 export function useDeferredComponent<T extends React.ComponentType<any>>(importFn: () => Promise<{ default: T }>) {
   const [Component, setComponent] = useState<T | null>(null)

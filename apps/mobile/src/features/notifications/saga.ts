@@ -5,7 +5,7 @@ import { initNotifsForNewUser, updateNotifSettings } from 'src/features/notifica
 import { call, select, takeEvery } from 'typed-redux-saga'
 import { finalizeTransaction } from '@l.x/lx/src/features/transactions/slice'
 import { TransactionStatus, TransactionType } from '@l.x/lx/src/features/transactions/types/transactionDetails'
-import { ONE_SECOND_MS } from '@luxfi/utilities/src/time/time'
+import { ONE_SECOND_MS } from '@l.x/utils/src/time/time'
 import { selectActiveAccountAddress, selectFinishedOnboarding } from '@luxfi/wallet/src/features/wallet/selectors'
 import { removeAccounts, setAccountAsActive } from '@luxfi/wallet/src/features/wallet/slice'
 

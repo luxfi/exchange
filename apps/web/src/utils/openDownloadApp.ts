@@ -2,7 +2,7 @@ import { brand, getBrandUrl, getDocsUrl } from '@l.x/config'
 import { ElementName, InterfaceEventName } from '@l.x/lx/src/features/telemetry/constants'
 import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
 import { AppDownloadPlatform } from '@l.x/lx/src/features/telemetry/types'
-import { isWebAndroid, isWebIOS } from '@luxfi/utilities/src/platform'
+import { isWebAndroid, isWebIOS } from '@l.x/utils/src/platform'
 
 // Download links — redirect to Lux wallet download page
 const APP_DOWNLOAD_LINKS: Partial<{ [key in ElementName]: string }> = {

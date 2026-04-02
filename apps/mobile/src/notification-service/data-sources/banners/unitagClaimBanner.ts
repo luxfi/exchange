@@ -14,7 +14,7 @@ import { UNITAG_SUFFIX_NO_LEADING_DOT } from '@l.x/lx/src/features/unitags/const
 import i18n from '@l.x/lx/src/i18n'
 import { UnitagScreens } from '@l.x/lx/src/types/screens/mobile'
 import { getValidAddress } from '@l.x/lx/src/utils/addresses'
-import { ReactQueryCacheKey } from '@luxfi/utilities/src/reactQuery/cache'
+import { ReactQueryCacheKey } from '@l.x/utils/src/reactQuery/cache'
 
 /**
  * Check if Unitag claim prompt should be shown.

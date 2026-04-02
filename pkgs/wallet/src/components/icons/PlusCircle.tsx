@@ -1,7 +1,7 @@
 import { Flex, useIsDarkMode } from '@l.x/ui/src'
 import { Plus } from '@l.x/ui/src/components/icons'
 import { iconSizes } from '@l.x/ui/src/theme'
-import { isExtensionApp } from '@luxfi/utilities/src/platform'
+import { isExtensionApp } from '@l.x/utils/src/platform'
 
 export function PlusCircle(): JSX.Element {
   const isDarkMode = useIsDarkMode()

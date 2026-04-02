@@ -5,7 +5,7 @@ import { nativeOnChain } from '@l.x/lx/src/constants/tokens'
 import { ElementName } from '@l.x/lx/src/features/telemetry/constants'
 import Trace from '@l.x/lx/src/features/telemetry/Trace'
 import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
-import { isWebPlatform } from '@luxfi/utilities/src/platform'
+import { isWebPlatform } from '@l.x/utils/src/platform'
 import { useSendContext } from '@luxfi/wallet/src/features/transactions/contexts/SendContext'
 
 type ReviewButtonProps = {

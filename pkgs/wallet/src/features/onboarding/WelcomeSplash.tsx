@@ -5,7 +5,7 @@ import { Unitag } from '@l.x/ui/src/components/icons'
 import { iconSizes } from '@l.x/ui/src/theme'
 import { useUnitagsAddressQuery } from '@l.x/lx/src/data/apiClients/unitagsApi/useUnitagsAddressQuery'
 import { AccountIcon } from '@l.x/lx/src/features/accounts/AccountIcon'
-import { isExtensionApp } from '@luxfi/utilities/src/platform'
+import { isExtensionApp } from '@l.x/utils/src/platform'
 
 export function WelcomeSplash({
   address,

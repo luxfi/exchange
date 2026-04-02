@@ -6,8 +6,8 @@ import { CloseIconWithHover } from '@l.x/ui/src/components/icons/CloseIconWithHo
 import { Modal } from '@l.x/lx/src/components/modals/Modal'
 import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
 import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
-import { useEvent } from '@luxfi/utilities/src/react/hooks'
-import { useDebounce } from '@luxfi/utilities/src/time/timing'
+import { useEvent } from '@l.x/utils/src/react/hooks'
+import { useDebounce } from '@l.x/utils/src/time/timing'
 import {
   getWalletRequiresSeparatePrompt,
   useHasAcceptedSolanaConnectionPrompt,

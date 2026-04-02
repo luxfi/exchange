@@ -32,8 +32,8 @@ import {
 } from '@l.x/lx/src/features/transactions/types/transactionDetails'
 import { isFinalizedPlanTXDetails } from '@l.x/lx/src/features/transactions/types/utils'
 import { currencyIdToChain } from '@l.x/lx/src/utils/currencyId'
-import { logger } from '@luxfi/utilities/src/logger/logger'
-import { ReactQueryCacheKey } from '@luxfi/utilities/src/reactQuery/cache'
+import { logger } from '@l.x/utils/src/logger/logger'
+import { ReactQueryCacheKey } from '@l.x/utils/src/reactQuery/cache'
 import { getDiff, getOptionalTransactionProperty, getPercentageError } from '@luxfi/wallet/src/features/transactions/utils'
 import { selectActiveAccountAddress } from '@luxfi/wallet/src/features/wallet/selectors'
 

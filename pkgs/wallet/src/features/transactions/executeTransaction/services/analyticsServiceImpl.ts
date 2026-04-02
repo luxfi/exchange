@@ -2,8 +2,8 @@ import { WalletEventName } from '@l.x/lx/src/features/telemetry/constants'
 import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
 import type { SwapTradeBaseProperties, UniverseEventProperties } from '@l.x/lx/src/features/telemetry/types'
 import { TransactionDetails, TransactionOriginType } from '@l.x/lx/src/features/transactions/types/transactionDetails'
-import { DatadogLogMetrics, logAsMetric } from '@luxfi/utilities/src/logger/datadog/datadogLogMetrics'
-import { logger as loggerUtil } from '@luxfi/utilities/src/logger/logger'
+import { DatadogLogMetrics, logAsMetric } from '@l.x/utils/src/logger/datadog/datadogLogMetrics'
+import { logger as loggerUtil } from '@l.x/utils/src/logger/logger'
 import type { AnalyticsService } from '@luxfi/wallet/src/features/transactions/executeTransaction/services/analyticsService'
 
 type Logger = typeof loggerUtil

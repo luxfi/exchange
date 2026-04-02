@@ -25,8 +25,8 @@ import { useHapticFeedback } from '@l.x/lx/src/features/settings/useHapticFeedba
 import { ElementName } from '@l.x/lx/src/features/telemetry/constants'
 import Trace from '@l.x/lx/src/features/telemetry/Trace'
 import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
-import { logger } from '@luxfi/utilities/src/logger/logger'
-import { isAndroid } from '@luxfi/utilities/src/platform'
+import { logger } from '@l.x/utils/src/logger/logger'
+import { isAndroid } from '@l.x/utils/src/platform'
 
 const DEFAULT_Y_PADDING = 20
 const LOW_VARIANCE_Y_PADDING = 100

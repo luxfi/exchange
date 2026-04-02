@@ -1,6 +1,6 @@
 import { Anchor, Text } from '@l.x/ui/src'
 import { ExternalLink } from '@l.x/ui/src/components/icons'
-import { shortenAddress } from '@luxfi/utilities/src/addresses'
+import { shortenAddress } from '@l.x/utils/src/addresses'
 
 interface MaybeExplorerLinkedAddressProps {
   address: string

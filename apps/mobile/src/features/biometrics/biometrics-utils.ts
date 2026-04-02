@@ -7,8 +7,8 @@ import {
 import DeviceInfo from 'react-native-device-info'
 import { openSecuritySettings } from 'src/utils/linking'
 import i18n from '@l.x/lx/src/i18n'
-import { logger } from '@luxfi/utilities/src/logger/logger'
-import { isAndroid } from '@luxfi/utilities/src/platform'
+import { logger } from '@l.x/utils/src/logger/logger'
+import { isAndroid } from '@l.x/utils/src/platform'
 
 /**
  * Biometric authentication statuses

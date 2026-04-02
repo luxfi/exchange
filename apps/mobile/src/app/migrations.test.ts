@@ -197,7 +197,7 @@ import {
 } from '@l.x/lx/src/state/luxMigrationTests'
 import { transactionDetails } from '@l.x/lx/src/test/fixtures'
 import { DappRequestType } from '@l.x/lx/src/types/walletConnect'
-import { getAllKeysOfNestedObject } from '@luxfi/utilities/src/primitives/objects'
+import { getAllKeysOfNestedObject } from '@l.x/utils/src/primitives/objects'
 import { initialBatchedTransactionsState } from '@luxfi/wallet/src/features/batchedTransactions/slice'
 import { initialBehaviorHistoryState } from '@luxfi/wallet/src/features/behaviorHistory/slice'
 import { initialTelemetryState } from '@luxfi/wallet/src/features/telemetry/slice'

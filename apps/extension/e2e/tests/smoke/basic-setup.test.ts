@@ -1,7 +1,7 @@
 import { expect } from '@playwright/test'
 import { freshExtensionTest as test } from 'e2e/fixtures/extension.fixture'
-import { ONE_SECOND_MS } from '@luxfi/utilities/src/time/time'
-import { sleep } from '@luxfi/utilities/src/time/timing'
+import { ONE_SECOND_MS } from '@l.x/utils/src/time/time'
+import { sleep } from '@l.x/utils/src/time/timing'
 
 test.describe('Basic Extension Setup', () => {
   test('extension loads successfully', async ({ context, extensionId }) => {

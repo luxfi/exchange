@@ -13,8 +13,8 @@ import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { toSupportedChainId } from '@l.x/lx/src/features/chains/utils'
 import { EthMethod, EthSignMethod, WalletConnectEthMethod } from '@l.x/lx/src/features/dappRequests/types'
 import { DappRequestInfo, DappRequestType } from '@l.x/lx/src/types/walletConnect'
-import { hexToNumber } from '@luxfi/utilities/src/addresses/hex'
-import { logger } from '@luxfi/utilities/src/logger/logger'
+import { hexToNumber } from '@l.x/utils/src/addresses/hex'
+import { logger } from '@l.x/utils/src/logger/logger'
 import { generateBatchId } from '@luxfi/wallet/src/features/batchedTransactions/utils'
 import {
   Capability,

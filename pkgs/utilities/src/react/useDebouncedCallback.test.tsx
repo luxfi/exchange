@@ -1,5 +1,5 @@
 import { act, renderHook } from '@testing-library/react'
-import { useDebouncedCallback } from '@luxfi/utilities/src/react/useDebouncedCallback'
+import { useDebouncedCallback } from '@l.x/utils/src/react/useDebouncedCallback'
 import { vi } from 'vitest'
 
 describe('useDebouncedCallback', () => {

@@ -8,8 +8,8 @@ import { transactionActions } from '@l.x/lx/src/features/transactions/slice'
 import { toTradingApiSupportedChainId } from '@l.x/lx/src/features/transactions/swap/utils/tradingApi'
 import { TransactionDetails, TransactionStatus } from '@l.x/lx/src/features/transactions/types/transactionDetails'
 import { POLLING_CONSTANTS, shouldCheckTransaction, withTimeout } from '@l.x/lx/src/utils/polling'
-import { logger } from '@luxfi/utilities/src/logger/logger'
-import { ONE_MINUTE_MS, ONE_SECOND_MS } from '@luxfi/utilities/src/time/time'
+import { logger } from '@l.x/utils/src/logger/logger'
+import { ONE_MINUTE_MS, ONE_SECOND_MS } from '@l.x/utils/src/time/time'
 import { processTransactionReceipt } from '@luxfi/wallet/src/features/transactions/utils'
 import {
   FINALIZED_SWAP_STATUS,

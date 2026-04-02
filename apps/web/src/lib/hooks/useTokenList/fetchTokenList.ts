@@ -1,6 +1,6 @@
 import type { TokenList } from '@luxamm/token-lists'
-import { uriToHttpUrls } from '@luxfi/utilities/src/format/urls'
-import { logger } from '@luxfi/utilities/src/logger/logger'
+import { uriToHttpUrls } from '@l.x/utils/src/format/urls'
+import { logger } from '@l.x/utils/src/logger/logger'
 import contenthashToUri from '~/lib/utils/contenthashToUri'
 import parseENSAddress from '~/lib/utils/parseENSAddress'
 import { validateTokenList } from '~/utils/validateTokenList'

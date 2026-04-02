@@ -19,9 +19,9 @@ import { AppNotificationType, CopyNotificationType } from '@l.x/lx/src/features/
 import { ElementName, ModalName } from '@l.x/lx/src/features/telemetry/constants'
 import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
 import { UnitagScreens } from '@l.x/lx/src/types/screens/mobile'
-import { setClipboard } from '@luxfi/utilities/src/clipboard/clipboard'
-import { NumberType } from '@luxfi/utilities/src/format/types'
-import { noop } from '@luxfi/utilities/src/react/noop'
+import { setClipboard } from '@l.x/utils/src/clipboard/clipboard'
+import { NumberType } from '@l.x/utils/src/format/types'
+import { noop } from '@l.x/utils/src/react/noop'
 import { useAccountListData } from '@luxfi/wallet/src/features/accounts/useAccountListData'
 import { useAccounts } from '@luxfi/wallet/src/features/wallet/hooks'
 

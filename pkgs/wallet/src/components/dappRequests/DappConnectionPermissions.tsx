@@ -11,7 +11,7 @@ import {
   RotatableChevron,
 } from '@l.x/ui/src/components/icons'
 import { defaultHitslop } from '@l.x/ui/src/theme'
-import { useBooleanState } from '@luxfi/utilities/src/react/useBooleanState'
+import { useBooleanState } from '@l.x/utils/src/react/useBooleanState'
 import { DappScanInfoModal } from '@luxfi/wallet/src/components/dappRequests/DappScanInfoModal'
 import { DappVerificationStatus } from '@luxfi/wallet/src/features/dappRequests/types'
 

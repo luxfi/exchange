@@ -6,9 +6,9 @@ import { useCallback } from 'react'
 import ERC20_ABI from '@l.x/lx/src/abis/erc20.json'
 import { Erc20 } from '@l.x/lx/src/abis/types'
 import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
-import { getContract } from '@luxfi/utilities/src/contracts/getContract'
-import { logger } from '@luxfi/utilities/src/logger/logger'
-import { ReactQueryCacheKey } from '@luxfi/utilities/src/reactQuery/cache'
+import { getContract } from '@l.x/utils/src/contracts/getContract'
+import { logger } from '@l.x/utils/src/logger/logger'
+import { ReactQueryCacheKey } from '@l.x/utils/src/reactQuery/cache'
 
 interface TransferInfo {
   provider?: Web3Provider

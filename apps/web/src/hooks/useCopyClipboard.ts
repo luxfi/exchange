@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from 'react'
-import { setClipboard } from '@luxfi/utilities/src/clipboard/clipboard'
-import { logger } from '@luxfi/utilities/src/logger/logger'
+import { setClipboard } from '@l.x/utils/src/clipboard/clipboard'
+import { logger } from '@l.x/utils/src/logger/logger'
 
 export default function useCopyClipboard(timeout = 500): [boolean, (toCopy: string) => void] {
   const [isCopied, setIsCopied] = useState(false)

@@ -1,6 +1,6 @@
 /* biome-ignore-all lint/suspicious/noExplicitAny: Chrome extension message passing requires flexible typing for arbitrary message payloads */
 import { MessageParsers } from '@l.x/lx/src/extension/messagePassing/platform'
-import { logger } from '@luxfi/utilities/src/logger/logger'
+import { logger } from '@l.x/utils/src/logger/logger'
 
 const EXTENSION_CONTEXT_INVALIDATED_CHROMIUM_ERROR = 'Extension context invalidated.'
 

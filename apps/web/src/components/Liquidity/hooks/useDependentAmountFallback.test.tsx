@@ -13,8 +13,8 @@ import { Currency, CurrencyAmount } from '@luxamm/sdk-core'
 import JSBI from 'jsbi'
 import { USDC_MAINNET } from '@l.x/lx/src/constants/tokens'
 import { liquidityQueries } from '@l.x/lx/src/data/apiClients/liquidityService/liquidityQueries'
-import { ReactQueryCacheKey } from '@luxfi/utilities/src/reactQuery/cache'
-import { ONE_SECOND_MS } from '@luxfi/utilities/src/time/time'
+import { ReactQueryCacheKey } from '@l.x/utils/src/reactQuery/cache'
+import { ONE_SECOND_MS } from '@l.x/utils/src/time/time'
 import { vi } from 'vitest'
 import {
   useCreatePositionDependentAmountFallback,

@@ -1,7 +1,7 @@
 // Disabling this because we need access to `chrome` in the global scope.
 /* biome-ignore-all lint/style/noRestrictedGlobals: we need access to `chrome` in the global scope */
 
-import { isExtensionApp } from '@luxfi/utilities/src/platform'
+import { isExtensionApp } from '@l.x/utils/src/platform'
 
 /**
  * Returns the Chrome API if available in the current context, or undefined otherwise.

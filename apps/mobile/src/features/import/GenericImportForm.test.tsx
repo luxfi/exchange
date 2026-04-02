@@ -1,7 +1,7 @@
 import React from 'react'
 import { GenericImportForm } from 'src/features/import/GenericImportForm'
 import { render, screen } from 'src/test/test-utils'
-import { noOpFunction } from '@luxfi/utilities/src/test/utils'
+import { noOpFunction } from '@l.x/utils/src/test/utils'
 import { GuiProvider } from '@luxfi/wallet/src/providers/gui-provider'
 
 describe(GenericImportForm, () => {

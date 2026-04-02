@@ -3,8 +3,8 @@ import { Core } from '@walletconnect/core'
 import '@walletconnect/react-native-compat'
 import { registerWCClientForPushNotifications } from 'src/features/walletConnect/api'
 import { config } from '@l.x/lx/src/config'
-import { isBetaEnv, isDevEnv } from '@luxfi/utilities/src/environment/env'
-import { logger } from '@luxfi/utilities/src/logger/logger'
+import { isBetaEnv, isDevEnv } from '@l.x/utils/src/environment/env'
+import { logger } from '@l.x/utils/src/logger/logger'
 
 // Export the wallet instance that will be initialized
 export let wcWeb3Wallet: IWalletKit

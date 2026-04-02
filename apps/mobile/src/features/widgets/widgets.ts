@@ -7,9 +7,9 @@ import { MobileEventName } from '@l.x/lx/src/features/telemetry/constants'
 import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
 import { CurrencyId } from '@l.x/lx/src/types/currency'
 import { WidgetEvent } from '@l.x/lx/src/types/widgets'
-import { isAndroid } from '@luxfi/utilities/src/platform'
+import { isAndroid } from '@l.x/utils/src/platform'
 // biome-ignore lint/style/noRestrictedImports: Required for analytics initialization
-import { analytics } from '@luxfi/utilities/src/telemetry/analytics/analytics'
+import { analytics } from '@l.x/utils/src/telemetry/analytics/analytics'
 import { Account } from '@luxfi/wallet/src/features/wallet/accounts/types'
 
 const APP_GROUP = 'group.com.lux.widgets'

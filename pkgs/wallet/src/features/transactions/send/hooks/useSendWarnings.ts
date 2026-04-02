@@ -8,8 +8,8 @@ import { getNetworkWarning } from '@l.x/lx/src/features/transactions/hooks/usePa
 import { DerivedSendInfo } from '@l.x/lx/src/features/transactions/send/types'
 import { CurrencyField } from '@l.x/lx/src/types/currency'
 import { currencyAddress } from '@l.x/lx/src/utils/currencyId'
-import { useIsOffline } from '@luxfi/utilities/src/connection/useIsOffline'
-import { useMemoCompare } from '@luxfi/utilities/src/react/hooks'
+import { useIsOffline } from '@l.x/utils/src/connection/useIsOffline'
+import { useMemoCompare } from '@l.x/utils/src/react/hooks'
 
 export function getSendWarnings({
   t,

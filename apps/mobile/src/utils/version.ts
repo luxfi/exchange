@@ -1,5 +1,5 @@
 import DeviceInfo from 'react-native-device-info'
-import { isBetaEnv, isDevEnv } from '@luxfi/utilities/src/environment/env'
+import { isBetaEnv, isDevEnv } from '@l.x/utils/src/environment/env'
 
 /**
  * Returns a string with the app version and build number in the format:

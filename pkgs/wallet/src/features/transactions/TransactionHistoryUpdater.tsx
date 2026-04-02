@@ -18,7 +18,7 @@ import { GQL_QUERIES_TO_REFETCH_ON_TXN_UPDATE } from '@l.x/lx/src/features/portf
 import { useHideSpamTokensSetting } from '@l.x/lx/src/features/settings/hooks'
 import { useSelectAddressTransactions } from '@l.x/lx/src/features/transactions/selectors'
 import { TransactionStatus, TransactionType } from '@l.x/lx/src/features/transactions/types/transactionDetails'
-import { ONE_SECOND_MS } from '@luxfi/utilities/src/time/time'
+import { ONE_SECOND_MS } from '@l.x/utils/src/time/time'
 import { buildReceiveNotification } from '@luxfi/wallet/src/features/notifications/buildReceiveNotification'
 import { shouldSuppressNotification } from '@luxfi/wallet/src/features/notifications/notificationWatcherSaga'
 import { useAccounts, useActiveAccountAddress } from '@luxfi/wallet/src/features/wallet/hooks'

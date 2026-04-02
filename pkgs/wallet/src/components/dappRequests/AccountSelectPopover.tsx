@@ -6,7 +6,7 @@ import { iconSizes, spacing } from '@l.x/ui/src/theme'
 import { AddressDisplay } from '@l.x/lx/src/components/accounts/AddressDisplay'
 import { LuxContext, useLuxContext } from '@l.x/lx/src/contexts/LuxContext'
 import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
-import { useEvent } from '@luxfi/utilities/src/react/hooks'
+import { useEvent } from '@l.x/utils/src/react/hooks'
 import { OverlappingAccountIcons } from '@luxfi/wallet/src/components/accounts/OverlappingAccountIcons'
 import { useSignerAccounts } from '@luxfi/wallet/src/features/wallet/hooks'
 

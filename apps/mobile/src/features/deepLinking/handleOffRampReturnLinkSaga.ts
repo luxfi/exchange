@@ -14,7 +14,7 @@ import i18n from '@l.x/lx/src/i18n'
 import { CurrencyField } from '@l.x/lx/src/types/currency'
 import { MobileScreens } from '@l.x/lx/src/types/screens/mobile'
 import { createTransactionId } from '@l.x/lx/src/utils/createTransactionId'
-import { logger } from '@luxfi/utilities/src/logger/logger'
+import { logger } from '@l.x/utils/src/logger/logger'
 import { fetchOffRampTransferDetails } from '@luxfi/wallet/src/features/fiatOnRamp/api'
 
 export function* handleOffRampReturnLink(url: URL) {

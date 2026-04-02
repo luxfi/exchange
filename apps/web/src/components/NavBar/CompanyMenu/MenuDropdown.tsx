@@ -5,7 +5,7 @@ import { Anchor, Flex, Separator, styled, Text, TouchableArea } from '@l.x/ui/sr
 import { spacing, TextVariantTokens } from '@l.x/ui/src/theme'
 import Trace from '@l.x/lx/src/features/telemetry/Trace'
 import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
-import { isMobileWeb } from '@luxfi/utilities/src/platform'
+import { isMobileWeb } from '@l.x/utils/src/platform'
 import { HelpModal } from '~/components/HelpModal/HelpModal'
 import { MenuItem, MenuSection, MenuSectionTitle, useMenuContent } from '~/components/NavBar/CompanyMenu/Content'
 import { LegalAndPrivacyMenu } from '~/components/NavBar/LegalAndPrivacyMenu'

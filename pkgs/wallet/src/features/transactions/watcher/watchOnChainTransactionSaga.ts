@@ -23,7 +23,7 @@ import {
 } from '@l.x/lx/src/features/transactions/types/transactionDetails'
 import { isFinalizedTx, isPlanTransactionDetails } from '@l.x/lx/src/features/transactions/types/utils'
 import i18n from '@l.x/lx/src/i18n'
-import { logger } from '@luxfi/utilities/src/logger/logger'
+import { logger } from '@l.x/utils/src/logger/logger'
 import { cancelPlanStep as cancelPlanStepSaga } from '@luxfi/wallet/src/features/transactions/cancelPlanStepSaga'
 import { attemptCancelTransaction } from '@luxfi/wallet/src/features/transactions/cancelTransactionSaga'
 import { attemptReplaceTransaction } from '@luxfi/wallet/src/features/transactions/replaceTransactionSaga'

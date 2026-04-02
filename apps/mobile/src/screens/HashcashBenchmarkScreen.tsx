@@ -13,7 +13,7 @@ import {
   useHashcashBenchmarkStore,
 } from 'src/screens/stores/hashcashBenchmarkStore'
 import { Button, Flex, Text, TouchableArea } from '@l.x/ui/src'
-import { logger } from '@luxfi/utilities/src/logger/logger'
+import { logger } from '@l.x/utils/src/logger/logger'
 
 function formatDuration(ms: number): string {
   if (ms < 1000) {

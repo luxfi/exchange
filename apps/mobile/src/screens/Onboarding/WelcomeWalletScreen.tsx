@@ -19,7 +19,7 @@ import Trace from '@l.x/lx/src/features/telemetry/Trace'
 import i18next from '@l.x/lx/src/i18n'
 import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
 import { MobileScreens, OnboardingScreens } from '@l.x/lx/src/types/screens/mobile'
-import { NumberType } from '@luxfi/utilities/src/format/types'
+import { NumberType } from '@l.x/utils/src/format/types'
 import {
   useCreateOnboardingAccountIfNone,
   useOnboardingContext,

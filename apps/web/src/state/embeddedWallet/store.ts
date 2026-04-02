@@ -1,5 +1,5 @@
 import { useSyncExternalStore } from 'react'
-import { logger } from '@luxfi/utilities/src/logger/logger'
+import { logger } from '@l.x/utils/src/logger/logger'
 
 interface EmbeddedWalletState {
   walletAddress: string | null

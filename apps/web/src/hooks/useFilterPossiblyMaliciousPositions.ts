@@ -5,7 +5,7 @@ import { useEnabledChains } from '@l.x/lx/src/features/chains/hooks/useEnabledCh
 import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { toGraphQLChain } from '@l.x/lx/src/features/chains/utils'
 import { TokenList } from '@l.x/lx/src/features/dataApi/types'
-import { ReactQueryCacheKey } from '@luxfi/utilities/src/reactQuery/cache'
+import { ReactQueryCacheKey } from '@l.x/utils/src/reactQuery/cache'
 import { apolloClient } from '~/appGraphql/data/apollo/client'
 import { gqlTokenToCurrencyInfo } from '~/appGraphql/data/types'
 import { apolloQueryOptions } from '~/appGraphql/data/util'

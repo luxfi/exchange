@@ -6,7 +6,7 @@ import { Button, Flex, HeightAnimator, styled, Text, TouchableArea } from '@l.x/
 import { CheckCircleFilled } from '@l.x/ui/src/components/icons/CheckCircleFilled'
 import { RotatableChevron } from '@l.x/ui/src/components/icons/RotatableChevron'
 import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
-import { NumberType } from '@luxfi/utilities/src/format/types'
+import { NumberType } from '@l.x/utils/src/format/types'
 import type { FeeData } from '~/components/Liquidity/Create/types'
 import { getFeeTierKey, isDynamicFeeTier } from '~/components/Liquidity/utils/feeTiers'
 import { LpIncentivesAprDisplay } from '~/components/LpIncentives/LpIncentivesAprDisplay'

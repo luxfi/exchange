@@ -6,8 +6,8 @@ import { getFullAppVersion } from 'src/utils/version'
 import { Flex, Image, Text, useIsDarkMode } from '@l.x/ui/src'
 import { AVATARS_DARK, AVATARS_LIGHT } from '@l.x/ui/src/assets'
 import { AnimatedFlex } from '@l.x/ui/src/components/layout/AnimatedFlex'
-import { ONE_SECOND_MS } from '@luxfi/utilities/src/time/time'
-import { useTimeout } from '@luxfi/utilities/src/time/timing'
+import { ONE_SECOND_MS } from '@l.x/utils/src/time/time'
+import { useTimeout } from '@l.x/utils/src/time/timing'
 
 const SIGNATURE_VISIBLE_DURATION = ONE_SECOND_MS * 10
 

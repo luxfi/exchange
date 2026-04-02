@@ -4,9 +4,9 @@ import { Flex, Text, TouchableArea } from '@l.x/ui/src'
 import { Code, CopyAlt, ExternalLink, LayerGroup, Page } from '@l.x/ui/src/components/icons'
 import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { ExplorerDataType, getExplorerLink, openUri } from '@l.x/lx/src/utils/linking'
-import { shortenHash } from '@luxfi/utilities/src/addresses'
-import { setClipboard } from '@luxfi/utilities/src/clipboard/clipboard'
-import { logger } from '@luxfi/utilities/src/logger/logger'
+import { shortenHash } from '@l.x/utils/src/addresses'
+import { setClipboard } from '@l.x/utils/src/clipboard/clipboard'
+import { logger } from '@l.x/utils/src/logger/logger'
 import { TransactionRiskLevel } from '@luxfi/wallet/src/features/dappRequests/types'
 
 interface TransactionRequestDetailsProps {

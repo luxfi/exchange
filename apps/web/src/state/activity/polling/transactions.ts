@@ -12,7 +12,7 @@ import { toTradingApiSupportedChainId } from '@l.x/lx/src/features/transactions/
 import { TransactionReceipt, TransactionStatus } from '@l.x/lx/src/features/transactions/types/transactionDetails'
 import { receiptFromViemReceipt } from '@l.x/lx/src/features/transactions/utils/receipt'
 import { shouldCheckTransaction } from '@l.x/lx/src/utils/polling'
-import { isValidHexString } from '@luxfi/utilities/src/addresses/hex'
+import { isValidHexString } from '@l.x/utils/src/addresses/hex'
 import { usePublicClient } from 'wagmi'
 import { useAccount } from '~/hooks/useAccount'
 import useCurrentBlockTimestamp from '~/hooks/useCurrentBlockTimestamp'

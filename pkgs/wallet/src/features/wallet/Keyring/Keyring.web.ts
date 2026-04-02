@@ -4,7 +4,7 @@ import { HDKey } from '@scure/bip32'
 import { Buffer } from 'buffer'
 import { Signature, utils, Wallet } from 'ethers'
 import { defaultPath, joinSignature, SigningKey } from 'ethers/lib/utils'
-import { logger } from '@luxfi/utilities/src/logger/logger'
+import { logger } from '@l.x/utils/src/logger/logger'
 import {
   addEncryptedCiphertextToSecretPayload,
   convertBase64SeedToCryptoKey,

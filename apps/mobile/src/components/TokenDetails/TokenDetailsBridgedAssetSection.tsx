@@ -4,7 +4,7 @@ import { BridgedAssetTDPSection } from '@l.x/lx/src/components/BridgedAsset/Brid
 import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
 import { useCurrencyInfo } from '@l.x/lx/src/features/tokens/useCurrencyInfo'
 import { CurrencyField } from '@l.x/lx/src/types/currency'
-import { useEvent } from '@luxfi/utilities/src/react/hooks'
+import { useEvent } from '@l.x/utils/src/react/hooks'
 import { useWalletNavigation } from '@luxfi/wallet/src/contexts/WalletNavigationContext'
 
 export function TokenDetailsBridgedAssetSection(): JSX.Element | null {

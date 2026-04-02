@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next'
 import { Flex, Text } from '@l.x/ui/src'
 import { AddressDisplay } from '@l.x/lx/src/components/accounts/AddressDisplay'
 import { ContentRow } from '@l.x/lx/src/components/transactions/requests/ContentRow'
-import { isExtensionApp, isMobileApp } from '@luxfi/utilities/src/platform'
+import { isExtensionApp, isMobileApp } from '@l.x/utils/src/platform'
 
 /**
  * Displays the active account address in dapp request footers.

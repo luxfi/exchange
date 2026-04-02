@@ -1,5 +1,5 @@
 import { Action, Reducer } from 'redux'
-import { logger } from '@luxfi/utilities/src/logger/logger'
+import { logger } from '@l.x/utils/src/logger/logger'
 
 // We use `any` in a few places in this file because those values truly can be anything, so that's the proper type.
 

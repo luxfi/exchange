@@ -10,7 +10,7 @@ import { WalletConnectEvent } from '@l.x/lx/src/types/walletConnect'
 import { getValidAddress } from '@l.x/lx/src/utils/addresses'
 import { getCurrencyDisplayText, getFormattedCurrencyAmount, getSymbolDisplayText } from '@l.x/lx/src/utils/currency'
 import { currencyIdToAddress } from '@l.x/lx/src/utils/currencyId'
-import { shortenAddress } from '@luxfi/utilities/src/addresses'
+import { shortenAddress } from '@l.x/utils/src/addresses'
 
 // eslint-disable-next-line consistent-return
 export const formWCNotificationTitle = (appNotification: WalletConnectNotification): string => {

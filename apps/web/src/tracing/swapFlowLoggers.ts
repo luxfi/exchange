@@ -11,8 +11,8 @@ import {
   TransactionStatus,
   TransactionType,
 } from '@l.x/lx/src/features/transactions/types/transactionDetails'
-import { logger } from '@luxfi/utilities/src/logger/logger'
-import type { ITraceContext } from '@luxfi/utilities/src/telemetry/trace/TraceContext'
+import { logger } from '@l.x/utils/src/logger/logger'
+import type { ITraceContext } from '@l.x/utils/src/telemetry/trace/TraceContext'
 import type { ConfirmedTransactionDetails } from '~/state/transactions/types'
 
 type OnChainSwapTransactionType = TransactionType.Swap | TransactionType.Bridge

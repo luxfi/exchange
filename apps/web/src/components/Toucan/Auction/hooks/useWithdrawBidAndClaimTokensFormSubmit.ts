@@ -20,9 +20,9 @@ import {
   isSignerMnemonicAccountDetails,
   SignerMnemonicAccountDetails,
 } from '@l.x/lx/src/features/wallet/types/AccountDetails'
-import { logger } from '@luxfi/utilities/src/logger/logger'
-import { useEvent } from '@luxfi/utilities/src/react/hooks'
-import { useTrace } from '@luxfi/utilities/src/telemetry/trace/TraceContext'
+import { logger } from '@l.x/utils/src/logger/logger'
+import { useEvent } from '@l.x/utils/src/react/hooks'
+import { useTrace } from '@l.x/utils/src/telemetry/trace/TraceContext'
 import { getAuctionWithdrawBaseAnalyticsProperties } from '~/components/Toucan/Auction/analytics'
 import { AuctionBidStatus } from '~/components/Toucan/Auction/store/types'
 import { useAuctionStore, useAuctionStoreActions } from '~/components/Toucan/Auction/store/useAuctionStore'

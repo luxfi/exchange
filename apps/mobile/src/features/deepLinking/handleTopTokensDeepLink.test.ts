@@ -8,7 +8,7 @@ import { dismissAllModalsBeforeNavigation } from 'src/features/deepLinking/utils
 import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
 import { MobileScreens } from '@l.x/lx/src/types/screens/mobile'
-import { logger } from '@luxfi/utilities/src/logger/logger'
+import { logger } from '@l.x/utils/src/logger/logger'
 
 // Mock the navigation ref
 jest.mock('src/app/navigation/navigationRef', () => ({

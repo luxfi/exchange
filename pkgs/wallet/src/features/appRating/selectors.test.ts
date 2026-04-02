@@ -4,7 +4,7 @@ import {
   TransactionStatus,
   TransactionType,
 } from '@l.x/lx/src/features/transactions/types/transactionDetails'
-import { ONE_HOUR_MS, ONE_MINUTE_MS } from '@luxfi/utilities/src/time/time'
+import { ONE_HOUR_MS, ONE_MINUTE_MS } from '@l.x/utils/src/time/time'
 import {
   appRatingStateSelector,
   hasConsecutiveRecentSwapsSelector,

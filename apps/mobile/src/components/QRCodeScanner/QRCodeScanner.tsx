@@ -16,7 +16,7 @@ import { useDeviceDimensions } from '@l.x/ui/src/hooks/useDeviceDimensions'
 import { useSporeColorsForTheme } from '@l.x/ui/src/hooks/useSporeColors'
 import { iconSizes, spacing } from '@l.x/ui/src/theme'
 import PasteButton from '@l.x/lx/src/components/buttons/PasteButton'
-import { logger } from '@luxfi/utilities/src/logger/logger'
+import { logger } from '@l.x/utils/src/logger/logger'
 
 enum BarcodeType {
   QR = 'qr',

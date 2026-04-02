@@ -257,8 +257,8 @@ export default defineConfig(({ mode }) => {
     '@luxfi/sessions': path.resolve(__dirname, '../../pkgs/sessions'),
     '@l.x/ui/src': path.resolve(__dirname, '../../pkgs/ui/src'),
     '@l.x/ui': path.resolve(__dirname, '../../pkgs/ui'),
-    '@luxfi/utilities/src': path.resolve(__dirname, '../../pkgs/utilities/src'),
-    '@luxfi/utilities': path.resolve(__dirname, '../../pkgs/utilities'),
+    '@l.x/utils/src': path.resolve(__dirname, '../../pkgs/utilities/src'),
+    '@l.x/utils': path.resolve(__dirname, '../../pkgs/utilities'),
     '@luxfi/wallet/src': path.resolve(__dirname, '../../pkgs/wallet/src'),
     '@luxfi/wallet': path.resolve(__dirname, '../../pkgs/wallet'),
     // Bare package aliases (needed by tamagui/hanzogui bundler which bypasses vite aliases)

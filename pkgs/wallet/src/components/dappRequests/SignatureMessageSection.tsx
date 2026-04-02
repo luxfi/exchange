@@ -6,7 +6,7 @@ import { Flex, Text, TouchableArea, useSporeColors } from '@l.x/ui/src'
 import { Signature } from '@l.x/ui/src/components/icons'
 import { fonts, spacing } from '@l.x/ui/src/theme'
 import { CopyNotificationType } from '@l.x/lx/src/features/notifications/slice/types'
-import { isWebPlatform } from '@luxfi/utilities/src/platform'
+import { isWebPlatform } from '@l.x/utils/src/platform'
 import { useCopyToClipboard } from '@luxfi/wallet/src/components/copy/useCopyToClipboard'
 
 interface SignatureMessageSectionProps {

@@ -6,7 +6,7 @@ import { colors, opacify } from '@l.x/ui/src/theme'
 import { Modal } from '@l.x/lx/src/components/modals/Modal'
 import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
 import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
-import { isAndroid } from '@luxfi/utilities/src/platform'
+import { isAndroid } from '@l.x/utils/src/platform'
 import { SettingsLanguageModalProps } from '@luxfi/wallet/src/components/settings/language/SettingsLanguageModalProps'
 
 const openLanguageSettings = async (): Promise<void> => {

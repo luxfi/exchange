@@ -1,7 +1,7 @@
 import { brand, getBrandUrl, getDocsUrl } from '@l.x/config'
 import { ApolloClient, from, HttpLink } from '@apollo/client'
 import { setupSharedApolloCache } from '@l.x/lx/src/data/cache'
-import { getDatadogApolloLink } from '@luxfi/utilities/src/logger/datadog/datadogLink'
+import { getDatadogApolloLink } from '@l.x/utils/src/logger/datadog/datadogLink'
 import { getRetryLink } from '~/appGraphql/data/apollo/retryLink'
 
 const API_URL = process.env.REACT_APP_AWS_API_ENDPOINT || 'https://api-exchange.lux.network/v1/graphql'

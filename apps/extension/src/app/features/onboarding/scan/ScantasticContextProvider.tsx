@@ -13,8 +13,8 @@ import { cryptoKeyToJWK, KEY_PARAMS } from 'src/app/features/onboarding/scan/uti
 import { OnboardingRoutes, TopLevelRoutes } from 'src/app/navigation/constants'
 import { navigate } from 'src/app/navigation/state'
 import { lxUrls } from '@l.x/lx/src/constants/urls'
-import { logger } from '@luxfi/utilities/src/logger/logger'
-import { ONE_DAY_MS, ONE_MINUTE_MS, ONE_SECOND_MS } from '@luxfi/utilities/src/time/time'
+import { logger } from '@l.x/utils/src/logger/logger'
+import { ONE_DAY_MS, ONE_MINUTE_MS, ONE_SECOND_MS } from '@l.x/utils/src/time/time'
 import { ScantasticParamsSchema } from '@luxfi/wallet/src/features/scantastic/types'
 
 type ScantasticContextState = {

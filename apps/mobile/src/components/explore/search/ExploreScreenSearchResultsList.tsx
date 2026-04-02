@@ -12,7 +12,7 @@ import { MOBILE_SEARCH_TABS, SearchTab } from '@l.x/lx/src/features/search/Searc
 import { ElementName, SectionName } from '@l.x/lx/src/features/telemetry/constants'
 import Trace from '@l.x/lx/src/features/telemetry/Trace'
 import { useAppInsets } from '@l.x/lx/src/hooks/useAppInsets'
-import { useDebounce } from '@luxfi/utilities/src/time/timing'
+import { useDebounce } from '@l.x/utils/src/time/timing'
 
 const MobileSearchTab = ({
   tab,

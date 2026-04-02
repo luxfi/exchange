@@ -11,7 +11,7 @@ import {
   TransactionStatus,
 } from '@l.x/lx/src/features/transactions/types/transactionDetails'
 import type { LXState } from '@l.x/lx/src/state/lxReducer'
-import { logger } from '@luxfi/utilities/src/logger/logger'
+import { logger } from '@l.x/utils/src/logger/logger'
 import type { TransactionRepository } from '@luxfi/wallet/src/features/transactions/executeTransaction/services/TransactionRepository/transactionRepository'
 import { RunSagaEffect } from '@luxfi/wallet/src/state/createSagaEffectRunner'
 

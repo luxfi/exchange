@@ -4,7 +4,7 @@ import { useMemo } from 'react'
 import { useIsSupportedChainIdCallback } from '@l.x/lx/src/features/chains/hooks/useSupportedChainId'
 import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { isEVMChain } from '@l.x/lx/src/features/platforms/utils/chains'
-import { getContract } from '@luxfi/utilities/src/contracts/getContract'
+import { getContract } from '@l.x/utils/src/contracts/getContract'
 import { RPC_PROVIDERS } from '~/constants/providers'
 import { useAccount } from '~/hooks/useAccount'
 

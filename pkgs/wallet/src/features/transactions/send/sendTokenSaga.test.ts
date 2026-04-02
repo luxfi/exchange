@@ -12,7 +12,7 @@ import {
   TransactionType,
 } from '@l.x/lx/src/features/transactions/types/transactionDetails'
 import { getTxFixtures } from '@l.x/lx/src/test/fixtures'
-import { noOpFunction } from '@luxfi/utilities/src/test/utils'
+import { noOpFunction } from '@l.x/utils/src/test/utils'
 import { executeTransaction } from '@luxfi/wallet/src/features/transactions/executeTransaction/executeTransactionSaga'
 import { sendToken } from '@luxfi/wallet/src/features/transactions/send/sendTokenSaga'
 import { SendCurrencyParams, SendNFTParams } from '@luxfi/wallet/src/features/transactions/send/types'

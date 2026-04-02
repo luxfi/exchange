@@ -11,7 +11,7 @@ import { AnimatedCopySheets, ExternalLink } from '@l.x/ui/src/components/icons'
 import { ContentRow } from '@l.x/lx/src/components/transactions/requests/ContentRow'
 import { CopyNotificationType } from '@l.x/lx/src/features/notifications/slice/types'
 import { ExplorerDataType, getExplorerLink } from '@l.x/lx/src/utils/linking'
-import { ellipseMiddle, shortenAddress } from '@luxfi/utilities/src/addresses'
+import { ellipseMiddle, shortenAddress } from '@l.x/utils/src/addresses'
 import { useCopyToClipboard } from '@luxfi/wallet/src/components/copy/useCopyToClipboard'
 import {
   SpendingDetails,

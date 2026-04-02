@@ -1,12 +1,12 @@
 import { useFocusEffect } from '@react-navigation/core'
 import { BrowserEvent, SharedEventName } from '@luxamm/analytics-events'
 import React, { memo, PropsWithChildren, ReactNode, useEffect, useId, useMemo } from 'react'
-import { isWebPlatform } from '@luxfi/utilities/src/platform'
+import { isWebPlatform } from '@l.x/utils/src/platform'
 // biome-ignore lint/style/noRestrictedImports: Platform-specific implementation needs internal types
-import { analytics } from '@luxfi/utilities/src/telemetry/analytics/analytics'
-import { useAnalyticsNavigationContext } from '@luxfi/utilities/src/telemetry/trace/AnalyticsNavigationContext'
-import { ITraceContext, TraceContext, useTrace } from '@luxfi/utilities/src/telemetry/trace/TraceContext'
-import { getEventHandlers } from '@luxfi/utilities/src/telemetry/trace/utils'
+import { analytics } from '@l.x/utils/src/telemetry/analytics/analytics'
+import { useAnalyticsNavigationContext } from '@l.x/utils/src/telemetry/trace/AnalyticsNavigationContext'
+import { ITraceContext, TraceContext, useTrace } from '@l.x/utils/src/telemetry/trace/TraceContext'
+import { getEventHandlers } from '@l.x/utils/src/telemetry/trace/utils'
 
 function getEventsFromProps({
   logPress = false,

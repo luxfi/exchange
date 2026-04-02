@@ -61,7 +61,7 @@ import {
   testMigrateSearchHistory,
   testRemoveTHBFromCurrency,
 } from '@l.x/lx/src/state/luxMigrationTests'
-import { getAllKeysOfNestedObject } from '@luxfi/utilities/src/primitives/objects'
+import { getAllKeysOfNestedObject } from '@l.x/utils/src/primitives/objects'
 import { initialBatchedTransactionsState } from '@luxfi/wallet/src/features/batchedTransactions/slice'
 import { initialBehaviorHistoryState } from '@luxfi/wallet/src/features/behaviorHistory/slice'
 import { initialWalletState } from '@luxfi/wallet/src/features/wallet/slice'

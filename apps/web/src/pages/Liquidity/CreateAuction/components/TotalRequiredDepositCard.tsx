@@ -2,7 +2,7 @@ import { type Currency, type CurrencyAmount } from '@luxamm/sdk-core'
 import { useTranslation } from 'react-i18next'
 import { Flex, Text } from '@l.x/ui/src'
 import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
-import { NumberType } from '@luxfi/utilities/src/format/types'
+import { NumberType } from '@l.x/utils/src/format/types'
 import { amountToPercent } from '~/pages/Liquidity/CreateAuction/utils'
 
 const NUM_BARS = 100

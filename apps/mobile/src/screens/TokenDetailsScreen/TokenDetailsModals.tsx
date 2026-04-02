@@ -6,7 +6,7 @@ import { useTokenDetailsContext } from 'src/components/TokenDetails/TokenDetails
 import { pushNotification } from '@l.x/lx/src/features/notifications/slice/slice'
 import { AppNotificationType } from '@l.x/lx/src/features/notifications/slice/types'
 import TokenWarningModal from '@l.x/lx/src/features/tokens/warnings/TokenWarningModal'
-import { useEvent } from '@luxfi/utilities/src/react/hooks'
+import { useEvent } from '@l.x/utils/src/react/hooks'
 import { useWalletNavigation } from '@luxfi/wallet/src/contexts/WalletNavigationContext'
 
 export const TokenDetailsModals = memo(function _TokenDetailsModals(): JSX.Element {

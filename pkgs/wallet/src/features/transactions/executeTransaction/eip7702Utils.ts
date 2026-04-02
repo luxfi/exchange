@@ -1,6 +1,6 @@
 import { providers, utils } from 'ethers'
-import { ensure0xHex, HexString, isValidHexString } from '@luxfi/utilities/src/addresses/hex'
-import { logger } from '@luxfi/utilities/src/logger/logger'
+import { ensure0xHex, HexString, isValidHexString } from '@l.x/utils/src/addresses/hex'
+import { logger } from '@l.x/utils/src/logger/logger'
 import {
   Address,
   parseSignature,

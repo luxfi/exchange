@@ -1,5 +1,5 @@
-import { BackoffStrategy, retryWithBackoff } from '@luxfi/utilities/src/async/retryWithBackoff'
-import { sleep } from '@luxfi/utilities/src/time/timing'
+import { BackoffStrategy, retryWithBackoff } from '@l.x/utils/src/async/retryWithBackoff'
+import { sleep } from '@l.x/utils/src/time/timing'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
 vi.mock('utilities/src/time/timing', () => ({

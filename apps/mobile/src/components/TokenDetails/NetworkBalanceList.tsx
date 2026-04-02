@@ -7,7 +7,7 @@ import { PortfolioBalance } from '@l.x/lx/src/features/dataApi/types'
 import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
 import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
 import { getSymbolDisplayText } from '@l.x/lx/src/utils/currency'
-import { NumberType } from '@luxfi/utilities/src/format/types'
+import { NumberType } from '@l.x/utils/src/format/types'
 
 interface NetworkBalanceRowProps {
   balance: PortfolioBalance

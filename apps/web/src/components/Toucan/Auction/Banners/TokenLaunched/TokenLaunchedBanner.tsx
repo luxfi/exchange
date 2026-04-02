@@ -3,7 +3,7 @@ import { GetClearingPriceHistoryRequest } from '@luxamm/client-data-api/dist/dat
 import { useMemo } from 'react'
 import { useSporeColors } from '@l.x/ui/src'
 import { auctionQueries } from '@l.x/lx/src/data/rest/auctions/auctionQueries'
-import { logger } from '@luxfi/utilities/src/logger/logger'
+import { logger } from '@l.x/utils/src/logger/logger'
 import { TokenLaunchedBannerInner } from '~/components/Toucan/Auction/Banners/TokenLaunched/TokenLaunchedBannerInner'
 import { TokenLaunchedBannerSkeleton } from '~/components/Toucan/Auction/Banners/TokenLaunched/TokenLaunchedBannerSkeleton'
 import { TokenLaunchFailedBannerContent } from '~/components/Toucan/Auction/Banners/TokenLaunched/TokenLaunchFailedBannerContent'

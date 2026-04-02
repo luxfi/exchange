@@ -4,8 +4,8 @@ import ms from 'ms'
 import { InterfaceEventName } from '@l.x/lx/src/features/telemetry/constants'
 import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
 import { logSwapQuoteFetch } from '@l.x/lx/src/features/transactions/swap/analytics'
-import { logger } from '@luxfi/utilities/src/logger/logger'
-import { REQUEST_SOURCE } from '@luxfi/utilities/src/platform/requestSource'
+import { logger } from '@l.x/utils/src/logger/logger'
+import { REQUEST_SOURCE } from '@l.x/utils/src/platform/requestSource'
 import {
   ClassicAPIConfig,
   GetQuoteArgs,

@@ -8,7 +8,7 @@ import { HomeScreenTabIndex } from 'src/screens/HomeScreen/HomeScreenTabIndex'
 import { getListTransactionsQuery } from '@l.x/lx/src/data/rest/listTransactions'
 import { useEnabledChains } from '@l.x/lx/src/features/chains/hooks/useEnabledChains'
 import { MobileScreens } from '@l.x/lx/src/types/screens/mobile'
-import { useEvent } from '@luxfi/utilities/src/react/hooks'
+import { useEvent } from '@l.x/utils/src/react/hooks'
 
 interface EagerExternalProfileNavigationResult {
   preload: (address: string) => Promise<void>

@@ -1,5 +1,5 @@
 import type { ApiNotificationTrackerContext } from '@l.x/notifications'
-import { getLogger } from '@luxfi/utilities/src/logger/logger'
+import { getLogger } from '@l.x/utils/src/logger/logger'
 import { z } from 'zod'
 
 const NOTIFICATION_STORAGE_KEY = 'lux_notifications_processed'

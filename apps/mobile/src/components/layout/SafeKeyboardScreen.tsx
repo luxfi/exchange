@@ -5,7 +5,7 @@ import { Screen, ScreenProps } from 'src/components/layout/Screen'
 import { Flex, flexStyles } from '@l.x/ui/src'
 import { spacing } from '@l.x/ui/src/theme'
 import { useKeyboardLayout } from '@l.x/lx/src/utils/useKeyboardLayout'
-import { isIOS } from '@luxfi/utilities/src/platform'
+import { isIOS } from '@l.x/utils/src/platform'
 
 type OnboardingScreenProps = ScreenProps & {
   header?: JSX.Element

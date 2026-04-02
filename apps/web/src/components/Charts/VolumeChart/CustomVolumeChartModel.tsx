@@ -1,5 +1,5 @@
 import { BarPrice, DeepPartial, ISeriesApi } from 'lightweight-charts'
-import { NumberType } from '@luxfi/utilities/src/format/types'
+import { NumberType } from '@l.x/utils/src/format/types'
 import { ChartModel, ChartModelParams } from '~/components/Charts/ChartModel'
 import { CrosshairHighlightPrimitive } from '~/components/Charts/VolumeChart/CrosshairHighlightPrimitive'
 import { CustomHistogramSeries } from '~/components/Charts/VolumeChart/custom-histogram-series'

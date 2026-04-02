@@ -4,7 +4,7 @@ import { useCurrentLocale } from '@l.x/lx/src/features/language/hooks'
 import { getLocale, navigatorLocale, parseLocale } from '@l.x/lx/src/features/language/navigatorLocale'
 import { setCurrentLanguage } from '@l.x/lx/src/features/settings/slice'
 import { changeLanguage } from '@l.x/lx/src/i18n'
-import { isTestEnv } from '@luxfi/utilities/src/environment/env'
+import { isTestEnv } from '@l.x/utils/src/environment/env'
 import store from '~/state'
 import { useAppDispatch } from '~/state/hooks'
 

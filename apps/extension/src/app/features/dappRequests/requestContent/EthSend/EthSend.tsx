@@ -20,7 +20,7 @@ import {
   SendTransactionRequest,
 } from 'src/app/features/dappRequests/types/DappRequestTypes'
 import { TransactionTypeInfo } from '@l.x/lx/src/features/transactions/types/transactionDetails'
-import { logger } from '@luxfi/utilities/src/logger/logger'
+import { logger } from '@l.x/utils/src/logger/logger'
 import { ErrorBoundary } from '@luxfi/wallet/src/components/ErrorBoundary/ErrorBoundary'
 
 interface EthSendRequestContentProps {

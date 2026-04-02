@@ -1,4 +1,4 @@
-import { logger } from '@luxfi/utilities/src/logger/logger'
+import { logger } from '@l.x/utils/src/logger/logger'
 import { SecretPayload } from '@luxfi/wallet/src/features/wallet/Keyring/crypto'
 import { PersistedStorage } from '@luxfi/wallet/src/utils/persistedStorage'
 

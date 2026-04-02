@@ -4,9 +4,9 @@ import { navigate } from 'src/app/navigation/state'
 import { lxUrls } from '@l.x/lx/src/constants/urls'
 import { TransactionState } from '@l.x/lx/src/features/transactions/types/transactionState'
 import { getTokenUrl } from '@l.x/lx/src/utils/linking'
-import { logger } from '@luxfi/utilities/src/logger/logger'
-import { escapeRegExp } from '@luxfi/utilities/src/primitives/string'
-import { useEvent } from '@luxfi/utilities/src/react/hooks'
+import { logger } from '@l.x/utils/src/logger/logger'
+import { escapeRegExp } from '@l.x/utils/src/primitives/string'
+import { useEvent } from '@l.x/utils/src/react/hooks'
 
 export type SidebarLocationState =
   | {

@@ -6,8 +6,8 @@ import { ArrowLeft } from '@l.x/ui/src/components/icons/ArrowLeft'
 import { FiatCurrencyInfo, FORCountry, RampDirection } from '@l.x/lx/src/features/fiatOnRamp/types'
 import { LocalizedFormatter } from '@l.x/lx/src/features/language/formatter'
 import { navigatorLocale } from '@l.x/lx/src/features/language/navigatorLocale'
-import { NumberType } from '@luxfi/utilities/src/format/types'
-import { logger } from '@luxfi/utilities/src/logger/logger'
+import { NumberType } from '@l.x/utils/src/format/types'
+import { logger } from '@l.x/utils/src/logger/logger'
 
 export const ContentWrapper = styled(Flex, {
   backgroundColor: '$surface1',

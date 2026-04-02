@@ -10,7 +10,7 @@ import { InterfaceEventName, ModalName } from 'lx/src/features/telemetry/constan
 import Trace from 'lx/src/features/telemetry/Trace'
 import { CurrencyField } from 'lx/src/types/currency'
 import { SwapTab } from 'lx/src/types/screens/interface'
-import { usePrevious } from '@luxfi/utilities/src/react/hooks'
+import { usePrevious } from '@l.x/utils/src/react/hooks'
 import { SwitchNetworkAction } from '~/components/Popups/types'
 import useSelectChain from '~/hooks/useSelectChain'
 import { useMultichainContext } from '~/state/multichain/useMultichainContext'

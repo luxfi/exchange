@@ -9,7 +9,7 @@ import type {
   InterfaceTransactionDetails,
 } from '@l.x/lx/src/features/transactions/types/transactionDetails'
 import { TransactionStatus, TransactionType } from '@l.x/lx/src/features/transactions/types/transactionDetails'
-import { logger } from '@luxfi/utilities/src/logger/logger'
+import { logger } from '@l.x/utils/src/logger/logger'
 import { ActivityUpdateTransactionType, type OnActivityUpdate } from '~/state/activity/types'
 import { useMultichainTransactions } from '~/state/transactions/hooks'
 import type { ConfirmedTransactionDetails, TransactionDetails } from '~/state/transactions/types'

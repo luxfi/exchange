@@ -1,9 +1,9 @@
 import { InterfaceEventName } from '@l.x/lx/src/features/telemetry/constants'
 import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
 import { WalletConnectionResult } from '@l.x/lx/src/features/telemetry/types'
-import { logger } from '@luxfi/utilities/src/logger/logger'
-import { pipe } from '@luxfi/utilities/src/primitives/array'
-import { useEvent } from '@luxfi/utilities/src/react/hooks'
+import { logger } from '@l.x/utils/src/logger/logger'
+import { pipe } from '@l.x/utils/src/primitives/array'
+import { useEvent } from '@l.x/utils/src/react/hooks'
 import {
   ConnectWalletMutationParams,
   useConnectWalletMutation,

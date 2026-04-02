@@ -64,7 +64,7 @@ export const mockLogger = createMockLogger()
  * 3. To customize mocked functions like getLogger:
  *    ```ts
  *    import 'utilities/src/logger/mocks'
- *    import { getLogger } from '@luxfi/utilities/src/logger/logger'
+ *    import { getLogger } from '@l.x/utils/src/logger/logger'
  *
  *    // In test:
  *    vi.mocked(getLogger).mockReturnValue({ warn: mockWarn } as unknown as ReturnType<typeof getLogger>)

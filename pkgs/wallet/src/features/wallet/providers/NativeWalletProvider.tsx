@@ -7,9 +7,9 @@ import { createEVMWalletService } from '@l.x/lx/src/features/wallet/services/cre
 import { WalletService } from '@l.x/lx/src/features/wallet/services/IWalletService'
 import { WalletMeta } from '@l.x/lx/src/features/wallet/types/WalletMeta'
 import { getValidAddress } from '@l.x/lx/src/utils/addresses'
-import { HexString } from '@luxfi/utilities/src/addresses/hex'
-import { logger } from '@luxfi/utilities/src/logger/logger'
-import { useEvent } from '@luxfi/utilities/src/react/hooks'
+import { HexString } from '@l.x/utils/src/addresses/hex'
+import { logger } from '@l.x/utils/src/logger/logger'
+import { useEvent } from '@l.x/utils/src/react/hooks'
 import { useActiveAccount } from '@luxfi/wallet/src/features/wallet/hooks'
 import { WalletState } from '@luxfi/wallet/src/state/walletReducer'
 

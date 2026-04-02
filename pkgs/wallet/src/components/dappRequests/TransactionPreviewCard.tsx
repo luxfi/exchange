@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next'
 import { Flex, Text, TouchableArea } from '@l.x/ui/src'
 import { ContractInteraction, RotatableChevron } from '@l.x/ui/src/components/icons'
 import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
-import { useBooleanState } from '@luxfi/utilities/src/react/useBooleanState'
+import { useBooleanState } from '@l.x/utils/src/react/useBooleanState'
 import { TransactionApprovingSection } from '@luxfi/wallet/src/components/dappRequests/TransactionApprovingSection'
 import {
   TransactionErrorSection,

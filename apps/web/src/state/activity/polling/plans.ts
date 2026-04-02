@@ -8,7 +8,7 @@ import {
 } from '@l.x/lx/src/features/transactions/swap/plan/planPollingUtils'
 import { activePlanStore } from '@l.x/lx/src/features/transactions/swap/review/stores/activePlan/activePlanStore'
 import { isFinalizedTxStatus, isPlanTransactionDetails } from '@l.x/lx/src/features/transactions/types/utils'
-import { logger } from '@luxfi/utilities/src/logger/logger'
+import { logger } from '@l.x/utils/src/logger/logger'
 import { useStore } from 'zustand'
 import { ActivityPlanUpdate, ActivityUpdateTransactionType, type OnActivityUpdate } from '~/state/activity/types'
 import { usePendingPlanTransactions, usePlanTransactions } from '~/state/transactions/hooks'

@@ -1,6 +1,6 @@
 import { put } from 'typed-redux-saga'
 import { createMonitoredSaga } from '@l.x/lx/src/utils/saga'
-import { logger } from '@luxfi/utilities/src/logger/logger'
+import { logger } from '@l.x/utils/src/logger/logger'
 import { Account } from '@luxfi/wallet/src/features/wallet/accounts/types'
 import { addAccounts, setAccountAsActive } from '@luxfi/wallet/src/features/wallet/slice'
 

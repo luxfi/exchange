@@ -1,6 +1,6 @@
 import { contentScriptUtilityMessageChannel } from 'src/background/messagePassing/messageChannels'
 import { ContentScriptUtilityMessageType, ErrorLog } from 'src/background/messagePassing/types/requests'
-import { logger } from '@luxfi/utilities/src/logger/logger'
+import { logger } from '@l.x/utils/src/logger/logger'
 
 export async function logContentScriptError({
   errorMessage,

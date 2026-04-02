@@ -6,8 +6,8 @@ import { HiddenMnemonicWordView } from 'src/components/mnemonic/HiddenMnemonicWo
 import { Flex, flexStyles, HiddenFromScreenReaders, Text } from '@l.x/ui/src'
 import { GraduationCap } from '@l.x/ui/src/components/icons'
 import { spacing } from '@l.x/ui/src/theme'
-import { logger } from '@luxfi/utilities/src/logger/logger'
-import { isAndroid } from '@luxfi/utilities/src/platform'
+import { logger } from '@l.x/utils/src/logger/logger'
+import { isAndroid } from '@l.x/utils/src/platform'
 import { useSignerAccounts } from '@luxfi/wallet/src/features/wallet/hooks'
 import { Keyring } from '@luxfi/wallet/src/features/wallet/Keyring/Keyring'
 

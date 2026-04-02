@@ -1,7 +1,7 @@
 import { Experiments, FeatureFlags, PrivateRpcProperties } from '@l.x/gating'
 import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { DEFAULT_FLASHBOTS_ENABLED } from '@l.x/lx/src/features/providers/FlashbotsCommon'
-import { logger as loggerUtil } from '@luxfi/utilities/src/logger/logger'
+import { logger as loggerUtil } from '@l.x/utils/src/logger/logger'
 import { isPrivateRpcSupportedOnChain } from '@luxfi/wallet/src/features/providers/utils'
 import { FeatureFlagService } from '@luxfi/wallet/src/features/transactions/executeTransaction/services/featureFlagService'
 import type { TransactionConfigService } from '@luxfi/wallet/src/features/transactions/executeTransaction/services/transactionConfigService'

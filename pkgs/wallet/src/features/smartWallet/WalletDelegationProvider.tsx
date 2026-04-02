@@ -8,10 +8,10 @@ import { useEnabledChains } from '@l.x/lx/src/features/chains/hooks/useEnabledCh
 import { type UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { toSupportedChainId } from '@l.x/lx/src/features/chains/utils'
 import { type SwapDelegationInfo } from '@l.x/lx/src/features/smartWallet/delegation/types'
-import { logger } from '@luxfi/utilities/src/logger/logger'
-import { useEvent } from '@luxfi/utilities/src/react/hooks'
-import { ReactQueryCacheKey } from '@luxfi/utilities/src/reactQuery/cache'
-import { MAX_REACT_QUERY_CACHE_TIME_MS, ONE_HOUR_MS } from '@luxfi/utilities/src/time/time'
+import { logger } from '@l.x/utils/src/logger/logger'
+import { useEvent } from '@l.x/utils/src/react/hooks'
+import { ReactQueryCacheKey } from '@l.x/utils/src/reactQuery/cache'
+import { MAX_REACT_QUERY_CACHE_TIME_MS, ONE_HOUR_MS } from '@l.x/utils/src/time/time'
 import { type DelegationCheckResult } from '@luxfi/wallet/src/features/smartWallet/delegation/types'
 import {
   doesAccountNeedDelegationForChain,

@@ -1,7 +1,7 @@
 import { act, renderHook } from '@testing-library/react'
 // eslint-disable-next-line @typescript-eslint/no-restricted-imports
 import { I18nManager } from 'react-native'
-import { useForceRTL } from '@luxfi/utilities/src/storybook/hooks/useForceRTL'
+import { useForceRTL } from '@l.x/utils/src/storybook/hooks/useForceRTL'
 
 // Mock the I18nManager to control the isRTL property
 vi.mock('react-native', () => ({

@@ -1,21 +1,21 @@
 import { flush, getUserId, Identify, identify, init, setDeviceId, track } from '@amplitude/analytics-browser'
 import { ANONYMOUS_DEVICE_ID } from '@luxamm/analytics'
-import { getChromeWithThrow } from '@luxfi/utilities/src/chrome/chrome'
+import { getChromeWithThrow } from '@l.x/utils/src/chrome/chrome'
 import {
   Analytics,
   AnalyticsInitConfig,
   TestnetModeConfig,
   UserPropertyValue,
   // biome-ignore lint/style/noRestrictedImports: needed here
-} from '@luxfi/utilities/src/telemetry/analytics/analytics'
+} from '@l.x/utils/src/telemetry/analytics/analytics'
 import {
   ALLOW_ANALYTICS_ATOM_KEY,
   AMPLITUDE_SHARED_TRACKING_OPTIONS,
   ANONYMOUS_EVENT_NAMES,
   DUMMY_KEY,
-} from '@luxfi/utilities/src/telemetry/analytics/constants'
-import { generateAnalyticsLoggers } from '@luxfi/utilities/src/telemetry/analytics/logging'
-import { getProcessedEvent } from '@luxfi/utilities/src/telemetry/analytics/utils'
+} from '@l.x/utils/src/telemetry/analytics/constants'
+import { generateAnalyticsLoggers } from '@l.x/utils/src/telemetry/analytics/logging'
+import { getProcessedEvent } from '@l.x/utils/src/telemetry/analytics/utils'
 
 const loggers = generateAnalyticsLoggers('telemetry/analytics.web')
 let allowAnalytics: boolean = true

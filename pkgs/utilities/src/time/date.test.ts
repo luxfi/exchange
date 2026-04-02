@@ -1,4 +1,4 @@
-import { areSameDays } from '@luxfi/utilities/src/time/date'
+import { areSameDays } from '@l.x/utils/src/time/date'
 
 describe(areSameDays, () => {
   it('same if within an hour on the same day', () => {

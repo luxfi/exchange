@@ -20,7 +20,7 @@ import type { TransactionState } from '@l.x/lx/src/features/transactions/types/t
 import type { CurrencyId } from '@l.x/lx/src/types/currency'
 import { CurrencyField } from '@l.x/lx/src/types/currency'
 import { currencyIdToAddress } from '@l.x/lx/src/utils/currencyId'
-import { useEvent } from '@luxfi/utilities/src/react/hooks'
+import { useEvent } from '@l.x/utils/src/react/hooks'
 import { useWalletNavigation } from '@luxfi/wallet/src/contexts/WalletNavigationContext'
 
 interface TokenMenuParams {

@@ -8,7 +8,7 @@ import { SeedPhraseDisplay } from 'src/components/mnemonic/SeedPhraseDisplay'
 import { Text } from '@l.x/ui/src'
 import { AccountType } from '@l.x/lx/src/features/accounts/types'
 import { MobileScreens } from '@l.x/lx/src/types/screens/mobile'
-import { logger } from '@luxfi/utilities/src/logger/logger'
+import { logger } from '@l.x/utils/src/logger/logger'
 import { useAccounts, useActiveSignerAccount } from '@luxfi/wallet/src/features/wallet/hooks'
 
 type Props = NativeStackScreenProps<SettingsStackParamList, MobileScreens.SettingsViewSeedPhrase>

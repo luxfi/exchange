@@ -1,7 +1,7 @@
 import { focusOrCreateDappRequestWindow } from 'src/app/navigation/utils'
 import { ExtensionEventName } from '@l.x/lx/src/features/telemetry/constants'
 import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
-import { logger } from '@luxfi/utilities/src/logger/logger'
+import { logger } from '@l.x/utils/src/logger/logger'
 
 export async function openSidePanel(tabId: number | undefined, windowId: number): Promise<void> {
   let hasError = false

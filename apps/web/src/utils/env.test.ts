@@ -1,4 +1,4 @@
-import { isBetaEnv, isDevEnv, isProdEnv, isTestEnv } from '@luxfi/utilities/src/environment/env'
+import { isBetaEnv, isDevEnv, isProdEnv, isTestEnv } from '@l.x/utils/src/environment/env'
 
 describe('env', () => {
   const ENV = process.env

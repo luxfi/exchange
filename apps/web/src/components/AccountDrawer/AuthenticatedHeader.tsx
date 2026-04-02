@@ -23,7 +23,7 @@ import { ElementName, ModalName } from '@l.x/lx/src/features/telemetry/constants
 import Trace from '@l.x/lx/src/features/telemetry/Trace'
 import i18next from '@l.x/lx/src/i18n'
 import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
-import { NumberType } from '@luxfi/utilities/src/format/types'
+import { NumberType } from '@l.x/utils/src/format/types'
 import { MultiBlockchainAddressDisplay } from '~/components/AccountDetails/MultiBlockchainAddressDisplay'
 import { DisconnectButton } from '~/components/AccountDrawer/DisconnectButton'
 import { DownloadGraduatedWalletCard } from '~/components/AccountDrawer/DownloadGraduatedWalletCard'

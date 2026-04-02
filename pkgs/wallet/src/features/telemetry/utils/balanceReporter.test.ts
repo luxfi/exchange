@@ -1,4 +1,4 @@
-import { ONE_MINUTE_MS } from '@luxfi/utilities/src/time/time'
+import { ONE_MINUTE_MS } from '@l.x/utils/src/time/time'
 import { shouldSendBalanceReport } from '@luxfi/wallet/src/features/telemetry/utils/balanceReporter'
 
 jest.mock('@l.x/lx/src/features/accounts/reportBalancesForAnalytics', () => ({

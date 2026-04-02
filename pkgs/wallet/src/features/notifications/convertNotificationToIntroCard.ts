@@ -4,7 +4,7 @@ import { GeneratedIcon } from '@l.x/ui/src'
 import { Bell, Coin, Person, ShieldCheck } from '@l.x/ui/src/components/icons'
 import { parseCustomIconLink } from '@l.x/lx/src/components/notifications/iconUtils'
 import { OnboardingCardLoggingName } from '@l.x/lx/src/features/telemetry/types'
-import { getLogger } from '@luxfi/utilities/src/logger/logger'
+import { getLogger } from '@l.x/utils/src/logger/logger'
 import { CardType, IntroCardGraphicType, type IntroCardProps } from '@luxfi/wallet/src/components/introCards/IntroCard'
 
 interface NotificationExtra {

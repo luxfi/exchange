@@ -5,7 +5,7 @@ import { useFiatOnRampAggregatorTransferWidgetQuery } from '@l.x/lx/src/features
 import { FORServiceProvider } from '@l.x/lx/src/features/fiatOnRamp/types'
 import { FiatOnRampEventName } from '@l.x/lx/src/features/telemetry/constants'
 import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
-import { useEvent } from '@luxfi/utilities/src/react/hooks'
+import { useEvent } from '@l.x/utils/src/react/hooks'
 import { v4 as uuid } from 'uuid'
 import { ReceiveModalState } from '~/components/ReceiveCryptoModal/types'
 import { useOpenReceiveCryptoModal } from '~/components/ReceiveCryptoModal/useOpenReceiveCryptoModal'

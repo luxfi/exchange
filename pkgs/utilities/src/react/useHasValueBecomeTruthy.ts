@@ -1,4 +1,4 @@
-import { usePreviousWithLayoutEffect } from '@luxfi/utilities/src/react/usePreviousWithLayoutEffect'
+import { usePreviousWithLayoutEffect } from '@l.x/utils/src/react/usePreviousWithLayoutEffect'
 
 /**
  * @param value boolean value

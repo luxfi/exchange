@@ -3,7 +3,7 @@ import { GetLatestCheckpointRequest } from '@luxamm/client-data-api/dist/data/v1
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { auctionQueries } from '@l.x/lx/src/data/rest/auctions/auctionQueries'
 import { EVMUniverseChainId } from '@l.x/lx/src/features/chains/types'
-import { logger } from '@luxfi/utilities/src/logger/logger'
+import { logger } from '@l.x/utils/src/logger/logger'
 
 interface UseRefreshCheckpointOnOpenParams {
   isOpen: boolean

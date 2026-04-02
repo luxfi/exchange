@@ -12,7 +12,7 @@ import {
   transactionDetails as transactionDetailsFixture,
 } from '@l.x/lx/src/test/fixtures'
 import { mockApolloClient } from '@l.x/lx/src/test/mocks'
-import { sleep } from '@luxfi/utilities/src/time/timing'
+import { sleep } from '@l.x/utils/src/time/timing'
 import { attemptCancelTransaction } from '@luxfi/wallet/src/features/transactions/cancelTransactionSaga'
 import { logTransactionTimeout } from '@luxfi/wallet/src/features/transactions/watcher/transactionFinalizationSaga'
 import { deleteTransaction } from '@luxfi/wallet/src/features/transactions/watcher/transactionSagaUtils'

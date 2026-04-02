@@ -2,8 +2,8 @@
 import { TypedDataDomain, TypedDataField } from '@ethersproject/abstract-signer'
 import { Bytes, providers, Signer } from 'ethers'
 import { SignsTypedData } from '@l.x/lx/src/features/transactions/signing'
-import { HexString } from '@luxfi/utilities/src/addresses/hex'
-import { PlatformSplitStubError } from '@luxfi/utilities/src/errors'
+import { HexString } from '@l.x/utils/src/addresses/hex'
+import { PlatformSplitStubError } from '@l.x/utils/src/errors'
 
 /**
  * A signer that uses a native keyring to access keys

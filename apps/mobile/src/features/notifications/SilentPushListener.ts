@@ -1,8 +1,8 @@
 import { NativeEventEmitter, NativeModules, Platform } from 'react-native'
 import { WalletEventName } from '@l.x/lx/src/features/telemetry/constants/wallet'
 import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
-import { logger } from '@luxfi/utilities/src/logger/logger'
-import { isMobileApp } from '@luxfi/utilities/src/platform'
+import { logger } from '@l.x/utils/src/logger/logger'
+import { isMobileApp } from '@l.x/utils/src/platform'
 
 const EVENT_NAME = 'SilentPushReceived'
 

@@ -1,5 +1,5 @@
 import { getAddress } from '@ethersproject/address'
-import { HexString } from '@luxfi/utilities/src/addresses/hex'
+import { HexString } from '@l.x/utils/src/addresses/hex'
 
 /**
  * Validates if the address is a valid EVM address format

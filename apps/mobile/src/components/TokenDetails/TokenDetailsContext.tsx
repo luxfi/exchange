@@ -13,7 +13,7 @@ import { useCurrencyInfo } from '@l.x/lx/src/features/tokens/useCurrencyInfo'
 import { CurrencyField } from '@l.x/lx/src/types/currency'
 import { MobileScreens } from '@l.x/lx/src/types/screens/mobile'
 import { currencyIdToAddress, currencyIdToChain } from '@l.x/lx/src/utils/currencyId'
-import { setClipboard } from '@luxfi/utilities/src/clipboard/clipboard'
+import { setClipboard } from '@l.x/utils/src/clipboard/clipboard'
 
 type TokenDetailsContextState = {
   currencyId: string

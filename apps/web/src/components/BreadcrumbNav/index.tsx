@@ -5,7 +5,7 @@ import { Link } from 'react-router'
 import { Flex, styled, Text, TextProps, useMedia } from '@l.x/ui/src'
 import { iconSizes } from '@l.x/ui/src/theme'
 import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
-import { shortenAddress } from '@luxfi/utilities/src/addresses'
+import { shortenAddress } from '@l.x/utils/src/addresses'
 import { CopyHelper } from '~/theme/components/CopyHelper'
 
 export const BreadcrumbNavContainer = styled(Flex, {

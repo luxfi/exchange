@@ -6,7 +6,7 @@ import { useUnitagClaimContext } from 'src/app/features/unitags/UnitagClaimConte
 import { closeCurrentTab } from 'src/app/navigation/utils'
 import { Button, Flex, Text } from '@l.x/ui/src'
 import { UNITAG_SUFFIX } from '@l.x/lx/src/features/unitags/constants'
-import { logger } from '@luxfi/utilities/src/logger/logger'
+import { logger } from '@l.x/utils/src/logger/logger'
 import { UnitagWithProfilePicture } from '@luxfi/wallet/src/features/unitags/UnitagWithProfilePicture'
 import { useAccountAddressFromUrlWithThrow } from '@luxfi/wallet/src/features/wallet/hooks'
 

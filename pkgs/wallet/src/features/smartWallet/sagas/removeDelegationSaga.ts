@@ -6,7 +6,7 @@ import { DEFAULT_NATIVE_ADDRESS } from '@l.x/lx/src/features/chains/evm/defaults
 import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { TransactionOriginType, TransactionType } from '@l.x/lx/src/features/transactions/types/transactionDetails'
 import { createMonitoredSaga } from '@l.x/lx/src/utils/saga'
-import { logger } from '@luxfi/utilities/src/logger/logger'
+import { logger } from '@l.x/utils/src/logger/logger'
 import {
   ExecuteTransactionParams,
   executeTransaction,

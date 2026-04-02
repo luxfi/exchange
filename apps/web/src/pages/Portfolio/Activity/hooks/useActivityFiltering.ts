@@ -3,8 +3,8 @@ import { ActivityItem } from '@l.x/lx/src/components/activity/generateActivityIt
 import { useActivityData } from '@l.x/lx/src/features/activity/hooks/useActivityData'
 import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { TransactionDetails } from '@l.x/lx/src/features/transactions/types/transactionDetails'
-import { useInfiniteScroll } from '@luxfi/utilities/src/react/useInfiniteScroll'
-import { ONE_DAY_MS } from '@luxfi/utilities/src/time/time'
+import { useInfiniteScroll } from '@l.x/utils/src/react/useInfiniteScroll'
+import { ONE_DAY_MS } from '@l.x/utils/src/time/time'
 import {
   ActivityFilterType,
   filterTransactionDetailsFromActivityItems,

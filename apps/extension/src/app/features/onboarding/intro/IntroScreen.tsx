@@ -12,7 +12,7 @@ import { isOnboardedSelector } from 'src/app/utils/isOnboardedSelector'
 import { Button, Flex, Text } from '@l.x/ui/src'
 import Trace from '@l.x/lx/src/features/telemetry/Trace'
 import { ExtensionOnboardingScreens } from '@l.x/lx/src/types/screens/extension'
-import { useTimeout } from '@luxfi/utilities/src/time/timing'
+import { useTimeout } from '@l.x/utils/src/time/timing'
 
 export function IntroScreen(): JSX.Element {
   const { t } = useTranslation()

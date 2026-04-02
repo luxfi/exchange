@@ -16,7 +16,7 @@ import {
 import { getEVMTxRequest, isChained, isClassic } from '@l.x/lx/src/features/transactions/swap/utils/routing'
 import { getClassicQuoteFromResponse } from '@l.x/lx/src/features/transactions/swap/utils/tradingApi'
 import { toStringish } from '@l.x/lx/src/utils/number'
-import { useTrace } from '@luxfi/utilities/src/telemetry/trace/TraceContext'
+import { useTrace } from '@l.x/utils/src/telemetry/trace/TraceContext'
 import { useAccountsStore, useActiveAddress } from '@luxfi/wallet/src/features/accounts/store/hooks'
 import { executePlanActions, executeSwapActions } from '@luxfi/wallet/src/features/transactions/swap/configuredSagas'
 import { useSwapSigning } from '@luxfi/wallet/src/features/transactions/swap/hooks/useSwapSigning'

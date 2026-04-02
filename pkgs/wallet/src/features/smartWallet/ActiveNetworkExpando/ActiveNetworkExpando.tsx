@@ -6,8 +6,8 @@ import { iconSizes, padding, spacing } from '@l.x/ui/src/theme'
 import { NetworkLogo } from '@l.x/lx/src/components/CurrencyLogo/NetworkLogo'
 import { getChainInfo } from '@l.x/lx/src/features/chains/chainInfo'
 import { ExplorerDataType, getExplorerLink, openUri } from '@l.x/lx/src/utils/linking'
-import { shortenAddress } from '@luxfi/utilities/src/addresses'
-import { isMobileApp } from '@luxfi/utilities/src/platform'
+import { shortenAddress } from '@l.x/utils/src/addresses'
+import { isMobileApp } from '@l.x/utils/src/platform'
 import {
   ITEM_PADDING,
   MAX_VISIBLE_HEIGHT_MOBILE,

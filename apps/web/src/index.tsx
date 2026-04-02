@@ -46,9 +46,9 @@ import { LocalizationContextProvider } from '@l.x/lx/src/features/language/Local
 import { TokenPriceProvider } from '@l.x/lx/src/features/prices/TokenPriceContext'
 import i18n from '@l.x/lx/src/i18n'
 import { initializeDatadog } from '@l.x/lx/src/utils/datadog'
-import { localDevDatadogEnabled } from '@luxfi/utilities/src/environment/constants'
-import { isDevEnv, isTestEnv } from '@luxfi/utilities/src/environment/env'
-import { getLogger } from '@luxfi/utilities/src/logger/logger'
+import { localDevDatadogEnabled } from '@l.x/utils/src/environment/constants'
+import { isDevEnv, isTestEnv } from '@l.x/utils/src/environment/env'
+import { getLogger } from '@l.x/utils/src/logger/logger'
 // biome-ignore lint/style/noRestrictedImports: custom useAccount hook requires statsig
 import { useAccount } from 'wagmi'
 import { AssetActivityProvider } from '~/appGraphql/data/apollo/AssetActivityProvider'

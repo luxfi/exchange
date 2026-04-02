@@ -7,7 +7,7 @@ import {
   WindowEthereumConfigResponse,
 } from 'src/contentScript/types'
 import { WindowEthereumProxy } from 'src/contentScript/WindowEthereumProxy'
-import { logger } from '@luxfi/utilities/src/logger/logger'
+import { logger } from '@l.x/utils/src/logger/logger'
 import { v4 as uuid } from 'uuid'
 import { defineContentScript } from 'wxt/utils/define-content-script'
 

@@ -1,6 +1,6 @@
 import { readIsOnboardedFromStorage, readReduxStateFromStorage } from 'src/background/utils/persistedStateUtils'
 import { ExtensionState } from 'src/store/extensionReducer'
-import { logger } from '@luxfi/utilities/src/logger/logger'
+import { logger } from '@l.x/utils/src/logger/logger'
 
 type BackgroundState = {
   isOnboarded: boolean

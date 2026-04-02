@@ -3,7 +3,7 @@ import { atom } from 'jotai'
 import { useUpdateAtom } from 'jotai/utils'
 import { PasskeysHelpModalTypes } from '@l.x/lx/src/features/passkey/PasskeysHelpModal'
 import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
-import { logger } from '@luxfi/utilities/src/logger/logger'
+import { logger } from '@l.x/utils/src/logger/logger'
 import { useModalState } from '~/hooks/useModalState'
 
 export const PasskeysHelpModalTypeAtom = atom<PasskeysHelpModalTypes>(PasskeysHelpModalTypes.Default)

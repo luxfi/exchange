@@ -1,4 +1,4 @@
-import { PlatformSplitStubError } from '@luxfi/utilities/src/errors'
+import { PlatformSplitStubError } from '@l.x/utils/src/errors'
 
 // Ugly hack to get around the fact that _playwright_ doesn't have a window object
 // during setup so we need to early return

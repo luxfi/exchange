@@ -1,5 +1,5 @@
 import { renderHook } from '@testing-library/react'
-import { useInitialLoadingState } from '@luxfi/utilities/src/react/useInitialLoadingState'
+import { useInitialLoadingState } from '@l.x/utils/src/react/useInitialLoadingState'
 
 describe('useInitialLoadingState', () => {
   it('should return true when initially loading', () => {

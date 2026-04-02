@@ -19,8 +19,8 @@ import { getCountryFlagSvgUrl } from '@l.x/lx/src/features/fiatOnRamp/utils'
 import { SearchTextInput } from '@l.x/lx/src/features/search/SearchTextInput'
 import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
 import { useAppInsets } from '@l.x/lx/src/hooks/useAppInsets'
-import { bubbleToTop } from '@luxfi/utilities/src/primitives/array'
-import { useDebounce } from '@luxfi/utilities/src/time/timing'
+import { bubbleToTop } from '@l.x/utils/src/primitives/array'
+import { useDebounce } from '@l.x/utils/src/time/timing'
 
 const ICON_SIZE = 32 // design prefers a custom value here
 

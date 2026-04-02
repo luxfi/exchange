@@ -1,6 +1,6 @@
 import ms from 'ms'
 import { useEffect, useState } from 'react'
-import { useInterval } from '@luxfi/utilities/src/time/timing'
+import { useInterval } from '@l.x/utils/src/time/timing'
 
 export const REQUEST_EXPIRY_TIME_MS = ms('30m')
 

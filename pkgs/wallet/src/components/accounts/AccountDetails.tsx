@@ -2,7 +2,7 @@ import { ColorTokens, Flex, Text } from '@l.x/ui/src'
 import { RotatableChevron } from '@l.x/ui/src/components/icons'
 import { iconSizes } from '@l.x/ui/src/theme'
 import { AddressDisplay } from '@l.x/lx/src/components/accounts/AddressDisplay'
-import { shortenAddress } from '@luxfi/utilities/src/addresses'
+import { shortenAddress } from '@l.x/utils/src/addresses'
 
 export function AccountDetails({
   address,

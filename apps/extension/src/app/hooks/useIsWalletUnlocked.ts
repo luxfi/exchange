@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from 'react'
-import { logger } from '@luxfi/utilities/src/logger/logger'
+import { logger } from '@l.x/utils/src/logger/logger'
 import { Keyring } from '@luxfi/wallet/src/features/wallet/Keyring/Keyring'
 import { ENCRYPTION_KEY_STORAGE_KEY, PersistedStorage } from '@luxfi/wallet/src/utils/persistedStorage'
 

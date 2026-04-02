@@ -1,7 +1,7 @@
 import * as onboardingTimestamp from 'src/features/analytics/onboardingTimestamp'
 import { useLogUnexpectedOnboardingReset } from 'src/features/analytics/useLogUnexpectedOnboardingReset'
 import { renderHook } from 'src/test/test-utils'
-import { logger } from '@luxfi/utilities/src/logger/logger'
+import { logger } from '@l.x/utils/src/logger/logger'
 import { initialWalletState } from '@luxfi/wallet/src/features/wallet/slice'
 
 jest.mock('src/features/analytics/onboardingTimestamp')

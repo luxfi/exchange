@@ -1,7 +1,7 @@
 import { queryOptions } from '@tanstack/react-query'
-import { getUniqueId } from '@luxfi/utilities/src/device/uniqueId'
-import { ReactQueryCacheKey } from '@luxfi/utilities/src/reactQuery/cache'
-import type { QueryOptionsResult } from '@luxfi/utilities/src/reactQuery/queryOptions'
+import { getUniqueId } from '@l.x/utils/src/device/uniqueId'
+import { ReactQueryCacheKey } from '@l.x/utils/src/reactQuery/cache'
+import type { QueryOptionsResult } from '@l.x/utils/src/reactQuery/queryOptions'
 
 type UniqueIdQueryOptions = QueryOptionsResult<string, Error, string, [ReactQueryCacheKey.UniqueId]>
 

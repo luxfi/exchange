@@ -1,5 +1,5 @@
 import { type AnimationType } from '@l.x/ui/src/animations'
-import { usePrevious } from '@luxfi/utilities/src/react/hooks'
+import { usePrevious } from '@l.x/utils/src/react/hooks'
 import { usePortfolioTabs } from '~/pages/Portfolio/Header/hooks/usePortfolioTabs'
 import { getCurrentPageFromLocation } from '~/utils/urlRoutes'
 

@@ -11,7 +11,7 @@ import { DelegatedState } from '@l.x/lx/src/features/smartWallet/delegation/type
 import type { ValidatedDecreasePositionTxAndGasInfo } from '@l.x/lx/src/features/transactions/liquidity/types'
 import { LiquidityTransactionType } from '@l.x/lx/src/features/transactions/liquidity/types'
 import { validateTransactionRequest } from '@l.x/lx/src/features/transactions/swap/utils/trade'
-import { logContextUpdate } from '@luxfi/utilities/src/logger/contextEnhancer'
+import { logContextUpdate } from '@l.x/utils/src/logger/contextEnhancer'
 import { useRemoveLiquidityTxAndGasInfo } from '~/pages/RemoveLiquidity/hooks/useRemoveLiquidityTxAndGasInfo'
 import { useRemoveLiquidityModalContext } from '~/pages/RemoveLiquidity/RemoveLiquidityModalContext'
 

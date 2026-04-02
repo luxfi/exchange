@@ -5,7 +5,7 @@ import { useLocalizationContext } from '@l.x/lx/src/features/language/Localizati
 import { getCurrencyAmount, ValueType } from '@l.x/lx/src/features/tokens/getCurrencyAmount'
 import { useCurrencyInfo } from '@l.x/lx/src/features/tokens/useCurrencyInfo'
 import { useUSDCPrice, useUSDCValue } from '@l.x/lx/src/features/transactions/hooks/useUSDCPriceWrapper'
-import { useEvent } from '@luxfi/utilities/src/react/hooks'
+import { useEvent } from '@l.x/utils/src/react/hooks'
 import tryParseCurrencyAmount from '~/lib/utils/tryParseCurrencyAmount'
 
 // Used for rounding in conversion math

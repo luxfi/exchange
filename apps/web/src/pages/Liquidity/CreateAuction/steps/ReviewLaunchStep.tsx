@@ -12,7 +12,7 @@ import { useLocalizationContext } from 'lx/src/features/language/LocalizationCon
 import { useLocalizedDayjs } from 'lx/src/features/language/localizedDayjs'
 import { useCurrencyInfo, useNativeCurrencyInfo } from 'lx/src/features/tokens/useCurrencyInfo'
 import { buildCurrencyId } from 'lx/src/utils/currencyId'
-import { NumberType } from '@luxfi/utilities/src/format/types'
+import { NumberType } from '@l.x/utils/src/format/types'
 import {
   useCreateAuctionStore,
   useCreateAuctionStoreActions,

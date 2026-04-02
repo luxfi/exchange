@@ -4,8 +4,8 @@ import { onboardingMessageChannel } from 'src/background/messagePassing/messageC
 import { OnboardingMessageType } from 'src/background/messagePassing/types/ExtensionMessages'
 import { openSidePanel } from 'src/background/utils/chromeSidePanelUtils'
 import { lxUrls } from '@l.x/lx/src/constants/urls'
-import { logger } from '@luxfi/utilities/src/logger/logger'
-import { useBooleanState } from '@luxfi/utilities/src/react/useBooleanState'
+import { logger } from '@l.x/utils/src/logger/logger'
+import { useBooleanState } from '@l.x/utils/src/react/useBooleanState'
 
 export function useOpenSidebar() {
   const { value: openedSideBar, setTrue: openSideBar } = useBooleanState(false)

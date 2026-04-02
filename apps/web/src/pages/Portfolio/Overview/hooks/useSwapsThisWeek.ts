@@ -3,7 +3,7 @@ import { ActivityItem } from '@l.x/lx/src/components/activity/generateActivityIt
 import { ActivityRenderData } from '@l.x/lx/src/features/activity/hooks/useActivityData'
 import { useEnabledChains } from '@l.x/lx/src/features/chains/hooks/useEnabledChains'
 import { TransactionDetails } from '@l.x/lx/src/features/transactions/types/transactionDetails'
-import { ONE_DAY_MS } from '@luxfi/utilities/src/time/time'
+import { ONE_DAY_MS } from '@l.x/utils/src/time/time'
 import {
   ActivityFilterType,
   filterTransactionDetailsFromActivityItems,

@@ -11,7 +11,7 @@ import { checkPushNotificationsBanner } from 'src/notification-service/data-sour
 import { checkRecoveryBackup } from 'src/notification-service/data-sources/banners/recoveryBackupBanner'
 import { BannerId } from 'src/notification-service/data-sources/banners/types'
 import { checkUnitagClaim } from 'src/notification-service/data-sources/banners/unitagClaimBanner'
-import { logger } from '@luxfi/utilities/src/logger/logger'
+import { logger } from '@l.x/utils/src/logger/logger'
 import {
   selectHasDismissedNoAppFeesAnnouncement,
   selectHasSkippedUnitagPrompt,

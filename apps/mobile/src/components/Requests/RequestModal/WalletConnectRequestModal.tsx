@@ -36,7 +36,7 @@ import { MobileEventName, ModalName } from '@l.x/lx/src/features/telemetry/const
 import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
 import { DappRequestType, UwULinkMethod, WCEventType, WCRequestOutcome } from '@l.x/lx/src/types/walletConnect'
 import { areAddressesEqual } from '@l.x/lx/src/utils/addresses'
-import { useBooleanState } from '@luxfi/utilities/src/react/useBooleanState'
+import { useBooleanState } from '@l.x/utils/src/react/useBooleanState'
 import { TransactionRiskLevel } from '@luxfi/wallet/src/features/dappRequests/types'
 import { shouldDisableConfirm } from '@luxfi/wallet/src/features/dappRequests/utils/riskUtils'
 import { formatExternalTxnWithGasEstimates } from '@luxfi/wallet/src/features/gas/formatExternalTxnWithGasEstimates'

@@ -21,9 +21,9 @@ import {
   currencyIdToAddress,
   currencyIdToChain,
 } from '@l.x/lx/src/utils/currencyId'
-import { NumberType } from '@luxfi/utilities/src/format/types'
-import { useEvent } from '@luxfi/utilities/src/react/hooks'
-import { noop } from '@luxfi/utilities/src/react/noop'
+import { NumberType } from '@l.x/utils/src/format/types'
+import { useEvent } from '@l.x/utils/src/react/hooks'
+import { noop } from '@l.x/utils/src/react/noop'
 import { TokenMetadataDisplayType } from '@luxfi/wallet/src/features/wallet/types'
 
 interface TokenItemProps {

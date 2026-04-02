@@ -1,4 +1,4 @@
-import { isBetaEnv, isDevEnv } from '@luxfi/utilities/src/environment/env'
+import { isBetaEnv, isDevEnv } from '@l.x/utils/src/environment/env'
 
 export enum Environment {
   DEV = 'dev',

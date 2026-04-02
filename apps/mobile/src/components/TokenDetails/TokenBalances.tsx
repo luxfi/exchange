@@ -13,7 +13,7 @@ import { MobileEventName } from '@l.x/lx/src/features/telemetry/constants'
 import Trace from '@l.x/lx/src/features/telemetry/Trace'
 import { CurrencyId } from '@l.x/lx/src/types/currency'
 import { getSymbolDisplayText } from '@l.x/lx/src/utils/currency'
-import { NumberType } from '@luxfi/utilities/src/format/types'
+import { NumberType } from '@l.x/utils/src/format/types'
 import { useActiveAccount, useDisplayName } from '@luxfi/wallet/src/features/wallet/hooks'
 
 /**

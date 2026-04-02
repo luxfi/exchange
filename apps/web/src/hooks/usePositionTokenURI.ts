@@ -6,7 +6,7 @@ import { useMemo } from 'react'
 import { Erc721 } from '@l.x/lx/src/abis/types/Erc721'
 import { NonfungiblePositionManager } from '@l.x/lx/src/abis/types/v3/NonfungiblePositionManager'
 import { EVMUniverseChainId } from '@l.x/lx/src/features/chains/types'
-import { ReactQueryCacheKey } from '@luxfi/utilities/src/reactQuery/cache'
+import { ReactQueryCacheKey } from '@l.x/utils/src/reactQuery/cache'
 import { useV3NFTPositionManagerContract, useV4NFTPositionManagerContract } from '~/hooks/useContract'
 
 type TokenId = number | JSBI | BigNumber

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { initializeReduxStore } from 'src/store/store'
-import { logger } from '@luxfi/utilities/src/logger/logger'
+import { logger } from '@l.x/utils/src/logger/logger'
 import { v4 as uuid } from 'uuid'
 import { getReduxPersistor } from '@luxfi/wallet/src/state/persistor'
 import { PersistedStorage } from '@luxfi/wallet/src/utils/persistedStorage'

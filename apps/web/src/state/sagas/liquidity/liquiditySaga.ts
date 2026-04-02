@@ -38,7 +38,7 @@ import { TransactionType } from '@l.x/lx/src/features/transactions/types/transac
 import { SignerMnemonicAccountDetails } from '@l.x/lx/src/features/wallet/types/AccountDetails'
 import { currencyId, isNativeCurrencyAddress } from '@l.x/lx/src/utils/currencyId'
 import { createSaga } from '@l.x/lx/src/utils/saga'
-import { logger } from '@luxfi/utilities/src/logger/logger'
+import { logger } from '@l.x/utils/src/logger/logger'
 import { getLiquidityEventName } from '~/components/Liquidity/analytics'
 import { getProtocols } from '~/components/Liquidity/utils/protocolVersion'
 import { popupRegistry } from '~/components/Popups/registry'

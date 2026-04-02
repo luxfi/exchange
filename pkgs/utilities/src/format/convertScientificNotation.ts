@@ -1,5 +1,5 @@
 import JSBI from 'jsbi'
-import { logger } from '@luxfi/utilities/src/logger/logger'
+import { logger } from '@l.x/utils/src/logger/logger'
 
 export function convertScientificNotationToNumber(value: string): string {
   let convertedValue = value

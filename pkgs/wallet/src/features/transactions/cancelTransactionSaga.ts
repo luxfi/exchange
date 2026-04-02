@@ -9,7 +9,7 @@ import {
   LXOrderDetails,
 } from '@l.x/lx/src/features/transactions/types/transactionDetails'
 import { getValidAddress } from '@l.x/lx/src/utils/addresses'
-import { logger } from '@luxfi/utilities/src/logger/logger'
+import { logger } from '@l.x/utils/src/logger/logger'
 import {
   ExecuteTransactionParams,
   executeTransaction,

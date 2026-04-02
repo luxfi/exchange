@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
-import { logger } from '@luxfi/utilities/src/logger/logger'
-import { useEvent } from '@luxfi/utilities/src/react/hooks'
-import { ONE_SECOND_MS } from '@luxfi/utilities/src/time/time'
+import { logger } from '@l.x/utils/src/logger/logger'
+import { useEvent } from '@l.x/utils/src/react/hooks'
+import { ONE_SECOND_MS } from '@l.x/utils/src/time/time'
 
 /**
  * Hook to debounce callback execution, delaying execution until after the specified delay

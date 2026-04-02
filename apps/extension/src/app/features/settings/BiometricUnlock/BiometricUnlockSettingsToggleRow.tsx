@@ -10,7 +10,7 @@ import { SettingsToggleRow } from 'src/app/features/settings/components/Settings
 import { EnterPasswordModal } from 'src/app/features/settings/password/EnterPasswordModal'
 import { builtInBiometricCapabilitiesQuery } from 'src/app/utils/device/builtInBiometricCapabilitiesQuery'
 import { Fingerprint } from '@l.x/ui/src/components/icons'
-import { useEvent } from '@luxfi/utilities/src/react/hooks'
+import { useEvent } from '@l.x/utils/src/react/hooks'
 
 enum ShowModal {
   Password = 'password',

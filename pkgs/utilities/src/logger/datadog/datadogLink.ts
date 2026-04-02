@@ -1,5 +1,5 @@
 import { ApolloLink } from '@apollo/client'
-import { PlatformSplitStubError } from '@luxfi/utilities/src/errors'
+import { PlatformSplitStubError } from '@l.x/utils/src/errors'
 
 // Typed as ApolloLink to avoid platform import issues for this function
 // Callers only require A

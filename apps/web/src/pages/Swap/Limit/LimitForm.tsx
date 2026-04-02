@@ -20,9 +20,9 @@ import Trace from '@l.x/lx/src/features/telemetry/Trace'
 import { useUSDCValueWithStatus } from '@l.x/lx/src/features/transactions/hooks/useUSDCPriceWrapper'
 import { CurrencyField } from '@l.x/lx/src/types/currency'
 // biome-ignore lint/style/noRestrictedImports: We need to import this directly so we can format with `en-US` locale
-import { formatCurrencyAmount as formatCurrencyAmountRaw } from '@luxfi/utilities/src/format/localeBased'
-import { NumberType } from '@luxfi/utilities/src/format/types'
-import { isSafeNumber } from '@luxfi/utilities/src/primitives/integer'
+import { formatCurrencyAmount as formatCurrencyAmountRaw } from '@l.x/utils/src/format/localeBased'
+import { NumberType } from '@l.x/utils/src/format/types'
+import { isSafeNumber } from '@l.x/utils/src/primitives/integer'
 import { useAccountDrawer } from '~/components/AccountDrawer/MiniPortfolio/hooks'
 import { LimitPriceInputPanel } from '~/components/CurrencyInputPanel/LimitPriceInputPanel/LimitPriceInputPanel'
 import {

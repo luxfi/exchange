@@ -8,8 +8,8 @@ import { Modal } from '@l.x/lx/src/components/modals/Modal'
 import { lxUrls } from '@l.x/lx/src/constants/urls'
 import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
 import { openUri } from '@l.x/lx/src/utils/linking'
-import { logger } from '@luxfi/utilities/src/logger/logger'
-import { isMobileApp } from '@luxfi/utilities/src/platform'
+import { logger } from '@l.x/utils/src/logger/logger'
+import { isMobileApp } from '@l.x/utils/src/platform'
 
 interface DappScanInfoModalProps {
   isOpen: boolean

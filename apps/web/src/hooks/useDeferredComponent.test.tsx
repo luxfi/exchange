@@ -1,5 +1,5 @@
 import { act, renderHook } from '@testing-library/react'
-import { mockLogger } from '@luxfi/utilities/src/logger/mocks'
+import { mockLogger } from '@l.x/utils/src/logger/mocks'
 import { useDeferredComponent } from '~/hooks/useDeferredComponent'
 
 describe('useDeferredComponent', () => {

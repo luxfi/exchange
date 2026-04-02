@@ -12,7 +12,7 @@ import {
   WebBottomSheet,
 } from '@l.x/ui/src'
 import { INTERFACE_NAV_HEIGHT, zIndexes } from '@l.x/ui/src/theme'
-import { useEvent } from '@luxfi/utilities/src/react/hooks'
+import { useEvent } from '@l.x/utils/src/react/hooks'
 import { MouseoverTooltip, TooltipSize } from '~/components/Tooltip'
 import { useOnClickOutside } from '~/hooks/useOnClickOutside'
 

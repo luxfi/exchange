@@ -2,7 +2,7 @@ import { call } from 'typed-redux-saga'
 import { ExtensionEventName } from '@l.x/lx/src/features/telemetry/constants'
 import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
 import { createMonitoredSaga } from '@l.x/lx/src/utils/saga'
-import { logger } from '@luxfi/utilities/src/logger/logger'
+import { logger } from '@l.x/utils/src/logger/logger'
 import { AuthActionType, AuthSagaError, LockParams, UnlockParams } from '@luxfi/wallet/src/features/auth/types'
 import { Keyring } from '@luxfi/wallet/src/features/wallet/Keyring/Keyring'
 

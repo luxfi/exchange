@@ -8,7 +8,7 @@ import { useAppFiatCurrencyInfo } from 'lx/src/features/fiatCurrency/hooks'
 import { useCurrentLocale } from 'lx/src/features/language/hooks'
 import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
 import { useUSDCPrice } from 'lx/src/features/transactions/hooks/useUSDCPriceWrapper'
-import { NumberType } from '@luxfi/utilities/src/format/types'
+import { NumberType } from '@l.x/utils/src/format/types'
 import { RaiseCurrency } from '~/pages/Liquidity/CreateAuction/types'
 import { getRaiseCurrencyAsCurrency } from '~/pages/Liquidity/CreateAuction/utils'
 

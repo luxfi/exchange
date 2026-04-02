@@ -18,9 +18,9 @@ import { Jiggly } from '@l.x/ui/src/animations'
 import { LX_LOGO } from '@l.x/ui/src/assets'
 import { AnimatedFlex } from '@l.x/ui/src/components/layout/AnimatedFlex'
 import { imageSizes } from '@l.x/ui/src/theme'
-import { isWebPlatform } from '@luxfi/utilities/src/platform'
-import { ONE_SECOND_MS } from '@luxfi/utilities/src/time/time'
-import { useTimeout } from '@luxfi/utilities/src/time/timing'
+import { isWebPlatform } from '@l.x/utils/src/platform'
+import { ONE_SECOND_MS } from '@l.x/utils/src/time/time'
+import { useTimeout } from '@l.x/utils/src/time/timing'
 import {
   BuyElement,
   FroggyElement,

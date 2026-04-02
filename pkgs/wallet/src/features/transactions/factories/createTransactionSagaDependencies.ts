@@ -1,7 +1,7 @@
 import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
 import { makeSelectAddressTransactions } from '@l.x/lx/src/features/transactions/selectors'
 import { transactionActions } from '@l.x/lx/src/features/transactions/slice'
-import { logger } from '@luxfi/utilities/src/logger/logger'
+import { logger } from '@l.x/utils/src/logger/logger'
 import { getDelegationInfoForTransaction } from '@luxfi/wallet/src/features/smartWallet/delegation/utils'
 import { createAnalyticsService } from '@luxfi/wallet/src/features/transactions/executeTransaction/services/analyticsServiceImpl'
 import { createFeatureFlagService } from '@luxfi/wallet/src/features/transactions/executeTransaction/services/featureFlagServiceImpl'

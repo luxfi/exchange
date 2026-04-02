@@ -5,7 +5,7 @@ import { NetworkLogo } from '@l.x/lx/src/components/CurrencyLogo/NetworkLogo'
 import { NotificationToast } from '@l.x/lx/src/components/notifications/NotificationToast'
 import { getChainLabel } from '@l.x/lx/src/features/chains/utils'
 import { NetworkChangedNotification as NetworkChangedNotificationType } from '@l.x/lx/src/features/notifications/slice/types'
-import { ONE_SECOND_MS } from '@luxfi/utilities/src/time/time'
+import { ONE_SECOND_MS } from '@l.x/utils/src/time/time'
 
 export function NetworkChangedNotification({
   notification: { chainId, flow, hideDelay = 2 * ONE_SECOND_MS },

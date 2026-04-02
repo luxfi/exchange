@@ -3,7 +3,7 @@ import { call, take } from 'typed-redux-saga'
 import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { cancelTransaction, TransactionsState, updateTransaction } from '@l.x/lx/src/features/transactions/slice'
 import { TransactionStatus } from '@l.x/lx/src/features/transactions/types/transactionDetails'
-import { logger } from '@luxfi/utilities/src/logger/logger'
+import { logger } from '@l.x/utils/src/logger/logger'
 import store from '~/state'
 import { getSigner } from '~/state/sagas/transactions/utils'
 

@@ -34,7 +34,7 @@ import { LocalizationContextProvider } from 'lx/src/features/language/Localizati
 import { getLocale } from 'lx/src/features/language/navigatorLocale'
 import Trace from 'lx/src/features/telemetry/Trace'
 import i18n, { changeLanguage } from 'lx/src/i18n'
-import { getLogger } from '@luxfi/utilities/src/logger/logger'
+import { getLogger } from '@l.x/utils/src/logger/logger'
 import { ErrorBoundary } from '@luxfi/wallet/src/components/ErrorBoundary/ErrorBoundary'
 import { StatsigUserIdentifiersUpdater } from '@luxfi/wallet/src/features/gating/StatsigUserIdentifiersUpdater'
 import { SharedWalletProvider } from '@luxfi/wallet/src/providers/SharedWalletProvider'

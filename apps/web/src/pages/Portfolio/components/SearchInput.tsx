@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { Flex, Input } from '@l.x/ui/src'
 import { Search } from '@l.x/ui/src/components/icons/Search'
 import { SearchInputProps } from '@l.x/lx/src/components/nfts/types'
-import { useDebouncedCallback } from '@luxfi/utilities/src/react/useDebouncedCallback'
+import { useDebouncedCallback } from '@l.x/utils/src/react/useDebouncedCallback'
 
 const DEFAULT_SEARCH_INPUT_WIDTH = 280
 const DEBOUNCE_DELAY_MS = 300

@@ -14,7 +14,7 @@ import {
 } from '@l.x/lx/src/features/transactions/types/transactionDetails'
 import { isNativeCurrencyAddress } from '@l.x/lx/src/utils/currencyId'
 import { createMonitoredSaga } from '@l.x/lx/src/utils/saga'
-import { logger } from '@luxfi/utilities/src/logger/logger'
+import { logger } from '@l.x/utils/src/logger/logger'
 import { executeTransaction } from '@luxfi/wallet/src/features/transactions/executeTransaction/executeTransactionSaga'
 import { SendTokenParams } from '@luxfi/wallet/src/features/transactions/send/types'
 import { getContractManager, getProvider } from '@luxfi/wallet/src/features/wallet/context'

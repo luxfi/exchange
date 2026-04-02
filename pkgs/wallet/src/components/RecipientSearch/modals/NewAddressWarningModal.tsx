@@ -12,8 +12,8 @@ import { useENSName } from '@l.x/lx/src/features/ens/api'
 import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
 import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
 import { getValidAddress } from '@l.x/lx/src/utils/addresses'
-import { shortenAddress } from '@luxfi/utilities/src/addresses'
-import { isMobileApp } from '@luxfi/utilities/src/platform'
+import { shortenAddress } from '@l.x/utils/src/addresses'
+import { isMobileApp } from '@l.x/utils/src/platform'
 import { useDisplayName } from '@luxfi/wallet/src/features/wallet/hooks'
 
 type NewAddressWarningModalProps = {

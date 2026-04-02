@@ -1,8 +1,8 @@
 import { StatsigClient, StatsigCustomAppValue, StatsigUser } from '@luxfi/gating'
 import { config } from '@l.x/lx/src/config'
 import { statsigBaseConfig } from '@l.x/lx/src/features/gating/statsigBaseConfig'
-import { getUniqueId } from '@luxfi/utilities/src/device/uniqueId'
-import { logger } from '@luxfi/utilities/src/logger/logger'
+import { getUniqueId } from '@l.x/utils/src/device/uniqueId'
+import { logger } from '@l.x/utils/src/logger/logger'
 
 export function makeStatsigUser(userID: string): StatsigUser {
   return {

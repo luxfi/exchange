@@ -29,8 +29,8 @@ import { pushNotification } from '@l.x/lx/src/features/notifications/slice/slice
 import { AppNotificationType } from '@l.x/lx/src/features/notifications/slice/types'
 import { ExtensionEventName } from '@l.x/lx/src/features/telemetry/constants'
 import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
-import { extractNameFromUrl } from '@luxfi/utilities/src/format/extractNameFromUrl'
-import { extractUrlHost } from '@luxfi/utilities/src/format/urls'
+import { extractNameFromUrl } from '@l.x/utils/src/format/extractNameFromUrl'
+import { extractUrlHost } from '@l.x/utils/src/format/urls'
 import { useActiveAccountWithThrow } from '@luxfi/wallet/src/features/wallet/hooks'
 
 export function ConnectPopupContent({

@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query'
 import { UnitagErrorCodes } from '@l.x/api'
 import { useUnitagsClaimEligibilityQuery } from '@l.x/lx/src/data/apiClients/unitagsApi/useUnitagsClaimEligibilityQuery'
-import { uniqueIdQuery } from '@luxfi/utilities/src/device/uniqueIdQuery'
+import { uniqueIdQuery } from '@l.x/utils/src/device/uniqueIdQuery'
 
 export const useCanAddressClaimUnitag = (
   address?: Address,

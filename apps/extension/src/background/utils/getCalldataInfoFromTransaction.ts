@@ -5,8 +5,8 @@ import { parseCalldata as parseNfPMCalldata } from 'src/app/features/dappRequest
 import { type NonfungiblePositionManagerCall } from 'src/app/features/dappRequests/types/NonfungiblePositionManagerTypes'
 import { type UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { wrappedNativeCurrency } from '@l.x/lx/src/utils/currency'
-import methodHashToFunctionSignature from '@luxfi/utilities/src/calldata/methodHashToFunctionSignature'
-import { noop } from '@luxfi/utilities/src/react/noop'
+import methodHashToFunctionSignature from '@l.x/utils/src/calldata/methodHashToFunctionSignature'
+import { noop } from '@l.x/utils/src/react/noop'
 
 interface GetCalldataInfoFromTransactionReturnValue {
   functionSignature?: string

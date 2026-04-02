@@ -1,5 +1,5 @@
 import { renderHook } from '@testing-library/react'
-import { useMemoCompare, usePrevious } from '@luxfi/utilities/src/react/hooks'
+import { useMemoCompare, usePrevious } from '@l.x/utils/src/react/hooks'
 
 describe('usePrevious', () => {
   it('returns undefined on first render', () => {

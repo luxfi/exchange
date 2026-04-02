@@ -15,9 +15,9 @@ import { pushNotification } from '@l.x/lx/src/features/notifications/slice/slice
 import { AppNotificationType } from '@l.x/lx/src/features/notifications/slice/types'
 import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
 import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
-import { logger } from '@luxfi/utilities/src/logger/logger'
-import { ONE_MINUTE_MS, ONE_SECOND_MS } from '@luxfi/utilities/src/time/time'
-import { useInterval } from '@luxfi/utilities/src/time/timing'
+import { logger } from '@l.x/utils/src/logger/logger'
+import { ONE_MINUTE_MS, ONE_SECOND_MS } from '@l.x/utils/src/time/time'
+import { useInterval } from '@l.x/utils/src/time/timing'
 import { useSignerAccounts } from '@luxfi/wallet/src/features/wallet/hooks'
 import { getOtpDurationString } from '@luxfi/wallet/src/utils/duration'
 

@@ -11,7 +11,7 @@ import {
 import { isPlanTransactionDetails } from '@l.x/lx/src/features/transactions/types/utils'
 import { getValidAddress } from '@l.x/lx/src/utils/addresses'
 import { buildCurrencyId, buildNativeCurrencyId, isNativeCurrencyAddress } from '@l.x/lx/src/utils/currencyId'
-import { logger } from '@luxfi/utilities/src/logger/logger'
+import { logger } from '@l.x/utils/src/logger/logger'
 import {
   ActivityProtocolInfo,
   ActivityRowFragments,

@@ -1,8 +1,8 @@
 import { getAddress } from '@ethersproject/address'
-import { isEVMAddress } from '@luxfi/utilities/src/addresses/evm/evm'
-import { HexString } from '@luxfi/utilities/src/addresses/hex'
-import { isSVMAddress } from '@luxfi/utilities/src/addresses/svm/svm'
-import { logger } from '@luxfi/utilities/src/logger/logger'
+import { isEVMAddress } from '@l.x/utils/src/addresses/evm/evm'
+import { HexString } from '@l.x/utils/src/addresses/hex'
+import { isSVMAddress } from '@l.x/utils/src/addresses/svm/svm'
+import { logger } from '@l.x/utils/src/logger/logger'
 
 function getShortenParams(chars: number, charsEnd?: number): { start: number; end: number } {
   if (charsEnd === undefined) {

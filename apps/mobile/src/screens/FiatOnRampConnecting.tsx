@@ -28,8 +28,8 @@ import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
 import { forceFetchFiatOnRampTransactions } from '@l.x/lx/src/features/transactions/slice'
 import { type FiatOnRampScreens } from '@l.x/lx/src/types/screens/mobile'
 import { openUri } from '@l.x/lx/src/utils/linking'
-import { ONE_SECOND_MS } from '@luxfi/utilities/src/time/time'
-import { useTimeout } from '@luxfi/utilities/src/time/timing'
+import { ONE_SECOND_MS } from '@l.x/utils/src/time/time'
+import { useTimeout } from '@l.x/utils/src/time/timing'
 import { useActiveAccountAddressWithThrow } from '@luxfi/wallet/src/features/wallet/hooks'
 
 // Design decision

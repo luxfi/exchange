@@ -3,7 +3,7 @@ import { TokenCountAllocatedToLpForAuctionRequest } from '@luxamm/client-liquidi
 import { useMemo } from 'react'
 import { AuctionMutationClient } from '@l.x/lx/src/data/apiClients/liquidityService/AuctionMutationClient'
 import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
-import { ReactQueryCacheKey } from '@luxfi/utilities/src/reactQuery/cache'
+import { ReactQueryCacheKey } from '@l.x/utils/src/reactQuery/cache'
 import { formatTokenPriceSubscript } from '~/components/Toucan/Auction/BidDistributionChart/utils/tokenFormatters'
 import { useStatsBannerData } from '~/components/Toucan/Auction/hooks/useStatsBannerData'
 import { BidTokenInfo } from '~/components/Toucan/Auction/store/types'

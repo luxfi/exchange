@@ -5,8 +5,8 @@ import { amounts, ON_PRESS_EVENT_PAYLOAD, portfolio } from '@l.x/lx/src/test/fix
 import { mockLocalizedFormatter } from '@l.x/lx/src/test/mocks'
 import { createArray, queryResolvers } from '@l.x/lx/src/test/utils'
 import { sanitizeAddressText } from '@l.x/lx/src/utils/addresses'
-import { shortenAddress } from '@luxfi/utilities/src/addresses'
-import { NumberType } from '@luxfi/utilities/src/format/types'
+import { shortenAddress } from '@l.x/utils/src/addresses'
+import { NumberType } from '@l.x/utils/src/format/types'
 import { ACCOUNT, readOnlyAccount, signerMnemonicAccount } from '@luxfi/wallet/src/test/fixtures'
 
 const tokensTotalDenominatedValue = amounts.md()

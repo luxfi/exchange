@@ -8,7 +8,7 @@ import { iconSizes } from '@l.x/ui/src/theme'
 import { NetworkFeeWarning } from '@l.x/lx/src/components/gas/NetworkFeeWarning'
 import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { useGasFeeFormattedDisplayAmounts } from '@l.x/lx/src/features/gas/hooks'
-import { isWebPlatform } from '@luxfi/utilities/src/platform'
+import { isWebPlatform } from '@l.x/utils/src/platform'
 
 type GasFeeRowProps = {
   gasFee: GasFeeResult

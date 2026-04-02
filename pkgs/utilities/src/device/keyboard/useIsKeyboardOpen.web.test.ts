@@ -1,5 +1,5 @@
 import { act, renderHook } from '@testing-library/react'
-import { useIsKeyboardOpen } from '@luxfi/utilities/src/device/keyboard/useIsKeyboardOpen.web'
+import { useIsKeyboardOpen } from '@l.x/utils/src/device/keyboard/useIsKeyboardOpen.web'
 import { vi } from 'vitest'
 
 describe('useIsKeyboardOpen', () => {

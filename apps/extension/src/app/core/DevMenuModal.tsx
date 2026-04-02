@@ -3,7 +3,7 @@ import { Flex } from '@l.x/ui/src'
 import { Flag } from '@l.x/ui/src/components/icons/Flag'
 import { Modal } from '@l.x/lx/src/components/modals/Modal'
 import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
-import { useBooleanState } from '@luxfi/utilities/src/react/useBooleanState'
+import { useBooleanState } from '@l.x/utils/src/react/useBooleanState'
 
 const DevMenuScreen = lazy(() =>
   import('src/app/features/settings/DevMenuScreen').then((module) => ({ default: module.DevMenuScreen })),

@@ -22,9 +22,9 @@ import { LiquidityEventName, ModalName } from '@l.x/lx/src/features/telemetry/co
 import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
 import { FeePoolSelectAction } from '@l.x/lx/src/features/telemetry/types'
 import useResizeObserver from 'use-resize-observer'
-import { NumberType } from '@luxfi/utilities/src/format/types'
-import { isMobileWeb } from '@luxfi/utilities/src/platform'
-import { useTrace } from '@luxfi/utilities/src/telemetry/trace/TraceContext'
+import { NumberType } from '@l.x/utils/src/format/types'
+import { isMobileWeb } from '@l.x/utils/src/platform'
+import { useTrace } from '@l.x/utils/src/telemetry/trace/TraceContext'
 import type { FeeData } from '~/components/Liquidity/Create/types'
 import { useAllFeeTierPoolData } from '~/components/Liquidity/hooks/useAllFeeTierPoolData'
 import {

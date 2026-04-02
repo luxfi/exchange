@@ -17,8 +17,8 @@ import { useEnabledChains } from '@l.x/lx/src/features/chains/hooks/useEnabledCh
 import { MobileEventName, ModalName } from '@l.x/lx/src/features/telemetry/constants'
 import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
 import { useAppInsets } from '@l.x/lx/src/hooks/useAppInsets'
-import { isAndroid } from '@luxfi/utilities/src/platform'
-import { useEvent } from '@luxfi/utilities/src/react/hooks'
+import { isAndroid } from '@l.x/utils/src/platform'
+import { useEvent } from '@l.x/utils/src/react/hooks'
 
 const ANIMATION_DURATION = 200
 const BASE_DELAY = 40

@@ -2,7 +2,7 @@ import { Contract, ContractInterface, providers } from 'ethers'
 import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { getValidAddress } from '@l.x/lx/src/utils/addresses'
 import { isNativeCurrencyAddress } from '@l.x/lx/src/utils/currencyId'
-import { logger } from '@luxfi/utilities/src/logger/logger'
+import { logger } from '@l.x/utils/src/logger/logger'
 
 export class ContractManager {
   private _contracts: Partial<Record<UniverseChainId, Record<string, Contract>>> = {}
