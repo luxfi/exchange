@@ -1,3 +1,4 @@
+import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { atom, useAtom } from 'jotai'
 import { forwardRef, RefObject, useCallback, useEffect, useRef } from 'react'
 import { Trans, useTranslation } from 'react-i18next'
@@ -18,8 +19,10 @@ import StatusIcon from '~/components/StatusIcon'
 import { RecentlyConnectedModal } from '~/components/Web3Status/RecentlyConnectedModal'
 import { useAccountIdentifier } from '~/components/Web3Status/useAccountIdentifier'
 import { useShowPendingAfterDelay } from '~/components/Web3Status/useShowPendingAfterDelay'
+import { useHasInjectedWallets } from '~/features/wallet/connection/hooks/useOrderedWalletConnectors'
 import { useModalState } from '~/hooks/useModalState'
 import { deprecatedStyled } from '~/lib/deprecated-styled'
+import { useEmbeddedWalletState } from '~/state/embeddedWallet/store'
 import { isIFramed } from '~/utils/isIFramed'
 
 const TextStyled = deprecatedStyled.span<{ marginRight?: number }>`
@@ -69,6 +72,10 @@ const ExistingUserCTAButton = forwardRef<HTMLDivElement, { onPress: () => void }
   ref,
 ) {
   const { t } = useTranslation()
+  const isEmbeddedWalletEnabled = useFeatureFlag(FeatureFlags.EmbeddedWallet)
+  const hasInjectedWallets = useHasInjectedWallets()
+  const { walletAddress: embeddedWalletAddress } = useEmbeddedWalletState()
+  const showGetStarted = isEmbeddedWalletEnabled && !hasInjectedWallets && !embeddedWalletAddress
 
   return (
     <Button
@@ -81,7 +88,7 @@ const ExistingUserCTAButton = forwardRef<HTMLDivElement, { onPress: () => void }
       ref={ref}
       onPress={onPress}
     >
-      {t('common.connect.button')}
+      {showGetStarted ? t('common.getStarted') : t('common.connect.button')}
     </Button>
   )
 })

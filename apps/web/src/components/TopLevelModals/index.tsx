@@ -66,6 +66,15 @@ export default function TopLevelModals() {
         <ModalRenderer modalName={ModalName.OffchainActivity} />
         <ModalRenderer modalName={ModalName.ReceiveCryptoModal} />
         <ModalRenderer modalName={ModalName.PendingWalletConnection} />
+        <ModalRenderer
+          modalName={ModalName.PasskeysHelp}
+          componentProps={{ type: passkeysHelpModalType, accountName: evmAccountName }}
+        />
+        <ModalRenderer modalName={ModalName.AddPasskey} />
+        <ModalRenderer modalName={ModalName.AddBackupLogin} />
+        <ModalRenderer modalName={ModalName.RecoverWallet} />
+        <ModalRenderer modalName={ModalName.DeletePasskey} />
+        <ModalRenderer modalName={ModalName.RemoveBackupLogin} />
       </OAuthRedirectProvider>
     )
   }

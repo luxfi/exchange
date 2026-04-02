@@ -293,7 +293,6 @@ export default function FeatureFlagModal(): JSX.Element {
             <FeatureFlagOption flag={FeatureFlags.UnichainFlashblocks} label="Enable Unichain Flashblocks" />
             <FeatureFlagOption flag={FeatureFlags.UniquoteEnabled} label="Enable Uniquote" />
             <FeatureFlagOption flag={FeatureFlags.UnirouteEnabled} label="Enable Uniroute" />
-            <FeatureFlagOption flag={FeatureFlags.UniroutePulumiEnabled} label="Enable Uniroute Pulumi" />
             <FeatureFlagOption flag={FeatureFlags.ViemProviderEnabled} label="Enable Viem Provider" />
             <FeatureFlagOption flag={FeatureFlags.LimitsFees} label="Enable Limits fees" />
             <FeatureFlagOption flag={FeatureFlags.EnablePermitMismatchUX} label="Enable Permit2 mismatch detection" />

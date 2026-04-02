@@ -224,6 +224,19 @@ function buildPrimaryConnectorsList({
 }
 
 /**
+ * Returns whether any third-party injected wallets (e.g. MetaMask) are detected.
+ * Excludes Coinbase (accessed via SDK) and, when embedded wallet is disabled, Lx Extension.
+ */
+export function useHasInjectedWallets(): boolean {
+  const isEmbeddedWalletEnabled = useFeatureFlag(FeatureFlags.EmbeddedWallet)
+  const wallets = useFilteredWalletsWithInjectedInfo({ platformFilter: 'any' })
+
+  return useMemo(() => {
+    return getInjectedConnectors({ wallets, isEmbeddedWalletEnabled }).length > 0
+  }, [wallets, isEmbeddedWalletEnabled])
+}
+
+/**
  * These wallets do not include Lux Wallets because those are
  * handled separately unless the embedded wallet is enabled. See <LuxWalletOptions />
  * Primary wallets are displayed on the first page of the modal, this included injected wallets and recent wallets

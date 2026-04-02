@@ -61,7 +61,6 @@ export const getFeatureFlaggedHeaders = (
 
   const chainedActionsEnabled = getFeatureFlag(FeatureFlags.ChainedActions)
   const unirouteEnabled = getFeatureFlag(FeatureFlags.UnirouteEnabled)
-  const uniroutePulumiEnabled = getFeatureFlag(FeatureFlags.UniroutePulumiEnabled)
   const ethAsErc20LXEnabled = getExperimentValueFromLayer<
     typeof Layers.SwapPage,
     Experiments.EthAsErc20DEX,
@@ -75,7 +74,7 @@ export const getFeatureFlaggedHeaders = (
   switch (tradingApiPath) {
     case TRADING_API_PATHS.quote:
       addHeaderIfEnabled({ headers, key: TradingApiHeaders.UnirouteEnabled, enabled: unirouteEnabled })
-      addHeaderIfEnabled({ headers, key: TradingApiHeaders.UniroutePulumiEnabled, enabled: uniroutePulumiEnabled })
+      headers[TradingApiHeaders.UniroutePulumiEnabled] = 'true'
       addHeaderIfEnabled({ headers, key: TradingApiHeaders.Erc20EthEnabled, enabled: ethAsErc20DEXEnabled })
       addHeaderIfEnabled({ headers, key: TradingApiHeaders.ChainedActionsEnabled, enabled: chainedActionsEnabled })
       addHeaderIfEnabled({
@@ -93,7 +92,7 @@ export const getFeatureFlaggedHeaders = (
       break
     case TRADING_API_PATHS.swap7702:
       addHeaderIfEnabled({ headers, key: TradingApiHeaders.UnirouteEnabled, enabled: unirouteEnabled })
-      addHeaderIfEnabled({ headers, key: TradingApiHeaders.UniroutePulumiEnabled, enabled: uniroutePulumiEnabled })
+      headers[TradingApiHeaders.UniroutePulumiEnabled] = 'true'
       addHeaderIfEnabled({ headers, key: TradingApiHeaders.Erc20EthEnabled, enabled: ethAsErc20DEXEnabled })
       break
   }
@@ -107,9 +106,8 @@ export const getFeatureFlaggedHeaders = (
 export const getQuoteHeaders = (): Record<string, string> => {
   const headers: Record<string, string> = {}
   const unirouteEnabled = getFeatureFlag(FeatureFlags.UnirouteEnabled)
-  const uniroutePulumiEnabled = getFeatureFlag(FeatureFlags.UniroutePulumiEnabled)
   addHeaderIfEnabled({ headers, key: 'x-uniroute-enabled', enabled: unirouteEnabled })
-  addHeaderIfEnabled({ headers, key: 'x-uniroute-pulumi-enabled', enabled: uniroutePulumiEnabled })
+  headers['x-uniroute-pulumi-enabled'] = 'true'
   return headers
 }
 
