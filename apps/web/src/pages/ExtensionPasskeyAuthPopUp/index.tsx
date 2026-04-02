@@ -4,7 +4,7 @@ import { useSearchParams } from 'react-router'
 import { Anchor, Button, Flex, SpinningLoader, Text } from '@l.x/ui/src'
 import { EnvelopeHeart } from '@l.x/ui/src/components/icons/EnvelopeHeart'
 import { Passkey } from '@l.x/ui/src/components/icons/Passkey'
-import { LuxLogo } from '@l.x/ui/src/components/icons/LuxLogo'
+import { LuxLogo } from '@l.x/ui/src/components/icons/LXLogo'
 import { lxUrls } from '@l.x/lx/src/constants/urls'
 import { parseMessage } from '@l.x/lx/src/extension/messagePassing/platform'
 import {

@@ -25,8 +25,8 @@ Circle as _Circle,
 // eslint-disable-next-line no-relative-import-paths/no-relative-import-paths
 import { createIcon } from '../factories/createIcon'
 
-export const [LuxLogo, AnimatedLuxLogo] = createIcon({
-name: 'LuxLogo',
+export const [LXLogo, AnimatedLXLogo] = createIcon({
+name: 'LXLogo',
 getIcon: (props) => (
   <Svg   fill="none" viewBox="0 0 96 96" {...props}>
   <Path fill="currentColor" d="M32.13 9.558c-1.183-.181-1.233-.202-.676-.287 1.067-.161 3.587.059 5.324.466 4.054.949 7.743 3.38 11.681 7.7l1.046 1.147 1.497-.237c6.305-.998 12.719-.205 18.083 2.236 1.476.672 3.803 2.009 4.094 2.352.093.11.263.815.378 1.567.398 2.601.199 4.596-.609 6.085-.44.81-.464 1.068-.169 1.762.236.553.894.963 1.546.962 1.333-.002 2.768-2.125 3.432-5.078l.265-1.174.523.584c2.87 3.203 5.124 7.57 5.51 10.68l.102.81-.483-.737c-.83-1.268-1.664-2.131-2.732-2.827-1.926-1.255-3.961-1.682-9.353-1.962-4.87-.253-7.626-.663-10.359-1.54-4.65-1.494-6.993-3.483-12.516-10.62-2.453-3.17-3.97-4.925-5.478-6.338-3.427-3.21-6.795-4.893-11.106-5.551Z"/>
@@ -37,3 +37,6 @@ getIcon: (props) => (
 ),
 
 })
+
+// Backward compat aliases
+export { LXLogo as LuxLogo, AnimatedLXLogo as AnimatedLuxLogo }

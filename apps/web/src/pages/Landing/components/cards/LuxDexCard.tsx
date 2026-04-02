@@ -3,7 +3,7 @@ import { PillButton } from 'pages/Landing/components/cards/PillButton'
 import ValuePropCard from 'pages/Landing/components/cards/ValuePropCard'
 import { useTranslation } from 'react-i18next'
 import { Image } from '@l.x/ui/src'
-import { LuxLogo } from '@l.x/ui/src/components/icons/LuxLogo'
+import { LuxLogo } from '@l.x/ui/src/components/icons/LXLogo'
 import { opacify } from '@l.x/ui/src/theme'
 import { lxUrls } from '@l.x/lx/src/constants/urls'
 
