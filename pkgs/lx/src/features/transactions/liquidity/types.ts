@@ -3,7 +3,7 @@ import {
   type CreateLPPositionRequest,
   type IncreaseLPPositionRequest,
   type MigrateV3ToV4LPPositionRequest,
-} from '@luxamm/client-liquidity/dist/uniswap/liquidity/v1/api_pb'
+} from '@luxamm/client-liquidity/dist/lx/liquidity/v1/api_pb'
 import { type Currency, type CurrencyAmount, type Token } from '@luxamm/sdk-core'
 import {
   type PermitTransaction,

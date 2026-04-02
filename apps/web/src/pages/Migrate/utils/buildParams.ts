@@ -3,14 +3,14 @@ import {
   CheckApprovalLPRequest,
   MigrateV2ToV3LPPositionRequest,
   MigrateV3ToV4LPPositionRequest,
-} from '@luxamm/client-liquidity/dist/uniswap/liquidity/v1/api_pb'
+} from '@luxamm/client-liquidity/dist/lx/liquidity/v1/api_pb'
 import {
   Protocols,
   V2CheckApprovalLPRequest,
   V3CheckApprovalLPRequest,
   V3Position,
   V4Position,
-} from '@luxamm/client-liquidity/dist/uniswap/liquidity/v1/types_pb'
+} from '@luxamm/client-liquidity/dist/lx/liquidity/v1/types_pb'
 import { V3_MIGRATOR_ADDRESSES } from '@luxamm/sdk-core'
 import { Pair } from '@luxamm/v2-sdk'
 import { Pool as V3Pool } from '@luxamm/v3-sdk'

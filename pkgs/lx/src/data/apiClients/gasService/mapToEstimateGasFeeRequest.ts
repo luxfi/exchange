@@ -3,7 +3,7 @@ import { type TransactionRequest } from '@ethersproject/providers'
 import type {
   EstimateGasFeeRequest,
   GasStrategy as ProtoGasStrategy,
-} from '@luxamm/client-unirpc-v2/dist/uniswap/unirpc/v2/service_pb'
+} from '@luxamm/client-unirpc-v2/dist/lx/unirpc/v2/service_pb'
 import { type GasStrategy } from '@l.x/api'
 
 export function mapToEstimateGasFeeRequest({

@@ -1,4 +1,4 @@
-import { ExploreStatsResponse, ProtocolStatsResponse } from '@luxamm/client-explore/dist/uniswap/explore/v1/service_pb'
+import { ExploreStatsResponse, ProtocolStatsResponse } from '@luxamm/client-explore/dist/lx/explore/v1/service_pb'
 import { createContext, useMemo } from 'react'
 import { useIsSupportedChainId } from '@l.x/lx/src/features/chains/hooks/useSupportedChainId'
 import { UniverseChainId } from '@l.x/lx/src/features/chains/types'

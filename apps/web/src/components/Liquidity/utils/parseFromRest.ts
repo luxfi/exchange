@@ -6,7 +6,7 @@ import {
   Position as RestPosition,
   Token as RestToken,
 } from '@luxamm/client-data-api/dist/data/v1/poolTypes_pb'
-import { PoolInformation } from '@luxamm/client-liquidity/dist/uniswap/liquidity/v1/types_pb'
+import { PoolInformation } from '@luxamm/client-liquidity/dist/lx/liquidity/v1/types_pb'
 import { Currency, CurrencyAmount, Token } from '@luxamm/sdk-core'
 import { Pair } from '@luxamm/v2-sdk'
 import { FeeAmount, Pool as V3Pool, Position as V3Position } from '@luxamm/v3-sdk'

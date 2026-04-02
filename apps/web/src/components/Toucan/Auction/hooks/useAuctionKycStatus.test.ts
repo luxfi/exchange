@@ -1,10 +1,10 @@
 import { renderHook } from '@testing-library/react'
-import { VerifyWalletResponse } from '@luxamm/client-liquidity/dist/uniswap/liquidity/v1/auction_pb'
+import { VerifyWalletResponse } from '@luxamm/client-liquidity/dist/lx/liquidity/v1/auction_pb'
 import {
   AuctionValidation,
   KycVerificationStatus,
   ValidationType,
-} from '@luxamm/client-liquidity/dist/uniswap/liquidity/v1/types_pb'
+} from '@luxamm/client-liquidity/dist/lx/liquidity/v1/types_pb'
 import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { beforeEach, describe, expect, it, vi } from 'vitest'

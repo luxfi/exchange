@@ -6,8 +6,8 @@ import {
   TokenRankingsRequest,
   TokenRankingsResponse,
   TokenRankingsStat,
-} from '@luxamm/client-explore/dist/uniswap/explore/v1/service_pb'
-import { tokenRankings } from '@luxamm/client-explore/dist/uniswap/explore/v1/service-ExploreStatsService_connectquery'
+} from '@luxamm/client-explore/dist/lx/explore/v1/service_pb'
+import { tokenRankings } from '@luxamm/client-explore/dist/lx/explore/v1/service-ExploreStatsService_connectquery'
 import { parseProtectionInfo, parseSafetyLevel } from '@l.x/api'
 import { lxGetTransport } from 'lx/src/data/rest/base'
 import { fromGraphQLChain } from 'lx/src/features/chains/utils'

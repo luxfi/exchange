@@ -8,7 +8,7 @@ import {
   SignoutResponse,
   UpdateSessionResponse,
   VerifyResponse,
-} from '@luxamm/client-platform-service/dist/uniswap/platformservice/v1/sessionService_pb'
+} from '@luxamm/client-platform-service/dist/lx/platformservice/v1/sessionService_pb'
 import { createSessionRepository } from '@l.x/sessions/src/session-repository/createSessionRepository'
 import { createSessionService } from '@l.x/sessions/src/session-service/createSessionService'
 import type { SessionService } from '@l.x/sessions/src/session-service/types'

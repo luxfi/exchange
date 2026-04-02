@@ -1,11 +1,11 @@
 import { ProtocolVersion } from '@luxamm/client-data-api/dist/data/v1/poolTypes_pb'
-import { CheckApprovalLPRequest } from '@luxamm/client-liquidity/dist/uniswap/liquidity/v1/api_pb'
+import { CheckApprovalLPRequest } from '@luxamm/client-liquidity/dist/lx/liquidity/v1/api_pb'
 import {
   Protocols,
   V2CheckApprovalLPRequest,
   V3CheckApprovalLPRequest,
   V4CheckApprovalLPRequest,
-} from '@luxamm/client-liquidity/dist/uniswap/liquidity/v1/types_pb'
+} from '@luxamm/client-liquidity/dist/lx/liquidity/v1/types_pb'
 import { Currency, CurrencyAmount } from '@luxamm/sdk-core'
 import { getTokenOrZeroAddress, validateCurrencyInput } from '~/components/Liquidity/utils/currency'
 import { getProtocols } from '~/components/Liquidity/utils/protocolVersion'

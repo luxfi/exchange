@@ -1,4 +1,4 @@
-import { ChallengeType } from '@luxamm/client-platform-service/dist/uniswap/platformservice/v1/sessionService_pb'
+import { ChallengeType } from '@luxamm/client-platform-service/dist/lx/platformservice/v1/sessionService_pb'
 import { createHashcashSolver } from '@l.x/sessions/src/challenge-solvers/createHashcashSolver'
 import type { HashcashWorkerChannel } from '@l.x/sessions/src/challenge-solvers/hashcash/worker/types'
 import type { ChallengeData } from '@l.x/sessions/src/challenge-solvers/types'

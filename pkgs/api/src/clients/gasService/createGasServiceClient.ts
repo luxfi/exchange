@@ -1,10 +1,10 @@
 import { type PartialMessage } from '@bufbuild/protobuf'
 import { type PromiseClient } from '@connectrpc/connect'
-import { type UniRpcService } from '@luxamm/client-unirpc-v2/dist/uniswap/unirpc/v2/service_connect'
+import { type UniRpcService } from '@luxamm/client-unirpc-v2/dist/lx/unirpc/v2/service_connect'
 import type {
   EstimateGasFeeRequest,
   EstimateGasFeeResponse,
-} from '@luxamm/client-unirpc-v2/dist/uniswap/unirpc/v2/service_pb'
+} from '@luxamm/client-unirpc-v2/dist/lx/unirpc/v2/service_pb'
 
 export interface GasServiceClientContext {
   rpcClient: PromiseClient<typeof UniRpcService>

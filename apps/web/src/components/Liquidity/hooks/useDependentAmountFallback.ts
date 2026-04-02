@@ -2,12 +2,12 @@ import { useQuery } from '@tanstack/react-query'
 import {
   CreateLPPositionRequest,
   IncreaseLPPositionRequest,
-} from '@luxamm/client-liquidity/dist/uniswap/liquidity/v1/api_pb'
+} from '@luxamm/client-liquidity/dist/lx/liquidity/v1/api_pb'
 import {
   V2CreateLPPosition,
   V3CreateLPPosition,
   V4CreateLPPosition,
-} from '@luxamm/client-liquidity/dist/uniswap/liquidity/v1/types_pb'
+} from '@luxamm/client-liquidity/dist/lx/liquidity/v1/types_pb'
 import { Currency, CurrencyAmount } from '@luxamm/sdk-core'
 import { useEffect, useMemo, useState } from 'react'
 import { liquidityQueries } from '@l.x/lx/src/data/apiClients/liquidityService/liquidityQueries'

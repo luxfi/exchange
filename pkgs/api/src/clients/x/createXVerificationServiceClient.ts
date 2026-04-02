@@ -1,11 +1,11 @@
 import { type PromiseClient } from '@connectrpc/connect'
-import { type XVerificationService } from '@luxamm/client-liquidity/dist/uniswap/liquidity/v1/x_verification_connect'
+import { type XVerificationService } from '@luxamm/client-liquidity/dist/lx/liquidity/v1/x_verification_connect'
 import type {
   GetXAuthUrlRequest,
   GetXAuthUrlResponse,
   VerifyXCallbackRequest,
   VerifyXCallbackResponse,
-} from '@luxamm/client-liquidity/dist/uniswap/liquidity/v1/x_verification_pb'
+} from '@luxamm/client-liquidity/dist/lx/liquidity/v1/x_verification_pb'
 
 interface XVerificationServiceClientContext {
   rpcClient: PromiseClient<typeof XVerificationService>

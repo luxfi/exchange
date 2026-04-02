@@ -1,8 +1,8 @@
 import type {
   ExitBidAndClaimTokensResponse,
   ExitBidPositionResponse,
-} from '@luxamm/client-liquidity/dist/uniswap/liquidity/v1/auction_pb'
-import { BidToExit, ChainId } from '@luxamm/client-liquidity/dist/uniswap/liquidity/v1/types_pb'
+} from '@luxamm/client-liquidity/dist/lx/liquidity/v1/auction_pb'
+import { BidToExit, ChainId } from '@luxamm/client-liquidity/dist/lx/liquidity/v1/types_pb'
 import { useCallback, useMemo, useRef, useState } from 'react'
 import { useExitBidAndClaimTokensMutation } from '@l.x/lx/src/data/rest/auctions/useExitBidAndClaimTokensMutation'
 import { useExitBidPositionMutation } from '@l.x/lx/src/data/rest/auctions/useExitBidPositionMutation'

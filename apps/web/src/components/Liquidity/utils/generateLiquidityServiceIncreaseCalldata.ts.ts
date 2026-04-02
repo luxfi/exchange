@@ -1,5 +1,5 @@
 import { ProtocolVersion } from '@luxamm/client-data-api/dist/data/v1/poolTypes_pb'
-import { IncreaseLPPositionRequest } from '@luxamm/client-liquidity/dist/uniswap/liquidity/v1/api_pb'
+import { IncreaseLPPositionRequest } from '@luxamm/client-liquidity/dist/lx/liquidity/v1/api_pb'
 import {
   IndependentToken,
   Protocols,
@@ -10,7 +10,7 @@ import {
   V4IncreaseLPPosition,
   V4Pool,
   V4Position,
-} from '@luxamm/client-liquidity/dist/uniswap/liquidity/v1/types_pb'
+} from '@luxamm/client-liquidity/dist/lx/liquidity/v1/types_pb'
 import type { Currency } from '@luxamm/sdk-core'
 import { getTradeSettingsDeadline } from '@l.x/lx/src/data/apiClients/tradingApi/utils/getTradeSettingsDeadline'
 import { PositionInfo } from '~/components/Liquidity/types'

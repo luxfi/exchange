@@ -1,5 +1,5 @@
 import { createPromiseClient, type Transport } from '@connectrpc/connect'
-import { EmbeddedWalletService as OldEmbeddedWalletService } from '@luxamm/client-embeddedwallet/dist/uniswap/embeddedwallet/v1/service_connect'
+import { EmbeddedWalletService as OldEmbeddedWalletService } from '@luxamm/client-embeddedwallet/dist/lx/embeddedwallet/v1/service_connect'
 import type { EmbeddedWalletApiClient as EmbeddedWalletApiClientType, EmbeddedWalletClientContext } from '@l.x/api'
 import { createEmbeddedWalletApiClient, getTransport } from '@l.x/api'
 import { lxUrls } from '@l.x/lx/src/constants/urls'
@@ -30,7 +30,7 @@ async function getApiClient(): Promise<EmbeddedWalletApiClientType> {
       try {
         const { EmbeddedWalletService: NewEmbeddedWalletService } = await import(
           /* @vite-ignore */
-          '@luxamm/client-privy-embedded-wallet/dist/uniswap/privy-embedded-wallet/v1/service_connect'
+          '@luxamm/client-privy-embedded-wallet/dist/lx/privy-embedded-wallet/v1/service_connect'
         )
         const newRpcClient = createPromiseClient(
           NewEmbeddedWalletService,

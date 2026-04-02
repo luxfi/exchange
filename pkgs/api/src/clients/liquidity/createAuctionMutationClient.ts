@@ -1,6 +1,6 @@
 import { type PartialMessage } from '@bufbuild/protobuf'
 import { type PromiseClient } from '@connectrpc/connect'
-import { type AuctionService } from '@luxamm/client-liquidity/dist/uniswap/liquidity/v1/auction_connect'
+import { type AuctionService } from '@luxamm/client-liquidity/dist/lx/liquidity/v1/auction_connect'
 import type {
   ExitBidAndClaimTokensRequest,
   ExitBidAndClaimTokensResponse,
@@ -12,7 +12,7 @@ import type {
   TokenCountAllocatedToLpForAuctionResponse,
   VerifyWalletRequest,
   VerifyWalletResponse,
-} from '@luxamm/client-liquidity/dist/uniswap/liquidity/v1/auction_pb'
+} from '@luxamm/client-liquidity/dist/lx/liquidity/v1/auction_pb'
 
 interface AuctionMutationClientContext {
   rpcClient: PromiseClient<typeof AuctionService>

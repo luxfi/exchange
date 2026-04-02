@@ -18,7 +18,7 @@ import type {
   MigrateV3ToV4LPPositionResponse,
   PoolInfoRequest,
   PoolInfoResponse,
-} from '@luxamm/client-liquidity/dist/uniswap/liquidity/v1/api_pb'
+} from '@luxamm/client-liquidity/dist/lx/liquidity/v1/api_pb'
 import { type UseQueryApiHelperHookArgs } from '@l.x/api'
 import { LiquidityServiceClient } from 'lx/src/data/apiClients/liquidityService/LiquidityServiceClient'
 import { ReactQueryCacheKey } from 'utilities/src/reactQuery/cache'

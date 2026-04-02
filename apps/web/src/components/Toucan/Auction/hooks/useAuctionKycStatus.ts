@@ -1,4 +1,4 @@
-import { ChainId, KycVerificationStatus } from '@luxamm/client-liquidity/dist/uniswap/liquidity/v1/types_pb'
+import { ChainId, KycVerificationStatus } from '@luxamm/client-liquidity/dist/lx/liquidity/v1/types_pb'
 import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { useCallback, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'

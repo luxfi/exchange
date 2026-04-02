@@ -1,4 +1,4 @@
-import { VerifyXCallbackRequest } from '@luxamm/client-liquidity/dist/uniswap/liquidity/v1/x_verification_pb'
+import { VerifyXCallbackRequest } from '@luxamm/client-liquidity/dist/lx/liquidity/v1/x_verification_pb'
 import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Flex, Text } from '@luxfi/ui/src'

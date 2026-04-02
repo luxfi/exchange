@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query'
-import { ClaimLPRewardsRequest } from '@luxamm/client-liquidity/dist/uniswap/liquidity/v1/api_pb'
-import { Distributor } from '@luxamm/client-liquidity/dist/uniswap/liquidity/v1/types_pb'
+import { ClaimLPRewardsRequest } from '@luxamm/client-liquidity/dist/lx/liquidity/v1/api_pb'
+import { Distributor } from '@luxamm/client-liquidity/dist/lx/liquidity/v1/types_pb'
 import { Token } from '@luxamm/sdk-core'
 import { useEffect, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'

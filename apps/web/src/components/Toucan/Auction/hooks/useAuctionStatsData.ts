@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query'
-import { TokenCountAllocatedToLpForAuctionRequest } from '@luxamm/client-liquidity/dist/uniswap/liquidity/v1/auction_pb'
+import { TokenCountAllocatedToLpForAuctionRequest } from '@luxamm/client-liquidity/dist/lx/liquidity/v1/auction_pb'
 import { useMemo } from 'react'
 import { AuctionMutationClient } from '@l.x/lx/src/data/apiClients/liquidityService/AuctionMutationClient'
 import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'

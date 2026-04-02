@@ -1,4 +1,4 @@
-import { LiquidityService } from '@luxamm/client-liquidity/dist/uniswap/liquidity/v1/api_connect'
+import { LiquidityService } from '@luxamm/client-liquidity/dist/lx/liquidity/v1/api_connect'
 import { PERMIT2_ADDRESS } from '@luxamm/permit2-sdk'
 import { V2_FACTORY_ADDRESSES } from '@luxamm/sdk-core'
 import { computePairAddress } from '@luxamm/v2-sdk'

@@ -198,7 +198,7 @@ export {
 export type {
   EstimateGasFeeRequest as GasServiceEstimateRequest,
   EstimateGasFeeResponse as GasServiceEstimateResponse,
-} from '@luxamm/client-unirpc-v2/dist/uniswap/unirpc/v2/service_pb'
+} from '@luxamm/client-unirpc-v2/dist/lx/unirpc/v2/service_pb'
 
 // Data API Service (ConnectRPC - listTopTokens, listTopPools, getPortfolio, etc.)
 export {

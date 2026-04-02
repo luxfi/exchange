@@ -2,7 +2,7 @@ import {
   Content,
   Metadata,
   Notification,
-} from '@luxamm/client-notification-service/dist/uniswap/notificationservice/v1/api_pb'
+} from '@luxamm/client-notification-service/dist/lx/notificationservice/v1/api_pb'
 import type { InAppNotification } from '@l.x/api'
 import { ContentStyle } from '@l.x/api'
 import {
