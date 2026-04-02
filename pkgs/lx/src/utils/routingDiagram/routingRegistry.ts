@@ -5,7 +5,7 @@ import { jupiterRoutingProvider } from 'lx/src/utils/routingDiagram/routingProvi
 import {
   lxChainedRoutingProvider,
   lxRoutingProvider,
-} from 'lx/src/utils/routingDiagram/routingProviders/lxRoutingProvider'
+} from 'lx/src/utils/routingDiagram/routingProviders/uniswapRoutingProvider'
 import type { RoutingDiagramEntry, RoutingProvider } from 'lx/src/utils/routingDiagram/types'
 import { logger } from 'utilities/src/logger/logger'
 
