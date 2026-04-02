@@ -58,12 +58,6 @@ const styles = {
     color: 'rgba(255, 255, 255, 0.6)',
     margin: 0,
   },
-  row: {
-    display: 'flex',
-    justifyContent: 'space-between' as const,
-    alignItems: 'center',
-    gap: 12,
-  },
   label: {
     fontSize: 13,
     fontWeight: 500,
@@ -171,7 +165,6 @@ export default function Bridge() {
   const [lastStatus, setLastStatus] = useState<CrossChainMintStatus>('idle')
 
   const primaryColor = brand.primaryColor
-  const bridgeUrl = `${brand.url.replace('exchange', 'network').replace('lux.network', 'lux.network')}`
   const fullBridgeUrl = brand.url.includes('lux')
     ? 'https://bridge.lux.network'
     : `${brand.url}/bridge`
