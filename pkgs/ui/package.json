@@ -41,7 +41,7 @@
     "@hanzogui/dialog": "2.0.5",
     "@hanzogui/sheet": "2.0.5",
     "@hanzogui/visually-hidden": "2.0.5",
-    "@hanzo/gui": "2.0.5",
+    "@hanzo/gui": "2.0.6",
     "@hanzogui/stacks": "2.0.5",
     "@hanzogui/web": "2.0.5"
   },
