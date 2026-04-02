@@ -1,6 +1,6 @@
 {
   "name": "@l.x/ui",
-  "version": "6.2.1",
+  "version": "6.2.2",
   "dependencies": {
     "@gorhom/bottom-sheet": "5.2.8",
     "@react-native-masked-view/masked-view": "0.3.2",
@@ -37,7 +37,7 @@
     "react-remove-scroll": "2.7.2",
     "uuid": "9.0.0",
     "wcag-contrast": "3.0.0",
-    "@l.x/utils": "workspace:^",
+    "@l.x/utils": "^1.1.0",
     "@hanzogui/dialog": "3.0.2",
     "@hanzogui/sheet": "3.0.2",
     "@hanzogui/visually-hidden": "3.0.2",
