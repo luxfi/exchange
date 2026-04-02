@@ -1,7 +1,7 @@
 const { createProxyMiddleware } = require('http-proxy-middleware')
 
 const apiProxy = createProxyMiddleware('/cmc', {
-  target: 'https://api.coinmarketcap.com/data-api/v3/uniswap/all.json',
+  target: 'https://api.coinmarketcap.com/data-api/v3/lux/all.json',
   changeOrigin: true,
   includePrefix: false,
   pathRewrite: {

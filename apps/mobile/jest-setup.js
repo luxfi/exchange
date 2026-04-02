@@ -17,7 +17,7 @@ setUpTests()
 // Silence the warning: Animated: `useNativeDriver` is not supported because the native animated module is missing
 jest.mock('react-native/Libraries/Animated/NativeAnimatedModule');
 
-jest.mock('@luxamm/client-explore/dist/uniswap/explore/v1/service-ExploreStatsService_connectquery', () => {})
+jest.mock('@luxamm/client-explore/dist/lux/explore/v1/service-ExploreStatsService_connectquery', () => {})
 
 jest.mock('@walletconnect/react-native-compat', () => ({}))
 

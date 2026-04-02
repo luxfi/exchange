@@ -1,1 +1,1 @@
-export { useEthAsErc20UniswapXQualifyingEvent as useEthAsErc20LXQualifyingEvent } from './useEthAsErc20UniswapXQualifyingEvent'
+export { useEthAsErc20LXQualifyingEvent as useEthAsErc20LXQualifyingEvent } from './useEthAsErc20LXQualifyingEvent'

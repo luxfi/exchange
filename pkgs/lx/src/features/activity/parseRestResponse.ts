@@ -6,7 +6,7 @@ import extractPlanDetails from 'lx/src/features/activity/extract/extractPlanDeta
 import extractRestFiatOnRampDetails from 'lx/src/features/activity/extract/extractRestFiatOnRampDetails'
 import extractRestLXOrderDetails from 'lx/src/features/activity/extract/extractRestLXOrderDetails'
 import extractTransactionDetails from 'lx/src/features/activity/extract/extractTransactionDetails'
-import { extractLXOrderDetails } from 'lx/src/features/activity/extract/extractUniswapXOrderDetails'
+import { extractLXOrderDetails } from 'lx/src/features/activity/extract/extractLXOrderDetails'
 import { getIsNftHidden } from 'lx/src/features/nfts/utils'
 import {
   TransactionDetails,

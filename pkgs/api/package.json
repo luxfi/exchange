@@ -31,7 +31,7 @@
     "@l.x/sessions": "workspace:^",
     "@luxfi/utilities": "workspace:^",
     "@tanstack/react-query": "5.90.20",
-    "@luxamm/client-data-api": "0.0.163",
+    "@luxamm/client-data-api": "0.0.164",
     "@luxamm/client-embeddedwallet": "0.0.121",
     "@luxamm/client-explore": "0.0.120",
     "@luxamm/client-for": "0.1.107",

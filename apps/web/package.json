@@ -222,7 +222,7 @@
     "@types/react-scroll-sync": "0.9.0",
     "@luxamm/analytics": "1.7.4",
     "@luxamm/analytics-events": "2.43.2",
-    "@luxamm/client-data-api": "0.0.163",
+    "@luxamm/client-data-api": "0.0.164",
     "@luxamm/client-explore": "0.0.120",
     "@luxamm/client-liquidity": "0.3.103",
     "@luxamm/client-notification-service": "0.0.115",

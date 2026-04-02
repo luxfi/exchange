@@ -184,7 +184,7 @@ function report(label: string, ok: boolean, detail: string): void {
 // ---------------------------------------------------------------------------
 
 async function testV2(client: ReturnType<typeof createPublicClient>): Promise<void> {
-  console.log('\n=== V2 (UniswapV2-style AMM) ===')
+  console.log('\n=== V2 (LuxV2-style AMM) ===')
 
   // 1. allPairsLength
   let pairCount = 0n

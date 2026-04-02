@@ -1,1 +1,1 @@
-export { provideLXIdentifierService } from './provideUniswapIdentifierService'
+export { provideLXIdentifierService } from './provideLuxIdentifierService'

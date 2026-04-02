@@ -7,13 +7,13 @@
  * * mocks can be overridden
  */
 import mockRNLocalize from 'react-native-localize/mock'
-import { AppearanceSettingType } from 'uniswap/src/features/appearance/slice'
+import { AppearanceSettingType } from 'lux/src/features/appearance/slice'
 
 jest.mock('react-native-localize', () => mockRNLocalize)
 
 // Mock the appearance hook for all tests
 const mockAppearanceSetting = AppearanceSettingType.System
-jest.mock('uniswap/src/features/appearance/hooks', () => {
+jest.mock('lux/src/features/appearance/hooks', () => {
   return {
     useSelectedColorScheme: () => 'light',
     useCurrentAppearanceSetting: () => mockAppearanceSetting,

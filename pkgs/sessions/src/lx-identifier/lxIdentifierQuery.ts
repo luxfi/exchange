@@ -1,1 +1,1 @@
-export { lxIdentifierQuery } from './uniswapIdentifierQuery'
+export { lxIdentifierQuery } from './luxIdentifierQuery'

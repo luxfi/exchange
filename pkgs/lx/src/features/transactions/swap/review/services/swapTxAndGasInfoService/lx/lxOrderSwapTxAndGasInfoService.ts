@@ -1,1 +1,1 @@
-export { uniswapXSwapTxAndGasInfoService as lxOrderSwapTxAndGasInfoService } from '../lx/lxOrderSwapTxAndGasInfoService'
+export { lxOrderSwapTxAndGasInfoService as lxOrderSwapTxAndGasInfoService } from '../lx/lxOrderSwapTxAndGasInfoService'

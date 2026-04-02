@@ -1,1 +1,1 @@
-export { createUniswapApiClient as createLuxApiClient } from '../uniswap/createUniswapApiClient'
+export { createLuxApiClient as createLuxApiClient } from '../lux/createLuxApiClient'

@@ -1,12 +1,12 @@
 import 'utilities/jest-package-mocks'
 import 'config/jest-presets/ui/ui-package-mocks'
-import 'uniswap/jest-package-mocks'
+import 'lux/jest-package-mocks'
 import 'wallet/jest-package-mocks'
 
-import 'uniswap/src/i18n' // Uses real translations for tests
+import 'lux/src/i18n' // Uses real translations for tests
 
 
-jest.mock('uniswap/src/features/gas/hooks', () => ({
+jest.mock('lux/src/features/gas/hooks', () => ({
   useActiveGasStrategy: jest.fn().mockReturnValue({
     limitInflationFactor: 1.15,
     displayLimitInflationFactor: 1,
@@ -16,7 +16,7 @@ jest.mock('uniswap/src/features/gas/hooks', () => ({
 }))
 
 // Mock getConfig to return test-safe native values
-jest.mock('uniswap/src/config', () => ({
+jest.mock('lux/src/config', () => ({
   config: {
     alchemyApiKey: 'test-alchemy-key',
     amplitudeProxyUrlOverride: '',
@@ -40,7 +40,7 @@ jest.mock('uniswap/src/config', () => ({
     tradingApiKey: 'test-trading-key',
     tradingApiUrlOverride: '',
     tradingApiWebTestEnv: '',
-    uniswapApiKey: 'test-uniswap-key',
+    luxApiKey: 'test-lux-key',
     unitagsApiUrlOverride: '',
     walletConnectProjectId: 'test-wallet-connect-id',
     walletConnectProjectIdBeta: 'test-wallet-connect-beta',
@@ -54,8 +54,8 @@ jest.mock('ui/src/components/Unicon', () => {
 })
 
 // Use native modal
-jest.mock('uniswap/src/components/modals/Modal', () => {
-  return jest.requireActual('uniswap/src/components/modals/Modal.native.tsx')
+jest.mock('lux/src/components/modals/Modal', () => {
+  return jest.requireActual('lux/src/components/modals/Modal.native.tsx')
 })
 
 // Use native clickable
