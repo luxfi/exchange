@@ -3,6 +3,7 @@
     "name": "Zoo Exchange",
     "title": "Zoo Exchange | Trade",
     "description": "The decentralized exchange for the Zoo ecosystem",
+    "legalEntity": "Zoo Labs Foundation",
     "appDomain": "zoo.exchange",
     "docsDomain": "docs.zoo.exchange",
     "infoDomain": "info.zoo.exchange",
@@ -17,13 +18,11 @@
     "twitter": "https://x.com/zoo_ngo",
     "github": "https://github.com/zoo-labs",
     "discord": "https://discord.gg/zoo",
-    "logoUrl": "",
-    "faviconUrl": "/favicon.ico",
     "primaryColor": "#00C853"
   },
   "chains": {
     "defaultChainId": 200200,
-    "supported": [200200, 200201, 96369, 1, 42161, 8453]
+    "supported": [200200, 200201, 96369, 1, 42161, 8453, 137, 43114]
   },
   "rpc": {
     "200200": "https://api.zoo.network/ext/bc/C/rpc",
@@ -31,12 +30,18 @@
     "96369": "https://api.lux.network/ext/bc/C/rpc",
     "1": "https://eth.llamarpc.com",
     "42161": "https://arb1.arbitrum.io/rpc",
-    "8453": "https://mainnet.base.org"
+    "8453": "https://mainnet.base.org",
+    "137": "https://polygon-rpc.com",
+    "43114": "https://api.avax.network/ext/bc/C/rpc"
   },
   "api": {
     "graphql": "https://api.zoo.exchange/v1/graphql",
     "gateway": "https://gw.zoo.exchange",
     "insights": "https://insights.hanzo.ai"
+  },
+  "iam": {
+    "provider": "https://id.zoo.ngo",
+    "clientId": "zoo-exchange"
   },
   "walletConnect": {
     "projectId": ""

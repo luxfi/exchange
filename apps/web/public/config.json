@@ -2,7 +2,7 @@
   "brand": {
     "name": "Lux Exchange",
     "title": "Lux Exchange | Trade",
-    "description": "The decentralized exchange for the Lux ecosystem",
+    "description": "Multi-chain decentralized exchange powered by Lux Network",
     "legalEntity": "Lux Industries Inc.",
     "appDomain": "lux.exchange",
     "docsDomain": "docs.lux.exchange",
@@ -18,8 +18,34 @@
     "twitter": "https://x.com/luxfi",
     "github": "https://github.com/luxfi",
     "discord": "https://discord.gg/lux",
-    "primaryColor": "#FC72FF",
+    "primaryColor": "#FC72FF"
+  },
+  "chains": {
     "defaultChainId": 96369,
-    "supportedChainIds": [96369, 96368, 96367]
+    "supported": [96369, 96368, 96367, 200200, 1, 42161, 8453, 137, 43114]
+  },
+  "rpc": {
+    "96369": "https://api.lux.network/ext/bc/C/rpc",
+    "96368": "https://api.lux-test.network/ext/bc/C/rpc",
+    "96367": "https://api.lux-dev.network/ext/bc/C/rpc",
+    "200200": "https://api.zoo.network/ext/bc/C/rpc",
+    "200201": "https://api.zoo-test.network/ext/bc/C/rpc",
+    "1": "https://eth.llamarpc.com",
+    "42161": "https://arb1.arbitrum.io/rpc",
+    "8453": "https://mainnet.base.org",
+    "137": "https://polygon-rpc.com",
+    "43114": "https://api.avax.network/ext/bc/C/rpc"
+  },
+  "api": {
+    "graphql": "https://api.lux.exchange/v1/graphql",
+    "gateway": "https://gw.lux.exchange",
+    "insights": "https://insights.hanzo.ai"
+  },
+  "iam": {
+    "provider": "https://lux.id",
+    "clientId": "lux-exchange"
+  },
+  "walletConnect": {
+    "projectId": ""
   }
 }

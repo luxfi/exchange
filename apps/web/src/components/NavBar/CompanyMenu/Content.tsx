@@ -1,7 +1,7 @@
+import { brand, getBrandUrl } from '@luxexchange/config'
 import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { LayerGroup } from '@luxfi/ui/src/components/icons/LayerGroup'
-import { Unichain } from '@luxfi/ui/src/components/icons/Unichain'
 import { LuxLogo } from '@luxfi/ui/src/components/icons/LuxLogo'
 import { DEXGeneric } from '@luxfi/ui/src/components/icons/DEXGeneric'
 import { lxUrls } from '@l.x/lx/src/constants/urls'
@@ -71,10 +71,10 @@ export const useMenuContent = (args?: {
             elementName: ElementName.NavbarCompanyMenuTradingApi,
           },
           {
-            label: t('common.unichain'),
-            href: lxUrls.unichainUrl,
-            icon: MENU_ICONS.unichain,
-            body: t('nav.products.unichain'),
+            label: brand.name,
+            href: getBrandUrl('/network'),
+            icon: MENU_ICONS.protocol,
+            body: t('landing.network.subtitle'),
             elementName: ElementName.NavbarCompanyMenuUnichain,
           },
         ],

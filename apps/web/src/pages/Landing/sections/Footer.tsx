@@ -1,3 +1,4 @@
+import { brand, getBrandUrl } from '@luxexchange/config'
 import { Fragment } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Anchor, Flex, FlexProps, Separator, styled, Text, TouchableArea } from '@luxfi/ui/src'
@@ -125,10 +126,10 @@ export function Footer() {
         width="100%"
         justifyContent="space-between"
       >
-        <Text variant="body3">© {currentYear} - Lux Industries</Text>
+        <Text variant="body3">© {currentYear} - {brand.legalEntity}</Text>
         <Flex row alignItems="center" gap="$spacing16">
           <PolicyLink onPress={togglePrivacyPolicy}>{t('common.privacyPolicy')}</PolicyLink>
-          <Anchor textDecorationLine="none" href="https://lux.exchange/trademark" target="_blank">
+          <Anchor textDecorationLine="none" href={getBrandUrl('/trademark')} target="_blank">
             <PolicyLink>{t('common.trademarkPolicy')}</PolicyLink>
           </Anchor>
         </Flex>
