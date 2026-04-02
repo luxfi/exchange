@@ -611,6 +611,7 @@ export default defineConfig(({ mode }) => {
       minify: isProduction && !isVercelDeploy ? 'esbuild' : undefined,
       rollupOptions: {
         external: [
+          /@cloudflare/voprf-ts/,
           /\.stories\.[tj]sx?$/,
           /\.mdx$/,
           /expo-clipboard\/build\/ClipboardPasteButton\.js/,
