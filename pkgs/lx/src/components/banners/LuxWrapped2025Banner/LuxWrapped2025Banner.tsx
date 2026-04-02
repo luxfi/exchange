@@ -1,1 +1,1 @@
-export { LxWrapped2025Banner as LuxWrapped2025Banner } from "../LxWrapped2025Banner/LxWrapped2025Banner"
+export { LxWrapped2025Banner as LuxWrapped2025Banner } from "../LuxWrapped2025Banner/LuxWrapped2025Banner"
