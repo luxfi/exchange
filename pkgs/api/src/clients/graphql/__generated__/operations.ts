@@ -202,12 +202,12 @@ export type ConvertQueryVariables = Exact<{
 
 export type ConvertQuery = { __typename?: 'Query', convert?: { __typename?: 'Amount', value: number, currency?: Currency | undefined } | undefined };
 
-export type UniswapPricesQueryVariables = Exact<{
+export type LuxPricesQueryVariables = Exact<{
   contracts: Array<ContractInput> | ContractInput;
 }>;
 
 
-export type UniswapPricesQuery = { __typename?: 'Query', tokens?: Array<{ __typename?: 'Token', id: string, address?: string | undefined, chain: Chain, standard?: TokenStandard | undefined, project?: { __typename?: 'TokenProject', id: string, markets?: Array<{ __typename?: 'TokenProjectMarket', id: string, price?: { __typename?: 'Amount', id: string, value: number } | undefined } | undefined> | undefined } | undefined } | undefined> | undefined };
+export type LuxPricesQuery = { __typename?: 'Query', tokens?: Array<{ __typename?: 'Token', id: string, address?: string | undefined, chain: Chain, standard?: TokenStandard | undefined, project?: { __typename?: 'TokenProject', id: string, markets?: Array<{ __typename?: 'TokenProjectMarket', id: string, price?: { __typename?: 'Amount', id: string, value: number } | undefined } | undefined> | undefined } | undefined } | undefined> | undefined };
 
 export type RecentTokenTransfersQueryVariables = Exact<{
   address: Scalars['String'];

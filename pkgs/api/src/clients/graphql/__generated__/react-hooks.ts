@@ -1,6 +1,6 @@
 import { gql } from '@apollo/client';
 import * as Apollo from '@apollo/client';
-import { type TokenPriceHistoryQueryVariables, type TokenPriceHistoryQuery, type AccountListQueryVariables, type AccountListQuery, type NftsQueryVariables, type NftsQuery, type NftsTabQueryVariables, type NftsTabQuery, type TokenBalanceMainPartsFragment, type TokenBalanceQuantityPartsFragment, type TokenBalancePartsFragment, type PortfolioBalancesQueryVariables, type PortfolioBalancesQuery, type MultiplePortfolioBalancesQueryVariables, type MultiplePortfolioBalancesQuery, type SelectWalletScreenQueryVariables, type SelectWalletScreenQuery, type TransactionHistoryUpdaterQueryVariables, type TransactionHistoryUpdaterQuery, type TokenQueryVariables, type TokenQuery, type TokenDetailsScreenQueryVariables, type TokenDetailsScreenQuery, type TokenProjectDescriptionQueryVariables, type TokenProjectDescriptionQuery, type TokenProjectsQueryVariables, type TokenProjectsQuery, type TransactionListQueryVariables, type TransactionListQuery, type FeedTransactionListQueryVariables, type FeedTransactionListQuery, type TopTokensQueryVariables, type TopTokensQuery, type TokenPartsFragment, type TokenBasicInfoPartsFragment, type TokenBasicProjectPartsFragment, type TokenProjectUrlsPartsFragment, type TokenProjectMarketsPartsFragment, type TokenMarketPartsFragment, type TokenFeeDataPartsFragment, type TokenProtectionInfoPartsFragment, type TopTokenPartsFragment, type HomeScreenTokenPartsFragment, type HomeScreenTokensQueryVariables, type HomeScreenTokensQuery, type FavoriteTokenCardQueryVariables, type FavoriteTokenCardQuery, type WidgetTokensQueryVariables, type WidgetTokensQuery, type TokensQueryVariables, type TokensQuery, type ConvertQueryVariables, type ConvertQuery, type UniswapPricesQueryVariables, type UniswapPricesQuery, type RecentTokenTransfersQueryVariables, type RecentTokenTransfersQuery, type SimpleTokenDetailsFragment, type TokenSpotPriceQueryVariables, type TokenSpotPriceQuery, type NftAssetPartsFragment, type NftTransferPartsFragment, type TokenAssetPartsFragment, type TokenTransferPartsFragment, type OnRampTransferPartsFragment, type TokenApprovalPartsFragment, type NftApprovalPartsFragment, type NftApproveForAllPartsFragment, type TransactionPartsFragment, type TransactionDetailsPartsFragment, type OnRampTransactionDetailsPartsFragment, type OffRampTransactionDetailsPartsFragment, type SwapOrderDetailsPartsFragment, type AssetActivityPartsFragment, type ActivityWebQueryVariables, type ActivityWebQuery, type AllV3TicksQueryVariables, type AllV3TicksQuery, type AllV4TicksQueryVariables, type AllV4TicksQuery, type FeeTierDistributionQueryVariables, type FeeTierDistributionQuery, type TokenPromoQueryVariables, type TokenPromoQuery, type IsV3SubgraphStaleQueryVariables, type IsV3SubgraphStaleQuery, type NftBalanceQueryVariables, type NftBalanceQuery, type TokenPriceFragment, type V3PoolQueryVariables, type V3PoolQuery, type V4PoolQueryVariables, type V4PoolQuery, type PoolPriceHistoryQueryVariables, type PoolPriceHistoryQuery, type PoolVolumeHistoryQueryVariables, type PoolVolumeHistoryQuery, type V2PairQueryVariables, type V2PairQuery, type PoolTransactionTokenFragment, type V4PoolTransactionsQueryVariables, type V4PoolTransactionsQuery, type V3PoolTransactionsQueryVariables, type V3PoolTransactionsQuery, type V2PairTransactionsQueryVariables, type V2PairTransactionsQuery, type TokenWebQueryVariables, type TokenWebQuery, type TokenProjectWebQueryVariables, type TokenProjectWebQuery, type CandlestickOhlcFragment, type PriceHistoryFallbackFragment, type TokenPriceQueryVariables, type TokenPriceQuery, type TokenHistoricalVolumesQueryVariables, type TokenHistoricalVolumesQuery, type TokenHistoricalTvlsQueryVariables, type TokenHistoricalTvlsQuery, type V4TokenTransactionsQueryVariables, type V4TokenTransactionsQuery, type V3TokenTransactionsQueryVariables, type V3TokenTransactionsQuery, type V2TokenTransactionsQueryVariables, type V2TokenTransactionsQuery, type TopV4PoolsQueryVariables, type TopV4PoolsQuery, type TopV3PoolsQueryVariables, type TopV3PoolsQuery, type TopV2PairsQueryVariables, type TopV2PairsQuery, type TransactionTokenFragment, type PoolTxFragment, type V4TransactionsQueryVariables, type V4TransactionsQuery, type V3TransactionsQueryVariables, type V3TransactionsQuery, type V2TransactionsQueryVariables, type V2TransactionsQuery } from "./operations";
+import { type TokenPriceHistoryQueryVariables, type TokenPriceHistoryQuery, type AccountListQueryVariables, type AccountListQuery, type NftsQueryVariables, type NftsQuery, type NftsTabQueryVariables, type NftsTabQuery, type TokenBalanceMainPartsFragment, type TokenBalanceQuantityPartsFragment, type TokenBalancePartsFragment, type PortfolioBalancesQueryVariables, type PortfolioBalancesQuery, type MultiplePortfolioBalancesQueryVariables, type MultiplePortfolioBalancesQuery, type SelectWalletScreenQueryVariables, type SelectWalletScreenQuery, type TransactionHistoryUpdaterQueryVariables, type TransactionHistoryUpdaterQuery, type TokenQueryVariables, type TokenQuery, type TokenDetailsScreenQueryVariables, type TokenDetailsScreenQuery, type TokenProjectDescriptionQueryVariables, type TokenProjectDescriptionQuery, type TokenProjectsQueryVariables, type TokenProjectsQuery, type TransactionListQueryVariables, type TransactionListQuery, type FeedTransactionListQueryVariables, type FeedTransactionListQuery, type TopTokensQueryVariables, type TopTokensQuery, type TokenPartsFragment, type TokenBasicInfoPartsFragment, type TokenBasicProjectPartsFragment, type TokenProjectUrlsPartsFragment, type TokenProjectMarketsPartsFragment, type TokenMarketPartsFragment, type TokenFeeDataPartsFragment, type TokenProtectionInfoPartsFragment, type TopTokenPartsFragment, type HomeScreenTokenPartsFragment, type HomeScreenTokensQueryVariables, type HomeScreenTokensQuery, type FavoriteTokenCardQueryVariables, type FavoriteTokenCardQuery, type WidgetTokensQueryVariables, type WidgetTokensQuery, type TokensQueryVariables, type TokensQuery, type ConvertQueryVariables, type ConvertQuery, type LuxPricesQueryVariables, type LuxPricesQuery, type RecentTokenTransfersQueryVariables, type RecentTokenTransfersQuery, type SimpleTokenDetailsFragment, type TokenSpotPriceQueryVariables, type TokenSpotPriceQuery, type NftAssetPartsFragment, type NftTransferPartsFragment, type TokenAssetPartsFragment, type TokenTransferPartsFragment, type OnRampTransferPartsFragment, type TokenApprovalPartsFragment, type NftApprovalPartsFragment, type NftApproveForAllPartsFragment, type TransactionPartsFragment, type TransactionDetailsPartsFragment, type OnRampTransactionDetailsPartsFragment, type OffRampTransactionDetailsPartsFragment, type SwapOrderDetailsPartsFragment, type AssetActivityPartsFragment, type ActivityWebQueryVariables, type ActivityWebQuery, type AllV3TicksQueryVariables, type AllV3TicksQuery, type AllV4TicksQueryVariables, type AllV4TicksQuery, type FeeTierDistributionQueryVariables, type FeeTierDistributionQuery, type TokenPromoQueryVariables, type TokenPromoQuery, type IsV3SubgraphStaleQueryVariables, type IsV3SubgraphStaleQuery, type NftBalanceQueryVariables, type NftBalanceQuery, type TokenPriceFragment, type V3PoolQueryVariables, type V3PoolQuery, type V4PoolQueryVariables, type V4PoolQuery, type PoolPriceHistoryQueryVariables, type PoolPriceHistoryQuery, type PoolVolumeHistoryQueryVariables, type PoolVolumeHistoryQuery, type V2PairQueryVariables, type V2PairQuery, type PoolTransactionTokenFragment, type V4PoolTransactionsQueryVariables, type V4PoolTransactionsQuery, type V3PoolTransactionsQueryVariables, type V3PoolTransactionsQuery, type V2PairTransactionsQueryVariables, type V2PairTransactionsQuery, type TokenWebQueryVariables, type TokenWebQuery, type TokenProjectWebQueryVariables, type TokenProjectWebQuery, type CandlestickOhlcFragment, type PriceHistoryFallbackFragment, type TokenPriceQueryVariables, type TokenPriceQuery, type TokenHistoricalVolumesQueryVariables, type TokenHistoricalVolumesQuery, type TokenHistoricalTvlsQueryVariables, type TokenHistoricalTvlsQuery, type V4TokenTransactionsQueryVariables, type V4TokenTransactionsQuery, type V3TokenTransactionsQueryVariables, type V3TokenTransactionsQuery, type V2TokenTransactionsQueryVariables, type V2TokenTransactionsQuery, type TopV4PoolsQueryVariables, type TopV4PoolsQuery, type TopV3PoolsQueryVariables, type TopV3PoolsQuery, type TopV2PairsQueryVariables, type TopV2PairsQuery, type TransactionTokenFragment, type PoolTxFragment, type V4TransactionsQueryVariables, type V4TransactionsQuery, type V3TransactionsQueryVariables, type V3TransactionsQuery, type V2TransactionsQueryVariables, type V2TransactionsQuery } from "./operations";
 
 const defaultOptions = {} as const;
 export const TokenBalanceQuantityPartsFragmentDoc = gql`
@@ -1889,8 +1889,8 @@ export function useConvertLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<Co
 export type ConvertQueryHookResult = ReturnType<typeof useConvertQuery>;
 export type ConvertLazyQueryHookResult = ReturnType<typeof useConvertLazyQuery>;
 export type ConvertQueryResult = Apollo.QueryResult<ConvertQuery, ConvertQueryVariables>;
-export const UniswapPricesDocument = gql`
-    query UniswapPrices($contracts: [ContractInput!]!) {
+export const LuxPricesDocument = gql`
+    query LuxPrices($contracts: [ContractInput!]!) {
   tokens(contracts: $contracts) {
     id
     address
@@ -1911,32 +1911,32 @@ export const UniswapPricesDocument = gql`
     `;
 
 /**
- * __useUniswapPricesQuery__
+ * __useLuxPricesQuery__
  *
- * To run a query within a React component, call `useUniswapPricesQuery` and pass it any options that fit your needs.
- * When your component renders, `useUniswapPricesQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * To run a query within a React component, call `useLuxPricesQuery` and pass it any options that fit your needs.
+ * When your component renders, `useLuxPricesQuery` returns an object from Apollo Client that contains loading, error, and data properties
  * you can use to render your UI.
  *
  * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
  *
  * @example
- * const { data, loading, error } = useUniswapPricesQuery({
+ * const { data, loading, error } = useLuxPricesQuery({
  *   variables: {
  *      contracts: // value for 'contracts'
  *   },
  * });
  */
-export function useUniswapPricesQuery(baseOptions: Apollo.QueryHookOptions<UniswapPricesQuery, UniswapPricesQueryVariables>) {
+export function useLuxPricesQuery(baseOptions: Apollo.QueryHookOptions<LuxPricesQuery, LuxPricesQueryVariables>) {
         const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<UniswapPricesQuery, UniswapPricesQueryVariables>(UniswapPricesDocument, options);
+        return Apollo.useQuery<LuxPricesQuery, LuxPricesQueryVariables>(LuxPricesDocument, options);
       }
-export function useUniswapPricesLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<UniswapPricesQuery, UniswapPricesQueryVariables>) {
+export function useLuxPricesLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<LuxPricesQuery, LuxPricesQueryVariables>) {
           const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<UniswapPricesQuery, UniswapPricesQueryVariables>(UniswapPricesDocument, options);
+          return Apollo.useLazyQuery<LuxPricesQuery, LuxPricesQueryVariables>(LuxPricesDocument, options);
         }
-export type UniswapPricesQueryHookResult = ReturnType<typeof useUniswapPricesQuery>;
-export type UniswapPricesLazyQueryHookResult = ReturnType<typeof useUniswapPricesLazyQuery>;
-export type UniswapPricesQueryResult = Apollo.QueryResult<UniswapPricesQuery, UniswapPricesQueryVariables>;
+export type LuxPricesQueryHookResult = ReturnType<typeof useLuxPricesQuery>;
+export type LuxPricesLazyQueryHookResult = ReturnType<typeof useLuxPricesLazyQuery>;
+export type LuxPricesQueryResult = Apollo.QueryResult<LuxPricesQuery, LuxPricesQueryVariables>;
 export const RecentTokenTransfersDocument = gql`
     query RecentTokenTransfers($address: String!, $chains: [Chain!]) {
   portfolios(ownerAddresses: [$address], chains: $chains) {

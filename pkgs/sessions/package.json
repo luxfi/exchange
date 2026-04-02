@@ -1,6 +1,6 @@
 {
   "name": "@l.x/sessions",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "scripts": {
     "typecheck": "nx typecheck sessions",
     "typecheck:tsgo": "nx typecheck:tsgo sessions",
@@ -26,7 +26,7 @@
     "@luxamm/client-platform-service": "0.0.119",
     "bidc": "0.0.3",
     "@l.x/utils": "workspace:^",
-    "zod": "catalog:"
+    "zod": "npm:@hanzogui/zod@4.3.6-fork.1"
   },
   "devDependencies": {
     "@edge-runtime/vm": "5.0.0",

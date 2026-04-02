@@ -1,6 +1,6 @@
 {
   "name": "@l.x/api",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "scripts": {
     "lint:biome": "nx lint:biome api",
     "lint:biome:fix": "nx lint:biome:fix api",
@@ -62,7 +62,7 @@
     "typescript": "5.8.3",
     "viem": "2.30.5",
     "vitest": "3.2.1",
-    "zod": "catalog:"
+    "zod": "npm:@hanzogui/zod@4.3.6-fork.1"
   },
   "main": "src/index.ts",
   "private": false,
