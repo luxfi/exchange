@@ -35,6 +35,9 @@ COPY pkgs/react-query/package.json pkgs/react-query/
 COPY pkgs/trpc/package.json pkgs/trpc/
 COPY pkgs/mycelium/package.json pkgs/mycelium/
 COPY pkgs/hashcash-native/package.json pkgs/hashcash-native/
+COPY config/vitest-presets/package.json config/vitest-presets/
+COPY config/jest-presets/package.json config/jest-presets/
+COPY config/tsconfig/package.json config/tsconfig/
 
 # Install deps — this layer is cached unless manifests change
 RUN NODE_ENV=development pnpm install --no-frozen-lockfile --ignore-scripts
