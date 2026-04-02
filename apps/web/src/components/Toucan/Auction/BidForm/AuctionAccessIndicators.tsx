@@ -1,4 +1,4 @@
-import { KycVerificationStatus } from '@luxamm/client-liquidity/dist/lx/liquidity/v1/types_pb'
+import { KycVerificationStatus } from '@luxamm/client-liquidity/dist/uniswap/liquidity/v1/types_pb'
 import { useTranslation } from 'react-i18next'
 import { Flex, styled, Text, TouchableArea } from '@luxfi/ui/src'
 import { EnvelopeCheck } from '@luxfi/ui/src/components/icons/EnvelopeCheck'

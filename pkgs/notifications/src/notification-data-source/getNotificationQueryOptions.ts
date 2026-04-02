@@ -1,6 +1,6 @@
 import { toPlainMessage } from '@bufbuild/protobuf'
 import { queryOptions } from '@tanstack/react-query'
-import { PlatformType } from '@luxamm/client-notification-service/dist/lx/notificationservice/v1/api_pb'
+import { PlatformType } from '@luxamm/client-notification-service/dist/uniswap/notificationservice/v1/api_pb'
 import type { InAppNotification, NotificationsApiClient } from '@l.x/api'
 import { getLogger } from 'utilities/src/logger/logger'
 import { ReactQueryCacheKey } from 'utilities/src/reactQuery/cache'

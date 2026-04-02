@@ -2,14 +2,14 @@ import { ProtocolVersion } from '@luxamm/client-data-api/dist/data/v1/poolTypes_
 import {
   CheckApprovalLPResponse,
   CreateLPPositionRequest,
-} from '@luxamm/client-liquidity/dist/lx/liquidity/v1/api_pb'
+} from '@luxamm/client-liquidity/dist/uniswap/liquidity/v1/api_pb'
 import {
   IndependentToken,
   Protocols,
   V2CreateLPPosition,
   V3CreateLPPosition,
   V4CreateLPPosition,
-} from '@luxamm/client-liquidity/dist/lx/liquidity/v1/types_pb'
+} from '@luxamm/client-liquidity/dist/uniswap/liquidity/v1/types_pb'
 import { Currency, CurrencyAmount } from '@luxamm/sdk-core'
 import { Pair } from '@luxamm/v2-sdk'
 import { Pool as V3Pool } from '@luxamm/v3-sdk'

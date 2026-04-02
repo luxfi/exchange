@@ -1,4 +1,4 @@
-import { GetXAuthUrlRequest } from '@luxamm/client-liquidity/dist/lx/liquidity/v1/x_verification_pb'
+import { GetXAuthUrlRequest } from '@luxamm/client-liquidity/dist/uniswap/liquidity/v1/x_verification_pb'
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { XVerificationClient } from 'lx/src/data/apiClients/liquidityService/XVerificationClient'

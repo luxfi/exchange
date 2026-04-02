@@ -1,7 +1,7 @@
 import { ApolloError } from '@apollo/client'
 import { ConnectError } from '@connectrpc/connect'
 import { UseQueryResult } from '@tanstack/react-query'
-import { TokenRankingsResponse, TokenRankingsStat } from '@luxamm/client-explore/dist/lx/explore/v1/service_pb'
+import { TokenRankingsResponse, TokenRankingsStat } from '@luxamm/client-explore/dist/uniswap/explore/v1/service_pb'
 import { GraphQLApi } from '@l.x/api'
 import { toIncludeSameMembers } from 'jest-extended'
 import { PreloadedState } from 'redux'

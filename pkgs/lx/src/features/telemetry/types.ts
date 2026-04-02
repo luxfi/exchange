@@ -9,7 +9,7 @@ import { type ProtocolVersion } from '@luxamm/client-data-api/dist/data/v1/poolT
 import {
   type CreateLPPositionRequest,
   type IncreaseLPPositionRequest,
-} from '@luxamm/client-liquidity/dist/lx/liquidity/v1/api_pb'
+} from '@luxamm/client-liquidity/dist/uniswap/liquidity/v1/api_pb'
 import { type Currency, type TradeType } from '@luxamm/sdk-core'
 import { type TradingApi, type UnitagClaimContext } from '@l.x/api'
 import { type Experiments } from '@l.x/gating'

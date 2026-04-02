@@ -1,5 +1,5 @@
 import providers from '@ethersproject/providers'
-import { NFTPermitData, PermitBatchData } from '@luxamm/client-liquidity/dist/lx/liquidity/v1/types_pb'
+import { NFTPermitData, PermitBatchData } from '@luxamm/client-liquidity/dist/uniswap/liquidity/v1/types_pb'
 import { ONE, Protocol } from '@luxamm/router-sdk'
 import { Currency, CurrencyAmount, Fraction, Percent, TradeType } from '@luxamm/sdk-core'
 import { GasEstimate, TradingApi } from '@l.x/api'

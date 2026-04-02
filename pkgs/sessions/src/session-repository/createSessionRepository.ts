@@ -1,7 +1,7 @@
 import {
   ChallengeFailure_Reason,
   VerifyFailure_Reason,
-} from '@luxamm/client-platform-service/dist/lx/platformservice/v1/sessionService_pb'
+} from '@luxamm/client-platform-service/dist/uniswap/platformservice/v1/sessionService_pb'
 import type { SessionServiceClient } from '@l.x/sessions/src/session-repository/createSessionClient'
 import { ChallengeRejectedError } from '@l.x/sessions/src/session-repository/errors'
 import type { SessionRepository, TypedChallengeData } from '@l.x/sessions/src/session-repository/types'

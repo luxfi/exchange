@@ -1,5 +1,5 @@
 import { ProtocolVersion } from '@luxamm/client-data-api/dist/data/v1/poolTypes_pb'
-import { CreateLPPositionResponse } from '@luxamm/client-liquidity/dist/lx/liquidity/v1/api_pb'
+import { CreateLPPositionResponse } from '@luxamm/client-liquidity/dist/uniswap/liquidity/v1/api_pb'
 import { Currency } from '@luxamm/sdk-core'
 import { DynamicConfigs, LPConfigKey, useDynamicConfigValue } from '@l.x/gating'
 import { useEffect } from 'react'

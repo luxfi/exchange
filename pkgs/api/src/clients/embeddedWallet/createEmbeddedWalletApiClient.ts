@@ -1,11 +1,11 @@
 import { type PromiseClient } from '@connectrpc/connect'
-import { EmbeddedWalletService as OldEmbeddedWalletService } from '@luxamm/client-embeddedwallet/dist/lx/embeddedwallet/v1/service_connect'
+import { EmbeddedWalletService as OldEmbeddedWalletService } from '@luxamm/client-embeddedwallet/dist/uniswap/embeddedwallet/v1/service_connect'
 import {
   type ExportSeedPhraseResponse,
   type Action as OldAction,
   type AuthenticationTypes as OldAuthenticationTypes,
   type SecuredChallengeResponse,
-} from '@luxamm/client-embeddedwallet/dist/lx/embeddedwallet/v1/service_pb'
+} from '@luxamm/client-embeddedwallet/dist/uniswap/embeddedwallet/v1/service_pb'
 import {
   type AddAuthenticatorResponse,
   type ChallengeResponse,
@@ -27,12 +27,12 @@ import {
   type SignTypedDataResponse,
   type StartAuthenticatedSessionResponse,
   type WalletSignInResponse,
-} from '@luxamm/client-privy-embedded-wallet/dist/lx/privy-embedded-wallet/v1/service_pb'
+} from '@luxamm/client-privy-embedded-wallet/dist/uniswap/privy-embedded-wallet/v1/service_pb'
 
 export type {
   ExportSeedPhraseResponse,
   SecuredChallengeResponse,
-} from '@luxamm/client-embeddedwallet/dist/lx/embeddedwallet/v1/service_pb'
+} from '@luxamm/client-embeddedwallet/dist/uniswap/embeddedwallet/v1/service_pb'
 export type {
   Action,
   AddAuthenticatorResponse,
@@ -56,7 +56,7 @@ export type {
   SignTypedDataResponse,
   StartAuthenticatedSessionResponse,
   WalletSignInResponse,
-} from '@luxamm/client-privy-embedded-wallet/dist/lx/privy-embedded-wallet/v1/service_pb'
+} from '@luxamm/client-privy-embedded-wallet/dist/uniswap/privy-embedded-wallet/v1/service_pb'
 
 export type SignAuth =
   | { case: 'credential'; value: string }

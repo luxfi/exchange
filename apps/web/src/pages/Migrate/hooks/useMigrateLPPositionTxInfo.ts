@@ -3,7 +3,7 @@ import { ProtocolVersion } from '@luxamm/client-data-api/dist/data/v1/poolTypes_
 import {
   MigrateV2ToV3LPPositionRequest,
   MigrateV3ToV4LPPositionRequest,
-} from '@luxamm/client-liquidity/dist/lx/liquidity/v1/api_pb'
+} from '@luxamm/client-liquidity/dist/uniswap/liquidity/v1/api_pb'
 import { Currency, CurrencyAmount } from '@luxamm/sdk-core'
 import { Dispatch, SetStateAction, useEffect, useMemo, useState } from 'react'
 import { useSelector } from 'react-redux'

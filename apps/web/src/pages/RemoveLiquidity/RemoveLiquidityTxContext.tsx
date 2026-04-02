@@ -1,4 +1,4 @@
-import { CheckApprovalLPResponse } from '@luxamm/client-liquidity/dist/lx/liquidity/v1/api_pb'
+import { CheckApprovalLPResponse } from '@luxamm/client-liquidity/dist/uniswap/liquidity/v1/api_pb'
 import type { Currency } from '@luxamm/sdk-core'
 import { CurrencyAmount } from '@luxamm/sdk-core'
 import { TradingApi } from '@l.x/api'
