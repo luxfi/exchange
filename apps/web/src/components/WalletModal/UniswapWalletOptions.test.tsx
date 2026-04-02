@@ -1,6 +1,6 @@
 import { useFeatureFlag } from '@universe/gating'
 import { CONNECTION_PROVIDER_IDS } from 'lx/src/constants/web3'
-import { LxWalletOptions } from '~/components/WalletModal/LxWalletOptions'
+import { LXWalletOptions } from '~/components/WalletModal/LXWalletOptions'
 import { useWalletWithId } from '~/features/accounts/store/hooks'
 import { ExternalWallet } from '~/features/accounts/store/types'
 import { mocked } from '~/test-utils/mocked'
@@ -19,24 +19,24 @@ vi.mock('@universe/gating', async (importOriginal) => {
   }
 })
 
-const LxMobileWallet = {
+const LXMobileWallet = {
   id: CONNECTION_PROVIDER_IDS.LX_WALLET_CONNECT_CONNECTOR_ID,
 } as ExternalWallet
 
-const LxExtensionWallet = {
+const LXExtensionWallet = {
   id: CONNECTION_PROVIDER_IDS.LX_EXTENSION_RDNS,
 } as ExternalWallet
 
-describe('LxWalletOptions', () => {
+describe('LXWalletOptions', () => {
   it('Download wallet option should be visible if extension is not detected', () => {
     mocked(useWalletWithId).mockImplementation(
       (testId) =>
         ({
-          [CONNECTION_PROVIDER_IDS.LX_WALLET_CONNECT_CONNECTOR_ID]: LxMobileWallet,
+          [CONNECTION_PROVIDER_IDS.LX_WALLET_CONNECT_CONNECTOR_ID]: LXMobileWallet,
         })[testId],
     )
     mocked(useFeatureFlag).mockReturnValue(true)
-    const { asFragment } = render(<LxWalletOptions />)
+    const { asFragment } = render(<LXWalletOptions />)
     expect(asFragment()).toMatchSnapshot()
     const downloadOption = screen.getByTestId('download-lx-wallet')
     expect(downloadOption).toBeInTheDocument()
@@ -45,11 +45,11 @@ describe('LxWalletOptions', () => {
     mocked(useWalletWithId).mockImplementation(
       (testId) =>
         ({
-          [CONNECTION_PROVIDER_IDS.LX_EXTENSION_RDNS]: LxExtensionWallet,
+          [CONNECTION_PROVIDER_IDS.LX_EXTENSION_RDNS]: LXExtensionWallet,
         })[testId],
     )
     mocked(useFeatureFlag).mockReturnValue(false)
-    const { asFragment } = render(<LxWalletOptions />)
+    const { asFragment } = render(<LXWalletOptions />)
     expect(asFragment()).toMatchSnapshot()
     const connectWallet = screen.getByTestId('connect-lx-extension')
     expect(connectWallet).toBeInTheDocument()

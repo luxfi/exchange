@@ -1,6 +1,6 @@
 /**
  * AMM V2 Pair ABI
- * Compatible with Uniswap V2 Pair interface
+ * Compatible with Lux V2 Pair interface
  */
 export const AMM_V2_PAIR_ABI = [
     {
@@ -85,4 +85,4 @@ export const AMM_V2_PAIR_ABI = [
     },
 ];
 /** @deprecated Use AMM_V2_PAIR_ABI instead */
-export const UNISWAP_V2_PAIR_ABI = AMM_V2_PAIR_ABI;
+export const LUX_V2_PAIR_ABI = AMM_V2_PAIR_ABI;

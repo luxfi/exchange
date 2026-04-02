@@ -1,10 +1,10 @@
-import { FormattedLxSwapGasFeeInfo, GasFeeResult } from '@l.x/api'
+import { FormattedLXGasFeeInfo, GasFeeResult } from '@l.x/api'
 import { UniverseChainId } from 'lx/src/features/chains/types'
 
 export type GasInfo = {
   gasFee: GasFeeResult
   fiatPriceFormatted?: string
-  lxSwapGasFeeInfo?: FormattedLxSwapGasFeeInfo
+  lxOrderGasFeeInfo?: FormattedLXGasFeeInfo
   isHighRelativeToValue: boolean
   isLoading: boolean
   chainId: UniverseChainId

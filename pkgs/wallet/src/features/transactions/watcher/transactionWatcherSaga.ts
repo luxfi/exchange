@@ -6,16 +6,16 @@ import { AppNotificationType } from 'lx/src/features/notifications/slice/types'
 import { selectIncompleteTransactions } from 'lx/src/features/transactions/selectors'
 import {
   addTransaction,
-  cancelRemoteLxSwapOrder,
+  cancelRemoteLXOrder,
   transactionActions,
   updateTransaction,
 } from 'lx/src/features/transactions/slice'
 import { PlanWatcher } from 'lx/src/features/transactions/swap/plan/planWatcherSaga'
-import { isLxSwap } from 'lx/src/features/transactions/swap/utils/routing'
+import { isLX } from 'lx/src/features/transactions/swap/utils/routing'
 import { QueuedOrderStatus } from 'lx/src/features/transactions/types/transactionDetails'
 import i18n from 'lx/src/i18n'
 import { logger } from 'utilities/src/logger/logger'
-import { attemptCancelRemoteLxSwapOrder } from '@luxfi/wallet/src/features/transactions/cancelTransactionSaga'
+import { attemptCancelRemoteLXOrder } from '@luxfi/wallet/src/features/transactions/cancelTransactionSaga'
 import { isFORTransaction } from '@luxfi/wallet/src/features/transactions/utils'
 import { OrderWatcher } from '@luxfi/wallet/src/features/transactions/watcher/orderWatcherSaga'
 import { watchFiatOnRampTransaction } from '@luxfi/wallet/src/features/transactions/watcher/watchFiatOnRampSaga'
@@ -39,7 +39,7 @@ export function* transactionWatcher({
 
   // Listen for remote LX order cancellation requests (orders not in local Redux state)
   yield* fork(function* watchRemoteOrderCancellation() {
-    yield* takeEvery(cancelRemoteLxSwapOrder.type, attemptCancelRemoteLxSwapOrder)
+    yield* takeEvery(cancelRemoteLXOrder.type, attemptCancelRemoteLXOrder)
   })
 
   // First, fork off watchers for any incomplete txs that are already in store
@@ -50,7 +50,7 @@ export function* transactionWatcher({
       yield* fork(watchFiatOnRampTransaction, transaction as FORTransactionDetails)
     } else {
       // If the transaction was a queued LX order that never became submitted, update UI to show failure
-      if (isLxSwap(transaction) && transaction.queueStatus === QueuedOrderStatus.Waiting) {
+      if (isLX(transaction) && transaction.queueStatus === QueuedOrderStatus.Waiting) {
         const updatedOrder = { ...transaction, queueStatus: QueuedOrderStatus.AppClosed }
         yield* put(transactionActions.updateTransaction(updatedOrder))
         continue

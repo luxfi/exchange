@@ -72,11 +72,11 @@ export function BestRouteDEXTooltip(): JSX.Element {
         </Tooltip.Row>
       </Tooltip.Content>
       <Tooltip.Description
-        learnMoreUrl={lxUrls.helpArticleUrls.lxSwapInfo}
+        learnMoreUrl={lxUrls.helpArticleUrls.lxOrderInfo}
         text={t('routing.aggregateLiquidity.lx')}
       />
     </Tooltip.Outer>
   )
 }
 
-export const BestRouteLxSwapTooltip = BestRouteDEXTooltip
+export const BestRouteLXTooltip = BestRouteDEXTooltip

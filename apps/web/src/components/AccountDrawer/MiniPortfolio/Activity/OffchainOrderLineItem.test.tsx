@@ -43,7 +43,7 @@ describe('OffchainOrderLineItem', () => {
           routing: TradingApi.Routing.DUTCH_V2,
           status: TransactionStatus.Success,
           typeInfo: {
-            isLxSwapOrder: true,
+            isLXOrder: true,
             type: TransactionType.Swap,
             tradeType: 0,
             inputCurrencyId: currencyId(DAI),
@@ -82,7 +82,7 @@ describe('OffchainOrderLineItem', () => {
           routing: TradingApi.Routing.DUTCH_V2,
           status: TransactionStatus.Success,
           typeInfo: {
-            isLxSwapOrder: true,
+            isLXOrder: true,
             type: TransactionType.Swap,
             tradeType: 0,
             inputCurrencyId: currencyId(DAI),

@@ -57,7 +57,7 @@ POOL_MANAGER_ABI, SWAP_ROUTER_ABI, HOOKS_REGISTRY_ABI, FLASH_LOAN_ABI,
 // LX* ABIs
 LX_BOOK_ABI, LX_VAULT_ABI, LX_FEED_ABI, LX_ORACLE_ABI, 
 // Addresses
-LX, DEX_PRECOMPILES, fromLP, toLP, isDEXPrecompile, isBridgePrecompile, } from './precompile';
+LX, DEX_PRECOMPILES, fromLP, toLP, isLXPrecompile, isBridgePrecompile, } from './precompile';
 // =============================================================================
 // CLOB Client (External ~/work/lux/dex integration)
 // =============================================================================

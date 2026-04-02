@@ -52,7 +52,7 @@ export function OptionContainer({ hideBackground, recent, children, onPress, tes
   )
 }
 
-export function LxWalletOptions() {
+export function LXWalletOptions() {
   const [, setPersistHideMobileAppPromoBanner] = useAtom(persistHideMobileAppPromoBannerAtom)
 
   const lxExtensionWallet = useWalletWithId(CONNECTION_PROVIDER_IDS.LX_EXTENSION_RDNS)
@@ -122,7 +122,7 @@ export function LxWalletOptions() {
           <OptionContainer
             onPress={() => {
               setPersistHideMobileAppPromoBanner(true)
-              openDownloadApp({ element: ElementName.LxWalletModalDownloadButton })
+              openDownloadApp({ element: ElementName.LXWalletModalDownloadButton })
             }}
           >
             <PhoneDownload size="$icon.40" minWidth={40} color="$accent1" backgroundColor="$accent2" borderRadius={8} />

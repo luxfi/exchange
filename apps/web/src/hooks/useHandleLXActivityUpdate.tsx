@@ -10,12 +10,12 @@ import {
 import { isFinalizedTx } from 'lx/src/features/transactions/types/utils'
 import { popupRegistry } from '~/components/Popups/registry'
 import { PopupType } from '~/components/Popups/types'
-import type { LxSwapOrderUpdate } from '~/state/activity/types'
+import type { LXOrderUpdate } from '~/state/activity/types'
 import { useAppDispatch } from '~/state/hooks'
-import { logLxSwapSwapFinalized } from '~/tracing/swapFlowLoggers'
+import { logLXSwapFinalized } from '~/tracing/swapFlowLoggers'
 
 interface HandleLXActivityUpdateParams {
-  activity: LxSwapOrderUpdate
+  activity: LXOrderUpdate
   popupDismissalTime: number
 }
 
@@ -64,7 +64,7 @@ export function useHandleLXActivityUpdate(): (params: HandleLXActivityUpdatePara
           update.status === TransactionStatus.Expired)
       ) {
         // Log successful non-limit orders (for swap metrics) and all cancelled/expired orders
-        logLxSwapSwapFinalized({
+        logLXSwapFinalized({
           id: original.id,
           hash: update.hash,
           orderHash: original.orderHash,

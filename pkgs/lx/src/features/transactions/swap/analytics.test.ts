@@ -102,7 +102,7 @@ describe('analytics', () => {
       expect(result).toBeUndefined()
     })
 
-    it('returns lxSwapUsed=true for LX trade', () => {
+    it('returns lxOrderUsed=true for LX trade', () => {
       // We need to cast to Trade because the mock isn't a complete implementation
       const mockTrade = { routing: TradingApi.Routing.DUTCH_V2 } as Trade
 
@@ -111,7 +111,7 @@ describe('analytics', () => {
         v2Used: false,
         v3Used: false,
         v4Used: false,
-        lxSwapUsed: true,
+        lxOrderUsed: true,
         jupiterUsed: false,
       })
     })
@@ -135,7 +135,7 @@ describe('analytics', () => {
         v2Used: true,
         v3Used: true,
         v4Used: false,
-        lxSwapUsed: false,
+        lxOrderUsed: false,
         jupiterUsed: false,
       })
     })
@@ -156,7 +156,7 @@ describe('analytics', () => {
         v2Used: false,
         v3Used: false,
         v4Used: true,
-        lxSwapUsed: false,
+        lxOrderUsed: false,
         jupiterUsed: false,
       })
     })
@@ -175,7 +175,7 @@ describe('analytics', () => {
         v2Used: false,
         v3Used: false,
         v4Used: false,
-        lxSwapUsed: false,
+        lxOrderUsed: false,
         jupiterUsed: false,
       })
     })

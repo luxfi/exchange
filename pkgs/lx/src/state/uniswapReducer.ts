@@ -44,4 +44,4 @@ export const lxPersistedStateList: Array<keyof typeof lxReducers> = [
   'visibility',
 ]
 
-export type LxState = ReturnType<typeof lxReducer>
+export type LXState = ReturnType<typeof lxReducer>

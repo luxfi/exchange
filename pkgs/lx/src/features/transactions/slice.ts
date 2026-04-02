@@ -4,7 +4,7 @@ import { providers } from 'ethers/lib/ethers'
 import { UniverseChainId } from 'lx/src/features/chains/types'
 import { FORTransactionDetails } from 'lx/src/features/fiatOnRamp/types'
 import { CancelableStepInfo } from 'lx/src/features/transactions/hooks/useIsCancelable'
-import { isLxSwap } from 'lx/src/features/transactions/swap/utils/routing'
+import { isLX } from 'lx/src/features/transactions/swap/utils/routing'
 import {
   BridgeTransactionInfo,
   ChainIdToTxIdToDetails,
@@ -15,7 +15,7 @@ import {
   TransactionStatus,
   TransactionType,
   TransactionTypeInfo,
-  type LxSwapOrderDetails,
+  type LXOrderDetails,
 } from 'lx/src/features/transactions/types/transactionDetails'
 import {
   getInterfaceTransaction,
@@ -80,7 +80,7 @@ const slice = createSlice({
      */
     addTransaction: (
       state,
-      { payload: transaction }: PayloadAction<TransactionDetails | InterfaceTransactionDetails | LxSwapOrderDetails>,
+      { payload: transaction }: PayloadAction<TransactionDetails | InterfaceTransactionDetails | LXOrderDetails>,
     ) => {
       const { chainId, id, from } = transaction
       assert(!state[from]?.[chainId]?.[id], `addTransaction: Attempted to overwrite tx with id ${id}`)
@@ -90,7 +90,7 @@ const slice = createSlice({
     },
     updateTransaction: (
       state,
-      { payload: transaction }: PayloadAction<TransactionDetails | InterfaceTransactionDetails | LxSwapOrderDetails>,
+      { payload: transaction }: PayloadAction<TransactionDetails | InterfaceTransactionDetails | LXOrderDetails>,
     ) => {
       const { chainId, id, from } = transaction
       assert(state[from]?.[chainId]?.[id], `updateTransaction: Attempted to update a missing tx with id ${id}`)
@@ -124,7 +124,7 @@ const slice = createSlice({
       }
 
       // Update hash for successful LX orders
-      if (isLxSwap(transaction) && status === TransactionStatus.Success) {
+      if (isLX(transaction) && status === TransactionStatus.Success) {
         assert(hash, `finalizeTransaction: Attempted to finalize an order without providing the fill tx hash`)
         state[from]![chainId]![id]!.hash = hash
       }
@@ -340,12 +340,12 @@ export const forceFetchFiatOnRampTransactions = createAction('transactions/force
 
 // Action to cancel a LX order that only exists in the remote activity feed (not in local Redux state).
 // Handled by a saga that directly submits the Permit2 nonce invalidation transaction.
-export const cancelRemoteLxSwapOrder = createAction<{
+export const cancelRemoteLXOrder = createAction<{
   chainId: UniverseChainId
   address: string
   orderHash: string
   cancelRequest: providers.TransactionRequest
-}>('transactions/cancelRemoteLxSwapOrder')
+}>('transactions/cancelRemoteLXOrder')
 
 export const {
   addTransaction,

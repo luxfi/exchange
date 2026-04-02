@@ -2,7 +2,7 @@ import { useCallback, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Flex, Text, useMedia } from '@luxfi/ui/src'
 import { Check } from '@luxfi/ui/src/components/icons/Check'
-import { ModalName, LxEventName } from '@l.x/lx/src/features/telemetry/constants'
+import { ModalName, LXEventName } from '@l.x/lx/src/features/telemetry/constants'
 import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
 import Trace from '@l.x/lx/src/features/telemetry/Trace'
 import { Dropdown, InternalMenuItem } from '~/components/Dropdowns/Dropdown'
@@ -23,7 +23,7 @@ export function AuctionStatusFilter() {
     (filter: AuctionStatusFilterEnum) => {
       setSelectedFilter(filter)
       setOpen(false)
-      sendAnalyticsEvent(LxEventName.AuctionFilterSelected, {
+      sendAnalyticsEvent(LXEventName.AuctionFilterSelected, {
         filter,
       })
     },

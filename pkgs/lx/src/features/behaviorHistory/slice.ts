@@ -4,7 +4,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit'
  * Used to store persisted info about a users interactions with UI.
  * We use this to show conditional UI, usually only for the first time a user views a new feature.
  */
-export interface LxBehaviorHistoryState {
+export interface LXBehaviorHistoryState {
   hasViewedBridgingBanner?: boolean
   hasDismissedBridgingWarning?: boolean
   hasDismissedLowNetworkTokenWarning?: boolean
@@ -36,7 +36,7 @@ export interface LxBehaviorHistoryState {
   hasDismissedCrosschainSwapsPromoBanner?: boolean
 }
 
-export const initialLxBehaviorHistoryState: LxBehaviorHistoryState = {
+export const initialLxBehaviorHistoryState: LXBehaviorHistoryState = {
   hasViewedBridgingBanner: false,
   hasDismissedBridgingWarning: false,
   hasDismissedLowNetworkTokenWarning: false,

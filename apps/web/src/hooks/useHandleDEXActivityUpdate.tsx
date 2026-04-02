@@ -12,7 +12,7 @@ import { popupRegistry } from '~/components/Popups/registry'
 import { PopupType } from '~/components/Popups/types'
 import type { DEXOrderUpdate } from '~/state/activity/types'
 import { useAppDispatch } from '~/state/hooks'
-import { logLxSwapSwapFinalized } from '~/tracing/swapFlowLoggers'
+import { logLXSwapFinalized } from '~/tracing/swapFlowLoggers'
 
 interface HandleDEXActivityUpdateParams {
   activity: DEXOrderUpdate
@@ -64,7 +64,7 @@ export function useHandleDEXActivityUpdate(): (params: HandleDEXActivityUpdatePa
           update.status === TransactionStatus.Expired)
       ) {
         // Log successful non-limit orders (for swap metrics) and all cancelled/expired orders
-        logLxSwapSwapFinalized({
+        logLXSwapFinalized({
           id: original.id,
           hash: update.hash,
           orderHash: original.orderHash,

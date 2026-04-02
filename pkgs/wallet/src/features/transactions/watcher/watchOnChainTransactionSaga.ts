@@ -13,7 +13,7 @@ import {
   transactionActions,
 } from 'lx/src/features/transactions/slice'
 import { waitForPlanUpdateOrFinalizedState } from 'lx/src/features/transactions/swap/plan/planPollingUtils'
-import { isBridge, isChained, isClassic, isLxSwap } from 'lx/src/features/transactions/swap/utils/routing'
+import { isBridge, isChained, isClassic, isLX } from 'lx/src/features/transactions/swap/utils/routing'
 import {
   FinalizedTransactionDetails,
   OnChainTransactionDetails,
@@ -86,7 +86,7 @@ function* waitForRemoteUpdate(transaction: TransactionDetails, provider: provide
   let status = transaction.status
 
   // For LX orders, we need to wait for the order to be filled before we can get the hash
-  if (isLxSwap(transaction) && transaction.orderHash && transaction.queueStatus) {
+  if (isLX(transaction) && transaction.orderHash && transaction.queueStatus) {
     const updatedOrder = yield* call(OrderWatcher.waitForOrderStatus, transaction.orderHash, transaction.queueStatus)
     hash = updatedOrder.hash
     status = updatedOrder.status
@@ -202,7 +202,7 @@ function* handleTimeout({
   provider: providers.Provider
 }) {
   if (
-    isLxSwap(transaction) ||
+    isLX(transaction) ||
     // TODO: SWAP-440/SWAP-441 - Handle Plan transaction timeout
     isChained(transaction) ||
     !transaction.options.timeoutTimestampMs ||
@@ -290,7 +290,7 @@ export function* waitForSameNonceFinalized({ chainId, id, nonce }: WaitForParams
     )
 
     if (
-      !isLxSwap(payload) && // LX transactions are submitted by a filler, so they cannot invalidate a transaction sent by a user.
+      !isLX(payload) && // LX transactions are submitted by a filler, so they cannot invalidate a transaction sent by a user.
       payload.chainId === chainId &&
       payload.id !== id &&
       payload.options.request.nonce === nonce
@@ -346,7 +346,7 @@ export function* watchTransaction({
 
   logger.debug('watchOnChainTransactionSaga', 'watchTransaction', 'Watching for updates for tx:', { hash, id })
   const provider = yield* call(getProvider, chainId)
-  const options = isLxSwap(transaction) ? undefined : transaction.options
+  const options = isLX(transaction) ? undefined : transaction.options
   const timeoutTask = yield* fork(handleTimeout, { transaction, apolloClient, provider })
   const listenForAppBackgrounded = options && !options.appBackgroundedWhilePending
 
@@ -431,7 +431,7 @@ export function* watchTransaction({
   }
 
   // `replace`, `invalidated` and `appBackgrounded` conditions do not apply to LX orders
-  if (isLxSwap(transaction)) {
+  if (isLX(transaction)) {
     return
   }
 

@@ -1,5 +1,5 @@
 import { useCallback, useEffect } from 'react'
-import { ElementName, SectionName, LxEventName } from 'lx/src/features/telemetry/constants'
+import { ElementName, SectionName, LXEventName } from 'lx/src/features/telemetry/constants'
 import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
 import { useTrace } from 'utilities/src/telemetry/trace/TraceContext'
 
@@ -26,7 +26,7 @@ export function useContextMenuTracking({
   // biome-ignore lint/correctness/useExhaustiveDependencies: trace is static context, shouldn't trigger re-fire
   useEffect(() => {
     if (isOpen && elementName && sectionName) {
-      sendAnalyticsEvent(LxEventName.ContextMenuOpened, {
+      sendAnalyticsEvent(LXEventName.ContextMenuOpened, {
         element: elementName,
         section: sectionName,
         ...trace,
@@ -38,7 +38,7 @@ export function useContextMenuTracking({
   // biome-ignore lint/correctness/useExhaustiveDependencies: trace is static context, shouldn't trigger re-fire
   const trackedCloseMenu = useCallback(() => {
     if (isOpen && elementName && sectionName) {
-      sendAnalyticsEvent(LxEventName.ContextMenuClosed, {
+      sendAnalyticsEvent(LXEventName.ContextMenuClosed, {
         element: elementName,
         section: sectionName,
         ...trace,

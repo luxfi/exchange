@@ -13,14 +13,14 @@ import {
   useGasFeeFormattedDisplayAmounts,
   useGasFeeHighRelativeToValue,
 } from 'lx/src/features/gas/hooks'
-import { LxSwapGasBreakdown } from 'lx/src/features/transactions/swap/types/swapTxAndGasInfo'
+import { LXGasBreakdown } from 'lx/src/features/transactions/swap/types/swapTxAndGasInfo'
 import { isZero } from 'lx/src/utils/number'
 import { isWebApp } from 'utilities/src/platform'
 
 export function NetworkFee({
   chainId,
   gasFee,
-  lxSwapGasBreakdown,
+  lxOrderGasBreakdown,
   transactionUSDValue,
   indicative,
   includesDelegation,
@@ -28,7 +28,7 @@ export function NetworkFee({
 }: {
   chainId: UniverseChainId
   gasFee: GasFeeResult
-  lxSwapGasBreakdown?: LxSwapGasBreakdown
+  lxOrderGasBreakdown?: LXGasBreakdown
   transactionUSDValue?: Maybe<CurrencyAmount<Currency>>
   indicative?: boolean
   includesDelegation?: boolean
@@ -43,7 +43,7 @@ export function NetworkFee({
     includesDelegation,
   })
 
-  const lxSwapGasFeeInfo = useFormattedDEXGasFeeInfo(lxSwapGasBreakdown, chainId)
+  const lxOrderGasFeeInfo = useFormattedDEXGasFeeInfo(lxOrderGasBreakdown, chainId)
   const isGasFeeFree = gasFee.value !== undefined && isZero(gasFee.value)
 
   const gasFeeHighRelativeToValue = useGasFeeHighRelativeToValue(gasFeeUSD, transactionUSDValue)
@@ -55,7 +55,7 @@ export function NetworkFee({
         <NetworkFeeWarning
           includesDelegation={includesDelegation}
           gasFeeHighRelativeToValue={gasFeeHighRelativeToValue}
-          lxSwapGasFeeInfo={lxSwapGasFeeInfo}
+          lxOrderGasFeeInfo={lxOrderGasFeeInfo}
           chainId={chainId}
         >
           <Text color="$neutral2" flexShrink={1} numberOfLines={3} variant="body3">
@@ -63,19 +63,19 @@ export function NetworkFee({
           </Text>
         </NetworkFeeWarning>
         <IndicativeLoadingWrapper loading={indicative || (!gasFee.value && gasFee.isLoading)}>
-          <Flex row alignItems="center" gap={lxSwapGasBreakdown ? '$spacing4' : '$spacing8'}>
-            {(!lxSwapGasBreakdown || gasFee.error) && showNetworkLogo && (
+          <Flex row alignItems="center" gap={lxOrderGasBreakdown ? '$spacing4' : '$spacing8'}>
+            {(!lxOrderGasBreakdown || gasFee.error) && showNetworkLogo && (
               <NetworkLogo chainId={chainId} shape="square" size={iconSizes.icon16} />
             )}
             {gasFee.error ? (
               <Text color="$neutral2" variant="body3">
                 {t('common.text.notAvailable')}
               </Text>
-            ) : lxSwapGasBreakdown ? (
-              <LxSwapFee
+            ) : lxOrderGasBreakdown ? (
+              <LXFee
                 gasFee={gasFeeFormatted}
                 isFree={isGasFeeFree}
-                preSavingsGasFee={lxSwapGasFeeInfo?.preSavingsGasFeeFormatted}
+                preSavingsGasFee={lxOrderGasFeeInfo?.preSavingsGasFeeFormatted}
               />
             ) : (
               <Text
@@ -97,14 +97,14 @@ export function NetworkFee({
   )
 }
 
-type LxSwapFeeProps = {
+type LXFeeProps = {
   gasFee: string
   isFree?: boolean
   preSavingsGasFee?: string
   smaller?: boolean
   loading?: boolean
 }
-export function LxSwapFee({ gasFee, isFree, preSavingsGasFee, smaller = false }: LxSwapFeeProps): JSX.Element {
+export function LXFee({ gasFee, isFree, preSavingsGasFee, smaller = false }: LXFeeProps): JSX.Element {
   const { t } = useTranslation()
   const gasFeeDisplayed = isFree ? t('common.free') : gasFee
 

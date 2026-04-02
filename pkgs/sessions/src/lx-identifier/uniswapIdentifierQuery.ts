@@ -1,19 +1,19 @@
 import { queryOptions } from '@tanstack/react-query'
-import type { LxIdentifierService } from '@l.x/sessions/src/lx-identifier/types'
+import type { LXIdentifierService } from '@l.x/sessions/src/lx-identifier/types'
 import { ReactQueryCacheKey } from 'utilities/src/reactQuery/cache'
 import type { QueryOptionsResult } from 'utilities/src/reactQuery/queryOptions'
 
-type LxIdentifierQueryOptions = QueryOptionsResult<
+type LXIdentifierQueryOptions = QueryOptionsResult<
   string | null,
   Error,
   string | null,
-  [ReactQueryCacheKey.LxIdentifier]
+  [ReactQueryCacheKey.LXIdentifier]
 >
 
-export function lxIdentifierQuery(getService: () => LxIdentifierService): LxIdentifierQueryOptions {
+export function lxIdentifierQuery(getService: () => LXIdentifierService): LXIdentifierQueryOptions {
   return queryOptions({
-    queryKey: [ReactQueryCacheKey.LxIdentifier],
-    queryFn: async () => getService().getLxIdentifier(),
+    queryKey: [ReactQueryCacheKey.LXIdentifier],
+    queryFn: async () => getService().getLXIdentifier(),
     staleTime: Infinity,
     gcTime: Infinity,
   })

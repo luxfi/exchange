@@ -3,8 +3,8 @@ import { useMemo } from 'react'
 import { LIMIT_SUPPORTED_CHAINS } from 'lx/src/features/chains/chainInfo'
 import { useListTransactions } from 'lx/src/features/dataApi/listTransactions/listTransactions'
 import { BaseResult } from 'lx/src/features/dataApi/types'
-import { LxSwapOrderDetails } from 'lx/src/features/transactions/types/transactionDetails'
-import { isLimitOrder, isLxSwapOrderPending } from 'lx/src/features/transactions/utils/lxSwap.utils'
+import { LXOrderDetails } from 'lx/src/features/transactions/types/transactionDetails'
+import { isLimitOrder, isLXOrderPending } from 'lx/src/features/transactions/utils/lxOrder.utils'
 
 /**
  * Custom hook that fetches open limit orders using the ListTransactions API
@@ -16,7 +16,7 @@ export function useOpenLimitOrders({
 }: {
   evmAddress: string
   svmAddress?: string
-}): BaseResult<LxSwapOrderDetails[]> {
+}): BaseResult<LXOrderDetails[]> {
   const {
     data: allLimitOrders,
     loading,
@@ -33,7 +33,7 @@ export function useOpenLimitOrders({
 
   const openLimitOrders = useMemo(
     () =>
-      allLimitOrders?.filter((tx): tx is LxSwapOrderDetails => isLimitOrder(tx) && isLxSwapOrderPending(tx)) ?? [],
+      allLimitOrders?.filter((tx): tx is LXOrderDetails => isLimitOrder(tx) && isLXOrderPending(tx)) ?? [],
     [allLimitOrders],
   )
 

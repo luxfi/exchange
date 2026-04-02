@@ -26,7 +26,7 @@ import { InfoTooltip } from '@l.x/lx/src/components/tooltip/InfoTooltip'
 import { lxUrls } from '@l.x/lx/src/constants/urls'
 import { useGetPoolsRewards } from '@l.x/lx/src/data/rest/getPoolsRewards'
 import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
-import { LxEventName } from '@l.x/lx/src/features/telemetry/constants'
+import { LXEventName } from '@l.x/lx/src/features/telemetry/constants'
 import { Trace } from '@l.x/lx/src/features/telemetry/Trace'
 import { HexString } from '@luxfi/utilities/src/addresses/hex'
 import { logger } from '@luxfi/utilities/src/logger/logger'
@@ -246,7 +246,7 @@ function LpIncentiveRewardsCard({
                           : t('pool.incentives.administeredRewards')}
                       </Text>
                       {!rewardsError && (
-                        <Trace logPress eventOnTrigger={LxEventName.LpIncentiveLearnMoreCtaClicked}>
+                        <Trace logPress eventOnTrigger={LXEventName.LpIncentiveLearnMoreCtaClicked}>
                           <LearnMoreLink textVariant="buttonLabel4" url={lxUrls.helpArticleUrls.lpIncentiveInfo} />
                         </Trace>
                       )}
@@ -258,7 +258,7 @@ function LpIncentiveRewardsCard({
           </Flex>
         </Flex>
         <Flex gap="$spacing2">
-          <Trace logPress eventOnTrigger={LxEventName.LpIncentiveLearnMoreCtaClicked}>
+          <Trace logPress eventOnTrigger={LXEventName.LpIncentiveLearnMoreCtaClicked}>
             <TouchableArea
               group="item"
               animation={null}

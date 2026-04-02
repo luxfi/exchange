@@ -11,7 +11,7 @@ export function useFormattedCurrencyAmountAndUSDValue({
   formatter,
   isApproximateAmount = false,
   valueType = ValueType.Raw,
-  isLxSwap = false,
+  isLX = false,
   pollInterval = PollingInterval.Fast,
 }: {
   currency: Maybe<Currency>
@@ -19,7 +19,7 @@ export function useFormattedCurrencyAmountAndUSDValue({
   formatter: LocalizationContextState
   isApproximateAmount?: boolean
   valueType?: ValueType
-  isLxSwap?: boolean
+  isLX?: boolean
   pollInterval?: PollingInterval
 }): { amount: string; value: string; tilde: string; isLoading: boolean } {
   const currencyAmount = getCurrencyAmount({
@@ -30,7 +30,7 @@ export function useFormattedCurrencyAmountAndUSDValue({
 
   const { value, isLoading } = useUSDCValueWithStatus(currencyAmount, pollInterval)
 
-  if (isLxSwap) {
+  if (isLX) {
     return {
       tilde: '',
       amount: `${formatter.formatNumberOrString({ value: 0 })}`,

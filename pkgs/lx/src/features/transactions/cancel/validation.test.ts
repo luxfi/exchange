@@ -1,11 +1,11 @@
 import { UniverseChainId } from 'lx/src/features/chains/types'
 import { validateOrdersForCancellation } from 'lx/src/features/transactions/cancel/validation'
-import { LxSwapOrderDetails } from 'lx/src/features/transactions/types/transactionDetails'
-import { lxSwapOrderDetails } from 'lx/src/test/fixtures'
+import { LXOrderDetails } from 'lx/src/features/transactions/types/transactionDetails'
+import { lxOrderOrderDetails } from 'lx/src/test/fixtures'
 
 describe('validateOrdersForCancellation', () => {
-  const createMockOrder = (overrides?: Partial<LxSwapOrderDetails>): LxSwapOrderDetails =>
-    lxSwapOrderDetails(overrides ?? {}) as LxSwapOrderDetails
+  const createMockOrder = (overrides?: Partial<LXOrderDetails>): LXOrderDetails =>
+    lxOrderOrderDetails(overrides ?? {}) as LXOrderDetails
 
   describe('empty orders', () => {
     it('should return error for empty array', () => {

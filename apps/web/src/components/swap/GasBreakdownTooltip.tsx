@@ -14,7 +14,7 @@ import Row from '~/components/deprecated/Row'
 import DEXRouterLabel, { DEXGradient } from '~/components/RouterLabel/DEXRouterLabel'
 import { deprecatedStyled } from '~/lib/deprecated-styled'
 import { InterfaceTrade } from '~/state/routing/types'
-import { isLimitTrade, isPreviewTrade, isLxSwapTrade } from '~/state/routing/utils'
+import { isLimitTrade, isPreviewTrade, isLXTrade } from '~/state/routing/utils'
 import { ThemedText } from '~/theme/components'
 import { Divider } from '~/theme/components/Dividers'
 import { ExternalLink } from '~/theme/components/Links'
@@ -49,7 +49,7 @@ const GaslessSwapLabel = () => {
 type GasBreakdownTooltipProps = { trade: InterfaceTrade }
 
 export function GasBreakdownTooltip({ trade }: GasBreakdownTooltipProps) {
-  const isLxSwap = isLxSwapTrade(trade)
+  const isLX = isLXTrade(trade)
   const inputCurrency = trade.inputAmount.currency
   const native = nativeOnChain(inputCurrency.chainId)
 
@@ -57,13 +57,13 @@ export function GasBreakdownTooltip({ trade }: GasBreakdownTooltipProps) {
     return <NetworkCostDescription native={native} />
   }
 
-  const swapEstimate = !isLxSwap ? trade.gasUseEstimateUSD : undefined
+  const swapEstimate = !isLX ? trade.gasUseEstimateUSD : undefined
   const approvalEstimate = trade.approveInfo.needsApprove ? trade.approveInfo.approveGasEstimateUSD : undefined
   // Limit orders still require wrapping ETH to WETH (unlike regular DEX swaps which now support native ETH)
   const wrapEstimate = isLimitTrade(trade) && trade.wrapInfo.needsWrap ? trade.wrapInfo.wrapGasEstimateUSD : undefined
   const showEstimateDetails = Boolean(wrapEstimate || approvalEstimate)
 
-  const description = isLxSwap ? <DEXDescription /> : <NetworkCostDescription native={native} />
+  const description = isLX ? <DEXDescription /> : <NetworkCostDescription native={native} />
 
   if (!showEstimateDetails) {
     return description
@@ -81,7 +81,7 @@ export function GasBreakdownTooltip({ trade }: GasBreakdownTooltipProps) {
           amount={approvalEstimate}
         />
         <GasCostItem title={<Trans i18nKey="common.swap" />} amount={swapEstimate} />
-        {isLxSwap && <GasCostItem title={<Trans i18nKey="common.swap" />} itemValue={<GaslessSwapLabel />} />}
+        {isLX && <GasCostItem title={<Trans i18nKey="common.swap" />} itemValue={<GaslessSwapLabel />} />}
       </AutoColumn>
       <Divider />
       {description}

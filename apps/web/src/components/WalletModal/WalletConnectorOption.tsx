@@ -5,7 +5,7 @@ import { BINANCE_WALLET_ICON, LUX_LOGO } from '@luxfi/ui/src/assets'
 import { Chevron } from '@luxfi/ui/src/components/icons/Chevron'
 import { Passkey } from '@luxfi/ui/src/components/icons/Passkey'
 import { ScanQr } from '@luxfi/ui/src/components/icons/ScanQr'
-import { LxLogo } from '@luxfi/ui/src/components/icons/LuxLogo'
+import { LXLogo } from '@luxfi/ui/src/components/icons/LuxLogo'
 import { WalletFilled } from '@luxfi/ui/src/components/icons/WalletFilled'
 import { UseSporeColorsReturn } from '@luxfi/ui/src/hooks/useSporeColors'
 import { iconSizes, opacify } from '@luxfi/ui/src/theme'
@@ -91,10 +91,10 @@ function getIcon({
         borderWidth="$spacing1"
         borderColor={opacify(20, themeColors.accent1.val)}
       >
-        <LxLogo size={iconSize - 10} color="$accent1" />
+        <LXLogo size={iconSize - 10} color="$accent1" />
       </Flex>
     ) : (
-      <LxMobileIcon iconSize={iconSize} />
+      <LXMobileIcon iconSize={iconSize} />
     )
   } else if (wallet.id === CONNECTION_PROVIDER_IDS.BINANCE_WALLET_CONNECTOR_ID) {
     return <BinanceWalletIcon iconSize={iconSize} />

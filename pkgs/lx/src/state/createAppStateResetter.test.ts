@@ -3,12 +3,12 @@ import { addFavoriteToken } from 'lx/src/features/favorites/slice'
 import { pushNotification } from 'lx/src/features/notifications/slice/slice'
 import { AppNotificationType } from 'lx/src/features/notifications/slice/types'
 import { createAppStateResetter } from 'lx/src/state/createAppStateResetter'
-import { type LxState, lxReducer } from 'lx/src/state/lxReducer'
+import { type LXState, lxReducer } from 'lx/src/state/lxReducer'
 import { sleep } from 'utilities/src/time/timing'
 import type { Mock } from 'vitest'
 
 describe('createAppStateResetter', () => {
-  let store: ReturnType<typeof configureStore<LxState>>
+  let store: ReturnType<typeof configureStore<LXState>>
   let resetter: ReturnType<typeof createAppStateResetter>
   let onResetAccountHistory: Mock
   let onResetUserSettings: Mock

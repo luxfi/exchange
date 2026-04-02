@@ -1,4 +1,4 @@
-import { processLXResponse } from 'lx/src/features/transactions/swap/review/services/swapTxAndGasInfoService/lxswap/utils'
+import { processLXResponse } from 'lx/src/features/transactions/swap/review/services/swapTxAndGasInfoService/lx/utils'
 import { createMockPermitData } from 'lx/src/test/fixtures/transactions/swap'
 
 describe('processLXResponse', () => {

@@ -16,15 +16,15 @@ import {
   TransactionOriginType,
   TransactionStatus,
   TransactionType,
-  LxSwapOrderDetails,
+  LXOrderDetails,
 } from 'lx/src/features/transactions/types/transactionDetails'
 import { WrapType } from 'lx/src/features/transactions/types/wrap'
 import { mockPermit } from 'lx/src/test/fixtures/permit'
 import { currencyId } from 'lx/src/utils/currencyId'
 import {
   ORDER_STALENESS_THRESHOLD,
-  SubmitLxSwapOrderParams,
-  submitLxSwapOrder,
+  SubmitLXOrderParams,
+  submitLXOrder,
 } from '@luxfi/wallet/src/features/transactions/swap/submitOrderSaga'
 import { getSignerManager } from '@luxfi/wallet/src/features/wallet/context'
 import { signerMnemonicAccount } from '@luxfi/wallet/src/test/fixtures'
@@ -62,9 +62,9 @@ const baseSubmitOrderParams = {
     orderInfo: {} as TradingApi.DutchOrderInfo,
   } as unknown as TradingApi.DutchQuoteV2,
   permit: mockPermit.typedData,
-} satisfies SubmitLxSwapOrderParams
+} satisfies SubmitLXOrderParams
 
-const baseExpectedInitialOrderDetails: LxSwapOrderDetails = {
+const baseExpectedInitialOrderDetails: LXOrderDetails = {
   routing: TradingApi.Routing.DUTCH_V2,
   orderHash: '0xMockOrderHash',
   id: baseSubmitOrderParams.txId,
@@ -83,7 +83,7 @@ const expectedOrderRequest: TradingApi.OrderRequest = {
   routing: TradingApi.Routing.DUTCH_V2,
 }
 
-describe(submitLxSwapOrder, () => {
+describe(submitLXOrder, () => {
   beforeEach(() => {
     let mockTimestamp = 1
     Date.now = jest.fn(() => mockTimestamp++)
@@ -95,9 +95,9 @@ describe(submitLxSwapOrder, () => {
         ...baseExpectedInitialOrderDetails,
         addedTime: 2,
         queueStatus: QueuedOrderStatus.Submitted,
-      } satisfies LxSwapOrderDetails
+      } satisfies LXOrderDetails
 
-      testSaga(submitLxSwapOrder, baseSubmitOrderParams)
+      testSaga(submitLXOrder, baseSubmitOrderParams)
         .next()
         .put({ type: addTransaction.type, payload: baseExpectedInitialOrderDetails })
         .next()
@@ -123,7 +123,7 @@ describe(submitLxSwapOrder, () => {
           v2Used: false,
           v3Used: false,
           v4Used: false,
-          lxSwapUsed: true,
+          lxOrderUsed: true,
           jupiterUsed: false,
         })
         .next()
@@ -141,7 +141,7 @@ describe(submitLxSwapOrder, () => {
         queueStatus: QueuedOrderStatus.Submitted,
       }
 
-      testSaga(submitLxSwapOrder, baseSubmitOrderParams)
+      testSaga(submitLXOrder, baseSubmitOrderParams)
         .next()
         .put({ type: addTransaction.type, payload: baseExpectedInitialOrderDetails })
         .next()
@@ -190,9 +190,9 @@ describe(submitLxSwapOrder, () => {
         ...baseExpectedInitialOrderDetails,
         addedTime: 2,
         queueStatus: QueuedOrderStatus.Submitted,
-      } satisfies LxSwapOrderDetails
+      } satisfies LXOrderDetails
 
-      testSaga(submitLxSwapOrder, signedPermitParams)
+      testSaga(submitLXOrder, signedPermitParams)
         .next()
         .put({ type: addTransaction.type, payload: baseExpectedInitialOrderDetails })
         .next()
@@ -209,7 +209,7 @@ describe(submitLxSwapOrder, () => {
           v2Used: false,
           v3Used: false,
           v4Used: false,
-          lxSwapUsed: true,
+          lxOrderUsed: true,
           jupiterUsed: false,
         })
         .next()
@@ -227,7 +227,7 @@ describe(submitLxSwapOrder, () => {
         queueStatus: QueuedOrderStatus.Submitted,
       }
 
-      testSaga(submitLxSwapOrder, signedPermitParams)
+      testSaga(submitLXOrder, signedPermitParams)
         .next()
         .put({ type: addTransaction.type, payload: baseExpectedInitialOrderDetails })
         .next()
@@ -257,9 +257,9 @@ describe(submitLxSwapOrder, () => {
         ...baseExpectedInitialOrderDetails,
         addedTime: 4,
         queueStatus: QueuedOrderStatus.Submitted,
-      } satisfies LxSwapOrderDetails
+      } satisfies LXOrderDetails
 
-      testSaga(submitLxSwapOrder, { ...baseSubmitOrderParams, approveTxHash })
+      testSaga(submitLXOrder, { ...baseSubmitOrderParams, approveTxHash })
         .next()
         .put({ type: addTransaction.type, payload: baseExpectedInitialOrderDetails })
         .next()
@@ -289,7 +289,7 @@ describe(submitLxSwapOrder, () => {
           v2Used: false,
           v3Used: false,
           v4Used: false,
-          lxSwapUsed: true,
+          lxOrderUsed: true,
           jupiterUsed: false,
         })
         .next()
@@ -301,7 +301,7 @@ describe(submitLxSwapOrder, () => {
     })
 
     it('updates state if an approval fails', async () => {
-      testSaga(submitLxSwapOrder, { ...baseSubmitOrderParams, approveTxHash })
+      testSaga(submitLXOrder, { ...baseSubmitOrderParams, approveTxHash })
         .next()
         .put({ type: addTransaction.type, payload: baseExpectedInitialOrderDetails })
         .next()
@@ -329,7 +329,7 @@ describe(submitLxSwapOrder, () => {
         return timestamp
       })
 
-      testSaga(submitLxSwapOrder, { ...baseSubmitOrderParams, approveTxHash })
+      testSaga(submitLXOrder, { ...baseSubmitOrderParams, approveTxHash })
         .next()
         .put({ type: addTransaction.type, payload: baseExpectedInitialOrderDetails })
         .next()

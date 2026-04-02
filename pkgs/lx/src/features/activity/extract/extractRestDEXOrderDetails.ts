@@ -1,10 +1,10 @@
 import {
-  LxSwapOrderType,
+  LXOrderType,
   LXTransaction,
-  LxSwapTransactionStatus,
+  LXTransactionStatus,
 } from '@luxamm/client-data-api/dist/data/v1/types_pb'
 import { TradeType } from '@luxamm/sdk-core'
-import { TradingApi } from '@luxfi/api'
+import { TradingApi } from '@l.x/api'
 
 import {
   TransactionDetails,
@@ -15,18 +15,18 @@ import {
 import { buildCurrencyId } from '@l.x/lx/src/utils/currencyId'
 import { logger } from 'utilities/src/logger/logger'
 
-function mapDEXStatusToLocalTxStatus(status: LxSwapTransactionStatus): TransactionStatus {
+function mapDEXStatusToLocalTxStatus(status: LXTransactionStatus): TransactionStatus {
   switch (status) {
-    case LxSwapTransactionStatus.FILLED:
+    case LXTransactionStatus.FILLED:
       return TransactionStatus.Success
-    case LxSwapTransactionStatus.OPEN:
+    case LXTransactionStatus.OPEN:
       return TransactionStatus.Pending
-    case LxSwapTransactionStatus.CANCELLED:
+    case LXTransactionStatus.CANCELLED:
       return TransactionStatus.Canceled
-    case LxSwapTransactionStatus.INSUFFICIENT_FUNDS:
+    case LXTransactionStatus.INSUFFICIENT_FUNDS:
       return TransactionStatus.InsufficientFunds
-    case LxSwapTransactionStatus.ERROR:
-    case LxSwapTransactionStatus.EXPIRED:
+    case LXTransactionStatus.ERROR:
+    case LXTransactionStatus.EXPIRED:
       return TransactionStatus.Failed
     default:
       return TransactionStatus.Unknown
@@ -34,7 +34,7 @@ function mapDEXStatusToLocalTxStatus(status: LxSwapTransactionStatus): Transacti
 }
 
 /**
- * Parse a Lux X transaction from the REST API
+ * Parse an LX DEX order transaction from the REST API
  */
 export default function extractRestDEXOrderDetails(transaction: LXTransaction): TransactionDetails | null {
   try {
@@ -62,26 +62,24 @@ export default function extractRestDEXOrderDetails(transaction: LXTransaction): 
 
     return {
       id: orderHash,
-      // TODO(CONS-722): update to only TradingApi.Routing.DUTCH_V2 once limit orders can be excluded from REST query
-      routing: orderType === LxSwapOrderType.LIMIT ? TradingApi.Routing.DUTCH_LIMIT : TradingApi.Routing.DUTCH_V2,
+      routing: orderType === LXOrderType.LIMIT ? TradingApi.Routing.DUTCH_LIMIT : TradingApi.Routing.DUTCH_V2,
       chainId,
       orderHash,
       encodedOrder: encodedOrder || undefined,
       addedTime: Number(timestampMillis),
       status: mapDEXStatusToLocalTxStatus(status),
-      from: offerer, // This transaction is not on-chain, so use the offerer address as the from address
+      from: offerer,
       expiry: expiryMillis ? Number(expiryMillis) / 1000 : undefined,
-      // TODO(CONS-722): remove special limit typeInfo once limit orders can be excluded from REST query
       typeInfo:
-        orderType === LxSwapOrderType.LIMIT
+        orderType === LXOrderType.LIMIT
           ? {
               type: TransactionType.Swap,
-              tradeType: TradeType.EXACT_INPUT, // Limit orders are always exact input
+              tradeType: TradeType.EXACT_INPUT,
               inputCurrencyId,
               outputCurrencyId,
               inputCurrencyAmountRaw: inputTokenAmount?.raw ?? '0',
               expectedOutputCurrencyAmountRaw: outputTokenAmount?.raw ?? '0',
-              minimumOutputCurrencyAmountRaw: outputTokenAmount?.raw ?? '0', // For limit orders, expected and minimum are the same
+              minimumOutputCurrencyAmountRaw: outputTokenAmount?.raw ?? '0',
             }
           : {
               type: TransactionType.Swap,

@@ -32,7 +32,7 @@ import {
   type SessionsEventName,
   type SwapBlockedCategory,
   type SwapEventName,
-  type LxEventName,
+  type LXEventName,
   type UnitagEventName,
   type WalletEventName,
 } from '@l.x/lx/src/features/telemetry/constants'
@@ -1085,34 +1085,34 @@ export type UniverseEventProperties = {
     output?: Currency
   }
   [SwapEventName.SwapTokensReversed]: undefined
-  [LxEventName.TooltipOpened]: ITraceContext & {
+  [LXEventName.TooltipOpened]: ITraceContext & {
     tooltip_name: string
   }
-  [LxEventName.DelegationDetected]: {
+  [LXEventName.DelegationDetected]: {
     chainId: number
     delegationAddress: string
     isActiveChain?: boolean
   }
-  [LxEventName.ExperimentQualifyingEvent]: {
+  [LXEventName.ExperimentQualifyingEvent]: {
     experiment: Experiments
   }
-  [LxEventName.BalancesReport]: {
+  [LXEventName.BalancesReport]: {
     total_balances_usd: number
     wallets: string[]
     balances: number[]
   }
-  [LxEventName.BalancesReportPerChain]: {
+  [LXEventName.BalancesReportPerChain]: {
     total_balances_usd_per_chain: Record<string, number>
     wallet: string
     view_only: boolean
   }
-  [LxEventName.ConversionEventSubmitted]: {
+  [LXEventName.ConversionEventSubmitted]: {
     id: string
     eventId: string
     eventName: string
     platformIdType: string
   }
-  [LxEventName.DataReportSubmitted]:
+  [LXEventName.DataReportSubmitted]:
     | (TokenReportProperties & {
         type: 'data'
         price?: boolean
@@ -1135,7 +1135,7 @@ export type UniverseEventProperties = {
         something_else: boolean
         text?: string
       })
-  [LxEventName.TokenSelected]:
+  [LXEventName.TokenSelected]:
     | (ITraceContext &
         AssetDetailsBaseProperties &
         SearchResultContextProperties & {
@@ -1144,7 +1144,7 @@ export type UniverseEventProperties = {
           tokenSection?: OnchainItemSectionName
         })
     | { token_balance_usd?: number | string }
-  [LxEventName.BlockaidFeesMismatch]: {
+  [LXEventName.BlockaidFeesMismatch]: {
     symbol: string
     address: string
     chainId: number
@@ -1155,31 +1155,31 @@ export type UniverseEventProperties = {
     attackType?: string
     protectionResult?: string
   }
-  [LxEventName.ContextMenuClosed]: ITraceContext
-  [LxEventName.ContextMenuItemClicked]: ITraceContext & {
+  [LXEventName.ContextMenuClosed]: ITraceContext
+  [LXEventName.ContextMenuItemClicked]: ITraceContext & {
     menu_item: string
     menu_item_index: number
   }
-  [LxEventName.ContextMenuOpened]: ITraceContext
-  [LxEventName.LowNetworkTokenInfoModalOpened]: {
+  [LXEventName.ContextMenuOpened]: ITraceContext
+  [LXEventName.LowNetworkTokenInfoModalOpened]: {
     location: 'send' | 'swap'
   }
-  [LxEventName.LpIncentiveCollectRewardsButtonClicked]: undefined
-  [LxEventName.LpIncentiveCollectRewardsErrorThrown]: { error: string }
-  [LxEventName.LpIncentiveCollectRewardsRetry]: undefined
-  [LxEventName.LpIncentiveCollectRewardsSuccess]: { token_rewards: string }
-  [LxEventName.LpIncentiveLearnMoreCtaClicked]: undefined
-  [LxEventName.AuctionFilterSelected]: {
+  [LXEventName.LpIncentiveCollectRewardsButtonClicked]: undefined
+  [LXEventName.LpIncentiveCollectRewardsErrorThrown]: { error: string }
+  [LXEventName.LpIncentiveCollectRewardsRetry]: undefined
+  [LXEventName.LpIncentiveCollectRewardsSuccess]: { token_rewards: string }
+  [LXEventName.LpIncentiveLearnMoreCtaClicked]: undefined
+  [LXEventName.AuctionFilterSelected]: {
     filter: 'all' | 'verified' | 'unverified' | 'active' | 'complete'
   }
-  [LxEventName.NetworkFilterSelected]: ITraceContext & {
+  [LXEventName.NetworkFilterSelected]: ITraceContext & {
     chain: UniverseChainId | 'All'
   }
-  [LxEventName.SmartWalletMismatchDetected]: {
+  [LXEventName.SmartWalletMismatchDetected]: {
     chainId: string
     delegatedAddress: string
   }
-  [LxEventName.SpamReportSubmitted]:
+  [LXEventName.SpamReportSubmitted]:
     | (TokenReportProperties & {
         type: 'token'
         source: 'portfolio' | 'token-details'

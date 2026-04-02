@@ -1,16 +1,16 @@
 import { TradingApi } from '@l.x/api'
 import { call, delay, fork, select, take } from 'typed-redux-saga'
-import { makeSelectLxSwapOrder } from 'lx/src/features/transactions/selectors'
+import { makeSelectLXOrder } from 'lx/src/features/transactions/selectors'
 import { updateTransaction } from 'lx/src/features/transactions/slice'
 import { getOrders } from 'lx/src/features/transactions/swap/orders'
-import { isLxSwap } from 'lx/src/features/transactions/swap/utils/routing'
+import { isLX } from 'lx/src/features/transactions/swap/utils/routing'
 import {
   QueuedOrderStatus,
   TransactionStatus,
-  LxSwapOrderDetails,
+  LXOrderDetails,
 } from 'lx/src/features/transactions/types/transactionDetails'
 import { isFinalizedTxStatus } from 'lx/src/features/transactions/types/utils'
-import { convertOrderStatusToTransactionStatus } from 'lx/src/features/transactions/utils/lxSwap.utils'
+import { convertOrderStatusToTransactionStatus } from 'lx/src/features/transactions/utils/lxOrder.utils'
 import { logger } from 'utilities/src/logger/logger'
 import { ONE_SECOND_MS } from 'utilities/src/time/time'
 
@@ -20,8 +20,8 @@ const ORDER_TIMEOUT_BUFFER = 20 * ONE_SECOND_MS
 export class OrderWatcher {
   private static listeners: {
     [orderHash: string]: {
-      updateOrderStatus: (updatedOrder: LxSwapOrderDetails) => void
-      promise: Promise<LxSwapOrderDetails>
+      updateOrderStatus: (updatedOrder: LXOrderDetails) => void
+      promise: Promise<LXOrderDetails>
     }
   } = {}
 
@@ -50,12 +50,12 @@ export class OrderWatcher {
 
     try {
       const data = yield* call(getOrders, orderHashes)
-      const remoteOrderMap = new Map(data.orders.map((order: TradingApi.LxSwapOrder) => [order.orderId, order]))
+      const remoteOrderMap = new Map(data.orders.map((order: TradingApi.LXOrder) => [order.orderId, order]))
 
       for (const localOrderHash of orderHashes) {
         const remoteOrder = remoteOrderMap.get(localOrderHash)
-        const selectLxSwapOrder = yield* call(makeSelectLxSwapOrder)
-        const localOrder = yield* select(selectLxSwapOrder, { orderHash: localOrderHash })
+        const selectLXOrder = yield* call(makeSelectLXOrder)
+        const localOrder = yield* select(selectLXOrder, { orderHash: localOrderHash })
 
         if (!localOrder?.orderHash) {
           continue
@@ -117,7 +117,7 @@ export class OrderWatcher {
       while (true) {
         const { payload } = yield* take<ReturnType<typeof updateTransaction>>(updateTransaction.type)
         if (
-          isLxSwap(payload) &&
+          isLX(payload) &&
           payload.orderHash === orderHash &&
           payload.queueStatus === QueuedOrderStatus.Submitted
         ) {
@@ -131,8 +131,8 @@ export class OrderWatcher {
       return yield* call(() => existingListenerPromise)
     }
 
-    let resolvePromise: (value: LxSwapOrderDetails) => void
-    const promise = new Promise<LxSwapOrderDetails>((resolve) => {
+    let resolvePromise: (value: LXOrderDetails) => void
+    const promise = new Promise<LXOrderDetails>((resolve) => {
       resolvePromise = resolve
     })
     // biome-ignore lint/style/noNonNullAssertion: Safe assertion in test or migration context -- Must appease typechecker since resolvePromise is assigned inside promise scope

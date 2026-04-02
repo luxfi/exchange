@@ -25,7 +25,7 @@ export function useProtocolsForChain(
   chainId?: UniverseChainId,
 ): TradingApi.ProtocolItems[] {
   const getIsLXSupported = useLuxContextSelector((state) => state.getIsLXSupported)
-  const lxSwapEnabled = useFeatureFlag(FeatureFlags.LX)
+  const lxOrderEnabled = useFeatureFlag(FeatureFlags.LX)
   const priorityOrdersAllowed = useLXPriorityOrderFlag(chainId)
   const isDutchV3Enabled = useFeatureFlag(FeatureFlags.ArbitrumDutchV3)
   const v4SwapAllowed = useV4SwapEnabled(chainId)
@@ -33,13 +33,13 @@ export function useProtocolsForChain(
   const protocolFilter = useMemo(
     () =>
       createProtocolFilter({
-        getLXEnabled: () => lxSwapEnabled,
+        getLXEnabled: () => lxOrderEnabled,
         getIsLXSupported,
         getPriorityOrderFlag: () => priorityOrdersAllowed,
         getV4Enabled: () => v4SwapAllowed,
         getArbitrumDutchV3Enabled: () => isDutchV3Enabled,
       }),
-    [lxSwapEnabled, priorityOrdersAllowed, isDutchV3Enabled, v4SwapAllowed, getIsLXSupported],
+    [lxOrderEnabled, priorityOrdersAllowed, isDutchV3Enabled, v4SwapAllowed, getIsLXSupported],
   )
 
   return useMemo(() => {
@@ -58,21 +58,21 @@ export function createProtocolFilter(ctx: {
     protocols: FrontendSupportedProtocol[],
     chainId?: UniverseChainId,
   ): TradingApi.ProtocolItems[] {
-    const lxSwapEnabled = ctx.getLXEnabled()
-    const lxSwapSupportedForChain = ctx.getIsLXSupported ? ctx.getIsLXSupported(chainId) : true
-    const combinedLXEnabled = lxSwapEnabled && lxSwapSupportedForChain
+    const lxOrderEnabled = ctx.getLXEnabled()
+    const lxOrderSupportedForChain = ctx.getIsLXSupported ? ctx.getIsLXSupported(chainId) : true
+    const combinedLXEnabled = lxOrderEnabled && lxOrderSupportedForChain
 
     const priorityOrdersAllowed = ctx.getPriorityOrderFlag(chainId)
     const arbDutchV3Enabled = chainId === UniverseChainId.ArbitrumOne && ctx.getArbitrumDutchV3Enabled()
     const v4Enabled = ctx.getV4Enabled(chainId)
 
-    const lxSwapAllowedForChain =
+    const lxOrderAllowedForChain =
       (chainId && LAUNCHED_LXSWAP_CHAINS.includes(chainId)) || priorityOrdersAllowed || arbDutchV3Enabled
 
     let filteredProtocols: TradingApi.ProtocolItems[] = [...protocols]
 
     // Remove LX from the options we send to TradingAPI if LX hasn't been launched or isn't in experiment on that chain
-    if (!lxSwapAllowedForChain || !combinedLXEnabled) {
+    if (!lxOrderAllowedForChain || !combinedLXEnabled) {
       filteredProtocols = filteredProtocols.filter((protocol) => protocol !== TradingApi.ProtocolItems.LXSWAP_V2)
     }
 
@@ -104,7 +104,7 @@ export function createGetProtocolsForChain(ctx: {
   getIsLXSupported?: (chainId?: UniverseChainId) => boolean
   getEnabledChains: () => UniverseChainId[]
 }): (userSelectedProtocols: FrontendSupportedProtocol[], chainId?: UniverseChainId) => TradingApi.ProtocolItems[] {
-  const lxSwapEnabled = getFeatureFlag(FeatureFlags.LX)
+  const lxOrderEnabled = getFeatureFlag(FeatureFlags.LX)
   const isDutchV3Enabled = getFeatureFlag(FeatureFlags.ArbitrumDutchV3)
 
   const getV4SwapAllowed = createGetV4SwapEnabled({
@@ -114,7 +114,7 @@ export function createGetProtocolsForChain(ctx: {
   })
 
   const getProtocolsForChain = createProtocolFilter({
-    getLXEnabled: () => lxSwapEnabled,
+    getLXEnabled: () => lxOrderEnabled,
     getIsLXSupported: ctx.getIsLXSupported,
     getPriorityOrderFlag: getLXPriorityOrderFlag,
     getV4Enabled: getV4SwapAllowed,

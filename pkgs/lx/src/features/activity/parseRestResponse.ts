@@ -4,9 +4,9 @@ import { extractOnRampTransactionDetails } from 'lx/src/features/activity/extrac
 import extractRestOnChainTransactionDetails from 'lx/src/features/activity/extract/extractOnChainTransactionDetails'
 import extractPlanDetails from 'lx/src/features/activity/extract/extractPlanDetails'
 import extractRestFiatOnRampDetails from 'lx/src/features/activity/extract/extractRestFiatOnRampDetails'
-import extractRestLxSwapOrderDetails from 'lx/src/features/activity/extract/extractRestLXOrderDetails'
+import extractRestLXOrderDetails from 'lx/src/features/activity/extract/extractRestLXOrderDetails'
 import extractTransactionDetails from 'lx/src/features/activity/extract/extractTransactionDetails'
-import { extractLxSwapOrderDetails } from 'lx/src/features/activity/extract/extractUniswapXOrderDetails'
+import { extractLXOrderDetails } from 'lx/src/features/activity/extract/extractUniswapXOrderDetails'
 import { getIsNftHidden } from 'lx/src/features/nfts/utils'
 import {
   TransactionDetails,
@@ -24,7 +24,7 @@ let hasLoggedMissingTransactionField = false
 
 export enum RestTransactionType {
   OnChain = 'onChain',
-  LX = 'lxSwap',
+  LX = 'lxOrder',
   FiatOnRamp = 'fiatOnRamp',
   Plan = 'plan',
 }
@@ -61,8 +61,8 @@ export function parseDataResponseToTransactionDetails({
         if (parsed) {
           accum.push(parsed)
         }
-      } else if (t?.details.__typename === TransactionDetailsType.LxSwapOrder) {
-        const parsed = extractLxSwapOrderDetails(t as TransactionListQueryResponse)
+      } else if (t?.details.__typename === TransactionDetailsType.LXOrder) {
+        const parsed = extractLXOrderDetails(t as TransactionListQueryResponse)
         if (parsed) {
           accum.push(parsed)
         }
@@ -113,7 +113,7 @@ export function parseRestResponseToTransactionDetails({
         break
       }
       case RestTransactionType.LX: {
-        const parsed = extractRestLxSwapOrderDetails(transaction.transaction.value)
+        const parsed = extractRestLXOrderDetails(transaction.transaction.value)
         if (parsed) {
           accum.push(parsed)
         }

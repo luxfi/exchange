@@ -1,7 +1,7 @@
 import { TradingApi } from '@l.x/api'
 import { Platform } from 'lx/src/features/platforms/types/Platform'
 import { chainIdToPlatform } from 'lx/src/features/platforms/utils/chains'
-import { LxEventName } from 'lx/src/features/telemetry/constants'
+import { LXEventName } from 'lx/src/features/telemetry/constants'
 import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
 import type { SwapRedirectFn } from 'lx/src/features/transactions/components/TransactionModal/TransactionModalContext'
 import { TransactionScreen } from 'lx/src/features/transactions/components/TransactionModal/TransactionModalContext'
@@ -194,7 +194,7 @@ function createHandleEventAction(ctx: HandleEventActionContext): (action: Review
         break
       case ReviewActionType.SHOW_LOW_BALANCE:
         handleShowMaxNativeTransferModal()
-        sendAnalyticsEvent(LxEventName.LowNetworkTokenInfoModalOpened, action.payload)
+        sendAnalyticsEvent(LXEventName.LowNetworkTokenInfoModalOpened, action.payload)
         break
       case ReviewActionType.SHOW_BRIDGED_ASSET_WARNING:
         handleShowBridgedAssetModal()

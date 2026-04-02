@@ -5,7 +5,7 @@ import { WarningSeverity } from '@l.x/lx/src/components/modals/WarningModal/type
 import WarningIcon from '@l.x/lx/src/components/warnings/WarningIcon'
 import { CurrencyInfo } from '@l.x/lx/src/features/dataApi/types'
 import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
-import { ElementName, LxEventName } from '@l.x/lx/src/features/telemetry/constants'
+import { ElementName, LXEventName } from '@l.x/lx/src/features/telemetry/constants'
 import Trace from '@l.x/lx/src/features/telemetry/Trace'
 import { getTokenWarningSeverity } from '@l.x/lx/src/features/tokens/warnings/safetyUtils'
 import { shortenAddress } from '@luxfi/utilities/src/addresses'
@@ -133,7 +133,7 @@ export function CurrencyRow({
     <Trace
       logPress
       logKeyPress
-      eventOnTrigger={LxEventName.TokenSelected}
+      eventOnTrigger={LXEventName.TokenSelected}
       properties={{ ...eventProperties, token_balance_usd: usdValue }}
       element={ElementName.TokenSelectorRow}
     >

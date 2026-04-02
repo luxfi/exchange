@@ -10,7 +10,7 @@ import {
   HandleDEXPlanSignatureStepParams,
 } from '@l.x/lx/src/features/transactions/steps/types'
 import { DEXSignatureStep } from '@l.x/lx/src/features/transactions/swap/steps/signOrder'
-import { LxSwapTrade } from '@l.x/lx/src/features/transactions/swap/types/trade'
+import { LXTrade } from '@l.x/lx/src/features/transactions/swap/types/trade'
 import { slippageToleranceToPercent } from '@l.x/lx/src/features/transactions/swap/utils/format'
 import {
   QueuedOrderStatus,
@@ -29,7 +29,7 @@ import {
 } from '~/state/sagas/transactions/utils'
 
 interface HandleDEXSignatureStepParams extends HandleSignatureStepParams<DEXSignatureStep> {
-  trade: LxSwapTrade
+  trade: LXTrade
   analytics: SwapTradeBaseProperties
 }
 

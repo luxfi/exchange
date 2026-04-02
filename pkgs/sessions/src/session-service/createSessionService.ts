@@ -9,7 +9,7 @@ import type {
   VerifySessionResponse,
 } from '@l.x/sessions/src/session-service/types'
 import type { SessionStorage } from '@l.x/sessions/src/session-storage/types'
-import type { LxIdentifierService } from '@l.x/sessions/src/lx-identifier/types'
+import type { LXIdentifierService } from '@l.x/sessions/src/lx-identifier/types'
 
 /**
  * Creates a Session Service instance.
@@ -18,7 +18,7 @@ import type { LxIdentifierService } from '@l.x/sessions/src/lx-identifier/types'
 export function createSessionService(ctx: {
   sessionStorage: SessionStorage
   deviceIdService: DeviceIdService
-  lxIdentifierService: LxIdentifierService
+  lxIdentifierService: LXIdentifierService
   sessionRepository: SessionRepository
 }): SessionService {
   async function initSession(): Promise<InitSessionResponse> {
@@ -30,7 +30,7 @@ export function createSessionService(ctx: {
       await ctx.deviceIdService.setDeviceId(result.deviceId)
     }
     if (result.extra['lxIdentifier']) {
-      await ctx.lxIdentifierService.setLxIdentifier(result.extra['lxIdentifier'])
+      await ctx.lxIdentifierService.setLXIdentifier(result.extra['lxIdentifier'])
     }
     return result
   }

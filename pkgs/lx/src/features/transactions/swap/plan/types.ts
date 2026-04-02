@@ -9,7 +9,7 @@ import {
   HandleSignatureStepParams,
   HandleSwapBatchedStepParams,
   HandleSwapStepSyncParams,
-  HandleLxSwapPlanSignatureStepParams,
+  HandleLXPlanSignatureStepParams,
   SignatureTransactionStep,
   TransactionStep,
 } from 'lx/src/features/transactions/steps/types'
@@ -33,7 +33,7 @@ export interface PlanParams extends SwapExecutionCallbacks {
   handleSignatureStep: (
     params: HandleSignatureStepParams<SignatureTransactionStep, TradingApi.PlanStep>,
   ) => SagaGenerator<string>
-  handleLxSwapPlanSignatureStep: (params: HandleLxSwapPlanSignatureStepParams) => SagaGenerator<string>
+  handleLXPlanSignatureStep: (params: HandleLXPlanSignatureStepParams) => SagaGenerator<string>
   /**
    * General function to send a toast notification. Note that this needs to manage both
    * web and wallet so each caller will not have the same implementation.

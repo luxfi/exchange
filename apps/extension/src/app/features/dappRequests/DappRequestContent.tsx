@@ -46,7 +46,7 @@ interface DappRequestFooterProps {
   showSmartWalletActivation?: boolean
   showAddressFooter?: boolean
   transactionGasFeeResult?: GasFeeResult
-  isLxSwap?: boolean
+  isLX?: boolean
   disableConfirm?: boolean
   contentHorizontalPadding?: number | Animated.AnimatedNode | GetThemeValueForKey<'paddingHorizontal'> | null
 }
@@ -92,7 +92,7 @@ export function DappRequestContent({
   showSmartWalletActivation,
   transactionGasFeeResult,
   children,
-  isLxSwap,
+  isLX,
   disableConfirm,
   showAddressFooter = true,
   contentHorizontalPadding = '$spacing12',
@@ -124,7 +124,7 @@ export function DappRequestContent({
         chainId={chainId}
         confirmText={confirmText}
         connectedAccountAddress={connectedAccountAddress}
-        isLxSwap={isLxSwap}
+        isLX={isLX}
         maybeCloseOnConfirm={maybeCloseOnConfirm}
         showNetworkCost={showNetworkCost}
         showSmartWalletActivation={showSmartWalletActivation}
@@ -151,7 +151,7 @@ function DappRequestFooter({
   showSmartWalletActivation,
   showAddressFooter,
   transactionGasFeeResult,
-  isLxSwap,
+  isLX,
   disableConfirm,
 }: DappRequestFooterProps): JSX.Element {
   const { t } = useTranslation()
@@ -210,7 +210,7 @@ function DappRequestFooter({
       onConfirm()
     } else {
       await defaultOnConfirm({ request })
-      if (isLxSwap) {
+      if (isLX) {
         await handleExternallySubmittedDEXOrder(activeAccount.address, dispatch)
       }
     }
@@ -261,7 +261,7 @@ function DappRequestFooter({
           <NetworkFeeFooter
             chainId={currentChainId}
             gasFee={transactionGasFeeResult}
-            isLxSwap={isLxSwap}
+            isLX={isLX}
             showNetworkLogo={!!transactionGasFeeResult}
             requestMethod={request.dappRequest.type}
             showSmartWalletActivation={showSmartWalletActivation}

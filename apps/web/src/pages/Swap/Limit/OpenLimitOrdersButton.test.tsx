@@ -38,7 +38,7 @@ const mockLimitActivity: DEXOrderDetails = {
     expectedOutputCurrencyAmountRaw: '2000000000000000000',
     minimumOutputCurrencyAmountRaw: '2000000000000000000',
     settledOutputCurrencyAmountRaw: '2000000000000000000',
-    isLxSwapOrder: true,
+    isLXOrder: true,
   },
 }
 

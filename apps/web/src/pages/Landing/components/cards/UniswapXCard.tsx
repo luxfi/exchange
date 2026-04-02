@@ -14,15 +14,15 @@ export function LXCard() {
 
   return (
     <ValuePropCard
-      href={lxUrls.lxSwapUrl}
+      href={lxUrls.lxOrderUrl}
       color={primary}
       backgroundColor={opacify(6, primary)}
       title={
-        <PillButton color={primary} label={t('common.lxSwap')} icon={<LX size="$icon.24" fill={primary} />} />
+        <PillButton color={primary} label={t('common.lxOrder')} icon={<LX size="$icon.24" fill={primary} />} />
       }
-      bodyText={t('landing.lxSwap.body')}
-      subtitle={t('landing.lxSwap.subtitle')}
-      button={<PillButton color={primary} label={t('landing.lxSwap.button')} backgroundColor="$surface1" />}
+      bodyText={t('landing.lxOrder.body')}
+      subtitle={t('landing.lxOrder.subtitle')}
+      button={<PillButton color={primary} label={t('landing.lxOrder.button')} backgroundColor="$surface1" />}
       alignTextToBottom
     >
       <CardContents alignItems="flex-end">
@@ -32,7 +32,7 @@ export function LXCard() {
           width="45%"
           height="30%"
           style={{ objectFit: 'contain', transform: 'translateX(5%)', marginBottom: '8%' }}
-          alt={t('common.lxSwap')}
+          alt={t('common.lxOrder')}
         />
       </CardContents>
     </ValuePropCard>

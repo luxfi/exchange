@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next'
 import { Flex, Text } from 'ui/src'
 import { InfoCircleFilled } from 'ui/src/components/icons/InfoCircleFilled'
-import { LxLogo } from 'ui/src/components/icons/LuxLogo'
+import { LXLogo } from 'ui/src/components/icons/LuxLogo'
 import { WarningSeverity } from 'lx/src/components/modals/WarningModal/types'
 import { WarningInfo } from 'lx/src/components/modals/WarningModal/WarningInfo'
 import { LearnMoreLink } from 'lx/src/components/text/LearnMoreLink'
@@ -24,7 +24,7 @@ export function V4HooksInfo(): JSX.Element {
         rejectText: t('common.button.close'),
         severity: WarningSeverity.None,
         modalName: ModalName.V4HooksInfo,
-        icon: <LxLogo size="$icon.24" />,
+        icon: <LXLogo size="$icon.24" />,
       }}
       trigger={
         <Flex row centered>

@@ -8,7 +8,7 @@ import {
   ClassicTrade,
   type TokenApprovalInfo,
   type TradeWithStatus,
-  LxSwapV2Trade,
+  LXV2Trade,
 } from 'lx/src/features/transactions/swap/types/trade'
 import { WrapType } from 'lx/src/features/transactions/types/wrap'
 import { benignSafetyInfo } from 'lx/src/test/fixtures'
@@ -116,7 +116,7 @@ export function createMockDerivedSwapInfo({
   }
 }
 
-const createMockLxSwapOrder = (inputToken: string, outputToken: string): TradingApi.DutchOrderInfoV2 => ({
+const createMockLXOrder = (inputToken: string, outputToken: string): TradingApi.DutchOrderInfoV2 => ({
   chainId: 1,
   reactor: '0x00000011F84B9aa48e5f8aA8B9897600006289Be',
   swapper: '0x123',
@@ -138,7 +138,7 @@ const createMockLxSwapOrder = (inputToken: string, outputToken: string): Trading
 export const createMockLXQuote = (inputToken: string, outputToken: string): TradingApi.DutchQuoteV2 => ({
   encodedOrder: '0x000',
   orderId: '0xbbb',
-  orderInfo: createMockLxSwapOrder(inputToken, outputToken),
+  orderInfo: createMockLXOrder(inputToken, outputToken),
   slippageTolerance: 0.5,
   quoteId: '123',
   classicGasUseEstimateUSD: '10',
@@ -236,8 +236,8 @@ export const createMockPermitData = (token: string): TradingApi.NullablePermit =
   },
 })
 
-export const createMockLxSwapTrade = (inputCurrency: Token, outputCurrency: Token): LxSwapV2Trade => {
-  return new LxSwapV2Trade({
+export const createMockLXTrade = (inputCurrency: Token, outputCurrency: Token): LXV2Trade => {
+  return new LXV2Trade({
     currencyIn: inputCurrency,
     currencyOut: outputCurrency,
     tradeType: TradeType.EXACT_INPUT,

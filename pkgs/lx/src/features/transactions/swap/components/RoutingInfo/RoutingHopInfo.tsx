@@ -15,10 +15,10 @@ import { useLocalizationContext } from 'lx/src/features/language/LocalizationCon
 import { ModalName } from 'lx/src/features/telemetry/constants'
 import {
   BestRouteTooltip,
-  BestRouteLxSwapTooltip,
+  BestRouteLXTooltip,
 } from 'lx/src/features/transactions/swap/form/SwapFormScreen/SwapFormTooltips/BestRouteTooltip'
 import { Trade } from 'lx/src/features/transactions/swap/types/trade'
-import { isLxSwap } from 'lx/src/features/transactions/swap/utils/routing'
+import { isLX } from 'lx/src/features/transactions/swap/utils/routing'
 import { useRoutingEntries } from 'lx/src/utils/routingDiagram/routingRegistry'
 import { NumberType } from 'utilities/src/format/types'
 import { isWebPlatform } from 'utilities/src/platform'
@@ -44,11 +44,11 @@ export function RoutingHopInfo({
     const textVariant = isWebPlatform ? 'body4' : 'body2'
     const textAlign = isWebPlatform ? 'left' : 'center'
 
-    if (isLxSwap(trade)) {
+    if (isLX(trade)) {
       return (
         <Text variant={textVariant} textAlign={textAlign} color="$neutral2">
           <Trans
-            i18nKey="lxSwap.aggregatesLiquidity"
+            i18nKey="lxOrder.aggregatesLiquidity"
             components={{
               logo: (
                 <>
@@ -94,8 +94,8 @@ export function RoutingHopInfo({
           zIndex: zIndexes.popover,
         }}
         tooltipProps={{
-          text: isLxSwap(trade) ? (
-            <BestRouteLxSwapTooltip />
+          text: isLX(trade) ? (
+            <BestRouteLXTooltip />
           ) : routes && routes.length > 0 ? (
             <BestRouteTooltip />
           ) : (

@@ -3,14 +3,14 @@ import type { SessionRepository } from '@l.x/sessions/src/session-repository/typ
 import { createSessionService } from '@l.x/sessions/src/session-service/createSessionService'
 import type { SessionService } from '@l.x/sessions/src/session-service/types'
 import type { SessionStorage } from '@l.x/sessions/src/session-storage/types'
-import type { LxIdentifierService } from '@l.x/sessions/src/lx-identifier/types'
+import type { LXIdentifierService } from '@l.x/sessions/src/lx-identifier/types'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 
 describe('createSessionService', () => {
   let storage: SessionStorage
   let repository: SessionRepository
   let deviceIdService: DeviceIdService
-  let lxIdentifierService: LxIdentifierService
+  let lxIdentifierService: LXIdentifierService
   let service: SessionService
 
   beforeEach(() => {
@@ -39,11 +39,11 @@ describe('createSessionService', () => {
 
     let lxIdentifierData: string | null = null
     lxIdentifierService = {
-      getLxIdentifier: async (): Promise<string | null> => lxIdentifierData,
-      setLxIdentifier: async (identifier: string): Promise<void> => {
+      getLXIdentifier: async (): Promise<string | null> => lxIdentifierData,
+      setLXIdentifier: async (identifier: string): Promise<void> => {
         lxIdentifierData = identifier
       },
-      removeLxIdentifier: async (): Promise<void> => {
+      removeLXIdentifier: async (): Promise<void> => {
         lxIdentifierData = null
       },
     }
@@ -339,7 +339,7 @@ describe('createSessionService', () => {
       })
 
       await service.initSession()
-      expect(await lxIdentifierService.getLxIdentifier()).toBe('71cef16f-4d99-4082-987c-a6f810f9ca7f')
+      expect(await lxIdentifierService.getLXIdentifier()).toBe('71cef16f-4d99-4082-987c-a6f810f9ca7f')
     })
 
     it('does not persist lxIdentifier when not provided', async () => {
@@ -354,7 +354,7 @@ describe('createSessionService', () => {
       })
 
       await service.initSession()
-      expect(await lxIdentifierService.getLxIdentifier()).toBeNull()
+      expect(await lxIdentifierService.getLXIdentifier()).toBeNull()
     })
 
     it('updates lxIdentifier on subsequent initSession calls', async () => {
@@ -369,7 +369,7 @@ describe('createSessionService', () => {
       })
 
       await service.initSession()
-      expect(await lxIdentifierService.getLxIdentifier()).toBe('first-identifier')
+      expect(await lxIdentifierService.getLXIdentifier()).toBe('first-identifier')
 
       repository.initSession = async (): Promise<{
         sessionId?: string
@@ -382,7 +382,7 @@ describe('createSessionService', () => {
       })
 
       await service.initSession()
-      expect(await lxIdentifierService.getLxIdentifier()).toBe('second-identifier')
+      expect(await lxIdentifierService.getLXIdentifier()).toBe('second-identifier')
     })
   })
 })

@@ -21,7 +21,7 @@ import type { TransactionSettings } from 'lx/src/features/transactions/component
 import type { DerivedSwapInfo } from 'lx/src/features/transactions/swap/types/derivedSwapInfo'
 import type { ClassicTrade, Trade } from 'lx/src/features/transactions/swap/types/trade'
 import { getSwapFeeUsd } from 'lx/src/features/transactions/swap/utils/getSwapFeeUsd'
-import { isChained, isClassic, isJupiter, isLxSwap } from 'lx/src/features/transactions/swap/utils/routing'
+import { isChained, isClassic, isJupiter, isLX } from 'lx/src/features/transactions/swap/utils/routing'
 import { SwapEventType, timestampTracker } from 'lx/src/features/transactions/swap/utils/SwapEventTimestampTracker'
 import { getProtocolVersionFromTrade } from 'lx/src/features/transactions/swap/utils/trade'
 import { getClassicQuoteFromResponse } from 'lx/src/features/transactions/swap/utils/tradingApi'
@@ -50,7 +50,7 @@ export interface SwapRoutesAnalyticsData {
   v2Used: boolean
   v3Used: boolean
   v4Used: boolean
-  lxSwapUsed: boolean
+  lxOrderUsed: boolean
   jupiterUsed: boolean
 }
 
@@ -58,7 +58,7 @@ const DEFAULT_RESULT = {
   v2Used: false,
   v3Used: false,
   v4Used: false,
-  lxSwapUsed: false,
+  lxOrderUsed: false,
   jupiterUsed: false,
 }
 
@@ -208,17 +208,17 @@ export function getRouteAnalyticsData({
       v2Used,
       v3Used,
       v4Used,
-      lxSwapUsed: false,
+      lxOrderUsed: false,
       jupiterUsed: false,
     }
   }
 
-  if (isLxSwap({ routing })) {
+  if (isLX({ routing })) {
     // For LX trades, we don't have detailed route information in the same way
     // But we can mark it as using X
     return {
       ...DEFAULT_RESULT,
-      lxSwapUsed: true,
+      lxOrderUsed: true,
     }
   }
 
@@ -236,7 +236,7 @@ export function getRouteAnalyticsData({
 }
 
 export function getPriceImpact(trade: Trade | null | undefined): string | undefined {
-  if (!trade || isLxSwap(trade) || isChained(trade)) {
+  if (!trade || isLX(trade) || isChained(trade)) {
     return undefined
   }
   return trade.priceImpact?.multiply(100).toSignificant()
@@ -283,7 +283,7 @@ function getQuoteRequestIdFields(trade: Trade): {
   }
 
   // Backwards compatibility with old ura_request_id field
-  if (isClassic(trade) || isLxSwap(trade)) {
+  if (isClassic(trade) || isLX(trade)) {
     uraRequestId = requestId
   }
 

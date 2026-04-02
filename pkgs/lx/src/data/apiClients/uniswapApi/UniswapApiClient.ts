@@ -1,12 +1,12 @@
 import { createLuxApiClient, type GasFeeResponse, type GasStrategy } from '@l.x/api'
 import { config } from 'lx/src/config'
 import { lxUrls } from 'lx/src/constants/urls'
-import { createLxFetchClient } from 'lx/src/data/apiClients/createLxFetchClient'
+import { createLXFetchClient } from 'lx/src/data/apiClients/createLXFetchClient'
 import { convertGasFeeToDisplayValue } from 'lx/src/features/gas/hooks'
 import { estimateGasWithClientSideProvider, extractGasFeeParams } from 'lx/src/features/gas/utils'
 import { isWebApp } from 'utilities/src/platform'
 
-const LxFetchClient = createLxFetchClient({
+const LXFetchClient = createLXFetchClient({
   baseUrl: lxUrls.apiBaseUrl,
   additionalHeaders: {
     'x-api-key': config.lxApiKey,
@@ -15,7 +15,7 @@ const LxFetchClient = createLxFetchClient({
 })
 
 export const LuxApiClient = createLuxApiClient({
-  fetchClient: LxFetchClient,
+  fetchClient: LXFetchClient,
   processGasFeeResponse: (gasFeeResponse: GasFeeResponse, gasStrategy: GasStrategy) => {
     const gasEstimate = gasFeeResponse.gasEstimates[0]
     if (!gasEstimate) {

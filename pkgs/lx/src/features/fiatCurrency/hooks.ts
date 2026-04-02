@@ -7,7 +7,7 @@ import { FiatCurrency, ORDERED_CURRENCIES } from 'lx/src/features/fiatCurrency/c
 import { FiatCurrencyInfo } from 'lx/src/features/fiatOnRamp/types'
 import { useCurrentLocale } from 'lx/src/features/language/hooks'
 import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
-import { LxState } from 'lx/src/state/lxReducer'
+import { LXState } from 'lx/src/state/lxReducer'
 // biome-ignore lint/style/noRestrictedImports: legacy import will be migrated
 import { FiatCurrencyComponents, getFiatCurrencyComponents } from 'utilities/src/format/localeBased'
 
@@ -134,7 +134,7 @@ function useUrlLocalCurrency(): FiatCurrency | undefined {
  * @returns currently selected fiat currency
  */
 export function useAppFiatCurrency(): FiatCurrency {
-  const storeFiatCurrency = useSelector((state: LxState) => state.userSettings.currentCurrency)
+  const storeFiatCurrency = useSelector((state: LXState) => state.userSettings.currentCurrency)
   const urlFiatCurrency = useUrlLocalCurrency()
 
   return useMemo(() => urlFiatCurrency ?? storeFiatCurrency, [storeFiatCurrency, urlFiatCurrency])

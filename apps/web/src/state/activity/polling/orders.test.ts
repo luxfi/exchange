@@ -73,7 +73,7 @@ const mockL1Order: DEXOrderDetails = {
   from: '0x80becb808bfade4143183e58d18f2080e84e57a1',
   transactionOriginType: TransactionOriginType.Internal,
   typeInfo: {
-    isLxSwapOrder: true,
+    isLXOrder: true,
     type: TransactionType.Swap,
     inputCurrencyAmountRaw: '100000000',
     expectedOutputCurrencyAmountRaw: '91371770080538616664',

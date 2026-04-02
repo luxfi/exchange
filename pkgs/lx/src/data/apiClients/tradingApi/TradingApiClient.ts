@@ -10,11 +10,11 @@ import {
 } from '@l.x/gating'
 import { config } from '@l.x/lx/src/config'
 import { tradingApiVersionPrefix, lxUrls } from '@l.x/lx/src/constants/urls'
-import { createLxFetchClient } from '@l.x/lx/src/data/apiClients/createLxFetchClient'
+import { createLXFetchClient } from '@l.x/lx/src/data/apiClients/createLXFetchClient'
 import { filterChainIdsByPlatform } from '@l.x/lx/src/features/chains/utils'
 import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
 
-const TradingFetchClient = createLxFetchClient({
+const TradingFetchClient = createLXFetchClient({
   baseUrl: lxUrls.tradingApiUrl,
   additionalHeaders: {
     'x-api-key': config.tradingApiKey,

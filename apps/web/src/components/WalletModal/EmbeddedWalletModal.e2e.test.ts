@@ -25,7 +25,7 @@ test.describe(
 
       const walletModal = getVisibleDropdownElementByTestId(page, 'wallet-modal')
       await expect(walletModal).toBeVisible()
-      // EW modal shows "Connect a wallet" heading (not the LxWalletOptions header)
+      // EW modal shows "Connect a wallet" heading (not the LXWalletOptions header)
       await expect(walletModal.getByText('Connect a wallet')).toBeVisible()
       // EW-specific CTA buttons are rendered
       await expect(getVisibleDropdownElementByTestId(page, TestID.CreateAccount)).toBeVisible()

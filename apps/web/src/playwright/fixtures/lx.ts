@@ -2,7 +2,7 @@
  * LX E2E Test Fixtures
  *
  * Comprehensive helpers for testing the full CLOB loop:
- * LXBook (LP-9020) ↔ LXVault (LP-9030) ↔ LxSwapFeed (LP-9040)
+ * LXBook (LP-9020) ↔ LXVault (LP-9030) ↔ LXFeed (LP-9040)
  *
  * Usage:
  * 1. createMarket() - Initialize a trading market
@@ -13,7 +13,7 @@
  *
  * @see LP-9020 (LXBook) - CLOB Matching Engine
  * @see LP-9030 (LXVault) - Custody and Risk Engine
- * @see LP-9040 (LxSwapFeed) - Price Feeds
+ * @see LP-9040 (LXFeed) - Price Feeds
  */
 import {
   // Precompile addresses
@@ -31,7 +31,7 @@ import {
   GroupType,
   MarginMode,
   PositionSide,
-  type LxSwapOrder,
+  type LXOrder,
   type LXAction,
   type LXPosition,
   type LXMarginInfo,
@@ -49,7 +49,7 @@ import type { AnvilClient } from './anvil'
 /**
  * X18 scaling factor (10^18)
  * EVM standard - all prices and sizes use 18 decimal fixed-point
- * Used by LXBook, LXVault, LxSwapFeed, LXPool precompiles
+ * Used by LXBook, LXVault, LXFeed, LXPool precompiles
  */
 export const X18 = 10n ** 18n
 
@@ -513,7 +513,7 @@ export async function cancelOrder(client: AnvilClient, orderId: bigint): Promise
 // ============================================================================
 
 /**
- * Get mark price from LxSwapFeed
+ * Get mark price from LXFeed
  */
 export async function getMarkPrice(client: AnvilClient, marketId: number): Promise<LXMarkPrice> {
   const result = await client.readContract({
@@ -526,7 +526,7 @@ export async function getMarkPrice(client: AnvilClient, marketId: number): Promi
 }
 
 /**
- * Get index price from LxSwapFeed
+ * Get index price from LXFeed
  */
 export async function getIndexPrice(
   client: AnvilClient,
@@ -543,7 +543,7 @@ export async function getIndexPrice(
 }
 
 /**
- * Get funding rate from LxSwapFeed
+ * Get funding rate from LXFeed
  */
 export async function getFundingRate(
   client: AnvilClient,
@@ -735,4 +735,4 @@ export {
   MarginMode,
   PositionSide,
 }
-export type { LxSwapOrder, LXAction, LXPosition, LXMarginInfo, LXL1, LXMarkPrice }
+export type { LXOrder, LXAction, LXPosition, LXMarginInfo, LXL1, LXMarkPrice }

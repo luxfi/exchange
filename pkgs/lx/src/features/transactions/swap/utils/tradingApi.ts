@@ -20,8 +20,8 @@ import {
   ChainedActionTrade,
   ClassicTrade,
   PriorityOrderTrade,
-  LxSwapV2Trade,
-  LxSwapV3Trade,
+  LXV2Trade,
+  LXV3Trade,
   UnwrapTrade,
   WrapTrade,
 } from 'lx/src/features/transactions/swap/types/trade'
@@ -74,7 +74,7 @@ export function transformTradingApiResponseToTrade(params: TradingApiResponseToT
     case TradingApi.Routing.DUTCH_V3:
     case TradingApi.Routing.DUTCH_V2: {
       const { quote } = data
-      // LX backend response does not include decimals; local currencies must be passed to LxSwapTrade rather than tokens parsed from the api response.
+      // LX backend response does not include decimals; local currencies must be passed to LXTrade rather than tokens parsed from the api response.
       // We validate the token addresses match to ensure the trade is valid.
       if (
         !areAddressesEqual({
@@ -93,9 +93,9 @@ export function transformTradingApiResponseToTrade(params: TradingApiResponseToT
       if (isPriority) {
         return new PriorityOrderTrade({ quote: data, currencyIn, currencyOut, tradeType })
       } else if (data.routing === TradingApi.Routing.DUTCH_V2) {
-        return new LxSwapV2Trade({ quote: data, currencyIn, currencyOut, tradeType })
+        return new LXV2Trade({ quote: data, currencyIn, currencyOut, tradeType })
       } else {
-        return new LxSwapV3Trade({ quote: data, currencyIn, currencyOut, tradeType })
+        return new LXV3Trade({ quote: data, currencyIn, currencyOut, tradeType })
       }
     }
     case TradingApi.Routing.BRIDGE: {

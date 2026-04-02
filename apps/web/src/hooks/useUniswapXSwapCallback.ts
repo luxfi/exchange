@@ -275,7 +275,7 @@ export function useLXSwapCallback({
       // TODO(LX): For now, `errorCode` is not always present in the response, so we have to fallback
       // check for status code and perform this type narrowing.
       if (isErrorResponse(res, responseBody)) {
-        sendAnalyticsEvent(InterfaceEventName.LxSwapOrderPostError, {
+        sendAnalyticsEvent(InterfaceEventName.LXOrderPostError, {
           ...formatSwapSignedAnalyticsEventProperties({
             trade,
             allowedSlippage,
@@ -297,7 +297,7 @@ export function useLXSwapCallback({
         throw new Error(`${responseBody.errorCode ?? responseBody.detail ?? 'Unknown error'}`)
       }
       sendAnalyticsEvent(
-        InterfaceEventName.LxSwapOrderSubmitted,
+        InterfaceEventName.LXOrderSubmitted,
         formatSwapSignedAnalyticsEventProperties({
           trade,
           allowedSlippage,

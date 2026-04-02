@@ -1,3 +1,3 @@
-export interface LxWrapped2025CardProps {
+export interface LXWrapped2025CardProps {
   onPress: () => void
 }

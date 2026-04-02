@@ -11,15 +11,15 @@ import {
   TransactionOriginType,
   TransactionType,
 } from 'lx/src/features/transactions/types/transactionDetails'
-import { remoteOrderStatusToLocalTxStatus } from 'lx/src/features/transactions/utils/lxSwap.utils'
+import { remoteOrderStatusToLocalTxStatus } from 'lx/src/features/transactions/utils/lxOrder.utils'
 import { buildCurrencyId } from 'lx/src/utils/currencyId'
 
-export function extractLxSwapOrderDetails(transaction: TransactionListQueryResponse): TransactionDetails | null {
-  if (transaction?.details.__typename !== TransactionDetailsType.LxSwapOrder) {
+export function extractLXOrderDetails(transaction: TransactionListQueryResponse): TransactionDetails | null {
+  if (transaction?.details.__typename !== TransactionDetailsType.LXOrder) {
     return null
   }
 
-  const typeInfo = parseLxSwapOrderTransaction(transaction)
+  const typeInfo = parseLXOrderTransaction(transaction)
   const routing =
     transaction.details.swapOrderType === GraphQLApi.SwapOrderType.Limit
       ? TradingApi.Routing.DUTCH_LIMIT
@@ -45,10 +45,10 @@ export function extractLxSwapOrderDetails(transaction: TransactionListQueryRespo
   }
 }
 
-export default function parseLxSwapOrderTransaction(
+export default function parseLXOrderTransaction(
   transaction: NonNullable<TransactionListQueryResponse>,
 ): ConfirmedSwapTransactionInfo | null {
-  if (transaction.details.__typename !== TransactionDetailsType.LxSwapOrder) {
+  if (transaction.details.__typename !== TransactionDetailsType.LXOrder) {
     return null
   }
 

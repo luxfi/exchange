@@ -9,7 +9,7 @@ import { WarningSeverity } from '@l.x/lx/src/components/modals/WarningModal/type
 import { WarningInfo } from '@l.x/lx/src/components/modals/WarningModal/WarningInfo'
 import { lxUrls } from '@l.x/lx/src/constants/urls'
 import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
-import { isLxSwap } from '@l.x/lx/src/features/transactions/swap/utils/routing'
+import { isLX } from '@l.x/lx/src/features/transactions/swap/utils/routing'
 import { openUri } from '@l.x/lx/src/utils/linking'
 import { isWebPlatform } from 'utilities/src/platform'
 
@@ -17,7 +17,7 @@ function getPriceImpactInfo({ t, routing, missing }: { t: TFunction; routing: Tr
   caption: string
   link: string
 } {
-  if (isLxSwap({ routing })) {
+  if (isLX({ routing })) {
     if (missing) {
       return {
         caption: t('swap.impactOfTrade.dex.missing'),

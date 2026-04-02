@@ -49,7 +49,7 @@ test.describe(
       await page.getByTestId(TestID.Swap).click()
     })
 
-    test('can swap using lxSwap with WETH as input', async ({ page }) => {
+    test('can swap using lxOrder with WETH as input', async ({ page }) => {
       await page.route(LX_SWAP_ORDERS_ENDPOINT, async (route) => {
         await route.fulfill({
           path: Mocks.LX.filledOrders,

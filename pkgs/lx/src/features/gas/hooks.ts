@@ -25,7 +25,7 @@ import { usePollingIntervalByChain } from 'lx/src/features/transactions/hooks/us
 import { useUSDCValueWithStatus } from 'lx/src/features/transactions/hooks/useUSDCPriceWrapper'
 import { type DerivedSendInfo } from 'lx/src/features/transactions/send/types'
 import { type DerivedSwapInfo } from 'lx/src/features/transactions/swap/types/derivedSwapInfo'
-import { type LxSwapGasBreakdown } from 'lx/src/features/transactions/swap/types/swapTxAndGasInfo'
+import { type LXGasBreakdown } from 'lx/src/features/transactions/swap/types/swapTxAndGasInfo'
 import { CurrencyField } from 'lx/src/types/currency'
 import { NumberType } from 'utilities/src/format/types'
 import { isWebPlatform } from 'utilities/src/platform'
@@ -331,4 +331,4 @@ export function useGasFeeFormattedDisplayAmounts<T extends string | undefined>({
 }
 
 export const useFormattedLXGasFeeInfo = useFormattedDEXGasFeeInfo
-export const useFormattedLxSwapGasFeeInfo = useFormattedDEXGasFeeInfo
+export const useFormattedLXGasFeeInfo = useFormattedDEXGasFeeInfo

@@ -27,7 +27,7 @@ import {
   useTransactionSettingsStore,
 } from 'lx/src/features/transactions/components/settings/stores/transactionSettingsStore/useTransactionSettingsStore'
 import { isDefaultTradeRouteOptions } from 'lx/src/features/transactions/swap/components/SwapFormSettings/settingsConfigurations/TradeRoutingPreference/isDefaultTradeRouteOptions'
-import { LxSwapInfo } from 'lx/src/features/transactions/swap/components/SwapFormSettings/settingsConfigurations/TradeRoutingPreference/LXInfo'
+import { LXInfo } from 'lx/src/features/transactions/swap/components/SwapFormSettings/settingsConfigurations/TradeRoutingPreference/LXInfo'
 import { V4HooksInfo } from 'lx/src/features/transactions/swap/components/SwapFormSettings/settingsConfigurations/TradeRoutingPreference/V4HooksInfo'
 import { useV4SwapEnabled } from 'lx/src/features/transactions/swap/hooks/useV4SwapEnabled'
 import { useSwapFormStoreDerivedSwapInfo } from 'lx/src/features/transactions/swap/stores/swapFormStore/useSwapFormStore'
@@ -52,7 +52,7 @@ export function TradeRoutingPreferenceScreen(): JSX.Element {
       isV4HookPoolsEnabled,
     }),
   )
-  const lxSwapEnabled = useFeatureFlag(FeatureFlags.LX)
+  const lxOrderEnabled = useFeatureFlag(FeatureFlags.LX)
   const allowLXOnly = useFeatureFlag(FeatureFlags.AllowLXOnlyRoutesInSwapSettings)
 
   const chainId = useSwapFormStoreDerivedSwapInfo((s) => s.chainId)
@@ -107,14 +107,14 @@ export function TradeRoutingPreferenceScreen(): JSX.Element {
         footerContent={
           <DefaultOptionFooterContent
             isLXSupported={isLXSupported}
-            isLXEnabled={lxSwapEnabled}
+            isLXEnabled={lxOrderEnabled}
             isDefault={isDefault}
           />
         }
         onSelect={toggleDefault}
       />
       <HeightAnimator open={!isDefault} animationDisabled={isMobileApp || isMobileWeb}>
-        {lxSwapEnabled && (
+        {lxOrderEnabled && (
           <OptionRow
             active={
               isLXSupported === false ? false : selectedProtocols.includes(TradingApi.ProtocolItems.LXSWAP_V2)
@@ -173,7 +173,7 @@ function createGetProtocolTitle(ctx: {
         if (isLXSupported === false) {
           return <LXTitleInfoTooltip />
         }
-        return <LxSwapInfo tooltipTrigger={<LxSwapInfoTooltipTrigger />} />
+        return <LXInfo tooltipTrigger={<LXInfoTooltipTrigger />} />
       }
       case TradingApi.ProtocolItems.V2:
         return t('swap.settings.routingPreference.option.v2.title')
@@ -193,8 +193,8 @@ function LXTitleInfoTooltip(): JSX.Element {
   if (isWebPlatform) {
     return (
       <InfoTooltip
-        text={<LxSwapInfoTooltipText onPress={() => setForceCloseTooltip(true)} />}
-        trigger={<LxSwapInfoTooltipTrigger />}
+        text={<LXInfoTooltipText onPress={() => setForceCloseTooltip(true)} />}
+        trigger={<LXInfoTooltipTrigger />}
         placement="top"
         open={forceCloseTooltip === undefined ? undefined : !forceCloseTooltip}
       />
@@ -204,14 +204,14 @@ function LXTitleInfoTooltip(): JSX.Element {
   return (
     <>
       <TouchableArea onPress={() => setShowModal(true)}>
-        <LxSwapInfoTooltipTrigger />
+        <LXInfoTooltipTrigger />
       </TouchableArea>
-      <LxSwapInfoModal isOpen={showModal} onClose={() => setShowModal(false)} />
+      <LXInfoModal isOpen={showModal} onClose={() => setShowModal(false)} />
     </>
   )
 }
 
-function LxSwapInfoTooltipTrigger(): JSX.Element {
+function LXInfoTooltipTrigger(): JSX.Element {
   return (
     <Text
       alignItems="center"
@@ -316,7 +316,7 @@ function DefaultOptionFooterContent(props: {
 
   if (showIncludesLX) {
     return (
-      <LxSwapInfo
+      <LXInfo
         tooltipTrigger={
           <Text
             alignItems="center"
@@ -355,7 +355,7 @@ const LXNotSupportedDescription = (): JSX.Element => {
     <Flex cursor="default" gap="$spacing4" alignItems="flex-start" flexDirection="row">
       <WarningIcon color="$neutral2" size="$icon.16" />
       <Text color="$neutral2" variant="body3">
-        {t('swap.settings.routingPreference.option.default.description.lxSwapUnavailable')}
+        {t('swap.settings.routingPreference.option.default.description.lxOrderUnavailable')}
       </Text>
     </Flex>
   )
@@ -365,7 +365,7 @@ const LXNotSupportedDescription = (): JSX.Element => {
       <InfoTooltip
         open={forceCloseTooltip === undefined ? undefined : !forceCloseTooltip}
         text={
-          <LxSwapInfoTooltipText
+          <LXInfoTooltipText
             onPress={() => {
               setForceCloseTooltip(true)
             }}
@@ -380,12 +380,12 @@ const LXNotSupportedDescription = (): JSX.Element => {
   return (
     <>
       <TouchableArea onPress={() => setShowModal(true)}>{trigger}</TouchableArea>
-      <LxSwapInfoModal isOpen={showModal} onClose={() => setShowModal(false)} />
+      <LXInfoModal isOpen={showModal} onClose={() => setShowModal(false)} />
     </>
   )
 }
 
-function LxSwapInfoTooltipText(props?: { onPress?: () => void }): JSX.Element {
+function LXInfoTooltipText(props?: { onPress?: () => void }): JSX.Element {
   const { t } = useTranslation()
   const handleOnPressLXUnsupported = useLuxContextSelector((state) => state.handleOnPressLXUnsupported)
   const handleHideTransactionSettingsModal = useModalHide(TransactionSettingsModalId.TransactionSettings)
@@ -447,7 +447,7 @@ function DefaultOptionTitle({ v4SwapEnabled }: { v4SwapEnabled: boolean }): JSX.
   )
 }
 
-function LxSwapInfoModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }): JSX.Element {
+function LXInfoModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }): JSX.Element {
   const { t } = useTranslation()
   const colors = useSporeColors()
   return (
@@ -458,7 +458,7 @@ function LxSwapInfoModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => 
         caption: t('lx.description.unsupported'),
         rejectText: t('common.button.close'),
         icon: <Lightning size="$icon.24" fill={colors.neutral1.val} />,
-        modalName: ModalName.LxSwapInfo,
+        modalName: ModalName.LXInfo,
         severity: WarningSeverity.None,
         title: t('lx.unavailable.title'),
         zIndex: zIndexes.popover,

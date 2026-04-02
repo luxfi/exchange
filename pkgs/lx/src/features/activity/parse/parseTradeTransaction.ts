@@ -309,7 +309,7 @@ function findPrimaryTokenAndAmount(
 }
 
 /**
- * Parse a swap or on-chain lxSwap transaction from the REST API
+ * Parse a swap or on-chain lxOrder transaction from the REST API
  */
 export function parseRestSwapTransaction(transaction: OnChainTransaction): ConfirmedSwapTransactionInfo | undefined {
   const { transfers, chainId, from: ownerAddress } = transaction

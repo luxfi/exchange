@@ -39,7 +39,7 @@ export function usePlanCancellationGasFeeInfo(
 
   // For LX steps, fetch the encoded order and build cancellation request.
   // Plan steps are TransactionDetails (not TradingApi.PlanStep), so orderId comes from step.hash.
-  const { data: lxSwapCancelRequest } = useQuery({
+  const { data: lxOrderCancelRequest } = useQuery({
     queryKey: [ReactQueryCacheKey.CancelPlanStepRequest, cancelableStepInfo?.orderId],
     queryFn: async (): Promise<providers.TransactionRequest | null> => {
       if (
@@ -100,7 +100,7 @@ export function usePlanCancellationGasFeeInfo(
 
   // Determine which cancel request to use
   const cancelRequest =
-    cancelableStepInfo?.cancellationType === 'lx' ? lxSwapCancelRequest : classicCancelRequest
+    cancelableStepInfo?.cancellationType === 'lx' ? lxOrderCancelRequest : classicCancelRequest
 
   // Get gas fee for the cancel request
   const gasFee = useTransactionGasFee({

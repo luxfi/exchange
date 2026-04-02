@@ -1,17 +1,17 @@
 import { createSelector, Selector } from '@reduxjs/toolkit'
 import { AppNotification } from 'lx/src/features/notifications/slice/types'
-import { LxState } from 'lx/src/state/lxReducer'
+import { LXState } from 'lx/src/state/lxReducer'
 
-const selectNotificationQueue = (state: LxState): AppNotification[] => state.notifications.notificationQueue
+const selectNotificationQueue = (state: LXState): AppNotification[] => state.notifications.notificationQueue
 
 export const makeSelectAddressNotifications = (): Selector<
-  LxState,
+  LXState,
   AppNotification[] | undefined,
   [Address | null]
 > =>
   createSelector(
     selectNotificationQueue,
-    (_: LxState, address: Address | null) => address,
+    (_: LXState, address: Address | null) => address,
     (notificationQueue, address) => {
       if (!address) {
         return undefined
@@ -22,15 +22,15 @@ export const makeSelectAddressNotifications = (): Selector<
   )
 
 const selectNotificationStatus = (
-  state: LxState,
+  state: LXState,
 ): {
   [userAddress: string]: boolean | undefined
 } => state.notifications.notificationStatus
 
-export const makeSelectHasNotifications = (): Selector<LxState, boolean | undefined, [Address | null]> =>
+export const makeSelectHasNotifications = (): Selector<LXState, boolean | undefined, [Address | null]> =>
   createSelector(
     selectNotificationStatus,
-    (_: LxState, address: Address | null) => address,
+    (_: LXState, address: Address | null) => address,
     (notificationStatuses, address) => {
       if (!address) {
         return undefined
@@ -40,7 +40,7 @@ export const makeSelectHasNotifications = (): Selector<LxState, boolean | undefi
   )
 
 export const selectLastTxNotificationUpdate = (
-  state: LxState,
+  state: LXState,
 ): {
   [address: string]: number | undefined
 } => state.notifications.lastTxNotificationUpdate

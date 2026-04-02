@@ -16,7 +16,7 @@ import {
   getSwapTransactionCount,
 } from '@luxfi/wallet/src/features/transactions/swap/confirmation'
 import { createExecuteSwapSaga } from '@luxfi/wallet/src/features/transactions/swap/executeSwapSaga'
-import { submitLxSwapOrder } from '@luxfi/wallet/src/features/transactions/swap/submitOrderSaga'
+import { submitLXOrder } from '@luxfi/wallet/src/features/transactions/swap/submitOrderSaga'
 import {
   mockSignerAccount as account,
   createMockSignedApproveTx,
@@ -56,7 +56,7 @@ const mockGetShouldWaitBetweenTransactions = jest.mocked(getShouldWaitBetweenTra
 const mockGetSwapTransactionCount = jest.mocked(getSwapTransactionCount) as jest.MockedFunction<
   typeof getSwapTransactionCount
 >
-const mockSubmitLxSwapOrder = jest.mocked(submitLxSwapOrder) as jest.MockedFunction<typeof submitLxSwapOrder>
+const mockSubmitLXOrder = jest.mocked(submitLXOrder) as jest.MockedFunction<typeof submitLXOrder>
 
 const mockExecutionResult: TransactionExecutionResult = {
   hash: '0xmockhash',
@@ -430,13 +430,13 @@ describe('executeSwapSaga', () => {
       })
 
       await expectSaga(executeSwapSaga, params)
-        .provide([...sharedProviders, [call(submitLxSwapOrder, expect.any(Object)), undefined]])
+        .provide([...sharedProviders, [call(submitLXOrder, expect.any(Object)), undefined]])
         .call(params.onPending)
         .not.call(params.onSuccess)
         .not.call(params.onFailure)
         .run()
 
-      expect(mockSubmitLxSwapOrder).toHaveBeenCalledWith(
+      expect(mockSubmitLXOrder).toHaveBeenCalledWith(
         expect.objectContaining({
           permit: {
             permit: mockPermit.typedData,
@@ -467,7 +467,7 @@ describe('executeSwapSaga', () => {
       })
 
       await expectSaga(executeSwapSaga, params)
-        .provide([...sharedProviders, [call(submitLxSwapOrder, expect.any(Object)), undefined]])
+        .provide([...sharedProviders, [call(submitLXOrder, expect.any(Object)), undefined]])
         .call(params.onPending)
         .not.call(params.onSuccess)
         .not.call(params.onFailure)
@@ -481,7 +481,7 @@ describe('executeSwapSaga', () => {
         }),
         shouldWait: false,
       })
-      expect(mockSubmitLxSwapOrder).toHaveBeenCalledWith(
+      expect(mockSubmitLXOrder).toHaveBeenCalledWith(
         expect.objectContaining({
           approveTxHash: '0xmockhash',
         }),

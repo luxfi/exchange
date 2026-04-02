@@ -8,7 +8,7 @@ import {
   isBridge,
   isChained,
   isClassic,
-  isLxSwap,
+  isLX,
   isWrap,
 } from 'lx/src/features/transactions/swap/utils/routing'
 import {
@@ -68,7 +68,7 @@ export function findCancelableStepInPlan(typeInfo: PlanTransactionInfo): Cancela
     // Check for LX order step
     // These steps have routing: DUTCH_V2, DUTCH_V3, DUTCH_LIMIT, or PRIORITY
     // For LX steps, `step.hash` contains the orderId (not a tx hash)
-    if (isLxSwap(step)) {
+    if (isLX(step)) {
       return {
         step,
         stepIndex: i,
@@ -119,11 +119,11 @@ export function useIsCancelable(tx: TransactionDetails): boolean {
   // Non-plan logic
   const isSentBridge = isBridge(tx) && tx.sendConfirmed
   const isPending = tx.status === TransactionStatus.Pending
-  const wasSubmitted = isLxSwap(tx) || isChained(tx) || Object.keys(tx.options.request).length > 0
+  const wasSubmitted = isLX(tx) || isChained(tx) || Object.keys(tx.options.request).length > 0
 
   // Non-native connectors can only cancel LX orders
   if (!isNativeAccess) {
-    return isLxSwap(tx) && isPending && hasDelayPassed
+    return isLX(tx) && isPending && hasDelayPassed
   }
 
   return !isSentBridge && isPending && wasSubmitted && hasDelayPassed

@@ -26,7 +26,7 @@ import { useUniversalRouterSwapCallback } from '~/hooks/useUniversalRouter'
 import { useMultichainContext } from '~/state/multichain/useMultichainContext'
 import type { InterfaceTrade } from '~/state/routing/types'
 import { TradeFillType } from '~/state/routing/types'
-import { isClassicTrade, isLimitTrade, isLxSwapTrade } from '~/state/routing/utils'
+import { isClassicTrade, isLimitTrade, isLXTrade } from '~/state/routing/utils'
 import { useTransaction, useTransactionAdder } from '~/state/transactions/hooks'
 import type { TransactionInfo } from '~/state/transactions/types'
 
@@ -69,7 +69,7 @@ export function useSwapCallback({
   const { chainId: swapChainId } = useMultichainContext()
 
   const dexSwapCallback = useDEXSwapCallback({
-    trade: isLxSwapTrade(trade) ? trade : undefined,
+    trade: isLXTrade(trade) ? trade : undefined,
     allowedSlippage,
     fiatValues,
   })
@@ -85,7 +85,7 @@ export function useSwapCallback({
   })
 
   const selectChain = useSelectChain()
-  const swapCallback = isLxSwapTrade(trade) ? dexSwapCallback : universalRouterSwapCallback
+  const swapCallback = isLXTrade(trade) ? dexSwapCallback : universalRouterSwapCallback
 
   return useCallback(async () => {
     if (!trade) {
@@ -108,7 +108,7 @@ export function useSwapCallback({
       type: TransactionType.Swap,
       inputCurrencyId: currencyId(trade.inputAmount.currency),
       outputCurrencyId: currencyId(trade.outputAmount.currency),
-      isLxSwapOrder: result.type === TradeFillType.DEX || result.type === TradeFillType.DEXv2,
+      isLXOrder: result.type === TradeFillType.DEX || result.type === TradeFillType.DEXv2,
       ...(trade.tradeType === TradeType.EXACT_INPUT
         ? {
             tradeType: TradeType.EXACT_INPUT,

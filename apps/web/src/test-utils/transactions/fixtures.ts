@@ -19,7 +19,7 @@ export function createMockDEXOrder(overrides?: Partial<DEXOrderDetails>): DEXOrd
     orderHash: '0xdefault-order-hash',
     status: TransactionStatus.Pending,
     typeInfo: {
-      isLxSwapOrder: true,
+      isLXOrder: true,
       type: TransactionType.Swap,
       tradeType: TradeType.EXACT_INPUT,
       inputCurrencyId: 'DAI',

@@ -1,6 +1,6 @@
 import { Flex, Text } from 'ui/src'
 import { Gas } from 'ui/src/components/icons/Gas'
-import { LxSwapFee } from 'lx/src/components/gas/NetworkFee'
+import { LXFee } from 'lx/src/components/gas/NetworkFee'
 import { NetworkFeeWarning } from 'lx/src/components/gas/NetworkFeeWarning'
 import type { GasInfo } from 'lx/src/features/transactions/swap/form/SwapFormScreen/SwapFormScreenDetails/SwapFormScreenFooter/GasAndWarningRows/types'
 import { TestID } from 'lx/src/test/fixtures/testIDs'
@@ -13,7 +13,7 @@ function NetworkFeeWarningContent({ gasInfo }: { gasInfo?: GasInfo }): JSX.Eleme
   }
 
   const color = gasInfo.isHighRelativeToValue && !isWebApp ? '$statusCritical' : '$neutral2' // Avoid high gas UI on interface
-  const lxSwapSavings = gasInfo.lxSwapGasFeeInfo?.preSavingsGasFeeFormatted
+  const lxOrderSavings = gasInfo.lxOrderGasFeeInfo?.preSavingsGasFeeFormatted
   const isGasFeeFree = gasInfo.gasFee.value !== undefined && isZero(gasInfo.gasFee.value)
 
   return dexSavings ? (

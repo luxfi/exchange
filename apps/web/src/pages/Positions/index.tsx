@@ -17,7 +17,7 @@ import { useGetPositionsInfiniteQuery } from '@l.x/lx/src/data/rest/getPositions
 import { useEnabledChains } from '@l.x/lx/src/features/chains/hooks/useEnabledChains'
 import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
-import { InterfacePageName, LxEventName } from '@l.x/lx/src/features/telemetry/constants'
+import { InterfacePageName, LXEventName } from '@l.x/lx/src/features/telemetry/constants'
 import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
 import Trace from '@l.x/lx/src/features/telemetry/Trace'
 import { useIsMissingPlatformWallet } from '@l.x/lx/src/features/transactions/swap/components/SwapFormButton/hooks/useIsMissingPlatformWallet'
@@ -460,7 +460,7 @@ export default function Pool() {
             <LpIncentiveRewardsCard
               walletAddress={account.address}
               onCollectRewards={() => {
-                sendAnalyticsEvent(LxEventName.LpIncentiveCollectRewardsButtonClicked)
+                sendAnalyticsEvent(LXEventName.LpIncentiveCollectRewardsButtonClicked)
                 openModal()
               }}
               setTokenRewards={setTokenRewards}
@@ -597,7 +597,7 @@ export default function Pool() {
           isOpen={isModalOpen}
           onClose={() => closeModal()}
           onSuccess={() => {
-            sendAnalyticsEvent(LxEventName.LpIncentiveCollectRewardsSuccess, {
+            sendAnalyticsEvent(LXEventName.LpIncentiveCollectRewardsSuccess, {
               token_rewards: tokenRewards,
             })
             onTransactionSuccess()

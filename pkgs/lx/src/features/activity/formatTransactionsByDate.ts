@@ -1,6 +1,6 @@
 import dayjs from 'dayjs'
 import { FORMAT_DATE_MONTH, FORMAT_DATE_MONTH_YEAR, LocalizedDayjs } from 'lx/src/features/language/localizedDayjs'
-import { isChained, isLxSwap } from 'lx/src/features/transactions/swap/utils/routing'
+import { isChained, isLX } from 'lx/src/features/transactions/swap/utils/routing'
 import { TransactionDetails, TransactionStatus } from 'lx/src/features/transactions/types/transactionDetails'
 
 export interface AllFormattedTransactions {
@@ -49,7 +49,7 @@ export function formatTransactionsByDate(
 
   const pendingSorted = pending.sort((a, b) => {
     // If either transaction lacks a traditional nonce (LX/Chained), sort by timestamp
-    if (isChained(a) || isChained(b) || isLxSwap(a) || isLxSwap(b)) {
+    if (isChained(a) || isChained(b) || isLX(a) || isLX(b)) {
       return getTime(b) - getTime(a)
     }
 

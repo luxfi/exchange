@@ -10,7 +10,7 @@ import {
   type TransactionDetails,
   TransactionStatus,
 } from 'lx/src/features/transactions/types/transactionDetails'
-import type { LxState } from 'lx/src/state/lxReducer'
+import type { LXState } from 'lx/src/state/lxReducer'
 import { logger } from 'utilities/src/logger/logger'
 import type { TransactionRepository } from '@luxfi/wallet/src/features/transactions/executeTransaction/services/TransactionRepository/transactionRepository'
 import { RunSagaEffect } from '@luxfi/wallet/src/state/createSagaEffectRunner'
@@ -113,7 +113,7 @@ function createSagaTransactionRepository(ctx: TransactionRepositoryReduxContext)
 
   const getPendingPrivateTransactionCount: SagaTransactionRepository['getPendingPrivateTransactionCount'] = (input) => {
     // Return a select effect that will get and filter transactions
-    return select((state: LxState) => {
+    return select((state: LXState) => {
       const pendingTransactions = selectAddressTransactions(state, { evmAddress: input.address, svmAddress: null })
 
       if (!pendingTransactions) {
@@ -136,7 +136,7 @@ function createSagaTransactionRepository(ctx: TransactionRepositoryReduxContext)
 
   const getTransactionsByAddress: SagaTransactionRepository['getTransactionsByAddress'] = (input) => {
     // Return a select effect
-    return select((state: LxState) => {
+    return select((state: LXState) => {
       const transactions = selectAddressTransactions(state, { evmAddress: input.address, svmAddress: null })
 
       if (!transactions) {

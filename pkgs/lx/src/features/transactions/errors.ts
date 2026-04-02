@@ -261,18 +261,18 @@ function getStepSpecificErrorContent(
       }
     }
     case TransactionStepType.LXSignature:
-    case TransactionStepType.LxSwapPlanSignature:
+    case TransactionStepType.LXPlanSignature:
       if (error.isBackendRejection) {
         return {
           title: t('common.swap.failed'),
-          message: t('swap.fail.lxSwap'),
-          supportArticleURL: lxUrls.helpArticleUrls.lxSwapFailure,
+          message: t('swap.fail.lxOrder'),
+          supportArticleURL: lxUrls.helpArticleUrls.lxOrderFailure,
         }
       }
       return {
         title: t('common.swap.failed'),
         message: t('swap.fail.message'),
-        supportArticleURL: lxUrls.helpArticleUrls.lxSwapFailure,
+        supportArticleURL: lxUrls.helpArticleUrls.lxOrderFailure,
       }
     case TransactionStepType.Permit2Signature:
       return {

@@ -11,7 +11,7 @@ import { mockPermit } from 'lx/src/test/fixtures/permit'
 import {
   createMockCurrencyAmount,
   createMockTradeWithStatus,
-  createMockLxSwapTrade,
+  createMockLXTrade,
 } from 'lx/src/test/fixtures/transactions/swap'
 
 // Use vi.hoisted to create a mutable mock state that can be changed between tests
@@ -50,7 +50,7 @@ describe('Swap', () => {
     createMockCurrencyAmount(WBTC, '1000000000000000000'),
   )
 
-  const mockLxSwapTrade = createMockLxSwapTrade(USDC, WBTC)
+  const mockLXTrade = createMockLXTrade(USDC, WBTC)
 
   const baseSwapTxContext = {
     approveTxRequest: undefined,
@@ -171,7 +171,7 @@ describe('Swap', () => {
     it('should return steps for lx trade', () => {
       const swapTxContext: LXSwapTxAndGasInfo = {
         ...baseSwapTxContext,
-        trade: mockLxSwapTrade,
+        trade: mockLXTrade,
         routing: TradingApi.Routing.DUTCH_V2,
         gasFeeBreakdown: {
           approvalCost: '1000000000000000000',
@@ -186,7 +186,7 @@ describe('Swap', () => {
           ...swapTxContext.permit?.typedData,
           type: TransactionStepType.LXSignature,
           quote: swapTxContext.trade.quote.quote,
-          deadline: mockLxSwapTrade.quote.quote.orderInfo.deadline,
+          deadline: mockLXTrade.quote.quote.orderInfo.deadline,
         },
       ])
     })
@@ -194,7 +194,7 @@ describe('Swap', () => {
     it('should return steps for lx trade with revocation and approval required', () => {
       const swapTxContext: LXSwapTxAndGasInfo = {
         ...baseSwapTxContext,
-        trade: mockLxSwapTrade,
+        trade: mockLXTrade,
         routing: TradingApi.Routing.DUTCH_V2,
         approveTxRequest: mockApproveRequest,
         revocationTxRequest: mockRevokeRequest,
@@ -216,7 +216,7 @@ describe('Swap', () => {
           type: TransactionStepType.TokenRevocationTransaction,
         },
         {
-          amount: mockLxSwapTrade.inputAmount.quotient.toString(),
+          amount: mockLXTrade.inputAmount.quotient.toString(),
           spender: '0x000000000022d473030f116ddee9f6b43ac78ba3',
           txRequest: swapTxContext.approveTxRequest,
           chainId: USDC.chainId,
@@ -227,7 +227,7 @@ describe('Swap', () => {
           ...swapTxContext.permit?.typedData,
           type: TransactionStepType.LXSignature,
           quote: swapTxContext.trade.quote.quote,
-          deadline: mockLxSwapTrade.quote.quote.orderInfo.deadline,
+          deadline: mockLXTrade.quote.quote.orderInfo.deadline,
         },
       ])
     })
@@ -235,7 +235,7 @@ describe('Swap', () => {
     it('should return steps for lx trade with approval required', () => {
       const swapTxContext: LXSwapTxAndGasInfo = {
         ...baseSwapTxContext,
-        trade: mockLxSwapTrade,
+        trade: mockLXTrade,
         routing: TradingApi.Routing.DUTCH_V2,
         approveTxRequest: mockApproveRequest,
         gasFeeBreakdown: {
@@ -248,7 +248,7 @@ describe('Swap', () => {
 
       expect(generateSwapTransactionSteps(swapTxContext)).toEqual([
         {
-          amount: mockLxSwapTrade.inputAmount.quotient.toString(),
+          amount: mockLXTrade.inputAmount.quotient.toString(),
           spender: '0x000000000022d473030f116ddee9f6b43ac78ba3',
           txRequest: swapTxContext.approveTxRequest,
           chainId: USDC.chainId,
@@ -259,7 +259,7 @@ describe('Swap', () => {
           ...swapTxContext.permit?.typedData,
           type: TransactionStepType.LXSignature,
           quote: swapTxContext.trade.quote.quote,
-          deadline: mockLxSwapTrade.quote.quote.orderInfo.deadline,
+          deadline: mockLXTrade.quote.quote.orderInfo.deadline,
         },
       ])
     })

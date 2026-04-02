@@ -10,12 +10,12 @@ import {
   createSessionRepository,
   createSessionService,
   createSessionStorage,
-  createLxIdentifierService,
+  createLXIdentifierService,
   type DeviceIdService,
   type SessionInitializationService,
   type SessionService,
   type SessionStorage,
-  type LxIdentifierService,
+  type LXIdentifierService,
 } from '@l.x/sessions'
 import React from 'react'
 import { sleep } from 'utilities/src/time/timing'
@@ -39,7 +39,7 @@ describe('ApiInit Integration', () => {
   }
   let sessionStorage: SessionStorage
   let deviceIdService: DeviceIdService
-  let lxIdentifierService: LxIdentifierService
+  let lxIdentifierService: LXIdentifierService
   let sessionService: SessionService
   let initService: SessionInitializationService
   let isSessionServiceEnabled: boolean
@@ -89,12 +89,12 @@ describe('ApiInit Integration', () => {
       },
     })
 
-    lxIdentifierService = createLxIdentifierService({
-      getLxIdentifier: async () => mockStorage.get('lxIdentifier') || null,
-      setLxIdentifier: async (identifier) => {
+    lxIdentifierService = createLXIdentifierService({
+      getLXIdentifier: async () => mockStorage.get('lxIdentifier') || null,
+      setLXIdentifier: async (identifier) => {
         mockStorage.set('lxIdentifier', identifier)
       },
-      removeLxIdentifier: async () => {
+      removeLXIdentifier: async () => {
         mockStorage.delete('lxIdentifier')
       },
     })

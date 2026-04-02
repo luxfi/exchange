@@ -11,6 +11,9 @@ export declare const LUX_MAINNET_CONTRACTS: {
     readonly LETH: Address;
     readonly LBTC: Address;
     readonly LUSD: Address;
+    readonly LSOL: Address;
+    readonly LTON: Address;
+    readonly LAVAX: Address;
     readonly V2_FACTORY: Address;
     readonly V2_ROUTER: Address;
     readonly V3_FACTORY: Address;
@@ -18,33 +21,22 @@ export declare const LUX_MAINNET_CONTRACTS: {
     readonly V3_SWAP_ROUTER_02: Address;
     readonly V3_QUOTER: Address;
     readonly V3_QUOTER_V2: Address;
-    readonly V3_TICK_LENS: Address;
     readonly V3_NFT_POSITION_MANAGER: Address;
-    readonly V3_NFT_DESCRIPTOR: Address;
 };
 /**
  * Contract addresses for Lux Testnet (96368)
  */
 export declare const LUX_TESTNET_CONTRACTS: {
     readonly WLUX: Address;
-    readonly WETH: Address;
     readonly MULTICALL: Address;
     readonly LETH: Address;
     readonly LBTC: Address;
-    readonly LUSD: Address;
+    readonly LUSDC: Address;
     readonly V2_FACTORY: Address;
     readonly V2_ROUTER: Address;
-    readonly V3_FACTORY: Address;
-    readonly V3_SWAP_ROUTER: Address;
-    readonly V3_SWAP_ROUTER_02: Address;
-    readonly V3_QUOTER: Address;
-    readonly V3_QUOTER_V2: Address;
-    readonly V3_TICK_LENS: Address;
-    readonly V3_NFT_POSITION_MANAGER: Address;
-    readonly V3_NFT_DESCRIPTOR: Address;
 };
 /**
- * DEX Precompile addresses (native AMM - Uniswap v4 style singleton PoolManager)
+ * DEX Precompile addresses (native AMM - Lux v4 style singleton PoolManager)
  * These provide sub-microsecond execution via native Go implementation
  *
  * Address format: 0x0000...00LPNUMBER (addresses end with LP number)
@@ -88,9 +80,10 @@ export declare const LUX_DEV_CONTRACTS: {
     readonly STAKED_LUX: Address;
 };
 /**
- * Get contracts for a specific chain
+ * Contract addresses for Zoo Mainnet (200200) — deployed 2026-03-04
+ * Deployer: 0x9011E888251AB053B7bD1cdB598Db4f9DEd94714
  */
-export declare function getContracts(chainId: number): {
+export declare const ZOO_MAINNET_CONTRACTS: {
     readonly WLUX: Address;
     readonly MULTICALL: Address;
     readonly LETH: Address;
@@ -98,14 +91,62 @@ export declare function getContracts(chainId: number): {
     readonly LUSD: Address;
     readonly V2_FACTORY: Address;
     readonly V2_ROUTER: Address;
-    readonly V3_FACTORY: Address;
-    readonly V3_SWAP_ROUTER: Address;
-    readonly V3_SWAP_ROUTER_02: Address;
-    readonly V3_QUOTER: Address;
-    readonly V3_QUOTER_V2: Address;
-    readonly V3_TICK_LENS: Address;
-    readonly V3_NFT_POSITION_MANAGER: Address;
-    readonly V3_NFT_DESCRIPTOR: Address;
+};
+/**
+ * Contract addresses for Hanzo Mainnet (36963) — deployed 2026-03-04
+ */
+export declare const HANZO_MAINNET_CONTRACTS: {
+    readonly WLUX: Address;
+    readonly MULTICALL: Address;
+    readonly LETH: Address;
+    readonly LBTC: Address;
+    readonly LUSD: Address;
+    readonly V2_FACTORY: Address;
+    readonly V2_ROUTER: Address;
+};
+/**
+ * Contract addresses for SPC Mainnet (36911) — deployed 2026-03-04
+ */
+export declare const SPC_MAINNET_CONTRACTS: {
+    readonly WLUX: Address;
+    readonly MULTICALL: Address;
+    readonly LETH: Address;
+    readonly LBTC: Address;
+    readonly LUSD: Address;
+    readonly V2_FACTORY: Address;
+    readonly V2_ROUTER: Address;
+};
+/**
+ * Contract addresses for Pars Mainnet (494949) — deployed 2026-03-04
+ */
+export declare const PARS_MAINNET_CONTRACTS: {
+    readonly WLUX: Address;
+    readonly MULTICALL: Address;
+    readonly LETH: Address;
+    readonly LBTC: Address;
+    readonly LUSD: Address;
+    readonly V2_FACTORY: Address;
+    readonly V2_ROUTER: Address;
+};
+/**
+ * Get contracts for a specific chain
+ */
+export declare function getContracts(chainId: number): {
+    readonly WLUX: Address;
+    readonly MULTICALL: Address;
+    readonly LETH: Address;
+    readonly LBTC: Address;
+    readonly LUSDC: Address;
+    readonly V2_FACTORY: Address;
+    readonly V2_ROUTER: Address;
+} | {
+    readonly WLUX: Address;
+    readonly MULTICALL: Address;
+    readonly LETH: Address;
+    readonly LBTC: Address;
+    readonly LUSD: Address;
+    readonly V2_FACTORY: Address;
+    readonly V2_ROUTER: Address;
 };
 export type ContractAddresses = typeof LUX_MAINNET_CONTRACTS;
 //# sourceMappingURL=addresses.d.ts.map

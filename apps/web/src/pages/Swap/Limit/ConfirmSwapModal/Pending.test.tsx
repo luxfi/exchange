@@ -68,7 +68,7 @@ const filledOrderDetails: DEXOrderDetails = {
   orderHash: '0x1234',
   status: TransactionStatus.Success,
   typeInfo: {
-    isLxSwapOrder: true,
+    isLXOrder: true,
     type: TransactionType.Swap,
     tradeType: 0,
     inputCurrencyId: currencyId(DAI),

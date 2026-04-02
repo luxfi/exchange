@@ -11,7 +11,7 @@ export const BASE_LX_HEADERS = {
   ...(isMobileApp ? { Origin: lxUrls.apiOrigin } : {}),
 }
 
-export function createLxFetchClient({
+export function createLXFetchClient({
   baseUrl,
   includeBaseLxHeaders = true,
   additionalHeaders = {},

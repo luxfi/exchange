@@ -10,7 +10,7 @@ export const StatsigCustomIdKeys = {
   /** Wallet address for the currently active account */
   Address: 'address',
   /** Server-assigned identifier from the sessions service */
-  LxIdentifier: 'lx_identifier',
+  LXIdentifier: 'lx_identifier',
 } as const
 
 interface UseStatsigUserIdentifiersParams {
@@ -55,7 +55,7 @@ export function useSyncStatsigUserIdentifiers({ address, lxIdentifier }: UseStat
           ...currentUser.customIDs,
           // Only update each identifier if available (preserves existing values)
           ...(address ? { [StatsigCustomIdKeys.Address]: address } : {}),
-          ...(lxIdentifier ? { [StatsigCustomIdKeys.LxIdentifier]: lxIdentifier } : {}),
+          ...(lxIdentifier ? { [StatsigCustomIdKeys.LXIdentifier]: lxIdentifier } : {}),
         },
       }
 

@@ -8,7 +8,7 @@ import {
   renderSnowflakesNative,
   SnowflakeContainer,
 } from 'lx/src/components/banners/shared/SharedSnowflakeComponents'
-import { LxWrapped2025BannerProps } from 'lx/src/components/banners/LxWrapped2025Banner/types'
+import { LXWrapped2025BannerProps } from 'lx/src/components/banners/LXWrapped2025Banner/types'
 import { useSnowflakeAnimation } from 'lx/src/hooks/useSnowflakeAnimation'
 
 const BannerWrapper = styled(Flex, {
@@ -20,11 +20,11 @@ const BannerWrapper = styled(Flex, {
   zIndex: '$sticky',
 })
 
-export function LxWrapped2025Banner({
+export function LXWrapped2025Banner({
   handleDismiss,
   handlePress,
   bannerHeight = 116,
-}: LxWrapped2025BannerProps): JSX.Element {
+}: LXWrapped2025BannerProps): JSX.Element {
   const { t } = useTranslation()
   const { snowflakes, removeSnowflake } = useSnowflakeAnimation({})
   const darkColors = useSporeColorsForTheme('dark')

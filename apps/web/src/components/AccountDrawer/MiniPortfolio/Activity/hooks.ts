@@ -8,14 +8,14 @@ import { isL2ChainId } from '@l.x/lx/src/features/chains/utils'
 import { CancellationGasFeeDetails } from '@l.x/lx/src/features/gas/hooks'
 import { useCancellationGasFeeInfo } from '@l.x/lx/src/features/gas/hooks/useCancellationGasFeeInfo'
 import { addTransaction } from '@l.x/lx/src/features/transactions/slice'
-import { isLxSwap } from '@l.x/lx/src/features/transactions/swap/utils/routing'
+import { isLX } from '@l.x/lx/src/features/transactions/swap/utils/routing'
 import {
   TransactionDetails,
   TransactionStatus,
   TransactionType,
   DEXOrderDetails,
 } from '@l.x/lx/src/features/transactions/types/transactionDetails'
-import { isLimitOrder, isLxSwapOrderPending } from '@l.x/lx/src/features/transactions/utils/dexUtils'
+import { isLimitOrder, isLXOrderPending } from '@l.x/lx/src/features/transactions/utils/dexUtils'
 import { usePendingTransactions, usePendingDEXOrders } from '~/state/transactions/hooks'
 import { isExistingTransaction } from '~/state/transactions/utils'
 
@@ -31,7 +31,7 @@ export function useOpenLimitOrders(account: string): { openLimitOrders: DEXOrder
 
     limitOrders.forEach((order) => {
       if (
-        isLxSwapOrderPending(order) &&
+        isLXOrderPending(order) &&
         !isExistingTransaction({ from: order.from, chainId: order.chainId, id: order.id })
       ) {
         dispatch(addTransaction(order))
@@ -41,7 +41,7 @@ export function useOpenLimitOrders(account: string): { openLimitOrders: DEXOrder
 
   const merged = useMergeLocalAndRemoteTransactions({ evmAddress: account, remoteTransactions: limitOrders })
   const openLimitOrders = useMemo(
-    () => (merged ?? []).filter((tx): tx is DEXOrderDetails => isLimitOrder(tx) && isLxSwapOrderPending(tx)),
+    () => (merged ?? []).filter((tx): tx is DEXOrderDetails => isLimitOrder(tx) && isLXOrderPending(tx)),
     [merged],
   )
   return { openLimitOrders, loading }
@@ -53,7 +53,7 @@ export function usePendingActivity() {
 
   // Filter out DEX orders from pendingTransactions to avoid double-counting
   // DEX orders are handled separately via pendingOrders
-  const pendingTransactions = allPendingTransactions.filter((tx) => !isLxSwap(tx))
+  const pendingTransactions = allPendingTransactions.filter((tx) => !isLX(tx))
   // Pending limit orders shown in the limit sidebar
   const pendingOrdersWithoutLimits = pendingOrders.filter((order) => order.routing !== TradingApi.Routing.DUTCH_LIMIT)
 

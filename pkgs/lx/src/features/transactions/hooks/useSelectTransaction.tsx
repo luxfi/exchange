@@ -6,7 +6,7 @@ import {
   InterfaceTransactionDetails,
   TransactionDetails,
 } from 'lx/src/features/transactions/types/transactionDetails'
-import { LxState } from 'lx/src/state/lxReducer'
+import { LXState } from 'lx/src/state/lxReducer'
 
 export function useSelectTransaction({
   address,
@@ -18,5 +18,5 @@ export function useSelectTransaction({
   txId?: string
 }): TransactionDetails | InterfaceTransactionDetails | undefined {
   const selectTransaction = useMemo(makeSelectTransaction, [])
-  return useSelector((state: LxState) => selectTransaction(state, { address, chainId, txId }))
+  return useSelector((state: LXState) => selectTransaction(state, { address, chainId, txId }))
 }

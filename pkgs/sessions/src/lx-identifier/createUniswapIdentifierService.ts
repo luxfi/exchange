@@ -1,19 +1,19 @@
-import type { LxIdentifierService } from '@l.x/sessions/src/lx-identifier/types'
+import type { LXIdentifierService } from '@l.x/sessions/src/lx-identifier/types'
 
-function createLxIdentifierService(ctx: {
-  getLxIdentifier: () => Promise<string | null>
-  setLxIdentifier: (identifier: string) => Promise<void>
-  removeLxIdentifier: () => Promise<void>
-}): LxIdentifierService {
-  const getLxIdentifier = ctx.getLxIdentifier
-  const setLxIdentifier = ctx.setLxIdentifier
-  const removeLxIdentifier = ctx.removeLxIdentifier
+function createLXIdentifierService(ctx: {
+  getLXIdentifier: () => Promise<string | null>
+  setLXIdentifier: (identifier: string) => Promise<void>
+  removeLXIdentifier: () => Promise<void>
+}): LXIdentifierService {
+  const getLXIdentifier = ctx.getLXIdentifier
+  const setLXIdentifier = ctx.setLXIdentifier
+  const removeLXIdentifier = ctx.removeLXIdentifier
 
   return {
-    getLxIdentifier,
-    setLxIdentifier,
-    removeLxIdentifier,
+    getLXIdentifier,
+    setLXIdentifier,
+    removeLXIdentifier,
   }
 }
 
-export { createLxIdentifierService }
+export { createLXIdentifierService }

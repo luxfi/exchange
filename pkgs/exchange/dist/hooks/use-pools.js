@@ -2,13 +2,15 @@
 import { useQuery } from '@tanstack/react-query';
 import { usePublicClient } from 'wagmi';
 import { getContracts } from '../contracts';
-import { UNISWAP_V3_FACTORY_ABI, UNISWAP_V3_POOL_ABI } from '../contracts/abis';
+import { LUX_V3_FACTORY_ABI, LUX_V3_POOL_ABI } from '../contracts/abis';
+import { LUX_MAINNET_CONTRACTS } from '../contracts/addresses';
 /**
  * Hook to get pool information
  */
 export function usePool(token0, token1, fee, chainId) {
     const publicClient = usePublicClient({ chainId });
     const contracts = getContracts(chainId);
+    const v3Factory = 'V3_FACTORY' in contracts ? contracts.V3_FACTORY : LUX_MAINNET_CONTRACTS.V3_FACTORY;
     return useQuery({
         queryKey: ['pool', token0, token1, fee, chainId],
         queryFn: async () => {
@@ -17,8 +19,8 @@ export function usePool(token0, token1, fee, chainId) {
             try {
                 // Get pool address from factory
                 const poolAddress = await publicClient.readContract({
-                    address: contracts.V3_FACTORY,
-                    abi: UNISWAP_V3_FACTORY_ABI,
+                    address: v3Factory,
+                    abi: LUX_V3_FACTORY_ABI,
                     functionName: 'getPool',
                     args: [token0, token1, fee],
                 });
@@ -29,17 +31,17 @@ export function usePool(token0, token1, fee, chainId) {
                 const [slot0, liquidity, tickSpacing] = await Promise.all([
                     publicClient.readContract({
                         address: poolAddress,
-                        abi: UNISWAP_V3_POOL_ABI,
+                        abi: LUX_V3_POOL_ABI,
                         functionName: 'slot0',
                     }),
                     publicClient.readContract({
                         address: poolAddress,
-                        abi: UNISWAP_V3_POOL_ABI,
+                        abi: LUX_V3_POOL_ABI,
                         functionName: 'liquidity',
                     }),
                     publicClient.readContract({
                         address: poolAddress,
-                        abi: UNISWAP_V3_POOL_ABI,
+                        abi: LUX_V3_POOL_ABI,
                         functionName: 'tickSpacing',
                     }),
                 ]);

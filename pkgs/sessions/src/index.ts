@@ -12,9 +12,9 @@
 export { createDeviceIdService } from '@l.x/sessions/src/device-id/createDeviceIdService'
 export type { DeviceIdService } from '@l.x/sessions/src/device-id/types'
 // Lx Identifier
-export { createLxIdentifierService } from '@l.x/sessions/src/lx-identifier/createLxIdentifierService'
+export { createLXIdentifierService } from '@l.x/sessions/src/lx-identifier/createLXIdentifierService'
 export { lxIdentifierQuery } from '@l.x/sessions/src/lx-identifier/lxIdentifierQuery'
-export type { LxIdentifierService } from '@l.x/sessions/src/lx-identifier/types'
+export type { LXIdentifierService } from '@l.x/sessions/src/lx-identifier/types'
 // Session Repository
 export { createSessionRepository } from '@l.x/sessions/src/session-repository/createSessionRepository'
 export { ChallengeRejectedError } from '@l.x/sessions/src/session-repository/errors'
@@ -129,7 +129,7 @@ export { createNoopPerformanceTracker } from '@l.x/sessions/src/performance/crea
 export {
   InMemorySessionStorage,
   InMemoryDeviceIdService,
-  InMemoryLxIdentifierService,
+  InMemoryLXIdentifierService,
 } from '@l.x/sessions/src/test-utils'
 export {
   createCookieJar,

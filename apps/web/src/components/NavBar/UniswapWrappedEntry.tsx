@@ -35,8 +35,8 @@ const snowflakeHoverKeyframes = `
   }
 `
 
-export function LxWrappedEntry() {
-  const isLxWrapped2025Enabled = useFeatureFlag(FeatureFlags.LxWrapped2025)
+export function LXWrappedEntry() {
+  const isLxWrapped2025Enabled = useFeatureFlag(FeatureFlags.LXWrapped2025)
   const isDismissed = useAppSelector(selectHasDismissedLxWrapped2025Banner)
   const { t } = useTranslation()
   const navigate = useNavigate()
@@ -54,7 +54,7 @@ export function LxWrappedEntry() {
         <style>{snowflakeHoverKeyframes}</style>
         <Tooltip placement="bottom" offset={{ mainAxis: 8 }} delay={{ open: 300 }}>
           <Tooltip.Trigger>
-            <Trace logPress element={ElementName.LxWrappedNavbarButton}>
+            <Trace logPress element={ElementName.LXWrappedNavbarButton}>
               <Text
                 className="snowflake-icon"
                 color="$neutral2"

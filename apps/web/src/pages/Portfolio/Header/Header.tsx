@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router'
 import { Flex, useMedia } from '@luxfi/ui/src'
 import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
-import { ElementName, InterfacePageName, LxEventName } from '@l.x/lx/src/features/telemetry/constants'
+import { ElementName, InterfacePageName, LXEventName } from '@l.x/lx/src/features/telemetry/constants'
 import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
 import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
 import { useEvent } from '@luxfi/utilities/src/react/hooks'
@@ -57,7 +57,7 @@ export function PortfolioHeader({ scrollY }: PortfolioHeaderProps) {
     const currentPageName = getPageNameFromTab(tab)
     const selectedChain = chainId ?? ('All' as const)
 
-    sendAnalyticsEvent(LxEventName.NetworkFilterSelected, {
+    sendAnalyticsEvent(LXEventName.NetworkFilterSelected, {
       element: ElementName.PortfolioNetworkFilter,
       page: currentPageName,
       chain: selectedChain,

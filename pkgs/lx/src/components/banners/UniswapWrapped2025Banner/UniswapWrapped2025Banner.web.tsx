@@ -10,7 +10,7 @@ import {
   renderSnowflakesWeb,
   SnowflakeContainer,
 } from 'lx/src/components/banners/shared/SharedSnowflakeComponents'
-import { LxWrapped2025BannerProps } from 'lx/src/components/banners/LxWrapped2025Banner/types'
+import { LXWrapped2025BannerProps } from 'lx/src/components/banners/LXWrapped2025Banner/types'
 import { ElementName } from 'lx/src/features/telemetry/constants'
 import Trace from 'lx/src/features/telemetry/Trace'
 import { useSnowflakeAnimation } from 'lx/src/hooks/useSnowflakeAnimation'
@@ -78,11 +78,11 @@ const RisingTextContainer = styled(Flex, {
 
 const MOUSE_WAKE_RADIUS = 120
 
-export function LxWrapped2025Banner({
+export function LXWrapped2025Banner({
   handleDismiss,
   handlePress,
   bannerHeight = 56,
-}: LxWrapped2025BannerProps): JSX.Element {
+}: LXWrapped2025BannerProps): JSX.Element {
   const { t } = useTranslation()
   const [isTextVisible, setIsTextVisible] = useState(false)
   const darkColors = useSporeColorsForTheme('dark')
@@ -112,7 +112,7 @@ export function LxWrapped2025Banner({
       onMouseLeave={mouseInteraction?.handleMouseLeave}
       onMouseMove={handleMouseMove}
     >
-      <Trace logPress element={ElementName.LxWrappedBanner}>
+      <Trace logPress element={ElementName.LXWrappedBanner}>
         <BannerWrapper height={bannerHeight} onPress={handlePress}>
           <GradientBackground />
           <GlowEffect />

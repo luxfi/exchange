@@ -1,6 +1,6 @@
 {
   "name": "@l.x/privacy",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "dependencies": {
     "fast-redact": "3.5.0"
   },

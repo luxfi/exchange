@@ -11,7 +11,7 @@ import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { useAppFiatCurrency } from '@l.x/lx/src/features/fiatCurrency/hooks'
 import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
 import { useGetPasskeyAuthStatus } from '@l.x/lx/src/features/passkey/hooks/useGetPasskeyAuthStatus'
-import { ElementName, LxEventName } from '@l.x/lx/src/features/telemetry/constants'
+import { ElementName, LXEventName } from '@l.x/lx/src/features/telemetry/constants'
 import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
 import Trace from '@l.x/lx/src/features/telemetry/Trace'
 import { useUSDCValue } from '@l.x/lx/src/features/transactions/hooks/useUSDCPriceWrapper'
@@ -118,7 +118,7 @@ export function SendReviewModalInner({ onConfirm, isConfirming }: SendModalInner
 
   const handleConfirm = () => {
     if (!hasDismissedLowNetworkTokenWarning && isMax && inputCurrency?.isNative) {
-      sendAnalyticsEvent(LxEventName.LowNetworkTokenInfoModalOpened, { location: 'send' })
+      sendAnalyticsEvent(LXEventName.LowNetworkTokenInfoModalOpened, { location: 'send' })
       handleShowMaxTransferModal()
       return
     }

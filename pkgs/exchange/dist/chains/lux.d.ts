@@ -8,7 +8,6 @@ export declare const luxMainnet: {
             readonly url: "https://explore.lux.network";
         };
     };
-    blockTime?: number | undefined | undefined;
     contracts: {
         readonly multicall3: {
             readonly address: "0xd25F88CBdAe3c2CCA3Bb75FC4E723b44C0Ea362F";
@@ -22,7 +21,6 @@ export declare const luxMainnet: {
         readonly symbol: "LUX";
         readonly decimals: 18;
     };
-    experimental_preconfirmationTime?: number | undefined | undefined;
     rpcUrls: {
         readonly default: {
             readonly http: readonly ["https://api.lux.network/rpc"];
@@ -34,18 +32,9 @@ export declare const luxMainnet: {
     sourceId?: number | undefined | undefined;
     testnet?: boolean | undefined | undefined;
     custom?: Record<string, unknown> | undefined;
-    extendSchema?: Record<string, unknown> | undefined;
     fees?: import("viem").ChainFees<undefined> | undefined;
     formatters?: undefined;
-    prepareTransactionRequest?: ((args: import("viem").PrepareTransactionRequestParameters, options: {
-        phase: "beforeFillTransaction" | "beforeFillParameters" | "afterFillParameters";
-    }) => Promise<import("viem").PrepareTransactionRequestParameters>) | [fn: ((args: import("viem").PrepareTransactionRequestParameters, options: {
-        phase: "beforeFillTransaction" | "beforeFillParameters" | "afterFillParameters";
-    }) => Promise<import("viem").PrepareTransactionRequestParameters>) | undefined, options: {
-        runAt: readonly ("beforeFillTransaction" | "beforeFillParameters" | "afterFillParameters")[];
-    }] | undefined;
     serializers?: import("viem").ChainSerializers<undefined, import("viem").TransactionSerializable> | undefined;
-    verifyHash?: ((client: import("viem").Client, parameters: import("viem").VerifyHashActionParameters) => Promise<import("viem").VerifyHashActionReturnType>) | undefined;
 };
 /**
  * Lux Testnet Chain Definition
@@ -57,7 +46,6 @@ export declare const luxTestnet: {
             readonly url: "https://explore.lux-test.network";
         };
     };
-    blockTime?: number | undefined | undefined;
     contracts: {
         readonly multicall3: {
             readonly address: "0xd25F88CBdAe3c2CCA3Bb75FC4E723b44C0Ea362F";
@@ -71,7 +59,6 @@ export declare const luxTestnet: {
         readonly symbol: "LUX";
         readonly decimals: 18;
     };
-    experimental_preconfirmationTime?: number | undefined | undefined;
     rpcUrls: {
         readonly default: {
             readonly http: readonly ["https://api.lux-test.network/rpc"];
@@ -83,18 +70,9 @@ export declare const luxTestnet: {
     sourceId?: number | undefined | undefined;
     testnet: true;
     custom?: Record<string, unknown> | undefined;
-    extendSchema?: Record<string, unknown> | undefined;
     fees?: import("viem").ChainFees<undefined> | undefined;
     formatters?: undefined;
-    prepareTransactionRequest?: ((args: import("viem").PrepareTransactionRequestParameters, options: {
-        phase: "beforeFillTransaction" | "beforeFillParameters" | "afterFillParameters";
-    }) => Promise<import("viem").PrepareTransactionRequestParameters>) | [fn: ((args: import("viem").PrepareTransactionRequestParameters, options: {
-        phase: "beforeFillTransaction" | "beforeFillParameters" | "afterFillParameters";
-    }) => Promise<import("viem").PrepareTransactionRequestParameters>) | undefined, options: {
-        runAt: readonly ("beforeFillTransaction" | "beforeFillParameters" | "afterFillParameters")[];
-    }] | undefined;
     serializers?: import("viem").ChainSerializers<undefined, import("viem").TransactionSerializable> | undefined;
-    verifyHash?: ((client: import("viem").Client, parameters: import("viem").VerifyHashActionParameters) => Promise<import("viem").VerifyHashActionReturnType>) | undefined;
 };
 /**
  * Zoo Mainnet Chain Definition
@@ -106,7 +84,6 @@ export declare const zooMainnet: {
             readonly url: "https://explore.zoo.network";
         };
     };
-    blockTime?: number | undefined | undefined;
     contracts?: {
         [x: string]: import("viem").ChainContract | {
             [sourceId: number]: import("viem").ChainContract | undefined;
@@ -114,7 +91,7 @@ export declare const zooMainnet: {
         ensRegistry?: import("viem").ChainContract | undefined;
         ensUniversalResolver?: import("viem").ChainContract | undefined;
         multicall3?: import("viem").ChainContract | undefined;
-        erc6492Verifier?: import("viem").ChainContract | undefined;
+        universalSignatureVerifier?: import("viem").ChainContract | undefined;
     } | undefined;
     ensTlds?: readonly string[] | undefined;
     id: 200200;
@@ -124,7 +101,6 @@ export declare const zooMainnet: {
         readonly symbol: "ZOO";
         readonly decimals: 18;
     };
-    experimental_preconfirmationTime?: number | undefined | undefined;
     rpcUrls: {
         readonly default: {
             readonly http: readonly ["https://api.zoo.network/rpc"];
@@ -136,18 +112,9 @@ export declare const zooMainnet: {
     sourceId?: number | undefined | undefined;
     testnet?: boolean | undefined | undefined;
     custom?: Record<string, unknown> | undefined;
-    extendSchema?: Record<string, unknown> | undefined;
     fees?: import("viem").ChainFees<undefined> | undefined;
     formatters?: undefined;
-    prepareTransactionRequest?: ((args: import("viem").PrepareTransactionRequestParameters, options: {
-        phase: "beforeFillTransaction" | "beforeFillParameters" | "afterFillParameters";
-    }) => Promise<import("viem").PrepareTransactionRequestParameters>) | [fn: ((args: import("viem").PrepareTransactionRequestParameters, options: {
-        phase: "beforeFillTransaction" | "beforeFillParameters" | "afterFillParameters";
-    }) => Promise<import("viem").PrepareTransactionRequestParameters>) | undefined, options: {
-        runAt: readonly ("beforeFillTransaction" | "beforeFillParameters" | "afterFillParameters")[];
-    }] | undefined;
     serializers?: import("viem").ChainSerializers<undefined, import("viem").TransactionSerializable> | undefined;
-    verifyHash?: ((client: import("viem").Client, parameters: import("viem").VerifyHashActionParameters) => Promise<import("viem").VerifyHashActionReturnType>) | undefined;
 };
 /**
  * Zoo Testnet Chain Definition
@@ -159,7 +126,6 @@ export declare const zooTestnet: {
             readonly url: "https://explore.zoo-test.network";
         };
     };
-    blockTime?: number | undefined | undefined;
     contracts?: {
         [x: string]: import("viem").ChainContract | {
             [sourceId: number]: import("viem").ChainContract | undefined;
@@ -167,7 +133,7 @@ export declare const zooTestnet: {
         ensRegistry?: import("viem").ChainContract | undefined;
         ensUniversalResolver?: import("viem").ChainContract | undefined;
         multicall3?: import("viem").ChainContract | undefined;
-        erc6492Verifier?: import("viem").ChainContract | undefined;
+        universalSignatureVerifier?: import("viem").ChainContract | undefined;
     } | undefined;
     ensTlds?: readonly string[] | undefined;
     id: 200201;
@@ -177,7 +143,6 @@ export declare const zooTestnet: {
         readonly symbol: "ZOO";
         readonly decimals: 18;
     };
-    experimental_preconfirmationTime?: number | undefined | undefined;
     rpcUrls: {
         readonly default: {
             readonly http: readonly ["https://api.zoo-test.network/rpc"];
@@ -189,18 +154,9 @@ export declare const zooTestnet: {
     sourceId?: number | undefined | undefined;
     testnet: true;
     custom?: Record<string, unknown> | undefined;
-    extendSchema?: Record<string, unknown> | undefined;
     fees?: import("viem").ChainFees<undefined> | undefined;
     formatters?: undefined;
-    prepareTransactionRequest?: ((args: import("viem").PrepareTransactionRequestParameters, options: {
-        phase: "beforeFillTransaction" | "beforeFillParameters" | "afterFillParameters";
-    }) => Promise<import("viem").PrepareTransactionRequestParameters>) | [fn: ((args: import("viem").PrepareTransactionRequestParameters, options: {
-        phase: "beforeFillTransaction" | "beforeFillParameters" | "afterFillParameters";
-    }) => Promise<import("viem").PrepareTransactionRequestParameters>) | undefined, options: {
-        runAt: readonly ("beforeFillTransaction" | "beforeFillParameters" | "afterFillParameters")[];
-    }] | undefined;
     serializers?: import("viem").ChainSerializers<undefined, import("viem").TransactionSerializable> | undefined;
-    verifyHash?: ((client: import("viem").Client, parameters: import("viem").VerifyHashActionParameters) => Promise<import("viem").VerifyHashActionReturnType>) | undefined;
 };
 /**
  * Dev Chain Definition (for running local node with --dev)
@@ -212,7 +168,6 @@ export declare const luxDev: {
             readonly url: "http://localhost:8545";
         };
     };
-    blockTime?: number | undefined | undefined;
     contracts?: {
         [x: string]: import("viem").ChainContract | {
             [sourceId: number]: import("viem").ChainContract | undefined;
@@ -220,7 +175,7 @@ export declare const luxDev: {
         ensRegistry?: import("viem").ChainContract | undefined;
         ensUniversalResolver?: import("viem").ChainContract | undefined;
         multicall3?: import("viem").ChainContract | undefined;
-        erc6492Verifier?: import("viem").ChainContract | undefined;
+        universalSignatureVerifier?: import("viem").ChainContract | undefined;
     } | undefined;
     ensTlds?: readonly string[] | undefined;
     id: 1337;
@@ -230,7 +185,6 @@ export declare const luxDev: {
         readonly symbol: "LUX";
         readonly decimals: 18;
     };
-    experimental_preconfirmationTime?: number | undefined | undefined;
     rpcUrls: {
         readonly default: {
             readonly http: readonly ["http://localhost:8545/ext/bc/C/rpc"];
@@ -242,18 +196,135 @@ export declare const luxDev: {
     sourceId?: number | undefined | undefined;
     testnet: false;
     custom?: Record<string, unknown> | undefined;
-    extendSchema?: Record<string, unknown> | undefined;
     fees?: import("viem").ChainFees<undefined> | undefined;
     formatters?: undefined;
-    prepareTransactionRequest?: ((args: import("viem").PrepareTransactionRequestParameters, options: {
-        phase: "beforeFillTransaction" | "beforeFillParameters" | "afterFillParameters";
-    }) => Promise<import("viem").PrepareTransactionRequestParameters>) | [fn: ((args: import("viem").PrepareTransactionRequestParameters, options: {
-        phase: "beforeFillTransaction" | "beforeFillParameters" | "afterFillParameters";
-    }) => Promise<import("viem").PrepareTransactionRequestParameters>) | undefined, options: {
-        runAt: readonly ("beforeFillTransaction" | "beforeFillParameters" | "afterFillParameters")[];
-    }] | undefined;
     serializers?: import("viem").ChainSerializers<undefined, import("viem").TransactionSerializable> | undefined;
-    verifyHash?: ((client: import("viem").Client, parameters: import("viem").VerifyHashActionParameters) => Promise<import("viem").VerifyHashActionReturnType>) | undefined;
+};
+/**
+ * Liquidity Mainnet Chain Definition (Lux L2 subnet, chain ID 0)
+ */
+export declare const liquidityMainnet: {
+    blockExplorers: {
+        readonly default: {
+            readonly name: "Liquidity Explorer";
+            readonly url: "https://explore.main.lux.network";
+        };
+    };
+    contracts?: {
+        [x: string]: import("viem").ChainContract | {
+            [sourceId: number]: import("viem").ChainContract | undefined;
+        } | undefined;
+        ensRegistry?: import("viem").ChainContract | undefined;
+        ensUniversalResolver?: import("viem").ChainContract | undefined;
+        multicall3?: import("viem").ChainContract | undefined;
+        universalSignatureVerifier?: import("viem").ChainContract | undefined;
+    } | undefined;
+    ensTlds?: readonly string[] | undefined;
+    id: 0;
+    name: "Liquidity";
+    nativeCurrency: {
+        readonly name: "LUX";
+        readonly symbol: "LUX";
+        readonly decimals: 18;
+    };
+    rpcUrls: {
+        readonly default: {
+            readonly http: readonly ["https://rpc.main.lux.network/rpc"];
+        };
+        readonly public: {
+            readonly http: readonly ["https://rpc.main.lux.network/rpc"];
+        };
+    };
+    sourceId?: number | undefined | undefined;
+    testnet?: boolean | undefined | undefined;
+    custom?: Record<string, unknown> | undefined;
+    fees?: import("viem").ChainFees<undefined> | undefined;
+    formatters?: undefined;
+    serializers?: import("viem").ChainSerializers<undefined, import("viem").TransactionSerializable> | undefined;
+};
+/**
+ * Liquidity Testnet Chain Definition
+ */
+export declare const liquidityTestnet: {
+    blockExplorers: {
+        readonly default: {
+            readonly name: "Liquidity Testnet Explorer";
+            readonly url: "https://explore.test.lux.network";
+        };
+    };
+    contracts?: {
+        [x: string]: import("viem").ChainContract | {
+            [sourceId: number]: import("viem").ChainContract | undefined;
+        } | undefined;
+        ensRegistry?: import("viem").ChainContract | undefined;
+        ensUniversalResolver?: import("viem").ChainContract | undefined;
+        multicall3?: import("viem").ChainContract | undefined;
+        universalSignatureVerifier?: import("viem").ChainContract | undefined;
+    } | undefined;
+    ensTlds?: readonly string[] | undefined;
+    id: 0;
+    name: "Liquidity Testnet";
+    nativeCurrency: {
+        readonly name: "LUX";
+        readonly symbol: "LUX";
+        readonly decimals: 18;
+    };
+    rpcUrls: {
+        readonly default: {
+            readonly http: readonly ["https://rpc.test.lux.network/rpc"];
+        };
+        readonly public: {
+            readonly http: readonly ["https://rpc.test.lux.network/rpc"];
+        };
+    };
+    sourceId?: number | undefined | undefined;
+    testnet: true;
+    custom?: Record<string, unknown> | undefined;
+    fees?: import("viem").ChainFees<undefined> | undefined;
+    formatters?: undefined;
+    serializers?: import("viem").ChainSerializers<undefined, import("viem").TransactionSerializable> | undefined;
+};
+/**
+ * Liquidity Devnet Chain Definition
+ */
+export declare const liquidityDevnet: {
+    blockExplorers: {
+        readonly default: {
+            readonly name: "Liquidity Devnet Explorer";
+            readonly url: "https://explore.dev.lux.network";
+        };
+    };
+    contracts?: {
+        [x: string]: import("viem").ChainContract | {
+            [sourceId: number]: import("viem").ChainContract | undefined;
+        } | undefined;
+        ensRegistry?: import("viem").ChainContract | undefined;
+        ensUniversalResolver?: import("viem").ChainContract | undefined;
+        multicall3?: import("viem").ChainContract | undefined;
+        universalSignatureVerifier?: import("viem").ChainContract | undefined;
+    } | undefined;
+    ensTlds?: readonly string[] | undefined;
+    id: 0;
+    name: "Liquidity Devnet";
+    nativeCurrency: {
+        readonly name: "LUX";
+        readonly symbol: "LUX";
+        readonly decimals: 18;
+    };
+    rpcUrls: {
+        readonly default: {
+            readonly http: readonly ["https://rpc.dev.lux.network/rpc"];
+        };
+        readonly public: {
+            readonly http: readonly ["https://rpc.dev.lux.network/rpc"];
+        };
+    };
+    sourceId?: number | undefined | undefined;
+    testnet: true;
+    custom?: Record<string, unknown> | undefined;
+    fees?: import("viem").ChainFees<undefined> | undefined;
+    formatters?: undefined;
+    serializers?: import("viem").ChainSerializers<undefined, import("viem").TransactionSerializable> | undefined;
 };
 /**
  * Chain IDs
@@ -263,6 +334,9 @@ export declare const LUX_TESTNET_ID = 96368;
 export declare const ZOO_MAINNET_ID = 200200;
 export declare const ZOO_TESTNET_ID = 200201;
 export declare const LUX_DEV_ID = 1337;
+export declare const LIQUIDITY_MAINNET_ID = 0;
+export declare const LIQUIDITY_TESTNET_ID = 0;
+export declare const LIQUIDITY_DEVNET_ID = 0;
 /**
  * All supported chains
  */
@@ -273,7 +347,6 @@ export declare const supportedChains: readonly [{
             readonly url: "https://explore.lux.network";
         };
     };
-    blockTime?: number | undefined | undefined;
     contracts: {
         readonly multicall3: {
             readonly address: "0xd25F88CBdAe3c2CCA3Bb75FC4E723b44C0Ea362F";
@@ -287,7 +360,6 @@ export declare const supportedChains: readonly [{
         readonly symbol: "LUX";
         readonly decimals: 18;
     };
-    experimental_preconfirmationTime?: number | undefined | undefined;
     rpcUrls: {
         readonly default: {
             readonly http: readonly ["https://api.lux.network/rpc"];
@@ -299,18 +371,9 @@ export declare const supportedChains: readonly [{
     sourceId?: number | undefined | undefined;
     testnet?: boolean | undefined | undefined;
     custom?: Record<string, unknown> | undefined;
-    extendSchema?: Record<string, unknown> | undefined;
     fees?: import("viem").ChainFees<undefined> | undefined;
     formatters?: undefined;
-    prepareTransactionRequest?: ((args: import("viem").PrepareTransactionRequestParameters, options: {
-        phase: "beforeFillTransaction" | "beforeFillParameters" | "afterFillParameters";
-    }) => Promise<import("viem").PrepareTransactionRequestParameters>) | [fn: ((args: import("viem").PrepareTransactionRequestParameters, options: {
-        phase: "beforeFillTransaction" | "beforeFillParameters" | "afterFillParameters";
-    }) => Promise<import("viem").PrepareTransactionRequestParameters>) | undefined, options: {
-        runAt: readonly ("beforeFillTransaction" | "beforeFillParameters" | "afterFillParameters")[];
-    }] | undefined;
     serializers?: import("viem").ChainSerializers<undefined, import("viem").TransactionSerializable> | undefined;
-    verifyHash?: ((client: import("viem").Client, parameters: import("viem").VerifyHashActionParameters) => Promise<import("viem").VerifyHashActionReturnType>) | undefined;
 }, {
     blockExplorers: {
         readonly default: {
@@ -318,7 +381,6 @@ export declare const supportedChains: readonly [{
             readonly url: "https://explore.lux-test.network";
         };
     };
-    blockTime?: number | undefined | undefined;
     contracts: {
         readonly multicall3: {
             readonly address: "0xd25F88CBdAe3c2CCA3Bb75FC4E723b44C0Ea362F";
@@ -332,7 +394,6 @@ export declare const supportedChains: readonly [{
         readonly symbol: "LUX";
         readonly decimals: 18;
     };
-    experimental_preconfirmationTime?: number | undefined | undefined;
     rpcUrls: {
         readonly default: {
             readonly http: readonly ["https://api.lux-test.network/rpc"];
@@ -344,18 +405,9 @@ export declare const supportedChains: readonly [{
     sourceId?: number | undefined | undefined;
     testnet: true;
     custom?: Record<string, unknown> | undefined;
-    extendSchema?: Record<string, unknown> | undefined;
     fees?: import("viem").ChainFees<undefined> | undefined;
     formatters?: undefined;
-    prepareTransactionRequest?: ((args: import("viem").PrepareTransactionRequestParameters, options: {
-        phase: "beforeFillTransaction" | "beforeFillParameters" | "afterFillParameters";
-    }) => Promise<import("viem").PrepareTransactionRequestParameters>) | [fn: ((args: import("viem").PrepareTransactionRequestParameters, options: {
-        phase: "beforeFillTransaction" | "beforeFillParameters" | "afterFillParameters";
-    }) => Promise<import("viem").PrepareTransactionRequestParameters>) | undefined, options: {
-        runAt: readonly ("beforeFillTransaction" | "beforeFillParameters" | "afterFillParameters")[];
-    }] | undefined;
     serializers?: import("viem").ChainSerializers<undefined, import("viem").TransactionSerializable> | undefined;
-    verifyHash?: ((client: import("viem").Client, parameters: import("viem").VerifyHashActionParameters) => Promise<import("viem").VerifyHashActionReturnType>) | undefined;
 }, {
     blockExplorers: {
         readonly default: {
@@ -363,7 +415,6 @@ export declare const supportedChains: readonly [{
             readonly url: "https://explore.zoo.network";
         };
     };
-    blockTime?: number | undefined | undefined;
     contracts?: {
         [x: string]: import("viem").ChainContract | {
             [sourceId: number]: import("viem").ChainContract | undefined;
@@ -371,7 +422,7 @@ export declare const supportedChains: readonly [{
         ensRegistry?: import("viem").ChainContract | undefined;
         ensUniversalResolver?: import("viem").ChainContract | undefined;
         multicall3?: import("viem").ChainContract | undefined;
-        erc6492Verifier?: import("viem").ChainContract | undefined;
+        universalSignatureVerifier?: import("viem").ChainContract | undefined;
     } | undefined;
     ensTlds?: readonly string[] | undefined;
     id: 200200;
@@ -381,7 +432,6 @@ export declare const supportedChains: readonly [{
         readonly symbol: "ZOO";
         readonly decimals: 18;
     };
-    experimental_preconfirmationTime?: number | undefined | undefined;
     rpcUrls: {
         readonly default: {
             readonly http: readonly ["https://api.zoo.network/rpc"];
@@ -393,18 +443,9 @@ export declare const supportedChains: readonly [{
     sourceId?: number | undefined | undefined;
     testnet?: boolean | undefined | undefined;
     custom?: Record<string, unknown> | undefined;
-    extendSchema?: Record<string, unknown> | undefined;
     fees?: import("viem").ChainFees<undefined> | undefined;
     formatters?: undefined;
-    prepareTransactionRequest?: ((args: import("viem").PrepareTransactionRequestParameters, options: {
-        phase: "beforeFillTransaction" | "beforeFillParameters" | "afterFillParameters";
-    }) => Promise<import("viem").PrepareTransactionRequestParameters>) | [fn: ((args: import("viem").PrepareTransactionRequestParameters, options: {
-        phase: "beforeFillTransaction" | "beforeFillParameters" | "afterFillParameters";
-    }) => Promise<import("viem").PrepareTransactionRequestParameters>) | undefined, options: {
-        runAt: readonly ("beforeFillTransaction" | "beforeFillParameters" | "afterFillParameters")[];
-    }] | undefined;
     serializers?: import("viem").ChainSerializers<undefined, import("viem").TransactionSerializable> | undefined;
-    verifyHash?: ((client: import("viem").Client, parameters: import("viem").VerifyHashActionParameters) => Promise<import("viem").VerifyHashActionReturnType>) | undefined;
 }, {
     blockExplorers: {
         readonly default: {
@@ -412,7 +453,6 @@ export declare const supportedChains: readonly [{
             readonly url: "https://explore.zoo-test.network";
         };
     };
-    blockTime?: number | undefined | undefined;
     contracts?: {
         [x: string]: import("viem").ChainContract | {
             [sourceId: number]: import("viem").ChainContract | undefined;
@@ -420,7 +460,7 @@ export declare const supportedChains: readonly [{
         ensRegistry?: import("viem").ChainContract | undefined;
         ensUniversalResolver?: import("viem").ChainContract | undefined;
         multicall3?: import("viem").ChainContract | undefined;
-        erc6492Verifier?: import("viem").ChainContract | undefined;
+        universalSignatureVerifier?: import("viem").ChainContract | undefined;
     } | undefined;
     ensTlds?: readonly string[] | undefined;
     id: 200201;
@@ -430,7 +470,6 @@ export declare const supportedChains: readonly [{
         readonly symbol: "ZOO";
         readonly decimals: 18;
     };
-    experimental_preconfirmationTime?: number | undefined | undefined;
     rpcUrls: {
         readonly default: {
             readonly http: readonly ["https://api.zoo-test.network/rpc"];
@@ -442,18 +481,9 @@ export declare const supportedChains: readonly [{
     sourceId?: number | undefined | undefined;
     testnet: true;
     custom?: Record<string, unknown> | undefined;
-    extendSchema?: Record<string, unknown> | undefined;
     fees?: import("viem").ChainFees<undefined> | undefined;
     formatters?: undefined;
-    prepareTransactionRequest?: ((args: import("viem").PrepareTransactionRequestParameters, options: {
-        phase: "beforeFillTransaction" | "beforeFillParameters" | "afterFillParameters";
-    }) => Promise<import("viem").PrepareTransactionRequestParameters>) | [fn: ((args: import("viem").PrepareTransactionRequestParameters, options: {
-        phase: "beforeFillTransaction" | "beforeFillParameters" | "afterFillParameters";
-    }) => Promise<import("viem").PrepareTransactionRequestParameters>) | undefined, options: {
-        runAt: readonly ("beforeFillTransaction" | "beforeFillParameters" | "afterFillParameters")[];
-    }] | undefined;
     serializers?: import("viem").ChainSerializers<undefined, import("viem").TransactionSerializable> | undefined;
-    verifyHash?: ((client: import("viem").Client, parameters: import("viem").VerifyHashActionParameters) => Promise<import("viem").VerifyHashActionReturnType>) | undefined;
 }, {
     blockExplorers: {
         readonly default: {
@@ -461,7 +491,6 @@ export declare const supportedChains: readonly [{
             readonly url: "http://localhost:8545";
         };
     };
-    blockTime?: number | undefined | undefined;
     contracts?: {
         [x: string]: import("viem").ChainContract | {
             [sourceId: number]: import("viem").ChainContract | undefined;
@@ -469,7 +498,7 @@ export declare const supportedChains: readonly [{
         ensRegistry?: import("viem").ChainContract | undefined;
         ensUniversalResolver?: import("viem").ChainContract | undefined;
         multicall3?: import("viem").ChainContract | undefined;
-        erc6492Verifier?: import("viem").ChainContract | undefined;
+        universalSignatureVerifier?: import("viem").ChainContract | undefined;
     } | undefined;
     ensTlds?: readonly string[] | undefined;
     id: 1337;
@@ -479,7 +508,6 @@ export declare const supportedChains: readonly [{
         readonly symbol: "LUX";
         readonly decimals: 18;
     };
-    experimental_preconfirmationTime?: number | undefined | undefined;
     rpcUrls: {
         readonly default: {
             readonly http: readonly ["http://localhost:8545/ext/bc/C/rpc"];
@@ -491,18 +519,123 @@ export declare const supportedChains: readonly [{
     sourceId?: number | undefined | undefined;
     testnet: false;
     custom?: Record<string, unknown> | undefined;
-    extendSchema?: Record<string, unknown> | undefined;
     fees?: import("viem").ChainFees<undefined> | undefined;
     formatters?: undefined;
-    prepareTransactionRequest?: ((args: import("viem").PrepareTransactionRequestParameters, options: {
-        phase: "beforeFillTransaction" | "beforeFillParameters" | "afterFillParameters";
-    }) => Promise<import("viem").PrepareTransactionRequestParameters>) | [fn: ((args: import("viem").PrepareTransactionRequestParameters, options: {
-        phase: "beforeFillTransaction" | "beforeFillParameters" | "afterFillParameters";
-    }) => Promise<import("viem").PrepareTransactionRequestParameters>) | undefined, options: {
-        runAt: readonly ("beforeFillTransaction" | "beforeFillParameters" | "afterFillParameters")[];
-    }] | undefined;
     serializers?: import("viem").ChainSerializers<undefined, import("viem").TransactionSerializable> | undefined;
-    verifyHash?: ((client: import("viem").Client, parameters: import("viem").VerifyHashActionParameters) => Promise<import("viem").VerifyHashActionReturnType>) | undefined;
+}, {
+    blockExplorers: {
+        readonly default: {
+            readonly name: "Liquidity Explorer";
+            readonly url: "https://explore.main.lux.network";
+        };
+    };
+    contracts?: {
+        [x: string]: import("viem").ChainContract | {
+            [sourceId: number]: import("viem").ChainContract | undefined;
+        } | undefined;
+        ensRegistry?: import("viem").ChainContract | undefined;
+        ensUniversalResolver?: import("viem").ChainContract | undefined;
+        multicall3?: import("viem").ChainContract | undefined;
+        universalSignatureVerifier?: import("viem").ChainContract | undefined;
+    } | undefined;
+    ensTlds?: readonly string[] | undefined;
+    id: 0;
+    name: "Liquidity";
+    nativeCurrency: {
+        readonly name: "LUX";
+        readonly symbol: "LUX";
+        readonly decimals: 18;
+    };
+    rpcUrls: {
+        readonly default: {
+            readonly http: readonly ["https://rpc.main.lux.network/rpc"];
+        };
+        readonly public: {
+            readonly http: readonly ["https://rpc.main.lux.network/rpc"];
+        };
+    };
+    sourceId?: number | undefined | undefined;
+    testnet?: boolean | undefined | undefined;
+    custom?: Record<string, unknown> | undefined;
+    fees?: import("viem").ChainFees<undefined> | undefined;
+    formatters?: undefined;
+    serializers?: import("viem").ChainSerializers<undefined, import("viem").TransactionSerializable> | undefined;
+}, {
+    blockExplorers: {
+        readonly default: {
+            readonly name: "Liquidity Testnet Explorer";
+            readonly url: "https://explore.test.lux.network";
+        };
+    };
+    contracts?: {
+        [x: string]: import("viem").ChainContract | {
+            [sourceId: number]: import("viem").ChainContract | undefined;
+        } | undefined;
+        ensRegistry?: import("viem").ChainContract | undefined;
+        ensUniversalResolver?: import("viem").ChainContract | undefined;
+        multicall3?: import("viem").ChainContract | undefined;
+        universalSignatureVerifier?: import("viem").ChainContract | undefined;
+    } | undefined;
+    ensTlds?: readonly string[] | undefined;
+    id: 0;
+    name: "Liquidity Testnet";
+    nativeCurrency: {
+        readonly name: "LUX";
+        readonly symbol: "LUX";
+        readonly decimals: 18;
+    };
+    rpcUrls: {
+        readonly default: {
+            readonly http: readonly ["https://rpc.test.lux.network/rpc"];
+        };
+        readonly public: {
+            readonly http: readonly ["https://rpc.test.lux.network/rpc"];
+        };
+    };
+    sourceId?: number | undefined | undefined;
+    testnet: true;
+    custom?: Record<string, unknown> | undefined;
+    fees?: import("viem").ChainFees<undefined> | undefined;
+    formatters?: undefined;
+    serializers?: import("viem").ChainSerializers<undefined, import("viem").TransactionSerializable> | undefined;
+}, {
+    blockExplorers: {
+        readonly default: {
+            readonly name: "Liquidity Devnet Explorer";
+            readonly url: "https://explore.dev.lux.network";
+        };
+    };
+    contracts?: {
+        [x: string]: import("viem").ChainContract | {
+            [sourceId: number]: import("viem").ChainContract | undefined;
+        } | undefined;
+        ensRegistry?: import("viem").ChainContract | undefined;
+        ensUniversalResolver?: import("viem").ChainContract | undefined;
+        multicall3?: import("viem").ChainContract | undefined;
+        universalSignatureVerifier?: import("viem").ChainContract | undefined;
+    } | undefined;
+    ensTlds?: readonly string[] | undefined;
+    id: 0;
+    name: "Liquidity Devnet";
+    nativeCurrency: {
+        readonly name: "LUX";
+        readonly symbol: "LUX";
+        readonly decimals: 18;
+    };
+    rpcUrls: {
+        readonly default: {
+            readonly http: readonly ["https://rpc.dev.lux.network/rpc"];
+        };
+        readonly public: {
+            readonly http: readonly ["https://rpc.dev.lux.network/rpc"];
+        };
+    };
+    sourceId?: number | undefined | undefined;
+    testnet: true;
+    custom?: Record<string, unknown> | undefined;
+    fees?: import("viem").ChainFees<undefined> | undefined;
+    formatters?: undefined;
+    serializers?: import("viem").ChainSerializers<undefined, import("viem").TransactionSerializable> | undefined;
 }];
 export type SupportedChainId = typeof supportedChains[number]['id'];
 //# sourceMappingURL=lux.d.ts.map

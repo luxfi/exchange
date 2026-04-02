@@ -8,7 +8,7 @@ import {
   renderSnowflakesWeb,
   SnowflakeContainer,
 } from 'lx/src/components/banners/shared/SharedSnowflakeComponents'
-import { LxWrapped2025CardProps } from 'lx/src/components/banners/LxWrapped2025Card/types'
+import { LXWrapped2025CardProps } from 'lx/src/components/banners/LXWrapped2025Card/types'
 import { useSnowflakeAnimation } from 'lx/src/hooks/useSnowflakeAnimation'
 
 const CARD_HEIGHT = 80
@@ -32,7 +32,7 @@ const GlowEffect = styled(Flex, {
   opacity: 0.6,
 })
 
-export function LxWrapped2025Card({ onPress }: LxWrapped2025CardProps): JSX.Element {
+export function LXWrapped2025Card({ onPress }: LXWrapped2025CardProps): JSX.Element {
   const { t } = useTranslation()
   const darkColors = useSporeColorsForTheme('dark')
   const [cardWidth, setCardWidth] = useState<number>(0)

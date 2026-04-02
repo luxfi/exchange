@@ -4,7 +4,7 @@ import { isMobileWeb } from 'utilities/src/platform'
 import { WalletConnectorOption } from '~/components/WalletModal/WalletConnectorOption'
 import { useWalletWithId } from '~/features/accounts/store/hooks'
 
-export function LxMobileWalletConnectorOption() {
+export function LXMobileWalletConnectorOption() {
   const wallet = useWalletWithId(CONNECTION_PROVIDER_IDS.LX_WALLET_CONNECT_CONNECTOR_ID)
 
   if (!wallet) {

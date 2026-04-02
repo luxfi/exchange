@@ -7,7 +7,7 @@ import AlertTriangleFilled from '~/components/Icons/AlertTriangleFilled'
 import { SwapResult } from '~/hooks/useSwapCallback'
 import { TradeSummary } from '~/pages/Swap/Limit/ConfirmSwapModal/TradeSummary'
 import { InterfaceTrade, TradeFillType } from '~/state/routing/types'
-import { isLimitTrade, isLxSwapTrade } from '~/state/routing/utils'
+import { isLimitTrade, isLXTrade } from '~/state/routing/utils'
 import { ExternalLink } from '~/theme/components/Links'
 
 export enum PendingModalError {
@@ -60,7 +60,7 @@ function getErrorContent({ errorType, trade }: { errorType: PendingModalError; t
         return {
           title: <Trans i18nKey="common.swap.failed" />,
           message: <Trans i18nKey="swap.fail.message" />,
-          supportArticleURL: isLxSwapTrade(trade)
+          supportArticleURL: isLXTrade(trade)
             ? lxUrls.helpArticleUrls.dexFailure
             : lxUrls.helpArticleUrls.transactionFailure,
         }

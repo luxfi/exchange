@@ -66,7 +66,7 @@ describe('protocols', () => {
       expect(result).toEqual(allProtocols)
     })
 
-    it('filters out LX when lxSwapEnabled is false', () => {
+    it('filters out LX when lxOrderEnabled is false', () => {
       const protocolFilter = createProtocolFilter({
         getLXEnabled: () => false,
         getPriorityOrderFlag: () => false,
@@ -158,7 +158,7 @@ describe('protocols', () => {
       })
 
       const result = protocolFilter(allProtocols, undefined)
-      // When chainId is undefined, lxSwapAllowedForChain is false
+      // When chainId is undefined, lxOrderAllowedForChain is false
       expect(result).toEqual([TradingApi.ProtocolItems.V4, TradingApi.ProtocolItems.V3, TradingApi.ProtocolItems.V2])
     })
 

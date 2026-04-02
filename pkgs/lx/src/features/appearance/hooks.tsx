@@ -2,10 +2,10 @@ import { useSelector } from 'react-redux'
 import { AppearanceSettingType } from 'lx/src/features/appearance/slice'
 import { ColorScheme } from 'lx/src/features/appearance/types'
 import { useColorScheme } from 'lx/src/features/appearance/useColorScheme'
-import { LxState } from 'lx/src/state/lxReducer'
+import { LXState } from 'lx/src/state/lxReducer'
 
 export function useCurrentAppearanceSetting(): AppearanceSettingType {
-  const { selectedAppearanceSettings } = useSelector((state: LxState) => state.appearanceSettings)
+  const { selectedAppearanceSettings } = useSelector((state: LXState) => state.appearanceSettings)
   return selectedAppearanceSettings
 }
 

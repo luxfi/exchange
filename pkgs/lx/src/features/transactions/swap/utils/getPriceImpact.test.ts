@@ -4,7 +4,7 @@ import type { DerivedSwapInfo } from 'lx/src/features/transactions/swap/types/de
 import type { Trade, TradeWithStatus } from 'lx/src/features/transactions/swap/types/trade'
 import { getPriceImpact } from 'lx/src/features/transactions/swap/utils/getPriceImpact'
 import { getSwapFeeUsdFromDerivedSwapInfo } from 'lx/src/features/transactions/swap/utils/getSwapFeeUsd'
-import { isClassic, isLxSwap } from 'lx/src/features/transactions/swap/utils/routing'
+import { isClassic, isLX } from 'lx/src/features/transactions/swap/utils/routing'
 import { WrapType } from 'lx/src/features/transactions/types/wrap'
 import { CurrencyField } from 'lx/src/types/currency'
 import type { Mock } from 'vitest'
@@ -12,7 +12,7 @@ import type { Mock } from 'vitest'
 // Mocks for routing and getSwapFeeUsd
 vi.mock('lx/src/features/transactions/swap/utils/routing', () => ({
   isClassic: vi.fn(),
-  isLxSwap: vi.fn(),
+  isLX: vi.fn(),
 }))
 vi.mock('lx/src/features/transactions/swap/utils/getSwapFeeUsd', () => ({
   getSwapFeeUsdFromDerivedSwapInfo: vi.fn(),
@@ -20,7 +20,7 @@ vi.mock('lx/src/features/transactions/swap/utils/getSwapFeeUsd', () => ({
 
 // Type the mocks for TypeScript
 const isClassicMock = isClassic as unknown as Mock
-const isLXMock = isLxSwap as unknown as Mock
+const isLXMock = isLX as unknown as Mock
 const getSwapFeeUsdFromDerivedSwapInfoMock = getSwapFeeUsdFromDerivedSwapInfo as unknown as Mock
 
 // Minimal ClassicTrade mock
@@ -31,7 +31,7 @@ class ClassicTradeMock {
   }
 }
 
-// Minimal LxSwapTrade mock
+// Minimal LXTrade mock
 class LXTradeMock {
   quote: unknown
   constructor(quote: unknown) {

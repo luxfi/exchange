@@ -13,7 +13,7 @@ import { SwapRateRatio } from 'lx/src/features/transactions/swap/components/Swap
 import { useIsUnichainFlashblocksEnabled } from 'lx/src/features/transactions/swap/hooks/useIsUnichainFlashblocksEnabled'
 import { AcceptNewQuoteRow } from 'lx/src/features/transactions/swap/review/SwapDetails/AcceptNewQuoteRow'
 import type { DerivedSwapInfo } from 'lx/src/features/transactions/swap/types/derivedSwapInfo'
-import type { LxSwapGasBreakdown } from 'lx/src/features/transactions/swap/types/swapTxAndGasInfo'
+import type { LXGasBreakdown } from 'lx/src/features/transactions/swap/types/swapTxAndGasInfo'
 import { getSwapFeeUsdFromDerivedSwapInfo } from 'lx/src/features/transactions/swap/utils/getSwapFeeUsd'
 import { isBridge, isChained, isMultiChainGasQuote } from 'lx/src/features/transactions/swap/utils/routing'
 import { TransactionDetails } from 'lx/src/features/transactions/TransactionDetails/TransactionDetails'

@@ -21,7 +21,7 @@ import {
 import type { DeviceIdService } from '@l.x/sessions/src/device-id/types'
 import type { SessionServiceClient } from '@l.x/sessions/src/session-repository/createSessionClient'
 import type { SessionState, SessionStorage } from '@l.x/sessions/src/session-storage/types'
-import type { LxIdentifierService } from '@l.x/sessions/src/lx-identifier/types'
+import type { LXIdentifierService } from '@l.x/sessions/src/lx-identifier/types'
 // Types for our test transport
 export interface MockEndpointHandler {
   (request: any, headers: Record<string, string>): Promise<any>
@@ -109,18 +109,18 @@ export class InMemoryDeviceIdService implements DeviceIdService {
   }
 }
 
-export class InMemoryLxIdentifierService implements LxIdentifierService {
+export class InMemoryLXIdentifierService implements LXIdentifierService {
   private identifier: string | null = null
 
-  async getLxIdentifier(): Promise<string | null> {
+  async getLXIdentifier(): Promise<string | null> {
     return this.identifier
   }
 
-  async setLxIdentifier(id: string): Promise<void> {
+  async setLXIdentifier(id: string): Promise<void> {
     this.identifier = id
   }
 
-  async removeLxIdentifier(): Promise<void> {
+  async removeLXIdentifier(): Promise<void> {
     this.identifier = null
   }
 }

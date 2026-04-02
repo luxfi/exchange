@@ -147,7 +147,7 @@ export enum ActionType {
 /**
  * LXBook Order (LP-9020)
  */
-export interface LxSwapOrder {
+export interface LXOrder {
   marketId: number
   isBuy: boolean
   kind: OrderKind

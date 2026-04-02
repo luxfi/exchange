@@ -14,7 +14,7 @@ import { TEST_WALLET } from 'lx/src/test/fixtures/wallet/addresses'
 import {
   extractInputSwapTransactionInfo,
   transactionDetails,
-  lxSwapOrderDetails,
+  lxOrderOrderDetails,
 } from 'lx/src/test/fixtures/wallet/transactions'
 import { act, renderHook } from 'lx/src/test/test-utils'
 import type { Mock } from 'vitest'
@@ -48,7 +48,7 @@ describe('useMergeLocalAndRemoteTransactions', () => {
 
   // Helper to create LX order with common defaults
   const createTestOrder = (overrides = {}) =>
-    lxSwapOrderDetails({
+    lxOrderOrderDetails({
       chainId: UniverseChainId.Mainnet,
       from: TEST_WALLET,
       ...overrides,

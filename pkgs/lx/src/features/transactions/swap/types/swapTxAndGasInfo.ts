@@ -5,7 +5,7 @@ import {
   BridgeTrade,
   ChainedActionTrade,
   ClassicTrade,
-  LxSwapTrade,
+  LXTrade,
   UnwrapTrade,
   WrapTrade,
 } from 'lx/src/features/transactions/swap/types/trade'
@@ -14,7 +14,7 @@ import {
   isChained,
   isClassic,
   isJupiter,
-  isLxSwap,
+  isLX,
   isWrap,
 } from 'lx/src/features/transactions/swap/utils/routing'
 import { ValidatedPermit } from 'lx/src/features/transactions/swap/utils/trade'
@@ -51,7 +51,7 @@ export type SwapGasFeeEstimation = {
   wrapEstimate?: GasEstimate
 }
 
-export type LxSwapGasBreakdown = {
+export type LXGasBreakdown = {
   classicGasUseEstimateUSD?: string
   approvalCost?: string
   inputTokenSymbol?: string
@@ -59,7 +59,7 @@ export type LxSwapGasBreakdown = {
 
 export interface BaseSwapTxAndGasInfo {
   routing: TradingApi.Routing
-  trade?: ClassicTrade | LxSwapTrade | BridgeTrade | WrapTrade | UnwrapTrade | SolanaTrade | ChainedActionTrade
+  trade?: ClassicTrade | LXTrade | BridgeTrade | WrapTrade | UnwrapTrade | SolanaTrade | ChainedActionTrade
   approveTxRequest: ValidatedTransactionRequest | undefined
   revocationTxRequest: ValidatedTransactionRequest | undefined
   gasFee: GasFeeResult
@@ -103,9 +103,9 @@ export interface WrapSwapTxAndGasInfo extends BaseSwapTxAndGasInfo {
 
 export interface LXSwapTxAndGasInfo extends BaseSwapTxAndGasInfo {
   routing: TradingApi.Routing.DUTCH_V2 | TradingApi.Routing.DUTCH_V3 | TradingApi.Routing.PRIORITY
-  trade: LxSwapTrade
+  trade: LXTrade
   permit: PermitTypedData | undefined
-  gasFeeBreakdown: LxSwapGasBreakdown
+  gasFeeBreakdown: LXGasBreakdown
 }
 
 export interface BridgeSwapTxAndGasInfo extends BaseSwapTxAndGasInfo {
@@ -224,7 +224,7 @@ function validateSwapTxContext(swapTxContext: SwapTxAndGasInfo): ValidatedSwapTx
       } else {
         return undefined
       }
-    } else if (isLxSwap(swapTxContext) && swapTxContext.permit) {
+    } else if (isLX(swapTxContext) && swapTxContext.permit) {
       const { trade, permit } = swapTxContext
       return { ...swapTxContext, trade, gasFee, permit, includesDelegation: false }
     } else if (isWrap(swapTxContext)) {

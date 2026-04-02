@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query'
 import { provideLuxIdentifierService } from '@l.x/api'
-import { luxIdentifierQuery } from '@l.x/sessions'
+import { lxIdentifierQuery } from '@l.x/sessions'
 import { useEffect, useMemo } from 'react'
 import { NativeModules, useWindowDimensions } from 'react-native'
 import { OneSignal } from 'react-native-onesignal'
@@ -61,7 +61,7 @@ export function TraceUserProperties(): null {
   // Effects must check this and ensure they are setting properties for when analytics is reenabled
   const allowAnalytics = useSelector(selectAllowAnalytics)
 
-  const { data: luxIdentifier } = useQuery(luxIdentifierQuery(provideLuxIdentifierService))
+  const { data: luxIdentifier } = useQuery(lxIdentifierQuery(provideLuxIdentifierService))
 
   useGatingUserPropertyUsernames()
 

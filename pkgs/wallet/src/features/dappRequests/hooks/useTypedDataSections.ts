@@ -35,8 +35,8 @@ export function useTypedDataSections({
   dappUrl,
 }: UseTypedDataSectionsParams): UseTypedDataSectionsResult {
   // Detect LX swap requests
-  const isLxSwap = isLXSwapRequest(parsedTypedData)
-  const lxSwapTypedData = isLxSwap ? (parsedTypedData as LXSwapRequest) : null
+  const isLX = isLXSwapRequest(parsedTypedData)
+  const lxOrderTypedData = isLX ? (parsedTypedData as LXSwapRequest) : null
 
   // Build Blockaid scan request (always needed for risk level)
   const blockaidRequest = useMemo(
@@ -55,7 +55,7 @@ export function useTypedDataSections({
   const { scanResult, isLoading: isBlockaidLoading } = useBlockaidJsonRpcScan(blockaidRequest, Boolean(blockaidRequest))
 
   // Parse LX sections (returns empty when not LX)
-  const { sections: lxSwapSections, isLoading: isLXLoading } = useParseLXSwap(lxSwapTypedData, chainId)
+  const { sections: lxOrderSections, isLoading: isLXLoading } = useParseLXSwap(lxOrderTypedData, chainId)
 
   // Parse Blockaid result for risk level and sections
   const { sections: blockaidSections, riskLevel } = useMemo(
@@ -64,10 +64,10 @@ export function useTypedDataSections({
   )
 
   // Use LX sections if available, otherwise fall back to Blockaid sections
-  const sections = isLxSwap ? lxSwapSections : blockaidSections
+  const sections = isLX ? lxOrderSections : blockaidSections
 
   // Loading: wait for Blockaid (always), plus LX parsing if applicable
-  const isLoading = isBlockaidLoading || (isLxSwap && isLXLoading)
+  const isLoading = isBlockaidLoading || (isLX && isLXLoading)
 
   return {
     sections,

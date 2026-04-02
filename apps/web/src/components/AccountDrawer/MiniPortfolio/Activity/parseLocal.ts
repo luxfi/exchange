@@ -11,7 +11,7 @@ import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import type { FORTransaction } from '@l.x/lx/src/features/fiatOnRamp/types'
 import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
 import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
-import { isLxSwap } from '@l.x/lx/src/features/transactions/swap/utils/routing'
+import { isLX } from '@l.x/lx/src/features/transactions/swap/utils/routing'
 import { hasTradeType } from '@l.x/lx/src/features/transactions/swap/utils/trade'
 import type {
   ApproveTransactionInfo,
@@ -72,12 +72,12 @@ type FormatFiatPriceFunctionType = ReturnType<typeof useLocalizationContext>['co
 function isLXDetails(
   details: InterfaceTransactionDetails,
 ): details is DEXOrderDetails<InterfaceBaseTransactionDetails> {
-  return 'routing' in details && isLxSwap(details)
+  return 'routing' in details && isLX(details)
 }
 
 /**
  * Checks if a transaction is a DEX order by examining both the routing field (new approach)
- * and the isLxSwapOrder flag (legacy approach for backward compatibility)
+ * and the isLXOrder flag (legacy approach for backward compatibility)
  */
 function isLXActivity(details: InterfaceTransactionDetails): boolean {
   const { typeInfo } = details
@@ -94,7 +94,7 @@ function isLXActivity(details: InterfaceTransactionDetails): boolean {
 
   // Fall back to legacy flag for backward compatibility with existing transactions
   // stored before migration to routing-based structure (see WALL-7143)
-  return 'isLxSwapOrder' in typeInfo && typeInfo.isLxSwapOrder === true
+  return 'isLXOrder' in typeInfo && typeInfo.isLXOrder === true
 }
 
 function buildCurrencyDescriptor({
@@ -167,7 +167,7 @@ async function parseSwap({
       isSwap: true,
     }),
     currencies: [tokenIn, tokenOut],
-    prefixIconSrc: swap.isLxSwapOrder ? DEXBolt : undefined,
+    prefixIconSrc: swap.isLXOrder ? DEXBolt : undefined,
   }
 }
 
@@ -197,7 +197,7 @@ async function parseConfirmedSwap({
       isSwap: true,
     }),
     currencies: [tokenIn, tokenOut],
-    prefixIconSrc: swap.isLxSwapOrder ? DEXBolt : undefined,
+    prefixIconSrc: swap.isLXOrder ? DEXBolt : undefined,
   }
 }
 
@@ -775,9 +775,9 @@ export async function transactionToActivity({
     const activity = { ...defaultFields, ...additionalFields }
 
     // Skip the canceled transaction override for DEX orders since they handle it specially
-    const isLxSwap = details.typeInfo.type === TransactionType.Swap && isLXActivity(details)
+    const isLX = details.typeInfo.type === TransactionType.Swap && isLXActivity(details)
     const CancelledTransactionTitleTable = getCancelledTransactionTitleTable()
-    if (details.status === TransactionStatus.Canceled && !isLxSwap) {
+    if (details.status === TransactionStatus.Canceled && !isLX) {
       activity.title = CancelledTransactionTitleTable[details.typeInfo.type]
       activity.status = TransactionStatus.Success
     }

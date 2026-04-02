@@ -32,10 +32,10 @@ import type {
   PermitTransactionData,
   SwapTransactionData,
   TransactionParamsFactory,
-  LxSwapOrderTransactionData,
+  LXOrderTransactionData,
   WrapTransactionData,
 } from '@luxfi/wallet/src/features/transactions/swap/services/transactionParamsFactory'
-import { submitLxSwapOrder } from '@luxfi/wallet/src/features/transactions/swap/submitOrderSaga'
+import { submitLXOrder } from '@luxfi/wallet/src/features/transactions/swap/submitOrderSaga'
 import {
   isLXPreSignedSwapTransaction,
   type PreSignedSwapTransaction,
@@ -264,7 +264,7 @@ export function createExecuteSwapSaga(
         const { quote } = preSignedTransaction.swapTxContext.trade.quote
         const routing = preSignedTransaction.swapTxContext.routing
 
-        const lxSwapOrderData: LxSwapOrderTransactionData = {
+        const lxOrderOrderData: LXOrderTransactionData = {
           signedPermit,
           quote,
           routing,
@@ -276,8 +276,8 @@ export function createExecuteSwapSaga(
           onFailure,
         }
 
-        const lxSwapOrderParams = factory.createLxSwapOrderParams(lxSwapOrderData)
-        yield* call(submitLxSwapOrder, lxSwapOrderParams)
+        const lxOrderOrderParams = factory.createLXOrderParams(lxOrderOrderData)
+        yield* call(submitLXOrder, lxOrderOrderParams)
       } else if (isWrap(swapTxContext)) {
         // Handle wrap transactions
         const wrapData: WrapTransactionData = {

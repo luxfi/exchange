@@ -2,11 +2,11 @@ import { SwapTxAndGasInfoService } from 'lx/src/features/transactions/swap/revie
 import {
   getLXSwapTxAndGasInfo,
   processLXResponse,
-} from 'lx/src/features/transactions/swap/review/services/swapTxAndGasInfoService/lxswap/utils'
-import { LxSwapTrade } from 'lx/src/features/transactions/swap/types/trade'
+} from 'lx/src/features/transactions/swap/review/services/swapTxAndGasInfoService/lx/utils'
+import { LXTrade } from 'lx/src/features/transactions/swap/types/trade'
 
-export function createLxSwapSwapTxAndGasInfoService(): SwapTxAndGasInfoService<LxSwapTrade> {
-  const service: SwapTxAndGasInfoService<LxSwapTrade> = {
+export function createLXSwapTxAndGasInfoService(): SwapTxAndGasInfoService<LXTrade> {
+  const service: SwapTxAndGasInfoService<LXTrade> = {
     async getSwapTxAndGasInfo(params) {
       const permitData = params.trade.quote.permitData
 

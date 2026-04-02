@@ -1,6 +1,6 @@
 /**
  * AMM V3 Pool ABI
- * Compatible with Uniswap V3 Pool interface
+ * Compatible with Lux V3 Pool interface
  */
 export declare const AMM_V3_POOL_ABI: readonly [{
     readonly type: "function";
@@ -127,7 +127,7 @@ export declare const AMM_V3_POOL_ABI: readonly [{
     }];
 }];
 /** @deprecated Use AMM_V3_POOL_ABI instead */
-export declare const UNISWAP_V3_POOL_ABI: readonly [{
+export declare const LUX_V3_POOL_ABI: readonly [{
     readonly type: "function";
     readonly name: "token0";
     readonly inputs: readonly [];

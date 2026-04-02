@@ -61,9 +61,9 @@ export function logPlanSwapStepFailed(params: {
   })
 }
 
-export function logLxSwapPlanOrderSubmitted(params: { analyticsWithPlanStepContext: PlanSagaAnalytics }): void {
+export function logLXPlanOrderSubmitted(params: { analyticsWithPlanStepContext: PlanSagaAnalytics }): void {
   const { analyticsWithPlanStepContext } = params
-  sendAnalyticsEvent(InterfaceEventName.LxSwapOrderSubmitted, {
+  sendAnalyticsEvent(InterfaceEventName.LXOrderSubmitted, {
     ...analyticsWithPlanStepContext,
   })
 }
@@ -71,7 +71,7 @@ export function logLxSwapPlanOrderSubmitted(params: { analyticsWithPlanStepConte
 const TRADE_STEP_TYPES = new Set<TransactionStepType>([
   TransactionStepType.SwapTransaction,
   TransactionStepType.SwapTransactionBatched,
-  TransactionStepType.LxSwapPlanSignature,
+  TransactionStepType.LXPlanSignature,
 ])
 
 /**
@@ -80,7 +80,7 @@ const TRADE_STEP_TYPES = new Set<TransactionStepType>([
  * SwapTransactionFailed analytics (with error logging for missing chainId/hash).
  *
  * Only logs for trade step types (SwapTransaction, SwapTransactionBatched,
- * LxSwapPlanSignature). Non-trade steps (approvals, permits) are silently skipped.
+ * LXPlanSignature). Non-trade steps (approvals, permits) are silently skipped.
  *
  * Used by both the inline non-last-step logging path and the forked last-step watcher.
  */

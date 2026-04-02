@@ -69,7 +69,7 @@ export function NetworkCostTooltipDEX({
         )}
       </Tooltip.Content>
       <Tooltip.Separator />
-      <Tooltip.Description learnMoreUrl={lxUrls.helpArticleUrls.lxSwapInfo} text={t('lxSwap.cost')} />
+      <Tooltip.Description learnMoreUrl={lxUrls.helpArticleUrls.lxOrderInfo} text={t('lxOrder.cost')} />
     </Tooltip.Outer>
   )
 }

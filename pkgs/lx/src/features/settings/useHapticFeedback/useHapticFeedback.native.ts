@@ -9,7 +9,7 @@ import {
   HapticFeedbackStyle,
   NO_HAPTIC_FEEDBACK,
 } from 'lx/src/features/settings/useHapticFeedback/types'
-import { LxState } from 'lx/src/state/lxReducer'
+import { LXState } from 'lx/src/state/lxReducer'
 
 const ENABLED_HAPTIC_FEEDBACK: HapticFeedback = {
   impact: (style?: HapticFeedbackStyle) => {
@@ -25,7 +25,7 @@ function isImpactFeedbackStyle(style: HapticFeedbackStyle): style is ImpactFeedb
 }
 
 export function useHapticFeedback(): HapticFeedbackControl {
-  const hapticsEnabled = useSelector((state: LxState) => state.userSettings.hapticsEnabled)
+  const hapticsEnabled = useSelector((state: LXState) => state.userSettings.hapticsEnabled)
   const dispatch = useDispatch()
 
   const handleSetEnabled = useCallback(

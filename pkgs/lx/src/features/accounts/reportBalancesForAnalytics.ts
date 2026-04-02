@@ -1,4 +1,4 @@
-import { LxEventName } from 'lx/src/features/telemetry/constants'
+import { LXEventName } from 'lx/src/features/telemetry/constants'
 import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
 
 interface ReportBalancesParams {
@@ -46,13 +46,13 @@ export function reportBalancesForAnalytics({
     return
   }
 
-  sendAnalyticsEvent(LxEventName.BalancesReport, {
+  sendAnalyticsEvent(LXEventName.BalancesReport, {
     total_balances_usd: requiredData.totalBalancesUsd,
     wallets,
     balances,
   })
 
-  sendAnalyticsEvent(LxEventName.BalancesReportPerChain, {
+  sendAnalyticsEvent(LXEventName.BalancesReportPerChain, {
     total_balances_usd_per_chain: requiredData.totalBalancesUsdPerChain,
     wallet: requiredData.wallet,
     view_only: isViewOnly,

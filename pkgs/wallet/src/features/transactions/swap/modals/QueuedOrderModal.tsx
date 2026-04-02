@@ -33,7 +33,7 @@ import { useActiveSignerAccount } from '@luxfi/wallet/src/features/wallet/hooks'
 
 export function QueuedOrderModal(): JSX.Element | null {
   const { t } = useTranslation()
-  const lxSwapEnabled = useFeatureFlag(FeatureFlags.LX)
+  const lxOrderEnabled = useFeatureFlag(FeatureFlags.LX)
   const isShortMobileDevice = useIsShortMobileDevice()
 
   const account = useActiveSignerAccount()
@@ -58,7 +58,7 @@ export function QueuedOrderModal(): JSX.Element | null {
   }, [transactionState, navigateToSwapFlow, onCancel])
 
   // If there are no failed orders tracked in state, return nothing.
-  if (!lxSwapEnabled || !currentFailedOrder || !isSwapTransactionInfo(currentFailedOrder.typeInfo)) {
+  if (!lxOrderEnabled || !currentFailedOrder || !isSwapTransactionInfo(currentFailedOrder.typeInfo)) {
     return null
   }
 
@@ -92,7 +92,7 @@ export function QueuedOrderModal(): JSX.Element | null {
             <LearnMoreLink
               textColor="$neutral1"
               textVariant="buttonLabel2"
-              url={lxUrls.helpArticleUrls.lxSwapFailure}
+              url={lxUrls.helpArticleUrls.lxOrderFailure}
             />
           </Flex>
           <Separator />

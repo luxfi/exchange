@@ -7,7 +7,7 @@ import { useSecondsUntilDeadline } from 'lx/src/components/ConfirmSwapModal/useS
 import { lxUrls } from 'lx/src/constants/urls'
 import { TransactionStepType } from 'lx/src/features/transactions/steps/types'
 import {
-  LxSwapPlanSignatureStep,
+  LXPlanSignatureStep,
   LXSignatureStep,
 } from 'lx/src/features/transactions/swap/steps/signOrder'
 import {
@@ -26,7 +26,7 @@ type SwapSteps =
   | SwapTransactionStep
   | SwapTransactionStepAsync
   | LXSignatureStep
-  | LxSwapPlanSignatureStep
+  | LXPlanSignatureStep
   | SwapTransactionStepBatched
 
 /**
@@ -41,7 +41,7 @@ export function SwapTransactionStepRow({
   const { t } = useTranslation()
 
   const deadline =
-    step.type === TransactionStepType.LXSignature || step.type === TransactionStepType.LxSwapPlanSignature
+    step.type === TransactionStepType.LXSignature || step.type === TransactionStepType.LXPlanSignature
       ? step.deadline
       : undefined
 

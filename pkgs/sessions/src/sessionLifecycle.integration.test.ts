@@ -16,7 +16,7 @@ import {
   createMockSessionClient,
   InMemoryDeviceIdService,
   InMemorySessionStorage,
-  InMemoryLxIdentifierService,
+  InMemoryLXIdentifierService,
   type MockEndpoints,
 } from '@l.x/sessions/src/test-utils'
 import { afterEach, beforeEach, describe, expect, it } from 'vitest'
@@ -24,7 +24,7 @@ import { afterEach, beforeEach, describe, expect, it } from 'vitest'
 describe('Session Lifecycle Integration Tests', () => {
   let sessionStorage: InMemorySessionStorage
   let deviceIdService: InMemoryDeviceIdService
-  let lxIdentifierService: InMemoryLxIdentifierService
+  let lxIdentifierService: InMemoryLXIdentifierService
   let sessionService: SessionService
   let mockEndpoints: MockEndpoints
 
@@ -32,7 +32,7 @@ describe('Session Lifecycle Integration Tests', () => {
     // Initialize in-memory storage
     sessionStorage = new InMemorySessionStorage()
     deviceIdService = new InMemoryDeviceIdService()
-    lxIdentifierService = new InMemoryLxIdentifierService()
+    lxIdentifierService = new InMemoryLXIdentifierService()
 
     // Set up mock endpoints with default responses
     mockEndpoints = {

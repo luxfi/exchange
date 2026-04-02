@@ -25,7 +25,7 @@ import { tokenProjectToCurrencyInfos } from 'lx/src/features/dataApi/tokenProjec
 import { SearchHistoryResultType } from 'lx/src/features/search/SearchHistoryResult'
 import { useFilterCallbacks } from 'lx/src/features/search/SearchModal/hooks/useFilterCallbacks'
 import { ModalName } from 'lx/src/features/telemetry/constants'
-import { LxState } from 'lx/src/state/lxReducer'
+import { LXState } from 'lx/src/state/lxReducer'
 import {
   arbitrumDaiCurrencyInfo,
   daiToken,
@@ -101,7 +101,7 @@ const favoriteCurrencyIds = favoriteTokens.map((t) =>
   buildCurrencyId(fromGraphQLChain(t.chain) ?? UniverseChainId.Mainnet, t.address),
 )
 
-const preloadedState: PreloadedState<LxState> = {
+const preloadedState: PreloadedState<LXState> = {
   favorites: {
     tokens: favoriteCurrencyIds,
     watchedAddresses: [],
@@ -1075,7 +1075,7 @@ describe(useFavoriteTokensOptions, () => {
 describe(useRecentlySearchedTokens, () => {
   it('does not crash when search history contains tokens with invalid chainIds', () => {
     // This simulates the exact data that caused the production crash
-    const problematicSearchHistory: PreloadedState<LxState> = {
+    const problematicSearchHistory: PreloadedState<LXState> = {
       searchHistory: {
         results: [
           {
@@ -1109,7 +1109,7 @@ describe(useRecentlySearchedTokens, () => {
   })
 
   it('filters out tokens with invalid chainIds from search history', () => {
-    const mixedSearchHistory: PreloadedState<LxState> = {
+    const mixedSearchHistory: PreloadedState<LXState> = {
       searchHistory: {
         results: [
           {
@@ -1141,7 +1141,7 @@ describe(useRecentlySearchedTokens, () => {
   })
 
   it('returns empty array when all tokens have invalid chainIds', () => {
-    const allInvalidSearchHistory: PreloadedState<LxState> = {
+    const allInvalidSearchHistory: PreloadedState<LXState> = {
       searchHistory: {
         results: [
           {

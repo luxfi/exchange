@@ -91,7 +91,7 @@ const ROUTING_TO_SWAP_ROUTING: Partial<Record<TradingApi.Routing, SwapRouting>> 
   [TradingApi.Routing.BRIDGE]: 'bridge',
 }
 
-export function logLxSwapSwapFinalized({
+export function logLXSwapFinalized({
   id,
   hash,
   orderHash,

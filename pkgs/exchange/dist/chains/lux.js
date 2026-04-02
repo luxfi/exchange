@@ -112,6 +112,65 @@ export const luxDev = defineChain({
     testnet: false,
 });
 /**
+ * Liquidity Mainnet Chain Definition (Lux L2 subnet, chain ID 0)
+ */
+export const liquidityMainnet = defineChain({
+    id: 0,
+    name: 'Liquidity',
+    nativeCurrency: {
+        name: 'LUX',
+        symbol: 'LUX',
+        decimals: 18,
+    },
+    rpcUrls: {
+        default: { http: ['https://rpc.main.lux.network/rpc'] },
+        public: { http: ['https://rpc.main.lux.network/rpc'] },
+    },
+    blockExplorers: {
+        default: { name: 'Liquidity Explorer', url: 'https://explore.main.lux.network' },
+    },
+});
+/**
+ * Liquidity Testnet Chain Definition
+ */
+export const liquidityTestnet = defineChain({
+    id: 0,
+    name: 'Liquidity Testnet',
+    nativeCurrency: {
+        name: 'LUX',
+        symbol: 'LUX',
+        decimals: 18,
+    },
+    rpcUrls: {
+        default: { http: ['https://rpc.test.lux.network/rpc'] },
+        public: { http: ['https://rpc.test.lux.network/rpc'] },
+    },
+    blockExplorers: {
+        default: { name: 'Liquidity Testnet Explorer', url: 'https://explore.test.lux.network' },
+    },
+    testnet: true,
+});
+/**
+ * Liquidity Devnet Chain Definition
+ */
+export const liquidityDevnet = defineChain({
+    id: 0,
+    name: 'Liquidity Devnet',
+    nativeCurrency: {
+        name: 'LUX',
+        symbol: 'LUX',
+        decimals: 18,
+    },
+    rpcUrls: {
+        default: { http: ['https://rpc.dev.lux.network/rpc'] },
+        public: { http: ['https://rpc.dev.lux.network/rpc'] },
+    },
+    blockExplorers: {
+        default: { name: 'Liquidity Devnet Explorer', url: 'https://explore.dev.lux.network' },
+    },
+    testnet: true,
+});
+/**
  * Chain IDs
  */
 export const LUX_MAINNET_ID = 96369;
@@ -119,6 +178,9 @@ export const LUX_TESTNET_ID = 96368;
 export const ZOO_MAINNET_ID = 200200;
 export const ZOO_TESTNET_ID = 200201;
 export const LUX_DEV_ID = 1337;
+export const LIQUIDITY_MAINNET_ID = 0;
+export const LIQUIDITY_TESTNET_ID = 0;
+export const LIQUIDITY_DEVNET_ID = 0;
 /**
  * All supported chains
  */
@@ -128,4 +190,7 @@ export const supportedChains = [
     zooMainnet,
     zooTestnet,
     luxDev,
+    liquidityMainnet,
+    liquidityTestnet,
+    liquidityDevnet,
 ];

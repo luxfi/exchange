@@ -51,7 +51,7 @@ import { AnimatedFlex } from '@luxfi/ui/src/components/layout/AnimatedFlex'
 import { useDeviceDimensions } from '@luxfi/ui/src/hooks/useDeviceDimensions'
 import { spacing } from '@luxfi/ui/src/theme'
 import { buildWrappedUrl } from 'lx/src/components/banners/shared/utils'
-import { LxWrapped2025Banner } from 'lx/src/components/banners/LuxWrapped2025Banner/LuxWrapped2025Banner'
+import { LXWrapped2025Banner } from 'lx/src/components/banners/LuxWrapped2025Banner/LuxWrapped2025Banner'
 import { NFTS_TAB_DATA_DEPENDENCIES } from 'lx/src/components/nfts/constants'
 import { LX_WEB_URL } from 'lx/src/constants/urls'
 import { getPortfolioQuery } from 'lx/src/data/rest/getPortfolio'
@@ -132,7 +132,7 @@ function HomeScreen({
 
   const isBottomTabsEnabled = useFeatureFlag(FeatureFlags.BottomTabs)
   const isPnLEnabled = useFeatureFlag(FeatureFlags.ProfitLoss)
-  const isWrappedBannerEnabled = useFeatureFlag(FeatureFlags.LxWrapped2025)
+  const isWrappedBannerEnabled = useFeatureFlag(FeatureFlags.LXWrapped2025)
   const isNotificationServiceEnabledFlag = useFeatureFlag(FeatureFlags.NotificationService)
   const isNotificationServiceEnabled =
     getIsNotificationServiceLocalOverrideEnabled() || isNotificationServiceEnabledFlag

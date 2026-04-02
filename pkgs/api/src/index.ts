@@ -113,7 +113,7 @@ export {
 } from '@l.x/api/src/clients/trading/tradeTypes'
 export {
   FeeType,
-  type FormattedLxSwapGasFeeInfo,
+  type FormattedLXGasFeeInfo,
   type GasEstimate,
   type GasEstimateEip1559,
   type GasEstimateLegacy,
@@ -342,6 +342,6 @@ export { getEntryGatewayUrl, getMigratedForApiUrl } from '@l.x/api/src/getEntryG
 
 export { getWebSocketUrl } from '@l.x/api/src/getWebSocketUrl'
 
-export { provideLxIdentifierService } from '@l.x/api/src/provideLxIdentifierService'
+export { provideLXIdentifierService } from '@l.x/api/src/provideLXIdentifierService'
 
-export const provideLuxIdentifierService = provideLxIdentifierService
+export const provideLuxIdentifierService = provideLXIdentifierService

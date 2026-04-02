@@ -10,7 +10,7 @@
  *
  * @see LP-9020 (LXBook) - CLOB Matching Engine
  * @see LP-9030 (LXVault) - Custody and Risk Engine
- * @see LP-9040 (LxSwapFeed) - Price Feeds
+ * @see LP-9040 (LXFeed) - Price Feeds
  */
 import { isLuxdMode } from 'playwright/anvil/anvil-manager'
 import { expect, getTest } from 'playwright/fixtures'
@@ -107,7 +107,7 @@ test.describe(
       const precompiles = [
         { name: 'LXBook', address: LX.LX_BOOK },
         { name: 'LXVault', address: LX.LX_VAULT },
-        { name: 'LxSwapFeed', address: LX.LX_FEED },
+        { name: 'LXFeed', address: LX.LX_FEED },
         { name: 'LXOracle', address: LX.LX_ORACLE },
         { name: 'LXPool', address: LX.LX_POOL },
         { name: 'LXRouter', address: LX.LX_ROUTER },
@@ -358,9 +358,9 @@ test.describe(
     })
 
     /**
-     * Test: Query price feeds from LxSwapFeed
+     * Test: Query price feeds from LXFeed
      */
-    test('should query price data from LxSwapFeed', async ({ anvil }) => {
+    test('should query price data from LXFeed', async ({ anvil }) => {
       const marketId = 0
 
       // Try to get mark price

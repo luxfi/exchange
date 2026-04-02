@@ -6,7 +6,7 @@ import { Flex, Separator, useSporeColors } from '@luxfi/ui/src'
 import { Modal } from '@l.x/lx/src/components/modals/Modal'
 import { selectHasDismissedLowNetworkTokenWarning } from '@l.x/lx/src/features/behaviorHistory/selectors'
 import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
-import { ModalName, SectionName, LxEventName } from '@l.x/lx/src/features/telemetry/constants'
+import { ModalName, SectionName, LXEventName } from '@l.x/lx/src/features/telemetry/constants'
 import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
 import Trace from '@l.x/lx/src/features/telemetry/Trace'
 import { InsufficientNativeTokenWarning } from '@l.x/lx/src/features/transactions/components/InsufficientNativeTokenWarning/InsufficientNativeTokenWarning'
@@ -115,7 +115,7 @@ export function SendFormScreen(): JSX.Element {
 
   const onPressReview = useCallback(() => {
     if (!hasDismissedLowNetworkTokenWarning && isMax && currencyInInfo?.currency.isNative) {
-      sendAnalyticsEvent(LxEventName.LowNetworkTokenInfoModalOpened, { location: 'send' })
+      sendAnalyticsEvent(LXEventName.LowNetworkTokenInfoModalOpened, { location: 'send' })
       handleShowMaxTransferModal()
       return
     }

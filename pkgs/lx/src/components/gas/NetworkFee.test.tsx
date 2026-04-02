@@ -4,7 +4,7 @@ import { render } from 'lx/src/test/test-utils'
 
 vi.mock('lx/src/features/gas/hooks', () => {
   return {
-    useFormattedLxSwapGasFeeInfo: vi.fn(() => undefined),
+    useFormattedLXGasFeeInfo: vi.fn(() => undefined),
     useUSDValue: (_chainId: UniverseChainId, gasFee: string): string => gasFee,
     useGasFeeHighRelativeToValue: vi.fn(() => false),
     useGasFeeFormattedDisplayAmounts: vi.fn(() => ({

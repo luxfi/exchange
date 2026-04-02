@@ -14,7 +14,7 @@ import { useHandleDEXActivityUpdate } from '~/hooks/useHandleDEXActivityUpdate'
 import { ActivityUpdateTransactionType, type DEXOrderUpdate } from '~/state/activity/types'
 import { mocked } from '~/test-utils/mocked'
 import { renderHook } from '~/test-utils/render'
-import { logLxSwapSwapFinalized } from '~/tracing/swapFlowLoggers'
+import { logLXSwapFinalized } from '~/tracing/swapFlowLoggers'
 
 const dispatchMock = vi.fn()
 vi.mock('~/state/hooks', async () => {
@@ -36,7 +36,7 @@ vi.mock('~/components/Popups/registry', () => ({
 }))
 
 vi.mock('~/tracing/swapFlowLoggers', () => ({
-  logLxSwapSwapFinalized: vi.fn(),
+  logLXSwapFinalized: vi.fn(),
 }))
 
 vi.mock('lx/src/features/transactions/types/utils', () => ({
@@ -262,7 +262,7 @@ describe('useHandleDEXActivityUpdate', () => {
         popupDismissalTime: 5000,
       })
 
-      expect(logLxSwapSwapFinalized).toHaveBeenCalledWith({
+      expect(logLXSwapFinalized).toHaveBeenCalledWith({
         id: 'order-id',
         hash: '0xSuccessHash',
         orderHash: '0xOrderHash',
@@ -299,7 +299,7 @@ describe('useHandleDEXActivityUpdate', () => {
         popupDismissalTime: 5000,
       })
 
-      expect(logLxSwapSwapFinalized).not.toHaveBeenCalled()
+      expect(logLXSwapFinalized).not.toHaveBeenCalled()
     })
 
     it('should log canceled order', () => {
@@ -318,7 +318,7 @@ describe('useHandleDEXActivityUpdate', () => {
         popupDismissalTime: 5000,
       })
 
-      expect(logLxSwapSwapFinalized).toHaveBeenCalledWith({
+      expect(logLXSwapFinalized).toHaveBeenCalledWith({
         id: 'order-id',
         hash: '0xCancelHash',
         orderHash: '0xOrderHash',
@@ -355,7 +355,7 @@ describe('useHandleDEXActivityUpdate', () => {
         popupDismissalTime: 5000,
       })
 
-      expect(logLxSwapSwapFinalized).toHaveBeenCalledWith({
+      expect(logLXSwapFinalized).toHaveBeenCalledWith({
         id: 'order-id',
         hash: undefined,
         orderHash: '0xOrderHash',
@@ -389,7 +389,7 @@ describe('useHandleDEXActivityUpdate', () => {
         popupDismissalTime: 5000,
       })
 
-      expect(logLxSwapSwapFinalized).not.toHaveBeenCalled()
+      expect(logLXSwapFinalized).not.toHaveBeenCalled()
     })
 
     it('should not log for pending status', () => {
@@ -405,7 +405,7 @@ describe('useHandleDEXActivityUpdate', () => {
         popupDismissalTime: 5000,
       })
 
-      expect(logLxSwapSwapFinalized).not.toHaveBeenCalled()
+      expect(logLXSwapFinalized).not.toHaveBeenCalled()
     })
   })
 })

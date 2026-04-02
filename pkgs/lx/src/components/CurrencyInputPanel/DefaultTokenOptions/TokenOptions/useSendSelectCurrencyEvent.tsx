@@ -1,7 +1,7 @@
 import { useCallback } from 'react'
 import { DEFAULT_NATIVE_ADDRESS_LEGACY } from 'lx/src/features/chains/evm/rpc'
 import { type CurrencyInfo } from 'lx/src/features/dataApi/types'
-import { LxEventName } from 'lx/src/features/telemetry/constants'
+import { LXEventName } from 'lx/src/features/telemetry/constants'
 import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
 import { type CurrencyField } from 'lx/src/types/currency'
 import { useTrace } from 'utilities/src/telemetry/trace/TraceContext'
@@ -21,7 +21,7 @@ export function useSendSelectCurrencyEvent({
 
   return useCallback(
     ({ position, suggestion_count, currencyInfo }: SelectCurrencyEventProperties): void => {
-      sendAnalyticsEvent(LxEventName.TokenSelected, {
+      sendAnalyticsEvent(LXEventName.TokenSelected, {
         name: currencyInfo.currency.name,
         address: currencyInfo.currency.isToken ? currencyInfo.currency.address : DEFAULT_NATIVE_ADDRESS_LEGACY,
         chain: currencyInfo.currency.chainId,

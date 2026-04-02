@@ -55,7 +55,7 @@ export function OtherWalletsModal() {
             {recentConnectorId !== CONNECTION_PROVIDER_IDS.LX_WALLET_CONNECT_CONNECTOR_ID &&
               !isEmbeddedWalletEnabled && (
                 <>
-                  <LxMobileWalletConnectorOption />
+                  <LXMobileWalletConnectorOption />
                   {wallets.length > 0 && <Separator />}
                 </>
               )}

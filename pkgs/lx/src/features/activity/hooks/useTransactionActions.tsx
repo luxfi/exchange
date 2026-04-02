@@ -26,16 +26,16 @@ import { useIsCancelable } from 'lx/src/features/transactions/hooks/useIsCancela
 import { useSelectTransaction } from 'lx/src/features/transactions/hooks/useSelectTransaction'
 import {
   cancelPlanStep,
-  cancelRemoteLxSwapOrder,
+  cancelRemoteLXOrder,
   cancelTransaction,
   finalizeTransaction,
 } from 'lx/src/features/transactions/slice'
-import { isBridge, isClassic, isLxSwap } from 'lx/src/features/transactions/swap/utils/routing'
+import { isBridge, isClassic, isLX } from 'lx/src/features/transactions/swap/utils/routing'
 import {
   TransactionDetails,
   TransactionStatus,
   TransactionType,
-  LxSwapOrderDetails,
+  LXOrderDetails,
 } from 'lx/src/features/transactions/types/transactionDetails'
 import { isFinalizedTx } from 'lx/src/features/transactions/types/utils'
 import { useIsActivityHidden } from 'lx/src/features/visibility/hooks/useIsActivityHidden'
@@ -116,14 +116,14 @@ export function useTransactionActions({
             cancelableStepInfo: planCancellationInfo.cancelableStepInfo,
           }),
         )
-      } else if (!isInLocalState && isLxSwap(transaction)) {
+      } else if (!isInLocalState && isLX(transaction)) {
         // Remote LX order (e.g. submitted from web app) — bypass Redux cancelTransaction
         // reducer and directly submit the Permit2 nonce invalidation transaction via saga.
         dispatch(
-          cancelRemoteLxSwapOrder({
+          cancelRemoteLXOrder({
             chainId: transaction.chainId,
             address: transaction.from,
-            orderHash: (transaction as LxSwapOrderDetails).orderHash ?? transaction.id,
+            orderHash: (transaction as LXOrderDetails).orderHash ?? transaction.id,
             cancelRequest: txRequest,
           }),
         )

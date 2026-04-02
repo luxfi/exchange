@@ -13,14 +13,14 @@ import { useParsedSwapWarnings } from 'lx/src/features/transactions/swap/hooks/u
 import { useSwapFormStore } from 'lx/src/features/transactions/swap/stores/swapFormStore/useSwapFormStore'
 import { useSwapTxStore } from 'lx/src/features/transactions/swap/stores/swapTxStore/useSwapTxStore'
 import { getSwapFeeUsdFromDerivedSwapInfo } from 'lx/src/features/transactions/swap/utils/getSwapFeeUsd'
-import { isMultiChainGasQuote, isLxSwap, isWrap } from 'lx/src/features/transactions/swap/utils/routing'
+import { isMultiChainGasQuote, isLX, isWrap } from 'lx/src/features/transactions/swap/utils/routing'
 import { TransactionDetails } from 'lx/src/features/transactions/TransactionDetails/TransactionDetails'
 import { CurrencyField } from 'lx/src/types/currency'
 
 export function ExpandableRows(): JSX.Element | null {
   const { t } = useTranslation()
   const { gasFee, gasFeeBreakdown } = useSwapTxStore((s) => {
-    if (isLxSwap(s)) {
+    if (isLX(s)) {
       return {
         gasFee: s.gasFee,
         gasFeeBreakdown: s.gasFeeBreakdown,

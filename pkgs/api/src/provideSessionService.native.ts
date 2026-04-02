@@ -1,6 +1,6 @@
 import { provideDeviceIdService } from '@l.x/api/src/provideDeviceIdService'
 import { provideSessionStorage } from '@l.x/api/src/provideSessionStorage'
-import { provideLxIdentifierService } from '@l.x/api/src/provideLxIdentifierService'
+import { provideLXIdentifierService } from '@l.x/api/src/provideLXIdentifierService'
 import { getTransport } from '@l.x/api/src/transport'
 import {
   createNoopSessionService,
@@ -33,7 +33,7 @@ function getMobileSessionService(ctx: { getBaseUrl: () => string; getLogger?: ()
 
   const sessionStorage = provideSessionStorage()
   const deviceIdService = provideDeviceIdService()
-  const lxIdentifierService = provideLxIdentifierService()
+  const lxIdentifierService = provideLXIdentifierService()
   const sessionRepository = createSessionRepository({ client: sessionClient, getLogger: ctx.getLogger })
   return createSessionService({
     sessionStorage,

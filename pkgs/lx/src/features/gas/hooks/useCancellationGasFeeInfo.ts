@@ -14,14 +14,14 @@ import {
 } from 'lx/src/features/gas/utils/cancel'
 import {
   extractCancellationData,
-  getCancelMultipleLxSwapOrdersTransaction,
+  getCancelMultipleLXOrdersTransaction,
 } from 'lx/src/features/transactions/cancel/cancelMultipleOrders'
 import { getCancelOrderTxRequest } from 'lx/src/features/transactions/cancel/getCancelOrderTxRequest'
-import { isLxSwap } from 'lx/src/features/transactions/swap/utils/routing'
+import { isLX } from 'lx/src/features/transactions/swap/utils/routing'
 import {
   PlanTransactionDetails,
   TransactionDetails,
-  LxSwapOrderDetails,
+  LXOrderDetails,
 } from 'lx/src/features/transactions/types/transactionDetails'
 import { isPlanTransactionDetails } from 'lx/src/features/transactions/types/utils'
 import { ReactQueryCacheKey } from 'utilities/src/reactQuery/cache'
@@ -36,7 +36,7 @@ import { ReactQueryCacheKey } from 'utilities/src/reactQuery/cache'
  */
 export function useCancellationGasFeeInfo(
   transaction: TransactionDetails,
-  orders?: LxSwapOrderDetails[],
+  orders?: LXOrderDetails[],
 ): CancellationGasFeeDetails | PlanCancellationGasFeeDetails | undefined {
   const isPlan = isPlanTransactionDetails(transaction)
   const planCancellation = usePlanCancellationGasFeeInfo(isPlan ? (transaction as PlanTransactionDetails) : undefined)
@@ -52,7 +52,7 @@ export function useCancellationGasFeeInfo(
   }, [transaction])
 
   // Get LX cancel request (single or batch)
-  const lxSwapCancelRequest = useLXCancelRequest({
+  const lxOrderCancelRequest = useLXCancelRequest({
     transaction,
     orders,
     cancellationType,
@@ -60,11 +60,11 @@ export function useCancellationGasFeeInfo(
 
   // Calculate gas fees based on type
   const isLXCancellation = cancellationType === CancellationType.LX
-  const cancelRequest = isLXCancellation ? lxSwapCancelRequest : classicCancelRequest
+  const cancelRequest = isLXCancellation ? lxOrderCancelRequest : classicCancelRequest
 
   const gasFee = useTransactionGasFee({
     tx: cancelRequest,
-    skip: isLXCancellation && !lxSwapCancelRequest,
+    skip: isLXCancellation && !lxOrderCancelRequest,
   })
 
   return useMemo(() => {
@@ -93,7 +93,7 @@ function useLXCancelRequest({
   cancellationType,
 }: {
   transaction: TransactionDetails
-  orders: LxSwapOrderDetails[] | undefined
+  orders: LXOrderDetails[] | undefined
   cancellationType: CancellationType
 }): providers.TransactionRequest | undefined {
   const cancelRequestFetcher = useCallback(async (): Promise<providers.TransactionRequest | null> => {
@@ -107,7 +107,7 @@ function useLXCancelRequest({
       }
 
       try {
-        const cancelRequest = await getCancelMultipleLxSwapOrdersTransaction({
+        const cancelRequest = await getCancelMultipleLXOrdersTransaction({
           orders: ordersWithEncodedData.map((order) => ({
             encodedOrder: order.encodedOrder,
             routing: order.routing,
@@ -121,9 +121,9 @@ function useLXCancelRequest({
       }
     }
 
-    if (isLxSwap(transaction)) {
+    if (isLX(transaction)) {
       try {
-        const cancelRequest = await getCancelOrderTxRequest(transaction as LxSwapOrderDetails)
+        const cancelRequest = await getCancelOrderTxRequest(transaction as LXOrderDetails)
         return cancelRequest
       } catch {
         return null

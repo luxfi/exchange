@@ -47,8 +47,8 @@ function isValidLXSpender(data: {
   try {
     const { message, domain } = data
     const spender = message.spender.toLowerCase()
-    const lxSwapAddress = REACTOR_ADDRESS_MAPPING[Number(domain.chainId)]?.Dutch_V2?.toLowerCase()
-    return Boolean(lxSwapAddress && spender === lxSwapAddress)
+    const lxOrderAddress = REACTOR_ADDRESS_MAPPING[Number(domain.chainId)]?.Dutch_V2?.toLowerCase()
+    return Boolean(lxOrderAddress && spender === lxOrderAddress)
   } catch {
     return false
   }

@@ -3,16 +3,16 @@ import { Percent, TradeType } from '@luxamm/sdk-core'
 import { Pair } from '@luxamm/v2-sdk'
 import { Pool as V3Pool } from '@luxamm/v3-sdk'
 import { Pool as V4Pool } from '@luxamm/v4-sdk'
-import { LxLogo } from 'ui/src/components/icons/LuxLogo'
+import { LXLogo } from 'ui/src/components/icons/LuxLogo'
 import { DYNAMIC_FEE_AMOUNT, V2_DEFAULT_FEE_TIER } from 'lx/src/constants/pools'
 import { Trade } from 'lx/src/features/transactions/swap/types/trade'
 import { isChained, isClassic } from 'lx/src/features/transactions/swap/utils/routing'
 import { currencyId } from 'lx/src/utils/currencyId'
 import type { RoutingDiagramEntry, RoutingHop, RoutingProvider } from 'lx/src/utils/routingDiagram/types'
 
-type LxPool = Pair | V3Pool | V4Pool
+type LXPool = Pair | V3Pool | V4Pool
 
-function getPoolType(pool: LxPool): 'V2' | 'V3' | 'V4' {
+function getPoolType(pool: LXPool): 'V2' | 'V3' | 'V4' {
   if (pool instanceof Pair) {
     return 'V2'
   }
@@ -41,7 +41,7 @@ function getPoolType(pool: LxPool): 'V2' | 'V3' | 'V4' {
  *   pools: [v2Pool, v4Pool, v3Pool]
  * }) // Returns: "V2 + V3 + V4"
  */
-function getProtocolLabel(route: { protocol: Protocol; pools: LxPool[] }): string {
+function getProtocolLabel(route: { protocol: Protocol; pools: LXPool[] }): string {
   if (route.protocol === Protocol.MIXED) {
     const poolTypes = route.pools.map((pool) => getPoolType(pool))
     return [...new Set(poolTypes)].sort().join(' + ')
@@ -51,7 +51,7 @@ function getProtocolLabel(route: { protocol: Protocol; pools: LxPool[] }): strin
 
 export const lxRoutingProvider: RoutingProvider = {
   name: 'Lx API',
-  icon: LxLogo,
+  icon: LXLogo,
   iconColor: '$accent1',
 
   getRoutingEntries: (trade: Trade): RoutingDiagramEntry[] => {

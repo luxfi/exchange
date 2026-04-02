@@ -11,7 +11,7 @@ import { lxUrls } from 'lx/src/constants/urls'
 import { ModalName } from 'lx/src/features/telemetry/constants'
 import { isWebPlatform } from 'utilities/src/platform'
 
-export function LxSwapInfo({
+export function LXInfo({
   children,
   tooltipTrigger,
   placement = 'top',
@@ -26,15 +26,15 @@ export function LxSwapInfo({
       infoButton={
         <LearnMoreLink
           textVariant={isWebPlatform ? 'body4' : undefined}
-          url={lxUrls.helpArticleUrls.lxSwapInfo}
+          url={lxUrls.helpArticleUrls.lxOrderInfo}
         />
       }
       modalProps={{
-        backgroundIconColor: opacify(16, colors.lxSwapPurple),
+        backgroundIconColor: opacify(16, colors.lxOrderPurple),
         caption: t('lx.description'),
         rejectText: t('common.button.close'),
         icon: <LX size="$icon.24" />,
-        modalName: ModalName.LxSwapInfo,
+        modalName: ModalName.LXInfo,
         severity: WarningSeverity.None,
         titleComponent: (
           <LXText variant={isWebPlatform ? 'subheading2' : 'body1'}>{t('lx.label')}</LXText>

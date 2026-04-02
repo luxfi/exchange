@@ -5,7 +5,7 @@ import dayjs from 'dayjs'
 import { useFormattedTransactionDataForActivity } from 'lx/src/features/activity/hooks/useFormattedTransactionDataForActivity'
 import { UniverseChainId } from 'lx/src/features/chains/types'
 import { TransactionStatus } from 'lx/src/features/transactions/types/transactionDetails'
-import { transactionDetails, lxSwapOrderDetails } from 'lx/src/test/fixtures/wallet/transactions'
+import { transactionDetails, lxOrderOrderDetails } from 'lx/src/test/fixtures/wallet/transactions'
 import { renderHook } from 'lx/src/test/test-utils'
 import type { MockedFunction } from 'vitest'
 
@@ -164,7 +164,7 @@ describe('useFormattedTransactionDataForActivity', () => {
         id: 'regular-swap',
         routing: TradingApi.Routing.CLASSIC,
       })
-      const limitOrder = lxSwapOrderDetails({
+      const limitOrder = lxOrderOrderDetails({
         id: 'limit-order',
         routing: TradingApi.Routing.DUTCH_LIMIT,
         chainId: UniverseChainId.Mainnet,
@@ -286,7 +286,7 @@ describe('useFormattedTransactionDataForActivity', () => {
         chainId: UniverseChainId.ArbitrumOne,
         routing: TradingApi.Routing.CLASSIC,
       })
-      const limitOrder = lxSwapOrderDetails({
+      const limitOrder = lxOrderOrderDetails({
         id: 'limit',
         chainId: UniverseChainId.Mainnet,
         routing: TradingApi.Routing.DUTCH_LIMIT,

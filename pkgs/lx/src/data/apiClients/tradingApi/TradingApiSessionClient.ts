@@ -9,7 +9,7 @@ import {
 import type { PlanEndpoints } from '@l.x/api/src/clients/trading/createTradingApiClient'
 import { getConfig } from '@l.x/config'
 import { FeatureFlags, getFeatureFlag } from '@l.x/gating'
-import { BASE_LX_HEADERS } from '@l.x/lx/src/data/apiClients/createLxFetchClient'
+import { BASE_LX_HEADERS } from '@l.x/lx/src/data/apiClients/createLXFetchClient'
 import { getFeatureFlaggedHeaders } from '@l.x/lx/src/data/apiClients/tradingApi/TradingApiClient'
 import { logger } from 'utilities/src/logger/logger'
 

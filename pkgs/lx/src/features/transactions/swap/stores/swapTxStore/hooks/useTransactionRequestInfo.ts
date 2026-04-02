@@ -6,7 +6,7 @@ import { useTradingApiSwapQuery } from 'lx/src/data/apiClients/tradingApi/useTra
 import { useActiveGasStrategy } from 'lx/src/features/gas/hooks'
 import { useAllTransactionSettings } from 'lx/src/features/transactions/components/settings/stores/transactionSettingsStore/useTransactionSettingsStore'
 import { FALLBACK_SWAP_REQUEST_POLL_INTERVAL_MS } from 'lx/src/features/transactions/swap/review/services/swapTxAndGasInfoService/constants'
-import { processLXResponse } from 'lx/src/features/transactions/swap/review/services/swapTxAndGasInfoService/lxswap/utils'
+import { processLXResponse } from 'lx/src/features/transactions/swap/review/services/swapTxAndGasInfoService/lx/utils'
 import type { TransactionRequestInfo } from 'lx/src/features/transactions/swap/review/services/swapTxAndGasInfoService/utils'
 import {
   createLogSwapRequestErrors,
@@ -18,7 +18,7 @@ import { usePermit2SignatureWithData } from 'lx/src/features/transactions/swap/s
 import type { DerivedSwapInfo } from 'lx/src/features/transactions/swap/types/derivedSwapInfo'
 import type { TokenApprovalInfo } from 'lx/src/features/transactions/swap/types/trade'
 import { ApprovalAction } from 'lx/src/features/transactions/swap/types/trade'
-import { isBridge, isClassic, isLxSwap, isWrap } from 'lx/src/features/transactions/swap/utils/routing'
+import { isBridge, isClassic, isLX, isWrap } from 'lx/src/features/transactions/swap/utils/routing'
 import { isWebApp } from 'utilities/src/platform'
 import { useTrace } from 'utilities/src/telemetry/trace/TraceContext'
 import { ONE_SECOND_MS } from 'utilities/src/time/time'
@@ -178,13 +178,13 @@ export function useTransactionRequestInfo({
   derivedSwapInfo: DerivedSwapInfo
   tokenApprovalInfo: TokenApprovalInfo | undefined
 }): TransactionRequestInfo {
-  const lxSwapTransactionRequestInfo = useLXTransactionRequestInfo(
+  const lxOrderTransactionRequestInfo = useLXTransactionRequestInfo(
     derivedSwapInfo.trade.trade?.quote.permitData,
   )
   const swapTransactionRequestInfo = useSwapTransactionRequestInfo({ derivedSwapInfo, tokenApprovalInfo })
 
-  if (derivedSwapInfo.trade.trade && isLxSwap(derivedSwapInfo.trade.trade)) {
-    return lxSwapTransactionRequestInfo
+  if (derivedSwapInfo.trade.trade && isLX(derivedSwapInfo.trade.trade)) {
+    return lxOrderTransactionRequestInfo
   }
 
   return swapTransactionRequestInfo

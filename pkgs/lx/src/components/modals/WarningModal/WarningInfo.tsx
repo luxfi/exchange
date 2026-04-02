@@ -4,7 +4,7 @@ import { InfoCircle } from 'ui/src/components/icons/InfoCircle'
 import { WarningModal, WarningModalProps } from 'lx/src/components/modals/WarningModal/WarningModal'
 import { InfoTooltip } from 'lx/src/components/tooltip/InfoTooltip'
 import { InfoTooltipProps } from 'lx/src/components/tooltip/InfoTooltipProps'
-import { LxEventName } from 'lx/src/features/telemetry/constants'
+import { LXEventName } from 'lx/src/features/telemetry/constants'
 import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
 import { isWebPlatform } from 'utilities/src/platform'
 import { useTrace } from 'utilities/src/telemetry/trace/TraceContext'
@@ -52,7 +52,7 @@ export function WarningInfo({
       }
 
       hasHoverBeenTracked.current = true
-      sendAnalyticsEvent(LxEventName.TooltipOpened, {
+      sendAnalyticsEvent(LXEventName.TooltipOpened, {
         ...trace,
         tooltip_name: analyticsTitle,
       })

@@ -24,7 +24,7 @@ import { TransactionExecutor } from '@luxfi/wallet/src/features/transactions/swa
 import {
   SwapTransactionData,
   TransactionParamsFactory,
-  LxSwapOrderTransactionData,
+  LXOrderTransactionData,
 } from '@luxfi/wallet/src/features/transactions/swap/services/transactionParamsFactory'
 import {
   PreSignedSwapTransaction,
@@ -71,7 +71,7 @@ export const mockTransactionParamsFactory: jest.Mocked<TransactionParamsFactory>
   createWrapParams: jest.fn().mockReturnValue({
     typeInfo: { type: TransactionType.Wrap },
   }),
-  createLxSwapOrderParams: jest.fn().mockImplementation((data: LxSwapOrderTransactionData) => ({
+  createLXOrderParams: jest.fn().mockImplementation((data: LXOrderTransactionData) => ({
     permit: data.signedPermit,
     quote: data.quote,
     routing: data.routing,

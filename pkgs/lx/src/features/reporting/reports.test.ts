@@ -7,7 +7,7 @@ import {
   TokenDataReportOption,
   TokenReportOption,
 } from 'lx/src/features/reporting/reports'
-import { LxEventName } from 'lx/src/features/telemetry/constants'
+import { LXEventName } from 'lx/src/features/telemetry/constants'
 import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
 import type { Mock } from 'vitest'
 
@@ -33,7 +33,7 @@ describe('report submission analytics', () => {
       })
 
       expect(mockSendAnalyticsEvent).toHaveBeenCalledWith(
-        LxEventName.SpamReportSubmitted,
+        LXEventName.SpamReportSubmitted,
         expect.objectContaining({
           spam_token: true,
           something_else: true,
@@ -52,7 +52,7 @@ describe('report submission analytics', () => {
       })
 
       expect(mockSendAnalyticsEvent).toHaveBeenCalledWith(
-        LxEventName.SpamReportSubmitted,
+        LXEventName.SpamReportSubmitted,
         expect.objectContaining({
           spam_token: true,
           something_else: false,
@@ -74,7 +74,7 @@ describe('report submission analytics', () => {
       })
 
       expect(mockSendAnalyticsEvent).toHaveBeenCalledWith(
-        LxEventName.DataReportSubmitted,
+        LXEventName.DataReportSubmitted,
         expect.objectContaining({
           type: 'data',
           something_else: true,
@@ -96,7 +96,7 @@ describe('report submission analytics', () => {
       })
 
       expect(mockSendAnalyticsEvent).toHaveBeenCalledWith(
-        LxEventName.DataReportSubmitted,
+        LXEventName.DataReportSubmitted,
         expect.objectContaining({
           type: 'data',
           performance: true,
@@ -121,7 +121,7 @@ describe('report submission analytics', () => {
       })
 
       expect(mockSendAnalyticsEvent).toHaveBeenCalledWith(
-        LxEventName.DataReportSubmitted,
+        LXEventName.DataReportSubmitted,
         expect.objectContaining({
           type: 'data',
           performance: true,
@@ -141,7 +141,7 @@ describe('report submission analytics', () => {
       })
 
       expect(mockSendAnalyticsEvent).toHaveBeenCalledWith(
-        LxEventName.DataReportSubmitted,
+        LXEventName.DataReportSubmitted,
         expect.objectContaining({
           price: true,
           performance_text: undefined,
@@ -172,7 +172,7 @@ describe('report submission analytics', () => {
       })
 
       expect(mockSendAnalyticsEvent).toHaveBeenCalledWith(
-        LxEventName.DataReportSubmitted,
+        LXEventName.DataReportSubmitted,
         expect.objectContaining({
           type: 'pool',
           volume: true,
@@ -194,7 +194,7 @@ describe('report submission analytics', () => {
       })
 
       expect(mockSendAnalyticsEvent).toHaveBeenCalledWith(
-        LxEventName.DataReportSubmitted,
+        LXEventName.DataReportSubmitted,
         expect.objectContaining({
           type: 'pool',
           volume: true,

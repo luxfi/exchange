@@ -11,7 +11,7 @@ import { MouseoverTooltip, TooltipSize } from '~/components/Tooltip'
 import { deprecatedStyled } from '~/lib/deprecated-styled'
 import { useMultichainContext } from '~/state/multichain/useMultichainContext'
 import { SubmittableTrade } from '~/state/routing/types'
-import { isLxSwapTrade } from '~/state/routing/utils'
+import { isLXTrade } from '~/state/routing/utils'
 import { ThemedText } from '~/theme/components'
 
 const StyledGasIcon = deprecatedStyled(Gas)`
@@ -44,10 +44,10 @@ export default function GasEstimateTooltip({ trade, loading }: { trade?: Submitt
     >
       <LoadingOpacityContainer $loading={loading}>
         <RowFixed gap="xs">
-          {isLxSwapTrade(trade) ? <DEXRouterIcon testId="gas-estimate-dex-icon" /> : <StyledGasIcon />}
+          {isLXTrade(trade) ? <DEXRouterIcon testId="gas-estimate-dex-icon" /> : <StyledGasIcon />}
           <ThemedText.BodySmall color="neutral2">
             <Row gap="sm">
-              {isLxSwapTrade(trade) ? (
+              {isLXTrade(trade) ? (
                 <DEXGradient>
                   {convertFiatAmountFormatted(trade.totalGasUseEstimateUSD, NumberType.FiatGasPrice)}
                 </DEXGradient>
@@ -55,7 +55,7 @@ export default function GasEstimateTooltip({ trade, loading }: { trade?: Submitt
                 <>{convertFiatAmountFormatted(trade.totalGasUseEstimateUSD, NumberType.FiatGasPrice)}</>
               )}
 
-              {isLxSwapTrade(trade) && (trade.classicGasUseEstimateUSD ?? 0) > 0 && (
+              {isLXTrade(trade) && (trade.classicGasUseEstimateUSD ?? 0) > 0 && (
                 <>
                   <s>{convertFiatAmountFormatted(trade.classicGasUseEstimateUSD, NumberType.FiatGasPrice)}</s>
                 </>

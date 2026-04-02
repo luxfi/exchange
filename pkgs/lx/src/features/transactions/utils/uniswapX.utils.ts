@@ -1,9 +1,9 @@
 import { GraphQLApi, TradingApi } from '@l.x/api'
-import { isLxSwap } from 'lx/src/features/transactions/swap/utils/routing'
+import { isLX } from 'lx/src/features/transactions/swap/utils/routing'
 import {
   TransactionDetails,
   TransactionStatus,
-  LxSwapOrderDetails,
+  LXOrderDetails,
 } from 'lx/src/features/transactions/types/transactionDetails'
 
 /**
@@ -102,8 +102,8 @@ export function remoteOrderStatusToLocalTxStatus(orderStatus: GraphQLApi.SwapOrd
  * Checks if a transaction is a limit order.
  * Limit orders are LX orders with DUTCH_LIMIT routing.
  */
-export function isLimitOrder(tx: TransactionDetails): tx is LxSwapOrderDetails {
-  return isLxSwap(tx) && tx.routing === TradingApi.Routing.DUTCH_LIMIT
+export function isLimitOrder(tx: TransactionDetails): tx is LXOrderDetails {
+  return isLX(tx) && tx.routing === TradingApi.Routing.DUTCH_LIMIT
 }
 
 /**
@@ -111,14 +111,14 @@ export function isLimitOrder(tx: TransactionDetails): tx is LxSwapOrderDetails {
  * Orders that have been filled won't have encodedOrder, and it's only present for orders
  * that haven't been submitted yet or are still pending.
  */
-export function hasEncodedOrder(order: LxSwapOrderDetails): order is LxSwapOrderDetails & { encodedOrder: string } {
+export function hasEncodedOrder(order: LXOrderDetails): order is LXOrderDetails & { encodedOrder: string } {
   return 'encodedOrder' in order && typeof order.encodedOrder === 'string'
 }
 
 /**
  * Check if a limit order can be cancelled
  */
-export function isLimitCancellable(order: LxSwapOrderDetails): boolean {
+export function isLimitCancellable(order: LXOrderDetails): boolean {
   return order.status === TransactionStatus.Pending || order.status === TransactionStatus.InsufficientFunds
 }
 
@@ -126,7 +126,7 @@ export function isLimitCancellable(order: LxSwapOrderDetails): boolean {
  * Checks if a LX order is in a pending-like state.
  * This includes orders that are actively pending, being cancelled, or have insufficient funds.
  */
-export function isLxSwapOrderPending(order: LxSwapOrderDetails): boolean {
+export function isLXOrderPending(order: LXOrderDetails): boolean {
   return (
     order.status === TransactionStatus.Pending ||
     order.status === TransactionStatus.Cancelling ||

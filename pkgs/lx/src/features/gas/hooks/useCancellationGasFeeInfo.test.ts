@@ -8,11 +8,11 @@ import { usePlanCancellationGasFeeInfo } from 'lx/src/features/gas/hooks/usePlan
 import * as CancelUtils from 'lx/src/features/gas/utils/cancel'
 import * as CancelMultipleOrders from 'lx/src/features/transactions/cancel/cancelMultipleOrders'
 import { getCancelOrderTxRequest } from 'lx/src/features/transactions/cancel/getCancelOrderTxRequest'
-import { isLxSwap } from 'lx/src/features/transactions/swap/utils/routing'
+import { isLX } from 'lx/src/features/transactions/swap/utils/routing'
 import {
   TransactionDetails,
   TransactionType,
-  LxSwapOrderDetails,
+  LXOrderDetails,
 } from 'lx/src/features/transactions/types/transactionDetails'
 import type { Mock } from 'vitest'
 
@@ -44,7 +44,7 @@ vi.mock('lx/src/features/gas/utils/cancel', () => ({
 vi.mock('lx/src/features/transactions/cancel/getCancelOrderTxRequest')
 vi.mock('lx/src/features/transactions/cancel/cancelMultipleOrders', () => ({
   extractCancellationData: vi.fn(),
-  getCancelMultipleLxSwapOrdersTransaction: vi.fn(),
+  getCancelMultipleLXOrdersTransaction: vi.fn(),
 }))
 vi.mock('lx/src/features/transactions/swap/utils/routing')
 
@@ -56,7 +56,7 @@ describe('useCancellationGasFeeInfo', () => {
   let mockCreateClassicCancelRequest: Mock
   let mockGetCancelOrderTxRequest: Mock
   let mockExtractCancellationData: Mock
-  let mockGetCancelMultipleLxSwapOrdersTransaction: Mock
+  let mockGetCancelMultipleLXOrdersTransaction: Mock
   let mockIsLX: Mock
   let mockUseQuery: Mock
 
@@ -66,7 +66,7 @@ describe('useCancellationGasFeeInfo', () => {
     from: '0x123',
     typeInfo: { type: TransactionType.Swap },
   } as TransactionDetails
-  const mockOrders: LxSwapOrderDetails[] = [{ id: 'mockOrder', orderHash: '0xorder1' } as LxSwapOrderDetails]
+  const mockOrders: LXOrderDetails[] = [{ id: 'mockOrder', orderHash: '0xorder1' } as LXOrderDetails]
   const mockGasFee = { value: '100', displayValue: '0.1' }
   const mockClassicCancelRequest = { to: 'classic' } as providers.TransactionRequest
   const mockLXCancelRequest = { to: 'lx' } as providers.TransactionRequest
@@ -79,9 +79,9 @@ describe('useCancellationGasFeeInfo', () => {
     mockCreateClassicCancelRequest = CancelUtils.createClassicCancelRequest as Mock
     mockGetCancelOrderTxRequest = getCancelOrderTxRequest as Mock
     mockExtractCancellationData = CancelMultipleOrders.extractCancellationData as Mock
-    mockGetCancelMultipleLxSwapOrdersTransaction =
-      CancelMultipleOrders.getCancelMultipleLxSwapOrdersTransaction as Mock
-    mockIsLX = isLxSwap as unknown as Mock
+    mockGetCancelMultipleLXOrdersTransaction =
+      CancelMultipleOrders.getCancelMultipleLXOrdersTransaction as Mock
+    mockIsLX = isLX as unknown as Mock
     mockUseQuery = useQuery as Mock
 
     mockUseTransactionGasFee.mockReturnValue(mockGasFee)
@@ -132,7 +132,7 @@ describe('useCancellationGasFeeInfo', () => {
       mockExtractCancellationData.mockReturnValue([
         { orderHash: '0xorder1', encodedOrder: '0xencoded', routing: 'DUTCH_V2' },
       ])
-      mockGetCancelMultipleLxSwapOrdersTransaction.mockResolvedValue(mockLXCancelRequest)
+      mockGetCancelMultipleLXOrdersTransaction.mockResolvedValue(mockLXCancelRequest)
       mockIsLX.mockReturnValue(false)
     })
 

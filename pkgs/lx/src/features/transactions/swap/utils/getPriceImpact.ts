@@ -2,7 +2,7 @@ import { type Currency, CurrencyAmount, Percent } from '@luxamm/sdk-core'
 import { getCurrencyAmount, ValueType } from 'lx/src/features/tokens/getCurrencyAmount'
 import type { DerivedSwapInfo } from 'lx/src/features/transactions/swap/types/derivedSwapInfo'
 import { getSwapFeeUsdFromDerivedSwapInfo } from 'lx/src/features/transactions/swap/utils/getSwapFeeUsd'
-import { isClassic, isJupiter, isLxSwap } from 'lx/src/features/transactions/swap/utils/routing'
+import { isClassic, isJupiter, isLX } from 'lx/src/features/transactions/swap/utils/routing'
 
 function stringToUSDAmount(value: string | number | undefined, USDCurrency: Currency): Maybe<CurrencyAmount<Currency>> {
   if (!value) {
@@ -21,7 +21,7 @@ function getLXPriceImpact({ derivedSwapInfo }: { derivedSwapInfo: DerivedSwapInf
   const trade = derivedSwapInfo.trade.trade
   const { input: inputUSD, output: outputUSD } = derivedSwapInfo.currencyAmountsUSDValue
 
-  if (!trade || !isLxSwap(trade) || !trade.quote.quote.classicGasUseEstimateUSD || !inputUSD || !outputUSD) {
+  if (!trade || !isLX(trade) || !trade.quote.quote.classicGasUseEstimateUSD || !inputUSD || !outputUSD) {
     return undefined
   }
 
@@ -50,7 +50,7 @@ export function getPriceImpact(derivedSwapInfo: DerivedSwapInfo): Percent | unde
     return undefined
   }
 
-  if (isLxSwap(trade)) {
+  if (isLX(trade)) {
     return getLXPriceImpact({ derivedSwapInfo })
   } else if (isClassic(trade) || isJupiter(trade)) {
     return trade.priceImpact

@@ -1,13 +1,13 @@
 import { useMemo } from 'react'
 import {
-  useFormattedLxSwapGasFeeInfo,
+  useFormattedLXGasFeeInfo,
   useGasFeeFormattedDisplayAmounts,
   useGasFeeHighRelativeToValue,
 } from 'lx/src/features/gas/hooks'
 import type { GasInfo } from 'lx/src/features/transactions/swap/form/SwapFormScreen/SwapFormScreenDetails/SwapFormScreenFooter/GasAndWarningRows/types'
 import { useSwapFormStoreDerivedSwapInfo } from 'lx/src/features/transactions/swap/stores/swapFormStore/useSwapFormStore'
 import { useSwapTxStore } from 'lx/src/features/transactions/swap/stores/swapTxStore/useSwapTxStore'
-import { isLxSwap } from 'lx/src/features/transactions/swap/utils/routing'
+import { isLX } from 'lx/src/features/transactions/swap/utils/routing'
 import { CurrencyField } from 'lx/src/types/currency'
 import { usePrevious } from 'utilities/src/react/hooks'
 
@@ -25,7 +25,7 @@ export function useDebouncedGasInfo(): GasInfo {
   const outputUSDValue = currencyAmountsUSDValue[CurrencyField.OUTPUT]
 
   const { gasFee, gasFeeBreakdown } = useSwapTxStore((s) => {
-    if (isLxSwap(s)) {
+    if (isLX(s)) {
       return {
         gasFee: s.gasFee,
         gasFeeBreakdown: s.gasFeeBreakdown,
@@ -38,7 +38,7 @@ export function useDebouncedGasInfo(): GasInfo {
     }
   })
 
-  const lxSwapGasFeeInfo = useFormattedLxSwapGasFeeInfo(gasFeeBreakdown, chainId)
+  const lxOrderGasFeeInfo = useFormattedLXGasFeeInfo(gasFeeBreakdown, chainId)
 
   const { gasFeeFormatted, gasFeeUSD } = useGasFeeFormattedDisplayAmounts({
     gasFee,
@@ -61,10 +61,10 @@ export function useDebouncedGasInfo(): GasInfo {
       gasFee,
       fiatPriceFormatted: gasFeeFormatted ?? undefined,
       isHighRelativeToValue,
-      lxSwapGasFeeInfo,
+      lxOrderGasFeeInfo,
       isLoading,
       chainId,
     }),
-    [gasFee, gasFeeFormatted, isHighRelativeToValue, isLoading, lxSwapGasFeeInfo, chainId],
+    [gasFee, gasFeeFormatted, isHighRelativeToValue, isLoading, lxOrderGasFeeInfo, chainId],
   )
 }

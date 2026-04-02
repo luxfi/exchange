@@ -1,6 +1,6 @@
 import { provideDeviceIdService } from '@l.x/api/src/provideDeviceIdService'
 import { provideSessionStorage } from '@l.x/api/src/provideSessionStorage'
-import { provideLxIdentifierService } from '@l.x/api/src/provideLxIdentifierService'
+import { provideLXIdentifierService } from '@l.x/api/src/provideLXIdentifierService'
 import { getTransport } from '@l.x/api/src/transport'
 import {
   createNoopSessionService,
@@ -8,7 +8,7 @@ import {
   createSessionRepository,
   createSessionService,
   type SessionService,
-  type LxIdentifierService,
+  type LXIdentifierService,
 } from '@l.x/sessions'
 import type { Logger } from 'utilities/src/logger/logger'
 import { isWebApp } from 'utilities/src/platform'
@@ -18,8 +18,8 @@ function provideSessionService(ctx: {
   getBaseUrl: () => string
   getIsSessionServiceEnabled: () => boolean
   getLogger?: () => Logger
-  /** Optional custom LxIdentifierService. If not provided, uses default localStorage-based service. */
-  lxIdentifierService?: LxIdentifierService
+  /** Optional custom LXIdentifierService. If not provided, uses default localStorage-based service. */
+  lxIdentifierService?: LXIdentifierService
 }): SessionService {
   if (!ctx.getIsSessionServiceEnabled()) {
     return createNoopSessionService()
@@ -40,7 +40,7 @@ function provideSessionService(ctx: {
 function getWebAppSessionService(ctx: {
   getBaseUrl: () => string
   getLogger?: () => Logger
-  lxIdentifierService?: LxIdentifierService
+  lxIdentifierService?: LXIdentifierService
 }): SessionService {
   const sessionClient = createSessionClient({
     transport: getTransport({
@@ -57,7 +57,7 @@ function getWebAppSessionService(ctx: {
   return createSessionService({
     sessionStorage: provideSessionStorage(),
     deviceIdService: provideDeviceIdService(),
-    lxIdentifierService: ctx.lxIdentifierService ?? provideLxIdentifierService(),
+    lxIdentifierService: ctx.lxIdentifierService ?? provideLXIdentifierService(),
     sessionRepository,
   })
 }
@@ -65,7 +65,7 @@ function getWebAppSessionService(ctx: {
 function getExtensionSessionService(ctx: {
   getBaseUrl: () => string
   getLogger?: () => Logger
-  lxIdentifierService?: LxIdentifierService
+  lxIdentifierService?: LXIdentifierService
 }): SessionService {
   const sessionClient = createSessionClient({
     transport: getTransport({
@@ -79,7 +79,7 @@ function getExtensionSessionService(ctx: {
   return createSessionService({
     sessionStorage: provideSessionStorage(),
     deviceIdService: provideDeviceIdService(),
-    lxIdentifierService: ctx.lxIdentifierService ?? provideLxIdentifierService(),
+    lxIdentifierService: ctx.lxIdentifierService ?? provideLXIdentifierService(),
     sessionRepository,
   })
 }

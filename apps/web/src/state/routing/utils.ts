@@ -75,7 +75,7 @@ export function computeRoutes(args: GetQuoteArgs, routes: ClassicQuoteData['rout
   if (routes.length === 0) {
     return []
   }
-  const [currencyIn, currencyOut] = getTradeCurrencies({ args, isLxSwapTrade: false, routes })
+  const [currencyIn, currencyOut] = getTradeCurrencies({ args, isLXTrade: false, routes })
 
   try {
     return routes.map((route) => {
@@ -209,11 +209,11 @@ function toUnsignedPriorityOrderInfo(orderInfoJSON: UnsignedPriorityOrderInfoJSO
 // Prepares the currencies used for the actual Swap (either DEX or Universal Router)
 function getTradeCurrencies({
   args,
-  isLxSwapTrade,
+  isLXTrade,
   routes,
 }: {
   args: GetQuoteArgs | GetQuickQuoteArgs
-  isLxSwapTrade: boolean
+  isLXTrade: boolean
   routes?: ClassicQuoteData['route']
 }): [Currency, Currency] {
   const {
@@ -323,13 +323,13 @@ export async function transformQuoteToTrade({
 }): Promise<TradeResult> {
   const { tradeType, routerPreference, account, amount, routingType } = args
 
-  const showLxSwapTrade =
+  const showLXTrade =
     (routingType === URAQuoteType.DUTCH_V2 ||
       routingType === URAQuoteType.DUTCH_V3 ||
       routingType === URAQuoteType.PRIORITY) &&
     routerPreference === RouterPreference.X
 
-  const [currencyIn, currencyOut] = getTradeCurrencies({ args, isLxSwapTrade: showLxSwapTrade })
+  const [currencyIn, currencyOut] = getTradeCurrencies({ args, isLXTrade: showLXTrade })
 
   if (!isEVMChain(currencyIn.chainId)) {
     throw new Error('chainId must be EVM for routing api paths')
@@ -543,7 +543,7 @@ export function isPreviewTrade(trade?: InterfaceTrade): trade is PreviewTrade {
 }
 
 export function isSubmittableTrade(trade?: InterfaceTrade): trade is SubmittableTrade {
-  return isClassicTrade(trade) || isLxSwapTrade(trade)
+  return isClassicTrade(trade) || isLXTrade(trade)
 }
 
 /* Returns true if trade uses DEX protocol. Includes both X swaps and limit orders. */
@@ -557,7 +557,7 @@ export function isLXTradeType(
   )
 }
 
-export function isLxSwapTrade(
+export function isLXTrade(
   trade?: InterfaceTrade,
 ): trade is DutchOrderTrade | V2DutchOrderTrade | V3DutchOrderTrade | LimitOrderTrade | PriorityOrderTrade {
   return isLXTradeType(trade?.fillType)
@@ -568,7 +568,7 @@ export function isLXSwapTrade(
   trade?: InterfaceTrade,
 ): trade is DutchOrderTrade | V2DutchOrderTrade | V3DutchOrderTrade | PriorityOrderTrade {
   return (
-    isLxSwapTrade(trade) &&
+    isLXTrade(trade) &&
     (trade.offchainOrderType === OffchainOrderType.DUTCH_AUCTION ||
       trade.offchainOrderType === OffchainOrderType.DUTCH_V2_AUCTION ||
       trade.offchainOrderType === OffchainOrderType.DUTCH_V3_AUCTION ||
@@ -577,5 +577,5 @@ export function isLXSwapTrade(
 }
 
 export function isLimitTrade(trade?: InterfaceTrade): trade is LimitOrderTrade {
-  return isLxSwapTrade(trade) && trade.offchainOrderType === OffchainOrderType.LIMIT_ORDER
+  return isLXTrade(trade) && trade.offchainOrderType === OffchainOrderType.LIMIT_ORDER
 }

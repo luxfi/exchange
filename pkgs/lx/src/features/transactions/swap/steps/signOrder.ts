@@ -9,27 +9,27 @@ export interface LXSignatureStep extends SignTypedDataStepFields {
   quote: TradingApi.DutchQuoteV2 | TradingApi.DutchQuoteV3 | TradingApi.PriorityQuote
 }
 
-export function createSignLxSwapOrderStep(
+export function createSignLXOrderStep(
   permitData: ValidatedPermit,
   quote: TradingApi.DutchQuoteV2 | TradingApi.DutchQuoteV3 | TradingApi.PriorityQuote,
 ): LXSignatureStep {
   return { type: TransactionStepType.LXSignature, deadline: quote.orderInfo.deadline, quote, ...permitData }
 }
 
-export interface LxSwapPlanSignatureStep extends SignTypedDataStepFields, TradingApi.PlanStep {
-  type: TransactionStepType.LxSwapPlanSignature
+export interface LXPlanSignatureStep extends SignTypedDataStepFields, TradingApi.PlanStep {
+  type: TransactionStepType.LXPlanSignature
   deadline: number
 }
 
-export function createLxSwapPlanSignatureStep(
+export function createLXPlanSignatureStep(
   permitData: ValidatedPermit,
   step: TradingApi.PlanStep,
-): LxSwapPlanSignatureStep {
-  const lxSwapPlanSignatureStep: LxSwapPlanSignatureStep = {
+): LXPlanSignatureStep {
+  const lxOrderPlanSignatureStep: LXPlanSignatureStep = {
     ...step,
     ...permitData,
-    type: TransactionStepType.LxSwapPlanSignature,
+    type: TransactionStepType.LXPlanSignature,
     deadline: Number(permitData.values['deadline']),
   }
-  return lxSwapPlanSignatureStep
+  return lxOrderPlanSignatureStep
 }

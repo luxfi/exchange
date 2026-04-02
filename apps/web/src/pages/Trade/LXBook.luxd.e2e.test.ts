@@ -109,7 +109,7 @@ test.describe(
       const vaultCode = await anvil.getCode({ address: LX.LX_VAULT })
       expect(vaultCode !== undefined).toBe(true)
 
-      // Verify LxSwapFeed precompile (required for mark prices)
+      // Verify LXFeed precompile (required for mark prices)
       const feedCode = await anvil.getCode({ address: LX.LX_FEED })
       expect(feedCode !== undefined).toBe(true)
     })
@@ -152,8 +152,8 @@ test.describe(
       expect(vaultCode !== undefined).toBe(true)
     })
 
-    test('should verify LxSwapFeed provides mark prices', async ({ anvil }) => {
-      // LXBook uses LxSwapFeed for mark price calculations
+    test('should verify LXFeed provides mark prices', async ({ anvil }) => {
+      // LXBook uses LXFeed for mark price calculations
       const feedCode = await anvil.getCode({ address: LX.LX_FEED })
       expect(feedCode !== undefined).toBe(true)
     })

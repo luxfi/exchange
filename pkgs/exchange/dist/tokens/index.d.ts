@@ -32,6 +32,9 @@ export declare const LUSD: Token;
  */
 export declare const LETH: Token;
 export declare const LBTC: Token;
+export declare const LSOL: Token;
+export declare const LTON: Token;
+export declare const LAVAX: Token;
 /**
  * Testnet bridge tokens
  */
@@ -56,9 +59,9 @@ export declare const DAI_LUX: Token;
  * Zoo chain tokens
  */
 export declare const WZOO: Token;
-export declare const USDC_ZOO: Token;
-export declare const USDT_ZOO: Token;
-export declare const WETH_ZOO: Token;
+export declare const LETH_ZOO: Token;
+export declare const LBTC_ZOO: Token;
+export declare const LUSD_ZOO: Token;
 /**
  * Default token list for Lux Mainnet
  */

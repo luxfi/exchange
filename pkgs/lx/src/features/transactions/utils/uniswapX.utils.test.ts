@@ -4,13 +4,13 @@ import {
   TransactionOriginType,
   TransactionStatus,
   TransactionType,
-  LxSwapOrderDetails,
+  LXOrderDetails,
 } from 'lx/src/features/transactions/types/transactionDetails'
 import {
   convertOrderStatusToTransactionStatus,
   convertOrderTypeToRouting,
   isLimitOrder,
-} from 'lx/src/features/transactions/utils/lxSwap.utils'
+} from 'lx/src/features/transactions/utils/lxOrder.utils'
 
 describe('LX Utils', () => {
   describe('convertOrderTypeToRouting', () => {
@@ -58,7 +58,7 @@ describe('LX Utils', () => {
   })
 
   describe('isLimitOrder', () => {
-    const mockLimitOrder: LxSwapOrderDetails = {
+    const mockLimitOrder: LXOrderDetails = {
       id: 'test-limit-order',
       chainId: UniverseChainId.Mainnet,
       routing: TradingApi.Routing.DUTCH_LIMIT,
@@ -75,11 +75,11 @@ describe('LX Utils', () => {
         expectedOutputCurrencyAmountRaw: '1000000',
         minimumOutputCurrencyAmountRaw: '990000',
         tradeType: 0,
-        isLxSwapOrder: true,
+        isLXOrder: true,
       },
     }
 
-    const mockRegularLxSwapOrder: LxSwapOrderDetails = {
+    const mockRegularLXOrder: LXOrderDetails = {
       ...mockLimitOrder,
       routing: TradingApi.Routing.DUTCH_V2,
     }
@@ -89,7 +89,7 @@ describe('LX Utils', () => {
     })
 
     it('should return false for regular LX orders', () => {
-      expect(isLimitOrder(mockRegularLxSwapOrder)).toBe(false)
+      expect(isLimitOrder(mockRegularLXOrder)).toBe(false)
     })
   })
 })

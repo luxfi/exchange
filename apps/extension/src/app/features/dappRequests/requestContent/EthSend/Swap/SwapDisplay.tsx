@@ -23,7 +23,7 @@ export function SwapDisplay({
   showSmartWalletActivation,
   onCancel,
   onConfirm,
-  isLxSwap,
+  isLX,
   isWrap,
   isUnwrap,
 }: {
@@ -36,7 +36,7 @@ export function SwapDisplay({
   showSmartWalletActivation?: boolean
   onCancel?: () => Promise<void>
   onConfirm?: () => Promise<void>
-  isLxSwap?: boolean
+  isLX?: boolean
   isWrap?: boolean
   isUnwrap?: boolean
 }): JSX.Element {
@@ -91,7 +91,7 @@ export function SwapDisplay({
           />
         ) : undefined
       }
-      isLxSwap={isLxSwap}
+      isLX={isLX}
       title={title}
       transactionGasFeeResult={transactionGasFeeResult}
       showSmartWalletActivation={showSmartWalletActivation}

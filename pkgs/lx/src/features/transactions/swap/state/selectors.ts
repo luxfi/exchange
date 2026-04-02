@@ -1,5 +1,5 @@
 import type { SwapSettingsState } from 'lx/src/features/transactions/swap/state/slice'
-import type { LxRootState } from 'lx/src/state'
+import type { LXRootState } from 'lx/src/state'
 
-export const selectFilteredChainIds = (state: LxRootState): SwapSettingsState['filteredChainIds'] =>
+export const selectFilteredChainIds = (state: LXRootState): SwapSettingsState['filteredChainIds'] =>
   state.swapSettings.filteredChainIds

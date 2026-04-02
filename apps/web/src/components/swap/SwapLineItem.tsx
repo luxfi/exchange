@@ -20,7 +20,7 @@ import { RoutingTooltip } from '~/components/swap/SwapRoute'
 import TradePrice from '~/components/swap/TradePrice'
 import { TooltipSize } from '~/components/Tooltip'
 import { InterfaceTrade, SubmittableTrade } from '~/state/routing/types'
-import { isLimitTrade, isPreviewTrade, isLxSwapTrade } from '~/state/routing/utils'
+import { isLimitTrade, isPreviewTrade, isLXTrade } from '~/state/routing/utils'
 import { ExternalLink } from '~/theme/components/Links'
 
 export enum SwapLineItemType {
@@ -99,7 +99,7 @@ function useLineItem(props: SwapLineItemProps): LineItemData | undefined {
   const deadline = isLimitTrade(trade) ? trade.deadline : 0
   const formattedDeadline = useFormattedDateTime(localizedDayjs(deadline), FORMAT_DATE_TIME_MEDIUM)
 
-  const isLxSwap = isLxSwapTrade(trade)
+  const isLX = isLXTrade(trade)
   const isPreview = isPreviewTrade(trade)
 
   switch (type) {
@@ -108,7 +108,7 @@ function useLineItem(props: SwapLineItemProps): LineItemData | undefined {
         Label: () => (isLimitTrade(trade) ? <Trans i18nKey="limits.price.label" /> : <Trans i18nKey="common.rate" />),
         Value: () => <TradePrice price={trade.executionPrice} />,
         TooltipBody: !isPreview ? () => <RoutingTooltip trade={trade} /> : undefined,
-        tooltipSize: isLxSwap ? TooltipSize.Small : TooltipSize.Large,
+        tooltipSize: isLX ? TooltipSize.Small : TooltipSize.Large,
       }
     case SwapLineItemType.NETWORK_COST:
       return {

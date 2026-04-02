@@ -1,8 +1,8 @@
 import { createDataServiceApiClient } from '@l.x/api'
 import { lxUrls } from 'lx/src/constants/urls'
-import { createLxFetchClient } from 'lx/src/data/apiClients/createLxFetchClient'
+import { createLXFetchClient } from 'lx/src/data/apiClients/createLXFetchClient'
 
-const DataServiceFetchClient = createLxFetchClient({
+const DataServiceFetchClient = createLXFetchClient({
   baseUrl: lxUrls.dataApiServiceUrl,
 })
 

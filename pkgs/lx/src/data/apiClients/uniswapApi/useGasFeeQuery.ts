@@ -29,7 +29,7 @@ export function useGasFeeQuery({
 > & { shouldUsePreviousValueDuringLoading?: boolean }): UseQueryResult<GasFeeResultWithoutState> {
   const { isStatsigReady } = useStatsigClientStatus()
   const queryKey = [
-    ReactQueryCacheKey.LxApi,
+    ReactQueryCacheKey.LXApi,
     lxUrls.gasServicePath,
     params?.tx,
     params?.fallbackGasLimit,

@@ -1,4 +1,4 @@
-import { FormattedLxSwapGasFeeInfo } from '@l.x/api'
+import { FormattedLXGasFeeInfo } from '@l.x/api'
 import { PropsWithChildren } from 'react'
 import { Trans, useTranslation } from 'react-i18next'
 import { Text, LXText, useSporeColors } from 'ui/src'
@@ -22,7 +22,7 @@ export function NetworkFeeWarning({
   disabled = false,
   tooltipTrigger,
   placement = 'top',
-  lxSwapGasFeeInfo,
+  lxOrderGasFeeInfo,
   chainId,
   includesDelegation,
 }: PropsWithChildren<{
@@ -30,14 +30,14 @@ export function NetworkFeeWarning({
   disabled?: boolean
   tooltipTrigger?: InfoTooltipProps['trigger']
   placement?: InfoTooltipProps['placement']
-  lxSwapGasFeeInfo?: FormattedLxSwapGasFeeInfo
+  lxOrderGasFeeInfo?: FormattedLXGasFeeInfo
   chainId: UniverseChainId
   includesDelegation?: boolean
 }>): JSX.Element {
   const colors = useSporeColors()
   const { t } = useTranslation()
 
-  const showHighGasFeeUI = gasFeeHighRelativeToValue && !lxSwapGasFeeInfo && !isWebApp // Avoid high gas UI on interface
+  const showHighGasFeeUI = gasFeeHighRelativeToValue && !lxOrderGasFeeInfo && !isWebApp // Avoid high gas UI on interface
 
   return (
     <WarningInfo
@@ -56,7 +56,7 @@ export function NetworkFeeWarning({
           <NetworkFeeText
             includesDelegation={includesDelegation}
             showHighGasFeeUI={showHighGasFeeUI}
-            lxSwapGasFeeInfo={lxSwapGasFeeInfo}
+            lxOrderGasFeeInfo={lxOrderGasFeeInfo}
             chainId={chainId}
           />
         ),
@@ -72,8 +72,8 @@ export function NetworkFeeWarning({
         zIndex: zIndexes.popover,
       }}
       tooltipProps={{
-        text: lxSwapGasFeeInfo ? (
-          <NetworkCostTooltipDEX lxSwapGasFeeInfo={lxSwapGasFeeInfo} />
+        text: lxOrderGasFeeInfo ? (
+          <NetworkCostTooltipDEX lxOrderGasFeeInfo={lxOrderGasFeeInfo} />
         ) : (
           <NetworkCostTooltip chainId={chainId} includesDelegation={includesDelegation ?? false} />
         ),
@@ -93,12 +93,12 @@ export function NetworkFeeWarning({
 function NetworkFeeText({
   includesDelegation,
   showHighGasFeeUI,
-  lxSwapGasFeeInfo,
+  lxOrderGasFeeInfo,
   chainId,
 }: {
   includesDelegation?: boolean
   showHighGasFeeUI?: boolean
-  lxSwapGasFeeInfo?: FormattedLxSwapGasFeeInfo
+  lxOrderGasFeeInfo?: FormattedLXGasFeeInfo
   chainId: UniverseChainId
 }): JSX.Element {
   const { t } = useTranslation()
@@ -107,7 +107,7 @@ function NetworkFeeText({
   // we need to remove `NATIVE_LINE_HEIGHT_SCALE` if we switch to a button label font
   const lineHeight = fonts[variant].lineHeight / (isWebPlatform ? 1 : NATIVE_LINE_HEIGHT_SCALE)
 
-  if (lxSwapGasFeeInfo) {
+  if (lxOrderGasFeeInfo) {
     // TODO(WEB-4313): Remove need to manually adjust the height of the LXText component for mobile.
     const components = { gradient: <LXText height={lineHeight} variant={variant} /> }
 
@@ -115,9 +115,9 @@ function NetworkFeeText({
       <Text color="$neutral2" textAlign={isWebPlatform ? 'left' : 'center'} variant={variant}>
         {/* TODO(WALL-5311): Investigate Trans component vertical alignment on android */}
         {chainId === UniverseChainId.Unichain ? (
-          <Trans components={components} i18nKey="swap.warning.networkFee.message.lxSwap.unichain" />
+          <Trans components={components} i18nKey="swap.warning.networkFee.message.lxOrder.unichain" />
         ) : (
-          <Trans components={components} i18nKey="swap.warning.networkFee.message.lxSwap" />
+          <Trans components={components} i18nKey="swap.warning.networkFee.message.lxOrder" />
         )}
       </Text>
     )

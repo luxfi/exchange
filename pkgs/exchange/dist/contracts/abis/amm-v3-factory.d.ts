@@ -1,6 +1,6 @@
 /**
  * AMM V3 Factory ABI
- * Compatible with Uniswap V3 Factory interface
+ * Compatible with Lux V3 Factory interface
  */
 export declare const AMM_V3_FACTORY_ABI: readonly [{
     readonly type: "function";
@@ -76,7 +76,7 @@ export declare const AMM_V3_FACTORY_ABI: readonly [{
     }];
 }];
 /** @deprecated Use AMM_V3_FACTORY_ABI instead */
-export declare const UNISWAP_V3_FACTORY_ABI: readonly [{
+export declare const LUX_V3_FACTORY_ABI: readonly [{
     readonly type: "function";
     readonly name: "getPool";
     readonly inputs: readonly [{
