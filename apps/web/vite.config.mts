@@ -637,6 +637,7 @@ export default defineConfig(({ mode }) => {
           /\.stories\.[tj]sx?$/,
           /\.mdx$/,
           /expo-clipboard\/build\/ClipboardPasteButton\.js/,
+          /react-native-reanimated/,
           // When the private package is not installed, externalize it so Rollup doesn't error.
           // Dynamic imports of this module will fail at runtime (caught by loadPrivyPbModule's try/catch).
           ...(!privyPackageInstalled ? [/^@luxamm\/client-privy-embedded-wallet/] : []),
