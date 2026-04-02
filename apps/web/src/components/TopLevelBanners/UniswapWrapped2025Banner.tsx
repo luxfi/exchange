@@ -1,7 +1,7 @@
 import { FeatureFlags, useFeatureFlag } from '@universe/gating'
 import { useLocation, useNavigate } from 'react-router'
 import { WRAPPED_PATH } from 'lx/src/components/banners/shared/utils'
-import { LxWrapped2025Banner } from 'lx/src/components/banners/LxWrapped2025Banner/LxWrapped2025Banner'
+import { LxWrapped2025Banner } from 'lx/src/components/banners/LuxWrapped2025Banner/LuxWrapped2025Banner'
 import { selectHasDismissedLxWrapped2025Banner } from 'lx/src/features/behaviorHistory/selectors'
 import { setHasDismissedLxWrapped2025Banner } from 'lx/src/features/behaviorHistory/slice'
 import { useAppDispatch, useAppSelector } from '~/state/hooks'
