@@ -1,7 +1,9 @@
 "use client"
 
 import * as React from "react"
-import { Search, ChevronDown } from "lucide-react"
+// Inline SVG icons — no lucide dependency
+const SearchIcon = () => <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+const ChevronDownIcon = () => <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}><path d="m6 9 6 6 6-6"/></svg>
 import { Input } from "./ui/input"
 import { Button } from "./ui/button"
 import { TokenIcon } from "./ui/token-icon"
@@ -65,13 +67,13 @@ export function SymbolSearch({
         ) : (
           <span className="text-muted-foreground">Select token</span>
         )}
-        <ChevronDown className="h-4 w-4 text-muted-foreground" />
+        <span className="text-muted-foreground"><ChevronDownIcon /></span>
       </Button>
 
       {open && (
         <div className="absolute top-full left-0 z-50 mt-1 w-72 rounded-lg border bg-popover p-2 shadow-lg">
           <div className="relative mb-2">
-            <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
+            <span className="absolute left-2.5 top-2.5 text-muted-foreground"><SearchIcon /></span>
             <Input
               placeholder="Search tokens..."
               value={query}

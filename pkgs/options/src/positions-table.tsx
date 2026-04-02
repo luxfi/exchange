@@ -1,20 +1,26 @@
 "use client"
 
 import * as React from "react"
-import { useAccount } from "wagmi"
-import { Wallet } from "lucide-react"
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card"
 import { Button } from "./ui/button"
 import { cn } from "./ui/cn"
 import type { OptionPosition } from "./types"
 
-interface PositionsTableProps {
+export interface PositionsTableProps {
   positions: OptionPosition[]
+  isConnected?: boolean
+  onClose?: (positionId: string) => void
+  onConnectWallet?: () => void
   className?: string
 }
 
-export function PositionsTable({ positions, className }: PositionsTableProps) {
-  const { isConnected } = useAccount()
+export function PositionsTable({
+  positions,
+  isConnected = false,
+  onClose,
+  onConnectWallet,
+  className,
+}: PositionsTableProps) {
 
   if (!isConnected) {
     return (
@@ -24,7 +30,7 @@ export function PositionsTable({ positions, className }: PositionsTableProps) {
         </CardHeader>
         <CardContent>
           <div className="flex flex-col items-center justify-center py-8 text-center">
-            <Wallet className="mb-3 h-10 w-10 text-muted-foreground/50" />
+            <svg className="mb-3 h-10 w-10 text-muted-foreground/50" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M21 12a2.25 2.25 0 0 0-2.25-2.25H15a3 3 0 1 1-6 0H5.25A2.25 2.25 0 0 0 3 12m18 0v6a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 18v-6m18 0V9M3 12V9m18 0a2.25 2.25 0 0 0-2.25-2.25H5.25A2.25 2.25 0 0 0 3 9m18 0V6a2.25 2.25 0 0 0-2.25-2.25H5.25A2.25 2.25 0 0 0 3 6v3" /></svg>
             <p className="mb-1 text-sm font-medium">Connect your wallet</p>
             <p className="text-xs text-muted-foreground">
               View and manage your options positions
@@ -137,6 +143,7 @@ export function PositionsTable({ positions, className }: PositionsTableProps) {
                       variant="ghost"
                       size="sm"
                       className="h-7 text-xs opacity-0 group-hover:opacity-100 transition-opacity"
+                      onClick={() => onClose?.(pos.id)}
                     >
                       Close
                     </Button>

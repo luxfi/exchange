@@ -2,8 +2,8 @@
 export { SymbolSearch } from "./symbol-search"
 export { ExpirationBar } from "./expiration-bar"
 export { OptionsChain } from "./options-chain"
-export { OptionsOrderForm } from "./options-order-form"
-export { PositionsTable } from "./positions-table"
+export { OptionsOrderForm, type OptionsOrderFormProps } from "./options-order-form"
+export { PositionsTable, type PositionsTableProps } from "./positions-table"
 export { StrategyPanel } from "./strategy-panel"
 
 // Types

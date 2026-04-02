@@ -1,7 +1,6 @@
 "use client"
 
 import * as React from "react"
-import { useAccount } from "wagmi"
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card"
 import { Button } from "./ui/button"
 import { Input } from "./ui/input"
@@ -10,11 +9,14 @@ import { cn } from "./ui/cn"
 type OrderSide = "buy" | "sell"
 type OrderType = "limit" | "market"
 
-interface OptionsOrderFormProps {
+export interface OptionsOrderFormProps {
   underlying: string | null
   strike: number | null
   optionSide: "call" | "put" | null
   expiration: string | null
+  isConnected?: boolean
+  onSubmit?: (order: { side: OrderSide; type: OrderType; quantity: number; limitPrice?: number }) => void
+  onConnectWallet?: () => void
   className?: string
 }
 
@@ -23,9 +25,11 @@ export function OptionsOrderForm({
   strike,
   optionSide,
   expiration,
+  isConnected = false,
+  onSubmit,
+  onConnectWallet,
   className,
 }: OptionsOrderFormProps) {
-  const { isConnected } = useAccount()
   const [side, setSide] = React.useState<OrderSide>("buy")
   const [orderType, setOrderType] = React.useState<OrderType>("limit")
   const [quantity, setQuantity] = React.useState("")
@@ -186,6 +190,17 @@ export function OptionsOrderForm({
           variant={side === "buy" ? "default" : "destructive"}
           size="xl"
           disabled={isDisabled()}
+          onClick={() => {
+            if (!isConnected && onConnectWallet) return onConnectWallet()
+            if (onSubmit && !isDisabled()) {
+              onSubmit({
+                side,
+                type: orderType,
+                quantity: parseFloat(quantity),
+                limitPrice: orderType === "limit" ? parseFloat(limitPrice) : undefined,
+              })
+            }
+          }}
         >
           {getButtonText()}
         </Button>
