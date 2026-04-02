@@ -424,12 +424,27 @@ importers:
       '@hanzogui/core':
         specifier: 2.0.4
         version: 2.0.4(fwfmu6dae5kkwqwbkpgutaxl6a)
+      '@l.x/api':
+        specifier: workspace:^
+        version: link:../../pkgs/api
+      '@l.x/gating':
+        specifier: workspace:^
+        version: link:../../pkgs/gating
+      '@l.x/lx':
+        specifier: workspace:^
+        version: link:../../pkgs/lx
+      '@l.x/notifications':
+        specifier: workspace:^
+        version: link:../../pkgs/notifications
+      '@l.x/sessions':
+        specifier: workspace:^
+        version: link:../../pkgs/sessions
       '@luxamm/analytics-events':
         specifier: 2.43.2
         version: 2.43.2
       '@luxamm/client-notification-service':
-        specifier: 0.0.114
-        version: 0.0.114
+        specifier: 0.0.115
+        version: 0.0.115
       '@luxamm/sdk-core':
         specifier: 7.12.2
         version: 7.12.2
@@ -442,21 +457,6 @@ importers:
       '@luxamm/v4-sdk':
         specifier: 1.29.4
         version: 1.29.4(hardhat@2.28.6(bufferutil@4.1.0)(ts-node@10.9.2(@swc/core@1.5.7(@swc/helpers@0.5.11))(@types/node@22.13.1)(typescript@5.8.3))(typescript@5.8.3)(utf-8-validate@5.0.10))
-      '@luxexchange/api':
-        specifier: workspace:^
-        version: link:../../pkgs/api
-      '@luxexchange/gating':
-        specifier: workspace:^
-        version: link:../../pkgs/gating
-      '@luxexchange/lx':
-        specifier: workspace:^
-        version: link:../../pkgs/lx
-      '@luxexchange/notifications':
-        specifier: workspace:^
-        version: link:../../pkgs/notifications
-      '@luxexchange/sessions':
-        specifier: workspace:^
-        version: link:../../pkgs/sessions
       '@luxfi/ui':
         specifier: workspace:^
         version: link:../../pkgs/ui
@@ -471,7 +471,7 @@ importers:
         version: 6.2.1
       '@reduxjs/toolkit':
         specifier: 1.9.3
-        version: 1.9.3(react-redux@8.0.5(@types/react@19.0.10)(react-dom@19.0.3(react@19.0.3))(react-native@0.79.5(@babel/core@7.26.0)(@react-native-community/cli@18.0.0(bufferutil@4.1.0)(typescript@5.8.3)(utf-8-validate@5.0.10))(@types/react@19.0.10)(bufferutil@4.1.0)(react@19.0.3)(utf-8-validate@5.0.10))(react@19.0.3)(redux@4.2.1))(react@19.0.3)
+        version: 1.9.3(react-redux@8.0.5(@types/react-dom@19.0.6(@types/react@19.0.10))(@types/react@19.0.10)(react-dom@19.0.3(react@19.0.3))(react-native@0.79.5(@babel/core@7.26.0)(@react-native-community/cli@18.0.0(bufferutil@4.1.0)(typescript@5.8.3)(utf-8-validate@5.0.10))(@types/react@19.0.10)(bufferutil@4.1.0)(react@19.0.3)(utf-8-validate@5.0.10))(react@19.0.3)(redux@4.2.1))(react@19.0.3)
       '@svgr/webpack':
         specifier: 8.0.1
         version: 8.0.1(typescript@5.8.3)
@@ -746,6 +746,24 @@ importers:
       '@gorhom/bottom-sheet':
         specifier: 4.6.4
         version: 4.6.4(@types/react@19.0.10)(react-native-gesture-handler@2.24.0(react-native@0.79.5(@babel/core@7.26.0)(@react-native-community/cli@18.0.0(bufferutil@4.1.0)(typescript@5.8.3)(utf-8-validate@5.0.10))(@types/react@19.0.10)(bufferutil@4.1.0)(react@19.0.3)(utf-8-validate@5.0.10))(react@19.0.3))(react-native-reanimated@3.19.3(@babel/core@7.26.0)(react-native@0.79.5(@babel/core@7.26.0)(@react-native-community/cli@18.0.0(bufferutil@4.1.0)(typescript@5.8.3)(utf-8-validate@5.0.10))(@types/react@19.0.10)(bufferutil@4.1.0)(react@19.0.3)(utf-8-validate@5.0.10))(react@19.0.3))(react-native@0.79.5(@babel/core@7.26.0)(@react-native-community/cli@18.0.0(bufferutil@4.1.0)(typescript@5.8.3)(utf-8-validate@5.0.10))(@types/react@19.0.10)(bufferutil@4.1.0)(react@19.0.3)(utf-8-validate@5.0.10))(react@19.0.3)
+      '@l.x/api':
+        specifier: workspace:^
+        version: link:../../pkgs/api
+      '@l.x/gating':
+        specifier: workspace:^
+        version: link:../../pkgs/gating
+      '@l.x/hashcash-native':
+        specifier: workspace:^
+        version: link:../../pkgs/hashcash-native
+      '@l.x/lx':
+        specifier: workspace:^
+        version: link:../../pkgs/lx
+      '@l.x/notifications':
+        specifier: workspace:^
+        version: link:../../pkgs/notifications
+      '@l.x/sessions':
+        specifier: workspace:^
+        version: link:../../pkgs/sessions
       '@legendapp/list':
         specifier: 1.1.4
         version: 1.1.4(react-native@0.79.5(@babel/core@7.26.0)(@react-native-community/cli@18.0.0(bufferutil@4.1.0)(typescript@5.8.3)(utf-8-validate@5.0.10))(@types/react@19.0.10)(bufferutil@4.1.0)(react@19.0.3)(utf-8-validate@5.0.10))(react@19.0.3)
@@ -759,35 +777,17 @@ importers:
         specifier: 0.0.163
         version: 0.0.163
       '@luxamm/client-explore':
-        specifier: 0.0.119
-        version: 0.0.119
+        specifier: 0.0.120
+        version: 0.0.120
       '@luxamm/client-notification-service':
-        specifier: 0.0.114
-        version: 0.0.114
+        specifier: 0.0.115
+        version: 0.0.115
       '@luxamm/ethers-rs-mobile':
         specifier: 0.0.8
         version: 0.0.8
       '@luxamm/sdk-core':
         specifier: 7.12.2
         version: 7.12.2
-      '@luxexchange/api':
-        specifier: workspace:^
-        version: link:../../pkgs/api
-      '@luxexchange/gating':
-        specifier: workspace:^
-        version: link:../../pkgs/gating
-      '@luxexchange/hashcash-native':
-        specifier: workspace:^
-        version: link:../../pkgs/hashcash-native
-      '@luxexchange/lx':
-        specifier: workspace:^
-        version: link:../../pkgs/lx
-      '@luxexchange/notifications':
-        specifier: workspace:^
-        version: link:../../pkgs/notifications
-      '@luxexchange/sessions':
-        specifier: workspace:^
-        version: link:../../pkgs/sessions
       '@luxfi/utilities':
         specifier: workspace:^
         version: link:../../pkgs/utilities
@@ -814,7 +814,7 @@ importers:
         version: 0.3.2(react-native@0.79.5(@babel/core@7.26.0)(@react-native-community/cli@18.0.0(bufferutil@4.1.0)(typescript@5.8.3)(utf-8-validate@5.0.10))(@types/react@19.0.10)(bufferutil@4.1.0)(react@19.0.3)(utf-8-validate@5.0.10))(react@19.0.3)
       '@react-native/metro-config':
         specifier: 0.79.5
-        version: 0.79.5(@babel/core@7.26.0)(bufferutil@4.1.0)(utf-8-validate@5.0.10)
+        version: 0.79.5(@babel/core@7.26.0)
       '@react-navigation/bottom-tabs':
         specifier: 6.6.1
         version: 6.6.1(r2zeawznl334iocrhonkzpzo6e)
@@ -832,7 +832,7 @@ importers:
         version: 7.3.2(2q3nzrsx4vfynpfgo7gwlrx42m)
       '@reduxjs/toolkit':
         specifier: 1.9.3
-        version: 1.9.3(react-redux@8.0.5(@types/react@19.0.10)(react-dom@19.0.3(react@19.0.3))(react-native@0.79.5(@babel/core@7.26.0)(@react-native-community/cli@18.0.0(bufferutil@4.1.0)(typescript@5.8.3)(utf-8-validate@5.0.10))(@types/react@19.0.10)(bufferutil@4.1.0)(react@19.0.3)(utf-8-validate@5.0.10))(react@19.0.3)(redux@4.2.1))(react@19.0.3)
+        version: 1.9.3(react-redux@8.0.5(@types/react-dom@19.0.6(@types/react@19.0.10))(@types/react@19.0.10)(react-dom@19.0.3(react@19.0.3))(react-native@0.79.5(@babel/core@7.26.0)(@react-native-community/cli@18.0.0(bufferutil@4.1.0)(typescript@5.8.3)(utf-8-validate@5.0.10))(@types/react@19.0.10)(bufferutil@4.1.0)(react@19.0.3)(utf-8-validate@5.0.10))(react@19.0.3)(redux@4.2.1))(react@19.0.3)
       '@reown/walletkit':
         specifier: 1.4.1
         version: 1.4.1(@react-native-async-storage/async-storage@2.1.2(react-native@0.79.5(@babel/core@7.26.0)(@react-native-community/cli@18.0.0(bufferutil@4.1.0)(typescript@5.8.3)(utf-8-validate@5.0.10))(@types/react@19.0.10)(bufferutil@4.1.0)(react@19.0.3)(utf-8-validate@5.0.10)))(bufferutil@4.1.0)(typescript@5.8.3)(utf-8-validate@5.0.10)(zod@4.3.6)
@@ -859,7 +859,7 @@ importers:
         version: 5.90.20(react@19.0.3)
       '@testing-library/react':
         specifier: 16.3.0
-        version: 16.3.0(@testing-library/dom@10.4.0)(@types/react-dom@19.0.6(@types/react@19.0.10))(@types/react@19.0.10)(react-dom@19.0.3(react@19.0.3))(react@19.0.3)
+        version: 16.3.0(@testing-library/dom@10.4.0)(@types/react-dom@19.1.5(@types/react@19.0.10))(@types/react@19.0.10)(react-dom@19.0.3(react@19.0.3))(react@19.0.3)
       '@walletconnect/core':
         specifier: 2.23.0
         version: 2.23.0(@react-native-async-storage/async-storage@2.1.2(react-native@0.79.5(@babel/core@7.26.0)(@react-native-community/cli@18.0.0(bufferutil@4.1.0)(typescript@5.8.3)(utf-8-validate@5.0.10))(@types/react@19.0.10)(bufferutil@4.1.0)(react@19.0.3)(utf-8-validate@5.0.10)))(bufferutil@4.1.0)(typescript@5.8.3)(utf-8-validate@5.0.10)(zod@4.3.6)
@@ -1347,6 +1347,27 @@ importers:
       '@juggle/resize-observer':
         specifier: 3.4.0
         version: 3.4.0
+      '@l.x/api':
+        specifier: workspace:^
+        version: link:../../pkgs/api
+      '@l.x/gating':
+        specifier: workspace:^
+        version: link:../../pkgs/gating
+      '@l.x/lx':
+        specifier: workspace:^
+        version: link:../../pkgs/lx
+      '@l.x/notifications':
+        specifier: workspace:^
+        version: link:../../pkgs/notifications
+      '@l.x/prices':
+        specifier: workspace:^
+        version: link:../../pkgs/prices
+      '@l.x/sessions':
+        specifier: workspace:^
+        version: link:../../pkgs/sessions
+      '@l.x/websocket':
+        specifier: workspace:^
+        version: link:../../pkgs/websocket
       '@luxamm/analytics':
         specifier: 1.7.4
         version: 1.7.4
@@ -1357,14 +1378,14 @@ importers:
         specifier: 0.0.163
         version: 0.0.163
       '@luxamm/client-explore':
-        specifier: 0.0.119
-        version: 0.0.119
+        specifier: 0.0.120
+        version: 0.0.120
       '@luxamm/client-liquidity':
-        specifier: 0.3.102
-        version: 0.3.102
+        specifier: 0.3.103
+        version: 0.3.103
       '@luxamm/client-notification-service':
-        specifier: 0.0.114
-        version: 0.0.114
+        specifier: 0.0.115
+        version: 0.0.115
       '@luxamm/client-search':
         specifier: 0.0.113
         version: 0.0.113
@@ -1416,27 +1437,6 @@ importers:
       '@luxamm/v4-sdk':
         specifier: 1.29.4
         version: 1.29.4(hardhat@2.28.6(bufferutil@4.1.0)(ts-node@10.9.2(@swc/core@1.5.7(@swc/helpers@0.5.11))(@types/node@22.13.1)(typescript@5.8.3))(typescript@5.8.3)(utf-8-validate@6.0.6))
-      '@luxexchange/api':
-        specifier: workspace:^
-        version: link:../../pkgs/api
-      '@luxexchange/gating':
-        specifier: workspace:^
-        version: link:../../pkgs/gating
-      '@luxexchange/lx':
-        specifier: workspace:^
-        version: link:../../pkgs/lx
-      '@luxexchange/notifications':
-        specifier: workspace:^
-        version: link:../../pkgs/notifications
-      '@luxexchange/prices':
-        specifier: workspace:^
-        version: link:../../pkgs/prices
-      '@luxexchange/sessions':
-        specifier: workspace:^
-        version: link:../../pkgs/sessions
-      '@luxexchange/websocket':
-        specifier: workspace:^
-        version: link:../../pkgs/websocket
       '@luxfi/ui':
         specifier: workspace:^
         version: link:../../pkgs/ui
@@ -2066,33 +2066,33 @@ importers:
       '@ethersproject/providers':
         specifier: 5.7.2
         version: 5.7.2(bufferutil@4.1.0)(utf-8-validate@5.0.10)
+      '@l.x/config':
+        specifier: workspace:^
+        version: link:../config
+      '@l.x/sessions':
+        specifier: workspace:^
+        version: link:../sessions
       '@luxamm/client-data-api':
         specifier: 0.0.163
         version: 0.0.163
       '@luxamm/client-embeddedwallet':
+        specifier: 0.0.121
+        version: 0.0.121
+      '@luxamm/client-explore':
         specifier: 0.0.120
         version: 0.0.120
-      '@luxamm/client-explore':
-        specifier: 0.0.119
-        version: 0.0.119
       '@luxamm/client-for':
         specifier: 0.1.107
         version: 0.1.107
       '@luxamm/client-liquidity':
-        specifier: 0.3.102
-        version: 0.3.102
+        specifier: 0.3.103
+        version: 0.3.103
       '@luxamm/client-notification-service':
-        specifier: 0.0.114
-        version: 0.0.114
+        specifier: 0.0.115
+        version: 0.0.115
       '@luxamm/client-unirpc-v2':
-        specifier: 0.0.104
-        version: 0.0.104
-      '@luxexchange/config':
-        specifier: workspace:^
-        version: link:../config
-      '@luxexchange/sessions':
-        specifier: workspace:^
-        version: link:../sessions
+        specifier: 0.0.105
+        version: 0.0.105
       '@luxfi/utilities':
         specifier: workspace:^
         version: link:../utilities
@@ -2101,7 +2101,7 @@ importers:
         version: 5.90.20(react@19.0.3)
       expo-secure-store:
         specifier: 14.0.1
-        version: 14.0.1(expo@53.0.22(@babel/core@7.26.0)(bufferutil@4.1.0)(graphql@16.6.0)(react-native-webview@13.13.5(react-native@0.79.5(@babel/core@7.26.0)(@react-native-community/cli@18.0.0(bufferutil@4.1.0)(typescript@5.8.3)(utf-8-validate@5.0.10))(@types/react@19.0.10)(bufferutil@4.1.0)(react@19.0.3)(utf-8-validate@5.0.10))(react@19.0.3))(react-native@0.79.5(@babel/core@7.26.0)(@react-native-community/cli@18.0.0(bufferutil@4.1.0)(typescript@5.8.3)(utf-8-validate@5.0.10))(@types/react@19.0.10)(bufferutil@4.1.0)(react@19.0.3)(utf-8-validate@5.0.10))(react@19.0.3)(utf-8-validate@5.0.10))
+        version: 14.0.1(expo@53.0.22(@babel/core@7.29.0)(bufferutil@4.1.0)(graphql@16.6.0)(react-native-webview@13.13.5(react-native@0.79.5(@babel/core@7.29.0)(@react-native-community/cli@18.0.0(bufferutil@4.1.0)(typescript@5.8.3)(utf-8-validate@5.0.10))(@types/react@19.0.10)(bufferutil@4.1.0)(react@19.0.3)(utf-8-validate@5.0.10))(react@19.0.3))(react-native@0.79.5(@babel/core@7.29.0)(@react-native-community/cli@18.0.0(bufferutil@4.1.0)(typescript@5.8.3)(utf-8-validate@5.0.10))(@types/react@19.0.10)(bufferutil@4.1.0)(react@19.0.3)(utf-8-validate@5.0.10))(react@19.0.3)(utf-8-validate@5.0.10))
       graphql:
         specifier: 16.6.0
         version: 16.6.0
@@ -2111,7 +2111,7 @@ importers:
     devDependencies:
       '@graphql-codegen/cli':
         specifier: 3.3.1
-        version: 3.3.1(@babel/core@7.26.0)(@types/node@22.13.1)(bufferutil@4.1.0)(encoding@0.1.13)(enquirer@2.4.1)(graphql@16.6.0)(utf-8-validate@5.0.10)
+        version: 3.3.1(@babel/core@7.29.0)(@types/node@22.13.1)(bufferutil@4.1.0)(encoding@0.1.13)(enquirer@2.4.1)(graphql@16.6.0)(utf-8-validate@5.0.10)
       '@graphql-codegen/typescript':
         specifier: 3.0.4
         version: 3.0.4(encoding@0.1.13)(graphql@16.6.0)
@@ -2377,10 +2377,10 @@ importers:
 
   pkgs/gating:
     dependencies:
-      '@luxexchange/api':
+      '@l.x/api':
         specifier: workspace:*
         version: link:../api
-      '@luxexchange/config':
+      '@l.x/config':
         specifier: workspace:*
         version: link:../config
       '@luxfi/utilities':
@@ -2434,23 +2434,23 @@ importers:
         version: 8.57.1
       nitrogen:
         specifier: 0.31.10
-        version: 0.31.10(react-native@0.79.5(@babel/core@7.26.0)(@react-native-community/cli@18.0.0(bufferutil@4.1.0)(typescript@5.8.3)(utf-8-validate@5.0.10))(@types/react@19.0.10)(bufferutil@4.1.0)(react@19.0.3)(utf-8-validate@5.0.10))(react@19.0.3)
+        version: 0.31.10(react-native@0.79.5(@babel/core@7.29.0)(@react-native-community/cli@18.0.0(bufferutil@4.1.0)(typescript@5.8.3)(utf-8-validate@5.0.10))(@types/react@19.0.10)(bufferutil@4.1.0)(react@19.0.3)(utf-8-validate@5.0.10))(react@19.0.3)
       react:
         specifier: 19.0.3
         version: 19.0.3
       react-native:
         specifier: 0.79.5
-        version: 0.79.5(@babel/core@7.26.0)(@react-native-community/cli@18.0.0(bufferutil@4.1.0)(typescript@5.8.3)(utf-8-validate@5.0.10))(@types/react@19.0.10)(bufferutil@4.1.0)(react@19.0.3)(utf-8-validate@5.0.10)
+        version: 0.79.5(@babel/core@7.29.0)(@react-native-community/cli@18.0.0(bufferutil@4.1.0)(typescript@5.8.3)(utf-8-validate@5.0.10))(@types/react@19.0.10)(bufferutil@4.1.0)(react@19.0.3)(utf-8-validate@5.0.10)
       react-native-nitro-modules:
         specifier: 0.31.10
-        version: 0.31.10(react-native@0.79.5(@babel/core@7.26.0)(@react-native-community/cli@18.0.0(bufferutil@4.1.0)(typescript@5.8.3)(utf-8-validate@5.0.10))(@types/react@19.0.10)(bufferutil@4.1.0)(react@19.0.3)(utf-8-validate@5.0.10))(react@19.0.3)
+        version: 0.31.10(react-native@0.79.5(@babel/core@7.29.0)(@react-native-community/cli@18.0.0(bufferutil@4.1.0)(typescript@5.8.3)(utf-8-validate@5.0.10))(@types/react@19.0.10)(bufferutil@4.1.0)(react@19.0.3)(utf-8-validate@5.0.10))(react@19.0.3)
       typescript:
         specifier: 5.8.3
         version: 5.8.3
 
   pkgs/logger:
     dependencies:
-      '@luxexchange/privacy':
+      '@l.x/privacy':
         specifier: workspace:*
         version: link:../privacy
       source-map-js:
@@ -2532,6 +2532,21 @@ importers:
       '@hanzo/gui':
         specifier: npm:tamagui@2.0.0-rc.31
         version: tamagui@2.0.0-rc.31(ccaddqs4dzccnksdkiyqchhjj4)
+      '@l.x/api':
+        specifier: workspace:^
+        version: link:../api
+      '@l.x/config':
+        specifier: workspace:^
+        version: link:../config
+      '@l.x/gating':
+        specifier: workspace:^
+        version: link:../gating
+      '@l.x/notifications':
+        specifier: workspace:^
+        version: link:../notifications
+      '@l.x/prices':
+        specifier: workspace:^
+        version: link:../prices
       '@luxamm/analytics-events':
         specifier: 2.43.2
         version: 2.43.2
@@ -2539,14 +2554,14 @@ importers:
         specifier: 0.0.163
         version: 0.0.163
       '@luxamm/client-embeddedwallet':
+        specifier: 0.0.121
+        version: 0.0.121
+      '@luxamm/client-explore':
         specifier: 0.0.120
         version: 0.0.120
-      '@luxamm/client-explore':
-        specifier: 0.0.119
-        version: 0.0.119
       '@luxamm/client-liquidity':
-        specifier: 0.3.102
-        version: 0.3.102
+        specifier: 0.3.103
+        version: 0.3.103
       '@luxamm/client-search':
         specifier: 0.0.113
         version: 0.0.113
@@ -2574,21 +2589,6 @@ importers:
       '@luxamm/v4-sdk':
         specifier: 1.29.4
         version: 1.29.4(hardhat@2.28.6(bufferutil@4.1.0)(ts-node@10.9.2(@swc/core@1.5.7(@swc/helpers@0.5.11))(@types/node@25.5.0)(typescript@5.8.3))(typescript@5.8.3)(utf-8-validate@5.0.10))
-      '@luxexchange/api':
-        specifier: workspace:^
-        version: link:../api
-      '@luxexchange/config':
-        specifier: workspace:^
-        version: link:../config
-      '@luxexchange/gating':
-        specifier: workspace:^
-        version: link:../gating
-      '@luxexchange/notifications':
-        specifier: workspace:^
-        version: link:../notifications
-      '@luxexchange/prices':
-        specifier: workspace:^
-        version: link:../prices
       '@luxfi/ui':
         specifier: workspace:^
         version: link:../ui
@@ -2786,8 +2786,8 @@ importers:
         specifier: 9.0.0
         version: 9.0.0(graphql@16.6.0)
       '@luxamm/client-notification-service':
-        specifier: 0.0.114
-        version: 0.0.114
+        specifier: 0.0.115
+        version: 0.0.115
       '@luxfi/eslint-config':
         specifier: workspace:^
         version: link:../eslint-config
@@ -2808,7 +2808,7 @@ importers:
         version: 5.4.3(react-native@0.79.5(@babel/core@7.29.0)(@react-native-community/cli@18.0.0(bufferutil@4.1.0)(typescript@5.8.3)(utf-8-validate@5.0.10))(@types/react@19.0.10)(bufferutil@4.1.0)(react@19.0.3)(utf-8-validate@5.0.10))(react-test-renderer@19.0.3(react@19.0.3))(react@19.0.3)
       '@testing-library/react':
         specifier: 16.3.0
-        version: 16.3.0(@testing-library/dom@10.4.0)(@types/react-dom@19.0.6(@types/react@19.0.10))(@types/react@19.0.10)(react-dom@19.0.3(react@19.0.3))(react@19.0.3)
+        version: 16.3.0(@testing-library/dom@10.4.0)(@types/react-dom@19.1.5(@types/react@19.0.10))(@types/react@19.0.10)(react-dom@19.0.3(react@19.0.3))(react@19.0.3)
       '@testing-library/react-native':
         specifier: 13.3.3
         version: 13.3.3(jest@29.7.0(@types/node@25.5.0)(babel-plugin-macros@3.1.0)(node-notifier@10.0.1)(ts-node@10.9.2(@swc/core@1.5.7(@swc/helpers@0.5.11))(@types/node@25.5.0)(typescript@5.8.3)))(react-native@0.79.5(@babel/core@7.29.0)(@react-native-community/cli@18.0.0(bufferutil@4.1.0)(typescript@5.8.3)(utf-8-validate@5.0.10))(@types/react@19.0.10)(bufferutil@4.1.0)(react@19.0.3)(utf-8-validate@5.0.10))(react-test-renderer@19.0.3(react@19.0.3))(react@19.0.3)
@@ -2915,12 +2915,12 @@ importers:
       '@bufbuild/protobuf':
         specifier: 1.10.0
         version: 1.10.0
-      '@luxamm/client-notification-service':
-        specifier: 0.0.114
-        version: 0.0.114
-      '@luxexchange/api':
+      '@l.x/api':
         specifier: workspace:*
         version: link:../api
+      '@luxamm/client-notification-service':
+        specifier: 0.0.115
+        version: 0.0.115
       '@luxfi/ui':
         specifier: workspace:^
         version: link:../ui
@@ -2964,15 +2964,15 @@ importers:
 
   pkgs/prices:
     dependencies:
+      '@l.x/api':
+        specifier: workspace:^
+        version: link:../api
+      '@l.x/websocket':
+        specifier: workspace:^
+        version: link:../websocket
       '@luxamm/sdk-core':
         specifier: 7.12.2
         version: 7.12.2
-      '@luxexchange/api':
-        specifier: workspace:^
-        version: link:../api
-      '@luxexchange/websocket':
-        specifier: workspace:^
-        version: link:../websocket
       '@luxfi/utilities':
         specifier: workspace:^
         version: link:../utilities
@@ -3070,8 +3070,8 @@ importers:
         specifier: 1.5.0
         version: 1.5.0(@bufbuild/protobuf@1.10.0)(@connectrpc/connect@1.5.0(@bufbuild/protobuf@1.10.0))
       '@luxamm/client-platform-service':
-        specifier: 0.0.118
-        version: 0.0.118
+        specifier: 0.0.119
+        version: 0.0.119
       '@luxfi/utilities':
         specifier: workspace:^
         version: link:../utilities
@@ -3327,421 +3327,6 @@ importers:
         specifier: workspace:^
         version: link:../../config/vitest-presets
 
-  pkgs/uniswap:
-    dependencies:
-      '@apollo/client':
-        specifier: 3.11.10
-        version: 3.11.10(@types/react@19.0.10)(graphql-ws@5.12.1(graphql@16.6.0))(graphql@16.6.0)(react-dom@19.0.3(react@19.0.3))(react@19.0.3)(subscriptions-transport-ws@0.11.0(bufferutil@4.1.0)(graphql@16.6.0)(utf-8-validate@5.0.10))
-      '@bufbuild/protobuf':
-        specifier: 1.10.0
-        version: 1.10.0
-      '@cloudflare/voprf-ts':
-        specifier: 1.0.0
-        version: 1.0.0
-      '@connectrpc/connect':
-        specifier: 1.5.0
-        version: 1.5.0(@bufbuild/protobuf@1.10.0)
-      '@connectrpc/connect-query':
-        specifier: 1.4.2
-        version: 1.4.2(@bufbuild/protobuf@1.10.0)(@connectrpc/connect@1.5.0(@bufbuild/protobuf@1.10.0))(@tanstack/react-query@5.90.20(react@19.0.3))(react-dom@19.0.3(react@19.0.3))(react@19.0.3)
-      '@connectrpc/connect-web':
-        specifier: 1.5.0
-        version: 1.5.0(@bufbuild/protobuf@1.10.0)(@connectrpc/connect@1.5.0(@bufbuild/protobuf@1.10.0))
-      '@datadog/browser-logs':
-        specifier: 5.20.0
-        version: 5.20.0(@datadog/browser-rum@5.23.3)
-      '@datadog/browser-rum':
-        specifier: 5.23.3
-        version: 5.23.3(@datadog/browser-logs@5.20.0)
-      '@ethersproject/abstract-provider':
-        specifier: 5.7.0
-        version: 5.7.0
-      '@ethersproject/abstract-signer':
-        specifier: 5.7.0
-        version: 5.7.0
-      '@ethersproject/address':
-        specifier: 5.7.0
-        version: 5.7.0
-      '@ethersproject/bignumber':
-        specifier: 5.7.0
-        version: 5.7.0
-      '@ethersproject/hash':
-        specifier: 5.7.0
-        version: 5.7.0
-      '@ethersproject/properties':
-        specifier: 5.7.0
-        version: 5.7.0
-      '@ethersproject/providers':
-        specifier: 5.7.2
-        version: 5.7.2(bufferutil@4.1.0)(utf-8-validate@5.0.10)
-      '@ethersproject/units':
-        specifier: 5.7.0
-        version: 5.7.0
-      '@ethersproject/web':
-        specifier: 5.7.1
-        version: 5.7.1
-      '@gorhom/bottom-sheet':
-        specifier: 4.6.4
-        version: 4.6.4(@types/react@19.0.10)(react-native-gesture-handler@2.24.0(react-native@0.79.5(@babel/core@7.29.0)(@react-native-community/cli@18.0.0(bufferutil@4.1.0)(typescript@5.8.3)(utf-8-validate@5.0.10))(@types/react@19.0.10)(bufferutil@4.1.0)(react@19.0.3)(utf-8-validate@5.0.10))(react@19.0.3))(react-native-reanimated@3.19.3(@babel/core@7.29.0)(react-native@0.79.5(@babel/core@7.29.0)(@react-native-community/cli@18.0.0(bufferutil@4.1.0)(typescript@5.8.3)(utf-8-validate@5.0.10))(@types/react@19.0.10)(bufferutil@4.1.0)(react@19.0.3)(utf-8-validate@5.0.10))(react@19.0.3))(react-native@0.79.5(@babel/core@7.29.0)(@react-native-community/cli@18.0.0(bufferutil@4.1.0)(typescript@5.8.3)(utf-8-validate@5.0.10))(@types/react@19.0.10)(bufferutil@4.1.0)(react@19.0.3)(utf-8-validate@5.0.10))(react@19.0.3)
-      '@luxamm/analytics-events':
-        specifier: ^2.43.2
-        version: 2.43.2
-      '@luxamm/client-data-api':
-        specifier: ^0.0.163
-        version: 0.0.163
-      '@luxamm/client-embeddedwallet':
-        specifier: ^0.0.120
-        version: 0.0.120
-      '@luxamm/client-explore':
-        specifier: ^0.0.119
-        version: 0.0.119
-      '@luxamm/client-liquidity':
-        specifier: ^0.3.102
-        version: 0.3.102
-      '@luxamm/client-search':
-        specifier: ^0.0.113
-        version: 0.0.113
-      '@luxamm/client-unirpc-v2':
-        specifier: ^0.0.104
-        version: 0.0.104
-      '@luxamm/permit2-sdk':
-        specifier: ^1.3.3
-        version: 1.3.3(bufferutil@4.1.0)(utf-8-validate@5.0.10)
-      '@luxamm/router-sdk':
-        specifier: 2.7.2
-        version: 2.7.2(bufferutil@4.1.0)(hardhat@2.28.6(bufferutil@4.1.0)(ts-node@10.9.2(@swc/core@1.5.7(@swc/helpers@0.5.11))(@types/node@25.5.0)(typescript@5.8.3))(typescript@5.8.3)(utf-8-validate@5.0.10))(utf-8-validate@5.0.10)
-      '@luxamm/sdk-core':
-        specifier: 7.12.2
-        version: 7.12.2
-      '@luxamm/swap-sdk':
-        specifier: ^3.0.1
-        version: 3.0.1(bufferutil@4.1.0)(utf-8-validate@5.0.10)
-      '@luxamm/universal-router-sdk':
-        specifier: ^4.33.4
-        version: 4.33.4(bufferutil@4.1.0)(hardhat@2.28.6(bufferutil@4.1.0)(ts-node@10.9.2(@swc/core@1.5.7(@swc/helpers@0.5.11))(@types/node@25.5.0)(typescript@5.8.3))(typescript@5.8.3)(utf-8-validate@5.0.10))(utf-8-validate@5.0.10)
-      '@luxamm/v2-sdk':
-        specifier: 4.19.2
-        version: 4.19.2
-      '@luxamm/v3-sdk':
-        specifier: ^3.29.5
-        version: 3.29.5(hardhat@2.28.6(bufferutil@4.1.0)(ts-node@10.9.2(@swc/core@1.5.7(@swc/helpers@0.5.11))(@types/node@25.5.0)(typescript@5.8.3))(typescript@5.8.3)(utf-8-validate@5.0.10))
-      '@luxamm/v4-sdk':
-        specifier: ^1.29.4
-        version: 1.29.4(hardhat@2.28.6(bufferutil@4.1.0)(ts-node@10.9.2(@swc/core@1.5.7(@swc/helpers@0.5.11))(@types/node@25.5.0)(typescript@5.8.3))(typescript@5.8.3)(utf-8-validate@5.0.10))
-      '@luxexchange/api':
-        specifier: workspace:^
-        version: link:../api
-      '@luxexchange/config':
-        specifier: workspace:^
-        version: link:../config
-      '@luxexchange/gating':
-        specifier: workspace:^
-        version: link:../gating
-      '@luxexchange/notifications':
-        specifier: workspace:^
-        version: link:../notifications
-      '@luxexchange/prices':
-        specifier: workspace:^
-        version: link:../prices
-      '@luxfi/ui':
-        specifier: workspace:^
-        version: link:../ui
-      '@luxfi/utilities':
-        specifier: workspace:^
-        version: link:../utilities
-      '@noble/ciphers':
-        specifier: 2.1.1
-        version: 2.1.1
-      '@noble/curves':
-        specifier: 2.0.1
-        version: 2.0.1
-      '@noble/hashes':
-        specifier: 2.0.1
-        version: 2.0.1
-      '@react-navigation/core':
-        specifier: 7.9.2
-        version: 7.9.2(react@19.0.3)
-      '@reduxjs/toolkit':
-        specifier: 1.9.3
-        version: 1.9.3(react-redux@8.0.5(@types/react@19.0.10)(react-dom@19.0.3(react@19.0.3))(react-native@0.79.5(@babel/core@7.29.0)(@react-native-community/cli@18.0.0(bufferutil@4.1.0)(typescript@5.8.3)(utf-8-validate@5.0.10))(@types/react@19.0.10)(bufferutil@4.1.0)(react@19.0.3)(utf-8-validate@5.0.10))(react@19.0.3)(redux@4.2.1))(react@19.0.3)
-      '@shopify/flash-list':
-        specifier: 1.7.6
-        version: 1.7.6(@babel/runtime@7.28.2)(react-native@0.79.5(@babel/core@7.29.0)(@react-native-community/cli@18.0.0(bufferutil@4.1.0)(typescript@5.8.3)(utf-8-validate@5.0.10))(@types/react@19.0.10)(bufferutil@4.1.0)(react@19.0.3)(utf-8-validate@5.0.10))(react@19.0.3)
-      '@simplewebauthn/browser':
-        specifier: 13.1.0
-        version: 13.1.0
-      '@solana/web3.js':
-        specifier: 1.92.0
-        version: 1.92.0(bufferutil@4.1.0)(encoding@0.1.13)(utf-8-validate@5.0.10)
-      '@tanstack/query-async-storage-persister':
-        specifier: 5.90.20
-        version: 5.90.20
-      '@tanstack/react-query':
-        specifier: 5.90.20
-        version: 5.90.20(react@19.0.3)
-      '@tanstack/react-query-persist-client':
-        specifier: 5.90.20
-        version: 5.90.20(@tanstack/react-query@5.90.20(react@19.0.3))(react@19.0.3)
-      '@typechain/ethers-v5':
-        specifier: 7.2.0
-        version: 7.2.0(@ethersproject/abi@5.8.0)(@ethersproject/bytes@5.8.0)(@ethersproject/providers@5.7.2(bufferutil@4.1.0)(utf-8-validate@5.0.10))(ethers@5.7.2(bufferutil@4.1.0)(utf-8-validate@5.0.10))(typechain@5.2.0(typescript@5.8.3))(typescript@5.8.3)
-      '@types/poisson-disk-sampling':
-        specifier: 2.2.4
-        version: 2.2.4
-      apollo-link-rest:
-        specifier: 0.9.0
-        version: 0.9.0(@apollo/client@3.11.10(@types/react@19.0.10)(graphql-ws@5.12.1(graphql@16.6.0))(graphql@16.6.0)(react-dom@19.0.3(react@19.0.3))(react@19.0.3)(subscriptions-transport-ws@0.11.0(bufferutil@4.1.0)(graphql@16.6.0)(utf-8-validate@5.0.10)))(graphql@16.6.0)(qs@6.11.0)
-      date-fns:
-        specifier: 2.30.0
-        version: 2.30.0
-      dayjs:
-        specifier: 1.11.7
-        version: 1.11.7
-      es-toolkit:
-        specifier: 1.10.0
-        version: 1.10.0
-      ethers:
-        specifier: 5.7.2
-        version: 5.7.2(bufferutil@4.1.0)(utf-8-validate@5.0.10)
-      expo-blur:
-        specifier: 14.1.5
-        version: 14.1.5(expo@53.0.22(@babel/core@7.29.0)(bufferutil@4.1.0)(graphql@16.6.0)(react-native-webview@13.13.5(react-native@0.79.5(@babel/core@7.29.0)(@react-native-community/cli@18.0.0(bufferutil@4.1.0)(typescript@5.8.3)(utf-8-validate@5.0.10))(@types/react@19.0.10)(bufferutil@4.1.0)(react@19.0.3)(utf-8-validate@5.0.10))(react@19.0.3))(react-native@0.79.5(@babel/core@7.29.0)(@react-native-community/cli@18.0.0(bufferutil@4.1.0)(typescript@5.8.3)(utf-8-validate@5.0.10))(@types/react@19.0.10)(bufferutil@4.1.0)(react@19.0.3)(utf-8-validate@5.0.10))(react@19.0.3)(utf-8-validate@5.0.10))(react-native@0.79.5(@babel/core@7.29.0)(@react-native-community/cli@18.0.0(bufferutil@4.1.0)(typescript@5.8.3)(utf-8-validate@5.0.10))(@types/react@19.0.10)(bufferutil@4.1.0)(react@19.0.3)(utf-8-validate@5.0.10))(react@19.0.3)
-      expo-clipboard:
-        specifier: 7.1.5
-        version: 7.1.5(expo@53.0.22(@babel/core@7.29.0)(bufferutil@4.1.0)(graphql@16.6.0)(react-native-webview@13.13.5(react-native@0.79.5(@babel/core@7.29.0)(@react-native-community/cli@18.0.0(bufferutil@4.1.0)(typescript@5.8.3)(utf-8-validate@5.0.10))(@types/react@19.0.10)(bufferutil@4.1.0)(react@19.0.3)(utf-8-validate@5.0.10))(react@19.0.3))(react-native@0.79.5(@babel/core@7.29.0)(@react-native-community/cli@18.0.0(bufferutil@4.1.0)(typescript@5.8.3)(utf-8-validate@5.0.10))(@types/react@19.0.10)(bufferutil@4.1.0)(react@19.0.3)(utf-8-validate@5.0.10))(react@19.0.3)(utf-8-validate@5.0.10))(react-native@0.79.5(@babel/core@7.29.0)(@react-native-community/cli@18.0.0(bufferutil@4.1.0)(typescript@5.8.3)(utf-8-validate@5.0.10))(@types/react@19.0.10)(bufferutil@4.1.0)(react@19.0.3)(utf-8-validate@5.0.10))(react@19.0.3)
-      expo-haptics:
-        specifier: 14.0.1
-        version: 14.0.1(expo@53.0.22(@babel/core@7.29.0)(bufferutil@4.1.0)(graphql@16.6.0)(react-native-webview@13.13.5(react-native@0.79.5(@babel/core@7.29.0)(@react-native-community/cli@18.0.0(bufferutil@4.1.0)(typescript@5.8.3)(utf-8-validate@5.0.10))(@types/react@19.0.10)(bufferutil@4.1.0)(react@19.0.3)(utf-8-validate@5.0.10))(react@19.0.3))(react-native@0.79.5(@babel/core@7.29.0)(@react-native-community/cli@18.0.0(bufferutil@4.1.0)(typescript@5.8.3)(utf-8-validate@5.0.10))(@types/react@19.0.10)(bufferutil@4.1.0)(react@19.0.3)(utf-8-validate@5.0.10))(react@19.0.3)(utf-8-validate@5.0.10))
-      expo-linear-gradient:
-        specifier: 14.1.5
-        version: 14.1.5(expo@53.0.22(@babel/core@7.29.0)(bufferutil@4.1.0)(graphql@16.6.0)(react-native-webview@13.13.5(react-native@0.79.5(@babel/core@7.29.0)(@react-native-community/cli@18.0.0(bufferutil@4.1.0)(typescript@5.8.3)(utf-8-validate@5.0.10))(@types/react@19.0.10)(bufferutil@4.1.0)(react@19.0.3)(utf-8-validate@5.0.10))(react@19.0.3))(react-native@0.79.5(@babel/core@7.29.0)(@react-native-community/cli@18.0.0(bufferutil@4.1.0)(typescript@5.8.3)(utf-8-validate@5.0.10))(@types/react@19.0.10)(bufferutil@4.1.0)(react@19.0.3)(utf-8-validate@5.0.10))(react@19.0.3)(utf-8-validate@5.0.10))(react-native@0.79.5(@babel/core@7.29.0)(@react-native-community/cli@18.0.0(bufferutil@4.1.0)(typescript@5.8.3)(utf-8-validate@5.0.10))(@types/react@19.0.10)(bufferutil@4.1.0)(react@19.0.3)(utf-8-validate@5.0.10))(react@19.0.3)
-      expo-web-browser:
-        specifier: 14.2.0
-        version: 14.2.0(expo@53.0.22(@babel/core@7.29.0)(bufferutil@4.1.0)(graphql@16.6.0)(react-native-webview@13.13.5(react-native@0.79.5(@babel/core@7.29.0)(@react-native-community/cli@18.0.0(bufferutil@4.1.0)(typescript@5.8.3)(utf-8-validate@5.0.10))(@types/react@19.0.10)(bufferutil@4.1.0)(react@19.0.3)(utf-8-validate@5.0.10))(react@19.0.3))(react-native@0.79.5(@babel/core@7.29.0)(@react-native-community/cli@18.0.0(bufferutil@4.1.0)(typescript@5.8.3)(utf-8-validate@5.0.10))(@types/react@19.0.10)(bufferutil@4.1.0)(react@19.0.3)(utf-8-validate@5.0.10))(react@19.0.3)(utf-8-validate@5.0.10))(react-native@0.79.5(@babel/core@7.29.0)(@react-native-community/cli@18.0.0(bufferutil@4.1.0)(typescript@5.8.3)(utf-8-validate@5.0.10))(@types/react@19.0.10)(bufferutil@4.1.0)(react@19.0.3)(utf-8-validate@5.0.10))
-      fuse.js:
-        specifier: 6.5.3
-        version: 6.5.3
-      graphql:
-        specifier: 16.6.0
-        version: 16.6.0
-      i18next:
-        specifier: 23.10.0
-        version: 23.10.0
-      i18next-resources-to-backend:
-        specifier: 1.2.1
-        version: 1.2.1
-      idb-keyval:
-        specifier: 6.2.1
-        version: 6.2.1
-      jotai:
-        specifier: 1.3.7
-        version: 1.3.7(@babel/core@7.29.0)(@babel/template@7.28.6)(@urql/core@5.2.0(graphql@16.6.0))(immer@9.0.21)(react@19.0.3)(valtio@2.1.7(@types/react@19.0.10)(react@19.0.3))(wonka@6.3.6)
-      jsbi:
-        specifier: 3.2.5
-        version: 3.2.5
-      lodash:
-        specifier: 4.17.21
-        version: 4.17.21
-      ms:
-        specifier: 2.1.3
-        version: 2.1.3
-      poisson-disk-sampling:
-        specifier: 2.3.1
-        version: 2.3.1
-      qs:
-        specifier: 6.11.0
-        version: 6.11.0
-      react:
-        specifier: 19.0.3
-        version: 19.0.3
-      react-i18next:
-        specifier: 14.1.0
-        version: 14.1.0(i18next@23.10.0)(react-dom@19.0.3(react@19.0.3))(react-native@0.79.5(@babel/core@7.29.0)(@react-native-community/cli@18.0.0(bufferutil@4.1.0)(typescript@5.8.3)(utf-8-validate@5.0.10))(@types/react@19.0.10)(bufferutil@4.1.0)(react@19.0.3)(utf-8-validate@5.0.10))(react@19.0.3)
-      react-infinite-scroll-component:
-        specifier: 6.1.0
-        version: 6.1.0(react@19.0.3)
-      react-native:
-        specifier: 0.79.5
-        version: 0.79.5(@babel/core@7.29.0)(@react-native-community/cli@18.0.0(bufferutil@4.1.0)(typescript@5.8.3)(utf-8-validate@5.0.10))(@types/react@19.0.10)(bufferutil@4.1.0)(react@19.0.3)(utf-8-validate@5.0.10)
-      react-native-appsflyer:
-        specifier: 6.13.1
-        version: 6.13.1
-      react-native-context-menu-view:
-        specifier: 1.15.0
-        version: 1.15.0(react-native@0.79.5(@babel/core@7.29.0)(@react-native-community/cli@18.0.0(bufferutil@4.1.0)(typescript@5.8.3)(utf-8-validate@5.0.10))(@types/react@19.0.10)(bufferutil@4.1.0)(react@19.0.3)(utf-8-validate@5.0.10))(react@19.0.3)
-      react-native-device-info:
-        specifier: 10.11.0
-        version: 10.11.0(react-native@0.79.5(@babel/core@7.29.0)(@react-native-community/cli@18.0.0(bufferutil@4.1.0)(typescript@5.8.3)(utf-8-validate@5.0.10))(@types/react@19.0.10)(bufferutil@4.1.0)(react@19.0.3)(utf-8-validate@5.0.10))
-      react-native-gesture-handler:
-        specifier: 2.24.0
-        version: 2.24.0(react-native@0.79.5(@babel/core@7.29.0)(@react-native-community/cli@18.0.0(bufferutil@4.1.0)(typescript@5.8.3)(utf-8-validate@5.0.10))(@types/react@19.0.10)(bufferutil@4.1.0)(react@19.0.3)(utf-8-validate@5.0.10))(react@19.0.3)
-      react-native-localize:
-        specifier: 2.2.6
-        version: 2.2.6(react-native@0.79.5(@babel/core@7.29.0)(@react-native-community/cli@18.0.0(bufferutil@4.1.0)(typescript@5.8.3)(utf-8-validate@5.0.10))(@types/react@19.0.10)(bufferutil@4.1.0)(react@19.0.3)(utf-8-validate@5.0.10))(react@19.0.3)
-      react-native-mmkv:
-        specifier: 2.10.1
-        version: 2.10.1(react-native@0.79.5(@babel/core@7.29.0)(@react-native-community/cli@18.0.0(bufferutil@4.1.0)(typescript@5.8.3)(utf-8-validate@5.0.10))(@types/react@19.0.10)(bufferutil@4.1.0)(react@19.0.3)(utf-8-validate@5.0.10))(react@19.0.3)
-      react-native-reanimated:
-        specifier: 3.19.3
-        version: 3.19.3(@babel/core@7.29.0)(react-native@0.79.5(@babel/core@7.29.0)(@react-native-community/cli@18.0.0(bufferutil@4.1.0)(typescript@5.8.3)(utf-8-validate@5.0.10))(@types/react@19.0.10)(bufferutil@4.1.0)(react@19.0.3)(utf-8-validate@5.0.10))(react@19.0.3)
-      react-native-svg:
-        specifier: 15.13.0
-        version: 15.13.0(react-native@0.79.5(@babel/core@7.29.0)(@react-native-community/cli@18.0.0(bufferutil@4.1.0)(typescript@5.8.3)(utf-8-validate@5.0.10))(@types/react@19.0.10)(bufferutil@4.1.0)(react@19.0.3)(utf-8-validate@5.0.10))(react@19.0.3)
-      react-redux:
-        specifier: 8.0.5
-        version: 8.0.5(@types/react@19.0.10)(react-dom@19.0.3(react@19.0.3))(react-native@0.79.5(@babel/core@7.29.0)(@react-native-community/cli@18.0.0(bufferutil@4.1.0)(typescript@5.8.3)(utf-8-validate@5.0.10))(@types/react@19.0.10)(bufferutil@4.1.0)(react@19.0.3)(utf-8-validate@5.0.10))(react@19.0.3)(redux@4.2.1)
-      react-router:
-        specifier: 7.6.3
-        version: 7.6.3(react-dom@19.0.3(react@19.0.3))(react@19.0.3)
-      react-test-renderer:
-        specifier: 19.0.3
-        version: 19.0.3(react@19.0.3)
-      react-virtualized-auto-sizer:
-        specifier: 1.0.20
-        version: 1.0.20(react-dom@19.0.3(react@19.0.3))(react@19.0.3)
-      react-window:
-        specifier: 1.8.9
-        version: 1.8.9(react-dom@19.0.3(react@19.0.3))(react@19.0.3)
-      redux:
-        specifier: 4.2.1
-        version: 4.2.1
-      redux-persist:
-        specifier: 6.0.0
-        version: 6.0.0(react@19.0.3)(redux@4.2.1)
-      redux-saga:
-        specifier: 1.2.2
-        version: 1.2.2
-      tamagui:
-        specifier: 1.136.1
-        version: 1.136.1(react-dom@19.0.3(react@19.0.3))(react-native@0.79.5(@babel/core@7.29.0)(@react-native-community/cli@18.0.0(bufferutil@4.1.0)(typescript@5.8.3)(utf-8-validate@5.0.10))(@types/react@19.0.10)(bufferutil@4.1.0)(react@19.0.3)(utf-8-validate@5.0.10))(react@19.0.3)
-      tiny-invariant:
-        specifier: 1.3.1
-        version: 1.3.1
-      typed-redux-saga:
-        specifier: 1.5.0
-        version: 1.5.0(redux-saga@1.2.2)
-      uuid:
-        specifier: 9.0.0
-        version: 9.0.0
-      viem:
-        specifier: 2.30.5
-        version: 2.30.5(bufferutil@4.1.0)(typescript@5.8.3)(utf-8-validate@5.0.10)(zod@4.3.6)
-      wagmi:
-        specifier: 2.15.5
-        version: 2.15.5(@react-native-async-storage/async-storage@1.24.0(react-native@0.79.5(@babel/core@7.29.0)(@react-native-community/cli@18.0.0(bufferutil@4.1.0)(typescript@5.8.3)(utf-8-validate@5.0.10))(@types/react@19.0.10)(bufferutil@4.1.0)(react@19.0.3)(utf-8-validate@5.0.10)))(@tanstack/query-core@5.90.20)(@tanstack/react-query@5.90.20(react@19.0.3))(@types/react@19.0.10)(bufferutil@4.1.0)(encoding@0.1.13)(immer@9.0.21)(react@19.0.3)(typescript@5.8.3)(utf-8-validate@5.0.10)(viem@2.30.5(bufferutil@4.1.0)(typescript@5.8.3)(utf-8-validate@5.0.10)(zod@4.3.6))(zod@4.3.6)
-      zod:
-        specifier: 4.3.6
-        version: 4.3.6
-      zustand:
-        specifier: 5.0.6
-        version: 5.0.6(@types/react@19.0.10)(immer@9.0.21)(react@19.0.3)(use-sync-external-store@1.6.0(react@19.0.3))
-    devDependencies:
-      '@faker-js/faker':
-        specifier: 7.6.0
-        version: 7.6.0
-      '@graphql-tools/graphql-file-loader':
-        specifier: 8.0.0
-        version: 8.0.0(graphql@16.6.0)
-      '@graphql-tools/load':
-        specifier: 8.0.1
-        version: 8.0.1(graphql@16.6.0)
-      '@graphql-tools/merge':
-        specifier: 9.0.1
-        version: 9.0.1(graphql@16.6.0)
-      '@graphql-tools/mock':
-        specifier: 9.0.0
-        version: 9.0.0(graphql@16.6.0)
-      '@luxamm/client-notification-service':
-        specifier: ^0.0.114
-        version: 0.0.114
-      '@luxfi/eslint-config':
-        specifier: workspace:^
-        version: link:../eslint-config
-      '@react-native-community/netinfo':
-        specifier: 11.4.1
-        version: 11.4.1(react-native@0.79.5(@babel/core@7.29.0)(@react-native-community/cli@18.0.0(bufferutil@4.1.0)(typescript@5.8.3)(utf-8-validate@5.0.10))(@types/react@19.0.10)(bufferutil@4.1.0)(react@19.0.3)(utf-8-validate@5.0.10))
-      '@redux-devtools/extension':
-        specifier: 3.3.0
-        version: 3.3.0(redux@4.2.1)
-      '@shopify/react-native-skia':
-        specifier: 2.2.20
-        version: 2.2.20(react-native-reanimated@3.19.3(@babel/core@7.29.0)(react-native@0.79.5(@babel/core@7.29.0)(@react-native-community/cli@18.0.0(bufferutil@4.1.0)(typescript@5.8.3)(utf-8-validate@5.0.10))(@types/react@19.0.10)(bufferutil@4.1.0)(react@19.0.3)(utf-8-validate@5.0.10))(react@19.0.3))(react-native@0.79.5(@babel/core@7.29.0)(@react-native-community/cli@18.0.0(bufferutil@4.1.0)(typescript@5.8.3)(utf-8-validate@5.0.10))(@types/react@19.0.10)(bufferutil@4.1.0)(react@19.0.3)(utf-8-validate@5.0.10))(react@19.0.3)
-      '@storybook/react':
-        specifier: 8.5.2
-        version: 8.5.2(@storybook/test@8.5.2(storybook@8.5.2(bufferutil@4.1.0)(prettier@3.8.1)(utf-8-validate@5.0.10)))(react-dom@19.0.3(react@19.0.3))(react@19.0.3)(storybook@8.5.2(bufferutil@4.1.0)(prettier@3.8.1)(utf-8-validate@5.0.10))(typescript@5.8.3)
-      '@testing-library/jest-native':
-        specifier: 5.4.3
-        version: 5.4.3(react-native@0.79.5(@babel/core@7.29.0)(@react-native-community/cli@18.0.0(bufferutil@4.1.0)(typescript@5.8.3)(utf-8-validate@5.0.10))(@types/react@19.0.10)(bufferutil@4.1.0)(react@19.0.3)(utf-8-validate@5.0.10))(react-test-renderer@19.0.3(react@19.0.3))(react@19.0.3)
-      '@testing-library/react':
-        specifier: 16.3.0
-        version: 16.3.0(@testing-library/dom@10.4.0)(@types/react-dom@19.1.5(@types/react@19.0.10))(@types/react@19.0.10)(react-dom@19.0.3(react@19.0.3))(react@19.0.3)
-      '@testing-library/react-native':
-        specifier: 13.3.3
-        version: 13.3.3(jest@29.7.0(@types/node@25.5.0)(babel-plugin-macros@3.1.0)(node-notifier@10.0.1)(ts-node@10.9.2(@swc/core@1.5.7(@swc/helpers@0.5.11))(@types/node@25.5.0)(typescript@5.8.3)))(react-native@0.79.5(@babel/core@7.29.0)(@react-native-community/cli@18.0.0(bufferutil@4.1.0)(typescript@5.8.3)(utf-8-validate@5.0.10))(@types/react@19.0.10)(bufferutil@4.1.0)(react@19.0.3)(utf-8-validate@5.0.10))(react-test-renderer@19.0.3(react@19.0.3))(react@19.0.3)
-      '@types/chrome':
-        specifier: 0.0.304
-        version: 0.0.304
-      '@types/react-test-renderer':
-        specifier: 19.0.0
-        version: 19.0.0
-      '@types/react-window':
-        specifier: 1.8.2
-        version: 1.8.2
-      '@typescript-eslint/utils':
-        specifier: 6.20.0
-        version: 6.20.0(eslint@8.57.1)(typescript@5.8.3)
-      '@typescript/native-preview':
-        specifier: 7.0.0-dev.20260311.1
-        version: 7.0.0-dev.20260311.1
-      '@vitejs/plugin-react':
-        specifier: 4.7.0
-        version: 4.7.0(vite@7.3.1(@types/node@25.5.0)(jiti@2.6.1)(lightningcss@1.32.0)(terser@5.46.1)(yaml@2.2.2))
-      '@walletconnect/types':
-        specifier: 2.23.0
-        version: 2.23.0(@react-native-async-storage/async-storage@1.24.0(react-native@0.79.5(@babel/core@7.29.0)(@react-native-community/cli@18.0.0(bufferutil@4.1.0)(typescript@5.8.3)(utf-8-validate@5.0.10))(@types/react@19.0.10)(bufferutil@4.1.0)(react@19.0.3)(utf-8-validate@5.0.10)))
-      depcheck:
-        specifier: 1.4.7
-        version: 1.4.7
-      eslint:
-        specifier: 8.57.1
-        version: 8.57.1
-      eslint-plugin-rulesdir:
-        specifier: 0.2.2
-        version: 0.2.2
-      graphql-scalars:
-        specifier: 1.22.4
-        version: 1.22.4(graphql@16.6.0)
-      i18next-resources-for-ts:
-        specifier: 1.5.0
-        version: 1.5.0
-      jest-extended:
-        specifier: 4.0.2
-        version: 4.0.2(jest@29.7.0(@types/node@25.5.0)(babel-plugin-macros@3.1.0)(node-notifier@10.0.1)(ts-node@10.9.2(@swc/core@1.5.7(@swc/helpers@0.5.11))(@types/node@25.5.0)(typescript@5.8.3)))
-      jsdom:
-        specifier: 20.0.3
-        version: 20.0.3(bufferutil@4.1.0)(utf-8-validate@5.0.10)
-      react-dom:
-        specifier: 19.0.3
-        version: 19.0.3(react@19.0.3)
-      react-native-passkey:
-        specifier: 3.1.0
-        version: 3.1.0(react-native@0.79.5(@babel/core@7.29.0)(@react-native-community/cli@18.0.0(bufferutil@4.1.0)(typescript@5.8.3)(utf-8-validate@5.0.10))(@types/react@19.0.10)(bufferutil@4.1.0)(react@19.0.3)(utf-8-validate@5.0.10))(react@19.0.3)
-      tsafe:
-        specifier: 1.6.4
-        version: 1.6.4
-      typechain:
-        specifier: 5.2.0
-        version: 5.2.0(typescript@5.8.3)
-      typescript:
-        specifier: 5.8.3
-        version: 5.8.3
-      vitest:
-        specifier: 3.2.1
-        version: 3.2.1(@edge-runtime/vm@5.0.0)(@types/debug@4.1.13)(@types/node@25.5.0)(@vitest/browser@3.2.1)(happy-dom@20.0.10)(jiti@2.6.1)(jsdom@20.0.3(bufferutil@4.1.0)(utf-8-validate@5.0.10))(lightningcss@1.32.0)(terser@5.46.1)(yaml@2.2.2)
-      vitest-presets:
-        specifier: workspace:^
-        version: link:../../config/vitest-presets
-
   pkgs/utilities:
     dependencies:
       '@amplitude/analytics-browser':
@@ -3910,6 +3495,18 @@ importers:
       '@gorhom/bottom-sheet':
         specifier: 4.6.4
         version: 4.6.4(@types/react@19.0.10)(react-native-gesture-handler@2.24.0(react-native@0.79.5(@babel/core@7.29.0)(@react-native-community/cli@18.0.0(bufferutil@4.1.0)(typescript@5.8.3)(utf-8-validate@5.0.10))(@types/react@19.0.10)(bufferutil@4.1.0)(react@19.0.3)(utf-8-validate@5.0.10))(react@19.0.3))(react-native-reanimated@3.19.3(@babel/core@7.29.0)(react-native@0.79.5(@babel/core@7.29.0)(@react-native-community/cli@18.0.0(bufferutil@4.1.0)(typescript@5.8.3)(utf-8-validate@5.0.10))(@types/react@19.0.10)(bufferutil@4.1.0)(react@19.0.3)(utf-8-validate@5.0.10))(react@19.0.3))(react-native@0.79.5(@babel/core@7.29.0)(@react-native-community/cli@18.0.0(bufferutil@4.1.0)(typescript@5.8.3)(utf-8-validate@5.0.10))(@types/react@19.0.10)(bufferutil@4.1.0)(react@19.0.3)(utf-8-validate@5.0.10))(react@19.0.3)
+      '@l.x/api':
+        specifier: workspace:^
+        version: link:../api
+      '@l.x/gating':
+        specifier: workspace:^
+        version: link:../gating
+      '@l.x/lx':
+        specifier: workspace:^
+        version: link:../lx
+      '@l.x/sessions':
+        specifier: workspace:^
+        version: link:../sessions
       '@luxamm/analytics-events':
         specifier: 2.43.2
         version: 2.43.2
@@ -3928,18 +3525,6 @@ importers:
       '@luxamm/swap-sdk':
         specifier: 3.0.1
         version: 3.0.1(bufferutil@4.1.0)(utf-8-validate@5.0.10)
-      '@luxexchange/api':
-        specifier: workspace:^
-        version: link:../api
-      '@luxexchange/gating':
-        specifier: workspace:^
-        version: link:../gating
-      '@luxexchange/lx':
-        specifier: workspace:^
-        version: link:../lx
-      '@luxexchange/sessions':
-        specifier: workspace:^
-        version: link:../sessions
       '@luxfi/ui':
         specifier: workspace:^
         version: link:../ui
@@ -5318,10 +4903,6 @@ packages:
     peerDependencies:
       vite: 7.3.1
       wrangler: ^4.63.0
-
-  '@cloudflare/voprf-ts@1.0.0':
-    resolution: {integrity: sha512-OvvWlnm5bjwPr7KaJ8MItQDaMz4DgN6BuOO3x/WXLVqCwM4rn6H/8Mgdbxq2XAEAi3BAh58XWDlAfmHL+AZTBA==}
-    engines: {node: '>=20'}
 
   '@cloudflare/workerd-darwin-64@1.20260205.0':
     resolution: {integrity: sha512-ToOItqcirmWPwR+PtT+Q4bdjTn/63ZxhJKEfW4FNn7FxMTS1Tw5dml0T0mieOZbCpcvY8BdvPKFCSlJuI8IVHQ==}
@@ -8234,23 +7815,23 @@ packages:
   '@luxamm/client-data-api@0.0.163':
     resolution: {integrity: sha512-/Mtqkjy+//PUsOQKME8SJA+nVvoSW2UlAzzPZzHJhxpFMVSlkJxoQXVCLYiDyeMzo80WZgQjYx3cDSw9GFYXHw==}
 
-  '@luxamm/client-embeddedwallet@0.0.120':
-    resolution: {integrity: sha512-mO+JZzxVddD04kAaAPda6XnQsSgX006lKcc8yA4HauLzDK7p6UjEcONLiJou+XNdbNwcOlauvm2Jl4BcoLNNhQ==}
+  '@luxamm/client-embeddedwallet@0.0.121':
+    resolution: {integrity: sha512-lv0EQUt5931RNLYy/GgT5whMGZk1PuP1tyevStJwZJw0/8EGMCsgo8qfumInN+3flCkkrSXquliK1azQBeI2tQ==}
 
-  '@luxamm/client-explore@0.0.119':
-    resolution: {integrity: sha512-mwzKwfJyp+CyGTnfHv4SHblxCz2HDC9dsqpLn/hEJQ8TEGm0TyKOVKicnARw7jaPtIhO0MfILTP3TIafksLpMw==}
+  '@luxamm/client-explore@0.0.120':
+    resolution: {integrity: sha512-2YPsHCGLkIQjt0sUx34tVK87qH48pWWgzaiRNuNqTG256qo/kw0QKl1rceAh3Kl8jMy2gfTbEsnUkUCAvtXVfg==}
 
   '@luxamm/client-for@0.1.107':
     resolution: {integrity: sha512-aI5WG0rdY5mnraTFzy8++9+1u6Op/zSqkEpvZ4E+Wiru5nzE7d1NknDD/8SbSdCOFDNG00pUUDnxMda6sOaFTA==}
 
-  '@luxamm/client-liquidity@0.3.102':
-    resolution: {integrity: sha512-rRomvYlwIABY2MLg8tw5HbWYLrjOJ2sairWWKHZgLeeDxArSIlH3KsrRrEhZ8iC2Ksf3mcBFi3wdXZMJHH7G6A==}
+  '@luxamm/client-liquidity@0.3.103':
+    resolution: {integrity: sha512-7zqGZM0wk5F79/mYFHplhGkJmbzPbDJfCjXwxO0C4LFxirDWoIy/oBgu5nDA+VvthAeMDT1+gj3i4cOwAmhVQg==}
 
-  '@luxamm/client-notification-service@0.0.114':
-    resolution: {integrity: sha512-ccA6Q/gb1G7WOXkc7yilaKxnaVb3qWX2w5pYO1wCYdmkpELLLlIv2mJdPdn1g9uHXcnEcVUjZOctq3w65C8gew==}
+  '@luxamm/client-notification-service@0.0.115':
+    resolution: {integrity: sha512-TMFgNStaUrRk5O9WCcGTckL4BW3x5GHo+rCpBQyP33amg8Oe323+HWyQk9sNWEVqwJ/TzphabN2jWzUAJxwkwg==}
 
-  '@luxamm/client-platform-service@0.0.118':
-    resolution: {integrity: sha512-Uxo8YXT518uwqJHKLpofsaGYJERAvcgGnrDu3jLlHiojC5rBwuLuXGwHtRYxty9gdo7j4jwy6jRPuypx/GmHww==}
+  '@luxamm/client-platform-service@0.0.119':
+    resolution: {integrity: sha512-0DNAwexeRbbDpH+FF9V7aJ6mmZzl0koMd2t6MTPlYg5Wp4GxldkwIC9Eovx16SsrxbpEPje14NaUIte3L9yM+w==}
 
   '@luxamm/client-search@0.0.113':
     resolution: {integrity: sha512-YWCXDvQS7DZv/FQvg9VU1knrrFowLat0n5A9BjLApZGjmmlAgzux6wK3rB2DsRlmmKDDwywuiYGDNiKrsMmXfg==}
@@ -8258,8 +7839,8 @@ packages:
   '@luxamm/client-trading@0.1.107':
     resolution: {integrity: sha512-lbkJXdPekcStSIgZf330PfiK34Qt4XaoIFXoifhLqd3q201kmnFwrT8iTbnx2q9r7EEedDN7xSyu3JgtIBNd1A==}
 
-  '@luxamm/client-unirpc-v2@0.0.104':
-    resolution: {integrity: sha512-IKN47fP7lM0euaHaLIg3FqWq8zc4eXCH2VeriiGKWI8mrjjPhwHzVv03BNdNYA2ZAlGtgkfy7vUJyU3JHelWqg==}
+  '@luxamm/client-unirpc-v2@0.0.105':
+    resolution: {integrity: sha512-kLCdu3lLYUGzNlnATLSBpgV6yNgj2N4sDEBidyFh/5ILdClcjI5f7dxMUgvtvnvJScjINru43vTuQERYClEbbw==}
 
   '@luxamm/conedison@1.8.3':
     resolution: {integrity: sha512-vdW5Blcbwg+MQL1yMtJIxvKSShqrFIEH71uue/9lmLrEa5lcvuIqttoHeybH1eHlSudbNPnZt3C8xMzC8pQgTw==}
@@ -8656,18 +8237,11 @@ packages:
     resolution: {integrity: sha512-2I0gnIVPtfnMw9ee9h1dJG7tp81+8Ob3OJb3Mv37rx5L40/b0i7djjCVvGOVqc9AEIQyvyu1i6ypKdFw8R8gQw==}
     engines: {node: ^14.21.3 || >=16}
 
-  '@noble/ciphers@2.1.1':
-    resolution: {integrity: sha512-bysYuiVfhxNJuldNXlFEitTVdNnYUc+XNJZd7Qm2a5j1vZHgY+fazadNFWFaMK/2vye0JVlxV3gHmC0WDfAOQw==}
-    engines: {node: '>= 20.19.0'}
-
   '@noble/curves@1.2.0':
     resolution: {integrity: sha512-oYclrNgRaM9SsBUBVbb8M6DTV7ZHRTKugureoYEncY5c65HOmRzvSiTE3y5CYaPYJA/GVkrhXEoF0M3Ya9PMnw==}
 
   '@noble/curves@1.4.2':
     resolution: {integrity: sha512-TavHr8qycMChk8UwMld0ZDRvatedkzWfH8IiaeGCfymOP5i0hSCozz9vHOL0nkwk7HRMlFnAiKpS2jrUmSybcw==}
-
-  '@noble/curves@1.5.0':
-    resolution: {integrity: sha512-J5EKamIHnKPyClwVrzmaf5wSdQXgdHcPZIZLu3bwnbeCx8/7NPK5q2ZBWF+5FvYGByjiQQsJYX6jfgB2wDPn3A==}
 
   '@noble/curves@1.8.0':
     resolution: {integrity: sha512-j84kjAbzEnQHaSIhRPUmB3/eVXu2k3dKPl2LOrR8fSOIL+89U+7lV117EWHtq/GHM3ReGHM46iRBdZfpc4HRUQ==}
@@ -8688,10 +8262,6 @@ packages:
   '@noble/curves@1.9.7':
     resolution: {integrity: sha512-gbKGcRUYIjA3/zCCNaWDciTMFI0dCkvou3TL8Zmy5Nc7sJ47a0jtOeZoTaMxkuqRo9cRhjOdZJXegxYE5FN/xw==}
     engines: {node: ^14.21.3 || >=16}
-
-  '@noble/curves@2.0.1':
-    resolution: {integrity: sha512-vs1Az2OOTBiP4q0pwjW5aF0xp9n4MxVrmkFBxc6EKZc6ddYx5gaZiAsZoq0uRRXWbi3AT/sBqn05eRPtn1JCPw==}
-    engines: {node: '>= 20.19.0'}
 
   '@noble/hashes@1.2.0':
     resolution: {integrity: sha512-FZfhjEDbT5GRswV3C6uvLPHMiVD6lQBmpoX5+eSiPaMTXte/IKqI5dykDxzZB/WBeK/CDuQRBWarPdi3FNY2zQ==}
@@ -29270,6 +28840,11 @@ snapshots:
       '@babel/core': 7.26.0
       '@babel/helper-plugin-utils': 7.28.6
 
+  '@babel/plugin-syntax-import-assertions@7.28.6(@babel/core@7.29.0)':
+    dependencies:
+      '@babel/core': 7.29.0
+      '@babel/helper-plugin-utils': 7.28.6
+
   '@babel/plugin-syntax-import-attributes@7.28.6(@babel/core@7.26.0)':
     dependencies:
       '@babel/core': 7.26.0
@@ -30506,11 +30081,6 @@ snapshots:
       - utf-8-validate
       - workerd
 
-  '@cloudflare/voprf-ts@1.0.0':
-    optionalDependencies:
-      '@noble/curves': 1.5.0
-      '@noble/hashes': 1.4.0
-
   '@cloudflare/workerd-darwin-64@1.20260205.0':
     optional: true
 
@@ -30545,8 +30115,8 @@ snapshots:
 
   '@coinbase/cdp-sdk@1.45.0(bufferutil@4.1.0)(encoding@0.1.13)(fastestsmallesttextencoderdecoder@1.0.22)(typescript@5.8.3)(utf-8-validate@6.0.6)':
     dependencies:
-      '@solana-program/system': 0.10.0(@solana/kit@5.5.1(bufferutil@4.1.0)(fastestsmallesttextencoderdecoder@1.0.22)(typescript@5.8.3)(utf-8-validate@6.0.6))
-      '@solana-program/token': 0.9.0(@solana/kit@5.5.1(bufferutil@4.1.0)(fastestsmallesttextencoderdecoder@1.0.22)(typescript@5.8.3)(utf-8-validate@6.0.6))
+      '@solana-program/system': 0.10.0(@solana/kit@5.5.1(bufferutil@4.1.0)(typescript@5.8.3)(utf-8-validate@6.0.6))
+      '@solana-program/token': 0.9.0(@solana/kit@5.5.1(bufferutil@4.1.0)(typescript@5.8.3)(utf-8-validate@6.0.6))
       '@solana/kit': 5.5.1(bufferutil@4.1.0)(fastestsmallesttextencoderdecoder@1.0.22)(typescript@5.8.3)(utf-8-validate@6.0.6)
       '@solana/web3.js': 1.98.4(bufferutil@4.1.0)(encoding@0.1.13)(typescript@5.8.3)(utf-8-validate@6.0.6)
       abitype: 1.0.6(typescript@5.8.3)(zod@4.3.6)
@@ -30648,12 +30218,12 @@ snapshots:
       '@types/node': 20.5.1
       chalk: 4.1.2
       cosmiconfig: 8.3.6(typescript@5.8.3)
-      cosmiconfig-typescript-loader: 4.4.0(@types/node@20.5.1)(cosmiconfig@8.3.6(typescript@5.8.3))(ts-node@10.9.2(@swc/core@1.5.7(@swc/helpers@0.5.11))(@types/node@20.5.1)(typescript@5.8.3))(typescript@5.8.3)
+      cosmiconfig-typescript-loader: 4.4.0(@types/node@20.5.1)(cosmiconfig@8.3.6(typescript@5.8.3))(ts-node@10.9.2(@swc/core@1.5.7(@swc/helpers@0.5.11))(@types/node@22.13.1)(typescript@5.8.3))(typescript@5.8.3)
       lodash.isplainobject: 4.0.6
       lodash.merge: 4.6.2
       lodash.uniq: 4.5.0
       resolve-from: 5.0.0
-      ts-node: 10.9.2(@swc/core@1.5.7(@swc/helpers@0.5.11))(@types/node@22.13.1)(typescript@5.8.3)
+      ts-node: 10.9.2(@swc/core@1.5.7(@swc/helpers@0.5.11))(@types/node@20.5.1)(typescript@5.8.3)
       typescript: 5.8.3
     transitivePeerDependencies:
       - '@swc/core'
@@ -32835,54 +32405,6 @@ snapshots:
       graphql: 16.6.0
       tslib: 2.5.3
 
-  '@graphql-codegen/cli@3.3.1(@babel/core@7.26.0)(@types/node@22.13.1)(bufferutil@4.1.0)(encoding@0.1.13)(enquirer@2.4.1)(graphql@16.6.0)(utf-8-validate@5.0.10)':
-    dependencies:
-      '@babel/generator': 7.29.1
-      '@babel/template': 7.28.6
-      '@babel/types': 7.29.0
-      '@graphql-codegen/core': 3.1.0(graphql@16.6.0)
-      '@graphql-codegen/plugin-helpers': 4.2.0(graphql@16.6.0)
-      '@graphql-tools/apollo-engine-loader': 7.3.26(encoding@0.1.13)(graphql@16.6.0)
-      '@graphql-tools/code-file-loader': 7.3.23(@babel/core@7.26.0)(graphql@16.6.0)
-      '@graphql-tools/git-loader': 7.3.0(@babel/core@7.26.0)(graphql@16.6.0)
-      '@graphql-tools/github-loader': 7.3.28(@babel/core@7.26.0)(@types/node@22.13.1)(encoding@0.1.13)(graphql@16.6.0)
-      '@graphql-tools/graphql-file-loader': 7.5.17(graphql@16.6.0)
-      '@graphql-tools/json-file-loader': 7.4.18(graphql@16.6.0)
-      '@graphql-tools/load': 7.8.14(graphql@16.6.0)
-      '@graphql-tools/prisma-loader': 7.2.72(@types/node@22.13.1)(bufferutil@4.1.0)(encoding@0.1.13)(graphql@16.6.0)(utf-8-validate@5.0.10)
-      '@graphql-tools/url-loader': 7.17.18(@types/node@22.13.1)(bufferutil@4.1.0)(encoding@0.1.13)(graphql@16.6.0)(utf-8-validate@5.0.10)
-      '@graphql-tools/utils': 9.2.1(graphql@16.6.0)
-      '@parcel/watcher': 2.5.6
-      '@whatwg-node/fetch': 0.8.8
-      chalk: 4.1.2
-      cosmiconfig: 7.1.0
-      debounce: 1.2.1
-      detect-indent: 6.1.0
-      graphql: 16.6.0
-      graphql-config: 4.5.0(@types/node@22.13.1)(bufferutil@4.1.0)(encoding@0.1.13)(graphql@16.6.0)(utf-8-validate@5.0.10)
-      inquirer: 8.2.6
-      is-glob: 4.0.3
-      jiti: 1.21.7
-      json-to-pretty-yaml: 1.2.2
-      listr2: 4.0.5(enquirer@2.4.1)
-      log-symbols: 4.1.0
-      micromatch: 4.0.8
-      shell-quote: 1.8.3
-      string-env-interpolation: 1.0.1
-      ts-log: 2.2.7
-      tslib: 2.8.1
-      yaml: 2.2.2
-      yargs: 17.7.2
-    transitivePeerDependencies:
-      - '@babel/core'
-      - '@types/node'
-      - bufferutil
-      - cosmiconfig-toml-loader
-      - encoding
-      - enquirer
-      - supports-color
-      - utf-8-validate
-
   '@graphql-codegen/cli@3.3.1(@babel/core@7.26.0)(@types/node@22.13.1)(bufferutil@4.1.0)(encoding@0.1.13)(enquirer@2.4.1)(graphql@16.6.0)(utf-8-validate@6.0.6)':
     dependencies:
       '@babel/generator': 7.29.1
@@ -32908,6 +32430,54 @@ snapshots:
       detect-indent: 6.1.0
       graphql: 16.6.0
       graphql-config: 4.5.0(@types/node@22.13.1)(bufferutil@4.1.0)(encoding@0.1.13)(graphql@16.6.0)(utf-8-validate@6.0.6)
+      inquirer: 8.2.6
+      is-glob: 4.0.3
+      jiti: 1.21.7
+      json-to-pretty-yaml: 1.2.2
+      listr2: 4.0.5(enquirer@2.4.1)
+      log-symbols: 4.1.0
+      micromatch: 4.0.8
+      shell-quote: 1.8.3
+      string-env-interpolation: 1.0.1
+      ts-log: 2.2.7
+      tslib: 2.8.1
+      yaml: 2.2.2
+      yargs: 17.7.2
+    transitivePeerDependencies:
+      - '@babel/core'
+      - '@types/node'
+      - bufferutil
+      - cosmiconfig-toml-loader
+      - encoding
+      - enquirer
+      - supports-color
+      - utf-8-validate
+
+  '@graphql-codegen/cli@3.3.1(@babel/core@7.29.0)(@types/node@22.13.1)(bufferutil@4.1.0)(encoding@0.1.13)(enquirer@2.4.1)(graphql@16.6.0)(utf-8-validate@5.0.10)':
+    dependencies:
+      '@babel/generator': 7.29.1
+      '@babel/template': 7.28.6
+      '@babel/types': 7.29.0
+      '@graphql-codegen/core': 3.1.0(graphql@16.6.0)
+      '@graphql-codegen/plugin-helpers': 4.2.0(graphql@16.6.0)
+      '@graphql-tools/apollo-engine-loader': 7.3.26(encoding@0.1.13)(graphql@16.6.0)
+      '@graphql-tools/code-file-loader': 7.3.23(@babel/core@7.29.0)(graphql@16.6.0)
+      '@graphql-tools/git-loader': 7.3.0(@babel/core@7.29.0)(graphql@16.6.0)
+      '@graphql-tools/github-loader': 7.3.28(@babel/core@7.29.0)(@types/node@22.13.1)(encoding@0.1.13)(graphql@16.6.0)
+      '@graphql-tools/graphql-file-loader': 7.5.17(graphql@16.6.0)
+      '@graphql-tools/json-file-loader': 7.4.18(graphql@16.6.0)
+      '@graphql-tools/load': 7.8.14(graphql@16.6.0)
+      '@graphql-tools/prisma-loader': 7.2.72(@types/node@22.13.1)(bufferutil@4.1.0)(encoding@0.1.13)(graphql@16.6.0)(utf-8-validate@5.0.10)
+      '@graphql-tools/url-loader': 7.17.18(@types/node@22.13.1)(bufferutil@4.1.0)(encoding@0.1.13)(graphql@16.6.0)(utf-8-validate@5.0.10)
+      '@graphql-tools/utils': 9.2.1(graphql@16.6.0)
+      '@parcel/watcher': 2.5.6
+      '@whatwg-node/fetch': 0.8.8
+      chalk: 4.1.2
+      cosmiconfig: 7.1.0
+      debounce: 1.2.1
+      detect-indent: 6.1.0
+      graphql: 16.6.0
+      graphql-config: 4.5.0(@types/node@22.13.1)(bufferutil@4.1.0)(encoding@0.1.13)(graphql@16.6.0)(utf-8-validate@5.0.10)
       inquirer: 8.2.6
       is-glob: 4.0.3
       jiti: 1.21.7
@@ -33124,6 +32694,18 @@ snapshots:
       - '@babel/core'
       - supports-color
 
+  '@graphql-tools/code-file-loader@7.3.23(@babel/core@7.29.0)(graphql@16.6.0)':
+    dependencies:
+      '@graphql-tools/graphql-tag-pluck': 7.5.2(@babel/core@7.29.0)(graphql@16.6.0)
+      '@graphql-tools/utils': 9.2.1(graphql@16.6.0)
+      globby: 11.1.0
+      graphql: 16.6.0
+      tslib: 2.8.1
+      unixify: 1.0.0
+    transitivePeerDependencies:
+      - '@babel/core'
+      - supports-color
+
   '@graphql-tools/delegate@9.0.35(graphql@16.6.0)':
     dependencies:
       '@graphql-tools/batch-execute': 8.5.22(graphql@16.6.0)
@@ -33229,11 +32811,40 @@ snapshots:
       - '@babel/core'
       - supports-color
 
+  '@graphql-tools/git-loader@7.3.0(@babel/core@7.29.0)(graphql@16.6.0)':
+    dependencies:
+      '@graphql-tools/graphql-tag-pluck': 7.5.2(@babel/core@7.29.0)(graphql@16.6.0)
+      '@graphql-tools/utils': 9.2.1(graphql@16.6.0)
+      graphql: 16.6.0
+      is-glob: 4.0.3
+      micromatch: 4.0.8
+      tslib: 2.8.1
+      unixify: 1.0.0
+    transitivePeerDependencies:
+      - '@babel/core'
+      - supports-color
+
   '@graphql-tools/github-loader@7.3.28(@babel/core@7.26.0)(@types/node@22.13.1)(encoding@0.1.13)(graphql@16.6.0)':
     dependencies:
       '@ardatan/sync-fetch': 0.0.1(encoding@0.1.13)
       '@graphql-tools/executor-http': 0.1.10(@types/node@22.13.1)(graphql@16.6.0)
       '@graphql-tools/graphql-tag-pluck': 7.5.2(@babel/core@7.26.0)(graphql@16.6.0)
+      '@graphql-tools/utils': 9.2.1(graphql@16.6.0)
+      '@whatwg-node/fetch': 0.8.8
+      graphql: 16.6.0
+      tslib: 2.8.1
+      value-or-promise: 1.0.12
+    transitivePeerDependencies:
+      - '@babel/core'
+      - '@types/node'
+      - encoding
+      - supports-color
+
+  '@graphql-tools/github-loader@7.3.28(@babel/core@7.29.0)(@types/node@22.13.1)(encoding@0.1.13)(graphql@16.6.0)':
+    dependencies:
+      '@ardatan/sync-fetch': 0.0.1(encoding@0.1.13)
+      '@graphql-tools/executor-http': 0.1.10(@types/node@22.13.1)(graphql@16.6.0)
+      '@graphql-tools/graphql-tag-pluck': 7.5.2(@babel/core@7.29.0)(graphql@16.6.0)
       '@graphql-tools/utils': 9.2.1(graphql@16.6.0)
       '@whatwg-node/fetch': 0.8.8
       graphql: 16.6.0
@@ -33267,6 +32878,19 @@ snapshots:
     dependencies:
       '@babel/parser': 7.29.2
       '@babel/plugin-syntax-import-assertions': 7.28.6(@babel/core@7.26.0)
+      '@babel/traverse': 7.29.0
+      '@babel/types': 7.29.0
+      '@graphql-tools/utils': 9.2.1(graphql@16.6.0)
+      graphql: 16.6.0
+      tslib: 2.8.1
+    transitivePeerDependencies:
+      - '@babel/core'
+      - supports-color
+
+  '@graphql-tools/graphql-tag-pluck@7.5.2(@babel/core@7.29.0)(graphql@16.6.0)':
+    dependencies:
+      '@babel/parser': 7.29.2
+      '@babel/plugin-syntax-import-assertions': 7.28.6(@babel/core@7.29.0)
       '@babel/traverse': 7.29.0
       '@babel/types': 7.29.0
       '@graphql-tools/utils': 9.2.1(graphql@16.6.0)
@@ -33343,7 +32967,7 @@ snapshots:
   '@graphql-tools/optimize@1.4.0(graphql@16.6.0)':
     dependencies:
       graphql: 16.6.0
-      tslib: 2.5.3
+      tslib: 2.8.1
 
   '@graphql-tools/prisma-loader@7.2.72(@types/node@22.13.1)(bufferutil@4.1.0)(encoding@0.1.13)(graphql@16.6.0)(utf-8-validate@5.0.10)':
     dependencies:
@@ -33406,7 +33030,7 @@ snapshots:
       '@ardatan/relay-compiler': 12.0.0(encoding@0.1.13)(graphql@16.6.0)
       '@graphql-tools/utils': 9.2.1(graphql@16.6.0)
       graphql: 16.6.0
-      tslib: 2.5.3
+      tslib: 2.8.1
     transitivePeerDependencies:
       - encoding
       - supports-color
@@ -33489,7 +33113,7 @@ snapshots:
   '@graphql-tools/utils@8.13.1(graphql@16.6.0)':
     dependencies:
       graphql: 16.6.0
-      tslib: 2.4.1
+      tslib: 2.8.1
 
   '@graphql-tools/utils@9.2.1(graphql@16.6.0)':
     dependencies:
@@ -35590,23 +35214,23 @@ snapshots:
 
   '@luxamm/client-data-api@0.0.163': {}
 
-  '@luxamm/client-embeddedwallet@0.0.120': {}
+  '@luxamm/client-embeddedwallet@0.0.121': {}
 
-  '@luxamm/client-explore@0.0.119': {}
+  '@luxamm/client-explore@0.0.120': {}
 
   '@luxamm/client-for@0.1.107': {}
 
-  '@luxamm/client-liquidity@0.3.102': {}
+  '@luxamm/client-liquidity@0.3.103': {}
 
-  '@luxamm/client-notification-service@0.0.114': {}
+  '@luxamm/client-notification-service@0.0.115': {}
 
-  '@luxamm/client-platform-service@0.0.118': {}
+  '@luxamm/client-platform-service@0.0.119': {}
 
   '@luxamm/client-search@0.0.113': {}
 
   '@luxamm/client-trading@0.1.107': {}
 
-  '@luxamm/client-unirpc-v2@0.0.104': {}
+  '@luxamm/client-unirpc-v2@0.0.105': {}
 
   '@luxamm/conedison@1.8.3(@luxamm/sdk-core@7.12.2)(ethers@5.7.2(bufferutil@4.1.0)(utf-8-validate@6.0.6))':
     dependencies:
@@ -36346,8 +35970,6 @@ snapshots:
 
   '@noble/ciphers@1.3.0': {}
 
-  '@noble/ciphers@2.1.1': {}
-
   '@noble/curves@1.2.0':
     dependencies:
       '@noble/hashes': 1.3.2
@@ -36355,11 +35977,6 @@ snapshots:
   '@noble/curves@1.4.2':
     dependencies:
       '@noble/hashes': 1.4.0
-
-  '@noble/curves@1.5.0':
-    dependencies:
-      '@noble/hashes': 1.4.0
-    optional: true
 
   '@noble/curves@1.8.0':
     dependencies:
@@ -36380,10 +35997,6 @@ snapshots:
   '@noble/curves@1.9.7':
     dependencies:
       '@noble/hashes': 1.8.0
-
-  '@noble/curves@2.0.1':
-    dependencies:
-      '@noble/hashes': 2.0.1
 
   '@noble/hashes@1.2.0': {}
 
@@ -37271,8 +36884,8 @@ snapshots:
       x402: 0.7.3(@react-native-async-storage/async-storage@1.24.0(react-native@0.79.5(@babel/core@7.26.0)(@react-native-community/cli@18.0.0(bufferutil@4.1.0)(typescript@5.8.3)(utf-8-validate@6.0.6))(@types/react@19.0.10)(bufferutil@4.1.0)(react@19.0.3)(utf-8-validate@6.0.6)))(@solana/sysvars@5.5.1(fastestsmallesttextencoderdecoder@1.0.22)(typescript@5.8.3))(@tanstack/query-core@5.90.20)(@tanstack/react-query@5.90.20(react@19.0.3))(@types/react@19.0.10)(bufferutil@4.1.0)(encoding@0.1.13)(fastestsmallesttextencoderdecoder@1.0.22)(immer@9.0.21)(react-native@0.79.5(@babel/core@7.26.0)(@react-native-community/cli@18.0.0(bufferutil@4.1.0)(typescript@5.8.3)(utf-8-validate@6.0.6))(@types/react@19.0.10)(bufferutil@4.1.0)(react@19.0.3)(utf-8-validate@6.0.6))(react@19.0.3)(typescript@5.8.3)(utf-8-validate@6.0.6)
       zustand: 5.0.6(@types/react@19.0.10)(immer@9.0.21)(react@19.0.3)(use-sync-external-store@1.4.0(react@19.0.3))
     optionalDependencies:
-      '@solana-program/system': 0.10.0(@solana/kit@5.5.1(bufferutil@4.1.0)(fastestsmallesttextencoderdecoder@1.0.22)(typescript@5.8.3)(utf-8-validate@6.0.6))
-      '@solana-program/token': 0.9.0(@solana/kit@5.5.1(bufferutil@4.1.0)(fastestsmallesttextencoderdecoder@1.0.22)(typescript@5.8.3)(utf-8-validate@6.0.6))
+      '@solana-program/system': 0.10.0(@solana/kit@5.5.1(bufferutil@4.1.0)(typescript@5.8.3)(utf-8-validate@6.0.6))
+      '@solana-program/token': 0.9.0(@solana/kit@5.5.1(bufferutil@4.1.0)(typescript@5.8.3)(utf-8-validate@6.0.6))
       '@solana/kit': 5.5.1(bufferutil@4.1.0)(fastestsmallesttextencoderdecoder@1.0.22)(typescript@5.8.3)(utf-8-validate@6.0.6)
     transitivePeerDependencies:
       - '@azure/app-configuration'
@@ -38246,7 +37859,7 @@ snapshots:
       debug: 2.6.9
       invariant: 2.2.4
       metro: 0.82.0(bufferutil@4.1.0)(utf-8-validate@6.0.6)
-      metro-config: 0.82.0(bufferutil@4.1.0)(utf-8-validate@6.0.6)
+      metro-config: 0.82.0(bufferutil@4.1.0)(utf-8-validate@5.0.10)
       metro-core: 0.82.0
       semver: 7.5.2
     optionalDependencies:
@@ -38307,7 +37920,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@react-native/metro-config@0.79.5(@babel/core@7.26.0)(bufferutil@4.1.0)(utf-8-validate@5.0.10)':
+  '@react-native/metro-config@0.79.5(@babel/core@7.26.0)':
     dependencies:
       '@react-native/js-polyfills': 0.79.5
       '@react-native/metro-babel-transformer': 0.79.5(@babel/core@7.26.0)
@@ -38315,9 +37928,7 @@ snapshots:
       metro-runtime: 0.82.5
     transitivePeerDependencies:
       - '@babel/core'
-      - bufferutil
       - supports-color
-      - utf-8-validate
 
   '@react-native/normalize-color@2.1.0': {}
 
@@ -38489,6 +38100,16 @@ snapshots:
 
   '@redux-saga/types@1.3.1': {}
 
+  '@reduxjs/toolkit@1.9.3(react-redux@8.0.5(@types/react-dom@19.0.6(@types/react@19.0.10))(@types/react@19.0.10)(react-dom@19.0.3(react@19.0.3))(react-native@0.79.5(@babel/core@7.26.0)(@react-native-community/cli@18.0.0(bufferutil@4.1.0)(typescript@5.8.3)(utf-8-validate@5.0.10))(@types/react@19.0.10)(bufferutil@4.1.0)(react@19.0.3)(utf-8-validate@5.0.10))(react@19.0.3)(redux@4.2.1))(react@19.0.3)':
+    dependencies:
+      immer: 9.0.21
+      redux: 4.2.1
+      redux-thunk: 2.4.2(redux@4.2.1)
+      reselect: 4.1.8
+    optionalDependencies:
+      react: 19.0.3
+      react-redux: 8.0.5(@types/react-dom@19.0.6(@types/react@19.0.10))(@types/react@19.0.10)(react-dom@19.0.3(react@19.0.3))(react-native@0.79.5(@babel/core@7.26.0)(@react-native-community/cli@18.0.0(bufferutil@4.1.0)(typescript@5.8.3)(utf-8-validate@5.0.10))(@types/react@19.0.10)(bufferutil@4.1.0)(react@19.0.3)(utf-8-validate@5.0.10))(react@19.0.3)(redux@4.2.1)
+
   '@reduxjs/toolkit@1.9.3(react-redux@8.0.5(@types/react-dom@19.0.6(@types/react@19.0.10))(@types/react@19.0.10)(react-dom@19.0.3(react@19.0.3))(react-native@0.79.5(@babel/core@7.26.0)(@react-native-community/cli@18.0.0(bufferutil@4.1.0)(typescript@5.8.3)(utf-8-validate@6.0.6))(@types/react@19.0.10)(bufferutil@4.1.0)(react@19.0.3)(utf-8-validate@6.0.6))(react@19.0.3)(redux@4.2.1))(react@19.0.3)':
     dependencies:
       immer: 9.0.21
@@ -38498,16 +38119,6 @@ snapshots:
     optionalDependencies:
       react: 19.0.3
       react-redux: 8.0.5(@types/react-dom@19.0.6(@types/react@19.0.10))(@types/react@19.0.10)(react-dom@19.0.3(react@19.0.3))(react-native@0.79.5(@babel/core@7.26.0)(@react-native-community/cli@18.0.0(bufferutil@4.1.0)(typescript@5.8.3)(utf-8-validate@6.0.6))(@types/react@19.0.10)(bufferutil@4.1.0)(react@19.0.3)(utf-8-validate@6.0.6))(react@19.0.3)(redux@4.2.1)
-
-  '@reduxjs/toolkit@1.9.3(react-redux@8.0.5(@types/react@19.0.10)(react-dom@19.0.3(react@19.0.3))(react-native@0.79.5(@babel/core@7.26.0)(@react-native-community/cli@18.0.0(bufferutil@4.1.0)(typescript@5.8.3)(utf-8-validate@5.0.10))(@types/react@19.0.10)(bufferutil@4.1.0)(react@19.0.3)(utf-8-validate@5.0.10))(react@19.0.3)(redux@4.2.1))(react@19.0.3)':
-    dependencies:
-      immer: 9.0.21
-      redux: 4.2.1
-      redux-thunk: 2.4.2(redux@4.2.1)
-      reselect: 4.1.8
-    optionalDependencies:
-      react: 19.0.3
-      react-redux: 8.0.5(@types/react-dom@19.0.6(@types/react@19.0.10))(@types/react@19.0.10)(react-dom@19.0.3(react@19.0.3))(react-native@0.79.5(@babel/core@7.26.0)(@react-native-community/cli@18.0.0(bufferutil@4.1.0)(typescript@5.8.3)(utf-8-validate@5.0.10))(@types/react@19.0.10)(bufferutil@4.1.0)(react@19.0.3)(utf-8-validate@5.0.10))(react@19.0.3)(redux@4.2.1)
 
   '@reduxjs/toolkit@1.9.3(react-redux@8.0.5(@types/react@19.0.10)(react-dom@19.0.3(react@19.0.3))(react-native@0.79.5(@babel/core@7.29.0)(@react-native-community/cli@18.0.0(bufferutil@4.1.0)(typescript@5.8.3)(utf-8-validate@5.0.10))(@types/react@19.0.10)(bufferutil@4.1.0)(react@19.0.3)(utf-8-validate@5.0.10))(react@19.0.3)(redux@4.2.1))(react@19.0.3)':
     dependencies:
@@ -40863,7 +40474,7 @@ snapshots:
     dependencies:
       '@solana/kit': 5.5.1(bufferutil@4.1.0)(fastestsmallesttextencoderdecoder@1.0.22)(typescript@5.8.3)(utf-8-validate@6.0.6)
 
-  '@solana-program/system@0.10.0(@solana/kit@5.5.1(bufferutil@4.1.0)(fastestsmallesttextencoderdecoder@1.0.22)(typescript@5.8.3)(utf-8-validate@6.0.6))':
+  '@solana-program/system@0.10.0(@solana/kit@5.5.1(bufferutil@4.1.0)(typescript@5.8.3)(utf-8-validate@6.0.6))':
     dependencies:
       '@solana/kit': 5.5.1(bufferutil@4.1.0)(fastestsmallesttextencoderdecoder@1.0.22)(typescript@5.8.3)(utf-8-validate@6.0.6)
 
@@ -40872,7 +40483,7 @@ snapshots:
       '@solana/kit': 5.5.1(bufferutil@4.1.0)(fastestsmallesttextencoderdecoder@1.0.22)(typescript@5.8.3)(utf-8-validate@6.0.6)
       '@solana/sysvars': 5.5.1(fastestsmallesttextencoderdecoder@1.0.22)(typescript@5.8.3)
 
-  '@solana-program/token@0.9.0(@solana/kit@5.5.1(bufferutil@4.1.0)(fastestsmallesttextencoderdecoder@1.0.22)(typescript@5.8.3)(utf-8-validate@6.0.6))':
+  '@solana-program/token@0.9.0(@solana/kit@5.5.1(bufferutil@4.1.0)(typescript@5.8.3)(utf-8-validate@6.0.6))':
     dependencies:
       '@solana/kit': 5.5.1(bufferutil@4.1.0)(fastestsmallesttextencoderdecoder@1.0.22)(typescript@5.8.3)(utf-8-validate@6.0.6)
 
@@ -46970,9 +46581,9 @@ snapshots:
       std-env: 3.10.0
       test-exclude: 7.0.2
       tinyrainbow: 2.0.0
-      vitest: 3.2.1(@edge-runtime/vm@5.0.0)(@types/debug@4.1.13)(@types/node@22.13.1)(@vitest/browser@3.2.1)(happy-dom@20.0.10)(jiti@2.6.1)(jsdom@26.1.0(bufferutil@4.1.0)(utf-8-validate@5.0.10))(lightningcss@1.32.0)(terser@5.46.1)(yaml@2.2.2)
+      vitest: 3.2.1(@edge-runtime/vm@5.0.0)(@types/debug@4.1.13)(@types/node@22.13.1)(@vitest/browser@3.2.1)(happy-dom@20.0.10)(jiti@1.21.7)(jsdom@26.1.0(bufferutil@4.1.0)(utf-8-validate@6.0.6))(lightningcss@1.32.0)(terser@5.24.0)(yaml@2.2.2)
     optionalDependencies:
-      '@vitest/browser': 3.2.1(bufferutil@4.1.0)(playwright@1.58.2)(utf-8-validate@5.0.10)(vite@7.3.1(@types/node@22.13.1)(jiti@2.6.1)(lightningcss@1.32.0)(terser@5.46.1)(yaml@2.2.2))(vitest@3.2.1)
+      '@vitest/browser': 3.2.1(bufferutil@4.1.0)(playwright@1.58.2)(utf-8-validate@6.0.6)(vite@7.3.1(@types/node@22.13.1)(jiti@1.21.7)(lightningcss@1.32.0)(terser@5.24.0)(yaml@2.2.2))(vitest@3.2.1)
     transitivePeerDependencies:
       - supports-color
 
@@ -52376,11 +51987,11 @@ snapshots:
 
   corser@2.0.1: {}
 
-  cosmiconfig-typescript-loader@4.4.0(@types/node@20.5.1)(cosmiconfig@8.3.6(typescript@5.8.3))(ts-node@10.9.2(@swc/core@1.5.7(@swc/helpers@0.5.11))(@types/node@20.5.1)(typescript@5.8.3))(typescript@5.8.3):
+  cosmiconfig-typescript-loader@4.4.0(@types/node@20.5.1)(cosmiconfig@8.3.6(typescript@5.8.3))(ts-node@10.9.2(@swc/core@1.5.7(@swc/helpers@0.5.11))(@types/node@22.13.1)(typescript@5.8.3))(typescript@5.8.3):
     dependencies:
       '@types/node': 20.5.1
       cosmiconfig: 8.3.6(typescript@5.8.3)
-      ts-node: 10.9.2(@swc/core@1.5.7(@swc/helpers@0.5.11))(@types/node@22.13.1)(typescript@5.8.3)
+      ts-node: 10.9.2(@swc/core@1.5.7(@swc/helpers@0.5.11))(@types/node@20.5.1)(typescript@5.8.3)
       typescript: 5.8.3
 
   cosmiconfig@5.2.1:
@@ -54991,6 +54602,10 @@ snapshots:
     dependencies:
       expo: 53.0.22(@babel/core@7.26.0)(bufferutil@4.1.0)(graphql@16.6.0)(react-native-webview@13.13.5(react-native@0.79.5(@babel/core@7.26.0)(@react-native-community/cli@18.0.0(bufferutil@4.1.0)(typescript@5.8.3)(utf-8-validate@5.0.10))(@types/react@19.0.10)(bufferutil@4.1.0)(react@19.0.3)(utf-8-validate@5.0.10))(react@19.0.3))(react-native@0.79.5(@babel/core@7.26.0)(@react-native-community/cli@18.0.0(bufferutil@4.1.0)(typescript@5.8.3)(utf-8-validate@5.0.10))(@types/react@19.0.10)(bufferutil@4.1.0)(react@19.0.3)(utf-8-validate@5.0.10))(react@19.0.3)(utf-8-validate@5.0.10)
 
+  expo-secure-store@14.0.1(expo@53.0.22(@babel/core@7.29.0)(bufferutil@4.1.0)(graphql@16.6.0)(react-native-webview@13.13.5(react-native@0.79.5(@babel/core@7.29.0)(@react-native-community/cli@18.0.0(bufferutil@4.1.0)(typescript@5.8.3)(utf-8-validate@5.0.10))(@types/react@19.0.10)(bufferutil@4.1.0)(react@19.0.3)(utf-8-validate@5.0.10))(react@19.0.3))(react-native@0.79.5(@babel/core@7.29.0)(@react-native-community/cli@18.0.0(bufferutil@4.1.0)(typescript@5.8.3)(utf-8-validate@5.0.10))(@types/react@19.0.10)(bufferutil@4.1.0)(react@19.0.3)(utf-8-validate@5.0.10))(react@19.0.3)(utf-8-validate@5.0.10)):
+    dependencies:
+      expo: 53.0.22(@babel/core@7.29.0)(bufferutil@4.1.0)(graphql@16.6.0)(react-native-webview@13.13.5(react-native@0.79.5(@babel/core@7.29.0)(@react-native-community/cli@18.0.0(bufferutil@4.1.0)(typescript@5.8.3)(utf-8-validate@5.0.10))(@types/react@19.0.10)(bufferutil@4.1.0)(react@19.0.3)(utf-8-validate@5.0.10))(react@19.0.3))(react-native@0.79.5(@babel/core@7.29.0)(@react-native-community/cli@18.0.0(bufferutil@4.1.0)(typescript@5.8.3)(utf-8-validate@5.0.10))(@types/react@19.0.10)(bufferutil@4.1.0)(react@19.0.3)(utf-8-validate@5.0.10))(react@19.0.3)(utf-8-validate@5.0.10)
+
   expo-store-review@8.1.5(expo@53.0.22(@babel/core@7.26.0)(bufferutil@4.1.0)(graphql@16.6.0)(react-native-webview@13.13.5(react-native@0.79.5(@babel/core@7.26.0)(@react-native-community/cli@18.0.0(bufferutil@4.1.0)(typescript@5.8.3)(utf-8-validate@5.0.10))(@types/react@19.0.10)(bufferutil@4.1.0)(react@19.0.3)(utf-8-validate@5.0.10))(react@19.0.3))(react-native@0.79.5(@babel/core@7.26.0)(@react-native-community/cli@18.0.0(bufferutil@4.1.0)(typescript@5.8.3)(utf-8-validate@5.0.10))(@types/react@19.0.10)(bufferutil@4.1.0)(react@19.0.3)(utf-8-validate@5.0.10))(react@19.0.3)(utf-8-validate@5.0.10))(react-native@0.79.5(@babel/core@7.26.0)(@react-native-community/cli@18.0.0(bufferutil@4.1.0)(typescript@5.8.3)(utf-8-validate@5.0.10))(@types/react@19.0.10)(bufferutil@4.1.0)(react@19.0.3)(utf-8-validate@5.0.10)):
     dependencies:
       expo: 53.0.22(@babel/core@7.26.0)(bufferutil@4.1.0)(graphql@16.6.0)(react-native-webview@13.13.5(react-native@0.79.5(@babel/core@7.26.0)(@react-native-community/cli@18.0.0(bufferutil@4.1.0)(typescript@5.8.3)(utf-8-validate@5.0.10))(@types/react@19.0.10)(bufferutil@4.1.0)(react@19.0.3)(utf-8-validate@5.0.10))(react@19.0.3))(react-native@0.79.5(@babel/core@7.26.0)(@react-native-community/cli@18.0.0(bufferutil@4.1.0)(typescript@5.8.3)(utf-8-validate@5.0.10))(@types/react@19.0.10)(bufferutil@4.1.0)(react@19.0.3)(utf-8-validate@5.0.10))(react@19.0.3)(utf-8-validate@5.0.10)
@@ -55120,7 +54735,7 @@ snapshots:
 
   extension-port-stream@3.0.0:
     dependencies:
-      readable-stream: 3.6.2
+      readable-stream: 4.7.0
       webextension-polyfill: 0.10.0
 
   external-editor@3.1.0:
@@ -57592,7 +57207,7 @@ snapshots:
     optionalDependencies:
       '@types/node': 22.13.1
       esbuild-register: 3.6.0(esbuild@0.27.4)
-      ts-node: 10.9.2(@swc/core@1.5.7(@swc/helpers@0.5.11))(@types/node@22.13.1)(typescript@5.8.3)
+      ts-node: 10.9.2(@swc/core@1.5.7(@swc/helpers@0.5.11))(@types/node@20.5.1)(typescript@5.8.3)
     transitivePeerDependencies:
       - babel-plugin-macros
       - supports-color
@@ -59420,21 +59035,6 @@ snapshots:
       - supports-color
       - utf-8-validate
 
-  metro-config@0.82.0(bufferutil@4.1.0)(utf-8-validate@6.0.6):
-    dependencies:
-      connect: 3.7.0
-      cosmiconfig: 5.2.1
-      flow-enums-runtime: 0.0.6
-      jest-validate: 29.7.0
-      metro: 0.82.0(bufferutil@4.1.0)(utf-8-validate@6.0.6)
-      metro-cache: 0.82.0
-      metro-core: 0.82.0
-      metro-runtime: 0.82.0
-    transitivePeerDependencies:
-      - bufferutil
-      - supports-color
-      - utf-8-validate
-
   metro-core@0.82.0:
     dependencies:
       flow-enums-runtime: 0.0.6
@@ -59650,7 +59250,7 @@ snapshots:
       metro-babel-transformer: 0.82.0
       metro-cache: 0.82.0
       metro-cache-key: 0.82.0
-      metro-config: 0.82.0(bufferutil@4.1.0)(utf-8-validate@6.0.6)
+      metro-config: 0.82.0(bufferutil@4.1.0)(utf-8-validate@5.0.10)
       metro-core: 0.82.0
       metro-file-map: 0.82.0
       metro-resolver: 0.82.0
@@ -60108,10 +59708,10 @@ snapshots:
       - '@babel/core'
       - babel-plugin-macros
 
-  nitrogen@0.31.10(react-native@0.79.5(@babel/core@7.26.0)(@react-native-community/cli@18.0.0(bufferutil@4.1.0)(typescript@5.8.3)(utf-8-validate@5.0.10))(@types/react@19.0.10)(bufferutil@4.1.0)(react@19.0.3)(utf-8-validate@5.0.10))(react@19.0.3):
+  nitrogen@0.31.10(react-native@0.79.5(@babel/core@7.29.0)(@react-native-community/cli@18.0.0(bufferutil@4.1.0)(typescript@5.8.3)(utf-8-validate@5.0.10))(@types/react@19.0.10)(bufferutil@4.1.0)(react@19.0.3)(utf-8-validate@5.0.10))(react@19.0.3):
     dependencies:
       chalk: 5.6.2
-      react-native-nitro-modules: 0.31.10(react-native@0.79.5(@babel/core@7.26.0)(@react-native-community/cli@18.0.0(bufferutil@4.1.0)(typescript@5.8.3)(utf-8-validate@5.0.10))(@types/react@19.0.10)(bufferutil@4.1.0)(react@19.0.3)(utf-8-validate@5.0.10))(react@19.0.3)
+      react-native-nitro-modules: 0.31.10(react-native@0.79.5(@babel/core@7.29.0)(@react-native-community/cli@18.0.0(bufferutil@4.1.0)(typescript@5.8.3)(utf-8-validate@5.0.10))(@types/react@19.0.10)(bufferutil@4.1.0)(react@19.0.3)(utf-8-validate@5.0.10))(react@19.0.3)
       ts-morph: 27.0.2
       yargs: 18.0.0
       zod: 4.3.6
@@ -62749,6 +62349,11 @@ snapshots:
     dependencies:
       react: 19.0.3
       react-native: 0.79.5(@babel/core@7.26.0)(@react-native-community/cli@18.0.0(bufferutil@4.1.0)(typescript@5.8.3)(utf-8-validate@5.0.10))(@types/react@19.0.10)(bufferutil@4.1.0)(react@19.0.3)(utf-8-validate@5.0.10)
+
+  react-native-nitro-modules@0.31.10(react-native@0.79.5(@babel/core@7.29.0)(@react-native-community/cli@18.0.0(bufferutil@4.1.0)(typescript@5.8.3)(utf-8-validate@5.0.10))(@types/react@19.0.10)(bufferutil@4.1.0)(react@19.0.3)(utf-8-validate@5.0.10))(react@19.0.3):
+    dependencies:
+      react: 19.0.3
+      react-native: 0.79.5(@babel/core@7.29.0)(@react-native-community/cli@18.0.0(bufferutil@4.1.0)(typescript@5.8.3)(utf-8-validate@5.0.10))(@types/react@19.0.10)(bufferutil@4.1.0)(react@19.0.3)(utf-8-validate@5.0.10)
 
   react-native-onesignal@5.2.9:
     dependencies:
@@ -65897,6 +65502,26 @@ snapshots:
       '@ts-morph/common': 0.28.1
       code-block-writer: 13.0.3
 
+  ts-node@10.9.2(@swc/core@1.5.7(@swc/helpers@0.5.11))(@types/node@20.5.1)(typescript@5.8.3):
+    dependencies:
+      '@cspotcode/source-map-support': 0.8.1
+      '@tsconfig/node10': 1.0.12
+      '@tsconfig/node12': 1.0.11
+      '@tsconfig/node14': 1.0.3
+      '@tsconfig/node16': 1.0.4
+      '@types/node': 20.5.1
+      acorn: 8.16.0
+      acorn-walk: 8.3.5
+      arg: 4.1.3
+      create-require: 1.1.1
+      diff: 4.0.4
+      make-error: 1.3.6
+      typescript: 5.8.3
+      v8-compile-cache-lib: 3.0.1
+      yn: 3.1.1
+    optionalDependencies:
+      '@swc/core': 1.5.7(@swc/helpers@0.5.11)
+
   ts-node@10.9.2(@swc/core@1.5.7(@swc/helpers@0.5.11))(@types/node@22.13.1)(typescript@5.8.3):
     dependencies:
       '@cspotcode/source-map-support': 0.8.1
@@ -68283,7 +67908,7 @@ snapshots:
     dependencies:
       '@scure/base': 1.2.6
       '@solana-program/compute-budget': 0.11.0(@solana/kit@5.5.1(bufferutil@4.1.0)(fastestsmallesttextencoderdecoder@1.0.22)(typescript@5.8.3)(utf-8-validate@6.0.6))
-      '@solana-program/token': 0.9.0(@solana/kit@5.5.1(bufferutil@4.1.0)(fastestsmallesttextencoderdecoder@1.0.22)(typescript@5.8.3)(utf-8-validate@6.0.6))
+      '@solana-program/token': 0.9.0(@solana/kit@5.5.1(bufferutil@4.1.0)(typescript@5.8.3)(utf-8-validate@6.0.6))
       '@solana-program/token-2022': 0.6.1(@solana/kit@5.5.1(bufferutil@4.1.0)(fastestsmallesttextencoderdecoder@1.0.22)(typescript@5.8.3)(utf-8-validate@6.0.6))(@solana/sysvars@5.5.1(fastestsmallesttextencoderdecoder@1.0.22)(typescript@5.8.3))
       '@solana/kit': 5.5.1(bufferutil@4.1.0)(fastestsmallesttextencoderdecoder@1.0.22)(typescript@5.8.3)(utf-8-validate@6.0.6)
       '@solana/transaction-confirmation': 5.5.1(bufferutil@4.1.0)(fastestsmallesttextencoderdecoder@1.0.22)(typescript@5.8.3)(utf-8-validate@6.0.6)
