@@ -1,4 +1,4 @@
-import { logger } from 'utilities/src/logger/logger'
+import { logger } from '@luxfi/utilities/src/logger/logger'
 
 // Module self-reference to enable mocking of internal function calls in tests.
 // TODO: figure out how to rewrite `Keyring.test.ts` to avoid doing this.

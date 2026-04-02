@@ -1,5 +1,5 @@
 import { createStore, Store } from '@reduxjs/toolkit'
-import { AccountType } from 'lx/src/features/accounts/types'
+import { AccountType } from '@l.x/lx/src/features/accounts/types'
 import { Account } from '@luxfi/wallet/src/features/wallet/accounts/types'
 import {
   addAccount,

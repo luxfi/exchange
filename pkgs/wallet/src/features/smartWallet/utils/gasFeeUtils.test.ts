@@ -1,5 +1,5 @@
-import { nativeOnChain } from 'lx/src/constants/tokens'
-import { UniverseChainId } from 'lx/src/features/chains/types'
+import { nativeOnChain } from '@l.x/lx/src/constants/tokens'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { GasFeeData, GroupedGasFee, groupGasFeesBySymbol } from '@luxfi/wallet/src/features/smartWallet/utils/gasFeeUtils'
 
 describe('groupGasFeesBySymbol', () => {

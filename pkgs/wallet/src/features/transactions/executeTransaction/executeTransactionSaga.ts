@@ -1,14 +1,14 @@
 import type { SagaIterator } from 'redux-saga'
 import { call } from 'typed-redux-saga'
-import type { SignerMnemonicAccountMeta } from 'lx/src/features/accounts/types'
-import type { UniverseChainId } from 'lx/src/features/chains/types'
-import type { SwapTradeBaseProperties } from 'lx/src/features/telemetry/types'
+import type { SignerMnemonicAccountMeta } from '@l.x/lx/src/features/accounts/types'
+import type { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import type { SwapTradeBaseProperties } from '@l.x/lx/src/features/telemetry/types'
 import type {
   TransactionOptions,
   TransactionOriginType,
   TransactionTypeInfo,
-} from 'lx/src/features/transactions/types/transactionDetails'
-import { TransactionType } from 'lx/src/features/transactions/types/transactionDetails'
+} from '@l.x/lx/src/features/transactions/types/transactionDetails'
+import { TransactionType } from '@l.x/lx/src/features/transactions/types/transactionDetails'
 import type { SignedTransactionRequest } from '@luxfi/wallet/src/features/transactions/executeTransaction/types'
 import { createTransactionSagaDependencies } from '@luxfi/wallet/src/features/transactions/factories/createTransactionSagaDependencies'
 import { createTransactionServices } from '@luxfi/wallet/src/features/transactions/factories/createTransactionServices'

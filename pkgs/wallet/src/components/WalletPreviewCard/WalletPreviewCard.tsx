@@ -1,10 +1,10 @@
-import { Flex, Text, TouchableArea } from 'ui/src'
-import { Check } from 'ui/src/components/icons'
-import { iconSizes } from 'ui/src/theme'
-import { AddressDisplay } from 'lx/src/components/accounts/AddressDisplay'
-import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
-import { ElementName } from 'lx/src/features/telemetry/constants'
-import { NumberType } from 'utilities/src/format/types'
+import { Flex, Text, TouchableArea } from '@luxfi/ui/src'
+import { Check } from '@luxfi/ui/src/components/icons'
+import { iconSizes } from '@luxfi/ui/src/theme'
+import { AddressDisplay } from '@l.x/lx/src/components/accounts/AddressDisplay'
+import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
+import { ElementName } from '@l.x/lx/src/features/telemetry/constants'
+import { NumberType } from '@luxfi/utilities/src/format/types'
 
 interface Props {
   address: string

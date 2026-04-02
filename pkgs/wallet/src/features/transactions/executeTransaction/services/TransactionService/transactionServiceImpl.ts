@@ -1,21 +1,21 @@
 import type { BaseProvider, Provider } from '@ethersproject/providers'
 import { utils } from 'ethers'
-import { type AccountMeta } from 'lx/src/features/accounts/types'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { getChainLabel } from 'lx/src/features/chains/utils'
-import { FlashbotsRpcProvider } from 'lx/src/features/providers/FlashbotsRpcProvider'
-import { SwapTradeBaseProperties } from 'lx/src/features/telemetry/types'
-import { validateTransactionRequest } from 'lx/src/features/transactions/swap/utils/trade'
+import { type AccountMeta } from '@l.x/lx/src/features/accounts/types'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { getChainLabel } from '@l.x/lx/src/features/chains/utils'
+import { FlashbotsRpcProvider } from '@l.x/lx/src/features/providers/FlashbotsRpcProvider'
+import { SwapTradeBaseProperties } from '@l.x/lx/src/features/telemetry/types'
+import { validateTransactionRequest } from '@l.x/lx/src/features/transactions/swap/utils/trade'
 import type {
   OnChainTransactionDetails,
   TransactionDetails,
   TransactionOptions,
   TransactionTypeInfo,
-} from 'lx/src/features/transactions/types/transactionDetails'
-import { TransactionOriginType, TransactionStatus } from 'lx/src/features/transactions/types/transactionDetails'
-import { isBridgeTypeInfo, isSwapTypeInfo } from 'lx/src/features/transactions/types/utils'
-import { logger as loggerUtil } from 'utilities/src/logger/logger'
-import { ONE_SECOND_MS } from 'utilities/src/time/time'
+} from '@l.x/lx/src/features/transactions/types/transactionDetails'
+import { TransactionOriginType, TransactionStatus } from '@l.x/lx/src/features/transactions/types/transactionDetails'
+import { isBridgeTypeInfo, isSwapTypeInfo } from '@l.x/lx/src/features/transactions/types/utils'
+import { logger as loggerUtil } from '@luxfi/utilities/src/logger/logger'
+import { ONE_SECOND_MS } from '@luxfi/utilities/src/time/time'
 import { isPrivateRpcSupportedOnChain } from '@luxfi/wallet/src/features/providers/utils'
 import type { ExecuteTransactionParams } from '@luxfi/wallet/src/features/transactions/executeTransaction/executeTransactionSaga'
 import type { AnalyticsService } from '@luxfi/wallet/src/features/transactions/executeTransaction/services/analyticsService'

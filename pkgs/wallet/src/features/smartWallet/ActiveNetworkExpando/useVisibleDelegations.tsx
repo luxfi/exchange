@@ -1,5 +1,5 @@
 import { DimensionValue } from 'react-native'
-import { NotImplementedError } from 'utilities/src/errors'
+import { NotImplementedError } from '@luxfi/utilities/src/errors'
 import { ActiveDelegation } from '@luxfi/wallet/src/features/smartWallet/types'
 
 export interface UseVisibleDelegationsParams {

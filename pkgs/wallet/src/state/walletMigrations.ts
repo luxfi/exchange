@@ -4,20 +4,20 @@
 /* biome-ignore-all lint/suspicious/noExplicitAny: Migration types require dynamic typing */
 
 import { RankingType } from '@l.x/api'
-import { AccountType } from 'lx/src/features/accounts/types'
-import { FiatCurrency } from 'lx/src/features/fiatCurrency/constants'
-import { Language } from 'lx/src/features/language/constants'
-import { Platform } from 'lx/src/features/platforms/types/Platform'
+import { AccountType } from '@l.x/lx/src/features/accounts/types'
+import { FiatCurrency } from '@l.x/lx/src/features/fiatCurrency/constants'
+import { Language } from '@l.x/lx/src/features/language/constants'
+import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
 import {
   type BasicTokenInfo,
   type SerializedTokenMap,
   type TokenDismissInfo,
-} from 'lx/src/features/tokens/warnings/slice/types'
-import { TransactionType } from 'lx/src/features/transactions/types/transactionDetails'
-import { createSafeMigrationFactory } from 'lx/src/state/createSafeMigration'
-import { type CurrencyId } from 'lx/src/types/currency'
-import { areAddressesEqual } from 'lx/src/utils/addresses'
-import { currencyIdToAddress, currencyIdToChain } from 'lx/src/utils/currencyId'
+} from '@l.x/lx/src/features/tokens/warnings/slice/types'
+import { TransactionType } from '@l.x/lx/src/features/transactions/types/transactionDetails'
+import { createSafeMigrationFactory } from '@l.x/lx/src/state/createSafeMigration'
+import { type CurrencyId } from '@l.x/lx/src/types/currency'
+import { areAddressesEqual } from '@l.x/lx/src/utils/addresses'
+import { currencyIdToAddress, currencyIdToChain } from '@l.x/lx/src/utils/currencyId'
 import { type Account } from '@luxfi/wallet/src/features/wallet/accounts/types'
 
 const createSafeMigration = createSafeMigrationFactory('walletMigrations')

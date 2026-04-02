@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next'
-import { Flex } from 'ui/src'
-import { ReceiveAlt } from 'ui/src/components/icons'
+import { Flex } from '@luxfi/ui/src'
+import { ReceiveAlt } from '@luxfi/ui/src/components/icons'
 import { TransactionAssetList } from '@luxfi/wallet/src/components/dappRequests/TransactionAssetList'
 import { type TransactionAsset, TransactionRiskLevel } from '@luxfi/wallet/src/features/dappRequests/types'
 

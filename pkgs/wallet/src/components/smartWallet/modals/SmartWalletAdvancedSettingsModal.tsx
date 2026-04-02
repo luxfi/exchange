@@ -1,14 +1,14 @@
 import { type ReactNode, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Flex, type IconProps, Switch, Text, TouchableArea, useSporeColors } from 'ui/src'
-import { Box } from 'ui/src/components/icons/Box'
-import { RotatableChevron } from 'ui/src/components/icons/RotatableChevron'
-import { SmartWallet } from 'ui/src/components/icons/SmartWallet'
-import { Wrench } from 'ui/src/components/icons/Wrench'
-import { iconSizes } from 'ui/src/theme'
-import { Modal } from 'lx/src/components/modals/Modal'
-import { ModalName } from 'lx/src/features/telemetry/constants'
-import { isMobileApp } from 'utilities/src/platform'
+import { Flex, type IconProps, Switch, Text, TouchableArea, useSporeColors } from '@luxfi/ui/src'
+import { Box } from '@luxfi/ui/src/components/icons/Box'
+import { RotatableChevron } from '@luxfi/ui/src/components/icons/RotatableChevron'
+import { SmartWallet } from '@luxfi/ui/src/components/icons/SmartWallet'
+import { Wrench } from '@luxfi/ui/src/components/icons/Wrench'
+import { iconSizes } from '@luxfi/ui/src/theme'
+import { Modal } from '@l.x/lx/src/components/modals/Modal'
+import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
+import { isMobileApp } from '@luxfi/utilities/src/platform'
 
 const iconProps: IconProps = {
   color: '$neutral2',

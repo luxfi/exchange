@@ -1,6 +1,6 @@
-import { Flex, Image, useIsDarkMode } from 'ui/src'
-import { ENS_LOGO } from 'ui/src/assets'
-import { imageSizes, opacify } from 'ui/src/theme'
+import { Flex, Image, useIsDarkMode } from '@luxfi/ui/src'
+import { ENS_LOGO } from '@luxfi/ui/src/assets'
+import { imageSizes, opacify } from '@luxfi/ui/src/theme'
 
 // As we're using this color only in this component, we define it here instead in colors.ts
 const BLUE_ENS_COLOR = '#33CAFF'

@@ -1,8 +1,8 @@
 import { Currency, CurrencyAmount } from '@luxamm/sdk-core'
 import { GasEstimate } from '@l.x/api'
-import { AssetType, NFTAssetType } from 'lx/src/entities/assets'
-import { SignerMnemonicAccountMeta } from 'lx/src/features/accounts/types'
-import { UniverseChainId } from 'lx/src/features/chains/types'
+import { AssetType, NFTAssetType } from '@l.x/lx/src/entities/assets'
+import { SignerMnemonicAccountMeta } from '@l.x/lx/src/features/accounts/types'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 
 interface BaseSendParams {
   type: AssetType

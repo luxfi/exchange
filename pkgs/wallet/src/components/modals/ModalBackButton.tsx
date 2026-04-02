@@ -1,6 +1,6 @@
-import { TouchableArea } from 'ui/src'
-import { BackArrow } from 'ui/src/components/icons'
-import { zIndexes } from 'ui/src/theme'
+import { TouchableArea } from '@luxfi/ui/src'
+import { BackArrow } from '@luxfi/ui/src/components/icons'
+import { zIndexes } from '@luxfi/ui/src/theme'
 
 export function ModalBackButton({ onBack }: { onBack: () => void }): JSX.Element {
   return (

@@ -1,17 +1,17 @@
 import { BaseProvider, JsonRpcProvider, Provider, TransactionReceipt } from '@ethersproject/providers'
 import { BigNumber, utils } from 'ethers'
-import { AssetType } from 'lx/src/entities/assets'
-import { AccountMeta, AccountType, SignerMnemonicAccountMeta } from 'lx/src/features/accounts/types'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { getChainLabel } from 'lx/src/features/chains/utils'
+import { AssetType } from '@l.x/lx/src/entities/assets'
+import { AccountMeta, AccountType, SignerMnemonicAccountMeta } from '@l.x/lx/src/features/accounts/types'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { getChainLabel } from '@l.x/lx/src/features/chains/utils'
 import {
   TransactionOriginType,
   TransactionStatus,
   TransactionType,
   TransactionTypeInfo,
-} from 'lx/src/features/transactions/types/transactionDetails'
-import { ensure0xHex } from 'utilities/src/addresses/hex'
-import { logger } from 'utilities/src/logger/logger'
+} from '@l.x/lx/src/features/transactions/types/transactionDetails'
+import { ensure0xHex } from '@luxfi/utilities/src/addresses/hex'
+import { logger } from '@luxfi/utilities/src/logger/logger'
 import { isPrivateRpcSupportedOnChain } from '@luxfi/wallet/src/features/providers/utils'
 import { ExecuteTransactionParams } from '@luxfi/wallet/src/features/transactions/executeTransaction/executeTransactionSaga'
 import { AnalyticsService } from '@luxfi/wallet/src/features/transactions/executeTransaction/services/analyticsService'

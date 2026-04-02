@@ -12,12 +12,12 @@ import {
   SAMPLE_SEED_ADDRESS_8,
   SAMPLE_SEED_ADDRESS_9,
   SAMPLE_SEED_ADDRESS_10,
-} from 'lx/src/test/fixtures'
+} from '@l.x/lx/src/test/fixtures'
 import { WebKeyring } from '@luxfi/wallet/src/features/wallet/Keyring/Keyring.web'
 
 // Mock the chrome utilities to return valid chrome
 // Needed because the jest runner doesn't currently support platform file-splitting
-jest.mock('utilities/src/chrome/chrome', () => {
+jest.mock('@luxfi/utilities/src/chrome/chrome', () => {
   return {
     // Re-import here due to jests's implicit hoisting of mocks
     getChromeWithThrow: (): unknown => require('jest-chrome').chrome,

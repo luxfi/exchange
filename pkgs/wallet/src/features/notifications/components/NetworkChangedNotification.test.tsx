@@ -1,10 +1,10 @@
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { AppNotificationType } from 'lx/src/features/notifications/slice/types'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { AppNotificationType } from '@l.x/lx/src/features/notifications/slice/types'
 import { NetworkChangedNotification } from '@luxfi/wallet/src/features/notifications/components/NetworkChangedNotification'
 import { renderWithProviders } from '@luxfi/wallet/src/test/render'
 
 // Mock the account store hooks
-jest.mock('lx/src/features/accounts/store/hooks', () => ({
+jest.mock('@l.x/lx/src/features/accounts/store/hooks', () => ({
   useActiveAddress: jest.fn(() => undefined),
   useActiveAddresses: jest.fn(() => ({
     evmAddress: undefined,
@@ -13,8 +13,8 @@ jest.mock('lx/src/features/accounts/store/hooks', () => ({
 }))
 
 // Use the web implementation of NotificationToast for testing
-jest.mock('lx/src/components/notifications/NotificationToast', () => {
-  return jest.requireActual('lx/src/components/notifications/NotificationToast.web')
+jest.mock('@l.x/lx/src/components/notifications/NotificationToast', () => {
+  return jest.requireActual('@l.x/lx/src/components/notifications/NotificationToast.web')
 })
 
 describe(NetworkChangedNotification, () => {

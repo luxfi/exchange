@@ -1,7 +1,7 @@
-import { AccessPattern, ConnectorStatus } from 'lx/src/features/accounts/store/types/Connector'
-import { ChainScopeType } from 'lx/src/features/accounts/store/types/Session'
-import { SigningCapability } from 'lx/src/features/accounts/store/types/Wallet'
-import { Platform } from 'lx/src/features/platforms/types/Platform'
+import { AccessPattern, ConnectorStatus } from '@l.x/lx/src/features/accounts/store/types/Connector'
+import { ChainScopeType } from '@l.x/lx/src/features/accounts/store/types/Session'
+import { SigningCapability } from '@l.x/lx/src/features/accounts/store/types/Wallet'
+import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
 import { createAccountsStoreGetters } from '@luxfi/wallet/src/features/accounts/store/getters'
 import { WalletAppsAccountsData } from '@luxfi/wallet/src/features/accounts/store/types'
 

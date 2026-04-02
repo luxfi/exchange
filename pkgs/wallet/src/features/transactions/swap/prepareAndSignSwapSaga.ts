@@ -1,15 +1,15 @@
 import { FeatureFlags, getFeatureFlagName, getStatsigClient } from '@l.x/gating'
 import { call, select } from 'typed-redux-saga'
-import type { SignerMnemonicAccountMeta } from 'lx/src/features/accounts/types'
-import type { PrepareSwapParams } from 'lx/src/features/transactions/swap/types/swapHandlers'
-import { PermitMethod } from 'lx/src/features/transactions/swap/types/swapTxAndGasInfo'
+import type { SignerMnemonicAccountMeta } from '@l.x/lx/src/features/accounts/types'
+import type { PrepareSwapParams } from '@l.x/lx/src/features/transactions/swap/types/swapHandlers'
+import { PermitMethod } from '@l.x/lx/src/features/transactions/swap/types/swapTxAndGasInfo'
 import {
   isBridge,
   isChained,
   isClassic,
   isLX,
   isWrap,
-} from 'lx/src/features/transactions/swap/utils/routing'
+} from '@l.x/lx/src/features/transactions/swap/utils/routing'
 import { isPrivateRpcSupportedOnChain } from '@luxfi/wallet/src/features/providers/utils'
 import type { SignedTransactionRequest } from '@luxfi/wallet/src/features/transactions/executeTransaction/types'
 import {

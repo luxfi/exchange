@@ -1,6 +1,6 @@
-import { Flex, Image, Text, useIsDarkMode } from 'ui/src'
-import { USDC_LOGO } from 'ui/src/assets'
-import { colors, imageSizes, opacify, validColor } from 'ui/src/theme'
+import { Flex, Image, Text, useIsDarkMode } from '@luxfi/ui/src'
+import { USDC_LOGO } from '@luxfi/ui/src/assets'
+import { colors, imageSizes, opacify, validColor } from '@luxfi/ui/src/theme'
 
 // As we're using this color only in this component, we define it here instead in colors.ts
 const BLUE_USDC_COLOR = '#2775CA'

@@ -1,9 +1,9 @@
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Flex, Text, TouchableArea } from 'ui/src'
-import { RotatableChevron } from 'ui/src/components/icons'
-import { toSupportedChainId } from 'lx/src/features/chains/utils'
-import { ExplorerDataType, getExplorerLink } from 'lx/src/utils/linking'
+import { Flex, Text, TouchableArea } from '@luxfi/ui/src'
+import { RotatableChevron } from '@luxfi/ui/src/components/icons'
+import { toSupportedChainId } from '@l.x/lx/src/features/chains/utils'
+import { ExplorerDataType, getExplorerLink } from '@l.x/lx/src/utils/linking'
 import { DomainContent } from '@luxfi/wallet/src/components/dappRequests/SignTypedData/DomainContent'
 import { MaybeExplorerLinkedAddress } from '@luxfi/wallet/src/components/dappRequests/SignTypedData/MaybeExplorerLinkedAddress'
 

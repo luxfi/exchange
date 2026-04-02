@@ -1,6 +1,6 @@
 import { Currency } from '@luxamm/sdk-core'
 import { BigNumber } from 'ethers'
-import { nativeOnChain } from 'lx/src/constants/tokens'
+import { nativeOnChain } from '@l.x/lx/src/constants/tokens'
 
 export interface GasFeeData {
   chainId: number

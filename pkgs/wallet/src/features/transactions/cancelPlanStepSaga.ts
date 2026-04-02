@@ -1,17 +1,17 @@
 import { providers } from 'ethers'
 import { call, put, type SagaGenerator, select } from 'typed-redux-saga'
-import { AccountType } from 'lx/src/features/accounts/types'
-import { CANCELLATION_TX_VALUE } from 'lx/src/features/gas/utils/cancel'
-import { CancelableStepInfo } from 'lx/src/features/transactions/hooks/useIsCancelable'
-import { activePlanStore } from 'lx/src/features/transactions/swap/review/stores/activePlan/activePlanStore'
+import { AccountType } from '@l.x/lx/src/features/accounts/types'
+import { CANCELLATION_TX_VALUE } from '@l.x/lx/src/features/gas/utils/cancel'
+import { CancelableStepInfo } from '@l.x/lx/src/features/transactions/hooks/useIsCancelable'
+import { activePlanStore } from '@l.x/lx/src/features/transactions/swap/review/stores/activePlan/activePlanStore'
 import {
   PlanTransactionDetails,
   TransactionDetails,
   TransactionOriginType,
-} from 'lx/src/features/transactions/types/transactionDetails'
-import { getValidAddress } from 'lx/src/utils/addresses'
-import { signalPlanCancellation } from 'lx/src/utils/saga'
-import { logger } from 'utilities/src/logger/logger'
+} from '@l.x/lx/src/features/transactions/types/transactionDetails'
+import { getValidAddress } from '@l.x/lx/src/utils/addresses'
+import { signalPlanCancellation } from '@l.x/lx/src/utils/saga'
+import { logger } from '@luxfi/utilities/src/logger/logger'
 import {
   ExecuteTransactionParams,
   executeTransaction,

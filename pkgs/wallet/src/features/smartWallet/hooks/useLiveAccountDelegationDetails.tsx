@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query'
-import { ReactQueryCacheKey } from 'utilities/src/reactQuery/cache'
-import { ONE_HOUR_MS, ONE_MINUTE_MS } from 'utilities/src/time/time'
+import { ReactQueryCacheKey } from '@luxfi/utilities/src/reactQuery/cache'
+import { ONE_HOUR_MS, ONE_MINUTE_MS } from '@luxfi/utilities/src/time/time'
 import { DelegationCheckResult } from '@luxfi/wallet/src/features/smartWallet/delegation/types'
 import { getAccountDelegationDetails } from '@luxfi/wallet/src/features/smartWallet/delegation/utils'
 

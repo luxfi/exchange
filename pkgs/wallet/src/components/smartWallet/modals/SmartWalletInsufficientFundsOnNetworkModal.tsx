@@ -1,9 +1,9 @@
 import { useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 import { FlatList } from 'react-native'
-import { Flex, Separator } from 'ui/src'
-import { InsufficientGas } from 'ui/src/components/icons'
-import { ModalName } from 'lx/src/features/telemetry/constants'
+import { Flex, Separator } from '@luxfi/ui/src'
+import { InsufficientGas } from '@luxfi/ui/src/components/icons'
+import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
 import { SmartWalletModal } from '@luxfi/wallet/src/components/smartWallet/modals/SmartWalletModal'
 import { InsufficientFundsNetworkRow, NetworkInfo } from '@luxfi/wallet/src/features/smartWallet/InsufficientFundsNetworkRow'
 

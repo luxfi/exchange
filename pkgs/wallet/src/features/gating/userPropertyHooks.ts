@@ -1,11 +1,11 @@
 import { getStatsigClient } from '@l.x/gating'
 import { useEffect } from 'react'
-import { useUnitagsAddressQuery } from 'lx/src/data/apiClients/unitagsApi/useUnitagsAddressQuery'
-import { AccountType } from 'lx/src/features/accounts/types'
-import { useENSName } from 'lx/src/features/ens/api'
-import { Platform } from 'lx/src/features/platforms/types/Platform'
-import { getValidAddress } from 'lx/src/utils/addresses'
-import { logger } from 'utilities/src/logger/logger'
+import { useUnitagsAddressQuery } from '@l.x/lx/src/data/apiClients/unitagsApi/useUnitagsAddressQuery'
+import { AccountType } from '@l.x/lx/src/features/accounts/types'
+import { useENSName } from '@l.x/lx/src/features/ens/api'
+import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
+import { getValidAddress } from '@l.x/lx/src/utils/addresses'
+import { logger } from '@luxfi/utilities/src/logger/logger'
 import { useActiveAccount } from '@luxfi/wallet/src/features/wallet/hooks'
 
 export function useGatingUserPropertyUsernames(): void {

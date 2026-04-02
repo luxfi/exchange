@@ -1,6 +1,6 @@
 import Fuse from 'fuse.js'
-import { SearchableRecipient } from 'lx/src/features/address/types'
-import { unique } from 'utilities/src/primitives/array'
+import { SearchableRecipient } from '@l.x/lx/src/features/address/types'
+import { unique } from '@luxfi/utilities/src/primitives/array'
 
 export type AutocompleteOption<T> = { data: T; key: string }
 

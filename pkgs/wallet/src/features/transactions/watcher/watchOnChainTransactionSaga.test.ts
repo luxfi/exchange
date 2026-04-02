@@ -2,17 +2,17 @@ import { providers } from 'ethers'
 import { call } from 'redux-saga/effects'
 import { expectSaga } from 'redux-saga-test-plan'
 import * as matchers from 'redux-saga-test-plan/matchers'
-import { Platform } from 'lx/src/features/platforms/types/Platform'
-import { getEnabledChainIdsSaga } from 'lx/src/features/settings/saga'
-import { cancelTransaction, transactionActions } from 'lx/src/features/transactions/slice'
-import { TransactionDetails, TransactionStatus } from 'lx/src/features/transactions/types/transactionDetails'
+import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
+import { getEnabledChainIdsSaga } from '@l.x/lx/src/features/settings/saga'
+import { cancelTransaction, transactionActions } from '@l.x/lx/src/features/transactions/slice'
+import { TransactionDetails, TransactionStatus } from '@l.x/lx/src/features/transactions/types/transactionDetails'
 import {
   fiatPurchaseTransactionInfo,
   getTxFixtures,
   transactionDetails as transactionDetailsFixture,
-} from 'lx/src/test/fixtures'
-import { mockApolloClient } from 'lx/src/test/mocks'
-import { sleep } from 'utilities/src/time/timing'
+} from '@l.x/lx/src/test/fixtures'
+import { mockApolloClient } from '@l.x/lx/src/test/mocks'
+import { sleep } from '@luxfi/utilities/src/time/timing'
 import { attemptCancelTransaction } from '@luxfi/wallet/src/features/transactions/cancelTransactionSaga'
 import { logTransactionTimeout } from '@luxfi/wallet/src/features/transactions/watcher/transactionFinalizationSaga'
 import { deleteTransaction } from '@luxfi/wallet/src/features/transactions/watcher/transactionSagaUtils'
@@ -35,7 +35,7 @@ jest.mock('@l.x/api', () => ({
   })),
 }))
 
-jest.mock('lx/src/data/apiClients/tradingApi/TradingApiClient', () => ({
+jest.mock('@l.x/lx/src/data/apiClients/tradingApi/TradingApiClient', () => ({
   TradingApiClient: {
     fetchSwaps: jest.fn().mockResolvedValue({ swaps: [] }),
   },

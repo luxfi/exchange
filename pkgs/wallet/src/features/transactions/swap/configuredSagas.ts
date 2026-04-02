@@ -1,4 +1,4 @@
-import { createMonitoredSaga } from 'lx/src/utils/saga'
+import { createMonitoredSaga } from '@l.x/lx/src/utils/saga'
 import { getSharedTransactionSagaDependencies } from '@luxfi/wallet/src/features/transactions/configuredSagas'
 import { createExecutePlanSaga } from '@luxfi/wallet/src/features/transactions/swap/executePlanSaga'
 import { createExecuteSwapSaga } from '@luxfi/wallet/src/features/transactions/swap/executeSwapSaga'

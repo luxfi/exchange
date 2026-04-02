@@ -10,14 +10,14 @@ import {
   getGraphqlHttpLink,
   getPerformanceLink,
   getRestLink,
-} from 'lx/src/data/links'
-import { getInstantTokenBalanceUpdateApolloLink } from 'lx/src/features/portfolio/portfolioUpdates/getInstantTokenBalanceUpdateApolloLink'
-import { WalletEventName } from 'lx/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
-import { getDatadogApolloLink } from 'utilities/src/logger/datadog/datadogLink'
-import { logger } from 'utilities/src/logger/logger'
-import { isMobileApp } from 'utilities/src/platform'
-import { useEvent } from 'utilities/src/react/hooks'
+} from '@l.x/lx/src/data/links'
+import { getInstantTokenBalanceUpdateApolloLink } from '@l.x/lx/src/features/portfolio/portfolioUpdates/getInstantTokenBalanceUpdateApolloLink'
+import { WalletEventName } from '@l.x/lx/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
+import { getDatadogApolloLink } from '@luxfi/utilities/src/logger/datadog/datadogLink'
+import { logger } from '@luxfi/utilities/src/logger/logger'
+import { isMobileApp } from '@luxfi/utilities/src/platform'
+import { useEvent } from '@luxfi/utilities/src/react/hooks'
 import { initAndPersistCache } from '@luxfi/wallet/src/data/apollo/cache'
 import { useWalletSigners } from '@luxfi/wallet/src/features/wallet/context'
 import { useAccounts } from '@luxfi/wallet/src/features/wallet/hooks'

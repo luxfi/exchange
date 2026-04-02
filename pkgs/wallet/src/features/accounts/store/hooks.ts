@@ -1,7 +1,7 @@
-import { createUseActiveAccount } from 'lx/src/features/accounts/store/utils/accounts'
-import { createUseActiveAddress, createUseActiveAddresses } from 'lx/src/features/accounts/store/utils/addresses'
-import { createUseAccountsStore } from 'lx/src/features/accounts/store/utils/createUseAccountsStore'
-import { createUseActiveWallet } from 'lx/src/features/accounts/store/utils/wallets'
+import { createUseActiveAccount } from '@l.x/lx/src/features/accounts/store/utils/accounts'
+import { createUseActiveAddress, createUseActiveAddresses } from '@l.x/lx/src/features/accounts/store/utils/addresses'
+import { createUseAccountsStore } from '@l.x/lx/src/features/accounts/store/utils/createUseAccountsStore'
+import { createUseActiveWallet } from '@l.x/lx/src/features/accounts/store/utils/wallets'
 import { useAccountsStoreContext } from '@luxfi/wallet/src/features/accounts/store/provider'
 
 export const useAccountsStore = createUseAccountsStore(useAccountsStoreContext)

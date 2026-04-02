@@ -2,9 +2,9 @@ import { TradingApi } from '@l.x/api'
 import {
   OnChainTransactionDetails,
   TransactionStatus,
-} from 'lx/src/features/transactions/types/transactionDetails'
-import { isBridgeTypeInfo } from 'lx/src/features/transactions/types/utils'
-import { createTransactionId } from 'lx/src/utils/createTransactionId'
+} from '@l.x/lx/src/features/transactions/types/transactionDetails'
+import { isBridgeTypeInfo } from '@l.x/lx/src/features/transactions/types/utils'
+import { createTransactionId } from '@l.x/lx/src/utils/createTransactionId'
 import { SubmitTransactionParamsWithTypeInfo } from '@luxfi/wallet/src/features/transactions/executeTransaction/services/TransactionService/transactionService'
 
 export function createUnsubmittedTransactionDetails(

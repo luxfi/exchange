@@ -1,11 +1,11 @@
 import { useTranslation } from 'react-i18next'
 import Animated, { Easing, FadeIn, FadeInDown, RotateInUpLeft } from 'react-native-reanimated'
-import { Button, Flex, Text } from 'ui/src'
-import { Unitag } from 'ui/src/components/icons'
-import { iconSizes } from 'ui/src/theme'
-import { useUnitagsAddressQuery } from 'lx/src/data/apiClients/unitagsApi/useUnitagsAddressQuery'
-import { AccountIcon } from 'lx/src/features/accounts/AccountIcon'
-import { isExtensionApp } from 'utilities/src/platform'
+import { Button, Flex, Text } from '@luxfi/ui/src'
+import { Unitag } from '@luxfi/ui/src/components/icons'
+import { iconSizes } from '@luxfi/ui/src/theme'
+import { useUnitagsAddressQuery } from '@l.x/lx/src/data/apiClients/unitagsApi/useUnitagsAddressQuery'
+import { AccountIcon } from '@l.x/lx/src/features/accounts/AccountIcon'
+import { isExtensionApp } from '@luxfi/utilities/src/platform'
 
 export function WelcomeSplash({
   address,

@@ -1,14 +1,14 @@
 import { TradingApi } from '@l.x/api'
 import { call, delay, SagaGenerator, select } from 'typed-redux-saga'
-import { TradingApiClient } from 'lx/src/data/apiClients/tradingApi/TradingApiClient'
-import { makeSelectTransaction } from 'lx/src/features/transactions/selectors'
-import { toTradingApiSupportedChainId } from 'lx/src/features/transactions/swap/utils/tradingApi'
+import { TradingApiClient } from '@l.x/lx/src/data/apiClients/tradingApi/TradingApiClient'
+import { makeSelectTransaction } from '@l.x/lx/src/features/transactions/selectors'
+import { toTradingApiSupportedChainId } from '@l.x/lx/src/features/transactions/swap/utils/tradingApi'
 import {
   TransactionDetails,
   TransactionStatus,
   TransactionType,
-} from 'lx/src/features/transactions/types/transactionDetails'
-import { logger } from 'utilities/src/logger/logger'
+} from '@l.x/lx/src/features/transactions/types/transactionDetails'
+import { logger } from '@luxfi/utilities/src/logger/logger'
 import {
   FINALIZED_SWAP_STATUS,
   MIN_BRIDGE_WAIT_TIME,

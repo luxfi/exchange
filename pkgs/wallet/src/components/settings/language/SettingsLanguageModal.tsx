@@ -1,4 +1,4 @@
-import { PlatformSplitStubError } from 'utilities/src/errors'
+import { PlatformSplitStubError } from '@luxfi/utilities/src/errors'
 import { SettingsLanguageModalProps } from '@luxfi/wallet/src/components/settings/language/SettingsLanguageModalProps'
 
 export function SettingsLanguageModal(_props: SettingsLanguageModalProps): JSX.Element {

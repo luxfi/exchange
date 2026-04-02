@@ -1,7 +1,7 @@
 import { type BlockaidScanTransactionResponse } from '@l.x/api'
-import { getNativeAddress } from 'lx/src/constants/addresses'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { AddressStringFormat, normalizeAddress } from 'lx/src/utils/addresses'
+import { getNativeAddress } from '@l.x/lx/src/constants/addresses'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { AddressStringFormat, normalizeAddress } from '@l.x/lx/src/utils/addresses'
 import { formatUnits } from 'viem'
 import { TransactionErrorType } from '@luxfi/wallet/src/components/dappRequests/TransactionErrorSection'
 import {

@@ -1,13 +1,13 @@
 import { useCallback } from 'react'
 import { FlatList } from 'react-native-gesture-handler'
-import { Flex, GetThemeValueForKey, HeightAnimator, Separator, Text, TouchableArea, useSporeColors } from 'ui/src'
-import { ExternalLink } from 'ui/src/components/icons'
-import { iconSizes, padding, spacing } from 'ui/src/theme'
-import { NetworkLogo } from 'lx/src/components/CurrencyLogo/NetworkLogo'
-import { getChainInfo } from 'lx/src/features/chains/chainInfo'
-import { ExplorerDataType, getExplorerLink, openUri } from 'lx/src/utils/linking'
-import { shortenAddress } from 'utilities/src/addresses'
-import { isMobileApp } from 'utilities/src/platform'
+import { Flex, GetThemeValueForKey, HeightAnimator, Separator, Text, TouchableArea, useSporeColors } from '@luxfi/ui/src'
+import { ExternalLink } from '@luxfi/ui/src/components/icons'
+import { iconSizes, padding, spacing } from '@luxfi/ui/src/theme'
+import { NetworkLogo } from '@l.x/lx/src/components/CurrencyLogo/NetworkLogo'
+import { getChainInfo } from '@l.x/lx/src/features/chains/chainInfo'
+import { ExplorerDataType, getExplorerLink, openUri } from '@l.x/lx/src/utils/linking'
+import { shortenAddress } from '@luxfi/utilities/src/addresses'
+import { isMobileApp } from '@luxfi/utilities/src/platform'
 import {
   ITEM_PADDING,
   MAX_VISIBLE_HEIGHT_MOBILE,

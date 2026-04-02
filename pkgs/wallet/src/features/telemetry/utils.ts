@@ -1,4 +1,4 @@
-import { hasRequiredDataForBalancesReport } from 'lx/src/features/accounts/reportBalancesForAnalytics'
+import { hasRequiredDataForBalancesReport } from '@l.x/lx/src/features/accounts/reportBalancesForAnalytics'
 
 interface BalanceReportParams {
   accountData: {

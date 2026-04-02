@@ -1,10 +1,10 @@
-import { SignerMnemonicAccountMeta } from 'lx/src/features/accounts/types'
-import { UniverseChainId } from 'lx/src/features/chains/types'
+import { SignerMnemonicAccountMeta } from '@l.x/lx/src/features/accounts/types'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import {
   ValidatedSwapTxContext,
   ValidatedLXSwapTxAndGasInfo,
-} from 'lx/src/features/transactions/swap/types/swapTxAndGasInfo'
-import { ValidatedPermit } from 'lx/src/features/transactions/swap/utils/trade'
+} from '@l.x/lx/src/features/transactions/swap/types/swapTxAndGasInfo'
+import { ValidatedPermit } from '@l.x/lx/src/features/transactions/swap/utils/trade'
 import { SignedTransactionRequest } from '@luxfi/wallet/src/features/transactions/executeTransaction/types'
 
 export interface SignedPermit {

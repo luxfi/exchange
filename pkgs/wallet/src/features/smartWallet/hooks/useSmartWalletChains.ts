@@ -1,7 +1,7 @@
 import { useMemo } from 'react'
-import { useEnabledChains } from 'lx/src/features/chains/hooks/useEnabledChains'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { toSupportedChainId } from 'lx/src/features/chains/utils'
+import { useEnabledChains } from '@l.x/lx/src/features/chains/hooks/useEnabledChains'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { toSupportedChainId } from '@l.x/lx/src/features/chains/utils'
 import { useWalletDelegationContext } from '@luxfi/wallet/src/features/smartWallet/WalletDelegationProvider'
 
 /**

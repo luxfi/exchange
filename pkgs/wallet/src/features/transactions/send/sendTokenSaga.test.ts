@@ -2,17 +2,17 @@ import { BigNumber } from '@ethersproject/bignumber'
 import { call } from '@redux-saga/core/effects'
 import { expectSaga } from 'redux-saga-test-plan'
 import * as matchers from 'redux-saga-test-plan/matchers'
-import { getNativeAddress } from 'lx/src/constants/addresses'
-import { DAI } from 'lx/src/constants/tokens'
-import { AssetType } from 'lx/src/entities/assets'
-import { UniverseChainId } from 'lx/src/features/chains/types'
+import { getNativeAddress } from '@l.x/lx/src/constants/addresses'
+import { DAI } from '@l.x/lx/src/constants/tokens'
+import { AssetType } from '@l.x/lx/src/entities/assets'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import {
   SendTokenTransactionInfo,
   TransactionOriginType,
   TransactionType,
-} from 'lx/src/features/transactions/types/transactionDetails'
-import { getTxFixtures } from 'lx/src/test/fixtures'
-import { noOpFunction } from 'utilities/src/test/utils'
+} from '@l.x/lx/src/features/transactions/types/transactionDetails'
+import { getTxFixtures } from '@l.x/lx/src/test/fixtures'
+import { noOpFunction } from '@luxfi/utilities/src/test/utils'
 import { executeTransaction } from '@luxfi/wallet/src/features/transactions/executeTransaction/executeTransactionSaga'
 import { sendToken } from '@luxfi/wallet/src/features/transactions/send/sendTokenSaga'
 import { SendCurrencyParams, SendNFTParams } from '@luxfi/wallet/src/features/transactions/send/types'
@@ -20,7 +20,7 @@ import { getContractManager, getProvider } from '@luxfi/wallet/src/features/wall
 import { signerMnemonicAccount } from '@luxfi/wallet/src/test/fixtures'
 import { getTxProvidersMocks, mockContractManager } from '@luxfi/wallet/src/test/mocks'
 
-jest.mock('lx/src/features/telemetry/send')
+jest.mock('@l.x/lx/src/features/telemetry/send')
 
 const account = signerMnemonicAccount()
 

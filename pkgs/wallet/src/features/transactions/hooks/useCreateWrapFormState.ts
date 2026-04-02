@@ -1,8 +1,8 @@
 import { Currency } from '@luxamm/sdk-core'
 import { useMemo } from 'react'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { useSelectTransaction } from 'lx/src/features/transactions/hooks/useSelectTransaction'
-import { TransactionState } from 'lx/src/features/transactions/types/transactionState'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { useSelectTransaction } from '@l.x/lx/src/features/transactions/hooks/useSelectTransaction'
+import { TransactionState } from '@l.x/lx/src/features/transactions/types/transactionState'
 import { createWrapFormFromTxDetails } from '@luxfi/wallet/src/features/transactions/swap/createSwapFormFromTxDetails'
 
 export function useCreateWrapFormState({

@@ -1,21 +1,21 @@
 import { BigNumber, providers } from 'ethers'
 import { call, put, select } from 'typed-redux-saga'
-import { AccountType } from 'lx/src/features/accounts/types'
-import { pushNotification } from 'lx/src/features/notifications/slice/slice'
-import { AppNotificationType } from 'lx/src/features/notifications/slice/types'
-import { WalletEventName } from 'lx/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
-import { addTransaction, deleteTransaction } from 'lx/src/features/transactions/slice'
+import { AccountType } from '@l.x/lx/src/features/accounts/types'
+import { pushNotification } from '@l.x/lx/src/features/notifications/slice/slice'
+import { AppNotificationType } from '@l.x/lx/src/features/notifications/slice/types'
+import { WalletEventName } from '@l.x/lx/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
+import { addTransaction, deleteTransaction } from '@l.x/lx/src/features/transactions/slice'
 import {
   OnChainTransactionDetails,
   TransactionDetails,
   TransactionOriginType,
   TransactionStatus,
-} from 'lx/src/features/transactions/types/transactionDetails'
-import i18n from 'lx/src/i18n'
-import { getValidAddress } from 'lx/src/utils/addresses'
-import { createTransactionId } from 'lx/src/utils/createTransactionId'
-import { logger } from 'utilities/src/logger/logger'
+} from '@l.x/lx/src/features/transactions/types/transactionDetails'
+import i18n from '@l.x/lx/src/i18n'
+import { getValidAddress } from '@l.x/lx/src/utils/addresses'
+import { createTransactionId } from '@l.x/lx/src/utils/createTransactionId'
+import { logger } from '@luxfi/utilities/src/logger/logger'
 import {
   ExecuteTransactionParams,
   executeTransaction,

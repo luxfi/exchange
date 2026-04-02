@@ -1,6 +1,6 @@
 import { Signer } from 'ethers'
-import { RPCType, UniverseChainId } from 'lx/src/features/chains/types'
-import { createViemClient } from 'lx/src/features/providers/createViemClient'
+import { RPCType, UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { createViemClient } from '@l.x/lx/src/features/providers/createViemClient'
 import { PublicClient } from 'viem'
 
 type ViemClientInfo = Partial<{

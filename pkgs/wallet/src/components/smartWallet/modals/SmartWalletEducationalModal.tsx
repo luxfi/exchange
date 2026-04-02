@@ -1,8 +1,8 @@
 import { useTranslation } from 'react-i18next'
-import { Flex, Text, useSporeColors } from 'ui/src'
-import { SmartWallet } from 'ui/src/components/icons'
-import { lxUrls } from 'lx/src/constants/urls'
-import { ModalName } from 'lx/src/features/telemetry/constants'
+import { Flex, Text, useSporeColors } from '@luxfi/ui/src'
+import { SmartWallet } from '@luxfi/ui/src/components/icons'
+import { lxUrls } from '@l.x/lx/src/constants/urls'
+import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
 import { SmartWalletModal } from '@luxfi/wallet/src/components/smartWallet/modals/SmartWalletModal'
 
 interface SmartWalletEducationalModalProps {

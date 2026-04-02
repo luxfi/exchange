@@ -1,5 +1,5 @@
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { SAMPLE_SEED_ADDRESS_1 } from 'lx/src/test/fixtures'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { SAMPLE_SEED_ADDRESS_1 } from '@l.x/lx/src/test/fixtures'
 import {
   SmartWalletDelegationAction,
   useSmartWalletDelegationStatus,

@@ -1,11 +1,11 @@
 import { TradeType } from '@luxamm/sdk-core'
 import { expectSaga } from 'redux-saga-test-plan'
-import { getNativeAddress } from 'lx/src/constants/addresses'
-import { AssetType } from 'lx/src/entities/assets'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { NotificationState, pushNotification } from 'lx/src/features/notifications/slice/slice'
-import { AppNotificationType } from 'lx/src/features/notifications/slice/types'
-import { finalizeTransaction } from 'lx/src/features/transactions/slice'
+import { getNativeAddress } from '@l.x/lx/src/constants/addresses'
+import { AssetType } from '@l.x/lx/src/entities/assets'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { NotificationState, pushNotification } from '@l.x/lx/src/features/notifications/slice/slice'
+import { AppNotificationType } from '@l.x/lx/src/features/notifications/slice/types'
+import { finalizeTransaction } from '@l.x/lx/src/features/transactions/slice'
 import {
   ApproveTransactionInfo,
   ExactOutputSwapTransactionInfo,
@@ -15,8 +15,8 @@ import {
   TransactionType,
   TransactionTypeInfo,
   UnknownTransactionInfo,
-} from 'lx/src/features/transactions/types/transactionDetails'
-import { finalizedTransactionAction } from 'lx/src/test/fixtures'
+} from '@l.x/lx/src/features/transactions/types/transactionDetails'
+import { finalizedTransactionAction } from '@l.x/lx/src/test/fixtures'
 import { pushTransactionNotification } from '@luxfi/wallet/src/features/notifications/notificationWatcherSaga'
 import { signerMnemonicAccount } from '@luxfi/wallet/src/test/fixtures'
 

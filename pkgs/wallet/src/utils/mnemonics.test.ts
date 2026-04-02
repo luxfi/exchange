@@ -1,4 +1,4 @@
-import i18n from 'lx/src/i18n'
+import i18n from '@l.x/lx/src/i18n'
 import { isValidMnemonicWord, MnemonicValidationError, translateMnemonicErrorMessage } from '@luxfi/wallet/src/utils/mnemonics'
 
 describe(translateMnemonicErrorMessage, () => {

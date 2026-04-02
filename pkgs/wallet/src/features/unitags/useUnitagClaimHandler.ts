@@ -1,7 +1,7 @@
 import { useCallback } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { UnitagEventName } from 'lx/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
+import { UnitagEventName } from '@l.x/lx/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
 import { selectHasCompletedUnitagsIntroModal } from '@luxfi/wallet/src/features/behaviorHistory/selectors'
 import { setHasSkippedUnitagPrompt } from '@luxfi/wallet/src/features/behaviorHistory/slice'
 

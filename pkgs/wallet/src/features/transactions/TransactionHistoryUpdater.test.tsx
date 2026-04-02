@@ -1,11 +1,11 @@
 import { GraphQLApi } from '@l.x/api'
 import dayjs from 'dayjs'
 import MockDate from 'mockdate'
-import { fromGraphQLChain } from 'lx/src/features/chains/utils'
-import { TransactionStatus } from 'lx/src/features/transactions/types/transactionDetails'
-import { erc20RecentReceiveAssetActivity, erc20StaleReceiveAssetActivity, portfolio } from 'lx/src/test/fixtures'
-import { queryResolvers } from 'lx/src/test/utils'
-import { ONE_MINUTE_MS } from 'utilities/src/time/time'
+import { fromGraphQLChain } from '@l.x/lx/src/features/chains/utils'
+import { TransactionStatus } from '@l.x/lx/src/features/transactions/types/transactionDetails'
+import { erc20RecentReceiveAssetActivity, erc20StaleReceiveAssetActivity, portfolio } from '@l.x/lx/src/test/fixtures'
+import { queryResolvers } from '@l.x/lx/src/test/utils'
+import { ONE_MINUTE_MS } from '@luxfi/utilities/src/time/time'
 import {
   getReceiveNotificationFromData,
   TransactionHistoryUpdater,

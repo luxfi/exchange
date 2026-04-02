@@ -1,12 +1,12 @@
 import { useTranslation } from 'react-i18next'
-import { Flex, SpaceTokens, Text, Tooltip } from 'ui/src'
-import { AlertTriangleFilled } from 'ui/src/components/icons'
-import { zIndexes } from 'ui/src/theme'
-import { AddressDisplay } from 'lx/src/components/accounts/AddressDisplay'
-import { ContentRow } from 'lx/src/components/transactions/requests/ContentRow'
-import { Platform } from 'lx/src/features/platforms/types/Platform'
-import { areAddressesEqual } from 'lx/src/utils/addresses'
-import { isExtensionApp, isMobileApp } from 'utilities/src/platform'
+import { Flex, SpaceTokens, Text, Tooltip } from '@luxfi/ui/src'
+import { AlertTriangleFilled } from '@luxfi/ui/src/components/icons'
+import { zIndexes } from '@luxfi/ui/src/theme'
+import { AddressDisplay } from '@l.x/lx/src/components/accounts/AddressDisplay'
+import { ContentRow } from '@l.x/lx/src/components/transactions/requests/ContentRow'
+import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
+import { areAddressesEqual } from '@l.x/lx/src/utils/addresses'
+import { isExtensionApp, isMobileApp } from '@luxfi/utilities/src/platform'
 
 export function AddressFooter({
   connectedAccountAddress,

@@ -1,6 +1,6 @@
 import { type BlockaidScanTransactionRequest } from '@l.x/api'
-import type { UniverseChainId } from 'lx/src/features/chains/types'
-import type { EthTransaction } from 'lx/src/types/walletConnect'
+import type { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import type { EthTransaction } from '@l.x/lx/src/types/walletConnect'
 
 interface TransactionRequestData {
   chainId: UniverseChainId

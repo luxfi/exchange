@@ -2,7 +2,7 @@ import {
   type AppStateResetter,
   type AppStateResetterContext,
   createAppStateResetter,
-} from 'lx/src/state/createAppStateResetter'
+} from '@l.x/lx/src/state/createAppStateResetter'
 import { clearBatchedTransactions } from '@luxfi/wallet/src/features/batchedTransactions/slice'
 import { resetWalletBehaviorHistory } from '@luxfi/wallet/src/features/behaviorHistory/slice'
 

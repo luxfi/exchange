@@ -13,18 +13,18 @@ import {
   Text,
   useIsDarkMode,
   useShadowPropsShort,
-} from 'ui/src'
-import { X } from 'ui/src/components/icons'
-import { CardImage, CardImageGraphicSizeInfo } from 'lx/src/components/cards/image'
-import { NewTag } from 'lx/src/components/pill/NewTag'
-import { WalletEventName } from 'lx/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
+} from '@luxfi/ui/src'
+import { X } from '@luxfi/ui/src/components/icons'
+import { CardImage, CardImageGraphicSizeInfo } from '@l.x/lx/src/components/cards/image'
+import { NewTag } from '@l.x/lx/src/components/pill/NewTag'
+import { WalletEventName } from '@l.x/lx/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
 import {
   CardLoggingName,
   DappRequestCardLoggingName,
   OnboardingCardLoggingName,
-} from 'lx/src/features/telemetry/types'
-import { isExtensionApp } from 'utilities/src/platform'
+} from '@l.x/lx/src/features/telemetry/types'
+import { isExtensionApp } from '@luxfi/utilities/src/platform'
 
 const DESCRIPTION_LENGTH_THRESHOLD = 66
 

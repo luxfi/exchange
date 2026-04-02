@@ -1,9 +1,9 @@
 import { useTranslation } from 'react-i18next'
-import { Button, Flex, Text } from 'ui/src'
-import { Language } from 'ui/src/components/icons'
-import { DEP_accentColors, opacify } from 'ui/src/theme'
-import { Modal } from 'lx/src/components/modals/Modal'
-import { ModalName } from 'lx/src/features/telemetry/constants'
+import { Button, Flex, Text } from '@luxfi/ui/src'
+import { Language } from '@luxfi/ui/src/components/icons'
+import { DEP_accentColors, opacify } from '@luxfi/ui/src/theme'
+import { Modal } from '@l.x/lx/src/components/modals/Modal'
+import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
 
 import { SettingsLanguageModalProps } from '@luxfi/wallet/src/components/settings/language/SettingsLanguageModalProps'
 

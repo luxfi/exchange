@@ -1,15 +1,15 @@
 import { providers } from 'ethers'
 import { call, select } from 'typed-redux-saga'
-import { AccountType } from 'lx/src/features/accounts/types'
-import { cancelRemoteLXOrder } from 'lx/src/features/transactions/slice'
-import { isBridge, isClassic, isLX } from 'lx/src/features/transactions/swap/utils/routing'
+import { AccountType } from '@l.x/lx/src/features/accounts/types'
+import { cancelRemoteLXOrder } from '@l.x/lx/src/features/transactions/slice'
+import { isBridge, isClassic, isLX } from '@l.x/lx/src/features/transactions/swap/utils/routing'
 import {
   TransactionDetails,
   TransactionOriginType,
   LXOrderDetails,
-} from 'lx/src/features/transactions/types/transactionDetails'
-import { getValidAddress } from 'lx/src/utils/addresses'
-import { logger } from 'utilities/src/logger/logger'
+} from '@l.x/lx/src/features/transactions/types/transactionDetails'
+import { getValidAddress } from '@l.x/lx/src/utils/addresses'
+import { logger } from '@luxfi/utilities/src/logger/logger'
 import {
   ExecuteTransactionParams,
   executeTransaction,

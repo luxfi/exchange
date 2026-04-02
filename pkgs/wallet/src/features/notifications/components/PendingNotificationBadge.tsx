@@ -1,13 +1,13 @@
-import { Flex, SpinningLoader } from 'ui/src'
-import { AlertCircle, CheckmarkCircle } from 'ui/src/components/icons'
-import { iconSizes } from 'ui/src/theme'
+import { Flex, SpinningLoader } from '@luxfi/ui/src'
+import { AlertCircle, CheckmarkCircle } from '@luxfi/ui/src/components/icons'
+import { iconSizes } from '@luxfi/ui/src/theme'
 import {
   useSelectAddressHasNotifications,
   useSelectAddressNotifications,
-} from 'lx/src/features/notifications/slice/hooks'
-import { AppNotificationType } from 'lx/src/features/notifications/slice/types'
-import { useSortedPendingTransactions } from 'lx/src/features/transactions/hooks/usePendingTransactions'
-import { TransactionStatus } from 'lx/src/features/transactions/types/transactionDetails'
+} from '@l.x/lx/src/features/notifications/slice/hooks'
+import { AppNotificationType } from '@l.x/lx/src/features/notifications/slice/types'
+import { useSortedPendingTransactions } from '@l.x/lx/src/features/transactions/hooks/usePendingTransactions'
+import { TransactionStatus } from '@l.x/lx/src/features/transactions/types/transactionDetails'
 import { useActiveAccountAddress } from '@luxfi/wallet/src/features/wallet/hooks'
 
 const PENDING_TX_TIME_LIMIT = 60_000 * 5 // 5 mins

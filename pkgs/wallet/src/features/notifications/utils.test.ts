@@ -1,8 +1,8 @@
 import { TradeType } from '@luxamm/sdk-core'
-import { DAI, USDC } from 'lx/src/constants/tokens'
-import { Locale } from 'lx/src/features/language/constants'
-import { TransactionStatus } from 'lx/src/features/transactions/types/transactionDetails'
-import { mockLocalizedFormatter } from 'lx/src/test/mocks'
+import { DAI, USDC } from '@l.x/lx/src/constants/tokens'
+import { Locale } from '@l.x/lx/src/features/language/constants'
+import { TransactionStatus } from '@l.x/lx/src/features/transactions/types/transactionDetails'
+import { mockLocalizedFormatter } from '@l.x/lx/src/test/mocks'
 import { formSwapNotificationTitle } from '@luxfi/wallet/src/features/notifications/utils'
 
 const mockFormatter = mockLocalizedFormatter(Locale.EnglishUnitedStates)

@@ -1,5 +1,5 @@
 /* eslint-disable max-params */
-import { PlatformSplitStubError } from 'utilities/src/errors'
+import { PlatformSplitStubError } from '@luxfi/utilities/src/errors'
 
 /**
  * Provides the generation, storage, and signing logic for mnemonics and private keys.

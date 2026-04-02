@@ -1,8 +1,8 @@
 import { gql, InMemoryCache } from '@apollo/client'
 import { persistCache } from 'apollo3-cache-persist'
 import { PersistentStorage } from 'apollo3-cache-persist/lib/types'
-import { setupSharedApolloCache } from 'lx/src/data/cache'
-import { logger } from 'utilities/src/logger/logger'
+import { setupSharedApolloCache } from '@l.x/lx/src/data/cache'
+import { logger } from '@luxfi/utilities/src/logger/logger'
 
 // Increment this when you want to wipe out the cache for all users next time they open the app.
 const CACHE_VERSION = '1'

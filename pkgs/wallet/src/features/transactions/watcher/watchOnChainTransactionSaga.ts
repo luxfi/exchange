@@ -1,29 +1,29 @@
 import { ApolloClient, NormalizedCacheObject } from '@apollo/client'
 import { BigNumber, BigNumberish, providers } from 'ethers'
 import { call, cancel, delay, fork, put, race, spawn, take } from 'typed-redux-saga'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { pushNotification } from 'lx/src/features/notifications/slice/slice'
-import { AppNotificationType } from 'lx/src/features/notifications/slice/types'
-import { waitForFlashbotsProtectReceipt } from 'lx/src/features/providers/FlashbotsCommon'
-import { CancelableStepInfo } from 'lx/src/features/transactions/hooks/useIsCancelable'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { pushNotification } from '@l.x/lx/src/features/notifications/slice/slice'
+import { AppNotificationType } from '@l.x/lx/src/features/notifications/slice/types'
+import { waitForFlashbotsProtectReceipt } from '@l.x/lx/src/features/providers/FlashbotsCommon'
+import { CancelableStepInfo } from '@l.x/lx/src/features/transactions/hooks/useIsCancelable'
 import {
   cancelPlanStep,
   cancelTransaction,
   replaceTransaction,
   transactionActions,
-} from 'lx/src/features/transactions/slice'
-import { waitForPlanUpdateOrFinalizedState } from 'lx/src/features/transactions/swap/plan/planPollingUtils'
-import { isBridge, isChained, isClassic, isLX } from 'lx/src/features/transactions/swap/utils/routing'
+} from '@l.x/lx/src/features/transactions/slice'
+import { waitForPlanUpdateOrFinalizedState } from '@l.x/lx/src/features/transactions/swap/plan/planPollingUtils'
+import { isBridge, isChained, isClassic, isLX } from '@l.x/lx/src/features/transactions/swap/utils/routing'
 import {
   FinalizedTransactionDetails,
   OnChainTransactionDetails,
   TEMPORARY_TRANSACTION_STATUSES,
   TransactionDetails,
   TransactionStatus,
-} from 'lx/src/features/transactions/types/transactionDetails'
-import { isFinalizedTx, isPlanTransactionDetails } from 'lx/src/features/transactions/types/utils'
-import i18n from 'lx/src/i18n'
-import { logger } from 'utilities/src/logger/logger'
+} from '@l.x/lx/src/features/transactions/types/transactionDetails'
+import { isFinalizedTx, isPlanTransactionDetails } from '@l.x/lx/src/features/transactions/types/utils'
+import i18n from '@l.x/lx/src/i18n'
+import { logger } from '@luxfi/utilities/src/logger/logger'
 import { cancelPlanStep as cancelPlanStepSaga } from '@luxfi/wallet/src/features/transactions/cancelPlanStepSaga'
 import { attemptCancelTransaction } from '@luxfi/wallet/src/features/transactions/cancelTransactionSaga'
 import { attemptReplaceTransaction } from '@luxfi/wallet/src/features/transactions/replaceTransactionSaga'

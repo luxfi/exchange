@@ -1,6 +1,6 @@
 import dayjs from 'dayjs'
 import { expectSaga } from 'redux-saga-test-plan'
-import { AccountType } from 'lx/src/features/accounts/types'
+import { AccountType } from '@l.x/lx/src/features/accounts/types'
 import { Account, SignerMnemonicAccount } from '@luxfi/wallet/src/features/wallet/accounts/types'
 import { CreateAccountsParams, createAccounts } from '@luxfi/wallet/src/features/wallet/create/createAccountsSaga'
 import { walletRootReducer } from '@luxfi/wallet/src/state/walletReducer'

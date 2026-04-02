@@ -1,8 +1,8 @@
 import { useMemo } from 'react'
-import { DEFAULT_NATIVE_ADDRESS, DEFAULT_NATIVE_ADDRESS_LEGACY } from 'lx/src/features/chains/evm/defaults'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { useCurrencyInfoWithLoading } from 'lx/src/features/tokens/useCurrencyInfo'
-import { buildCurrencyId } from 'lx/src/utils/currencyId'
+import { DEFAULT_NATIVE_ADDRESS, DEFAULT_NATIVE_ADDRESS_LEGACY } from '@l.x/lx/src/features/chains/evm/defaults'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { useCurrencyInfoWithLoading } from '@l.x/lx/src/features/tokens/useCurrencyInfo'
+import { buildCurrencyId } from '@l.x/lx/src/utils/currencyId'
 import { formatUnits } from 'viem'
 import { LXSwapRequest } from '@luxfi/wallet/src/components/dappRequests/types/Permit2Types'
 import {

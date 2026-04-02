@@ -1,10 +1,10 @@
-import { Flex, Text } from 'ui/src'
-import { Shuffle } from 'ui/src/components/icons/Shuffle'
-import { iconSizes } from 'ui/src/theme'
-import { NetworkLogo } from 'lx/src/components/CurrencyLogo/NetworkLogo'
-import { NotificationToast } from 'lx/src/components/notifications/NotificationToast'
-import { getChainLabel } from 'lx/src/features/chains/utils'
-import { NetworkChangedBridgeNotification as NetworkChangedBridgeNotificationType } from 'lx/src/features/notifications/slice/types'
+import { Flex, Text } from '@luxfi/ui/src'
+import { Shuffle } from '@luxfi/ui/src/components/icons/Shuffle'
+import { iconSizes } from '@luxfi/ui/src/theme'
+import { NetworkLogo } from '@l.x/lx/src/components/CurrencyLogo/NetworkLogo'
+import { NotificationToast } from '@l.x/lx/src/components/notifications/NotificationToast'
+import { getChainLabel } from '@l.x/lx/src/features/chains/utils'
+import { NetworkChangedBridgeNotification as NetworkChangedBridgeNotificationType } from '@l.x/lx/src/features/notifications/slice/types'
 
 export function NetworkChangedBridgeNotification({
   notification,

@@ -1,12 +1,12 @@
 import { AppState } from 'react-native'
 import { EventChannel, eventChannel } from 'redux-saga'
 import { call, put, select, takeLatest } from 'typed-redux-saga'
-import { selectCurrentLanguage } from 'lx/src/features/settings/selectors'
-import { setCurrentLanguage } from 'lx/src/features/settings/slice'
-import i18n from 'lx/src/i18n'
-import { getWalletDeviceLanguage, getWalletDeviceLocale } from 'lx/src/i18n/utils'
-import { logger } from 'utilities/src/logger/logger'
-import { isMobileApp } from 'utilities/src/platform'
+import { selectCurrentLanguage } from '@l.x/lx/src/features/settings/selectors'
+import { setCurrentLanguage } from '@l.x/lx/src/features/settings/slice'
+import i18n from '@l.x/lx/src/i18n'
+import { getWalletDeviceLanguage, getWalletDeviceLocale } from '@l.x/lx/src/i18n/utils'
+import { logger } from '@luxfi/utilities/src/logger/logger'
+import { isMobileApp } from '@luxfi/utilities/src/platform'
 import { restartApp } from '@luxfi/wallet/src/components/ErrorBoundary/restartApp'
 
 function createAppStateChannel(): EventChannel<string> {

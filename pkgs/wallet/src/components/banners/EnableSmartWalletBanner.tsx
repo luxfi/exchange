@@ -1,6 +1,6 @@
 import { Trans } from 'react-i18next'
-import { Flex, Text, TouchableArea } from 'ui/src'
-import { Sparkle } from 'ui/src/components/icons'
+import { Flex, Text, TouchableArea } from '@luxfi/ui/src'
+import { Sparkle } from '@luxfi/ui/src/components/icons'
 
 type EnableSmartWalletBannerProps = {
   onPress: () => void

@@ -1,11 +1,11 @@
 import { TradingApi } from '@l.x/api'
 import { FeatureFlags, getFeatureFlagName, getStatsigClient } from '@l.x/gating'
 import { SagaGenerator, take } from 'typed-redux-saga'
-import { getDelegationService } from 'lx/src/domains/services'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { finalizeTransaction } from 'lx/src/features/transactions/slice'
-import { PermitMethod, SwapTxAndGasInfo } from 'lx/src/features/transactions/swap/types/swapTxAndGasInfo'
-import { TransactionStatus } from 'lx/src/features/transactions/types/transactionDetails'
+import { getDelegationService } from '@l.x/lx/src/domains/services'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { finalizeTransaction } from '@l.x/lx/src/features/transactions/slice'
+import { PermitMethod, SwapTxAndGasInfo } from '@l.x/lx/src/features/transactions/swap/types/swapTxAndGasInfo'
+import { TransactionStatus } from '@l.x/lx/src/features/transactions/types/transactionDetails'
 
 /** Returns success condition after the transactions corresponding to the given hash finalizes. */
 export function* waitForTransactionConfirmation(params: { hash: string }): SagaGenerator<{ success: boolean }> {

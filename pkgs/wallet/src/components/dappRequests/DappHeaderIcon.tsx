@@ -1,8 +1,8 @@
-import { Flex, UniversalImage } from 'ui/src'
-import { borderRadii, iconSizes } from 'ui/src/theme'
-import { CurrencyLogo } from 'lx/src/components/CurrencyLogo/CurrencyLogo'
-import { DappIconPlaceholder } from 'lx/src/components/dapps/DappIconPlaceholder'
-import { CurrencyInfo } from 'lx/src/features/dataApi/types'
+import { Flex, UniversalImage } from '@luxfi/ui/src'
+import { borderRadii, iconSizes } from '@luxfi/ui/src/theme'
+import { CurrencyLogo } from '@l.x/lx/src/components/CurrencyLogo/CurrencyLogo'
+import { DappIconPlaceholder } from '@l.x/lx/src/components/dapps/DappIconPlaceholder'
+import { CurrencyInfo } from '@l.x/lx/src/features/dataApi/types'
 import { DappConnectionInfo } from '@luxfi/wallet/src/features/dappRequests/types'
 
 export function DappHeaderIcon({

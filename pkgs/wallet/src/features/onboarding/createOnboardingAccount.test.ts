@@ -1,4 +1,4 @@
-import { AccountType } from 'lx/src/features/accounts/types'
+import { AccountType } from '@l.x/lx/src/features/accounts/types'
 import { getNextDerivationIndex } from '@luxfi/wallet/src/features/onboarding/createOnboardingAccount'
 import { BackupType, SignerMnemonicAccount } from '@luxfi/wallet/src/features/wallet/accounts/types'
 

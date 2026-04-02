@@ -1,5 +1,5 @@
 import { call, SagaGenerator } from 'typed-redux-saga'
-import { logger } from 'utilities/src/logger/logger'
+import { logger } from '@luxfi/utilities/src/logger/logger'
 import { TransactionService } from '@luxfi/wallet/src/features/transactions/executeTransaction/services/TransactionService/transactionService'
 import { waitForTransactionConfirmation } from '@luxfi/wallet/src/features/transactions/swap/confirmation'
 import {

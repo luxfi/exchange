@@ -1,10 +1,10 @@
 import { BackgroundType, ContentStyle, type InAppNotification } from '@l.x/api'
 import { ImageSourcePropType } from 'react-native'
-import { GeneratedIcon } from 'ui/src'
-import { Bell, Coin, Person, ShieldCheck } from 'ui/src/components/icons'
-import { parseCustomIconLink } from 'lx/src/components/notifications/iconUtils'
-import { OnboardingCardLoggingName } from 'lx/src/features/telemetry/types'
-import { getLogger } from 'utilities/src/logger/logger'
+import { GeneratedIcon } from '@luxfi/ui/src'
+import { Bell, Coin, Person, ShieldCheck } from '@luxfi/ui/src/components/icons'
+import { parseCustomIconLink } from '@l.x/lx/src/components/notifications/iconUtils'
+import { OnboardingCardLoggingName } from '@l.x/lx/src/features/telemetry/types'
+import { getLogger } from '@luxfi/utilities/src/logger/logger'
 import { CardType, IntroCardGraphicType, type IntroCardProps } from '@luxfi/wallet/src/components/introCards/IntroCard'
 
 interface NotificationExtra {

@@ -1,4 +1,4 @@
-import { PlatformSplitStubError } from 'utilities/src/errors'
+import { PlatformSplitStubError } from '@luxfi/utilities/src/errors'
 import { type Account } from '@luxfi/wallet/src/features/wallet/accounts/types'
 
 export interface DappEllipsisDropdownProps {

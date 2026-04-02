@@ -1,10 +1,10 @@
-import { AssetType } from 'lx/src/entities/assets'
+import { AssetType } from '@l.x/lx/src/entities/assets'
 import {
   ReceiveTokenTransactionInfo,
   TransactionStatus,
   TransactionType,
-} from 'lx/src/features/transactions/types/transactionDetails'
-import { receiveTokenTransactionInfo } from 'lx/src/test/fixtures'
+} from '@l.x/lx/src/features/transactions/types/transactionDetails'
+import { receiveTokenTransactionInfo } from '@l.x/lx/src/test/fixtures'
 import { buildReceiveNotification } from '@luxfi/wallet/src/features/notifications/buildReceiveNotification'
 import { createFinalizedTxAction } from '@luxfi/wallet/src/features/notifications/notificationWatcherSaga.test'
 import { receiveCurrencyTxNotification, receiveNFTNotification, signerMnemonicAccount } from '@luxfi/wallet/src/test/fixtures'

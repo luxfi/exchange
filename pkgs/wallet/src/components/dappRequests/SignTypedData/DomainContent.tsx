@@ -1,6 +1,6 @@
-import { Flex, Text } from 'ui/src'
-import { toSupportedChainId } from 'lx/src/features/chains/utils'
-import { ExplorerDataType, getExplorerLink } from 'lx/src/utils/linking'
+import { Flex, Text } from '@luxfi/ui/src'
+import { toSupportedChainId } from '@l.x/lx/src/features/chains/utils'
+import { ExplorerDataType, getExplorerLink } from '@l.x/lx/src/utils/linking'
 import { MaybeExplorerLinkedAddress } from '@luxfi/wallet/src/components/dappRequests/SignTypedData/MaybeExplorerLinkedAddress'
 import { EIP712DomainType } from '@luxfi/wallet/src/components/dappRequests/types/EIP712Types'
 

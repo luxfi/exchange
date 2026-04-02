@@ -1,13 +1,13 @@
 import { Currency, TradeType } from '@luxamm/sdk-core'
-import { AssetType, CurrencyAsset } from 'lx/src/entities/assets'
-import { getCurrencyAmount, ValueType } from 'lx/src/features/tokens/getCurrencyAmount'
-import { getAmountsFromTrade } from 'lx/src/features/transactions/swap/utils/getAmountsFromTrade'
-import { TransactionDetails, TransactionType } from 'lx/src/features/transactions/types/transactionDetails'
-import { TransactionState } from 'lx/src/features/transactions/types/transactionState'
-import { isBridgeTypeInfo } from 'lx/src/features/transactions/types/utils'
-import { CurrencyField } from 'lx/src/types/currency'
-import { currencyAddress, currencyIdToAddress, currencyIdToChain } from 'lx/src/utils/currencyId'
-import { logger } from 'utilities/src/logger/logger'
+import { AssetType, CurrencyAsset } from '@l.x/lx/src/entities/assets'
+import { getCurrencyAmount, ValueType } from '@l.x/lx/src/features/tokens/getCurrencyAmount'
+import { getAmountsFromTrade } from '@l.x/lx/src/features/transactions/swap/utils/getAmountsFromTrade'
+import { TransactionDetails, TransactionType } from '@l.x/lx/src/features/transactions/types/transactionDetails'
+import { TransactionState } from '@l.x/lx/src/features/transactions/types/transactionState'
+import { isBridgeTypeInfo } from '@l.x/lx/src/features/transactions/types/utils'
+import { CurrencyField } from '@l.x/lx/src/types/currency'
+import { currencyAddress, currencyIdToAddress, currencyIdToChain } from '@l.x/lx/src/utils/currencyId'
+import { logger } from '@luxfi/utilities/src/logger/logger'
 
 interface Props {
   transactionDetails: TransactionDetails

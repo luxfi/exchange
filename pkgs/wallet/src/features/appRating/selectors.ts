@@ -1,13 +1,13 @@
 import { createSelector, Selector } from '@reduxjs/toolkit'
-import { selectTransactions } from 'lx/src/features/transactions/selectors'
-import { TransactionsState } from 'lx/src/features/transactions/slice'
+import { selectTransactions } from '@l.x/lx/src/features/transactions/selectors'
+import { TransactionsState } from '@l.x/lx/src/features/transactions/slice'
 import {
   TransactionDetails,
   TransactionStatus,
   TransactionType,
-} from 'lx/src/features/transactions/types/transactionDetails'
-import { flattenObjectOfObjects } from 'utilities/src/primitives/objects'
-import { ONE_DAY_MS, ONE_MINUTE_MS } from 'utilities/src/time/time'
+} from '@l.x/lx/src/features/transactions/types/transactionDetails'
+import { flattenObjectOfObjects } from '@luxfi/utilities/src/primitives/objects'
+import { ONE_DAY_MS, ONE_MINUTE_MS } from '@luxfi/utilities/src/time/time'
 import {
   appRatingFeedbackProvidedMsSelector,
   appRatingPromptedMsSelector,

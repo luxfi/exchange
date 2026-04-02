@@ -2,21 +2,21 @@ import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { useCallback, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
-import { useIsDarkMode } from 'ui/src'
+import { useIsDarkMode } from '@luxfi/ui/src'
 import {
   NO_FEES_ICON,
   NO_LX_INTERFACE_FEES_BANNER_DARK,
   NO_LX_INTERFACE_FEES_BANNER_LIGHT,
-} from 'ui/src/assets'
-import { Person, ShieldCheck } from 'ui/src/components/icons'
-import { useLuxContext } from 'lx/src/contexts/LuxContext'
-import { AccountType } from 'lx/src/features/accounts/types'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { OnboardingCardLoggingName } from 'lx/src/features/telemetry/types'
-import { UNITAG_SUFFIX_NO_LEADING_DOT } from 'lx/src/features/unitags/constants'
-import { buildNativeCurrencyId } from 'lx/src/utils/currencyId'
-import { isExtensionApp } from 'utilities/src/platform'
-import { useEvent } from 'utilities/src/react/hooks'
+} from '@luxfi/ui/src/assets'
+import { Person, ShieldCheck } from '@luxfi/ui/src/components/icons'
+import { useLuxContext } from '@l.x/lx/src/contexts/LuxContext'
+import { AccountType } from '@l.x/lx/src/features/accounts/types'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { OnboardingCardLoggingName } from '@l.x/lx/src/features/telemetry/types'
+import { UNITAG_SUFFIX_NO_LEADING_DOT } from '@l.x/lx/src/features/unitags/constants'
+import { buildNativeCurrencyId } from '@l.x/lx/src/utils/currencyId'
+import { isExtensionApp } from '@luxfi/utilities/src/platform'
+import { useEvent } from '@luxfi/utilities/src/react/hooks'
 import { CardType, IntroCardGraphicType, IntroCardProps } from '@luxfi/wallet/src/components/introCards/IntroCard'
 import {
   selectHasDismissedNoAppFeesAnnouncement,

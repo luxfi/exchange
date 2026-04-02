@@ -1,7 +1,7 @@
 import { BigNumber } from '@ethersproject/bignumber'
 import { SagaGenerator, select } from 'typed-redux-saga'
-import { selectTransactions } from 'lx/src/features/transactions/selectors'
-import { TransactionDetails, TransactionStatus } from 'lx/src/features/transactions/types/transactionDetails'
+import { selectTransactions } from '@l.x/lx/src/features/transactions/selectors'
+import { TransactionDetails, TransactionStatus } from '@l.x/lx/src/features/transactions/types/transactionDetails'
 import { selectBatchedTransactionById } from '@luxfi/wallet/src/features/batchedTransactions/selectors'
 import { GetCallsStatusResult } from '@luxfi/wallet/src/features/dappRequests/types'
 

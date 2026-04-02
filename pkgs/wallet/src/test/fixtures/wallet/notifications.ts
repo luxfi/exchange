@@ -1,5 +1,5 @@
-import { AssetType } from 'lx/src/entities/assets'
-import { ALL_EVM_CHAIN_IDS } from 'lx/src/features/chains/chainInfo'
+import { AssetType } from '@l.x/lx/src/entities/assets'
+import { ALL_EVM_CHAIN_IDS } from '@l.x/lx/src/features/chains/chainInfo'
 import {
   AppErrorNotification,
   AppNotificationBase,
@@ -25,17 +25,17 @@ import {
   TransferNFTNotificationBase,
   WalletConnectNotification,
   WrapTxNotification,
-} from 'lx/src/features/notifications/slice/types'
+} from '@l.x/lx/src/features/notifications/slice/types'
 import {
   FinalizedTransactionStatus,
   TransactionStatus,
   TransactionType,
-} from 'lx/src/features/transactions/types/transactionDetails'
-import { WrapType } from 'lx/src/features/transactions/types/wrap'
-import { currencyInfo } from 'lx/src/test/fixtures/wallet/currencies'
-import { faker } from 'lx/src/test/shared'
-import { createFixture, randomChoice, randomEnumValue } from 'lx/src/test/utils'
-import { WalletConnectEvent } from 'lx/src/types/walletConnect'
+} from '@l.x/lx/src/features/transactions/types/transactionDetails'
+import { WrapType } from '@l.x/lx/src/features/transactions/types/wrap'
+import { currencyInfo } from '@l.x/lx/src/test/fixtures/wallet/currencies'
+import { faker } from '@l.x/lx/src/test/shared'
+import { createFixture, randomChoice, randomEnumValue } from '@l.x/lx/src/test/utils'
+import { WalletConnectEvent } from '@l.x/lx/src/types/walletConnect'
 
 export const FINALIZED_TRANSACTION_STATUSES: FinalizedTransactionStatus[] = [
   TransactionStatus.Success,

@@ -1,8 +1,8 @@
 import { permit2Address } from '@luxamm/permit2-sdk'
 import { Currency, CurrencyAmount } from '@luxamm/sdk-core'
 import { GasEstimate, TradingApi } from '@l.x/api'
-import { ValidatedSwapTxContext } from 'lx/src/features/transactions/swap/types/swapTxAndGasInfo'
-import { tradeToTransactionInfo } from 'lx/src/features/transactions/swap/utils/trade'
+import { ValidatedSwapTxContext } from '@l.x/lx/src/features/transactions/swap/types/swapTxAndGasInfo'
+import { tradeToTransactionInfo } from '@l.x/lx/src/features/transactions/swap/utils/trade'
 import {
   ApproveTransactionInfo,
   BridgeTransactionInfo,
@@ -13,7 +13,7 @@ import {
   TransactionOriginType,
   TransactionType,
   WrapTransactionInfo,
-} from 'lx/src/features/transactions/types/transactionDetails'
+} from '@l.x/lx/src/features/transactions/types/transactionDetails'
 import { SubmitTransactionParamsWithTypeInfo } from '@luxfi/wallet/src/features/transactions/executeTransaction/services/TransactionService/transactionService'
 import { SignedTransactionRequest } from '@luxfi/wallet/src/features/transactions/executeTransaction/types'
 import { SubmitLXOrderParams } from '@luxfi/wallet/src/features/transactions/swap/submitOrderSaga'

@@ -1,6 +1,6 @@
-import { Flex, useIsDarkMode } from 'ui/src'
-import { OnboardingUnicon } from 'ui/src/components/icons'
-import { DEP_accentColors, opacify, validColor } from 'ui/src/theme'
+import { Flex, useIsDarkMode } from '@luxfi/ui/src'
+import { OnboardingUnicon } from '@luxfi/ui/src/components/icons'
+import { DEP_accentColors, opacify, validColor } from '@luxfi/ui/src/theme'
 
 export const UniconElement = (): JSX.Element => {
   const isDarkMode = useIsDarkMode()

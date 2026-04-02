@@ -2,12 +2,12 @@ import { useApolloClient } from '@apollo/client'
 import { useQuery } from '@tanstack/react-query'
 import { GraphQLApi } from '@l.x/api'
 import { useCallback, useMemo, useState } from 'react'
-import { UnitagsApiClient } from 'lx/src/data/apiClients/unitagsApi/UnitagsApiClient'
+import { UnitagsApiClient } from '@l.x/lx/src/data/apiClients/unitagsApi/UnitagsApiClient'
 
-import { useEnabledChains } from 'lx/src/features/chains/hooks/useEnabledChains'
-import { useENSName } from 'lx/src/features/ens/api'
-import { ReactQueryCacheKey } from 'utilities/src/reactQuery/cache'
-import { queryWithoutCache } from 'utilities/src/reactQuery/queryOptions'
+import { useEnabledChains } from '@l.x/lx/src/features/chains/hooks/useEnabledChains'
+import { useENSName } from '@l.x/lx/src/features/ens/api'
+import { ReactQueryCacheKey } from '@luxfi/utilities/src/reactQuery/cache'
+import { queryWithoutCache } from '@luxfi/utilities/src/reactQuery/queryOptions'
 import { NUMBER_OF_WALLETS_TO_GENERATE } from '@luxfi/wallet/src/features/onboarding/OnboardingContext'
 
 export interface AddressWithBalanceAndName {

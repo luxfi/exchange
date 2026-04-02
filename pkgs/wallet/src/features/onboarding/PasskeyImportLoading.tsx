@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next'
-import { Flex, SpinningLoader, Text } from 'ui/src'
-import { iconSizes } from 'ui/src/theme'
+import { Flex, SpinningLoader, Text } from '@luxfi/ui/src'
+import { iconSizes } from '@luxfi/ui/src/theme'
 
 export function PasskeyImportLoading({ pb }: { pb?: number }): JSX.Element {
   const { t } = useTranslation()

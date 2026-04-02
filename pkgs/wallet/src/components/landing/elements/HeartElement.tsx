@@ -1,6 +1,6 @@
-import { Flex } from 'ui/src'
-import { Heart } from 'ui/src/components/icons'
-import { DEP_accentColors, iconSizes, opacify, validColor } from 'ui/src/theme'
+import { Flex } from '@luxfi/ui/src'
+import { Heart } from '@luxfi/ui/src/components/icons'
+import { DEP_accentColors, iconSizes, opacify, validColor } from '@luxfi/ui/src/theme'
 
 export const HeartElement = (): JSX.Element => {
   return (

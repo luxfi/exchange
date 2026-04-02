@@ -1,11 +1,11 @@
 import { useTranslation } from 'react-i18next'
-import { useSporeColors } from 'ui/src'
-import { ShieldCheck } from 'ui/src/components/icons'
-import { zIndexes } from 'ui/src/theme'
-import { WarningModal } from 'lx/src/components/modals/WarningModal/WarningModal'
-import { LearnMoreLink } from 'lx/src/components/text/LearnMoreLink'
-import { lxUrls } from 'lx/src/constants/urls'
-import { ModalName } from 'lx/src/features/telemetry/constants'
+import { useSporeColors } from '@luxfi/ui/src'
+import { ShieldCheck } from '@luxfi/ui/src/components/icons'
+import { zIndexes } from '@luxfi/ui/src/theme'
+import { WarningModal } from '@l.x/lx/src/components/modals/WarningModal/WarningModal'
+import { LearnMoreLink } from '@l.x/lx/src/components/text/LearnMoreLink'
+import { lxUrls } from '@l.x/lx/src/constants/urls'
+import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
 
 export function SwapProtectionInfoModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }): JSX.Element {
   const colors = useSporeColors()

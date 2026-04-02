@@ -1,11 +1,11 @@
 import { useEffect, useMemo } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { reportBalancesForAnalytics } from 'lx/src/features/accounts/reportBalancesForAnalytics'
-import { AccountType } from 'lx/src/features/accounts/types'
-import { MobileAppsFlyerEvents } from 'lx/src/features/telemetry/constants'
-import { sendAppsFlyerEvent } from 'lx/src/features/telemetry/send'
-import { useWallet } from 'lx/src/features/wallet/hooks/useWallet'
-import { logger } from 'utilities/src/logger/logger'
+import { reportBalancesForAnalytics } from '@l.x/lx/src/features/accounts/reportBalancesForAnalytics'
+import { AccountType } from '@l.x/lx/src/features/accounts/types'
+import { MobileAppsFlyerEvents } from '@l.x/lx/src/features/telemetry/constants'
+import { sendAppsFlyerEvent } from '@l.x/lx/src/features/telemetry/send'
+import { useWallet } from '@l.x/lx/src/features/wallet/hooks/useWallet'
+import { logger } from '@luxfi/utilities/src/logger/logger'
 import { usePortfolioDataForReporting } from '@luxfi/wallet/src/features/telemetry/hooks/usePortfolioDataForReporting'
 import {
   selectLastBalancesReport,

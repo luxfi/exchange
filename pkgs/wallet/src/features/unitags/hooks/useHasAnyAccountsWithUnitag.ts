@@ -1,4 +1,4 @@
-import { useUnitagsAddressesQuery } from 'lx/src/data/apiClients/unitagsApi/useUnitagsAddressQuery'
+import { useUnitagsAddressesQuery } from '@l.x/lx/src/data/apiClients/unitagsApi/useUnitagsAddressQuery'
 import { useSignerAccounts } from '@luxfi/wallet/src/features/wallet/hooks'
 
 export function useHasAnyAccountsWithUnitag(): boolean {

@@ -1,5 +1,5 @@
 import dayjs from 'dayjs'
-import { AccountType } from 'lx/src/features/accounts/types'
+import { AccountType } from '@l.x/lx/src/features/accounts/types'
 import { NUMBER_OF_WALLETS_TO_GENERATE } from '@luxfi/wallet/src/features/onboarding/OnboardingContext'
 import { BackupType, SignerMnemonicAccount } from '@luxfi/wallet/src/features/wallet/accounts/types'
 import { Keyring } from '@luxfi/wallet/src/features/wallet/Keyring/Keyring'

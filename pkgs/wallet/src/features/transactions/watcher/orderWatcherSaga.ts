@@ -1,18 +1,18 @@
 import { TradingApi } from '@l.x/api'
 import { call, delay, fork, select, take } from 'typed-redux-saga'
-import { makeSelectLXOrder } from 'lx/src/features/transactions/selectors'
-import { updateTransaction } from 'lx/src/features/transactions/slice'
-import { getOrders } from 'lx/src/features/transactions/swap/orders'
-import { isLX } from 'lx/src/features/transactions/swap/utils/routing'
+import { makeSelectLXOrder } from '@l.x/lx/src/features/transactions/selectors'
+import { updateTransaction } from '@l.x/lx/src/features/transactions/slice'
+import { getOrders } from '@l.x/lx/src/features/transactions/swap/orders'
+import { isLX } from '@l.x/lx/src/features/transactions/swap/utils/routing'
 import {
   QueuedOrderStatus,
   TransactionStatus,
   LXOrderDetails,
-} from 'lx/src/features/transactions/types/transactionDetails'
-import { isFinalizedTxStatus } from 'lx/src/features/transactions/types/utils'
-import { convertOrderStatusToTransactionStatus } from 'lx/src/features/transactions/utils/lxOrder.utils'
-import { logger } from 'utilities/src/logger/logger'
-import { ONE_SECOND_MS } from 'utilities/src/time/time'
+} from '@l.x/lx/src/features/transactions/types/transactionDetails'
+import { isFinalizedTxStatus } from '@l.x/lx/src/features/transactions/types/utils'
+import { convertOrderStatusToTransactionStatus } from '@l.x/lx/src/features/transactions/utils/lxOrder.utils'
+import { logger } from '@luxfi/utilities/src/logger/logger'
+import { ONE_SECOND_MS } from '@luxfi/utilities/src/time/time'
 
 // If the backend cannot provide a status for an order, we can assume after a certain threshold the submission failed.
 const ORDER_TIMEOUT_BUFFER = 20 * ONE_SECOND_MS

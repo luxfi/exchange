@@ -1,10 +1,10 @@
 import { Contract } from '@ethersproject/contracts'
 import { useQuery } from '@tanstack/react-query'
 import { useCallback } from 'react'
-import ERC20_ABI from 'lx/src/abis/erc20.json'
-import { useIsSmartContractAddress } from 'lx/src/features/address/useIsSmartContractAddress'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { ReactQueryCacheKey } from 'utilities/src/reactQuery/cache'
+import ERC20_ABI from '@l.x/lx/src/abis/erc20.json'
+import { useIsSmartContractAddress } from '@l.x/lx/src/features/address/useIsSmartContractAddress'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { ReactQueryCacheKey } from '@luxfi/utilities/src/reactQuery/cache'
 import { useProvider } from '@luxfi/wallet/src/features/wallet/context'
 
 export function useIsErc20Contract(

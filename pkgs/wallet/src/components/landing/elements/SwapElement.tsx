@@ -1,8 +1,8 @@
 import { useMemo } from 'react'
-import { Flex, Image, Text, useIsDarkMode } from 'ui/src'
-import { DAI_LOGO, ETH_LOGO } from 'ui/src/assets'
-import { ArrowRight } from 'ui/src/components/icons'
-import { DEP_accentColors, iconSizes, imageSizes, validColor } from 'ui/src/theme'
+import { Flex, Image, Text, useIsDarkMode } from '@luxfi/ui/src'
+import { DAI_LOGO, ETH_LOGO } from '@luxfi/ui/src/assets'
+import { ArrowRight } from '@luxfi/ui/src/components/icons'
+import { DEP_accentColors, iconSizes, imageSizes, validColor } from '@luxfi/ui/src/theme'
 
 export const SwapElement = (): JSX.Element => {
   const isDarkMode = useIsDarkMode()

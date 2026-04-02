@@ -1,4 +1,4 @@
-import { AccountType } from 'lx/src/features/accounts/types'
+import { AccountType } from '@l.x/lx/src/features/accounts/types'
 import type { ProviderService } from '@luxfi/wallet/src/features/transactions/executeTransaction/services/providerService'
 import { walletContextValue } from '@luxfi/wallet/src/features/wallet/context'
 import type { SignerManager } from '@luxfi/wallet/src/features/wallet/signing/SignerManager'

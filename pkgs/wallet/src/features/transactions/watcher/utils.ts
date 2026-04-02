@@ -1,4 +1,4 @@
-import { getChainInfo } from 'lx/src/features/chains/chainInfo'
+import { getChainInfo } from '@l.x/lx/src/features/chains/chainInfo'
 
 /**
  * Checks if the toAddress is in the acrossProtocolAddresses for the given chainId.

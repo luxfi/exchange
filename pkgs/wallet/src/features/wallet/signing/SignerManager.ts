@@ -1,4 +1,4 @@
-import { AccountMeta, AccountType } from 'lx/src/features/accounts/types'
+import { AccountMeta, AccountType } from '@l.x/lx/src/features/accounts/types'
 import { Keyring } from '@luxfi/wallet/src/features/wallet/Keyring/Keyring'
 import { NativeSigner } from '@luxfi/wallet/src/features/wallet/signing/NativeSigner'
 

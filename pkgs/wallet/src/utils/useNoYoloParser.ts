@@ -1,11 +1,11 @@
 import { ExplorerAbiFetcher, Parser, ProxyAbiFetcher, Transaction, TransactionDescription } from 'no-yolo-signatures'
 import { useEffect, useMemo, useState } from 'react'
-import { getChainInfo } from 'lx/src/features/chains/chainInfo'
-import { RPCType, UniverseChainId } from 'lx/src/features/chains/types'
-import { InstrumentedJsonRpcProvider } from 'lx/src/features/providers/observability/InstrumentedJsonRpcProvider'
-import { getRpcObserver } from 'lx/src/features/providers/observability/rpcObserver'
-import { EthTransaction } from 'lx/src/types/walletConnect'
-import { logger } from 'utilities/src/logger/logger'
+import { getChainInfo } from '@l.x/lx/src/features/chains/chainInfo'
+import { RPCType, UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { InstrumentedJsonRpcProvider } from '@l.x/lx/src/features/providers/observability/InstrumentedJsonRpcProvider'
+import { getRpcObserver } from '@l.x/lx/src/features/providers/observability/rpcObserver'
+import { EthTransaction } from '@l.x/lx/src/types/walletConnect'
+import { logger } from '@luxfi/utilities/src/logger/logger'
 
 export function useNoYoloParser(
   transaction: EthTransaction,

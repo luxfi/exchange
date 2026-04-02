@@ -1,7 +1,7 @@
 import dayjs from 'dayjs'
-import { AccountType } from 'lx/src/features/accounts/types'
-import { Platform } from 'lx/src/features/platforms/types/Platform'
-import { getValidAddress } from 'lx/src/utils/addresses'
+import { AccountType } from '@l.x/lx/src/features/accounts/types'
+import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
+import { getValidAddress } from '@l.x/lx/src/utils/addresses'
 import { ReadOnlyAccount } from '@luxfi/wallet/src/features/wallet/accounts/types'
 
 export const createViewOnlyAccount = (address: string): ReadOnlyAccount => {

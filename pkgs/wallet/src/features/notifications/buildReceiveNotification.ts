@@ -1,14 +1,14 @@
-import { AssetType } from 'lx/src/entities/assets'
+import { AssetType } from '@l.x/lx/src/entities/assets'
 import {
   AppNotificationType,
   ReceiveCurrencyTxNotification,
   ReceiveNFTNotification,
-} from 'lx/src/features/notifications/slice/types'
+} from '@l.x/lx/src/features/notifications/slice/types'
 import {
   TransactionDetails,
   TransactionStatus,
   TransactionType,
-} from 'lx/src/features/transactions/types/transactionDetails'
+} from '@l.x/lx/src/features/transactions/types/transactionDetails'
 
 /**
  * Based on notification type info, returns an AppNotification object for either NFT or Currency receive.

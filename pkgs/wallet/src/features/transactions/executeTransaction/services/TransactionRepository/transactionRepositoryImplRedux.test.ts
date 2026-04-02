@@ -2,17 +2,17 @@ import { configureStore } from '@reduxjs/toolkit'
 import { TradingApi } from '@l.x/api'
 import { providers } from 'ethers/lib/ethers'
 import createSagaMiddleware from 'redux-saga'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { makeSelectAddressTransactions } from 'lx/src/features/transactions/selectors'
-import { transactionActions, transactionReducer } from 'lx/src/features/transactions/slice'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { makeSelectAddressTransactions } from '@l.x/lx/src/features/transactions/selectors'
+import { transactionActions, transactionReducer } from '@l.x/lx/src/features/transactions/slice'
 import {
   ClassicTransactionDetails,
   ExactInputSwapTransactionInfo,
   TransactionOriginType,
   TransactionStatus,
   TransactionType,
-} from 'lx/src/features/transactions/types/transactionDetails'
-import { logger } from 'utilities/src/logger/logger'
+} from '@l.x/lx/src/features/transactions/types/transactionDetails'
+import { logger } from '@luxfi/utilities/src/logger/logger'
 import { createTransactionRepositoryRedux } from '@luxfi/wallet/src/features/transactions/executeTransaction/services/TransactionRepository/transactionRepositoryImplRedux'
 import { createSagaEffectRunner } from '@luxfi/wallet/src/state/createSagaEffectRunner'
 

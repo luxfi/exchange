@@ -1,18 +1,18 @@
 import { put, select, takeLatest } from 'typed-redux-saga'
-import { AssetType } from 'lx/src/entities/assets'
-import { STALE_TRANSACTION_TIME_MS } from 'lx/src/features/notifications/constants'
-import { makeSelectAddressNotifications } from 'lx/src/features/notifications/slice/selectors'
-import { pushNotification } from 'lx/src/features/notifications/slice/slice'
-import { AppNotification, AppNotificationType } from 'lx/src/features/notifications/slice/types'
-import { finalizeTransaction } from 'lx/src/features/transactions/slice'
-import { getAmountsFromTrade } from 'lx/src/features/transactions/swap/utils/getAmountsFromTrade'
+import { AssetType } from '@l.x/lx/src/entities/assets'
+import { STALE_TRANSACTION_TIME_MS } from '@l.x/lx/src/features/notifications/constants'
+import { makeSelectAddressNotifications } from '@l.x/lx/src/features/notifications/slice/selectors'
+import { pushNotification } from '@l.x/lx/src/features/notifications/slice/slice'
+import { AppNotification, AppNotificationType } from '@l.x/lx/src/features/notifications/slice/types'
+import { finalizeTransaction } from '@l.x/lx/src/features/transactions/slice'
+import { getAmountsFromTrade } from '@l.x/lx/src/features/transactions/swap/utils/getAmountsFromTrade'
 import {
   TransactionDetails,
   TransactionStatus,
   TransactionType,
-} from 'lx/src/features/transactions/types/transactionDetails'
-import { LXState } from 'lx/src/state/lxReducer'
-import { WalletConnectEvent } from 'lx/src/types/walletConnect'
+} from '@l.x/lx/src/features/transactions/types/transactionDetails'
+import { LXState } from '@l.x/lx/src/state/lxReducer'
+import { WalletConnectEvent } from '@l.x/lx/src/types/walletConnect'
 import { buildReceiveNotification } from '@luxfi/wallet/src/features/notifications/buildReceiveNotification'
 import { selectActiveAccountAddress } from '@luxfi/wallet/src/features/wallet/selectors'
 

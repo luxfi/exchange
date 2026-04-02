@@ -1,8 +1,8 @@
 import { TFunction } from 'i18next'
 import { useEffect, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { ColorTokens } from 'ui/src'
-import { useDebounce } from 'utilities/src/time/timing'
+import { ColorTokens } from '@luxfi/ui/src'
+import { useDebounce } from '@luxfi/utilities/src/time/timing'
 import zxcvbn from 'zxcvbn'
 
 export enum PasswordErrors {

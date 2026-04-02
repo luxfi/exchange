@@ -1,13 +1,13 @@
 /* eslint-disable @typescript-eslint/explicit-function-return-type -- utils derived from types in this file benefit from narrow, automatically inferred return types */
-import { Account } from 'lx/src/features/accounts/store/types/Account'
-import { AccountsGetters } from 'lx/src/features/accounts/store/types/AccountsState'
-import { ConnectorStatus } from 'lx/src/features/accounts/store/types/Connector'
-import { toConnectionStatusInfo } from 'lx/src/features/accounts/store/utils/connection'
+import { Account } from '@l.x/lx/src/features/accounts/store/types/Account'
+import { AccountsGetters } from '@l.x/lx/src/features/accounts/store/types/AccountsState'
+import { ConnectorStatus } from '@l.x/lx/src/features/accounts/store/types/Connector'
+import { toConnectionStatusInfo } from '@l.x/lx/src/features/accounts/store/utils/connection'
 import {
   FlexiblePlatformInput as Flexible,
   resolvePlatform,
-} from 'lx/src/features/accounts/store/utils/flexibleInput'
-import { Platform } from 'lx/src/features/platforms/types/Platform'
+} from '@l.x/lx/src/features/accounts/store/utils/flexibleInput'
+import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
 import type { WalletAppsAccountsData } from '@luxfi/wallet/src/features/accounts/store/types'
 
 // Temporary utility type to ensure correct return type for getActiveConnector during temporary EVM-only wallet package state.

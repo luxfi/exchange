@@ -1,8 +1,8 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { SharedEventName } from '@luxamm/analytics-events'
-import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
+import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
 // biome-ignore lint/style/noRestrictedImports: Wallet package needs direct access for internal usage
-import { analytics } from 'utilities/src/telemetry/analytics/analytics'
+import { analytics } from '@luxfi/utilities/src/telemetry/analytics/analytics'
 
 export interface TelemetryState {
   // if the user has opted in/out of analytics

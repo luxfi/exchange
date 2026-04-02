@@ -1,12 +1,12 @@
 import { TransactionRequest, TransactionResponse } from '@ethersproject/providers'
 import { call } from 'typed-redux-saga'
-import { fetchGasFeeQuery } from 'lx/src/data/apiClients/luxApi/useGasFeeQuery'
-import { SignerMnemonicAccountMeta } from 'lx/src/features/accounts/types'
-import { DEFAULT_NATIVE_ADDRESS } from 'lx/src/features/chains/evm/defaults'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { TransactionOriginType, TransactionType } from 'lx/src/features/transactions/types/transactionDetails'
-import { createMonitoredSaga } from 'lx/src/utils/saga'
-import { logger } from 'utilities/src/logger/logger'
+import { fetchGasFeeQuery } from '@l.x/lx/src/data/apiClients/luxApi/useGasFeeQuery'
+import { SignerMnemonicAccountMeta } from '@l.x/lx/src/features/accounts/types'
+import { DEFAULT_NATIVE_ADDRESS } from '@l.x/lx/src/features/chains/evm/defaults'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { TransactionOriginType, TransactionType } from '@l.x/lx/src/features/transactions/types/transactionDetails'
+import { createMonitoredSaga } from '@l.x/lx/src/utils/saga'
+import { logger } from '@luxfi/utilities/src/logger/logger'
 import {
   ExecuteTransactionParams,
   executeTransaction,

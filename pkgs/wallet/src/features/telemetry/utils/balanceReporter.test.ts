@@ -1,7 +1,7 @@
-import { ONE_MINUTE_MS } from 'utilities/src/time/time'
+import { ONE_MINUTE_MS } from '@luxfi/utilities/src/time/time'
 import { shouldSendBalanceReport } from '@luxfi/wallet/src/features/telemetry/utils/balanceReporter'
 
-jest.mock('lx/src/features/accounts/reportBalancesForAnalytics', () => ({
+jest.mock('@l.x/lx/src/features/accounts/reportBalancesForAnalytics', () => ({
   hasRequiredDataForBalancesReport: jest.fn(),
 }))
 
@@ -11,7 +11,7 @@ describe('shouldSendBalanceReport', () => {
 
   beforeEach(() => {
     jest.clearAllMocks()
-    const module = require('lx/src/features/accounts/reportBalancesForAnalytics')
+    const module = require('@l.x/lx/src/features/accounts/reportBalancesForAnalytics')
     ;(module.hasRequiredDataForBalancesReport as jest.Mock).mockReturnValue(true)
   })
 
@@ -84,7 +84,7 @@ describe('shouldSendBalanceReport', () => {
 
   describe('when data is invalid', () => {
     it('should return false when required data validation fails', () => {
-      const module = require('lx/src/features/accounts/reportBalancesForAnalytics')
+      const module = require('@l.x/lx/src/features/accounts/reportBalancesForAnalytics')
       ;(module.hasRequiredDataForBalancesReport as jest.Mock).mockReturnValue(false)
 
       const result = shouldSendBalanceReport({

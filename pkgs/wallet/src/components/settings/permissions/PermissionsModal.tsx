@@ -1,9 +1,9 @@
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Flex, Text } from 'ui/src'
-import { Modal } from 'lx/src/components/modals/Modal'
-import { ModalName } from 'lx/src/features/telemetry/constants'
-import { isExtensionApp } from 'utilities/src/platform'
+import { Flex, Text } from '@luxfi/ui/src'
+import { Modal } from '@l.x/lx/src/components/modals/Modal'
+import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
+import { isExtensionApp } from '@luxfi/utilities/src/platform'
 import { AnalyticsToggleLineSwitch } from '@luxfi/wallet/src/components/settings/AnalyticsToggleLineSwitch'
 import { DefaultWalletLineSwitch } from '@luxfi/wallet/src/components/settings/permissions/DefaultWalletLineSwitch'
 

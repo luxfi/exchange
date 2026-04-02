@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
-import { Flex, FlexProps, Switch, Text } from 'ui/src'
+import { Flex, FlexProps, Switch, Text } from '@luxfi/ui/src'
 import { selectAllowAnalytics } from '@luxfi/wallet/src/features/telemetry/selectors'
 import { setAllowAnalytics } from '@luxfi/wallet/src/features/telemetry/slice'
 

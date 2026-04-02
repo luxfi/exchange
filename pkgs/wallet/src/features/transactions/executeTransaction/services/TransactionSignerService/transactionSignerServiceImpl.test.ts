@@ -1,5 +1,5 @@
 import { providers, Signer } from 'ethers'
-import { AccountType, SignerMnemonicAccountMeta } from 'lx/src/features/accounts/types'
+import { AccountType, SignerMnemonicAccountMeta } from '@l.x/lx/src/features/accounts/types'
 import { Provider } from '@luxfi/wallet/src/features/transactions/executeTransaction/services/providerService'
 import { TransactionSigner } from '@luxfi/wallet/src/features/transactions/executeTransaction/services/TransactionSignerService/transactionSignerService'
 import { createTransactionSignerService } from '@luxfi/wallet/src/features/transactions/executeTransaction/services/TransactionSignerService/transactionSignerServiceImpl'

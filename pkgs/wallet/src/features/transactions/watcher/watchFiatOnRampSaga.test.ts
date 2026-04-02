@@ -1,15 +1,15 @@
 import { call, delay } from 'redux-saga/effects'
 import { expectSaga } from 'redux-saga-test-plan'
 import * as matchers from 'redux-saga-test-plan/matchers'
-import { PollingInterval } from 'lx/src/constants/misc'
-import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
-import { forceFetchFiatOnRampTransactions, transactionActions } from 'lx/src/features/transactions/slice'
-import { TransactionDetails, TransactionStatus } from 'lx/src/features/transactions/types/transactionDetails'
+import { PollingInterval } from '@l.x/lx/src/constants/misc'
+import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
+import { forceFetchFiatOnRampTransactions, transactionActions } from '@l.x/lx/src/features/transactions/slice'
+import { TransactionDetails, TransactionStatus } from '@l.x/lx/src/features/transactions/types/transactionDetails'
 import {
   fiatPurchaseTransactionInfo,
   getTxFixtures,
   transactionDetails as txDetailsFixture,
-} from 'lx/src/test/fixtures'
+} from '@l.x/lx/src/test/fixtures'
 import { fetchFORTransaction } from '@luxfi/wallet/src/features/fiatOnRamp/api'
 import { watchFiatOnRampTransaction } from '@luxfi/wallet/src/features/transactions/watcher/watchFiatOnRampSaga'
 import { selectActiveAccountAddress } from '@luxfi/wallet/src/features/wallet/selectors'

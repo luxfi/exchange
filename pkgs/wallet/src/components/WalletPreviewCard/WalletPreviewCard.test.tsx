@@ -1,4 +1,4 @@
-import { SAMPLE_SEED_ADDRESS_1 } from 'lx/src/test/fixtures'
+import { SAMPLE_SEED_ADDRESS_1 } from '@l.x/lx/src/test/fixtures'
 import WalletPreviewCard from '@luxfi/wallet/src/components/WalletPreviewCard/WalletPreviewCard'
 import { render } from '@luxfi/wallet/src/test/test-utils'
 

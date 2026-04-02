@@ -1,6 +1,6 @@
-import { SignerMnemonicAccountMeta } from 'lx/src/features/accounts/types'
-import { SwapTradeBaseProperties } from 'lx/src/features/telemetry/types'
-import { TransactionDetails } from 'lx/src/features/transactions/types/transactionDetails'
+import { SignerMnemonicAccountMeta } from '@l.x/lx/src/features/accounts/types'
+import { SwapTradeBaseProperties } from '@l.x/lx/src/features/telemetry/types'
+import { TransactionDetails } from '@l.x/lx/src/features/transactions/types/transactionDetails'
 import { SubmitTransactionParamsWithTypeInfo } from '@luxfi/wallet/src/features/transactions/executeTransaction/services/TransactionService/transactionService'
 
 export interface BaseTransactionContext {

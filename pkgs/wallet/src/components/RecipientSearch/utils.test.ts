@@ -1,6 +1,6 @@
 import { faker } from '@faker-js/faker'
-import { SearchableRecipient } from 'lx/src/features/address/types'
-import { SAMPLE_SEED_ADDRESS_1, SAMPLE_SEED_ADDRESS_2 } from 'lx/src/test/fixtures'
+import { SearchableRecipient } from '@l.x/lx/src/features/address/types'
+import { SAMPLE_SEED_ADDRESS_1, SAMPLE_SEED_ADDRESS_2 } from '@l.x/lx/src/test/fixtures'
 import { RecipientSection } from '@luxfi/wallet/src/components/RecipientSearch/RecipientList'
 import { filterSections } from '@luxfi/wallet/src/components/RecipientSearch/utils'
 import { recipientSection } from '@luxfi/wallet/src/test/fixtures'

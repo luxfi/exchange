@@ -1,9 +1,9 @@
 import { NetworkStatus, WatchQueryFetchPolicy } from '@apollo/client'
 import { GqlResult, GraphQLApi } from '@l.x/api'
 import { useMemo } from 'react'
-import { useEnabledChains } from 'lx/src/features/chains/hooks/useEnabledChains'
+import { useEnabledChains } from '@l.x/lx/src/features/chains/hooks/useEnabledChains'
 // biome-ignore lint/style/noRestrictedImports: This is the wrapper hook that uses the restricted hook properly
-import { usePortfolioValueModifiers } from 'lx/src/features/dataApi/balances/balances'
+import { usePortfolioValueModifiers } from '@l.x/lx/src/features/dataApi/balances/balances'
 
 export function useAccountListData({
   addresses,

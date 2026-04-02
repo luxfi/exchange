@@ -1,9 +1,9 @@
-import type { UniverseChainId } from 'lx/src/features/chains/types'
+import type { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import type {
   OnChainTransactionDetails,
   TransactionDetails,
   TransactionStatus,
-} from 'lx/src/features/transactions/types/transactionDetails'
+} from '@l.x/lx/src/features/transactions/types/transactionDetails'
 
 /**
  * Repository for transaction state management.

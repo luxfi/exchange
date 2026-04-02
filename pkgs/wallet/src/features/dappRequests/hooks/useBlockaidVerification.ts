@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query'
-import { BlockaidApiClient } from 'lx/src/data/apiClients/blockaidApi/BlockaidApiClient'
-import { ReactQueryCacheKey } from 'utilities/src/reactQuery/cache'
-import { ONE_MINUTE_MS } from 'utilities/src/time/time'
+import { BlockaidApiClient } from '@l.x/lx/src/data/apiClients/blockaidApi/BlockaidApiClient'
+import { ReactQueryCacheKey } from '@luxfi/utilities/src/reactQuery/cache'
+import { ONE_MINUTE_MS } from '@luxfi/utilities/src/time/time'
 import { DappVerificationStatus } from '@luxfi/wallet/src/features/dappRequests/types'
 
 const FIVE_MINUTES_MS = 5 * ONE_MINUTE_MS

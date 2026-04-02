@@ -1,11 +1,11 @@
 import { waitFor } from '@testing-library/react-native'
 import * as reactRedux from 'react-redux'
-import * as balanceUtils from 'lx/src/data/balances/utils'
-import * as reportBalancesForAnalytics from 'lx/src/features/accounts/reportBalancesForAnalytics'
-import { AccountType } from 'lx/src/features/accounts/types'
-import * as telemetrySend from 'lx/src/features/telemetry/send'
-import * as walletHooks from 'lx/src/features/wallet/hooks/useWallet'
-import { ONE_MINUTE_MS } from 'utilities/src/time/time'
+import * as balanceUtils from '@l.x/lx/src/data/balances/utils'
+import * as reportBalancesForAnalytics from '@l.x/lx/src/features/accounts/reportBalancesForAnalytics'
+import { AccountType } from '@l.x/lx/src/features/accounts/types'
+import * as telemetrySend from '@l.x/lx/src/features/telemetry/send'
+import * as walletHooks from '@l.x/lx/src/features/wallet/hooks/useWallet'
+import { ONE_MINUTE_MS } from '@luxfi/utilities/src/time/time'
 import { useLastBalancesReporter } from '@luxfi/wallet/src/features/telemetry/hooks/useLastBalancesReporter'
 import * as portfolioData from '@luxfi/wallet/src/features/telemetry/hooks/usePortfolioDataForReporting'
 import * as balanceReporter from '@luxfi/wallet/src/features/telemetry/utils/balanceReporter'
@@ -24,11 +24,11 @@ jest.mock('wallet/src/features/telemetry/utils/walletFundingDetector', () => ({
 }))
 jest.mock('wallet/src/features/telemetry/utils/balanceReporter')
 
-jest.mock('lx/src/data/balances/utils', () => ({
-  ...jest.requireActual('lx/src/data/balances/utils'),
+jest.mock('@l.x/lx/src/data/balances/utils', () => ({
+  ...jest.requireActual('@l.x/lx/src/data/balances/utils'),
   calculateTotalBalancesUsdPerChainRest: jest.fn(),
 }))
-jest.mock('lx/src/features/accounts/reportBalancesForAnalytics', () => ({
+jest.mock('@l.x/lx/src/features/accounts/reportBalancesForAnalytics', () => ({
   reportBalancesForAnalytics: jest.fn(),
   hasRequiredDataForBalancesReport: jest.fn().mockReturnValue(true),
 }))

@@ -1,11 +1,11 @@
 import { TFunction } from 'i18next'
 import { useTranslation } from 'react-i18next'
-import { iconSizes } from 'ui/src/theme'
-import { NetworkLogo } from 'lx/src/components/CurrencyLogo/NetworkLogo'
-import { NotificationToast } from 'lx/src/components/notifications/NotificationToast'
-import { getChainLabel } from 'lx/src/features/chains/utils'
-import { NetworkChangedNotification as NetworkChangedNotificationType } from 'lx/src/features/notifications/slice/types'
-import { ONE_SECOND_MS } from 'utilities/src/time/time'
+import { iconSizes } from '@luxfi/ui/src/theme'
+import { NetworkLogo } from '@l.x/lx/src/components/CurrencyLogo/NetworkLogo'
+import { NotificationToast } from '@l.x/lx/src/components/notifications/NotificationToast'
+import { getChainLabel } from '@l.x/lx/src/features/chains/utils'
+import { NetworkChangedNotification as NetworkChangedNotificationType } from '@l.x/lx/src/features/notifications/slice/types'
+import { ONE_SECOND_MS } from '@luxfi/utilities/src/time/time'
 
 export function NetworkChangedNotification({
   notification: { chainId, flow, hideDelay = 2 * ONE_SECOND_MS },

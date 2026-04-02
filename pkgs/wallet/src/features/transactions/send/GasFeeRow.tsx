@@ -1,14 +1,14 @@
 import { GasFeeResult } from '@l.x/api'
 import { useTranslation } from 'react-i18next'
 import { FadeIn } from 'react-native-reanimated'
-import { Flex, SpinningLoader, Text } from 'ui/src'
-import { Gas } from 'ui/src/components/icons'
-import { AnimatedFlex } from 'ui/src/components/layout/AnimatedFlex'
-import { iconSizes } from 'ui/src/theme'
-import { NetworkFeeWarning } from 'lx/src/components/gas/NetworkFeeWarning'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { useGasFeeFormattedDisplayAmounts } from 'lx/src/features/gas/hooks'
-import { isWebPlatform } from 'utilities/src/platform'
+import { Flex, SpinningLoader, Text } from '@luxfi/ui/src'
+import { Gas } from '@luxfi/ui/src/components/icons'
+import { AnimatedFlex } from '@luxfi/ui/src/components/layout/AnimatedFlex'
+import { iconSizes } from '@luxfi/ui/src/theme'
+import { NetworkFeeWarning } from '@l.x/lx/src/components/gas/NetworkFeeWarning'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { useGasFeeFormattedDisplayAmounts } from '@l.x/lx/src/features/gas/hooks'
+import { isWebPlatform } from '@luxfi/utilities/src/platform'
 
 type GasFeeRowProps = {
   gasFee: GasFeeResult

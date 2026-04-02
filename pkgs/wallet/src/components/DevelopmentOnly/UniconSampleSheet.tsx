@@ -1,6 +1,6 @@
-import { Flex, Unicon } from 'ui/src'
-import { Modal } from 'lx/src/components/modals/Modal'
-import { ModalName } from 'lx/src/features/telemetry/constants'
+import { Flex, Unicon } from '@luxfi/ui/src'
+import { Modal } from '@l.x/lx/src/components/modals/Modal'
+import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
 
 const generateRandomEthereumAddresses = (numberOfAddresses: number): string[] => {
   const addresses = []

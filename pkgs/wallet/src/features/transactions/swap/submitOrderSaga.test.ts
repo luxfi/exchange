@@ -2,25 +2,25 @@ import { Protocol } from '@luxamm/router-sdk'
 import { TradeType } from '@luxamm/sdk-core'
 import { TradingApi } from '@l.x/api'
 import { testSaga } from 'redux-saga-test-plan'
-import { nativeOnChain } from 'lx/src/constants/tokens'
-import { TradingApiClient } from 'lx/src/data/apiClients/tradingApi/TradingApiClient'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { pushNotification } from 'lx/src/features/notifications/slice/slice'
-import { AppNotificationType } from 'lx/src/features/notifications/slice/types'
-import { WalletEventName } from 'lx/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
-import { signTypedData } from 'lx/src/features/transactions/signing'
-import { addTransaction, finalizeTransaction, updateTransaction } from 'lx/src/features/transactions/slice'
+import { nativeOnChain } from '@l.x/lx/src/constants/tokens'
+import { TradingApiClient } from '@l.x/lx/src/data/apiClients/tradingApi/TradingApiClient'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { pushNotification } from '@l.x/lx/src/features/notifications/slice/slice'
+import { AppNotificationType } from '@l.x/lx/src/features/notifications/slice/types'
+import { WalletEventName } from '@l.x/lx/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
+import { signTypedData } from '@l.x/lx/src/features/transactions/signing'
+import { addTransaction, finalizeTransaction, updateTransaction } from '@l.x/lx/src/features/transactions/slice'
 import {
   QueuedOrderStatus,
   TransactionOriginType,
   TransactionStatus,
   TransactionType,
   LXOrderDetails,
-} from 'lx/src/features/transactions/types/transactionDetails'
-import { WrapType } from 'lx/src/features/transactions/types/wrap'
-import { mockPermit } from 'lx/src/test/fixtures/permit'
-import { currencyId } from 'lx/src/utils/currencyId'
+} from '@l.x/lx/src/features/transactions/types/transactionDetails'
+import { WrapType } from '@l.x/lx/src/features/transactions/types/wrap'
+import { mockPermit } from '@l.x/lx/src/test/fixtures/permit'
+import { currencyId } from '@l.x/lx/src/utils/currencyId'
 import {
   ORDER_STALENESS_THRESHOLD,
   SubmitLXOrderParams,

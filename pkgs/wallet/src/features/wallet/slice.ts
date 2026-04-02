@@ -1,9 +1,9 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { RankingType } from '@l.x/api'
-import { AccountType } from 'lx/src/features/accounts/types'
-import { Platform } from 'lx/src/features/platforms/types/Platform'
-import { areAddressesEqual, getValidAddress } from 'lx/src/utils/addresses'
-import { logger } from 'utilities/src/logger/logger'
+import { AccountType } from '@l.x/lx/src/features/accounts/types'
+import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
+import { areAddressesEqual, getValidAddress } from '@l.x/lx/src/utils/addresses'
+import { logger } from '@luxfi/utilities/src/logger/logger'
 import { Account } from '@luxfi/wallet/src/features/wallet/accounts/types'
 import { ExploreOrderBy } from '@luxfi/wallet/src/features/wallet/types'
 

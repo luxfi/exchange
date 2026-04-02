@@ -1,12 +1,12 @@
 import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { useCallback, useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
-import { AccountType } from 'lx/src/features/accounts/types'
-import { DEFAULT_TOAST_HIDE_DELAY } from 'lx/src/features/notifications/constants'
-import { useSuccessfulSwapCompleted } from 'lx/src/features/transactions/hooks/useSuccessfulSwapCompleted'
-import { type TransactionDetails } from 'lx/src/features/transactions/types/transactionDetails'
-import { logger } from 'utilities/src/logger/logger'
-import { ONE_SECOND_MS } from 'utilities/src/time/time'
+import { AccountType } from '@l.x/lx/src/features/accounts/types'
+import { DEFAULT_TOAST_HIDE_DELAY } from '@l.x/lx/src/features/notifications/constants'
+import { useSuccessfulSwapCompleted } from '@l.x/lx/src/features/transactions/hooks/useSuccessfulSwapCompleted'
+import { type TransactionDetails } from '@l.x/lx/src/features/transactions/types/transactionDetails'
+import { logger } from '@luxfi/utilities/src/logger/logger'
+import { ONE_SECOND_MS } from '@luxfi/utilities/src/time/time'
 import {
   selectHasDismissedSmartWalletHomeScreenNudge,
   selectShouldShowPostSwapNudge,

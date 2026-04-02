@@ -1,7 +1,7 @@
 import { SectionListData } from 'react-native'
-import { SearchableRecipient } from 'lx/src/features/address/types'
-import { faker } from 'lx/src/test/shared'
-import { createFixture } from 'lx/src/test/utils'
+import { SearchableRecipient } from '@l.x/lx/src/features/address/types'
+import { faker } from '@l.x/lx/src/test/shared'
+import { createFixture } from '@l.x/lx/src/test/utils'
 
 export const searchableRecipient = createFixture<SearchableRecipient>()(() => ({
   address: faker.finance.ethereumAddress(),

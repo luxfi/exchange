@@ -9,9 +9,9 @@ import {
   TransactionOriginType,
   TransactionType,
   WrapTransactionInfo,
-} from 'lx/src/features/transactions/types/transactionDetails'
-import { ensure0xHex } from 'utilities/src/addresses/hex'
-import { logger } from 'utilities/src/logger/logger'
+} from '@l.x/lx/src/features/transactions/types/transactionDetails'
+import { ensure0xHex } from '@luxfi/utilities/src/addresses/hex'
+import { logger } from '@luxfi/utilities/src/logger/logger'
 import { TransactionService } from '@luxfi/wallet/src/features/transactions/executeTransaction/services/TransactionService/transactionService'
 import { waitForTransactionConfirmation } from '@luxfi/wallet/src/features/transactions/swap/confirmation'
 import {
@@ -22,7 +22,7 @@ import { TransactionStep, TransactionStepType } from '@luxfi/wallet/src/features
 import { signerMnemonicAccount } from '@luxfi/wallet/src/test/fixtures'
 
 // Mock dependencies
-jest.mock('utilities/src/logger/logger')
+jest.mock('@luxfi/utilities/src/logger/logger')
 jest.mock('wallet/src/features/transactions/executeTransaction/services/TransactionService/transactionService')
 jest.mock('wallet/src/features/transactions/swap/confirmation')
 

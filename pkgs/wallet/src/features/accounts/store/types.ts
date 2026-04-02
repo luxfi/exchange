@@ -1,10 +1,10 @@
-import { Account } from 'lx/src/features/accounts/store/types/Account'
-import type { AccountsData } from 'lx/src/features/accounts/store/types/AccountsState'
-import type { Connector, ConnectorStatus } from 'lx/src/features/accounts/store/types/Connector'
-import { MultiChainScope, Session } from 'lx/src/features/accounts/store/types/Session'
-import type { SigningCapability, Wallet } from 'lx/src/features/accounts/store/types/Wallet'
-import { Platform } from 'lx/src/features/platforms/types/Platform'
-import { PlatformSpecificAddress } from 'lx/src/features/platforms/types/PlatformSpecificAddress'
+import { Account } from '@l.x/lx/src/features/accounts/store/types/Account'
+import type { AccountsData } from '@l.x/lx/src/features/accounts/store/types/AccountsState'
+import type { Connector, ConnectorStatus } from '@l.x/lx/src/features/accounts/store/types/Connector'
+import { MultiChainScope, Session } from '@l.x/lx/src/features/accounts/store/types/Session'
+import type { SigningCapability, Wallet } from '@l.x/lx/src/features/accounts/store/types/Wallet'
+import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
+import { PlatformSpecificAddress } from '@l.x/lx/src/features/platforms/types/PlatformSpecificAddress'
 
 export type DerivedAddresses = {
   derivationIndex: number

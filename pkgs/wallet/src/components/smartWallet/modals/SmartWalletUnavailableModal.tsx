@@ -1,10 +1,10 @@
 import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Flex } from 'ui/src'
-import { iconSizes } from 'ui/src/theme'
-import { lxUrls } from 'lx/src/constants/urls'
-import { AccountIcon } from 'lx/src/features/accounts/AccountIcon'
-import { ModalName } from 'lx/src/features/telemetry/constants'
+import { Flex } from '@luxfi/ui/src'
+import { iconSizes } from '@luxfi/ui/src/theme'
+import { lxUrls } from '@l.x/lx/src/constants/urls'
+import { AccountIcon } from '@l.x/lx/src/features/accounts/AccountIcon'
+import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
 import { SmartWalletModal } from '@luxfi/wallet/src/components/smartWallet/modals/SmartWalletModal'
 
 interface SmartWalletUnavailableModalProps {

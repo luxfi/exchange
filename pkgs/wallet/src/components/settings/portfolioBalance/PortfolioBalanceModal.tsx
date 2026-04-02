@@ -1,9 +1,9 @@
 import { useTranslation } from 'react-i18next'
-import { Flex, Text } from 'ui/src'
-import { Modal } from 'lx/src/components/modals/Modal'
-import { PortfolioBalanceSettingsContent } from 'lx/src/features/settings/balances/PortfolioBalanceSettingsContent'
-import { ModalName } from 'lx/src/features/telemetry/constants'
-import { isExtensionApp } from 'utilities/src/platform'
+import { Flex, Text } from '@luxfi/ui/src'
+import { Modal } from '@l.x/lx/src/components/modals/Modal'
+import { PortfolioBalanceSettingsContent } from '@l.x/lx/src/features/settings/balances/PortfolioBalanceSettingsContent'
+import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
+import { isExtensionApp } from '@luxfi/utilities/src/platform'
 
 type PortfolioBalanceModalProps = {
   isOpen: boolean

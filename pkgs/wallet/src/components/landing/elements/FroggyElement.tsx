@@ -1,6 +1,6 @@
-import { Flex, Image } from 'ui/src'
-import { FROGGY } from 'ui/src/assets'
-import { imageSizes } from 'ui/src/theme'
+import { Flex, Image } from '@luxfi/ui/src'
+import { FROGGY } from '@luxfi/ui/src/assets'
+import { imageSizes } from '@luxfi/ui/src/theme'
 
 export const FroggyElement = (): JSX.Element => {
   return (

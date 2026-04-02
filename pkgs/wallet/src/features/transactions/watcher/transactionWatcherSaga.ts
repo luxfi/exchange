@@ -1,20 +1,20 @@
 import { ApolloClient, NormalizedCacheObject } from '@apollo/client'
 import { fork, put, select, take, takeEvery } from 'typed-redux-saga'
-import { FORTransactionDetails } from 'lx/src/features/fiatOnRamp/types'
-import { pushNotification } from 'lx/src/features/notifications/slice/slice'
-import { AppNotificationType } from 'lx/src/features/notifications/slice/types'
-import { selectIncompleteTransactions } from 'lx/src/features/transactions/selectors'
+import { FORTransactionDetails } from '@l.x/lx/src/features/fiatOnRamp/types'
+import { pushNotification } from '@l.x/lx/src/features/notifications/slice/slice'
+import { AppNotificationType } from '@l.x/lx/src/features/notifications/slice/types'
+import { selectIncompleteTransactions } from '@l.x/lx/src/features/transactions/selectors'
 import {
   addTransaction,
   cancelRemoteLXOrder,
   transactionActions,
   updateTransaction,
-} from 'lx/src/features/transactions/slice'
-import { PlanWatcher } from 'lx/src/features/transactions/swap/plan/planWatcherSaga'
-import { isLX } from 'lx/src/features/transactions/swap/utils/routing'
-import { QueuedOrderStatus } from 'lx/src/features/transactions/types/transactionDetails'
-import i18n from 'lx/src/i18n'
-import { logger } from 'utilities/src/logger/logger'
+} from '@l.x/lx/src/features/transactions/slice'
+import { PlanWatcher } from '@l.x/lx/src/features/transactions/swap/plan/planWatcherSaga'
+import { isLX } from '@l.x/lx/src/features/transactions/swap/utils/routing'
+import { QueuedOrderStatus } from '@l.x/lx/src/features/transactions/types/transactionDetails'
+import i18n from '@l.x/lx/src/i18n'
+import { logger } from '@luxfi/utilities/src/logger/logger'
 import { attemptCancelRemoteLXOrder } from '@luxfi/wallet/src/features/transactions/cancelTransactionSaga'
 import { isFORTransaction } from '@luxfi/wallet/src/features/transactions/utils'
 import { OrderWatcher } from '@luxfi/wallet/src/features/transactions/watcher/orderWatcherSaga'

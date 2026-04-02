@@ -1,4 +1,4 @@
-import { NotImplementedError } from 'utilities/src/errors'
+import { NotImplementedError } from '@luxfi/utilities/src/errors'
 
 export interface CloseIfConsentedProps {
   onClose: () => void

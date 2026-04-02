@@ -1,6 +1,6 @@
-import { AlertTriangleFilled } from 'ui/src/components/icons'
-import { NotificationToast } from 'lx/src/components/notifications/NotificationToast'
-import { AppErrorNotification } from 'lx/src/features/notifications/slice/types'
+import { AlertTriangleFilled } from '@luxfi/ui/src/components/icons'
+import { NotificationToast } from '@l.x/lx/src/components/notifications/NotificationToast'
+import { AppErrorNotification } from '@l.x/lx/src/features/notifications/slice/types'
 
 export function ErrorNotification({
   notification: { address, errorMessage, hideDelay },

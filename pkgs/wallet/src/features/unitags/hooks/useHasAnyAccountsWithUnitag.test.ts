@@ -1,4 +1,4 @@
-import { useUnitagsAddressesQuery } from 'lx/src/data/apiClients/unitagsApi/useUnitagsAddressQuery'
+import { useUnitagsAddressesQuery } from '@l.x/lx/src/data/apiClients/unitagsApi/useUnitagsAddressQuery'
 import { useHasAnyAccountsWithUnitag } from '@luxfi/wallet/src/features/unitags/hooks/useHasAnyAccountsWithUnitag'
 import { useSignerAccounts } from '@luxfi/wallet/src/features/wallet/hooks'
 import { renderHook } from '@luxfi/wallet/src/test/test-utils'
@@ -8,7 +8,7 @@ jest.mock('wallet/src/features/wallet/hooks', () => ({
   useActiveAccount: jest.fn().mockReturnValue(undefined),
 }))
 
-jest.mock('lx/src/data/apiClients/unitagsApi/useUnitagsAddressQuery', () => ({
+jest.mock('@l.x/lx/src/data/apiClients/unitagsApi/useUnitagsAddressQuery', () => ({
   useUnitagsAddressesQuery: jest.fn(),
 }))
 

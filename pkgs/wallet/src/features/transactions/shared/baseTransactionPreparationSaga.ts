@@ -1,7 +1,7 @@
 import { call, type SagaGenerator } from 'typed-redux-saga'
-import type { SignerMnemonicAccountMeta } from 'lx/src/features/accounts/types'
-import type { UniverseChainId } from 'lx/src/features/chains/types'
-import type { ValidatedTransactionRequest } from 'lx/src/features/transactions/types/transactionRequests'
+import type { SignerMnemonicAccountMeta } from '@l.x/lx/src/features/accounts/types'
+import type { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import type { ValidatedTransactionRequest } from '@l.x/lx/src/features/transactions/types/transactionRequests'
 import type {
   PrepareTransactionParams,
   TransactionService,

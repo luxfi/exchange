@@ -1,6 +1,6 @@
 import type { BlockaidScanJsonRpcRequest } from '@l.x/api'
 import { useMemo } from 'react'
-import type { UniverseChainId } from 'lx/src/features/chains/types'
+import type { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { isLXSwapRequest, LXSwapRequest } from '@luxfi/wallet/src/components/dappRequests/types/Permit2Types'
 import { useBlockaidJsonRpcScan } from '@luxfi/wallet/src/features/dappRequests/hooks/useBlockaidJsonRpcScan'
 import { useParseLXSwap } from '@luxfi/wallet/src/features/dappRequests/hooks/useParseLXSwap'

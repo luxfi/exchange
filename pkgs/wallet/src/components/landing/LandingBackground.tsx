@@ -13,14 +13,14 @@ import Animated, {
   withTiming,
 } from 'react-native-reanimated'
 import { Circle, Defs, Svg } from 'react-native-svg'
-import { Flex, FlexProps, Image, useIsDarkMode } from 'ui/src'
-import { Jiggly } from 'ui/src/animations'
-import { LX_LOGO } from 'ui/src/assets'
-import { AnimatedFlex } from 'ui/src/components/layout/AnimatedFlex'
-import { imageSizes } from 'ui/src/theme'
-import { isWebPlatform } from 'utilities/src/platform'
-import { ONE_SECOND_MS } from 'utilities/src/time/time'
-import { useTimeout } from 'utilities/src/time/timing'
+import { Flex, FlexProps, Image, useIsDarkMode } from '@luxfi/ui/src'
+import { Jiggly } from '@luxfi/ui/src/animations'
+import { LX_LOGO } from '@luxfi/ui/src/assets'
+import { AnimatedFlex } from '@luxfi/ui/src/components/layout/AnimatedFlex'
+import { imageSizes } from '@luxfi/ui/src/theme'
+import { isWebPlatform } from '@luxfi/utilities/src/platform'
+import { ONE_SECOND_MS } from '@luxfi/utilities/src/time/time'
+import { useTimeout } from '@luxfi/utilities/src/time/timing'
 import {
   BuyElement,
   FroggyElement,

@@ -4,8 +4,8 @@ import { SignMessageInfo } from '@luxfi/wallet/src/features/wallet/signing/signi
 import { signMessage } from '@luxfi/wallet/src/features/wallet/signing/signing.web'
 
 // Mock dependencies
-jest.mock('lx/src/features/transactions/signing')
-jest.mock('lx/src/utils/addresses', () => ({
+jest.mock('@l.x/lx/src/features/transactions/signing')
+jest.mock('@l.x/lx/src/utils/addresses', () => ({
   ensureLeading0x: (sig: string): string => (sig.startsWith('0x') ? sig : `0x${sig}`),
 }))
 

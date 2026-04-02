@@ -1,13 +1,13 @@
 import { useCallback, useMemo } from 'react'
-import type { ActivityItem } from 'lx/src/components/activity/generateActivityItemRenderer'
-import type { SwapSummaryCallbacks } from 'lx/src/components/activity/types'
+import type { ActivityItem } from '@l.x/lx/src/components/activity/generateActivityItemRenderer'
+import type { SwapSummaryCallbacks } from '@l.x/lx/src/components/activity/types'
 import {
   type ActivityRenderData,
   type UseActivityDataProps,
   useActivityData,
-} from 'lx/src/features/activity/hooks/useActivityData'
-import { useMostRecentSwapTx } from 'lx/src/features/transactions/swap/hooks/useMostRecentSwapTx'
-import type { TransactionState } from 'lx/src/features/transactions/types/transactionState'
+} from '@l.x/lx/src/features/activity/hooks/useActivityData'
+import { useMostRecentSwapTx } from '@l.x/lx/src/features/transactions/swap/hooks/useMostRecentSwapTx'
+import type { TransactionState } from '@l.x/lx/src/features/transactions/types/transactionState'
 import { useWalletNavigation } from '@luxfi/wallet/src/contexts/WalletNavigationContext'
 import { useRestOnRampAuth } from '@luxfi/wallet/src/features/activity/useRestOnRampAuth'
 import { useCreateSwapFormState } from '@luxfi/wallet/src/features/transactions/hooks/useCreateSwapFormState'

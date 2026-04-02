@@ -1,5 +1,5 @@
 import { faker } from '@faker-js/faker'
-import { SearchableRecipient } from 'lx/src/features/address/types'
+import { SearchableRecipient } from '@l.x/lx/src/features/address/types'
 import {
   AutocompleteOption,
   filterRecipientByNameAndAddress,

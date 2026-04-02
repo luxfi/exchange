@@ -1,4 +1,4 @@
-import { isStale, ONE_DAY_MS } from 'utilities/src/time/time'
+import { isStale, ONE_DAY_MS } from '@luxfi/utilities/src/time/time'
 import { WalletState } from '@luxfi/wallet/src/state/walletReducer'
 
 export const selectHasSkippedUnitagPrompt = (state: WalletState): boolean =>

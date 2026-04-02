@@ -1,12 +1,12 @@
 import { FeatureFlags } from '@l.x/gating'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { logger as loggerUtil } from 'utilities/src/logger/logger'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { logger as loggerUtil } from '@luxfi/utilities/src/logger/logger'
 import { isPrivateRpcSupportedOnChain } from '@luxfi/wallet/src/features/providers/utils'
 import { FeatureFlagService } from '@luxfi/wallet/src/features/transactions/executeTransaction/services/featureFlagService'
 import { createTransactionConfigService } from '@luxfi/wallet/src/features/transactions/executeTransaction/services/transactionConfigServiceImpl'
 
 // Mock the logger
-jest.mock('utilities/src/logger/logger', () => ({
+jest.mock('@luxfi/utilities/src/logger/logger', () => ({
   logger: {
     warn: jest.fn(),
   },

@@ -1,9 +1,9 @@
 import { useTranslation } from 'react-i18next'
-import { Flex, UniversalImage } from 'ui/src'
-import { iconSizes } from 'ui/src/theme'
-import { NotificationToast } from 'lx/src/components/notifications/NotificationToast'
-import { getCountryFlagSvgUrl } from 'lx/src/features/fiatOnRamp/utils'
-import { ChooseCountryNotification as ChooseCountryNotificationType } from 'lx/src/features/notifications/slice/types'
+import { Flex, UniversalImage } from '@luxfi/ui/src'
+import { iconSizes } from '@luxfi/ui/src/theme'
+import { NotificationToast } from '@l.x/lx/src/components/notifications/NotificationToast'
+import { getCountryFlagSvgUrl } from '@l.x/lx/src/features/fiatOnRamp/utils'
+import { ChooseCountryNotification as ChooseCountryNotificationType } from '@l.x/lx/src/features/notifications/slice/types'
 
 export function ChooseCountryNotification({
   notification: { countryName, countryCode, hideDelay },

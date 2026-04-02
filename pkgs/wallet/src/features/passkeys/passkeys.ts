@@ -1,4 +1,4 @@
-import { EmbeddedWalletApiClient } from 'lx/src/data/rest/embeddedWallet/requests'
+import { EmbeddedWalletApiClient } from '@l.x/lx/src/data/rest/embeddedWallet/requests'
 import { Keyring } from '@luxfi/wallet/src/features/wallet/Keyring/Keyring'
 
 export async function fetchSeedPhrase(passkeyCredential: string): Promise<string> {

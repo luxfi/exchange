@@ -1,4 +1,4 @@
-import { ReadOnlyAccountMeta, SignerMnemonicAccountMeta } from 'lx/src/features/accounts/types'
+import { ReadOnlyAccountMeta, SignerMnemonicAccountMeta } from '@l.x/lx/src/features/accounts/types'
 
 export enum BackupType {
   Manual = 'manual',

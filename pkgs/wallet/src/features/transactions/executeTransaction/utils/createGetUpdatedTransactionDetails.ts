@@ -1,10 +1,10 @@
 import { providers } from 'ethers'
-import { UniverseChainId } from 'lx/src/features/chains/types'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import {
   OnChainTransactionDetails,
   TransactionStatus,
-} from 'lx/src/features/transactions/types/transactionDetails'
-import { ONE_MINUTE_MS } from 'utilities/src/time/time'
+} from '@l.x/lx/src/features/transactions/types/transactionDetails'
+import { ONE_MINUTE_MS } from '@luxfi/utilities/src/time/time'
 import { getSerializableTransactionRequest } from '@luxfi/wallet/src/features/transactions/utils'
 
 export function createGetUpdatedTransactionDetails(ctx: {

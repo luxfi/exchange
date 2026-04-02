@@ -1,13 +1,13 @@
 import { providers } from 'ethers'
 import { expectSaga } from 'redux-saga-test-plan'
 import * as matchers from 'redux-saga-test-plan/matchers'
-import { transactionActions } from 'lx/src/features/transactions/slice'
-import { TransactionStatus } from 'lx/src/features/transactions/types/transactionDetails'
+import { transactionActions } from '@l.x/lx/src/features/transactions/slice'
+import { TransactionStatus } from '@l.x/lx/src/features/transactions/types/transactionDetails'
 import {
   fiatPurchaseTransactionInfo,
   getTxFixtures,
   transactionDetails as transactionDetailsFixture,
-} from 'lx/src/test/fixtures'
+} from '@l.x/lx/src/test/fixtures'
 import {
   updateTransactionWithReceipt,
   waitForReceipt,

@@ -1,5 +1,5 @@
-import { signTypedData } from 'lx/src/features/transactions/signing'
-import { ensureLeading0x } from 'lx/src/utils/addresses'
+import { signTypedData } from '@l.x/lx/src/features/transactions/signing'
+import { ensureLeading0x } from '@l.x/lx/src/utils/addresses'
 import { SignMessageInfo } from '@luxfi/wallet/src/features/wallet/signing/signing'
 import { EthTypedMessage } from '@luxfi/wallet/src/features/wallet/signing/types'
 import { formatMessageForSigning } from '@luxfi/wallet/src/features/wallet/signing/utils'

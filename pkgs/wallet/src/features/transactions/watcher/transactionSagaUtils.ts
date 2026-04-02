@@ -1,8 +1,8 @@
 import { TradingApi } from '@l.x/api'
 import { put } from 'typed-redux-saga'
-import { transactionActions } from 'lx/src/features/transactions/slice'
-import { TransactionDetails, TransactionStatus } from 'lx/src/features/transactions/types/transactionDetails'
-import { ONE_SECOND_MS } from 'utilities/src/time/time'
+import { transactionActions } from '@l.x/lx/src/features/transactions/slice'
+import { TransactionDetails, TransactionStatus } from '@l.x/lx/src/features/transactions/types/transactionDetails'
+import { ONE_SECOND_MS } from '@luxfi/utilities/src/time/time'
 
 /**
  * Delete transaction from state. Should be called when a transaction should no longer

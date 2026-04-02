@@ -1,12 +1,12 @@
 import React from 'react'
 import { Trans } from 'react-i18next'
-import { Button, Flex, GetThemeValueForKey, Text } from 'ui/src'
-import { ButtonConfig as DialogButtonConfig } from 'lx/src/components/dialog/DialogButtons'
-import { Modal } from 'lx/src/components/modals/Modal'
-import { LearnMoreLink } from 'lx/src/components/text/LearnMoreLink'
-import { ModalNameType } from 'lx/src/features/telemetry/constants'
-import { TestID } from 'lx/src/test/fixtures/testIDs'
-import { isExtensionApp } from 'utilities/src/platform'
+import { Button, Flex, GetThemeValueForKey, Text } from '@luxfi/ui/src'
+import { ButtonConfig as DialogButtonConfig } from '@l.x/lx/src/components/dialog/DialogButtons'
+import { Modal } from '@l.x/lx/src/components/modals/Modal'
+import { LearnMoreLink } from '@l.x/lx/src/components/text/LearnMoreLink'
+import { ModalNameType } from '@l.x/lx/src/features/telemetry/constants'
+import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
+import { isExtensionApp } from '@luxfi/utilities/src/platform'
 
 type ButtonConfig =
   | (Pick<DialogButtonConfig, 'text' | 'variant' | 'emphasis'> & {

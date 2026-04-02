@@ -1,8 +1,8 @@
 import { BaseSyntheticEvent, useCallback } from 'react'
-import { Flex, FlexProps } from 'ui/src/components/layout'
-import { Text } from 'ui/src/components/text'
-import { TouchableArea } from 'ui/src/components/touchable'
-import { useIsDarkMode } from 'ui/src/hooks/useIsDarkMode'
+import { Flex, FlexProps } from '@luxfi/ui/src/components/layout'
+import { Text } from '@luxfi/ui/src/components/text'
+import { TouchableArea } from '@luxfi/ui/src/components/touchable'
+import { useIsDarkMode } from '@luxfi/ui/src/hooks/useIsDarkMode'
 import { MenuContentItem } from '@luxfi/wallet/src/components/menu/types'
 
 type MenuContentProps = {

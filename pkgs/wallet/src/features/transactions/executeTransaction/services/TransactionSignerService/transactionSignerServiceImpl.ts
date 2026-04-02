@@ -1,8 +1,8 @@
-import { SignerMnemonicAccountMeta } from 'lx/src/features/accounts/types'
-import { Platform } from 'lx/src/features/platforms/types/Platform'
-import { signTypedData as signTypedDataFunction } from 'lx/src/features/transactions/signing'
-import { getValidAddress } from 'lx/src/utils/addresses'
-import { HexString } from 'utilities/src/addresses/hex'
+import { SignerMnemonicAccountMeta } from '@l.x/lx/src/features/accounts/types'
+import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
+import { signTypedData as signTypedDataFunction } from '@l.x/lx/src/features/transactions/signing'
+import { getValidAddress } from '@l.x/lx/src/utils/addresses'
+import { HexString } from '@luxfi/utilities/src/addresses/hex'
 import { PublicClient } from 'viem'
 import { DelegationCheckResult } from '@luxfi/wallet/src/features/smartWallet/delegation/types'
 import {

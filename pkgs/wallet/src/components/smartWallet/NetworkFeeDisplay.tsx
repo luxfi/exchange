@@ -1,11 +1,11 @@
 import { memo } from 'react'
-import { Flex, Text } from 'ui/src'
-import { iconSizes } from 'ui/src/theme'
-import { NetworkLogo } from 'lx/src/components/CurrencyLogo/NetworkLogo'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
-import { getCurrencyAmount, ValueType } from 'lx/src/features/tokens/getCurrencyAmount'
-import { NumberType } from 'utilities/src/format/types'
+import { Flex, Text } from '@luxfi/ui/src'
+import { iconSizes } from '@luxfi/ui/src/theme'
+import { NetworkLogo } from '@l.x/lx/src/components/CurrencyLogo/NetworkLogo'
+import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
+import { getCurrencyAmount, ValueType } from '@l.x/lx/src/features/tokens/getCurrencyAmount'
+import { NumberType } from '@luxfi/utilities/src/format/types'
 import { GroupedGasFee } from '@luxfi/wallet/src/features/smartWallet/utils/gasFeeUtils'
 
 interface NetworkFeeDisplayProps {
