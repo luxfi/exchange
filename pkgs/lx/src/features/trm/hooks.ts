@@ -1,4 +1,4 @@
-import { useTrmScreenQuery } from 'lx/src/data/apiClients/lxApi/useTrmScreenQuery'
+import { useTrmScreenQuery } from 'lx/src/data/apiClients/luxApi/useTrmScreenQuery'
 import { ONE_MINUTE_MS } from 'utilities/src/time/time'
 
 export interface IsBlockedResult {

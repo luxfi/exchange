@@ -12,7 +12,7 @@ import {
 } from 'lx/src/components/modals/WarningModal/types'
 import { type PollingInterval } from 'lx/src/constants/misc'
 import { nativeOnChain } from 'lx/src/constants/tokens'
-import { useGasFeeQuery } from 'lx/src/data/apiClients/lxApi/useGasFeeQuery'
+import { useGasFeeQuery } from 'lx/src/data/apiClients/luxApi/useGasFeeQuery'
 import { useIsSmartContractAddress } from 'lx/src/features/address/useIsSmartContractAddress'
 import { useEnabledChains } from 'lx/src/features/chains/hooks/useEnabledChains'
 import { UniverseChainId } from 'lx/src/features/chains/types'

@@ -9,7 +9,7 @@ import {
 import { FeatureFlags, getFeatureFlag, useStatsigClientStatus } from '@l.x/gating'
 import { lxUrls } from 'lx/src/constants/urls'
 import { fetchGasFeeV2 } from 'lx/src/data/apiClients/gasService/fetchGasFeeV2'
-import { LxApiClient } from 'lx/src/data/apiClients/lxApi/LxApiClient'
+import { LxApiClient } from 'lx/src/data/apiClients/luxApi/LxApiClient'
 import { getActiveGasStrategy } from 'lx/src/features/gas/utils'
 import { ReactQueryCacheKey } from 'utilities/src/reactQuery/cache'
 
