@@ -1,4 +1,4 @@
-import { TradingApi } from '@universe/api'
+import { TradingApi } from '@l.x/api'
 import { OffchainOrderType } from '~/state/routing/types'
 
 // Mirrors LXOrderEntity type at https://github.com/Lx/lx-service/blob/main/lib/entities/Order.ts

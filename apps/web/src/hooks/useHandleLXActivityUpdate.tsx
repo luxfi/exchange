@@ -1,5 +1,5 @@
 import { useTrace } from '@luxamm/analytics'
-import { TradingApi } from '@universe/api'
+import { TradingApi } from '@l.x/api'
 import { useCallback } from 'react'
 import { finalizeTransaction, updateTransaction } from 'lx/src/features/transactions/slice'
 import {

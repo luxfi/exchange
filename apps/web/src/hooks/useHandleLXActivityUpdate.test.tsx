@@ -1,4 +1,4 @@
-import { TradingApi } from '@universe/api'
+import { TradingApi } from '@l.x/api'
 import { UniverseChainId } from 'lx/src/features/chains/types'
 import { finalizeTransaction, updateTransaction } from 'lx/src/features/transactions/slice'
 import {

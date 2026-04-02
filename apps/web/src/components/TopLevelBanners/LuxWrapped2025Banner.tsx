@@ -1,4 +1,4 @@
-import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { useLocation, useNavigate } from 'react-router'
 import { WRAPPED_PATH } from 'lx/src/components/banners/shared/utils'
 import { LXWrapped2025Banner } from 'lx/src/components/banners/LuxWrapped2025Banner/LuxWrapped2025Banner'

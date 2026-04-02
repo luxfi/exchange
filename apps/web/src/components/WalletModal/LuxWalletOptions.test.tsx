@@ -1,4 +1,4 @@
-import { useFeatureFlag } from '@universe/gating'
+import { useFeatureFlag } from '@l.x/gating'
 import { CONNECTION_PROVIDER_IDS } from 'lx/src/constants/web3'
 import { LXWalletOptions } from '~/components/WalletModal/LXWalletOptions'
 import { useWalletWithId } from '~/features/accounts/store/hooks'
@@ -11,7 +11,7 @@ vi.mock('~/features/accounts/store/hooks', async () => ({
   useWalletWithId: vi.fn(),
 }))
 
-vi.mock('@universe/gating', async (importOriginal) => {
+vi.mock('@l.x/gating', async (importOriginal) => {
   return {
     ...(await importOriginal()),
     useFeatureFlag: vi.fn(),
