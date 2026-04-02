@@ -37,3 +37,6 @@ getIcon: (props) => (
 ),
 
 })
+
+// Alias used by web/lx/wallet consumers
+export { LuxLogo as LXLogo, AnimatedLuxLogo as AnimatedLXLogo }
