@@ -178,7 +178,7 @@
     "g:typecheck:changed": "./scripts/check-deps-sync.sh; test \"$ENABLE_TSGO\" = \"true\" && { pnpm run g:typecheck:tsgo:changed || exit $?; } || nx affected -t typecheck --base=${NX_BASE:-main} --head=${NX_HEAD:-HEAD}",
     "g:typecheck:tsgo": "echo 'Preparing packages' && pnpm g:prepare && echo 'Running tsgo' && tsgo -b && echo 'Typecheck complete'",
     "g:typecheck:tsgo:changed": "nx affected -t typecheck:tsgo --base=${NX_BASE:-main} --head=${NX_HEAD:-HEAD}",
-    "generate:package": "NX_PREFER_TS_NODE=true nx generate @luxexchange/lx-nx:package",
+    "generate:package": "NX_PREFER_TS_NODE=true nx generate @l.x/lx-nx:package",
     "i18n:extract": "i18next",
     "i18n:_upload": "crowdin upload",
     "i18n:upload": "dotenv -e .env.defaults -c -- pnpm run i18n:_upload",
