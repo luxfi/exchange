@@ -17,6 +17,7 @@ interface HeaderProps {
 const NAV_ITEMS = [
   { href: "/swap", label: "Swap" },
   { href: "/pool", label: "Pool" },
+  { href: "/options", label: "Options" },
   { href: "/tokens", label: "Tokens" },
 ] as const
 
