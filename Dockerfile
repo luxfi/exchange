@@ -11,6 +11,7 @@ RUN corepack enable && corepack prepare pnpm@9.15.9 --activate
 COPY package.json pnpm-lock.yaml pnpm-workspace.yaml .npmrc ./
 COPY apps/web/package.json apps/web/
 COPY apps/mobile/package.json apps/mobile/
+COPY apps/build/package.json apps/build/
 COPY apps/extension/package.json apps/extension/
 COPY pkgs/api/package.json pkgs/api/
 COPY pkgs/lx/package.json pkgs/lx/
@@ -35,6 +36,7 @@ COPY pkgs/react-query/package.json pkgs/react-query/
 COPY pkgs/trpc/package.json pkgs/trpc/
 COPY pkgs/mycelium/package.json pkgs/mycelium/
 COPY pkgs/hashcash-native/package.json pkgs/hashcash-native/
+COPY pkgs/options/package.json pkgs/options/
 COPY config/vitest-presets/package.json config/vitest-presets/
 COPY config/jest-presets/package.json config/jest-presets/
 COPY config/tsconfig/package.json config/tsconfig/
