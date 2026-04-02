@@ -489,6 +489,16 @@ export const routes: RouteDefinition[] = [
       </Suspense>
     ),
   }),
+  createRouteDefinition({
+    path: '/advanced',
+    getTitle: () => 'Advanced Trading',
+    getDescription: () => 'Advanced trading terminal with charts, trades, and pools',
+    getElement: () => (
+      <Suspense fallback={null}>
+        <TradePage />
+      </Suspense>
+    ),
+  }),
   createRouteDefinition({ path: '*', getElement: () => <Navigate to="/not-found" replace /> }),
   createRouteDefinition({ path: '/not-found', getElement: () => <NotFound /> }),
 ]
