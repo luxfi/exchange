@@ -1,0 +1,25 @@
+{
+  "brand": {
+    "name": "Pars Market",
+    "title": "Pars Market | Trade",
+    "description": "The decentralized exchange for the Pars ecosystem",
+    "legalEntity": "Pars Network Foundation",
+    "appDomain": "pars.market",
+    "docsDomain": "docs.pars.market",
+    "infoDomain": "info.pars.market",
+    "gatewayDomain": "gw.pars.market",
+    "wsDomain": "ws.pars.market",
+    "helpUrl": "https://docs.pars.market/help",
+    "termsUrl": "https://pars.market/terms",
+    "privacyUrl": "https://pars.market/privacy",
+    "downloadUrl": "https://pars.market/wallet",
+    "complianceEmail": "compliance@pars.market",
+    "supportEmail": "hi@pars.market",
+    "twitter": "https://x.com/parsnetwork",
+    "github": "https://github.com/luxfi",
+    "discord": "https://discord.gg/pars",
+    "primaryColor": "#F97316",
+    "defaultChainId": 494949,
+    "supportedChainIds": [494949, 96369]
+  }
+}

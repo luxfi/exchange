@@ -20,6 +20,6 @@
     "discord": "https://discord.gg/lux",
     "primaryColor": "#FC72FF",
     "defaultChainId": 96369,
-    "supportedChainIds": [96369, 96368, 96367]
+    "supportedChainIds": [96369, 96368, 494949]
   }
 }
