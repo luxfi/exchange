@@ -30,7 +30,7 @@ import { useProvider, useWalletSigners } from '@luxfi/wallet/src/features/wallet
 import { useActiveAccount, useActiveSignerAccount, useDisplayName } from '@luxfi/wallet/src/features/wallet/hooks'
 import { NativeSigner } from '@luxfi/wallet/src/features/wallet/signing/NativeSigner'
 
-// Adapts useProvider to fit lux context requirement of returning undefined instead of null
+// Adapts useProvider to fit lx context requirement of returning undefined instead of null
 function useWalletProvider(chainId: number): ethers.providers.JsonRpcProvider | undefined {
   return useProvider(chainId) ?? undefined
 }
@@ -65,7 +65,7 @@ export function WalletLuxProvider({ children }: PropsWithChildren): JSX.Element 
   )
 }
 
-// Abstracts wallet-specific transaction flow objects for usage in cross-platform flows in the `lux` package.
+// Abstracts wallet-specific transaction flow objects for usage in cross-platform flows in the `lx` package.
 function WalletLuxProviderInner({ children }: PropsWithChildren): JSX.Element {
   const signer = useWalletSigner()
   const {
@@ -109,7 +109,7 @@ function WalletLuxProviderInner({ children }: PropsWithChildren): JSX.Element {
 
   const getHasMismatch = useHasAccountMismatchCallback()
   const isPermitMismatchUxEnabled = useFeatureFlag(FeatureFlags.EnablePermitMismatchUX)
-  const getIsDEXSupported = useEvent((innerChainId?: UniverseChainId) => {
+  const getIsLXSupported = useEvent((innerChainId?: UniverseChainId) => {
     if (isPermitMismatchUxEnabled) {
       return !getHasMismatch(innerChainId)
     }
@@ -136,7 +136,7 @@ function WalletLuxProviderInner({ children }: PropsWithChildren): JSX.Element {
       signer={signer}
       useProviderHook={useWalletProvider}
       useWalletDisplayName={useDisplayName}
-      getIsDEXSupported={getIsDEXSupported}
+      getIsLXSupported={getIsLXSupported}
       getCanSignPermits={getCanSignPermits}
       getSwapDelegationInfo={getSwapDelegationInfo}
       useAccountsStoreContextHook={useAccountsStoreContext}

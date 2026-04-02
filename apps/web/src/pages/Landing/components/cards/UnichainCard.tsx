@@ -7,7 +7,7 @@ import { CardContents } from '~/pages/Landing/components/cards/CardContents'
 import { PillButton } from '~/pages/Landing/components/cards/PillButton'
 import ValuePropCard from '~/pages/Landing/components/cards/ValuePropCard'
 
-const primary = '#F50DB4'
+const primary = '#A8882F'
 
 export function UnichainCard() {
   const { t } = useTranslation()

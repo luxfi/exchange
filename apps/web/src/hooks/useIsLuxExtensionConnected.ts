@@ -1,12 +1,12 @@
-import { CONNECTION_PROVIDER_IDS } from '@l.x/lx/src/constants/web3'
+import { CONNECTION_PROVIDER_IDS } from 'lx/src/constants/web3'
 import { useAccount } from '~/hooks/useAccount'
 
-// Checks if the user is connected to the lux extension.
+// Checks if the user is connected to the lx extension.
 //
-// @returns {boolean} True if the user is connected to the lux extension; otherwise, false.
+// @returns {boolean} True if the user is connected to the lx extension; otherwise, false.
 //
-export function useIsLuxExtensionConnected() {
+export function useIsLxExtensionConnected() {
   const currentConnector = useAccount().connector
 
-  return currentConnector?.id === CONNECTION_PROVIDER_IDS.LUX_EXTENSION_RDNS
+  return currentConnector?.id === CONNECTION_PROVIDER_IDS.LX_EXTENSION_RDNS
 }

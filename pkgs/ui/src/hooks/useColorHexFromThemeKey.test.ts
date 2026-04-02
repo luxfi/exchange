@@ -20,7 +20,7 @@ describe(useColorHexFromThemeKey, () => {
     // Mock the colors returned by useSporeColors
     const mockColors = {
       neutral1: { val: '#000000', get: (): string => '#000000', variable: 'neutral1' },
-      accent1: { val: '#FC72FF', get: (): string => '#FC72FF', variable: 'accent1' },
+      accent1: { val: '#C4A34F', get: (): string => '#C4A34F', variable: 'accent1' },
       surface1: { val: '#FFFFFF', get: (): string => '#FFFFFF', variable: 'surface1' },
     } as unknown as ReturnType<typeof useSporeColors>
     mockUseSporeColors.mockReturnValue(mockColors)
@@ -31,7 +31,7 @@ describe(useColorHexFromThemeKey, () => {
     const { result: surface1Result } = renderHook(() => useColorHexFromThemeKey('surface1'))
 
     expect(neutral1Result.current).toEqual({ val: '#000000', get: expect.any(Function), variable: 'neutral1' })
-    expect(accent1Result.current).toEqual({ val: '#FC72FF', get: expect.any(Function), variable: 'accent1' })
+    expect(accent1Result.current).toEqual({ val: '#C4A34F', get: expect.any(Function), variable: 'accent1' })
     expect(surface1Result.current).toEqual({ val: '#FFFFFF', get: expect.any(Function), variable: 'surface1' })
   })
 

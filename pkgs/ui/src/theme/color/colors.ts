@@ -3,8 +3,8 @@ import { opacifyRaw } from '@luxfi/ui/src/theme/color/utils'
 const accentColors = {
   pinkLight: '#FEF4FF',
   pinkPastel: '#FDAFF0',
-  pinkBase: '#FC74FE',
-  pinkVibrant: '#F50DB4',
+  pinkBase: '#C4A34F',
+  pinkVibrant: '#A8882F',
   pinkDark: '#361A37',
 
   redLight: '#FFF2F1',
@@ -91,7 +91,7 @@ export const DEP_accentColors = {
   green400: '#209853',
   magenta100: '#FAD8F8',
   magenta50: '#FFF1FE',
-  magentaVibrant: '#FC72FF',
+  magentaVibrant: '#C4A34F',
   red200: '#FEA79B',
   red300: '#FD766B',
   red400: '#FA2B39',

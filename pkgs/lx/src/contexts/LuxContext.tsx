@@ -55,9 +55,9 @@ interface LuxContextValue {
   isSwapTokenSelectorOpen: boolean
   setIsSwapTokenSelectorOpen: (open: boolean) => void
   getCanSignPermits?: (chainId: UniverseChainId | undefined) => boolean
-  // some wallets don't support DEX, so we need to check if it's supported (mismatch account)
-  getIsDEXSupported?: (chainId: UniverseChainId | undefined) => boolean
-  handleOnPressDEXUnsupported?: () => void
+  // some wallets don't support LX, so we need to check if it's supported (mismatch account)
+  getIsLXSupported?: (chainId: UniverseChainId | undefined) => boolean
+  handleOnPressLXUnsupported?: () => void
   getCanBatchTransactions?: (chainId: UniverseChainId | undefined) => boolean
   getSwapDelegationInfo?: (chainId: UniverseChainId | undefined) => SwapDelegationInfo
   useAccountsStoreContextHook: () => AccountsStore
@@ -86,8 +86,8 @@ export function LuxProvider({
   useWalletDisplayName,
   onConnectWallet,
   getCanSignPermits,
-  getIsDEXSupported,
-  handleOnPressDEXUnsupported,
+  getIsLXSupported,
+  handleOnPressLXUnsupported,
   getCanBatchTransactions,
   getSwapDelegationInfo,
   useAccountsStoreContextHook,
@@ -135,8 +135,8 @@ export function LuxProvider({
       isSwapTokenSelectorOpen,
       setIsSwapTokenSelectorOpen: (open: boolean) => setIsSwapTokenSelectorOpen(open),
       getCanSignPermits,
-      getIsDEXSupported,
-      handleOnPressDEXUnsupported,
+      getIsLXSupported,
+      handleOnPressLXUnsupported,
       getCanBatchTransactions,
       getSwapDelegationInfo,
       useAccountsStoreContextHook,
@@ -162,8 +162,8 @@ export function LuxProvider({
       swapOutputChainId,
       isSwapTokenSelectorOpen,
       getCanSignPermits,
-      getIsDEXSupported,
-      handleOnPressDEXUnsupported,
+      getIsLXSupported,
+      handleOnPressLXUnsupported,
       getCanBatchTransactions,
       getSwapDelegationInfo,
       onSwapChainsChanged,

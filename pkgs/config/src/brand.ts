@@ -121,7 +121,7 @@ export const brand: BrandConfig = {
   discord: '',
   logoUrl: '',
   faviconUrl: '/favicon.ico',
-  primaryColor: '#FC72FF',
+  primaryColor: '#C4A34F',
   defaultChainId: 1,
   supportedChainIds: [],
   walletConnectProjectId: '',

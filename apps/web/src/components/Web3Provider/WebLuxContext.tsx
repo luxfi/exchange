@@ -1,26 +1,26 @@
-import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
+import { FeatureFlags, useFeatureFlag } from '@universe/gating'
 import React, { PropsWithChildren, useCallback, useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { useLocation, useNavigate } from 'react-router'
-import { CONNECTION_PROVIDER_IDS } from '@l.x/lx/src/constants/web3'
-import { LuxProvider } from '@l.x/lx/src/contexts/LuxContext'
-import { useOnchainDisplayName } from '@l.x/lx/src/features/accounts/useOnchainDisplayName'
-import { getChainInfo } from '@l.x/lx/src/features/chains/chainInfo'
-import { useEnabledChains } from '@l.x/lx/src/features/chains/hooks/useEnabledChains'
-import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
-import { useNavigateToNftExplorerLink } from '@l.x/lx/src/features/nfts/hooks/useNavigateToNftExplorerLink'
-import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
-import { useSetActiveChainId } from '@l.x/lx/src/features/smartWallet/delegation/hooks/useSetActiveChainId'
-import { DelegatedState } from '@l.x/lx/src/features/smartWallet/delegation/types'
-import { useHasAccountMismatchCallback } from '@l.x/lx/src/features/smartWallet/mismatch/hooks'
-import { MismatchContextProvider } from '@l.x/lx/src/features/smartWallet/mismatch/MismatchContext'
-import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
-import { useGetCanSignPermits } from '@l.x/lx/src/features/transactions/hooks/useGetCanSignPermits'
-import { CurrencyField } from '@l.x/lx/src/types/currency'
-import { currencyIdToAddress, currencyIdToChain } from '@l.x/lx/src/utils/currencyId'
-import { getFiatOnRampURL, getPoolDetailsURL, getTokenDetailsURL } from '@l.x/lx/src/utils/linking'
-import { useEvent, usePrevious } from '@luxfi/utilities/src/react/hooks'
-import { noop } from '@luxfi/utilities/src/react/noop'
+import { CONNECTION_PROVIDER_IDS } from 'lx/src/constants/web3'
+import { LuxProvider } from 'lx/src/contexts/LuxContext'
+import { useOnchainDisplayName } from 'lx/src/features/accounts/useOnchainDisplayName'
+import { getChainInfo } from 'lx/src/features/chains/chainInfo'
+import { useEnabledChains } from 'lx/src/features/chains/hooks/useEnabledChains'
+import { UniverseChainId } from 'lx/src/features/chains/types'
+import { useNavigateToNftExplorerLink } from 'lx/src/features/nfts/hooks/useNavigateToNftExplorerLink'
+import { Platform } from 'lx/src/features/platforms/types/Platform'
+import { useSetActiveChainId } from 'lx/src/features/smartWallet/delegation/hooks/useSetActiveChainId'
+import { DelegatedState } from 'lx/src/features/smartWallet/delegation/types'
+import { useHasAccountMismatchCallback } from 'lx/src/features/smartWallet/mismatch/hooks'
+import { MismatchContextProvider } from 'lx/src/features/smartWallet/mismatch/MismatchContext'
+import { ModalName } from 'lx/src/features/telemetry/constants'
+import { useGetCanSignPermits } from 'lx/src/features/transactions/hooks/useGetCanSignPermits'
+import { CurrencyField } from 'lx/src/types/currency'
+import { currencyIdToAddress, currencyIdToChain } from 'lx/src/utils/currencyId'
+import { getFiatOnRampURL, getPoolDetailsURL, getTokenDetailsURL } from 'lx/src/utils/linking'
+import { useEvent, usePrevious } from 'utilities/src/react/hooks'
+import { noop } from 'utilities/src/react/noop'
 import { useAccountDrawer } from '~/components/AccountDrawer/MiniPortfolio/hooks'
 import { MenuStateVariant, useMenuState } from '~/components/AccountDrawer/menuState'
 import { SwitchNetworkAction } from '~/components/Popups/types'
@@ -40,7 +40,7 @@ import { useIsAtomicBatchingSupportedByChainIdCallback } from '~/state/walletCap
 import { useHasMismatchCallback, useShowMismatchToast } from '~/state/walletCapabilities/hooks/useMismatchAccount'
 import { showSwitchNetworkNotification } from '~/utils/showSwitchNetworkNotification'
 
-// Adapts useEthersProvider to fit lux context hook shape
+// Adapts useEthersProvider to fit lx context hook shape
 function useWebProvider(chainId: number) {
   return useEthersProvider({ chainId })
 }
@@ -53,7 +53,7 @@ export function WebLuxProvider({ children }: PropsWithChildren): JSX.Element {
   )
 }
 
-// Abstracts web-specific transaction flow objects for usage in cross-platform flows in the `lux` package.
+// Abstracts web-specific transaction flow objects for usage in cross-platform flows in the `lx` package.
 function WebLuxProviderInner({ children }: PropsWithChildren) {
   const account = useAccount()
 
@@ -170,7 +170,7 @@ function WebLuxProviderInner({ children }: PropsWithChildren) {
 
   const getHasMismatch = useHasAccountMismatchCallback()
   const isPermitMismatchUxEnabled = useFeatureFlag(FeatureFlags.EnablePermitMismatchUX)
-  const getIsDEXSupported = useEvent((innerChainId?: UniverseChainId) => {
+  const getIsLXSupported = useEvent((innerChainId?: UniverseChainId) => {
     if (isPermitMismatchUxEnabled) {
       return !getHasMismatch(innerChainId)
     }
@@ -188,7 +188,7 @@ function WebLuxProviderInner({ children }: PropsWithChildren) {
 
   const { openModal } = useModalState(ModalName.DelegationMismatch)
 
-  const handleOpenDEXUnsupportedModal = useEvent(() => {
+  const handleOpenLXUnsupportedModal = useEvent(() => {
     openModal()
   })
 
@@ -261,8 +261,8 @@ function WebLuxProviderInner({ children }: PropsWithChildren) {
       navigateToAdvancedSettings={navigateToAdvancedSettings}
       onConnectWallet={onConnectWallet}
       getCanSignPermits={getCanSignPermits}
-      getIsDEXSupported={getIsDEXSupported}
-      handleOnPressDEXUnsupported={handleOpenDEXUnsupportedModal}
+      getIsLXSupported={getIsLXSupported}
+      handleOnPressLXUnsupported={handleOpenLXUnsupportedModal}
       getCanBatchTransactions={getCanBatchTransactions}
       useAccountsStoreContextHook={useAccountsStoreContext}
       getCanPayGasInAnyToken={getCanPayGasInAnyToken}

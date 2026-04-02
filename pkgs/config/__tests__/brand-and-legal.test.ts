@@ -64,8 +64,8 @@ describe('default brand values are defined', () => {
     expect(brand.faviconUrl).toBe('/favicon.ico')
   })
 
-  it('primaryColor defaults to #FC72FF', () => {
-    expect(brand.primaryColor).toBe('#FC72FF')
+  it('primaryColor defaults to #C4A34F', () => {
+    expect(brand.primaryColor).toBe('#C4A34F')
   })
 
   it('defaultChainId defaults to 1', () => {
@@ -319,7 +319,7 @@ describe('loadBrandConfig()', () => {
 
     expect(brand.name).toBe('Partial Brand')
     expect(brand.faviconUrl).toBe('/favicon.ico')
-    expect(brand.primaryColor).toBe('#FC72FF')
+    expect(brand.primaryColor).toBe('#C4A34F')
   })
 
   it('derives walletName from name when not explicitly set', async () => {

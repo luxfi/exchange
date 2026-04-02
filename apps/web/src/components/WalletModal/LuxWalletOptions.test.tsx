@@ -1,6 +1,6 @@
-import { useFeatureFlag } from '@l.x/gating'
-import { CONNECTION_PROVIDER_IDS } from '@l.x/lx/src/constants/web3'
-import { LuxWalletOptions } from '~/components/WalletModal/LuxWalletOptions'
+import { useFeatureFlag } from '@universe/gating'
+import { CONNECTION_PROVIDER_IDS } from 'lx/src/constants/web3'
+import { LXWalletOptions } from '~/components/WalletModal/LXWalletOptions'
 import { useWalletWithId } from '~/features/accounts/store/hooks'
 import { ExternalWallet } from '~/features/accounts/store/types'
 import { mocked } from '~/test-utils/mocked'
@@ -11,7 +11,7 @@ vi.mock('~/features/accounts/store/hooks', async () => ({
   useWalletWithId: vi.fn(),
 }))
 
-vi.mock('@l.x/gating', async (importOriginal) => {
+vi.mock('@universe/gating', async (importOriginal) => {
   return {
     ...(await importOriginal()),
     useFeatureFlag: vi.fn(),
@@ -19,39 +19,39 @@ vi.mock('@l.x/gating', async (importOriginal) => {
   }
 })
 
-const LuxMobileWallet = {
-  id: CONNECTION_PROVIDER_IDS.LUX_WALLET_CONNECT_CONNECTOR_ID,
+const LXMobileWallet = {
+  id: CONNECTION_PROVIDER_IDS.LX_WALLET_CONNECT_CONNECTOR_ID,
 } as ExternalWallet
 
-const LuxExtensionWallet = {
-  id: CONNECTION_PROVIDER_IDS.LUX_EXTENSION_RDNS,
+const LXExtensionWallet = {
+  id: CONNECTION_PROVIDER_IDS.LX_EXTENSION_RDNS,
 } as ExternalWallet
 
-describe('LuxWalletOptions', () => {
+describe('LXWalletOptions', () => {
   it('Download wallet option should be visible if extension is not detected', () => {
     mocked(useWalletWithId).mockImplementation(
       (testId) =>
         ({
-          [CONNECTION_PROVIDER_IDS.LUX_WALLET_CONNECT_CONNECTOR_ID]: LuxMobileWallet,
+          [CONNECTION_PROVIDER_IDS.LX_WALLET_CONNECT_CONNECTOR_ID]: LXMobileWallet,
         })[testId],
     )
     mocked(useFeatureFlag).mockReturnValue(true)
-    const { asFragment } = render(<LuxWalletOptions />)
+    const { asFragment } = render(<LXWalletOptions />)
     expect(asFragment()).toMatchSnapshot()
-    const downloadOption = screen.getByTestId('download-lux-wallet')
+    const downloadOption = screen.getByTestId('download-lx-wallet')
     expect(downloadOption).toBeInTheDocument()
   })
   it('Extension connecter should be shown if detected', () => {
     mocked(useWalletWithId).mockImplementation(
       (testId) =>
         ({
-          [CONNECTION_PROVIDER_IDS.LUX_EXTENSION_RDNS]: LuxExtensionWallet,
+          [CONNECTION_PROVIDER_IDS.LX_EXTENSION_RDNS]: LXExtensionWallet,
         })[testId],
     )
     mocked(useFeatureFlag).mockReturnValue(false)
-    const { asFragment } = render(<LuxWalletOptions />)
+    const { asFragment } = render(<LXWalletOptions />)
     expect(asFragment()).toMatchSnapshot()
-    const connectWallet = screen.getByTestId('connect-lux-extension')
+    const connectWallet = screen.getByTestId('connect-lx-extension')
     expect(connectWallet).toBeInTheDocument()
   })
 })
