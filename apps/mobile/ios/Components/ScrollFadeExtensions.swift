@@ -1,6 +1,6 @@
 //
 //  ScrollExtension.swift
-//  Uniswap
+//  Lux
 //
 //  Created by Gary Ye on 8/31/23.
 //

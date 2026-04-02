@@ -65,7 +65,7 @@ struct Provider: IntentTimelineProvider {
       await DataQueries.fetchTokenPriceData(chain: WidgetConstants.ethereumChain, address: nil) :
       await DataQueries.fetchTokenPriceData(chain: configuration.selectedToken?.chain ?? "", address: configuration.selectedToken?.address)
     async let conversionRequest = await DataQueries.fetchCurrencyConversion(
-      toCurrency: UniswapUserDefaults.readI18n().currency)
+      toCurrency: LuxUserDefaults.readI18n().currency)
     
     let (tokenPriceResponse, conversionResponse) = try await (tokenPriceRequest, conversionRequest)
     
@@ -167,7 +167,7 @@ struct TokenPriceWidgetEntryView: View {
   func priceSection(isPlaceholder: Bool) -> some View {
     return VStack(alignment: .leading, spacing: 0) {
       if (!isPlaceholder && entry.spotPrice != nil && entry.pricePercentChange != nil) {
-        let i18nSettings = UniswapUserDefaults.readI18n()
+        let i18nSettings = LuxUserDefaults.readI18n()
         Text(
           NumberFormatter.fiatTokenDetailsFormatter(
             price: entry.spotPrice,
@@ -292,7 +292,7 @@ struct TokenPriceWidgetEntryView: View {
   }
   
   var body: some View {
-    let deeplinkURL = URL(string: "uniswap://widget/#/tokens/\(entry.configuration.selectedToken?.chain?.lowercased() ?? "")/\(entry.configuration.selectedToken?.address ?? "NATIVE")")
+    let deeplinkURL = URL(string: "lux://widget/#/tokens/\(entry.configuration.selectedToken?.chain?.lowercased() ?? "")/\(entry.configuration.selectedToken?.address ?? "NATIVE")")
     let shouldRenderPlaceholder = !reasons.isEmpty
     let body = ZStack {
       switch family {

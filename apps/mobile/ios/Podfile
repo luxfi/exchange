@@ -125,7 +125,7 @@ target 'Lux' do
 
     # Xcode 26+ has a stricter module verifier that requires the consuming target
     # to resolve transitive C module dependencies. Argon2Swift depends on an internal
-    # 'argon2' C module — add its modulemap path so the Uniswap target (the only
+    # 'argon2' C module — add its modulemap path so the Lux target (the only
     # target declaring Argon2Swift) can find it.
     argon2_srcroot = installer.sandbox.pod_dir('Argon2Swift')
     argon2_module_paths = [
@@ -133,13 +133,13 @@ target 'Lux' do
       "#{argon2_srcroot}/Sources/Argon2",
       "#{argon2_srcroot}/Sources/Argon2/include",
     ]
-    uniswap_aggregate = installer.aggregate_targets.find { |t| t.label == 'Pods-Uniswap' }
-    if uniswap_aggregate
-      uniswap_aggregate.xcconfigs.each do |config_name, xcconfig|
+    lux_aggregate = installer.aggregate_targets.find { |t| t.label == 'Pods-Lux' }
+    if lux_aggregate
+      lux_aggregate.xcconfigs.each do |config_name, xcconfig|
         existing = xcconfig.attributes['SWIFT_INCLUDE_PATHS'] || ''
         new_paths = argon2_module_paths.map { |p| "\"#{p}\"" }.join(' ')
         xcconfig.attributes['SWIFT_INCLUDE_PATHS'] = "$(inherited) #{new_paths} #{existing}".strip
-        xcconfig_path = uniswap_aggregate.xcconfig_path(config_name)
+        xcconfig_path = lux_aggregate.xcconfig_path(config_name)
         xcconfig.save_as(xcconfig_path)
       end
     end

@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		00E356F31AD99517003FC87E /* UniswapTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* UniswapTests.m */; };
+		00E356F31AD99517003FC87E /* LuxTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* LuxTests.m */; };
 		037C5AAA2C04970B00B1D808 /* CopyIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037C5AA92C04970B00B1D808 /* CopyIcon.swift */; };
 		038FC04C9385A04F3EA5EBF4 /* TokenQuery.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F706375DFAFB58F8440CF9 /* TokenQuery.graphql.swift */; };
 		03C788232C10E7390011E5DC /* ActionButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C788222C10E7390011E5DC /* ActionButtons.swift */; };
@@ -72,7 +72,7 @@
 		45FFF7DF2E8C2A8100362570 /* SilentPushEventEmitter.m in Sources */ = {isa = PBXBuildFile; fileRef = 45FFF7DE2E8C2A6400362570 /* SilentPushEventEmitter.m */; };
 		45FFF7E12E8C2E6900362570 /* SilentPushEventEmitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FFF7E02E8C2E6100362570 /* SilentPushEventEmitter.swift */; };
 		462433873C56042BDAA3D8E1 /* MultiplePortfolioBalancesQuery.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AF9944E853669C2BC9B5AB /* MultiplePortfolioBalancesQuery.graphql.swift */; };
-		463BA791004B1B7AC1773914 /* Pods_Uniswap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2226DF79BEAFECEE11A51347 /* Pods_Uniswap.framework */; };
+		463BA791004B1B7AC1773914 /* Pods_Lux.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2226DF79BEAFECEE11A51347 /* Pods_Lux.framework */; };
 		498F01286C660E8241774216 /* TokenTransfer.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93783F96FA74CB9A1BEB32EE /* TokenTransfer.graphql.swift */; };
 		4AA5D71F770AA5E8A5AB8D6A /* TokenBalanceParts.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = B97D41BC2760803FD1C7CB3C /* TokenBalanceParts.graphql.swift */; };
 		4D846E92BAEED7A4F5B72919 /* TokenStandard.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5E0F71E23968DEFCEB7A4B /* TokenStandard.graphql.swift */; };
@@ -186,7 +186,7 @@
 		DE2F24512E7204C2CA255C50 /* Pods_Widgets.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E8B7D36D2E14D9488F351EB /* Pods_Widgets.framework */; };
 		DEBB37600A7C5C9A273DA38E /* BlockaidFees.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201FF7E30EC98ABC121BC8BF /* BlockaidFees.graphql.swift */; };
 		DFBC904E6C0B818152912819 /* OnRampServiceProvider.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5478334318BD5D6F8366D6 /* OnRampServiceProvider.graphql.swift */; };
-		E4B3067A930D2E57558E5229 /* Pods_Uniswap_UniswapTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0929C0B4AE1570B8C0B45D4D /* Pods_Uniswap_UniswapTests.framework */; };
+		E4B3067A930D2E57558E5229 /* Pods_Lux_LuxTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0929C0B4AE1570B8C0B45D4D /* Pods_Lux_LuxTests.framework */; };
 		E6CC238CB9AF565DE89087B7 /* SafetyLevel.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FFD02A227ACFB661A44813 /* SafetyLevel.graphql.swift */; };
 		E774B10E7FB502BE97D3895B /* ProtectionResult.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA586C522ABE5DA5363D27C7 /* ProtectionResult.graphql.swift */; };
 		ECB6546D9AA307163172BEA3 /* NftApproveForAll.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99987D29B574C20584CE11A /* NftApproveForAll.graphql.swift */; };
@@ -302,7 +302,7 @@
 
 /* Begin PBXFileReference section */
 		009F4258CE111989223E99A4 /* TokenApproval.graphql.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TokenApproval.graphql.swift; path = WidgetsCore/MobileSchema/Schema/Objects/TokenApproval.graphql.swift; sourceTree = "<group>"; };
-		00E356EE1AD99517003FC87E /* UniswapTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UniswapTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		00E356EE1AD99517003FC87E /* LuxTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LuxTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* LuxTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LuxTests.m; sourceTree = "<group>"; };
 		021E59CE7ECBD4FE0F3BFCFD /* Pods_WidgetsCoreTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WidgetsCoreTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -347,7 +347,7 @@
 		07F5CF742A7020FD00C648A5 /* Format.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Format.swift; sourceTree = "<group>"; };
 		08C60D53AB82A6D0D31D0F78 /* Pods-WidgetIntentExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WidgetIntentExtension.release.xcconfig"; path = "Target Support Files/Pods-WidgetIntentExtension/Pods-WidgetIntentExtension.release.xcconfig"; sourceTree = "<group>"; };
 		08EBF075A4482F701892270B /* Pods-Widgets.dev.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Widgets.dev.xcconfig"; path = "Target Support Files/Pods-Widgets/Pods-Widgets.dev.xcconfig"; sourceTree = "<group>"; };
-		0929C0B4AE1570B8C0B45D4D /* Pods_Uniswap_UniswapTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Uniswap_UniswapTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0929C0B4AE1570B8C0B45D4D /* Pods_Lux_LuxTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Lux_LuxTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A266B733FD2FA9C1C1A7731 /* TokenParts.graphql.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TokenParts.graphql.swift; path = WidgetsCore/MobileSchema/Fragments/TokenParts.graphql.swift; sourceTree = "<group>"; };
 		0A7D41CB7AA0496123E2153D /* SwapOrderType.graphql.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwapOrderType.graphql.swift; path = WidgetsCore/MobileSchema/Schema/Enums/SwapOrderType.graphql.swift; sourceTree = "<group>"; };
 		0B7E5D62E11408EB5F0F5A80 /* Pods-WidgetsCore.beta.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WidgetsCore.beta.xcconfig"; path = "Target Support Files/Pods-WidgetsCore/Pods-WidgetsCore.beta.xcconfig"; sourceTree = "<group>"; };
@@ -360,17 +360,17 @@
 		1064E23E366D0C2C2B20C30E /* Pods_WidgetIntentExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WidgetIntentExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1193B3A845BC3BE8CAA00D01 /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneSignalNotificationServiceExtension.release.xcconfig"; path = "Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension.release.xcconfig"; sourceTree = "<group>"; };
 		132FC1B05AE3D510C3B71EBA /* SwapOrderStatus.graphql.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwapOrderStatus.graphql.swift; path = WidgetsCore/MobileSchema/Schema/Enums/SwapOrderStatus.graphql.swift; sourceTree = "<group>"; };
-		13B07F961A680F5B00A75B9A /* Uniswap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Uniswap.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Uniswap/Images.xcassets; sourceTree = "<group>"; };
-		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Uniswap/Info.plist; sourceTree = "<group>"; };
+		13B07F961A680F5B00A75B9A /* Lux.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lux.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Lux/Images.xcassets; sourceTree = "<group>"; };
+		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Lux/Info.plist; sourceTree = "<group>"; };
 		15092E550A1C78508ABA3280 /* Pods_OneSignalNotificationServiceExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OneSignalNotificationServiceExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		16F706375DFAFB58F8440CF9 /* TokenQuery.graphql.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TokenQuery.graphql.swift; path = WidgetsCore/MobileSchema/Operations/Queries/TokenQuery.graphql.swift; sourceTree = "<group>"; };
-		178644A78AB62609EFDB66B3 /* Pods-Uniswap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Uniswap.release.xcconfig"; path = "Target Support Files/Pods-Uniswap/Pods-Uniswap.release.xcconfig"; sourceTree = "<group>"; };
+		178644A78AB62609EFDB66B3 /* Pods-Lux.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lux.release.xcconfig"; path = "Target Support Files/Pods-Lux/Pods-Lux.release.xcconfig"; sourceTree = "<group>"; };
 		1834199AFFB04D91B05FFB64 /* InputMono-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "InputMono-Regular.ttf"; path = "../src/assets/fonts/InputMono-Regular.ttf"; sourceTree = "<group>"; };
 		1CC6ADAADCA38FDAEB181E86 /* Pods-WidgetIntentExtension.dev.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WidgetIntentExtension.dev.xcconfig"; path = "Target Support Files/Pods-WidgetIntentExtension/Pods-WidgetIntentExtension.dev.xcconfig"; sourceTree = "<group>"; };
 		1D88F29D12AB0D8B4C00D065 /* IContract.graphql.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IContract.graphql.swift; path = WidgetsCore/MobileSchema/Schema/Interfaces/IContract.graphql.swift; sourceTree = "<group>"; };
 		201FF7E30EC98ABC121BC8BF /* BlockaidFees.graphql.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BlockaidFees.graphql.swift; path = WidgetsCore/MobileSchema/Schema/Objects/BlockaidFees.graphql.swift; sourceTree = "<group>"; };
-		2226DF79BEAFECEE11A51347 /* Pods_Uniswap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Uniswap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2226DF79BEAFECEE11A51347 /* Pods_Lux.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Lux.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2240891823DAE7BF8BB88FF4 /* HomeScreenTokensQuery.graphql.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HomeScreenTokensQuery.graphql.swift; path = WidgetsCore/MobileSchema/Operations/Queries/HomeScreenTokensQuery.graphql.swift; sourceTree = "<group>"; };
 		25DDE9DCAFA0EE2838508994 /* Chain.graphql.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Chain.graphql.swift; path = WidgetsCore/MobileSchema/Schema/Enums/Chain.graphql.swift; sourceTree = "<group>"; };
 		284C5150E9B50FB5BE531572 /* Image.graphql.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Image.graphql.swift; path = WidgetsCore/MobileSchema/Schema/Objects/Image.graphql.swift; sourceTree = "<group>"; };
@@ -403,15 +403,15 @@
 		45FFF7DE2E8C2A6400362570 /* SilentPushEventEmitter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SilentPushEventEmitter.m; sourceTree = "<group>"; };
 		45FFF7E02E8C2E6100362570 /* SilentPushEventEmitter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SilentPushEventEmitter.swift; sourceTree = "<group>"; };
 		47148657FBA8DCC92DD69573 /* TransactionDetails.graphql.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TransactionDetails.graphql.swift; path = WidgetsCore/MobileSchema/Schema/Objects/TransactionDetails.graphql.swift; sourceTree = "<group>"; };
-		4781CD4CDD95B5792B793F75 /* Pods-Uniswap-UniswapTests.beta.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Uniswap-UniswapTests.beta.xcconfig"; path = "Target Support Files/Pods-Uniswap-UniswapTests/Pods-Uniswap-UniswapTests.beta.xcconfig"; sourceTree = "<group>"; };
+		4781CD4CDD95B5792B793F75 /* Pods-Lux-LuxTests.beta.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lux-LuxTests.beta.xcconfig"; path = "Target Support Files/Pods-Lux-LuxTests/Pods-Lux-LuxTests.beta.xcconfig"; sourceTree = "<group>"; };
 		48DE72B77CD2D89B75BB934D /* FavoriteTokenCardQuery.graphql.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FavoriteTokenCardQuery.graphql.swift; path = WidgetsCore/MobileSchema/Operations/Queries/FavoriteTokenCardQuery.graphql.swift; sourceTree = "<group>"; };
 		4AF8EE05291534B82ACC1105 /* TokenBalance.graphql.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TokenBalance.graphql.swift; path = WidgetsCore/MobileSchema/Schema/Objects/TokenBalance.graphql.swift; sourceTree = "<group>"; };
 		4C445DB9798210862C34D0E0 /* Pods-WidgetsCoreTests.beta.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WidgetsCoreTests.beta.xcconfig"; path = "Target Support Files/Pods-WidgetsCoreTests/Pods-WidgetsCoreTests.beta.xcconfig"; sourceTree = "<group>"; };
-		4DF5F26A06553EFDD4D99214 /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-Uniswap/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
+		4DF5F26A06553EFDD4D99214 /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-Lux/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
 		4EC9CABC0B4E73B25C7A2128 /* TransactionDirection.graphql.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TransactionDirection.graphql.swift; path = WidgetsCore/MobileSchema/Schema/Enums/TransactionDirection.graphql.swift; sourceTree = "<group>"; };
 		5442480B3C91EDC515728606 /* TokensQuery.graphql.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TokensQuery.graphql.swift; path = WidgetsCore/MobileSchema/Operations/Queries/TokensQuery.graphql.swift; sourceTree = "<group>"; };
 		56093E216B82288E1A4018F0 /* NftBalanceConnection.graphql.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NftBalanceConnection.graphql.swift; path = WidgetsCore/MobileSchema/Schema/Objects/NftBalanceConnection.graphql.swift; sourceTree = "<group>"; };
-		56FE9C9AF785221B7E3F4C04 /* Pods-Uniswap.dev.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Uniswap.dev.xcconfig"; path = "Target Support Files/Pods-Uniswap/Pods-Uniswap.dev.xcconfig"; sourceTree = "<group>"; };
+		56FE9C9AF785221B7E3F4C04 /* Pods-Lux.dev.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lux.dev.xcconfig"; path = "Target Support Files/Pods-Lux/Pods-Lux.dev.xcconfig"; sourceTree = "<group>"; };
 		58641E30674C4C4241702902 /* Query.graphql.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Query.graphql.swift; path = WidgetsCore/MobileSchema/Schema/Objects/Query.graphql.swift; sourceTree = "<group>"; };
 		5B4398E82DD3B22C00F6BE08 /* PrivateKeyDisplayManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PrivateKeyDisplayManager.m; sourceTree = "<group>"; };
 		5B4398E92DD3B22C00F6BE08 /* PrivateKeyDisplayManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateKeyDisplayManager.swift; sourceTree = "<group>"; };
@@ -421,7 +421,7 @@
 		5F2898E709490CC198B98228 /* PageInfo.graphql.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PageInfo.graphql.swift; path = WidgetsCore/MobileSchema/Schema/Objects/PageInfo.graphql.swift; sourceTree = "<group>"; };
 		60195493B9C71EDEECA46E80 /* OnRampTransfer.graphql.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = OnRampTransfer.graphql.swift; path = WidgetsCore/MobileSchema/Schema/Objects/OnRampTransfer.graphql.swift; sourceTree = "<group>"; };
 		614A491FAB9659FA08CD9AE4 /* OnRampTransactionDetails.graphql.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = OnRampTransactionDetails.graphql.swift; path = WidgetsCore/MobileSchema/Schema/Objects/OnRampTransactionDetails.graphql.swift; sourceTree = "<group>"; };
-		62CEA9F2D5176D20A6402A3E /* Pods-Uniswap.beta.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Uniswap.beta.xcconfig"; path = "Target Support Files/Pods-Uniswap/Pods-Uniswap.beta.xcconfig"; sourceTree = "<group>"; };
+		62CEA9F2D5176D20A6402A3E /* Pods-Lux.beta.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lux.beta.xcconfig"; path = "Target Support Files/Pods-Lux/Pods-Lux.beta.xcconfig"; sourceTree = "<group>"; };
 		649A7A762D9AE70B00B53589 /* KeychainConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainConstants.swift; sourceTree = "<group>"; };
 		649A7A772D9AE70B00B53589 /* KeychainUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainUtils.swift; sourceTree = "<group>"; };
 		66697C913CF365C9460F42E6 /* NftCollectionMarket.graphql.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NftCollectionMarket.graphql.swift; path = WidgetsCore/MobileSchema/Schema/Objects/NftCollectionMarket.graphql.swift; sourceTree = "<group>"; };
@@ -450,8 +450,8 @@
 		8604CAA8F7E44D704A6F4AAF /* PortfolioBalancesQuery.graphql.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PortfolioBalancesQuery.graphql.swift; path = WidgetsCore/MobileSchema/Operations/Queries/PortfolioBalancesQuery.graphql.swift; sourceTree = "<group>"; };
 		8719E5872CC41AB64503E903 /* Pods-WidgetIntentExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WidgetIntentExtension.debug.xcconfig"; path = "Target Support Files/Pods-WidgetIntentExtension/Pods-WidgetIntentExtension.debug.xcconfig"; sourceTree = "<group>"; };
 		88B481513A2E780E6489DC4F /* Token.graphql.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Token.graphql.swift; path = WidgetsCore/MobileSchema/Schema/Objects/Token.graphql.swift; sourceTree = "<group>"; };
-		8B2A92162EB3E78E00990413 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = Uniswap/AppDelegate.swift; sourceTree = "<group>"; };
-		8B2A92182EB3E79500990413 /* Uniswap-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Uniswap-Bridging-Header.h"; path = "Uniswap/Uniswap-Bridging-Header.h"; sourceTree = "<group>"; };
+		8B2A92162EB3E78E00990413 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = Lux/AppDelegate.swift; sourceTree = "<group>"; };
+		8B2A92182EB3E79500990413 /* Lux-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Lux-Bridging-Header.h"; path = "Lux/Lux-Bridging-Header.h"; sourceTree = "<group>"; };
 		8BB8B6395E3C86412FA793CB /* AssetActivity.graphql.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AssetActivity.graphql.swift; path = WidgetsCore/MobileSchema/Schema/Objects/AssetActivity.graphql.swift; sourceTree = "<group>"; };
 		8C66DD1D03A824EB6A231DCE /* TokenProjectDescriptionQuery.graphql.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TokenProjectDescriptionQuery.graphql.swift; path = WidgetsCore/MobileSchema/Operations/Queries/TokenProjectDescriptionQuery.graphql.swift; sourceTree = "<group>"; };
 		8D5FF4316461BD4FB5847D62 /* TokenBalanceQuantityParts.graphql.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TokenBalanceQuantityParts.graphql.swift; path = WidgetsCore/MobileSchema/Fragments/TokenBalanceQuantityParts.graphql.swift; sourceTree = "<group>"; };
@@ -477,9 +477,9 @@
 		9BF540E1110D0FD1C219C45C /* ApplicationContract.graphql.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ApplicationContract.graphql.swift; path = WidgetsCore/MobileSchema/Schema/Objects/ApplicationContract.graphql.swift; sourceTree = "<group>"; };
 		9F1055EFA8467996754739A7 /* TokenProjectUrlsParts.graphql.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TokenProjectUrlsParts.graphql.swift; path = WidgetsCore/MobileSchema/Fragments/TokenProjectUrlsParts.graphql.swift; sourceTree = "<group>"; };
 		9F3500812A8AA5890077BFC5 /* EXSplashScreen.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = EXSplashScreen.xcframework; path = "../../../node_modules/expo-splash-screen/ios/EXSplashScreen.xcframework"; sourceTree = "<group>"; };
-		9FCEBEFD2A95A8E00079EDDB /* RNWalletConnect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RNWalletConnect.h; path = Uniswap/WalletConnect/RNWalletConnect.h; sourceTree = "<group>"; };
-		9FCEBEFE2A95A8E00079EDDB /* RNWalletConnect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RNWalletConnect.m; path = Uniswap/WalletConnect/RNWalletConnect.m; sourceTree = "<group>"; };
-		9FCEBEFF2A95A8E00079EDDB /* RNWalletConnect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RNWalletConnect.swift; path = Uniswap/WalletConnect/RNWalletConnect.swift; sourceTree = "<group>"; };
+		9FCEBEFD2A95A8E00079EDDB /* RNWalletConnect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RNWalletConnect.h; path = Lux/WalletConnect/RNWalletConnect.h; sourceTree = "<group>"; };
+		9FCEBEFE2A95A8E00079EDDB /* RNWalletConnect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RNWalletConnect.m; path = Lux/WalletConnect/RNWalletConnect.m; sourceTree = "<group>"; };
+		9FCEBEFF2A95A8E00079EDDB /* RNWalletConnect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RNWalletConnect.swift; path = Lux/WalletConnect/RNWalletConnect.swift; sourceTree = "<group>"; };
 		9FCEBF022A95A99B0079EDDB /* RCTThemeModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RCTThemeModule.h; path = Appearance/RCTThemeModule.h; sourceTree = "<group>"; };
 		9FCEBF032A95A99B0079EDDB /* RCTThemeModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RCTThemeModule.m; path = Appearance/RCTThemeModule.m; sourceTree = "<group>"; };
 		A02D64B698D203A7F3643C18 /* TokenMarket.graphql.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TokenMarket.graphql.swift; path = WidgetsCore/MobileSchema/Schema/Objects/TokenMarket.graphql.swift; sourceTree = "<group>"; };
@@ -491,9 +491,9 @@
 		A3E638BE80543E905D072D7F /* TokenProjectMarket.graphql.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TokenProjectMarket.graphql.swift; path = WidgetsCore/MobileSchema/Schema/Objects/TokenProjectMarket.graphql.swift; sourceTree = "<group>"; };
 		A3F0A5B0272B1DFA00895B25 /* KeychainSwiftDistrib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainSwiftDistrib.swift; sourceTree = "<group>"; };
 		A424FA93DB720DD7684C7674 /* TokenProject.graphql.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TokenProject.graphql.swift; path = WidgetsCore/MobileSchema/Schema/Objects/TokenProject.graphql.swift; sourceTree = "<group>"; };
-		A7C9F415D0E128A43003E071 /* Pods-Uniswap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Uniswap.debug.xcconfig"; path = "Target Support Files/Pods-Uniswap/Pods-Uniswap.debug.xcconfig"; sourceTree = "<group>"; };
+		A7C9F415D0E128A43003E071 /* Pods-Lux.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lux.debug.xcconfig"; path = "Target Support Files/Pods-Lux/Pods-Lux.debug.xcconfig"; sourceTree = "<group>"; };
 		AB3EEA677984132330D8D279 /* HomeScreenTokenParts.graphql.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HomeScreenTokenParts.graphql.swift; path = WidgetsCore/MobileSchema/Fragments/HomeScreenTokenParts.graphql.swift; sourceTree = "<group>"; };
-		AC0EE0972BD826E700BCCF07 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = PrivacyInfo.xcprivacy; path = Uniswap/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		AC0EE0972BD826E700BCCF07 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = PrivacyInfo.xcprivacy; path = Lux/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		AC2794442C51541E00F9AF68 /* sourcemaps-datadog.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = "sourcemaps-datadog.sh"; sourceTree = "<group>"; };
 		AC2EF4022C914B1600EEEFDB /* fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = fonts; path = ../src/assets/fonts; sourceTree = "<group>"; };
 		B0DA4D39B1A6D74A1D05B99F /* Pods-WidgetsCore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WidgetsCore.debug.xcconfig"; path = "Target Support Files/Pods-WidgetsCore/Pods-WidgetsCore.debug.xcconfig"; sourceTree = "<group>"; };
@@ -503,10 +503,10 @@
 		BB9FB14C8B68CE1D05643256 /* TokenBasicProjectParts.graphql.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TokenBasicProjectParts.graphql.swift; path = WidgetsCore/MobileSchema/Fragments/TokenBasicProjectParts.graphql.swift; sourceTree = "<group>"; };
 		BCB2A43E5FB0D7B69CA02312 /* Pods-WidgetsCore.dev.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WidgetsCore.dev.xcconfig"; path = "Target Support Files/Pods-WidgetsCore/Pods-WidgetsCore.dev.xcconfig"; sourceTree = "<group>"; };
 		BE4AB3FCC91BE6C73557E0E3 /* ProtectionAttackType.graphql.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ProtectionAttackType.graphql.swift; path = WidgetsCore/MobileSchema/Schema/Enums/ProtectionAttackType.graphql.swift; sourceTree = "<group>"; };
-		BF9176E944C84910B1C0B057 /* SplashScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = SplashScreen.storyboard; path = Uniswap/SplashScreen.storyboard; sourceTree = "<group>"; };
+		BF9176E944C84910B1C0B057 /* SplashScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = SplashScreen.storyboard; path = Lux/SplashScreen.storyboard; sourceTree = "<group>"; };
 		C050FFEC067334CF05C17EA0 /* TopTokensQuery.graphql.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TopTokensQuery.graphql.swift; path = WidgetsCore/MobileSchema/Operations/Queries/TopTokensQuery.graphql.swift; sourceTree = "<group>"; };
 		C0C956C520AAB54BCE8C5CCC /* WidgetTokensQuery.graphql.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = WidgetTokensQuery.graphql.swift; path = WidgetsCore/MobileSchema/Operations/Queries/WidgetTokensQuery.graphql.swift; sourceTree = "<group>"; };
-		C26D739993D5C939C6FBB58A /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-Uniswap-UniswapTests/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
+		C26D739993D5C939C6FBB58A /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-Lux-LuxTests/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
 		C27225607FACF638581E25B5 /* TransactionListQuery.graphql.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TransactionListQuery.graphql.swift; path = WidgetsCore/MobileSchema/Operations/Queries/TransactionListQuery.graphql.swift; sourceTree = "<group>"; };
 		C394AC5DB58BDF1C33CC0927 /* NftBalanceAssetInput.graphql.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NftBalanceAssetInput.graphql.swift; path = WidgetsCore/MobileSchema/Schema/InputObjects/NftBalanceAssetInput.graphql.swift; sourceTree = "<group>"; };
 		C6754D4BD9CE76AAC915F814 /* TokenMarketParts.graphql.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TokenMarketParts.graphql.swift; path = WidgetsCore/MobileSchema/Fragments/TokenMarketParts.graphql.swift; sourceTree = "<group>"; };
@@ -528,8 +528,8 @@
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		EDA02DA46906E4CDF827104A /* TokenPriceHistoryQuery.graphql.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TokenPriceHistoryQuery.graphql.swift; path = WidgetsCore/MobileSchema/Operations/Queries/TokenPriceHistoryQuery.graphql.swift; sourceTree = "<group>"; };
 		F182567B705FC0E15DA8F34A /* NftBalanceEdge.graphql.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NftBalanceEdge.graphql.swift; path = WidgetsCore/MobileSchema/Schema/Objects/NftBalanceEdge.graphql.swift; sourceTree = "<group>"; };
-		F1A3F4DDD7E40DA9E4BBAAD1 /* Pods-Uniswap-UniswapTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Uniswap-UniswapTests.release.xcconfig"; path = "Target Support Files/Pods-Uniswap-UniswapTests/Pods-Uniswap-UniswapTests.release.xcconfig"; sourceTree = "<group>"; };
-		F35AFD3627EE49230011A725 /* Uniswap.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = Uniswap.entitlements; path = Uniswap/Uniswap.entitlements; sourceTree = "<group>"; };
+		F1A3F4DDD7E40DA9E4BBAAD1 /* Pods-Lux-LuxTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lux-LuxTests.release.xcconfig"; path = "Target Support Files/Pods-Lux-LuxTests/Pods-Lux-LuxTests.release.xcconfig"; sourceTree = "<group>"; };
+		F35AFD3627EE49230011A725 /* Lux.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = Lux.entitlements; path = Lux/Lux.entitlements; sourceTree = "<group>"; };
 		F35AFD3B27EE49990011A725 /* OneSignalNotificationServiceExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = OneSignalNotificationServiceExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		F35AFD3D27EE49990011A725 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		F35AFD3F27EE49990011A725 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -539,8 +539,8 @@
 		F70F4D05A45BC18EA88868A0 /* NftBalancesFilterInput.graphql.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NftBalancesFilterInput.graphql.swift; path = WidgetsCore/MobileSchema/Schema/InputObjects/NftBalancesFilterInput.graphql.swift; sourceTree = "<group>"; };
 		F99987D29B574C20584CE11A /* NftApproveForAll.graphql.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NftApproveForAll.graphql.swift; path = WidgetsCore/MobileSchema/Schema/Objects/NftApproveForAll.graphql.swift; sourceTree = "<group>"; };
 		FD54D51C296C79A4007A37E9 /* GoogleServiceInfo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = GoogleServiceInfo; sourceTree = SOURCE_ROOT; };
-		FD7304CD28A364FC0085BDEA /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Colors.xcassets; path = Uniswap/Colors.xcassets; sourceTree = "<group>"; };
-		FD7304CF28A3650A0085BDEA /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Colors.swift; path = Uniswap/Colors.swift; sourceTree = "<group>"; };
+		FD7304CD28A364FC0085BDEA /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Colors.xcassets; path = Lux/Colors.xcassets; sourceTree = "<group>"; };
+		FD7304CF28A3650A0085BDEA /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Colors.swift; path = Lux/Colors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -836,7 +836,7 @@
 			name = Enums;
 			sourceTree = "<group>";
 		};
-		13B07FAE1A68108700A75B9A /* Uniswap */ = {
+		13B07FAE1A68108700A75B9A /* Lux */ = {
 			isa = PBXGroup;
 			children = (
 				AC0EE0972BD826E700BCCF07 /* PrivacyInfo.xcprivacy */,
@@ -1201,7 +1201,7 @@
 			path = Lux/Icons;
 			sourceTree = "<group>";
 		};
-		9759A762F61D6B2F01C79DBF /* Uniswap */ = {
+		9759A762F61D6B2F01C79DBF /* Lux */ = {
 			isa = PBXGroup;
 			children = (
 				4DF5F26A06553EFDD4D99214 /* ExpoModulesProvider.swift */,

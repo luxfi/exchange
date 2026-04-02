@@ -2,8 +2,8 @@ ignores: [
     # Dependencies that depcheck thinks are unused but are actually used
     '@graphql-codegen/*',
     '@commitlint/*',
-    '@uniswap/eslint-config',
-    '@uniswap/biome-config',
+    '@luxamm/eslint-config',
+    '@luxamm/biome-config',
     'i18next',
     'moti',
     'wrangler',

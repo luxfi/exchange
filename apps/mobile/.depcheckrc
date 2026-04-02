@@ -3,7 +3,7 @@ ignores: [
     "@react-native-community/cli",
     "@react-native-community/cli-platform-android",
     "@react-native-community/cli-platform-ios",
-    "@uniswap/ethers-rs-mobile",
+    "@luxamm/ethers-rs-mobile",
     "babel-loader",
     "babel-jest",
     "ts-jest",

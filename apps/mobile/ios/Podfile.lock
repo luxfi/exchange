@@ -3988,7 +3988,7 @@ DEPENDENCIES:
   - boost (from `../../../node_modules/react-native/third-party-podspecs/boost.podspec`)
   - "DatadogSDKReactNative (from `../../../node_modules/@datadog/mobile-react-native`)"
   - DoubleConversion (from `../../../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec`)
-  - "EthersRS (from `../../../node_modules/@uniswap/ethers-rs-mobile`)"
+  - "EthersRS (from `../../../node_modules/@luxamm/ethers-rs-mobile`)"
   - EXConstants (from `../../../node_modules/expo-constants/ios`)
   - EXJSONUtils (from `../../../node_modules/expo-json-utils/ios`)
   - EXManifests (from `../../../node_modules/expo-manifests/ios`)
@@ -4185,7 +4185,7 @@ EXTERNAL SOURCES:
   DoubleConversion:
     :podspec: "../../../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec"
   EthersRS:
-    :path: "../../../node_modules/@uniswap/ethers-rs-mobile"
+    :path: "../../../node_modules/@luxamm/ethers-rs-mobile"
   EXConstants:
     :path: "../../../node_modules/expo-constants/ios"
   EXJSONUtils:

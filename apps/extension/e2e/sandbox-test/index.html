@@ -23,26 +23,26 @@
 </head>
 <body>
   <h1>Sandbox Origin Validation Test</h1>
-  <p class="subtitle">Bug bounty #621 — Verify sandboxed frames cannot receive the Uniswap provider</p>
+  <p class="subtitle">Bug bounty #621 — Verify sandboxed frames cannot receive the Lux provider</p>
 
   <div class="grid">
     <div class="card">
       <h3>1. Normal Frame (no sandbox)</h3>
-      <div class="detail">Expected: origin = http://localhost:*, Uniswap provider = PRESENT</div>
+      <div class="detail">Expected: origin = http://localhost:*, Lux provider = PRESENT</div>
       <iframe id="frame-normal" src="child.html"></iframe>
       <div id="result-normal" class="result waiting">Waiting for report...</div>
     </div>
 
     <div class="card">
       <h3>2. Sandboxed (allow-scripts only)</h3>
-      <div class="detail">Expected: origin = "null", Uniswap provider = ABSENT</div>
+      <div class="detail">Expected: origin = "null", Lux provider = ABSENT</div>
       <iframe id="frame-sandboxed" src="child.html" sandbox="allow-scripts"></iframe>
       <div id="result-sandboxed" class="result waiting">Waiting for report...</div>
     </div>
 
     <div class="card">
       <h3>3. Sandboxed (allow-scripts + allow-same-origin)</h3>
-      <div class="detail">Expected: origin = http://localhost:*, Uniswap provider = PRESENT</div>
+      <div class="detail">Expected: origin = http://localhost:*, Lux provider = PRESENT</div>
       <iframe id="frame-same-origin" src="child.html" sandbox="allow-scripts allow-same-origin"></iframe>
       <div id="result-same-origin" class="result waiting">Waiting for report...</div>
     </div>
@@ -55,15 +55,15 @@
     3. Open <code>http://localhost:8080</code> in Chrome<br>
     4. All three cards should show their expected results (green = pass, red = fail)<br>
     <br>
-    <strong>Note:</strong> This test detects the <strong>Uniswap provider specifically</strong> via EIP-6963 (<code>rdns: org.uniswap.app</code>),
+    <strong>Note:</strong> This test detects the <strong>Lux provider specifically</strong> via EIP-6963 (<code>rdns: org.lux.app</code>),
     so other wallet extensions (MetaMask, etc.) won't cause false positives.
   </div>
 
   <script>
     const expectations = {
-      normal:        { originIsNull: false, hasUniswapProvider: true },
-      sandboxed:     { originIsNull: true,  hasUniswapProvider: false },
-      'same-origin': { originIsNull: false, hasUniswapProvider: true },
+      normal:        { originIsNull: false, hasLuxProvider: true },
+      sandboxed:     { originIsNull: true,  hasLuxProvider: false },
+      'same-origin': { originIsNull: false, hasLuxProvider: true },
     };
 
     const received = {};
@@ -73,7 +73,7 @@
         return;
       }
 
-      const { origin, hasUniswapProvider } = event.data;
+      const { origin, hasLuxProvider } = event.data;
       const isNull = origin === 'null';
 
       // Determine which frame sent this
@@ -106,7 +106,7 @@
 
       const expect = expectations[frameId];
       const originPass = expect.originIsNull === isNull;
-      const providerPass = expect.hasUniswapProvider === hasUniswapProvider;
+      const providerPass = expect.hasLuxProvider === hasLuxProvider;
       const allPass = originPass && providerPass;
 
       const el = document.getElementById('result-' + frameId);
@@ -114,7 +114,7 @@
       el.innerHTML = `
         ${allPass ? 'PASS' : 'FAIL'} &mdash;
         origin: ${origin} (${originPass ? 'ok' : 'WRONG'}),
-        Uniswap provider: ${hasUniswapProvider ? 'present' : 'absent'} (${providerPass ? 'ok' : 'WRONG'})
+        Lux provider: ${hasLuxProvider ? 'present' : 'absent'} (${providerPass ? 'ok' : 'WRONG'})
       `;
     });
 

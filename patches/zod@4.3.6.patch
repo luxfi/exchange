@@ -7,7 +7,7 @@ index 1234567..abcdefg 100644
  }
  exports.$ZodEncodeError = $ZodEncodeError;
 -exports.globalConfig = {};
-+// Patched by Uniswap: Enable jitless mode by default to avoid CSP unsafe-eval
++// Patched by Lux: Enable jitless mode by default to avoid CSP unsafe-eval
 +// violations when running in browser extension content scripts (MAIN world context).
 +// See: https://github.com/colinhacks/zod/issues/4461
 +exports.globalConfig = { jitless: true };
@@ -23,7 +23,7 @@ index 1234567..abcdefg 100644
      }
  }
 -export const globalConfig = {};
-+// Patched by Uniswap: Enable jitless mode by default to avoid CSP unsafe-eval
++// Patched by Lux: Enable jitless mode by default to avoid CSP unsafe-eval
 +// violations when running in browser extension content scripts (MAIN world context).
 +// See: https://github.com/colinhacks/zod/issues/4461
 +export const globalConfig = { jitless: true };

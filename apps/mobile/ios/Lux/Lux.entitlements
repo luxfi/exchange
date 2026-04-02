@@ -6,18 +6,18 @@
 	<string>development</string>
 	<key>com.apple.developer.associated-domains</key>
 	<array>
-		<string>applinks:uniswap.org</string>
-		<string>applinks:app.uniswap.org</string>
+		<string>applinks:lux.exchange</string>
+		<string>applinks:app.lux.exchange</string>
 		<string>applinks:app.corn-staging.com</string>
-		<string>webcredentials:app.uniswap.org</string>
-		<string>webcredentials:uniswap.org</string>
+		<string>webcredentials:app.lux.exchange</string>
+		<string>webcredentials:lux.exchange</string>
 		<string>webcredentials:unihq.org</string>
 	</array>
 	<key>com.apple.developer.devicecheck.appattest-environment</key>
 	<string>production</string>
 	<key>com.apple.developer.icloud-container-identifiers</key>
 	<array>
-		<string>iCloud.Uniswap</string>
+		<string>iCloud.Lux</string>
 	</array>
 	<key>com.apple.developer.icloud-services</key>
 	<array>
@@ -25,12 +25,12 @@
 	</array>
 	<key>com.apple.developer.ubiquity-container-identifiers</key>
 	<array>
-		<string>iCloud.Uniswap</string>
+		<string>iCloud.Lux</string>
 	</array>
 	<key>com.apple.security.application-groups</key>
 	<array>
-		<string>group.com.uniswap.widgets</string>
-		<string>group.com.uniswap.mobile.onesignal</string>
+		<string>group.com.lux.widgets</string>
+		<string>group.com.lux.mobile.onesignal</string>
 	</array>
 </dict>
 </plist>

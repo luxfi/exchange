@@ -11,7 +11,7 @@ test-results/
 
 # utility script output
 scripts/dist
-tools/uniswap-nx/dist
+tools/lux-nx/dist
 
 # next.js
 .next/
@@ -57,7 +57,7 @@ dist/out-tsc/*
 tsconfig.tsbuildinfo
 
 # Locale backup/generated files
-packages/uniswap/src/i18n/locales/source/*_old.json
+packages/lux/src/i18n/locales/source/*_old.json
 
 # ci
 .ci-cache/

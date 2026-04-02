@@ -17,13 +17,13 @@
     const origin = window.origin;
     const hasEthereum = typeof window.ethereum !== 'undefined' && window.ethereum !== null;
 
-    // Listen for Uniswap's EIP-6963 announceProvider event
-    let hasUniswapProvider = false;
-    const UNISWAP_RDNS = 'org.uniswap.app';
+    // Listen for Lux's EIP-6963 announceProvider event
+    let hasLuxProvider = false;
+    const LUX_RDNS = 'org.lux.app';
 
     window.addEventListener('eip6963:announceProvider', (event) => {
-      if (event.detail && event.detail.info && event.detail.info.rdns === UNISWAP_RDNS) {
-        hasUniswapProvider = true;
+      if (event.detail && event.detail.info && event.detail.info.rdns === LUX_RDNS) {
+        hasLuxProvider = true;
         updateDisplay();
       }
     });
@@ -38,11 +38,11 @@
     }, 500);
 
     function updateDisplay() {
-      const otherWallet = hasEthereum && !hasUniswapProvider;
+      const otherWallet = hasEthereum && !hasLuxProvider;
       document.getElementById('info').innerHTML = `
         <div class="status">origin: <strong>${origin}</strong></div>
-        <div class="status ${hasUniswapProvider ? 'pass' : 'fail'}">
-          Uniswap provider (EIP-6963): <strong>${hasUniswapProvider ? 'PRESENT' : 'ABSENT'}</strong>
+        <div class="status ${hasLuxProvider ? 'pass' : 'fail'}">
+          Lux provider (EIP-6963): <strong>${hasLuxProvider ? 'PRESENT' : 'ABSENT'}</strong>
         </div>
         ${otherWallet ? '<div class="status neutral">window.ethereum present from another wallet (ignored)</div>' : ''}
       `;
@@ -53,7 +53,7 @@
         window.parent.postMessage({
           type: 'sandbox-test-report',
           origin: origin,
-          hasUniswapProvider: hasUniswapProvider,
+          hasLuxProvider: hasLuxProvider,
         }, '*');
       } catch (e) {
         // postMessage may fail in some sandbox configurations

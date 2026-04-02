@@ -3,9 +3,9 @@
     "details": [
       {
         "appIDs": [
-          "JH3UHGZD75.com.uniswap.mobile",
-          "JH3UHGZD75.com.uniswap.mobile.beta",
-          "JH3UHGZD75.com.uniswap.mobile.dev"
+          "JH3UHGZD75.com.lux.exchange.mobile",
+          "JH3UHGZD75.com.lux.exchange.mobile.beta",
+          "JH3UHGZD75.com.lux.exchange.mobile.dev"
         ],
         "components": [
           {
@@ -42,9 +42,9 @@
   },
   "webcredentials": {
     "apps": [
-      "JH3UHGZD75.com.uniswap.mobile",
-      "JH3UHGZD75.com.uniswap.mobile.beta",
-      "JH3UHGZD75.com.uniswap.mobile.dev"
+      "JH3UHGZD75.com.lux.exchange.mobile",
+      "JH3UHGZD75.com.lux.exchange.mobile.beta",
+      "JH3UHGZD75.com.lux.exchange.mobile.dev"
     ]
   }
 }

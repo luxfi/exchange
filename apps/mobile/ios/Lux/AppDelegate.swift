@@ -56,7 +56,7 @@ class AppDelegate: ExpoAppDelegate {
 
     window = UIWindow(frame: UIScreen.main.bounds)
     factory.startReactNative(
-      withModuleName: "Uniswap",
+      withModuleName: "Lux",
       in: window,
       launchOptions: newLaunchOptions
     )

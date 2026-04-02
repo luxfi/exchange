@@ -31,7 +31,7 @@ const nextConfig = {
     remotePatterns: [
       { protocol: "https", hostname: "assets.coingecko.com" },
       { protocol: "https", hostname: "raw.githubusercontent.com" },
-      { protocol: "https", hostname: "tokens.uniswap.org" },
+      { protocol: "https", hostname: "tokens.lux.exchange" },
       { protocol: "https", hostname: "*.lux.network" },
     ],
     unoptimized: process.env.GITHUB_ACTIONS ? true : false,

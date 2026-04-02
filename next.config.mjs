@@ -40,7 +40,7 @@ const nextConfig = {
       },
       {
         protocol: "https",
-        hostname: "tokens.uniswap.org",
+        hostname: "tokens.lux.exchange",
       },
       {
         protocol: "https",

@@ -1,13 +1,13 @@
 //
 //  EncryptionHelperTests.swift
-//  UniswapTests
+//  LuxTests
 //
 //  Created by Spencer Yen on 7/27/22.
 //
 
 import XCTest
 import Argon2Swift
-@testable import Uniswap
+@testable import Lux
 
 class EncryptionHelperTests: XCTestCase {
   

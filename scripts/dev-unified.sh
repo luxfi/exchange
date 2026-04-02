@@ -81,7 +81,7 @@ start_lxd_gateway() {
         sleep 1
     fi
 
-    # Start LXD gateway with Uniswap fallback enabled
+    # Start LXD gateway with Lux fallback enabled
     log "Binary: $LXD_BINARY"
     nohup "$LXD_BINARY" -addr ":$GATEWAY_PORT" -fallback > /tmp/lxd-gateway.log 2>&1 &
     echo $! > "$LXD_PID_FILE"

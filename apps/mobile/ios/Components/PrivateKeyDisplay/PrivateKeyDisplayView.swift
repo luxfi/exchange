@@ -1,6 +1,6 @@
 //
 //  PrivateKeyDisplayView.swift
-//  Uniswap
+//  Lux
 //
 //  Created by Chris Lee on 5/9/2025.
 //

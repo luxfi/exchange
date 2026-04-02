@@ -111,7 +111,7 @@ def find_widgets_core_group(project)
   # If we still can't find it, look in common places
   project.main_group.groups.each do |group|
     # Look inside the main project group or similarly named groups
-    if ['Uniswap', 'App', 'Sources'].include?(group.name)
+    if ['Lux', 'App', 'Sources'].include?(group.name)
       group.groups.each do |subgroup|
         if subgroup.name && ['WidgetsCore', 'Widgets', 'Sources'].include?(subgroup.name)
           log_success("Found #{subgroup.name} group under #{group.name}")
@@ -297,7 +297,7 @@ end
 
 def main
   # Paths
-  project_path = File.expand_path('../ios/Uniswap.xcodeproj', __dir__)
+  project_path = File.expand_path('../ios/Lux.xcodeproj', __dir__)
   mobile_schema_dir = File.expand_path('../ios/WidgetsCore/MobileSchema', __dir__)
 
   log_info("Project path: #{project_path}")

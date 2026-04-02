@@ -74,9 +74,9 @@ def prodVersionName = "1.69"
 android {
     ndkVersion rootProject.ext.ndkVersion
 
-    namespace "com.uniswap"
+    namespace "com.lux.exchange"
     defaultConfig {
-        applicationId "com.uniswap.mobile"
+        applicationId "com.lux.exchange.mobile"
         compileSdk rootProject.ext.compileSdkVersion
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
@@ -122,12 +122,12 @@ android {
     productFlavors {
       dev {
         isDefault(true)
-        applicationId "com.uniswap.mobile.dev"
+        applicationId "com.lux.exchange.mobile.dev"
         versionName devVersionName
         dimension "variant"
       }
       beta {
-        applicationId "com.uniswap.mobile.beta"
+        applicationId "com.lux.exchange.mobile.beta"
         versionName betaVersionName
         dimension "variant"
       }
@@ -202,7 +202,7 @@ android {
     sourceSets {
         main {
           jniLibs {
-            srcDir '../../../../node_modules/@uniswap/ethers-rs-mobile/android/jniLibs'
+            srcDir '../../../../node_modules/@luxamm/ethers-rs-mobile/android/jniLibs'
           }
         }
     }

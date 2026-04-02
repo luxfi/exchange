@@ -4,7 +4,7 @@
 # Fix invalid paths for --entry-file and --assets-dest params,
 # needed for react-native/scripts/bundle.js script.
 export ENTRY_FILE="apps/mobile/index.js"
-export DEST="ios/Uniswap.app"
+export DEST="ios/Lux.app"
 
 # Store the starting directory, and if we're in an `ios` dir, move up to parent
 START_DIR=$(pwd)

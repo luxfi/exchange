@@ -3,7 +3,7 @@
 # This script controls whether quality checks run in Github for a specific project
 # Use nx-set-shas to set NX_BASE and NX_HEAD environment variables before running this script
 # Usage: ./checks-should-run.sh <project-name>
-# Example: ./checks-should-run.sh @uniswap/mobile
+# Example: ./checks-should-run.sh @luxamm/mobile
 
 if [ -z "$1" ]; then
   echo "Error: Project name is required"
