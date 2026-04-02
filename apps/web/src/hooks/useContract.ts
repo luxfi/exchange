@@ -1,11 +1,11 @@
 import { Contract } from '@ethersproject/contracts'
 import { CHAIN_TO_ADDRESSES_MAP, MULTICALL_ADDRESSES, NONFUNGIBLE_POSITION_MANAGER_ADDRESSES } from '@luxamm/sdk-core'
-import LuxInterfaceMulticallJson from '@luxamm/v3-periphery/artifacts/contracts/lens/LuxInterfaceMulticall.sol/LuxInterfaceMulticall.json'
+import LXInterfaceMulticallJson from '@luxamm/v3-periphery/artifacts/contracts/lens/UniswapInterfaceMulticall.sol/UniswapInterfaceMulticall.json'
 import NonfungiblePositionManagerJson from '@luxamm/v3-periphery/artifacts/contracts/NonfungiblePositionManager.sol/NonfungiblePositionManager.json'
 import { useEffect, useMemo } from 'react'
 import ERC20_ABI from '@l.x/lx/src/abis/erc20.json'
 import { Erc20, Erc721, Weth } from '@l.x/lx/src/abis/types'
-import { NonfungiblePositionManager, LuxInterfaceMulticall } from '@l.x/lx/src/abis/types/v3'
+import { NonfungiblePositionManager, LXInterfaceMulticall } from '@l.x/lx/src/abis/types/v3'
 import WETH_ABI from '@l.x/lx/src/abis/weth.json'
 import { WRAPPED_NATIVE_CURRENCY } from '@l.x/lx/src/constants/tokens'
 import { EVMUniverseChainId, UniverseChainId } from '@l.x/lx/src/features/chains/types'
@@ -16,7 +16,7 @@ import { logger } from '@luxfi/utilities/src/logger/logger'
 import { useAccount } from '~/hooks/useAccount'
 import { useEthersProvider } from '~/hooks/useEthersProvider'
 
-const { abi: MulticallABI } = LuxInterfaceMulticallJson
+const { abi: MulticallABI } = LXInterfaceMulticallJson
 const { abi: NFTPositionManagerABI } = NonfungiblePositionManagerJson
 
 // returns null on errors
@@ -86,12 +86,12 @@ export function useWETHContract(withSignerIfPossible?: boolean, chainId?: Univer
 export function useInterfaceMulticall(chainId?: UniverseChainId) {
   const account = useAccount()
   const chain = chainId ?? account.chainId
-  return useContract<LuxInterfaceMulticall>({
+  return useContract<LXInterfaceMulticall>({
     address: chain ? MULTICALL_ADDRESSES[chain] : undefined,
     ABI: MulticallABI,
     withSignerIfPossible: false,
     chainId: chain,
-  }) as LuxInterfaceMulticall
+  }) as LXInterfaceMulticall
 }
 
 export function useV3NFTPositionManagerContract(

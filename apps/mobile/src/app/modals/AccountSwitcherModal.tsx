@@ -17,7 +17,7 @@ import { buildWrappedUrl } from '@l.x/lx/src/components/banners/shared/utils'
 import { LuxWrapped2025Card } from '@l.x/lx/src/components/banners/LuxWrapped2025Card/LuxWrapped2025Card'
 import { ActionSheetModal, MenuItemProp } from '@l.x/lx/src/components/modals/ActionSheetModal'
 import { Modal } from '@l.x/lx/src/components/modals/Modal'
-import { LUX_WEB_URL } from '@l.x/lx/src/constants/urls'
+import { LX_WEB_URL } from '@l.x/lx/src/constants/urls'
 import { AccountType } from '@l.x/lx/src/features/accounts/types'
 import { setHasDismissedLuxWrapped2025Banner } from '@l.x/lx/src/features/behaviorHistory/slice'
 import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
@@ -111,7 +111,7 @@ export function AccountSwitcher({ onClose }: { onClose: () => void }): JSX.Eleme
     }
 
     try {
-      const url = buildWrappedUrl(LUX_WEB_URL, activeAccountAddress)
+      const url = buildWrappedUrl(LX_WEB_URL, activeAccountAddress)
       await openUri({ uri: url, openExternalBrowser: true })
       onClose()
       dispatch(setHasDismissedLuxWrapped2025Banner(true))

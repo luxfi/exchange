@@ -1,4 +1,4 @@
 export type { IMulticall } from "./IMulticall";
-export type { LuxInterfaceMulticall } from "./LuxInterfaceMulticall";
+export type { LXInterfaceMulticall } from "./LXInterfaceMulticall";
 export { IMulticall__factory } from "./factories/IMulticall__factory";
-export { LuxInterfaceMulticall__factory } from "./factories/LuxInterfaceMulticall__factory";
+export { LXInterfaceMulticall__factory } from "./factories/LXInterfaceMulticall__factory";

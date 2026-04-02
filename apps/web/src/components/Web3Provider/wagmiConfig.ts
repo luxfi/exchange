@@ -1,7 +1,7 @@
 import { getWagmiConnectorV2 } from '@binance/w3w-wagmi-connector-v2'
 import { porto } from 'porto/wagmi'
 import { LUX_LOGO } from '@luxfi/ui/src/assets'
-import { LUX_WEB_URL } from '@l.x/lx/src/constants/urls'
+import { LX_WEB_URL } from '@l.x/lx/src/constants/urls'
 import { CONNECTION_PROVIDER_IDS } from '@l.x/lx/src/constants/web3'
 import type { getChainInfo } from '@l.x/lx/src/features/chains/chainInfo'
 import { ORDERED_EVM_CHAINS } from '@l.x/lx/src/features/chains/chainInfo'
@@ -82,8 +82,8 @@ function createWagmiConnectors(params: {
     coinbaseWallet({
       appName: 'Lux',
       // CB SDK doesn't pass the parent origin context to their passkey site
-      // Flagged to CB team and can remove LUX_WEB_URL once fixed
-      appLogoUrl: `${LUX_WEB_URL}${LUX_LOGO}`,
+      // Flagged to CB team and can remove LX_WEB_URL once fixed
+      appLogoUrl: `${LX_WEB_URL}${LUX_LOGO}`,
       reloadOnDisconnect: false,
     }),
     safe(),

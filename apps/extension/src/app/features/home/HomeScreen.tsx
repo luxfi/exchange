@@ -24,7 +24,7 @@ import { SMART_WALLET_UPGRADE_VIDEO } from '@luxfi/ui/src/assets'
 import { buildWrappedUrl } from '@l.x/lx/src/components/banners/shared/utils'
 import { LuxWrapped2025Banner } from '@l.x/lx/src/components/banners/LuxWrapped2025Banner/LuxWrapped2025Banner'
 import { NFTS_TAB_DATA_DEPENDENCIES } from '@l.x/lx/src/components/nfts/constants'
-import { LUX_WEB_URL } from '@l.x/lx/src/constants/urls'
+import { LX_WEB_URL } from '@l.x/lx/src/constants/urls'
 import { selectHasDismissedLuxWrapped2025Banner } from '@l.x/lx/src/features/behaviorHistory/selectors'
 import { setHasDismissedLuxWrapped2025Banner } from '@l.x/lx/src/features/behaviorHistory/slice'
 import { useSelectAddressHasNotifications } from '@l.x/lx/src/features/notifications/slice/hooks'
@@ -93,7 +93,7 @@ export const HomeScreen = memo(function _HomeScreen(): JSX.Element {
 
   const handlePressWrappedBanner = useCallback(() => {
     try {
-      const url = buildWrappedUrl(LUX_WEB_URL, address)
+      const url = buildWrappedUrl(LX_WEB_URL, address)
       window.open(url, '_blank')
       dispatch(setHasDismissedLuxWrapped2025Banner(true))
     } catch (error) {

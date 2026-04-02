@@ -344,4 +344,3 @@ export { getWebSocketUrl } from '@l.x/api/src/getWebSocketUrl'
 
 export { provideLXIdentifierService } from '@l.x/api/src/provideLXIdentifierService'
 
-export const provideLuxIdentifierService = provideLXIdentifierService

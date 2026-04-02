@@ -4,7 +4,7 @@ import { Trans, useTranslation } from 'react-i18next'
 import { Flex, Text, TouchableArea, useIsDarkMode, useSporeColors } from '@luxfi/ui/src'
 import { iconSizes } from '@luxfi/ui/src/theme'
 import { NetworkLogo } from '@l.x/lx/src/components/CurrencyLogo/NetworkLogo'
-import { LUX_WEB_URL } from '@l.x/lx/src/constants/urls'
+import { LX_WEB_URL } from '@l.x/lx/src/constants/urls'
 import { MAINNET_CHAIN_INFO } from '@l.x/lx/src/features/chains/evm/info/mainnet'
 import { useEnabledChains } from '@l.x/lx/src/features/chains/hooks/useEnabledChains'
 import { SOLANA_CHAIN_INFO } from '@l.x/lx/src/features/chains/svm/info/solana'
@@ -65,7 +65,7 @@ function ProviderPlatform({
       serviceProvider: selectedServiceProvider.serviceProvider,
       walletAddress: address ?? '', // satisfy typecheck: useFiatOnRampAggregatorTransferWidgetQuery will only query if walletAddress is defined
       externalSessionId: externalTransactionId,
-      redirectUrl: `${LUX_WEB_URL}/buy`,
+      redirectUrl: `${LX_WEB_URL}/buy`,
     }
   }, [selectedServiceProvider, address, externalTransactionId])
 

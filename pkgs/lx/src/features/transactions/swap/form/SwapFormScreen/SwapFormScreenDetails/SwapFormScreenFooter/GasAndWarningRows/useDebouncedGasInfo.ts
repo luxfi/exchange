@@ -1,6 +1,6 @@
 import { useMemo } from 'react'
 import {
-  useFormattedLXGasFeeInfo,
+  useFormattedDEXGasFeeInfo,
   useGasFeeFormattedDisplayAmounts,
   useGasFeeHighRelativeToValue,
 } from 'lx/src/features/gas/hooks'
@@ -38,7 +38,7 @@ export function useDebouncedGasInfo(): GasInfo {
     }
   })
 
-  const lxOrderGasFeeInfo = useFormattedLXGasFeeInfo(gasFeeBreakdown, chainId)
+  const lxOrderGasFeeInfo = useFormattedDEXGasFeeInfo(gasFeeBreakdown, chainId)
 
   const { gasFeeFormatted, gasFeeUSD } = useGasFeeFormattedDisplayAmounts({
     gasFee,

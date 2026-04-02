@@ -325,7 +325,7 @@ function HomeScreen({
 
   const handlePressWrappedBanner = useCallback(async () => {
     try {
-      const url = buildWrappedUrl(LUX_WEB_URL, activeAccount.address)
+      const url = buildWrappedUrl(LX_WEB_URL, activeAccount.address)
       await openUri({ uri: url, openExternalBrowser: true })
       dispatch(setHasDismissedLuxWrapped2025Banner(true))
     } catch (error) {

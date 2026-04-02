@@ -3,7 +3,7 @@ import { Interface } from 'ethers/lib/utils'
 import ERC20_ABI from '@l.x/lx/src/abis/erc20.json'
 import { Erc20Interface } from '@l.x/lx/src/abis/types/Erc20'
 import { Erc20Bytes32Interface } from '@l.x/lx/src/abis/types/Erc20Bytes32'
-import { LuxInterfaceMulticall } from '@l.x/lx/src/abis/types/v3'
+import { LXInterfaceMulticall } from '@l.x/lx/src/abis/types/v3'
 import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { getValidAddress } from '@l.x/lx/src/utils/addresses'
 import { logger } from '@luxfi/utilities/src/logger/logger'
@@ -22,7 +22,7 @@ const Erc20Bytes32 = new Interface(ERC20_ABI) as Erc20Bytes32Interface // Used f
 
 // TODO(WEB-1760): cartcrom - adapt support for multi-function multi-interface multicalls into redux-multicall to remove than this custom cache/chunking logic
 // Infura rejects calls with gas costs > 10x the current block gas limit; in such case we split the call into 2 chunks
-async function fetchChunk(multicall: LuxInterfaceMulticall, chunk: Call[]): Promise<CallResult[]> {
+async function fetchChunk(multicall: LXInterfaceMulticall, chunk: Call[]): Promise<CallResult[]> {
   try {
     return (await multicall.callStatic.multicall(chunk)).returnData
   } catch (error) {
@@ -108,7 +108,7 @@ export async function getTokensAsync({
 }: {
   addresses: string[]
   chainId: UniverseChainId
-  multicall: LuxInterfaceMulticall
+  multicall: LXInterfaceMulticall
 }): Promise<TokenMap> {
   if (addresses.length === 0) {
     return {}

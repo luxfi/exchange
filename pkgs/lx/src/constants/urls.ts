@@ -55,8 +55,7 @@ export function getForApiUrl(): string {
   return getCloudflareApiBaseUrl({ flow: TrafficFlows.FOR, postfix: 'v2/FOR.v1.FORService' })
 }
 
-export const LUX_WEB_URL = `https://${LX_WEB_HOSTNAME}`
-export const LX_WEB_URL = LUX_WEB_URL
+export const LX_WEB_URL = `https://${LX_WEB_HOSTNAME}`
 export const LUX_APP_URL = getBrandUrl('/app')
 export const LUX_MOBILE_REDIRECT_URL = getBrandUrl('/mobile-redirect')
 
@@ -173,7 +172,7 @@ export const lxUrls = {
   termsOfServiceUrl: brand.termsUrl,
   privacyPolicyUrl: brand.privacyUrl,
   chromeExtension: getBrandUrl('/ext'),
-  chromeExtensionUninstallUrl: `${LUX_WEB_URL}${CHROME_EXTENSION_UNINSTALL_URL_PATH}`,
+  chromeExtensionUninstallUrl: `${LX_WEB_URL}${CHROME_EXTENSION_UNINSTALL_URL_PATH}`,
 
   // Download links
   appStoreDownloadUrl: getBrandUrl('/wallet/ios'),
@@ -256,7 +255,7 @@ export const lxUrls = {
   // App and Redirect URL's
   appBaseUrl: LUX_APP_URL,
   redirectUrlBase: LUX_MOBILE_REDIRECT_URL,
-  requestOriginUrl: LUX_WEB_URL,
+  requestOriginUrl: LX_WEB_URL,
 
   // Web Interface Urls
   webInterfaceSwapUrl: `${LX_WEB_URL}/#/swap`,

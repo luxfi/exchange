@@ -25,7 +25,7 @@ import { ContextMenu, MenuOptionItem } from '@l.x/lx/src/components/menus/Contex
 import { ContextMenuTriggerMode } from '@l.x/lx/src/components/menus/types'
 import { WarningSeverity } from '@l.x/lx/src/components/modals/WarningModal/types'
 import { WarningModal } from '@l.x/lx/src/components/modals/WarningModal/WarningModal'
-import { LUX_WEB_URL } from '@l.x/lx/src/constants/urls'
+import { LX_WEB_URL } from '@l.x/lx/src/constants/urls'
 import { AccountType, DisplayNameType } from '@l.x/lx/src/features/accounts/types'
 import { setHasDismissedLuxWrapped2025Banner } from '@l.x/lx/src/features/behaviorHistory/slice'
 import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
@@ -166,7 +166,7 @@ export function AccountSwitcherScreen(): JSX.Element {
 
   const onPressWrappedCard = useCallback(() => {
     try {
-      const url = buildWrappedUrl(LUX_WEB_URL, activeAddress)
+      const url = buildWrappedUrl(LX_WEB_URL, activeAddress)
       window.open(url, '_blank')
       dispatch(setHasDismissedLuxWrapped2025Banner(true))
       navigate(-1)

@@ -136,4 +136,3 @@ export {
   createLocalCookieTransport,
 } from '@l.x/sessions/src/test-utils/createLocalCookieTransport'
 
-export const luxIdentifierQuery = lxIdentifierQuery

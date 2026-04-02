@@ -16,7 +16,7 @@ import { handleLuxAppDeepLink } from 'src/features/deepLinking/handleLuxAppDeepL
 import { LinkSource } from 'src/features/deepLinking/types'
 import { openModal } from 'src/features/modals/modalSlice'
 import { waitForWcWeb3WalletIsReady } from 'src/features/walletConnect/walletConnectClient'
-import { LUX_WEB_URL } from '@l.x/lx/src/constants/urls'
+import { LX_WEB_URL } from '@l.x/lx/src/constants/urls'
 import { MobileEventName, ModalName } from '@l.x/lx/src/features/telemetry/constants'
 import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
 import {
@@ -250,8 +250,8 @@ describe(handleDeepLink, () => {
 
   it('Handles Share Token Item Universal Link', async () => {
     const path = `tokens/ethereum/${SAMPLE_SEED_ADDRESS_1}`
-    const pathUrl = `${LUX_WEB_URL}/${path}`
-    const hashedUrl = `${LUX_WEB_URL}/#/${path}`
+    const pathUrl = `${LX_WEB_URL}/${path}`
+    const hashedUrl = `${LX_WEB_URL}/#/${path}`
     const expectedModalState = {
       currencyId: `1-${SAMPLE_SEED_ADDRESS_1}`,
     }

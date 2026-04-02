@@ -1,10 +1,10 @@
 import { BigNumber } from '@ethersproject/bignumber'
 import { CurrencyAmount, Token, V3_CORE_FACTORY_ADDRESSES } from '@luxamm/sdk-core'
-import IAMMV3PoolStateJSON from '@luxamm/v3-core/artifacts/contracts/interfaces/pool/ILuxV3PoolState.sol/ILuxV3PoolState.json'
+import IAMMV3PoolStateJSON from '@luxamm/v3-core/artifacts/contracts/interfaces/pool/IUniswapV3PoolState.sol/IUniswapV3PoolState.json'
 import { computePoolAddress, Pool, Position } from '@luxamm/v3-sdk'
 import { Interface } from 'ethers/lib/utils'
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
-import { NonfungiblePositionManager, LuxInterfaceMulticall } from '@l.x/lx/src/abis/types/v3'
+import { NonfungiblePositionManager, LXInterfaceMulticall } from '@l.x/lx/src/abis/types/v3'
 import { AMMV3PoolInterface } from '@l.x/lx/src/abis/types/v3/AMMV3Pool'
 import { useEnabledChains } from '@l.x/lx/src/features/chains/hooks/useEnabledChains'
 import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
@@ -131,7 +131,7 @@ export default function useMultiChainPositions(account: string): UseMultiChainPo
   // Combines PositionDetails with Pool data to build our return type
   const fetchPositionInfo = useCallback(
     // eslint-disable-next-line max-params
-    async (positionDetails: PositionDetails[], chainId: UniverseChainId, multicall: LuxInterfaceMulticall) => {
+    async (positionDetails: PositionDetails[], chainId: UniverseChainId, multicall: LXInterfaceMulticall) => {
       const poolInterface = new Interface(IAMMV3PoolStateJSON.abi) as AMMV3PoolInterface
       const tokens = await getTokens(
         positionDetails.flatMap((details) => [details.token0, details.token1]),

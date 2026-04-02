@@ -1,6 +1,6 @@
 import React, { Dispatch, useEffect, useMemo, useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import type { LuxInterfaceMulticall } from './abi/types'
+import type { LXInterfaceMulticall } from './abi/types'
 import { CHUNK_GAS_LIMIT, DEFAULT_CALL_GAS_REQUIRED } from './constants'
 import type { MulticallContext } from './context'
 import type { MulticallActions } from './slice'
@@ -29,7 +29,7 @@ const FETCH_RETRY_CONFIG = {
  * @param blockNumber block number passed as the block tag in the eth_call
  */
 async function fetchChunk(
-  multicall: LuxInterfaceMulticall,
+  multicall: LXInterfaceMulticall,
   chunk: Call[],
   blockNumber: number,
   isDebug?: boolean
@@ -236,7 +236,7 @@ export interface UpdaterProps {
   context: MulticallContext
   chainId: number | undefined // For now, one updater is required for each chainId to be watched
   latestBlockNumber: number | undefined
-  contract: LuxInterfaceMulticall
+  contract: LXInterfaceMulticall
   isDebug?: boolean
   listenerOptions?: ListenerOptions
 }

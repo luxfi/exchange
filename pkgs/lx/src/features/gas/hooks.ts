@@ -330,5 +330,3 @@ export function useGasFeeFormattedDisplayAmounts<T extends string | undefined>({
   } as GasFeeFormattedAmounts<T>
 }
 
-// Re-export for backwards compatibility
-export { useFormattedDEXGasFeeInfo as useFormattedLXGasFeeInfo }
