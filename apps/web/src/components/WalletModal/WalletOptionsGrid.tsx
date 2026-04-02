@@ -6,7 +6,7 @@ import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
 import { isMobileWeb } from '@luxfi/utilities/src/platform'
 import { MenuStateVariant, useSetMenuCallback } from '~/components/AccountDrawer/menuState'
 import { NoSolanaWalletConnectedView } from '~/components/WalletModal/NoSolanaWalletConnectedView'
-import { LxMobileWalletConnectorOption } from '~/components/WalletModal/LxMobileWalletConnectorOption'
+import { LuxMobileWalletConnectorOption } from '~/components/WalletModal/LuxMobileWalletConnectorOption'
 import { OtherWalletsOption, WalletConnectorOption } from '~/components/WalletModal/WalletConnectorOption'
 import { useRecentConnectorId } from '~/components/Web3Provider/constants'
 import { useOrderedWallets } from '~/features/wallet/connection/hooks/useOrderedWalletConnectors'
@@ -57,7 +57,7 @@ export function WalletOptionsGrid({
       >
         {shouldShowMobileConnector && (
           <>
-            <LxMobileWalletConnectorOption />
+            <LuxMobileWalletConnectorOption />
             {isEmbeddedWalletEnabled ? <Flex height={2} backgroundColor="$surface1" /> : <Separator />}
           </>
         )}
