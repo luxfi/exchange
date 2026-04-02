@@ -1,3 +1,4 @@
+import { brand } from '@luxexchange/config'
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { Link, useLocation } from 'react-router'
 import { Flex, Popover, styled, Text, useIsTouchDevice, useMedia } from '@luxfi/ui/src'
@@ -60,7 +61,7 @@ export function CompanyMenu() {
                 <NavIcon />
                 {isLargeScreen && (
                   <Text variant="subheading1" color="$accent1" userSelect="none">
-                    Lux
+                    {brand.name.replace(/\s*exchange\s*/i, '')}
                   </Text>
                 )}
               </Flex>

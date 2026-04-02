@@ -21,6 +21,8 @@
     "twitter": "https://x.com/zoo_ngo",
     "github": "https://github.com/zoo-labs",
     "discord": "https://discord.gg/zoo",
+    "logoUrl": "/brands/zoo-logo.svg",
+    "faviconUrl": "/brands/zoo-favicon.png",
     "primaryColor": "#00C853",
     "theme": {
       "light": {
