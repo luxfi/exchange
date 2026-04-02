@@ -3,7 +3,6 @@ ignores: [
     'concurrently',
     'react-native-web',
     'jest-environment-jsdom',
-    'webpack-cli',
     '@wxt-dev/module-react',
     'serve',
     'typescript',
@@ -14,13 +13,6 @@ ignores: [
     'e2e',
     'tsconfig',
     'config',
-    # Webpack plugins
-    '@svgr/webpack',
-    'tamagui-loader',
-    'esbuild-loader',
-    'style-loader',
-    'css-loader',
-    'swc-loader',
     ## Testing
     '@testing-library/dom',
   ]

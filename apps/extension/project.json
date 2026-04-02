@@ -12,7 +12,7 @@
       }
     },
     "build:production": {
-      "command": "webpack --node-env=production --env BUILD_ENV=prod BUILD_NUM=${BUILD_NUM:-0}",
+      "command": "BUILD_ENV=prod BUILD_NUM=${BUILD_NUM:-0} wxt build",
       "options": {
         "cwd": "{projectRoot}"
       }
@@ -126,18 +126,6 @@
         "cwd": "{projectRoot}"
       }
     },
-    "start:webpack": {
-      "command": "webpack serve --config webpack.config.js",
-      "options": {
-        "cwd": "{projectRoot}"
-      }
-    },
-    "start:webpack:absolute": {
-      "command": "webpack serve --config webpack.config.js --output-path /Users/Shared/stretch",
-      "options": {
-        "cwd": "{projectRoot}"
-      }
-    },
     "test": {
       "command": "jest",
       "options": {
@@ -159,12 +147,12 @@
       }
     },
     "build:e2e": {
-      "command": "webpack --node-env=production --env BUILD_ENV=dev BUILD_NUM=0",
+      "command": "BUILD_ENV=dev BUILD_NUM=0 wxt build",
       "options": {
         "cwd": "{projectRoot}"
       },
       "inputs": ["dependencies", "sourceFiles", "tsConfig"],
-      "outputs": ["{projectRoot}/dist", "{projectRoot}/build", "{projectRoot}/.next", "{projectRoot}/types"],
+      "outputs": ["{projectRoot}/.output"],
       "cache": true,
       "dependsOn": ["^build", "prepare"]
     },

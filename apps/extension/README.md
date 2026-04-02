@@ -6,13 +6,6 @@
 
 Before running the extension, you need to get the environment variables from 1password in order to get full functionality. Run the command `bun extension env:local:download` to copy them to your root folder.
 
-### Build Systems
-
-The extension supports two build systems during the migration from Webpack to WXT:
-
-- **WXT** (new) - Preferred for local development. Opens browser automatically.
-- **Webpack** (legacy) - Still used for production builds during the transition.
-
 ### Running the extension locally
 
 First, install dependencies from the top level of the monorepo:
@@ -20,10 +13,6 @@ First, install dependencies from the top level of the monorepo:
 ```bash
 bun install
 ```
-
----
-
-#### Option 1: WXT (recommended)
 
 ```bash
 bun extension dev
@@ -58,7 +47,9 @@ export default defineWebExtConfig({
 });
 ```
 
-##### Running WXT with absolute paths (for Scantastic testing)
+##### Running with absolute paths (for Scantastic testing)
+
+Our Scantastic API requires a consistent origin header, so the build must be loaded from an absolute path. Chrome generates a consistent extension ID based on the path it was loaded from.
 
 ```bash
 # Mac
@@ -67,47 +58,6 @@ bun extension start:absolute
 # Windows
 bun extension start:absolute:windows
 ```
-
----
-
-#### Option 2: Webpack (legacy)
-
-```bash
-bun extension start:webpack
-```
-
-Then manually load the extension into Chrome:
-
-1. Go to **chrome://extensions**
-2. At the top right, turn on **Developer mode**
-3. Click **Load unpacked**
-4. Find and select the extension folder (`apps/extension/dev`)
-
-##### Running Webpack with absolute paths (for Scantastic testing)
-
-Our Scantastic API requires a consistent origin header, so the build must be loaded from an absolute path. Chrome generates a consistent extension ID based on the path it was loaded from.
-
-```bash
-# Mac
-bun extension start:webpack:absolute
-
-# Windows
-bun extension start:webpack:absolute:windows
-```
-
-Then manually load the extension into Chrome:
-
-1. Go to **chrome://extensions**
-2. At the top right, turn on **Developer mode**
-3. Click **Load unpacked**
-4. Find and select the extension folder with an absolute path:
-   - Mac: `/Users/Shared/stretch`
-   - Windows: `C:/ProgramData/stretch`
-5. Your extension URL should be:
-   - Mac: `chrome-extension://ceofpnbcmdjbibjjdniemjemmgaibeih`
-   - Windows: `chrome-extension://ffogefanhjekjafbpofianlhkonejcoe`
-
-The backend allows these origins, and the ID is consistently generated based on the absolute path.
 
 ## Migrations
 

@@ -449,7 +449,7 @@ export default defineConfig({
   // Development server configuration
   dev: {
     server: {
-      port: 9998, // Different from webpack (9997) to avoid conflicts
+      port: 9998,
     },
   },
 
