@@ -128,7 +128,7 @@ function DownloadMobile() {
       px="60px"
       my="$spacing24"
     >
-      <BadgeLink href=getBrandUrl('/wallet')>
+      <BadgeLink href={getBrandUrl('/wallet')}>
         <Suspense fallback={<Loader.Box width={200} height={200} />}>
           <LazyWalletOneLinkQR width={200} height={200} />
         </Suspense>
