@@ -10,96 +10,19 @@ import { Button } from "./ui/button"
 import { Input } from "./ui/input"
 import { cn } from "./ui/cn"
 
-// =============================================================================
-// TYPES
-// =============================================================================
+import type { StrategyLeg, StrategyTemplate, StrategyOrder } from "./types"
+import { STRATEGY_TEMPLATES as DEFAULT_TEMPLATES } from "./types"
 
-interface StrategyLeg {
-  id: string
-  side: "buy" | "sell"
-  optionType: "call" | "put"
-  strike: string
-  quantity: string
-}
-
-interface StrategyTemplate {
-  name: string
-  description: string
-  legs: Omit<StrategyLeg, "id">[]
-}
-
-interface StrategyPanelProps {
+export interface StrategyPanelProps {
   underlying: string | null
   expiration: string | null
+  templates?: StrategyTemplate[]
+  onSubmit?: (order: StrategyOrder) => void
+  onLegsChange?: (legs: StrategyLeg[]) => void
+  isConnected?: boolean
+  onConnectWallet?: () => void
   className?: string
 }
-
-// =============================================================================
-// TEMPLATES
-// =============================================================================
-
-const STRATEGY_TEMPLATES: StrategyTemplate[] = [
-  {
-    name: "Covered Call",
-    description: "Long underlying + short call. Earn premium on held assets.",
-    legs: [
-      { side: "sell", optionType: "call", strike: "", quantity: "1" },
-    ],
-  },
-  {
-    name: "Protective Put",
-    description: "Long underlying + long put. Downside protection.",
-    legs: [
-      { side: "buy", optionType: "put", strike: "", quantity: "1" },
-    ],
-  },
-  {
-    name: "Bull Call Spread",
-    description: "Long lower call + short higher call. Limited risk bullish bet.",
-    legs: [
-      { side: "buy", optionType: "call", strike: "", quantity: "1" },
-      { side: "sell", optionType: "call", strike: "", quantity: "1" },
-    ],
-  },
-  {
-    name: "Bear Put Spread",
-    description: "Long higher put + short lower put. Limited risk bearish bet.",
-    legs: [
-      { side: "buy", optionType: "put", strike: "", quantity: "1" },
-      { side: "sell", optionType: "put", strike: "", quantity: "1" },
-    ],
-  },
-  {
-    name: "Long Straddle",
-    description: "Long call + long put at same strike. Profit from high volatility.",
-    legs: [
-      { side: "buy", optionType: "call", strike: "", quantity: "1" },
-      { side: "buy", optionType: "put", strike: "", quantity: "1" },
-    ],
-  },
-  {
-    name: "Long Strangle",
-    description: "Long OTM call + long OTM put. Cheaper vol play than straddle.",
-    legs: [
-      { side: "buy", optionType: "call", strike: "", quantity: "1" },
-      { side: "buy", optionType: "put", strike: "", quantity: "1" },
-    ],
-  },
-  {
-    name: "Iron Condor",
-    description: "Short strangle + long wings. Profit from low volatility.",
-    legs: [
-      { side: "buy", optionType: "put", strike: "", quantity: "1" },
-      { side: "sell", optionType: "put", strike: "", quantity: "1" },
-      { side: "sell", optionType: "call", strike: "", quantity: "1" },
-      { side: "buy", optionType: "call", strike: "", quantity: "1" },
-    ],
-  },
-]
-
-// =============================================================================
-// COMPONENT
-// =============================================================================
 
 let nextLegId = 0
 function createLegId(): string {
@@ -109,46 +32,72 @@ function createLegId(): string {
 export function StrategyPanel({
   underlying,
   expiration,
+  templates = DEFAULT_TEMPLATES,
+  onSubmit,
+  onLegsChange,
+  isConnected = false,
+  onConnectWallet,
   className,
 }: StrategyPanelProps) {
   const [legs, setLegs] = React.useState<StrategyLeg[]>([])
   const [showTemplates, setShowTemplates] = React.useState(false)
 
+  const updateAndNotify = (newLegs: StrategyLeg[]) => {
+    setLegs(newLegs)
+    onLegsChange?.(newLegs)
+  }
+
   const addLeg = () => {
-    setLegs((prev) => [
-      ...prev,
+    updateAndNotify([
+      ...legs,
       {
         id: createLegId(),
         side: "buy",
         optionType: "call",
-        strike: "",
-        quantity: "1",
+        strike: null,
+        quantity: 1,
+        ratio: 1,
+        expiration,
       },
     ])
   }
 
   const removeLeg = (id: string) => {
-    setLegs((prev) => prev.filter((l) => l.id !== id))
+    updateAndNotify(legs.filter((l) => l.id !== id))
   }
 
-  const updateLeg = (id: string, field: keyof StrategyLeg, value: string) => {
-    setLegs((prev) =>
-      prev.map((l) => (l.id === id ? { ...l, [field]: value } : l))
+  const updateLeg = (id: string, field: keyof StrategyLeg, value: string | number | null) => {
+    updateAndNotify(
+      legs.map((l) => (l.id === id ? { ...l, [field]: value } : l))
     )
   }
 
   const applyTemplate = (template: StrategyTemplate) => {
-    setLegs(
+    updateAndNotify(
       template.legs.map((leg) => ({
         ...leg,
         id: createLegId(),
+        strike: null,
+        expiration,
       }))
     )
     setShowTemplates(false)
   }
 
   const clearLegs = () => {
-    setLegs([])
+    updateAndNotify([])
+  }
+
+  const handleSubmit = () => {
+    if (!underlying || !expiration || legs.length === 0) return
+    if (!isConnected && onConnectWallet) return onConnectWallet()
+    onSubmit?.({
+      underlying,
+      expiration,
+      legs,
+      type: "net_debit",
+      timeInForce: "day",
+    })
   }
 
   return (
@@ -180,7 +129,7 @@ export function StrategyPanel({
               {showTemplates && (
                 <div className="absolute right-0 top-full z-50 mt-1 w-72 rounded-lg border bg-popover p-2 shadow-lg">
                   <div className="space-y-1">
-                    {STRATEGY_TEMPLATES.map((t) => (
+                    {templates.map((t) => (
                       <button
                         key={t.name}
                         className="flex w-full flex-col rounded-md px-3 py-2 text-left transition-colors hover:bg-accent"
@@ -230,13 +179,11 @@ export function StrategyPanel({
               </button>
             </div>
 
-            <div className="grid grid-cols-4 gap-2">
+            <div className="grid grid-cols-5 gap-2">
               {/* Buy/Sell */}
               <select
                 value={leg.side}
-                onChange={(e) =>
-                  updateLeg(leg.id, "side", e.target.value)
-                }
+                onChange={(e) => updateLeg(leg.id, "side", e.target.value)}
                 className="rounded-md border bg-background px-2 py-1.5 text-xs"
               >
                 <option value="buy">Buy</option>
@@ -246,9 +193,7 @@ export function StrategyPanel({
               {/* Call/Put */}
               <select
                 value={leg.optionType}
-                onChange={(e) =>
-                  updateLeg(leg.id, "optionType", e.target.value)
-                }
+                onChange={(e) => updateLeg(leg.id, "optionType", e.target.value)}
                 className="rounded-md border bg-background px-2 py-1.5 text-xs"
               >
                 <option value="call">Call</option>
@@ -259,10 +204,8 @@ export function StrategyPanel({
               <Input
                 type="number"
                 placeholder="Strike"
-                value={leg.strike}
-                onChange={(e) =>
-                  updateLeg(leg.id, "strike", e.target.value)
-                }
+                value={leg.strike ?? ""}
+                onChange={(e) => updateLeg(leg.id, "strike", e.target.value ? Number(e.target.value) : null)}
                 className="h-7 text-xs"
               />
 
@@ -271,9 +214,17 @@ export function StrategyPanel({
                 type="number"
                 placeholder="Qty"
                 value={leg.quantity}
-                onChange={(e) =>
-                  updateLeg(leg.id, "quantity", e.target.value)
-                }
+                onChange={(e) => updateLeg(leg.id, "quantity", Number(e.target.value) || 1)}
+                className="h-7 text-xs"
+                min="1"
+              />
+
+              {/* Ratio */}
+              <Input
+                type="number"
+                placeholder="Ratio"
+                value={leg.ratio}
+                onChange={(e) => updateLeg(leg.id, "ratio", Number(e.target.value) || 1)}
                 className="h-7 text-xs"
                 min="1"
               />
@@ -291,6 +242,20 @@ export function StrategyPanel({
           >
             <Plus className="h-3.5 w-3.5" />
             Add Leg
+          </Button>
+        )}
+
+        {/* Submit */}
+        {legs.length > 0 && onSubmit && (
+          <Button
+            className="w-full"
+            size="xl"
+            disabled={!underlying || !expiration || legs.some((l) => l.strike === null)}
+            onClick={handleSubmit}
+          >
+            {!isConnected
+              ? "Connect Wallet"
+              : `Submit ${legs.length}-Leg Order`}
           </Button>
         )}
 

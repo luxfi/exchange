@@ -4,7 +4,7 @@ export { ExpirationBar } from "./expiration-bar"
 export { OptionsChain } from "./options-chain"
 export { OptionsOrderForm, type OptionsOrderFormProps } from "./options-order-form"
 export { PositionsTable, type PositionsTableProps } from "./positions-table"
-export { StrategyPanel } from "./strategy-panel"
+export { StrategyPanel, type StrategyPanelProps } from "./strategy-panel"
 
 // Types
 export type {
@@ -12,7 +12,13 @@ export type {
   OptionQuote,
   OptionStrike,
   OptionPosition,
+  StrategyLeg,
+  StrategyTemplate,
+  StrategyOrder,
 } from "./types"
+
+// Default templates (consumers can override or extend)
+export { STRATEGY_TEMPLATES } from "./types"
 
 // UI primitives (re-exported for consumers that need them)
 export { cn } from "./ui/cn"
