@@ -1,1 +1,1 @@
-export { createUniswapIdentifierService as createLxIdentifierService } from './createUniswapIdentifierService'
+export { createLxIdentifierService } from './createUniswapIdentifierService'
