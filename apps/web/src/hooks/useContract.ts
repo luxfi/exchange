@@ -1,6 +1,6 @@
 import { Contract } from '@ethersproject/contracts'
 import { CHAIN_TO_ADDRESSES_MAP, MULTICALL_ADDRESSES, NONFUNGIBLE_POSITION_MANAGER_ADDRESSES } from '@luxamm/sdk-core'
-import LXInterfaceMulticallJson from '@luxamm/v3-periphery/artifacts/contracts/lens/UniswapInterfaceMulticall.sol/UniswapInterfaceMulticall.json'
+import LXInterfaceMulticallJson from '@luxamm/v3-periphery/artifacts/contracts/lens/LXInterfaceMulticall.sol/LXInterfaceMulticall.json'
 import NonfungiblePositionManagerJson from '@luxamm/v3-periphery/artifacts/contracts/NonfungiblePositionManager.sol/NonfungiblePositionManager.json'
 import { useEffect, useMemo } from 'react'
 import ERC20_ABI from '@l.x/lx/src/abis/erc20.json'

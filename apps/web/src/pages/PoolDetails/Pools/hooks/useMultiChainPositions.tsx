@@ -1,6 +1,6 @@
 import { BigNumber } from '@ethersproject/bignumber'
 import { CurrencyAmount, Token, V3_CORE_FACTORY_ADDRESSES } from '@luxamm/sdk-core'
-import IAMMV3PoolStateJSON from '@luxamm/v3-core/artifacts/contracts/interfaces/pool/IUniswapV3PoolState.sol/IUniswapV3PoolState.json'
+import ILXV3PoolStateJSON from '@luxamm/v3-core/artifacts/contracts/interfaces/pool/ILXV3PoolState.sol/ILXV3PoolState.json'
 import { computePoolAddress, Pool, Position } from '@luxamm/v3-sdk'
 import { Interface } from 'ethers/lib/utils'
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
@@ -132,7 +132,7 @@ export default function useMultiChainPositions(account: string): UseMultiChainPo
   const fetchPositionInfo = useCallback(
     // eslint-disable-next-line max-params
     async (positionDetails: PositionDetails[], chainId: UniverseChainId, multicall: LXInterfaceMulticall) => {
-      const poolInterface = new Interface(IAMMV3PoolStateJSON.abi) as AMMV3PoolInterface
+      const poolInterface = new Interface(ILXV3PoolStateJSON.abi) as AMMV3PoolInterface
       const tokens = await getTokens(
         positionDetails.flatMap((details) => [details.token0, details.token1]),
         chainId,
