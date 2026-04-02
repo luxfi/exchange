@@ -98,6 +98,213 @@ export interface OptionsApprovalLevel {
   allowedStrategies: string[]
 }
 
+// Greeks (matches broker pkg/types Greeks)
+export interface Greeks {
+  delta: number | null
+  gamma: number | null
+  theta: number | null
+  vega: number | null
+  rho: number | null
+  iv: number | null
+}
+
+// Full option contract (matches broker OptionContract)
+export interface OptionContract {
+  symbol: string            // OCC symbol e.g. AAPL260418C00150000
+  underlying: string
+  contractType: "call" | "put"
+  strike: number
+  expiration: string        // YYYY-MM-DD
+  style: "american" | "european"
+  tradable: boolean
+  bid: number
+  ask: number
+  last: number
+  volume: number
+  openInterest: number
+  greeks: Greeks
+}
+
+// Order actions (matches broker OptionLeg.Action)
+export type OptionAction = "buy_to_open" | "buy_to_close" | "sell_to_open" | "sell_to_close"
+
+// Multi-leg order leg (matches broker OptionLeg)
+export interface OptionLeg {
+  contractSymbol?: string
+  contractType: "call" | "put"
+  strike: number
+  expiration: string
+  action: OptionAction
+  quantity: number
+}
+
+// Multi-leg order request (matches broker CreateMultiLegOrderRequest)
+export interface MultiLegOrderRequest {
+  symbol: string
+  strategyType: "vertical" | "iron_condor" | "straddle" | "strangle" | "calendar" | "butterfly" | "custom"
+  legs: OptionLeg[]
+  orderType: "limit" | "market"
+  limitPrice?: number
+  timeInForce: "day" | "gtc" | "ioc"
+}
+
+// Multi-leg order result (matches broker MultiLegOrderResult)
+export interface MultiLegOrderResult {
+  strategyOrderId: string
+  legOrders?: Array<{ id: string; status: string }>
+  netPremium?: number
+  status: string
+}
+
+// ============================================================================
+// FUTURES
+// ============================================================================
+
+export interface FuturesContract {
+  symbol: string           // e.g. ESM26, CLQ26
+  underlying: string       // e.g. ES, CL
+  name: string
+  expiration: string
+  exchange: string         // CME, NYMEX, CBOT, ICE
+  tickSize: number
+  pointValue: number       // dollar value per point
+  marginInitial: number
+  marginMaintenance: number
+  last: number
+  bid: number
+  ask: number
+  volume: number
+  openInterest: number
+  settlementPrice: number
+  change: number
+  changePercent: number
+}
+
+export interface FuturesPosition {
+  id: string
+  symbol: string
+  underlying: string
+  side: "long" | "short"
+  quantity: number
+  avgEntry: number
+  markPrice: number
+  unrealizedPnl: number
+  marginUsed: number
+  expiration: string
+}
+
+export interface FuturesOrderRequest {
+  symbol: string
+  side: "buy" | "sell"
+  quantity: number
+  orderType: "limit" | "market" | "stop" | "stop_limit"
+  limitPrice?: number
+  stopPrice?: number
+  timeInForce: "day" | "gtc" | "ioc"
+}
+
+// ============================================================================
+// FX / FOREX
+// ============================================================================
+
+export interface FXPair {
+  symbol: string           // e.g. EUR/USD, GBP/JPY
+  base: string             // e.g. EUR
+  quote: string            // e.g. USD
+  bid: number
+  ask: number
+  spread: number
+  high24h: number
+  low24h: number
+  volume24h: number
+  change24h: number
+  changePercent24h: number
+  pipSize: number          // e.g. 0.0001 for most, 0.01 for JPY pairs
+  maxLeverage: number
+}
+
+export interface FXPosition {
+  id: string
+  symbol: string
+  side: "long" | "short"
+  quantity: number          // lot size
+  avgEntry: number
+  markPrice: number
+  unrealizedPnl: number
+  marginUsed: number
+  leverage: number
+  swapRate: number          // overnight carry
+}
+
+export interface FXOrderRequest {
+  symbol: string
+  side: "buy" | "sell"
+  quantity: number
+  orderType: "limit" | "market" | "stop" | "stop_limit"
+  limitPrice?: number
+  stopPrice?: number
+  takeProfit?: number
+  stopLoss?: number
+  timeInForce: "day" | "gtc" | "ioc"
+}
+
+// ============================================================================
+// FIXED INCOME / BONDS
+// ============================================================================
+
+export interface Bond {
+  cusip: string
+  isin?: string
+  name: string
+  issuer: string
+  coupon: number            // annual coupon rate
+  maturityDate: string
+  yieldToMaturity: number
+  price: number             // clean price
+  accrued: number           // accrued interest
+  dirtyPrice: number        // clean + accrued
+  faceValue: number
+  rating: string            // e.g. AAA, BBB+
+  sector: string            // government, corporate, municipal
+  frequency: "annual" | "semi_annual" | "quarterly" | "monthly"
+  callable: boolean
+  callDate?: string
+}
+
+export interface BondPosition {
+  id: string
+  cusip: string
+  name: string
+  faceValue: number
+  quantity: number
+  avgPrice: number
+  markPrice: number
+  coupon: number
+  yieldAtPurchase: number
+  currentYield: number
+  unrealizedPnl: number
+  accruedInterest: number
+  maturityDate: string
+  nextCouponDate: string
+}
+
+// ============================================================================
+// UNIFIED INSTRUMENT TYPE
+// ============================================================================
+
+export type InstrumentClass = "equity" | "option" | "future" | "fx" | "crypto" | "bond"
+
+export interface Instrument {
+  symbol: string
+  name: string
+  class: InstrumentClass
+  exchange?: string
+  tradable: boolean
+  marginable: boolean
+  shortable: boolean
+  fractionable: boolean
+}
+
 export const OPTIONS_APPROVAL_LEVELS: OptionsApprovalLevel[] = [
   {
     level: 1,
