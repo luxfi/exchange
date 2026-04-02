@@ -1,0 +1,6 @@
+{
+  "defaultSchema": "type Token { id: ID! symbol: String! name: String! decimals: Int! totalSupply: BigInt! } type Pair { id: ID! token0: Token! token1: Token! reserve0: BigInt! reserve1: BigInt! totalSupply: BigInt! } type Swap { id: ID! pair: Pair! sender: String! amount0In: BigInt! amount1In: BigInt! amount0Out: BigInt! amount1Out: BigInt! to: String! timestamp: Int! } type Mint { id: ID! pair: Pair! sender: String! amount0: BigInt! amount1: BigInt! liquidity: BigInt! timestamp: Int! } type Burn { id: ID! pair: Pair! sender: String! amount0: BigInt! amount1: BigInt! liquidity: BigInt! to: String! timestamp: Int! }",
+  "chainSources": ["C"],
+  "dgraphEndpoint": "",
+  "schemaVersion": "1.0.0"
+}

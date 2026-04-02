@@ -1,0 +1,8 @@
+{
+    "wake.compiler.solc.remappings": [
+        "@openzeppelin/=node_modules/@openzeppelin/",
+        "@luxamm/=node_modules/@luxamm/",
+        "base64-sol/=node_modules/base64-sol/",
+        "openzeppelin-solidity-2.3.0/=node_modules/openzeppelin-solidity-2.3.0/"
+    ]
+}

@@ -1,0 +1,242 @@
+# LX Exchange - Docker Stack
+# Full backend with luxd node + LXD gateway for local development
+#
+# Usage:
+#   docker compose up -d                     # Start mainnet backend
+#   docker compose --profile testnet up -d   # Start testnet backend
+#   docker compose --profile full up -d      # Full stack with exchange
+#   docker compose logs -f lxd-gateway       # Follow gateway logs
+#   docker compose down -v                   # Stop and clean up
+#
+# Ports (Mainnet):
+#   9630: luxd RPC (C-Chain: /ext/bc/C/rpc)
+#   9631: luxd Staking
+#   8080: LXD Gateway API
+#   9000: Exchange UI (with --profile full)
+#
+# Ports (Testnet):
+#   9640: luxd RPC
+#   9641: luxd Staking
+#   8081: LXD Gateway API
+#
+# LXD Gateway Endpoints:
+#   GET  /health                    - Health check
+#   GET  /v1/tokens?chainId=96369   - Token list
+#   GET  /v1/tokens/stats           - Token stats (price, volume)
+#   GET  /v1/pools?chainId=96369    - Pool list
+#   GET  /v1/quote                  - Swap quote
+#   POST /v1/swap                   - Execute swap
+#
+# Chain IDs:
+#   96369: Lux Mainnet    96368: Lux Testnet
+#   200200: Zoo Mainnet   200201: Zoo Testnet
+
+networks:
+  lux-exchange:
+    driver: bridge
+    name: lux-exchange
+
+volumes:
+  mainnet-data:
+  testnet-data:
+  redis-data:
+
+services:
+  # =============================================================================
+  # MAINNET - Lux Node (Chain ID: 96369)
+  # =============================================================================
+  luxd-mainnet:
+    image: ghcr.io/luxfi/node:latest
+    container_name: lux-exchange-node-mainnet
+    restart: unless-stopped
+    ports:
+      - "${MAINNET_RPC_PORT:-9630}:9630"
+      - "${MAINNET_STAKING_PORT:-9631}:9631"
+    environment:
+      NETWORK_ID: 96369
+      HTTP_HOST: 0.0.0.0
+      HTTP_PORT: 9630
+      STAKING_PORT: 9631
+      DB_DIR: /data
+      LOG_LEVEL: ${LOG_LEVEL:-info}
+      INDEX_ENABLED: "true"
+      API_ADMIN_ENABLED: "true"
+      API_INFO_ENABLED: "true"
+      # Connect to mainnet bootstrap nodes
+      BOOTSTRAP_IPS: "bootstrap.lux.network:9631"
+      BOOTSTRAP_IDS: "NodeID-FrtEjhat6RUqjEWCJgYZKqBaxY2Woyy5G"
+    volumes:
+      - mainnet-data:/data
+    networks:
+      - lux-exchange
+    healthcheck:
+      test: ["CMD", "curl", "-sf", "http://localhost:9630/ext/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 60s
+
+  # =============================================================================
+  # TESTNET - Lux Node (Chain ID: 96368)
+  # =============================================================================
+  luxd-testnet:
+    image: ghcr.io/luxfi/node:latest
+    container_name: lux-exchange-node-testnet
+    restart: unless-stopped
+    profiles:
+      - testnet
+      - full
+    ports:
+      - "${TESTNET_RPC_PORT:-9640}:9640"
+      - "${TESTNET_STAKING_PORT:-9641}:9641"
+    environment:
+      NETWORK_ID: 96368
+      HTTP_HOST: 0.0.0.0
+      HTTP_PORT: 9640
+      STAKING_PORT: 9641
+      DB_DIR: /data
+      LOG_LEVEL: ${LOG_LEVEL:-info}
+      INDEX_ENABLED: "true"
+      API_ADMIN_ENABLED: "true"
+      # Connect to testnet bootstrap nodes
+      BOOTSTRAP_IPS: "testnet.lux.network:9641"
+    volumes:
+      - testnet-data:/data
+    networks:
+      - lux-exchange
+    healthcheck:
+      test: ["CMD", "curl", "-sf", "http://localhost:9640/ext/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 60s
+
+  # =============================================================================
+  # LXD GATEWAY - DEX API (Mainnet)
+  # Provides REST API for AMM pools, quotes, swaps
+  # =============================================================================
+  lxd-gateway:
+    image: ghcr.io/luxfi/lxd-gateway:latest
+    container_name: lux-exchange-lxd-mainnet
+    restart: unless-stopped
+    ports:
+      - "${LXD_MAINNET_PORT:-8080}:8080"
+    environment:
+      PORT: 8080
+      LOG_LEVEL: ${LOG_LEVEL:-info}
+      # Mainnet RPC endpoints
+      LUX_RPC_URL: http://luxd-mainnet:9630/ext/bc/C/rpc
+      ZOO_RPC_URL: http://luxd-mainnet:9630/ext/bc/Zoo/rpc
+      LUX_CHAIN_ID: 96369
+      ZOO_CHAIN_ID: 200200
+      # DEX Precompile address (LP-aligned format: LP-9010)
+      DEX_PRECOMPILE_ADDRESS: "0x0000000000000000000000000000000000009010"
+      # Pool Manager for V4 (LP-9010)
+      POOL_MANAGER_ADDRESS: "0x0000000000000000000000000000000000009010"
+      # Cache settings
+      REDIS_URL: redis://redis:6379
+      CACHE_TTL_SECONDS: 30
+    networks:
+      - lux-exchange
+    depends_on:
+      luxd-mainnet:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-sf", "http://localhost:8080/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # =============================================================================
+  # LXD GATEWAY - DEX API (Testnet)
+  # =============================================================================
+  lxd-gateway-testnet:
+    image: ghcr.io/luxfi/lxd-gateway:latest
+    container_name: lux-exchange-lxd-testnet
+    restart: unless-stopped
+    profiles:
+      - testnet
+      - full
+    ports:
+      - "${LXD_TESTNET_PORT:-8081}:8080"
+    environment:
+      PORT: 8080
+      LOG_LEVEL: ${LOG_LEVEL:-info}
+      # Testnet RPC endpoints
+      LUX_RPC_URL: http://luxd-testnet:9640/ext/bc/C/rpc
+      ZOO_RPC_URL: http://luxd-testnet:9640/ext/bc/Zoo/rpc
+      LUX_CHAIN_ID: 96368
+      ZOO_CHAIN_ID: 200201
+      DEX_PRECOMPILE_ADDRESS: "0x0000000000000000000000000000000000009010"
+      POOL_MANAGER_ADDRESS: "0x0000000000000000000000000000000000009010"
+      REDIS_URL: redis://redis:6379
+      CACHE_TTL_SECONDS: 30
+    networks:
+      - lux-exchange
+    depends_on:
+      luxd-testnet:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-sf", "http://localhost:8080/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # =============================================================================
+  # REDIS - Caching layer for LXD Gateway
+  # =============================================================================
+  redis:
+    image: redis:7-alpine
+    container_name: lux-exchange-redis
+    restart: unless-stopped
+    command: redis-server --appendonly yes --maxmemory 512mb --maxmemory-policy allkeys-lru
+    ports:
+      - "${REDIS_PORT:-6379}:6379"
+    volumes:
+      - redis-data:/data
+    networks:
+      - lux-exchange
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # =============================================================================
+  # EXCHANGE UI - Next.js Frontend (optional)
+  # =============================================================================
+  exchange:
+    build:
+      context: ..
+      dockerfile: apps/web/Dockerfile
+    image: ghcr.io/luxfi/exchange:latest
+    container_name: lux-exchange-ui
+    restart: unless-stopped
+    profiles:
+      - full
+    ports:
+      - "${EXCHANGE_PORT:-9000}:3000"
+    environment:
+      NODE_ENV: production
+      # App URLs
+      NEXT_PUBLIC_APP_URL: http://localhost:9000
+      # RPC endpoints
+      NEXT_PUBLIC_LUX_MAINNET_RPC: http://localhost:9630/ext/bc/C/rpc
+      NEXT_PUBLIC_LUX_TESTNET_RPC: http://localhost:9640/ext/bc/C/rpc
+      NEXT_PUBLIC_ZOO_MAINNET_RPC: http://localhost:9630/ext/bc/Zoo/rpc
+      NEXT_PUBLIC_ZOO_TESTNET_RPC: http://localhost:9640/ext/bc/Zoo/rpc
+      # LXD Gateway
+      NEXT_PUBLIC_LXD_GATEWAY_URL: http://localhost:8080
+      NEXT_PUBLIC_LXD_GATEWAY_TESTNET_URL: http://localhost:8081
+      # Chain configuration
+      NEXT_PUBLIC_DEFAULT_CHAIN_ID: 96369
+      NEXT_PUBLIC_ENABLE_TESTNETS: "true"
+    networks:
+      - lux-exchange
+    depends_on:
+      lxd-gateway:
+        condition: service_healthy

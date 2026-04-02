@@ -1,0 +1,29 @@
+import { useActiveAddress } from 'lx/src/features/accounts/store/hooks'
+import { Platform } from 'lx/src/features/platforms/types/Platform'
+import { useSelectTransaction } from 'lx/src/features/transactions/hooks/useSelectTransaction'
+import { useSwapDependenciesStore } from 'lx/src/features/transactions/swap/stores/swapDependenciesStore/useSwapDependenciesStore'
+import { useSwapFormStore } from 'lx/src/features/transactions/swap/stores/swapFormStore/useSwapFormStore'
+import {
+  InterfaceTransactionDetails,
+  TransactionDetails,
+} from 'lx/src/features/transactions/types/transactionDetails'
+
+export function useCurrentFlashblocksTransaction(): TransactionDetails | InterfaceTransactionDetails | undefined {
+  const evmAddress = useActiveAddress(Platform.EVM)
+
+  const derivedSwapInfo = useSwapDependenciesStore((s) => s.derivedSwapInfo)
+  const chainId = derivedSwapInfo.chainId
+
+  const { txHash: storedTxHash, txId } = useSwapFormStore((s) => ({
+    isConfirmed: s.isConfirmed,
+    txHash: s.txHash,
+    txId: s.txId,
+  }))
+
+  const transactionFromStateByHash = useSelectTransaction({ address: evmAddress, chainId, txId: storedTxHash })
+
+  const transactionFromStateByTxId = useSelectTransaction({ address: evmAddress, chainId, txId })
+
+  // LX transactions are stored by tx id while classic swaps are stored by tx hash
+  return transactionFromStateByHash || transactionFromStateByTxId
+}

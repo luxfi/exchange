@@ -1,0 +1,176 @@
+# should be removed after migrating to react-native new architecture
+ENV['RCT_NEW_ARCH_ENABLED'] = '0'
+# changes from here: https://docs.expo.dev/bare/installing-expo-modules/
+require File.join(File.dirname(`node --print "require.resolve('expo/package.json')"`), "scripts/autolinking")
+require_relative '../../../node_modules/react-native/scripts/react_native_pods'
+require_relative '../../../node_modules/react-native-permissions/scripts/setup'
+
+platform :ios, '15.1'
+prepare_react_native_project!
+
+setup_permissions([
+  'FaceID',
+  'Notifications',
+])
+
+$RNFirebaseAsStaticFramework = true
+$RNFirebaseAnalyticsWithoutAdIdSupport=true
+
+target 'Lux' do
+  use_frameworks! :linkage => :static
+  use_expo_modules!
+  post_integrate do |installer|
+    begin
+      expo_patch_react_imports!(installer)
+    rescue => e
+      Pod::UI.warn e
+    end
+  end
+
+  if ENV['EXPO_USE_COMMUNITY_AUTOLINKING'] == '1'
+    config_command = ['node', '-e', "process.argv=['', '', 'config'];require('@react-native-community/cli').run()"];
+  else
+    config_command = [
+      'node',
+      '--no-warnings',
+      '--eval',
+      'require(require.resolve(\'expo-modules-autolinking\', { paths: [require.resolve(\'expo/package.json\')] }))(process.argv.slice(1))',
+      'react-native-config',
+      '--json',
+      '--platform',
+      'ios'
+    ]
+  end
+
+  config = use_native_modules!(config_command)
+
+  use_react_native!(
+    :path => config[:reactNativePath],
+    :fabric_enabled => false,
+    # to enable hermes on iOS, change `false` to `true` and then install pods
+    :hermes_enabled => true
+  )
+
+  target 'LuxTests' do
+    inherit! :complete
+    # Pods for testing
+  end
+
+  pod 'EthersRS', :path =>  '../../../node_modules/@l.x/ethers-rs-mobile'
+  pod 'Argon2Swift', '1.0.3'
+
+  post_install do |installer|
+    react_native_post_install(installer, "../../../node_modules/react-native")
+
+    # Get absolute paths for Xcode 26 compatibility
+    pods_root = installer.sandbox.root.to_s
+    project_root = File.expand_path('../../../..', pods_root)
+    react_native_path = "#{project_root}/node_modules/react-native"
+
+    # Argon2Swift module path
+    argon2_module_path = "#{pods_root}/Argon2Swift/Sources/Modules/module.modulemap"
+
+    # Absolute paths for Xcode 26 React Native header search path fixes
+    react_common_path = "#{react_native_path}/ReactCommon"
+    folly_path = "#{pods_root}/RCT-Folly"
+    double_conversion_path = "#{pods_root}/DoubleConversion"
+    fmt_path = "#{pods_root}/fmt/include"
+
+    # Create flat React headers directory for Xcode 26 compatibility
+    # This allows #import <React/...> to find headers that are in nested directories
+    react_flat_headers = "#{pods_root}/../ReactFlatHeaders"
+    FileUtils.rm_rf(react_flat_headers) if File.exist?(react_flat_headers)
+    FileUtils.mkdir_p("#{react_flat_headers}/React")
+
+    # Symlink all React headers into flat structure
+    Dir.glob("#{react_native_path}/React/**/*.h").each do |header|
+      header_name = File.basename(header)
+      symlink_path = "#{react_flat_headers}/React/#{header_name}"
+      FileUtils.ln_sf(header, symlink_path) unless File.exist?(symlink_path)
+    end
+
+    installer.pods_project.targets.each do |target|
+      target.build_configurations.each do |config|
+        config.build_settings['CODE_SIGNING_ALLOWED'] = 'NO'
+        config.build_settings['APPLICATION_EXTENSION_API_ONLY'] = 'No'
+      end
+
+      # Fix Argon2Swift module for Xcode 26 - add to Argon2Swift pod target
+      if target.name == 'Argon2Swift'
+        target.build_configurations.each do |config|
+          existing_flags = config.build_settings['OTHER_SWIFT_FLAGS'] || '$(inherited)'
+          config.build_settings['OTHER_SWIFT_FLAGS'] = "#{existing_flags} -Xcc -fmodule-map-file=#{argon2_module_path}"
+        end
+      end
+
+      # Fix React Native header search paths for Xcode 26 - apply to all React-* targets
+      if target.name.start_with?('React-') || target.name == 'RNReanimated'
+        target.build_configurations.each do |config|
+          # Always use $(inherited) to preserve xcconfig settings, then add our paths
+          config.build_settings['HEADER_SEARCH_PATHS'] = "$(inherited) \"#{react_common_path}\" \"#{folly_path}\" \"#{double_conversion_path}\" \"#{fmt_path}\" \"#{react_flat_headers}\""
+          # Disable non-modular header warning for Xcode 26 compatibility
+          config.build_settings['OTHER_CFLAGS'] = "$(inherited) -Wno-non-modular-include-in-framework-module"
+          config.build_settings['OTHER_CPLUSPLUSFLAGS'] = "$(inherited) -Wno-non-modular-include-in-framework-module"
+        end
+      end
+
+      # Special handling for RNReanimated - disable strict module decluse
+      if target.name == 'RNReanimated'
+        target.build_configurations.each do |config|
+          # Disable Clang modules to avoid "must be imported from module" errors
+          config.build_settings['CLANG_ENABLE_MODULES'] = 'NO'
+        end
+      end
+    end
+
+    # Xcode 26+ has a stricter module verifier that requires the consuming target
+    # to resolve transitive C module dependencies. Argon2Swift depends on an internal
+    # 'argon2' C module — add its modulemap path so the Uniswap target (the only
+    # target declaring Argon2Swift) can find it.
+    argon2_srcroot = installer.sandbox.pod_dir('Argon2Swift')
+    argon2_module_paths = [
+      "#{argon2_srcroot}/Sources/Modules",
+      "#{argon2_srcroot}/Sources/Argon2",
+      "#{argon2_srcroot}/Sources/Argon2/include",
+    ]
+    uniswap_aggregate = installer.aggregate_targets.find { |t| t.label == 'Pods-Uniswap' }
+    if uniswap_aggregate
+      uniswap_aggregate.xcconfigs.each do |config_name, xcconfig|
+        existing = xcconfig.attributes['SWIFT_INCLUDE_PATHS'] || ''
+        new_paths = argon2_module_paths.map { |p| "\"#{p}\"" }.join(' ')
+        xcconfig.attributes['SWIFT_INCLUDE_PATHS'] = "$(inherited) #{new_paths} #{existing}".strip
+        xcconfig_path = uniswap_aggregate.xcconfig_path(config_name)
+        xcconfig.save_as(xcconfig_path)
+      end
+    end
+  end
+end
+
+target 'OneSignalNotificationServiceExtension' do
+  use_frameworks! :linkage => :static
+  pod 'OneSignalXCFramework', '>= 5.0.0', '< 6.0'
+end
+
+def prepare_target_commons
+  use_frameworks! :linkage => :static
+
+  pod 'Apollo', '1.2.1'
+  pod 'UIImageColors', '2.1.0'
+end
+
+target 'Widgets' do
+  prepare_target_commons
+  # Pods for widgets
+end
+target 'WidgetsCore' do
+  prepare_target_commons
+  # Pods for widgets core
+end
+target 'WidgetsCoreTests' do
+  prepare_target_commons
+  # Pods for widgets core test
+end
+target 'WidgetIntentExtension' do
+  prepare_target_commons
+  # Pods for intent extension
+end

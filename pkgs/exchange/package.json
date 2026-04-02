@@ -1,0 +1,83 @@
+{
+  "name": "@luxfi/exchange",
+  "version": "1.0.4",
+  "description": "Lux Exchange SDK - React hooks and utilities for Lux DEX",
+  "license": "MIT",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.js"
+    },
+    "./chains": {
+      "types": "./dist/chains/index.d.ts",
+      "import": "./dist/chains/index.js"
+    },
+    "./tokens": {
+      "types": "./dist/tokens/index.d.ts",
+      "import": "./dist/tokens/index.js"
+    },
+    "./contracts": {
+      "types": "./dist/contracts/index.d.ts",
+      "import": "./dist/contracts/index.js"
+    },
+    "./hooks": {
+      "types": "./dist/hooks/index.d.ts",
+      "import": "./dist/hooks/index.js"
+    },
+    "./stores": {
+      "types": "./dist/stores/index.d.ts",
+      "import": "./dist/stores/index.js"
+    },
+    "./dex": {
+      "types": "./dist/dex/index.d.ts",
+      "import": "./dist/dex/index.js"
+    },
+    "./bridge": {
+      "types": "./dist/bridge/index.d.ts",
+      "import": "./dist/bridge/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "build": "tsc",
+    "test": "vitest run",
+    "prepublishOnly": "npm run build"
+  },
+  "dependencies": {
+    "viem": "^2.43.3",
+    "wagmi": "^3.1.3",
+    "@tanstack/react-query": "^5.90.12",
+    "zustand": "^5.0.5"
+  },
+  "peerDependencies": {
+    "react": ">=18.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^25.0.3",
+    "@types/react": "^19.2.3",
+    "typescript": "^5.8.3",
+    "vitest": "^4.0.16"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/luxfi/exchange.git",
+    "directory": "pkgs/exchange"
+  },
+  "keywords": [
+    "lux",
+    "dex",
+    "exchange",
+    "defi",
+    "blockchain",
+    "react",
+    "hooks"
+  ],
+  "private": false
+}

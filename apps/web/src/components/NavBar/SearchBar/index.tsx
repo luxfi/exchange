@@ -1,0 +1,119 @@
+import { useTranslation } from 'react-i18next'
+import { Flex, Text, TouchableArea } from '@luxfi/ui/src'
+import { Search } from '@luxfi/ui/src/components/icons/Search'
+import { ElementName, InterfaceEventName, ModalName, SectionName } from '@luxexchange/lx/src/features/telemetry/constants'
+import Trace from '@luxexchange/lx/src/features/telemetry/Trace'
+import { TestID } from '@luxexchange/lx/src/test/fixtures/testIDs'
+import { KeyAction } from '@luxfi/utilities/src/device/keyboard/types'
+import { useKeyDown } from '@luxfi/utilities/src/device/keyboard/useKeyDown'
+import { useTrace } from '@luxfi/utilities/src/telemetry/trace/TraceContext'
+import { NavIcon } from '~/components/NavBar/NavIcon'
+import { SearchModal } from '~/components/NavBar/SearchBar/SearchModal'
+import { useIsSearchBarVisible } from '~/components/NavBar/SearchBar/useIsSearchBarVisible'
+import { useModalState } from '~/hooks/useModalState'
+import { deprecatedStyled } from '~/lib/deprecated-styled'
+import { EllipsisGuiStyle } from '~/theme/components/styles'
+
+const NAV_SEARCH_MIN_WIDTH = '340px'
+
+const KeyShortcut = deprecatedStyled.div`
+  background-color: ${({ theme }) => theme.surface3};
+  color: ${({ theme }) => theme.neutral2};
+  padding: 0px 8px;
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 535;
+  line-height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.6;
+  backdrop-filter: blur(60px);
+`
+
+const SearchIcon = deprecatedStyled.div`
+  width: 20px;
+  height: 20px;
+`
+
+export const SearchBar = () => {
+  const { t } = useTranslation()
+  const isNavSearchInputVisible = useIsSearchBarVisible()
+
+  const {
+    isOpen: isModalOpen,
+    closeModal: closeSearchModal,
+    openModal: openSearchModal,
+  } = useModalState(ModalName.Search)
+
+  useKeyDown({
+    callback: openSearchModal,
+    keys: ['/'],
+    disabled: isModalOpen,
+    preventDefault: !isModalOpen,
+    keyAction: KeyAction.UP,
+    shouldTriggerInInput: false,
+  })
+  useKeyDown({
+    callback: closeSearchModal,
+    keys: ['Escape'],
+    keyAction: KeyAction.UP,
+    disabled: !isModalOpen,
+    preventDefault: true,
+    shouldTriggerInInput: true,
+  })
+
+  const trace = useTrace({ section: SectionName.NavbarSearch })
+
+  const placeholderText = t('search.input.placeholder.withWallets')
+
+  return (
+    <Trace section={SectionName.NavbarSearch}>
+      <SearchModal />
+      {isNavSearchInputVisible ? (
+        <TouchableArea onPress={openSearchModal} data-testid="nav-search-input" width={NAV_SEARCH_MIN_WIDTH}>
+          <Flex
+            row
+            backgroundColor="$surface2"
+            borderWidth="$spacing1"
+            borderColor="$surface3"
+            py="$spacing8"
+            px="$spacing16"
+            borderRadius="$rounded20"
+            height={40}
+            alignItems="center"
+            justifyContent="space-between"
+            hoverStyle={{
+              backgroundColor: '$surface1Hovered',
+            }}
+          >
+            <Flex shrink row gap="$spacing12">
+              <SearchIcon data-testid={TestID.NavSearchIcon}>
+                <Search size="$icon.20" color="$neutral2" />
+              </SearchIcon>
+              <Trace
+                logFocus
+                eventOnTrigger={InterfaceEventName.NavbarSearchSelected}
+                element={ElementName.NavbarSearchInput}
+                properties={{ ...trace }}
+              >
+                <Text fontWeight="$book" color="$neutral2" textAlign="left" {...EllipsisGuiStyle}>
+                  {placeholderText}
+                </Text>
+              </Trace>
+            </Flex>
+            <KeyShortcut>/</KeyShortcut>
+          </Flex>
+        </TouchableArea>
+      ) : (
+        <NavIcon onClick={openSearchModal} label={placeholderText}>
+          <SearchIcon data-testid={TestID.NavSearchIcon}>
+            <Search size="$icon.20" color="$neutral2" />
+          </SearchIcon>
+        </NavIcon>
+      )}
+    </Trace>
+  )
+}

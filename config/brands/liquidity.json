@@ -1,0 +1,25 @@
+{
+  "brand": {
+    "name": "Liquidity Exchange",
+    "title": "Liquidity.io | Trade",
+    "description": "Revolutionizing Private Credit and Private Stock Trading",
+    "legalEntity": "Liquidity.io Inc.",
+    "appDomain": "lux.exchange",
+    "docsDomain": "docs.lux.exchange",
+    "infoDomain": "info.lux.exchange",
+    "gatewayDomain": "gw.lux.exchange",
+    "wsDomain": "ws.lux.exchange",
+    "helpUrl": "https://docs.lux.exchange/help",
+    "termsUrl": "https://lux.exchange/terms",
+    "privacyUrl": "https://lux.exchange/privacy",
+    "downloadUrl": "https://lux.exchange/wallet",
+    "complianceEmail": "compliance@lux.exchange",
+    "supportEmail": "hi@lux.exchange",
+    "twitter": "https://x.com/liquidityio",
+    "github": "https://github.com/liquidityio",
+    "discord": "https://discord.gg/liquidity",
+    "primaryColor": "#3B82F6",
+    "defaultChainId": 0,
+    "supportedChainIds": [0, 0, 0]
+  }
+}

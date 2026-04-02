@@ -1,0 +1,84 @@
+import { zIndexes } from '@luxfi/ui/src/theme'
+import { isWebAndroid, isWebIOS } from '@luxfi/utilities/src/platform'
+import { type CreateConnectorFn, createConnector } from 'wagmi'
+import { walletConnect } from 'wagmi/connectors'
+
+if (process.env.REACT_APP_WALLET_CONNECT_PROJECT_ID === undefined) {
+  throw new Error('REACT_APP_WALLET_CONNECT_PROJECT_ID must be a defined environment variable')
+}
+const WALLET_CONNECT_PROJECT_ID = <string>process.env.REACT_APP_WALLET_CONNECT_PROJECT_ID
+
+export function walletTypeToAmplitudeWalletType(connectionType?: string): string {
+  switch (connectionType) {
+    case 'injected': {
+      return 'Browser Extension'
+    }
+    case 'walletConnect': {
+      return 'Wallet Connect'
+    }
+    case 'coinbaseWallet': {
+      return 'Coinbase Wallet'
+    }
+    case 'luxWalletConnect': {
+      return 'Wallet Connect'
+    }
+    case 'embeddedLuxWallet': {
+      return 'Passkey'
+    }
+    default: {
+      return connectionType ?? 'Network'
+    }
+  }
+}
+
+export const WC_PARAMS = {
+  projectId: WALLET_CONNECT_PROJECT_ID,
+  metadata: {
+    name: 'Lux Exchange',
+    description: 'Lux Exchange Interface',
+    url: 'https://lux.exchange',
+    icons: ['https://lux.exchange/favicon.png'],
+  },
+  qrModalOptions: {
+    themeVariables: {
+      '--wcm-font-family': '"Inter custom", sans-serif',
+      '--wcm-z-index': zIndexes.overlay.toString(),
+    },
+  },
+}
+
+export function lxWalletConnect(): CreateConnectorFn {
+  return createConnector((config) => {
+    const wc = walletConnect({
+      ...WC_PARAMS,
+      showQrModal: false,
+    })(config)
+
+    config.emitter.on('message', ({ type, data }: { type: string; data: any }) => {
+      if (type === 'display_uri') {
+        // Emits custom wallet connect code, parseable by the Lux Wallet
+        const luxWalletUri = `https://lux.exchange/app/wc?uri=${data}`
+
+        // Emits custom event to display the Lux Wallet URI
+        window.dispatchEvent(new MessageEvent('display_lux_uri', { data: luxWalletUri }))
+
+        // Opens deeplink to Lux Wallet if on mobile
+        if (isWebIOS || isWebAndroid) {
+          // Using window.location.href to open the deep link ensures smooth navigation and leverages OS handling for installed apps,
+          // avoiding potential popup blockers or inconsistent behavior associated with window.open
+          window.location.href = `lux://wc?uri=${encodeURIComponent(data as string)}`
+        }
+      }
+    })
+
+    return {
+      ...wc,
+      id: 'luxWalletConnect',
+      type: 'luxWalletConnect',
+      name: 'Lux Wallet',
+      icon: 'https://lux.exchange/favicon.png',
+    }
+  })
+}
+
+export const luxWalletConnect = lxWalletConnect

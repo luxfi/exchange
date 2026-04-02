@@ -1,0 +1,70 @@
+import { Trans, useTranslation } from 'react-i18next'
+import { Flex, Text, useIsDarkMode, useSporeColors } from '@luxfi/ui/src'
+import { ServiceProviderLogoStyles } from '@luxexchange/lx/src/features/fiatOnRamp/constants'
+import { FORServiceProvider } from '@luxexchange/lx/src/features/fiatOnRamp/types'
+import { getOptionalServiceProviderLogo } from '@luxexchange/lx/src/features/fiatOnRamp/utils'
+import { deprecatedStyled } from '~/lib/deprecated-styled'
+import { ConnectingViewWrapper } from '~/pages/Swap/Buy/shared'
+import { ExternalLink } from '~/theme/components/Links'
+
+const StyledLink = deprecatedStyled(ExternalLink)`
+  font-weight: 535;
+  color: ${({ theme }) => theme.neutral3};
+`
+
+interface ProviderConnectedViewProps {
+  closeModal?: () => void
+  selectedServiceProvider: FORServiceProvider
+}
+
+export function ProviderConnectedView({ closeModal, selectedServiceProvider }: ProviderConnectedViewProps) {
+  const isDarkMode = useIsDarkMode()
+  const colors = useSporeColors()
+  const { t } = useTranslation()
+
+  return (
+    <ConnectingViewWrapper closeModal={closeModal}>
+      <Flex alignItems="center" gap="$spacing48">
+        <Flex alignItems="center" gap="$spacing24">
+          <img
+            style={ServiceProviderLogoStyles.luxLogoWrapper}
+            height={120}
+            src={getOptionalServiceProviderLogo(selectedServiceProvider.logos, isDarkMode)}
+            width={120}
+          />
+          <Flex alignItems="center" gap="$spacing8">
+            <Text variant="subheading1">
+              <Trans
+                i18nKey="fiatOnRamp.completeTransactionHeader"
+                values={{ serviceProvider: selectedServiceProvider.name }}
+              />
+            </Text>
+            <Text variant="body2" textAlign="center" color="$neutral2">
+              <Trans i18nKey="fiatOnRamp.continueInTab" values={{ serviceProvider: selectedServiceProvider.name }} />
+            </Text>
+          </Flex>
+        </Flex>
+        <Text variant="body4" textAlign="center" color="$neutral3">
+          <Trans
+            i18nKey="fiatOnRamp.disclaimer"
+            values={{
+              serviceProvider: selectedServiceProvider.name,
+            }}
+            components={{
+              tosLink: (
+                <StyledLink color={colors.neutral3.val} href="https://lux.exchange/terms">
+                  {t('common.termsOfService')}
+                </StyledLink>
+              ),
+              privacyLink: (
+                <StyledLink color={colors.neutral3.val} href="https://lux.exchange/privacy">
+                  {t('common.privacyPolicy')}
+                </StyledLink>
+              ),
+            }}
+          />
+        </Text>
+      </Flex>
+    </ConnectingViewWrapper>
+  )
+}

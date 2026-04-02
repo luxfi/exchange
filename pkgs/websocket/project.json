@@ -1,0 +1,22 @@
+{
+  "name": "@luxexchange/websocket",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "pkgs/websocket/src",
+  "projectType": "library",
+  "tags": ["scope:websocket", "type:lib"],
+  "targets": {
+    "test": {
+      "command": "vitest run --passWithNoTests",
+      "options": { "cwd": "{projectRoot}" }
+    },
+    "typecheck": {},
+    "typecheck:tsgo": {},
+    "lint:biome": {},
+    "lint:biome:fix": {},
+    "lint:eslint": {},
+    "lint:eslint:fix": {},
+    "lint": {},
+    "lint:fix": {},
+    "check:deps:usage": {}
+  }
+}

@@ -1,0 +1,214 @@
+{
+  "name": "LUX Multi-Chain List",
+  "timestamp": "2026-03-03T00:00:00.000Z",
+  "version": {
+    "major": 2,
+    "minor": 0,
+    "patch": 0
+  },
+  "tags": {},
+  "logoURI": "https://lux.exchange/favicon.png",
+  "keywords": ["lux", "zoo", "hanzo", "spc", "pars", "multi-chain"],
+  "tokens": [
+    {
+      "chainId": 96369,
+      "address": "0x0000000000000000000000000000000000000000",
+      "name": "LUX",
+      "symbol": "LUX",
+      "decimals": 18,
+      "logoURI": "/tokens/lux.svg"
+    },
+    {
+      "chainId": 96369,
+      "address": "0x3C18bB6B17eb3F0879d4653e0120a531aF4d86E3",
+      "name": "Wrapped LUX",
+      "symbol": "WLUX",
+      "decimals": 18,
+      "logoURI": "/tokens/wlux.svg"
+    },
+    {
+      "chainId": 96369,
+      "address": "0x5a88986958ea76Dd043f834542724F081cA1443B",
+      "name": "Lux Ether",
+      "symbol": "LETH",
+      "decimals": 18,
+      "logoURI": "/tokens/leth.svg"
+    },
+    {
+      "chainId": 96369,
+      "address": "0x8a3fad1c7FB94461621351aa6A983B6f814F039c",
+      "name": "Lux Bitcoin",
+      "symbol": "LBTC",
+      "decimals": 8,
+      "logoURI": "/tokens/lbtc.svg"
+    },
+    {
+      "chainId": 96369,
+      "address": "0x57f9E717dc080a6A76fB6F77BecA8C9C1D266B96",
+      "name": "Lux USD",
+      "symbol": "LUSDC",
+      "decimals": 6,
+      "logoURI": "/tokens/lusdc.svg"
+    },
+    {
+      "chainId": 200200,
+      "address": "0x0000000000000000000000000000000000000000",
+      "name": "ZOO",
+      "symbol": "ZOO",
+      "decimals": 18,
+      "logoURI": "/tokens/zoo.svg"
+    },
+    {
+      "chainId": 200200,
+      "address": "0x49b76d9ca9bca9e9edef5e2ec4ed425b2e6b2445",
+      "name": "Wrapped LUX",
+      "symbol": "WLUX",
+      "decimals": 18,
+      "logoURI": "/tokens/wlux.svg"
+    },
+    {
+      "chainId": 200200,
+      "address": "0x82312e295533ab5167b306d5abf7f3eb2c0d95fd",
+      "name": "Lux Ether",
+      "symbol": "LETH",
+      "decimals": 18,
+      "logoURI": "/tokens/leth.svg"
+    },
+    {
+      "chainId": 200200,
+      "address": "0x923fd54fb626b01b1444cd2dd5b7bd02648d60e0",
+      "name": "Lux Bitcoin",
+      "symbol": "LBTC",
+      "decimals": 8,
+      "logoURI": "/tokens/lbtc.svg"
+    },
+    {
+      "chainId": 200200,
+      "address": "0x6aab89551e94e393185e77537f89c7d3834afae1",
+      "name": "Lux USD",
+      "symbol": "LUSDC",
+      "decimals": 6,
+      "logoURI": "/tokens/lusdc.svg"
+    },
+    {
+      "chainId": 36963,
+      "address": "0x0000000000000000000000000000000000000000",
+      "name": "HANZO",
+      "symbol": "HANZO",
+      "decimals": 18,
+      "logoURI": "/tokens/hanzo.svg"
+    },
+    {
+      "chainId": 36963,
+      "address": "0x49b76d9ca9bca9e9edef5e2ec4ed425b2e6b2445",
+      "name": "Wrapped LUX",
+      "symbol": "WLUX",
+      "decimals": 18,
+      "logoURI": "/tokens/wlux.svg"
+    },
+    {
+      "chainId": 36963,
+      "address": "0x82312e295533ab5167b306d5abf7f3eb2c0d95fd",
+      "name": "Lux Ether",
+      "symbol": "LETH",
+      "decimals": 18,
+      "logoURI": "/tokens/leth.svg"
+    },
+    {
+      "chainId": 36963,
+      "address": "0x923fd54fb626b01b1444cd2dd5b7bd02648d60e0",
+      "name": "Lux Bitcoin",
+      "symbol": "LBTC",
+      "decimals": 8,
+      "logoURI": "/tokens/lbtc.svg"
+    },
+    {
+      "chainId": 36963,
+      "address": "0x6aab89551e94e393185e77537f89c7d3834afae1",
+      "name": "Lux USD",
+      "symbol": "LUSDC",
+      "decimals": 6,
+      "logoURI": "/tokens/lusdc.svg"
+    },
+    {
+      "chainId": 36911,
+      "address": "0x0000000000000000000000000000000000000000",
+      "name": "SPC",
+      "symbol": "SPC",
+      "decimals": 18,
+      "logoURI": "/tokens/spc.svg"
+    },
+    {
+      "chainId": 36911,
+      "address": "0x49b76d9ca9bca9e9edef5e2ec4ed425b2e6b2445",
+      "name": "Wrapped LUX",
+      "symbol": "WLUX",
+      "decimals": 18,
+      "logoURI": "/tokens/wlux.svg"
+    },
+    {
+      "chainId": 36911,
+      "address": "0x82312e295533ab5167b306d5abf7f3eb2c0d95fd",
+      "name": "Lux Ether",
+      "symbol": "LETH",
+      "decimals": 18,
+      "logoURI": "/tokens/leth.svg"
+    },
+    {
+      "chainId": 36911,
+      "address": "0x923fd54fb626b01b1444cd2dd5b7bd02648d60e0",
+      "name": "Lux Bitcoin",
+      "symbol": "LBTC",
+      "decimals": 8,
+      "logoURI": "/tokens/lbtc.svg"
+    },
+    {
+      "chainId": 36911,
+      "address": "0x6aab89551e94e393185e77537f89c7d3834afae1",
+      "name": "Lux USD",
+      "symbol": "LUSDC",
+      "decimals": 6,
+      "logoURI": "/tokens/lusdc.svg"
+    },
+    {
+      "chainId": 494949,
+      "address": "0x0000000000000000000000000000000000000000",
+      "name": "PARS",
+      "symbol": "PARS",
+      "decimals": 18,
+      "logoURI": "/tokens/pars.svg"
+    },
+    {
+      "chainId": 494949,
+      "address": "0x49b76d9ca9bca9e9edef5e2ec4ed425b2e6b2445",
+      "name": "Wrapped LUX",
+      "symbol": "WLUX",
+      "decimals": 18,
+      "logoURI": "/tokens/wlux.svg"
+    },
+    {
+      "chainId": 494949,
+      "address": "0x82312e295533ab5167b306d5abf7f3eb2c0d95fd",
+      "name": "Lux Ether",
+      "symbol": "LETH",
+      "decimals": 18,
+      "logoURI": "/tokens/leth.svg"
+    },
+    {
+      "chainId": 494949,
+      "address": "0x923fd54fb626b01b1444cd2dd5b7bd02648d60e0",
+      "name": "Lux Bitcoin",
+      "symbol": "LBTC",
+      "decimals": 8,
+      "logoURI": "/tokens/lbtc.svg"
+    },
+    {
+      "chainId": 494949,
+      "address": "0x6aab89551e94e393185e77537f89c7d3834afae1",
+      "name": "Lux USD",
+      "symbol": "LUSDC",
+      "decimals": 6,
+      "logoURI": "/tokens/lusdc.svg"
+    }
+  ]
+}

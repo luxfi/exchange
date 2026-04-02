@@ -1,0 +1,39 @@
+{
+  "extends": "../../config/tsconfig/app.json",
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.d.ts",
+    "src/**/*.tsx",
+    "src/**/*.json",
+    "env.d.ts"
+  ],
+  "references": [
+    {
+      "path": "../lx"
+    },
+    {
+      "path": "../utilities"
+    },
+    {
+      "path": "../lx"
+    },
+    {
+      "path": "../ui"
+    },
+    {
+      "path": "../sessions"
+    },
+    {
+      "path": "../gating"
+    },
+    {
+      "path": "../api"
+    },
+    {
+      "path": "../eslint-config"
+    }
+  ],
+  "compilerOptions": {
+    "types": ["chrome", "jest"]
+  }
+}

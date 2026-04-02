@@ -1,0 +1,45 @@
+# .dockerignore for Lux Exchange Docker builds
+
+# Dependencies (reinstalled in container)
+node_modules
+
+# Git
+.git
+.gitattributes
+
+# Build outputs
+**/.turbo
+**/.nx
+# Only exclude app dist/ dirs (packages/*/dist/ is pre-built and committed — needed at build time)
+apps/*/dist
+
+# Mobile/native artifacts (not needed for web)
+apps/mobile/ios
+apps/mobile/android
+**/*.podspec
+
+# Tests
+**/*.test.ts
+**/*.test.tsx
+**/*.spec.ts
+**/coverage
+**/__tests__
+**/__mocks__
+**/e2e
+
+# IDE & local config
+.vscode
+.idea
+**/.claude
+**/.env.local
+**/.env.*.local
+
+# Lock files for other package managers (bun.lock has stale workspace refs)
+bun.lock
+bun.lockb
+
+# Misc
+.DS_Store
+*.log
+**/.storybook
+**/storybook-static

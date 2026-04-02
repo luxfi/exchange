@@ -1,0 +1,385 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders text with few matches 1`] = `
+<View
+  style={
+    {
+      "flexDirection": "row",
+      "gap": 16,
+    }
+  }
+>
+  <Text
+    allowFontScaling={true}
+    maxFontSizeMultiplier={1.4}
+    style={
+      {
+        "color": "#131313",
+        "fontFamily": "Basel Grotesk",
+        "fontSize": 19,
+        "fontWeight": "400",
+        "lineHeight": 24.7,
+      }
+    }
+    suppressHighlighting={true}
+  >
+    A
+  </Text>
+  <Text
+    allowFontScaling={true}
+    maxFontSizeMultiplier={1.4}
+    style={
+      {
+        "color": "#131313",
+        "fontFamily": "Basel Grotesk",
+        "fontSize": 19,
+        "fontWeight": "400",
+        "lineHeight": 24.7,
+      }
+    }
+    suppressHighlighting={true}
+  >
+     
+  </Text>
+  <Text
+    allowFontScaling={true}
+    maxFontSizeMultiplier={1.4}
+    style={
+      {
+        "color": "rgba(19, 19, 19, 0.35)",
+        "fontFamily": "Basel Grotesk",
+        "fontSize": 19,
+        "fontWeight": "400",
+        "lineHeight": 24.7,
+      }
+    }
+    suppressHighlighting={true}
+  >
+    t
+  </Text>
+  <Text
+    allowFontScaling={true}
+    maxFontSizeMultiplier={1.4}
+    style={
+      {
+        "color": "rgba(19, 19, 19, 0.35)",
+        "fontFamily": "Basel Grotesk",
+        "fontSize": 19,
+        "fontWeight": "400",
+        "lineHeight": 24.7,
+      }
+    }
+    suppressHighlighting={true}
+  >
+    e
+  </Text>
+  <Text
+    allowFontScaling={true}
+    maxFontSizeMultiplier={1.4}
+    style={
+      {
+        "color": "#131313",
+        "fontFamily": "Basel Grotesk",
+        "fontSize": 19,
+        "fontWeight": "400",
+        "lineHeight": 24.7,
+      }
+    }
+    suppressHighlighting={true}
+  >
+    x
+  </Text>
+  <Text
+    allowFontScaling={true}
+    maxFontSizeMultiplier={1.4}
+    style={
+      {
+        "color": "#131313",
+        "fontFamily": "Basel Grotesk",
+        "fontSize": 19,
+        "fontWeight": "400",
+        "lineHeight": 24.7,
+      }
+    }
+    suppressHighlighting={true}
+  >
+    t
+  </Text>
+  <Text
+    allowFontScaling={true}
+    maxFontSizeMultiplier={1.4}
+    style={
+      {
+        "color": "#131313",
+        "fontFamily": "Basel Grotesk",
+        "fontSize": 19,
+        "fontWeight": "400",
+        "lineHeight": 24.7,
+      }
+    }
+    suppressHighlighting={true}
+  >
+     
+  </Text>
+  <Text
+    allowFontScaling={true}
+    maxFontSizeMultiplier={1.4}
+    style={
+      {
+        "color": "#131313",
+        "fontFamily": "Basel Grotesk",
+        "fontSize": 19,
+        "fontWeight": "400",
+        "lineHeight": 24.7,
+      }
+    }
+    suppressHighlighting={true}
+  >
+    w
+  </Text>
+  <Text
+    allowFontScaling={true}
+    maxFontSizeMultiplier={1.4}
+    style={
+      {
+        "color": "#131313",
+        "fontFamily": "Basel Grotesk",
+        "fontSize": 19,
+        "fontWeight": "400",
+        "lineHeight": 24.7,
+      }
+    }
+    suppressHighlighting={true}
+  >
+    i
+  </Text>
+  <Text
+    allowFontScaling={true}
+    maxFontSizeMultiplier={1.4}
+    style={
+      {
+        "color": "rgba(19, 19, 19, 0.35)",
+        "fontFamily": "Basel Grotesk",
+        "fontSize": 19,
+        "fontWeight": "400",
+        "lineHeight": 24.7,
+      }
+    }
+    suppressHighlighting={true}
+  >
+    t
+  </Text>
+  <Text
+    allowFontScaling={true}
+    maxFontSizeMultiplier={1.4}
+    style={
+      {
+        "color": "rgba(19, 19, 19, 0.35)",
+        "fontFamily": "Basel Grotesk",
+        "fontSize": 19,
+        "fontWeight": "400",
+        "lineHeight": 24.7,
+      }
+    }
+    suppressHighlighting={true}
+  >
+    h
+  </Text>
+  <Text
+    allowFontScaling={true}
+    maxFontSizeMultiplier={1.4}
+    style={
+      {
+        "color": "rgba(19, 19, 19, 0.35)",
+        "fontFamily": "Basel Grotesk",
+        "fontSize": 19,
+        "fontWeight": "400",
+        "lineHeight": 24.7,
+      }
+    }
+    suppressHighlighting={true}
+  >
+    o
+  </Text>
+  <Text
+    allowFontScaling={true}
+    maxFontSizeMultiplier={1.4}
+    style={
+      {
+        "color": "rgba(19, 19, 19, 0.35)",
+        "fontFamily": "Basel Grotesk",
+        "fontSize": 19,
+        "fontWeight": "400",
+        "lineHeight": 24.7,
+      }
+    }
+    suppressHighlighting={true}
+  >
+    u
+  </Text>
+  <Text
+    allowFontScaling={true}
+    maxFontSizeMultiplier={1.4}
+    style={
+      {
+        "color": "rgba(19, 19, 19, 0.35)",
+        "fontFamily": "Basel Grotesk",
+        "fontSize": 19,
+        "fontWeight": "400",
+        "lineHeight": 24.7,
+      }
+    }
+    suppressHighlighting={true}
+  >
+    t
+  </Text>
+  <Text
+    allowFontScaling={true}
+    maxFontSizeMultiplier={1.4}
+    style={
+      {
+        "color": "rgba(19, 19, 19, 0.35)",
+        "fontFamily": "Basel Grotesk",
+        "fontSize": 19,
+        "fontWeight": "400",
+        "lineHeight": 24.7,
+      }
+    }
+    suppressHighlighting={true}
+  >
+     
+  </Text>
+  <Text
+    allowFontScaling={true}
+    maxFontSizeMultiplier={1.4}
+    style={
+      {
+        "color": "rgba(19, 19, 19, 0.35)",
+        "fontFamily": "Basel Grotesk",
+        "fontSize": 19,
+        "fontWeight": "400",
+        "lineHeight": 24.7,
+      }
+    }
+    suppressHighlighting={true}
+  >
+    m
+  </Text>
+  <Text
+    allowFontScaling={true}
+    maxFontSizeMultiplier={1.4}
+    style={
+      {
+        "color": "rgba(19, 19, 19, 0.35)",
+        "fontFamily": "Basel Grotesk",
+        "fontSize": 19,
+        "fontWeight": "400",
+        "lineHeight": 24.7,
+      }
+    }
+    suppressHighlighting={true}
+  >
+    a
+  </Text>
+  <Text
+    allowFontScaling={true}
+    maxFontSizeMultiplier={1.4}
+    style={
+      {
+        "color": "rgba(19, 19, 19, 0.35)",
+        "fontFamily": "Basel Grotesk",
+        "fontSize": 19,
+        "fontWeight": "400",
+        "lineHeight": 24.7,
+      }
+    }
+    suppressHighlighting={true}
+  >
+    t
+  </Text>
+  <Text
+    allowFontScaling={true}
+    maxFontSizeMultiplier={1.4}
+    style={
+      {
+        "color": "rgba(19, 19, 19, 0.35)",
+        "fontFamily": "Basel Grotesk",
+        "fontSize": 19,
+        "fontWeight": "400",
+        "lineHeight": 24.7,
+      }
+    }
+    suppressHighlighting={true}
+  >
+    c
+  </Text>
+  <Text
+    allowFontScaling={true}
+    maxFontSizeMultiplier={1.4}
+    style={
+      {
+        "color": "rgba(19, 19, 19, 0.35)",
+        "fontFamily": "Basel Grotesk",
+        "fontSize": 19,
+        "fontWeight": "400",
+        "lineHeight": 24.7,
+      }
+    }
+    suppressHighlighting={true}
+  >
+    h
+  </Text>
+  <Text
+    allowFontScaling={true}
+    maxFontSizeMultiplier={1.4}
+    style={
+      {
+        "color": "rgba(19, 19, 19, 0.35)",
+        "fontFamily": "Basel Grotesk",
+        "fontSize": 19,
+        "fontWeight": "400",
+        "lineHeight": 24.7,
+      }
+    }
+    suppressHighlighting={true}
+  >
+    e
+  </Text>
+  <Text
+    allowFontScaling={true}
+    maxFontSizeMultiplier={1.4}
+    style={
+      {
+        "color": "rgba(19, 19, 19, 0.35)",
+        "fontFamily": "Basel Grotesk",
+        "fontSize": 19,
+        "fontWeight": "400",
+        "lineHeight": 24.7,
+      }
+    }
+    suppressHighlighting={true}
+  >
+    s
+  </Text>
+</View>
+`;
+
+exports[`renders text without matches 1`] = `
+<Text
+  allowFontScaling={true}
+  maxFontSizeMultiplier={1.4}
+  numberOfLines={1}
+  style={
+    {
+      "color": "#131313",
+      "fontFamily": "Basel Grotesk",
+      "fontSize": 19,
+      "fontWeight": "400",
+      "lineHeight": 24.7,
+    }
+  }
+  suppressHighlighting={true}
+>
+  A text without matches
+</Text>
+`;

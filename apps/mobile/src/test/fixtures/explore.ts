@@ -1,0 +1,25 @@
+import { GraphQLApi } from '@luxfi/api'
+import { TokenItemData } from 'src/components/explore/TokenItemData'
+import { UniverseChainId } from '@luxexchange/lx/src/features/chains/types'
+import { token } from '@luxexchange/lx/src/test/fixtures'
+import { createFixture } from '@luxexchange/lx/src/test/utils'
+
+type TokenItemDataOptions = {
+  token: GraphQLApi.Token | null
+}
+
+export const tokenItemData = createFixture<TokenItemData, TokenItemDataOptions>({
+  token: null,
+})(({ token: t }) => {
+  const defaultToken = token()
+
+  return {
+    name: t?.name ?? defaultToken.name,
+    logoUrl: t?.project?.logo?.url ?? defaultToken.project.logo.url,
+    chainId: UniverseChainId.Mainnet,
+    address: t?.address ?? defaultToken.address,
+    symbol: t?.symbol ?? defaultToken.symbol,
+  }
+})
+
+export const TOKEN_ITEM_DATA = tokenItemData({ name: 'tkn' })

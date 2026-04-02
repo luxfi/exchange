@@ -1,0 +1,209 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://lux.exchange/tokenlist.schema.json",
+  "title": "Lux Token List",
+  "description": "Schema for lists of tokens compatible with the Lux Exchange interface",
+  "definitions": {
+    "Version": {
+      "type": "object",
+      "description": "The version of the list, used in change detection",
+      "additionalProperties": false,
+      "properties": {
+        "major": {
+          "type": "integer",
+          "description": "The major version of the list. Must be incremented when tokens are removed from the list or token addresses are changed.",
+          "minimum": 0
+        },
+        "minor": {
+          "type": "integer",
+          "description": "The minor version of the list. Must be incremented when tokens are added to the list.",
+          "minimum": 0
+        },
+        "patch": {
+          "type": "integer",
+          "description": "The patch version of the list. Must be incremented for any changes to the list.",
+          "minimum": 0
+        }
+      },
+      "required": ["major", "minor", "patch"]
+    },
+    "TagIdentifier": {
+      "type": "string",
+      "description": "The unique identifier of a tag",
+      "minLength": 1,
+      "maxLength": 10,
+      "pattern": "^[\\w]+$"
+    },
+    "ExtensionIdentifier": {
+      "type": "string",
+      "description": "The name of a token extension property",
+      "minLength": 1,
+      "maxLength": 40,
+      "pattern": "^[\\w]+$"
+    },
+    "ExtensionMap": {
+      "type": "object",
+      "description": "An object containing any arbitrary or vendor-specific token metadata",
+      "maxProperties": 10,
+      "propertyNames": {
+        "$ref": "#/definitions/ExtensionIdentifier"
+      },
+      "additionalProperties": {
+        "$ref": "#/definitions/ExtensionValue"
+      }
+    },
+    "ExtensionPrimitiveValue": {
+      "anyOf": [
+        { "type": "string", "minLength": 1, "maxLength": 42 },
+        { "type": "boolean" },
+        { "type": "number" },
+        { "type": "null" }
+      ]
+    },
+    "ExtensionValue": {
+      "anyOf": [
+        { "$ref": "#/definitions/ExtensionPrimitiveValue" },
+        {
+          "type": "object",
+          "maxProperties": 10,
+          "propertyNames": { "$ref": "#/definitions/ExtensionIdentifier" },
+          "additionalProperties": { "$ref": "#/definitions/ExtensionValueInner0" }
+        }
+      ]
+    },
+    "ExtensionValueInner0": {
+      "anyOf": [
+        { "$ref": "#/definitions/ExtensionPrimitiveValue" },
+        {
+          "type": "object",
+          "maxProperties": 10,
+          "propertyNames": { "$ref": "#/definitions/ExtensionIdentifier" },
+          "additionalProperties": { "$ref": "#/definitions/ExtensionValueInner1" }
+        }
+      ]
+    },
+    "ExtensionValueInner1": {
+      "anyOf": [{ "$ref": "#/definitions/ExtensionPrimitiveValue" }]
+    },
+    "TagDefinition": {
+      "type": "object",
+      "description": "Definition of a tag that can be associated with a token via its identifier",
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The name of the tag",
+          "pattern": "^[ \\w]+$",
+          "minLength": 1,
+          "maxLength": 20
+        },
+        "description": {
+          "type": "string",
+          "description": "A user-friendly description of the tag",
+          "pattern": "^[ \\w\\.,:]+$",
+          "minLength": 1,
+          "maxLength": 200
+        }
+      },
+      "required": ["name", "description"]
+    },
+    "TokenInfo": {
+      "type": "object",
+      "description": "Metadata for a single token in a token list",
+      "additionalProperties": false,
+      "properties": {
+        "chainId": {
+          "type": "integer",
+          "description": "The chain ID of the network where this token is deployed",
+          "minimum": 1
+        },
+        "address": {
+          "type": "string",
+          "description": "The checksummed address of the token on the specified chain ID",
+          "pattern": "^0x[a-fA-F0-9]{40}$"
+        },
+        "decimals": {
+          "type": "integer",
+          "description": "The number of decimals for the token balance",
+          "minimum": 0,
+          "maximum": 255
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the token",
+          "minLength": 0,
+          "maxLength": 40,
+          "pattern": "^[ \\S+]+$"
+        },
+        "symbol": {
+          "type": "string",
+          "description": "The symbol for the token",
+          "minLength": 1,
+          "maxLength": 20,
+          "pattern": "^\\S+$"
+        },
+        "logoURI": {
+          "type": "string",
+          "description": "A URI to the token logo asset",
+          "format": "uri"
+        },
+        "tags": {
+          "type": "array",
+          "description": "An array of tag identifiers associated with the token",
+          "items": { "$ref": "#/definitions/TagIdentifier" },
+          "maxItems": 10
+        },
+        "extensions": { "$ref": "#/definitions/ExtensionMap" }
+      },
+      "required": ["chainId", "address", "decimals", "name", "symbol"]
+    }
+  },
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "The name of the token list",
+      "minLength": 1,
+      "maxLength": 30,
+      "pattern": "^[\\w ]+$"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The timestamp of this list version"
+    },
+    "version": { "$ref": "#/definitions/Version" },
+    "tokens": {
+      "type": "array",
+      "description": "The list of tokens included in the list",
+      "items": { "$ref": "#/definitions/TokenInfo" },
+      "minItems": 1,
+      "maxItems": 10000
+    },
+    "tokenMap": {
+      "type": "object",
+      "description": "A mapping of key 'chainId_tokenAddress' to its corresponding token object",
+      "additionalProperties": { "$ref": "#/definitions/TokenInfo" }
+    },
+    "keywords": {
+      "type": "array",
+      "description": "Keywords associated with the contents of the list; may be used in list discoverability",
+      "items": { "type": "string", "minLength": 1, "maxLength": 20, "pattern": "^[\\w ]+$" },
+      "maxItems": 20
+    },
+    "tags": {
+      "type": "object",
+      "description": "A mapping of tag identifiers to their name and description",
+      "propertyNames": { "$ref": "#/definitions/TagIdentifier" },
+      "additionalProperties": { "$ref": "#/definitions/TagDefinition" },
+      "maxProperties": 20
+    },
+    "logoURI": {
+      "type": "string",
+      "description": "A URI for the logo of the token list",
+      "format": "uri"
+    }
+  },
+  "required": ["name", "timestamp", "version", "tokens"]
+}

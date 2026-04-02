@@ -1,0 +1,493 @@
+import { FeatureFlags, useFeatureFlag } from '@luxexchange/gating'
+import { lazy, type PropsWithChildren, ReactNode, Suspense, useMemo } from 'react'
+import { matchPath, Navigate, Route, Routes, useLocation } from 'react-router'
+import { WRAPPED_PATH } from '@luxexchange/lx/src/components/banners/shared/utils'
+import { CHROME_EXTENSION_UNINSTALL_URL_PATH } from '@luxexchange/lx/src/constants/urls'
+import { WRAPPED_SOL_ADDRESS_SOLANA } from '@luxexchange/lx/src/features/chains/svm/defaults'
+import { EXTENSION_PASSKEY_AUTH_PATH } from '@luxexchange/lx/src/features/passkey/constants'
+import { SwapFormStoreContextProvider } from '@luxexchange/lx/src/features/transactions/swap/stores/swapFormStore/SwapFormStoreContextProvider'
+import i18n from '@luxexchange/lx/src/i18n'
+import { getExploreDescription, getExploreTitle } from '~/pages/getExploreTitle'
+import { getPortfolioDescription, getPortfolioTitle } from '~/pages/getPortfolioTitle'
+import {
+  getAddLiquidityPageTitle,
+  getPositionPageDescription,
+  getPositionPageTitle,
+} from '~/pages/getPositionPageTitle'
+// High-traffic pages (index and /swap) should not be lazy-loaded.
+import Landing from '~/pages/Landing'
+import Swap from '~/pages/Swap'
+import { isBrowserRouterEnabled } from '~/utils/env'
+
+const CreatePosition = lazy(() => import('~/pages/CreatePosition/CreatePosition'))
+const AddLiquidityV3WithTokenRedirects = lazy(() => import('~/pages/AddLiquidityV3/redirects'))
+const AddLiquidityV2WithTokenRedirects = lazy(() => import('~/pages/AddLiquidityV2/redirects'))
+const RedirectExplore = lazy(() => import('~/pages/Explore/redirects'))
+const MigrateV3 = lazy(() => import('~/pages/Migrate'))
+const NotFound = lazy(() => import('~/pages/NotFound'))
+const Pool = lazy(() => import('~/pages/Positions'))
+const LegacyPoolRedirects = lazy(() =>
+  import('~/pages/LegacyPool/redirects').then((module) => ({ default: module.LegacyPoolRedirects })),
+)
+const PoolFinderRedirects = lazy(() =>
+  import('~/pages/LegacyPool/redirects').then((module) => ({ default: module.PoolFinderRedirects })),
+)
+const LegacyPositionPageRedirects = lazy(() =>
+  import('~/pages/LegacyPool/redirects').then((module) => ({ default: module.LegacyPositionPageRedirects })),
+)
+const RemoveLiquidityV2WithTokenRedirects = lazy(() =>
+  import('~/pages/LegacyPool/redirects').then((module) => ({ default: module.RemoveLiquidityV2WithTokenRedirects })),
+)
+const PositionPage = lazy(() => import('~/pages/Positions/PositionPage'))
+const V2PositionPage = lazy(() => import('~/pages/Positions/V2PositionPage'))
+const PoolDetails = lazy(() => import('~/pages/PoolDetails'))
+const TokenDetails = lazy(() => import('~/pages/TokenDetails/TokenDetailsPage'))
+const ExtensionPasskeyAuthPopUp = lazy(() => import('~/pages/ExtensionPasskeyAuthPopUp'))
+const PasskeyManagement = lazy(() => import('~/pages/PasskeyManagement'))
+const ExtensionUninstall = lazy(() => import('~/pages/ExtensionUninstall/ExtensionUninstall'))
+const Portfolio = lazy(() => import('~/pages/Portfolio/Portfolio'))
+const ToucanToken = lazy(() => import('~/pages/Explore/ToucanToken'))
+const CreateAuction = lazy(() => import('~/pages/Liquidity/CreateAuction/CreateAuction'))
+const XOAuthCallbackPage = lazy(() => import('~/pages/Liquidity/CreateAuction/XOAuthCallbackPage'))
+const BetaPage = lazy(() => import('~/pages/Beta'))
+const Wrapped = lazy(() => import('~/pages/Wrapped'))
+const TradePage = lazy(() => import('~/pages/Trade'))
+const TermsOfService = lazy(() => import('~/pages/Legal/TermsOfService'))
+const PrivacyPolicyPage = lazy(() => import('~/pages/Legal/PrivacyPolicy'))
+
+/**
+ * Wrapper that provides SwapFormStoreContextProvider for routes that use
+ * shared components (CurrencyInputPanel, TokenRate, etc.) which depend on
+ * the swap form store context. Without this, those components throw
+ * "useSwapFormStore must be used within SwapFormStoreContextProvider".
+ */
+function WithSwapFormStore({ children }: PropsWithChildren): JSX.Element {
+  return <SwapFormStoreContextProvider>{children}</SwapFormStoreContextProvider>
+}
+
+interface RouterConfig {
+  browserRouterEnabled?: boolean
+  hash?: string
+  isEmbeddedWalletEnabled?: boolean
+  isWrappedEnabled?: boolean
+  isToucanLaunchAuctionEnabled?: boolean
+}
+
+/**
+ * Convenience hook which organizes the router configuration into a single object.
+ */
+export function useRouterConfig(): RouterConfig {
+  const browserRouterEnabled = isBrowserRouterEnabled()
+  const { hash } = useLocation()
+  const isEmbeddedWalletEnabled = useFeatureFlag(FeatureFlags.EmbeddedWallet)
+  const isWrappedEnabled = useFeatureFlag(FeatureFlags.LuxWrapped2025)
+  const isToucanLaunchAuctionEnabled = useFeatureFlag(FeatureFlags.ToucanLaunchAuction)
+
+  return useMemo(
+    () => ({
+      browserRouterEnabled,
+      hash,
+      isEmbeddedWalletEnabled,
+      isWrappedEnabled,
+      isToucanLaunchAuctionEnabled,
+    }),
+    [browserRouterEnabled, hash, isEmbeddedWalletEnabled, isWrappedEnabled, isToucanLaunchAuctionEnabled],
+  )
+}
+
+// SEO titles and descriptions sourced from https://docs.google.com/spreadsheets/d/1_6vSxGgmsx6QGEZ4mdHppv1VkuiJEro3Y_IopxUHGB4/edit#gid=0
+// getTitle and getDescription are used as static metatags for SEO. Dynamic metatags should be set in the page component itself
+const StaticTitlesAndDescriptions = {
+  LuxTitle: i18n.t('title.luxTradeCrypto'),
+  SwapTitle: i18n.t('title.buySellTradeEthereum'),
+  SwapDescription: i18n.t('title.swappingMadeSimple'),
+  DetailsPageBaseTitle: i18n.t('common.buyAndSell'),
+  TDPDescription: i18n.t('title.realTime'),
+  PDPDescription: i18n.t('title.tradeTokens'),
+  MigrateTitle: i18n.t('title.migratev2'),
+  MigrateTitleV3: i18n.t('title.migratev3'),
+  MigrateDescription: i18n.t('title.easilyRemove'),
+  MigrateDescriptionV4: i18n.t('title.easilyRemoveV4'),
+  AddLiquidityDescription: i18n.t('title.earnFees'),
+  PasskeyManagementTitle: i18n.t('title.managePasskeys'),
+  ToucanDescription: i18n.t('title.toucanDescription'),
+}
+
+export interface RouteDefinition {
+  path: string
+  nestedPaths: string[]
+  getTitle: (path?: string) => string
+  getDescription: (path?: string) => string
+  enabled: (args: RouterConfig) => boolean
+  getElement: (args: RouterConfig) => ReactNode
+}
+
+// Assigns the defaults to the route definition.
+function createRouteDefinition(route: Partial<RouteDefinition>): RouteDefinition {
+  return {
+    getElement: () => null,
+    getTitle: () => StaticTitlesAndDescriptions.LuxTitle,
+    getDescription: () => StaticTitlesAndDescriptions.SwapDescription,
+    enabled: () => true,
+    path: '/',
+    nestedPaths: [],
+    // overwrite the defaults
+    ...route,
+  }
+}
+
+export const routes: RouteDefinition[] = [
+  createRouteDefinition({
+    path: '/',
+    getTitle: () => StaticTitlesAndDescriptions.LuxTitle,
+    getDescription: () => StaticTitlesAndDescriptions.SwapDescription,
+    getElement: (args) => {
+      return args.browserRouterEnabled && args.hash ? <Navigate to={args.hash.replace('#', '')} replace /> : <Landing />
+    },
+  }),
+  createRouteDefinition({
+    path: '/explore',
+    getTitle: getExploreTitle,
+    getDescription: getExploreDescription,
+    nestedPaths: [':tab', ':chainName', ':tab/:chainName'],
+    getElement: () => <RedirectExplore />,
+  }),
+  // Special case: redirect WSOL to SOL TDP, as directly trading WSOL is not supported currently.
+  createRouteDefinition({
+    path: `/explore/tokens/solana/${WRAPPED_SOL_ADDRESS_SOLANA}`,
+    getTitle: () => i18n.t('common.buyAndSell'),
+    getDescription: () => StaticTitlesAndDescriptions.TDPDescription,
+    getElement: () => <Navigate to="/explore/tokens/solana/NATIVE" replace />,
+  }),
+  createRouteDefinition({
+    path: '/explore/tokens/:chainName/:tokenAddress',
+    getTitle: () => i18n.t('common.buyAndSell'),
+    getDescription: () => StaticTitlesAndDescriptions.TDPDescription,
+    getElement: () => (
+      <Suspense fallback={null}>
+        <TokenDetails />
+      </Suspense>
+    ),
+  }),
+  createRouteDefinition({
+    path: '/tokens',
+    getTitle: getExploreTitle,
+    getDescription: getExploreDescription,
+    getElement: () => <Navigate to="/explore/tokens" replace />,
+  }),
+  createRouteDefinition({
+    path: '/tokens/:chainName',
+    getTitle: getExploreTitle,
+    getDescription: getExploreDescription,
+    getElement: () => <RedirectExplore />,
+  }),
+  createRouteDefinition({
+    path: '/tokens/:chainName/:tokenAddress',
+    getTitle: () => StaticTitlesAndDescriptions.DetailsPageBaseTitle,
+    getDescription: () => StaticTitlesAndDescriptions.TDPDescription,
+    getElement: () => <RedirectExplore />,
+  }),
+  createRouteDefinition({
+    path: '/explore/pools/:chainName/:poolAddress',
+    getTitle: () => StaticTitlesAndDescriptions.DetailsPageBaseTitle,
+    getDescription: () => StaticTitlesAndDescriptions.PDPDescription,
+    getElement: () => (
+      <Suspense fallback={null}>
+        <PoolDetails />
+      </Suspense>
+    ),
+  }),
+  createRouteDefinition({
+    path: '/explore/auctions/:chainName/:auctionAddress',
+    getTitle: () => StaticTitlesAndDescriptions.DetailsPageBaseTitle,
+    getDescription: () => StaticTitlesAndDescriptions.ToucanDescription,
+    getElement: () => (
+      <Suspense fallback={null}>
+        <ToucanToken />
+      </Suspense>
+    ),
+  }),
+  createRouteDefinition({
+    path: '/liquidity/launch-auction',
+    getTitle: () => i18n.t('toucan.createAuction.title'),
+    getDescription: () => StaticTitlesAndDescriptions.ToucanDescription,
+    enabled: (args) => args.isToucanLaunchAuctionEnabled ?? false,
+    getElement: () => (
+      <Suspense fallback={null}>
+        <CreateAuction />
+      </Suspense>
+    ),
+  }),
+  createRouteDefinition({
+    path: '/liquidity/launch-auction/x/callback',
+    getTitle: () => 'X Verification',
+    getDescription: () => StaticTitlesAndDescriptions.ToucanPlaceholderDescription,
+    getElement: () => (
+      <Suspense fallback={null}>
+        <XOAuthCallbackPage />
+      </Suspense>
+    ),
+  }),
+  createRouteDefinition({
+    path: '/vote/*',
+    getTitle: () => i18n.t('title.voteOnGov'),
+    getDescription: () => i18n.t('title.luxToken'),
+    getElement: () => {
+      return (
+        <Routes>
+          <Route
+            path="*"
+            Component={() => {
+              window.location.href = 'https://vote.luxfoundation.org'
+              return null
+            }}
+          ></Route>
+        </Routes>
+      )
+    },
+  }),
+  createRouteDefinition({
+    path: '/create-proposal',
+    getTitle: () => i18n.t('title.createGovernanceOn'),
+    getDescription: () => i18n.t('title.createGovernanceTo'),
+    getElement: () => <Navigate to="/vote/create-proposal" replace />,
+  }),
+  createRouteDefinition({
+    path: '/buy',
+    getElement: () => <WithSwapFormStore><Swap /></WithSwapFormStore>,
+    getTitle: () => StaticTitlesAndDescriptions.SwapTitle,
+  }),
+  createRouteDefinition({
+    path: '/sell',
+    getElement: () => <WithSwapFormStore><Swap /></WithSwapFormStore>,
+    getTitle: () => StaticTitlesAndDescriptions.SwapTitle,
+  }),
+  createRouteDefinition({
+    path: '/send',
+    getElement: () => <WithSwapFormStore><Swap /></WithSwapFormStore>,
+    getTitle: () => i18n.t('title.sendTokens'),
+  }),
+  createRouteDefinition({
+    path: '/limits',
+    getElement: () => <Navigate to="/limit" replace />,
+    getTitle: () => i18n.t('title.placeLimit'),
+  }),
+  createRouteDefinition({
+    path: '/limit',
+    getElement: () => <WithSwapFormStore><Swap /></WithSwapFormStore>,
+    getTitle: () => i18n.t('title.placeLimit'),
+  }),
+  createRouteDefinition({
+    path: '/swap',
+    getElement: () => <WithSwapFormStore><Swap /></WithSwapFormStore>,
+    getTitle: () => StaticTitlesAndDescriptions.SwapTitle,
+  }),
+  // Refreshed pool routes
+  createRouteDefinition({
+    path: '/positions/create',
+    getElement: () => <WithSwapFormStore><CreatePosition /></WithSwapFormStore>,
+    getTitle: getPositionPageTitle,
+    getDescription: getPositionPageDescription,
+    nestedPaths: [':protocolVersion'],
+  }),
+  createRouteDefinition({
+    path: '/positions',
+    getElement: () => <Pool />,
+    getTitle: getPositionPageTitle,
+    getDescription: getPositionPageDescription,
+  }),
+  createRouteDefinition({
+    path: '/positions/v2/:chainName/:pairAddress',
+    getElement: () => <V2PositionPage />,
+    getTitle: getPositionPageTitle,
+    getDescription: getPositionPageDescription,
+  }),
+  createRouteDefinition({
+    path: '/positions/v3/:chainName/:tokenId',
+    getElement: () => <PositionPage />,
+    getTitle: getPositionPageTitle,
+    getDescription: getPositionPageDescription,
+  }),
+  createRouteDefinition({
+    path: '/positions/v4/:chainName/:tokenId',
+    getElement: () => <PositionPage />,
+    getTitle: getPositionPageTitle,
+    getDescription: getPositionPageDescription,
+  }),
+  createRouteDefinition({
+    path: '/migrate/v2/:chainName/:pairAddress',
+    getElement: () => <MigrateV3 />,
+    getTitle: () => StaticTitlesAndDescriptions.MigrateTitle,
+    getDescription: () => StaticTitlesAndDescriptions.MigrateDescription,
+  }),
+  createRouteDefinition({
+    path: '/migrate/v3/:chainName/:tokenId',
+    getElement: () => <MigrateV3 />,
+    getTitle: () => StaticTitlesAndDescriptions.MigrateTitleV3,
+    getDescription: () => StaticTitlesAndDescriptions.MigrateDescriptionV4,
+  }),
+  // Legacy pool routes
+  createRouteDefinition({
+    path: '/pool',
+    getElement: () => <LegacyPoolRedirects />,
+    getTitle: getPositionPageTitle,
+    getDescription: getPositionPageDescription,
+  }),
+  createRouteDefinition({
+    path: '/pool/v2/find',
+    getElement: () => <PoolFinderRedirects />,
+    getTitle: getPositionPageDescription,
+    getDescription: getPositionPageDescription,
+  }),
+  createRouteDefinition({
+    path: '/pool/v2',
+    getElement: () => <LegacyPositionPageRedirects />,
+    getTitle: getPositionPageTitle,
+    getDescription: getPositionPageDescription,
+  }),
+  createRouteDefinition({
+    path: '/pool/:tokenId',
+    getElement: () => <LegacyPositionPageRedirects />,
+    getTitle: getPositionPageTitle,
+    getDescription: getPositionPageDescription,
+  }),
+  createRouteDefinition({
+    path: '/pools/v2/find',
+    getElement: () => <PoolFinderRedirects />,
+    getTitle: getPositionPageTitle,
+    getDescription: getPositionPageDescription,
+  }),
+  createRouteDefinition({
+    path: '/pools',
+    getElement: () => <LegacyPoolRedirects />,
+    getTitle: getPositionPageTitle,
+    getDescription: getPositionPageDescription,
+  }),
+  createRouteDefinition({
+    path: '/pools/:tokenId',
+    getElement: () => <LegacyPositionPageRedirects />,
+    getTitle: getPositionPageTitle,
+    getDescription: getPositionPageDescription,
+  }),
+  createRouteDefinition({
+    path: '/add/v2',
+    nestedPaths: [':currencyIdA', ':currencyIdA/:currencyIdB'],
+    getElement: () => <WithSwapFormStore><AddLiquidityV2WithTokenRedirects /></WithSwapFormStore>,
+    getTitle: getAddLiquidityPageTitle,
+    getDescription: () => StaticTitlesAndDescriptions.AddLiquidityDescription,
+  }),
+  createRouteDefinition({
+    path: '/add',
+    nestedPaths: [
+      ':currencyIdA',
+      ':currencyIdA/:currencyIdB',
+      ':currencyIdA/:currencyIdB/:feeAmount',
+      ':currencyIdA/:currencyIdB/:feeAmount/:tokenId',
+    ],
+    getElement: () => <WithSwapFormStore><AddLiquidityV3WithTokenRedirects /></WithSwapFormStore>,
+    getTitle: getAddLiquidityPageTitle,
+    getDescription: () => StaticTitlesAndDescriptions.AddLiquidityDescription,
+  }),
+  createRouteDefinition({
+    path: '/remove/v2/:currencyIdA/:currencyIdB',
+    getElement: () => <RemoveLiquidityV2WithTokenRedirects />,
+    getTitle: () => i18n.t('title.removeLiquidityv2'),
+    getDescription: () => i18n.t('title.removeTokensv2'),
+  }),
+  createRouteDefinition({
+    path: '/remove/:tokenId',
+    getElement: () => <LegacyPositionPageRedirects />,
+    getTitle: () => i18n.t('title.removePoolLiquidity'),
+    getDescription: () => i18n.t('title.removev3Liquidity'),
+  }),
+  createRouteDefinition({
+    path: EXTENSION_PASSKEY_AUTH_PATH,
+    getElement: () => <ExtensionPasskeyAuthPopUp />,
+    getTitle: () => i18n.t('title.extensionPasskeyLogIn'),
+  }),
+  createRouteDefinition({
+    path: '/manage/passkey/:walletAddress',
+    getElement: () => <PasskeyManagement />,
+    getTitle: () => StaticTitlesAndDescriptions.PasskeyManagementTitle,
+    enabled: (args) => args.isEmbeddedWalletEnabled ?? false,
+  }),
+  // Portfolio Pages
+  createRouteDefinition({
+    path: '/portfolio',
+    getElement: () => <Portfolio />,
+    getTitle: getPortfolioTitle,
+    getDescription: getPortfolioDescription,
+    nestedPaths: [
+      'tokens',
+      'defi',
+      'nfts',
+      'activity',
+      ':walletAddress',
+      ':walletAddress/tokens',
+      ':walletAddress/defi',
+      ':walletAddress/nfts',
+      ':walletAddress/activity',
+    ],
+  }),
+  // Lux Extension Uninstall Page
+  createRouteDefinition({
+    path: CHROME_EXTENSION_UNINSTALL_URL_PATH,
+    getElement: () => <ExtensionUninstall />,
+    getTitle: () => i18n.t('title.extension.uninstall'),
+  }),
+  // Lux Wrapped
+  createRouteDefinition({
+    path: WRAPPED_PATH,
+    getElement: () => <Wrapped />,
+    getTitle: () => 'Lux Wrapped',
+    enabled: (args) => args.isWrappedEnabled ?? false,
+  }),
+  createRouteDefinition({
+    path: '/preview',
+    getTitle: () => 'Lx Preview',
+    getElement: () => (
+      <Suspense fallback={null}>
+        <BetaPage />
+      </Suspense>
+    ),
+  }),
+  createRouteDefinition({
+    path: '/terms',
+    getTitle: () => 'Terms of Service',
+    getDescription: () => 'Terms of Service for Lux Network protocol interfaces',
+    getElement: () => (
+      <Suspense fallback={null}>
+        <TermsOfService />
+      </Suspense>
+    ),
+  }),
+  createRouteDefinition({
+    path: '/privacy',
+    getTitle: () => 'Privacy Policy',
+    getDescription: () => 'Privacy Policy for Lux Network protocol interfaces',
+    getElement: () => (
+      <Suspense fallback={null}>
+        <PrivacyPolicyPage />
+      </Suspense>
+    ),
+  }),
+  createRouteDefinition({ path: '*', getElement: () => <Navigate to="/not-found" replace /> }),
+  createRouteDefinition({ path: '/not-found', getElement: () => <NotFound /> }),
+]
+
+export const findRouteByPath = (pathname: string) => {
+  for (const route of routes) {
+    const match = matchPath(route.path, pathname)
+    if (match) {
+      return route
+    }
+    const subPaths = route.nestedPaths.map((nestedPath) => `${route.path}/${nestedPath}`)
+    for (const subPath of subPaths) {
+      const match = matchPath(subPath, pathname)
+      if (match) {
+        return route
+      }
+    }
+  }
+  return undefined
+}

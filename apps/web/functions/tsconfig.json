@@ -1,0 +1,26 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "composite": false,
+    "incremental": true,
+    "isolatedModules": false,
+    "paths": {
+      "~/*": ["../src/*"],
+      "functions/*": ["./*"]
+    },
+    "tsBuildInfoFile": "../node_modules/.cache/tsbuildinfo/functions", // avoid clobbering the build tsbuildinfo
+    "types": ["node", "@cloudflare/workers-types", "vitest/globals"]
+  },
+  "include": ["../../../index.d.ts", "**/*.ts", "**/*.tsx"],
+  "references": [
+    {
+      "path": "../../../pkgs/ui"
+    },
+    {
+      "path": "../../../pkgs/utilities"
+    },
+    {
+      "path": "../../../pkgs/lx"
+    }
+  ]
+}

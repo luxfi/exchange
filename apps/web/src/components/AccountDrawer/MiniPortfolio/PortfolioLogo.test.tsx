@@ -1,0 +1,20 @@
+import '~/test-utils/tokens/mocks'
+
+import { DAI, DAI_ARBITRUM_ONE, USDC_ARBITRUM, USDC_MAINNET } from '@luxexchange/lx/src/constants/tokens'
+import { UniverseChainId } from '@luxexchange/lx/src/features/chains/types'
+import { PortfolioLogo } from '~/components/AccountDrawer/MiniPortfolio/PortfolioLogo'
+import { render } from '~/test-utils/render'
+
+describe('PortfolioLogo', () => {
+  it('renders without L2 icon', () => {
+    const { container } = render(<PortfolioLogo chainId={UniverseChainId.Mainnet} currencies={[DAI, USDC_MAINNET]} />)
+    expect(container).toMatchSnapshot()
+  })
+
+  it('renders with L2 icon', () => {
+    const { container } = render(
+      <PortfolioLogo chainId={UniverseChainId.ArbitrumOne} currencies={[DAI_ARBITRUM_ONE, USDC_ARBITRUM]} />,
+    )
+    expect(container).toMatchSnapshot()
+  })
+})

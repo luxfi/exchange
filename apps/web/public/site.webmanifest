@@ -1,0 +1,21 @@
+{
+  "name": "LX",
+  "short_name": "LX",
+  "description": "Trade tokens on LX",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#FFFFFF",
+  "icons": [
+    {
+      "src": "/images/192x192_App_Icon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/images/512x512_App_Icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

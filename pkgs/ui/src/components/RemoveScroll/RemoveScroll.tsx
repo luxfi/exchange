@@ -1,0 +1,13 @@
+import { ReactNode } from 'react'
+import { PlatformSplitStubError } from 'utilities/src/errors'
+
+export interface RemoveScrollProps {
+  enabled?: boolean
+  children?: ReactNode
+  /** Use event-based scroll blocking (react-remove-scroll) instead of CSS overflow:hidden. Needed for nested overflow:auto containers (e.g. tables behind context menus). Do NOT use with portaled content (Sheets, drawers) — the DOM contains() check misclassifies portal events as "outside" the lock. */
+  blockScrollEvents?: boolean
+}
+
+export function RemoveScroll(_: RemoveScrollProps): ReactNode {
+  throw new PlatformSplitStubError('RemoveScroll')
+}

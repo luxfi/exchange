@@ -1,0 +1,19 @@
+diff --git a/dist/immer.mjs b/dist/immer.mjs
+index 1234567..abcdefg 100644
+--- a/dist/immer.mjs
++++ b/dist/immer.mjs
+@@ -1,5 +1,14 @@
+ var _a;
+ 
++// Patch: Disable React owner detection for React 19 compatibility
++function die(error) {
++  // Silently ignore React-related warnings in React 19
++  if (error === 3 || error === 4) return;
++  const msg = errors[error];
++  if (!msg) throw new Error("unknown immer error: " + error);
++  throw new Error("[Immer] " + msg);
++}
++
+ // types only!
+ 
+ const NOTHING = Symbol.for("immer-nothing");

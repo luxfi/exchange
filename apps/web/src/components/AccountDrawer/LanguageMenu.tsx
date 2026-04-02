@@ -1,0 +1,56 @@
+import { useTranslation } from 'react-i18next'
+import { useDispatch } from 'react-redux'
+import { Language, WEB_SUPPORTED_LANGUAGES } from '@luxexchange/lx/src/features/language/constants'
+import { useCurrentLanguage, useLanguageInfo } from '@luxexchange/lx/src/features/language/hooks'
+import { setCurrentLanguage } from '@luxexchange/lx/src/features/settings/slice'
+import { InterfaceEventName } from '@luxexchange/lx/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from '@luxexchange/lx/src/features/telemetry/send'
+import { SlideOutMenu } from '~/components/AccountDrawer/SlideOutMenu'
+import { MenuColumn, MenuItem } from '~/components/AccountDrawer/shared'
+import { useLocationLinkProps } from '~/hooks/useLocationLinkProps'
+
+function LanguageMenuItem({ language }: { language: Language }) {
+  const currentLanguage = useCurrentLanguage()
+  const languageInfo = useLanguageInfo(language)
+  const dispatch = useDispatch()
+
+  const { to } = useLocationLinkProps(languageInfo.locale)
+
+  return (
+    <MenuItem
+      label={languageInfo.displayName}
+      onClick={() => {
+        dispatch(setCurrentLanguage(language))
+        sendAnalyticsEvent(InterfaceEventName.LanguageSelected, {
+          previous_language: currentLanguage,
+          new_language: language,
+        })
+      }}
+      isActive={language === currentLanguage}
+      to={to}
+      testId="wallet-language-item"
+    />
+  )
+}
+
+export function LanguageMenuItems() {
+  return (
+    <>
+      {WEB_SUPPORTED_LANGUAGES.map((language) => (
+        <LanguageMenuItem language={language} key={language} />
+      ))}
+    </>
+  )
+}
+
+export default function LanguageMenu({ onClose }: { onClose: () => void }) {
+  const { t } = useTranslation()
+
+  return (
+    <SlideOutMenu title={t('common.language')} onClose={onClose}>
+      <MenuColumn>
+        <LanguageMenuItems />
+      </MenuColumn>
+    </SlideOutMenu>
+  )
+}

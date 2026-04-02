@@ -1,0 +1,34 @@
+{
+  "extends": "../../config/tsconfig/app.json",
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "src/**/*.json",
+    "../../index.d.ts"
+  ],
+  "exclude": [
+    "src/**/*.spec.ts",
+    "src/**/*.spec.tsx",
+    "src/**/*.test.ts",
+    "src/**/*.test.tsx"
+  ],
+  "compilerOptions": {
+    "emitDeclarationOnly": true,
+    "noEmit": false,
+    "paths": {
+      "@luxexchange/notifications/*": ["./*"]
+    },
+    "types": ["node", "vitest/globals"]
+  },
+  "references": [
+    {
+      "path": "../ui"
+    },
+    {
+      "path": "../api"
+    },
+    {
+      "path": "../eslint-config"
+    }
+  ]
+}

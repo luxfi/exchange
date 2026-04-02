@@ -1,0 +1,25 @@
+{
+  "brand": {
+    "name": "Lux Exchange",
+    "title": "Lux Exchange | Trade",
+    "description": "The decentralized exchange for the Lux ecosystem",
+    "legalEntity": "Lux Industries Inc.",
+    "appDomain": "lux.exchange",
+    "docsDomain": "docs.lux.exchange",
+    "infoDomain": "info.lux.exchange",
+    "gatewayDomain": "gw.lux.exchange",
+    "wsDomain": "ws.lux.exchange",
+    "helpUrl": "https://docs.lux.exchange/help",
+    "termsUrl": "https://lux.exchange/terms",
+    "privacyUrl": "https://lux.exchange/privacy",
+    "downloadUrl": "https://lux.exchange/wallet",
+    "complianceEmail": "compliance@lux.exchange",
+    "supportEmail": "hi@lux.exchange",
+    "twitter": "https://x.com/luxfi",
+    "github": "https://github.com/luxfi",
+    "discord": "https://discord.gg/lux",
+    "primaryColor": "#FC72FF",
+    "defaultChainId": 96369,
+    "supportedChainIds": [96369, 96368, 96367]
+  }
+}

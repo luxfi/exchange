@@ -1,0 +1,34 @@
+import { useNavigate } from 'react-router'
+import { useMedia } from '@luxfi/ui/src'
+import { UniverseChainId } from '@luxexchange/lx/src/features/chains/types'
+import { useEvent } from '@luxfi/utilities/src/react/hooks'
+import { NetworkFilter } from '~/components/NetworkFilter/NetworkFilter'
+import { ExploreTab } from '~/pages/Explore/constants'
+import { useExploreParams } from '~/pages/Explore/redirects'
+import { getChainIdFromChainUrlParam, getChainUrlParam } from '~/utils/chainParams'
+
+function buildExploreUrl(tabName: ExploreTab | undefined, chainId: UniverseChainId | undefined): string {
+  const chainUrlParam = chainId ? getChainUrlParam(chainId) : ''
+  return `/explore/${tabName ?? ExploreTab.Tokens}${chainId ? `/${chainUrlParam}` : ''}`
+}
+
+export function TableNetworkFilter({ networks }: { networks?: UniverseChainId[] } = {}) {
+  const navigate = useNavigate()
+  const media = useMedia()
+  const { tab: tabName, chainName } = useExploreParams()
+  const currentChainId = chainName ? getChainIdFromChainUrlParam(chainName) : undefined
+
+  const onNetworkPress = useEvent((chainId: UniverseChainId | undefined) => {
+    navigate(buildExploreUrl(tabName, chainId))
+  })
+
+  return (
+    <NetworkFilter
+      showMultichainOption={tabName !== ExploreTab.Transactions}
+      position={media.lg ? 'left' : 'right'}
+      onPress={onNetworkPress}
+      currentChainId={currentChainId}
+      networks={networks}
+    />
+  )
+}

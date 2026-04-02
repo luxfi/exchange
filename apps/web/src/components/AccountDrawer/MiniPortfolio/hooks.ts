@@ -1,0 +1,50 @@
+import { atom, useAtom } from 'jotai'
+import { useAtomValue, useUpdateAtom } from 'jotai/utils'
+import { useCallback, useMemo } from 'react'
+import { InterfaceEventName } from '@luxexchange/lx/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from '@luxexchange/lx/src/features/telemetry/send'
+import { useEvent } from '@luxfi/utilities/src/react/hooks'
+import { passkeySignInPendingAtom, showEmbeddedLoginViewAtom } from '~/components/WalletModal/EmbeddedWalletModal'
+
+const accountDrawerOpenAtom = atom(false)
+const showMoonpayTextAtom = atom(false)
+
+export function useAccountDrawer() {
+  const [isOpen, updateAccountDrawerOpen] = useAtom(accountDrawerOpenAtom)
+  const setShowMoonpayTextInDrawer = useSetShowMoonpayText()
+  const setShowEmbeddedLoginView = useUpdateAtom(showEmbeddedLoginViewAtom)
+  const setPasskeySignInPending = useUpdateAtom(passkeySignInPendingAtom)
+
+  const open = useEvent(() => {
+    sendAnalyticsEvent(InterfaceEventName.MiniPortfolioToggled, { type: 'open' })
+    updateAccountDrawerOpen(true)
+  })
+
+  const close = useEvent(() => {
+    sendAnalyticsEvent(InterfaceEventName.MiniPortfolioToggled, { type: 'close' })
+    setShowMoonpayTextInDrawer(false)
+    setShowEmbeddedLoginView(false)
+    setPasskeySignInPending(false)
+    updateAccountDrawerOpen(false)
+  })
+
+  const toggle = useEvent(() => {
+    updateAccountDrawerOpen((prev) => {
+      sendAnalyticsEvent(InterfaceEventName.MiniPortfolioToggled, { type: prev ? 'close' : 'open' })
+      return !prev
+    })
+  })
+
+  return useMemo(() => ({ isOpen, open, close, toggle }), [isOpen, open, close, toggle])
+}
+
+// Only show Moonpay text if the user opens the Account Drawer by clicking 'Buy'
+function useSetShowMoonpayText() {
+  const updateShowMoonpayText = useUpdateAtom(showMoonpayTextAtom)
+  return useCallback((newValue: boolean) => updateShowMoonpayText(newValue), [updateShowMoonpayText])
+}
+
+export function useShowMoonpayText(): boolean {
+  const showMoonpayText = useAtomValue(showMoonpayTextAtom)
+  return showMoonpayText
+}

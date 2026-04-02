@@ -1,0 +1,24 @@
+import { ChallengeType } from '@luxamm/client-platform-service/dist/lx/platformservice/v1/sessionService_pb'
+import type { SessionService } from '@luxexchange/sessions/src/session-service/types'
+
+function createNoopSessionService(): SessionService {
+  const initSession: SessionService['initSession'] = async () => ({ needChallenge: false, extra: {} })
+  const removeSession: SessionService['removeSession'] = async () => {}
+  const getSessionState: SessionService['getSessionState'] = async () => null
+  const requestChallenge: SessionService['requestChallenge'] = async () => ({
+    challengeId: 'noop-challenge-123',
+    challengeType: ChallengeType.UNSPECIFIED,
+    extra: {},
+  })
+  const verifySession: SessionService['verifySession'] = async () => ({ retry: false })
+
+  return {
+    initSession,
+    requestChallenge,
+    verifySession,
+    removeSession,
+    getSessionState,
+  }
+}
+
+export { createNoopSessionService }

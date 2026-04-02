@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "display": "NextJS",
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "allowJs": true,
+    "jsx": "preserve",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "paths": {
+      "react-native": ["react-native-web"]
+    },
+    "resolveJsonModule": true,
+    "target": "es2019"
+  }
+}

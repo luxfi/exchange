@@ -1,0 +1,146 @@
+import { ChartPeriod } from '@luxamm/client-data-api/dist/data/v1/api_pb'
+import { memo, useMemo, useState } from 'react'
+import { Flex, Separator, styled, useMedia } from '@luxfi/ui/src'
+import { useGetPortfolioHistoricalValueChartQuery } from 'lx/src/data/rest/getPortfolioChart'
+import { useActivityData } from 'lx/src/features/activity/hooks/useActivityData'
+import { useEnabledChains } from 'lx/src/features/chains/hooks/useEnabledChains'
+import { usePortfolioTotalValue } from 'lx/src/features/dataApi/balances/balancesRest'
+import { usePortfolioChartBalanceMismatch } from 'lx/src/features/portfolio/usePortfolioChartBalanceMismatch'
+import { ElementName, InterfacePageName, SectionName } from 'lx/src/features/telemetry/constants'
+import { Trace } from 'lx/src/features/telemetry/Trace'
+import { EmptyWalletCards } from '~/components/emptyWallet/EmptyWalletCards'
+import { usePortfolioRoutes } from '~/pages/Portfolio/Header/hooks/usePortfolioRoutes'
+import { usePortfolioAddresses } from '~/pages/Portfolio/hooks/usePortfolioAddresses'
+import { OverviewActionTiles } from '~/pages/Portfolio/Overview/ActionTiles'
+import { OVERVIEW_RIGHT_COLUMN_WIDTH } from '~/pages/Portfolio/Overview/constants'
+import { useIsPortfolioZero } from '~/pages/Portfolio/Overview/hooks/useIsPortfolioZero'
+import { PortfolioOverviewTables } from '~/pages/Portfolio/Overview/OverviewTables'
+import { PortfolioChart } from '~/pages/Portfolio/Overview/PortfolioChart'
+import { OverviewStatsTiles } from '~/pages/Portfolio/Overview/StatsTiles'
+import { filterDefinedWalletAddresses } from '~/utils/filterDefinedWalletAddresses'
+
+const ActionsAndStatsContainer = styled(Flex, {
+  width: OVERVIEW_RIGHT_COLUMN_WIDTH,
+  gap: '$spacing16',
+  variants: {
+    fullWidth: {
+      true: {
+        width: '100%',
+      },
+      false: {
+        width: OVERVIEW_RIGHT_COLUMN_WIDTH,
+      },
+    },
+  } as const,
+})
+
+export const PortfolioOverview = memo(function PortfolioOverview() {
+  const media = useMedia()
+  const isFullWidth = media.xl
+  const { chainId, isExternalWallet } = usePortfolioRoutes()
+  const portfolioAddresses = usePortfolioAddresses()
+  const { chains: allChainIds } = useEnabledChains()
+
+  const isPortfolioZero = useIsPortfolioZero()
+
+  const [selectedPeriod, setSelectedPeriod] = useState<ChartPeriod>(ChartPeriod.DAY)
+
+  const filterChainIds = useMemo(() => (chainId ? [chainId] : allChainIds), [chainId, allChainIds])
+
+  const { data: portfolioData } = usePortfolioTotalValue({
+    evmAddress: portfolioAddresses.evmAddress,
+    svmAddress: portfolioAddresses.svmAddress,
+    chainIds: filterChainIds,
+  })
+
+  // Fetch portfolio historical value chart data
+  const {
+    data: portfolioChartData,
+    isPending: isChartPending,
+    error: chartError,
+  } = useGetPortfolioHistoricalValueChartQuery({
+    input: {
+      evmAddress: portfolioAddresses.evmAddress,
+      svmAddress: portfolioAddresses.svmAddress,
+      chainIds: filterChainIds,
+      chartPeriod: selectedPeriod,
+    },
+    enabled: !!(portfolioAddresses.evmAddress || portfolioAddresses.svmAddress),
+  })
+
+  // Get the latest value from chart endpoint (last point in the array) for comparison
+  const lastChartValue = useMemo(() => {
+    if (!portfolioChartData?.points || portfolioChartData.points.length === 0) {
+      return undefined
+    }
+    return portfolioChartData.points[portfolioChartData.points.length - 1]?.value
+  }, [portfolioChartData])
+
+  // Compare portfolio balance (EVM + Solana) with chart endpoint balance to detect spam-token divergence
+  const { isTotalValueMatch } = usePortfolioChartBalanceMismatch({
+    lastChartValue,
+    portfolioTotalBalanceUSD: portfolioData?.balanceUSD,
+  })
+
+  // Fetch activity data once at the top level to share between useSwapsThisWeek and MiniActivityTable
+  const activityData = useActivityData({
+    evmOwner: portfolioAddresses.evmAddress,
+    svmOwner: portfolioAddresses.svmAddress,
+    ownerAddresses: filterDefinedWalletAddresses([portfolioAddresses.evmAddress, portfolioAddresses.svmAddress]),
+    fiatOnRampParams: undefined,
+    chainIds: chainId ? [chainId] : undefined,
+    skip: isPortfolioZero,
+  })
+
+  return (
+    <Trace logImpression page={InterfacePageName.PortfolioOverviewPage} properties={{ isExternal: isExternalWallet }}>
+      <Flex gap="$spacing40" mb="$spacing40">
+        <Flex row gap="$spacing40" $xl={{ flexDirection: 'column' }}>
+          <Trace section={SectionName.PortfolioOverviewTab} element={ElementName.PortfolioChart}>
+            <PortfolioChart
+              portfolioTotalBalanceUSD={portfolioData?.balanceUSD}
+              isPortfolioZero={isPortfolioZero}
+              chartData={portfolioChartData}
+              isPending={isChartPending}
+              error={chartError}
+              selectedPeriod={selectedPeriod}
+              setSelectedPeriod={setSelectedPeriod}
+              isTotalValueMatch={isTotalValueMatch}
+            />
+          </Trace>
+          {isPortfolioZero ? (
+            <ActionsAndStatsContainer minHeight={120} fullWidth={isFullWidth}>
+              <EmptyWalletCards
+                buyElementName={ElementName.EmptyStateBuy}
+                receiveElementName={ElementName.EmptyStateReceive}
+                cexTransferElementName={ElementName.EmptyStateCEXTransfer}
+                horizontalLayout={isFullWidth && !media.sm}
+                growFullWidth={isFullWidth && !media.sm}
+              />
+            </ActionsAndStatsContainer>
+          ) : (
+            <Trace section={SectionName.PortfolioOverviewTab} element={ElementName.PortfolioActionTiles}>
+              <ActionsAndStatsContainer fullWidth={isFullWidth}>
+                <OverviewActionTiles />
+                <OverviewStatsTiles activityData={activityData} />
+              </ActionsAndStatsContainer>
+            </Trace>
+          )}
+        </Flex>
+
+        <Separator />
+
+        {/* Mini tables section */}
+        {!isPortfolioZero && (
+          <Trace section={SectionName.PortfolioOverviewTab} element={ElementName.PortfolioOverviewTables}>
+            <PortfolioOverviewTables
+              activityData={activityData}
+              chainId={chainId}
+              portfolioAddresses={portfolioAddresses}
+            />
+          </Trace>
+        )}
+      </Flex>
+    </Trace>
+  )
+})

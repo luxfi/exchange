@@ -1,0 +1,196 @@
+import { useEffect, useState } from 'react'
+import { useTranslation } from 'react-i18next'
+import { Button, Flex, Shine, Text, TouchableArea } from '@luxfi/ui/src'
+import { RotatableChevron } from '@luxfi/ui/src/components/icons/RotatableChevron'
+import { iconSizes } from '@luxfi/ui/src/theme'
+import { TokenLogo } from 'lx/src/components/CurrencyLogo/TokenLogo'
+import { TokenSelectorFlow } from 'lx/src/components/TokenSelector/types'
+import { Platform } from 'lx/src/features/platforms/types/Platform'
+import { useCurrencyInfoWithLoading } from 'lx/src/features/tokens/useCurrencyInfo'
+import { buildCurrencyId } from 'lx/src/utils/currencyId'
+import { logger } from '@luxfi/utilities/src/logger/logger'
+import { SwitchNetworkAction } from '~/components/Popups/types'
+import CurrencySearchModal from '~/components/SearchModal/CurrencySearchModal'
+import { useActiveAddress } from '~/features/accounts/store/hooks'
+import { useTotalSupply } from '~/hooks/useTotalSupply'
+import { useCreateAuctionStoreActions } from '~/pages/Liquidity/CreateAuction/CreateAuctionContext'
+import { NoWalletSection } from '~/pages/Liquidity/CreateAuction/components/NoWalletSection'
+import { TokenAdditionalInfoSection } from '~/pages/Liquidity/CreateAuction/components/TokenAdditionalInfoSection'
+import { useCreateAuctionAllowedNetworks } from '~/pages/Liquidity/CreateAuction/hooks/useCreateAuctionAllowedNetworks'
+import { type ExistingTokenFormState } from '~/pages/Liquidity/CreateAuction/types'
+
+export function ExistingTokenForm({ existing }: { existing: ExistingTokenFormState }) {
+  const { t } = useTranslation()
+  const { updateExistingTokenField, commitTokenFormAndAdvance } = useCreateAuctionStoreActions()
+  const address = useActiveAddress(Platform.EVM)
+
+  const [showCurrencySearch, setShowCurrencySearch] = useState(false)
+  const [lookupCurrencyId, setLookupCurrencyId] = useState<string | undefined>()
+  const [invalidTokenSelected, setInvalidTokenSelected] = useState(false)
+  const allowedNetworks = useCreateAuctionAllowedNetworks()
+
+  const {
+    currencyInfo: resolvedCurrencyInfo,
+    loading: currencyLoading,
+    error: currencyError,
+  } = useCurrencyInfoWithLoading(lookupCurrencyId, { skip: !lookupCurrencyId })
+
+  const selectedCurrencyInfo = existing.existingTokenCurrencyInfo
+  const selectedCurrency = selectedCurrencyInfo?.currency
+  const { totalSupply, isLoading: totalSupplyLoading, isError: totalSupplyError } = useTotalSupply(selectedCurrency)
+
+  const hasFetchError = (!!currencyError && !!lookupCurrencyId) || (totalSupplyError && !!selectedCurrencyInfo)
+  const canContinue =
+    existing.existingTokenCurrencyInfo !== undefined &&
+    existing.description.trim().length > 0 &&
+    existing.totalSupply !== undefined &&
+    !totalSupplyLoading &&
+    !hasFetchError
+
+  // Auto-populate currencyInfo when address resolves
+  useEffect(() => {
+    if (resolvedCurrencyInfo && resolvedCurrencyInfo !== existing.existingTokenCurrencyInfo) {
+      updateExistingTokenField('existingTokenCurrencyInfo', resolvedCurrencyInfo)
+      setLookupCurrencyId(undefined)
+    }
+  }, [resolvedCurrencyInfo, existing.existingTokenCurrencyInfo, updateExistingTokenField])
+
+  useEffect(() => {
+    const resolved = totalSupply ?? undefined
+    // We need both checks: `===` covers the undefined===undefined case (the setter always
+    // spreads a new tokenForm object, so even a no-op call would trigger a re-render loop),
+    // and `.equalTo()` covers value-equal but reference-distinct CurrencyAmount objects.
+    const isSame =
+      resolved === existing.totalSupply ||
+      (resolved !== undefined && existing.totalSupply !== undefined && resolved.equalTo(existing.totalSupply))
+    if (!isSame) {
+      updateExistingTokenField('totalSupply', resolved)
+    }
+  }, [totalSupply, existing.totalSupply, updateExistingTokenField])
+
+  const [loggedErrorKey, setLoggedErrorKey] = useState<string | undefined>(undefined)
+  useEffect(() => {
+    if (totalSupplyError && selectedCurrencyInfo) {
+      const tokenAddress = selectedCurrencyInfo.currency.isToken ? selectedCurrencyInfo.currency.address : undefined
+      const key = `${tokenAddress}-${selectedCurrencyInfo.currency.chainId}`
+      if (loggedErrorKey === key) {
+        return
+      }
+      setLoggedErrorKey(key)
+      logger.error(new Error('ExistingTokenForm: failed to fetch total supply for selected token'), {
+        tags: { file: 'ExistingTokenForm.tsx', function: 'ExistingTokenForm' },
+        extra: {
+          tokenAddress,
+          chainId: selectedCurrencyInfo.currency.chainId,
+        },
+      })
+    }
+  }, [totalSupplyError, selectedCurrencyInfo, loggedErrorKey])
+
+  if (!address) {
+    return (
+      <NoWalletSection
+        subtitle={t('toucan.createAuction.step.tokenInfo.subtitleExisting')}
+        alertDescription={t('toucan.createAuction.step.tokenInfo.noWallet.existing')}
+      />
+    )
+  }
+
+  return (
+    <Flex gap="$spacing24">
+      <Flex gap="$spacing4">
+        <Text variant="subheading1">{t('toucan.createAuction.step.tokenInfo.title')}</Text>
+        <Text variant="body3" color="$neutral2">
+          {t('toucan.createAuction.step.tokenInfo.subtitleExisting')}
+        </Text>
+      </Flex>
+      {currencyLoading ? (
+        <Shine width="100%">
+          <Flex backgroundColor="$surface3" borderRadius="$rounded12" height={50} />
+        </Shine>
+      ) : (
+        <TouchableArea
+          row
+          alignItems="center"
+          gap="$spacing16"
+          justifyContent="space-between"
+          p="$spacing16"
+          borderRadius="$rounded12"
+          borderWidth="$spacing1"
+          borderColor="$surface3"
+          backgroundColor="$surface1"
+          onPress={() => setShowCurrencySearch(true)}
+        >
+          {selectedCurrencyInfo ? (
+            <>
+              <Flex width={iconSizes.icon64} height={iconSizes.icon64}>
+                <TokenLogo
+                  size={iconSizes.icon64}
+                  chainId={selectedCurrencyInfo.currency.chainId}
+                  name={selectedCurrencyInfo.currency.name}
+                  symbol={selectedCurrencyInfo.currency.symbol}
+                  url={selectedCurrencyInfo.logoUrl ?? undefined}
+                />
+              </Flex>
+              <Flex flex={1}>
+                <Text variant="heading3">{selectedCurrencyInfo.currency.name}</Text>
+                <Text variant="body2" color="$neutral2">
+                  {selectedCurrencyInfo.currency.symbol}
+                </Text>
+              </Flex>
+            </>
+          ) : (
+            <Text variant="buttonLabel3" color="$neutral1" flex={1}>
+              {t('toucan.createAuction.step.tokenInfo.selectToken')}
+            </Text>
+          )}
+          <RotatableChevron direction="down" color="$neutral1" size="$icon.24" />
+        </TouchableArea>
+      )}
+
+      {invalidTokenSelected && (
+        <Text variant="body3" color="$statusCritical" textAlign="center">
+          {t('toucan.createAuction.step.tokenInfo.invalidTokenSelected')}
+        </Text>
+      )}
+
+      {hasFetchError && (
+        <Text variant="body3" color="$statusCritical" textAlign="center">
+          {t('toucan.createAuction.step.tokenInfo.fetchError')}
+        </Text>
+      )}
+
+      {selectedCurrencyInfo && (
+        <TokenAdditionalInfoSection
+          description={existing.description}
+          onDescriptionChange={(v) => updateExistingTokenField('description', v)}
+        />
+      )}
+
+      <Flex row>
+        <Button size="large" emphasis="primary" onPress={commitTokenFormAndAdvance} isDisabled={!canContinue} fill>
+          {t('common.button.continue')}
+        </Button>
+      </Flex>
+
+      <CurrencySearchModal
+        isOpen={showCurrencySearch}
+        onDismiss={() => setShowCurrencySearch(false)}
+        switchNetworkAction={SwitchNetworkAction.LP}
+        onCurrencySelect={(currency) => {
+          setShowCurrencySearch(false)
+          if (!currency.isToken) {
+            setInvalidTokenSelected(true)
+            return
+          }
+          setInvalidTokenSelected(false)
+          updateExistingTokenField('existingTokenCurrencyInfo', undefined)
+          updateExistingTokenField('totalSupply', undefined)
+          setLookupCurrencyId(buildCurrencyId(currency.chainId, currency.address))
+        }}
+        chainIds={allowedNetworks}
+        flow={TokenSelectorFlow.Liquidity}
+      />
+    </Flex>
+  )
+}

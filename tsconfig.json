@@ -1,0 +1,82 @@
+{
+  "__comment": "NX's entrypoint for establishing the project graph",
+  "extends": "./tsconfig.base.json",
+  "files": [],
+  "include": [],
+  "references": [
+    {
+      "path": "./pkgs/utilities"
+    },
+    {
+      "path": "./pkgs/wallet"
+    },
+    {
+      "path": "./pkgs/ui"
+    },
+    {
+      "path": "./pkgs/api"
+    },
+    {
+      "path": "./pkgs/config"
+    },
+    {
+      "path": "./pkgs/sessions"
+    },
+    {
+      "path": "./pkgs/gating"
+    },
+    {
+      "path": "./pkgs/notifications"
+    },
+    {
+      "path": "./pkgs/hashcash-native"
+    },
+    {
+      "path": "./pkgs/mycelium"
+    },
+    {
+      "path": "./pkgs/websocket"
+    },
+    {
+      "path": "./pkgs/prices"
+    },
+    {
+      "path": "./pkgs/lx"
+    },
+    {
+      "path": "./apps/web"
+    },
+    {
+      "path": "./apps/extension"
+    },
+    {
+      "path": "./apps/mobile"
+    },
+    {
+      "path": "./config/vitest-presets"
+    },
+    {
+      "path": "./tools/uniswap-nx"
+    },
+    {
+      "path": "./pkgs/react-query"
+    },
+    {
+      "path": "./pkgs/analytics"
+    },
+    {
+      "path": "./pkgs/privacy"
+    },
+    {
+    },
+    {
+      "path": "./pkgs/logger"
+    },
+    {
+      "path": "./pkgs/trpc"
+    },
+    {
+      "path": "./pkgs/eslint-config"
+    }
+  ]
+}

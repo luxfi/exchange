@@ -1,0 +1,116 @@
+{
+  "data": {
+    "tokenProjects": [
+      {
+        "id": "VG9rZW5Qcm9qZWN0OkxVWERFVl9uYXRpdmVfTFVY",
+        "logoUrl": "https://raw.githubusercontent.com/luxfi/assets/main/tokens/lux.svg",
+        "safetyLevel": "VERIFIED",
+        "__typename": "TokenProject",
+        "tokens": [
+          {
+            "id": "LUX-native-1337",
+            "address": null,
+            "chain": "LUXDEV",
+            "symbol": "LUX",
+            "name": "LUX",
+            "decimals": 18,
+            "standard": "NATIVE",
+            "isBridged": false,
+            "bridgedWithdrawalInfo": null,
+            "feeData": null,
+            "protectionInfo": null,
+            "__typename": "Token"
+          }
+        ]
+      },
+      {
+        "id": "VG9rZW5Qcm9qZWN0OkxVWERFVl8weDVGYkRCMjMxNTY3OGFmZWNiMzY3ZjAzMmQ5M0Y2NDJmNjQxODBhYTNfV0xVWA==",
+        "logoUrl": "https://raw.githubusercontent.com/luxfi/assets/main/tokens/wlux.svg",
+        "safetyLevel": "VERIFIED",
+        "__typename": "TokenProject",
+        "tokens": [
+          {
+            "id": "WLUX-0x5FbDB2315678afecb367f032d93F642f64180aa3-1337",
+            "address": "0x5FbDB2315678afecb367f032d93F642f64180aa3",
+            "chain": "LUXDEV",
+            "symbol": "WLUX",
+            "name": "Wrapped LUX",
+            "decimals": 18,
+            "standard": "ERC20",
+            "isBridged": false,
+            "bridgedWithdrawalInfo": null,
+            "feeData": null,
+            "protectionInfo": null,
+            "__typename": "Token"
+          }
+        ]
+      },
+      {
+        "id": "VG9rZW5Qcm9qZWN0OkxVWERFVl8weENmN0VkM0FjY0E1YTQ2N2U5ZTcwNEM3MDNFOEQ4N0Y2MzRGQjBGYzlfTFVTRA==",
+        "logoUrl": "https://raw.githubusercontent.com/luxfi/assets/main/tokens/lusd.svg",
+        "safetyLevel": "VERIFIED",
+        "__typename": "TokenProject",
+        "tokens": [
+          {
+            "id": "LUSD-0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9-1337",
+            "address": "0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9",
+            "chain": "LUXDEV",
+            "symbol": "LUSD",
+            "name": "Lux USD",
+            "decimals": 6,
+            "standard": "ERC20",
+            "isBridged": false,
+            "bridgedWithdrawalInfo": null,
+            "feeData": null,
+            "protectionInfo": null,
+            "__typename": "Token"
+          }
+        ]
+      },
+      {
+        "id": "VG9rZW5Qcm9qZWN0OkxVWERFVl8weGU3ZjE3MjVFNzczNENFMjg4RjgzNjdlMUJiMTQzRTkwYmIzRjA1MTJfTEVUSA==",
+        "logoUrl": "https://raw.githubusercontent.com/luxfi/assets/main/tokens/leth.svg",
+        "safetyLevel": "VERIFIED",
+        "__typename": "TokenProject",
+        "tokens": [
+          {
+            "id": "LETH-0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512-1337",
+            "address": "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512",
+            "chain": "LUXDEV",
+            "symbol": "LETH",
+            "name": "Lux ETH",
+            "decimals": 18,
+            "standard": "ERC20",
+            "isBridged": true,
+            "bridgedWithdrawalInfo": null,
+            "feeData": null,
+            "protectionInfo": null,
+            "__typename": "Token"
+          }
+        ]
+      },
+      {
+        "id": "VG9rZW5Qcm9qZWN0OkxVWERFVl8weDlmRTQ2NzM2Njc5ZDJEOWE2NUYwOTkyRjIyNzJkRTlmM2M3ZmE2ZTBfTEJUQw==",
+        "logoUrl": "https://raw.githubusercontent.com/luxfi/assets/main/tokens/lbtc.svg",
+        "safetyLevel": "VERIFIED",
+        "__typename": "TokenProject",
+        "tokens": [
+          {
+            "id": "LBTC-0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0-1337",
+            "address": "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0",
+            "chain": "LUXDEV",
+            "symbol": "LBTC",
+            "name": "Lux BTC",
+            "decimals": 8,
+            "standard": "ERC20",
+            "isBridged": true,
+            "bridgedWithdrawalInfo": null,
+            "feeData": null,
+            "protectionInfo": null,
+            "__typename": "Token"
+          }
+        ]
+      }
+    ]
+  }
+}

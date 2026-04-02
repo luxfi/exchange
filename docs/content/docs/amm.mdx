@@ -1,0 +1,193 @@
+---
+title: AMM Fundamentals
+description: Understanding the automated market maker model used in Lux Exchange
+---
+
+# Automated Market Maker (AMM)
+
+Lux Exchange uses a constant product automated market maker (CPMM) model for decentralized token trading. This eliminates the need for traditional order books while maintaining continuous liquidity.
+
+## Constant Product Formula
+
+The core invariant maintained by each liquidity pool:
+
+```
+x * y = k
+```
+
+Where:
+- `x` = reserve of token A
+- `y` = reserve of token B
+- `k` = constant product (invariant)
+
+This formula ensures that the product of reserves remains constant before and after any trade (excluding fees).
+
+## Price Determination
+
+The spot price of token B in terms of token A is:
+
+```
+Price(B/A) = reserveA / reserveB
+```
+
+As trades occur, reserves shift, and prices adjust according to supply and demand.
+
+### Example
+
+Given a pool with:
+- 100 ETH (reserveA)
+- 400,000 LUX (reserveB)
+
+The spot price of LUX in ETH:
+```
+Price(LUX/ETH) = 100 / 400,000 = 0.00025 ETH per LUX
+```
+
+## Swap Mechanics
+
+When swapping `dx` of token A for token B:
+
+```typescript
+// Input amount with fee
+const amountInWithFee = amountIn * (1000 - fee) / 1000
+
+// Output amount from constant product
+const amountOut = (reserveB * amountInWithFee) / (reserveA + amountInWithFee)
+```
+
+### Price Impact
+
+Large trades relative to pool size create price impact:
+
+```typescript
+function calculatePriceImpact(amountIn: bigint, reserveIn: bigint): number {
+  // Price impact as a percentage
+  return Number(amountIn) / Number(reserveIn) * 100
+}
+```
+
+## Fee Structure
+
+Each swap incurs a fee distributed to liquidity providers:
+
+| Fee Tier | Use Case |
+|----------|----------|
+| 0.05% | Stable pairs (USDC/USDT) |
+| 0.30% | Standard pairs |
+| 1.00% | Exotic/volatile pairs |
+
+Fees are automatically added to pool reserves, increasing LP share value.
+
+## Arbitrage and Price Equilibrium
+
+AMM prices are kept in sync with external markets through arbitrage:
+
+1. If AMM price < market price: arbitrageurs buy from AMM
+2. If AMM price > market price: arbitrageurs sell to AMM
+3. Pool reserves adjust until prices equalize
+
+```
+Market Price <---> AMM Price
+       ^              |
+       |              |
+       +-- Arbitrage -+
+```
+
+## Impermanent Loss
+
+Liquidity providers face impermanent loss when token prices diverge:
+
+```typescript
+function calculateImpermanentLoss(priceRatio: number): number {
+  // IL = 2 * sqrt(priceRatio) / (1 + priceRatio) - 1
+  return 2 * Math.sqrt(priceRatio) / (1 + priceRatio) - 1
+}
+```
+
+### IL by Price Change
+
+| Price Change | Impermanent Loss |
+|--------------|------------------|
+| 1.25x | 0.6% |
+| 1.50x | 2.0% |
+| 2.00x | 5.7% |
+| 3.00x | 13.4% |
+| 5.00x | 25.5% |
+
+## Mathematical Proofs
+
+### Invariant Preservation
+
+For any swap of `dx` for `dy`:
+
+```
+(x + dx) * (y - dy) = k
+y - dy = k / (x + dx)
+dy = y - k/(x + dx)
+dy = (y*x + y*dx - k) / (x + dx)
+dy = (k + y*dx - k) / (x + dx)
+dy = y*dx / (x + dx)
+```
+
+### Geometric Mean
+
+The constant product formula is equivalent to maintaining the geometric mean of reserves:
+
+```
+sqrt(x * y) = sqrt(k) = constant
+```
+
+This ensures symmetric treatment of both tokens in the pair.
+
+## Implementation
+
+```solidity
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.20;
+
+library AMMLibrary {
+    // Calculate output amount given input
+    function getAmountOut(
+        uint256 amountIn,
+        uint256 reserveIn,
+        uint256 reserveOut,
+        uint256 feeBps
+    ) internal pure returns (uint256 amountOut) {
+        require(amountIn > 0, "INSUFFICIENT_INPUT_AMOUNT");
+        require(reserveIn > 0 && reserveOut > 0, "INSUFFICIENT_LIQUIDITY");
+
+        uint256 amountInWithFee = amountIn * (10000 - feeBps);
+        uint256 numerator = amountInWithFee * reserveOut;
+        uint256 denominator = reserveIn * 10000 + amountInWithFee;
+        amountOut = numerator / denominator;
+    }
+
+    // Calculate input amount required for desired output
+    function getAmountIn(
+        uint256 amountOut,
+        uint256 reserveIn,
+        uint256 reserveOut,
+        uint256 feeBps
+    ) internal pure returns (uint256 amountIn) {
+        require(amountOut > 0, "INSUFFICIENT_OUTPUT_AMOUNT");
+        require(reserveIn > 0 && reserveOut > 0, "INSUFFICIENT_LIQUIDITY");
+
+        uint256 numerator = reserveIn * amountOut * 10000;
+        uint256 denominator = (reserveOut - amountOut) * (10000 - feeBps);
+        amountIn = (numerator / denominator) + 1;
+    }
+}
+```
+
+## Best Practices
+
+1. **Slippage Protection**: Always set appropriate `amountOutMin` to protect against front-running
+2. **Deadline**: Use reasonable deadlines to prevent stale transactions
+3. **Price Checking**: Compare AMM prices with oracle prices before large trades
+4. **Gas Optimization**: Batch multiple swaps when possible
+
+## Further Reading
+
+- [Liquidity Pools](/docs/liquidity-pools) - How to provide liquidity
+- [Swap Mechanics](/docs/swaps) - Detailed swap flow
+- [Price Oracle](/docs/oracle) - Time-weighted average prices

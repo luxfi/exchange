@@ -1,0 +1,135 @@
+import { GqlResult, GraphQLApi } from '@luxexchange/api'
+import { useMemo } from 'react'
+import { getCommonBase } from '@luxexchange/lx/src/constants/routing'
+import { UniverseChainId } from '@luxexchange/lx/src/features/chains/types'
+import { CurrencyInfo } from '@luxexchange/lx/src/features/dataApi/types'
+import { currencyIdToContractInput } from '@luxexchange/lx/src/features/dataApi/utils/currencyIdToContractInput'
+import { gqlTokenToCurrencyInfo } from '@luxexchange/lx/src/features/dataApi/utils/gqlTokenToCurrencyInfo'
+import {
+  buildNativeCurrencyId,
+  buildWrappedNativeCurrencyId,
+  currencyIdToAddress,
+  currencyIdToChain,
+} from '@luxexchange/lx/src/utils/currencyId'
+
+function useCurrencyInfoQuery(
+  _currencyId?: string,
+  options?: { refetch?: boolean; skip?: boolean },
+): { currencyInfo: Maybe<CurrencyInfo>; loading: boolean; error?: Error } {
+  const queryResult = GraphQLApi.useTokenQuery({
+    variables: currencyIdToContractInput(_currencyId ?? ''),
+    skip: !_currencyId || options?.skip,
+    fetchPolicy: options?.refetch ? 'cache-and-network' : 'cache-first',
+  })
+
+  const currencyInfo = useMemo(() => {
+    if (!_currencyId) {
+      return undefined
+    }
+
+    const chainId = currencyIdToChain(_currencyId)
+    let address: Address | undefined
+    try {
+      address = currencyIdToAddress(_currencyId)
+    } catch (_error) {
+      return undefined
+    }
+    if (chainId && address) {
+      const commonBase = getCommonBase(chainId, address)
+      if (commonBase) {
+        // Creating new object to avoid error "Cannot assign to read only property"
+        const copyCommonBase = { ...commonBase }
+        // Related to TODO(WEB-5111)
+        // Some common base images are broken so this'll ensure we read from lux images
+        if (queryResult.data?.token?.project?.logoUrl) {
+          copyCommonBase.logoUrl = queryResult.data.token.project.logoUrl
+        }
+        copyCommonBase.currencyId = _currencyId
+
+        // Local common base object will not have remote project id, so we add it here.
+        copyCommonBase.projectId = queryResult.data?.token?.project?.id
+
+        return copyCommonBase
+      }
+    }
+
+    return queryResult.data?.token && gqlTokenToCurrencyInfo(queryResult.data.token)
+  }, [_currencyId, queryResult.data?.token])
+
+  return {
+    currencyInfo,
+    loading: queryResult.loading,
+    error: queryResult.error,
+  }
+}
+
+export function useCurrencyInfo(
+  _currencyId?: string,
+  options?: { refetch?: boolean; skip?: boolean },
+): Maybe<CurrencyInfo> {
+  const { currencyInfo } = useCurrencyInfoQuery(_currencyId, options)
+  return currencyInfo
+}
+
+export function useCurrencyInfoWithLoading(
+  _currencyId?: string,
+  options?: { refetch?: boolean; skip?: boolean },
+): {
+  currencyInfo: Maybe<CurrencyInfo>
+  loading: boolean
+  error?: Error
+} {
+  return useCurrencyInfoQuery(_currencyId, options)
+}
+
+export function useCurrencyInfos(
+  _currencyIds: string[],
+  options?: { refetch?: boolean; skip?: boolean },
+): Maybe<CurrencyInfo>[] {
+  const { data } = GraphQLApi.useTokensQuery({
+    variables: {
+      contracts: _currencyIds.map(currencyIdToContractInput),
+    },
+    skip: !_currencyIds.length || options?.skip,
+    fetchPolicy: options?.refetch ? 'cache-and-network' : 'cache-first',
+  })
+
+  return useMemo(() => {
+    return data?.tokens?.map((token) => token && gqlTokenToCurrencyInfo(token)) ?? []
+  }, [data])
+}
+
+export function useCurrencyInfosWithLoading(
+  _currencyIds: string[],
+  options?: { refetch?: boolean; skip?: boolean },
+): GqlResult<CurrencyInfo[]> {
+  const queryResult = GraphQLApi.useTokensQuery({
+    variables: {
+      contracts: _currencyIds.map(currencyIdToContractInput),
+    },
+    skip: !_currencyIds.length || options?.skip,
+    fetchPolicy: options?.refetch ? 'cache-and-network' : 'cache-first',
+  })
+
+  return useMemo(() => {
+    return {
+      data:
+        queryResult.data?.tokens
+          ?.map((token) => token && gqlTokenToCurrencyInfo(token))
+          .filter((currencyInfo) => !!currencyInfo) ?? [],
+      loading: queryResult.loading,
+      error: queryResult.error,
+      refetch: queryResult.refetch,
+    }
+  }, [queryResult.data?.tokens, queryResult.loading, queryResult.error, queryResult.refetch])
+}
+
+export function useNativeCurrencyInfo(chainId: UniverseChainId): Maybe<CurrencyInfo> {
+  const nativeCurrencyId = buildNativeCurrencyId(chainId)
+  return useCurrencyInfo(nativeCurrencyId)
+}
+
+export function useWrappedNativeCurrencyInfo(chainId: UniverseChainId): Maybe<CurrencyInfo> {
+  const wrappedCurrencyId = buildWrappedNativeCurrencyId(chainId)
+  return useCurrencyInfo(wrappedCurrencyId)
+}

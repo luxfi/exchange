@@ -1,0 +1,39 @@
+{
+  "data": {
+    "token": {
+      "id": "VG9rZW46RVRIRVJFVU1fMHhDMDJhYUEzOWIyMjNGRThEMEEwZTVDNEYyN2VBRDkwODNDNzU2Q2My",
+      "address": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+      "chain": "ETHEREUM",
+      "decimals": 18,
+      "name": "Wrapped Ether",
+      "standard": "ERC20",
+      "symbol": "WETH",
+      "isBridged": false,
+      "bridgedWithdrawalInfo": null,
+      "__typename": "Token",
+      "project": {
+        "id": "VG9rZW5Qcm9qZWN0OkVUSEVSRVVNXzB4QzAyYWFBMzliMjIzRkU4RDBBMGw1QzRGMjdlQUQ5MDgzQzc1NkNjMl9XRVRI",
+        "isSpam": false,
+        "logoUrl": "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2/logo.png",
+        "name": "Wrapped Ether",
+        "safetyLevel": "VERIFIED",
+        "spamCode": 0,
+        "tokens": [
+          {
+            "chain": "ETHEREUM",
+            "address": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+            "__typename": "Token"
+          }
+        ],
+        "__typename": "TokenProject"
+      },
+      "feeData": null,
+      "protectionInfo": {
+        "result": "BENIGN",
+        "attackTypes": [],
+        "blockaidFees": null,
+        "__typename": "ProtectionInfo"
+      }
+    }
+  }
+}

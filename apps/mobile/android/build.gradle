@@ -1,0 +1,62 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+  ext {
+    kotlinVersion = "2.0.21"
+
+    appCompat = "1.6.1"
+    compose = "1.4.3"
+    corePerf = "1.0.0-beta01"
+    flowlayout = "0.23.1"
+    kotlinSerialization = "1.5.1"
+    lifecycle = "2.5.1"
+  }
+  repositories {
+    google()
+    mavenCentral()
+    maven { url 'https://jitpack.io' }
+  }
+  dependencies {
+    classpath("com.android.tools.build:gradle")
+    classpath("com.facebook.react:react-native-gradle-plugin")
+    classpath('com.google.gms:google-services:4.3.15')
+    // NOTE: Do not place your application dependencies here; they belong
+    // in the individual module build.gradle files
+    classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion")
+  }
+}
+
+plugins {
+  id 'org.jetbrains.kotlin.plugin.serialization' version "$kotlinVersion"
+  id 'org.jetbrains.kotlin.plugin.compose' version "$kotlinVersion" apply false
+}
+
+def reactNativeAndroidDir = new File(
+  providers.exec {
+    workingDir(rootDir)
+    commandLine("node", "--print", "require.resolve('react-native/package.json')")
+  }.standardOutput.asText.get().trim(),
+  "../android"
+)
+
+allprojects {
+  project.pluginManager.withPlugin("com.facebook.react") {
+    react {
+      reactNativeDir = rootProject.file("../../../node_modules/react-native/")
+      codegenDir = rootProject.file("../../../node_modules/react-native-codegen/")
+    }
+  }
+
+  repositories {
+    google()
+    mavenCentral()
+    maven { url 'https://www.jitpack.io' }
+    // All of React Native (JS, Obj-C sources, Android binaries) is installed from npm
+    maven { url(reactNativeAndroidDir) }
+    // expo-camera bundles a custom com.google.android:cameraview
+    maven { url "$rootDir/../../../node_modules/expo-camera/android/maven" }
+  }
+}
+
+apply plugin: "expo-root-project"
+apply plugin: "com.facebook.react.rootproject"

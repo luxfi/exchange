@@ -1,0 +1,328 @@
+---
+title: Price Oracle
+description: Time-weighted average price (TWAP) oracles in Lux Exchange
+---
+
+# Price Oracle
+
+Lux Exchange provides on-chain price oracles using time-weighted average prices (TWAP). These oracles are manipulation-resistant and suitable for DeFi integrations.
+
+## How TWAP Works
+
+Each pool accumulates price data over time:
+
+```solidity
+// Updated on every block with a trade
+price0CumulativeLast += reserve1 / reserve0 * timeElapsed
+price1CumulativeLast += reserve0 / reserve1 * timeElapsed
+```
+
+TWAP is calculated as the difference in cumulative prices divided by time:
+
+```
+TWAP = (priceCumulative_end - priceCumulative_start) / (time_end - time_start)
+```
+
+## Why TWAP?
+
+| Feature | Spot Price | TWAP |
+|---------|------------|------|
+| Flash loan resistant | No | Yes |
+| Manipulation cost | Low | High |
+| Latency | None | Configurable |
+| Accuracy | Current | Historical average |
+
+## Implementation
+
+### Oracle Contract
+
+```solidity
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.20;
+
+import "./interfaces/ILuxPair.sol";
+
+contract LuxOracle {
+    struct Observation {
+        uint32 timestamp;
+        uint224 price0Cumulative;
+        uint224 price1Cumulative;
+    }
+
+    mapping(address => Observation[]) public observations;
+
+    function update(address pair) external {
+        Observation[] storage obs = observations[pair];
+
+        (uint112 reserve0, uint112 reserve1, uint32 blockTimestamp) =
+            ILuxPair(pair).getReserves();
+
+        uint224 price0Cumulative = uint224(ILuxPair(pair).price0CumulativeLast());
+        uint224 price1Cumulative = uint224(ILuxPair(pair).price1CumulativeLast());
+
+        obs.push(Observation({
+            timestamp: blockTimestamp,
+            price0Cumulative: price0Cumulative,
+            price1Cumulative: price1Cumulative
+        }));
+    }
+
+    function consult(
+        address pair,
+        address tokenIn,
+        uint256 amountIn,
+        uint32 period
+    ) external view returns (uint256 amountOut) {
+        Observation[] storage obs = observations[pair];
+        require(obs.length >= 2, "NOT_ENOUGH_OBSERVATIONS");
+
+        uint256 latestIndex = obs.length - 1;
+        Observation storage latest = obs[latestIndex];
+
+        // Find observation at least `period` seconds ago
+        uint256 targetTime = latest.timestamp - period;
+        Observation storage older;
+        for (uint256 i = latestIndex; i > 0; i--) {
+            if (obs[i - 1].timestamp <= targetTime) {
+                older = obs[i - 1];
+                break;
+            }
+        }
+
+        uint32 timeElapsed = latest.timestamp - older.timestamp;
+        require(timeElapsed >= period, "PERIOD_NOT_ELAPSED");
+
+        address token0 = ILuxPair(pair).token0();
+
+        if (tokenIn == token0) {
+            uint224 priceCumulative = latest.price0Cumulative - older.price0Cumulative;
+            amountOut = uint256(priceCumulative) * amountIn / timeElapsed;
+        } else {
+            uint224 priceCumulative = latest.price1Cumulative - older.price1Cumulative;
+            amountOut = uint256(priceCumulative) * amountIn / timeElapsed;
+        }
+    }
+}
+```
+
+### SDK Usage
+
+```typescript
+import { PriceOracle } from '@luxfi/exchange-sdk'
+
+const oracle = new PriceOracle(provider, ORACLE_ADDRESS)
+
+// Update observation
+await oracle.update(poolAddress)
+
+// Get TWAP price (30-minute window)
+const twapPrice = await oracle.consult(
+  poolAddress,
+  tokenIn,
+  parseEther('1'),
+  30 * 60  // 30 minutes
+)
+```
+
+## Oracle Periods
+
+Different use cases require different TWAP periods:
+
+| Period | Use Case | Manipulation Cost |
+|--------|----------|-------------------|
+| 10 min | High-frequency trading | Low |
+| 30 min | Liquidations | Medium |
+| 1 hour | Lending protocols | High |
+| 24 hours | Governance | Very high |
+
+## Fixed-Point Arithmetic
+
+Prices are stored using UQ112.112 fixed-point format:
+
+```solidity
+// Encode price as fixed-point
+function encode(uint112 y) internal pure returns (uint224) {
+    return uint224(y) << 112;
+}
+
+// Decode fixed-point to uint
+function decode(uint224 x) internal pure returns (uint112) {
+    return uint112(x >> 112);
+}
+
+// Multiply fixed-point by uint
+function mulDecode(uint224 x, uint256 y) internal pure returns (uint256) {
+    return (uint256(x) * y) >> 112;
+}
+```
+
+## Manipulation Resistance
+
+### Attack Cost Analysis
+
+To manipulate a TWAP oracle:
+
+```
+Cost = Price_Deviation * Time_Window * Pool_Depth
+```
+
+Example: Moving price 10% for 30 minutes in $10M pool:
+```
+Cost = 0.10 * 1800 * $10,000,000 = $1,800,000,000 in capital
+                                  (opportunity cost of holding position)
+```
+
+### Protection Mechanisms
+
+1. **Time-weighted**: Brief manipulations have minimal effect
+2. **Multiple observations**: Average across time periods
+3. **Geometric mean**: More resistant than arithmetic mean
+
+## Multi-Pool Oracles
+
+For increased reliability, aggregate prices from multiple pools:
+
+```typescript
+async function getAggregatePrice(
+  token: string,
+  quoteToken: string,
+  pools: string[]
+): Promise<bigint> {
+  const prices: bigint[] = []
+
+  for (const pool of pools) {
+    const price = await oracle.consult(pool, token, parseEther('1'), 1800)
+    prices.push(price)
+  }
+
+  // Median price (most manipulation-resistant)
+  prices.sort((a, b) => Number(a - b))
+  return prices[Math.floor(prices.length / 2)]
+}
+```
+
+## Integration Examples
+
+### Lending Protocol
+
+```solidity
+contract LendingPool {
+    ILuxOracle public oracle;
+
+    function getCollateralValue(
+        address user,
+        address collateralToken
+    ) public view returns (uint256) {
+        uint256 balance = collateral[user][collateralToken];
+
+        // Use 1-hour TWAP for safety
+        uint256 price = oracle.consult(
+            getPair(collateralToken, stablecoin),
+            collateralToken,
+            1e18,
+            3600
+        );
+
+        return balance * price / 1e18;
+    }
+
+    function liquidate(address user) external {
+        require(
+            getCollateralValue(user) < getDebtValue(user) * 150 / 100,
+            "NOT_LIQUIDATABLE"
+        );
+        // Perform liquidation
+    }
+}
+```
+
+### Synthetic Asset Pricing
+
+```solidity
+contract SyntheticAsset {
+    ILuxOracle public oracle;
+
+    function mint(uint256 collateralAmount) external {
+        uint256 price = oracle.consult(
+            ethLuxPair,
+            WETH,
+            1e18,
+            1800  // 30-minute TWAP
+        );
+
+        uint256 synthAmount = collateralAmount * price / 1e18;
+        uint256 mintAmount = synthAmount * 100 / 150; // 150% collateral ratio
+
+        _mint(msg.sender, mintAmount);
+    }
+}
+```
+
+## Observation Management
+
+### Storage Optimization
+
+```solidity
+contract OptimizedOracle {
+    // Circular buffer for observations
+    uint256 constant CARDINALITY = 24;  // Store 24 observations
+
+    struct ObservationBuffer {
+        uint16 index;
+        uint16 cardinality;
+        Observation[24] observations;
+    }
+
+    function write(
+        ObservationBuffer storage buffer,
+        Observation memory observation
+    ) internal {
+        buffer.observations[buffer.index] = observation;
+        buffer.index = uint16((buffer.index + 1) % CARDINALITY);
+        if (buffer.cardinality < CARDINALITY) {
+            buffer.cardinality++;
+        }
+    }
+}
+```
+
+### Observation Frequency
+
+Recommended update frequency:
+
+| Pool TVL | Update Interval |
+|----------|-----------------|
+| < $100K | Every 1 hour |
+| $100K - $1M | Every 15 min |
+| $1M - $10M | Every 5 min |
+| > $10M | Every block |
+
+## Error Handling
+
+```typescript
+try {
+  const price = await oracle.consult(pool, token, amount, period)
+} catch (e) {
+  if (e.message.includes('NOT_ENOUGH_OBSERVATIONS')) {
+    // Need to accumulate more data points
+    await oracle.update(pool)
+    // Wait and retry
+  } else if (e.message.includes('PERIOD_NOT_ELAPSED')) {
+    // Requested period longer than available history
+    // Use shorter period or wait
+  }
+}
+```
+
+## Security Considerations
+
+1. **Update frequency**: Ensure regular observation updates
+2. **Period selection**: Use appropriate TWAP windows for use case
+3. **Multiple sources**: Cross-reference with other oracles
+4. **Circuit breakers**: Implement price deviation limits
+
+## Further Reading
+
+- [AMM Fundamentals](/docs/amm) - Price mechanics
+- [Security](/docs/security) - Oracle security best practices
+- [Smart Contracts](/docs/contracts) - Contract addresses

@@ -1,0 +1,429 @@
+import { type PropsWithChildren, type ReactNode, useCallback, useEffect, useRef, useState } from 'react'
+import type { DimensionValue } from 'react-native'
+import {
+  type GetProps,
+  styled,
+  useIsTouchDevice,
+  useMedia,
+  type View,
+} from '@hanzo/gui'
+import { Adapt } from '@hanzogui/adapt'
+import { Dialog } from '@hanzogui/dialog'
+import { Sheet } from '@hanzogui/sheet'
+import { VisuallyHidden } from '@hanzogui/visually-hidden'
+import { type CloseIconProps, CloseIconWithHover } from '@luxfi/ui/src/components/icons/CloseIconWithHover'
+import { Flex, type FlexProps } from '@luxfi/ui/src/components/layout'
+import { RemoveScroll } from '@luxfi/ui/src/components/RemoveScroll/RemoveScroll'
+import { useScrollbarStyles } from '@luxfi/ui/src/styles/ScrollbarStyles'
+import { INTERFACE_NAV_HEIGHT, zIndexes } from '@luxfi/ui/src/theme'
+import { useShadowPropsShort } from '@luxfi/ui/src/theme/shadows'
+import { isWebApp } from 'utilities/src/platform'
+
+export const ADAPTIVE_MODAL_ANIMATION_DURATION = 200
+
+export function ModalCloseIcon(props: CloseIconProps): JSX.Element {
+  // hide close icon on bottom sheet on interface
+  const sm = useMedia().sm
+  const hideCloseIcon = isWebApp && sm
+  return hideCloseIcon ? <></> : <CloseIconWithHover {...props} />
+}
+
+const useIncrementTouchDeviceSheetKey = ({
+  isOpen,
+  isTouchDevice,
+}: {
+  isOpen: boolean
+  isTouchDevice: boolean
+}): number => {
+  const prevIsOpenRef = useRef(isOpen)
+  const [sheetKey, setSheetKey] = useState(0)
+
+  useEffect(() => {
+    if (!isTouchDevice) {
+      return
+    }
+    // Only increment sheetKey when transitioning from open to closed
+    if (prevIsOpenRef.current && !isOpen) {
+      setSheetKey((prev) => prev + 1)
+    }
+    prevIsOpenRef.current = isOpen
+  }, [isOpen, isTouchDevice])
+
+  return sheetKey
+}
+
+export function WebBottomSheet({
+  isOpen,
+  onClose,
+  children,
+  gap,
+  hideHandlebar,
+  snapPointsMode = 'fit',
+  snapPoints,
+  ...rest
+}: ModalProps): JSX.Element | null {
+  const isTouchDevice = useIsTouchDevice()
+  const [isHandlePressed, setHandlePressed] = useState(false)
+
+  // TODO(INFRA-644): Remove this workaround once Gui sheet bug is fixed
+  // Force a new key to remount the Sheet on touch devices on sheet close
+  // This is a workaround for bug where sheet does not respect disableDrag value changes unless remounted
+  const touchDeviceSheetKey = useIncrementTouchDeviceSheetKey({ isOpen, isTouchDevice })
+
+  // TODO(WEB-6258): Token selector not rendering bottom sheet on web without this workaround
+  const [mounted, setMounted] = useState(false)
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  // Delay enabling overlay dismiss to prevent the same tap that opens the sheet from immediately closing it.
+  // On mobile web, a tap generates mousedown -> mouseup -> click in quick succession.
+  // Without this delay, the mouseup/click from the opening tap hits the overlay and triggers dismiss.
+  // We wait for the animation to complete before enabling dismiss.
+  const [canDismissOnOverlayPress, setCanDismissOnOverlayPress] = useState(false)
+  useEffect(() => {
+    if (isOpen) {
+      const timeout = setTimeout(() => {
+        setCanDismissOnOverlayPress(true)
+      }, ADAPTIVE_MODAL_ANIMATION_DURATION)
+      return () => clearTimeout(timeout)
+    }
+    setCanDismissOnOverlayPress(false)
+    return undefined
+  }, [isOpen])
+
+  const handleClose = useCallback(
+    (open: boolean) => {
+      if (!open && onClose) {
+        onClose()
+      }
+    },
+    [onClose]
+  )
+
+  const sheetOverrideStyles: FlexProps = {
+    ...(rest as FlexProps),
+    width: '100%',
+    maxWidth: '100%',
+    minWidth: '100%',
+  }
+
+  // Only calculate sheetHeightStyles if not using percent mode
+  const sheetHeightStyles: FlexProps | undefined =
+    snapPointsMode !== 'percent'
+      ? {
+          height: rest.$md?.['$platform-web']?.height as DimensionValue,
+          maxHeight: (isWebApp
+            ? `calc(100vh - ${INTERFACE_NAV_HEIGHT}px)`
+            : (rest.$md?.['$platform-web']?.maxHeight ?? '100dvh')) as DimensionValue,
+        }
+      : undefined
+
+  if (!mounted) {
+    return null
+  }
+
+  return (
+    <RemoveScroll enabled={isOpen}>
+      <Sheet
+        key={touchDeviceSheetKey}
+        dismissOnSnapToBottom
+        modal
+        dismissOnOverlayPress={canDismissOnOverlayPress}
+        animation="200ms"
+        disableDrag={isTouchDevice && !isHandlePressed}
+        open={isOpen}
+        snapPointsMode={snapPointsMode}
+        // Must be spread because setting snapPoints to undefined still changes behavior
+        {...(snapPoints && { snapPoints })}
+        zIndex={rest.zIndex ?? zIndexes.modal}
+        onOpenChange={handleClose}
+      >
+        <Sheet.Frame
+          flex={1}
+          borderBottomWidth="$none"
+          borderColor="$surface3"
+          borderTopLeftRadius="$rounded16"
+          borderTopRightRadius="$rounded16"
+          borderWidth="$spacing1"
+          px="$spacing8"
+          {...sheetOverrideStyles}
+          {...sheetHeightStyles}
+        >
+          {!hideHandlebar && (
+            <Sheet.Handle
+              justifyContent="center"
+              m={0}
+              pb="$spacing16"
+              pt="$spacing8"
+              width="100%"
+              backgroundColor="$transparent"
+              onMouseDown={() => setHandlePressed(true)}
+              onMouseUp={() => setHandlePressed(false)}
+            >
+              <Flex backgroundColor="$neutral3" height="$spacing4" width="$spacing32" borderRadius="$roundedFull" />
+            </Sheet.Handle>
+          )}
+          <Flex
+            flex={1}
+            gap={gap}
+            $platform-web={{ overflow: 'auto' }}
+            {...sheetHeightStyles}
+            onPress={(e) => e.stopPropagation()}
+            onMouseDown={(e) => e.stopPropagation()}
+            onMouseUp={(e) => e.stopPropagation()}
+          >
+            {children}
+          </Flex>
+        </Sheet.Frame>
+        <Sheet.Overlay
+          zIndex={zIndexes.modalBackdrop}
+          animation="lazy"
+          backgroundColor="$scrim"
+          enterStyle={{ opacity: 0 }}
+          exitStyle={{ opacity: 0 }}
+          onPress={(e) => {
+            e.stopPropagation()
+          }}
+        />
+      </Sheet>
+    </RemoveScroll>
+  )
+}
+
+const Overlay = styled(Dialog.Overlay, {
+  animation: '300ms',
+  backgroundColor: '$scrim',
+  opacity: 0.5,
+  enterStyle: { opacity: 0 },
+  exitStyle: { opacity: 0 },
+})
+
+Overlay.displayName = 'Overlay'
+
+type ModalProps = GetProps<typeof View> &
+  PropsWithChildren<{
+    isOpen: boolean
+    onClose?: () => void
+    adaptToSheet?: boolean
+    alignment?: 'center' | 'top'
+    hideHandlebar?: boolean
+    snapPointsMode?: GetProps<typeof Sheet>['snapPointsMode']
+    snapPoints?: GetProps<typeof Sheet>['snapPoints']
+    overlayOpacity?: number
+    borderColor?: string
+    zIndex?: number
+  }>
+
+/**
+ * AdaptiveWebModal is a responsive modal component that adapts to different screen sizes.
+ * On larger screens, it renders as a dialog modal.
+ * On smaller screens (mobile devices), it adapts into a bottom sheet.
+ */
+// eslint-disable-next-line complexity
+export function AdaptiveWebModal({
+  isOpen,
+  onClose,
+  children,
+  adaptToSheet = true,
+  style,
+  alignment = 'center',
+  gap,
+  px,
+  py,
+  p,
+  zIndex,
+  hideHandlebar,
+  borderWidth,
+  borderColor,
+  overlayOpacity,
+  snapPointsMode,
+  snapPoints,
+  ...rest
+}: ModalProps): JSX.Element {
+  const filteredRest = Object.fromEntries(Object.entries(rest).filter(([_, v]) => v !== undefined)) as typeof rest // Filter out undefined properties from rest
+  const scrollbarStyles = useScrollbarStyles()
+  const isTopAligned = alignment === 'top'
+
+  const topAlignedStyles: FlexProps = isTopAligned
+    ? {
+        position: 'absolute',
+        justifyContent: 'flex-start',
+        top: '$spacing16',
+      }
+    : {}
+
+  const handleClose = useCallback(
+    (open: boolean) => {
+      if (!open && onClose) {
+        onClose()
+      }
+    },
+    [onClose]
+  )
+
+  return (
+    <Dialog modal open={isOpen} onOpenChange={handleClose}>
+      <VisuallyHidden>
+        <Dialog.Title />
+      </VisuallyHidden>
+      {adaptToSheet &&
+        !isTopAligned && ( // Gui Sheets always animate in from the bottom, so we cannot use Sheets on top aligned modals
+          <Adapt when="md">
+            <WebBottomSheet
+              isOpen={isOpen}
+              gap={gap ?? '$spacing4'}
+              px={px ?? p ?? '$spacing24'}
+              py={py ?? p ?? '$spacing16'}
+              style={style}
+              hideHandlebar={hideHandlebar}
+              snapPointsMode={snapPointsMode}
+              snapPoints={snapPoints}
+              onClose={onClose}
+              {...filteredRest}
+            >
+              <Adapt.Contents />
+            </WebBottomSheet>
+          </Adapt>
+        )}
+
+      <Dialog.Portal zIndex={zIndex ?? zIndexes.modal}>
+        <Overlay key="overlay" {...(overlayOpacity !== undefined && { opacity: overlayOpacity })} />
+        <Flex
+          grow
+          maxHeight={filteredRest.maxHeight ?? 'calc(100vh - 32px)'}
+          borderRadius="$rounded16"
+          justifyContent="center"
+          overflow="hidden"
+          {...topAlignedStyles}
+        >
+          <Dialog.Content
+            key="content"
+            elevate
+            bordered={borderWidth !== 0}
+            animateOnly={['transform', 'opacity']}
+            animation={isOpen ? 'fast' : 'fastExit'}
+            borderColor={borderColor ?? '$surface3'}
+            borderWidth={borderWidth}
+            borderRadius="$rounded16"
+            enterStyle={{ x: 0, y: isTopAligned ? -12 : 12, opacity: 0 }}
+            exitStyle={{ x: 0, y: isTopAligned ? -12 : 10, opacity: 0 }}
+            gap={gap ?? '$spacing4'}
+            m="$spacing16"
+            maxHeight="calc(100vh - 32px)"
+            maxWidth={420}
+            $platform-web={{ overflow: 'auto' }}
+            px={px ?? p ?? '$spacing24'}
+            py={py ?? p ?? '$spacing16'}
+            style={Object.assign({}, scrollbarStyles, style)}
+            width="calc(100vw - 32px)"
+            {...filteredRest}
+          >
+            {children}
+          </Dialog.Content>
+        </Flex>
+      </Dialog.Portal>
+    </Dialog>
+  )
+}
+
+/**
+ * Copy of AdaptiveWebModal with a bottom attachment, used temporarily until we can fully test and adapt to rest of app
+ * TODO WALL-5146 Combine this with AdaptiveWebModal and fix for all use cases
+ */
+export function WebModalWithBottomAttachment({
+  isOpen,
+  onClose,
+  children,
+  adaptToSheet = true,
+  style,
+  alignment = 'center',
+  bottomAttachment,
+  backgroundColor = '$surface1',
+  gap,
+  zIndex,
+  hideHandlebar,
+  borderWidth,
+  borderColor,
+  overlayOpacity,
+  snapPointsMode,
+  snapPoints,
+  ...rest
+}: ModalProps & { bottomAttachment?: ReactNode }): JSX.Element {
+  const shadowProps = useShadowPropsShort()
+
+  const filteredRest = Object.fromEntries(Object.entries(rest).filter(([_, v]) => v !== undefined)) // Filter out undefined properties from rest
+
+  const handleClose = useCallback(
+    (open: boolean) => {
+      if (!open && onClose) {
+        onClose()
+      }
+    },
+    [onClose]
+  )
+
+  const isTopAligned = alignment === 'top'
+
+  return (
+    <Dialog modal open={isOpen} onOpenChange={handleClose}>
+      <VisuallyHidden>
+        <Dialog.Title />
+      </VisuallyHidden>
+      {adaptToSheet &&
+        !isTopAligned && ( // Gui Sheets always animate in from the bottom, so we cannot use Sheets on top aligned modals
+          <Adapt when="md">
+            <WebBottomSheet
+              isOpen={isOpen}
+              style={style}
+              hideHandlebar={hideHandlebar}
+              snapPointsMode={snapPointsMode}
+              snapPoints={snapPoints}
+              onClose={onClose}
+              {...filteredRest}
+            >
+              <Adapt.Contents />
+            </WebBottomSheet>
+          </Adapt>
+        )}
+
+      <Dialog.Portal zIndex={zIndex ?? zIndexes.modal}>
+        <Overlay key="overlay" {...(overlayOpacity !== undefined && { opacity: overlayOpacity })} />
+
+        <Dialog.Content
+          key="content"
+          elevate
+          animateOnly={['transform', 'opacity']}
+          animation={isOpen ? 'fastHeavy' : 'fastExitHeavy'}
+          backgroundColor="$transparent"
+          enterStyle={{ x: 0, y: isTopAligned ? -20 : 20, opacity: 0 }}
+          exitStyle={{ x: 0, y: isTopAligned ? -20 : 10, opacity: 0 }}
+          maxHeight="calc(100vh - 32px)"
+          maxWidth={420}
+          overflow="hidden"
+          p="$none"
+          style={style}
+          width="calc(100vw - 32px)"
+        >
+          <Flex height="100%" width="100%" gap="$spacing8">
+            <Flex
+              {...shadowProps}
+              backgroundColor={backgroundColor}
+              borderColor={borderColor ?? '$surface3'}
+              borderRadius="$rounded16"
+              borderWidth={borderWidth ?? '$spacing1'}
+              px="$spacing24"
+              py="$spacing16"
+              gap={gap ?? '$gap4'}
+              overflow="hidden"
+              {...filteredRest}
+            >
+              {children}
+            </Flex>
+            {bottomAttachment && <Flex>{bottomAttachment}</Flex>}
+          </Flex>
+        </Dialog.Content>
+      </Dialog.Portal>
+    </Dialog>
+  )
+}

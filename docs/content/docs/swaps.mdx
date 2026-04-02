@@ -1,0 +1,339 @@
+---
+title: Swap Mechanics
+description: Understanding how token swaps work on Lux Exchange
+---
+
+# Swap Mechanics
+
+Token swaps are the core functionality of Lux Exchange, allowing users to trade one token for another through liquidity pools.
+
+## Swap Types
+
+### Exact Input Swaps
+
+Specify the exact amount to sell, receive variable output:
+
+```typescript
+// Swap exactly 1 ETH for LUX
+const amountIn = parseEther('1')
+const amountOutMin = parseEther('3800') // Slippage protection
+
+const tx = await router.swapExactTokensForTokens(
+  amountIn,
+  amountOutMin,
+  [WETH, LUX],
+  recipient,
+  deadline
+)
+```
+
+### Exact Output Swaps
+
+Specify the exact amount to receive, pay variable input:
+
+```typescript
+// Receive exactly 4000 LUX
+const amountOut = parseEther('4000')
+const amountInMax = parseEther('1.1') // Slippage protection
+
+const tx = await router.swapTokensForExactTokens(
+  amountOut,
+  amountInMax,
+  [WETH, LUX],
+  recipient,
+  deadline
+)
+```
+
+## Multi-Hop Swaps
+
+Trade through intermediate pools when no direct pair exists:
+
+```typescript
+// Path: USDC -> WETH -> LUX
+const path = [USDC, WETH, LUX]
+
+const amounts = await router.getAmountsOut(amountIn, path)
+// amounts[0] = USDC input
+// amounts[1] = WETH intermediate
+// amounts[2] = LUX output
+```
+
+### Optimal Path Finding
+
+```typescript
+import { findBestPath } from '@luxfi/exchange-sdk'
+
+// Automatically find best route
+const { path, amountOut } = await findBestPath(
+  tokenIn,
+  tokenOut,
+  amountIn,
+  maxHops: 3
+)
+```
+
+## Swap Flow
+
+```
+1. User approves Router to spend tokens
+2. User calls swap function on Router
+3. Router calculates optimal path
+4. For each hop:
+   a. Transfer tokens to pool
+   b. Pool calculates output
+   c. Pool transfers output to next pool (or user)
+5. Final output sent to recipient
+```
+
+### Detailed Execution
+
+```solidity
+function _swap(
+    uint[] memory amounts,
+    address[] memory path,
+    address _to
+) internal virtual {
+    for (uint i; i < path.length - 1; i++) {
+        (address input, address output) = (path[i], path[i + 1]);
+        (address token0,) = sortTokens(input, output);
+        uint amountOut = amounts[i + 1];
+
+        (uint amount0Out, uint amount1Out) = input == token0
+            ? (uint(0), amountOut)
+            : (amountOut, uint(0));
+
+        address to = i < path.length - 2
+            ? pairFor(output, path[i + 2])
+            : _to;
+
+        ILuxPair(pairFor(input, output)).swap(
+            amount0Out,
+            amount1Out,
+            to,
+            new bytes(0)
+        );
+    }
+}
+```
+
+## Price Calculation
+
+### Spot Price
+
+Current price without trade impact:
+
+```typescript
+const spotPrice = reserveOut / reserveIn
+```
+
+### Execution Price
+
+Actual price including trade impact:
+
+```typescript
+const executionPrice = amountOut / amountIn
+```
+
+### Price Impact
+
+```typescript
+const priceImpact = (spotPrice - executionPrice) / spotPrice * 100
+```
+
+## Slippage Protection
+
+### Setting Slippage Tolerance
+
+```typescript
+function calculateMinOutput(
+  expectedOutput: bigint,
+  slippagePercent: number
+): bigint {
+  const slippageBps = BigInt(Math.floor(slippagePercent * 100))
+  return expectedOutput * (10000n - slippageBps) / 10000n
+}
+
+// 0.5% slippage
+const amountOutMin = calculateMinOutput(expectedOut, 0.5)
+```
+
+### Dynamic Slippage
+
+Adjust slippage based on pool depth:
+
+```typescript
+function getDynamicSlippage(
+  amountIn: bigint,
+  reserve: bigint
+): number {
+  const impactPercent = Number(amountIn * 10000n / reserve) / 100
+  return Math.max(0.5, impactPercent * 2) // At least 0.5%
+}
+```
+
+## Transaction Deadline
+
+Protect against delayed execution:
+
+```typescript
+// 20 minutes from now
+const deadline = Math.floor(Date.now() / 1000) + 20 * 60
+
+// Transaction reverts if not mined before deadline
+```
+
+## Native Token (LUX) Swaps
+
+### ETH to Token
+
+```typescript
+// Wrap and swap in one transaction
+const tx = await router.swapExactETHForTokens(
+  amountOutMin,
+  [WETH, TOKEN],
+  recipient,
+  deadline,
+  { value: amountIn }
+)
+```
+
+### Token to ETH
+
+```typescript
+const tx = await router.swapExactTokensForETH(
+  amountIn,
+  amountOutMin,
+  [TOKEN, WETH],
+  recipient,
+  deadline
+)
+```
+
+## Flash Swaps
+
+Borrow tokens without upfront collateral:
+
+```typescript
+// Callback-based flash swap
+const tx = await pool.swap(
+  amount0Out,
+  amount1Out,
+  recipient,
+  encodedCallbackData  // Non-empty triggers callback
+)
+
+// In callback, repay borrowed amount + fee
+function luxCall(
+  address sender,
+  uint256 amount0,
+  uint256 amount1,
+  bytes calldata data
+) external {
+  // Perform arbitrage or other operations
+
+  // Repay with fee
+  uint256 amountRequired = getAmountIn(amount0, reserve1, reserve0);
+  IERC20(token0).transfer(msg.sender, amountRequired);
+}
+```
+
+## Fee-on-Transfer Tokens
+
+Some tokens take fees on transfer. Use special functions:
+
+```typescript
+// For tokens with transfer fees
+const tx = await router.swapExactTokensForTokensSupportingFeeOnTransferTokens(
+  amountIn,
+  amountOutMin,
+  path,
+  recipient,
+  deadline
+)
+```
+
+## Error Handling
+
+### Common Errors
+
+| Error | Cause | Solution |
+|-------|-------|----------|
+| `INSUFFICIENT_OUTPUT_AMOUNT` | Slippage exceeded | Increase slippage tolerance |
+| `EXPIRED` | Past deadline | Retry with new deadline |
+| `INSUFFICIENT_LIQUIDITY` | Pool too shallow | Use smaller trade or different path |
+| `TRANSFER_FAILED` | Token transfer issue | Check approvals and balances |
+
+### Safe Swap Pattern
+
+```typescript
+async function safeSwap(params: SwapParams): Promise<TransactionReceipt> {
+  // 1. Check approval
+  const allowance = await token.allowance(user, ROUTER)
+  if (allowance < params.amountIn) {
+    await token.approve(ROUTER, MaxUint256)
+  }
+
+  // 2. Get quote with buffer
+  const quote = await router.getAmountsOut(params.amountIn, params.path)
+  const minOut = quote[quote.length - 1] * 995n / 1000n // 0.5% slippage
+
+  // 3. Execute swap
+  try {
+    const tx = await router.swapExactTokensForTokens(
+      params.amountIn,
+      minOut,
+      params.path,
+      params.recipient,
+      Math.floor(Date.now() / 1000) + 1200
+    )
+    return await tx.wait()
+  } catch (e) {
+    if (e.code === 'CALL_EXCEPTION') {
+      // Decode revert reason
+      throw new Error(`Swap failed: ${decodeError(e)}`)
+    }
+    throw e
+  }
+}
+```
+
+## Gas Optimization
+
+### Batching
+
+Combine multiple swaps in one transaction:
+
+```typescript
+import { Multicall } from '@luxfi/exchange-sdk'
+
+const multicall = new Multicall(provider)
+
+const calls = [
+  router.interface.encodeFunctionData('swapExactTokensForTokens', [...]),
+  router.interface.encodeFunctionData('swapExactTokensForTokens', [...]),
+]
+
+const tx = await multicall.aggregate(calls)
+```
+
+### Permit2
+
+Single approval for all tokens:
+
+```typescript
+import { Permit2 } from '@luxfi/exchange-sdk'
+
+// One-time approval to Permit2
+await token.approve(PERMIT2_ADDRESS, MaxUint256)
+
+// Subsequent swaps use signatures
+const permit = await signPermit2(token, ROUTER, amount, deadline)
+const tx = await router.swapWithPermit2(params, permit)
+```
+
+## Further Reading
+
+- [AMM Fundamentals](/docs/amm) - Price calculation math
+- [Liquidity Pools](/docs/liquidity-pools) - Pool mechanics
+- [Security](/docs/security) - Safe trading practices

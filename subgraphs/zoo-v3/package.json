@@ -1,0 +1,15 @@
+{
+  "name": "@luxfi/subgraph-zoo-amm-v3",
+  "version": "1.0.0",
+  "description": "Subgraph for AMM V3 concentrated liquidity on Zoo Network (factory 0x80bBc7C4C7a59C899D1B37BC14539A22D5830a84)",
+  "scripts": {
+    "codegen": "graph codegen",
+    "build": "graph build",
+    "deploy:local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 luxfi/zoo-amm-v3",
+    "create:local": "graph create --node http://localhost:8020/ luxfi/zoo-amm-v3"
+  },
+  "devDependencies": {
+    "@graphprotocol/graph-cli": "^0.68.0",
+    "@graphprotocol/graph-ts": "^0.32.0"
+  }
+}

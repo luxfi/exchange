@@ -1,0 +1,224 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`AddBackupLoginModal > renders snapshot at method select step 1`] = `
+<body>
+  <dialog
+    aria-closed="true"
+    aria-label="Porto Wallet"
+    data-porto=""
+    hidden="until-found"
+    role="dialog"
+    style="background: transparent; border: 0px; outline: 0; padding: 0px; position: fixed;"
+  >
+    <style>
+      
+        dialog[data-porto]::backdrop {
+          background: transparent!important;
+        }
+      
+    </style>
+    <iframe
+      allow="publickey-credentials-get https://id.porto.sh; publickey-credentials-create https://id.porto.sh; clipboard-write"
+      data-testid="porto"
+      sandbox="allow-forms allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"
+      src="https://id.porto.sh/dialog"
+      style="background-color: transparent; border: 0px; color-scheme: light dark; height: 100%; left: 0px; position: fixed; top: 0px; width: 100%;"
+      tabindex="0"
+      title="Porto"
+    />
+  </dialog>
+  <div>
+    <span
+      class=""
+      style="display: contents;"
+    >
+      <div>
+        <span
+          class="font_unset _display-inline _boxSizing-border-box _wordWrap-break-word _whiteSpace-pre-wrap _position-absolute _width-1px _height-1px _mt--1px _mr--1px _mb--1px _ml--1px _zIndex--10000 _overflowX-hidden _overflowY-hidden _opacity-1e-8 _pointerEvents-none"
+        >
+          <div />
+        </span>
+        <div>
+          <div />
+          <div
+            class="_display-flex _alignItems-stretch _flexBasis-auto _boxSizing-border-box _position-relative _minHeight-0px _minWidth-0px _flexShrink-0 _flexDirection-column _flexGrow-1 _maxHeight-calc100vh-32087695319 _borderTopLeftRadius-t-radius-ro291586449 _borderTopRightRadius-t-radius-ro291586449 _borderBottomRightRadius-t-radius-ro291586449 _borderBottomLeftRadius-t-radius-ro291586449 _justifyContent-center _overflowX-hidden _overflowY-hidden"
+          >
+            <div>
+              <div
+                class="_display-flex _flexBasis-auto _boxSizing-border-box _position-relative _minHeight-0px _minWidth-0px _flexShrink-0 _flexDirection-column _gap-t-space-gap1602 _alignItems-center _width-10037"
+              >
+                <div
+                  class="_display-flex _flexBasis-auto _boxSizing-border-box _position-relative _minHeight-0px _minWidth-0px _flexShrink-0 _flexDirection-column _width-10037 _alignItems-flex-end"
+                >
+                  <div
+                    class="is_TouchableArea  t_group_true"
+                    role="button"
+                    style="display: flex; align-items: stretch; flex-basis: auto; box-sizing: border-box; position: relative; min-height: 0px; min-width: 0px; flex-shrink: 0; flex-direction: column; border-top-left-radius: var(--t-radius-rounded12); border-top-right-radius: var(--t-radius-rounded12); border-bottom-right-radius: var(--t-radius-rounded12); border-bottom-left-radius: var(--t-radius-rounded12); cursor: pointer; outline-color: rgba(0, 0, 0, 0); opacity: 1; transform: scale(1);"
+                    tabindex="0"
+                  >
+                    <svg
+                      fill="none"
+                      stroke-width="8"
+                      style="width: 20px; height: 20px; color: rgba(19, 19, 19, 0.63);"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        d="M12.5303 4.53033C12.8232 4.23744 12.8232 3.76256 12.5303 3.46967C12.2374 3.17678 11.7626 3.17678 11.4697 3.46967L12.5303 4.53033ZM3.46967 11.4697C3.17678 11.7626 3.17678 12.2374 3.46967 12.5303C3.76256 12.8232 4.23744 12.8232 4.53033 12.5303L3.46967 11.4697ZM4.53033 3.46967C4.23744 3.17678 3.76256 3.17678 3.46967 3.46967C3.17678 3.76256 3.17678 4.23744 3.46967 4.53033L4.53033 3.46967ZM11.4697 12.5303C11.7626 12.8232 12.2374 12.8232 12.5303 12.5303C12.8232 12.2374 12.8232 11.7626 12.5303 11.4697L11.4697 12.5303ZM11.4697 3.46967L3.46967 11.4697L4.53033 12.5303L12.5303 4.53033L11.4697 3.46967ZM3.46967 4.53033L11.4697 12.5303L12.5303 11.4697L4.53033 3.46967L3.46967 4.53033Z"
+                        fill="currentColor"
+                      />
+                    </svg>
+                  </div>
+                </div>
+                <div
+                  class="_display-flex _flexBasis-auto _boxSizing-border-box _position-relative _minHeight-0px _minWidth-0px _flexShrink-0 _flexDirection-column _gap-t-space-gap1573 _alignItems-center _width-10037"
+                >
+                  <div
+                    class="_display-flex _flexBasis-auto _boxSizing-border-box _position-relative _minHeight-0px _minWidth-0px _flexShrink-0 _flexDirection-column _pt-t-space-spa1360334080 _pr-t-space-spa1360334080 _pb-t-space-spa1360334080 _pl-t-space-spa1360334080 _backgroundColor-surface3 _borderTopLeftRadius-t-radius-ro291586453 _borderTopRightRadius-t-radius-ro291586453 _borderBottomRightRadius-t-radius-ro291586453 _borderBottomLeftRadius-t-radius-ro291586453 _alignItems-center _justifyContent-center"
+                  >
+                    <svg
+                      fill="none"
+                      stroke-width="8"
+                      style="width: 24px; height: 24px; color: rgb(19, 19, 19);"
+                      viewBox="0 0 19 20"
+                    >
+                      <path
+                        d="M9.51807 0C7.27807 1.111 5.5 2 0.5 3C0.5 4.137 0.5 7.70192 0.5 8.88892C0.5 15.5559 6.167 18.889 9.5 20C12.833 18.889 18.5 15.5559 18.5 8.88892C18.5 7.66392 18.5 4.194 18.5 3C13.5 2 11.7221 1.111 9.51807 0ZM13.042 8.53003L9.04199 12.53C8.89599 12.676 8.70396 12.75 8.51196 12.75C8.31996 12.75 8.12793 12.677 7.98193 12.53L5.98193 10.53C5.68893 10.237 5.68893 9.76199 5.98193 9.46899C6.27493 9.17599 6.74997 9.17599 7.04297 9.46899L8.51294 10.939L11.9829 7.46899C12.2759 7.17599 12.7509 7.17599 13.0439 7.46899C13.3369 7.76199 13.335 8.23703 13.042 8.53003Z"
+                        fill="currentColor"
+                      />
+                    </svg>
+                  </div>
+                  <div
+                    class="_display-flex _flexBasis-auto _boxSizing-border-box _position-relative _minHeight-0px _minWidth-0px _flexShrink-0 _flexDirection-column _gap-t-space-gap56 _alignItems-center _maxWidth-360px"
+                  >
+                    <span
+                      class="font_subHeading _display-inline _boxSizing-border-box _whiteSpace-pre-wrap _mt-0px _mr-0px _mb-0px _ml-0px _color-neutral1 _fontFamily-f-family _wordWrap-break-word _fontSize-f-size-larg101 _fontWeight-f-weight-bo3548 _lineHeight-f-lineHeigh1262266530 _textAlign-center"
+                      data-disable-theme="true"
+                    >
+                      Add a backup login
+                    </span>
+                    <span
+                      class="font_body _display-inline _boxSizing-border-box _whiteSpace-pre-wrap _mt-0px _mr-0px _mb-0px _ml-0px _color-neutral2 _fontFamily-f-family _wordWrap-break-word _fontSize-f-size-medi3736 _fontWeight-f-weight-bo3548 _lineHeight-f-lineHeigh507465454 _textAlign-center"
+                      data-disable-theme="true"
+                    >
+                      If you lose your passkey, you can use your backup login method to access your wallet.
+                    </span>
+                  </div>
+                </div>
+                <div
+                  class="_display-flex _alignItems-stretch _flexBasis-auto _boxSizing-border-box _position-relative _minHeight-0px _minWidth-0px _flexShrink-0 _flexDirection-column _width-10037 _borderTopLeftRadius-t-radius-ro291586449 _borderTopRightRadius-t-radius-ro291586449 _borderBottomRightRadius-t-radius-ro291586449 _borderBottomLeftRadius-t-radius-ro291586449 _overflowX-hidden _overflowY-hidden _gap-t-space-spa94665587"
+                >
+                  <div
+                    class="is_TouchableArea  t_group_true"
+                    role="button"
+                    style="display: flex; align-items: stretch; flex-basis: auto; box-sizing: border-box; position: relative; min-height: 0px; min-width: 0px; flex-shrink: 0; flex-direction: column; border-top-left-radius: var(--t-radius-rounded12); border-top-right-radius: var(--t-radius-rounded12); border-bottom-right-radius: var(--t-radius-rounded12); border-bottom-left-radius: var(--t-radius-rounded12); cursor: pointer; outline-color: rgba(0, 0, 0, 0); opacity: 1; pointer-events: auto; width: 100%; transform: scale(1);"
+                    tabindex="0"
+                  >
+                    <div
+                      class="_color-_grouptrue-hover_accent3Hove112785 _backgroundColor-_grouptrue-hover_surface2Hov3121676 _display-flex _flexBasis-auto _boxSizing-border-box _position-relative _minHeight-0px _minWidth-0px _flexShrink-0 _flexDirection-row _gap-t-space-gap1569 _alignItems-center _width-10037 _pt-t-space-spa1360334080 _pr-t-space-spa1360334080 _pb-t-space-spa1360334080 _pl-t-space-spa1360334080 _backgroundColor-surface2 _opacity-1 _color-accent3"
+                    >
+                      <div
+                        class="_display-flex _flexBasis-auto _boxSizing-border-box _position-relative _minHeight-0px _minWidth-0px _flexShrink-0 _flexDirection-column _height-32px _width-32px _backgroundColor-surface1 _borderTopLeftRadius-t-radius-ro840690002 _borderTopRightRadius-t-radius-ro840690002 _borderBottomRightRadius-t-radius-ro840690002 _borderBottomLeftRadius-t-radius-ro840690002 _borderTopWidth-1px _borderRightWidth-1px _borderBottomWidth-1px _borderLeftWidth-1px _borderTopColor-surface3 _borderRightColor-surface3 _borderBottomColor-surface3 _borderLeftColor-surface3 _alignItems-center _justifyContent-center _borderBottomStyle-solid _borderTopStyle-solid _borderLeftStyle-solid _borderRightStyle-solid"
+                      >
+                        <svg
+                          data-testid="apple-logo"
+                          fill="#131313"
+                          height="20"
+                          viewBox="0 0 14 16"
+                          width="20"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M11.6662 8.50891C11.6741 7.89565 11.837 7.29436 12.1397 6.76098C12.4424 6.22759 12.8752 5.77945 13.3976 5.45824C13.0657 4.98422 12.6279 4.59412 12.1188 4.31892C11.6098 4.04372 11.0436 3.89101 10.4652 3.87292C9.23139 3.74341 8.03528 4.6112 7.40655 4.6112C6.76567 4.6112 5.79765 3.88578 4.75526 3.90722C4.08101 3.92901 3.4239 4.12507 2.84796 4.47632C2.27202 4.82757 1.79688 5.32201 1.46884 5.91149C0.0478641 8.37169 1.10779 11.9874 2.46897 13.976C3.14999 14.9498 3.94592 16.0375 4.98737 15.999C6.00649 15.9567 6.38712 15.3491 7.61728 15.3491C8.83603 15.3491 9.19314 15.999 10.2557 15.9744C11.3493 15.9567 12.0383 14.9963 12.6954 14.0133C13.1847 13.3195 13.5613 12.5526 13.8111 11.7411C13.1757 11.4724 12.6336 11.0226 12.2521 10.4479C11.8707 9.87307 11.6669 9.19873 11.6662 8.50891Z"
+                            fill="#131313"
+                          />
+                          <path
+                            d="M9.65929 2.56468C10.2555 1.8489 10.5493 0.928877 10.4782 0C9.56722 0.0956776 8.72575 0.531052 8.12144 1.21937C7.82597 1.55564 7.59968 1.94684 7.45549 2.37061C7.3113 2.79438 7.25205 3.24242 7.28112 3.68911C7.73676 3.6938 8.18752 3.59504 8.59946 3.40027C9.0114 3.2055 9.37377 2.9198 9.65929 2.56468Z"
+                            fill="#131313"
+                          />
+                        </svg>
+                      </div>
+                      <span
+                        class="font_body _display-inline _boxSizing-border-box _whiteSpace-pre-wrap _mt-0px _mr-0px _mb-0px _ml-0px _color-neutral1 _fontFamily-f-family _wordWrap-break-word _fontSize-f-size-medi3736 _fontWeight-f-weight-bo3548 _lineHeight-f-lineHeigh507465454 _flexGrow-1 _flexShrink-1 _flexBasis-auto"
+                        data-disable-theme="true"
+                      >
+                        Apple
+                      </span>
+                    </div>
+                  </div>
+                  <div
+                    class="is_TouchableArea  t_group_true"
+                    role="button"
+                    style="display: flex; align-items: stretch; flex-basis: auto; box-sizing: border-box; position: relative; min-height: 0px; min-width: 0px; flex-shrink: 0; flex-direction: column; border-top-left-radius: var(--t-radius-rounded12); border-top-right-radius: var(--t-radius-rounded12); border-bottom-right-radius: var(--t-radius-rounded12); border-bottom-left-radius: var(--t-radius-rounded12); cursor: pointer; outline-color: rgba(0, 0, 0, 0); opacity: 1; pointer-events: auto; width: 100%; transform: scale(1);"
+                    tabindex="0"
+                  >
+                    <div
+                      class="_color-_grouptrue-hover_accent3Hove112785 _backgroundColor-_grouptrue-hover_surface2Hov3121676 _display-flex _flexBasis-auto _boxSizing-border-box _position-relative _minHeight-0px _minWidth-0px _flexShrink-0 _flexDirection-row _gap-t-space-gap1569 _alignItems-center _width-10037 _pt-t-space-spa1360334080 _pr-t-space-spa1360334080 _pb-t-space-spa1360334080 _pl-t-space-spa1360334080 _backgroundColor-surface2 _opacity-1 _color-accent3"
+                    >
+                      <div
+                        class="_display-flex _flexBasis-auto _boxSizing-border-box _position-relative _minHeight-0px _minWidth-0px _flexShrink-0 _flexDirection-column _height-32px _width-32px _backgroundColor-surface1 _borderTopLeftRadius-t-radius-ro840690002 _borderTopRightRadius-t-radius-ro840690002 _borderBottomRightRadius-t-radius-ro840690002 _borderBottomLeftRadius-t-radius-ro840690002 _borderTopWidth-1px _borderRightWidth-1px _borderBottomWidth-1px _borderLeftWidth-1px _borderTopColor-surface3 _borderRightColor-surface3 _borderBottomColor-surface3 _borderLeftColor-surface3 _alignItems-center _justifyContent-center _borderBottomStyle-solid _borderTopStyle-solid _borderLeftStyle-solid _borderRightStyle-solid"
+                      >
+                        <svg
+                          fill="none"
+                          stroke-width="8"
+                          style="width: 20px; height: 20px; color: rgb(19, 19, 19);"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M19.521 12.1821C19.521 14.5887 18.666 16.6233 17.1776 18.0008C15.8793 19.2041 14.0981 19.9166 11.9685 19.9166C8.88893 19.9166 6.221 18.1354 4.93059 15.5467C4.39225 14.4779 4.0835 13.2746 4.0835 12C4.0835 10.7254 4.39225 9.52205 4.93059 8.4533C6.22892 5.86455 8.88893 4.08331 11.9685 4.08331C14.0981 4.08331 15.8793 4.86705 17.241 6.14955L14.9927 8.40581C14.1694 7.62206 13.1323 7.21831 11.9685 7.21831C9.91018 7.21831 8.16849 8.61164 7.54308 10.4879C7.38474 10.9629 7.28974 11.4696 7.28974 12C7.28974 12.5304 7.37683 13.0371 7.54308 13.5121C8.16849 15.3962 9.91018 16.7817 11.9685 16.7817C13.0293 16.7817 13.9319 16.4887 14.6444 16.0137C15.4756 15.4517 16.0298 14.6283 16.2198 13.6546H11.9685V10.6779H19.3944C19.4735 11.1608 19.521 11.6516 19.521 12.1741V12.1821Z"
+                            fill="currentColor"
+                          />
+                        </svg>
+                      </div>
+                      <span
+                        class="font_body _display-inline _boxSizing-border-box _whiteSpace-pre-wrap _mt-0px _mr-0px _mb-0px _ml-0px _color-neutral1 _fontFamily-f-family _wordWrap-break-word _fontSize-f-size-medi3736 _fontWeight-f-weight-bo3548 _lineHeight-f-lineHeigh507465454 _flexGrow-1 _flexShrink-1 _flexBasis-auto"
+                        data-disable-theme="true"
+                      >
+                        Google
+                      </span>
+                    </div>
+                  </div>
+                  <div
+                    class="is_TouchableArea  t_group_true"
+                    role="button"
+                    style="display: flex; align-items: stretch; flex-basis: auto; box-sizing: border-box; position: relative; min-height: 0px; min-width: 0px; flex-shrink: 0; flex-direction: column; border-top-left-radius: var(--t-radius-rounded12); border-top-right-radius: var(--t-radius-rounded12); border-bottom-right-radius: var(--t-radius-rounded12); border-bottom-left-radius: var(--t-radius-rounded12); cursor: pointer; outline-color: rgba(0, 0, 0, 0); opacity: 1; pointer-events: auto; width: 100%; transform: scale(1);"
+                    tabindex="0"
+                  >
+                    <div
+                      class="_color-_grouptrue-hover_accent3Hove112785 _backgroundColor-_grouptrue-hover_surface2Hov3121676 _display-flex _flexBasis-auto _boxSizing-border-box _position-relative _minHeight-0px _minWidth-0px _flexShrink-0 _flexDirection-row _gap-t-space-gap1569 _alignItems-center _width-10037 _pt-t-space-spa1360334080 _pr-t-space-spa1360334080 _pb-t-space-spa1360334080 _pl-t-space-spa1360334080 _backgroundColor-surface2 _opacity-1 _color-accent3"
+                    >
+                      <div
+                        class="_display-flex _flexBasis-auto _boxSizing-border-box _position-relative _minHeight-0px _minWidth-0px _flexShrink-0 _flexDirection-column _height-32px _width-32px _backgroundColor-surface1 _borderTopLeftRadius-t-radius-ro840690002 _borderTopRightRadius-t-radius-ro840690002 _borderBottomRightRadius-t-radius-ro840690002 _borderBottomLeftRadius-t-radius-ro840690002 _borderTopWidth-1px _borderRightWidth-1px _borderBottomWidth-1px _borderLeftWidth-1px _borderTopColor-surface3 _borderRightColor-surface3 _borderBottomColor-surface3 _borderLeftColor-surface3 _alignItems-center _justifyContent-center _borderBottomStyle-solid _borderTopStyle-solid _borderLeftStyle-solid _borderRightStyle-solid"
+                      >
+                        <svg
+                          fill="none"
+                          stroke-width="8"
+                          style="width: 20px; height: 20px; color: rgb(19, 19, 19);"
+                          viewBox="0 0 16 16"
+                        >
+                          <path
+                            d="M13.0007 7.89984C13.0487 7.89984 13.0961 7.90117 13.1434 7.90384C13.2081 7.90784 13.334 7.85983 13.334 7.7005C13.334 7.55983 13.334 4.6665 13.334 4.6665C13.334 3.33317 12.6673 2.6665 11.334 2.6665H3.33398C2.00065 2.6665 1.33398 3.33317 1.33398 4.6665V10.6665C1.33398 11.9998 2.00065 12.6665 3.33398 12.6665C3.33398 12.6665 9.62594 12.6665 9.80127 12.6665C9.9586 12.6665 10.0007 12.5218 10.0007 12.4812C10.0007 12.4405 10.0007 12.0332 10.0007 12.0332C10.0007 11.4665 10.174 10.9998 10.5007 10.6665V10.3998C10.5007 9.01984 11.6207 7.89984 13.0007 7.89984ZM8.02002 8.11917C7.81469 8.2685 7.57398 8.34317 7.33398 8.34317C7.09398 8.34317 6.85262 8.2685 6.64795 8.11983L3.37337 5.73783C3.15004 5.57583 3.10068 5.26251 3.26335 5.03917C3.42535 4.81717 3.73658 4.76584 3.96191 4.92917L7.23665 7.31051C7.29532 7.35251 7.3733 7.35317 7.43197 7.31051L10.7067 4.92917C10.9314 4.76584 11.2433 4.81651 11.4053 5.03917C11.5679 5.26251 11.5186 5.57517 11.2952 5.73783L8.02002 8.11917ZM14.5007 11.1932V10.3998C14.5007 9.57251 13.8273 8.89984 13.0007 8.89984C12.174 8.89984 11.5007 9.57251 11.5007 10.3998V11.1932C11.168 11.3072 11.0007 11.5865 11.0007 12.0332V13.4332C11.0007 14.0332 11.3007 14.3332 11.9007 14.3332H14.1006C14.7006 14.3332 15.0007 14.0332 15.0007 13.4332V12.0332C15.0007 11.5865 14.8333 11.3072 14.5007 11.1932ZM13.5007 11.1332H12.5007V10.3998C12.5007 10.1238 12.7253 9.89984 13.0007 9.89984C13.276 9.89984 13.5007 10.1238 13.5007 10.3998V11.1332Z"
+                            fill="currentColor"
+                          />
+                        </svg>
+                      </div>
+                      <span
+                        class="font_body _display-inline _boxSizing-border-box _whiteSpace-pre-wrap _mt-0px _mr-0px _mb-0px _ml-0px _color-neutral1 _fontFamily-f-family _wordWrap-break-word _fontSize-f-size-medi3736 _fontWeight-f-weight-bo3548 _lineHeight-f-lineHeigh507465454 _flexGrow-1 _flexShrink-1 _flexBasis-auto"
+                        data-disable-theme="true"
+                      >
+                        Email
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        style="display: contents;"
+      />
+    </span>
+  </div>
+</body>
+`;

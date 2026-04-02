@@ -1,0 +1,18 @@
+{
+  "extends": "../../config/tsconfig/app.json",
+  "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.json", "env.d.ts"],
+  "compilerOptions": {
+    "types": ["node", "vitest/globals", "chrome"],
+    "paths": {
+      "utilities/src/*": ["./src/*"]
+    }
+  },
+  "references": [
+    {
+      "path": "../../config/vitest-presets"
+    },
+    {
+      "path": "../eslint-config"
+    }
+  ]
+}

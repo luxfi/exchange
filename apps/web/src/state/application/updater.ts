@@ -1,0 +1,34 @@
+import { useWeb3React } from '@web3-react/core'
+import { useEffect, useState } from 'react'
+import { useSupportedChainId } from '@luxexchange/lx/src/features/chains/hooks/useSupportedChainId'
+import { useIsWindowVisible } from '@luxfi/utilities/src/react/useIsWindowVisible'
+import { useAccount } from '~/hooks/useAccount'
+import useDebounce from '~/hooks/useDebounce'
+import { updateChainId } from '~/state/application/reducer'
+import { useAppDispatch } from '~/state/hooks'
+
+export default function Updater(): null {
+  const account = useAccount()
+  const { provider } = useWeb3React()
+  const supportedChain = useSupportedChainId(account.chainId)
+  const dispatch = useAppDispatch()
+  const windowVisible = useIsWindowVisible()
+
+  const [activeChainId, setActiveChainId] = useState(account.chainId)
+
+  // biome-ignore lint/correctness/useExhaustiveDependencies: +dispatch
+  useEffect(() => {
+    if (provider && account.chainId && windowVisible) {
+      setActiveChainId(account.chainId)
+    }
+  }, [dispatch, account.chainId, provider, windowVisible])
+
+  const debouncedChainId = useDebounce(activeChainId, 100)
+
+  useEffect(() => {
+    const chainId = debouncedChainId ? supportedChain : null
+    dispatch(updateChainId({ chainId }))
+  }, [dispatch, debouncedChainId, supportedChain])
+
+  return null
+}

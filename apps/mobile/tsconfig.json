@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "display": "Mobile App",
+  "extends": "../../config/tsconfig/expo.json",
+  "exclude": [".storybook/storybook.requires.ts"],
+  "references": [
+    {
+      "path": "../../pkgs/wallet"
+    },
+    {
+      "path": "../../pkgs/utilities"
+    },
+    {
+      "path": "../../pkgs/sessions"
+    },
+    {
+      "path": "../../pkgs/notifications"
+    },
+    {
+      "path": "../../pkgs/hashcash-native"
+    },
+    {
+      "path": "../../pkgs/gating"
+    },
+    {
+      "path": "../../pkgs/api"
+    },
+    {
+      "path": "../../pkgs/eslint-config"
+    },
+    {
+      "path": "../../pkgs/ui"
+    },
+    {
+      "path": "../../pkgs/lx"
+    }
+  ],
+  "compilerOptions": {
+    "types": ["jest", "node"],
+    "paths": {
+      "src/*": ["./src/*"]
+    }
+  },
+  "include": ["**/*.ts", "**/*.tsx", "src/polyfills/**/*.js", "global.d.ts"]
+}

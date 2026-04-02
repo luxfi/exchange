@@ -1,0 +1,114 @@
+import { useAtomValue } from 'jotai/utils'
+import { useTranslation } from 'react-i18next'
+import { BridgedAssetModalAtom } from '@luxexchange/lx/src/components/BridgedAsset/BridgedAssetModal'
+import { WormholeModalAtom } from '@luxexchange/lx/src/components/BridgedAsset/WormholeModal'
+import { ReportTokenIssueModalPropsAtom } from '@luxexchange/lx/src/components/reporting/ReportTokenIssueModal'
+import { useUnitagsAddressQuery } from '@luxexchange/lx/src/data/apiClients/unitagsApi/useUnitagsAddressQuery'
+import { useActiveAddresses } from '@luxexchange/lx/src/features/accounts/store/hooks'
+import { ModalName } from '@luxexchange/lx/src/features/telemetry/constants'
+import { shortenAddress } from '@luxfi/utilities/src/addresses'
+import { isBetaEnv, isDevEnv } from '@luxfi/utilities/src/environment/env'
+import { useEvent } from '@luxfi/utilities/src/react/hooks'
+import { OAuthRedirectProvider } from '~/components/Passkey/OAuthRedirectContext'
+import { useOAuthRedirectRouter } from '~/components/Passkey/useOAuthRedirectRouter'
+import { POPUP_MEDIUM_DISMISS_MS } from '~/components/Popups/constants'
+import { popupRegistry } from '~/components/Popups/registry'
+import { PopupType } from '~/components/Popups/types'
+import { ModalRenderer } from '~/components/TopLevelModals/modalRegistry'
+import useAccountRiskCheck from '~/hooks/useAccountRiskCheck'
+import { PageType, useIsPage } from '~/hooks/useIsPage'
+import { PasskeysHelpModalTypeAtom } from '~/hooks/usePasskeyAuthWithHelpModal'
+
+export default function TopLevelModals() {
+  useOAuthRedirectRouter()
+  const { t } = useTranslation()
+  const isLandingPage = useIsPage(PageType.LANDING)
+  const { evmAddress, svmAddress } = useActiveAddresses()
+  const { data: unitag } = useUnitagsAddressQuery({
+    params: evmAddress ? { address: evmAddress } : undefined,
+  })
+  const evmAccountName = unitag?.username
+    ? unitag.username + '.uni.eth'
+    : evmAddress
+      ? shortenAddress({ address: evmAddress })
+      : undefined
+  const blockedAddress = useAccountRiskCheck({ evmAddress, svmAddress })
+  const passkeysHelpModalType = useAtomValue(PasskeysHelpModalTypeAtom)
+  const bridgedAssetModalProps = useAtomValue(BridgedAssetModalAtom)
+  const wormholeModalProps = useAtomValue(WormholeModalAtom)
+
+  const reportTokenIssueProps = useAtomValue(ReportTokenIssueModalPropsAtom)
+  const onReportSuccess = useEvent(() => {
+    popupRegistry.addPopup(
+      { type: PopupType.Success, message: t('common.reported') },
+      'report-token-success',
+      POPUP_MEDIUM_DISMISS_MS,
+    )
+  })
+
+  const shouldShowDevFlags = isDevEnv() || isBetaEnv()
+
+  // On landing page we need to be very careful about what modals we show
+  // because too many modals attached to the dom can cause performance issues
+  // and potentially lead to crashes. Only add modals here if they are strictly
+  // necessary and add minimal overhead to the dom.
+  if (isLandingPage) {
+    return (
+      <OAuthRedirectProvider value={true}>
+        <ModalRenderer modalName={ModalName.PrivacyPolicy} />
+        <ModalRenderer modalName={ModalName.PrivacyChoices} />
+        <ModalRenderer modalName={ModalName.GetTheApp} />
+        <ModalRenderer modalName={ModalName.FeatureFlags} />
+        <ModalRenderer modalName={ModalName.UniWalletConnect} />
+        <ModalRenderer modalName={ModalName.BlockedAccount} />
+        {shouldShowDevFlags && <ModalRenderer modalName={ModalName.DevFlags} />}
+        <ModalRenderer modalName={ModalName.Help} />
+        <ModalRenderer modalName={ModalName.OffchainActivity} />
+        <ModalRenderer modalName={ModalName.ReceiveCryptoModal} />
+        <ModalRenderer modalName={ModalName.PendingWalletConnection} />
+      </OAuthRedirectProvider>
+    )
+  }
+
+  return (
+    <OAuthRedirectProvider value={true}>
+      <ModalRenderer modalName={ModalName.AddressClaim} />
+      <ModalRenderer modalName={ModalName.BlockedAccount} componentProps={{ blockedAddress }} />
+      <ModalRenderer modalName={ModalName.UniWalletConnect} />
+      <ModalRenderer modalName={ModalName.Banners} />
+      <ModalRenderer modalName={ModalName.OffchainActivity} />
+      <ModalRenderer modalName={ModalName.TransactionConfirmation} />
+      <ModalRenderer modalName={ModalName.UkDisclaimer} />
+      <ModalRenderer modalName={ModalName.TestnetMode} componentProps={{ showCloseButton: true }} />
+      <ModalRenderer modalName={ModalName.GetTheApp} />
+      <ModalRenderer modalName={ModalName.PrivacyPolicy} />
+      <ModalRenderer modalName={ModalName.PrivacyChoices} />
+      <ModalRenderer modalName={ModalName.FeatureFlags} />
+      <ModalRenderer modalName={ModalName.SolanaPromo} />
+      {shouldShowDevFlags && <ModalRenderer modalName={ModalName.DevFlags} />}
+      <ModalRenderer modalName={ModalName.AddLiquidity} />
+      <ModalRenderer modalName={ModalName.RemoveLiquidity} />
+      <ModalRenderer modalName={ModalName.ClaimFee} />
+      <ModalRenderer
+        modalName={ModalName.PasskeysHelp}
+        componentProps={{ type: passkeysHelpModalType, accountName: evmAccountName }}
+      />
+      <ModalRenderer modalName={ModalName.Help} />
+      <ModalRenderer modalName={ModalName.DelegationMismatch} />
+      <ModalRenderer modalName={ModalName.ReceiveCryptoModal} />
+      <ModalRenderer modalName={ModalName.Send} />
+      <ModalRenderer modalName={ModalName.BridgedAsset} componentProps={bridgedAssetModalProps} />
+      <ModalRenderer modalName={ModalName.Wormhole} componentProps={wormholeModalProps} />
+      <ModalRenderer modalName={ModalName.PendingWalletConnection} />
+      <ModalRenderer
+        modalName={ModalName.ReportTokenIssue}
+        componentProps={{ ...reportTokenIssueProps, onReportSuccess }}
+      />
+      <ModalRenderer modalName={ModalName.AddPasskey} />
+      <ModalRenderer modalName={ModalName.AddBackupLogin} />
+      <ModalRenderer modalName={ModalName.RecoverWallet} />
+      <ModalRenderer modalName={ModalName.DeletePasskey} />
+      <ModalRenderer modalName={ModalName.RemoveBackupLogin} />
+    </OAuthRedirectProvider>
+  )
+}

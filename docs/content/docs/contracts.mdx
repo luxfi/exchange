@@ -1,0 +1,306 @@
+---
+title: Smart Contracts
+description: Contract addresses, ABIs, and deployment information for Lux Exchange
+---
+
+# Smart Contracts
+
+This page contains contract addresses, ABIs, and deployment information for Lux Exchange smart contracts.
+
+## Contract Addresses
+
+### Lux Mainnet (Chain ID: 96369)
+
+| Contract | Address |
+|----------|---------|
+| Factory | `0x...` (TBD) |
+| Router | `0x...` (TBD) |
+| WLUX | `0x...` (TBD) |
+| Multicall3 | `0x...` (TBD) |
+| Oracle | `0x...` (TBD) |
+
+### Lux Testnet (Chain ID: 96370)
+
+| Contract | Address |
+|----------|---------|
+| Factory | `0x...` (TBD) |
+| Router | `0x...` (TBD) |
+| WLUX | `0x...` (TBD) |
+| Multicall3 | `0x...` (TBD) |
+| Oracle | `0x...` (TBD) |
+
+## Contract ABIs
+
+### Factory
+
+```typescript
+const FACTORY_ABI = [
+  "function getPair(address tokenA, address tokenB) view returns (address pair)",
+  "function allPairs(uint256) view returns (address pair)",
+  "function allPairsLength() view returns (uint256)",
+  "function createPair(address tokenA, address tokenB) returns (address pair)",
+  "function feeTo() view returns (address)",
+  "function feeToSetter() view returns (address)",
+  "event PairCreated(address indexed token0, address indexed token1, address pair, uint256)"
+]
+```
+
+### Pair (Pool)
+
+```typescript
+const PAIR_ABI = [
+  // ERC20
+  "function name() view returns (string)",
+  "function symbol() view returns (string)",
+  "function decimals() view returns (uint8)",
+  "function totalSupply() view returns (uint256)",
+  "function balanceOf(address owner) view returns (uint256)",
+  "function allowance(address owner, address spender) view returns (uint256)",
+  "function approve(address spender, uint256 value) returns (bool)",
+  "function transfer(address to, uint256 value) returns (bool)",
+  "function transferFrom(address from, address to, uint256 value) returns (bool)",
+
+  // Permit
+  "function DOMAIN_SEPARATOR() view returns (bytes32)",
+  "function PERMIT_TYPEHASH() view returns (bytes32)",
+  "function nonces(address owner) view returns (uint256)",
+  "function permit(address owner, address spender, uint256 value, uint256 deadline, uint8 v, bytes32 r, bytes32 s)",
+
+  // Pair specific
+  "function MINIMUM_LIQUIDITY() view returns (uint256)",
+  "function factory() view returns (address)",
+  "function token0() view returns (address)",
+  "function token1() view returns (address)",
+  "function getReserves() view returns (uint112 reserve0, uint112 reserve1, uint32 blockTimestampLast)",
+  "function price0CumulativeLast() view returns (uint256)",
+  "function price1CumulativeLast() view returns (uint256)",
+  "function kLast() view returns (uint256)",
+
+  // Actions
+  "function mint(address to) returns (uint256 liquidity)",
+  "function burn(address to) returns (uint256 amount0, uint256 amount1)",
+  "function swap(uint256 amount0Out, uint256 amount1Out, address to, bytes calldata data)",
+  "function skim(address to)",
+  "function sync()",
+
+  // Events
+  "event Approval(address indexed owner, address indexed spender, uint256 value)",
+  "event Transfer(address indexed from, address indexed to, uint256 value)",
+  "event Mint(address indexed sender, uint256 amount0, uint256 amount1)",
+  "event Burn(address indexed sender, uint256 amount0, uint256 amount1, address indexed to)",
+  "event Swap(address indexed sender, uint256 amount0In, uint256 amount1In, uint256 amount0Out, uint256 amount1Out, address indexed to)",
+  "event Sync(uint112 reserve0, uint112 reserve1)"
+]
+```
+
+### Router
+
+```typescript
+const ROUTER_ABI = [
+  // Views
+  "function factory() view returns (address)",
+  "function WETH() view returns (address)",
+  "function quote(uint256 amountA, uint256 reserveA, uint256 reserveB) pure returns (uint256 amountB)",
+  "function getAmountOut(uint256 amountIn, uint256 reserveIn, uint256 reserveOut) pure returns (uint256 amountOut)",
+  "function getAmountIn(uint256 amountOut, uint256 reserveIn, uint256 reserveOut) pure returns (uint256 amountIn)",
+  "function getAmountsOut(uint256 amountIn, address[] calldata path) view returns (uint256[] memory amounts)",
+  "function getAmountsIn(uint256 amountOut, address[] calldata path) view returns (uint256[] memory amounts)",
+
+  // Add Liquidity
+  "function addLiquidity(address tokenA, address tokenB, uint256 amountADesired, uint256 amountBDesired, uint256 amountAMin, uint256 amountBMin, address to, uint256 deadline) returns (uint256 amountA, uint256 amountB, uint256 liquidity)",
+  "function addLiquidityETH(address token, uint256 amountTokenDesired, uint256 amountTokenMin, uint256 amountETHMin, address to, uint256 deadline) payable returns (uint256 amountToken, uint256 amountETH, uint256 liquidity)",
+
+  // Remove Liquidity
+  "function removeLiquidity(address tokenA, address tokenB, uint256 liquidity, uint256 amountAMin, uint256 amountBMin, address to, uint256 deadline) returns (uint256 amountA, uint256 amountB)",
+  "function removeLiquidityETH(address token, uint256 liquidity, uint256 amountTokenMin, uint256 amountETHMin, address to, uint256 deadline) returns (uint256 amountToken, uint256 amountETH)",
+  "function removeLiquidityWithPermit(address tokenA, address tokenB, uint256 liquidity, uint256 amountAMin, uint256 amountBMin, address to, uint256 deadline, bool approveMax, uint8 v, bytes32 r, bytes32 s) returns (uint256 amountA, uint256 amountB)",
+  "function removeLiquidityETHWithPermit(address token, uint256 liquidity, uint256 amountTokenMin, uint256 amountETHMin, address to, uint256 deadline, bool approveMax, uint8 v, bytes32 r, bytes32 s) returns (uint256 amountToken, uint256 amountETH)",
+
+  // Swap
+  "function swapExactTokensForTokens(uint256 amountIn, uint256 amountOutMin, address[] calldata path, address to, uint256 deadline) returns (uint256[] memory amounts)",
+  "function swapTokensForExactTokens(uint256 amountOut, uint256 amountInMax, address[] calldata path, address to, uint256 deadline) returns (uint256[] memory amounts)",
+  "function swapExactETHForTokens(uint256 amountOutMin, address[] calldata path, address to, uint256 deadline) payable returns (uint256[] memory amounts)",
+  "function swapTokensForExactETH(uint256 amountOut, uint256 amountInMax, address[] calldata path, address to, uint256 deadline) returns (uint256[] memory amounts)",
+  "function swapExactTokensForETH(uint256 amountIn, uint256 amountOutMin, address[] calldata path, address to, uint256 deadline) returns (uint256[] memory amounts)",
+  "function swapETHForExactTokens(uint256 amountOut, address[] calldata path, address to, uint256 deadline) payable returns (uint256[] memory amounts)",
+
+  // Fee-on-transfer tokens
+  "function swapExactTokensForTokensSupportingFeeOnTransferTokens(uint256 amountIn, uint256 amountOutMin, address[] calldata path, address to, uint256 deadline)",
+  "function swapExactETHForTokensSupportingFeeOnTransferTokens(uint256 amountOutMin, address[] calldata path, address to, uint256 deadline) payable",
+  "function swapExactTokensForETHSupportingFeeOnTransferTokens(uint256 amountIn, uint256 amountOutMin, address[] calldata path, address to, uint256 deadline)"
+]
+```
+
+## SDK Integration
+
+### Installation
+
+```bash
+pnpm add @luxfi/exchange-sdk
+```
+
+### Basic Usage
+
+```typescript
+import {
+  Factory,
+  Router,
+  Pair,
+  FACTORY_ADDRESS,
+  ROUTER_ADDRESS,
+} from '@luxfi/exchange-sdk'
+import { ethers } from 'ethers'
+
+// Connect to Lux Network
+const provider = new ethers.JsonRpcProvider('https://api.lux.network')
+
+// Initialize contracts
+const factory = new Factory(provider, FACTORY_ADDRESS)
+const router = new Router(provider, ROUTER_ADDRESS)
+
+// Get pair address
+const pairAddress = await factory.getPair(tokenA, tokenB)
+const pair = new Pair(provider, pairAddress)
+
+// Get reserves
+const [reserve0, reserve1] = await pair.getReserves()
+
+// Calculate swap output
+const amountOut = await router.getAmountsOut(amountIn, [tokenA, tokenB])
+```
+
+### Wallet Integration
+
+```typescript
+import { Wallet } from 'ethers'
+
+const wallet = new Wallet(privateKey, provider)
+const routerWithSigner = router.connect(wallet)
+
+// Execute swap
+const tx = await routerWithSigner.swapExactTokensForTokens(
+  amountIn,
+  amountOutMin,
+  path,
+  recipient,
+  deadline
+)
+
+await tx.wait()
+```
+
+## Subgraph
+
+Query historical data and analytics:
+
+```graphql
+# Endpoint: https://api.lux.network/subgraphs/name/lux/exchange
+
+query {
+  pairs(first: 10, orderBy: reserveUSD, orderDirection: desc) {
+    id
+    token0 {
+      symbol
+    }
+    token1 {
+      symbol
+    }
+    reserveUSD
+    volumeUSD
+  }
+}
+```
+
+### Common Queries
+
+```graphql
+# Get swap history for an address
+query GetSwaps($user: String!) {
+  swaps(where: { from: $user }, orderBy: timestamp, orderDirection: desc) {
+    id
+    timestamp
+    pair {
+      token0 { symbol }
+      token1 { symbol }
+    }
+    amount0In
+    amount1In
+    amount0Out
+    amount1Out
+    amountUSD
+  }
+}
+
+# Get liquidity positions
+query GetPositions($user: String!) {
+  liquidityPositions(where: { user: $user }) {
+    pair {
+      token0 { symbol }
+      token1 { symbol }
+      reserve0
+      reserve1
+    }
+    liquidityTokenBalance
+  }
+}
+```
+
+## Deployment
+
+### Using Foundry
+
+```bash
+# Deploy Factory
+forge create src/LuxFactory.sol:LuxFactory \
+  --rpc-url https://api.lux.network \
+  --private-key $PRIVATE_KEY \
+  --constructor-args $FEE_TO_SETTER
+
+# Deploy Router
+forge create src/LuxRouter.sol:LuxRouter \
+  --rpc-url https://api.lux.network \
+  --private-key $PRIVATE_KEY \
+  --constructor-args $FACTORY_ADDRESS $WLUX_ADDRESS
+```
+
+### Verification
+
+```bash
+forge verify-contract \
+  --chain-id 96369 \
+  --compiler-version v0.8.20 \
+  --optimizer-runs 999999 \
+  $CONTRACT_ADDRESS \
+  src/LuxFactory.sol:LuxFactory
+```
+
+## Gas Estimates
+
+| Operation | Gas Estimate |
+|-----------|-------------|
+| Create Pair | ~2,000,000 |
+| Add Liquidity (first) | ~150,000 |
+| Add Liquidity | ~120,000 |
+| Remove Liquidity | ~100,000 |
+| Swap (2 tokens) | ~100,000 |
+| Swap (3 tokens) | ~150,000 |
+| Swap (4 tokens) | ~200,000 |
+
+## Error Codes
+
+| Code | Message | Solution |
+|------|---------|----------|
+| `INSUFFICIENT_OUTPUT_AMOUNT` | Slippage too high | Increase slippage tolerance |
+| `INSUFFICIENT_LIQUIDITY` | Not enough reserves | Use smaller amount or different path |
+| `EXPIRED` | Transaction deadline passed | Submit new transaction |
+| `INSUFFICIENT_A_AMOUNT` | Not enough token A received | Adjust minimum amounts |
+| `INSUFFICIENT_B_AMOUNT` | Not enough token B received | Adjust minimum amounts |
+| `TRANSFER_FAILED` | Token transfer failed | Check approval and balance |
+| `IDENTICAL_ADDRESSES` | Same token twice in path | Use different tokens |
+| `ZERO_ADDRESS` | Invalid address | Check token addresses |
+
+## Further Reading
+
+- [AMM Fundamentals](/docs/amm) - Understanding the math
+- [Swap Mechanics](/docs/swaps) - How swaps work
+- [Security](/docs/security) - Security best practices

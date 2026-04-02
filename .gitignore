@@ -1,0 +1,113 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+node_modules
+.pnp
+.pnp.js
+
+# testing
+coverage
+test-results/
+
+# utility script output
+scripts/dist
+tools/uniswap-nx/dist
+
+# next.js
+.next/
+out/
+build
+
+# React Router
+.react-router/
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# local env files
+.env
+.env.local
+.env.defaults.local
+.env.production
+apps/web/.env
+
+# built extension artifacts
+apps/extension/dist-firefox/
+
+# turbo
+.turbo
+
+# nx
+.nx/
+
+# .yarn files
+.yarn/cache
+.yarn/versions
+.yarn/install-state.gz
+
+# typescript
+dist/out-tsc/*
+tsconfig.tsbuildinfo
+
+# Locale backup/generated files
+packages/uniswap/src/i18n/locales/source/*_old.json
+
+# ci
+.ci-cache/
+
+# cli gh analysis artifacts
+.analysis/
+
+# JetBrains
+.idea/
+
+# Vercel
+.vercel
+
+# CodeTours Extension
+.tours/*
+
+# Expo
+.expo/
+
+# Watchman
+.watchman-cookie-*
+
+# auto-generated test ids
+apps/mobile/.maestro/scripts/testIds.js
+
+# claude
+claude.local.md
+CLAUDE.local.md
+.claude/settings.local.json
+.claude/local/
+**/*/.claude/user/*
+**/*/.claude/local/
+
+# cursor
+.cursor/mcp.json
+.cursor/rules/local-workflow.mdc
+
+# lefthook
+.lefthook/
+
+# Nx
+.nx/cache
+.nx/workspace-data
+.github/instructions/nx.instructions.md
+
+# Spec Workflow MCP
+.spec-workflow/
+
+# temporary files
+/tmp/
+packages/lx/CLAUDE.md
+.nx/
+CLAUDE.md

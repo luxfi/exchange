@@ -1,0 +1,52 @@
+# Lux Exchange - Vite SPA Dockerfile
+# Multi-stage build for production deployment (NX monorepo)
+
+# Stage 1: Builder
+FROM node:22-alpine AS builder
+RUN apk add --no-cache libc6-compat python3 make g++
+WORKDIR /app
+
+# Install pnpm
+RUN corepack enable && corepack prepare pnpm@9.15.9 --activate
+
+# Copy entire monorepo
+COPY . .
+
+# Install dependencies with pnpm
+# --ignore-scripts avoids NX daemon crashes and native build failures under QEMU
+RUN NODE_ENV=development pnpm install --no-frozen-lockfile --ignore-scripts
+
+# Build-time arguments for secrets (pass via --build-arg, never hardcode)
+ARG REACT_APP_INSIGHTS_API_KEY
+ARG REACT_APP_INSIGHTS_HOST=https://insights.hanzo.ai
+
+# Set build-time environment variables
+ENV NEXT_TELEMETRY_DISABLED=1
+ENV NODE_ENV=production
+ENV DOCKER_BUILD=true
+ENV NEXT_PUBLIC_LXD_GATEWAY_URL=https://dex.lux.network
+ENV REACT_APP_LXD_GATEWAY_URL=https://dex.lux.network
+ENV REACT_APP_LUX_GATEWAY_DNS=https://dex.lux.network
+ENV REACT_APP_AWS_API_ENDPOINT=https://api-exchange.lux.network/v1/graphql
+ENV REACT_APP_INSIGHTS_HOST=${REACT_APP_INSIGHTS_HOST}
+ENV REACT_APP_INSIGHTS_API_KEY=${REACT_APP_INSIGHTS_API_KEY}
+
+# Generate AJV validators (git-ignored, must be created before build)
+# Run from root so node can resolve ajv from root node_modules
+RUN NODE_PATH=/app/node_modules node apps/web/scripts/compile-ajv-validators.js
+
+# Build the web app (Vite build via pnpm)
+RUN cd apps/web && DISABLE_EXTRACTION=1 NODE_OPTIONS="--max-old-space-size=16384" pnpm exec vite build
+
+# Stage 2: Runner — lightweight static file server (no nginx)
+FROM node:22-alpine AS runner
+RUN npm install -g serve@14
+WORKDIR /app
+
+# Copy built static assets
+COPY --from=builder /app/apps/web/build /app/public
+
+EXPOSE 3000
+
+# serve -s enables SPA mode (all routes → index.html)
+CMD ["serve", "-s", "public", "-l", "3000"]

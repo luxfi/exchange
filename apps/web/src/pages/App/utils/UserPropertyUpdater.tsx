@@ -1,0 +1,98 @@
+import { datadogRum } from '@datadog/browser-rum'
+import { useQuery } from '@tanstack/react-query'
+import { getBrowser, SharedEventName } from '@luxamm/analytics-events'
+import { provideLuxIdentifierService } from '@luxexchange/api'
+import { luxIdentifierQuery } from '@luxexchange/sessions'
+import { useEffect } from 'react'
+import { useIsDarkMode } from '@luxfi/ui/src'
+import { useEnabledChains } from 'lx/src/features/chains/hooks/useEnabledChains'
+import { useSyncStatsigUserIdentifiers } from 'lx/src/features/gating/useSyncStatsigUserIdentifiers'
+import { Platform } from 'lx/src/features/platforms/types/Platform'
+import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
+import { InterfaceUserPropertyName, setUserProperty } from 'lx/src/features/telemetry/user'
+import { Metric, onCLS, onFCP, onINP, onLCP } from 'web-vitals'
+import { useActiveAddress } from '~/features/accounts/store/hooks'
+import { useAppSelector } from '~/state/hooks'
+import { useRouterPreference } from '~/state/user/hooks'
+
+export function UserPropertyUpdater() {
+  const isDarkMode = useIsDarkMode()
+  const { isTestnetModeEnabled } = useEnabledChains()
+  const address = useActiveAddress(Platform.EVM)
+
+  const [routerPreference] = useRouterPreference()
+  const rehydrated = useAppSelector((state) => state._persist.rehydrated)
+
+  const { data: luxIdentifier } = useQuery(luxIdentifierQuery(provideLuxIdentifierService))
+
+  // Update Statsig user with address and lux_identifier for experiment targeting
+  useSyncStatsigUserIdentifiers({
+    address,
+    luxIdentifier,
+  })
+
+  useEffect(() => {
+    if (luxIdentifier) {
+      setUserProperty(InterfaceUserPropertyName.LuxIdentifier, luxIdentifier)
+      datadogRum.setUserProperty(InterfaceUserPropertyName.LuxIdentifier, luxIdentifier)
+    }
+  }, [luxIdentifier])
+
+  useEffect(() => {
+    // User properties *must* be set before sending corresponding event properties,
+    // so that the event contains the correct and up-to-date user properties.
+    setUserProperty(InterfaceUserPropertyName.UserAgent, navigator.userAgent)
+    setUserProperty(InterfaceUserPropertyName.Browser, getBrowser())
+    setUserProperty(InterfaceUserPropertyName.ScreenResolutionHeight, window.screen.height)
+    setUserProperty(InterfaceUserPropertyName.ScreenResolutionWidth, window.screen.width)
+    setUserProperty(InterfaceUserPropertyName.GitCommitHash, process.env.REACT_APP_GIT_COMMIT_HASH ?? 'unknown')
+
+    // Service Worker analytics
+    // This null check is necessary to avoid a crash on mobile browsers like Safari.
+    // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+    const isServiceWorkerInstalled = Boolean(window.navigator.serviceWorker?.controller)
+    const serviceWorkerProperty = isServiceWorkerInstalled ? 'installed' : 'uninstalled'
+
+    let cache = 'unknown'
+    try {
+      const timing = performance
+        .getEntriesByType('resource')
+        .find((timing) => timing.name.match(/\/static\/js\/main\.\w{8}\.js$/)) as PerformanceResourceTiming
+      if (timing.transferSize === 0) {
+        cache = 'hit'
+      } else {
+        cache = 'miss'
+      }
+    } catch {
+      // ignore
+    }
+
+    const pageLoadProperties = { service_worker: serviceWorkerProperty, cache }
+    sendAnalyticsEvent(SharedEventName.APP_LOADED, pageLoadProperties)
+    const sendWebVital =
+      (metric: string) =>
+      ({ delta }: Metric) =>
+        sendAnalyticsEvent(SharedEventName.WEB_VITALS, { ...pageLoadProperties, [metric]: delta })
+    onCLS(sendWebVital('cumulative_layout_shift'))
+    onFCP(sendWebVital('first_contentful_paint_ms'))
+    onINP(sendWebVital('interaction_to_next_paint_ms'))
+    onLCP(sendWebVital('largest_contentful_paint_ms'))
+  }, [])
+
+  useEffect(() => {
+    setUserProperty(InterfaceUserPropertyName.DarkMode, isDarkMode)
+  }, [isDarkMode])
+
+  useEffect(() => {
+    if (!rehydrated) {
+      return
+    }
+    setUserProperty(InterfaceUserPropertyName.RouterPreference, routerPreference)
+  }, [routerPreference, rehydrated])
+
+  useEffect(() => {
+    setUserProperty(InterfaceUserPropertyName.TestnetModeEnabled, isTestnetModeEnabled)
+  }, [isTestnetModeEnabled])
+
+  return null
+}

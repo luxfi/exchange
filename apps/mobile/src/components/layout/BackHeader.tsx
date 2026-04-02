@@ -1,0 +1,33 @@
+import React, { PropsWithChildren } from 'react'
+import { BackButton } from 'src/components/buttons/BackButton'
+import { Flex, FlexProps } from '@luxfi/ui/src'
+
+const BACK_BUTTON_SIZE = 24
+const BACK_BUTTON_SIZE_TOKEN = '$icon.24'
+
+type BackButtonRowProps = {
+  alignment?: 'left' | 'center'
+  endAdornment?: JSX.Element
+  onPressBack?: () => void
+} & FlexProps
+
+export function BackHeader({
+  alignment = 'center',
+  children,
+  endAdornment = <Flex width={BACK_BUTTON_SIZE} />,
+  onPressBack,
+  ...spacingProps
+}: PropsWithChildren<BackButtonRowProps>): JSX.Element {
+  return (
+    <Flex
+      row
+      alignItems="center"
+      justifyContent={alignment === 'left' ? 'flex-start' : 'space-between'}
+      {...spacingProps}
+    >
+      <BackButton size={BACK_BUTTON_SIZE_TOKEN} onPressBack={onPressBack} />
+      {children}
+      {endAdornment}
+    </Flex>
+  )
+}

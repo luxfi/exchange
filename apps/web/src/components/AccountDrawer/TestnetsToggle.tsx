@@ -1,0 +1,31 @@
+import { useTranslation } from 'react-i18next'
+import { useDispatch } from 'react-redux'
+import { Wrench } from '@luxfi/ui/src/components/icons/Wrench'
+import { useEnabledChains } from 'lx/src/features/chains/hooks/useEnabledChains'
+import { setIsTestnetModeEnabled } from 'lx/src/features/settings/slice'
+import { ModalName } from 'lx/src/features/telemetry/constants'
+import { TestID } from 'lx/src/test/fixtures/testIDs'
+import { SettingsToggle } from '~/components/AccountDrawer/SettingsToggle'
+import { useModalState } from '~/hooks/useModalState'
+export function TestnetsToggle() {
+  const { t } = useTranslation()
+  const dispatch = useDispatch()
+  const { isTestnetModeEnabled } = useEnabledChains()
+  const { openModal: openTestnetModal } = useModalState(ModalName.TestnetMode)
+
+  return (
+    <SettingsToggle
+      icon={<Wrench size="$icon.24" color="$neutral2" />}
+      title={t('settings.setting.wallet.testnetMode.title')}
+      dataid={TestID.TestnetsToggle}
+      isActive={isTestnetModeEnabled}
+      toggle={() => {
+        const nextIsTestnetModeEnabled = !isTestnetModeEnabled
+        if (nextIsTestnetModeEnabled) {
+          openTestnetModal()
+        }
+        dispatch(setIsTestnetModeEnabled(nextIsTestnetModeEnabled))
+      }}
+    />
+  )
+}

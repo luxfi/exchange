@@ -1,0 +1,18 @@
+{
+  "extends": "../../config/tsconfig/ui.json",
+  "include": ["src"],
+  "references": [
+    {
+      "path": "../utilities"
+    },
+    {
+      "path": "../../config/vitest-presets"
+    },
+    {
+      "path": "../eslint-config"
+    }
+  ],
+  "compilerOptions": {
+    "types": ["chrome", "vitest/globals", "node"]
+  }
+}

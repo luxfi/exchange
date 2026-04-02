@@ -1,0 +1,117 @@
+import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
+import { Checkbox, Flex, Popover, Text, TouchableArea, useSporeColors } from 'ui/src'
+import { ChevronsOut } from 'ui/src/components/icons'
+import { iconSizes, spacing } from 'ui/src/theme'
+import { AddressDisplay } from 'lx/src/components/accounts/AddressDisplay'
+import { LuxContext, useLuxContext } from 'lx/src/contexts/LuxContext'
+import { TestID } from 'lx/src/test/fixtures/testIDs'
+import { useEvent } from 'utilities/src/react/hooks'
+import { OverlappingAccountIcons } from '@luxfi/wallet/src/components/accounts/OverlappingAccountIcons'
+import { useSignerAccounts } from '@luxfi/wallet/src/features/wallet/hooks'
+
+type AccountSelectPopoverProps = {
+  allAccountAddresses: string[]
+  selectedAccountAddresses: string[]
+  setSelectedAccountAddresses: (addresses: string[]) => void
+}
+
+export function AccountSelectPopover({
+  allAccountAddresses,
+  selectedAccountAddresses,
+  setSelectedAccountAddresses,
+}: AccountSelectPopoverProps): JSX.Element {
+  const { t } = useTranslation()
+  const signerAccounts = useSignerAccounts()
+  const walletLuxContextValue = useLuxContext()
+  const accountIsSwitchable = signerAccounts.length > 1
+  const [isOpen, setIsOpen] = useState(false)
+  const colors = useSporeColors()
+
+  const disableDeselect = selectedAccountAddresses.length === 1
+
+  const handleAccountSelect = useEvent((address: string) => {
+    if (selectedAccountAddresses.includes(address)) {
+      if (disableDeselect) {
+        return
+      }
+      setSelectedAccountAddresses(selectedAccountAddresses.filter((account: string) => account !== address))
+    } else {
+      setSelectedAccountAddresses([...selectedAccountAddresses, address])
+    }
+  })
+
+  return (
+    <Popover open={isOpen} placement="top-end" offset={spacing.spacing12} onOpenChange={setIsOpen}>
+      <TouchableArea
+        disabled={!accountIsSwitchable}
+        testID={TestID.SwitchAccount}
+        onPress={() => accountIsSwitchable && setIsOpen(true)}
+      >
+        <Flex row alignItems="center" gap="$spacing8" justifyContent="space-between">
+          <Text color="$neutral2" variant="body3">
+            {t('dapp.request.approve.label')}
+          </Text>
+          <Popover.Trigger asChild>
+            <Flex row alignItems="center" justifyContent="flex-end" gap="$spacing4">
+              <OverlappingAccountIcons accountAddresses={selectedAccountAddresses} iconSize={iconSizes.icon24} />
+              {accountIsSwitchable && <ChevronsOut color="$neutral3" size={iconSizes.icon16} />}
+            </Flex>
+          </Popover.Trigger>
+        </Flex>
+      </TouchableArea>
+
+      <Popover.Content
+        elevate
+        borderRadius="$rounded20"
+        borderWidth="$spacing1"
+        borderColor="$surface3"
+        backgroundColor="$surface1"
+        p="$spacing16"
+        gap="$gap20"
+      >
+        {/* Bridge the Lux context into the popover so that the AddressDisplay component can use it */}
+        <LuxContext.Provider value={walletLuxContextValue}>
+          {allAccountAddresses.map((address) => {
+            const isChecked = selectedAccountAddresses.includes(address)
+
+            return (
+              <Flex
+                key={address}
+                row
+                justifyContent="space-between"
+                gap="$gap32"
+                alignItems="center"
+                borderRadius="$rounded12"
+                px="$spacing8"
+                py="$spacing4"
+                pressStyle={{ backgroundColor: '$surface2' }}
+                maxWidth="100%"
+                onPress={() => handleAccountSelect(address)}
+              >
+                <AddressDisplay
+                  grow
+                  showAccountIcon
+                  address={address}
+                  hideAddressInSubtitle={false}
+                  size={iconSizes.icon24}
+                  textColor="$neutral1"
+                  variant="buttonLabel3"
+                  captionVariant="body4"
+                />
+                <Checkbox
+                  checked={isChecked}
+                  size="$icon.16"
+                  disabled={disableDeselect}
+                  pointerEvents="none"
+                  onCheckedChange={() => handleAccountSelect(address)}
+                />
+              </Flex>
+            )
+          })}
+          <Popover.Arrow backgroundColor={colors.surface1.val} borderColor={colors.surface3.val} />
+        </LuxContext.Provider>
+      </Popover.Content>
+    </Popover>
+  )
+}

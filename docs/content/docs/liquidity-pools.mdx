@@ -1,0 +1,281 @@
+---
+title: Liquidity Pools
+description: Understanding liquidity pools, LP tokens, and providing liquidity on Lux Exchange
+---
+
+# Liquidity Pools
+
+Liquidity pools are smart contracts that hold reserves of two tokens, enabling decentralized trading through the AMM mechanism.
+
+## Pool Creation
+
+Anyone can create a new liquidity pool for any token pair:
+
+```typescript
+import { PoolFactory } from '@luxfi/exchange-sdk'
+
+const factory = new PoolFactory(provider, FACTORY_ADDRESS)
+
+// Create a new pool
+const poolAddress = await factory.createPair(tokenA, tokenB)
+```
+
+### Pool Initialization
+
+New pools start with zero liquidity. The first liquidity provider sets the initial price:
+
+```typescript
+// First LP sets price by ratio of deposits
+// If depositing 1 ETH and 4000 LUX:
+// Initial price = 4000 LUX / 1 ETH = 4000 LUX per ETH
+```
+
+## LP Tokens
+
+Liquidity providers receive LP tokens representing their share of the pool:
+
+```
+LP Tokens = sqrt(amount0 * amount1) - MINIMUM_LIQUIDITY
+```
+
+The `MINIMUM_LIQUIDITY` (1000 wei) is permanently locked to prevent division by zero.
+
+### LP Token Properties
+
+| Property | Value |
+|----------|-------|
+| Standard | ERC-20 |
+| Decimals | 18 |
+| Transfer | Enabled |
+| Burn | On withdrawal |
+
+## Adding Liquidity
+
+```typescript
+import { Router } from '@luxfi/exchange-sdk'
+
+const router = new Router(provider, ROUTER_ADDRESS)
+
+// Approve tokens first
+await tokenA.approve(ROUTER_ADDRESS, amountA)
+await tokenB.approve(ROUTER_ADDRESS, amountB)
+
+// Add liquidity
+const tx = await router.addLiquidity(
+  tokenA.address,
+  tokenB.address,
+  amountADesired,
+  amountBDesired,
+  amountAMin,  // Slippage protection
+  amountBMin,  // Slippage protection
+  recipient,
+  deadline
+)
+```
+
+### Optimal Deposit Calculation
+
+To avoid losing value, deposits must match current pool ratio:
+
+```typescript
+function getOptimalDeposit(
+  amountA: bigint,
+  reserveA: bigint,
+  reserveB: bigint
+): bigint {
+  // Optimal amount of tokenB for given tokenA
+  return (amountA * reserveB) / reserveA
+}
+```
+
+## Removing Liquidity
+
+```typescript
+// Approve LP tokens
+await lpToken.approve(ROUTER_ADDRESS, liquidity)
+
+// Remove liquidity
+const tx = await router.removeLiquidity(
+  tokenA.address,
+  tokenB.address,
+  liquidity,
+  amountAMin,
+  amountBMin,
+  recipient,
+  deadline
+)
+```
+
+### Permit-Based Removal
+
+For gas-efficient removal without separate approval:
+
+```typescript
+const { v, r, s } = await signPermit(lpToken, ROUTER_ADDRESS, liquidity, deadline)
+
+const tx = await router.removeLiquidityWithPermit(
+  tokenA.address,
+  tokenB.address,
+  liquidity,
+  amountAMin,
+  amountBMin,
+  recipient,
+  deadline,
+  approveMax,
+  v, r, s
+)
+```
+
+## Pool Reserves and Pricing
+
+Query current pool state:
+
+```typescript
+const pool = new Pool(provider, POOL_ADDRESS)
+
+// Get reserves
+const [reserve0, reserve1, blockTimestamp] = await pool.getReserves()
+
+// Get tokens
+const token0 = await pool.token0()
+const token1 = await pool.token1()
+
+// Calculate price
+const price0 = reserve1 / reserve0  // Price of token0 in token1
+const price1 = reserve0 / reserve1  // Price of token1 in token0
+```
+
+## Fee Accrual
+
+Fees are automatically reinvested into the pool:
+
+```
+After swap:
+  newReserve = oldReserve + swapAmount
+  Fee portion stays in pool, increasing k
+
+LP share value increases proportionally to fees collected.
+```
+
+### Fee Calculation
+
+```typescript
+function calculateFeeShare(
+  lpBalance: bigint,
+  totalSupply: bigint,
+  totalFees: bigint
+): bigint {
+  return (lpBalance * totalFees) / totalSupply
+}
+```
+
+## Pool Types
+
+### Standard Pools (x * y = k)
+
+For most token pairs with normal volatility.
+
+### Stable Pools (Curve-style)
+
+For stable asset pairs with optimized bonding curve:
+
+```
+x^3*y + y^3*x = k
+```
+
+Provides lower slippage for similar-valued assets.
+
+### Concentrated Liquidity
+
+Coming in V3: Liquidity within specific price ranges for capital efficiency.
+
+## Smart Contract Interface
+
+```solidity
+interface ILuxPair {
+    // Events
+    event Mint(address indexed sender, uint256 amount0, uint256 amount1);
+    event Burn(address indexed sender, uint256 amount0, uint256 amount1, address indexed to);
+    event Swap(
+        address indexed sender,
+        uint256 amount0In,
+        uint256 amount1In,
+        uint256 amount0Out,
+        uint256 amount1Out,
+        address indexed to
+    );
+    event Sync(uint112 reserve0, uint112 reserve1);
+
+    // Views
+    function token0() external view returns (address);
+    function token1() external view returns (address);
+    function getReserves() external view returns (
+        uint112 reserve0,
+        uint112 reserve1,
+        uint32 blockTimestampLast
+    );
+    function price0CumulativeLast() external view returns (uint256);
+    function price1CumulativeLast() external view returns (uint256);
+    function kLast() external view returns (uint256);
+
+    // Actions
+    function mint(address to) external returns (uint256 liquidity);
+    function burn(address to) external returns (uint256 amount0, uint256 amount1);
+    function swap(
+        uint256 amount0Out,
+        uint256 amount1Out,
+        address to,
+        bytes calldata data
+    ) external;
+    function skim(address to) external;
+    function sync() external;
+}
+```
+
+## Risk Considerations
+
+### Impermanent Loss
+
+See [AMM Fundamentals](/docs/amm#impermanent-loss) for detailed IL calculations.
+
+### Smart Contract Risk
+
+- Pools are immutable once deployed
+- Factory admin can update fee recipient
+- No upgrade mechanism (security by immutability)
+
+### Economic Risks
+
+1. **Rug pulls**: Verify token contracts before providing liquidity
+2. **Flash loan attacks**: Pools implement reentrancy guards
+3. **Oracle manipulation**: Use TWAP for price feeds
+
+## Best Practices for LPs
+
+1. **Start small**: Test with small amounts first
+2. **Monitor positions**: Track IL and fee earnings
+3. **Diversify**: Spread liquidity across multiple pools
+4. **Research tokens**: Verify contract addresses and team
+5. **Use analytics**: Monitor pool TVL and volume trends
+
+## Pool Analytics
+
+Track pool performance:
+
+```typescript
+interface PoolStats {
+  tvl: bigint           // Total value locked
+  volume24h: bigint     // 24-hour trading volume
+  fees24h: bigint       // 24-hour fees generated
+  apy: number           // Annual percentage yield
+  lpCount: number       // Number of liquidity providers
+}
+
+const stats = await analytics.getPoolStats(poolAddress)
+```
+
+## Further Reading
+
+- [AMM Fundamentals](/docs/amm) - Understanding the math
+- [Swap Mechanics](/docs/swaps) - How swaps execute
+- [Security](/docs/security) - Security considerations

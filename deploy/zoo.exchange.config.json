@@ -1,0 +1,44 @@
+{
+  "brand": {
+    "name": "Zoo Exchange",
+    "title": "Zoo Exchange | Trade",
+    "description": "The decentralized exchange for the Zoo ecosystem",
+    "appDomain": "zoo.exchange",
+    "docsDomain": "docs.zoo.exchange",
+    "infoDomain": "info.zoo.exchange",
+    "gatewayDomain": "gw.zoo.exchange",
+    "wsDomain": "ws.zoo.exchange",
+    "helpUrl": "https://docs.zoo.exchange/help",
+    "termsUrl": "https://zoo.exchange/terms",
+    "privacyUrl": "https://zoo.exchange/privacy",
+    "downloadUrl": "https://zoo.exchange/wallet",
+    "complianceEmail": "compliance@zoo.ngo",
+    "supportEmail": "hi@zoo.ngo",
+    "twitter": "https://x.com/zoo_ngo",
+    "github": "https://github.com/zoo-labs",
+    "discord": "https://discord.gg/zoo",
+    "logoUrl": "",
+    "faviconUrl": "/favicon.ico",
+    "primaryColor": "#00C853"
+  },
+  "chains": {
+    "defaultChainId": 200200,
+    "supported": [200200, 200201, 96369, 1, 42161, 8453]
+  },
+  "rpc": {
+    "200200": "https://api.zoo.network/ext/bc/C/rpc",
+    "200201": "https://api.zoo-test.network/ext/bc/C/rpc",
+    "96369": "https://api.lux.network/ext/bc/C/rpc",
+    "1": "https://eth.llamarpc.com",
+    "42161": "https://arb1.arbitrum.io/rpc",
+    "8453": "https://mainnet.base.org"
+  },
+  "api": {
+    "graphql": "https://api.zoo.exchange/v1/graphql",
+    "gateway": "https://gw.zoo.exchange",
+    "insights": "https://insights.hanzo.ai"
+  },
+  "walletConnect": {
+    "projectId": ""
+  }
+}

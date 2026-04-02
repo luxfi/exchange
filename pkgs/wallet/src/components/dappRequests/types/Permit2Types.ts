@@ -1,0 +1,110 @@
+import { REACTOR_ADDRESS_MAPPING } from '@luxamm/sdk'
+import { TypeDefinitionSchema } from '@luxfi/wallet/src/components/dappRequests/types/EIP712Types'
+import { z } from 'zod'
+
+const MessageSchema = z.object({
+  details: z.object({
+    token: z.string(),
+    amount: z.string(),
+    expiration: z.string(),
+    nonce: z.string(),
+  }),
+  spender: z.string(),
+  sigDeadline: z.string(),
+})
+
+const TypesSchema = z
+  .object({
+    EIP712Domain: z.array(TypeDefinitionSchema),
+    PermitDetails: z.array(TypeDefinitionSchema),
+    PermitSingle: z.array(TypeDefinitionSchema),
+  })
+  .catchall(z.array(TypeDefinitionSchema))
+
+const DomainSchema = z.object({
+  name: z.literal('Permit2'),
+  chainId: z.union([z.number(), z.bigint(), z.string()]),
+  verifyingContract: z.string(),
+})
+
+const Permit2Schema = z.object({
+  domain: DomainSchema,
+  types: TypesSchema,
+  primaryType: z.literal('PermitSingle'),
+  message: MessageSchema,
+})
+
+type Permit2 = z.infer<typeof Permit2Schema>
+
+export function isPermit2(data: unknown): data is Permit2 {
+  return Permit2Schema.safeParse(data).success
+}
+
+function isValidLXSpender(data: {
+  message: { spender: string }
+  domain: { chainId: string | number | bigint }
+}): boolean {
+  try {
+    const { message, domain } = data
+    const spender = message.spender.toLowerCase()
+    const lxSwapAddress = REACTOR_ADDRESS_MAPPING[Number(domain.chainId)]?.Dutch_V2?.toLowerCase()
+    return Boolean(lxSwapAddress && spender === lxSwapAddress)
+  } catch {
+    return false
+  }
+}
+
+const DutchOrderTypesSchema = z
+  .object({
+    DutchOutput: z.array(TypeDefinitionSchema),
+    EIP712Domain: z.array(TypeDefinitionSchema),
+    OrderInfo: z.array(TypeDefinitionSchema),
+    PermitWitnessTransferFrom: z.array(TypeDefinitionSchema),
+    TokenPermissions: z.array(TypeDefinitionSchema),
+    V2DutchOrder: z.array(TypeDefinitionSchema),
+  })
+  .catchall(z.array(TypeDefinitionSchema))
+
+const BaseOutputSchema = z.object({
+  token: z.string(),
+  startAmount: z.string(),
+  endAmount: z.string(),
+  recipient: z.string(),
+})
+
+const DutchOrderMessageSchema = z.object({
+  deadline: z.string(),
+  nonce: z.string(),
+  permitted: z.object({
+    token: z.string(),
+    amount: z.string(),
+  }),
+  spender: z.string(),
+  witness: z.object({
+    baseInputEndAmount: z.string(),
+    baseInputStartAmount: z.string(),
+    baseInputToken: z.string(),
+    // z.tuple([T], T) preserves non-empty tuple type [T, ...T[]] from v3's .nonempty()
+    // .array().min(1) infers as T[] in v4 — see https://zod.dev/v4/changelog#nonempty
+    baseOutputs: z.tuple([BaseOutputSchema], BaseOutputSchema),
+    cosigner: z.string(),
+    info: z.looseObject({}), // allows any additional fields in info
+  }),
+})
+
+const DutchOrderSchema = z.object({
+  domain: DomainSchema,
+  types: DutchOrderTypesSchema,
+  message: DutchOrderMessageSchema,
+  primaryType: z.string(),
+})
+
+const LXSwapRequestSchema = DutchOrderSchema.refine(isValidLXSpender, {
+  message: 'Invalid LX request',
+})
+
+export type LXSwapRequest = z.infer<typeof LXSwapRequestSchema>
+
+export function isLXSwapRequest(data: unknown): data is LXSwapRequest {
+  return LXSwapRequestSchema.safeParse(data).success
+}

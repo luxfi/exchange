@@ -1,0 +1,18 @@
+import { FiatOnRampModalState } from 'src/screens/FiatOnRampModalState'
+import { ScannerModalState } from '@luxexchange/lx/src/components/ReceiveQRCode/constants'
+import { ModalName } from '@luxexchange/lx/src/features/telemetry/constants'
+import { TransactionScreen } from '@luxexchange/lx/src/features/transactions/components/TransactionModal/TransactionModalContext'
+import { TransactionState } from '@luxexchange/lx/src/features/transactions/types/transactionState'
+
+export interface AppModalState<T> {
+  isOpen: boolean
+  initialState?: T
+}
+
+export interface ModalsState {
+  [ModalName.Experiments]: AppModalState<undefined>
+  [ModalName.FiatOnRampAggregator]: AppModalState<FiatOnRampModalState>
+  [ModalName.QueuedOrderModal]: AppModalState<undefined>
+  [ModalName.Send]: AppModalState<TransactionState & { sendScreen?: TransactionScreen }>
+  [ModalName.WalletConnectScan]: AppModalState<ScannerModalState>
+}

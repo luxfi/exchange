@@ -1,0 +1,10 @@
+# *
+User-agent: *
+
+# Analytics
+Disallow: /v1/statsig-proxy
+Disallow: /c1/statsig-proxy
+Disallow: /config
+
+# Sitemaps
+Sitemap: https://app.uniswap.org/sitemap.xml

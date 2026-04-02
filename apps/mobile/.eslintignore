@@ -1,0 +1,19 @@
+.eslintrc.js
+babel.config.js
+jest.config.js
+metro.config.js
+node_modules
+
+storybook-static
+
+coverage
+
+# Ignore compiled and generated Maestro JavaScript files
+.maestro/scripts/dist/
+.maestro/scripts/performance/dist/
+
+# Ignore Maestro JavaScript files (these run in Maestro's GraalJS environment, not Node.js)
+.maestro/scripts/performance/**/*.js
+
+# Don't ignore Maestro TypeScript source files
+!.maestro/scripts/**/*.ts

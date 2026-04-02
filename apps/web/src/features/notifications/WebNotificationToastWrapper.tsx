@@ -1,0 +1,32 @@
+import { ChangeAssetVisibilityNotification } from '@luxexchange/lx/src/components/notifications/notifications/ChangeAssetVisibilityNotification'
+import { CopiedNotification } from '@luxexchange/lx/src/components/notifications/notifications/CopiedNotification'
+import { SuccessNotification } from '@luxexchange/lx/src/components/notifications/notifications/SuccessNotification'
+import { useSelectAddressNotifications } from '@luxexchange/lx/src/features/notifications/slice/hooks'
+import { AppNotification, AppNotificationType } from '@luxexchange/lx/src/features/notifications/slice/types'
+import { Platform } from '@luxexchange/lx/src/features/platforms/types/Platform'
+import { useActiveAddress } from '~/features/accounts/store/hooks'
+
+export function WebNotificationToastWrapper(): JSX.Element | null {
+  const evmAddress = useActiveAddress(Platform.EVM)
+  const notifications = useSelectAddressNotifications(evmAddress ?? null)
+  const notification = notifications?.[0]
+
+  if (!notification) {
+    return null
+  }
+
+  return <NotificationToastRouter notification={notification} />
+}
+
+function NotificationToastRouter({ notification }: { notification: AppNotification }): JSX.Element | null {
+  switch (notification.type) {
+    case AppNotificationType.Copied:
+      return <CopiedNotification notification={notification} />
+    case AppNotificationType.AssetVisibility:
+      return <ChangeAssetVisibilityNotification notification={notification} />
+    case AppNotificationType.Success:
+      return <SuccessNotification notification={notification} />
+    default:
+      return null
+  }
+}

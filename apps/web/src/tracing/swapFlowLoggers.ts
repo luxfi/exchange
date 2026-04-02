@@ -1,0 +1,141 @@
+import { TradingApi } from '@luxexchange/api'
+import { getChainLabel } from '@luxexchange/lx/src/features/chains/utils'
+import { SwapEventName } from '@luxexchange/lx/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from '@luxexchange/lx/src/features/telemetry/send'
+import type { SwapRouting } from '@luxexchange/lx/src/features/telemetry/types'
+import { planAnalyticsToSnakeCase } from '@luxexchange/lx/src/features/transactions/swap/plan/types'
+import { SwapEventType, timestampTracker } from '@luxexchange/lx/src/features/transactions/swap/utils/SwapEventTimestampTracker'
+import {
+  type PlanSwapTransactionInfoFields,
+  TransactionOriginType,
+  TransactionStatus,
+  TransactionType,
+} from '@luxexchange/lx/src/features/transactions/types/transactionDetails'
+import { logger } from '@luxfi/utilities/src/logger/logger'
+import type { ITraceContext } from '@luxfi/utilities/src/telemetry/trace/TraceContext'
+import type { ConfirmedTransactionDetails } from '~/state/transactions/types'
+
+type OnChainSwapTransactionType = TransactionType.Swap | TransactionType.Bridge
+const TRANSACTION_TYPE_TO_SWAP_ROUTING: Record<OnChainSwapTransactionType, SwapRouting> = {
+  [TransactionType.Swap]: 'classic',
+  [TransactionType.Bridge]: 'bridge',
+}
+
+export function logSwapFinalized({
+  id,
+  hash,
+  batchId,
+  chainInId,
+  chainOutId,
+  analyticsContext,
+  status,
+  type,
+  swapStartTimestamp,
+  planAnalytics,
+  transactedUSDValue,
+}: {
+  id: string
+  hash: string | undefined
+  batchId?: string
+  chainInId: number
+  chainOutId: number
+  analyticsContext: ITraceContext
+  status: ConfirmedTransactionDetails['status']
+  type: OnChainSwapTransactionType
+  swapStartTimestamp?: number
+  planAnalytics?: PlanSwapTransactionInfoFields
+  transactedUSDValue?: number
+}) {
+  const hasSetSwapSuccess = timestampTracker.hasTimestamp(SwapEventType.FirstSwapSuccess)
+  const elapsedTime = timestampTracker.setElapsedTime(SwapEventType.FirstSwapSuccess)
+
+  const event =
+    status === TransactionStatus.Success ? SwapEventName.SwapTransactionCompleted : SwapEventName.SwapTransactionFailed
+
+  sendAnalyticsEvent(event, {
+    routing: planAnalytics?.stepRouting ?? TRANSACTION_TYPE_TO_SWAP_ROUTING[type],
+    // We only log the time-to-swap metric for the first swap of a session,
+    // so if it was previously set we log undefined here.
+    time_to_swap: hasSetSwapSuccess ? undefined : elapsedTime,
+    time_to_swap_since_first_input: hasSetSwapSuccess
+      ? undefined
+      : timestampTracker.getElapsedTime(SwapEventType.FirstSwapSuccess, SwapEventType.FirstSwapAction),
+    id,
+    hash,
+    batch_id: batchId,
+    chain_id: chainInId,
+    chain_id_in: chainInId,
+    chain_id_out: chainOutId,
+    transactionOriginType: TransactionOriginType.Internal,
+    swap_start_timestamp: swapStartTimestamp,
+    transactedUSDValue,
+    ...planAnalyticsToSnakeCase(planAnalytics),
+    ...analyticsContext,
+  })
+
+  // log failed swaps to datadog
+  if (status === TransactionStatus.Failed && type === TransactionType.Swap) {
+    logger.warn('swapFlowLoggers', 'logSwapFinalized', 'Onchain Swap Failure', {
+      hash,
+      chainLabel: getChainLabel(chainInId),
+    })
+  }
+}
+
+const ROUTING_TO_SWAP_ROUTING: Partial<Record<TradingApi.Routing, SwapRouting>> = {
+  [TradingApi.Routing.CLASSIC]: 'classic',
+  [TradingApi.Routing.DUTCH_LIMIT]: 'limit_order',
+  [TradingApi.Routing.PRIORITY]: 'priority_order',
+  [TradingApi.Routing.DUTCH_V2]: 'dex_v2',
+  [TradingApi.Routing.DUTCH_V3]: 'dex_v3',
+  [TradingApi.Routing.BRIDGE]: 'bridge',
+}
+
+export function logLxSwapSwapFinalized({
+  id,
+  hash,
+  orderHash,
+  chainId,
+  analyticsContext,
+  routing,
+  status,
+  swapStartTimestamp,
+  planAnalytics,
+  transactedUSDValue,
+}: {
+  id: string
+  hash?: string
+  orderHash: string
+  chainId: number
+  analyticsContext: ITraceContext
+  routing: TradingApi.Routing
+  status: TransactionStatus
+  swapStartTimestamp?: number
+  planAnalytics?: PlanSwapTransactionInfoFields
+  transactedUSDValue?: number
+}) {
+  const hasSetSwapSuccess = timestampTracker.hasTimestamp(SwapEventType.FirstSwapSuccess)
+  const elapsedTime = timestampTracker.setElapsedTime(SwapEventType.FirstSwapSuccess)
+
+  const event =
+    status === TransactionStatus.Success ? SwapEventName.SwapTransactionCompleted : SwapEventName.SwapTransactionFailed
+
+  sendAnalyticsEvent(event, {
+    routing: ROUTING_TO_SWAP_ROUTING[routing],
+    order_hash: orderHash,
+    transactionOriginType: TransactionOriginType.Internal,
+    // We only log the time-to-swap metric for the first swap of a session,
+    // so if it was previously set we log undefined here.
+    time_to_swap: hasSetSwapSuccess ? undefined : elapsedTime,
+    time_to_swap_since_first_input: hasSetSwapSuccess
+      ? undefined
+      : timestampTracker.getElapsedTime(SwapEventType.FirstSwapSuccess, SwapEventType.FirstSwapAction),
+    id,
+    hash,
+    chain_id: chainId,
+    swap_start_timestamp: swapStartTimestamp,
+    transactedUSDValue,
+    ...planAnalyticsToSnakeCase(planAnalytics),
+    ...analyticsContext,
+  })
+}

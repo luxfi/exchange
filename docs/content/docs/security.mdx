@@ -1,0 +1,328 @@
+---
+title: Security
+description: Security considerations and best practices for Lux Exchange
+---
+
+# Security
+
+Security is paramount in DeFi. This guide covers security considerations, known attack vectors, and best practices for interacting with Lux Exchange.
+
+## Smart Contract Security
+
+### Audit Status
+
+| Contract | Auditor | Date | Report |
+|----------|---------|------|--------|
+| LuxFactory | - | - | Pending |
+| LuxPair | - | - | Pending |
+| LuxRouter | - | - | Pending |
+
+### Immutability
+
+Core contracts are immutable once deployed:
+
+- No admin functions for modifying swap logic
+- No upgrade mechanism (security by immutability)
+- Factory fee recipient is the only configurable parameter
+
+### Reentrancy Protection
+
+All state-changing functions implement reentrancy guards:
+
+```solidity
+uint256 private unlocked = 1;
+
+modifier lock() {
+    require(unlocked == 1, 'LOCKED');
+    unlocked = 0;
+    _;
+    unlocked = 1;
+}
+
+function swap(...) external lock {
+    // Safe from reentrancy
+}
+```
+
+## Known Attack Vectors
+
+### Front-Running
+
+**Attack**: MEV bots detect pending transactions and insert trades before/after.
+
+**Mitigation**:
+```typescript
+// 1. Use appropriate slippage tolerance
+const amountOutMin = expectedAmount * 995n / 1000n // 0.5%
+
+// 2. Set tight deadlines
+const deadline = Math.floor(Date.now() / 1000) + 300 // 5 minutes
+
+// 3. Consider private mempools
+const tx = await flashbotsProvider.sendPrivateTransaction(...)
+```
+
+### Sandwich Attacks
+
+**Attack**: Attacker buys before your trade, then sells after.
+
+**Mitigation**:
+- Use limit orders or private transactions
+- Split large trades into smaller amounts
+- Use aggregators with MEV protection
+
+### Flash Loan Attacks
+
+**Attack**: Borrow large amounts to manipulate prices within single transaction.
+
+**Mitigation**:
+- Use TWAP oracles for price feeds
+- Implement price deviation checks
+- Require multi-block confirmation for sensitive operations
+
+### Price Oracle Manipulation
+
+**Attack**: Manipulate spot price to exploit protocols using it.
+
+**Mitigation**:
+```typescript
+// Never use spot price for critical operations
+// BAD:
+const price = reserve1 / reserve0
+
+// GOOD:
+const price = await oracle.consult(pool, token, amount, 1800) // 30-min TWAP
+```
+
+## Safe Trading Practices
+
+### Pre-Trade Checklist
+
+1. **Verify token contracts**: Check addresses on block explorer
+2. **Check liquidity depth**: Ensure sufficient pool reserves
+3. **Calculate price impact**: Avoid trades with >2% impact
+4. **Set slippage tolerance**: Based on pool volatility
+5. **Review gas costs**: Ensure trade value exceeds gas
+
+### Transaction Verification
+
+```typescript
+// Always simulate before sending
+const [amountOut] = await router.getAmountsOut(amountIn, path)
+
+// Check price vs external sources
+const externalPrice = await getExternalPrice(tokenIn, tokenOut)
+const executionPrice = amountOut / amountIn
+const deviation = Math.abs(executionPrice - externalPrice) / externalPrice
+
+if (deviation > 0.02) {
+  throw new Error('Price deviation too high')
+}
+```
+
+### Approval Best Practices
+
+```typescript
+// Option 1: Approve exact amount (safest)
+await token.approve(ROUTER, exactAmount)
+
+// Option 2: Use Permit2 for single-use signatures
+await permit2.permit(token, ROUTER, amount, deadline, signature)
+
+// Option 3: Revoke after use
+await token.approve(ROUTER, 0)
+```
+
+## Liquidity Provider Security
+
+### Rug Pull Detection
+
+Before providing liquidity, check:
+
+1. **Token contract verification**: Is source code verified?
+2. **Owner privileges**: Can owner mint/burn/pause?
+3. **Liquidity lock**: Is LP liquidity locked?
+4. **Team allocation**: What percentage is team-controlled?
+
+```typescript
+async function assessTokenRisk(tokenAddress: string): Promise<RiskReport> {
+  const token = new Contract(tokenAddress, ERC20_ABI, provider)
+
+  const checks = {
+    verified: await isContractVerified(tokenAddress),
+    hasOwner: await hasOwnerFunction(tokenAddress),
+    hasMint: await hasMintFunction(tokenAddress),
+    hasPause: await hasPauseFunction(tokenAddress),
+    lpLocked: await isLpLocked(tokenAddress),
+  }
+
+  return calculateRiskScore(checks)
+}
+```
+
+### Impermanent Loss Monitoring
+
+```typescript
+async function monitorIL(
+  initialDeposit: Deposit,
+  currentPrices: Prices
+): Promise<ILReport> {
+  const priceRatio = currentPrices.tokenA / initialDeposit.prices.tokenA
+  const ilPercent = calculateIL(priceRatio)
+
+  return {
+    impermanentLoss: ilPercent,
+    feesEarned: await calculateFeesEarned(initialDeposit),
+    netPosition: feesEarned - ilPercent,
+    alert: ilPercent > 10, // Alert if IL > 10%
+  }
+}
+```
+
+## Emergency Procedures
+
+### If You Suspect a Compromise
+
+1. **Revoke approvals immediately**:
+```typescript
+const tokens = await getApprovedTokens(userAddress)
+for (const token of tokens) {
+  await token.approve(ROUTER, 0)
+}
+```
+
+2. **Remove liquidity**:
+```typescript
+const lpBalance = await lpToken.balanceOf(userAddress)
+await router.removeLiquidity(tokenA, tokenB, lpBalance, 0, 0, user, deadline)
+```
+
+3. **Transfer assets to clean wallet**
+
+### Pool Emergency
+
+In case of pool-level issues:
+
+```solidity
+// Sync reserves with actual balances
+pool.sync()
+
+// Skim excess tokens (if any)
+pool.skim(recipient)
+```
+
+## Reporting Vulnerabilities
+
+### Bug Bounty Program
+
+| Severity | Reward |
+|----------|--------|
+| Critical | $50,000 - $100,000 |
+| High | $10,000 - $50,000 |
+| Medium | $1,000 - $10,000 |
+| Low | $100 - $1,000 |
+
+### Contact
+
+- Security email: security@lux.network
+- Bug bounty: https://lux.network/bounty
+
+### Responsible Disclosure
+
+1. **Do not** exploit vulnerabilities
+2. **Do not** disclose publicly before fix
+3. **Provide** detailed reproduction steps
+4. **Allow** reasonable time for remediation
+
+## Operational Security
+
+### Key Management
+
+```typescript
+// Never expose private keys in code
+// BAD:
+const wallet = new Wallet('0x1234...')
+
+// GOOD:
+const wallet = new Wallet(process.env.PRIVATE_KEY)
+
+// BETTER: Use hardware wallet
+const wallet = await LedgerSigner.create(provider)
+```
+
+### Transaction Signing
+
+```typescript
+// Always review transaction details
+const tx = await router.populateTransaction.swap(...)
+
+console.log('To:', tx.to)
+console.log('Value:', formatEther(tx.value))
+console.log('Data:', tx.data)
+
+// Confirm before signing
+const confirmed = await promptUser('Sign transaction?')
+if (confirmed) {
+  await wallet.sendTransaction(tx)
+}
+```
+
+## Contract Verification
+
+### Verifying Deployed Contracts
+
+```bash
+# Using Lux block explorer
+forge verify-contract \
+  --chain-id 96369 \
+  --watch \
+  $CONTRACT_ADDRESS \
+  src/LuxPair.sol:LuxPair
+```
+
+### Checking Contract Code
+
+```typescript
+// Compare bytecode with expected
+const deployedCode = await provider.getCode(contractAddress)
+const expectedCode = await compile('LuxPair.sol')
+
+if (deployedCode !== expectedCode) {
+  throw new Error('Contract bytecode mismatch!')
+}
+```
+
+## Security Checklist
+
+### For Traders
+
+- [ ] Verify token contract addresses
+- [ ] Check pool liquidity depth
+- [ ] Set appropriate slippage tolerance
+- [ ] Use reasonable transaction deadlines
+- [ ] Review transaction before signing
+- [ ] Use hardware wallet for large amounts
+
+### For Liquidity Providers
+
+- [ ] Research token fundamentals
+- [ ] Verify token contract is not malicious
+- [ ] Understand impermanent loss risks
+- [ ] Monitor position regularly
+- [ ] Consider liquidity lock status
+- [ ] Diversify across multiple pools
+
+### For Integrators
+
+- [ ] Use TWAP oracles for price feeds
+- [ ] Implement reentrancy guards
+- [ ] Add price deviation checks
+- [ ] Handle edge cases (zero liquidity, etc.)
+- [ ] Test with forked mainnet
+- [ ] Get security audit before launch
+
+## Further Reading
+
+- [AMM Fundamentals](/docs/amm) - Understanding the mechanics
+- [Price Oracle](/docs/oracle) - Secure price feeds
+- [Smart Contracts](/docs/contracts) - Contract addresses

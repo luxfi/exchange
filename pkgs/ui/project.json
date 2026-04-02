@@ -1,0 +1,59 @@
+{
+  "tags": ["scope:ui", "type:lib"],
+  "targets": {
+    "build": {
+      "dependsOn": ["^build", "build:icons"]
+    },
+    "build:icons": {
+      "command": "bunx tsx ./src/scripts/componentize-icons.ts",
+      "options": {
+        "cwd": "{projectRoot}"
+      },
+      "cache": true,
+      "inputs": [
+        "{projectRoot}/src/scripts/componentize-icons.ts",
+        "{projectRoot}/src/assets/icons/**",
+        "{projectRoot}/src/assets/logos/**"
+      ],
+      "outputs": ["{projectRoot}/src/components/icons/**", "{projectRoot}/src/components/logos/**"]
+    },
+    "build:icons:missing": {
+      "command": "bunx tsx ./src/scripts/componentize-icons.ts --skip-existing && nx lint:biome:fix ui",
+      "options": {
+        "cwd": "{projectRoot}"
+      },
+      "cache": true,
+      "inputs": [
+        "{projectRoot}/src/scripts/componentize-icons.ts",
+        "{projectRoot}/src/assets/icons/**",
+        "{projectRoot}/src/assets/logos/**"
+      ],
+      "outputs": ["{projectRoot}/src/components/icons/**", "{projectRoot}/src/components/logos/**"]
+    },
+    "check:deps:usage": {},
+    "typecheck": {
+      "dependsOn": ["build:icons", "^typecheck"]
+    },
+    "typecheck:tsgo": {
+      "dependsOn": ["build:icons"]
+    },
+    "lint:biome": {},
+    "lint:biome:fix": {},
+    "lint:eslint": {},
+    "lint:eslint:fix": {},
+    "lint": {},
+    "lint:fix": {},
+    "test": {
+      "command": "vitest run",
+      "options": {
+        "cwd": "{projectRoot}"
+      }
+    },
+    "watch": {
+      "command": "pnpm build --watch",
+      "options": {
+        "cwd": "{projectRoot}"
+      }
+    }
+  }
+}

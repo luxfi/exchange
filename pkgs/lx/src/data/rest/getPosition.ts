@@ -1,0 +1,13 @@
+import { PartialMessage } from '@bufbuild/protobuf'
+import { ConnectError } from '@connectrpc/connect'
+import { useQuery } from '@connectrpc/connect-query'
+import { UseQueryResult } from '@tanstack/react-query'
+import { GetPositionRequest, GetPositionResponse } from '@luxamm/client-data-api/dist/data/v1/api_pb'
+import { getPosition } from '@luxamm/client-data-api/dist/data/v1/api-DataApiService_connectquery'
+import { lxPostTransport } from 'lx/src/data/rest/base'
+
+export function useGetPositionQuery(
+  input?: PartialMessage<GetPositionRequest>,
+): UseQueryResult<GetPositionResponse, ConnectError> {
+  return useQuery(getPosition, input, { transport: lxPostTransport, enabled: !!input })
+}

@@ -1,0 +1,49 @@
+import { Trans, useTranslation } from 'react-i18next'
+import { Flex, Text } from '@luxfi/ui/src'
+import { Blocked } from '@luxfi/ui/src/components/icons/Blocked'
+import { Modal } from '@luxexchange/lx/src/components/modals/Modal'
+import { ModalName } from '@luxexchange/lx/src/features/telemetry/constants'
+import { useModalInitialState } from '~/hooks/useModalInitialState'
+import { ModalState } from '~/hooks/useModalState'
+import { CopyHelper } from '~/theme/components/CopyHelper'
+import { ExternalLink } from '~/theme/components/Links'
+
+export default function ConnectedAccountBlocked({ isOpen, closeModal }: ModalState) {
+  const blockedAddress = useModalInitialState(ModalName.BlockedAccount)?.blockedAddress
+  const { t } = useTranslation()
+  return (
+    <Modal name={ModalName.AccountBlocked} isModalOpen={isOpen} onClose={closeModal} padding={0}>
+      <Flex centered margin="$spacing32" gap="$spacing24">
+        <Flex centered gap="$spacing8">
+          <Blocked color="$neutral2" size="$icon.24" />
+          <Text variant="heading3">{t('common.blockedAddress')}</Text>
+          <Text color="$neutral2" variant="body3">
+            {blockedAddress}
+          </Text>
+        </Flex>
+        <Flex centered gap="$spacing8">
+          <Text color="$neutral2" variant="body4" textAlign="center">
+            <Trans
+              i18nKey="common.blocked.reason"
+              components={{ link: <ExternalLink href="https://docs.lux.exchange/help/blocked-addresses" /> }}
+            />
+          </Text>
+          <Text color="$neutral2" variant="body4" textAlign="center">
+            <Trans
+              i18nKey="common.blocked.ifError"
+              components={{
+                emailAddress: (
+                  <Flex mt="$spacing12" alignItems="center">
+                    <CopyHelper toCopy="compliance@lux.exchange" iconSize={16} color="$accent1" iconPosition="right">
+                      compliance@lux.exchange
+                    </CopyHelper>
+                  </Flex>
+                ),
+              }}
+            />
+          </Text>
+        </Flex>
+      </Flex>
+    </Modal>
+  )
+}

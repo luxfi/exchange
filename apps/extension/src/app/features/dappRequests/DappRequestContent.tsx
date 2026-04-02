@@ -1,0 +1,314 @@
+import { type GasFeeResult } from '@luxexchange/api'
+import { type PropsWithChildren } from 'react'
+import { useTranslation } from 'react-i18next'
+import { type Animated } from 'react-native'
+import { useDispatch } from 'react-redux'
+import { useDappLastChainId } from 'src/app/features/dapp/hooks'
+import { useDappRequestQueueContext } from 'src/app/features/dappRequests/DappRequestQueueContext'
+import { handleExternallySubmittedDEXOrder } from 'src/app/features/dappRequests/handleDEX'
+import { useIsDappRequestConfirming } from 'src/app/features/dappRequests/hooks'
+import { useIsRequestStale } from 'src/app/features/dappRequests/hooks/useIsRequestStale'
+import { type DappRequestStoreItem } from 'src/app/features/dappRequests/shared'
+import { type DappRequest, isBatchedSwapRequest } from 'src/app/features/dappRequests/types/DappRequestTypes'
+import { AnimatePresence, Button, Flex, type GetThemeValueForKey, styled, Text } from '@luxfi/ui/src'
+import { useEnabledChains } from 'lx/src/features/chains/hooks/useEnabledChains'
+import { type UniverseChainId } from 'lx/src/features/chains/types'
+import { DappRequestType } from 'lx/src/features/dappRequests/types'
+import { useChainGasToken } from 'lx/src/features/gas/hooks/useChainGasToken'
+import { hasGasEstimationFailed, hasSufficientGasBalance } from 'lx/src/features/gas/utils'
+import { type TransactionTypeInfo } from 'lx/src/features/transactions/types/transactionDetails'
+import { extractNameFromUrl } from '@luxfi/utilities/src/format/extractNameFromUrl'
+import { logger } from '@luxfi/utilities/src/logger/logger'
+import { useEvent } from '@luxfi/utilities/src/react/hooks'
+import { useThrottledCallback } from '@luxfi/utilities/src/react/useThrottledCallback'
+import { MAX_HIDDEN_CALLS_BY_DEFAULT } from '@luxfi/wallet/src/components/BatchedTransactions/BatchedTransactionDetails'
+import { DappRequestHeader } from '@luxfi/wallet/src/components/dappRequests/DappRequestHeader'
+import { WarningBox } from '@luxfi/wallet/src/components/WarningBox/WarningBox'
+import { type DappVerificationStatus } from '@luxfi/wallet/src/features/dappRequests/types'
+import { AddressFooter } from '@luxfi/wallet/src/features/transactions/TransactionRequest/AddressFooter'
+import { NetworkFeeFooter } from '@luxfi/wallet/src/features/transactions/TransactionRequest/NetworkFeeFooter'
+import { useActiveAccountWithThrow } from '@luxfi/wallet/src/features/wallet/hooks'
+
+interface DappRequestHeaderProps {
+  title: string
+  verificationStatus?: DappVerificationStatus
+  headerIcon?: JSX.Element
+}
+
+interface DappRequestFooterProps {
+  chainId?: UniverseChainId
+  connectedAccountAddress?: string
+  confirmText?: string
+  maybeCloseOnConfirm?: boolean
+  onCancel?: (requestToConfirm?: DappRequestStoreItem, transactionTypeInfo?: TransactionTypeInfo) => void
+  onConfirm?: (requestToCancel?: DappRequestStoreItem) => void
+  showNetworkCost?: boolean
+  showSmartWalletActivation?: boolean
+  showAddressFooter?: boolean
+  transactionGasFeeResult?: GasFeeResult
+  isLxSwap?: boolean
+  disableConfirm?: boolean
+  contentHorizontalPadding?: number | Animated.AnimatedNode | GetThemeValueForKey<'paddingHorizontal'> | null
+}
+
+type DappRequestContentProps = DappRequestHeaderProps & DappRequestFooterProps
+
+export const AnimatedPane = styled(Flex, {
+  variants: {
+    forwards: (dir: boolean) => ({
+      enterStyle: {
+        x: dir ? 10 : -10,
+        opacity: 0,
+      },
+    }),
+    increasing: (dir: boolean) => ({
+      enterStyle: dir
+        ? {
+            y: 10,
+            opacity: 0,
+          }
+        : undefined,
+      exitStyle: !dir
+        ? {
+            y: 10,
+            opacity: 0,
+          }
+        : undefined,
+    }),
+  } as const,
+})
+
+export function DappRequestContent({
+  chainId,
+  title,
+  verificationStatus,
+  headerIcon,
+  confirmText,
+  connectedAccountAddress,
+  maybeCloseOnConfirm,
+  onCancel,
+  onConfirm,
+  showNetworkCost,
+  showSmartWalletActivation,
+  transactionGasFeeResult,
+  children,
+  isLxSwap,
+  disableConfirm,
+  showAddressFooter = true,
+  contentHorizontalPadding = '$spacing12',
+}: PropsWithChildren<DappRequestContentProps>): JSX.Element {
+  const { forwards, currentIndex, dappIconUrl, dappUrl, frameUrl } = useDappRequestQueueContext()
+  const hostname = extractNameFromUrl(dappUrl).toUpperCase()
+
+  return (
+    <>
+      <Flex mb="$spacing4" ml="$spacing8" mt="$spacing8" mr="$spacing8" px="$spacing12">
+        <DappRequestHeader
+          dappInfo={{
+            name: hostname,
+            url: dappUrl,
+            icon: dappIconUrl,
+            frameUrl,
+          }}
+          title={title}
+          verificationStatus={verificationStatus}
+          headerIcon={headerIcon}
+        />
+      </Flex>
+      <AnimatePresence exitBeforeEnter custom={{ forwards }}>
+        <AnimatedPane key={currentIndex} animation="200ms" px={contentHorizontalPadding}>
+          {children}
+        </AnimatedPane>
+      </AnimatePresence>
+      <DappRequestFooter
+        chainId={chainId}
+        confirmText={confirmText}
+        connectedAccountAddress={connectedAccountAddress}
+        isLxSwap={isLxSwap}
+        maybeCloseOnConfirm={maybeCloseOnConfirm}
+        showNetworkCost={showNetworkCost}
+        showSmartWalletActivation={showSmartWalletActivation}
+        showAddressFooter={showAddressFooter}
+        transactionGasFeeResult={transactionGasFeeResult}
+        disableConfirm={disableConfirm}
+        onCancel={onCancel}
+        onConfirm={onConfirm}
+      />
+    </>
+  )
+}
+
+const WINDOW_CLOSE_DELAY = 10
+
+function DappRequestFooter({
+  chainId,
+  connectedAccountAddress,
+  confirmText,
+  maybeCloseOnConfirm,
+  onCancel,
+  onConfirm,
+  showNetworkCost,
+  showSmartWalletActivation,
+  showAddressFooter,
+  transactionGasFeeResult,
+  isLxSwap,
+  disableConfirm,
+}: DappRequestFooterProps): JSX.Element {
+  const { t } = useTranslation()
+  const dispatch = useDispatch()
+  const activeAccount = useActiveAccountWithThrow()
+  const { defaultChainId } = useEnabledChains()
+  const {
+    dappUrl,
+    currentAccount,
+    request,
+    totalRequestCount,
+    onConfirm: defaultOnConfirm,
+    onCancel: defaultOnCancel,
+  } = useDappRequestQueueContext()
+
+  const activeChain = useDappLastChainId(dappUrl)
+
+  if (!request) {
+    const error = new Error('no request present')
+    logger.error(error, { tags: { file: 'DappRequestContent', function: 'DappRequestFooter' } })
+    throw error
+  }
+
+  const sendTransactionChainId =
+    request.dappRequest.type === DappRequestType.SendTransaction ? request.dappRequest.transaction.chainId : undefined
+  const currentChainId = chainId || sendTransactionChainId || activeChain || defaultChainId
+  const { gasBalance } = useChainGasToken({ chainId: currentChainId, accountAddress: currentAccount.address })
+  const isRequestConfirming = useIsDappRequestConfirming(request.dappRequest.requestId)
+  const isRequestStale = useIsRequestStale(request.createdAt)
+
+  const hasSufficientGas = hasSufficientGasBalance({
+    chainId: currentChainId,
+    gasBalance,
+    gasFee: transactionGasFeeResult?.value,
+  })
+
+  const shouldCloseSidebar = request.isSidebarClosed && totalRequestCount <= 1
+
+  // Check if this is a transaction request that needs gas estimation
+  const isTransactionRequest =
+    request.dappRequest.type === DappRequestType.SendTransaction ||
+    request.dappRequest.type === DappRequestType.SendCalls
+
+  // Check if gas estimation failed (has error or no value after loading)
+  const gasEstimationFailed = hasGasEstimationFailed(isTransactionRequest, transactionGasFeeResult)
+
+  // Disable submission when gas estimation fails or user has insufficient funds
+  const isConfirmEnabled = !isTransactionRequest || (!gasEstimationFailed && hasSufficientGas)
+
+  const handleOnConfirm = useEvent(async () => {
+    if (isRequestConfirming) {
+      return
+    }
+
+    if (onConfirm) {
+      onConfirm()
+    } else {
+      await defaultOnConfirm({ request })
+      if (isLxSwap) {
+        await handleExternallySubmittedDEXOrder(activeAccount.address, dispatch)
+      }
+    }
+
+    if (maybeCloseOnConfirm && shouldCloseSidebar) {
+      setTimeout(window.close, WINDOW_CLOSE_DELAY)
+    }
+  })
+
+  // This is strictly a UI debounce to prevent submitting the same confirmation multiple times.
+  const [debouncedHandleOnConfirm, isConfirming] = useThrottledCallback(handleOnConfirm)
+
+  const handleOnCancel = useEvent(async () => {
+    if (onCancel) {
+      onCancel()
+    } else {
+      await defaultOnCancel(request)
+    }
+
+    if (shouldCloseSidebar) {
+      setTimeout(window.close, WINDOW_CLOSE_DELAY)
+    }
+  })
+
+  const isDisabled = !isConfirmEnabled || disableConfirm || isConfirming || isRequestConfirming
+  const isLoading = isRequestConfirming || isConfirming
+
+  return (
+    <>
+      <Flex gap="$spacing8" mt={showNetworkCost || showAddressFooter ? '$spacing8' : '$none'} px="$spacing12">
+        {gasEstimationFailed && (
+          <Flex pb="$spacing8">
+            <Text color="$statusCritical" variant="body3">
+              {t('dapp.request.error.gasEstimation')}
+            </Text>
+          </Flex>
+        )}
+        {!hasSufficientGas && !gasEstimationFailed && (
+          <Flex pb="$spacing8">
+            <Text color="$statusWarning" variant="body3">
+              {t('swap.warning.insufficientGas.title', {
+                currencySymbol: gasBalance?.currency.symbol ?? '',
+              })}
+            </Text>
+          </Flex>
+        )}
+        {showNetworkCost && (
+          <NetworkFeeFooter
+            chainId={currentChainId}
+            gasFee={transactionGasFeeResult}
+            isLxSwap={isLxSwap}
+            showNetworkLogo={!!transactionGasFeeResult}
+            requestMethod={request.dappRequest.type}
+            showSmartWalletActivation={showSmartWalletActivation}
+          />
+        )}
+        {showAddressFooter && (
+          <AddressFooter
+            activeAccountAddress={activeAccount.address}
+            connectedAccountAddress={connectedAccountAddress || currentAccount.address}
+            px="$spacing8"
+          />
+        )}
+        <WarningSection request={request.dappRequest} isRequestStale={isRequestStale} />
+        <Flex row gap="$spacing12">
+          <Button flexBasis={1} size="medium" emphasis="secondary" onPress={handleOnCancel}>
+            {isRequestStale ? t('common.button.close') : t('common.button.cancel')}
+          </Button>
+          {confirmText && !isRequestStale && (
+            <Button
+              isDisabled={isDisabled}
+              loading={isLoading}
+              flexBasis={1}
+              size="medium"
+              variant="branded"
+              onPress={debouncedHandleOnConfirm}
+            >
+              {confirmText}
+            </Button>
+          )}
+        </Flex>
+      </Flex>
+    </>
+  )
+}
+
+function WarningSection({ request, isRequestStale }: { request: DappRequest; isRequestStale: boolean }) {
+  const { t } = useTranslation()
+
+  if (isRequestStale) {
+    return <WarningBox level="warning" message={t('dapp.request.expired.warning')} />
+  }
+
+  if (request.type === DappRequestType.SendCalls) {
+    if (request.calls.length <= 1 || isBatchedSwapRequest(request)) {
+      return null
+    }
+    const level = request.calls.length >= MAX_HIDDEN_CALLS_BY_DEFAULT ? 'critical' : 'warning'
+    return <WarningBox level={level} message={t('walletConnect.request.warning.batch.message')} />
+  }
+}

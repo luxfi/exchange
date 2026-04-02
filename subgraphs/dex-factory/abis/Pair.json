@@ -1,0 +1,101 @@
+[
+  {
+    "anonymous": false,
+    "inputs": [
+      { "indexed": true, "name": "sender", "type": "address" },
+      { "indexed": false, "name": "amount0", "type": "uint256" },
+      { "indexed": false, "name": "amount1", "type": "uint256" }
+    ],
+    "name": "Mint",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      { "indexed": true, "name": "sender", "type": "address" },
+      { "indexed": false, "name": "amount0", "type": "uint256" },
+      { "indexed": false, "name": "amount1", "type": "uint256" },
+      { "indexed": true, "name": "to", "type": "address" }
+    ],
+    "name": "Burn",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      { "indexed": true, "name": "sender", "type": "address" },
+      { "indexed": false, "name": "amount0In", "type": "uint256" },
+      { "indexed": false, "name": "amount1In", "type": "uint256" },
+      { "indexed": false, "name": "amount0Out", "type": "uint256" },
+      { "indexed": false, "name": "amount1Out", "type": "uint256" },
+      { "indexed": true, "name": "to", "type": "address" }
+    ],
+    "name": "Swap",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      { "indexed": false, "name": "reserve0", "type": "uint112" },
+      { "indexed": false, "name": "reserve1", "type": "uint112" }
+    ],
+    "name": "Sync",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      { "indexed": true, "name": "from", "type": "address" },
+      { "indexed": true, "name": "to", "type": "address" },
+      { "indexed": false, "name": "value", "type": "uint256" }
+    ],
+    "name": "Transfer",
+    "type": "event"
+  },
+  {
+    "constant": true,
+    "inputs": [],
+    "name": "token0",
+    "outputs": [{ "name": "", "type": "address" }],
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [],
+    "name": "token1",
+    "outputs": [{ "name": "", "type": "address" }],
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [],
+    "name": "getReserves",
+    "outputs": [
+      { "name": "_reserve0", "type": "uint112" },
+      { "name": "_reserve1", "type": "uint112" },
+      { "name": "_blockTimestampLast", "type": "uint32" }
+    ],
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [],
+    "name": "totalSupply",
+    "outputs": [{ "name": "", "type": "uint256" }],
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [],
+    "name": "factory",
+    "outputs": [{ "name": "", "type": "address" }],
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [],
+    "name": "kLast",
+    "outputs": [{ "name": "", "type": "uint256" }],
+    "type": "function"
+  }
+]

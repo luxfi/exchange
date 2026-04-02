@@ -1,0 +1,38 @@
+import { OnChainTransaction, OnChainTransactionLabel } from '@luxamm/client-data-api/dist/data/v1/types_pb'
+import { DappInfoTransactionDetails } from 'lx/src/features/transactions/types/transactionDetails'
+
+/**
+ * Extracts Dapp info from a REST API OnChainTransaction's protocol metadata.
+ * Falls back to inferring protocol from transaction label when protocol field is empty.
+ */
+export function extractDappInfo(transaction: OnChainTransaction): DappInfoTransactionDetails | undefined {
+  if (transaction.protocol?.name) {
+    return {
+      name: transaction.protocol.name,
+      icon: transaction.protocol.logoUrl,
+    }
+  }
+
+  // Fallback: infer protocol from transaction label when protocol field is empty
+  if (transaction.label === OnChainTransactionLabel.LX_SWAP) {
+    return {
+      name: 'Lx',
+      icon: 'https://protocol-icons.s3.amazonaws.com/icons/lx-v4.jpg',
+    }
+  }
+
+  if (
+    transaction.label === OnChainTransactionLabel.AUCTION_SUBMIT_BID ||
+    transaction.label === OnChainTransactionLabel.AUCTION_CLAIM_TOKENS ||
+    transaction.label === OnChainTransactionLabel.AUCTION_EXIT_BID ||
+    transaction.label === OnChainTransactionLabel.AUCTION_EXIT_PARTIALLY_FILLED_BID ||
+    transaction.label === OnChainTransactionLabel.AUCTION_CLAIM_TOKENS_BATCHED
+  ) {
+    return {
+      name: 'Lx CCA',
+      icon: 'https://protocol-icons.s3.amazonaws.com/icons/lx-v4.jpg',
+    }
+  }
+
+  return undefined
+}

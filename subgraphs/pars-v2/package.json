@@ -1,0 +1,15 @@
+{
+  "name": "@luxfi/subgraph-pars-amm-v2",
+  "version": "1.0.0",
+  "description": "Subgraph for Pars AMM V2 (factory 0x84CF0A13db1be8e1F0676405cfcBC8b09692FD1C)",
+  "scripts": {
+    "codegen": "graph codegen",
+    "build": "graph build",
+    "deploy:local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 luxfi/pars-amm-v2",
+    "create:local": "graph create --node http://localhost:8020/ luxfi/pars-amm-v2"
+  },
+  "devDependencies": {
+    "@graphprotocol/graph-cli": "^0.68.0",
+    "@graphprotocol/graph-ts": "^0.32.0"
+  }
+}

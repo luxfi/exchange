@@ -1,0 +1,169 @@
+import { SharedEventName } from '@luxamm/analytics-events'
+import { FeatureFlags, useFeatureFlag } from '@luxexchange/gating'
+import React, { useCallback, useEffect, useMemo } from 'react'
+import { useTranslation } from 'react-i18next'
+import { useDispatch, useSelector } from 'react-redux'
+import { navigate } from 'src/app/navigation/rootNavigation'
+import {
+  NotificationPermission,
+  useNotificationOSPermissionsEnabled,
+} from 'src/features/notifications/hooks/useNotificationOSPermissionsEnabled'
+import { Flex } from '@luxfi/ui/src'
+import { PUSH_NOTIFICATIONS_CARD_BANNER } from '@luxfi/ui/src/assets'
+import { Buy } from '@luxfi/ui/src/components/icons'
+import { AccountType } from 'lx/src/features/accounts/types'
+import { ElementName, ModalName, WalletEventName } from 'lx/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
+import { OnboardingCardLoggingName } from 'lx/src/features/telemetry/types'
+import { ImportType, OnboardingEntryPoint } from 'lx/src/types/onboarding'
+import { MobileScreens, OnboardingScreens, UnitagScreens } from 'lx/src/types/screens/mobile'
+import {
+  CardType,
+  IntroCardGraphicType,
+  IntroCardProps,
+  isOnboardingCardLoggingName,
+} from '@luxfi/wallet/src/components/introCards/IntroCard'
+import { INTRO_CARD_MIN_HEIGHT, IntroCardStack } from '@luxfi/wallet/src/components/introCards/IntroCardStack'
+import { useSharedIntroCards } from '@luxfi/wallet/src/components/introCards/useSharedIntroCards'
+import { selectHasViewedNotificationsCard } from '@luxfi/wallet/src/features/behaviorHistory/selectors'
+import { setHasViewedNotificationsCard } from '@luxfi/wallet/src/features/behaviorHistory/slice'
+import { useActiveAccountWithThrow } from '@luxfi/wallet/src/features/wallet/hooks'
+
+type OnboardingIntroCardStackProps = {
+  isLoading?: boolean
+  showEmptyWalletState: boolean
+  onCardsChange?: (hasCards: boolean) => void
+}
+export function OnboardingIntroCardStack({
+  showEmptyWalletState,
+  isLoading = false,
+  onCardsChange,
+}: OnboardingIntroCardStackProps): JSX.Element | null {
+  const { t } = useTranslation()
+  const dispatch = useDispatch()
+  const activeAccount = useActiveAccountWithThrow()
+  const address = activeAccount.address
+  const isSignerAccount = activeAccount.type === AccountType.SignerMnemonic
+
+  const { notificationPermissionsEnabled } = useNotificationOSPermissionsEnabled()
+  const notificationOnboardingCardEnabled = useFeatureFlag(FeatureFlags.NotificationOnboardingCard)
+  const hasViewedNotificationsCard = useSelector(selectHasViewedNotificationsCard)
+  const showEnableNotificationsCard =
+    notificationOnboardingCardEnabled &&
+    notificationPermissionsEnabled === NotificationPermission.Disabled &&
+    !hasViewedNotificationsCard
+
+  const navigateToUnitagClaim = useCallback(() => {
+    navigate(MobileScreens.UnitagStack, {
+      screen: UnitagScreens.ClaimUnitag,
+      params: {
+        entryPoint: MobileScreens.Home,
+        address,
+      },
+    })
+  }, [address])
+
+  const navigateToUnitagIntro = useCallback(() => {
+    navigate(ModalName.UnitagsIntro, {
+      address,
+      entryPoint: MobileScreens.Home,
+    })
+  }, [address])
+
+  const navigateToBackupFlow = useCallback((): void => {
+    navigate(MobileScreens.OnboardingStack, {
+      screen: OnboardingScreens.Backup,
+      params: {
+        importType: ImportType.BackupOnly,
+        entryPoint: OnboardingEntryPoint.BackupCard,
+      },
+    })
+  }, [])
+
+  const { cards: sharedCards } = useSharedIntroCards({
+    navigateToUnitagClaim,
+    navigateToUnitagIntro,
+    navigateToBackupFlow,
+  })
+
+  const cards = useMemo((): IntroCardProps[] => {
+    const output: IntroCardProps[] = []
+
+    // Don't show cards for view only wallets
+    if (!isSignerAccount) {
+      return output
+    }
+
+    if (showEmptyWalletState) {
+      output.push({
+        loggingName: OnboardingCardLoggingName.FundWallet,
+        graphic: {
+          type: IntroCardGraphicType.Icon,
+          Icon: Buy,
+        },
+        title: t('onboarding.home.intro.fund.title'),
+        description: t('onboarding.home.intro.fund.description'),
+        cardType: CardType.Required,
+        onPress: (): void => {
+          navigate(ModalName.FundWallet)
+          sendAnalyticsEvent(SharedEventName.ELEMENT_CLICKED, {
+            element: ElementName.OnboardingIntroCardFundWallet,
+          })
+        },
+      })
+    }
+
+    output.push(...sharedCards)
+
+    if (showEnableNotificationsCard) {
+      output.push({
+        loggingName: OnboardingCardLoggingName.EnablePushNotifications,
+        graphic: {
+          type: IntroCardGraphicType.Image,
+          image: PUSH_NOTIFICATIONS_CARD_BANNER,
+        },
+        title: t('onboarding.home.intro.pushNotifications.title'),
+        description: t('onboarding.home.intro.pushNotifications.description'),
+        cardType: CardType.Dismissible,
+        onPress: (): void => {
+          navigate(ModalName.NotificationsOSSettings)
+          dispatch(setHasViewedNotificationsCard(true))
+          sendAnalyticsEvent(SharedEventName.ELEMENT_CLICKED, {
+            element: ElementName.OnboardingIntroCardEnablePushNotifications,
+          })
+        },
+        onClose: (): void => {
+          dispatch(setHasViewedNotificationsCard(true))
+        },
+      })
+    }
+
+    return output
+  }, [showEmptyWalletState, isSignerAccount, sharedCards, t, dispatch, showEnableNotificationsCard])
+
+  useEffect(() => {
+    onCardsChange?.(cards.length > 0)
+  }, [cards.length, onCardsChange])
+
+  const handleSwiped = useCallback(
+    (_card: IntroCardProps, index: number) => {
+      const loggingName = cards[index]?.loggingName
+      if (loggingName && isOnboardingCardLoggingName(loggingName)) {
+        sendAnalyticsEvent(WalletEventName.OnboardingIntroCardSwiped, {
+          card_name: loggingName,
+        })
+      }
+    },
+    [cards],
+  )
+
+  if (!cards.length) {
+    return null
+  }
+
+  return (
+    <Flex pt="$spacing12" px="$spacing12">
+      {isLoading ? <Flex height={INTRO_CARD_MIN_HEIGHT} /> : <IntroCardStack cards={cards} onSwiped={handleSwiped} />}
+    </Flex>
+  )
+}

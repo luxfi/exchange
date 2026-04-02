@@ -1,0 +1,180 @@
+import { FeatureFlags, useFeatureFlag } from '@luxexchange/gating'
+import React, { type PropsWithChildren, useCallback, useMemo } from 'react'
+import { useTranslation } from 'react-i18next'
+import { FlatList } from 'react-native'
+import { useDispatch } from 'react-redux'
+import { navigate } from 'src/app/navigation/rootNavigation'
+import { useReactNavigationModal } from 'src/components/modals/useReactNavigationModal'
+import { useOpenReceiveModal } from 'src/features/modals/hooks/useOpenReceiveModal'
+import { openModal } from 'src/features/modals/modalSlice'
+import { Flex, UniversalImage, useShadowPropsShort } from '@luxfi/ui/src'
+import { ArrowDownCircle, Buy } from '@luxfi/ui/src/components/icons'
+import { UniversalImageResizeMode } from '@luxfi/ui/src/components/UniversalImage/types'
+import { borderRadii, iconSizes, spacing } from '@luxfi/ui/src/theme'
+import { ActionCard, type ActionCardItem } from '@luxexchange/lx/src/components/misc/ActionCard'
+import { Modal } from '@luxexchange/lx/src/components/modals/Modal'
+import { useCexTransferProviders } from '@luxexchange/lx/src/features/fiatOnRamp/useCexTransferProviders'
+import { ElementName, ModalName } from '@luxexchange/lx/src/features/telemetry/constants'
+import { usePortfolioEmptyStateBackground } from '@luxfi/wallet/src/components/portfolio/empty'
+
+export function FundWalletModal(): JSX.Element {
+  const shadowProps = useShadowPropsShort()
+  const { t } = useTranslation()
+  const dispatch = useDispatch()
+  const cexTransferProviders = useCexTransferProviders()
+  const openReceiveModal = useOpenReceiveModal()
+
+  const { onClose } = useReactNavigationModal()
+
+  const disableForKorea = useFeatureFlag(FeatureFlags.DisableFiatOnRampKorea)
+
+  const backgroundImageWrapperCallback = usePortfolioEmptyStateBackground()
+
+  const onPressBuy = useCallback(() => {
+    onClose()
+    disableForKorea
+      ? navigate(ModalName.KoreaCexTransferInfoModal)
+      : dispatch(
+          openModal({
+            name: ModalName.FiatOnRampAggregator,
+          }),
+        )
+  }, [disableForKorea, onClose, dispatch])
+
+  const onPressReceive = useCallback(() => {
+    onClose()
+    openReceiveModal()
+  }, [onClose, openReceiveModal])
+
+  const cards = useMemo(
+    () =>
+      [
+        {
+          title: t('home.tokens.empty.action.buy.title'),
+          blurb: t('home.tokens.empty.action.buy.description'),
+          elementName: ElementName.EmptyStateBuy,
+          // Intentionally sized differently per designs because this icon has more vertical padding than others
+          icon: (
+            <Flex my={-spacing.spacing4}>
+              <Buy color="$accent1" size="$icon.28" />
+            </Flex>
+          ),
+          onPress: onPressBuy,
+          backgroundImageWrapperCallback,
+        },
+        {
+          title: t('home.tokens.empty.action.receive.title'),
+          blurb: t('home.tokens.empty.action.receive.description'),
+          elementName: ElementName.EmptyStateReceive,
+          icon:
+            cexTransferProviders.length > 0 ? (
+              <OverlappingLogos
+                logos={[
+                  <ReceiveCryptoIcon key="receive-icon" />,
+                  ...cexTransferProviders.map((provider) => provider.logos?.lightLogo ?? ''),
+                ]}
+              />
+            ) : (
+              <ArrowDownCircle color="$accent1" size="$icon.24" />
+            ),
+          onPress: onPressReceive,
+        },
+      ] satisfies ActionCardItem[],
+    [backgroundImageWrapperCallback, cexTransferProviders, onPressBuy, onPressReceive, t],
+  )
+  return (
+    <Modal name={ModalName.FundWallet} onClose={onClose}>
+      <Flex gap="$spacing12" pb="$spacing12" px="$spacing16">
+        {cards.map((card) => (
+          <ActionCard
+            key={card.title}
+            {...card}
+            containerProps={{
+              ...shadowProps,
+              py: '$spacing20',
+              px: '$spacing20',
+            }}
+          />
+        ))}
+      </Flex>
+    </Modal>
+  )
+}
+
+const ICON_SHIFT = 10
+
+function OverlappingLogos({ logos }: { logos: (string | JSX.Element)[] }): JSX.Element {
+  return (
+    <Flex height={iconSizes.icon24}>
+      <FlatList
+        horizontal
+        CellRendererComponent={LogoRendererComponent}
+        contentContainerStyle={{
+          paddingEnd: -ICON_SHIFT,
+          marginEnd: ICON_SHIFT,
+        }}
+        data={logos}
+        renderItem={({ item }) => (typeof item === 'string' ? <ServiceProviderLogo uri={item} /> : item)}
+      />
+    </Flex>
+  )
+}
+
+/*
+ * Set the zIndex to -index to reverse the order of the elements.
+ */
+const LogoRendererComponent = ({
+  children,
+  index,
+}: PropsWithChildren<{
+  index: number
+}>): JSX.Element => {
+  return (
+    <Flex
+      centered
+      animation="quick"
+      enterStyle={{ opacity: 0 }}
+      exitStyle={{ opacity: 0 }}
+      marginEnd={-ICON_SHIFT}
+      zIndex={-index}
+    >
+      {children}
+    </Flex>
+  )
+}
+
+function ServiceProviderLogo({ uri }: { uri: string }): JSX.Element {
+  return (
+    <Flex
+      backgroundColor="$surface1"
+      borderColor="$surface1"
+      borderRadius="$rounded8"
+      borderWidth="$spacing2"
+      overflow="hidden"
+    >
+      <UniversalImage
+        uri={uri}
+        size={{
+          height: iconSizes.icon24,
+          width: iconSizes.icon24,
+          resizeMode: UniversalImageResizeMode.Cover,
+        }}
+        style={{ image: { borderRadius: borderRadii.rounded8 } }}
+      />
+    </Flex>
+  )
+}
+
+function ReceiveCryptoIcon(): JSX.Element {
+  return (
+    <Flex
+      backgroundColor="$surface1"
+      borderColor="$surface1"
+      borderRadius="$roundedFull"
+      borderWidth="$spacing1"
+      overflow="hidden"
+    >
+      <ArrowDownCircle color="$accent1" size="$icon.24" />
+    </Flex>
+  )
+}
