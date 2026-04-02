@@ -1,5 +1,5 @@
 // biome-ignore lint/style/noRestrictedImports: legacy import will be migrated
-import { ChainId as LuxSDKChainId } from '@luxamm/sdk-core'
+import { ChainId as LXSDKChainId } from '@luxamm/sdk-core'
 // biome-ignore lint/style/noRestrictedImports: legacy import will be migrated
 import type { CurrencyAmount, Token } from '@luxamm/sdk-core'
 import type { GraphQLApi } from '@luxfi/api'

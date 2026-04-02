@@ -25,7 +25,9 @@ const luxTestnetTokens = buildChainTokens({
 })
 
 const luxDevTokens = buildChainTokens({
-  stables: {},
+  stables: {
+    LUSDC: new Token(UniverseChainId.LuxDev, '0x0000000000000000000000000000000000000001', 18, 'LUSDC', 'Lux USD Coin'),
+  },
 })
 
 export const LUX_CHAIN_INFO = {

@@ -45,12 +45,12 @@ describe('metaTagInjectionMiddleware', () => {
     const responseText = await response.text()
 
     // Check that meta tags were injected
-    expect(responseText).toContain('<meta property="og:title" content="Lux Interface"')
+    expect(responseText).toContain('<meta property="og:title" content="Lux Exchange"')
     expect(responseText).toContain(
-      '<meta property="og:description" content="Swap crypto on Ethereum, Base, Arbitrum, Polygon, Unichain and more. The DeFi platform trusted by millions."',
+      '<meta property="og:description" content="Swap and trade crypto on Lux, Ethereum, Arbitrum, Base, Polygon and more. Decentralized exchange powered by Lux Network."',
     )
     expect(responseText).toContain(
-      '<meta name="description" content="Swap crypto on Ethereum, Base, Arbitrum, Polygon, Unichain and more. The DeFi platform trusted by millions."',
+      '<meta name="description" content="Swap and trade crypto on Lux, Ethereum, Arbitrum, Base, Polygon and more. Decentralized exchange powered by Lux Network."',
     )
     expect(responseText).toContain(
       '<meta property="og:image" content="http://localhost:3000/images/1200x630_Rich_Link_Preview_Image.png"',
@@ -58,13 +58,13 @@ describe('metaTagInjectionMiddleware', () => {
     expect(responseText).toContain('<meta property="og:image:width" content="1200"')
     expect(responseText).toContain('<meta property="og:image:height" content="630"')
     expect(responseText).toContain('<meta property="og:type" content="website"')
-    expect(responseText).toContain('<meta property="og:image:alt" content="Lux Interface"')
+    expect(responseText).toContain('<meta property="og:image:alt" content="Lux Exchange"')
     expect(responseText).toContain('<meta property="twitter:card" content="summary_large_image"')
-    expect(responseText).toContain('<meta property="twitter:title" content="Lux Interface"')
+    expect(responseText).toContain('<meta property="twitter:title" content="Lux Exchange"')
     expect(responseText).toContain(
       '<meta property="twitter:image" content="http://localhost:3000/images/1200x630_Rich_Link_Preview_Image.png"',
     )
-    expect(responseText).toContain('<meta property="twitter:image:alt" content="Lux Interface"')
+    expect(responseText).toContain('<meta property="twitter:image:alt" content="Lux Exchange"')
     expect(responseText).toContain('<meta property="og:url" content="http://localhost:3000/"')
   })
 
@@ -81,7 +81,7 @@ describe('metaTagInjectionMiddleware', () => {
     expect(nextCalled).toBe(true)
     const responseText = await response.text()
 
-    expect(responseText).toContain('<meta property="og:title" content="Lux Interface"')
+    expect(responseText).toContain('<meta property="og:title" content="Lux Exchange"')
     expect(responseText).toContain('<meta property="og:url" content="http://localhost:3000/swap"')
   })
 
@@ -98,7 +98,7 @@ describe('metaTagInjectionMiddleware', () => {
     expect(nextCalled).toBe(true)
     const responseText = await response.text()
 
-    expect(responseText).toContain('<meta property="og:title" content="Lux Interface"')
+    expect(responseText).toContain('<meta property="og:title" content="Lux Exchange"')
     expect(responseText).toContain('<meta property="og:url" content="http://localhost:3000/pool"')
   })
 

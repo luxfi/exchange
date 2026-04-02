@@ -45,7 +45,7 @@ data:
         "twitter": "https://x.com/luxfi",
         "github": "https://github.com/luxfi",
         "discord": "https://discord.gg/lux",
-        "primaryColor": "#FC72FF",
+        "primaryColor": "#000000",
         "defaultChainId": 96369,
         "supportedChainIds": [96369, 200200, 36963, 36911, 494949, 96368]
       }
