@@ -1,3 +1,4 @@
+import { brand } from '@l.x/config'
 import { isTestEnv } from '@luxfi/utilities/src/environment/env'
 import { logger } from '@luxfi/utilities/src/logger/logger'
 
@@ -18,6 +19,7 @@ export async function setupInsights() {
 
   try {
     const { default: Insights } = await import('@hanzo/insights')
+    const appSlug = brand.appDomain?.replace(/\./g, '-') || 'lux-exchange'
     insightsClient = new Insights(INSIGHTS_API_KEY, {
       api_host: INSIGHTS_HOST,
       capture_pageview: true,
@@ -28,7 +30,7 @@ export async function setupInsights() {
         logger.debug('insights.ts', 'setupInsights', 'Hanzo Insights initialized')
         // Identify the app
         insights.register({
-          app: 'lux-exchange',
+          app: appSlug,
           app_version: process.env.REACT_APP_GIT_COMMIT_HASH || 'unknown',
           platform: 'web',
         })

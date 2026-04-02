@@ -32,27 +32,33 @@ const MobileTouchableArea = isMobileWeb ? TouchableArea : Fragment
 export function Socials({ iconSize, gap }: { iconSize?: string; gap?: FlexProps['gap'] }) {
   return (
     <Flex row gap={gap ?? '$spacing24'} maxHeight={iconSize} alignItems="flex-start">
-      <MobileTouchableArea>
-        <SocialIcon iconColor="#00C32B">
-          <Anchor href="https://github.com/luxfi" target="_blank">
-            <Github size={iconSize} fill="inherit" />
-          </Anchor>
-        </SocialIcon>
-      </MobileTouchableArea>
-      <MobileTouchableArea>
-        <SocialIcon iconColor="#20BAFF">
-          <Anchor href="https://x.com/luxaboratories" target="_blank">
-            <Twitter size={iconSize} fill="inherit" />
-          </Anchor>
-        </SocialIcon>
-      </MobileTouchableArea>
-      <MobileTouchableArea>
-        <SocialIcon iconColor="#5F51FF">
-          <Anchor href="https://discord.gg/luxfi" target="_blank">
-            <Discord size={iconSize} fill="inherit" />
-          </Anchor>
-        </SocialIcon>
-      </MobileTouchableArea>
+      {brand.github && (
+        <MobileTouchableArea>
+          <SocialIcon iconColor="#00C32B">
+            <Anchor href={brand.github} target="_blank">
+              <Github size={iconSize} fill="inherit" />
+            </Anchor>
+          </SocialIcon>
+        </MobileTouchableArea>
+      )}
+      {brand.twitter && (
+        <MobileTouchableArea>
+          <SocialIcon iconColor="#20BAFF">
+            <Anchor href={brand.twitter} target="_blank">
+              <Twitter size={iconSize} fill="inherit" />
+            </Anchor>
+          </SocialIcon>
+        </MobileTouchableArea>
+      )}
+      {brand.discord && (
+        <MobileTouchableArea>
+          <SocialIcon iconColor="#5F51FF">
+            <Anchor href={brand.discord} target="_blank">
+              <Discord size={iconSize} fill="inherit" />
+            </Anchor>
+          </SocialIcon>
+        </MobileTouchableArea>
+      )}
     </Flex>
   )
 }
@@ -88,7 +94,7 @@ export function Footer() {
   const needHelpSection = sectionContent[MenuSectionTitle.NeedHelp]
   const brandAssets: MenuItem = {
     label: t('common.brandAssets'),
-    href: 'https://github.com/luxfi/brand-assets/raw/main/Lux%20Brand%20Assets.zip',
+    href: brand.github ? `${brand.github.replace(/\/$/, '')}/brand-assets` : '#',
     internal: false,
     elementName: ElementName.NavbarCompanyMenuBrandAssets,
   }
@@ -126,7 +132,7 @@ export function Footer() {
         width="100%"
         justifyContent="space-between"
       >
-        <Text variant="body3">© {currentYear} - {brand.legalEntity}</Text>
+        <Text variant="body3">© {currentYear} - {brand.copyrightHolder || brand.legalEntity}</Text>
         <Flex row alignItems="center" gap="$spacing16">
           <PolicyLink onPress={togglePrivacyPolicy}>{t('common.privacyPolicy')}</PolicyLink>
           <Anchor textDecorationLine="none" href={getBrandUrl('/trademark')} target="_blank">

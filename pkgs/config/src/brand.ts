@@ -10,7 +10,32 @@
  *
  * For zoo.exchange: mount a ConfigMap with Zoo branding over /config.json
  * For any L2: same image, different ConfigMap
+ *
+ * KMS integration: set KMS_BRAND_SECRET env var to load brand config from
+ * KMS (Infisical) instead of a ConfigMap. The secret should contain the
+ * full RuntimeConfig JSON. The /config.json endpoint in the serving layer
+ * should proxy to KMS when this env var is set.
  */
+
+/** Theme color overrides applied on top of the default dark/light themes */
+export interface BrandTheme {
+  /** Primary accent color (buttons, links) */
+  accent1?: string
+  /** Background color */
+  surface1?: string
+  /** Secondary surface */
+  surface2?: string
+  /** Tertiary surface */
+  surface3?: string
+  /** Primary text color */
+  neutral1?: string
+  /** Secondary text color */
+  neutral2?: string
+  /** Success status color */
+  statusSuccess?: string
+  /** Critical/error status color */
+  statusCritical?: string
+}
 
 export interface BrandConfig {
   name: string
@@ -18,6 +43,12 @@ export interface BrandConfig {
   description: string
   /** Legal entity name for Terms/Privacy, e.g. "Lux Industries Inc." */
   legalEntity: string
+  /** Wallet product name, e.g. "Zoo Wallet" or "Lux Wallet" */
+  walletName: string
+  /** Protocol product name, e.g. "Zoo Protocol" or "Lux Protocol" */
+  protocolName: string
+  /** Copyright holder name, e.g. "Zoo Labs Foundation" */
+  copyrightHolder: string
   appDomain: string
   docsDomain: string
   infoDomain: string
@@ -40,6 +71,11 @@ export interface BrandConfig {
   walletConnectProjectId: string
   insightsHost: string
   insightsApiKey: string
+  /** Theme color overrides for dark and light modes */
+  theme?: {
+    light?: BrandTheme
+    dark?: BrandTheme
+  }
 }
 
 export interface RuntimeConfig {
@@ -66,6 +102,9 @@ export const brand: BrandConfig = {
   title: '',
   description: '',
   legalEntity: '',
+  walletName: '',
+  protocolName: '',
+  copyrightHolder: '',
   appDomain: '',
   docsDomain: '',
   infoDomain: '',
@@ -97,6 +136,10 @@ export let runtimeConfig: RuntimeConfig | null = null
  * Load brand config from /config.json. Call once before React renders.
  * The config.json is either the default shipped in the image, or a
  * ConfigMap mounted by K8s for white-label deployments.
+ *
+ * KMS integration: when the serving layer sets KMS_BRAND_SECRET, it should
+ * proxy /config.json to fetch the secret value from KMS (Infisical). The
+ * SPA itself always fetches /config.json — KMS resolution is server-side.
  */
 export async function loadBrandConfig(): Promise<RuntimeConfig> {
   try {
@@ -107,6 +150,17 @@ export async function loadBrandConfig(): Promise<RuntimeConfig> {
     // Apply brand overrides
     if (config.brand) {
       Object.assign(brand, config.brand)
+    }
+
+    // Derive convenience fields from name if not explicitly set
+    if (!brand.walletName && brand.name) {
+      brand.walletName = brand.name.replace(/\s*exchange\s*/i, '') + ' Wallet'
+    }
+    if (!brand.protocolName && brand.name) {
+      brand.protocolName = brand.name.replace(/\s*exchange\s*/i, '') + ' Protocol'
+    }
+    if (!brand.copyrightHolder) {
+      brand.copyrightHolder = brand.legalEntity
     }
 
     // Apply chain config
@@ -125,9 +179,17 @@ export async function loadBrandConfig(): Promise<RuntimeConfig> {
       brand.insightsHost = config.api.insights
     }
 
-    // Update document title
-    if (typeof document !== 'undefined' && config.brand?.title) {
-      document.title = config.brand.title
+    // Update document title and favicon
+    if (typeof document !== 'undefined') {
+      if (config.brand?.title) {
+        document.title = config.brand.title
+      }
+      if (config.brand?.faviconUrl) {
+        const link = document.querySelector("link[rel*='icon']") as HTMLLinkElement | null
+        if (link) {
+          link.href = config.brand.faviconUrl
+        }
+      }
     }
 
     runtimeConfig = config

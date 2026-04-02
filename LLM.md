@@ -962,16 +962,34 @@ All branding is driven by `NEXT_PUBLIC_BRAND_*` env vars at build time. Defaults
 | pars.market | Pars EVM (494949) | PARS |
 | lux.exchange | Liquid EVM | LUX |
 
-### Key Brand Env Vars
-```
-NEXT_PUBLIC_BRAND_NAME        # e.g. "Lux Exchange"
-NEXT_PUBLIC_BRAND_URL         # e.g. "https://lux.exchange"
-NEXT_PUBLIC_NETWORK_NAME      # e.g. "Lux Network"
-NEXT_PUBLIC_COIN_NAME         # e.g. "LUX" (or "AI" for Hanzo, "ZOO" for Zoo)
-NEXT_PUBLIC_LOGO_URL          # e.g. "/tokens/lux.svg"
-NEXT_PUBLIC_PRIMARY_COLOR     # e.g. "#7C3AED"
-NEXT_PUBLIC_API_ENDPOINT      # e.g. "https://api.lux.network"
-```
+### Runtime Brand Config (White-Label)
+
+Brand is determined at runtime by `/config.json` mounted via K8s ConfigMap.
+SPA calls `loadBrandConfig()` before first render which populates the global
+`brand` object from `@l.x/config`.
+
+Key files:
+- `pkgs/config/src/brand.ts` - BrandConfig interface, loader, mutable `brand` singleton
+- `config/brands/*.json` - Per-brand JSON configs
+- `deploy/*.config.json` - K8s deployment configs (Zoo, Lux, etc.)
+
+BrandConfig fields (2026-03-26):
+- `name`, `title`, `description`, `legalEntity`
+- `walletName`, `protocolName`, `copyrightHolder` (derived from name if not set)
+- `appDomain`, `docsDomain`, `infoDomain`, `gatewayDomain`, `wsDomain`
+- `helpUrl`, `termsUrl`, `privacyUrl`, `downloadUrl`
+- `complianceEmail`, `supportEmail`
+- `twitter`, `github`, `discord`
+- `logoUrl`, `faviconUrl`, `primaryColor`
+- `theme.light` / `theme.dark` - BrandTheme color overrides (accent1, surface1, etc.)
+- `defaultChainId`, `supportedChainIds`, `walletConnectProjectId`
+- `insightsHost`, `insightsApiKey`
+
+KMS integration: set `KMS_BRAND_SECRET` env var on the serving layer to proxy
+`/config.json` from KMS (Infisical) instead of a ConfigMap file.
+
+Social links in Footer.tsx and insights app identity now read from `brand` config
+at runtime. No hardcoded domain or brand references remain in the critical path.
 
 ## Rules for AI Assistants
 

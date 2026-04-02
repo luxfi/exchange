@@ -4,6 +4,9 @@
     "title": "Zoo Exchange | Trade",
     "description": "The decentralized exchange for the Zoo ecosystem",
     "legalEntity": "Zoo Labs Foundation",
+    "walletName": "Zoo Wallet",
+    "protocolName": "Zoo Protocol",
+    "copyrightHolder": "Zoo Labs Foundation",
     "appDomain": "zoo.exchange",
     "docsDomain": "docs.zoo.exchange",
     "infoDomain": "info.zoo.exchange",
@@ -20,6 +23,22 @@
     "discord": "https://discord.gg/zoo",
     "primaryColor": "#10B981",
     "defaultChainId": 200200,
-    "supportedChainIds": [200200, 200201]
+    "supportedChainIds": [200200, 200201],
+    "theme": {
+      "light": {
+        "accent1": "#059669",
+        "surface1": "#FFFFFF",
+        "surface2": "#F0FDF4",
+        "neutral1": "#131313",
+        "neutral2": "rgba(19, 19, 19, 0.63)"
+      },
+      "dark": {
+        "accent1": "#34D399",
+        "surface1": "#000000",
+        "surface2": "#022C22",
+        "neutral1": "#FFFFFF",
+        "neutral2": "rgba(255, 255, 255, 0.65)"
+      }
+    }
   }
 }

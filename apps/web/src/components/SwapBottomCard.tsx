@@ -111,7 +111,7 @@ interface ChainTheme {
   textColor: string
 }
 
-const CHAIN_THEME_LIGHT: Record<UniverseChainId, ChainTheme> = {
+const CHAIN_THEME_LIGHT: Partial<Record<UniverseChainId, ChainTheme>> = {
   [UniverseChainId.Mainnet]: { bgColor: '#6B8AFF33', textColor: '#6B8AFF' },
   [UniverseChainId.ArbitrumOne]: { bgColor: '#00A3FF33', textColor: '#00A3FF' },
   [UniverseChainId.Avalanche]: { bgColor: '#E8414233', textColor: '#E84142' },
@@ -136,14 +136,18 @@ const CHAIN_THEME_LIGHT: Record<UniverseChainId, ChainTheme> = {
   [UniverseChainId.Lux]: { bgColor: '#F5456233', textColor: '#F54562' },
   [UniverseChainId.LuxTestnet]: { bgColor: '#F5456233', textColor: '#F54562' },
   [UniverseChainId.LuxDev]: { bgColor: '#F5456233', textColor: '#F54562' },
-  [UniverseChainId.Zoo]: { bgColor: '#9945FF33', textColor: '#9945FF' },
-  [UniverseChainId.ZooTestnet]: { bgColor: '#9945FF33', textColor: '#9945FF' },
+  [UniverseChainId.Zoo]: { bgColor: '#10B98133', textColor: '#10B981' },
+  [UniverseChainId.ZooTestnet]: { bgColor: '#10B98133', textColor: '#10B981' },
   [UniverseChainId.Hanzo]: { bgColor: '#00D4AA33', textColor: '#00D4AA' },
   [UniverseChainId.SPC]: { bgColor: '#FF69B433', textColor: '#FF69B4' },
   [UniverseChainId.Pars]: { bgColor: '#FFB80033', textColor: '#FFB800' },
+  // Liquidity chains
+  [UniverseChainId.LiquidityMainnet]: { bgColor: '#F5456233', textColor: '#F54562' },
+  [UniverseChainId.LiquidityTestnet]: { bgColor: '#F5456233', textColor: '#F54562' },
+  [UniverseChainId.LiquidityDevnet]: { bgColor: '#F5456233', textColor: '#F54562' },
 }
 
-const CHAIN_THEME_DARK: Record<UniverseChainId, ChainTheme> = {
+const CHAIN_THEME_DARK: Partial<Record<UniverseChainId, ChainTheme>> = {
   ...CHAIN_THEME_LIGHT,
   [UniverseChainId.Blast]: { bgColor: 'rgba(252, 252, 3, 0.12)', textColor: 'rgba(252, 252, 3, 1) ' },
   [UniverseChainId.Celo]: { bgColor: '#FCFF5299', textColor: '#655947' },

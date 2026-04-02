@@ -20,6 +20,9 @@ describe('BrandConfig interface completeness', () => {
     'title',
     'description',
     'legalEntity',
+    'walletName',
+    'protocolName',
+    'copyrightHolder',
     'appDomain',
     'docsDomain',
     'infoDomain',
@@ -317,5 +320,66 @@ describe('loadBrandConfig()', () => {
     expect(brand.name).toBe('Partial Brand')
     expect(brand.faviconUrl).toBe('/favicon.ico')
     expect(brand.primaryColor).toBe('#FC72FF')
+  })
+
+  it('derives walletName from name when not explicitly set', async () => {
+    vi.stubGlobal(
+      'fetch',
+      vi.fn().mockResolvedValue({
+        ok: true,
+        json: async () => ({
+          brand: { name: 'Zoo Exchange' },
+          chains: { defaultChainId: 200200, supported: [200200] },
+          rpc: {},
+          api: { graphql: '', gateway: '', insights: '' },
+          walletConnect: { projectId: '' },
+        }),
+      }),
+    )
+
+    await loadBrandConfig()
+
+    expect(brand.walletName).toBe('Zoo Wallet')
+    expect(brand.protocolName).toBe('Zoo Protocol')
+  })
+
+  it('uses explicit walletName over derived value', async () => {
+    vi.stubGlobal(
+      'fetch',
+      vi.fn().mockResolvedValue({
+        ok: true,
+        json: async () => ({
+          brand: { name: 'Zoo Exchange', walletName: 'Custom Wallet' },
+          chains: { defaultChainId: 200200, supported: [200200] },
+          rpc: {},
+          api: { graphql: '', gateway: '', insights: '' },
+          walletConnect: { projectId: '' },
+        }),
+      }),
+    )
+
+    await loadBrandConfig()
+
+    expect(brand.walletName).toBe('Custom Wallet')
+  })
+
+  it('derives copyrightHolder from legalEntity when not set', async () => {
+    vi.stubGlobal(
+      'fetch',
+      vi.fn().mockResolvedValue({
+        ok: true,
+        json: async () => ({
+          brand: { name: 'Zoo Exchange', legalEntity: 'Zoo Labs Foundation' },
+          chains: { defaultChainId: 200200, supported: [200200] },
+          rpc: {},
+          api: { graphql: '', gateway: '', insights: '' },
+          walletConnect: { projectId: '' },
+        }),
+      }),
+    )
+
+    await loadBrandConfig()
+
+    expect(brand.copyrightHolder).toBe('Zoo Labs Foundation')
   })
 })

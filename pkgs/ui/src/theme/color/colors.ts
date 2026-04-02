@@ -179,8 +179,8 @@ export const networkColors = {
     dark: '#F54562',
   },
   zoo: {
-    light: '#9945FF',
-    dark: '#9945FF',
+    light: '#10B981',
+    dark: '#34D399',
   },
 }
 
@@ -368,6 +368,11 @@ export const colorsLight = {
   chain_36911: networkColors.lux.light, // SPC Network
   chain_494949: networkColors.lux.light, // Pars Network
 
+  // Liquidity chains
+  chain_0: networkColors.lux.light, // Liquidity Mainnet
+  chain_0: networkColors.lux.light, // Liquidity Testnet
+  chain_0: networkColors.lux.light, // Liquidity Devnet
+
   // Testnets
   chain_11155111: networkColors.ethereum.light,
   chain_1301: networkColors.unichain.light,
@@ -469,6 +474,11 @@ export const colorsDark = {
   chain_36963: networkColors.lux.dark, // Hanzo Network
   chain_36911: networkColors.lux.dark, // SPC Network
   chain_494949: networkColors.lux.dark, // Pars Network
+
+  // Liquidity chains
+  chain_0: networkColors.lux.dark, // Liquidity Mainnet
+  chain_0: networkColors.lux.dark, // Liquidity Testnet
+  chain_0: networkColors.lux.dark, // Liquidity Devnet
 
   // Testnets
   chain_11155111: networkColors.ethereum.dark,

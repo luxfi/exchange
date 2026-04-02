@@ -1,3 +1,4 @@
+import { brand } from '@l.x/config'
 import { Fragment, useCallback, useMemo } from 'react'
 import { Trans, useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router'
@@ -99,7 +100,7 @@ export function Hero({ scrollToRef, transition }: HeroProps) {
           opacity: 0.4,
         }}
       >
-        <source src="/videos/lux-hero.mp4" type="video/mp4" />
+        <source src={`/videos/${brand.appDomain?.split('.')[0] || 'lux'}-hero.mp4`} type="video/mp4" />
       </video>
 
       {!media.sm && <TokenCloud />}

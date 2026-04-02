@@ -258,7 +258,11 @@ const RootApp = (): JSX.Element => {
           capture_pageview: true,
           capture_pageleave: true,
           autocapture: true,
-          loaded: (hi: any) => hi.register({ app: 'lux-exchange', org: 'lux' }),
+          loaded: (hi: any) => {
+            const slug = brand.appDomain?.replace(/\./g, '-') || 'lux-exchange'
+            const org = brand.name?.split(' ')[0]?.toLowerCase() || 'lux'
+            hi.register({ app: slug, org })
+          },
         }}
       >
       <HelmetProvider>
@@ -318,7 +322,7 @@ const RootApp = (): JSX.Element => {
 }
 
 // Load runtime brand config before rendering (fetches /config.json)
-import { loadBrandConfig } from '@l.x/config'
+import { brand, loadBrandConfig } from '@l.x/config'
 
 loadBrandConfig().then(() => {
   createRoot(container).render(<RootApp />)
