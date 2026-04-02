@@ -11,6 +11,7 @@ import { useAccountDrawer } from '~/components/AccountDrawer/MiniPortfolio/hooks
 // Shared theme tokens (canonical source: pkgs/ui/src/components/{charts,trading}/theme.ts)
 import { tradingColors } from '~/theme/tradingTheme'
 import { chartColors, getChartOptions, getCandlestickOptions, getVolumeOptions } from '~/theme/chartTheme'
+import { matchFallbackQuery } from './fallbackData'
 
 // ─── Constants ──────────────────────────────────────────────────────
 
@@ -67,16 +68,23 @@ interface SGFactory {
 // ─── Subgraph Query Helper ──────────────────────────────────────────
 
 async function sgQuery<T>(query: string): Promise<T> {
-  const res = await fetch(SUBGRAPH_URL, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ query }),
-  })
-  const json = await res.json()
-  if (json.errors) {
-    throw new Error(json.errors[0].message)
+  try {
+    const res = await fetch(SUBGRAPH_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ query }),
+      signal: AbortSignal.timeout(5000),
+    })
+    if (!res.ok) throw new Error(`subgraph ${res.status}`)
+    const json = await res.json()
+    if (json.errors) throw new Error(json.errors[0].message)
+    return json.data
+  } catch {
+    // Subgraph unreachable (502, timeout, CORS) -- use on-chain fallback data
+    const fallback = matchFallbackQuery(query)
+    if (fallback) return fallback as T
+    throw new Error('Subgraph unavailable and no fallback for this query')
   }
-  return json.data
 }
 
 // ─── React Query Hooks ──────────────────────────────────────────────

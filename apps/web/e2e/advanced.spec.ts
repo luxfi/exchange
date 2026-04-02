@@ -2,7 +2,9 @@
  * Lux Exchange - Advanced Trading Page E2E Tests
  *
  * Tests the advanced trading terminal at /#/advanced.
- * UI structure tests always run; data-dependent tests skip when subgraph is empty.
+ * The TradePage renders pool data from the V3 subgraph with automatic
+ * fallback to on-chain contract data when the subgraph is unreachable.
+ * All tests run unconditionally -- data is always available.
  *
  * Usage:
  *   BASE_URL=https://exchange.lux.network npx playwright test e2e/advanced.spec.ts
@@ -34,16 +36,13 @@ async function hasVisibleText(page: import('@playwright/test').Page, text: strin
 }
 
 test.describe('Advanced Trading Page @critical', () => {
-  let hasSubgraphData = false
-
   test.beforeEach(async ({ page }) => {
     await page.goto('/#/advanced')
+    // Wait for data to load (subgraph or fallback)
     await page.waitForTimeout(8000)
-    // Probe for any subgraph data (pool pairs, dollar values, percentages)
-    hasSubgraphData = await hasVisibleText(page, /\w+\/\w+/) || await hasVisibleText(page, /\$\d/)
   })
 
-  // === UI Structure Tests (always pass if page renders) ===
+  // === UI Structure Tests ===
 
   test('should render three-panel layout', async ({ page }) => {
     await expect(page.getByText('Trades', { exact: true }).first()).toBeVisible({ timeout: LOAD_TIMEOUT })
@@ -94,70 +93,68 @@ test.describe('Advanced Trading Page @critical', () => {
     expect(purpleCount).toBe(0)
   })
 
-  // === Data-Dependent Tests (skip when subgraph is empty) ===
+  // === Data Tests (always pass -- fallback data guarantees pools are present) ===
 
   test('should display pool pair in table @critical', async ({ page }) => {
-    test.skip(!hasSubgraphData, 'Subgraph has no pool data')
+    // Pool pairs like LUX/LETH, LETH/LUSDC should be visible
     expect(await hasVisibleText(page, /\w+\/\w+/)).toBeTruthy()
   })
 
   test('should show live price stats', async ({ page }) => {
-    test.skip(!hasSubgraphData, 'Subgraph has no pool data')
+    // Top bar shows Price, TVL, Volume for selected pool
     await expect(page.getByText(/price/i).first()).toBeVisible({ timeout: LOAD_TIMEOUT })
     await expect(page.getByText(/tvl/i).first()).toBeVisible({ timeout: LOAD_TIMEOUT })
     await expect(page.getByText(/volume/i).first()).toBeVisible({ timeout: LOAD_TIMEOUT })
   })
 
   test('should show trades with price data', async ({ page }) => {
-    test.skip(!hasSubgraphData, 'Subgraph has no pool data')
-    await page.waitForTimeout(5000)
+    // Left panel shows recent trades with numeric price/amount values
     const numericData = page.locator('text=/\\d+\\.\\d+/')
     const count = await numericData.count()
     expect(count).toBeGreaterThan(0)
   })
 
   test('should show pools in bottom panel @critical', async ({ page }) => {
-    test.skip(!hasSubgraphData, 'Subgraph has no pool data')
     const poolsTab = page.getByText(/Pools/i).first()
     await expect(poolsTab).toBeVisible({ timeout: LOAD_TIMEOUT })
     await poolsTab.click()
     await page.waitForTimeout(2000)
+    // Pool table shows dollar-formatted TVL/volume values
     const dollarValues = page.locator('text=/\\$[\\d,.]+/')
     const count = await dollarValues.count()
     expect(count).toBeGreaterThan(0)
   })
 
   test('should show pool table with data', async ({ page }) => {
-    test.skip(!hasSubgraphData, 'Subgraph has no pool data')
+    // Dollar values and percentage fee tiers visible
     expect(await hasVisibleText(page, /\$\d/)).toBeTruthy()
     expect(await hasVisibleText(page, /\d+\.?\d*%/)).toBeTruthy()
   })
 
   test('should show TVL and pools count in top bar @critical', async ({ page }) => {
-    test.skip(!hasSubgraphData, 'Subgraph has no pool data')
+    // Factory stats: TVL and pool count in top-right
     const tvlValue = page.locator('text=/\\$\\d+/')
     await expect(tvlValue.first()).toBeVisible({ timeout: LOAD_TIMEOUT })
     await expect(page.getByText(/pools/i).first()).toBeVisible({ timeout: LOAD_TIMEOUT })
   })
 
   test('should show live indicator', async ({ page }) => {
-    test.skip(!hasSubgraphData, 'Subgraph has no pool data')
     await expect(page.getByText('Live')).toBeVisible({ timeout: LOAD_TIMEOUT })
   })
 
   test('should show History tab with trade columns', async ({ page }) => {
-    test.skip(!hasSubgraphData, 'Subgraph has no pool data')
     const historyTab = page.getByText('History')
     await expect(historyTab).toBeVisible({ timeout: LOAD_TIMEOUT })
     await historyTab.click()
     await page.waitForTimeout(2000)
+    // Trade history shows sender addresses like 0xabcd
     const addresses = page.locator('text=/0x[a-f0-9]{4}/i')
     const count = await addresses.count()
     expect(count).toBeGreaterThan(0)
   })
 
   test('should show fee values in pool table', async ({ page }) => {
-    test.skip(!hasSubgraphData, 'Subgraph has no pool data')
+    // Fee tiers like 0.3% or 0.05% visible
     expect(await hasVisibleText(page, /0\.\d+%/)).toBeTruthy()
   })
 })

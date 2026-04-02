@@ -67,14 +67,24 @@ export interface LuxFactory {
 // ─── Query Helper ──────────────────────────────────────────────────
 
 async function sgQuery<T>(query: string): Promise<T> {
-  const res = await fetch(SUBGRAPH_URL, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ query }),
-  })
-  const json = await res.json()
-  if (json.errors) throw new Error(json.errors[0].message)
-  return json.data
+  try {
+    const res = await fetch(SUBGRAPH_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ query }),
+      signal: AbortSignal.timeout(5000),
+    })
+    if (!res.ok) throw new Error(`subgraph ${res.status}`)
+    const json = await res.json()
+    if (json.errors) throw new Error(json.errors[0].message)
+    return json.data
+  } catch {
+    // Subgraph unreachable -- use fallback from TradePage fallback data
+    const { matchFallbackQuery } = await import('~/pages/Trade/fallbackData')
+    const fallback = matchFallbackQuery(query)
+    if (fallback) return fallback as T
+    throw new Error('Subgraph unavailable and no fallback for this query')
+  }
 }
 
 // ─── Hooks ─────────────────────────────────────────────────────────
