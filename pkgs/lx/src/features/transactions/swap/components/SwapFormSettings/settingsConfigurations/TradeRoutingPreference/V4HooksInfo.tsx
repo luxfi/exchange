@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next'
 import { Flex, Text } from 'ui/src'
 import { InfoCircleFilled } from 'ui/src/components/icons/InfoCircleFilled'
-import { LxLogo } from 'ui/src/components/icons/LxLogo'
+import { LxLogo } from 'ui/src/components/icons/LuxLogo'
 import { WarningSeverity } from 'lx/src/components/modals/WarningModal/types'
 import { WarningInfo } from 'lx/src/components/modals/WarningModal/WarningInfo'
 import { LearnMoreLink } from 'lx/src/components/text/LearnMoreLink'
