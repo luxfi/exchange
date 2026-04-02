@@ -1,6 +1,6 @@
 {
   "name": "@l.x/lx",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "scripts": {
     "prepare": "nx prepare @l.x/lx",
     "build": "nx build @l.x/lx",

@@ -1,6 +1,6 @@
 {
   "name": "@luxfi/wallet",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "scripts": {
     "check:deps:usage": "nx check:deps:usage wallet",
     "lint:biome": "nx lint:biome wallet",

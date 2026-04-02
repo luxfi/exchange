@@ -1,6 +1,6 @@
 {
   "name": "@luxfi/utilities",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "dependencies": {
     "@amplitude/analytics-browser": "1.12.1",
     "@amplitude/analytics-core": "0.11.0",

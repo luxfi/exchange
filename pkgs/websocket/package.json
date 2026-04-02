@@ -1,6 +1,6 @@
 {
   "name": "@l.x/websocket",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "dependencies": {
     "partysocket": "1.1.10",
     "zustand": "5.0.6"

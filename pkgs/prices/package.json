@@ -1,6 +1,6 @@
 {
   "name": "@l.x/prices",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "dependencies": {
     "@tanstack/react-query": "5.90.20",
     "@luxamm/sdk-core": "7.12.3",

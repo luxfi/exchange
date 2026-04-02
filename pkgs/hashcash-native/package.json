@@ -1,6 +1,6 @@
 {
   "name": "@l.x/hashcash-native",
-  "version": "0.0.1",
+  "version": "1.0.3",
   "description": "Native hashcash proof-of-work solver for React Native",
   "author": "Lux Industries",
   "license": "MIT",
@@ -68,5 +68,6 @@
     "react": ">=19.0.0",
     "react-native": ">=0.79.0",
     "react-native-nitro-modules": ">=0.31.0"
-  }
+  },
+  "private": false
 }

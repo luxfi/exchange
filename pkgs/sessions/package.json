@@ -1,6 +1,6 @@
 {
   "name": "@l.x/sessions",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "scripts": {
     "typecheck": "nx typecheck sessions",
     "typecheck:tsgo": "nx typecheck:tsgo sessions",

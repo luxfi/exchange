@@ -1,6 +1,6 @@
 {
   "name": "@l.x/config",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "dependencies": {
     "react-native-dotenv": "3.2.0",
     "@luxfi/utilities": "workspace:^"

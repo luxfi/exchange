@@ -31,9 +31,26 @@ const LUX_ECOSYSTEM_CHAIN_IDS = new Set([
   1337,   // Local dev (lux dev start)
 ])
 
-/** Returns true if the given chainId belongs to the Lux ecosystem. */
+/** Liquidity sovereign L2 chain IDs — routes to Liquidity ATS, NOT LX Gateway. */
+const LIQUIDITY_CHAIN_IDS = new Set([
+  0,  // Liquidity mainnet
+  0,  // Liquidity testnet
+  0,  // Liquidity devnet
+])
+
+/** Returns true if the given chainId belongs to the Lux ecosystem (shared gateway). */
 export function isLuxEcosystemChain(chainId: number): boolean {
   return LUX_ECOSYSTEM_CHAIN_IDS.has(chainId)
+}
+
+/** Returns true if the given chainId belongs to the Liquidity sovereign L2. */
+export function isLiquidityChain(chainId: number): boolean {
+  return LIQUIDITY_CHAIN_IDS.has(chainId)
+}
+
+/** Returns true if the given chainId is any supported non-Ethereum chain. */
+export function isLuxOrLiquidityChain(chainId: number): boolean {
+  return LUX_ECOSYSTEM_CHAIN_IDS.has(chainId) || LIQUIDITY_CHAIN_IDS.has(chainId)
 }
 
 // ---------------------------------------------------------------------------
@@ -43,8 +60,16 @@ export function isLuxEcosystemChain(chainId: number): boolean {
 const DEV_GATEWAY_URL = 'http://localhost:8085'
 const PROD_GATEWAY_DOMAIN = 'dex.lux.network'
 
+/** Liquidity ATS endpoints — sovereign, NOT shared with LX Gateway. */
+const LIQUIDITY_ATS_URLS: Record<number, string> = {
+  0: 'https://api.main.lux.network',
+  0: 'https://api.test.lux.network',
+  0: 'https://api.dev.lux.network',
+}
+const DEV_LIQUIDITY_ATS_URL = 'http://localhost:8090'
+
 /**
- * Returns the full base URL of the Lux DEX Gateway.
+ * Returns the full base URL of the Lux DEX Gateway (for Lux ecosystem chains).
  * Priority: brand.gatewayDomain (from runtime config.json) > environment default.
  */
 export function getLXGatewayUrl(): string {
@@ -55,6 +80,18 @@ export function getLXGatewayUrl(): string {
     return DEV_GATEWAY_URL
   }
   return `https://${PROD_GATEWAY_DOMAIN}`
+}
+
+/**
+ * Returns the Liquidity ATS base URL for a given Liquidity chain ID.
+ * The ATS is the sovereign gateway for Liquidity — it runs its own
+ * broker, CLOB, and DEX VM natively. Not shared with LX Gateway.
+ */
+export function getLiquidityATSUrl(chainId: number): string {
+  if (isDevEnv()) {
+    return DEV_LIQUIDITY_ATS_URL
+  }
+  return LIQUIDITY_ATS_URLS[chainId] || LIQUIDITY_ATS_URLS[0]
 }
 
 // ---------------------------------------------------------------------------
@@ -79,6 +116,7 @@ interface LXGatewayQuoteResponse {
 
 /**
  * Fetch a quote from the Lux DEX Gateway (/v1/quote).
+ * Used for all Lux ecosystem chains (shared gateway).
  * Throws on non-OK HTTP status.
  */
 export async function fetchLXGatewayQuote(request: LXGatewayQuoteRequest): Promise<LXGatewayQuoteResponse> {
@@ -92,6 +130,41 @@ export async function fetchLXGatewayQuote(request: LXGatewayQuoteRequest): Promi
     throw new Error(`LX Gateway quote failed: ${res.status} ${res.statusText}`)
   }
   return res.json() as Promise<LXGatewayQuoteResponse>
+}
+
+/**
+ * Fetch a quote from the Liquidity ATS broker.
+ * The ATS exposes /api/v1/broker/quote with a compatible interface.
+ * This is the sovereign gateway for Liquidity — it runs its own CLOB + DEX VM.
+ */
+export async function fetchLiquidityATSQuote(
+  request: LXGatewayQuoteRequest,
+): Promise<LXGatewayQuoteResponse> {
+  const atsUrl = getLiquidityATSUrl(request.chainId)
+  const url = `${atsUrl}/api/v1/broker/quote`
+  const res = await fetch(url, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      tokenIn: request.tokenIn,
+      tokenOut: request.tokenOut,
+      amount: request.amount,
+      side: request.isExactIn ? 'BUY' : 'SELL',
+      chainId: request.chainId,
+    }),
+  })
+  if (!res.ok) {
+    throw new Error(`Liquidity ATS quote failed: ${res.status} ${res.statusText}`)
+  }
+  const atsResponse = await res.json() as Record<string, unknown>
+  // Normalize ATS response to match LXGatewayQuoteResponse shape
+  return {
+    amountIn: String(atsResponse.amountIn ?? request.amount),
+    amountOut: String(atsResponse.amountOut ?? atsResponse.quote ?? '0'),
+    route: String(atsResponse.route ?? atsResponse.venue ?? ''),
+    gasEstimate: String(atsResponse.gasEstimate ?? '150000'),
+    priceImpact: Number(atsResponse.priceImpact ?? 0),
+  }
 }
 
 // ---------------------------------------------------------------------------
@@ -167,15 +240,26 @@ export function createLXGatewayAwareTradingClient(client: TradingApiClient): Tra
   const originalFetchQuote = client.fetchQuote.bind(client)
   const originalFetchIndicativeQuote = client.fetchIndicativeQuote.bind(client)
 
+  /**
+   * Picks the right quote fetcher based on chain:
+   * - Lux ecosystem chains → LX Gateway (shared)
+   * - Liquidity chains → Liquidity ATS (sovereign)
+   * - Everything else → upstream TradingAPI
+   */
+  function pickQuoteFetcher(chainId: number) {
+    if (isLuxEcosystemChain(chainId)) return fetchLXGatewayQuote
+    if (isLiquidityChain(chainId)) return fetchLiquidityATSQuote
+    return null // use original client
+  }
+
   async function fetchQuoteViaGateway(
     params: QuoteRequest & { isUSDQuote?: boolean },
   ): Promise<DiscriminatedQuoteResponse> {
-    if (!isLuxEcosystemChain(params.tokenInChainId)) {
-      return originalFetchQuote(params)
-    }
+    const fetcher = pickQuoteFetcher(params.tokenInChainId)
+    if (!fetcher) return originalFetchQuote(params)
     try {
       const isExactIn = params.type === 'EXACT_INPUT'
-      const gatewayQuote = await fetchLXGatewayQuote({
+      const gatewayQuote = await fetcher({
         tokenIn: params.tokenIn,
         tokenOut: params.tokenOut,
         amount: params.amount,
@@ -184,7 +268,8 @@ export function createLXGatewayAwareTradingClient(client: TradingApiClient): Tra
       })
       return transformToClassicQuoteResponse(gatewayQuote, params)
     } catch (err) {
-      console.warn('[LXGatewayClient] Gateway quote failed, falling back to TradingAPI:', err)
+      const source = isLiquidityChain(params.tokenInChainId) ? 'Liquidity ATS' : 'LX Gateway'
+      console.warn(`[LXGatewayClient] ${source} quote failed, falling back to TradingAPI:`, err)
       return originalFetchQuote(params)
     }
   }
@@ -192,12 +277,11 @@ export function createLXGatewayAwareTradingClient(client: TradingApiClient): Tra
   async function fetchIndicativeQuoteViaGateway(
     params: IndicativeQuoteRequest,
   ): Promise<DiscriminatedQuoteResponse> {
-    if (!isLuxEcosystemChain(params.tokenInChainId)) {
-      return originalFetchIndicativeQuote(params)
-    }
+    const fetcher = pickQuoteFetcher(params.tokenInChainId)
+    if (!fetcher) return originalFetchIndicativeQuote(params)
     try {
       const isExactIn = params.type === 'EXACT_INPUT'
-      const gatewayQuote = await fetchLXGatewayQuote({
+      const gatewayQuote = await fetcher({
         tokenIn: params.tokenIn,
         tokenOut: params.tokenOut,
         amount: params.amount,
@@ -210,7 +294,8 @@ export function createLXGatewayAwareTradingClient(client: TradingApiClient): Tra
         amount: params.amount,
       })
     } catch (err) {
-      console.warn('[LXGatewayClient] Gateway indicative quote failed, falling back to TradingAPI:', err)
+      const source = isLiquidityChain(params.tokenInChainId) ? 'Liquidity ATS' : 'LX Gateway'
+      console.warn(`[LXGatewayClient] ${source} indicative quote failed, falling back to TradingAPI:`, err)
       return originalFetchIndicativeQuote(params)
     }
   }
