@@ -4,9 +4,9 @@ import { extractOnRampTransactionDetails } from 'lx/src/features/activity/extrac
 import extractRestOnChainTransactionDetails from 'lx/src/features/activity/extract/extractOnChainTransactionDetails'
 import extractPlanDetails from 'lx/src/features/activity/extract/extractPlanDetails'
 import extractRestFiatOnRampDetails from 'lx/src/features/activity/extract/extractRestFiatOnRampDetails'
-import extractRestLxSwapOrderDetails from 'lx/src/features/activity/extract/extractRestLxSwapOrderDetails'
+import extractRestLxSwapOrderDetails from 'lx/src/features/activity/extract/extractRestLXOrderDetails'
 import extractTransactionDetails from 'lx/src/features/activity/extract/extractTransactionDetails'
-import { extractLxSwapOrderDetails } from 'lx/src/features/activity/extract/extractLxSwapOrderDetails'
+import { extractLxSwapOrderDetails } from 'lx/src/features/activity/extract/extractUniswapXOrderDetails'
 import { getIsNftHidden } from 'lx/src/features/nfts/utils'
 import {
   TransactionDetails,
