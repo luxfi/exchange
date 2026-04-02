@@ -56,7 +56,7 @@
       "path": "./config/vitest-presets"
     },
     {
-      "path": "./tools/uniswap-nx"
+      "path": "./tools/lux-nx"
     },
     {
       "path": "./pkgs/react-query"

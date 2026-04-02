@@ -333,6 +333,6 @@
   },
   "packageManager": "pnpm@9.15.9",
   "overrides": {
-    "@luxamm/sdk": "npm:@uniswap/uniswapx-sdk@3.0.2"
+    "@luxamm/sdk": "3.0.3"
   }
 }
