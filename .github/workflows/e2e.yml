@@ -18,45 +18,6 @@ jobs:
   e2e-critical:
     name: Critical Path E2E Tests
     runs-on: lux-build-linux-amd64
-    timeout-minutes: 15
-    steps:
-      - uses: actions/checkout@v4
-
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '22'
-
-      - uses: pnpm/action-setup@v4
-
-      - name: Install dependencies
-        run: pnpm install --no-frozen-lockfile
-
-      - name: Install Playwright browsers
-        run: npx playwright install --with-deps chromium
-
-      - name: Run critical e2e tests against production
-        run: |
-          npx playwright test \
-            --config=playwright.config.ts \
-            apps/web/e2e/advanced.spec.ts \
-            apps/web/e2e/lux-explore.spec.ts \
-            --grep "@critical" \
-            --reporter=list \
-            --retries=2
-        env:
-          BASE_URL: https://lux.exchange
-
-      - name: Upload test results
-        if: failure()
-        uses: actions/upload-artifact@v4
-        with:
-          name: e2e-results
-          path: apps/web/test-results/
-          retention-days: 7
-
-  e2e-full:
-    name: Full E2E Suite
-    runs-on: lux-build-linux-amd64
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
@@ -70,6 +31,83 @@ jobs:
       - name: Install dependencies
         run: pnpm install --no-frozen-lockfile
 
+      - name: Build web app
+        run: cd apps/web && DISABLE_EXTRACTION=1 NODE_OPTIONS="--max-old-space-size=8192" pnpm exec vite build
+        env:
+          NODE_ENV: production
+          DOCKER_BUILD: true
+
+      - name: Start preview server
+        run: |
+          cd apps/web && npx serve -s build -l 3000 &
+          for i in {1..15}; do
+            if curl -s -o /dev/null -w '%{http_code}' http://localhost:3000 2>/dev/null | grep -qE '^[23]'; then
+              echo "Preview server ready on port 3000"
+              exit 0
+            fi
+            sleep 2
+          done
+          echo "Preview server did not start"
+          exit 1
+
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps chromium
+
+      - name: Run critical e2e tests
+        run: |
+          npx playwright test \
+            --config=playwright.config.ts \
+            apps/web/e2e/advanced.spec.ts \
+            apps/web/e2e/lux-explore.spec.ts \
+            --grep "@critical" \
+            --reporter=list \
+            --retries=2
+        env:
+          BASE_URL: http://localhost:3000
+
+      - name: Upload test results
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: e2e-results
+          path: apps/web/test-results/
+          retention-days: 7
+
+  e2e-full:
+    name: Full E2E Suite
+    runs-on: lux-build-linux-amd64
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - uses: pnpm/action-setup@v4
+
+      - name: Install dependencies
+        run: pnpm install --no-frozen-lockfile
+
+      - name: Build web app
+        run: cd apps/web && DISABLE_EXTRACTION=1 NODE_OPTIONS="--max-old-space-size=8192" pnpm exec vite build
+        env:
+          NODE_ENV: production
+          DOCKER_BUILD: true
+
+      - name: Start preview server
+        run: |
+          cd apps/web && npx serve -s build -l 3000 &
+          for i in {1..15}; do
+            if curl -s -o /dev/null -w '%{http_code}' http://localhost:3000 2>/dev/null | grep -qE '^[23]'; then
+              echo "Preview server ready on port 3000"
+              exit 0
+            fi
+            sleep 2
+          done
+          echo "Preview server did not start"
+          exit 1
+
       - name: Install Playwright browsers
         run: npx playwright install --with-deps chromium
 
@@ -81,7 +119,7 @@ jobs:
             --reporter=list \
             --retries=2
         env:
-          BASE_URL: https://lux.exchange
+          BASE_URL: http://localhost:3000
 
       - name: Upload test results
         if: failure()
