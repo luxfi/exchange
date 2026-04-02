@@ -22,7 +22,7 @@ type FetchGasFn = ({
   smartContractDelegationAddress?: Address
 }) => Promise<GasFeeResultWithoutState>
 
-export interface LxApiClientContext {
+export interface LuxApiClientContext {
   fetchClient: FetchClient
   processGasFeeResponse: (gasFeeResponse: GasFeeResponse, gasStrategy: GasStrategy) => GasFeeResultWithoutState
   estimateGasWithClientSideProvider: (params: {
@@ -31,11 +31,11 @@ export interface LxApiClientContext {
   }) => Promise<GasFeeResultWithoutState>
 }
 
-export interface LxApiClient {
+export interface LuxApiClient {
   fetchGasFee: FetchGasFn
 }
 
-export function createLxApiClient(ctx: LxApiClientContext): LxApiClient {
+export function createLuxApiClient(ctx: LuxApiClientContext): LuxApiClient {
   const { fetchClient: client, processGasFeeResponse, estimateGasWithClientSideProvider } = ctx
 
   const injectGasStrategies = (

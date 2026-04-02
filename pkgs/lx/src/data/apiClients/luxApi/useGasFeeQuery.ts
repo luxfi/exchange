@@ -9,7 +9,7 @@ import {
 import { FeatureFlags, getFeatureFlag, useStatsigClientStatus } from '@l.x/gating'
 import { lxUrls } from 'lx/src/constants/urls'
 import { fetchGasFeeV2 } from 'lx/src/data/apiClients/gasService/fetchGasFeeV2'
-import { LxApiClient } from 'lx/src/data/apiClients/luxApi/LxApiClient'
+import { LuxApiClient } from 'lx/src/data/apiClients/luxApi/LuxApiClient'
 import { getActiveGasStrategy } from 'lx/src/features/gas/utils'
 import { ReactQueryCacheKey } from 'utilities/src/reactQuery/cache'
 
@@ -70,5 +70,5 @@ export async function fetchGasFeeQuery(params: {
     return fetchGasFeeV2({ tx, gasStrategy, smartContractDelegationAddress, fallbackGasLimit })
   }
 
-  return LxApiClient.fetchGasFee({ tx, fallbackGasLimit, gasStrategy, smartContractDelegationAddress })
+  return LuxApiClient.fetchGasFee({ tx, fallbackGasLimit, gasStrategy, smartContractDelegationAddress })
 }

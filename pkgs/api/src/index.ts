@@ -149,10 +149,10 @@ export {
 
 // Lx API
 export {
-  createLxApiClient,
-  type LxApiClient,
-  type LxApiClientContext,
-} from '@l.x/api/src/clients/lx/createLxApiClient'
+  createLuxApiClient,
+  type LuxApiClient,
+  type LuxApiClientContext,
+} from '@l.x/api/src/clients/lx/createLuxApiClient'
 
 // Compliance API
 export {

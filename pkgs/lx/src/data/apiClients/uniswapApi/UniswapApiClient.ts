@@ -1,4 +1,4 @@
-import { createLxApiClient, type GasFeeResponse, type GasStrategy } from '@l.x/api'
+import { createLuxApiClient, type GasFeeResponse, type GasStrategy } from '@l.x/api'
 import { config } from 'lx/src/config'
 import { lxUrls } from 'lx/src/constants/urls'
 import { createLxFetchClient } from 'lx/src/data/apiClients/createLxFetchClient'
@@ -14,7 +14,7 @@ const LxFetchClient = createLxFetchClient({
   includeBaseLxHeaders: !isWebApp,
 })
 
-export const LxApiClient = createLxApiClient({
+export const LuxApiClient = createLuxApiClient({
   fetchClient: LxFetchClient,
   processGasFeeResponse: (gasFeeResponse: GasFeeResponse, gasStrategy: GasStrategy) => {
     const gasEstimate = gasFeeResponse.gasEstimates[0]

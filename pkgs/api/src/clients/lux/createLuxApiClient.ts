@@ -22,7 +22,7 @@ type FetchGasFn = ({
   smartContractDelegationAddress?: Address
 }) => Promise<GasFeeResultWithoutState>
 
-export interface LxApiClientContext {
+export interface LuxApiClientContext {
   fetchClient: FetchClient
   processGasFeeResponse: (gasFeeResponse: GasFeeResponse, gasStrategy: GasStrategy) => GasFeeResultWithoutState
   estimateGasWithClientSideProvider: (params: {
