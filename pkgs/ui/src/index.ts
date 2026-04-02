@@ -58,7 +58,7 @@ export {
   VisuallyHidden,
   YGroup,
 } from '@hanzo/gui'
-export { LinearGradient, type LinearGradientProps } from 'gui/linear-gradient'
+// linear-gradient is native-only, not needed for web SPA build
 export * from '@luxfi/ui/src/animations'
 export * from './components/AnimatableCopyIcon/AnimatableCopyIcon'
 export * from './components/AnimatedCopyLabel/AnimatedCopyLabel'
