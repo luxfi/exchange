@@ -59,8 +59,8 @@
     "zod": "catalog:",
     "zustand": "5.0.6",
     "@l.x/lx": "workspace:^",
-    "@l.x/ui": "^6.2.0",
-    "@l.x/utils": "^1.1.0",
+    "@l.x/ui": "workspace:^",
+    "@l.x/utils": "workspace:^",
     "@luxfi/wallet": "workspace:^"
   },
   "devDependencies": {

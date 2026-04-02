@@ -324,8 +324,8 @@
     "@radix-ui/react-dialog": "^1.1.6",
     "@l.x/lx": "workspace:^",
     "@l.x/options": "workspace:^",
-    "@l.x/ui": "^6.2.0",
-    "@l.x/utils": "^1.1.0",
+    "@l.x/ui": "workspace:^",
+    "@l.x/utils": "workspace:^",
     "@luxamm/sdk": "3.0.3"
   },
   "engines": {

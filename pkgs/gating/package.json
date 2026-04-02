@@ -9,7 +9,7 @@
     "@statsig/react-native-bindings": "3.12.2",
     "@l.x/api": "workspace:*",
     "@l.x/config": "workspace:*",
-    "@l.x/utils": "^1.1.0"
+    "@l.x/utils": "workspace:^"
   },
   "devDependencies": {
     "@types/node": "22.13.1",

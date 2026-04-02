@@ -29,7 +29,7 @@
     "@ethersproject/providers": "5.7.2",
     "@l.x/config": "workspace:^",
     "@l.x/sessions": "workspace:^",
-    "@l.x/utils": "^1.1.0",
+    "@l.x/utils": "workspace:^",
     "@tanstack/react-query": "5.90.20",
     "@luxamm/client-data-api": "0.0.164",
     "@luxamm/client-embeddedwallet": "0.0.121",
