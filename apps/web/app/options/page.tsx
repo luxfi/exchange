@@ -18,7 +18,7 @@ import {
   type Token,
   type OptionStrike,
   type OptionPosition,
-} from "@luxfi/options"
+} from "@l.x/options"
 import { getTokensForChain } from "@/lib/tokens"
 import { luxMainnet } from "@/lib/chains"
 

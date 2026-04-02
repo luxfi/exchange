@@ -1,5 +1,5 @@
 {
-  "name": "@luxfi/options",
+  "name": "@l.x/options",
   "version": "0.0.1",
   "description": "Options chain UI components for Lux Exchange",
   "main": "src/index.ts",
