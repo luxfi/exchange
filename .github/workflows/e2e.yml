@@ -7,8 +7,8 @@ on:
     branches: [main, dev, test]
 
 concurrency:
-  group: e2e-${{ github.ref }}
-  cancel-in-progress: true
+  group: e2e-${{ github.sha }}
+  cancel-in-progress: false
 
 env:
   REGISTRY: ghcr.io
