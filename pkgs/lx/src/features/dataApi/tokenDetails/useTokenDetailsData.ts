@@ -10,7 +10,7 @@ import { useMemo } from 'react'
 import {
   useTokenMarketPartsFragment,
   useTokenProjectMarketsPartsFragment,
-} from 'lx/src/data/graphql/lx-data-api/fragments'
+} from 'lx/src/data/graphql/lux-data-api/fragments'
 import type {
   MarketDataInput,
   ProjectMarketDataInput,
