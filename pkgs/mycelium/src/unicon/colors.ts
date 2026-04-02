@@ -5,7 +5,7 @@
 
 export const UNICON_COLORS = {
   light: [
-    '#A8882F', // 0 - pink
+    '#CCCCCC', // 0 - pink
     '#FFBF17', // 1 - yellow
     '#FF8934', // 2 - orange
     '#85754A', // 3 - brown
@@ -17,7 +17,7 @@ export const UNICON_COLORS = {
     '#4300B0', // 9 - purple
   ],
   dark: [
-    '#C4A34F', // 0 - pink
+    '#FFFFFF', // 0 - pink
     '#FFF612', // 1 - yellow
     '#FF4D00', // 2 - orange
     '#996F01', // 3 - brown

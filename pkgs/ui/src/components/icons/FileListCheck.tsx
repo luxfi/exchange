@@ -34,5 +34,5 @@ getIcon: (props) => (
 </G>
 </Svg>
 ),
-defaultFill: '#C4A34F'
+defaultFill: '#FFFFFF'
 })

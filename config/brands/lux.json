@@ -21,21 +21,21 @@
     "twitter": "https://x.com/luxfi",
     "github": "https://github.com/luxfi",
     "discord": "https://discord.gg/lux",
-    "primaryColor": "#C4A34F",
+    "primaryColor": "#FFFFFF",
     "defaultChainId": 96369,
     "supportedChainIds": [96369, 96368, 494949],
     "theme": {
       "light": {
-        "accent1": "#C4A34F",
+        "accent1": "#131313",
         "surface1": "#FFFFFF",
-        "surface2": "#FAFAF8",
+        "surface2": "#F5F5F5",
         "neutral1": "#131313",
         "neutral2": "rgba(19, 19, 19, 0.63)"
       },
       "dark": {
-        "accent1": "#D4B462",
-        "surface1": "#0A0A0A",
-        "surface2": "#1A1A18",
+        "accent1": "#FFFFFF",
+        "surface1": "#000000",
+        "surface2": "#111111",
         "neutral1": "#FFFFFF",
         "neutral2": "rgba(255, 255, 255, 0.65)"
       }

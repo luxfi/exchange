@@ -8,7 +8,7 @@ import ValuePropCard from '~/pages/Landing/components/cards/ValuePropCard'
 
 export function NetworkCard() {
   const { t } = useTranslation()
-  const primary = brand.primaryColor || '#C4A34F'
+  const primary = brand.primaryColor || '#FFFFFF'
 
   return (
     <ValuePropCard
