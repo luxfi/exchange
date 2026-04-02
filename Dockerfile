@@ -13,8 +13,10 @@ RUN corepack enable && corepack prepare pnpm@9.15.9 --activate
 COPY . .
 
 # Install dependencies — run lifecycle scripts but tolerate failures
-RUN NODE_ENV=development pnpm install --no-frozen-lockfile || true
+ARG CACHE_BUST=1
+RUN NODE_ENV=development pnpm install --no-frozen-lockfile
 RUN pnpm rebuild || true
+RUN pnpm list vite --depth=0 2>/dev/null || (echo "vite not found after install" && exit 1)
 
 # Build-time env — brand-neutral, no hardcoded domains
 ENV NEXT_TELEMETRY_DISABLED=1
