@@ -131,3 +131,14 @@ cypress/videos/
 .env.production
 .env.local
 .env.staging
+
+# AI/tool artifacts (NEVER commit)
+.playwright-mcp/
+playwright-report/
+.mcp.json
+.cursorignore
+bundlemeta.json
+investigate-*.js
+MEMORY.md
+cache/
+*.png
