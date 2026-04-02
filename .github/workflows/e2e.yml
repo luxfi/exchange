@@ -41,7 +41,8 @@ jobs:
         run: |
           # Strip CSP meta tag — blocks localhost connections to external APIs
           sed -i 's/<meta http-equiv="Content-Security-Policy"[^>]*>//' apps/web/build/client/index.html
-          cd apps/web && npx serve -s build/client -l 3000 &
+          npm install -g serve@14
+          cd apps/web && serve -s build/client -l 3000 &
           for i in {1..15}; do
             if curl -s -o /dev/null -w '%{http_code}' http://localhost:3000 2>/dev/null | grep -qE '^[23]'; then
               echo "Preview server ready on port 3000"
@@ -101,7 +102,8 @@ jobs:
         run: |
           # Strip CSP meta tag — blocks localhost connections to external APIs
           sed -i 's/<meta http-equiv="Content-Security-Policy"[^>]*>//' apps/web/build/client/index.html
-          cd apps/web && npx serve -s build/client -l 3000 &
+          npm install -g serve@14
+          cd apps/web && serve -s build/client -l 3000 &
           for i in {1..15}; do
             if curl -s -o /dev/null -w '%{http_code}' http://localhost:3000 2>/dev/null | grep -qE '^[23]'; then
               echo "Preview server ready on port 3000"
