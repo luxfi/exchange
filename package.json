@@ -391,7 +391,7 @@
       "@hanzogui/vite-plugin": "2.0.5",
       "@hanzogui/vite-plugin-cjs": "2.0.5",
       "@hanzogui/z-index-stack": "2.0.5",
-      "@hanzo/gui": "2.0.5"
+      "@hanzo/gui": "npm:@hanzogui/core@2.0.5"
     }
   },
   "packageManager": "pnpm@9.15.9",
