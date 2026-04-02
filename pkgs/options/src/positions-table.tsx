@@ -3,36 +3,15 @@
 import * as React from "react"
 import { useAccount } from "wagmi"
 import { Wallet } from "lucide-react"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { cn } from "@/lib/utils"
-
-// =============================================================================
-// TYPES
-// =============================================================================
-
-export interface OptionPosition {
-  id: string
-  underlying: string
-  strike: number
-  side: "call" | "put"
-  direction: "long" | "short"
-  quantity: number
-  avgEntry: number
-  markPrice: number
-  expiration: string
-  pnl: number
-  pnlPercent: number
-}
+import { Card, CardContent, CardHeader, CardTitle } from "./ui/card"
+import { Button } from "./ui/button"
+import { cn } from "./ui/cn"
+import type { OptionPosition } from "./types"
 
 interface PositionsTableProps {
   positions: OptionPosition[]
   className?: string
 }
-
-// =============================================================================
-// COMPONENT
-// =============================================================================
 
 export function PositionsTable({ positions, className }: PositionsTableProps) {
   const { isConnected } = useAccount()

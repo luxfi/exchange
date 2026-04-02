@@ -2,36 +2,28 @@
 
 import * as React from "react"
 import { Search, ChevronDown } from "lucide-react"
-import { useAccount, useChainId } from "wagmi"
-import { Input } from "@/components/ui/input"
-import { Button } from "@/components/ui/button"
-import { TokenIcon } from "@/components/ui/token-icon"
-import { cn } from "@/lib/utils"
-import { type Token, getTokensForChain } from "@/lib/tokens"
-import { luxMainnet } from "@/lib/chains"
+import { Input } from "./ui/input"
+import { Button } from "./ui/button"
+import { TokenIcon } from "./ui/token-icon"
+import { cn } from "./ui/cn"
+import type { Token } from "./types"
 
 interface SymbolSearchProps {
   selectedToken: Token | null
   onSelect: (token: Token) => void
+  tokens: Token[]
   className?: string
 }
 
 export function SymbolSearch({
   selectedToken,
   onSelect,
+  tokens,
   className,
 }: SymbolSearchProps) {
-  const chainId = useChainId()
-  const { isConnected } = useAccount()
   const [open, setOpen] = React.useState(false)
   const [query, setQuery] = React.useState("")
   const ref = React.useRef<HTMLDivElement>(null)
-
-  const effectiveChainId = chainId || luxMainnet.id
-  const tokens = React.useMemo(
-    () => getTokensForChain(effectiveChainId),
-    [effectiveChainId]
-  )
 
   const filtered = React.useMemo(() => {
     if (!query) return tokens

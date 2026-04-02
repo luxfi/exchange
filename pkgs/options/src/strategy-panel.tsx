@@ -2,10 +2,10 @@
 
 import * as React from "react"
 import { ChevronDown, Plus, X, Info } from "lucide-react"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { cn } from "@/lib/utils"
+import { Card, CardContent, CardHeader, CardTitle } from "./ui/card"
+import { Button } from "./ui/button"
+import { Input } from "./ui/input"
+import { cn } from "./ui/cn"
 
 // =============================================================================
 // TYPES

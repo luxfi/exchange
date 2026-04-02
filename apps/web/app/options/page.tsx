@@ -3,15 +3,24 @@
 import * as React from "react"
 import { useAccount, useChainId } from "wagmi"
 import { Header } from "@/components/layout/header"
-import { SymbolSearch } from "@/components/options/symbol-search"
-import { ExpirationBar } from "@/components/options/expiration-bar"
-import { OptionsChain, type OptionStrike } from "@/components/options/options-chain"
-import { OptionsOrderForm } from "@/components/options/options-order-form"
-import { PositionsTable, type OptionPosition } from "@/components/options/positions-table"
-import { StrategyPanel } from "@/components/options/strategy-panel"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { type Token } from "@/lib/tokens"
-import { cn } from "@/lib/utils"
+import {
+  SymbolSearch,
+  ExpirationBar,
+  OptionsChain,
+  OptionsOrderForm,
+  PositionsTable,
+  StrategyPanel,
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+  cn,
+  type Token,
+  type OptionStrike,
+  type OptionPosition,
+} from "@luxfi/options"
+import { getTokensForChain } from "@/lib/tokens"
+import { luxMainnet } from "@/lib/chains"
 
 // =============================================================================
 // TAB TYPE
@@ -33,6 +42,13 @@ export default function OptionsPage() {
   const [selectedStrike, setSelectedStrike] = React.useState<number | null>(null)
   const [selectedSide, setSelectedSide] = React.useState<"call" | "put" | null>(null)
   const [bottomTab, setBottomTab] = React.useState<BottomTab>("positions")
+
+  // Tokens for the current chain
+  const effectiveChainId = chainId || luxMainnet.id
+  const tokens = React.useMemo(
+    () => getTokensForChain(effectiveChainId) as Token[],
+    [effectiveChainId]
+  )
 
   // Derived state: expirations available for the selected underlying
   // When a real backend is connected, this would come from an API call.
@@ -83,6 +99,7 @@ export default function OptionsPage() {
               <SymbolSearch
                 selectedToken={underlying}
                 onSelect={setUnderlying}
+                tokens={tokens}
               />
               {underlying && (
                 <div className="flex items-center gap-4 text-sm">

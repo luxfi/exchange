@@ -1,0 +1,33 @@
+{
+  "name": "@luxfi/options",
+  "version": "0.0.1",
+  "description": "Options chain UI components for Lux Exchange",
+  "main": "src/index.ts",
+  "private": false,
+  "sideEffects": false,
+  "dependencies": {
+    "@radix-ui/react-slot": "^1.1.2",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.0",
+    "lucide-react": "^0.468.0",
+    "tailwind-merge": "^2.6.0"
+  },
+  "peerDependencies": {
+    "react": ">=18",
+    "react-dom": ">=18",
+    "wagmi": ">=2"
+  },
+  "devDependencies": {
+    "@types/node": "22.13.1",
+    "@types/react": "19.0.10",
+    "typescript": "5.8.3"
+  },
+  "scripts": {
+    "typecheck": "nx typecheck options",
+    "lint": "nx lint options",
+    "lint:fix": "nx lint:fix options"
+  },
+  "nx": {
+    "includedScripts": []
+  }
+}

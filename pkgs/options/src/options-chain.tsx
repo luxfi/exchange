@@ -1,27 +1,8 @@
 "use client"
 
 import * as React from "react"
-import { cn } from "@/lib/utils"
-
-// =============================================================================
-// TYPES
-// =============================================================================
-
-export interface OptionQuote {
-  bid: number | null
-  ask: number | null
-  last: number | null
-  volume: number
-  openInterest: number
-  iv: number | null
-  delta: number | null
-}
-
-export interface OptionStrike {
-  strike: number
-  call: OptionQuote
-  put: OptionQuote
-}
+import { cn } from "./ui/cn"
+import type { OptionStrike } from "./types"
 
 interface OptionsChainProps {
   strikes: OptionStrike[]
@@ -31,10 +12,6 @@ interface OptionsChainProps {
   selectedSide: "call" | "put" | null
   className?: string
 }
-
-// =============================================================================
-// COMPONENT
-// =============================================================================
 
 export function OptionsChain({
   strikes,
@@ -62,27 +39,21 @@ export function OptionsChain({
       <table className="w-full text-sm">
         <thead>
           <tr className="border-b text-muted-foreground">
-            {/* Call columns */}
             <th className="pb-2 pr-2 text-right font-medium text-green-500" colSpan={5}>
               CALLS
             </th>
-            {/* Strike */}
             <th className="pb-2 px-3 text-center font-medium">Strike</th>
-            {/* Put columns */}
             <th className="pb-2 pl-2 text-left font-medium text-red-500" colSpan={5}>
               PUTS
             </th>
           </tr>
           <tr className="border-b text-xs text-muted-foreground">
-            {/* Call sub-headers */}
             <th className="pb-2 pr-2 text-right font-medium">OI</th>
             <th className="pb-2 pr-2 text-right font-medium">Vol</th>
             <th className="pb-2 pr-2 text-right font-medium">IV</th>
             <th className="pb-2 pr-2 text-right font-medium">Bid</th>
             <th className="pb-2 pr-2 text-right font-medium">Ask</th>
-            {/* Strike */}
             <th className="pb-2 px-3 text-center font-medium">Price</th>
-            {/* Put sub-headers */}
             <th className="pb-2 pl-2 text-left font-medium">Bid</th>
             <th className="pb-2 pl-2 text-left font-medium">Ask</th>
             <th className="pb-2 pl-2 text-left font-medium">IV</th>
@@ -236,10 +207,6 @@ export function OptionsChain({
     </div>
   )
 }
-
-// =============================================================================
-// HELPERS
-// =============================================================================
 
 function formatPrice(value: number): string {
   if (value >= 1) return value.toFixed(2)

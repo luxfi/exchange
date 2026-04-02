@@ -323,6 +323,7 @@
     "@radix-ui/react-slot": "^1.1.2",
     "@radix-ui/react-dialog": "^1.1.6",
     "@l.x/lx": "workspace:^",
+    "@luxfi/options": "workspace:^",
     "@luxfi/ui": "workspace:^",
     "@luxfi/utilities": "workspace:^",
     "@luxamm/sdk": "3.0.3"
