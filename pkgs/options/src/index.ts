@@ -15,10 +15,14 @@ export type {
   StrategyLeg,
   StrategyTemplate,
   StrategyOrder,
+  MarginType,
+  MarginRequirement,
+  AccountMargin,
+  OptionsApprovalLevel,
 } from "./types"
 
-// Default templates (consumers can override or extend)
-export { STRATEGY_TEMPLATES } from "./types"
+// Default templates and approval levels (consumers can override or extend)
+export { STRATEGY_TEMPLATES, OPTIONS_APPROVAL_LEVELS } from "./types"
 
 // UI primitives (re-exported for consumers that need them)
 export { cn } from "./ui/cn"

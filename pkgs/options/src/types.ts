@@ -68,6 +68,66 @@ export interface StrategyOrder {
   timeInForce: "day" | "gtc" | "ioc"
 }
 
+// Margin types (compatible with Alpaca RegT margin)
+
+export type MarginType = "cash" | "reg_t" | "portfolio"
+
+export interface MarginRequirement {
+  initialMargin: number
+  maintenanceMargin: number
+  buyingPower: number
+  maxQuantity: number
+  marginType: MarginType
+}
+
+export interface AccountMargin {
+  equity: number
+  cashBalance: number
+  buyingPower: number
+  dayTradingBuyingPower: number
+  regtBuyingPower: number
+  initialMargin: number
+  maintenanceMargin: number
+  marginMultiplier: number
+  patternDayTrader: boolean
+}
+
+export interface OptionsApprovalLevel {
+  level: 1 | 2 | 3 | 4
+  description: string
+  allowedStrategies: string[]
+}
+
+export const OPTIONS_APPROVAL_LEVELS: OptionsApprovalLevel[] = [
+  {
+    level: 1,
+    description: "Covered calls, cash-secured puts",
+    allowedStrategies: ["Covered Call", "Protective Put"],
+  },
+  {
+    level: 2,
+    description: "Long options, debit spreads",
+    allowedStrategies: [
+      "Long Call", "Long Put", "Covered Call", "Protective Put",
+      "Bull Call Spread", "Bear Put Spread", "Long Straddle", "Long Strangle",
+    ],
+  },
+  {
+    level: 3,
+    description: "Credit spreads, short spreads",
+    allowedStrategies: [
+      "Long Call", "Long Put", "Covered Call", "Protective Put",
+      "Bull Call Spread", "Bear Put Spread", "Long Straddle", "Long Strangle",
+      "Call Ratio Spread", "Iron Condor", "Iron Butterfly", "Call Butterfly", "Box Spread",
+    ],
+  },
+  {
+    level: 4,
+    description: "Naked options (full access)",
+    allowedStrategies: ["*"],
+  },
+]
+
 // Standard 2-leg and 4-leg templates
 
 export const STRATEGY_TEMPLATES: StrategyTemplate[] = [
