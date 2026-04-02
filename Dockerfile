@@ -30,7 +30,8 @@ RUN cd pkgs/api && pnpm exec openapi \
         echo 'export {}' > src/clients/trading/__generated__/index.ts)
 RUN mkdir -p pkgs/lx/src/abis/types/v3 && \
     echo 'export {}' > pkgs/lx/src/abis/types/v3/index.ts
-RUN NODE_PATH=/app/node_modules node apps/web/scripts/compile-ajv-validators.js
+# compile-ajv-validators needs ajv from pnpm store
+RUN cd apps/web && pnpm exec node scripts/compile-ajv-validators.js || true
 
 # Build the web app (Vite SPA) — brand-neutral
 RUN cd apps/web && DISABLE_EXTRACTION=1 NODE_OPTIONS="--max-old-space-size=16384" pnpm exec vite build
