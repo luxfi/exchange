@@ -1,6 +1,6 @@
 {
   "name": "@l.x/logger",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "dependencies": {
     "@l.x/privacy": "workspace:*",
     "source-map-js": "1.2.1"

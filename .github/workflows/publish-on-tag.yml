@@ -1,0 +1,62 @@
+name: Publish Packages on Tag
+
+on:
+  push:
+    tags:
+      - 'v*'
+      - '[0-9]*'  # VERSION file tags like 1.2.3
+
+jobs:
+  publish:
+    name: Publish to NPM
+    runs-on: lux-build-linux-amd64
+    permissions:
+      contents: write
+      id-token: write
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
+      - name: Setup Node
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+          cache: 'pnpm'
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Install
+        run: pnpm install --frozen-lockfile
+
+      - name: Build packages
+        run: pnpm -r --filter './pkgs/*' run build --if-present
+
+      - name: Publish all public packages
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          PUBLISHED=0
+          SKIPPED=0
+
+          for pkg in pkgs/*/; do
+            [ -f "$pkg/package.json" ] || continue
+
+            NAME=$(node -p "require('./$pkg/package.json').name")
+            VER=$(node -p "require('./$pkg/package.json').version")
+            PRIV=$(node -p "require('./$pkg/package.json').private || false")
+
+            [ "$PRIV" = "true" ] && continue
+
+            if npm view "$NAME@$VER" version 2>/dev/null; then
+              echo "⏭  $NAME@$VER already published"
+              SKIPPED=$((SKIPPED + 1))
+            else
+              echo "🚀 Publishing $NAME@$VER"
+              (cd "$pkg" && npm publish --access public) && PUBLISHED=$((PUBLISHED + 1))
+            fi
+          done
+
+          echo ""
+          echo "Published: $PUBLISHED | Skipped: $SKIPPED"

@@ -10,7 +10,7 @@ jobs:
   deploy-to-prod:
     runs-on: lux-build-linux-amd64
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           fetch-depth: 0
 
@@ -35,7 +35,7 @@ jobs:
 
       - name: Create release
         if: steps.check-tag.outputs.exists == 'false'
-        uses: actions/create-release@v1
+        uses: softprops/action-gh-release@v2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:

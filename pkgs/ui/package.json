@@ -1,6 +1,6 @@
 {
   "name": "@l.x/ui",
-  "version": "6.2.2",
+  "version": "6.2.3",
   "dependencies": {
     "@gorhom/bottom-sheet": "5.2.8",
     "@react-native-masked-view/masked-view": "0.3.2",

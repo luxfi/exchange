@@ -1,6 +1,6 @@
 {
   "name": "@l.x/analytics",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "dependencies": {
     "@amplitude/analytics-node": "1.5.36"
   },
