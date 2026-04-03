@@ -40,10 +40,8 @@ jobs:
       - name: Start preview server
         run: |
           # Strip CSP meta tag — blocks localhost connections to external APIs
-          sed -i 's/<meta http-equiv="Content-Security-Policy"[^>]*>//' apps/web/build/client/index.html
-          # SPA fallback: copy index.html to 200.html for serve
-          cp apps/web/build/client/index.html apps/web/build/client/200.html
-          npx -y serve@14 -s apps/web/build/client -l 3000 &
+          sed -i 's/<meta http-equiv="Content-Security-Policy"[^>]*>//' apps/web/build/index.html
+          npx -y serve@14 -s apps/web/build -l 3000 &
           sleep 3
           curl -s -o /dev/null -w '%{http_code}' http://localhost:3000 | grep -qE '^[23]' && echo "Preview server ready" || { echo "Preview server failed"; exit 1; }
 
@@ -95,10 +93,8 @@ jobs:
       - name: Start preview server
         run: |
           # Strip CSP meta tag — blocks localhost connections to external APIs
-          sed -i 's/<meta http-equiv="Content-Security-Policy"[^>]*>//' apps/web/build/client/index.html
-          # SPA fallback: copy index.html to 200.html for serve
-          cp apps/web/build/client/index.html apps/web/build/client/200.html
-          npx -y serve@14 -s apps/web/build/client -l 3000 &
+          sed -i 's/<meta http-equiv="Content-Security-Policy"[^>]*>//' apps/web/build/index.html
+          npx -y serve@14 -s apps/web/build -l 3000 &
           sleep 3
           curl -s -o /dev/null -w '%{http_code}' http://localhost:3000 | grep -qE '^[23]' && echo "Preview server ready" || { echo "Preview server failed"; exit 1; }
 
