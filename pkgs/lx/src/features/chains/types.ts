@@ -43,6 +43,9 @@ export enum UniverseChainId {
   Hanzo = 36963,
   SPC = 36911,
   Pars = 494949,
+  // Liquidity EVM (white-label L1/L2)
+  Liquidity = 8675309,
+  LiquidityTestnet = 8675310,
 }
 
 export type UniverseChainIdByPlatform<T extends Platform> = ((typeof UNIVERSE_CHAIN_INFO)[UniverseChainId] & {

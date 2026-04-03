@@ -29,7 +29,7 @@ export function usePool(
 ) {
   const publicClient = usePublicClient({ chainId })
   const contracts = getContracts(chainId)
-  const v3Factory = 'V3_FACTORY' in contracts ? contracts.V3_FACTORY : LUX_MAINNET_CONTRACTS.V3_FACTORY
+  const v3Factory = ('V3_FACTORY' in contracts ? contracts.V3_FACTORY : LUX_MAINNET_CONTRACTS.V3_FACTORY) as `0x${string}`
 
   return useQuery({
     queryKey: ['pool', token0, token1, fee, chainId],

@@ -5,6 +5,7 @@ import { BLAST_CHAIN_INFO } from 'lx/src/features/chains/evm/info/blast'
 import { BNB_CHAIN_INFO } from 'lx/src/features/chains/evm/info/bnb'
 import { CELO_CHAIN_INFO } from 'lx/src/features/chains/evm/info/celo'
 import { HANZO_CHAIN_INFO } from 'lx/src/features/chains/evm/info/hanzo'
+import { LIQUIDITY_CHAIN_INFO, LIQUIDITY_TESTNET_CHAIN_INFO } from 'lx/src/features/chains/evm/info/liquidity'
 import { LUX_CHAIN_INFO, LUX_DEV_CHAIN_INFO, LUX_TESTNET_CHAIN_INFO } from 'lx/src/features/chains/evm/info/lux'
 import { MAINNET_CHAIN_INFO, SEPOLIA_CHAIN_INFO } from 'lx/src/features/chains/evm/info/mainnet'
 import { MONAD_CHAIN_INFO } from 'lx/src/features/chains/evm/info/monad'
@@ -35,6 +36,7 @@ export const ORDERED_CHAINS = [
   HANZO_CHAIN_INFO,
   SPC_CHAIN_INFO,
   PARS_CHAIN_INFO,
+  LIQUIDITY_CHAIN_INFO,
   MAINNET_CHAIN_INFO,
   UNICHAIN_CHAIN_INFO,
   MONAD_CHAIN_INFO,
@@ -58,6 +60,7 @@ export const ORDERED_CHAINS = [
   LUX_TESTNET_CHAIN_INFO,
   LUX_DEV_CHAIN_INFO,
   ZOO_TESTNET_CHAIN_INFO,
+  LIQUIDITY_TESTNET_CHAIN_INFO,
 ] as const satisfies UniverseChainInfo[]
 
 type ConstChainInfo<P extends Platform = Platform> = Extract<(typeof ORDERED_CHAINS)[number], { platform: P }>
@@ -91,6 +94,7 @@ export const UNIVERSE_CHAIN_INFO = {
   [UniverseChainId.Hanzo]: HANZO_CHAIN_INFO,
   [UniverseChainId.SPC]: SPC_CHAIN_INFO,
   [UniverseChainId.Pars]: PARS_CHAIN_INFO,
+  [UniverseChainId.Liquidity]: LIQUIDITY_CHAIN_INFO,
 
   // MAINNETS
   [UniverseChainId.Mainnet]: MAINNET_CHAIN_INFO,
@@ -117,6 +121,7 @@ export const UNIVERSE_CHAIN_INFO = {
   [UniverseChainId.LuxTestnet]: LUX_TESTNET_CHAIN_INFO,
   [UniverseChainId.LuxDev]: LUX_DEV_CHAIN_INFO,
   [UniverseChainId.ZooTestnet]: ZOO_TESTNET_CHAIN_INFO,
+  [UniverseChainId.LiquidityTestnet]: LIQUIDITY_TESTNET_CHAIN_INFO,
 
   // SVM
   [UniverseChainId.Solana]: SOLANA_CHAIN_INFO,

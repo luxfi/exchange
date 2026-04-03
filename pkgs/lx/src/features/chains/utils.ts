@@ -310,6 +310,7 @@ function getDefaultChainId({
     if (isTestnetModeEnabled) {
       if (brandDefault === UniverseChainId.Zoo) return UniverseChainId.ZooTestnet
       if (brandDefault === UniverseChainId.Lux) return UniverseChainId.LuxTestnet
+      if (brandDefault === UniverseChainId.Liquidity) return UniverseChainId.LiquidityTestnet
       return UniverseChainId.Sepolia // generic fallback
     }
     return brandDefault

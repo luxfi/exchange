@@ -67,6 +67,8 @@ export enum ElementName {
   ChainCelo = 'chain-celo',
   ChainEthereum = 'chain-ethereum',
   ChainHanzo = 'chain-hanzo',
+  ChainLiquidity = 'chain-liquidity',
+  ChainLiquidityTestnet = 'chain-liquidity-testnet',
   ChainLux = 'chain-lux',
   ChainLuxTestnet = 'chain-lux-testnet',
   ChainLuxDev = 'chain-lux-dev',
