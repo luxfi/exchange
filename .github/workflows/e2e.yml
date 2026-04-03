@@ -41,17 +41,11 @@ jobs:
         run: |
           # Strip CSP meta tag — blocks localhost connections to external APIs
           sed -i 's/<meta http-equiv="Content-Security-Policy"[^>]*>//' apps/web/build/client/index.html
-          npm install -g serve@14
-          cd apps/web && serve -s build/client -l 3000 &
-          for i in {1..15}; do
-            if curl -s -o /dev/null -w '%{http_code}' http://localhost:3000 2>/dev/null | grep -qE '^[23]'; then
-              echo "Preview server ready on port 3000"
-              exit 0
-            fi
-            sleep 2
-          done
-          echo "Preview server did not start"
-          exit 1
+          # SPA fallback: copy index.html to 200.html for serve
+          cp apps/web/build/client/index.html apps/web/build/client/200.html
+          npx -y serve@14 -s apps/web/build/client -l 3000 &
+          sleep 3
+          curl -s -o /dev/null -w '%{http_code}' http://localhost:3000 | grep -qE '^[23]' && echo "Preview server ready" || { echo "Preview server failed"; exit 1; }
 
       - name: Install Playwright browsers
         run: npx playwright install --with-deps chromium
@@ -102,17 +96,11 @@ jobs:
         run: |
           # Strip CSP meta tag — blocks localhost connections to external APIs
           sed -i 's/<meta http-equiv="Content-Security-Policy"[^>]*>//' apps/web/build/client/index.html
-          npm install -g serve@14
-          cd apps/web && serve -s build/client -l 3000 &
-          for i in {1..15}; do
-            if curl -s -o /dev/null -w '%{http_code}' http://localhost:3000 2>/dev/null | grep -qE '^[23]'; then
-              echo "Preview server ready on port 3000"
-              exit 0
-            fi
-            sleep 2
-          done
-          echo "Preview server did not start"
-          exit 1
+          # SPA fallback: copy index.html to 200.html for serve
+          cp apps/web/build/client/index.html apps/web/build/client/200.html
+          npx -y serve@14 -s apps/web/build/client -l 3000 &
+          sleep 3
+          curl -s -o /dev/null -w '%{http_code}' http://localhost:3000 | grep -qE '^[23]' && echo "Preview server ready" || { echo "Preview server failed"; exit 1; }
 
       - name: Install Playwright browsers
         run: npx playwright install --with-deps chromium
