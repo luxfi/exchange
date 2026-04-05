@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import { SqrtPriceMath, TickMath } from '@luxamm/v3-sdk'
+=======
+import { SqrtPriceMath, TickMath } from '@uniswap/v3-sdk'
+>>>>>>> upstream/main
 import JSBI from 'jsbi'
 
 type GetAmountParams = {
@@ -12,7 +16,11 @@ type GetAmountParams = {
 /**
  * Calculates the amount of token0 locked in a liquidity position defined by tick boundaries.
  *
+<<<<<<< HEAD
  * Uses Lux v3/v4 math via SqrtPriceMath.getAmount0Delta to compute token amounts based
+=======
+ * Uses Uniswap v3/v4 math via SqrtPriceMath.getAmount0Delta to compute token amounts based
+>>>>>>> upstream/main
  * on the position's tick range relative to the current tick. The calculation depends on
  * whether the current price is below, within, or above the position's range.
  *
@@ -51,7 +59,11 @@ export function getAmount0({ tickLower, tickUpper, currentTick, liquidity, currS
 /**
  * Calculates the amount of token1 locked in a liquidity position defined by tick boundaries.
  *
+<<<<<<< HEAD
  * Uses Lux v3/v4 math via SqrtPriceMath.getAmount1Delta to compute token amounts based
+=======
+ * Uses Uniswap v3/v4 math via SqrtPriceMath.getAmount1Delta to compute token amounts based
+>>>>>>> upstream/main
  * on the position's tick range relative to the current tick. The calculation has four branches
  * depending on whether the current price is below, at, within, or above the position's range.
  *

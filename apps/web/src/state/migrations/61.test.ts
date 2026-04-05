@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import { AppearanceSettingType } from '@l.x/lx/src/features/appearance/slice'
+=======
+import { AppearanceSettingType } from 'uniswap/src/features/appearance/slice'
+>>>>>>> upstream/main
 import { migration61, PersistAppStateV60, themeSettingAtomName } from '~/state/migrations/61'
 
 const previousState: PersistAppStateV60 = {

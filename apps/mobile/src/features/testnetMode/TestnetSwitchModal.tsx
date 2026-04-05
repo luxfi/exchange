@@ -3,12 +3,21 @@ import { useTranslation } from 'react-i18next'
 import { useDispatch } from 'react-redux'
 import { AppStackScreenProp } from 'src/app/navigation/types'
 import { useReactNavigationModal } from 'src/components/modals/useReactNavigationModal'
+<<<<<<< HEAD
 import { Wrench } from '@l.x/ui/src/components/icons'
 import { WarningSeverity } from '@l.x/lx/src/components/modals/WarningModal/types'
 import { WarningModal } from '@l.x/lx/src/components/modals/WarningModal/WarningModal'
 import { setIsTestnetModeEnabled } from '@l.x/lx/src/features/settings/slice'
 import { ModalName, WalletEventName } from '@l.x/lx/src/features/telemetry/constants'
 import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
+=======
+import { Wrench } from 'ui/src/components/icons'
+import { WarningSeverity } from 'uniswap/src/components/modals/WarningModal/types'
+import { WarningModal } from 'uniswap/src/components/modals/WarningModal/WarningModal'
+import { setIsTestnetModeEnabled } from 'uniswap/src/features/settings/slice'
+import { ModalName, WalletEventName } from 'uniswap/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
+>>>>>>> upstream/main
 
 export function TestnetSwitchModal({ route }: AppStackScreenProp<typeof ModalName.TestnetSwitchModal>): JSX.Element {
   const { onClose } = useReactNavigationModal()

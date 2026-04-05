@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* eslint-disable no-console */
 import { type ChildProcess, spawn } from 'child_process'
 import 'dotenv/config'
@@ -68,6 +69,20 @@ export const getTestChain = (): Chain => {
   return mainnet
 }
 
+=======
+import 'dotenv/config'
+/* oxlint-disable no-console */
+import { type ChildProcess, spawn } from 'child_process'
+import * as fs from 'fs'
+import * as path from 'path'
+import { promiseTimeout, sleep } from 'utilities/src/time/timing'
+import { createClient, createTestClient, http, publicActions, walletActions } from 'viem'
+import { privateKeyToAccount } from 'viem/accounts'
+import { mainnet } from 'viem/chains'
+
+const TEST_WALLET_PRIVATE_KEY = '0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80'
+
+>>>>>>> upstream/main
 interface AnvilConfig {
   port: number
   host: string
@@ -111,12 +126,19 @@ function buildForkUrl(): string {
  * Build Anvil configuration with defaults and overrides
  */
 function buildAnvilConfig(overrides?: Partial<AnvilConfig>): AnvilConfig {
+<<<<<<< HEAD
   // Both luxd dev mode and anvil use port 8545 (drop-in replacement)
   const defaultPort = 8545
   return {
     port: overrides?.port ?? parseInt(process.env.ANVIL_PORT ?? String(defaultPort)),
     host: overrides?.host ?? '127.0.0.1',
     forkUrl: overrides?.forkUrl ?? (isLuxdMode() ? '' : buildForkUrl()),
+=======
+  return {
+    port: overrides?.port ?? parseInt(process.env.ANVIL_PORT ?? '8545'),
+    host: overrides?.host ?? '127.0.0.1',
+    forkUrl: overrides?.forkUrl ?? buildForkUrl(),
+>>>>>>> upstream/main
     timeout: overrides?.timeout ?? 10_000,
     healthCheckInterval: overrides?.healthCheckInterval ?? 3_000,
     logFile: overrides?.logFile ?? path.join(process.cwd(), `anvil-test-${process.pid}.log`),
@@ -145,12 +167,19 @@ export type AnvilClient = ReturnType<typeof createTestClient> &
  * Create an Anvil client for interacting with the local node
  */
 function createAnvilClient(ctx: { url: string; timeout?: number }): AnvilClient {
+<<<<<<< HEAD
   const chain = getTestChain()
   const mode = isLuxdMode() ? 'hardhat' : 'anvil' // luxd uses hardhat mode for test client
   return createTestClient({
     account: privateKeyToAccount(TEST_WALLET_PRIVATE_KEY),
     chain,
     mode,
+=======
+  return createTestClient({
+    account: privateKeyToAccount(TEST_WALLET_PRIVATE_KEY),
+    chain: mainnet,
+    mode: 'anvil',
+>>>>>>> upstream/main
     transport: http(ctx.url, {
       timeout: ctx.timeout,
       retryCount: 1,
@@ -169,7 +198,11 @@ function createAnvilManager(configOverrides?: Partial<AnvilConfig>): AnvilManage
   let childProcess: ChildProcess | null = null
   let config: AnvilConfig | null = null
   let isRestarting = false
+<<<<<<< HEAD
   let healthCheckTimer: ReturnType<typeof setInterval> | null = null
+=======
+  let healthCheckTimer: NodeJS.Timeout | null = null
+>>>>>>> upstream/main
 
   // Lazy config getter
   const getConfig = (): AnvilConfig => {
@@ -205,6 +238,7 @@ function createAnvilManager(configOverrides?: Partial<AnvilConfig>): AnvilManage
 
   // Check health implementation
   const checkHealth = async (): Promise<HealthCheckResult> => {
+<<<<<<< HEAD
     // In luxd mode, delegate to luxd-manager (it knows the actual port)
     if (isLuxdMode()) {
       return getLuxdManager().checkHealth()
@@ -214,6 +248,12 @@ function createAnvilManager(configOverrides?: Partial<AnvilConfig>): AnvilManage
     const url = `http://${cfg.host}:${cfg.port}`
     const client = createClient({
       chain: getTestChain(),
+=======
+    const cfg = getConfig()
+    const url = `http://${cfg.host}:${cfg.port}`
+    const client = createClient({
+      chain: mainnet,
+>>>>>>> upstream/main
       transport: http(url, {
         timeout: cfg.timeout,
         retryCount: 1,
@@ -225,8 +265,12 @@ function createAnvilManager(configOverrides?: Partial<AnvilConfig>): AnvilManage
 
     try {
       const blockNumber = await promiseTimeout(client.getBlockNumber(), cfg.timeout)
+<<<<<<< HEAD
       // blockNumber can be 0n which is valid, only check for null/undefined
       if (blockNumber === null || blockNumber === undefined) {
+=======
+      if (!blockNumber) {
+>>>>>>> upstream/main
         throw new Error('Anvil health check timed out')
       }
       const responseTime = Date.now() - startTime
@@ -278,6 +322,7 @@ function createAnvilManager(configOverrides?: Partial<AnvilConfig>): AnvilManage
     async start(): Promise<void> {
       const cfg = getConfig()
 
+<<<<<<< HEAD
       // In luxd mode, use luxd-manager to auto-spawn a dev node
       if (isLuxdMode()) {
         const luxdManager = getLuxdManager()
@@ -287,6 +332,8 @@ function createAnvilManager(configOverrides?: Partial<AnvilConfig>): AnvilManage
         return
       }
 
+=======
+>>>>>>> upstream/main
       if (childProcess) {
         console.log('Anvil is already running')
         return
@@ -355,12 +402,15 @@ function createAnvilManager(configOverrides?: Partial<AnvilConfig>): AnvilManage
     async stop(): Promise<void> {
       stopHealthMonitoring()
 
+<<<<<<< HEAD
       // In luxd mode, stop the dev node we spawned
       if (isLuxdMode()) {
         await getLuxdManager().stop()
         return
       }
 
+=======
+>>>>>>> upstream/main
       if (!childProcess) {
         return
       }
@@ -378,11 +428,14 @@ function createAnvilManager(configOverrides?: Partial<AnvilConfig>): AnvilManage
     },
 
     async restart(): Promise<boolean> {
+<<<<<<< HEAD
       // In luxd mode, delegate to luxd-manager
       if (isLuxdMode()) {
         return getLuxdManager().restart()
       }
 
+=======
+>>>>>>> upstream/main
       if (isRestarting) {
         console.log('Restart already in progress')
         return false
@@ -411,19 +464,25 @@ function createAnvilManager(configOverrides?: Partial<AnvilConfig>): AnvilManage
     },
 
     async isHealthy(): Promise<boolean> {
+<<<<<<< HEAD
       // In luxd mode, delegate to luxd-manager
       if (isLuxdMode()) {
         return getLuxdManager().isHealthy()
       }
+=======
+>>>>>>> upstream/main
       const result = await checkHealth()
       return result.healthy
     },
 
     async ensureHealthy(): Promise<boolean> {
+<<<<<<< HEAD
       // In luxd mode, delegate to luxd-manager
       if (isLuxdMode()) {
         return getLuxdManager().ensureHealthy()
       }
+=======
+>>>>>>> upstream/main
       if (await manager.isHealthy()) {
         return true
       }
@@ -432,6 +491,7 @@ function createAnvilManager(configOverrides?: Partial<AnvilConfig>): AnvilManage
       return await manager.restart()
     },
 
+<<<<<<< HEAD
     async checkHealth(): Promise<HealthCheckResult> {
       // In luxd mode, delegate to luxd-manager
       if (isLuxdMode()) {
@@ -449,15 +509,26 @@ function createAnvilManager(configOverrides?: Partial<AnvilConfig>): AnvilManage
       const url = `http://${cfg.host}:${cfg.port}`
       return createAnvilClient({
         url,
+=======
+    checkHealth,
+
+    getClient(): AnvilClient {
+      const cfg = getConfig()
+      return createAnvilClient({
+        url: `http://${cfg.host}:${cfg.port}`,
+>>>>>>> upstream/main
         timeout: cfg.timeout,
       })
     },
 
     getUrl(): string {
+<<<<<<< HEAD
       // In luxd mode, get URL from luxd-manager
       if (isLuxdMode()) {
         return getLuxdManager().getUrl()
       }
+=======
+>>>>>>> upstream/main
       const cfg = getConfig()
       return `http://${cfg.host}:${cfg.port}`
     },

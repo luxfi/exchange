@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import { ONE_SECOND_MS } from '@l.x/utils/src/time/time'
+=======
+import { ONE_SECOND_MS } from 'utilities/src/time/time'
+>>>>>>> upstream/main
 
 // Do not change, this is Sonner's default max width
 export const POPUP_MAX_WIDTH = 348

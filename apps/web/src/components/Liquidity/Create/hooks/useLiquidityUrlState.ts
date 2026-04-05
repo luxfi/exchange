@@ -1,9 +1,18 @@
+<<<<<<< HEAD
 import { Currency } from '@luxamm/sdk-core'
 import { parseAsBoolean, parseAsString, useQueryState, useQueryStates } from 'nuqs'
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { nativeOnChain } from '@l.x/lx/src/constants/tokens'
 import { useEnabledChains } from '@l.x/lx/src/features/chains/hooks/useEnabledChains'
 import { useSupportedChainId } from '@l.x/lx/src/features/chains/hooks/useSupportedChainId'
+=======
+import { Currency } from '@uniswap/sdk-core'
+import { parseAsBoolean, parseAsString, useQueryState, useQueryStates } from 'nuqs'
+import { useCallback, useEffect, useMemo, useState } from 'react'
+import { nativeOnChain } from 'uniswap/src/constants/tokens'
+import { useEnabledChains } from 'uniswap/src/features/chains/hooks/useEnabledChains'
+import { useSupportedChainId } from 'uniswap/src/features/chains/hooks/useSupportedChainId'
+>>>>>>> upstream/main
 import { useCurrencyValidation } from '~/components/Liquidity/Create/hooks/useCurrencyValidation'
 import { PositionFlowStep, PositionState, PriceRangeState } from '~/components/Liquidity/Create/types'
 import { applyUrlMigrations } from '~/components/Liquidity/parsers/migrations'

@@ -1,9 +1,17 @@
 import ms from 'ms'
+<<<<<<< HEAD
 import { LimitsExpiry } from '@l.x/lx/src/types/limits'
 
 const DAY_SECS = ms('1d') / 1000
 
 // eslint-disable-next-line consistent-return
+=======
+import { LimitsExpiry } from 'uniswap/src/types/limits'
+
+const DAY_SECS = ms('1d') / 1000
+
+// oxlint-disable-next-line consistent-return
+>>>>>>> upstream/main
 export function expiryToDeadlineSeconds(expiry: LimitsExpiry): number {
   switch (expiry) {
     case LimitsExpiry.Day:

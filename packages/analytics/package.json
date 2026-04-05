@@ -1,0 +1,30 @@
+{
+  "name": "@universe/analytics",
+  "version": "0.0.0",
+  "dependencies": {
+    "@amplitude/analytics-node": "1.5.36"
+  },
+  "devDependencies": {
+    "@types/node": "22.13.1",
+    "@typescript/native-preview": "7.0.0-dev.20260311.1",
+    "@uniswap/eslint-config": "workspace:^",
+    "depcheck": "1.4.7",
+    "eslint": "10.0.2",
+    "typescript": "5.8.3"
+  },
+  "scripts": {
+    "typecheck": "nx typecheck analytics",
+    "typecheck:tsgo": "nx typecheck:tsgo analytics",
+    "lint": "nx lint analytics",
+    "lint:fix": "nx lint:fix analytics",
+    "lint:eslint": "nx lint:eslint analytics",
+    "lint:eslint:fix": "nx lint:eslint:fix analytics",
+    "check:deps:usage": "nx check:deps:usage analytics"
+  },
+  "nx": {
+    "includedScripts": []
+  },
+  "main": "src/index.ts",
+  "private": true,
+  "sideEffects": false
+}

@@ -14,8 +14,13 @@ exports[`SortButton renders without error 1`] = `
         "flexDirection": "row",
         "gap": 4,
         "justifyContent": "center",
+<<<<<<< HEAD
         "paddingLeft": 12,
         "paddingRight": 8,
+=======
+        "paddingLeft": 16,
+        "paddingRight": 12,
+>>>>>>> upstream/main
       }
     }
     testID="explore-sort-button"

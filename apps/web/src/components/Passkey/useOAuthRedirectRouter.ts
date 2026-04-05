@@ -1,8 +1,14 @@
 import { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
+<<<<<<< HEAD
 import { ModalName } from 'lx/src/features/telemetry/constants'
 import { useAccountDrawer } from '~/components/AccountDrawer/MiniPortfolio/hooks'
 import { MenuStateVariant, useSetMenu } from '~/components/AccountDrawer/menuState'
+=======
+import { ModalName } from 'uniswap/src/features/telemetry/constants'
+import { MenuStateVariant, useSetMenu } from '~/components/AccountDrawer/menuState'
+import { useAccountDrawer } from '~/components/AccountDrawer/MiniPortfolio/hooks'
+>>>>>>> upstream/main
 import { setOpenModal } from '~/state/application/reducer'
 
 export const OAUTH_PENDING_KEY = 'addBackupLogin:oauthProvider'

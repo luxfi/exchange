@@ -1,7 +1,14 @@
+<<<<<<< HEAD
 import { GraphQLApi } from '@l.x/api'
 import { PersistState } from 'redux-persist'
 import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { createPersistState, createSafeMigration } from '@l.x/lx/src/state/createSafeMigration'
+=======
+import { GraphQLApi } from '@universe/api'
+import { PersistState } from 'redux-persist'
+import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { createPersistState, createSafeMigration } from 'uniswap/src/state/createSafeMigration'
+>>>>>>> upstream/main
 import { TransactionInfo } from '~/state/transactions/types'
 
 interface SerializableTransactionReceipt {
@@ -71,10 +78,17 @@ export const migration12 = createSafeMigration({
       return state
     }
 
+<<<<<<< HEAD
     // eslint-disable-next-line guard-for-in
     for (const chainId in state.transactions) {
       const transactionsForChain = state.transactions[chainId]
       // eslint-disable-next-line guard-for-in
+=======
+    // oxlint-disable-next-line guard-for-in
+    for (const chainId in state.transactions) {
+      const transactionsForChain = state.transactions[chainId]
+      // oxlint-disable-next-line guard-for-in
+>>>>>>> upstream/main
       for (const txHash in transactionsForChain) {
         const { receipt, ...tx } = transactionsForChain[txHash]
 

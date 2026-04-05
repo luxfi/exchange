@@ -6,6 +6,7 @@ import { useTransactionConfirmationTracker } from 'src/app/features/dappRequests
 import { isDappRequestWithDappInfo } from 'src/app/features/dappRequests/saga'
 import type { DappRequestStoreItem } from 'src/app/features/dappRequests/shared'
 import { selectAllDappRequests, type WithMetadata } from 'src/app/features/dappRequests/slice'
+<<<<<<< HEAD
 import { DappResponseType } from '@l.x/lx/src/features/dappRequests/types'
 import { ExtensionEventName } from '@l.x/lx/src/features/telemetry/constants'
 import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
@@ -16,6 +17,18 @@ import { useEvent } from '@l.x/utils/src/react/hooks'
 import { type SignedTransactionRequest } from '@luxfi/wallet/src/features/transactions/executeTransaction/types'
 import { type Account } from '@luxfi/wallet/src/features/wallet/accounts/types'
 import { useActiveAccountWithThrow } from '@luxfi/wallet/src/features/wallet/hooks'
+=======
+import { DappResponseType } from 'uniswap/src/features/dappRequests/types'
+import { ExtensionEventName } from 'uniswap/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
+import { DappRequestAction } from 'uniswap/src/features/telemetry/types'
+import { type TransactionTypeInfo } from 'uniswap/src/features/transactions/types/transactionDetails'
+import { extractBaseUrl } from 'utilities/src/format/urls'
+import { useEvent } from 'utilities/src/react/hooks'
+import { type SignedTransactionRequest } from 'wallet/src/features/transactions/executeTransaction/types'
+import { type Account } from 'wallet/src/features/wallet/accounts/types'
+import { useActiveAccountWithThrow } from 'wallet/src/features/wallet/hooks'
+>>>>>>> upstream/main
 
 interface DappRequestQueueContextValue {
   forwards: boolean // direction of sliding animation

@@ -1,13 +1,21 @@
 import type { CSSProperties } from 'react'
 import { useCallback, useRef } from 'react'
+<<<<<<< HEAD
 import { Flex, Text } from '@l.x/ui/src'
+=======
+import { Flex, Text } from 'ui/src'
+>>>>>>> upstream/main
 import {
   FORMAT_DATE_MEDIUM,
   FORMAT_DATE_TIME_MEDIUM,
   useFormattedDate,
   useFormattedDateTime,
   useLocalizedDayjs,
+<<<<<<< HEAD
 } from 'lx/src/features/language/localizedDayjs'
+=======
+} from 'uniswap/src/features/language/localizedDayjs'
+>>>>>>> upstream/main
 
 const DATETIME_INPUT_CLASS = 'DatePickerCard-datetimeInput'
 

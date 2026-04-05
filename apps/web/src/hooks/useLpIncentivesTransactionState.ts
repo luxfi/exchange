@@ -1,5 +1,9 @@
 import { useEffect, useState } from 'react'
+<<<<<<< HEAD
 import { TransactionType } from '@l.x/lx/src/features/transactions/types/transactionDetails'
+=======
+import { TransactionType } from 'uniswap/src/features/transactions/types/transactionDetails'
+>>>>>>> upstream/main
 import { usePendingTransactions } from '~/state/transactions/hooks'
 
 export function useLpIncentivesTransactionState() {

@@ -12,7 +12,11 @@ import { ONBOARDING_CONTENT_WIDTH, ONBOARDING_INITIAL_FRAME_HEIGHT } from 'src/a
 import { TopLevelRoutes } from 'src/app/navigation/constants'
 import { navigate } from 'src/app/navigation/state'
 import { isOnboardedSelector } from 'src/app/utils/isOnboardedSelector'
+<<<<<<< HEAD
 import { AnimatePresence, Flex, styled, useWindowDimensions } from '@l.x/ui/src'
+=======
+import { AnimatePresence, Flex, styled, useWindowDimensions } from 'ui/src'
+>>>>>>> upstream/main
 
 export * from './OnboardingStepsContext'
 
@@ -58,7 +62,11 @@ export function OnboardingStepsProvider({
   const isOnboarded = useSelector(isOnboardedSelector)
   const wasAlreadyOnboardedWhenPageLoaded = useRef(isOnboarded)
 
+<<<<<<< HEAD
   // biome-ignore lint/correctness/useExhaustiveDependencies: we also want to run this effect if isOnboarded changes
+=======
+  // oxlint-disable-next-line react/exhaustive-deps -- we also want to run this effect if isOnboarded changes
+>>>>>>> upstream/main
   useEffect(() => {
     if (!isResetting && wasAlreadyOnboardedWhenPageLoaded.current && !disableRedirect) {
       // Redirect to the intro screen screen if user is already onboarded.
@@ -116,7 +124,11 @@ export function OnboardingStepsProvider({
     setState((prev) => ({ ...prev, step: nextStep }))
   }, [])
 
+<<<<<<< HEAD
   // biome-ignore lint/correctness/useExhaustiveDependencies: onboardingScreenKey is a helper function defined below that doesn't need to be a dependency
+=======
+  // oxlint-disable-next-line react/exhaustive-deps -- onboardingScreenKey is a helper function defined below that doesn't need to be a dependency
+>>>>>>> upstream/main
   const setOnboardingScreen = useCallback((next: OnboardingScreenProps) => {
     clearTimeout(clearScreenTimeout)
     setState((prev) => {
@@ -135,7 +147,11 @@ export function OnboardingStepsProvider({
     currentOnboardingScreen = next
   }, [])
 
+<<<<<<< HEAD
   // biome-ignore lint/correctness/useExhaustiveDependencies: onboardingScreenKey is a helper function defined below that doesn't need to be a dependency
+=======
+  // oxlint-disable-next-line react/exhaustive-deps -- onboardingScreenKey is a helper function defined below that doesn't need to be a dependency
+>>>>>>> upstream/main
   const clearOnboardingScreen = useCallback((next: OnboardingScreenProps) => {
     // delay clear so the next screen can beat clearing the old one to avoid flickering
     clearScreenTimeout = setTimeout(() => {
@@ -229,7 +245,11 @@ export function OnboardingStepsProvider({
         {onboardingScreen && (
           <>
             {/* render actual screen contents "offscreen", we use context and put it on onboardingScreen */}
+<<<<<<< HEAD
             {/* biome-ignore lint/correctness/noRestrictedElements: probably we can replace it here */}
+=======
+            {/* oxlint-disable-next-line react/forbid-elements -- probably we can replace it here */}
+>>>>>>> upstream/main
             <div style={{ height: 0, opacity: 0, pointerEvents: 'none' }}>{stepContents}</div>
             <Frame
               animation="stiff"

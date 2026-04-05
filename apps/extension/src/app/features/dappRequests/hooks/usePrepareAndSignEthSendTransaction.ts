@@ -1,12 +1,23 @@
+<<<<<<< HEAD
 import { GasFeeResult } from '@l.x/api'
+=======
+import { GasFeeResult } from '@universe/api'
+>>>>>>> upstream/main
 import { useMemo } from 'react'
 import { usePrepareAndSignDappTransaction } from 'src/app/features/dappRequests/hooks/usePrepareAndSignDappTransaction'
 import { useTransactionGasEstimation } from 'src/app/features/dappRequests/hooks/useTransactionGasEstimation'
 import { DappRequestStoreItemForEthSendTxn } from 'src/app/features/dappRequests/slice'
+<<<<<<< HEAD
 import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { formatExternalTxnWithGasEstimates } from '@luxfi/wallet/src/features/gas/formatExternalTxnWithGasEstimates'
 import { SignedTransactionRequest } from '@luxfi/wallet/src/features/transactions/executeTransaction/types'
 import { Account } from '@luxfi/wallet/src/features/wallet/accounts/types'
+=======
+import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { formatExternalTxnWithGasEstimates } from 'wallet/src/features/gas/formatExternalTxnWithGasEstimates'
+import { SignedTransactionRequest } from 'wallet/src/features/transactions/executeTransaction/types'
+import { Account } from 'wallet/src/features/wallet/accounts/types'
+>>>>>>> upstream/main
 
 interface UsePrepareAndSignDappTransactionParams {
   request: DappRequestStoreItemForEthSendTxn

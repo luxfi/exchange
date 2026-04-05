@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 import { useLayoutEffect, useState } from 'react'
+=======
+>>>>>>> upstream/main
 import Row from '~/components/deprecated/Row'
 import { Input, InputProps } from '~/components/NumericalInput'
 import { css, deprecatedStyled } from '~/lib/deprecated-styled'
@@ -48,6 +51,7 @@ export const NumericalInputSymbolContainer = deprecatedStyled.span<{ showPlaceho
       color: ${({ theme }) => theme.neutral3};
     `}
 `
+<<<<<<< HEAD
 
 export function useWidthAdjustedDisplayValue(displayValue: string) {
   const [postWidthAdjustedDisplayValue, setPostWidthAdjustedDisplayValue] = useState('')
@@ -60,3 +64,5 @@ export function useWidthAdjustedDisplayValue(displayValue: string) {
 
   return postWidthAdjustedDisplayValue
 }
+=======
+>>>>>>> upstream/main

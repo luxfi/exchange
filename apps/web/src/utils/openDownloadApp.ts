@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { brand, getBrandUrl, getDocsUrl } from '@l.x/config'
 import { ElementName, InterfaceEventName } from '@l.x/lx/src/features/telemetry/constants'
 import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
@@ -13,6 +14,22 @@ const APP_DOWNLOAD_LINKS: Partial<{ [key in ElementName]: string }> = {
 }
 
 export const MICROSITE_LINK = getBrandUrl('/wallet')
+=======
+import { ElementName, InterfaceEventName } from 'uniswap/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
+import { AppDownloadPlatform } from 'uniswap/src/features/telemetry/types'
+import { isWebAndroid, isWebIOS } from 'utilities/src/platform'
+
+// OneLink will direct to App/Play Store or microsite depending on user agent
+const APP_DOWNLOAD_LINKS: Partial<{ [key in ElementName]: string }> = {
+  [ElementName.UniswapWalletModalDownloadButton]: 'https://uniswapwallet.onelink.me/8q3y/qfwlncf9',
+  [ElementName.UniswapWalletNavbarMenuDownloadButton]: 'https://uniswapwallet.onelink.me/8q3y/46tvu6pb',
+  [ElementName.UniswapWalletLandingPageDownloadButton]: 'https://uniswapwallet.onelink.me/8q3y/79gveilz',
+  [ElementName.UniswapWalletBannerDownloadButton]: 'https://uniswapwallet.onelink.me/8q3y/jh9orof3',
+}
+
+export const MICROSITE_LINK = 'https://wallet.uniswap.org/'
+>>>>>>> upstream/main
 
 type OpenDownloadAppOptions = {
   element: ElementName
@@ -35,7 +52,11 @@ export function openDownloadApp({ element }: OpenDownloadAppOptions) {
   } else if (isWebAndroid) {
     openDownloadStore({ element, appPlatform: AppDownloadPlatform.Android })
   } else {
+<<<<<<< HEAD
     sendAnalyticsEvent(InterfaceEventName.LuxWalletMicrositeOpened, { element })
+=======
+    sendAnalyticsEvent(InterfaceEventName.UniswapWalletMicrositeOpened, { element })
+>>>>>>> upstream/main
     window.open(APP_DOWNLOAD_LINKS[element], '_blank', 'noopener,noreferrer')
   }
 }
@@ -46,7 +67,11 @@ type AnalyticsLinkOptions = {
 }
 
 const openDownloadStore = (options: AnalyticsLinkOptions) => {
+<<<<<<< HEAD
   sendAnalyticsEvent(InterfaceEventName.LuxWalletAppDownloadOpened, {
+=======
+  sendAnalyticsEvent(InterfaceEventName.UniswapWalletAppDownloadOpened, {
+>>>>>>> upstream/main
     element: options.element,
     appPlatform: options.appPlatform,
   })

@@ -1,10 +1,18 @@
 import { useCallback, useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
+<<<<<<< HEAD
 import { InfoCircle } from '@l.x/ui/src/components/icons/InfoCircle'
 import { LineChartDots } from '@l.x/ui/src/components/icons/LineChartDots'
 import { Flex, Text, Tooltip } from '@l.x/ui/src/index'
 // biome-ignore lint/style/noRestrictedImports: Direct analytics import needed for toggling analytics settings
 import { analytics, getAnalyticsAtomDirect } from '@l.x/utils/src/telemetry/analytics/analytics'
+=======
+import { InfoCircle } from 'ui/src/components/icons/InfoCircle'
+import { LineChartDots } from 'ui/src/components/icons/LineChartDots'
+import { Flex, Text, Tooltip } from 'ui/src/index'
+// oxlint-disable-next-line no-restricted-imports -- Direct analytics import needed for toggling analytics settings
+import { analytics, getAnalyticsAtomDirect } from 'utilities/src/telemetry/analytics/analytics'
+>>>>>>> upstream/main
 import { SettingsToggle } from '~/components/AccountDrawer/SettingsToggle'
 
 export function AnalyticsToggle() {

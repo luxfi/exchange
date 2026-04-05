@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { useUpdateAtom } from 'jotai/utils'
 import { MutableRefObject, useEffect, useRef } from 'react'
@@ -11,6 +12,21 @@ import { useOnchainDisplayName } from '@l.x/lx/src/features/accounts/useOnchainD
 import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
 import { shortenAddress } from '@l.x/utils/src/addresses'
 import { useEvent, useOnClickOutside } from '@l.x/utils/src/react/hooks'
+=======
+import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import { useUpdateAtom } from 'jotai/utils'
+import { MutableRefObject, useEffect, useRef } from 'react'
+import { useTranslation } from 'react-i18next'
+import { AdaptiveWebPopoverContent, Button, Flex, Text, TouchableArea, useShadowPropsShort } from 'ui/src'
+import { Unitag } from 'ui/src/components/icons/Unitag'
+import { X } from 'ui/src/components/icons/X'
+import { CONNECTION_PROVIDER_IDS } from 'uniswap/src/constants/web3'
+import { DisplayNameType } from 'uniswap/src/features/accounts/types'
+import { useOnchainDisplayName } from 'uniswap/src/features/accounts/useOnchainDisplayName'
+import { ModalName } from 'uniswap/src/features/telemetry/constants'
+import { shortenAddress } from 'utilities/src/addresses'
+import { useEvent, useOnClickOutside } from 'utilities/src/react/hooks'
+>>>>>>> upstream/main
 import { useAccountDrawer } from '~/components/AccountDrawer/MiniPortfolio/hooks'
 import StatusIcon from '~/components/StatusIcon'
 import { passkeySignInPendingAtom, showEmbeddedLoginViewAtom } from '~/components/WalletModal/EmbeddedWalletModal'
@@ -222,7 +238,11 @@ export function RecentlyConnectedModal() {
     }
   }, [walletAddress, account, isEmbeddedWalletEnabled, openModal, recentConnectorId])
 
+<<<<<<< HEAD
   // biome-ignore lint/correctness/useExhaustiveDependencies: account.isConnecting dependency is sufficient for this effect
+=======
+  // oxlint-disable-next-line react/exhaustive-deps -- account.isConnecting dependency is sufficient for this effect
+>>>>>>> upstream/main
   useEffect(() => {
     if (account.isConnected && isOpen) {
       closeModal()

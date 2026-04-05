@@ -5,11 +5,19 @@ import { SettingsStackParamList } from 'src/app/navigation/types'
 import { BackHeader } from 'src/components/layout/BackHeader'
 import { Screen } from 'src/components/layout/Screen'
 import { SeedPhraseDisplay } from 'src/components/mnemonic/SeedPhraseDisplay'
+<<<<<<< HEAD
 import { Text } from '@l.x/ui/src'
 import { AccountType } from '@l.x/lx/src/features/accounts/types'
 import { MobileScreens } from '@l.x/lx/src/types/screens/mobile'
 import { logger } from '@l.x/utils/src/logger/logger'
 import { useAccounts, useActiveSignerAccount } from '@luxfi/wallet/src/features/wallet/hooks'
+=======
+import { Text } from 'ui/src'
+import { AccountType } from 'uniswap/src/features/accounts/types'
+import { MobileScreens } from 'uniswap/src/types/screens/mobile'
+import { logger } from 'utilities/src/logger/logger'
+import { useAccounts, useActiveSignerAccount } from 'wallet/src/features/wallet/hooks'
+>>>>>>> upstream/main
 
 type Props = NativeStackScreenProps<SettingsStackParamList, MobileScreens.SettingsViewSeedPhrase>
 

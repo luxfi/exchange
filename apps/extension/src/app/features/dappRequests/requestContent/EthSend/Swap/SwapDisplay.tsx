@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { GasFeeResult } from '@l.x/api'
 import { useTranslation } from 'react-i18next'
 import { DappRequestContent } from 'src/app/features/dappRequests/DappRequestContent'
@@ -13,6 +14,24 @@ import { getCurrencyAmount, ValueType } from '@l.x/lx/src/features/tokens/getCur
 import { useUSDCValue } from '@l.x/lx/src/features/transactions/hooks/useUSDCPriceWrapper'
 import { NumberType } from '@l.x/utils/src/format/types'
 
+=======
+import { GasFeeResult } from '@universe/api'
+import { useTranslation } from 'react-i18next'
+import { DappRequestContent } from 'src/app/features/dappRequests/DappRequestContent'
+import { Flex, Separator, Text } from 'ui/src'
+import { ArrowDown } from 'ui/src/components/icons'
+import { iconSizes } from 'ui/src/theme'
+import { CurrencyLogo } from 'uniswap/src/components/CurrencyLogo/CurrencyLogo'
+import { SplitLogo } from 'uniswap/src/components/CurrencyLogo/SplitLogo'
+import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { CurrencyInfo } from 'uniswap/src/features/dataApi/types'
+import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
+import { getCurrencyAmount, ValueType } from 'uniswap/src/features/tokens/getCurrencyAmount'
+import { useUSDCValue } from 'uniswap/src/features/transactions/hooks/useUSDCPriceWrapper'
+import { NumberType } from 'utilities/src/format/types'
+
+// oxlint-disable-next-line complexity -- biome-parity: oxlint is stricter here
+>>>>>>> upstream/main
 export function SwapDisplay({
   inputAmount,
   outputAmount,
@@ -23,7 +42,11 @@ export function SwapDisplay({
   showSmartWalletActivation,
   onCancel,
   onConfirm,
+<<<<<<< HEAD
   isLX,
+=======
+  isUniswapX,
+>>>>>>> upstream/main
   isWrap,
   isUnwrap,
 }: {
@@ -36,7 +59,11 @@ export function SwapDisplay({
   showSmartWalletActivation?: boolean
   onCancel?: () => Promise<void>
   onConfirm?: () => Promise<void>
+<<<<<<< HEAD
   isLX?: boolean
+=======
+  isUniswapX?: boolean
+>>>>>>> upstream/main
   isWrap?: boolean
   isUnwrap?: boolean
 }): JSX.Element {
@@ -91,7 +118,11 @@ export function SwapDisplay({
           />
         ) : undefined
       }
+<<<<<<< HEAD
       isLX={isLX}
+=======
+      isUniswapX={isUniswapX}
+>>>>>>> upstream/main
       title={title}
       transactionGasFeeResult={transactionGasFeeResult}
       showSmartWalletActivation={showSmartWalletActivation}

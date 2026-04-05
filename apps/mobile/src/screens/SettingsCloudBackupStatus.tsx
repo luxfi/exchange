@@ -10,6 +10,7 @@ import { Screen } from 'src/components/layout/Screen'
 import { useBiometricAppSettings } from 'src/features/biometrics/useBiometricAppSettings'
 import { useBiometricPrompt } from 'src/features/biometricsSettings/hooks'
 import { deleteCloudStorageMnemonicBackup } from 'src/features/CloudBackup/RNCloudStorageBackupsManager'
+<<<<<<< HEAD
 import { Button, Flex, Text } from '@l.x/ui/src'
 import { Check } from '@l.x/ui/src/components/icons'
 import { useDeviceDimensions } from '@l.x/ui/src/hooks/useDeviceDimensions'
@@ -31,6 +32,29 @@ import { EditAccountAction, editAccountActions } from '@luxfi/wallet/src/feature
 import { Account, BackupType, SignerMnemonicAccount } from '@luxfi/wallet/src/features/wallet/accounts/types'
 import { useAccounts } from '@luxfi/wallet/src/features/wallet/hooks'
 import { selectAndroidCloudBackupEmail } from '@luxfi/wallet/src/features/wallet/selectors'
+=======
+import { Button, Flex, Text } from 'ui/src'
+import { Check } from 'ui/src/components/icons'
+import { useDeviceDimensions } from 'ui/src/hooks/useDeviceDimensions'
+import { spacing } from 'ui/src/theme'
+import { AddressDisplay } from 'uniswap/src/components/accounts/AddressDisplay'
+import { WarningSeverity } from 'uniswap/src/components/modals/WarningModal/types'
+import { WarningModal } from 'uniswap/src/components/modals/WarningModal/WarningModal'
+import { AccountType } from 'uniswap/src/features/accounts/types'
+import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
+import { ModalName } from 'uniswap/src/features/telemetry/constants'
+import { useAppInsets } from 'uniswap/src/hooks/useAppInsets'
+import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+import { MobileScreens } from 'uniswap/src/types/screens/mobile'
+import { getCloudProviderName } from 'uniswap/src/utils/cloud-backup/getCloudProviderName'
+import { NumberType } from 'utilities/src/format/types'
+import { logger } from 'utilities/src/logger/logger'
+import { useAccountListData } from 'wallet/src/features/accounts/useAccountListData'
+import { EditAccountAction, editAccountActions } from 'wallet/src/features/wallet/accounts/editAccountSaga'
+import { Account, BackupType, SignerMnemonicAccount } from 'wallet/src/features/wallet/accounts/types'
+import { useAccounts } from 'wallet/src/features/wallet/hooks'
+import { selectAndroidCloudBackupEmail } from 'wallet/src/features/wallet/selectors'
+>>>>>>> upstream/main
 
 type Props = NativeStackScreenProps<SettingsStackParamList, MobileScreens.SettingsCloudBackupStatus>
 

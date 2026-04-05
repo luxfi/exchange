@@ -1,10 +1,18 @@
 import { Fragment } from 'react'
 import { useTranslation } from 'react-i18next'
+<<<<<<< HEAD
 import { Flex, Text } from '@l.x/ui/src'
 import { INTERFACE_NAV_HEIGHT } from '@l.x/ui/src/theme'
 import { assert } from '@l.x/utils/src/errors'
 import { useStickyHeaderBorder } from '~/hooks/useStickyHeaderBorder'
 import { ClickableGuiStyle } from '~/theme/components/styles'
+=======
+import { Flex, Text } from 'ui/src'
+import { INTERFACE_NAV_HEIGHT } from 'ui/src/theme'
+import { assert } from 'utilities/src/errors'
+import { useStickyHeaderBorder } from '~/hooks/useStickyHeaderBorder'
+import { ClickableTamaguiStyle } from '~/theme/components/styles'
+>>>>>>> upstream/main
 
 interface PoolProgressStep {
   label: string
@@ -36,7 +44,11 @@ export function PoolProgressIndicator({ steps }: { steps: PoolProgressStep[] }) 
             gap="$gap12"
             alignItems="center"
             onPress={step.onPress}
+<<<<<<< HEAD
             {...(step.onPress ? ClickableGuiStyle : {})}
+=======
+            {...(step.onPress ? ClickableTamaguiStyle : {})}
+>>>>>>> upstream/main
           >
             <Flex
               height="$spacing32"

@@ -37,6 +37,7 @@
     "types": ["node"],
     "useUnknownInCatchVariables": true,
     "paths": {
+<<<<<<< HEAD
       "@l.x/api/*": ["./pkgs/api/*"],
       "@l.x/config/*": ["./pkgs/config/*"],
       "@l.x/gating/*": ["./pkgs/gating/*"],
@@ -64,6 +65,37 @@
       "@luxamm/client-privy-embedded-wallet/dist/lx/privy-embedded-wallet/v1/service_connect": [
         "./pkgs/api/stubs/privy-service-connect"
       ]
+=======
+      "@universe/api/*": ["./packages/api/*"],
+      "@universe/cli/*": ["./apps/cli/*"],
+      "@universe/config/*": ["./packages/config/*"],
+      "@universe/gating/*": ["./packages/gating/*"],
+      "@universe/notifications/*": ["./packages/notifications/*"],
+      "@universe/sessions/*": ["./packages/sessions/*"],
+      "@universe/hashcash-native": ["./packages/hashcash-native/src/index.ts"],
+      "@universe/hashcash-native/*": ["./packages/hashcash-native/*"],
+      "ui/*": ["./packages/ui/*"],
+      "uniswap/*": ["./packages/uniswap/*"],
+      "utilities/*": ["./packages/utilities/*"],
+      "wallet/*": ["./packages/wallet/*"],
+      "@universe/transactional/*": ["./packages/transactional/*"],
+      "@universe/mycelium/*": ["./packages/mycelium/*"],
+      "@universe/websocket/*": ["./packages/websocket/*"],
+      "@universe/prices/*": ["./packages/prices/*"],
+      "@uniswap/client-privy-embedded-wallet/dist/uniswap/privy-embedded-wallet/v1/service_pb": [
+        "./node_modules/@uniswap/client-privy-embedded-wallet/dist/uniswap/privy-embedded-wallet/v1/service_pb",
+        "./packages/api/stubs/privy-service-pb"
+      ],
+      "@uniswap/client-privy-embedded-wallet/dist/uniswap/privy-embedded-wallet/v1/service_connect": [
+        "./node_modules/@uniswap/client-privy-embedded-wallet/dist/uniswap/privy-embedded-wallet/v1/service_connect",
+        "./packages/api/stubs/privy-service-connect"
+      ],
+      "@universe/privacy/*": ["./packages/privacy/*"],
+      "@universe/logger/*": ["./packages/logger/*"],
+      "@universe/react-query/*": ["./packages/react-query/*"],
+      "@universe/analytics/*": ["./packages/analytics/*"],
+      "@universe/trpc/*": ["./packages/trpc/*"]
+>>>>>>> upstream/main
     }
   }
 }

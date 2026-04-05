@@ -1,7 +1,12 @@
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router'
+<<<<<<< HEAD
 import { Flex, Text } from '@l.x/ui/src'
 import { lxUrls } from '@l.x/lx/src/constants/urls'
+=======
+import { Flex, Text } from 'ui/src'
+import { uniswapUrls } from 'uniswap/src/constants/urls'
+>>>>>>> upstream/main
 
 export function NoDappConnections(): JSX.Element {
   const { t } = useTranslation()
@@ -16,7 +21,11 @@ export function NoDappConnections(): JSX.Element {
       <Link
         style={{ textDecoration: 'none', marginTop: 8 }}
         target="_blank"
+<<<<<<< HEAD
         to={lxUrls.helpArticleUrls.extensionDappTroubleshooting}
+=======
+        to={uniswapUrls.helpArticleUrls.extensionDappTroubleshooting}
+>>>>>>> upstream/main
       >
         <Text color="$accent1" textAlign="center" variant="buttonLabel3">
           {t('extension.connection.popup.trouble')}

@@ -1,9 +1,16 @@
 import { useCallback, useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
+<<<<<<< HEAD
 import { Flex, useMedia } from '@l.x/ui/src'
 import { Check } from '@l.x/ui/src/components/icons/Check'
 import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
+=======
+import { Flex, useMedia } from 'ui/src'
+import { Check } from 'ui/src/components/icons/Check'
+import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+>>>>>>> upstream/main
 import { TimePeriod } from '~/appGraphql/data/util'
 import { Dropdown, InternalMenuItem } from '~/components/Dropdowns/Dropdown'
 import { getTimePeriodLabel, ORDERED_TIMES, SOLANA_ORDERED_TIMES } from '~/components/Explore/constants'

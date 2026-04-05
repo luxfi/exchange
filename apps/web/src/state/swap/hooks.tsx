@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { Currency } from '@luxamm/sdk-core'
 import { ParsedQs } from 'qs'
 import { useCallback, useEffect, useMemo } from 'react'
@@ -13,6 +14,23 @@ import { chainIdToPlatform } from '@l.x/lx/src/features/platforms/utils/chains'
 import { selectFilteredChainIds } from '@l.x/lx/src/features/transactions/swap/state/selectors'
 import { CurrencyField } from '@l.x/lx/src/types/currency'
 import { getValidAddress } from '@l.x/lx/src/utils/addresses'
+=======
+import { Currency } from '@uniswap/sdk-core'
+import { ParsedQs } from 'qs'
+import { useCallback, useEffect, useMemo } from 'react'
+import { useSelector } from 'react-redux'
+import { getNativeAddress } from 'uniswap/src/constants/addresses'
+import { useUrlContext } from 'uniswap/src/contexts/UrlContext'
+import { getChainInfo } from 'uniswap/src/features/chains/chainInfo'
+import { useEnabledChains } from 'uniswap/src/features/chains/hooks/useEnabledChains'
+import { useSupportedChainId } from 'uniswap/src/features/chains/hooks/useSupportedChainId'
+import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { Platform } from 'uniswap/src/features/platforms/types/Platform'
+import { chainIdToPlatform } from 'uniswap/src/features/platforms/utils/chains'
+import { selectFilteredChainIds } from 'uniswap/src/features/transactions/swap/state/selectors'
+import { CurrencyField } from 'uniswap/src/types/currency'
+import { getValidAddress } from 'uniswap/src/utils/addresses'
+>>>>>>> upstream/main
 import { NATIVE_CHAIN_ID } from '~/constants/tokens'
 import { useCurrency } from '~/hooks/Tokens'
 import { useMultichainContext } from '~/state/multichain/useMultichainContext'
@@ -163,12 +181,20 @@ export function serializeSwapAddressesToURLParameters({
 export function queryParametersToCurrencyState(parsedQs: ParsedQs): SerializedCurrencyState {
   const chainId = getParsedChainId(parsedQs)
   const outputChainId = getParsedChainId(parsedQs, CurrencyField.OUTPUT)
+<<<<<<< HEAD
   // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+=======
+  // oxlint-disable-next-line typescript/no-unnecessary-condition
+>>>>>>> upstream/main
   const parsedInputCurrencyAddress = parseCurrencyFromURLParameter(
     parsedQs.inputCurrency || parsedQs.inputcurrency,
     chainIdToPlatform(chainId ?? UniverseChainId.Mainnet),
   )
+<<<<<<< HEAD
   // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+=======
+  // oxlint-disable-next-line typescript/no-unnecessary-condition
+>>>>>>> upstream/main
   const parsedOutputCurrencyAddress = parseCurrencyFromURLParameter(
     parsedQs.outputCurrency || parsedQs.outputcurrency,
     chainIdToPlatform(outputChainId ?? UniverseChainId.Mainnet),
@@ -196,7 +222,11 @@ export function queryParametersToCurrencyState(parsedQs: ParsedQs): SerializedCu
 // We can revisit this if we find a way to make the initial load time faster.
 
 // When we get the speed up here is the PR that removed the beautiful code:
+<<<<<<< HEAD
 // https://app.graphite.dev/github/pr/Lux/universe/11068/fix-web-default-to-eth-mainnet-on-multichain
+=======
+// https://app.graphite.dev/github/pr/Uniswap/universe/11068/fix-web-default-to-eth-mainnet-on-multichain
+>>>>>>> upstream/main
 export function useInitialCurrencyState(): {
   initialInputCurrency?: Currency
   initialOutputCurrency?: Currency
@@ -232,7 +262,11 @@ export function useInitialCurrencyState(): {
     }
   }, [parsedCurrencyState.inputCurrencyAddress, parsedCurrencyState.outputCurrencyAddress, setIsUserSelectedToken])
 
+<<<<<<< HEAD
   // biome-ignore lint/correctness/useExhaustiveDependencies: We do not want to rerender on a change to persistedFilteredChainIds
+=======
+  // oxlint-disable-next-line react/exhaustive-deps -- We do not want to rerender on a change to persistedFilteredChainIds
+>>>>>>> upstream/main
   const { initialInputCurrencyAddress, initialChainId } = useMemo(() => {
     // Default to native if no query params or chain is not compatible with testnet or mainnet mode
     if (!hasCurrencyQueryParams || !isSupportedChainCompatible) {
@@ -254,6 +288,10 @@ export function useInitialCurrencyState(): {
       initialInputCurrencyAddress: parsedCurrencyState.outputCurrencyAddress ? undefined : 'ETH',
       initialChainId: parsedCurrencyState.chainId ? supportedChainId : undefined,
     }
+<<<<<<< HEAD
+=======
+    // oxlint-disable-next-line react/exhaustive-deps -- biome-parity: oxlint is stricter here
+>>>>>>> upstream/main
   }, [
     hasCurrencyQueryParams,
     isSupportedChainCompatible,

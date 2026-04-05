@@ -9,7 +9,11 @@ const storage = new MMKV()
 
 const reactotron = Reactotron.setAsyncStorageHandler(AsyncStorage)
   .configure({
+<<<<<<< HEAD
     name: 'Lux Wallet',
+=======
+    name: 'Uniswap Wallet',
+>>>>>>> upstream/main
     onConnect: () => {
       Reactotron.clear()
     },

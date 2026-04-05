@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 import { Flex, styled } from '@l.x/ui/src'
 import { zIndexes } from '@l.x/ui/src/theme'
+=======
+import { Flex, styled } from 'ui/src'
+import { zIndexes } from 'ui/src/theme'
+>>>>>>> upstream/main
 
 const MOBILE_BAR_MAX_HEIGHT = 100 // ensure that it's translated out of view on scroll
 

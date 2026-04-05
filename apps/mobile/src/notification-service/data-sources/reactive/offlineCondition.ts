@@ -4,12 +4,21 @@ import {
   ContentStyle,
   Notification,
   OnClick,
+<<<<<<< HEAD
 } from '@luxamm/client-notification-service/dist/lx/notificationservice/v1/api_pb'
 import { type InAppNotification, OnClickAction } from '@l.x/api'
 import { type ReactiveCondition } from '@l.x/notifications'
 import { type MobileState } from 'src/app/mobileReducer'
 import { selectSomeModalOpen } from 'src/features/modals/selectSomeModalOpen'
 import { selectFinishedOnboarding } from '@luxfi/wallet/src/features/wallet/selectors'
+=======
+} from '@uniswap/client-notification-service/dist/uniswap/notificationservice/v1/api_pb'
+import { type InAppNotification, OnClickAction } from '@universe/api'
+import { type ReactiveCondition } from '@universe/notifications'
+import { type MobileState } from 'src/app/mobileReducer'
+import { selectSomeModalOpen } from 'src/features/modals/selectSomeModalOpen'
+import { selectFinishedOnboarding } from 'wallet/src/features/wallet/selectors'
+>>>>>>> upstream/main
 
 /**
  * Unique ID for the offline banner notification.

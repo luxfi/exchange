@@ -1,14 +1,25 @@
+<<<<<<< HEAD
 import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
+=======
+import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+>>>>>>> upstream/main
 import { useEffect, useMemo, useRef } from 'react'
 import {
   PLAN_POLLING_INITIAL_DELAY_MS,
   PLAN_POLLING_INTERVAL_MS,
   pollPlanStatus,
   shouldPollPlan,
+<<<<<<< HEAD
 } from '@l.x/lx/src/features/transactions/swap/plan/planPollingUtils'
 import { activePlanStore } from '@l.x/lx/src/features/transactions/swap/review/stores/activePlan/activePlanStore'
 import { isFinalizedTxStatus, isPlanTransactionDetails } from '@l.x/lx/src/features/transactions/types/utils'
 import { logger } from '@l.x/utils/src/logger/logger'
+=======
+} from 'uniswap/src/features/transactions/swap/plan/planPollingUtils'
+import { activePlanStore } from 'uniswap/src/features/transactions/swap/review/stores/activePlan/activePlanStore'
+import { isFinalizedTxStatus, isPlanTransactionDetails } from 'uniswap/src/features/transactions/types/utils'
+import { logger } from 'utilities/src/logger/logger'
+>>>>>>> upstream/main
 import { useStore } from 'zustand'
 import { ActivityPlanUpdate, ActivityUpdateTransactionType, type OnActivityUpdate } from '~/state/activity/types'
 import { usePendingPlanTransactions, usePlanTransactions } from '~/state/transactions/hooks'
@@ -104,7 +115,11 @@ export function usePollPendingPlanTransactions(onActivityUpdate: OnActivityUpdat
         }
       }
 
+<<<<<<< HEAD
       // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition -- can change during await
+=======
+      // oxlint-disable-next-line typescript/no-unnecessary-condition -- can change during await
+>>>>>>> upstream/main
       if (isActiveRef.current) {
         timeout = setTimeout(poll, PLAN_POLLING_INTERVAL_MS)
       }

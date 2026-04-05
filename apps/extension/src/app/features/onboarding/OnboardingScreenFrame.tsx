@@ -1,9 +1,16 @@
 import { useTranslation } from 'react-i18next'
 import { OnboardingScreenProps } from 'src/app/features/onboarding/OnboardingScreenProps'
+<<<<<<< HEAD
 import { Button, Flex, Text, TouchableArea } from '@l.x/ui/src'
 import { BackArrow } from '@l.x/ui/src/components/icons'
 import i18n from '@l.x/lx/src/i18n'
 import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
+=======
+import { Button, Flex, Text, TouchableArea } from 'ui/src'
+import { BackArrow } from 'ui/src/components/icons'
+import i18n from 'uniswap/src/i18n'
+import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+>>>>>>> upstream/main
 
 export function OnboardingScreenFrame({
   Icon,

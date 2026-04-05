@@ -2,10 +2,17 @@ import { ScreenHeader } from 'src/app/components/layout/ScreenHeader'
 import { SettingsItem } from 'src/app/features/settings/components/SettingsItem'
 import { AppRoutes, SettingsRoutes } from 'src/app/navigation/constants'
 import { useExtensionNavigation } from 'src/app/navigation/utils'
+<<<<<<< HEAD
 import { Accordion, Flex, ScrollView, Text } from '@l.x/ui/src'
 import { Clock, Wrench } from '@l.x/ui/src/components/icons'
 import { CacheConfig } from '@l.x/lx/src/components/gating/CacheConfig'
 import { GatingOverrides } from '@l.x/lx/src/components/gating/GatingOverrides'
+=======
+import { Accordion, Flex, ScrollView, Text } from 'ui/src'
+import { Clock, Wrench } from 'ui/src/components/icons'
+import { CacheConfig } from 'uniswap/src/components/gating/CacheConfig'
+import { GatingOverrides } from 'uniswap/src/components/gating/GatingOverrides'
+>>>>>>> upstream/main
 
 /**
  * When modifying this component, take into consideration that this is used

@@ -1,8 +1,13 @@
+<<<<<<< HEAD
 import { ProtocolVersion } from '@luxamm/client-data-api/dist/data/v1/poolTypes_pb'
+=======
+import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
+>>>>>>> upstream/main
 import { useMemo } from 'react'
 import { Helmet } from 'react-helmet-async/lib/index'
 import { useTranslation } from 'react-i18next'
 import { Navigate, useLocation, useNavigate, useParams } from 'react-router'
+<<<<<<< HEAD
 import { Button, Circle, Flex, Main, Shine, styled, Text } from '@l.x/ui/src'
 import { RotatableChevron } from '@l.x/ui/src/components/icons/RotatableChevron'
 import { ZERO_ADDRESS } from '@l.x/lx/src/constants/misc'
@@ -16,6 +21,21 @@ import { useUSDCValue } from '@l.x/lx/src/features/transactions/hooks/useUSDCPri
 import { shortenAddress } from '@l.x/utils/src/addresses'
 import { NumberType } from '@l.x/utils/src/format/types'
 import { useEvent } from '@l.x/utils/src/react/hooks'
+=======
+import { Button, Circle, Flex, Main, Shine, styled, Text } from 'ui/src'
+import { RotatableChevron } from 'ui/src/components/icons/RotatableChevron'
+import { ZERO_ADDRESS } from 'uniswap/src/constants/misc'
+import { useGetPositionQuery } from 'uniswap/src/data/rest/getPosition'
+import { getChainInfo } from 'uniswap/src/features/chains/chainInfo'
+import { useSupportedChainId } from 'uniswap/src/features/chains/hooks/useSupportedChainId'
+import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
+import { isEVMChain } from 'uniswap/src/features/platforms/utils/chains'
+import { useUSDCValue } from 'uniswap/src/features/transactions/hooks/useUSDCPriceWrapper'
+import { shortenAddress } from 'utilities/src/addresses'
+import { NumberType } from 'utilities/src/format/types'
+import { useEvent } from 'utilities/src/react/hooks'
+>>>>>>> upstream/main
 import { BreadcrumbNavContainer, BreadcrumbNavLink } from '~/components/BreadcrumbNav'
 import { useGetPoolTokenPercentage } from '~/components/Liquidity/hooks/useGetPoolTokenPercentage'
 import { LiquidityPositionInfo, LiquidityPositionInfoLoader } from '~/components/Liquidity/LiquidityPositionInfo'
@@ -109,11 +129,19 @@ function V2PositionPage() {
     const token0Symbol = currency0Amount?.currency.symbol
     const token1Symbol = currency1Amount?.currency.symbol
     if (!token0Symbol || !token1Symbol || !pairAddress) {
+<<<<<<< HEAD
       return { title: 'Position on Lx', url: window.location.href }
     }
     const poolName = `${token0Symbol}/${token1Symbol}`
     return {
       title: `${poolName} on Lx`,
+=======
+      return { title: 'Position on Uniswap', url: window.location.href }
+    }
+    const poolName = `${token0Symbol}/${token1Symbol}`
+    return {
+      title: `${poolName} on Uniswap`,
+>>>>>>> upstream/main
       url: window.location.href,
       image: `${window.location.origin}/api/image/positions/v2/${chainInfo.urlParam}/${pairAddress}`,
     }

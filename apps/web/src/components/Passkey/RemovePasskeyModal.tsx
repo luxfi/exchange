@@ -1,6 +1,7 @@
 import { useQueryClient } from '@tanstack/react-query'
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
+<<<<<<< HEAD
 import { Button, Checkbox, Flex, Text } from '@l.x/ui/src'
 import { ShieldCheck } from '@l.x/ui/src/components/icons/ShieldCheck'
 import { Trash } from '@l.x/ui/src/components/icons/Trash'
@@ -10,16 +11,35 @@ import { useActiveAddress } from 'lx/src/features/accounts/store/hooks'
 import { usePortfolioTotalValue } from 'lx/src/features/dataApi/balances/balancesRest'
 import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
 import type { Authenticator } from 'lx/src/features/passkey/embeddedWallet'
+=======
+import { Button, Checkbox, Flex, Text } from 'ui/src'
+import { ShieldCheck } from 'ui/src/components/icons/ShieldCheck'
+import { Trash } from 'ui/src/components/icons/Trash'
+import { Modal } from 'uniswap/src/components/modals/Modal'
+import WarningIcon from 'uniswap/src/components/warnings/WarningIcon'
+import { useActiveAddress } from 'uniswap/src/features/accounts/store/hooks'
+import { usePortfolioTotalValue } from 'uniswap/src/features/dataApi/balances/balancesRest'
+import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
+import type { Authenticator } from 'uniswap/src/features/passkey/embeddedWallet'
+>>>>>>> upstream/main
 import {
   authenticateWithPasskey,
   deleteAuthenticator,
   disconnectWallet,
   getPrivyEnums,
+<<<<<<< HEAD
 } from 'lx/src/features/passkey/embeddedWallet'
 import { Platform } from 'lx/src/features/platforms/types/Platform'
 import { ElementName, ModalName } from 'lx/src/features/telemetry/constants'
 import Trace from 'lx/src/features/telemetry/Trace'
 import { NumberType } from '@l.x/utils/src/format/types'
+=======
+} from 'uniswap/src/features/passkey/embeddedWallet'
+import { Platform } from 'uniswap/src/features/platforms/types/Platform'
+import { ElementName, ModalName } from 'uniswap/src/features/telemetry/constants'
+import Trace from 'uniswap/src/features/telemetry/Trace'
+import { NumberType } from 'utilities/src/format/types'
+>>>>>>> upstream/main
 import { AddressDisplay } from '~/components/AccountDetails/AddressDisplay'
 import { useAccountDrawer } from '~/components/AccountDrawer/MiniPortfolio/hooks'
 import { LIST_AUTHENTICATORS_QUERY_KEY } from '~/components/AccountDrawer/PasskeyMenu/PasskeyMenu'

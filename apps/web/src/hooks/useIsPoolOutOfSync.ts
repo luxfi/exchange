@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { Currency, CurrencyAmount, Fraction } from '@luxamm/sdk-core'
 import { Pair } from '@luxamm/v2-sdk'
 import { Pool as V3Pool } from '@luxamm/v3-sdk'
@@ -5,6 +6,15 @@ import { Pool as V4Pool } from '@luxamm/v4-sdk'
 import { parseUnits } from 'ethers/lib/utils'
 import JSBI from 'jsbi'
 import { useUSDCValue } from '@l.x/lx/src/features/transactions/hooks/useUSDCPriceWrapper'
+=======
+import { Currency, CurrencyAmount, Fraction } from '@uniswap/sdk-core'
+import { Pair } from '@uniswap/v2-sdk'
+import { Pool as V3Pool } from '@uniswap/v3-sdk'
+import { Pool as V4Pool } from '@uniswap/v4-sdk'
+import { parseUnits } from 'ethers/lib/utils'
+import JSBI from 'jsbi'
+import { useUSDCValue } from 'uniswap/src/features/transactions/hooks/useUSDCPriceWrapper'
+>>>>>>> upstream/main
 
 // Show warning if the price diverges by more than 5%
 const WARNING_THRESHOLD = new Fraction(5, 100)
@@ -42,7 +52,11 @@ function useMarketPrice(baseCurrency?: Currency, quoteCurrency?: Currency) {
 }
 
 /**
+<<<<<<< HEAD
  * In Lux v3, the current price is quoted as the exchange from token0 to token1. However, depending
+=======
+ * In Uniswap v3, the current price is quoted as the exchange from token0 to token1. However, depending
+>>>>>>> upstream/main
  * on liquidity conditions, the price in a particular pool can diverge from the rest of the market (i.e. other pools).
  * This hook computes the market exchange rate between two currencies and compares it to the given pool price.
  * If these prices diverge by more than WARNING_THRESHOLD, return true. Otherwise, return false.

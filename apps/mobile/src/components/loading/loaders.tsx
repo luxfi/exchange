@@ -1,7 +1,11 @@
 import React, { memo } from 'react'
 import { TransactionLoader } from 'src/components/loading/parts/TransactionLoader'
 import { WaveLoader } from 'src/components/loading/parts/WaveLoader'
+<<<<<<< HEAD
 import { Flex, FlexLoader, FlexLoaderProps, getToken, Skeleton } from '@l.x/ui/src'
+=======
+import { Flex, FlexLoader, FlexLoaderProps, getToken, Skeleton } from 'ui/src'
+>>>>>>> upstream/main
 
 function Graph(): JSX.Element {
   return (
@@ -11,11 +15,19 @@ function Graph(): JSX.Element {
   )
 }
 
+<<<<<<< HEAD
 const Transaction = memo(function _Transaction({ repeat = 1 }: { repeat?: number }): JSX.Element {
   return (
     <Skeleton>
       <Flex>
         {/* eslint-disable-next-line max-params */}
+=======
+const Transaction = memo(function TransactionInner({ repeat = 1 }: { repeat?: number }): JSX.Element {
+  return (
+    <Skeleton>
+      <Flex>
+        {/* oxlint-disable-next-line max-params */}
+>>>>>>> upstream/main
         {new Array(repeat).fill(null).map((_, i, { length }) => (
           <React.Fragment key={i}>
             <TransactionLoader opacity={(length - i) / length} />

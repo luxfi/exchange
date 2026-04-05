@@ -10,6 +10,7 @@ import { useUnlockWithPassword } from 'src/app/features/lockScreen/useUnlockWith
 import { OnboardingRoutes, TopLevelRoutes } from 'src/app/navigation/constants'
 import { focusOrCreateOnboardingTab } from 'src/app/navigation/focusOrCreateOnboardingTab'
 import { ExtensionState } from 'src/store/extensionReducer'
+<<<<<<< HEAD
 import { Button, Flex, InputProps, Text } from '@l.x/ui/src'
 import { AlertTriangleFilled, Lock } from '@l.x/ui/src/components/icons'
 import { spacing, zIndexes } from '@l.x/ui/src/theme'
@@ -23,6 +24,21 @@ import { AuthSagaError } from '@luxfi/wallet/src/features/auth/types'
 import { EditAccountAction, editAccountActions } from '@luxfi/wallet/src/features/wallet/accounts/editAccountSaga'
 import { useSignerAccounts } from '@luxfi/wallet/src/features/wallet/hooks'
 import { Keyring } from '@luxfi/wallet/src/features/wallet/Keyring/Keyring'
+=======
+import { Button, Flex, InputProps, Text } from 'ui/src'
+import { AlertTriangleFilled, Lock } from 'ui/src/components/icons'
+import { spacing, zIndexes } from 'ui/src/theme'
+import { uniswapUrls } from 'uniswap/src/constants/urls'
+import { ModalName } from 'uniswap/src/features/telemetry/constants'
+import { SagaStatus, useMonitoredSagaStatus } from 'uniswap/src/utils/saga'
+import { useEvent } from 'utilities/src/react/hooks'
+import { LandingBackground } from 'wallet/src/components/landing/LandingBackground'
+import { authSagaName } from 'wallet/src/features/auth/saga'
+import { AuthSagaError } from 'wallet/src/features/auth/types'
+import { EditAccountAction, editAccountActions } from 'wallet/src/features/wallet/accounts/editAccountSaga'
+import { useSignerAccounts } from 'wallet/src/features/wallet/hooks'
+import { Keyring } from 'wallet/src/features/wallet/Keyring/Keyring'
+>>>>>>> upstream/main
 
 function usePasswordInput(defaultValue = ''): Pick<InputProps, 'onChangeText' | 'disabled'> & { value: string } {
   const [value, setValue] = useState(defaultValue)
@@ -112,7 +128,11 @@ export function Locked(): JSX.Element {
       buttonText: t('extension.lock.button.reset'),
       description: t('extension.lock.password.reset.initial.description'),
       linkText: t('extension.lock.password.reset.initial.help'),
+<<<<<<< HEAD
       linkUrl: lxUrls.helpArticleUrls.recoveryPhraseHowToFind,
+=======
+      linkUrl: uniswapUrls.helpArticleUrls.recoveryPhraseHowToFind,
+>>>>>>> upstream/main
       icon: (
         <Flex backgroundColor="$surface2" borderRadius="$rounded12" p="$spacing12">
           <Lock color="$neutral1" size="$icon.24" />
@@ -127,7 +147,11 @@ export function Locked(): JSX.Element {
       buttonText: t('common.button.continue'),
       description: t('extension.lock.password.reset.speedbump.description'),
       linkText: t('extension.lock.password.reset.speedbump.help'),
+<<<<<<< HEAD
       linkUrl: lxUrls.helpArticleUrls.recoveryPhraseForgotten,
+=======
+      linkUrl: uniswapUrls.helpArticleUrls.recoveryPhraseForgotten,
+>>>>>>> upstream/main
       icon: (
         <Flex backgroundColor="$statusCritical2" borderRadius="$rounded12" p="$spacing12">
           <AlertTriangleFilled color="$statusCritical" size="$icon.24" />

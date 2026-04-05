@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { useState } from 'react'
 import { Trans } from 'react-i18next'
@@ -8,6 +9,18 @@ import { useEvent } from '@l.x/utils/src/react/hooks'
 import UNIWALLET_ICON from '~/assets/wallets/lux-wallet-icon.png'
 import { useAccountDrawer } from '~/components/AccountDrawer/MiniPortfolio/hooks'
 import { OptionContainer } from '~/components/WalletModal/LuxWalletOptions'
+=======
+import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import { useState } from 'react'
+import { Trans } from 'react-i18next'
+import { Flex, Image, Text } from 'ui/src'
+import { ElementName, ModalName } from 'uniswap/src/features/telemetry/constants'
+import Trace from 'uniswap/src/features/telemetry/Trace'
+import { useEvent } from 'utilities/src/react/hooks'
+import UNIWALLET_ICON from '~/assets/wallets/uniswap-wallet-icon.png'
+import { useAccountDrawer } from '~/components/AccountDrawer/MiniPortfolio/hooks'
+import { OptionContainer } from '~/components/WalletModal/UniswapWalletOptions'
+>>>>>>> upstream/main
 import { useModalState } from '~/hooks/useModalState'
 
 interface BackgroundImageProps {
@@ -60,13 +73,21 @@ export const DownloadWalletOption = () => {
         position="relative"
         onHoverIn={() => setOptionHovered(true)}
         onHoverOut={() => setOptionHovered(false)}
+<<<<<<< HEAD
         data-testid="download-lux-wallet"
+=======
+        data-testid="download-uniswap-wallet"
+>>>>>>> upstream/main
       >
         <BackgroundImage backgroundImage="/images/extension_promo/background_connector.png" isHovered={optionHovered} />
         <OptionContainer onPress={onClickDownload} hideBackground>
           <Image
             src={UNIWALLET_ICON}
+<<<<<<< HEAD
             alt="lux-app-icon"
+=======
+            alt="uniswap-app-icon"
+>>>>>>> upstream/main
             height={isEmbeddedWalletEnabled ? 32 : 40}
             width={isEmbeddedWalletEnabled ? 32 : 40}
             borderRadius={12}
@@ -74,7 +95,11 @@ export const DownloadWalletOption = () => {
           <Flex row gap={4}>
             <Flex>
               <Text variant="buttonLabel2" color="$white" whiteSpace="nowrap">
+<<<<<<< HEAD
                 <Trans i18nKey="common.getLuxWallet" />
+=======
+                <Trans i18nKey="common.getUniswapWallet" />
+>>>>>>> upstream/main
               </Text>
               <Text variant="body4" color="$white" whiteSpace="nowrap">
                 <Trans i18nKey="common.availableOnIOSAndroidChrome" />

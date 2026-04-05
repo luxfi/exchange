@@ -1,10 +1,19 @@
+<<<<<<< HEAD
 import { DEFAULT_EVM_METHODS, EVM_NAMESPACE_IDENTIFIER } from '@l.x/lx/src/features/capabilities/caip25/constants'
+=======
+import { DEFAULT_EVM_METHODS, EVM_NAMESPACE_IDENTIFIER } from 'uniswap/src/features/capabilities/caip25/constants'
+>>>>>>> upstream/main
 import {
   CAIP25Session,
   CAIP372WalletInfo,
   SingleChainNamespaceScopeKey,
+<<<<<<< HEAD
 } from '@l.x/lx/src/features/capabilities/caip25/types'
 import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+=======
+} from 'uniswap/src/features/capabilities/caip25/types'
+import { UniverseChainId } from 'uniswap/src/features/chains/types'
+>>>>>>> upstream/main
 import { Connector } from 'wagmi'
 
 function getConnectorRdns(connector: Connector): string | undefined {

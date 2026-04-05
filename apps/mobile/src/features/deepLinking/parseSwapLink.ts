@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { getNativeAddress } from '@l.x/lx/src/constants/addresses'
 import { AssetType, CurrencyAsset } from '@l.x/lx/src/entities/assets'
 import { ALL_CHAIN_IDS } from '@l.x/lx/src/features/chains/chainInfo'
@@ -7,6 +8,17 @@ import { TransactionState } from '@l.x/lx/src/features/transactions/types/transa
 import { CurrencyField } from '@l.x/lx/src/types/currency'
 import { areAddressesEqual, getValidAddress } from '@l.x/lx/src/utils/addresses'
 import { currencyIdToAddress, currencyIdToChain } from '@l.x/lx/src/utils/currencyId'
+=======
+import { getNativeAddress } from 'uniswap/src/constants/addresses'
+import { AssetType, CurrencyAsset } from 'uniswap/src/entities/assets'
+import { ALL_CHAIN_IDS } from 'uniswap/src/features/chains/chainInfo'
+import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { fromUniswapWebAppLink, isTestnetChain } from 'uniswap/src/features/chains/utils'
+import { TransactionState } from 'uniswap/src/features/transactions/types/transactionState'
+import { CurrencyField } from 'uniswap/src/types/currency'
+import { areAddressesEqual, getValidAddress } from 'uniswap/src/utils/addresses'
+import { currencyIdToAddress, currencyIdToChain } from 'uniswap/src/utils/currencyId'
+>>>>>>> upstream/main
 
 /**
  * Supported swap link formats:
@@ -180,8 +192,13 @@ function parseWebChainData(
   chain: string | null,
   outputChain: string | null,
 ): { finalInputChainId: UniverseChainId; finalOutputChainId: UniverseChainId } {
+<<<<<<< HEAD
   const inputChainId = chain ? fromLuxWebAppLink(chain) : null
   const outputChainId = outputChain ? fromLuxWebAppLink(outputChain) : null
+=======
+  const inputChainId = chain ? fromUniswapWebAppLink(chain) : null
+  const outputChainId = outputChain ? fromUniswapWebAppLink(outputChain) : null
+>>>>>>> upstream/main
 
   if (chain && !inputChainId) {
     throw new Error(`Invalid chain: ${chain}`)

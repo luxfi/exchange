@@ -1,6 +1,11 @@
 import { createContext, PropsWithChildren, useContext, useMemo, useState } from 'react'
+<<<<<<< HEAD
 import { ExtensionScreens } from '@l.x/lx/src/types/screens/extension'
 import { UnitagEntryPoint } from '@l.x/lx/src/types/screens/mobile'
+=======
+import { ExtensionScreens } from 'uniswap/src/types/screens/extension'
+import { UnitagEntryPoint } from 'uniswap/src/types/screens/mobile'
+>>>>>>> upstream/main
 
 type UnitagClaimContextType = {
   unitag?: string

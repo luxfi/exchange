@@ -13,6 +13,7 @@ test.describe(
   },
   () => {
     test('should redirect to explore page when token is not found', async ({ page }) => {
+<<<<<<< HEAD
       // Use Lux chain for testing
       await page.goto('/explore/tokens/lux/0x123')
       await expect(page.getByText('Token not found')).toBeVisible({ timeout: 10000 })
@@ -46,6 +47,15 @@ test.describe(
       await expect(navbar).toBeVisible({ timeout: 10000 })
       // Markets tab should exist in the navbar
       await expect(navbar.getByText('Markets')).toBeVisible({ timeout: 5000 })
+=======
+      await page.goto(`/explore/tokens/ethereum/0x123`)
+      await expect(page.getByText('Token not found')).toBeVisible()
+    })
+
+    test('should redirect to explore page when pool is not found', async ({ page }) => {
+      await page.goto(`/explore/pools/ethereum/0x123`)
+      await expect(page.getByText('Pool not found')).toBeVisible()
+>>>>>>> upstream/main
     })
   },
 )

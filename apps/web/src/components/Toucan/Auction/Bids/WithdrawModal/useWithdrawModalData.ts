@@ -1,9 +1,17 @@
 import { useMemo } from 'react'
+<<<<<<< HEAD
 import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
 import { useCurrencyInfo } from '@l.x/lx/src/features/tokens/useCurrencyInfo'
 import { useUSDCPrice } from '@l.x/lx/src/features/transactions/hooks/useUSDCPriceWrapper'
 import { buildCurrencyId } from '@l.x/lx/src/utils/currencyId'
 import { NumberType } from '@l.x/utils/src/format/types'
+=======
+import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
+import { useCurrencyInfo } from 'uniswap/src/features/tokens/useCurrencyInfo'
+import { useUSDCPrice } from 'uniswap/src/features/transactions/hooks/useUSDCPriceWrapper'
+import { buildCurrencyId } from 'uniswap/src/utils/currencyId'
+import { NumberType } from 'utilities/src/format/types'
+>>>>>>> upstream/main
 import { formatUnits } from 'viem'
 import { fromQ96ToDecimalWithTokenDecimals } from '~/components/Toucan/Auction/BidDistributionChart/utils/q96'
 import { useBidTokenInfo } from '~/components/Toucan/Auction/hooks/useBidTokenInfo'

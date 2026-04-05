@@ -1,14 +1,26 @@
 import 'utilities/src/logger/mocks'
+<<<<<<< HEAD
 import { CurrencyAmount, WETH9 } from '@luxamm/sdk-core'
 import { TradingApi } from '@l.x/api'
 import { DAI, USDC_MAINNET } from '@l.x/lx/src/constants/tokens'
 import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+=======
+import { CurrencyAmount, WETH9 } from '@uniswap/sdk-core'
+import { TradingApi } from '@universe/api'
+import { DAI, USDC_MAINNET } from 'uniswap/src/constants/tokens'
+import { UniverseChainId } from 'uniswap/src/features/chains/types'
+>>>>>>> upstream/main
 import {
   TransactionOriginType,
   TransactionStatus,
   TransactionType,
+<<<<<<< HEAD
 } from '@l.x/lx/src/features/transactions/types/transactionDetails'
 import { currencyId } from '@l.x/lx/src/utils/currencyId'
+=======
+} from 'uniswap/src/features/transactions/types/transactionDetails'
+import { currencyId } from 'uniswap/src/utils/currencyId'
+>>>>>>> upstream/main
 import {
   OffchainOrderLineItem,
   OffchainOrderLineItemType,
@@ -43,7 +55,11 @@ describe('OffchainOrderLineItem', () => {
           routing: TradingApi.Routing.DUTCH_V2,
           status: TransactionStatus.Success,
           typeInfo: {
+<<<<<<< HEAD
             isLXOrder: true,
+=======
+            isUniswapXOrder: true,
+>>>>>>> upstream/main
             type: TransactionType.Swap,
             tradeType: 0,
             inputCurrencyId: currencyId(DAI),
@@ -82,7 +98,11 @@ describe('OffchainOrderLineItem', () => {
           routing: TradingApi.Routing.DUTCH_V2,
           status: TransactionStatus.Success,
           typeInfo: {
+<<<<<<< HEAD
             isLXOrder: true,
+=======
+            isUniswapXOrder: true,
+>>>>>>> upstream/main
             type: TransactionType.Swap,
             tradeType: 0,
             inputCurrencyId: currencyId(DAI),

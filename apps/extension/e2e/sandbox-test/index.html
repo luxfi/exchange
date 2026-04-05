@@ -23,26 +23,42 @@
 </head>
 <body>
   <h1>Sandbox Origin Validation Test</h1>
+<<<<<<< HEAD
   <p class="subtitle">Bug bounty #621 — Verify sandboxed frames cannot receive the Lux provider</p>
+=======
+  <p class="subtitle">Bug bounty #621 — Verify sandboxed frames cannot receive the Uniswap provider</p>
+>>>>>>> upstream/main
 
   <div class="grid">
     <div class="card">
       <h3>1. Normal Frame (no sandbox)</h3>
+<<<<<<< HEAD
       <div class="detail">Expected: origin = http://localhost:*, Lux provider = PRESENT</div>
+=======
+      <div class="detail">Expected: origin = http://localhost:*, Uniswap provider = PRESENT</div>
+>>>>>>> upstream/main
       <iframe id="frame-normal" src="child.html"></iframe>
       <div id="result-normal" class="result waiting">Waiting for report...</div>
     </div>
 
     <div class="card">
       <h3>2. Sandboxed (allow-scripts only)</h3>
+<<<<<<< HEAD
       <div class="detail">Expected: origin = "null", Lux provider = ABSENT</div>
+=======
+      <div class="detail">Expected: origin = "null", Uniswap provider = ABSENT</div>
+>>>>>>> upstream/main
       <iframe id="frame-sandboxed" src="child.html" sandbox="allow-scripts"></iframe>
       <div id="result-sandboxed" class="result waiting">Waiting for report...</div>
     </div>
 
     <div class="card">
       <h3>3. Sandboxed (allow-scripts + allow-same-origin)</h3>
+<<<<<<< HEAD
       <div class="detail">Expected: origin = http://localhost:*, Lux provider = PRESENT</div>
+=======
+      <div class="detail">Expected: origin = http://localhost:*, Uniswap provider = PRESENT</div>
+>>>>>>> upstream/main
       <iframe id="frame-same-origin" src="child.html" sandbox="allow-scripts allow-same-origin"></iframe>
       <div id="result-same-origin" class="result waiting">Waiting for report...</div>
     </div>
@@ -51,19 +67,33 @@
   <div class="instructions">
     <strong>How to use:</strong><br>
     1. Serve this directory: <code>python3 -m http.server 8080</code><br>
+<<<<<<< HEAD
     2. Load the extension in Chrome (<code>bun extension dev</code>)<br>
     3. Open <code>http://localhost:8080</code> in Chrome<br>
     4. All three cards should show their expected results (green = pass, red = fail)<br>
     <br>
     <strong>Note:</strong> This test detects the <strong>Lux provider specifically</strong> via EIP-6963 (<code>rdns: org.lux.app</code>),
+=======
+    2. Load the extension in Chrome (webpack dev build via <code>bun start:webpack</code>)<br>
+    3. Open <code>http://localhost:8080</code> in Chrome<br>
+    4. All three cards should show their expected results (green = pass, red = fail)<br>
+    <br>
+    <strong>Note:</strong> This test detects the <strong>Uniswap provider specifically</strong> via EIP-6963 (<code>rdns: org.uniswap.app</code>),
+>>>>>>> upstream/main
     so other wallet extensions (MetaMask, etc.) won't cause false positives.
   </div>
 
   <script>
     const expectations = {
+<<<<<<< HEAD
       normal:        { originIsNull: false, hasLuxProvider: true },
       sandboxed:     { originIsNull: true,  hasLuxProvider: false },
       'same-origin': { originIsNull: false, hasLuxProvider: true },
+=======
+      normal:        { originIsNull: false, hasUniswapProvider: true },
+      sandboxed:     { originIsNull: true,  hasUniswapProvider: false },
+      'same-origin': { originIsNull: false, hasUniswapProvider: true },
+>>>>>>> upstream/main
     };
 
     const received = {};
@@ -73,7 +103,11 @@
         return;
       }
 
+<<<<<<< HEAD
       const { origin, hasLuxProvider } = event.data;
+=======
+      const { origin, hasUniswapProvider } = event.data;
+>>>>>>> upstream/main
       const isNull = origin === 'null';
 
       // Determine which frame sent this
@@ -106,7 +140,11 @@
 
       const expect = expectations[frameId];
       const originPass = expect.originIsNull === isNull;
+<<<<<<< HEAD
       const providerPass = expect.hasLuxProvider === hasLuxProvider;
+=======
+      const providerPass = expect.hasUniswapProvider === hasUniswapProvider;
+>>>>>>> upstream/main
       const allPass = originPass && providerPass;
 
       const el = document.getElementById('result-' + frameId);
@@ -114,7 +152,11 @@
       el.innerHTML = `
         ${allPass ? 'PASS' : 'FAIL'} &mdash;
         origin: ${origin} (${originPass ? 'ok' : 'WRONG'}),
+<<<<<<< HEAD
         Lux provider: ${hasLuxProvider ? 'present' : 'absent'} (${providerPass ? 'ok' : 'WRONG'})
+=======
+        Uniswap provider: ${hasUniswapProvider ? 'present' : 'absent'} (${providerPass ? 'ok' : 'WRONG'})
+>>>>>>> upstream/main
       `;
     });
 

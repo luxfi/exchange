@@ -10,6 +10,7 @@ import { EnterPasswordModal } from 'src/app/features/settings/password/EnterPass
 import { SeedPhraseDisplay } from 'src/app/features/settings/SettingsRecoveryPhraseScreen/SeedPhraseDisplay'
 import { SettingsRecoveryPhrase } from 'src/app/features/settings/SettingsRecoveryPhraseScreen/SettingsRecoveryPhrase'
 import { useExtensionNavigation } from 'src/app/navigation/utils'
+<<<<<<< HEAD
 import { Checkbox, Flex, SpinningLoader, Text, TouchableArea } from '@l.x/ui/src'
 import { AlertTriangleFilled, FileListCheck, FileListLock } from '@l.x/ui/src/components/icons'
 import { iconSizes } from '@l.x/ui/src/theme'
@@ -20,6 +21,18 @@ import { BackupType } from '@luxfi/wallet/src/features/wallet/accounts/types'
 import { hasBackup } from '@luxfi/wallet/src/features/wallet/accounts/utils'
 import { useActiveAccountWithThrow, useSignerAccounts } from '@luxfi/wallet/src/features/wallet/hooks'
 import { mnemonicUnlockedQuery } from '@luxfi/wallet/src/features/wallet/Keyring/queries'
+=======
+import { Checkbox, Flex, SpinningLoader, Text, TouchableArea } from 'ui/src'
+import { AlertTriangleFilled, FileListCheck, FileListLock } from 'ui/src/components/icons'
+import { iconSizes } from 'ui/src/theme'
+import { useEvent } from 'utilities/src/react/hooks'
+import { useBooleanState } from 'utilities/src/react/useBooleanState'
+import { EditAccountAction, editAccountActions } from 'wallet/src/features/wallet/accounts/editAccountSaga'
+import { BackupType } from 'wallet/src/features/wallet/accounts/types'
+import { hasBackup } from 'wallet/src/features/wallet/accounts/utils'
+import { useActiveAccountWithThrow, useSignerAccounts } from 'wallet/src/features/wallet/hooks'
+import { mnemonicUnlockedQuery } from 'wallet/src/features/wallet/Keyring/queries'
+>>>>>>> upstream/main
 
 enum ViewStep {
   Warning = 0,

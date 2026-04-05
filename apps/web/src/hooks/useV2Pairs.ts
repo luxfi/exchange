@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 import { Currency, CurrencyAmount, V2_FACTORY_ADDRESSES } from '@luxamm/sdk-core'
 import { computePairAddress, Pair } from '@luxamm/v2-sdk'
+=======
+import { Currency, CurrencyAmount, V2_FACTORY_ADDRESSES } from '@uniswap/sdk-core'
+import { computePairAddress, Pair } from '@uniswap/v2-sdk'
+>>>>>>> upstream/main
 import { useMemo } from 'react'
 import { useReadContracts } from 'wagmi'
 import { assume0xAddress } from '~/utils/wagmi'

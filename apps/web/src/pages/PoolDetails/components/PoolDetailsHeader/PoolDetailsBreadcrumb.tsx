@@ -1,7 +1,14 @@
+<<<<<<< HEAD
 import { GraphQLApi } from '@l.x/api'
 import { useTranslation } from 'react-i18next'
 import { Flex, Shine } from '@l.x/ui/src'
 import { RotatableChevron } from '@l.x/ui/src/components/icons/RotatableChevron'
+=======
+import { GraphQLApi } from '@universe/api'
+import { useTranslation } from 'react-i18next'
+import { Flex, Shine } from 'ui/src'
+import { RotatableChevron } from 'ui/src/components/icons/RotatableChevron'
+>>>>>>> upstream/main
 import { BreadcrumbNavContainer, BreadcrumbNavLink, CurrentPageBreadcrumb } from '~/components/BreadcrumbNav'
 
 interface PoolDetailsBreadcrumbProps {

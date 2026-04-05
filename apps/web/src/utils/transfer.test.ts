@@ -1,7 +1,13 @@
 import { ExternalProvider, JsonRpcProvider, JsonRpcSigner, Web3Provider } from '@ethersproject/providers'
+<<<<<<< HEAD
 import { CurrencyAmount } from '@luxamm/sdk-core'
 import { DAI, nativeOnChain } from '@l.x/lx/src/constants/tokens'
 import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+=======
+import { CurrencyAmount } from '@uniswap/sdk-core'
+import { DAI, nativeOnChain } from 'uniswap/src/constants/tokens'
+import { UniverseChainId } from 'uniswap/src/features/chains/types'
+>>>>>>> upstream/main
 import { renderHook, waitFor } from '~/test-utils/render'
 import { Mutable } from '~/types/mutable'
 import { useCreateTransferTransaction } from '~/utils/transfer'

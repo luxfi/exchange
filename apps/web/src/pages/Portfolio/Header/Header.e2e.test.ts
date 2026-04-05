@@ -1,6 +1,11 @@
 import { Page } from '@playwright/test'
+<<<<<<< HEAD
 import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
 import { shortenAddress } from '@l.x/utils/src/addresses'
+=======
+import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+import { shortenAddress } from 'utilities/src/addresses'
+>>>>>>> upstream/main
 import { expect, getTest } from '~/playwright/fixtures'
 import { getVisibleDropdownElementByTestId } from '~/playwright/fixtures/utils'
 import { HAYDEN_ADDRESS } from '~/playwright/fixtures/wallets'

@@ -1,8 +1,13 @@
 import React from 'react'
 import { TextProps as RNTextProps, StyleSheet, TextInput, TextInputProps, useWindowDimensions } from 'react-native'
 import Animated, { createAnimatedPropAdapter, useAnimatedProps } from 'react-native-reanimated'
+<<<<<<< HEAD
 import { Flex, TextProps as TamaTextProps, TextFrame, TextLoaderWrapper, usePropsAndStyle } from '@l.x/ui/src'
 import { fonts } from '@l.x/ui/src/theme'
+=======
+import { Flex, TextProps as TamaTextProps, TextFrame, TextLoaderWrapper, usePropsAndStyle } from 'ui/src'
+import { fonts } from 'ui/src/theme'
+>>>>>>> upstream/main
 
 // base animated text component using a TextInput
 // forked from https://github.com/wcandillon/react-native-redash/blob/master/src/ReText.tsx
@@ -44,12 +49,20 @@ const BaseAnimatedText = ({
 }: TextProps): JSX.Element => {
   const animatedProps = useAnimatedProps(
     () => {
+<<<<<<< HEAD
       // eslint-disable-next-line @typescript-eslint/no-unsafe-return
+=======
+      // oxlint-disable-next-line typescript/no-unsafe-return
+>>>>>>> upstream/main
       return {
         text: text?.value,
         defaultValue: text?.value,
         // Here we use any because the text prop is not available in the type
+<<<<<<< HEAD
         // biome-ignore lint/suspicious/noExplicitAny: Text prop not available in animated type definition
+=======
+        // oxlint-disable-next-line typescript/no-explicit-any -- Text prop not available in animated type definition
+>>>>>>> upstream/main
       } as any
     },
     [text],
@@ -89,11 +102,19 @@ const BaseAnimatedText = ({
 }
 // end of forked from https://github.com/wcandillon/react-native-redash/blob/master/src/ReText.tsx
 
+<<<<<<< HEAD
 // gives you gui props with reanimated support
 /**
  * @deprecated Prefer <Text animation="" />
  *
  *    See: https://gui.dev/docs/core/animations
+=======
+// gives you tamagui props with reanimated support
+/**
+ * @deprecated Prefer <Text animation="" />
+ *
+ *    See: https://tamagui.dev/docs/core/animations
+>>>>>>> upstream/main
  *
  * TODO(MOB-1948): Remove this
  * */
@@ -115,7 +136,11 @@ export const AnimatedText = ({ style, ...propsIn }: TextProps): JSX.Element => {
 
   return (
     <BaseAnimatedText
+<<<<<<< HEAD
       // biome-ignore lint/suspicious/noExplicitAny: Ambigous to type
+=======
+      // oxlint-disable-next-line typescript/no-explicit-any -- Ambigous to type
+>>>>>>> upstream/main
       {...(props as any)}
       allowFontScaling={enableFontScaling}
       maxFontSizeMultiplier={multiplier}

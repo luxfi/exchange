@@ -1,5 +1,9 @@
 import { BigNumber } from '@ethersproject/bignumber'
+<<<<<<< HEAD
 import { GasFeeResult } from '@l.x/api'
+=======
+import { GasFeeResult } from '@universe/api'
+>>>>>>> upstream/main
 import { useTranslation } from 'react-i18next'
 import { useDappLastChainId } from 'src/app/features/dapp/hooks'
 import { DappRequestContent } from 'src/app/features/dappRequests/DappRequestContent'
@@ -8,6 +12,7 @@ import {
   ApproveSendTransactionRequest,
   DappRequest as DappRequestBaseType,
 } from 'src/app/features/dappRequests/types/DappRequestTypes'
+<<<<<<< HEAD
 import { Flex, Text } from '@l.x/ui/src'
 import { iconSizes } from '@l.x/ui/src/theme'
 import { CurrencyLogo } from '@l.x/lx/src/components/CurrencyLogo/CurrencyLogo'
@@ -19,6 +24,19 @@ import { useCurrencyInfo } from '@l.x/lx/src/features/tokens/useCurrencyInfo'
 import { TransactionType, TransactionTypeInfo } from '@l.x/lx/src/features/transactions/types/transactionDetails'
 import { buildCurrencyId } from '@l.x/lx/src/utils/currencyId'
 import { useNoYoloParser } from '@luxfi/wallet/src/utils/useNoYoloParser'
+=======
+import { Flex, Text } from 'ui/src'
+import { iconSizes } from 'ui/src/theme'
+import { CurrencyLogo } from 'uniswap/src/components/CurrencyLogo/CurrencyLogo'
+import { LearnMoreLink } from 'uniswap/src/components/text/LearnMoreLink'
+import { uniswapUrls } from 'uniswap/src/constants/urls'
+import { DappRequestType } from 'uniswap/src/features/dappRequests/types'
+import { CurrencyInfo } from 'uniswap/src/features/dataApi/types'
+import { useCurrencyInfo } from 'uniswap/src/features/tokens/useCurrencyInfo'
+import { TransactionType, TransactionTypeInfo } from 'uniswap/src/features/transactions/types/transactionDetails'
+import { buildCurrencyId } from 'uniswap/src/utils/currencyId'
+import { useNoYoloParser } from 'wallet/src/utils/useNoYoloParser'
+>>>>>>> upstream/main
 
 function useDappRequestTokenRecipientInfo(request: DappRequestBaseType, dappUrl: string): Maybe<CurrencyInfo> {
   const activeChain = useDappLastChainId(dappUrl)
@@ -116,7 +134,11 @@ export function ApproveRequestContent({
         </Text>
         <LearnMoreLink
           textVariant="body4"
+<<<<<<< HEAD
           url={isRevoke ? lxUrls.helpArticleUrls.revokeExplainer : lxUrls.helpArticleUrls.approvalsExplainer}
+=======
+          url={isRevoke ? uniswapUrls.helpArticleUrls.revokeExplainer : uniswapUrls.helpArticleUrls.approvalsExplainer}
+>>>>>>> upstream/main
         />
       </Flex>
     </DappRequestContent>

@@ -2,8 +2,13 @@ import { stringify } from 'qs'
 import { useMemo } from 'react'
 import type { To } from 'react-router'
 import { useLocation } from 'react-router'
+<<<<<<< HEAD
 import { useUrlContext } from '@l.x/lx/src/contexts/UrlContext'
 import { Locale } from '@l.x/lx/src/features/language/constants'
+=======
+import { useUrlContext } from 'uniswap/src/contexts/UrlContext'
+import { Locale } from 'uniswap/src/features/language/constants'
+>>>>>>> upstream/main
 
 export function useLocationLinkProps(locale: Locale | null): {
   to?: To

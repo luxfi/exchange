@@ -1,8 +1,14 @@
 {
+<<<<<<< HEAD
   "name": "@l.x/web",
   "version": "1.1.0",
   "private": true,
   "description": "Lux Exchange",
+=======
+  "name": "@universe/web",
+  "version": "1.1.0",
+  "description": "Uniswap Interface",
+>>>>>>> upstream/main
   "license": "GPL-3.0-or-later",
   "scripts": {
     "prepare": "nx prepare web",
@@ -13,7 +19,10 @@
     "check:deps:usage": "nx check:deps:usage web",
     "check:circular": "nx check:circular web",
     "sitemap:generate": "nx sitemap:generate web",
+<<<<<<< HEAD
     "seo:generate": "node scripts/generate-seo-pages.js",
+=======
+>>>>>>> upstream/main
     "start": "nx start web",
     "dev": "nx dev web",
     "build:production": "nx build:production web",
@@ -29,8 +38,11 @@
     "e2e:no-anvil": "nx e2e:no-anvil web --outputStyle tui",
     "e2e:dev": "nx e2e:dev web --outputStyle tui",
     "analyze": "nx analyze web",
+<<<<<<< HEAD
     "lint:biome": "nx lint:biome web",
     "lint:biome:fix": "nx lint:biome:fix web",
+=======
+>>>>>>> upstream/main
     "lint:eslint": "nx lint:eslint web",
     "lint:eslint:fix": "nx lint:eslint:fix web",
     "lint": "nx lint web",
@@ -57,7 +69,15 @@
     "storybook:run:with-tests": "nx storybook:run:with-tests web",
     "storybook:build": "nx storybook:build web",
     "storybook:test": "nx storybook:test web",
+<<<<<<< HEAD
     "storybook:test:standalone": "nx storybook:test:standalone web"
+=======
+    "storybook:test:standalone": "nx storybook:test:standalone web",
+    "oxlint": "nx oxlint web",
+    "oxlint:fix": "nx oxlint:fix web",
+    "oxfmt": "nx oxfmt web",
+    "oxfmt:fix": "nx oxfmt:fix web"
+>>>>>>> upstream/main
   },
   "nx": {
     "includedScripts": []
@@ -84,6 +104,10 @@
     "@cloudflare/workers-types": "4.20260212.0",
     "@crowdin/cli": "3.14.0",
     "@datadog/datadog-ci": "2.48.0",
+<<<<<<< HEAD
+=======
+    "@eslint/compat": "2.0.2",
+>>>>>>> upstream/main
     "@ethersproject/experimental": "5.7.0",
     "@playwright/test": "1.58.2",
     "@storybook/addon-essentials": "8.5.2",
@@ -119,9 +143,16 @@
     "@types/wcag-contrast": "3.0.0",
     "@types/xml2js": "0.4.14",
     "@typescript/native-preview": "7.0.0-dev.20260311.1",
+<<<<<<< HEAD
     "@luxamm/client-trading": "0.1.107",
     "@luxamm/default-token-list": "18.10.202",
     "@vercel/og": "0.11.1",
+=======
+    "@uniswap/client-trading": "0.1.3",
+    "@uniswap/default-token-list": "11.19.0",
+    "@uniswap/eslint-config": "workspace:^",
+    "@vercel/og": "0.5.8",
+>>>>>>> upstream/main
     "@vitejs/plugin-react": "4.7.0",
     "@vitest/coverage-v8": "3.2.1",
     "@wagmi/core": "2.17.2",
@@ -134,9 +165,13 @@
     "dotenv": "16.0.3",
     "dotenv-cli": "7.1.0",
     "esbuild-register": "3.6.0",
+<<<<<<< HEAD
     "eslint": "8.57.1",
     "eslint-plugin-import": "2.27.5",
     "eslint-plugin-storybook": "0.8.0",
+=======
+    "eslint": "10.0.2",
+>>>>>>> upstream/main
     "http-server": "14.1.1",
     "jest-extended": "4.0.2",
     "jest-fail-on-console": "3.3.0",
@@ -181,6 +216,7 @@
     "@datadog/browser-logs": "5.20.0",
     "@datadog/browser-rum": "5.23.3",
     "@datadog/browser-rum-react": "6.10.1",
+<<<<<<< HEAD
     "@ethersproject/abi": "5.8.0",
     "@ethersproject/abstract-provider": "5.7.0",
     "@ethersproject/abstract-signer": "5.7.0",
@@ -192,15 +228,21 @@
     "@ethersproject/providers": "5.7.2",
     "@ethersproject/solidity": "5.8.0",
     "@ethersproject/units": "5.7.0",
+=======
+>>>>>>> upstream/main
     "@graphql-codegen/cli": "3.3.1",
     "@graphql-codegen/client-preset": "3.0.1",
     "@graphql-codegen/typescript": "3.0.4",
     "@graphql-codegen/typescript-operations": "3.0.4",
     "@graphql-codegen/typescript-react-apollo": "3.3.7",
     "@graphql-codegen/typescript-resolvers": "3.2.1",
+<<<<<<< HEAD
     "@hanzo/insights": "^1.357.1",
     "@hanzo/insights-react": "^1.8.1",
     "@hono/node-server": "1.19.9",
+=======
+    "@hono/node-server": "1.19.11",
+>>>>>>> upstream/main
     "@juggle/resize-observer": "3.4.0",
     "@popperjs/core": "2.11.8",
     "@privy-io/react-auth": "3.17.0",
@@ -214,14 +256,21 @@
     "@solana/wallet-adapter-react": "0.15.39",
     "@solana/web3.js": "1.92.0",
     "@svgr/webpack": "8.0.1",
+<<<<<<< HEAD
     "@hanzogui/core": "2.0.3",
     "@hanzogui/react-native-svg": "2.0.3",
     "@hanzogui/vite-plugin": "2.0.3",
+=======
+    "@tamagui/core": "1.136.1",
+    "@tamagui/react-native-svg": "1.136.1",
+    "@tamagui/vite-plugin": "1.136.1",
+>>>>>>> upstream/main
     "@tanstack/query-sync-storage-persister": "5.90.20",
     "@tanstack/react-query": "5.90.20",
     "@tanstack/react-query-persist-client": "5.90.20",
     "@tanstack/react-table": "8.21.3",
     "@types/react-scroll-sync": "0.9.0",
+<<<<<<< HEAD
     "@luxamm/analytics": "1.7.4",
     "@luxamm/analytics-events": "2.43.2",
     "@luxamm/client-data-api": "0.0.164",
@@ -258,6 +307,39 @@
     "@web3-react/core": "8.2.3",
     "@web3-react/empty": "8.2.3",
     "ajv": "8.11.0",
+=======
+    "@uniswap/analytics": "1.7.2",
+    "@uniswap/analytics-events": "2.43.0",
+    "@uniswap/client-data-api": "0.0.59",
+    "@uniswap/client-explore": "0.0.17",
+    "@uniswap/client-liquidity": "0.3.0",
+    "@uniswap/client-notification-service": "0.0.11",
+    "@uniswap/client-search": "0.0.11",
+    "@uniswap/merkle-distributor": "1.0.1",
+    "@uniswap/permit2-sdk": "1.3.0",
+    "@uniswap/router-sdk": "2.7.1",
+    "@uniswap/sdk-core": "7.12.1",
+    "@uniswap/token-lists": "1.0.0-beta.33",
+    "@uniswap/uniswapx-sdk": "3.0.0-beta.7",
+    "@uniswap/universal-router-sdk": "4.33.0",
+    "@uniswap/v2-sdk": "4.19.1",
+    "@uniswap/v3-core": "1.0.1",
+    "@uniswap/v3-periphery": "1.4.4",
+    "@uniswap/v3-sdk": "3.29.1",
+    "@uniswap/v4-sdk": "1.29.1",
+    "@universe/api": "workspace:^",
+    "@universe/gating": "workspace:^",
+    "@universe/notifications": "workspace:^",
+    "@universe/prices": "workspace:^",
+    "@universe/sessions": "workspace:^",
+    "@universe/websocket": "workspace:^",
+    "@visx/group": "2.17.0",
+    "@visx/responsive": "3.12.0",
+    "@visx/shape": "2.18.0",
+    "@web3-react/core": "8.2.3",
+    "@web3-react/empty": "8.2.3",
+    "ajv": "8.18.0",
+>>>>>>> upstream/main
     "ajv-formats": "2.1.1",
     "array.prototype.flat": "1.3.2",
     "array.prototype.flatmap": "1.3.2",
@@ -268,9 +350,14 @@
     "ethers": "5.7.2",
     "fancy-canvas": "2.1.0",
     "framer-motion": "10.17.6",
+<<<<<<< HEAD
     "graphql": "16.6.0",
     "graphql-tag": "2.12.6",
     "hono": "4.8.4",
+=======
+    "graphql": "16.10.0",
+    "hono": "4.12.8",
+>>>>>>> upstream/main
     "html-entities": "2.6.0",
     "i18next": "23.10.0",
     "jotai": "1.3.7",
@@ -287,6 +374,7 @@
     "polished": "3.3.2",
     "polyfill-object.fromentries": "1.0.1",
     "porto": "0.0.80",
+<<<<<<< HEAD
     "qs": "6.11.0",
     "react": "19.0.3",
     "react-dom": "19.0.3",
@@ -295,6 +383,15 @@
     "react-i18next": "14.1.0",
     "react-native-gesture-handler": "2.24.0",
     "react-native-reanimated": "catalog:",
+=======
+    "qs": "6.14.2",
+    "react": "19.0.3",
+    "react-dom": "19.0.3",
+    "react-helmet-async": "2.0.4",
+    "react-i18next": "14.1.0",
+    "react-native-gesture-handler": "2.24.0",
+    "react-native-reanimated": "3.19.3",
+>>>>>>> upstream/main
     "react-popper": "2.3.0",
     "react-redux": "8.0.5",
     "react-router": "7.6.3",
@@ -310,13 +407,21 @@
     "tiny-invariant": "1.3.1",
     "ts-loader": "9.5.1",
     "typed-redux-saga": "1.5.0",
+<<<<<<< HEAD
     "use-resize-observer": "9.1.0",
+=======
+    "ui": "workspace:^",
+    "uniswap": "workspace:^",
+    "use-resize-observer": "9.1.0",
+    "utilities": "workspace:^",
+>>>>>>> upstream/main
     "uuid": "9.0.0",
     "viem": "2.30.5",
     "wagmi": "2.15.5",
     "wcag-contrast": "3.0.0",
     "web-vitals": "4.2.4",
     "xml2js": "0.6.2",
+<<<<<<< HEAD
     "zod": "catalog:",
     "zustand": "5.0.6",
     "next-themes": "^0.4.4",
@@ -333,6 +438,15 @@
     "npm": "please-use-bun",
     "node": ">=22",
     "bun": ">=1.3.1"
+=======
+    "zod": "4.3.6",
+    "zustand": "5.0.6"
+  },
+  "engines": {
+    "npm": "please-use-bun",
+    "node": "=22.13.1",
+    "bun": ">=1.3.11"
+>>>>>>> upstream/main
   },
   "sideEffects": [
     "*.css",

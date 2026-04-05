@@ -2,10 +2,17 @@ import React, { useCallback, useReducer, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { LayoutChangeEvent } from 'react-native'
 import Markdown, { MarkdownProps } from 'react-native-markdown-display'
+<<<<<<< HEAD
 import { Flex, SpaceTokens, Text, useSporeColors } from '@l.x/ui/src'
 import { fonts } from '@l.x/ui/src/theme'
 import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
 import { openUri } from '@l.x/lx/src/utils/linking'
+=======
+import { Flex, SpaceTokens, Text, useSporeColors } from 'ui/src'
+import { fonts } from 'ui/src/theme'
+import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+import { openUri } from 'uniswap/src/utils/linking'
+>>>>>>> upstream/main
 
 type LongMarkdownTextProps = {
   initialDisplayedLines?: number

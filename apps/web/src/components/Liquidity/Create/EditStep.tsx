@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { ProtocolVersion } from '@luxamm/client-data-api/dist/data/v1/poolTypes_pb'
 import { useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
@@ -5,6 +6,15 @@ import { Button, Flex, Text, useMedia } from '@l.x/ui/src'
 import { Edit } from '@l.x/ui/src/components/icons/Edit'
 import { iconSizes } from '@l.x/ui/src/theme'
 import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
+=======
+import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
+import { useCallback } from 'react'
+import { useTranslation } from 'react-i18next'
+import { Button, Flex, Text, useMedia } from 'ui/src'
+import { Edit } from 'ui/src/components/icons/Edit'
+import { iconSizes } from 'ui/src/theme'
+import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+>>>>>>> upstream/main
 import CreatingPoolInfo from '~/components/CreatingPoolInfo/CreatingPoolInfo'
 import { useDefaultInitialPrice } from '~/components/Liquidity/Create/hooks/useDefaultInitialPrice'
 import { PositionFlowStep } from '~/components/Liquidity/Create/types'

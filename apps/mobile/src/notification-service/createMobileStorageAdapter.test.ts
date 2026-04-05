@@ -102,7 +102,11 @@ describe('createMobileStorageAdapter', () => {
       await adapter.add('notif-1', { timestamp: 1234567890 })
 
       expect(mockMMKV.set).toHaveBeenCalledWith(
+<<<<<<< HEAD
         'lux_notifications_processed',
+=======
+        'uniswap_notifications_processed',
+>>>>>>> upstream/main
         JSON.stringify({ 'notif-1': { timestamp: 1234567890 } }),
       )
     })
@@ -116,7 +120,11 @@ describe('createMobileStorageAdapter', () => {
       await adapter.add('notif-1')
 
       expect(mockMMKV.set).toHaveBeenCalledWith(
+<<<<<<< HEAD
         'lux_notifications_processed',
+=======
+        'uniswap_notifications_processed',
+>>>>>>> upstream/main
         JSON.stringify({ 'notif-1': { timestamp: mockNow } }),
       )
 
@@ -134,7 +142,11 @@ describe('createMobileStorageAdapter', () => {
       await adapter.add('notif-2', { timestamp: 2000 })
 
       expect(mockMMKV.set).toHaveBeenCalledWith(
+<<<<<<< HEAD
         'lux_notifications_processed',
+=======
+        'uniswap_notifications_processed',
+>>>>>>> upstream/main
         JSON.stringify({
           'notif-1': { timestamp: 1000 },
           'notif-2': { timestamp: 2000 },
@@ -153,7 +165,11 @@ describe('createMobileStorageAdapter', () => {
       await adapter.add('notif-1', { timestamp: 2000 })
 
       expect(mockMMKV.set).toHaveBeenCalledWith(
+<<<<<<< HEAD
         'lux_notifications_processed',
+=======
+        'uniswap_notifications_processed',
+>>>>>>> upstream/main
         JSON.stringify({
           'notif-1': { timestamp: 2000 },
         }),
@@ -222,7 +238,11 @@ describe('createMobileStorageAdapter', () => {
       await adapter.deleteOlderThan(2000)
 
       expect(mockMMKV.set).toHaveBeenCalledWith(
+<<<<<<< HEAD
         'lux_notifications_processed',
+=======
+        'uniswap_notifications_processed',
+>>>>>>> upstream/main
         JSON.stringify({
           'notif-new': { timestamp: 3000 },
         }),
@@ -240,7 +260,11 @@ describe('createMobileStorageAdapter', () => {
       const adapter = createMobileStorageAdapter()
       await adapter.deleteOlderThan(2000)
 
+<<<<<<< HEAD
       expect(mockMMKV.set).toHaveBeenCalledWith('lux_notifications_processed', JSON.stringify({}))
+=======
+      expect(mockMMKV.set).toHaveBeenCalledWith('uniswap_notifications_processed', JSON.stringify({}))
+>>>>>>> upstream/main
     })
 
     it('keeps entries with timestamp greater than threshold', async () => {
@@ -255,7 +279,11 @@ describe('createMobileStorageAdapter', () => {
       await adapter.deleteOlderThan(2000)
 
       expect(mockMMKV.set).toHaveBeenCalledWith(
+<<<<<<< HEAD
         'lux_notifications_processed',
+=======
+        'uniswap_notifications_processed',
+>>>>>>> upstream/main
         JSON.stringify({
           'notif-1': { timestamp: 2001 },
           'notif-2': { timestamp: 3000 },
@@ -269,7 +297,11 @@ describe('createMobileStorageAdapter', () => {
       const adapter = createMobileStorageAdapter()
       await adapter.deleteOlderThan(2000)
 
+<<<<<<< HEAD
       expect(mockMMKV.set).toHaveBeenCalledWith('lux_notifications_processed', JSON.stringify({}))
+=======
+      expect(mockMMKV.set).toHaveBeenCalledWith('uniswap_notifications_processed', JSON.stringify({}))
+>>>>>>> upstream/main
     })
 
     it('removes all entries when all are older than threshold', async () => {
@@ -283,7 +315,11 @@ describe('createMobileStorageAdapter', () => {
       const adapter = createMobileStorageAdapter()
       await adapter.deleteOlderThan(2000)
 
+<<<<<<< HEAD
       expect(mockMMKV.set).toHaveBeenCalledWith('lux_notifications_processed', JSON.stringify({}))
+=======
+      expect(mockMMKV.set).toHaveBeenCalledWith('uniswap_notifications_processed', JSON.stringify({}))
+>>>>>>> upstream/main
     })
   })
 })

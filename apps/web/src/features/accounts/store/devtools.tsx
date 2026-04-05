@@ -1,7 +1,14 @@
+<<<<<<< HEAD
 /* eslint-disable import/no-unused-modules */
 
 import { PropsWithChildren, useEffect, useState } from 'react'
 import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
+=======
+/* oxlint-disable import/no-unused-modules */
+
+import { PropsWithChildren, useEffect, useState } from 'react'
+import { Platform } from 'uniswap/src/features/platforms/types/Platform'
+>>>>>>> upstream/main
 import {
   useActiveAddress,
   useActiveAddresses,
@@ -17,7 +24,11 @@ const DEVTOOL_TRIGGER = 'logAccountsStore'
 export function AccountsStoreDevTool(): JSX.Element | null {
   return (
     <DevToolGate toolTrigger={DEVTOOL_TRIGGER}>
+<<<<<<< HEAD
       <LuxAccountsStoreDevToolLogger />
+=======
+      <UniswapAccountsStoreDevToolLogger />
+>>>>>>> upstream/main
     </DevToolGate>
   )
 }
@@ -43,7 +54,11 @@ function DevToolGate({ children, toolTrigger }: PropsWithChildren<{ toolTrigger:
   return log ? <>{children}</> : null
 }
 
+<<<<<<< HEAD
 function LuxAccountsStoreDevToolLogger() {
+=======
+function UniswapAccountsStoreDevToolLogger() {
+>>>>>>> upstream/main
   const wallet = useActiveWallet(Platform.EVM)
   const evmConnector = useActiveConnector(Platform.EVM)
   const svmConnector = useActiveConnector(Platform.SVM)
@@ -72,9 +87,15 @@ function LuxAccountsStoreDevToolLogger() {
       fontWeightStrings.push('font-weight: bold;', '')
     }
 
+<<<<<<< HEAD
     // biome-ignore lint/suspicious/noConsole: console logging required for devtools functionality
     console.clear()
     // biome-ignore lint/suspicious/noConsole: console logging required for devtools functionality
+=======
+    // oxlint-disable-next-line no-console -- console logging required for devtools functionality
+    console.clear()
+    // oxlint-disable-next-line no-console -- console logging required for devtools functionality
+>>>>>>> upstream/main
     console.log(
       `
       %cAccountsStore 🦄%c

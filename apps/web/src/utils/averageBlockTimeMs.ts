@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { getChainInfo } from '@l.x/lx/src/features/chains/chainInfo'
 import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { isL2ChainId } from '@l.x/lx/src/features/chains/utils'
@@ -5,6 +6,15 @@ import {
   AVERAGE_L1_BLOCK_TIME_MS,
   AVERAGE_L2_BLOCK_TIME_MS,
 } from '@l.x/lx/src/features/transactions/hooks/usePollingIntervalByChain'
+=======
+import { getChainInfo } from 'uniswap/src/features/chains/chainInfo'
+import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { isL2ChainId } from 'uniswap/src/features/chains/utils'
+import {
+  AVERAGE_L1_BLOCK_TIME_MS,
+  AVERAGE_L2_BLOCK_TIME_MS,
+} from 'uniswap/src/features/transactions/hooks/usePollingIntervalByChain'
+>>>>>>> upstream/main
 
 /**
  * Returns the accurate chain-specific block time for timestamp calculations.

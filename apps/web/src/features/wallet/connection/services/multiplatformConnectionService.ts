@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
 import { sleep } from '@l.x/utils/src/time/timing'
+=======
+import { Platform } from 'uniswap/src/features/platforms/types/Platform'
+import { sleep } from 'utilities/src/time/timing'
+>>>>>>> upstream/main
 import { getWalletRequiresSeparatePrompt } from '~/components/WalletModal/PendingWalletConnectionModal/state'
 import { ConnectionService } from '~/features/wallet/connection/services/IConnectionService'
 

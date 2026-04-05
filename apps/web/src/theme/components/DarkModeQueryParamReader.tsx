@@ -2,7 +2,11 @@ import { parse } from 'qs'
 import { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { useLocation } from 'react-router'
+<<<<<<< HEAD
 import { AppearanceSettingType, setSelectedAppearanceSettings } from '@l.x/lx/src/features/appearance/slice'
+=======
+import { AppearanceSettingType, setSelectedAppearanceSettings } from 'uniswap/src/features/appearance/slice'
+>>>>>>> upstream/main
 
 export default function DarkModeQueryParamReader(): null {
   const { search } = useLocation()

@@ -1,8 +1,16 @@
+<<<<<<< HEAD
 import { PositionStatus, ProtocolVersion } from '@luxamm/client-data-api/dist/data/v1/poolTypes_pb'
 import { CurrencyAmount } from '@luxamm/sdk-core'
 import { Pair } from '@luxamm/v2-sdk'
 import JSBI from 'jsbi'
 import { EVMUniverseChainId, UniverseChainId } from '@l.x/lx/src/features/chains/types'
+=======
+import { PositionStatus, ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
+import { CurrencyAmount } from '@uniswap/sdk-core'
+import { Pair } from '@uniswap/v2-sdk'
+import JSBI from 'jsbi'
+import { EVMUniverseChainId, UniverseChainId } from 'uniswap/src/features/chains/types'
+>>>>>>> upstream/main
 import { describe, expect, it } from 'vitest'
 import { PositionInfo } from '~/components/Liquidity/types'
 import { getPositionUrl } from '~/components/Liquidity/utils/getPositionUrl'

@@ -2,11 +2,19 @@ import { useEffect, useMemo, useReducer, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { TextInput } from 'react-native'
 import { Input } from 'src/app/components/Input'
+<<<<<<< HEAD
 import { Flex, Text } from '@l.x/ui/src'
 import { Check } from '@l.x/ui/src/components/icons'
 import { zIndexes } from '@l.x/ui/src/theme'
 import { useDebounce } from '@l.x/utils/src/time/timing'
 import { PASSWORD_VALIDATION_DEBOUNCE_MS } from '@luxfi/wallet/src/utils/password'
+=======
+import { Flex, Text } from 'ui/src'
+import { Check } from 'ui/src/components/icons'
+import { zIndexes } from 'ui/src/theme'
+import { useDebounce } from 'utilities/src/time/timing'
+import { PASSWORD_VALIDATION_DEBOUNCE_MS } from 'wallet/src/utils/password'
+>>>>>>> upstream/main
 
 type InputStackBaseProps = {
   value?: string
@@ -49,7 +57,11 @@ export function RecoveryPhraseVerification({
     setSubtitle(t('onboarding.backup.manual.subtitle', { count: nextWordNumber, ordinal: true }))
   }, [nextWordNumber, setSubtitle, t])
 
+<<<<<<< HEAD
   // biome-ignore lint/correctness/useExhaustiveDependencies: Only want to run when verification state changes, not callbacks which are stable
+=======
+  // oxlint-disable-next-line react/exhaustive-deps -- Only want to run when verification state changes, not callbacks which are stable
+>>>>>>> upstream/main
   useEffect(() => {
     if (numberOfVerifiedWords === 0) {
       return
@@ -65,9 +77,16 @@ export function RecoveryPhraseVerification({
     onWordVerified(numberOfVerifiedWords)
 
     // We only want this to run when the `numberOfTests` or `numberOfVerifiedWords` changes.
+<<<<<<< HEAD
   }, [numberOfTests, numberOfVerifiedWords])
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: markCurrentWordVerified and setUserWordInput are stable, others are needed for correct behavior timing
+=======
+    // oxlint-disable-next-line react/exhaustive-deps -- biome-parity: oxlint is stricter here
+  }, [numberOfTests, numberOfVerifiedWords])
+
+  // oxlint-disable-next-line react/exhaustive-deps -- markCurrentWordVerified and setUserWordInput are stable, others are needed for correct behavior timing
+>>>>>>> upstream/main
   useEffect(() => {
     let timeout: ReturnType<typeof setTimeout> | undefined
 

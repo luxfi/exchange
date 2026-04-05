@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 //! gui-ignore
 // gui-ignore
 import { useCallback, useEffect, useState } from 'react'
@@ -15,13 +16,36 @@ import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
 import { ElementName, ModalName } from '@l.x/lx/src/features/telemetry/constants'
 import { InterfacePageName } from '@l.x/lx/src/features/telemetry/constants/trace/page'
 import { Trace } from '@l.x/lx/src/features/telemetry/Trace'
+=======
+//! tamagui-ignore
+// tamagui-ignore
+import { useCallback, useEffect, useState } from 'react'
+import { useTranslation } from 'react-i18next'
+import { useParams } from 'react-router'
+import { Flex, useMedia } from 'ui/src'
+import { Modal } from 'uniswap/src/components/modals/Modal'
+import { useActiveAddress } from 'uniswap/src/features/accounts/store/hooks'
+import {
+  selectHasSeenToucanIntroModal,
+  selectHasSeenToucanIntroModalForWallet,
+} from 'uniswap/src/features/behaviorHistory/selectors'
+import { setHasSeenToucanIntroModal, setToucanIntroModalSeenByWallet } from 'uniswap/src/features/behaviorHistory/slice'
+import { Platform } from 'uniswap/src/features/platforms/types/Platform'
+import { ElementName, ModalName } from 'uniswap/src/features/telemetry/constants'
+import { InterfacePageName } from 'uniswap/src/features/telemetry/constants/trace/page'
+import { Trace } from 'uniswap/src/features/telemetry/Trace'
+import { ActivitySection } from '~/components/Toucan/Auction/ActivityTimeline/ActivitySection'
+>>>>>>> upstream/main
 import { BidDistributionChartTab } from '~/components/Toucan/Auction/AuctionChartShared'
 import { AuctionHeader } from '~/components/Toucan/Auction/AuctionHeader'
 import { AuctionStats } from '~/components/Toucan/Auction/AuctionStats/AuctionStats'
 import { AuctionIntroBanner } from '~/components/Toucan/Auction/Banners/AuctionIntro/AuctionIntroBanner'
 import { AuctionStatsBanner } from '~/components/Toucan/Auction/Banners/AuctionStatsBanner/AuctionStatsBanner'
 import { TokenLaunchedBanner } from '~/components/Toucan/Auction/Banners/TokenLaunched/TokenLaunchedBanner'
+<<<<<<< HEAD
 import { BidActivities } from '~/components/Toucan/Auction/BidActivities/BidActivities'
+=======
+>>>>>>> upstream/main
 import { AuctionChartContainer } from '~/components/Toucan/Auction/BidDistributionChart/AuctionChartContainer'
 import { BidForm } from '~/components/Toucan/Auction/BidForm/BidForm'
 import { AuctionGraduated } from '~/components/Toucan/Auction/Bids/AuctionGraduated'
@@ -156,8 +180,13 @@ function ToucanTokenContent({
               onTabChange={setChartActiveTab}
               onMobileScreenChange={setMobileScreenConfig}
             />
+<<<<<<< HEAD
             <AuctionStats />
             <BidActivities />
+=======
+            <ActivitySection />
+            <AuctionStats />
+>>>>>>> upstream/main
           </LeftPanel>
 
           <RightPanel

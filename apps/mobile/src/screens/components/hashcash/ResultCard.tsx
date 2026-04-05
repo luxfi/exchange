@@ -1,6 +1,10 @@
 import React, { memo } from 'react'
 import type { BenchmarkResult } from 'src/screens/stores/hashcashBenchmarkStore'
+<<<<<<< HEAD
 import { Flex, Text } from '@l.x/ui/src'
+=======
+import { Flex, Text } from 'ui/src'
+>>>>>>> upstream/main
 
 function formatDuration(ms: number): string {
   if (ms < 1000) {

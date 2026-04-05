@@ -1,13 +1,24 @@
+<<<<<<< HEAD
 import { GasFeeResult } from '@l.x/api'
+=======
+import { GasFeeResult } from '@universe/api'
+>>>>>>> upstream/main
 import { useDappLastChainId } from 'src/app/features/dapp/hooks'
 import { useDappRequestQueueContext } from 'src/app/features/dappRequests/DappRequestQueueContext'
 import { SwapDisplay } from 'src/app/features/dappRequests/requestContent/EthSend/Swap/SwapDisplay'
 import { formatUnits } from 'src/app/features/dappRequests/requestContent/EthSend/Swap/utils'
 import { WrapSendTransactionRequest } from 'src/app/features/dappRequests/types/DappRequestTypes'
+<<<<<<< HEAD
 import { useEnabledChains } from '@l.x/lx/src/features/chains/hooks/useEnabledChains'
 import { CurrencyInfo } from '@l.x/lx/src/features/dataApi/types'
 import { useNativeCurrencyInfo, useWrappedNativeCurrencyInfo } from '@l.x/lx/src/features/tokens/useCurrencyInfo'
 import { TransactionType, TransactionTypeInfo } from '@l.x/lx/src/features/transactions/types/transactionDetails'
+=======
+import { useEnabledChains } from 'uniswap/src/features/chains/hooks/useEnabledChains'
+import { CurrencyInfo } from 'uniswap/src/features/dataApi/types'
+import { useNativeCurrencyInfo, useWrappedNativeCurrencyInfo } from 'uniswap/src/features/tokens/useCurrencyInfo'
+import { TransactionType, TransactionTypeInfo } from 'uniswap/src/features/transactions/types/transactionDetails'
+>>>>>>> upstream/main
 
 function getTransactionTypeInfo({
   inputCurrencyInfo,

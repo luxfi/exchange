@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 export { HomeTabs } from '@l.x/lx/src/types/screens/extension'
+=======
+export { HomeTabs } from 'uniswap/src/types/screens/extension'
+>>>>>>> upstream/main
 
 export enum TopLevelRoutes {
   Onboarding = 'onboarding',

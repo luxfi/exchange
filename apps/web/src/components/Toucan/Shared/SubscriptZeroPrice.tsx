@@ -1,6 +1,12 @@
 import { useMemo } from 'react'
+<<<<<<< HEAD
 import { Flex, Text, TextProps } from '@l.x/ui/src'
 import { getSubscriptNotationParts } from '~/components/Charts/utils/subscriptFormat'
+=======
+import { Flex, Text, TextProps } from 'ui/src'
+import { getSubscriptNotationParts } from '~/components/Charts/utils/subscriptFormat'
+import { MouseoverTooltip, TooltipSize } from '~/components/Tooltip'
+>>>>>>> upstream/main
 import { roundForDisplay } from '~/components/Toucan/Auction/BidDistributionChart/utils/tokenFormatters'
 
 interface SubscriptZeroPriceProps {
@@ -152,6 +158,18 @@ export function SubscriptZeroPrice({
 
   const sizeProps = fontSize !== undefined ? { fontSize, lineHeight } : {}
 
+<<<<<<< HEAD
+=======
+  const fullNumberTooltip = useMemo(() => {
+    if (!parsed.useSubscript) {
+      return null
+    }
+    const decimalPlaces = parsed.leadingZeros + maxSignificantDigits
+    const fullNumber = value.toFixed(decimalPlaces)
+    return `${prefix ?? ''}${fullNumber}${symbol ? ` ${symbol}` : ''}`
+  }, [parsed.useSubscript, parsed.leadingZeros, value, maxSignificantDigits, prefix, symbol])
+
+>>>>>>> upstream/main
   if (!parsed.useSubscript) {
     return (
       <Text variant={variant} color={color} {...sizeProps}>
@@ -169,6 +187,7 @@ export function SubscriptZeroPrice({
   const subscriptTopOffset = isHeading ? 5 : 3
 
   return (
+<<<<<<< HEAD
     <Flex row alignItems="baseline" gap="$none">
       <Text variant={variant} color={color} {...sizeProps}>
         {prefix ?? ''}0.0
@@ -186,5 +205,26 @@ export function SubscriptZeroPrice({
         {symbol ? ` ${symbol}` : ''}
       </Text>
     </Flex>
+=======
+    <MouseoverTooltip text={fullNumberTooltip} size={TooltipSize.Max} placement="top">
+      <Flex row alignItems="baseline" gap="$none" cursor="default">
+        <Text variant={variant} color={color} {...sizeProps}>
+          {prefix ?? ''}0.0
+        </Text>
+        <Text
+          variant={variant}
+          color={color}
+          fontSize={subscriptFontSize}
+          style={{ position: 'relative', top: subscriptTopOffset, lineHeight: 1 }}
+        >
+          {parsed.leadingZeros}
+        </Text>
+        <Text variant={variant} color={color} {...sizeProps}>
+          {parsed.significantPart}
+          {symbol ? ` ${symbol}` : ''}
+        </Text>
+      </Flex>
+    </MouseoverTooltip>
+>>>>>>> upstream/main
   )
 }

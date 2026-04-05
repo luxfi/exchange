@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
+<<<<<<< HEAD
 import { Flex, Text } from '@l.x/ui/src'
 import { CheckCircleFilled } from '@l.x/ui/src/components/icons/CheckCircleFilled'
 import { QuestionInCircleFilled } from '@l.x/ui/src/components/icons/QuestionInCircleFilled'
@@ -13,6 +14,20 @@ import { buildCurrencyId } from 'lx/src/utils/currencyId'
 import { logger } from '@l.x/utils/src/logger/logger'
 import { useCreateAuctionStore } from '~/pages/Liquidity/CreateAuction/CreateAuctionContext'
 import { HookTileContainer } from '~/pages/Liquidity/CreateAuction/components/HookTile'
+=======
+import { Flex, Text } from 'ui/src'
+import { CheckCircleFilled } from 'ui/src/components/icons/CheckCircleFilled'
+import { QuestionInCircleFilled } from 'ui/src/components/icons/QuestionInCircleFilled'
+import { iconSizes } from 'ui/src/theme'
+import { CurrencyLogo } from 'uniswap/src/components/CurrencyLogo/CurrencyLogo'
+import { getChainInfo } from 'uniswap/src/features/chains/chainInfo'
+import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { useCurrencyInfo, useNativeCurrencyInfo } from 'uniswap/src/features/tokens/useCurrencyInfo'
+import { buildCurrencyId } from 'uniswap/src/utils/currencyId'
+import { logger } from 'utilities/src/logger/logger'
+import { HookTileContainer } from '~/pages/Liquidity/CreateAuction/components/HookTile'
+import { useCreateAuctionStore } from '~/pages/Liquidity/CreateAuction/CreateAuctionContext'
+>>>>>>> upstream/main
 import { RaiseCurrency, TokenMode } from '~/pages/Liquidity/CreateAuction/types'
 import { ExternalLink } from '~/theme/components/Links'
 
@@ -126,7 +141,11 @@ export function RaiseCurrencySection({
         </Flex>
         <Flex row gap="$spacing4" alignItems="center">
           <QuestionInCircleFilled size="$icon.16" color="$neutral2" />
+<<<<<<< HEAD
           <ExternalLink href={lxUrls.helpUrl}>
+=======
+          <ExternalLink href="https://support.uniswap.org/hc/en-us">
+>>>>>>> upstream/main
             <Text variant="body3" color="$neutral2" textDecorationLine="underline" textDecorationStyle="dashed">
               {t('toucan.createAuction.step.configureAuction.raiseCurrency.helpLink')}
             </Text>

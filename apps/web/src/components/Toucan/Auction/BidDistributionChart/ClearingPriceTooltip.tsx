@@ -1,8 +1,14 @@
 import { forwardRef } from 'react'
 import { useTranslation } from 'react-i18next'
+<<<<<<< HEAD
 import { Flex, Text } from '@l.x/ui/src'
 import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
 import { NumberType } from '@l.x/utils/src/format/types'
+=======
+import { Flex, Text } from 'ui/src'
+import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
+import { NumberType } from 'utilities/src/format/types'
+>>>>>>> upstream/main
 import { CLEARING_PRICE_LINE } from '~/components/Toucan/Auction/BidDistributionChart/constants'
 import { useConcentrationColor } from '~/components/Toucan/Auction/BidDistributionChart/hooks/useConcentrationColor'
 import { formatTickForDisplay } from '~/components/Toucan/Auction/BidDistributionChart/utils/utils'
@@ -10,6 +16,11 @@ import type { BidTokenInfo } from '~/components/Toucan/Auction/store/types'
 import { SubscriptZeroPrice } from '~/components/Toucan/Shared/SubscriptZeroPrice'
 import { TooltipContainer } from '~/components/Toucan/Shared/TooltipContainer'
 
+<<<<<<< HEAD
+=======
+const TOOLTIP_FLIP_THRESHOLD = 80 // approximate tooltip height
+
+>>>>>>> upstream/main
 interface ClearingPriceTooltipState {
   left: number
   top: number
@@ -78,9 +89,27 @@ export const ClearingPriceTooltip = forwardRef<HTMLDivElement, ClearingPriceTool
   // Format bid volume (e.g., "$1.25M")
   const volumeDisplay = convertFiatAmountFormatted(volumeAtClearingPrice, NumberType.FiatTokenStats)
 
+<<<<<<< HEAD
   // Use override positions when stacked, otherwise use default calculated positions
   const finalLeft = overrideLeft ?? state.left + CLEARING_PRICE_LINE.LABEL_OFFSET_X
   const finalTop = overrideTop ?? CLEARING_PRICE_LINE.LABEL_OFFSET_Y
+=======
+  // Use override positions when stacked, otherwise use default calculated positions.
+  // When the clearing price line is near the top of the chart, flip the tooltip below
+  // the line so translateY(-100%) doesn't push it off-screen.
+  const finalLeft = overrideLeft ?? state.left
+  const isNearTop = overrideTop == null && state.top < TOOLTIP_FLIP_THRESHOLD
+  const finalTop =
+    overrideTop ??
+    (isNearTop ? state.top + CLEARING_PRICE_LINE.LABEL_OFFSET_Y : state.top - CLEARING_PRICE_LINE.LABEL_OFFSET_Y)
+
+  const getTransform = () => {
+    if (flipLeft) {
+      return isNearTop ? 'translateX(-100%)' : 'translate(-100%, -100%)'
+    }
+    return isNearTop ? 'none' : 'translateY(-100%)'
+  }
+>>>>>>> upstream/main
 
   return (
     <TooltipContainer
@@ -93,7 +122,11 @@ export const ClearingPriceTooltip = forwardRef<HTMLDivElement, ClearingPriceTool
       style={{
         left: `${finalLeft}px`,
         top: `${finalTop}px`,
+<<<<<<< HEAD
         transform: flipLeft ? 'translateX(-100%)' : 'none',
+=======
+        transform: getTransform(),
+>>>>>>> upstream/main
       }}
     >
       {/* Header row with triangle icon and title */}

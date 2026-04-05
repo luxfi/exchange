@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { Token } from '@luxamm/sdk-core'
 import { GraphQLApi } from '@l.x/api'
 import { Flex } from '@l.x/ui/src'
@@ -5,11 +6,24 @@ import { UNI, WBTC } from '@l.x/lx/src/constants/tokens'
 import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { getCurrencySafetyInfo } from '@l.x/lx/src/features/dataApi/utils/getCurrencySafetyInfo'
 import { useCurrencyInfo } from '@l.x/lx/src/features/tokens/useCurrencyInfo'
+=======
+import { Token } from '@uniswap/sdk-core'
+import { GraphQLApi } from '@universe/api'
+import { Flex } from 'ui/src'
+import { UNI, WBTC } from 'uniswap/src/constants/tokens'
+import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { getCurrencySafetyInfo } from 'uniswap/src/features/dataApi/utils/getCurrencySafetyInfo'
+import { useCurrencyInfo } from 'uniswap/src/features/tokens/useCurrencyInfo'
+>>>>>>> upstream/main
 import { DoubleCurrencyLogo } from '~/components/Logo/DoubleLogo'
 import { mocked } from '~/test-utils/mocked'
 import { render } from '~/test-utils/render'
 
+<<<<<<< HEAD
 vi.mock('lx/src/features/tokens/useCurrencyInfo', () => ({
+=======
+vi.mock('uniswap/src/features/tokens/useCurrencyInfo', () => ({
+>>>>>>> upstream/main
   useCurrencyInfo: vi.fn(),
 }))
 
@@ -44,7 +58,11 @@ describe('DoubleLogo', () => {
         return {
           currency: mockCurrency1,
           logoUrl:
+<<<<<<< HEAD
             'https://raw.githubusercontent.com/Lux/assets/master/blockchains/ethereum/assets/0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984/logo.png',
+=======
+            'https://raw.githubusercontent.com/Uniswap/assets/master/blockchains/ethereum/assets/0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984/logo.png',
+>>>>>>> upstream/main
           currencyId: UNI[UniverseChainId.Mainnet].address,
           safetyInfo: getCurrencySafetyInfo(GraphQLApi.SafetyLevel.Verified, undefined),
         }
@@ -54,7 +72,11 @@ describe('DoubleLogo', () => {
         return {
           currency: mockCurrency2,
           logoUrl:
+<<<<<<< HEAD
             'https://raw.githubusercontent.com/Lux/assets/master/blockchains/ethereum/assets/0x2260fac5e5542a773aa44fbcfeDf7c193bc2c599/logo.png',
+=======
+            'https://raw.githubusercontent.com/Uniswap/assets/master/blockchains/ethereum/assets/0x2260fac5e5542a773aa44fbcfeDf7c193bc2c599/logo.png',
+>>>>>>> upstream/main
           currencyId: WBTC.address,
           safetyInfo: getCurrencySafetyInfo(GraphQLApi.SafetyLevel.Verified, undefined),
         }

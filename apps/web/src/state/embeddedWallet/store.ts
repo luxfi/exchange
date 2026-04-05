@@ -1,5 +1,9 @@
 import { useSyncExternalStore } from 'react'
+<<<<<<< HEAD
 import { logger } from '@l.x/utils/src/logger/logger'
+=======
+import { logger } from 'utilities/src/logger/logger'
+>>>>>>> upstream/main
 
 interface EmbeddedWalletState {
   walletAddress: string | null

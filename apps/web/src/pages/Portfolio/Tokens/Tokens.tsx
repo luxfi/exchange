@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { memo, useCallback, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
@@ -11,6 +12,22 @@ import { ElementName, InterfacePageName, SectionName } from '@l.x/lx/src/feature
 import Trace from '@l.x/lx/src/features/telemetry/Trace'
 import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
 import { parseChainFromTokenSearchQuery } from '@l.x/lx/src/utils/search/parseChainFromTokenSearchQuery'
+=======
+import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import { memo, useCallback, useMemo, useState } from 'react'
+import { useTranslation } from 'react-i18next'
+import { useNavigate } from 'react-router'
+import { Flex, RemoveScroll, Text, useMedia } from 'ui/src'
+import { TokensListEmptyState } from 'uniswap/src/components/tokens/TokensListEmptyState'
+import { useGetWalletTokensProfitLossQuery } from 'uniswap/src/data/rest/getWalletTokensProfitLoss'
+import { useEnabledChains } from 'uniswap/src/features/chains/hooks/useEnabledChains'
+import { getChainLabel } from 'uniswap/src/features/chains/utils'
+import { PortfolioBalance } from 'uniswap/src/features/portfolio/PortfolioBalance/PortfolioBalance'
+import { ElementName, InterfacePageName, SectionName } from 'uniswap/src/features/telemetry/constants'
+import Trace from 'uniswap/src/features/telemetry/Trace'
+import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+import { parseChainFromTokenSearchQuery } from 'uniswap/src/utils/search/parseChainFromTokenSearchQuery'
+>>>>>>> upstream/main
 import { SearchInput } from '~/pages/Portfolio/components/SearchInput'
 import { usePortfolioRoutes } from '~/pages/Portfolio/Header/hooks/usePortfolioRoutes'
 import { usePortfolioAddresses } from '~/pages/Portfolio/hooks/usePortfolioAddresses'
@@ -49,6 +66,10 @@ export const PortfolioTokens = memo(function PortfolioTokens() {
   const { chains: enabledChains } = useEnabledChains()
   const { chainId: urlChainId, isExternalWallet } = usePortfolioRoutes()
   const isMultichainTokenUxEnabled = useFeatureFlag(FeatureFlags.MultichainTokenUx)
+<<<<<<< HEAD
+=======
+  const isProfitLossEnabled = useFeatureFlag(FeatureFlags.ProfitLoss)
+>>>>>>> upstream/main
 
   // Parse search query to extract chain filter and search term
   const { chainFilter, searchTerm } = useMemo(() => {
@@ -58,6 +79,18 @@ export const PortfolioTokens = memo(function PortfolioTokens() {
   // Use URL chain ID as primary filter, search chain filter as fallback
   const effectiveChainId = urlChainId || chainFilter
 
+<<<<<<< HEAD
+=======
+  const { data: tokenProfitLossData, isError: isProfitLossError } = useGetWalletTokensProfitLossQuery({
+    input: {
+      evmAddress: portfolioAddresses.evmAddress,
+      svmAddress: portfolioAddresses.svmAddress,
+      chainIds: effectiveChainId ? [effectiveChainId] : enabledChains,
+    },
+    enabled: isProfitLossEnabled,
+  })
+
+>>>>>>> upstream/main
   // Get token data filtered by chain at API level
   const {
     visible: tokenData,
@@ -68,6 +101,10 @@ export const PortfolioTokens = memo(function PortfolioTokens() {
     error,
   } = useTransformTokenTableData({
     chainIds: effectiveChainId ? [effectiveChainId] : undefined,
+<<<<<<< HEAD
+=======
+    tokenProfitLossData: isProfitLossError ? undefined : (tokenProfitLossData ?? undefined),
+>>>>>>> upstream/main
   })
 
   // Filter tokens by search term at client level (chain filtering is handled at API level)

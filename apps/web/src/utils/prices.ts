@@ -1,7 +1,14 @@
+<<<<<<< HEAD
 import { Trade } from '@luxamm/router-sdk'
 import { Currency, CurrencyAmount, Fraction, Percent, TradeType } from '@luxamm/sdk-core'
 import { Pair } from '@luxamm/v2-sdk'
 import { FeeAmount } from '@luxamm/v3-sdk'
+=======
+import { Trade } from '@uniswap/router-sdk'
+import { Currency, CurrencyAmount, Fraction, Percent, TradeType } from '@uniswap/sdk-core'
+import { Pair } from '@uniswap/v2-sdk'
+import { FeeAmount } from '@uniswap/v3-sdk'
+>>>>>>> upstream/main
 import { PriceChartData } from '~/components/Charts/PriceChart'
 import {
   ALLOWED_PRICE_IMPACT_HIGH,

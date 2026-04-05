@@ -13,6 +13,7 @@ pre-commit:
       env:
         CI: "true"
         FORCE_COLOR: "0"
+<<<<<<< HEAD
         NX_DAEMON: "false"
       run: |
         export TERM=dumb
@@ -24,6 +25,9 @@ pre-commit:
         else
           echo "No package files changed, skipping typecheck"
         fi
+=======
+      run: TERM=dumb bun g:pre-commit-checks
+>>>>>>> upstream/main
 
     git-secrets:
       run: |
@@ -45,6 +49,7 @@ pre-commit:
           echo "trufflehog not installed, skipping..."
         fi
 
+<<<<<<< HEAD
 post-checkout:
   commands:
     generate-biome-config:
@@ -55,3 +60,6 @@ post-checkout:
           echo "Biome config files changed, regenerating config..."
           bun biome-config prepare
         fi
+=======
+post-checkout: {}
+>>>>>>> upstream/main

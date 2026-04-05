@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 import { GraphQLApi } from '@l.x/api'
 import { createMigrate } from 'redux-persist'
 import { createThrowingProxy } from '@l.x/utils/src/test/utils'
+=======
+import { GraphQLApi } from '@universe/api'
+import { createMigrate } from 'redux-persist'
+import { createThrowingProxy } from 'utilities/src/test/utils'
+>>>>>>> upstream/main
 import { vi } from 'vitest'
 import { migration1 } from '~/state/migrations/1'
 import { migration2 } from '~/state/migrations/2'

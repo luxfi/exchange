@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import { Currency, CurrencyAmount, Token } from '@luxamm/sdk-core'
+=======
+import { Currency, CurrencyAmount, Token } from '@uniswap/sdk-core'
+>>>>>>> upstream/main
 import { useMemo } from 'react'
 import { erc20Abi } from 'viem'
 import { useReadContract } from 'wagmi'

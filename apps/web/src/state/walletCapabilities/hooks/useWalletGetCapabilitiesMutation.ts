@@ -1,9 +1,17 @@
 import { queryOptions, useMutation, useQueryClient } from '@tanstack/react-query'
+<<<<<<< HEAD
 import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import ms from 'ms'
 import { getLogger } from '@l.x/utils/src/logger/logger'
 import { useEvent } from '@l.x/utils/src/react/hooks'
 import { ReactQueryCacheKey } from '@l.x/utils/src/reactQuery/cache'
+=======
+import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import ms from 'ms'
+import { getLogger } from 'utilities/src/logger/logger'
+import { useEvent } from 'utilities/src/react/hooks'
+import { ReactQueryCacheKey } from 'utilities/src/reactQuery/cache'
+>>>>>>> upstream/main
 import { useAccount } from '~/hooks/useAccount'
 import { useAppDispatch } from '~/state/hooks'
 import { handleGetCapabilities } from '~/state/walletCapabilities/lib/handleGetCapabilities'

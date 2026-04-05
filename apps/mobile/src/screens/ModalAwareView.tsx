@@ -3,10 +3,17 @@ import React from 'react'
 import { View } from 'react-native'
 import { HorizontalEdgeGestureTarget } from 'src/components/layout/screens/EdgeGestureTarget'
 import { useIsInModal } from 'src/components/modals/useIsInModal'
+<<<<<<< HEAD
 import { Flex, flexStyles, useSporeColors } from '@l.x/ui/src'
 import { HandleBar } from '@l.x/lx/src/components/modals/HandleBar'
 import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
 import { useAppInsets } from '@l.x/lx/src/hooks/useAppInsets'
+=======
+import { Flex, flexStyles, useSporeColors } from 'ui/src'
+import { HandleBar } from 'uniswap/src/components/modals/HandleBar'
+import { ModalName } from 'uniswap/src/features/telemetry/constants'
+import { useAppInsets } from 'uniswap/src/hooks/useAppInsets'
+>>>>>>> upstream/main
 /**
  * Wrapper view to correctly render screens within Modal as needed. This is required
  * to enable both full screen, and bottom sheet drag gestures on a screen within a modal.

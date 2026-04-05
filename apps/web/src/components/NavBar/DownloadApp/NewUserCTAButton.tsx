@@ -1,9 +1,18 @@
+<<<<<<< HEAD
 import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { useTranslation } from 'react-i18next'
 import { Button } from '@l.x/ui/src'
 import { ElementName, ModalName } from '@l.x/lx/src/features/telemetry/constants'
 import { Trace } from '@l.x/lx/src/features/telemetry/Trace'
 import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
+=======
+import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import { useTranslation } from 'react-i18next'
+import { Button } from 'ui/src'
+import { ElementName, ModalName } from 'uniswap/src/features/telemetry/constants'
+import { Trace } from 'uniswap/src/features/telemetry/Trace'
+import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+>>>>>>> upstream/main
 import { useModalState } from '~/hooks/useModalState'
 
 export function NewUserCTAButton() {

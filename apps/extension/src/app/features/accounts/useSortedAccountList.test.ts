@@ -1,6 +1,10 @@
 import { useSortedAccountList } from 'src/app/features/accounts/useSortedAccountList'
 import { act, renderHook } from 'src/test/test-utils'
+<<<<<<< HEAD
 import { useAccountListData } from '@luxfi/wallet/src/features/accounts/useAccountListData'
+=======
+import { useAccountListData } from 'wallet/src/features/accounts/useAccountListData'
+>>>>>>> upstream/main
 
 jest.mock('wallet/src/features/accounts/useAccountListData')
 const mockUseAccountList = useAccountListData as jest.MockedFunction<typeof useAccountListData>

@@ -1,6 +1,10 @@
 import { PropsWithChildren, useState } from 'react'
 import { useParams } from 'react-router'
+<<<<<<< HEAD
 import { isEVMChain } from '@l.x/lx/src/features/platforms/utils/chains'
+=======
+import { isEVMChain } from 'uniswap/src/features/platforms/utils/chains'
+>>>>>>> upstream/main
 import { useAuctionBlockPolling } from '~/components/Toucan/Auction/hooks/useAuctionBlockPolling'
 import { useComputeConcentrationBand } from '~/components/Toucan/Auction/hooks/useComputeConcentrationBand'
 import { useLoadAuctionDetails } from '~/components/Toucan/Auction/hooks/useLoadAuctionDetails'

@@ -1,19 +1,32 @@
+<<<<<<< HEAD
 /* eslint-disable import/no-unused-modules */
+=======
+/* oxlint-disable import/no-unused-modules */
+>>>>>>> upstream/main
 import { EthereumRpcErrorSchema } from 'src/app/features/dappRequests/types/ErrorTypes'
 import { EthersTransactionRequestSchema } from 'src/app/features/dappRequests/types/EthersTypes'
 import { NonfungiblePositionManagerCallSchema } from 'src/app/features/dappRequests/types/NonfungiblePositionManagerTypes'
 import { UniversalRouterCallSchema } from 'src/app/features/dappRequests/types/UniversalRouterTypes'
 import { HomeTabs } from 'src/app/navigation/constants'
 import { PermissionRequestSchema, PermissionSchema } from 'src/contentScript/WindowEthereumRequestTypes'
+<<<<<<< HEAD
 import { MessageSchema } from '@l.x/lx/src/extension/messagePassing/messageTypes'
 import { DappRequestType, DappResponseType } from '@l.x/lx/src/features/dappRequests/types'
+=======
+import { MessageSchema } from 'uniswap/src/extension/messagePassing/messageTypes'
+import { DappRequestType, DappResponseType } from 'uniswap/src/features/dappRequests/types'
+>>>>>>> upstream/main
 import {
   BatchIdSchema,
   CallSchema,
   CapabilitySchema,
   GetCallsStatusResultSchema,
   SendCallsResultSchema,
+<<<<<<< HEAD
 } from '@luxfi/wallet/src/features/dappRequests/types'
+=======
+} from 'wallet/src/features/dappRequests/types'
+>>>>>>> upstream/main
 import { z } from 'zod'
 
 // SCHEMAS + TYPES
@@ -48,11 +61,19 @@ export const SignTransactionRequestSchema = BaseDappRequestSchema.extend({
 })
 export type SignTransactionRequest = z.infer<typeof SignTransactionRequestSchema>
 
+<<<<<<< HEAD
 export const LuxOpenSidebarRequestSchema = BaseDappRequestSchema.extend({
   type: z.literal(DappRequestType.LuxOpenSidebar),
   tab: z.nativeEnum(HomeTabs).optional(),
 })
 export type LuxOpenSidebarRequest = z.infer<typeof LuxOpenSidebarRequestSchema>
+=======
+export const UniswapOpenSidebarRequestSchema = BaseDappRequestSchema.extend({
+  type: z.literal(DappRequestType.UniswapOpenSidebar),
+  tab: z.nativeEnum(HomeTabs).optional(),
+})
+export type UniswapOpenSidebarRequest = z.infer<typeof UniswapOpenSidebarRequestSchema>
+>>>>>>> upstream/main
 
 // ENUMS
 export enum EthSendTransactionRPCActions {
@@ -224,10 +245,17 @@ export const RevokePermissionsResponseSchema = BaseDappResponseSchema.extend({
 })
 export type RevokePermissionsResponse = z.infer<typeof RevokePermissionsResponseSchema>
 
+<<<<<<< HEAD
 export const LuxOpenSidebarResponseSchema = BaseDappResponseSchema.extend({
   type: z.literal(DappResponseType.LuxOpenSidebarResponse),
 })
 export type LuxOpenSidebarResponse = z.infer<typeof LuxOpenSidebarResponseSchema>
+=======
+export const UniswapOpenSidebarResponseSchema = BaseDappResponseSchema.extend({
+  type: z.literal(DappResponseType.UniswapOpenSidebarResponse),
+})
+export type UniswapOpenSidebarResponse = z.infer<typeof UniswapOpenSidebarResponseSchema>
+>>>>>>> upstream/main
 
 export const ErrorResponseSchema = BaseDappResponseSchema.extend({
   type: z.literal(DappResponseType.ErrorResponse),
@@ -312,7 +340,11 @@ export const DappRequestSchema = z.union([
   SignMessageRequestSchema,
   SignTypedDataRequestSchema,
   SignTransactionRequestSchema,
+<<<<<<< HEAD
   LuxOpenSidebarRequestSchema,
+=======
+  UniswapOpenSidebarRequestSchema,
+>>>>>>> upstream/main
   SendCallsRequestSchema,
   GetCallsStatusRequestSchema,
   GetCapabilitiesRequestSchema,
@@ -329,7 +361,11 @@ const DappResponseSchema = z.union([
   SignTypedDataResponseSchema,
   SignTransactionResponseSchema,
   SendTransactionResponseSchema,
+<<<<<<< HEAD
   LuxOpenSidebarResponseSchema,
+=======
+  UniswapOpenSidebarResponseSchema,
+>>>>>>> upstream/main
   SendCallsResponseSchema,
   GetCallsStatusResponseSchema,
   GetCapabilitiesResponseSchema,

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { memo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Flex, Text } from '@l.x/ui/src'
@@ -5,16 +6,35 @@ import { Plus } from '@l.x/ui/src/components/icons/Plus'
 import { useFormattedCurrencyAmountAndUSDValue } from '@l.x/lx/src/components/activity/hooks/useFormattedCurrencyAmountAndUSDValue'
 import { PollingInterval } from '@l.x/lx/src/constants/misc'
 import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
+=======
+import { TradeType } from '@uniswap/sdk-core'
+import { memo, useMemo } from 'react'
+import { useTranslation } from 'react-i18next'
+import { Flex, Text } from 'ui/src'
+import { Plus } from 'ui/src/components/icons/Plus'
+import { useFormattedCurrencyAmountAndUSDValue } from 'uniswap/src/components/activity/hooks/useFormattedCurrencyAmountAndUSDValue'
+import { PollingInterval } from 'uniswap/src/constants/misc'
+import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
+>>>>>>> upstream/main
 import {
   useCurrencyInfo,
   useNativeCurrencyInfo,
   useWrappedNativeCurrencyInfo,
+<<<<<<< HEAD
 } from '@l.x/lx/src/features/tokens/useCurrencyInfo'
+=======
+} from 'uniswap/src/features/tokens/useCurrencyInfo'
+>>>>>>> upstream/main
 import {
   TransactionDetails,
   TransactionStatus,
   TransactionType,
+<<<<<<< HEAD
 } from '@l.x/lx/src/features/transactions/types/transactionDetails'
+=======
+} from 'uniswap/src/features/transactions/types/transactionDetails'
+import { isConfirmedSwapTypeInfo } from 'uniswap/src/features/transactions/types/utils'
+>>>>>>> upstream/main
 import { ApproveAmountCell } from '~/pages/Portfolio/Activity/ActivityTable/ActivityAmountCell/ApproveAmountCell'
 import { CompactLayout } from '~/pages/Portfolio/Activity/ActivityTable/ActivityAmountCell/CompactLayout'
 import { DualTokenLayout } from '~/pages/Portfolio/Activity/ActivityTable/ActivityAmountCell/DualTokenLayout'
@@ -37,7 +57,11 @@ interface ActivityAmountCellProps {
   variant?: 'full' | 'compact'
 }
 
+<<<<<<< HEAD
 function _ActivityAmountCell({ transaction, variant = 'full' }: ActivityAmountCellProps) {
+=======
+function ActivityAmountCellInner({ transaction, variant = 'full' }: ActivityAmountCellProps) {
+>>>>>>> upstream/main
   const formatter = useLocalizationContext()
   const { t } = useTranslation()
   const { chainId } = transaction
@@ -57,13 +81,35 @@ function _ActivityAmountCell({ transaction, variant = 'full' }: ActivityAmountCe
   const nativeCurrencyInfo = useNativeCurrencyInfo(chainId)
   const wrappedCurrencyInfo = useWrappedNativeCurrencyInfo(chainId)
 
+<<<<<<< HEAD
+=======
+  const swapPairApproximateFlags = useMemo(() => {
+    if (transaction.typeInfo.type !== TransactionType.Swap) {
+      return { input: false, output: false }
+    }
+    const confirmed = isConfirmedSwapTypeInfo(transaction.typeInfo)
+    if (!confirmed) {
+      const tradeType = transaction.typeInfo.tradeType
+      return {
+        input: tradeType === TradeType.EXACT_OUTPUT,
+        output: tradeType === TradeType.EXACT_INPUT,
+      }
+    }
+    return { input: false, output: false }
+  }, [transaction.typeInfo])
+
+>>>>>>> upstream/main
   // Format amounts based on kind
   // Use slow polling (5 minutes) for historical activity data to reduce unnecessary network requests
   const inputFormattedData = useFormattedCurrencyAmountAndUSDValue({
     currency: inputCurrencyInfo?.currency,
     currencyAmountRaw: amount?.kind === 'pair' ? (amount.inputAmountRaw ?? '') : '',
     formatter,
+<<<<<<< HEAD
     isApproximateAmount: false,
+=======
+    isApproximateAmount: amount?.kind === 'pair' ? swapPairApproximateFlags.input : false,
+>>>>>>> upstream/main
     pollInterval: PollingInterval.Slow,
   })
 
@@ -71,7 +117,11 @@ function _ActivityAmountCell({ transaction, variant = 'full' }: ActivityAmountCe
     currency: outputCurrencyInfo?.currency,
     currencyAmountRaw: amount?.kind === 'pair' ? (amount.outputAmountRaw ?? '') : '',
     formatter,
+<<<<<<< HEAD
     isApproximateAmount: false,
+=======
+    isApproximateAmount: amount?.kind === 'pair' ? swapPairApproximateFlags.output : false,
+>>>>>>> upstream/main
     pollInterval: PollingInterval.Slow,
   })
 
@@ -151,8 +201,13 @@ function _ActivityAmountCell({ transaction, variant = 'full' }: ActivityAmountCe
     return <EmptyCell />
   }
 
+<<<<<<< HEAD
   // Guard against missing currency data before formatting
   if (amount.kind === 'pair' && (!inputCurrencyInfo || !outputCurrencyInfo)) {
+=======
+  // Show pair row if at least one side has currency metadata (matches modal / DualTokenLayout partial display)
+  if (amount.kind === 'pair' && !inputCurrencyInfo && !outputCurrencyInfo) {
+>>>>>>> upstream/main
     return <EmptyCell />
   }
 
@@ -165,15 +220,31 @@ function _ActivityAmountCell({ transaction, variant = 'full' }: ActivityAmountCe
 
   switch (amount.kind) {
     case 'pair': {
+<<<<<<< HEAD
+=======
+      const inputAmountDisplay = inputFormattedData.amount
+        ? `${inputFormattedData.tilde}${inputFormattedData.amount}`
+        : ''
+      const outputAmountDisplay = outputFormattedData.amount
+        ? `${outputFormattedData.tilde}${outputFormattedData.amount}`
+        : ''
+
+>>>>>>> upstream/main
       if (variant === 'compact') {
         return (
           <CompactLayout
             typeLabel={typeLabel}
             logo={createSplitLogo({ chainId, inputCurrencyInfo, outputCurrencyInfo })}
             amountText={formatCompactAmountText({
+<<<<<<< HEAD
               inputAmount: inputFormattedData.amount,
               inputSymbol: inputCurrencyInfo?.currency.symbol,
               outputAmount: outputFormattedData.amount,
+=======
+              inputAmount: inputAmountDisplay,
+              inputSymbol: inputCurrencyInfo?.currency.symbol,
+              outputAmount: outputAmountDisplay,
+>>>>>>> upstream/main
               outputSymbol: outputCurrencyInfo?.currency.symbol,
             })}
           />
@@ -185,11 +256,16 @@ function _ActivityAmountCell({ transaction, variant = 'full' }: ActivityAmountCe
         <DualTokenLayout
           inputCurrency={inputCurrencyInfo}
           outputCurrency={outputCurrencyInfo}
+<<<<<<< HEAD
           inputFormattedAmount={formatAmountWithSymbol(inputFormattedData.amount, inputCurrencyInfo?.currency.symbol)}
           outputFormattedAmount={formatAmountWithSymbol(
             outputFormattedData.amount,
             outputCurrencyInfo?.currency.symbol,
           )}
+=======
+          inputFormattedAmount={formatAmountWithSymbol(inputAmountDisplay, inputCurrencyInfo?.currency.symbol)}
+          outputFormattedAmount={formatAmountWithSymbol(outputAmountDisplay, outputCurrencyInfo?.currency.symbol)}
+>>>>>>> upstream/main
           inputUsdValue={getUsdValue(inputFormattedData.value)}
           outputUsdValue={getUsdValue(outputFormattedData.value)}
         />
@@ -259,6 +335,7 @@ function _ActivityAmountCell({ transaction, variant = 'full' }: ActivityAmountCe
         )
       }
 
+<<<<<<< HEAD
       // Full variant: Single token layout
       const transactionType = transaction.typeInfo.type
       const showOnRight =
@@ -268,12 +345,15 @@ function _ActivityAmountCell({ transaction, variant = 'full' }: ActivityAmountCe
 
       const showOnLeft = !showOnRight
 
+=======
+>>>>>>> upstream/main
       const formattedAmountWithSymbol = formatAmountWithSymbol(
         singleFormattedData.amount,
         singleCurrencyInfo?.currency.symbol,
       )
       const usdValue = getUsdValue(singleFormattedData.value)
 
+<<<<<<< HEAD
       if (showOnLeft) {
         return (
           <DualTokenLayout
@@ -296,6 +376,17 @@ function _ActivityAmountCell({ transaction, variant = 'full' }: ActivityAmountCe
           outputFormattedAmount={formattedAmountWithSymbol}
           inputUsdValue={null}
           outputUsdValue={usdValue}
+=======
+      // Full variant: Single token layout
+      return (
+        <DualTokenLayout
+          inputCurrency={singleCurrencyInfo ?? null}
+          outputCurrency={null}
+          inputFormattedAmount={formattedAmountWithSymbol}
+          outputFormattedAmount={null}
+          inputUsdValue={usdValue}
+          outputUsdValue={null}
+>>>>>>> upstream/main
           separator={null}
         />
       )
@@ -358,4 +449,8 @@ function _ActivityAmountCell({ transaction, variant = 'full' }: ActivityAmountCe
   }
 }
 
+<<<<<<< HEAD
 export const ActivityAmountCell = memo(_ActivityAmountCell)
+=======
+export const ActivityAmountCell = memo(ActivityAmountCellInner)
+>>>>>>> upstream/main

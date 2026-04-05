@@ -3,7 +3,10 @@ import type {
   ChartStoreState,
   TickNavigationParams,
 } from '~/components/Charts/D3LiquidityRangeInput/D3LiquidityRangeChart/store/types'
+<<<<<<< HEAD
 
+=======
+>>>>>>> upstream/main
 import { DefaultPriceStrategy } from '~/components/Charts/D3LiquidityRangeInput/D3LiquidityRangeChart/store/types'
 import {
   calculateStrategyTicks,

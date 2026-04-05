@@ -1,9 +1,17 @@
 import { waitFor } from '@testing-library/react-native'
+<<<<<<< HEAD
 import { GraphQLApi } from '@luxfi/api'
 import { act } from 'react-test-renderer'
 import { useTokenPriceHistory } from 'src/components/PriceExplorer/usePriceHistory'
 import { renderHookWithProviders } from 'src/test/render'
 import { USDC, USDC_ARBITRUM, USDC_BASE, USDC_OPTIMISM, USDC_POLYGON } from '@l.x/lx/src/constants/tokens'
+=======
+import { GraphQLApi } from '@universe/api'
+import { act } from 'react-test-renderer'
+import { useTokenPriceHistory } from 'src/components/PriceExplorer/usePriceHistory'
+import { renderHookWithProviders } from 'src/test/render'
+import { USDC, USDC_ARBITRUM, USDC_BASE, USDC_OPTIMISM, USDC_POLYGON } from 'uniswap/src/constants/tokens'
+>>>>>>> upstream/main
 import {
   getLatestPrice,
   priceHistory,
@@ -14,8 +22,13 @@ import {
   tokenProject,
   tokenProjectMarket,
   usdcTokenProject,
+<<<<<<< HEAD
 } from '@l.x/lx/src/test/fixtures'
 import { queryResolvers } from '@l.x/lx/src/test/utils'
+=======
+} from 'uniswap/src/test/fixtures'
+import { queryResolvers } from 'uniswap/src/test/utils'
+>>>>>>> upstream/main
 
 const mockTokenProjectsQuery = (historyPrices: number[]) => (): GraphQLApi.TokenProject[] => {
   const history = historyPrices.map((value) => timestampedAmount({ value }))
@@ -97,9 +110,15 @@ describe(useTokenPriceHistory, () => {
 
     await waitFor(() => {
       expect(result.current.data?.spot).toEqual({
+<<<<<<< HEAD
         // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
         value: expect.objectContaining({ value: market.price?.value }),
         // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+=======
+        // oxlint-disable-next-line typescript/no-unnecessary-condition
+        value: expect.objectContaining({ value: market.price?.value }),
+        // oxlint-disable-next-line typescript/no-unnecessary-condition
+>>>>>>> upstream/main
         relativeChange: expect.objectContaining({ value: market.pricePercentChange?.value }),
       })
     })
@@ -248,7 +267,11 @@ describe(useTokenPriceHistory, () => {
     const yearTokenProject = createUsdcTokenProjectWithMatchingPriceHistory(yearPriceHistory)
 
     const { resolvers } = queryResolvers({
+<<<<<<< HEAD
       // eslint-disable-next-line max-params
+=======
+      // oxlint-disable-next-line max-params
+>>>>>>> upstream/main
       tokenProjects: (parent, args, context, info) => {
         switch (info.variableValues['duration']) {
           case GraphQLApi.HistoryDuration.Day:

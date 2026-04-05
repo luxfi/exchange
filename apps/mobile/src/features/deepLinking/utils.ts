@@ -3,7 +3,11 @@ import { navigationRef } from 'src/app/navigation/navigationRef'
 import { dispatchNavigationAction } from 'src/app/navigation/rootNavigation'
 import { closeAllModals } from 'src/features/modals/modalSlice'
 import { call, put } from 'typed-redux-saga'
+<<<<<<< HEAD
 import { MobileScreens } from '@l.x/lx/src/types/screens/mobile'
+=======
+import { MobileScreens } from 'uniswap/src/types/screens/mobile'
+>>>>>>> upstream/main
 
 /**
  * Helper function to dismiss all open modals before navigating to a deep link target.
@@ -27,7 +31,11 @@ function* dismissReactNavigationModalsWithoutAnimation(): Generator {
   const navigationState = navigationRef.getState()
 
   // Early return if navigationState is not available (e.g., in tests, or if modal has no state)
+<<<<<<< HEAD
   // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+=======
+  // oxlint-disable-next-line typescript/no-unnecessary-condition
+>>>>>>> upstream/main
   if (!navigationState || !navigationState.routes) {
     return
   }

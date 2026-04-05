@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import { Flex, Text } from '@l.x/ui/src'
+=======
+import { Flex, Text } from 'ui/src'
+>>>>>>> upstream/main
 import { CHART_DIMENSIONS } from '~/components/Charts/D3LiquidityRangeInput/D3LiquidityRangeChart/constants'
 import { useChartHoverState } from '~/components/Charts/D3LiquidityRangeInput/D3LiquidityRangeChart/store/selectors/hoverSelectors'
 import { useChartPriceState } from '~/components/Charts/D3LiquidityRangeInput/D3LiquidityRangeChart/store/selectors/priceSelectors'

@@ -1,4 +1,8 @@
 interface ScantasticEncryption {
+<<<<<<< HEAD
+=======
+  // oxlint-disable-next-line max-params -- biome-parity: oxlint is stricter here
+>>>>>>> upstream/main
   getEncryptedMnemonic: (mnemonicId: string, n: string, e: string) => Promise<string>
 }
 

@@ -1,7 +1,13 @@
 import { useNavigate } from 'react-router'
+<<<<<<< HEAD
 import { useMedia } from '@l.x/ui/src'
 import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { useEvent } from '@l.x/utils/src/react/hooks'
+=======
+import { useMedia } from 'ui/src'
+import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { useEvent } from 'utilities/src/react/hooks'
+>>>>>>> upstream/main
 import { NetworkFilter } from '~/components/NetworkFilter/NetworkFilter'
 import { ExploreTab } from '~/pages/Explore/constants'
 import { useExploreParams } from '~/pages/Explore/redirects'

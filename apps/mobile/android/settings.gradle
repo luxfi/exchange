@@ -27,7 +27,11 @@ extensions.configure(com.facebook.react.ReactSettingsExtension) { ex ->
 }
 
 expoAutolinking.useExpoModules()
+<<<<<<< HEAD
 rootProject.name = 'Lux'
+=======
+rootProject.name = 'Uniswap'
+>>>>>>> upstream/main
 
 expoAutolinking.useExpoVersionCatalog()
 includeBuild(expoAutolinking.reactNativeGradlePlugin)

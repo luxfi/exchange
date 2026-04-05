@@ -1,6 +1,10 @@
 import { useApolloClient } from '@apollo/client'
 import { ReactNavigationPerformanceView } from '@shopify/react-native-performance-navigation'
+<<<<<<< HEAD
 import { GQLQueries, GraphQLApi } from '@l.x/api'
+=======
+import { GQLQueries, GraphQLApi } from '@universe/api'
+>>>>>>> upstream/main
 import React, { memo, useEffect, useMemo } from 'react'
 import { FadeInDown, FadeOutDown } from 'react-native-reanimated'
 import type { AppStackScreenProp } from 'src/app/navigation/types'
@@ -13,6 +17,7 @@ import { TokenDetailsContextProvider, useTokenDetailsContext } from 'src/compone
 import { TokenDetailsHeader } from 'src/components/TokenDetails/TokenDetailsHeader'
 import { TokenDetailsLinks } from 'src/components/TokenDetails/TokenDetailsLinks'
 import { TokenDetailsStats } from 'src/components/TokenDetails/TokenDetailsStats'
+<<<<<<< HEAD
 import { TokenDetailsActionButtonsWrapper } from 'src/screens/TokenDetailsScreen/TokenDetailsActionButtonsWrapper'
 import { HeaderRightElement, HeaderTitleElement } from 'src/screens/TokenDetailsScreen/TokenDetailsHeaders'
 import { TokenDetailsModals } from 'src/screens/TokenDetailsScreen/TokenDetailsModals'
@@ -33,6 +38,29 @@ import { AddressStringFormat, normalizeAddress } from '@l.x/lx/src/utils/address
 import { useEvent } from '@l.x/utils/src/react/hooks'
 import { useDelayedRender } from '@l.x/utils/src/react/useDelayedRender'
 import { useActiveAccountAddressWithThrow } from '@luxfi/wallet/src/features/wallet/hooks'
+=======
+import { TokenPerformance } from 'src/components/TokenDetails/TokenPerformance'
+import { TokenDetailsActionButtonsWrapper } from 'src/screens/TokenDetailsScreen/TokenDetailsActionButtonsWrapper'
+import { HeaderRightElement, HeaderTitleElement } from 'src/screens/TokenDetailsScreen/TokenDetailsHeaders'
+import { TokenDetailsModals } from 'src/screens/TokenDetailsScreen/TokenDetailsModals'
+import { Flex, Separator } from 'ui/src'
+import { AnimatedFlex } from 'ui/src/components/layout/AnimatedFlex'
+import { BaseCard } from 'uniswap/src/components/BaseCard/BaseCard'
+import { PollingInterval } from 'uniswap/src/constants/misc'
+import { useCrossChainBalances } from 'uniswap/src/data/balances/hooks/useCrossChainBalances'
+import {
+  useTokenBasicInfoPartsFragment,
+  useTokenBasicProjectPartsFragment,
+} from 'uniswap/src/data/graphql/uniswap-data-api/fragments'
+import { currencyIdToContractInput } from 'uniswap/src/features/dataApi/utils/currencyIdToContractInput'
+import Trace from 'uniswap/src/features/telemetry/Trace'
+import { TokenWarningCard } from 'uniswap/src/features/tokens/warnings/TokenWarningCard'
+import { MobileScreens } from 'uniswap/src/types/screens/mobile'
+import { AddressStringFormat, normalizeAddress } from 'uniswap/src/utils/addresses'
+import { useEvent } from 'utilities/src/react/hooks'
+import { useDelayedRender } from 'utilities/src/react/useDelayedRender'
+import { useActiveAccountAddressWithThrow } from 'wallet/src/features/wallet/hooks'
+>>>>>>> upstream/main
 
 const CONTEXT_MENU_RENDER_DELAY_MS = 1000
 
@@ -69,7 +97,11 @@ function TokenDetailsWrapper(): JSX.Element {
   )
 }
 
+<<<<<<< HEAD
 const TokenDetailsQuery = memo(function _TokenDetailsQuery(): JSX.Element {
+=======
+const TokenDetailsQuery = memo(function TokenDetailsQueryInner(): JSX.Element {
+>>>>>>> upstream/main
   const { currencyId, setError } = useTokenDetailsContext()
 
   const { error } = GraphQLApi.useTokenDetailsScreenQuery({
@@ -84,7 +116,11 @@ const TokenDetailsQuery = memo(function _TokenDetailsQuery(): JSX.Element {
   return <TokenDetails />
 })
 
+<<<<<<< HEAD
 const TokenDetails = memo(function _TokenDetails(): JSX.Element {
+=======
+const TokenDetails = memo(function TokenDetailsInner(): JSX.Element {
+>>>>>>> upstream/main
   const centerElement = useMemo(() => <HeaderTitleElement />, [])
   const rightElement = useMemo(() => <HeaderRightElement />, [])
   const { isContentHidden } = useDelayedRender(CONTEXT_MENU_RENDER_DELAY_MS)
@@ -118,6 +154,10 @@ const TokenDetails = memo(function _TokenDetails(): JSX.Element {
             <Separator />
           </Flex>
           <Flex gap="$spacing24">
+<<<<<<< HEAD
+=======
+            <TokenPerformance />
+>>>>>>> upstream/main
             <Flex px="$spacing16">
               <TokenDetailsStats />
             </Flex>
@@ -133,7 +173,11 @@ const TokenDetails = memo(function _TokenDetails(): JSX.Element {
   )
 })
 
+<<<<<<< HEAD
 const TokenDetailsErrorCard = memo(function _TokenDetailsErrorCard(): JSX.Element | null {
+=======
+const TokenDetailsErrorCard = memo(function TokenDetailsErrorCardInner(): JSX.Element | null {
+>>>>>>> upstream/main
   const apolloClient = useApolloClient()
   const { error, setError } = useTokenDetailsContext()
 
@@ -151,7 +195,11 @@ const TokenDetailsErrorCard = memo(function _TokenDetailsErrorCard(): JSX.Elemen
   ) : null
 })
 
+<<<<<<< HEAD
 const TokenBalancesWrapper = memo(function _TokenBalancesWrapper(): JSX.Element | null {
+=======
+const TokenBalancesWrapper = memo(function TokenBalancesWrapperInner(): JSX.Element | null {
+>>>>>>> upstream/main
   const activeAddress = useActiveAccountAddressWithThrow()
   const { currencyId, isChainEnabled } = useTokenDetailsContext()
 
@@ -184,7 +232,11 @@ const TokenBalancesWrapper = memo(function _TokenBalancesWrapper(): JSX.Element 
   ) : null
 })
 
+<<<<<<< HEAD
 const TokenWarningCardWrapper = memo(function _TokenWarningCardWrapper(): JSX.Element | null {
+=======
+const TokenWarningCardWrapper = memo(function TokenWarningCardWrapperInner(): JSX.Element | null {
+>>>>>>> upstream/main
   const { currencyInfo, openTokenWarningModal } = useTokenDetailsContext()
 
   return <TokenWarningCard currencyInfo={currencyInfo} onPress={openTokenWarningModal} />

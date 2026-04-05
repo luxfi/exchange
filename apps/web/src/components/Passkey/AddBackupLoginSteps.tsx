@@ -1,6 +1,7 @@
 import type { UseMutationResult } from '@tanstack/react-query'
 import type { TFunction } from 'i18next'
 import type { Dispatch, ReactNode, SetStateAction } from 'react'
+<<<<<<< HEAD
 import { Button, Flex, Input, SpinningLoader, Text, TouchableArea } from '@l.x/ui/src'
 import { EnvelopeLock } from '@l.x/ui/src/components/icons/EnvelopeLock'
 import { Eye } from '@l.x/ui/src/components/icons/Eye'
@@ -14,6 +15,21 @@ import { X } from '@l.x/ui/src/components/icons/X'
 import { useSporeColors } from '@l.x/ui/src/hooks/useSporeColors'
 import { ElementName, ModalName } from 'lx/src/features/telemetry/constants'
 import Trace from 'lx/src/features/telemetry/Trace'
+=======
+import { Button, Flex, Input, SpinningLoader, Text, TouchableArea } from 'ui/src'
+import { EnvelopeLock } from 'ui/src/components/icons/EnvelopeLock'
+import { Eye } from 'ui/src/components/icons/Eye'
+import { EyeOff } from 'ui/src/components/icons/EyeOff'
+import { GoogleLogo } from 'ui/src/components/icons/GoogleLogo'
+import { InfoCircleFilled } from 'ui/src/components/icons/InfoCircleFilled'
+import { Lock } from 'ui/src/components/icons/Lock'
+import { Person } from 'ui/src/components/icons/Person'
+import { ShieldCheck } from 'ui/src/components/icons/ShieldCheck'
+import { X } from 'ui/src/components/icons/X'
+import { useSporeColors } from 'ui/src/hooks/useSporeColors'
+import { ElementName, ModalName } from 'uniswap/src/features/telemetry/constants'
+import Trace from 'uniswap/src/features/telemetry/Trace'
+>>>>>>> upstream/main
 import { AppleLogo } from '~/components/Icons/AppleLogo'
 import {
   BackupMethodSummary,

@@ -1,5 +1,6 @@
 import { TFunction } from 'i18next'
 import { useTranslation } from 'react-i18next'
+<<<<<<< HEAD
 import { Flex, Text } from '@l.x/ui/src'
 import { AlertTriangleFilled } from '@l.x/ui/src/components/icons/AlertTriangleFilled'
 import { CheckCircleFilled } from '@l.x/ui/src/components/icons/CheckCircleFilled'
@@ -9,13 +10,28 @@ import { spacing } from '@l.x/ui/src/theme'
 import { NetworkLogo } from '@l.x/lx/src/components/CurrencyLogo/NetworkLogo'
 import { getChainInfo } from '@l.x/lx/src/features/chains/chainInfo'
 import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+=======
+import { Flex, Text } from 'ui/src'
+import { AlertTriangleFilled } from 'ui/src/components/icons/AlertTriangleFilled'
+import { CheckCircleFilled } from 'ui/src/components/icons/CheckCircleFilled'
+import { Eye } from 'ui/src/components/icons/Eye'
+import { Shuffle } from 'ui/src/components/icons/Shuffle'
+import { spacing } from 'ui/src/theme'
+import { NetworkLogo } from 'uniswap/src/components/CurrencyLogo/NetworkLogo'
+import { getChainInfo } from 'uniswap/src/features/chains/chainInfo'
+import { UniverseChainId } from 'uniswap/src/features/chains/types'
+>>>>>>> upstream/main
 import { MismatchToastItem } from '~/components/Popups/MismatchToastItem'
 import {
   FailedNetworkSwitchPopup,
   FORTransactionPopupContent,
   PlanPopupContent,
   TransactionPopupContent,
+<<<<<<< HEAD
   DEXOrderPopupContent,
+=======
+  UniswapXOrderPopupContent,
+>>>>>>> upstream/main
 } from '~/components/Popups/PopupContent'
 import { ToastRegularSimple } from '~/components/Popups/ToastRegularSimple'
 import { PopupContent, PopupType, SwitchNetworkAction } from '~/components/Popups/types'
@@ -31,7 +47,11 @@ export function PopupItem({ content, onClose }: { content: PopupContent; popKey:
       return <PlanPopupContent planId={content.planId} onClose={onClose} />
     }
     case PopupType.Order: {
+<<<<<<< HEAD
       return <DEXOrderPopupContent orderHash={content.orderHash} onClose={onClose} />
+=======
+      return <UniswapXOrderPopupContent orderHash={content.orderHash} onClose={onClose} />
+>>>>>>> upstream/main
     }
     case PopupType.FailedSwitchNetwork: {
       return <FailedNetworkSwitchPopup chainId={content.failedSwitchNetwork} onClose={onClose} />

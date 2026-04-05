@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 import { Select, styled } from '@l.x/ui/src'
 import { RotatableChevron } from '@l.x/ui/src/components/icons/RotatableChevron'
 import { zIndexes } from '@l.x/ui/src/theme'
+=======
+import { Select, styled } from 'ui/src'
+import { RotatableChevron } from 'ui/src/components/icons/RotatableChevron'
+import { zIndexes } from 'ui/src/theme'
+>>>>>>> upstream/main
 
 interface FeatureFlagSelectOption {
   value: string

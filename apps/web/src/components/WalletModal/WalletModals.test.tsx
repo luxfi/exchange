@@ -1,5 +1,9 @@
 import { useLoginWithOAuth } from '@privy-io/react-auth'
+<<<<<<< HEAD
 import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
+=======
+import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+>>>>>>> upstream/main
 import { RECOVER_OAUTH_PENDING_KEY } from '~/components/Passkey/useOAuthRedirectRouter'
 import { EmbeddedWalletConnectionsModal } from '~/components/WalletModal/EmbeddedWalletModal'
 import { OtherWalletsModal } from '~/components/WalletModal/OtherWalletsModal'
@@ -17,7 +21,11 @@ vi.mock('@privy-io/react-auth', async (importOriginal) => ({
   usePrivy: vi.fn(() => ({ ready: true })),
 }))
 
+<<<<<<< HEAD
 vi.mock('@l.x/gating', async (importOriginal) => ({
+=======
+vi.mock('@universe/gating', async (importOriginal) => ({
+>>>>>>> upstream/main
   ...(await importOriginal()),
   useFeatureFlag: vi.fn(),
   getFeatureFlag: vi.fn(),

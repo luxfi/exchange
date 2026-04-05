@@ -1,5 +1,9 @@
 import { Link } from 'react-router'
+<<<<<<< HEAD
 import { Flex } from '@l.x/ui/src'
+=======
+import { Flex } from 'ui/src'
+>>>>>>> upstream/main
 import { LiquidityPositionCard } from '~/components/Liquidity/LiquidityPositionCard'
 import { PositionInfo } from '~/components/Liquidity/types'
 import { getPositionUrl } from '~/components/Liquidity/utils/getPositionUrl'

@@ -3,9 +3,17 @@ ignores: [
     'concurrently',
     'react-native-web',
     'jest-environment-jsdom',
+<<<<<<< HEAD
     '@wxt-dev/module-react',
     'serve',
     'typescript',
+=======
+    'webpack-cli',
+    '@wxt-dev/module-react',
+    'serve',
+    'typescript',
+    'eslint',
+>>>>>>> upstream/main
     '@typescript/native-preview',
     # Dependencies that depcheck thinks are missing but are actually present or never used
     ## Internal packages / workspaces
@@ -13,6 +21,16 @@ ignores: [
     'e2e',
     'tsconfig',
     'config',
+<<<<<<< HEAD
+=======
+    # Webpack plugins
+    '@svgr/webpack',
+    'tamagui-loader',
+    'esbuild-loader',
+    'style-loader',
+    'css-loader',
+    'swc-loader',
+>>>>>>> upstream/main
     ## Testing
     '@testing-library/dom',
   ]

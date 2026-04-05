@@ -1,10 +1,16 @@
+<<<<<<< HEAD
 import { TradingApi } from '@luxfi/api'
 import { FeatureFlags, getFeatureFlag } from '@luxfi/gating'
+=======
+import { TradingApi } from '@universe/api'
+import { FeatureFlags, getFeatureFlag } from '@universe/gating'
+>>>>>>> upstream/main
 import { getInternalError, getSdkError } from '@walletconnect/utils'
 import { navigate } from 'src/app/navigation/rootNavigation'
 import { wcWeb3Wallet } from 'src/features/walletConnect/walletConnectClient'
 import { addRequest, WalletSendCallsRequest } from 'src/features/walletConnect/walletConnectSlice'
 import { call, put, select } from 'typed-redux-saga'
+<<<<<<< HEAD
 import { LUX_DELEGATION_ADDRESS } from '@l.x/lx/src/constants/addresses'
 import { checkWalletDelegation, TradingApiClient } from '@l.x/lx/src/data/apiClients/tradingApi/TradingApiClient'
 import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
@@ -20,6 +26,23 @@ import {
 import { selectHasShownEip5792Nudge } from '@luxfi/wallet/src/features/behaviorHistory/selectors'
 import { setHasShown5792Nudge } from '@luxfi/wallet/src/features/behaviorHistory/slice'
 import { selectHasSmartWalletConsent } from '@luxfi/wallet/src/features/wallet/selectors'
+=======
+import { UNISWAP_DELEGATION_ADDRESS } from 'uniswap/src/constants/addresses'
+import { checkWalletDelegation, TradingApiClient } from 'uniswap/src/data/apiClients/tradingApi/TradingApiClient'
+import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { Platform } from 'uniswap/src/features/platforms/types/Platform'
+import { getEnabledChainIdsSaga } from 'uniswap/src/features/settings/saga'
+import { ModalName } from 'uniswap/src/features/telemetry/constants'
+import { logger } from 'utilities/src/logger/logger'
+import { getCallsStatusHelper } from 'wallet/src/features/batchedTransactions/eip5792Utils'
+import {
+  getCapabilitiesForDelegationStatus,
+  transformCallsToTransactionRequests,
+} from 'wallet/src/features/batchedTransactions/utils'
+import { selectHasShownEip5792Nudge } from 'wallet/src/features/behaviorHistory/selectors'
+import { setHasShown5792Nudge } from 'wallet/src/features/behaviorHistory/slice'
+import { selectHasSmartWalletConsent } from 'wallet/src/features/wallet/selectors'
+>>>>>>> upstream/main
 
 /**
  * Checks if EIP-5792 methods are enabled via feature flag
@@ -127,7 +150,11 @@ export function* handleSendCalls({
           chainId: request.chainId,
           accountAddress: request.account,
         }),
+<<<<<<< HEAD
         smartContractDelegationAddress: LUX_DELEGATION_ADDRESS,
+=======
+        smartContractDelegationAddress: UNISWAP_DELEGATION_ADDRESS,
+>>>>>>> upstream/main
         walletAddress: request.account,
       },
     )
@@ -209,7 +236,11 @@ export function* handleGetCapabilities({
 
     if (detailsMap) {
       const hasAtLeastOneDelegation = Object.values(detailsMap).some(
+<<<<<<< HEAD
         (details) => !!details.currentDelegationAddress && !details.isWalletDelegatedToLux,
+=======
+        (details) => !!details.currentDelegationAddress && !details.isWalletDelegatedToUniswap,
+>>>>>>> upstream/main
       )
 
       hasNoExistingDelegations = !hasAtLeastOneDelegation

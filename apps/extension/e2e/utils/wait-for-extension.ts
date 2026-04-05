@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 /** biome-ignore-all lint/suspicious/noExplicitAny: e2e test file */
 import type { BrowserContext } from '@playwright/test'
 import { sleep } from '@l.x/utils/src/time/timing'
+=======
+/* oxlint-disable typescript/no-explicit-any -- e2e test file */
+import type { BrowserContext } from '@playwright/test'
+import { sleep } from 'utilities/src/time/timing'
+>>>>>>> upstream/main
 
 export async function waitForExtensionLoad(
   context: BrowserContext,
@@ -8,11 +14,19 @@ export async function waitForExtensionLoad(
     timeout?: number
     waitForOnboarding?: boolean
   },
+<<<<<<< HEAD
+=======
+  // oxlint-disable-next-line typescript/no-explicit-any -- biome-parity: oxlint is stricter here
+>>>>>>> upstream/main
 ): Promise<{ extensionId: string; onboardingPage?: any }> {
   const timeout = options?.timeout ?? 30000
   const startTime = Date.now()
 
   let extensionId: string | undefined
+<<<<<<< HEAD
+=======
+  // oxlint-disable-next-line typescript/no-explicit-any -- biome-parity: oxlint is stricter here
+>>>>>>> upstream/main
   let onboardingPage: any
 
   while (Date.now() - startTime < timeout) {

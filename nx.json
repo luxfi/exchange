@@ -30,7 +30,11 @@
       "cache": true
     },
     "typecheck": {
+<<<<<<< HEAD
       "command": "test \"$ENABLE_TSGO\" = \"true\" && { bun run nx typecheck:tsgo || exit $?; } || NODE_OPTIONS=--max_old_space_size=16384 tsc -b",
+=======
+      "command": "test \"$DISABLE_TSGO\" = \"true\" && { NODE_OPTIONS=--max_old_space_size=16384 tsc -b || exit $?; } || bun run nx typecheck:tsgo",
+>>>>>>> upstream/main
       "options": {
         "cwd": "{projectRoot}"
       },
@@ -73,6 +77,7 @@
       "outputs": ["{workspaceRoot}/dist/out-tsc/{projectRoot}"],
       "cache": true
     },
+<<<<<<< HEAD
     "lint:biome": {
       "command": "biome check --error-on-warnings .",
       "options": {
@@ -92,6 +97,48 @@
     },
     "lint:eslint": {
       "command": "eslint . --ext ts,tsx --max-warnings=0",
+=======
+    "oxfmt": {
+      "command": "oxfmt --check --threads=4 -c $NX_WORKSPACE_ROOT/.oxfmtrc.json .",
+      "options": {
+        "cwd": "{projectRoot}"
+      },
+      "cache": true,
+      "inputs": ["default", "lintConfig", "{workspaceRoot}/.oxfmtrc.json"]
+    },
+    "oxfmt:fix": {
+      "command": "oxfmt --threads=4 -c $NX_WORKSPACE_ROOT/.oxfmtrc.json .",
+      "options": {
+        "cwd": "{projectRoot}"
+      },
+      "cache": false
+    },
+    "oxlint": {
+      "command": "oxlint --threads=4 .",
+      "options": {
+        "cwd": "{projectRoot}"
+      },
+      "cache": true,
+      "inputs": ["default", "lintConfig", "{workspaceRoot}/.oxlintrc.json", "{projectRoot}/.oxlintrc.json"]
+    },
+    "oxlint:fix": {
+      "command": "oxlint --fix-dangerously --threads=4 .",
+      "options": {
+        "cwd": "{projectRoot}"
+      },
+      "cache": false
+    },
+    "oxlint:type-aware": {
+      "command": "oxlint --threads=4 --type-aware .",
+      "options": {
+        "cwd": "{projectRoot}"
+      },
+      "cache": true,
+      "inputs": ["default", "lintConfig", "{workspaceRoot}/.oxlintrc.json", "{projectRoot}/.oxlintrc.json"]
+    },
+    "lint:eslint": {
+      "command": "NODE_OPTIONS='--max-semi-space-size=256' eslint --cache --cache-location node_modules/.cache/eslint/ --max-warnings=0 .",
+>>>>>>> upstream/main
       "options": {
         "cwd": "{projectRoot}"
       },
@@ -99,7 +146,11 @@
       "inputs": ["default", "lintConfig", "{projectRoot}/.eslint*"]
     },
     "lint:eslint:fix": {
+<<<<<<< HEAD
       "command": "eslint . --ext ts,tsx --fix",
+=======
+      "command": "NODE_OPTIONS='--max-semi-space-size=256' eslint --cache --cache-location node_modules/.cache/eslint/ . --fix",
+>>>>>>> upstream/main
       "options": {
         "cwd": "{projectRoot}"
       },
@@ -107,13 +158,31 @@
     },
     "lint": {
       "executor": "nx:noop",
+<<<<<<< HEAD
       "dependsOn": ["check:circular", "lint:biome", "lint:eslint"],
+=======
+      "dependsOn": ["check:circular", "oxlint", "lint:eslint"],
+>>>>>>> upstream/main
       "inputs": ["default"],
       "cache": true
     },
     "lint:fix": {
       "executor": "nx:noop",
+<<<<<<< HEAD
       "dependsOn": ["lint:biome:fix", "lint:eslint:fix"],
+=======
+      "dependsOn": ["oxlint:fix", "lint:eslint:fix"],
+      "cache": false
+    },
+    "check": {
+      "executor": "nx:noop",
+      "dependsOn": ["typecheck", "oxfmt", "oxlint"],
+      "cache": true
+    },
+    "check:fix": {
+      "executor": "nx:noop",
+      "dependsOn": ["typecheck", "oxfmt:fix", "oxlint:fix"],
+>>>>>>> upstream/main
       "cache": false
     },
     "test": {
@@ -201,11 +270,19 @@
     ],
     "sharedGlobals": ["{workspaceRoot}/tsconfig.base.json", "{workspaceRoot}/tsconfig.json"],
     "lintConfig": [
+<<<<<<< HEAD
       "{workspaceRoot}/.biome*",
       "{workspaceRoot}/.eslint*",
       "{workspaceRoot}/.depcheckrc*",
       "{workspaceRoot}/pkgs/biome-config/**/*",
       "{workspaceRoot}/pkgs/eslint-config/**/*"
+=======
+      "{workspaceRoot}/.eslint*",
+      "{workspaceRoot}/.oxfmtrc.json",
+      "{workspaceRoot}/.oxlintrc.json",
+      "{workspaceRoot}/.depcheckrc*",
+      "{workspaceRoot}/packages/eslint-config/**/*"
+>>>>>>> upstream/main
     ],
     "mobileGlobals": ["{workspaceRoot}/metro.config.*", "{workspaceRoot}/Gemfile*"],
     "sourceFiles": [
@@ -220,13 +297,22 @@
   },
   "workspaceLayout": {
     "appsDir": "apps",
+<<<<<<< HEAD
     "libsDir": "pkgs"
+=======
+    "libsDir": "packages"
+>>>>>>> upstream/main
   },
   "sync": {
     "applyChanges": true
   },
+<<<<<<< HEAD
   "parallel": 3,
   "defaultProject": "@l.x/web",
+=======
+  "parallel": 10,
+  "defaultProject": "@universe/web",
+>>>>>>> upstream/main
   "generators": {
     "@nx/js:library": {
       "buildable": false

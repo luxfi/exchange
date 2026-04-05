@@ -1,7 +1,14 @@
+<<<<<<< HEAD
 import { ProtocolVersion } from '@luxamm/client-data-api/dist/data/v1/poolTypes_pb'
 import { Currency, Price, Token } from '@luxamm/sdk-core'
 import { tickToPrice } from '@luxamm/v3-sdk'
 import { tickToPrice as tickToPriceV4 } from '@luxamm/v4-sdk'
+=======
+import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
+import { Currency, Price, Token } from '@uniswap/sdk-core'
+import { tickToPrice } from '@uniswap/v3-sdk'
+import { tickToPrice as tickToPriceV4 } from '@uniswap/v4-sdk'
+>>>>>>> upstream/main
 
 /**
  * Converts a tick to a display price, handling price inversion.

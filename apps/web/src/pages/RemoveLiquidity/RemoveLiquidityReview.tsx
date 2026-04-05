@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { ProtocolVersion } from '@luxamm/client-data-api/dist/data/v1/poolTypes_pb'
 import { CurrencyAmount } from '@luxamm/sdk-core'
 import { useMemo, useState } from 'react'
@@ -20,6 +21,30 @@ import { isSignerMnemonicAccountDetails } from '@l.x/lx/src/features/wallet/type
 import { getSymbolDisplayText } from '@l.x/lx/src/utils/currency'
 import { NumberType } from '@l.x/utils/src/format/types'
 import { useTrace } from '@l.x/utils/src/telemetry/trace/TraceContext'
+=======
+import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
+import { CurrencyAmount } from '@uniswap/sdk-core'
+import { useMemo, useState } from 'react'
+import { Trans, useTranslation } from 'react-i18next'
+import { useDispatch } from 'react-redux'
+import { Button, Flex, Separator, Text } from 'ui/src'
+import { Passkey } from 'ui/src/components/icons/Passkey'
+import { iconSizes } from 'ui/src/theme'
+import { ProgressIndicator } from 'uniswap/src/components/ConfirmSwapModal/ProgressIndicator'
+import { CurrencyLogo } from 'uniswap/src/components/CurrencyLogo/CurrencyLogo'
+import { NetworkLogo } from 'uniswap/src/components/CurrencyLogo/NetworkLogo'
+import { PollingInterval } from 'uniswap/src/constants/misc'
+import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
+import { useGetPasskeyAuthStatus } from 'uniswap/src/features/passkey/hooks/useGetPasskeyAuthStatus'
+import { useUSDCValue } from 'uniswap/src/features/transactions/hooks/useUSDCPriceWrapper'
+import { isValidLiquidityTxContext } from 'uniswap/src/features/transactions/liquidity/types'
+import { TransactionStep } from 'uniswap/src/features/transactions/steps/types'
+import { useWallet } from 'uniswap/src/features/wallet/hooks/useWallet'
+import { isSignerMnemonicAccountDetails } from 'uniswap/src/features/wallet/types/AccountDetails'
+import { getSymbolDisplayText } from 'uniswap/src/utils/currency'
+import { NumberType } from 'utilities/src/format/types'
+import { useTrace } from 'utilities/src/telemetry/trace/TraceContext'
+>>>>>>> upstream/main
 import { getLPBaseAnalyticsProperties } from '~/components/Liquidity/analytics'
 import { useGetPoolTokenPercentage } from '~/components/Liquidity/hooks/useGetPoolTokenPercentage'
 import { TokenInfo } from '~/components/Liquidity/TokenInfo'
@@ -302,7 +327,11 @@ export function RemoveLiquidityReview({ onClose }: { onClose: () => void }) {
             <Button
               size="large"
               onPress={onDecreaseLiquidity}
+<<<<<<< HEAD
               icon={needsPasskeySignin ? <Passkey size="$icon.24" color="$neutral1" /> : undefined}
+=======
+              icon={needsPasskeySignin ? <Passkey size="$icon.24" color="$white" /> : undefined}
+>>>>>>> upstream/main
             >
               {needsPasskeySignin ? t('pool.removeLiquidity') : t('common.confirm')}
             </Button>

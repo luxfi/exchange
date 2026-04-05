@@ -1,5 +1,9 @@
 import { PersistState } from 'redux-persist'
+<<<<<<< HEAD
 import { TokensState } from '@l.x/lx/src/features/tokens/warnings/slice/slice'
+=======
+import { TokensState } from 'uniswap/src/features/tokens/warnings/slice/slice'
+>>>>>>> upstream/main
 
 type PersistAppState = {
   _persist: PersistState

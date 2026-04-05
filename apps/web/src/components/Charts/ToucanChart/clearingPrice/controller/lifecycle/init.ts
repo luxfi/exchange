@@ -6,7 +6,11 @@ import {
   type MouseEventParams,
   type Time,
 } from 'lightweight-charts'
+<<<<<<< HEAD
 import { opacify } from '@l.x/ui/src/theme'
+=======
+import { opacify } from 'ui/src/theme'
+>>>>>>> upstream/main
 import { createClearingPriceChartOptions } from '~/components/Charts/ToucanChart/clearingPrice/controller/chartOptions'
 import type { ClearingPriceChartControllerCreateParams } from '~/components/Charts/ToucanChart/clearingPrice/types'
 

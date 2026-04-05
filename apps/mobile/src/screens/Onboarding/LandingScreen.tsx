@@ -1,6 +1,10 @@
 import { NativeStackScreenProps } from '@react-navigation/native-stack'
 import { ReactNavigationPerformanceView } from '@shopify/react-native-performance-navigation'
+<<<<<<< HEAD
 import { FeatureFlags, useFeatureFlag } from '@luxfi/gating'
+=======
+import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+>>>>>>> upstream/main
 import React, { useCallback, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useAnimatedStyle, useSharedValue, withDelay, withTiming } from 'react-native-reanimated'
@@ -10,6 +14,7 @@ import { OnboardingStackParamList } from 'src/app/navigation/types'
 import { Screen } from 'src/components/layout/Screen'
 import { useHideSplashScreen } from 'src/features/splashScreen/useHideSplashScreen'
 import { TermsOfService } from 'src/screens/Onboarding/TermsOfService'
+<<<<<<< HEAD
 import { Button, Flex, Text, TouchableArea } from '@l.x/ui/src'
 import { AnimatedFlex } from '@l.x/ui/src/components/layout/AnimatedFlex'
 import { useEnabledChains } from '@l.x/lx/src/features/chains/hooks/useEnabledChains'
@@ -25,6 +30,23 @@ import { ONE_SECOND_MS } from '@l.x/utils/src/time/time'
 import { LANDING_ANIMATION_DURATION, LandingBackground } from '@luxfi/wallet/src/components/landing/LandingBackground'
 import { useOnboardingContext } from '@luxfi/wallet/src/features/onboarding/OnboardingContext'
 import { useCanAddressClaimUnitag } from '@luxfi/wallet/src/features/unitags/hooks/useCanAddressClaimUnitag'
+=======
+import { Button, Flex, Text, TouchableArea } from 'ui/src'
+import { AnimatedFlex } from 'ui/src/components/layout/AnimatedFlex'
+import { useEnabledChains } from 'uniswap/src/features/chains/hooks/useEnabledChains'
+import { setIsTestnetModeEnabled } from 'uniswap/src/features/settings/slice'
+import { ElementName, ModalName } from 'uniswap/src/features/telemetry/constants'
+import Trace from 'uniswap/src/features/telemetry/Trace'
+import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+import { ImportType, OnboardingEntryPoint } from 'uniswap/src/types/onboarding'
+import { OnboardingScreens, UnitagScreens } from 'uniswap/src/types/screens/mobile'
+import { isDevEnv } from 'utilities/src/environment/env'
+import { logger } from 'utilities/src/logger/logger'
+import { ONE_SECOND_MS } from 'utilities/src/time/time'
+import { LANDING_ANIMATION_DURATION, LandingBackground } from 'wallet/src/components/landing/LandingBackground'
+import { useOnboardingContext } from 'wallet/src/features/onboarding/OnboardingContext'
+import { useCanAddressClaimUnitag } from 'wallet/src/features/unitags/hooks/useCanAddressClaimUnitag'
+>>>>>>> upstream/main
 
 type Props = NativeStackScreenProps<OnboardingStackParamList, OnboardingScreens.Landing>
 
@@ -39,6 +61,10 @@ export function LandingScreen({ navigation }: Props): JSX.Element {
   useEffect(() => {
     // disables looping animation during e2e tests which was preventing js thread from idle
     actionButtonsOpacity.value = withDelay(LANDING_ANIMATION_DURATION, withTiming(1, { duration: ONE_SECOND_MS }))
+<<<<<<< HEAD
+=======
+    // oxlint-disable-next-line react/exhaustive-deps -- biome-parity: oxlint is stricter here
+>>>>>>> upstream/main
   }, [])
 
   // Disables testnet mode on mount if enabled (eg upon removing a wallet)

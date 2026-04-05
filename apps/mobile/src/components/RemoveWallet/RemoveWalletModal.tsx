@@ -1,9 +1,15 @@
 import { AppStackScreenProp } from 'src/app/navigation/types'
 import { useReactNavigationModal } from 'src/components/modals/useReactNavigationModal'
 import { RemoveWalletContent } from 'src/components/RemoveWallet/RemoveWalletContent'
+<<<<<<< HEAD
 import { useSporeColors } from '@l.x/ui/src'
 import { Modal } from '@l.x/lx/src/components/modals/Modal'
 import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
+=======
+import { useSporeColors } from 'ui/src'
+import { Modal } from 'uniswap/src/components/modals/Modal'
+import { ModalName } from 'uniswap/src/features/telemetry/constants'
+>>>>>>> upstream/main
 
 export function RemoveWalletModal({ route }: AppStackScreenProp<typeof ModalName.RemoveWallet>): JSX.Element | null {
   const colors = useSporeColors()

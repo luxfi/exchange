@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 import { Currency } from '@luxamm/sdk-core'
 import { useMemo } from 'react'
 import { useExtractedTokenColor, useSporeColors } from '@l.x/ui/src'
+=======
+import { Currency } from '@uniswap/sdk-core'
+import { useMemo } from 'react'
+import { useExtractedTokenColor, useSporeColors } from 'ui/src'
+>>>>>>> upstream/main
 import { useCurrencyInfo } from '~/hooks/Tokens'
 
 type ContrastSettings = { backgroundColor: string; darkMode: boolean }

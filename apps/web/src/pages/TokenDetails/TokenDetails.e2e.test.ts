@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
+=======
+import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+>>>>>>> upstream/main
 import { expect, getTest } from '~/playwright/fixtures'
 import { getVisibleDropdownElementByTestId } from '~/playwright/fixtures/utils'
 import { Mocks } from '~/playwright/mocks/mocks'

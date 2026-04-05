@@ -4,6 +4,7 @@ import {
   Notification,
   NotificationVersion,
   OnClick,
+<<<<<<< HEAD
 } from '@luxamm/client-notification-service/dist/lx/notificationservice/v1/api_pb'
 import { BackgroundType, ContentStyle, type InAppNotification, OnClickAction, SharedQueryClient } from '@l.x/api'
 import type { MobileState } from 'src/app/mobileReducer'
@@ -15,6 +16,19 @@ import i18n from '@l.x/lx/src/i18n'
 import { UnitagScreens } from '@l.x/lx/src/types/screens/mobile'
 import { getValidAddress } from '@l.x/lx/src/utils/addresses'
 import { ReactQueryCacheKey } from '@l.x/utils/src/reactQuery/cache'
+=======
+} from '@uniswap/client-notification-service/dist/uniswap/notificationservice/v1/api_pb'
+import { BackgroundType, ContentStyle, type InAppNotification, OnClickAction, SharedQueryClient } from '@universe/api'
+import type { MobileState } from 'src/app/mobileReducer'
+import { BannerId, UNITAG_NAV_PREFIX } from 'src/notification-service/data-sources/banners/types'
+import { AccountType } from 'uniswap/src/features/accounts/types'
+import { Platform } from 'uniswap/src/features/platforms/types/Platform'
+import { UNITAG_SUFFIX_NO_LEADING_DOT } from 'uniswap/src/features/unitags/constants'
+import i18n from 'uniswap/src/i18n'
+import { UnitagScreens } from 'uniswap/src/types/screens/mobile'
+import { getValidAddress } from 'uniswap/src/utils/addresses'
+import { ReactQueryCacheKey } from 'utilities/src/reactQuery/cache'
+>>>>>>> upstream/main
 
 /**
  * Check if Unitag claim prompt should be shown.

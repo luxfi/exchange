@@ -29,6 +29,7 @@
     "types": ["chrome", "vitest/globals"],
     "useUnknownInCatchVariables": false,
     "paths": {
+<<<<<<< HEAD
       "@/*": ["./*"],
       "~/*": ["./src/*"],
       "@l.x/ui/src/*": ["../../pkgs/ui/src/*"],
@@ -43,18 +44,32 @@
     "components/**/*",
     "config/**/*",
     "lib/**/*",
+=======
+      "~/*": ["./src/*"],
+      "ui/src/*": ["../../packages/ui/src/*"],
+      "utilities/src/*": ["../../packages/utilities/src/*"],
+      "uniswap/src/*": ["../../packages/uniswap/src/*"]
+    }
+  },
+  "include": [
+>>>>>>> upstream/main
     "src/**/*",
     "src/**/*.json",
     ".storybook/preview.tsx",
     ".storybook/main.ts",
     "vite.config.mts",
     "scripts/*",
+<<<<<<< HEAD
     "vite/*",
     "next-env.d.ts"
+=======
+    "vite/*"
+>>>>>>> upstream/main
   ],
   "exclude": ["scripts/build-vercel.ts"],
   "references": [
     {
+<<<<<<< HEAD
       "path": "../../pkgs/utilities"
     },
     {
@@ -83,6 +98,33 @@
     },
     {
       "path": "../../pkgs/lx"
+=======
+      "path": "../../packages/utilities"
+    },
+    {
+      "path": "../../packages/websocket"
+    },
+    {
+      "path": "../../packages/prices"
+    },
+    {
+      "path": "../../packages/sessions"
+    },
+    {
+      "path": "../../packages/notifications"
+    },
+    {
+      "path": "../../packages/gating"
+    },
+    {
+      "path": "../../packages/ui"
+    },
+    {
+      "path": "../../packages/api"
+    },
+    {
+      "path": "../../packages/uniswap"
+>>>>>>> upstream/main
     }
   ]
 }

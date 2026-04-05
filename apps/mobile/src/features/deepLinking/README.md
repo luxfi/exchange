@@ -1,41 +1,69 @@
 # Deep Link Support
 
+<<<<<<< HEAD
 The Lux mobile app supports various deep link types to enable seamless navigation from external sources. Deep links allow 3rd parties to prompt the app to open to specific screens when it is installed on their device. If the app isn't installed, it will open that page in the browser.
+=======
+The Uniswap mobile app supports various deep link types to enable seamless navigation from external sources. Deep links allow 3rd parties to prompt the app to open to specific screens when it is installed on their device. If the app isn't installed, it will open that page in the browser.
+>>>>>>> upstream/main
 
 ## Supported Deep Link Types
 
 The app supports several categories of deep links:
 
+<<<<<<< HEAD
 1. **Universal Links** - Web app share links (`https://app.lux.exchange/...`)
 2. **Screen-based Links** - Direct navigation to specific screens (`https://lux.exchange/app?screen=...`)
+=======
+1. **Universal Links** - Web app share links (`https://app.uniswap.org/...`)
+2. **Screen-based Links** - Direct navigation to specific screens (`https://uniswap.org/app?screen=...`)
+>>>>>>> upstream/main
 3. **Protocol Links** - WalletConnect and other protocol integrations
 4. **Widget Links** - Embedded widget interactions
 5. **Special Function Links** - Fiat on/off-ramp, token details, etc.
 
 Most screen-based deep links require a valid `userAddress` parameter since the wallet supports multiple imported addresses.
 
+<<<<<<< HEAD
 ## Universal Links (Lux Web App Share Links)
 
 These links allow sharing specific content from the Lux web app that opens directly in the mobile app if the app is installed.
+=======
+## Universal Links (Uniswap Web App Share Links)
+
+These links allow sharing specific content from the Uniswap web app that opens directly in the mobile app if the app is installed.
+>>>>>>> upstream/main
 
 ### Token Share Links
 
 Opens a token details page. Supports both `/tokens/` and `/explore/tokens/` paths.
 
+<<<<<<< HEAD
 Format: `https://app.lux.exchange/tokens/{network}/{contractAddress}` or `https://app.lux.exchange/explore/tokens/{network}/{contractAddress}`
+=======
+Format: `https://app.uniswap.org/tokens/{network}/{contractAddress}` or `https://app.uniswap.org/explore/tokens/{network}/{contractAddress}`
+>>>>>>> upstream/main
 
 Example:
 
 ```url
+<<<<<<< HEAD
 https://app.lux.exchange/tokens/ethereum/0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984
 https://app.lux.exchange/explore/tokens/unichain/0x8f187aA05619a017077f5308904739877ce9eA21
+=======
+https://app.uniswap.org/tokens/ethereum/0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984
+https://app.uniswap.org/explore/tokens/unichain/0x8f187aA05619a017077f5308904739877ce9eA21
+>>>>>>> upstream/main
 ```
 
 ### Top Tokens Explore Page
 
 Opens the top tokens page for a specific network with optional metric filtering.
 
+<<<<<<< HEAD
 Format: `https://app.lux.exchange/tokens/{network}?metric={metric}` or `https://app.lux.exchange/explore/tokens/{network}?metric={metric}`
+=======
+Format: `https://app.uniswap.org/tokens/{network}?metric={metric}` or `https://app.uniswap.org/explore/tokens/{network}?metric={metric}`
+>>>>>>> upstream/main
 
 Parameters:
 
@@ -44,26 +72,42 @@ Parameters:
 Example:
 
 ```url
+<<<<<<< HEAD
 https://app.lux.exchange/explore/tokens/unichain?metric=volume
+=======
+https://app.uniswap.org/explore/tokens/unichain?metric=volume
+>>>>>>> upstream/main
 ```
 
 ### Address/Wallet Links
 
 Opens a wallet profile page. If the address matches an imported wallet, it switches to that account. Otherwise, it opens the external profile view.
 
+<<<<<<< HEAD
 Format: `https://app.lux.exchange/portfolio/{walletAddress}`
+=======
+Format: `https://app.uniswap.org/portfolio/{walletAddress}`
+>>>>>>> upstream/main
 
 Example:
 
 ```url
+<<<<<<< HEAD
 https://app.lux.exchange/portfolio/0x1234567890123456789012345678901234567890
+=======
+https://app.uniswap.org/portfolio/0x1234567890123456789012345678901234567890
+>>>>>>> upstream/main
 ```
 
 ### Swap Links
 
 Opens the swap interface with pre-filled token pairs and amounts.
 
+<<<<<<< HEAD
 Format: `https://app.lux.exchange/swap?inputCurrency={currency}&outputCurrency={currency}&chain={network}&value={amount}&field={INPUT|OUTPUT}`
+=======
+Format: `https://app.uniswap.org/swap?inputCurrency={currency}&outputCurrency={currency}&chain={network}&value={amount}&field={INPUT|OUTPUT}`
+>>>>>>> upstream/main
 
 Parameters:
 
@@ -77,15 +121,24 @@ Parameters:
 Examples:
 
 ```url
+<<<<<<< HEAD
 https://app.lux.exchange/swap?inputCurrency=ETH&outputCurrency=0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984&chain=ethereum&value=1&field=INPUT
 https://app.lux.exchange/swap?inputCurrency=0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359&outputCurrency=NATIVE&chain=polygon&value=100&field=OUTPUT
+=======
+https://app.uniswap.org/swap?inputCurrency=ETH&outputCurrency=0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984&chain=ethereum&value=1&field=INPUT
+https://app.uniswap.org/swap?inputCurrency=0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359&outputCurrency=NATIVE&chain=polygon&value=100&field=OUTPUT
+>>>>>>> upstream/main
 ```
 
 ### Buy Links
 
 Opens the fiat on-ramp interface with pre-filled purchase parameters.
 
+<<<<<<< HEAD
 Format: `https://app.lux.exchange/buy?value={amount}&currencyCode={currency}&isTokenInputMode={boolean}&providers={providers}`
+=======
+Format: `https://app.uniswap.org/buy?value={amount}&currencyCode={currency}&isTokenInputMode={boolean}&providers={providers}`
+>>>>>>> upstream/main
 
 Parameters:
 
@@ -97,13 +150,22 @@ Parameters:
 Examples:
 
 ```url
+<<<<<<< HEAD
 https://app.lux.exchange/buy?value=100&currencyCode=USDC_UNICHAIN
 https://app.lux.exchange/buy?value=0.5&currencyCode=ETH&providers=moonpay,coinbasepay&isTokenInputMode=true
+=======
+https://app.uniswap.org/buy?value=100&currencyCode=USDC_UNICHAIN
+https://app.uniswap.org/buy?value=0.5&currencyCode=ETH&providers=moonpay,coinbasepay&isTokenInputMode=true
+>>>>>>> upstream/main
 ```
 
 ## Screen-based Deep Links
 
+<<<<<<< HEAD
 These links use query parameters to navigate to specific screens with the prefix `https://lux.exchange/app`.
+=======
+These links use query parameters to navigate to specific screens with the prefix `https://uniswap.org/app`.
+>>>>>>> upstream/main
 
 ### Activity Screen
 
@@ -112,7 +174,11 @@ Routes to activity screen for given `userAddress`.
 Example:
 
 ```url
+<<<<<<< HEAD
 https://lux.exchange/app?screen=transaction&userAddress=0x123...789
+=======
+https://uniswap.org/app?screen=transaction&userAddress=0x123...789
+>>>>>>> upstream/main
 ```
 
 ### Fiat On-ramp Return Screen
@@ -122,7 +188,11 @@ Shows transaction details after completing a fiat on-ramp purchase.
 Example:
 
 ```url
+<<<<<<< HEAD
 https://lux.exchange/app?screen=transaction&userAddress=0x123...789&fiatOnRamp=true
+=======
+https://uniswap.org/app?screen=transaction&userAddress=0x123...789&fiatOnRamp=true
+>>>>>>> upstream/main
 ```
 
 ### Fiat Off-ramp Return Screen
@@ -132,14 +202,22 @@ Shows transaction details after completing a fiat off-ramp sale.
 Example:
 
 ```url
+<<<<<<< HEAD
 https://lux.exchange/app?screen=transaction&userAddress=0x123...789&fiatOffRamp=true
+=======
+https://uniswap.org/app?screen=transaction&userAddress=0x123...789&fiatOffRamp=true
+>>>>>>> upstream/main
 ```
 
 ### Swap Screen
 
 Routes to the swap screen with pre-populated swap details.
 
+<<<<<<< HEAD
 Format: `https://lux.exchange/app?screen=swap&userAddress={address}&inputCurrencyId={chainId-tokenAddress}&outputCurrencyId={chainId-tokenAddress}&currencyField={input|output}&amount={amount}`
+=======
+Format: `https://uniswap.org/app?screen=swap&userAddress={address}&inputCurrencyId={chainId-tokenAddress}&outputCurrencyId={chainId-tokenAddress}&currencyField={input|output}&amount={amount}`
+>>>>>>> upstream/main
 
 Parameters:
 
@@ -153,17 +231,28 @@ Examples:
 
 ```url
 # Swap 100 Ethereum mainnet DAI for Ethereum mainnet UNI
+<<<<<<< HEAD
 https://lux.exchange/app?screen=swap&userAddress=0x123...789&inputCurrencyId=1-0x6B175474E89094C44Da98b954EedeAC495271d0F&outputCurrencyId=1-0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984&currencyField=input&amount=100
 
 # Swap Polygon DAI for 100 Polygon UNI
 https://lux.exchange/app?screen=swap&userAddress=0x123...789&inputCurrencyId=137-0x6B175474E89094C44Da98b954EedeAC495271d0F&outputCurrencyId=137-0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984&currencyField=output&amount=100
+=======
+https://uniswap.org/app?screen=swap&userAddress=0x123...789&inputCurrencyId=1-0x6B175474E89094C44Da98b954EedeAC495271d0F&outputCurrencyId=1-0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984&currencyField=input&amount=100
+
+# Swap Polygon DAI for 100 Polygon UNI
+https://uniswap.org/app?screen=swap&userAddress=0x123...789&inputCurrencyId=137-0x6B175474E89094C44Da98b954EedeAC495271d0F&outputCurrencyId=137-0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984&currencyField=output&amount=100
+>>>>>>> upstream/main
 ```
 
 ### Buy Screen
 
 Routes to the fiat on-ramp interface with pre-filled purchase parameters.
 
+<<<<<<< HEAD
 Format: `https://lux.exchange/app/buy?value={amount}&currencyCode={currency}&isTokenInputMode={boolean}&providers={providers}`
+=======
+Format: `https://uniswap.org/app/buy?value={amount}&currencyCode={currency}&isTokenInputMode={boolean}&providers={providers}`
+>>>>>>> upstream/main
 
 Parameters:
 
@@ -178,6 +267,7 @@ Examples:
 
 ```url
 # Buy 100 units of user's fiat currency worth of ETH (e.g., $100 if USD, €100 if EUR)
+<<<<<<< HEAD
 https://lux.exchange/app/buy?value=100&currencyCode=ETH
 
 # Buy exactly 0.5 ETH (token input mode)
@@ -185,6 +275,15 @@ https://lux.exchange/app/buy?value=0.5&currencyCode=ETH&isTokenInputMode=true
 
 # Buy 250 units of user's fiat currency worth of USDC on Unichain using specific providers
 https://lux.exchange/app/buy?value=250&currencyCode=USDC_UNICHAIN&providers=moonpay,coinbasepay
+=======
+https://uniswap.org/app/buy?value=100&currencyCode=ETH
+
+# Buy exactly 0.5 ETH (token input mode)
+https://uniswap.org/app/buy?value=0.5&currencyCode=ETH&isTokenInputMode=true
+
+# Buy 250 units of user's fiat currency worth of USDC on Unichain using specific providers
+https://uniswap.org/app/buy?value=250&currencyCode=USDC_UNICHAIN&providers=moonpay,coinbasepay
+>>>>>>> upstream/main
 ```
 
 ## Special Function Deep Links
@@ -193,19 +292,31 @@ https://lux.exchange/app/buy?value=250&currencyCode=USDC_UNICHAIN&providers=moon
 
 Opens a specific token details page using a currency ID of format `{chainId}-{tokenAddress}`.
 
+<<<<<<< HEAD
 Format: `https://lux.exchange/app/tokendetails?currencyId={currencyId}`
+=======
+Format: `https://uniswap.org/app/tokendetails?currencyId={currencyId}`
+>>>>>>> upstream/main
 
 Example:
 
 ```url
+<<<<<<< HEAD
 https://lux.exchange/app/tokendetails?currencyId=1-0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984
+=======
+https://uniswap.org/app/tokendetails?currencyId=1-0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984
+>>>>>>> upstream/main
 ```
 
 ### Fiat On-ramp (Legacy)
 
 Opens the fiat on-ramp modal for purchasing crypto using the legacy format with user address requirements.
 
+<<<<<<< HEAD
 Format: `https://lux.exchange/app/fiatonramp?userAddress={address}&moonpayOnly={boolean}&moonpayCurrencyCode={currency}&amount={amount}`
+=======
+Format: `https://uniswap.org/app/fiatonramp?userAddress={address}&moonpayOnly={boolean}&moonpayCurrencyCode={currency}&amount={amount}`
+>>>>>>> upstream/main
 
 Parameters:
 
@@ -217,7 +328,11 @@ Parameters:
 Example:
 
 ```url
+<<<<<<< HEAD
 https://lux.exchange/app/fiatonramp?userAddress=0x123...789&moonpayCurrencyCode=eth&amount=100
+=======
+https://uniswap.org/app/fiatonramp?userAddress=0x123...789&moonpayCurrencyCode=eth&amount=100
+>>>>>>> upstream/main
 ```
 
 **Note**: For modern buy links, see [Buy Links](#buy-links) in the Universal Links section or [Buy Screen](#buy-screen) in the Screen-based Deep Links section.
@@ -229,20 +344,31 @@ https://lux.exchange/app/fiatonramp?userAddress=0x123...789&moonpayCurrencyCode=
 Multiple formats are supported for WalletConnect deep links:
 
 1. **Direct WalletConnect URI**: `wc:{uri}`
+<<<<<<< HEAD
 2. **Lux scheme with WalletConnect**: `lux://wc:{uri}`
 3. **Universal WalletConnect**: `https://lux.exchange/wc?uri={encodedUri}`
 4. **WalletConnect as parameter**: `lux://wc?uri={encodedUri}`
+=======
+2. **Uniswap scheme with WalletConnect**: `uniswap://wc:{uri}`
+3. **Universal WalletConnect**: `https://uniswap.org/wc?uri={encodedUri}`
+4. **WalletConnect as parameter**: `uniswap://wc?uri={encodedUri}`
+>>>>>>> upstream/main
 
 ### Scantastic (QR Code Scanning)
 
 Custom protocol for QR code scanning functionality.
 
+<<<<<<< HEAD
 Format: `lux://scantastic?{queryParams}`
+=======
+Format: `uniswap://scantastic?{queryParams}`
+>>>>>>> upstream/main
 
 ### UwU Link
 
 Custom protocol for transaction requests.
 
+<<<<<<< HEAD
 Format: `lux://uwu?{encodedData}`
 
 ### Widget Links
@@ -250,6 +376,15 @@ Format: `lux://uwu?{encodedData}`
 Deep links from embedded Lux widgets.
 
 Format: `lux://widget/{path}`
+=======
+Format: `uniswap://uwu?{encodedData}`
+
+### Widget Links
+
+Deep links from embedded Uniswap widgets.
+
+Format: `uniswap://widget/{path}`
+>>>>>>> upstream/main
 
 ## Implementation Details
 

@@ -1,6 +1,11 @@
 import { useMemo } from 'react'
+<<<<<<< HEAD
 import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
 import { NumberType } from '@l.x/utils/src/format/types'
+=======
+import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
+import { NumberType } from 'utilities/src/format/types'
+>>>>>>> upstream/main
 import { q96ToPriceString } from '~/components/Toucan/Auction/BidDistributionChart/utils/q96'
 import { calculateMinValidBidQ96, isBidBelowMinimum } from '~/components/Toucan/Auction/utils/ticks'
 

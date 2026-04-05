@@ -19,6 +19,7 @@ import { TestnetSwitchModalState } from 'src/features/testnetMode/TestnetSwitchM
 import { HomeScreenTabIndex } from 'src/screens/HomeScreen/HomeScreenTabIndex'
 import { ReceiveCryptoModalState } from 'src/screens/ReceiveCryptoModalState'
 import { ViewPrivateKeysScreenState } from 'src/screens/ViewPrivateKeys/ViewPrivateKeysScreenState'
+<<<<<<< HEAD
 import { BridgedAssetModalProps } from 'lx/src/components/BridgedAsset/BridgedAssetModal'
 import { WormholeModalProps } from 'lx/src/components/BridgedAsset/WormholeModal'
 import { ReportTokenDataModalProps } from 'lx/src/components/reporting/ReportTokenDataModal'
@@ -30,17 +31,39 @@ import { ModalName } from 'lx/src/features/telemetry/constants'
 import { TestnetModeModalState } from 'lx/src/features/testnets/TestnetModeModal'
 import { TransactionState } from 'lx/src/features/transactions/types/transactionState'
 import { ImportType, OnboardingEntryPoint } from 'lx/src/types/onboarding'
+=======
+import { BridgedAssetModalProps } from 'uniswap/src/components/BridgedAsset/BridgedAssetModal'
+import { WormholeModalProps } from 'uniswap/src/components/BridgedAsset/WormholeModal'
+import { ReportPortfolioDataModalProps } from 'uniswap/src/components/reporting/ReportPortfolioDataModal'
+import { ReportTokenDataModalProps } from 'uniswap/src/components/reporting/ReportTokenDataModal'
+import { ReportTokenModalProps } from 'uniswap/src/components/reporting/ReportTokenIssueModal'
+import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { FORServiceProvider } from 'uniswap/src/features/fiatOnRamp/types'
+import { PasskeyManagementModalState } from 'uniswap/src/features/passkey/PasskeyManagementModal'
+import { ModalName } from 'uniswap/src/features/telemetry/constants'
+import { TestnetModeModalState } from 'uniswap/src/features/testnets/TestnetModeModal'
+import { TransactionState } from 'uniswap/src/features/transactions/types/transactionState'
+import { ImportType, OnboardingEntryPoint } from 'uniswap/src/types/onboarding'
+>>>>>>> upstream/main
 import {
   FiatOnRampScreens,
   MobileScreens,
   OnboardingScreens,
   SharedUnitagScreenParams,
   UnitagStackParamList,
+<<<<<<< HEAD
 } from '@l.x/lx/src/types/screens/mobile'
 import { SmartWalletAdvancedSettingsModalState } from '@luxfi/wallet/src/components/smartWallet/modals/SmartWalletAdvancedSettingsModal'
 import { SmartWalletEnabledModalState } from '@luxfi/wallet/src/components/smartWallet/modals/SmartWalletEnabledModal'
 import { SmartWalletNudgeState } from '@luxfi/wallet/src/components/smartWallet/modals/SmartWalletNudge'
 import { ExploreOrderBy } from '@luxfi/wallet/src/features/wallet/types'
+=======
+} from 'uniswap/src/types/screens/mobile'
+import { SmartWalletAdvancedSettingsModalState } from 'wallet/src/components/smartWallet/modals/SmartWalletAdvancedSettingsModal'
+import { SmartWalletEnabledModalState } from 'wallet/src/components/smartWallet/modals/SmartWalletEnabledModal'
+import { SmartWalletNudgeState } from 'wallet/src/components/smartWallet/modals/SmartWalletNudge'
+import { ExploreOrderBy } from 'wallet/src/features/wallet/types'
+>>>>>>> upstream/main
 
 export type ExploreScreenParams = {
   showFavorites?: boolean
@@ -216,6 +239,10 @@ export type AppStackParamList = {
   [ModalName.BridgedAsset]: BridgedAssetModalProps
   [ModalName.Wormhole]: WormholeModalProps
   [ModalName.ReportTokenIssue]: ReportTokenModalProps
+<<<<<<< HEAD
+=======
+  [ModalName.ReportPortfolioData]: ReportPortfolioDataModalProps
+>>>>>>> upstream/main
   [ModalName.ReportTokenData]: ReportTokenDataModalProps
 }
 

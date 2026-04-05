@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 import { ArrowRight } from '@l.x/ui/src/components/icons/ArrowRight'
 import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
 import { NumberType } from '@l.x/utils/src/format/types'
+=======
+import { ArrowRight } from 'ui/src/components/icons/ArrowRight'
+import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
+import { NumberType } from 'utilities/src/format/types'
+>>>>>>> upstream/main
 import Row from '~/components/deprecated/Row'
 import CurrencyLogo from '~/components/Logo/CurrencyLogo'
 import { InterfaceTrade } from '~/state/routing/types'

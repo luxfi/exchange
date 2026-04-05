@@ -1,9 +1,18 @@
+<<<<<<< HEAD
 import { getVersionUpgrade, VersionUpgrade } from '~/utils/tokenListTypes'
 import { useWeb3React } from '@web3-react/core'
 import ms from 'ms'
 import { useCallback, useEffect } from 'react'
 import { logger } from '@l.x/utils/src/logger/logger'
 import { useIsWindowVisible } from '@l.x/utils/src/react/useIsWindowVisible'
+=======
+import { getVersionUpgrade, VersionUpgrade } from '@uniswap/token-lists'
+import { useWeb3React } from '@web3-react/core'
+import ms from 'ms'
+import { useCallback, useEffect } from 'react'
+import { logger } from 'utilities/src/logger/logger'
+import { useIsWindowVisible } from 'utilities/src/react/useIsWindowVisible'
+>>>>>>> upstream/main
 import { DEFAULT_INACTIVE_LIST_URLS } from '~/constants/lists'
 import { useFetchListCallback } from '~/hooks/useFetchListCallback'
 import { useStateRehydrated } from '~/hooks/useStateRehydrated'

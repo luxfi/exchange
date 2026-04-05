@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import { ColorTokens } from '@l.x/ui/src'
+=======
+import { ColorTokens } from 'ui/src'
+>>>>>>> upstream/main
 import { ProgressBar } from '~/components/Toucan/Shared/ProgressBar'
 
 interface AuctionProgressBarProps {

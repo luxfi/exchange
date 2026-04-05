@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 // biome-ignore-all lint/correctness/noRestrictedElements: ignoring for the whole file
+=======
+/* oxlint-disable react/forbid-elements -- ignoring for the whole file */
+>>>>>>> upstream/main
 
 import { ImageResponse } from '@vercel/og'
 import { WATERMARK_URL } from 'functions/constants'
@@ -148,7 +152,11 @@ export async function tokenImageHandler(c: Context) {
               >
                 {data.tokenData?.symbol}
               </div>
+<<<<<<< HEAD
               <img src={WATERMARK_URL} alt="" height="72px" width="324px" />
+=======
+              <img src={WATERMARK_URL} alt="Uniswap" height="72px" width="324px" />
+>>>>>>> upstream/main
             </div>
           </div>
         </div>

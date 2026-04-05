@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import { Percent } from '@luxamm/sdk-core'
+=======
+import { Percent } from '@uniswap/sdk-core'
+>>>>>>> upstream/main
 import validateUserSlippageTolerance, {
   MAXIMUM_RECOMMENDED_SLIPPAGE,
   MINIMUM_RECOMMENDED_SLIPPAGE,

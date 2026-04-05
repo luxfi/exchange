@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import type { InAppNotification } from '@l.x/api'
 import { type NotificationClickTarget } from '@l.x/notifications'
 import { memo, useEffect, useMemo } from 'react'
@@ -14,6 +15,24 @@ import { ClickableGuiStyle } from '~/theme/components/styles'
 // Close button container - Flex handles onPress→onClick on web, unlike raw SVG icons
 const CloseButtonContainer = styled(Flex, {
   ...ClickableGuiStyle,
+=======
+import type { InAppNotification } from '@universe/api'
+import { type NotificationClickTarget } from '@universe/notifications'
+import { memo, useEffect, useMemo } from 'react'
+import { Flex, styled, Text, useSporeColors } from 'ui/src'
+import type { GeneratedIcon } from 'ui/src/components/factories/createIcon'
+import { Globe } from 'ui/src/components/icons/Globe'
+import { X } from 'ui/src/components/icons/X'
+import { iconSizes, zIndexes } from 'ui/src/theme'
+import { useShadowPropsShort } from 'ui/src/theme/shadows'
+import { getCustomIconComponent } from 'uniswap/src/components/notifications/iconUtils'
+import { ExternalLink } from '~/theme/components/Links'
+import { ClickableTamaguiStyle } from '~/theme/components/styles'
+
+// Close button container - Flex handles onPress→onClick on web, unlike raw SVG icons
+const CloseButtonContainer = styled(Flex, {
+  ...ClickableTamaguiStyle,
+>>>>>>> upstream/main
   centered: true,
   p: '$spacing4',
   right: 6,
@@ -52,7 +71,11 @@ interface SystemBannerNotificationProps {
  * - Outage banners
  * - Limited data warnings
  *
+<<<<<<< HEAD
  * Styling matches the existing OutageBanner design with Gui.
+=======
+ * Styling matches the existing OutageBanner design with Tamagui.
+>>>>>>> upstream/main
  */
 export const SystemBannerNotification = memo(function SystemBannerNotification({
   notification,
@@ -141,7 +164,17 @@ export const SystemBannerNotification = memo(function SystemBannerNotification({
             </Text>
           )}
           {learnMoreButton && learnMoreButton.onClick?.onClickLink && (
+<<<<<<< HEAD
             <ExternalLink href={learnMoreButton.onClick.onClickLink} onClick={() => handleButtonClick(0)}>
+=======
+            <ExternalLink
+              href={learnMoreButton.onClick.onClickLink}
+              onClick={(e) => {
+                e.preventDefault()
+                handleButtonClick(0)
+              }}
+            >
+>>>>>>> upstream/main
               <Text variant="body3" color={colors.accent1.val}>
                 {learnMoreButton.text || 'Learn more'}
               </Text>

@@ -5,8 +5,13 @@ import { AppStackScreenProp } from 'src/app/navigation/types'
 import { FiatOnRampActionModal } from 'src/components/home/FiatOnRampActionModal'
 import { preloadedMobileState } from 'src/test/fixtures'
 import { renderWithProviders } from 'src/test/render'
+<<<<<<< HEAD
 import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
 import { ON_PRESS_EVENT_PAYLOAD } from '@l.x/lx/src/test/fixtures'
+=======
+import { ModalName } from 'uniswap/src/features/telemetry/constants'
+import { ON_PRESS_EVENT_PAYLOAD } from 'uniswap/src/test/fixtures'
+>>>>>>> upstream/main
 
 const mockOnClose = jest.fn()
 
@@ -21,8 +26,13 @@ jest.mock('src/app/navigation/rootNavigation', () => ({
   navigate: jest.fn(),
 }))
 
+<<<<<<< HEAD
 jest.mock('@l.x/gating', () => ({
   ...jest.requireActual('@l.x/gating'),
+=======
+jest.mock('@universe/gating', () => ({
+  ...jest.requireActual('@universe/gating'),
+>>>>>>> upstream/main
   useFeatureFlag: jest.fn().mockReturnValue(false),
   useFeatureFlagWithLoading: jest.fn().mockReturnValue({ value: false, isLoading: false }),
   useFeatureFlagWithExposureLoggingDisabled: jest.fn().mockReturnValue(false),

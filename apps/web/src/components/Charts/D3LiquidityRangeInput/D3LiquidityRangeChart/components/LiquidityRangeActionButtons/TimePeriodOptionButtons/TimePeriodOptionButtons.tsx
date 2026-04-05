@@ -1,7 +1,14 @@
+<<<<<<< HEAD
 import { GraphQLApi } from '@l.x/api'
 import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { SegmentedControl, SegmentedControlOption, Text } from '@l.x/ui/src'
+=======
+import { GraphQLApi } from '@universe/api'
+import { useMemo } from 'react'
+import { useTranslation } from 'react-i18next'
+import { SegmentedControl, SegmentedControlOption, Text } from 'ui/src'
+>>>>>>> upstream/main
 import { useChartPriceState } from '~/components/Charts/D3LiquidityRangeInput/D3LiquidityRangeChart/store/selectors/priceSelectors'
 import { useLiquidityChartStoreActions } from '~/components/Charts/D3LiquidityRangeInput/D3LiquidityRangeChart/store/useLiquidityChartStore'
 

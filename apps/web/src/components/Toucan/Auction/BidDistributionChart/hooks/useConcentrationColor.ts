@@ -1,5 +1,9 @@
 import { useMemo } from 'react'
+<<<<<<< HEAD
 import { useSporeColors } from '@l.x/ui/src'
+=======
+import { useSporeColors } from 'ui/src'
+>>>>>>> upstream/main
 import { getConcentrationColor } from '~/components/Charts/ToucanChart/utils/colors'
 import { useAuctionTokenColor } from '~/components/Toucan/Auction/hooks/useAuctionTokenColor'
 

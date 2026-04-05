@@ -4,11 +4,19 @@ import { OnboardingScreen } from 'src/app/features/onboarding/OnboardingScreen'
 import { useOnboardingSteps } from 'src/app/features/onboarding/OnboardingStepsContext'
 import { useUnitagClaimContext } from 'src/app/features/unitags/UnitagClaimContext'
 import { closeCurrentTab } from 'src/app/navigation/utils'
+<<<<<<< HEAD
 import { Button, Flex, Text } from '@l.x/ui/src'
 import { UNITAG_SUFFIX } from '@l.x/lx/src/features/unitags/constants'
 import { logger } from '@l.x/utils/src/logger/logger'
 import { UnitagWithProfilePicture } from '@luxfi/wallet/src/features/unitags/UnitagWithProfilePicture'
 import { useAccountAddressFromUrlWithThrow } from '@luxfi/wallet/src/features/wallet/hooks'
+=======
+import { Button, Flex, Text } from 'ui/src'
+import { UNITAG_SUFFIX } from 'uniswap/src/features/unitags/constants'
+import { logger } from 'utilities/src/logger/logger'
+import { UnitagWithProfilePicture } from 'wallet/src/features/unitags/UnitagWithProfilePicture'
+import { useAccountAddressFromUrlWithThrow } from 'wallet/src/features/wallet/hooks'
+>>>>>>> upstream/main
 
 export function UnitagConfirmationScreen(): JSX.Element {
   const { t } = useTranslation()

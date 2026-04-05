@@ -302,13 +302,21 @@ describe('list reducer', () => {
       beforeEach(() => {
         store = createStore(reducer, {
           byUrl: {
+<<<<<<< HEAD
             'https://unpkg.com/@luxamm/default-token-list@latest/lux-default.tokenlist.json': {
+=======
+            'https://unpkg.com/@uniswap/default-token-list@latest/uniswap-default.tokenlist.json': {
+>>>>>>> upstream/main
               error: null,
               current: STUB_TOKEN_LIST,
               loadingRequestId: null,
               pendingUpdate: null,
             },
+<<<<<<< HEAD
             'https://unpkg.com/@luxamm/default-token-list@latest': {
+=======
+            'https://unpkg.com/@uniswap/default-token-list@latest': {
+>>>>>>> upstream/main
               error: null,
               current: STUB_TOKEN_LIST,
               loadingRequestId: null,
@@ -321,9 +329,15 @@ describe('list reducer', () => {
 
       it('clears the current lists', () => {
         expect(
+<<<<<<< HEAD
           store.getState().byUrl['https://unpkg.com/@luxamm/default-token-list@latest/lux-default.tokenlist.json'],
         ).toBeUndefined()
         expect(store.getState().byUrl['https://unpkg.com/@luxamm/default-token-list@latest']).toBeUndefined()
+=======
+          store.getState().byUrl['https://unpkg.com/@uniswap/default-token-list@latest/uniswap-default.tokenlist.json'],
+        ).toBeUndefined()
+        expect(store.getState().byUrl['https://unpkg.com/@uniswap/default-token-list@latest']).toBeUndefined()
+>>>>>>> upstream/main
       })
 
       it('all lists are empty', () => {
@@ -342,27 +356,43 @@ describe('list reducer', () => {
       beforeEach(() => {
         store = createStore(reducer, {
           byUrl: {
+<<<<<<< HEAD
             'https://unpkg.com/@luxamm/default-token-list@latest/lux-default.tokenlist.json': {
+=======
+            'https://unpkg.com/@uniswap/default-token-list@latest/uniswap-default.tokenlist.json': {
+>>>>>>> upstream/main
               error: null,
               current: STUB_TOKEN_LIST,
               loadingRequestId: null,
               pendingUpdate: null,
             },
+<<<<<<< HEAD
             'https://unpkg.com/@luxamm/default-token-list@latest': {
+=======
+            'https://unpkg.com/@uniswap/default-token-list@latest': {
+>>>>>>> upstream/main
               error: null,
               current: STUB_TOKEN_LIST,
               loadingRequestId: null,
               pendingUpdate: null,
             },
           },
+<<<<<<< HEAD
           lastInitializedDefaultListOfLists: ['https://unpkg.com/@luxamm/default-token-list@latest'],
+=======
+          lastInitializedDefaultListOfLists: ['https://unpkg.com/@uniswap/default-token-list@latest'],
+>>>>>>> upstream/main
         })
         store.dispatch(updateVersion())
       })
 
       it('does not remove lists not in last initialized list of lists', () => {
         expect(
+<<<<<<< HEAD
           store.getState().byUrl['https://unpkg.com/@luxamm/default-token-list@latest/lux-default.tokenlist.json'],
+=======
+          store.getState().byUrl['https://unpkg.com/@uniswap/default-token-list@latest/uniswap-default.tokenlist.json'],
+>>>>>>> upstream/main
         ).toEqual({
           error: null,
           current: STUB_TOKEN_LIST,
@@ -371,15 +401,25 @@ describe('list reducer', () => {
         })
       })
       it('removes lists in the last initialized list of lists', () => {
+<<<<<<< HEAD
         expect(store.getState().byUrl['https://unpkg.com/@luxamm/default-token-list@latest']).toBeUndefined()
+=======
+        expect(store.getState().byUrl['https://unpkg.com/@uniswap/default-token-list@latest']).toBeUndefined()
+>>>>>>> upstream/main
       })
 
       it('each of those initialized lists is empty', () => {
         const byUrl = store.getState().byUrl
         Object.entries(byUrl)
+<<<<<<< HEAD
           // We don't expect the Lux default list to be prepopulated
           .filter(
             ([url]) => url !== 'https://unpkg.com/@luxamm/default-token-list@latest/lux-default.tokenlist.json',
+=======
+          // We don't expect the Uniswap default list to be prepopulated
+          .filter(
+            ([url]) => url !== 'https://unpkg.com/@uniswap/default-token-list@latest/uniswap-default.tokenlist.json',
+>>>>>>> upstream/main
           )
           .forEach(([, state]) => {
             expect(state).toEqual({

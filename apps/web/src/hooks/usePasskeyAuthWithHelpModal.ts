@@ -1,9 +1,15 @@
 import { MutationFunctionContext, UseMutationOptions, UseMutationResult, useMutation } from '@tanstack/react-query'
 import { atom } from 'jotai'
 import { useUpdateAtom } from 'jotai/utils'
+<<<<<<< HEAD
 import { PasskeysHelpModalTypes } from '@l.x/lx/src/features/passkey/PasskeysHelpModal'
 import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
 import { logger } from '@l.x/utils/src/logger/logger'
+=======
+import { PasskeysHelpModalTypes } from 'uniswap/src/features/passkey/PasskeysHelpModal'
+import { ModalName } from 'uniswap/src/features/telemetry/constants'
+import { logger } from 'utilities/src/logger/logger'
+>>>>>>> upstream/main
 import { useModalState } from '~/hooks/useModalState'
 
 export const PasskeysHelpModalTypeAtom = atom<PasskeysHelpModalTypes>(PasskeysHelpModalTypes.Default)
@@ -26,7 +32,11 @@ export function usePasskeyAuthWithHelpModal<TData = unknown, TError = Error, TVa
   return useMutation({
     mutationFn,
     ...options,
+<<<<<<< HEAD
     // eslint-disable-next-line max-params
+=======
+    // oxlint-disable-next-line max-params
+>>>>>>> upstream/main
     onError: (
       error: TError,
       variables: TVariables,

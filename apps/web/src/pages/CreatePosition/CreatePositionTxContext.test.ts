@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { ProtocolVersion } from '@luxamm/client-data-api/dist/data/v1/poolTypes_pb'
 import {
   CheckApprovalLPResponse,
@@ -10,6 +11,21 @@ import { USDT } from '@l.x/lx/src/constants/tokens'
 import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { LiquidityTransactionType } from '@l.x/lx/src/features/transactions/liquidity/types'
 import { PermitMethod } from '@l.x/lx/src/features/transactions/swap/types/swapTxAndGasInfo'
+=======
+import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
+import {
+  CheckApprovalLPResponse,
+  CreateLPPositionResponse,
+} from '@uniswap/client-liquidity/dist/uniswap/liquidity/v1/api_pb'
+import { PermitBatch, PermitBatchData } from '@uniswap/client-liquidity/dist/uniswap/liquidity/v1/types_pb'
+import { CurrencyAmount } from '@uniswap/sdk-core'
+import { ZERO_ADDRESS } from 'uniswap/src/constants/misc'
+import { USDT } from 'uniswap/src/constants/tokens'
+import { normalizeApprovalResponse } from 'uniswap/src/data/apiClients/liquidityService/normalizeApprovalResponse'
+import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { LiquidityTransactionType } from 'uniswap/src/features/transactions/liquidity/types'
+import { PermitMethod } from 'uniswap/src/features/transactions/swap/types/swapTxAndGasInfo'
+>>>>>>> upstream/main
 import { generateCreatePositionTxRequest } from '~/pages/CreatePosition/CreatePositionTxContext'
 import { ETH_MAINNET } from '~/test-utils/constants'
 
@@ -24,7 +40,11 @@ describe('generateCreatePositionTxRequest', () => {
     },
   })
 
+<<<<<<< HEAD
   const approvalCalldata = new CheckApprovalLPResponse({
+=======
+  const rawApprovalCalldata = new CheckApprovalLPResponse({
+>>>>>>> upstream/main
     token0Approval: {
       to: ZERO_ADDRESS,
       chainId: 1,
@@ -57,7 +77,11 @@ describe('generateCreatePositionTxRequest', () => {
       case: 'permitBatchData',
       value: new PermitBatchData({
         domain: {
+<<<<<<< HEAD
           name: 'Lux',
+=======
+          name: 'Uniswap',
+>>>>>>> upstream/main
           version: '1',
           chainId: 1,
         },
@@ -78,6 +102,10 @@ describe('generateCreatePositionTxRequest', () => {
       }),
     },
   })
+<<<<<<< HEAD
+=======
+  const approvalCalldata = normalizeApprovalResponse(rawApprovalCalldata)!
+>>>>>>> upstream/main
 
   it('returns undefined when the create calldata is undefined', () => {
     expect(
@@ -242,7 +270,10 @@ describe('generateCreatePositionTxRequest', () => {
           value: '0',
           data: '0x',
         },
+<<<<<<< HEAD
         sqrtRatioX96: undefined,
+=======
+>>>>>>> upstream/main
       })
     })
 
@@ -274,6 +305,7 @@ describe('generateCreatePositionTxRequest', () => {
         },
         approvePositionTokenRequest: undefined,
         approveToken0Request: {
+<<<<<<< HEAD
           ...approvalCalldata.token0Approval,
         },
         approveToken1Request: {
@@ -284,13 +316,31 @@ describe('generateCreatePositionTxRequest', () => {
         },
         revokeToken1Request: {
           ...approvalCalldata.token1Cancel,
+=======
+          ...rawApprovalCalldata.token0Approval,
+        },
+        approveToken1Request: {
+          ...rawApprovalCalldata.token1Approval,
+        },
+        revokeToken0Request: {
+          ...rawApprovalCalldata.token0Cancel,
+        },
+        revokeToken1Request: {
+          ...rawApprovalCalldata.token1Cancel,
+>>>>>>> upstream/main
         },
         permit: {
           method: PermitMethod.TypedData,
           typedData: {
+<<<<<<< HEAD
             domain: approvalCalldata.permitData.value!.domain,
             types: approvalCalldata.permitData.value!.types,
             values: approvalCalldata.permitData.value!.values,
+=======
+            domain: rawApprovalCalldata.permitData.value!.domain,
+            types: rawApprovalCalldata.permitData.value!.types,
+            values: rawApprovalCalldata.permitData.value!.values,
+>>>>>>> upstream/main
           },
         },
         token0PermitTransaction: undefined,
@@ -303,7 +353,10 @@ describe('generateCreatePositionTxRequest', () => {
           value: '0',
           data: '0x',
         },
+<<<<<<< HEAD
         sqrtRatioX96: undefined,
+=======
+>>>>>>> upstream/main
       })
     })
   })
@@ -350,7 +403,10 @@ describe('generateCreatePositionTxRequest', () => {
           value: '0',
           data: '0x',
         },
+<<<<<<< HEAD
         sqrtRatioX96: undefined,
+=======
+>>>>>>> upstream/main
       })
     })
 
@@ -382,6 +438,7 @@ describe('generateCreatePositionTxRequest', () => {
         },
         approvePositionTokenRequest: undefined,
         approveToken0Request: {
+<<<<<<< HEAD
           ...approvalCalldata.token0Approval,
         },
         approveToken1Request: {
@@ -392,13 +449,31 @@ describe('generateCreatePositionTxRequest', () => {
         },
         revokeToken1Request: {
           ...approvalCalldata.token1Cancel,
+=======
+          ...rawApprovalCalldata.token0Approval,
+        },
+        approveToken1Request: {
+          ...rawApprovalCalldata.token1Approval,
+        },
+        revokeToken0Request: {
+          ...rawApprovalCalldata.token0Cancel,
+        },
+        revokeToken1Request: {
+          ...rawApprovalCalldata.token1Cancel,
+>>>>>>> upstream/main
         },
         permit: {
           method: PermitMethod.TypedData,
           typedData: {
+<<<<<<< HEAD
             domain: approvalCalldata.permitData.value!.domain,
             types: approvalCalldata.permitData.value!.types,
             values: approvalCalldata.permitData.value!.values,
+=======
+            domain: rawApprovalCalldata.permitData.value!.domain,
+            types: rawApprovalCalldata.permitData.value!.types,
+            values: rawApprovalCalldata.permitData.value!.values,
+>>>>>>> upstream/main
           },
         },
         token0PermitTransaction: undefined,
@@ -411,7 +486,10 @@ describe('generateCreatePositionTxRequest', () => {
           value: '0',
           data: '0x',
         },
+<<<<<<< HEAD
         sqrtRatioX96: undefined,
+=======
+>>>>>>> upstream/main
       })
     })
   })
@@ -458,7 +536,10 @@ describe('generateCreatePositionTxRequest', () => {
           value: '0',
           data: '0x',
         },
+<<<<<<< HEAD
         sqrtRatioX96: undefined,
+=======
+>>>>>>> upstream/main
       })
     })
 
@@ -490,6 +571,7 @@ describe('generateCreatePositionTxRequest', () => {
         },
         approvePositionTokenRequest: undefined,
         approveToken0Request: {
+<<<<<<< HEAD
           ...approvalCalldata.token0Approval,
         },
         approveToken1Request: {
@@ -500,13 +582,31 @@ describe('generateCreatePositionTxRequest', () => {
         },
         revokeToken1Request: {
           ...approvalCalldata.token1Cancel,
+=======
+          ...rawApprovalCalldata.token0Approval,
+        },
+        approveToken1Request: {
+          ...rawApprovalCalldata.token1Approval,
+        },
+        revokeToken0Request: {
+          ...rawApprovalCalldata.token0Cancel,
+        },
+        revokeToken1Request: {
+          ...rawApprovalCalldata.token1Cancel,
+>>>>>>> upstream/main
         },
         permit: {
           method: PermitMethod.TypedData,
           typedData: {
+<<<<<<< HEAD
             domain: approvalCalldata.permitData.value!.domain,
             types: approvalCalldata.permitData.value!.types,
             values: approvalCalldata.permitData.value!.values,
+=======
+            domain: rawApprovalCalldata.permitData.value!.domain,
+            types: rawApprovalCalldata.permitData.value!.types,
+            values: rawApprovalCalldata.permitData.value!.values,
+>>>>>>> upstream/main
           },
         },
         token0PermitTransaction: undefined,
@@ -519,7 +619,10 @@ describe('generateCreatePositionTxRequest', () => {
           value: '0',
           data: '0x',
         },
+<<<<<<< HEAD
         sqrtRatioX96: undefined,
+=======
+>>>>>>> upstream/main
       })
     })
   })

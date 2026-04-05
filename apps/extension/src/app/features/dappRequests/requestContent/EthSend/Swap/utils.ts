@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 /* eslint-disable max-depth */
 /* eslint-disable complexity */
+=======
+/* oxlint-disable max-depth */
+/* oxlint-disable complexity */
+>>>>>>> upstream/main
 import { BigNumber, BigNumberish } from '@ethersproject/bignumber'
 import { formatUnits as formatUnitsEthers } from 'ethers/lib/utils'
 import { useDappLastChainId } from 'src/app/features/dapp/hooks'
@@ -30,8 +35,13 @@ import {
   V4SwapExactOutParamSchema,
   V4SwapExactOutSingleParamSchema,
 } from 'src/app/features/dappRequests/types/UniversalRouterTypes'
+<<<<<<< HEAD
 import { DEFAULT_NATIVE_ADDRESS, DEFAULT_NATIVE_ADDRESS_LEGACY } from '@l.x/lx/src/features/chains/evm/defaults'
 import { buildCurrencyId } from '@l.x/lx/src/utils/currencyId'
+=======
+import { DEFAULT_NATIVE_ADDRESS, DEFAULT_NATIVE_ADDRESS_LEGACY } from 'uniswap/src/features/chains/evm/defaults'
+import { buildCurrencyId } from 'uniswap/src/utils/currencyId'
+>>>>>>> upstream/main
 
 // Like ethers.formatUnits except it parses specific constants
 export function formatUnits(amount: BigNumberish, units: number): string {
@@ -221,7 +231,11 @@ function getTokenDetailsFromV4SwapCommands(command: UniversalRouterCommand): {
           }
 
           for (const p of parsed.data.value) {
+<<<<<<< HEAD
             // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+=======
+            // oxlint-disable-next-line typescript/no-unnecessary-condition
+>>>>>>> upstream/main
             if (p.name === 'swap') {
               const swap = p.value
 
@@ -246,7 +260,11 @@ function getTokenDetailsFromV4SwapCommands(command: UniversalRouterCommand): {
           }
 
           for (const p of parsed.data.value) {
+<<<<<<< HEAD
             // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+=======
+            // oxlint-disable-next-line typescript/no-unnecessary-condition
+>>>>>>> upstream/main
             if (p.name === 'swap') {
               const swap = p.value
 
@@ -271,7 +289,11 @@ function getTokenDetailsFromV4SwapCommands(command: UniversalRouterCommand): {
           }
 
           for (const p of parsed.data.value) {
+<<<<<<< HEAD
             // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+=======
+            // oxlint-disable-next-line typescript/no-unnecessary-condition
+>>>>>>> upstream/main
             if (p.name === 'swap') {
               const swap = p.value
 
@@ -298,7 +320,11 @@ function getTokenDetailsFromV4SwapCommands(command: UniversalRouterCommand): {
           }
 
           for (const p of parsed.data.value) {
+<<<<<<< HEAD
             // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+=======
+            // oxlint-disable-next-line typescript/no-unnecessary-condition
+>>>>>>> upstream/main
             if (p.name === 'swap') {
               const swap = p.value
 

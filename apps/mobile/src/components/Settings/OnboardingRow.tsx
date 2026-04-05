@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux'
 import { useSettingsStackNavigation } from 'src/app/navigation/types'
 import { clearOnboardingTimestamp } from 'src/features/analytics/onboardingTimestamp'
 import { useAppStateResetter } from 'src/features/appState/appStateResetter'
+<<<<<<< HEAD
 import { Flex, type IconProps, Text, TouchableArea } from '@l.x/ui/src'
 import { RotatableChevron, LuxLogo } from '@l.x/ui/src/components/icons'
 import { WarningSeverity } from '@l.x/lx/src/components/modals/WarningModal/types'
@@ -12,6 +13,17 @@ import { logger } from '@l.x/utils/src/logger/logger'
 import { useSignerAccounts } from '@luxfi/wallet/src/features/wallet/hooks'
 import { Keyring } from '@luxfi/wallet/src/features/wallet/Keyring/Keyring'
 import { resetWallet, setFinishedOnboarding } from '@luxfi/wallet/src/features/wallet/slice'
+=======
+import { Flex, type IconProps, Text, TouchableArea } from 'ui/src'
+import { RotatableChevron, UniswapLogo } from 'ui/src/components/icons'
+import { WarningSeverity } from 'uniswap/src/components/modals/WarningModal/types'
+import { WarningModal } from 'uniswap/src/components/modals/WarningModal/WarningModal'
+import { ModalName } from 'uniswap/src/features/telemetry/constants'
+import { logger } from 'utilities/src/logger/logger'
+import { useSignerAccounts } from 'wallet/src/features/wallet/hooks'
+import { Keyring } from 'wallet/src/features/wallet/Keyring/Keyring'
+import { resetWallet, setFinishedOnboarding } from 'wallet/src/features/wallet/slice'
+>>>>>>> upstream/main
 
 export function OnboardingRow({ iconProps }: { iconProps: IconProps }): JSX.Element {
   const dispatch = useDispatch()
@@ -59,7 +71,11 @@ export function OnboardingRow({ iconProps }: { iconProps: IconProps }): JSX.Elem
         <Flex row alignItems="center" justifyContent="space-between" py="$spacing4">
           <Flex row alignItems="center">
             <Flex centered height={32} width={32}>
+<<<<<<< HEAD
               <LuxLogo {...iconProps} />
+=======
+              <UniswapLogo {...iconProps} />
+>>>>>>> upstream/main
             </Flex>
             <Text ml="$spacing12" variant="body1">
               Reset wallet (onboarding)

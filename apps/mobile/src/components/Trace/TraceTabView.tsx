@@ -1,9 +1,18 @@
+<<<<<<< HEAD
 import { SharedEventName } from '@luxamm/analytics-events'
 import React from 'react'
 import { Route, TabView, TabViewProps } from 'react-native-tab-view'
 import { SectionName } from '@l.x/lx/src/features/telemetry/constants'
 import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
 import { MobileScreens } from '@l.x/lx/src/types/screens/mobile'
+=======
+import { SharedEventName } from '@uniswap/analytics-events'
+import React from 'react'
+import { Route, TabView, TabViewProps } from 'react-native-tab-view'
+import { SectionName } from 'uniswap/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
+import { MobileScreens } from 'uniswap/src/types/screens/mobile'
+>>>>>>> upstream/main
 
 type TraceRouteProps = { key: SectionName } & Route
 

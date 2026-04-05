@@ -5,7 +5,11 @@ import {
   NavigationContainerRefWithCurrent,
 } from '@react-navigation/native'
 import { useMutation } from '@tanstack/react-query'
+<<<<<<< HEAD
 import { SharedEventName } from '@luxamm/analytics-events'
+=======
+import { SharedEventName } from '@uniswap/analytics-events'
+>>>>>>> upstream/main
 import React, { FC, PropsWithChildren, useEffect, useRef, useState } from 'react'
 import { EmitterSubscription, Linking } from 'react-native'
 import { useDispatch } from 'react-redux'
@@ -15,6 +19,7 @@ import { openDeepLink } from 'src/features/deepLinking/handleDeepLinkSaga'
 import { DIRECT_LOG_ONLY_SCREENS } from 'src/features/telemetry/directLogScreens'
 import { getEventParams } from 'src/features/telemetry/utils'
 import { processWidgetEvents } from 'src/features/widgets/widgets'
+<<<<<<< HEAD
 import { useSporeColors } from '@l.x/ui/src'
 import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
 import Trace from '@l.x/lx/src/features/telemetry/Trace'
@@ -23,6 +28,16 @@ import { datadogEnabledBuild } from '@l.x/utils/src/environment/constants'
 import { logger } from '@l.x/utils/src/logger/logger'
 import { useEvent } from '@l.x/utils/src/react/hooks'
 import { sleep } from '@l.x/utils/src/time/timing'
+=======
+import { useSporeColors } from 'ui/src'
+import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
+import Trace from 'uniswap/src/features/telemetry/Trace'
+import { MobileNavScreen } from 'uniswap/src/types/screens/mobile'
+import { datadogEnabledBuild } from 'utilities/src/environment/constants'
+import { logger } from 'utilities/src/logger/logger'
+import { useEvent } from 'utilities/src/react/hooks'
+import { sleep } from 'utilities/src/time/timing'
+>>>>>>> upstream/main
 
 interface Props {
   onReady?: (navigationRef: NavigationContainerRefWithCurrent<ReactNavigation.RootParamList>) => void

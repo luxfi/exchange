@@ -2,8 +2,13 @@ import { useMemo } from 'react'
 import { SharedValue, useAnimatedReaction, useDerivedValue, useSharedValue } from 'react-native-reanimated'
 import { useLineChart, useLineChartPrice as useRNWagmiChartLineChartPrice } from 'react-native-wagmi-charts'
 import { numberToLocaleStringWorklet, numberToPercentWorklet } from 'src/utils/reanimated'
+<<<<<<< HEAD
 import { useAppFiatCurrencyInfo } from '@l.x/lx/src/features/fiatCurrency/hooks'
 import { useCurrentLocale } from '@l.x/lx/src/features/language/hooks'
+=======
+import { useAppFiatCurrencyInfo } from 'uniswap/src/features/fiatCurrency/hooks'
+import { useCurrentLocale } from 'uniswap/src/features/language/hooks'
+>>>>>>> upstream/main
 
 export type ValueAndFormatted = {
   value: Readonly<SharedValue<number>>
@@ -68,6 +73,10 @@ export function useLineChartPrice(currentSpot?: SharedValue<number>): ValueAndFo
       formatted: priceFormatted,
       shouldAnimate,
     }),
+<<<<<<< HEAD
+=======
+    // oxlint-disable-next-line react/exhaustive-deps -- biome-parity: oxlint is stricter here
+>>>>>>> upstream/main
     [],
   )
 }

@@ -1,8 +1,13 @@
 import { lighten } from 'polished'
 import { PropsWithChildren, ReactNode } from 'react'
 import { Trans } from 'react-i18next'
+<<<<<<< HEAD
 import { useSporeColors } from '@l.x/ui/src'
 import { opacify } from '@l.x/ui/src/theme'
+=======
+import { useSporeColors } from 'ui/src'
+import { opacify } from 'ui/src/theme'
+>>>>>>> upstream/main
 import { ChartType } from '~/components/Charts/utils'
 import Column from '~/components/deprecated/Column'
 import Row from '~/components/deprecated/Row'

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { ReactNode, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
@@ -10,6 +11,21 @@ import { currencyId } from 'lx/src/utils/currencyId'
 import { FiatNumberType, NumberType } from '@l.x/utils/src/format/types'
 import { TokenQueryData } from '~/appGraphql/data/Token'
 import { HEADER_DESCRIPTIONS, TokenSortMethod } from '~/components/Tokens/constants'
+=======
+import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import { ReactNode, useMemo } from 'react'
+import { useTranslation } from 'react-i18next'
+import { Flex, FlexProps, Text } from 'ui/src'
+import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { useTokenMarketStats } from 'uniswap/src/features/dataApi/tokenDetails/useTokenDetailsData'
+import { useTokenSpotPrice } from 'uniswap/src/features/dataApi/tokenDetails/useTokenSpotPriceWrapper'
+import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
+import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+import { currencyId } from 'uniswap/src/utils/currencyId'
+import { FiatNumberType, NumberType } from 'utilities/src/format/types'
+import { TokenQueryData } from '~/appGraphql/data/Token'
+import { getHeaderDescription, TokenSortMethod } from '~/components/Tokens/constants'
+>>>>>>> upstream/main
 import { MouseoverTooltip } from '~/components/Tooltip'
 import { useTDPStore } from '~/pages/TokenDetails/context/useTDPStore'
 
@@ -92,6 +108,10 @@ export function StatsSection({ tokenQueryData }: StatsSectionProps) {
   const { t } = useTranslation()
   const isMultichainTokenUx = useFeatureFlag(FeatureFlags.MultichainTokenUx)
   const currency = useTDPStore((s) => s.currency)!
+<<<<<<< HEAD
+=======
+  const currencyChainId = useTDPStore((s) => s.currencyChainId)
+>>>>>>> upstream/main
 
   // Construct currencyId for shared hooks
   const currencyIdValue = useMemo(() => currencyId(currency), [currency])
@@ -139,13 +159,25 @@ export function StatsSection({ tokenQueryData }: StatsSectionProps) {
           <Stat
             testID={TestID.TokenDetailsStatsFdv}
             value={fdv}
+<<<<<<< HEAD
             description={HEADER_DESCRIPTIONS[TokenSortMethod.FULLY_DILUTED_VALUATION]}
+=======
+            description={getHeaderDescription({ t, category: TokenSortMethod.FULLY_DILUTED_VALUATION })}
+>>>>>>> upstream/main
             title={t('stats.fdv')}
           />
           <Stat
             testID={TestID.TokenDetailsStatsVolume24h}
             value={volume}
+<<<<<<< HEAD
             description={t('stats.volume.1d.description')}
+=======
+            description={
+              currencyChainId === UniverseChainId.Tempo
+                ? t('stats.volume.1d.description.tempo')
+                : t('stats.volume.1d.description')
+            }
+>>>>>>> upstream/main
             title={t('stats.volume.1d')}
           />
           <Stat

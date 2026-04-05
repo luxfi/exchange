@@ -1,10 +1,18 @@
+<<<<<<< HEAD
 import type { ChallengeResponse, HashcashSolveAnalytics } from '@l.x/sessions'
+=======
+import type { ChallengeResponse, HashcashSolveAnalytics } from '@universe/sessions'
+>>>>>>> upstream/main
 import { create } from 'zustand'
 
 interface SessionState {
   sessionId: string | null
   deviceId: string | null
+<<<<<<< HEAD
   luxIdentifier: string | null
+=======
+  uniswapIdentifier: string | null
+>>>>>>> upstream/main
 }
 
 export interface LogEntry {
@@ -55,7 +63,11 @@ const initialHashcashProgress: HashcashProgress = {
 }
 
 const initialState = {
+<<<<<<< HEAD
   session: { sessionId: null, deviceId: null, luxIdentifier: null },
+=======
+  session: { sessionId: null, deviceId: null, uniswapIdentifier: null },
+>>>>>>> upstream/main
   challenge: null,
   isLoading: false,
   currentOperation: null,

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { ProtocolVersion } from '@luxamm/client-data-api/dist/data/v1/poolTypes_pb'
 import { type Currency, CurrencyAmount } from '@luxamm/sdk-core'
 import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
@@ -6,6 +7,16 @@ import { useMemo } from 'react'
 import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
 import { useUSDCPrice } from '@l.x/lx/src/features/transactions/hooks/useUSDCPriceWrapper'
 import { NumberType } from '@l.x/utils/src/format/types'
+=======
+import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
+import { type Currency, CurrencyAmount } from '@uniswap/sdk-core'
+import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import JSBI from 'jsbi'
+import { useMemo } from 'react'
+import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
+import { useUSDCPrice } from 'uniswap/src/features/transactions/hooks/useUSDCPriceWrapper'
+import { NumberType } from 'utilities/src/format/types'
+>>>>>>> upstream/main
 import { PositionInfo } from '~/components/Liquidity/types'
 import { LP_INCENTIVES_REWARD_TOKEN } from '~/components/LpIncentives/constants'
 

@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import { PositionStatus, ProtocolVersion } from '@luxamm/client-data-api/dist/data/v1/poolTypes_pb'
+=======
+import { PositionStatus, ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
+>>>>>>> upstream/main
 import { LiquidityPositionInfo } from '~/components/Liquidity/LiquidityPositionInfo'
 import { PositionInfo } from '~/components/Liquidity/types'
 import { TEST_TOKEN_1, TEST_TOKEN_2, toCurrencyAmount } from '~/test-utils/constants'

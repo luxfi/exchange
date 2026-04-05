@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* eslint-disable complexity */
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
@@ -15,10 +16,30 @@ import { WarningModal } from '@l.x/lx/src/components/modals/WarningModal/Warning
 import { NFTTransfer } from '@l.x/lx/src/components/nfts/NFTTransfer'
 import { MAX_FIAT_INPUT_DECIMALS } from '@l.x/lx/src/constants/transactions'
 import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
+=======
+/* oxlint-disable complexity */
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import { useTranslation } from 'react-i18next'
+import { StyleSheet } from 'react-native'
+import { Flex, Text, TouchableArea } from 'ui/src'
+import { AlertCircle } from 'ui/src/components/icons'
+import { useDeviceDimensions } from 'ui/src/hooks/useDeviceDimensions'
+import { iconSizes, spacing } from 'ui/src/theme'
+import { CurrencyInputPanel } from 'uniswap/src/components/CurrencyInputPanel/CurrencyInputPanel'
+import type { CurrencyInputPanelRef } from 'uniswap/src/components/CurrencyInputPanel/types'
+import type { TextInputProps } from 'uniswap/src/components/input/TextInput'
+import { getAlertColor } from 'uniswap/src/components/modals/WarningModal/getAlertColor'
+import { WarningLabel, WarningSeverity } from 'uniswap/src/components/modals/WarningModal/types'
+import { WarningModal } from 'uniswap/src/components/modals/WarningModal/WarningModal'
+import { NFTTransfer } from 'uniswap/src/components/nfts/NFTTransfer'
+import { MAX_FIAT_INPUT_DECIMALS } from 'uniswap/src/constants/transactions'
+import { ModalName } from 'uniswap/src/features/telemetry/constants'
+>>>>>>> upstream/main
 import {
   DecimalPadCalculatedSpaceId,
   DecimalPadCalculateSpace,
   DecimalPadInput,
+<<<<<<< HEAD
   DecimalPadInputRef,
 } from '@l.x/lx/src/features/transactions/components/DecimalPadInput/DecimalPadInput'
 import { InsufficientNativeTokenWarning } from '@l.x/lx/src/features/transactions/components/InsufficientNativeTokenWarning/InsufficientNativeTokenWarning'
@@ -38,6 +59,27 @@ import { EmptyGasFeeRow, GasFeeRow } from '@luxfi/wallet/src/features/transactio
 import { useShowSendNetworkNotification } from '@luxfi/wallet/src/features/transactions/send/hooks/useShowSendNetworkNotification'
 import { isAmountGreaterThanZero } from '@luxfi/wallet/src/features/transactions/utils'
 import { useIsBlockedActiveAddress } from '@luxfi/wallet/src/features/trm/hooks'
+=======
+  type DecimalPadInputRef,
+} from 'uniswap/src/features/transactions/components/DecimalPadInput/DecimalPadInput'
+import { InsufficientNativeTokenWarning } from 'uniswap/src/features/transactions/components/InsufficientNativeTokenWarning/InsufficientNativeTokenWarning'
+import { useUSDCValue } from 'uniswap/src/features/transactions/hooks/useUSDCPriceWrapper'
+import { useUSDTokenUpdater } from 'uniswap/src/features/transactions/hooks/useUSDTokenUpdater'
+import { BlockedAddressWarning } from 'uniswap/src/features/transactions/modals/BlockedAddressWarning'
+import { SwapArrowButton } from 'uniswap/src/features/transactions/swap/components/SwapArrowButton'
+import { TransactionType } from 'uniswap/src/features/transactions/types/transactionDetails'
+import { useIsBlocked } from 'uniswap/src/features/trm/hooks'
+import { CurrencyField } from 'uniswap/src/types/currency'
+import { dismissNativeKeyboard } from 'utilities/src/device/keyboard/dismissNativeKeyboard'
+import { truncateToMaxDecimals } from 'utilities/src/format/truncateToMaxDecimals'
+import { isSafeNumber } from 'utilities/src/primitives/integer'
+import { RecipientInputPanel } from 'wallet/src/components/input/RecipientInputPanel'
+import { useSendContext } from 'wallet/src/features/transactions/contexts/SendContext'
+import { EmptyGasFeeRow, GasFeeRow } from 'wallet/src/features/transactions/send/GasFeeRow'
+import { useShowSendNetworkNotification } from 'wallet/src/features/transactions/send/hooks/useShowSendNetworkNotification'
+import { isAmountGreaterThanZero } from 'wallet/src/features/transactions/utils'
+import { useIsBlockedActiveAddress } from 'wallet/src/features/trm/hooks'
+>>>>>>> upstream/main
 
 const TRANSFER_DIRECTION_BUTTON_SIZE = iconSizes.icon20
 const TRANSFER_DIRECTION_BUTTON_INNER_PADDING = spacing.spacing12
@@ -183,7 +225,16 @@ export function SendTokenForm(): JSX.Element {
   const onSetMax = useCallback(
     (amount: string) => {
       exactAmountTokenRef.current = amount
+<<<<<<< HEAD
       updateSendForm({ exactAmountToken: amount, isMax: true, isFiatInput: false, focusOnCurrencyField: null })
+=======
+      updateSendForm({
+        exactAmountToken: amount,
+        isMax: true,
+        isFiatInput: false,
+        focusOnCurrencyField: null,
+      })
+>>>>>>> upstream/main
 
       // We want this update to happen on the next tick, after the input value is updated.
       setTimeout(() => {

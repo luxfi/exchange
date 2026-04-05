@@ -1,4 +1,5 @@
 import { useMemo } from 'react'
+<<<<<<< HEAD
 import { LX_WEB_URL } from '@l.x/lx/src/constants/urls'
 import { FORQuoteItem } from '@l.x/lx/src/features/fiatOnRamp/FORQuoteItem'
 import { useFiatOnRampAggregatorTransferWidgetQuery } from '@l.x/lx/src/features/fiatOnRamp/hooks/useFiatOnRampQueries'
@@ -6,6 +7,15 @@ import { FORServiceProvider } from '@l.x/lx/src/features/fiatOnRamp/types'
 import { FiatOnRampEventName } from '@l.x/lx/src/features/telemetry/constants'
 import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
 import { useEvent } from '@l.x/utils/src/react/hooks'
+=======
+import { UNISWAP_WEB_URL } from 'uniswap/src/constants/urls'
+import { FORQuoteItem } from 'uniswap/src/features/fiatOnRamp/FORQuoteItem'
+import { useFiatOnRampAggregatorTransferWidgetQuery } from 'uniswap/src/features/fiatOnRamp/hooks/useFiatOnRampQueries'
+import { FORServiceProvider } from 'uniswap/src/features/fiatOnRamp/types'
+import { FiatOnRampEventName } from 'uniswap/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
+import { useEvent } from 'utilities/src/react/hooks'
+>>>>>>> upstream/main
 import { v4 as uuid } from 'uuid'
 import { ReceiveModalState } from '~/components/ReceiveCryptoModal/types'
 import { useOpenReceiveCryptoModal } from '~/components/ReceiveCryptoModal/useOpenReceiveCryptoModal'
@@ -34,7 +44,11 @@ export function ProviderOption({ serviceProvider, setConnectedProvider, setError
       serviceProvider: serviceProvider.serviceProvider,
       walletAddress: walletAddress ?? '', // satisfy typecheck: useFiatOnRampAggregatorTransferWidgetQuery will only query if walletAddress is defined
       externalSessionId: externalTransactionId,
+<<<<<<< HEAD
       redirectUrl: `${LX_WEB_URL}/buy`,
+=======
+      redirectUrl: `${UNISWAP_WEB_URL}/buy`,
+>>>>>>> upstream/main
     }
   }, [walletAddress, serviceProvider, externalTransactionId])
 

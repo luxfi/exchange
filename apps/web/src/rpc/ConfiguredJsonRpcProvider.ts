@@ -1,8 +1,15 @@
 import { Networkish } from '@ethersproject/providers'
+<<<<<<< HEAD
 import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { InstrumentedJsonRpcProvider } from '@l.x/lx/src/features/providers/observability/InstrumentedJsonRpcProvider'
 import { getRpcObserver } from '@l.x/lx/src/features/providers/observability/rpcObserver'
 import { AVERAGE_L1_BLOCK_TIME_MS } from '@l.x/lx/src/features/transactions/hooks/usePollingIntervalByChain'
+=======
+import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { InstrumentedJsonRpcProvider } from 'uniswap/src/features/providers/observability/InstrumentedJsonRpcProvider'
+import { getRpcObserver } from 'uniswap/src/features/providers/observability/rpcObserver'
+import { AVERAGE_L1_BLOCK_TIME_MS } from 'uniswap/src/features/transactions/hooks/usePollingIntervalByChain'
+>>>>>>> upstream/main
 
 export default class ConfiguredJsonRpcProvider extends InstrumentedJsonRpcProvider {
   constructor({

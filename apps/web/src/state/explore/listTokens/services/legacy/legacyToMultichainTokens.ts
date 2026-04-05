@@ -7,7 +7,11 @@ import {
   TimestampedValue,
   TokenStats,
   TokenType,
+<<<<<<< HEAD
 } from '@luxamm/client-data-api/dist/data/v1/types_pb'
+=======
+} from '@uniswap/client-data-api/dist/data/v1/types_pb'
+>>>>>>> upstream/main
 import { TokenStat } from '~/state/explore/types'
 import { getChainIdFromChainUrlParam } from '~/utils/chainParams'
 

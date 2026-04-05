@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 import { ListTokensResponse } from '@luxamm/client-data-api/dist/data/v1/api_pb'
 import { Token, TokenMetadata, TokenStats, TokenType } from '@luxamm/client-data-api/dist/data/v1/types_pb'
+=======
+import { ListTokensResponse } from '@uniswap/client-data-api/dist/data/v1/api_pb'
+import { Token, TokenMetadata, TokenStats, TokenType } from '@uniswap/client-data-api/dist/data/v1/types_pb'
+>>>>>>> upstream/main
 import { backendSortedToMultichainTokens } from '~/state/explore/listTokens/services/backendSorted/backendSortedToMultichainTokens'
 
 function createLegacyToken(

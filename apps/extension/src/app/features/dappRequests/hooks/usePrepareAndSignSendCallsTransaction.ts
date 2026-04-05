@@ -1,8 +1,13 @@
+<<<<<<< HEAD
 import { GasFeeResult } from '@l.x/api'
+=======
+import { GasFeeResult } from '@universe/api'
+>>>>>>> upstream/main
 import { useMemo } from 'react'
 import { usePrepareAndSignDappTransaction } from 'src/app/features/dappRequests/hooks/usePrepareAndSignDappTransaction'
 import { useTransactionGasEstimation } from 'src/app/features/dappRequests/hooks/useTransactionGasEstimation'
 import { DappRequestStoreItemForSendCallsTxn } from 'src/app/features/dappRequests/slice'
+<<<<<<< HEAD
 import { LUX_DELEGATION_ADDRESS } from '@l.x/lx/src/constants/addresses'
 import { useWalletEncode7702Query } from '@l.x/lx/src/data/apiClients/tradingApi/useWalletEncode7702Query'
 import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
@@ -11,6 +16,16 @@ import { transformCallsToTransactionRequests } from '@luxfi/wallet/src/features/
 import { useLiveAccountDelegationDetails } from '@luxfi/wallet/src/features/smartWallet/hooks/useLiveAccountDelegationDetails'
 import { SignedTransactionRequest } from '@luxfi/wallet/src/features/transactions/executeTransaction/types'
 import { Account } from '@luxfi/wallet/src/features/wallet/accounts/types'
+=======
+import { UNISWAP_DELEGATION_ADDRESS } from 'uniswap/src/constants/addresses'
+import { useWalletEncode7702Query } from 'uniswap/src/data/apiClients/tradingApi/useWalletEncode7702Query'
+import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { EthTransaction } from 'uniswap/src/types/walletConnect'
+import { transformCallsToTransactionRequests } from 'wallet/src/features/batchedTransactions/utils'
+import { useLiveAccountDelegationDetails } from 'wallet/src/features/smartWallet/hooks/useLiveAccountDelegationDetails'
+import { SignedTransactionRequest } from 'wallet/src/features/transactions/executeTransaction/types'
+import { Account } from 'wallet/src/features/wallet/accounts/types'
+>>>>>>> upstream/main
 
 interface UsePrepareAndSignSendCallsTransactionParams {
   request: DappRequestStoreItemForSendCallsTxn
@@ -57,7 +72,11 @@ export function usePrepareAndSignSendCallsTransaction({
             accountAddress: account.address,
           })
         : [],
+<<<<<<< HEAD
       smartContractDelegationAddress: LUX_DELEGATION_ADDRESS,
+=======
+      smartContractDelegationAddress: UNISWAP_DELEGATION_ADDRESS,
+>>>>>>> upstream/main
       walletAddress: account.address,
     },
   })

@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import { isBetaEnv, isDevEnv, isProdEnv, isTestEnv } from '@l.x/utils/src/environment/env'
+=======
+import { isBetaEnv, isDevEnv, isProdEnv, isTestEnv } from 'utilities/src/environment/env'
+>>>>>>> upstream/main
 
 describe('env', () => {
   const ENV = process.env

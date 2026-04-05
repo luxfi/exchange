@@ -6,6 +6,7 @@
   "exclude": ["node_modules", ".output", "wxt.config.ts"],
   "references": [
     {
+<<<<<<< HEAD
       "path": "../../pkgs/wallet"
     },
     {
@@ -31,6 +32,30 @@
     },
     {
       "path": "../../pkgs/utilities"
+=======
+      "path": "../../packages/wallet"
+    },
+    {
+      "path": "../../packages/utilities"
+    },
+    {
+      "path": "../../packages/uniswap"
+    },
+    {
+      "path": "../../packages/ui"
+    },
+    {
+      "path": "../../packages/sessions"
+    },
+    {
+      "path": "../../packages/notifications"
+    },
+    {
+      "path": "../../packages/gating"
+    },
+    {
+      "path": "../../packages/api"
+>>>>>>> upstream/main
     }
   ],
   "compilerOptions": {

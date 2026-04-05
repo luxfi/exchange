@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import { TokenList } from 'utils/tokenListTypes'
+=======
+import { TokenList } from '@uniswap/token-lists'
+>>>>>>> upstream/main
 
 export interface ListsState {
   readonly byUrl: {

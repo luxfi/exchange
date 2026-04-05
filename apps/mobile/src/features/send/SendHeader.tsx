@@ -1,9 +1,16 @@
 import React, { Dispatch, SetStateAction } from 'react'
 import { useTranslation } from 'react-i18next'
+<<<<<<< HEAD
 import { Flex, Text, TouchableArea } from '@l.x/ui/src'
 import { Eye } from '@l.x/ui/src/components/icons'
 import { AccountType } from '@l.x/lx/src/features/accounts/types'
 import { useActiveAccountWithThrow } from '@luxfi/wallet/src/features/wallet/hooks'
+=======
+import { Flex, Text, TouchableArea } from 'ui/src'
+import { Eye } from 'ui/src/components/icons'
+import { AccountType } from 'uniswap/src/features/accounts/types'
+import { useActiveAccountWithThrow } from 'wallet/src/features/wallet/hooks'
+>>>>>>> upstream/main
 
 type HeaderContentProps = {
   flowName: string

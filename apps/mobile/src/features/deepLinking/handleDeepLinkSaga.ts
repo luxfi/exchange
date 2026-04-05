@@ -1,5 +1,9 @@
 import { createAction } from '@reduxjs/toolkit'
+<<<<<<< HEAD
 import { FeatureFlags, getFeatureFlagName, getOverrideAdapter, getStatsigClient } from '@l.x/gating'
+=======
+import { FeatureFlags, getFeatureFlagName, getOverrideAdapter, getStatsigClient } from '@universe/gating'
+>>>>>>> upstream/main
 import { parseUri } from '@walletconnect/utils'
 import { Alert } from 'react-native'
 import { navigate } from 'src/app/navigation/rootNavigation'
@@ -20,7 +24,11 @@ import { handleOffRampReturnLink } from 'src/features/deepLinking/handleOffRampR
 import { handleOnRampReturnLink } from 'src/features/deepLinking/handleOnRampReturnLinkSaga'
 import { handleSwapLink } from 'src/features/deepLinking/handleSwapLinkSaga'
 import { handleTransactionLink } from 'src/features/deepLinking/handleTransactionLinkSaga'
+<<<<<<< HEAD
 import { handleLuxAppDeepLink } from 'src/features/deepLinking/handleLuxAppDeepLink'
+=======
+import { handleUniswapAppDeepLink } from 'src/features/deepLinking/handleUniswapAppDeepLink'
+>>>>>>> upstream/main
 import { parseSwapLinkMobileFormatOrThrow } from 'src/features/deepLinking/parseSwapLink'
 import { LinkSource } from 'src/features/deepLinking/types'
 import { closeAllModals, openModal } from 'src/features/modals/modalSlice'
@@ -28,6 +36,7 @@ import { pairWithWalletConnectURI } from 'src/features/walletConnect/utils'
 import { waitForWcWeb3WalletIsReady } from 'src/features/walletConnect/walletConnectClient'
 import { addRequest, setDidOpenFromDeepLink } from 'src/features/walletConnect/walletConnectSlice'
 import { call, delay, put, select, takeLatest } from 'typed-redux-saga'
+<<<<<<< HEAD
 import { config } from 'lx/src/config'
 import { AccountType } from 'lx/src/features/accounts/types'
 import { MobileEventName, ModalName } from 'lx/src/features/telemetry/constants'
@@ -42,6 +51,22 @@ import { ScantasticParams } from '@luxfi/wallet/src/features/scantastic/types'
 import { getContractManager, getProviderManager } from '@luxfi/wallet/src/features/wallet/context'
 import { selectAccounts, selectActiveAccount } from '@luxfi/wallet/src/features/wallet/selectors'
 import { setAccountAsActive } from '@luxfi/wallet/src/features/wallet/slice'
+=======
+import { config } from 'uniswap/src/config'
+import { AccountType } from 'uniswap/src/features/accounts/types'
+import { MobileEventName, ModalName } from 'uniswap/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
+import i18n from 'uniswap/src/i18n'
+import { MobileScreens } from 'uniswap/src/types/screens/mobile'
+import { UwULinkRequest } from 'uniswap/src/types/walletConnect'
+import { openUri } from 'uniswap/src/utils/linking'
+import { logger } from 'utilities/src/logger/logger'
+import { isAndroid } from 'utilities/src/platform'
+import { ScantasticParams } from 'wallet/src/features/scantastic/types'
+import { getContractManager, getProviderManager } from 'wallet/src/features/wallet/context'
+import { selectAccounts, selectActiveAccount } from 'wallet/src/features/wallet/selectors'
+import { setAccountAsActive } from 'wallet/src/features/wallet/slice'
+>>>>>>> upstream/main
 
 interface DeepLink {
   url: string
@@ -56,7 +81,11 @@ export function* deepLinkWatcher() {
   yield* takeLatest(openDeepLink.type, handleDeepLink)
 }
 
+<<<<<<< HEAD
 // eslint-disable-next-line complexity
+=======
+// oxlint-disable-next-line complexity
+>>>>>>> upstream/main
 export function* handleDeepLink(action: ReturnType<typeof openDeepLink>) {
   try {
     const { coldStart } = action.payload
@@ -71,31 +100,53 @@ export function* handleDeepLink(action: ReturnType<typeof openDeepLink>) {
     const activeAccount = yield* select(selectActiveAccount)
 
     if (!activeAccount) {
+<<<<<<< HEAD
       if (deepLinkAction.action === DeepLinkAction.LuxWebLink) {
+=======
+      if (deepLinkAction.action === DeepLinkAction.UniswapWebLink) {
+>>>>>>> upstream/main
         yield* call(openUri, { uri: deepLinkAction.data.url.toString(), openExternalBrowser: true })
       }
       // If there is no active account, we don't want to handle other deep links
     } else {
       switch (deepLinkAction.action) {
+<<<<<<< HEAD
         case DeepLinkAction.LuxWebLink: {
           yield* call(handleLuxAppDeepLink, {
+=======
+        case DeepLinkAction.UniswapWebLink: {
+          yield* call(handleUniswapAppDeepLink, {
+>>>>>>> upstream/main
             path: deepLinkAction.data.urlPath,
             url: deepLinkAction.data.url.href,
             linkSource: LinkSource.Share,
           })
           break
         }
+<<<<<<< HEAD
         case DeepLinkAction.LuxExternalBrowserLink: {
+=======
+        case DeepLinkAction.UniswapExternalBrowserLink: {
+>>>>>>> upstream/main
           yield* call(openUri, { uri: deepLinkAction.data.url.toString(), openExternalBrowser: true })
           break
         }
         case DeepLinkAction.WalletConnectAsParam:
+<<<<<<< HEAD
         case DeepLinkAction.LuxWalletConnect: {
           yield* call(handleWalletConnectDeepLink, deepLinkAction.data.wcUri)
           break
         }
         case DeepLinkAction.LuxWidget: {
           yield* call(handleLuxAppDeepLink, {
+=======
+        case DeepLinkAction.UniswapWalletConnect: {
+          yield* call(handleWalletConnectDeepLink, deepLinkAction.data.wcUri)
+          break
+        }
+        case DeepLinkAction.UniswapWidget: {
+          yield* call(handleUniswapAppDeepLink, {
+>>>>>>> upstream/main
             path: deepLinkAction.data.url.hash,
             url: deepLinkAction.data.url.toString(),
             linkSource: LinkSource.Widget,

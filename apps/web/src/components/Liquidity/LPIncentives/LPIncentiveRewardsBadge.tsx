@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 import { Flex, Text } from '@l.x/ui/src'
 import Badge, { BadgeVariant } from '@l.x/lx/src/components/badge/Badge'
+=======
+import { Flex, Text } from 'ui/src'
+import Badge, { BadgeVariant } from 'uniswap/src/components/badge/Badge'
+>>>>>>> upstream/main
 import CurrencyLogo from '~/components/Logo/CurrencyLogo'
 import { LP_INCENTIVES_REWARD_TOKEN } from '~/components/LpIncentives/constants'
 

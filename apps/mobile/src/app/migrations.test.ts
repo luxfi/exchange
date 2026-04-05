@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+/* oxlint-disable jest/expect-expect */
+>>>>>>> upstream/main
 import { toIncludeSameMembers } from 'jest-extended'
 import { migrations } from 'src/app/migrations'
 import {
@@ -66,6 +70,10 @@ import {
   testResetTokensOrderBy,
   testResetTokensOrderByAndMetadataDisplayType,
   testRestructureTransactionsAndNotifications,
+<<<<<<< HEAD
+=======
+  testSetWalletDeviceLanguage,
+>>>>>>> upstream/main
   testTransformNotificationCountToStatus,
   testUpdateLanguageSettings,
 } from 'src/app/mobileMigrationTests'
@@ -165,6 +173,10 @@ import {
   v92Schema,
   v93Schema,
   v95Schema,
+<<<<<<< HEAD
+=======
+  v96Schema,
+>>>>>>> upstream/main
 } from 'src/app/schema'
 import { persistConfig } from 'src/app/store'
 import { initialBiometricsSettingsState } from 'src/features/biometricsSettings/slice'
@@ -173,6 +185,7 @@ import { initialModalsState } from 'src/features/modals/modalSlice'
 import { initialPushNotificationsState } from 'src/features/notifications/slice'
 import { initialTweaksState } from 'src/features/tweaks/slice'
 import { initialWalletConnectState } from 'src/features/walletConnect/walletConnectSlice'
+<<<<<<< HEAD
 import { ScannerModalState } from '@l.x/lx/src/components/ReceiveQRCode/constants'
 import { USDC } from '@l.x/lx/src/constants/tokens'
 import { AccountType } from '@l.x/lx/src/features/accounts/types'
@@ -189,11 +202,31 @@ import { initialTokensState } from '@l.x/lx/src/features/tokens/warnings/slice/s
 import { initialTransactionsState } from '@l.x/lx/src/features/transactions/slice'
 import { TransactionStatus, TransactionType } from '@l.x/lx/src/features/transactions/types/transactionDetails'
 import { initialVisibilityState } from '@l.x/lx/src/features/visibility/slice'
+=======
+import { ScannerModalState } from 'uniswap/src/components/ReceiveQRCode/constants'
+import { USDC } from 'uniswap/src/constants/tokens'
+import { AccountType } from 'uniswap/src/features/accounts/types'
+import { initialAppearanceSettingsState } from 'uniswap/src/features/appearance/slice'
+import { initialUniswapBehaviorHistoryState } from 'uniswap/src/features/behaviorHistory/slice'
+import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { initialFavoritesState } from 'uniswap/src/features/favorites/slice'
+import { FiatCurrency } from 'uniswap/src/features/fiatCurrency/constants'
+import { initialNotificationsState } from 'uniswap/src/features/notifications/slice/slice'
+import { initialSearchHistoryState } from 'uniswap/src/features/search/searchHistorySlice'
+import { initialUserSettingsState } from 'uniswap/src/features/settings/slice'
+import { ModalName } from 'uniswap/src/features/telemetry/constants'
+import { initialTokensState } from 'uniswap/src/features/tokens/warnings/slice/slice'
+import { initialTransactionsState } from 'uniswap/src/features/transactions/slice'
+import { TransactionStatus, TransactionType } from 'uniswap/src/features/transactions/types/transactionDetails'
+import { initialVisibilityState } from 'uniswap/src/features/visibility/slice'
+import { getWalletDeviceLanguage } from 'uniswap/src/i18n/utils'
+>>>>>>> upstream/main
 import {
   testAddActivityVisibility,
   testMigrateDismissedTokenWarnings,
   testMigrateSearchHistory,
   testRemoveTHBFromCurrency,
+<<<<<<< HEAD
 } from '@l.x/lx/src/state/luxMigrationTests'
 import { transactionDetails } from '@l.x/lx/src/test/fixtures'
 import { DappRequestType } from '@l.x/lx/src/types/walletConnect'
@@ -205,6 +238,19 @@ import { Account, SignerMnemonicAccount } from '@luxfi/wallet/src/features/walle
 import { initialWalletState, SwapProtectionSetting } from '@luxfi/wallet/src/features/wallet/slice'
 import { createMigrate } from '@luxfi/wallet/src/state/createMigrate'
 import { HAYDEN_ETH_ADDRESS } from '@luxfi/wallet/src/state/walletMigrations'
+=======
+} from 'uniswap/src/state/uniswapMigrationTests'
+import { transactionDetails } from 'uniswap/src/test/fixtures'
+import { DappRequestType } from 'uniswap/src/types/walletConnect'
+import { getAllKeysOfNestedObject } from 'utilities/src/primitives/objects'
+import { initialBatchedTransactionsState } from 'wallet/src/features/batchedTransactions/slice'
+import { initialBehaviorHistoryState } from 'wallet/src/features/behaviorHistory/slice'
+import { initialTelemetryState } from 'wallet/src/features/telemetry/slice'
+import { Account, SignerMnemonicAccount } from 'wallet/src/features/wallet/accounts/types'
+import { initialWalletState, SwapProtectionSetting } from 'wallet/src/features/wallet/slice'
+import { createMigrate } from 'wallet/src/state/createMigrate'
+import { HAYDEN_ETH_ADDRESS } from 'wallet/src/state/walletMigrations'
+>>>>>>> upstream/main
 import {
   testActivatePendingAccounts,
   testAddBatchedTransactions,
@@ -230,8 +276,23 @@ import {
   testRemoveWalletIsUnlockedState,
   testUnchecksumDismissedTokenWarningKeys,
   testUpdateExploreOrderByType,
+<<<<<<< HEAD
 } from '@luxfi/wallet/src/state/walletMigrationsTests'
 import { signerMnemonicAccount } from '@luxfi/wallet/src/test/fixtures'
+=======
+} from 'wallet/src/state/walletMigrationsTests'
+import { signerMnemonicAccount } from 'wallet/src/test/fixtures'
+
+jest.mock('uniswap/src/i18n/utils', () => {
+  const actual = jest.requireActual<typeof import('uniswap/src/i18n/utils')>('uniswap/src/i18n/utils')
+  const { Language } =
+    require('uniswap/src/features/language/constants') as typeof import('uniswap/src/features/language/constants')
+  return {
+    ...actual,
+    getWalletDeviceLanguage: jest.fn(() => Language.English),
+  }
+})
+>>>>>>> upstream/main
 
 expect.extend({ toIncludeSameMembers })
 
@@ -304,7 +365,11 @@ describe('Redux state migrations', () => {
       tokens: initialTokensState,
       transactions: initialTransactionsState,
       tweaks: initialTweaksState,
+<<<<<<< HEAD
       luxBehaviorHistory: initialLuxBehaviorHistoryState,
+=======
+      uniswapBehaviorHistory: initialUniswapBehaviorHistoryState,
+>>>>>>> upstream/main
       userSettings: initialUserSettingsState,
       visibility: initialVisibilityState,
       wallet: initialWalletState,
@@ -743,4 +808,11 @@ describe('Redux state migrations', () => {
       },
     })
   })
+<<<<<<< HEAD
+=======
+
+  it('migrates from v96 to v97', () => {
+    testSetWalletDeviceLanguage(migrations[97], v96Schema, jest.mocked(getWalletDeviceLanguage))
+  })
+>>>>>>> upstream/main
 })

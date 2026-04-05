@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { brand, getBrandUrl } from '@l.x/config'
 import { Fragment } from 'react'
 import { useTranslation } from 'react-i18next'
@@ -5,6 +6,14 @@ import { Anchor, Flex, FlexProps, Separator, styled, Text, TouchableArea } from 
 import { iconSizes } from '@l.x/ui/src/theme'
 import { ElementName, ModalName } from '@l.x/lx/src/features/telemetry/constants'
 import { isMobileWeb } from '@l.x/utils/src/platform'
+=======
+import { Fragment } from 'react'
+import { useTranslation } from 'react-i18next'
+import { Anchor, Flex, FlexProps, Separator, styled, Text, TouchableArea } from 'ui/src'
+import { iconSizes } from 'ui/src/theme'
+import { ElementName, ModalName } from 'uniswap/src/features/telemetry/constants'
+import { isMobileWeb } from 'utilities/src/platform'
+>>>>>>> upstream/main
 import { Wiggle } from '~/components/animations/Wiggle'
 import { MenuItem, MenuSectionTitle, useMenuContent } from '~/components/NavBar/CompanyMenu/Content'
 import { MenuLink } from '~/components/NavBar/CompanyMenu/MenuDropdown'
@@ -23,7 +32,11 @@ const PolicyLink = styled(Text, {
   color: '$neutral2',
   cursor: 'pointer',
   hoverStyle: { color: '$neutral1' },
+<<<<<<< HEAD
   // Gui bug. Animation property breaks theme value transition, needs to use style instead
+=======
+  // Tamagui bug. Animation property breaks theme value transition, needs to use style instead
+>>>>>>> upstream/main
   style: { transition: '100ms' },
 })
 
@@ -32,6 +45,7 @@ const MobileTouchableArea = isMobileWeb ? TouchableArea : Fragment
 export function Socials({ iconSize, gap }: { iconSize?: string; gap?: FlexProps['gap'] }) {
   return (
     <Flex row gap={gap ?? '$spacing24'} maxHeight={iconSize} alignItems="flex-start">
+<<<<<<< HEAD
       {brand.github && (
         <MobileTouchableArea>
           <SocialIcon iconColor="#00C32B">
@@ -59,6 +73,29 @@ export function Socials({ iconSize, gap }: { iconSize?: string; gap?: FlexProps[
           </SocialIcon>
         </MobileTouchableArea>
       )}
+=======
+      <MobileTouchableArea>
+        <SocialIcon iconColor="#00C32B">
+          <Anchor href="https://github.com/Uniswap" target="_blank">
+            <Github size={iconSize} fill="inherit" />
+          </Anchor>
+        </SocialIcon>
+      </MobileTouchableArea>
+      <MobileTouchableArea>
+        <SocialIcon iconColor="#20BAFF">
+          <Anchor href="https://x.com/Uniswap" target="_blank">
+            <Twitter size={iconSize} fill="inherit" />
+          </Anchor>
+        </SocialIcon>
+      </MobileTouchableArea>
+      <MobileTouchableArea>
+        <SocialIcon iconColor="#5F51FF">
+          <Anchor href="https://discord.com/invite/uniswap" target="_blank">
+            <Discord size={iconSize} fill="inherit" />
+          </Anchor>
+        </SocialIcon>
+      </MobileTouchableArea>
+>>>>>>> upstream/main
     </Flex>
   )
 }
@@ -94,7 +131,11 @@ export function Footer() {
   const needHelpSection = sectionContent[MenuSectionTitle.NeedHelp]
   const brandAssets: MenuItem = {
     label: t('common.brandAssets'),
+<<<<<<< HEAD
     href: brand.github ? `${brand.github.replace(/\/$/, '')}/brand-assets` : '#',
+=======
+    href: 'https://github.com/Uniswap/brand-assets/raw/main/Uniswap%20Brand%20Assets.zip',
+>>>>>>> upstream/main
     internal: false,
     elementName: ElementName.NavbarCompanyMenuBrandAssets,
   }
@@ -132,10 +173,17 @@ export function Footer() {
         width="100%"
         justifyContent="space-between"
       >
+<<<<<<< HEAD
         <Text variant="body3">© {currentYear} - {brand.copyrightHolder || brand.legalEntity}</Text>
         <Flex row alignItems="center" gap="$spacing16">
           <PolicyLink onPress={togglePrivacyPolicy}>{t('common.privacyPolicy')}</PolicyLink>
           <Anchor textDecorationLine="none" href={getBrandUrl('/trademark')} target="_blank">
+=======
+        <Text variant="body3">© {currentYear} - Uniswap Labs</Text>
+        <Flex row alignItems="center" gap="$spacing16">
+          <PolicyLink onPress={togglePrivacyPolicy}>{t('common.privacyPolicy')}</PolicyLink>
+          <Anchor textDecorationLine="none" href="https://uniswap.org/trademark" target="_blank">
+>>>>>>> upstream/main
             <PolicyLink>{t('common.trademarkPolicy')}</PolicyLink>
           </Anchor>
         </Flex>

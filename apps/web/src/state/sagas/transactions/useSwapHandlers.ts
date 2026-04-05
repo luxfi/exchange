@@ -1,13 +1,23 @@
+<<<<<<< HEAD
 import { Currency, CurrencyAmount } from '@luxamm/sdk-core'
+=======
+import { Currency, CurrencyAmount } from '@uniswap/sdk-core'
+>>>>>>> upstream/main
 import { useCallback, useMemo } from 'react'
 import {
   ExecuteSwapCallback,
   ExecuteSwapParams,
   PrepareSwapCallback,
   SwapHandlers,
+<<<<<<< HEAD
 } from '@l.x/lx/src/features/transactions/swap/types/swapHandlers'
 import { isWrap } from '@l.x/lx/src/features/transactions/swap/utils/routing'
 import { WrapType } from '@l.x/lx/src/features/transactions/types/wrap'
+=======
+} from 'uniswap/src/features/transactions/swap/types/swapHandlers'
+import { isWrap } from 'uniswap/src/features/transactions/swap/utils/routing'
+import { WrapType } from 'uniswap/src/features/transactions/types/wrap'
+>>>>>>> upstream/main
 import { useSwapCallback } from '~/state/sagas/transactions/swapSaga'
 import { useWrapCallback } from '~/state/sagas/transactions/wrapSaga'
 

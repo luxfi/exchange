@@ -3,7 +3,11 @@ ignores: [
     "@react-native-community/cli",
     "@react-native-community/cli-platform-android",
     "@react-native-community/cli-platform-ios",
+<<<<<<< HEAD
     "@luxamm/ethers-rs-mobile",
+=======
+    "@uniswap/ethers-rs-mobile",
+>>>>>>> upstream/main
     "babel-loader",
     "babel-jest",
     "ts-jest",
@@ -31,6 +35,10 @@ ignores: [
     "react-native-restart",
     "sp-react-native-in-app-updates",
     "typescript",
+<<<<<<< HEAD
+=======
+    "eslint",
+>>>>>>> upstream/main
     "@typescript/native-preview",
     # Dependencies that depcheck thinks are missing but are actually present or never used
     ## Internal packages / workspaces

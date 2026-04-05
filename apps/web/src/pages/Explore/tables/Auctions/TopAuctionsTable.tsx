@@ -1,10 +1,17 @@
+<<<<<<< HEAD
 /* eslint-disable @typescript-eslint/no-unnecessary-condition, max-lines */
 import { createColumnHelper } from '@tanstack/react-table'
 import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
+=======
+/* oxlint-disable typescript/no-unnecessary-condition, max-lines */
+import { createColumnHelper } from '@tanstack/react-table'
+import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+>>>>>>> upstream/main
 import { useAtom } from 'jotai'
 import { atomWithReset } from 'jotai/utils'
 import { memo, ReactElement, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
+<<<<<<< HEAD
 import { Flex, styled, Text, useMedia } from '@l.x/ui/src'
 import { normalizeTokenAddressForCache } from 'lx/src/data/cache'
 import { getChainInfo } from 'lx/src/features/chains/chainInfo'
@@ -14,6 +21,17 @@ import { NumberType } from '@l.x/utils/src/format/types'
 import { useEvent } from '@l.x/utils/src/react/hooks'
 import { ONE_HOUR_MS, ONE_SECOND_MS } from '@l.x/utils/src/time/time'
 import { useDebounce } from '@l.x/utils/src/time/timing'
+=======
+import { Flex, styled, Text, useMedia } from 'ui/src'
+import { normalizeTokenAddressForCache } from 'uniswap/src/data/cache'
+import { getChainInfo } from 'uniswap/src/features/chains/chainInfo'
+import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
+import { ElementName } from 'uniswap/src/features/telemetry/constants'
+import { NumberType } from 'utilities/src/format/types'
+import { useEvent } from 'utilities/src/react/hooks'
+import { ONE_HOUR_MS, ONE_SECOND_MS } from 'utilities/src/time/time'
+import { useDebounce } from 'utilities/src/time/timing'
+>>>>>>> upstream/main
 import { OrderDirection } from '~/appGraphql/data/util'
 import { Table } from '~/components/Table'
 import { Cell } from '~/components/Table/Cell'
@@ -46,6 +64,10 @@ import { auctionCommittedVolumeComparator, useTopAuctions } from '~/state/explor
  * Uses bigint comparison to avoid precision loss.
  * Treats 0n as "no data" and sorts it to the end.
  */
+<<<<<<< HEAD
+=======
+/* oxlint-disable max-params -- sort comparators conventionally take (a, b, direction) */
+>>>>>>> upstream/main
 const AuctionSortMethods: Record<
   AuctionSortField,
   (a: TopAuctionsTableValue, b: TopAuctionsTableValue, sortAscending?: boolean) => number
@@ -68,7 +90,11 @@ const AuctionSortMethods: Record<
   },
 
   // Sorting by time remaining sorts not completed or not started auction first (sorted by end block timestamp), followed by completed auction (sorted by end block timestamp).
+<<<<<<< HEAD
   // eslint-disable-next-line max-params
+=======
+
+>>>>>>> upstream/main
   [AuctionSortField.TIME_REMAINING]: (a, b, sortAscending = false) => {
     const aMs = a.auction.timeRemaining.endBlockTimestamp
     const bMs = b.auction.timeRemaining.endBlockTimestamp
@@ -108,6 +134,10 @@ const AuctionSortMethods: Record<
     }
   },
 }
+<<<<<<< HEAD
+=======
+/* oxlint-enable max-params */
+>>>>>>> upstream/main
 
 /**
  * Sorts auctions using the specified sort method.
@@ -412,7 +442,11 @@ function ToucanTableComponent({
         header: () => (
           <HeaderCell justifyContent="flex-start">
             <Text variant="body3" color="$neutral2" fontWeight="500">
+<<<<<<< HEAD
               {t('common.tokenName')}
+=======
+              {t('explore.table.column.token')}
+>>>>>>> upstream/main
             </Text>
           </HeaderCell>
         ),

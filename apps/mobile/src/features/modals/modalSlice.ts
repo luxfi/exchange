@@ -1,11 +1,19 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit'
 import { type ModalsState } from 'src/features/modals/ModalsState'
 import { type FiatOnRampModalState } from 'src/screens/FiatOnRampModalState'
+<<<<<<< HEAD
 import { ScannerModalState } from '@l.x/lx/src/components/ReceiveQRCode/constants'
 import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
 import { type TransactionScreen } from '@l.x/lx/src/features/transactions/components/TransactionModal/TransactionModalContext'
 import { type TransactionState } from '@l.x/lx/src/features/transactions/types/transactionState'
 import { getKeys } from '@l.x/utils/src/primitives/objects'
+=======
+import { ScannerModalState } from 'uniswap/src/components/ReceiveQRCode/constants'
+import { ModalName } from 'uniswap/src/features/telemetry/constants'
+import { type TransactionScreen } from 'uniswap/src/features/transactions/components/TransactionModal/TransactionModalContext'
+import { type TransactionState } from 'uniswap/src/features/transactions/types/transactionState'
+import { getKeys } from 'utilities/src/primitives/objects'
+>>>>>>> upstream/main
 
 /**
  * *********** DEPRECATION NOTICE ***********

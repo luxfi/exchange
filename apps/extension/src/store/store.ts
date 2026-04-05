@@ -6,12 +6,21 @@ import { PERSIST_KEY } from 'src/store/constants'
 import { enhancePersistReducer } from 'src/store/enhancePersistReducer'
 import { ExtensionState, extensionPersistedStateList, extensionReducer } from 'src/store/extensionReducer'
 import { EXTENSION_STATE_VERSION, migrations } from 'src/store/migrations'
+<<<<<<< HEAD
 import { delegationListenerMiddleware } from '@l.x/lx/src/features/smartWallet/delegation/slice'
 import { createDatadogReduxEnhancer } from '@l.x/utils/src/logger/datadog/Datadog'
 import { logger } from '@l.x/utils/src/logger/logger'
 import { createStore } from '@luxfi/wallet/src/state'
 import { createMigrate } from '@luxfi/wallet/src/state/createMigrate'
 import { setReduxPersistor } from '@luxfi/wallet/src/state/persistor'
+=======
+import { delegationListenerMiddleware } from 'uniswap/src/features/smartWallet/delegation/slice'
+import { createDatadogReduxEnhancer } from 'utilities/src/logger/datadog/Datadog'
+import { logger } from 'utilities/src/logger/logger'
+import { createStore } from 'wallet/src/state'
+import { createMigrate } from 'wallet/src/state/createMigrate'
+import { setReduxPersistor } from 'wallet/src/state/persistor'
+>>>>>>> upstream/main
 
 const persistConfig = {
   key: PERSIST_KEY,

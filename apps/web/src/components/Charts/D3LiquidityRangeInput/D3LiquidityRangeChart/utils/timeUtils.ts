@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import { GraphQLApi } from '@l.x/api'
+=======
+import { GraphQLApi } from '@universe/api'
+>>>>>>> upstream/main
 import * as d3 from 'd3'
 
 export function getTimeFormat(duration: GraphQLApi.HistoryDuration) {

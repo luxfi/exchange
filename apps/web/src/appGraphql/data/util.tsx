@@ -1,5 +1,6 @@
 import { DeepPartial } from '@apollo/client/utilities'
 import { DataTag, DefaultError, QueryKey, queryOptions, UndefinedInitialDataOptions } from '@tanstack/react-query'
+<<<<<<< HEAD
 import { Currency } from '@luxamm/sdk-core'
 import { GraphQLApi } from '@l.x/api'
 import { ColorTokens } from '@l.x/ui/src'
@@ -9,6 +10,17 @@ import { isUniverseChainId, toGraphQLChain, toSupportedChainId } from '@l.x/lx/s
 import { buildCurrency } from '@l.x/lx/src/features/dataApi/utils/buildCurrency'
 import { FORSupportedToken } from '@l.x/lx/src/features/fiatOnRamp/types'
 import { areAddressesEqual } from '@l.x/lx/src/utils/addresses'
+=======
+import { Currency } from '@uniswap/sdk-core'
+import { GraphQLApi } from '@universe/api'
+import { ColorTokens } from 'ui/src'
+import { nativeOnChain, WRAPPED_NATIVE_CURRENCY } from 'uniswap/src/constants/tokens'
+import { GqlChainId, UniverseChainId } from 'uniswap/src/features/chains/types'
+import { isUniverseChainId, toGraphQLChain, toSupportedChainId } from 'uniswap/src/features/chains/utils'
+import { buildCurrency } from 'uniswap/src/features/dataApi/utils/buildCurrency'
+import { FORSupportedToken } from 'uniswap/src/features/fiatOnRamp/types'
+import { areAddressesEqual } from 'uniswap/src/utils/addresses'
+>>>>>>> upstream/main
 import { NATIVE_CHAIN_ID } from '~/constants/tokens'
 import { ExploreTab } from '~/pages/Explore/constants'
 import { TokenStat } from '~/state/explore/types'
@@ -24,7 +36,11 @@ export enum TimePeriod {
   MAX = 'MAX',
 }
 
+<<<<<<< HEAD
 // eslint-disable-next-line consistent-return
+=======
+// oxlint-disable-next-line consistent-return
+>>>>>>> upstream/main
 export function toHistoryDuration(timePeriod: TimePeriod): GraphQLApi.HistoryDuration {
   switch (timePeriod) {
     case TimePeriod.HOUR:
@@ -60,6 +76,7 @@ export function gqlToCurrency(token: DeepPartial<GraphQLApi.Token | TokenStat>):
     return undefined
   }
   if (token.standard === GraphQLApi.TokenStandard.Native || token.address === NATIVE_CHAIN_ID || !token.address) {
+<<<<<<< HEAD
     return nativeOnChain(chainId)
   } else {
     return buildCurrency({
@@ -73,6 +90,32 @@ export function gqlToCurrency(token: DeepPartial<GraphQLApi.Token | TokenStat>):
       sellFeeBps: token.feeData?.sellFeeBps,
     })
   }
+=======
+    // Tempo has no displayable native currency — the virtual "USD" is a placeholder.
+    // When the backend returns Native standard for Tempo with a real address (e.g. pathUSD),
+    // fall through to buildCurrency so the token is constructed normally.
+    // Only return undefined when there's truly no address to build from.
+    if (chainId === UniverseChainId.Tempo) {
+      if (!token.address || token.address === NATIVE_CHAIN_ID) {
+        return undefined
+      }
+      // Fall through to buildCurrency below
+    } else {
+      return nativeOnChain(chainId)
+    }
+  }
+
+  return buildCurrency({
+    ...token,
+    decimals: token.decimals ?? 18,
+    symbol: token.symbol ?? undefined,
+    name: token.name ?? token.project?.name ?? undefined,
+    chainId,
+    bypassChecksum: false,
+    buyFeeBps: token.feeData?.buyFeeBps,
+    sellFeeBps: token.feeData?.sellFeeBps,
+  })
+>>>>>>> upstream/main
 }
 
 export function fiatOnRampToCurrency(forCurrency: FORSupportedToken): Currency | undefined {
@@ -177,7 +220,11 @@ const PROTOCOL_META: { [source in GraphQLApi.PriceSource]: ProtocolMeta } = {
     color: '$neutral1',
     gradient: { start: 'rgba(252, 116, 254, 0.20)', end: 'rgba(252, 116, 254, 0.00)' },
   },
+<<<<<<< HEAD
   /* [GraphQLApi.PriceSource.DEX]: { name: 'DEX', color: purple } */
+=======
+  /* [GraphQLApi.PriceSource.UniswapX]: { name: 'UniswapX', color: purple } */
+>>>>>>> upstream/main
 }
 
 export function getProtocolColor(priceSource: GraphQLApi.PriceSource): ColorTokens {

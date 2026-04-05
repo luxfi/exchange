@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 import { createHash } from 'node:crypto'
 import fs from 'fs'
+=======
+import fs from 'fs'
+import { createHash } from 'node:crypto'
+>>>>>>> upstream/main
 import path from 'path'
 import { loadEnv, transformWithEsbuild } from 'vite'
 import commonjs from 'vite-plugin-commonjs'
@@ -7,6 +12,10 @@ import { nodePolyfills } from 'vite-plugin-node-polyfills'
 import svgr from 'vite-plugin-svgr'
 import tsconfigPaths from 'vite-tsconfig-paths'
 import { defineConfig } from 'wxt'
+<<<<<<< HEAD
+=======
+// oxlint-disable-next-line universe-custom/no-relative-import-paths -- biome-parity: oxlint is stricter here
+>>>>>>> upstream/main
 import { getTsconfigAliases } from './config/getTsconfigAliases'
 
 const icons = {
@@ -31,8 +40,13 @@ function getPublicAssetsVariant(): 'prod' | 'beta' | 'dev' | 'local' {
 
 const publicAssetsVariant = getPublicAssetsVariant()
 
+<<<<<<< HEAD
 const BASE_NAME = 'Lx Extension'
 const BASE_DESCRIPTION = "The Lx Extension is a self-custody crypto wallet that's built for swapping."
+=======
+const BASE_NAME = 'Uniswap Extension'
+const BASE_DESCRIPTION = "The Uniswap Extension is a self-custody crypto wallet that's built for swapping."
+>>>>>>> upstream/main
 const BASE_VERSION = '1.69.0'
 
 const BUILD_NUM = parseInt(process.env.BUILD_NUM || '0')
@@ -77,7 +91,11 @@ function shouldInvalidateOptimizeDepsForEnv({
   return true
 }
 
+<<<<<<< HEAD
 // eslint-disable-next-line import/no-unused-modules
+=======
+// oxlint-disable-next-line import/no-unused-modules
+>>>>>>> upstream/main
 export default defineConfig({
   // WXT Configuration
   srcDir: 'src',
@@ -124,7 +142,11 @@ export default defineConfig({
           stdio: 'inherit',
         })
       } catch {
+<<<<<<< HEAD
         // biome-ignore lint/suspicious/noConsole: CLI output for build validation
+=======
+        // oxlint-disable-next-line no-console -- CLI output for build validation
+>>>>>>> upstream/main
         console.error('Build validation failed!')
         process.exit(1)
       }
@@ -132,6 +154,10 @@ export default defineConfig({
   },
 
   // Dynamic manifest generation
+<<<<<<< HEAD
+=======
+  // oxlint-disable-next-line no-unused-vars -- biome-parity: oxlint is stricter here
+>>>>>>> upstream/main
   manifest: (env) => {
     // BUILD_ENV logic: no build_env for dev command, otherwise use vite build mode
     const isDevelopment = process.env.NODE_ENV === 'development'
@@ -212,8 +238,13 @@ export default defineConfig({
         ids: [],
         matches:
           BUILD_ENV === 'prod'
+<<<<<<< HEAD
             ? ['https://app.lux.org/*']
             : ['https://app.lux.org/*', 'https://ew.unihq.org/*', 'https://*.ew.unihq.org/*'],
+=======
+            ? ['https://app.uniswap.org/*']
+            : ['https://app.uniswap.org/*', 'https://ew.unihq.org/*', 'https://*.ew.unihq.org/*'],
+>>>>>>> upstream/main
       },
     }
   },
@@ -241,8 +272,13 @@ export default defineConfig({
       'process.env.IS_STATIC': '""',
       'process.env.EXPO_OS': '"web"',
       ...envDefines,
+<<<<<<< HEAD
       'process.env.REACT_APP_IS_LUX_INTERFACE': '"false"',
       'process.env.IS_LUX_EXTENSION': '"true"',
+=======
+      'process.env.REACT_APP_IS_UNISWAP_INTERFACE': '"false"',
+      'process.env.IS_UNISWAP_EXTENSION': '"true"',
+>>>>>>> upstream/main
     }
 
     const cacheDir = path.resolve(__dirname, 'node_modules/.vite')
@@ -269,6 +305,7 @@ export default defineConfig({
         preserveSymlinks: true,
         modules: [path.resolve(__dirname, 'node_modules')],
         dedupe: [
+<<<<<<< HEAD
           '@luxamm/sdk-core',
           '@luxamm/v2-sdk',
           '@luxamm/v3-sdk',
@@ -277,6 +314,16 @@ export default defineConfig({
           '@luxamm/universal-router-sdk',
           '@luxamm/sdk',
           '@luxamm/permit2-sdk',
+=======
+          '@uniswap/sdk-core',
+          '@uniswap/v2-sdk',
+          '@uniswap/v3-sdk',
+          '@uniswap/v4-sdk',
+          '@uniswap/router-sdk',
+          '@uniswap/universal-router-sdk',
+          '@uniswap/uniswapx-sdk',
+          '@uniswap/permit2-sdk',
+>>>>>>> upstream/main
           'jsbi',
           'ethers',
           'react',
@@ -313,11 +360,19 @@ export default defineConfig({
           // ignores tsconfig files in Nx generator template directories
           skip: (dir) => dir.includes('files'),
         }),
+<<<<<<< HEAD
         // TODO(INFRA-299): enable gui in production once building works
         // !isPreparePhase && isProduction
         //   ? guiPlugin({
         //       config: '../../pkgs/ui/src/gui.config.ts',
         //       components: ['ui', 'lx', 'utilities'],
+=======
+        // TODO(INFRA-299): enable tamagui in production once building works
+        // !isPreparePhase && isProduction
+        //   ? tamaguiPlugin({
+        //       config: '../../packages/ui/src/tamagui.config.ts',
+        //       components: ['ui', 'uniswap', 'utilities'],
+>>>>>>> upstream/main
         //       optimize: true,
         //       importsWhitelist: ['constants.js'],
         //     })
@@ -348,6 +403,10 @@ export default defineConfig({
           name: 'svg-import-fix',
           transform(code: string) {
             const regex = /import\s+([a-zA-Z0-9_$]+)\s+from\s+['"]([^'"]+\.svg)['"]/g
+<<<<<<< HEAD
+=======
+            // oxlint-disable-next-line max-params -- biome-parity: oxlint is stricter here
+>>>>>>> upstream/main
             const transformed = code.replace(regex, (match, varName, path) => {
               if (match.includes('{')) {
                 return match
@@ -383,6 +442,7 @@ export default defineConfig({
           'expo-blur',
           'expo-modules-core',
           'react-native-web',
+<<<<<<< HEAD
           'gui',
           '@hanzogui/web',
           'ui',
@@ -394,6 +454,19 @@ export default defineConfig({
           '@luxamm/universal-router-sdk',
           '@luxamm/sdk',
           '@luxamm/permit2-sdk',
+=======
+          'tamagui',
+          '@tamagui/web',
+          'ui',
+          '@uniswap/sdk-core',
+          '@uniswap/v2-sdk',
+          '@uniswap/v3-sdk',
+          '@uniswap/v4-sdk',
+          '@uniswap/router-sdk',
+          '@uniswap/universal-router-sdk',
+          '@uniswap/uniswapx-sdk',
+          '@uniswap/permit2-sdk',
+>>>>>>> upstream/main
           'jsbi',
           'ethers',
           'react-router',
@@ -410,12 +483,20 @@ export default defineConfig({
           'bn.js',
         ],
         exclude: ['expo-clipboard', 'vite-plugin-node-polyfills'],
+<<<<<<< HEAD
         rollupOptions: {
           resolve: {
             extensions: ['.web.js', '.web.ts', '.web.tsx', '.js', '.ts', '.tsx'],
           },
         },
         esbuildOptions: {
+=======
+        esbuildOptions: {
+          // Prefer .web.* extensions so react-native packages resolve to their web variants
+          // (e.g. react-native-svg/ReactNativeSVG.web.js instead of ReactNativeSVG.js which
+          // imports Fabric/codegen internals that don't exist on web).
+          resolveExtensions: ['.web.tsx', '.web.ts', '.web.js', '.tsx', '.ts', '.js'],
+>>>>>>> upstream/main
           loader: {
             '.js': 'jsx',
             '.ts': 'ts',
@@ -449,7 +530,11 @@ export default defineConfig({
   // Development server configuration
   dev: {
     server: {
+<<<<<<< HEAD
       port: 9998,
+=======
+      port: 9998, // Different from webpack (9997) to avoid conflicts
+>>>>>>> upstream/main
     },
   },
 
@@ -457,7 +542,11 @@ export default defineConfig({
   // See the README for more information.
   // https://wxt.dev/guide/essentials/config/browser-startup.html
   webExt: {
+<<<<<<< HEAD
     startUrls: ['https://app.lux.org'],
+=======
+    startUrls: ['https://app.uniswap.org'],
+>>>>>>> upstream/main
 
     chromiumArgs: ['--user-data-dir=./.wxt/chrome-data'],
 

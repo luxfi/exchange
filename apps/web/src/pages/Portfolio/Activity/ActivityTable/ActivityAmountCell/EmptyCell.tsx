@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import { EM_DASH, Text } from '@l.x/ui/src'
+=======
+import { EM_DASH, Text } from 'ui/src'
+>>>>>>> upstream/main
 
 export function EmptyCell(): JSX.Element {
   return (

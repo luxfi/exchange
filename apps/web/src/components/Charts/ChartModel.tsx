@@ -12,10 +12,17 @@ import {
   TimeChartOptions,
 } from 'lightweight-charts'
 import { ReactElement, TouchEvent, useEffect, useMemo, useRef, useState } from 'react'
+<<<<<<< HEAD
 import { assertWebElement, ColorTokens, Flex, GuiElement, useMedia, useSporeColors } from '@l.x/ui/src'
 import { useCurrentLocale } from '@l.x/lx/src/features/language/hooks'
 import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
 import { NumberType } from '@l.x/utils/src/format/types'
+=======
+import { assertWebElement, ColorTokens, Flex, TamaguiElement, useMedia, useSporeColors } from 'ui/src'
+import { useCurrentLocale } from 'uniswap/src/features/language/hooks'
+import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
+import { NumberType } from 'utilities/src/format/types'
+>>>>>>> upstream/main
 import { v4 as uuidv4 } from 'uuid'
 import { ChartTooltip } from '~/components/Charts/ChartTooltip'
 import { CustomHoverMarker } from '~/components/Charts/CustomHoverMarker'
@@ -305,7 +312,11 @@ export abstract class ChartModel<TDataType extends SeriesDataItemType> {
   }
 }
 
+<<<<<<< HEAD
 // eslint-disable-next-line max-params
+=======
+// oxlint-disable-next-line max-params
+>>>>>>> upstream/main
 function isBetween(num: number, lower: number, upper: number): boolean {
   return num > lower && num < upper
 }
@@ -339,7 +350,11 @@ export function Chart<TParamType extends ChartDataParams<TDataType>, TDataType e
   const setRefitChartContent = useUpdateAtom(refitChartContentAtom)
   // Lightweight-charts injects a canvas into the page through the div referenced below
   // It is stored in state to cause a re-render upon div mount, avoiding delay in chart creation
+<<<<<<< HEAD
   const [chartDivElement, setChartDivElement] = useState<GuiElement | null>(null)
+=======
+  const [chartDivElement, setChartDivElement] = useState<TamaguiElement | null>(null)
+>>>>>>> upstream/main
   const [crosshairData, setCrosshairData] = useState<TDataType | undefined>(undefined)
   const [hoverCoordinates, setHoverCoordinates] = useState<{ x: number; y: number } | null>(null)
   const [isZoomed, setIsZoomed] = useState(false)
@@ -475,7 +490,10 @@ export function Chart<TParamType extends ChartDataParams<TDataType>, TDataType e
       {/* Header/content outside background */}
       {children && children(crosshairData)}
       {TooltipBody && crosshairData && (
+<<<<<<< HEAD
         // @ts-expect-error - Gui variant type inference issue
+=======
+>>>>>>> upstream/main
         <ChartTooltip id={chartModelRef.current?.tooltipId} includeBorder={!params.hideTooltipBorder}>
           <TooltipBody data={crosshairData} />
         </ChartTooltip>

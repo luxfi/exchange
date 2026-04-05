@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import { Flex, styled } from '@l.x/ui/src'
+=======
+import { Flex, styled } from 'ui/src'
+>>>>>>> upstream/main
 
 const SINGLE_PANE_DURATION = 200
 

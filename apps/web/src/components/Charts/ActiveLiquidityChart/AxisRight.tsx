@@ -1,7 +1,12 @@
 import { axisRight, Axis as d3Axis, NumberValue, ScaleLinear, select } from 'd3'
 import { useMemo } from 'react'
+<<<<<<< HEAD
 import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
 import { NumberType } from '@l.x/utils/src/format/types'
+=======
+import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
+import { NumberType } from 'utilities/src/format/types'
+>>>>>>> upstream/main
 
 const TEXT_Y_OFFSET = 5
 

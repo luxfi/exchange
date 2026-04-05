@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import { noop } from '@l.x/utils/src/react/noop'
+=======
+import { noop } from 'utilities/src/react/noop'
+>>>>>>> upstream/main
 import Expand from '~/components/Expand'
 import { fireEvent, render, screen } from '~/test-utils/render'
 

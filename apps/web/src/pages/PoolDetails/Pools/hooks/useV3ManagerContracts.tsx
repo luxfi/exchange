@@ -1,7 +1,14 @@
+<<<<<<< HEAD
 import { NONFUNGIBLE_POSITION_MANAGER_ADDRESSES as V3NFT_ADDRESSES } from '@luxamm/sdk-core'
 import NFTPositionManagerJSON from '@luxamm/v3-periphery/artifacts/contracts/NonfungiblePositionManager.sol/NonfungiblePositionManager.json'
 import { NonfungiblePositionManager } from '@l.x/lx/src/abis/types/v3'
 import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+=======
+import { NONFUNGIBLE_POSITION_MANAGER_ADDRESSES as V3NFT_ADDRESSES } from '@uniswap/sdk-core'
+import NFTPositionManagerJSON from '@uniswap/v3-periphery/artifacts/contracts/NonfungiblePositionManager.sol/NonfungiblePositionManager.json'
+import { NonfungiblePositionManager } from 'uniswap/src/abis/types/v3'
+import { UniverseChainId } from 'uniswap/src/features/chains/types'
+>>>>>>> upstream/main
 import { ContractMap, useContractMultichain } from '~/pages/PoolDetails/Pools/hooks/useContractMultichain'
 
 export function useV3ManagerContracts(chainIds: UniverseChainId[]): ContractMap<NonfungiblePositionManager> {

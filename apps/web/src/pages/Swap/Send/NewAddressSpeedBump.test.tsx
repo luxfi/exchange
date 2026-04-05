@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import { DAI } from '@l.x/lx/src/constants/tokens'
+=======
+import { DAI } from 'uniswap/src/constants/tokens'
+>>>>>>> upstream/main
 import { NewAddressSpeedBumpModal } from '~/pages/Swap/Send/NewAddressSpeedBump'
 import { SendContext, SendContextType } from '~/state/send/SendContext'
 import { render, screen } from '~/test-utils/render'
@@ -22,7 +26,11 @@ const mockSendContext: SendContextType = {
   setSendState: vi.fn(),
 }
 
+<<<<<<< HEAD
 vi.mock('@l.x/gating', async (importOriginal) => {
+=======
+vi.mock('@universe/gating', async (importOriginal) => {
+>>>>>>> upstream/main
   return {
     ...(await importOriginal()),
     useFeatureFlag: vi.fn(),

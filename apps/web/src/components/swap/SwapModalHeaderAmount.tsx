@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { Currency, CurrencyAmount } from '@luxamm/sdk-core'
 import { type ComponentProps, PropsWithChildren, ReactNode } from 'react'
 import { Flex, Text } from '@l.x/ui/src'
@@ -6,6 +7,16 @@ import { breakpoints } from '@l.x/ui/src/theme'
 import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
 import { CurrencyField } from '@l.x/lx/src/types/currency'
 import { NumberType } from '@l.x/utils/src/format/types'
+=======
+import { Currency, CurrencyAmount } from '@uniswap/sdk-core'
+import { type ComponentProps, PropsWithChildren, ReactNode } from 'react'
+import { Flex, Text } from 'ui/src'
+import { useDeviceDimensions } from 'ui/src/hooks/useDeviceDimensions'
+import { breakpoints } from 'ui/src/theme'
+import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
+import { CurrencyField } from 'uniswap/src/types/currency'
+import { NumberType } from 'utilities/src/format/types'
+>>>>>>> upstream/main
 import CurrencyLogo from '~/components/Logo/CurrencyLogo'
 import { MouseoverTooltip } from '~/components/Tooltip'
 

@@ -2,12 +2,21 @@ import React, { useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import { ViewProps } from 'react-native'
 import { RecoveryWalletInfo, useOnDeviceRecoveryData } from 'src/screens/Import/useOnDeviceRecoveryData'
+<<<<<<< HEAD
 import { Button, Flex, FlexProps, Loader, Text, TouchableArea } from '@l.x/ui/src'
 import { fonts, iconSizes } from '@l.x/ui/src/theme'
 import { AddressDisplay } from '@l.x/lx/src/components/accounts/AddressDisplay'
 import { AccountIcon } from '@l.x/lx/src/features/accounts/AccountIcon'
 import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
 import { NumberType } from '@l.x/utils/src/format/types'
+=======
+import { Button, Flex, FlexProps, Loader, Text, TouchableArea } from 'ui/src'
+import { fonts, iconSizes } from 'ui/src/theme'
+import { AddressDisplay } from 'uniswap/src/components/accounts/AddressDisplay'
+import { AccountIcon } from 'uniswap/src/features/accounts/AccountIcon'
+import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
+import { NumberType } from 'utilities/src/format/types'
+>>>>>>> upstream/main
 
 const cardProps: FlexProps & ViewProps = {
   borderRadius: '$rounded20',
@@ -41,11 +50,19 @@ export function OnDeviceRecoveryWalletCard({
   const firstWalletInfo = targetWalletInfos[0]
   const remainingWalletCount = targetWalletInfos.length - 1
 
+<<<<<<< HEAD
   // biome-ignore lint/correctness/useExhaustiveDependencies: we want to recalculate this only when loading, screenLoading changes
+=======
+  // oxlint-disable-next-line react/exhaustive-deps -- we want to recalculate this only when loading, screenLoading changes
+>>>>>>> upstream/main
   useEffect(() => {
     if (!loading && screenLoading) {
       onLoadComplete(significantRecoveryWalletInfos.length)
     }
+<<<<<<< HEAD
+=======
+    // oxlint-disable-next-line react/exhaustive-deps -- biome-parity: oxlint is stricter here
+>>>>>>> upstream/main
   }, [loading, screenLoading])
 
   if (screenLoading || !firstWalletInfo) {

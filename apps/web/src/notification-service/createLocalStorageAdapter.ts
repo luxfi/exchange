@@ -1,8 +1,16 @@
+<<<<<<< HEAD
 import type { ApiNotificationTrackerContext } from '@luxfi/notifications'
 import { getLogger } from '@l.x/utils/src/logger/logger'
 import { z } from 'zod'
 
 const NOTIFICATION_STORAGE_KEY = 'lux_notifications_processed'
+=======
+import type { ApiNotificationTrackerContext } from '@universe/notifications'
+import { getLogger } from 'utilities/src/logger/logger'
+import { z } from 'zod'
+
+const NOTIFICATION_STORAGE_KEY = 'uniswap_notifications_processed'
+>>>>>>> upstream/main
 
 /**
  * Prefix for session-scoped notifications.

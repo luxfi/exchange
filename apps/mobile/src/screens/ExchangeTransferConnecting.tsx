@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next'
 import { useDispatch } from 'react-redux'
 import { Screen } from 'src/components/layout/Screen'
 import { useFiatOnRampContext } from 'src/features/fiatOnRamp/FiatOnRampContext'
+<<<<<<< HEAD
 import { Flex, UniversalImage, useIsDarkMode } from '@l.x/ui/src'
 import { lxUrls } from '@l.x/lx/src/constants/urls'
 import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
@@ -20,6 +21,25 @@ import { openUri } from '@l.x/lx/src/utils/linking'
 import { ONE_SECOND_MS } from '@l.x/utils/src/time/time'
 import { useTimeout } from '@l.x/utils/src/time/timing'
 import { useActiveAccountAddressWithThrow } from '@luxfi/wallet/src/features/wallet/hooks'
+=======
+import { Flex, UniversalImage, useIsDarkMode } from 'ui/src'
+import { uniswapUrls } from 'uniswap/src/constants/urls'
+import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { ServiceProviderLogoStyles } from 'uniswap/src/features/fiatOnRamp/constants'
+import { FiatOnRampConnectingView } from 'uniswap/src/features/fiatOnRamp/FiatOnRampConnectingView'
+import { useFiatOnRampTransactionCreator } from 'uniswap/src/features/fiatOnRamp/hooks'
+import { useFiatOnRampAggregatorTransferWidgetQuery } from 'uniswap/src/features/fiatOnRamp/hooks/useFiatOnRampQueries'
+import { type FORServiceProvider } from 'uniswap/src/features/fiatOnRamp/types'
+import { getOptionalServiceProviderLogo } from 'uniswap/src/features/fiatOnRamp/utils'
+import { pushNotification } from 'uniswap/src/features/notifications/slice/slice'
+import { AppNotificationType } from 'uniswap/src/features/notifications/slice/types'
+import { FiatOnRampEventName } from 'uniswap/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
+import { openUri } from 'uniswap/src/utils/linking'
+import { ONE_SECOND_MS } from 'utilities/src/time/time'
+import { useTimeout } from 'utilities/src/time/timing'
+import { useActiveAccountAddressWithThrow } from 'wallet/src/features/wallet/hooks'
+>>>>>>> upstream/main
 
 // Design decision
 const CONNECTING_TIMEOUT = 2 * ONE_SECOND_MS
@@ -65,7 +85,11 @@ export function ExchangeTransferConnecting({
     serviceProvider: serviceProvider.serviceProvider,
     walletAddress: activeAccountAddress,
     externalSessionId: externalTransactionId,
+<<<<<<< HEAD
     redirectUrl: `${lxUrls.redirectUrlBase}?screen=transaction&fiatOnRamp=true&userAddress=${activeAccountAddress}`,
+=======
+    redirectUrl: `${uniswapUrls.redirectUrlBase}?screen=transaction&fiatOnRamp=true&userAddress=${activeAccountAddress}`,
+>>>>>>> upstream/main
   })
 
   useEffect(() => {

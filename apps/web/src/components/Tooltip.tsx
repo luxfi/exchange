@@ -1,7 +1,12 @@
 import { transparentize } from 'polished'
 import { Fragment, memo, PropsWithChildren, ReactNode, useEffect, useState } from 'react'
+<<<<<<< HEAD
 import { Flex, Text } from '@l.x/ui/src'
 import { noop } from '@l.x/utils/src/react/noop'
+=======
+import { Flex, Text } from 'ui/src'
+import { noop } from 'utilities/src/react/noop'
+>>>>>>> upstream/main
 import Popover, { PopoverProps } from '~/components/Popover'
 import { deprecatedStyled } from '~/lib/deprecated-styled'
 
@@ -12,7 +17,11 @@ export enum TooltipSize {
   Max = 'max-content',
 }
 
+<<<<<<< HEAD
 // eslint-disable-next-line consistent-return
+=======
+// oxlint-disable-next-line consistent-return
+>>>>>>> upstream/main
 const getPaddingForSize = (size: TooltipSize) => {
   switch (size) {
     case TooltipSize.ExtraSmall:
@@ -101,7 +110,11 @@ export const MouseoverTooltip = memo(function MouseoverTooltip(props: MouseoverT
       show={forceShow || show}
       {...rest}
     >
+<<<<<<< HEAD
       <Flex onMouseEnter={open} onMouseLeave={timeout ? noop : close}>
+=======
+      <Flex cursor="default" onMouseEnter={open} onMouseLeave={timeout ? noop : close}>
+>>>>>>> upstream/main
         {typeof children === 'string' || typeof children === 'number' ? (
           <Text variant="body3">{children}</Text>
         ) : (

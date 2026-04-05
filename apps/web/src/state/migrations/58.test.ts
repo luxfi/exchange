@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import { Language } from '@l.x/lx/src/features/language/constants'
+=======
+import { Language } from 'uniswap/src/features/language/constants'
+>>>>>>> upstream/main
 import { migration58 } from '~/state/migrations/58'
 
 const previousState = {

@@ -1,8 +1,15 @@
 import { useCallback, useState } from 'react'
+<<<<<<< HEAD
 import { AnimateTransition, Popover } from '@l.x/ui/src'
 import { MoreHorizontal } from '@l.x/ui/src/components/icons/MoreHorizontal'
 import { ElementName } from '@l.x/lx/src/features/telemetry/constants'
 import Trace from '@l.x/lx/src/features/telemetry/Trace'
+=======
+import { AnimateTransition, Popover } from 'ui/src'
+import { MoreHorizontal } from 'ui/src/components/icons/MoreHorizontal'
+import { ElementName } from 'uniswap/src/features/telemetry/constants'
+import Trace from 'uniswap/src/features/telemetry/Trace'
+>>>>>>> upstream/main
 import { NavDropdown, NavDropdownDefaultWrapper } from '~/components/NavBar/NavDropdown/index'
 import { NavIcon } from '~/components/NavBar/NavIcon'
 import { CurrencySettings } from '~/components/NavBar/PreferencesMenu/Currency'

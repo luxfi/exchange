@@ -5,6 +5,7 @@ import { useOnboardingSteps } from 'src/app/features/onboarding/OnboardingStepsC
 import { useUnitagClaimContext } from 'src/app/features/unitags/UnitagClaimContext'
 import { backgroundToSidePanelMessageChannel } from 'src/background/messagePassing/messageChannels'
 import { BackgroundToSidePanelRequestType } from 'src/background/messagePassing/types/requests'
+<<<<<<< HEAD
 import { Flex, Square } from '@l.x/ui/src'
 import { Person } from '@l.x/ui/src/components/icons'
 import { fonts, iconSizes } from '@l.x/ui/src/theme'
@@ -14,6 +15,17 @@ import { logger } from '@l.x/utils/src/logger/logger'
 import { extensionNftModalProps } from '@luxfi/wallet/src/features/unitags/ChooseNftModal'
 import { UnitagChooseProfilePicContent } from '@luxfi/wallet/src/features/unitags/UnitagChooseProfilePicContent'
 import { useAccountAddressFromUrlWithThrow } from '@luxfi/wallet/src/features/wallet/hooks'
+=======
+import { Flex, Square } from 'ui/src'
+import { Person } from 'ui/src/components/icons'
+import { fonts, iconSizes } from 'ui/src/theme'
+import Trace from 'uniswap/src/features/telemetry/Trace'
+import { ExtensionUnitagClaimScreens } from 'uniswap/src/types/screens/extension'
+import { logger } from 'utilities/src/logger/logger'
+import { extensionNftModalProps } from 'wallet/src/features/unitags/ChooseNftModal'
+import { UnitagChooseProfilePicContent } from 'wallet/src/features/unitags/UnitagChooseProfilePicContent'
+import { useAccountAddressFromUrlWithThrow } from 'wallet/src/features/wallet/hooks'
+>>>>>>> upstream/main
 
 export function UnitagChooseProfilePicScreen(): JSX.Element {
   const { t } = useTranslation()

@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import { Percent } from '@luxamm/sdk-core'
+=======
+import { Percent } from '@uniswap/sdk-core'
+>>>>>>> upstream/main
 import JSBI from 'jsbi'
 import { useGetPoolTokenPercentage } from '~/components/Liquidity/hooks/useGetPoolTokenPercentage'
 import { renderHook } from '~/test-utils/render'

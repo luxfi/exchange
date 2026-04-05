@@ -3,7 +3,11 @@ import React, { ReactNode, useEffect } from 'react'
 import { HeaderSkipButton } from 'src/app/navigation/components'
 import { OnboardingStackParamList } from 'src/app/navigation/types'
 import { BackButton } from 'src/components/buttons/BackButton'
+<<<<<<< HEAD
 import { UnitagStackParamList } from '@l.x/lx/src/types/screens/mobile'
+=======
+import { UnitagStackParamList } from 'uniswap/src/types/screens/mobile'
+>>>>>>> upstream/main
 
 /**
  * Adds a back button to the navigation header regardless of the screen's position in the stack.

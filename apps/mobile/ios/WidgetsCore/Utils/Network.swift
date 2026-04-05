@@ -11,7 +11,11 @@ import Apollo
 public class Network {
   public static let shared = Network()
   
+<<<<<<< HEAD
   private let LUX_API_URL = "https://ios.wallet.gateway.lux.exchange/v1/graphql"
+=======
+  private let UNISWAP_API_URL = "https://ios.wallet.gateway.uniswap.org/v1/graphql"
+>>>>>>> upstream/main
   
   public lazy var apollo: ApolloClient = {
     let cache = InMemoryNormalizedCache()
@@ -19,7 +23,11 @@ public class Network {
     let client = URLSessionClient()
     
     let provider = NetworkInterceptorProvider(store: store, client: client)
+<<<<<<< HEAD
     let url = URL(string: LUX_API_URL)!
+=======
+    let url = URL(string: UNISWAP_API_URL)!
+>>>>>>> upstream/main
     let transport = RequestChainNetworkTransport(interceptorProvider: provider, endpointURL: url)
     return ApolloClient(networkTransport: transport, store: store)
   }()
@@ -58,9 +66,15 @@ class AuthorizationInterceptor: ApolloInterceptor {
     response: HTTPResponse<Operation>?,
     completion: @escaping (Result<GraphQLResult<Operation.Data>, Error>) -> Void
   ) where Operation : GraphQLOperation {
+<<<<<<< HEAD
     request.addHeader(name: "X-API-KEY", value: Env.LUX_API_KEY)
     request.addHeader(name: "Content-Type", value: "application/json")
     request.addHeader(name: "Origin", value: "https://app.lux.exchange")
+=======
+    request.addHeader(name: "X-API-KEY", value: Env.UNISWAP_API_KEY)
+    request.addHeader(name: "Content-Type", value: "application/json")
+    request.addHeader(name: "Origin", value: "https://app.uniswap.org")
+>>>>>>> upstream/main
     
     chain.proceedAsync(request: request,
                        response: response,

@@ -1,7 +1,14 @@
+<<<<<<< HEAD
 import { Currency, Price } from '@luxamm/sdk-core'
 import { Trans } from 'react-i18next'
 import { Flex, Text } from '@l.x/ui/src'
 import { AlertTriangleFilled } from '@l.x/ui/src/components/icons/AlertTriangleFilled'
+=======
+import { Currency, Price } from '@uniswap/sdk-core'
+import { Trans } from 'react-i18next'
+import { Flex, Text } from 'ui/src'
+import { AlertTriangleFilled } from 'ui/src/components/icons/AlertTriangleFilled'
+>>>>>>> upstream/main
 import { BaseQuoteFiatAmount } from '~/components/Liquidity/BaseQuoteFiatAmount'
 
 export function DisplayCurrentPrice({ price, isLoading }: { price?: Price<Currency, Currency>; isLoading?: boolean }) {

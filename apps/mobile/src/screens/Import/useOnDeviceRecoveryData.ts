@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { GraphQLApi } from '@luxfi/api'
 import { useEffect, useMemo, useState } from 'react'
 import { useUnitagsAddressQuery } from '@l.x/lx/src/data/apiClients/unitagsApi/useUnitagsAddressQuery'
@@ -7,13 +8,30 @@ import { usePortfolioValueModifiers } from '@l.x/lx/src/features/dataApi/balance
 import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
 import { areAddressesEqual } from '@l.x/lx/src/utils/addresses'
 import { logger } from '@l.x/utils/src/logger/logger'
+=======
+import { GraphQLApi } from '@universe/api'
+import { useEffect, useMemo, useState } from 'react'
+import { useUnitagsAddressQuery } from 'uniswap/src/data/apiClients/unitagsApi/useUnitagsAddressQuery'
+import { useEnabledChains } from 'uniswap/src/features/chains/hooks/useEnabledChains'
+// oxlint-disable-next-line no-restricted-imports -- Direct access needed for custom portfolio query with multiple addresses
+import { usePortfolioValueModifiers } from 'uniswap/src/features/dataApi/balances/balances'
+import { Platform } from 'uniswap/src/features/platforms/types/Platform'
+import { areAddressesEqual } from 'uniswap/src/utils/addresses'
+import { logger } from 'utilities/src/logger/logger'
+>>>>>>> upstream/main
 import {
   AddressWithBalanceAndName,
   hasBalanceOrName,
   useAddressesEnsNames,
+<<<<<<< HEAD
 } from '@luxfi/wallet/src/features/onboarding/hooks/useImportableAccounts'
 import { NUMBER_OF_WALLETS_TO_GENERATE } from '@luxfi/wallet/src/features/onboarding/OnboardingContext'
 import { Keyring } from '@luxfi/wallet/src/features/wallet/Keyring/Keyring'
+=======
+} from 'wallet/src/features/onboarding/hooks/useImportableAccounts'
+import { NUMBER_OF_WALLETS_TO_GENERATE } from 'wallet/src/features/onboarding/OnboardingContext'
+import { Keyring } from 'wallet/src/features/wallet/Keyring/Keyring'
+>>>>>>> upstream/main
 
 export interface RecoveryWalletInfo extends AddressWithBalanceAndName {
   derivationIndex: number
@@ -128,7 +146,11 @@ export function useOnDeviceRecoveryData(mnemonicId: string | undefined): {
   const unitagsCombined = unitagStates.map((unitagState) => unitagState.data?.username).join('')
   const unitagLoading = unitagStates.some((unitagState) => unitagState.isLoading)
 
+<<<<<<< HEAD
   // biome-ignore lint/correctness/useExhaustiveDependencies: we want to recalculate this when unitagsCombined or balancesLoading changes
+=======
+  // oxlint-disable-next-line react/exhaustive-deps -- we want to recalculate this when unitagsCombined or balancesLoading changes
+>>>>>>> upstream/main
   const recoveryWalletInfos = useMemo((): RecoveryWalletInfo[] => {
     return addressesWithIndex.map((addressWithIndex, index): RecoveryWalletInfo => {
       const { address, derivationIndex } = addressWithIndex
@@ -140,6 +162,10 @@ export function useOnDeviceRecoveryData(mnemonicId: string | undefined): {
         unitag: unitagStates[derivationIndex]?.data?.username,
       }
     })
+<<<<<<< HEAD
+=======
+    // oxlint-disable-next-line react/exhaustive-deps -- biome-parity: oxlint is stricter here
+>>>>>>> upstream/main
   }, [addressesWithIndex, balances, balancesLoading, ensMap, unitagsCombined])
 
   const significantRecoveryWalletInfos = useMemo(

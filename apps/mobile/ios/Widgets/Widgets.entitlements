@@ -4,7 +4,11 @@
 <dict>
 	<key>com.apple.security.application-groups</key>
 	<array>
+<<<<<<< HEAD
 		<string>group.com.lux.widgets</string>
+=======
+		<string>group.com.uniswap.widgets</string>
+>>>>>>> upstream/main
 	</array>
 </dict>
 </plist>

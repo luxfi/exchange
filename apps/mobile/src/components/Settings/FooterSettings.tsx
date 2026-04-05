@@ -3,11 +3,19 @@ import { useTranslation } from 'react-i18next'
 import { StyleSheet } from 'react-native'
 import { FadeInDown, FadeOutUp } from 'react-native-reanimated'
 import { getFullAppVersion } from 'src/utils/version'
+<<<<<<< HEAD
 import { Flex, Image, Text, useIsDarkMode } from '@l.x/ui/src'
 import { AVATARS_DARK, AVATARS_LIGHT } from '@l.x/ui/src/assets'
 import { AnimatedFlex } from '@l.x/ui/src/components/layout/AnimatedFlex'
 import { ONE_SECOND_MS } from '@l.x/utils/src/time/time'
 import { useTimeout } from '@l.x/utils/src/time/timing'
+=======
+import { Flex, Image, Text, useIsDarkMode } from 'ui/src'
+import { AVATARS_DARK, AVATARS_LIGHT } from 'ui/src/assets'
+import { AnimatedFlex } from 'ui/src/components/layout/AnimatedFlex'
+import { ONE_SECOND_MS } from 'utilities/src/time/time'
+import { useTimeout } from 'utilities/src/time/timing'
+>>>>>>> upstream/main
 
 const SIGNATURE_VISIBLE_DURATION = ONE_SECOND_MS * 10
 

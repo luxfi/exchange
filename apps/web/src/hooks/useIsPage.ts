@@ -44,7 +44,11 @@ export enum PageType {
   PORTFOLIO = '/portfolio',
 }
 
+<<<<<<< HEAD
 // eslint-disable-next-line import/no-unused-modules -- currently used in a test file
+=======
+// oxlint-disable-next-line import/no-unused-modules -- currently used in a test file
+>>>>>>> upstream/main
 export enum MatchType {
   EXACT = 0,
   STARTS_WITH = 1,

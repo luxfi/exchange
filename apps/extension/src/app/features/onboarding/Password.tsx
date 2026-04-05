@@ -7,6 +7,7 @@ import { OnboardingScreen } from 'src/app/features/onboarding/OnboardingScreen'
 import { useOnboardingSteps } from 'src/app/features/onboarding/OnboardingSteps'
 import { TopLevelRoutes } from 'src/app/navigation/constants'
 import { navigate } from 'src/app/navigation/state'
+<<<<<<< HEAD
 import { Flex, Square, Text } from '@l.x/ui/src'
 import { Lock } from '@l.x/ui/src/components/icons'
 import { iconSizes } from '@l.x/ui/src/theme'
@@ -15,6 +16,16 @@ import { ExtensionOnboardingFlow, ExtensionOnboardingScreens } from '@l.x/lx/src
 import { useEvent } from '@l.x/utils/src/react/hooks'
 import { useOnboardingContext } from '@luxfi/wallet/src/features/onboarding/OnboardingContext'
 import { usePasswordForm } from '@luxfi/wallet/src/utils/password'
+=======
+import { Flex, Square, Text } from 'ui/src'
+import { Lock } from 'ui/src/components/icons'
+import { iconSizes } from 'ui/src/theme'
+import Trace from 'uniswap/src/features/telemetry/Trace'
+import { ExtensionOnboardingFlow, ExtensionOnboardingScreens } from 'uniswap/src/types/screens/extension'
+import { useEvent } from 'utilities/src/react/hooks'
+import { useOnboardingContext } from 'wallet/src/features/onboarding/OnboardingContext'
+import { usePasswordForm } from 'wallet/src/utils/password'
+>>>>>>> upstream/main
 
 export function Password({
   flow,

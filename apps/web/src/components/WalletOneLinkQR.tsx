@@ -1,5 +1,9 @@
 import { ComponentProps } from 'react'
+<<<<<<< HEAD
 import { useIsDarkMode, useSporeColors } from '@l.x/ui/src'
+=======
+import { useIsDarkMode, useSporeColors } from 'ui/src'
+>>>>>>> upstream/main
 
 // NOTE: until this view is simplified / optimized, it must stay out of the initial bundle!
 export const WalletOneLinkQR = (props: ComponentProps<'svg'>) => {

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { GraphQLApi } from '@l.x/api'
 import { useMemo, useState } from 'react'
 import { getNativeAddress } from '@l.x/lx/src/constants/addresses'
@@ -10,6 +11,20 @@ import { CurrencyField } from '@l.x/lx/src/types/currency'
 import { useEvent } from '@l.x/utils/src/react/hooks'
 import { useWalletNavigation } from '@luxfi/wallet/src/contexts/WalletNavigationContext'
 import { useActiveAccountAddressWithThrow } from '@luxfi/wallet/src/features/wallet/hooks'
+=======
+import { GraphQLApi } from '@universe/api'
+import { useMemo, useState } from 'react'
+import { getNativeAddress } from 'uniswap/src/constants/addresses'
+import { useCrossChainBalances } from 'uniswap/src/data/balances/hooks/useCrossChainBalances'
+import { useTokenBasicProjectPartsFragment } from 'uniswap/src/data/graphql/uniswap-data-api/fragments'
+import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { fromGraphQLChain } from 'uniswap/src/features/chains/utils'
+import { PortfolioBalance } from 'uniswap/src/features/dataApi/types'
+import { CurrencyField } from 'uniswap/src/types/currency'
+import { useEvent } from 'utilities/src/react/hooks'
+import { useWalletNavigation } from 'wallet/src/contexts/WalletNavigationContext'
+import { useActiveAccountAddressWithThrow } from 'wallet/src/features/wallet/hooks'
+>>>>>>> upstream/main
 
 type NetworkSheetAction = 'sell' | 'send'
 

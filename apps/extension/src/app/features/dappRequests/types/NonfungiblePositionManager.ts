@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import { NonfungiblePositionManager } from '@luxamm/v3-sdk'
+=======
+import { NonfungiblePositionManager } from '@uniswap/v3-sdk'
+>>>>>>> upstream/main
 import {
   NFPMCommand,
   NfpmCommandSchema,
@@ -24,5 +28,9 @@ export function parseCalldata(calldata: string): NonfungiblePositionManagerCall 
     return NonfungiblePositionManagerCallSchema.parse({ commands: data.map(parseMulticallCommand) })
   }
 
+<<<<<<< HEAD
   throw new Error('All NFPM calls from the Lux Labs interface are multicalls.')
+=======
+  throw new Error('All NFPM calls from the Uniswap Labs interface are multicalls.')
+>>>>>>> upstream/main
 }

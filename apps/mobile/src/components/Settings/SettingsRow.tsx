@@ -12,6 +12,7 @@ import {
 import { ConnectionsDappsListModalState } from 'src/components/Settings/ConnectionsDappModal/ConnectionsDappsListModalState'
 import { EditWalletSettingsModalState } from 'src/components/Settings/EditWalletModal/EditWalletSettingsModalState'
 import { useIsScreenNavigationReady } from 'src/utils/useIsScreenNavigationReady'
+<<<<<<< HEAD
 import { Flex, Skeleton, Switch, Text, TouchableArea, useSporeColors } from '@l.x/ui/src'
 import { Arrow } from '@l.x/ui/src/components/arrow/Arrow'
 import { RotatableChevron } from '@l.x/ui/src/components/icons'
@@ -20,6 +21,16 @@ import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
 import { MobileScreens } from '@l.x/lx/src/types/screens/mobile'
 import { openUri } from '@l.x/lx/src/utils/linking'
 import { SmartWalletAdvancedSettingsModalState } from '@luxfi/wallet/src/components/smartWallet/modals/SmartWalletAdvancedSettingsModal'
+=======
+import { Flex, Skeleton, Switch, Text, TouchableArea, useSporeColors } from 'ui/src'
+import { Arrow } from 'ui/src/components/arrow/Arrow'
+import { RotatableChevron } from 'ui/src/components/icons'
+import { iconSizes } from 'ui/src/theme'
+import { ModalName } from 'uniswap/src/features/telemetry/constants'
+import { MobileScreens } from 'uniswap/src/types/screens/mobile'
+import { openUri } from 'uniswap/src/utils/linking'
+import { SmartWalletAdvancedSettingsModalState } from 'wallet/src/components/smartWallet/modals/SmartWalletAdvancedSettingsModal'
+>>>>>>> upstream/main
 
 export const SETTINGS_ROW_HEIGHT = 60
 
@@ -68,6 +79,10 @@ export interface SettingsSectionItem {
   onToggle?: () => void
   isToggleEnabled?: boolean
   checkIfCanProceed?: () => boolean
+<<<<<<< HEAD
+=======
+  cantProceedFallback?: () => void
+>>>>>>> upstream/main
   count?: number
 }
 
@@ -75,6 +90,10 @@ interface SettingsRowProps {
   page: SettingsSectionItem
   navigation: SettingsStackNavigationProp & OnboardingStackNavigationProp
   checkIfCanProceed?: SettingsSectionItem['checkIfCanProceed']
+<<<<<<< HEAD
+=======
+  cantProceedFallback?: SettingsSectionItem['cantProceedFallback']
+>>>>>>> upstream/main
   testID?: string
 }
 
@@ -99,11 +118,19 @@ export const SettingsRow = memo(
     },
     navigation,
     checkIfCanProceed,
+<<<<<<< HEAD
+=======
+    cantProceedFallback,
+>>>>>>> upstream/main
   }: SettingsRowProps): JSX.Element => {
     const colors = useSporeColors()
 
     const handleRow = useCallback(async (): Promise<void> => {
       if (checkIfCanProceed && !checkIfCanProceed()) {
+<<<<<<< HEAD
+=======
+        cantProceedFallback?.()
+>>>>>>> upstream/main
         return
       }
 
@@ -113,14 +140,32 @@ export const SettingsRow = memo(
         // Type assignment to `any` is a workaround until we figure out how to
         // properly type screen param. `navigate` function also brings some issues,
         // where it accepts other screen's params, and not throws an error on required ones.
+<<<<<<< HEAD
         // biome-ignore lint/suspicious/noExplicitAny: Navigation types don't properly handle dynamic screen names
+=======
+        // oxlint-disable-next-line typescript/no-explicit-any -- Navigation types don't properly handle dynamic screen names
+>>>>>>> upstream/main
         navigation.navigate(screen as any, screenProps)
       } else if (navigationModal) {
         navigate(navigationModal, navigationProps)
       } else if (externalLink) {
         await openUri({ uri: externalLink })
       }
+<<<<<<< HEAD
     }, [checkIfCanProceed, onToggle, screen, navigation, screenProps, navigationProps, navigationModal, externalLink])
+=======
+    }, [
+      checkIfCanProceed,
+      cantProceedFallback,
+      onToggle,
+      screen,
+      navigation,
+      screenProps,
+      navigationProps,
+      navigationModal,
+      externalLink,
+    ])
+>>>>>>> upstream/main
 
     return (
       <TouchableArea disabled={Boolean(action)} testID={testID} onPress={handleRow}>

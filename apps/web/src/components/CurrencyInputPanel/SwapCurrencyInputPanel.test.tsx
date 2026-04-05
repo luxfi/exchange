@@ -7,6 +7,7 @@ vi.mock('~/state/multichain/useMultichainContext', () => ({
   useMultichainContext: vi.fn(),
 }))
 
+<<<<<<< HEAD
 vi.mock('lx/src/features/accounts/store/hooks', () => ({
   useActiveAddresses: vi.fn(),
 }))
@@ -16,11 +17,26 @@ import { nativeOnChain, USDT } from '@l.x/lx/src/constants/tokens'
 import { useActiveAddresses } from '@l.x/lx/src/features/accounts/store/hooks'
 import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { CurrencyField } from '@l.x/lx/src/types/currency'
+=======
+vi.mock('uniswap/src/features/accounts/store/hooks', () => ({
+  useActiveAddresses: vi.fn(),
+}))
+
+import { CurrencyAmount } from '@uniswap/sdk-core'
+import { nativeOnChain, USDT } from 'uniswap/src/constants/tokens'
+import { useActiveAddresses } from 'uniswap/src/features/accounts/store/hooks'
+import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { CurrencyField } from 'uniswap/src/types/currency'
+>>>>>>> upstream/main
 import SwapCurrencyInputPanel from '~/components/CurrencyInputPanel/SwapCurrencyInputPanel'
 import { useAccount } from '~/hooks/useAccount'
 import { useCurrencyBalance } from '~/state/connection/hooks'
 import { useMultichainContext } from '~/state/multichain/useMultichainContext'
+<<<<<<< HEAD
 import { renderWithLuxContext as render } from '~/test-utils/render'
+=======
+import { renderWithUniswapContext as render } from '~/test-utils/render'
+>>>>>>> upstream/main
 
 const mockUseCurrencyBalance = useCurrencyBalance as ReturnType<typeof vi.fn>
 const mockUseMultichainContext = useMultichainContext as ReturnType<typeof vi.fn>

@@ -1,14 +1,24 @@
 import { act, renderHook } from '@testing-library/react'
 import { useNetworkBalanceSheet } from 'src/screens/TokenDetailsScreen/useNetworkBalanceSheet'
+<<<<<<< HEAD
 import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { PortfolioBalance } from '@l.x/lx/src/features/dataApi/types'
 import { CurrencyField } from '@l.x/lx/src/types/currency'
+=======
+import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { PortfolioBalance } from 'uniswap/src/features/dataApi/types'
+import { CurrencyField } from 'uniswap/src/types/currency'
+>>>>>>> upstream/main
 
 const mockNavigateToSwapFlow = jest.fn()
 const mockNavigateToSend = jest.fn()
 
 jest.mock('wallet/src/contexts/WalletNavigationContext', () => ({
+<<<<<<< HEAD
   // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+=======
+  // oxlint-disable-next-line typescript/explicit-function-return-type
+>>>>>>> upstream/main
   useWalletNavigation: () => ({
     navigateToSwapFlow: mockNavigateToSwapFlow,
     navigateToSend: mockNavigateToSend,
@@ -16,7 +26,11 @@ jest.mock('wallet/src/contexts/WalletNavigationContext', () => ({
 }))
 
 jest.mock('wallet/src/features/wallet/hooks', () => ({
+<<<<<<< HEAD
   // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+=======
+  // oxlint-disable-next-line typescript/explicit-function-return-type
+>>>>>>> upstream/main
   useActiveAccountAddressWithThrow: () => '0xTestAddress',
 }))
 
@@ -75,6 +89,7 @@ let mockCrossChainResult = {
   otherChainBalances: null as PortfolioBalance[] | null,
 }
 
+<<<<<<< HEAD
 jest.mock('lx/src/data/balances/hooks/useCrossChainBalances', () => ({
   // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
   useCrossChainBalances: () => mockCrossChainResult,
@@ -82,6 +97,15 @@ jest.mock('lx/src/data/balances/hooks/useCrossChainBalances', () => ({
 
 jest.mock('lx/src/data/graphql/lux-data-api/fragments', () => ({
   // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+=======
+jest.mock('uniswap/src/data/balances/hooks/useCrossChainBalances', () => ({
+  // oxlint-disable-next-line typescript/explicit-function-return-type
+  useCrossChainBalances: () => mockCrossChainResult,
+}))
+
+jest.mock('uniswap/src/data/graphql/uniswap-data-api/fragments', () => ({
+  // oxlint-disable-next-line typescript/explicit-function-return-type
+>>>>>>> upstream/main
   useTokenBasicProjectPartsFragment: () => ({
     data: { project: { tokens: [] } },
   }),

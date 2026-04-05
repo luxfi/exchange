@@ -10,9 +10,15 @@ import { usePromptPushPermission } from 'src/features/notifications/hooks/usePro
 import { selectAllPushNotificationSettings } from 'src/features/notifications/selectors'
 import { showNotificationSettingsAlert } from 'src/features/notifications/showNotificationSettingsAlert'
 import { updateNotifSettings } from 'src/features/notifications/slice'
+<<<<<<< HEAD
 import { waitFrame } from '@l.x/utils/src/react/delayUtils'
 import { EditAccountAction, editAccountActions } from '@luxfi/wallet/src/features/wallet/accounts/editAccountSaga'
 import { useSelectAccountNotificationSetting } from '@luxfi/wallet/src/features/wallet/hooks'
+=======
+import { waitFrame } from 'utilities/src/react/delayUtils'
+import { EditAccountAction, editAccountActions } from 'wallet/src/features/wallet/accounts/editAccountSaga'
+import { useSelectAccountNotificationSetting } from 'wallet/src/features/wallet/hooks'
+>>>>>>> upstream/main
 
 enum NotificationError {
   OsPermissionDenied = 'OS_PERMISSION_DENIED',
@@ -169,7 +175,11 @@ function useBaseNotificationToggle({
       // After this point, we're guaranteed to have requested OS permissions
       // If we just obtained permissions, we want to enable notifications
       // Otherwise, we're toggling the current redux state
+<<<<<<< HEAD
       // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+=======
+      // oxlint-disable-next-line typescript/no-unnecessary-condition
+>>>>>>> upstream/main
       const shouldEnable = isOsEnabled ? !isAppPermissionEnabled : true
       return shouldEnable
     },

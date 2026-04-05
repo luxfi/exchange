@@ -21,6 +21,10 @@ export function isAndroid(): boolean {
  * @returns true if chrome environment supports side panel
  */
 export function checksIfSupportsSidePanel(): boolean {
+<<<<<<< HEAD
   // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+=======
+  // oxlint-disable-next-line typescript/no-unnecessary-condition
+>>>>>>> upstream/main
   return !!chrome.sidePanel && !isArcBrowser() && !isAndroid()
 }

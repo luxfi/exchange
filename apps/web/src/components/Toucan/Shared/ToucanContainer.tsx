@@ -1,5 +1,9 @@
 import { ComponentProps, PropsWithChildren } from 'react'
+<<<<<<< HEAD
 import { Flex } from '@l.x/ui/src'
+=======
+import { Flex } from 'ui/src'
+>>>>>>> upstream/main
 import { MAX_CONTENT_WIDTH_PX } from '~/theme'
 
 export const ToucanContainer = ({ children, ...props }: PropsWithChildren<ComponentProps<typeof Flex>>) => {

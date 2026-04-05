@@ -1,14 +1,24 @@
 import { JsonRpcSigner } from '@ethersproject/providers'
 import { getAccount } from '@wagmi/core'
 import { call, put } from 'typed-redux-saga'
+<<<<<<< HEAD
 import { addTransaction } from '@l.x/lx/src/features/transactions/slice'
 import { HandleOnChainStepParams, OnChainTransactionStepBatched } from '@l.x/lx/src/features/transactions/steps/types'
+=======
+import { addTransaction } from 'uniswap/src/features/transactions/slice'
+import { HandleOnChainStepParams, OnChainTransactionStepBatched } from 'uniswap/src/features/transactions/steps/types'
+>>>>>>> upstream/main
 import {
   InterfaceTransactionDetails,
   TransactionOriginType,
   TransactionStatus,
+<<<<<<< HEAD
 } from '@l.x/lx/src/features/transactions/types/transactionDetails'
 import { ValidatedTransactionRequest } from '@l.x/lx/src/features/transactions/types/transactionRequests'
+=======
+} from 'uniswap/src/features/transactions/types/transactionDetails'
+import { ValidatedTransactionRequest } from 'uniswap/src/features/transactions/types/transactionRequests'
+>>>>>>> upstream/main
 import { popupRegistry } from '~/components/Popups/registry'
 import { PopupType } from '~/components/Popups/types'
 import { wagmiConfig } from '~/components/Web3Provider/wagmiConfig'

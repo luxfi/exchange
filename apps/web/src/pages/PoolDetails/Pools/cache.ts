@@ -1,12 +1,23 @@
+<<<<<<< HEAD
 import { Token } from '@luxamm/sdk-core'
 import { Pool, Position } from '@luxamm/v3-sdk'
+=======
+import { Token } from '@uniswap/sdk-core'
+import { Pool, Position } from '@uniswap/v3-sdk'
+>>>>>>> upstream/main
 import { atom, useAtom } from 'jotai'
 import { atomWithStorage } from 'jotai/utils'
 import ms from 'ms'
 import { useCallback } from 'react'
+<<<<<<< HEAD
 import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { SerializedToken } from '@l.x/lx/src/features/tokens/warnings/slice/types'
 import { deserializeToken, serializeToken } from '@l.x/lx/src/utils/currency'
+=======
+import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { SerializedToken } from 'uniswap/src/features/tokens/warnings/slice/types'
+import { deserializeToken, serializeToken } from 'uniswap/src/utils/currency'
+>>>>>>> upstream/main
 import { getTokensAsync } from '~/pages/PoolDetails/Pools/getTokensAsync'
 import { useInterfaceMulticallContracts } from '~/pages/PoolDetails/Pools/hooks/useInterfaceMulticallContracts'
 import { PositionDetails } from '~/types/position'
@@ -73,7 +84,11 @@ export function usePoolAddressCache() {
     [cache],
   )
   const set = useCallback(
+<<<<<<< HEAD
     // eslint-disable-next-line max-params
+=======
+    // oxlint-disable-next-line max-params
+>>>>>>> upstream/main
     (details: PositionDetails, chainId: UniverseChainId, address: string) =>
       updateCache((c) => ({ ...c, [poolAddressKey(details, chainId)]: address })),
     [updateCache],

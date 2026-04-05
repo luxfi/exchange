@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import type { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
+=======
+import type { Platform } from 'uniswap/src/features/platforms/types/Platform'
+>>>>>>> upstream/main
 import type { ExternalConnector } from '~/features/accounts/store/types'
 import { ignoreExpectedConnectionErrors } from '~/features/wallet/connection/connectors/utils'
 import type { ConnectionService } from '~/features/wallet/connection/services/IConnectionService'

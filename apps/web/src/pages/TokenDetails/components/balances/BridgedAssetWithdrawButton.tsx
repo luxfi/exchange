@@ -1,5 +1,6 @@
 import { useAtom } from 'jotai'
 import { useTranslation } from 'react-i18next'
+<<<<<<< HEAD
 import { Flex, Text, TouchableArea } from '@l.x/ui/src'
 import { ExternalLink } from '@l.x/ui/src/components/icons/ExternalLink'
 import { WormholeModalAtom } from '@l.x/lx/src/components/BridgedAsset/WormholeModal'
@@ -7,6 +8,15 @@ import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
 import { useCurrencyInfo } from '@l.x/lx/src/features/tokens/useCurrencyInfo'
 import { buildCurrencyId } from '@l.x/lx/src/utils/currencyId'
 import { useEvent } from '@l.x/utils/src/react/hooks'
+=======
+import { Flex, Text, TouchableArea } from 'ui/src'
+import { ExternalLink } from 'ui/src/components/icons/ExternalLink'
+import { WormholeModalAtom } from 'uniswap/src/components/BridgedAsset/WormholeModal'
+import { ModalName } from 'uniswap/src/features/telemetry/constants'
+import { useCurrencyInfo } from 'uniswap/src/features/tokens/useCurrencyInfo'
+import { buildCurrencyId } from 'uniswap/src/utils/currencyId'
+import { useEvent } from 'utilities/src/react/hooks'
+>>>>>>> upstream/main
 import { useModalState } from '~/hooks/useModalState'
 import { useTDPStore } from '~/pages/TokenDetails/context/useTDPStore'
 

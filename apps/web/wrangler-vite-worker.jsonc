@@ -8,26 +8,42 @@
   "assets": {
     "run_worker_first": true,
     "not_found_handling": "single-page-application",
+<<<<<<< HEAD
     "binding": "ASSETS"
+=======
+    "binding": "ASSETS",
+>>>>>>> upstream/main
   },
 
   // Default for local development (the CF Vite plugin uses top-level config, not env.development)
   "name": "app-development",
   "vars": {
+<<<<<<< HEAD
     "ENTRY_GATEWAY_API_URL": "https://gw.lux.exchange/entry",
     "WEBSOCKET_URL": "https://ws.lux.exchange"
+=======
+    "ENTRY_GATEWAY_API_URL": "https://entry-gateway.backend-staging.api.uniswap.org",
+    "WEBSOCKET_URL": "https://websockets.backend-staging.api.uniswap.org",
+>>>>>>> upstream/main
   },
 
   "env": {
     "development": {
       "vars": {
+<<<<<<< HEAD
         "ENTRY_GATEWAY_API_URL": "https://gw.lux.exchange/entry",
         "WEBSOCKET_URL": "https://ws.lux.exchange"
       }
+=======
+        "ENTRY_GATEWAY_API_URL": "https://entry-gateway.backend-dev.api.uniswap.org",
+        "WEBSOCKET_URL": "https://websockets.backend-dev.api.uniswap.org",
+      },
+>>>>>>> upstream/main
     },
     "staging": {
       "name": "app-staging",
       "vars": {
+<<<<<<< HEAD
         "ENTRY_GATEWAY_API_URL": "https://gw.lux.exchange/entry",
         "WEBSOCKET_URL": "https://ws.lux.exchange"
       },
@@ -41,12 +57,34 @@
       "vars": {
         "ENTRY_GATEWAY_API_URL": "https://gw.lux.exchange/entry",
         "WEBSOCKET_URL": "https://ws.lux.exchange"
+=======
+        "ENTRY_GATEWAY_API_URL": "https://entry-gateway.backend-staging.api.uniswap.org",
+        "WEBSOCKET_URL": "https://websockets.backend-staging.api.uniswap.org",
+>>>>>>> upstream/main
       },
       "observability": {
         "enabled": true,
         "head_sampling_rate": 1,
+<<<<<<< HEAD
         "invocation_logs": false
       }
     }
   }
+=======
+      },
+    },
+    "production": {
+      "name": "app",
+      "vars": {
+        "ENTRY_GATEWAY_API_URL": "https://entry-gateway.backend-prod.api.uniswap.org",
+        "WEBSOCKET_URL": "https://websockets.backend-prod.api.uniswap.org",
+      },
+      "observability": {
+        "enabled": true,
+        "head_sampling_rate": 1,
+        "invocation_logs": false,
+      },
+    },
+  },
+>>>>>>> upstream/main
 }

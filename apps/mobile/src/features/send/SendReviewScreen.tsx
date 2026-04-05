@@ -1,10 +1,18 @@
 import React, { useEffect, useState } from 'react'
 import { SEND_CONTENT_RENDER_DELAY_MS } from 'src/features/send/constants'
+<<<<<<< HEAD
 import { Flex } from '@l.x/ui/src/components/layout/Flex'
 import { useHapticFeedback } from '@l.x/lx/src/features/settings/useHapticFeedback/useHapticFeedback'
 import { TransactionModalInnerContainer } from '@l.x/lx/src/features/transactions/components/TransactionModal/TransactionModal'
 import { useTransactionModalContext } from '@l.x/lx/src/features/transactions/components/TransactionModal/TransactionModalContext'
 import { SendReviewDetails } from '@luxfi/wallet/src/features/transactions/send/SendReviewDetails'
+=======
+import { Flex } from 'ui/src/components/layout/Flex'
+import { useHapticFeedback } from 'uniswap/src/features/settings/useHapticFeedback/useHapticFeedback'
+import { TransactionModalInnerContainer } from 'uniswap/src/features/transactions/components/TransactionModal/TransactionModal'
+import { useTransactionModalContext } from 'uniswap/src/features/transactions/components/TransactionModal/TransactionModalContext'
+import { SendReviewDetails } from 'wallet/src/features/transactions/send/SendReviewDetails'
+>>>>>>> upstream/main
 
 // We add a short hardcoded delay to allow the sheet to animate quickly both on first render and when going back from Review -> Form.
 export function SendReviewScreen(): JSX.Element {

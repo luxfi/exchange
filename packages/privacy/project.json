@@ -1,0 +1,23 @@
+{
+  "name": "@universe/privacy",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/privacy/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "typecheck": {},
+    "typecheck:tsgo": {},
+    "oxfmt": {},
+    "oxfmt:fix": {},
+    "oxlint": {},
+    "oxlint:fix": {},
+    "oxlint:type-aware": {},
+    "lint:eslint": {},
+    "lint:eslint:fix": {},
+    "lint": {},
+    "lint:fix": {},
+    "check": {},
+    "check:fix": {},
+    "check:deps:usage": {}
+  }
+}

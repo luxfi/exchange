@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next'
 import { useDispatch } from 'react-redux'
 import { UnitagClaimRoutes } from 'src/app/navigation/constants'
 import { focusOrCreateUnitagTab } from 'src/app/navigation/utils'
+<<<<<<< HEAD
 import { Button, Flex, Text } from '@l.x/ui/src'
 import { Person } from '@l.x/ui/src/components/icons'
 import { iconSizes } from '@l.x/ui/src/theme'
@@ -18,6 +19,23 @@ import { CardType, IntroCard, IntroCardGraphicType } from '@luxfi/wallet/src/com
 import { useCanActiveAddressClaimUnitag } from '@luxfi/wallet/src/features/unitags/hooks/useCanActiveAddressClaimUnitag'
 import { EditAccountAction, editAccountActions } from '@luxfi/wallet/src/features/wallet/accounts/editAccountSaga'
 import { useDisplayName } from '@luxfi/wallet/src/features/wallet/hooks'
+=======
+import { Button, Flex, Text } from 'ui/src'
+import { Person } from 'ui/src/components/icons'
+import { iconSizes } from 'ui/src/theme'
+import { TextInput } from 'uniswap/src/components/input/TextInput'
+import { Modal } from 'uniswap/src/components/modals/Modal'
+import { AccountIcon } from 'uniswap/src/features/accounts/AccountIcon'
+import { DisplayNameType } from 'uniswap/src/features/accounts/types'
+import { ModalName } from 'uniswap/src/features/telemetry/constants'
+import { OnboardingCardLoggingName } from 'uniswap/src/features/telemetry/types'
+import { UNITAG_SUFFIX_NO_LEADING_DOT } from 'uniswap/src/features/unitags/constants'
+import { shortenAddress } from 'utilities/src/addresses'
+import { CardType, IntroCard, IntroCardGraphicType } from 'wallet/src/components/introCards/IntroCard'
+import { useCanActiveAddressClaimUnitag } from 'wallet/src/features/unitags/hooks/useCanActiveAddressClaimUnitag'
+import { EditAccountAction, editAccountActions } from 'wallet/src/features/wallet/accounts/editAccountSaga'
+import { useDisplayName } from 'wallet/src/features/wallet/hooks'
+>>>>>>> upstream/main
 
 type EditLabelModalProps = {
   isOpen: boolean

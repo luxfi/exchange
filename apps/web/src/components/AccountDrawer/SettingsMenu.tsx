@@ -1,4 +1,5 @@
 import { useTranslation } from 'react-i18next'
+<<<<<<< HEAD
 import { Button, Flex, Text } from '@l.x/ui/src'
 import { ChartBar } from '@l.x/ui/src/components/icons/ChartBar'
 import { Coins } from '@l.x/ui/src/components/icons/Coins'
@@ -12,6 +13,21 @@ import { useCurrentLanguage, useLanguageInfo } from 'lx/src/features/language/ho
 import { ElementName } from 'lx/src/features/telemetry/constants'
 import Trace from 'lx/src/features/telemetry/Trace'
 import { TestID } from 'lx/src/test/fixtures/testIDs'
+=======
+import { Button, Flex, Text } from 'ui/src'
+import { ChartBar } from 'ui/src/components/icons/ChartBar'
+import { Coins } from 'ui/src/components/icons/Coins'
+import { DocumentList } from 'ui/src/components/icons/DocumentList'
+import { Language } from 'ui/src/components/icons/Language'
+import { Power } from 'ui/src/components/icons/Power'
+import { ShieldCheck } from 'ui/src/components/icons/ShieldCheck'
+import { CONNECTION_PROVIDER_IDS } from 'uniswap/src/constants/web3'
+import { useAppFiatCurrency } from 'uniswap/src/features/fiatCurrency/hooks'
+import { useCurrentLanguage, useLanguageInfo } from 'uniswap/src/features/language/hooks'
+import { ElementName } from 'uniswap/src/features/telemetry/constants'
+import Trace from 'uniswap/src/features/telemetry/Trace'
+import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+>>>>>>> upstream/main
 import { AnalyticsToggle } from '~/components/AccountDrawer/AnalyticsToggle'
 import { AppVersionRow } from '~/components/AccountDrawer/AppVersionRow'
 import { useOnDisconnect } from '~/components/AccountDrawer/DisconnectButton'

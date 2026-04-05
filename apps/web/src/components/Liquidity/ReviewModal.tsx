@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { ProtocolVersion } from '@luxamm/client-data-api/dist/data/v1/poolTypes_pb'
 import { Currency, CurrencyAmount, Price, Token } from '@luxamm/sdk-core'
 import { useMemo } from 'react'
@@ -19,6 +20,28 @@ import { useUSDCValue } from '@l.x/lx/src/features/transactions/hooks/useUSDCPri
 import { TransactionStep } from '@l.x/lx/src/features/transactions/steps/types'
 import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
 import { NumberType } from '@l.x/utils/src/format/types'
+=======
+import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
+import { Currency, CurrencyAmount, Price, Token } from '@uniswap/sdk-core'
+import { useMemo } from 'react'
+import { useTranslation } from 'react-i18next'
+import { Button, Flex, Separator, Text } from 'ui/src'
+import { InfoCircleFilled } from 'ui/src/components/icons/InfoCircleFilled'
+import { Passkey } from 'ui/src/components/icons/Passkey'
+import { iconSizes } from 'ui/src/theme'
+import { ProgressIndicator } from 'uniswap/src/components/ConfirmSwapModal/ProgressIndicator'
+import { NetworkLogo } from 'uniswap/src/components/CurrencyLogo/NetworkLogo'
+import { TokenLogo } from 'uniswap/src/components/CurrencyLogo/TokenLogo'
+import { GetHelpHeader } from 'uniswap/src/components/dialog/GetHelpHeader'
+import { Modal } from 'uniswap/src/components/modals/Modal'
+import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
+import { useGetPasskeyAuthStatus } from 'uniswap/src/features/passkey/hooks/useGetPasskeyAuthStatus'
+import { ModalNameType } from 'uniswap/src/features/telemetry/constants'
+import { useUSDCValue } from 'uniswap/src/features/transactions/hooks/useUSDCPriceWrapper'
+import { TransactionStep } from 'uniswap/src/features/transactions/steps/types'
+import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+import { NumberType } from 'utilities/src/format/types'
+>>>>>>> upstream/main
 import {
   getLiquidityRangeChartProps,
   WrappedLiquidityPositionRangeChart,
@@ -141,8 +164,18 @@ export function ReviewModal({
   const { baseCurrency, quoteCurrency } = getBaseAndQuoteCurrencies(currencies.sdk, priceInverted)
 
   const ticksAtLimit = useMemo(() => {
+<<<<<<< HEAD
     return getTicksAtLimit({
       tickSpacing: fee?.tickSpacing ?? DEFAULT_TICK_SPACING,
+=======
+    // V2 pools return 0 tick spacing because every V2 position is full range
+    if (!fee?.tickSpacing) {
+      return [false, false]
+    }
+
+    return getTicksAtLimit({
+      tickSpacing: fee.tickSpacing,
+>>>>>>> upstream/main
       lowerTick: minTick,
       upperTick: maxTick,
       fullRange,
@@ -355,7 +388,11 @@ export function ReviewModal({
                 onPress={onConfirm}
                 isDisabled={isDisabled}
                 fill={false}
+<<<<<<< HEAD
                 icon={needsPasskeySignin ? <Passkey size="$icon.24" color="$neutral1" /> : undefined}
+=======
+                icon={needsPasskeySignin ? <Passkey size="$icon.24" color="$white" /> : undefined}
+>>>>>>> upstream/main
               >
                 {isSignedInWithPasskey && isSessionAuthenticated ? t('position.create.confirm') : confirmButtonText}
               </Button>

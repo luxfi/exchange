@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { ProtocolVersion } from '@luxamm/client-data-api/dist/data/v1/poolTypes_pb'
 import { Currency, Price } from '@luxamm/sdk-core'
 import { GraphQLApi } from '@l.x/api'
@@ -8,6 +9,18 @@ import { Flex, SegmentedControlOption, Shine, Text } from '@l.x/ui/src'
 import { ZERO_ADDRESS } from '@l.x/lx/src/constants/misc'
 import { getChainInfo } from '@l.x/lx/src/features/chains/chainInfo'
 import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+=======
+import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
+import { Currency, Price } from '@uniswap/sdk-core'
+import { GraphQLApi } from '@universe/api'
+import { UTCTimestamp } from 'lightweight-charts'
+import { useMemo, useState } from 'react'
+import { useTranslation } from 'react-i18next'
+import { Flex, SegmentedControlOption, Shine, Text } from 'ui/src'
+import { ZERO_ADDRESS } from 'uniswap/src/constants/misc'
+import { getChainInfo } from 'uniswap/src/features/chains/chainInfo'
+import { UniverseChainId } from 'uniswap/src/features/chains/types'
+>>>>>>> upstream/main
 import { D3LiquidityChartHeader } from '~/components/Charts/D3LiquidityRangeInput/D3LiquidityRangeChart/components/D3LiquidityChartHeader'
 import { D3LiquidityMinMaxInput } from '~/components/Charts/D3LiquidityRangeInput/D3LiquidityRangeChart/components/D3LiquidityMinMaxInput'
 import { DefaultPriceStrategies } from '~/components/Charts/D3LiquidityRangeInput/D3LiquidityRangeChart/components/DefaultPriceStrategies'

@@ -1,8 +1,17 @@
+<<<<<<< HEAD
 import { lazy, Suspense, useEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Button, Flex, useIsDarkMode, useMedia } from '@l.x/ui/src'
 import { ElementName } from '@l.x/lx/src/features/telemetry/constants'
 import { logger } from '@l.x/utils/src/logger/logger'
+=======
+import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import { lazy, Suspense, useEffect, useRef, useState } from 'react'
+import { useTranslation } from 'react-i18next'
+import { Button, Flex, useIsDarkMode, useMedia } from 'ui/src'
+import { ElementName } from 'uniswap/src/features/telemetry/constants'
+import { logger } from 'utilities/src/logger/logger'
+>>>>>>> upstream/main
 import ErrorBoundary from '~/components/ErrorBoundary'
 import { BidDistributionChartTab } from '~/components/Toucan/Auction/AuctionChartShared'
 import { ChartFooter } from '~/components/Toucan/Auction/BidDistributionChart/BidDistributionChartFooter'
@@ -30,6 +39,10 @@ enum AuctionChartName {
   ClearingPrice = 'ClearingPriceChart',
   BidDistribution = 'BidDistributionChart',
   BidDemand = 'BidDemandChart',
+<<<<<<< HEAD
+=======
+  Combined = 'CombinedAuctionChart',
+>>>>>>> upstream/main
 }
 
 const createChartErrorFallback = (chartName: AuctionChartName) => {
@@ -56,6 +69,10 @@ const createChartErrorFallback = (chartName: AuctionChartName) => {
 const ClearingPriceChartErrorFallback = createChartErrorFallback(AuctionChartName.ClearingPrice)
 const BidDistributionChartErrorFallback = createChartErrorFallback(AuctionChartName.BidDistribution)
 const BidDemandChartErrorFallback = createChartErrorFallback(AuctionChartName.BidDemand)
+<<<<<<< HEAD
+=======
+const CombinedChartErrorFallback = createChartErrorFallback(AuctionChartName.Combined)
+>>>>>>> upstream/main
 
 const LazyClearingPriceChart = lazy(async () => {
   const module = await import('~/components/Charts/ToucanChart/clearingPrice/ClearingPriceChart')
@@ -67,6 +84,14 @@ const LazyBidDistributionChart = lazy(async () => {
   return { default: module.BidDistributionChart }
 })
 
+<<<<<<< HEAD
+=======
+const LazyCombinedAuctionChart = lazy(async () => {
+  const module = await import('~/components/Toucan/Auction/BidDistributionChart/CombinedAuctionChart')
+  return { default: module.CombinedAuctionChart }
+})
+
+>>>>>>> upstream/main
 interface AuctionChartContainerProps {
   activeTab: BidDistributionChartTab
   onTabChange: (tab: BidDistributionChartTab) => void
@@ -83,6 +108,10 @@ interface AuctionChartContainerProps {
  * - Shared footer
  */
 export function AuctionChartContainer({ activeTab, onTabChange, onMobileScreenChange }: AuctionChartContainerProps) {
+<<<<<<< HEAD
+=======
+  const isV2 = useFeatureFlag(FeatureFlags.AuctionDetailsV2)
+>>>>>>> upstream/main
   const { auctionDetails, auctionDetailsLoadState, auctionProgressState, isGraduated, currentBlockNumber } =
     useAuctionStore((state) => ({
       auctionDetails: state.auctionDetails,
@@ -154,6 +183,86 @@ export function AuctionChartContainer({ activeTab, onTabChange, onMobileScreenCh
     return renderPlaceholder(t('common.loading'))
   }
 
+<<<<<<< HEAD
+=======
+  // V2: Combined price + distribution chart
+  if (isV2) {
+    return (
+      <Flex flexDirection="column">
+        <BidDistributionChartHeader activeTab={activeTab} onTabChange={onTabChange} combinedMode />
+        <Flex flexDirection="column" gap="$spacing16">
+          {activeTab === BidDistributionChartTab.Demand ? (
+            <ErrorBoundary fallback={BidDemandChartErrorFallback}>
+              <Suspense fallback={renderPlaceholder(t('common.loading'))}>
+                <BidDemandChartPanel
+                  key={`demand-${isDarkMode}`}
+                  auctionDetails={auctionDetails}
+                  bidTokenInfo={bidTokenInfo}
+                  tokenColor={effectiveTokenColor}
+                />
+              </Suspense>
+            </ErrorBoundary>
+          ) : (
+            <ErrorBoundary fallback={CombinedChartErrorFallback}>
+              <Suspense fallback={renderPlaceholder(t('common.loading'))}>
+                <CombinedAuctionChartPanel
+                  key={`combined-${isDarkMode}`}
+                  auctionDetails={auctionDetails}
+                  bidTokenInfo={bidTokenInfo}
+                  tokenColor={effectiveTokenColor}
+                />
+              </Suspense>
+            </ErrorBoundary>
+          )}
+          <ChartFooter activeTab={activeTab} groupingToggleDisabled={groupingToggleDisabled} combinedMode />
+          {/* Mobile action buttons - only visible on $lg screens */}
+          <Flex
+            display="none"
+            $lg={{ display: 'flex', mt: '$none' }}
+            $sm={{ mt: '$spacing8' }}
+            gap="$spacing12"
+            mt="$spacing16"
+          >
+            {hasUserBids && (
+              <Button
+                flex={1}
+                emphasis="secondary"
+                onPress={() =>
+                  onMobileScreenChange?.({
+                    screen: MobileScreen.BID_FORM,
+                  })
+                }
+              >
+                {t('toucan.auction.myBids')}
+              </Button>
+            )}
+            {!media.sm && canPlaceBid && (
+              <ToucanActionButton
+                label={t('toucan.bidForm.placeABid')}
+                onPress={() =>
+                  onMobileScreenChange?.({
+                    screen: MobileScreen.BID_FORM,
+                  })
+                }
+              />
+            )}
+            {!media.sm && showMobileWithdrawButton && (
+              <ToucanActionButton
+                elementName={ElementName.AuctionWithdrawTokensButton}
+                label={withdrawLabel}
+                onPress={() => setIsWithdrawModalOpen(true)}
+                isDisabled={isWithdrawDisabled}
+                disabledTooltip={isWithdrawDisabled ? withdrawDisabledTooltip : undefined}
+              />
+            )}
+          </Flex>
+        </Flex>
+        <WithdrawModal isOpen={isWithdrawModalOpen} onClose={() => setIsWithdrawModalOpen(false)} />
+      </Flex>
+    )
+  }
+
+>>>>>>> upstream/main
   return (
     <Flex flexDirection="column">
       <BidDistributionChartHeader activeTab={activeTab} onTabChange={onTabChange} />
@@ -319,3 +428,20 @@ function BidDemandChartPanel({
     />
   )
 }
+<<<<<<< HEAD
+=======
+
+function CombinedAuctionChartPanel({
+  auctionDetails,
+  bidTokenInfo,
+  tokenColor,
+}: {
+  auctionDetails: AuctionDetails
+  bidTokenInfo: BidTokenInfo
+  tokenColor?: string
+}): JSX.Element {
+  return (
+    <LazyCombinedAuctionChart auctionDetails={auctionDetails} bidTokenInfo={bidTokenInfo} tokenColor={tokenColor} />
+  )
+}
+>>>>>>> upstream/main

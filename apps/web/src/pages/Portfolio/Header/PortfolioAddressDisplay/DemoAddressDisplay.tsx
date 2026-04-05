@@ -1,8 +1,15 @@
 import { useTranslation } from 'react-i18next'
+<<<<<<< HEAD
 import { Flex, Text, Tooltip, useSporeColors } from '@l.x/ui/src'
 import { Eye } from '@l.x/ui/src/components/icons/Eye'
 import { iconSizes, zIndexes } from '@l.x/ui/src/theme'
 import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
+=======
+import { Flex, Text, Tooltip, useSporeColors } from 'ui/src'
+import { Eye } from 'ui/src/components/icons/Eye'
+import { iconSizes, zIndexes } from 'ui/src/theme'
+import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+>>>>>>> upstream/main
 import { ReactComponent as Unicon } from '~/assets/svg/demo-wallet-emblem.svg'
 
 export function DemoAddressDisplay({ isCompact }: { isCompact: boolean }) {

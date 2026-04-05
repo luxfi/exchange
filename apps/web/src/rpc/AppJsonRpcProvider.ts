@@ -1,6 +1,11 @@
 import { JsonRpcProvider } from '@ethersproject/providers'
+<<<<<<< HEAD
 import { AVERAGE_L1_BLOCK_TIME_MS } from '@l.x/lx/src/features/transactions/hooks/usePollingIntervalByChain'
 import { logger } from '@l.x/utils/src/logger/logger'
+=======
+import { AVERAGE_L1_BLOCK_TIME_MS } from 'uniswap/src/features/transactions/hooks/usePollingIntervalByChain'
+import { logger } from 'utilities/src/logger/logger'
+>>>>>>> upstream/main
 import ConfiguredJsonRpcProvider from '~/rpc/ConfiguredJsonRpcProvider'
 
 /**

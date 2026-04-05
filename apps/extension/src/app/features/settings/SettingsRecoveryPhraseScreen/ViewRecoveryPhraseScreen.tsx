@@ -6,9 +6,15 @@ import { SeedPhraseDisplay } from 'src/app/features/settings/SettingsRecoveryPhr
 import { SettingsRecoveryPhrase } from 'src/app/features/settings/SettingsRecoveryPhraseScreen/SettingsRecoveryPhrase'
 import { AppRoutes, RemoveRecoveryPhraseRoutes, SettingsRoutes } from 'src/app/navigation/constants'
 import { navigate } from 'src/app/navigation/state'
+<<<<<<< HEAD
 import { Button, Flex, Text } from '@l.x/ui/src'
 import { AlertTriangleFilled, Eye, Key, Laptop } from '@l.x/ui/src/components/icons'
 import { useSignerAccounts } from '@luxfi/wallet/src/features/wallet/hooks'
+=======
+import { Button, Flex, Text } from 'ui/src'
+import { AlertTriangleFilled, Eye, Key, Laptop } from 'ui/src/components/icons'
+import { useSignerAccounts } from 'wallet/src/features/wallet/hooks'
+>>>>>>> upstream/main
 
 const enum ViewStep {
   Warning = 0,

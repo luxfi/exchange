@@ -1,6 +1,11 @@
 import type { PartialMessage } from '@bufbuild/protobuf'
+<<<<<<< HEAD
 import type { ListTokensRequest, ListTokensResponse } from '@luxamm/client-data-api/dist/data/v1/api_pb'
 import type { MultichainToken } from '@luxamm/client-data-api/dist/data/v1/types_pb'
+=======
+import type { ListTokensRequest, ListTokensResponse } from '@uniswap/client-data-api/dist/data/v1/api_pb'
+import type { MultichainToken } from '@uniswap/client-data-api/dist/data/v1/types_pb'
+>>>>>>> upstream/main
 import { TokenSortMethod } from '~/components/Tokens/constants'
 import { backendSortedToMultichainTokens } from '~/state/explore/listTokens/services/backendSorted/backendSortedToMultichainTokens'
 import { tokenStatsToMultichainTokens } from '~/state/explore/listTokens/services/legacy/legacyToMultichainTokens'
@@ -30,7 +35,11 @@ interface ListTokensResult {
  * shape. Delegates to legacy explore API, backend-sorted legacy response, or
  * backend-sorted multichain response depending on feature flags and context.
  */
+<<<<<<< HEAD
 export interface ListTokensService {
+=======
+interface ListTokensService {
+>>>>>>> upstream/main
   /**
    * Fetches tokens for the given chains and options. Returns paginated
    * multichain tokens and an optional nextPageToken for pagination.

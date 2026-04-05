@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Flex } from '@l.x/ui/src'
@@ -11,6 +12,21 @@ export interface PercentageAllocationItem {
   label: string
   icon?: React.ReactNode
 }
+=======
+import { useMemo, useState } from 'react'
+import { useTranslation } from 'react-i18next'
+import { Flex } from 'ui/src'
+import useResizeObserver from 'use-resize-observer'
+import { adjustItemWidths, MIN_BAR_WIDTH } from '~/components/PercentageAllocationChart/chartUtils'
+import { Legend } from '~/components/PercentageAllocationChart/Legend'
+import { PercentageBars } from '~/components/PercentageAllocationChart/PercentageBars'
+import type { PercentageAllocationItem } from '~/components/PercentageAllocationChart/types'
+import { useChartHover } from '~/components/PercentageAllocationChart/useChartHover'
+
+export type { PercentageAllocationItem } from '~/components/PercentageAllocationChart/types'
+
+const DEFAULT_MAX_LEGEND_ITEMS = 5
+>>>>>>> upstream/main
 
 interface PercentageAllocationChartProps {
   items: PercentageAllocationItem[]
@@ -19,6 +35,7 @@ interface PercentageAllocationChartProps {
   className?: string
 }
 
+<<<<<<< HEAD
 const MIN_BAR_WIDTH = 8
 const GAP_WIDTH = 4
 const MAX_SMALL_ITEMS = 4
@@ -170,6 +187,8 @@ function adjustItemWidths({
   })
 }
 
+=======
+>>>>>>> upstream/main
 export function PercentageAllocationChart({
   items,
   minBarWidth = MIN_BAR_WIDTH,
@@ -178,6 +197,7 @@ export function PercentageAllocationChart({
 }: PercentageAllocationChartProps): JSX.Element {
   const { t } = useTranslation()
   const { ref: chartRef, width: chartWidth } = useResizeObserver<HTMLElement>()
+<<<<<<< HEAD
   const [hoveredItem, setHoveredItem] = useState<string | null>(null)
   const [showAllItems, setShowAllItems] = useState(false)
 
@@ -275,6 +295,37 @@ export function PercentageAllocationChart({
           </Flex>
         )}
       </Flex>
+=======
+  const { hoveredItemId, onHover } = useChartHover()
+  const [showAllItems, setShowAllItems] = useState(false)
+
+  const adjustedItems = useMemo(
+    () => adjustItemWidths({ t, items, chartWidth, minBarWidth }),
+    [t, items, chartWidth, minBarWidth],
+  )
+
+  const displayItems = showAllItems ? adjustedItems : adjustedItems.slice(0, maxLegendItems)
+  const hasMoreItems = adjustedItems.length > maxLegendItems
+
+  return (
+    <Flex flexDirection="column" gap="$spacing16" ref={chartRef} className={className}>
+      <PercentageBars
+        adjustedItems={adjustedItems}
+        hoveredItemId={hoveredItemId}
+        onHover={onHover}
+        minBarWidth={minBarWidth}
+      />
+      <Legend
+        items={displayItems}
+        hoveredItemId={hoveredItemId}
+        onItemHover={onHover}
+        hasMoreItems={hasMoreItems}
+        showAllItems={showAllItems}
+        onShowAllToggle={() => setShowAllItems((prev) => !prev)}
+        totalItemsCount={adjustedItems.length}
+        maxLegendItems={maxLegendItems}
+      />
+>>>>>>> upstream/main
     </Flex>
   )
 }

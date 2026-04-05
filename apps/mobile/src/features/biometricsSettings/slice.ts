@@ -1,5 +1,9 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit'
+<<<<<<< HEAD
 import { setFinishedOnboarding } from '@luxfi/wallet/src/features/wallet/slice'
+=======
+import { setFinishedOnboarding } from 'wallet/src/features/wallet/slice'
+>>>>>>> upstream/main
 
 export enum BiometricSettingType {
   RequiredForAppAccess = 0,

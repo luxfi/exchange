@@ -1,11 +1,20 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
+<<<<<<< HEAD
 import { Flex } from '@l.x/ui/src'
 import { spacing } from '@l.x/ui/src/theme'
 import { InterfaceEventName, ModalName } from '@l.x/lx/src/features/telemetry/constants'
 import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
 import Trace from '@l.x/lx/src/features/telemetry/Trace'
 import { useEvent } from '@l.x/utils/src/react/hooks'
+=======
+import { Flex } from 'ui/src'
+import { spacing } from 'ui/src/theme'
+import { InterfaceEventName, ModalName } from 'uniswap/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
+import Trace from 'uniswap/src/features/telemetry/Trace'
+import { useEvent } from 'utilities/src/react/hooks'
+>>>>>>> upstream/main
 import { WalletAlertBadge } from '~/components/Badge/WalletAlertBadge'
 import { Toast } from '~/components/Popups/Toast'
 import { useAccount } from '~/hooks/useAccount'

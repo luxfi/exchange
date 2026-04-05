@@ -1,9 +1,15 @@
+<<<<<<< HEAD
 import type { Currency, CurrencyAmount, Percent } from '@luxamm/sdk-core'
 import type { Pair } from '@luxamm/v2-sdk'
+=======
+import type { Currency, CurrencyAmount, Percent } from '@uniswap/sdk-core'
+import type { Pair } from '@uniswap/v2-sdk'
+>>>>>>> upstream/main
 import ms from 'ms'
 import type { ReactNode } from 'react'
 import { forwardRef, useCallback, useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
+<<<<<<< HEAD
 import { AnimatePresence, Button, Flex, Text, useSporeColors } from '@l.x/ui/src'
 import { Lock } from '@l.x/ui/src/components/icons/Lock'
 import { useIsSupportedChainId } from '@l.x/lx/src/features/chains/hooks/useSupportedChainId'
@@ -12,6 +18,17 @@ import { ElementName } from '@l.x/lx/src/features/telemetry/constants'
 import Trace from '@l.x/lx/src/features/telemetry/Trace'
 import { CurrencyField } from '@l.x/lx/src/types/currency'
 import { NumberType } from '@l.x/utils/src/format/types'
+=======
+import { AnimatePresence, Button, Flex, Text, useSporeColors } from 'ui/src'
+import { Lock } from 'ui/src/components/icons/Lock'
+import { useIsSupportedChainId } from 'uniswap/src/features/chains/hooks/useSupportedChainId'
+import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
+import { ElementName } from 'uniswap/src/features/telemetry/constants'
+import Trace from 'uniswap/src/features/telemetry/Trace'
+import { CurrencyField } from 'uniswap/src/types/currency'
+import { NumberType } from 'utilities/src/format/types'
+>>>>>>> upstream/main
 import { PrefetchBalancesWrapper } from '~/appGraphql/data/apollo/AdaptiveTokenBalancesProvider'
 import { ReactComponent as DropDown } from '~/assets/images/dropdown.svg'
 import { FiatValue } from '~/components/CurrencyInputPanel/FiatValue'
@@ -219,6 +236,11 @@ interface SwapCurrencyInputPanelProps {
     disabledTooltipBody?: ReactNode
   }
   initialCurrencyLoading?: boolean
+<<<<<<< HEAD
+=======
+  chainIds?: UniverseChainId[]
+  switchNetworkAction?: SwitchNetworkAction
+>>>>>>> upstream/main
 }
 
 const SwapCurrencyInputPanel = forwardRef<HTMLInputElement, SwapCurrencyInputPanelProps>(
@@ -245,6 +267,11 @@ const SwapCurrencyInputPanel = forwardRef<HTMLInputElement, SwapCurrencyInputPan
       currencyField,
       numericalInputSettings,
       label,
+<<<<<<< HEAD
+=======
+      chainIds,
+      switchNetworkAction,
+>>>>>>> upstream/main
       ...rest
     },
     ref,
@@ -258,7 +285,11 @@ const SwapCurrencyInputPanel = forwardRef<HTMLInputElement, SwapCurrencyInputPan
     const { formatCurrencyAmount } = useLocalizationContext()
     const { t } = useTranslation()
 
+<<<<<<< HEAD
     // biome-ignore lint/correctness/useExhaustiveDependencies: +setModalOpen
+=======
+    // oxlint-disable-next-line react/exhaustive-deps -- +setModalOpen
+>>>>>>> upstream/main
     const handleDismissSearch = useCallback(() => {
       setModalOpen(false)
     }, [setModalOpen])
@@ -273,7 +304,11 @@ const SwapCurrencyInputPanel = forwardRef<HTMLInputElement, SwapCurrencyInputPan
     }, [tooltipVisible, numericalInputSettings])
 
     // reset tooltip state when currency changes
+<<<<<<< HEAD
     // biome-ignore lint/correctness/useExhaustiveDependencies: currency dependency is sufficient for this effect
+=======
+    // oxlint-disable-next-line react/exhaustive-deps -- currency dependency is sufficient for this effect
+>>>>>>> upstream/main
     useEffect(() => setTooltipVisible(false), [currency])
 
     const showCurrencyLoadingSpinner =
@@ -439,7 +474,12 @@ const SwapCurrencyInputPanel = forwardRef<HTMLInputElement, SwapCurrencyInputPan
             onCurrencySelect={onCurrencySelect}
             selectedCurrency={currency}
             otherSelectedCurrency={otherCurrency}
+<<<<<<< HEAD
             switchNetworkAction={SwitchNetworkAction.Swap}
+=======
+            chainIds={chainIds}
+            switchNetworkAction={switchNetworkAction ?? SwitchNetworkAction.Swap}
+>>>>>>> upstream/main
           />
         )}
       </InputPanel>

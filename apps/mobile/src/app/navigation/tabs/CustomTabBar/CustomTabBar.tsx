@@ -5,6 +5,7 @@ import { useAnimatedStyle, useDerivedValue, withTiming } from 'react-native-rean
 import { TAB_BAR_ANIMATION_DURATION, TAB_ITEMS } from 'src/app/navigation/tabs/CustomTabBar/constants'
 import { SwapButton } from 'src/app/navigation/tabs/SwapButton'
 import { SwapLongPressOverlay } from 'src/app/navigation/tabs/SwapLongPressOverlay'
+<<<<<<< HEAD
 import { Flex, TouchableArea, useIsDarkMode, useSporeColors } from '@l.x/ui/src'
 import { AnimatedFlex } from '@l.x/ui/src/components/layout/AnimatedFlex'
 import { iconSizes, spacing } from '@l.x/ui/src/theme'
@@ -12,6 +13,15 @@ import { useHapticFeedback } from '@l.x/lx/src/features/settings/useHapticFeedba
 import { useAppInsets } from '@l.x/lx/src/hooks/useAppInsets'
 import { useEvent } from '@l.x/utils/src/react/hooks'
 import { useBooleanState } from '@l.x/utils/src/react/useBooleanState'
+=======
+import { Flex, TouchableArea, useIsDarkMode, useSporeColors } from 'ui/src'
+import { AnimatedFlex } from 'ui/src/components/layout/AnimatedFlex'
+import { iconSizes, spacing } from 'ui/src/theme'
+import { useHapticFeedback } from 'uniswap/src/features/settings/useHapticFeedback/useHapticFeedback'
+import { useAppInsets } from 'uniswap/src/hooks/useAppInsets'
+import { useEvent } from 'utilities/src/react/hooks'
+import { useBooleanState } from 'utilities/src/react/useBooleanState'
+>>>>>>> upstream/main
 
 interface TabItemProps {
   tab: (typeof TAB_ITEMS)[number]

@@ -1,9 +1,14 @@
+<<<<<<< HEAD
 import { SharedEventName } from '@luxamm/analytics-events'
+=======
+import { SharedEventName } from '@uniswap/analytics-events'
+>>>>>>> upstream/main
 import { cloneElement, memo, useCallback, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useInterfaceBuyNavigator } from 'src/app/features/for/utils'
 import { AppRoutes } from 'src/app/navigation/constants'
 import { navigate } from 'src/app/navigation/state'
+<<<<<<< HEAD
 import { Flex, getTokenValue, Text, TouchableArea, useMedia } from '@l.x/ui/src'
 import { ArrowDownCircle, Bank, CoinConvert, SendAction } from '@l.x/ui/src/components/icons'
 import { useEnabledChains } from '@l.x/lx/src/features/chains/hooks/useEnabledChains'
@@ -11,6 +16,15 @@ import { ElementName } from '@l.x/lx/src/features/telemetry/constants'
 import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
 import { TestnetModeModal } from '@l.x/lx/src/features/testnets/TestnetModeModal'
 import { ExtensionScreens } from '@l.x/lx/src/types/screens/extension'
+=======
+import { Flex, getTokenValue, Text, TouchableArea, useMedia } from 'ui/src'
+import { ArrowDownCircle, Bank, CoinConvert, SendAction } from 'ui/src/components/icons'
+import { useEnabledChains } from 'uniswap/src/features/chains/hooks/useEnabledChains'
+import { ElementName } from 'uniswap/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
+import { TestnetModeModal } from 'uniswap/src/features/testnets/TestnetModeModal'
+import { ExtensionScreens } from 'uniswap/src/types/screens/extension'
+>>>>>>> upstream/main
 
 const ICON_COLOR = '$accent1'
 
@@ -61,7 +75,11 @@ function ActionButton({ label, Icon, onClick, url }: ActionButtonProps): JSX.Ele
   )
 }
 
+<<<<<<< HEAD
 export const PortfolioActionButtons = memo(function _PortfolioActionButtons(): JSX.Element {
+=======
+export const PortfolioActionButtons = memo(function PortfolioActionButtonsInner(): JSX.Element {
+>>>>>>> upstream/main
   const { t } = useTranslation()
   const media = useMedia()
   const { isTestnetModeEnabled } = useEnabledChains()

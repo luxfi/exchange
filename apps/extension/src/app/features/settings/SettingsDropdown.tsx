@@ -1,7 +1,13 @@
 import { useState } from 'react'
+<<<<<<< HEAD
 import { Flex, Popover, ScrollView, Text, TouchableArea } from '@l.x/ui/src'
 import { Check, RotatableChevron } from '@l.x/ui/src/components/icons'
 import { iconSizes, zIndexes } from '@l.x/ui/src/theme'
+=======
+import { Flex, Popover, ScrollView, Text, TouchableArea } from 'ui/src'
+import { Check, RotatableChevron } from 'ui/src/components/icons'
+import { iconSizes, zIndexes } from 'ui/src/theme'
+>>>>>>> upstream/main
 
 type DropdownItem = {
   label: string

@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import { GraphQLApi } from '@l.x/api'
+=======
+import { GraphQLApi } from '@universe/api'
+>>>>>>> upstream/main
 import {
   AreaData,
   AreaSeriesPartialOptions,
@@ -11,6 +15,7 @@ import {
   PriceLineOptions,
   UTCTimestamp,
 } from 'lightweight-charts'
+<<<<<<< HEAD
 import { useMemo } from 'react'
 import { Trans } from 'react-i18next'
 import { Flex, styled, Text } from '@l.x/ui/src'
@@ -19,6 +24,16 @@ import { isLowVarianceRange } from '@l.x/lx/src/components/charts/utils'
 import { useFormatChartFiatDelta } from '@l.x/lx/src/features/fiatCurrency/hooks/useFormatChartFiatDelta'
 import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
 import { NumberType } from '@l.x/utils/src/format/types'
+=======
+import { ReactNode, useMemo } from 'react'
+import { Trans } from 'react-i18next'
+import { Flex, styled, Text } from 'ui/src'
+import { opacify } from 'ui/src/theme'
+import { isLowVarianceRange } from 'uniswap/src/components/charts/utils'
+import { useFormatChartFiatDelta } from 'uniswap/src/features/fiatCurrency/hooks/useFormatChartFiatDelta'
+import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
+import { NumberType } from 'utilities/src/format/types'
+>>>>>>> upstream/main
 import { ChartHeader } from '~/components/Charts/ChartHeader'
 import {
   Chart,
@@ -391,6 +406,11 @@ interface PriceChartProps {
   headerTotalValueOverride?: number
   hideYAxis?: boolean
   yAxisFormatter?: (price: number) => string
+<<<<<<< HEAD
+=======
+  /** Additional content rendered next to the price delta in the chart header */
+  additionalHeaderContent?: ReactNode
+>>>>>>> upstream/main
 }
 
 const CandlestickTooltipRow = styled(Flex, {
@@ -436,6 +456,10 @@ export function PriceChart({
   headerTotalValueOverride,
   hideYAxis,
   yAxisFormatter,
+<<<<<<< HEAD
+=======
+  additionalHeaderContent,
+>>>>>>> upstream/main
 }: PriceChartProps) {
   const startingPrice = data[0]
   const lastPrice = data[data.length - 1]
@@ -468,6 +492,7 @@ export function PriceChart({
           <ChartHeader
             value={headerValue}
             additionalFields={
+<<<<<<< HEAD
               <PriceChartDelta
                 startingPrice={startingPrice.close}
                 endingPrice={(crosshairData ?? lastPrice).close}
@@ -476,6 +501,19 @@ export function PriceChart({
                 pricePercentChange={pricePercentChange}
                 isHovering={!!crosshairData}
               />
+=======
+              <>
+                <PriceChartDelta
+                  startingPrice={startingPrice.close}
+                  endingPrice={(crosshairData ?? lastPrice).close}
+                  shouldIncludeFiatDelta
+                  shouldTreatAsStablecoin={shouldTreatAsStablecoin}
+                  pricePercentChange={pricePercentChange}
+                  isHovering={!!crosshairData}
+                />
+                {additionalHeaderContent}
+              </>
+>>>>>>> upstream/main
             }
             valueFormatterType={NumberType.FiatTokenPrice}
             time={crosshairData?.time}

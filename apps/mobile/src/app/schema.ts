@@ -1,9 +1,18 @@
+<<<<<<< HEAD
 /* eslint-disable max-lines */
 import { RankingType } from '@luxfi/api'
 import { FiatCurrency } from '@l.x/lx/src/features/fiatCurrency/constants'
 import { Language } from '@l.x/lx/src/features/language/constants'
 import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
 import { SwapProtectionSetting } from '@luxfi/wallet/src/features/wallet/slice'
+=======
+/* oxlint-disable max-lines */
+import { RankingType } from '@universe/api'
+import { FiatCurrency } from 'uniswap/src/features/fiatCurrency/constants'
+import { Language } from 'uniswap/src/features/language/constants'
+import { ModalName } from 'uniswap/src/features/telemetry/constants'
+import { SwapProtectionSetting } from 'wallet/src/features/wallet/slice'
+>>>>>>> upstream/main
 
 // only add fields that are persisted
 export const initialSchema = {
@@ -115,7 +124,11 @@ export const v4Schema = {
   ...v3Schema,
 }
 
+<<<<<<< HEAD
 // biome-ignore lint/correctness/noUnusedVariables: Destructuring for schema migration
+=======
+// oxlint-disable-next-line no-unused-vars -- Destructuring for schema migration
+>>>>>>> upstream/main
 const { balances, ...restV4Schema } = v4Schema
 delete restV4Schema.favorites.followedAddresses
 
@@ -207,7 +220,11 @@ export const v29Schema = { ...v28Schema }
 
 const v30Schema = { ...v29Schema }
 
+<<<<<<< HEAD
 // biome-ignore lint/correctness/noUnusedVariables: Destructuring for schema migration
+=======
+// oxlint-disable-next-line no-unused-vars -- Destructuring for schema migration
+>>>>>>> upstream/main
 const { tokenLists, ...v31SchemaIntermediate } = { ...v30Schema }
 export const v31Schema = v31SchemaIntermediate
 
@@ -267,7 +284,11 @@ delete v38SchemaIntermediate.experiments
 
 export const v39Schema = { ...v38SchemaIntermediate }
 
+<<<<<<< HEAD
 // biome-ignore lint/correctness/noUnusedVariables: walletConnect removed in schema migration
+=======
+// oxlint-disable-next-line no-unused-vars -- walletConnect removed in schema migration
+>>>>>>> upstream/main
 const { walletConnect, ...v39SchemaIntermediate } = { ...v39Schema }
 
 export const v40Schema = { ...v39SchemaIntermediate }
@@ -689,7 +710,11 @@ const v88SchemaIntermediate = {
   },
   userSettings: {
     ...v87Schema.userSettings,
+<<<<<<< HEAD
     // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+=======
+    // oxlint-disable-next-line typescript/no-unnecessary-condition
+>>>>>>> upstream/main
     hapticsEnabled: v87Schema.appearanceSettings.hapticsEnabled ?? true,
   },
 }
@@ -731,8 +756,18 @@ export const v95Schema = {
   },
 }
 
+<<<<<<< HEAD
 const v96Schema = v95Schema
 
 // TODO: [MOB-201] use function with typed output when API reducers are removed from rootReducer
 // export const getSchema = (): RootState => v0Schema
 export const getSchema = (): typeof v96Schema => v96Schema
+=======
+export const v96Schema = v95Schema
+
+const v97Schema = v96Schema
+
+// TODO: [MOB-201] use function with typed output when API reducers are removed from rootReducer
+// export const getSchema = (): RootState => v0Schema
+export const getSchema = (): typeof v97Schema => v97Schema
+>>>>>>> upstream/main

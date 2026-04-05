@@ -1,5 +1,8 @@
 import { setupAmplitude } from '~/tracing/amplitude'
+<<<<<<< HEAD
 import { setupInsights } from '~/tracing/insights'
+=======
+>>>>>>> upstream/main
 import { isRemoteReportingEnabled } from '~/utils/env'
 
 if (isRemoteReportingEnabled()) {
@@ -8,4 +11,7 @@ if (isRemoteReportingEnabled()) {
 }
 
 setupAmplitude()
+<<<<<<< HEAD
 setupInsights()
+=======
+>>>>>>> upstream/main

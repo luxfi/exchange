@@ -28,7 +28,11 @@ export async function setPersistedUserState(page: Page, overrides: UserStateOver
     const persistedState = {
       user: {
         // Required fields with defaults matching initialState from reducer
+<<<<<<< HEAD
         userRouterPreference: 'dex',
+=======
+        userRouterPreference: 'uniswapx',
+>>>>>>> upstream/main
         userHideClosedPositions: false,
         userSlippageTolerance: 'auto',
         userSlippageToleranceHasBeenMigratedToAuto: true,

@@ -1,5 +1,9 @@
 import { TFunction } from 'i18next'
+<<<<<<< HEAD
 import { SegmentedControlOption } from '@l.x/ui/src'
+=======
+import { SegmentedControlOption } from 'ui/src'
+>>>>>>> upstream/main
 import { TimePeriod } from '~/appGraphql/data/util'
 
 export function getTimePeriodLabel(t: TFunction, period: TimePeriod): string {
@@ -50,7 +54,11 @@ export const ORDERED_TIMES: TimePeriod[] = [
 
 export const SOLANA_ORDERED_TIMES: TimePeriod[] = [TimePeriod.HOUR, TimePeriod.DAY]
 
+<<<<<<< HEAD
 // eslint-disable-next-line consistent-return
+=======
+// oxlint-disable-next-line consistent-return
+>>>>>>> upstream/main
 export function getTimePeriodFromDisplay(display: TimePeriodDisplay): TimePeriod {
   switch (display) {
     case TimePeriodDisplay.HOUR:

@@ -1,7 +1,14 @@
+<<<<<<< HEAD
 import { GraphQLApi } from '@l.x/api'
 import { useMemo } from 'react'
 import { ZERO_ADDRESS } from '@l.x/lx/src/constants/misc'
 import { toGraphQLChain } from '@l.x/lx/src/features/chains/utils'
+=======
+import { GraphQLApi } from '@universe/api'
+import { useMemo } from 'react'
+import { ZERO_ADDRESS } from 'uniswap/src/constants/misc'
+import { toGraphQLChain } from 'uniswap/src/features/chains/utils'
+>>>>>>> upstream/main
 import type { CurrencyKey } from '~/utils/currencyKey'
 import { currencyKeyFromGraphQL } from '~/utils/currencyKey'
 import { getNativeTokenDBAddress } from '~/utils/nativeTokens'

@@ -4,9 +4,15 @@ import { useTranslation } from 'react-i18next'
 import { OnboardingStackParamList } from 'src/app/navigation/types'
 import { CloudBackupPassword } from 'src/features/CloudBackup/CloudBackupForm/CloudBackupPassword'
 import { SafeKeyboardOnboardingScreen } from 'src/features/onboarding/SafeKeyboardOnboardingScreen'
+<<<<<<< HEAD
 import { Flex } from '@l.x/ui/src'
 import { Cloud } from '@l.x/ui/src/components/icons'
 import { OnboardingScreens } from '@l.x/lx/src/types/screens/mobile'
+=======
+import { Flex } from 'ui/src'
+import { Cloud } from 'ui/src/components/icons'
+import { OnboardingScreens } from 'uniswap/src/types/screens/mobile'
+>>>>>>> upstream/main
 
 export function CloudBackupPasswordCreateScreen({
   navigation,

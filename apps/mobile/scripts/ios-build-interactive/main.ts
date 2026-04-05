@@ -1,4 +1,5 @@
 #!/usr/bin/env ts-node
+<<<<<<< HEAD
 // biome-ignore lint/suspicious/noConsole: CLI tool needs console for user interaction
 import { spawn } from 'child_process'
 import { existsSync } from 'fs'
@@ -6,6 +7,15 @@ import inquirer from 'inquirer'
 import { homedir } from 'os'
 import { join } from 'path'
 // eslint-disable-next-line no-relative-import-paths/no-relative-import-paths
+=======
+// oxlint-disable-next-line no-console -- CLI tool needs console for user interaction
+import { spawn } from 'child_process'
+import { existsSync } from 'fs'
+import { homedir } from 'os'
+import { join } from 'path'
+import inquirer from 'inquirer'
+// oxlint-disable-next-line universe-custom/no-relative-import-paths
+>>>>>>> upstream/main
 import {
   type BuildConfig,
   type BuildType,
@@ -219,7 +229,11 @@ const resetMetroCache = async (): Promise<void> => {
 const buildForSimulator = async (config: BuildConfig): Promise<void> => {
   printBuildInfo(config, 'iOS Simulator')
 
+<<<<<<< HEAD
   const args = ['expo', 'run:ios', '--scheme', 'Lux', '--configuration', config.configuration]
+=======
+  const args = ['expo', 'run:ios', '--scheme', 'Uniswap', '--configuration', config.configuration]
+>>>>>>> upstream/main
 
   if (config.simulator) {
     const simulatorName = config.simulator.split('(')[0]?.trim()
@@ -349,7 +363,11 @@ const main = async (): Promise<void> => {
 
     const config: BuildConfig = {
       ...answers,
+<<<<<<< HEAD
       scheme: 'Lux',
+=======
+      scheme: 'Uniswap',
+>>>>>>> upstream/main
       cleanBuild: utilities.includes('clean'),
       resetMetroCache: utilities.includes('resetCache'),
     }

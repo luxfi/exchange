@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { ChainId } from '@luxamm/client-liquidity/dist/lx/liquidity/v1/types_pb'
 import { Currency, CurrencyAmount } from '@luxamm/sdk-core'
 import { useCallback, useRef, useState } from 'react'
@@ -13,6 +14,23 @@ import { isValidHexString } from '@l.x/utils/src/addresses/hex'
 import { logger } from '@l.x/utils/src/logger/logger'
 import { useEvent } from '@l.x/utils/src/react/hooks'
 import { useTrace } from '@l.x/utils/src/telemetry/trace/TraceContext'
+=======
+import { ChainId } from '@uniswap/client-liquidity/dist/uniswap/liquidity/v1/types_pb'
+import { Currency, CurrencyAmount } from '@uniswap/sdk-core'
+import { useCallback, useRef, useState } from 'react'
+import { useSubmitBidMutation } from 'uniswap/src/data/rest/auctions/useSubmitBidMutation'
+import { TransactionStep } from 'uniswap/src/features/transactions/steps/types'
+import { SetCurrentStepFn } from 'uniswap/src/features/transactions/swap/types/swapCallback'
+import { validateTransactionRequest } from 'uniswap/src/features/transactions/swap/utils/trade'
+import { ToucanBidTransactionInfo, TransactionType } from 'uniswap/src/features/transactions/types/transactionDetails'
+import { ValidatedTransactionRequest } from 'uniswap/src/features/transactions/types/transactionRequests'
+import { useWallet } from 'uniswap/src/features/wallet/hooks/useWallet'
+import { isSignerMnemonicAccountDetails } from 'uniswap/src/features/wallet/types/AccountDetails'
+import { isValidHexString } from 'utilities/src/addresses/hex'
+import { logger } from 'utilities/src/logger/logger'
+import { useEvent } from 'utilities/src/react/hooks'
+import { useTrace } from 'utilities/src/telemetry/trace/TraceContext'
+>>>>>>> upstream/main
 import { zeroAddress } from 'viem'
 import { getAuctionBidBaseAnalyticsProperties } from '~/components/Toucan/Auction/analytics'
 import { useAuctionStore, useAuctionStoreActions } from '~/components/Toucan/Auction/store/useAuctionStore'
@@ -109,6 +127,10 @@ export function useBidFormSubmit({
   budgetAmountUsd,
   maxFdvUsd,
   pricePerToken,
+<<<<<<< HEAD
+=======
+  // oxlint-disable-next-line no-unused-vars -- biome-parity: oxlint is stricter here
+>>>>>>> upstream/main
   expectedReceiveAmount,
   minExpectedReceiveAmount,
   maxReceivableAmount,
@@ -266,8 +288,13 @@ export function useBidFormSubmit({
         bidTokenAddress: currencyLower,
         requestId,
         dappInfo: {
+<<<<<<< HEAD
           name: 'Lux CCA',
           icon: 'https://protocol-icons.s3.amazonaws.com/icons/lux-v4.jpg',
+=======
+          name: 'Uniswap CCA',
+          icon: 'https://protocol-icons.s3.amazonaws.com/icons/uniswap-v4.jpg',
+>>>>>>> upstream/main
         },
       }
 

@@ -1,7 +1,13 @@
 import { useMemo } from 'react'
+<<<<<<< HEAD
 import { CONNECTION_PROVIDER_IDS } from '@l.x/lx/src/constants/web3'
 import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
 import { useEvent } from '@l.x/utils/src/react/hooks'
+=======
+import { CONNECTION_PROVIDER_IDS } from 'uniswap/src/constants/web3'
+import { Platform } from 'uniswap/src/features/platforms/types/Platform'
+import { useEvent } from 'utilities/src/react/hooks'
+>>>>>>> upstream/main
 import { useAccountDrawer } from '~/components/AccountDrawer/MiniPortfolio/hooks'
 import {
   getWalletRequiresSeparatePrompt,
@@ -10,8 +16,13 @@ import {
 import { useAccountsStore } from '~/features/accounts/store/hooks'
 import type { ExternalConnector, ExternalWallet } from '~/features/accounts/store/types'
 import {
+<<<<<<< HEAD
   useLuxEmbeddedConnectionService,
   useLuxMobileConnectionService,
+=======
+  useUniswapEmbeddedConnectionService,
+  useUniswapMobileConnectionService,
+>>>>>>> upstream/main
 } from '~/features/wallet/connection/connectors/custom'
 import { useSolanaConnectionService } from '~/features/wallet/connection/connectors/solana'
 import { getEVMConnectionService } from '~/features/wallet/connection/connectors/wagmi'
@@ -48,6 +59,7 @@ export function useGetConnectionService(): GetConnectionServiceFn {
     })
   }, [evmConnectionService, svmConnectionService, accountDrawer.close, onRejectSVMConnection])
 
+<<<<<<< HEAD
   const luxEmbeddedService = useLuxEmbeddedConnectionService()
   const luxMobileService = useLuxMobileConnectionService()
 
@@ -57,6 +69,17 @@ export function useGetConnectionService(): GetConnectionServiceFn {
       [CONNECTION_PROVIDER_IDS.LUX_WALLET_CONNECT_CONNECTOR_ID]: luxMobileService,
     }
   }, [luxEmbeddedService, luxMobileService])
+=======
+  const uniswapEmbeddedService = useUniswapEmbeddedConnectionService()
+  const uniswapMobileService = useUniswapMobileConnectionService()
+
+  const overrides: Partial<Record<string, ConnectionService>> = useMemo(() => {
+    return {
+      [CONNECTION_PROVIDER_IDS.EMBEDDED_WALLET_CONNECTOR_ID]: uniswapEmbeddedService,
+      [CONNECTION_PROVIDER_IDS.UNISWAP_WALLET_CONNECT_CONNECTOR_ID]: uniswapMobileService,
+    }
+  }, [uniswapEmbeddedService, uniswapMobileService])
+>>>>>>> upstream/main
 
   return useEvent((params) => {
     // For wallets that have non-standard connection behavior

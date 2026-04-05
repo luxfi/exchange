@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import { ButtonEmphasis, ButtonVariant } from '@l.x/ui/src'
+=======
+import { ButtonEmphasis, ButtonVariant } from 'ui/src'
+>>>>>>> upstream/main
 
 export type OnboardingScreenProps = {
   Icon?: JSX.Element

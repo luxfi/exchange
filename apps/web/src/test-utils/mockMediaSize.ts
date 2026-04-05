@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 // biome-ignore lint/style/noRestrictedImports: Test utilities need direct access to format functions
 import { UseMediaState } from '@hanzogui/core'
 import { useMedia } from '@l.x/ui/src'
+=======
+// oxlint-disable-next-line no-restricted-imports -- Test utilities need direct access to format functions
+import { UseMediaState } from '@tamagui/core'
+import { useMedia } from 'ui/src'
+>>>>>>> upstream/main
 import { mocked } from '~/test-utils/mocked'
 
 function getMediaState(size: keyof UseMediaState) {

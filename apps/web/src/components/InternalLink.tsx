@@ -1,7 +1,12 @@
 import { ReactNode } from 'react'
 import { useNavigate } from 'react-router'
+<<<<<<< HEAD
 import { TouchableArea } from '@l.x/ui/src'
 import { useEvent } from '@l.x/utils/src/react/hooks'
+=======
+import { TouchableArea } from 'ui/src'
+import { useEvent } from 'utilities/src/react/hooks'
+>>>>>>> upstream/main
 
 interface InternalLinkProps {
   to: string

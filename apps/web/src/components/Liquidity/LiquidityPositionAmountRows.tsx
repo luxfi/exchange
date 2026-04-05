@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { Currency, CurrencyAmount } from '@luxamm/sdk-core'
 import { useCallback } from 'react'
 import { useNavigate } from 'react-router'
@@ -9,6 +10,19 @@ import { useLocalizationContext } from '@l.x/lx/src/features/language/Localizati
 import { NumberType } from '@l.x/utils/src/format/types'
 import { getTokenDetailsURL } from '~/appGraphql/data/util'
 import { ClickableGuiStyle } from '~/theme/components/styles'
+=======
+import { Currency, CurrencyAmount } from '@uniswap/sdk-core'
+import { useCallback } from 'react'
+import { useNavigate } from 'react-router'
+import { Flex, Text, TouchableArea } from 'ui/src'
+import { CurrencyLogo } from 'uniswap/src/components/CurrencyLogo/CurrencyLogo'
+import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { CurrencyInfo } from 'uniswap/src/features/dataApi/types'
+import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
+import { NumberType } from 'utilities/src/format/types'
+import { getTokenDetailsURL } from '~/appGraphql/data/util'
+import { ClickableTamaguiStyle } from '~/theme/components/styles'
+>>>>>>> upstream/main
 import { getChainUrlParam } from '~/utils/chainParams'
 
 type AmountRow = {
@@ -42,7 +56,11 @@ export function LiquidityPositionAmountRows({ rows }: LiquidityPositionAmountRow
         <Flex row alignItems="center" justifyContent="space-between" key={row.currencyInfo.currencyId}>
           <TouchableArea
             onPress={() => navigate(getLink(row.currencyInfo))}
+<<<<<<< HEAD
             {...ClickableGuiStyle}
+=======
+            {...ClickableTamaguiStyle}
+>>>>>>> upstream/main
             pressStyle={{ scale: 1 }}
           >
             <Flex row alignItems="center" gap="$gap12" maxWidth={160}>

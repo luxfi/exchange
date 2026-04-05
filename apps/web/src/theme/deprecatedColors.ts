@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import { opacify } from '@l.x/ui/src/theme'
+=======
+import { opacify } from 'ui/src/theme'
+>>>>>>> upstream/main
 import { colors } from '~/theme/colors'
 
 function getDeprecatedTheme(darkMode: boolean) {

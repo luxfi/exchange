@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { Currency } from '@luxamm/sdk-core'
 import { useAtom } from 'jotai'
 import { PropsWithChildren, useCallback, useMemo } from 'react'
@@ -10,6 +11,20 @@ import { TokenMenuActionType } from '@l.x/lx/src/features/portfolio/balances/hoo
 import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
 import { setClipboard } from '@l.x/utils/src/clipboard/clipboard'
 import { useEvent } from '@l.x/utils/src/react/hooks'
+=======
+import { Currency } from '@uniswap/sdk-core'
+import { useAtom } from 'jotai'
+import { PropsWithChildren, useCallback, useMemo } from 'react'
+import { useTranslation } from 'react-i18next'
+import { ContextMenuTriggerMode } from 'uniswap/src/components/menus/types'
+import { TokenBalanceItemContextMenu } from 'uniswap/src/components/portfolio/TokenBalanceItemContextMenu'
+import { ReportTokenIssueModalPropsAtom } from 'uniswap/src/components/reporting/ReportTokenIssueModal'
+import { PortfolioBalance } from 'uniswap/src/features/dataApi/types'
+import { TokenMenuActionType } from 'uniswap/src/features/portfolio/balances/hooks/useTokenContextMenuOptions'
+import { ModalName } from 'uniswap/src/features/telemetry/constants'
+import { setClipboard } from 'utilities/src/clipboard/clipboard'
+import { useEvent } from 'utilities/src/react/hooks'
+>>>>>>> upstream/main
 import { POPUP_MEDIUM_DISMISS_MS } from '~/components/Popups/constants'
 import { popupRegistry } from '~/components/Popups/registry'
 import { PopupType } from '~/components/Popups/types'

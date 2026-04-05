@@ -10,6 +10,7 @@ import { useDeviceSupportsBiometricAuth } from 'src/features/biometrics/useDevic
 import { useOsBiometricAuthEnabled } from 'src/features/biometrics/useOsBiometricAuthEnabled'
 import { useBiometricName, useBiometricPrompt } from 'src/features/biometricsSettings/hooks'
 import { useLockScreenState } from 'src/features/lockScreen/hooks/useLockScreenState'
+<<<<<<< HEAD
 import { Button, Flex, flexStyles, TouchableArea, useIsDarkMode } from '@l.x/ui/src'
 import { LUX_MONO_LOGO_LARGE } from '@l.x/ui/src/assets'
 import { AnimatedFlex } from '@l.x/ui/src/components/layout/AnimatedFlex'
@@ -18,6 +19,16 @@ import { spacing, zIndexes } from '@l.x/ui/src/theme'
 import { useAppInsets } from '@l.x/lx/src/hooks/useAppInsets'
 import { isAndroid } from '@l.x/utils/src/platform'
 import { useEvent } from '@l.x/utils/src/react/hooks'
+=======
+import { Button, Flex, flexStyles, TouchableArea, useIsDarkMode } from 'ui/src'
+import { UNISWAP_MONO_LOGO_LARGE } from 'ui/src/assets'
+import { AnimatedFlex } from 'ui/src/components/layout/AnimatedFlex'
+import { useDeviceDimensions } from 'ui/src/hooks/useDeviceDimensions'
+import { spacing, zIndexes } from 'ui/src/theme'
+import { useAppInsets } from 'uniswap/src/hooks/useAppInsets'
+import { isAndroid } from 'utilities/src/platform'
+import { useEvent } from 'utilities/src/react/hooks'
+>>>>>>> upstream/main
 
 const fadeIn = FadeIn.duration(250)
 const fadeOut = FadeOut.duration(250)
@@ -76,7 +87,11 @@ const BlurredLockScreen = memo(function BlurredLockScreen(): JSX.Element {
       style={flexStyles.fill}
     >
       <Image
+<<<<<<< HEAD
         source={LUX_MONO_LOGO_LARGE}
+=======
+        source={UNISWAP_MONO_LOGO_LARGE}
+>>>>>>> upstream/main
         style={{
           position: 'absolute',
           top: (dimensions.fullHeight - SPLASH_SCREEN_IMAGE_SIZE) / 2,

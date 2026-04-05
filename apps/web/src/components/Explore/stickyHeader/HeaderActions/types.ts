@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import type { TextProps } from '@l.x/ui/src'
+=======
+import type { TextProps } from 'ui/src'
+>>>>>>> upstream/main
 
 export type HeaderActionDropdownItem = {
   title: string

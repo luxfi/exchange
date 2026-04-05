@@ -1,10 +1,18 @@
 import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
+<<<<<<< HEAD
 import { Flex, Text, useSporeColors } from '@l.x/ui/src'
 import { Unitag } from '@l.x/ui/src/components/icons/Unitag'
 import { Dialog } from '@l.x/lx/src/components/dialog/Dialog'
 import { AccountIcon } from '@l.x/lx/src/features/accounts/AccountIcon'
 import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
+=======
+import { Flex, Text, useSporeColors } from 'ui/src'
+import { Unitag } from 'ui/src/components/icons/Unitag'
+import { Dialog } from 'uniswap/src/components/dialog/Dialog'
+import { AccountIcon } from 'uniswap/src/features/accounts/AccountIcon'
+import { ModalName } from 'uniswap/src/features/telemetry/constants'
+>>>>>>> upstream/main
 import { UserIcon } from '~/components/Icons/UserIcon'
 import { SendModalProps } from '~/pages/Swap/Send/SendReviewModal'
 import type { RecipientData } from '~/state/send/hooks'

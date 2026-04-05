@@ -1,7 +1,14 @@
+<<<<<<< HEAD
 import { Flex, TouchableArea, type TouchableAreaProps } from '@l.x/ui/src'
 import { Expand } from '@l.x/ui/src/components/icons/Expand'
 import { SearchMinus } from '@l.x/ui/src/components/icons/SearchMinus'
 import { SearchPlus } from '@l.x/ui/src/components/icons/SearchPlus'
+=======
+import { Flex, TouchableArea, type TouchableAreaProps } from 'ui/src'
+import { Expand } from 'ui/src/components/icons/Expand'
+import { SearchMinus } from 'ui/src/components/icons/SearchMinus'
+import { SearchPlus } from 'ui/src/components/icons/SearchPlus'
+>>>>>>> upstream/main
 
 interface AuctionChartZoomControlsProps {
   onZoomIn: () => void

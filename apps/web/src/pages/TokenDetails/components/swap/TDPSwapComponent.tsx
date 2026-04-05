@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { Currency } from '@luxamm/sdk-core'
 import { useCallback, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
@@ -12,6 +13,22 @@ import TokenWarningModal from '@l.x/lx/src/features/tokens/warnings/TokenWarning
 import { areAddressesEqual } from '@l.x/lx/src/utils/addresses'
 import { areCurrenciesEqual, currencyId } from '@l.x/lx/src/utils/currencyId'
 import { useEvent } from '@l.x/utils/src/react/hooks'
+=======
+import { Currency } from '@uniswap/sdk-core'
+import { useCallback, useMemo, useState } from 'react'
+import { useTranslation } from 'react-i18next'
+import { useNavigate } from 'react-router'
+import { Flex } from 'ui/src'
+import { getNativeAddress } from 'uniswap/src/constants/addresses'
+import { useUrlContext } from 'uniswap/src/contexts/UrlContext'
+import { isUniverseChainId, toGraphQLChain } from 'uniswap/src/features/chains/utils'
+import { useCurrencyInfo } from 'uniswap/src/features/tokens/useCurrencyInfo'
+import { TokenWarningCard } from 'uniswap/src/features/tokens/warnings/TokenWarningCard'
+import TokenWarningModal from 'uniswap/src/features/tokens/warnings/TokenWarningModal'
+import { areAddressesEqual } from 'uniswap/src/utils/addresses'
+import { areCurrenciesEqual, currencyId } from 'uniswap/src/utils/currencyId'
+import { useEvent } from 'utilities/src/react/hooks'
+>>>>>>> upstream/main
 import { getTokenDetailsURL } from '~/appGraphql/data/util'
 import { POPUP_MEDIUM_DISMISS_MS } from '~/components/Popups/constants'
 import { popupRegistry } from '~/components/Popups/registry'

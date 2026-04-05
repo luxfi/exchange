@@ -1,9 +1,14 @@
+<<<<<<< HEAD
 import { FeatureFlags, useFeatureFlag } from '@luxfi/gating'
+=======
+import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+>>>>>>> upstream/main
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { DappRequestContent } from 'src/app/features/dappRequests/DappRequestContent'
 import { useDappRequestQueueContext } from 'src/app/features/dappRequests/DappRequestQueueContext'
 import { ActionCanNotBeCompletedContent } from 'src/app/features/dappRequests/requestContent/ActionCanNotBeCompleted/ActionCanNotBeCompletedContent'
+<<<<<<< HEAD
 import { DEXSwapRequestContent } from 'src/app/features/dappRequests/requestContent/EthSend/Swap/SwapRequestContent'
 import { NonStandardTypedDataRequestContent } from 'src/app/features/dappRequests/requestContent/SignTypeData/NonStandardTypedDataRequestContent'
 import { SignTypedDataRequest } from 'src/app/features/dappRequests/types/DappRequestTypes'
@@ -20,6 +25,24 @@ import { isPermit2, isLXSwapRequest } from '@luxfi/wallet/src/components/dappReq
 import { ErrorBoundary } from '@luxfi/wallet/src/components/ErrorBoundary/ErrorBoundary'
 import { TransactionRiskLevel } from '@luxfi/wallet/src/features/dappRequests/types'
 import { shouldDisableConfirm } from '@luxfi/wallet/src/features/dappRequests/utils/riskUtils'
+=======
+import { UniswapXSwapRequestContent } from 'src/app/features/dappRequests/requestContent/EthSend/Swap/SwapRequestContent'
+import { NonStandardTypedDataRequestContent } from 'src/app/features/dappRequests/requestContent/SignTypeData/NonStandardTypedDataRequestContent'
+import { SignTypedDataRequest } from 'src/app/features/dappRequests/types/DappRequestTypes'
+import { Flex } from 'ui/src'
+import { toSupportedChainId } from 'uniswap/src/features/chains/utils'
+import { useHasAccountMismatchCallback } from 'uniswap/src/features/smartWallet/mismatch/hooks'
+import { logger } from 'utilities/src/logger/logger'
+import { useBooleanState } from 'utilities/src/react/useBooleanState'
+import { DappSignTypedDataContent } from 'wallet/src/components/dappRequests/DappSignTypedDataContent'
+import { Permit2Content } from 'wallet/src/components/dappRequests/SignTypedData/Permit2Content'
+import { StandardTypedDataContent } from 'wallet/src/components/dappRequests/SignTypedData/StandardTypedDataContent'
+import { isEIP712TypedData } from 'wallet/src/components/dappRequests/types/EIP712Types'
+import { isPermit2, isUniswapXSwapRequest } from 'wallet/src/components/dappRequests/types/Permit2Types'
+import { ErrorBoundary } from 'wallet/src/components/ErrorBoundary/ErrorBoundary'
+import { TransactionRiskLevel } from 'wallet/src/features/dappRequests/types'
+import { shouldDisableConfirm } from 'wallet/src/features/dappRequests/utils/riskUtils'
+>>>>>>> upstream/main
 
 interface SignTypedDataRequestProps {
   dappRequest: SignTypedDataRequest
@@ -122,8 +145,13 @@ function SignTypedDataRequestContentFallback({ dappRequest }: SignTypedDataReque
     return <ActionCanNotBeCompletedContent />
   }
 
+<<<<<<< HEAD
   if (isLXSwapRequest(parsedTypedData)) {
     return <DEXSwapRequestContent typedData={parsedTypedData} />
+=======
+  if (isUniswapXSwapRequest(parsedTypedData)) {
+    return <UniswapXSwapRequestContent typedData={parsedTypedData} />
+>>>>>>> upstream/main
   }
 
   const isPermit2Request = isPermit2(parsedTypedData)

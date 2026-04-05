@@ -1,9 +1,15 @@
+<<<<<<< HEAD
 import { getChainInfo } from '@l.x/lx/src/features/chains/chainInfo'
 import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+=======
+import { getChainInfo } from 'uniswap/src/features/chains/chainInfo'
+import { UniverseChainId } from 'uniswap/src/features/chains/types'
+>>>>>>> upstream/main
 import {
   signMessageWithPasskey,
   signTransactionWithPasskey,
   signTypedDataWithPasskey,
+<<<<<<< HEAD
 } from '@l.x/lx/src/features/passkey/embeddedWallet'
 import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
 import { createObservableTransport } from '@l.x/lx/src/features/providers/observability/createObservableTransport'
@@ -11,6 +17,15 @@ import { getRpcObserver } from '@l.x/lx/src/features/providers/observability/rpc
 import { getValidAddress } from '@l.x/lx/src/utils/addresses'
 import { HexString, isValidHexString } from '@l.x/utils/src/addresses/hex'
 import { logger } from '@l.x/utils/src/logger/logger'
+=======
+} from 'uniswap/src/features/passkey/embeddedWallet'
+import { Platform } from 'uniswap/src/features/platforms/types/Platform'
+import { createObservableTransport } from 'uniswap/src/features/providers/observability/createObservableTransport'
+import { getRpcObserver } from 'uniswap/src/features/providers/observability/rpcObserver'
+import { getValidAddress } from 'uniswap/src/utils/addresses'
+import { HexString, isValidHexString } from 'utilities/src/addresses/hex'
+import { logger } from 'utilities/src/logger/logger'
+>>>>>>> upstream/main
 import { Account, createPublicClient, fallback, Hash, http, SignableMessage } from 'viem'
 import { getEmbeddedWalletState, setChainId } from '~/state/embeddedWallet/store'
 
@@ -288,7 +303,11 @@ export class EmbeddedWalletProvider {
   }
   updateChainId(chainId: UniverseChainId) {
     this.chainId = chainId
+<<<<<<< HEAD
     localStorage.setItem('embeddedWallet.chainId', `${chainId}`)
+=======
+    localStorage.setItem('embeddedUniswapWallet.chainId', `${chainId}`)
+>>>>>>> upstream/main
     this.emit('chainChanged', chainId)
   }
 

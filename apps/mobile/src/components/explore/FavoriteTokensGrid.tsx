@@ -9,6 +9,7 @@ import Sortable from 'react-native-sortables'
 import { useDispatch, useSelector } from 'react-redux'
 import { FavoriteHeaderRow } from 'src/components/explore/FavoriteHeaderRow'
 import FavoriteTokenCard from 'src/components/explore/FavoriteTokenCard'
+<<<<<<< HEAD
 import { getTokenValue } from '@l.x/ui/src'
 import { AnimatedFlex } from '@l.x/ui/src/components/layout/AnimatedFlex'
 import { Flex } from '@l.x/ui/src/components/layout/Flex'
@@ -16,6 +17,15 @@ import { ExpandoRow } from '@l.x/lx/src/components/ExpandoRow/ExpandoRow'
 import { selectFavoriteTokens } from '@l.x/lx/src/features/favorites/selectors'
 import { setFavoriteTokens } from '@l.x/lx/src/features/favorites/slice'
 import { useHapticFeedback } from '@l.x/lx/src/features/settings/useHapticFeedback/useHapticFeedback'
+=======
+import { getTokenValue } from 'ui/src'
+import { AnimatedFlex } from 'ui/src/components/layout/AnimatedFlex'
+import { Flex } from 'ui/src/components/layout/Flex'
+import { ExpandoRow } from 'uniswap/src/components/ExpandoRow/ExpandoRow'
+import { selectFavoriteTokens } from 'uniswap/src/features/favorites/selectors'
+import { setFavoriteTokens } from 'uniswap/src/features/favorites/slice'
+import { useHapticFeedback } from 'uniswap/src/features/settings/useHapticFeedback/useHapticFeedback'
+>>>>>>> upstream/main
 
 const NUM_COLUMNS = 2
 const DEFAULT_TOKENS_TO_DISPLAY = 4

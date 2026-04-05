@@ -1,7 +1,12 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
+<<<<<<< HEAD
 import { Flex, Text } from '@l.x/ui/src'
 import { useSporeColors } from '@l.x/ui/src/hooks/useSporeColors'
+=======
+import { Flex, Text } from 'ui/src'
+import { useSporeColors } from 'ui/src/hooks/useSporeColors'
+>>>>>>> upstream/main
 import { PriceRangeStrategyPopover } from '~/pages/Liquidity/CreateAuction/components/PriceRangeStrategyPopover'
 import { AuctionType, PriceRangeStrategy } from '~/pages/Liquidity/CreateAuction/types'
 import { getRecommendedStrategy } from '~/pages/Liquidity/CreateAuction/utils'

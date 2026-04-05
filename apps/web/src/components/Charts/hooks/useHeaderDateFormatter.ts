@@ -1,6 +1,10 @@
 import { UTCTimestamp } from 'lightweight-charts'
 import { useCallback } from 'react'
+<<<<<<< HEAD
 import { useCurrentLocale } from '@l.x/lx/src/features/language/hooks'
+=======
+import { useCurrentLocale } from 'uniswap/src/features/language/hooks'
+>>>>>>> upstream/main
 
 export function useHeaderDateFormatter() {
   const locale = useCurrentLocale()

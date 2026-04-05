@@ -2,7 +2,11 @@ import type { TFunction } from 'i18next'
 import { Alert } from 'react-native'
 import { openSettings } from 'react-native-permissions'
 import { enroll } from 'src/features/biometrics/biometrics-utils'
+<<<<<<< HEAD
 import { isIOS } from '@l.x/utils/src/platform'
+=======
+import { isIOS } from 'utilities/src/platform'
+>>>>>>> upstream/main
 
 type ShowBiometricsAlert = (biometricsMethod: string) => void
 

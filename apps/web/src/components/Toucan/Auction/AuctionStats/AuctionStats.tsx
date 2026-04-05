@@ -1,17 +1,29 @@
 import { TFunction, t } from 'i18next'
 import { ReactNode, useState } from 'react'
 import { useTranslation } from 'react-i18next'
+<<<<<<< HEAD
 import { Flex, styled, Text, Tooltip, useMedia } from '@l.x/ui/src'
 import { Globe } from '@l.x/ui/src/components/icons/Globe'
 import { XTwitter } from '@l.x/ui/src/components/icons/XTwitter'
 import { zIndexes } from '@l.x/ui/src/theme/zIndexes'
 import { shortenAddress } from '@l.x/utils/src/addresses'
+=======
+import { Flex, styled, Text, Tooltip, useMedia } from 'ui/src'
+import { Globe } from 'ui/src/components/icons/Globe'
+import { XTwitter } from 'ui/src/components/icons/XTwitter'
+import { zIndexes } from 'ui/src/theme/zIndexes'
+import { shortenAddress } from 'utilities/src/addresses'
+>>>>>>> upstream/main
 import { useAuctionStatsData } from '~/components/Toucan/Auction/hooks/useAuctionStatsData'
 import { formatTimestampToDate } from '~/components/Toucan/Auction/utils/formatting'
 import { deprecatedStyled } from '~/lib/deprecated-styled'
 import { CopyHelper } from '~/theme/components/CopyHelper'
 import { ExternalLink } from '~/theme/components/Links'
+<<<<<<< HEAD
 import { ClickableGuiStyle } from '~/theme/components/styles'
+=======
+import { ClickableTamaguiStyle } from '~/theme/components/styles'
+>>>>>>> upstream/main
 
 interface StatItem {
   label: string
@@ -38,7 +50,11 @@ const STATS_PLACEHOLDER = '--'
  * Formats the implied token price for display.
  * Renders range prices on two lines for better readability.
  */
+<<<<<<< HEAD
 function formatImpliedTokenPrice(impliedTokenPrice: { start: string; end?: string } | null): ReactNode {
+=======
+export function formatImpliedTokenPrice(impliedTokenPrice: { start: string; end?: string } | null): ReactNode {
+>>>>>>> upstream/main
   if (!impliedTokenPrice) {
     return STATS_PLACEHOLDER
   }
@@ -227,7 +243,11 @@ const SocialBadge = styled(Text, {
   height: 32,
   borderRadius: '$rounded20',
   backgroundColor: '$surface3',
+<<<<<<< HEAD
   ...ClickableGuiStyle,
+=======
+  ...ClickableTamaguiStyle,
+>>>>>>> upstream/main
   color: '$neutral1',
 })
 

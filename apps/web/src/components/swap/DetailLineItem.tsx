@@ -1,5 +1,9 @@
 import { PropsWithChildren } from 'react'
+<<<<<<< HEAD
 import { Flex } from '@l.x/ui/src'
+=======
+import { Flex } from 'ui/src'
+>>>>>>> upstream/main
 import { LoadingRow } from '~/components/Loader/styled'
 import { MouseoverTooltip, TooltipSize } from '~/components/Tooltip'
 import { useIsMobile } from '~/hooks/screenSize/useIsMobile'

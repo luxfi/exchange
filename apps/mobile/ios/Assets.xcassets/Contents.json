@@ -1,6 +1,12 @@
 {
+<<<<<<< HEAD
   "info" : {
     "author" : "xcode",
     "version" : 1
+=======
+  "info": {
+    "author": "xcode",
+    "version": 1
+>>>>>>> upstream/main
   }
 }

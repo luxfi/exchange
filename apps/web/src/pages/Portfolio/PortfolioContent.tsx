@@ -1,7 +1,14 @@
+<<<<<<< HEAD
 import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { useLocation } from 'react-router'
 import { Flex } from '@l.x/ui/src'
 import { TransitionItem } from '@l.x/ui/src/animations/components/AnimatePresencePager'
+=======
+import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import { useLocation } from 'react-router'
+import { Flex } from 'ui/src'
+import { TransitionItem } from 'ui/src/animations/components/AnimatePresencePager'
+>>>>>>> upstream/main
 import PortfolioActivity from '~/pages/Portfolio/Activity/Activity'
 import { PortfolioDefi } from '~/pages/Portfolio/Defi'
 import { usePortfolioRoutes } from '~/pages/Portfolio/Header/hooks/usePortfolioRoutes'

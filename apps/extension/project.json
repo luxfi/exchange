@@ -12,7 +12,11 @@
       }
     },
     "build:production": {
+<<<<<<< HEAD
       "command": "BUILD_ENV=prod BUILD_NUM=${BUILD_NUM:-0} wxt build",
+=======
+      "command": "webpack --node-env=production --env BUILD_ENV=prod BUILD_NUM=${BUILD_NUM:-0}",
+>>>>>>> upstream/main
       "options": {
         "cwd": "{projectRoot}"
       }
@@ -62,16 +66,27 @@
     },
     "lint": {},
     "lint:fix": {},
+<<<<<<< HEAD
     "lint:biome": {},
     "lint:biome:fix": {},
     "lint:eslint": {
       "command": "NODE_OPTIONS=--max_old_space_size=8192 eslint . --ext ts,tsx --max-warnings=0",
+=======
+    "check": {},
+    "check:fix": {},
+    "lint:eslint": {
+      "command": "NODE_OPTIONS='--max_old_space_size=8192 --max-semi-space-size=256' eslint --cache --cache-location node_modules/.cache/eslint/ --max-warnings=0 .",
+>>>>>>> upstream/main
       "options": {
         "cwd": "{projectRoot}"
       }
     },
     "lint:eslint:fix": {
+<<<<<<< HEAD
       "command": "NODE_OPTIONS=--max-old-space-size=8192 eslint . --ext ts,tsx --fix",
+=======
+      "command": "NODE_OPTIONS='--max_old_space_size=8192 --max-semi-space-size=256' eslint --cache --cache-location node_modules/.cache/eslint/ . --fix",
+>>>>>>> upstream/main
       "options": {
         "cwd": "{projectRoot}"
       }
@@ -126,6 +141,21 @@
         "cwd": "{projectRoot}"
       }
     },
+<<<<<<< HEAD
+=======
+    "start:webpack": {
+      "command": "webpack serve --config webpack.config.js",
+      "options": {
+        "cwd": "{projectRoot}"
+      }
+    },
+    "start:webpack:absolute": {
+      "command": "webpack serve --config webpack.config.js --output-path /Users/Shared/stretch",
+      "options": {
+        "cwd": "{projectRoot}"
+      }
+    },
+>>>>>>> upstream/main
     "test": {
       "command": "jest",
       "options": {
@@ -147,12 +177,20 @@
       }
     },
     "build:e2e": {
+<<<<<<< HEAD
       "command": "BUILD_ENV=dev BUILD_NUM=0 wxt build",
+=======
+      "command": "webpack --node-env=production --env BUILD_ENV=dev BUILD_NUM=0",
+>>>>>>> upstream/main
       "options": {
         "cwd": "{projectRoot}"
       },
       "inputs": ["dependencies", "sourceFiles", "tsConfig"],
+<<<<<<< HEAD
       "outputs": ["{projectRoot}/.output"],
+=======
+      "outputs": ["{projectRoot}/dist", "{projectRoot}/build", "{projectRoot}/.next", "{projectRoot}/types"],
+>>>>>>> upstream/main
       "cache": true,
       "dependsOn": ["^build", "prepare"]
     },
@@ -205,6 +243,15 @@
         "cwd": "{projectRoot}"
       },
       "dependsOn": ["build:wxt"]
+<<<<<<< HEAD
     }
+=======
+    },
+    "oxfmt": {},
+    "oxfmt:fix": {},
+    "oxlint": {},
+    "oxlint:fix": {},
+    "oxlint:type-aware": {}
+>>>>>>> upstream/main
   }
 }

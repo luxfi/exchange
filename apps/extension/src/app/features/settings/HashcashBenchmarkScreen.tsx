@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 /* eslint-disable max-lines */
 import { createHashcashMultiWorkerChannel, createHashcashWorkerChannel } from '@l.x/sessions'
 import { findProof as jsFindProof } from '@l.x/sessions/src/challenge-solvers/hashcash/core'
+=======
+/* oxlint-disable max-lines */
+import { createHashcashMultiWorkerChannel, createHashcashWorkerChannel } from '@universe/sessions'
+import { findProof as jsFindProof } from '@universe/sessions/src/challenge-solvers/hashcash/core'
+>>>>>>> upstream/main
 import { memo, useCallback, useEffect, useMemo } from 'react'
 import { ScreenHeader } from 'src/app/components/layout/ScreenHeader'
 import {
@@ -9,8 +15,13 @@ import {
   type LogEntry,
   useHashcashBenchmarkStore,
 } from 'src/app/features/settings/stores/hashcashBenchmarkStore'
+<<<<<<< HEAD
 import { Button, Flex, ScrollView, Text, TouchableArea } from '@l.x/ui/src'
 import { logger } from '@l.x/utils/src/logger/logger'
+=======
+import { Button, Flex, ScrollView, Text, TouchableArea } from 'ui/src'
+import { logger } from 'utilities/src/logger/logger'
+>>>>>>> upstream/main
 import { useShallow } from 'zustand/shallow'
 
 function formatTime(date: Date): string {
@@ -427,7 +438,11 @@ export function HashcashBenchmarkScreen(): JSX.Element {
     const channel = createHashcashWorkerChannel({
       getWorker: () =>
         new Worker(
+<<<<<<< HEAD
           new URL('@l.x/sessions/src/challenge-solvers/hashcash/worker/hashcash.worker.ts', import.meta.url),
+=======
+          new URL('@universe/sessions/src/challenge-solvers/hashcash/worker/hashcash.worker.ts', import.meta.url),
+>>>>>>> upstream/main
           { type: 'module' },
         ),
     })
@@ -518,7 +533,11 @@ export function HashcashBenchmarkScreen(): JSX.Element {
       workerCount,
       getWorker: () =>
         new Worker(
+<<<<<<< HEAD
           new URL('@l.x/sessions/src/challenge-solvers/hashcash/worker/hashcash.worker.ts', import.meta.url),
+=======
+          new URL('@universe/sessions/src/challenge-solvers/hashcash/worker/hashcash.worker.ts', import.meta.url),
+>>>>>>> upstream/main
           { type: 'module' },
         ),
     })
@@ -649,7 +668,11 @@ export function HashcashBenchmarkScreen(): JSX.Element {
         if (!acc[result.difficulty]) {
           acc[result.difficulty] = {}
         }
+<<<<<<< HEAD
         // biome-ignore lint/style/noNonNullAssertion: we just initialized this above
+=======
+        // oxlint-disable-next-line typescript/no-non-null-assertion -- we just initialized this above
+>>>>>>> upstream/main
         acc[result.difficulty]![result.implementation] = result
         return acc
       },

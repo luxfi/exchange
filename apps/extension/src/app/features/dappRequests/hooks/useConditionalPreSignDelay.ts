@@ -1,7 +1,12 @@
 import { useCallback, useEffect, useRef } from 'react'
 import { useTransactionConfirmationTracker } from 'src/app/features/dappRequests/context/TransactionConfirmationTracker'
+<<<<<<< HEAD
 import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { logger } from '@l.x/utils/src/logger/logger'
+=======
+import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { logger } from 'utilities/src/logger/logger'
+>>>>>>> upstream/main
 
 /**
  * Delay before preparing the next transaction to allow network to recognize

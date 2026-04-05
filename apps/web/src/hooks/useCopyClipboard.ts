@@ -1,6 +1,11 @@
 import { useCallback, useEffect, useState } from 'react'
+<<<<<<< HEAD
 import { setClipboard } from '@l.x/utils/src/clipboard/clipboard'
 import { logger } from '@l.x/utils/src/logger/logger'
+=======
+import { setClipboard } from 'utilities/src/clipboard/clipboard'
+import { logger } from 'utilities/src/logger/logger'
+>>>>>>> upstream/main
 
 export default function useCopyClipboard(timeout = 500): [boolean, (toCopy: string) => void] {
   const [isCopied, setIsCopied] = useState(false)

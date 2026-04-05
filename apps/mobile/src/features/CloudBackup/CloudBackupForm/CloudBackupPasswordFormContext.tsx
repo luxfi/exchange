@@ -1,11 +1,19 @@
 import { createContext, PropsWithChildren, useCallback, useContext, useMemo, useState } from 'react'
+<<<<<<< HEAD
 import { dismissNativeKeyboard } from '@l.x/utils/src/device/keyboard/dismissNativeKeyboard'
+=======
+import { dismissNativeKeyboard } from 'utilities/src/device/keyboard/dismissNativeKeyboard'
+>>>>>>> upstream/main
 import {
   getPasswordStrength,
   isPasswordStrongEnough,
   PasswordErrors,
   PasswordStrength,
+<<<<<<< HEAD
 } from '@luxfi/wallet/src/utils/password'
+=======
+} from 'wallet/src/utils/password'
+>>>>>>> upstream/main
 
 type CloudBackupPasswordFormContextType = {
   password: string

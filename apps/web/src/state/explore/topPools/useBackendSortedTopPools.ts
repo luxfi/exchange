@@ -1,4 +1,5 @@
 import { InfiniteData, useInfiniteQuery } from '@tanstack/react-query'
+<<<<<<< HEAD
 import { type DataApiPool, type ListTopPoolsResponse, ProtocolVersion, TopPoolsOrderBy } from '@l.x/api'
 import { useMemo } from 'react'
 import { DEFAULT_TICK_SPACING } from '@l.x/lx/src/constants/pools'
@@ -7,6 +8,16 @@ import { normalizeTokenAddressForCache } from '@l.x/lx/src/data/cache'
 import { useEnabledChains } from '@l.x/lx/src/features/chains/hooks/useEnabledChains'
 import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { toGraphQLChain } from '@l.x/lx/src/features/chains/utils'
+=======
+import { type DataApiPool, type ListTopPoolsResponse, ProtocolVersion, TopPoolsOrderBy } from '@universe/api'
+import { useMemo } from 'react'
+import { DEFAULT_TICK_SPACING } from 'uniswap/src/constants/pools'
+import { dataApiQueries } from 'uniswap/src/data/apiClients/dataApiService/dataApiQueries'
+import { normalizeTokenAddressForCache } from 'uniswap/src/data/cache'
+import { useEnabledChains } from 'uniswap/src/features/chains/hooks/useEnabledChains'
+import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { toGraphQLChain } from 'uniswap/src/features/chains/utils'
+>>>>>>> upstream/main
 import {
   calculate1DVolOverTvl,
   calculateApr,

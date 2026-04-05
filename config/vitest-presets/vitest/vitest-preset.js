@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 // this allows us to use es6, es2017, es2018 syntax (const, spread operators outside of array literals, etc.)
 /* eslint-env es6, es2017, es2018 */
+=======
+>>>>>>> upstream/main
 const globals = require('./globals')
 const path = require('path')
 
@@ -24,7 +27,11 @@ module.exports = {
     coverage: {
       enabled: false, // only collect in CI
       reporter: ['json', 'lcov', 'html'],
+<<<<<<< HEAD
       include: ['pkgs/**/src/**/*.ts'],
+=======
+      include: ['packages/**/src/**/*.ts'],
+>>>>>>> upstream/main
     },
     clearMocks: true,
     pool: 'forks',
@@ -59,8 +66,13 @@ module.exports = {
       '@statsig/js-local-overrides',
       '@react-native/**',
       '@react-native-firebase/**',
+<<<<<<< HEAD
       '@luxamm/client-embeddedwallet',
       '@luxamm/client-data-api',
+=======
+      '@uniswap/client-embeddedwallet',
+      '@uniswap/client-data-api',
+>>>>>>> upstream/main
       'react-native-webview',
       '@gorhom/**',
       'expo*',

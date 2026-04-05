@@ -5,37 +5,61 @@
       "executor": "nx:noop"
     },
     "android": {
+<<<<<<< HEAD
       "command": "EXPO_ANDROID_LAUNCH_ACTIVITY='com.lux.mobile.dev/com.lux.MainActivity' bunx expo run:android --variant=devDebug --app-id=com.lux.mobile.dev",
+=======
+      "command": "EXPO_ANDROID_LAUNCH_ACTIVITY='com.uniswap.mobile.dev/com.uniswap.MainActivity' bunx expo run:android --variant=devDebug --app-id=com.uniswap.mobile.dev",
+>>>>>>> upstream/main
       "options": {
         "cwd": "{projectRoot}"
       }
     },
     "android:release": {
+<<<<<<< HEAD
       "command": "EXPO_ANDROID_LAUNCH_ACTIVITY='com.lux.mobile.dev/com.lux.MainActivity' bunx expo run:android --variant=devRelease --app-id=com.lux.mobile.dev",
+=======
+      "command": "EXPO_ANDROID_LAUNCH_ACTIVITY='com.uniswap.mobile.dev/com.uniswap.MainActivity' bunx expo run:android --variant=devRelease --app-id=com.uniswap.mobile.dev",
+>>>>>>> upstream/main
       "options": {
         "cwd": "{projectRoot}"
       }
     },
     "android:beta": {
+<<<<<<< HEAD
       "command": "EXPO_ANDROID_LAUNCH_ACTIVITY='com.lux.mobile.beta/com.lux.MainActivity' bunx expo run:android --variant=betaDebug --app-id=com.lux.mobile.beta",
+=======
+      "command": "EXPO_ANDROID_LAUNCH_ACTIVITY='com.uniswap.mobile.beta/com.uniswap.MainActivity' bunx expo run:android --variant=betaDebug --app-id=com.uniswap.mobile.beta",
+>>>>>>> upstream/main
       "options": {
         "cwd": "{projectRoot}"
       }
     },
     "android:beta:release": {
+<<<<<<< HEAD
       "command": "EXPO_ANDROID_LAUNCH_ACTIVITY='com.lux.mobile.beta/com.lux.MainActivity' bunx expo run:android --variant=betaRelease --app-id=com.lux.mobile.beta",
+=======
+      "command": "EXPO_ANDROID_LAUNCH_ACTIVITY='com.uniswap.mobile.beta/com.uniswap.MainActivity' bunx expo run:android --variant=betaRelease --app-id=com.uniswap.mobile.beta",
+>>>>>>> upstream/main
       "options": {
         "cwd": "{projectRoot}"
       }
     },
     "android:prod": {
+<<<<<<< HEAD
       "command": "EXPO_ANDROID_LAUNCH_ACTIVITY='com.lux.mobile/com.lux.MainActivity' bunx expo run:android --variant=prodDebug",
+=======
+      "command": "EXPO_ANDROID_LAUNCH_ACTIVITY='com.uniswap.mobile/com.uniswap.MainActivity' bunx expo run:android --variant=prodDebug",
+>>>>>>> upstream/main
       "options": {
         "cwd": "{projectRoot}"
       }
     },
     "android:prod:release": {
+<<<<<<< HEAD
       "command": "EXPO_ANDROID_LAUNCH_ACTIVITY='com.lux.mobile/com.lux.MainActivity' bunx expo run:android --variant=prodRelease",
+=======
+      "command": "EXPO_ANDROID_LAUNCH_ACTIVITY='com.uniswap.mobile/com.uniswap.MainActivity' bunx expo run:android --variant=prodRelease",
+>>>>>>> upstream/main
       "options": {
         "cwd": "{projectRoot}"
       }
@@ -200,7 +224,17 @@
       }
     },
     "ios": {
+<<<<<<< HEAD
       "command": "bunx expo run:ios --scheme Lux --configuration Debug",
+=======
+      "command": "bunx expo run:ios --scheme Uniswap --configuration DebugOptimized",
+      "options": {
+        "cwd": "{projectRoot}"
+      }
+    },
+    "ios:debug": {
+      "command": "bunx expo run:ios --scheme Uniswap --configuration Debug",
+>>>>>>> upstream/main
       "options": {
         "cwd": "{projectRoot}"
       }
@@ -241,6 +275,7 @@
         "cwd": "{projectRoot}"
       }
     },
+<<<<<<< HEAD
     "lint:biome": {},
     "lint:biome:fix": {},
     "lint": {},
@@ -249,6 +284,16 @@
     "lint:eslint:fix": {},
     "start": {
       "command": "EXPO_ANDROID_LAUNCH_ACTIVITY='com.lux.mobile.dev/com.lux.MainActivity' EXPO_BUILD_CONFIGURATION=Debug NODE_ENV=development bunx expo start --scheme lux",
+=======
+    "lint": {},
+    "lint:fix": {},
+    "check": {},
+    "check:fix": {},
+    "lint:eslint": {},
+    "lint:eslint:fix": {},
+    "start": {
+      "command": "EXPO_ANDROID_LAUNCH_ACTIVITY='com.uniswap.mobile.dev/com.uniswap.MainActivity' EXPO_BUILD_CONFIGURATION=Debug NODE_ENV=development bunx expo start --scheme uniswap",
+>>>>>>> upstream/main
       "options": {
         "cwd": "{projectRoot}"
       },
@@ -351,6 +396,15 @@
       "options": {
         "cwd": "{projectRoot}"
       }
+<<<<<<< HEAD
     }
+=======
+    },
+    "oxfmt": {},
+    "oxfmt:fix": {},
+    "oxlint": {},
+    "oxlint:fix": {},
+    "oxlint:type-aware": {}
+>>>>>>> upstream/main
   }
 }

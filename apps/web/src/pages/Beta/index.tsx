@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
+=======
+import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+>>>>>>> upstream/main
 import { Navigate } from 'react-router'
 import { BetaPasscodeModal } from '~/pages/Beta/BetaPasscodeModal'
 import Landing from '~/pages/Landing'

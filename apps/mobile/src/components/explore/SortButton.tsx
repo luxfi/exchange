@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { CustomRankingType, RankingType } from '@luxfi/api'
 import React, { memo, useCallback, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
@@ -11,6 +12,21 @@ import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
 import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
 import { logger } from '@l.x/utils/src/logger/logger'
 import { ExploreOrderBy } from '@luxfi/wallet/src/features/wallet/types'
+=======
+import { CustomRankingType, RankingType } from '@universe/api'
+import React, { memo, useCallback, useMemo } from 'react'
+import { useTranslation } from 'react-i18next'
+import { getTokensOrderByMenuLabel, getTokensOrderBySelectedLabel } from 'src/features/explore/utils'
+import { Flex, Text } from 'ui/src'
+import { Chart, ChartPie, ChartPyramid, CheckCircleFilled, TrendDown, TrendUp } from 'ui/src/components/icons'
+import { ActionSheetDropdown } from 'uniswap/src/components/dropdowns/ActionSheetDropdown'
+import { MenuItemProp } from 'uniswap/src/components/modals/ActionSheetModal'
+import { MobileEventName } from 'uniswap/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
+import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+import { logger } from 'utilities/src/logger/logger'
+import { ExploreOrderBy } from 'wallet/src/features/wallet/types'
+>>>>>>> upstream/main
 
 const MIN_MENU_ITEM_WIDTH = 220
 
@@ -26,7 +42,11 @@ interface MenuAction {
   active: boolean
 }
 
+<<<<<<< HEAD
 function _SortButton({ orderBy, onOrderByChange }: FilterGroupProps): JSX.Element {
+=======
+function SortButtonInner({ orderBy, onOrderByChange }: FilterGroupProps): JSX.Element {
+>>>>>>> upstream/main
   const { t } = useTranslation()
 
   const menuActions = useMemo<MenuAction[]>(() => {
@@ -124,8 +144,13 @@ function _SortButton({ orderBy, onOrderByChange }: FilterGroupProps): JSX.Elemen
       backgroundColor="$surface3"
       borderRadius="$rounded20"
       gap="$spacing4"
+<<<<<<< HEAD
       pl="$spacing12"
       pr="$spacing8"
+=======
+      pl="$spacing16"
+      pr="$spacing12"
+>>>>>>> upstream/main
       testID={TestID.ExploreSortButton}
     >
       <ActionSheetDropdown showArrow options={options} styles={{ alignment: 'right' }}>
@@ -137,4 +162,8 @@ function _SortButton({ orderBy, onOrderByChange }: FilterGroupProps): JSX.Elemen
   )
 }
 
+<<<<<<< HEAD
 export const SortButton = memo(_SortButton)
+=======
+export const SortButton = memo(SortButtonInner)
+>>>>>>> upstream/main

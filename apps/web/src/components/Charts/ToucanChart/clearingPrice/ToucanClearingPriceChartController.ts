@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 /* eslint-disable max-lines */
 import type { IChartApi, ISeriesApi, MouseEventParams, Time, UTCTimestamp } from 'lightweight-charts'
 import { logger } from '@l.x/utils/src/logger/logger'
+=======
+/* oxlint-disable max-lines */
+import type { IChartApi, ISeriesApi, MouseEventParams, Time, UTCTimestamp } from 'lightweight-charts'
+import { logger } from 'utilities/src/logger/logger'
+>>>>>>> upstream/main
 import { constrainVisibleRangeToBounds } from '~/components/Charts/ToucanChart/bidDistribution/utils/visibleRange'
 import {
   createAreaSeriesOptions,
@@ -20,7 +26,11 @@ import { createYAxisPriceFormatter } from '~/components/Charts/ToucanChart/clear
 import { calculateYAxisTicks } from '~/components/Charts/ToucanChart/clearingPrice/utils/yAxisRange'
 import { calculateZoomedRange, getIsZoomed } from '~/components/Charts/ToucanChart/utils/zoomRange'
 import { formatTickMarks } from '~/components/Charts/utils'
+<<<<<<< HEAD
 import { ZOOM_FACTORS } from '~/components/Toucan/Auction/BidDistributionChart/constants'
+=======
+import { CHART_DIMENSIONS, ZOOM_FACTORS } from '~/components/Toucan/Auction/BidDistributionChart/constants'
+>>>>>>> upstream/main
 
 /**
  * Controller for the Clearing Price Chart.
@@ -59,6 +69,11 @@ export class ToucanClearingPriceChartController {
   }
   private latestScaleFactor = 1
   private latestMaxFractionDigits = 4
+<<<<<<< HEAD
+=======
+  private latestScaledYMin = 0
+  private latestScaledYMax = 0
+>>>>>>> upstream/main
 
   constructor(params: ClearingPriceChartControllerCreateParams) {
     this.createParams = params
@@ -146,31 +161,51 @@ export class ToucanClearingPriceChartController {
       useLogicalRangePositioning,
       hideXAxis,
       isZoomEnabled = true,
+<<<<<<< HEAD
+=======
+      disableMouseWheelInteractions = false,
+>>>>>>> upstream/main
     } = params
 
     // Store positioning mode for coordinate calculations and resize handling
     this.useLogicalRangePositioning = useLogicalRangePositioning ?? false
     this.isZoomEnabled = isZoomEnabled
 
+<<<<<<< HEAD
     /* eslint-disable @typescript-eslint/no-unnecessary-condition -- fallback chains for optional range params */
+=======
+    /* oxlint-disable typescript/no-unnecessary-condition -- fallback chains for optional range params */
+>>>>>>> upstream/main
     const resolvedStart = fullRangeStart ?? visibleRangeStart ?? data[0]?.time ?? null
     const resolvedEnd = fullRangeEnd ?? visibleRangeEnd ?? data[data.length - 1]?.time ?? null
     this.initialRangeStart = initialRangeStart ?? visibleRangeStart ?? resolvedStart
     this.initialRangeEnd = initialRangeEnd ?? visibleRangeEnd ?? resolvedEnd
     this.fullRangeStart = this.initialRangeStart ?? resolvedStart
     this.fullRangeEnd = this.initialRangeEnd ?? resolvedEnd
+<<<<<<< HEAD
     /* eslint-enable @typescript-eslint/no-unnecessary-condition */
+=======
+    /* oxlint-enable typescript/no-unnecessary-condition */
+>>>>>>> upstream/main
 
     const interactionOptions = isZoomEnabled
       ? {
           handleScroll: {
+<<<<<<< HEAD
             mouseWheel: true,
+=======
+            mouseWheel: !disableMouseWheelInteractions,
+>>>>>>> upstream/main
             pressedMouseMove: true,
             horzTouchDrag: true,
             vertTouchDrag: false,
           },
           handleScale: {
+<<<<<<< HEAD
             mouseWheel: true,
+=======
+            mouseWheel: !disableMouseWheelInteractions,
+>>>>>>> upstream/main
             pinch: true,
             axisPressedMouseMove: {
               time: true,
@@ -254,9 +289,18 @@ export class ToucanClearingPriceChartController {
 
     this.latestScaleFactor = scaleFactor
     this.latestMaxFractionDigits = maxFractionDigits
+<<<<<<< HEAD
 
     this.syncZoomStateFromChart()
     this.emitYAxisLabels()
+=======
+    this.latestScaledYMin = scaledYMin
+    this.latestScaledYMax = scaledYMax
+
+    this.syncZoomStateFromChart()
+    this.emitYAxisLabels()
+    this.emitVisiblePriceRange()
+>>>>>>> upstream/main
   }
 
   private emitYAxisLabels(): void {
@@ -272,22 +316,74 @@ export class ToucanClearingPriceChartController {
       maxFractionDigits: this.latestMaxFractionDigits,
     })
 
+<<<<<<< HEAD
     const ticks = calculateYAxisTicks({
       values: this.latestData.map((d) => d.value),
+=======
+    // Use the full Y range (includes distribution tick extension) for label generation
+    const ticks = calculateYAxisTicks({
+      min: this.latestScaledYMin,
+      max: this.latestScaledYMax,
+>>>>>>> upstream/main
       formatter,
     })
 
     const labels: YAxisLabel[] = []
+<<<<<<< HEAD
     for (const tick of ticks) {
       const y = series.priceToCoordinate(tick.value)
       if (y != null && y >= 0 && y <= chartHeight) {
         labels.push({ label: tick.label, y: Number(y) })
+=======
+    let lastY: number | null = null
+    for (const tick of ticks) {
+      const y = series.priceToCoordinate(tick.value)
+      if (y != null && y >= 0 && y <= chartHeight) {
+        const yNum = Number(y)
+        if (lastY !== null && Math.abs(yNum - lastY) < CHART_DIMENSIONS.Y_AXIS_MIN_WIDTH) {
+          continue
+        }
+        labels.push({ label: tick.label, y: yNum })
+        lastY = yNum
+>>>>>>> upstream/main
       }
     }
 
     this.callbacks.onYAxisLabelsChange?.(labels)
   }
 
+<<<<<<< HEAD
+=======
+  /**
+   * Emit the visible price range by sampling the top and bottom of the chart area.
+   * Uses series.coordinateToPrice() to get exact price values at pixel boundaries.
+   */
+  private emitVisiblePriceRange(): void {
+    const series = this.series
+    if (!series || this.latestData.length === 0) {
+      return
+    }
+
+    try {
+      const chartHeight = this.createParams.height
+      const topPrice = series.coordinateToPrice(0)
+      const bottomPrice = series.coordinateToPrice(chartHeight)
+
+      if (topPrice == null || bottomPrice == null || !Number.isFinite(topPrice) || !Number.isFinite(bottomPrice)) {
+        return
+      }
+
+      // topPrice is the max (top of chart), bottomPrice is the min (bottom of chart)
+      const min = Math.min(topPrice, bottomPrice)
+      const max = Math.max(topPrice, bottomPrice)
+
+      this.callbacks.onVisiblePriceRangeChange?.({ min, max })
+    } catch {
+      // Chart not ready yet
+    }
+  }
+
+>>>>>>> upstream/main
   private init(): void {
     try {
       const onCrosshairMove = (param: MouseEventParams<Time>) => this.onCrosshairMove(param)
@@ -344,6 +440,10 @@ export class ToucanClearingPriceChartController {
         },
       )
       this.emitYAxisLabels()
+<<<<<<< HEAD
+=======
+      this.emitVisiblePriceRange()
+>>>>>>> upstream/main
       return
     }
     this.applyInitialRange()
@@ -410,6 +510,10 @@ export class ToucanClearingPriceChartController {
 
     this.updateZoomState({ from, to })
     this.emitYAxisLabels()
+<<<<<<< HEAD
+=======
+    this.emitVisiblePriceRange()
+>>>>>>> upstream/main
   }
 
   private applyInitialRange(): void {

@@ -1,5 +1,8 @@
 import '~/test-utils/tokens/mocks'
+<<<<<<< HEAD
 
+=======
+>>>>>>> upstream/main
 import { SwapPreview } from '~/components/swap/SwapPreview'
 import {
   ETH_MAINNET,
@@ -32,7 +35,11 @@ describe('SwapPreview.tsx', () => {
     expect(screen.getByTestId('output-amount')).toHaveTextContent(`<0.00001 DEF`)
   })
 
+<<<<<<< HEAD
   it('renders ETH input token for an ETH input DEX swap', () => {
+=======
+  it('renders ETH input token for an ETH input UniswapX swap', () => {
+>>>>>>> upstream/main
     const { asFragment } = render(
       <SwapPreview
         inputCurrency={ETH_MAINNET}
@@ -46,7 +53,11 @@ describe('SwapPreview.tsx', () => {
     expect(screen.getByTestId('output-amount')).toHaveTextContent(`<0.00001 DEF`)
   })
 
+<<<<<<< HEAD
   it('renders ETH input token for an ETH input DEX v2 swap', () => {
+=======
+  it('renders ETH input token for an ETH input UniswapX v2 swap', () => {
+>>>>>>> upstream/main
     const { asFragment } = render(
       <SwapPreview
         inputCurrency={ETH_MAINNET}

@@ -4,9 +4,15 @@ import React, { PropsWithChildren } from 'react'
 import { ScrollViewProps, StyleSheet } from 'react-native'
 import { FadeIn, FadeOut } from 'react-native-reanimated'
 import { SafeKeyboardScreen } from 'src/components/layout/SafeKeyboardScreen'
+<<<<<<< HEAD
 import { Flex, GeneratedIcon, SpaceTokens, Text, TouchableArea, useMedia, useSporeColors } from '@l.x/ui/src'
 import { AnimatedFlex } from '@l.x/ui/src/components/layout/AnimatedFlex'
 import { opacify } from '@l.x/ui/src/theme'
+=======
+import { Flex, GeneratedIcon, SpaceTokens, Text, TouchableArea, useMedia, useSporeColors } from 'ui/src'
+import { AnimatedFlex } from 'ui/src/components/layout/AnimatedFlex'
+import { opacify } from 'ui/src/theme'
+>>>>>>> upstream/main
 
 type OnboardingScreenProps = {
   subtitle?: string

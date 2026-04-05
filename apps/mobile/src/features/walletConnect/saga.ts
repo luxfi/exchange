@@ -1,7 +1,14 @@
+<<<<<<< HEAD
 /* eslint-disable max-lines */
 import { AnyAction } from '@reduxjs/toolkit'
 import { WalletKitTypes } from '@reown/walletkit'
 import { FeatureFlags, getFeatureFlag } from '@luxfi/gating'
+=======
+/* oxlint-disable max-lines */
+import { AnyAction } from '@reduxjs/toolkit'
+import { WalletKitTypes } from '@reown/walletkit'
+import { FeatureFlags, getFeatureFlag } from '@universe/gating'
+>>>>>>> upstream/main
 import { PendingRequestTypes, ProposalTypes, SessionTypes, Verify } from '@walletconnect/types'
 import { buildApprovedNamespaces, getSdkError, populateAuthPayload } from '@walletconnect/utils'
 import { Alert } from 'react-native'
@@ -36,6 +43,7 @@ import {
   setHasPendingSessionError,
 } from 'src/features/walletConnect/walletConnectSlice'
 import { call, fork, put, select, take } from 'typed-redux-saga'
+<<<<<<< HEAD
 import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { getChainLabel } from '@l.x/lx/src/features/chains/utils'
 import { EthMethod } from '@l.x/lx/src/features/dappRequests/types'
@@ -49,12 +57,32 @@ import { DappRequestType, EthEvent, WalletConnectEvent } from '@l.x/lx/src/types
 import { areAddressesEqual } from '@l.x/lx/src/utils/addresses'
 import { logger } from '@l.x/utils/src/logger/logger'
 import { ONE_SECOND_MS } from '@l.x/utils/src/time/time'
+=======
+import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { getChainLabel } from 'uniswap/src/features/chains/utils'
+import { EthMethod } from 'uniswap/src/features/dappRequests/types'
+import { isSelfCallWithData } from 'uniswap/src/features/dappRequests/utils'
+import { pushNotification } from 'uniswap/src/features/notifications/slice/slice'
+import { AppNotificationType } from 'uniswap/src/features/notifications/slice/types'
+import { Platform } from 'uniswap/src/features/platforms/types/Platform'
+import { getEnabledChainIdsSaga } from 'uniswap/src/features/settings/saga'
+import i18n from 'uniswap/src/i18n'
+import { DappRequestType, EthEvent, WalletConnectEvent } from 'uniswap/src/types/walletConnect'
+import { areAddressesEqual } from 'uniswap/src/utils/addresses'
+import { logger } from 'utilities/src/logger/logger'
+import { ONE_SECOND_MS } from 'utilities/src/time/time'
+>>>>>>> upstream/main
 import {
   selectAccounts,
   selectActiveAccountAddress,
   selectSignerMnemonicAccounts,
+<<<<<<< HEAD
 } from '@luxfi/wallet/src/features/wallet/selectors'
 import { setAccountAsActive } from '@luxfi/wallet/src/features/wallet/slice'
+=======
+} from 'wallet/src/features/wallet/selectors'
+import { setAccountAsActive } from 'wallet/src/features/wallet/slice'
+>>>>>>> upstream/main
 
 const WC_SUPPORTED_METHODS = [
   EthMethod.EthSign,

@@ -9,6 +9,7 @@ import {
   render as RNRender,
   renderHook as RNRenderHook,
 } from '@testing-library/react-native'
+<<<<<<< HEAD
 import { GraphQLApi } from '@l.x/api'
 import React, { PropsWithChildren } from 'react'
 import { MobileWalletNavigationProvider } from 'src/app/MobileWalletNavigationProvider'
@@ -20,6 +21,19 @@ import { BlankUrlProvider } from '@l.x/lx/src/contexts/UrlContext'
 import { AutoMockedApolloProvider } from '@l.x/lx/src/test/mocks'
 import { mockLuxContext } from '@l.x/lx/src/test/render'
 import { SharedWalletProvider } from '@luxfi/wallet/src/providers/SharedWalletProvider'
+=======
+import { GraphQLApi } from '@universe/api'
+import React, { PropsWithChildren } from 'react'
+import type { MobileState } from 'src/app/mobileReducer'
+import { MobileWalletNavigationProvider } from 'src/app/MobileWalletNavigationProvider'
+import { navigationRef } from 'src/app/navigation/navigationRef'
+import { store as appStore, persistedReducer } from 'src/app/store'
+import { UniswapProvider } from 'uniswap/src/contexts/UniswapContext'
+import { BlankUrlProvider } from 'uniswap/src/contexts/UrlContext'
+import { AutoMockedApolloProvider } from 'uniswap/src/test/mocks'
+import { mockUniswapContext } from 'uniswap/src/test/render'
+import { SharedWalletProvider } from 'wallet/src/providers/SharedWalletProvider'
+>>>>>>> upstream/main
 
 type AppStore = typeof appStore
 
@@ -56,7 +70,11 @@ export function renderWithProviders(
 } {
   function Wrapper({ children }: PropsWithChildren<unknown>): JSX.Element {
     return (
+<<<<<<< HEAD
       <LuxProvider {...mockLuxContext}>
+=======
+      <UniswapProvider {...mockUniswapContext}>
+>>>>>>> upstream/main
         <AutoMockedApolloProvider resolvers={resolvers}>
           <BlankUrlProvider>
             <SharedWalletProvider reduxStore={store}>
@@ -66,7 +84,11 @@ export function renderWithProviders(
             </SharedWalletProvider>
           </BlankUrlProvider>
         </AutoMockedApolloProvider>
+<<<<<<< HEAD
       </LuxProvider>
+=======
+      </UniswapProvider>
+>>>>>>> upstream/main
     )
   }
 
@@ -124,7 +146,11 @@ export function renderHookWithProviders<P, R>(
 
   function Wrapper({ children }: PropsWithChildren<unknown>): JSX.Element {
     return (
+<<<<<<< HEAD
       <LuxProvider {...mockLuxContext}>
+=======
+      <UniswapProvider {...mockUniswapContext}>
+>>>>>>> upstream/main
         <AutoMockedApolloProvider resolvers={resolvers}>
           <BlankUrlProvider>
             <NavigationContainer ref={navigationRef}>
@@ -134,7 +160,11 @@ export function renderHookWithProviders<P, R>(
             </NavigationContainer>
           </BlankUrlProvider>
         </AutoMockedApolloProvider>
+<<<<<<< HEAD
       </LuxProvider>
+=======
+      </UniswapProvider>
+>>>>>>> upstream/main
     )
   }
 

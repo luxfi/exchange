@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 import { TransactionStatus, TransactionType } from '@l.x/lx/src/features/transactions/types/transactionDetails'
 import i18n from '@l.x/lx/src/i18n'
 import { logger } from '@l.x/utils/src/logger/logger'
+=======
+import { TransactionStatus, TransactionType } from 'uniswap/src/features/transactions/types/transactionDetails'
+import i18n from 'uniswap/src/i18n'
+import { logger } from 'utilities/src/logger/logger'
+>>>>>>> upstream/main
 
 type TransactionStatusWeb = TransactionStatus.Success | TransactionStatus.Failed | TransactionStatus.Pending
 
@@ -164,7 +170,11 @@ const getTransactionTitleTable = (): {
     [TransactionStatus.Success]: i18n.t('pool.incentives.collectedRewards'),
     [TransactionStatus.Failed]: i18n.t('pool.incentives.collectFailedNoRetry'),
   },
+<<<<<<< HEAD
   [TransactionType.DEXOrder]: {
+=======
+  [TransactionType.UniswapXOrder]: {
+>>>>>>> upstream/main
     [TransactionStatus.Pending]: i18n.t('transaction.status.swap.pending'),
     [TransactionStatus.Success]: i18n.t('transaction.status.swap.success'),
     [TransactionStatus.Failed]: i18n.t('common.swap.failed'),
@@ -273,7 +283,11 @@ export const getCancelledTransactionTitleTable = (): { [key in TransactionType]:
   [TransactionType.Unknown]: i18n.t('common.unknown'),
   [TransactionType.SendCalls]: i18n.t('transaction.status.send.canceled'),
   [TransactionType.CreatePosition]: i18n.t('pool.createdPosition.canceled'),
+<<<<<<< HEAD
   [TransactionType.DEXOrder]: i18n.t('transaction.status.swap.canceled'),
+=======
+  [TransactionType.UniswapXOrder]: i18n.t('transaction.status.swap.canceled'),
+>>>>>>> upstream/main
   [TransactionType.RemoveDelegation]: i18n.t('transaction.status.removeDelegation.canceled'),
   [TransactionType.AuctionBid]: i18n.t('transaction.status.submitBid.canceled'),
   [TransactionType.AuctionClaimed]: i18n.t('transaction.status.claim.canceled'),

@@ -1,6 +1,7 @@
 import React, { Dispatch, SetStateAction, useCallback, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
+<<<<<<< HEAD
 import { Button, Flex } from '@l.x/ui/src'
 import { WarningLabel } from '@l.x/lx/src/components/modals/WarningModal/types'
 import { nativeOnChain } from '@l.x/lx/src/constants/tokens'
@@ -16,6 +17,23 @@ import { useSendContext } from '@luxfi/wallet/src/features/transactions/contexts
 import { isAmountGreaterThanZero } from '@luxfi/wallet/src/features/transactions/utils'
 import { useIsBlockedActiveAddress } from '@luxfi/wallet/src/features/trm/hooks'
 import { useActiveAccountWithThrow } from '@luxfi/wallet/src/features/wallet/hooks'
+=======
+import { Button, Flex } from 'ui/src'
+import { WarningLabel } from 'uniswap/src/components/modals/WarningModal/types'
+import { nativeOnChain } from 'uniswap/src/constants/tokens'
+import { AccountType } from 'uniswap/src/features/accounts/types'
+import { selectHasDismissedLowNetworkTokenWarning } from 'uniswap/src/features/behaviorHistory/selectors'
+import { UniswapEventName } from 'uniswap/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
+import { useDismissedCompatibleAddressWarnings } from 'uniswap/src/features/tokens/warnings/slice/hooks'
+import { useTransactionModalContext } from 'uniswap/src/features/transactions/components/TransactionModal/TransactionModalContext'
+import { useIsBlocked } from 'uniswap/src/features/trm/hooks'
+import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+import { useSendContext } from 'wallet/src/features/transactions/contexts/SendContext'
+import { isAmountGreaterThanZero } from 'wallet/src/features/transactions/utils'
+import { useIsBlockedActiveAddress } from 'wallet/src/features/trm/hooks'
+import { useActiveAccountWithThrow } from 'wallet/src/features/wallet/hooks'
+>>>>>>> upstream/main
 
 export function SendFormButton({
   setShowViewOnlyModal,
@@ -73,7 +91,11 @@ export function SendFormButton({
     }
 
     if (!hasDismissedLowNetworkTokenWarning && isMax && currencyInInfo?.currency.isNative) {
+<<<<<<< HEAD
       sendAnalyticsEvent(LXEventName.LowNetworkTokenInfoModalOpened, { location: 'send' })
+=======
+      sendAnalyticsEvent(UniswapEventName.LowNetworkTokenInfoModalOpened, { location: 'send' })
+>>>>>>> upstream/main
       setShowMaxTransferModal(true)
       return
     }

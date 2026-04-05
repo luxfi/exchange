@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import { GraphQLApi } from '@luxfi/api'
+=======
+import { GraphQLApi } from '@universe/api'
+>>>>>>> upstream/main
 import React, { memo, PropsWithChildren, ReactElement, useCallback, useEffect, useMemo, useState } from 'react'
 import { I18nManager } from 'react-native'
 import { SharedValue, useDerivedValue } from 'react-native-reanimated'
@@ -13,6 +17,7 @@ import { useLineChartPrice } from 'src/components/PriceExplorer/usePrice'
 import { PriceNumberOfDigits, TokenSpotData, useTokenPriceHistory } from 'src/components/PriceExplorer/usePriceHistory'
 import { useTokenDetailsContext } from 'src/components/TokenDetails/TokenDetailsContext'
 import { useIsScreenNavigationReady } from 'src/utils/useIsScreenNavigationReady'
+<<<<<<< HEAD
 import { Flex, SegmentedControl, Text } from '@l.x/ui/src'
 import { useLayoutAnimationOnChange } from '@l.x/ui/src/animations'
 import GraphCurve from '@l.x/ui/src/assets/backgrounds/graph-curve.svg'
@@ -27,6 +32,22 @@ import Trace from '@l.x/lx/src/features/telemetry/Trace'
 import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
 import { logger } from '@l.x/utils/src/logger/logger'
 import { isAndroid } from '@l.x/utils/src/platform'
+=======
+import { Flex, SegmentedControl, Text } from 'ui/src'
+import { useLayoutAnimationOnChange } from 'ui/src/animations'
+import GraphCurve from 'ui/src/assets/backgrounds/graph-curve.svg'
+import { spacing } from 'ui/src/theme'
+import { isLowVarianceRange } from 'uniswap/src/components/charts/utils'
+import { useEnabledChains } from 'uniswap/src/features/chains/hooks/useEnabledChains'
+import { useAppFiatCurrencyInfo } from 'uniswap/src/features/fiatCurrency/hooks'
+import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
+import { useHapticFeedback } from 'uniswap/src/features/settings/useHapticFeedback/useHapticFeedback'
+import { ElementName } from 'uniswap/src/features/telemetry/constants'
+import Trace from 'uniswap/src/features/telemetry/Trace'
+import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+import { logger } from 'utilities/src/logger/logger'
+import { isAndroid } from 'utilities/src/platform'
+>>>>>>> upstream/main
 
 const DEFAULT_Y_PADDING = 20
 const LOW_VARIANCE_Y_PADDING = 100
@@ -91,7 +112,11 @@ function TimeRangeTraceWrapper({
   )
 }
 
+<<<<<<< HEAD
 export const PriceExplorer = memo(function _PriceExplorer(): JSX.Element {
+=======
+export const PriceExplorer = memo(function PriceExplorerInner(): JSX.Element {
+>>>>>>> upstream/main
   const { isTestnetModeEnabled } = useEnabledChains()
   const { chartHeight, chartWidth } = useChartDimensions()
 
@@ -99,10 +124,17 @@ export const PriceExplorer = memo(function _PriceExplorer(): JSX.Element {
     return <GraphCurve height={chartHeight} width={chartWidth} opacity={0.25} />
   }
 
+<<<<<<< HEAD
   return <PriceExplorerInner />
 })
 
 const PriceExplorerInner = memo(function _PriceExplorerInner(): JSX.Element {
+=======
+  return <PriceExplorerContent />
+})
+
+const PriceExplorerContent = memo(function PriceExplorerContentInner(): JSX.Element {
+>>>>>>> upstream/main
   const { currencyId, tokenColor, navigation } = useTokenDetailsContext()
   const isScreenNavigationReady = useIsScreenNavigationReady({ navigation })
 
@@ -157,6 +189,10 @@ const PriceExplorerInner = memo(function _PriceExplorerInner(): JSX.Element {
         value: convertedSpotValue,
       }
     )
+<<<<<<< HEAD
+=======
+    // oxlint-disable-next-line react/exhaustive-deps -- biome-parity: oxlint is stricter here
+>>>>>>> upstream/main
   }, [data])
 
   // Zoom out y-axis for low variance assets

@@ -2,10 +2,17 @@ import { LegendList } from '@legendapp/list'
 import React, { memo, useCallback, useMemo } from 'react'
 import { useAppStackNavigation } from 'src/app/navigation/types'
 import { ScreenWithHeader } from 'src/components/layout/screens/ScreenWithHeader'
+<<<<<<< HEAD
 import { Flex, Text, TouchableArea } from '@l.x/ui/src'
 import { Clock, Wrench } from '@l.x/ui/src/components/icons'
 import { iconSizes } from '@l.x/ui/src/theme'
 import { MobileScreens } from '@l.x/lx/src/types/screens/mobile'
+=======
+import { Flex, Text, TouchableArea } from 'ui/src'
+import { Clock, Wrench } from 'ui/src/components/icons'
+import { iconSizes } from 'ui/src/theme'
+import { MobileScreens } from 'uniswap/src/types/screens/mobile'
+>>>>>>> upstream/main
 
 interface DebugScreenItem {
   id: string

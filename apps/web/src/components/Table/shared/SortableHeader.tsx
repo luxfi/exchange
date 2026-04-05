@@ -1,15 +1,27 @@
+<<<<<<< HEAD
 import { ArrowDown } from '@l.x/ui/src/components/icons/ArrowDown'
 import { ArrowUp } from '@l.x/ui/src/components/icons/ArrowUp'
 import { Flex, styled, Text } from '@l.x/ui/src/index'
 import { IconSizeTokens } from '@l.x/ui/src/theme'
 import { ClickableGuiStyle } from '~/theme/components/styles'
+=======
+import { ArrowDown } from 'ui/src/components/icons/ArrowDown'
+import { ArrowUp } from 'ui/src/components/icons/ArrowUp'
+import { Flex, styled, Text } from 'ui/src/index'
+import { IconSizeTokens } from 'ui/src/theme'
+import { ClickableTamaguiStyle } from '~/theme/components/styles'
+>>>>>>> upstream/main
 
 export const ClickableHeaderRow = styled(Flex, {
   row: true,
   alignItems: 'center',
   justifyContent: 'flex-end',
 
+<<<<<<< HEAD
   ...ClickableGuiStyle,
+=======
+  ...ClickableTamaguiStyle,
+>>>>>>> upstream/main
 })
 
 export function HeaderArrow({

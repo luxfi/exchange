@@ -4,9 +4,15 @@ import { OpenSidebarButton } from 'src/app/components/buttons/OpenSidebarButton'
 import { useFinishExtensionOnboarding } from 'src/app/features/onboarding/hooks/useFinishExtensionOnboarding'
 import { useOpenSidebar } from 'src/app/features/onboarding/hooks/useOpenSidebar'
 import { terminateStoreSynchronization } from 'src/store/storeSynchronization'
+<<<<<<< HEAD
 import { Flex, Text } from '@l.x/ui/src'
 import { Check, GraduationCap } from '@l.x/ui/src/components/icons'
 import { lxUrls } from '@l.x/lx/src/constants/urls'
+=======
+import { Flex, Text } from 'ui/src'
+import { Check, GraduationCap } from 'ui/src/components/icons'
+import { uniswapUrls } from 'uniswap/src/constants/urls'
+>>>>>>> upstream/main
 
 export function ResetComplete(): JSX.Element {
   const { t } = useTranslation()
@@ -36,7 +42,11 @@ export function ResetComplete(): JSX.Element {
         <Link
           style={{ textDecoration: 'none' }}
           target="_blank"
+<<<<<<< HEAD
           to={lxUrls.helpArticleUrls.walletSecurityMeasures}
+=======
+          to={uniswapUrls.helpArticleUrls.walletSecurityMeasures}
+>>>>>>> upstream/main
         >
           <Flex row alignItems="center" gap="$spacing8">
             <GraduationCap color="$neutral3" size="$icon.20" />

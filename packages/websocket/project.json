@@ -1,0 +1,29 @@
+{
+  "name": "@universe/websocket",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/websocket/src",
+  "projectType": "library",
+  "tags": ["scope:websocket", "type:lib"],
+  "targets": {
+    "test": {
+      "command": "vitest run --passWithNoTests",
+      "options": {
+        "cwd": "{projectRoot}"
+      }
+    },
+    "typecheck": {},
+    "typecheck:tsgo": {},
+    "lint:eslint": {},
+    "lint:eslint:fix": {},
+    "lint": {},
+    "lint:fix": {},
+    "check": {},
+    "check:fix": {},
+    "check:deps:usage": {},
+    "oxfmt": {},
+    "oxfmt:fix": {},
+    "oxlint": {},
+    "oxlint:fix": {},
+    "oxlint:type-aware": {}
+  }
+}

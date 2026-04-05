@@ -1,10 +1,18 @@
 import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
+<<<<<<< HEAD
 import { Anchor, Flex, Text } from '@l.x/ui/src'
 import { InfoCircleFilled } from '@l.x/ui/src/components/icons/InfoCircleFilled'
 import { Tooltip } from '@l.x/ui/src/components/tooltip/Tooltip'
 import { zIndexes } from '@l.x/ui/src/theme'
 import { lxUrls } from 'lx/src/constants/urls'
+=======
+import { Anchor, Flex, Text } from 'ui/src'
+import { InfoCircleFilled } from 'ui/src/components/icons/InfoCircleFilled'
+import { Tooltip } from 'ui/src/components/tooltip/Tooltip'
+import { zIndexes } from 'ui/src/theme'
+import { uniswapUrls } from 'uniswap/src/constants/urls'
+>>>>>>> upstream/main
 import { buildTokenMarketPriceKey } from '~/components/Toucan/hooks/useTokenMarketPrices'
 import { MAX_WIDTH_MEDIA_BREAKPOINT } from '~/constants/breakpoints'
 import { AuctionChip } from '~/pages/Explore/tables/Auctions/AuctionChip'
@@ -80,7 +88,11 @@ export function TopVerifiedAuctionsSection() {
         <Tooltip placement="top" delay={0}>
           <Tooltip.Trigger>
             <Anchor
+<<<<<<< HEAD
               href={lxUrls.helpArticleUrls.toucanVerifiedAuctionsHelp}
+=======
+              href={uniswapUrls.helpArticleUrls.toucanVerifiedAuctionsHelp}
+>>>>>>> upstream/main
               target="_blank"
               onPress={(e) => e.stopPropagation()}
               display="flex"

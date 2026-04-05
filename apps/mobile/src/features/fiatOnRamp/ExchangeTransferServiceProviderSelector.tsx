@@ -2,6 +2,7 @@ import React, { useCallback } from 'react'
 import { FlatList, ListRenderItemInfo } from 'react-native'
 import { FadeIn, FadeOut } from 'react-native-reanimated'
 import { navigate } from 'src/app/navigation/rootNavigation'
+<<<<<<< HEAD
 import { Flex, Text, TouchableArea, UniversalImage, useIsDarkMode } from '@l.x/ui/src'
 import { AnimatedFlex } from '@l.x/ui/src/components/layout/AnimatedFlex'
 import { UniversalImageResizeMode } from '@l.x/ui/src/components/UniversalImage/types'
@@ -9,6 +10,15 @@ import { iconSizes } from '@l.x/ui/src/theme'
 import { FORServiceProvider } from '@l.x/lx/src/features/fiatOnRamp/types'
 import { getOptionalServiceProviderLogo } from '@l.x/lx/src/features/fiatOnRamp/utils'
 import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
+=======
+import { Flex, Text, TouchableArea, UniversalImage, useIsDarkMode } from 'ui/src'
+import { AnimatedFlex } from 'ui/src/components/layout/AnimatedFlex'
+import { UniversalImageResizeMode } from 'ui/src/components/UniversalImage/types'
+import { iconSizes } from 'ui/src/theme'
+import { FORServiceProvider } from 'uniswap/src/features/fiatOnRamp/types'
+import { getOptionalServiceProviderLogo } from 'uniswap/src/features/fiatOnRamp/utils'
+import { ModalName } from 'uniswap/src/features/telemetry/constants'
+>>>>>>> upstream/main
 
 function key(item: FORServiceProvider): string {
   return item.serviceProvider

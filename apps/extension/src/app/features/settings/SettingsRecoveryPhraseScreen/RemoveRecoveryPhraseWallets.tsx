@@ -4,6 +4,7 @@ import { ScreenHeader } from 'src/app/components/layout/ScreenHeader'
 import { SettingsRecoveryPhrase } from 'src/app/features/settings/SettingsRecoveryPhraseScreen/SettingsRecoveryPhrase'
 import { AppRoutes, RemoveRecoveryPhraseRoutes, SettingsRoutes } from 'src/app/navigation/constants'
 import { useExtensionNavigation } from 'src/app/navigation/utils'
+<<<<<<< HEAD
 import { Flex, ScrollView, Text } from '@l.x/ui/src'
 import { AlertTriangleFilled } from '@l.x/ui/src/components/icons'
 import { iconSizes } from '@l.x/ui/src/theme'
@@ -13,6 +14,17 @@ import { NumberType } from '@l.x/utils/src/format/types'
 import { useAccountListData } from '@luxfi/wallet/src/features/accounts/useAccountListData'
 import { Account } from '@luxfi/wallet/src/features/wallet/accounts/types'
 import { useSignerAccounts } from '@luxfi/wallet/src/features/wallet/hooks'
+=======
+import { Flex, ScrollView, Text } from 'ui/src'
+import { AlertTriangleFilled } from 'ui/src/components/icons'
+import { iconSizes } from 'ui/src/theme'
+import { AddressDisplay } from 'uniswap/src/components/accounts/AddressDisplay'
+import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
+import { NumberType } from 'utilities/src/format/types'
+import { useAccountListData } from 'wallet/src/features/accounts/useAccountListData'
+import { Account } from 'wallet/src/features/wallet/accounts/types'
+import { useSignerAccounts } from 'wallet/src/features/wallet/hooks'
+>>>>>>> upstream/main
 
 export function RemoveRecoveryPhraseWallets(): JSX.Element {
   const { t } = useTranslation()

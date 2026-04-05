@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
+=======
+/* oxlint-disable typescript/explicit-function-return-type */
+>>>>>>> upstream/main
 import { rpcErrors, serializeError } from '@metamask/rpc-errors'
 import { removeDappConnection } from 'src/app/features/dapp/actions'
 import { type DappInfo } from 'src/app/features/dapp/store'
@@ -16,6 +20,7 @@ import {
 import { dappResponseMessageChannel } from 'src/background/messagePassing/messageChannels'
 import { type Permission } from 'src/contentScript/WindowEthereumRequestTypes'
 import { call, put } from 'typed-redux-saga'
+<<<<<<< HEAD
 import { chainIdToHexadecimalString } from '@l.x/lx/src/features/chains/utils'
 import { DappResponseType, EthMethod } from '@l.x/lx/src/features/dappRequests/types'
 import { pushNotification } from '@l.x/lx/src/features/notifications/slice/slice'
@@ -24,6 +29,16 @@ import { ExtensionEventName } from '@l.x/lx/src/features/telemetry/constants'
 import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
 import { extractBaseUrl } from '@l.x/utils/src/format/urls'
 import { logger } from '@l.x/utils/src/logger/logger'
+=======
+import { chainIdToHexadecimalString } from 'uniswap/src/features/chains/utils'
+import { DappResponseType, EthMethod } from 'uniswap/src/features/dappRequests/types'
+import { pushNotification } from 'uniswap/src/features/notifications/slice/slice'
+import { AppNotificationType } from 'uniswap/src/features/notifications/slice/types'
+import { ExtensionEventName } from 'uniswap/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
+import { extractBaseUrl } from 'utilities/src/format/urls'
+import { logger } from 'utilities/src/logger/logger'
+>>>>>>> upstream/main
 
 export function getPermissions(dappUrl: string | undefined, connectedAddresses: Address[] | undefined): Permission[] {
   const permissions: Permission[] = []

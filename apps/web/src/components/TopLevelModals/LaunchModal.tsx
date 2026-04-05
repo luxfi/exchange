@@ -1,10 +1,15 @@
 // Remove the following line when LaunchModal is used again:
+<<<<<<< HEAD
 /* eslint-disable import/no-unused-modules */
+=======
+/* oxlint-disable import/no-unused-modules */
+>>>>>>> upstream/main
 
 import { useAtom } from 'jotai'
 import { atomWithStorage } from 'jotai/utils'
 import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
+<<<<<<< HEAD
 import { Button, Flex, Image, ImageProps, Text, TouchableArea, useMedia } from '@l.x/ui/src'
 import { X } from '@l.x/ui/src/components/icons/X'
 import { iconSizes } from '@l.x/ui/src/theme'
@@ -12,6 +17,15 @@ import { Modal } from '@l.x/lx/src/components/modals/Modal'
 import { ElementName, ModalNameType } from '@l.x/lx/src/features/telemetry/constants'
 import Trace from '@l.x/lx/src/features/telemetry/Trace'
 import { openUri } from '@l.x/lx/src/utils/linking'
+=======
+import { Button, Flex, Image, ImageProps, Text, TouchableArea, useMedia } from 'ui/src'
+import { X } from 'ui/src/components/icons/X'
+import { iconSizes } from 'ui/src/theme'
+import { Modal } from 'uniswap/src/components/modals/Modal'
+import { ElementName, ModalNameType } from 'uniswap/src/features/telemetry/constants'
+import Trace from 'uniswap/src/features/telemetry/Trace'
+import { openUri } from 'uniswap/src/utils/linking'
+>>>>>>> upstream/main
 import {
   LAUNCH_MODAL_DESKTOP_MAX_HEIGHT,
   LAUNCH_MODAL_DESKTOP_MAX_WIDTH,

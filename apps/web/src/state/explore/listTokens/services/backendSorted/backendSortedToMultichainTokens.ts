@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import type { ListTokensResponse } from '@luxamm/client-data-api/dist/data/v1/api_pb'
+=======
+import type { ListTokensResponse } from '@uniswap/client-data-api/dist/data/v1/api_pb'
+>>>>>>> upstream/main
 import {
   ChainToken,
   ChainTokenStats,
@@ -6,7 +10,11 @@ import {
   SafetyLevel,
   SpamCode,
   type Token,
+<<<<<<< HEAD
 } from '@luxamm/client-data-api/dist/data/v1/types_pb'
+=======
+} from '@uniswap/client-data-api/dist/data/v1/types_pb'
+>>>>>>> upstream/main
 
 /**
  * Transforms a ListTokens response that uses the legacy `tokens` shape

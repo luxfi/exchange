@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next'
 import { useDispatch } from 'react-redux'
+<<<<<<< HEAD
 import { Language, WEB_SUPPORTED_LANGUAGES } from '@l.x/lx/src/features/language/constants'
 import { useCurrentLanguage, useLanguageInfo } from '@l.x/lx/src/features/language/hooks'
 import { setCurrentLanguage } from '@l.x/lx/src/features/settings/slice'
@@ -7,6 +8,15 @@ import { InterfaceEventName } from '@l.x/lx/src/features/telemetry/constants'
 import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
 import { SlideOutMenu } from '~/components/AccountDrawer/SlideOutMenu'
 import { MenuColumn, MenuItem } from '~/components/AccountDrawer/shared'
+=======
+import { Language, WEB_SUPPORTED_LANGUAGES } from 'uniswap/src/features/language/constants'
+import { useCurrentLanguage, useLanguageInfo } from 'uniswap/src/features/language/hooks'
+import { setCurrentLanguage } from 'uniswap/src/features/settings/slice'
+import { InterfaceEventName } from 'uniswap/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
+import { MenuColumn, MenuItem } from '~/components/AccountDrawer/shared'
+import { SlideOutMenu } from '~/components/AccountDrawer/SlideOutMenu'
+>>>>>>> upstream/main
 import { useLocationLinkProps } from '~/hooks/useLocationLinkProps'
 
 function LanguageMenuItem({ language }: { language: Language }) {

@@ -1,5 +1,9 @@
 import { act, fireEvent } from '@testing-library/react'
+<<<<<<< HEAD
 import { TestID } from 'lx/src/test/fixtures/testIDs'
+=======
+import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+>>>>>>> upstream/main
 import { PasskeyGenerationModal } from '~/components/NavBar/DownloadApp/Modal/PasskeyGeneration'
 import { useSignInWithPasskey } from '~/hooks/useSignInWithPasskey'
 import { mocked } from '~/test-utils/mocked'

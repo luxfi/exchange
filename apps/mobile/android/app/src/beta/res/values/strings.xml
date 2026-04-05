@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <resources>
+<<<<<<< HEAD
     <string name="app_name">Lux Beta</string>
+=======
+    <string name="app_name">Uniswap Beta</string>
+>>>>>>> upstream/main
 </resources>

@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 /* eslint-disable import/no-unused-modules */
+=======
+/* oxlint-disable import/no-unused-modules */
+>>>>>>> upstream/main
 import fs from 'fs'
 import path from 'path'
 

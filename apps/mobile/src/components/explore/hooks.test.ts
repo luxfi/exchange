@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import { GraphQLApi } from '@luxfi/api'
+=======
+import { GraphQLApi } from '@universe/api'
+>>>>>>> upstream/main
 import { NativeSyntheticEvent, Share } from 'react-native'
 import { ContextMenuAction, ContextMenuOnPressNativeEvent } from 'react-native-context-menu-view'
 import configureMockStore from 'redux-mock-store'
@@ -6,12 +10,21 @@ import { thunk } from 'redux-thunk'
 import { navigate } from 'src/app/navigation/rootNavigation'
 import { useExploreTokenContextMenu } from 'src/components/explore/hooks'
 import { renderHookWithProviders } from 'src/test/render'
+<<<<<<< HEAD
 import { AssetType } from '@l.x/lx/src/entities/assets'
 import { FavoritesState } from '@l.x/lx/src/features/favorites/slice'
 import { ModalName, SectionName } from '@l.x/lx/src/features/telemetry/constants'
 import { SAMPLE_SEED_ADDRESS_1 } from '@l.x/lx/src/test/fixtures'
 import { CurrencyField } from '@l.x/lx/src/types/currency'
 import { cleanup } from '@luxfi/wallet/src/test/test-utils'
+=======
+import { AssetType } from 'uniswap/src/entities/assets'
+import { FavoritesState } from 'uniswap/src/features/favorites/slice'
+import { ModalName, SectionName } from 'uniswap/src/features/telemetry/constants'
+import { SAMPLE_SEED_ADDRESS_1 } from 'uniswap/src/test/fixtures'
+import { CurrencyField } from 'uniswap/src/types/currency'
+import { cleanup } from 'wallet/src/test/test-utils'
+>>>>>>> upstream/main
 
 jest.mock('src/app/navigation/rootNavigation', () => ({
   navigate: jest.fn(),

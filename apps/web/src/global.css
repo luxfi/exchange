@@ -83,6 +83,7 @@ html {
     flex-grow: 0;
   }
 }
+<<<<<<< HEAD
 
 /* Hero section white text - higher specificity than Tamagui */
 :root:root:root .hero-title-white,
@@ -101,3 +102,5 @@ html {
     transform: translateY(0);
   }
 }
+=======
+>>>>>>> upstream/main

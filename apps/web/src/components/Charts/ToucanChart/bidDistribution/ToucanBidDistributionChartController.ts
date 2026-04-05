@@ -1,8 +1,16 @@
+<<<<<<< HEAD
 /* eslint-disable max-lines -- TODO(Toucan): keep controller small; current file is an orchestration hub */
 
 import { IChartApi, ISeriesApi, MouseEventParams, Time, UTCTimestamp } from 'lightweight-charts'
 import { opacify } from '@l.x/ui/src/theme'
 import { logger } from '@l.x/utils/src/logger/logger'
+=======
+/* oxlint-disable max-lines -- TODO(Toucan): keep controller small; current file is an orchestration hub */
+
+import { IChartApi, ISeriesApi, MouseEventParams, Time, UTCTimestamp } from 'lightweight-charts'
+import { opacify } from 'ui/src/theme'
+import { logger } from 'utilities/src/logger/logger'
+>>>>>>> upstream/main
 import { initToucanBidDistributionChart } from '~/components/Charts/ToucanChart/bidDistribution/controller/lifecycle/init'
 import { computeBidLineTooltipState } from '~/components/Charts/ToucanChart/bidDistribution/controller/logic/bidLineTooltip'
 import { getSelectedTickPriceFromChartClick } from '~/components/Charts/ToucanChart/bidDistribution/controller/logic/chartClick'

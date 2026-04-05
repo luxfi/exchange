@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux'
 import { prepareAndSignDappTransactionActions } from 'src/app/features/dappRequests/configuredSagas'
 import { useConditionalPreSignDelay } from 'src/app/features/dappRequests/hooks/useConditionalPreSignDelay'
 import { usePrepareAndSignDappTransaction } from 'src/app/features/dappRequests/hooks/usePrepareAndSignDappTransaction'
+<<<<<<< HEAD
 import { AccountType } from '@l.x/lx/src/features/accounts/types'
 import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import {
@@ -12,6 +13,17 @@ import {
 import { logger } from '@l.x/utils/src/logger/logger'
 import { SignedTransactionRequest } from '@luxfi/wallet/src/features/transactions/executeTransaction/types'
 import { Account, SignerMnemonicAccount } from '@luxfi/wallet/src/features/wallet/accounts/types'
+=======
+import { AccountType } from 'uniswap/src/features/accounts/types'
+import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import {
+  isValidTransactionRequest,
+  ValidatedTransactionRequest,
+} from 'uniswap/src/features/transactions/types/transactionRequests'
+import { logger } from 'utilities/src/logger/logger'
+import { SignedTransactionRequest } from 'wallet/src/features/transactions/executeTransaction/types'
+import { Account, SignerMnemonicAccount } from 'wallet/src/features/wallet/accounts/types'
+>>>>>>> upstream/main
 
 // Mock dependencies
 jest.mock('react-redux', () => ({
@@ -29,7 +41,11 @@ jest.mock('src/app/features/dappRequests/configuredSagas', () => ({
   },
 }))
 
+<<<<<<< HEAD
 jest.mock('lx/src/features/transactions/types/transactionRequests', () => ({
+=======
+jest.mock('uniswap/src/features/transactions/types/transactionRequests', () => ({
+>>>>>>> upstream/main
   isValidTransactionRequest: jest.fn(),
 }))
 

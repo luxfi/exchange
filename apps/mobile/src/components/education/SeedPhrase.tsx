@@ -5,10 +5,18 @@ import { runOnJS } from 'react-native-reanimated'
 import { OnboardingStackBaseParams, useOnboardingStackNavigation } from 'src/app/navigation/types'
 import { CloseButton } from 'src/components/buttons/CloseButton'
 import { CarouselContext } from 'src/components/carousel/Carousel'
+<<<<<<< HEAD
 import { Flex, Text } from '@l.x/ui/src'
 import { useDeviceDimensions } from '@l.x/ui/src/hooks/useDeviceDimensions'
 import { getCloudProviderName } from '@l.x/lx/src/utils/cloud-backup/getCloudProviderName'
 
+=======
+import { Flex, Text } from 'ui/src'
+import { useDeviceDimensions } from 'ui/src/hooks/useDeviceDimensions'
+import { getCloudProviderName } from 'uniswap/src/utils/cloud-backup/getCloudProviderName'
+
+// oxlint-disable-next-line no-unused-vars -- biome-parity: oxlint is stricter here
+>>>>>>> upstream/main
 function Page({ text, params }: { text: ReactNode; params: OnboardingStackBaseParams }): JSX.Element {
   const { t } = useTranslation()
   const { fullWidth } = useDeviceDimensions()

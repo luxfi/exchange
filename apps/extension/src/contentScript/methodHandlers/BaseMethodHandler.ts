@@ -2,7 +2,11 @@ import { JsonRpcProvider } from '@ethersproject/providers'
 import { WindowEthereumRequest } from 'src/contentScript/types'
 
 export abstract class BaseMethodHandler<T extends WindowEthereumRequest> {
+<<<<<<< HEAD
   // eslint-disable-next-line max-params
+=======
+  // oxlint-disable-next-line max-params
+>>>>>>> upstream/main
   constructor(
     protected readonly getChainId: () => string | undefined,
     protected readonly getProvider: () => JsonRpcProvider | undefined,

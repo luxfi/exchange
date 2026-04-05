@@ -1,8 +1,13 @@
+<<<<<<< HEAD
 import { SharedEventName } from '@luxamm/analytics-events'
+=======
+import { SharedEventName } from '@uniswap/analytics-events'
+>>>>>>> upstream/main
 import React from 'react'
 import { SvgProps } from 'react-native-svg'
 import { useSelector } from 'react-redux'
 import { useTokenDetailsContext } from 'src/components/TokenDetails/TokenDetailsContext'
+<<<<<<< HEAD
 import { Flex, GeneratedIcon, IconProps, Text, TouchableArea } from '@l.x/ui/src'
 import { CopySheets } from '@l.x/ui/src/components/icons'
 import { selectHasViewedContractAddressExplainer } from '@l.x/lx/src/features/behaviorHistory/selectors'
@@ -12,6 +17,17 @@ import Trace from '@l.x/lx/src/features/telemetry/Trace'
 import { TestIDType } from '@l.x/lx/src/test/fixtures/testIDs'
 import { MobileScreens } from '@l.x/lx/src/types/screens/mobile'
 import { openUri } from '@l.x/lx/src/utils/linking'
+=======
+import { Flex, GeneratedIcon, IconProps, Text, TouchableArea } from 'ui/src'
+import { CopySheets } from 'ui/src/components/icons'
+import { selectHasViewedContractAddressExplainer } from 'uniswap/src/features/behaviorHistory/selectors'
+import { ElementName } from 'uniswap/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
+import Trace from 'uniswap/src/features/telemetry/Trace'
+import { TestIDType } from 'uniswap/src/test/fixtures/testIDs'
+import { MobileScreens } from 'uniswap/src/types/screens/mobile'
+import { openUri } from 'uniswap/src/utils/linking'
+>>>>>>> upstream/main
 
 export enum LinkButtonType {
   Copy = 'copy',

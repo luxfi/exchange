@@ -1,6 +1,11 @@
 import { createMigrate } from 'redux-persist'
+<<<<<<< HEAD
 import { PreV55SearchResultType } from '@l.x/lx/src/state/oldTypes'
 import { createThrowingProxy } from '@l.x/utils/src/test/utils'
+=======
+import { PreV55SearchResultType } from 'uniswap/src/state/oldTypes'
+import { createThrowingProxy } from 'utilities/src/test/utils'
+>>>>>>> upstream/main
 import { vi } from 'vitest'
 import { migration1 } from '~/state/migrations/1'
 import { migration2 } from '~/state/migrations/2'

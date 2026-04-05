@@ -1,9 +1,16 @@
 import { forwardRef, PropsWithChildren, ReactNode, useCallback, useImperativeHandle, useRef, useState } from 'react'
 import { Trans } from 'react-i18next'
+<<<<<<< HEAD
 import { AnimatableCopyIcon, ColorTokens, Flex, isTouchable, Text, TextProps } from '@l.x/ui/src'
 import { ReactComponent as TooltipTriangle } from '~/assets/svg/tooltip_triangle.svg'
 import useCopyClipboard from '~/hooks/useCopyClipboard'
 import { ClickableGuiStyle, EllipsisGuiStyle } from '~/theme/components/styles'
+=======
+import { AnimatableCopyIcon, ColorTokens, Flex, isTouchable, Text, TextProps } from 'ui/src'
+import { ReactComponent as TooltipTriangle } from '~/assets/svg/tooltip_triangle.svg'
+import useCopyClipboard from '~/hooks/useCopyClipboard'
+import { ClickableTamaguiStyle, EllipsisTamaguiStyle } from '~/theme/components/styles'
+>>>>>>> upstream/main
 
 const TOOLTIP_WIDTH = 60
 
@@ -29,7 +36,11 @@ function Tooltip() {
         justifyContent="center"
         width={`${TOOLTIP_WIDTH}px`}
         height="32px"
+<<<<<<< HEAD
         lineHeight={32}
+=======
+        lineHeight="32px"
+>>>>>>> upstream/main
       >
         <Trans i18nKey="common.copied" />
       </Text>
@@ -50,7 +61,11 @@ export function CopyToClipboard({ toCopy, children }: PropsWithChildren<{ toCopy
       justifyContent="center"
       alignItems="center"
       position="relative"
+<<<<<<< HEAD
       {...ClickableGuiStyle}
+=======
+      {...ClickableTamaguiStyle}
+>>>>>>> upstream/main
       $platform-web={{
         textDecoration: 'none',
       }}
@@ -102,9 +117,19 @@ export const CopyHelper = forwardRef<CopyHelperRefType, CopyHelperProps>(
   ) => {
     const [isCopied, setCopied] = useCopyClipboard(1000)
 
+<<<<<<< HEAD
     const copy = useCallback(() => {
       setCopied(toCopy)
     }, [toCopy, setCopied])
+=======
+    const copy = useCallback(
+      (e?: { preventDefault: () => void }) => {
+        e?.preventDefault()
+        setCopied(toCopy)
+      },
+      [toCopy, setCopied],
+    )
+>>>>>>> upstream/main
 
     useImperativeHandle(ref, () => ({
       forceCopy() {
@@ -126,6 +151,10 @@ export const CopyHelper = forwardRef<CopyHelperRefType, CopyHelperProps>(
     const showIcon =
       alwaysShowIcon || Boolean(iconPosition === 'left' || isHover || externalHover || isTouchable || isCopied)
     const offset = showIcon ? gap + iconSize : 0
+<<<<<<< HEAD
+=======
+
+>>>>>>> upstream/main
     return (
       <Flex
         row
@@ -133,7 +162,11 @@ export const CopyHelper = forwardRef<CopyHelperRefType, CopyHelperProps>(
         gap={displayGap}
         onMouseEnter={onHover}
         onMouseLeave={offHover}
+<<<<<<< HEAD
         {...(!disabled && ClickableGuiStyle)}
+=======
+        {...(!disabled && ClickableTamaguiStyle)}
+>>>>>>> upstream/main
         position="relative"
         alignItems="center"
         $platform-web={{
@@ -149,7 +182,11 @@ export const CopyHelper = forwardRef<CopyHelperRefType, CopyHelperProps>(
             dataTestId={dataTestId}
           />
         )}
+<<<<<<< HEAD
         <Flex ref={textRef} maxWidth={`calc(100% - ${offset + 'px'})`} {...EllipsisGuiStyle}>
+=======
+        <Flex ref={textRef} maxWidth={`calc(100% - ${offset + 'px'})`} {...EllipsisTamaguiStyle}>
+>>>>>>> upstream/main
           {isCopied && iconPosition === 'left' ? (
             <Text variant="body3" color="neutral3" {...textProps}>
               <Trans i18nKey="common.copied" />

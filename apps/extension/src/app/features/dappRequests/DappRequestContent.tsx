@@ -1,15 +1,24 @@
+<<<<<<< HEAD
 import { type GasFeeResult } from '@l.x/api'
+=======
+import { type GasFeeResult } from '@universe/api'
+>>>>>>> upstream/main
 import { type PropsWithChildren } from 'react'
 import { useTranslation } from 'react-i18next'
 import { type Animated } from 'react-native'
 import { useDispatch } from 'react-redux'
 import { useDappLastChainId } from 'src/app/features/dapp/hooks'
 import { useDappRequestQueueContext } from 'src/app/features/dappRequests/DappRequestQueueContext'
+<<<<<<< HEAD
 import { handleExternallySubmittedDEXOrder } from 'src/app/features/dappRequests/handleDEX'
+=======
+import { handleExternallySubmittedUniswapXOrder } from 'src/app/features/dappRequests/handleUniswapX'
+>>>>>>> upstream/main
 import { useIsDappRequestConfirming } from 'src/app/features/dappRequests/hooks'
 import { useIsRequestStale } from 'src/app/features/dappRequests/hooks/useIsRequestStale'
 import { type DappRequestStoreItem } from 'src/app/features/dappRequests/shared'
 import { type DappRequest, isBatchedSwapRequest } from 'src/app/features/dappRequests/types/DappRequestTypes'
+<<<<<<< HEAD
 import { AnimatePresence, Button, Flex, type GetThemeValueForKey, styled, Text } from '@l.x/ui/src'
 import { useEnabledChains } from 'lx/src/features/chains/hooks/useEnabledChains'
 import { type UniverseChainId } from 'lx/src/features/chains/types'
@@ -28,6 +37,26 @@ import { type DappVerificationStatus } from '@luxfi/wallet/src/features/dappRequ
 import { AddressFooter } from '@luxfi/wallet/src/features/transactions/TransactionRequest/AddressFooter'
 import { NetworkFeeFooter } from '@luxfi/wallet/src/features/transactions/TransactionRequest/NetworkFeeFooter'
 import { useActiveAccountWithThrow } from '@luxfi/wallet/src/features/wallet/hooks'
+=======
+import { AnimatePresence, Button, Flex, type GetThemeValueForKey, styled, Text } from 'ui/src'
+import { useEnabledChains } from 'uniswap/src/features/chains/hooks/useEnabledChains'
+import { type UniverseChainId } from 'uniswap/src/features/chains/types'
+import { DappRequestType } from 'uniswap/src/features/dappRequests/types'
+import { useChainGasToken } from 'uniswap/src/features/gas/hooks/useChainGasToken'
+import { hasGasEstimationFailed, hasSufficientGasBalance } from 'uniswap/src/features/gas/utils'
+import { type TransactionTypeInfo } from 'uniswap/src/features/transactions/types/transactionDetails'
+import { extractNameFromUrl } from 'utilities/src/format/extractNameFromUrl'
+import { logger } from 'utilities/src/logger/logger'
+import { useEvent } from 'utilities/src/react/hooks'
+import { useThrottledCallback } from 'utilities/src/react/useThrottledCallback'
+import { MAX_HIDDEN_CALLS_BY_DEFAULT } from 'wallet/src/components/BatchedTransactions/BatchedTransactionDetails'
+import { DappRequestHeader } from 'wallet/src/components/dappRequests/DappRequestHeader'
+import { WarningBox } from 'wallet/src/components/WarningBox/WarningBox'
+import { type DappVerificationStatus } from 'wallet/src/features/dappRequests/types'
+import { AddressFooter } from 'wallet/src/features/transactions/TransactionRequest/AddressFooter'
+import { NetworkFeeFooter } from 'wallet/src/features/transactions/TransactionRequest/NetworkFeeFooter'
+import { useActiveAccountWithThrow } from 'wallet/src/features/wallet/hooks'
+>>>>>>> upstream/main
 
 interface DappRequestHeaderProps {
   title: string
@@ -46,7 +75,11 @@ interface DappRequestFooterProps {
   showSmartWalletActivation?: boolean
   showAddressFooter?: boolean
   transactionGasFeeResult?: GasFeeResult
+<<<<<<< HEAD
   isLX?: boolean
+=======
+  isUniswapX?: boolean
+>>>>>>> upstream/main
   disableConfirm?: boolean
   contentHorizontalPadding?: number | Animated.AnimatedNode | GetThemeValueForKey<'paddingHorizontal'> | null
 }
@@ -92,7 +125,11 @@ export function DappRequestContent({
   showSmartWalletActivation,
   transactionGasFeeResult,
   children,
+<<<<<<< HEAD
   isLX,
+=======
+  isUniswapX,
+>>>>>>> upstream/main
   disableConfirm,
   showAddressFooter = true,
   contentHorizontalPadding = '$spacing12',
@@ -124,7 +161,11 @@ export function DappRequestContent({
         chainId={chainId}
         confirmText={confirmText}
         connectedAccountAddress={connectedAccountAddress}
+<<<<<<< HEAD
         isLX={isLX}
+=======
+        isUniswapX={isUniswapX}
+>>>>>>> upstream/main
         maybeCloseOnConfirm={maybeCloseOnConfirm}
         showNetworkCost={showNetworkCost}
         showSmartWalletActivation={showSmartWalletActivation}
@@ -140,6 +181,10 @@ export function DappRequestContent({
 
 const WINDOW_CLOSE_DELAY = 10
 
+<<<<<<< HEAD
+=======
+// oxlint-disable-next-line complexity -- biome-parity: oxlint is stricter here
+>>>>>>> upstream/main
 function DappRequestFooter({
   chainId,
   connectedAccountAddress,
@@ -151,7 +196,11 @@ function DappRequestFooter({
   showSmartWalletActivation,
   showAddressFooter,
   transactionGasFeeResult,
+<<<<<<< HEAD
   isLX,
+=======
+  isUniswapX,
+>>>>>>> upstream/main
   disableConfirm,
 }: DappRequestFooterProps): JSX.Element {
   const { t } = useTranslation()
@@ -210,8 +259,13 @@ function DappRequestFooter({
       onConfirm()
     } else {
       await defaultOnConfirm({ request })
+<<<<<<< HEAD
       if (isLX) {
         await handleExternallySubmittedDEXOrder(activeAccount.address, dispatch)
+=======
+      if (isUniswapX) {
+        await handleExternallySubmittedUniswapXOrder(activeAccount.address, dispatch)
+>>>>>>> upstream/main
       }
     }
 
@@ -261,7 +315,11 @@ function DappRequestFooter({
           <NetworkFeeFooter
             chainId={currentChainId}
             gasFee={transactionGasFeeResult}
+<<<<<<< HEAD
             isLX={isLX}
+=======
+            isUniswapX={isUniswapX}
+>>>>>>> upstream/main
             showNetworkLogo={!!transactionGasFeeResult}
             requestMethod={request.dappRequest.type}
             showSmartWalletActivation={showSmartWalletActivation}

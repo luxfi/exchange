@@ -39,5 +39,11 @@ node_modules
 docs
 *.md
 
+<<<<<<< HEAD
 # Experimental/prototype labs (excluded from CI)
 labs/**
+=======
+# Ignore labs (experimental projects)
+labs/
+
+>>>>>>> upstream/main

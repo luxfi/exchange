@@ -1,5 +1,6 @@
 import { useAtomValue } from 'jotai/utils'
 import { useTranslation } from 'react-i18next'
+<<<<<<< HEAD
 import { BridgedAssetModalAtom } from '@l.x/lx/src/components/BridgedAsset/BridgedAssetModal'
 import { WormholeModalAtom } from '@l.x/lx/src/components/BridgedAsset/WormholeModal'
 import { ReportTokenIssueModalPropsAtom } from '@l.x/lx/src/components/reporting/ReportTokenIssueModal'
@@ -9,6 +10,17 @@ import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
 import { shortenAddress } from '@l.x/utils/src/addresses'
 import { isBetaEnv, isDevEnv } from '@l.x/utils/src/environment/env'
 import { useEvent } from '@l.x/utils/src/react/hooks'
+=======
+import { BridgedAssetModalAtom } from 'uniswap/src/components/BridgedAsset/BridgedAssetModal'
+import { WormholeModalAtom } from 'uniswap/src/components/BridgedAsset/WormholeModal'
+import { ReportTokenIssueModalPropsAtom } from 'uniswap/src/components/reporting/ReportTokenIssueModal'
+import { useUnitagsAddressQuery } from 'uniswap/src/data/apiClients/unitagsApi/useUnitagsAddressQuery'
+import { useActiveAddresses } from 'uniswap/src/features/accounts/store/hooks'
+import { ModalName } from 'uniswap/src/features/telemetry/constants'
+import { shortenAddress } from 'utilities/src/addresses'
+import { isBetaEnv, isDevEnv } from 'utilities/src/environment/env'
+import { useEvent } from 'utilities/src/react/hooks'
+>>>>>>> upstream/main
 import { OAuthRedirectProvider } from '~/components/Passkey/OAuthRedirectContext'
 import { useOAuthRedirectRouter } from '~/components/Passkey/useOAuthRedirectRouter'
 import { POPUP_MEDIUM_DISMISS_MS } from '~/components/Popups/constants'
@@ -86,6 +98,10 @@ export default function TopLevelModals() {
       <ModalRenderer modalName={ModalName.UniWalletConnect} />
       <ModalRenderer modalName={ModalName.Banners} />
       <ModalRenderer modalName={ModalName.OffchainActivity} />
+<<<<<<< HEAD
+=======
+      <ModalRenderer modalName={ModalName.TransactionDetails} />
+>>>>>>> upstream/main
       <ModalRenderer modalName={ModalName.TransactionConfirmation} />
       <ModalRenderer modalName={ModalName.UkDisclaimer} />
       <ModalRenderer modalName={ModalName.TestnetMode} componentProps={{ showCloseButton: true }} />

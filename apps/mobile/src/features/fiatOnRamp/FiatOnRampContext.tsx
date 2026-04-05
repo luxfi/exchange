@@ -6,12 +6,21 @@ import { SectionListData } from 'react-native'
 import { getCountry } from 'react-native-localize'
 import { useSelector } from 'react-redux'
 import { selectModalState } from 'src/features/modals/selectModalState'
+<<<<<<< HEAD
 import { getNativeAddress } from '@l.x/lx/src/constants/addresses'
 import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { FiatCurrencyInfo, FiatOnRampCurrency, FORFilters, FORQuote } from '@l.x/lx/src/features/fiatOnRamp/types'
 import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
 import { useCurrencyInfo } from '@l.x/lx/src/features/tokens/useCurrencyInfo'
 import { buildCurrencyId } from '@l.x/lx/src/utils/currencyId'
+=======
+import { getNativeAddress } from 'uniswap/src/constants/addresses'
+import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { FiatCurrencyInfo, FiatOnRampCurrency, FORFilters, FORQuote } from 'uniswap/src/features/fiatOnRamp/types'
+import { ModalName } from 'uniswap/src/features/telemetry/constants'
+import { useCurrencyInfo } from 'uniswap/src/features/tokens/useCurrencyInfo'
+import { buildCurrencyId } from 'uniswap/src/utils/currencyId'
+>>>>>>> upstream/main
 import { v4 as uuidv4 } from 'uuid'
 
 interface FiatOnRampContextType {

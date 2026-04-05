@@ -9,6 +9,7 @@ import { usePromptPushPermission } from 'src/features/notifications/hooks/usePro
 import { showNotificationSettingsAlert } from 'src/features/notifications/showNotificationSettingsAlert'
 import { useCompleteOnboardingCallback } from 'src/features/onboarding/hooks'
 import { OnboardingScreen } from 'src/features/onboarding/OnboardingScreen'
+<<<<<<< HEAD
 import { Button, Flex } from '@l.x/ui/src'
 import { BellOn } from '@l.x/ui/src/components/icons'
 import { ElementName } from '@l.x/lx/src/features/telemetry/constants'
@@ -16,6 +17,15 @@ import Trace from '@l.x/lx/src/features/telemetry/Trace'
 import { ImportType, OnboardingEntryPoint } from '@l.x/lx/src/types/onboarding'
 import { OnboardingScreens } from '@l.x/lx/src/types/screens/mobile'
 import { useNativeAccountExists } from '@luxfi/wallet/src/features/wallet/hooks'
+=======
+import { Button, Flex } from 'ui/src'
+import { BellOn } from 'ui/src/components/icons'
+import { ElementName } from 'uniswap/src/features/telemetry/constants'
+import Trace from 'uniswap/src/features/telemetry/Trace'
+import { ImportType, OnboardingEntryPoint } from 'uniswap/src/types/onboarding'
+import { OnboardingScreens } from 'uniswap/src/types/screens/mobile'
+import { useNativeAccountExists } from 'wallet/src/features/wallet/hooks'
+>>>>>>> upstream/main
 
 type Props = NativeStackScreenProps<OnboardingStackParamList, OnboardingScreens.Notifications>
 

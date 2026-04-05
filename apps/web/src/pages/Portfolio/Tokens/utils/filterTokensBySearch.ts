@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import { doesTokenMatchSearchTerm } from 'lx/src/utils/search/doesTokenMatchSearchTerm'
+=======
+import { doesTokenMatchSearchTerm } from 'uniswap/src/utils/search/doesTokenMatchSearchTerm'
+>>>>>>> upstream/main
 import type { TokenData } from '~/pages/Portfolio/Tokens/hooks/useTransformTokenTableData'
 
 /**

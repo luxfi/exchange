@@ -1,12 +1,20 @@
 import { CellContext, flexRender, getCoreRowModel, useReactTable } from '@tanstack/react-table'
 import { memo } from 'react'
+<<<<<<< HEAD
 import { TransactionDetails } from '@l.x/lx/src/features/transactions/types/transactionDetails'
+=======
+import { TransactionDetails } from 'uniswap/src/features/transactions/types/transactionDetails'
+>>>>>>> upstream/main
 import { CellContainer, DataRow } from '~/components/Table/styled'
 import { getColumnSizingStyles } from '~/components/Table/utils/getColumnSizingStyles'
 import { useActivityTableColumns } from '~/pages/Portfolio/Activity/ActivityTable/ActivityTable'
 import { PORTFOLIO_TABLE_ROW_HEIGHT } from '~/pages/Portfolio/constants'
 
+<<<<<<< HEAD
 function _PaginationSkeletonRow(): JSX.Element {
+=======
+function PaginationSkeletonRowInner(): JSX.Element {
+>>>>>>> upstream/main
   // Memoize columns - they only depend on loading state which is always true here
   const skeletonColumns = useActivityTableColumns(true)
 
@@ -28,4 +36,8 @@ function _PaginationSkeletonRow(): JSX.Element {
   )
 }
 
+<<<<<<< HEAD
 export const PaginationSkeletonRow = memo(_PaginationSkeletonRow)
+=======
+export const PaginationSkeletonRow = memo(PaginationSkeletonRowInner)
+>>>>>>> upstream/main

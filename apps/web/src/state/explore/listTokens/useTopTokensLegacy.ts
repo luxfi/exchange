@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { Amount, PriceHistory, TokenStats } from '@luxamm/client-explore/dist/lx/explore/v1/service_pb'
 import { useContext, useMemo } from 'react'
 import { normalizeTokenAddressForCache } from '@l.x/lx/src/data/cache'
@@ -13,6 +14,16 @@ import { UseListTokensOptions, type UseListTokensSortOptions } from '~/state/exp
 import { TokenSortMethods } from '~/state/explore/listTokens/utils/sortTokens'
 import { TokenStat } from '~/state/explore/types'
 import { getChainIdFromChainUrlParam } from '~/utils/chainParams'
+=======
+import { Amount, PriceHistory, TokenStats } from '@uniswap/client-explore/dist/uniswap/explore/v1/service_pb'
+import { useMemo } from 'react'
+import { PricePoint, TimePeriod } from '~/appGraphql/data/util'
+import { TokenSortMethod } from '~/components/Tokens/constants'
+import { useExploreStats } from '~/state/explore'
+import { UseListTokensOptions, type UseListTokensSortOptions } from '~/state/explore/listTokens/types'
+import { TokenSortMethods } from '~/state/explore/listTokens/utils/sortTokens'
+import { TokenStat } from '~/state/explore/types'
+>>>>>>> upstream/main
 
 function convertPriceHistoryToPricePoints(priceHistory?: PriceHistory): PricePoint[] | undefined {
   return priceHistory?.values.map((value, index) => {
@@ -71,12 +82,21 @@ function useSortedTokens({
     if (!tokens) {
       return undefined
     }
+<<<<<<< HEAD
     const tokenArray = Array.from(tokens).sort(TokenSortMethods[sortMethod])
 
+=======
+    // PRICE sort is done in processMultichainTokensForDisplay after convert to multichain; avoid duplicate sort here.
+    if (sortMethod === TokenSortMethod.PRICE) {
+      return tokens
+    }
+    const tokenArray = Array.from(tokens).sort(TokenSortMethods[sortMethod])
+>>>>>>> upstream/main
     return sortAscending ? tokenArray.reverse() : tokenArray
   }, [tokens, sortMethod, sortAscending])
 }
 
+<<<<<<< HEAD
 function useFilteredTokens(tokens: TokenStat[] | undefined, filterString: string) {
   const lowercaseFilterString = useMemo(() => filterString.toLowerCase(), [filterString])
 
@@ -108,6 +128,15 @@ function useFilteredTokens(tokens: TokenStat[] | undefined, filterString: string
  * Filter state is passed in; caller (useListTokens) reads from store when needed.
  * @param enabled - Whether to process the data (default: true). When false, skips processing and returns empty results.
  * @param options - Resolved sort and filter options (caller provides via getEffectiveListTokensOptions).
+=======
+/**
+ * Legacy hook that uses useExploreStats() with client-side sorting only (no filter, no slice).
+ * Filter and PRICE sort are done in processMultichainTokensForDisplay; slice in useListTokens.
+ * tokenSortRank and sparklines are computed in useListTokens from the final multichain tokens.
+ *
+ * @param enabled - Whether to process the data. When false, returns empty results.
+ * @param options - Resolved sort and filter options (duration + sort used here; filter applied later).
+>>>>>>> upstream/main
  */
 export function useTopTokensLegacy({
   enabled,
@@ -116,10 +145,15 @@ export function useTopTokensLegacy({
   enabled: boolean
   options: Required<UseListTokensOptions>
 }) {
+<<<<<<< HEAD
   const { filterString, filterTimePeriod: duration, sortMethod, sortAscending } = options
   const {
     exploreStats: { data, isLoading, error: isError },
   } = useContext(ExploreContext)
+=======
+  const { filterTimePeriod: duration, sortMethod, sortAscending } = options
+  const { data, isLoading, error: isError } = useExploreStats()
+>>>>>>> upstream/main
 
   const tokenStats = useMemo(() => {
     if (!enabled) {
@@ -132,6 +166,7 @@ export function useTopTokensLegacy({
     tokens: tokenStats,
     sortOptions: { sortMethod, sortAscending },
   })
+<<<<<<< HEAD
   const filteredTokens = useFilteredTokens(sortedTokenStats, filterString)?.slice(0, EXPLORE_API_PAGE_SIZE)
   const tokenSortRank = useMemo(
     () =>
@@ -165,4 +200,8 @@ export function useTopTokensLegacy({
   }, [filteredTokens])
 
   return { topTokens: filteredTokens, sparklines, tokenSortRank, isLoading, isError }
+=======
+
+  return { topTokens: sortedTokenStats, isLoading, isError: !!isError }
+>>>>>>> upstream/main
 }

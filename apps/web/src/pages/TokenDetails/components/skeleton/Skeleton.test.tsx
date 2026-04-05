@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 import { USDC_MAINNET } from '@l.x/lx/src/constants/tokens'
 import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+=======
+import { USDC_MAINNET } from 'uniswap/src/constants/tokens'
+import { UniverseChainId } from 'uniswap/src/features/chains/types'
+>>>>>>> upstream/main
 import { LoadingTitle, TokenDetailsPageSkeleton } from '~/pages/TokenDetails/components/skeleton/Skeleton'
 import { render } from '~/test-utils/render'
 

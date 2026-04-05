@@ -1,6 +1,7 @@
 import React, { useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useTokenDetailsNavigation } from 'src/components/TokenDetails/hooks'
+<<<<<<< HEAD
 import { Flex, Separator, Text, TouchableArea } from '@l.x/ui/src'
 import { iconSizes } from '@l.x/ui/src/theme'
 import { TokenLogo } from '@l.x/lx/src/components/CurrencyLogo/TokenLogo'
@@ -15,6 +16,22 @@ import { CurrencyId } from '@l.x/lx/src/types/currency'
 import { getSymbolDisplayText } from '@l.x/lx/src/utils/currency'
 import { NumberType } from '@l.x/utils/src/format/types'
 import { useActiveAccount, useDisplayName } from '@luxfi/wallet/src/features/wallet/hooks'
+=======
+import { Flex, Separator, Text, TouchableArea } from 'ui/src'
+import { iconSizes } from 'ui/src/theme'
+import { TokenLogo } from 'uniswap/src/components/CurrencyLogo/TokenLogo'
+import { InlineNetworkPill } from 'uniswap/src/components/network/NetworkPill'
+import { AccountType } from 'uniswap/src/features/accounts/types'
+import { useEnabledChains } from 'uniswap/src/features/chains/hooks/useEnabledChains'
+import { PortfolioBalance } from 'uniswap/src/features/dataApi/types'
+import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
+import { MobileEventName } from 'uniswap/src/features/telemetry/constants'
+import Trace from 'uniswap/src/features/telemetry/Trace'
+import { CurrencyId } from 'uniswap/src/types/currency'
+import { getSymbolDisplayText } from 'uniswap/src/utils/currency'
+import { NumberType } from 'utilities/src/format/types'
+import { useActiveAccount, useDisplayName } from 'wallet/src/features/wallet/hooks'
+>>>>>>> upstream/main
 
 /**
  * Renders token balances for current chain (if any) and other chains (if any).

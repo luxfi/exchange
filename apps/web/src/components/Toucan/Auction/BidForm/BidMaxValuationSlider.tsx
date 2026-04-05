@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { memo, useEffect, useMemo, useRef } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Flex, getContrastPassingTextColor, Slider, Text, Tooltip, styled as guiStyled } from '@l.x/ui/src'
@@ -7,10 +8,14 @@ import { NumberType } from '@l.x/utils/src/format/types'
 import { useEvent } from '@l.x/utils/src/react/hooks'
 import { parseUnits } from 'viem'
 import { priceToQ96WithDecimals, q96ToPriceString } from '~/components/Toucan/Auction/BidDistributionChart/utils/q96'
+=======
+import { memo, useMemo } from 'react'
+>>>>>>> upstream/main
 import { useAuctionTokenColor } from '~/components/Toucan/Auction/hooks/useAuctionTokenColor'
 import { useBidTokenInfo } from '~/components/Toucan/Auction/hooks/useBidTokenInfo'
 import { useAuctionStore } from '~/components/Toucan/Auction/store/useAuctionStore'
 import { getClearingPrice } from '~/components/Toucan/Auction/utils/clearingPrice'
+<<<<<<< HEAD
 import {
   approximateNumberFromRaw,
   computeFdvBidTokenRaw,
@@ -62,6 +67,9 @@ interface ClampParams {
   min: number
   max: number
 }
+=======
+import { ValuationSlider } from '~/components/Toucan/Shared/ValuationSlider'
+>>>>>>> upstream/main
 
 interface BidMaxValuationSliderProps {
   value: string
@@ -73,8 +81,11 @@ interface BidMaxValuationSliderProps {
   onInteractionStart?: () => void
 }
 
+<<<<<<< HEAD
 const clamp = ({ value, min, max }: ClampParams): number => Math.min(Math.max(value, min), max)
 
+=======
+>>>>>>> upstream/main
 function BidMaxValuationSliderComponent({
   value,
   onChange,
@@ -84,8 +95,11 @@ function BidMaxValuationSliderComponent({
   disabled,
   onInteractionStart,
 }: BidMaxValuationSliderProps): JSX.Element | null {
+<<<<<<< HEAD
   const { t } = useTranslation()
   const { convertFiatAmountFormatted } = useLocalizationContext()
+=======
+>>>>>>> upstream/main
   const { auctionDetails, checkpointData, tickGrouping, groupTicksEnabled } = useAuctionStore((state) => ({
     auctionDetails: state.auctionDetails,
     checkpointData: state.checkpointData,
@@ -111,6 +125,7 @@ function BidMaxValuationSliderComponent({
     () => (auctionDetails?.tickSize ? BigInt(auctionDetails.tickSize) : undefined),
     [auctionDetails?.tickSize],
   )
+<<<<<<< HEAD
   const auctionTokenDecimals = auctionDetails?.token?.currency.decimals ?? 18
   // minPrice is clearingPrice + 1 tick (which corresponds to 0%)
   const minPriceQ96 = useMemo(() => {
@@ -422,6 +437,30 @@ function BidMaxValuationSliderComponent({
         </SliderThumb>
       </StyledSlider>
     </Flex>
+=======
+
+  const { effectiveTokenColor, tokenColorLoading } = useAuctionTokenColor()
+
+  return (
+    <ValuationSlider
+      value={value}
+      onChange={onChange}
+      bidTokenDecimals={bidTokenDecimals}
+      bidTokenSymbol={bidTokenSymbol}
+      tokenColor={tokenColor ?? effectiveTokenColor}
+      disabled={disabled}
+      onInteractionStart={onInteractionStart}
+      clearingPriceQ96={clearingPriceQ96}
+      floorPriceQ96={floorPriceQ96}
+      tickSizeQ96={tickSizeQ96}
+      auctionTokenDecimals={auctionDetails?.token?.currency.decimals ?? 18}
+      tokenTotalSupply={auctionDetails?.tokenTotalSupply}
+      bidTokenPriceFiat={bidTokenInfo?.priceFiat}
+      tickGrouping={tickGrouping}
+      groupTicksEnabled={groupTicksEnabled}
+      tokenColorLoading={tokenColorLoading}
+    />
+>>>>>>> upstream/main
   )
 }
 

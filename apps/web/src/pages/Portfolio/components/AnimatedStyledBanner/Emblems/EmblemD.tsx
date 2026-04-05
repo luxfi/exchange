@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import { useSporeColors } from '@l.x/ui/src'
+=======
+import { useSporeColors } from 'ui/src'
+>>>>>>> upstream/main
 import { EmblemProps } from '~/pages/Portfolio/components/AnimatedStyledBanner/Emblems/types'
 
 export function EmblemD({ fill = '#FF37C7', opacity = 1, ...props }: EmblemProps): JSX.Element {

@@ -1,6 +1,11 @@
 import { ReactNode } from 'react'
+<<<<<<< HEAD
 import { Flex, styled, Text } from '@l.x/ui/src'
 import { ChevronLeft } from '@l.x/ui/src/components/icons/ChevronLeft'
+=======
+import { Flex, styled, Text } from 'ui/src'
+import { ChevronLeft } from 'ui/src/components/icons/ChevronLeft'
+>>>>>>> upstream/main
 
 const Header = styled(Flex, {
   flexDirection: 'row',

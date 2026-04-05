@@ -1,8 +1,16 @@
+<<<<<<< HEAD
 import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { Flex, styled, Nav as GuiNav, useMedia } from '@l.x/ui/src'
 import { breakpoints, INTERFACE_NAV_HEIGHT, zIndexes } from '@l.x/ui/src/theme'
 import { useConnectionStatus } from '@l.x/lx/src/features/accounts/store/hooks'
 import { useEnabledChains } from '@l.x/lx/src/features/chains/hooks/useEnabledChains'
+=======
+import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import { Flex, styled, Nav as TamaguiNav, useMedia } from 'ui/src'
+import { breakpoints, INTERFACE_NAV_HEIGHT, zIndexes } from 'ui/src/theme'
+import { useConnectionStatus } from 'uniswap/src/features/accounts/store/hooks'
+import { useEnabledChains } from 'uniswap/src/features/chains/hooks/useEnabledChains'
+>>>>>>> upstream/main
 import Row from '~/components/deprecated/Row'
 import { CompanyMenu } from '~/components/NavBar/CompanyMenu'
 import { NewUserCTAButton } from '~/components/NavBar/DownloadApp/NewUserCTAButton'
@@ -12,7 +20,11 @@ import { SearchBar } from '~/components/NavBar/SearchBar'
 import { useIsSearchBarVisible } from '~/components/NavBar/SearchBar/useIsSearchBarVisible'
 import { Tabs } from '~/components/NavBar/Tabs/Tabs'
 import TestnetModeTooltip from '~/components/NavBar/TestnetMode/TestnetModeTooltip'
+<<<<<<< HEAD
 import { LXWrappedEntry } from '~/components/NavBar/LuxWrappedEntry'
+=======
+import { UniswapWrappedEntry } from '~/components/NavBar/UniswapWrappedEntry'
+>>>>>>> upstream/main
 import Web3Status from '~/components/Web3Status'
 import { PageType, useIsPage } from '~/hooks/useIsPage'
 import { css, deprecatedStyled } from '~/lib/deprecated-styled'
@@ -22,7 +34,11 @@ import { css, deprecatedStyled } from '~/lib/deprecated-styled'
 const UnpositionedFlex = styled(Flex, {
   position: 'unset',
 })
+<<<<<<< HEAD
 const Nav = styled(GuiNav, {
+=======
+const Nav = styled(TamaguiNav, {
+>>>>>>> upstream/main
   position: 'unset',
   px: '$padding12',
   width: '100%',
@@ -70,7 +86,11 @@ export default function Navbar() {
         {isSearchBarVisible && <SearchBar />}
 
         <Right>
+<<<<<<< HEAD
           <LXWrappedEntry />
+=======
+          <UniswapWrappedEntry />
+>>>>>>> upstream/main
           {!isSearchBarVisible && <SearchBar />}
           {!isEmbeddedWalletEnabled && isLandingPage && !isSmallScreen && <NewUserCTAButton />}
           {!isConnected && <PreferenceMenu />}

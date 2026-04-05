@@ -5,8 +5,13 @@ import {
   getOnboardingTimestamp,
   setOnboardingTimestamp,
 } from 'src/features/analytics/onboardingTimestamp'
+<<<<<<< HEAD
 import { logger } from '@l.x/utils/src/logger/logger'
 import { selectFinishedOnboarding } from '@luxfi/wallet/src/features/wallet/selectors'
+=======
+import { logger } from 'utilities/src/logger/logger'
+import { selectFinishedOnboarding } from 'wallet/src/features/wallet/selectors'
+>>>>>>> upstream/main
 
 /**
  * Detects and logs when Redux onboarding state appears to have been unexpectedly reset.

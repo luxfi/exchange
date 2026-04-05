@@ -1,10 +1,17 @@
 import { ColumnDef, createColumnHelper, Row } from '@tanstack/react-table'
 import { memo, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
+<<<<<<< HEAD
 import { Flex, Text, useIsTouchDevice } from '@l.x/ui/src'
 import { ArrowRight } from '@l.x/ui/src/components/icons/ArrowRight'
 import { TransactionDetails } from '@l.x/lx/src/features/transactions/types/transactionDetails'
 import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
+=======
+import { Flex, Text, useIsTouchDevice } from 'ui/src'
+import { ArrowRight } from 'ui/src/components/icons/ArrowRight'
+import { TransactionDetails } from 'uniswap/src/features/transactions/types/transactionDetails'
+import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+>>>>>>> upstream/main
 import { Table } from '~/components/Table'
 import { Cell } from '~/components/Table/Cell'
 import { HeaderCell } from '~/components/Table/styled'
@@ -160,7 +167,11 @@ export function useActivityTableColumns(showLoadingSkeleton: boolean): ColumnDef
   )
 }
 
+<<<<<<< HEAD
 function _ActivityTable({ data, loading = false, error = false, rowWrapper }: ActivityTableProps): JSX.Element {
+=======
+function ActivityTableInner({ data, loading = false, error = false, rowWrapper }: ActivityTableProps): JSX.Element {
+>>>>>>> upstream/main
   const showLoadingSkeleton = loading || error
 
   // Initialize address lookup for batch fetching
@@ -185,4 +196,8 @@ function _ActivityTable({ data, loading = false, error = false, rowWrapper }: Ac
   )
 }
 
+<<<<<<< HEAD
 export const ActivityTable = memo(_ActivityTable)
+=======
+export const ActivityTable = memo(ActivityTableInner)
+>>>>>>> upstream/main

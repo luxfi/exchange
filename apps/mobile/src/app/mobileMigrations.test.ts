@@ -74,6 +74,7 @@ import {
   resetTokensOrderBy,
   resetTokensOrderByAndMetadataDisplayType,
   restructureTransactionsAndNotifications,
+<<<<<<< HEAD
   transformNotificationCountToStatus,
   updateLanguageSettings,
 } from 'src/app/mobileMigrations'
@@ -86,6 +87,26 @@ import { TransactionStatus, TransactionType } from '@l.x/lx/src/features/transac
 import { DappRequestType } from '@l.x/lx/src/types/walletConnect'
 import { createThrowingProxy } from '@l.x/utils/src/test/utils'
 import { SwapProtectionSetting } from '@luxfi/wallet/src/features/wallet/slice'
+=======
+  setWalletDeviceLanguage,
+  transformNotificationCountToStatus,
+  updateLanguageSettings,
+} from 'src/app/mobileMigrations'
+import { AccountType } from 'uniswap/src/features/accounts/types'
+import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { FiatCurrency } from 'uniswap/src/features/fiatCurrency/constants'
+import { Language } from 'uniswap/src/features/language/constants'
+import { ModalName } from 'uniswap/src/features/telemetry/constants'
+import { TransactionStatus, TransactionType } from 'uniswap/src/features/transactions/types/transactionDetails'
+import { getWalletDeviceLanguage } from 'uniswap/src/i18n/utils'
+import { DappRequestType } from 'uniswap/src/types/walletConnect'
+import { createThrowingProxy } from 'utilities/src/test/utils'
+import { SwapProtectionSetting } from 'wallet/src/features/wallet/slice'
+
+jest.mock('uniswap/src/i18n/utils', () => ({
+  getWalletDeviceLanguage: jest.fn(),
+}))
+>>>>>>> upstream/main
 
 describe('restructureTransactionsAndNotifications', () => {
   it('restructures transactions from byChainId to address-based format', () => {
@@ -851,6 +872,52 @@ describe('updateLanguageSettings', () => {
   })
 })
 
+<<<<<<< HEAD
+=======
+describe('setWalletDeviceLanguage', () => {
+  const mockGetWalletDeviceLanguage = jest.mocked(getWalletDeviceLanguage)
+
+  beforeEach(() => {
+    mockGetWalletDeviceLanguage.mockReturnValue(Language.SpanishSpain)
+  })
+
+  it('sets currentLanguage to device language when userSettings exists', () => {
+    const state = {
+      userSettings: {
+        currentLanguage: Language.English,
+        otherSetting: 'preserved',
+      },
+    }
+    const result = setWalletDeviceLanguage(state)
+    expect(result.userSettings.currentLanguage).toBe(Language.SpanishSpain)
+    expect(result.userSettings.otherSetting).toBe('preserved')
+  })
+
+  it('returns state unchanged when userSettings does not exist', () => {
+    const state = { otherData: 'preserved' }
+    const result = setWalletDeviceLanguage(state)
+    expect(result.userSettings).toBeUndefined()
+    expect(result.otherData).toBe('preserved')
+  })
+
+  it('falls back to English when getWalletDeviceLanguage throws', () => {
+    mockGetWalletDeviceLanguage.mockImplementation(() => {
+      throw new Error('device locales unavailable')
+    })
+
+    const state = {
+      userSettings: {
+        currentLanguage: Language.French,
+        otherSetting: 'preserved',
+      },
+    }
+    const result = setWalletDeviceLanguage(state)
+    expect(result.userSettings.currentLanguage).toBe(Language.English)
+    expect(result.userSettings.otherSetting).toBe('preserved')
+  })
+})
+
+>>>>>>> upstream/main
 describe('addWalletIsFunded', () => {
   it('adds walletIsFunded to telemetry', () => {
     const state = { telemetry: { lastBalancesReport: 0 } }

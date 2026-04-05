@@ -1,5 +1,9 @@
 import { memo } from 'react'
+<<<<<<< HEAD
 import { Text } from '@l.x/ui/src'
+=======
+import { Text } from 'ui/src'
+>>>>>>> upstream/main
 import { HeaderCell } from '~/components/Table/styled'
 
 interface ColumnHeaderProps {

@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 // biome-ignore lint/style/noRestrictedImports: Anvil transactions need direct ethers imports
+=======
+// oxlint-disable-next-line no-restricted-imports -- Anvil transactions need direct ethers imports
+>>>>>>> upstream/main
 import { expect } from '@playwright/test'
 import { Address } from 'viem'
 import type { AnvilClient } from '~/playwright/fixtures/anvil'

@@ -8,6 +8,7 @@ import { useBiometricAppSettings } from 'src/features/biometrics/useBiometricApp
 import { useOsBiometricAuthEnabled } from 'src/features/biometrics/useOsBiometricAuthEnabled'
 import { useBiometricPrompt } from 'src/features/biometricsSettings/hooks'
 import { useWalletRestore } from 'src/features/wallet/useWalletRestore'
+<<<<<<< HEAD
 import { clearNotificationsByType } from '@l.x/lx/src/features/notifications/slice/slice'
 import { AppNotificationType } from '@l.x/lx/src/features/notifications/slice/types'
 import { useHapticFeedback } from '@l.x/lx/src/features/settings/useHapticFeedback/useHapticFeedback'
@@ -17,6 +18,17 @@ import { useSwapPrefilledState } from '@l.x/lx/src/features/transactions/swap/fo
 import { logger } from '@l.x/utils/src/logger/logger'
 import { WalletSwapFlow } from '@luxfi/wallet/src/features/transactions/swap/WalletSwapFlow'
 import { invalidateAndRefetchWalletDelegationQueries } from '@luxfi/wallet/src/features/transactions/watcher/transactionFinalizationSaga'
+=======
+import { clearNotificationsByType } from 'uniswap/src/features/notifications/slice/slice'
+import { AppNotificationType } from 'uniswap/src/features/notifications/slice/types'
+import { useHapticFeedback } from 'uniswap/src/features/settings/useHapticFeedback/useHapticFeedback'
+import { ModalName } from 'uniswap/src/features/telemetry/constants'
+import { updateSwapStartTimestamp } from 'uniswap/src/features/timing/slice'
+import { useSwapPrefilledState } from 'uniswap/src/features/transactions/swap/form/hooks/useSwapPrefilledState'
+import { logger } from 'utilities/src/logger/logger'
+import { WalletSwapFlow } from 'wallet/src/features/transactions/swap/WalletSwapFlow'
+import { invalidateAndRefetchWalletDelegationQueries } from 'wallet/src/features/transactions/watcher/transactionFinalizationSaga'
+>>>>>>> upstream/main
 
 export function SwapModal({ route }: AppStackScreenProp<typeof ModalName.Swap>): JSX.Element {
   const appDispatch = useDispatch()

@@ -1,7 +1,13 @@
 import { useTokenDetailsContext } from 'src/components/TokenDetails/TokenDetailsContext'
+<<<<<<< HEAD
 import { useBalances } from '@l.x/lx/src/data/balances/hooks/useBalances'
 import { PortfolioBalance } from '@l.x/lx/src/features/dataApi/types'
 import { useActiveAccountAddressWithThrow } from '@luxfi/wallet/src/features/wallet/hooks'
+=======
+import { useBalances } from 'uniswap/src/data/balances/hooks/useBalances'
+import { PortfolioBalance } from 'uniswap/src/features/dataApi/types'
+import { useActiveAccountAddressWithThrow } from 'wallet/src/features/wallet/hooks'
+>>>>>>> upstream/main
 
 export function useTokenDetailsCurrentChainBalance(): PortfolioBalance | null {
   const activeAddress = useActiveAccountAddressWithThrow()

@@ -2,7 +2,11 @@ import { Options, Placement } from '@popperjs/core'
 import Portal from '@reach/portal'
 import React, { CSSProperties, memo, useCallback, useMemo, useState } from 'react'
 import { usePopper } from 'react-popper'
+<<<<<<< HEAD
 import { zIndexes } from '@l.x/ui/src/theme'
+=======
+import { zIndexes } from 'ui/src/theme'
+>>>>>>> upstream/main
 import { deprecatedStyled } from '~/lib/deprecated-styled'
 import useInterval from '~/lib/hooks/useInterval'
 

@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 import { getEntryGatewayUrl, provideSessionService } from '@l.x/api'
 import { getStorageDriver } from '@l.x/api/src/storage/getStorageDriver'
 import { ChallengeType, createHashcashSolver, type SessionService } from '@l.x/sessions'
+=======
+import { getEntryGatewayUrl, provideSessionService } from '@universe/api'
+import { getStorageDriver } from '@universe/api/src/storage/getStorageDriver'
+import { ChallengeType, createHashcashSolver, type SessionService } from '@universe/sessions'
+>>>>>>> upstream/main
 import React, { useCallback, useEffect, useRef } from 'react'
 import { ScrollView } from 'react-native'
 import { BackButton } from 'src/components/buttons/BackButton'
@@ -10,6 +16,7 @@ import { CurrentOperationSection } from 'src/screens/components/sessions/Current
 import { HashcashProgressSection } from 'src/screens/components/sessions/HashcashProgressSection'
 import { LogSection } from 'src/screens/components/sessions/LogSection'
 import { useSessionsDebugStore } from 'src/screens/stores/sessionsDebugStore'
+<<<<<<< HEAD
 import { Button, Flex, Text, TouchableArea } from '@l.x/ui/src'
 import { CopyAlt } from '@l.x/ui/src/components/icons'
 import { setClipboard } from '@l.x/utils/src/clipboard/clipboard'
@@ -20,6 +27,18 @@ import { useShallow } from 'zustand/shallow'
 const SESSION_ID_KEY = 'LUX_SESSION_ID'
 const DEVICE_ID_KEY = 'LUX_DEVICE_ID'
 const LUX_IDENTIFIER_KEY = 'LUX_IDENTIFIER'
+=======
+import { Button, Flex, Text, TouchableArea } from 'ui/src'
+import { CopyAlt } from 'ui/src/components/icons'
+import { setClipboard } from 'utilities/src/clipboard/clipboard'
+import { logger } from 'utilities/src/logger/logger'
+import { useShallow } from 'zustand/shallow'
+
+// Storage keys (must match provideSessionStorage, provideDeviceIdService, provideUniswapIdentifierService)
+const SESSION_ID_KEY = 'UNISWAP_SESSION_ID'
+const DEVICE_ID_KEY = 'UNISWAP_DEVICE_ID'
+const UNISWAP_IDENTIFIER_KEY = 'UNISWAP_IDENTIFIER'
+>>>>>>> upstream/main
 
 function truncateId(id: string | null, length = 16): string {
   if (!id) {
@@ -35,14 +54,22 @@ function truncateId(id: string | null, length = 16): string {
  * Sessions Debug Screen for testing session initialization flow.
  * Access via Dev menu in development builds.
  */
+<<<<<<< HEAD
 // eslint-disable-next-line import/no-unused-modules -- dynamically loaded in navigation.tsx via require()
+=======
+// oxlint-disable-next-line import/no-unused-modules -- dynamically loaded in navigation.tsx via require()
+>>>>>>> upstream/main
 export function SessionsDebugScreen(): JSX.Element {
   // Individual selectors for minimal re-renders
   const session = useSessionsDebugStore(
     useShallow((state) => ({
       sessionId: state.session.sessionId,
       deviceId: state.session.deviceId,
+<<<<<<< HEAD
       luxIdentifier: state.session.luxIdentifier,
+=======
+      uniswapIdentifier: state.session.uniswapIdentifier,
+>>>>>>> upstream/main
     })),
   )
   const challenge = useSessionsDebugStore((state) => state.challenge)
@@ -77,15 +104,26 @@ export function SessionsDebugScreen(): JSX.Element {
 
   const refreshSessionState = useCallback(async (): Promise<void> => {
     const driver = getStorageDriver()
+<<<<<<< HEAD
     const [sessionId, deviceId, luxIdentifier] = await Promise.all([
       driver.get(SESSION_ID_KEY),
       driver.get(DEVICE_ID_KEY),
       driver.get(LUX_IDENTIFIER_KEY),
+=======
+    const [sessionId, deviceId, uniswapIdentifier] = await Promise.all([
+      driver.get(SESSION_ID_KEY),
+      driver.get(DEVICE_ID_KEY),
+      driver.get(UNISWAP_IDENTIFIER_KEY),
+>>>>>>> upstream/main
     ])
     setSession({
       sessionId: sessionId || null,
       deviceId: deviceId || null,
+<<<<<<< HEAD
       luxIdentifier: luxIdentifier || null,
+=======
+      uniswapIdentifier: uniswapIdentifier || null,
+>>>>>>> upstream/main
     })
   }, [setSession])
 
@@ -93,15 +131,26 @@ export function SessionsDebugScreen(): JSX.Element {
   useEffect(() => {
     const loadInitialState = async (): Promise<void> => {
       const driver = getStorageDriver()
+<<<<<<< HEAD
       const [sessionId, deviceId, luxIdentifier] = await Promise.all([
         driver.get(SESSION_ID_KEY),
         driver.get(DEVICE_ID_KEY),
         driver.get(LUX_IDENTIFIER_KEY),
+=======
+      const [sessionId, deviceId, uniswapIdentifier] = await Promise.all([
+        driver.get(SESSION_ID_KEY),
+        driver.get(DEVICE_ID_KEY),
+        driver.get(UNISWAP_IDENTIFIER_KEY),
+>>>>>>> upstream/main
       ])
       setSession({
         sessionId: sessionId || null,
         deviceId: deviceId || null,
+<<<<<<< HEAD
         luxIdentifier: luxIdentifier || null,
+=======
+        uniswapIdentifier: uniswapIdentifier || null,
+>>>>>>> upstream/main
       })
     }
     loadInitialState().catch(() => undefined)
@@ -131,7 +180,11 @@ export function SessionsDebugScreen(): JSX.Element {
       await Promise.all([
         driver.remove(SESSION_ID_KEY),
         driver.remove(DEVICE_ID_KEY),
+<<<<<<< HEAD
         driver.remove(LUX_IDENTIFIER_KEY),
+=======
+        driver.remove(UNISWAP_IDENTIFIER_KEY),
+>>>>>>> upstream/main
       ])
       // Reset the session service ref so a fresh one is created next time
       sessionServiceRef.current = null
@@ -344,6 +397,7 @@ export function SessionsDebugScreen(): JSX.Element {
 
               <Flex row justifyContent="space-between" alignItems="center">
                 <Text variant="body2" color="$neutral2">
+<<<<<<< HEAD
                   Lux ID:
                 </Text>
                 <Flex row alignItems="center" gap="$spacing4">
@@ -352,6 +406,16 @@ export function SessionsDebugScreen(): JSX.Element {
                   </Text>
                   {session.luxIdentifier && (
                     <TouchableArea onPress={() => copyToClipboard(session.luxIdentifier, 'Lux ID')}>
+=======
+                  Uniswap ID:
+                </Text>
+                <Flex row alignItems="center" gap="$spacing4">
+                  <Text variant="body3" color={session.uniswapIdentifier ? '$neutral1' : '$neutral3'}>
+                    {truncateId(session.uniswapIdentifier)}
+                  </Text>
+                  {session.uniswapIdentifier && (
+                    <TouchableArea onPress={() => copyToClipboard(session.uniswapIdentifier, 'Uniswap ID')}>
+>>>>>>> upstream/main
                       <CopyAlt color="$neutral3" size="$icon.16" />
                     </TouchableArea>
                   )}

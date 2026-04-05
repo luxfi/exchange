@@ -120,8 +120,13 @@ const NetInfoStateType = {
 
 jest.mock('@react-native-community/netinfo', () => ({ ...mockRNCNetInfo, NetInfoStateType }))
 
+<<<<<<< HEAD
 jest.mock('@luxfi/gating', () => {
   const actual = jest.requireActual('@luxfi/gating')
+=======
+jest.mock('@universe/gating', () => {
+  const actual = jest.requireActual('@universe/gating')
+>>>>>>> upstream/main
   return {
     ...actual,
     // Mock functions

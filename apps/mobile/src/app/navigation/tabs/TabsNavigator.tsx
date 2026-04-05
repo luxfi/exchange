@@ -4,7 +4,11 @@ import { CustomTabBar } from 'src/app/navigation/tabs/CustomTabBar/CustomTabBar'
 import { ActivityScreen } from 'src/screens/ActivityScreen'
 import { ExploreScreen } from 'src/screens/ExploreScreen'
 import { WrappedHomeScreen } from 'src/screens/HomeScreen/HomeScreen'
+<<<<<<< HEAD
 import { MobileScreens } from '@l.x/lx/src/types/screens/mobile'
+=======
+import { MobileScreens } from 'uniswap/src/types/screens/mobile'
+>>>>>>> upstream/main
 
 const Tab = createBottomTabNavigator()
 

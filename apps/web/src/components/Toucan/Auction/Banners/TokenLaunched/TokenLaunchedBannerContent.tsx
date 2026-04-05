@@ -1,6 +1,7 @@
 import { useCallback, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router'
+<<<<<<< HEAD
 import { Flex, Text, TouchableArea, useMedia } from '@l.x/ui/src'
 import { Rocket } from '@l.x/ui/src/components/icons/Rocket'
 import { opacifyRaw } from '@l.x/ui/src/theme/color/utils'
@@ -9,6 +10,16 @@ import { useLocalizationContext } from '@l.x/lx/src/features/language/Localizati
 import { ElementName } from '@l.x/lx/src/features/telemetry/constants'
 import Trace from '@l.x/lx/src/features/telemetry/Trace'
 import { NumberType } from '@l.x/utils/src/format/types'
+=======
+import { Flex, Text, TouchableArea, useMedia } from 'ui/src'
+import { Rocket } from 'ui/src/components/icons/Rocket'
+import { opacifyRaw } from 'ui/src/theme/color/utils'
+import { toGraphQLChain } from 'uniswap/src/features/chains/utils'
+import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
+import { ElementName } from 'uniswap/src/features/telemetry/constants'
+import Trace from 'uniswap/src/features/telemetry/Trace'
+import { NumberType } from 'utilities/src/format/types'
+>>>>>>> upstream/main
 import { getTokenDetailsURL } from '~/appGraphql/data/util'
 import { ArrowChangeDown } from '~/components/Icons/ArrowChangeDown'
 import { ArrowChangeUp } from '~/components/Icons/ArrowChangeUp'

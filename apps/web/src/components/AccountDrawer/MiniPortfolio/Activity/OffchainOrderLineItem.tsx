@@ -1,15 +1,29 @@
+<<<<<<< HEAD
 import { Currency, CurrencyAmount, Price } from '@luxamm/sdk-core'
 import { useMemo } from 'react'
 import { Trans } from 'react-i18next'
 import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
+=======
+import { Currency, CurrencyAmount, Price } from '@uniswap/sdk-core'
+import { useMemo } from 'react'
+import { Trans } from 'react-i18next'
+import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
+>>>>>>> upstream/main
 import {
   FORMAT_DATE_TIME_SHORT,
   useFormattedDateTime,
   useLocalizedDayjs,
+<<<<<<< HEAD
 } from '@l.x/lx/src/features/language/localizedDayjs'
 import { DEXOrderDetails } from '@l.x/lx/src/features/transactions/types/transactionDetails'
 import { ellipseMiddle } from '@l.x/utils/src/addresses'
 import { NumberType } from '@l.x/utils/src/format/types'
+=======
+} from 'uniswap/src/features/language/localizedDayjs'
+import { UniswapXOrderDetails } from 'uniswap/src/features/transactions/types/transactionDetails'
+import { ellipseMiddle } from 'utilities/src/addresses'
+import { NumberType } from 'utilities/src/format/types'
+>>>>>>> upstream/main
 import { DetailLineItem, LineItemData } from '~/components/swap/DetailLineItem'
 import TradePrice from '~/components/swap/TradePrice'
 import { ExternalLink } from '~/theme/components/Links'
@@ -31,12 +45,20 @@ export type OffchainOrderLineItemProps =
     }
   | {
       type: OffchainOrderLineItemType.EXPIRY
+<<<<<<< HEAD
       order: DEXOrderDetails
+=======
+      order: UniswapXOrderDetails
+>>>>>>> upstream/main
     }
   | {
       type: OffchainOrderLineItemType.TRANSACTION_ID
       explorerLink: string
+<<<<<<< HEAD
       order: DEXOrderDetails
+=======
+      order: UniswapXOrderDetails
+>>>>>>> upstream/main
     }
   | {
       type: OffchainOrderLineItemType.NETWORK_COST

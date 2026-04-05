@@ -12,6 +12,7 @@ import {
   useIsShortMobileDevice,
   useShakeAnimation,
   useSporeColors,
+<<<<<<< HEAD
 } from '@l.x/ui/src'
 import { ArrowDownArrowUp } from '@l.x/ui/src/components/icons'
 import { AnimatedFlex } from '@l.x/ui/src/components/layout/AnimatedFlex'
@@ -31,6 +32,27 @@ import { TransactionType } from '@l.x/lx/src/features/transactions/types/transac
 import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
 import { usePrevious } from '@l.x/utils/src/react/hooks'
 import { DEFAULT_DELAY, useDebounce } from '@l.x/utils/src/time/timing'
+=======
+} from 'ui/src'
+import { ArrowDownArrowUp } from 'ui/src/components/icons'
+import { AnimatedFlex } from 'ui/src/components/layout/AnimatedFlex'
+import { useDeviceDimensions } from 'ui/src/hooks/useDeviceDimensions'
+import { useDynamicFontSizing } from 'ui/src/hooks/useDynamicFontSizing'
+import { fonts, spacing } from 'ui/src/theme'
+import { AmountInput } from 'uniswap/src/components/AmountInput/AmountInput'
+import { TextInput } from 'uniswap/src/components/input/TextInput'
+import { Pill } from 'uniswap/src/components/pill/Pill'
+import { PortfolioBalance } from 'uniswap/src/features/dataApi/types'
+import { useFormatExactCurrencyAmount } from 'uniswap/src/features/fiatOnRamp/hooks'
+import { FiatCurrencyInfo, FiatOnRampCurrency } from 'uniswap/src/features/fiatOnRamp/types'
+import { useMaxAmountSpend } from 'uniswap/src/features/gas/hooks/useMaxAmountSpend'
+import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
+import { getCurrencyAmount, ValueType } from 'uniswap/src/features/tokens/getCurrencyAmount'
+import { TransactionType } from 'uniswap/src/features/transactions/types/transactionDetails'
+import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+import { usePrevious } from 'utilities/src/react/hooks'
+import { DEFAULT_DELAY, useDebounce } from 'utilities/src/time/timing'
+>>>>>>> upstream/main
 
 const MAX_INPUT_FONT_SIZE = 52
 const MIN_INPUT_FONT_SIZE = 32
@@ -80,7 +102,12 @@ export type FiatOnRampAmountSectionRef = {
 }
 
 export const FiatOnRampAmountSection = forwardRef<FiatOnRampAmountSectionRef, FiatOnRampAmountSectionProps>(
+<<<<<<< HEAD
   function _FiatOnRampAmountSection(
+=======
+  // oxlint-disable-next-line complexity -- biome-parity: oxlint is stricter here
+  function FiatOnRampAmountSectionInner(
+>>>>>>> upstream/main
     {
       disabled,
       value,

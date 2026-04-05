@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import { GraphQLApi, isNonPollingRequestInFlight } from '@luxfi/api'
+=======
+import { GraphQLApi, isNonPollingRequestInFlight } from '@universe/api'
+>>>>>>> upstream/main
 import React, { memo, useMemo } from 'react'
 import type { StyleProp, ViewProps, ViewStyle } from 'react-native'
 import ContextMenu from 'react-native-context-menu-view'
@@ -8,6 +12,7 @@ import RemoveButton from 'src/components/explore/RemoveButton'
 import { Loader } from 'src/components/loading/loaders'
 import { useTokenDetailsNavigation } from 'src/components/TokenDetails/hooks'
 import { usePollOnFocusOnly } from 'src/utils/hooks'
+<<<<<<< HEAD
 import { AnimatedTouchableArea, Flex, Text, useIsDarkMode, useShadowPropsShort, useSporeColors } from '@l.x/ui/src'
 import { borderRadii, fonts, imageSizes } from '@l.x/ui/src/theme'
 import { TokenLogo } from '@l.x/lx/src/components/CurrencyLogo/TokenLogo'
@@ -25,6 +30,25 @@ import { NumberType } from '@l.x/utils/src/format/types'
 import { isIOS } from '@l.x/utils/src/platform'
 import { useEvent } from '@l.x/utils/src/react/hooks'
 import { noop } from '@l.x/utils/src/react/noop'
+=======
+import { AnimatedTouchableArea, Flex, Text, useIsDarkMode, useShadowPropsShort, useSporeColors } from 'ui/src'
+import { borderRadii, fonts, imageSizes } from 'ui/src/theme'
+import { TokenLogo } from 'uniswap/src/components/CurrencyLogo/TokenLogo'
+import { RelativeChange } from 'uniswap/src/components/RelativeChange/RelativeChange'
+import { PollingInterval } from 'uniswap/src/constants/misc'
+import { useEnabledChains } from 'uniswap/src/features/chains/hooks/useEnabledChains'
+import { fromGraphQLChain } from 'uniswap/src/features/chains/utils'
+import { currencyIdToContractInput } from 'uniswap/src/features/dataApi/utils/currencyIdToContractInput'
+import { removeFavoriteToken } from 'uniswap/src/features/favorites/slice'
+import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
+import { SectionName } from 'uniswap/src/features/telemetry/constants'
+import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+import { getSymbolDisplayText } from 'uniswap/src/utils/currency'
+import { NumberType } from 'utilities/src/format/types'
+import { isIOS } from 'utilities/src/platform'
+import { useEvent } from 'utilities/src/react/hooks'
+import { noop } from 'utilities/src/react/noop'
+>>>>>>> upstream/main
 
 const ESTIMATED_FAVORITE_TOKEN_CARD_LOADER_HEIGHT = 116
 
@@ -39,6 +63,10 @@ export type FavoriteTokenCardProps = {
   showLoading?: boolean
 } & ViewProps
 
+<<<<<<< HEAD
+=======
+// oxlint-disable-next-line complexity -- biome-parity: oxlint is stricter here
+>>>>>>> upstream/main
 function FavoriteTokenCard({
   currencyId,
   isEditing,
@@ -69,8 +97,13 @@ function FavoriteTokenCard({
   const chainId = fromGraphQLChain(token?.chain) ?? defaultChainId
 
   // Coingecko price is more accurate but lacks long tail tokens
+<<<<<<< HEAD
   // Lux price comes from Lux pools, which may be updated less frequently
   const { price, pricePercentChange } = getCoingeckoPrice(token) ?? getLuxPrice(token)
+=======
+  // Uniswap price comes from Uniswap pools, which may be updated less frequently
+  const { price, pricePercentChange } = getCoingeckoPrice(token) ?? getUniswapPrice(token)
+>>>>>>> upstream/main
   const priceFormatted = useMemo(
     () => convertFiatAmountFormatted(price, NumberType.FiatTokenPrice),
     [convertFiatAmountFormatted, price],
@@ -202,7 +235,11 @@ function getCoingeckoPrice(token?: GraphQLApi.FavoriteTokenCardQuery['token']): 
   }
 }
 
+<<<<<<< HEAD
 function getLuxPrice(token?: GraphQLApi.FavoriteTokenCardQuery['token']): {
+=======
+function getUniswapPrice(token?: GraphQLApi.FavoriteTokenCardQuery['token']): {
+>>>>>>> upstream/main
   price: number | undefined
   pricePercentChange: number | undefined
 } {

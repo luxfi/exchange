@@ -1,7 +1,13 @@
 import { useApolloClient } from '@apollo/client'
+<<<<<<< HEAD
 import { SharedEventName } from '@luxamm/analytics-events'
 import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { getIsNotificationServiceLocalOverrideEnabled } from '@l.x/notifications'
+=======
+import { SharedEventName } from '@uniswap/analytics-events'
+import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import { getIsNotificationServiceLocalOverrideEnabled } from '@universe/notifications'
+>>>>>>> upstream/main
 import React, { memo, useCallback, useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
@@ -19,6 +25,7 @@ import { useOptimizedSearchParams } from 'src/app/hooks/useOptimizedSearchParams
 import { HomeQueryParams, HomeTabs } from 'src/app/navigation/constants'
 import { navigate } from 'src/app/navigation/state'
 import { ExtensionNotificationServiceManager } from 'src/notification-service/ExtensionNotificationServiceManager'
+<<<<<<< HEAD
 import { Flex, Loader, styled, Text, TouchableArea } from '@l.x/ui/src'
 import { SMART_WALLET_UPGRADE_VIDEO } from '@l.x/ui/src/assets'
 import { buildWrappedUrl } from '@l.x/lx/src/components/banners/shared/utils'
@@ -43,6 +50,32 @@ import { setIncrementNumPostSwapNudge } from '@luxfi/wallet/src/features/behavio
 import { PendingNotificationBadge } from '@luxfi/wallet/src/features/notifications/components/PendingNotificationBadge'
 import { useActiveAccountAddressWithThrow, useActiveAccountWithThrow } from '@luxfi/wallet/src/features/wallet/hooks'
 import { setSmartWalletConsent } from '@luxfi/wallet/src/features/wallet/slice'
+=======
+import { Flex, Loader, styled, Text, TouchableArea } from 'ui/src'
+import { SMART_WALLET_UPGRADE_VIDEO } from 'ui/src/assets'
+import { buildWrappedUrl } from 'uniswap/src/components/banners/shared/utils'
+import { UniswapWrapped2025Banner } from 'uniswap/src/components/banners/UniswapWrapped2025Banner/UniswapWrapped2025Banner'
+import { NFTS_TAB_DATA_DEPENDENCIES } from 'uniswap/src/components/nfts/constants'
+import { UNISWAP_WEB_URL } from 'uniswap/src/constants/urls'
+import { selectHasDismissedUniswapWrapped2025Banner } from 'uniswap/src/features/behaviorHistory/selectors'
+import { setHasDismissedUniswapWrapped2025Banner } from 'uniswap/src/features/behaviorHistory/slice'
+import { useSelectAddressHasNotifications } from 'uniswap/src/features/notifications/slice/hooks'
+import { setNotificationStatus } from 'uniswap/src/features/notifications/slice/slice'
+import { PortfolioBalance } from 'uniswap/src/features/portfolio/PortfolioBalance/PortfolioBalance'
+import { ModalName } from 'uniswap/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
+import { logger } from 'utilities/src/logger/logger'
+import { useEvent } from 'utilities/src/react/hooks'
+import { ONE_MINUTE_MS, ONE_SECOND_MS } from 'utilities/src/time/time'
+import { useTimeout } from 'utilities/src/time/timing'
+import { SmartWalletEnabledModal } from 'wallet/src/components/smartWallet/modals/SmartWalletEnabledModal'
+import { SmartWalletUpgradeModals } from 'wallet/src/components/smartWallet/modals/SmartWalletUpgradeModal'
+import { useOpenSmartWalletNudgeOnCompletedSwap } from 'wallet/src/components/smartWallet/smartAccounts/hooks'
+import { setIncrementNumPostSwapNudge } from 'wallet/src/features/behaviorHistory/slice'
+import { PendingNotificationBadge } from 'wallet/src/features/notifications/components/PendingNotificationBadge'
+import { useActiveAccountAddressWithThrow, useActiveAccountWithThrow } from 'wallet/src/features/wallet/hooks'
+import { setSmartWalletConsent } from 'wallet/src/features/wallet/slice'
+>>>>>>> upstream/main
 
 const MemoizedVideo = memo(() => (
   <Flex borderRadius="$rounded12" overflow="hidden" height="auto" maxWidth="100%" aspectRatio="16 / 9">
@@ -61,7 +94,11 @@ const MemoizedVideo = memo(() => (
 
 MemoizedVideo.displayName = 'MemoizedVideo'
 
+<<<<<<< HEAD
 export const HomeScreen = memo(function _HomeScreen(): JSX.Element {
+=======
+export const HomeScreen = memo(function HomeScreenInner(): JSX.Element {
+>>>>>>> upstream/main
   const { t } = useTranslation()
   const activeAccount = useActiveAccountWithThrow()
   const [showTabs, setShowTabs] = useState(false)
@@ -77,9 +114,15 @@ export const HomeScreen = memo(function _HomeScreen(): JSX.Element {
   const [isSmartWalletEnabledModalOpen, setIsSmartWalletEnabledModalOpen] = useState(false)
   const dispatch = useDispatch()
 
+<<<<<<< HEAD
   // LuxWrapped2025 banner state
   const isWrappedBannerEnabled = useFeatureFlag(FeatureFlags.LuxWrapped2025)
   const hasDismissedWrappedBanner = useSelector(selectHasDismissedLuxWrapped2025Banner)
+=======
+  // UniswapWrapped2025 banner state
+  const isWrappedBannerEnabled = useFeatureFlag(FeatureFlags.UniswapWrapped2025)
+  const hasDismissedWrappedBanner = useSelector(selectHasDismissedUniswapWrapped2025Banner)
+>>>>>>> upstream/main
   const shouldShowWrappedBanner = isWrappedBannerEnabled && !hasDismissedWrappedBanner
 
   // Notification service feature flag
@@ -88,14 +131,24 @@ export const HomeScreen = memo(function _HomeScreen(): JSX.Element {
     getIsNotificationServiceLocalOverrideEnabled() || isNotificationServiceEnabledFlag
 
   const handleDismissWrappedBanner = useCallback(() => {
+<<<<<<< HEAD
     dispatch(setHasDismissedLuxWrapped2025Banner(true))
+=======
+    dispatch(setHasDismissedUniswapWrapped2025Banner(true))
+>>>>>>> upstream/main
   }, [dispatch])
 
   const handlePressWrappedBanner = useCallback(() => {
     try {
+<<<<<<< HEAD
       const url = buildWrappedUrl(LX_WEB_URL, address)
       window.open(url, '_blank')
       dispatch(setHasDismissedLuxWrapped2025Banner(true))
+=======
+      const url = buildWrappedUrl(UNISWAP_WEB_URL, address)
+      window.open(url, '_blank')
+      dispatch(setHasDismissedUniswapWrapped2025Banner(true))
+>>>>>>> upstream/main
     } catch (error) {
       logger.error(error, { tags: { file: 'HomeScreen', function: 'handlePressWrappedBanner' } })
     }
@@ -198,7 +251,11 @@ export const HomeScreen = memo(function _HomeScreen(): JSX.Element {
           )}
           {shouldShowWrappedBanner && (
             <Flex width="calc(100% + 24px)" ml={-12} mt={-12}>
+<<<<<<< HEAD
               <LuxWrapped2025Banner
+=======
+              <UniswapWrapped2025Banner
+>>>>>>> upstream/main
                 handleDismiss={handleDismissWrappedBanner}
                 handlePress={handlePressWrappedBanner}
                 bannerHeight={80}

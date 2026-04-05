@@ -13,7 +13,11 @@ export type WalletConnectorMeta = {
 } & AtLeastOne<{
   wagmi?: WagmiConnectorDetails
   solana?: SolanaConnectorDetails
+<<<<<<< HEAD
   /** The id of this connector, if this connector has custom logic (e.g. embedded wallet connector or lux wallet connect connector). */
+=======
+  /** The id of this connector, if this connector has custom logic (e.g. embedded wallet connector or uniswap wallet connect connector). */
+>>>>>>> upstream/main
   customConnectorId?: CustomConnectorId
 }>
 

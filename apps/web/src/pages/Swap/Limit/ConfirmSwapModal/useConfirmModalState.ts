@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { Currency, Percent } from '@luxamm/sdk-core'
 import { useCallback, useEffect, useState } from 'react'
 import invariant from 'tiny-invariant'
@@ -5,6 +6,15 @@ import { useLocalizationContext } from '@l.x/lx/src/features/language/Localizati
 import { CurrencyField } from '@l.x/lx/src/types/currency'
 import { NumberType } from '@l.x/utils/src/format/types'
 import { logger } from '@l.x/utils/src/logger/logger'
+=======
+import { Currency, Percent } from '@uniswap/sdk-core'
+import { useCallback, useEffect, useState } from 'react'
+import invariant from 'tiny-invariant'
+import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
+import { CurrencyField } from 'uniswap/src/types/currency'
+import { NumberType } from 'utilities/src/format/types'
+import { logger } from 'utilities/src/logger/logger'
+>>>>>>> upstream/main
 import { RESET_APPROVAL_TOKENS } from '~/components/swap/constants'
 import { useAccount } from '~/hooks/useAccount'
 import { Allowance, AllowanceState } from '~/hooks/usePermit2Allowance'
@@ -52,6 +62,10 @@ export function useConfirmModalState({
   allowedSlippage: Percent
   onSwap: () => void
   allowance: Allowance
+<<<<<<< HEAD
+=======
+  // oxlint-disable-next-line max-params -- biome-parity: oxlint is stricter here
+>>>>>>> upstream/main
   onCurrencySelection: (field: CurrencyField, currency: Currency, isResettingWETHAfterWrap?: boolean) => void
 }) {
   const [confirmModalState, setConfirmModalState] = useState<ConfirmModalState>(ConfirmModalState.REVIEWING)
@@ -67,7 +81,11 @@ export function useConfirmModalState({
   // at the bottom of the modal, even after they complete steps 1 and 2.
   const generateRequiredSteps = useCallback(() => {
     const steps: PendingConfirmModalState[] = []
+<<<<<<< HEAD
     // Limit orders still require wrapping ETH to WETH (unlike regular DEX swaps which now support native ETH)
+=======
+    // Limit orders still require wrapping ETH to WETH (unlike regular UniswapX swaps which now support native ETH)
+>>>>>>> upstream/main
     if (isLimitTrade(trade) && trade.wrapInfo.needsWrap) {
       steps.push(ConfirmModalState.WRAPPING)
     }

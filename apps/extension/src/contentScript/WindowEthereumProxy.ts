@@ -3,7 +3,11 @@ import EventEmitter from 'eventemitter3'
 import { addWindowMessageListener, removeWindowMessageListener } from 'src/background/messagePassing/messageUtils'
 import { ExtensionResponse, isValidExtensionResponse } from 'src/contentScript/types'
 import { BaseEthereumRequest, BaseEthereumRequestSchema } from 'src/contentScript/WindowEthereumRequestTypes'
+<<<<<<< HEAD
 import { logger } from '@l.x/utils/src/logger/logger'
+=======
+import { logger } from 'utilities/src/logger/logger'
+>>>>>>> upstream/main
 import { v4 as uuidv4 } from 'uuid'
 import { ZodError } from 'zod'
 
@@ -12,9 +16,15 @@ type RequestInput = BaseEthereumRequest & { id?: number; jsonrpc?: string }
 
 const messages = {
   errors: {
+<<<<<<< HEAD
     disconnected: (): string => 'Lux Wallet: Disconnected from chain. Attempting to connect.',
     invalidRequestArgs: (): string => `Lux Wallet: Expected a single, non-array, object argument.`,
     invalidRequestGeneric: (): string => `Lux Wallet: Please check the input passed to the request method`,
+=======
+    disconnected: (): string => 'Uniswap Wallet: Disconnected from chain. Attempting to connect.',
+    invalidRequestArgs: (): string => `Uniswap Wallet: Expected a single, non-array, object argument.`,
+    invalidRequestGeneric: (): string => `Uniswap Wallet: Please check the input passed to the request method`,
+>>>>>>> upstream/main
   },
 }
 
@@ -24,6 +34,7 @@ const messages = {
  */
 export class WindowEthereumProxy extends EventEmitter {
   /**
+<<<<<<< HEAD
    * Boolean indicating that the provider is Lux Wallet.
    */
   isLuxWallet = true
@@ -31,6 +42,15 @@ export class WindowEthereumProxy extends EventEmitter {
   /**
    * Boolean to spoof MetaMask
    * TODO(EXT-393): Remove this once more dapps support EIP-6963 or have explicit support for Lux Wallet.
+=======
+   * Boolean indicating that the provider is Uniswap Wallet.
+   */
+  isUniswapWallet = true
+
+  /**
+   * Boolean to spoof MetaMask
+   * TODO(EXT-393): Remove this once more dapps support EIP-6963 or have explicit support for Uniswap Wallet.
+>>>>>>> upstream/main
    */
   isMetaMask: boolean
 

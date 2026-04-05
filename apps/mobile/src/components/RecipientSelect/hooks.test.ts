@@ -3,19 +3,33 @@ import { waitFor } from '@testing-library/react-native'
 import { toIncludeSameMembers } from 'jest-extended'
 import { MobileState } from 'src/app/mobileReducer'
 import { renderHookWithProviders } from 'src/test/render'
+<<<<<<< HEAD
 import { SearchableRecipient } from '@l.x/lx/src/features/address/types'
 import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { TransactionsState } from '@l.x/lx/src/features/transactions/slice'
 import { TransactionStatus } from '@l.x/lx/src/features/transactions/types/transactionDetails'
+=======
+import { SearchableRecipient } from 'uniswap/src/features/address/types'
+import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { TransactionsState } from 'uniswap/src/features/transactions/slice'
+import { TransactionStatus } from 'uniswap/src/features/transactions/types/transactionDetails'
+>>>>>>> upstream/main
 import {
   SAMPLE_SEED_ADDRESS_1,
   SAMPLE_SEED_ADDRESS_2,
   sendTokenTransactionInfo,
   transactionDetails,
+<<<<<<< HEAD
 } from '@l.x/lx/src/test/fixtures'
 import { useRecipients } from '@luxfi/wallet/src/components/RecipientSearch/hooks'
 import { SwapProtectionSetting } from '@luxfi/wallet/src/features/wallet/slice'
 import { signerMnemonicAccount } from '@luxfi/wallet/src/test/fixtures'
+=======
+} from 'uniswap/src/test/fixtures'
+import { useRecipients } from 'wallet/src/components/RecipientSearch/hooks'
+import { SwapProtectionSetting } from 'wallet/src/features/wallet/slice'
+import { signerMnemonicAccount } from 'wallet/src/test/fixtures'
+>>>>>>> upstream/main
 
 expect.extend({ toIncludeSameMembers })
 

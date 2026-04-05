@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { Currency, CurrencyAmount } from '@luxamm/sdk-core'
 import { useCallback } from 'react'
 import { useDispatch } from 'react-redux'
@@ -10,6 +11,20 @@ import { TransactionType, WrapTransactionInfo } from '@l.x/lx/src/features/trans
 import { createSaga } from '@l.x/lx/src/utils/saga'
 import { logger } from '@l.x/utils/src/logger/logger'
 import { noop } from '@l.x/utils/src/react/noop'
+=======
+import { Currency, CurrencyAmount } from '@uniswap/sdk-core'
+import { useCallback } from 'react'
+import { useDispatch } from 'react-redux'
+import { call } from 'typed-redux-saga'
+import { isTestnetChain } from 'uniswap/src/features/chains/utils'
+import { HandleOnChainStepParams, TransactionStepType } from 'uniswap/src/features/transactions/steps/types'
+import { WrapTransactionStep } from 'uniswap/src/features/transactions/steps/wrap'
+import { WrapCallback, WrapCallbackParams } from 'uniswap/src/features/transactions/swap/types/wrapCallback'
+import { TransactionType, WrapTransactionInfo } from 'uniswap/src/features/transactions/types/transactionDetails'
+import { createSaga } from 'uniswap/src/utils/saga'
+import { logger } from 'utilities/src/logger/logger'
+import { noop } from 'utilities/src/react/noop'
+>>>>>>> upstream/main
 import { popupRegistry } from '~/components/Popups/registry'
 import { PopupType } from '~/components/Popups/types'
 import { INTERNAL_JSON_RPC_ERROR_CODE } from '~/constants/misc'
@@ -18,6 +33,10 @@ import useSelectChain from '~/hooks/useSelectChain'
 import { handleOnChainStep } from '~/state/sagas/transactions/utils'
 import { didUserReject } from '~/utils/swapErrorToUserReadableMessage'
 
+<<<<<<< HEAD
+=======
+// oxlint-disable-next-line typescript/no-empty-interface -- biome-parity: oxlint is stricter here
+>>>>>>> upstream/main
 interface HandleWrapStepParams extends Omit<HandleOnChainStepParams<WrapTransactionStep>, 'info'> {}
 function* handleWrapStep(params: HandleWrapStepParams) {
   const info = getWrapTransactionInfo(params.step.amount)
@@ -46,7 +65,11 @@ function* wrap(params: WrapParams) {
       address,
       setCurrentStep: noop,
       shouldWaitForConfirmation: false,
+<<<<<<< HEAD
       allowDuplicativeTx: true, // Compared to DEX wraps, the user should not be stopped from wrapping in quick succession
+=======
+      allowDuplicativeTx: true, // Compared to UniswapX wraps, the user should not be stopped from wrapping in quick succession
+>>>>>>> upstream/main
     })
 
     popupRegistry.addPopup({ type: PopupType.Transaction, hash }, hash)

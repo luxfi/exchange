@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import { GraphQLApi } from '@l.x/api'
+=======
+import { GraphQLApi } from '@universe/api'
+>>>>>>> upstream/main
 import { useMemo } from 'react'
 import {
   buildContractInputForAddress,
@@ -23,7 +27,11 @@ export function useAuctionTokenPrices(auctions: readonly EnrichedAuction[]): {
     const contractMap = auctions.reduce((acc: { [key: string]: GraphQLApi.ContractInput }, auction) => {
       if (auction.auction?.tokenAddress && auction.auction.chainId) {
         const key = `${auction.auction.chainId}-${auction.auction.tokenAddress}`
+<<<<<<< HEAD
         // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+=======
+        // oxlint-disable-next-line typescript/no-unnecessary-condition
+>>>>>>> upstream/main
         if (!acc[key]) {
           acc[key] = buildContractInputForAddress({
             chainId: auction.auction.chainId,

@@ -3,11 +3,19 @@ import { useTranslation } from 'react-i18next'
 import { useDispatch } from 'react-redux'
 import { navigate } from 'src/app/navigation/rootNavigation'
 import { useReactNavigationModal } from 'src/components/modals/useReactNavigationModal'
+<<<<<<< HEAD
 import { WarningSeverity } from '@l.x/lx/src/components/modals/WarningModal/types'
 import { WarningModal } from '@l.x/lx/src/components/modals/WarningModal/WarningModal'
 import { ElementName, ModalName, WalletEventName } from '@l.x/lx/src/features/telemetry/constants'
 import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
 import { setBackupReminderLastSeenTs } from '@luxfi/wallet/src/features/behaviorHistory/slice'
+=======
+import { WarningSeverity } from 'uniswap/src/components/modals/WarningModal/types'
+import { WarningModal } from 'uniswap/src/components/modals/WarningModal/WarningModal'
+import { ElementName, ModalName, WalletEventName } from 'uniswap/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
+import { setBackupReminderLastSeenTs } from 'wallet/src/features/behaviorHistory/slice'
+>>>>>>> upstream/main
 
 export function BackupWarningModal(): JSX.Element {
   const { t } = useTranslation()

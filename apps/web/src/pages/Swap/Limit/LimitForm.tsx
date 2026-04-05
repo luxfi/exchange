@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* eslint-disable max-lines */
 import { Currency, CurrencyAmount, Token } from '@luxamm/sdk-core'
 import { UNIVERSAL_ROUTER_ADDRESS, UniversalRouterVersion } from '@luxamm/universal-router-sdk'
@@ -23,6 +24,33 @@ import { CurrencyField } from '@l.x/lx/src/types/currency'
 import { formatCurrencyAmount as formatCurrencyAmountRaw } from '@l.x/utils/src/format/localeBased'
 import { NumberType } from '@l.x/utils/src/format/types'
 import { isSafeNumber } from '@l.x/utils/src/primitives/integer'
+=======
+/* oxlint-disable max-lines */
+import { Currency, CurrencyAmount, Token } from '@uniswap/sdk-core'
+import { UNIVERSAL_ROUTER_ADDRESS, UniversalRouterVersion } from '@uniswap/universal-router-sdk'
+import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import { useCallback, useEffect, useMemo, useState } from 'react'
+import { Trans, useTranslation } from 'react-i18next'
+import { Anchor, Button, Flex, styled, Text, useIsShortMobileDevice } from 'ui/src'
+import { AlertTriangleFilled } from 'ui/src/components/icons/AlertTriangleFilled'
+import { ArrowDown } from 'ui/src/components/icons/ArrowDown'
+import { nativeOnChain } from 'uniswap/src/constants/tokens'
+import { uniswapUrls } from 'uniswap/src/constants/urls'
+import { LIMIT_SUPPORTED_CHAINS } from 'uniswap/src/features/chains/chainInfo'
+import { useIsSupportedChainId } from 'uniswap/src/features/chains/hooks/useSupportedChainId'
+import { getPrimaryStablecoin } from 'uniswap/src/features/chains/utils'
+import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
+import { isEVMChain } from 'uniswap/src/features/platforms/utils/chains'
+import { useIsMismatchAccountQuery } from 'uniswap/src/features/smartWallet/mismatch/hooks'
+import { ElementName, InterfacePageName, SectionName, SwapEventName } from 'uniswap/src/features/telemetry/constants'
+import Trace from 'uniswap/src/features/telemetry/Trace'
+import { useUSDCValueWithStatus } from 'uniswap/src/features/transactions/hooks/useUSDCPriceWrapper'
+import { CurrencyField } from 'uniswap/src/types/currency'
+// oxlint-disable-next-line no-restricted-imports -- We need to import this directly so we can format with `en-US` locale
+import { formatCurrencyAmount as formatCurrencyAmountRaw } from 'utilities/src/format/localeBased'
+import { NumberType } from 'utilities/src/format/types'
+import { isSafeNumber } from 'utilities/src/primitives/integer'
+>>>>>>> upstream/main
 import { useAccountDrawer } from '~/components/AccountDrawer/MiniPortfolio/hooks'
 import { LimitPriceInputPanel } from '~/components/CurrencyInputPanel/LimitPriceInputPanel/LimitPriceInputPanel'
 import {
@@ -32,6 +60,10 @@ import {
 import SwapCurrencyInputPanel from '~/components/CurrencyInputPanel/SwapCurrencyInputPanel'
 import DelegationMismatchModal from '~/components/delegation/DelegationMismatchModal'
 import Column from '~/components/deprecated/Column'
+<<<<<<< HEAD
+=======
+import { SwitchNetworkAction } from '~/components/Popups/types'
+>>>>>>> upstream/main
 import { ArrowContainer, ArrowWrapper, SwapSection } from '~/components/swap/styled'
 import { ZERO_PERCENT } from '~/constants/misc'
 import { useConnectionStatus } from '~/features/accounts/store/hooks'
@@ -88,6 +120,42 @@ function LimitForm({ onCurrencyChange }: LimitFormProps) {
   const isLimitSupportedChain = chainId && LIMIT_SUPPORTED_CHAINS.includes(chainId)
 
   const { limitState, setLimitState, derivedLimitInfo } = useLimitContext()
+<<<<<<< HEAD
+=======
+
+  // Coerce non-mainnet currencies to mainnet defaults when limit tab mounts or currencies change
+  // biome-ignore lint/correctness/useExhaustiveDependencies: we only want to run this effect when the input or output currency changes.
+  useEffect(() => {
+    const defaultLimitChainId = LIMIT_SUPPORTED_CHAINS[0]
+    const inputIsOnLimitChain = !inputCurrency || LIMIT_SUPPORTED_CHAINS.includes(inputCurrency.chainId)
+    const outputIsOnLimitChain = !outputCurrency || LIMIT_SUPPORTED_CHAINS.includes(outputCurrency.chainId)
+
+    if (inputIsOnLimitChain && outputIsOnLimitChain) {
+      return
+    }
+
+    const stablecoin = getPrimaryStablecoin(defaultLimitChainId)
+    const newInput = inputIsOnLimitChain ? inputCurrency : nativeOnChain(defaultLimitChainId)
+    const newOutput = outputIsOnLimitChain
+      ? outputCurrency
+      : newInput?.equals(stablecoin)
+        ? nativeOnChain(defaultLimitChainId)
+        : stablecoin
+
+    const newCurrencyState = { inputCurrency: newInput, outputCurrency: newOutput }
+    onCurrencyChange?.(newCurrencyState)
+    setCurrencyState(newCurrencyState)
+
+    // Reset limit price state so market price auto-populates for the new pair
+    setLimitState((prev) => ({
+      ...prev,
+      limitPriceEdited: false,
+      limitPriceInverted: getDefaultPriceInverted(newInput, newOutput),
+    }))
+    // oxlint-disable-next-line react-hooks/exhaustive-deps -- only react to currency identity changes, callbacks are stable
+  }, [inputCurrency, outputCurrency])
+
+>>>>>>> upstream/main
   const { currencyBalances, parsedAmounts, parsedLimitPrice, limitOrderTrade, marketPrice } = derivedLimitInfo
   const [showConfirm, setShowConfirm] = useState(false)
   const [swapResult, setSwapResult] = useState<SwapResult>()
@@ -171,7 +239,11 @@ function LimitForm({ onCurrencyChange }: LimitFormProps) {
   }, [inputCurrency, onSwitchTokens, outputCurrency, setLimitState])
 
   const onSelectCurrency = useCallback(
+<<<<<<< HEAD
     // eslint-disable-next-line max-params
+=======
+    // oxlint-disable-next-line max-params
+>>>>>>> upstream/main
     (type: keyof CurrencyState, newCurrency: Currency, isResettingWETHAfterWrap?: boolean) => {
       if ((type === 'inputCurrency' ? outputCurrency : inputCurrency)?.equals(newCurrency)) {
         switchTokens()
@@ -231,7 +303,11 @@ function LimitForm({ onCurrencyChange }: LimitFormProps) {
     }
   }, [onSelectCurrency, outputCurrency, isSupportedChain, chainId, inputCurrency])
 
+<<<<<<< HEAD
   // biome-ignore lint/correctness/useExhaustiveDependencies: Currency state reset only on currency change
+=======
+  // oxlint-disable-next-line react/exhaustive-deps -- Currency state reset only on currency change
+>>>>>>> upstream/main
   useEffect(() => {
     // If the initial pair is eth <> weth, replace the output currency with a stablecoin
     if (isSupportedChain && inputCurrency && outputCurrency && (inputCurrency.isNative || outputCurrency.isNative)) {
@@ -242,6 +318,10 @@ function LimitForm({ onCurrencyChange }: LimitFormProps) {
         onSelectCurrency('outputCurrency', getPrimaryStablecoin(chainId))
       }
     }
+<<<<<<< HEAD
+=======
+    // oxlint-disable-next-line react/exhaustive-deps -- biome-parity: oxlint is stricter here
+>>>>>>> upstream/main
   }, [])
 
   const maxInputAmount: CurrencyAmount<Currency> | undefined = useMemo(
@@ -262,7 +342,11 @@ function LimitForm({ onCurrencyChange }: LimitFormProps) {
   const allowance = usePermit2Allowance({
     amount: parsedAmounts.input?.currency.isNative ? undefined : (parsedAmounts.input as CurrencyAmount<Token>),
     spender: isLimitSupportedChain ? UNIVERSAL_ROUTER_ADDRESS(UniversalRouterVersion.V1_2, chainId) : undefined,
+<<<<<<< HEAD
     tradeFillType: TradeFillType.DEX,
+=======
+    tradeFillType: TradeFillType.UniswapX,
+>>>>>>> upstream/main
   })
 
   const fiatValueTradeInput = useUSDCValueWithStatus(parsedAmounts.input)
@@ -350,6 +434,11 @@ function LimitForm({ onCurrencyChange }: LimitFormProps) {
             onCurrencySelect={(currency) => onSelectCurrency('inputCurrency', currency)}
             otherCurrency={outputCurrency}
             onMax={handleMaxInput}
+<<<<<<< HEAD
+=======
+            chainIds={LIMIT_SUPPORTED_CHAINS}
+            switchNetworkAction={SwitchNetworkAction.Limit}
+>>>>>>> upstream/main
             id={SectionName.SwapCurrencyInput}
           />
         </Trace>
@@ -376,6 +465,11 @@ function LimitForm({ onCurrencyChange }: LimitFormProps) {
             onUserInput={onTypeInput('outputAmount')}
             onCurrencySelect={(currency) => onSelectCurrency('outputCurrency', currency)}
             otherCurrency={inputCurrency}
+<<<<<<< HEAD
+=======
+            chainIds={LIMIT_SUPPORTED_CHAINS}
+            switchNetworkAction={SwitchNetworkAction.Limit}
+>>>>>>> upstream/main
             id={SectionName.SwapCurrencyOutput}
           />
         </Trace>
@@ -419,7 +513,11 @@ function LimitForm({ onCurrencyChange }: LimitFormProps) {
                   link: (
                     <Anchor
                       textDecorationLine="none"
+<<<<<<< HEAD
                       href={lxUrls.helpArticleUrls.limitsNetworkSupport}
+=======
+                      href={uniswapUrls.helpArticleUrls.limitsNetworkSupport}
+>>>>>>> upstream/main
                       target="_blank"
                     >
                       <LearnMore>
@@ -431,10 +529,17 @@ function LimitForm({ onCurrencyChange }: LimitFormProps) {
               />
             ) : (
               <Trans
+<<<<<<< HEAD
                 i18nKey="limits.form.disclaimer.dex"
                 components={{
                   link: (
                     <Anchor textDecorationLine="none" href={lxUrls.helpArticleUrls.limitsFailure} target="_blank">
+=======
+                i18nKey="limits.form.disclaimer.uniswapx"
+                components={{
+                  link: (
+                    <Anchor textDecorationLine="none" href={uniswapUrls.helpArticleUrls.limitsFailure} target="_blank">
+>>>>>>> upstream/main
                       <LearnMore>
                         <Trans i18nKey="common.button.learn" />
                       </LearnMore>
@@ -472,7 +577,11 @@ function LimitForm({ onCurrencyChange }: LimitFormProps) {
             data: fiatValueOutputNumber,
             isLoading: fiatValueTradeOutput.isLoading,
           }}
+<<<<<<< HEAD
           // eslint-disable-next-line max-params
+=======
+          // oxlint-disable-next-line max-params
+>>>>>>> upstream/main
           onCurrencySelection={(field: CurrencyField, currency, isResettingWETHAfterWrap) =>
             onSelectCurrency(
               field === CurrencyField.INPUT ? 'inputCurrency' : 'outputCurrency',

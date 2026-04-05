@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import React from 'react'
 import { Trans } from 'react-i18next'
@@ -9,6 +10,19 @@ import { MenuStateVariant, useSetMenu } from '~/components/AccountDrawer/menuSta
 import ConnectionErrorView from '~/components/WalletModal/ConnectionErrorView'
 import PrivacyPolicyNotice from '~/components/WalletModal/PrivacyPolicyNotice'
 import { LXMobileWalletConnectorOption } from '~/components/WalletModal/LXMobileWalletConnectorOption'
+=======
+import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import React from 'react'
+import { Trans } from 'react-i18next'
+import { Flex, Separator, Text, TouchableArea } from 'ui/src'
+import { BackArrow } from 'ui/src/components/icons/BackArrow'
+import { CONNECTION_PROVIDER_IDS } from 'uniswap/src/constants/web3'
+import { MenuStateVariant, useSetMenu } from '~/components/AccountDrawer/menuState'
+import { useShowMoonpayText } from '~/components/AccountDrawer/MiniPortfolio/hooks'
+import ConnectionErrorView from '~/components/WalletModal/ConnectionErrorView'
+import PrivacyPolicyNotice from '~/components/WalletModal/PrivacyPolicyNotice'
+import { UniswapMobileWalletConnectorOption } from '~/components/WalletModal/UniswapMobileWalletConnectorOption'
+>>>>>>> upstream/main
 import { WalletConnectorOption } from '~/components/WalletModal/WalletConnectorOption'
 import { useRecentConnectorId } from '~/components/Web3Provider/constants'
 import { useOrderedWallets } from '~/features/wallet/connection/hooks/useOrderedWalletConnectors'
@@ -50,12 +64,21 @@ export function OtherWalletsModal() {
             transition={`${transitions.duration.fast} ${transitions.timing.inOut}`}
             data-testid="option-grid"
           >
+<<<<<<< HEAD
             {/* If lx mobile was the last used connector it will be show on the primary window */}
             {/* If Embedded Wallet is enabled, it will be shown on the primary window */}
             {recentConnectorId !== CONNECTION_PROVIDER_IDS.LX_WALLET_CONNECT_CONNECTOR_ID &&
               !isEmbeddedWalletEnabled && (
                 <>
                   <LXMobileWalletConnectorOption />
+=======
+            {/* If uniswap mobile was the last used connector it will be show on the primary window */}
+            {/* If Embedded Wallet is enabled, it will be shown on the primary window */}
+            {recentConnectorId !== CONNECTION_PROVIDER_IDS.UNISWAP_WALLET_CONNECT_CONNECTOR_ID &&
+              !isEmbeddedWalletEnabled && (
+                <>
+                  <UniswapMobileWalletConnectorOption />
+>>>>>>> upstream/main
                   {wallets.length > 0 && <Separator />}
                 </>
               )}

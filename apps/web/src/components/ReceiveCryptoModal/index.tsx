@@ -1,5 +1,6 @@
 import ms from 'ms'
 import { useEffect, useState } from 'react'
+<<<<<<< HEAD
 import { AnimateTransition } from '@l.x/ui/src'
 import { GetHelpHeader } from '@l.x/lx/src/components/dialog/GetHelpHeader'
 import { Modal } from '@l.x/lx/src/components/modals/Modal'
@@ -9,6 +10,17 @@ import { FORServiceProvider } from '@l.x/lx/src/features/fiatOnRamp/types'
 import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
 import { logger } from '@l.x/utils/src/logger/logger'
 import { useEvent } from '@l.x/utils/src/react/hooks'
+=======
+import { AnimateTransition } from 'ui/src'
+import { GetHelpHeader } from 'uniswap/src/components/dialog/GetHelpHeader'
+import { Modal } from 'uniswap/src/components/modals/Modal'
+import { ReceiveQRCode } from 'uniswap/src/components/ReceiveQRCode/ReceiveQRCode'
+import { uniswapUrls } from 'uniswap/src/constants/urls'
+import { FORServiceProvider } from 'uniswap/src/features/fiatOnRamp/types'
+import { ModalName } from 'uniswap/src/features/telemetry/constants'
+import { logger } from 'utilities/src/logger/logger'
+import { useEvent } from 'utilities/src/react/hooks'
+>>>>>>> upstream/main
 import { ChooseMultiPlatformProvider } from '~/components/ReceiveCryptoModal/ChooseMultiPlatformProvider'
 import { ChooseProvider } from '~/components/ReceiveCryptoModal/ChooseProvider'
 import { ReceiveModalState } from '~/components/ReceiveCryptoModal/types'
@@ -82,7 +94,11 @@ export function ReceiveCryptoModal() {
               ? goBack
               : undefined
           }
+<<<<<<< HEAD
           link={lxUrls.helpArticleUrls.transferCryptoHelp}
+=======
+          link={uniswapUrls.helpArticleUrls.transferCryptoHelp}
+>>>>>>> upstream/main
           closeModal={onClose}
         />
         <AnimateTransition currentIndex={currentIndex} animationType="forward">

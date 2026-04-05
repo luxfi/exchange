@@ -1,4 +1,5 @@
 import { Row } from '@tanstack/react-table'
+<<<<<<< HEAD
 import { SharedEventName } from '@luxamm/analytics-events'
 import { useCallback, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
@@ -14,6 +15,19 @@ import { useTrace } from '@l.x/utils/src/telemetry/trace/TraceContext'
 import { POPUP_MEDIUM_DISMISS_MS } from '~/components/Popups/constants'
 import { popupRegistry } from '~/components/Popups/registry'
 import { PopupType } from '~/components/Popups/types'
+=======
+import { SharedEventName } from '@uniswap/analytics-events'
+import { useCallback, useMemo, useState } from 'react'
+import { Flex, TouchableArea } from 'ui/src'
+import { ElementName, InterfacePageName, SectionName } from 'uniswap/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
+import Trace from 'uniswap/src/features/telemetry/Trace'
+import { TransactionDetails } from 'uniswap/src/features/transactions/types/transactionDetails'
+import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+import { useEvent } from 'utilities/src/react/hooks'
+import { useTrace } from 'utilities/src/telemetry/trace/TraceContext'
+import { useOpenTransactionDetailsModal } from '~/components/TopLevelModals/TransactionDetailsModalDispatcher'
+>>>>>>> upstream/main
 import { ActivityFilters } from '~/pages/Portfolio/Activity/ActivityFilters'
 import { ActivityTable } from '~/pages/Portfolio/Activity/ActivityTable/ActivityTable'
 import { ActivityFilterType, TimePeriod } from '~/pages/Portfolio/Activity/Filters/utils'
@@ -24,11 +38,18 @@ import { usePortfolioRoutes } from '~/pages/Portfolio/Header/hooks/usePortfolioR
 import { usePortfolioAddresses } from '~/pages/Portfolio/hooks/usePortfolioAddresses'
 
 export default function PortfolioActivity() {
+<<<<<<< HEAD
   const { t } = useTranslation()
   const trace = useTrace()
   const [selectedTransactionType, setSelectedTransactionType] = useState<string>(ActivityFilterType.All)
   const [selectedTimePeriod, setSelectedTimePeriod] = useState<string>(TimePeriod.All)
   const [selectedTransaction, setSelectedTransaction] = useState<TransactionDetails | null>(null)
+=======
+  const trace = useTrace()
+  const [selectedTransactionType, setSelectedTransactionType] = useState<string>(ActivityFilterType.All)
+  const [selectedTimePeriod, setSelectedTimePeriod] = useState<string>(TimePeriod.All)
+  const openTransactionDetailsModal = useOpenTransactionDetailsModal()
+>>>>>>> upstream/main
 
   const { evmAddress, svmAddress } = usePortfolioAddresses()
   const { chainId, isExternalWallet } = usePortfolioRoutes()
@@ -75,7 +96,11 @@ export default function PortfolioActivity() {
       section: SectionName.PortfolioActivityTab,
       ...trace,
     })
+<<<<<<< HEAD
     setSelectedTransaction(transaction)
+=======
+    openTransactionDetailsModal(transaction, { isExternalProfile: isExternalWallet })
+>>>>>>> upstream/main
   })
 
   const rowWrapper = useEvent((row: Row<TransactionDetails>, content: JSX.Element) => {
@@ -87,6 +112,7 @@ export default function PortfolioActivity() {
     )
   })
 
+<<<<<<< HEAD
   const handleCloseTransactionDetails = () => {
     setSelectedTransaction(null)
   }
@@ -115,6 +141,8 @@ export default function PortfolioActivity() {
     )
   })
 
+=======
+>>>>>>> upstream/main
   return (
     <Trace logImpression page={InterfacePageName.PortfolioActivityPage} properties={{ isExternal: isExternalWallet }}>
       <Flex gap="$spacing28" mt="$spacing12">
@@ -145,6 +173,7 @@ export default function PortfolioActivity() {
             </Trace>
           )}
         </Flex>
+<<<<<<< HEAD
 
         {selectedTransaction && (
           <TransactionDetailsModal
@@ -157,6 +186,8 @@ export default function PortfolioActivity() {
             onCopySuccess={onCopySuccess}
           />
         )}
+=======
+>>>>>>> upstream/main
       </Flex>
     </Trace>
   )

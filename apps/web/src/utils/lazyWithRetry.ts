@@ -14,7 +14,11 @@
  */
 
 import { ComponentType, LazyExoticComponent, lazy } from 'react'
+<<<<<<< HEAD
 import { logger } from '@l.x/utils/src/logger/logger'
+=======
+import { logger } from 'utilities/src/logger/logger'
+>>>>>>> upstream/main
 
 interface RetryOptions {
   maxRetries?: number
@@ -78,18 +82,30 @@ function attemptPageRefresh(): void {
     const now = Date.now()
 
     if (lastRefresh && now - parseInt(lastRefresh, 10) < REFRESH_COOLDOWN_DURATION) {
+<<<<<<< HEAD
       // biome-ignore lint/suspicious/noConsole: Need console for debugging retry cooldown logic
+=======
+      // oxlint-disable-next-line no-console -- Need console for debugging retry cooldown logic
+>>>>>>> upstream/main
       console.warn('Page refresh skipped due to recent refresh (cooldown active)')
       return
     }
 
     localStorage.setItem(REFRESH_COOLDOWN_KEY, now.toString())
+<<<<<<< HEAD
     // biome-ignore lint/suspicious/noConsole: Need console for debugging import failure refresh
+=======
+    // oxlint-disable-next-line no-console -- Need console for debugging import failure refresh
+>>>>>>> upstream/main
     console.log('Dynamic import failed after all retries, refreshing page...')
     window.location.reload()
   } catch (error) {
     // If localStorage fails, still try to refresh but log the issue
+<<<<<<< HEAD
     // biome-ignore lint/suspicious/noConsole: Need console for debugging refresh fallback logic
+=======
+    // oxlint-disable-next-line no-console -- Need console for debugging refresh fallback logic
+>>>>>>> upstream/main
     console.warn('Failed to set refresh cooldown, refreshing anyway:', error)
     window.location.reload()
   }
@@ -144,7 +160,11 @@ function createRetryableImport<T extends ComponentType<any>>(
         // Calculate delay and wait before retrying
         const delay = calculateDelay(attempt, { baseDelay: options.baseDelay, maxDelay: options.maxDelay })
 
+<<<<<<< HEAD
         // biome-ignore lint/suspicious/noConsole: Need console for debugging import retry attempts
+=======
+        // oxlint-disable-next-line no-console -- Need console for debugging import retry attempts
+>>>>>>> upstream/main
         console.warn(
           `Dynamic import failed (attempt ${attempt}/${options.maxRetries}), retrying in ${Math.round(delay)}ms:`,
           lastError.message,

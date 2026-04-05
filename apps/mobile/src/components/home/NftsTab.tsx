@@ -3,6 +3,7 @@ import React, { forwardRef, memo, useCallback, useMemo } from 'react'
 import { RefreshControl } from 'react-native'
 import { useAdaptiveFooter } from 'src/components/home/hooks'
 import { TAB_BAR_HEIGHT, TabProps } from 'src/components/layout/TabHelpers'
+<<<<<<< HEAD
 import { Flex, useSporeColors } from '@l.x/ui/src'
 import { NftsList } from 'lx/src/components/nfts/NftsList'
 import { NftViewWithContextMenu } from 'lx/src/components/nfts/NftViewWithContextMenu'
@@ -18,6 +19,23 @@ import { useAccounts } from '@luxfi/wallet/src/features/wallet/hooks'
 
 export const NftsTab = memo(
   forwardRef<FlashList<unknown>, TabProps>(function _NftsTab(
+=======
+import { Flex, useSporeColors } from 'ui/src'
+import { NftsList } from 'uniswap/src/components/nfts/NftsList'
+import { NftViewWithContextMenu } from 'uniswap/src/components/nfts/NftViewWithContextMenu'
+import { useEnabledChains } from 'uniswap/src/features/chains/hooks/useEnabledChains'
+import { fromGraphQLChain } from 'uniswap/src/features/chains/utils'
+import { useNavigateToNftExplorerLink } from 'uniswap/src/features/nfts/hooks/useNavigateToNftExplorerLink'
+import { NFTItem } from 'uniswap/src/features/nfts/types'
+import { useAppInsets } from 'uniswap/src/hooks/useAppInsets'
+import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+import { getOpenseaLink, openUri } from 'uniswap/src/utils/linking'
+import { isAndroid } from 'utilities/src/platform'
+import { useAccounts } from 'wallet/src/features/wallet/hooks'
+
+export const NftsTab = memo(
+  forwardRef<FlashList<unknown>, TabProps>(function NftsTabInner(
+>>>>>>> upstream/main
     {
       owner,
       containerProps,

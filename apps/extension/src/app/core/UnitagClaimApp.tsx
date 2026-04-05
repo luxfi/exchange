@@ -1,6 +1,11 @@
+<<<<<<< HEAD
 import '@hanzogui/core/reset.css'
 import 'src/app/Global.css'
 
+=======
+import '@tamagui/core/reset.css'
+import 'src/app/Global.css'
+>>>>>>> upstream/main
 import { PropsWithChildren, useEffect } from 'react'
 import { createHashRouter, Outlet, RouterProvider, useSearchParams } from 'react-router'
 import { ErrorElement } from 'src/app/components/ErrorElement'
@@ -21,11 +26,19 @@ import { UnitagIntroScreen } from 'src/app/features/unitags/UnitagIntroScreen'
 import { UnitagClaimRoutes } from 'src/app/navigation/constants'
 import { setRouter, setRouterState } from 'src/app/navigation/state'
 import { initExtensionAnalytics } from 'src/app/utils/analytics'
+<<<<<<< HEAD
 import { Flex } from '@l.x/ui/src'
 import { logger } from '@l.x/utils/src/logger/logger'
 import { usePrevious } from '@l.x/utils/src/react/hooks'
 import { useTestnetModeForLoggingAndAnalytics } from '@luxfi/wallet/src/features/testnetMode/hooks/useTestnetModeForLoggingAndAnalytics'
 import { useAccountAddressFromUrlWithThrow } from '@luxfi/wallet/src/features/wallet/hooks'
+=======
+import { Flex } from 'ui/src'
+import { logger } from 'utilities/src/logger/logger'
+import { usePrevious } from 'utilities/src/react/hooks'
+import { useTestnetModeForLoggingAndAnalytics } from 'wallet/src/features/testnetMode/hooks/useTestnetModeForLoggingAndAnalytics'
+import { useAccountAddressFromUrlWithThrow } from 'wallet/src/features/wallet/hooks'
+>>>>>>> upstream/main
 
 const router = createHashRouter([
   {
@@ -52,7 +65,11 @@ const router = createHashRouter([
  * router/router state to a different file so it can be imported by those pages
  */
 
+<<<<<<< HEAD
 // biome-ignore lint/suspicious/noExplicitAny: Router state object has dynamic structure from react-router
+=======
+// oxlint-disable-next-line typescript/no-explicit-any -- Router state object has dynamic structure from react-router
+>>>>>>> upstream/main
 router.subscribe((state: any) => {
   setRouterState(state)
 })
@@ -77,7 +94,11 @@ function UnitagAppInner(): JSX.Element {
       // needed to reload on address param change for hash router
       router
         .navigate(0)
+<<<<<<< HEAD
         // biome-ignore lint/suspicious/noExplicitAny: Router state object has dynamic structure from react-router
+=======
+        // oxlint-disable-next-line typescript/no-explicit-any -- Router state object has dynamic structure from react-router
+>>>>>>> upstream/main
         .catch((e: any) => logger.error(e, { tags: { file: 'UnitagClaimApp.tsx', function: 'UnitagClaimAppInner' } }))
     }
   }, [address, prevAddress])

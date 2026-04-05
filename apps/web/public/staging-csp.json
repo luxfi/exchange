@@ -1,5 +1,9 @@
 {
   "defaultSrc": ["https://vercel.live/", "https://vercel.com"],
   "scriptSrc": ["'sha256-jhb+qiJiVBxruYChJWIrsskRE2fAoV/F/B10cAoiSB0='"],
+<<<<<<< HEAD
   "connectSrc": ["https://*.lux-test.network"]
+=======
+  "connectSrc": ["https://*.corn-staging.com"]
+>>>>>>> upstream/main
 }

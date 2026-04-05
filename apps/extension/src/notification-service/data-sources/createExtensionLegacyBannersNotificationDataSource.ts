@@ -4,12 +4,18 @@ import {
   Notification,
   NotificationVersion,
   OnClick,
+<<<<<<< HEAD
 } from '@luxamm/client-notification-service/dist/lx/notificationservice/v1/api_pb'
 import { BackgroundType, ContentStyle, type InAppNotification, OnClickAction, SharedQueryClient } from '@l.x/api'
+=======
+} from '@uniswap/client-notification-service/dist/uniswap/notificationservice/v1/api_pb'
+import { BackgroundType, ContentStyle, type InAppNotification, OnClickAction, SharedQueryClient } from '@universe/api'
+>>>>>>> upstream/main
 import {
   createNotificationDataSource,
   type NotificationDataSource,
   type NotificationTracker,
+<<<<<<< HEAD
 } from '@l.x/notifications'
 import { AppRoutes, SettingsRoutes, UnitagClaimRoutes } from 'src/app/navigation/constants'
 import { getReduxStore } from 'src/store/store'
@@ -23,6 +29,20 @@ import { logger } from '@l.x/utils/src/logger/logger'
 import { ReactQueryCacheKey } from '@l.x/utils/src/reactQuery/cache'
 import { selectHasSkippedUnitagPrompt } from '@luxfi/wallet/src/features/behaviorHistory/selectors'
 import { hasExternalBackup } from '@luxfi/wallet/src/features/wallet/accounts/utils'
+=======
+} from '@universe/notifications'
+import { AppRoutes, SettingsRoutes, UnitagClaimRoutes } from 'src/app/navigation/constants'
+import { getReduxStore } from 'src/store/store'
+import { AccountType } from 'uniswap/src/features/accounts/types'
+import { Platform } from 'uniswap/src/features/platforms/types/Platform'
+import { UNITAG_SUFFIX_NO_LEADING_DOT } from 'uniswap/src/features/unitags/constants'
+import i18n from 'uniswap/src/i18n'
+import { getValidAddress } from 'uniswap/src/utils/addresses'
+import { logger } from 'utilities/src/logger/logger'
+import { ReactQueryCacheKey } from 'utilities/src/reactQuery/cache'
+import { selectHasSkippedUnitagPrompt } from 'wallet/src/features/behaviorHistory/selectors'
+import { hasExternalBackup } from 'wallet/src/features/wallet/accounts/utils'
+>>>>>>> upstream/main
 
 // Using 'local:' prefix to indicate these are client-only notifications
 // This prevents the API tracker from sending AckNotification calls to the backend

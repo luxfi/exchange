@@ -1,5 +1,9 @@
 import { useLayoutEffect } from 'react'
+<<<<<<< HEAD
 import { useSporeColors } from '@l.x/ui/src'
+=======
+import { useSporeColors } from 'ui/src'
+>>>>>>> upstream/main
 import { useAuctionStore, useAuctionStoreActions } from '~/components/Toucan/Auction/store/useAuctionStore'
 import { useSrcColor } from '~/hooks/useColor'
 
@@ -20,7 +24,11 @@ export function useUpdateTokenColor(): void {
   const { tokenColor, tokenColorLoading } = useSrcColor({
     src: logoUrl,
     currencyName: tokenName,
+<<<<<<< HEAD
     backgroundColor: colors.surface3.val,
+=======
+    backgroundColor: colors.surface2.val,
+>>>>>>> upstream/main
   })
 
   useLayoutEffect(() => {

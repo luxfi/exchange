@@ -2,9 +2,15 @@ import { FlashList } from '@shopify/flash-list'
 import { default as React, useCallback, useMemo } from 'react'
 import { SectionData, SectionInfo, SettingsListProps } from 'src/components/Settings/lists/types'
 import { SETTINGS_ROW_HEIGHT, SettingsSection } from 'src/components/Settings/SettingsRow'
+<<<<<<< HEAD
 import { useDeviceDimensions } from '@l.x/ui/src/hooks/useDeviceDimensions'
 import { spacing } from '@l.x/ui/src/theme'
 import { useAppInsets } from '@l.x/lx/src/hooks/useAppInsets'
+=======
+import { useDeviceDimensions } from 'ui/src/hooks/useDeviceDimensions'
+import { spacing } from 'ui/src/theme'
+import { useAppInsets } from 'uniswap/src/hooks/useAppInsets'
+>>>>>>> upstream/main
 
 export function SettingsFlashList({
   sections,

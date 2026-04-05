@@ -16,7 +16,11 @@ interface TokenLaunchedBackgroundChartProps {
   height: number
 }
 
+<<<<<<< HEAD
 function _TokenLaunchedBackgroundChart({ series, strokeColor, height }: TokenLaunchedBackgroundChartProps) {
+=======
+function TokenLaunchedBackgroundChartInner({ series, strokeColor, height }: TokenLaunchedBackgroundChartProps) {
+>>>>>>> upstream/main
   const { xScale, yScale } = useMemo(() => {
     const timestamps = series.map((point) => point.timestamp)
     const values = series.map((point) => point.value)
@@ -63,4 +67,8 @@ function _TokenLaunchedBackgroundChart({ series, strokeColor, height }: TokenLau
   )
 }
 
+<<<<<<< HEAD
 export const TokenLaunchedBackgroundChart = memo(_TokenLaunchedBackgroundChart)
+=======
+export const TokenLaunchedBackgroundChart = memo(TokenLaunchedBackgroundChartInner)
+>>>>>>> upstream/main

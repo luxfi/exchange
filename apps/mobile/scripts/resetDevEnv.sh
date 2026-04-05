@@ -20,7 +20,11 @@ if [ "$1" = "--hard" ]; then
         exit 1
     fi
 
+<<<<<<< HEAD
     if git diff --quiet ios/Lux.xcodeproj/project.pbxproj; then
+=======
+    if git diff --quiet ios/Uniswap.xcodeproj/project.pbxproj; then
+>>>>>>> upstream/main
         echo "No changes detected in project.pbxproj."
     else
         echo "🚨🚨🚨🚨🚨🚨🚨 WARNING! 🚨🚨🚨🚨🚨🚨🚨"
@@ -56,7 +60,11 @@ bun run pod:update
 
 if [ "$1" = "--hard" ]; then
     echo "🗑️  Restoring project.pbxproj..."
+<<<<<<< HEAD
     git checkout -- ios/Lux.xcodeproj/project.pbxproj
+=======
+    git checkout -- ios/Uniswap.xcodeproj/project.pbxproj
+>>>>>>> upstream/main
 fi
 
 

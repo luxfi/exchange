@@ -1,9 +1,18 @@
+<<<<<<< HEAD
 import { Percent } from '@luxamm/sdk-core'
 import { useMemo } from 'react'
 import { Trans } from 'react-i18next'
 import { Flex, Text } from '@l.x/ui/src'
 import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
 import { NumberType } from '@l.x/utils/src/format/types'
+=======
+import { Percent } from '@uniswap/sdk-core'
+import { useMemo } from 'react'
+import { Trans } from 'react-i18next'
+import { Flex, Text } from 'ui/src'
+import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
+import { NumberType } from 'utilities/src/format/types'
+>>>>>>> upstream/main
 import { LoadingBubble } from '~/components/Tokens/loading'
 import { MouseoverTooltip } from '~/components/Tooltip'
 import { warningSeverity } from '~/utils/prices'

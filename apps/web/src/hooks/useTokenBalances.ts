@@ -1,6 +1,11 @@
 import { useMemo } from 'react'
+<<<<<<< HEAD
 import { usePortfolioBalances } from '@l.x/lx/src/features/dataApi/balances/balances'
 import { PortfolioBalance } from '@l.x/lx/src/features/dataApi/types'
+=======
+import { usePortfolioBalances } from 'uniswap/src/features/dataApi/balances/balances'
+import { PortfolioBalance } from 'uniswap/src/features/dataApi/types'
+>>>>>>> upstream/main
 import { useActiveAddresses } from '~/features/accounts/store/hooks'
 import { currencyKey } from '~/utils/currencyKey'
 

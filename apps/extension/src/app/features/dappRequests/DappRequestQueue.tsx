@@ -24,11 +24,19 @@ import {
   isSignMessageRequest,
   isSignTypedDataRequest,
 } from 'src/app/features/dappRequests/types/DappRequestTypes'
+<<<<<<< HEAD
 import { AnimatePresence, Flex, Text, TouchableArea, useSporeColors } from '@l.x/ui/src'
 import { ReceiptText, RotatableChevron } from '@l.x/ui/src/components/icons'
 import { zIndexes } from '@l.x/ui/src/theme'
 import { Modal } from '@l.x/lx/src/components/modals/Modal'
 import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
+=======
+import { AnimatePresence, Flex, Text, TouchableArea, useSporeColors } from 'ui/src'
+import { ReceiptText, RotatableChevron } from 'ui/src/components/icons'
+import { zIndexes } from 'ui/src/theme'
+import { Modal } from 'uniswap/src/components/modals/Modal'
+import { ModalName } from 'uniswap/src/features/telemetry/constants'
+>>>>>>> upstream/main
 
 const REJECT_MESSAGE_HEIGHT = 48
 
@@ -180,7 +188,11 @@ function DappRequestQueueContent(): JSX.Element {
   )
 }
 
+<<<<<<< HEAD
 const DappRequest = memo(function _DappRequest(): JSX.Element | null {
+=======
+const DappRequest = memo(function DappRequestInner(): JSX.Element | null {
+>>>>>>> upstream/main
   const { t } = useTranslation()
   const { request } = useDappRequestQueueContext()
 

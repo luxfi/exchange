@@ -1,10 +1,19 @@
 import { Trans } from 'react-i18next'
+<<<<<<< HEAD
 import { Button, Flex, Image, Text, useIsDarkMode } from '@l.x/ui/src'
 import { LUX_LOGO_LARGE } from '@l.x/ui/src/assets'
 import { iconSizes } from '@l.x/ui/src/theme'
 import { ServiceProviderLogoStyles } from '@l.x/lx/src/features/fiatOnRamp/constants'
 import { FORServiceProvider } from '@l.x/lx/src/features/fiatOnRamp/types'
 import { getOptionalServiceProviderLogo } from '@l.x/lx/src/features/fiatOnRamp/utils'
+=======
+import { Button, Flex, Image, Text, useIsDarkMode } from 'ui/src'
+import { UNISWAP_LOGO_LARGE } from 'ui/src/assets'
+import { iconSizes } from 'ui/src/theme'
+import { ServiceProviderLogoStyles } from 'uniswap/src/features/fiatOnRamp/constants'
+import { FORServiceProvider } from 'uniswap/src/features/fiatOnRamp/types'
+import { getOptionalServiceProviderLogo } from 'uniswap/src/features/fiatOnRamp/utils'
+>>>>>>> upstream/main
 import { ConnectingViewWrapper } from '~/pages/Swap/Buy/shared'
 
 interface ProviderConnectionErrorProps {
@@ -20,11 +29,19 @@ export function ProviderConnectionError({ onBack, closeModal, selectedServicePro
     <ConnectingViewWrapper closeModal={closeModal} onBack={onBack}>
       <Flex alignItems="center" gap="$spacing36">
         <Flex row gap="$spacing16">
+<<<<<<< HEAD
           <Flex alignItems="center" justifyContent="center" style={ServiceProviderLogoStyles.luxLogoWrapper}>
             <Image height={iconSizes.icon64} source={LUX_LOGO_LARGE} width={iconSizes.icon64} />
           </Flex>
           <img
             style={ServiceProviderLogoStyles.luxLogoWrapper}
+=======
+          <Flex alignItems="center" justifyContent="center" style={ServiceProviderLogoStyles.uniswapLogoWrapper}>
+            <Image height={iconSizes.icon64} source={UNISWAP_LOGO_LARGE} width={iconSizes.icon64} />
+          </Flex>
+          <img
+            style={ServiceProviderLogoStyles.uniswapLogoWrapper}
+>>>>>>> upstream/main
             height={120}
             src={getOptionalServiceProviderLogo(selectedServiceProvider.logos, isDarkMode)}
             width={120}

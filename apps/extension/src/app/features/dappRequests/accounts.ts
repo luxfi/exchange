@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
+=======
+/* oxlint-disable typescript/explicit-function-return-type */
+>>>>>>> upstream/main
 import { type JsonRpcProvider } from '@ethersproject/providers'
 import { providerErrors, serializeError } from '@metamask/rpc-errors'
 import { saveDappConnection } from 'src/app/features/dapp/actions'
@@ -14,6 +18,7 @@ import {
 } from 'src/app/features/dappRequests/types/DappRequestTypes'
 import { dappResponseMessageChannel } from 'src/background/messagePassing/messageChannels'
 import { call, put, select } from 'typed-redux-saga'
+<<<<<<< HEAD
 import { type UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { chainIdToHexadecimalString } from '@l.x/lx/src/features/chains/utils'
 import { DappResponseType } from '@l.x/lx/src/features/dappRequests/types'
@@ -26,6 +31,20 @@ import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
 import { extractBaseUrl } from '@l.x/utils/src/format/urls'
 import { getProvider } from '@luxfi/wallet/src/features/wallet/context'
 import { selectActiveAccount } from '@luxfi/wallet/src/features/wallet/selectors'
+=======
+import { type UniverseChainId } from 'uniswap/src/features/chains/types'
+import { chainIdToHexadecimalString } from 'uniswap/src/features/chains/utils'
+import { DappResponseType } from 'uniswap/src/features/dappRequests/types'
+import { pushNotification } from 'uniswap/src/features/notifications/slice/slice'
+import { AppNotificationType } from 'uniswap/src/features/notifications/slice/types'
+import { Platform } from 'uniswap/src/features/platforms/types/Platform'
+import { getEnabledChainIdsSaga } from 'uniswap/src/features/settings/saga'
+import { ExtensionEventName } from 'uniswap/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
+import { extractBaseUrl } from 'utilities/src/format/urls'
+import { getProvider } from 'wallet/src/features/wallet/context'
+import { selectActiveAccount } from 'wallet/src/features/wallet/selectors'
+>>>>>>> upstream/main
 
 function getAccountResponse({
   chainId,

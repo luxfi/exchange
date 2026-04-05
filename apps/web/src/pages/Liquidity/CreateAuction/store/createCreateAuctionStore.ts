@@ -1,17 +1,29 @@
 import { AddressZero } from '@ethersproject/constants'
+<<<<<<< HEAD
 import { type Currency, CurrencyAmount, Percent, Token } from '@luxamm/sdk-core'
+=======
+import { type Currency, CurrencyAmount, Percent, Token } from '@uniswap/sdk-core'
+>>>>>>> upstream/main
 import type { StoreApi, UseBoundStore } from 'zustand'
 import { create } from 'zustand'
 import { devtools } from 'zustand/middleware'
 import type { FeeData } from '~/components/Liquidity/Create/types'
 import {
+<<<<<<< HEAD
   AuctionType,
   type BootstrapAuctionConfig,
+=======
+  type AuctionTokenAmounts,
+  AuctionType,
+>>>>>>> upstream/main
   CreateAuctionStep,
   type CreateAuctionStoreState,
   DEFAULT_CREATE_AUCTION_STATE,
   DEFAULT_EXISTING_TOKEN_FORM,
+<<<<<<< HEAD
   type FundraiseAuctionConfig,
+=======
+>>>>>>> upstream/main
   NEW_TOKEN_DECIMALS,
   type PriceRangeStrategy,
   type TokenFormState,
@@ -20,6 +32,7 @@ import {
 import { getRecommendedStrategy } from '~/pages/Liquidity/CreateAuction/utils'
 
 const DEFAULT_AUCTION_SUPPLY_PERCENT = new Percent(25, 100)
+<<<<<<< HEAD
 export const DEFAULT_POST_AUCTION_LIQUIDITY_PERCENT = new Percent(75, 100)
 
 function buildDefaultBootstrap(totalSupply: CurrencyAmount<Currency>): BootstrapAuctionConfig {
@@ -35,6 +48,23 @@ function buildDefaultFundraise(totalSupply: CurrencyAmount<Currency>): Fundraise
     auctionType: AuctionType.FUNDRAISE,
     auctionSupplyAmount,
     postAuctionLiquidityAmount: auctionSupplyAmount.multiply(DEFAULT_POST_AUCTION_LIQUIDITY_PERCENT),
+=======
+// 100% means all auctioned tokens go to LP (50% token-side kept, 50% sold for raise-side)
+export const BOOTSTRAP_POST_LIQUIDITY_PERCENT = new Percent(100, 100)
+// 50% means half go to LP (25% token-side kept, 25% sold); the other 50% are the fundraise
+export const FUNDRAISE_POST_LIQUIDITY_PERCENT = new Percent(50, 100)
+
+function buildDefaultAmounts(totalSupply: CurrencyAmount<Currency>, auctionType: AuctionType): AuctionTokenAmounts {
+  const auctionSupplyAmount = totalSupply.multiply(DEFAULT_AUCTION_SUPPLY_PERCENT)
+  const lpPercent =
+    auctionType === AuctionType.BOOTSTRAP_LIQUIDITY
+      ? BOOTSTRAP_POST_LIQUIDITY_PERCENT
+      : FUNDRAISE_POST_LIQUIDITY_PERCENT
+  return {
+    totalSupply,
+    auctionSupplyAmount,
+    postAuctionLiquidityAmount: auctionSupplyAmount.multiply(lpPercent),
+>>>>>>> upstream/main
   }
 }
 
@@ -46,6 +76,10 @@ export const createCreateAuctionStore = (): CreateAuctionStore =>
       (set) => ({
         step: DEFAULT_CREATE_AUCTION_STATE.step,
         tokenForm: DEFAULT_CREATE_AUCTION_STATE.tokenForm,
+<<<<<<< HEAD
+=======
+        tokenColor: DEFAULT_CREATE_AUCTION_STATE.tokenColor,
+>>>>>>> upstream/main
         configureAuction: DEFAULT_CREATE_AUCTION_STATE.configureAuction,
         customizePool: DEFAULT_CREATE_AUCTION_STATE.customizePool,
         xVerification: DEFAULT_CREATE_AUCTION_STATE.xVerification,
@@ -100,10 +134,25 @@ export const createCreateAuctionStore = (): CreateAuctionStore =>
               if (!committed) {
                 return {}
               }
+<<<<<<< HEAD
               return {
                 configureAuction: {
                   ...state.configureAuction,
                   committed: { ...committed, activeAuctionType },
+=======
+              const lpPercent =
+                activeAuctionType === AuctionType.BOOTSTRAP_LIQUIDITY
+                  ? BOOTSTRAP_POST_LIQUIDITY_PERCENT
+                  : FUNDRAISE_POST_LIQUIDITY_PERCENT
+              return {
+                configureAuction: {
+                  ...state.configureAuction,
+                  activeAuctionType,
+                  committed: {
+                    ...committed,
+                    postAuctionLiquidityAmount: committed.auctionSupplyAmount.multiply(lpPercent),
+                  },
+>>>>>>> upstream/main
                 },
                 customizePool: {
                   ...state.customizePool,
@@ -118,12 +167,19 @@ export const createCreateAuctionStore = (): CreateAuctionStore =>
               if (!committed) {
                 return {}
               }
+<<<<<<< HEAD
               const update =
                 config.auctionType === AuctionType.BOOTSTRAP_LIQUIDITY ? { bootstrap: config } : { fundraise: config }
               return {
                 configureAuction: {
                   ...state.configureAuction,
                   committed: { ...committed, ...update },
+=======
+              return {
+                configureAuction: {
+                  ...state.configureAuction,
+                  committed: { ...committed, ...config },
+>>>>>>> upstream/main
                 },
               }
             })
@@ -155,6 +211,18 @@ export const createCreateAuctionStore = (): CreateAuctionStore =>
           setTimeLockDurationDays: (timeLockDurationDays: number) => {
             set((state) => ({ customizePool: { ...state.customizePool, timeLockDurationDays } }))
           },
+<<<<<<< HEAD
+=======
+          setSendFeesEnabled: (sendFeesEnabled: boolean) => {
+            set((state) => ({ customizePool: { ...state.customizePool, sendFeesEnabled } }))
+          },
+          setFeesRecipientAddress: (feesRecipientAddress: string) => {
+            set((state) => ({ customizePool: { ...state.customizePool, feesRecipientAddress } }))
+          },
+          setBuybackAndBurnEnabled: (buybackAndBurnEnabled: boolean) => {
+            set((state) => ({ customizePool: { ...state.customizePool, buybackAndBurnEnabled } }))
+          },
+>>>>>>> upstream/main
           commitTokenFormAndAdvance: () => {
             set((state) => {
               const { tokenForm } = state
@@ -172,34 +240,57 @@ export const createCreateAuctionStore = (): CreateAuctionStore =>
                 return {}
               }
 
+<<<<<<< HEAD
               const existingCommitted = state.configureAuction.committed
+=======
+              const { activeAuctionType, committed: existingCommitted } = state.configureAuction
+>>>>>>> upstream/main
               const isSameSupply =
                 existingCommitted !== undefined &&
                 existingCommitted.totalSupply.currency.equals(totalSupply.currency) &&
                 existingCommitted.totalSupply.equalTo(totalSupply)
               // When supply changes, slider percentages derived from the old supply become stale,
+<<<<<<< HEAD
               // so we intentionally reset bootstrap/fundraise to defaults rather than carry them forward.
               const bootstrap = isSameSupply ? existingCommitted.bootstrap : buildDefaultBootstrap(totalSupply)
               const fundraise = isSameSupply ? existingCommitted.fundraise : buildDefaultFundraise(totalSupply)
+=======
+              // so we intentionally reset amounts to defaults rather than carry them forward.
+              const committed = isSameSupply ? existingCommitted : buildDefaultAmounts(totalSupply, activeAuctionType)
+>>>>>>> upstream/main
 
               return {
                 configureAuction: {
                   ...state.configureAuction,
+<<<<<<< HEAD
                   committed: {
                     totalSupply,
                     activeAuctionType: existingCommitted?.activeAuctionType ?? AuctionType.BOOTSTRAP_LIQUIDITY,
                     bootstrap,
                     fundraise,
                   },
+=======
+                  committed,
+>>>>>>> upstream/main
                 },
                 step: Math.min(state.step + 1, CreateAuctionStep.REVIEW_LAUNCH) as CreateAuctionStep,
               }
             })
           },
+<<<<<<< HEAD
+=======
+          setTokenColor: (tokenColor) => {
+            set({ tokenColor })
+          },
+>>>>>>> upstream/main
           reset: () => {
             set({
               step: DEFAULT_CREATE_AUCTION_STATE.step,
               tokenForm: DEFAULT_CREATE_AUCTION_STATE.tokenForm,
+<<<<<<< HEAD
+=======
+              tokenColor: DEFAULT_CREATE_AUCTION_STATE.tokenColor,
+>>>>>>> upstream/main
               configureAuction: DEFAULT_CREATE_AUCTION_STATE.configureAuction,
               customizePool: DEFAULT_CREATE_AUCTION_STATE.customizePool,
               xVerification: DEFAULT_CREATE_AUCTION_STATE.xVerification,

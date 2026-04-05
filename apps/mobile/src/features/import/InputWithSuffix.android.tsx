@@ -1,9 +1,15 @@
 import { useCallback, useRef, useState } from 'react'
 import { LayoutChangeEvent } from 'react-native'
 import { InputWithSuffixProps } from 'src/features/import/InputWIthSuffixProps'
+<<<<<<< HEAD
 import { Flex } from '@l.x/ui/src'
 import { TextInput } from '@l.x/lx/src/components/input/TextInput'
 import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
+=======
+import { Flex } from 'ui/src'
+import { TextInput } from 'uniswap/src/components/input/TextInput'
+import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+>>>>>>> upstream/main
 
 const EPS = 1
 
@@ -69,7 +75,11 @@ export default function InputWithSuffix({
 
   return (
     <Flex row alignItems={isMultiline ? 'flex-end' : 'center'} justifyContent={inputAlignmentProp} overflow="hidden">
+<<<<<<< HEAD
       {/* 
+=======
+      {/*
+>>>>>>> upstream/main
         Helper Flex to measure the max width of the input and switch to multiline if needed
         (multiline input behavior on Android is weird and the input flickers when the width
         of the TextInput component changes. As a workaround, we measure the max width of the input

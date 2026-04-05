@@ -1,12 +1,21 @@
 import { useQuery } from '@tanstack/react-query'
+<<<<<<< HEAD
 import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { getIsNotificationServiceLocalOverrideEnabled } from '@l.x/notifications'
+=======
+import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import { getIsNotificationServiceLocalOverrideEnabled } from '@universe/notifications'
+>>>>>>> upstream/main
 import React, { useEffect } from 'react'
 import { navigate } from 'src/app/navigation/state'
 import { getNotificationServiceQueryOptions } from 'src/notification-service/ExtensionNotificationService'
 import { NotificationContainer } from 'src/notification-service/notification-renderer/NotificationContainer'
 import { getReduxStore } from 'src/store/store'
+<<<<<<< HEAD
 import { getLogger } from '@l.x/utils/src/logger/logger'
+=======
+import { getLogger } from 'utilities/src/logger/logger'
+>>>>>>> upstream/main
 
 /**
  * Manages the lifecycle of the notification service in the extension.

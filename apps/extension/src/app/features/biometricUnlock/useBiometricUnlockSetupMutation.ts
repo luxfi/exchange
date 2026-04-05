@@ -1,8 +1,14 @@
 import { UseMutationResult, useMutation, useQueryClient } from '@tanstack/react-query'
+<<<<<<< HEAD
+=======
+import { encryptPasswordWithBiometricData } from 'src/app/features/biometricUnlock/biometricAuthUtils'
+import { biometricUnlockCredentialQuery } from 'src/app/features/biometricUnlock/biometricUnlockCredentialQuery'
+>>>>>>> upstream/main
 import {
   BiometricUnlockStorage,
   BiometricUnlockStorageData,
 } from 'src/app/features/biometricUnlock/BiometricUnlockStorage'
+<<<<<<< HEAD
 import { encryptPasswordWithBiometricData } from 'src/app/features/biometricUnlock/biometricAuthUtils'
 import { biometricUnlockCredentialQuery } from 'src/app/features/biometricUnlock/biometricUnlockCredentialQuery'
 import { startNavigatorCredentialRequest } from 'src/app/features/biometricUnlock/useNavigatorCredentialAbortSignal'
@@ -10,11 +16,22 @@ import { assertPublicKeyCredential } from 'src/app/features/biometricUnlock/util
 import { isUserVerifyingPlatformAuthenticatorAvailable } from 'src/app/utils/device/builtInBiometricCapabilitiesQuery'
 import { logger } from '@l.x/utils/src/logger/logger'
 import { ONE_SECOND_MS } from '@l.x/utils/src/time/time'
+=======
+import { startNavigatorCredentialRequest } from 'src/app/features/biometricUnlock/useNavigatorCredentialAbortSignal'
+import { assertPublicKeyCredential } from 'src/app/features/biometricUnlock/utils/assertPublicKeyCredential'
+import { isUserVerifyingPlatformAuthenticatorAvailable } from 'src/app/utils/device/builtInBiometricCapabilitiesQuery'
+import { logger } from 'utilities/src/logger/logger'
+import { ONE_SECOND_MS } from 'utilities/src/time/time'
+>>>>>>> upstream/main
 import {
   createEmptySecretPayload,
   generateNew256BitRandomBuffer,
   getEncryptionKeyFromBuffer,
+<<<<<<< HEAD
 } from '@luxfi/wallet/src/features/wallet/Keyring/crypto'
+=======
+} from 'wallet/src/features/wallet/Keyring/crypto'
+>>>>>>> upstream/main
 
 // Extend PublicKeyCredentialCreationOptions to include Chrome 128+ hints property
 interface PublicKeyCredentialCreationOptionsWithHints extends PublicKeyCredentialCreationOptions {
@@ -94,7 +111,11 @@ async function assertIsUserVerifyingPlatformAuthenticatorAvailable(): Promise<vo
   }
 }
 
+<<<<<<< HEAD
 const CREDENTIAL_NAME = 'Lux Extension'
+=======
+const CREDENTIAL_NAME = 'Uniswap Extension'
+>>>>>>> upstream/main
 
 // These algorithms provide a good balance of security, performance, and compatibility across different platforms.
 // The order matters - the authenticator will typically choose the first algorithm it supports from this list.

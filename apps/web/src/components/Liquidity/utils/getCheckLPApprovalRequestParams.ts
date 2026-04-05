@@ -1,12 +1,24 @@
+<<<<<<< HEAD
 import { ProtocolVersion } from '@luxamm/client-data-api/dist/data/v1/poolTypes_pb'
 import { CheckApprovalLPRequest } from '@luxamm/client-liquidity/dist/lx/liquidity/v1/api_pb'
+=======
+import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
+import { CheckApprovalLPRequest } from '@uniswap/client-liquidity/dist/uniswap/liquidity/v1/api_pb'
+>>>>>>> upstream/main
 import {
   Protocols,
   V2CheckApprovalLPRequest,
   V3CheckApprovalLPRequest,
   V4CheckApprovalLPRequest,
+<<<<<<< HEAD
 } from '@luxamm/client-liquidity/dist/lx/liquidity/v1/types_pb'
 import { Currency, CurrencyAmount } from '@luxamm/sdk-core'
+=======
+} from '@uniswap/client-liquidity/dist/uniswap/liquidity/v1/types_pb'
+import { LPApprovalRequest } from '@uniswap/client-liquidity/dist/uniswap/liquidity/v2/api_pb'
+import { LPAction, LPToken } from '@uniswap/client-liquidity/dist/uniswap/liquidity/v2/types_pb'
+import { Currency, CurrencyAmount } from '@uniswap/sdk-core'
+>>>>>>> upstream/main
 import { getTokenOrZeroAddress, validateCurrencyInput } from '~/components/Liquidity/utils/currency'
 import { getProtocols } from '~/components/Liquidity/utils/protocolVersion'
 import { PositionField } from '~/types/position'
@@ -16,12 +28,23 @@ export function getCheckLPApprovalRequestParams({
   protocolVersion,
   currencyAmounts,
   canBatchTransactions,
+<<<<<<< HEAD
+=======
+  action,
+  isCheckApprovalV2,
+>>>>>>> upstream/main
 }: {
   walletAddress?: string
   protocolVersion?: ProtocolVersion
   currencyAmounts?: { [field in PositionField]?: Maybe<CurrencyAmount<Currency>> }
   canBatchTransactions?: boolean
+<<<<<<< HEAD
 }): CheckApprovalLPRequest | undefined {
+=======
+  action: LPAction
+  isCheckApprovalV2: boolean
+}): CheckApprovalLPRequest | LPApprovalRequest | undefined {
+>>>>>>> upstream/main
   const protocol = getProtocols(protocolVersion)
 
   if (
@@ -40,6 +63,30 @@ export function getCheckLPApprovalRequestParams({
   const amount0 = currencyAmounts.TOKEN0.quotient.toString()
   const amount1 = currencyAmounts.TOKEN1.quotient.toString()
 
+<<<<<<< HEAD
+=======
+  if (isCheckApprovalV2) {
+    return new LPApprovalRequest({
+      walletAddress,
+      chainId,
+      protocol,
+      lpTokens: [
+        new LPToken({
+          tokenAddress: getTokenOrZeroAddress(currencyAmounts.TOKEN0.currency),
+          amount: currencyAmounts.TOKEN0.quotient.toString(),
+        }),
+        new LPToken({
+          tokenAddress: getTokenOrZeroAddress(currencyAmounts.TOKEN1.currency),
+          amount: currencyAmounts.TOKEN1.quotient.toString(),
+        }),
+      ],
+      action,
+      simulateTransaction: true,
+      generatePermitAsTransaction: canBatchTransactions ?? false,
+    })
+  }
+
+>>>>>>> upstream/main
   switch (protocol) {
     case Protocols.V2:
       return new CheckApprovalLPRequest({

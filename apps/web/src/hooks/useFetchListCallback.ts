@@ -1,8 +1,15 @@
 import { nanoid } from '@reduxjs/toolkit'
+<<<<<<< HEAD
 import { TokenList } from '@luxamm/token-lists'
 import { useCallback } from 'react'
 import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { logger } from '@l.x/utils/src/logger/logger'
+=======
+import { TokenList } from '@uniswap/token-lists'
+import { useCallback } from 'react'
+import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { logger } from 'utilities/src/logger/logger'
+>>>>>>> upstream/main
 import { RPC_PROVIDERS } from '~/constants/providers'
 import getTokenList from '~/lib/hooks/useTokenList/fetchTokenList'
 import resolveENSContentHash from '~/lib/utils/resolveENSContentHash'

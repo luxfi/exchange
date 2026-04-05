@@ -1,6 +1,11 @@
 import { forwardRef, PropsWithChildren } from 'react'
+<<<<<<< HEAD
 import { Flex, FlexProps, useSporeColors } from '@l.x/ui/src'
 import { useBooleanState } from '@l.x/utils/src/react/useBooleanState'
+=======
+import { Flex, FlexProps, useSporeColors } from 'ui/src'
+import { useBooleanState } from 'utilities/src/react/useBooleanState'
+>>>>>>> upstream/main
 
 const getWiggleKeyframe = ({ wiggleAmount = 20 }: { wiggleAmount?: number }) => {
   return `

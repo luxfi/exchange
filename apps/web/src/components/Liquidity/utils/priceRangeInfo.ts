@@ -1,7 +1,14 @@
+<<<<<<< HEAD
 /* eslint-disable max-lines */
 import { ProtocolVersion } from '@luxamm/client-data-api/dist/data/v1/poolTypes_pb'
 import { Currency, CurrencyAmount, Price, Token } from '@luxamm/sdk-core'
 import { Pair } from '@luxamm/v2-sdk'
+=======
+/* oxlint-disable max-lines */
+import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
+import { Currency, CurrencyAmount, Price, Token } from '@uniswap/sdk-core'
+import { Pair } from '@uniswap/v2-sdk'
+>>>>>>> upstream/main
 import {
   encodeSqrtRatioX96,
   FeeAmount,
@@ -9,10 +16,17 @@ import {
   priceToClosestTick as priceToClosestV3Tick,
   TickMath,
   Pool as V3Pool,
+<<<<<<< HEAD
 } from '@luxamm/v3-sdk'
 import { priceToClosestTick as priceToClosestV4Tick, Pool as V4Pool } from '@luxamm/v4-sdk'
 import JSBI from 'jsbi'
 import { ZERO_ADDRESS } from '@l.x/lx/src/constants/misc'
+=======
+} from '@uniswap/v3-sdk'
+import { priceToClosestTick as priceToClosestV4Tick, Pool as V4Pool } from '@uniswap/v4-sdk'
+import JSBI from 'jsbi'
+import { ZERO_ADDRESS } from 'uniswap/src/constants/misc'
+>>>>>>> upstream/main
 import {
   CreatePositionInfo,
   CreateV2PositionInfo,

@@ -5,6 +5,7 @@ import { AppRoutes, HomeQueryParams, HomeTabs } from 'src/app/navigation/constan
 import { navigate } from 'src/app/navigation/state'
 import {
   focusOrCreateTokensExploreTab,
+<<<<<<< HEAD
   focusOrCreateLuxInterfaceTab,
   SidebarLocationState,
 } from 'src/app/navigation/utils'
@@ -21,6 +22,24 @@ import { logger } from '@l.x/utils/src/logger/logger'
 import { escapeRegExp } from '@l.x/utils/src/primitives/string'
 import { noop } from '@l.x/utils/src/react/noop'
 import { useCopyToClipboard } from '@luxfi/wallet/src/components/copy/useCopyToClipboard'
+=======
+  focusOrCreateUniswapInterfaceTab,
+  SidebarLocationState,
+} from 'src/app/navigation/utils'
+import { uniswapUrls } from 'uniswap/src/constants/urls'
+import { useEnabledChains } from 'uniswap/src/features/chains/hooks/useEnabledChains'
+import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { useNavigateToNftExplorerLink } from 'uniswap/src/features/nfts/hooks/useNavigateToNftExplorerLink'
+import { CopyNotificationType } from 'uniswap/src/features/notifications/slice/types'
+import { WalletEventName } from 'uniswap/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
+import { ShareableEntity } from 'uniswap/src/types/sharing'
+import { getPoolDetailsURL, getPortfolioUrl, getTokenUrl } from 'uniswap/src/utils/linking'
+import { logger } from 'utilities/src/logger/logger'
+import { escapeRegExp } from 'utilities/src/primitives/string'
+import { noop } from 'utilities/src/react/noop'
+import { useCopyToClipboard } from 'wallet/src/components/copy/useCopyToClipboard'
+>>>>>>> upstream/main
 import {
   getNavigateToSendFlowArgsInitialState,
   getNavigateToSwapFlowArgsInitialState,
@@ -31,7 +50,11 @@ import {
   ShareTokenArgs,
   WalletNavigationContextState,
   WalletNavigationProvider,
+<<<<<<< HEAD
 } from '@luxfi/wallet/src/contexts/WalletNavigationContext'
+=======
+} from 'wallet/src/contexts/WalletNavigationContext'
+>>>>>>> upstream/main
 
 export function OnboardingNavigationProvider({ children }: PropsWithChildren): JSX.Element {
   return (
@@ -80,7 +103,11 @@ function SharedExtensionNavigationProvider({
   const navigateToTokenDetails = useNavigateToTokenDetails()
   const navigateToFiatOnRamp = useNavigateToFiatOnRamp()
   const navigateToExternalProfile = useCallback(({ address }: NavigateToExternalProfileArgs) => {
+<<<<<<< HEAD
     focusOrCreateLuxInterfaceTab({ url: getPortfolioUrl(address) })
+=======
+    focusOrCreateUniswapInterfaceTab({ url: getPortfolioUrl(address) })
+>>>>>>> upstream/main
   }, [])
   const navigateToPoolDetails = useNavigateToPoolDetails()
   const navigateToAdvancedSettings = useNavigateToAdvancedSettings()
@@ -202,11 +229,19 @@ function useNavigateToTokenDetails(): (currencyId: string) => void {
 
 function useNavigateToPoolDetails(): (args: { poolId: Address; chainId: UniverseChainId }) => void {
   return useCallback(async ({ poolId, chainId }: { poolId: Address; chainId: UniverseChainId }): Promise<void> => {
+<<<<<<< HEAD
     await focusOrCreateLuxInterfaceTab({
       url: getPoolDetailsURL(poolId, chainId),
       // We want to reuse the active tab only if it's already in any other PDP.
       // eslint-disable-next-line security/detect-non-literal-regexp
       reuseActiveTabIfItMatches: new RegExp(`^${escapeRegExp(lxUrls.webInterfacePoolsUrl)}`),
+=======
+    await focusOrCreateUniswapInterfaceTab({
+      url: getPoolDetailsURL(poolId, chainId),
+      // We want to reuse the active tab only if it's already in any other PDP.
+      // oxlint-disable-next-line security/detect-non-literal-regexp
+      reuseActiveTabIfItMatches: new RegExp(`^${escapeRegExp(uniswapUrls.webInterfacePoolsUrl)}`),
+>>>>>>> upstream/main
     })
   }, [])
 }

@@ -1,10 +1,18 @@
 import { useCallback, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
+<<<<<<< HEAD
 import { Flex } from '@l.x/ui/src'
 import { InfoCircleFilled } from '@l.x/ui/src/components/icons/InfoCircleFilled'
 import { Dialog } from '@l.x/lx/src/components/dialog/Dialog'
 import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
 import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
+=======
+import { Flex } from 'ui/src'
+import { InfoCircleFilled } from 'ui/src/components/icons/InfoCircleFilled'
+import { Dialog } from 'uniswap/src/components/dialog/Dialog'
+import { ModalName } from 'uniswap/src/features/telemetry/constants'
+import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+>>>>>>> upstream/main
 import { useCreateLiquidityContext } from '~/pages/CreatePosition/CreateLiquidityContextProvider'
 
 export const DynamicFeeTierSpeedbump = () => {

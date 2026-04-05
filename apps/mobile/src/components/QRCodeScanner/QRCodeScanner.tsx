@@ -9,6 +9,7 @@ import { Defs, LinearGradient, Path, Rect, Stop, Svg } from 'react-native-svg'
 import RNQRGenerator from 'rn-qr-generator'
 import { useCameraPermissionQuery } from 'src/components/QRCodeScanner/hooks/useCameraPermissionQuery'
 import { useRequestCameraPermissionOnMountEffect } from 'src/components/QRCodeScanner/hooks/useRequestCameraPermissionOnMountEffect'
+<<<<<<< HEAD
 import { Button, Flex, SpinningLoader, Text, ThemeName, useSporeColors } from '@l.x/ui/src'
 import { CameraScan, Global, PhotoStacked } from '@l.x/ui/src/components/icons'
 import { AnimatedFlex } from '@l.x/ui/src/components/layout/AnimatedFlex'
@@ -17,6 +18,16 @@ import { useSporeColorsForTheme } from '@l.x/ui/src/hooks/useSporeColors'
 import { iconSizes, spacing } from '@l.x/ui/src/theme'
 import PasteButton from '@l.x/lx/src/components/buttons/PasteButton'
 import { logger } from '@l.x/utils/src/logger/logger'
+=======
+import { Button, Flex, SpinningLoader, Text, ThemeName, useSporeColors } from 'ui/src'
+import { CameraScan, Global, PhotoStacked } from 'ui/src/components/icons'
+import { AnimatedFlex } from 'ui/src/components/layout/AnimatedFlex'
+import { useDeviceDimensions } from 'ui/src/hooks/useDeviceDimensions'
+import { useSporeColorsForTheme } from 'ui/src/hooks/useSporeColors'
+import { iconSizes, spacing } from 'ui/src/theme'
+import PasteButton from 'uniswap/src/components/buttons/PasteButton'
+import { logger } from 'utilities/src/logger/logger'
+>>>>>>> upstream/main
 
 enum BarcodeType {
   QR = 'qr',
@@ -47,7 +58,11 @@ const SCAN_ICON_WIDTH_RATIO = 0.7
 const SCAN_ICON_MASK_OFFSET_RATIO = 0.02 // used for mask to match spacing in CameraScan SVG
 const LOADER_SIZE = iconSizes.icon40
 // Adjusts the center point of the QR code scanner upward to prevent content overflow on devices with smaller screens
+<<<<<<< HEAD
 // Should be removed after rewriting to flex, having: https://github.com/Lux/universe/pull/4762 in mind
+=======
+// Should be removed after rewriting to flex, having: https://github.com/Uniswap/universe/pull/4762 in mind
+>>>>>>> upstream/main
 const BOTTOM_PADDING = 48
 
 export function QRCodeScanner(props: QRCodeScannerProps | WCScannerProps): JSX.Element {

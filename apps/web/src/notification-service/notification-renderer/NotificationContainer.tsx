@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* eslint-disable import/no-unused-modules */
 import { ContentStyle, type InAppNotification } from '@l.x/api'
 import { type NotificationClickTarget } from '@l.x/notifications'
@@ -5,6 +6,15 @@ import { useEffect, useMemo } from 'react'
 import { ModalNotification } from '@l.x/lx/src/components/notifications/ModalNotification'
 import { getLogger } from '@l.x/utils/src/logger/logger'
 import { useEvent } from '@l.x/utils/src/react/hooks'
+=======
+/* oxlint-disable import/no-unused-modules */
+import { ContentStyle, type InAppNotification } from '@universe/api'
+import { type NotificationClickTarget } from '@universe/notifications'
+import { useEffect, useMemo } from 'react'
+import { ModalNotification } from 'uniswap/src/components/notifications/ModalNotification'
+import { getLogger } from 'utilities/src/logger/logger'
+import { useEvent } from 'utilities/src/react/hooks'
+>>>>>>> upstream/main
 import { type StoreApi, type UseBoundStore } from 'zustand'
 import { SystemBannerNotification } from '~/notification-service/notification-renderer/components/SystemBannerNotification'
 import {

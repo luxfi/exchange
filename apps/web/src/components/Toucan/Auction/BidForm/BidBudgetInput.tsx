@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 import { CurrencyInputPanel } from '@l.x/lx/src/components/CurrencyInputPanel/CurrencyInputPanel'
 import { CurrencyField } from '@l.x/lx/src/types/currency'
+=======
+import { CurrencyInputPanel } from 'uniswap/src/components/CurrencyInputPanel/CurrencyInputPanel'
+import { CurrencyField } from 'uniswap/src/types/currency'
+>>>>>>> upstream/main
 import { BudgetFieldState } from '~/components/Toucan/Auction/hooks/useBidBudgetField'
 
 interface BidBudgetInputProps {

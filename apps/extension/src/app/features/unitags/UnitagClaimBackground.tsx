@@ -1,5 +1,9 @@
 import { PropsWithChildren, useMemo } from 'react'
+<<<<<<< HEAD
 import { Flex, useIsDarkMode } from '@l.x/ui/src'
+=======
+import { Flex, useIsDarkMode } from 'ui/src'
+>>>>>>> upstream/main
 import {
   UNITAGS_ADRIAN_DARK,
   UNITAGS_ADRIAN_LIGHT,
@@ -17,9 +21,15 @@ import {
   UNITAGS_PHIL_LIGHT,
   UNITAGS_SPENCER_DARK,
   UNITAGS_SPENCER_LIGHT,
+<<<<<<< HEAD
 } from '@l.x/ui/src/assets'
 import { zIndexes } from '@l.x/ui/src/theme'
 import { IconCloud } from '@l.x/lx/src/components/IconCloud/IconCloud'
+=======
+} from 'ui/src/assets'
+import { zIndexes } from 'ui/src/theme'
+import { IconCloud } from 'uniswap/src/components/IconCloud/IconCloud'
+>>>>>>> upstream/main
 
 export function UnitagClaimBackground({ children }: PropsWithChildren<{ blurAll: boolean }>): JSX.Element {
   const isDarkMode = useIsDarkMode()

@@ -1,18 +1,26 @@
 import { curveCardinal, scaleLinear } from 'd3'
 import { memo } from 'react'
+<<<<<<< HEAD
 import { Flex, useSporeColors } from '@l.x/ui/src'
 import { normalizeTokenAddressForCache } from '@l.x/lx/src/data/cache'
 import { getChainInfo } from '@l.x/lx/src/features/chains/chainInfo'
 import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
 import { areAddressesEqual } from '@l.x/lx/src/utils/addresses'
+=======
+import { Flex, useSporeColors } from 'ui/src'
+>>>>>>> upstream/main
 import { SparklineMap } from '~/appGraphql/data/types'
 import { PricePoint } from '~/appGraphql/data/util'
 import { getPriceBounds } from '~/components/Charts/PriceChart/utils'
 import LineChart from '~/components/Charts/SparklineChart/LineChart'
 import { LoadingBubble } from '~/components/Tokens/loading'
+<<<<<<< HEAD
 import { NATIVE_CHAIN_ID } from '~/constants/tokens'
 import { TokenStat } from '~/state/explore/types'
 import { getChainIdFromChainUrlParam } from '~/utils/chainParams'
+=======
+import { TokenStat } from '~/state/explore/types'
+>>>>>>> upstream/main
 
 interface SparklineChartProps {
   width: number
@@ -22,6 +30,7 @@ interface SparklineChartProps {
   sparklineMap: SparklineMap
 }
 
+<<<<<<< HEAD
 function _SparklineChart({ width, height, tokenData, pricePercentChange, sparklineMap }: SparklineChartProps) {
   const colors = useSporeColors()
   // for sparkline
@@ -34,6 +43,11 @@ function _SparklineChart({ width, height, tokenData, pricePercentChange, sparkli
   const pricePoints = tokenData.address
     ? sparklineMap[isNative ? NATIVE_CHAIN_ID : normalizeTokenAddressForCache(tokenData.address)]
     : null
+=======
+function SparklineChartInner({ width, height, tokenData, pricePercentChange, sparklineMap }: SparklineChartProps) {
+  const colors = useSporeColors()
+  const pricePoints = tokenData.id ? sparklineMap[tokenData.id] : null
+>>>>>>> upstream/main
 
   // Don't display if there's one or less pricepoints
   if (!pricePoints || pricePoints.length <= 1) {
@@ -74,4 +88,8 @@ function _SparklineChart({ width, height, tokenData, pricePercentChange, sparkli
   )
 }
 
+<<<<<<< HEAD
 export default memo(_SparklineChart)
+=======
+export default memo(SparklineChartInner)
+>>>>>>> upstream/main

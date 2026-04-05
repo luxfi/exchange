@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import { isDevEnv } from '@l.x/utils/src/environment/env'
+=======
+import { isDevEnv } from 'utilities/src/environment/env'
+>>>>>>> upstream/main
 import type { StoreApi, UseBoundStore } from 'zustand'
 import { create } from 'zustand'
 import { devtools } from 'zustand/middleware'

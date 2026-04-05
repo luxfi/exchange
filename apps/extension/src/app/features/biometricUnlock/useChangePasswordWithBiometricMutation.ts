@@ -1,13 +1,24 @@
 import { UseMutationResult, useMutation } from '@tanstack/react-query'
+<<<<<<< HEAD
 import { BiometricUnlockStorage } from 'src/app/features/biometricUnlock/BiometricUnlockStorage'
+=======
+>>>>>>> upstream/main
 import {
   authenticateWithBiometricCredential,
   encryptPasswordWithBiometricData,
 } from 'src/app/features/biometricUnlock/biometricAuthUtils'
+<<<<<<< HEAD
 import { startNavigatorCredentialRequest } from 'src/app/features/biometricUnlock/useNavigatorCredentialAbortSignal'
 import { logger } from '@l.x/utils/src/logger/logger'
 import { useEvent } from '@l.x/utils/src/react/hooks'
 import { Keyring } from '@luxfi/wallet/src/features/wallet/Keyring/Keyring'
+=======
+import { BiometricUnlockStorage } from 'src/app/features/biometricUnlock/BiometricUnlockStorage'
+import { startNavigatorCredentialRequest } from 'src/app/features/biometricUnlock/useNavigatorCredentialAbortSignal'
+import { logger } from 'utilities/src/logger/logger'
+import { useEvent } from 'utilities/src/react/hooks'
+import { Keyring } from 'wallet/src/features/wallet/Keyring/Keyring'
+>>>>>>> upstream/main
 
 export function useChangePasswordWithBiometricMutation(options?: {
   onSuccess?: () => void

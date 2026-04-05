@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "colors" : [
     {
       "idiom" : "universal"
@@ -7,5 +8,15 @@
   "info" : {
     "author" : "xcode",
     "version" : 1
+=======
+  "colors": [
+    {
+      "idiom": "universal"
+    }
+  ],
+  "info": {
+    "author": "xcode",
+    "version": 1
+>>>>>>> upstream/main
   }
 }

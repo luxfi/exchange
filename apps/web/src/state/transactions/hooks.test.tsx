@@ -1,15 +1,27 @@
 import { BigNumber } from '@ethersproject/bignumber'
+<<<<<<< HEAD
 import { permit2Address } from '@luxamm/permit2-sdk'
 import { TradeType } from '@luxamm/sdk-core'
 import { USDC_MAINNET } from '@l.x/lx/src/constants/tokens'
 import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+=======
+import { permit2Address } from '@uniswap/permit2-sdk'
+import { TradeType } from '@uniswap/sdk-core'
+import { USDC_MAINNET } from 'uniswap/src/constants/tokens'
+import { UniverseChainId } from 'uniswap/src/features/chains/types'
+>>>>>>> upstream/main
 import {
   ApproveTransactionInfo,
   InterfaceTransactionDetails,
   TransactionStatus,
   TransactionType,
+<<<<<<< HEAD
 } from '@l.x/lx/src/features/transactions/types/transactionDetails'
 import { useWallet } from '@l.x/lx/src/features/wallet/hooks/useWallet'
+=======
+} from 'uniswap/src/features/transactions/types/transactionDetails'
+import { useWallet } from 'uniswap/src/features/wallet/hooks/useWallet'
+>>>>>>> upstream/main
 import { vi } from 'vitest'
 import { useAccount } from '~/hooks/useAccount'
 import {
@@ -26,7 +38,11 @@ import { renderHookWithProviders } from '~/test-utils/renderHookWithProviders'
 
 // Mock useAccount hook
 vi.mock('~/hooks/useAccount')
+<<<<<<< HEAD
 vi.mock('lx/src/features/wallet/hooks/useWallet')
+=======
+vi.mock('uniswap/src/features/wallet/hooks/useWallet')
+>>>>>>> upstream/main
 
 describe('Transactions hooks', () => {
   const address = '0x0000000000000000000000000000000000000000'

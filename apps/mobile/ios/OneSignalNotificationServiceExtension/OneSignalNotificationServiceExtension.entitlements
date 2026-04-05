@@ -4,7 +4,11 @@
 <dict>
 	<key>com.apple.security.application-groups</key>
 	<array>
+<<<<<<< HEAD
 		<string>group.com.lux.mobile.onesignal</string>
+=======
+		<string>group.com.uniswap.mobile.onesignal</string>
+>>>>>>> upstream/main
 	</array>
 </dict>
 </plist>

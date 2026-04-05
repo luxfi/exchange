@@ -1,12 +1,22 @@
 import { renderHook } from '@testing-library/react'
+<<<<<<< HEAD
 import { VerifyWalletResponse } from '@luxamm/client-liquidity/dist/lx/liquidity/v1/auction_pb'
+=======
+import { VerifyWalletResponse } from '@uniswap/client-liquidity/dist/uniswap/liquidity/v1/auction_pb'
+>>>>>>> upstream/main
 import {
   AuctionValidation,
   KycVerificationStatus,
   ValidationType,
+<<<<<<< HEAD
 } from '@luxamm/client-liquidity/dist/lx/liquidity/v1/types_pb'
 import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+=======
+} from '@uniswap/client-liquidity/dist/uniswap/liquidity/v1/types_pb'
+import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import { UniverseChainId } from 'uniswap/src/features/chains/types'
+>>>>>>> upstream/main
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 import { useAuctionKycStatus } from '~/components/Toucan/Auction/hooks/useAuctionKycStatus'
 import { mocked } from '~/test-utils/mocked'
@@ -17,7 +27,11 @@ vi.mock('react-i18next', () => ({
   }),
 }))
 
+<<<<<<< HEAD
 vi.mock('@l.x/gating', () => ({
+=======
+vi.mock('@universe/gating', () => ({
+>>>>>>> upstream/main
   useFeatureFlag: vi.fn(),
   FeatureFlags: {
     ToucanAuctionKYC: 'toucan_auction_kyc',
@@ -26,8 +40,13 @@ vi.mock('@l.x/gating', () => ({
 
 const mockUseVerifyWalletQuery = vi.fn()
 
+<<<<<<< HEAD
 vi.mock('lx/src/data/rest/auctions/useVerifyWallet', async (importOriginal) => {
   const actual = await importOriginal<typeof import('lx/src/data/rest/auctions/useVerifyWallet')>()
+=======
+vi.mock('uniswap/src/data/rest/auctions/useVerifyWallet', async (importOriginal) => {
+  const actual = await importOriginal<typeof import('uniswap/src/data/rest/auctions/useVerifyWallet')>()
+>>>>>>> upstream/main
   return {
     ...actual,
     useVerifyWalletQuery: (...args: unknown[]) => mockUseVerifyWalletQuery(...args),

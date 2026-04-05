@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import '@hanzogui/core/reset.css'
 import 'src/app/Global.css'
 import 'symbol-observable' // Needed by `reduxed-chrome-storage` as polyfill, order matters
@@ -10,6 +11,19 @@ import { logger } from '@l.x/utils/src/logger/logger'
 import { ApplicationTransport } from '@l.x/utils/src/telemetry/analytics/ApplicationTransport'
 // biome-ignore lint/style/noRestrictedImports: Direct utilities import required for analytics initialization
 import { analytics, getAnalyticsAtomDirect } from '@l.x/utils/src/telemetry/analytics/analytics'
+=======
+import '@tamagui/core/reset.css'
+import 'src/app/Global.css'
+import 'symbol-observable' // Needed by `reduxed-chrome-storage` as polyfill, order matters
+import { EXTENSION_ORIGIN_APPLICATION } from 'src/app/version'
+import { uniswapUrls } from 'uniswap/src/constants/urls'
+import { getUniqueId } from 'utilities/src/device/uniqueId'
+import { isTestEnv } from 'utilities/src/environment/env'
+import { logger } from 'utilities/src/logger/logger'
+// oxlint-disable-next-line no-restricted-imports -- Direct utilities import required for analytics initialization
+import { analytics, getAnalyticsAtomDirect } from 'utilities/src/telemetry/analytics/analytics'
+import { ApplicationTransport } from 'utilities/src/telemetry/analytics/ApplicationTransport'
+>>>>>>> upstream/main
 
 export async function initExtensionAnalytics(): Promise<void> {
   if (isTestEnv()) {
@@ -20,7 +34,11 @@ export async function initExtensionAnalytics(): Promise<void> {
   const analyticsAllowed = await getAnalyticsAtomDirect(true)
   await analytics.init({
     transportProvider: new ApplicationTransport({
+<<<<<<< HEAD
       serverUrl: lxUrls.amplitudeProxyUrl,
+=======
+      serverUrl: uniswapUrls.amplitudeProxyUrl,
+>>>>>>> upstream/main
       appOrigin: EXTENSION_ORIGIN_APPLICATION,
     }),
     allowed: analyticsAllowed,

@@ -1,5 +1,9 @@
 import { ScaleLinear } from 'd3'
+<<<<<<< HEAD
 import { useSporeColors } from '@l.x/ui/src'
+=======
+import { useSporeColors } from 'ui/src'
+>>>>>>> upstream/main
 
 export const HorizontalLine = ({
   value,

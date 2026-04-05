@@ -5,6 +5,7 @@
   "include": [],
   "references": [
     {
+<<<<<<< HEAD
       "path": "./pkgs/utilities"
     },
     {
@@ -42,20 +43,46 @@
     },
     {
       "path": "./pkgs/lx"
+=======
+      "path": "./packages/utilities"
+    },
+    {
+      "path": "./packages/uniswap"
+    },
+    {
+      "path": "./packages/wallet"
+    },
+    {
+      "path": "./packages/ui"
+>>>>>>> upstream/main
     },
     {
       "path": "./apps/web"
     },
     {
+<<<<<<< HEAD
       "path": "./apps/extension"
     },
     {
       "path": "./apps/mobile"
+=======
+      "path": "./packages/api"
+    },
+    {
+      "path": "./apps/extension"
+    },
+    {
+      "path": "./packages/config"
+    },
+    {
+      "path": "./packages/sessions"
+>>>>>>> upstream/main
     },
     {
       "path": "./config/vitest-presets"
     },
     {
+<<<<<<< HEAD
       "path": "./tools/lux-nx"
     },
     {
@@ -78,3 +105,60 @@
     }
   ]
 }
+=======
+      "path": "./tools/uniswap-nx"
+    },
+    {
+      "path": "./packages/gating"
+    },
+    {
+      "path": "./packages/notifications"
+    },
+    {
+      "path": "./apps/cli"
+    },
+    {
+      "path": "./packages/hashcash-native"
+    },
+    {
+      "path": "./packages/transactional"
+    },
+    {
+      "path": "./packages/mycelium"
+    },
+    {
+      "path": "./packages/docker-image-builder"
+    },
+    {
+      "path": "./packages/websocket"
+    },
+    {
+      "path": "./packages/prices"
+    },
+    {
+      "path": "./apps/mobile"
+    },
+    {
+      "path": "./apps/dev-portal"
+    },
+    {
+      "path": "./apps/mission-control"
+    },
+    {
+      "path": "./packages/privacy"
+    },
+    {
+      "path": "./packages/logger"
+    },
+    {
+      "path": "./packages/react-query"
+    },
+    {
+      "path": "./packages/analytics"
+    },
+    {
+      "path": "./packages/trpc"
+    }
+  ]
+}
+>>>>>>> upstream/main

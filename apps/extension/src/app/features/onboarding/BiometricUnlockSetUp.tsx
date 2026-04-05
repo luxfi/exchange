@@ -5,12 +5,21 @@ import { useBiometricUnlockSetupMutation } from 'src/app/features/biometricUnloc
 import { OnboardingScreen } from 'src/app/features/onboarding/OnboardingScreen'
 import { SettingsToggleRow } from 'src/app/features/settings/components/SettingsToggleRow'
 import { builtInBiometricCapabilitiesQuery } from 'src/app/utils/device/builtInBiometricCapabilitiesQuery'
+<<<<<<< HEAD
 import { Flex, Loader, Square } from '@l.x/ui/src'
 import { iconSizes } from '@l.x/ui/src/theme'
 import Trace from '@l.x/lx/src/features/telemetry/Trace'
 import { ExtensionOnboardingFlow, ExtensionOnboardingScreens } from '@l.x/lx/src/types/screens/extension'
 import { logger } from '@l.x/utils/src/logger/logger'
 import { useEvent } from '@l.x/utils/src/react/hooks'
+=======
+import { Flex, Loader, Square } from 'ui/src'
+import { iconSizes } from 'ui/src/theme'
+import Trace from 'uniswap/src/features/telemetry/Trace'
+import { ExtensionOnboardingFlow, ExtensionOnboardingScreens } from 'uniswap/src/types/screens/extension'
+import { logger } from 'utilities/src/logger/logger'
+import { useEvent } from 'utilities/src/react/hooks'
+>>>>>>> upstream/main
 
 export function BiometricUnlockSetUp({
   flow,

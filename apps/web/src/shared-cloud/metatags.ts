@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 import { brand } from '@l.x/config'
 
+=======
+>>>>>>> upstream/main
 export type MetaTagInjectorInput = {
   title: string
   image?: string
@@ -7,6 +10,7 @@ export type MetaTagInjectorInput = {
   description?: string
 }
 
+<<<<<<< HEAD
 function getBrandShort(): string {
   return brand.shortName || 'Exchange'
 }
@@ -20,4 +24,14 @@ export function formatTokenMetatagTitleName(symbol: string | undefined, name: st
     return 'Get ' + name + ' on ' + b
   }
   return 'View Token on ' + b
+=======
+export function formatTokenMetatagTitleName(symbol: string | undefined, name: string | undefined) {
+  if (symbol) {
+    return 'Get ' + symbol + ' on Uniswap'
+  }
+  if (name) {
+    return 'Get ' + name + ' on Uniswap'
+  }
+  return 'View Token on Uniswap'
+>>>>>>> upstream/main
 }

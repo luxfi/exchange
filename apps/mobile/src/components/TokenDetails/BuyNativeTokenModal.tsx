@@ -2,6 +2,7 @@ import { useTranslation } from 'react-i18next'
 import { AppStackScreenProp } from 'src/app/navigation/types'
 import { useReactNavigationModal } from 'src/components/modals/useReactNavigationModal'
 import { ReceiveButton } from 'src/components/TokenDetails/ReceiveButton'
+<<<<<<< HEAD
 import { Flex, Text } from '@l.x/ui/src'
 import { iconSizes } from '@l.x/ui/src/theme'
 import { CurrencyLogo } from '@l.x/lx/src/components/CurrencyLogo/CurrencyLogo'
@@ -17,6 +18,23 @@ import { BridgeTokenButton } from '@l.x/lx/src/features/transactions/components/
 import { BuyNativeTokenButton } from '@l.x/lx/src/features/transactions/components/InsufficientNativeTokenWarning/BuyNativeTokenButton'
 import { currencyIdToAddress } from '@l.x/lx/src/utils/currencyId'
 import { useActiveAccountAddress } from '@luxfi/wallet/src/features/wallet/hooks'
+=======
+import { Flex, Text } from 'ui/src'
+import { iconSizes } from 'ui/src/theme'
+import { CurrencyLogo } from 'uniswap/src/components/CurrencyLogo/CurrencyLogo'
+import { Modal } from 'uniswap/src/components/modals/Modal'
+import { LearnMoreLink } from 'uniswap/src/components/text/LearnMoreLink'
+import { uniswapUrls } from 'uniswap/src/constants/urls'
+import { useBridgingTokenWithHighestBalance } from 'uniswap/src/features/bridging/hooks/tokens'
+import { getChainInfo } from 'uniswap/src/features/chains/chainInfo'
+import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { ModalName } from 'uniswap/src/features/telemetry/constants'
+import { useCurrencyInfo, useNativeCurrencyInfo } from 'uniswap/src/features/tokens/useCurrencyInfo'
+import { BridgeTokenButton } from 'uniswap/src/features/transactions/components/InsufficientNativeTokenWarning/BridgeTokenButton'
+import { BuyNativeTokenButton } from 'uniswap/src/features/transactions/components/InsufficientNativeTokenWarning/BuyNativeTokenButton'
+import { currencyIdToAddress } from 'uniswap/src/utils/currencyId'
+import { useActiveAccountAddress } from 'wallet/src/features/wallet/hooks'
+>>>>>>> upstream/main
 
 export function BuyNativeTokenModal({
   route,
@@ -71,7 +89,11 @@ export function BuyNativeTokenModal({
           <LearnMoreLink
             textColor="$accent3"
             textVariant="buttonLabel3"
+<<<<<<< HEAD
             url={lxUrls.helpArticleUrls.networkFeeInfo}
+=======
+            url={uniswapUrls.helpArticleUrls.networkFeeInfo}
+>>>>>>> upstream/main
           />
         </Flex>
         <Flex centered gap="$spacing8" width="100%">

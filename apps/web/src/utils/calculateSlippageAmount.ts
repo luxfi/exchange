@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import { Currency, CurrencyAmount, Fraction, Percent } from '@luxamm/sdk-core'
+=======
+import { Currency, CurrencyAmount, Fraction, Percent } from '@uniswap/sdk-core'
+>>>>>>> upstream/main
 import JSBI from 'jsbi'
 
 const ONE = new Fraction(1, 1)

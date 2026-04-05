@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 import { brand } from '@l.x/config'
+=======
+>>>>>>> upstream/main
 import { Data } from 'functions/utils/cache'
 import getPool from 'functions/utils/getPool'
 import getPosition from 'functions/utils/getPosition'
@@ -12,7 +15,11 @@ import { MetaTagInjectorInput } from '~/shared-cloud/metatags'
 function doesMatchPath(path: string): boolean {
   const regexPaths = paths.map((p) => '^' + p.replace(/:[^/]+/g, '[^/]+').replace(/\*/g, '.*') + '$')
   // These come from a constant we define (paths.ts), so we don't need to worry about them being malicious.
+<<<<<<< HEAD
   // eslint-disable-next-line security/detect-non-literal-regexp
+=======
+  // oxlint-disable-next-line security/detect-non-literal-regexp
+>>>>>>> upstream/main
   return regexPaths.some((regex) => new RegExp(regex).test(path))
 }
 
@@ -50,7 +57,11 @@ function parsePositionPath(
   return null
 }
 
+<<<<<<< HEAD
 // eslint-disable-next-line max-params
+=======
+// oxlint-disable-next-line max-params
+>>>>>>> upstream/main
 function append(tags: string, attribute: string, content: string): string {
   return tags + `<meta ${attribute} content="${encode(content)}" data-rh="true">\n`
 }
@@ -198,10 +209,18 @@ export async function metaTagInjectionMiddleware(c: Context, next: Next): Promis
     } else {
       const imageUri = requestURL.origin + '/images/1200x630_Rich_Link_Preview_Image.png'
       data = {
+<<<<<<< HEAD
         title: brand.name || 'Exchange',
         image: imageUri,
         url: c.req.url,
         description: brand.description || 'Swap and trade crypto across multiple networks. Decentralized exchange.',
+=======
+        title: 'Uniswap Interface',
+        image: imageUri,
+        url: c.req.url,
+        description:
+          'Swap crypto on Ethereum, Base, Arbitrum, Polygon, Unichain and more. The DeFi platform trusted by millions.',
+>>>>>>> upstream/main
       }
     }
 

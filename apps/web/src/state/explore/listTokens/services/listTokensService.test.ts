@@ -1,12 +1,21 @@
+<<<<<<< HEAD
 import { ListTokensResponse } from '@luxamm/client-data-api/dist/data/v1/api_pb'
+=======
+import { ListTokensResponse } from '@uniswap/client-data-api/dist/data/v1/api_pb'
+>>>>>>> upstream/main
 import {
   MultichainToken,
   Token,
   TokenMetadata,
   TokenStats,
   TokenType,
+<<<<<<< HEAD
 } from '@luxamm/client-data-api/dist/data/v1/types_pb'
 import { TokensOrderBy } from '@l.x/api'
+=======
+} from '@uniswap/client-data-api/dist/data/v1/types_pb'
+import { TokensOrderBy } from '@universe/api'
+>>>>>>> upstream/main
 import { describe, expect, it, vi } from 'vitest'
 import { TimePeriod } from '~/appGraphql/data/util'
 import { TokenSortMethod } from '~/components/Tokens/constants'

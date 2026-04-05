@@ -1,5 +1,9 @@
 import { type NativeStackScreenProps } from '@react-navigation/native-stack'
+<<<<<<< HEAD
 import { DynamicConfigs, OnDeviceRecoveryConfigKey, useDynamicConfigValue } from '@l.x/gating'
+=======
+import { DynamicConfigs, OnDeviceRecoveryConfigKey, useDynamicConfigValue } from '@universe/gating'
+>>>>>>> upstream/main
 import dayjs from 'dayjs'
 import { isEnrolledAsync } from 'expo-local-authentication'
 import { useCallback, useEffect, useState } from 'react'
@@ -15,6 +19,7 @@ import {
 } from 'src/features/notifications/hooks/useNotificationOSPermissionsEnabled'
 import { useHideSplashScreen } from 'src/features/splashScreen/useHideSplashScreen'
 import { type RecoveryWalletInfo, useOnDeviceRecoveryData } from 'src/screens/Import/useOnDeviceRecoveryData'
+<<<<<<< HEAD
 import { AccountType } from '@l.x/lx/src/features/accounts/types'
 import { MobileEventName } from '@l.x/lx/src/features/telemetry/constants'
 import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
@@ -27,6 +32,20 @@ import { type SignerMnemonicAccount } from '@luxfi/wallet/src/features/wallet/ac
 import { Keyring } from '@luxfi/wallet/src/features/wallet/Keyring/Keyring'
 import { selectAnyAddressHasNotificationsEnabled } from '@luxfi/wallet/src/features/wallet/selectors'
 import { setFinishedOnboarding } from '@luxfi/wallet/src/features/wallet/slice'
+=======
+import { AccountType } from 'uniswap/src/features/accounts/types'
+import { MobileEventName } from 'uniswap/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
+import Trace from 'uniswap/src/features/telemetry/Trace'
+import { ImportType, OnboardingEntryPoint } from 'uniswap/src/types/onboarding'
+import { OnboardingScreens } from 'uniswap/src/types/screens/mobile'
+import { logger } from 'utilities/src/logger/logger'
+import { useOnboardingContext } from 'wallet/src/features/onboarding/OnboardingContext'
+import { type SignerMnemonicAccount } from 'wallet/src/features/wallet/accounts/types'
+import { Keyring } from 'wallet/src/features/wallet/Keyring/Keyring'
+import { selectAnyAddressHasNotificationsEnabled } from 'wallet/src/features/wallet/selectors'
+import { setFinishedOnboarding } from 'wallet/src/features/wallet/slice'
+>>>>>>> upstream/main
 
 type Props = NativeStackScreenProps<OnboardingStackParamList, OnboardingScreens.AppLoading>
 

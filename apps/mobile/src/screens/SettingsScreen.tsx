@@ -1,5 +1,9 @@
 import { useNavigation } from '@react-navigation/core'
+<<<<<<< HEAD
 import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
+=======
+import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+>>>>>>> upstream/main
 import { default as React, useCallback, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { ListRenderItemInfo } from 'react-native'
@@ -21,6 +25,10 @@ import {
   SettingsSectionItemComponent,
 } from 'src/components/Settings/SettingsRow'
 import { WalletSettings } from 'src/components/Settings/WalletSettings'
+<<<<<<< HEAD
+=======
+import { useBiometricsAlert } from 'src/features/biometrics/useBiometricsAlert'
+>>>>>>> upstream/main
 import { useBiometricsState } from 'src/features/biometrics/useBiometricsState'
 import { useDeviceSupportsBiometricAuth } from 'src/features/biometrics/useDeviceSupportsBiometricAuth'
 import { useBiometricName } from 'src/features/biometricsSettings/hooks'
@@ -31,7 +39,11 @@ import {
 import { useAdvancedSettingsMenuState } from 'src/features/settings/hooks/useAdvancedSettingsMenuState'
 import { useWalletRestore } from 'src/features/wallet/useWalletRestore'
 import { importFromCloudBackupOption, restoreFromCloudBackupOption } from 'src/screens/Import/constants'
+<<<<<<< HEAD
 import { Flex, IconProps, Text, useSporeColors } from '@l.x/ui/src'
+=======
+import { Flex, IconProps, Text, useSporeColors } from 'ui/src'
+>>>>>>> upstream/main
 import {
   Bell,
   BookOpen,
@@ -51,6 +63,7 @@ import {
   Passkey,
   Sliders,
   TouchId,
+<<<<<<< HEAD
   LuxLogo,
   WavePulse,
   Wrench,
@@ -73,6 +86,30 @@ import { selectHasCopiedPrivateKeys } from '@luxfi/wallet/src/features/behaviorH
 import { BackupType } from '@luxfi/wallet/src/features/wallet/accounts/types'
 import { hasBackup } from '@luxfi/wallet/src/features/wallet/accounts/utils'
 import { useSignerAccounts } from '@luxfi/wallet/src/features/wallet/hooks'
+=======
+  UniswapLogo,
+  WavePulse,
+  Wrench,
+} from 'ui/src/components/icons'
+import { iconSizes } from 'ui/src/theme'
+import { uniswapUrls } from 'uniswap/src/constants/urls'
+import { useCurrentAppearanceSetting } from 'uniswap/src/features/appearance/hooks'
+import { useEnabledChains } from 'uniswap/src/features/chains/hooks/useEnabledChains'
+import { useAppFiatCurrencyInfo } from 'uniswap/src/features/fiatCurrency/hooks'
+import { useCurrentLanguageInfo } from 'uniswap/src/features/language/hooks'
+import { useHapticFeedback } from 'uniswap/src/features/settings/useHapticFeedback/useHapticFeedback'
+import { ModalName } from 'uniswap/src/features/telemetry/constants'
+import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+import { OnboardingEntryPoint } from 'uniswap/src/types/onboarding'
+import { MobileScreens } from 'uniswap/src/types/screens/mobile'
+import { getCloudProviderName } from 'uniswap/src/utils/cloud-backup/getCloudProviderName'
+import { isDevEnv } from 'utilities/src/environment/env'
+import { isAndroid } from 'utilities/src/platform'
+import { selectHasCopiedPrivateKeys } from 'wallet/src/features/behaviorHistory/selectors'
+import { BackupType } from 'wallet/src/features/wallet/accounts/types'
+import { hasBackup } from 'wallet/src/features/wallet/accounts/utils'
+import { useSignerAccounts } from 'wallet/src/features/wallet/hooks'
+>>>>>>> upstream/main
 
 // avoids rendering during animation which makes it laggy
 // set to a bit above the Switch animation "simple" which is 80ms
@@ -83,8 +120,14 @@ export function SettingsScreen(): JSX.Element {
   const colors = useSporeColors()
   const hasCopiedPrivateKeys = useSelector(selectHasCopiedPrivateKeys)
   const shouldShowPrivateKeys = useFeatureFlag(FeatureFlags.EnableExportPrivateKeys)
+<<<<<<< HEAD
   const { deviceSupportsBiometrics } = useBiometricsState()
   const { t } = useTranslation()
+=======
+  const { isBiometricsDisabledInOSSettings } = useBiometricsState()
+  const { t } = useTranslation()
+  const { showBiometricsAlert } = useBiometricsAlert({ t })
+>>>>>>> upstream/main
   const { onClose } = useReactNavigationModal()
 
   // check if device supports biometric authentication, if not, hide option
@@ -135,6 +178,10 @@ export function SettingsScreen(): JSX.Element {
           navigation={navigation}
           page={item}
           checkIfCanProceed={item.checkIfCanProceed}
+<<<<<<< HEAD
+=======
+          cantProceedFallback={item.cantProceedFallback}
+>>>>>>> upstream/main
           testID={item.testID}
         />
       )
@@ -231,6 +278,7 @@ export function SettingsScreen(): JSX.Element {
         subTitle: t('settings.section.privacyAndSecurity'),
         isHidden: noSignerAccountImported,
         data: [
+<<<<<<< HEAD
           ...(deviceSupportsBiometrics
             ? [
                 {
@@ -247,6 +295,24 @@ export function SettingsScreen(): JSX.Element {
                 },
               ]
             : []),
+=======
+          {
+            navigationModal: ModalName.BiometricsModal,
+            isHidden: !isTouchIdSupported && !isFaceIdSupported,
+            checkIfCanProceed: (): boolean => !isBiometricsDisabledInOSSettings,
+            cantProceedFallback: (): void => {
+              showBiometricsAlert(biometricsMethod)
+            },
+            text: isAndroid ? t('settings.setting.biometrics.title') : biometricsMethod,
+            icon: isAndroid ? (
+              <TouchId size="$icon.20" />
+            ) : isTouchIdSupported ? (
+              <Fingerprint {...svgProps} />
+            ) : (
+              <Faceid {...svgProps} />
+            ),
+          },
+>>>>>>> upstream/main
           {
             screen: MobileScreens.SettingsViewSeedPhrase,
             text: t('settings.setting.recoveryPhrase.title'),
@@ -318,7 +384,11 @@ export function SettingsScreen(): JSX.Element {
           {
             screen: MobileScreens.WebView,
             screenProps: {
+<<<<<<< HEAD
               uriLink: lxUrls.walletFeedbackForm,
+=======
+              uriLink: uniswapUrls.walletFeedbackForm,
+>>>>>>> upstream/main
               headerTitle: t('settings.action.feedback'),
             },
             text: t('settings.action.feedback'),
@@ -327,7 +397,11 @@ export function SettingsScreen(): JSX.Element {
           {
             screen: MobileScreens.WebView,
             screenProps: {
+<<<<<<< HEAD
               uriLink: lxUrls.helpArticleUrls.mobileWalletHelp,
+=======
+              uriLink: uniswapUrls.helpArticleUrls.mobileWalletHelp,
+>>>>>>> upstream/main
               headerTitle: t('settings.action.help'),
             },
             text: t('settings.action.help'),
@@ -341,7 +415,11 @@ export function SettingsScreen(): JSX.Element {
           {
             screen: MobileScreens.WebView,
             screenProps: {
+<<<<<<< HEAD
               uriLink: lxUrls.privacyPolicyUrl,
+=======
+              uriLink: uniswapUrls.privacyPolicyUrl,
+>>>>>>> upstream/main
               headerTitle: t('settings.action.privacy'),
             },
             text: t('settings.action.privacy'),
@@ -350,7 +428,11 @@ export function SettingsScreen(): JSX.Element {
           {
             screen: MobileScreens.WebView,
             screenProps: {
+<<<<<<< HEAD
               uriLink: lxUrls.termsOfServiceUrl,
+=======
+              uriLink: uniswapUrls.termsOfServiceUrl,
+>>>>>>> upstream/main
               headerTitle: t('settings.action.terms'),
             },
             text: t('settings.action.terms'),
@@ -365,18 +447,30 @@ export function SettingsScreen(): JSX.Element {
           {
             navigationModal: ModalName.Experiments,
             text: 'Dev Modal',
+<<<<<<< HEAD
             icon: <LuxLogo {...svgProps} />,
+=======
+            icon: <UniswapLogo {...svgProps} />,
+>>>>>>> upstream/main
             testID: TestID.AppSettingsDevModal,
           },
           {
             screen: MobileScreens.Dev,
             text: 'Dev options',
+<<<<<<< HEAD
             icon: <LuxLogo {...svgProps} />,
+=======
+            icon: <UniswapLogo {...svgProps} />,
+>>>>>>> upstream/main
           },
           {
             screen: MobileScreens.DebugScreens,
             text: 'Debug Screens',
+<<<<<<< HEAD
             icon: <LuxLogo {...svgProps} />,
+=======
+            icon: <UniswapLogo {...svgProps} />,
+>>>>>>> upstream/main
           },
           { component: <OnboardingRow iconProps={svgProps} /> },
           { component: <ResetBehaviorHistoryRow iconProps={svgProps} /> },
@@ -393,7 +487,10 @@ export function SettingsScreen(): JSX.Element {
     hapticsEnabled,
     onToggleEnableHaptics,
     noSignerAccountImported,
+<<<<<<< HEAD
     deviceSupportsBiometrics,
+=======
+>>>>>>> upstream/main
     isTouchIdSupported,
     isFaceIdSupported,
     biometricsMethod,
@@ -409,6 +506,11 @@ export function SettingsScreen(): JSX.Element {
     hasCopiedPrivateKeys,
     shouldShowPrivateKeys,
     walletRestoreType,
+<<<<<<< HEAD
+=======
+    isBiometricsDisabledInOSSettings,
+    showBiometricsAlert,
+>>>>>>> upstream/main
   ])
 
   return (

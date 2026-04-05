@@ -1,14 +1,23 @@
+<<<<<<< HEAD
 import { ProtocolVersion } from '@luxamm/client-data-api/dist/data/v1/poolTypes_pb'
 import {
   CheckApprovalLPResponse,
   CreateLPPositionRequest,
 } from '@luxamm/client-liquidity/dist/lx/liquidity/v1/api_pb'
+=======
+import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
+import {
+  CheckApprovalLPResponse,
+  CreateLPPositionRequest,
+} from '@uniswap/client-liquidity/dist/uniswap/liquidity/v1/api_pb'
+>>>>>>> upstream/main
 import {
   IndependentToken,
   Protocols,
   V2CreateLPPosition,
   V3CreateLPPosition,
   V4CreateLPPosition,
+<<<<<<< HEAD
 } from '@luxamm/client-liquidity/dist/lx/liquidity/v1/types_pb'
 import { CurrencyAmount } from '@luxamm/sdk-core'
 import { Pair } from '@luxamm/v2-sdk'
@@ -17,6 +26,17 @@ import { Pool as V4Pool } from '@luxamm/v4-sdk'
 import { ZERO_ADDRESS } from '@l.x/lx/src/constants/misc'
 import { USDT } from '@l.x/lx/src/constants/tokens'
 import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+=======
+} from '@uniswap/client-liquidity/dist/uniswap/liquidity/v1/types_pb'
+import { CurrencyAmount } from '@uniswap/sdk-core'
+import { Pair } from '@uniswap/v2-sdk'
+import { FeeAmount, nearestUsableTick, TICK_SPACINGS, TickMath, Pool as V3Pool } from '@uniswap/v3-sdk'
+import { Pool as V4Pool } from '@uniswap/v4-sdk'
+import { ZERO_ADDRESS } from 'uniswap/src/constants/misc'
+import { USDT } from 'uniswap/src/constants/tokens'
+import { normalizeApprovalResponse } from 'uniswap/src/data/apiClients/liquidityService/normalizeApprovalResponse'
+import { UniverseChainId } from 'uniswap/src/features/chains/types'
+>>>>>>> upstream/main
 import { describe, expect, it } from 'vitest'
 import { DYNAMIC_FEE_DATA, PositionState } from '~/components/Liquidity/Create/types'
 import { generateLiquidityServiceCreateCalldataQueryParams } from '~/components/Liquidity/utils/generateLiquidityServiceCreateCalldata'
@@ -285,9 +305,15 @@ describe('generateLiquidityServiceCreateCalldataQueryParams', () => {
       })
 
       expect(result).toBeInstanceOf(CreateLPPositionRequest)
+<<<<<<< HEAD
       expect(result?.createLpPosition.case).toBe('v2CreateLpPosition')
 
       const v2Position = result?.createLpPosition.value as V2CreateLPPosition
+=======
+      expect((result as CreateLPPositionRequest).createLpPosition.case).toBe('v2CreateLpPosition')
+
+      const v2Position = (result as CreateLPPositionRequest).createLpPosition.value as V2CreateLPPosition
+>>>>>>> upstream/main
       expect(v2Position.walletAddress).toBe(ZERO_ADDRESS)
       expect(v2Position.protocols).toBe(Protocols.V2)
       expect(v2Position.simulateTransaction).toBe(true)
@@ -314,9 +340,17 @@ describe('generateLiquidityServiceCreateCalldataQueryParams', () => {
         CurrencyAmount.fromRawAmount(ETH_MAINNET.wrapped, '1000000000000000000'),
       )
 
+<<<<<<< HEAD
       const approvalCalldata = new CheckApprovalLPResponse({
         token0Approval: { to: '0x123', data: '0xabc' },
       })
+=======
+      const approvalCalldata = normalizeApprovalResponse(
+        new CheckApprovalLPResponse({
+          token0Approval: { to: '0x123', data: '0xabc' },
+        }),
+      )!
+>>>>>>> upstream/main
 
       const result = generateLiquidityServiceCreateCalldataQueryParams({
         protocolVersion: ProtocolVersion.V2,
@@ -334,7 +368,11 @@ describe('generateLiquidityServiceCreateCalldataQueryParams', () => {
         independentField: PositionField.TOKEN0,
       })
 
+<<<<<<< HEAD
       const v2Position = result?.createLpPosition.value as V2CreateLPPosition
+=======
+      const v2Position = (result as CreateLPPositionRequest).createLpPosition.value as V2CreateLPPosition
+>>>>>>> upstream/main
       expect(v2Position.simulateTransaction).toBe(false)
     })
   })
@@ -481,9 +519,15 @@ describe('generateLiquidityServiceCreateCalldataQueryParams', () => {
       })
 
       expect(result).toBeInstanceOf(CreateLPPositionRequest)
+<<<<<<< HEAD
       expect(result?.createLpPosition.case).toBe('v3CreateLpPosition')
 
       const v3Position = result?.createLpPosition.value as V3CreateLPPosition
+=======
+      expect((result as CreateLPPositionRequest).createLpPosition.case).toBe('v3CreateLpPosition')
+
+      const v3Position = (result as CreateLPPositionRequest).createLpPosition.value as V3CreateLPPosition
+>>>>>>> upstream/main
       expect(v3Position.walletAddress).toBe(ZERO_ADDRESS)
       expect(v3Position.protocols).toBe(Protocols.V3)
       expect(v3Position.simulateTransaction).toBe(true)
@@ -535,7 +579,11 @@ describe('generateLiquidityServiceCreateCalldataQueryParams', () => {
         independentField: PositionField.TOKEN0,
       })
 
+<<<<<<< HEAD
       const v3Position = result?.createLpPosition.value as V3CreateLPPosition
+=======
+      const v3Position = (result as CreateLPPositionRequest).createLpPosition.value as V3CreateLPPosition
+>>>>>>> upstream/main
       expect(v3Position.initialPrice).toBe(pool.sqrtRatioX96.toString())
       expect(v3Position.initialDependentAmount).toBe('1000000000000000000')
     })
@@ -575,7 +623,11 @@ describe('generateLiquidityServiceCreateCalldataQueryParams', () => {
         independentField: PositionField.TOKEN0,
       })
 
+<<<<<<< HEAD
       const v3Position = result?.createLpPosition.value as V3CreateLPPosition
+=======
+      const v3Position = (result as CreateLPPositionRequest).createLpPosition.value as V3CreateLPPosition
+>>>>>>> upstream/main
       expect(v3Position.position?.pool?.fee).toBe(DYNAMIC_FEE_DATA.feeAmount)
     })
   })
@@ -689,9 +741,15 @@ describe('generateLiquidityServiceCreateCalldataQueryParams', () => {
       })
 
       expect(result).toBeInstanceOf(CreateLPPositionRequest)
+<<<<<<< HEAD
       expect(result?.createLpPosition.case).toBe('v4CreateLpPosition')
 
       const v4Position = result?.createLpPosition.value as V4CreateLPPosition
+=======
+      expect((result as CreateLPPositionRequest).createLpPosition.case).toBe('v4CreateLpPosition')
+
+      const v4Position = (result as CreateLPPositionRequest).createLpPosition.value as V4CreateLPPosition
+>>>>>>> upstream/main
       expect(v4Position.walletAddress).toBe(ZERO_ADDRESS)
       expect(v4Position.protocols).toBe(Protocols.V4)
       expect(v4Position.simulateTransaction).toBe(true)
@@ -747,7 +805,11 @@ describe('generateLiquidityServiceCreateCalldataQueryParams', () => {
         independentField: PositionField.TOKEN0,
       })
 
+<<<<<<< HEAD
       const v4Position = result?.createLpPosition.value as V4CreateLPPosition
+=======
+      const v4Position = (result as CreateLPPositionRequest).createLpPosition.value as V4CreateLPPosition
+>>>>>>> upstream/main
       expect(v4Position.initialPrice).toBe(pool.sqrtRatioX96.toString())
       expect(v4Position.initialDependentAmount).toBe('1000000000000000000')
     })
@@ -785,7 +847,11 @@ describe('generateLiquidityServiceCreateCalldataQueryParams', () => {
         independentField: PositionField.TOKEN0,
       })
 
+<<<<<<< HEAD
       const v2Position = result?.createLpPosition.value as V2CreateLPPosition
+=======
+      const v2Position = (result as CreateLPPositionRequest).createLpPosition.value as V2CreateLPPosition
+>>>>>>> upstream/main
       expect(v2Position.independentToken).toBe(IndependentToken.TOKEN_0)
     })
 
@@ -820,7 +886,11 @@ describe('generateLiquidityServiceCreateCalldataQueryParams', () => {
         independentField: PositionField.TOKEN1,
       })
 
+<<<<<<< HEAD
       const v2Position = result?.createLpPosition.value as V2CreateLPPosition
+=======
+      const v2Position = (result as CreateLPPositionRequest).createLpPosition.value as V2CreateLPPosition
+>>>>>>> upstream/main
       expect(v2Position.independentToken).toBe(IndependentToken.TOKEN_1)
     })
 
@@ -839,9 +909,17 @@ describe('generateLiquidityServiceCreateCalldataQueryParams', () => {
         CurrencyAmount.fromRawAmount(ETH_MAINNET.wrapped, '1000000000000000000'),
       )
 
+<<<<<<< HEAD
       const approvalCalldata = new CheckApprovalLPResponse({
         permitData: { case: 'permitBatchData', value: { domain: {}, types: {}, values: {} } },
       })
+=======
+      const approvalCalldata = normalizeApprovalResponse(
+        new CheckApprovalLPResponse({
+          permitData: { case: 'permitBatchData', value: { domain: {}, types: {}, values: {} } },
+        }),
+      )!
+>>>>>>> upstream/main
 
       const result = generateLiquidityServiceCreateCalldataQueryParams({
         protocolVersion: ProtocolVersion.V2,
@@ -859,7 +937,11 @@ describe('generateLiquidityServiceCreateCalldataQueryParams', () => {
         independentField: PositionField.TOKEN0,
       })
 
+<<<<<<< HEAD
       const v2Position = result?.createLpPosition.value as V2CreateLPPosition
+=======
+      const v2Position = (result as CreateLPPositionRequest).createLpPosition.value as V2CreateLPPosition
+>>>>>>> upstream/main
       expect(v2Position.simulateTransaction).toBe(false)
     })
 
@@ -896,7 +978,11 @@ describe('generateLiquidityServiceCreateCalldataQueryParams', () => {
         customDeadline: 30,
       })
 
+<<<<<<< HEAD
       const v2Position = result?.createLpPosition.value as V2CreateLPPosition
+=======
+      const v2Position = (result as CreateLPPositionRequest).createLpPosition.value as V2CreateLPPosition
+>>>>>>> upstream/main
       expect(v2Position.slippageTolerance).toBe(0.5)
       expect(v2Position.deadline).toBeDefined()
     })

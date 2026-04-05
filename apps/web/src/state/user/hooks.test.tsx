@@ -1,7 +1,13 @@
 import { act } from '@testing-library/react'
+<<<<<<< HEAD
 import { Percent } from '@luxamm/sdk-core'
 import { USDC_MAINNET } from '@l.x/lx/src/constants/tokens'
 import { deserializeToken, serializeToken } from '@l.x/lx/src/utils/currency'
+=======
+import { Percent } from '@uniswap/sdk-core'
+import { USDC_MAINNET } from 'uniswap/src/constants/tokens'
+import { deserializeToken, serializeToken } from 'uniswap/src/utils/currency'
+>>>>>>> upstream/main
 import store from '~/state'
 import { RouterPreference } from '~/state/routing/types'
 import { useRouterPreference, useUserSlippageTolerance } from '~/state/user/hooks'

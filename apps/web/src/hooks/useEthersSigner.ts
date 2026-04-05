@@ -4,7 +4,11 @@ import type { Account, Chain, Client, Transport } from 'viem'
 import { useConnectorClient } from 'wagmi'
 
 function clientToSigner(client?: Client<Transport, Chain, Account>) {
+<<<<<<< HEAD
   if (!client || !client.account) {
+=======
+  if (!client) {
+>>>>>>> upstream/main
     return undefined
   }
   const { chain, transport, account } = client

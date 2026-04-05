@@ -1,5 +1,9 @@
 import { ActionCreatorWithPayload, createAction } from '@reduxjs/toolkit'
+<<<<<<< HEAD
 import { TokenList } from 'utils/tokenListTypes'
+=======
+import { TokenList } from '@uniswap/token-lists'
+>>>>>>> upstream/main
 
 export const fetchTokenList: Readonly<{
   pending: ActionCreatorWithPayload<{ url: string; requestId: string }>

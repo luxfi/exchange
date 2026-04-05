@@ -14,8 +14,13 @@ export interface MarkerPosition {
   address: string
   /** The bids data at this position */
   bids: UserBid[]
+<<<<<<< HEAD
   /** Whether the bids are at or above clearing price */
   isInRange: boolean
+=======
+  /** Per-bid in-range status keyed by bidId */
+  bidRangeMap: Record<string, boolean>
+>>>>>>> upstream/main
 }
 
 /**

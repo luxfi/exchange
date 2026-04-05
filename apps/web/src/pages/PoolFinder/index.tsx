@@ -1,8 +1,13 @@
+<<<<<<< HEAD
 import { Currency, CurrencyAmount, Token } from '@luxamm/sdk-core'
+=======
+import { Currency, CurrencyAmount, Token } from '@uniswap/sdk-core'
+>>>>>>> upstream/main
 import JSBI from 'jsbi'
 import ms from 'ms'
 import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
+<<<<<<< HEAD
 import { Button, Flex, Text } from '@l.x/ui/src'
 import { ArrowLeft } from '@l.x/ui/src/components/icons/ArrowLeft'
 import { TokenSelectorFlow } from 'lx/src/components/TokenSelector/types'
@@ -14,6 +19,19 @@ import { useCurrencyInfo } from 'lx/src/features/tokens/useCurrencyInfo'
 import { useUSDCValue } from 'lx/src/features/transactions/hooks/useUSDCPriceWrapper'
 import { currencyId } from 'lx/src/utils/currencyId'
 import { NumberType } from '@l.x/utils/src/format/types'
+=======
+import { Button, Flex, Text } from 'ui/src'
+import { ArrowLeft } from 'ui/src/components/icons/ArrowLeft'
+import { TokenSelectorFlow } from 'uniswap/src/components/TokenSelector/types'
+import { nativeOnChain } from 'uniswap/src/constants/tokens'
+import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
+import { InterfacePageName } from 'uniswap/src/features/telemetry/constants'
+import Trace from 'uniswap/src/features/telemetry/Trace'
+import { useCurrencyInfo } from 'uniswap/src/features/tokens/useCurrencyInfo'
+import { useUSDCValue } from 'uniswap/src/features/transactions/hooks/useUSDCPriceWrapper'
+import { currencyId } from 'uniswap/src/utils/currencyId'
+import { NumberType } from 'utilities/src/format/types'
+>>>>>>> upstream/main
 import { useAccountDrawer } from '~/components/AccountDrawer/MiniPortfolio/hooks'
 import { BreadcrumbNavContainer, BreadcrumbNavLink } from '~/components/BreadcrumbNav'
 import { CurrencySelector } from '~/components/Liquidity/Create/SelectTokenStep'

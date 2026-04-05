@@ -1,10 +1,18 @@
 import React from 'react'
 import { Alert } from 'react-native'
+<<<<<<< HEAD
 import { Accordion, Flex } from '@l.x/ui/src'
 import { GatingButton } from '@l.x/lx/src/components/gating/GatingButton'
 import { AccordionHeader } from '@l.x/lx/src/components/gating/GatingOverrides'
 import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
 import { Keyring } from '@luxfi/wallet/src/features/wallet/Keyring/Keyring'
+=======
+import { Accordion, Flex } from 'ui/src'
+import { GatingButton } from 'uniswap/src/components/gating/GatingButton'
+import { AccordionHeader } from 'uniswap/src/components/gating/GatingOverrides'
+import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+import { Keyring } from 'wallet/src/features/wallet/Keyring/Keyring'
+>>>>>>> upstream/main
 
 export function SeedPhraseAndPrivateKeysDevSection(): JSX.Element {
   return (

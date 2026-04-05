@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { Currency, CurrencyAmount } from '@luxamm/sdk-core'
 import { CSSProperties } from 'react'
 import { Flex, styled, Text, TextStyle } from '@l.x/ui/src'
@@ -10,6 +11,20 @@ import Trace from '@l.x/lx/src/features/telemetry/Trace'
 import { getTokenWarningSeverity } from '@l.x/lx/src/features/tokens/warnings/safetyUtils'
 import { shortenAddress } from '@l.x/utils/src/addresses'
 import { NumberType } from '@l.x/utils/src/format/types'
+=======
+import { Currency, CurrencyAmount } from '@uniswap/sdk-core'
+import { CSSProperties } from 'react'
+import { Flex, styled, Text, TextStyle } from 'ui/src'
+import { WarningSeverity } from 'uniswap/src/components/modals/WarningModal/types'
+import WarningIcon from 'uniswap/src/components/warnings/WarningIcon'
+import { CurrencyInfo } from 'uniswap/src/features/dataApi/types'
+import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
+import { ElementName, UniswapEventName } from 'uniswap/src/features/telemetry/constants'
+import Trace from 'uniswap/src/features/telemetry/Trace'
+import { getTokenWarningSeverity } from 'uniswap/src/features/tokens/warnings/safetyUtils'
+import { shortenAddress } from 'utilities/src/addresses'
+import { NumberType } from 'utilities/src/format/types'
+>>>>>>> upstream/main
 import CurrencyLogo from '~/components/Logo/CurrencyLogo'
 import { MenuItem } from '~/components/SearchModal/styled'
 import { MouseoverTooltip, TooltipSize } from '~/components/Tooltip'
@@ -122,7 +137,11 @@ export function CurrencyRow({
   const blockedTokenOpacity = '0.6'
 
   const { balanceMap } = useTokenBalances({ cacheFirst: true })
+<<<<<<< HEAD
   // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+=======
+  // oxlint-disable-next-line typescript/no-unnecessary-condition
+>>>>>>> upstream/main
   const { usdValue, balance: cachedBalance } = balanceMap[currencyKey(currency)] ?? {}
   const tokenBalance = balance ? balance.toExact() : cachedBalance
 
@@ -133,7 +152,11 @@ export function CurrencyRow({
     <Trace
       logPress
       logKeyPress
+<<<<<<< HEAD
       eventOnTrigger={LXEventName.TokenSelected}
+=======
+      eventOnTrigger={UniswapEventName.TokenSelected}
+>>>>>>> upstream/main
       properties={{ ...eventProperties, token_balance_usd: usdValue }}
       element={ElementName.TokenSelectorRow}
     >
@@ -142,7 +165,11 @@ export function CurrencyRow({
         text={<ThemedText.Caption textAlign="center">{tooltip}</ThemedText.Caption>}
         size={TooltipSize.ExtraSmall}
       >
+<<<<<<< HEAD
         {/* biome-ignore lint/correctness/noRestrictedElements: Wrapper needs DOM props (onKeyDown, onClick, tabIndex) for a11y; MenuItem is Gui Flex and doesn't type them */}
+=======
+        {/* oxlint-disable-next-line react/forbid-elements -- Wrapper needs DOM props (onKeyDown, onClick, tabIndex) for a11y; MenuItem is Tamagui Flex and doesn't type them */}
+>>>>>>> upstream/main
         <div
           role="button"
           tabIndex={0}

@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import { DAI } from '@l.x/lx/src/constants/tokens'
+=======
+import { DAI } from 'uniswap/src/constants/tokens'
+>>>>>>> upstream/main
 import { SelfSendSpeedBumpModal } from '~/pages/Swap/Send/SelfSendSpeedBump'
 import { SendContext, SendContextType } from '~/state/send/SendContext'
 import { render, screen } from '~/test-utils/render'

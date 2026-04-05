@@ -3,12 +3,21 @@ import {
   Metadata,
   Notification,
   OnClick,
+<<<<<<< HEAD
 } from '@luxamm/client-notification-service/dist/lx/notificationservice/v1/api_pb'
 import { ContentStyle, type InAppNotification, OnClickAction } from '@l.x/api'
 import { type ReactiveCondition } from '@l.x/notifications'
 import { GlobalErrorEvent } from 'src/app/events/constants'
 import { globalEventEmitter } from 'src/app/events/global'
 import { logger } from '@l.x/utils/src/logger/logger'
+=======
+} from '@uniswap/client-notification-service/dist/uniswap/notificationservice/v1/api_pb'
+import { ContentStyle, type InAppNotification, OnClickAction } from '@universe/api'
+import { type ReactiveCondition } from '@universe/notifications'
+import { GlobalErrorEvent } from 'src/app/events/constants'
+import { globalEventEmitter } from 'src/app/events/global'
+import { logger } from 'utilities/src/logger/logger'
+>>>>>>> upstream/main
 
 /**
  * Storage threshold in bytes (500KB).

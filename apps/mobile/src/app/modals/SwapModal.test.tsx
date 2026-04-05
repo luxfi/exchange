@@ -5,7 +5,11 @@ import { AppStackScreenProp } from 'src/app/navigation/types'
 import { persistedReducer } from 'src/app/store'
 import { preloadedMobileState } from 'src/test/fixtures'
 import { renderWithProviders } from 'src/test/render'
+<<<<<<< HEAD
 import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
+=======
+import { ModalName } from 'uniswap/src/features/telemetry/constants'
+>>>>>>> upstream/main
 
 // Mock required modules with simpler implementation
 jest.mock('wallet/src/features/transactions/swap/WalletSwapFlow', () => ({

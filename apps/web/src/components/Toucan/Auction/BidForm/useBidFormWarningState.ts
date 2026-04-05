@@ -1,9 +1,18 @@
+<<<<<<< HEAD
 import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { useMemo } from 'react'
 import { getChainInfo, TOUCAN_AUCTION_SUPPORTED_CHAINS } from '@l.x/lx/src/features/chains/chainInfo'
 import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { areAddressesEqual } from '@l.x/lx/src/utils/addresses'
 import { isNativeCurrencyAddress } from '@l.x/lx/src/utils/currencyId'
+=======
+import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import { useMemo } from 'react'
+import { getChainInfo, TOUCAN_AUCTION_SUPPORTED_CHAINS } from 'uniswap/src/features/chains/chainInfo'
+import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { areAddressesEqual } from 'uniswap/src/utils/addresses'
+import { isNativeCurrencyAddress } from 'uniswap/src/utils/currencyId'
+>>>>>>> upstream/main
 import { zeroAddress } from 'viem'
 import { AuctionProgressState, UserBid } from '~/components/Toucan/Auction/store/types'
 
@@ -41,18 +50,32 @@ export function useBidFormWarningState({
     const normalizedCurrency = currency?.toLowerCase()
     const isNativeBidToken = Boolean(
       chainId &&
+<<<<<<< HEAD
         normalizedCurrency &&
         (normalizedCurrency === zeroAddress || isNativeCurrencyAddress(chainId, normalizedCurrency)),
+=======
+      normalizedCurrency &&
+      (normalizedCurrency === zeroAddress || isNativeCurrencyAddress(chainId, normalizedCurrency)),
+>>>>>>> upstream/main
     )
     const usdcAddress = chainId && isSupportedChain ? getChainInfo(chainId).tokens.USDC?.address : undefined
     const isUsdcBidToken = Boolean(
       chainId &&
+<<<<<<< HEAD
         normalizedCurrency &&
         usdcAddress &&
         areAddressesEqual({
           addressInput1: { address: normalizedCurrency, chainId },
           addressInput2: { address: usdcAddress, chainId },
         }),
+=======
+      normalizedCurrency &&
+      usdcAddress &&
+      areAddressesEqual({
+        addressInput1: { address: normalizedCurrency, chainId },
+        addressInput2: { address: usdcAddress, chainId },
+      }),
+>>>>>>> upstream/main
     )
     const isValidationErrorWarning = isToucanAuctionKYCEnabled
       ? Boolean(validationError)

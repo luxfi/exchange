@@ -131,8 +131,13 @@ export const NICE_VALUES = {
 export const DEFAULT_Y_AXIS_LEVELS = [0, 20000, 40000, 60000, 80000, 100000] as const
 
 // Typography for canvas rendering
+<<<<<<< HEAD
 // Matches the theme font stack from pkgs/ui/src/theme/fonts.ts (baselBook/baselMedium)
 // Used for lightweight-charts and other canvas-based rendering where React/Gui theming isn't available
+=======
+// Matches the theme font stack from packages/ui/src/theme/fonts.ts (baselBook/baselMedium)
+// Used for lightweight-charts and other canvas-based rendering where React/Tamagui theming isn't available
+>>>>>>> upstream/main
 export const CHART_FONT_FAMILY =
   'Basel, -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif'
 
@@ -152,6 +157,11 @@ export const CHART_DIMENSIONS = {
   // Minimum width for left price scale (y-axis) - ensures y-axis labels have enough space
   // and both charts align horizontally
   Y_AXIS_MIN_WIDTH: 30,
+<<<<<<< HEAD
+=======
+  // Width of the Y-axis label overlay area on the clearing price chart
+  Y_AXIS_LABEL_WIDTH: 50,
+>>>>>>> upstream/main
 } as const
 
 // Tooltip stacking configuration for when BidLineTooltip and ClearingPriceTooltip overlap

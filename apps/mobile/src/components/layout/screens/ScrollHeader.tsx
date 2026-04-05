@@ -4,17 +4,28 @@ import { StyleProp, ViewStyle } from 'react-native'
 import Animated, { Extrapolate, interpolate, SharedValue, useAnimatedStyle } from 'react-native-reanimated'
 import { BackButton } from 'src/components/buttons/BackButton'
 import { WithScrollToTop } from 'src/components/layout/screens/WithScrollToTop'
+<<<<<<< HEAD
 import { ColorTokens, Flex } from '@l.x/ui/src'
 import { AnimatedFlex } from '@l.x/ui/src/components/layout/AnimatedFlex'
 import { iconSizes, zIndexes } from '@l.x/ui/src/theme'
 import { useAppInsets } from '@l.x/lx/src/hooks/useAppInsets'
+=======
+import { ColorTokens, Flex } from 'ui/src'
+import { AnimatedFlex } from 'ui/src/components/layout/AnimatedFlex'
+import { iconSizes, zIndexes } from 'ui/src/theme'
+import { useAppInsets } from 'uniswap/src/hooks/useAppInsets'
+>>>>>>> upstream/main
 
 type ScrollHeaderProps = {
   scrollY: SharedValue<number>
   showHeaderScrollYDistance: number
   fullScreen?: boolean
   // hard to type
+<<<<<<< HEAD
   // biome-ignore lint/suspicious/noExplicitAny: Ref type varies based on list component used
+=======
+  // oxlint-disable-next-line typescript/no-explicit-any -- Ref type varies based on list component used
+>>>>>>> upstream/main
   listRef: React.MutableRefObject<any>
   centerElement?: JSX.Element
   rightElement?: JSX.Element

@@ -1,5 +1,9 @@
 import { WalletConnectState } from 'src/features/walletConnect/walletConnectSlice'
+<<<<<<< HEAD
 import { logger } from '@l.x/utils/src/logger/logger'
+=======
+import { logger } from 'utilities/src/logger/logger'
+>>>>>>> upstream/main
 
 export function fetchDappDetails(
   topic: string,

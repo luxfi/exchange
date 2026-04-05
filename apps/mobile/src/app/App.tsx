@@ -3,7 +3,11 @@ import { loadDevMessages, loadErrorMessages } from '@apollo/client/dev'
 import { DdRum, RumActionType } from '@datadog/mobile-react-native'
 import { BottomSheetModalProvider } from '@gorhom/bottom-sheet'
 import { PerformanceProfiler, type RenderPassReport } from '@shopify/react-native-performance'
+<<<<<<< HEAD
 import { ApiInit, getEntryGatewayUrl, provideSessionService } from '@l.x/api'
+=======
+import { ApiInit, getEntryGatewayUrl, provideSessionService } from '@universe/api'
+>>>>>>> upstream/main
 import {
   DatadogSessionSampleRateKey,
   DynamicConfigs,
@@ -22,7 +26,11 @@ import {
   useFeatureFlag,
   useIsSessionServiceEnabled,
   WALLET_FEATURE_FLAG_NAMES,
+<<<<<<< HEAD
 } from '@l.x/gating'
+=======
+} from '@universe/gating'
+>>>>>>> upstream/main
 import {
   type ChallengeSolver,
   ChallengeType,
@@ -33,7 +41,11 @@ import {
   createSessionInitializationService,
   createTurnstileMockSolver,
   type SessionInitializationService,
+<<<<<<< HEAD
 } from '@l.x/sessions'
+=======
+} from '@universe/sessions'
+>>>>>>> upstream/main
 import { MMKVWrapper } from 'apollo3-cache-persist'
 import { default as React, StrictMode, useCallback, useEffect, useMemo, useRef } from 'react'
 import { I18nextProvider } from 'react-i18next'
@@ -52,8 +64,13 @@ import { PersistGate } from 'redux-persist/integration/react'
 import { MobileWalletNavigationProvider } from 'src/app/MobileWalletNavigationProvider'
 import { AppModals } from 'src/app/modals/AppModals'
 import { useIsPartOfNavigationTree } from 'src/app/navigation/hooks'
+<<<<<<< HEAD
 import { NavigationContainer } from 'src/app/navigation/NavigationContainer'
 import { AppStackNavigator } from 'src/app/navigation/navigation'
+=======
+import { AppStackNavigator } from 'src/app/navigation/navigation'
+import { NavigationContainer } from 'src/app/navigation/NavigationContainer'
+>>>>>>> upstream/main
 import { store } from 'src/app/store'
 import { TraceUserProperties } from 'src/components/Trace/TraceUserProperties'
 import { initAppsFlyer } from 'src/features/analytics/appsflyer'
@@ -82,6 +99,7 @@ import { SystemBannerPortalProvider } from 'src/notification-service/notificatio
 import { initDynamicIntlPolyfills } from 'src/polyfills/intl-delayed'
 import { useDatadogUserAttributesTracking } from 'src/screens/HomeScreen/useDatadogUserAttributesTracking'
 import { useAppStateTrigger } from 'src/utils/useAppStateTrigger'
+<<<<<<< HEAD
 import { flexStyles, ImageSettingsProvider, useIsDarkMode } from '@l.x/ui/src'
 import { TestnetModeBanner } from 'lx/src/components/banners/TestnetModeBanner'
 import { BlankUrlProvider } from 'lx/src/contexts/UrlContext'
@@ -125,6 +143,53 @@ import { NativeWalletProvider } from '@luxfi/wallet/src/features/wallet/provider
 import { selectFinishedOnboarding } from '@luxfi/wallet/src/features/wallet/selectors'
 import { SharedWalletProvider as SharedWalletReduxProvider } from '@luxfi/wallet/src/providers/SharedWalletProvider'
 import { getReduxPersistor } from '@luxfi/wallet/src/state/persistor'
+=======
+import { flexStyles, ImageSettingsProvider, useIsDarkMode } from 'ui/src'
+import { TestnetModeBanner } from 'uniswap/src/components/banners/TestnetModeBanner'
+import { BlankUrlProvider } from 'uniswap/src/contexts/UrlContext'
+import { initializePortfolioQueryOverrides } from 'uniswap/src/data/rest/portfolioBalanceOverrides'
+import { useCurrentAppearanceSetting } from 'uniswap/src/features/appearance/hooks'
+import { selectFavoriteTokens } from 'uniswap/src/features/favorites/selectors'
+import { useAppFiatCurrencyInfo } from 'uniswap/src/features/fiatCurrency/hooks'
+import { StatsigProviderWrapper } from 'uniswap/src/features/gating/StatsigProviderWrapper'
+import { mapLanguageToLocale } from 'uniswap/src/features/language/constants'
+import { useCurrentLanguageInfo } from 'uniswap/src/features/language/hooks'
+import { LocalizationContextProvider } from 'uniswap/src/features/language/LocalizationContext'
+import { clearNotificationQueue } from 'uniswap/src/features/notifications/slice/slice'
+import { TokenPriceProvider } from 'uniswap/src/features/prices/TokenPriceContext'
+import { selectCurrentLanguage } from 'uniswap/src/features/settings/selectors'
+import { MobileEventName } from 'uniswap/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
+import Trace from 'uniswap/src/features/telemetry/Trace'
+import i18n, { changeLanguage } from 'uniswap/src/i18n'
+import { type CurrencyId } from 'uniswap/src/types/currency'
+import { datadogEnabledBuild } from 'utilities/src/environment/constants'
+import { isTestEnv } from 'utilities/src/environment/env'
+import { registerConsoleOverrides } from 'utilities/src/logger/console'
+import { attachUnhandledRejectionHandler, setAttributesToDatadog } from 'utilities/src/logger/datadog/Datadog'
+import { DDRumAction, DDRumTiming } from 'utilities/src/logger/datadog/datadogEvents'
+import { getLogger, logger } from 'utilities/src/logger/logger'
+import { isIOS } from 'utilities/src/platform'
+import { AnalyticsNavigationContextProvider } from 'utilities/src/telemetry/trace/AnalyticsNavigationContext'
+import { ErrorBoundary } from 'wallet/src/components/ErrorBoundary/ErrorBoundary'
+// oxlint-disable-next-line no-restricted-imports -- Required for Apollo client initialization at app root
+import { usePersistedApolloClient } from 'wallet/src/data/apollo/usePersistedApolloClient'
+import { AccountsStoreContextProvider } from 'wallet/src/features/accounts/store/provider'
+import { StatsigUserIdentifiersUpdater } from 'wallet/src/features/gating/StatsigUserIdentifiersUpdater'
+import { useHeartbeatReporter } from 'wallet/src/features/telemetry/hooks/useHeartbeatReporter'
+import { useLastBalancesReporter } from 'wallet/src/features/telemetry/hooks/useLastBalancesReporter'
+import { selectAllowAnalytics } from 'wallet/src/features/telemetry/selectors'
+import { useTestnetModeForLoggingAndAnalytics } from 'wallet/src/features/testnetMode/hooks/useTestnetModeForLoggingAndAnalytics'
+import { WalletUniswapProvider } from 'wallet/src/features/transactions/contexts/WalletUniswapContext'
+import { TransactionHistoryUpdater } from 'wallet/src/features/transactions/TransactionHistoryUpdater'
+import { type Account } from 'wallet/src/features/wallet/accounts/types'
+import { WalletContextProvider } from 'wallet/src/features/wallet/context'
+import { useAccounts } from 'wallet/src/features/wallet/hooks'
+import { NativeWalletProvider } from 'wallet/src/features/wallet/providers/NativeWalletProvider'
+import { selectFinishedOnboarding } from 'wallet/src/features/wallet/selectors'
+import { SharedWalletProvider as SharedWalletReduxProvider } from 'wallet/src/providers/SharedWalletProvider'
+import { getReduxPersistor } from 'wallet/src/state/persistor'
+>>>>>>> upstream/main
 
 enableFreeze(true)
 
@@ -266,6 +331,23 @@ function App(): JSX.Element | null {
 
 const MAX_CACHE_SIZE_IN_BYTES = 1024 * 1024 * 25 // 25 MB
 
+<<<<<<< HEAD
+=======
+/**
+ * Applies the persisted language from Redux to i18n on app launch.
+ * Renders inside PersistGate so Redux is already rehydrated when this mounts.
+ */
+function ApplyPersistedLanguage(): null {
+  const currentLanguage = useSelector(selectCurrentLanguage)
+
+  useEffect(() => {
+    changeLanguage(mapLanguageToLocale[currentLanguage]).catch(() => undefined)
+  }, [currentLanguage])
+
+  return null
+}
+
+>>>>>>> upstream/main
 // Ensures redux state is available inside usePersistedApolloClient for the custom endpoint
 function AppOuter(): JSX.Element | null {
   const customEndpoint = useSelector(selectCustomEndpoint)
@@ -333,6 +415,10 @@ function AppOuter(): JSX.Element | null {
     <ApolloProvider client={client}>
       <PersistGate loading={null} persistor={getReduxPersistor()}>
         <ErrorBoundaryWrapper>
+<<<<<<< HEAD
+=======
+          <ApplyPersistedLanguage />
+>>>>>>> upstream/main
           <BlankUrlProvider>
             <LocalizationContextProvider>
               <ImageSettingsProvider enableExpoImage={enableExpoImage}>
@@ -342,7 +428,11 @@ function AppOuter(): JSX.Element | null {
                       <MobileWalletNavigationProvider>
                         <NativeWalletProvider>
                           <TokenPriceProvider>
+<<<<<<< HEAD
                             <WalletLuxProvider>
+=======
+                            <WalletUniswapProvider>
+>>>>>>> upstream/main
                               <AccountsStoreContextProvider>
                                 <DataUpdaters />
                                 <BottomSheetModalProvider>
@@ -353,7 +443,11 @@ function AppOuter(): JSX.Element | null {
                                 </BottomSheetModalProvider>
                                 <NotificationToastWrapper />
                               </AccountsStoreContextProvider>
+<<<<<<< HEAD
                             </WalletLuxProvider>
+=======
+                            </WalletUniswapProvider>
+>>>>>>> upstream/main
                           </TokenPriceProvider>
                         </NativeWalletProvider>
                       </MobileWalletNavigationProvider>

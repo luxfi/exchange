@@ -1,6 +1,10 @@
 import { useFocusEffect } from '@react-navigation/core'
 import { NativeStackScreenProps } from '@react-navigation/native-stack'
+<<<<<<< HEAD
 import { SharedEventName } from '@luxamm/analytics-events'
+=======
+import { SharedEventName } from '@uniswap/analytics-events'
+>>>>>>> upstream/main
 import { addScreenshotListener } from 'expo-screen-capture'
 import React, { useCallback, useEffect, useReducer, useState } from 'react'
 import { useTranslation } from 'react-i18next'
@@ -12,6 +16,7 @@ import { MnemonicDisplay } from 'src/components/mnemonic/MnemonicDisplay'
 import { useLockScreenOnBlur } from 'src/features/lockScreen/hooks/useLockScreenOnBlur'
 import { BackupSpeedBumpModal } from 'src/features/onboarding/BackupSpeedBumpModal'
 import { OnboardingScreen } from 'src/features/onboarding/OnboardingScreen'
+<<<<<<< HEAD
 import { Button, Flex, Text, useMedia, useSporeColors } from '@l.x/ui/src'
 import { EyeSlash, FileListLock, GraduationCap, Key, Lock, PapersText, Pen } from '@l.x/ui/src/components/icons'
 import { iconSizes } from '@l.x/ui/src/theme'
@@ -27,6 +32,23 @@ import { EditAccountAction, editAccountActions } from '@luxfi/wallet/src/feature
 import { BackupType } from '@luxfi/wallet/src/features/wallet/accounts/types'
 import { hasBackup } from '@luxfi/wallet/src/features/wallet/accounts/utils'
 import { useSignerAccount } from '@luxfi/wallet/src/features/wallet/hooks'
+=======
+import { Button, Flex, Text, useMedia, useSporeColors } from 'ui/src'
+import { EyeSlash, FileListLock, GraduationCap, Key, Lock, PapersText, Pen } from 'ui/src/components/icons'
+import { iconSizes } from 'ui/src/theme'
+import { Modal } from 'uniswap/src/components/modals/Modal'
+import { ElementName, ModalName } from 'uniswap/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
+import Trace from 'uniswap/src/features/telemetry/Trace'
+import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+import { OnboardingEntryPoint } from 'uniswap/src/types/onboarding'
+import { ManualPageViewScreen, MobileScreens, OnboardingScreens } from 'uniswap/src/types/screens/mobile'
+import { useOnboardingContext } from 'wallet/src/features/onboarding/OnboardingContext'
+import { EditAccountAction, editAccountActions } from 'wallet/src/features/wallet/accounts/editAccountSaga'
+import { BackupType } from 'wallet/src/features/wallet/accounts/types'
+import { hasBackup } from 'wallet/src/features/wallet/accounts/utils'
+import { useSignerAccount } from 'wallet/src/features/wallet/hooks'
+>>>>>>> upstream/main
 
 type Props = NativeStackScreenProps<OnboardingStackParamList, OnboardingScreens.BackupManual>
 

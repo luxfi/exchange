@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import { Flex, useMedia } from '@l.x/ui/src'
+=======
+import { Flex, useMedia } from 'ui/src'
+>>>>>>> upstream/main
 import { HEADER_TRANSITION } from '~/components/Explore/stickyHeader/constants'
 import { useAppHeaderHeight } from '~/hooks/useAppHeaderHeight'
 

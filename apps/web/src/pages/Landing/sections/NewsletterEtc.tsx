@@ -1,5 +1,6 @@
 import React from 'react'
 import { Trans, useTranslation } from 'react-i18next'
+<<<<<<< HEAD
 import { Anchor, Flex, styled, Text } from '@l.x/ui/src'
 import { ArrowUpRight } from '@l.x/ui/src/components/icons/ArrowUpRight'
 import { BookOpen } from '@l.x/ui/src/components/icons/BookOpen'
@@ -8,6 +9,16 @@ import { PenLine } from '@l.x/ui/src/components/icons/PenLine'
 import { SpeechBubbles } from '@l.x/ui/src/components/icons/SpeechBubbles'
 import { lxUrls } from '@l.x/lx/src/constants/urls'
 import { ClickableGuiStyle } from '~/theme/components/styles'
+=======
+import { Anchor, Flex, styled, Text } from 'ui/src'
+import { ArrowUpRight } from 'ui/src/components/icons/ArrowUpRight'
+import { BookOpen } from 'ui/src/components/icons/BookOpen'
+import { GraduationCap } from 'ui/src/components/icons/GraduationCap'
+import { PenLine } from 'ui/src/components/icons/PenLine'
+import { SpeechBubbles } from 'ui/src/components/icons/SpeechBubbles'
+import { uniswapUrls } from 'uniswap/src/constants/urls'
+import { ClickableTamaguiStyle } from '~/theme/components/styles'
+>>>>>>> upstream/main
 
 const SectionLayout = styled(Flex, {
   width: '100%',
@@ -96,7 +107,11 @@ function UniverseRow({
         target="_blank"
         rel="noopener noreferrer"
         textDecorationLine="none"
+<<<<<<< HEAD
         {...ClickableGuiStyle}
+=======
+        {...ClickableTamaguiStyle}
+>>>>>>> upstream/main
       >
         <RowContent icon={icon} title={title} description={description} showArrow={showArrow} />
       </Anchor>
@@ -113,7 +128,11 @@ const SocialLink = styled(Anchor, {
   color: '$neutral2',
   target: '_blank',
   rel: 'noopener noreferrer',
+<<<<<<< HEAD
   ...ClickableGuiStyle,
+=======
+  ...ClickableTamaguiStyle,
+>>>>>>> upstream/main
   style: {
     textDecoration: 'none',
   },
@@ -132,7 +151,11 @@ export function NewsletterEtc() {
           icon={<GraduationCap size="$icon.36" fill="$neutral1" />}
           title={t('common.helpCenter')}
           description={t('landing.helpCenter.body')}
+<<<<<<< HEAD
           href={lxUrls.helpCenterUrl}
+=======
+          href={uniswapUrls.helpCenterUrl}
+>>>>>>> upstream/main
         />
         <UniverseRow
           icon={
@@ -142,13 +165,21 @@ export function NewsletterEtc() {
           }
           title={t('common.blog')}
           description={t('landing.blog.description')}
+<<<<<<< HEAD
           href={lxUrls.blogUrl}
+=======
+          href={uniswapUrls.blogUrl}
+>>>>>>> upstream/main
         />
         <UniverseRow
           icon={<BookOpen size="$icon.36" fill="$neutral1" />}
           title={t('common.docs')}
           description={t('landing.docs.description')}
+<<<<<<< HEAD
           href={lxUrls.docsUrl}
+=======
+          href={uniswapUrls.docsUrl}
+>>>>>>> upstream/main
         />
         <UniverseRow
           icon={<SpeechBubbles size="$icon.36" color="$neutral1" />}
@@ -157,10 +188,17 @@ export function NewsletterEtc() {
             <Trans
               i18nKey="landing.socials"
               components={{
+<<<<<<< HEAD
                 LinkX: <SocialLink href={lxUrls.social.x} />,
                 LinkFarcaster: <SocialLink href={lxUrls.social.farcaster} />,
                 LinkLinkedIn: <SocialLink href={lxUrls.social.linkedin} />,
                 LinkTikTok: <SocialLink href={lxUrls.social.tiktok} />,
+=======
+                LinkX: <SocialLink href={uniswapUrls.social.x} />,
+                LinkFarcaster: <SocialLink href={uniswapUrls.social.farcaster} />,
+                LinkLinkedIn: <SocialLink href={uniswapUrls.social.linkedin} />,
+                LinkTikTok: <SocialLink href={uniswapUrls.social.tiktok} />,
+>>>>>>> upstream/main
               }}
             />
           }

@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 /* eslint-disable max-lines -- TODO(Toucan): split renderer into smaller modules */
+=======
+/* oxlint-disable max-lines -- TODO(Toucan): split renderer into smaller modules */
+>>>>>>> upstream/main
 
 import { BitmapCoordinatesRenderingScope, CanvasRenderingTarget2D } from 'fancy-canvas'
 import {
@@ -10,7 +14,11 @@ import {
   Time,
   UTCTimestamp,
 } from 'lightweight-charts'
+<<<<<<< HEAD
 import { logger } from '@l.x/utils/src/logger/logger'
+=======
+import { logger } from 'utilities/src/logger/logger'
+>>>>>>> upstream/main
 import { roundRect } from '~/components/Charts/utils'
 import { ColumnPosition, calculateColumnPositionsInPlace, positionsBox } from '~/components/Charts/VolumeChart/utils'
 import {

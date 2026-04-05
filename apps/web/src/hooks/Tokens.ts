@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { Currency } from '@luxamm/sdk-core'
 import { useMemo } from 'react'
 import { getChainInfo } from '@l.x/lx/src/features/chains/chainInfo'
@@ -10,6 +11,20 @@ import {
 } from '@l.x/lx/src/features/tokens/useCurrencyInfo'
 import { AddressStringFormat, normalizeAddress } from '@l.x/lx/src/utils/addresses'
 import { buildCurrencyId } from '@l.x/lx/src/utils/currencyId'
+=======
+import { Currency } from '@uniswap/sdk-core'
+import { useMemo } from 'react'
+import { getChainInfo } from 'uniswap/src/features/chains/chainInfo'
+import { useSupportedChainId } from 'uniswap/src/features/chains/hooks/useSupportedChainId'
+import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { CurrencyInfo } from 'uniswap/src/features/dataApi/types'
+import {
+  useCurrencyInfo as useUniswapCurrencyInfo,
+  useCurrencyInfoWithLoading as useUniswapCurrencyInfoWithLoading,
+} from 'uniswap/src/features/tokens/useCurrencyInfo'
+import { AddressStringFormat, normalizeAddress } from 'uniswap/src/utils/addresses'
+import { buildCurrencyId } from 'uniswap/src/utils/currencyId'
+>>>>>>> upstream/main
 import { NATIVE_CHAIN_ID } from '~/constants/tokens'
 import { useAccount } from '~/hooks/useAccount'
 
@@ -58,12 +73,23 @@ export function useCurrencyWithLoading(
 }
 
 /**
+<<<<<<< HEAD
  * @deprecated useCurrencyInfo from pkgs/lux instead
  * Returns a CurrencyInfo from the tokenAddress+chainId pair.
  */
 export function useCurrencyInfo(currency?: Currency, chainId?: UniverseChainId, skip?: boolean): Maybe<CurrencyInfo>
 export function useCurrencyInfo(address?: string, chainId?: UniverseChainId, skip?: boolean): Maybe<CurrencyInfo>
 // eslint-disable-next-line max-params
+=======
+ * @deprecated useCurrencyInfo from packages/uniswap instead
+ * Returns a CurrencyInfo from the tokenAddress+chainId pair.
+ */
+// oxlint-disable-next-line max-params -- biome-parity: oxlint is stricter here
+export function useCurrencyInfo(currency?: Currency, chainId?: UniverseChainId, skip?: boolean): Maybe<CurrencyInfo>
+// oxlint-disable-next-line max-params -- biome-parity: oxlint is stricter here
+export function useCurrencyInfo(address?: string, chainId?: UniverseChainId, skip?: boolean): Maybe<CurrencyInfo>
+// oxlint-disable-next-line max-params
+>>>>>>> upstream/main
 export function useCurrencyInfo(
   addressOrCurrency?: string | Currency,
   chainId?: UniverseChainId,
@@ -74,7 +100,11 @@ export function useCurrencyInfo(
     shouldSkip,
     addressOrCurrency: processedAddress,
   } = useCurrencyPreprocessing({ addressOrCurrency, chainId, skip })
+<<<<<<< HEAD
   const currencyInfo = useLuxCurrencyInfo(currencyId, { skip: shouldSkip })
+=======
+  const currencyInfo = useUniswapCurrencyInfo(currencyId, { skip: shouldSkip })
+>>>>>>> upstream/main
 
   return useMemo(() => {
     if (!currencyInfo || !processedAddress || skip) {
@@ -84,17 +114,29 @@ export function useCurrencyInfo(
   }, [processedAddress, skip, currencyInfo])
 }
 
+<<<<<<< HEAD
+=======
+// oxlint-disable-next-line max-params -- biome-parity: oxlint is stricter here
+>>>>>>> upstream/main
 function useCurrencyInfoWithLoading(
   currency?: Currency,
   chainId?: UniverseChainId,
   skip?: boolean,
 ): { currencyInfo: Maybe<CurrencyInfo>; loading: boolean }
+<<<<<<< HEAD
+=======
+// oxlint-disable-next-line max-params -- biome-parity: oxlint is stricter here
+>>>>>>> upstream/main
 function useCurrencyInfoWithLoading(
   address?: string,
   chainId?: UniverseChainId,
   skip?: boolean,
 ): { currencyInfo: Maybe<CurrencyInfo>; loading: boolean }
+<<<<<<< HEAD
 // eslint-disable-next-line max-params
+=======
+// oxlint-disable-next-line max-params
+>>>>>>> upstream/main
 function useCurrencyInfoWithLoading(
   addressOrCurrency?: string | Currency,
   chainId?: UniverseChainId,
@@ -105,7 +147,11 @@ function useCurrencyInfoWithLoading(
     shouldSkip,
     addressOrCurrency: processedAddress,
   } = useCurrencyPreprocessing({ addressOrCurrency, chainId, skip })
+<<<<<<< HEAD
   const { currencyInfo, loading } = useLuxCurrencyInfoWithLoading(currencyId, { skip: shouldSkip })
+=======
+  const { currencyInfo, loading } = useUniswapCurrencyInfoWithLoading(currencyId, { skip: shouldSkip })
+>>>>>>> upstream/main
 
   const finalCurrencyInfo = useMemo(() => {
     if (!currencyInfo || !processedAddress || skip) {

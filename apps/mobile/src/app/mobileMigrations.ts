@@ -1,4 +1,5 @@
 // Type information currently gets lost after a migration
+<<<<<<< HEAD
 // biome-ignore-all lint/suspicious/noExplicitAny: Migration logic requires flexible typing
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
 /* eslint-disable @typescript-eslint/no-unsafe-return */
@@ -13,15 +14,40 @@ import { Language } from '@l.x/lx/src/features/language/constants'
 import { getNFTAssetKey } from '@l.x/lx/src/features/nfts/utils'
 import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
 import { type TransactionsState } from '@l.x/lx/src/features/transactions/slice'
+=======
+/* oxlint-disable typescript/no-explicit-any -- Migration logic requires flexible typing */
+/* oxlint-disable typescript/explicit-function-return-type */
+/* oxlint-disable typescript/no-unsafe-return */
+/* oxlint-disable max-lines */
+
+import dayjs from 'dayjs'
+import { AccountType } from 'uniswap/src/features/accounts/types'
+import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { toSupportedChainId } from 'uniswap/src/features/chains/utils'
+import { FiatCurrency } from 'uniswap/src/features/fiatCurrency/constants'
+import { Language } from 'uniswap/src/features/language/constants'
+import { getNFTAssetKey } from 'uniswap/src/features/nfts/utils'
+import { ModalName } from 'uniswap/src/features/telemetry/constants'
+import { type TransactionsState } from 'uniswap/src/features/transactions/slice'
+>>>>>>> upstream/main
 import {
   type ChainIdToTxIdToDetails,
   TransactionStatus,
   TransactionType,
+<<<<<<< HEAD
 } from '@l.x/lx/src/features/transactions/types/transactionDetails'
 import { createSafeMigrationFactory } from '@l.x/lx/src/state/createSafeMigration'
 import { DappRequestType } from '@l.x/lx/src/types/walletConnect'
 import { type Account } from '@luxfi/wallet/src/features/wallet/accounts/types'
 import { SwapProtectionSetting } from '@luxfi/wallet/src/features/wallet/slice'
+=======
+} from 'uniswap/src/features/transactions/types/transactionDetails'
+import { getWalletDeviceLanguage } from 'uniswap/src/i18n/utils'
+import { createSafeMigrationFactory } from 'uniswap/src/state/createSafeMigration'
+import { DappRequestType } from 'uniswap/src/types/walletConnect'
+import { type Account } from 'wallet/src/features/wallet/accounts/types'
+import { SwapProtectionSetting } from 'wallet/src/features/wallet/slice'
+>>>>>>> upstream/main
 
 const createSafeMigration = createSafeMigrationFactory('mobileMigrations')
 
@@ -637,7 +663,11 @@ export const convertHiddenNftsToNftsData = createSafeMigration({
 
     const nftsData: AccountToNftData = {}
     for (const accountAddress of accountAddresses) {
+<<<<<<< HEAD
       // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+=======
+      // oxlint-disable-next-line typescript/no-unnecessary-condition
+>>>>>>> upstream/main
       nftsData[accountAddress] ??= {}
       const hiddenNftKeys = Object.keys(state.favorites.hiddenNfts[accountAddress])
 
@@ -1000,6 +1030,10 @@ export const addPushNotifications = createSafeMigration({
 
 export const migrateDappRequestInfoTypes = createSafeMigration({
   name: 'migrateDappRequestInfoTypes',
+<<<<<<< HEAD
+=======
+  // oxlint-disable-next-line complexity -- biome-parity: oxlint is stricter here
+>>>>>>> upstream/main
   migrate: (state: any) => {
     const newState = { ...state }
 
@@ -1085,3 +1119,30 @@ export const migrateAndRemoveCloudBackupSlice = createSafeMigration({
     return fallbackState
   },
 })
+<<<<<<< HEAD
+=======
+
+export const setWalletDeviceLanguage = createSafeMigration({
+  name: 'setWalletDeviceLanguage',
+  migrate: (state: any) => {
+    if (!state?.userSettings) {
+      return state
+    }
+
+    return {
+      ...state,
+      userSettings: {
+        ...state.userSettings,
+        currentLanguage: getWalletDeviceLanguage(),
+      },
+    }
+  },
+  onError: (state: any) => ({
+    ...state,
+    userSettings: {
+      ...(state?.userSettings ?? {}),
+      currentLanguage: Language.English,
+    },
+  }),
+})
+>>>>>>> upstream/main

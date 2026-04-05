@@ -1,8 +1,15 @@
 import { call } from 'typed-redux-saga'
+<<<<<<< HEAD
 import { TransactionStepType } from '@l.x/lx/src/features/transactions/steps/types'
 import type { LpIncentivesClaimTransactionInfo } from '@l.x/lx/src/features/transactions/types/transactionDetails'
 import { TransactionType } from '@l.x/lx/src/features/transactions/types/transactionDetails'
 import { createSaga } from '@l.x/lx/src/utils/saga'
+=======
+import { TransactionStepType } from 'uniswap/src/features/transactions/steps/types'
+import type { LpIncentivesClaimTransactionInfo } from 'uniswap/src/features/transactions/types/transactionDetails'
+import { TransactionType } from 'uniswap/src/features/transactions/types/transactionDetails'
+import { createSaga } from 'uniswap/src/utils/saga'
+>>>>>>> upstream/main
 import { popupRegistry } from '~/components/Popups/registry'
 import { PopupType } from '~/components/Popups/types'
 import type { LpIncentivesClaimParams } from '~/state/sagas/lp_incentives/types'

@@ -7,6 +7,7 @@ import {
   SignRequest,
   WalletConnectSigningRequest,
 } from 'src/features/walletConnect/walletConnectSlice'
+<<<<<<< HEAD
 import { Flex, Text } from '@l.x/ui/src'
 import { ContentRow } from '@l.x/lx/src/components/transactions/requests/ContentRow'
 import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
@@ -22,6 +23,23 @@ import {
 } from '@luxfi/wallet/src/features/transactions/TransactionRequest/SpendingDetails'
 import { useNoYoloParser } from '@luxfi/wallet/src/utils/useNoYoloParser'
 import { useTransactionCurrencies } from '@luxfi/wallet/src/utils/useTransactionCurrencies'
+=======
+import { Flex, Text } from 'ui/src'
+import { ContentRow } from 'uniswap/src/components/transactions/requests/ContentRow'
+import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { EthMethod } from 'uniswap/src/features/dappRequests/types'
+import { Platform } from 'uniswap/src/features/platforms/types/Platform'
+import { EthTransaction } from 'uniswap/src/types/walletConnect'
+import { getValidAddress } from 'uniswap/src/utils/addresses'
+import { logger } from 'utilities/src/logger/logger'
+import { AddressButton } from 'wallet/src/components/buttons/AddressButton'
+import {
+  SpendingDetails,
+  SpendingEthDetails,
+} from 'wallet/src/features/transactions/TransactionRequest/SpendingDetails'
+import { useNoYoloParser } from 'wallet/src/utils/useNoYoloParser'
+import { useTransactionCurrencies } from 'wallet/src/utils/useTransactionCurrencies'
+>>>>>>> upstream/main
 
 const MAX_TYPED_DATA_PARSE_DEPTH = 3
 
@@ -57,7 +75,11 @@ const getParsedObjectDisplay = ({
   depth = 0,
 }: {
   chainId: number
+<<<<<<< HEAD
   // biome-ignore lint/suspicious/noExplicitAny: Function handles arbitrary JSON data structure
+=======
+  // oxlint-disable-next-line typescript/no-explicit-any -- Function handles arbitrary JSON data structure
+>>>>>>> upstream/main
   obj: any
   depth?: number
 }): JSX.Element => {

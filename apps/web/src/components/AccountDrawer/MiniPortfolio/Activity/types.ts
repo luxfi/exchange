@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { Currency } from '@luxamm/sdk-core'
 import { GraphQLApi } from '@l.x/api'
 import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
@@ -6,6 +7,16 @@ import {
   TransactionStatus,
   DEXOrderDetails,
 } from '@l.x/lx/src/features/transactions/types/transactionDetails'
+=======
+import { Currency } from '@uniswap/sdk-core'
+import { GraphQLApi } from '@universe/api'
+import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import {
+  TransactionOptions,
+  TransactionStatus,
+  UniswapXOrderDetails,
+} from 'uniswap/src/features/transactions/types/transactionDetails'
+>>>>>>> upstream/main
 
 /**
  * TODO: refactor parsing / Activity so that all Activity Types can have a detail sheet.
@@ -17,7 +28,11 @@ export type Activity = {
   chainId: UniverseChainId
   outputChainId?: UniverseChainId
   status: TransactionStatus
+<<<<<<< HEAD
   offchainOrderDetails?: DEXOrderDetails
+=======
+  offchainOrderDetails?: UniswapXOrderDetails
+>>>>>>> upstream/main
   statusMessage?: string
   timestamp: number
   title: string

@@ -10,8 +10,13 @@ const DATA: FlatListProps<unknown>['data'] = []
 const keyExtractor = (): string => 'key'
 
 /** Dummy component wrapping `FlatList` to behave like a ScrollView */
+<<<<<<< HEAD
 // biome-ignore lint/suspicious/noExplicitAny: Generic list ref type varies between FlatList and BottomSheetFlatList
 export const VirtualizedList = React.forwardRef<any, VirtualizedListProps>(function _VirtualizedList(
+=======
+// oxlint-disable-next-line typescript/no-explicit-any -- Generic list ref type varies between FlatList and BottomSheetFlatList
+export const VirtualizedList = React.forwardRef<any, VirtualizedListProps>(function VirtualizedListInner(
+>>>>>>> upstream/main
   { children, renderedInModal, ...props }: VirtualizedListProps,
   ref,
 ) {

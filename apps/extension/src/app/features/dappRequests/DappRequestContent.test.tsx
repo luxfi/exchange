@@ -4,8 +4,13 @@ import type { DappRequestStoreItem } from 'src/app/features/dappRequests/shared'
 import { DappRequestStatus } from 'src/app/features/dappRequests/shared'
 import type { WithMetadata } from 'src/app/features/dappRequests/slice'
 import { render, screen } from 'src/test/test-utils'
+<<<<<<< HEAD
 import { AccountType } from '@l.x/lx/src/features/accounts/types'
 import { DappRequestType } from '@l.x/lx/src/features/dappRequests/types'
+=======
+import { AccountType } from 'uniswap/src/features/accounts/types'
+import { DappRequestType } from 'uniswap/src/features/dappRequests/types'
+>>>>>>> upstream/main
 
 // Mock wagmi to avoid ESM import issues
 jest.mock('wagmi', () => ({
@@ -30,7 +35,11 @@ jest.mock('src/app/features/dapp/hooks', () => ({
   useDappLastChainId: jest.fn(() => 1),
 }))
 
+<<<<<<< HEAD
 jest.mock('lx/src/features/gas/hooks/useChainGasToken', () => ({
+=======
+jest.mock('uniswap/src/features/gas/hooks/useChainGasToken', () => ({
+>>>>>>> upstream/main
   useChainGasToken: jest.fn(() => ({
     gasToken: { symbol: 'ETH' },
     gasBalance: { value: '1000000000000000000', currency: { symbol: 'ETH' }, equalTo: () => false },
@@ -38,8 +47,13 @@ jest.mock('lx/src/features/gas/hooks/useChainGasToken', () => ({
   })),
 }))
 
+<<<<<<< HEAD
 jest.mock('lx/src/features/gas/utils', () => ({
   ...jest.requireActual('lx/src/features/gas/utils'),
+=======
+jest.mock('uniswap/src/features/gas/utils', () => ({
+  ...jest.requireActual('uniswap/src/features/gas/utils'),
+>>>>>>> upstream/main
   hasSufficientGasBalance: jest.fn(() => true),
   hasGasEstimationFailed: jest.fn(() => false),
 }))
@@ -53,7 +67,11 @@ jest.mock('wallet/src/features/wallet/hooks', () => ({
   })),
 }))
 
+<<<<<<< HEAD
 jest.mock('lx/src/features/chains/hooks/useEnabledChains', () => ({
+=======
+jest.mock('uniswap/src/features/chains/hooks/useEnabledChains', () => ({
+>>>>>>> upstream/main
   useEnabledChains: jest.fn(() => ({
     defaultChainId: 1,
   })),
@@ -73,7 +91,11 @@ jest.mock('wallet/src/features/transactions/TransactionRequest/AddressFooter', (
 }))
 
 // Mock currency hooks that parse transaction data
+<<<<<<< HEAD
 jest.mock('lx/src/data/apiClients/tradingApi/useTradingApiSwapQuery', () => ({
+=======
+jest.mock('uniswap/src/data/apiClients/tradingApi/useTradingApiSwapQuery', () => ({
+>>>>>>> upstream/main
   useTradingApiSwapQuery: jest.fn(() => ({
     data: undefined,
     isLoading: false,
@@ -204,11 +226,19 @@ describe('DappRequestContent - Stale Request Rendering', () => {
     renderDappRequestContent({
       createdAt: freshCreatedAt,
       isRequestStale: false,
+<<<<<<< HEAD
       frameUrl: 'https://app.lux.org',
     })
 
     // Should show "app.lux.org via example.com" in the URL label
     expect(screen.queryByText(/app\.lux\.org via example\.com/i)).not.toBeNull()
+=======
+      frameUrl: 'https://app.uniswap.org',
+    })
+
+    // Should show "app.uniswap.org via example.com" in the URL label
+    expect(screen.queryByText(/app\.uniswap\.org via example\.com/i)).not.toBeNull()
+>>>>>>> upstream/main
   })
 
   it('should display only top-level URL when frameUrl is not present', async () => {

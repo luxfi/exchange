@@ -16,15 +16,26 @@ import {
   ExtensionToDappRequestType,
 } from 'src/background/messagePassing/types/requests'
 import { isSandboxedFrame } from 'src/contentScript/isSandboxedFrame'
+<<<<<<< HEAD
 import { ExtensionEthMethodHandler } from 'src/contentScript/methodHandlers/ExtensionEthMethodHandler'
 import { emitAccountsChanged, emitChainChanged } from 'src/contentScript/methodHandlers/emitUtils'
 import { ProviderDirectMethodHandler } from 'src/contentScript/methodHandlers/ProviderDirectMethodHandler'
 import { LuxMethodHandler } from 'src/contentScript/methodHandlers/LuxMethodHandler'
+=======
+import { emitAccountsChanged, emitChainChanged } from 'src/contentScript/methodHandlers/emitUtils'
+import { ExtensionEthMethodHandler } from 'src/contentScript/methodHandlers/ExtensionEthMethodHandler'
+import { ProviderDirectMethodHandler } from 'src/contentScript/methodHandlers/ProviderDirectMethodHandler'
+import { UniswapMethodHandler } from 'src/contentScript/methodHandlers/UniswapMethodHandler'
+>>>>>>> upstream/main
 import {
   isDeprecatedMethod,
   isExtensionEthMethod,
   isProviderDirectMethod,
+<<<<<<< HEAD
   isLuxMethod,
+=======
+  isUniswapMethod,
+>>>>>>> upstream/main
   isUnsupportedMethod,
   postDeprecatedMethodError,
   postParsingError,
@@ -38,6 +49,7 @@ import {
   WindowEthereumRequest,
 } from 'src/contentScript/types'
 import { logContentScriptError } from 'src/contentScript/utils'
+<<<<<<< HEAD
 import { chainIdToHexadecimalString } from '@l.x/lx/src/features/chains/utils'
 import { EthMethod } from '@l.x/lx/src/features/dappRequests/types'
 import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
@@ -48,6 +60,18 @@ import { logger } from '@l.x/utils/src/logger/logger'
 import { arraysAreEqual } from '@l.x/utils/src/primitives/array'
 import { ONE_SECOND_MS } from '@l.x/utils/src/time/time'
 import { walletContextValue } from '@luxfi/wallet/src/features/wallet/context'
+=======
+import { chainIdToHexadecimalString } from 'uniswap/src/features/chains/utils'
+import { EthMethod } from 'uniswap/src/features/dappRequests/types'
+import { Platform } from 'uniswap/src/features/platforms/types/Platform'
+import { ExtensionEventName } from 'uniswap/src/features/telemetry/constants'
+import { getValidAddress } from 'uniswap/src/utils/addresses'
+import { HexString } from 'utilities/src/addresses/hex'
+import { logger } from 'utilities/src/logger/logger'
+import { arraysAreEqual } from 'utilities/src/primitives/array'
+import { ONE_SECOND_MS } from 'utilities/src/time/time'
+import { walletContextValue } from 'wallet/src/features/wallet/context'
+>>>>>>> upstream/main
 import { defineContentScript } from 'wxt/utils/define-content-script'
 import { ZodError } from 'zod'
 
@@ -125,7 +149,11 @@ function makeInjected(): void {
     setConnectedAddressesAndMaybeEmit,
   })
 
+<<<<<<< HEAD
   const luxMethodHandler = new LuxMethodHandler({
+=======
+  const uniswapMethodHandler = new UniswapMethodHandler({
+>>>>>>> upstream/main
     getChainId,
     getProvider,
     getConnectedAddresses,
@@ -157,9 +185,15 @@ function makeInjected(): void {
         return
       }
 
+<<<<<<< HEAD
       if (isLuxMethod(request.method)) {
         try {
           await luxMethodHandler.handleRequest(request, source)
+=======
+      if (isUniswapMethod(request.method)) {
+        try {
+          await uniswapMethodHandler.handleRequest(request, source)
+>>>>>>> upstream/main
         } catch (e) {
           if (e instanceof ZodError) {
             postParsingError({ source, requestId: request.requestId, method: request.method })
@@ -291,7 +325,11 @@ function makeInjected(): void {
   // notify background script if arc browser detected so we can disable the extension
   window.addEventListener('load', () => {
     // if styles aren't available at all, then we cannot check for the arc styles
+<<<<<<< HEAD
     // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+=======
+    // oxlint-disable-next-line typescript/no-unnecessary-condition
+>>>>>>> upstream/main
     const isStylesAvailable = document.documentElement && !!getComputedStyle(document.documentElement).length
     if (!isStylesAvailable) {
       return
@@ -306,7 +344,11 @@ function makeInjected(): void {
   })
 }
 
+<<<<<<< HEAD
 // eslint-disable-next-line import/no-unused-modules
+=======
+// oxlint-disable-next-line import/no-unused-modules
+>>>>>>> upstream/main
 export default defineContentScript({
   matches:
     __DEV__ || process.env.BUILD_ENV === 'dev'

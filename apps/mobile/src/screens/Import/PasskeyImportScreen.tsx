@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react'
 import { navigate } from 'src/app/navigation/rootNavigation'
 import { OnboardingStackParamList } from 'src/app/navigation/types'
 import { OnboardingScreen } from 'src/features/onboarding/OnboardingScreen'
+<<<<<<< HEAD
 import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
 import { OnboardingScreens } from '@l.x/lx/src/types/screens/mobile'
 import { logger } from '@l.x/utils/src/logger/logger'
@@ -14,6 +15,18 @@ import { WelcomeSplash } from '@luxfi/wallet/src/features/onboarding/WelcomeSpla
 import { fetchSeedPhrase } from '@luxfi/wallet/src/features/passkeys/passkeys'
 import { BackupType } from '@luxfi/wallet/src/features/wallet/accounts/types'
 import { Keyring } from '@luxfi/wallet/src/features/wallet/Keyring/Keyring'
+=======
+import { ModalName } from 'uniswap/src/features/telemetry/constants'
+import { OnboardingScreens } from 'uniswap/src/types/screens/mobile'
+import { logger } from 'utilities/src/logger/logger'
+import { useEvent } from 'utilities/src/react/hooks'
+import { useOnboardingContext } from 'wallet/src/features/onboarding/OnboardingContext'
+import { PasskeyImportLoading } from 'wallet/src/features/onboarding/PasskeyImportLoading'
+import { WelcomeSplash } from 'wallet/src/features/onboarding/WelcomeSplash'
+import { fetchSeedPhrase } from 'wallet/src/features/passkeys/passkeys'
+import { BackupType } from 'wallet/src/features/wallet/accounts/types'
+import { Keyring } from 'wallet/src/features/wallet/Keyring/Keyring'
+>>>>>>> upstream/main
 
 type Props = NativeStackScreenProps<OnboardingStackParamList, OnboardingScreens.PasskeyImport>
 
@@ -30,7 +43,11 @@ export function PasskeyImportScreen({ navigation, route: { params } }: Props): J
     })
   })
 
+<<<<<<< HEAD
   // biome-ignore lint/correctness/useExhaustiveDependencies: We want to import the mnemonic only once
+=======
+  // oxlint-disable-next-line react/exhaustive-deps -- We want to import the mnemonic only once
+>>>>>>> upstream/main
   useEffect(() => {
     const importAndGenerateAccount = async (): Promise<void> => {
       const mnemonic = await fetchSeedPhrase(params.passkeyCredential)
@@ -54,6 +71,10 @@ export function PasskeyImportScreen({ navigation, route: { params } }: Props): J
       navigation.goBack()
       navigate(ModalName.PasskeysHelp)
     })
+<<<<<<< HEAD
+=======
+    // oxlint-disable-next-line react/exhaustive-deps -- biome-parity: oxlint is stricter here
+>>>>>>> upstream/main
   }, [])
 
   return (

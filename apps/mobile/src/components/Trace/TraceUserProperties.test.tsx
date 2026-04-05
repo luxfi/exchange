@@ -6,6 +6,7 @@ import * as biometricAppSettingsHooks from 'src/features/biometrics/useBiometric
 import * as deviceBiometricHooks from 'src/features/biometrics/useDeviceSupportsBiometricAuth'
 import { AuthMethod } from 'src/features/telemetry/utils'
 import * as versionUtils from 'src/utils/version'
+<<<<<<< HEAD
 import * as useIsDarkModeFile from '@l.x/ui/src/hooks/useIsDarkMode'
 import { AccountType } from '@l.x/lx/src/features/accounts/types'
 import { FiatCurrency } from '@l.x/lx/src/features/fiatCurrency/constants'
@@ -20,6 +21,22 @@ import { SwapProtectionSetting } from '@luxfi/wallet/src/features/wallet/slice'
 
 // `any` is the actual type used by `jest.spyOn`
 // eslint-disable-next-line max-params
+=======
+import * as useIsDarkModeFile from 'ui/src/hooks/useIsDarkMode'
+import { AccountType } from 'uniswap/src/features/accounts/types'
+import { FiatCurrency } from 'uniswap/src/features/fiatCurrency/constants'
+import * as fiatCurrencyHooks from 'uniswap/src/features/fiatCurrency/hooks'
+import * as languageHooks from 'uniswap/src/features/language/hooks'
+import * as userSettingsHooks from 'uniswap/src/features/settings/hooks'
+import { MobileUserPropertyName } from 'uniswap/src/features/telemetry/user'
+import { analytics } from 'utilities/src/telemetry/analytics/analytics'
+import { BackupType, SignerMnemonicAccount } from 'wallet/src/features/wallet/accounts/types'
+import * as walletHooks from 'wallet/src/features/wallet/hooks'
+import { SwapProtectionSetting } from 'wallet/src/features/wallet/slice'
+
+// `any` is the actual type used by `jest.spyOn`
+// oxlint-disable-next-line max-params
+>>>>>>> upstream/main
 function mockFn(module: any, func: string, returnValue: any): jest.SpyInstance<any, unknown[]> {
   return jest.spyOn(module, func).mockImplementation(() => returnValue)
 }
@@ -28,12 +45,21 @@ jest.mock('@tanstack/react-query', () => ({
   ...jest.requireActual('@tanstack/react-query'),
   useQuery: jest.fn().mockReturnValue({ data: undefined }),
 }))
+<<<<<<< HEAD
 jest.mock('@l.x/api', () => ({
   ...jest.requireActual('@l.x/api'),
   provideLuxIdentifierService: {},
 }))
 jest.mock('@l.x/sessions', () => ({
   luxIdentifierQuery: jest.fn().mockReturnValue({}),
+=======
+jest.mock('@universe/api', () => ({
+  ...jest.requireActual('@universe/api'),
+  provideUniswapIdentifierService: {},
+}))
+jest.mock('@universe/sessions', () => ({
+  uniswapIdentifierQuery: jest.fn().mockReturnValue({}),
+>>>>>>> upstream/main
 }))
 jest.mock('react-native/Libraries/Utilities/useColorScheme')
 jest.mock('wallet/src/features/gating/userPropertyHooks')

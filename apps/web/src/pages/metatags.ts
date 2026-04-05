@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useLocation } from 'react-router'
+<<<<<<< HEAD
 import i18n from '@l.x/lx/src/i18n'
 import { brand, getBrandUrl } from '@l.x/config'
 import { MetaTagInjectorInput } from '~/shared-cloud/metatags'
@@ -11,6 +12,16 @@ function getDefaultMetatags(): MetaTagInjectorInput {
     image: getBrandUrl('/images/1200x630_Rich_Link_Preview_Image.png'),
     url: getBrandUrl(''),
   }
+=======
+import i18n from 'uniswap/src/i18n'
+import { MetaTagInjectorInput } from '~/shared-cloud/metatags'
+
+const DEFAULT_METATAGS: MetaTagInjectorInput = {
+  title: i18n.t('interface.metatags.title'),
+  description: i18n.t('interface.metatags.description'),
+  image: `https://app.uniswap.com/images/1200x630_Rich_Link_Preview_Image.png`,
+  url: 'https://app.uniswap.com',
+>>>>>>> upstream/main
 }
 
 type MetatagAttributes = { property?: string; name?: string; content: string }
@@ -22,6 +33,7 @@ type MetatagAttributes = { property?: string; name?: string; content: string }
  *
  * See `functions/README.md` for more info.
  */
+<<<<<<< HEAD
 export function useDynamicMetatags(metaTags?: MetaTagInjectorInput) {
   const resolvedMetaTags = metaTags ?? getDefaultMetatags()
   const [metaTagAttributes, setMetaTagAttributes] = useState<MetatagAttributes[]>([])
@@ -50,6 +62,35 @@ export function useDynamicMetatags(metaTags?: MetaTagInjectorInput) {
     }
     setMetaTagAttributes(attributes)
   }, [resolvedMetaTags, location])
+=======
+export function useDynamicMetatags(metaTags: MetaTagInjectorInput = DEFAULT_METATAGS) {
+  const [metaTagAttributes, setMetaTagAttributes] = useState<MetatagAttributes[]>([])
+  const location = useLocation()
+  // oxlint-disable-next-line react/exhaustive-deps -- location dependency is sufficient for this effect
+  useEffect(() => {
+    metaTags.url = window.location.href
+    const attributes: MetatagAttributes[] = [
+      { property: 'og:title', content: metaTags.title },
+      { property: 'og:url', content: metaTags.url },
+      { property: 'twitter:title', content: metaTags.title },
+    ]
+    if (metaTags.description) {
+      attributes.push(
+        { property: 'og:description', content: metaTags.description },
+        { name: 'description', content: metaTags.description },
+      )
+    }
+    if (metaTags.image) {
+      attributes.push(
+        { property: 'og:image', content: metaTags.image },
+        { property: 'og:image:alt', content: metaTags.title },
+        { property: 'twitter:image', content: metaTags.image },
+        { property: 'twitter:image:alt', content: metaTags.title },
+      )
+    }
+    setMetaTagAttributes(attributes)
+  }, [metaTags, location])
+>>>>>>> upstream/main
 
   return metaTagAttributes
 }

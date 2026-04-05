@@ -1,9 +1,18 @@
+<<<<<<< HEAD
 import { GraphQLApi } from '@l.x/api'
 import { UTCTimestamp } from 'lightweight-charts'
 import { useMemo, useReducer } from 'react'
 import { fromGraphQLChain } from '@l.x/lx/src/features/chains/utils'
 import { currencyIdToContractInput } from '@l.x/lx/src/features/dataApi/utils/currencyIdToContractInput'
 import { buildCurrencyId } from '@l.x/lx/src/utils/currencyId'
+=======
+import { GraphQLApi } from '@universe/api'
+import { UTCTimestamp } from 'lightweight-charts'
+import { useMemo, useReducer } from 'react'
+import { fromGraphQLChain } from 'uniswap/src/features/chains/utils'
+import { currencyIdToContractInput } from 'uniswap/src/features/dataApi/utils/currencyIdToContractInput'
+import { buildCurrencyId } from 'uniswap/src/utils/currencyId'
+>>>>>>> upstream/main
 import { PriceChartData } from '~/components/Charts/PriceChart'
 import { StackedLineData } from '~/components/Charts/StackedLineChart'
 import {
@@ -74,7 +83,11 @@ export function useTDPPriceChartData({
     // IMPORTANT: Must use no-cache to prevent infinite query loop.
     //
     // TokenPriceHistory returns Token objects (with chain/address) nested inside tokenProjects.
+<<<<<<< HEAD
     // Apollo normalizes these into the shared Token[chain, address] cache (defined in pkgs/lx/src/data/cache.ts).
+=======
+    // Apollo normalizes these into the shared Token[chain, address] cache (defined in packages/uniswap/src/data/cache.ts).
+>>>>>>> upstream/main
     // This triggers watchers on TokenWeb and TokenPrice queries (which use the same cache keys),
     // causing them to re-emit, which triggers re-renders, which re-executes this query → infinite loop.
     fetchPolicy: 'no-cache',
@@ -88,6 +101,10 @@ export function useTDPPriceChartData({
 
     // Data source strategy: prefer CoinGecko for line charts, use subgraph for candlesticks
     // Prefer per-chain CoinGecko history when available so multi-chain tokens render correctly
+<<<<<<< HEAD
+=======
+    // oxlint-disable-next-line react/exhaustive-deps -- biome-parity: oxlint is stricter here
+>>>>>>> upstream/main
     const coinGeckoProject = coinGeckoData?.tokenProjects?.[0]
     const coinGeckoMarket = coinGeckoProject?.markets?.[0]
     const coinGeckoTokenMarket = coinGeckoProject?.tokens.find((token) => token.chain === variables.chain)?.market
@@ -152,7 +169,11 @@ export function useTDPPriceChartData({
         }
       }
       // Special case: backend data for OHLC data is currently too granular, so points should be combined, halving the data
+<<<<<<< HEAD
       // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+=======
+      // oxlint-disable-next-line typescript/no-unnecessary-condition
+>>>>>>> upstream/main
       else if (priceChartType === PriceChartType.CANDLESTICK) {
         const combinedEntries = []
 
@@ -201,9 +222,17 @@ export function useTDPPriceChartData({
 
     const dataQuality = checkDataQuality({ data: entries, chartType: ChartType.PRICE, duration: variables.duration })
     return { chartType: ChartType.PRICE, entries, loading, dataQuality, disableCandlestickUI: fallback }
+<<<<<<< HEAD
   }, [
     currentPriceOverride,
     subgraphData?.token?.market,
+=======
+    // oxlint-disable-next-line react-hooks/exhaustive-deps -- coinGeckoData.tokenProjects is intentionally accessed via optional chaining
+  }, [
+    currentPriceOverride,
+    subgraphData?.token?.market,
+    // oxlint-disable-next-line react/exhaustive-deps -- biome-parity: oxlint is stricter here
+>>>>>>> upstream/main
     coinGeckoData?.tokenProjects?.[0],
     fallback,
     loading,

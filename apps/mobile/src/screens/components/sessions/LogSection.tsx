@@ -1,6 +1,10 @@
 import React, { memo } from 'react'
 import { type LogEntry, useSessionsDebugStore } from 'src/screens/stores/sessionsDebugStore'
+<<<<<<< HEAD
 import { Flex, Text, TouchableArea } from '@l.x/ui/src'
+=======
+import { Flex, Text, TouchableArea } from 'ui/src'
+>>>>>>> upstream/main
 
 function formatTime(date: Date): string {
   return date.toLocaleTimeString('en-US', {

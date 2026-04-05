@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import { TestID } from '../../../../../pkgs/lx/src/test/fixtures/testIDs'
+=======
+import { TestID } from '../../../../../packages/uniswap/src/test/fixtures/testIDs'
+>>>>>>> upstream/main
 
 const output: Record<string, string> = {}
 

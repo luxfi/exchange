@@ -1,7 +1,12 @@
 import type { RouteProp } from '@react-navigation/native'
 import { useIsFocused, useNavigation, useRoute, useScrollToTop } from '@react-navigation/native'
+<<<<<<< HEAD
 import { SharedEventName } from '@luxamm/analytics-events'
 import { FeatureFlags, useFeatureFlag } from '@luxfi/gating'
+=======
+import { SharedEventName } from '@uniswap/analytics-events'
+import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+>>>>>>> upstream/main
 import { useEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { type TextInput } from 'react-native'
@@ -13,6 +18,7 @@ import type { ExploreStackParamList } from 'src/app/navigation/types'
 import { ExploreSections } from 'src/components/explore/ExploreSections/ExploreSections'
 import { ExploreScreenSearchResultsList } from 'src/components/explore/search/ExploreScreenSearchResultsList'
 import { Screen } from 'src/components/layout/Screen'
+<<<<<<< HEAD
 import { Flex, useLayoutAnimationOnChange } from '@l.x/ui/src'
 import { useBottomSheetContext } from '@l.x/lx/src/components/modals/BottomSheetContext'
 import { HandleBar } from '@l.x/lx/src/components/modals/HandleBar'
@@ -27,6 +33,22 @@ import { MobileScreens } from '@l.x/lx/src/types/screens/mobile'
 import { isAndroid } from '@l.x/utils/src/platform'
 import { useEvent } from '@l.x/utils/src/react/hooks'
 import { setHasUsedExplore } from '@luxfi/wallet/src/features/behaviorHistory/slice'
+=======
+import { Flex, useLayoutAnimationOnChange } from 'ui/src'
+import { useBottomSheetContext } from 'uniswap/src/components/modals/BottomSheetContext'
+import { HandleBar } from 'uniswap/src/components/modals/HandleBar'
+import { NetworkFilter, type NetworkFilterProps } from 'uniswap/src/components/network/NetworkFilter'
+import { useEnabledChains } from 'uniswap/src/features/chains/hooks/useEnabledChains'
+import type { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { useFilterCallbacks } from 'uniswap/src/features/search/SearchModal/hooks/useFilterCallbacks'
+import { CancelBehaviorType, SearchTextInput } from 'uniswap/src/features/search/SearchTextInput'
+import { MobileEventName, ModalName, SectionName } from 'uniswap/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
+import { MobileScreens } from 'uniswap/src/types/screens/mobile'
+import { isAndroid } from 'utilities/src/platform'
+import { useEvent } from 'utilities/src/react/hooks'
+import { setHasUsedExplore } from 'wallet/src/features/behaviorHistory/slice'
+>>>>>>> upstream/main
 
 // From design to avoid layout thrash as icons show and hide
 const MIN_SEARCH_INPUT_HEIGHT = 52
@@ -41,7 +63,11 @@ export function ExploreScreen(): JSX.Element {
   const isBottomTabsEnabled = useFeatureFlag(FeatureFlags.BottomTabs)
   const navigation = useNavigation()
   const route = useRoute<RouteProp<ExploreStackParamList, MobileScreens.Explore>>()
+<<<<<<< HEAD
   // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition -- route.params can be null
+=======
+  // oxlint-disable-next-line typescript/no-unnecessary-condition -- route.params can be null
+>>>>>>> upstream/main
   const { chainId, orderByMetric, showFavorites } = route.params ?? {}
 
   const { isSheetReady } = useBottomSheetContext({ forceSafeReturn: isBottomTabsEnabled })
@@ -111,6 +137,10 @@ export function ExploreScreen(): JSX.Element {
     })
 
     return unsubscribe
+<<<<<<< HEAD
+=======
+    // oxlint-disable-next-line react/exhaustive-deps -- biome-parity: oxlint is stricter here
+>>>>>>> upstream/main
   }, [isBottomTabsEnabled, navigation])
 
   // TODO(WALL-5482): investigate list rendering performance/scrolling issue
@@ -119,10 +149,13 @@ export function ExploreScreen(): JSX.Element {
   const { onChangeChainFilter, onChangeText, searchFilter, chainFilter, parsedChainFilter, parsedSearchFilter } =
     useFilterCallbacks(chainId ?? null, ModalName.Search)
 
+<<<<<<< HEAD
   const onResetChainFilter = useEvent(() => {
     onChangeChainFilter(null)
   })
 
+=======
+>>>>>>> upstream/main
   const onSearchChangeText = useEvent((newSearchFilter: string): void => {
     onChangeText(newSearchFilter)
     // Keep the state of the search input after changing theme
@@ -193,7 +226,10 @@ export function ExploreScreen(): JSX.Element {
           parsedSearchQuery={parsedSearchFilter}
           chainFilter={chainFilter}
           parsedChainFilter={parsedChainFilter}
+<<<<<<< HEAD
           onResetChainFilter={onResetChainFilter}
+=======
+>>>>>>> upstream/main
         />
       ) : isSheetReady && canRenderList ? (
         <ExploreSections

@@ -1,7 +1,15 @@
+<<<<<<< HEAD
 import { createChart, type IChartApi, type UTCTimestamp } from 'lightweight-charts'
 import { useEffect, useRef, useState } from 'react'
 import { Flex, useSporeColors } from '@l.x/ui/src'
 import { useEvent } from '@l.x/utils/src/react/hooks'
+=======
+/* oxlint-disable max-lines */
+import { createChart, type IChartApi, type UTCTimestamp } from 'lightweight-charts'
+import { useEffect, useRef, useState } from 'react'
+import { Flex, useSporeColors } from 'ui/src'
+import { useEvent } from 'utilities/src/react/hooks'
+>>>>>>> upstream/main
 import { LiveDotRenderer } from '~/components/Charts/LiveDotRenderer'
 import { ClearingPriceTooltipBody } from '~/components/Charts/ToucanChart/clearingPrice/components/ClearingPriceTooltipBody'
 import { createTimeScaleOptions } from '~/components/Charts/ToucanChart/clearingPrice/controller/chartOptions'
@@ -17,6 +25,10 @@ import { formatTickMarks } from '~/components/Charts/utils'
 import { CHART_DIMENSIONS } from '~/components/Toucan/Auction/BidDistributionChart/constants'
 import type { BidTokenInfo, ChartZoomState } from '~/components/Toucan/Auction/store/types'
 import { useAuctionStore, useAuctionStoreActions } from '~/components/Toucan/Auction/store/useAuctionStore'
+<<<<<<< HEAD
+=======
+import { TooltipContainer } from '~/components/Toucan/Shared/TooltipContainer'
+>>>>>>> upstream/main
 import { deprecatedStyled } from '~/lib/deprecated-styled'
 
 /**
@@ -25,12 +37,19 @@ import { deprecatedStyled } from '~/lib/deprecated-styled'
  */
 const IN_PROGRESS_DATA_WIDTH_PERCENT = 75
 
+<<<<<<< HEAD
 const Y_AXIS_LABEL_WIDTH = 50
 
 const ChartContainer = deprecatedStyled.div<{ height: number }>`
   width: calc(100% - ${Y_AXIS_LABEL_WIDTH}px);
   height: 100%;
   margin-left: ${Y_AXIS_LABEL_WIDTH}px;
+=======
+const ChartContainer = deprecatedStyled.div<{ height: number }>`
+  width: calc(100% - ${CHART_DIMENSIONS.Y_AXIS_LABEL_WIDTH}px);
+  height: 100%;
+  margin-left: ${CHART_DIMENSIONS.Y_AXIS_LABEL_WIDTH}px;
+>>>>>>> upstream/main
 
   /* Override lightweight-charts inline overflow:hidden to prevent x-axis label cutoff */
   .tv-lightweight-charts {
@@ -55,6 +74,7 @@ const ChartWrapper = deprecatedStyled.div<{ height: number }>`
   overflow: visible;
 `
 
+<<<<<<< HEAD
 const TooltipContainer = deprecatedStyled.div<{ $isVisible: boolean }>`
   position: absolute;
   top: 0;
@@ -73,6 +93,8 @@ const TooltipContainer = deprecatedStyled.div<{ $isVisible: boolean }>`
       : '0px 1px 6px 2px rgba(0, 0, 0, 0.03), 0px 1px 2px 0px rgba(0, 0, 0, 0.02)'};
 `
 
+=======
+>>>>>>> upstream/main
 /** Container for the x-axis background chart (full width, x-axis only) */
 const XAxisChartContainer = deprecatedStyled.div<{ height: number }>`
   position: absolute;
@@ -101,8 +123,13 @@ const XAxisChartContainer = deprecatedStyled.div<{ height: number }>`
 const DataChartContainer = deprecatedStyled.div<{ height: number; $widthPercent: number }>`
   position: absolute;
   top: 0;
+<<<<<<< HEAD
   left: ${Y_AXIS_LABEL_WIDTH}px;
   width: calc(${({ $widthPercent }) => $widthPercent}% - ${Y_AXIS_LABEL_WIDTH}px);
+=======
+  left: ${CHART_DIMENSIONS.Y_AXIS_LABEL_WIDTH}px;
+  width: calc(${({ $widthPercent }) => $widthPercent}% - ${CHART_DIMENSIONS.Y_AXIS_LABEL_WIDTH}px);
+>>>>>>> upstream/main
   height: ${({ height }) => height}px;
   overflow: hidden;
 
@@ -131,6 +158,17 @@ interface ClearingPriceChartRendererProps {
   maxFractionDigits: number
   tokenColor?: string
   height?: number
+<<<<<<< HEAD
+=======
+  /** Optional callback when visible price range changes (for combined chart Y-axis sync) */
+  onVisiblePriceRangeChange?: (range: { min: number; max: number }) => void
+  /** When true, disables mouse wheel scroll/scale so an external handler can manage Y-axis pan/zoom */
+  disableMouseWheelInteractions?: boolean
+  /** Total supply of auction token (raw units) for FDV calculation in tooltip */
+  totalSupply?: string
+  /** Decimals of the auction token for FDV calculation in tooltip */
+  auctionTokenDecimals?: number
+>>>>>>> upstream/main
 }
 
 /**
@@ -148,6 +186,13 @@ export function ClearingPriceChartRenderer({
   maxFractionDigits,
   tokenColor,
   height = CHART_DIMENSIONS.HEIGHT,
+<<<<<<< HEAD
+=======
+  onVisiblePriceRangeChange,
+  disableMouseWheelInteractions,
+  totalSupply,
+  auctionTokenDecimals,
+>>>>>>> upstream/main
 }: ClearingPriceChartRendererProps): JSX.Element {
   const colors = useSporeColors()
   const chartContainerRef = useRef<HTMLDivElement | null>(null)
@@ -159,6 +204,10 @@ export function ClearingPriceChartRenderer({
   const [hoverCoordinates, setHoverCoordinates] = useState<ChartCoordinates | null>(null)
   const [yAxisLabels, setYAxisLabels] = useState<YAxisLabel[]>([])
   const [isControllerReady, setIsControllerReady] = useState(false)
+<<<<<<< HEAD
+=======
+  const [lastPointCoords, setLastPointCoords] = useState<{ x: number; y: number } | null>(null)
+>>>>>>> upstream/main
   const { chartZoomCommand, clearingPriceZoomState } = useAuctionStore((state) => ({
     chartZoomCommand: state.chartZoomCommand,
     clearingPriceZoomState: state.clearingPriceZoomState,
@@ -172,11 +221,24 @@ export function ClearingPriceChartRenderer({
     setHoverCoordinates(coordinates)
   })
   const handleZoomStateChange = useEvent((state: ChartZoomState) => {
+<<<<<<< HEAD
     setClearingPriceZoomState(state)
+=======
+    // When embedded in combined chart, the parent manages zoom state
+    if (!disableMouseWheelInteractions) {
+      setClearingPriceZoomState(state)
+    }
+>>>>>>> upstream/main
   })
   const handleYAxisLabelsChange = useEvent((labels: YAxisLabel[]) => {
     setYAxisLabels(labels)
   })
+<<<<<<< HEAD
+=======
+  const handleVisiblePriceRangeChange = useEvent((range: { min: number; max: number }) => {
+    onVisiblePriceRangeChange?.(range)
+  })
+>>>>>>> upstream/main
 
   const dataChartWidthPercent = normalizedData.isAuctionInProgress ? IN_PROGRESS_DATA_WIDTH_PERCENT : 100
 
@@ -198,7 +260,11 @@ export function ClearingPriceChartRenderer({
   })()
 
   // X-axis chart lifecycle (only for in-progress auctions)
+<<<<<<< HEAD
   // biome-ignore lint/correctness/useExhaustiveDependencies: Using specific properties from normalizedData in deps is intentional
+=======
+  // oxlint-disable-next-line react/exhaustive-deps -- Using specific properties from normalizedData in deps is intentional
+>>>>>>> upstream/main
   useEffect(() => {
     if (!normalizedData.isAuctionInProgress || !xAxisChartContainerRef.current) {
       return undefined
@@ -286,7 +352,11 @@ export function ClearingPriceChartRenderer({
   ])
 
   // Data chart controller lifecycle
+<<<<<<< HEAD
   // biome-ignore lint/correctness/useExhaustiveDependencies: intentionally exclude most props from deps to prevent recreation. Updates flow through controller.update() instead.
+=======
+  // oxlint-disable-next-line react/exhaustive-deps -- intentionally exclude most props from deps to prevent recreation. Updates flow through controller.update() instead.
+>>>>>>> upstream/main
   useEffect(() => {
     if (!chartContainerRef.current) {
       return undefined
@@ -307,6 +377,10 @@ export function ClearingPriceChartRenderer({
         onHoverCoordinatesChange: handleHoverCoordinatesChange,
         onZoomStateChange: handleZoomStateChange,
         onYAxisLabelsChange: handleYAxisLabelsChange,
+<<<<<<< HEAD
+=======
+        onVisiblePriceRangeChange: handleVisiblePriceRangeChange,
+>>>>>>> upstream/main
       },
     })
     setIsControllerReady(true)
@@ -316,6 +390,10 @@ export function ClearingPriceChartRenderer({
       controllerRef.current = null
       setIsControllerReady(false)
     }
+<<<<<<< HEAD
+=======
+    // oxlint-disable-next-line react/exhaustive-deps -- biome-parity: oxlint is stricter here
+>>>>>>> upstream/main
   }, [handleTooltipStateChange, normalizedData.isAuctionInProgress])
 
   // Push updates into data chart controller
@@ -345,8 +423,17 @@ export function ClearingPriceChartRenderer({
       // Hide x-axis on data chart when using two-chart overlay mode (x-axis chart provides it)
       hideXAxis: normalizedData.isAuctionInProgress,
       isZoomEnabled: !normalizedData.isAuctionInProgress,
+<<<<<<< HEAD
     })
   }, [normalizedData, bidTokenInfo.symbol, maxFractionDigits, tokenColor])
+=======
+      disableMouseWheelInteractions,
+    })
+
+    const coords = controllerRef.current?.getLastPointCoordinates()
+    setLastPointCoords(coords ?? null)
+  }, [normalizedData, bidTokenInfo.symbol, maxFractionDigits, tokenColor, disableMouseWheelInteractions])
+>>>>>>> upstream/main
 
   useEffect(() => {
     if (!normalizedData.isAuctionInProgress || !xAxisChartRef.current) {
@@ -373,6 +460,13 @@ export function ClearingPriceChartRenderer({
   }, [clearingPriceZoomState, normalizedData.isAuctionInProgress])
 
   useEffect(() => {
+<<<<<<< HEAD
+=======
+    // When embedded in the combined chart, the parent handles zoom commands
+    if (disableMouseWheelInteractions) {
+      return
+    }
+>>>>>>> upstream/main
     if (!chartZoomCommand || chartZoomCommand.target !== 'clearingPrice') {
       return
     }
@@ -391,7 +485,11 @@ export function ClearingPriceChartRenderer({
 
     // Clear the command after execution to prevent re-execution on re-renders
     clearChartZoomCommand()
+<<<<<<< HEAD
   }, [chartZoomCommand, clearChartZoomCommand])
+=======
+  }, [chartZoomCommand, clearChartZoomCommand, disableMouseWheelInteractions])
+>>>>>>> upstream/main
 
   // Tooltip placement dynamically changes to avoid overflowing chart
   const tooltipTransform = tooltipState ? calculateTooltipTransform(tooltipState) : undefined
@@ -419,6 +517,7 @@ export function ClearingPriceChartRenderer({
           <XAxisChartContainer ref={xAxisChartContainerRef} height={height} />
           {/* Foreground: Data chart showing actual price data */}
           <DataChartContainer ref={chartContainerRef} height={height - 15} $widthPercent={dataChartWidthPercent} />
+<<<<<<< HEAD
           <TooltipContainer
             $isVisible={tooltipState !== null}
             style={tooltipTransform ? { transform: tooltipTransform } : undefined}
@@ -442,6 +541,55 @@ export function ClearingPriceChartRenderer({
               overrideColor={tokenColor}
               dataKey={dataKey}
             />
+=======
+          <Flex
+            position="absolute"
+            top={0}
+            left={0}
+            pointerEvents="none"
+            zIndex={10}
+            opacity={tooltipState !== null ? 1 : 0}
+            style={{
+              transition: 'opacity 0.15s ease-out',
+              ...(tooltipTransform ? { transform: tooltipTransform } : undefined),
+            }}
+          >
+            <TooltipContainer position="relative" py="$spacing8" px="$spacing12">
+              {tooltipState && (
+                <ClearingPriceTooltipBody
+                  data={tooltipState.data}
+                  bidTokenInfo={bidTokenInfo}
+                  scaleFactor={normalizedData.scaleFactor}
+                  totalSupply={totalSupply}
+                  auctionTokenDecimals={auctionTokenDecimals}
+                />
+              )}
+            </TooltipContainer>
+          </Flex>
+          {/* Live dot indicator — wrapper offsets by CHART_DIMENSIONS.Y_AXIS_LABEL_WIDTH to match DataChartContainer position */}
+          {chartContainerRef.current && isControllerReady && controllerRef.current && (
+            <Flex
+              style={{
+                position: 'absolute',
+                top: 0,
+                left: CHART_DIMENSIONS.Y_AXIS_LABEL_WIDTH,
+                right: 0,
+                bottom: 0,
+                pointerEvents: 'none',
+                overflow: 'hidden',
+              }}
+            >
+              <LiveDotRenderer
+                chartModel={controllerRef.current}
+                isHovering={isHovering}
+                hoverCoordinates={hoverCoordinates}
+                chartContainer={chartContainerRef.current}
+                overrideColor={tokenColor}
+                dataKey={dataKey}
+                coordinateOverride={lastPointCoords}
+              />
+            </Flex>
+>>>>>>> upstream/main
           )}
         </ChartWrapper>
       </Flex>
@@ -458,6 +606,7 @@ export function ClearingPriceChartRenderer({
           </YAxisLabelEl>
         ))}
         <ChartContainer ref={chartContainerRef} height={height} />
+<<<<<<< HEAD
         <TooltipContainer
           $isVisible={tooltipState !== null}
           style={tooltipTransform ? { transform: tooltipTransform } : undefined}
@@ -471,6 +620,32 @@ export function ClearingPriceChartRenderer({
             />
           )}
         </TooltipContainer>
+=======
+        <Flex
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            pointerEvents: 'none',
+            zIndex: 10,
+            opacity: tooltipState !== null ? 1 : 0,
+            transition: 'opacity 0.15s ease-out',
+            ...(tooltipTransform ? { transform: tooltipTransform } : undefined),
+          }}
+        >
+          <TooltipContainer position="relative" py="$spacing8" px="$spacing12">
+            {tooltipState && (
+              <ClearingPriceTooltipBody
+                data={tooltipState.data}
+                bidTokenInfo={bidTokenInfo}
+                scaleFactor={normalizedData.scaleFactor}
+                totalSupply={totalSupply}
+                auctionTokenDecimals={auctionTokenDecimals}
+              />
+            )}
+          </TooltipContainer>
+        </Flex>
+>>>>>>> upstream/main
       </ChartWrapper>
     </Flex>
   )

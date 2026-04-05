@@ -1,13 +1,22 @@
 import { queryOptions } from '@tanstack/react-query'
+<<<<<<< HEAD
 import { PlatformType } from '@luxamm/client-notification-service/dist/lx/notificationservice/v1/api_pb'
+=======
+import { PlatformType } from '@uniswap/client-notification-service/dist/uniswap/notificationservice/v1/api_pb'
+>>>>>>> upstream/main
 import {
   createFetchClient,
   createNotificationsApiClient,
   getEntryGatewayUrl,
   provideSessionService,
   SharedQueryClient,
+<<<<<<< HEAD
 } from '@l.x/api'
 import { getIsSessionServiceEnabled } from '@l.x/gating'
+=======
+} from '@universe/api'
+import { getIsSessionServiceEnabled } from '@universe/gating'
+>>>>>>> upstream/main
 import {
   createApiNotificationTracker,
   createBaseNotificationProcessor,
@@ -16,7 +25,11 @@ import {
   createReactiveDataSource,
   getNotificationQueryOptions,
   type NotificationService,
+<<<<<<< HEAD
 } from '@l.x/notifications'
+=======
+} from '@universe/notifications'
+>>>>>>> upstream/main
 import { Appearance } from 'react-native'
 import DeviceInfo from 'react-native-device-info'
 import { MobileState } from 'src/app/mobileReducer'
@@ -30,6 +43,7 @@ import { createMobileNotificationRenderer } from 'src/notification-service/notif
 import { mobileNotificationStore } from 'src/notification-service/notification-renderer/notificationStore'
 import { getNotificationTelemetry } from 'src/notification-service/notification-telemetry/getNotificationTelemetry'
 import { createMobileLocalTriggerDataSource } from 'src/notification-service/triggers/createMobileLocalTriggerDataSource'
+<<<<<<< HEAD
 import { getPortfolioQuery } from '@l.x/lx/src/data/rest/getPortfolio'
 import { AppearanceSettingType } from '@l.x/lx/src/features/appearance/slice'
 import { mapLocaleToBackendLocale } from '@l.x/lx/src/features/language/constants'
@@ -41,6 +55,19 @@ import { ReactQueryCacheKey } from '@l.x/utils/src/reactQuery/cache'
 import { type QueryOptionsResult } from '@l.x/utils/src/reactQuery/queryOptions'
 import { ONE_MINUTE_MS, ONE_SECOND_MS } from '@l.x/utils/src/time/time'
 import { selectActiveAccountAddress } from '@luxfi/wallet/src/features/wallet/selectors'
+=======
+import { getPortfolioQuery } from 'uniswap/src/data/rest/getPortfolio'
+import { AppearanceSettingType } from 'uniswap/src/features/appearance/slice'
+import { mapLocaleToBackendLocale } from 'uniswap/src/features/language/constants'
+import { getLocale } from 'uniswap/src/features/language/navigatorLocale'
+import { selectCurrentLanguage } from 'uniswap/src/features/settings/selectors'
+import { isDevEnv } from 'utilities/src/environment/env'
+import { REQUEST_SOURCE } from 'utilities/src/platform/requestSource'
+import { ReactQueryCacheKey } from 'utilities/src/reactQuery/cache'
+import { type QueryOptionsResult } from 'utilities/src/reactQuery/queryOptions'
+import { ONE_MINUTE_MS, ONE_SECOND_MS } from 'utilities/src/time/time'
+import { selectActiveAccountAddress } from 'wallet/src/features/wallet/selectors'
+>>>>>>> upstream/main
 
 /**
  * Creates the notification service with all necessary dependencies
@@ -61,7 +88,11 @@ function provideMobileNotificationService(ctx: { getIsApiDataSourceEnabled: () =
       return {
         'Content-Type': 'application/json',
         'x-request-source': REQUEST_SOURCE,
+<<<<<<< HEAD
         'x-lx-locale': backendLocale,
+=======
+        'x-uniswap-locale': backendLocale,
+>>>>>>> upstream/main
         'x-app-version': semver,
       }
     },
@@ -94,7 +125,11 @@ function provideMobileNotificationService(ctx: { getIsApiDataSourceEnabled: () =
   const bannersDataSource = createMobileLegacyBannersNotificationDataSource({
     tracker,
     pollIntervalMs: 10 * ONE_SECOND_MS,
+<<<<<<< HEAD
     // eslint-disable-next-line @typescript-eslint/no-unsafe-return
+=======
+    // oxlint-disable-next-line typescript/no-unsafe-return
+>>>>>>> upstream/main
     getState: (): MobileState => store.getState(),
     getIsDarkMode: (): boolean => {
       const state = store.getState()
@@ -140,7 +175,11 @@ function provideMobileNotificationService(ctx: { getIsApiDataSourceEnabled: () =
   }
 
   const localTriggersDataSource = createMobileLocalTriggerDataSource({
+<<<<<<< HEAD
     // eslint-disable-next-line @typescript-eslint/no-unsafe-return
+=======
+    // oxlint-disable-next-line typescript/no-unsafe-return
+>>>>>>> upstream/main
     getState: (): MobileState => store.getState(),
     dispatch: store.dispatch,
     tracker,
@@ -156,7 +195,11 @@ function provideMobileNotificationService(ctx: { getIsApiDataSourceEnabled: () =
       ? undefined
       : createReactiveDataSource({
           condition: createOfflineCondition({
+<<<<<<< HEAD
             // eslint-disable-next-line @typescript-eslint/no-unsafe-return
+=======
+            // oxlint-disable-next-line typescript/no-unsafe-return
+>>>>>>> upstream/main
             getState: (): MobileState => store.getState(),
           }),
           tracker,

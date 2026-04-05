@@ -16,6 +16,7 @@ export const persistHideMobileAppPromoBannerAtom = atomWithStorage(
   false,
   persistStorage,
 )
+<<<<<<< HEAD
 
 // Track when the full wallet modal was last shown (timestamp)
 // Used to throttle showing the full onboarding experience to once per hour
@@ -39,3 +40,5 @@ export function shouldShowFullWalletModal(lastShown: number | null): boolean {
   const timeSinceLastShown = Date.now() - lastShown
   return timeSinceLastShown >= ONE_HOUR_MS
 }
+=======
+>>>>>>> upstream/main

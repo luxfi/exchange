@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 import type { ClearingPriceChange } from '@luxamm/client-data-api/dist/data/v1/auction_pb'
 import { ONE_DAY_MS, ONE_SECOND_MS } from '@l.x/utils/src/time/time'
+=======
+import type { ClearingPriceChange } from '@uniswap/client-data-api/dist/data/v1/auction_pb'
+import { ONE_DAY_MS, ONE_SECOND_MS } from 'utilities/src/time/time'
+>>>>>>> upstream/main
 import type {
   ClearingPriceChartPoint,
   NormalizedClearingPriceSeries,
@@ -256,9 +261,16 @@ export function normalizeClearingSeries({
   const scaleFactor = calculateScaleFactor(maxValue)
   // Use tight range with minimal buffer — y-axis labels are rendered as a custom overlay
   const range = maxValue - minValue
+<<<<<<< HEAD
   const topBuffer = range > 0 ? range * 0.05 : maxValue * 0.1
   const yMin = Math.max(0, minValue)
   const yMax = maxValue + topBuffer
+=======
+  // When price is flat (range ≈ 0), add symmetric buffer so the line is centered
+  const buffer = range > 0 ? range * 0.05 : minValue * 0.2
+  const yMin = Math.max(0, minValue - buffer)
+  const yMax = maxValue + buffer
+>>>>>>> upstream/main
   const scaledYMin = yMin * scaleFactor
   const scaledYMax = yMax * scaleFactor
 

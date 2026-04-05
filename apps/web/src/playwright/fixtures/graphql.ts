@@ -1,6 +1,13 @@
+<<<<<<< HEAD
 // biome-ignore lint/style/noRestrictedImports: GraphQL fixtures need direct Playwright imports
 import { test as base } from '@playwright/test'
 import path from 'path'
+=======
+import path from 'path'
+/* oxlint-disable react-hooks/rules-of-hooks -- Playwright fixtures use `use()` which is not a React hook */
+// oxlint-disable-next-line no-restricted-imports -- GraphQL fixtures need direct Playwright imports
+import { test as base } from '@playwright/test'
+>>>>>>> upstream/main
 import { Mocks } from '~/playwright/mocks/mocks'
 
 type GraphqlFixture = {
@@ -15,6 +22,10 @@ type GraphqlFixture = {
      * If no variables are provided, all operations with the specified operationName will match and return the mock response.
      * If variables are provided, the request will only match if all variables match (case insensitive).
      */
+<<<<<<< HEAD
+=======
+    // oxlint-disable-next-line max-params -- biome-parity: oxlint is stricter here
+>>>>>>> upstream/main
     intercept: (operationName: string, mockPath: string, variables?: Record<string, unknown>) => Promise<void>
     waitForResponse: (operationName: string) => Promise<void>
   }
@@ -32,7 +43,11 @@ export const test = base.extend<GraphqlFixture>({
   async graphql({ page }, use) {
     interceptConfigs.clear()
 
+<<<<<<< HEAD
     // eslint-disable-next-line max-params
+=======
+    // oxlint-disable-next-line max-params
+>>>>>>> upstream/main
     const intercept = async (operationName: string, mockPath: string, variables?: Record<string, unknown>) => {
       interceptConfigs.set(operationName, { mockPath, variables })
     }
@@ -57,7 +72,11 @@ export const test = base.extend<GraphqlFixture>({
       }
     }
 
+<<<<<<< HEAD
     await page.route(/(?:interface|beta).(gateway|api).lux.org\/v1\/graphql/, async (route) => {
+=======
+    await page.route(/(?:interface|beta).(gateway|api).uniswap.org\/v1\/graphql/, async (route) => {
+>>>>>>> upstream/main
       const request = route.request()
       const postData = request.postData()
       if (!postData) {
@@ -90,7 +109,11 @@ export const test = base.extend<GraphqlFixture>({
   },
   // Intercept long running graphql requests here:
   interceptLongRunning: [
+<<<<<<< HEAD
     // eslint-disable-next-line no-empty-pattern
+=======
+    // oxlint-disable-next-line no-empty-pattern
+>>>>>>> upstream/main
     async ({ graphql }, use) => {
       graphql.intercept('PortfolioBalances', Mocks.PortfolioBalances.test_wallet)
       await use(undefined)

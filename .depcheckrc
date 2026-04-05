@@ -2,8 +2,13 @@ ignores: [
     # Dependencies that depcheck thinks are unused but are actually used
     '@graphql-codegen/*',
     '@commitlint/*',
+<<<<<<< HEAD
     '@luxamm/eslint-config',
     '@luxamm/biome-config',
+=======
+    '@uniswap/eslint-config',
+    '@uniswap/biome-config',
+>>>>>>> upstream/main
     'i18next',
     'moti',
     'wrangler',
@@ -14,7 +19,10 @@ ignores: [
     'utf-8-validate',
     'semver',
     'typanion',
+<<<<<<< HEAD
     '@biomejs/biome',
+=======
+>>>>>>> upstream/main
     "@nx/js",
     "@nx/workspace",
     "@swc/helpers",

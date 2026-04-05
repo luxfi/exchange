@@ -1,18 +1,30 @@
+<<<<<<< HEAD
 /* eslint-disable max-lines */
 
 import { ProtocolVersion } from '@luxamm/client-data-api/dist/data/v1/poolTypes_pb'
 import type { Currency } from '@luxamm/sdk-core'
+=======
+/* oxlint-disable max-lines */
+
+import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
+import type { Currency } from '@uniswap/sdk-core'
+>>>>>>> upstream/main
 import {
   AllowedV4WethHookAddressesConfigKey,
   DynamicConfigs,
   FeatureFlags,
   useDynamicConfigValue,
   useFeatureFlag,
+<<<<<<< HEAD
 } from '@l.x/gating'
+=======
+} from '@universe/gating'
+>>>>>>> upstream/main
 import type { Dispatch, SetStateAction } from 'react'
 import { useCallback, useEffect, useMemo, useReducer, useState } from 'react'
 import { Trans, useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router'
+<<<<<<< HEAD
 import type { FlexProps } from '@l.x/ui/src'
 import { Button, DropdownButton, Flex, Shine, Text } from '@l.x/ui/src'
 import { InfoCircleFilled } from '@l.x/ui/src/components/icons/InfoCircleFilled'
@@ -32,6 +44,27 @@ import { FeePoolSelectAction } from 'lx/src/features/telemetry/types'
 import { useCurrencyInfo } from 'lx/src/features/tokens/useCurrencyInfo'
 import { areCurrenciesEqual, currencyId } from 'lx/src/utils/currencyId'
 import { useTrace } from '@l.x/utils/src/telemetry/trace/TraceContext'
+=======
+import type { FlexProps } from 'ui/src'
+import { Button, DropdownButton, Flex, Shine, Text } from 'ui/src'
+import { InfoCircleFilled } from 'ui/src/components/icons/InfoCircleFilled'
+import { Search } from 'ui/src/components/icons/Search'
+import { iconSizes } from 'ui/src/theme'
+import { TokenLogo } from 'uniswap/src/components/CurrencyLogo/TokenLogo'
+import { TokenSelectorFlow } from 'uniswap/src/components/TokenSelector/types'
+import { ZERO_ADDRESS } from 'uniswap/src/constants/misc'
+import { nativeOnChain, WRAPPED_NATIVE_CURRENCY } from 'uniswap/src/constants/tokens'
+import { useEnabledChains } from 'uniswap/src/features/chains/hooks/useEnabledChains'
+import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import type { CurrencyInfo } from 'uniswap/src/features/dataApi/types'
+import { Platform } from 'uniswap/src/features/platforms/types/Platform'
+import { LiquidityEventName } from 'uniswap/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
+import { FeePoolSelectAction } from 'uniswap/src/features/telemetry/types'
+import { useCurrencyInfo } from 'uniswap/src/features/tokens/useCurrencyInfo'
+import { areCurrenciesEqual, currencyId } from 'uniswap/src/utils/currencyId'
+import { useTrace } from 'utilities/src/telemetry/trace/TraceContext'
+>>>>>>> upstream/main
 import { PrefetchBalancesWrapper } from '~/appGraphql/data/apollo/AdaptiveTokenBalancesProvider'
 import CreatingPoolInfo from '~/components/CreatingPoolInfo/CreatingPoolInfo'
 import { ErrorCallout } from '~/components/ErrorCallout'
@@ -56,7 +89,11 @@ import { SUPPORTED_V2POOL_CHAIN_IDS } from '~/hooks/useNetworkSupportsV2'
 import { useCreateLiquidityContext } from '~/pages/CreatePosition/CreateLiquidityContextProvider'
 import { useMultichainContext } from '~/state/multichain/useMultichainContext'
 import { serializeSwapStateToURLParameters } from '~/state/swap/hooks'
+<<<<<<< HEAD
 import { ClickableGuiStyle } from '~/theme/components/styles'
+=======
+import { ClickableTamaguiStyle } from '~/theme/components/styles'
+>>>>>>> upstream/main
 import { isV4UnsupportedChain } from '~/utils/networkSupportsV4'
 
 interface WrappedNativeWarning {
@@ -469,8 +506,13 @@ export function SelectTokensStep({
                           </Text>
                         </Flex>
                       </MouseoverTooltip>
+<<<<<<< HEAD
                       // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
                     ) : currentFeeTierKey && !feeTierData[currentFeeTierKey]?.created ? (
+=======
+                    ) : // oxlint-disable-next-line @typescript-eslint/no-unnecessary-condition
+                    currentFeeTierKey && !feeTierData[currentFeeTierKey]?.created ? (
+>>>>>>> upstream/main
                       <Flex justifyContent="center" borderRadius="$rounded6" backgroundColor="$surface3" px={7}>
                         <Text variant="buttonLabel4">
                           <Trans i18nKey="fee.tier.new" />
@@ -530,7 +572,11 @@ export function SelectTokensStep({
                         variant="body3"
                         color="$neutral1"
                         $sm={{ variant: 'body4', mt: '$spacing1' }}
+<<<<<<< HEAD
                         {...ClickableGuiStyle}
+=======
+                        {...ClickableTamaguiStyle}
+>>>>>>> upstream/main
                         onPress={toggleShowMoreFeeTiersEnabled}
                       >
                         {t('pool.incentives.switchPools')}

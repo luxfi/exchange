@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 /* eslint-disable max-lines */
+=======
+/* oxlint-disable max-lines */
+>>>>>>> upstream/main
 import { JsonRpcProvider } from '@ethersproject/providers'
 import { getPermissions } from 'src/app/features/dappRequests/permissions'
 import { SendTransactionRequest } from 'src/app/features/dappRequests/types/DappRequestTypes'
@@ -43,6 +47,7 @@ import {
   WalletSwitchEthereumChainRequest,
   WalletSwitchEthereumChainRequestSchema,
 } from 'src/contentScript/WindowEthereumRequestTypes'
+<<<<<<< HEAD
 import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { chainIdToHexadecimalString, toSupportedChainId } from '@l.x/lx/src/features/chains/utils'
 import { DappRequestType, DappResponseType, EthMethod } from '@l.x/lx/src/features/dappRequests/types'
@@ -52,6 +57,17 @@ import { InstrumentedJsonRpcProvider } from '@l.x/lx/src/features/providers/obse
 import { getRpcObserver } from '@l.x/lx/src/features/providers/observability/rpcObserver'
 import { areAddressesEqual } from '@l.x/lx/src/utils/addresses'
 import { extractBaseUrl } from '@l.x/utils/src/format/urls'
+=======
+import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { chainIdToHexadecimalString, toSupportedChainId } from 'uniswap/src/features/chains/utils'
+import { DappRequestType, DappResponseType, EthMethod } from 'uniswap/src/features/dappRequests/types'
+import { isSelfCallWithData } from 'uniswap/src/features/dappRequests/utils'
+import { Platform } from 'uniswap/src/features/platforms/types/Platform'
+import { InstrumentedJsonRpcProvider } from 'uniswap/src/features/providers/observability/InstrumentedJsonRpcProvider'
+import { getRpcObserver } from 'uniswap/src/features/providers/observability/rpcObserver'
+import { areAddressesEqual } from 'uniswap/src/utils/addresses'
+import { extractBaseUrl } from 'utilities/src/format/urls'
+>>>>>>> upstream/main
 
 export class ExtensionEthMethodHandler extends BaseMethodHandler<WindowEthereumRequest> {
   private readonly requestIdToSourceMap: Map<string, PendingResponseInfo> = new Map()
@@ -306,7 +322,11 @@ export class ExtensionEthMethodHandler extends BaseMethodHandler<WindowEthereumR
     )
   }
 
+<<<<<<< HEAD
   // eslint-disable-next-line complexity
+=======
+  // oxlint-disable-next-line complexity
+>>>>>>> upstream/main
   async handleRequest(request: WindowEthereumRequest, source: MessageEventSource | null): Promise<void> {
     switch (request.method) {
       case EthMethod.EthChainId: {
@@ -681,7 +701,11 @@ export class ExtensionEthMethodHandler extends BaseMethodHandler<WindowEthereumR
   }
 }
 
+<<<<<<< HEAD
 // biome-ignore lint/suspicious/noExplicitAny: Transaction object from dapp can have various shapes requiring flexible typing
+=======
+// oxlint-disable-next-line typescript/no-explicit-any -- Transaction object from dapp can have various shapes requiring flexible typing
+>>>>>>> upstream/main
 function adaptTransactionForEthers(transaction: any): any {
   if (typeof transaction.chainId === 'string') {
     transaction.chainId = parseInt(transaction.chainId, 16)

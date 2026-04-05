@@ -1,10 +1,17 @@
 import { useWeb3React } from '@web3-react/core'
 import { BaseContract } from 'ethers/lib/ethers'
 import { useMemo } from 'react'
+<<<<<<< HEAD
 import { useIsSupportedChainIdCallback } from '@l.x/lx/src/features/chains/hooks/useSupportedChainId'
 import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { isEVMChain } from '@l.x/lx/src/features/platforms/utils/chains'
 import { getContract } from '@l.x/utils/src/contracts/getContract'
+=======
+import { useIsSupportedChainIdCallback } from 'uniswap/src/features/chains/hooks/useSupportedChainId'
+import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { isEVMChain } from 'uniswap/src/features/platforms/utils/chains'
+import { getContract } from 'utilities/src/contracts/getContract'
+>>>>>>> upstream/main
 import { RPC_PROVIDERS } from '~/constants/providers'
 import { useAccount } from '~/hooks/useAccount'
 

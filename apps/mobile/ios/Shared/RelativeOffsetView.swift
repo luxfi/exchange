@@ -1,6 +1,10 @@
 //
 //  RelativeOffsetView.swift
+<<<<<<< HEAD
 //  Lux
+=======
+//  Uniswap
+>>>>>>> upstream/main
 //
 //  Created by Mateusz Łopaciński on 18/06/2024.
 //

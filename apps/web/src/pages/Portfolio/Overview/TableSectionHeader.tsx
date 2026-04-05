@@ -1,5 +1,9 @@
 import { memo, PropsWithChildren } from 'react'
+<<<<<<< HEAD
 import { Flex, Text } from '@l.x/ui/src'
+=======
+import { Flex, Text } from 'ui/src'
+>>>>>>> upstream/main
 
 interface TableSectionHeaderProps {
   title: string

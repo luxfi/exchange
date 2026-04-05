@@ -1,8 +1,13 @@
 import { useCallback, useMemo } from 'react'
 import { runOnJS, SharedValue, useAnimatedReaction, useDerivedValue, useSharedValue } from 'react-native-reanimated'
 import { useLineChart } from 'react-native-wagmi-charts'
+<<<<<<< HEAD
 import { useFormatChartFiatDelta } from '@l.x/lx/src/features/fiatCurrency/hooks/useFormatChartFiatDelta'
 import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
+=======
+import { useFormatChartFiatDelta } from 'uniswap/src/features/fiatCurrency/hooks/useFormatChartFiatDelta'
+import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
+>>>>>>> upstream/main
 
 interface UseFiatDeltaParams {
   startingPrice?: number
@@ -80,6 +85,10 @@ export function useLineChartFiatDelta({
     (index: number) => {
       scrubbingDeltaSharedValue.value = calculateCurrentDelta(index)
     },
+<<<<<<< HEAD
+=======
+    // oxlint-disable-next-line react/exhaustive-deps -- biome-parity: oxlint is stricter here
+>>>>>>> upstream/main
     [calculateCurrentDelta],
   )
 
@@ -98,6 +107,10 @@ export function useLineChartFiatDelta({
   )
 
   // Create a derived value that decides which delta to show
+<<<<<<< HEAD
+=======
+  /* oxlint-disable react/exhaustive-deps -- isActive and scrubbingDeltaSharedValue are Reanimated shared values tracked automatically */
+>>>>>>> upstream/main
   const formatted = useDerivedValue(() => {
     if (!data || data.length === 0) {
       return ''
@@ -110,7 +123,12 @@ export function useLineChartFiatDelta({
 
     // When not scrubbing, use the pre-calculated last point delta
     return lastPointDelta
+<<<<<<< HEAD
   }, [lastPointDelta])
+=======
+  }, [lastPointDelta, data])
+  /* oxlint-enable react/exhaustive-deps */
+>>>>>>> upstream/main
 
   return { formatted }
 }

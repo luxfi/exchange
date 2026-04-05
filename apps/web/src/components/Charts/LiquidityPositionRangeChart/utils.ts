@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 import { Currency, CurrencyAmount, Price } from '@luxamm/sdk-core'
 import { FlexProps } from '@l.x/ui/src/components/layout/Flex'
+=======
+import { Currency, CurrencyAmount, Price } from '@uniswap/sdk-core'
+import { FlexProps } from 'ui/src/components/layout/Flex'
+>>>>>>> upstream/main
 
 export function getCrosshairProps(
   color: any,

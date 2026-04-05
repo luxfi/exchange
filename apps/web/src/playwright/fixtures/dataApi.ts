@@ -1,7 +1,15 @@
+<<<<<<< HEAD
 // biome-ignore lint/style/noRestrictedImports: Data API fixtures need direct Playwright imports
 import { test as base } from '@playwright/test'
 import { listTransactions } from '@luxamm/client-data-api/dist/data/v1/api-DataApiService_connectquery'
 import path from 'path'
+=======
+import path from 'path'
+/* oxlint-disable react-hooks/rules-of-hooks -- Playwright fixtures use `use()` which is not a React hook */
+// oxlint-disable-next-line no-restricted-imports -- Data API fixtures need direct Playwright imports
+import { test as base } from '@playwright/test'
+import { listTransactions } from '@uniswap/client-data-api/dist/data/v1/api-DataApiService_connectquery'
+>>>>>>> upstream/main
 
 // TransactionTypeFilter enum values from client-data-api (used in ListTransactions request filter)
 const TRANSACTION_TYPE_FILTER_SEND = 'TRANSACTION_TYPE_FILTER_SEND'
@@ -22,7 +30,11 @@ type DataApiFixture = {
     /**
      * Intercepts a Data API endpoint and responds with a mock response.
      * Each call registers a route for that method's URL (Connect RPC uses one URL per method).
+<<<<<<< HEAD
      * Use method descriptors from @luxamm/client-data-api (e.g. listTransactions, getPortfolio)
+=======
+     * Use method descriptors from @uniswap/client-data-api (e.g. listTransactions, getPortfolio)
+>>>>>>> upstream/main
      * so that API renames or changes fail at build time.
      *
      * @param method - The Connect RPC method descriptor (e.g. listTransactions).

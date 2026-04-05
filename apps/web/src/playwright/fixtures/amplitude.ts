@@ -1,6 +1,13 @@
+<<<<<<< HEAD
 // biome-ignore lint/style/noRestrictedImports: Playwright fixtures need direct analytics import
 import { test as base } from '@playwright/test'
 import { lxUrls } from '@l.x/lx/src/constants/urls'
+=======
+/* oxlint-disable react-hooks/rules-of-hooks -- Playwright fixtures use `use()` which is not a React hook */
+// oxlint-disable-next-line no-restricted-imports -- Playwright fixtures need direct analytics import
+import { test as base } from '@playwright/test'
+import { uniswapUrls } from 'uniswap/src/constants/urls'
+>>>>>>> upstream/main
 
 type AmplitudeFixture = {
   amplitude: {
@@ -20,7 +27,11 @@ export const test = base.extend<AmplitudeFixture>({
     const events: any[] = []
 
     // Intercept Amplitude events
+<<<<<<< HEAD
     await page.route(lxUrls.amplitudeProxyUrl, async (route) => {
+=======
+    await page.route(uniswapUrls.amplitudeProxyUrl, async (route) => {
+>>>>>>> upstream/main
       const request = route.request()
       const postData = request.postData()
       if (!postData) {

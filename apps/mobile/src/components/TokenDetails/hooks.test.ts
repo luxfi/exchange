@@ -2,8 +2,13 @@ import { NetworkStatus } from '@apollo/client'
 import { useTokenDetailsNavigation } from 'src/components/TokenDetails/hooks'
 import { preloadedMobileState } from 'src/test/fixtures'
 import { act, renderHook, waitFor } from 'src/test/test-utils'
+<<<<<<< HEAD
 import { useCrossChainBalances } from '@l.x/lx/src/data/balances/hooks/useCrossChainBalances'
 import { usePortfolioBalances } from '@l.x/lx/src/features/dataApi/balances/balances'
+=======
+import { useCrossChainBalances } from 'uniswap/src/data/balances/hooks/useCrossChainBalances'
+import { usePortfolioBalances } from 'uniswap/src/features/dataApi/balances/balances'
+>>>>>>> upstream/main
 import {
   portfolio,
   portfolioBalances,
@@ -12,9 +17,15 @@ import {
   tokenBalance,
   usdcArbitrumToken,
   usdcBaseToken,
+<<<<<<< HEAD
 } from '@l.x/lx/src/test/fixtures'
 import { MobileScreens } from '@l.x/lx/src/types/screens/mobile'
 import { portfolioBalancesById } from '@l.x/lx/src/utils/balances'
+=======
+} from 'uniswap/src/test/fixtures'
+import { MobileScreens } from 'uniswap/src/types/screens/mobile'
+import { portfolioBalancesById } from 'uniswap/src/utils/balances'
+>>>>>>> upstream/main
 
 const mockedNavigation = {
   navigate: jest.fn(),
@@ -27,13 +38,22 @@ jest.mock('@react-navigation/native', () => {
   const actualNav = jest.requireActual('@react-navigation/native')
   return {
     ...actualNav,
+<<<<<<< HEAD
     // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+=======
+    // oxlint-disable-next-line typescript/explicit-function-return-type
+>>>>>>> upstream/main
     useNavigation: () => mockedNavigation,
   }
 })
 
+<<<<<<< HEAD
 jest.mock('lx/src/features/dataApi/balances/balances', () => {
   const actual = jest.requireActual('lx/src/features/dataApi/balances/balances')
+=======
+jest.mock('uniswap/src/features/dataApi/balances/balances', () => {
+  const actual = jest.requireActual('uniswap/src/features/dataApi/balances/balances')
+>>>>>>> upstream/main
   const { NetworkStatus: MockNetworkStatus } = jest.requireActual('@apollo/client')
   return {
     ...actual,

@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { toGraphQLChain } from '@l.x/lx/src/features/chains/utils'
+=======
+import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { toGraphQLChain } from 'uniswap/src/features/chains/utils'
+>>>>>>> upstream/main
 import { getChainIdFromBackendChain, getChainIdFromChainUrlParam, getChainUrlParam } from '~/utils/chainParams'
 
 describe('getChainFromChainUrlParam', () => {

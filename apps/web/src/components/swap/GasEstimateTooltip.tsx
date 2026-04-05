@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
 import { ElementName, SwapEventName } from '@l.x/lx/src/features/telemetry/constants'
 import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
@@ -6,12 +7,26 @@ import Row, { RowFixed } from '~/components/deprecated/Row'
 import { Gas } from '~/components/Icons/Gas'
 import { LoadingOpacityContainer } from '~/components/Loader/styled'
 import { DEXGradient, DEXRouterIcon } from '~/components/RouterLabel/DEXRouterLabel'
+=======
+import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
+import { ElementName, SwapEventName } from 'uniswap/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
+import { NumberType } from 'utilities/src/format/types'
+import Row, { RowFixed } from '~/components/deprecated/Row'
+import { Gas } from '~/components/Icons/Gas'
+import { LoadingOpacityContainer } from '~/components/Loader/styled'
+import { UniswapXGradient, UniswapXRouterIcon } from '~/components/RouterLabel/UniswapXRouterLabel'
+>>>>>>> upstream/main
 import { GasBreakdownTooltip } from '~/components/swap/GasBreakdownTooltip'
 import { MouseoverTooltip, TooltipSize } from '~/components/Tooltip'
 import { deprecatedStyled } from '~/lib/deprecated-styled'
 import { useMultichainContext } from '~/state/multichain/useMultichainContext'
 import { SubmittableTrade } from '~/state/routing/types'
+<<<<<<< HEAD
 import { isLXTrade } from '~/state/routing/utils'
+=======
+import { isUniswapXTrade } from '~/state/routing/utils'
+>>>>>>> upstream/main
 import { ThemedText } from '~/theme/components'
 
 const StyledGasIcon = deprecatedStyled(Gas)`
@@ -44,6 +59,7 @@ export default function GasEstimateTooltip({ trade, loading }: { trade?: Submitt
     >
       <LoadingOpacityContainer $loading={loading}>
         <RowFixed gap="xs">
+<<<<<<< HEAD
           {isLXTrade(trade) ? <DEXRouterIcon testId="gas-estimate-dex-icon" /> : <StyledGasIcon />}
           <ThemedText.BodySmall color="neutral2">
             <Row gap="sm">
@@ -51,11 +67,24 @@ export default function GasEstimateTooltip({ trade, loading }: { trade?: Submitt
                 <DEXGradient>
                   {convertFiatAmountFormatted(trade.totalGasUseEstimateUSD, NumberType.FiatGasPrice)}
                 </DEXGradient>
+=======
+          {isUniswapXTrade(trade) ? <UniswapXRouterIcon testId="gas-estimate-uniswapx-icon" /> : <StyledGasIcon />}
+          <ThemedText.BodySmall color="neutral2">
+            <Row gap="sm">
+              {isUniswapXTrade(trade) ? (
+                <UniswapXGradient>
+                  {convertFiatAmountFormatted(trade.totalGasUseEstimateUSD, NumberType.FiatGasPrice)}
+                </UniswapXGradient>
+>>>>>>> upstream/main
               ) : (
                 <>{convertFiatAmountFormatted(trade.totalGasUseEstimateUSD, NumberType.FiatGasPrice)}</>
               )}
 
+<<<<<<< HEAD
               {isLXTrade(trade) && (trade.classicGasUseEstimateUSD ?? 0) > 0 && (
+=======
+              {isUniswapXTrade(trade) && (trade.classicGasUseEstimateUSD ?? 0) > 0 && (
+>>>>>>> upstream/main
                 <>
                   <s>{convertFiatAmountFormatted(trade.classicGasUseEstimateUSD, NumberType.FiatGasPrice)}</s>
                 </>

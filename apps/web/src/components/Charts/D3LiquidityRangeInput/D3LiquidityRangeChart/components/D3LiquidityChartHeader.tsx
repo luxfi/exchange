@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 import { Currency, Price } from '@luxamm/sdk-core'
 import { Flex } from '@l.x/ui/src'
 import { SegmentedControl, SegmentedControlOption } from '@l.x/ui/src/components/SegmentedControl/SegmentedControl'
+=======
+import { Currency, Price } from '@uniswap/sdk-core'
+import { Flex } from 'ui/src'
+import { SegmentedControl, SegmentedControlOption } from 'ui/src/components/SegmentedControl/SegmentedControl'
+>>>>>>> upstream/main
 import { DisplayCurrentPrice } from '~/components/Liquidity/DisplayCurrentPrice'
 
 export function D3LiquidityChartHeader({

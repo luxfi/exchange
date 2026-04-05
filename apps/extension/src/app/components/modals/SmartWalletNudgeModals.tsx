@@ -1,11 +1,20 @@
 import { useDispatch } from 'react-redux'
 import { useSmartWalletNudges } from 'src/app/context/SmartWalletNudgesContext'
+<<<<<<< HEAD
 import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
 import { SmartWalletCreatedModal } from '@luxfi/wallet/src/components/smartWallet/modals/SmartWalletCreatedModal'
 import { SmartWalletEnabledModal } from '@luxfi/wallet/src/components/smartWallet/modals/SmartWalletEnabledModal'
 import { SmartWalletNudge } from '@luxfi/wallet/src/components/smartWallet/modals/SmartWalletNudge'
 import { useActiveAccount } from '@luxfi/wallet/src/features/wallet/hooks'
 import { setSmartWalletConsent } from '@luxfi/wallet/src/features/wallet/slice'
+=======
+import { ModalName } from 'uniswap/src/features/telemetry/constants'
+import { SmartWalletCreatedModal } from 'wallet/src/components/smartWallet/modals/SmartWalletCreatedModal'
+import { SmartWalletEnabledModal } from 'wallet/src/components/smartWallet/modals/SmartWalletEnabledModal'
+import { SmartWalletNudge } from 'wallet/src/components/smartWallet/modals/SmartWalletNudge'
+import { useActiveAccount } from 'wallet/src/features/wallet/hooks'
+import { setSmartWalletConsent } from 'wallet/src/features/wallet/slice'
+>>>>>>> upstream/main
 
 export function SmartWalletNudgeModals(): JSX.Element | null {
   const dispatch = useDispatch()

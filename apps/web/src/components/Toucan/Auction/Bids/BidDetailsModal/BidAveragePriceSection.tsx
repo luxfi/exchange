@@ -1,5 +1,9 @@
 import { useTranslation } from 'react-i18next'
+<<<<<<< HEAD
 import { Flex, Text } from '@l.x/ui/src'
+=======
+import { Flex, Text } from 'ui/src'
+>>>>>>> upstream/main
 import { SubscriptZeroPrice } from '~/components/Toucan/Shared/SubscriptZeroPrice'
 
 interface BidAveragePriceSectionProps {

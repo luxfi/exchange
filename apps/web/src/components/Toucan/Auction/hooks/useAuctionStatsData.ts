@@ -1,9 +1,17 @@
 import { useQuery } from '@tanstack/react-query'
+<<<<<<< HEAD
 import { TokenCountAllocatedToLpForAuctionRequest } from '@luxamm/client-liquidity/dist/lx/liquidity/v1/auction_pb'
 import { useMemo } from 'react'
 import { AuctionMutationClient } from '@l.x/lx/src/data/apiClients/liquidityService/AuctionMutationClient'
 import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
 import { ReactQueryCacheKey } from '@l.x/utils/src/reactQuery/cache'
+=======
+import { TokenCountAllocatedToLpForAuctionRequest } from '@uniswap/client-liquidity/dist/uniswap/liquidity/v1/auction_pb'
+import { useMemo } from 'react'
+import { AuctionMutationClient } from 'uniswap/src/data/apiClients/liquidityService/AuctionMutationClient'
+import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
+import { ReactQueryCacheKey } from 'utilities/src/reactQuery/cache'
+>>>>>>> upstream/main
 import { formatTokenPriceSubscript } from '~/components/Toucan/Auction/BidDistributionChart/utils/tokenFormatters'
 import { useStatsBannerData } from '~/components/Toucan/Auction/hooks/useStatsBannerData'
 import { BidTokenInfo } from '~/components/Toucan/Auction/store/types'

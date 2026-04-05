@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { ProtocolVersion as RestProtocolVersion } from '@luxamm/client-data-api/dist/data/v1/poolTypes_pb'
 import { Currency, NativeCurrency, Token } from '@luxamm/sdk-core'
 import { FeeAmount } from '@luxamm/v3-sdk'
@@ -14,6 +15,24 @@ import { fromGraphQLChain } from '@l.x/lx/src/features/chains/utils'
 import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
 import { useUSDCValue } from '@l.x/lx/src/features/transactions/hooks/useUSDCPriceWrapper'
 import { NumberType } from '@l.x/utils/src/format/types'
+=======
+import { ProtocolVersion as RestProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
+import { Currency, NativeCurrency, Token } from '@uniswap/sdk-core'
+import { FeeAmount } from '@uniswap/v3-sdk'
+import { GraphQLApi, parseRestProtocolVersion } from '@universe/api'
+import { useAtomValue } from 'jotai/utils'
+import { useMemo, useState } from 'react'
+import { useTranslation } from 'react-i18next'
+import { Flex, SegmentedControl, styled, Text, useMedia, useSporeColors } from 'ui/src'
+import { ZERO_ADDRESS } from 'uniswap/src/constants/misc'
+import { useGetPoolsByTokens } from 'uniswap/src/data/rest/getPools'
+import { useEnabledChains } from 'uniswap/src/features/chains/hooks/useEnabledChains'
+import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { fromGraphQLChain } from 'uniswap/src/features/chains/utils'
+import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
+import { useUSDCValue } from 'uniswap/src/features/transactions/hooks/useUSDCPriceWrapper'
+import { NumberType } from 'utilities/src/format/types'
+>>>>>>> upstream/main
 import { PoolData } from '~/appGraphql/data/pools/usePoolData'
 import { gqlToCurrency, TimePeriod, toHistoryDuration } from '~/appGraphql/data/util'
 import { TickTooltipContent } from '~/components/Charts/ActiveLiquidityChart/TickTooltip'
@@ -41,7 +60,11 @@ import { SubscriptZeroPrice } from '~/components/Toucan/Shared/SubscriptZeroPric
 import { usePoolPriceChartData } from '~/hooks/usePoolPriceChartData'
 import tryParseCurrencyAmount from '~/lib/utils/tryParseCurrencyAmount'
 import { usePDPVolumeChartData } from '~/pages/PoolDetails/components/ChartSection/hooks'
+<<<<<<< HEAD
 import { EllipsisGuiStyle } from '~/theme/components/styles'
+=======
+import { EllipsisTamaguiStyle } from '~/theme/components/styles'
+>>>>>>> upstream/main
 
 const PDP_CHART_HEIGHT_PX = 356
 const PDP_CHART_SELECTOR_OPTIONS = [ChartType.VOLUME, ChartType.PRICE, ChartType.LIQUIDITY] as const
@@ -100,7 +123,11 @@ function usePDPChartState({
   const volumeQuery = usePDPVolumeChartData({ variables })
 
   return useMemo(() => {
+<<<<<<< HEAD
     // eslint-disable-next-line consistent-return
+=======
+    // oxlint-disable-next-line consistent-return
+>>>>>>> upstream/main
     const activeQuery = (() => {
       switch (chartType) {
         case ChartType.PRICE:
@@ -148,7 +175,11 @@ export default function ChartSection(props: ChartSectionProps) {
   // TODO(WEB-3740): Integrate BE tick query, remove special casing for liquidity chart
   const loading = props.loading || (activeQuery.chartType !== ChartType.LIQUIDITY ? activeQuery.loading : false)
 
+<<<<<<< HEAD
   // eslint-disable-next-line consistent-return
+=======
+  // oxlint-disable-next-line consistent-return
+>>>>>>> upstream/main
   const ChartBody = (() => {
     if (!currencyA || !currencyB || !props.poolData || !props.chain) {
       return <ChartSkeleton type={activeQuery.chartType} height={PDP_CHART_HEIGHT_PX} />
@@ -260,7 +291,11 @@ const PriceDisplayContainer = styled(Flex, {
 
 const ChartPriceText = styled(Text, {
   variant: 'heading2',
+<<<<<<< HEAD
   ...EllipsisGuiStyle,
+=======
+  ...EllipsisTamaguiStyle,
+>>>>>>> upstream/main
   $md: {
     fontSize: 24,
     lineHeight: 32,
@@ -309,7 +344,11 @@ function PriceChart({
           <PriceDisplayContainer>
             <ChartPriceText>
               {`1 ${baseCurrency.symbol} = ${formatCurrencyAmount({
+<<<<<<< HEAD
                 // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+=======
+                // oxlint-disable-next-line typescript/no-unnecessary-condition
+>>>>>>> upstream/main
                 value: tryParseCurrencyAmount((displayValue?.value ?? displayValue.close).toString(), baseCurrency),
               })} 
             ${quoteCurrency.symbol}`}

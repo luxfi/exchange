@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import { GraphQLApi } from '@l.x/api'
+=======
+import { GraphQLApi } from '@universe/api'
+>>>>>>> upstream/main
 import { TokenLinkCell } from '~/components/Table/shared/TokenLinkCell'
 import { validBEPoolToken0 } from '~/test-utils/pools/fixtures'
 import { render, screen } from '~/test-utils/render'

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* eslint-disable max-lines */
 import { ProtocolVersion } from '@luxamm/client-data-api/dist/data/v1/poolTypes_pb'
 import { useCallback, useEffect, useMemo, useState } from 'react'
@@ -7,6 +8,17 @@ import { AlertTriangleFilled } from '@l.x/ui/src/components/icons/AlertTriangleF
 import { fonts, zIndexes } from '@l.x/ui/src/theme'
 import { AmountInput } from '@l.x/lx/src/components/AmountInput/AmountInput'
 import { WarningSeverity } from '@l.x/lx/src/components/modals/WarningModal/types'
+=======
+/* oxlint-disable max-lines */
+import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
+import { useCallback, useEffect, useMemo, useState } from 'react'
+import { Trans, useTranslation } from 'react-i18next'
+import { AnimatePresence, Button, Flex, SegmentedControl, Text, useMedia, useSporeColors } from 'ui/src'
+import { AlertTriangleFilled } from 'ui/src/components/icons/AlertTriangleFilled'
+import { fonts, zIndexes } from 'ui/src/theme'
+import { AmountInput } from 'uniswap/src/components/AmountInput/AmountInput'
+import { WarningSeverity } from 'uniswap/src/components/modals/WarningModal/types'
+>>>>>>> upstream/main
 import { D3LiquidityRangeInput } from '~/components/Charts/D3LiquidityRangeInput/D3LiquidityRangeInput'
 import { useDefaultInitialPrice } from '~/components/Liquidity/Create/hooks/useDefaultInitialPrice'
 import { useTokenControlOptions } from '~/components/Liquidity/Create/hooks/useTokenControlOptions'
@@ -81,7 +93,11 @@ const InitialPriceInput = () => {
   }, [formattedDefaultInitialPrice, isInitialPriceDirty, setPriceRangeState])
 
   const { baseCurrency, quoteCurrency } = getBaseAndQuoteCurrencies(currencies.display, priceInverted)
+<<<<<<< HEAD
   // biome-ignore lint/correctness/useExhaustiveDependencies: +priceInverted
+=======
+  // oxlint-disable-next-line react/exhaustive-deps -- +priceInverted
+>>>>>>> upstream/main
   useEffect(() => {
     try {
       if (initialPrice && baseCurrency && quoteCurrency) {

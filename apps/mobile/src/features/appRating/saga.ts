@@ -1,5 +1,6 @@
 import { Alert, Platform } from 'react-native'
 import { call, delay, put, select, takeLatest } from 'typed-redux-saga'
+<<<<<<< HEAD
 import { lxUrls } from '@l.x/lx/src/constants/urls'
 import { WalletEventName } from '@l.x/lx/src/features/telemetry/constants'
 import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
@@ -14,6 +15,22 @@ import { ONE_SECOND_MS } from '@l.x/utils/src/time/time'
 import { appRatingStateSelector } from '@luxfi/wallet/src/features/appRating/selectors'
 import { selectActiveAccountAddress } from '@luxfi/wallet/src/features/wallet/selectors'
 import { setAppRating } from '@luxfi/wallet/src/features/wallet/slice'
+=======
+import { uniswapUrls } from 'uniswap/src/constants/urls'
+import { WalletEventName } from 'uniswap/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
+import { finalizeTransaction } from 'uniswap/src/features/transactions/slice'
+import { TransactionStatus, TransactionType } from 'uniswap/src/features/transactions/types/transactionDetails'
+import i18n from 'uniswap/src/i18n'
+import { openUri } from 'uniswap/src/utils/linking'
+import { isTestRun } from 'utilities/src/environment/constants'
+import { logger } from 'utilities/src/logger/logger'
+import { isAndroid } from 'utilities/src/platform'
+import { ONE_SECOND_MS } from 'utilities/src/time/time'
+import { appRatingStateSelector } from 'wallet/src/features/appRating/selectors'
+import { selectActiveAccountAddress } from 'wallet/src/features/wallet/selectors'
+import { setAppRating } from 'wallet/src/features/wallet/slice'
+>>>>>>> upstream/main
 
 function isAndroid14(): boolean {
   return isAndroid && Platform.Version === 34
@@ -165,7 +182,11 @@ async function openFeedbackRequestAlert() {
       {
         text: i18n.t('appRating.feedback.button.send'),
         onPress: () => {
+<<<<<<< HEAD
           openUri({ uri: lxUrls.walletFeedbackForm }).catch((e) =>
+=======
+          openUri({ uri: uniswapUrls.walletFeedbackForm }).catch((e) =>
+>>>>>>> upstream/main
             logger.error(e, { tags: { file: 'appRating/saga', function: 'openFeedbackAlert' } }),
           )
           resolve(true)

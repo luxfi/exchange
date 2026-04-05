@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* eslint-disable @typescript-eslint/no-unnecessary-condition */
 
 import { ApolloError } from '@apollo/client'
@@ -17,6 +18,27 @@ import { areAddressesEqual } from '@l.x/lx/src/utils/addresses'
 import { ExplorerDataType, getExplorerLink } from '@l.x/lx/src/utils/linking'
 import { shortenAddress } from '@l.x/utils/src/addresses'
 import { NumberType } from '@l.x/utils/src/format/types'
+=======
+/* oxlint-disable typescript/no-unnecessary-condition */
+
+import { ApolloError } from '@apollo/client'
+import { createColumnHelper } from '@tanstack/react-table'
+import { Token } from '@uniswap/sdk-core'
+import { GraphQLApi } from '@universe/api'
+import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import { useMemo, useReducer, useRef, useState } from 'react'
+import { useTranslation } from 'react-i18next'
+import { Flex, Text, useMedia } from 'ui/src'
+import { getChainInfo } from 'uniswap/src/features/chains/chainInfo'
+import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { useAppFiatCurrency } from 'uniswap/src/features/fiatCurrency/hooks'
+import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
+import { Platform } from 'uniswap/src/features/platforms/types/Platform'
+import { areAddressesEqual } from 'uniswap/src/utils/addresses'
+import { ExplorerDataType, getExplorerLink } from 'uniswap/src/utils/linking'
+import { shortenAddress } from 'utilities/src/addresses'
+import { NumberType } from 'utilities/src/format/types'
+>>>>>>> upstream/main
 import {
   getTokenTransactionTypeTranslation,
   TokenTransactionType,
@@ -65,6 +87,10 @@ export function TransactionsTable({ chainId, referenceToken }: { chainId: Univer
     address: referenceToken.address,
     chainId,
     filter,
+<<<<<<< HEAD
+=======
+    multichain: isMultichainTokenUx,
+>>>>>>> upstream/main
   })
 
   // Only show full error state when ALL versions fail
@@ -246,7 +272,11 @@ export function TransactionsTable({ chainId, referenceToken }: { chainId: Univer
                   type: NumberType.TokenQuantityStats,
                 })}
               </EllipsisText>
+<<<<<<< HEAD
               <TokenLinkCell token={nonReferenceSwapLeg.token} />
+=======
+              <TokenLinkCell token={nonReferenceSwapLeg.token} showMainnetNetworkLogo={isMultichainTokenUx} />
+>>>>>>> upstream/main
             </Flex>
           )
         },
@@ -316,6 +346,10 @@ export function TransactionsTable({ chainId, referenceToken }: { chainId: Univer
     chainId,
     filterModalIsOpen,
     filter,
+<<<<<<< HEAD
+=======
+    isMultichainTokenUx,
+>>>>>>> upstream/main
     referenceToken.address,
     unwrappedReferenceToken.symbol,
     formatNumberOrString,

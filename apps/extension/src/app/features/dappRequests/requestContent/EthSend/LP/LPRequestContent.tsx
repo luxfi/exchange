@@ -1,8 +1,16 @@
+<<<<<<< HEAD
 import { GasFeeResult } from '@l.x/api'
 import { useTranslation } from 'react-i18next'
 import { DappRequestContent } from 'src/app/features/dappRequests/DappRequestContent'
 import { LPSendTransactionRequest } from 'src/app/features/dappRequests/types/DappRequestTypes'
 import { Flex, Text } from '@l.x/ui/src'
+=======
+import { GasFeeResult } from '@universe/api'
+import { useTranslation } from 'react-i18next'
+import { DappRequestContent } from 'src/app/features/dappRequests/DappRequestContent'
+import { LPSendTransactionRequest } from 'src/app/features/dappRequests/types/DappRequestTypes'
+import { Flex, Text } from 'ui/src'
+>>>>>>> upstream/main
 
 interface LPRequestContentProps {
   transactionGasFeeResult: GasFeeResult

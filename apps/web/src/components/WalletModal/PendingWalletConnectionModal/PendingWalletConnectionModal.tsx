@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
+<<<<<<< HEAD
 import { AnimatePresence, Button, Flex, HeightAnimator, Text } from '@l.x/ui/src'
 import SOLANA_ICON from '@l.x/ui/src/assets/logos/png/solana-logo.png'
 import { CloseIconWithHover } from '@l.x/ui/src/components/icons/CloseIconWithHover'
@@ -8,6 +9,16 @@ import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
 import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
 import { useEvent } from '@l.x/utils/src/react/hooks'
 import { useDebounce } from '@l.x/utils/src/time/timing'
+=======
+import { AnimatePresence, Button, Flex, HeightAnimator, Text } from 'ui/src'
+import SOLANA_ICON from 'ui/src/assets/logos/png/solana-logo.png'
+import { CloseIconWithHover } from 'ui/src/components/icons/CloseIconWithHover'
+import { Modal } from 'uniswap/src/components/modals/Modal'
+import { Platform } from 'uniswap/src/features/platforms/types/Platform'
+import { ModalName } from 'uniswap/src/features/telemetry/constants'
+import { useEvent } from 'utilities/src/react/hooks'
+import { useDebounce } from 'utilities/src/time/timing'
+>>>>>>> upstream/main
 import {
   getWalletRequiresSeparatePrompt,
   useHasAcceptedSolanaConnectionPrompt,

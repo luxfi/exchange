@@ -1,4 +1,5 @@
 import { useTranslation } from 'react-i18next'
+<<<<<<< HEAD
 import { Text } from '@l.x/ui/src'
 import { WarningSeverity } from '@l.x/lx/src/components/modals/WarningModal/types'
 import { WarningModal } from '@l.x/lx/src/components/modals/WarningModal/WarningModal'
@@ -6,6 +7,15 @@ import { LearnMoreLink } from '@l.x/lx/src/components/text/LearnMoreLink'
 import { lxUrls } from '@l.x/lx/src/constants/urls'
 import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
 import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
+=======
+import { Text } from 'ui/src'
+import { WarningSeverity } from 'uniswap/src/components/modals/WarningModal/types'
+import { WarningModal } from 'uniswap/src/components/modals/WarningModal/WarningModal'
+import { LearnMoreLink } from 'uniswap/src/components/text/LearnMoreLink'
+import { uniswapUrls } from 'uniswap/src/constants/urls'
+import { ModalName } from 'uniswap/src/features/telemetry/constants'
+import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+>>>>>>> upstream/main
 
 export function ContractAddressExplainerModal({
   onAcknowledge,
@@ -33,7 +43,11 @@ export function ContractAddressExplainerModal({
             display="inline"
             textColor="$neutral1"
             textVariant="buttonLabel3"
+<<<<<<< HEAD
             url={lxUrls.helpArticleUrls.contractAddressExplainer}
+=======
+            url={uniswapUrls.helpArticleUrls.contractAddressExplainer}
+>>>>>>> upstream/main
           />
         </>
       }

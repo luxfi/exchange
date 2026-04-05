@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 import { Flex, styled, useSporeColors } from '@l.x/ui/src'
 import { iconSizes } from '@l.x/ui/src/theme'
+=======
+import { Flex, styled, useSporeColors } from 'ui/src'
+import { iconSizes } from 'ui/src/theme'
+>>>>>>> upstream/main
 import { FadePresence, FadePresenceAnimationType } from '~/theme/components/FadePresence'
 
 const LOGO_SIZE = iconSizes.icon64

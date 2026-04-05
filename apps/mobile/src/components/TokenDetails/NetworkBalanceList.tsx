@@ -1,4 +1,5 @@
 import { memo, useMemo } from 'react'
+<<<<<<< HEAD
 import { Flex, Text, TouchableArea } from '@l.x/ui/src'
 import { borderRadii, iconSizes } from '@l.x/ui/src/theme'
 import { NetworkLogo } from '@l.x/lx/src/components/CurrencyLogo/NetworkLogo'
@@ -8,6 +9,17 @@ import { useLocalizationContext } from '@l.x/lx/src/features/language/Localizati
 import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
 import { getSymbolDisplayText } from '@l.x/lx/src/utils/currency'
 import { NumberType } from '@l.x/utils/src/format/types'
+=======
+import { Flex, Text, TouchableArea } from 'ui/src'
+import { borderRadii, iconSizes } from 'ui/src/theme'
+import { NetworkLogo } from 'uniswap/src/components/CurrencyLogo/NetworkLogo'
+import { getChainInfo } from 'uniswap/src/features/chains/chainInfo'
+import { PortfolioBalance } from 'uniswap/src/features/dataApi/types'
+import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
+import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+import { getSymbolDisplayText } from 'uniswap/src/utils/currency'
+import { NumberType } from 'utilities/src/format/types'
+>>>>>>> upstream/main
 
 interface NetworkBalanceRowProps {
   balance: PortfolioBalance

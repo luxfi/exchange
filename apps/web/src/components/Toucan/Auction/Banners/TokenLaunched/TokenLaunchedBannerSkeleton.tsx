@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import { Flex, Skeleton } from '@l.x/ui/src'
+=======
+import { Flex, Skeleton } from 'ui/src'
+>>>>>>> upstream/main
 
 export function TokenLaunchedBannerSkeleton() {
   return (

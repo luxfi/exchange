@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 import { Flex, Text } from '@l.x/ui/src'
 import { ArrowRight } from '@l.x/ui/src/components/icons/ArrowRight'
+=======
+import { Flex, Text } from 'ui/src'
+import { ArrowRight } from 'ui/src/components/icons/ArrowRight'
+>>>>>>> upstream/main
 
 type PillButtonProps = {
   label: string

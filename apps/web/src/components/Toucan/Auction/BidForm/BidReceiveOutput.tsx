@@ -1,6 +1,10 @@
 import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
+<<<<<<< HEAD
 import { Flex, styled, Text } from '@l.x/ui/src'
+=======
+import { Flex, styled, Text } from 'ui/src'
+>>>>>>> upstream/main
 
 interface BidReceiveOutputProps {
   expectedAmount?: number

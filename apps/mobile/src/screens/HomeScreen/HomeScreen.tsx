@@ -1,9 +1,18 @@
+<<<<<<< HEAD
 /* eslint-disable max-lines */
 import { useApolloClient } from '@apollo/client'
 import { useIsFocused, useScrollToTop } from '@react-navigation/native'
 import { SharedQueryClient } from '@l.x/api'
 import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { getIsNotificationServiceLocalOverrideEnabled } from '@l.x/notifications'
+=======
+/* oxlint-disable max-lines */
+import { useApolloClient } from '@apollo/client'
+import { useIsFocused, useScrollToTop } from '@react-navigation/native'
+import { SharedQueryClient } from '@universe/api'
+import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import { getIsNotificationServiceLocalOverrideEnabled } from '@universe/notifications'
+>>>>>>> upstream/main
 import { Dispatch, SetStateAction, useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { Freeze } from 'react-freeze'
 import { useTranslation } from 'react-i18next'
@@ -46,6 +55,7 @@ import { HomeScreenTabIndex } from 'src/screens/HomeScreen/HomeScreenTabIndex'
 import { SmartWalletModals } from 'src/screens/HomeScreen/SmartWalletModals'
 import { useHomeScreenState } from 'src/screens/HomeScreen/useHomeScreenState'
 import { useHomeScrollRefs } from 'src/screens/HomeScreen/useHomeScrollRefs'
+<<<<<<< HEAD
 import { Flex, Text, TouchableArea, useMedia, useSporeColors } from '@l.x/ui/src'
 import { AnimatedFlex } from '@l.x/ui/src/components/layout/AnimatedFlex'
 import { useDeviceDimensions } from '@l.x/ui/src/hooks/useDeviceDimensions'
@@ -73,6 +83,35 @@ import { useOpenSmartWalletNudgeOnCompletedSwap } from '@luxfi/wallet/src/compon
 import { setIncrementNumPostSwapNudge } from '@luxfi/wallet/src/features/behaviorHistory/slice'
 import { useActiveAccountWithThrow } from '@luxfi/wallet/src/features/wallet/hooks'
 import { setSmartWalletConsent } from '@luxfi/wallet/src/features/wallet/slice'
+=======
+import { Flex, Text, TouchableArea, useMedia, useSporeColors } from 'ui/src'
+import { AnimatedFlex } from 'ui/src/components/layout/AnimatedFlex'
+import { useDeviceDimensions } from 'ui/src/hooks/useDeviceDimensions'
+import { spacing } from 'ui/src/theme'
+import { buildWrappedUrl } from 'uniswap/src/components/banners/shared/utils'
+import { UniswapWrapped2025Banner } from 'uniswap/src/components/banners/UniswapWrapped2025Banner/UniswapWrapped2025Banner'
+import { NFTS_TAB_DATA_DEPENDENCIES } from 'uniswap/src/components/nfts/constants'
+import { UNISWAP_WEB_URL } from 'uniswap/src/constants/urls'
+import { getPortfolioQuery } from 'uniswap/src/data/rest/getPortfolio'
+import { getListTransactionsQuery } from 'uniswap/src/data/rest/listTransactions'
+import { AccountType } from 'uniswap/src/features/accounts/types'
+import { selectHasDismissedUniswapWrapped2025Banner } from 'uniswap/src/features/behaviorHistory/selectors'
+import { setHasDismissedUniswapWrapped2025Banner } from 'uniswap/src/features/behaviorHistory/slice'
+import { useEnabledChains } from 'uniswap/src/features/chains/hooks/useEnabledChains'
+import { useSelectAddressHasNotifications } from 'uniswap/src/features/notifications/slice/hooks'
+import { setNotificationStatus } from 'uniswap/src/features/notifications/slice/slice'
+import { ModalName, SectionName } from 'uniswap/src/features/telemetry/constants'
+import { useAppInsets } from 'uniswap/src/hooks/useAppInsets'
+import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+import { MobileScreens } from 'uniswap/src/types/screens/mobile'
+import { openUri } from 'uniswap/src/utils/linking'
+import { logger } from 'utilities/src/logger/logger'
+import { useEvent } from 'utilities/src/react/hooks'
+import { useOpenSmartWalletNudgeOnCompletedSwap } from 'wallet/src/components/smartWallet/smartAccounts/hooks'
+import { setIncrementNumPostSwapNudge } from 'wallet/src/features/behaviorHistory/slice'
+import { useActiveAccountWithThrow } from 'wallet/src/features/wallet/hooks'
+import { setSmartWalletConsent } from 'wallet/src/features/wallet/slice'
+>>>>>>> upstream/main
 
 type HomeRoute = {
   key: (typeof SectionName)[keyof typeof SectionName]
@@ -132,12 +171,20 @@ function HomeScreen({
 
   const isBottomTabsEnabled = useFeatureFlag(FeatureFlags.BottomTabs)
   const isPnLEnabled = useFeatureFlag(FeatureFlags.ProfitLoss)
+<<<<<<< HEAD
   const isWrappedBannerEnabled = useFeatureFlag(FeatureFlags.LXWrapped2025)
+=======
+  const isWrappedBannerEnabled = useFeatureFlag(FeatureFlags.UniswapWrapped2025)
+>>>>>>> upstream/main
   const isNotificationServiceEnabledFlag = useFeatureFlag(FeatureFlags.NotificationService)
   const isNotificationServiceEnabled =
     getIsNotificationServiceLocalOverrideEnabled() || isNotificationServiceEnabledFlag
 
+<<<<<<< HEAD
   const hasDismissedWrappedBanner = useSelector(selectHasDismissedLuxWrapped2025Banner)
+=======
+  const hasDismissedWrappedBanner = useSelector(selectHasDismissedUniswapWrapped2025Banner)
+>>>>>>> upstream/main
   const shouldShowWrappedBanner = isWrappedBannerEnabled && !hasDismissedWrappedBanner
 
   const { showEmptyWalletState, isTabsDataLoaded } = useHomeScreenState()
@@ -271,7 +318,11 @@ function HomeScreen({
   }, [dispatch, activeAccount.address, tabIndex, hasNotifications, isBottomTabsEnabled])
 
   // If accounts are switched, we want to scroll to top and show full header
+<<<<<<< HEAD
   // biome-ignore lint/correctness/useExhaustiveDependencies: we want to trigger this effect also when activeAccount changes
+=======
+  // oxlint-disable-next-line react/exhaustive-deps -- we want to trigger this effect also when activeAccount changes
+>>>>>>> upstream/main
   useEffect(() => {
     resetScrollState()
   }, [activeAccount, resetScrollState])
@@ -320,14 +371,24 @@ function HomeScreen({
   const viewOnlyLabel = t('home.warning.viewOnly')
 
   const handleDismissWrappedBanner = useCallback(() => {
+<<<<<<< HEAD
     dispatch(setHasDismissedLuxWrapped2025Banner(true))
+=======
+    dispatch(setHasDismissedUniswapWrapped2025Banner(true))
+>>>>>>> upstream/main
   }, [dispatch])
 
   const handlePressWrappedBanner = useCallback(async () => {
     try {
+<<<<<<< HEAD
       const url = buildWrappedUrl(LX_WEB_URL, activeAccount.address)
       await openUri({ uri: url, openExternalBrowser: true })
       dispatch(setHasDismissedLuxWrapped2025Banner(true))
+=======
+      const url = buildWrappedUrl(UNISWAP_WEB_URL, activeAccount.address)
+      await openUri({ uri: url, openExternalBrowser: true })
+      dispatch(setHasDismissedUniswapWrapped2025Banner(true))
+>>>>>>> upstream/main
     } catch (error) {
       logger.error(error, { tags: { file: 'HomeScreen', function: 'handlePressWrappedBanner' } })
     }
@@ -360,7 +421,11 @@ function HomeScreen({
       >
         {shouldShowWrappedBanner && (
           <Flex>
+<<<<<<< HEAD
             <LuxWrapped2025Banner
+=======
+            <UniswapWrapped2025Banner
+>>>>>>> upstream/main
               handleDismiss={handleDismissWrappedBanner}
               handlePress={handlePressWrappedBanner}
             />

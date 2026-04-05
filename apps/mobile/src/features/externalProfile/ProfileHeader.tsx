@@ -19,6 +19,7 @@ import {
   useExtractedColors,
   useIsDarkMode,
   useSporeColors,
+<<<<<<< HEAD
 } from '@l.x/ui/src'
 import { ENS_LOGO } from '@l.x/ui/src/assets'
 import { SendAction, XTwitter } from '@l.x/ui/src/components/icons'
@@ -38,6 +39,27 @@ import { openUri } from '@l.x/lx/src/utils/linking'
 import { RecipientSelectSpeedBumps } from '@luxfi/wallet/src/components/RecipientSearch/RecipientSelectSpeedBumps'
 import { HeaderRadial, solidHeaderProps } from '@luxfi/wallet/src/features/unitags/HeaderRadial'
 import { useDisplayName } from '@luxfi/wallet/src/features/wallet/hooks'
+=======
+} from 'ui/src'
+import { ENS_LOGO } from 'ui/src/assets'
+import { SendAction, XTwitter } from 'ui/src/components/icons'
+import { AnimatedFlex } from 'ui/src/components/layout/AnimatedFlex'
+import { DEP_accentColors, iconSizes, imageSizes, spacing, validColor } from 'ui/src/theme'
+import { AddressDisplay } from 'uniswap/src/components/accounts/AddressDisplay'
+import { DisplayNameType } from 'uniswap/src/features/accounts/types'
+import { useAvatar } from 'uniswap/src/features/address/avatar'
+import { useENSDescription, useENSName, useENSTwitterUsername } from 'uniswap/src/features/ens/api'
+import { selectWatchedAddressSet } from 'uniswap/src/features/favorites/selectors'
+import { useToggleWatchedWalletCallback } from 'uniswap/src/features/favorites/useToggleWatchedWalletCallback'
+import { useTestnetModeBannerHeight } from 'uniswap/src/features/settings/hooks'
+import { ModalName } from 'uniswap/src/features/telemetry/constants'
+import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+import { CurrencyField } from 'uniswap/src/types/currency'
+import { openUri } from 'uniswap/src/utils/linking'
+import { RecipientSelectSpeedBumps } from 'wallet/src/components/RecipientSearch/RecipientSelectSpeedBumps'
+import { HeaderRadial, solidHeaderProps } from 'wallet/src/features/unitags/HeaderRadial'
+import { useDisplayName } from 'wallet/src/features/wallet/hooks'
+>>>>>>> upstream/main
 
 const HEADER_GRADIENT_HEIGHT = 144
 const HEADER_ICON_SIZE = 72

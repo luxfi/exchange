@@ -18,6 +18,7 @@ import {
   TouchableArea,
   UniversalImage,
   UniversalImageResizeMode,
+<<<<<<< HEAD
 } from '@l.x/ui/src'
 import { Power, RotatableChevron, X } from '@l.x/ui/src/components/icons'
 import { borderRadii, iconSizes } from '@l.x/ui/src/theme'
@@ -32,6 +33,22 @@ import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
 import { extractNameFromUrl } from '@l.x/utils/src/format/extractNameFromUrl'
 import { extractUrlHost } from '@l.x/utils/src/format/urls'
 import { useActiveAccountWithThrow } from '@luxfi/wallet/src/features/wallet/hooks'
+=======
+} from 'ui/src'
+import { Power, RotatableChevron, X } from 'ui/src/components/icons'
+import { borderRadii, iconSizes } from 'ui/src/theme'
+import { NetworkLogo } from 'uniswap/src/components/CurrencyLogo/NetworkLogo'
+import { DappIconPlaceholder } from 'uniswap/src/components/dapps/DappIconPlaceholder'
+import { uniswapUrls } from 'uniswap/src/constants/urls'
+import { getChainLabel } from 'uniswap/src/features/chains/utils'
+import { pushNotification } from 'uniswap/src/features/notifications/slice/slice'
+import { AppNotificationType } from 'uniswap/src/features/notifications/slice/types'
+import { ExtensionEventName } from 'uniswap/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
+import { extractNameFromUrl } from 'utilities/src/format/extractNameFromUrl'
+import { extractUrlHost } from 'utilities/src/format/urls'
+import { useActiveAccountWithThrow } from 'wallet/src/features/wallet/hooks'
+>>>>>>> upstream/main
 
 export function ConnectPopupContent({
   onClose,
@@ -167,7 +184,11 @@ export function ConnectPopupContent({
               <Link
                 style={{ textDecoration: 'none' }}
                 target="_blank"
+<<<<<<< HEAD
                 to={lxUrls.helpArticleUrls.extensionDappTroubleshooting}
+=======
+                to={uniswapUrls.helpArticleUrls.extensionDappTroubleshooting}
+>>>>>>> upstream/main
                 onClick={() =>
                   sendAnalyticsEvent(ExtensionEventName.DappTroubleConnecting, {
                     dappUrl,

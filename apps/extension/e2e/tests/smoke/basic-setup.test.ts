@@ -1,7 +1,12 @@
 import { expect } from '@playwright/test'
 import { freshExtensionTest as test } from 'e2e/fixtures/extension.fixture'
+<<<<<<< HEAD
 import { ONE_SECOND_MS } from '@l.x/utils/src/time/time'
 import { sleep } from '@l.x/utils/src/time/timing'
+=======
+import { ONE_SECOND_MS } from 'utilities/src/time/time'
+import { sleep } from 'utilities/src/time/timing'
+>>>>>>> upstream/main
 
 test.describe('Basic Extension Setup', () => {
   test('extension loads successfully', async ({ context, extensionId }) => {

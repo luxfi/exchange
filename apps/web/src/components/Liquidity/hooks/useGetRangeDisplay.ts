@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 import { Currency, Price } from '@luxamm/sdk-core'
 import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
 import { NumberType } from '@l.x/utils/src/format/types'
+=======
+import { Currency, Price } from '@uniswap/sdk-core'
+import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
+import { NumberType } from 'utilities/src/format/types'
+>>>>>>> upstream/main
 import { PriceOrdering } from '~/components/Liquidity/types'
 import useIsTickAtLimit, { Bound } from '~/hooks/useIsTickAtLimit'
 

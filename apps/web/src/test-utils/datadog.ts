@@ -69,15 +69,26 @@ interface DataDogPlaywright {
    */
   addDatadogMeasures(measures: Record<string, number>): void
   /**
+<<<<<<< HEAD
    * Convenience function to add common Lux test tags
+=======
+   * Convenience function to add common Uniswap test tags
+>>>>>>> upstream/main
    *
    * @param options Object with optional tag values
    * @example
    * ```typescript
+<<<<<<< HEAD
    * import { addLuxTestTags, DATADOG_TAGS } from '../test-utils/datadog'
    *
    * test('swap flow test', async ({ page }) => {
    *   addLuxTestTags({
+=======
+   * import { addUniswapTestTags, DATADOG_TAGS } from '../test-utils/datadog'
+   *
+   * test('swap flow test', async ({ page }) => {
+   *   addUniswapTestTags({
+>>>>>>> upstream/main
    *     priority: DATADOG_TAGS.PRIORITY.CRITICAL,
    *     owner: DATADOG_TAGS.OWNER.SWAP_POD,
    *   })
@@ -86,7 +97,11 @@ interface DataDogPlaywright {
    * })
    * ```
    */
+<<<<<<< HEAD
   addLuxTestTags(options: {
+=======
+  addUniswapTestTags(options: {
+>>>>>>> upstream/main
     priority?: string
     owner?: string
     feature?: string
@@ -120,7 +135,11 @@ function _getDatadogPlaywright(ctx: { test: GetTestResult }): DataDogPlaywright 
     })
   }
 
+<<<<<<< HEAD
   function addLuxTestTags(options: {
+=======
+  function addUniswapTestTags(options: {
+>>>>>>> upstream/main
     priority?: string
     owner?: string
     feature?: string
@@ -157,6 +176,10 @@ function _getDatadogPlaywright(ctx: { test: GetTestResult }): DataDogPlaywright 
     addDatadogTags,
     addDatadogMeasure,
     addDatadogMeasures,
+<<<<<<< HEAD
     addLuxTestTags,
+=======
+    addUniswapTestTags,
+>>>>>>> upstream/main
   }
 }

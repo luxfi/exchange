@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import { type InAppNotification } from '@l.x/api'
+=======
+import { type InAppNotification } from '@universe/api'
+>>>>>>> upstream/main
 import { create, type StoreApi, type UseBoundStore } from 'zustand'
 
 export interface NotificationState {

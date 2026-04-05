@@ -1,9 +1,17 @@
 import { lazy, Suspense } from 'react'
+<<<<<<< HEAD
 import { Flex } from '@l.x/ui/src'
 import { Flag } from '@l.x/ui/src/components/icons/Flag'
 import { Modal } from '@l.x/lx/src/components/modals/Modal'
 import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
 import { useBooleanState } from '@l.x/utils/src/react/useBooleanState'
+=======
+import { Flex } from 'ui/src'
+import { Flag } from 'ui/src/components/icons/Flag'
+import { Modal } from 'uniswap/src/components/modals/Modal'
+import { ModalName } from 'uniswap/src/features/telemetry/constants'
+import { useBooleanState } from 'utilities/src/react/useBooleanState'
+>>>>>>> upstream/main
 
 const DevMenuScreen = lazy(() =>
   import('src/app/features/settings/DevMenuScreen').then((module) => ({ default: module.DevMenuScreen })),

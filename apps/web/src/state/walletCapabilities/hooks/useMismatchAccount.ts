@@ -1,4 +1,5 @@
 import { nanoid } from '@reduxjs/toolkit'
+<<<<<<< HEAD
 import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { useRef } from 'react'
 import { selectHasShownMismatchToast } from '@l.x/lx/src/features/behaviorHistory/selectors'
@@ -8,6 +9,17 @@ import { LXEventName } from '@l.x/lx/src/features/telemetry/constants'
 import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
 import { getLogger } from '@l.x/utils/src/logger/logger'
 import { useEvent } from '@l.x/utils/src/react/hooks'
+=======
+import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import { useRef } from 'react'
+import { selectHasShownMismatchToast } from 'uniswap/src/features/behaviorHistory/selectors'
+import { setHasShownMismatchToast } from 'uniswap/src/features/behaviorHistory/slice'
+import { createHasMismatchUtil, type HasMismatchUtil } from 'uniswap/src/features/smartWallet/mismatch/mismatch'
+import { UniswapEventName } from 'uniswap/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
+import { getLogger } from 'utilities/src/logger/logger'
+import { useEvent } from 'utilities/src/react/hooks'
+>>>>>>> upstream/main
 import { popupRegistry } from '~/components/Popups/registry'
 import { PopupType } from '~/components/Popups/types'
 import { useAppDispatch, useAppSelector } from '~/state/hooks'
@@ -55,7 +67,11 @@ export function useHasMismatchCallback(): HasMismatchUtil {
 
   const onMismatchDetected = useEvent(
     (payload: { chainId: number; isDelegated: boolean; delegatedAddress: Address }) => {
+<<<<<<< HEAD
       sendAnalyticsEvent(LXEventName.SmartWalletMismatchDetected, {
+=======
+      sendAnalyticsEvent(UniswapEventName.SmartWalletMismatchDetected, {
+>>>>>>> upstream/main
         chainId: String(payload.chainId),
         delegatedAddress: payload.delegatedAddress,
       })

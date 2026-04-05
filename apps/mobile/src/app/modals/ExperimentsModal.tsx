@@ -5,6 +5,7 @@ import { ServerOverrides } from 'src/components/experiments/ServerOverrides'
 import { useReactNavigationModal } from 'src/components/modals/useReactNavigationModal'
 import { E2EPixel } from 'src/test/E2EPixel'
 import { getFullAppVersion } from 'src/utils/version'
+<<<<<<< HEAD
 import { Accordion, Text } from '@l.x/ui/src'
 import { spacing } from '@l.x/ui/src/theme'
 import { CacheConfig } from '@l.x/lx/src/components/gating/CacheConfig'
@@ -13,6 +14,16 @@ import { Modal } from '@l.x/lx/src/components/modals/Modal'
 import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
 import { useAppInsets } from '@l.x/lx/src/hooks/useAppInsets'
 import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
+=======
+import { Accordion, Text } from 'ui/src'
+import { spacing } from 'ui/src/theme'
+import { CacheConfig } from 'uniswap/src/components/gating/CacheConfig'
+import { GatingOverrides } from 'uniswap/src/components/gating/GatingOverrides'
+import { Modal } from 'uniswap/src/components/modals/Modal'
+import { ModalName } from 'uniswap/src/features/telemetry/constants'
+import { useAppInsets } from 'uniswap/src/hooks/useAppInsets'
+import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+>>>>>>> upstream/main
 
 export function ExperimentsModal(): JSX.Element {
   const insets = useAppInsets()

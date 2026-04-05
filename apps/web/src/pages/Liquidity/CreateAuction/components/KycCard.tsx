@@ -1,6 +1,10 @@
 import { useTranslation } from 'react-i18next'
+<<<<<<< HEAD
 import { Button, Flex, Text } from '@l.x/ui/src'
 import { lxUrls } from 'lx/src/constants/urls'
+=======
+import { Button, Flex, Text } from 'ui/src'
+>>>>>>> upstream/main
 import { ExternalLink } from '~/theme/components/Links'
 
 export function KycCard() {
@@ -21,7 +25,11 @@ export function KycCard() {
         <Text variant="body4" color="$neutral1">
           {t('toucan.createAuction.step.configureAuction.kyc.description')}
         </Text>
+<<<<<<< HEAD
         <ExternalLink href={lxUrls.helpUrl}>
+=======
+        <ExternalLink href="https://support.uniswap.org/hc/en-us">
+>>>>>>> upstream/main
           <Text variant="buttonLabel4" color="$neutral2">
             {t('toucan.createAuction.step.configureAuction.kyc.learnMore')}
           </Text>

@@ -1,7 +1,12 @@
 import { useMemo } from 'react'
 import { Trans, useTranslation } from 'react-i18next'
+<<<<<<< HEAD
 import { Button, Flex, Switch, Text } from '@l.x/ui/src'
 import { nativeOnChain } from '@l.x/lx/src/constants/tokens'
+=======
+import { Button, Flex, Switch, Text } from 'ui/src'
+import { nativeOnChain } from 'uniswap/src/constants/tokens'
+>>>>>>> upstream/main
 import useResizeObserver from 'use-resize-observer'
 import { ErrorCallout } from '~/components/ErrorCallout'
 import { LiquidityModalDetailRows } from '~/components/Liquidity/LiquidityModalDetailRows'
@@ -81,8 +86,13 @@ export function RemoveLiquidityForm() {
           backgroundColor="$surface2"
           borderTopLeftRadius="$rounded12"
           borderTopRightRadius="$rounded12"
+<<<<<<< HEAD
           borderBottomLeftRadius={canUnwrap ? 0 : '$rounded12'}
           borderBottomRightRadius={canUnwrap ? 0 : '$rounded12'}
+=======
+          borderBottomLeftRadius={canUnwrap ? '$rounded0' : '$rounded12'}
+          borderBottomRightRadius={canUnwrap ? '$rounded0' : '$rounded12'}
+>>>>>>> upstream/main
           p="$padding16"
           gap="$gap12"
         >

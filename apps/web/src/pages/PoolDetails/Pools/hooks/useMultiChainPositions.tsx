@@ -1,4 +1,5 @@
 import { BigNumber } from '@ethersproject/bignumber'
+<<<<<<< HEAD
 import { CurrencyAmount, Token, V3_CORE_FACTORY_ADDRESSES } from '@luxamm/sdk-core'
 import ILXV3PoolStateJSON from '@luxamm/v3-core/artifacts/contracts/interfaces/pool/ILXV3PoolState.sol/ILXV3PoolState.json'
 import { computePoolAddress, Pool, Position } from '@luxamm/v3-sdk'
@@ -10,6 +11,19 @@ import { useEnabledChains } from '@l.x/lx/src/features/chains/hooks/useEnabledCh
 import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { logger } from '@l.x/utils/src/logger/logger'
 import { DEFAULT_ERC20_DECIMALS } from '@l.x/utils/src/tokens/constants'
+=======
+import { CurrencyAmount, Token, V3_CORE_FACTORY_ADDRESSES } from '@uniswap/sdk-core'
+import IUniswapV3PoolStateJSON from '@uniswap/v3-core/artifacts/contracts/interfaces/pool/IUniswapV3PoolState.sol/IUniswapV3PoolState.json'
+import { computePoolAddress, Pool, Position } from '@uniswap/v3-sdk'
+import { Interface } from 'ethers/lib/utils'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import { NonfungiblePositionManager, UniswapInterfaceMulticall } from 'uniswap/src/abis/types/v3'
+import { UniswapV3PoolInterface } from 'uniswap/src/abis/types/v3/UniswapV3Pool'
+import { useEnabledChains } from 'uniswap/src/features/chains/hooks/useEnabledChains'
+import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { logger } from 'utilities/src/logger/logger'
+import { DEFAULT_ERC20_DECIMALS } from 'utilities/src/tokens/constants'
+>>>>>>> upstream/main
 import {
   PositionInfo,
   useCachedPositions,
@@ -85,7 +99,11 @@ export default function useMultiChainPositions(account: string): UseMultiChainPo
   const { priceMap, pricesLoading } = usePoolPriceMap(positions)
 
   const fetchPositionFees = useCallback(
+<<<<<<< HEAD
     // eslint-disable-next-line max-params
+=======
+    // oxlint-disable-next-line max-params
+>>>>>>> upstream/main
     async (pm: NonfungiblePositionManager, positionIds: BigNumber[], chainId: number) => {
       const callData = positionIds.map((id) =>
         pm.interface.encodeFunctionData('collect', [
@@ -93,7 +111,11 @@ export default function useMultiChainPositions(account: string): UseMultiChainPo
         ]),
       )
       const fees = (await pm.callStatic.multicall(callData)).reduce(
+<<<<<<< HEAD
         // eslint-disable-next-line max-params
+=======
+        // oxlint-disable-next-line max-params
+>>>>>>> upstream/main
         (acc, feeBytes, index) => {
           const key = chainId.toString() + positionIds[index]
           acc[key] = pm.interface.decodeFunctionResult('collect', feeBytes) as FeeAmounts
@@ -130,9 +152,15 @@ export default function useMultiChainPositions(account: string): UseMultiChainPo
 
   // Combines PositionDetails with Pool data to build our return type
   const fetchPositionInfo = useCallback(
+<<<<<<< HEAD
     // eslint-disable-next-line max-params
     async (positionDetails: PositionDetails[], chainId: UniverseChainId, multicall: LXInterfaceMulticall) => {
       const poolInterface = new Interface(ILXV3PoolStateJSON.abi) as AMMV3PoolInterface
+=======
+    // oxlint-disable-next-line max-params
+    async (positionDetails: PositionDetails[], chainId: UniverseChainId, multicall: UniswapInterfaceMulticall) => {
+      const poolInterface = new Interface(IUniswapV3PoolStateJSON.abi) as UniswapV3PoolInterface
+>>>>>>> upstream/main
       const tokens = await getTokens(
         positionDetails.flatMap((details) => [details.token0, details.token1]),
         chainId,
@@ -164,7 +192,11 @@ export default function useMultiChainPositions(account: string): UseMultiChainPo
         })
       }, [])
 
+<<<<<<< HEAD
       // eslint-disable-next-line max-params
+=======
+      // oxlint-disable-next-line max-params
+>>>>>>> upstream/main
       return (await multicall.callStatic.multicall(calls)).returnData.reduce((acc: PositionInfo[], result, i) => {
         if (result.success) {
           const slot0 = poolInterface.decodeFunctionResult('slot0', result.returnData)
@@ -195,9 +227,15 @@ export default function useMultiChainPositions(account: string): UseMultiChainPo
       try {
         const pm = pms[chainId]
         const multicall = multicalls[chainId]
+<<<<<<< HEAD
         // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
         const balance = await pm?.balanceOf(account)
         // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+=======
+        // oxlint-disable-next-line typescript/no-unnecessary-condition
+        const balance = await pm?.balanceOf(account)
+        // oxlint-disable-next-line typescript/no-unnecessary-condition
+>>>>>>> upstream/main
         if (!pm || !multicall || balance.lt(1)) {
           return []
         }
@@ -228,7 +266,11 @@ export default function useMultiChainPositions(account: string): UseMultiChainPo
   }, [chains, fetchPositionsForChain, setPositions])
 
   // Fetches positions when existing positions are stale and the document has focus
+<<<<<<< HEAD
   // biome-ignore lint/correctness/useExhaustiveDependencies: +positionsFetching
+=======
+  // oxlint-disable-next-line react/exhaustive-deps -- +positionsFetching
+>>>>>>> upstream/main
   useEffect(() => {
     if (positionsFetching.current || cachedPositions?.stale === false) {
       return undefined
@@ -252,6 +294,7 @@ export default function useMultiChainPositions(account: string): UseMultiChainPo
     () =>
       positions?.map((position) => {
         const key = position.chainId.toString() + position.details.tokenId
+<<<<<<< HEAD
         // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
         const fees = feeMap[key]
           ? [
@@ -259,6 +302,15 @@ export default function useMultiChainPositions(account: string): UseMultiChainPo
               // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
               parseFloat(CurrencyAmount.fromRawAmount(position.pool.token0, feeMap[key]?.[0].toString()).toExact()),
               // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+=======
+        // oxlint-disable-next-line typescript/no-unnecessary-condition
+        const fees = feeMap[key]
+          ? [
+              // We parse away from SDK/ethers types so fees can be multiplied by primitive number prices
+              // oxlint-disable-next-line typescript/no-unnecessary-condition
+              parseFloat(CurrencyAmount.fromRawAmount(position.pool.token0, feeMap[key]?.[0].toString()).toExact()),
+              // oxlint-disable-next-line typescript/no-unnecessary-condition
+>>>>>>> upstream/main
               parseFloat(CurrencyAmount.fromRawAmount(position.pool.token1, feeMap[key]?.[1].toString()).toExact()),
             ]
           : undefined

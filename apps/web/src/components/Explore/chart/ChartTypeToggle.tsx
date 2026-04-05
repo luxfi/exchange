@@ -1,6 +1,10 @@
 import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
+<<<<<<< HEAD
 import { SegmentedControl, SegmentedControlOption, useMedia } from '@l.x/ui/src'
+=======
+import { SegmentedControl, SegmentedControlOption, useMedia } from 'ui/src'
+>>>>>>> upstream/main
 import { ChartType } from '~/components/Charts/utils'
 import { MouseoverTooltip } from '~/components/Tooltip'
 

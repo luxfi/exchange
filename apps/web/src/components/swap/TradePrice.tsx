@@ -1,8 +1,16 @@
+<<<<<<< HEAD
 import { Currency, Price } from '@luxamm/sdk-core'
 import { useCallback, useMemo, useState } from 'react'
 import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
 import { useUSDCValue } from '@l.x/lx/src/features/transactions/hooks/useUSDCPriceWrapper'
 import { NumberType } from '@l.x/utils/src/format/types'
+=======
+import { Currency, Price } from '@uniswap/sdk-core'
+import { useCallback, useMemo, useState } from 'react'
+import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
+import { useUSDCValue } from 'uniswap/src/features/transactions/hooks/useUSDCPriceWrapper'
+import { NumberType } from 'utilities/src/format/types'
+>>>>>>> upstream/main
 import { deprecatedStyled } from '~/lib/deprecated-styled'
 import tryParseCurrencyAmount from '~/lib/utils/tryParseCurrencyAmount'
 import { ThemedText } from '~/theme/components'

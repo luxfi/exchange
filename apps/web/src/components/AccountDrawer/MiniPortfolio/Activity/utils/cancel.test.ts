@@ -1,4 +1,5 @@
 import 'utilities/src/logger/mocks'
+<<<<<<< HEAD
 import { TradingApi } from '@l.x/api'
 import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import {
@@ -10,6 +11,19 @@ import {
 import { validateOrdersForCancellation } from '@l.x/lx/src/features/transactions/cancel/validation'
 import { TransactionStatus, DEXOrderDetails } from '@l.x/lx/src/features/transactions/types/transactionDetails'
 import { createPermit2ContractForChain } from '@l.x/lx/src/features/transactions/utils/permit2'
+=======
+import { TradingApi } from '@universe/api'
+import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import {
+  cancelMultipleUniswapXOrders,
+  extractCancellationData,
+  fetchLimitOrdersEncodedOrderData,
+  getOrdersMatchingCancellationData,
+} from 'uniswap/src/features/transactions/cancel/cancelMultipleOrders'
+import { validateOrdersForCancellation } from 'uniswap/src/features/transactions/cancel/validation'
+import { TransactionStatus, UniswapXOrderDetails } from 'uniswap/src/features/transactions/types/transactionDetails'
+import { createPermit2ContractForChain } from 'uniswap/src/features/transactions/utils/permit2'
+>>>>>>> upstream/main
 import { vi } from 'vitest'
 import { useCancelMultipleOrdersCallback } from '~/components/AccountDrawer/MiniPortfolio/Activity/utils/cancel'
 import { useAccount } from '~/hooks/useAccount'
@@ -17,17 +31,29 @@ import { useEthersWeb3Provider } from '~/hooks/useEthersProvider'
 import { useFetchLimitOrders } from '~/hooks/useFetchLimitOrders'
 import useSelectChain from '~/hooks/useSelectChain'
 import { renderHook } from '~/test-utils/render'
+<<<<<<< HEAD
 import { createMockDEXOrder } from '~/test-utils/transactions/fixtures'
+=======
+import { createMockUniswapXOrder } from '~/test-utils/transactions/fixtures'
+>>>>>>> upstream/main
 
 vi.mock('~/hooks/useAccount')
 vi.mock('~/hooks/useEthersProvider')
 vi.mock('~/hooks/useSelectChain')
 vi.mock('~/hooks/useFetchLimitOrders')
+<<<<<<< HEAD
 vi.mock('lx/src/features/transactions/cancel/validation')
 vi.mock('lx/src/features/transactions/utils/permit2')
 
 vi.mock('lx/src/features/transactions/cancel/cancelMultipleOrders', () => ({
   cancelMultipleDEXOrders: vi.fn(),
+=======
+vi.mock('uniswap/src/features/transactions/cancel/validation')
+vi.mock('uniswap/src/features/transactions/utils/permit2')
+
+vi.mock('uniswap/src/features/transactions/cancel/cancelMultipleOrders', () => ({
+  cancelMultipleUniswapXOrders: vi.fn(),
+>>>>>>> upstream/main
   trackOrderCancellation: vi.fn(),
   extractCancellationData: vi.fn(),
   getOrdersMatchingCancellationData: vi.fn(),
@@ -42,8 +68,13 @@ vi.mock('~/state/hooks', async () => {
   }
 })
 
+<<<<<<< HEAD
 const createMockOrder = (overrides?: Partial<DEXOrderDetails>): DEXOrderDetails =>
   createMockDEXOrder(overrides)
+=======
+const createMockOrder = (overrides?: Partial<UniswapXOrderDetails>): UniswapXOrderDetails =>
+  createMockUniswapXOrder(overrides)
+>>>>>>> upstream/main
 
 describe('useCancelMultipleOrdersCallback', () => {
   const mockProvider = {
@@ -118,14 +149,22 @@ describe('useCancelMultipleOrdersCallback', () => {
       chainId: UniverseChainId.Mainnet,
     })
     mockSelectChain.mockResolvedValue(true)
+<<<<<<< HEAD
     ;(cancelMultipleDEXOrders as any).mockResolvedValue(mockTxs)
+=======
+    ;(cancelMultipleUniswapXOrders as any).mockResolvedValue(mockTxs)
+>>>>>>> upstream/main
 
     const { result } = renderHook(() => useCancelMultipleOrdersCallback(orders))
     const callback = result.current
 
     const txs = await callback()
     expect(txs).toEqual(mockTxs)
+<<<<<<< HEAD
     expect(cancelMultipleDEXOrders).toHaveBeenCalledWith({
+=======
+    expect(cancelMultipleUniswapXOrders).toHaveBeenCalledWith({
+>>>>>>> upstream/main
       orders: [{ encodedOrder: '0xencoded1', routing: TradingApi.Routing.DUTCH_V2 }],
       chainId: UniverseChainId.Mainnet,
       provider: mockProvider,
@@ -182,7 +221,11 @@ describe('useCancelMultipleOrdersCallback', () => {
 
     const mockTxs = [{ hash: '0xtxhash' }]
     mockSelectChain.mockResolvedValue(true)
+<<<<<<< HEAD
     ;(cancelMultipleDEXOrders as any).mockResolvedValue(mockTxs)
+=======
+    ;(cancelMultipleUniswapXOrders as any).mockResolvedValue(mockTxs)
+>>>>>>> upstream/main
 
     const { result } = renderHook(() => useCancelMultipleOrdersCallback(orders))
     const callback = result.current
@@ -191,7 +234,11 @@ describe('useCancelMultipleOrdersCallback', () => {
     expect(txs).toEqual(mockTxs)
     // fetchEncodedOrderData is now called with orders and a fetcher function
     expect(fetchLimitOrdersEncodedOrderData).toHaveBeenCalledWith(orders, expect.any(Function))
+<<<<<<< HEAD
     expect(cancelMultipleDEXOrders).toHaveBeenCalledWith({
+=======
+    expect(cancelMultipleUniswapXOrders).toHaveBeenCalledWith({
+>>>>>>> upstream/main
       orders: [{ encodedOrder: '0xremoteEncoded', routing: TradingApi.Routing.DUTCH_V2 }],
       chainId: UniverseChainId.Mainnet,
       provider: mockProvider,
@@ -213,7 +260,11 @@ describe('useCancelMultipleOrdersCallback', () => {
       chainId: UniverseChainId.Mainnet,
     })
     mockSelectChain.mockResolvedValue(true)
+<<<<<<< HEAD
     ;(cancelMultipleDEXOrders as any).mockResolvedValue(undefined)
+=======
+    ;(cancelMultipleUniswapXOrders as any).mockResolvedValue(undefined)
+>>>>>>> upstream/main
 
     const { result } = renderHook(() => useCancelMultipleOrdersCallback(orders))
     const callback = result.current

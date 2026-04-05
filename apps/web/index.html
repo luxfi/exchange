@@ -3,7 +3,11 @@
   <head>
     <meta charset="utf-8" />
 
+<<<<<<< HEAD
     <title>Exchange</title>
+=======
+    <title>Uniswap Interface</title>
+>>>>>>> upstream/main
 
     <!-- Vite uses / for public assets instead of %PUBLIC_URL% -->
     <link rel="shortcut icon" type="image/png" href="/favicon.png" />
@@ -16,7 +20,11 @@
 
     <!-- CSP will be injected here -->
 
+<<<<<<< HEAD
     <!-- Preconnect hints injected dynamically after brand config loads -->
+=======
+    <link rel="preconnect" href="https://interface.gateway.uniswap.org/" crossorigin/>
+>>>>>>> upstream/main
     <link rel="preconnect" href="https://mainnet.infura.io/" crossorigin/>
 
     <link rel="preload" href="/fonts/Basel-Grotesk-Book.woff2" as="font" type="font/woff2" crossorigin />
@@ -103,7 +111,11 @@
 
       @media (prefers-color-scheme: light) {
         html {
+<<<<<<< HEAD
           background: rgb(255, 255, 255);
+=======
+          background: radial-gradient(100% 100% at 50% 0%, rgba(255, 184, 226, 0) 0%, rgba(255, 255, 255, 0) 100%), rgb(255, 255, 255);
+>>>>>>> upstream/main
         }
       }
     </style>
@@ -115,6 +127,12 @@
     <div id="root"></div>
     <div id="background-radial-gradient"></div>
 
+<<<<<<< HEAD
+=======
+    <!-- Strip porto.* URL params before any ES module evaluates (bug bounty #619) -->
+    <script src="/strip-porto-params.js"></script>
+
+>>>>>>> upstream/main
     <script type="module" src="/zone-events.js"></script>
     <!-- Vite entry point -->
     <script type="module" src="/src/index.tsx"></script>

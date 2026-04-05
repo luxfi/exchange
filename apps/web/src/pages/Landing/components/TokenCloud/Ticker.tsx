@@ -1,8 +1,16 @@
+<<<<<<< HEAD
 import { GraphQLApi } from '@l.x/api'
 import { useMemo } from 'react'
 import { Flex, Text } from '@l.x/ui/src'
 import { ItemPoint } from '@l.x/lx/src/components/IconCloud/IconCloud'
 import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
+=======
+import { GraphQLApi } from '@universe/api'
+import { useMemo } from 'react'
+import { Flex, Text } from 'ui/src'
+import { ItemPoint } from 'uniswap/src/components/IconCloud/IconCloud'
+import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
+>>>>>>> upstream/main
 import { DeltaArrow } from '~/components/DeltaArrow/DeltaArrow'
 import { NATIVE_CHAIN_ID } from '~/constants/tokens'
 import { InteractiveToken } from '~/pages/Landing/assets/approvedTokens'

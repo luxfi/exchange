@@ -1,10 +1,18 @@
 import { memo } from 'react'
 import { useTranslation } from 'react-i18next'
+<<<<<<< HEAD
 import { Flex, Text } from '@l.x/ui/src'
 import { Receipt } from '@l.x/ui/src/components/icons/Receipt'
 import { iconSizes } from '@l.x/ui/src/theme'
 import { TransactionDetails } from '@l.x/lx/src/features/transactions/types/transactionDetails'
 import { shortenHash } from '@l.x/utils/src/addresses'
+=======
+import { Flex, Text } from 'ui/src'
+import { Receipt } from 'ui/src/components/icons/Receipt'
+import { iconSizes } from 'ui/src/theme'
+import { TransactionDetails } from 'uniswap/src/features/transactions/types/transactionDetails'
+import { shortenHash } from 'utilities/src/addresses'
+>>>>>>> upstream/main
 import { ActivityProtocolInfo } from '~/pages/Portfolio/Activity/ActivityTable/activityTableModels'
 
 interface GenericCompactLayoutProps {
@@ -13,7 +21,15 @@ interface GenericCompactLayoutProps {
   labelOverride?: string
 }
 
+<<<<<<< HEAD
 function _GenericCompactLayout({ transaction, protocolInfo, labelOverride }: GenericCompactLayoutProps): JSX.Element {
+=======
+function GenericCompactLayoutInner({
+  transaction,
+  protocolInfo,
+  labelOverride,
+}: GenericCompactLayoutProps): JSX.Element {
+>>>>>>> upstream/main
   const { t } = useTranslation()
 
   return (
@@ -50,4 +66,8 @@ function _GenericCompactLayout({ transaction, protocolInfo, labelOverride }: Gen
   )
 }
 
+<<<<<<< HEAD
 export const GenericCompactLayout = memo(_GenericCompactLayout)
+=======
+export const GenericCompactLayout = memo(GenericCompactLayoutInner)
+>>>>>>> upstream/main

@@ -1,8 +1,14 @@
 import { t } from 'i18next'
 import { useCallback } from 'react'
+<<<<<<< HEAD
 import { Flex, Text } from '@l.x/ui/src'
 import { CurrencyInputPanel } from '@l.x/lx/src/components/CurrencyInputPanel/CurrencyInputPanel'
 import { CurrencyField } from '@l.x/lx/src/types/currency'
+=======
+import { Flex, Text } from 'ui/src'
+import { CurrencyInputPanel } from 'uniswap/src/components/CurrencyInputPanel/CurrencyInputPanel'
+import { CurrencyField } from 'uniswap/src/types/currency'
+>>>>>>> upstream/main
 import { BidMaxValuationSlider } from '~/components/Toucan/Auction/BidForm/BidMaxValuationSlider'
 import { MaxValuationFieldState } from '~/components/Toucan/Auction/hooks/useBidMaxValuationField'
 import { SubscriptZeroPrice } from '~/components/Toucan/Shared/SubscriptZeroPrice'

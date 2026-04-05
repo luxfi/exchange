@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import { SharedEventName } from '@luxamm/analytics-events'
+=======
+import { SharedEventName } from '@uniswap/analytics-events'
+>>>>>>> upstream/main
 import { useCallback, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useDispatch } from 'react-redux'
@@ -6,6 +10,7 @@ import { EditLabelModal } from 'src/app/features/accounts/EditLabelModal'
 import { removeAllDappConnectionsForAccount } from 'src/app/features/dapp/actions'
 import { AppRoutes, SettingsRoutes, UnitagClaimRoutes } from 'src/app/navigation/constants'
 import { focusOrCreateUnitagTab, useExtensionNavigation } from 'src/app/navigation/utils'
+<<<<<<< HEAD
 import { Flex, Text, TouchableArea } from '@l.x/ui/src'
 import { CopySheets, Edit, Ellipsis, Globe, TrashFilled } from '@l.x/ui/src/components/icons'
 import { iconSizes } from '@l.x/ui/src/theme'
@@ -25,6 +30,27 @@ import { NumberType } from '@l.x/utils/src/format/types'
 import { useBooleanState } from '@l.x/utils/src/react/useBooleanState'
 import { EditAccountAction, editAccountActions } from '@luxfi/wallet/src/features/wallet/accounts/editAccountSaga'
 import { useDisplayName, useSignerAccounts } from '@luxfi/wallet/src/features/wallet/hooks'
+=======
+import { Flex, Text, TouchableArea } from 'ui/src'
+import { CopySheets, Edit, Ellipsis, Globe, TrashFilled } from 'ui/src/components/icons'
+import { iconSizes } from 'ui/src/theme'
+import { AddressDisplay } from 'uniswap/src/components/accounts/AddressDisplay'
+import { ContextMenu, MenuOptionItem } from 'uniswap/src/components/menus/ContextMenu'
+import { ContextMenuTriggerMode } from 'uniswap/src/components/menus/types'
+import { WarningSeverity } from 'uniswap/src/components/modals/WarningModal/types'
+import { WarningModal } from 'uniswap/src/components/modals/WarningModal/WarningModal'
+import { DisplayNameType } from 'uniswap/src/features/accounts/types'
+import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
+import { pushNotification } from 'uniswap/src/features/notifications/slice/slice'
+import { AppNotificationType, CopyNotificationType } from 'uniswap/src/features/notifications/slice/types'
+import { ElementName, ModalName } from 'uniswap/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
+import { setClipboard } from 'utilities/src/clipboard/clipboard'
+import { NumberType } from 'utilities/src/format/types'
+import { useBooleanState } from 'utilities/src/react/useBooleanState'
+import { EditAccountAction, editAccountActions } from 'wallet/src/features/wallet/accounts/editAccountSaga'
+import { useDisplayName, useSignerAccounts } from 'wallet/src/features/wallet/hooks'
+>>>>>>> upstream/main
 
 type AccountItemProps = {
   address: Address

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import {
   GetLPPriceDiscrepancyRequest,
   GetLPPriceDiscrepancyResponse,
@@ -13,10 +14,21 @@ import type { UniverseEventProperties } from '@l.x/lx/src/features/telemetry/typ
 import type { CollectFeesTransactionStep } from '@l.x/lx/src/features/transactions/liquidity/steps/collectFees'
 import type { DecreasePositionTransactionStep } from '@l.x/lx/src/features/transactions/liquidity/steps/decreasePosition'
 import { generateLPTransactionSteps } from '@l.x/lx/src/features/transactions/liquidity/steps/generateLPTransactionSteps'
+=======
+import invariant from 'tiny-invariant'
+import { call } from 'typed-redux-saga'
+import { InterfaceEventName, LiquidityEventName } from 'uniswap/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
+import type { UniverseEventProperties } from 'uniswap/src/features/telemetry/types'
+import type { CollectFeesTransactionStep } from 'uniswap/src/features/transactions/liquidity/steps/collectFees'
+import type { DecreasePositionTransactionStep } from 'uniswap/src/features/transactions/liquidity/steps/decreasePosition'
+import { generateLPTransactionSteps } from 'uniswap/src/features/transactions/liquidity/steps/generateLPTransactionSteps'
+>>>>>>> upstream/main
 import type {
   IncreasePositionTransactionStep,
   IncreasePositionTransactionStepAsync,
   IncreasePositionTransactionStepBatched,
+<<<<<<< HEAD
 } from '@l.x/lx/src/features/transactions/liquidity/steps/increasePosition'
 import type {
   MigratePositionTransactionStep,
@@ -27,12 +39,25 @@ import { LiquidityTransactionType } from '@l.x/lx/src/features/transactions/liqu
 import type { HandleOnChainStepParams, TransactionStep } from '@l.x/lx/src/features/transactions/steps/types'
 import { TransactionStepType } from '@l.x/lx/src/features/transactions/steps/types'
 import type { SetCurrentStepFn } from '@l.x/lx/src/features/transactions/swap/types/swapCallback'
+=======
+} from 'uniswap/src/features/transactions/liquidity/steps/increasePosition'
+import type {
+  MigratePositionTransactionStep,
+  MigratePositionTransactionStepAsync,
+} from 'uniswap/src/features/transactions/liquidity/steps/migrate'
+import type { LiquidityAction, ValidatedLiquidityTxContext } from 'uniswap/src/features/transactions/liquidity/types'
+import { LiquidityTransactionType } from 'uniswap/src/features/transactions/liquidity/types'
+import type { HandleOnChainStepParams, TransactionStep } from 'uniswap/src/features/transactions/steps/types'
+import { TransactionStepType } from 'uniswap/src/features/transactions/steps/types'
+import type { SetCurrentStepFn } from 'uniswap/src/features/transactions/swap/types/swapCallback'
+>>>>>>> upstream/main
 import type {
   CollectFeesTransactionInfo,
   CreatePoolTransactionInfo,
   LiquidityDecreaseTransactionInfo,
   LiquidityIncreaseTransactionInfo,
   MigrateV3LiquidityToV4TransactionInfo,
+<<<<<<< HEAD
 } from '@l.x/lx/src/features/transactions/types/transactionDetails'
 import { TransactionType } from '@l.x/lx/src/features/transactions/types/transactionDetails'
 import { SignerMnemonicAccountDetails } from '@l.x/lx/src/features/wallet/types/AccountDetails'
@@ -41,6 +66,15 @@ import { createSaga } from '@l.x/lx/src/utils/saga'
 import { logger } from '@l.x/utils/src/logger/logger'
 import { getLiquidityEventName } from '~/components/Liquidity/analytics'
 import { getProtocols } from '~/components/Liquidity/utils/protocolVersion'
+=======
+} from 'uniswap/src/features/transactions/types/transactionDetails'
+import { TransactionType } from 'uniswap/src/features/transactions/types/transactionDetails'
+import { SignerMnemonicAccountDetails } from 'uniswap/src/features/wallet/types/AccountDetails'
+import { currencyId } from 'uniswap/src/utils/currencyId'
+import { createSaga } from 'uniswap/src/utils/saga'
+import { logger } from 'utilities/src/logger/logger'
+import { getLiquidityEventName } from '~/components/Liquidity/analytics'
+>>>>>>> upstream/main
 import { popupRegistry } from '~/components/Popups/registry'
 import { PopupType } from '~/components/Popups/types'
 import { handleAtomicSendCalls } from '~/state/sagas/transactions/5792'
@@ -83,10 +117,14 @@ function* getLiquidityTxRequest(
     step.type === TransactionStepType.IncreasePositionTransaction ||
     step.type === TransactionStepType.DecreasePositionTransaction
   ) {
+<<<<<<< HEAD
     return {
       txRequest: step.txRequest,
       sqrtRatioX96: step.sqrtRatioX96,
     }
+=======
+    return { txRequest: step.txRequest }
+>>>>>>> upstream/main
   }
   if (
     step.type === TransactionStepType.MigratePositionTransaction ||
@@ -99,10 +137,17 @@ function* getLiquidityTxRequest(
     throw new Error('Signature required for async increase position transaction step')
   }
 
+<<<<<<< HEAD
   const { txRequest, sqrtRatioX96 } = yield* call(step.getTxRequest, signature)
   invariant(txRequest !== undefined, 'txRequest must be defined')
 
   return { txRequest, sqrtRatioX96 }
+=======
+  const { txRequest } = yield* call(step.getTxRequest, signature)
+  invariant(txRequest !== undefined, 'txRequest must be defined')
+
+  return { txRequest }
+>>>>>>> upstream/main
 }
 
 interface HandlePositionStepParams extends Omit<HandleOnChainStepParams, 'step' | 'info'> {
@@ -124,7 +169,11 @@ interface HandlePositionStepParams extends Omit<HandleOnChainStepParams, 'step' 
 function* handlePositionTransactionStep(params: HandlePositionStepParams) {
   const { action, step, signature, analytics } = params
   const info = getLiquidityTransactionInfo(action)
+<<<<<<< HEAD
   const { txRequest, sqrtRatioX96 } = yield* call(getLiquidityTxRequest, step, signature)
+=======
+  const { txRequest } = yield* call(getLiquidityTxRequest, step, signature)
+>>>>>>> upstream/main
 
   const onModification = ({ hash, data }: { hash: string; data: string }) => {
     if (analytics) {
@@ -168,6 +217,7 @@ function* handlePositionTransactionStep(params: HandlePositionStepParams) {
       | UniverseEventProperties[LiquidityEventName.RemoveLiquiditySubmitted]
       | UniverseEventProperties[LiquidityEventName.MigrateLiquiditySubmitted]
       | UniverseEventProperties[LiquidityEventName.CollectLiquiditySubmitted])
+<<<<<<< HEAD
 
     // Don't block the main flow, spawn a new task for polling LP price discrepancy
     yield* spawn(function* () {
@@ -198,6 +248,8 @@ function* handlePositionTransactionStep(params: HandlePositionStepParams) {
         }
       }
     })
+=======
+>>>>>>> upstream/main
   }
 
   popupRegistry.addPopup({ type: PopupType.Transaction, hash }, hash)
@@ -395,6 +447,7 @@ function getLiquidityTransactionInfo(
     currency1AmountRaw: quotient1.toString(),
   }
 }
+<<<<<<< HEAD
 
 function* pollForLPPriceDiscrepancy(params: {
   hash: string
@@ -463,3 +516,5 @@ function* pollForLPPriceDiscrepancy(params: {
 
   throw new Error('Max polling attempts reached')
 }
+=======
+>>>>>>> upstream/main

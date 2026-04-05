@@ -1,9 +1,16 @@
 import { DappRequestStatus } from 'src/app/features/dappRequests/shared'
 import type { DappRequestState } from 'src/app/features/dappRequests/slice'
+<<<<<<< HEAD
 import { Language } from '@l.x/lx/src/features/language/constants'
 import { getCurrentLanguageFromNavigator } from '@l.x/lx/src/features/language/utils'
 import { createSafeMigrationFactory } from '@l.x/lx/src/state/createSafeMigration'
 import { type BackupType } from '@luxfi/wallet/src/features/wallet/accounts/types'
+=======
+import { Language } from 'uniswap/src/features/language/constants'
+import { getCurrentLanguageFromNavigator } from 'uniswap/src/features/language/utils'
+import { createSafeMigrationFactory } from 'uniswap/src/state/createSafeMigration'
+import { type BackupType } from 'wallet/src/features/wallet/accounts/types'
+>>>>>>> upstream/main
 
 const createSafeMigration = createSafeMigrationFactory('extensionMigrations')
 

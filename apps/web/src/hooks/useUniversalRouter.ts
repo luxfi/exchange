@@ -1,11 +1,16 @@
 import { TransactionResponse } from '@ethersproject/abstract-provider'
 import { BigNumber } from '@ethersproject/bignumber'
+<<<<<<< HEAD
 import { Percent } from '@luxamm/sdk-core'
+=======
+import { Percent } from '@uniswap/sdk-core'
+>>>>>>> upstream/main
 import {
   FlatFeeOptions,
   SwapRouter,
   UNIVERSAL_ROUTER_ADDRESS,
   UniversalRouterVersion,
+<<<<<<< HEAD
 } from '@luxamm/universal-router-sdk'
 import { FeeOptions, toHex } from '@luxamm/v3-sdk'
 import { useCallback, useRef } from 'react'
@@ -15,6 +20,17 @@ import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
 import i18n from '@l.x/lx/src/i18n'
 import { logger } from '@l.x/utils/src/logger/logger'
 import { useTrace } from '@l.x/utils/src/telemetry/trace/TraceContext'
+=======
+} from '@uniswap/universal-router-sdk'
+import { FeeOptions, toHex } from '@uniswap/v3-sdk'
+import { useCallback, useRef } from 'react'
+import { useTranslation } from 'react-i18next'
+import { SwapEventName } from 'uniswap/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
+import i18n from 'uniswap/src/i18n'
+import { logger } from 'utilities/src/logger/logger'
+import { useTrace } from 'utilities/src/telemetry/trace/TraceContext'
+>>>>>>> upstream/main
 import { useTotalBalancesUsdForAnalytics } from '~/appGraphql/data/apollo/useTotalBalancesUsdForAnalytics'
 import { useAccount } from '~/hooks/useAccount'
 import { useEthersWeb3Provider } from '~/hooks/useEthersProvider'
@@ -114,7 +130,11 @@ export function useUniversalRouterSwapCallback({
         from: account.address,
         to: UNIVERSAL_ROUTER_ADDRESS(UniversalRouterVersion.V1_2, chainId),
         data,
+<<<<<<< HEAD
         // TODO(https://github.com/Lux/universal-router-sdk/issues/113): universal-router-sdk returns a non-hexlified value.
+=======
+        // TODO(https://github.com/Uniswap/universal-router-sdk/issues/113): universal-router-sdk returns a non-hexlified value.
+>>>>>>> upstream/main
         ...(value && !isZero(value) ? { value: toHex(value) } : {}),
       }
 

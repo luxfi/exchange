@@ -1,10 +1,17 @@
 import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
+<<<<<<< HEAD
 import { Popover, Text } from '@l.x/ui/src'
 import { isAndroid } from '@l.x/utils/src/platform'
 import { selectHasViewedOffRampTooltip } from '@luxfi/wallet/src/features/behaviorHistory/selectors'
 import { setHasViewedOffRampTooltip } from '@luxfi/wallet/src/features/behaviorHistory/slice'
+=======
+import { Popover, Text } from 'ui/src'
+import { isAndroid } from 'utilities/src/platform'
+import { selectHasViewedOffRampTooltip } from 'wallet/src/features/behaviorHistory/selectors'
+import { setHasViewedOffRampTooltip } from 'wallet/src/features/behaviorHistory/slice'
+>>>>>>> upstream/main
 
 const POPOVER_OFFSET_X = 31
 const POPOVER_OFFSET_Y = isAndroid ? 42 : 18

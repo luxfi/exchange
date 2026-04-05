@@ -4,7 +4,11 @@ import { BiometricUnlockStorage } from 'src/app/features/biometricUnlock/Biometr
 import { useBiometricUnlockSetupMutation } from 'src/app/features/biometricUnlock/useBiometricUnlockSetupMutation'
 import { isUserVerifyingPlatformAuthenticatorAvailable } from 'src/app/utils/device/builtInBiometricCapabilitiesQuery'
 import { renderHookWithProviders } from 'src/test/render'
+<<<<<<< HEAD
 import { decodeFromStorage, decrypt } from '@luxfi/wallet/src/features/wallet/Keyring/crypto'
+=======
+import { decodeFromStorage, decrypt } from 'wallet/src/features/wallet/Keyring/crypto'
+>>>>>>> upstream/main
 
 jest.mock('src/app/features/biometricUnlock/BiometricUnlockStorage')
 jest.mock('src/app/utils/device/builtInBiometricCapabilitiesQuery')
@@ -105,11 +109,19 @@ describe('useBiometricUnlockSetupMutation', () => {
       // Should create WebAuthn credential with proper security configuration
       expect(mockCredentialsCreate).toHaveBeenCalledWith({
         publicKey: expect.objectContaining({
+<<<<<<< HEAD
           rp: { name: 'Lux Extension', id: window.location.hostname },
           user: expect.objectContaining({
             id: expectedRawKey, // Encryption key used as user ID
             name: 'Lux Extension',
             displayName: 'Lux Extension',
+=======
+          rp: { name: 'Uniswap Extension', id: window.location.hostname },
+          user: expect.objectContaining({
+            id: expectedRawKey, // Encryption key used as user ID
+            name: 'Uniswap Extension',
+            displayName: 'Uniswap Extension',
+>>>>>>> upstream/main
           }),
           authenticatorSelection: {
             authenticatorAttachment: 'platform', // Must use built-in authenticator

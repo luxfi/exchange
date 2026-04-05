@@ -1,10 +1,18 @@
 import { useCallback, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
+<<<<<<< HEAD
 import { Flex, Text, useMedia } from '@l.x/ui/src'
 import { Check } from '@l.x/ui/src/components/icons/Check'
 import { ModalName, LXEventName } from '@l.x/lx/src/features/telemetry/constants'
 import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
 import Trace from '@l.x/lx/src/features/telemetry/Trace'
+=======
+import { Flex, Text, useMedia } from 'ui/src'
+import { Check } from 'ui/src/components/icons/Check'
+import { ModalName, UniswapEventName } from 'uniswap/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
+import Trace from 'uniswap/src/features/telemetry/Trace'
+>>>>>>> upstream/main
 import { Dropdown, InternalMenuItem } from '~/components/Dropdowns/Dropdown'
 import {
   AuctionStatusFilter as AuctionStatusFilterEnum,
@@ -23,7 +31,11 @@ export function AuctionStatusFilter() {
     (filter: AuctionStatusFilterEnum) => {
       setSelectedFilter(filter)
       setOpen(false)
+<<<<<<< HEAD
       sendAnalyticsEvent(LXEventName.AuctionFilterSelected, {
+=======
+      sendAnalyticsEvent(UniswapEventName.AuctionFilterSelected, {
+>>>>>>> upstream/main
         filter,
       })
     },

@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 import { Percent } from '@luxamm/sdk-core'
 import { GraphQLApi } from '@l.x/api'
 import { BIPS_BASE } from '@l.x/lx/src/constants/misc'
+=======
+import { Percent } from '@uniswap/sdk-core'
+import { GraphQLApi } from '@universe/api'
+import { BIPS_BASE } from 'uniswap/src/constants/misc'
+>>>>>>> upstream/main
 import { OrderDirection } from '~/appGraphql/data/util'
 import { FeeData } from '~/components/Liquidity/Create/types'
 

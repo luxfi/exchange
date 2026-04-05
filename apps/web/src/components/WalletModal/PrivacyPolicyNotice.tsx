@@ -1,6 +1,11 @@
+<<<<<<< HEAD
 import { brand, getBrandUrl, getDocsUrl } from '@l.x/config'
 import { Trans } from 'react-i18next'
 import { Text } from '@l.x/ui/src'
+=======
+import { Trans } from 'react-i18next'
+import { Text } from 'ui/src'
+>>>>>>> upstream/main
 import { deprecatedStyled } from '~/lib/deprecated-styled'
 import { ExternalLink } from '~/theme/components/Links'
 
@@ -15,8 +20,13 @@ export default function PrivacyPolicyNotice() {
       <Trans
         i18nKey="wallet.connectingAgreement"
         components={{
+<<<<<<< HEAD
           termsLink: <StyledLink href={getBrandUrl("/terms")} />,
           privacyLink: <StyledLink href={getBrandUrl("/privacy")} />,
+=======
+          termsLink: <StyledLink href="https://uniswap.org/terms-of-service/" />,
+          privacyLink: <StyledLink href="https://uniswap.org/privacy-policy" />,
+>>>>>>> upstream/main
         }}
       />
     </Text>

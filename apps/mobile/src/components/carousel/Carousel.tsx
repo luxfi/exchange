@@ -3,8 +3,13 @@ import { ListRenderItemInfo } from 'react-native'
 import Animated, { useAnimatedScrollHandler, useSharedValue } from 'react-native-reanimated'
 import { AnimatedIndicator } from 'src/components/carousel/Indicator'
 import { AnimatedFlatList } from 'src/components/layout/AnimatedFlatList'
+<<<<<<< HEAD
 import { Flex } from '@l.x/ui/src'
 import { useDeviceDimensions } from '@l.x/ui/src/hooks/useDeviceDimensions'
+=======
+import { Flex } from 'ui/src'
+import { useDeviceDimensions } from 'ui/src/hooks/useDeviceDimensions'
+>>>>>>> upstream/main
 
 interface CarouselContextProps {
   current: number
@@ -35,6 +40,10 @@ export function Carousel({ slides, ...flatListProps }: CarouselProps): JSX.Eleme
     myRef.current?._listRef._scrollRef.scrollTo({
       x: Math.ceil(scroll.value / fullWidth + 0.5) * fullWidth,
     })
+<<<<<<< HEAD
+=======
+    // oxlint-disable-next-line react/exhaustive-deps -- biome-parity: oxlint is stricter here
+>>>>>>> upstream/main
   }, [fullWidth])
 
   const goToPrev = useCallback(() => {
@@ -42,6 +51,10 @@ export function Carousel({ slides, ...flatListProps }: CarouselProps): JSX.Eleme
     myRef.current?._listRef._scrollRef.scrollTo({
       x: Math.floor(scroll.value / fullWidth - 0.5) * fullWidth,
     })
+<<<<<<< HEAD
+=======
+    // oxlint-disable-next-line react/exhaustive-deps -- biome-parity: oxlint is stricter here
+>>>>>>> upstream/main
   }, [fullWidth])
 
   return (
@@ -49,12 +62,19 @@ export function Carousel({ slides, ...flatListProps }: CarouselProps): JSX.Eleme
       <Flex grow gap="$spacing16" mb="$spacing24">
         <AnimatedIndicator scroll={scroll} stepCount={slides.length} />
         <AnimatedFlatList
+<<<<<<< HEAD
+=======
+          ref={myRef}
+>>>>>>> upstream/main
           horizontal
           pagingEnabled
           data={slides}
           keyExtractor={key}
           {...flatListProps}
+<<<<<<< HEAD
           ref={myRef}
+=======
+>>>>>>> upstream/main
           renderItem={({ item }: ListRenderItemInfo<ReactNode>): JSX.Element => (
             <Flex centered grow p="$spacing24" pt="$none" width={fullWidth}>
               {item}

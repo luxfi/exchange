@@ -1,8 +1,15 @@
 import userEvent from '@testing-library/user-event'
+<<<<<<< HEAD
 import { GraphQLApi } from '@l.x/api'
 import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { USDC_MAINNET } from '@l.x/lx/src/constants/tokens'
 import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
+=======
+import { GraphQLApi } from '@universe/api'
+import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import { USDC_MAINNET } from 'uniswap/src/constants/tokens'
+import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+>>>>>>> upstream/main
 import { useCurrency } from '~/hooks/Tokens'
 import { TokenDescription } from '~/pages/TokenDetails/components/info/TokenDescription'
 import type { TDPState } from '~/pages/TokenDetails/context/createTDPStore'
@@ -19,7 +26,11 @@ vi.mock('~/pages/TokenDetails/context/useTDPStore', () => ({
   useTDPStore: vi.fn(),
 }))
 
+<<<<<<< HEAD
 vi.mock('@l.x/gating', async (importOriginal) => {
+=======
+vi.mock('@universe/gating', async (importOriginal) => {
+>>>>>>> upstream/main
   return {
     ...(await importOriginal()),
     useFeatureFlag: vi.fn(),

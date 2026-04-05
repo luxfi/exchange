@@ -1,6 +1,10 @@
 import { NativeSyntheticEvent, StyleProp, ViewStyle } from 'react-native'
+<<<<<<< HEAD
 
 import { TestIDType } from '@l.x/lx/src/test/fixtures/testIDs'
+=======
+import { TestIDType } from 'uniswap/src/test/fixtures/testIDs'
+>>>>>>> upstream/main
 
 export enum StringKey {
   InputPlaceholder = 'inputPlaceholder',

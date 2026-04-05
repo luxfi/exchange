@@ -1,4 +1,5 @@
 import { BigNumber } from '@ethersproject/bignumber'
+<<<<<<< HEAD
 import { ProtocolVersion } from '@luxamm/client-data-api/dist/data/v1/poolTypes_pb'
 import { Currency, Percent } from '@luxamm/sdk-core'
 import { useMemo } from 'react'
@@ -6,6 +7,15 @@ import { useTranslation } from 'react-i18next'
 import { BIPS_BASE } from '@l.x/lx/src/constants/misc'
 import { useGetPoolsByTokens } from '@l.x/lx/src/data/rest/getPools'
 import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
+=======
+import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
+import { Currency, Percent } from '@uniswap/sdk-core'
+import { useMemo } from 'react'
+import { useTranslation } from 'react-i18next'
+import { BIPS_BASE } from 'uniswap/src/constants/misc'
+import { useGetPoolsByTokens } from 'uniswap/src/data/rest/getPools'
+import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
+>>>>>>> upstream/main
 import { FeeTierData } from '~/components/Liquidity/types'
 import { getTokenOrZeroAddress } from '~/components/Liquidity/utils/currency'
 import {
@@ -70,7 +80,11 @@ export function useAllFeeTierPoolData({
         const percentage = liquiditySum.isZero()
           ? new Percent(0, 100)
           : new Percent(totalLiquidityUsdTruncated, liquiditySum.toString())
+<<<<<<< HEAD
         // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+=======
+        // oxlint-disable-next-line typescript/no-unnecessary-condition
+>>>>>>> upstream/main
         if (feeTierData[key]) {
           feeTierData[key].totalLiquidityUsd += totalLiquidityUsdTruncated
           feeTierData[key].percentage = feeTierData[key].percentage.add(percentage)

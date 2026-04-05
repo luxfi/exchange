@@ -1,7 +1,14 @@
+<<<<<<< HEAD
 import { PositionStatus } from '@luxamm/client-data-api/dist/data/v1/poolTypes_pb'
 import { Trans } from 'react-i18next'
 import { Flex, Text } from '@l.x/ui/src'
 import { StatusIndicatorCircle } from '@l.x/ui/src/components/icons/StatusIndicatorCircle'
+=======
+import { PositionStatus } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
+import { Trans } from 'react-i18next'
+import { Flex, Text } from 'ui/src'
+import { StatusIndicatorCircle } from 'ui/src/components/icons/StatusIndicatorCircle'
+>>>>>>> upstream/main
 import { lpStatusConfig } from '~/components/Liquidity/constants'
 import { TextLoader } from '~/components/Liquidity/Loader'
 

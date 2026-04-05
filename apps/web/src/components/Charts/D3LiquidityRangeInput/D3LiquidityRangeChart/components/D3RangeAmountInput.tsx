@@ -1,4 +1,5 @@
 import { useTranslation } from 'react-i18next'
+<<<<<<< HEAD
 import { Flex, Text, TouchableArea, useSporeColors } from '@l.x/ui/src'
 import { Minus } from '@l.x/ui/src/components/icons/Minus'
 import { Plus } from '@l.x/ui/src/components/icons/Plus'
@@ -6,6 +7,15 @@ import { fonts } from '@l.x/ui/src/theme'
 import { AmountInput } from '@l.x/lx/src/components/AmountInput/AmountInput'
 import { numericInputRegex } from '@l.x/lx/src/components/AmountInput/utils/numericInputEnforcer'
 import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
+=======
+import { Flex, Text, TouchableArea, useSporeColors } from 'ui/src'
+import { Minus } from 'ui/src/components/icons/Minus'
+import { Plus } from 'ui/src/components/icons/Plus'
+import { fonts } from 'ui/src/theme'
+import { AmountInput } from 'uniswap/src/components/AmountInput/AmountInput'
+import { numericInputRegex } from 'uniswap/src/components/AmountInput/utils/numericInputEnforcer'
+import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+>>>>>>> upstream/main
 import { RangeAmountInputPriceMode } from '~/components/Liquidity/Create/types'
 import { getBaseAndQuoteCurrencies } from '~/components/Liquidity/utils/currency'
 import { useCreateLiquidityContext } from '~/pages/CreatePosition/CreateLiquidityContextProvider'

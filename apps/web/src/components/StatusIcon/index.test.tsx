@@ -6,7 +6,11 @@ import { render } from '~/test-utils/render'
 
 const ACCOUNT = '0x0'
 
+<<<<<<< HEAD
 vi.mock('lx/src/features/unitags/hooks', () => ({
+=======
+vi.mock('uniswap/src/features/unitags/hooks', () => ({
+>>>>>>> upstream/main
   useUnitagByAddress: () => ({ unitag: undefined, loading: false }),
 }))
 
@@ -20,7 +24,11 @@ vi.mock('~/features/accounts/store/hooks', () => ({
   useConnectionStatus: vi.fn(() => ({ isConnected: false, isConnecting: false, isDisconnected: true })),
 }))
 
+<<<<<<< HEAD
 vi.mock('@luxfi/gating', async (importOriginal) => {
+=======
+vi.mock('@universe/gating', async (importOriginal) => {
+>>>>>>> upstream/main
   return {
     ...(await importOriginal()),
     useFeatureFlag: vi.fn(),

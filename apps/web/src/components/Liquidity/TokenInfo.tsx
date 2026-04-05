@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { ProtocolVersion } from '@luxamm/client-data-api/dist/data/v1/poolTypes_pb'
 import { Currency, CurrencyAmount } from '@luxamm/sdk-core'
 import { Flex, Text } from '@l.x/ui/src'
@@ -5,6 +6,15 @@ import { iconSizes } from '@l.x/ui/src/theme'
 import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
 import { getSymbolDisplayText } from '@l.x/lx/src/utils/currency'
 import { NumberType } from '@l.x/utils/src/format/types'
+=======
+import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
+import { Currency, CurrencyAmount } from '@uniswap/sdk-core'
+import { Flex, Text } from 'ui/src'
+import { iconSizes } from 'ui/src/theme'
+import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
+import { getSymbolDisplayText } from 'uniswap/src/utils/currency'
+import { NumberType } from 'utilities/src/format/types'
+>>>>>>> upstream/main
 import { getCurrencyForProtocol } from '~/components/Liquidity/utils/currency'
 import CurrencyLogo from '~/components/Logo/CurrencyLogo'
 

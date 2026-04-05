@@ -1,5 +1,6 @@
 import { useCallback, useState } from 'react'
 import { useTranslation } from 'react-i18next'
+<<<<<<< HEAD
 import { Button, Flex, Text } from '@l.x/ui/src'
 import { iconSizes } from '@l.x/ui/src/theme'
 import { TextInput } from '@l.x/lx/src/components/input/TextInput'
@@ -8,6 +9,16 @@ import { AccountIcon } from '@l.x/lx/src/features/accounts/AccountIcon'
 import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
 import { shortenAddress } from '@l.x/utils/src/addresses'
 import { SignerMnemonicAccount } from '@luxfi/wallet/src/features/wallet/accounts/types'
+=======
+import { Button, Flex, Text } from 'ui/src'
+import { iconSizes } from 'ui/src/theme'
+import { TextInput } from 'uniswap/src/components/input/TextInput'
+import { Modal } from 'uniswap/src/components/modals/Modal'
+import { AccountIcon } from 'uniswap/src/features/accounts/AccountIcon'
+import { ModalName } from 'uniswap/src/features/telemetry/constants'
+import { shortenAddress } from 'utilities/src/addresses'
+import { SignerMnemonicAccount } from 'wallet/src/features/wallet/accounts/types'
+>>>>>>> upstream/main
 
 type CreateWalletModalProps = {
   isOpen: boolean

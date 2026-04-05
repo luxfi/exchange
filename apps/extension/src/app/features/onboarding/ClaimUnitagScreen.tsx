@@ -4,6 +4,7 @@ import { OnboardingScreen } from 'src/app/features/onboarding/OnboardingScreen'
 import { useOnboardingSteps } from 'src/app/features/onboarding/OnboardingStepsContext'
 import { TopLevelRoutes } from 'src/app/navigation/constants'
 import { navigate } from 'src/app/navigation/state'
+<<<<<<< HEAD
 import { Flex, Square } from '@l.x/ui/src'
 import { Person } from '@l.x/ui/src/components/icons'
 import { iconSizes } from '@l.x/ui/src/theme'
@@ -11,6 +12,15 @@ import Trace from '@l.x/lx/src/features/telemetry/Trace'
 import { ClaimUnitagContent } from '@l.x/lx/src/features/unitags/ClaimUnitagContent'
 import { ExtensionOnboardingFlow, ExtensionOnboardingScreens } from '@l.x/lx/src/types/screens/extension'
 import { useOnboardingContext } from '@luxfi/wallet/src/features/onboarding/OnboardingContext'
+=======
+import { Flex, Square } from 'ui/src'
+import { Person } from 'ui/src/components/icons'
+import { iconSizes } from 'ui/src/theme'
+import Trace from 'uniswap/src/features/telemetry/Trace'
+import { ClaimUnitagContent } from 'uniswap/src/features/unitags/ClaimUnitagContent'
+import { ExtensionOnboardingFlow, ExtensionOnboardingScreens } from 'uniswap/src/types/screens/extension'
+import { useOnboardingContext } from 'wallet/src/features/onboarding/OnboardingContext'
+>>>>>>> upstream/main
 
 export function ClaimUnitagScreen(): JSX.Element {
   const { t } = useTranslation()

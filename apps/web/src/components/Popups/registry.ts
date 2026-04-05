@@ -1,13 +1,21 @@
 import { toast } from 'sonner'
 import { PopupContent } from '~/components/Popups/types'
 
+<<<<<<< HEAD
+=======
+// oxlint-disable-next-line max-params -- biome-parity: oxlint is stricter here
+>>>>>>> upstream/main
 type PopupListener = (content: PopupContent, key: string, removeAfterMs?: number) => string | number
 
 class PopupRegistry {
   private listener: PopupListener | undefined
   private popupKeyToId = new Map<string, string | number>()
 
+<<<<<<< HEAD
   // eslint-disable-next-line max-params
+=======
+  // oxlint-disable-next-line max-params
+>>>>>>> upstream/main
   addPopup(content: PopupContent, key: string, removeAfterMs?: number): void {
     if (this.popupKeyToId.has(key)) {
       return

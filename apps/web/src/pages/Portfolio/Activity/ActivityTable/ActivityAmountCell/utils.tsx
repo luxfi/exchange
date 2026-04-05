@@ -1,10 +1,19 @@
 import { useTranslation } from 'react-i18next'
+<<<<<<< HEAD
 import { iconSizes } from '@l.x/ui/src/theme/iconSizes'
 import { SplitLogo } from '@l.x/lx/src/components/CurrencyLogo/SplitLogo'
 import { TokenLogo } from '@l.x/lx/src/components/CurrencyLogo/TokenLogo'
 import { CurrencyInfo } from '@l.x/lx/src/features/dataApi/types'
 import { TransactionDetails } from '@l.x/lx/src/features/transactions/types/transactionDetails'
 import { getSymbolDisplayText } from '@l.x/lx/src/utils/currency'
+=======
+import { iconSizes } from 'ui/src/theme/iconSizes'
+import { SplitLogo } from 'uniswap/src/components/CurrencyLogo/SplitLogo'
+import { TokenLogo } from 'uniswap/src/components/CurrencyLogo/TokenLogo'
+import { CurrencyInfo } from 'uniswap/src/features/dataApi/types'
+import { TransactionDetails } from 'uniswap/src/features/transactions/types/transactionDetails'
+import { getSymbolDisplayText } from 'uniswap/src/utils/currency'
+>>>>>>> upstream/main
 import { buildActivityRowFragments } from '~/pages/Portfolio/Activity/ActivityTable/registry'
 import { getTransactionTypeFilterOptions } from '~/pages/Portfolio/Activity/Filters/utils'
 
@@ -87,11 +96,23 @@ export function formatCompactAmountText({
   outputSymbol: string | undefined
   separator?: string
 }): string | null {
+<<<<<<< HEAD
   if (!inputAmount || !outputAmount || !inputSymbol || !outputSymbol) {
     return null
   }
 
   return `${inputAmount} ${inputSymbol} ${separator} ${outputAmount} ${outputSymbol}`
+=======
+  const left = inputAmount && inputSymbol ? `${inputAmount} ${getSymbolDisplayText(inputSymbol)}` : null
+  const right = outputAmount && outputSymbol ? `${outputAmount} ${getSymbolDisplayText(outputSymbol)}` : null
+  if (!left && !right) {
+    return null
+  }
+  if (left && right) {
+    return `${left} ${separator} ${right}`
+  }
+  return left ?? right
+>>>>>>> upstream/main
 }
 
 // Helper to format single token compact amount text

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { Trans, useTranslation } from 'react-i18next'
 import { Flex, Image, Text, useSporeColors } from '@l.x/ui/src'
@@ -18,6 +19,28 @@ import { isMobileWeb } from '@l.x/utils/src/platform'
 import { useEvent } from '@l.x/utils/src/react/hooks'
 import { useAccountDrawer } from '~/components/AccountDrawer/MiniPortfolio/hooks'
 import { MenuStateVariant, useSetMenu } from '~/components/AccountDrawer/menuState'
+=======
+import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import { Trans, useTranslation } from 'react-i18next'
+import { Flex, Image, Text, useSporeColors } from 'ui/src'
+import { BINANCE_WALLET_ICON, UNISWAP_LOGO } from 'ui/src/assets'
+import { Chevron } from 'ui/src/components/icons/Chevron'
+import { Passkey } from 'ui/src/components/icons/Passkey'
+import { ScanQr } from 'ui/src/components/icons/ScanQr'
+import { UniswapLogo } from 'ui/src/components/icons/UniswapLogo'
+import { WalletFilled } from 'ui/src/components/icons/WalletFilled'
+import { UseSporeColorsReturn } from 'ui/src/hooks/useSporeColors'
+import { iconSizes, opacify } from 'ui/src/theme'
+import Badge, { BadgeVariant } from 'uniswap/src/components/badge/Badge'
+import { CONNECTION_PROVIDER_IDS } from 'uniswap/src/constants/web3'
+import { Platform } from 'uniswap/src/features/platforms/types/Platform'
+import { ElementName, InterfaceEventName } from 'uniswap/src/features/telemetry/constants'
+import Trace from 'uniswap/src/features/telemetry/Trace'
+import { isMobileWeb } from 'utilities/src/platform'
+import { useEvent } from 'utilities/src/react/hooks'
+import { MenuStateVariant, useSetMenu } from '~/components/AccountDrawer/menuState'
+import { useAccountDrawer } from '~/components/AccountDrawer/MiniPortfolio/hooks'
+>>>>>>> upstream/main
 import Loader from '~/components/Icons/LoadingSpinner'
 import { DetectedBadge } from '~/components/WalletModal/shared'
 import { useRecentConnectorId } from '~/components/Web3Provider/constants'
@@ -45,9 +68,15 @@ function EmbeddedWalletIcon() {
   )
 }
 
+<<<<<<< HEAD
 function LuxMobileIcon({ iconSize }: { iconSize: number }) {
   return isMobileWeb ? (
     <Image height={iconSize} source={LUX_LOGO} width={iconSize} />
+=======
+function UniswapMobileIcon({ iconSize }: { iconSize: number }) {
+  return isMobileWeb ? (
+    <Image height={iconSize} source={UNISWAP_LOGO} width={iconSize} />
+>>>>>>> upstream/main
   ) : (
     <ScanQr size={iconSize} minWidth={iconSize} color="$accent1" backgroundColor="$accent2" borderRadius={8} p={7} />
   )
@@ -66,7 +95,11 @@ function OtherWalletsIcon() {
 }
 
 /**
+<<<<<<< HEAD
  * We have custom icons for certain Lux Connectors.
+=======
+ * We have custom icons for certain Uniswap Connectors.
+>>>>>>> upstream/main
  * This function returns the correct icon for the connector.
  */
 function getIcon({
@@ -82,7 +115,11 @@ function getIcon({
 
   if (wallet.id === CONNECTION_PROVIDER_IDS.EMBEDDED_WALLET_CONNECTOR_ID) {
     return <EmbeddedWalletIcon />
+<<<<<<< HEAD
   } else if (wallet.id === CONNECTION_PROVIDER_IDS.LX_WALLET_CONNECT_CONNECTOR_ID) {
+=======
+  } else if (wallet.id === CONNECTION_PROVIDER_IDS.UNISWAP_WALLET_CONNECT_CONNECTOR_ID) {
+>>>>>>> upstream/main
     return isEmbeddedWalletEnabled ? (
       <Flex
         p="$spacing4"
@@ -91,10 +128,17 @@ function getIcon({
         borderWidth="$spacing1"
         borderColor={opacify(20, themeColors.accent1.val)}
       >
+<<<<<<< HEAD
         <LXLogo size={iconSize - 10} color="$accent1" />
       </Flex>
     ) : (
       <LXMobileIcon iconSize={iconSize} />
+=======
+        <UniswapLogo size={iconSize - 10} color="$accent1" />
+      </Flex>
+    ) : (
+      <UniswapMobileIcon iconSize={iconSize} />
+>>>>>>> upstream/main
     )
   } else if (wallet.id === CONNECTION_PROVIDER_IDS.BINANCE_WALLET_CONNECTOR_ID) {
     return <BinanceWalletIcon iconSize={iconSize} />
@@ -116,8 +160,13 @@ function getIcon({
 }
 
 function getConnectorText({ wallet, t }: { wallet: ExternalWallet; t: ReturnType<typeof useTranslation>['t'] }) {
+<<<<<<< HEAD
   if (wallet.id === CONNECTION_PROVIDER_IDS.LUX_WALLET_CONNECT_CONNECTOR_ID) {
     return t('common.luxMobile')
+=======
+  if (wallet.id === CONNECTION_PROVIDER_IDS.UNISWAP_WALLET_CONNECT_CONNECTOR_ID) {
+    return t('common.uniswapMobile')
+>>>>>>> upstream/main
   } else if (wallet.id === CONNECTION_PROVIDER_IDS.EMBEDDED_WALLET_CONNECTOR_ID) {
     return t('account.passkey.log.in.title')
   } else {

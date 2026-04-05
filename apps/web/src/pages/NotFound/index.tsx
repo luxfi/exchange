@@ -1,8 +1,14 @@
 import { ReactNode } from 'react'
 import { Trans } from 'react-i18next'
+<<<<<<< HEAD
 import { Button, Flex, useIsDarkMode } from '@l.x/ui/src'
 import { InterfacePageName } from '@l.x/lx/src/features/telemetry/constants'
 import Trace from '@l.x/lx/src/features/telemetry/Trace'
+=======
+import { Button, Flex, useIsDarkMode } from 'ui/src'
+import { InterfacePageName } from 'uniswap/src/features/telemetry/constants'
+import Trace from 'uniswap/src/features/telemetry/Trace'
+>>>>>>> upstream/main
 import darkImage from '~/assets/images/404-page-dark.png'
 import lightImage from '~/assets/images/404-page-light.png'
 import { useIsMobile } from '~/hooks/screenSize/useIsMobile'

@@ -7,6 +7,7 @@ import { removeAllDappConnectionsForAccount, removeDappConnection } from 'src/ap
 import { useAllDappConnectionsForAccount } from 'src/app/features/dapp/hooks'
 import { dappStore } from 'src/app/features/dapp/store'
 import { NoDappConnections } from 'src/app/features/settings/SettingsManageConnectionsScreen/internal/NoDappConnections'
+<<<<<<< HEAD
 import { Flex, Text, TouchableArea, UniversalImage } from '@l.x/ui/src'
 import { MinusCircle } from '@l.x/ui/src/components/icons'
 import { borderRadii, breakpoints, fonts, gap, iconSizes } from '@l.x/ui/src/theme'
@@ -22,6 +23,23 @@ import { extractNameFromUrl } from '@l.x/utils/src/format/extractNameFromUrl'
 import { extractUrlHost } from '@l.x/utils/src/format/urls'
 import { DappEllipsisDropdown } from '@luxfi/wallet/src/components/settings/DappEllipsisDropdown/DappEllipsisDropdown'
 import { useActiveAccountWithThrow } from '@luxfi/wallet/src/features/wallet/hooks'
+=======
+import { Flex, Text, TouchableArea, UniversalImage } from 'ui/src'
+import { MinusCircle } from 'ui/src/components/icons'
+import { borderRadii, breakpoints, fonts, gap, iconSizes } from 'ui/src/theme'
+import { DappIconPlaceholder } from 'uniswap/src/components/dapps/DappIconPlaceholder'
+import { pushNotification } from 'uniswap/src/features/notifications/slice/slice'
+import { AppNotificationType } from 'uniswap/src/features/notifications/slice/types'
+import { ExtensionEventName } from 'uniswap/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
+import Trace from 'uniswap/src/features/telemetry/Trace'
+import { ExtensionScreens } from 'uniswap/src/types/screens/extension'
+import { isEVMAddress } from 'utilities/src/addresses/evm/evm'
+import { extractNameFromUrl } from 'utilities/src/format/extractNameFromUrl'
+import { extractUrlHost } from 'utilities/src/format/urls'
+import { DappEllipsisDropdown } from 'wallet/src/components/settings/DappEllipsisDropdown/DappEllipsisDropdown'
+import { useActiveAccountWithThrow } from 'wallet/src/features/wallet/hooks'
+>>>>>>> upstream/main
 
 const MIN_SCREEN_WIDTH = breakpoints.xxs
 const HORIZONTAL_SPACING = 12
@@ -68,6 +86,10 @@ export function SettingsManageConnectionsScreen(): JSX.Element {
       })
       await removeDappConnection(dappUrl, targetAccount)
     },
+<<<<<<< HEAD
+=======
+    // oxlint-disable-next-line react/exhaustive-deps -- biome-parity: oxlint is stricter here
+>>>>>>> upstream/main
     [dispatch, targetAccount],
   )
 

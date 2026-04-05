@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import { FeatureFlags, useFeatureFlag } from '@luxfi/gating'
+=======
+import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+>>>>>>> upstream/main
 import { BlurView } from 'expo-blur'
 import { type ReactNode, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
@@ -10,6 +14,7 @@ import { ESTIMATED_BOTTOM_TABS_HEIGHT } from 'src/app/navigation/tabs/CustomTabB
 import { SwapButton } from 'src/app/navigation/tabs/SwapButton'
 import { useOpenReceiveModal } from 'src/features/modals/hooks/useOpenReceiveModal'
 import { openModal } from 'src/features/modals/modalSlice'
+<<<<<<< HEAD
 import { Flex, Text, TouchableArea, useIsDarkMode, useSporeColors } from '@l.x/ui/src'
 import { Bank, Buy, ReceiveAlt, SendAction } from '@l.x/ui/src/components/icons'
 import { iconSizes } from '@l.x/ui/src/theme'
@@ -19,6 +24,17 @@ import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
 import { useAppInsets } from '@l.x/lx/src/hooks/useAppInsets'
 import { isAndroid } from '@l.x/utils/src/platform'
 import { useEvent } from '@l.x/utils/src/react/hooks'
+=======
+import { Flex, Text, TouchableArea, useIsDarkMode, useSporeColors } from 'ui/src'
+import { Bank, Buy, ReceiveAlt, SendAction } from 'ui/src/components/icons'
+import { iconSizes } from 'ui/src/theme'
+import { useEnabledChains } from 'uniswap/src/features/chains/hooks/useEnabledChains'
+import { MobileEventName, ModalName } from 'uniswap/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
+import { useAppInsets } from 'uniswap/src/hooks/useAppInsets'
+import { isAndroid } from 'utilities/src/platform'
+import { useEvent } from 'utilities/src/react/hooks'
+>>>>>>> upstream/main
 
 const ANIMATION_DURATION = 200
 const BASE_DELAY = 40

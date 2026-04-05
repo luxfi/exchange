@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 import { SharedEventName } from '@luxamm/analytics-events'
 import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
+=======
+import { SharedEventName } from '@uniswap/analytics-events'
+import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+>>>>>>> upstream/main
 import React, { useCallback, useEffect } from 'react'
 import { Gesture, GestureDetector, State } from 'react-native-gesture-handler'
 import Animated, { runOnJS, useAnimatedStyle, useSharedValue, withDelay, withTiming } from 'react-native-reanimated'
@@ -7,6 +12,7 @@ import { useDispatch } from 'react-redux'
 import { navigate } from 'src/app/navigation/rootNavigation'
 import { openModal } from 'src/features/modals/modalSlice'
 import { removePendingSession } from 'src/features/walletConnect/walletConnectSlice'
+<<<<<<< HEAD
 import { Flex, Text, TouchableArea } from '@l.x/ui/src'
 import { CopyAlt, ScanHome, SettingsHome } from '@l.x/ui/src/components/icons'
 import { ScannerModalState } from '@l.x/lx/src/components/ReceiveQRCode/constants'
@@ -28,6 +34,29 @@ import useIsFocused from '@luxfi/wallet/src/features/focus/useIsFocused'
 import { useActiveAccount, useActiveAccountAddress, useDisplayName } from '@luxfi/wallet/src/features/wallet/hooks'
 
 // Value comes from https://luxteam.slack.com/archives/C083LU9SD9T/p1733425965373019?thread_ts=1733362029.171999&cid=C083LU9SD9T
+=======
+import { Flex, Text, TouchableArea } from 'ui/src'
+import { CopyAlt, ScanHome, SettingsHome } from 'ui/src/components/icons'
+import { ScannerModalState } from 'uniswap/src/components/ReceiveQRCode/constants'
+import { AccountIcon } from 'uniswap/src/features/accounts/AccountIcon'
+import { AccountType, DisplayNameType } from 'uniswap/src/features/accounts/types'
+import { pushNotification } from 'uniswap/src/features/notifications/slice/slice'
+import { AppNotificationType, CopyNotificationType } from 'uniswap/src/features/notifications/slice/types'
+import { ElementName, ModalName } from 'uniswap/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
+import { MobileUserPropertyName, setUserProperty } from 'uniswap/src/features/telemetry/user'
+import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+import { MobileScreens } from 'uniswap/src/types/screens/mobile'
+import { sanitizeAddressText } from 'uniswap/src/utils/addresses'
+import { shortenAddress } from 'utilities/src/addresses'
+import { setClipboard } from 'utilities/src/clipboard/clipboard'
+import { isDevEnv } from 'utilities/src/environment/env'
+import { AnimatedUnitagDisplayName } from 'wallet/src/components/accounts/AnimatedUnitagDisplayName'
+import useIsFocused from 'wallet/src/features/focus/useIsFocused'
+import { useActiveAccount, useActiveAccountAddress, useDisplayName } from 'wallet/src/features/wallet/hooks'
+
+// Value comes from https://uniswapteam.slack.com/archives/C083LU9SD9T/p1733425965373019?thread_ts=1733362029.171999&cid=C083LU9SD9T
+>>>>>>> upstream/main
 const SCAN_ICON_ACTIVE_SCALE = 0.72
 
 const RotatingSettingsIcon = ({ onPressSettings }: { onPressSettings(): void }): JSX.Element => {
@@ -38,6 +67,10 @@ const RotatingSettingsIcon = ({ onPressSettings }: { onPressSettings(): void }):
     if (isScreenFocused) {
       pressProgress.value = withDelay(50, withTiming(0))
     }
+<<<<<<< HEAD
+=======
+    // oxlint-disable-next-line react/exhaustive-deps -- biome-parity: oxlint is stricter here
+>>>>>>> upstream/main
   }, [isScreenFocused])
 
   const tap = Gesture.Tap()

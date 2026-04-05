@@ -1,19 +1,32 @@
 import { useEffect } from 'react'
+<<<<<<< HEAD
 import { WalletEventName } from '@l.x/lx/src/features/telemetry/constants'
 import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
 import { MobileUserPropertyName, setUserProperty } from '@l.x/lx/src/features/telemetry/user'
 import { logger } from '@l.x/utils/src/logger/logger'
 import { useSignerAccounts } from '@luxfi/wallet/src/features/wallet/hooks'
 import { Keyring } from '@luxfi/wallet/src/features/wallet/Keyring/Keyring'
+=======
+import { WalletEventName } from 'uniswap/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
+import { MobileUserPropertyName, setUserProperty } from 'uniswap/src/features/telemetry/user'
+import { logger } from 'utilities/src/logger/logger'
+import { useSignerAccounts } from 'wallet/src/features/wallet/hooks'
+import { Keyring } from 'wallet/src/features/wallet/Keyring/Keyring'
+>>>>>>> upstream/main
 
 // WALL-6234
 export function useLogMissingMnemonic(): void {
   const signerMnemonicAccounts = useSignerAccounts()
   const mnemonicId = signerMnemonicAccounts[0]?.mnemonicId
 
+<<<<<<< HEAD
   /* biome-ignore lint/correctness/useExhaustiveDependencies: There's a lot of content in the signerMnemonicAccounts array, 
   so we don't want to re-run this effect on every render, just when the count of accounts changes
   */
+=======
+  // oxlint-disable-next-line react/exhaustive-deps -- only re-run when account count changes, not full array content
+>>>>>>> upstream/main
   useEffect(() => {
     const logMissingMnemonic = async (): Promise<void> => {
       if (!mnemonicId) {
@@ -53,5 +66,9 @@ export function useLogMissingMnemonic(): void {
         tags: { file: 'useLogMissingMnemonic.ts', function: 'logMissingMnemonic' },
       })
     })
+<<<<<<< HEAD
+=======
+    // oxlint-disable-next-line react/exhaustive-deps -- biome-parity: oxlint is stricter here
+>>>>>>> upstream/main
   }, [mnemonicId, signerMnemonicAccounts.length])
 }

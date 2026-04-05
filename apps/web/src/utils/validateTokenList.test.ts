@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 import { TokenInfo } from '@luxamm/token-lists'
 import { DAI } from '@l.x/lx/src/constants/tokens'
+=======
+import { TokenInfo } from '@uniswap/token-lists'
+import { DAI } from 'uniswap/src/constants/tokens'
+>>>>>>> upstream/main
 import { validateTokens } from '~/utils/validateTokenList'
 
 const INVALID_TOKEN: TokenInfo = {

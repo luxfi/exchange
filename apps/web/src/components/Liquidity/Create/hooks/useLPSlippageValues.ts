@@ -1,12 +1,23 @@
+<<<<<<< HEAD
 import { ProtocolVersion } from '@luxamm/client-data-api/dist/data/v1/poolTypes_pb'
 import { CreateLPPositionResponse } from '@luxamm/client-liquidity/dist/lx/liquidity/v1/api_pb'
 import { Currency } from '@luxamm/sdk-core'
 import { DynamicConfigs, LPConfigKey, useDynamicConfigValue } from '@l.x/gating'
+=======
+import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
+import { CreateLPPositionResponse } from '@uniswap/client-liquidity/dist/uniswap/liquidity/v1/api_pb'
+import { Currency } from '@uniswap/sdk-core'
+import { DynamicConfigs, LPConfigKey, useDynamicConfigValue } from '@universe/gating'
+>>>>>>> upstream/main
 import { useEffect } from 'react'
 import {
   useSetTransactionSettingsAutoSlippageTolerance,
   useTransactionSettingsActions,
+<<<<<<< HEAD
 } from 'lx/src/features/transactions/components/settings/stores/transactionSettingsStore/useTransactionSettingsStore'
+=======
+} from 'uniswap/src/features/transactions/components/settings/stores/transactionSettingsStore/useTransactionSettingsStore'
+>>>>>>> upstream/main
 
 export function useLPSlippageValue({
   version,
@@ -40,7 +51,10 @@ export function useLPSlippageValue({
  * When the backend returns a new slippage value for native token pools, apply it as both
  * the custom and auto tolerance. Since we omit slippageTolerance from the request when
  * nativeTokenBalance is provided, the backend always computes the optimal value.
+<<<<<<< HEAD
  * Resets store values when switching away from a native pool to avoid stale slippage.
+=======
+>>>>>>> upstream/main
  */
 export function useDynamicNativeSlippage({
   isEnabled,
@@ -53,6 +67,7 @@ export function useDynamicNativeSlippage({
   createCalldata?: CreateLPPositionResponse
   isSlippageDirty: boolean
 }): void {
+<<<<<<< HEAD
   const { setCustomSlippageTolerance, setIsSlippageDirty } = useTransactionSettingsActions()
   const setAutoSlippageTolerance = useSetTransactionSettingsAutoSlippageTolerance()
 
@@ -64,6 +79,13 @@ export function useDynamicNativeSlippage({
       return
     }
     if (!createCalldata) {
+=======
+  const { setCustomSlippageTolerance } = useTransactionSettingsActions()
+  const setAutoSlippageTolerance = useSetTransactionSettingsAutoSlippageTolerance()
+
+  useEffect(() => {
+    if (!createCalldata || !isEnabled || !nativeTokenBalance) {
+>>>>>>> upstream/main
       return
     }
     const responseSlippage = createCalldata.slippage
@@ -79,6 +101,9 @@ export function useDynamicNativeSlippage({
     isSlippageDirty,
     setCustomSlippageTolerance,
     setAutoSlippageTolerance,
+<<<<<<< HEAD
     setIsSlippageDirty,
+=======
+>>>>>>> upstream/main
   ])
 }

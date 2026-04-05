@@ -1,9 +1,18 @@
+<<<<<<< HEAD
 import { type InAppNotification } from '@l.x/api'
 import { type NotificationClickTarget } from '@l.x/notifications'
 import { useCallback, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import { BANNER_HEIGHT, BottomBanner } from 'src/components/banners/BottomBanner'
 import { InfoCircle } from '@l.x/ui/src/components/icons/InfoCircle'
+=======
+import { type InAppNotification } from '@universe/api'
+import { type NotificationClickTarget } from '@universe/notifications'
+import { useCallback, useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
+import { BANNER_HEIGHT, BottomBanner } from 'src/components/banners/BottomBanner'
+import { InfoCircle } from 'ui/src/components/icons/InfoCircle'
+>>>>>>> upstream/main
 
 const EXTRA_MARGIN = 5
 

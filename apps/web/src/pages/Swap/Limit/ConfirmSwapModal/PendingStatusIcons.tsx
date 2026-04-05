@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 import { Flex, styled } from '@l.x/ui/src'
 import { iconSizes } from '@l.x/ui/src/theme'
+=======
+import { Flex, styled } from 'ui/src'
+import { iconSizes } from 'ui/src/theme'
+>>>>>>> upstream/main
 import { ConfirmedIcon, SubmittedIcon } from '~/components/AccountDrawer/MiniPortfolio/Activity/Logos'
 import { LoaderV3 } from '~/components/Icons/LoadingSpinner'
 import { FadePresence } from '~/theme/components/FadePresence'

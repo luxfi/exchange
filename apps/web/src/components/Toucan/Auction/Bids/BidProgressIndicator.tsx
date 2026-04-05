@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import { Flex, SpinningLoader, useSporeColors } from '@l.x/ui/src'
+=======
+import { Flex, SpinningLoader, useSporeColors } from 'ui/src'
+>>>>>>> upstream/main
 import { getDisplayStateColor, useBidStatusColors } from '~/components/Toucan/Auction/hooks/useBidStatusColors'
 import { type BidDisplayState } from '~/components/Toucan/Auction/utils/bidDetails'
 

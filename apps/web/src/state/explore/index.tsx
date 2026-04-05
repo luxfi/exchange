@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { ExploreStatsResponse, ProtocolStatsResponse } from '@luxamm/client-explore/dist/lx/explore/v1/service_pb'
 import { createContext, useMemo } from 'react'
 import { useIsSupportedChainId } from '@l.x/lx/src/features/chains/hooks/useSupportedChainId'
@@ -14,11 +15,25 @@ interface ExploreContextType {
   exploreStats: QueryResult<ExploreStatsResponse>
   protocolStats: QueryResult<ProtocolStatsResponse>
 }
+=======
+// oxlint-disable-next-line check-file/no-index -- biome-parity: oxlint is stricter here
+import { ExploreStatsResponse } from '@uniswap/client-explore/dist/uniswap/explore/v1/service_pb'
+import { ALL_NETWORKS_ARG } from '@universe/api'
+import { createContext, useContext, useMemo } from 'react'
+import { useExploreStatsQuery } from 'uniswap/src/data/rest/exploreStats'
+import { useProtocolStatsQuery } from 'uniswap/src/data/rest/protocolStats'
+import { useIsSupportedChainId } from 'uniswap/src/features/chains/hooks/useSupportedChainId'
+import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { useExploreBackendSortingEnabled } from '~/state/explore/useExploreBackendSortingEnabled'
+
+export const TABLE_PAGE_SIZE = 20
+>>>>>>> upstream/main
 
 export const giveExploreStatDefaultValue = (value: number | undefined, defaultValue = 0): number => {
   return value ?? defaultValue
 }
 
+<<<<<<< HEAD
 export const ExploreContext = createContext<ExploreContextType>({
   exploreStats: {
     data: undefined,
@@ -33,6 +48,30 @@ export const ExploreContext = createContext<ExploreContextType>({
 })
 
 export const TABLE_PAGE_SIZE = 20
+=======
+/** Resolved chain ID string for explore queries (from provider prop). */
+const ExploreChainIdContext = createContext<string>(ALL_NETWORKS_ARG)
+
+function useExploreChainId(): string {
+  return useContext(ExploreChainIdContext)
+}
+
+/** Hook that runs the explore-stats query. Deduplicated by React Query. */
+export function useExploreStats() {
+  const chainId = useExploreChainId()
+  const isExploreBackendSortingEnabled = useExploreBackendSortingEnabled()
+  return useExploreStatsQuery<ExploreStatsResponse>({
+    input: { chainId },
+    enabled: !isExploreBackendSortingEnabled,
+  })
+}
+
+/** Hook that runs the protocol-stats query. Deduplicated by React Query. */
+export function useProtocolStats() {
+  const chainId = useExploreChainId()
+  return useProtocolStatsQuery({ chainId })
+}
+>>>>>>> upstream/main
 
 export function ExploreContextProvider({
   chainId,
@@ -43,6 +82,7 @@ export function ExploreContextProvider({
 }) {
   const isSupportedChain = useIsSupportedChainId(chainId)
 
+<<<<<<< HEAD
   // Lux/Zoo: V3 Subgraph (AMM-derived prices). Other chains: CoinGecko.
   const {
     data: exploreStatsData,
@@ -100,4 +140,12 @@ export function ExploreContextProvider({
   }, [exploreStatsData, exploreStatsError, exploreStatsLoading, protocolStatsData])
 
   return <ExploreContext.Provider value={exploreContext}>{children}</ExploreContext.Provider>
+=======
+  const chainIdStr = useMemo(() => {
+    const chainIdOpt: UniverseChainId | undefined = chainId
+    return !isSupportedChain || chainIdOpt === undefined ? ALL_NETWORKS_ARG : chainIdOpt.toString()
+  }, [chainId, isSupportedChain])
+
+  return <ExploreChainIdContext.Provider value={chainIdStr}>{children}</ExploreChainIdContext.Provider>
+>>>>>>> upstream/main
 }

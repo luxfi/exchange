@@ -1,10 +1,19 @@
 import { ReactNode, useEffect } from 'react'
+<<<<<<< HEAD
 import { DEFAULT_LOCALE, Locale, mapLocaleToLanguage } from '@l.x/lx/src/features/language/constants'
 import { useCurrentLocale } from '@l.x/lx/src/features/language/hooks'
 import { getLocale, navigatorLocale, parseLocale } from '@l.x/lx/src/features/language/navigatorLocale'
 import { setCurrentLanguage } from '@l.x/lx/src/features/settings/slice'
 import { changeLanguage } from '@l.x/lx/src/i18n'
 import { isTestEnv } from '@l.x/utils/src/environment/env'
+=======
+import { DEFAULT_LOCALE, Locale, mapLocaleToLanguage } from 'uniswap/src/features/language/constants'
+import { useCurrentLocale } from 'uniswap/src/features/language/hooks'
+import { getLocale, navigatorLocale, parseLocale } from 'uniswap/src/features/language/navigatorLocale'
+import { setCurrentLanguage } from 'uniswap/src/features/settings/slice'
+import { changeLanguage } from 'uniswap/src/i18n'
+import { isTestEnv } from 'utilities/src/environment/env'
+>>>>>>> upstream/main
 import store from '~/state'
 import { useAppDispatch } from '~/state/hooks'
 

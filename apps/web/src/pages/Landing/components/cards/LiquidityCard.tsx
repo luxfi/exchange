@@ -1,5 +1,9 @@
 import { useTranslation } from 'react-i18next'
+<<<<<<< HEAD
 import { opacify } from '@l.x/ui/src/theme'
+=======
+import { opacify } from 'ui/src/theme'
+>>>>>>> upstream/main
 import { CardContents } from '~/pages/Landing/components/cards/CardContents'
 import { PillButton } from '~/pages/Landing/components/cards/PillButton'
 import ValuePropCard from '~/pages/Landing/components/cards/ValuePropCard'

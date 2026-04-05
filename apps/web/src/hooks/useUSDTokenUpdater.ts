@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { Currency } from '@luxamm/sdk-core'
 import { useMemo } from 'react'
 import { useSupportedChainId } from '@l.x/lx/src/features/chains/hooks/useSupportedChainId'
@@ -5,6 +6,15 @@ import { getPrimaryStablecoin } from '@l.x/lx/src/features/chains/utils'
 import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
 import { useUSDCPrice } from '@l.x/lx/src/features/transactions/hooks/useUSDCPriceWrapper'
 import { NumberType } from '@l.x/utils/src/format/types'
+=======
+import { Currency } from '@uniswap/sdk-core'
+import { useMemo } from 'react'
+import { useSupportedChainId } from 'uniswap/src/features/chains/hooks/useSupportedChainId'
+import { getPrimaryStablecoin } from 'uniswap/src/features/chains/utils'
+import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
+import { useUSDCPrice } from 'uniswap/src/features/transactions/hooks/useUSDCPriceWrapper'
+import { NumberType } from 'utilities/src/format/types'
+>>>>>>> upstream/main
 import tryParseCurrencyAmount from '~/lib/utils/tryParseCurrencyAmount'
 
 const NUM_DECIMALS_USD = 2

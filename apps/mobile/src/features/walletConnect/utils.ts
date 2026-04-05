@@ -9,6 +9,7 @@ import {
   WalletGetCapabilitiesRequest,
   WalletSendCallsRequest,
 } from 'src/features/walletConnect/walletConnectSlice'
+<<<<<<< HEAD
 import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { toSupportedChainId } from '@l.x/lx/src/features/chains/utils'
 import { EthMethod, EthSignMethod, WalletConnectEthMethod } from '@l.x/lx/src/features/dappRequests/types'
@@ -16,12 +17,25 @@ import { DappRequestInfo, DappRequestType } from '@l.x/lx/src/types/walletConnec
 import { hexToNumber } from '@l.x/utils/src/addresses/hex'
 import { logger } from '@l.x/utils/src/logger/logger'
 import { generateBatchId } from '@luxfi/wallet/src/features/batchedTransactions/utils'
+=======
+import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { toSupportedChainId } from 'uniswap/src/features/chains/utils'
+import { EthMethod, EthSignMethod, WalletConnectEthMethod } from 'uniswap/src/features/dappRequests/types'
+import { DappRequestInfo, DappRequestType } from 'uniswap/src/types/walletConnect'
+import { hexToNumber } from 'utilities/src/addresses/hex'
+import { logger } from 'utilities/src/logger/logger'
+import { generateBatchId } from 'wallet/src/features/batchedTransactions/utils'
+>>>>>>> upstream/main
 import {
   Capability,
   DappVerificationStatus,
   GetCallsStatusParams,
   SendCallsParams,
+<<<<<<< HEAD
 } from '@luxfi/wallet/src/features/dappRequests/types'
+=======
+} from 'wallet/src/features/dappRequests/types'
+>>>>>>> upstream/main
 
 /**
  * Construct WalletConnect 2.0 session namespaces to complete a new pairing. Used when approving a new pairing request.
@@ -329,7 +343,11 @@ export function decodeMessage(value: string): string {
  * `signTypedData` params are ordered as [account, message]
  * See https://docs.walletconnect.com/2.0/advanced/rpc-reference/ethereum-rpc#personal_sign
  */
+<<<<<<< HEAD
 // eslint-disable-next-line consistent-return
+=======
+// oxlint-disable-next-line consistent-return
+>>>>>>> upstream/main
 function getAddressAndMessageToSign(
   ethMethod: EthSignMethod,
   params: WalletKitTypes.SessionRequest['params']['request']['params'],

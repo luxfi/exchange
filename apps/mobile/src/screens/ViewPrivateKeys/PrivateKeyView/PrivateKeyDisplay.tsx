@@ -4,8 +4,13 @@ import {
   NativePrivateKeyDisplayInternalProps,
   NativePrivateKeyDisplayProps,
 } from 'src/screens/ViewPrivateKeys/PrivateKeyView/types'
+<<<<<<< HEAD
 import { Flex } from '@l.x/ui/src/components/layout/Flex'
 import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
+=======
+import { Flex } from 'ui/src/components/layout/Flex'
+import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+>>>>>>> upstream/main
 
 /**
  * For the given address, displays the private key in a native component so

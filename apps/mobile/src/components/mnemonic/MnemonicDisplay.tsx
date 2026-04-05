@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next'
 import { NativeSyntheticEvent, requireNativeComponent, StyleSheet, ViewProps } from 'react-native'
 import { useNativeComponentKey } from 'src/app/hooks'
 import { HiddenMnemonicWordView } from 'src/components/mnemonic/HiddenMnemonicWordView'
+<<<<<<< HEAD
 import { Flex, flexStyles, HiddenFromScreenReaders, Text } from '@l.x/ui/src'
 import { GraduationCap } from '@l.x/ui/src/components/icons'
 import { spacing } from '@l.x/ui/src/theme'
@@ -10,6 +11,15 @@ import { logger } from '@l.x/utils/src/logger/logger'
 import { isAndroid } from '@l.x/utils/src/platform'
 import { useSignerAccounts } from '@luxfi/wallet/src/features/wallet/hooks'
 import { Keyring } from '@luxfi/wallet/src/features/wallet/Keyring/Keyring'
+=======
+import { Flex, flexStyles, HiddenFromScreenReaders, Text } from 'ui/src'
+import { GraduationCap } from 'ui/src/components/icons'
+import { spacing } from 'ui/src/theme'
+import { logger } from 'utilities/src/logger/logger'
+import { isAndroid } from 'utilities/src/platform'
+import { useSignerAccounts } from 'wallet/src/features/wallet/hooks'
+import { Keyring } from 'wallet/src/features/wallet/Keyring/Keyring'
+>>>>>>> upstream/main
 
 const EMPTY_MNEMONIC_EVENT = 'Empty mnemonic'
 

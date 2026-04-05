@@ -1,5 +1,9 @@
 import React from 'react'
+<<<<<<< HEAD
 import { Flex, Image, PulseRipple, useSporeColors } from '@l.x/ui/src'
+=======
+import { Flex, Image, PulseRipple, useSporeColors } from 'ui/src'
+>>>>>>> upstream/main
 
 interface WalletIconWithRippleProps {
   src?: string

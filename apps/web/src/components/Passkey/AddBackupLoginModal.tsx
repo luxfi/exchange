@@ -3,18 +3,31 @@ import { useLoginWithEmail, useLoginWithOAuth, usePrivy } from '@privy-io/react-
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { useEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
+<<<<<<< HEAD
 import { Flex } from '@l.x/ui/src'
 import { Modal } from 'lx/src/components/modals/Modal'
+=======
+import { Flex } from 'ui/src'
+import { Modal } from 'uniswap/src/components/modals/Modal'
+>>>>>>> upstream/main
 import {
   authorizeAndCompleteRecovery,
   type EncryptedRecoveryState,
   encryptAndStoreRecovery,
   type RecoveryAuthMethodType,
+<<<<<<< HEAD
 } from 'lx/src/features/passkey/embeddedWallet'
 import { validatePin } from 'lx/src/features/passkey/pinValidation'
 import { ModalName } from 'lx/src/features/telemetry/constants'
 import { logger } from '@l.x/utils/src/logger/logger'
 import { useEvent } from '@l.x/utils/src/react/hooks'
+=======
+} from 'uniswap/src/features/passkey/embeddedWallet'
+import { validatePin } from 'uniswap/src/features/passkey/pinValidation'
+import { ModalName } from 'uniswap/src/features/telemetry/constants'
+import { logger } from 'utilities/src/logger/logger'
+import { useEvent } from 'utilities/src/react/hooks'
+>>>>>>> upstream/main
 import { LIST_AUTHENTICATORS_QUERY_KEY } from '~/components/AccountDrawer/PasskeyMenu/PasskeyMenu'
 import { ConfirmPasscodeExtra, SuccessStep } from '~/components/Passkey/AddBackupLoginFinalSteps'
 import {
@@ -316,7 +329,17 @@ export function AddBackupLoginModal() {
   const isValidEmail = EMAIL_REGEX.test(email)
 
   return (
+<<<<<<< HEAD
     <Modal name={ModalName.AddBackupLogin} isModalOpen={isOpen} onClose={handleClose} maxWidth={420}>
+=======
+    <Modal
+      name={ModalName.AddBackupLogin}
+      isModalOpen={isOpen}
+      onClose={handleClose}
+      isDismissible={false}
+      maxWidth={420}
+    >
+>>>>>>> upstream/main
       <Flex gap="$gap24" alignItems="center" width="100%">
         {step === Step.METHOD_SELECT && (
           <MethodSelectStep

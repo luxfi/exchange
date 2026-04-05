@@ -3,9 +3,15 @@ import { waitFor } from '@testing-library/react'
 import { BiometricUnlockStorage } from 'src/app/features/biometricUnlock/BiometricUnlockStorage'
 import { useChangePasswordWithBiometricMutation } from 'src/app/features/biometricUnlock/useChangePasswordWithBiometricMutation'
 import { renderHookWithProviders } from 'src/test/render'
+<<<<<<< HEAD
 import { logger } from '@l.x/utils/src/logger/logger'
 import { encodeForStorage, encrypt, generateNew256BitRandomBuffer } from '@luxfi/wallet/src/features/wallet/Keyring/crypto'
 import { Keyring } from '@luxfi/wallet/src/features/wallet/Keyring/Keyring'
+=======
+import { logger } from 'utilities/src/logger/logger'
+import { encodeForStorage, encrypt, generateNew256BitRandomBuffer } from 'wallet/src/features/wallet/Keyring/crypto'
+import { Keyring } from 'wallet/src/features/wallet/Keyring/Keyring'
+>>>>>>> upstream/main
 
 // Mock dependencies
 jest.mock('src/app/features/biometricUnlock/BiometricUnlockStorage')
@@ -38,7 +44,11 @@ const mockLogger = logger as jest.Mocked<typeof logger>
 
 // Mock AuthenticatorAssertionResponse
 class MockAuthenticatorAssertionResponse {
+<<<<<<< HEAD
   // eslint-disable-next-line max-params
+=======
+  // oxlint-disable-next-line max-params
+>>>>>>> upstream/main
   constructor(
     public userHandle: ArrayBuffer | null,
     public authenticatorData: ArrayBuffer = new ArrayBuffer(0),

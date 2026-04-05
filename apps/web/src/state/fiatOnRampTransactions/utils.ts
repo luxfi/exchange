@@ -1,9 +1,18 @@
+<<<<<<< HEAD
 import type { FORTransaction } from '@l.x/lx/src/features/fiatOnRamp/types'
 import { FORTransactionStatus } from '@l.x/lx/src/features/fiatOnRamp/types'
 import { TransactionStatus } from '@l.x/lx/src/features/transactions/types/transactionDetails'
 import { FiatOnRampTransactionStatus } from '~/state/fiatOnRampTransactions/types'
 
 // eslint-disable-next-line consistent-return
+=======
+import type { FORTransaction } from 'uniswap/src/features/fiatOnRamp/types'
+import { FORTransactionStatus } from 'uniswap/src/features/fiatOnRamp/types'
+import { TransactionStatus } from 'uniswap/src/features/transactions/types/transactionDetails'
+import { FiatOnRampTransactionStatus } from '~/state/fiatOnRampTransactions/types'
+
+// oxlint-disable-next-line consistent-return
+>>>>>>> upstream/main
 export function statusToTransactionInfoStatus(status: FORTransaction['status']): FiatOnRampTransactionStatus {
   switch (status) {
     case FORTransactionStatus.FAILED:
@@ -14,7 +23,11 @@ export function statusToTransactionInfoStatus(status: FORTransaction['status']):
       return FiatOnRampTransactionStatus.PENDING
   }
 }
+<<<<<<< HEAD
 // eslint-disable-next-line consistent-return
+=======
+// oxlint-disable-next-line consistent-return
+>>>>>>> upstream/main
 export function forTransactionStatusToTransactionStatus(status: FiatOnRampTransactionStatus): TransactionStatus {
   switch (status) {
     case FiatOnRampTransactionStatus.FAILED:

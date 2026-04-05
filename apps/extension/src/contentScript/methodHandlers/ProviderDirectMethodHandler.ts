@@ -12,7 +12,11 @@ import { logContentScriptError } from 'src/contentScript/utils'
 
 export class ProviderDirectMethodHandler extends BaseMethodHandler<WindowEthereumRequest> {
   private methodHandlers: {
+<<<<<<< HEAD
     // biome-ignore lint/suspicious/noExplicitAny: Provider method handlers accept varied parameter types from JSON-RPC calls
+=======
+    // oxlint-disable-next-line typescript/no-explicit-any -- Provider method handlers accept varied parameter types from JSON-RPC calls
+>>>>>>> upstream/main
     [key: string]: (provider: JsonRpcProvider, params: any[]) => Promise<any>
   }
 
@@ -41,7 +45,11 @@ export class ProviderDirectMethodHandler extends BaseMethodHandler<WindowEthereu
     )
 
     this.methodHandlers = {
+<<<<<<< HEAD
       /* eslint-disable @typescript-eslint/explicit-function-return-type */
+=======
+      /* oxlint-disable typescript/explicit-function-return-type */
+>>>>>>> upstream/main
       [ProviderDirectMethods.eth_getBalance]: (provider, params) => provider.getBalance(params[0]),
       [ProviderDirectMethods.eth_getCode]: (provider, params) => provider.getCode(params[0]),
       [ProviderDirectMethods.eth_getStorageAt]: (provider, params) => provider.getStorageAt(params[0], params[1]),
@@ -89,7 +97,11 @@ export class ProviderDirectMethodHandler extends BaseMethodHandler<WindowEthereu
     source,
     requestId,
   }: {
+<<<<<<< HEAD
     // biome-ignore lint/suspicious/noExplicitAny: JSON-RPC response can contain arbitrary data structures
+=======
+    // oxlint-disable-next-line typescript/no-explicit-any -- JSON-RPC response can contain arbitrary data structures
+>>>>>>> upstream/main
     response: Promise<any>
     source: MessageEventSource | null
     requestId: string
@@ -101,17 +113,28 @@ export class ProviderDirectMethodHandler extends BaseMethodHandler<WindowEthereu
           result: JSON.parse(
             JSON.stringify(result, (_key, value) => {
               if (!value) {
+<<<<<<< HEAD
                 // eslint-disable-next-line @typescript-eslint/no-unsafe-return
+=======
+                // oxlint-disable-next-line typescript/no-unsafe-return
+>>>>>>> upstream/main
                 return value
               } else if (BigNumber.isBigNumber(value)) {
                 return value.toHexString()
               } else if (value.type === 'BigNumber' && value.hex) {
                 // Unsure of why but sometimes the provider has converted the BigNumber with BigNumber.toJSON() e.g. eth_getBlockByNumber
                 // which is a format not currently accepted by some dapps e.g. Morpho
+<<<<<<< HEAD
                 // eslint-disable-next-line @typescript-eslint/no-unsafe-return
                 return value.hex
               }
               // eslint-disable-next-line @typescript-eslint/no-unsafe-return
+=======
+                // oxlint-disable-next-line typescript/no-unsafe-return
+                return value.hex
+              }
+              // oxlint-disable-next-line typescript/no-unsafe-return
+>>>>>>> upstream/main
               return value
             }),
           ),

@@ -1,9 +1,18 @@
+<<<<<<< HEAD
 import { GraphQLApi } from '@l.x/api'
 import { useCallback, useMemo, useRef } from 'react'
 import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { fromGraphQLChain } from '@l.x/lx/src/features/chains/utils'
 import i18n from '@l.x/lx/src/i18n'
 import { useIsWindowVisible } from '@l.x/utils/src/react/useIsWindowVisible'
+=======
+import { GraphQLApi } from '@universe/api'
+import { useCallback, useMemo, useRef } from 'react'
+import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { fromGraphQLChain } from 'uniswap/src/features/chains/utils'
+import i18n from 'uniswap/src/i18n'
+import { useIsWindowVisible } from 'utilities/src/react/useIsWindowVisible'
+>>>>>>> upstream/main
 
 export enum TransactionType {
   SWAP = 'Swap',
@@ -37,8 +46,12 @@ export function useAllTransactions(
   filter: TransactionType[] = [TransactionType.SWAP, TransactionType.ADD, TransactionType.REMOVE],
 ) {
   const isWindowVisible = useIsWindowVisible()
+<<<<<<< HEAD
   // Skip for Solana (unsupported) and empty chain (Lux/Zoo use their own subgraph)
   const skipTransactionsQueries = !isWindowVisible || !chain || fromGraphQLChain(chain) === UniverseChainId.Solana
+=======
+  const skipTransactionsQueries = !isWindowVisible || fromGraphQLChain(chain) === UniverseChainId.Solana
+>>>>>>> upstream/main
 
   const {
     data: dataV4,

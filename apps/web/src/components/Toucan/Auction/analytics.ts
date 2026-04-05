@@ -2,12 +2,21 @@ import {
   AuctionBidAnalyticsProperties,
   AuctionBidInputtedAnalyticsProperties,
   AuctionWithdrawAnalyticsProperties,
+<<<<<<< HEAD
 } from '@l.x/lx/src/features/telemetry/types'
 import {
   ToucanBidTransactionInfo,
   ToucanWithdrawBidAndClaimTokensTransactionInfo,
 } from '@l.x/lx/src/features/transactions/types/transactionDetails'
 import { ITraceContext } from '@l.x/utils/src/telemetry/trace/TraceContext'
+=======
+} from 'uniswap/src/features/telemetry/types'
+import {
+  ToucanBidTransactionInfo,
+  ToucanWithdrawBidAndClaimTokensTransactionInfo,
+} from 'uniswap/src/features/transactions/types/transactionDetails'
+import { ITraceContext } from 'utilities/src/telemetry/trace/TraceContext'
+>>>>>>> upstream/main
 
 /**
  * Returns base analytics properties for auction withdraw, excluding transaction_hash

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
+<<<<<<< HEAD
 import { Button, Flex, Shine, Text, TouchableArea } from '@l.x/ui/src'
 import { RotatableChevron } from '@l.x/ui/src/components/icons/RotatableChevron'
 import { iconSizes } from '@l.x/ui/src/theme'
@@ -9,10 +10,22 @@ import { Platform } from 'lx/src/features/platforms/types/Platform'
 import { useCurrencyInfoWithLoading } from 'lx/src/features/tokens/useCurrencyInfo'
 import { buildCurrencyId } from 'lx/src/utils/currencyId'
 import { logger } from '@l.x/utils/src/logger/logger'
+=======
+import { Button, Flex, Shine, Text, TouchableArea } from 'ui/src'
+import { RotatableChevron } from 'ui/src/components/icons/RotatableChevron'
+import { iconSizes } from 'ui/src/theme'
+import { TokenLogo } from 'uniswap/src/components/CurrencyLogo/TokenLogo'
+import { TokenSelectorFlow } from 'uniswap/src/components/TokenSelector/types'
+import { Platform } from 'uniswap/src/features/platforms/types/Platform'
+import { useCurrencyInfoWithLoading } from 'uniswap/src/features/tokens/useCurrencyInfo'
+import { buildCurrencyId } from 'uniswap/src/utils/currencyId'
+import { logger } from 'utilities/src/logger/logger'
+>>>>>>> upstream/main
 import { SwitchNetworkAction } from '~/components/Popups/types'
 import CurrencySearchModal from '~/components/SearchModal/CurrencySearchModal'
 import { useActiveAddress } from '~/features/accounts/store/hooks'
 import { useTotalSupply } from '~/hooks/useTotalSupply'
+<<<<<<< HEAD
 import { useCreateAuctionStoreActions } from '~/pages/Liquidity/CreateAuction/CreateAuctionContext'
 import { NoWalletSection } from '~/pages/Liquidity/CreateAuction/components/NoWalletSection'
 import { TokenAdditionalInfoSection } from '~/pages/Liquidity/CreateAuction/components/TokenAdditionalInfoSection'
@@ -21,6 +34,19 @@ import { type ExistingTokenFormState } from '~/pages/Liquidity/CreateAuction/typ
 
 export function ExistingTokenForm({ existing }: { existing: ExistingTokenFormState }) {
   const { t } = useTranslation()
+=======
+import { NoWalletSection } from '~/pages/Liquidity/CreateAuction/components/NoWalletSection'
+import { TokenAdditionalInfoSection } from '~/pages/Liquidity/CreateAuction/components/TokenAdditionalInfoSection'
+import { useCreateAuctionStoreActions } from '~/pages/Liquidity/CreateAuction/CreateAuctionContext'
+import { useCreateAuctionAllowedNetworks } from '~/pages/Liquidity/CreateAuction/hooks/useCreateAuctionAllowedNetworks'
+import { useCreateAuctionTokenColor } from '~/pages/Liquidity/CreateAuction/hooks/useCreateAuctionTokenColor'
+import { useIsStepValid } from '~/pages/Liquidity/CreateAuction/hooks/useIsStepValid'
+import { CreateAuctionStep, type ExistingTokenFormState } from '~/pages/Liquidity/CreateAuction/types'
+
+export function ExistingTokenForm({ existing }: { existing: ExistingTokenFormState }) {
+  const { t } = useTranslation()
+  const tokenColor = useCreateAuctionTokenColor()
+>>>>>>> upstream/main
   const { updateExistingTokenField, commitTokenFormAndAdvance } = useCreateAuctionStoreActions()
   const address = useActiveAddress(Platform.EVM)
 
@@ -40,12 +66,16 @@ export function ExistingTokenForm({ existing }: { existing: ExistingTokenFormSta
   const { totalSupply, isLoading: totalSupplyLoading, isError: totalSupplyError } = useTotalSupply(selectedCurrency)
 
   const hasFetchError = (!!currencyError && !!lookupCurrencyId) || (totalSupplyError && !!selectedCurrencyInfo)
+<<<<<<< HEAD
   const canContinue =
     existing.existingTokenCurrencyInfo !== undefined &&
     existing.description.trim().length > 0 &&
     existing.totalSupply !== undefined &&
     !totalSupplyLoading &&
     !hasFetchError
+=======
+  const canContinue = useIsStepValid(CreateAuctionStep.ADD_TOKEN_INFO) && !totalSupplyLoading && !hasFetchError
+>>>>>>> upstream/main
 
   // Auto-populate currencyInfo when address resolves
   useEffect(() => {
@@ -168,7 +198,18 @@ export function ExistingTokenForm({ existing }: { existing: ExistingTokenFormSta
       )}
 
       <Flex row>
+<<<<<<< HEAD
         <Button size="large" emphasis="primary" onPress={commitTokenFormAndAdvance} isDisabled={!canContinue} fill>
+=======
+        <Button
+          size="large"
+          emphasis="primary"
+          onPress={commitTokenFormAndAdvance}
+          isDisabled={!canContinue}
+          fill
+          backgroundColor={tokenColor}
+        >
+>>>>>>> upstream/main
           {t('common.button.continue')}
         </Button>
       </Flex>

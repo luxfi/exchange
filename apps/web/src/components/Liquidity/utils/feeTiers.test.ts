@@ -1,8 +1,16 @@
+<<<<<<< HEAD
 import { ProtocolVersion } from '@luxamm/client-data-api/dist/data/v1/poolTypes_pb'
 import { Percent } from '@luxamm/sdk-core'
 import { FeeAmount, TICK_SPACINGS } from '@luxamm/v3-sdk'
 import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { PercentNumberDecimals } from '@l.x/utils/src/format/types'
+=======
+import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
+import { Percent } from '@uniswap/sdk-core'
+import { FeeAmount, TICK_SPACINGS } from '@uniswap/v3-sdk'
+import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { PercentNumberDecimals } from 'utilities/src/format/types'
+>>>>>>> upstream/main
 import { describe, expect, it } from 'vitest'
 import { DYNAMIC_FEE_DATA } from '~/components/Liquidity/Create/types'
 import { FeeTierData } from '~/components/Liquidity/types'

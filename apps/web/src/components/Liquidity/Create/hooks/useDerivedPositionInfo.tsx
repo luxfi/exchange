@@ -1,10 +1,19 @@
 import { useQuery } from '@tanstack/react-query'
+<<<<<<< HEAD
 import { ProtocolVersion } from '@luxamm/client-data-api/dist/data/v1/poolTypes_pb'
 import { PoolInfoRequest } from '@luxamm/client-liquidity/dist/lx/liquidity/v1/api_pb'
 import { PoolParameters } from '@luxamm/client-liquidity/dist/lx/liquidity/v1/types_pb'
 import { Currency } from '@luxamm/sdk-core'
 import { useMemo } from 'react'
 import { liquidityQueries } from '@l.x/lx/src/data/apiClients/liquidityService/liquidityQueries'
+=======
+import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
+import { PoolInfoRequest } from '@uniswap/client-liquidity/dist/uniswap/liquidity/v1/api_pb'
+import { PoolParameters } from '@uniswap/client-liquidity/dist/uniswap/liquidity/v1/types_pb'
+import { Currency } from '@uniswap/sdk-core'
+import { useMemo } from 'react'
+import { liquidityQueries } from 'uniswap/src/data/apiClients/liquidityService/liquidityQueries'
+>>>>>>> upstream/main
 import {
   CreatePositionInfo,
   CreateV2PositionInfo,

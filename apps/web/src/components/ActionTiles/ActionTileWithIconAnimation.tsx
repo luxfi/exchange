@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 import { Flex, GeneratedIcon } from '@l.x/ui/src'
 import { useBooleanState } from '@l.x/utils/src/react/useBooleanState'
+=======
+import { Flex, GeneratedIcon } from 'ui/src'
+import { useBooleanState } from 'utilities/src/react/useBooleanState'
+>>>>>>> upstream/main
 import { ActionTile, ActionTileProps } from '~/components/AccountDrawer/ActionTile'
 import { Wiggle } from '~/components/animations/Wiggle'
 

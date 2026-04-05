@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 import { USDT } from '@l.x/lx/src/constants/tokens'
 import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
+=======
+import { USDT } from 'uniswap/src/constants/tokens'
+import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+>>>>>>> upstream/main
 import { expect, getTest } from '~/playwright/fixtures'
 
 const test = getTest()

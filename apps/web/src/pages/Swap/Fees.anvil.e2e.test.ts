@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 import { USDC_MAINNET } from '@l.x/lx/src/constants/tokens'
 import { lxUrls } from '@l.x/lx/src/constants/urls'
 import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
+=======
+import { USDC_MAINNET } from 'uniswap/src/constants/tokens'
+import { uniswapUrls } from 'uniswap/src/constants/urls'
+import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+>>>>>>> upstream/main
 import { expect, getTest } from '~/playwright/fixtures'
 import { stubTradingApiEndpoint } from '~/playwright/fixtures/tradingApi'
 import { assume0xAddress } from '~/utils/wagmi'
@@ -18,15 +24,24 @@ test.describe(
   },
   () => {
     test('swaps ETH for USDC exact-in with swap fee', async ({ page, anvil }) => {
+<<<<<<< HEAD
       await stubTradingApiEndpoint({ page, endpoint: lxUrls.tradingApiPaths.swap })
       await stubTradingApiEndpoint({ page, endpoint: lxUrls.tradingApiPaths.quote })
+=======
+      await stubTradingApiEndpoint({ page, endpoint: uniswapUrls.tradingApiPaths.swap })
+      await stubTradingApiEndpoint({ page, endpoint: uniswapUrls.tradingApiPaths.quote })
+>>>>>>> upstream/main
 
       await page.goto(`/swap?inputCurrency=ETH&outputCurrency=${USDC_MAINNET.address}`)
 
       // Set up swap
       await page.getByTestId(TestID.AmountInputOut).fill('1')
 
+<<<<<<< HEAD
       const response = await page.waitForResponse(`${lxUrls.tradingApiUrl}/v1/quote`)
+=======
+      const response = await page.waitForResponse(`${uniswapUrls.tradingApiUrl}/v1/quote`)
+>>>>>>> upstream/main
       const {
         quote: { portionBips, portionRecipient },
       } = await response.json()

@@ -1,9 +1,16 @@
 import { useTranslation } from 'react-i18next'
 import { ChangePasswordForm } from 'src/app/features/settings/password/ChangePasswordForm'
+<<<<<<< HEAD
 import { Flex, Square, Text, useSporeColors } from '@l.x/ui/src'
 import { Lock } from '@l.x/ui/src/components/icons'
 import { Modal } from '@l.x/lx/src/components/modals/Modal'
 import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
+=======
+import { Flex, Square, Text, useSporeColors } from 'ui/src'
+import { Lock } from 'ui/src/components/icons'
+import { Modal } from 'uniswap/src/components/modals/Modal'
+import { ModalName } from 'uniswap/src/features/telemetry/constants'
+>>>>>>> upstream/main
 
 export function CreateNewPasswordModal({
   isOpen,

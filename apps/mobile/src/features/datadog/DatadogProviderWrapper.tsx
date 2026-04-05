@@ -13,6 +13,7 @@ import {
   DatadogIgnoredErrorsValType,
   DynamicConfigs,
   getDynamicConfigValue,
+<<<<<<< HEAD
 } from '@luxfi/gating'
 import { PropsWithChildren, default as React, useEffect, useState } from 'react'
 import { DatadogContext } from 'src/features/datadog/DatadogContext'
@@ -21,6 +22,16 @@ import { datadogEnabledBuild, isTestRun, localDevDatadogEnabled } from '@l.x/uti
 import { setAttributesToDatadog } from '@l.x/utils/src/logger/datadog/Datadog'
 import { getDatadogEnvironment } from '@l.x/utils/src/logger/datadog/env'
 import { logger } from '@l.x/utils/src/logger/logger'
+=======
+} from '@universe/gating'
+import { PropsWithChildren, default as React, useEffect, useState } from 'react'
+import { DatadogContext } from 'src/features/datadog/DatadogContext'
+import { config } from 'uniswap/src/config'
+import { datadogEnabledBuild, isTestRun, localDevDatadogEnabled } from 'utilities/src/environment/constants'
+import { setAttributesToDatadog } from 'utilities/src/logger/datadog/Datadog'
+import { getDatadogEnvironment } from 'utilities/src/logger/datadog/env'
+import { logger } from 'utilities/src/logger/logger'
+>>>>>>> upstream/main
 
 // In case Statsig is not available
 export const MOBILE_DEFAULT_DATADOG_SESSION_SAMPLE_RATE = 10 // percent
@@ -69,7 +80,11 @@ async function initializeDatadog(sessionSamplingRate: number): Promise<void> {
     sessionSamplingRate,
   }
 
+<<<<<<< HEAD
   // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+=======
+  // oxlint-disable-next-line typescript/no-unnecessary-condition
+>>>>>>> upstream/main
   if (localDevDatadogEnabled) {
     Object.assign(datadogConfig, {
       sessionSamplingRate: 100,

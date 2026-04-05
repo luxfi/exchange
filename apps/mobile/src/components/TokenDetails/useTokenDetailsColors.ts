@@ -1,8 +1,16 @@
+<<<<<<< HEAD
 import { useExtractedTokenColor, useIsDarkMode, useSporeColors } from '@l.x/ui/src'
 import {
   useTokenBasicInfoPartsFragment,
   useTokenBasicProjectPartsFragment,
 } from '@l.x/lx/src/data/graphql/lux-data-api/fragments'
+=======
+import { useExtractedTokenColor, useIsDarkMode, useSporeColors } from 'ui/src'
+import {
+  useTokenBasicInfoPartsFragment,
+  useTokenBasicProjectPartsFragment,
+} from 'uniswap/src/data/graphql/uniswap-data-api/fragments'
+>>>>>>> upstream/main
 
 export function useTokenDetailsColors({ currencyId }: { currencyId: string }): {
   tokenColor: Nullable<string>

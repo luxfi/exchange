@@ -1,10 +1,19 @@
+<<<<<<< HEAD
 import { ProtocolVersion } from '@luxamm/client-data-api/dist/data/v1/poolTypes_pb'
 import { useDynamicConfigValue } from '@l.x/gating'
+=======
+import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
+import { useDynamicConfigValue } from '@universe/gating'
+>>>>>>> upstream/main
 import { vi } from 'vitest'
 import { useLPSlippageValue } from '~/components/Liquidity/Create/hooks/useLPSlippageValues'
 import { renderHook } from '~/test-utils/render'
 
+<<<<<<< HEAD
 vi.mock('@l.x/gating', async (importOriginal) => ({
+=======
+vi.mock('@universe/gating', async (importOriginal) => ({
+>>>>>>> upstream/main
   ...(await importOriginal()),
   useDynamicConfigValue: vi.fn(),
 }))

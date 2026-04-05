@@ -1,6 +1,10 @@
 import { WalletRestoreType } from 'src/components/RestoreWalletModal/RestoreWalletModalState'
 import { checkWalletNeedsRestore } from 'src/features/wallet/useWalletRestore'
+<<<<<<< HEAD
 import { Keyring } from '@luxfi/wallet/src/features/wallet/Keyring/Keyring'
+=======
+import { Keyring } from 'wallet/src/features/wallet/Keyring/Keyring'
+>>>>>>> upstream/main
 
 jest.mock('wallet/src/features/wallet/Keyring/Keyring', () => ({
   Keyring: {

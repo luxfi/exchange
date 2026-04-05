@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { useTranslation } from 'react-i18next'
 import { TouchableOpacity } from 'react-native'
 import Animated, { useAnimatedStyle, useSharedValue } from 'react-native-reanimated'
@@ -11,6 +12,22 @@ import { lxUrls } from '@l.x/lx/src/constants/urls'
 import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
 import { openUri } from '@l.x/lx/src/utils/linking'
 import { AddressFooter } from '@luxfi/wallet/src/features/transactions/TransactionRequest/AddressFooter'
+=======
+import { useBottomSheetInternal } from '@gorhom/bottom-sheet'
+import { useTranslation } from 'react-i18next'
+import { TouchableOpacity } from 'react-native'
+import Animated, { useAnimatedStyle } from 'react-native-reanimated'
+import { ModalWithOverlay } from 'src/components/Requests/ModalWithOverlay/ModalWithOverlay'
+import { ClientDetails } from 'src/components/Requests/RequestModal/ClientDetails'
+import { WalletConnectSigningRequest } from 'src/features/walletConnect/walletConnectSlice'
+import { Flex, Text } from 'ui/src'
+import { AlertTriangleFilled } from 'ui/src/components/icons'
+import { spacing } from 'ui/src/theme'
+import { uniswapUrls } from 'uniswap/src/constants/urls'
+import { ModalName } from 'uniswap/src/features/telemetry/constants'
+import { openUri } from 'uniswap/src/utils/linking'
+import { AddressFooter } from 'wallet/src/features/transactions/TransactionRequest/AddressFooter'
+>>>>>>> upstream/main
 
 export function ActionCannotBeCompletedContent({
   request,
@@ -20,7 +37,11 @@ export function ActionCannotBeCompletedContent({
   onReject: () => void
 }): JSX.Element {
   const handleLearnMore = async (): Promise<void> => {
+<<<<<<< HEAD
     await openUri({ uri: lxUrls.helpArticleUrls.mismatchedImports })
+=======
+    await openUri({ uri: uniswapUrls.helpArticleUrls.mismatchedImports })
+>>>>>>> upstream/main
   }
 
   return (
@@ -47,9 +68,13 @@ function ActionCannotBeCompletedModalContent({
   onLearnMore: () => Promise<void>
 }): JSX.Element {
   const { t } = useTranslation()
+<<<<<<< HEAD
   // In @gorhom/bottom-sheet v5, animatedFooterHeight was removed from useBottomSheetInternal().
   // Default to 0; the footer manages its own height via BottomSheetFooter.
   const animatedFooterHeight = useSharedValue(0)
+=======
+  const { animatedFooterHeight } = useBottomSheetInternal()
+>>>>>>> upstream/main
   const bottomSpacerStyle = useAnimatedStyle(() => ({
     height: animatedFooterHeight.value - spacing.spacing12,
   }))

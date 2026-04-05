@@ -1,7 +1,13 @@
 import { parseUnits } from '@ethersproject/units'
+<<<<<<< HEAD
 import { Currency, CurrencyAmount } from '@luxamm/sdk-core'
 import JSBI from 'jsbi'
 import { logger } from '@l.x/utils/src/logger/logger'
+=======
+import { Currency, CurrencyAmount } from '@uniswap/sdk-core'
+import JSBI from 'jsbi'
+import { logger } from 'utilities/src/logger/logger'
+>>>>>>> upstream/main
 
 function truncateValue(value: string, decimals: number): string {
   const parts = value.split(/[.,]/)

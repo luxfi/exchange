@@ -5,8 +5,13 @@ import { useShareAction } from '~/components/Explore/stickyHeader/HeaderActions/
 const mockSetCopied = vi.fn()
 const mockOpenTwitterShareWindow = vi.fn()
 
+<<<<<<< HEAD
 vi.mock('@hanzogui/core', async (importOriginal) => {
   const actual = await importOriginal<typeof import('@hanzogui/core')>()
+=======
+vi.mock('@tamagui/core', async (importOriginal) => {
+  const actual = await importOriginal<typeof import('@tamagui/core')>()
+>>>>>>> upstream/main
   return {
     ...actual,
     useTheme: () => ({
@@ -37,7 +42,11 @@ describe('useShareAction', () => {
   beforeEach(() => {
     vi.clearAllMocks()
     Object.defineProperty(window, 'location', {
+<<<<<<< HEAD
       value: { href: 'https://app.lux.org/tokens/0x123' },
+=======
+      value: { href: 'https://app.uniswap.org/tokens/0x123' },
+>>>>>>> upstream/main
       writable: true,
     })
   })
@@ -69,12 +78,20 @@ describe('useShareAction', () => {
     })
 
     expect(mockSetCopied).toHaveBeenCalledTimes(1)
+<<<<<<< HEAD
     expect(mockSetCopied).toHaveBeenCalledWith(expect.stringContaining('https://app.lux.org/tokens/0x123'))
+=======
+    expect(mockSetCopied).toHaveBeenCalledWith(expect.stringContaining('https://app.uniswap.org/tokens/0x123'))
+>>>>>>> upstream/main
     expect(mockSetCopied).toHaveBeenCalledWith(expect.stringContaining('utm_source=share-tdp'))
   })
 
   it('share to Twitter dropdown item onPress calls openTwitterShareWindow with name and url including UTM', () => {
+<<<<<<< HEAD
     const baseUrl = 'https://x.com/lux'
+=======
+    const baseUrl = 'https://x.com/uniswap'
+>>>>>>> upstream/main
     Object.defineProperty(window, 'location', {
       value: { href: baseUrl },
       writable: true,

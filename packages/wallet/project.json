@@ -1,0 +1,31 @@
+{
+  "tags": ["scope:wallet", "type:lib"],
+  "targets": {
+    "check:deps:usage": {},
+    "typecheck": {},
+    "typecheck:tsgo": {},
+    "lint:eslint": {},
+    "lint:eslint:fix": {},
+    "lint": {},
+    "lint:fix": {},
+    "check": {},
+    "check:fix": {},
+    "test": {
+      "command": "jest",
+      "options": {
+        "cwd": "{projectRoot}"
+      }
+    },
+    "snapshots": {
+      "command": "jest -u",
+      "options": {
+        "cwd": "{projectRoot}"
+      }
+    },
+    "oxfmt": {},
+    "oxfmt:fix": {},
+    "oxlint": {},
+    "oxlint:fix": {},
+    "oxlint:type-aware": {}
+  }
+}

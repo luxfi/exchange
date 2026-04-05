@@ -1,8 +1,16 @@
+<<<<<<< HEAD
 import { GraphQLApi } from '@l.x/api'
 import { useMemo, useState } from 'react'
 import { fromGraphQLChain } from 'lx/src/features/chains/utils'
 import { useTokenSpotPrice } from 'lx/src/features/dataApi/tokenDetails/useTokenSpotPriceWrapper'
 import { buildCurrencyId } from 'lx/src/utils/currencyId'
+=======
+import { GraphQLApi } from '@universe/api'
+import { useMemo, useState } from 'react'
+import { fromGraphQLChain } from 'uniswap/src/features/chains/utils'
+import { useTokenSpotPrice } from 'uniswap/src/features/dataApi/tokenDetails/useTokenSpotPriceWrapper'
+import { buildCurrencyId } from 'uniswap/src/utils/currencyId'
+>>>>>>> upstream/main
 import { TimePeriod, toHistoryDuration } from '~/appGraphql/data/util'
 import { PriceChartData } from '~/components/Charts/PriceChart'
 import { StackedLineData } from '~/components/Charts/StackedLineChart'
@@ -67,7 +75,11 @@ export function useCreateTDPChartState(
 
   return useMemo(() => {
     const { disableCandlestickUI } = priceQuery
+<<<<<<< HEAD
     // eslint-disable-next-line consistent-return
+=======
+    // oxlint-disable-next-line consistent-return
+>>>>>>> upstream/main
     const activeQuery = (() => {
       switch (chartType) {
         case ChartType.PRICE:

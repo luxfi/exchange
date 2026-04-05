@@ -2,6 +2,7 @@ import React, { useRef } from 'react'
 import { cancelAnimation, useAnimatedStyle, useSharedValue, withSpring } from 'react-native-reanimated'
 import { useSelector } from 'react-redux'
 import { useAppStackNavigation } from 'src/app/navigation/types'
+<<<<<<< HEAD
 import { AnimatedTouchableArea, useSporeColors } from '@l.x/ui/src'
 import { SwapDotted } from '@l.x/ui/src/components/icons'
 import { iconSizes, spacing } from '@l.x/ui/src/theme'
@@ -15,6 +16,21 @@ import { prepareSwapFormState } from '@l.x/lx/src/features/transactions/types/tr
 import { CurrencyField } from '@l.x/lx/src/types/currency'
 import { useEvent } from '@l.x/utils/src/react/hooks'
 import { useActiveAccountAddressWithThrow } from '@luxfi/wallet/src/features/wallet/hooks'
+=======
+import { AnimatedTouchableArea, useSporeColors } from 'ui/src'
+import { SwapDotted } from 'ui/src/components/icons'
+import { iconSizes, spacing } from 'ui/src/theme'
+import { useEnabledChains } from 'uniswap/src/features/chains/hooks/useEnabledChains'
+import { useHighestBalanceNativeCurrencyId } from 'uniswap/src/features/dataApi/balances/balances'
+import { useHapticFeedback } from 'uniswap/src/features/settings/useHapticFeedback/useHapticFeedback'
+import { ElementName, ModalName } from 'uniswap/src/features/telemetry/constants'
+import Trace from 'uniswap/src/features/telemetry/Trace'
+import { selectFilteredChainIds } from 'uniswap/src/features/transactions/swap/state/selectors'
+import { prepareSwapFormState } from 'uniswap/src/features/transactions/types/transactionState'
+import { CurrencyField } from 'uniswap/src/types/currency'
+import { useEvent } from 'utilities/src/react/hooks'
+import { useActiveAccountAddressWithThrow } from 'wallet/src/features/wallet/hooks'
+>>>>>>> upstream/main
 
 const ACTIVE_SCALE = 0.96
 const LONG_PRESS_HAPTIC_DELAY = 200 // ms - faster than default long press (usually 500ms)

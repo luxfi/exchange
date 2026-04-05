@@ -1,7 +1,12 @@
 import { useCallback } from 'react'
 import { useNavigate } from 'react-router'
+<<<<<<< HEAD
 import { IconCloud, ItemPoint } from '@l.x/lx/src/components/IconCloud/IconCloud'
 import { shuffleArray } from '@l.x/lx/src/components/IconCloud/utils'
+=======
+import { IconCloud, ItemPoint } from 'uniswap/src/components/IconCloud/IconCloud'
+import { shuffleArray } from 'uniswap/src/components/IconCloud/utils'
+>>>>>>> upstream/main
 import { getTokenDetailsURL } from '~/appGraphql/data/util'
 import { approvedERC20, InteractiveToken } from '~/pages/Landing/assets/approvedTokens'
 import { Ticker } from '~/pages/Landing/components/TokenCloud/Ticker'

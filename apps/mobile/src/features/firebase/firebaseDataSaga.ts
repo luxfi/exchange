@@ -4,6 +4,7 @@ import firestore from '@react-native-firebase/firestore'
 import { getFirebaseUidOrError, getFirestoreMetadataRef, getFirestoreUidRef } from 'src/features/firebase/utils'
 import { getOneSignalUserIdOrError } from 'src/features/notifications/Onesignal'
 import { all, call, put, select, takeEvery, takeLatest } from 'typed-redux-saga'
+<<<<<<< HEAD
 import { AccountType } from '@l.x/lx/src/features/accounts/types'
 import { Language } from '@l.x/lx/src/features/language/constants'
 import { getLocale } from '@l.x/lx/src/features/language/navigatorLocale'
@@ -11,14 +12,30 @@ import { selectCurrentLanguage } from '@l.x/lx/src/features/settings/selectors'
 import { setCurrentLanguage } from '@l.x/lx/src/features/settings/slice'
 import { logger } from '@l.x/utils/src/logger/logger'
 import { getKeys } from '@l.x/utils/src/primitives/objects'
+=======
+import { AccountType } from 'uniswap/src/features/accounts/types'
+import { Language } from 'uniswap/src/features/language/constants'
+import { getLocale } from 'uniswap/src/features/language/navigatorLocale'
+import { selectCurrentLanguage } from 'uniswap/src/features/settings/selectors'
+import { setCurrentLanguage } from 'uniswap/src/features/settings/slice'
+import { logger } from 'utilities/src/logger/logger'
+import { getKeys } from 'utilities/src/primitives/objects'
+>>>>>>> upstream/main
 import {
   EditAccountAction,
   editAccountActions,
   TogglePushNotificationParams,
+<<<<<<< HEAD
 } from '@luxfi/wallet/src/features/wallet/accounts/editAccountSaga'
 import { Account } from '@luxfi/wallet/src/features/wallet/accounts/types'
 import { makeSelectAccountNotificationSetting, selectAccounts } from '@luxfi/wallet/src/features/wallet/selectors'
 import { addAccounts, editAccount } from '@luxfi/wallet/src/features/wallet/slice'
+=======
+} from 'wallet/src/features/wallet/accounts/editAccountSaga'
+import { Account } from 'wallet/src/features/wallet/accounts/types'
+import { makeSelectAccountNotificationSetting, selectAccounts } from 'wallet/src/features/wallet/selectors'
+import { addAccounts, editAccount } from 'wallet/src/features/wallet/slice'
+>>>>>>> upstream/main
 
 interface AccountMetadata {
   name?: string

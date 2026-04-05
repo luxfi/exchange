@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 /* eslint-disable complexity */
+=======
+/* oxlint-disable complexity */
+>>>>>>> upstream/main
 import { providerErrors, serializeError } from '@metamask/rpc-errors'
 import { PayloadAction } from '@reduxjs/toolkit'
 import { getAccount, getAccountRequest } from 'src/app/features/dappRequests/accounts'
@@ -22,7 +26,11 @@ import {
   handleSendTransaction,
   handleSignMessage,
   handleSignTypedData,
+<<<<<<< HEAD
   handleLuxOpenSidebarRequest,
+=======
+  handleUniswapOpenSidebarRequest,
+>>>>>>> upstream/main
 } from 'src/app/features/dappRequests/saga'
 import type {
   DappRequestNoDappInfo,
@@ -58,6 +66,7 @@ import {
   SignMessageRequestSchema,
   SignTypedDataRequest,
   SignTypedDataRequestSchema,
+<<<<<<< HEAD
   LuxOpenSidebarRequest,
   LuxOpenSidebarRequestSchema,
 } from 'src/app/features/dappRequests/types/DappRequestTypes'
@@ -67,6 +76,17 @@ import { DappRequestType, DappResponseType } from '@l.x/lx/src/features/dappRequ
 import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
 import { getEnabledChainIdsSaga } from '@l.x/lx/src/features/settings/saga'
 import { logger } from '@l.x/utils/src/logger/logger'
+=======
+  UniswapOpenSidebarRequest,
+  UniswapOpenSidebarRequestSchema,
+} from 'src/app/features/dappRequests/types/DappRequestTypes'
+import { dappResponseMessageChannel } from 'src/background/messagePassing/messageChannels'
+import { call, put, select, takeEvery } from 'typed-redux-saga'
+import { DappRequestType, DappResponseType } from 'uniswap/src/features/dappRequests/types'
+import { Platform } from 'uniswap/src/features/platforms/types/Platform'
+import { getEnabledChainIdsSaga } from 'uniswap/src/features/settings/saga'
+import { logger } from 'utilities/src/logger/logger'
+>>>>>>> upstream/main
 
 function* dappRequestApproval({
   type,
@@ -274,11 +294,19 @@ function* dappRequestApproval({
           })
           break
         }
+<<<<<<< HEAD
         case DappRequestType.LuxOpenSidebar: {
           const validatedRequest: LuxOpenSidebarRequest = LuxOpenSidebarRequestSchema.parse(
             confirmedRequest.dappRequest,
           )
           yield* call(handleLuxOpenSidebarRequest, validatedRequest, confirmedRequest.senderTabInfo)
+=======
+        case DappRequestType.UniswapOpenSidebar: {
+          const validatedRequest: UniswapOpenSidebarRequest = UniswapOpenSidebarRequestSchema.parse(
+            confirmedRequest.dappRequest,
+          )
+          yield* call(handleUniswapOpenSidebarRequest, validatedRequest, confirmedRequest.senderTabInfo)
+>>>>>>> upstream/main
           break
         }
       }

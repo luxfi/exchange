@@ -1,6 +1,7 @@
 import ms from 'ms'
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
+<<<<<<< HEAD
 import { Flex, Text } from '@l.x/ui/src'
 import { iconSizes } from '@l.x/ui/src/theme'
 import { CurrencyLogo } from '@l.x/lx/src/components/CurrencyLogo/CurrencyLogo'
@@ -11,11 +12,24 @@ import { useActiveAddress } from '@l.x/lx/src/features/accounts/store/hooks'
 import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { EdgeFade } from '@l.x/lx/src/features/fiatOnRamp/EdgeFade/EdgeFade'
 import { PaymentMethodFilter } from '@l.x/lx/src/features/fiatOnRamp/PaymentMethodFilter/PaymentMethodFilter'
+=======
+import { Flex, Text } from 'ui/src'
+import { iconSizes } from 'ui/src/theme'
+import { CurrencyLogo } from 'uniswap/src/components/CurrencyLogo/CurrencyLogo'
+import { GetHelpHeader } from 'uniswap/src/components/dialog/GetHelpHeader'
+import { Modal } from 'uniswap/src/components/modals/Modal'
+import { uniswapUrls } from 'uniswap/src/constants/urls'
+import { useActiveAddress } from 'uniswap/src/features/accounts/store/hooks'
+import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { EdgeFade } from 'uniswap/src/features/fiatOnRamp/EdgeFade/EdgeFade'
+import { PaymentMethodFilter } from 'uniswap/src/features/fiatOnRamp/PaymentMethodFilter/PaymentMethodFilter'
+>>>>>>> upstream/main
 import {
   type FORFilters,
   type FORQuote,
   type FORServiceProvider,
   RampDirection,
+<<<<<<< HEAD
 } from '@l.x/lx/src/features/fiatOnRamp/types'
 import { filterQuotesByPaymentMethod } from '@l.x/lx/src/features/fiatOnRamp/utils'
 import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
@@ -26,6 +40,18 @@ import { buildCurrencyId, currencyAddress } from '@l.x/lx/src/utils/currencyId'
 import { NumberType } from '@l.x/utils/src/format/types'
 import { logger } from '@l.x/utils/src/logger/logger'
 import { useInterval } from '@l.x/utils/src/time/timing'
+=======
+} from 'uniswap/src/features/fiatOnRamp/types'
+import { filterQuotesByPaymentMethod } from 'uniswap/src/features/fiatOnRamp/utils'
+import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
+import { ModalName } from 'uniswap/src/features/telemetry/constants'
+import { useCurrencyInfo } from 'uniswap/src/features/tokens/useCurrencyInfo'
+import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+import { buildCurrencyId, currencyAddress } from 'uniswap/src/utils/currencyId'
+import { NumberType } from 'utilities/src/format/types'
+import { logger } from 'utilities/src/logger/logger'
+import { useInterval } from 'utilities/src/time/timing'
+>>>>>>> upstream/main
 import { useBuyFormContext } from '~/pages/Swap/Buy/BuyFormContext'
 import { ProviderConnectedView } from '~/pages/Swap/Buy/ProviderConnectedView'
 import { ProviderConnectionError } from '~/pages/Swap/Buy/ProviderConnectionError'
@@ -163,7 +189,11 @@ function ChooseProviderModalContent({ closeModal }: ChooseProviderModal) {
     >
       <Flex gap="$spacing24">
         <GetHelpHeader
+<<<<<<< HEAD
           link={lxUrls.helpArticleUrls.fiatOnRampHelp}
+=======
+          link={uniswapUrls.helpArticleUrls.fiatOnRampHelp}
+>>>>>>> upstream/main
           closeModal={closeModal}
           closeDataTestId="ChooseProviderModal-close"
         />

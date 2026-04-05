@@ -1,6 +1,11 @@
 import { Page } from '@playwright/test'
+<<<<<<< HEAD
 import { listTransactions } from '@luxamm/client-data-api/dist/data/v1/api-DataApiService_connectquery'
 import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
+=======
+import { listTransactions } from '@uniswap/client-data-api/dist/data/v1/api-DataApiService_connectquery'
+import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+>>>>>>> upstream/main
 import { expect, getTest } from '~/playwright/fixtures'
 import { getVisibleDropdownElementByTestId } from '~/playwright/fixtures/utils'
 import { HAYDEN_ADDRESS } from '~/playwright/fixtures/wallets'

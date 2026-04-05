@@ -1,8 +1,15 @@
 import { useEffect, useState } from 'react'
+<<<<<<< HEAD
 import { getChainInfo } from '@l.x/lx/src/features/chains/chainInfo'
 import { EVMUniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { AVERAGE_L2_BLOCK_TIME_MS } from '@l.x/lx/src/features/transactions/hooks/usePollingIntervalByChain'
 import { ONE_SECOND_MS } from '@l.x/utils/src/time/time'
+=======
+import { getChainInfo } from 'uniswap/src/features/chains/chainInfo'
+import { EVMUniverseChainId } from 'uniswap/src/features/chains/types'
+import { AVERAGE_L2_BLOCK_TIME_MS } from 'uniswap/src/features/transactions/hooks/usePollingIntervalByChain'
+import { ONE_SECOND_MS } from 'utilities/src/time/time'
+>>>>>>> upstream/main
 import { useBlock } from 'wagmi'
 
 /**
@@ -43,7 +50,11 @@ export function useBlockCountdown(chainId: EVMUniverseChainId | undefined): numb
       setCountdown(calculateCountdown())
     }, ONE_SECOND_MS)
 
+<<<<<<< HEAD
     // eslint-disable-next-line consistent-return
+=======
+    // oxlint-disable-next-line consistent-return
+>>>>>>> upstream/main
     return () => {
       clearInterval(interval)
     }

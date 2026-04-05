@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next'
 import { OnboardingScreen } from 'src/app/features/onboarding/OnboardingScreen'
 import { useOnboardingSteps } from 'src/app/features/onboarding/OnboardingStepsContext'
 import { useUnitagClaimContext } from 'src/app/features/unitags/UnitagClaimContext'
+<<<<<<< HEAD
 import { Flex, Square } from '@l.x/ui/src'
 import { Person } from '@l.x/ui/src/components/icons'
 import { iconSizes } from '@l.x/ui/src/theme'
@@ -10,6 +11,15 @@ import Trace from '@l.x/lx/src/features/telemetry/Trace'
 import { ClaimUnitagContent, ClaimUnitagContentProps } from '@l.x/lx/src/features/unitags/ClaimUnitagContent'
 import { ExtensionScreens, ExtensionUnitagClaimScreens } from '@l.x/lx/src/types/screens/extension'
 import { useAccountAddressFromUrlWithThrow } from '@luxfi/wallet/src/features/wallet/hooks'
+=======
+import { Flex, Square } from 'ui/src'
+import { Person } from 'ui/src/components/icons'
+import { iconSizes } from 'ui/src/theme'
+import Trace from 'uniswap/src/features/telemetry/Trace'
+import { ClaimUnitagContent, ClaimUnitagContentProps } from 'uniswap/src/features/unitags/ClaimUnitagContent'
+import { ExtensionScreens, ExtensionUnitagClaimScreens } from 'uniswap/src/types/screens/extension'
+import { useAccountAddressFromUrlWithThrow } from 'wallet/src/features/wallet/hooks'
+>>>>>>> upstream/main
 
 type onNavigateContinueType = Exclude<ClaimUnitagContentProps['onNavigateContinue'], undefined>
 

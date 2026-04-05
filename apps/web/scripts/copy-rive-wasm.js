@@ -15,7 +15,12 @@ if (!fs.existsSync(targetDir)) {
   fs.mkdirSync(targetDir, { recursive: true })
 }
 
+<<<<<<< HEAD
 // Copy the file (skip if source doesn't exist, e.g. in Docker with --ignore-scripts)
 if (fs.existsSync(sourcePath)) {
   fs.copyFileSync(sourcePath, targetPath)
 }
+=======
+// Copy the file
+fs.copyFileSync(sourcePath, targetPath)
+>>>>>>> upstream/main

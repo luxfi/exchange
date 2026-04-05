@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import { SharedEventName } from '@luxamm/analytics-events'
+=======
+import { SharedEventName } from '@uniswap/analytics-events'
+>>>>>>> upstream/main
 import { BlurView } from 'expo-blur'
 import React, { memo, useCallback, useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
@@ -15,6 +19,7 @@ import { useSafeAreaFrame } from 'react-native-safe-area-context'
 import { useDispatch, useSelector } from 'react-redux'
 import { useAppStackNavigation } from 'src/app/navigation/types'
 import { pulseAnimation } from 'src/components/buttons/utils'
+<<<<<<< HEAD
 import { Flex, FlexProps, LinearGradient, Text, TouchableArea, useIsDarkMode, useSporeColors } from '@l.x/ui/src'
 import { Search } from '@l.x/ui/src/components/icons'
 import { AnimatedFlex } from '@l.x/ui/src/components/layout/AnimatedFlex'
@@ -33,6 +38,26 @@ import { MobileScreens } from '@l.x/lx/src/types/screens/mobile'
 import { isAndroid, isIOS } from '@l.x/utils/src/platform'
 import { setHasUsedExplore } from '@luxfi/wallet/src/features/behaviorHistory/slice'
 import { useActiveAccountAddressWithThrow } from '@luxfi/wallet/src/features/wallet/hooks'
+=======
+import { Flex, FlexProps, LinearGradient, Text, TouchableArea, useIsDarkMode, useSporeColors } from 'ui/src'
+import { Search } from 'ui/src/components/icons'
+import { AnimatedFlex } from 'ui/src/components/layout/AnimatedFlex'
+import { borderRadii, fonts, opacify } from 'ui/src/theme'
+import { useEnabledChains } from 'uniswap/src/features/chains/hooks/useEnabledChains'
+import { useHighestBalanceNativeCurrencyId } from 'uniswap/src/features/dataApi/balances/balances'
+import { useHapticFeedback } from 'uniswap/src/features/settings/useHapticFeedback/useHapticFeedback'
+import { ElementName, ModalName } from 'uniswap/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
+import { selectFilteredChainIds } from 'uniswap/src/features/transactions/swap/state/selectors'
+import { prepareSwapFormState } from 'uniswap/src/features/transactions/types/transactionState'
+import { useAppInsets } from 'uniswap/src/hooks/useAppInsets'
+import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+import { CurrencyField } from 'uniswap/src/types/currency'
+import { MobileScreens } from 'uniswap/src/types/screens/mobile'
+import { isAndroid, isIOS } from 'utilities/src/platform'
+import { setHasUsedExplore } from 'wallet/src/features/behaviorHistory/slice'
+import { useActiveAccountAddressWithThrow } from 'wallet/src/features/wallet/hooks'
+>>>>>>> upstream/main
 
 const NAV_BAR_MARGIN_SIDES = 24
 const NAV_BAR_GAP = 12
@@ -57,7 +82,11 @@ export function NavBar(): JSX.Element {
   const colors = useSporeColors()
   const isDarkMode = useIsDarkMode()
 
+<<<<<<< HEAD
   // biome-ignore lint/correctness/useExhaustiveDependencies: we want to ignore isNarrow because of unknown reason
+=======
+  // oxlint-disable-next-line react/exhaustive-deps -- we want to ignore isNarrow because of unknown reason
+>>>>>>> upstream/main
   useEffect(() => {
     if (isNarrow || !exploreButtonLayout?.width || !swapButtonLayout?.width) {
       return
@@ -66,6 +95,10 @@ export function NavBar(): JSX.Element {
     // When the 2 buttons overflow, we set `isNarrow` to true and adjust the design accordingly.
     // To test this, you can use an iPhone Mini set to Spanish.
     setIsNarrow(exploreButtonLayout.width + swapButtonLayout.width + NAV_BAR_GAP + NAV_BAR_MARGIN_SIDES > screenWidth)
+<<<<<<< HEAD
+=======
+    // oxlint-disable-next-line react/exhaustive-deps -- biome-parity: oxlint is stricter here
+>>>>>>> upstream/main
   }, [exploreButtonLayout?.width, swapButtonLayout?.width, screenWidth])
 
   const onExploreLayout = useCallback((e: LayoutChangeEvent) => setExploreButtonLayout(e.nativeEvent.layout), [])
@@ -121,7 +154,11 @@ type SwapTabBarButtonProps = {
   onSwapLayout: (event: LayoutChangeEvent) => void
 }
 
+<<<<<<< HEAD
 const SwapFAB = memo(function _SwapFAB({ activeScale = 0.96, onSwapLayout }: SwapTabBarButtonProps) {
+=======
+const SwapFAB = memo(function SwapFABInner({ activeScale = 0.96, onSwapLayout }: SwapTabBarButtonProps) {
+>>>>>>> upstream/main
   const { t } = useTranslation()
   const { defaultChainId } = useEnabledChains()
   const { hapticFeedback } = useHapticFeedback()

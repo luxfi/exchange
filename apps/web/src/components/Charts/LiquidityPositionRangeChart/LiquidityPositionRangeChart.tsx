@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* eslint-disable max-lines */
 import { PositionStatus, ProtocolVersion } from '@luxamm/client-data-api/dist/data/v1/poolTypes_pb'
 import { Currency, Price } from '@luxamm/sdk-core'
@@ -19,6 +20,29 @@ import useResizeObserver from 'use-resize-observer'
 // biome-ignore lint/style/noRestrictedImports: Need direct formatter import for chart formatting outside React context
 import { formatNumber } from '@l.x/utils/src/format/localeBased'
 import { isMobileWeb } from '@l.x/utils/src/platform'
+=======
+/* oxlint-disable max-lines */
+import { PositionStatus, ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
+import { Currency, Price } from '@uniswap/sdk-core'
+import { Pair } from '@uniswap/v2-sdk'
+import { FeeAmount, Pool as V3Pool } from '@uniswap/v3-sdk'
+import { Pool as V4Pool } from '@uniswap/v4-sdk'
+import { GraphQLApi } from '@universe/api'
+import { CrosshairMode, ISeriesApi, LineStyle, LineType, UTCTimestamp } from 'lightweight-charts'
+import { useMemo, useState } from 'react'
+import { ColorTokens, Flex, FlexProps, Shine, useSporeColors } from 'ui/src'
+import { HorizontalDensityChart } from 'ui/src/components/icons/HorizontalDensityChart'
+import { LoadingPriceCurve } from 'ui/src/components/icons/LoadingPriceCurve'
+import { opacify, zIndexes } from 'ui/src/theme'
+import { ZERO_ADDRESS } from 'uniswap/src/constants/misc'
+import { getChainInfo } from 'uniswap/src/features/chains/chainInfo'
+import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import useResizeObserver from 'use-resize-observer'
+// Not using the formatters in a react context, so we need to import the formatter directly.
+// oxlint-disable-next-line no-restricted-imports -- Need direct formatter import for chart formatting outside React context
+import { formatNumber } from 'utilities/src/format/localeBased'
+import { isMobileWeb } from 'utilities/src/platform'
+>>>>>>> upstream/main
 import { ActiveLiquidityChart } from '~/components/Charts/ActiveLiquidityChart/ActiveLiquidityChart'
 import { BandsIndicator } from '~/components/Charts/BandsIndicator/bands-indicator'
 import { cloneReadonly } from '~/components/Charts/BandsIndicator/helpers/simple-clone'
@@ -284,7 +308,11 @@ class LPPriceChartModel extends ChartModel<PriceChartData> {
 
   private overrideCrosshair(params: LPPriceChartModelParams): void {
     const lastDataPoint = this.data[this.data.length - 1]
+<<<<<<< HEAD
     // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+=======
+    // oxlint-disable-next-line typescript/no-unnecessary-condition
+>>>>>>> upstream/main
     if (!lastDataPoint) {
       return
     }

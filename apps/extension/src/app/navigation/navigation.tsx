@@ -17,6 +17,7 @@ import { HideContentsWhenSidebarBecomesInactive } from 'src/app/navigation/HideC
 import { SidebarNavigationProvider } from 'src/app/navigation/providers'
 import { useRouterState } from 'src/app/navigation/state'
 import { isOnboardedSelector } from 'src/app/utils/isOnboardedSelector'
+<<<<<<< HEAD
 import { AnimatePresence, Flex, SpinningLoader, styled } from '@l.x/ui/src'
 import { TestnetModeBanner } from '@l.x/lx/src/components/banners/TestnetModeBanner'
 import { useIsChromeWindowFocusedWithTimeout } from '@l.x/lx/src/extension/useIsChromeWindowFocused'
@@ -30,6 +31,21 @@ import { WalletLuxProvider } from '@luxfi/wallet/src/features/transactions/conte
 import { QueuedOrderModal } from '@luxfi/wallet/src/features/transactions/swap/modals/QueuedOrderModal'
 import { TransactionHistoryUpdater } from '@luxfi/wallet/src/features/transactions/TransactionHistoryUpdater'
 import { NativeWalletProvider } from '@luxfi/wallet/src/features/wallet/providers/NativeWalletProvider'
+=======
+import { AnimatePresence, Flex, SpinningLoader, styled } from 'ui/src'
+import { TestnetModeBanner } from 'uniswap/src/components/banners/TestnetModeBanner'
+import { useIsChromeWindowFocusedWithTimeout } from 'uniswap/src/extension/useIsChromeWindowFocused'
+import { TokenPriceProvider } from 'uniswap/src/features/prices/TokenPriceContext'
+import { useEvent, usePrevious } from 'utilities/src/react/hooks'
+import { ONE_SECOND_MS } from 'utilities/src/time/time'
+import { AccountsStoreContextProvider } from 'wallet/src/features/accounts/store/provider'
+import { useHeartbeatReporter } from 'wallet/src/features/telemetry/hooks/useHeartbeatReporter'
+import { useLastBalancesReporter } from 'wallet/src/features/telemetry/hooks/useLastBalancesReporter'
+import { WalletUniswapProvider } from 'wallet/src/features/transactions/contexts/WalletUniswapContext'
+import { QueuedOrderModal } from 'wallet/src/features/transactions/swap/modals/QueuedOrderModal'
+import { TransactionHistoryUpdater } from 'wallet/src/features/transactions/TransactionHistoryUpdater'
+import { NativeWalletProvider } from 'wallet/src/features/wallet/providers/NativeWalletProvider'
+>>>>>>> upstream/main
 
 export function MainContent(): JSX.Element {
   const isOnboarded = useSelector(isOnboardedSelector)
@@ -153,14 +169,22 @@ export function WebNavigation(): JSX.Element {
     <SidebarNavigationProvider>
       <NativeWalletProvider>
         <TokenPriceProvider>
+<<<<<<< HEAD
           <WalletLuxProvider>
+=======
+          <WalletUniswapProvider>
+>>>>>>> upstream/main
             <AccountsStoreContextProvider>
               <NotificationToastWrapper />
               {shouldRestoreScroll && <ScrollRestoration />}
               {childrenMemo}
               {isLoggedIn && <ForceUpgradeModal />}
             </AccountsStoreContextProvider>
+<<<<<<< HEAD
           </WalletLuxProvider>
+=======
+          </WalletUniswapProvider>
+>>>>>>> upstream/main
         </TokenPriceProvider>
       </NativeWalletProvider>
     </SidebarNavigationProvider>

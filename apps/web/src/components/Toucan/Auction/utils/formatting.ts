@@ -16,3 +16,18 @@ export function formatTimestampToDate(timestamp: bigint): string {
     year: 'numeric',
   })
 }
+<<<<<<< HEAD
+=======
+
+/**
+ * Formats a Date to a short date+time string: "MM/DD HH:MM"
+ * Used for chart axis labels and tooltips.
+ */
+export function formatShortDateTime(date: Date): string {
+  const month = String(date.getUTCMonth() + 1).padStart(2, '0')
+  const day = String(date.getUTCDate()).padStart(2, '0')
+  const hours = String(date.getUTCHours()).padStart(2, '0')
+  const minutes = String(date.getUTCMinutes()).padStart(2, '0')
+  return `${month}/${day} ${hours}:${minutes}`
+}
+>>>>>>> upstream/main

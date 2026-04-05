@@ -1,6 +1,11 @@
 import { determineRemoveWalletConditions } from 'src/components/RemoveWallet/utils/determineRemoveWalletConditions'
+<<<<<<< HEAD
 import { AccountType } from '@l.x/lx/src/features/accounts/types'
 import { Account, SignerMnemonicAccount } from '@luxfi/wallet/src/features/wallet/accounts/types'
+=======
+import { AccountType } from 'uniswap/src/features/accounts/types'
+import { Account, SignerMnemonicAccount } from 'wallet/src/features/wallet/accounts/types'
+>>>>>>> upstream/main
 
 describe('determineRemoveWalletConditions', () => {
   // Mock data setup

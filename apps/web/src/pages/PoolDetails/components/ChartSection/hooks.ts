@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import { GraphQLApi } from '@l.x/api'
+=======
+import { GraphQLApi } from '@universe/api'
+>>>>>>> upstream/main
 import { useMemo } from 'react'
 import { ChartQueryResult, ChartType, checkDataQuality, withUTCTimestamp } from '~/components/Charts/utils'
 import { SingleHistogramData } from '~/components/Charts/VolumeChart/utils'

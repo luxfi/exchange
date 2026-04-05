@@ -1,15 +1,27 @@
+<<<<<<< HEAD
 import { type InAppNotification } from '@l.x/api'
 import { type NotificationClickTarget } from '@l.x/notifications'
+=======
+import { type InAppNotification } from '@universe/api'
+import { type NotificationClickTarget } from '@universe/notifications'
+>>>>>>> upstream/main
 import { useCallback, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import { ONBOARDING_CONTENT_WIDTH } from 'src/app/features/onboarding/utils'
 import { AppRoutes, SettingsRoutes } from 'src/app/navigation/constants'
 import { useExtensionNavigation } from 'src/app/navigation/utils'
 import { getIsOnboardingFromNotification } from 'src/notification-service/data-sources/reactive/storageWarningCondition'
+<<<<<<< HEAD
 import { spacing } from '@l.x/ui/src/theme'
 import { WarningSeverity } from '@l.x/lx/src/components/modals/WarningModal/types'
 import { WarningModal } from '@l.x/lx/src/components/modals/WarningModal/WarningModal'
 import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
+=======
+import { spacing } from 'ui/src/theme'
+import { WarningSeverity } from 'uniswap/src/components/modals/WarningModal/types'
+import { WarningModal } from 'uniswap/src/components/modals/WarningModal/WarningModal'
+import { ModalName } from 'uniswap/src/features/telemetry/constants'
+>>>>>>> upstream/main
 
 interface StorageWarningModalRendererProps {
   notification: InAppNotification

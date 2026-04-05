@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next'
 import { ViewStyle } from 'react-native'
 import { FlatList } from 'react-native-gesture-handler'
 import { useFlatListAutoScroll } from 'src/components/explore/hooks/useFlatListAutoScroll'
+<<<<<<< HEAD
 import { Flex, Text, TouchableArea, useSporeColors } from '@l.x/ui/src'
 import { iconSizes, spacing } from '@l.x/ui/src/theme'
 import { NetworkLogo } from '@l.x/lx/src/components/CurrencyLogo/NetworkLogo'
@@ -12,6 +13,16 @@ import { useEnabledChains } from '@l.x/lx/src/features/chains/hooks/useEnabledCh
 import type { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
 import { useEvent } from '@l.x/utils/src/react/hooks'
+=======
+import { Flex, Text, TouchableArea, useSporeColors } from 'ui/src'
+import { iconSizes, spacing } from 'ui/src/theme'
+import { NetworkLogo } from 'uniswap/src/components/CurrencyLogo/NetworkLogo'
+import { NetworkPill } from 'uniswap/src/components/network/NetworkPill'
+import { useEnabledChains } from 'uniswap/src/features/chains/hooks/useEnabledChains'
+import type { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+import { useEvent } from 'utilities/src/react/hooks'
+>>>>>>> upstream/main
 
 const keyExtractor = (chainId: UniverseChainId): string => chainId.toString()
 
@@ -70,7 +81,11 @@ const NetworkPillsRow = memo(function NetworkPillsRow({
     items: chains,
   })
 
+<<<<<<< HEAD
   // biome-ignore lint/correctness/useExhaustiveDependencies: need theme dep for foregroundColor to change on theme change
+=======
+  // oxlint-disable-next-line react/exhaustive-deps -- need theme dep for foregroundColor to change on theme change
+>>>>>>> upstream/main
   const renderItemNetworkPills = useCallback(
     ({ item }: { item: UniverseChainId }) => {
       return (
@@ -93,6 +108,10 @@ const NetworkPillsRow = memo(function NetworkPillsRow({
         </TouchableArea>
       )
     },
+<<<<<<< HEAD
+=======
+    // oxlint-disable-next-line react/exhaustive-deps -- biome-parity: oxlint is stricter here
+>>>>>>> upstream/main
     [colors.neutral1.val, onSelectNetwork, selectedNetwork, theme],
   )
 

@@ -1,6 +1,11 @@
 import React from 'react'
+<<<<<<< HEAD
 import { ColorTokens, Flex } from '@l.x/ui/src'
 import { iconSizes } from '@l.x/ui/src/theme'
+=======
+import { ColorTokens, Flex } from 'ui/src'
+import { iconSizes } from 'ui/src/theme'
+>>>>>>> upstream/main
 
 interface SelectionCircleProps {
   selected: boolean

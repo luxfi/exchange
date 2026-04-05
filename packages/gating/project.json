@@ -1,0 +1,29 @@
+{
+  "name": "@universe/gating",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/gating/src",
+  "projectType": "library",
+  "tags": ["scope:gating", "type:lib"],
+  "targets": {
+    "typecheck": {},
+    "typecheck:tsgo": {},
+    "lint:eslint": {},
+    "lint:eslint:fix": {},
+    "lint": {},
+    "lint:fix": {},
+    "check": {},
+    "check:fix": {},
+    "check:deps:usage": {},
+    "oxfmt": {},
+    "oxfmt:fix": {},
+    "oxlint": {},
+    "oxlint:fix": {},
+    "oxlint:type-aware": {},
+    "test": {
+      "command": "vitest run",
+      "options": {
+        "cwd": "{projectRoot}"
+      }
+    }
+  }
+}

@@ -13,7 +13,11 @@ export const brushHandleAccentPath = (width: number) => {
     `h 30`, // horizontal line
   ].join(' ')
 }
+<<<<<<< HEAD
 /** 
+=======
+/**
+>>>>>>> upstream/main
   Points down by default
 */
 export const OffScreenHandle = ({ color, size = 6 }: { color: string; size?: number }) => {

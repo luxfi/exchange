@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import i18n from '@l.x/lx/src/i18n'
+=======
+import i18n from 'uniswap/src/i18n'
+>>>>>>> upstream/main
 import { isPortfolioTab, PortfolioTab } from '~/pages/Portfolio/types'
 
 export const getPortfolioTitle = (path?: string): string => {

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { useCallback, useMemo } from 'react'
 import { CONNECTION_PROVIDER_IDS, CONNECTION_PROVIDER_NAMES } from '@l.x/lx/src/constants/web3'
@@ -5,6 +6,15 @@ import { AccessPattern } from '@l.x/lx/src/features/accounts/store/types/Connect
 import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
 import { isPlaywrightEnv } from '@l.x/utils/src/environment/env'
 import { isMobileWeb } from '@l.x/utils/src/platform'
+=======
+import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import { useCallback, useMemo } from 'react'
+import { CONNECTION_PROVIDER_IDS, CONNECTION_PROVIDER_NAMES } from 'uniswap/src/constants/web3'
+import { AccessPattern } from 'uniswap/src/features/accounts/store/types/Connector'
+import { Platform } from 'uniswap/src/features/platforms/types/Platform'
+import { isPlaywrightEnv } from 'utilities/src/environment/env'
+import { isMobileWeb } from 'utilities/src/platform'
+>>>>>>> upstream/main
 import { useRecentConnectorId } from '~/components/Web3Provider/constants'
 import { useAccountsStore } from '~/features/accounts/store/hooks'
 import { ExternalWallet } from '~/features/accounts/store/types'
@@ -87,8 +97,13 @@ function getInjectedConnectors({
       ) {
         // Special-case: Ignore coinbase eip6963-injected connector and coinbase solana wallet adapter; CB is selected separately / not treated as an injector since it can always be accessed via the CB SDK connector.
         return false
+<<<<<<< HEAD
       } else if (wallet.id === CONNECTION_PROVIDER_IDS.LX_EXTENSION_RDNS && !isEmbeddedWalletEnabled) {
         // Special-case: Ignore the Lx Extension injection here if it's being displayed separately. This logic is updated with Embedded Wallet support where the Lx Extension is displayed with other connectors
+=======
+      } else if (wallet.id === CONNECTION_PROVIDER_IDS.UNISWAP_EXTENSION_RDNS && !isEmbeddedWalletEnabled) {
+        // Special-case: Ignore the Uniswap Extension injection here if it's being displayed separately. This logic is updated with Embedded Wallet support where the Uniswap Extension is displayed with other connectors
+>>>>>>> upstream/main
         return false
       } else if (wallet.id === CONNECTION_PROVIDER_IDS.PORTO_CONNECTOR_ID) {
         // Porto is also surfacing from the injected connectors list, but we don't want to show it in the wallet modal as a detected wallet
@@ -97,10 +112,17 @@ function getInjectedConnectors({
       return wallet.injected
     })
     .sort((a, b) => {
+<<<<<<< HEAD
       // prioritize lx extension over other injected connectors
       if (a.id === CONNECTION_PROVIDER_IDS.LX_EXTENSION_RDNS) {
         return -1
       } else if (b.id === CONNECTION_PROVIDER_IDS.LX_EXTENSION_RDNS) {
+=======
+      // prioritize uniswap extension over other injected connectors
+      if (a.id === CONNECTION_PROVIDER_IDS.UNISWAP_EXTENSION_RDNS) {
+        return -1
+      } else if (b.id === CONNECTION_PROVIDER_IDS.UNISWAP_EXTENSION_RDNS) {
+>>>>>>> upstream/main
         return 1
       } else {
         return 0
@@ -225,7 +247,11 @@ function buildPrimaryConnectorsList({
 
 /**
  * Returns whether any third-party injected wallets (e.g. MetaMask) are detected.
+<<<<<<< HEAD
  * Excludes Coinbase (accessed via SDK) and, when embedded wallet is disabled, Lx Extension.
+=======
+ * Excludes Coinbase (accessed via SDK) and, when embedded wallet is disabled, Uniswap Extension.
+>>>>>>> upstream/main
  */
 export function useHasInjectedWallets(): boolean {
   const isEmbeddedWalletEnabled = useFeatureFlag(FeatureFlags.EmbeddedWallet)
@@ -237,8 +263,13 @@ export function useHasInjectedWallets(): boolean {
 }
 
 /**
+<<<<<<< HEAD
  * These wallets do not include Lux Wallets because those are
  * handled separately unless the embedded wallet is enabled. See <LuxWalletOptions />
+=======
+ * These wallets do not include Uniswap Wallets because those are
+ * handled separately unless the embedded wallet is enabled. See <UniswapWalletOptions />
+>>>>>>> upstream/main
  * Primary wallets are displayed on the first page of the modal, this included injected wallets and recent wallets
  */
 export function useOrderedWallets({

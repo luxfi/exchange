@@ -1,8 +1,16 @@
+<<<<<<< HEAD
 import { Percent } from '@luxamm/sdk-core'
 import { GraphQLApi } from '@l.x/api'
 import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { Flex, Text } from '@l.x/ui/src'
 import { shortenHash } from '@l.x/utils/src/addresses'
+=======
+import { Percent } from '@uniswap/sdk-core'
+import { GraphQLApi } from '@universe/api'
+import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import { Flex, Text } from 'ui/src'
+import { shortenHash } from 'utilities/src/addresses'
+>>>>>>> upstream/main
 import { FeeData } from '~/components/Liquidity/Create/types'
 import { LpIncentivesAprDisplay } from '~/components/LpIncentives/LpIncentivesAprDisplay'
 import { AnimatedDoubleLogo } from '~/pages/PoolDetails/components/PoolDetailsHeader/AnimatedDoubleLogo'

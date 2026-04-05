@@ -2,15 +2,24 @@ import { SearchBar } from '~/components/NavBar/SearchBar'
 import mockMediaSize from '~/test-utils/mockMediaSize'
 import { render, screen } from '~/test-utils/render'
 
+<<<<<<< HEAD
 vi.mock('gui', async () => {
   const actual = await vi.importActual('gui')
+=======
+vi.mock('tamagui', async () => {
+  const actual = await vi.importActual('tamagui')
+>>>>>>> upstream/main
   return {
     ...actual,
     useMedia: vi.fn(),
   }
 })
 
+<<<<<<< HEAD
 vi.mock('lx/src/components/modals/ScrollLock', () => ({
+=======
+vi.mock('uniswap/src/components/modals/ScrollLock', () => ({
+>>>>>>> upstream/main
   useUpdateScrollLock: vi.fn(),
 }))
 

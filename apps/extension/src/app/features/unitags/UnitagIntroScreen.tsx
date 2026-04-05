@@ -4,10 +4,17 @@ import { useOnboardingSteps } from 'src/app/features/onboarding/OnboardingStepsC
 import { Terms } from 'src/app/features/onboarding/Terms'
 import { UnitagClaimRoutes } from 'src/app/navigation/constants'
 import { navigate } from 'src/app/navigation/state'
+<<<<<<< HEAD
 import { Button, Flex, GeneratedIcon, Text } from '@l.x/ui/src'
 import { Bolt, Coupon, Person } from '@l.x/ui/src/components/icons'
 import { useUnitagsAddressQuery } from '@l.x/lx/src/data/apiClients/unitagsApi/useUnitagsAddressQuery'
 import { useAccountAddressFromUrlWithThrow } from '@luxfi/wallet/src/features/wallet/hooks'
+=======
+import { Button, Flex, GeneratedIcon, Text } from 'ui/src'
+import { Bolt, Coupon, Person } from 'ui/src/components/icons'
+import { useUnitagsAddressQuery } from 'uniswap/src/data/apiClients/unitagsApi/useUnitagsAddressQuery'
+import { useAccountAddressFromUrlWithThrow } from 'wallet/src/features/wallet/hooks'
+>>>>>>> upstream/main
 
 const CONTAINER_WIDTH = 531
 const TERMS_WIDTH = 300

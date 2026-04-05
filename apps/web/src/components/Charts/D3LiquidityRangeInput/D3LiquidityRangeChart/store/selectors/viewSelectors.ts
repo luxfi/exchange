@@ -1,5 +1,9 @@
 import { useContext } from 'react'
+<<<<<<< HEAD
 import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
+=======
+import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
+>>>>>>> upstream/main
 import { useStore } from 'zustand'
 import { useShallow } from 'zustand/react/shallow'
 import { LiquidityChartStoreContext } from '~/components/Charts/D3LiquidityRangeInput/D3LiquidityRangeChart/store/LiquidityChartStoreContext'

@@ -1,14 +1,27 @@
+<<<<<<< HEAD
 import { type GqlResult, GraphQLApi, isError, isNonPollingRequestInFlight } from '@luxfi/api'
+=======
+import { type GqlResult, GraphQLApi, isError, isNonPollingRequestInFlight } from '@universe/api'
+>>>>>>> upstream/main
 import maxBy from 'lodash/maxBy'
 import { type Dispatch, type SetStateAction, useCallback, useMemo, useRef, useState } from 'react'
 import { type SharedValue, useDerivedValue } from 'react-native-reanimated'
 import { type TLineChartData } from 'react-native-wagmi-charts'
+<<<<<<< HEAD
 import { PollingInterval } from '@l.x/lx/src/constants/misc'
 import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { toGraphQLChain } from '@l.x/lx/src/features/chains/utils'
 import { currencyIdToContractInput } from '@l.x/lx/src/features/dataApi/utils/currencyIdToContractInput'
 import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
 import { currencyIdToChain } from '@l.x/lx/src/utils/currencyId'
+=======
+import { PollingInterval } from 'uniswap/src/constants/misc'
+import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { toGraphQLChain } from 'uniswap/src/features/chains/utils'
+import { currencyIdToContractInput } from 'uniswap/src/features/dataApi/utils/currencyIdToContractInput'
+import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
+import { currencyIdToChain } from 'uniswap/src/utils/currencyId'
+>>>>>>> upstream/main
 
 export type TokenSpotData = {
   value: SharedValue<number>
@@ -23,6 +36,10 @@ export type PriceNumberOfDigits = {
 /**
  * @returns Token price history for requested duration
  */
+<<<<<<< HEAD
+=======
+// oxlint-disable-next-line complexity -- biome-parity: oxlint is stricter here
+>>>>>>> upstream/main
 export function useTokenPriceHistory({
   currencyId,
   initialDuration = GraphQLApi.HistoryDuration.Day,
@@ -107,7 +124,11 @@ export function useTokenPriceHistory({
   const spotValue = useDerivedValue(() => price ?? 0)
   const spotRelativeChange = useDerivedValue(() => priceChange)
 
+<<<<<<< HEAD
   // biome-ignore lint/correctness/useExhaustiveDependencies: ensure spot updates when price changes
+=======
+  // oxlint-disable-next-line react/exhaustive-deps -- ensure spot updates when price changes
+>>>>>>> upstream/main
   const spot = useMemo(
     () =>
       price !== undefined
@@ -116,6 +137,10 @@ export function useTokenPriceHistory({
             relativeChange: spotRelativeChange,
           }
         : undefined,
+<<<<<<< HEAD
+=======
+    // oxlint-disable-next-line react/exhaustive-deps -- biome-parity: oxlint is stricter here
+>>>>>>> upstream/main
     [price, priceChange, spotValue, spotRelativeChange],
   )
 

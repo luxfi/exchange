@@ -3,7 +3,11 @@ import type { AppStateStatus } from 'react-native'
 import { useSelector } from 'react-redux'
 import type { AppStateState } from 'src/features/appState/appStateSlice'
 import { selectCurrentAppState, selectPreviousAppState } from 'src/features/appState/appStateSlice'
+<<<<<<< HEAD
 import { useEvent } from '@l.x/utils/src/react/hooks'
+=======
+import { useEvent } from 'utilities/src/react/hooks'
+>>>>>>> upstream/main
 
 type AppStateTransition = { from: AppStateStatus; to: AppStateStatus }
 

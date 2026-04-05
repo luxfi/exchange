@@ -1,5 +1,6 @@
 import { TransactionRequest } from '@ethersproject/providers'
 import { renderHook } from '@testing-library/react'
+<<<<<<< HEAD
 import { GasFeeResult } from '@l.x/api'
 import { useTransactionGasEstimation } from 'src/app/features/dappRequests/hooks/useTransactionGasEstimation'
 import { PollingInterval } from '@l.x/lx/src/constants/misc'
@@ -9,6 +10,17 @@ import { logger } from '@l.x/utils/src/logger/logger'
 
 // Mock dependencies
 jest.mock('lx/src/features/gas/hooks', () => ({
+=======
+import { GasFeeResult } from '@universe/api'
+import { useTransactionGasEstimation } from 'src/app/features/dappRequests/hooks/useTransactionGasEstimation'
+import { PollingInterval } from 'uniswap/src/constants/misc'
+import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { useTransactionGasFee } from 'uniswap/src/features/gas/hooks'
+import { logger } from 'utilities/src/logger/logger'
+
+// Mock dependencies
+jest.mock('uniswap/src/features/gas/hooks', () => ({
+>>>>>>> upstream/main
   useTransactionGasFee: jest.fn(),
 }))
 

@@ -1,8 +1,15 @@
 import { useTranslation } from 'react-i18next'
+<<<<<<< HEAD
 import { Flex } from '@l.x/ui/src'
 import { CheckmarkCircle } from '@l.x/ui/src/components/icons/CheckmarkCircle'
 import { TokenLogo } from '@l.x/lx/src/components/CurrencyLogo/TokenLogo'
 import { useEvent } from '@l.x/utils/src/react/hooks'
+=======
+import { Flex } from 'ui/src'
+import { CheckmarkCircle } from 'ui/src/components/icons/CheckmarkCircle'
+import { TokenLogo } from 'uniswap/src/components/CurrencyLogo/TokenLogo'
+import { useEvent } from 'utilities/src/react/hooks'
+>>>>>>> upstream/main
 import { OrderDirection } from '~/appGraphql/data/util'
 import { ClickableHeaderRow, HeaderArrow, HeaderSortText } from '~/components/Table/shared/SortableHeader'
 import { EllipsisText } from '~/components/Table/shared/TableText'

@@ -14,6 +14,7 @@ import {
 } from 'src/screens/Import/SeedPhraseInputScreen/SeedPhraseInput/types'
 import { useFunctionAfterNavigationTransitionEndWithDelay } from 'src/utils/hooks'
 import { useNavigationHeader } from 'src/utils/useNavigationHeader'
+<<<<<<< HEAD
 import { Button, Flex, MobileDeviceHeight, Text, TouchableArea, useIsShortMobileDevice } from '@l.x/ui/src'
 import { PapersText, QuestionInCircleFilled } from '@l.x/ui/src/components/icons'
 import { lxUrls } from '@l.x/lx/src/constants/urls'
@@ -29,6 +30,23 @@ import { useBooleanState } from '@l.x/utils/src/react/useBooleanState'
 import { useOnboardingContext } from '@luxfi/wallet/src/features/onboarding/OnboardingContext'
 import { BackupType } from '@luxfi/wallet/src/features/wallet/accounts/types'
 import { useSignerAccounts } from '@luxfi/wallet/src/features/wallet/hooks'
+=======
+import { Button, Flex, MobileDeviceHeight, Text, TouchableArea, useIsShortMobileDevice } from 'ui/src'
+import { PapersText, QuestionInCircleFilled } from 'ui/src/components/icons'
+import { uniswapUrls } from 'uniswap/src/constants/urls'
+import { ElementName, MobileEventName } from 'uniswap/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
+import Trace from 'uniswap/src/features/telemetry/Trace'
+import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+import { ImportType } from 'uniswap/src/types/onboarding'
+import { OnboardingScreens } from 'uniswap/src/types/screens/mobile'
+import { openUri } from 'uniswap/src/utils/linking'
+import { useEvent } from 'utilities/src/react/hooks'
+import { useBooleanState } from 'utilities/src/react/useBooleanState'
+import { useOnboardingContext } from 'wallet/src/features/onboarding/OnboardingContext'
+import { BackupType } from 'wallet/src/features/wallet/accounts/types'
+import { useSignerAccounts } from 'wallet/src/features/wallet/hooks'
+>>>>>>> upstream/main
 
 type SeedPhraseInputScreenProps = NativeStackScreenProps<OnboardingStackParamList, OnboardingScreens.SeedPhraseInput>
 
@@ -98,7 +116,11 @@ export function SeedPhraseInputScreen({ navigation, route: { params } }: SeedPhr
   )
 
   const onPressRecoveryHelpButton = useCallback(
+<<<<<<< HEAD
     () => openUri({ uri: lxUrls.helpArticleUrls.recoveryPhraseHowToImport }),
+=======
+    () => openUri({ uri: uniswapUrls.helpArticleUrls.recoveryPhraseHowToImport }),
+>>>>>>> upstream/main
     [],
   )
 

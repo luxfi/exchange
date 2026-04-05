@@ -1,5 +1,9 @@
 import type { UTCTimestamp } from 'lightweight-charts'
+<<<<<<< HEAD
 import type { UseSporeColorsReturn } from '@l.x/ui/src/hooks/useSporeColors'
+=======
+import type { UseSporeColorsReturn } from 'ui/src/hooks/useSporeColors'
+>>>>>>> upstream/main
 import type { BidTokenInfo } from '~/components/Toucan/Auction/store/types'
 
 export interface ClearingPriceChartPoint {
@@ -64,6 +68,11 @@ interface ClearingPriceChartControllerCallbacks {
   onZoomStateChange?: (state: ClearingPriceZoomState) => void
   /** Called when y-axis labels are computed (for custom overlay rendering) */
   onYAxisLabelsChange?: (labels: YAxisLabel[]) => void
+<<<<<<< HEAD
+=======
+  /** Called when the visible price range changes (zoom, pan, resize, data update) */
+  onVisiblePriceRangeChange?: (range: { min: number; max: number }) => void
+>>>>>>> upstream/main
 }
 
 export interface ClearingPriceChartControllerCreateParams {
@@ -115,6 +124,11 @@ export interface ClearingPriceChartControllerUpdateParams {
   hideXAxis?: boolean
   /** Whether zoom/pan interactions are enabled */
   isZoomEnabled?: boolean
+<<<<<<< HEAD
+=======
+  /** When true, disables mouse wheel scroll/scale so an external handler can manage Y-axis pan/zoom */
+  disableMouseWheelInteractions?: boolean
+>>>>>>> upstream/main
 }
 
 export interface YAxisLabel {

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { GraphQLApi } from '@l.x/api'
 import { useCallback, useMemo, useRef } from 'react'
 import { WRAPPED_NATIVE_CURRENCY } from '@l.x/lx/src/constants/tokens'
@@ -7,6 +8,17 @@ import { fromGraphQLChain, toGraphQLChain } from '@l.x/lx/src/features/chains/ut
 import { isSVMChain } from '@l.x/lx/src/features/platforms/utils/chains'
 import i18n from '@l.x/lx/src/i18n'
 import { areAddressesEqual } from '@l.x/lx/src/utils/addresses'
+=======
+import { GraphQLApi } from '@universe/api'
+import { useCallback, useMemo, useRef } from 'react'
+import { WRAPPED_NATIVE_CURRENCY } from 'uniswap/src/constants/tokens'
+import { useEnabledChains } from 'uniswap/src/features/chains/hooks/useEnabledChains'
+import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { fromGraphQLChain, toGraphQLChain } from 'uniswap/src/features/chains/utils'
+import { isSVMChain } from 'uniswap/src/features/platforms/utils/chains'
+import i18n from 'uniswap/src/i18n'
+import { areAddressesEqual } from 'uniswap/src/utils/addresses'
+>>>>>>> upstream/main
 import { NATIVE_CHAIN_ID } from '~/constants/tokens'
 
 export enum PoolTableTransactionType {

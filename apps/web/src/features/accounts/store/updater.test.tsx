@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import type { ConnectionStatusInfo } from '@l.x/lx/src/features/accounts/store/types/Connector'
 import { ConnectorStatus } from '@l.x/lx/src/features/accounts/store/types/Connector'
 import { SigningCapability } from '@l.x/lx/src/features/accounts/store/types/Wallet'
@@ -6,6 +7,16 @@ import { InterfaceEventName } from '@l.x/lx/src/features/telemetry/constants'
 import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
 import { WalletConnectionResult } from '@l.x/lx/src/features/telemetry/types'
 import { setUserProperty } from '@l.x/lx/src/features/telemetry/user'
+=======
+import type { ConnectionStatusInfo } from 'uniswap/src/features/accounts/store/types/Connector'
+import { ConnectorStatus } from 'uniswap/src/features/accounts/store/types/Connector'
+import { SigningCapability } from 'uniswap/src/features/accounts/store/types/Wallet'
+import { Platform } from 'uniswap/src/features/platforms/types/Platform'
+import { InterfaceEventName } from 'uniswap/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
+import { WalletConnectionResult } from 'uniswap/src/features/telemetry/types'
+import { setUserProperty } from 'uniswap/src/features/telemetry/user'
+>>>>>>> upstream/main
 import { useActiveAddresses, useActiveWallet, useConnectionStatus } from '~/features/accounts/store/hooks'
 import type { ExternalWallet } from '~/features/accounts/store/types'
 import { WebAccountsStoreUpdater } from '~/features/accounts/store/updater'
@@ -38,11 +49,19 @@ vi.mock('wagmi', async (importOriginal) => {
   }
 })
 
+<<<<<<< HEAD
 vi.mock('lx/src/features/telemetry/send', () => ({
   sendAnalyticsEvent: vi.fn(),
 }))
 
 vi.mock('lx/src/features/telemetry/user', async (importOriginal) => {
+=======
+vi.mock('uniswap/src/features/telemetry/send', () => ({
+  sendAnalyticsEvent: vi.fn(),
+}))
+
+vi.mock('uniswap/src/features/telemetry/user', async (importOriginal) => {
+>>>>>>> upstream/main
   const original = (await importOriginal()) as any
   return {
     ...original,

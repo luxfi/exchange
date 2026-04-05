@@ -1,6 +1,11 @@
 import { ReactNavigationPerformanceView } from '@shopify/react-native-performance-navigation'
+<<<<<<< HEAD
 import { GraphQLApi } from '@luxfi/api'
 import { DynamicConfigs, HomeScreenExploreTokensConfigKey, useDynamicConfigValue } from '@luxfi/gating'
+=======
+import { GraphQLApi } from '@universe/api'
+import { DynamicConfigs, HomeScreenExploreTokensConfigKey, useDynamicConfigValue } from '@universe/gating'
+>>>>>>> upstream/main
 import { ForwardedRef, forwardRef, memo, useCallback, useEffect, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { FlatList, LayoutRectangle, RefreshControl } from 'react-native'
@@ -11,6 +16,7 @@ import { TokenItemData } from 'src/components/explore/TokenItemData'
 import { useAdaptiveFooter } from 'src/components/home/hooks'
 import { AnimatedFlatList } from 'src/components/layout/AnimatedFlatList'
 import { TAB_BAR_HEIGHT, TabProps } from 'src/components/layout/TabHelpers'
+<<<<<<< HEAD
 import { AnimatePresence, Flex, LinearGradient, Text, useIsDarkMode, useSporeColors } from '@l.x/ui/src'
 import { SwirlyArrowDown } from '@l.x/ui/src/components/icons'
 import { spacing, zIndexes } from '@l.x/ui/src/theme'
@@ -23,11 +29,29 @@ import { MobileScreens } from '@l.x/lx/src/types/screens/mobile'
 import { isAndroid } from '@l.x/utils/src/platform'
 import { selectHasUsedExplore } from '@luxfi/wallet/src/features/behaviorHistory/selectors'
 import { TokenMetadataDisplayType } from '@luxfi/wallet/src/features/wallet/types'
+=======
+import { AnimatePresence, Flex, LinearGradient, Text, useIsDarkMode, useSporeColors } from 'ui/src'
+import { SwirlyArrowDown } from 'ui/src/components/icons'
+import { spacing, zIndexes } from 'ui/src/theme'
+import { fromGraphQLChain } from 'uniswap/src/features/chains/utils'
+import { useAppFiatCurrency } from 'uniswap/src/features/fiatCurrency/hooks'
+import { isContractInputArrayType } from 'uniswap/src/features/gating/typeGuards'
+import { MobileEventName } from 'uniswap/src/features/telemetry/constants'
+import { useAppInsets } from 'uniswap/src/hooks/useAppInsets'
+import { MobileScreens } from 'uniswap/src/types/screens/mobile'
+import { isAndroid } from 'utilities/src/platform'
+import { selectHasUsedExplore } from 'wallet/src/features/behaviorHistory/selectors'
+import { TokenMetadataDisplayType } from 'wallet/src/features/wallet/types'
+>>>>>>> upstream/main
 
 const ESTIMATED_ITEM_SIZE = 68
 
 export const HomeExploreTab = memo(
+<<<<<<< HEAD
   forwardRef<FlatList<unknown>, TabProps>(function _HomeExploreTab(
+=======
+  forwardRef<FlatList<unknown>, TabProps>(function HomeExploreTabInner(
+>>>>>>> upstream/main
     { containerProps, scrollHandler, headerHeight, refreshing, onRefresh },
     ref,
   ) {
@@ -64,7 +88,11 @@ export const HomeExploreTab = memo(
       [data],
     )
 
+<<<<<<< HEAD
     // biome-ignore lint/correctness/useExhaustiveDependencies: fiat currency causes price layout width to change but does not change token data
+=======
+    // oxlint-disable-next-line react/exhaustive-deps -- fiat currency causes price layout width to change but does not change token data
+>>>>>>> upstream/main
     useEffect(() => {
       setMaxTokenPriceWrapperWidth(0)
     }, [appFiatCurrency])
@@ -131,7 +159,11 @@ export const HomeExploreTab = memo(
           mt={-spacing.spacing12}
         >
           <AnimatedFlatList
+<<<<<<< HEAD
             // biome-ignore lint/suspicious/noExplicitAny: FlatList ref type is complex with animated wrapper
+=======
+            // oxlint-disable-next-line typescript/no-explicit-any -- FlatList ref type is complex with animated wrapper
+>>>>>>> upstream/main
             ref={ref as ForwardedRef<Animated.FlatList<any>>}
             ListFooterComponent={FooterElement}
             data={tokenDataList}

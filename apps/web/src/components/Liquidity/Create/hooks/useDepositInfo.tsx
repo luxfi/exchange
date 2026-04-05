@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { ProtocolVersion } from '@luxamm/client-data-api/dist/data/v1/poolTypes_pb'
 import { Currency, CurrencyAmount } from '@luxamm/sdk-core'
 import { Pair } from '@luxamm/v2-sdk'
@@ -9,6 +10,19 @@ import { useMaxAmountSpend } from '@l.x/lx/src/features/gas/hooks/useMaxAmountSp
 import { applyNativeTokenPercentageBuffer } from '@l.x/lx/src/features/gas/utils'
 import { useOnChainCurrencyBalance } from '@l.x/lx/src/features/portfolio/api'
 import { useUSDCValue } from '@l.x/lx/src/features/transactions/hooks/useUSDCPriceWrapper'
+=======
+import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
+import { Currency, CurrencyAmount } from '@uniswap/sdk-core'
+import { Pair } from '@uniswap/v2-sdk'
+import { Pool as V3Pool } from '@uniswap/v3-sdk'
+import { Pool as V4Pool } from '@uniswap/v4-sdk'
+import { useMemo } from 'react'
+import { Trans, useTranslation } from 'react-i18next'
+import { useMaxAmountSpend } from 'uniswap/src/features/gas/hooks/useMaxAmountSpend'
+import { applyNativeTokenPercentageBuffer } from 'uniswap/src/features/gas/utils'
+import { useOnChainCurrencyBalance } from 'uniswap/src/features/portfolio/api'
+import { useUSDCValue } from 'uniswap/src/features/transactions/hooks/useUSDCPriceWrapper'
+>>>>>>> upstream/main
 import { useNativeTokenPercentageBufferExperiment } from '~/components/Liquidity/Create/hooks/useNativeTokenPercentageBufferExperiment'
 import { DepositInfo } from '~/components/Liquidity/types'
 import {

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { IWalletKit, WalletKit } from '@reown/walletkit'
 import { Core } from '@walletconnect/core'
 import '@walletconnect/react-native-compat'
@@ -5,6 +6,15 @@ import { registerWCClientForPushNotifications } from 'src/features/walletConnect
 import { config } from '@l.x/lx/src/config'
 import { isBetaEnv, isDevEnv } from '@l.x/utils/src/environment/env'
 import { logger } from '@l.x/utils/src/logger/logger'
+=======
+import '@walletconnect/react-native-compat'
+import { IWalletKit, WalletKit } from '@reown/walletkit'
+import { Core } from '@walletconnect/core'
+import { registerWCClientForPushNotifications } from 'src/features/walletConnect/api'
+import { config } from 'uniswap/src/config'
+import { isBetaEnv, isDevEnv } from 'utilities/src/environment/env'
+import { logger } from 'utilities/src/logger/logger'
+>>>>>>> upstream/main
 
 // Export the wallet instance that will be initialized
 export let wcWeb3Wallet: IWalletKit
@@ -42,6 +52,7 @@ export async function initializeWeb3Wallet(): Promise<void> {
     wcWeb3Wallet = await WalletKit.init({
       core: wcCore,
       metadata: {
+<<<<<<< HEAD
         name: 'Lux Wallet',
         description:
           'Built by the most trusted team in DeFi, Lux Wallet allows you to maintain full custody and control of your assets.',
@@ -50,6 +61,16 @@ export async function initializeWeb3Wallet(): Promise<void> {
         redirect: {
           native: 'lux://',
           universal: 'https://lux.org/app',
+=======
+        name: 'Uniswap Wallet',
+        description:
+          'Built by the most trusted team in DeFi, Uniswap Wallet allows you to maintain full custody and control of your assets.',
+        url: 'https://uniswap.org/app',
+        icons: ['https://gateway.pinata.cloud/ipfs/QmR1hYqhDMoyvJtwrQ6f1kVyfEKyK65XH3nbCimXBMkHJg'],
+        redirect: {
+          native: 'uniswap://',
+          universal: 'https://uniswap.org/app',
+>>>>>>> upstream/main
           linkMode: true,
         },
       },

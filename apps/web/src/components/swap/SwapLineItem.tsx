@@ -1,16 +1,30 @@
+<<<<<<< HEAD
 import { brand, getBrandUrl, getDocsUrl } from '@l.x/config'
 import { Currency, CurrencyAmount } from '@luxamm/sdk-core'
 import React, { ReactNode } from 'react'
 import { Trans } from 'react-i18next'
 import { Flex } from '@l.x/ui/src'
 import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
+=======
+import { Currency, CurrencyAmount } from '@uniswap/sdk-core'
+import React, { ReactNode } from 'react'
+import { Trans } from 'react-i18next'
+import { Flex } from 'ui/src'
+import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
+>>>>>>> upstream/main
 import {
   FORMAT_DATE_TIME_MEDIUM,
   useFormattedDateTime,
   useLocalizedDayjs,
+<<<<<<< HEAD
 } from '@l.x/lx/src/features/language/localizedDayjs'
 import { useUSDCValue } from '@l.x/lx/src/features/transactions/hooks/useUSDCPriceWrapper'
 import { NumberType } from '@l.x/utils/src/format/types'
+=======
+} from 'uniswap/src/features/language/localizedDayjs'
+import { useUSDCValue } from 'uniswap/src/features/transactions/hooks/useUSDCPriceWrapper'
+import { NumberType } from 'utilities/src/format/types'
+>>>>>>> upstream/main
 import Row from '~/components/deprecated/Row'
 import { LoadingRow } from '~/components/Loader/styled'
 import { DetailLineItem, LineItemData } from '~/components/swap/DetailLineItem'
@@ -20,7 +34,11 @@ import { RoutingTooltip } from '~/components/swap/SwapRoute'
 import TradePrice from '~/components/swap/TradePrice'
 import { TooltipSize } from '~/components/Tooltip'
 import { InterfaceTrade, SubmittableTrade } from '~/state/routing/types'
+<<<<<<< HEAD
 import { isLimitTrade, isPreviewTrade, isLXTrade } from '~/state/routing/utils'
+=======
+import { isLimitTrade, isPreviewTrade, isUniswapXTrade } from '~/state/routing/utils'
+>>>>>>> upstream/main
 import { ExternalLink } from '~/theme/components/Links'
 
 export enum SwapLineItemType {
@@ -44,7 +62,11 @@ function BaseTooltipContent({ children, url }: { children: ReactNode; url: strin
 
 export function FOTTooltipContent() {
   return (
+<<<<<<< HEAD
     <BaseTooltipContent url={getDocsUrl('/help/token-fees')}>
+=======
+    <BaseTooltipContent url="https://support.uniswap.org/hc/en-us/articles/18673568523789-What-is-a-token-fee-">
+>>>>>>> upstream/main
       <Trans i18nKey="swap.tokenOwnFees" />
     </BaseTooltipContent>
   )
@@ -53,7 +75,11 @@ export function FOTTooltipContent() {
 function SwapFeeTooltipContent({ hasFee }: { hasFee: boolean }) {
   const message = hasFee ? <Trans i18nKey="swap.fees.experience" /> : <Trans i18nKey="swap.fees.noFee" />
   return (
+<<<<<<< HEAD
     <BaseTooltipContent url={getDocsUrl('/help/swap-fees')}>
+=======
+    <BaseTooltipContent url="https://support.uniswap.org/hc/en-us/articles/20131678274957">
+>>>>>>> upstream/main
       {message}
     </BaseTooltipContent>
   )
@@ -61,7 +87,11 @@ function SwapFeeTooltipContent({ hasFee }: { hasFee: boolean }) {
 
 export function SlippageTooltipContent() {
   return (
+<<<<<<< HEAD
     <BaseTooltipContent url={getDocsUrl('/help/swap-fees')}>
+=======
+    <BaseTooltipContent url="https://support.uniswap.org/hc/en-us/articles/20131678274957">
+>>>>>>> upstream/main
       <Trans i18nKey="swap.slippage.tooltip" />
     </BaseTooltipContent>
   )
@@ -91,7 +121,11 @@ function FeeRow({ trade: { swapFee, outputAmount } }: { trade: SubmittableTrade 
   return <>{convertFiatAmountFormatted(outputFeeFiatValue.toExact(), NumberType.FiatGasPrice)}</>
 }
 
+<<<<<<< HEAD
 // eslint-disable-next-line consistent-return
+=======
+// oxlint-disable-next-line consistent-return
+>>>>>>> upstream/main
 function useLineItem(props: SwapLineItemProps): LineItemData | undefined {
   const { trade, syncing, type } = props
   const { formatPercent } = useLocalizationContext()
@@ -99,7 +133,11 @@ function useLineItem(props: SwapLineItemProps): LineItemData | undefined {
   const deadline = isLimitTrade(trade) ? trade.deadline : 0
   const formattedDeadline = useFormattedDateTime(localizedDayjs(deadline), FORMAT_DATE_TIME_MEDIUM)
 
+<<<<<<< HEAD
   const isLX = isLXTrade(trade)
+=======
+  const isUniswapX = isUniswapXTrade(trade)
+>>>>>>> upstream/main
   const isPreview = isPreviewTrade(trade)
 
   switch (type) {
@@ -108,7 +146,11 @@ function useLineItem(props: SwapLineItemProps): LineItemData | undefined {
         Label: () => (isLimitTrade(trade) ? <Trans i18nKey="limits.price.label" /> : <Trans i18nKey="common.rate" />),
         Value: () => <TradePrice price={trade.executionPrice} />,
         TooltipBody: !isPreview ? () => <RoutingTooltip trade={trade} /> : undefined,
+<<<<<<< HEAD
         tooltipSize: isLX ? TooltipSize.Small : TooltipSize.Large,
+=======
+        tooltipSize: isUniswapX ? TooltipSize.Small : TooltipSize.Large,
+>>>>>>> upstream/main
       }
     case SwapLineItemType.NETWORK_COST:
       return {

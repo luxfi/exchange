@@ -20,26 +20,42 @@ const normalizedStories = [
   },
   {
     titlePrefix: "",
+<<<<<<< HEAD
     directory: "../../pkgs/ui/src",
+=======
+    directory: "../../packages/ui/src",
+>>>>>>> upstream/main
     files: "**/*.stories.?(ts|tsx|js|jsx)",
     importPathMatcher:
       /^\.(?:(?:^|\/|(?:(?:(?!(?:^|\/)\.).)*?)\/)(?!\.)(?=.)[^/]*?\.stories\.(?:ts|tsx|js|jsx)?)$/,
     // @ts-ignore
     req: require.context(
+<<<<<<< HEAD
       "../../../pkgs/ui/src",
+=======
+      "../../../packages/ui/src",
+>>>>>>> upstream/main
       true,
       /^\.(?:(?:^|\/|(?:(?:(?!(?:^|\/)\.).)*?)\/)(?!\.)(?=.)[^/]*?\.stories\.(?:ts|tsx|js|jsx)?)$/
     ),
   },
   {
     titlePrefix: "",
+<<<<<<< HEAD
     directory: "../../pkgs/lx/src",
+=======
+    directory: "../../packages/uniswap/src",
+>>>>>>> upstream/main
     files: "**/*.stories.?(ts|tsx|js|jsx)",
     importPathMatcher:
       /^\.(?:(?:^|\/|(?:(?:(?!(?:^|\/)\.).)*?)\/)(?!\.)(?=.)[^/]*?\.stories\.(?:ts|tsx|js|jsx)?)$/,
     // @ts-ignore
     req: require.context(
+<<<<<<< HEAD
       "../../../pkgs/lx/src",
+=======
+      "../../../packages/uniswap/src",
+>>>>>>> upstream/main
       true,
       /^\.(?:(?:^|\/|(?:(?:(?!(?:^|\/)\.).)*?)\/)(?!\.)(?=.)[^/]*?\.stories\.(?:ts|tsx|js|jsx)?)$/
     ),

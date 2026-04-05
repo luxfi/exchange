@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { GraphQLApi } from '@l.x/api'
 import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
@@ -8,6 +9,18 @@ import { getBlockExplorerIcon } from '@l.x/lx/src/components/chains/BlockExplore
 import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { ExplorerDataType, getExplorerLink } from '@l.x/lx/src/utils/linking'
 import { shortenAddress } from '@l.x/utils/src/addresses'
+=======
+import { GraphQLApi } from '@universe/api'
+import { useMemo } from 'react'
+import { useTranslation } from 'react-i18next'
+import { ChartBarCrossed } from 'ui/src/components/icons/ChartBarCrossed'
+import { Ellipsis } from 'ui/src/components/icons/Ellipsis'
+import { ExternalLink } from 'ui/src/components/icons/ExternalLink'
+import { getBlockExplorerIcon } from 'uniswap/src/components/chains/BlockExplorerIcon'
+import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { ExplorerDataType, getExplorerLink } from 'uniswap/src/utils/linking'
+import { shortenAddress } from 'utilities/src/addresses'
+>>>>>>> upstream/main
 import { deriveFromSections } from '~/components/Explore/stickyHeader/HeaderActions/deriveHeaderActions'
 import type { HeaderAction, HeaderActionSection } from '~/components/Explore/stickyHeader/HeaderActions/types'
 import { useShareAction } from '~/components/Explore/stickyHeader/HeaderActions/useShareAction'

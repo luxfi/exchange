@@ -8,6 +8,7 @@ import {
   RenderOptions,
   RenderResult,
 } from '@testing-library/react'
+<<<<<<< HEAD
 import { GraphQLApi } from '@luxfi/api'
 import React, { PropsWithChildren } from 'react'
 import { ExtensionState, extensionReducer } from 'src/store/extensionReducer'
@@ -16,6 +17,16 @@ import { LuxProvider } from '@l.x/lx/src/contexts/LuxContext'
 import { AutoMockedApolloProvider } from '@l.x/lx/src/test/mocks'
 import { mockLuxContext } from '@l.x/lx/src/test/render'
 import { SharedWalletProvider } from '@luxfi/wallet/src/providers/SharedWalletProvider'
+=======
+import { GraphQLApi } from '@universe/api'
+import React, { PropsWithChildren } from 'react'
+import { ExtensionState, extensionReducer } from 'src/store/extensionReducer'
+import { AppStore } from 'src/store/store'
+import { UniswapProvider } from 'uniswap/src/contexts/UniswapContext'
+import { AutoMockedApolloProvider } from 'uniswap/src/test/mocks'
+import { mockUniswapContext } from 'uniswap/src/test/render'
+import { SharedWalletProvider } from 'wallet/src/providers/SharedWalletProvider'
+>>>>>>> upstream/main
 
 // This type extends the default options for render from RTL, as well
 // as allows the user to specify other things such as initialState, store.
@@ -50,11 +61,19 @@ export function renderWithProviders(
 } {
   function Wrapper({ children }: PropsWithChildren<unknown>): JSX.Element {
     return (
+<<<<<<< HEAD
       <LuxProvider {...mockLuxContext}>
         <AutoMockedApolloProvider resolvers={resolvers}>
           <SharedWalletProvider reduxStore={store}>{children}</SharedWalletProvider>
         </AutoMockedApolloProvider>
       </LuxProvider>
+=======
+      <UniswapProvider {...mockUniswapContext}>
+        <AutoMockedApolloProvider resolvers={resolvers}>
+          <SharedWalletProvider reduxStore={store}>{children}</SharedWalletProvider>
+        </AutoMockedApolloProvider>
+      </UniswapProvider>
+>>>>>>> upstream/main
     )
   }
 
@@ -112,11 +131,19 @@ export function renderHookWithProviders<P, R>(
 
   function Wrapper({ children }: PropsWithChildren<unknown>): JSX.Element {
     return (
+<<<<<<< HEAD
       <LuxProvider {...mockLuxContext}>
         <AutoMockedApolloProvider resolvers={resolvers}>
           <SharedWalletProvider reduxStore={store}>{children}</SharedWalletProvider>
         </AutoMockedApolloProvider>
       </LuxProvider>
+=======
+      <UniswapProvider {...mockUniswapContext}>
+        <AutoMockedApolloProvider resolvers={resolvers}>
+          <SharedWalletProvider reduxStore={store}>{children}</SharedWalletProvider>
+        </AutoMockedApolloProvider>
+      </UniswapProvider>
+>>>>>>> upstream/main
     )
   }
 

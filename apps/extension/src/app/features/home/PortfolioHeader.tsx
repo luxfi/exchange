@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import { SharedEventName } from '@luxamm/analytics-events'
+=======
+import { SharedEventName } from '@uniswap/analytics-events'
+>>>>>>> upstream/main
 import { memo, useEffect, useState } from 'react'
 import Animated, { useAnimatedStyle, useSharedValue, withDelay, withTiming } from 'react-native-reanimated'
 import { useDispatch, useSelector } from 'react-redux'
@@ -8,6 +12,7 @@ import { selectPopupState } from 'src/app/features/popups/selectors'
 import { closePopup, openPopup, PopupName } from 'src/app/features/popups/slice'
 import { AppRoutes } from 'src/app/navigation/constants'
 import { navigate } from 'src/app/navigation/state'
+<<<<<<< HEAD
 import { Circle, Flex, Popover, Text, TouchableArea, UniversalImage } from '@l.x/ui/src'
 import { animationPresets } from '@l.x/ui/src/animations'
 import { CopyAlt, Globe, RotatableChevron, Settings } from '@l.x/ui/src/components/icons'
@@ -29,6 +34,29 @@ import { extractNameFromUrl } from '@l.x/utils/src/format/extractNameFromUrl'
 import { AnimatedUnitagDisplayName } from '@luxfi/wallet/src/components/accounts/AnimatedUnitagDisplayName'
 import useIsFocused from '@luxfi/wallet/src/features/focus/useIsFocused'
 import { useDisplayName } from '@luxfi/wallet/src/features/wallet/hooks'
+=======
+import { Circle, Flex, Popover, Text, TouchableArea, UniversalImage } from 'ui/src'
+import { animationPresets } from 'ui/src/animations'
+import { CopyAlt, Globe, RotatableChevron, Settings } from 'ui/src/components/icons'
+import { borderRadii, iconSizes } from 'ui/src/theme'
+import { DappIconPlaceholder } from 'uniswap/src/components/dapps/DappIconPlaceholder'
+import { AccountIcon } from 'uniswap/src/features/accounts/AccountIcon'
+import { DisplayNameType } from 'uniswap/src/features/accounts/types'
+import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { pushNotification } from 'uniswap/src/features/notifications/slice/slice'
+import { AppNotificationType, CopyNotificationType } from 'uniswap/src/features/notifications/slice/types'
+import { ElementName } from 'uniswap/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
+import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+import { ExtensionScreens } from 'uniswap/src/types/screens/extension'
+import { sanitizeAddressText } from 'uniswap/src/utils/addresses'
+import { shortenAddress } from 'utilities/src/addresses'
+import { setClipboard } from 'utilities/src/clipboard/clipboard'
+import { extractNameFromUrl } from 'utilities/src/format/extractNameFromUrl'
+import { AnimatedUnitagDisplayName } from 'wallet/src/components/accounts/AnimatedUnitagDisplayName'
+import useIsFocused from 'wallet/src/features/focus/useIsFocused'
+import { useDisplayName } from 'wallet/src/features/wallet/hooks'
+>>>>>>> upstream/main
 
 const POPUP_SHADOW_RADIUS = 4
 
@@ -55,6 +83,10 @@ const RotatingSettingsIcon = ({ onPressSettings }: { onPressSettings(): void }):
         }),
       )
     }
+<<<<<<< HEAD
+=======
+    // oxlint-disable-next-line react/exhaustive-deps -- biome-parity: oxlint is stricter here
+>>>>>>> upstream/main
   }, [isScreenFocused])
 
   const onBegin = (): void => {
@@ -94,7 +126,11 @@ const RotatingSettingsIcon = ({ onPressSettings }: { onPressSettings(): void }):
   )
 }
 
+<<<<<<< HEAD
 export const PortfolioHeader = memo(function _PortfolioHeader({ address }: PortfolioHeaderProps): JSX.Element {
+=======
+export const PortfolioHeader = memo(function PortfolioHeaderInner({ address }: PortfolioHeaderProps): JSX.Element {
+>>>>>>> upstream/main
   const dispatch = useDispatch()
 
   const displayName = useDisplayName(address)

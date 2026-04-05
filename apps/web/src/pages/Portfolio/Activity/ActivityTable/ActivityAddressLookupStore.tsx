@@ -1,7 +1,13 @@
 import { useEffect, useMemo } from 'react'
+<<<<<<< HEAD
 import { useUnitagsAddressesQuery } from '@l.x/lx/src/data/apiClients/unitagsApi/useUnitagsAddressQuery'
 import { TransactionDetails, TransactionType } from '@l.x/lx/src/features/transactions/types/transactionDetails'
 import { isEVMAddress } from '@l.x/utils/src/addresses/evm/evm'
+=======
+import { useUnitagsAddressesQuery } from 'uniswap/src/data/apiClients/unitagsApi/useUnitagsAddressQuery'
+import { TransactionDetails, TransactionType } from 'uniswap/src/features/transactions/types/transactionDetails'
+import { isEVMAddress } from 'utilities/src/addresses/evm/evm'
+>>>>>>> upstream/main
 import { create, type StoreApi, type UseBoundStore } from 'zustand'
 import { useShallow } from 'zustand/react/shallow'
 import { buildActivityRowFragments } from '~/pages/Portfolio/Activity/ActivityTable/registry'

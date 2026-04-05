@@ -1,5 +1,9 @@
 import { CSSProperties } from 'react'
+<<<<<<< HEAD
 import { opacifyRaw } from '@l.x/ui/src/theme'
+=======
+import { opacifyRaw } from 'ui/src/theme'
+>>>>>>> upstream/main
 
 const DOT_SIZE_PX = 1
 const DOT_GRID_SIZE_PX = 10

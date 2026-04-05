@@ -1,7 +1,14 @@
+<<<<<<< HEAD
 import { defineConfig, devices } from '@playwright/test'
 import { config } from 'dotenv'
 import ms from 'ms'
 import path from 'path'
+=======
+import path from 'path'
+import { defineConfig, devices } from '@playwright/test'
+import { config } from 'dotenv'
+import ms from 'ms'
+>>>>>>> upstream/main
 
 // Load environment variables from .env file
 // This ensures the VSCode Playwright extension has access to env vars
@@ -10,6 +17,7 @@ config({ path: path.resolve(__dirname, '.env') })
 const IS_CI = process.env.CI === 'true'
 
 // Handle asset files and platform-specific imports for Node.js
+<<<<<<< HEAD
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const Module = require('module')
 
@@ -45,6 +53,14 @@ Module._resolveFilename = function (request: string, parent: any) {
     }
   }
 
+=======
+// oxlint-disable-next-line typescript/no-var-requires
+const Module = require('module')
+
+// Override module resolution to handle platform-specific files like Vite does
+const originalResolveFilename = Module._resolveFilename
+Module._resolveFilename = function (request, parent) {
+>>>>>>> upstream/main
   // For getConfig imports, try .web variant first (mimics Vite behavior)
   // Use precise matching to avoid false positives with modules containing 'getConfig' as substring
   if (request.endsWith('/getConfig') || request.endsWith('\\getConfig') || request === 'getConfig') {
@@ -93,10 +109,17 @@ export default defineConfig({
     screenshot: 'off',
     video: 'retain-on-failure',
     trace: 'retain-on-failure',
+<<<<<<< HEAD
     baseURL: process.env.BASE_URL || 'http://localhost:9000',
     headless: true,
     extraHTTPHeaders: {
       origin: process.env.BASE_URL || 'http://localhost:9000',
+=======
+    baseURL: 'http://localhost:3000',
+    headless: true,
+    extraHTTPHeaders: {
+      origin: 'http://localhost:3000',
+>>>>>>> upstream/main
     },
     launchOptions: {
       args: ['--disable-blink-features=AutomationControlled'],
@@ -109,6 +132,7 @@ export default defineConfig({
     },
   ],
   outputDir: './test-results',
+<<<<<<< HEAD
   // Only start local dev server when BASE_URL is not set (testing locally)
   ...(process.env.BASE_URL ? {} : {
     webServer: {
@@ -118,4 +142,6 @@ export default defineConfig({
       timeout: ms('120s'),
     },
   }),
+=======
+>>>>>>> upstream/main
 })

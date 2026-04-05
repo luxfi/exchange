@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 import { FeatureFlags, useFeatureFlag } from '@luxfi/gating'
 import { useTranslation } from 'react-i18next'
 import { InterfacePageName } from '@l.x/lx/src/features/telemetry/constants'
+=======
+import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import { useTranslation } from 'react-i18next'
+import { InterfacePageName } from 'uniswap/src/features/telemetry/constants'
+>>>>>>> upstream/main
 
 export type PortfolioTabInfo = {
   path: string

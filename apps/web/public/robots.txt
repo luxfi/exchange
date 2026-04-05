@@ -7,4 +7,8 @@ Disallow: /c1/statsig-proxy
 Disallow: /config
 
 # Sitemaps
+<<<<<<< HEAD
 Sitemap: https://app.lux.exchange/sitemap.xml
+=======
+Sitemap: https://app.uniswap.org/sitemap.xml
+>>>>>>> upstream/main

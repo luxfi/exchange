@@ -1,5 +1,9 @@
 import { ForwardedRef, forwardRef, PropsWithChildren } from 'react'
+<<<<<<< HEAD
 import { Flex, FlexProps, GuiElement, useMedia } from '@l.x/ui/src'
+=======
+import { Flex, FlexProps, TamaguiElement, useMedia } from 'ui/src'
+>>>>>>> upstream/main
 import { LoadingBubble } from '~/components/Tokens/loading'
 
 export const Cell = forwardRef(
@@ -10,7 +14,11 @@ export const Cell = forwardRef(
       testId,
       ...rest
     }: PropsWithChildren<{ loading?: boolean; testId?: string } & Partial<FlexProps>>,
+<<<<<<< HEAD
     ref: ForwardedRef<GuiElement>,
+=======
+    ref: ForwardedRef<TamaguiElement>,
+>>>>>>> upstream/main
   ) => {
     const media = useMedia()
     const paddingY = rest.py ?? (media.lg ? '$spacing12' : '$spacing16')

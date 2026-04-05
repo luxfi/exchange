@@ -1,5 +1,9 @@
 import { useNetInfo } from '@react-native-community/netinfo'
+<<<<<<< HEAD
 import { FeatureFlags, useFeatureFlag } from '@luxfi/gating'
+=======
+import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+>>>>>>> upstream/main
 import { getSdkError } from '@walletconnect/utils'
 import { providers } from 'ethers'
 import React, { useMemo, useRef, useState } from 'react'
@@ -26,6 +30,7 @@ import {
   setDidOpenFromDeepLink,
   WalletConnectSigningRequest,
 } from 'src/features/walletConnect/walletConnectSlice'
+<<<<<<< HEAD
 import { spacing } from '@l.x/ui/src/theme'
 import { EthMethod } from '@l.x/lx/src/features/dappRequests/types'
 import { isSelfCallWithData, isSignTypedDataRequest } from '@l.x/lx/src/features/dappRequests/utils'
@@ -42,6 +47,24 @@ import { shouldDisableConfirm } from '@luxfi/wallet/src/features/dappRequests/ut
 import { formatExternalTxnWithGasEstimates } from '@luxfi/wallet/src/features/gas/formatExternalTxnWithGasEstimates'
 import { useLiveAccountDelegationDetails } from '@luxfi/wallet/src/features/smartWallet/hooks/useLiveAccountDelegationDetails'
 import { useHasSmartWalletConsent, useSignerAccounts } from '@luxfi/wallet/src/features/wallet/hooks'
+=======
+import { spacing } from 'ui/src/theme'
+import { EthMethod } from 'uniswap/src/features/dappRequests/types'
+import { isSelfCallWithData, isSignTypedDataRequest } from 'uniswap/src/features/dappRequests/utils'
+import { useTransactionGasFee } from 'uniswap/src/features/gas/hooks'
+import { Platform } from 'uniswap/src/features/platforms/types/Platform'
+import { useHasAccountMismatchCallback } from 'uniswap/src/features/smartWallet/mismatch/hooks'
+import { MobileEventName, ModalName } from 'uniswap/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
+import { DappRequestType, UwULinkMethod, WCEventType, WCRequestOutcome } from 'uniswap/src/types/walletConnect'
+import { areAddressesEqual } from 'uniswap/src/utils/addresses'
+import { useBooleanState } from 'utilities/src/react/useBooleanState'
+import { TransactionRiskLevel } from 'wallet/src/features/dappRequests/types'
+import { shouldDisableConfirm } from 'wallet/src/features/dappRequests/utils/riskUtils'
+import { formatExternalTxnWithGasEstimates } from 'wallet/src/features/gas/formatExternalTxnWithGasEstimates'
+import { useLiveAccountDelegationDetails } from 'wallet/src/features/smartWallet/hooks/useLiveAccountDelegationDetails'
+import { useHasSmartWalletConsent, useSignerAccounts } from 'wallet/src/features/wallet/hooks'
+>>>>>>> upstream/main
 
 interface Props {
   onClose: () => void
@@ -58,6 +81,10 @@ const VALID_REQUEST_TYPES = [
   EthMethod.WalletSendCalls,
 ]
 
+<<<<<<< HEAD
+=======
+// oxlint-disable-next-line complexity -- biome-parity: oxlint is stricter here
+>>>>>>> upstream/main
 export function WalletConnectRequestModal({ onClose, request }: Props): JSX.Element | null {
   const { t } = useTranslation()
   const netInfo = useNetInfo()
@@ -110,7 +137,11 @@ export function WalletConnectRequestModal({ onClose, request }: Props): JSX.Elem
     delegationData?.needsDelegation && enableEip5792Methods && hasSmartWalletConsent && isSelfTransaction,
   )
   const smartContractDelegationAddress = shouldDelegate
+<<<<<<< HEAD
     ? delegationData?.contractAddress // latest Lux delegation address
+=======
+    ? delegationData?.contractAddress // latest Uniswap delegation address
+>>>>>>> upstream/main
     : delegationData?.currentDelegationAddress
   const gasFee = useTransactionGasFee({
     tx,
@@ -297,8 +328,13 @@ export function WalletConnectRequestModal({ onClose, request }: Props): JSX.Elem
     return <ActionCannotBeCompletedContent request={request} onReject={onReject} />
   }
 
+<<<<<<< HEAD
   // KidSuper Lux Cafe check-in screen
   if (request.type === EthMethod.PersonalSign && request.dappRequestInfo.name === 'Lux Cafe') {
+=======
+  // KidSuper Uniswap Cafe check-in screen
+  if (request.type === EthMethod.PersonalSign && request.dappRequestInfo.name === 'Uniswap Cafe') {
+>>>>>>> upstream/main
     return (
       <KidSuperCheckinModal request={request} onClose={handleClose} onConfirm={onConfirmPress} onReject={onReject} />
     )

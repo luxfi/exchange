@@ -2,6 +2,7 @@ import { useTranslation } from 'react-i18next'
 import { saveDappChain } from 'src/app/features/dapp/actions'
 import { useDappContext } from 'src/app/features/dapp/DappContext'
 import { useDappLastChainId } from 'src/app/features/dapp/hooks'
+<<<<<<< HEAD
 import { Flex, Popover, Text, TouchableArea } from '@l.x/ui/src'
 import { CheckCircleFilled, RotatableChevron } from '@l.x/ui/src/components/icons'
 import { usePreventOverflowBelowFold } from '@l.x/ui/src/hooks/usePreventOverflowBelowFold'
@@ -12,6 +13,18 @@ import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { getChainLabel } from '@l.x/lx/src/features/chains/utils'
 import { ExtensionEventName } from '@l.x/lx/src/features/telemetry/constants'
 import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
+=======
+import { Flex, Popover, Text, TouchableArea } from 'ui/src'
+import { CheckCircleFilled, RotatableChevron } from 'ui/src/components/icons'
+import { usePreventOverflowBelowFold } from 'ui/src/hooks/usePreventOverflowBelowFold'
+import { iconSizes } from 'ui/src/theme'
+import { NetworkLogo } from 'uniswap/src/components/CurrencyLogo/NetworkLogo'
+import { useEnabledChains } from 'uniswap/src/features/chains/hooks/useEnabledChains'
+import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { getChainLabel } from 'uniswap/src/features/chains/utils'
+import { ExtensionEventName } from 'uniswap/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
+>>>>>>> upstream/main
 
 const BUTTON_OFFSET = 20
 

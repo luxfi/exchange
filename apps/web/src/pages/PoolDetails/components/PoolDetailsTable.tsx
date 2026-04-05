@@ -1,8 +1,16 @@
+<<<<<<< HEAD
 import { GraphQLApi } from '@l.x/api'
 import { useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Flex, styled, Text, TouchableArea } from '@l.x/ui/src'
 import { useGetPositionsQuery } from '@l.x/lx/src/data/rest/getPositions'
+=======
+import { GraphQLApi } from '@universe/api'
+import { useMemo, useState } from 'react'
+import { useTranslation } from 'react-i18next'
+import { Flex, styled, Text, TouchableArea } from 'ui/src'
+import { useGetPositionsQuery } from 'uniswap/src/data/rest/getPositions'
+>>>>>>> upstream/main
 import { PositionInfo } from '~/components/Liquidity/types'
 import { parseRestPosition } from '~/components/Liquidity/utils/parseFromRest'
 import { useAccount } from '~/hooks/useAccount'
@@ -15,7 +23,11 @@ enum PoolDetailsTableTabs {
 }
 
 const TableHeaderText = styled(Text, {
+<<<<<<< HEAD
   variant: 'heading2',
+=======
+  variant: 'heading3',
+>>>>>>> upstream/main
   userSelect: 'none',
 })
 
@@ -43,6 +55,7 @@ export function PoolDetailsTableTab({
   )
   return (
     <Flex gap="$gap24">
+<<<<<<< HEAD
       <Flex row gap="$gap16">
         <TouchableArea onPress={() => setActiveTable(PoolDetailsTableTabs.TRANSACTIONS)} disabled={!positions?.length}>
           <TableHeaderText color={activeTable === PoolDetailsTableTabs.TRANSACTIONS ? '$neutral1' : '$neutral2'}>
@@ -58,6 +71,25 @@ export function PoolDetailsTableTab({
           </TouchableArea>
         )}
       </Flex>
+=======
+      {positions?.length ? (
+        <Flex row gap="$gap16">
+          <TouchableArea onPress={() => setActiveTable(PoolDetailsTableTabs.TRANSACTIONS)}>
+            <TableHeaderText color={activeTable === PoolDetailsTableTabs.TRANSACTIONS ? '$neutral1' : '$neutral2'}>
+              {t('common.transactions')}
+            </TableHeaderText>
+          </TouchableArea>
+          <TouchableArea onPress={() => setActiveTable(PoolDetailsTableTabs.POSITIONS)}>
+            <TableHeaderText color={activeTable === PoolDetailsTableTabs.POSITIONS ? '$neutral1' : '$neutral2'}>
+              {t('pool.positions')}
+              {` (${positions.length})`}
+            </TableHeaderText>
+          </TouchableArea>
+        </Flex>
+      ) : (
+        <TableHeaderText color="$neutral1">{t('common.transactions')}</TableHeaderText>
+      )}
+>>>>>>> upstream/main
       {activeTable === PoolDetailsTableTabs.TRANSACTIONS ? (
         <PoolDetailsTransactionsTable
           poolAddress={poolAddress}

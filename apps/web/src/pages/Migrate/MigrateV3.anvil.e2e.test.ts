@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 import { getPosition } from '@luxamm/client-data-api/dist/data/v1/api-DataApiService_connectquery'
 import { LiquidityService } from '@luxamm/client-liquidity/dist/lx/liquidity/v1/api_connect'
 import { lxUrls } from '@l.x/lx/src/constants/urls'
+=======
+import { getPosition } from '@uniswap/client-data-api/dist/data/v1/api-DataApiService_connectquery'
+import { LiquidityService } from '@uniswap/client-liquidity/dist/uniswap/liquidity/v1/api_connect'
+import { uniswapUrls } from 'uniswap/src/constants/urls'
+>>>>>>> upstream/main
 import { createExpectSingleTransaction } from '~/playwright/anvil/transactions'
 import { expect, getTest } from '~/playwright/fixtures'
 import { stubLiquidityServiceEndpoint } from '~/playwright/fixtures/liquidityService'
@@ -33,7 +39,11 @@ test.describe(
         endpoint: LiquidityService.methods.migrateV3ToV4LPPosition,
       })
       await page.route(
+<<<<<<< HEAD
         `${lxUrls.apiBaseUrlV2}/${getPosition.service.typeName}/${getPosition.name}`,
+=======
+        `${uniswapUrls.apiBaseUrlV2}/${getPosition.service.typeName}/${getPosition.name}`,
+>>>>>>> upstream/main
         async (route) => {
           await route.fulfill({ path: Mocks.Positions.get_v3_position })
         },
@@ -61,7 +71,11 @@ test.describe(
         endpoint: LiquidityService.methods.migrateV3ToV4LPPosition,
       })
       await page.route(
+<<<<<<< HEAD
         `${lxUrls.apiBaseUrlV2}/${getPosition.service.typeName}/${getPosition.name}`,
+=======
+        `${uniswapUrls.apiBaseUrlV2}/${getPosition.service.typeName}/${getPosition.name}`,
+>>>>>>> upstream/main
         async (route) => {
           await route.fulfill({ path: Mocks.Positions.get_single_sided_v3_position })
         },

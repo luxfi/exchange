@@ -1,8 +1,13 @@
 import type { DappInfo } from 'src/app/features/dapp/store'
 import type { DappRequest, ErrorResponse } from 'src/app/features/dappRequests/types/DappRequestTypes'
 import type { DappRequestMessageSchema } from 'src/background/messagePassing/types/requests'
+<<<<<<< HEAD
 import type { TransactionTypeInfo } from '@l.x/lx/src/features/transactions/types/transactionDetails'
 import type { SignedTransactionRequest } from '@luxfi/wallet/src/features/transactions/executeTransaction/types'
+=======
+import type { TransactionTypeInfo } from 'uniswap/src/features/transactions/types/transactionDetails'
+import type { SignedTransactionRequest } from 'wallet/src/features/transactions/executeTransaction/types'
+>>>>>>> upstream/main
 import type { z } from 'zod'
 
 export type SenderTabInfo = z.infer<typeof DappRequestMessageSchema>['senderTabInfo']

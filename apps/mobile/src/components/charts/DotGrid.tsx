@@ -1,8 +1,13 @@
 import { memo } from 'react'
 import { StyleSheet } from 'react-native'
 import Svg, { Line } from 'react-native-svg'
+<<<<<<< HEAD
 import { useSporeColors } from '@l.x/ui/src'
 import { opacify } from '@l.x/ui/src/theme'
+=======
+import { useSporeColors } from 'ui/src'
+import { opacify } from 'ui/src/theme'
+>>>>>>> upstream/main
 
 const ROW_SPACING = 17
 const COL_SPACING = 30

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { GasFeeResult } from '@l.x/api'
 import { useMemo } from 'react'
 import { useEnabledChains } from 'lx/src/features/chains/hooks/useEnabledChains'
@@ -5,6 +6,15 @@ import { UniverseChainId } from 'lx/src/features/chains/types'
 import { useChainGasToken } from 'lx/src/features/gas/hooks/useChainGasToken'
 import { hasSufficientGasBalance } from 'lx/src/features/gas/utils'
 import { getCurrencyAmount, ValueType } from 'lx/src/features/tokens/getCurrencyAmount'
+=======
+import { GasFeeResult } from '@universe/api'
+import { useMemo } from 'react'
+import { useEnabledChains } from 'uniswap/src/features/chains/hooks/useEnabledChains'
+import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { useChainGasToken } from 'uniswap/src/features/gas/hooks/useChainGasToken'
+import { hasSufficientGasBalance } from 'uniswap/src/features/gas/utils'
+import { getCurrencyAmount, ValueType } from 'uniswap/src/features/tokens/getCurrencyAmount'
+>>>>>>> upstream/main
 
 export function useHasSufficientFunds({
   account,

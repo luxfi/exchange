@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import { ColorTokens, Flex, Shine, styled } from '@l.x/ui/src'
+=======
+import { ColorTokens, Flex, Shine, styled } from 'ui/src'
+>>>>>>> upstream/main
 
 const HEIGHT = 10
 interface ProgressBarProps {

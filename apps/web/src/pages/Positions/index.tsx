@@ -1,11 +1,18 @@
+<<<<<<< HEAD
 /* eslint-disable max-lines */
 import { PositionStatus, ProtocolVersion } from '@luxamm/client-data-api/dist/data/v1/poolTypes_pb'
 import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
+=======
+/* oxlint-disable max-lines */
+import { PositionStatus, ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
+import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+>>>>>>> upstream/main
 import { atom, useAtom } from 'jotai'
 import { useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router'
 import { FixedSizeList } from 'react-window'
+<<<<<<< HEAD
 import { Anchor, Button, Flex, Text, useMedia } from '@l.x/ui/src'
 import { AlertTriangleFilled } from '@l.x/ui/src/components/icons/AlertTriangleFilled'
 import { CloseIconWithHover } from '@l.x/ui/src/components/icons/CloseIconWithHover'
@@ -29,6 +36,30 @@ import tokenLogo from '~/assets/images/token-logo.png'
 import V4_HOOK from '~/assets/images/v4Hooks.png'
 import { useAccountDrawer } from '~/components/AccountDrawer/MiniPortfolio/hooks'
 import { MenuStateVariant, useSetMenu } from '~/components/AccountDrawer/menuState'
+=======
+import { Anchor, Button, Flex, Text, useMedia } from 'ui/src'
+import { AlertTriangleFilled } from 'ui/src/components/icons/AlertTriangleFilled'
+import { CloseIconWithHover } from 'ui/src/components/icons/CloseIconWithHover'
+import { InfoCircleFilled } from 'ui/src/components/icons/InfoCircleFilled'
+import { Pools } from 'ui/src/components/icons/Pools'
+import { Wallet } from 'ui/src/components/icons/Wallet'
+import { uniswapUrls } from 'uniswap/src/constants/urls'
+import { useGetPositionsInfiniteQuery } from 'uniswap/src/data/rest/getPositions'
+import { useEnabledChains } from 'uniswap/src/features/chains/hooks/useEnabledChains'
+import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { Platform } from 'uniswap/src/features/platforms/types/Platform'
+import { InterfacePageName, UniswapEventName } from 'uniswap/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
+import Trace from 'uniswap/src/features/telemetry/Trace'
+import { useIsMissingPlatformWallet } from 'uniswap/src/features/transactions/swap/components/SwapFormButton/hooks/useIsMissingPlatformWallet'
+import { usePositionVisibilityCheck } from 'uniswap/src/features/visibility/hooks/usePositionVisibilityCheck'
+import { useInfiniteScroll } from 'utilities/src/react/useInfiniteScroll'
+import PROVIDE_LIQUIDITY from '~/assets/images/provideLiquidity.png'
+import tokenLogo from '~/assets/images/token-logo.png'
+import V4_HOOK from '~/assets/images/v4Hooks.png'
+import { MenuStateVariant, useSetMenu } from '~/components/AccountDrawer/menuState'
+import { useAccountDrawer } from '~/components/AccountDrawer/MiniPortfolio/hooks'
+>>>>>>> upstream/main
 import { ExternalArrowLink } from '~/components/Liquidity/ExternalArrowLink'
 import { LiquidityPositionCard, LiquidityPositionCardLoader } from '~/components/Liquidity/LiquidityPositionCard'
 import { LpIncentiveClaimModal } from '~/components/Liquidity/LPIncentives/LpIncentiveClaimModal'
@@ -43,7 +74,11 @@ import { ExpandoRow } from '~/pages/Positions/ExpandoRow'
 import { TopPools } from '~/pages/Positions/TopPools'
 import { usePendingLPTransactionsChangeListener } from '~/state/transactions/hooks'
 import { useRequestPositionsForSavedPairs } from '~/state/user/hooks'
+<<<<<<< HEAD
 import { ClickableGuiStyle } from '~/theme/components/styles'
+=======
+import { ClickableTamaguiStyle } from '~/theme/components/styles'
+>>>>>>> upstream/main
 
 // The BE limits the number of positions by chain and protocol version.
 // PAGE_SIZE=25 means the limit is at most 25 positions * x chains * y protocol versions.
@@ -124,12 +159,17 @@ function DisconnectedWalletView() {
             width="100%"
             img={PROVIDE_LIQUIDITY}
             text={t('liquidity.provideOnProtocols')}
+<<<<<<< HEAD
             link={lxUrls.helpArticleUrls.providingLiquidityInfo}
+=======
+            link={uniswapUrls.helpArticleUrls.providingLiquidityInfo}
+>>>>>>> upstream/main
           />
           <LearnMoreTile
             width="100%"
             img={V4_HOOK}
             text={t('liquidity.hooks')}
+<<<<<<< HEAD
             link={lxUrls.helpArticleUrls.v4HooksInfo}
           />
           <LearnMoreTile
@@ -137,6 +177,9 @@ function DisconnectedWalletView() {
             img={ALLOWLISTED_HOOKS}
             text={t('liquidity.hooks.allowlisted')}
             link={lxUrls.helpArticleUrls.allowlistedHooks}
+=======
+            link={uniswapUrls.helpArticleUrls.v4HooksInfo}
+>>>>>>> upstream/main
           />
         </Flex>
       </Flex>
@@ -252,7 +295,11 @@ function LearnMoreTile({
       target="_blank"
       rel="noopener noreferrer"
       width={width}
+<<<<<<< HEAD
       {...ClickableGuiStyle}
+=======
+      {...ClickableTamaguiStyle}
+>>>>>>> upstream/main
       hoverStyle={{ backgroundColor: '$surface1Hovered', borderColor: '$surface3Hovered' }}
     >
       <Flex
@@ -460,7 +507,11 @@ export default function Pool() {
             <LpIncentiveRewardsCard
               walletAddress={account.address}
               onCollectRewards={() => {
+<<<<<<< HEAD
                 sendAnalyticsEvent(LXEventName.LpIncentiveCollectRewardsButtonClicked)
+=======
+                sendAnalyticsEvent(UniswapEventName.LpIncentiveCollectRewardsButtonClicked)
+>>>>>>> upstream/main
                 openModal()
               }}
               setTokenRewards={setTokenRewards}
@@ -556,7 +607,11 @@ export default function Pool() {
                 {t('pool.import.link.description')}
               </Text>
               <Anchor href="/pools/v2/find" textDecorationLine="none">
+<<<<<<< HEAD
                 <Text variant="body3" color="$neutral1" {...ClickableGuiStyle}>
+=======
+                <Text variant="body3" color="$neutral1" {...ClickableTamaguiStyle}>
+>>>>>>> upstream/main
                   {t('pool.import.positions.v2')}
                 </Text>
               </Anchor>
@@ -572,11 +627,16 @@ export default function Pool() {
                 <LearnMoreTile
                   img={PROVIDE_LIQUIDITY}
                   text={t('liquidity.provideOnProtocols')}
+<<<<<<< HEAD
                   link={lxUrls.helpArticleUrls.providingLiquidityInfo}
+=======
+                  link={uniswapUrls.helpArticleUrls.providingLiquidityInfo}
+>>>>>>> upstream/main
                 />
                 <LearnMoreTile
                   img={V4_HOOK}
                   text={t('liquidity.hooks')}
+<<<<<<< HEAD
                   link={lxUrls.helpArticleUrls.v4HooksInfo}
                 />
                 <LearnMoreTile
@@ -586,6 +646,12 @@ export default function Pool() {
                 />
               </Flex>
               <ExternalArrowLink href={lxUrls.helpArticleUrls.positionsLearnMore}>
+=======
+                  link={uniswapUrls.helpArticleUrls.v4HooksInfo}
+                />
+              </Flex>
+              <ExternalArrowLink href={uniswapUrls.helpArticleUrls.positionsLearnMore}>
+>>>>>>> upstream/main
                 {t('common.button.learn')}
               </ExternalArrowLink>
             </Flex>
@@ -597,7 +663,11 @@ export default function Pool() {
           isOpen={isModalOpen}
           onClose={() => closeModal()}
           onSuccess={() => {
+<<<<<<< HEAD
             sendAnalyticsEvent(LXEventName.LpIncentiveCollectRewardsSuccess, {
+=======
+            sendAnalyticsEvent(UniswapEventName.LpIncentiveCollectRewardsSuccess, {
+>>>>>>> upstream/main
               token_rewards: tokenRewards,
             })
             onTransactionSuccess()

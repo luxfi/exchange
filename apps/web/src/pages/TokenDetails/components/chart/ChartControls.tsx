@@ -1,5 +1,9 @@
 import { useAtomValue } from 'jotai/utils'
+<<<<<<< HEAD
 import { Flex, SegmentedControl, useMedia } from '@l.x/ui/src'
+=======
+import { Flex, SegmentedControl, useMedia } from 'ui/src'
+>>>>>>> upstream/main
 import { refitChartContentAtom } from '~/components/Charts/ChartModel'
 import { ChartType, PriceChartType } from '~/components/Charts/utils'
 import { ChartActionsContainer } from '~/components/Explore/chart/ChartActionsContainer'

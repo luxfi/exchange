@@ -3,12 +3,21 @@ import { useTranslation } from 'react-i18next'
 import { useDispatch } from 'react-redux'
 import { useDappRequestQueueContext } from 'src/app/features/dappRequests/DappRequestQueueContext'
 import { useShouldShowBridgingRequestCard } from 'src/app/features/dappRequests/hooks'
+<<<<<<< HEAD
 import { BRIDGING_BANNER } from '@l.x/ui/src/assets'
 import { DappRequestCardLoggingName } from '@l.x/lx/src/features/telemetry/types'
 import { CurrencyField } from '@l.x/lx/src/types/currency'
 import { CardType, IntroCard, IntroCardGraphicType, IntroCardProps } from '@luxfi/wallet/src/components/introCards/IntroCard'
 import { useWalletNavigation } from '@luxfi/wallet/src/contexts/WalletNavigationContext'
 import { setHasViewedDappRequestBridgingBanner } from '@luxfi/wallet/src/features/behaviorHistory/slice'
+=======
+import { BRIDGING_BANNER } from 'ui/src/assets'
+import { DappRequestCardLoggingName } from 'uniswap/src/features/telemetry/types'
+import { CurrencyField } from 'uniswap/src/types/currency'
+import { CardType, IntroCard, IntroCardGraphicType, IntroCardProps } from 'wallet/src/components/introCards/IntroCard'
+import { useWalletNavigation } from 'wallet/src/contexts/WalletNavigationContext'
+import { setHasViewedDappRequestBridgingBanner } from 'wallet/src/features/behaviorHistory/slice'
+>>>>>>> upstream/main
 
 export function DappRequestCards(): JSX.Element | null {
   const { t } = useTranslation()

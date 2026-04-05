@@ -1,14 +1,27 @@
+<<<<<<< HEAD
 import { SharedEventName } from '@luxamm/analytics-events'
+=======
+import { SharedEventName } from '@uniswap/analytics-events'
+>>>>>>> upstream/main
 import { NamedExoticComponent, useEffect, useMemo, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useDispatch } from 'react-redux'
 import { useLocation, useNavigate, useSearchParams } from 'react-router'
+<<<<<<< HEAD
 import { Button, Flex, styled, Text, useMedia } from '@l.x/ui/src'
 import { Plus } from '@l.x/ui/src/components/icons/Plus'
 import { getChainInfo, TOUCAN_AUCTION_SUPPORTED_CHAINS } from 'lx/src/features/chains/chainInfo'
 import { isSVMChain } from 'lx/src/features/platforms/utils/chains'
 import { ElementName, InterfacePageName, ModalName } from 'lx/src/features/telemetry/constants'
 import Trace from 'lx/src/features/telemetry/Trace'
+=======
+import { Button, Flex, styled, Text, useMedia } from 'ui/src'
+import { Plus } from 'ui/src/components/icons/Plus'
+import { getChainInfo, TOUCAN_AUCTION_SUPPORTED_CHAINS } from 'uniswap/src/features/chains/chainInfo'
+import { isSVMChain } from 'uniswap/src/features/platforms/utils/chains'
+import { ElementName, InterfacePageName, ModalName } from 'uniswap/src/features/telemetry/constants'
+import Trace from 'uniswap/src/features/telemetry/Trace'
+>>>>>>> upstream/main
 import { getTokenExploreURL } from '~/appGraphql/data/util'
 import { VolumeTimeFrameSelector } from '~/components/Explore/VolumeTimeFrameSelector'
 import PoolNotFoundModal from '~/components/NotFoundModal/PoolNotFoundModal'
@@ -31,7 +44,11 @@ import { TopTokensTable } from '~/pages/Explore/tables/Tokens/TopTokensTable'
 import { setOpenModal } from '~/state/application/reducer'
 import { ExploreContextProvider } from '~/state/explore'
 import { useManualChainOutageStore } from '~/state/outage/store'
+<<<<<<< HEAD
 import { ClickableGuiStyle } from '~/theme/components/styles'
+=======
+import { ClickableTamaguiStyle } from '~/theme/components/styles'
+>>>>>>> upstream/main
 import { getChainUrlParam, useChainIdFromUrlParam } from '~/utils/chainParams'
 
 interface Page {
@@ -73,7 +90,11 @@ function usePages(): Array<Page> {
 }
 
 const HeaderTab = styled(Text, {
+<<<<<<< HEAD
   ...ClickableGuiStyle,
+=======
+  ...ClickableTamaguiStyle,
+>>>>>>> upstream/main
   variant: 'heading3',
   userSelect: 'none',
   color: '$neutral2',
@@ -129,12 +150,20 @@ const Explore = ({ initialTab }: { initialTab?: ExploreTab }) => {
   }, [initialTab, Pages])
 
   // scroll to tab navbar on initial page mount only
+<<<<<<< HEAD
   // biome-ignore lint/correctness/useExhaustiveDependencies: Intentionally only runs once on mount
+=======
+  // oxlint-disable-next-line react/exhaustive-deps -- Intentionally only runs once on mount
+>>>>>>> upstream/main
   useEffect(() => {
     if (tabNavRef.current && initialTab) {
       const offsetTop = tabNavRef.current.getBoundingClientRect().top + window.scrollY
       window.scrollTo({ top: offsetTop - 90, behavior: 'smooth' })
     }
+<<<<<<< HEAD
+=======
+    // oxlint-disable-next-line react/exhaustive-deps -- biome-parity: oxlint is stricter here
+>>>>>>> upstream/main
   }, [])
 
   useEffect(() => {

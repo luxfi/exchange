@@ -3,7 +3,11 @@
  * Modifications are called out with comments.
  */
 
+<<<<<<< HEAD
 import { GraphQLApi } from '@l.x/api'
+=======
+import { GraphQLApi } from '@universe/api'
+>>>>>>> upstream/main
 import { CustomData, UTCTimestamp } from 'lightweight-charts'
 
 // Modification: custom implementations of lw-chart's histogram data types
@@ -20,7 +24,11 @@ export interface StackedHistogramData extends CustomData {
 export type CustomHistogramData = SingleHistogramData | StackedHistogramData
 
 export function isStackedHistogramData(data: CustomHistogramData): data is StackedHistogramData {
+<<<<<<< HEAD
   // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+=======
+  // oxlint-disable-next-line typescript/no-unnecessary-condition
+>>>>>>> upstream/main
   return (data as StackedHistogramData).values !== undefined
 }
 
@@ -227,7 +235,11 @@ export function calculateColumnPositionsInPlace({
     previous = items[i]
   }
   const minColumnWidth = (items as ColumnPositionItem[]).reduce(
+<<<<<<< HEAD
     // eslint-disable-next-line max-params
+=======
+    // oxlint-disable-next-line max-params
+>>>>>>> upstream/main
     (smallest: number, item: ColumnPositionItem, index: number) => {
       if (!item.column || index < startIndex || index > endIndex) {
         return smallest

@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 import { getRewards } from '@luxamm/client-data-api/dist/data/v1/api-DataApiService_connectquery'
 import { FeatureFlags } from '@l.x/gating'
 import { lxUrls } from 'lx/src/constants/urls'
+=======
+import { getRewards } from '@uniswap/client-data-api/dist/data/v1/api-DataApiService_connectquery'
+import { FeatureFlags } from '@universe/gating'
+import { uniswapUrls } from 'uniswap/src/constants/urls'
+>>>>>>> upstream/main
 import { expect, getTest } from '~/playwright/fixtures'
 import { createTestUrlBuilder } from '~/playwright/fixtures/urls'
 import { Mocks } from '~/playwright/mocks/mocks'
@@ -69,7 +75,11 @@ test.describe(
         })
 
         // Stub the claimRewards liquidity service endpoint to prevent actual claims
+<<<<<<< HEAD
         await page.route(`${lxUrls.liquidityServiceUrl}/**ClaimLPRewards*`, async (route) => {
+=======
+        await page.route(`${uniswapUrls.liquidityServiceUrl}/**ClaimLPRewards*`, async (route) => {
+>>>>>>> upstream/main
           await route.fulfill({
             status: 200,
             headers: { 'content-type': 'application/json' },

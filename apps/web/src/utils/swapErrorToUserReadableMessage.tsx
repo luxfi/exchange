@@ -1,6 +1,10 @@
 import { WalletSignTransactionError } from '@solana/wallet-adapter-base'
 import { TFunction } from 'i18next'
+<<<<<<< HEAD
 import { logger } from '@l.x/utils/src/logger/logger'
+=======
+import { logger } from 'utilities/src/logger/logger'
+>>>>>>> upstream/main
 import { UserRejectedRequestError } from '~/utils/errors'
 
 /** Attempts to extract a string from an error, based on common error object formats */
@@ -50,6 +54,10 @@ export function didUserReject(error: any): boolean {
   return false
 }
 
+<<<<<<< HEAD
+=======
+// oxlint-disable-next-line no-unused-expressions -- biome-parity: oxlint is stricter here
+>>>>>>> upstream/main
 WalletSignTransactionError
 /**
  * This is hacking out the revert reason from the ethers provider thrown error however it can.
@@ -67,6 +75,7 @@ export function swapErrorToUserReadableMessage(t: TFunction, error: any): string
   }
 
   switch (reason) {
+<<<<<<< HEAD
     case 'AMMV2Router: EXPIRED':
       return t('swap.error.v2.expired')
     case 'AMMV2Router: INSUFFICIENT_OUTPUT_AMOUNT':
@@ -77,6 +86,18 @@ export function swapErrorToUserReadableMessage(t: TFunction, error: any): string
     case 'AMMV2: TRANSFER_FAILED':
       return t('swap.error.v2.transferOutput')
     case 'AMMV2: K':
+=======
+    case 'UniswapV2Router: EXPIRED':
+      return t('swap.error.v2.expired')
+    case 'UniswapV2Router: INSUFFICIENT_OUTPUT_AMOUNT':
+    case 'UniswapV2Router: EXCESSIVE_INPUT_AMOUNT':
+      return t('swap.error.v2.slippage')
+    case 'TransferHelper: TRANSFER_FROM_FAILED':
+      return t('swap.error.v2.transferInput')
+    case 'UniswapV2: TRANSFER_FAILED':
+      return t('swap.error.v2.transferOutput')
+    case 'UniswapV2: K':
+>>>>>>> upstream/main
       return t('swap.error.v2.k')
     case 'Too little received':
     case 'Too much requested':

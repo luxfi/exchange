@@ -1,0 +1,35 @@
+{
+  "name": "@universe/logger",
+  "version": "0.0.0",
+  "dependencies": {
+    "@universe/privacy": "workspace:*",
+    "source-map-js": "1.2.1"
+  },
+  "devDependencies": {
+    "@types/node": "22.13.1",
+    "@typescript/native-preview": "7.0.0-dev.20260311.1",
+    "@uniswap/eslint-config": "workspace:^",
+    "depcheck": "1.4.7",
+    "eslint": "10.0.2",
+    "typescript": "5.8.3"
+  },
+  "scripts": {
+    "typecheck": "nx typecheck logger",
+    "typecheck:tsgo": "nx typecheck:tsgo logger",
+    "lint": "nx lint logger",
+    "lint:fix": "nx lint:fix logger",
+    "lint:eslint": "nx lint:eslint logger",
+    "lint:eslint:fix": "nx lint:eslint:fix logger",
+    "check:deps:usage": "nx check:deps:usage logger"
+  },
+  "nx": {
+    "includedScripts": []
+  },
+  "main": "src/index.ts",
+  "exports": {
+    ".": "./src/index.ts",
+    "./server": "./src/server.ts"
+  },
+  "private": true,
+  "sideEffects": false
+}

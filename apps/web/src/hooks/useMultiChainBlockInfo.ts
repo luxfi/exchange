@@ -1,8 +1,13 @@
 import { useQueries } from '@tanstack/react-query'
 import { getPublicClient } from '@wagmi/core'
 import { useMemo } from 'react'
+<<<<<<< HEAD
 import { EVMUniverseChainId } from '@l.x/lx/src/features/chains/types'
 import { ReactQueryCacheKey } from '@l.x/utils/src/reactQuery/cache'
+=======
+import { EVMUniverseChainId } from 'uniswap/src/features/chains/types'
+import { ReactQueryCacheKey } from 'utilities/src/reactQuery/cache'
+>>>>>>> upstream/main
 import { Block } from 'viem'
 import { wagmiConfig } from '~/components/Web3Provider/wagmiConfig'
 import { estimateFutureBlockTimestamp } from '~/utils/estimateFutureBlockTimestamp'

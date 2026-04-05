@@ -1,9 +1,18 @@
+<<<<<<< HEAD
 /* eslint-disable max-lines */
 import { BigNumber } from '@ethersproject/bignumber'
 import { AddressZero } from '@ethersproject/constants'
 import { PermitTransferFromData } from '@luxamm/permit2-sdk'
 import { MixedRouteSDK, ONE, Protocol, Trade } from '@luxamm/router-sdk'
 import { Currency, CurrencyAmount, Fraction, Percent, Price, Token, TradeType } from '@luxamm/sdk-core'
+=======
+/* oxlint-disable max-lines */
+import { BigNumber } from '@ethersproject/bignumber'
+import { AddressZero } from '@ethersproject/constants'
+import { PermitTransferFromData } from '@uniswap/permit2-sdk'
+import { MixedRouteSDK, ONE, Protocol, Trade } from '@uniswap/router-sdk'
+import { Currency, CurrencyAmount, Fraction, Percent, Price, Token, TradeType } from '@uniswap/sdk-core'
+>>>>>>> upstream/main
 import {
   DutchOrderInfo,
   DutchOrderInfoJSON,
@@ -17,12 +26,19 @@ import {
   UnsignedV2DutchOrderInfoJSON,
   UnsignedV3DutchOrderInfo,
   UnsignedV3DutchOrderInfoJSON,
+<<<<<<< HEAD
   REACTOR_ADDRESS_MAPPING,
   OrderType,
 } from '@luxamm/sdk'
 import { Route as V2Route } from '@luxamm/v2-sdk'
 import { Route as V3Route } from '@luxamm/v3-sdk'
 import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+=======
+} from '@uniswap/uniswapx-sdk'
+import { Route as V2Route } from '@uniswap/v2-sdk'
+import { Route as V3Route } from '@uniswap/v3-sdk'
+import { UniverseChainId } from 'uniswap/src/features/chains/types'
+>>>>>>> upstream/main
 import { ZERO_PERCENT } from '~/constants/misc'
 
 export enum TradeState {
@@ -47,7 +63,11 @@ export const INTERNAL_ROUTER_PREFERENCE_PRICE = 'price' as const
 const GAS_ESTIMATE_BUFFER = 1.15
 
 export enum RouterPreference {
+<<<<<<< HEAD
   X = 'dex',
+=======
+  X = 'uniswapx',
+>>>>>>> upstream/main
   API = 'api',
 }
 
@@ -71,7 +91,11 @@ export interface GetQuoteArgs {
   routerPreference: RouterPreference | typeof INTERNAL_ROUTER_PREFERENCE_PRICE
   protocolPreferences?: Protocol[]
   tradeType: TradeType
+<<<<<<< HEAD
   dexForceSyntheticQuotes: boolean
+=======
+  uniswapXForceSyntheticQuotes: boolean
+>>>>>>> upstream/main
   sendPortionEnabled: boolean
   routingType: URAQuoteType
 }
@@ -91,7 +115,11 @@ export type GetQuickQuoteArgs = {
   outputTax: Percent
 }
 
+<<<<<<< HEAD
 // from https://github.com/Lux/routing-api/blob/main/lib/handlers/schema.ts
+=======
+// from https://github.com/Uniswap/routing-api/blob/main/lib/handlers/schema.ts
+>>>>>>> upstream/main
 export type TokenInRoute = Pick<Token, 'address' | 'chainId' | 'symbol' | 'decimals'> & {
   buyFeeBps?: string
   sellFeeBps?: string
@@ -131,7 +159,11 @@ export type V2PoolInRoute = {
   address?: string
 }
 
+<<<<<<< HEAD
 // From `ClassicQuoteDataJSON` in https://github.com/Lux/unified-routing-api/blob/main/lib/entities/quote/ClassicQuote.ts
+=======
+// From `ClassicQuoteDataJSON` in https://github.com/Uniswap/unified-routing-api/blob/main/lib/entities/quote/ClassicQuote.ts
+>>>>>>> upstream/main
 export interface ClassicQuoteData {
   requestId?: string
   quoteId?: string
@@ -158,7 +190,11 @@ export interface ClassicQuoteData {
   quoteGasAndPortionAdjustedDecimals?: string
 }
 
+<<<<<<< HEAD
 // From `DutchQuoteDataJSON` https://github.com/Lux/unified-routing-api/blob/main/lib/entities/quote/DutchQuote.ts
+=======
+// From `DutchQuoteDataJSON` https://github.com/Uniswap/unified-routing-api/blob/main/lib/entities/quote/DutchQuote.ts
+>>>>>>> upstream/main
 export type URADutchOrderQuoteData = {
   orderInfo: DutchOrderInfoJSON
   quoteId?: string
@@ -175,7 +211,11 @@ export type URADutchOrderQuoteData = {
   portionRecipient?: string
 }
 
+<<<<<<< HEAD
 // From `DutchV2QuoteDataJSON` in https://github.com/Lux/unified-routing-api/blob/main/lib/entities/quote/DutchV2Quote.ts
+=======
+// From `DutchV2QuoteDataJSON` in https://github.com/Uniswap/unified-routing-api/blob/main/lib/entities/quote/DutchV2Quote.ts
+>>>>>>> upstream/main
 export type URADutchOrderV2QuoteData = {
   orderInfo: UnsignedV2DutchOrderInfoJSON
   quoteId?: string
@@ -204,7 +244,11 @@ export type URADutchOrderV3QuoteData = {
   portionRecipient?: string
 }
 
+<<<<<<< HEAD
 // from `PriorityQuoteDataJSON` in https://github.com/Lux/backend/blob/main/packages/services/unified-routing-api/lib/entities/quote/PriorityQuote.ts
+=======
+// from `PriorityQuoteDataJSON` in https://github.com/Uniswap/backend/blob/main/packages/services/unified-routing-api/lib/entities/quote/PriorityQuote.ts
+>>>>>>> upstream/main
 export type URAPriorityOrderQuoteData = {
   orderInfo: UnsignedPriorityOrderInfoJSON
   startTimeBufferSecs: number // ignore for priority order
@@ -259,10 +303,17 @@ export function isClassicQuoteResponse(data: URAQuoteResponse): data is URAClass
 }
 
 export enum TradeFillType {
+<<<<<<< HEAD
   Classic = 'classic', // Lux V1, V2, and V3 trades with on-chain routes
   DEX = 'dex_x', // off-chain trades, no routes
   DEXv2 = 'dex_v2',
   DEXv3 = 'dex_v3',
+=======
+  Classic = 'classic', // Uniswap V1, V2, and V3 trades with on-chain routes
+  UniswapX = 'uniswap_x', // off-chain trades, no routes
+  UniswapXv2 = 'uniswap_x_v2',
+  UniswapXv3 = 'uniswap_x_v3',
+>>>>>>> upstream/main
   None = 'none', // for preview trades, cant be used for submission
 }
 
@@ -369,7 +420,11 @@ export enum OffchainOrderType {
 }
 
 export class DutchOrderTrade extends IDutchOrderTrade<Currency, Currency, TradeType> {
+<<<<<<< HEAD
   public readonly fillType = TradeFillType.DEX
+=======
+  public readonly fillType = TradeFillType.UniswapX
+>>>>>>> upstream/main
   public readonly offchainOrderType = OffchainOrderType.DUTCH_AUCTION
 
   quoteId?: string
@@ -456,7 +511,11 @@ export class DutchOrderTrade extends IDutchOrderTrade<Currency, Currency, TradeT
 }
 
 export class V2DutchOrderTrade extends IV2DutchOrderTrade<Currency, Currency, TradeType> {
+<<<<<<< HEAD
   public readonly fillType = TradeFillType.DEXv2
+=======
+  public readonly fillType = TradeFillType.UniswapXv2
+>>>>>>> upstream/main
   public readonly offchainOrderType = OffchainOrderType.DUTCH_V2_AUCTION
 
   quoteId?: string
@@ -531,7 +590,11 @@ export class V2DutchOrderTrade extends IV2DutchOrderTrade<Currency, Currency, Tr
 }
 
 export class V3DutchOrderTrade extends IV3DutchOrderTrade<Currency, Currency, TradeType> {
+<<<<<<< HEAD
   public readonly fillType = TradeFillType.DEXv3
+=======
+  public readonly fillType = TradeFillType.UniswapXv3
+>>>>>>> upstream/main
   public readonly offchainOrderType = OffchainOrderType.DUTCH_V3_AUCTION
 
   quoteId?: string
@@ -606,7 +669,11 @@ export class V3DutchOrderTrade extends IV3DutchOrderTrade<Currency, Currency, Tr
 }
 
 export class PriorityOrderTrade extends IPriorityOrderTrade<Currency, Currency, TradeType> {
+<<<<<<< HEAD
   public readonly fillType = TradeFillType.DEX
+=======
+  public readonly fillType = TradeFillType.UniswapX
+>>>>>>> upstream/main
   public readonly offchainOrderType = OffchainOrderType.PRIORITY_ORDER
 
   quoteId?: string
@@ -702,7 +769,11 @@ export class PreviewTrade {
   }
 
   // below methods are copied from router-sdk
+<<<<<<< HEAD
   // Trade https://github.com/Lux/router-sdk/blob/main/src/entities/trade.ts#L10
+=======
+  // Trade https://github.com/Uniswap/router-sdk/blob/main/src/entities/trade.ts#L10
+>>>>>>> upstream/main
   public minimumAmountOut(slippageTolerance: Percent, amountOut = this.outputAmount): CurrencyAmount<Currency> {
     if (this.tradeType === TradeType.EXACT_OUTPUT) {
       return amountOut
@@ -774,11 +845,19 @@ export class PreviewTrade {
   }
 }
 
+<<<<<<< HEAD
 // Reactor address for limit orders — sourced from @luxamm/sdk
 const LX_REACTOR = REACTOR_ADDRESS_MAPPING[UniverseChainId.Mainnet]?.[OrderType.Dutch] ?? AddressZero
 
 export class LimitOrderTrade {
   public readonly fillType = TradeFillType.DEX
+=======
+// TODO(limits): get this from uniswapx-sdk
+const UNISWAPX_REACTOR = '0x6000da47483062a0d734ba3dc7576ce6a0b645c4'
+
+export class LimitOrderTrade {
+  public readonly fillType = TradeFillType.UniswapX
+>>>>>>> upstream/main
   public readonly offchainOrderType = OffchainOrderType.LIMIT_ORDER
   deadlineBufferSecs: number
   wrapInfo: WrapInfo
@@ -858,7 +937,11 @@ export class LimitOrderTrade {
       currencyIn: this.amountIn.currency,
       currenciesOut: [this.amountOut.currency],
       orderInfo: {
+<<<<<<< HEAD
         reactor: LX_REACTOR,
+=======
+        reactor: UNISWAPX_REACTOR,
+>>>>>>> upstream/main
         swapper: options?.swapper ?? this.swapper,
         deadline: (nowSecs + this.deadlineBufferSecs) * 1000,
         additionalValidationContract: AddressZero,
@@ -888,7 +971,11 @@ export class LimitOrderTrade {
     return this.amountOut
   }
 
+<<<<<<< HEAD
   /** For DEX, handling token taxes in the output amount is outsourced to quoters */
+=======
+  /** For UniswapX, handling token taxes in the output amount is outsourced to quoters */
+>>>>>>> upstream/main
   public get postTaxOutputAmount() {
     return this.outputAmount
   }
@@ -976,7 +1063,11 @@ export enum URAQuoteType {
   PRIORITY = 'PRIORITY',
 }
 
+<<<<<<< HEAD
 /* Config types should match URA config schemas https://github.com/Lux/backend/blob/main/packages/services/unified-routing-api/lib/util/validator.ts */
+=======
+/* Config types should match URA config schemas https://github.com/Uniswap/backend/blob/main/packages/services/unified-routing-api/lib/util/validator.ts */
+>>>>>>> upstream/main
 
 export type ClassicAPIConfig = {
   routingType: URAQuoteType.CLASSIC
@@ -1000,7 +1091,11 @@ export type ClassicAPIConfig = {
   enableFeeOnTransferFeeFetching?: boolean
 }
 
+<<<<<<< HEAD
 export type DEXConfig = {
+=======
+export type UniswapXConfig = {
+>>>>>>> upstream/main
   routingType: URAQuoteType.DUTCH_V1
   swapper?: string
   exclusivityOverrideBps?: number
@@ -1013,7 +1108,11 @@ export type DEXConfig = {
   forceOpenOrders?: boolean
 }
 
+<<<<<<< HEAD
 export type DEXv2Config = {
+=======
+export type UniswapXv2Config = {
+>>>>>>> upstream/main
   routingType: URAQuoteType.DUTCH_V2
   swapper?: string
   deadlineBufferSecs?: number
@@ -1021,7 +1120,11 @@ export type DEXv2Config = {
   slippageTolerance?: string
 }
 
+<<<<<<< HEAD
 export type DEXPriorityOrdersConfig = {
+=======
+export type UniswapXPriorityOrdersConfig = {
+>>>>>>> upstream/main
   routingType: URAQuoteType.PRIORITY
   swapper?: string
   mpsPerPriorityFeeWei?: number
@@ -1030,7 +1133,11 @@ export type DEXPriorityOrdersConfig = {
   deadlineBufferSecs?: number
 }
 
+<<<<<<< HEAD
 export type DEXv3Config = {
+=======
+export type UniswapXv3Config = {
+>>>>>>> upstream/main
   routingType: URAQuoteType.DUTCH_V3
   swapper?: string
   deadlineBufferSecs?: number
@@ -1039,9 +1146,17 @@ export type DEXv3Config = {
 }
 
 export type RoutingConfig = (
+<<<<<<< HEAD
   | DEXConfig
   | DEXv2Config
   | DEXv3Config
   | ClassicAPIConfig
   | DEXPriorityOrdersConfig
+=======
+  | UniswapXConfig
+  | UniswapXv2Config
+  | UniswapXv3Config
+  | ClassicAPIConfig
+  | UniswapXPriorityOrdersConfig
+>>>>>>> upstream/main
 )[]

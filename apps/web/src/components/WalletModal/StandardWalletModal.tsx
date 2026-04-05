@@ -1,5 +1,6 @@
 import { useReducer } from 'react'
 import { Trans, useTranslation } from 'react-i18next'
+<<<<<<< HEAD
 import { Flex, Separator, Text } from '@l.x/ui/src'
 import { ChevronsIn } from '@l.x/ui/src/components/icons/ChevronsIn'
 import { ChevronsOut } from '@l.x/ui/src/components/icons/ChevronsOut'
@@ -7,6 +8,15 @@ import { LXWalletOptions } from '~/components/WalletModal/LuxWalletOptions'
 import { WalletModalLayout } from '~/components/WalletModal/WalletModalLayout'
 import { WalletOptionsGrid } from '~/components/WalletModal/WalletOptionsGrid'
 import { ClickableGuiStyle } from '~/theme/components/styles'
+=======
+import { Flex, Separator, Text } from 'ui/src'
+import { ChevronsIn } from 'ui/src/components/icons/ChevronsIn'
+import { ChevronsOut } from 'ui/src/components/icons/ChevronsOut'
+import { UniswapWalletOptions } from '~/components/WalletModal/UniswapWalletOptions'
+import { WalletModalLayout } from '~/components/WalletModal/WalletModalLayout'
+import { WalletOptionsGrid } from '~/components/WalletModal/WalletOptionsGrid'
+import { ClickableTamaguiStyle } from '~/theme/components/styles'
+>>>>>>> upstream/main
 
 export function StandardWalletModal(): JSX.Element {
   const { t } = useTranslation()
@@ -18,10 +28,17 @@ export function StandardWalletModal(): JSX.Element {
     </Flex>
   )
 
+<<<<<<< HEAD
   const luxOptions = <LXWalletOptions />
 
   const expandToggle = (
     <Flex row alignItems="center" py={8} userSelect="none" onPress={toggleExpandMoreWallets} {...ClickableGuiStyle}>
+=======
+  const uniswapOptions = <UniswapWalletOptions />
+
+  const expandToggle = (
+    <Flex row alignItems="center" py={8} userSelect="none" onPress={toggleExpandMoreWallets} {...ClickableTamaguiStyle}>
+>>>>>>> upstream/main
       <Separator />
       <Flex row alignItems="center" mx={18}>
         <Text variant="body3" color="$neutral2" whiteSpace="nowrap">
@@ -47,7 +64,11 @@ export function StandardWalletModal(): JSX.Element {
       header={
         <Flex gap="$gap16">
           {header}
+<<<<<<< HEAD
           {luxOptions}
+=======
+          {uniswapOptions}
+>>>>>>> upstream/main
           {expandToggle}
         </Flex>
       }

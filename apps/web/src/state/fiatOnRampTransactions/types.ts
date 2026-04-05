@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import { GraphQLApi } from '@l.x/api'
+=======
+import { GraphQLApi } from '@universe/api'
+>>>>>>> upstream/main
 
 export enum FiatOnRampTransactionStatus {
   INITIATED = 'INITIATED',
@@ -7,7 +11,11 @@ export enum FiatOnRampTransactionStatus {
   FAILED = 'FAILED',
 }
 
+<<<<<<< HEAD
 // eslint-disable-next-line consistent-return
+=======
+// oxlint-disable-next-line consistent-return
+>>>>>>> upstream/main
 export function backendStatusToFiatOnRampStatus(status: GraphQLApi.TransactionStatus) {
   switch (status) {
     case GraphQLApi.TransactionStatus.Confirmed:

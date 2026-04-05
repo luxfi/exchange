@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* eslint-disable @typescript-eslint/no-unnecessary-condition */
 
 import { ApolloError } from '@apollo/client'
@@ -14,6 +15,24 @@ import { useLocalizationContext } from '@l.x/lx/src/features/language/Localizati
 import { ExplorerDataType, getExplorerLink } from '@l.x/lx/src/utils/linking'
 import { shortenAddress } from '@l.x/utils/src/addresses'
 import { NumberType } from '@l.x/utils/src/format/types'
+=======
+/* oxlint-disable typescript/no-unnecessary-condition */
+
+import { ApolloError } from '@apollo/client'
+import { createColumnHelper } from '@tanstack/react-table'
+import { GraphQLApi } from '@universe/api'
+import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import { memo, useMemo, useReducer, useRef, useState } from 'react'
+import { useTranslation } from 'react-i18next'
+import { Flex, styled, Text, useMedia } from 'ui/src'
+import { getChainInfo } from 'uniswap/src/features/chains/chainInfo'
+import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { useAppFiatCurrency } from 'uniswap/src/features/fiatCurrency/hooks'
+import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
+import { ExplorerDataType, getExplorerLink } from 'uniswap/src/utils/linking'
+import { shortenAddress } from 'utilities/src/addresses'
+import { NumberType } from 'utilities/src/format/types'
+>>>>>>> upstream/main
 import {
   BETypeToTransactionType,
   getTransactionTypeTranslation,
@@ -54,6 +73,7 @@ export const RecentTransactionsTable = memo(function RecentTransactions() {
     TransactionType.REMOVE,
     TransactionType.ADD,
   ])
+<<<<<<< HEAD
   const chainId = useChainIdFromUrlParam() ?? UniverseChainId.Mainnet
   const chainInfo = getChainInfo(chainId)
   const { t } = useTranslation()
@@ -64,6 +84,11 @@ export const RecentTransactionsTable = memo(function RecentTransactions() {
     isLuxChain ? ('' as GraphQLApi.Chain) : chainInfo.backendChain.chain,
     filter,
   )
+=======
+  const chainInfo = getChainInfo(useChainIdFromUrlParam() ?? UniverseChainId.Mainnet)
+  const { t } = useTranslation()
+  const { transactions, loading, loadMore, errorV2, errorV3 } = useAllTransactions(chainInfo.backendChain.chain, filter)
+>>>>>>> upstream/main
 
   const filteredTransactions = useFilteredTransactions(transactions)
   const filteredTransactionsWithFiat = useMemo(() => {

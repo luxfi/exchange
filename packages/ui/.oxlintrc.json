@@ -1,0 +1,39 @@
+{
+  "extends": ["../../.oxlintrc.json"],
+  "rules": {
+    "universe-custom/no-relative-import-paths": [
+      "error",
+      {
+        "allowSameFolder": false,
+        "prefix": "ui"
+      }
+    ],
+    "no-restricted-imports": [
+      "error",
+      {
+        "paths": [
+          {
+            "name": "ui/src",
+            "message": "Avoid importing directly from ui/src from within the ui package which causes circular imports."
+          }
+        ]
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": ["**/*.ts", "**/*.tsx"],
+      "rules": {
+        "universe-custom/no-nested-component-definitions": "error",
+        "universe-custom/jsx-prop-order": [
+          "error",
+          {
+            "groups": ["reserved", "shorthand-prop", "unknown", "callback"],
+            "reservedPattern": "^(key|ref)$",
+            "callbackPattern": "^on[A-Z].+"
+          }
+        ]
+      }
+    }
+  ]
+}

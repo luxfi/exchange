@@ -1,6 +1,10 @@
 //
 //  FormatTests.swift
+<<<<<<< HEAD
 //  LuxWidgetsCoreTests
+=======
+//  UniswapWidgetsCoreTests
+>>>>>>> upstream/main
 //
 //  Created by Eric Huang on 7/25/23.
 //

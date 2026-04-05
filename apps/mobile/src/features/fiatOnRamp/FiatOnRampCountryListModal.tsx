@@ -5,6 +5,7 @@ import { FadeIn, FadeOut } from 'react-native-reanimated'
 import { SvgUri } from 'react-native-svg'
 import { Loader } from 'src/components/loading/loaders'
 import { useFiatOnRampContext } from 'src/features/fiatOnRamp/FiatOnRampContext'
+<<<<<<< HEAD
 import { Flex, Text, TouchableArea, useSporeColors } from '@l.x/ui/src'
 import { AnimatedBottomSheetFlashList } from '@l.x/ui/src/components/AnimatedFlashList/AnimatedFlashList'
 import { Check } from '@l.x/ui/src/components/icons'
@@ -21,6 +22,24 @@ import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
 import { useAppInsets } from '@l.x/lx/src/hooks/useAppInsets'
 import { bubbleToTop } from '@l.x/utils/src/primitives/array'
 import { useDebounce } from '@l.x/utils/src/time/timing'
+=======
+import { Flex, Text, TouchableArea, useSporeColors } from 'ui/src'
+import { AnimatedBottomSheetFlashList } from 'ui/src/components/AnimatedFlashList/AnimatedFlashList'
+import { Check } from 'ui/src/components/icons'
+import { AnimatedFlex } from 'ui/src/components/layout/AnimatedFlex'
+import { useDeviceDimensions } from 'ui/src/hooks/useDeviceDimensions'
+import { fonts, spacing } from 'ui/src/theme'
+import { Modal } from 'uniswap/src/components/modals/Modal'
+import { FOR_MODAL_SNAP_POINTS } from 'uniswap/src/features/fiatOnRamp/constants'
+import { useFiatOnRampAggregatorCountryListQuery } from 'uniswap/src/features/fiatOnRamp/hooks/useFiatOnRampQueries'
+import { FORCountry, RampDirection } from 'uniswap/src/features/fiatOnRamp/types'
+import { getCountryFlagSvgUrl } from 'uniswap/src/features/fiatOnRamp/utils'
+import { SearchTextInput } from 'uniswap/src/features/search/SearchTextInput'
+import { ModalName } from 'uniswap/src/features/telemetry/constants'
+import { useAppInsets } from 'uniswap/src/hooks/useAppInsets'
+import { bubbleToTop } from 'utilities/src/primitives/array'
+import { useDebounce } from 'utilities/src/time/timing'
+>>>>>>> upstream/main
 
 const ICON_SIZE = 32 // design prefers a custom value here
 

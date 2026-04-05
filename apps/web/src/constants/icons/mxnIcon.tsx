@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 /* eslint-disable max-lines */
+=======
+/* oxlint-disable max-lines */
+>>>>>>> upstream/main
 import type { SVGProps } from '~/constants/icons/types'
 
 const MXN_ICON = (props: SVGProps) => {

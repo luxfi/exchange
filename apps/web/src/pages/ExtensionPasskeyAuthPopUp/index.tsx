@@ -1,12 +1,21 @@
 import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useSearchParams } from 'react-router'
+<<<<<<< HEAD
 import { Anchor, Button, Flex, SpinningLoader, Text } from '@l.x/ui/src'
 import { EnvelopeHeart } from '@l.x/ui/src/components/icons/EnvelopeHeart'
 import { Passkey } from '@l.x/ui/src/components/icons/Passkey'
 import { LuxLogo } from '@l.x/ui/src/components/icons/LXLogo'
 import { lxUrls } from '@l.x/lx/src/constants/urls'
 import { parseMessage } from '@l.x/lx/src/extension/messagePassing/platform'
+=======
+import { Anchor, Button, Flex, SpinningLoader, Text } from 'ui/src'
+import { EnvelopeHeart } from 'ui/src/components/icons/EnvelopeHeart'
+import { Passkey } from 'ui/src/components/icons/Passkey'
+import { UniswapLogo } from 'ui/src/components/icons/UniswapLogo'
+import { uniswapUrls } from 'uniswap/src/constants/urls'
+import { parseMessage } from 'uniswap/src/extension/messagePassing/platform'
+>>>>>>> upstream/main
 import {
   InterfaceToExtensionRequestType,
   PasskeyCredentialError,
@@ -14,6 +23,7 @@ import {
   PasskeyRequest,
   PasskeyRequestSchema,
   PasskeySignInFlowOpened,
+<<<<<<< HEAD
 } from '@l.x/lx/src/extension/messagePassing/types/requests'
 import { authenticatePasskey } from '@l.x/lx/src/features/passkey/passkey'
 import { InterfacePageName } from '@l.x/lx/src/features/telemetry/constants'
@@ -22,6 +32,16 @@ import { getChromeRuntime, getChromeRuntimeWithThrow } from '@l.x/utils/src/chro
 import { logger } from '@l.x/utils/src/logger/logger'
 import { ONE_SECOND_MS } from '@l.x/utils/src/time/time'
 import { useTimeout } from '@l.x/utils/src/time/timing'
+=======
+} from 'uniswap/src/extension/messagePassing/types/requests'
+import { authenticatePasskey } from 'uniswap/src/features/passkey/passkey'
+import { InterfacePageName } from 'uniswap/src/features/telemetry/constants'
+import Trace from 'uniswap/src/features/telemetry/Trace'
+import { getChromeRuntime, getChromeRuntimeWithThrow } from 'utilities/src/chrome/chrome'
+import { logger } from 'utilities/src/logger/logger'
+import { ONE_SECOND_MS } from 'utilities/src/time/time'
+import { useTimeout } from 'utilities/src/time/timing'
+>>>>>>> upstream/main
 import { useExternallyConnectableExtensionId } from '~/pages/ExtensionPasskeyAuthPopUp/useExternallyConnectableExtensionId'
 
 // Passkey Auth Flow: Extension <> Web App
@@ -46,7 +66,11 @@ export default function ExtensionPasskeyAuthPopUp() {
 
   const [searchParams] = useSearchParams()
 
+<<<<<<< HEAD
   // biome-ignore lint/correctness/useExhaustiveDependencies: Intentionally only runs once on mount
+=======
+  // oxlint-disable-next-line react/exhaustive-deps -- Intentionally only runs once on mount
+>>>>>>> upstream/main
   useEffect(() => {
     const chromeRuntime = getChromeRuntime()
 
@@ -98,6 +122,10 @@ export default function ExtensionPasskeyAuthPopUp() {
       } satisfies PasskeySignInFlowOpened,
       handleMessageRequestPasskey,
     )
+<<<<<<< HEAD
+=======
+    // oxlint-disable-next-line react/exhaustive-deps -- biome-parity: oxlint is stricter here
+>>>>>>> upstream/main
   }, [])
 
   const onPressSignIn = async () => {
@@ -173,7 +201,11 @@ export default function ExtensionPasskeyAuthPopUp() {
               <Anchor
                 target="_blank"
                 rel="noreferrer"
+<<<<<<< HEAD
                 href={lxUrls.helpArticleUrls.passkeysInfo}
+=======
+                href={uniswapUrls.helpArticleUrls.passkeysInfo}
+>>>>>>> upstream/main
                 textDecorationLine="none"
               >
                 <Button icon={<EnvelopeHeart size="$icon.16" color="$neutral2" />} size="xxsmall" emphasis="secondary">
@@ -184,7 +216,11 @@ export default function ExtensionPasskeyAuthPopUp() {
           </Flex>
 
           <Flex alignItems="center">
+<<<<<<< HEAD
             <LuxLogo size="$icon.40" color="$accent1" />
+=======
+            <UniswapLogo size="$icon.40" color="$accent1" />
+>>>>>>> upstream/main
           </Flex>
 
           {signInAttemptStatus === ReferrerVerification.Denied ? (

@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useNavigate, useSearchParams } from 'react-router'
+<<<<<<< HEAD
 import { Flex, styled, Text } from '@l.x/ui/src'
 import { useDynamicFontSizing } from '@l.x/ui/src/hooks/useDynamicFontSizing'
 import { nativeOnChain } from '@l.x/lx/src/constants/tokens'
@@ -23,6 +24,30 @@ import { currencyId } from '@l.x/lx/src/utils/currencyId'
 import useResizeObserver from 'use-resize-observer'
 import { isSafeNumber } from '@l.x/utils/src/primitives/integer'
 import { usePrevious } from '@l.x/utils/src/react/hooks'
+=======
+import { Flex, styled, Text } from 'ui/src'
+import { useDynamicFontSizing } from 'ui/src/hooks/useDynamicFontSizing'
+import { nativeOnChain } from 'uniswap/src/constants/tokens'
+import { useUrlContext } from 'uniswap/src/contexts/UrlContext'
+import { normalizeCurrencyIdForMapLookup } from 'uniswap/src/data/cache'
+import { TradeableAsset } from 'uniswap/src/entities/assets'
+import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { usePortfolioBalances } from 'uniswap/src/features/dataApi/balances/balances'
+import { useAppFiatCurrency, useFiatCurrencyComponents } from 'uniswap/src/features/fiatCurrency/hooks'
+import { FiatOnRampCountryPicker } from 'uniswap/src/features/fiatOnRamp/FiatOnRampCountryPicker'
+import { useFiatOnRampAggregatorGetCountryQuery } from 'uniswap/src/features/fiatOnRamp/hooks/useFiatOnRampQueries'
+import { FiatOnRampCurrency, RampDirection } from 'uniswap/src/features/fiatOnRamp/types'
+import UnsupportedTokenModal from 'uniswap/src/features/fiatOnRamp/UnsupportedTokenModal'
+import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
+import { FiatOffRampEventName, FiatOnRampEventName, InterfacePageName } from 'uniswap/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
+import Trace from 'uniswap/src/features/telemetry/Trace'
+import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+import { currencyId } from 'uniswap/src/utils/currencyId'
+import useResizeObserver from 'use-resize-observer'
+import { isSafeNumber } from 'utilities/src/primitives/integer'
+import { usePrevious } from 'utilities/src/react/hooks'
+>>>>>>> upstream/main
 import { popupRegistry } from '~/components/Popups/registry'
 import { SwitchNetworkAction } from '~/components/Popups/types'
 import { PAGE_WRAPPER_MAX_WIDTH } from '~/components/swap/styled'
@@ -45,7 +70,10 @@ import {
   NumericalInputSymbolContainer,
   NumericalInputWrapper,
   StyledNumericalInput,
+<<<<<<< HEAD
   useWidthAdjustedDisplayValue,
+=======
+>>>>>>> upstream/main
 } from '~/pages/Swap/common/shared'
 import { getChainUrlParam } from '~/utils/chainParams'
 import { showSwitchNetworkNotification } from '~/utils/showSwitchNetworkNotification'
@@ -109,7 +137,10 @@ function BuyFormInner({ disabled, initialCurrency }: BuyFormProps) {
   const navigate = useNavigate()
 
   const prevQuoteCurrency = usePrevious(quoteCurrency)
+<<<<<<< HEAD
   const postWidthAdjustedDisplayValue = useWidthAdjustedDisplayValue(inputAmount)
+=======
+>>>>>>> upstream/main
   const hiddenObserver = useResizeObserver<HTMLElement>()
   const inputRef = useRef<HTMLInputElement>(null)
 
@@ -149,7 +180,11 @@ function BuyFormInner({ disabled, initialCurrency }: BuyFormProps) {
   const DEFAULT_COUNTRY = useMemo(() => getCountryFromLocale(), [])
   const { data: countryResult } = useFiatOnRampAggregatorGetCountryQuery()
 
+<<<<<<< HEAD
   // biome-ignore lint/correctness/useExhaustiveDependencies: +buyFormState.selectedCountry, +selectedCountry
+=======
+  // oxlint-disable-next-line react/exhaustive-deps -- +buyFormState.selectedCountry, +selectedCountry
+>>>>>>> upstream/main
   useEffect(() => {
     if (!selectedCountry) {
       // Use API result if available, otherwise default to locale-based country immediately
@@ -309,7 +344,11 @@ function BuyFormInner({ disabled, initialCurrency }: BuyFormProps) {
                 </NumericalInputSymbolContainer>
               )}
               <StyledNumericalInput
+<<<<<<< HEAD
                 value={postWidthAdjustedDisplayValue}
+=======
+                value={inputAmount}
+>>>>>>> upstream/main
                 disabled={disabled}
                 onUserInput={handleUserInput}
                 placeholder="0"

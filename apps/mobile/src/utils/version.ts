@@ -1,5 +1,9 @@
 import DeviceInfo from 'react-native-device-info'
+<<<<<<< HEAD
 import { isBetaEnv, isDevEnv } from '@l.x/utils/src/environment/env'
+=======
+import { isBetaEnv, isDevEnv } from 'utilities/src/environment/env'
+>>>>>>> upstream/main
 
 /**
  * Returns a string with the app version and build number in the format:

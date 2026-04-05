@@ -1,5 +1,9 @@
 import { useIsFocused } from '@react-navigation/core'
+<<<<<<< HEAD
 import { FeatureFlags, useFeatureFlag } from '@luxfi/gating'
+=======
+import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+>>>>>>> upstream/main
 import React, { useCallback, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
@@ -9,6 +13,7 @@ import { checkCloudBackupOrShowAlert } from 'src/components/mnemonic/cloudImport
 import { useReactNavigationModal } from 'src/components/modals/useReactNavigationModal'
 import { WalletRestoreType } from 'src/components/RestoreWalletModal/RestoreWalletModalState'
 import { useWalletRestore } from 'src/features/wallet/useWalletRestore'
+<<<<<<< HEAD
 import { Button, Flex, Text, TouchableArea, useSporeColors } from '@l.x/ui/src'
 import { useDeviceDimensions } from '@l.x/ui/src/hooks/useDeviceDimensions'
 import { spacing } from '@l.x/ui/src/theme'
@@ -39,6 +44,38 @@ import { createAccountsActions } from '@luxfi/wallet/src/features/wallet/create/
 import { useActiveAccountAddress, useNativeAccountExists } from '@luxfi/wallet/src/features/wallet/hooks'
 import { selectAllAccountsSorted, selectSortedSignerMnemonicAccounts } from '@luxfi/wallet/src/features/wallet/selectors'
 import { setAccountAsActive } from '@luxfi/wallet/src/features/wallet/slice'
+=======
+import { Button, Flex, Text, TouchableArea, useSporeColors } from 'ui/src'
+import { useDeviceDimensions } from 'ui/src/hooks/useDeviceDimensions'
+import { spacing } from 'ui/src/theme'
+import { AddressDisplay } from 'uniswap/src/components/accounts/AddressDisplay'
+import { buildWrappedUrl } from 'uniswap/src/components/banners/shared/utils'
+import { UniswapWrapped2025Card } from 'uniswap/src/components/banners/UniswapWrapped2025Card/UniswapWrapped2025Card'
+import { ActionSheetModal, MenuItemProp } from 'uniswap/src/components/modals/ActionSheetModal'
+import { Modal } from 'uniswap/src/components/modals/Modal'
+import { UNISWAP_WEB_URL } from 'uniswap/src/constants/urls'
+import { AccountType } from 'uniswap/src/features/accounts/types'
+import { setHasDismissedUniswapWrapped2025Banner } from 'uniswap/src/features/behaviorHistory/slice'
+import { Platform } from 'uniswap/src/features/platforms/types/Platform'
+import { ElementName, ModalName, WalletEventName } from 'uniswap/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
+import { useAppInsets } from 'uniswap/src/hooks/useAppInsets'
+import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+import { ImportType, OnboardingEntryPoint } from 'uniswap/src/types/onboarding'
+import { MobileScreens, OnboardingScreens } from 'uniswap/src/types/screens/mobile'
+import { areAddressesEqual } from 'uniswap/src/utils/addresses'
+import { openUri } from 'uniswap/src/utils/linking'
+import { logger } from 'utilities/src/logger/logger'
+import { isAndroid } from 'utilities/src/platform'
+import { PlusCircle } from 'wallet/src/components/icons/PlusCircle'
+import { createOnboardingAccount } from 'wallet/src/features/onboarding/createOnboardingAccount'
+import { BackupType } from 'wallet/src/features/wallet/accounts/types'
+import { hasBackup } from 'wallet/src/features/wallet/accounts/utils'
+import { createAccountsActions } from 'wallet/src/features/wallet/create/createAccountsSaga'
+import { useActiveAccountAddress, useNativeAccountExists } from 'wallet/src/features/wallet/hooks'
+import { selectAllAccountsSorted, selectSortedSignerMnemonicAccounts } from 'wallet/src/features/wallet/selectors'
+import { setAccountAsActive } from 'wallet/src/features/wallet/slice'
+>>>>>>> upstream/main
 
 export function AccountSwitcherModal(): JSX.Element {
   const colors = useSporeColors()
@@ -67,7 +104,11 @@ export function AccountSwitcher({ onClose }: { onClose: () => void }): JSX.Eleme
   const isModalOpen = useIsFocused()
   const { openWalletRestoreModal, walletRestoreType } = useWalletRestore()
 
+<<<<<<< HEAD
   const isWrappedBannerEnabled = useFeatureFlag(FeatureFlags.LuxWrapped2025)
+=======
+  const isWrappedBannerEnabled = useFeatureFlag(FeatureFlags.UniswapWrapped2025)
+>>>>>>> upstream/main
 
   const sortedMnemonicAccounts = useSelector(selectSortedSignerMnemonicAccounts)
 
@@ -111,10 +152,17 @@ export function AccountSwitcher({ onClose }: { onClose: () => void }): JSX.Eleme
     }
 
     try {
+<<<<<<< HEAD
       const url = buildWrappedUrl(LX_WEB_URL, activeAccountAddress)
       await openUri({ uri: url, openExternalBrowser: true })
       onClose()
       dispatch(setHasDismissedLuxWrapped2025Banner(true))
+=======
+      const url = buildWrappedUrl(UNISWAP_WEB_URL, activeAccountAddress)
+      await openUri({ uri: url, openExternalBrowser: true })
+      onClose()
+      dispatch(setHasDismissedUniswapWrapped2025Banner(true))
+>>>>>>> upstream/main
     } catch (error) {
       logger.error(error, { tags: { file: 'AccountSwitcherModal', function: 'onPressWrappedCard' } })
     }
@@ -293,7 +341,11 @@ export function AccountSwitcher({ onClose }: { onClose: () => void }): JSX.Eleme
         />
         {isWrappedBannerEnabled && (
           <Flex row px="$spacing12">
+<<<<<<< HEAD
             <LuxWrapped2025Card onPress={onPressWrappedCard} />
+=======
+            <UniswapWrapped2025Card onPress={onPressWrappedCard} />
+>>>>>>> upstream/main
           </Flex>
         )}
         <Flex row px="$spacing12">

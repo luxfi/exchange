@@ -243,7 +243,11 @@ describe('multiplatform connectors', () => {
           name: 'Custom Connector',
           icon: 'normal.svg',
           wagmi: { id: 'normalConnectorId', type: 'injected' },
+<<<<<<< HEAD
           customConnectorId: 'luxWalletConnect',
+=======
+          customConnectorId: 'uniswapWalletConnect',
+>>>>>>> upstream/main
           isInjected: true,
           analyticsWalletType: 'Wallet Connect',
         },

@@ -5,6 +5,7 @@
   "exclude": [".storybook/storybook.requires.ts"],
   "references": [
     {
+<<<<<<< HEAD
       "path": "../../pkgs/wallet"
     },
     {
@@ -33,6 +34,33 @@
     },
     {
       "path": "../../pkgs/lx"
+=======
+      "path": "../../packages/sessions"
+    },
+    {
+      "path": "../../packages/notifications"
+    },
+    {
+      "path": "../../packages/hashcash-native"
+    },
+    {
+      "path": "../../packages/gating"
+    },
+    {
+      "path": "../../packages/api"
+    },
+    {
+      "path": "../../packages/wallet"
+    },
+    {
+      "path": "../../packages/utilities"
+    },
+    {
+      "path": "../../packages/ui"
+    },
+    {
+      "path": "../../packages/uniswap"
+>>>>>>> upstream/main
     }
   ],
   "compilerOptions": {

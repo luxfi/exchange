@@ -8,11 +8,19 @@ import { HeaderSkipButton, renderHeaderBackButton } from 'src/app/navigation/com
 import { useOnboardingStackNavigation } from 'src/app/navigation/types'
 import { Screen, SHORT_SCREEN_HEADER_HEIGHT_RATIO } from 'src/components/layout/Screen'
 import { useRegionalizedLineHeight } from 'src/components/text/useRegionalizedLineHeight'
+<<<<<<< HEAD
 import { Flex, GeneratedIcon, SpaceTokens, Text, useMedia } from '@l.x/ui/src'
 import { AnimatedFlex } from '@l.x/ui/src/components/layout/AnimatedFlex'
 import { fonts } from '@l.x/ui/src/theme'
 import { useAppInsets } from '@l.x/lx/src/hooks/useAppInsets'
 import { isIOS } from '@l.x/utils/src/platform'
+=======
+import { Flex, GeneratedIcon, SpaceTokens, Text, useMedia } from 'ui/src'
+import { AnimatedFlex } from 'ui/src/components/layout/AnimatedFlex'
+import { fonts } from 'ui/src/theme'
+import { useAppInsets } from 'uniswap/src/hooks/useAppInsets'
+import { isIOS } from 'utilities/src/platform'
+>>>>>>> upstream/main
 
 type OnboardingScreenProps = {
   subtitle?: string

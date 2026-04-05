@@ -1,6 +1,11 @@
 import { useMemo } from 'react'
+<<<<<<< HEAD
 import { InterfacePageName, SectionName } from '@l.x/lx/src/features/telemetry/constants'
 import Trace from '@l.x/lx/src/features/telemetry/Trace'
+=======
+import { InterfacePageName, SectionName } from 'uniswap/src/features/telemetry/constants'
+import Trace from 'uniswap/src/features/telemetry/Trace'
+>>>>>>> upstream/main
 import { useScroll } from '~/hooks/useScroll'
 import { CONNECT_WALLET_BANNER_HEIGHT, CONNECT_WALLET_FIXED_BOTTOM_SECTION_HEIGHT } from '~/pages/Portfolio/constants'
 import { usePortfolioRoutes } from '~/pages/Portfolio/Header/hooks/usePortfolioRoutes'
@@ -12,7 +17,11 @@ const SCROLL_BUFFER = 40
 const BANNER_SCROLL_THRESHOLD = CONNECT_WALLET_BANNER_HEIGHT - SCROLL_BUFFER
 const DEMO_BOTTOM_MARGIN = CONNECT_WALLET_FIXED_BOTTOM_SECTION_HEIGHT - 40
 
+<<<<<<< HEAD
 // eslint-disable-next-line import/no-unused-modules -- used in RouteDefinitions.tsx via lazy import
+=======
+// oxlint-disable-next-line import/no-unused-modules -- used in RouteDefinitions.tsx via lazy import
+>>>>>>> upstream/main
 export default function Portfolio() {
   const showDemoView = useShowDemoView()
   const { isExternalWallet } = usePortfolioRoutes()

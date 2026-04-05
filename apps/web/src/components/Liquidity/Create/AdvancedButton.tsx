@@ -1,10 +1,19 @@
 import { useTranslation } from 'react-i18next'
+<<<<<<< HEAD
 import { Flex, GeneratedIcon, Text } from '@l.x/ui/src'
 import { InfoCircleFilled } from '@l.x/ui/src/components/icons/InfoCircleFilled'
 import { ElementName } from '@l.x/lx/src/features/telemetry/constants'
 import Trace from '@l.x/lx/src/features/telemetry/Trace'
 import { MouseoverTooltip } from '~/components/Tooltip'
 import { ClickableGuiStyle } from '~/theme/components/styles'
+=======
+import { Flex, GeneratedIcon, Text } from 'ui/src'
+import { InfoCircleFilled } from 'ui/src/components/icons/InfoCircleFilled'
+import { ElementName } from 'uniswap/src/features/telemetry/constants'
+import Trace from 'uniswap/src/features/telemetry/Trace'
+import { MouseoverTooltip } from '~/components/Tooltip'
+import { ClickableTamaguiStyle } from '~/theme/components/styles'
+>>>>>>> upstream/main
 
 export function AdvancedButton({
   title,
@@ -31,7 +40,11 @@ export function AdvancedButton({
             textDecorationLine="underline"
             textDecorationStyle="dashed"
             onPress={onPress}
+<<<<<<< HEAD
             {...ClickableGuiStyle}
+=======
+            {...ClickableTamaguiStyle}
+>>>>>>> upstream/main
           >
             {title}
           </Text>

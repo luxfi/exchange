@@ -2,19 +2,32 @@ import { providerErrors, serializeError } from '@metamask/rpc-errors'
 import {
   DeprecatedEthMethods,
   ProviderDirectMethods,
+<<<<<<< HEAD
   LuxMethods,
+=======
+  UniswapMethods,
+>>>>>>> upstream/main
   UnsupportedEthMethods,
 } from 'src/contentScript/methodHandlers/requestMethods'
 import { PendingResponseInfo } from 'src/contentScript/methodHandlers/types'
 import { logContentScriptError } from 'src/contentScript/utils'
+<<<<<<< HEAD
 import { DappResponseType, EthMethod, ExtensionEthMethod } from '@l.x/lx/src/features/dappRequests/types'
+=======
+import { DappResponseType, EthMethod, ExtensionEthMethod } from 'uniswap/src/features/dappRequests/types'
+>>>>>>> upstream/main
 
 export function isProviderDirectMethod(method: string): boolean {
   return Object.keys(ProviderDirectMethods).includes(method)
 }
 
+<<<<<<< HEAD
 export function isLuxMethod(method: string): boolean {
   return Object.keys(LuxMethods).includes(method)
+=======
+export function isUniswapMethod(method: string): boolean {
+  return Object.keys(UniswapMethods).includes(method)
+>>>>>>> upstream/main
 }
 
 // Since ExtensionEthMethod is a TypeScript type that doesn't exist at runtime,
@@ -59,7 +72,11 @@ export function postDeprecatedMethodError({
   source?.postMessage({
     requestId,
     error: serializeError(
+<<<<<<< HEAD
       providerErrors.unsupportedMethod(`Lux Wallet does not support ${method} as it is deprecated`),
+=======
+      providerErrors.unsupportedMethod(`Uniswap Wallet does not support ${method} as it is deprecated`),
+>>>>>>> upstream/main
     ),
   })
 }
@@ -75,7 +92,11 @@ export function postUnknownMethodError({
 }): void {
   source?.postMessage({
     requestId,
+<<<<<<< HEAD
     error: serializeError(providerErrors.unsupportedMethod(`Lux Wallet does not support ${method}`)),
+=======
+    error: serializeError(providerErrors.unsupportedMethod(`Uniswap Wallet does not support ${method}`)),
+>>>>>>> upstream/main
   })
 }
 
@@ -98,7 +119,11 @@ export function postParsingError({
   source?.postMessage({
     requestId,
     error: serializeError(
+<<<<<<< HEAD
       providerErrors.unsupportedMethod(`Lux Wallet could not parse the ${method} request properly`),
+=======
+      providerErrors.unsupportedMethod(`Uniswap Wallet could not parse the ${method} request properly`),
+>>>>>>> upstream/main
     ),
   })
 }

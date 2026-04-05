@@ -1,10 +1,18 @@
+<<<<<<< HEAD
 import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
+=======
+import { UniverseChainId } from 'uniswap/src/features/chains/types'
+>>>>>>> upstream/main
 import {
   SAMPLE_SEED_ADDRESS_1,
   SAMPLE_SEED_ADDRESS_2,
   SAMPLE_SEED_ADDRESS_3,
   SAMPLE_SEED_ADDRESS_4,
+<<<<<<< HEAD
 } from '@l.x/lx/src/test/fixtures/gql/assets/constants'
+=======
+} from 'uniswap/src/test/fixtures/gql/assets/constants'
+>>>>>>> upstream/main
 import { PortfolioTab } from '~/pages/Portfolio/types'
 import { buildPortfolioUrl, pathToPortfolioTab } from '~/pages/Portfolio/utils/portfolioUrls'
 

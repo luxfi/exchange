@@ -1,5 +1,9 @@
 import { useTranslation } from 'react-i18next'
+<<<<<<< HEAD
 import { Flex, Text } from '@l.x/ui/src'
+=======
+import { Flex, Text } from 'ui/src'
+>>>>>>> upstream/main
 import { useBidStatusColors } from '~/components/Toucan/Auction/hooks/useBidStatusColors'
 import { type BidDisplayState } from '~/components/Toucan/Auction/utils/bidDetails'
 import { ProgressBar } from '~/components/Toucan/Shared/ProgressBar'

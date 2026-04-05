@@ -1,9 +1,18 @@
+<<<<<<< HEAD
 import { AllowanceTransfer, MaxAllowanceTransferAmount, PermitSingle, permit2Address } from '@luxamm/permit2-sdk'
 import { CurrencyAmount, Token } from '@luxamm/sdk-core'
 import ms from 'ms'
 import { useCallback, useMemo, useRef } from 'react'
 import { PERMIT2_ABI } from '@l.x/lx/src/abis/permit2'
 import { TransactionType } from '@l.x/lx/src/features/transactions/types/transactionDetails'
+=======
+import { AllowanceTransfer, MaxAllowanceTransferAmount, PermitSingle, permit2Address } from '@uniswap/permit2-sdk'
+import { CurrencyAmount, Token } from '@uniswap/sdk-core'
+import ms from 'ms'
+import { useCallback, useMemo, useRef } from 'react'
+import { PERMIT2_ABI } from 'uniswap/src/abis/permit2'
+import { TransactionType } from 'uniswap/src/features/transactions/types/transactionDetails'
+>>>>>>> upstream/main
 import { useReadContract } from 'wagmi'
 import { useAccount } from '~/hooks/useAccount'
 import { useEthersSigner } from '~/hooks/useEthersSigner'

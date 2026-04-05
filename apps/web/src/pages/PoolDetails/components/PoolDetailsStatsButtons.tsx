@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { GraphQLApi } from '@l.x/api'
 import { ReactNode, useCallback, useReducer, useState } from 'react'
 import { useTranslation } from 'react-i18next'
@@ -18,6 +19,28 @@ import TokenWarningModal from '@l.x/lx/src/features/tokens/warnings/TokenWarning
 import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
 import { areAddressesEqual } from '@l.x/lx/src/utils/addresses'
 import { currencyId } from '@l.x/lx/src/utils/currencyId'
+=======
+import { GraphQLApi } from '@universe/api'
+import { ReactNode, useCallback, useState } from 'react'
+import { useTranslation } from 'react-i18next'
+import { useLocation, useNavigate } from 'react-router'
+import { Button, Flex, Spacer, styled, useIsTouchDevice, useMedia } from 'ui/src'
+import { CoinConvert } from 'ui/src/components/icons/CoinConvert'
+import { Plus } from 'ui/src/components/icons/Plus'
+import { X } from 'ui/src/components/icons/X'
+import { zIndexes } from 'ui/src/theme'
+import { Modal } from 'uniswap/src/components/modals/Modal'
+import { UniverseChainId } from 'uniswap/src/features/chains/types'
+import { CurrencyInfo } from 'uniswap/src/features/dataApi/types'
+import { Platform } from 'uniswap/src/features/platforms/types/Platform'
+import { ModalName } from 'uniswap/src/features/telemetry/constants'
+import { useCurrencyInfo } from 'uniswap/src/features/tokens/useCurrencyInfo'
+import { TokenWarningCard } from 'uniswap/src/features/tokens/warnings/TokenWarningCard'
+import TokenWarningModal from 'uniswap/src/features/tokens/warnings/TokenWarningModal'
+import { TestID } from 'uniswap/src/test/fixtures/testIDs'
+import { areAddressesEqual } from 'uniswap/src/utils/addresses'
+import { currencyId } from 'uniswap/src/utils/currencyId'
+>>>>>>> upstream/main
 import { gqlToCurrency } from '~/appGraphql/data/util'
 import { MobileBottomBar } from '~/components/NavBar/MobileBottomBar'
 import { LoadingBubble } from '~/components/Tokens/loading'
@@ -167,7 +190,11 @@ export function PoolDetailsStatsButtons({
       }
     }
   }
+<<<<<<< HEAD
   const [swapModalOpen, toggleSwapModalOpen] = useReducer((state) => !state, false)
+=======
+  const [swapModalOpen, setSwapModalOpen] = useState(false)
+>>>>>>> upstream/main
 
   const media = useMedia()
   const screenSizeLargerThanTablet = !media.xl
@@ -202,7 +229,11 @@ export function PoolDetailsStatsButtons({
         >
           <PoolButton
             icon={swapModalOpen ? <X size="$icon.20" /> : <CoinConvert size="$icon.20" />}
+<<<<<<< HEAD
             onPress={toggleSwapModalOpen}
+=======
+            onPress={() => setSwapModalOpen((prev) => !prev)}
+>>>>>>> upstream/main
             isOpen={swapModalOpen}
             data-testid={`pool-details-${swapModalOpen ? 'close' : 'swap'}-button`}
           >
@@ -220,7 +251,11 @@ export function PoolDetailsStatsButtons({
       <Modal
         name={ModalName.Swap}
         isModalOpen={swapModalOpen}
+<<<<<<< HEAD
         onClose={toggleSwapModalOpen}
+=======
+        onClose={() => setSwapModalOpen(false)}
+>>>>>>> upstream/main
         maxWidth={480}
         gap="$gap24"
       >

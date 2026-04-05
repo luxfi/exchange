@@ -1,9 +1,17 @@
+<<<<<<< HEAD
 import { type InAppNotification } from '@l.x/api'
+=======
+import { type InAppNotification } from '@universe/api'
+>>>>>>> upstream/main
 import {
   createIntervalNotificationDataSource,
   type NotificationDataSource,
   type NotificationTracker,
+<<<<<<< HEAD
 } from '@l.x/notifications'
+=======
+} from '@universe/notifications'
+>>>>>>> upstream/main
 import type { MobileState } from 'src/app/mobileReducer'
 import { checkFundWalletBanner } from 'src/notification-service/data-sources/banners/fundWalletBanner'
 import { checkNoAppFeesBanner } from 'src/notification-service/data-sources/banners/noAppFeesBanner'
@@ -11,12 +19,20 @@ import { checkPushNotificationsBanner } from 'src/notification-service/data-sour
 import { checkRecoveryBackup } from 'src/notification-service/data-sources/banners/recoveryBackupBanner'
 import { BannerId } from 'src/notification-service/data-sources/banners/types'
 import { checkUnitagClaim } from 'src/notification-service/data-sources/banners/unitagClaimBanner'
+<<<<<<< HEAD
 import { logger } from '@l.x/utils/src/logger/logger'
+=======
+import { logger } from 'utilities/src/logger/logger'
+>>>>>>> upstream/main
 import {
   selectHasDismissedNoAppFeesAnnouncement,
   selectHasSkippedUnitagPrompt,
   selectHasViewedNotificationsCard,
+<<<<<<< HEAD
 } from '@luxfi/wallet/src/features/behaviorHistory/selectors'
+=======
+} from 'wallet/src/features/behaviorHistory/selectors'
+>>>>>>> upstream/main
 
 interface CreateMobileLegacyBannersNotificationDataSourceContext {
   tracker: NotificationTracker

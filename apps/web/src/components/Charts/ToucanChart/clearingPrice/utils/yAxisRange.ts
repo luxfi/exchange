@@ -64,6 +64,7 @@ interface YAxisTick {
 }
 
 /**
+<<<<<<< HEAD
  * Generate nice Y-axis tick values from scaled chart data.
  *
  * Returns tick values in scaled space (for priceToCoordinate lookups)
@@ -95,6 +96,32 @@ export function calculateYAxisTicks({
   const niceStep = calculateNiceStep((dataMax - dataMin) / targetTicks)
   const tickMin = Math.ceil(dataMin / niceStep) * niceStep
   const tickMax = Math.floor(dataMax / niceStep) * niceStep
+=======
+ * Generate nice Y-axis tick values for the custom overlay.
+ *
+ * Accepts either an explicit min/max range or an array of values.
+ * Returns tick values in scaled space (for priceToCoordinate lookups)
+ * with pre-formatted labels (unscaled for display).
+ */
+export function calculateYAxisTicks({
+  min,
+  max,
+  formatter,
+  targetTicks = 15,
+}: {
+  min: number
+  max: number
+  formatter: (value: number) => string
+  targetTicks?: number
+}): YAxisTick[] {
+  if (min === max) {
+    return []
+  }
+
+  const niceStep = calculateNiceStep((max - min) / targetTicks)
+  const tickMin = Math.ceil(min / niceStep) * niceStep
+  const tickMax = Math.floor(max / niceStep) * niceStep
+>>>>>>> upstream/main
 
   const ticks: YAxisTick[] = []
   const tickCount = Math.round((tickMax - tickMin) / niceStep)

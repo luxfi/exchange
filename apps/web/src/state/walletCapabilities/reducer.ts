@@ -1,8 +1,15 @@
 import { createListenerMiddleware, createSlice } from '@reduxjs/toolkit'
+<<<<<<< HEAD
 import { InterfaceEventName } from '@l.x/lx/src/features/telemetry/constants'
 import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
 import { InterfaceUserPropertyName, setUserProperty } from '@l.x/lx/src/features/telemetry/user'
 import { hexToNumber } from '@l.x/utils/src/addresses/hex'
+=======
+import { InterfaceEventName } from 'uniswap/src/features/telemetry/constants'
+import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
+import { InterfaceUserPropertyName, setUserProperty } from 'uniswap/src/features/telemetry/user'
+import { hexToNumber } from 'utilities/src/addresses/hex'
+>>>>>>> upstream/main
 import { createOnSetCapabilitiesByChainEffect } from '~/state/walletCapabilities/effects'
 import {
   isAtomicBatchingSupported,

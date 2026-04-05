@@ -1,7 +1,12 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import { useAnimatedStyle, useDerivedValue, withSequence, withTiming } from 'react-native-reanimated'
+<<<<<<< HEAD
 import { Flex, useSporeColors } from '@l.x/ui/src'
 import { HeartWithFill } from '@l.x/ui/src/components/icons'
+=======
+import { Flex, useSporeColors } from 'ui/src'
+import { HeartWithFill } from 'ui/src/components/icons'
+>>>>>>> upstream/main
 
 interface FavoriteButtonProps {
   isFavorited: boolean
@@ -22,7 +27,11 @@ export const Favorite = ({ isFavorited, size }: FavoriteButtonProps): JSX.Elemen
 
   const [color, setColor] = useState(getColor())
 
+<<<<<<< HEAD
   // biome-ignore lint/correctness/useExhaustiveDependencies: we want to recalculate this when isFavorited changes
+=======
+  // oxlint-disable-next-line react/exhaustive-deps -- we want to recalculate this when isFavorited changes
+>>>>>>> upstream/main
   useEffect(() => {
     const timer = setTimeout(() => {
       setColor(getColor())
@@ -30,9 +39,17 @@ export const Favorite = ({ isFavorited, size }: FavoriteButtonProps): JSX.Elemen
     return () => clearTimeout(timer)
   }, [getColor, isFavorited])
 
+<<<<<<< HEAD
   const scale = useDerivedValue(() => {
     return withSequence(withTiming(0, ANIMATION_CONFIG), withTiming(1, ANIMATION_CONFIG))
   }, [isFavorited])
+=======
+  /* oxlint-disable react/exhaustive-deps -- isFavorited triggers animation re-derivation even though it's not read in the worklet */
+  const scale = useDerivedValue(() => {
+    return withSequence(withTiming(0, ANIMATION_CONFIG), withTiming(1, ANIMATION_CONFIG))
+  }, [isFavorited])
+  /* oxlint-enable react/exhaustive-deps */
+>>>>>>> upstream/main
 
   const animatedStyle = useAnimatedStyle(() => ({ transform: [{ scale: scale.value }] }), [scale])
 

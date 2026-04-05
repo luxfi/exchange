@@ -3,10 +3,17 @@ import { setupListeners } from '@reduxjs/toolkit/query/react'
 import localForage from 'localforage'
 import { type PersistConfig, persistReducer, persistStore } from 'redux-persist'
 import createSagaMiddleware from 'redux-saga'
+<<<<<<< HEAD
 import { delegationListenerMiddleware } from '@l.x/lx/src/features/smartWallet/delegation/slice'
 import { isDevEnv, isTestEnv } from '@l.x/utils/src/environment/env'
 import { createDatadogReduxEnhancer } from '@l.x/utils/src/logger/datadog/Datadog'
 import { ALLOW_ANALYTICS_ATOM_KEY } from '@l.x/utils/src/telemetry/analytics/constants'
+=======
+import { delegationListenerMiddleware } from 'uniswap/src/features/smartWallet/delegation/slice'
+import { isDevEnv, isTestEnv } from 'utilities/src/environment/env'
+import { createDatadogReduxEnhancer } from 'utilities/src/logger/datadog/Datadog'
+import { ALLOW_ANALYTICS_ATOM_KEY } from 'utilities/src/telemetry/analytics/constants'
+>>>>>>> upstream/main
 import { updateVersion } from '~/state/global/actions'
 import { customCreateMigrate, INDEXED_DB_REDUX_TABLE_NAME, migrations, PERSIST_VERSION } from '~/state/migrations'
 import { routingApi } from '~/state/routing/slice'

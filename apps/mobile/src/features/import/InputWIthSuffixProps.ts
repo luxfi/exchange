@@ -1,5 +1,9 @@
 import { TextInput as NativeTextInput } from 'react-native'
+<<<<<<< HEAD
 import { ColorTokens } from '@l.x/ui/src'
+=======
+import { ColorTokens } from 'ui/src'
+>>>>>>> upstream/main
 
 export interface InputWithSuffixProps {
   alwaysShowInputSuffix?: boolean

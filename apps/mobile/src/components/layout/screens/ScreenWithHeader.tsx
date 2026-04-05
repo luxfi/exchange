@@ -3,9 +3,15 @@ import { Edge } from 'react-native-safe-area-context'
 import { BackButton } from 'src/components/buttons/BackButton'
 import { Screen } from 'src/components/layout/Screen'
 import { HorizontalEdgeGestureTarget } from 'src/components/layout/screens/EdgeGestureTarget'
+<<<<<<< HEAD
 import { ColorTokens, Flex, flexStyles } from '@l.x/ui/src'
 import { iconSizes } from '@l.x/ui/src/theme'
 import { useAppInsets } from '@l.x/lx/src/hooks/useAppInsets'
+=======
+import { ColorTokens, Flex, flexStyles } from 'ui/src'
+import { iconSizes } from 'ui/src/theme'
+import { useAppInsets } from 'uniswap/src/hooks/useAppInsets'
+>>>>>>> upstream/main
 
 type ScreenWithHeaderProps = {
   centerElement?: JSX.Element

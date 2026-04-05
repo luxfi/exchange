@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { Currency, CurrencyAmount, Price } from '@luxamm/sdk-core'
 import JSBI from 'jsbi'
 import { useMemo } from 'react'
@@ -17,6 +18,27 @@ import '~/components/Toucan/Auction/Bids/AuctionGraduated.css'
 import { useTokenLaunchedBannerColorData } from '~/components/Toucan/Auction/Banners/TokenLaunched/useTokenLaunchedBannerColorData'
 import { AuctionGraduatedSkeleton } from '~/components/Toucan/Auction/Bids/AuctionGraduatedSkeleton'
 import { getClearingPrice } from '~/components/Toucan/Auction/utils/clearingPrice'
+=======
+import '~/components/Toucan/Auction/Bids/AuctionGraduated.css'
+import { Currency, CurrencyAmount, Price } from '@uniswap/sdk-core'
+import JSBI from 'jsbi'
+import { useMemo } from 'react'
+import { useTranslation } from 'react-i18next'
+import { Flex, Text, useSporeColors } from 'ui/src'
+import { TokenLogo } from 'uniswap/src/components/CurrencyLogo/TokenLogo'
+import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
+import { useCurrencyInfoWithLoading } from 'uniswap/src/features/tokens/useCurrencyInfo'
+import { buildCurrencyId } from 'uniswap/src/utils/currencyId'
+import { NumberType } from 'utilities/src/format/types'
+import { formatUnits } from 'viem'
+import { useTokenLaunchedBannerColorData } from '~/components/Toucan/Auction/Banners/TokenLaunched/useTokenLaunchedBannerColorData'
+import { q96ToPriceString } from '~/components/Toucan/Auction/BidDistributionChart/utils/q96'
+import { AuctionGraduatedSkeleton } from '~/components/Toucan/Auction/Bids/AuctionGraduatedSkeleton'
+import { useBidTokenInfo } from '~/components/Toucan/Auction/hooks/useBidTokenInfo'
+import { useAuctionStore } from '~/components/Toucan/Auction/store/useAuctionStore'
+import { getClearingPrice } from '~/components/Toucan/Auction/utils/clearingPrice'
+import { SubscriptZeroPrice } from '~/components/Toucan/Shared/SubscriptZeroPrice'
+>>>>>>> upstream/main
 
 const AuctionGraduatedSuccess = ({
   auctionLogoUrl,
@@ -115,7 +137,11 @@ const AuctionGraduatedSuccess = ({
     })
   }, [clearingPrice, bidTokenDecimals, auctionTokenDecimals])
 
+<<<<<<< HEAD
   // Calculate currency spent per token using Lux SDK Price class
+=======
+  // Calculate currency spent per token using Uniswap SDK Price class
+>>>>>>> upstream/main
   // This handles division with different decimals automatically
   const currencySpentPerTokenDecimal = useMemo(() => {
     if (tokensReceived === 0n) {

@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import { Flex } from '@l.x/ui/src'
+=======
+import { Flex } from 'ui/src'
+>>>>>>> upstream/main
 import { PortfolioConnectWalletBanner } from '~/pages/Portfolio/ConnectWalletBanner'
 import { ConnectWalletFixedBottomButton } from '~/pages/Portfolio/ConnectWalletFixedBottomButton'
 import { PortfolioHeader } from '~/pages/Portfolio/Header/Header'
@@ -29,15 +33,29 @@ export function PortfolioPageInner({ scrollY, isBannerVisible, mb }: PortfolioPa
       {showDemoView && <PortfolioConnectWalletBanner />}
       {showDemoView && <ConnectWalletFixedBottomButton shouldShow={!isBannerVisible} />}
 
+<<<<<<< HEAD
       <PortfolioHeader scrollY={scrollY} />
 
       {/* Animated Content Area - All routes show same content, filtered by chain */}
       {!showDemoView ? (
         <>
+=======
+      {!showDemoView ? (
+        <>
+          <PortfolioHeader scrollY={scrollY} />
+
+          {/* Animated Content Area - All routes show same content, filtered by chain */}
+>>>>>>> upstream/main
           <PortfolioContent />
         </>
       ) : (
         <>
+<<<<<<< HEAD
+=======
+          <PortfolioHeader />
+
+          {/* Animated Content Area - All routes show same content, filtered by chain */}
+>>>>>>> upstream/main
           <Flex cursor="not-allowed">
             <PortfolioContent disabled />
           </Flex>

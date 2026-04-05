@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import { Percent } from '@luxamm/sdk-core'
+=======
+import { Percent } from '@uniswap/sdk-core'
+>>>>>>> upstream/main
 import { largerPercentValue } from '~/utils/percent'
 
 describe('largerPercentValue', () => {

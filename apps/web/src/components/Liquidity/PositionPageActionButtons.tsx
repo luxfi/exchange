@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { PositionStatus, ProtocolVersion } from '@luxamm/client-data-api/dist/data/v1/poolTypes_pb'
 import { useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
@@ -7,6 +8,17 @@ import { X } from '@l.x/ui/src/components/icons/X'
 import { zIndexes } from '@l.x/ui/src/theme'
 import { MenuOptionItem } from '@l.x/lx/src/components/menus/ContextMenu'
 import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
+=======
+import { PositionStatus, ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
+import { useMemo, useState } from 'react'
+import { useTranslation } from 'react-i18next'
+import { Button, DropdownMenuSheetItem, Flex, IconButton, Popover, useIsTouchDevice, useMedia } from 'ui/src'
+import { GridView } from 'ui/src/components/icons/GridView'
+import { X } from 'ui/src/components/icons/X'
+import { zIndexes } from 'ui/src/theme'
+import { MenuOptionItem } from 'uniswap/src/components/menus/ContextMenu'
+import { ModalName } from 'uniswap/src/features/telemetry/constants'
+>>>>>>> upstream/main
 import { PositionInfo } from '~/components/Liquidity/types'
 import { MobileBottomBar } from '~/components/NavBar/MobileBottomBar'
 import { MouseoverTooltip } from '~/components/Tooltip'

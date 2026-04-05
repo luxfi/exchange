@@ -1,7 +1,11 @@
 import { NavigationAction, NavigationState } from '@react-navigation/core'
 import { navigationRef } from 'src/app/navigation/navigationRef'
 import { RootParamList } from 'src/app/navigation/types'
+<<<<<<< HEAD
 import { logger } from '@l.x/utils/src/logger/logger'
+=======
+import { logger } from 'utilities/src/logger/logger'
+>>>>>>> upstream/main
 
 type RootNavigationArgs<RouteName extends keyof RootParamList> = undefined extends RootParamList[RouteName]
   ? [RouteName] | [RouteName, RootParamList[RouteName]]
@@ -25,7 +29,11 @@ export function navigate<RouteName extends keyof RootParamList>(...args: RootNav
 
   // Type assignment to `any` is a workaround until we figure out how to
   // type `createNavigationContainerRef` in a way that's compatible
+<<<<<<< HEAD
   // biome-ignore lint/suspicious/noExplicitAny: Navigation refs need flexible typing
+=======
+  // oxlint-disable-next-line typescript/no-explicit-any -- Navigation refs need flexible typing
+>>>>>>> upstream/main
   navigationRef.navigate(routeName as any, params as never)
 }
 
