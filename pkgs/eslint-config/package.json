@@ -1,6 +1,6 @@
 {
   "name": "@luxfi/eslint-config",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Lux ESLint config",
   "repository": "https://github.com/Lux/eslint-config",
   "homepage": "https://github.com/Lux/eslint-config#readme",

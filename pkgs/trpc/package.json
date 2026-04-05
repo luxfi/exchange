@@ -1,6 +1,6 @@
 {
   "name": "@l.x/trpc",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "dependencies": {},
   "devDependencies": {
     "@types/node": "22.13.1",

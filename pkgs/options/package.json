@@ -1,6 +1,6 @@
 {
   "name": "@l.x/options",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Options chain UI components for Lux Exchange",
   "main": "src/index.ts",
   "private": false,

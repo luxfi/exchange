@@ -1,6 +1,6 @@
 {
   "name": "@l.x/gating",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "dependencies": {
     "@statsig/client-core": "3.12.2",
     "@statsig/js-client": "3.12.2",

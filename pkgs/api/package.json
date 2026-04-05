@@ -1,6 +1,6 @@
 {
   "name": "@l.x/api",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "scripts": {
     "lint:biome": "nx lint:biome api",
     "lint:biome:fix": "nx lint:biome:fix api",
