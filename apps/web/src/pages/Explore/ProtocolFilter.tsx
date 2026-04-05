@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-import { ProtocolVersion } from '@luxamm/client-data-api/dist/data/v1/poolTypes_pb'
-import { useCallback, useMemo, useState } from 'react'
-import { useTranslation } from 'react-i18next'
-import { Flex, Text, useMedia } from '@l.x/ui/src'
-import { Check } from '@l.x/ui/src/components/icons/Check'
-import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
-import Trace from '@l.x/lx/src/features/telemetry/Trace'
-=======
 import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
 import { useCallback, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
@@ -14,7 +5,6 @@ import { Flex, Text, useMedia } from 'ui/src'
 import { Check } from 'ui/src/components/icons/Check'
 import { ModalName } from 'uniswap/src/features/telemetry/constants'
 import Trace from 'uniswap/src/features/telemetry/Trace'
->>>>>>> upstream/main
 import { Dropdown, InternalMenuItem } from '~/components/Dropdowns/Dropdown'
 import { getProtocolVersionLabel } from '~/components/Liquidity/utils/protocolVersion'
 import {

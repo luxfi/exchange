@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
-import { atom, useAtom } from 'jotai'
-import { useCallback, useEffect, useState } from 'react'
-import { AnimatedPager, Flex } from '@l.x/ui/src'
-import { Modal } from 'lx/src/components/modals/Modal'
-import { ModalName } from 'lx/src/features/telemetry/constants'
-import { TestID } from 'lx/src/test/fixtures/testIDs'
-=======
 import { FeatureFlags, useFeatureFlag } from '@universe/gating'
 import { atom, useAtom } from 'jotai'
 import { useCallback, useEffect, useState } from 'react'
@@ -14,7 +5,6 @@ import { AnimatedPager, Flex } from 'ui/src'
 import { Modal } from 'uniswap/src/components/modals/Modal'
 import { ModalName } from 'uniswap/src/features/telemetry/constants'
 import { TestID } from 'uniswap/src/test/fixtures/testIDs'
->>>>>>> upstream/main
 import { ChooseUnitagModal } from '~/components/NavBar/DownloadApp/Modal/ChooseUnitag'
 import { DownloadAppsModal } from '~/components/NavBar/DownloadApp/Modal/DownloadApps'
 import { KeyManagementModal } from '~/components/NavBar/DownloadApp/Modal/KeyManagement'
@@ -56,11 +46,7 @@ export function GetTheAppModal() {
       onClose={close}
       padding={0}
     >
-<<<<<<< HEAD
-      <Flex data-testid={TestID.DownloadLuxModal} position="relative" userSelect="none">
-=======
       <Flex data-testid={TestID.DownloadUniswapModal} position="relative" userSelect="none">
->>>>>>> upstream/main
         {/* The Page enum value corresponds to the modal page's index */}
         <AnimatedPager currentIndex={page}>
           <DownloadAppsModal onClose={close} />

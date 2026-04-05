@@ -1,11 +1,5 @@
-<<<<<<< HEAD
-import { brand, getBrandUrl, getDocsUrl } from '@l.x/config'
-import { zIndexes } from '@l.x/ui/src/theme'
-import { isWebAndroid, isWebIOS } from '@l.x/utils/src/platform'
-=======
 import { zIndexes } from 'ui/src/theme'
 import { isWebAndroid, isWebIOS } from 'utilities/src/platform'
->>>>>>> upstream/main
 import { type CreateConnectorFn, createConnector } from 'wagmi'
 import { walletConnect } from 'wagmi/connectors'
 
@@ -25,20 +19,10 @@ export function walletTypeToAmplitudeWalletType(connectionType?: string): string
     case 'coinbaseWallet': {
       return 'Coinbase Wallet'
     }
-<<<<<<< HEAD
-    case 'nativeWalletConnect':
-    case 'brandWalletConnect':
-    case 'luxWalletConnect': {
-      return 'Wallet Connect'
-    }
-    case 'embeddedWallet':
-    case 'embeddedLuxWallet': {
-=======
     case 'uniswapWalletConnect': {
       return 'Wallet Connect'
     }
     case 'embeddedUniswapWallet': {
->>>>>>> upstream/main
       return 'Passkey'
     }
     default: {
@@ -50,17 +34,10 @@ export function walletTypeToAmplitudeWalletType(connectionType?: string): string
 export const WC_PARAMS = {
   projectId: WALLET_CONNECT_PROJECT_ID,
   metadata: {
-<<<<<<< HEAD
-    name: brand.name || 'Exchange',
-    description: (brand.name || 'Exchange') + ' Interface',
-    url: getBrandUrl(''),
-    icons: [getBrandUrl('/favicon.png')],
-=======
     name: 'Uniswap',
     description: 'Uniswap Interface',
     url: 'https://app.uniswap.org',
     icons: ['https://app.uniswap.org/favicon.png'],
->>>>>>> upstream/main
   },
   qrModalOptions: {
     themeVariables: {
@@ -70,29 +47,13 @@ export const WC_PARAMS = {
   },
 }
 
-<<<<<<< HEAD
-// Brand-native WalletConnect connector — ID is generic, display name comes from config.json
-export function brandWalletConnect(): CreateConnectorFn {
-=======
 export function uniswapWalletConnect(): CreateConnectorFn {
->>>>>>> upstream/main
   return createConnector((config) => {
     const wc = walletConnect({
       ...WC_PARAMS,
       showQrModal: false,
     })(config)
 
-<<<<<<< HEAD
-    config.emitter.on('message', ({ type, data }: { type: string; data: any }) => {
-      if (type === 'display_uri') {
-        const walletUri = getBrandUrl(`/app/wc?uri=${data}`)
-        window.dispatchEvent(new MessageEvent('display_brand_wallet_uri', { data: walletUri }))
-
-        if (isWebIOS || isWebAndroid) {
-          // Deep link using brand's app domain slug as scheme
-          const scheme = (brand.appDomain || 'lux.exchange').split('.')[0]
-          window.location.href = `${scheme}://wc?uri=${encodeURIComponent(data as string)}`
-=======
     config.emitter.on('message', ({ type, data }) => {
       if (type === 'display_uri') {
         // Emits custom wallet connect code, parseable by the Uniswap Wallet
@@ -106,26 +67,12 @@ export function uniswapWalletConnect(): CreateConnectorFn {
           // Using window.location.href to open the deep link ensures smooth navigation and leverages OS handling for installed apps,
           // avoiding potential popup blockers or inconsistent behavior associated with window.open
           window.location.href = `uniswap://wc?uri=${encodeURIComponent(data as string)}`
->>>>>>> upstream/main
         }
       }
     })
 
     return {
       ...wc,
-<<<<<<< HEAD
-      id: 'nativeWalletConnect',
-      type: 'nativeWalletConnect',
-      name: brand.walletName || 'Wallet',
-      icon: getBrandUrl('/favicon.png'),
-    }
-  })
-}
-
-// Legacy aliases
-export const lxWalletConnect = brandWalletConnect
-export const luxWalletConnect = brandWalletConnect
-=======
       id: 'uniswapWalletConnect',
       type: 'uniswapWalletConnect',
       name: 'Uniswap Wallet',
@@ -133,4 +80,3 @@ export const luxWalletConnect = brandWalletConnect
     }
   })
 }
->>>>>>> upstream/main

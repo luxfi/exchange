@@ -1,13 +1,3 @@
-<<<<<<< HEAD
-import { ProtocolVersion } from '@luxamm/client-data-api/dist/data/v1/poolTypes_pb'
-import { Percent } from '@luxamm/sdk-core'
-import { FeeAmount } from '@luxamm/v3-sdk'
-import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
-import i18n from '@l.x/lx/src/i18n'
-import { PercentNumberDecimals } from '@l.x/utils/src/format/types'
-import { DYNAMIC_FEE_DATA, DynamicFeeData, FeeData } from '~/components/Liquidity/Create/types'
-import { defaultFeeTiers } from '~/components/Liquidity/constants'
-=======
 import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
 import { Percent } from '@uniswap/sdk-core'
 import { FeeAmount } from '@uniswap/v3-sdk'
@@ -16,7 +6,6 @@ import i18n from 'uniswap/src/i18n'
 import { PercentNumberDecimals } from 'utilities/src/format/types'
 import { defaultFeeTiers } from '~/components/Liquidity/constants'
 import { DYNAMIC_FEE_DATA, DynamicFeeData, FeeData } from '~/components/Liquidity/Create/types'
->>>>>>> upstream/main
 import { FeeTierData } from '~/components/Liquidity/types'
 import { BIPS_BASE } from '~/constants/misc'
 
@@ -176,11 +165,7 @@ export function getDefaultFeeTiersForChainWithDynamicFeeTier({
   }
 }
 
-<<<<<<< HEAD
-/* eslint-disable @typescript-eslint/no-unnecessary-condition */
-=======
 /* oxlint-disable typescript/no-unnecessary-condition */
->>>>>>> upstream/main
 export function getDefaultFeeTiersWithData({
   chainId,
   feeTierData,
@@ -235,11 +220,7 @@ export function getDefaultFeeTiersWithData({
   // For V2/V3, filter to only include default fee tiers and sort by TVL
   return feeTiers
     .filter(
-<<<<<<< HEAD
-      // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
-=======
       // oxlint-disable-next-line typescript/no-unnecessary-condition
->>>>>>> upstream/main
       (feeTier) =>
         feeTier.value !== undefined &&
         Object.keys(feeTierData).includes(
@@ -252,11 +233,7 @@ export function getDefaultFeeTiersWithData({
     )
     .sort(sortFeeTiersByTvl)
 }
-<<<<<<< HEAD
-/* eslint-enable @typescript-eslint/no-unnecessary-condition */
-=======
 /* oxlint-enable typescript/no-unnecessary-condition */
->>>>>>> upstream/main
 
 export function isDynamicFeeTier(feeData?: FeeData): feeData is DynamicFeeData {
   return feeData?.isDynamic || feeData?.feeAmount === DYNAMIC_FEE_DATA.feeAmount

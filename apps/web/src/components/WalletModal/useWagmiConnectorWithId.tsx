@@ -1,28 +1,10 @@
 import { useCallback, useMemo } from 'react'
-<<<<<<< HEAD
-import { CONNECTION_PROVIDER_IDS } from '@l.x/lx/src/constants/web3'
-=======
 import { CONNECTION_PROVIDER_IDS } from 'uniswap/src/constants/web3'
->>>>>>> upstream/main
 import { Connector, useConnectors } from 'wagmi'
 
 type ConnectorID = (typeof CONNECTION_PROVIDER_IDS)[keyof typeof CONNECTION_PROVIDER_IDS]
 
-<<<<<<< HEAD
-=======
-// oxlint-disable-next-line max-params -- biome-parity: oxlint is stricter here
->>>>>>> upstream/main
-function getWagmiConnectorWithId(
-  connectors: readonly Connector[],
-  id: ConnectorID,
-  options: { shouldThrow: true },
-): Connector
-function getWagmiConnectorWithId(connectors: readonly Connector[], id: ConnectorID): Connector | undefined
-<<<<<<< HEAD
-// eslint-disable-next-line max-params
-=======
 // oxlint-disable-next-line max-params
->>>>>>> upstream/main
 function getWagmiConnectorWithId(
   connectors: readonly Connector[],
   id: ConnectorID,
@@ -48,24 +30,15 @@ export function useWagmiConnectorWithId(id: ConnectorID, options?: { shouldThrow
 }
 
 export enum ExtensionRequestMethods {
-<<<<<<< HEAD
-  OPEN_SIDEBAR = 'lux_openSidebar',
-=======
   OPEN_SIDEBAR = 'uniswap_openSidebar',
->>>>>>> upstream/main
 }
 
 const ExtensionRequestArguments = {
   [ExtensionRequestMethods.OPEN_SIDEBAR]: ['Tokens', 'Activity'],
 } as const
 
-<<<<<<< HEAD
-export function useLuxExtensionRequest() {
-  const connector = useWagmiConnectorWithId(CONNECTION_PROVIDER_IDS.LUX_EXTENSION_RDNS)
-=======
 export function useUniswapExtensionRequest() {
   const connector = useWagmiConnectorWithId(CONNECTION_PROVIDER_IDS.UNISWAP_EXTENSION_RDNS)
->>>>>>> upstream/main
   const extensionRequest = useCallback(
     async <
       Type extends keyof typeof ExtensionRequestArguments,

@@ -3,11 +3,7 @@ import { loadDevMessages, loadErrorMessages } from '@apollo/client/dev'
 import { DdRum, RumActionType } from '@datadog/mobile-react-native'
 import { BottomSheetModalProvider } from '@gorhom/bottom-sheet'
 import { PerformanceProfiler, type RenderPassReport } from '@shopify/react-native-performance'
-<<<<<<< HEAD
-import { ApiInit, getEntryGatewayUrl, provideSessionService } from '@l.x/api'
-=======
 import { ApiInit, getEntryGatewayUrl, provideSessionService } from '@universe/api'
->>>>>>> upstream/main
 import {
   DatadogSessionSampleRateKey,
   DynamicConfigs,
@@ -26,11 +22,7 @@ import {
   useFeatureFlag,
   useIsSessionServiceEnabled,
   WALLET_FEATURE_FLAG_NAMES,
-<<<<<<< HEAD
-} from '@l.x/gating'
-=======
 } from '@universe/gating'
->>>>>>> upstream/main
 import {
   type ChallengeSolver,
   ChallengeType,
@@ -41,11 +33,7 @@ import {
   createSessionInitializationService,
   createTurnstileMockSolver,
   type SessionInitializationService,
-<<<<<<< HEAD
-} from '@l.x/sessions'
-=======
 } from '@universe/sessions'
->>>>>>> upstream/main
 import { MMKVWrapper } from 'apollo3-cache-persist'
 import { default as React, StrictMode, useCallback, useEffect, useMemo, useRef } from 'react'
 import { I18nextProvider } from 'react-i18next'
@@ -64,13 +52,8 @@ import { PersistGate } from 'redux-persist/integration/react'
 import { MobileWalletNavigationProvider } from 'src/app/MobileWalletNavigationProvider'
 import { AppModals } from 'src/app/modals/AppModals'
 import { useIsPartOfNavigationTree } from 'src/app/navigation/hooks'
-<<<<<<< HEAD
-import { NavigationContainer } from 'src/app/navigation/NavigationContainer'
-import { AppStackNavigator } from 'src/app/navigation/navigation'
-=======
 import { AppStackNavigator } from 'src/app/navigation/navigation'
 import { NavigationContainer } from 'src/app/navigation/NavigationContainer'
->>>>>>> upstream/main
 import { store } from 'src/app/store'
 import { TraceUserProperties } from 'src/components/Trace/TraceUserProperties'
 import { initAppsFlyer } from 'src/features/analytics/appsflyer'
@@ -99,51 +82,6 @@ import { SystemBannerPortalProvider } from 'src/notification-service/notificatio
 import { initDynamicIntlPolyfills } from 'src/polyfills/intl-delayed'
 import { useDatadogUserAttributesTracking } from 'src/screens/HomeScreen/useDatadogUserAttributesTracking'
 import { useAppStateTrigger } from 'src/utils/useAppStateTrigger'
-<<<<<<< HEAD
-import { flexStyles, ImageSettingsProvider, useIsDarkMode } from '@l.x/ui/src'
-import { TestnetModeBanner } from 'lx/src/components/banners/TestnetModeBanner'
-import { BlankUrlProvider } from 'lx/src/contexts/UrlContext'
-import { initializePortfolioQueryOverrides } from 'lx/src/data/rest/portfolioBalanceOverrides'
-import { useCurrentAppearanceSetting } from 'lx/src/features/appearance/hooks'
-import { selectFavoriteTokens } from 'lx/src/features/favorites/selectors'
-import { useAppFiatCurrencyInfo } from 'lx/src/features/fiatCurrency/hooks'
-import { StatsigProviderWrapper } from 'lx/src/features/gating/StatsigProviderWrapper'
-import { useCurrentLanguageInfo } from 'lx/src/features/language/hooks'
-import { LocalizationContextProvider } from 'lx/src/features/language/LocalizationContext'
-import { clearNotificationQueue } from 'lx/src/features/notifications/slice/slice'
-import { TokenPriceProvider } from 'lx/src/features/prices/TokenPriceContext'
-import { MobileEventName } from 'lx/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
-import Trace from 'lx/src/features/telemetry/Trace'
-import i18n from 'lx/src/i18n'
-import { type CurrencyId } from 'lx/src/types/currency'
-import { datadogEnabledBuild } from '@l.x/utils/src/environment/constants'
-import { isTestEnv } from '@l.x/utils/src/environment/env'
-import { registerConsoleOverrides } from '@l.x/utils/src/logger/console'
-import { attachUnhandledRejectionHandler, setAttributesToDatadog } from '@l.x/utils/src/logger/datadog/Datadog'
-import { DDRumAction, DDRumTiming } from '@l.x/utils/src/logger/datadog/datadogEvents'
-import { getLogger, logger } from '@l.x/utils/src/logger/logger'
-import { isIOS } from '@l.x/utils/src/platform'
-import { AnalyticsNavigationContextProvider } from '@l.x/utils/src/telemetry/trace/AnalyticsNavigationContext'
-import { ErrorBoundary } from '@luxfi/wallet/src/components/ErrorBoundary/ErrorBoundary'
-// biome-ignore lint/style/noRestrictedImports: Required for Apollo client initialization at app root
-import { usePersistedApolloClient } from '@luxfi/wallet/src/data/apollo/usePersistedApolloClient'
-import { AccountsStoreContextProvider } from '@luxfi/wallet/src/features/accounts/store/provider'
-import { StatsigUserIdentifiersUpdater } from '@luxfi/wallet/src/features/gating/StatsigUserIdentifiersUpdater'
-import { useHeartbeatReporter } from '@luxfi/wallet/src/features/telemetry/hooks/useHeartbeatReporter'
-import { useLastBalancesReporter } from '@luxfi/wallet/src/features/telemetry/hooks/useLastBalancesReporter'
-import { selectAllowAnalytics } from '@luxfi/wallet/src/features/telemetry/selectors'
-import { useTestnetModeForLoggingAndAnalytics } from '@luxfi/wallet/src/features/testnetMode/hooks/useTestnetModeForLoggingAndAnalytics'
-import { WalletLuxProvider } from '@luxfi/wallet/src/features/transactions/contexts/WalletLuxContext'
-import { TransactionHistoryUpdater } from '@luxfi/wallet/src/features/transactions/TransactionHistoryUpdater'
-import { type Account } from '@luxfi/wallet/src/features/wallet/accounts/types'
-import { WalletContextProvider } from '@luxfi/wallet/src/features/wallet/context'
-import { useAccounts } from '@luxfi/wallet/src/features/wallet/hooks'
-import { NativeWalletProvider } from '@luxfi/wallet/src/features/wallet/providers/NativeWalletProvider'
-import { selectFinishedOnboarding } from '@luxfi/wallet/src/features/wallet/selectors'
-import { SharedWalletProvider as SharedWalletReduxProvider } from '@luxfi/wallet/src/providers/SharedWalletProvider'
-import { getReduxPersistor } from '@luxfi/wallet/src/state/persistor'
-=======
 import { flexStyles, ImageSettingsProvider, useIsDarkMode } from 'ui/src'
 import { TestnetModeBanner } from 'uniswap/src/components/banners/TestnetModeBanner'
 import { BlankUrlProvider } from 'uniswap/src/contexts/UrlContext'
@@ -189,7 +127,6 @@ import { NativeWalletProvider } from 'wallet/src/features/wallet/providers/Nativ
 import { selectFinishedOnboarding } from 'wallet/src/features/wallet/selectors'
 import { SharedWalletProvider as SharedWalletReduxProvider } from 'wallet/src/providers/SharedWalletProvider'
 import { getReduxPersistor } from 'wallet/src/state/persistor'
->>>>>>> upstream/main
 
 enableFreeze(true)
 
@@ -331,94 +268,7 @@ function App(): JSX.Element | null {
 
 const MAX_CACHE_SIZE_IN_BYTES = 1024 * 1024 * 25 // 25 MB
 
-<<<<<<< HEAD
-=======
-/**
- * Applies the persisted language from Redux to i18n on app launch.
- * Renders inside PersistGate so Redux is already rehydrated when this mounts.
- */
-function ApplyPersistedLanguage(): null {
-  const currentLanguage = useSelector(selectCurrentLanguage)
-
-  useEffect(() => {
-    changeLanguage(mapLanguageToLocale[currentLanguage]).catch(() => undefined)
-  }, [currentLanguage])
-
-  return null
-}
-
->>>>>>> upstream/main
-// Ensures redux state is available inside usePersistedApolloClient for the custom endpoint
-function AppOuter(): JSX.Element | null {
-  const customEndpoint = useSelector(selectCustomEndpoint)
-  const client = usePersistedApolloClient({
-    storageWrapper: new MMKVWrapper(new MMKV()),
-    maxCacheSizeInBytes: MAX_CACHE_SIZE_IN_BYTES,
-    customEndpoint,
-    reduxStore: store,
-  })
-  const jsBundleLoadedRef = useRef(false)
-
-  /**
-   * Function called by the @shopify/react-native-performance PerformanceProfiler that returns a
-   * RenderPassReport. We then forward this report to Datadog, Amplitude, etc.
-   */
-  const onReportPrepared = useCallback(async (report: RenderPassReport) => {
-    if (datadogEnabledBuild) {
-      const shouldLogJsBundleLoaded = report.timeToBootJsMillis && !jsBundleLoadedRef.current
-      if (shouldLogJsBundleLoaded) {
-        await DdRum.addAction(RumActionType.CUSTOM, DDRumAction.ApplicationStartJs, {
-          loading_time: report.timeToBootJsMillis,
-        })
-        jsBundleLoadedRef.current = true
-        // Note that we are not checking report.interactive here because it's not consistently reported.
-        // Additionally, we are not tracking interactive the same way @shopify/react-native-performance does.
-        await DdRum.addTiming(DDRumTiming.ScreenInteractive)
-      }
-    }
-    sendAnalyticsEvent(MobileEventName.PerformanceReport, report)
-  }, [])
-
-  const enableExpoImage = useFeatureFlag(FeatureFlags.ExpoImage)
-
-  useEffect(() => {
-    for (const [_, flagKey] of WALLET_FEATURE_FLAG_NAMES.entries()) {
-      DdRum.addFeatureFlagEvaluation(
-        // Datadog has a limited set of accepted symbols in feature flags
-        // https://docs.datadoghq.com/real_user_monitoring/guide/setup-feature-flag-data-collection/?tab=reactnative#feature-flag-naming
-        flagKey.replaceAll('-', '_'),
-        getStatsigClient().checkGate(flagKey),
-      ).catch(() => undefined)
-    }
-
-    for (const experiment of Object.values(Experiments)) {
-      DdRum.addFeatureFlagEvaluation(
-        // Datadog has a limited set of accepted symbols in feature flags
-        // https://docs.datadoghq.com/real_user_monitoring/guide/setup-feature-flag-data-collection/?tab=reactnative#feature-flag-naming
-        `experiment_${experiment.replaceAll('-', '_')}`,
-        getStatsigClient().getExperiment(experiment).groupName,
-      ).catch(() => undefined)
-    }
-
-    if (isIOS) {
-      OneSignal.User.addTags({
-        [OneSignalUserTagField.GatingUnfundedWalletsEnabled]: 'true',
-      })
-    }
-  }, [])
-
-  if (!client) {
-    return null
-  }
-
-  return (
-    <ApolloProvider client={client}>
-      <PersistGate loading={null} persistor={getReduxPersistor()}>
-        <ErrorBoundaryWrapper>
-<<<<<<< HEAD
-=======
           <ApplyPersistedLanguage />
->>>>>>> upstream/main
           <BlankUrlProvider>
             <LocalizationContextProvider>
               <ImageSettingsProvider enableExpoImage={enableExpoImage}>
@@ -428,11 +278,7 @@ function AppOuter(): JSX.Element | null {
                       <MobileWalletNavigationProvider>
                         <NativeWalletProvider>
                           <TokenPriceProvider>
-<<<<<<< HEAD
-                            <WalletLuxProvider>
-=======
                             <WalletUniswapProvider>
->>>>>>> upstream/main
                               <AccountsStoreContextProvider>
                                 <DataUpdaters />
                                 <BottomSheetModalProvider>
@@ -443,11 +289,7 @@ function AppOuter(): JSX.Element | null {
                                 </BottomSheetModalProvider>
                                 <NotificationToastWrapper />
                               </AccountsStoreContextProvider>
-<<<<<<< HEAD
-                            </WalletLuxProvider>
-=======
                             </WalletUniswapProvider>
->>>>>>> upstream/main
                           </TokenPriceProvider>
                         </NativeWalletProvider>
                       </MobileWalletNavigationProvider>

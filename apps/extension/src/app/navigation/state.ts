@@ -76,18 +76,10 @@ type RouterNavigateArgs = Parameters<RouterNavigate>
 // note: useNavigation().navigate() returns void, so making this match that function for easier swapping out
 export const navigate = (to: RouterNavigateArgs[0] | number, opts?: RouterNavigateArgs[1]): void => {
   if (typeof to === 'number') {
-<<<<<<< HEAD
-    // biome-ignore lint/complexity/noVoid: Router navigation returns Promise<void> requiring explicit void handling
-    void getRouter().navigate(to)
-    return
-  }
-  // biome-ignore lint/complexity/noVoid: Router navigation returns Promise<void> requiring explicit void handling
-=======
     // oxlint-disable-next-line no-void -- Router navigation returns Promise<void> requiring explicit void handling
     void getRouter().navigate(to)
     return
   }
   // oxlint-disable-next-line no-void -- Router navigation returns Promise<void> requiring explicit void handling
->>>>>>> upstream/main
   void getRouter().navigate(to, opts)
 }

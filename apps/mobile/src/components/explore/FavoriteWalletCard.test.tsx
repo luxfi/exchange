@@ -1,23 +1,10 @@
 import { UseQueryResult } from '@tanstack/react-query'
-<<<<<<< HEAD
-import type { UnitagAddressResponse } from '@luxfi/api'
-=======
 import type { UnitagAddressResponse } from '@universe/api'
->>>>>>> upstream/main
 import configureMockStore from 'redux-mock-store'
 import { thunk } from 'redux-thunk'
 import FavoriteWalletCard, { FavoriteWalletCardProps } from 'src/components/explore/FavoriteWalletCard'
 import { preloadedMobileState } from 'src/test/fixtures'
 import { fireEvent, render, waitFor } from 'src/test/test-utils'
-<<<<<<< HEAD
-import * as unitagHooks from '@l.x/lx/src/data/apiClients/unitagsApi/useUnitagsAddressQuery'
-import * as ensHooks from '@l.x/lx/src/features/ens/api'
-import { ON_PRESS_EVENT_PAYLOAD, SAMPLE_SEED_ADDRESS_1 } from '@l.x/lx/src/test/fixtures'
-import { MobileScreens } from '@l.x/lx/src/types/screens/mobile'
-import { sanitizeAddressText } from '@l.x/lx/src/utils/addresses'
-import { shortenAddress } from '@l.x/utils/src/addresses'
-import { preloadedWalletReducerState, signerMnemonicAccount } from '@luxfi/wallet/src/test/fixtures'
-=======
 import * as unitagHooks from 'uniswap/src/data/apiClients/unitagsApi/useUnitagsAddressQuery'
 import * as ensHooks from 'uniswap/src/features/ens/api'
 import { ON_PRESS_EVENT_PAYLOAD, SAMPLE_SEED_ADDRESS_1 } from 'uniswap/src/test/fixtures'
@@ -25,7 +12,6 @@ import { MobileScreens } from 'uniswap/src/types/screens/mobile'
 import { sanitizeAddressText } from 'uniswap/src/utils/addresses'
 import { shortenAddress } from 'utilities/src/addresses'
 import { preloadedWalletReducerState, signerMnemonicAccount } from 'wallet/src/test/fixtures'
->>>>>>> upstream/main
 
 const mockedNavigation = {
   navigate: jest.fn(),
@@ -35,11 +21,7 @@ jest.mock('@react-navigation/native', () => {
   const actualNav = jest.requireActual('@react-navigation/native')
   return {
     ...actualNav,
-<<<<<<< HEAD
-    // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-=======
     // oxlint-disable-next-line typescript/explicit-function-return-type
->>>>>>> upstream/main
     useNavigation: () => mockedNavigation,
   }
 })

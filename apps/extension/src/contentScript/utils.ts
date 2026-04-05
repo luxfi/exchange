@@ -1,10 +1,6 @@
 import { contentScriptUtilityMessageChannel } from 'src/background/messagePassing/messageChannels'
 import { ContentScriptUtilityMessageType, ErrorLog } from 'src/background/messagePassing/types/requests'
-<<<<<<< HEAD
-import { logger } from '@l.x/utils/src/logger/logger'
-=======
 import { logger } from 'utilities/src/logger/logger'
->>>>>>> upstream/main
 
 export async function logContentScriptError({
   errorMessage,
@@ -29,11 +25,7 @@ export async function logContentScriptError({
   }
 
   if (__DEV__) {
-<<<<<<< HEAD
-    // eslint-disable-next-line no-restricted-syntax
-=======
     // oxlint-disable-next-line no-restricted-syntax
->>>>>>> upstream/main
     logger.error(new Error(errorMessage), {
       tags: {
         file: fileName,

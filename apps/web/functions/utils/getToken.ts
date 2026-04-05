@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import { GraphQLApi } from '@l.x/api'
-=======
 import { GraphQLApi } from '@universe/api'
->>>>>>> upstream/main
 import client from 'functions/client'
 import { Data } from 'functions/utils/cache'
 import { NATIVE_CHAIN_ID } from '~/constants/tokens'

@@ -1,10 +1,5 @@
-<<<<<<< HEAD
-/* eslint-disable import/no-unused-modules */
-import { type InAppNotification } from '@l.x/api'
-=======
 /* oxlint-disable import/no-unused-modules */
 import { type InAppNotification } from '@universe/api'
->>>>>>> upstream/main
 import { create, type StoreApi, type UseBoundStore } from 'zustand'
 
 export interface NotificationState {

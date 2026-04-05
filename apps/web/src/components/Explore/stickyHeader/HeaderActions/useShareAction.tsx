@@ -1,15 +1,9 @@
 import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useSearchParams } from 'react-router'
-<<<<<<< HEAD
-import { Check } from '@l.x/ui/src/components/icons/Check'
-import { LinkHorizontalAlt } from '@l.x/ui/src/components/icons/LinkHorizontalAlt'
-import { ShareArrow } from '@l.x/ui/src/components/icons/ShareArrow'
-=======
 import { Check } from 'ui/src/components/icons/Check'
 import { LinkHorizontalAlt } from 'ui/src/components/icons/LinkHorizontalAlt'
 import { ShareArrow } from 'ui/src/components/icons/ShareArrow'
->>>>>>> upstream/main
 import type { HeaderActionWithDropdown } from '~/components/Explore/stickyHeader/HeaderActions/types'
 import useCopyClipboard from '~/hooks/useCopyClipboard'
 import { openTwitterShareWindow } from '~/utils/sharing'

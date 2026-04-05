@@ -1,11 +1,7 @@
 import type { Filter } from '@ethersproject/providers'
 import { useWeb3React } from '@web3-react/core'
 import { useEffect, useMemo } from 'react'
-<<<<<<< HEAD
-import { logger } from '@l.x/utils/src/logger/logger'
-=======
 import { logger } from 'utilities/src/logger/logger'
->>>>>>> upstream/main
 import { useAccount } from '~/hooks/useAccount'
 import useBlockNumber from '~/lib/hooks/useBlockNumber'
 import { useAppDispatch, useAppSelector } from '~/state/hooks'
@@ -26,11 +22,7 @@ export default function Updater(): null {
     }
 
     const active = state[chainId]
-<<<<<<< HEAD
-    // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
-=======
     // oxlint-disable-next-line typescript/no-unnecessary-condition
->>>>>>> upstream/main
     if (!active) {
       return []
     }

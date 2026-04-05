@@ -1,22 +1,4 @@
 import { useMemo } from 'react'
-<<<<<<< HEAD
-import { useTransactionSettingsWithSlippage } from 'lx/src/features/transactions/components/settings/hooks/useTransactionSettingsWithSlippage'
-import { SlippageLPWarning } from 'lx/src/features/transactions/components/settings/settingsConfigurations/slippage/SlippageLPWarning'
-import { useSlippageSettings } from 'lx/src/features/transactions/components/settings/settingsConfigurations/slippage/useSlippageSettings'
-import {
-  ModalIdWithSlippage,
-  TransactionSettingsModalId,
-} from '@l.x/lx/src/features/transactions/components/settings/stores/TransactionSettingsModalStore/createTransactionSettingsModalStore'
-import { TransactionSettingsModalStoreContextProvider } from '@l.x/lx/src/features/transactions/components/settings/stores/TransactionSettingsModalStore/TransactionSettingsModalStoreContextProvider'
-import {
-  TransactionSettings,
-  TransactionSettingsProps,
-} from 'lx/src/features/transactions/components/settings/TransactionSettings'
-import { TransactionSettingsButtonWithSlippage } from 'lx/src/features/transactions/components/settings/TransactionSettingsButtonWithSlippage'
-import type { TransactionSettingConfig } from 'lx/src/features/transactions/components/settings/types'
-import { TransactionSettingId } from 'lx/src/features/transactions/components/settings/types'
-import SlippageWarningModal from 'lx/src/features/transactions/swap/components/SwapFormSettings/SlippageWarningModal'
-=======
 import { useTransactionSettingsWithSlippage } from 'uniswap/src/features/transactions/components/settings/hooks/useTransactionSettingsWithSlippage'
 import { SlippageLPWarning } from 'uniswap/src/features/transactions/components/settings/settingsConfigurations/slippage/SlippageLPWarning'
 import { useSlippageSettings } from 'uniswap/src/features/transactions/components/settings/settingsConfigurations/slippage/useSlippageSettings'
@@ -33,7 +15,6 @@ import { TransactionSettingsButtonWithSlippage } from 'uniswap/src/features/tran
 import type { TransactionSettingConfig } from 'uniswap/src/features/transactions/components/settings/types'
 import { TransactionSettingId } from 'uniswap/src/features/transactions/components/settings/types'
 import SlippageWarningModal from 'uniswap/src/features/transactions/swap/components/SwapFormSettings/SlippageWarningModal'
->>>>>>> upstream/main
 
 interface LPSettingsProps extends TransactionSettingsProps {
   isNativePool?: boolean

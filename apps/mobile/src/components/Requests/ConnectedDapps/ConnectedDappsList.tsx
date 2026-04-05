@@ -12,21 +12,6 @@ import {
   removeSession,
   WalletConnectSession,
 } from 'src/features/walletConnect/walletConnectSlice'
-<<<<<<< HEAD
-import { Flex, Text, TouchableArea } from '@l.x/ui/src'
-import { Scan } from '@l.x/ui/src/components/icons'
-import { useDeviceDimensions } from '@l.x/ui/src/hooks/useDeviceDimensions'
-import { spacing } from '@l.x/ui/src/theme'
-import { ScannerModalState } from '@l.x/lx/src/components/ReceiveQRCode/constants'
-import { pushNotification } from '@l.x/lx/src/features/notifications/slice/slice'
-import { AppNotificationType } from '@l.x/lx/src/features/notifications/slice/types'
-import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
-import { WalletConnectEvent } from '@l.x/lx/src/types/walletConnect'
-import { logger } from '@l.x/utils/src/logger/logger'
-import { ONE_SECOND_MS } from '@l.x/utils/src/time/time'
-import { DappEllipsisDropdown } from '@luxfi/wallet/src/components/settings/DappEllipsisDropdown/DappEllipsisDropdown'
-import { useActiveAccountWithThrow } from '@luxfi/wallet/src/features/wallet/hooks'
-=======
 import { Flex, Text, TouchableArea } from 'ui/src'
 import { Scan } from 'ui/src/components/icons'
 import { useDeviceDimensions } from 'ui/src/hooks/useDeviceDimensions'
@@ -40,7 +25,6 @@ import { logger } from 'utilities/src/logger/logger'
 import { ONE_SECOND_MS } from 'utilities/src/time/time'
 import { DappEllipsisDropdown } from 'wallet/src/components/settings/DappEllipsisDropdown/DappEllipsisDropdown'
 import { useActiveAccountWithThrow } from 'wallet/src/features/wallet/hooks'
->>>>>>> upstream/main
 
 type ConnectedDappsProps = {
   sessions: WalletConnectSession[]

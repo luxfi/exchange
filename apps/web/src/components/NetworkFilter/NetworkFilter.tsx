@@ -1,24 +1,6 @@
 import type { Dispatch, SetStateAction } from 'react'
 import { memo, useCallback, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-<<<<<<< HEAD
-import type { FlexProps, TextProps } from '@l.x/ui/src'
-import { ElementAfterText, Flex, ScrollView, styled, Text } from '@l.x/ui/src'
-import { Check } from '@l.x/ui/src/components/icons/Check'
-import { iconSizes } from '@l.x/ui/src/theme'
-import Badge from '@l.x/lx/src/components/badge/Badge'
-import { NetworkLogo } from '@l.x/lx/src/components/CurrencyLogo/NetworkLogo'
-import { NewTag } from '@l.x/lx/src/components/pill/NewTag'
-import { getChainInfo } from '@l.x/lx/src/features/chains/chainInfo'
-import { useNewChainIds } from '@l.x/lx/src/features/chains/hooks/useNewChainIds'
-import { useIsSupportedChainIdCallback } from '@l.x/lx/src/features/chains/hooks/useSupportedChainId'
-import type { UniverseChainInfo } from '@l.x/lx/src/features/chains/types'
-import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
-import { isBackendSupportedChainId, toGraphQLChain } from '@l.x/lx/src/features/chains/utils'
-import { InterfacePageName, ModalName } from '@l.x/lx/src/features/telemetry/constants'
-import Trace from '@l.x/lx/src/features/telemetry/Trace'
-import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
-=======
 import type { FlexProps, TextProps } from 'ui/src'
 import { ElementAfterText, Flex, ScrollView, styled, Text } from 'ui/src'
 import { Check } from 'ui/src/components/icons/Check'
@@ -35,16 +17,11 @@ import { isBackendSupportedChainId, toGraphQLChain } from 'uniswap/src/features/
 import { InterfacePageName, ModalName } from 'uniswap/src/features/telemetry/constants'
 import Trace from 'uniswap/src/features/telemetry/Trace'
 import { TestID } from 'uniswap/src/test/fixtures/testIDs'
->>>>>>> upstream/main
 import { Dropdown, InternalMenuItem } from '~/components/Dropdowns/Dropdown'
 import { ChainLogo } from '~/components/Logo/ChainLogo'
 import { useFilteredChainIds } from '~/components/NetworkFilter/useFilteredChains'
 import { ExploreTab } from '~/pages/Explore/constants'
-<<<<<<< HEAD
-import { EllipsisGuiStyle } from '~/theme/components/styles'
-=======
 import { EllipsisTamaguiStyle } from '~/theme/components/styles'
->>>>>>> upstream/main
 
 const NetworkLabel = styled(Flex, {
   flexDirection: 'row',
@@ -117,25 +94,8 @@ export function NetworkFilter({
   size = DropdownSizeVariants.Medium,
   transition,
   networks,
-<<<<<<< HEAD
-=======
-  customTrigger,
-  isTriggerStyled = true,
->>>>>>> upstream/main
-}: {
-  showMultichainOption?: boolean
-  showDisplayName?: boolean
-  size?: DropdownSize
-  position?: 'left' | 'right'
-  onPress: (chainId: UniverseChainId | undefined) => void
-  currentChainId: UniverseChainId | undefined
-  transition?: FlexProps['transition']
-  networks?: UniverseChainId[]
-<<<<<<< HEAD
-=======
   customTrigger?: JSX.Element | string
   isTriggerStyled?: boolean
->>>>>>> upstream/main
 }) {
   const { t } = useTranslation()
   const [isMenuOpen, toggleMenu] = useState(false)
@@ -173,26 +133,6 @@ export function NetworkFilter({
           isOpen={isMenuOpen}
           toggleOpen={toggleMenu}
           menuLabel={
-<<<<<<< HEAD
-            <NetworkLabel testID={TestID.TokensNetworkFilterTrigger}>
-              {(!currentChainId || !isSupportedChainCallback(currentChainId)) && showMultichainOption ? (
-                <NetworkLogo size={NetworkLogoSizes[size]} chainId={null} transition={transition} />
-              ) : (
-                <ChainLogo
-                  chainId={currentChainId ?? UniverseChainId.Mainnet}
-                  size={NetworkLogoSizes[size]}
-                  testId={TestID.TokensNetworkFilterSelected}
-                  transition={transition}
-                />
-              )}
-              {showDisplayName && (
-                <Text variant={NetworkLabelTextVariants[size]} transition={transition}>
-                  {isAllNetworks ? t('transaction.network.all') : chainInfo.label}
-                </Text>
-              )}
-            </NetworkLabel>
-          }
-=======
             customTrigger ?? (
               <NetworkLabel testID={TestID.TokensNetworkFilterTrigger}>
                 {(!currentChainId || !isSupportedChainCallback(currentChainId)) && showMultichainOption ? (
@@ -214,7 +154,6 @@ export function NetworkFilter({
             )
           }
           isTriggerStyled={isTriggerStyled}
->>>>>>> upstream/main
           buttonStyle={ButtonStyles[size]}
           dropdownStyle={StyledDropdown}
           adaptToSheet
@@ -299,11 +238,7 @@ const TableNetworkItem = memo(function TableNetworkItem({
           )}
           <ElementAfterText
             text={isAllNetworks ? t('transaction.network.all') : chainInfo.label}
-<<<<<<< HEAD
-            textProps={{ variant: 'body2', ...EllipsisGuiStyle }}
-=======
             textProps={{ variant: 'body2', ...EllipsisTamaguiStyle }}
->>>>>>> upstream/main
             element={isNew && !unsupported ? <NewTag /> : undefined}
           />
         </NetworkLabel>

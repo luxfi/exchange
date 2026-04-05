@@ -11,11 +11,7 @@ describe('ConfirmSwapModal/Error', () => {
     ['classic trade', PendingModalError.WRAP_ERROR, TEST_TRADE_EXACT_INPUT, 'Wrap failed'],
     ['limit order', PendingModalError.CONFIRMATION_ERROR, LIMIT_ORDER_TRADE, 'Limit failed'],
     ['limit order', PendingModalError.WRAP_ERROR, LIMIT_ORDER_TRADE, 'Wrap failed'],
-<<<<<<< HEAD
-    // eslint-disable-next-line max-params
-=======
     // oxlint-disable-next-line max-params
->>>>>>> upstream/main
   ])('renders %p correctly, with error= %p', async (_, errorType, trade, expectedError) => {
     const { asFragment } = render(<Error errorType={errorType} trade={trade} onRetry={vi.fn()} showTrade={true} />)
     expect(asFragment()).toMatchSnapshot()

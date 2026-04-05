@@ -13,19 +13,11 @@ import { PasswordResetFlowState, usePasswordResetFlow } from 'src/app/features/s
 import { SettingsItemWithDropdown } from 'src/app/features/settings/SettingsItemWithDropdown'
 import { builtInBiometricCapabilitiesQuery } from 'src/app/utils/device/builtInBiometricCapabilitiesQuery'
 import { ExtensionState } from 'src/store/extensionReducer'
-<<<<<<< HEAD
-import { Flex, ScrollView } from '@l.x/ui/src'
-import { Stopwatch } from '@l.x/ui/src/components/icons'
-import { Key } from '@l.x/ui/src/components/icons/Key'
-import { DeviceAccessTimeout, ORDERED_DEVICE_ACCESS_TIMEOUTS } from '@l.x/lx/src/features/settings/constants'
-import { setDeviceAccessTimeout } from '@l.x/lx/src/features/settings/slice'
-=======
 import { Flex, ScrollView } from 'ui/src'
 import { Stopwatch } from 'ui/src/components/icons'
 import { Key } from 'ui/src/components/icons/Key'
 import { DeviceAccessTimeout, ORDERED_DEVICE_ACCESS_TIMEOUTS } from 'uniswap/src/features/settings/constants'
 import { setDeviceAccessTimeout } from 'uniswap/src/features/settings/slice'
->>>>>>> upstream/main
 
 function getDeviceAccessTimeoutLabel(t: ReturnType<typeof useTranslation>['t'], timeout: DeviceAccessTimeout): string {
   switch (timeout) {

@@ -1,9 +1,5 @@
 import { useStartProfiler } from '@shopify/react-native-performance'
-<<<<<<< HEAD
-import { FeatureFlags, useFeatureFlag } from '@luxfi/gating'
-=======
 import { FeatureFlags, useFeatureFlag } from '@universe/gating'
->>>>>>> upstream/main
 import React, { forwardRef, memo, useCallback, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { FlatList } from 'react-native'
@@ -14,18 +10,6 @@ import { TokenBalanceList } from 'src/components/TokenBalanceList/TokenBalanceLi
 import { useTokenDetailsNavigation } from 'src/components/TokenDetails/hooks'
 import { useOpenReceiveModal } from 'src/features/modals/hooks/useOpenReceiveModal'
 import { openModal } from 'src/features/modals/modalSlice'
-<<<<<<< HEAD
-import { Flex } from '@l.x/ui/src'
-import { NoTokens } from '@l.x/ui/src/components/icons'
-import { BaseCard } from '@l.x/lx/src/components/BaseCard/BaseCard'
-import { PortfolioEmptyState } from '@l.x/lx/src/components/portfolio/PortfolioEmptyState'
-import { ScannerModalState } from '@l.x/lx/src/components/ReceiveQRCode/constants'
-import { TokenBalanceListRow } from '@l.x/lx/src/features/portfolio/types'
-import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
-import { CurrencyId } from '@l.x/lx/src/types/currency'
-import { MobileScreens } from '@l.x/lx/src/types/screens/mobile'
-import { usePortfolioEmptyStateBackground } from '@luxfi/wallet/src/components/portfolio/empty'
-=======
 import { Flex } from 'ui/src'
 import { NoTokens } from 'ui/src/components/icons'
 import { BaseCard } from 'uniswap/src/components/BaseCard/BaseCard'
@@ -36,16 +20,11 @@ import { ModalName } from 'uniswap/src/features/telemetry/constants'
 import { CurrencyId } from 'uniswap/src/types/currency'
 import { MobileScreens } from 'uniswap/src/types/screens/mobile'
 import { usePortfolioEmptyStateBackground } from 'wallet/src/components/portfolio/empty'
->>>>>>> upstream/main
 
 // ignore ref type
 
 export const TokensTab = memo(
-<<<<<<< HEAD
-  forwardRef<FlatList<TokenBalanceListRow>, TabProps & { isExternalProfile?: boolean }>(function _TokensTab(
-=======
   forwardRef<FlatList<TokenBalanceListRow>, TabProps & { isExternalProfile?: boolean }>(function TokensTabInner(
->>>>>>> upstream/main
     {
       owner,
       containerProps,

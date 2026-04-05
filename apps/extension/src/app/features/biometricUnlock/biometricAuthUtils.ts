@@ -1,11 +1,7 @@
 import { BiometricUnlockStorageData } from 'src/app/features/biometricUnlock/BiometricUnlockStorage'
 import { assertAuthenticatorAssertionResponse } from 'src/app/features/biometricUnlock/utils/assertAuthenticatorAssertionResponse'
 import { assertPublicKeyCredential } from 'src/app/features/biometricUnlock/utils/assertPublicKeyCredential'
-<<<<<<< HEAD
-import { ONE_SECOND_MS } from '@l.x/utils/src/time/time'
-=======
 import { ONE_SECOND_MS } from 'utilities/src/time/time'
->>>>>>> upstream/main
 import {
   addEncryptedCiphertextToSecretPayload,
   convertBytesToCryptoKey,
@@ -13,11 +9,7 @@ import {
   decodeFromStorage,
   decrypt,
   generateNew256BitRandomBuffer,
-<<<<<<< HEAD
-} from '@luxfi/wallet/src/features/wallet/Keyring/crypto'
-=======
 } from 'wallet/src/features/wallet/Keyring/crypto'
->>>>>>> upstream/main
 
 /**
  * Authenticates with a biometric credential and returns both the credential and encryption key

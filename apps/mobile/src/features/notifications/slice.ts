@@ -1,11 +1,7 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit'
 import { NotifSettingType } from 'src/features/notifications/constants'
 
-<<<<<<< HEAD
-// eslint-disable-next-line import/no-unused-modules
-=======
 // oxlint-disable-next-line import/no-unused-modules
->>>>>>> upstream/main
 export interface PushNotificationsState {
   generalUpdatesEnabled: boolean
 }

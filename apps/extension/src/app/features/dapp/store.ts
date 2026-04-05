@@ -1,13 +1,8 @@
 import { cloneDeep } from '@apollo/client/utilities'
 import EventEmitter from 'eventemitter3'
 import { getOrderedConnectedAddresses, isConnectedAccount } from 'src/app/features/dapp/utils'
-<<<<<<< HEAD
-import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
-import { Account } from '@luxfi/wallet/src/features/wallet/accounts/types'
-=======
 import { UniverseChainId } from 'uniswap/src/features/chains/types'
 import { Account } from 'wallet/src/features/wallet/accounts/types'
->>>>>>> upstream/main
 
 const STATE_STORAGE_KEY = 'dappState'
 
@@ -46,11 +41,7 @@ async function init(): Promise<void> {
 }
 
 async function initInternal(): Promise<void> {
-<<<<<<< HEAD
-  // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
-=======
   // oxlint-disable-next-line typescript/no-unnecessary-condition
->>>>>>> upstream/main
   state = (await chrome.storage.local.get([STATE_STORAGE_KEY]))?.[STATE_STORAGE_KEY] || initialDappState
 
   chrome.storage.local.onChanged.addListener((changes) => {

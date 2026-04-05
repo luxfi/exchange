@@ -1,10 +1,6 @@
 import { PropsWithChildren } from 'react'
 import { ONBOARDING_CONTENT_WIDTH } from 'src/app/features/onboarding/utils'
-<<<<<<< HEAD
-import { Flex } from '@l.x/ui/src'
-=======
 import { Flex } from 'ui/src'
->>>>>>> upstream/main
 
 export function MainContentWrapper({ children }: PropsWithChildren): JSX.Element {
   return (

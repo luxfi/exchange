@@ -2,37 +2,6 @@ import { useCallback, useMemo } from 'react'
 import { useSelector } from 'react-redux'
 import { RecipientPanel } from 'src/app/features/send/SendFormScreen/RecipientPanel'
 import { ReviewButton } from 'src/app/features/send/SendFormScreen/ReviewButton'
-<<<<<<< HEAD
-import { Flex, Separator, useSporeColors } from '@l.x/ui/src'
-import { Modal } from '@l.x/lx/src/components/modals/Modal'
-import { selectHasDismissedLowNetworkTokenWarning } from '@l.x/lx/src/features/behaviorHistory/selectors'
-import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
-import { ModalName, SectionName, LXEventName } from '@l.x/lx/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
-import Trace from '@l.x/lx/src/features/telemetry/Trace'
-import { InsufficientNativeTokenWarning } from '@l.x/lx/src/features/transactions/components/InsufficientNativeTokenWarning/InsufficientNativeTokenWarning'
-import {
-  TransactionScreen,
-  useTransactionModalContext,
-} from '@l.x/lx/src/features/transactions/components/TransactionModal/TransactionModalContext'
-import { useUSDCValue } from '@l.x/lx/src/features/transactions/hooks/useUSDCPriceWrapper'
-import { useUSDTokenUpdater } from '@l.x/lx/src/features/transactions/hooks/useUSDTokenUpdater'
-import { BlockedAddressWarning } from '@l.x/lx/src/features/transactions/modals/BlockedAddressWarning'
-import { LowNativeBalanceModal } from '@l.x/lx/src/features/transactions/modals/LowNativeBalanceModal'
-import { useIsBlocked } from '@l.x/lx/src/features/trm/hooks'
-import { CurrencyField } from '@l.x/lx/src/types/currency'
-import { createTransactionId } from '@l.x/lx/src/utils/createTransactionId'
-import { isSafeNumber } from '@l.x/utils/src/primitives/integer'
-import { useBooleanState } from '@l.x/utils/src/react/useBooleanState'
-import { useSendContext } from '@luxfi/wallet/src/features/transactions/contexts/SendContext'
-import { GasFeeRow } from '@luxfi/wallet/src/features/transactions/send/GasFeeRow'
-import { useShowSendNetworkNotification } from '@luxfi/wallet/src/features/transactions/send/hooks/useShowSendNetworkNotification'
-import { SendAmountInput } from '@luxfi/wallet/src/features/transactions/send/SendAmountInput'
-import { SendReviewDetails } from '@luxfi/wallet/src/features/transactions/send/SendReviewDetails'
-import { TokenSelectorPanel } from '@luxfi/wallet/src/features/transactions/send/TokenSelectorPanel'
-import { isAmountGreaterThanZero } from '@luxfi/wallet/src/features/transactions/utils'
-import { useIsBlockedActiveAddress } from '@luxfi/wallet/src/features/trm/hooks'
-=======
 import { Flex, Separator, useSporeColors } from 'ui/src'
 import { Modal } from 'uniswap/src/components/modals/Modal'
 import { selectHasDismissedLowNetworkTokenWarning } from 'uniswap/src/features/behaviorHistory/selectors'
@@ -62,7 +31,6 @@ import { SendReviewDetails } from 'wallet/src/features/transactions/send/SendRev
 import { TokenSelectorPanel } from 'wallet/src/features/transactions/send/TokenSelectorPanel'
 import { isAmountGreaterThanZero } from 'wallet/src/features/transactions/utils'
 import { useIsBlockedActiveAddress } from 'wallet/src/features/trm/hooks'
->>>>>>> upstream/main
 
 export function SendFormScreen(): JSX.Element {
   const colors = useSporeColors()
@@ -147,11 +115,7 @@ export function SendFormScreen(): JSX.Element {
 
   const onPressReview = useCallback(() => {
     if (!hasDismissedLowNetworkTokenWarning && isMax && currencyInInfo?.currency.isNative) {
-<<<<<<< HEAD
-      sendAnalyticsEvent(LXEventName.LowNetworkTokenInfoModalOpened, { location: 'send' })
-=======
       sendAnalyticsEvent(UniswapEventName.LowNetworkTokenInfoModalOpened, { location: 'send' })
->>>>>>> upstream/main
       handleShowMaxTransferModal()
       return
     }

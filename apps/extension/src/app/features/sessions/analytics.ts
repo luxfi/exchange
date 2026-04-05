@@ -1,12 +1,6 @@
-<<<<<<< HEAD
-import type { HashcashSolveAnalytics, SessionInitAnalytics } from '@l.x/sessions'
-import { SessionsEventName } from '@l.x/lx/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
-=======
 import type { HashcashSolveAnalytics, SessionInitAnalytics } from '@universe/sessions'
 import { SessionsEventName } from 'uniswap/src/features/telemetry/constants'
 import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
->>>>>>> upstream/main
 
 /**
  * Sanitizes error messages before sending to analytics.

@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import type { Token } from '@luxamm/sdk-core'
-=======
 import type { Token } from '@uniswap/sdk-core'
->>>>>>> upstream/main
 import { useAtom } from 'jotai'
 import ms from 'ms'
 import { useEffect, useMemo } from 'react'
@@ -21,24 +17,6 @@ import {
   useMedia,
   useShadowPropsMedium,
   useShadowPropsShort,
-<<<<<<< HEAD
-} from '@l.x/ui/src'
-import { ArrowRight } from '@l.x/ui/src/components/icons/ArrowRight'
-import { InfoCircleFilled } from '@l.x/ui/src/components/icons/InfoCircleFilled'
-import { iconSizes } from '@l.x/ui/src/theme'
-import { LearnMoreLink } from '@l.x/lx/src/components/text/LearnMoreLink'
-import { InfoTooltip } from '@l.x/lx/src/components/tooltip/InfoTooltip'
-import { lxUrls } from '@l.x/lx/src/constants/urls'
-import { useGetPoolsRewards } from '@l.x/lx/src/data/rest/getPoolsRewards'
-import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
-import { LXEventName } from '@l.x/lx/src/features/telemetry/constants'
-import { Trace } from '@l.x/lx/src/features/telemetry/Trace'
-import { HexString } from '@l.x/utils/src/addresses/hex'
-import { logger } from '@l.x/utils/src/logger/logger'
-import { isMobileWeb } from '@l.x/utils/src/platform'
-import dottedBackground from '~/assets/images/dotted-grid.png'
-import dottedBackgroundDark from '~/assets/images/dotted-grid-dark.png'
-=======
 } from 'ui/src'
 import { ArrowRight } from 'ui/src/components/icons/ArrowRight'
 import { InfoCircleFilled } from 'ui/src/components/icons/InfoCircleFilled'
@@ -55,7 +33,6 @@ import { logger } from 'utilities/src/logger/logger'
 import { isMobileWeb } from 'utilities/src/platform'
 import dottedBackgroundDark from '~/assets/images/dotted-grid-dark.png'
 import dottedBackground from '~/assets/images/dotted-grid.png'
->>>>>>> upstream/main
 import tokenLogo from '~/assets/images/token-logo.png'
 import { formatTokenAmount } from '~/components/Liquidity/LPIncentives/utils/formatTokenAmount'
 import { LP_INCENTIVES_REWARD_TOKEN } from '~/components/LpIncentives/constants'
@@ -269,13 +246,8 @@ function LpIncentiveRewardsCard({
                           : t('pool.incentives.administeredRewards')}
                       </Text>
                       {!rewardsError && (
-<<<<<<< HEAD
-                        <Trace logPress eventOnTrigger={LXEventName.LpIncentiveLearnMoreCtaClicked}>
-                          <LearnMoreLink textVariant="buttonLabel4" url={lxUrls.helpArticleUrls.lpIncentiveInfo} />
-=======
                         <Trace logPress eventOnTrigger={UniswapEventName.LpIncentiveLearnMoreCtaClicked}>
                           <LearnMoreLink textVariant="buttonLabel4" url={uniswapUrls.helpArticleUrls.lpIncentiveInfo} />
->>>>>>> upstream/main
                         </Trace>
                       )}
                     </Flex>
@@ -286,11 +258,7 @@ function LpIncentiveRewardsCard({
           </Flex>
         </Flex>
         <Flex gap="$spacing2">
-<<<<<<< HEAD
-          <Trace logPress eventOnTrigger={LXEventName.LpIncentiveLearnMoreCtaClicked}>
-=======
           <Trace logPress eventOnTrigger={UniswapEventName.LpIncentiveLearnMoreCtaClicked}>
->>>>>>> upstream/main
             <TouchableArea
               group="item"
               animation={null}

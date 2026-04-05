@@ -1,10 +1,6 @@
 import { SCREEN_ITEM_HORIZONTAL_PAD } from 'src/app/constants'
 import { SettingsDropdown, SettingsDropdownProps } from 'src/app/features/settings/SettingsDropdown'
-<<<<<<< HEAD
-import { Flex, GeneratedIcon, Text, TouchableArea } from '@l.x/ui/src'
-=======
 import { Flex, GeneratedIcon, Text, TouchableArea } from 'ui/src'
->>>>>>> upstream/main
 
 type SettingsItemWithDropdownProps = {
   Icon: GeneratedIcon

@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import { SharedEventName } from '@luxamm/analytics-events'
-=======
 import { SharedEventName } from '@uniswap/analytics-events'
->>>>>>> upstream/main
 import React, { useCallback, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import ContextMenu from 'react-native-context-menu-view'
@@ -10,26 +6,6 @@ import { useDispatch } from 'react-redux'
 import { MODAL_OPEN_WAIT_TIME } from 'src/app/navigation/constants'
 import { navigate } from 'src/app/navigation/rootNavigation'
 import { NotificationBadge } from 'src/components/notifications/Badge'
-<<<<<<< HEAD
-import { Flex, Text, TouchableArea } from '@l.x/ui/src'
-import { iconSizes } from '@l.x/ui/src/theme'
-import { AddressDisplay } from '@l.x/lx/src/components/accounts/AddressDisplay'
-import { useUnitagsAddressQuery } from '@l.x/lx/src/data/apiClients/unitagsApi/useUnitagsAddressQuery'
-import { AccountType } from '@l.x/lx/src/features/accounts/types'
-import { useEnabledChains } from '@l.x/lx/src/features/chains/hooks/useEnabledChains'
-import { useENS } from '@l.x/lx/src/features/ens/useENS'
-import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
-import { pushNotification } from '@l.x/lx/src/features/notifications/slice/slice'
-import { AppNotificationType, CopyNotificationType } from '@l.x/lx/src/features/notifications/slice/types'
-import { ElementName, ModalName } from '@l.x/lx/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
-import { UnitagScreens } from '@l.x/lx/src/types/screens/mobile'
-import { setClipboard } from '@l.x/utils/src/clipboard/clipboard'
-import { NumberType } from '@l.x/utils/src/format/types'
-import { noop } from '@l.x/utils/src/react/noop'
-import { useAccountListData } from '@luxfi/wallet/src/features/accounts/useAccountListData'
-import { useAccounts } from '@luxfi/wallet/src/features/wallet/hooks'
-=======
 import { Flex, Text, TouchableArea } from 'ui/src'
 import { iconSizes } from 'ui/src/theme'
 import { AddressDisplay } from 'uniswap/src/components/accounts/AddressDisplay'
@@ -48,7 +24,6 @@ import { NumberType } from 'utilities/src/format/types'
 import { noop } from 'utilities/src/react/noop'
 import { useAccountListData } from 'wallet/src/features/accounts/useAccountListData'
 import { useAccounts } from 'wallet/src/features/wallet/hooks'
->>>>>>> upstream/main
 
 type AccountCardItemProps = {
   address: Address

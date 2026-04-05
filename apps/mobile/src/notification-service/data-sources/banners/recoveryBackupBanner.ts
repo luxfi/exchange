@@ -4,15 +4,6 @@ import {
   Notification,
   NotificationVersion,
   OnClick,
-<<<<<<< HEAD
-} from '@luxamm/client-notification-service/dist/lx/notificationservice/v1/api_pb'
-import { BackgroundType, ContentStyle, type InAppNotification, OnClickAction } from '@l.x/api'
-import type { MobileState } from 'src/app/mobileReducer'
-import { BannerId, MOBILE_NAV_PREFIX } from 'src/notification-service/data-sources/banners/types'
-import { AccountType } from '@l.x/lx/src/features/accounts/types'
-import i18n from '@l.x/lx/src/i18n'
-import { hasExternalBackup } from '@luxfi/wallet/src/features/wallet/accounts/utils'
-=======
 } from '@uniswap/client-notification-service/dist/uniswap/notificationservice/v1/api_pb'
 import { BackgroundType, ContentStyle, type InAppNotification, OnClickAction } from '@universe/api'
 import type { MobileState } from 'src/app/mobileReducer'
@@ -20,7 +11,6 @@ import { BannerId, MOBILE_NAV_PREFIX } from 'src/notification-service/data-sourc
 import { AccountType } from 'uniswap/src/features/accounts/types'
 import i18n from 'uniswap/src/i18n'
 import { hasExternalBackup } from 'wallet/src/features/wallet/accounts/utils'
->>>>>>> upstream/main
 
 /**
  * Check if recovery backup reminder should be shown.

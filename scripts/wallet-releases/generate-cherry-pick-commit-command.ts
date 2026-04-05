@@ -13,11 +13,7 @@ import inquirer from 'inquirer'
 
 function extractPrNumber(link: string): string | undefined {
   // Match GitHub PR links or Graphite PR links
-<<<<<<< HEAD
-  const match = link.match(/(?:\/pull\/|\/github\/pr\/Lux\/universe\/)(\d+)/)
-=======
   const match = link.match(/(?:\/pull\/|\/github\/pr\/Uniswap\/universe\/)(\d+)/)
->>>>>>> upstream/main
 
   return match?.[1]
 }

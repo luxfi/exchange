@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
-=======
 import { FeatureFlags, useFeatureFlag } from '@universe/gating'
->>>>>>> upstream/main
 import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useSearchParams } from 'react-router'
@@ -10,34 +6,20 @@ import {
   getFiatCurrencyName,
   useAppFiatCurrency,
   useFiatCurrencyComponents,
-<<<<<<< HEAD
-} from '@l.x/lx/src/features/fiatCurrency/hooks'
-import {
-  useFiatOnRampAggregatorSupportedFiatCurrenciesQuery,
-  useFiatOnRampAggregatorSupportedTokensQuery,
-} from '@l.x/lx/src/features/fiatOnRamp/hooks/useFiatOnRampQueries'
-=======
 } from 'uniswap/src/features/fiatCurrency/hooks'
 import {
   useFiatOnRampAggregatorSupportedFiatCurrenciesQuery,
   useFiatOnRampAggregatorSupportedTokensQuery,
 } from 'uniswap/src/features/fiatOnRamp/hooks/useFiatOnRampQueries'
->>>>>>> upstream/main
 import {
   FiatCurrencyInfo,
   FiatOnRampCurrency,
   FORCountry,
   OffRampTransferDetailsRequest,
   RampDirection,
-<<<<<<< HEAD
-} from '@l.x/lx/src/features/fiatOnRamp/types'
-// biome-ignore lint/style/noRestrictedImports: Buy hooks need direct SDK imports
-import { getFiatCurrencyComponents } from '@l.x/utils/src/format/localeBased'
-=======
 } from 'uniswap/src/features/fiatOnRamp/types'
 // oxlint-disable-next-line no-restricted-imports -- Buy hooks need direct SDK imports
 import { getFiatCurrencyComponents } from 'utilities/src/format/localeBased'
->>>>>>> upstream/main
 import { useMeldSupportedCurrencyToCurrencyInfo } from '~/appGraphql/data/types'
 
 type FiatOnRampCurrencyInfo = {

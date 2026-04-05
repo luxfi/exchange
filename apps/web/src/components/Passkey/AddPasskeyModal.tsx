@@ -1,18 +1,6 @@
 import { useQueryClient } from '@tanstack/react-query'
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
-<<<<<<< HEAD
-import { Button, Flex, Loader, Text, TouchableArea } from '@l.x/ui/src'
-import { Chevron } from '@l.x/ui/src/components/icons/Chevron'
-import { Cloud } from '@l.x/ui/src/components/icons/Cloud'
-import { Mobile } from '@l.x/ui/src/components/icons/Mobile'
-import { Passkey } from '@l.x/ui/src/components/icons/Passkey'
-import { ShieldCheck } from '@l.x/ui/src/components/icons/ShieldCheck'
-import { colors } from '@l.x/ui/src/theme'
-import { Modal } from 'lx/src/components/modals/Modal'
-import { useUnitagsAddressQuery } from 'lx/src/data/apiClients/unitagsApi/useUnitagsAddressQuery'
-import type { AuthenticatorAttachment } from 'lx/src/features/passkey/embeddedWallet'
-=======
 import { Button, Flex, Loader, Text, TouchableArea } from 'ui/src'
 import { Chevron } from 'ui/src/components/icons/Chevron'
 import { Cloud } from 'ui/src/components/icons/Cloud'
@@ -23,21 +11,14 @@ import { colors } from 'ui/src/theme'
 import { Modal } from 'uniswap/src/components/modals/Modal'
 import { useUnitagsAddressQuery } from 'uniswap/src/data/apiClients/unitagsApi/useUnitagsAddressQuery'
 import type { AuthenticatorAttachment } from 'uniswap/src/features/passkey/embeddedWallet'
->>>>>>> upstream/main
 import {
   getPrivyEnums,
   listAuthenticators,
   registerNewAuthenticator,
   startAddAuthenticatorSession,
-<<<<<<< HEAD
-} from 'lx/src/features/passkey/embeddedWallet'
-import { ElementName, ModalName } from 'lx/src/features/telemetry/constants'
-import Trace from 'lx/src/features/telemetry/Trace'
-=======
 } from 'uniswap/src/features/passkey/embeddedWallet'
 import { ElementName, ModalName } from 'uniswap/src/features/telemetry/constants'
 import Trace from 'uniswap/src/features/telemetry/Trace'
->>>>>>> upstream/main
 import { LIST_AUTHENTICATORS_QUERY_KEY } from '~/components/AccountDrawer/PasskeyMenu/PasskeyMenu'
 import { useAccount } from '~/hooks/useAccount'
 import { useModalState } from '~/hooks/useModalState'

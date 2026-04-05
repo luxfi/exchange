@@ -1,9 +1,5 @@
 # multiple flows have the biometrics confirm step, so we abstract it here
-<<<<<<< HEAD
-appId: com.lux.exchange.dev
-=======
 appId: com.uniswap.mobile.dev
->>>>>>> upstream/main
 jsEngine: graaljs
 ---
 # Start tracking shared flow

@@ -1,11 +1,7 @@
 import { EthersTransactionRequestSchema } from 'src/app/features/dappRequests/types/EthersTypes'
 import { HexadecimalNumberSchema } from 'src/app/features/dappRequests/types/utilityTypes'
 import { HomeTabs } from 'src/app/navigation/constants'
-<<<<<<< HEAD
-import { GetCallsStatusParamsSchema, SendCallsParamsSchema } from '@luxfi/wallet/src/features/dappRequests/types'
-=======
 import { GetCallsStatusParamsSchema, SendCallsParamsSchema } from 'wallet/src/features/dappRequests/types'
->>>>>>> upstream/main
 import { z } from 'zod'
 
 /**
@@ -186,20 +182,12 @@ export const WalletSwitchEthereumChainRequestSchema = EthereumRequestWithIdSchem
 })
 export type WalletSwitchEthereumChainRequest = z.infer<typeof WalletSwitchEthereumChainRequestSchema>
 
-<<<<<<< HEAD
-// eslint-disable-next-line no-restricted-syntax
-=======
 // oxlint-disable-next-line no-restricted-syntax
->>>>>>> upstream/main
 export const PermissionRequestSchema = z.record(z.string(), z.record(z.string(), z.any()))
 
 const CaveatSchema = z.object({
   type: z.string(),
-<<<<<<< HEAD
-  // eslint-disable-next-line no-restricted-syntax
-=======
   // oxlint-disable-next-line no-restricted-syntax
->>>>>>> upstream/main
   value: z.any(),
 })
 
@@ -301,13 +289,8 @@ export const WalletGetCapabilitiesRequestSchema = EthereumRequestWithIdSchema.ex
 
 export type WalletGetCapabilitiesRequest = z.infer<typeof WalletGetCapabilitiesRequestSchema>
 
-<<<<<<< HEAD
-export const LuxOpenSidebarRequestSchema = EthereumRequestWithIdSchema.extend({
-  method: z.literal('lux_openSidebar'),
-=======
 export const UniswapOpenSidebarRequestSchema = EthereumRequestWithIdSchema.extend({
   method: z.literal('uniswap_openSidebar'),
->>>>>>> upstream/main
   params: z.array(z.unknown()),
 }).transform((data) => {
   const tab = z.nativeEnum(HomeTabs).optional().parse(data.params[0])
@@ -317,11 +300,7 @@ export const UniswapOpenSidebarRequestSchema = EthereumRequestWithIdSchema.exten
   }
 })
 
-<<<<<<< HEAD
-export type LuxOpenSidebarRequest = z.infer<typeof LuxOpenSidebarRequestSchema>
-=======
 export type UniswapOpenSidebarRequest = z.infer<typeof UniswapOpenSidebarRequestSchema>
->>>>>>> upstream/main
 
 export const WalletSendCallsRequestSchema = EthereumRequestWithIdSchema.extend({
   method: z.literal('wallet_sendCalls'),

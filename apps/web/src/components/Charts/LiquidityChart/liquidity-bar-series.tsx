@@ -13,17 +13,11 @@ import {
   LiquidityBarSeriesOptions,
 } from '~/components/Charts/LiquidityChart/types'
 
-<<<<<<< HEAD
-export class LiquidityBarSeries<TData extends LiquidityBarData>
-  implements ICustomSeriesPaneView<Time, TData, LiquidityBarSeriesOptions>
-{
-=======
 export class LiquidityBarSeries<TData extends LiquidityBarData> implements ICustomSeriesPaneView<
   Time,
   TData,
   LiquidityBarSeriesOptions
 > {
->>>>>>> upstream/main
   _renderer: LiquidityBarSeriesRenderer<TData>
   _tokenAColor: string
   _tokenBColor: string

@@ -2,11 +2,7 @@ import localForage from 'localforage'
 import type { MigrationManifest, PersistedState, PersistMigrate } from 'redux-persist'
 import { createMigrate } from 'redux-persist'
 import type { MigrationConfig } from 'redux-persist/es/createMigrate'
-<<<<<<< HEAD
-import { logger } from '@l.x/utils/src/logger/logger'
-=======
 import { logger } from 'utilities/src/logger/logger'
->>>>>>> upstream/main
 import { migration0 } from '~/state/migrations/0'
 import { migration1 } from '~/state/migrations/1'
 import { migration2 } from '~/state/migrations/2'

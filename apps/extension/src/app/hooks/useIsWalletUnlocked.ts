@@ -1,13 +1,7 @@
 import { useCallback, useEffect, useState } from 'react'
-<<<<<<< HEAD
-import { logger } from '@l.x/utils/src/logger/logger'
-import { Keyring } from '@luxfi/wallet/src/features/wallet/Keyring/Keyring'
-import { ENCRYPTION_KEY_STORAGE_KEY, PersistedStorage } from '@luxfi/wallet/src/utils/persistedStorage'
-=======
 import { logger } from 'utilities/src/logger/logger'
 import { Keyring } from 'wallet/src/features/wallet/Keyring/Keyring'
 import { ENCRYPTION_KEY_STORAGE_KEY, PersistedStorage } from 'wallet/src/utils/persistedStorage'
->>>>>>> upstream/main
 
 /**
  * In order to speed up the initial load of the app and avoid a half a second loading spinner every time the sidebar opens,

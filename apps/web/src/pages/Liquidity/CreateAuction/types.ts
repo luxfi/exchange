@@ -1,14 +1,7 @@
-<<<<<<< HEAD
-import { type Currency, CurrencyAmount, Token } from '@luxamm/sdk-core'
-import { FeeAmount, TICK_SPACINGS } from '@luxamm/v3-sdk'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { CurrencyInfo } from 'lx/src/features/dataApi/types'
-=======
 import { type Currency, CurrencyAmount, Token } from '@uniswap/sdk-core'
 import { FeeAmount, TICK_SPACINGS } from '@uniswap/v3-sdk'
 import { UniverseChainId } from 'uniswap/src/features/chains/types'
 import { CurrencyInfo } from 'uniswap/src/features/dataApi/types'
->>>>>>> upstream/main
 import type { FeeData } from '~/components/Liquidity/Create/types'
 
 /**
@@ -73,47 +66,21 @@ export enum RaiseCurrency {
   USDC = 'USDC',
 }
 
-<<<<<<< HEAD
-export type BootstrapAuctionConfig = {
-  auctionType: AuctionType.BOOTSTRAP_LIQUIDITY
-  auctionSupplyAmount: CurrencyAmount<Currency>
-}
-
-export type FundraiseAuctionConfig = {
-  auctionType: AuctionType.FUNDRAISE
-=======
 /**
  * Token amounts committed after confirming the token info step.
  * Holds the total supply alongside the auction allocation amounts.
  */
 export type AuctionTokenAmounts = {
   totalSupply: CurrencyAmount<Currency>
->>>>>>> upstream/main
   auctionSupplyAmount: CurrencyAmount<Currency>
   postAuctionLiquidityAmount: CurrencyAmount<Currency>
 }
 
-<<<<<<< HEAD
-type AuctionTypeConfig = BootstrapAuctionConfig | FundraiseAuctionConfig
-
-type CommittedAuctionState = {
-  totalSupply: CurrencyAmount<Currency>
-  activeAuctionType: AuctionType
-  bootstrap: BootstrapAuctionConfig
-  fundraise: FundraiseAuctionConfig
-}
-
-export type ConfigureAuctionFormState = {
-  startTime: Date | undefined
-  maxDurationDays: number
-  committed: CommittedAuctionState | undefined
-=======
 export type ConfigureAuctionFormState = {
   startTime: Date | undefined
   maxDurationDays: number
   activeAuctionType: AuctionType
   committed: AuctionTokenAmounts | undefined
->>>>>>> upstream/main
   raiseCurrency: RaiseCurrency
   floorPrice: string
 }
@@ -134,27 +101,7 @@ type CustomizePoolState = {
   poolOwner: string
   timeLockEnabled: boolean
   timeLockDurationDays: number
-<<<<<<< HEAD
-=======
-  sendFeesEnabled: boolean
-  feesRecipientAddress: string
-  buybackAndBurnEnabled: boolean
->>>>>>> upstream/main
-}
-
-const DEFAULT_FEE_DATA: FeeData = {
-  feeAmount: FeeAmount.MEDIUM,
-  tickSpacing: TICK_SPACINGS[FeeAmount.MEDIUM],
-  isDynamic: false,
-}
-
-interface CreateAuctionState {
-  step: CreateAuctionStep
-  tokenForm: TokenFormState
-<<<<<<< HEAD
-=======
   tokenColor: string | undefined
->>>>>>> upstream/main
   configureAuction: ConfigureAuctionFormState
   customizePool: CustomizePoolState
   xVerification: XVerification | undefined
@@ -170,23 +117,9 @@ export const DEFAULT_EXISTING_TOKEN_FORM: ExistingTokenFormState = {
 
 export const DEFAULT_CREATE_AUCTION_STATE: CreateAuctionState = {
   step: CreateAuctionStep.ADD_TOKEN_INFO,
-<<<<<<< HEAD
-=======
-  tokenColor: undefined,
->>>>>>> upstream/main
-  xVerification: undefined,
-  customizePool: {
-    fee: DEFAULT_FEE_DATA,
-    priceRangeStrategy: PriceRangeStrategy.CONCENTRATED_FULL_RANGE,
-    poolOwner: '',
-    timeLockEnabled: false,
-    timeLockDurationDays: 5,
-<<<<<<< HEAD
-=======
     sendFeesEnabled: false,
     feesRecipientAddress: '',
     buybackAndBurnEnabled: false,
->>>>>>> upstream/main
   },
   tokenForm: {
     mode: TokenMode.CREATE_NEW,
@@ -201,35 +134,10 @@ export const DEFAULT_CREATE_AUCTION_STATE: CreateAuctionState = {
   configureAuction: {
     startTime: undefined,
     maxDurationDays: 5,
-<<<<<<< HEAD
-=======
-    activeAuctionType: AuctionType.BOOTSTRAP_LIQUIDITY,
->>>>>>> upstream/main
-    committed: undefined,
-    raiseCurrency: RaiseCurrency.ETH,
-    floorPrice: '',
-  },
-}
-
-interface CreateAuctionStoreActions {
-  setStep: (step: CreateAuctionStep) => void
-  goToNextStep: () => void
-  goToPreviousStep: () => void
-  setTokenMode: (mode: TokenMode) => void
-  updateCreateNewTokenField: <K extends keyof CreateNewTokenFields>(key: K, value: CreateNewTokenFields[K]) => void
-  updateExistingTokenField: <K extends keyof ExistingTokenFields>(key: K, value: ExistingTokenFields[K]) => void
-  setTokenForm: (form: TokenFormState) => void
-  commitTokenFormAndAdvance: () => void
-  setXVerification: (value: XVerification | undefined) => void
-  setAuctionType: (type: AuctionType) => void
-<<<<<<< HEAD
-  setAuctionConfig: (config: AuctionTypeConfig) => void
-=======
   setAuctionConfig: (config: {
     auctionSupplyAmount: CurrencyAmount<Currency>
     postAuctionLiquidityAmount: CurrencyAmount<Currency>
   }) => void
->>>>>>> upstream/main
   setStartTime: (startTime: Date | undefined) => void
   setMaxDurationDays: (days: number) => void
   setRaiseCurrency: (currency: RaiseCurrency) => void
@@ -239,13 +147,10 @@ interface CreateAuctionStoreActions {
   setPoolOwner: (owner: string) => void
   setTimeLockEnabled: (enabled: boolean) => void
   setTimeLockDurationDays: (days: number) => void
-<<<<<<< HEAD
-=======
   setSendFeesEnabled: (enabled: boolean) => void
   setFeesRecipientAddress: (address: string) => void
   setBuybackAndBurnEnabled: (enabled: boolean) => void
   setTokenColor: (color: string | undefined) => void
->>>>>>> upstream/main
   reset: () => void
 }
 

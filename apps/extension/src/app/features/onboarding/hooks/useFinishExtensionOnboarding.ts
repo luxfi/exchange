@@ -1,16 +1,5 @@
 import { useEffect, useRef } from 'react'
 import { saveDappConnection } from 'src/app/features/dapp/actions'
-<<<<<<< HEAD
-import { LX_WEB_URL } from '@l.x/lx/src/constants/urls'
-import { ImportType } from '@l.x/lx/src/types/onboarding'
-import { ExtensionOnboardingFlow } from '@l.x/lx/src/types/screens/extension'
-import { logger } from '@l.x/utils/src/logger/logger'
-import { useOnboardingContext } from '@luxfi/wallet/src/features/onboarding/OnboardingContext'
-
-/**
- * Activates onboarding accounts on component mount,
- * and auto-connects to app.lux.org.
-=======
 import { UNISWAP_WEB_URL } from 'uniswap/src/constants/urls'
 import { ImportType } from 'uniswap/src/types/onboarding'
 import { ExtensionOnboardingFlow } from 'uniswap/src/types/screens/extension'
@@ -20,7 +9,6 @@ import { useOnboardingContext } from 'wallet/src/features/onboarding/OnboardingC
 /**
  * Activates onboarding accounts on component mount,
  * and auto-connects to app.uniswap.org.
->>>>>>> upstream/main
  */
 export function useFinishExtensionOnboarding({
   callback,
@@ -48,11 +36,7 @@ export function useFinishExtensionOnboarding({
 
       const account = getOnboardingOrImportedAccount()
       if (account) {
-<<<<<<< HEAD
-        await saveDappConnection({ dappUrl: LX_WEB_URL, account })
-=======
         await saveDappConnection({ dappUrl: UNISWAP_WEB_URL, account })
->>>>>>> upstream/main
       }
 
       callback?.()

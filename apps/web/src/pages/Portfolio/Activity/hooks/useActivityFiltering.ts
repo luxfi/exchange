@@ -1,19 +1,10 @@
 import { useMemo, useRef } from 'react'
-<<<<<<< HEAD
-import { ActivityItem } from '@l.x/lx/src/components/activity/generateActivityItemRenderer'
-import { useActivityData } from '@l.x/lx/src/features/activity/hooks/useActivityData'
-import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
-import { TransactionDetails } from '@l.x/lx/src/features/transactions/types/transactionDetails'
-import { useInfiniteScroll } from '@l.x/utils/src/react/useInfiniteScroll'
-import { ONE_DAY_MS } from '@l.x/utils/src/time/time'
-=======
 import { ActivityItem } from 'uniswap/src/components/activity/generateActivityItemRenderer'
 import { useActivityData } from 'uniswap/src/features/activity/hooks/useActivityData'
 import { UniverseChainId } from 'uniswap/src/features/chains/types'
 import { TransactionDetails } from 'uniswap/src/features/transactions/types/transactionDetails'
 import { useInfiniteScroll } from 'utilities/src/react/useInfiniteScroll'
 import { ONE_DAY_MS } from 'utilities/src/time/time'
->>>>>>> upstream/main
 import {
   ActivityFilterType,
   filterTransactionDetailsFromActivityItems,

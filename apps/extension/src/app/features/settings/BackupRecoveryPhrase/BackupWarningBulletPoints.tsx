@@ -1,14 +1,8 @@
 import { FunctionComponent } from 'react'
 import { Trans, useTranslation } from 'react-i18next'
-<<<<<<< HEAD
-import { Circle, Flex, IconProps, Text } from '@l.x/ui/src'
-import { EyeOff, Key, PencilDetailed } from '@l.x/ui/src/components/icons'
-import { iconSizes } from '@l.x/ui/src/theme'
-=======
 import { Circle, Flex, IconProps, Text } from 'ui/src'
 import { EyeOff, Key, PencilDetailed } from 'ui/src/components/icons'
 import { iconSizes } from 'ui/src/theme'
->>>>>>> upstream/main
 
 export function BackupWarningBulletPoints(): JSX.Element {
   const { t } = useTranslation()

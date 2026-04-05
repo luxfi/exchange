@@ -1,9 +1,5 @@
 import { useRef, useState } from 'react'
-<<<<<<< HEAD
-// biome-ignore lint/style/noRestrictedImports: styled-components needed for NFT component styling
-=======
 // oxlint-disable-next-line no-restricted-imports -- styled-components needed for NFT component styling
->>>>>>> upstream/main
 import styled from 'styled-components'
 
 // snapshots a src img into a canvas

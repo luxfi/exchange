@@ -1,17 +1,3 @@
-<<<<<<< HEAD
-import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
-import { atom, useAtom } from 'jotai'
-import { forwardRef, RefObject, useCallback, useEffect, useRef } from 'react'
-import { Trans, useTranslation } from 'react-i18next'
-import { AnimatePresence, Button, ButtonProps, Flex, Popover, Text } from '@l.x/ui/src'
-import { Unitag } from '@l.x/ui/src/components/icons/Unitag'
-import { breakpoints } from '@l.x/ui/src/theme'
-import { useActiveAddresses, useConnectionStatus } from '@l.x/lx/src/features/accounts/store/hooks'
-import { ElementName, InterfaceEventName, ModalName } from '@l.x/lx/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
-import Trace from '@l.x/lx/src/features/telemetry/Trace'
-import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
-=======
 import { FeatureFlags, useFeatureFlag } from '@universe/gating'
 import { atom, useAtom } from 'jotai'
 import { forwardRef, RefObject, useCallback, useEffect, useRef } from 'react'
@@ -24,7 +10,6 @@ import { ElementName, InterfaceEventName, ModalName } from 'uniswap/src/features
 import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
 import Trace from 'uniswap/src/features/telemetry/Trace'
 import { TestID } from 'uniswap/src/test/fixtures/testIDs'
->>>>>>> upstream/main
 import { PrefetchBalancesWrapper } from '~/appGraphql/data/apollo/AdaptiveTokenBalancesProvider'
 import PortfolioDrawer from '~/components/AccountDrawer'
 import { usePendingActivity } from '~/components/AccountDrawer/MiniPortfolio/Activity/hooks'
@@ -200,11 +185,7 @@ function Web3StatusInner() {
       eventOnTrigger={InterfaceEventName.ConnectWalletButtonClicked}
       element={ElementName.ConnectWalletButton}
     >
-<<<<<<< HEAD
-      {/* biome-ignore lint/correctness/noRestrictedElements: needed here */}
-=======
       {/* oxlint-disable-next-line react/forbid-elements -- needed here */}
->>>>>>> upstream/main
       <div onKeyDown={(e) => e.key === 'Enter' && handleWalletDropdownClick()}>
         <ExistingUserCTAButton ref={ref} onPress={handleWalletDropdownClick} />
       </div>

@@ -1,18 +1,10 @@
 import { useEffect, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-<<<<<<< HEAD
-import { Flex, useSporeColors } from '@l.x/ui/src'
-import { DEP_accentColors } from '@l.x/ui/src/theme'
-import { StepStatus } from '@l.x/lx/src/components/ConfirmSwapModal/types'
-import { lxUrls } from '@l.x/lx/src/constants/urls'
-import { TransactionStatus } from '@l.x/lx/src/features/transactions/types/transactionDetails'
-=======
 import { Flex, useSporeColors } from 'ui/src'
 import { DEP_accentColors } from 'ui/src/theme'
 import { StepStatus } from 'uniswap/src/components/ConfirmSwapModal/types'
 import { uniswapUrls } from 'uniswap/src/constants/urls'
 import { TransactionStatus } from 'uniswap/src/features/transactions/types/transactionDetails'
->>>>>>> upstream/main
 import Column from '~/components/deprecated/Column'
 import { Sign } from '~/components/Icons/Sign'
 import { Swap } from '~/components/Icons/Swap'
@@ -23,19 +15,11 @@ import { useColor } from '~/hooks/useColor'
 import { SwapResult, useSwapTransactionStatus } from '~/hooks/useSwapCallback'
 import { deprecatedStyled } from '~/lib/deprecated-styled'
 import useNativeCurrency from '~/lib/hooks/useNativeCurrency'
-<<<<<<< HEAD
-import { ICON_SIZE, Step, StepDetails } from '~/pages/Swap/Limit/ConfirmSwapModal/Step'
-import { ConfirmModalState } from '~/pages/Swap/Limit/ConfirmSwapModal/state'
-import { InterfaceTrade } from '~/state/routing/types'
-import { isLimitTrade, isLXSwapTrade, isLXTradeType } from '~/state/routing/utils'
-import { useIsTransactionConfirmed, useDEXOrderByOrderHash } from '~/state/transactions/hooks'
-=======
 import { ConfirmModalState } from '~/pages/Swap/Limit/ConfirmSwapModal/state'
 import { ICON_SIZE, Step, StepDetails } from '~/pages/Swap/Limit/ConfirmSwapModal/Step'
 import { InterfaceTrade } from '~/state/routing/types'
 import { isLimitTrade, isUniswapXSwapTrade, isUniswapXTradeType } from '~/state/routing/utils'
 import { useIsTransactionConfirmed, useUniswapXOrderByOrderHash } from '~/state/transactions/hooks'
->>>>>>> upstream/main
 import { Divider } from '~/theme/components/Dividers'
 import { SignatureExpiredError } from '~/utils/errors'
 
@@ -62,11 +46,7 @@ export default function ProgressIndicator({
   tokenApprovalPending = false,
   revocationPending = false,
   swapError,
-<<<<<<< HEAD
-  onRetryDEXSignature,
-=======
   onRetryUniswapXSignature,
->>>>>>> upstream/main
 }: {
   steps: ProgressIndicatorStep[]
   currentStep: ProgressIndicatorStep
@@ -76,11 +56,7 @@ export default function ProgressIndicator({
   tokenApprovalPending?: boolean
   revocationPending?: boolean
   swapError?: Error | string
-<<<<<<< HEAD
-  onRetryDEXSignature?: () => void
-=======
   onRetryUniswapXSignature?: () => void
->>>>>>> upstream/main
 }) {
   const { t } = useTranslation()
   const { chainId } = useAccount()
@@ -101,43 +77,25 @@ export default function ProgressIndicator({
   }, [blockConfirmationTime, estimatedTransactionTime])
 
   const swapStatus = useSwapTransactionStatus(swapResult)
-<<<<<<< HEAD
-  const dexOrder = useDEXOrderByOrderHash(
-    isLXTradeType(swapResult?.type) ? swapResult.response.orderHash : '',
-  )
-
-  const swapConfirmed = swapStatus === TransactionStatus.Success || dexOrder?.status === TransactionStatus.Success
-=======
   const uniswapXOrder = useUniswapXOrderByOrderHash(
     isUniswapXTradeType(swapResult?.type) ? swapResult.response.orderHash : '',
   )
 
   const swapConfirmed = swapStatus === TransactionStatus.Success || uniswapXOrder?.status === TransactionStatus.Success
->>>>>>> upstream/main
   const wrapConfirmed = useIsTransactionConfirmed(wrapTxHash)
 
   const swapPending = swapResult !== undefined && !swapConfirmed
   const wrapPending = wrapTxHash !== undefined && !wrapConfirmed
   const transactionPending = revocationPending || tokenApprovalPending || wrapPending || swapPending
 
-<<<<<<< HEAD
-  // Retry logic for DEX orders when a signature expires
-=======
   // Retry logic for UniswapX orders when a signature expires
->>>>>>> upstream/main
   const [signatureExpiredErrorId, setSignatureExpiredErrorId] = useState('')
   useEffect(() => {
     if (swapError instanceof SignatureExpiredError && swapError.id !== signatureExpiredErrorId) {
       setSignatureExpiredErrorId(swapError.id)
-<<<<<<< HEAD
-      onRetryDEXSignature?.()
-    }
-  }, [onRetryDEXSignature, signatureExpiredErrorId, swapError])
-=======
       onRetryUniswapXSignature?.()
     }
   }, [onRetryUniswapXSignature, signatureExpiredErrorId, swapError])
->>>>>>> upstream/main
 
   function getStatus(targetStep: ProgressIndicatorStep) {
     const currentIndex = steps.indexOf(currentStep)
@@ -160,11 +118,7 @@ export default function ProgressIndicator({
         actionRequiredTitle: t('common.wrapIn', { symbol: nativeCurrency.symbol }),
         inProgressTitle: t('common.wrappingToken', { symbol: nativeCurrency.symbol }),
         learnMoreLinkText: t('common.whyWrap', { symbol: nativeCurrency.symbol }),
-<<<<<<< HEAD
-        learnMoreLinkHref: lxUrls.helpArticleUrls.wethExplainer,
-=======
         learnMoreLinkHref: uniswapUrls.helpArticleUrls.wethExplainer,
->>>>>>> upstream/main
       },
       [ConfirmModalState.RESETTING_TOKEN_ALLOWANCE]: {
         icon: <CurrencyLogo currency={trade?.inputAmount.currency} size={ICON_SIZE} />,
@@ -180,11 +134,7 @@ export default function ProgressIndicator({
         actionRequiredTitle: t('common.wallet.approve'),
         inProgressTitle: t('common.approvePending'),
         learnMoreLinkText: t('common.whyApprove'),
-<<<<<<< HEAD
-        learnMoreLinkHref: lxUrls.helpArticleUrls.approvalsExplainer,
-=======
         learnMoreLinkHref: uniswapUrls.helpArticleUrls.approvalsExplainer,
->>>>>>> upstream/main
       },
       [ConfirmModalState.PERMITTING]: {
         icon: <Sign />,
@@ -192,11 +142,7 @@ export default function ProgressIndicator({
         previewTitle: t('common.signMessage'),
         actionRequiredTitle: t('common.signMessageWallet'),
         learnMoreLinkText: t('common.whySign'),
-<<<<<<< HEAD
-        learnMoreLinkHref: lxUrls.helpArticleUrls.approvalsExplainer,
-=======
         learnMoreLinkHref: uniswapUrls.helpArticleUrls.approvalsExplainer,
->>>>>>> upstream/main
       },
       [ConfirmModalState.PENDING_CONFIRMATION]: {
         icon: <Swap />,
@@ -204,23 +150,14 @@ export default function ProgressIndicator({
         previewTitle: isLimitTrade(trade) ? t('common.confirm') : t('swap.confirmSwap'),
         actionRequiredTitle: isLimitTrade(trade) ? t('common.confirmWallet') : t('common.confirmSwap'),
         inProgressTitle: isLimitTrade(trade) ? t('common.pendingEllipsis') : t('common.swapPending'),
-<<<<<<< HEAD
-        ...(isLXSwapTrade(trade) && {
-=======
         ...(isUniswapXSwapTrade(trade) && {
->>>>>>> upstream/main
           timeToStart: trade.order.info.deadline - Math.floor(Date.now() / 1000),
           delayedStartTitle: t('common.confirmTimedOut'),
         }),
         learnMoreLinkText: isLimitTrade(trade) ? t('limits.learnMore') : t('common.learnMoreSwap'),
         learnMoreLinkHref: isLimitTrade(trade)
-<<<<<<< HEAD
-          ? lxUrls.helpArticleUrls.limitsInfo
-          : lxUrls.helpArticleUrls.howToSwapTokens,
-=======
           ? uniswapUrls.helpArticleUrls.limitsInfo
           : uniswapUrls.helpArticleUrls.howToSwapTokens,
->>>>>>> upstream/main
       },
     }),
     [trade, inputTokenColor, t, nativeCurrency.symbol, colors],

@@ -1,15 +1,9 @@
 import { WalletError } from '@solana/wallet-adapter-base'
 import { useWallet as useSolanaWalletContext } from '@solana/wallet-adapter-react'
 import { useMemo } from 'react'
-<<<<<<< HEAD
-import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
-import { useEvent } from '@l.x/utils/src/react/hooks'
-import { sleep } from '@l.x/utils/src/time/timing'
-=======
 import { Platform } from 'uniswap/src/features/platforms/types/Platform'
 import { useEvent } from 'utilities/src/react/hooks'
 import { sleep } from 'utilities/src/time/timing'
->>>>>>> upstream/main
 import type { ExternalConnector } from '~/features/accounts/store/types'
 import type { GetConnectorFn } from '~/features/wallet/connection/services/createConnectionService'
 import { createConnectionService } from '~/features/wallet/connection/services/createConnectionService'

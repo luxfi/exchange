@@ -1,34 +1,18 @@
-<<<<<<< HEAD
-import { TradingApi } from '@l.x/api'
-import { ContractTransaction } from 'ethers/lib/ethers'
-import { useCallback, useMemo } from 'react'
-import {
-  cancelMultipleDEXOrders,
-=======
 import { TradingApi } from '@universe/api'
 import { ContractTransaction } from 'ethers/lib/ethers'
 import { useCallback, useMemo } from 'react'
 import {
   cancelMultipleUniswapXOrders,
->>>>>>> upstream/main
   extractCancellationData,
   fetchLimitOrdersEncodedOrderData,
   getOrdersMatchingCancellationData,
   LimitOrdersFetcher,
   trackOrderCancellation,
-<<<<<<< HEAD
-} from '@l.x/lx/src/features/transactions/cancel/cancelMultipleOrders'
-import { validateOrdersForCancellation } from '@l.x/lx/src/features/transactions/cancel/validation'
-import { updateTransaction } from '@l.x/lx/src/features/transactions/slice'
-import { TransactionStatus, DEXOrderDetails } from '@l.x/lx/src/features/transactions/types/transactionDetails'
-import { logger } from '@l.x/utils/src/logger/logger'
-=======
 } from 'uniswap/src/features/transactions/cancel/cancelMultipleOrders'
 import { validateOrdersForCancellation } from 'uniswap/src/features/transactions/cancel/validation'
 import { updateTransaction } from 'uniswap/src/features/transactions/slice'
 import { TransactionStatus, UniswapXOrderDetails } from 'uniswap/src/features/transactions/types/transactionDetails'
 import { logger } from 'utilities/src/logger/logger'
->>>>>>> upstream/main
 import { useAccount } from '~/hooks/useAccount'
 import { useEthersWeb3Provider } from '~/hooks/useEthersProvider'
 import { useFetchLimitOrders } from '~/hooks/useFetchLimitOrders'
@@ -43,11 +27,7 @@ type AppDispatch = typeof store.dispatch
 /**
  * Updates order status to Cancelling for UI feedback
  */
-<<<<<<< HEAD
-function markOrdersAsCancelling(orders: DEXOrderDetails[], dispatch: AppDispatch): void {
-=======
 function markOrdersAsCancelling(orders: UniswapXOrderDetails[], dispatch: AppDispatch): void {
->>>>>>> upstream/main
   orders.forEach((order) => {
     dispatch(
       updateTransaction({
@@ -66,11 +46,7 @@ function revertOrdersStatuses({
   originalStatuses,
   dispatch,
 }: {
-<<<<<<< HEAD
-  orders: DEXOrderDetails[]
-=======
   orders: UniswapXOrderDetails[]
->>>>>>> upstream/main
   originalStatuses: Map<string, TransactionStatus>
   dispatch: AppDispatch
 }): void {
@@ -86,19 +62,11 @@ function revertOrdersStatuses({
 }
 
 /**
-<<<<<<< HEAD
- * Hook to cancel multiple DEX orders
- * Handles validation, fetching missing data, status updates, and execution
- */
-export function useCancelMultipleOrdersCallback(
-  orders?: DEXOrderDetails[],
-=======
  * Hook to cancel multiple UniswapX orders
  * Handles validation, fetching missing data, status updates, and execution
  */
 export function useCancelMultipleOrdersCallback(
   orders?: UniswapXOrderDetails[],
->>>>>>> upstream/main
 ): () => Promise<ContractTransaction[] | undefined> {
   const account = useAccount()
   const provider = useEthersWeb3Provider()
@@ -127,11 +95,7 @@ export function useCancelMultipleOrdersCallback(
     })
 
     // Declare ordersToCancel at the function scope so it's available in catch block
-<<<<<<< HEAD
-    let ordersToCancel: DEXOrderDetails[] = []
-=======
     let ordersToCancel: UniswapXOrderDetails[] = []
->>>>>>> upstream/main
 
     try {
       // Send analytics event
@@ -172,11 +136,7 @@ export function useCancelMultipleOrdersCallback(
       }
 
       // Execute the actual cancellation transaction on-chain
-<<<<<<< HEAD
-      const txs = await cancelMultipleDEXOrders({
-=======
       const txs = await cancelMultipleUniswapXOrders({
->>>>>>> upstream/main
         orders: cancellationData.map((data: { encodedOrder: string; routing: TradingApi.Routing }) => ({
           encodedOrder: data.encodedOrder,
           routing: data.routing,
@@ -187,11 +147,7 @@ export function useCancelMultipleOrdersCallback(
       })
 
       // Critical: Check if cancellation returned transactions
-<<<<<<< HEAD
-      // cancelMultipleDEXOrders can return undefined without throwing (e.g., user rejection, no provider)
-=======
       // cancelMultipleUniswapXOrders can return undefined without throwing (e.g., user rejection, no provider)
->>>>>>> upstream/main
       // Without this check, orders would remain stuck in "Cancelling" state
       if (!txs || txs.length === 0) {
         revertOrdersStatuses({ orders: ordersToCancel, originalStatuses, dispatch })

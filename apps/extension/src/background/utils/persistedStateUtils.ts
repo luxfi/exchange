@@ -2,13 +2,8 @@ import { isOnboardedSelector } from 'src/app/utils/isOnboardedSelector'
 import { STATE_STORAGE_KEY } from 'src/store/constants'
 import { ExtensionState } from 'src/store/extensionReducer'
 import { EXTENSION_STATE_VERSION } from 'src/store/migrations'
-<<<<<<< HEAD
-import { deviceAccessTimeoutToMinutes } from '@l.x/lx/src/features/settings/constants'
-import { logger } from '@l.x/utils/src/logger/logger'
-=======
 import { deviceAccessTimeoutToMinutes } from 'uniswap/src/features/settings/constants'
 import { logger } from 'utilities/src/logger/logger'
->>>>>>> upstream/main
 
 export async function readReduxStateFromStorage(storageChanges?: {
   [key: string]: chrome.storage.StorageChange

@@ -3,17 +3,10 @@ import WebView from 'react-native-webview'
 import { AppStackScreenProp, SettingsStackScreenProp } from 'src/app/navigation/types'
 import { BackHeader } from 'src/components/layout/BackHeader'
 import { Screen } from 'src/components/layout/Screen'
-<<<<<<< HEAD
-import { Separator, Text } from '@l.x/ui/src'
-import { lxUrls } from '@l.x/lx/src/constants/urls'
-import { MobileScreens } from '@l.x/lx/src/types/screens/mobile'
-import { useActiveAccountAddress } from '@luxfi/wallet/src/features/wallet/hooks'
-=======
 import { Separator, Text } from 'ui/src'
 import { uniswapUrls } from 'uniswap/src/constants/urls'
 import { MobileScreens } from 'uniswap/src/types/screens/mobile'
 import { useActiveAccountAddress } from 'wallet/src/features/wallet/hooks'
->>>>>>> upstream/main
 
 export function WebViewScreen({
   route,
@@ -28,11 +21,7 @@ export function WebViewScreen({
 
       <Separator />
 
-<<<<<<< HEAD
-      {uriLink === lxUrls.helpUrl ? <ZendeskWebView uriLink={uriLink} /> : <WebView source={{ uri: uriLink }} />}
-=======
       {uriLink === uniswapUrls.helpUrl ? <ZendeskWebView uriLink={uriLink} /> : <WebView source={{ uri: uriLink }} />}
->>>>>>> upstream/main
     </Screen>
   )
 }
@@ -44,11 +33,7 @@ function ZendeskWebView({ uriLink }: { uriLink: string }): JSX.Element {
 
   const onNavigationStateChange = useCallback(
     ({ url }: { url: string }): void => {
-<<<<<<< HEAD
-      if (zendeskInjectJs && url.startsWith(`${lxUrls.helpUrl}/requests/new`)) {
-=======
       if (zendeskInjectJs && url.startsWith(`${uniswapUrls.helpUrl}/requests/new`)) {
->>>>>>> upstream/main
         webviewRef.current?.injectJavaScript(zendeskInjectJs)
       }
     },

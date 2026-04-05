@@ -7,17 +7,10 @@ import {
 } from 'src/app/features/dapp/hooks'
 import { DappState, dappStore } from 'src/app/features/dapp/store'
 import { act, renderHook, waitFor } from 'src/test/test-utils'
-<<<<<<< HEAD
-import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
-import { SAMPLE_SEED_ADDRESS_1, SAMPLE_SEED_ADDRESS_3 } from '@l.x/lx/src/test/fixtures'
-import { useActiveAccountAddress } from '@luxfi/wallet/src/features/wallet/hooks'
-import { ACCOUNT, ACCOUNT2, ACCOUNT3 } from '@luxfi/wallet/src/test/fixtures'
-=======
 import { UniverseChainId } from 'uniswap/src/features/chains/types'
 import { SAMPLE_SEED_ADDRESS_1, SAMPLE_SEED_ADDRESS_3 } from 'uniswap/src/test/fixtures'
 import { useActiveAccountAddress } from 'wallet/src/features/wallet/hooks'
 import { ACCOUNT, ACCOUNT2, ACCOUNT3 } from 'wallet/src/test/fixtures'
->>>>>>> upstream/main
 
 jest.mock('wallet/src/features/wallet/hooks', () => ({
   ...jest.requireActual('wallet/src/features/wallet/hooks'),
@@ -25,11 +18,7 @@ jest.mock('wallet/src/features/wallet/hooks', () => ({
 }))
 
 const SAMPLE_DAPP = 'http://example.com'
-<<<<<<< HEAD
-const SAMPLE_DAPP_2 = 'http://lux.org'
-=======
 const SAMPLE_DAPP_2 = 'http://uniswap.org'
->>>>>>> upstream/main
 
 const dappState: DappState = {
   [SAMPLE_DAPP]: {

@@ -1,11 +1,7 @@
 import { CanceledError, RetryableError, retry } from '~/state/activity/polling/retry'
 
 describe('retry', () => {
-<<<<<<< HEAD
-  // eslint-disable-next-line max-params
-=======
   // oxlint-disable-next-line max-params
->>>>>>> upstream/main
   function makeFn<T>(fails: number, result: T, retryable = true): () => Promise<T> {
     return async () => {
       if (fails > 0) {

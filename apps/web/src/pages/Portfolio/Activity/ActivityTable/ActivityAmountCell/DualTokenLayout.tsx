@@ -1,12 +1,6 @@
-<<<<<<< HEAD
-import { Flex, Text } from '@l.x/ui/src'
-import { ArrowRight } from '@l.x/ui/src/components/icons/ArrowRight'
-import { CurrencyInfo } from '@l.x/lx/src/features/dataApi/types'
-=======
 import { Flex, Text } from 'ui/src'
 import { ArrowRight } from 'ui/src/components/icons/ArrowRight'
 import { CurrencyInfo } from 'uniswap/src/features/dataApi/types'
->>>>>>> upstream/main
 import { EmptyCell } from '~/pages/Portfolio/Activity/ActivityTable/ActivityAmountCell/EmptyCell'
 import { TokenAmountDisplay } from '~/pages/Portfolio/Activity/ActivityTable/TokenAmountDisplay'
 

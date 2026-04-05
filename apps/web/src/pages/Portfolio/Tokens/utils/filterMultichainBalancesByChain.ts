@@ -1,10 +1,5 @@
-<<<<<<< HEAD
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import type { PortfolioChainBalance, PortfolioMultichainBalance } from 'lx/src/features/dataApi/types'
-=======
 import { UniverseChainId } from 'uniswap/src/features/chains/types'
 import type { PortfolioChainBalance, PortfolioMultichainBalance } from 'uniswap/src/features/dataApi/types'
->>>>>>> upstream/main
 
 /**
  * Creates helpers to filter multichain portfolio balances by chain ID.

@@ -7,21 +7,6 @@ import { useBiometricAppSettings } from 'src/features/biometrics/useBiometricApp
 import { useBiometricPrompt } from 'src/features/biometricsSettings/hooks'
 import { closeAllModals } from 'src/features/modals/modalSlice'
 import { getEncryptedMnemonic } from 'src/features/scantastic/ScantasticEncryption'
-<<<<<<< HEAD
-import { Button, Flex, Text, TouchableArea, useSporeColors } from '@l.x/ui/src'
-import { AlertTriangleFilled, Faceid, Laptop, LinkBrokenHorizontal, Wifi } from '@l.x/ui/src/components/icons'
-import { Modal } from '@l.x/lx/src/components/modals/Modal'
-import { lxUrls } from '@l.x/lx/src/constants/urls'
-import { pushNotification } from '@l.x/lx/src/features/notifications/slice/slice'
-import { AppNotificationType } from '@l.x/lx/src/features/notifications/slice/types'
-import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
-import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
-import { logger } from '@l.x/utils/src/logger/logger'
-import { ONE_MINUTE_MS, ONE_SECOND_MS } from '@l.x/utils/src/time/time'
-import { useInterval } from '@l.x/utils/src/time/timing'
-import { useSignerAccounts } from '@luxfi/wallet/src/features/wallet/hooks'
-import { getOtpDurationString } from '@luxfi/wallet/src/utils/duration'
-=======
 import { Button, Flex, Text, TouchableArea, useSporeColors } from 'ui/src'
 import { AlertTriangleFilled, Faceid, Laptop, LinkBrokenHorizontal, Wifi } from 'ui/src/components/icons'
 import { Modal } from 'uniswap/src/components/modals/Modal'
@@ -35,7 +20,6 @@ import { ONE_MINUTE_MS, ONE_SECOND_MS } from 'utilities/src/time/time'
 import { useInterval } from 'utilities/src/time/timing'
 import { useSignerAccounts } from 'wallet/src/features/wallet/hooks'
 import { getOtpDurationString } from 'wallet/src/utils/duration'
->>>>>>> upstream/main
 
 const IP_MISMATCH_STATUS_CODE = 401
 
@@ -137,20 +121,12 @@ export function ScantasticModal({ route }: AppStackScreenProp<typeof ModalName.S
 
     try {
       // submit encrypted blob
-<<<<<<< HEAD
-      const response = await fetch(`${lxUrls.scantasticApiUrl}/blob`, {
-=======
       const response = await fetch(`${uniswapUrls.scantasticApiUrl}/blob`, {
->>>>>>> upstream/main
         method: 'POST',
         headers: {
           Accept: 'application/json',
           'Content-Type': 'application/json',
-<<<<<<< HEAD
-          Origin: 'https://lux.org',
-=======
           Origin: 'https://uniswap.org',
->>>>>>> upstream/main
         },
         body: JSON.stringify({
           uuid,
@@ -205,19 +181,11 @@ export function ScantasticModal({ route }: AppStackScreenProp<typeof ModalName.S
       return
     }
     try {
-<<<<<<< HEAD
-      const response = await fetch(`${lxUrls.scantasticApiUrl}/otp-state/${uuid}`, {
-        method: 'POST',
-        headers: {
-          Accept: 'application/json',
-          Origin: 'https://lux.org',
-=======
       const response = await fetch(`${uniswapUrls.scantasticApiUrl}/otp-state/${uuid}`, {
         method: 'POST',
         headers: {
           Accept: 'application/json',
           Origin: 'https://uniswap.org',
->>>>>>> upstream/main
         },
       })
       if (!response.ok) {

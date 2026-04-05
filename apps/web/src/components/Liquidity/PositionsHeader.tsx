@@ -1,21 +1,3 @@
-<<<<<<< HEAD
-import { PositionStatus, ProtocolVersion } from '@luxamm/client-data-api/dist/data/v1/poolTypes_pb'
-import { useMemo, useState } from 'react'
-import { useTranslation } from 'react-i18next'
-import { useNavigate } from 'react-router'
-import { Flex, LabeledCheckbox, Text, useMedia } from '@l.x/ui/src'
-import { Plus } from '@l.x/ui/src/components/icons/Plus'
-import { RotatableChevron } from '@l.x/ui/src/components/icons/RotatableChevron'
-import { StatusIndicatorCircle } from '@l.x/ui/src/components/icons/StatusIndicatorCircle'
-import { NetworkFilter } from 'lx/src/components/network/NetworkFilter'
-import { useEnabledChains } from 'lx/src/features/chains/hooks/useEnabledChains'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { Platform } from 'lx/src/features/platforms/types/Platform'
-import { Dropdown } from '~/components/Dropdowns/Dropdown'
-import { lpStatusConfig } from '~/components/Liquidity/constants'
-import { getProtocolStatusLabel, getProtocolVersionLabel } from '~/components/Liquidity/utils/protocolVersion'
-import { ClickableGuiStyle } from '~/theme/components/styles'
-=======
 import { PositionStatus, ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
 import { useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
@@ -32,7 +14,6 @@ import { Dropdown } from '~/components/Dropdowns/Dropdown'
 import { lpStatusConfig } from '~/components/Liquidity/constants'
 import { getProtocolStatusLabel, getProtocolVersionLabel } from '~/components/Liquidity/utils/protocolVersion'
 import { ClickableTamaguiStyle } from '~/theme/components/styles'
->>>>>>> upstream/main
 
 const StyledDropdownButton = {
   borderRadius: '$rounded16',
@@ -41,11 +22,7 @@ const StyledDropdownButton = {
   backgroundColor: '$surface3',
   borderWidth: 0,
   hoverStyle: {
-<<<<<<< HEAD
-    ...ClickableGuiStyle.hoverStyle,
-=======
     ...ClickableTamaguiStyle.hoverStyle,
->>>>>>> upstream/main
     backgroundColor: 'none',
   },
 }
@@ -131,11 +108,7 @@ export function PositionsHeader({
           <Flex
             key={`PositionsHeader-create-${protocolVersionLabel}`}
             p="$spacing8"
-<<<<<<< HEAD
-            {...ClickableGuiStyle}
-=======
             {...ClickableTamaguiStyle}
->>>>>>> upstream/main
             onPress={() => {
               navigate(`/positions/create/${protocolVersionLabel}`)
             }}
@@ -169,11 +142,7 @@ export function PositionsHeader({
                 $sm={{ justifyContent: 'center' }}
                 justifyContent="flex-start"
                 flexGrow={1}
-<<<<<<< HEAD
-                {...ClickableGuiStyle}
-=======
                 {...ClickableTamaguiStyle}
->>>>>>> upstream/main
                 onPress={() => {
                   navigate('/positions/create/v4')
                 }}
@@ -193,11 +162,7 @@ export function PositionsHeader({
                     justifyContent="center"
                     alignItems="center"
                     p="$padding8"
-<<<<<<< HEAD
-                    {...ClickableGuiStyle}
-=======
                     {...ClickableTamaguiStyle}
->>>>>>> upstream/main
                   >
                     <RotatableChevron direction="down" size="$icon.20" color="$surface1" />
                   </Flex>
@@ -246,11 +211,7 @@ export function PositionsHeader({
                 borderRadius="$rounded16"
                 px="$padding12"
                 height="100%"
-<<<<<<< HEAD
-                {...ClickableGuiStyle}
-=======
                 {...ClickableTamaguiStyle}
->>>>>>> upstream/main
               >
                 <NetworkFilter
                   includeAllNetworks

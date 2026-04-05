@@ -1,28 +1,5 @@
 import { WalletName as SolanaWalletName, WalletReadyState as SolanaWalletReadyState } from '@solana/wallet-adapter-base'
 import { Wallet as SolanaWallet, useWallet as useSolanaWallet } from '@solana/wallet-adapter-react'
-<<<<<<< HEAD
-import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
-import { useMemo } from 'react'
-import { CONNECTION_PROVIDER_IDS, CONNECTION_PROVIDER_NAMES } from '@l.x/lx/src/constants/web3'
-import type { Account } from '@l.x/lx/src/features/accounts/store/types/Account'
-import { AccessPattern, Connector, ConnectorStatus } from '@l.x/lx/src/features/accounts/store/types/Connector'
-import { ChainScopeType } from '@l.x/lx/src/features/accounts/store/types/Session'
-import { SigningCapability } from '@l.x/lx/src/features/accounts/store/types/Wallet'
-import { createAccountsStoreContextProvider } from '@l.x/lx/src/features/accounts/store/utils/createAccountsStoreContextProvider'
-import { CAIP25Session } from '@l.x/lx/src/features/capabilities/caip25/types'
-import { useEnabledChains } from '@l.x/lx/src/features/chains/hooks/useEnabledChains'
-import { EVMUniverseChainId, UniverseChainId } from '@l.x/lx/src/features/chains/types'
-import { isUniverseChainId } from '@l.x/lx/src/features/chains/utils'
-import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
-import type { PlatformSpecificAddress } from '@l.x/lx/src/features/platforms/types/PlatformSpecificAddress'
-import { isChainIdOnPlatform } from '@l.x/lx/src/features/platforms/utils/chains'
-import {
-  UseAccountReturnType,
-  useCapabilities,
-  // biome-ignore lint/style/noRestrictedImports: direct wagmi hooks needed for web wallet integration
-  useAccount as useWagmiAccount,
-  // biome-ignore lint/style/noRestrictedImports: direct wagmi hooks needed for web wallet integration
-=======
 import { FeatureFlags, useFeatureFlag } from '@universe/gating'
 import { useMemo } from 'react'
 import { CONNECTION_PROVIDER_IDS, CONNECTION_PROVIDER_NAMES } from 'uniswap/src/constants/web3'
@@ -44,7 +21,6 @@ import {
   // oxlint-disable-next-line no-restricted-imports -- direct wagmi hooks needed for web wallet integration
   useAccount as useWagmiAccount,
   // oxlint-disable-next-line no-restricted-imports -- direct wagmi hooks needed for web wallet integration
->>>>>>> upstream/main
   useChainId as useWagmiChainId,
   useConnectors as useWagmiConnectors,
   Connector as WagmiConnector,
@@ -392,21 +368,12 @@ function buildAccountsState({
   return { wallets, connectors, accounts, activeConnectors, connectionQueryIsPending: isConnecting }
 }
 
-<<<<<<< HEAD
-// Lux wallet connect connector conflicts with the normal WC connector, so we leave it out of our config and add it manually here.
-const LUX_WALLET_CONNECTOR = {
-  id: CONNECTION_PROVIDER_IDS.LUX_WALLET_CONNECT_CONNECTOR_ID,
-  type: 'luxWalletConnect',
-  name: CONNECTION_PROVIDER_NAMES.LUX_WALLET,
-  icon: CONNECTOR_ICON_OVERRIDE_MAP[CONNECTION_PROVIDER_NAMES.LUX_WALLET],
-=======
 // Uniswap wallet connect connector conflicts with the normal WC connector, so we leave it out of our config and add it manually here.
 const UNISWAP_WALLET_CONNECTOR = {
   id: CONNECTION_PROVIDER_IDS.UNISWAP_WALLET_CONNECT_CONNECTOR_ID,
   type: 'uniswapWalletConnect',
   name: CONNECTION_PROVIDER_NAMES.UNISWAP_WALLET,
   icon: CONNECTOR_ICON_OVERRIDE_MAP[CONNECTION_PROVIDER_NAMES.UNISWAP_WALLET],
->>>>>>> upstream/main
 }
 
 /** Hook that builds EVM wallet infos from wagmi connectors and account data. */
@@ -416,11 +383,7 @@ function useEVMWalletInfos(pendingConnection: ExternalWallet | undefined): Platf
   const fallbackChainId = useWagmiChainId()
 
   return useMemo(() => {
-<<<<<<< HEAD
-    return [...connectors, LUX_WALLET_CONNECTOR].map((connector) => {
-=======
     return [...connectors, UNISWAP_WALLET_CONNECTOR].map((connector) => {
->>>>>>> upstream/main
       const currentConnectorIsActive =
         connector.id === wagmiAccount.connector?.id || pendingConnection?.id === connector.id
       const accountData = currentConnectorIsActive ? wagmiAccount : undefined

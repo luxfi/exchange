@@ -1,14 +1,4 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react'
-<<<<<<< HEAD
-// biome-ignore lint/style/noRestrictedImports: Keyboard addListener is allowed for this use case
-import { Keyboard, TextInput as NativeTextInput } from 'react-native'
-import InputWithSuffix from 'src/features/import/InputWithSuffix'
-import { ColorTokens, Flex, Text, useMedia } from '@l.x/ui/src'
-import { fonts } from '@l.x/ui/src/theme'
-import PasteButton from '@l.x/lx/src/components/buttons/PasteButton'
-import { SectionName } from '@l.x/lx/src/features/telemetry/constants'
-import Trace from '@l.x/lx/src/features/telemetry/Trace'
-=======
 // oxlint-disable-next-line no-restricted-imports -- Keyboard addListener is allowed for this use case
 import { Keyboard, TextInput as NativeTextInput } from 'react-native'
 import InputWithSuffix from 'src/features/import/InputWithSuffix'
@@ -17,7 +7,6 @@ import { fonts } from 'ui/src/theme'
 import PasteButton from 'uniswap/src/components/buttons/PasteButton'
 import { SectionName } from 'uniswap/src/features/telemetry/constants'
 import Trace from 'uniswap/src/features/telemetry/Trace'
->>>>>>> upstream/main
 
 interface Props {
   value: string | undefined

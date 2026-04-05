@@ -5,19 +5,11 @@ import { OnboardingScreen } from 'src/app/features/onboarding/OnboardingScreen'
 import { useOnboardingSteps } from 'src/app/features/onboarding/OnboardingStepsContext'
 import { OnboardingRoutes, TopLevelRoutes } from 'src/app/navigation/constants'
 import { navigate } from 'src/app/navigation/state'
-<<<<<<< HEAD
-import { Flex } from '@l.x/ui/src'
-import Trace from '@l.x/lx/src/features/telemetry/Trace'
-import { ExtensionOnboardingFlow, ExtensionOnboardingScreens } from '@l.x/lx/src/types/screens/extension'
-import { PasskeyImportLoading } from '@luxfi/wallet/src/features/onboarding/PasskeyImportLoading'
-import { WelcomeSplash } from '@luxfi/wallet/src/features/onboarding/WelcomeSplash'
-=======
 import { Flex } from 'ui/src'
 import Trace from 'uniswap/src/features/telemetry/Trace'
 import { ExtensionOnboardingFlow, ExtensionOnboardingScreens } from 'uniswap/src/types/screens/extension'
 import { PasskeyImportLoading } from 'wallet/src/features/onboarding/PasskeyImportLoading'
 import { WelcomeSplash } from 'wallet/src/features/onboarding/WelcomeSplash'
->>>>>>> upstream/main
 
 const SCREEN_HEIGHT = 281
 

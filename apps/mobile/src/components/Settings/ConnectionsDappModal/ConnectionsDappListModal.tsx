@@ -4,13 +4,8 @@ import { BackButton } from 'src/components/buttons/BackButton'
 import { useReactNavigationModal } from 'src/components/modals/useReactNavigationModal'
 import { ConnectedDappsList } from 'src/components/Requests/ConnectedDapps/ConnectedDappsList'
 import { useWalletConnect } from 'src/features/walletConnect/useWalletConnect'
-<<<<<<< HEAD
-import { Modal } from '@l.x/lx/src/components/modals/Modal'
-import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
-=======
 import { Modal } from 'uniswap/src/components/modals/Modal'
 import { ModalName } from 'uniswap/src/features/telemetry/constants'
->>>>>>> upstream/main
 
 export function ConnectionsDappListModal({
   route,

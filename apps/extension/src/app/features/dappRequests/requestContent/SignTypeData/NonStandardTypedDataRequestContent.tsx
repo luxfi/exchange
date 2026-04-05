@@ -2,11 +2,7 @@ import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { DappRequestContent } from 'src/app/features/dappRequests/DappRequestContent'
 import { SignTypedDataRequest } from 'src/app/features/dappRequests/types/DappRequestTypes'
-<<<<<<< HEAD
-import { NonStandardTypedDataContent } from '@luxfi/wallet/src/components/dappRequests/SignTypedData/NonStandardTypedDataContent'
-=======
 import { NonStandardTypedDataContent } from 'wallet/src/components/dappRequests/SignTypedData/NonStandardTypedDataContent'
->>>>>>> upstream/main
 
 interface NonStandardTypedDataRequestContentProps {
   dappRequest: SignTypedDataRequest

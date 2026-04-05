@@ -1,9 +1,5 @@
 import { NativeStackScreenProps } from '@react-navigation/native-stack'
-<<<<<<< HEAD
-import { FeatureFlags, useFeatureFlag } from '@luxfi/gating'
-=======
 import { FeatureFlags, useFeatureFlag } from '@universe/gating'
->>>>>>> upstream/main
 import React, { ComponentProps, useCallback } from 'react'
 import { Trans, useTranslation } from 'react-i18next'
 import { ScrollView } from 'react-native'
@@ -11,21 +7,6 @@ import Animated, { useAnimatedStyle, withTiming } from 'react-native-reanimated'
 import { navigate } from 'src/app/navigation/rootNavigation'
 import { OnboardingStackParamList } from 'src/app/navigation/types'
 import { OnboardingScreen } from 'src/features/onboarding/OnboardingScreen'
-<<<<<<< HEAD
-import { Button, Flex, Loader, Text, TouchableArea, useLayoutAnimationOnChange } from '@l.x/ui/src'
-import { WalletFilled } from '@l.x/ui/src/components/icons'
-import { spacing } from '@l.x/ui/src/theme'
-import { BaseCard } from '@l.x/lx/src/components/BaseCard/BaseCard'
-import { ElementName, ModalName } from '@l.x/lx/src/features/telemetry/constants'
-import Trace from '@l.x/lx/src/features/telemetry/Trace'
-import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
-import { ImportType } from '@l.x/lx/src/types/onboarding'
-import { OnboardingScreens } from '@l.x/lx/src/types/screens/mobile'
-import WalletPreviewCard from '@luxfi/wallet/src/components/WalletPreviewCard/WalletPreviewCard'
-import { useImportableAccounts } from '@luxfi/wallet/src/features/onboarding/hooks/useImportableAccounts'
-import { useSelectAccounts } from '@luxfi/wallet/src/features/onboarding/hooks/useSelectAccounts'
-import { useOnboardingContext } from '@luxfi/wallet/src/features/onboarding/OnboardingContext'
-=======
 import { Button, Flex, Loader, Text, TouchableArea, useLayoutAnimationOnChange } from 'ui/src'
 import { WalletFilled } from 'ui/src/components/icons'
 import { spacing } from 'ui/src/theme'
@@ -39,7 +20,6 @@ import WalletPreviewCard from 'wallet/src/components/WalletPreviewCard/WalletPre
 import { useImportableAccounts } from 'wallet/src/features/onboarding/hooks/useImportableAccounts'
 import { useSelectAccounts } from 'wallet/src/features/onboarding/hooks/useSelectAccounts'
 import { useOnboardingContext } from 'wallet/src/features/onboarding/OnboardingContext'
->>>>>>> upstream/main
 
 const ANIMATION_DURATION = 300
 

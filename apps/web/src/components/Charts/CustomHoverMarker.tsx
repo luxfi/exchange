@@ -1,10 +1,5 @@
-<<<<<<< HEAD
-import { Flex, useSporeColors } from '@l.x/ui/src'
-import { opacify } from '@l.x/ui/src/theme'
-=======
 import { Flex, useSporeColors } from 'ui/src'
 import { opacify } from 'ui/src/theme'
->>>>>>> upstream/main
 
 interface CustomHoverMarkerProps {
   coordinates: { x: number; y: number }

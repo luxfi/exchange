@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import { ExploreBackendSortingProperties, Layers, useExperimentValueFromLayer } from '@l.x/gating'
-=======
 import { ExploreBackendSortingProperties, Layers, useExperimentValueFromLayer } from '@universe/gating'
->>>>>>> upstream/main
 
 /**
  * Hook that returns whether backend sorting is enabled for the Explore page.

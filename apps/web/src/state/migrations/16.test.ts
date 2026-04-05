@@ -1,13 +1,7 @@
 import { createMigrate } from 'redux-persist'
-<<<<<<< HEAD
-import { DAI_ARBITRUM_ONE, USDC } from '@l.x/lx/src/constants/tokens'
-import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
-import { serializeToken } from '@l.x/lx/src/utils/currency'
-=======
 import { DAI_ARBITRUM_ONE, USDC } from 'uniswap/src/constants/tokens'
 import { UniverseChainId } from 'uniswap/src/features/chains/types'
 import { serializeToken } from 'uniswap/src/utils/currency'
->>>>>>> upstream/main
 import { migration1 } from '~/state/migrations/1'
 import { migration2 } from '~/state/migrations/2'
 import { migration3 } from '~/state/migrations/3'

@@ -16,11 +16,7 @@ import { create } from 'zustand'
  *   reset()
  */
 
-<<<<<<< HEAD
-// eslint-disable-next-line import/no-unused-modules
-=======
 // oxlint-disable-next-line import/no-unused-modules
->>>>>>> upstream/main
 export interface ResettableState<T> {
   data: T
   set: (value: T) => void

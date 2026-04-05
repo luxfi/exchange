@@ -1,50 +1,9 @@
-<<<<<<< HEAD
-import type { Currency } from '@luxamm/sdk-core'
-import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
-=======
 import type { Currency } from '@uniswap/sdk-core'
 import { FeatureFlags, useFeatureFlag } from '@universe/gating'
->>>>>>> upstream/main
 import { useCallback, useEffect, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
 import { useLocation, useNavigate } from 'react-router'
-<<<<<<< HEAD
-import type { SegmentedControlOption } from '@l.x/ui/src'
-import { Flex, SegmentedControl, styled, Text, Tooltip } from '@l.x/ui/src'
-import type { AppTFunction } from '@l.x/ui/src/i18n/types'
-import { zIndexes } from '@l.x/ui/src/theme'
-import { useLuxContext } from '@l.x/lx/src/contexts/LuxContext'
-import { useIsModeMismatch } from '@l.x/lx/src/features/chains/hooks/useEnabledChains'
-import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
-import { RampDirection } from '@l.x/lx/src/features/fiatOnRamp/types'
-import { useGetPasskeyAuthStatus } from '@l.x/lx/src/features/passkey/hooks/useGetPasskeyAuthStatus'
-import { WebFORNudgeProvider } from '@l.x/lx/src/features/providers/webForNudgeProvider'
-import { InterfaceEventName, InterfacePageName, ModalName } from '@l.x/lx/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
-import Trace from '@l.x/lx/src/features/telemetry/Trace'
-import { SwapTransactionSettingsStoreContextProvider } from '@l.x/lx/src/features/transactions/components/settings/stores/transactionSettingsStore/SwapTransactionSettingsStoreContextProvider'
-import type {
-  PasskeyAuthStatus,
-  SwapRedirectFn,
-} from '@l.x/lx/src/features/transactions/components/TransactionModal/TransactionModalContext'
-import { useSwapPrefilledState } from '@l.x/lx/src/features/transactions/swap/form/hooks/useSwapPrefilledState'
-import { SwapFlow } from '@l.x/lx/src/features/transactions/swap/SwapFlow/SwapFlow'
-import { selectFilteredChainIds } from '@l.x/lx/src/features/transactions/swap/state/selectors'
-import { SwapDependenciesStoreContextProvider } from '@l.x/lx/src/features/transactions/swap/stores/swapDependenciesStore/SwapDependenciesStoreContextProvider'
-import { SwapFormStoreContextProvider } from '@l.x/lx/src/features/transactions/swap/stores/swapFormStore/SwapFormStoreContextProvider'
-import type { SwapFormState } from '@l.x/lx/src/features/transactions/swap/stores/swapFormStore/types'
-import { currencyToAsset } from '@l.x/lx/src/features/transactions/swap/utils/asset'
-import { TransactionState } from '@l.x/lx/src/features/transactions/types/transactionState'
-import { CurrencyField } from '@l.x/lx/src/types/currency'
-import { SwapTab } from '@l.x/lx/src/types/screens/interface'
-import { isMobileWeb } from '@l.x/utils/src/platform'
-import { noop } from '@l.x/utils/src/react/noop'
-import { PrefetchBalancesWrapper } from '~/appGraphql/data/apollo/AdaptiveTokenBalancesProvider'
-import { useAccountDrawer } from '~/components/AccountDrawer/MiniPortfolio/hooks'
-import { SwapBottomCard } from '~/components/SwapBottomCard'
-import { PageWrapper } from '~/components/swap/styled'
-=======
 import type { SegmentedControlOption } from 'ui/src'
 import { Flex, SegmentedControl, styled, Text, Tooltip } from 'ui/src'
 import type { AppTFunction } from 'ui/src/i18n/types'
@@ -79,7 +38,6 @@ import { PrefetchBalancesWrapper } from '~/appGraphql/data/apollo/AdaptiveTokenB
 import { useAccountDrawer } from '~/components/AccountDrawer/MiniPortfolio/hooks'
 import { PageWrapper } from '~/components/swap/styled'
 import { SwapBottomCard } from '~/components/SwapBottomCard'
->>>>>>> upstream/main
 import { useAccount } from '~/hooks/useAccount'
 import { useDeferredComponent } from '~/hooks/useDeferredComponent'
 import { PageType, useIsPage } from '~/hooks/useIsPage'
@@ -198,11 +156,7 @@ export function Swap({
   /** When Swap is embedded in Token Details Page, pass the TDP token currency for Buy/Sell prefill */
   tdpCurrency?: Currency
 }) {
-<<<<<<< HEAD
-  const { isSwapTokenSelectorOpen, swapOutputChainId } = useLuxContext()
-=======
   const { isSwapTokenSelectorOpen, swapOutputChainId } = useUniswapContext()
->>>>>>> upstream/main
 
   const isExplorePage = useIsPage(PageType.EXPLORE)
   const isModeMismatch = useIsModeMismatch(initialInputChainId)
@@ -327,20 +281,12 @@ function UniversalSwapFlow({
     if (pathname === '/send') {
       setCurrentTab(SwapTab.Swap)
       // Do not open the send modal if iFramed (we do not allow the send tab to be iFramed due to clickjacking protections)
-<<<<<<< HEAD
-      // https://www.notion.so/luxindustries/What-is-not-allowed-to-be-iFramed-Clickjacking-protections-874f85f066c648afa0eb3480b3f47b5c#d0ebf1846c83475a86342a594f77eae5
-=======
       // https://www.notion.so/uniswaplabs/What-is-not-allowed-to-be-iFramed-Clickjacking-protections-874f85f066c648afa0eb3480b3f47b5c#d0ebf1846c83475a86342a594f77eae5
->>>>>>> upstream/main
       if (!isIFramed()) {
         openSendFormModal()
       }
     } else {
-<<<<<<< HEAD
-      // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
-=======
       // oxlint-disable-next-line typescript/no-unnecessary-condition
->>>>>>> upstream/main
       setCurrentTab(PATHNAME_TO_TAB[pathname] ?? SwapTab.Swap)
     }
   }, [pathname, openSendFormModal, setCurrentTab])

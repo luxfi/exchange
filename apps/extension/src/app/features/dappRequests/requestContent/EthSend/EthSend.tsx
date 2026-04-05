@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import type { GasFeeResult } from '@l.x/api'
-=======
 import type { GasFeeResult } from '@universe/api'
->>>>>>> upstream/main
 import { useCallback } from 'react'
 import { useDappLastChainId } from 'src/app/features/dapp/hooks'
 import { useDappRequestQueueContext } from 'src/app/features/dappRequests/DappRequestQueueContext'
@@ -23,15 +19,9 @@ import {
   isWrapRequest,
   SendTransactionRequest,
 } from 'src/app/features/dappRequests/types/DappRequestTypes'
-<<<<<<< HEAD
-import { TransactionTypeInfo } from '@l.x/lx/src/features/transactions/types/transactionDetails'
-import { logger } from '@l.x/utils/src/logger/logger'
-import { ErrorBoundary } from '@luxfi/wallet/src/components/ErrorBoundary/ErrorBoundary'
-=======
 import { TransactionTypeInfo } from 'uniswap/src/features/transactions/types/transactionDetails'
 import { logger } from 'utilities/src/logger/logger'
 import { ErrorBoundary } from 'wallet/src/components/ErrorBoundary/ErrorBoundary'
->>>>>>> upstream/main
 
 interface EthSendRequestContentProps {
   request: DappRequestStoreItemForEthSendTxn

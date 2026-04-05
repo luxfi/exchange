@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
-=======
 import { FeatureFlags, useFeatureFlag } from '@universe/gating'
->>>>>>> upstream/main
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
@@ -19,39 +15,6 @@ import { openPopup, PopupName } from 'src/app/features/popups/slice'
 import { AppRoutes, RemoveRecoveryPhraseRoutes, SettingsRoutes, UnitagClaimRoutes } from 'src/app/navigation/constants'
 import { navigate } from 'src/app/navigation/state'
 import { focusOrCreateUnitagTab, useExtensionNavigation } from 'src/app/navigation/utils'
-<<<<<<< HEAD
-import { Button, Flex, Popover, ScrollView, Text, TouchableArea, useSporeColors } from '@l.x/ui/src'
-import { Ellipsis, Globe, Person, TrashFilled, WalletFilled, X } from '@l.x/ui/src/components/icons'
-import { spacing } from '@l.x/ui/src/theme'
-import { AddressDisplay } from '@l.x/lx/src/components/accounts/AddressDisplay'
-import { buildWrappedUrl } from '@l.x/lx/src/components/banners/shared/utils'
-import { LuxWrapped2025Card } from '@l.x/lx/src/components/banners/LuxWrapped2025Card/LuxWrapped2025Card'
-import { ContextMenu, MenuOptionItem } from '@l.x/lx/src/components/menus/ContextMenu'
-import { ContextMenuTriggerMode } from '@l.x/lx/src/components/menus/types'
-import { WarningSeverity } from '@l.x/lx/src/components/modals/WarningModal/types'
-import { WarningModal } from '@l.x/lx/src/components/modals/WarningModal/WarningModal'
-import { LX_WEB_URL } from '@l.x/lx/src/constants/urls'
-import { AccountType, DisplayNameType } from '@l.x/lx/src/features/accounts/types'
-import { setHasDismissedLuxWrapped2025Banner } from '@l.x/lx/src/features/behaviorHistory/slice'
-import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
-import { ModalName, WalletEventName } from '@l.x/lx/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
-import Trace from '@l.x/lx/src/features/telemetry/Trace'
-import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
-import { ImportType } from '@l.x/lx/src/types/onboarding'
-import { areAddressesEqual } from '@l.x/lx/src/utils/addresses'
-import { logger } from '@l.x/utils/src/logger/logger'
-import { useBooleanState } from '@l.x/utils/src/react/useBooleanState'
-import { sleep } from '@l.x/utils/src/time/timing'
-import { PlusCircle } from '@luxfi/wallet/src/components/icons/PlusCircle'
-import { MenuContent } from '@luxfi/wallet/src/components/menu/MenuContent'
-import { MenuContentItem } from '@luxfi/wallet/src/components/menu/types'
-import { createOnboardingAccount } from '@luxfi/wallet/src/features/onboarding/createOnboardingAccount'
-import { useCanActiveAddressClaimUnitag } from '@luxfi/wallet/src/features/unitags/hooks/useCanActiveAddressClaimUnitag'
-import { BackupType, SignerMnemonicAccount } from '@luxfi/wallet/src/features/wallet/accounts/types'
-import { hasBackup } from '@luxfi/wallet/src/features/wallet/accounts/utils'
-import { createAccountsActions } from '@luxfi/wallet/src/features/wallet/create/createAccountsSaga'
-=======
 import { Button, Flex, Popover, ScrollView, Text, TouchableArea, useSporeColors } from 'ui/src'
 import { Ellipsis, Globe, Person, TrashFilled, WalletFilled, X } from 'ui/src/components/icons'
 import { spacing } from 'ui/src/theme'
@@ -83,21 +46,14 @@ import { useCanActiveAddressClaimUnitag } from 'wallet/src/features/unitags/hook
 import { BackupType, SignerMnemonicAccount } from 'wallet/src/features/wallet/accounts/types'
 import { hasBackup } from 'wallet/src/features/wallet/accounts/utils'
 import { createAccountsActions } from 'wallet/src/features/wallet/create/createAccountsSaga'
->>>>>>> upstream/main
 import {
   useActiveAccountAddressWithThrow,
   useActiveAccountWithThrow,
   useDisplayName,
   useSignerAccounts,
-<<<<<<< HEAD
-} from '@luxfi/wallet/src/features/wallet/hooks'
-import { selectSortedSignerMnemonicAccounts } from '@luxfi/wallet/src/features/wallet/selectors'
-import { setAccountAsActive } from '@luxfi/wallet/src/features/wallet/slice'
-=======
 } from 'wallet/src/features/wallet/hooks'
 import { selectSortedSignerMnemonicAccounts } from 'wallet/src/features/wallet/selectors'
 import { setAccountAsActive } from 'wallet/src/features/wallet/slice'
->>>>>>> upstream/main
 
 const MIN_MENU_WIDTH = 200
 
@@ -111,11 +67,7 @@ export function AccountSwitcherScreen(): JSX.Element {
   const activeAddress = activeAccount.address
   const isViewOnly = activeAccount.type === AccountType.Readonly
 
-<<<<<<< HEAD
-  const isWrappedBannerEnabled = useFeatureFlag(FeatureFlags.LuxWrapped2025)
-=======
   const isWrappedBannerEnabled = useFeatureFlag(FeatureFlags.UniswapWrapped2025)
->>>>>>> upstream/main
 
   const accounts = useSignerAccounts()
   const accountAddresses = useMemo(
@@ -135,11 +87,7 @@ export function AccountSwitcherScreen(): JSX.Element {
 
   const connectedAccounts = useDappConnectedAccounts(dappUrl)
 
-<<<<<<< HEAD
-  // TODO: EXT-899 https://linear.app/lux/issue/EXT-899/enable-unitag-edit-button-is-account-header
-=======
   // TODO: EXT-899 https://linear.app/uniswap/issue/EXT-899/enable-unitag-edit-button-is-account-header
->>>>>>> upstream/main
   const activeAccountDisplayName = useDisplayName(activeAddress)
   const activeAccountHasUnitag = activeAccountDisplayName?.type === DisplayNameType.Unitag
   const activeAccountHasENS = activeAccountDisplayName?.type === DisplayNameType.ENS
@@ -218,15 +166,9 @@ export function AccountSwitcherScreen(): JSX.Element {
 
   const onPressWrappedCard = useCallback(() => {
     try {
-<<<<<<< HEAD
-      const url = buildWrappedUrl(LX_WEB_URL, activeAddress)
-      window.open(url, '_blank')
-      dispatch(setHasDismissedLuxWrapped2025Banner(true))
-=======
       const url = buildWrappedUrl(UNISWAP_WEB_URL, activeAddress)
       window.open(url, '_blank')
       dispatch(setHasDismissedUniswapWrapped2025Banner(true))
->>>>>>> upstream/main
       navigate(-1)
     } catch (error) {
       logger.error(error, { tags: { file: 'AccountSwitcherScreen', function: 'onPressWrappedCard' } })
@@ -364,11 +306,7 @@ export function AccountSwitcherScreen(): JSX.Element {
 
           {isWrappedBannerEnabled && (
             <Flex pt="$spacing16">
-<<<<<<< HEAD
-              <LuxWrapped2025Card onPress={onPressWrappedCard} />
-=======
               <UniswapWrapped2025Card onPress={onPressWrappedCard} />
->>>>>>> upstream/main
             </Flex>
           )}
 

@@ -1,14 +1,7 @@
-<<<<<<< HEAD
-import { GraphQLApi } from '@l.x/api'
-import { PersistState } from 'redux-persist'
-import { createPersistState, createSafeMigration } from '@l.x/lx/src/state/createSafeMigration'
-import { PreV55SearchResult, PreV55SearchResultType, TokenSearchResult } from '@l.x/lx/src/state/oldTypes'
-=======
 import { GraphQLApi } from '@universe/api'
 import { PersistState } from 'redux-persist'
 import { createPersistState, createSafeMigration } from 'uniswap/src/state/createSafeMigration'
 import { PreV55SearchResult, PreV55SearchResultType, TokenSearchResult } from 'uniswap/src/state/oldTypes'
->>>>>>> upstream/main
 
 export type PersistAppStateV15 = {
   _persist: PersistState
@@ -25,11 +18,7 @@ type TokenSearchResultWeb = Omit<TokenSearchResult, 'type'> & {
   isNative?: boolean
 }
 
-<<<<<<< HEAD
-function webResultToLuxResult(webItem: TokenSearchResultWeb): PreV55SearchResult | null {
-=======
 function webResultToUniswapResult(webItem: TokenSearchResultWeb): PreV55SearchResult | null {
->>>>>>> upstream/main
   if (webItem.type === PreV55SearchResultType.Token) {
     return {
       type: PreV55SearchResultType.Token,
@@ -40,11 +29,7 @@ function webResultToUniswapResult(webItem: TokenSearchResultWeb): PreV55SearchRe
       logoUrl: webItem.logoUrl,
       safetyInfo: webItem.safetyInfo,
     }
-<<<<<<< HEAD
-    // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
-=======
     // oxlint-disable-next-line typescript/no-unnecessary-condition
->>>>>>> upstream/main
   } else if (webItem.type === PreV55SearchResultType.NFTCollection) {
     return {
       type: PreV55SearchResultType.NFTCollection,
@@ -77,11 +62,7 @@ export const migration15 = createSafeMigration({
 
     // map old search items to new search items
     const translatedResults: PreV55SearchResult[] = webSearchHistory
-<<<<<<< HEAD
-      .map(webResultToLuxResult)
-=======
       .map(webResultToUniswapResult)
->>>>>>> upstream/main
       .filter((r): r is PreV55SearchResult => r !== null)
 
     // set new state as this modified search history

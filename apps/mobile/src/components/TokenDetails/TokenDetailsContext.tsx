@@ -3,19 +3,6 @@ import { createContext, PropsWithChildren, useCallback, useContext, useMemo, use
 import { useDispatch } from 'react-redux'
 import { AppStackParamList } from 'src/app/navigation/types'
 import { useTokenDetailsColors } from 'src/components/TokenDetails/useTokenDetailsColors'
-<<<<<<< HEAD
-import { setHasViewedContractAddressExplainer } from '@l.x/lx/src/features/behaviorHistory/slice'
-import { useEnabledChains } from '@l.x/lx/src/features/chains/hooks/useEnabledChains'
-import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
-import { CurrencyInfo } from '@l.x/lx/src/features/dataApi/types'
-import { pushNotification } from '@l.x/lx/src/features/notifications/slice/slice'
-import { AppNotificationType, CopyNotificationType } from '@l.x/lx/src/features/notifications/slice/types'
-import { useCurrencyInfo } from '@l.x/lx/src/features/tokens/useCurrencyInfo'
-import { CurrencyField } from '@l.x/lx/src/types/currency'
-import { MobileScreens } from '@l.x/lx/src/types/screens/mobile'
-import { currencyIdToAddress, currencyIdToChain } from '@l.x/lx/src/utils/currencyId'
-import { setClipboard } from '@l.x/utils/src/clipboard/clipboard'
-=======
 import { setHasViewedContractAddressExplainer } from 'uniswap/src/features/behaviorHistory/slice'
 import { useEnabledChains } from 'uniswap/src/features/chains/hooks/useEnabledChains'
 import { UniverseChainId } from 'uniswap/src/features/chains/types'
@@ -27,7 +14,6 @@ import { CurrencyField } from 'uniswap/src/types/currency'
 import { MobileScreens } from 'uniswap/src/types/screens/mobile'
 import { currencyIdToAddress, currencyIdToChain } from 'uniswap/src/utils/currencyId'
 import { setClipboard } from 'utilities/src/clipboard/clipboard'
->>>>>>> upstream/main
 
 type TokenDetailsContextState = {
   currencyId: string

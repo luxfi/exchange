@@ -1,24 +1,4 @@
 import { Contract } from '@ethersproject/contracts'
-<<<<<<< HEAD
-import { CHAIN_TO_ADDRESSES_MAP, MULTICALL_ADDRESSES, NONFUNGIBLE_POSITION_MANAGER_ADDRESSES } from '@luxamm/sdk-core'
-import LXInterfaceMulticallJson from '@luxamm/v3-periphery/artifacts/contracts/lens/LXInterfaceMulticall.sol/LXInterfaceMulticall.json'
-import NonfungiblePositionManagerJson from '@luxamm/v3-periphery/artifacts/contracts/NonfungiblePositionManager.sol/NonfungiblePositionManager.json'
-import { useEffect, useMemo } from 'react'
-import ERC20_ABI from '@l.x/lx/src/abis/erc20.json'
-import { Erc20, Erc721, Weth } from '@l.x/lx/src/abis/types'
-import { NonfungiblePositionManager, LXInterfaceMulticall } from '@l.x/lx/src/abis/types/v3'
-import WETH_ABI from '@l.x/lx/src/abis/weth.json'
-import { WRAPPED_NATIVE_CURRENCY } from '@l.x/lx/src/constants/tokens'
-import { EVMUniverseChainId, UniverseChainId } from '@l.x/lx/src/features/chains/types'
-import { InterfaceEventName } from '@l.x/lx/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
-import { getContract } from '@l.x/utils/src/contracts/getContract'
-import { logger } from '@l.x/utils/src/logger/logger'
-import { useAccount } from '~/hooks/useAccount'
-import { useEthersProvider } from '~/hooks/useEthersProvider'
-
-const { abi: MulticallABI } = LXInterfaceMulticallJson
-=======
 import { CHAIN_TO_ADDRESSES_MAP, MULTICALL_ADDRESSES, NONFUNGIBLE_POSITION_MANAGER_ADDRESSES } from '@uniswap/sdk-core'
 import UniswapInterfaceMulticallJson from '@uniswap/v3-periphery/artifacts/contracts/lens/UniswapInterfaceMulticall.sol/UniswapInterfaceMulticall.json'
 import NonfungiblePositionManagerJson from '@uniswap/v3-periphery/artifacts/contracts/NonfungiblePositionManager.sol/NonfungiblePositionManager.json'
@@ -37,7 +17,6 @@ import { useAccount } from '~/hooks/useAccount'
 import { useEthersProvider } from '~/hooks/useEthersProvider'
 
 const { abi: MulticallABI } = UniswapInterfaceMulticallJson
->>>>>>> upstream/main
 const { abi: NFTPositionManagerABI } = NonfungiblePositionManagerJson
 
 // returns null on errors
@@ -107,20 +86,12 @@ export function useWETHContract(withSignerIfPossible?: boolean, chainId?: Univer
 export function useInterfaceMulticall(chainId?: UniverseChainId) {
   const account = useAccount()
   const chain = chainId ?? account.chainId
-<<<<<<< HEAD
-  return useContract<LXInterfaceMulticall>({
-=======
   return useContract<UniswapInterfaceMulticall>({
->>>>>>> upstream/main
     address: chain ? MULTICALL_ADDRESSES[chain] : undefined,
     ABI: MulticallABI,
     withSignerIfPossible: false,
     chainId: chain,
-<<<<<<< HEAD
-  }) as LXInterfaceMulticall
-=======
   }) as UniswapInterfaceMulticall
->>>>>>> upstream/main
 }
 
 export function useV3NFTPositionManagerContract(

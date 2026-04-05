@@ -1,10 +1,5 @@
-<<<<<<< HEAD
-import { HashcashNative } from '@l.x/hashcash-native'
-import { findProof as jsFindProof } from '@l.x/sessions/src/challenge-solvers/hashcash/core'
-=======
 import { HashcashNative } from '@universe/hashcash-native'
 import { findProof as jsFindProof } from '@universe/sessions/src/challenge-solvers/hashcash/core'
->>>>>>> upstream/main
 import React, { memo, useCallback, useEffect, useMemo } from 'react'
 import { ScrollView } from 'react-native'
 import { BackButton } from 'src/components/buttons/BackButton'
@@ -17,13 +12,8 @@ import {
   type Implementation,
   useHashcashBenchmarkStore,
 } from 'src/screens/stores/hashcashBenchmarkStore'
-<<<<<<< HEAD
-import { Button, Flex, Text, TouchableArea } from '@l.x/ui/src'
-import { logger } from '@l.x/utils/src/logger/logger'
-=======
 import { Button, Flex, Text, TouchableArea } from 'ui/src'
 import { logger } from 'utilities/src/logger/logger'
->>>>>>> upstream/main
 
 function formatDuration(ms: number): string {
   if (ms < 1000) {
@@ -114,11 +104,7 @@ const ImplButton = memo(function ImplButton({
  * Benchmark screen for comparing native vs JS hashcash performance.
  * Access via Dev menu in development builds.
  */
-<<<<<<< HEAD
-// eslint-disable-next-line import/no-unused-modules -- dynamically loaded in navigation.tsx via require()
-=======
 // oxlint-disable-next-line import/no-unused-modules -- dynamically loaded in navigation.tsx via require()
->>>>>>> upstream/main
 export function HashcashBenchmarkScreen(): JSX.Element {
   // Individual selectors for minimal re-renders
   const selectedDifficulty = useHashcashBenchmarkStore((state) => state.selectedDifficulty)
@@ -304,11 +290,7 @@ export function HashcashBenchmarkScreen(): JSX.Element {
         if (!acc[result.difficulty]) {
           acc[result.difficulty] = {}
         }
-<<<<<<< HEAD
-        // biome-ignore lint/style/noNonNullAssertion: we just initialized this above
-=======
         // oxlint-disable-next-line typescript/no-non-null-assertion -- we just initialized this above
->>>>>>> upstream/main
         acc[result.difficulty]![result.implementation] = result
         return acc
       },

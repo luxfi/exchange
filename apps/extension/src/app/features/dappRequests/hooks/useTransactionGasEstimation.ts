@@ -1,19 +1,10 @@
 import { TransactionRequest } from '@ethersproject/providers'
-<<<<<<< HEAD
-import { GasFeeResult } from '@l.x/api'
-import { useEffect, useMemo } from 'react'
-import { PollingInterval } from '@l.x/lx/src/constants/misc'
-import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
-import { useTransactionGasFee } from '@l.x/lx/src/features/gas/hooks'
-import { logger } from '@l.x/utils/src/logger/logger'
-=======
 import { GasFeeResult } from '@universe/api'
 import { useEffect, useMemo } from 'react'
 import { PollingInterval } from 'uniswap/src/constants/misc'
 import { UniverseChainId } from 'uniswap/src/features/chains/types'
 import { useTransactionGasFee } from 'uniswap/src/features/gas/hooks'
 import { logger } from 'utilities/src/logger/logger'
->>>>>>> upstream/main
 
 interface UseTransactionGasEstimationParams {
   /** Base transaction data (will be formatted with chainId) */

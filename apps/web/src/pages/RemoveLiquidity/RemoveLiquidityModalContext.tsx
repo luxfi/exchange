@@ -1,16 +1,8 @@
-<<<<<<< HEAD
-import { ProtocolVersion } from '@luxamm/client-data-api/dist/data/v1/poolTypes_pb'
-import { Currency } from '@luxamm/sdk-core'
-import { createContext, Dispatch, PropsWithChildren, SetStateAction, useContext, useMemo, useState } from 'react'
-import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
-import { TransactionStep } from '@l.x/lx/src/features/transactions/steps/types'
-=======
 import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
 import { Currency } from '@uniswap/sdk-core'
 import { createContext, Dispatch, PropsWithChildren, SetStateAction, useContext, useMemo, useState } from 'react'
 import { ModalName } from 'uniswap/src/features/telemetry/constants'
 import { TransactionStep } from 'uniswap/src/features/transactions/steps/types'
->>>>>>> upstream/main
 import { getCurrencyWithOptionalUnwrap } from '~/components/Liquidity/utils/currency'
 import { useModalInitialState } from '~/hooks/useModalInitialState'
 import { LiquidityModalInitialState } from '~/state/application/reducer'
@@ -105,11 +97,7 @@ export function RemoveLiquidityModalContextProvider({ children }: PropsWithChild
 export function useRemoveLiquidityModalContext() {
   const removeModalContext = useContext(RemoveLiquidityModalContext)
 
-<<<<<<< HEAD
-  // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
-=======
   // oxlint-disable-next-line typescript/no-unnecessary-condition
->>>>>>> upstream/main
   if (removeModalContext === undefined) {
     throw new Error('`useRemoveLiquidityTxContext` must be used inside of `RemoveLiquidityTxContextProvider`')
   }

@@ -1,24 +1,14 @@
 import { queryOptions } from '@tanstack/react-query'
-<<<<<<< HEAD
-import { PlatformType } from '@luxamm/client-notification-service/dist/lx/notificationservice/v1/api_pb'
-=======
 import { PlatformType } from '@uniswap/client-notification-service/dist/uniswap/notificationservice/v1/api_pb'
->>>>>>> upstream/main
 import {
   createFetchClient,
   createNotificationsApiClient,
   getEntryGatewayUrl,
   provideSessionService,
   SharedQueryClient,
-<<<<<<< HEAD
-} from '@l.x/api'
-import { SESSION_INIT_QUERY_KEY } from '@l.x/api/src/components/ApiInit'
-import { getIsSessionServiceEnabled } from '@l.x/gating'
-=======
 } from '@universe/api'
 import { SESSION_INIT_QUERY_KEY } from '@universe/api/src/components/ApiInit'
 import { getIsSessionServiceEnabled } from '@universe/gating'
->>>>>>> upstream/main
 import {
   createApiNotificationTracker,
   createBaseNotificationProcessor,
@@ -27,17 +17,10 @@ import {
   createReactiveDataSource,
   getNotificationQueryOptions,
   type NotificationService,
-<<<<<<< HEAD
-} from '@l.x/notifications'
-import ms from 'ms'
-import { UnitagClaimRoutes } from 'src/app/navigation/constants'
-import { focusOrCreateLuxInterfaceTab, focusOrCreateUnitagTab } from 'src/app/navigation/utils'
-=======
 } from '@universe/notifications'
 import ms from 'ms'
 import { UnitagClaimRoutes } from 'src/app/navigation/constants'
 import { focusOrCreateUniswapInterfaceTab, focusOrCreateUnitagTab } from 'src/app/navigation/utils'
->>>>>>> upstream/main
 import { createChromeStorageAdapter } from 'src/notification-service/createChromeStorageAdapter'
 import { createExtensionLegacyBannersNotificationDataSource } from 'src/notification-service/data-sources/createExtensionLegacyBannersNotificationDataSource'
 import { createStorageWarningCondition } from 'src/notification-service/data-sources/reactive/storageWarningCondition'
@@ -46,16 +29,6 @@ import { extensionNotificationStore } from 'src/notification-service/notificatio
 import { getNotificationTelemetry } from 'src/notification-service/notification-telemetry/getNotificationTelemetry'
 import { createExtensionLocalTriggerDataSource } from 'src/notification-service/triggers/createExtensionLocalTriggerDataSource'
 import { getReduxStore } from 'src/store/store'
-<<<<<<< HEAD
-import { lxUrls } from '@l.x/lx/src/constants/urls'
-import { mapLocaleToBackendLocale } from '@l.x/lx/src/features/language/constants'
-import { getLocale } from '@l.x/lx/src/features/language/navigatorLocale'
-import { selectCurrentLanguage } from '@l.x/lx/src/features/settings/selectors'
-import { getLogger } from '@l.x/utils/src/logger/logger'
-import { REQUEST_SOURCE } from '@l.x/utils/src/platform/requestSource'
-import { ReactQueryCacheKey } from '@l.x/utils/src/reactQuery/cache'
-import { type QueryOptionsResult } from '@l.x/utils/src/reactQuery/queryOptions'
-=======
 import { uniswapUrls } from 'uniswap/src/constants/urls'
 import { mapLocaleToBackendLocale } from 'uniswap/src/features/language/constants'
 import { getLocale } from 'uniswap/src/features/language/navigatorLocale'
@@ -64,7 +37,6 @@ import { getLogger } from 'utilities/src/logger/logger'
 import { REQUEST_SOURCE } from 'utilities/src/platform/requestSource'
 import { ReactQueryCacheKey } from 'utilities/src/reactQuery/cache'
 import { type QueryOptionsResult } from 'utilities/src/reactQuery/queryOptions'
->>>>>>> upstream/main
 
 /**
  * Checks if the session has been initialized by looking at the React Query cache.
@@ -96,11 +68,7 @@ function provideExtensionNotificationService(ctx: {
       return {
         'Content-Type': 'application/json',
         'x-request-source': REQUEST_SOURCE,
-<<<<<<< HEAD
-        'x-lx-locale': backendLocale,
-=======
         'x-uniswap-locale': backendLocale,
->>>>>>> upstream/main
         'x-app-version': (process.env.VERSION ?? '').split('.').slice(0, 3).join('.'),
       }
     },
@@ -170,13 +138,8 @@ function provideExtensionNotificationService(ctx: {
   const onNavigate = (url: string) => {
     // Handle explore paths by opening in web interface
     if (url.startsWith('/explore/')) {
-<<<<<<< HEAD
-      focusOrCreateLuxInterfaceTab({
-        url: `${lxUrls.requestOriginUrl}${url}`,
-=======
       focusOrCreateUniswapInterfaceTab({
         url: `${uniswapUrls.requestOriginUrl}${url}`,
->>>>>>> upstream/main
       }).catch((error) => {
         getLogger().error(error, {
           tags: {

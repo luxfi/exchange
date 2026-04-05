@@ -1,13 +1,3 @@
-<<<<<<< HEAD
-import { brand, getGatewayUrl } from '@l.x/config'
-import { GraphQLApi } from '@l.x/api'
-import client from 'functions/client'
-import { Data, PositionStatus } from 'functions/utils/cache'
-import getPool from 'functions/utils/getPool'
-import { URL_PARAM_TO_CHAIN_ID } from 'lx/src/features/chains/chainUrlParam'
-
-const LX_DATA_API_URL = getGatewayUrl('/gateway/v2/data.v1.DataApiService/GetPosition')
-=======
 import { GraphQLApi } from '@universe/api'
 import client from 'functions/client'
 import { Data, PositionStatus } from 'functions/utils/cache'
@@ -15,7 +5,6 @@ import getPool from 'functions/utils/getPool'
 import { URL_PARAM_TO_CHAIN_ID } from 'uniswap/src/features/chains/chainUrlParam'
 
 const UNISWAP_DATA_API_URL = 'https://interface.gateway.uniswap.org/v2/data.v1.DataApiService/GetPosition'
->>>>>>> upstream/main
 
 // connect-rpc protocol version enum values
 const protocolVersionMap: Record<string, number> = {
@@ -49,19 +38,11 @@ export default async function getPosition({
   }
 
   try {
-<<<<<<< HEAD
-    const response = await fetch(LX_DATA_API_URL, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Origin: `https://${brand.appDomain || 'lux.exchange'}`,
-=======
     const response = await fetch(UNISWAP_DATA_API_URL, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
         Origin: 'https://app.uniswap.com',
->>>>>>> upstream/main
       },
       body: JSON.stringify({
         chainId,
@@ -96,11 +77,7 @@ export default async function getPosition({
     const token0Address = token0.address as string | undefined
     const token1Address = token1.address as string | undefined
     const name = `${token0Symbol}/${token1Symbol}`
-<<<<<<< HEAD
-    const title = `${name} on ${brand.shortName || 'Exchange'}`
-=======
     const title = `${name} on Uniswap`
->>>>>>> upstream/main
     const rawFeeTier = positionData.feeTier != null ? Number(positionData.feeTier) : undefined
     const feeTier = rawFeeTier != null ? `${rawFeeTier / 10_000}%` : undefined
 

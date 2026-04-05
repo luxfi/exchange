@@ -1,10 +1,6 @@
 import ms from 'ms'
 import { useEffect, useState } from 'react'
-<<<<<<< HEAD
-import { useInterval } from '@l.x/utils/src/time/timing'
-=======
 import { useInterval } from 'utilities/src/time/timing'
->>>>>>> upstream/main
 
 export const REQUEST_EXPIRY_TIME_MS = ms('30m')
 

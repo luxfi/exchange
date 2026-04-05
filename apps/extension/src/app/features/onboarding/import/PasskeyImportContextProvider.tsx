@@ -1,15 +1,8 @@
 import { createContext, PropsWithChildren, useCallback, useContext, useState } from 'react'
-<<<<<<< HEAD
-import { logger } from '@l.x/utils/src/logger/logger'
-import { useOnboardingContext } from '@luxfi/wallet/src/features/onboarding/OnboardingContext'
-import { fetchSeedPhrase } from '@luxfi/wallet/src/features/passkeys/passkeys'
-import { Keyring } from '@luxfi/wallet/src/features/wallet/Keyring/Keyring'
-=======
 import { logger } from 'utilities/src/logger/logger'
 import { useOnboardingContext } from 'wallet/src/features/onboarding/OnboardingContext'
 import { fetchSeedPhrase } from 'wallet/src/features/passkeys/passkeys'
 import { Keyring } from 'wallet/src/features/wallet/Keyring/Keyring'
->>>>>>> upstream/main
 
 type PasskeyImportContextState = {
   importedAddress: Address | null

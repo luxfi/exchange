@@ -6,17 +6,10 @@ import {
   ExtensionToDappRequestType,
   UpdateConnectionRequest,
 } from 'src/background/messagePassing/types/requests'
-<<<<<<< HEAD
-import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
-import { chainIdToHexadecimalString } from '@l.x/lx/src/features/chains/utils'
-import { Account } from '@luxfi/wallet/src/features/wallet/accounts/types'
-import { getProviderSync } from '@luxfi/wallet/src/features/wallet/context'
-=======
 import { UniverseChainId } from 'uniswap/src/features/chains/types'
 import { chainIdToHexadecimalString } from 'uniswap/src/features/chains/utils'
 import { Account } from 'wallet/src/features/wallet/accounts/types'
 import { getProviderSync } from 'wallet/src/features/wallet/context'
->>>>>>> upstream/main
 
 export async function saveDappChain(dappUrl: string, chainId: UniverseChainId): Promise<void> {
   dappStore.updateDappLatestChainId(dappUrl, chainId)

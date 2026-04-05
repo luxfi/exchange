@@ -1,17 +1,3 @@
-<<<<<<< HEAD
-import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
-import { useTranslation } from 'react-i18next'
-import { useLocation } from 'react-router'
-import { useSporeColors } from '@l.x/ui/src'
-import { Chart } from '@l.x/ui/src/components/icons/Chart'
-import { CoinConvert } from '@l.x/ui/src/components/icons/CoinConvert'
-import { Compass } from '@l.x/ui/src/components/icons/Compass'
-import { CreditCard } from '@l.x/ui/src/components/icons/CreditCard'
-import { Pools } from '@l.x/ui/src/components/icons/Pools'
-import { ReceiveAlt } from '@l.x/ui/src/components/icons/ReceiveAlt'
-import { Wallet } from '@l.x/ui/src/components/icons/Wallet'
-import { ElementName } from '@l.x/lx/src/features/telemetry/constants'
-=======
 import { FeatureFlags, useFeatureFlag } from '@universe/gating'
 import { useTranslation } from 'react-i18next'
 import { useLocation } from 'react-router'
@@ -23,7 +9,6 @@ import { Pools } from 'ui/src/components/icons/Pools'
 import { ReceiveAlt } from 'ui/src/components/icons/ReceiveAlt'
 import { Wallet } from 'ui/src/components/icons/Wallet'
 import { ElementName } from 'uniswap/src/features/telemetry/constants'
->>>>>>> upstream/main
 import { Limit } from '~/components/Icons/Limit'
 import { SwapV2 } from '~/components/Icons/SwapV2'
 import { MenuItem } from '~/components/NavBar/CompanyMenu/Content'
@@ -57,11 +42,7 @@ export const useTabsContent = (): TabsSection[] => {
     {
       title: t('common.trade'),
       href: '/swap',
-<<<<<<< HEAD
-      isActive: pathname.startsWith('/swap') || pathname.startsWith('/limit') || pathname.startsWith('/send') || pathname.startsWith('/advanced'),
-=======
       isActive: pathname.startsWith('/swap') || pathname.startsWith('/limit') || pathname.startsWith('/send'),
->>>>>>> upstream/main
       icon: <CoinConvert color="$accent1" size="$icon.20" />,
       elementName: ElementName.NavbarTradeTab,
       items: [
@@ -93,15 +74,6 @@ export const useTabsContent = (): TabsSection[] => {
           internal: true,
           elementName: ElementName.NavbarTradeDropdownSell,
         },
-<<<<<<< HEAD
-        {
-          label: t('common.advanced', { defaultValue: 'Advanced' }),
-          icon: <Chart color="$neutral2" size="$icon.24" />,
-          href: '/advanced',
-          internal: true,
-          elementName: ElementName.NavbarTradeTab,
-        },
-=======
 >>>>>>> upstream/main
       ],
     },
@@ -179,7 +151,6 @@ export const useTabsContent = (): TabsSection[] => {
     },
     {
 =======
->>>>>>> upstream/main
       title: t('common.portfolio'),
       href: buildPortfolioUrl({
         tab: PortfolioTab.Overview,

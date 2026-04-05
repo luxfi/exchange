@@ -1,17 +1,3 @@
-<<<<<<< HEAD
-import { TradingApi } from '@l.x/api'
-import ms from 'ms'
-import { useCallback, useEffect, useMemo } from 'react'
-import { TradingApiClient } from '@l.x/lx/src/data/apiClients/tradingApi/TradingApiClient'
-import type { UniverseChainId } from '@l.x/lx/src/features/chains/types'
-import { toTradingApiSupportedChainId } from '@l.x/lx/src/features/transactions/swap/utils/tradingApi'
-import type {
-  BridgeTransactionInfo,
-  InterfaceTransactionDetails,
-} from '@l.x/lx/src/features/transactions/types/transactionDetails'
-import { TransactionStatus, TransactionType } from '@l.x/lx/src/features/transactions/types/transactionDetails'
-import { logger } from '@l.x/utils/src/logger/logger'
-=======
 import { TradingApi } from '@universe/api'
 import ms from 'ms'
 import { useCallback, useEffect, useMemo } from 'react'
@@ -24,7 +10,6 @@ import type {
 } from 'uniswap/src/features/transactions/types/transactionDetails'
 import { TransactionStatus, TransactionType } from 'uniswap/src/features/transactions/types/transactionDetails'
 import { logger } from 'utilities/src/logger/logger'
->>>>>>> upstream/main
 import { ActivityUpdateTransactionType, type OnActivityUpdate } from '~/state/activity/types'
 import { useMultichainTransactions } from '~/state/transactions/hooks'
 import type { ConfirmedTransactionDetails, TransactionDetails } from '~/state/transactions/types'
@@ -90,11 +75,7 @@ export function usePollPendingBridgeTransactions(onActivityUpdate: OnActivityUpd
 
             const fullTxDetails = allTxMap[txHash ?? '']
             const updatedStatus = status ? SWAP_STATUS_TO_FINALIZED_STATUS[status] : undefined
-<<<<<<< HEAD
-            // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
-=======
             // oxlint-disable-next-line typescript/no-unnecessary-condition
->>>>>>> upstream/main
             if (txHash && updatedStatus && fullTxDetails) {
               onActivityUpdate({
                 type: ActivityUpdateTransactionType.BaseTransaction,

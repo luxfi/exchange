@@ -1,17 +1,10 @@
 import { TFunction } from 'i18next'
 import { ReactNode, useMemo, useRef } from 'react'
 import { Trans, useTranslation } from 'react-i18next'
-<<<<<<< HEAD
-import { lxUrls } from '@l.x/lx/src/constants/urls'
-import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
-import { TransactionStatus } from '@l.x/lx/src/features/transactions/types/transactionDetails'
-import { ExplorerDataType, getExplorerLink } from '@l.x/lx/src/utils/linking'
-=======
 import { uniswapUrls } from 'uniswap/src/constants/urls'
 import { UniverseChainId } from 'uniswap/src/features/chains/types'
 import { TransactionStatus } from 'uniswap/src/features/transactions/types/transactionDetails'
 import { ExplorerDataType, getExplorerLink } from 'uniswap/src/utils/linking'
->>>>>>> upstream/main
 import { LogoContainer } from '~/components/AccountDrawer/MiniPortfolio/Activity/Logos'
 import { OrderContent } from '~/components/AccountDrawer/MiniPortfolio/Activity/OffchainActivityModal'
 import Column, { ColumnCenter } from '~/components/deprecated/Column'
@@ -28,13 +21,8 @@ import {
 } from '~/pages/Swap/Limit/ConfirmSwapModal/PendingStatusIcons'
 import { TradeSummary } from '~/pages/Swap/Limit/ConfirmSwapModal/TradeSummary'
 import { InterfaceTrade, TradeFillType } from '~/state/routing/types'
-<<<<<<< HEAD
-import { isLimitTrade, isLXTradeType } from '~/state/routing/utils'
-import { useIsTransactionConfirmed, useDEXOrderByOrderHash } from '~/state/transactions/hooks'
-=======
 import { isLimitTrade, isUniswapXTradeType } from '~/state/routing/utils'
 import { useIsTransactionConfirmed, useUniswapXOrderByOrderHash } from '~/state/transactions/hooks'
->>>>>>> upstream/main
 import { AnimationType } from '~/theme/components/FadePresence'
 import { ExternalLink } from '~/theme/components/Links'
 import { ThemedText } from '~/theme/components/text'
@@ -127,21 +115,12 @@ export function Pending({
   const { t } = useTranslation()
 
   const swapStatus = useSwapTransactionStatus(swapResult)
-<<<<<<< HEAD
-  const dexOrder = useDEXOrderByOrderHash(
-    isLXTradeType(swapResult?.type) ? swapResult.response.orderHash : '',
-  )
-
-  const limitPlaced = isLimitTrade(initialTrade) && dexOrder?.status === TransactionStatus.Pending
-  const swapConfirmed = swapStatus === TransactionStatus.Success || dexOrder?.status === TransactionStatus.Success
-=======
   const uniswapXOrder = useUniswapXOrderByOrderHash(
     isUniswapXTradeType(swapResult?.type) ? swapResult.response.orderHash : '',
   )
 
   const limitPlaced = isLimitTrade(initialTrade) && uniswapXOrder?.status === TransactionStatus.Pending
   const swapConfirmed = swapStatus === TransactionStatus.Success || uniswapXOrder?.status === TransactionStatus.Success
->>>>>>> upstream/main
   const wrapConfirmed = useIsTransactionConfirmed(wrapTxHash)
 
   const swapPending = swapResult !== undefined && !swapConfirmed
@@ -158,13 +137,8 @@ export function Pending({
     let txHash
     if (swapResult && swapResult.type === TradeFillType.Classic) {
       txHash = swapResult.response.hash
-<<<<<<< HEAD
-    } else if (dexOrder && dexOrder.status === TransactionStatus.Success) {
-      txHash = dexOrder.hash
-=======
     } else if (uniswapXOrder && uniswapXOrder.status === TransactionStatus.Success) {
       txHash = uniswapXOrder.hash
->>>>>>> upstream/main
     } else {
       return undefined
     }
@@ -173,17 +147,6 @@ export function Pending({
       data: txHash,
       type: ExplorerDataType.TRANSACTION,
     })
-<<<<<<< HEAD
-  }, [chainId, swapResult, dexOrder])
-
-  // Handle special statuses for DEX orders
-  if (
-    dexOrder &&
-    dexOrder.status !== TransactionStatus.Pending &&
-    dexOrder.status !== TransactionStatus.Success
-  ) {
-    return <OrderContent order={dexOrder} />
-=======
   }, [chainId, swapResult, uniswapXOrder])
 
   // Handle special statuses for UniswapX orders
@@ -193,7 +156,6 @@ export function Pending({
     uniswapXOrder.status !== TransactionStatus.Success
   ) {
     return <OrderContent order={uniswapXOrder} />
->>>>>>> upstream/main
   }
 
   return (
@@ -226,45 +188,27 @@ export function Pending({
             <ThemedText.BodySmall color="neutral2">{t('common.proceedInWallet')}</ThemedText.BodySmall>
           </Row>
         )}
-<<<<<<< HEAD
-        {/* Display while DEX order is still pending */}
-        {dexOrder && dexOrder.status === TransactionStatus.Pending && (
-=======
         {/* Display while UniswapX order is still pending */}
         {uniswapXOrder && uniswapXOrder.status === TransactionStatus.Pending && (
->>>>>>> upstream/main
           <Row justify="center" marginTop="32px" minHeight="24px">
             <ThemedText.BodySmall color="neutral2">
               <ExternalLink
                 href={
                   isLimitTrade(initialTrade)
-<<<<<<< HEAD
-                    ? lxUrls.helpArticleUrls.limitsInfo
-                    : lxUrls.helpArticleUrls.dexInfo
-=======
                     ? uniswapUrls.helpArticleUrls.limitsInfo
                     : uniswapUrls.helpArticleUrls.uniswapXInfo
->>>>>>> upstream/main
                 }
               >
                 {isLimitTrade(initialTrade) ? (
                   <Trans i18nKey="limits.learnMore" />
                 ) : (
-<<<<<<< HEAD
-                  <Trans i18nKey="dex.learnMore" />
-=======
                   <Trans i18nKey="uniswapX.learnMore" />
->>>>>>> upstream/main
                 )}
               </ExternalLink>
             </ThemedText.BodySmall>
           </Row>
         )}
-<<<<<<< HEAD
-        {/* Display after submitting Classic swap or after filling DEX order */}
-=======
         {/* Display after submitting Classic swap or after filling UniswapX order */}
->>>>>>> upstream/main
         {explorerLink && (
           <Row justify="center" marginTop="32px" minHeight="24px">
             <ThemedText.BodySmall color="neutral2">

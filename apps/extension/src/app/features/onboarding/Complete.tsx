@@ -7,19 +7,11 @@ import { MainContentWrapper } from 'src/app/features/onboarding/intro/MainConten
 import { KeyboardKey } from 'src/app/features/onboarding/KeyboardKey'
 import { useOpeningKeyboardShortCut } from 'src/app/hooks/useOpeningKeyboardShortCut'
 import { terminateStoreSynchronization } from 'src/store/storeSynchronization'
-<<<<<<< HEAD
-import { Flex, Image, Text } from '@l.x/ui/src'
-import { LUX_LOGO } from '@l.x/ui/src/assets'
-import { iconSizes } from '@l.x/ui/src/theme'
-import { ExtensionOnboardingFlow } from '@l.x/lx/src/types/screens/extension'
-import { useOnboardingContext } from '@luxfi/wallet/src/features/onboarding/OnboardingContext'
-=======
 import { Flex, Image, Text } from 'ui/src'
 import { UNISWAP_LOGO } from 'ui/src/assets'
 import { iconSizes } from 'ui/src/theme'
 import { ExtensionOnboardingFlow } from 'uniswap/src/types/screens/extension'
 import { useOnboardingContext } from 'wallet/src/features/onboarding/OnboardingContext'
->>>>>>> upstream/main
 
 export function Complete({
   flow,
@@ -60,11 +52,7 @@ export function Complete({
       <Flex alignItems="center">
         <Flex alignItems="center" gap="$spacing24" justifyContent="center">
           <Flex alignItems="center" gap="$spacing12" justifyContent="center">
-<<<<<<< HEAD
-            <Image height={iconSizes.icon64} source={LUX_LOGO} width={iconSizes.icon64} />
-=======
             <Image height={iconSizes.icon64} source={UNISWAP_LOGO} width={iconSizes.icon64} />
->>>>>>> upstream/main
             <Text color="$neutral1" variant="heading3">
               {t('onboarding.complete.title')}
             </Text>

@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-/* eslint-disable complexity */
-=======
 /* oxlint-disable complexity */
->>>>>>> upstream/main
 import { buildAuthObject, getSdkError } from '@walletconnect/utils'
 import { providers } from 'ethers'
 import { wcWeb3Wallet } from 'src/features/walletConnect/walletConnectClient'
@@ -12,29 +8,6 @@ import {
   WalletSendCallsEncodedRequest,
 } from 'src/features/walletConnect/walletConnectSlice'
 import { call, put } from 'typed-redux-saga'
-<<<<<<< HEAD
-import { AssetType } from '@l.x/lx/src/entities/assets'
-import { SignerMnemonicAccountMeta } from '@l.x/lx/src/features/accounts/types'
-import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
-import { EthMethod, EthSignMethod } from '@l.x/lx/src/features/dappRequests/types'
-import { pushNotification } from '@l.x/lx/src/features/notifications/slice/slice'
-import { AppNotificationType } from '@l.x/lx/src/features/notifications/slice/types'
-import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
-import { getEnabledChainIdsSaga } from '@l.x/lx/src/features/settings/saga'
-import { TransactionOriginType, TransactionType } from '@l.x/lx/src/features/transactions/types/transactionDetails'
-import { DappRequestInfo, DappRequestType, UwULinkMethod, WalletConnectEvent } from '@l.x/lx/src/types/walletConnect'
-import { createSaga } from '@l.x/lx/src/utils/saga'
-import { logger } from '@l.x/utils/src/logger/logger'
-import { addBatchedTransaction } from '@luxfi/wallet/src/features/batchedTransactions/slice'
-import { SendCallsResult } from '@luxfi/wallet/src/features/dappRequests/types'
-import {
-  ExecuteTransactionParams,
-  executeTransaction,
-} from '@luxfi/wallet/src/features/transactions/executeTransaction/executeTransactionSaga'
-import { Account } from '@luxfi/wallet/src/features/wallet/accounts/types'
-import { getSignerManager } from '@luxfi/wallet/src/features/wallet/context'
-import { signMessage, signTypedDataMessage } from '@luxfi/wallet/src/features/wallet/signing/signing'
-=======
 import { AssetType } from 'uniswap/src/entities/assets'
 import { SignerMnemonicAccountMeta } from 'uniswap/src/features/accounts/types'
 import { UniverseChainId } from 'uniswap/src/features/chains/types'
@@ -56,7 +29,6 @@ import {
 import { Account } from 'wallet/src/features/wallet/accounts/types'
 import { getSignerManager } from 'wallet/src/features/wallet/context'
 import { signMessage, signTypedDataMessage } from 'wallet/src/features/wallet/signing/signing'
->>>>>>> upstream/main
 
 type SignMessageParams = {
   sessionId: string
@@ -97,11 +69,7 @@ function* signWcRequest(params: SignMessageParams | SignTransactionParams) {
       // TODO: add `isCheckIn` type to uwulink request info so that this can be generalized
       if (
         params.dappRequestInfo.requestType === DappRequestType.UwULink &&
-<<<<<<< HEAD
-        params.dappRequestInfo.name === 'Lux Cafe'
-=======
         params.dappRequestInfo.name === 'Uniswap Cafe'
->>>>>>> upstream/main
       ) {
         yield* put(
           pushNotification({
@@ -153,11 +121,7 @@ function* signWcRequest(params: SignMessageParams | SignTransactionParams) {
           chainId: txParams.chainId,
         }),
       )
-<<<<<<< HEAD
-      // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
-=======
       // oxlint-disable-next-line typescript/no-unnecessary-condition
->>>>>>> upstream/main
     } else if (method === EthMethod.WalletSendCalls && params.request.type === EthMethod.WalletSendCalls) {
       const txParams: ExecuteTransactionParams = {
         chainId: params.request.chainId,
@@ -231,11 +195,7 @@ function* signWcRequest(params: SignMessageParams | SignTransactionParams) {
           result,
         },
       })
-<<<<<<< HEAD
-      // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
-=======
       // oxlint-disable-next-line typescript/no-unnecessary-condition
->>>>>>> upstream/main
     } else if (params.dappRequestInfo.requestType === DappRequestType.UwULink && params.dappRequestInfo.webhook) {
       fetch(params.dappRequestInfo.webhook, {
         method: 'POST',

@@ -1,17 +1,3 @@
-<<<<<<< HEAD
-import { FeeType, TradingApi } from '@l.x/api'
-import { AccountType } from 'lx/src/features/accounts/types'
-import { DEFAULT_GAS_STRATEGY } from 'lx/src/features/gas/consts'
-import { Platform } from 'lx/src/features/platforms/types/Platform'
-import { ExecuteSwapParams } from 'lx/src/features/transactions/swap/types/swapHandlers'
-import {
-  ValidatedClassicSwapTxAndGasInfo,
-  ValidatedSwapTxContext,
-} from '@l.x/lx/src/features/transactions/swap/types/swapTxAndGasInfo'
-import { isWrap } from '@l.x/lx/src/features/transactions/swap/utils/routing'
-import { WrapType } from '@l.x/lx/src/features/transactions/types/wrap'
-import { SignerMnemonicAccountDetails } from '@l.x/lx/src/features/wallet/types/AccountDetails'
-=======
 import { FeeType, TradingApi } from '@universe/api'
 import { AccountType } from 'uniswap/src/features/accounts/types'
 import { DEFAULT_GAS_STRATEGY } from 'uniswap/src/features/gas/consts'
@@ -24,7 +10,6 @@ import {
 import { isWrap } from 'uniswap/src/features/transactions/swap/utils/routing'
 import { WrapType } from 'uniswap/src/features/transactions/types/wrap'
 import { SignerMnemonicAccountDetails } from 'uniswap/src/features/wallet/types/AccountDetails'
->>>>>>> upstream/main
 import { useSwapCallback } from '~/state/sagas/transactions/swapSaga'
 import { useSwapHandlers, validateWrapParams } from '~/state/sagas/transactions/useSwapHandlers'
 import { renderHook } from '~/test-utils/render'
@@ -56,11 +41,7 @@ vi.mock('~/state/sagas/transactions/wrapSaga', () => ({
   },
 }))
 
-<<<<<<< HEAD
-vi.mock('lx/src/features/transactions/swap/utils/routing', () => ({
-=======
 vi.mock('uniswap/src/features/transactions/swap/utils/routing', () => ({
->>>>>>> upstream/main
   isWrap: vi.fn(),
 }))
 

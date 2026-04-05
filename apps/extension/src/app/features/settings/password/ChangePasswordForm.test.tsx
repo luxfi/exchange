@@ -1,11 +1,7 @@
 import { act, fireEvent, waitFor } from '@testing-library/react'
 import { ChangePasswordForm } from 'src/app/features/settings/password/ChangePasswordForm'
 import { cleanup, render, screen } from 'src/test/test-utils'
-<<<<<<< HEAD
-import { Keyring } from '@luxfi/wallet/src/features/wallet/Keyring/Keyring'
-=======
 import { Keyring } from 'wallet/src/features/wallet/Keyring/Keyring'
->>>>>>> upstream/main
 
 // Mock the Keyring
 jest.mock('wallet/src/features/wallet/Keyring/Keyring', () => ({
@@ -15,11 +11,7 @@ jest.mock('wallet/src/features/wallet/Keyring/Keyring', () => ({
 }))
 
 // Mock analytics
-<<<<<<< HEAD
-jest.mock('lx/src/features/telemetry/send', () => ({
-=======
 jest.mock('uniswap/src/features/telemetry/send', () => ({
->>>>>>> upstream/main
   sendAnalyticsEvent: jest.fn(),
 }))
 

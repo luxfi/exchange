@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import { InterfacePageName } from '@l.x/lx/src/features/telemetry/constants'
-=======
 import { InterfacePageName } from 'uniswap/src/features/telemetry/constants'
->>>>>>> upstream/main
 import { getCanonicalUrl, getCurrentPageFromLocation } from '~/utils/urlRoutes'
 
 describe('getCurrentPageFromLocation', () => {

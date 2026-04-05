@@ -4,21 +4,6 @@ import { useDispatch } from 'react-redux'
 import { navigate } from 'src/app/navigation/rootNavigation'
 import { useReactNavigationModal } from 'src/components/modals/useReactNavigationModal'
 import { LockPreviewImage } from 'src/features/onboarding/LockPreviewImage'
-<<<<<<< HEAD
-import { Button, Flex, Text } from '@l.x/ui/src'
-import { Modal } from '@l.x/lx/src/components/modals/Modal'
-import { WarningSeverity } from '@l.x/lx/src/components/modals/WarningModal/types'
-import WarningIcon from '@l.x/lx/src/components/warnings/WarningIcon'
-import { usePortfolioTotalValue } from '@l.x/lx/src/features/dataApi/balances/balancesRest'
-import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
-import { ElementName, ModalName } from '@l.x/lx/src/features/telemetry/constants'
-import Trace from '@l.x/lx/src/features/telemetry/Trace'
-import { ImportType, OnboardingEntryPoint } from '@l.x/lx/src/types/onboarding'
-import { MobileScreens, OnboardingScreens } from '@l.x/lx/src/types/screens/mobile'
-import { NumberType } from '@l.x/utils/src/format/types'
-import { setBackupReminderLastSeenTs } from '@luxfi/wallet/src/features/behaviorHistory/slice'
-import { useActiveAccountAddress } from '@luxfi/wallet/src/features/wallet/hooks'
-=======
 import { Button, Flex, Text } from 'ui/src'
 import { Modal } from 'uniswap/src/components/modals/Modal'
 import { WarningSeverity } from 'uniswap/src/components/modals/WarningModal/types'
@@ -32,7 +17,6 @@ import { MobileScreens, OnboardingScreens } from 'uniswap/src/types/screens/mobi
 import { NumberType } from 'utilities/src/format/types'
 import { setBackupReminderLastSeenTs } from 'wallet/src/features/behaviorHistory/slice'
 import { useActiveAccountAddress } from 'wallet/src/features/wallet/hooks'
->>>>>>> upstream/main
 
 interface BackupReminderModalProps {
   /** Optional close handler provided by notification service renderer */

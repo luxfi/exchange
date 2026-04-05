@@ -1,21 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useExtensionNavigation } from 'src/app/navigation/utils'
-<<<<<<< HEAD
-import { Flex } from '@l.x/ui/src'
-import { useEnabledChains } from '@l.x/lx/src/features/chains/hooks/useEnabledChains'
-import { useHighestBalanceNativeCurrencyId } from '@l.x/lx/src/features/dataApi/balances/balances'
-import { clearNotificationsByType } from '@l.x/lx/src/features/notifications/slice/slice'
-import { AppNotificationType } from '@l.x/lx/src/features/notifications/slice/types'
-import { useSwapPrefilledState } from '@l.x/lx/src/features/transactions/swap/form/hooks/useSwapPrefilledState'
-import { selectFilteredChainIds } from '@l.x/lx/src/features/transactions/swap/state/selectors'
-import { prepareSwapFormState, TransactionState } from '@l.x/lx/src/features/transactions/types/transactionState'
-import { CurrencyField } from '@l.x/lx/src/types/currency'
-import { logger } from '@l.x/utils/src/logger/logger'
-import { WalletSwapFlow } from '@luxfi/wallet/src/features/transactions/swap/WalletSwapFlow'
-import { invalidateAndRefetchWalletDelegationQueries } from '@luxfi/wallet/src/features/transactions/watcher/transactionFinalizationSaga'
-import { useActiveAccountWithThrow } from '@luxfi/wallet/src/features/wallet/hooks'
-=======
 import { Flex } from 'ui/src'
 import { useEnabledChains } from 'uniswap/src/features/chains/hooks/useEnabledChains'
 import { useHighestBalanceNativeCurrencyId } from 'uniswap/src/features/dataApi/balances/balances'
@@ -29,7 +14,6 @@ import { logger } from 'utilities/src/logger/logger'
 import { WalletSwapFlow } from 'wallet/src/features/transactions/swap/WalletSwapFlow'
 import { invalidateAndRefetchWalletDelegationQueries } from 'wallet/src/features/transactions/watcher/transactionFinalizationSaga'
 import { useActiveAccountWithThrow } from 'wallet/src/features/wallet/hooks'
->>>>>>> upstream/main
 
 export function SwapFlowScreen(): JSX.Element {
   const dispatch = useDispatch()

@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
-=======
 import { TestID } from 'uniswap/src/test/fixtures/testIDs'
->>>>>>> upstream/main
 import { expect, getTest } from '~/playwright/fixtures'
 import { HAYDEN_ADDRESS } from '~/playwright/fixtures/wallets'
 import { Mocks } from '~/playwright/mocks/mocks'

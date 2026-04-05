@@ -1,14 +1,4 @@
 import { useTranslation } from 'react-i18next'
-<<<<<<< HEAD
-import { Button, Flex } from '@l.x/ui/src'
-import { WarningLabel } from '@l.x/lx/src/components/modals/WarningModal/types'
-import { nativeOnChain } from '@l.x/lx/src/constants/tokens'
-import { ElementName } from '@l.x/lx/src/features/telemetry/constants'
-import Trace from '@l.x/lx/src/features/telemetry/Trace'
-import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
-import { isWebPlatform } from '@l.x/utils/src/platform'
-import { useSendContext } from '@luxfi/wallet/src/features/transactions/contexts/SendContext'
-=======
 import { Button, Flex } from 'ui/src'
 import { WarningLabel } from 'uniswap/src/components/modals/WarningModal/types'
 import { nativeOnChain } from 'uniswap/src/constants/tokens'
@@ -17,7 +7,6 @@ import Trace from 'uniswap/src/features/telemetry/Trace'
 import { TestID } from 'uniswap/src/test/fixtures/testIDs'
 import { isWebPlatform } from 'utilities/src/platform'
 import { useSendContext } from 'wallet/src/features/transactions/contexts/SendContext'
->>>>>>> upstream/main
 
 type ReviewButtonProps = {
   onPress: () => void

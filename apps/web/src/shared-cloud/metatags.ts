@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-import { brand } from '@l.x/config'
-
-=======
 >>>>>>> upstream/main
 export type MetaTagInjectorInput = {
   title: string
@@ -33,5 +29,4 @@ export function formatTokenMetatagTitleName(symbol: string | undefined, name: st
     return 'Get ' + name + ' on Uniswap'
   }
   return 'View Token on Uniswap'
->>>>>>> upstream/main
 }

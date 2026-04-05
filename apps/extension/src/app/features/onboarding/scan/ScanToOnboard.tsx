@@ -17,25 +17,6 @@ import { getScantasticUrl } from 'src/app/features/onboarding/scan/utils'
 import { OnboardingRoutes, TopLevelRoutes } from 'src/app/navigation/constants'
 import { navigate } from 'src/app/navigation/state'
 import UAParser from 'ua-parser-js'
-<<<<<<< HEAD
-import { Flex, Image, Square, Text, TouchableArea, useSporeColors } from '@l.x/ui/src'
-import { DOT_GRID, LUX_LOGO } from '@l.x/ui/src/assets'
-import { FileListLock, Mobile, RotatableChevron, Wifi } from '@l.x/ui/src/components/icons'
-import { AnimatedFlex } from '@l.x/ui/src/components/layout/AnimatedFlex'
-import { iconSizes, zIndexes } from '@l.x/ui/src/theme'
-import { lxUrls } from '@l.x/lx/src/constants/urls'
-import Trace from '@l.x/lx/src/features/telemetry/Trace'
-import { ExtensionOnboardingFlow, ExtensionOnboardingScreens } from '@l.x/lx/src/types/screens/extension'
-import { logger } from '@l.x/utils/src/logger/logger'
-import { useIsWindowVisible } from '@l.x/utils/src/react/useIsWindowVisible'
-import { ONE_SECOND_MS } from '@l.x/utils/src/time/time'
-import { useTimeout } from '@l.x/utils/src/time/timing'
-import { ScantasticParamsSchema } from '@luxfi/wallet/src/features/scantastic/types'
-
-const LUX_LOGO_SIZE = 52
-const LUX_LOGO_SCALE_LOADING = 1.2
-const LUX_LOGO_SCALE_DEFAULT = 1
-=======
 import { Flex, Image, Square, Text, TouchableArea, useSporeColors } from 'ui/src'
 import { DOT_GRID, UNISWAP_LOGO } from 'ui/src/assets'
 import { FileListLock, Mobile, RotatableChevron, Wifi } from 'ui/src/components/icons'
@@ -53,7 +34,6 @@ import { ScantasticParamsSchema } from 'wallet/src/features/scantastic/types'
 const UNISWAP_LOGO_SIZE = 52
 const UNISWAP_LOGO_SCALE_LOADING = 1.2
 const UNISWAP_LOGO_SCALE_DEFAULT = 1
->>>>>>> upstream/main
 const QR_CODE_SIZE = 212
 
 export function ScanToOnboard(): JSX.Element {
@@ -106,11 +86,7 @@ export function ScanToOnboard(): JSX.Element {
     }
     try {
       // poll OTP state
-<<<<<<< HEAD
-      const response = await fetch(`${lxUrls.scantasticApiUrl}/otp-state/${sessionUUID}`, {
-=======
       const response = await fetch(`${uniswapUrls.scantasticApiUrl}/otp-state/${sessionUUID}`, {
->>>>>>> upstream/main
         method: 'POST',
         headers: {
           Accept: 'application/json',
@@ -158,17 +134,10 @@ export function ScanToOnboard(): JSX.Element {
 
   useTimeout(resetScantastic, expirationTimestamp - Date.now())
 
-<<<<<<< HEAD
-  const qrScale = useSharedValue(LUX_LOGO_SCALE_DEFAULT)
-  useEffect(() => {
-    if (!isLoadingUUID) {
-      qrScale.value = LUX_LOGO_SCALE_DEFAULT
-=======
   const qrScale = useSharedValue(UNISWAP_LOGO_SCALE_DEFAULT)
   useEffect(() => {
     if (!isLoadingUUID) {
       qrScale.value = UNISWAP_LOGO_SCALE_DEFAULT
->>>>>>> upstream/main
       return undefined
     }
 
@@ -179,27 +148,17 @@ export function ScanToOnboard(): JSX.Element {
     }
     qrScale.value = withRepeat(
       withSequence(
-<<<<<<< HEAD
-        withSpring(LUX_LOGO_SCALE_LOADING, springConfig),
-        withSpring(LUX_LOGO_SCALE_DEFAULT, springConfig),
-=======
         withSpring(UNISWAP_LOGO_SCALE_LOADING, springConfig),
         withSpring(UNISWAP_LOGO_SCALE_DEFAULT, springConfig),
->>>>>>> upstream/main
       ),
       0,
       true,
     )
 
     return () => cancelAnimation(qrScale)
-<<<<<<< HEAD
-  }, [isLoadingUUID])
-  // Using useAnimatedStyle and AnimatedFlex because gui scale animation not working
-=======
     // oxlint-disable-next-line react/exhaustive-deps -- biome-parity: oxlint is stricter here
   }, [isLoadingUUID])
   // Using useAnimatedStyle and AnimatedFlex because tamagui scale animation not working
->>>>>>> upstream/main
   const qrAnimatedStyle = useAnimatedStyle(() => {
     return {
       transform: `scale(${qrScale.value})`,
@@ -302,17 +261,6 @@ export function ScanToOnboard(): JSX.Element {
                   alignItems="center"
                   backgroundColor={isLoadingUUID ? '$transparent' : '$surface1'}
                   borderRadius="$rounded12"
-<<<<<<< HEAD
-                  height={LUX_LOGO_SIZE}
-                  justifyContent="center"
-                  position="absolute"
-                  style={qrAnimatedStyle}
-                  top={`calc(50% - ${LUX_LOGO_SIZE / 2}px)`}
-                  width={LUX_LOGO_SIZE}
-                  zIndex={zIndexes.default}
-                >
-                  <Image height={iconSizes.icon40} source={LUX_LOGO} width={iconSizes.icon40} />
-=======
                   height={UNISWAP_LOGO_SIZE}
                   justifyContent="center"
                   position="absolute"
@@ -322,7 +270,6 @@ export function ScanToOnboard(): JSX.Element {
                   zIndex={zIndexes.default}
                 >
                   <Image height={iconSizes.icon40} source={UNISWAP_LOGO} width={iconSizes.icon40} />
->>>>>>> upstream/main
                 </AnimatedFlex>
                 {isLoadingUUID ? (
                   <Image height={QR_CODE_SIZE} source={DOT_GRID} width={QR_CODE_SIZE} />

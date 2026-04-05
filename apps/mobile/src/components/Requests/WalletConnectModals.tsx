@@ -13,18 +13,6 @@ import {
   WalletConnectSigningRequest,
 } from 'src/features/walletConnect/walletConnectSlice'
 import { useAppStateTrigger } from 'src/utils/useAppStateTrigger'
-<<<<<<< HEAD
-import { Flex } from '@l.x/ui/src'
-import { Eye } from '@l.x/ui/src/components/icons'
-import { WarningSeverity } from '@l.x/lx/src/components/modals/WarningModal/types'
-import { WarningModal } from '@l.x/lx/src/components/modals/WarningModal/WarningModal'
-import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
-import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
-import { areAddressesEqual } from '@l.x/lx/src/utils/addresses'
-import { AccountDetails } from '@luxfi/wallet/src/components/accounts/AccountDetails'
-import { ErrorBoundary } from '@luxfi/wallet/src/components/ErrorBoundary/ErrorBoundary'
-import { useActiveAccount, useActiveAccountAddressWithThrow, useSignerAccounts } from '@luxfi/wallet/src/features/wallet/hooks'
-=======
 import { Flex } from 'ui/src'
 import { Eye } from 'ui/src/components/icons'
 import { WarningSeverity } from 'uniswap/src/components/modals/WarningModal/types'
@@ -35,7 +23,6 @@ import { areAddressesEqual } from 'uniswap/src/utils/addresses'
 import { AccountDetails } from 'wallet/src/components/accounts/AccountDetails'
 import { ErrorBoundary } from 'wallet/src/components/ErrorBoundary/ErrorBoundary'
 import { useActiveAccount, useActiveAccountAddressWithThrow, useSignerAccounts } from 'wallet/src/features/wallet/hooks'
->>>>>>> upstream/main
 
 const WalletConnectModalName = {
   Scan: ModalName.WalletConnectScan,
@@ -53,11 +40,7 @@ export function WalletConnectModals(): JSX.Element {
    * Reset didOpenFromDeepLink state when app is backgrounded, since we only want
    * to call `returnToPreviousApp` when the app was deep linked to from another app.
    * Handles case where user opens app via WalletConnect deep link, backgrounds app, then
-<<<<<<< HEAD
-   * opens Lux app via Spotlight search – we don't want `returnToPreviousApp` to return
-=======
    * opens Uniswap app via Spotlight search – we don't want `returnToPreviousApp` to return
->>>>>>> upstream/main
    * to Spotlight search.
    * */
   useAppStateTrigger({

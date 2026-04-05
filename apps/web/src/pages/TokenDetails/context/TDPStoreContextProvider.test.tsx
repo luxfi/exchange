@@ -1,14 +1,7 @@
-<<<<<<< HEAD
-import { GraphQLApi } from '@l.x/api'
-import { useContext, useEffect, useRef } from 'react'
-import { useParams } from 'react-router'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-=======
 import { GraphQLApi } from '@universe/api'
 import { useContext, useEffect, useRef } from 'react'
 import { useParams } from 'react-router'
 import { UniverseChainId } from 'uniswap/src/features/chains/types'
->>>>>>> upstream/main
 import type { createTDPStore } from '~/pages/TokenDetails/context/createTDPStore'
 import { TDPStoreContext } from '~/pages/TokenDetails/context/TDPContext'
 import { TDPStoreContextProvider } from '~/pages/TokenDetails/context/TDPStoreContextProvider'

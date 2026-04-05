@@ -4,16 +4,6 @@ import {
   Notification,
   NotificationVersion,
   OnClick,
-<<<<<<< HEAD
-} from '@luxamm/client-notification-service/dist/lx/notificationservice/v1/api_pb'
-import { BackgroundType, ContentStyle, type InAppNotification, OnClickAction } from '@l.x/api'
-import { FeatureFlags, getFeatureFlag } from '@l.x/gating'
-import { checkNotifications, type PermissionStatus } from 'react-native-permissions'
-import { BannerId } from 'src/notification-service/data-sources/banners/types'
-import { PUSH_NOTIFICATIONS_CARD_BANNER } from '@l.x/ui/src/assets'
-import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
-import i18n from '@l.x/lx/src/i18n'
-=======
 } from '@uniswap/client-notification-service/dist/uniswap/notificationservice/v1/api_pb'
 import { BackgroundType, ContentStyle, type InAppNotification, OnClickAction } from '@universe/api'
 import { FeatureFlags, getFeatureFlag } from '@universe/gating'
@@ -22,7 +12,6 @@ import { BannerId } from 'src/notification-service/data-sources/banners/types'
 import { PUSH_NOTIFICATIONS_CARD_BANNER } from 'ui/src/assets'
 import { ModalName } from 'uniswap/src/features/telemetry/constants'
 import i18n from 'uniswap/src/i18n'
->>>>>>> upstream/main
 
 async function getPushPermissionStatus(): Promise<PermissionStatus> {
   const { status } = await checkNotifications()

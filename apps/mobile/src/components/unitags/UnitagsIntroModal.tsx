@@ -1,29 +1,12 @@
-<<<<<<< HEAD
-import { SharedEventName } from '@luxamm/analytics-events'
-import React from 'react'
-import { useTranslation } from 'react-i18next'
-import 'react-native-reanimated'
-=======
 import 'react-native-reanimated'
 import { SharedEventName } from '@uniswap/analytics-events'
 import React from 'react'
 import { useTranslation } from 'react-i18next'
->>>>>>> upstream/main
 import { useDispatch } from 'react-redux'
 import { navigate } from 'src/app/navigation/rootNavigation'
 import { AppStackScreenProp } from 'src/app/navigation/types'
 import { useReactNavigationModal } from 'src/components/modals/useReactNavigationModal'
 import { TermsOfService } from 'src/screens/Onboarding/TermsOfService'
-<<<<<<< HEAD
-import { Button, Flex, GeneratedIcon, Image, Text, useIsDarkMode } from '@l.x/ui/src'
-import { UNITAGS_INTRO_BANNER_DARK, UNITAGS_INTRO_BANNER_LIGHT } from '@l.x/ui/src/assets'
-import { Lightning, Person, Ticket } from '@l.x/ui/src/components/icons'
-import { Modal } from '@l.x/lx/src/components/modals/Modal'
-import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
-import { MobileScreens, UnitagScreens } from '@l.x/lx/src/types/screens/mobile'
-import { setHasCompletedUnitagsIntroModal } from '@luxfi/wallet/src/features/behaviorHistory/slice'
-=======
 import { Button, Flex, GeneratedIcon, Image, Text, useIsDarkMode } from 'ui/src'
 import { UNITAGS_INTRO_BANNER_DARK, UNITAGS_INTRO_BANNER_LIGHT } from 'ui/src/assets'
 import { Lightning, Person, Ticket } from 'ui/src/components/icons'
@@ -32,7 +15,6 @@ import { ModalName } from 'uniswap/src/features/telemetry/constants'
 import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
 import { MobileScreens, UnitagScreens } from 'uniswap/src/types/screens/mobile'
 import { setHasCompletedUnitagsIntroModal } from 'wallet/src/features/behaviorHistory/slice'
->>>>>>> upstream/main
 
 export function UnitagsIntroModal({ route }: AppStackScreenProp<typeof ModalName.UnitagsIntro>): JSX.Element {
   const { t } = useTranslation()

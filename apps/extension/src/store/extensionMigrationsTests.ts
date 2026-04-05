@@ -6,11 +6,7 @@
  *
  * For unit tests of individual migrations, see extensionMigrations.test.ts.
  */
-<<<<<<< HEAD
-import { createThrowingProxy } from '@l.x/utils/src/test/utils'
-=======
 import { createThrowingProxy } from 'utilities/src/test/utils'
->>>>>>> upstream/main
 
 export function testRemoveDappInfoToChromeLocalStorage(migration: (state: any) => any, _prevSchema: any): void {
   // Test: removes dapp property from state

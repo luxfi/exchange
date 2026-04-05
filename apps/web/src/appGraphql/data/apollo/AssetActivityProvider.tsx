@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-import { GraphQLApi } from '@l.x/api'
-import ms from 'ms'
-import { PropsWithChildren, useEffect, useMemo, useState } from 'react'
-import { useEnabledChains } from '@l.x/lx/src/features/chains/hooks/useEnabledChains'
-import { logger } from '@l.x/utils/src/logger/logger'
-import { useEvent } from '@l.x/utils/src/react/hooks'
-import { useInterval } from '@l.x/utils/src/time/timing'
-=======
 import { GraphQLApi } from '@universe/api'
 import ms from 'ms'
 import { PropsWithChildren, useEffect, useMemo, useState } from 'react'
@@ -14,7 +5,6 @@ import { useEnabledChains } from 'uniswap/src/features/chains/hooks/useEnabledCh
 import { logger } from 'utilities/src/logger/logger'
 import { useEvent } from 'utilities/src/react/hooks'
 import { useInterval } from 'utilities/src/time/timing'
->>>>>>> upstream/main
 import { createAdaptiveRefetchContext } from '~/appGraphql/data/apollo/AdaptiveRefetch'
 import { useAccount } from '~/hooks/useAccount'
 import usePrevious from '~/hooks/usePrevious'

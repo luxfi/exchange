@@ -1,10 +1,5 @@
-<<<<<<< HEAD
-import { ProtocolVersion } from '@luxamm/client-data-api/dist/data/v1/poolTypes_pb'
-import { CurrencyInfo } from '@l.x/lx/src/features/dataApi/types'
-=======
 import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
 import { CurrencyInfo } from 'uniswap/src/features/dataApi/types'
->>>>>>> upstream/main
 
 export function hasLPFoTTransferError(
   currencyInfo: Maybe<CurrencyInfo>,

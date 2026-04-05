@@ -1,17 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
-<<<<<<< HEAD
-import { Button, Flex, Text, TouchableArea } from '@l.x/ui/src'
-import { Feedback, LikeSquare, MessageText, X } from '@l.x/ui/src/components/icons'
-import { IconSizeTokens, zIndexes } from '@l.x/ui/src/theme'
-import { Modal } from '@l.x/lx/src/components/modals/Modal'
-import { lxUrls } from '@l.x/lx/src/constants/urls'
-import { ModalName, WalletEventName } from '@l.x/lx/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
-import { appRatingPromptedMsSelector, appRatingProvidedMsSelector } from '@luxfi/wallet/src/features/wallet/selectors'
-import { setAppRating } from '@luxfi/wallet/src/features/wallet/slice'
-=======
 import { Button, Flex, Text, TouchableArea } from 'ui/src'
 import { Feedback, LikeSquare, MessageText, X } from 'ui/src/components/icons'
 import { IconSizeTokens, zIndexes } from 'ui/src/theme'
@@ -21,7 +10,6 @@ import { ModalName, WalletEventName } from 'uniswap/src/features/telemetry/const
 import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
 import { appRatingPromptedMsSelector, appRatingProvidedMsSelector } from 'wallet/src/features/wallet/selectors'
 import { setAppRating } from 'wallet/src/features/wallet/slice'
->>>>>>> upstream/main
 
 interface AppRatingModalProps {
   onClose: () => void
@@ -78,11 +66,7 @@ export default function AppRatingModal({ onClose }: AppRatingModalProps): JSX.El
       iconSize: '$icon.18' as IconSizeTokens,
       onSecondaryButtonPress: onRemindLater,
       onPrimaryButtonPress: (): void => {
-<<<<<<< HEAD
-        window.open(lxUrls.walletFeedbackForm)
-=======
         window.open(uniswapUrls.walletFeedbackForm)
->>>>>>> upstream/main
         dispatch(setAppRating({ feedbackProvided: true }))
         sendAnalyticsEvent(WalletEventName.AppRating, {
           type: 'feedback-form',
@@ -101,11 +85,7 @@ export default function AppRatingModal({ onClose }: AppRatingModalProps): JSX.El
       iconSize: '$icon.24' as IconSizeTokens,
       onSecondaryButtonPress: onRemindLater,
       onPrimaryButtonPress: (): void => {
-<<<<<<< HEAD
-        window.open(`https://chromewebstore.google.com/detail/lux-extension/${chrome.runtime.id}/reviews`)
-=======
         window.open(`https://chromewebstore.google.com/detail/uniswap-extension/${chrome.runtime.id}/reviews`)
->>>>>>> upstream/main
         dispatch(setAppRating({ ratingProvided: true }))
         sendAnalyticsEvent(WalletEventName.AppRating, {
           type: 'store-review',

@@ -1,14 +1,3 @@
-<<<<<<< HEAD
-import { CommandParser, CommandType, type UniversalRouterCall } from '@luxamm/universal-router-sdk'
-import { Actions, V4BaseActionsParser, type V4RouterCall } from '@luxamm/v4-sdk'
-import { EthSendTransactionRPCActions } from 'src/app/features/dappRequests/types/DappRequestTypes'
-import { parseCalldata as parseNfPMCalldata } from 'src/app/features/dappRequests/types/NonfungiblePositionManager'
-import { type NonfungiblePositionManagerCall } from 'src/app/features/dappRequests/types/NonfungiblePositionManagerTypes'
-import { type UniverseChainId } from '@l.x/lx/src/features/chains/types'
-import { wrappedNativeCurrency } from '@l.x/lx/src/utils/currency'
-import methodHashToFunctionSignature from '@l.x/utils/src/calldata/methodHashToFunctionSignature'
-import { noop } from '@l.x/utils/src/react/noop'
-=======
 import { CommandParser, CommandType, type UniversalRouterCall } from '@uniswap/universal-router-sdk'
 import { Actions, V4BaseActionsParser, type V4RouterCall } from '@uniswap/v4-sdk'
 import { EthSendTransactionRPCActions } from 'src/app/features/dappRequests/types/DappRequestTypes'
@@ -18,7 +7,6 @@ import { type UniverseChainId } from 'uniswap/src/features/chains/types'
 import { wrappedNativeCurrency } from 'uniswap/src/utils/currency'
 import methodHashToFunctionSignature from 'utilities/src/calldata/methodHashToFunctionSignature'
 import { noop } from 'utilities/src/react/noop'
->>>>>>> upstream/main
 
 interface GetCalldataInfoFromTransactionReturnValue {
   functionSignature?: string
@@ -108,13 +96,8 @@ export default function getCalldataInfoFromTransaction({
     }
 
     const isWrapUnwrapSignature = functionSignature === 'deposit()' || functionSignature === 'withdraw(uint256)'
-<<<<<<< HEAD
-    const isNativeWrappedCurrencyTo =
-      chainId && to?.toLowerCase() === wrappedNativeCurrency(chainId).address.toLowerCase()
-=======
     const wrappedNative = chainId ? wrappedNativeCurrency(chainId) : undefined
     const isNativeWrappedCurrencyTo = wrappedNative && to?.toLowerCase() === wrappedNative.address.toLowerCase()
->>>>>>> upstream/main
     if (functionSignature.includes('wrap') || (isWrapUnwrapSignature && isNativeWrappedCurrencyTo)) {
       result.contractInteractions = EthSendTransactionRPCActions.Wrap
       return result

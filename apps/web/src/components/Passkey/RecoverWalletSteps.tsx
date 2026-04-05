@@ -1,15 +1,5 @@
 import type { UseMutationResult } from '@tanstack/react-query'
 import type { TFunction } from 'i18next'
-<<<<<<< HEAD
-import { Button, Flex, Input, SpinningLoader, Text, TouchableArea } from '@l.x/ui/src'
-import { EnvelopeLock } from '@l.x/ui/src/components/icons/EnvelopeLock'
-import { Eye } from '@l.x/ui/src/components/icons/Eye'
-import { EyeOff } from '@l.x/ui/src/components/icons/EyeOff'
-import { Person } from '@l.x/ui/src/components/icons/Person'
-import { AccountIcon } from 'lx/src/features/accounts/AccountIcon'
-import { ElementName, ModalName } from 'lx/src/features/telemetry/constants'
-import Trace from 'lx/src/features/telemetry/Trace'
-=======
 import { Button, Flex, Input, SpinningLoader, Text, TouchableArea } from 'ui/src'
 import { EnvelopeLock } from 'ui/src/components/icons/EnvelopeLock'
 import { Eye } from 'ui/src/components/icons/Eye'
@@ -18,7 +8,6 @@ import { Person } from 'ui/src/components/icons/Person'
 import { AccountIcon } from 'uniswap/src/features/accounts/AccountIcon'
 import { ElementName, ModalName } from 'uniswap/src/features/telemetry/constants'
 import Trace from 'uniswap/src/features/telemetry/Trace'
->>>>>>> upstream/main
 import { DigitInputRow, type DigitInputState, IconBox, StepHeader } from '~/components/Passkey/BackupLoginComponents'
 
 export function OAuthLoadingStep({

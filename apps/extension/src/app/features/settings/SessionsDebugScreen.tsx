@@ -1,31 +1,10 @@
-<<<<<<< HEAD
-/* eslint-disable max-lines */
-import { getEntryGatewayUrl, provideSessionService } from '@l.x/api'
-=======
 /* oxlint-disable max-lines */
 import { getEntryGatewayUrl, provideSessionService } from '@universe/api'
->>>>>>> upstream/main
 import {
   ChallengeType,
   createHashcashSolver,
   createHashcashWorkerChannel,
   type SessionService,
-<<<<<<< HEAD
-} from '@l.x/sessions'
-import { memo, useCallback, useEffect, useRef } from 'react'
-import { ScreenHeader } from 'src/app/components/layout/ScreenHeader'
-import { type LogEntry, useSessionsDebugStore } from 'src/app/features/settings/stores/sessionsDebugStore'
-import { Button, Flex, ScrollView, Text, TouchableArea } from '@l.x/ui/src'
-import { CopyAlt } from '@l.x/ui/src/components/icons'
-import { setClipboard } from '@l.x/utils/src/clipboard/clipboard'
-import { logger } from '@l.x/utils/src/logger/logger'
-import { useShallow } from 'zustand/shallow'
-
-// Storage keys (must match session storage)
-const SESSION_ID_KEY = 'LUX_SESSION_ID'
-const DEVICE_ID_KEY = 'LUX_DEVICE_ID'
-const LUX_IDENTIFIER_KEY = 'LUX_IDENTIFIER'
-=======
 } from '@universe/sessions'
 import { memo, useCallback, useEffect, useRef } from 'react'
 import { ScreenHeader } from 'src/app/components/layout/ScreenHeader'
@@ -40,7 +19,6 @@ import { useShallow } from 'zustand/shallow'
 const SESSION_ID_KEY = 'UNISWAP_SESSION_ID'
 const DEVICE_ID_KEY = 'UNISWAP_DEVICE_ID'
 const UNISWAP_IDENTIFIER_KEY = 'UNISWAP_IDENTIFIER'
->>>>>>> upstream/main
 
 function formatTime(date: Date): string {
   return date.toLocaleTimeString('en-US', {
@@ -206,11 +184,7 @@ export function SessionsDebugScreen(): JSX.Element {
     useShallow((state) => ({
       sessionId: state.session.sessionId,
       deviceId: state.session.deviceId,
-<<<<<<< HEAD
-      luxIdentifier: state.session.luxIdentifier,
-=======
       uniswapIdentifier: state.session.uniswapIdentifier,
->>>>>>> upstream/main
     })),
   )
   const challenge = useSessionsDebugStore((state) => state.challenge)
@@ -244,52 +218,30 @@ export function SessionsDebugScreen(): JSX.Element {
   }, [])
 
   const refreshSessionState = useCallback(async (): Promise<void> => {
-<<<<<<< HEAD
-    const [sessionId, deviceId, luxIdentifier] = await Promise.all([
-      localStorage.getItem(SESSION_ID_KEY),
-      localStorage.getItem(DEVICE_ID_KEY),
-      localStorage.getItem(LUX_IDENTIFIER_KEY),
-=======
     const [sessionId, deviceId, uniswapIdentifier] = await Promise.all([
       localStorage.getItem(SESSION_ID_KEY),
       localStorage.getItem(DEVICE_ID_KEY),
       localStorage.getItem(UNISWAP_IDENTIFIER_KEY),
->>>>>>> upstream/main
     ])
     setSession({
       sessionId: sessionId || null,
       deviceId: deviceId || null,
-<<<<<<< HEAD
-      luxIdentifier: luxIdentifier || null,
-=======
       uniswapIdentifier: uniswapIdentifier || null,
->>>>>>> upstream/main
     })
   }, [setSession])
 
   // Initial load
   useEffect(() => {
     const loadInitialState = async (): Promise<void> => {
-<<<<<<< HEAD
-      const [sessionId, deviceId, luxIdentifier] = await Promise.all([
-        localStorage.getItem(SESSION_ID_KEY),
-        localStorage.getItem(DEVICE_ID_KEY),
-        localStorage.getItem(LUX_IDENTIFIER_KEY),
-=======
       const [sessionId, deviceId, uniswapIdentifier] = await Promise.all([
         localStorage.getItem(SESSION_ID_KEY),
         localStorage.getItem(DEVICE_ID_KEY),
         localStorage.getItem(UNISWAP_IDENTIFIER_KEY),
->>>>>>> upstream/main
       ])
       setSession({
         sessionId: sessionId || null,
         deviceId: deviceId || null,
-<<<<<<< HEAD
-        luxIdentifier: luxIdentifier || null,
-=======
         uniswapIdentifier: uniswapIdentifier || null,
->>>>>>> upstream/main
       })
     }
     loadInitialState()
@@ -317,11 +269,7 @@ export function SessionsDebugScreen(): JSX.Element {
     try {
       localStorage.removeItem(SESSION_ID_KEY)
       localStorage.removeItem(DEVICE_ID_KEY)
-<<<<<<< HEAD
-      localStorage.removeItem(LUX_IDENTIFIER_KEY)
-=======
       localStorage.removeItem(UNISWAP_IDENTIFIER_KEY)
->>>>>>> upstream/main
       sessionServiceRef.current = null
       setChallenge(null)
       reset()
@@ -418,11 +366,7 @@ export function SessionsDebugScreen(): JSX.Element {
           createHashcashWorkerChannel({
             getWorker: () =>
               new Worker(
-<<<<<<< HEAD
-                new URL('@l.x/sessions/src/challenge-solvers/hashcash/worker/hashcash.worker.ts', import.meta.url),
-=======
                 new URL('@universe/sessions/src/challenge-solvers/hashcash/worker/hashcash.worker.ts', import.meta.url),
->>>>>>> upstream/main
                 { type: 'module' },
               ),
           }),
@@ -538,16 +482,6 @@ export function SessionsDebugScreen(): JSX.Element {
 
             <Flex row justifyContent="space-between" alignItems="center">
               <Text variant="body2" color="$neutral2">
-<<<<<<< HEAD
-                Lux ID:
-              </Text>
-              <Flex row alignItems="center" gap="$spacing4">
-                <Text variant="body3" color={session.luxIdentifier ? '$neutral1' : '$neutral3'}>
-                  {truncateId(session.luxIdentifier)}
-                </Text>
-                {session.luxIdentifier && (
-                  <TouchableArea onPress={() => copyToClipboard(session.luxIdentifier, 'Lux ID')}>
-=======
                 Uniswap ID:
               </Text>
               <Flex row alignItems="center" gap="$spacing4">
@@ -556,7 +490,6 @@ export function SessionsDebugScreen(): JSX.Element {
                 </Text>
                 {session.uniswapIdentifier && (
                   <TouchableArea onPress={() => copyToClipboard(session.uniswapIdentifier, 'Uniswap ID')}>
->>>>>>> upstream/main
                     <CopyAlt color="$neutral3" size="$icon.16" />
                   </TouchableArea>
                 )}

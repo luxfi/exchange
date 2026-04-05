@@ -1,12 +1,6 @@
-<<<<<<< HEAD
-/* biome-ignore-all lint/suspicious/noExplicitAny: Chrome extension message passing requires flexible typing for arbitrary message payloads */
-import { MessageParsers } from '@l.x/lx/src/extension/messagePassing/platform'
-import { logger } from '@l.x/utils/src/logger/logger'
-=======
 /* oxlint-disable typescript/no-explicit-any -- Chrome extension message passing requires flexible typing for arbitrary message payloads */
 import { MessageParsers } from 'uniswap/src/extension/messagePassing/platform'
 import { logger } from 'utilities/src/logger/logger'
->>>>>>> upstream/main
 
 const EXTENSION_CONTEXT_INVALIDATED_CHROMIUM_ERROR = 'Extension context invalidated.'
 
@@ -15,28 +9,7 @@ class ChromeMessageChannel {
   protected readonly channelName: string
   readonly port?: chrome.runtime.Port
 
-<<<<<<< HEAD
-=======
-  // oxlint-disable-next-line typescript/no-explicit-any -- biome-parity: oxlint is stricter here
->>>>>>> upstream/main
-  protected listeners: MessageListener<any>[] = []
-
-  constructor({
-    channelName,
-    port,
-    canReceiveFromWebPage = false,
-  }: {
-    channelName: string
-    canReceiveFromWebPage?: boolean
-    port?: chrome.runtime.Port
-  }) {
-    this.channelName = channelName
-    this.port = port
-
-<<<<<<< HEAD
-=======
     // oxlint-disable-next-line typescript/no-explicit-any -- biome-parity: oxlint is stricter here
->>>>>>> upstream/main
     const mainListener: MessageListener<any> = (message, sender) => {
       const targetMessage = message[this.channelName]
 
@@ -58,11 +31,7 @@ class ChromeMessageChannel {
     if (this.port) {
       this.port.onMessage.addListener((message, senderPort) => mainListener(message, senderPort.sender))
     } else {
-<<<<<<< HEAD
-      // eslint-disable-next-line no-restricted-syntax
-=======
       // oxlint-disable-next-line no-restricted-syntax
->>>>>>> upstream/main
       chrome.runtime.onMessage.addListener(mainListener)
     }
 
@@ -73,30 +42,11 @@ class ChromeMessageChannel {
     this.removeMessageListener = this.removeMessageListener.bind(this)
   }
 
-<<<<<<< HEAD
-=======
-  // oxlint-disable-next-line typescript/no-explicit-any -- biome-parity: oxlint is stricter here
->>>>>>> upstream/main
-  async sendMessage(message: any): Promise<void> {
-    if (this.port) {
-      this.port.postMessage({ [this.channelName]: message })
-    } else {
-<<<<<<< HEAD
-      // eslint-disable-next-line no-restricted-syntax
-=======
       // oxlint-disable-next-line no-restricted-syntax
->>>>>>> upstream/main
       chrome.runtime.sendMessage({ [this.channelName]: message }).catch(() => {})
     }
   }
 
-<<<<<<< HEAD
-  async sendMessageToTab(tabId: number, message: any): Promise<void> {
-    // eslint-disable-next-line no-restricted-syntax
-    await chrome.tabs.sendMessage(tabId, { [this.channelName]: message })
-  }
-
-=======
   // oxlint-disable-next-line typescript/no-explicit-any -- biome-parity: oxlint is stricter here
   async sendMessageToTab(tabId: number, message: any): Promise<void> {
     // oxlint-disable-next-line no-restricted-syntax
@@ -104,7 +54,6 @@ class ChromeMessageChannel {
   }
 
   // oxlint-disable-next-line typescript/no-explicit-any -- biome-parity: oxlint is stricter here
->>>>>>> upstream/main
   async sendMessageToTabUrl(tabUrl: string, message: any): Promise<void[]> {
     const urlMatcher = `${tabUrl}/*`
     const promises: Promise<void>[] = []
@@ -112,19 +61,10 @@ class ChromeMessageChannel {
       tabs.forEach((tab) => {
         if (tab.id) {
           promises.push(
-<<<<<<< HEAD
-            // eslint-disable-next-line no-restricted-syntax
-            chrome.tabs
-              .sendMessage(tab.id, { [this.channelName]: message })
-              .catch(() => {
-                // Not logging error here because it is expected that inactive tabs will not be able to receive the message
-              }),
-=======
             // oxlint-disable-next-line no-restricted-syntax
             chrome.tabs.sendMessage(tab.id, { [this.channelName]: message }).catch(() => {
               // Not logging error here because it is expected that inactive tabs will not be able to receive the message
             }),
->>>>>>> upstream/main
           )
         }
       })
@@ -132,20 +72,7 @@ class ChromeMessageChannel {
     return Promise.all(promises)
   }
 
-<<<<<<< HEAD
-=======
   // oxlint-disable-next-line typescript/no-explicit-any -- biome-parity: oxlint is stricter here
->>>>>>> upstream/main
-  addMessageListener(listener: MessageListener<any>): () => void {
-    this.listeners.push(listener)
-
-    return () => this.removeMessageListener(listener)
-  }
-
-<<<<<<< HEAD
-=======
-  // oxlint-disable-next-line typescript/no-explicit-any -- biome-parity: oxlint is stricter here
->>>>>>> upstream/main
   removeMessageListener(listener: MessageListener<any>): void {
     this.listeners = this.listeners.filter((l) => l !== listener)
   }
@@ -211,22 +138,7 @@ abstract class TypedMessageChannel<
     this.removeMessageListener = this.removeMessageListener.bind(this)
   }
 
-<<<<<<< HEAD
-=======
-  // oxlint-disable-next-line typescript/no-explicit-any -- biome-parity: oxlint is stricter here
->>>>>>> upstream/main
-  private processMessage(message: any): { type: T; messageParser: (message: unknown) => R[T] } {
-    const type = message.type as Maybe<T>
-    if (!type) {
-      throw new Error('No type provided on message')
-    }
-
-    const messageParser = this.messageParsers[type]
-<<<<<<< HEAD
-    // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
-=======
     // oxlint-disable-next-line typescript/no-unnecessary-condition
->>>>>>> upstream/main
     if (!messageParser) {
       throw new Error(`No message parser found for type ${type}`)
     }

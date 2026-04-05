@@ -1,26 +1,6 @@
 import { createContext, ReactNode, useCallback, useContext, useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useGet5792DappInfo } from 'src/app/hooks/useGet5792DappInfo'
-<<<<<<< HEAD
-import { ModalName, ModalNameType } from '@l.x/lx/src/features/telemetry/constants'
-import { extractUrlHost } from '@l.x/utils/src/format/urls'
-import { useEvent } from '@l.x/utils/src/react/hooks'
-import { ONE_DAY_MS } from '@l.x/utils/src/time/time'
-import {
-  SmartWalletDelegationAction,
-  useSmartWalletDelegationStatus,
-} from '@luxfi/wallet/src/components/smartWallet/smartAccounts/hooks'
-import {
-  selectHasSeenCreatedSmartWalletModal,
-  selectHasShownEip5792Nudge,
-} from '@luxfi/wallet/src/features/behaviorHistory/selectors'
-import {
-  setHasSeenSmartWalletCreatedWalletModal,
-  setHasShown5792Nudge,
-} from '@luxfi/wallet/src/features/behaviorHistory/slice'
-import { useAccountCountChanged } from '@luxfi/wallet/src/features/wallet/hooks'
-import { WalletState } from '@luxfi/wallet/src/state/walletReducer'
-=======
 import { ModalName, ModalNameType } from 'uniswap/src/features/telemetry/constants'
 import { extractUrlHost } from 'utilities/src/format/urls'
 import { useEvent } from 'utilities/src/react/hooks'
@@ -39,7 +19,6 @@ import {
 } from 'wallet/src/features/behaviorHistory/slice'
 import { useAccountCountChanged } from 'wallet/src/features/wallet/hooks'
 import { WalletState } from 'wallet/src/state/walletReducer'
->>>>>>> upstream/main
 
 type DappInfo = {
   icon?: string
@@ -95,11 +74,7 @@ export function SmartWalletNudgesProvider({ children }: { children: ReactNode })
     delegationStatus.status === SmartWalletDelegationAction.PromptUpgrade &&
     !delegationStatus.loading
 
-<<<<<<< HEAD
-  // biome-ignore lint/correctness/useExhaustiveDependencies: delegationStatus is used in shouldShowNudge calculation above
-=======
   // oxlint-disable-next-line react/exhaustive-deps -- delegationStatus is used in shouldShowNudge calculation above
->>>>>>> upstream/main
   useEffect(() => {
     if (last5792DappInfo && shouldShowNudge) {
       setDappInfo({

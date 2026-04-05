@@ -6,17 +6,10 @@ import { handleSessionAuthenticate, handleSessionProposal } from 'src/features/w
 import { parseVerifyStatus } from 'src/features/walletConnect/utils'
 import { wcWeb3Wallet } from 'src/features/walletConnect/walletConnectClient'
 import { addPendingSession } from 'src/features/walletConnect/walletConnectSlice'
-<<<<<<< HEAD
-import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
-import { DappRequestInfo, DappRequestType, EthEvent } from '@l.x/lx/src/types/walletConnect'
-import { DappVerificationStatus } from '@luxfi/wallet/src/features/dappRequests/types'
-import { selectActiveAccountAddress } from '@luxfi/wallet/src/features/wallet/selectors'
-=======
 import { UniverseChainId } from 'uniswap/src/features/chains/types'
 import { DappRequestInfo, DappRequestType, EthEvent } from 'uniswap/src/types/walletConnect'
 import { DappVerificationStatus } from 'wallet/src/features/dappRequests/types'
 import { selectActiveAccountAddress } from 'wallet/src/features/wallet/selectors'
->>>>>>> upstream/main
 
 // Mock for WalletConnect utils
 jest.mock('@walletconnect/utils', () => ({
@@ -42,11 +35,7 @@ jest.mock('react-native', () => ({
 }))
 
 // Mock i18n
-<<<<<<< HEAD
-jest.mock('lx/src/i18n', () => ({
-=======
 jest.mock('uniswap/src/i18n', () => ({
->>>>>>> upstream/main
   t: jest.fn((key) => key),
 }))
 

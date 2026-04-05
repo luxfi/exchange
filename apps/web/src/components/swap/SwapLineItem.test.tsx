@@ -1,7 +1,4 @@
 import '~/test-utils/tokens/mocks'
-<<<<<<< HEAD
-
-=======
 >>>>>>> upstream/main
 import SwapLineItem, { SwapLineItemType } from '~/components/swap/SwapLineItem'
 import { InterfaceTrade } from '~/state/routing/types'
@@ -54,7 +51,6 @@ function testTradeLineItems(trade: InterfaceTrade, props: Partial<typeof lineIte
 /* eslint-disable jest/expect-expect */ // allow expect inside testTradeLineItems
 =======
 /* oxlint-disable jest/expect-expect */ // allow expect inside testTradeLineItems
->>>>>>> upstream/main
 describe('SwapLineItem.tsx', () => {
   beforeEach(() => {
     vi.spyOn(console, 'info').mockImplementation(() => {})

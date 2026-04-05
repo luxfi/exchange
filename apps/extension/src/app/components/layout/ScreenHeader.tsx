@@ -1,13 +1,7 @@
 import { useExtensionNavigation } from 'src/app/navigation/utils'
-<<<<<<< HEAD
-import { Flex, GeneratedIcon, IconProps, Text, TouchableArea } from '@l.x/ui/src'
-import { BackArrow } from '@l.x/ui/src/components/icons'
-import { iconSizes } from '@l.x/ui/src/theme'
-=======
 import { Flex, GeneratedIcon, IconProps, Text, TouchableArea } from 'ui/src'
 import { BackArrow } from 'ui/src/components/icons'
 import { iconSizes } from 'ui/src/theme'
->>>>>>> upstream/main
 
 export function ScreenHeader({
   onBackClick,

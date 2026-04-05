@@ -1,13 +1,4 @@
 import { useEffect, useMemo } from 'react'
-<<<<<<< HEAD
-import { ColorTokens, useSporeColors } from '@l.x/ui/src'
-import { useActiveAddress } from '@l.x/lx/src/features/accounts/store/hooks'
-import { EVMUniverseChainId, UniverseChainId } from '@l.x/lx/src/features/chains/types'
-import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
-import { useOnChainCurrencyBalance } from '@l.x/lx/src/features/portfolio/api'
-import { useCurrencyInfo } from '@l.x/lx/src/features/tokens/useCurrencyInfo'
-import { buildCurrencyId, buildNativeCurrencyId } from '@l.x/lx/src/utils/currencyId'
-=======
 import { ColorTokens, useSporeColors } from 'ui/src'
 import { useActiveAddress } from 'uniswap/src/features/accounts/store/hooks'
 import { EVMUniverseChainId, UniverseChainId } from 'uniswap/src/features/chains/types'
@@ -15,7 +6,6 @@ import { Platform } from 'uniswap/src/features/platforms/types/Platform'
 import { useOnChainCurrencyBalance } from 'uniswap/src/features/portfolio/api'
 import { useCurrencyInfo } from 'uniswap/src/features/tokens/useCurrencyInfo'
 import { buildCurrencyId, buildNativeCurrencyId } from 'uniswap/src/utils/currencyId'
->>>>>>> upstream/main
 import { zeroAddress } from 'viem'
 import { fromQ96ToDecimalWithTokenDecimals } from '~/components/Toucan/Auction/BidDistributionChart/utils/q96'
 import { BudgetFieldState, useBidBudgetField } from '~/components/Toucan/Auction/hooks/useBidBudgetField'

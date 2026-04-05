@@ -1,16 +1,6 @@
 import { skipToken } from '@tanstack/react-query'
 import { createContext, Dispatch, PropsWithChildren, SetStateAction, useContext, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-<<<<<<< HEAD
-import { buildPartialCurrencyInfo } from '@l.x/lx/src/constants/routing'
-import { nativeOnChain } from '@l.x/lx/src/constants/tokens'
-import { useActiveAddress } from '@l.x/lx/src/features/accounts/store/hooks'
-import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
-import {
-  useFiatOnRampAggregatorCountryListQuery,
-  useFiatOnRampAggregatorCryptoQuoteQuery,
-} from '@l.x/lx/src/features/fiatOnRamp/hooks/useFiatOnRampQueries'
-=======
 import { buildPartialCurrencyInfo } from 'uniswap/src/constants/routing'
 import { nativeOnChain } from 'uniswap/src/constants/tokens'
 import { useActiveAddress } from 'uniswap/src/features/accounts/store/hooks'
@@ -19,7 +9,6 @@ import {
   useFiatOnRampAggregatorCountryListQuery,
   useFiatOnRampAggregatorCryptoQuoteQuery,
 } from 'uniswap/src/features/fiatOnRamp/hooks/useFiatOnRampQueries'
->>>>>>> upstream/main
 import {
   FiatCurrencyInfo,
   FiatOnRampCurrency,
@@ -28,11 +17,7 @@ import {
   FORQuoteResponse,
   RampDirection,
   SupportedCountriesResponse,
-<<<<<<< HEAD
-} from '@l.x/lx/src/features/fiatOnRamp/types'
-=======
 } from 'uniswap/src/features/fiatOnRamp/types'
->>>>>>> upstream/main
 import {
   InvalidRequestAmountTooHigh,
   InvalidRequestAmountTooLow,
@@ -41,17 +26,10 @@ import {
   isFiatOnRampApiError,
   isInvalidRequestAmountTooHigh,
   isInvalidRequestAmountTooLow,
-<<<<<<< HEAD
-} from '@l.x/lx/src/features/fiatOnRamp/utils'
-import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
-import { getSymbolDisplayText } from '@l.x/lx/src/utils/currency'
-import { useDebounce } from '@l.x/utils/src/time/timing'
-=======
 } from 'uniswap/src/features/fiatOnRamp/utils'
 import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
 import { getSymbolDisplayText } from 'uniswap/src/utils/currency'
 import { useDebounce } from 'utilities/src/time/timing'
->>>>>>> upstream/main
 import { useUSDTokenUpdater } from '~/hooks/useUSDTokenUpdater'
 import useCurrencyBalance from '~/lib/hooks/useCurrencyBalance'
 import { useFiatOnRampSupportedTokens, useMeldFiatCurrencyInfo } from '~/pages/Swap/Buy/hooks'

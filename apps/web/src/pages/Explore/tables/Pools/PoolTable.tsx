@@ -1,33 +1,3 @@
-<<<<<<< HEAD
-/* eslint-disable @typescript-eslint/no-unnecessary-condition */
-/* eslint-disable max-lines */
-
-import { ApolloError } from '@apollo/client'
-import { createColumnHelper, Row } from '@tanstack/react-table'
-import { TokenStats } from '@luxamm/client-explore/dist/lx/explore/v1/service_pb'
-import { Percent, Token } from '@luxamm/sdk-core'
-import { GraphQLApi } from '@l.x/api'
-import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
-import { memo, ReactElement, useCallback, useEffect, useMemo } from 'react'
-import { useTranslation } from 'react-i18next'
-import { Flex, styled, Text, useMedia } from '@l.x/ui/src'
-import { LearnMoreLink } from '@l.x/lx/src/components/text/LearnMoreLink'
-import { getNativeAddress } from '@l.x/lx/src/constants/addresses'
-import { BIPS_BASE } from '@l.x/lx/src/constants/misc'
-import { UNI } from '@l.x/lx/src/constants/tokens'
-import { lxUrls } from '@l.x/lx/src/constants/urls'
-import { useEnabledChains } from '@l.x/lx/src/features/chains/hooks/useEnabledChains'
-import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
-import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
-import { ElementName } from '@l.x/lx/src/features/telemetry/constants'
-import { useCurrencyInfo } from '@l.x/lx/src/features/tokens/useCurrencyInfo'
-import { buildCurrencyId } from '@l.x/lx/src/utils/currencyId'
-import { NumberType } from '@l.x/utils/src/format/types'
-import { supportedChainIdFromGQLChain } from '~/appGraphql/data/chainUtils'
-import { PoolSortFields, TablePool } from '~/appGraphql/data/pools/useTopPools'
-import { gqlToCurrency, OrderDirection, unwrapToken } from '~/appGraphql/data/util'
-import { PortfolioLogo } from '~/components/AccountDrawer/MiniPortfolio/PortfolioLogo'
-=======
 /* oxlint-disable typescript/no-unnecessary-condition */
 /* oxlint-disable max-lines */
 
@@ -55,36 +25,10 @@ import { NumberType } from 'utilities/src/format/types'
 import { supportedChainIdFromGQLChain } from '~/appGraphql/data/chainUtils'
 import { PoolSortFields, TablePool } from '~/appGraphql/data/pools/useTopPools'
 import { gqlToCurrency, OrderDirection, unwrapToken } from '~/appGraphql/data/util'
->>>>>>> upstream/main
 import { FeeData } from '~/components/Liquidity/Create/types'
 import LPIncentiveFeeStatTooltip from '~/components/Liquidity/LPIncentives/LPIncentiveFeeStatTooltip'
 import { isDynamicFeeTier } from '~/components/Liquidity/utils/feeTiers'
 import CurrencyLogo from '~/components/Logo/CurrencyLogo'
-<<<<<<< HEAD
-=======
-import { DoubleCurrencyLogo } from '~/components/Logo/DoubleLogo'
->>>>>>> upstream/main
-import { Table } from '~/components/Table'
-import { Cell } from '~/components/Table/Cell'
-import { ClickableHeaderRow, HeaderArrow, HeaderSortText } from '~/components/Table/shared/SortableHeader'
-import { EllipsisText, TableText } from '~/components/Table/shared/TableText'
-import { HeaderCell } from '~/components/Table/styled'
-import { MouseoverTooltip, TooltipSize } from '~/components/Tooltip'
-import { MAX_WIDTH_MEDIA_BREAKPOINT } from '~/constants/breakpoints'
-import useSimplePagination from '~/hooks/useSimplePagination'
-import { useExploreTablesFilterStore } from '~/pages/Explore/exploreTablesFilterStore'
-import {
-  PoolTableStoreContextProvider,
-  usePoolTableStore,
-  usePoolTableStoreActions,
-} from '~/pages/Explore/tables/Pools/poolTableStore'
-import { TABLE_PAGE_SIZE } from '~/state/explore'
-import { useTopPools } from '~/state/explore/topPools/useTopPools'
-import { PoolStat } from '~/state/explore/types'
-<<<<<<< HEAD
-import { isLuxChainId } from '~/state/explore/luxSubgraph'
-import { LuxPoolsTable } from '~/pages/Explore/tables/LuxPoolsTable'
-=======
 >>>>>>> upstream/main
 import { getChainUrlParam, useChainIdFromUrlParam } from '~/utils/chainParams'
 
@@ -112,29 +56,12 @@ interface PoolTableValues {
 function PoolDescription({
   token0,
   token1,
-<<<<<<< HEAD
-  chainId,
-=======
   showMainnetNetworkLogo,
->>>>>>> upstream/main
 }: {
   token0?: Token | TokenStats
   token1?: Token | TokenStats
   chainId: UniverseChainId
-<<<<<<< HEAD
-=======
-  showMainnetNetworkLogo?: boolean
->>>>>>> upstream/main
-}) {
-  const currencies = [token0 ? gqlToCurrency(token0) : undefined, token1 ? gqlToCurrency(token1) : undefined]
-
-  return (
-    <Flex row gap="$gap8" alignItems="center" maxWidth="100%">
-<<<<<<< HEAD
-      <PortfolioLogo currencies={currencies} chainId={chainId} size={24} />
-=======
       <DoubleCurrencyLogo currencies={currencies} size={24} showMainnetNetworkLogo={showMainnetNetworkLogo} />
->>>>>>> upstream/main
       <EllipsisText>
         {token0?.symbol}/{token1?.symbol}
       </EllipsisText>
@@ -164,11 +91,7 @@ function PoolTableHeader({
     [PoolSortFields.RewardApr]: (
       <>
         {t('pool.incentives.merklDocs')}
-<<<<<<< HEAD
-        <LearnMoreLink textVariant="buttonLabel4" url={lxUrls.merklDocsUrl} />
-=======
         <LearnMoreLink textVariant="buttonLabel4" url={uniswapUrls.merklDocsUrl} />
->>>>>>> upstream/main
       </>
     ),
   }
@@ -206,11 +129,7 @@ interface TopPoolTableProps {
   isError: boolean
   loadMore?: ({ onComplete }: { onComplete?: () => void }) => void
 }
-<<<<<<< HEAD
-function DefaultPoolTableContent(): JSX.Element {
-=======
 function ExploreTopPoolTableContent(): JSX.Element {
->>>>>>> upstream/main
   const chainId = useChainIdFromUrlParam()
   const { sortMethod, sortAscending } = usePoolTableStore((s) => ({
     sortMethod: s.sortMethod,
@@ -235,20 +154,6 @@ function ExploreTopPoolTableContent(): JSX.Element {
   return <TopPoolTable topPoolData={{ topPools, isLoading, isError, loadMore }} />
 }
 
-<<<<<<< HEAD
-function ExploreTopPoolTableContent(): JSX.Element {
-  const chainId = useChainIdFromUrlParam()
-
-  // Use Lux V3 subgraph data when filtered to Lux chain
-  if (isLuxChainId(chainId as number | undefined)) {
-    return <LuxPoolsTable />
-  }
-
-  return <DefaultPoolTableContent />
-}
-
-=======
->>>>>>> upstream/main
 export const ExploreTopPoolTable = memo(function ExploreTopPoolTable() {
   return (
     <PoolTableStoreContextProvider>
@@ -358,7 +263,6 @@ export function PoolsTable({
 <<<<<<< HEAD
 =======
               showMainnetNetworkLogo={isMultichainTokenUx}
->>>>>>> upstream/main
             />
           ),
           protocolVersion: pool.protocolVersion?.toLowerCase(),
@@ -389,11 +293,7 @@ export function PoolsTable({
           },
         }
       }) ?? [],
-<<<<<<< HEAD
-    [convertFiatAmountFormatted, defaultChainId, filterString, pools],
-=======
     [convertFiatAmountFormatted, defaultChainId, filterString, isMultichainTokenUx, pools],
->>>>>>> upstream/main
   )
 
   const showLoadingSkeleton = loading || !!error

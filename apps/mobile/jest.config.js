@@ -22,21 +22,6 @@ module.exports = {
   },
   // Override moduleFileExtensions to NOT prioritize .web.ts for native tests
   // This ensures mobile tests use moti animations from index.ts, not CSS from index.web.ts
-<<<<<<< HEAD
-  moduleFileExtensions: [
-    'ts',
-    'tsx',
-    'js',
-    'jsx',
-    'json',
-    'node',
-  ],
-  setupFiles: [
-    '../../config/jest-presets/jest/setup.js',
-    './jest-setup.js',
-  ],
-=======
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
   setupFiles: ['../../config/jest-presets/jest/setup.js', './jest-setup.js'],
->>>>>>> upstream/main
 }

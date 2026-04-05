@@ -14,15 +14,6 @@
   "include": ["../../../index.d.ts", "**/*.ts", "**/*.tsx"],
   "references": [
     {
-<<<<<<< HEAD
-      "path": "../../../pkgs/ui"
-    },
-    {
-      "path": "../../../pkgs/utilities"
-    },
-    {
-      "path": "../../../pkgs/lx"
-=======
       "path": "../../../packages/ui"
     },
     {
@@ -30,7 +21,6 @@
     },
     {
       "path": "../../../packages/uniswap"
->>>>>>> upstream/main
     }
   ]
 }

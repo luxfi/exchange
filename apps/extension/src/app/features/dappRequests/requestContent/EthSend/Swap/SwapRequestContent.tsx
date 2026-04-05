@@ -1,24 +1,9 @@
-<<<<<<< HEAD
-import { GasFeeResult } from '@l.x/api'
-=======
 import { GasFeeResult } from '@universe/api'
->>>>>>> upstream/main
 import { useDappLastChainId } from 'src/app/features/dapp/hooks'
 import { useDappRequestQueueContext } from 'src/app/features/dappRequests/DappRequestQueueContext'
 import { SwapDisplay } from 'src/app/features/dappRequests/requestContent/EthSend/Swap/SwapDisplay'
 import { formatUnits, useSwapDetails } from 'src/app/features/dappRequests/requestContent/EthSend/Swap/utils'
 import { UniversalRouterCall } from 'src/app/features/dappRequests/types/UniversalRouterTypes'
-<<<<<<< HEAD
-import { DEFAULT_NATIVE_ADDRESS, DEFAULT_NATIVE_ADDRESS_LEGACY } from '@l.x/lx/src/features/chains/evm/defaults'
-import { useEnabledChains } from '@l.x/lx/src/features/chains/hooks/useEnabledChains'
-import { toSupportedChainId } from '@l.x/lx/src/features/chains/utils'
-import { CurrencyInfo } from '@l.x/lx/src/features/dataApi/types'
-import { useCurrencyInfo, useNativeCurrencyInfo } from '@l.x/lx/src/features/tokens/useCurrencyInfo'
-import { TransactionType, TransactionTypeInfo } from '@l.x/lx/src/features/transactions/types/transactionDetails'
-import { buildCurrencyId } from '@l.x/lx/src/utils/currencyId'
-import { assert } from '@l.x/utils/src/errors'
-import { DEXSwapRequest } from '@luxfi/wallet/src/components/dappRequests/types/Permit2Types'
-=======
 import { DEFAULT_NATIVE_ADDRESS, DEFAULT_NATIVE_ADDRESS_LEGACY } from 'uniswap/src/features/chains/evm/defaults'
 import { useEnabledChains } from 'uniswap/src/features/chains/hooks/useEnabledChains'
 import { toSupportedChainId } from 'uniswap/src/features/chains/utils'
@@ -28,7 +13,6 @@ import { TransactionType, TransactionTypeInfo } from 'uniswap/src/features/trans
 import { buildCurrencyId } from 'uniswap/src/utils/currencyId'
 import { assert } from 'utilities/src/errors'
 import { UniswapXSwapRequest } from 'wallet/src/components/dappRequests/types/Permit2Types'
->>>>>>> upstream/main
 
 function getTransactionTypeInfo({
   inputCurrencyInfo,
@@ -124,13 +108,8 @@ export function SwapRequestContent({
   )
 }
 
-<<<<<<< HEAD
-// this is a special cased version of SwapRequestContent used for DEX swaps
-export function DEXSwapRequestContent({ typedData }: { typedData: DEXSwapRequest }): JSX.Element {
-=======
 // this is a special cased version of SwapRequestContent used for UniswapX swaps
 export function UniswapXSwapRequestContent({ typedData }: { typedData: UniswapXSwapRequest }): JSX.Element {
->>>>>>> upstream/main
   const { defaultChainId } = useEnabledChains()
   const { chainId: domainChainId } = typedData.domain
   const activeChain = toSupportedChainId(domainChainId) || defaultChainId
@@ -158,11 +137,7 @@ export function UniswapXSwapRequestContent({ typedData }: { typedData: UniswapXS
 
   return (
     <SwapDisplay
-<<<<<<< HEAD
-      isLX
-=======
       isUniswapX
->>>>>>> upstream/main
       chainId={activeChain}
       inputAmount={inputAmount}
       inputCurrencyInfo={inputCurrencyInfo}

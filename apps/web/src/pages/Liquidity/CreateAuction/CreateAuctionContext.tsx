@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-/* eslint-disable import/no-unused-modules -- exports used in upstack PR */
-=======
 /* oxlint-disable import/no-unused-modules -- exports used in upstack PR */
->>>>>>> upstream/main
 import { useState } from 'react'
 import { CreateAuctionStoreContext } from '~/pages/Liquidity/CreateAuction/store/CreateAuctionStoreContext'
 import { createCreateAuctionStore } from '~/pages/Liquidity/CreateAuction/store/createCreateAuctionStore'

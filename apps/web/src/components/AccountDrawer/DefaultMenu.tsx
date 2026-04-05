@@ -1,15 +1,4 @@
 import { useEffect, useMemo } from 'react'
-<<<<<<< HEAD
-import { Flex } from '@l.x/ui/src'
-import { TransitionItem } from '@l.x/ui/src/animations'
-import { InterfaceEventName } from 'lx/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
-import LanguageMenu from '~/components/AccountDrawer/LanguageMenu'
-import LocalCurrencyMenu from '~/components/AccountDrawer/LocalCurrencyMenu'
-import { MainMenu } from '~/components/AccountDrawer/MainMenu/MainMenu'
-import { useAccountDrawer } from '~/components/AccountDrawer/MiniPortfolio/hooks'
-import { MenuStateVariant, useMenuState, useSetMenuCallback } from '~/components/AccountDrawer/menuState'
-=======
 import { Flex } from 'ui/src'
 import { TransitionItem } from 'ui/src/animations'
 import { InterfaceEventName } from 'uniswap/src/features/telemetry/constants'
@@ -19,7 +8,6 @@ import LocalCurrencyMenu from '~/components/AccountDrawer/LocalCurrencyMenu'
 import { MainMenu } from '~/components/AccountDrawer/MainMenu/MainMenu'
 import { MenuStateVariant, useMenuState, useSetMenuCallback } from '~/components/AccountDrawer/menuState'
 import { useAccountDrawer } from '~/components/AccountDrawer/MiniPortfolio/hooks'
->>>>>>> upstream/main
 import PasskeyMenu from '~/components/AccountDrawer/PasskeyMenu/PasskeyMenu'
 import PortfolioBalanceMenu from '~/components/AccountDrawer/PortfolioBalanceMenu'
 import SettingsMenu from '~/components/AccountDrawer/SettingsMenu'
@@ -60,13 +48,9 @@ export function DefaultMenu() {
       return 'forward'
     }
 
-<<<<<<< HEAD
-    const newIndex = menuIndices[menuState.variant] ?? 2
-=======
     // oxlint-disable-next-line typescript/no-unnecessary-condition
     const newIndex = menuIndices[menuState.variant] ?? 2
     // oxlint-disable-next-line typescript/no-unnecessary-condition
->>>>>>> upstream/main
     const oldIndex = menuIndices[prevMenuVariant] ?? 2
     return newIndex > oldIndex ? 'forward' : 'backward'
   }, [menuState.variant, prevMenuVariant])
@@ -95,10 +79,7 @@ export function DefaultMenu() {
     )
   }, [menuState])
 
-<<<<<<< HEAD
-=======
   // oxlint-disable-next-line consistent-return
->>>>>>> upstream/main
   const SubMenu = useMemo(() => {
     switch (menuState.variant) {
       case MenuStateVariant.MAIN:

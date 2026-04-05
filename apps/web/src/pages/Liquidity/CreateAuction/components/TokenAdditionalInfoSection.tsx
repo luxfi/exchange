@@ -1,20 +1,11 @@
 import { useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
-<<<<<<< HEAD
-import { Flex, Input, Text, TouchableArea } from '@l.x/ui/src'
-import { Check } from '@l.x/ui/src/components/icons/Check'
-import { ExternalLink } from '@l.x/ui/src/components/icons/ExternalLink'
-import { QuestionInCircleFilled } from '@l.x/ui/src/components/icons/QuestionInCircleFilled'
-import { XTwitter } from '@l.x/ui/src/components/icons/XTwitter'
-import { fonts } from '@l.x/ui/src/theme'
-=======
 import { Flex, Input, Text, TouchableArea } from 'ui/src'
 import { Check } from 'ui/src/components/icons/Check'
 import { ExternalLink } from 'ui/src/components/icons/ExternalLink'
 import { QuestionInCircleFilled } from 'ui/src/components/icons/QuestionInCircleFilled'
 import { XTwitter } from 'ui/src/components/icons/XTwitter'
 import { fonts } from 'ui/src/theme'
->>>>>>> upstream/main
 import {
   useCreateAuctionStore,
   useCreateAuctionStoreActions,

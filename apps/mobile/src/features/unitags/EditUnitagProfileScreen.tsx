@@ -8,16 +8,6 @@ import { navigate } from 'src/app/navigation/rootNavigation'
 import { UnitagStackScreenProp } from 'src/app/navigation/types'
 import { BackHeader } from 'src/components/layout/BackHeader'
 import { Screen } from 'src/components/layout/Screen'
-<<<<<<< HEAD
-import { Flex, Text } from '@l.x/ui/src'
-import { Ellipsis } from '@l.x/ui/src/components/icons'
-import { useBottomSheetSafeKeyboard } from '@l.x/lx/src/components/modals/useBottomSheetSafeKeyboard'
-import { MobileScreens, UnitagScreens } from '@l.x/lx/src/types/screens/mobile'
-import { dismissNativeKeyboard } from '@l.x/utils/src/device/keyboard/dismissNativeKeyboard'
-import { ChangeUnitagModal } from '@luxfi/wallet/src/features/unitags/ChangeUnitagModal'
-import { DeleteUnitagModal } from '@luxfi/wallet/src/features/unitags/DeleteUnitagModal'
-import { EditUnitagProfileContent } from '@luxfi/wallet/src/features/unitags/EditUnitagProfileContent'
-=======
 import { Flex, Text } from 'ui/src'
 import { Ellipsis } from 'ui/src/components/icons'
 import { useBottomSheetSafeKeyboard } from 'uniswap/src/components/modals/useBottomSheetSafeKeyboard'
@@ -26,7 +16,6 @@ import { dismissNativeKeyboard } from 'utilities/src/device/keyboard/dismissNati
 import { ChangeUnitagModal } from 'wallet/src/features/unitags/ChangeUnitagModal'
 import { DeleteUnitagModal } from 'wallet/src/features/unitags/DeleteUnitagModal'
 import { EditUnitagProfileContent } from 'wallet/src/features/unitags/EditUnitagProfileContent'
->>>>>>> upstream/main
 
 export function EditUnitagProfileScreen({ route }: UnitagStackScreenProp<UnitagScreens.EditProfile>): JSX.Element {
   const { address, unitag, entryPoint } = route.params

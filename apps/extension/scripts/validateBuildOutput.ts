@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-/** biome-ignore-all lint/suspicious/noConsole: CLI script requires console output */
-=======
 /* oxlint-disable no-console -- CLI script requires console output */
->>>>>>> upstream/main
 /**
  * Validates extension build output for common issues.
  *

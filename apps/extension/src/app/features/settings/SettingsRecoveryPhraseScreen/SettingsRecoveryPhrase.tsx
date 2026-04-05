@@ -1,9 +1,5 @@
 import { ComponentProps } from 'react'
-<<<<<<< HEAD
-import { Button, ButtonEmphasis, ButtonVariant, Flex, Square, Text } from '@l.x/ui/src'
-=======
 import { Button, ButtonEmphasis, ButtonVariant, Flex, Square, Text } from 'ui/src'
->>>>>>> upstream/main
 
 type SettingsRecoveryPhraseProps = {
   title: string

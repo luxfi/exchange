@@ -1,22 +1,8 @@
-<<<<<<< HEAD
-import { Currency } from '@luxamm/sdk-core'
-=======
 import { Currency } from '@uniswap/sdk-core'
->>>>>>> upstream/main
 import { memo, useState } from 'react'
 import { useInterfaceBuyNavigator } from 'src/app/features/for/utils'
 import { AppRoutes } from 'src/app/navigation/constants'
 import { navigate } from 'src/app/navigation/state'
-<<<<<<< HEAD
-import { TokenBalanceListWeb } from '@l.x/lx/src/components/portfolio/TokenBalanceListWeb'
-import { ReportTokenIssueModal } from '@l.x/lx/src/components/reporting/ReportTokenIssueModal'
-import { ElementName } from '@l.x/lx/src/features/telemetry/constants'
-import { useEvent } from '@l.x/utils/src/react/hooks'
-import { useBooleanState } from '@l.x/utils/src/react/useBooleanState'
-import { usePortfolioEmptyStateBackground } from '@luxfi/wallet/src/components/portfolio/empty'
-
-export const ExtensionTokenBalanceList = memo(function _ExtensionTokenBalanceList({
-=======
 import { TokenBalanceListWeb } from 'uniswap/src/components/portfolio/TokenBalanceListWeb'
 import { ReportTokenIssueModal } from 'uniswap/src/components/reporting/ReportTokenIssueModal'
 import { ElementName } from 'uniswap/src/features/telemetry/constants'
@@ -25,7 +11,6 @@ import { useBooleanState } from 'utilities/src/react/useBooleanState'
 import { usePortfolioEmptyStateBackground } from 'wallet/src/components/portfolio/empty'
 
 export const ExtensionTokenBalanceList = memo(function ExtensionTokenBalanceListInner({
->>>>>>> upstream/main
   owner,
 }: {
   owner: Address

@@ -1,24 +1,3 @@
-<<<<<<< HEAD
-import { GraphQLApi } from '@luxfi/api'
-import { useEffect, useRef } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { useFormattedTransactionDataForActivity } from '@l.x/lx/src/features/activity/hooks/useFormattedTransactionDataForActivity'
-import { useEnabledChains } from '@l.x/lx/src/features/chains/hooks/useEnabledChains'
-import { usePortfolioBalances } from '@l.x/lx/src/features/dataApi/balances/balances'
-import { ONE_SECOND_MS } from '@l.x/utils/src/time/time'
-import { useRestOnRampAuth } from '@luxfi/wallet/src/features/activity/useRestOnRampAuth'
-import { useAccounts, useActiveAccountWithThrow } from '@luxfi/wallet/src/features/wallet/hooks'
-import { selectHasBalanceOrActivityForAddress } from '@luxfi/wallet/src/features/wallet/selectors'
-import { setHasBalanceOrActivity } from '@luxfi/wallet/src/features/wallet/slice'
-import { WalletState } from '@luxfi/wallet/src/state/walletReducer'
-
-/**
- * This is the interval at which the NFTs tab will poll for new NFTs
- * when the wallet is empty. Both activity and balances are updated
- * in other parts of the app so we don't need to poll.
- */
-const EMPTY_WALLET_NFT_POLL_INTERVAL = 15 * ONE_SECOND_MS
-=======
 import { GraphQLApi } from '@universe/api'
 import { useEffect, useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
@@ -38,7 +17,6 @@ import { WalletState } from 'wallet/src/state/walletReducer'
  * empty-wallet UI can transition to the funded-wallet UI.
  */
 const EMPTY_WALLET_POLL_INTERVAL = 15 * ONE_SECOND_MS
->>>>>>> upstream/main
 
 /**
  * Helper hook used to determine the state of the home screen such as whether the wallet should fetch
@@ -69,10 +47,7 @@ export function useHomeScreenState(): {
 
   const { data: balancesById, loading: areBalancesLoading } = usePortfolioBalances({
     evmAddress: address,
-<<<<<<< HEAD
-=======
     pollInterval: !hasUsedWalletFromCache ? EMPTY_WALLET_POLL_INTERVAL : undefined,
->>>>>>> upstream/main
     skip: hasUsedWalletFromCache,
   })
   const { data: nftData, loading: areNFTsLoading } = GraphQLApi.useNftsTabQuery({
@@ -82,11 +57,7 @@ export function useHomeScreenState(): {
       filter: { filterSpam: true },
       chains: gqlChains,
     },
-<<<<<<< HEAD
-    pollInterval: EMPTY_WALLET_NFT_POLL_INTERVAL,
-=======
     pollInterval: EMPTY_WALLET_POLL_INTERVAL,
->>>>>>> upstream/main
     notifyOnNetworkStatusChange: true, // Used to trigger network state / loading on refetch or fetchMore
     errorPolicy: 'all', // Suppress non-null image.url fields from backend
     skip: hasUsedWalletFromCache,

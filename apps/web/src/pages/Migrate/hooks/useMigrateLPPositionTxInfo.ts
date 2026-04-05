@@ -1,32 +1,4 @@
 import { useQuery } from '@tanstack/react-query'
-<<<<<<< HEAD
-import { ProtocolVersion } from '@luxamm/client-data-api/dist/data/v1/poolTypes_pb'
-import {
-  MigrateV2ToV3LPPositionRequest,
-  MigrateV3ToV4LPPositionRequest,
-} from '@luxamm/client-liquidity/dist/lx/liquidity/v1/api_pb'
-import { Currency, CurrencyAmount } from '@luxamm/sdk-core'
-import { Dispatch, SetStateAction, useEffect, useMemo, useState } from 'react'
-import { useSelector } from 'react-redux'
-import { liquidityQueries } from '@l.x/lx/src/data/apiClients/liquidityService/liquidityQueries'
-import { useActiveAddress } from '@l.x/lx/src/features/accounts/store/hooks'
-import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
-import { DelegatedState } from '@l.x/lx/src/features/smartWallet/delegation/types'
-import { InterfaceEventName } from '@l.x/lx/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
-import {
-  LiquidityTransactionType,
-  MigratePositionTxAndGasInfo,
-} from '@l.x/lx/src/features/transactions/liquidity/types'
-import { getErrorMessageToDisplay, parseErrorMessageTitle } from '@l.x/lx/src/features/transactions/liquidity/utils'
-import { TransactionStepType } from '@l.x/lx/src/features/transactions/steps/types'
-import { PermitMethod } from '@l.x/lx/src/features/transactions/swap/types/swapTxAndGasInfo'
-import { validatePermit, validateTransactionRequest } from '@l.x/lx/src/features/transactions/swap/utils/trade'
-import { logger } from '@l.x/utils/src/logger/logger'
-import { ONE_SECOND_MS } from '@l.x/utils/src/time/time'
-import { PositionFlowStep } from '~/components/Liquidity/Create/types'
-import { V2PairInfo, V3PositionInfo } from '~/components/Liquidity/types'
-=======
 import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
 import type {
   MigrateV2ToV3LPPositionRequest,
@@ -55,7 +27,6 @@ import { logger } from 'utilities/src/logger/logger'
 import { ONE_SECOND_MS } from 'utilities/src/time/time'
 import { PositionFlowStep } from '~/components/Liquidity/Create/types'
 import type { V2PairInfo, V3PositionInfo } from '~/components/Liquidity/types'
->>>>>>> upstream/main
 import { getCurrencyForProtocol } from '~/components/Liquidity/utils/currency'
 import { isInvalidPrice, isInvalidRange } from '~/components/Liquidity/utils/priceRangeInfo'
 import { useCreateLiquidityContext } from '~/pages/CreatePosition/CreateLiquidityContextProvider'
@@ -67,14 +38,10 @@ import {
 
 export interface MigratePositionTxContextType {
   txInfo?: MigratePositionTxAndGasInfo
-<<<<<<< HEAD
-  refundedAmounts?: { TOKEN0?: Maybe<CurrencyAmount<Currency>>; TOKEN1?: Maybe<CurrencyAmount<Currency>> }
-=======
   refundedAmounts?: {
     TOKEN0?: Maybe<CurrencyAmount<Currency>>
     TOKEN1?: Maybe<CurrencyAmount<Currency>>
   }
->>>>>>> upstream/main
   transactionError: boolean | string
   refetch?: () => void
   setTransactionError: Dispatch<SetStateAction<string | boolean>>
@@ -97,43 +64,6 @@ export function useMigrateLPPositionTxInfo({
     positionInfo?.chainId ? state.delegation.delegations[String(positionInfo.chainId)] : null,
   )
   const [transactionError, setTransactionError] = useState<string | boolean>(false)
-<<<<<<< HEAD
-=======
-  const isCheckApprovalV2 = useFeatureFlag(FeatureFlags.CheckApprovalV2)
->>>>>>> upstream/main
-
-  const { creatingPoolOrPair, protocolVersion, positionState, currentTransactionStep, poolOrPair, ticks, price, step } =
-    useCreateLiquidityContext()
-
-  const invalidPrice = isInvalidPrice(price)
-  const invalidRange = isInvalidRange(ticks[0], ticks[1])
-  const isRangeValid = protocolVersion !== ProtocolVersion.V2 && !invalidPrice && !invalidRange
-
-  const liquidityServiceApprovalParams = useMemo(() => {
-    if (!positionInfo || !address) {
-      return undefined
-    }
-
-<<<<<<< HEAD
-    return buildCheckLPApprovalRequestParams({ positionInfo, address })
-  }, [positionInfo, address])
-
-  const {
-    data: migrateTokenApprovals,
-    isLoading: approvalLoading,
-    error: approvalError,
-    refetch: approvalRefetch,
-  } = useQuery(
-    liquidityQueries.checkApproval({
-      params: liquidityServiceApprovalParams,
-      staleTime: 5 * ONE_SECOND_MS,
-      enabled: Boolean(liquidityServiceApprovalParams),
-    }),
-  )
-
-  if (approvalError) {
-    const message = parseErrorMessageTitle(approvalError, { defaultTitle: 'unknown CheckLpApprovalQuery' })
-=======
     return buildCheckLPApprovalRequestParams({
       positionInfo,
       address,
@@ -157,7 +87,6 @@ export function useMigrateLPPositionTxInfo({
     const message = parseErrorMessageTitle(approvalError, {
       defaultTitle: 'unknown CheckLpApprovalQuery',
     })
->>>>>>> upstream/main
     logger.error(message, {
       tags: {
         file: 'useMigrateLPPositionTxInfo',
@@ -167,25 +96,11 @@ export function useMigrateLPPositionTxInfo({
   }
 
   const approvalsNeeded = useMemo(() => {
-<<<<<<< HEAD
-    if (approvalLoading) {
-      return false
-    }
-
-    if (!migrateTokenApprovals) {
-      return false
-    }
-
-    // v2 uses positionTokenApproval
-    // v3 uses permitData
-    return Boolean(migrateTokenApprovals.positionTokenApproval || migrateTokenApprovals.permitData.value)
-=======
     if (approvalLoading || !migrateTokenApprovals) {
       return false
     }
 
     return Boolean(migrateTokenApprovals.positionTokenApproval || migrateTokenApprovals.v3NftPermitData)
->>>>>>> upstream/main
   }, [approvalLoading, migrateTokenApprovals])
 
   const migratePositionRequestArgs = useMemo(() => {
@@ -242,16 +157,12 @@ export function useMigrateLPPositionTxInfo({
   } = isV3ToV4Migration ? v3ToV4Result : v2ToV3Result
 
   useEffect(() => {
-<<<<<<< HEAD
-    setTransactionError(getErrorMessageToDisplay({ calldataError: migrateCalldataError, approvalError }))
-=======
     setTransactionError(
       getErrorMessageToDisplay({
         calldataError: migrateCalldataError,
         approvalError,
       }),
     )
->>>>>>> upstream/main
   }, [migrateCalldataError, approvalError])
 
   if (migrateCalldataError) {
@@ -267,44 +178,10 @@ export function useMigrateLPPositionTxInfo({
 
     sendAnalyticsEvent(InterfaceEventName.MigrateLiquidityFailed, {
       message,
-<<<<<<< HEAD
-=======
-      ...migratePositionRequestArgs,
->>>>>>> upstream/main
-    })
-  }
-
-  const refundedAmounts = useMemo(() => {
-    if (!migrateCalldata || !positionInfo) {
-      return undefined
-    }
-
-    return {
-      TOKEN0:
-        'estimatedRefundToken0' in migrateCalldata && migrateCalldata.estimatedRefundToken0
-          ? CurrencyAmount.fromRawAmount(positionInfo.currency0Amount.currency, migrateCalldata.estimatedRefundToken0)
-          : undefined,
-      TOKEN1:
-        'estimatedRefundToken1' in migrateCalldata && migrateCalldata.estimatedRefundToken1
-          ? CurrencyAmount.fromRawAmount(positionInfo.currency1Amount.currency, migrateCalldata.estimatedRefundToken1)
-          : undefined,
-    }
-  }, [migrateCalldata, positionInfo])
-
-  const validatedValue: MigratePositionTxAndGasInfo | undefined = useMemo(() => {
-    if (!positionInfo || !migrateCalldata) {
-      return undefined
-    }
-
-<<<<<<< HEAD
-    const validatedPermitRequest = validatePermit(migrateTokenApprovals?.permitData.value)
-    if (migrateTokenApprovals?.permitData.value && !validatedPermitRequest) {
-=======
     // V3->V4 uses NFT permit (signing data), V2->V3 uses position token approval (transaction)
     const nftPermitData = migrateTokenApprovals?.v3NftPermitData
     const validatedPermitRequest = validatePermit(nftPermitData)
     if (nftPermitData && !validatedPermitRequest) {
->>>>>>> upstream/main
       return undefined
     }
 
@@ -344,14 +221,10 @@ export function useMigrateLPPositionTxInfo({
       approveToken1Request: undefined,
       unsigned: Boolean(validatedPermitRequest),
       permit: validatedPermitRequest
-<<<<<<< HEAD
-        ? { method: PermitMethod.TypedData, typedData: validatedPermitRequest }
-=======
         ? {
             method: PermitMethod.TypedData,
             typedData: validatedPermitRequest,
           }
->>>>>>> upstream/main
         : undefined,
       approvePositionTokenRequest: validatedPositionTokenApprovalTransaction,
       revokeToken0Request: undefined,

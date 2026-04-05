@@ -1,14 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit'
 import createSagaMiddleware from 'redux-saga'
-<<<<<<< HEAD
-import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
-import { cancelTransaction } from '@l.x/lx/src/features/transactions/slice'
-import { TransactionStatus } from '@l.x/lx/src/features/transactions/types/transactionDetails'
-=======
 import { UniverseChainId } from 'uniswap/src/features/chains/types'
 import { cancelTransaction } from 'uniswap/src/features/transactions/slice'
 import { TransactionStatus } from 'uniswap/src/features/transactions/types/transactionDetails'
->>>>>>> upstream/main
 import { cancelOrderSaga } from '~/state/sagas/transactions/cancelOrderSaga'
 
 const { mockGetSigner, mockLogger, mockUpdateTransaction, mockAppStore } = vi.hoisted(() => ({
@@ -36,11 +30,7 @@ vi.mock('utilities/src/logger/logger', () => ({
   logger: mockLogger,
 }))
 
-<<<<<<< HEAD
-vi.mock('lx/src/features/transactions/slice', () => ({
-=======
 vi.mock('uniswap/src/features/transactions/slice', () => ({
->>>>>>> upstream/main
   cancelTransaction: Object.assign((payload: unknown) => ({ type: 'transactions/cancelTransaction', payload }), {
     type: 'transactions/cancelTransaction',
   }),

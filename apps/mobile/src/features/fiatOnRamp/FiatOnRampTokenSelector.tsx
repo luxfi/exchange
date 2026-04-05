@@ -2,16 +2,6 @@ import React from 'react'
 import { useTranslation } from 'react-i18next'
 import { FadeIn, FadeOut } from 'react-native-reanimated'
 import { TokenFiatOnRampList } from 'src/components/TokenSelector/TokenFiatOnRampList'
-<<<<<<< HEAD
-import { Flex, Text, useSporeColors } from '@l.x/ui/src'
-import { AnimatedFlex } from '@l.x/ui/src/components/layout/AnimatedFlex'
-import { Modal } from '@l.x/lx/src/components/modals/Modal'
-import { PortfolioBalance } from '@l.x/lx/src/features/dataApi/types'
-import { FOR_MODAL_SNAP_POINTS } from '@l.x/lx/src/features/fiatOnRamp/constants'
-import { FiatOnRampCurrency } from '@l.x/lx/src/features/fiatOnRamp/types'
-import { ElementName, ModalName, SectionName } from '@l.x/lx/src/features/telemetry/constants'
-import Trace from '@l.x/lx/src/features/telemetry/Trace'
-=======
 import { Flex, Text, useSporeColors } from 'ui/src'
 import { AnimatedFlex } from 'ui/src/components/layout/AnimatedFlex'
 import { Modal } from 'uniswap/src/components/modals/Modal'
@@ -20,7 +10,6 @@ import { FOR_MODAL_SNAP_POINTS } from 'uniswap/src/features/fiatOnRamp/constants
 import { FiatOnRampCurrency } from 'uniswap/src/features/fiatOnRamp/types'
 import { ElementName, ModalName, SectionName } from 'uniswap/src/features/telemetry/constants'
 import Trace from 'uniswap/src/features/telemetry/Trace'
->>>>>>> upstream/main
 
 interface Props {
   onSelectCurrency: (currency: FiatOnRampCurrency) => void

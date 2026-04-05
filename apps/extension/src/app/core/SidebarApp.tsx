@@ -1,13 +1,6 @@
-<<<<<<< HEAD
-import '@hanzogui/core/reset.css'
-import 'src/app/Global.css'
-
-import { SharedEventName } from '@luxamm/analytics-events'
-=======
 import '@tamagui/core/reset.css'
 import 'src/app/Global.css'
 import { SharedEventName } from '@uniswap/analytics-events'
->>>>>>> upstream/main
 import { useEffect, useRef, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { createHashRouter, RouterProvider } from 'react-router'
@@ -48,17 +41,6 @@ import {
 } from 'src/background/messagePassing/messageChannels'
 import { BackgroundToSidePanelRequestType } from 'src/background/messagePassing/types/requests'
 import { PrimaryAppInstanceDebuggerLazy } from 'src/store/PrimaryAppInstanceDebuggerLazy'
-<<<<<<< HEAD
-import { useResetUnitagsQueries } from '@l.x/lx/src/data/apiClients/unitagsApi/useResetUnitagsQueries'
-import { ExtensionEventName } from '@l.x/lx/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
-import { isDevEnv } from '@l.x/utils/src/environment/env'
-import { logger } from '@l.x/utils/src/logger/logger'
-import { ONE_SECOND_MS } from '@l.x/utils/src/time/time'
-import { useInterval } from '@l.x/utils/src/time/timing'
-import { useTestnetModeForLoggingAndAnalytics } from '@luxfi/wallet/src/features/testnetMode/hooks/useTestnetModeForLoggingAndAnalytics'
-import { getReduxPersistor } from '@luxfi/wallet/src/state/persistor'
-=======
 import { useResetUnitagsQueries } from 'uniswap/src/data/apiClients/unitagsApi/useResetUnitagsQueries'
 import { ExtensionEventName } from 'uniswap/src/features/telemetry/constants'
 import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
@@ -68,7 +50,6 @@ import { ONE_SECOND_MS } from 'utilities/src/time/time'
 import { useInterval } from 'utilities/src/time/timing'
 import { useTestnetModeForLoggingAndAnalytics } from 'wallet/src/features/testnetMode/hooks/useTestnetModeForLoggingAndAnalytics'
 import { getReduxPersistor } from 'wallet/src/state/persistor'
->>>>>>> upstream/main
 
 const router = createHashRouter([
   {
@@ -169,21 +150,14 @@ function useDappRequestPortListener(): void {
   const [currentPortChannel, setCurrentPortChannel] = useState<DappBackgroundPortChannel | undefined>()
   const [windowId, setWindowId] = useState<string | undefined>()
 
-<<<<<<< HEAD
-  // biome-ignore lint/correctness/useExhaustiveDependencies: Only run on component mount for initial setup, disconnect cleanup is managed separately
-=======
   // oxlint-disable-next-line react/exhaustive-deps -- Only run on component mount for initial setup, disconnect cleanup is managed separately
->>>>>>> upstream/main
   useEffect(() => {
     chrome.windows.getCurrent((window) => {
       setWindowId(window.id?.toString())
     })
 
     return () => currentPortChannel?.port.disconnect()
-<<<<<<< HEAD
-=======
     // oxlint-disable-next-line react/exhaustive-deps -- biome-parity: oxlint is stricter here
->>>>>>> upstream/main
   }, [])
 
   useEffect(() => {

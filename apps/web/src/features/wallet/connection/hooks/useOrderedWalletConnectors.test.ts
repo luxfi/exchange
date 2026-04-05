@@ -1,14 +1,7 @@
-<<<<<<< HEAD
-import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
-import { CONNECTION_PROVIDER_IDS } from '@l.x/lx/src/constants/web3'
-import { SigningCapability } from '@l.x/lx/src/features/accounts/store/types/Wallet'
-import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
-=======
 import { FeatureFlags, useFeatureFlag } from '@universe/gating'
 import { CONNECTION_PROVIDER_IDS } from 'uniswap/src/constants/web3'
 import { SigningCapability } from 'uniswap/src/features/accounts/store/types/Wallet'
 import { Platform } from 'uniswap/src/features/platforms/types/Platform'
->>>>>>> upstream/main
 import { useRecentConnectorId } from '~/components/Web3Provider/constants'
 import { createAccountsStoreGetters } from '~/features/accounts/store/getters'
 import { useAccountsStore } from '~/features/accounts/store/hooks'
@@ -17,11 +10,7 @@ import { useOrderedWallets } from '~/features/wallet/connection/hooks/useOrdered
 import { mocked } from '~/test-utils/mocked'
 import { renderHook } from '~/test-utils/render'
 
-<<<<<<< HEAD
-// biome-ignore lint/suspicious/noVar: Testing variable hoisting behavior requires var
-=======
 // oxlint-disable-next-line no-var -- Testing variable hoisting behavior requires var
->>>>>>> upstream/main
 var mockIsMobileWeb = false
 vi.mock('utilities/src/platform', async () => {
   const actual = await vi.importActual('utilities/src/platform')
@@ -48,11 +37,7 @@ vi.mock('~/components/Web3Provider/constants', async () => {
   }
 })
 
-<<<<<<< HEAD
-vi.mock('@l.x/gating', async (importOriginal) => {
-=======
 vi.mock('@universe/gating', async (importOriginal) => {
->>>>>>> upstream/main
   return {
     ...(await importOriginal()),
     useFeatureFlag: vi.fn(),
@@ -105,11 +90,7 @@ const createMockAccountsState = (wallets: ExternalWallet[]) => {
             wallet.id === CONNECTION_PROVIDER_IDS.PORTO_CONNECTOR_ID ||
             wallet.id === CONNECTION_PROVIDER_IDS.BINANCE_WALLET_RDNS ||
             wallet.id === CONNECTION_PROVIDER_IDS.COINBASE_RDNS ||
-<<<<<<< HEAD
-            wallet.id === CONNECTION_PROVIDER_IDS.LUX_EXTENSION_RDNS
-=======
             wallet.id === CONNECTION_PROVIDER_IDS.UNISWAP_EXTENSION_RDNS
->>>>>>> upstream/main
               ? 'Injected'
               : 'SDK',
           externalLibraryId: wallet.id,
@@ -485,16 +466,6 @@ describe('useOrderedWallets', () => {
     expect(result.current.length).toEqual(expectedWalletIds.length)
   })
 
-<<<<<<< HEAD
-  it('should not return lux connections when embedded wallet is disabled', () => {
-    const walletsWithLux = [
-      ...DEFAULT_WALLETS,
-      createExternalWallet({
-        id: CONNECTION_PROVIDER_IDS.LUX_EXTENSION_RDNS,
-        name: 'Lux Extension',
-        connectorIds: {
-          [Platform.EVM]: `WagmiConnector_${CONNECTION_PROVIDER_IDS.LUX_EXTENSION_RDNS}`,
-=======
   it('should not return uniswap connections when embedded wallet is disabled', () => {
     const walletsWithUniswap = [
       ...DEFAULT_WALLETS,
@@ -503,17 +474,12 @@ describe('useOrderedWallets', () => {
         name: 'Uniswap Extension',
         connectorIds: {
           [Platform.EVM]: `WagmiConnector_${CONNECTION_PROVIDER_IDS.UNISWAP_EXTENSION_RDNS}`,
->>>>>>> upstream/main
         },
         analyticsWalletType: 'Browser Extension',
       }),
     ]
     mocked(useAccountsStore).mockImplementation((selector) => {
-<<<<<<< HEAD
-      const mockState = createMockAccountsState(walletsWithLux)
-=======
       const mockState = createMockAccountsState(walletsWithUniswap)
->>>>>>> upstream/main
       return selector(mockState)
     })
     const { result } = renderHook(() => useOrderedWallets({ showSecondaryConnectors: false }))

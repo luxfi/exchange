@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
-=======
 import { FeatureFlags, useFeatureFlag } from '@universe/gating'
->>>>>>> upstream/main
 import React, { useCallback, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { FlatList, ListRenderItemInfo } from 'react-native'
@@ -10,21 +6,6 @@ import { useDispatch, useSelector } from 'react-redux'
 import { navigate } from 'src/app/navigation/rootNavigation'
 import { useOpenReceiveModal } from 'src/features/modals/hooks/useOpenReceiveModal'
 import { openModal } from 'src/features/modals/modalSlice'
-<<<<<<< HEAD
-import { Flex, Text, TouchableArea, useSporeColors } from '@l.x/ui/src'
-import { ArrowDownCircle, Bank, MinusCircle, PlusCircle, SendAction, SwapDotted } from '@l.x/ui/src/components/icons'
-import { iconSizes, spacing } from '@l.x/ui/src/theme'
-import { useEnabledChains } from '@l.x/lx/src/features/chains/hooks/useEnabledChains'
-import { useHighestBalanceNativeCurrencyId } from '@l.x/lx/src/features/dataApi/balances/balances'
-import { useHapticFeedback } from '@l.x/lx/src/features/settings/useHapticFeedback/useHapticFeedback'
-import { ElementName, MobileEventName, ModalName } from '@l.x/lx/src/features/telemetry/constants'
-import { Trace } from '@l.x/lx/src/features/telemetry/Trace'
-import { useIsPortfolioZero } from '@l.x/lx/src/features/transactions/swap/components/SwapFormButton/hooks/useIsPortfolioZero'
-import { selectFilteredChainIds } from '@l.x/lx/src/features/transactions/swap/state/selectors'
-import { prepareSwapFormState } from '@l.x/lx/src/features/transactions/types/transactionState'
-import { CurrencyField } from '@l.x/lx/src/types/currency'
-import { useActiveAccountAddressWithThrow } from '@luxfi/wallet/src/features/wallet/hooks'
-=======
 import { Flex, Text, TouchableArea, useSporeColors } from 'ui/src'
 import { ArrowDownCircle, Bank, MinusCircle, PlusCircle, SendAction, SwapDotted } from 'ui/src/components/icons'
 import { iconSizes, spacing } from 'ui/src/theme'
@@ -38,7 +19,6 @@ import { selectFilteredChainIds } from 'uniswap/src/features/transactions/swap/s
 import { prepareSwapFormState } from 'uniswap/src/features/transactions/types/transactionState'
 import { CurrencyField } from 'uniswap/src/types/currency'
 import { useActiveAccountAddressWithThrow } from 'wallet/src/features/wallet/hooks'
->>>>>>> upstream/main
 
 const MIN_BUTTON_WIDTH = 102
 
@@ -209,11 +189,7 @@ export function HomeScreenQuickActions(): JSX.Element {
     ],
   )
 
-<<<<<<< HEAD
-  // biome-ignore lint/correctness/useExhaustiveDependencies: +activeScale
-=======
   // oxlint-disable-next-line react/exhaustive-deps -- +activeScale
->>>>>>> upstream/main
   const renderItem = useCallback(
     ({ item: { eventName, name, label, Icon, onPress } }: ListRenderItemInfo<ActionItem>) => (
       <Trace key={name} logPress element={name} eventOnTrigger={eventName}>

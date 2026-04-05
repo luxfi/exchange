@@ -17,15 +17,6 @@
     const origin = window.origin;
     const hasEthereum = typeof window.ethereum !== 'undefined' && window.ethereum !== null;
 
-<<<<<<< HEAD
-    // Listen for Lux's EIP-6963 announceProvider event
-    let hasLuxProvider = false;
-    const LUX_RDNS = 'org.lux.app';
-
-    window.addEventListener('eip6963:announceProvider', (event) => {
-      if (event.detail && event.detail.info && event.detail.info.rdns === LUX_RDNS) {
-        hasLuxProvider = true;
-=======
     // Listen for Uniswap's EIP-6963 announceProvider event
     let hasUniswapProvider = false;
     const UNISWAP_RDNS = 'org.uniswap.app';
@@ -33,7 +24,6 @@
     window.addEventListener('eip6963:announceProvider', (event) => {
       if (event.detail && event.detail.info && event.detail.info.rdns === UNISWAP_RDNS) {
         hasUniswapProvider = true;
->>>>>>> upstream/main
         updateDisplay();
       }
     });
@@ -48,19 +38,11 @@
     }, 500);
 
     function updateDisplay() {
-<<<<<<< HEAD
-      const otherWallet = hasEthereum && !hasLuxProvider;
-      document.getElementById('info').innerHTML = `
-        <div class="status">origin: <strong>${origin}</strong></div>
-        <div class="status ${hasLuxProvider ? 'pass' : 'fail'}">
-          Lux provider (EIP-6963): <strong>${hasLuxProvider ? 'PRESENT' : 'ABSENT'}</strong>
-=======
       const otherWallet = hasEthereum && !hasUniswapProvider;
       document.getElementById('info').innerHTML = `
         <div class="status">origin: <strong>${origin}</strong></div>
         <div class="status ${hasUniswapProvider ? 'pass' : 'fail'}">
           Uniswap provider (EIP-6963): <strong>${hasUniswapProvider ? 'PRESENT' : 'ABSENT'}</strong>
->>>>>>> upstream/main
         </div>
         ${otherWallet ? '<div class="status neutral">window.ethereum present from another wallet (ignored)</div>' : ''}
       `;
@@ -71,11 +53,7 @@
         window.parent.postMessage({
           type: 'sandbox-test-report',
           origin: origin,
-<<<<<<< HEAD
-          hasLuxProvider: hasLuxProvider,
-=======
           hasUniswapProvider: hasUniswapProvider,
->>>>>>> upstream/main
         }, '*');
       } catch (e) {
         // postMessage may fail in some sandbox configurations

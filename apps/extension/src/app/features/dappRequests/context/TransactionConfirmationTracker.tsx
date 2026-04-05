@@ -1,9 +1,5 @@
 import { createContext, PropsWithChildren, useCallback, useContext, useState } from 'react'
-<<<<<<< HEAD
-import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
-=======
 import { UniverseChainId } from 'uniswap/src/features/chains/types'
->>>>>>> upstream/main
 
 interface TransactionConfirmationState {
   /**
@@ -35,10 +31,7 @@ export function useTransactionConfirmationTracker(): TransactionConfirmationStat
   return context
 }
 
-<<<<<<< HEAD
-=======
 // oxlint-disable-next-line typescript/no-empty-interface -- biome-parity: oxlint is stricter here
->>>>>>> upstream/main
 interface TransactionConfirmationTrackerProviderProps extends PropsWithChildren {}
 
 export function TransactionConfirmationTrackerProvider({

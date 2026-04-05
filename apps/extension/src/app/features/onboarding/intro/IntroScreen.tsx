@@ -9,17 +9,10 @@ import { OnboardingRoutes, TopLevelRoutes } from 'src/app/navigation/constants'
 import { navigate } from 'src/app/navigation/state'
 import { checksIfSupportsSidePanel } from 'src/app/utils/chrome'
 import { isOnboardedSelector } from 'src/app/utils/isOnboardedSelector'
-<<<<<<< HEAD
-import { Button, Flex, Text } from '@l.x/ui/src'
-import Trace from '@l.x/lx/src/features/telemetry/Trace'
-import { ExtensionOnboardingScreens } from '@l.x/lx/src/types/screens/extension'
-import { useTimeout } from '@l.x/utils/src/time/timing'
-=======
 import { Button, Flex, Text } from 'ui/src'
 import Trace from 'uniswap/src/features/telemetry/Trace'
 import { ExtensionOnboardingScreens } from 'uniswap/src/types/screens/extension'
 import { useTimeout } from 'utilities/src/time/timing'
->>>>>>> upstream/main
 
 export function IntroScreen(): JSX.Element {
   const { t } = useTranslation()

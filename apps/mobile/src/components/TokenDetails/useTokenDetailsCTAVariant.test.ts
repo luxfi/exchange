@@ -1,10 +1,6 @@
 import { renderHook } from '@testing-library/react'
 import { useMultichainBuyVariant } from 'src/components/TokenDetails/useTokenDetailsCTAVariant'
-<<<<<<< HEAD
-import { Bank } from '@l.x/ui/src/components/icons'
-=======
 import { Bank } from 'ui/src/components/icons'
->>>>>>> upstream/main
 
 const defaultHandlers = {
   onPressBuyWithCash: jest.fn(),

@@ -1,7 +1,4 @@
 import { UseMutationResult, useMutation } from '@tanstack/react-query'
-<<<<<<< HEAD
-import { BiometricUnlockStorage } from 'src/app/features/biometricUnlock/BiometricUnlockStorage'
-=======
 >>>>>>> upstream/main
 import {
   authenticateWithBiometricCredential,
@@ -20,7 +17,6 @@ import { useUnlockWithPassword } from 'src/app/features/lockScreen/useUnlockWith
 import { logger } from 'utilities/src/logger/logger'
 import { useEvent } from 'utilities/src/react/hooks'
 import { Keyring } from 'wallet/src/features/wallet/Keyring/Keyring'
->>>>>>> upstream/main
 
 export function useUnlockWithBiometricCredentialMutation(): UseMutationResult<void, Error, void> {
   const unlockWithPassword = useUnlockWithPassword()

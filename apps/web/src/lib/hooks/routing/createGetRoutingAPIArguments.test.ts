@@ -1,12 +1,6 @@
-<<<<<<< HEAD
-import { Protocol } from '@luxamm/router-sdk'
-import { CurrencyAmount, Ether, Token, TradeType } from '@luxamm/sdk-core'
-import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
-=======
 import { Protocol } from '@uniswap/router-sdk'
 import { CurrencyAmount, Ether, Token, TradeType } from '@uniswap/sdk-core'
 import { UniverseChainId } from 'uniswap/src/features/chains/types'
->>>>>>> upstream/main
 import { createGetRoutingAPIArguments, validateRoutingAPIInput } from '~/lib/hooks/routing/createGetRoutingAPIArguments'
 import { INTERNAL_ROUTER_PREFERENCE_PRICE, RouterPreference, URAQuoteType } from '~/state/routing/types'
 
@@ -81,11 +75,7 @@ describe('createGetRoutingAPIArguments', () => {
 
     test('throws error for invalid input', () => {
       const getRoutingAPIArguments = createGetRoutingAPIArguments({
-<<<<<<< HEAD
-        canUseDEX: true,
-=======
         canUseUniswapX: true,
->>>>>>> upstream/main
         isPriorityOrdersEnabled: false,
         isDutchV3Enabled: false,
       })
@@ -102,33 +92,20 @@ describe('createGetRoutingAPIArguments', () => {
   // Test cases for routing type determination
   const routingTypeTests = [
     {
-<<<<<<< HEAD
-      name: 'returns CLASSIC when DEX is disabled',
-      context: { canUseDEX: false, isPriorityOrdersEnabled: false, isDutchV3Enabled: false },
-=======
       name: 'returns CLASSIC when UniswapX is disabled',
       context: { canUseUniswapX: false, isPriorityOrdersEnabled: false, isDutchV3Enabled: false },
->>>>>>> upstream/main
       input: { ...defaultInput },
       expected: { routingType: URAQuoteType.CLASSIC },
     },
     {
       name: 'returns PRIORITY for priority orders',
-<<<<<<< HEAD
-      context: { canUseDEX: true, isPriorityOrdersEnabled: true, isDutchV3Enabled: false },
-=======
       context: { canUseUniswapX: true, isPriorityOrdersEnabled: true, isDutchV3Enabled: false },
->>>>>>> upstream/main
       input: { ...defaultInput, routerPreference: RouterPreference.X },
       expected: { routingType: URAQuoteType.PRIORITY },
     },
     {
       name: 'returns DUTCH_V1 on Arbitrum when Dutch V3 is disabled',
-<<<<<<< HEAD
-      context: { canUseDEX: true, isPriorityOrdersEnabled: false, isDutchV3Enabled: false },
-=======
       context: { canUseUniswapX: true, isPriorityOrdersEnabled: false, isDutchV3Enabled: false },
->>>>>>> upstream/main
       input: {
         ...defaultInput,
         tokenIn: ARB_USDC,
@@ -139,11 +116,7 @@ describe('createGetRoutingAPIArguments', () => {
     },
     {
       name: 'returns DUTCH_V3 on Arbitrum when Dutch V3 is enabled',
-<<<<<<< HEAD
-      context: { canUseDEX: true, isPriorityOrdersEnabled: false, isDutchV3Enabled: true },
-=======
       context: { canUseUniswapX: true, isPriorityOrdersEnabled: false, isDutchV3Enabled: true },
->>>>>>> upstream/main
       input: {
         ...defaultInput,
         tokenIn: ARB_USDC,
@@ -154,11 +127,7 @@ describe('createGetRoutingAPIArguments', () => {
     },
     {
       name: 'returns DUTCH_V2 on non-Arbitrum chains',
-<<<<<<< HEAD
-      context: { canUseDEX: true, isPriorityOrdersEnabled: false, isDutchV3Enabled: false },
-=======
       context: { canUseUniswapX: true, isPriorityOrdersEnabled: false, isDutchV3Enabled: false },
->>>>>>> upstream/main
       input: { ...defaultInput },
       expected: { routingType: URAQuoteType.DUTCH_V2 },
     },
@@ -168,21 +137,13 @@ describe('createGetRoutingAPIArguments', () => {
   const otherTests = [
     {
       name: 'disables sendPortionEnabled for price quotes',
-<<<<<<< HEAD
-      context: { canUseDEX: true, isPriorityOrdersEnabled: false, isDutchV3Enabled: false },
-=======
       context: { canUseUniswapX: true, isPriorityOrdersEnabled: false, isDutchV3Enabled: false },
->>>>>>> upstream/main
       input: { ...defaultInput, routerPreference: INTERNAL_ROUTER_PREFERENCE_PRICE },
       expected: { sendPortionEnabled: false },
     },
     {
       name: 'correctly handles protocol preferences',
-<<<<<<< HEAD
-      context: { canUseDEX: true, isPriorityOrdersEnabled: false, isDutchV3Enabled: false },
-=======
       context: { canUseUniswapX: true, isPriorityOrdersEnabled: false, isDutchV3Enabled: false },
->>>>>>> upstream/main
       input: { ...defaultInput, protocolPreferences: [Protocol.V2, Protocol.V3] },
       expected: { protocolPreferences: [Protocol.V2, Protocol.V3] },
     },

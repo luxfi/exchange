@@ -1,13 +1,7 @@
 import { memo } from 'react'
-<<<<<<< HEAD
-import { Flex } from '@l.x/ui/src'
-import { ActivityRenderData } from '@l.x/lx/src/features/activity/hooks/useActivityData'
-import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
-=======
 import { Flex } from 'ui/src'
 import { ActivityRenderData } from 'uniswap/src/features/activity/hooks/useActivityData'
 import { UniverseChainId } from 'uniswap/src/features/chains/types'
->>>>>>> upstream/main
 import {
   MAX_ACTIVITY_ROWS,
   MAX_POOLS_ROWS,

@@ -5,16 +5,6 @@ import {
   Notification,
   NotificationVersion,
   OnClick,
-<<<<<<< HEAD
-} from '@luxamm/client-notification-service/dist/lx/notificationservice/v1/api_pb'
-import { BackgroundType, ContentStyle, type InAppNotification, OnClickAction } from '@l.x/api'
-import { DynamicConfigs, ForceUpgradeConfigKey, type ForceUpgradeStatus, getDynamicConfigValue } from '@l.x/gating'
-import { createIntervalNotificationDataSource, type NotificationDataSource } from '@l.x/notifications'
-import { LUX_LOGO } from '@l.x/ui/src/assets'
-import i18n from '@l.x/lx/src/i18n'
-import { ONE_SECOND_MS } from '@l.x/utils/src/time/time'
-import { MOBILE_APP_STORE_LINK } from '@luxfi/wallet/src/constants/urls'
-=======
 } from '@uniswap/client-notification-service/dist/uniswap/notificationservice/v1/api_pb'
 import { BackgroundType, ContentStyle, type InAppNotification, OnClickAction } from '@universe/api'
 import { DynamicConfigs, ForceUpgradeConfigKey, type ForceUpgradeStatus, getDynamicConfigValue } from '@universe/gating'
@@ -23,7 +13,6 @@ import { UNISWAP_LOGO } from 'ui/src/assets'
 import i18n from 'uniswap/src/i18n'
 import { ONE_SECOND_MS } from 'utilities/src/time/time'
 import { MOBILE_APP_STORE_LINK } from 'wallet/src/constants/urls'
->>>>>>> upstream/main
 
 // Using 'local:' prefix to indicate these are client-only notifications
 // This prevents the API tracker from sending AckNotification calls to the backend
@@ -127,11 +116,7 @@ function createForceUpgradeNotification(status: ForceUpgradeStatus): InAppNotifi
             onClick: [OnClickAction.DISMISS, OnClickAction.ACK],
           }),
       buttons,
-<<<<<<< HEAD
-      iconLink: LUX_LOGO,
-=======
       iconLink: UNISWAP_LOGO,
->>>>>>> upstream/main
       extra: JSON.stringify({
         cardType: isRequired ? 'required' : 'dismissible',
         isForceUpgrade: true,

@@ -1,17 +1,5 @@
 import { useCallback, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-<<<<<<< HEAD
-import { Flex, Separator, Text, TouchableArea } from '@l.x/ui/src'
-import { RotatableChevron, UserSearch } from '@l.x/ui/src/components/icons'
-import { iconSizes, spacing } from '@l.x/ui/src/theme'
-import { AddressDisplay } from '@l.x/lx/src/components/accounts/AddressDisplay'
-import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
-import { SearchTextInput } from '@l.x/lx/src/features/search/SearchTextInput'
-import { useFilteredRecipientSections } from '@luxfi/wallet/src/components/RecipientSearch/hooks'
-import { RecipientList } from '@luxfi/wallet/src/components/RecipientSearch/RecipientList'
-import { RecipientSelectSpeedBumps } from '@luxfi/wallet/src/components/RecipientSearch/RecipientSelectSpeedBumps'
-import { useSendContext } from '@luxfi/wallet/src/features/transactions/contexts/SendContext'
-=======
 import { Flex, Separator, Text, TouchableArea } from 'ui/src'
 import { RotatableChevron, UserSearch } from 'ui/src/components/icons'
 import { iconSizes, spacing } from 'ui/src/theme'
@@ -22,7 +10,6 @@ import { useFilteredRecipientSections } from 'wallet/src/components/RecipientSea
 import { RecipientList } from 'wallet/src/components/RecipientSearch/RecipientList'
 import { RecipientSelectSpeedBumps } from 'wallet/src/components/RecipientSearch/RecipientSelectSpeedBumps'
 import { useSendContext } from 'wallet/src/features/transactions/contexts/SendContext'
->>>>>>> upstream/main
 
 type RecipientPanelProps = {
   chainId?: UniverseChainId

@@ -1,20 +1,4 @@
 // Type information currently gets lost after a migration
-<<<<<<< HEAD
-// biome-ignore-all lint/suspicious/noExplicitAny: Migration logic requires flexible typing
-/* eslint-disable @typescript-eslint/explicit-function-return-type */
-/* eslint-disable @typescript-eslint/no-unsafe-return */
-/* eslint-disable max-lines */
-
-import dayjs from 'dayjs'
-import { AccountType } from '@l.x/lx/src/features/accounts/types'
-import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
-import { toSupportedChainId } from '@l.x/lx/src/features/chains/utils'
-import { FiatCurrency } from '@l.x/lx/src/features/fiatCurrency/constants'
-import { Language } from '@l.x/lx/src/features/language/constants'
-import { getNFTAssetKey } from '@l.x/lx/src/features/nfts/utils'
-import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
-import { type TransactionsState } from '@l.x/lx/src/features/transactions/slice'
-=======
 /* oxlint-disable typescript/no-explicit-any -- Migration logic requires flexible typing */
 /* oxlint-disable typescript/explicit-function-return-type */
 /* oxlint-disable typescript/no-unsafe-return */
@@ -29,25 +13,16 @@ import { Language } from 'uniswap/src/features/language/constants'
 import { getNFTAssetKey } from 'uniswap/src/features/nfts/utils'
 import { ModalName } from 'uniswap/src/features/telemetry/constants'
 import { type TransactionsState } from 'uniswap/src/features/transactions/slice'
->>>>>>> upstream/main
 import {
   type ChainIdToTxIdToDetails,
   TransactionStatus,
   TransactionType,
-<<<<<<< HEAD
-} from '@l.x/lx/src/features/transactions/types/transactionDetails'
-import { createSafeMigrationFactory } from '@l.x/lx/src/state/createSafeMigration'
-import { DappRequestType } from '@l.x/lx/src/types/walletConnect'
-import { type Account } from '@luxfi/wallet/src/features/wallet/accounts/types'
-import { SwapProtectionSetting } from '@luxfi/wallet/src/features/wallet/slice'
-=======
 } from 'uniswap/src/features/transactions/types/transactionDetails'
 import { getWalletDeviceLanguage } from 'uniswap/src/i18n/utils'
 import { createSafeMigrationFactory } from 'uniswap/src/state/createSafeMigration'
 import { DappRequestType } from 'uniswap/src/types/walletConnect'
 import { type Account } from 'wallet/src/features/wallet/accounts/types'
 import { SwapProtectionSetting } from 'wallet/src/features/wallet/slice'
->>>>>>> upstream/main
 
 const createSafeMigration = createSafeMigrationFactory('mobileMigrations')
 
@@ -663,11 +638,7 @@ export const convertHiddenNftsToNftsData = createSafeMigration({
 
     const nftsData: AccountToNftData = {}
     for (const accountAddress of accountAddresses) {
-<<<<<<< HEAD
-      // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
-=======
       // oxlint-disable-next-line typescript/no-unnecessary-condition
->>>>>>> upstream/main
       nftsData[accountAddress] ??= {}
       const hiddenNftKeys = Object.keys(state.favorites.hiddenNfts[accountAddress])
 
@@ -1030,97 +1001,6 @@ export const addPushNotifications = createSafeMigration({
 
 export const migrateDappRequestInfoTypes = createSafeMigration({
   name: 'migrateDappRequestInfoTypes',
-<<<<<<< HEAD
-=======
-  // oxlint-disable-next-line complexity -- biome-parity: oxlint is stricter here
->>>>>>> upstream/main
-  migrate: (state: any) => {
-    const newState = { ...state }
-
-    if (!newState?.transactions) {
-      return newState
-    }
-
-    const newTransactionState = {} as Record<any, any>
-
-    for (const [address, chainIdToTxIdToDetails] of Object.entries(newState.transactions as Record<any, any>)) {
-      for (const [chainId, txIdToDetails] of Object.entries(chainIdToTxIdToDetails as Record<any, any>)) {
-        for (const [txId, details] of Object.entries(txIdToDetails as Record<any, any>)) {
-          let newDetails = { ...details }
-
-          if (details.typeInfo?.externalDappInfo?.source === 'uwulink') {
-            newDetails = {
-              ...details,
-              typeInfo: {
-                ...details.typeInfo,
-                externalDappInfo: {
-                  ...(details.typeInfo.externalDappInfo ?? {}),
-                  requestType: DappRequestType.UwULink,
-                },
-              },
-            }
-          }
-
-          if (details.typeInfo?.externalDappInfo?.source === 'walletconnect') {
-            newDetails = {
-              ...details,
-              typeInfo: {
-                ...details.typeInfo,
-                externalDappInfo: {
-                  ...(details.typeInfo.externalDappInfo ?? {}),
-                  requestType: DappRequestType.WalletConnectSessionRequest,
-                },
-              },
-            }
-          }
-
-          if (details.typeInfo?.type === TransactionType.WCConfirm && details.typeInfo?.dapp) {
-            newDetails.typeInfo.dappRequestInfo = {
-              ...(details.typeInfo.dapp ?? {}),
-            }
-          }
-
-          delete newDetails.typeInfo?.dapp
-          delete newDetails.typeInfo?.externalDappInfo?.source
-
-          newTransactionState[address] ??= {}
-          newTransactionState[address][chainId] ??= {}
-          newTransactionState[address][chainId][txId] = newDetails
-        }
-      }
-    }
-
-    return {
-      ...newState,
-      transactions: newTransactionState,
-    }
-  },
-  onError: (state: any) => ({ ...state, transactions: {} }),
-})
-
-export const migrateAndRemoveCloudBackupSlice = createSafeMigration({
-  name: 'migrateAndRemoveCloudBackupSlice',
-  migrate: (state: any) => {
-    const newState = { ...state }
-    const backupEmail = newState.cloudBackup?.backupsFound?.find((backup: any) => backup.email)?.email
-    if (backupEmail) {
-      newState.wallet = {
-        ...newState.wallet,
-        androidCloudBackupEmail: backupEmail,
-      }
-    }
-    delete newState.cloudBackup
-
-    return newState
-  },
-  onError: (state: any) => {
-    const fallbackState = { ...state }
-    delete fallbackState.cloudBackup
-    return fallbackState
-  },
-})
-<<<<<<< HEAD
-=======
 
 export const setWalletDeviceLanguage = createSafeMigration({
   name: 'setWalletDeviceLanguage',
@@ -1145,4 +1025,3 @@ export const setWalletDeviceLanguage = createSafeMigration({
     },
   }),
 })
->>>>>>> upstream/main

@@ -1,9 +1,5 @@
 import { isSandboxedFrame } from 'src/contentScript/isSandboxedFrame'
-<<<<<<< HEAD
-import { Message } from 'lx/src/extension/messagePassing/messageTypes'
-=======
 import { Message } from 'uniswap/src/extension/messagePassing/messageTypes'
->>>>>>> upstream/main
 
 type MessageValidator<T extends Message> = (message: unknown) => message is T
 

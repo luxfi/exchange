@@ -1,13 +1,3 @@
-<<<<<<< HEAD
-import { brand, getBrandUrl, getDocsUrl } from '@l.x/config'
-import { useAtom } from 'jotai'
-import { useAtomValue } from 'jotai/utils'
-import { useTranslation } from 'react-i18next'
-import { Anchor, Flex, styled, Text, TouchableArea } from '@l.x/ui/src'
-import { X } from '@l.x/ui/src/components/icons/X'
-import { isWebAndroid, isWebIOS } from '@l.x/utils/src/platform'
-import { ReactComponent as LuxLogo } from '~/assets/svg/lux_app_logo.svg'
-=======
 import { useAtom } from 'jotai'
 import { useAtomValue } from 'jotai/utils'
 import { useTranslation } from 'react-i18next'
@@ -15,7 +5,6 @@ import { Anchor, Flex, styled, Text, TouchableArea } from 'ui/src'
 import { X } from 'ui/src/components/icons/X'
 import { isWebAndroid, isWebIOS } from 'utilities/src/platform'
 import { ReactComponent as UniswapLogo } from '~/assets/svg/uniswap_app_logo.svg'
->>>>>>> upstream/main
 import { useEthersWeb3Provider } from '~/hooks/useEthersProvider'
 import { hideMobileAppPromoBannerAtom, persistHideMobileAppPromoBannerAtom } from '~/state/application/atoms'
 import { getWalletMeta } from '~/utils/walletMeta'
@@ -51,11 +40,7 @@ const StyledButton = styled(Anchor, {
  * - The user is on a mobile device our app supports
  * - The user is not using Safari (since we don't want to conflict with the Safari-native Smart App Banner)
  * - The user has not dismissed the banner during this session
-<<<<<<< HEAD
- * - The user has not clicked the Lux wallet or Get Lux Wallet buttons in wallet options
-=======
  * - The user has not clicked the Uniswap wallet or Get Uniswap Wallet buttons in wallet options
->>>>>>> upstream/main
  */
 export function useMobileAppPromoBannerEligible(): boolean {
   const hideMobileAppPromoBanner = useAtomValue(hideMobileAppPromoBannerAtom)
@@ -63,34 +48,6 @@ export function useMobileAppPromoBannerEligible(): boolean {
   return (isWebIOS || isWebAndroid) && !hideMobileAppPromoBanner && !persistHideMobileAppPromoBanner
 }
 
-<<<<<<< HEAD
-const UNIVERSAL_DOWNLOAD_LINK = getBrandUrl('/wallet?ref=39b0eeui')
-
-function getDownloadLink(userAgent: string, peerWalletAgent?: string): string {
-  if (userAgent.includes('MetaMaskMobile')) {
-    return getBrandUrl('/wallet?ref=ee713xnh')
-  }
-  if (userAgent.includes('Phantom')) {
-    return getBrandUrl('/wallet?ref=sjdi6xky')
-  }
-  if (userAgent.includes('OKApp')) {
-    return getBrandUrl('/wallet?ref=7i8g60sb')
-  }
-  if (userAgent.includes('BitKeep')) {
-    return getBrandUrl('/wallet?ref=93vro3iq')
-  }
-  if (userAgent.includes('DeFiWallet')) {
-    return getBrandUrl('/wallet?ref=ay1z22ab')
-  }
-  if (userAgent.includes('1inchWallet')) {
-    return getBrandUrl('/wallet?ref=03e2c5cw')
-  }
-  if (userAgent.includes('RHNCW')) {
-    return getBrandUrl('/wallet?ref=ipq1dx4n')
-  }
-  if (peerWalletAgent?.includes('CoinbaseWallet CoinbaseBrowser')) {
-    return getBrandUrl('/wallet?ref=24xpl5zh')
-=======
 const UNIVERSAL_DOWNLOAD_LINK = 'https://uniswapwallet.onelink.me/8q3y/39b0eeui'
 
 function getDownloadLink(userAgent: string, peerWalletAgent?: string): string {
@@ -117,7 +74,6 @@ function getDownloadLink(userAgent: string, peerWalletAgent?: string): string {
   }
   if (peerWalletAgent?.includes('CoinbaseWallet CoinbaseBrowser')) {
     return 'https://uniswapwallet.onelink.me/8q3y/24xpl5zh'
->>>>>>> upstream/main
   }
   return UNIVERSAL_DOWNLOAD_LINK
 }
@@ -136,11 +92,7 @@ export function MobileAppPromoBanner() {
         <TouchableArea data-testid="mobile-promo-banner-close-button" onPress={() => setHideMobileAppPromoBanner(true)}>
           <X size="$icon.20" color="$neutral2" />
         </TouchableArea>
-<<<<<<< HEAD
-        <LuxLogo width="32px" height="32px" />
-=======
         <UniswapLogo width="32px" height="32px" />
->>>>>>> upstream/main
         <Flex shrink>
           <Text variant="body3">{t('mobileAppPromo.banner.title')}</Text>
           <Text variant="body4" color="$neutral2">

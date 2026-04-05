@@ -1,14 +1,7 @@
-<<<<<<< HEAD
-import { Currency, Price, Token } from '@luxamm/sdk-core'
-import { encodeSqrtRatioX96, FeeAmount, nearestUsableTick, TICK_SPACINGS, TickMath } from '@luxamm/v3-sdk'
-import JSBI from 'jsbi'
-import { convertScientificNotationToNumber } from '@l.x/utils/src/format/convertScientificNotation'
-=======
 import { Currency, Price, Token } from '@uniswap/sdk-core'
 import { encodeSqrtRatioX96, FeeAmount, nearestUsableTick, TICK_SPACINGS, TickMath } from '@uniswap/v3-sdk'
 import JSBI from 'jsbi'
 import { convertScientificNotationToNumber } from 'utilities/src/format/convertScientificNotation'
->>>>>>> upstream/main
 
 export function tryParsePrice<T extends Currency>({
   baseToken,
@@ -32,15 +25,9 @@ export function tryParsePrice<T extends Currency>({
 
   const [whole, fraction] = decimalValue.split('.')
 
-<<<<<<< HEAD
-  // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
-  const decimals = fraction?.length ?? 0
-  // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
-=======
   // oxlint-disable-next-line typescript/no-unnecessary-condition
   const decimals = fraction?.length ?? 0
   // oxlint-disable-next-line typescript/no-unnecessary-condition
->>>>>>> upstream/main
   const withoutDecimals = JSBI.BigInt((whole ?? '') + (fraction ?? ''))
 
   return new Price(

@@ -1,18 +1,9 @@
-<<<<<<< HEAD
-//! gui-ignore
-// gui-ignore
-import { useTranslation } from 'react-i18next'
-import { Button, Flex, Text } from '@l.x/ui/src'
-import { UserLock } from '@l.x/ui/src/components/icons/UserLock'
-import { noop } from '@l.x/utils/src/react/noop'
-=======
 //! tamagui-ignore
 // tamagui-ignore
 import { useTranslation } from 'react-i18next'
 import { Button, Flex, Text } from 'ui/src'
 import { UserLock } from 'ui/src/components/icons/UserLock'
 import { noop } from 'utilities/src/react/noop'
->>>>>>> upstream/main
 import { AuctionKycStatus } from '~/components/Toucan/Auction/hooks/useAuctionKycStatus'
 import { useAuctionStore } from '~/components/Toucan/Auction/store/useAuctionStore'
 import { ToucanActionButton } from '~/components/Toucan/Shared/ToucanActionButton'

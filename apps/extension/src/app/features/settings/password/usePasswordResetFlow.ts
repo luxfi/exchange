@@ -3,15 +3,9 @@ import { useDispatch } from 'react-redux'
 import { useBiometricUnlockDisableMutation } from 'src/app/features/biometricUnlock/useBiometricUnlockDisableMutation'
 import { useChangePasswordWithBiometricMutation } from 'src/app/features/biometricUnlock/useChangePasswordWithBiometricMutation'
 import { useHasBiometricUnlockCredential } from 'src/app/features/biometricUnlock/useShouldShowBiometricUnlock'
-<<<<<<< HEAD
-import { pushNotification } from '@l.x/lx/src/features/notifications/slice/slice'
-import { AppNotificationType } from '@l.x/lx/src/features/notifications/slice/types'
-import { useEvent } from '@l.x/utils/src/react/hooks'
-=======
 import { pushNotification } from 'uniswap/src/features/notifications/slice/slice'
 import { AppNotificationType } from 'uniswap/src/features/notifications/slice/types'
 import { useEvent } from 'utilities/src/react/hooks'
->>>>>>> upstream/main
 
 /**
  * Password Reset Flow State Machine

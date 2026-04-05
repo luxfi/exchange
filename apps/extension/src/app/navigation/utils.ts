@@ -1,21 +1,12 @@
 import { To, useLocation } from 'react-router'
 import { UnitagClaimRoutes } from 'src/app/navigation/constants'
 import { navigate } from 'src/app/navigation/state'
-<<<<<<< HEAD
-import { lxUrls } from '@l.x/lx/src/constants/urls'
-import { TransactionState } from '@l.x/lx/src/features/transactions/types/transactionState'
-import { getTokenUrl } from '@l.x/lx/src/utils/linking'
-import { logger } from '@l.x/utils/src/logger/logger'
-import { escapeRegExp } from '@l.x/utils/src/primitives/string'
-import { useEvent } from '@l.x/utils/src/react/hooks'
-=======
 import { uniswapUrls } from 'uniswap/src/constants/urls'
 import { TransactionState } from 'uniswap/src/features/transactions/types/transactionState'
 import { getTokenUrl } from 'uniswap/src/utils/linking'
 import { logger } from 'utilities/src/logger/logger'
 import { escapeRegExp } from 'utilities/src/primitives/string'
 import { useEvent } from 'utilities/src/react/hooks'
->>>>>>> upstream/main
 
 export type SidebarLocationState =
   | {
@@ -97,19 +88,11 @@ export async function focusOrCreateDappRequestWindow(tabId: number | undefined, 
 
 /**
  * To avoid opening too many tabs while also ensuring that we don't take over the user's active tab,
-<<<<<<< HEAD
- * we only update the URL of the active tab if it's already in a specific route of the Lux interface.
- *
- * If the current tab is not in that route, we open a new tab instead.
- */
-export async function focusOrCreateLuxInterfaceTab({
-=======
  * we only update the URL of the active tab if it's already in a specific route of the Uniswap interface.
  *
  * If the current tab is not in that route, we open a new tab instead.
  */
 export async function focusOrCreateUniswapInterfaceTab({
->>>>>>> upstream/main
   url,
   reuseActiveTabIfItMatches,
 }: {
@@ -150,19 +133,11 @@ export async function focusOrCreateTokensExploreTab({ currencyId }: { currencyId
     return undefined
   }
 
-<<<<<<< HEAD
-  return focusOrCreateLuxInterfaceTab({
-    url,
-    // We want to reuse the active tab only if it's already in any other TDP.
-    // eslint-disable-next-line security/detect-non-literal-regexp
-    reuseActiveTabIfItMatches: new RegExp(`^${escapeRegExp(lxUrls.webInterfaceTokensUrl)}`),
-=======
   return focusOrCreateUniswapInterfaceTab({
     url,
     // We want to reuse the active tab only if it's already in any other TDP.
     // oxlint-disable-next-line security/detect-non-literal-regexp
     reuseActiveTabIfItMatches: new RegExp(`^${escapeRegExp(uniswapUrls.webInterfaceTokensUrl)}`),
->>>>>>> upstream/main
   })
 }
 

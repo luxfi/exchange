@@ -1,18 +1,5 @@
 import { useEffect, useState } from 'react'
 import { useLocation } from 'react-router'
-<<<<<<< HEAD
-import i18n from '@l.x/lx/src/i18n'
-import { brand, getBrandUrl } from '@l.x/config'
-import { MetaTagInjectorInput } from '~/shared-cloud/metatags'
-
-function getDefaultMetatags(): MetaTagInjectorInput {
-  return {
-    title: i18n.t('interface.metatags.title'),
-    description: i18n.t('interface.metatags.description'),
-    image: getBrandUrl('/images/1200x630_Rich_Link_Preview_Image.png'),
-    url: getBrandUrl(''),
-  }
-=======
 import i18n from 'uniswap/src/i18n'
 import { MetaTagInjectorInput } from '~/shared-cloud/metatags'
 
@@ -21,7 +8,6 @@ const DEFAULT_METATAGS: MetaTagInjectorInput = {
   description: i18n.t('interface.metatags.description'),
   image: `https://app.uniswap.com/images/1200x630_Rich_Link_Preview_Image.png`,
   url: 'https://app.uniswap.com',
->>>>>>> upstream/main
 }
 
 type MetatagAttributes = { property?: string; name?: string; content: string }
@@ -33,36 +19,6 @@ type MetatagAttributes = { property?: string; name?: string; content: string }
  *
  * See `functions/README.md` for more info.
  */
-<<<<<<< HEAD
-export function useDynamicMetatags(metaTags?: MetaTagInjectorInput) {
-  const resolvedMetaTags = metaTags ?? getDefaultMetatags()
-  const [metaTagAttributes, setMetaTagAttributes] = useState<MetatagAttributes[]>([])
-  const location = useLocation()
-  // biome-ignore lint/correctness/useExhaustiveDependencies: location dependency is sufficient for this effect
-  useEffect(() => {
-    resolvedMetaTags.url = window.location.href
-    const attributes: MetatagAttributes[] = [
-      { property: 'og:title', content: resolvedMetaTags.title },
-      { property: 'og:url', content: resolvedMetaTags.url },
-      { property: 'twitter:title', content: resolvedMetaTags.title },
-    ]
-    if (resolvedMetaTags.description) {
-      attributes.push(
-        { property: 'og:description', content: resolvedMetaTags.description },
-        { name: 'description', content: resolvedMetaTags.description },
-      )
-    }
-    if (resolvedMetaTags.image) {
-      attributes.push(
-        { property: 'og:image', content: resolvedMetaTags.image },
-        { property: 'og:image:alt', content: resolvedMetaTags.title },
-        { property: 'twitter:image', content: resolvedMetaTags.image },
-        { property: 'twitter:image:alt', content: resolvedMetaTags.title },
-      )
-    }
-    setMetaTagAttributes(attributes)
-  }, [resolvedMetaTags, location])
-=======
 export function useDynamicMetatags(metaTags: MetaTagInjectorInput = DEFAULT_METATAGS) {
   const [metaTagAttributes, setMetaTagAttributes] = useState<MetatagAttributes[]>([])
   const location = useLocation()
@@ -90,7 +46,6 @@ export function useDynamicMetatags(metaTags: MetaTagInjectorInput = DEFAULT_META
     }
     setMetaTagAttributes(attributes)
   }, [metaTags, location])
->>>>>>> upstream/main
 
   return metaTagAttributes
 }

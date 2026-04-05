@@ -1,14 +1,3 @@
-<<<<<<< HEAD
-import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
-import { useState } from 'react'
-import { useTranslation } from 'react-i18next'
-import { useNavigate } from 'react-router'
-import { Flex, HeightAnimator, Separator, Text } from '@l.x/ui/src'
-import { useConnectionStatus } from '@l.x/lx/src/features/accounts/store/hooks'
-import { useEnabledChains } from '@l.x/lx/src/features/chains/hooks/useEnabledChains'
-import { toGraphQLChain } from '@l.x/lx/src/features/chains/utils'
-import { PortfolioBalance } from '@l.x/lx/src/features/dataApi/types'
-=======
 import { FeatureFlags, useFeatureFlag } from '@universe/gating'
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
@@ -18,7 +7,6 @@ import { useConnectionStatus } from 'uniswap/src/features/accounts/store/hooks'
 import { useEnabledChains } from 'uniswap/src/features/chains/hooks/useEnabledChains'
 import { toGraphQLChain } from 'uniswap/src/features/chains/utils'
 import { PortfolioBalance } from 'uniswap/src/features/dataApi/types'
->>>>>>> upstream/main
 import { getTokenDetailsURL } from '~/appGraphql/data/util'
 import { PortfolioExpandoRow } from '~/pages/Portfolio/components/PortfolioExpandoRow'
 import { Balance } from '~/pages/TokenDetails/components/balances/Balance'

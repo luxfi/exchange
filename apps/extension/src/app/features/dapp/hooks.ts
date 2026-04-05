@@ -1,14 +1,8 @@
 import { useEffect, useReducer, useState } from 'react'
 import { DappInfo, DappStoreEvent, dappStore } from 'src/app/features/dapp/store'
-<<<<<<< HEAD
-import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
-import { Account } from '@luxfi/wallet/src/features/wallet/accounts/types'
-import { useActiveAccountAddress } from '@luxfi/wallet/src/features/wallet/hooks'
-=======
 import { UniverseChainId } from 'uniswap/src/features/chains/types'
 import { Account } from 'wallet/src/features/wallet/accounts/types'
 import { useActiveAccountAddress } from 'wallet/src/features/wallet/hooks'
->>>>>>> upstream/main
 
 // exported to be used in tests
 export function useDappStateUpdated(): boolean {
@@ -26,11 +20,7 @@ export function useDappStateUpdated(): boolean {
 export function useDappInfo(dappUrl: string | undefined): DappInfo | undefined {
   const [info, setInfo] = useState<DappInfo>()
   const dappStateUpdated = useDappStateUpdated()
-<<<<<<< HEAD
-  // biome-ignore lint/correctness/useExhaustiveDependencies: dappStateUpdated is used to trigger re-render when dapp store changes
-=======
   // oxlint-disable-next-line react/exhaustive-deps -- dappStateUpdated is used to trigger re-render when dapp store changes
->>>>>>> upstream/main
   useEffect(() => {
     setInfo(dappStore.getDappInfo(dappUrl))
   }, [dappUrl, dappStateUpdated])
@@ -58,11 +48,7 @@ export function useAllDappConnectionsForAccount(address?: Address): string[] {
 
   const accountAddress = address ?? activeAccount
 
-<<<<<<< HEAD
-  // biome-ignore lint/correctness/useExhaustiveDependencies: dappStateUpdated is used to trigger re-render when dapp store changes
-=======
   // oxlint-disable-next-line react/exhaustive-deps -- dappStateUpdated is used to trigger re-render when dapp store changes
->>>>>>> upstream/main
   useEffect(() => {
     setDappUrls(accountAddress ? dappStore.getConnectedDapps(accountAddress) : [])
   }, [accountAddress, dappStateUpdated])

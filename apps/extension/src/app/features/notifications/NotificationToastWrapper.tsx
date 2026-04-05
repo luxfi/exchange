@@ -1,13 +1,3 @@
-<<<<<<< HEAD
-import { useSelectAddressNotifications } from '@l.x/lx/src/features/notifications/slice/hooks'
-import { AppNotification, AppNotificationType } from '@l.x/lx/src/features/notifications/slice/types'
-import { DappConnectedNotification } from '@luxfi/wallet/src/features/notifications/components/DappConnectedNotification'
-import { DappDisconnectedNotification } from '@luxfi/wallet/src/features/notifications/components/DappDisconnectedNotification'
-import { NotSupportedNetworkNotification } from '@luxfi/wallet/src/features/notifications/components/NotSupportedNetworkNotification'
-import { PasswordChangedNotification } from '@luxfi/wallet/src/features/notifications/components/PasswordChangedNotification'
-import { WalletNotificationToastRouter } from '@luxfi/wallet/src/features/notifications/components/SharedNotificationToastRouter'
-import { useActiveAccountAddress } from '@luxfi/wallet/src/features/wallet/hooks'
-=======
 import { useSelectAddressNotifications } from 'uniswap/src/features/notifications/slice/hooks'
 import { AppNotification, AppNotificationType } from 'uniswap/src/features/notifications/slice/types'
 import { DappConnectedNotification } from 'wallet/src/features/notifications/components/DappConnectedNotification'
@@ -16,7 +6,6 @@ import { NotSupportedNetworkNotification } from 'wallet/src/features/notificatio
 import { PasswordChangedNotification } from 'wallet/src/features/notifications/components/PasswordChangedNotification'
 import { WalletNotificationToastRouter } from 'wallet/src/features/notifications/components/SharedNotificationToastRouter'
 import { useActiveAccountAddress } from 'wallet/src/features/wallet/hooks'
->>>>>>> upstream/main
 
 export function NotificationToastWrapper(): JSX.Element | null {
   const activeAccountAddress = useActiveAccountAddress()

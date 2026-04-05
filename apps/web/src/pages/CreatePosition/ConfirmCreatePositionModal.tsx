@@ -1,17 +1,9 @@
 import { useTranslation } from 'react-i18next'
-<<<<<<< HEAD
-import { Button, Flex, Text } from '@l.x/ui/src'
-import { AlertTriangleFilled } from '@l.x/ui/src/components/icons/AlertTriangleFilled'
-import { GetHelpHeader } from '@l.x/lx/src/components/dialog/GetHelpHeader'
-import { Modal } from '@l.x/lx/src/components/modals/Modal'
-import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
-=======
 import { Button, Flex, Text } from 'ui/src'
 import { AlertTriangleFilled } from 'ui/src/components/icons/AlertTriangleFilled'
 import { GetHelpHeader } from 'uniswap/src/components/dialog/GetHelpHeader'
 import { Modal } from 'uniswap/src/components/modals/Modal'
 import { ModalName } from 'uniswap/src/features/telemetry/constants'
->>>>>>> upstream/main
 import { PriceDifference } from '~/components/Liquidity/Create/types'
 
 export default function ConfirmCreatePositionModal({

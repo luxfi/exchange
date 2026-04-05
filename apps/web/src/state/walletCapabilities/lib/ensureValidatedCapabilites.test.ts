@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-/* eslint-disable @typescript-eslint/no-unnecessary-condition */
-=======
 /* oxlint-disable typescript/no-unnecessary-condition */
->>>>>>> upstream/main
 import {
   ensureValidatedCapabilities,
   isValidCapabilitiesEntry,

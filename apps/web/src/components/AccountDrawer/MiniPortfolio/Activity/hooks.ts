@@ -1,16 +1,3 @@
-<<<<<<< HEAD
-import { TradingApi } from '@l.x/api'
-import { useEffect, useMemo } from 'react'
-import { useDispatch } from 'react-redux'
-import { useMergeLocalAndRemoteTransactions } from '@l.x/lx/src/features/activity/hooks/useMergeLocalAndRemoteTransactions'
-import { useOpenLimitOrders as useOpenLimitOrdersREST } from '@l.x/lx/src/features/activity/hooks/useOpenLimitOrders'
-import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
-import { isL2ChainId } from '@l.x/lx/src/features/chains/utils'
-import { CancellationGasFeeDetails } from '@l.x/lx/src/features/gas/hooks'
-import { useCancellationGasFeeInfo } from '@l.x/lx/src/features/gas/hooks/useCancellationGasFeeInfo'
-import { addTransaction } from '@l.x/lx/src/features/transactions/slice'
-import { isLX } from '@l.x/lx/src/features/transactions/swap/utils/routing'
-=======
 import { TradingApi } from '@universe/api'
 import { useEffect, useMemo } from 'react'
 import { useDispatch } from 'react-redux'
@@ -22,20 +9,10 @@ import { CancellationGasFeeDetails } from 'uniswap/src/features/gas/hooks'
 import { useCancellationGasFeeInfo } from 'uniswap/src/features/gas/hooks/useCancellationGasFeeInfo'
 import { addTransaction } from 'uniswap/src/features/transactions/slice'
 import { isUniswapX } from 'uniswap/src/features/transactions/swap/utils/routing'
->>>>>>> upstream/main
 import {
   TransactionDetails,
   TransactionStatus,
   TransactionType,
-<<<<<<< HEAD
-  DEXOrderDetails,
-} from '@l.x/lx/src/features/transactions/types/transactionDetails'
-import { isLimitOrder, isLXOrderPending } from '@l.x/lx/src/features/transactions/utils/dexUtils'
-import { usePendingTransactions, usePendingDEXOrders } from '~/state/transactions/hooks'
-import { isExistingTransaction } from '~/state/transactions/utils'
-
-export function useOpenLimitOrders(account: string): { openLimitOrders: DEXOrderDetails[]; loading: boolean } {
-=======
   UniswapXOrderDetails,
 } from 'uniswap/src/features/transactions/types/transactionDetails'
 import { isLimitOrder, isUniswapXOrderPending } from 'uniswap/src/features/transactions/utils/uniswapX.utils'
@@ -43,7 +20,6 @@ import { usePendingTransactions, usePendingUniswapXOrders } from '~/state/transa
 import { isExistingTransaction } from '~/state/transactions/utils'
 
 export function useOpenLimitOrders(account: string): { openLimitOrders: UniswapXOrderDetails[]; loading: boolean } {
->>>>>>> upstream/main
   const dispatch = useDispatch()
   const { data: limitOrders, loading } = useOpenLimitOrdersREST({ evmAddress: account })
 
@@ -55,11 +31,7 @@ export function useOpenLimitOrders(account: string): { openLimitOrders: UniswapX
 
     limitOrders.forEach((order) => {
       if (
-<<<<<<< HEAD
-        isLXOrderPending(order) &&
-=======
         isUniswapXOrderPending(order) &&
->>>>>>> upstream/main
         !isExistingTransaction({ from: order.from, chainId: order.chainId, id: order.id })
       ) {
         dispatch(addTransaction(order))
@@ -69,11 +41,7 @@ export function useOpenLimitOrders(account: string): { openLimitOrders: UniswapX
 
   const merged = useMergeLocalAndRemoteTransactions({ evmAddress: account, remoteTransactions: limitOrders })
   const openLimitOrders = useMemo(
-<<<<<<< HEAD
-    () => (merged ?? []).filter((tx): tx is DEXOrderDetails => isLimitOrder(tx) && isLXOrderPending(tx)),
-=======
     () => (merged ?? []).filter((tx): tx is UniswapXOrderDetails => isLimitOrder(tx) && isUniswapXOrderPending(tx)),
->>>>>>> upstream/main
     [merged],
   )
   return { openLimitOrders, loading }
@@ -81,19 +49,11 @@ export function useOpenLimitOrders(account: string): { openLimitOrders: UniswapX
 
 export function usePendingActivity() {
   const allPendingTransactions = usePendingTransactions()
-<<<<<<< HEAD
-  const pendingOrders = usePendingDEXOrders()
-
-  // Filter out DEX orders from pendingTransactions to avoid double-counting
-  // DEX orders are handled separately via pendingOrders
-  const pendingTransactions = allPendingTransactions.filter((tx) => !isLX(tx))
-=======
   const pendingOrders = usePendingUniswapXOrders()
 
   // Filter out UniswapX orders from pendingTransactions to avoid double-counting
   // UniswapX orders are handled separately via pendingOrders
   const pendingTransactions = allPendingTransactions.filter((tx) => !isUniswapX(tx))
->>>>>>> upstream/main
   // Pending limit orders shown in the limit sidebar
   const pendingOrdersWithoutLimits = pendingOrders.filter((order) => order.routing !== TradingApi.Routing.DUTCH_LIMIT)
 
@@ -107,11 +67,7 @@ export function usePendingActivity() {
   return { hasPendingActivity, pendingActivityCount, hasL1PendingActivity }
 }
 
-<<<<<<< HEAD
-export function useCancelOrdersGasEstimate(orders?: DEXOrderDetails[]): CancellationGasFeeDetails | undefined {
-=======
 export function useCancelOrdersGasEstimate(orders?: UniswapXOrderDetails[]): CancellationGasFeeDetails | undefined {
->>>>>>> upstream/main
   // Create a representative transaction for gas estimation when orders are available
   const representativeTransaction = useMemo<TransactionDetails | undefined>(() => {
     if (!orders || orders.length === 0) {

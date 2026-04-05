@@ -2,13 +2,8 @@ import configureMockStore from 'redux-mock-store'
 import { thunk } from 'redux-thunk'
 import FavoriteTokenCard, { FavoriteTokenCardProps } from 'src/components/explore/FavoriteTokenCard'
 import { act, cleanup, fireEvent, render, waitFor } from 'src/test/test-utils'
-<<<<<<< HEAD
-import { FiatCurrency } from '@l.x/lx/src/features/fiatCurrency/constants'
-import { Language } from '@l.x/lx/src/features/language/constants'
-=======
 import { FiatCurrency } from 'uniswap/src/features/fiatCurrency/constants'
 import { Language } from 'uniswap/src/features/language/constants'
->>>>>>> upstream/main
 import {
   amount,
   ethToken,
@@ -17,17 +12,10 @@ import {
   tokenMarket,
   tokenProject,
   tokenProjectMarket,
-<<<<<<< HEAD
-} from '@l.x/lx/src/test/fixtures'
-import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
-import { queryResolvers } from '@l.x/lx/src/test/utils'
-import { getSymbolDisplayText } from '@l.x/lx/src/utils/currency'
-=======
 } from 'uniswap/src/test/fixtures'
 import { TestID } from 'uniswap/src/test/fixtures/testIDs'
 import { queryResolvers } from 'uniswap/src/test/utils'
 import { getSymbolDisplayText } from 'uniswap/src/utils/currency'
->>>>>>> upstream/main
 
 const mockedNavigation = {
   navigate: jest.fn(),
@@ -37,11 +25,7 @@ jest.mock('@react-navigation/native', () => {
   const actualNav = jest.requireActual('@react-navigation/native')
   return {
     ...actualNav,
-<<<<<<< HEAD
-    // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-=======
     // oxlint-disable-next-line typescript/explicit-function-return-type
->>>>>>> upstream/main
     useNavigation: () => mockedNavigation,
   }
 })

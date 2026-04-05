@@ -1,10 +1,5 @@
-<<<<<<< HEAD
-import { logger } from '@l.x/utils/src/logger/logger'
-import { ScantasticParams } from '@luxfi/wallet/src/features/scantastic/types'
-=======
 import { logger } from 'utilities/src/logger/logger'
 import { ScantasticParams } from 'wallet/src/features/scantastic/types'
->>>>>>> upstream/main
 
 export const KEY_PARAMS = {
   name: 'RSA-OAEP',
@@ -19,11 +14,7 @@ export async function cryptoKeyToJWK(key: CryptoKey): Promise<JsonWebKey> {
 }
 
 export function getScantasticUrl({ uuid, publicKey, vendor, model, browser }: ScantasticParams): string {
-<<<<<<< HEAD
-  let qrURI = `lux://scantastic?pubKey=${JSON.stringify(publicKey)}&uuid=${encodeURIComponent(uuid)}`
-=======
   let qrURI = `uniswap://scantastic?pubKey=${JSON.stringify(publicKey)}&uuid=${encodeURIComponent(uuid)}`
->>>>>>> upstream/main
   if (vendor) {
     qrURI = qrURI.concat(`&vendor=${encodeURIComponent(vendor)}`)
   }

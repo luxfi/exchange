@@ -6,33 +6,6 @@
   "exclude": ["node_modules", ".output", "wxt.config.ts"],
   "references": [
     {
-<<<<<<< HEAD
-      "path": "../../pkgs/wallet"
-    },
-    {
-      "path": "../../pkgs/ui"
-    },
-    {
-      "path": "../../pkgs/lx"
-    },
-    {
-      "path": "../../pkgs/sessions"
-    },
-    {
-      "path": "../../pkgs/notifications"
-    },
-    {
-      "path": "../../pkgs/gating"
-    },
-    {
-      "path": "../../pkgs/api"
-    },
-    {
-      "path": "../../pkgs/eslint-config"
-    },
-    {
-      "path": "../../pkgs/utilities"
-=======
       "path": "../../packages/wallet"
     },
     {
@@ -55,7 +28,6 @@
     },
     {
       "path": "../../packages/api"
->>>>>>> upstream/main
     }
   ],
   "compilerOptions": {

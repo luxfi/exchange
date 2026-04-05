@@ -1,18 +1,10 @@
 import { skipToken } from '@tanstack/react-query'
 import { useMemo } from 'react'
-<<<<<<< HEAD
-import { FORQuoteItem } from '@l.x/lx/src/features/fiatOnRamp/FORQuoteItem'
-import {
-  useFiatOnRampAggregatorOffRampWidgetQuery,
-  useFiatOnRampAggregatorWidgetQuery,
-} from '@l.x/lx/src/features/fiatOnRamp/hooks/useFiatOnRampQueries'
-=======
 import { FORQuoteItem } from 'uniswap/src/features/fiatOnRamp/FORQuoteItem'
 import {
   useFiatOnRampAggregatorOffRampWidgetQuery,
   useFiatOnRampAggregatorWidgetQuery,
 } from 'uniswap/src/features/fiatOnRamp/hooks/useFiatOnRampQueries'
->>>>>>> upstream/main
 import {
   FiatCurrencyInfo,
   FORCountry,
@@ -20,17 +12,10 @@ import {
   FORQuote,
   FORServiceProvider,
   RampDirection,
-<<<<<<< HEAD
-} from '@l.x/lx/src/features/fiatOnRamp/types'
-import { createOnRampTransactionId } from '@l.x/lx/src/features/fiatOnRamp/utils'
-import { FiatOffRampEventName, FiatOnRampEventName } from '@l.x/lx/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
-=======
 } from 'uniswap/src/features/fiatOnRamp/types'
 import { createOnRampTransactionId } from 'uniswap/src/features/fiatOnRamp/utils'
 import { FiatOffRampEventName, FiatOnRampEventName } from 'uniswap/src/features/telemetry/constants'
 import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
->>>>>>> upstream/main
 import { useAddFiatOnRampTransaction } from '~/state/fiatOnRampTransactions/hooks'
 import { FiatOnRampTransactionStatus, FiatOnRampTransactionType } from '~/state/fiatOnRampTransactions/types'
 

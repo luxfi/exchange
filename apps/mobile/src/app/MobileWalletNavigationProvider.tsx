@@ -1,9 +1,5 @@
 import { StackActions } from '@react-navigation/native'
-<<<<<<< HEAD
-import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
-=======
 import { FeatureFlags, useFeatureFlag } from '@universe/gating'
->>>>>>> upstream/main
 import { PropsWithChildren, useCallback } from 'react'
 import { Share } from 'react-native'
 import { useDispatch } from 'react-redux'
@@ -13,26 +9,6 @@ import { useReactNavigationModal } from 'src/components/modals/useReactNavigatio
 import { closeAllModals, closeModal, openModal } from 'src/features/modals/modalSlice'
 import { useAdvancedSettingsMenuState } from 'src/features/settings/hooks/useAdvancedSettingsMenuState'
 import { HomeScreenTabIndex } from 'src/screens/HomeScreen/HomeScreenTabIndex'
-<<<<<<< HEAD
-import { ScannerModalState } from 'lx/src/components/ReceiveQRCode/constants'
-import { useEnabledChains } from 'lx/src/features/chains/hooks/useEnabledChains'
-import {
-  useFiatOnRampAggregatorCountryListQuery,
-  useFiatOnRampAggregatorGetCountryQuery,
-} from 'lx/src/features/fiatOnRamp/hooks/useFiatOnRampQueries'
-import { RampDirection } from 'lx/src/features/fiatOnRamp/types'
-import { useNavigateToNftExplorerLink } from 'lx/src/features/nfts/hooks/useNavigateToNftExplorerLink'
-import { ModalName, WalletEventName } from 'lx/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
-import { TransactionState } from 'lx/src/features/transactions/types/transactionState'
-import { MobileScreens } from 'lx/src/types/screens/mobile'
-import { ShareableEntity } from 'lx/src/types/sharing'
-import { buildCurrencyId } from 'lx/src/utils/currencyId'
-import { getTokenUrl } from 'lx/src/utils/linking'
-import { closeKeyboardBeforeCallback } from '@l.x/utils/src/device/keyboard/dismissNativeKeyboard'
-import { logger } from '@l.x/utils/src/logger/logger'
-import { noop } from '@l.x/utils/src/react/noop'
-=======
 import { ScannerModalState } from 'uniswap/src/components/ReceiveQRCode/constants'
 import { useEnabledChains } from 'uniswap/src/features/chains/hooks/useEnabledChains'
 import {
@@ -51,7 +27,6 @@ import { getTokenUrl } from 'uniswap/src/utils/linking'
 import { closeKeyboardBeforeCallback } from 'utilities/src/device/keyboard/dismissNativeKeyboard'
 import { logger } from 'utilities/src/logger/logger'
 import { noop } from 'utilities/src/react/noop'
->>>>>>> upstream/main
 import {
   getNavigateToSendFlowArgsInitialState,
   getNavigateToSwapFlowArgsInitialState,
@@ -62,11 +37,7 @@ import {
   NavigateToSwapFlowArgs,
   ShareTokenArgs,
   WalletNavigationProvider,
-<<<<<<< HEAD
-} from '@luxfi/wallet/src/contexts/WalletNavigationContext'
-=======
 } from 'wallet/src/contexts/WalletNavigationContext'
->>>>>>> upstream/main
 
 export function MobileWalletNavigationProvider({ children }: PropsWithChildren): JSX.Element {
   const handleShareToken = useHandleShareToken()

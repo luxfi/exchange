@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import { Flex } from '@l.x/ui/src'
-=======
 import { Flex } from 'ui/src'
->>>>>>> upstream/main
 import { BidMarker } from '~/components/Toucan/Auction/BidDistributionChart/markers/BidMarker'
 import { MarkerPosition } from '~/components/Toucan/Auction/BidDistributionChart/markers/types'
 import { BidTokenInfo } from '~/components/Toucan/Auction/store/types'

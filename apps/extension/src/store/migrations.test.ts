@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-/* eslint-disable jest/expect-expect */
-=======
 /* oxlint-disable jest/expect-expect */
->>>>>>> upstream/main
 import { BigNumber } from '@ethersproject/bignumber'
 import { toIncludeSameMembers } from 'jest-extended'
 import {
@@ -46,21 +42,6 @@ import {
   v29Schema,
   v30Schema,
 } from 'src/store/schema'
-<<<<<<< HEAD
-import { USDC } from '@l.x/lx/src/constants/tokens'
-import { initialAppearanceSettingsState } from '@l.x/lx/src/features/appearance/slice'
-import { initialLuxBehaviorHistoryState } from '@l.x/lx/src/features/behaviorHistory/slice'
-import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
-import { initialFavoritesState } from '@l.x/lx/src/features/favorites/slice'
-import { FiatCurrency } from '@l.x/lx/src/features/fiatCurrency/constants'
-import { initialNotificationsState } from '@l.x/lx/src/features/notifications/slice/slice'
-import { initialSearchHistoryState } from '@l.x/lx/src/features/search/searchHistorySlice'
-import { initialUserSettingsState } from '@l.x/lx/src/features/settings/slice'
-import { initialTokensState } from '@l.x/lx/src/features/tokens/warnings/slice/slice'
-import { initialTransactionsState } from '@l.x/lx/src/features/transactions/slice'
-import { TransactionStatus, TransactionType } from '@l.x/lx/src/features/transactions/types/transactionDetails'
-import { initialVisibilityState } from '@l.x/lx/src/features/visibility/slice'
-=======
 import { USDC } from 'uniswap/src/constants/tokens'
 import { initialAppearanceSettingsState } from 'uniswap/src/features/appearance/slice'
 import { initialUniswapBehaviorHistoryState } from 'uniswap/src/features/behaviorHistory/slice'
@@ -74,21 +55,11 @@ import { initialTokensState } from 'uniswap/src/features/tokens/warnings/slice/s
 import { initialTransactionsState } from 'uniswap/src/features/transactions/slice'
 import { TransactionStatus, TransactionType } from 'uniswap/src/features/transactions/types/transactionDetails'
 import { initialVisibilityState } from 'uniswap/src/features/visibility/slice'
->>>>>>> upstream/main
 import {
   testAddActivityVisibility,
   testMigrateDismissedTokenWarnings,
   testMigrateSearchHistory,
   testRemoveTHBFromCurrency,
-<<<<<<< HEAD
-} from '@l.x/lx/src/state/luxMigrationTests'
-import { getAllKeysOfNestedObject } from '@l.x/utils/src/primitives/objects'
-import { initialBatchedTransactionsState } from '@luxfi/wallet/src/features/batchedTransactions/slice'
-import { initialBehaviorHistoryState } from '@luxfi/wallet/src/features/behaviorHistory/slice'
-import { initialWalletState } from '@luxfi/wallet/src/features/wallet/slice'
-import { createMigrate } from '@luxfi/wallet/src/state/createMigrate'
-import { HAYDEN_ETH_ADDRESS } from '@luxfi/wallet/src/state/walletMigrations'
-=======
 } from 'uniswap/src/state/uniswapMigrationTests'
 import { getAllKeysOfNestedObject } from 'utilities/src/primitives/objects'
 import { initialBatchedTransactionsState } from 'wallet/src/features/batchedTransactions/slice'
@@ -96,7 +67,6 @@ import { initialBehaviorHistoryState } from 'wallet/src/features/behaviorHistory
 import { initialWalletState } from 'wallet/src/features/wallet/slice'
 import { createMigrate } from 'wallet/src/state/createMigrate'
 import { HAYDEN_ETH_ADDRESS } from 'wallet/src/state/walletMigrations'
->>>>>>> upstream/main
 import {
   testActivatePendingAccounts,
   testAddBatchedTransactions,
@@ -114,11 +84,7 @@ import {
   testRemoveHoldToSwap,
   testUnchecksumDismissedTokenWarningKeys,
   testUpdateExploreOrderByType,
-<<<<<<< HEAD
-} from '@luxfi/wallet/src/state/walletMigrationsTests'
-=======
 } from 'wallet/src/state/walletMigrationsTests'
->>>>>>> upstream/main
 
 expect.extend({ toIncludeSameMembers })
 
@@ -172,11 +138,7 @@ describe('Redux state migrations', () => {
       tokenLists: {},
       tokens: initialTokensState,
       transactions: initialTransactionsState,
-<<<<<<< HEAD
-      luxBehaviorHistory: initialLuxBehaviorHistoryState,
-=======
       uniswapBehaviorHistory: initialUniswapBehaviorHistoryState,
->>>>>>> upstream/main
       userSettings: initialUserSettingsState,
       visibility: initialVisibilityState,
       wallet: initialWalletState,

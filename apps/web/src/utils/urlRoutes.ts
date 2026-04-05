@@ -1,10 +1,5 @@
-<<<<<<< HEAD
-import { CHROME_EXTENSION_UNINSTALL_URL_PATH } from '@l.x/lx/src/constants/urls'
-import { InterfacePageName } from '@l.x/lx/src/features/telemetry/constants'
-=======
 import { CHROME_EXTENSION_UNINSTALL_URL_PATH } from 'uniswap/src/constants/urls'
 import { InterfacePageName } from 'uniswap/src/features/telemetry/constants'
->>>>>>> upstream/main
 import { NATIVE_CHAIN_ID } from '~/constants/tokens'
 
 export function getCurrentPageFromLocation(locationPathname: string): InterfacePageName | undefined {

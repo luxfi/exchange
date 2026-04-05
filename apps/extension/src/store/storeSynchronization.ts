@@ -1,16 +1,9 @@
 import { useEffect, useState } from 'react'
 import { initializeReduxStore } from 'src/store/store'
-<<<<<<< HEAD
-import { logger } from '@l.x/utils/src/logger/logger'
-import { v4 as uuid } from 'uuid'
-import { getReduxPersistor } from '@luxfi/wallet/src/state/persistor'
-import { PersistedStorage } from '@luxfi/wallet/src/utils/persistedStorage'
-=======
 import { logger } from 'utilities/src/logger/logger'
 import { v4 as uuid } from 'uuid'
 import { getReduxPersistor } from 'wallet/src/state/persistor'
 import { PersistedStorage } from 'wallet/src/utils/persistedStorage'
->>>>>>> upstream/main
 
 /**
  * We want only one instance of the app to be persisting the redux store to disk at a time.

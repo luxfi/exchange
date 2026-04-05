@@ -1,30 +1,3 @@
-<<<<<<< HEAD
-/* eslint-disable max-lines */
-import { Currency, CurrencyAmount, Token } from '@luxamm/sdk-core'
-import { UNIVERSAL_ROUTER_ADDRESS, UniversalRouterVersion } from '@luxamm/universal-router-sdk'
-import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
-import { useCallback, useEffect, useMemo, useState } from 'react'
-import { Trans, useTranslation } from 'react-i18next'
-import { Anchor, Button, Flex, styled, Text, useIsShortMobileDevice } from '@l.x/ui/src'
-import { AlertTriangleFilled } from '@l.x/ui/src/components/icons/AlertTriangleFilled'
-import { ArrowDown } from '@l.x/ui/src/components/icons/ArrowDown'
-import { nativeOnChain } from '@l.x/lx/src/constants/tokens'
-import { lxUrls } from '@l.x/lx/src/constants/urls'
-import { LIMIT_SUPPORTED_CHAINS } from '@l.x/lx/src/features/chains/chainInfo'
-import { useIsSupportedChainId } from '@l.x/lx/src/features/chains/hooks/useSupportedChainId'
-import { getPrimaryStablecoin } from '@l.x/lx/src/features/chains/utils'
-import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
-import { isEVMChain } from '@l.x/lx/src/features/platforms/utils/chains'
-import { useIsMismatchAccountQuery } from '@l.x/lx/src/features/smartWallet/mismatch/hooks'
-import { ElementName, InterfacePageName, SectionName, SwapEventName } from '@l.x/lx/src/features/telemetry/constants'
-import Trace from '@l.x/lx/src/features/telemetry/Trace'
-import { useUSDCValueWithStatus } from '@l.x/lx/src/features/transactions/hooks/useUSDCPriceWrapper'
-import { CurrencyField } from '@l.x/lx/src/types/currency'
-// biome-ignore lint/style/noRestrictedImports: We need to import this directly so we can format with `en-US` locale
-import { formatCurrencyAmount as formatCurrencyAmountRaw } from '@l.x/utils/src/format/localeBased'
-import { NumberType } from '@l.x/utils/src/format/types'
-import { isSafeNumber } from '@l.x/utils/src/primitives/integer'
-=======
 /* oxlint-disable max-lines */
 import { Currency, CurrencyAmount, Token } from '@uniswap/sdk-core'
 import { UNIVERSAL_ROUTER_ADDRESS, UniversalRouterVersion } from '@uniswap/universal-router-sdk'
@@ -50,7 +23,6 @@ import { CurrencyField } from 'uniswap/src/types/currency'
 import { formatCurrencyAmount as formatCurrencyAmountRaw } from 'utilities/src/format/localeBased'
 import { NumberType } from 'utilities/src/format/types'
 import { isSafeNumber } from 'utilities/src/primitives/integer'
->>>>>>> upstream/main
 import { useAccountDrawer } from '~/components/AccountDrawer/MiniPortfolio/hooks'
 import { LimitPriceInputPanel } from '~/components/CurrencyInputPanel/LimitPriceInputPanel/LimitPriceInputPanel'
 import {
@@ -60,68 +32,6 @@ import {
 import SwapCurrencyInputPanel from '~/components/CurrencyInputPanel/SwapCurrencyInputPanel'
 import DelegationMismatchModal from '~/components/delegation/DelegationMismatchModal'
 import Column from '~/components/deprecated/Column'
-<<<<<<< HEAD
-=======
-import { SwitchNetworkAction } from '~/components/Popups/types'
->>>>>>> upstream/main
-import { ArrowContainer, ArrowWrapper, SwapSection } from '~/components/swap/styled'
-import { ZERO_PERCENT } from '~/constants/misc'
-import { useConnectionStatus } from '~/features/accounts/store/hooks'
-import { useAccount } from '~/hooks/useAccount'
-import usePermit2Allowance, { AllowanceState } from '~/hooks/usePermit2Allowance'
-import { SwapResult, useSwapCallback } from '~/hooks/useSwapCallback'
-import { ConfirmSwapModal } from '~/pages/Swap/Limit/ConfirmSwapModal'
-import { LimitExpirySection } from '~/pages/Swap/Limit/LimitExpirySection'
-import LimitOrdersNotSupportedBanner from '~/pages/Swap/Limit/LimitOrdersNotSupportedBanner'
-import { LimitPriceError } from '~/pages/Swap/Limit/LimitPriceError'
-import { OpenLimitOrdersButton } from '~/pages/Swap/Limit/OpenLimitOrdersButton'
-import { getDefaultPriceInverted } from '~/state/limit/hooks'
-import { LimitContextProvider, useLimitContext } from '~/state/limit/LimitContext'
-import { useMultichainContext } from '~/state/multichain/useMultichainContext'
-import { LimitOrderTrade, TradeFillType } from '~/state/routing/types'
-import { useOnSwitchTokens } from '~/state/swap/hooks'
-import { CurrencyState } from '~/state/swap/types'
-import { useSwapAndLimitContext } from '~/state/swap/useSwapContext'
-import { maxAmountSpend } from '~/utils/maxAmountSpend'
-
-const CustomHeightSwapSection = styled(SwapSection, {
-  height: 'unset',
-})
-
-const ShortArrowWrapper = styled(ArrowWrapper, {
-  mt: -22,
-  mb: -22,
-})
-
-const LearnMore = styled(Text, {
-  variant: 'body3',
-  color: '$accent1',
-  animation: '100ms',
-  hoverStyle: {
-    opacity: 0.6,
-  },
-  focusStyle: {
-    opacity: 0.4,
-  },
-})
-
-type LimitFormProps = {
-  onCurrencyChange?: (selected: CurrencyState) => void
-}
-
-function LimitForm({ onCurrencyChange }: LimitFormProps) {
-  const account = useAccount()
-  const { chainId } = useMultichainContext()
-  const {
-    currencyState: { inputCurrency, outputCurrency },
-    setCurrencyState,
-  } = useSwapAndLimitContext()
-  const isSupportedChain = useIsSupportedChainId(chainId) && isEVMChain(chainId)
-  const isLimitSupportedChain = chainId && LIMIT_SUPPORTED_CHAINS.includes(chainId)
-
-  const { limitState, setLimitState, derivedLimitInfo } = useLimitContext()
-<<<<<<< HEAD
-=======
 
   // Coerce non-mainnet currencies to mainnet defaults when limit tab mounts or currencies change
   // biome-ignore lint/correctness/useExhaustiveDependencies: we only want to run this effect when the input or output currency changes.
@@ -155,7 +65,6 @@ function LimitForm({ onCurrencyChange }: LimitFormProps) {
     // oxlint-disable-next-line react-hooks/exhaustive-deps -- only react to currency identity changes, callbacks are stable
   }, [inputCurrency, outputCurrency])
 
->>>>>>> upstream/main
   const { currencyBalances, parsedAmounts, parsedLimitPrice, limitOrderTrade, marketPrice } = derivedLimitInfo
   const [showConfirm, setShowConfirm] = useState(false)
   const [swapResult, setSwapResult] = useState<SwapResult>()
@@ -239,11 +148,7 @@ function LimitForm({ onCurrencyChange }: LimitFormProps) {
   }, [inputCurrency, onSwitchTokens, outputCurrency, setLimitState])
 
   const onSelectCurrency = useCallback(
-<<<<<<< HEAD
-    // eslint-disable-next-line max-params
-=======
     // oxlint-disable-next-line max-params
->>>>>>> upstream/main
     (type: keyof CurrencyState, newCurrency: Currency, isResettingWETHAfterWrap?: boolean) => {
       if ((type === 'inputCurrency' ? outputCurrency : inputCurrency)?.equals(newCurrency)) {
         switchTokens()
@@ -303,11 +208,7 @@ function LimitForm({ onCurrencyChange }: LimitFormProps) {
     }
   }, [onSelectCurrency, outputCurrency, isSupportedChain, chainId, inputCurrency])
 
-<<<<<<< HEAD
-  // biome-ignore lint/correctness/useExhaustiveDependencies: Currency state reset only on currency change
-=======
   // oxlint-disable-next-line react/exhaustive-deps -- Currency state reset only on currency change
->>>>>>> upstream/main
   useEffect(() => {
     // If the initial pair is eth <> weth, replace the output currency with a stablecoin
     if (isSupportedChain && inputCurrency && outputCurrency && (inputCurrency.isNative || outputCurrency.isNative)) {
@@ -318,35 +219,7 @@ function LimitForm({ onCurrencyChange }: LimitFormProps) {
         onSelectCurrency('outputCurrency', getPrimaryStablecoin(chainId))
       }
     }
-<<<<<<< HEAD
-=======
-    // oxlint-disable-next-line react/exhaustive-deps -- biome-parity: oxlint is stricter here
->>>>>>> upstream/main
-  }, [])
-
-  const maxInputAmount: CurrencyAmount<Currency> | undefined = useMemo(
-    () => maxAmountSpend(currencyBalances[CurrencyField.INPUT]),
-    [currencyBalances],
-  )
-  const showMaxButton = Boolean(
-    maxInputAmount?.greaterThan(0) && !parsedAmounts[CurrencyField.INPUT]?.equalTo(maxInputAmount),
-  )
-
-  const handleMaxInput = useCallback(() => {
-    maxInputAmount && onTypeInput('inputAmount')(maxInputAmount.toExact())
-  }, [maxInputAmount, onTypeInput])
-
-  const hasInsufficientFunds =
-    parsedAmounts.input && currencyBalances.input ? currencyBalances.input.lessThan(parsedAmounts.input) : false
-
-  const allowance = usePermit2Allowance({
-    amount: parsedAmounts.input?.currency.isNative ? undefined : (parsedAmounts.input as CurrencyAmount<Token>),
-    spender: isLimitSupportedChain ? UNIVERSAL_ROUTER_ADDRESS(UniversalRouterVersion.V1_2, chainId) : undefined,
-<<<<<<< HEAD
-    tradeFillType: TradeFillType.DEX,
-=======
     tradeFillType: TradeFillType.UniswapX,
->>>>>>> upstream/main
   })
 
   const fiatValueTradeInput = useUSDCValueWithStatus(parsedAmounts.input)
@@ -434,42 +307,8 @@ function LimitForm({ onCurrencyChange }: LimitFormProps) {
             onCurrencySelect={(currency) => onSelectCurrency('inputCurrency', currency)}
             otherCurrency={outputCurrency}
             onMax={handleMaxInput}
-<<<<<<< HEAD
-=======
             chainIds={LIMIT_SUPPORTED_CHAINS}
             switchNetworkAction={SwitchNetworkAction.Limit}
->>>>>>> upstream/main
-            id={SectionName.SwapCurrencyInput}
-          />
-        </Trace>
-      </SwapSection>
-      <ShortArrowWrapper clickable={isSupportedChain}>
-        <Trace
-          logPress
-          eventOnTrigger={SwapEventName.SwapTokensReversed}
-          element={ElementName.SwapTokensReverseArrowButton}
-        >
-          <ArrowContainer data-testid="swap-currency-button" onPress={switchTokens}>
-            <ArrowDown size="$icon.16" color="$neutral1" />
-          </ArrowContainer>
-        </Trace>
-      </ShortArrowWrapper>
-      <SwapSection>
-        <Trace section={SectionName.SwapCurrencyOutput}>
-          <SwapCurrencyInputPanel
-            label={<Trans i18nKey="common.buy.label" />}
-            value={formattedAmounts[CurrencyField.OUTPUT]}
-            showMaxButton={false}
-            currency={outputCurrency ?? null}
-            currencyField={CurrencyField.OUTPUT}
-            onUserInput={onTypeInput('outputAmount')}
-            onCurrencySelect={(currency) => onSelectCurrency('outputCurrency', currency)}
-            otherCurrency={inputCurrency}
-<<<<<<< HEAD
-=======
-            chainIds={LIMIT_SUPPORTED_CHAINS}
-            switchNetworkAction={SwitchNetworkAction.Limit}
->>>>>>> upstream/main
             id={SectionName.SwapCurrencyOutput}
           />
         </Trace>
@@ -513,11 +352,7 @@ function LimitForm({ onCurrencyChange }: LimitFormProps) {
                   link: (
                     <Anchor
                       textDecorationLine="none"
-<<<<<<< HEAD
-                      href={lxUrls.helpArticleUrls.limitsNetworkSupport}
-=======
                       href={uniswapUrls.helpArticleUrls.limitsNetworkSupport}
->>>>>>> upstream/main
                       target="_blank"
                     >
                       <LearnMore>
@@ -529,17 +364,10 @@ function LimitForm({ onCurrencyChange }: LimitFormProps) {
               />
             ) : (
               <Trans
-<<<<<<< HEAD
-                i18nKey="limits.form.disclaimer.dex"
-                components={{
-                  link: (
-                    <Anchor textDecorationLine="none" href={lxUrls.helpArticleUrls.limitsFailure} target="_blank">
-=======
                 i18nKey="limits.form.disclaimer.uniswapx"
                 components={{
                   link: (
                     <Anchor textDecorationLine="none" href={uniswapUrls.helpArticleUrls.limitsFailure} target="_blank">
->>>>>>> upstream/main
                       <LearnMore>
                         <Trans i18nKey="common.button.learn" />
                       </LearnMore>
@@ -577,11 +405,7 @@ function LimitForm({ onCurrencyChange }: LimitFormProps) {
             data: fiatValueOutputNumber,
             isLoading: fiatValueTradeOutput.isLoading,
           }}
-<<<<<<< HEAD
-          // eslint-disable-next-line max-params
-=======
           // oxlint-disable-next-line max-params
->>>>>>> upstream/main
           onCurrencySelection={(field: CurrencyField, currency, isResettingWETHAfterWrap) =>
             onSelectCurrency(
               field === CurrencyField.INPUT ? 'inputCurrency' : 'outputCurrency',

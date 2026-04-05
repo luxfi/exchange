@@ -55,17 +55,10 @@ import {
   SignTypedDataRequestSchema,
   SignTypedDataResponse,
   SignTypedDataResponseSchema,
-<<<<<<< HEAD
-  LuxOpenSidebarRequest,
-  LuxOpenSidebarRequestSchema,
-  LuxOpenSidebarResponse,
-  LuxOpenSidebarResponseSchema,
-=======
   UniswapOpenSidebarRequest,
   UniswapOpenSidebarRequestSchema,
   UniswapOpenSidebarResponse,
   UniswapOpenSidebarResponseSchema,
->>>>>>> upstream/main
 } from 'src/app/features/dappRequests/types/DappRequestTypes'
 import { TypedPortMessageChannel, TypedRuntimeMessageChannel } from 'src/background/messagePassing/platform'
 import {
@@ -98,13 +91,8 @@ import {
   UpdateConnectionRequest,
   UpdateConnectionRequestSchema,
 } from 'src/background/messagePassing/types/requests'
-<<<<<<< HEAD
-import { MessageParsers } from '@l.x/lx/src/extension/messagePassing/platform'
-import { DappRequestType, DappResponseType } from '@l.x/lx/src/features/dappRequests/types'
-=======
 import { MessageParsers } from 'uniswap/src/extension/messagePassing/platform'
 import { DappRequestType, DappResponseType } from 'uniswap/src/features/dappRequests/types'
->>>>>>> upstream/main
 
 enum MessageChannelName {
   DappContentScript = 'DappContentScript',
@@ -182,11 +170,7 @@ type ContentScriptToBackgroundMessageSchemas = {
   [DappRequestType.SignMessage]: SignMessageRequest
   [DappRequestType.SignTransaction]: SignTransactionRequest
   [DappRequestType.SignTypedData]: SignTypedDataRequest
-<<<<<<< HEAD
-  [DappRequestType.LuxOpenSidebar]: LuxOpenSidebarRequest
-=======
   [DappRequestType.UniswapOpenSidebar]: UniswapOpenSidebarRequest
->>>>>>> upstream/main
   [DappRequestType.SendCalls]: SendCallsRequest
   [DappRequestType.GetCallsStatus]: GetCallsStatusRequest
   [DappRequestType.GetCapabilities]: GetCapabilitiesRequest
@@ -208,13 +192,8 @@ const contentScriptToBackgroundMessageParsers: MessageParsers<
   [DappRequestType.SignMessage]: (message): SignMessageRequest => SignMessageRequestSchema.parse(message),
   [DappRequestType.SignTransaction]: (message): SignTransactionRequest => SignTransactionRequestSchema.parse(message),
   [DappRequestType.SignTypedData]: (message): SignTypedDataRequest => SignTypedDataRequestSchema.parse(message),
-<<<<<<< HEAD
-  [DappRequestType.LuxOpenSidebar]: (message): LuxOpenSidebarRequest =>
-    LuxOpenSidebarRequestSchema.parse(message),
-=======
   [DappRequestType.UniswapOpenSidebar]: (message): UniswapOpenSidebarRequest =>
     UniswapOpenSidebarRequestSchema.parse(message),
->>>>>>> upstream/main
   [DappRequestType.SendCalls]: (message): SendCallsRequest => SendCallsRequestSchema.parse(message),
   [DappRequestType.GetCallsStatus]: (message): GetCallsStatusRequest => GetCallsStatusRequestSchema.parse(message),
   [DappRequestType.GetCapabilities]: (message): GetCapabilitiesRequest => GetCapabilitiesRequestSchema.parse(message),
@@ -243,11 +222,7 @@ type DappResponseMessageSchemas = {
   [DappResponseType.SignMessageResponse]: SignMessageResponse
   [DappResponseType.SignTransactionResponse]: SignTransactionResponse
   [DappResponseType.SignTypedDataResponse]: SignTypedDataResponse
-<<<<<<< HEAD
-  [DappResponseType.LuxOpenSidebarResponse]: LuxOpenSidebarResponse
-=======
   [DappResponseType.UniswapOpenSidebarResponse]: UniswapOpenSidebarResponse
->>>>>>> upstream/main
   [DappResponseType.SendCallsResponse]: SendCallsResponse
   [DappResponseType.GetCallsStatusResponse]: GetCallsStatusResponse
   [DappResponseType.GetCapabilitiesResponse]: GetCapabilitiesResponse
@@ -270,13 +245,8 @@ const dappResponseMessageParsers: MessageParsers<DappResponseType, DappResponseM
     SignTransactionResponseSchema.parse(message),
   [DappResponseType.SignTypedDataResponse]: (message): SignTypedDataResponse =>
     SignTypedDataResponseSchema.parse(message),
-<<<<<<< HEAD
-  [DappResponseType.LuxOpenSidebarResponse]: (message): LuxOpenSidebarResponse =>
-    LuxOpenSidebarResponseSchema.parse(message),
-=======
   [DappResponseType.UniswapOpenSidebarResponse]: (message): UniswapOpenSidebarResponse =>
     UniswapOpenSidebarResponseSchema.parse(message),
->>>>>>> upstream/main
   [DappResponseType.SendCallsResponse]: (message): SendCallsResponse => SendCallsResponseSchema.parse(message),
   [DappResponseType.GetCallsStatusResponse]: (message): GetCallsStatusResponse =>
     GetCallsStatusResponseSchema.parse(message),

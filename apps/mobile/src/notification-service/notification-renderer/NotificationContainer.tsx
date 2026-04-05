@@ -1,12 +1,6 @@
-<<<<<<< HEAD
-import { ContentStyle, type InAppNotification } from '@l.x/api'
-import type { NotificationClickTarget } from '@l.x/notifications'
-import { InlineBannerNotification } from '@l.x/notifications/src/notification-renderer/components/InlineBannerNotification'
-=======
 import { ContentStyle, type InAppNotification } from '@universe/api'
 import type { NotificationClickTarget } from '@universe/notifications'
 import { InlineBannerNotification } from '@universe/notifications/src/notification-renderer/components/InlineBannerNotification'
->>>>>>> upstream/main
 import { Fragment, memo, useEffect, useMemo } from 'react'
 import { isOfflineBannerNotification } from 'src/notification-service/data-sources/reactive/offlineCondition'
 import {
@@ -22,18 +16,6 @@ import { BackupReminderModalRenderer } from 'src/notification-service/renderers/
 import { OfflineBannerRenderer } from 'src/notification-service/renderers/OfflineBannerRenderer'
 import { isBackupReminderNotification } from 'src/notification-service/triggers/backupReminderTrigger'
 import { isLocalTriggerNotification } from 'src/notification-service/triggers/createMobileLocalTriggerDataSource'
-<<<<<<< HEAD
-import { Flex } from '@l.x/ui/src'
-import { ModalNotification } from '@l.x/lx/src/components/notifications/ModalNotification'
-import { getLogger } from '@l.x/utils/src/logger/logger'
-import { useEvent } from '@l.x/utils/src/react/hooks'
-import { type IntroCardProps } from '@luxfi/wallet/src/components/introCards/IntroCard'
-import { IntroCardStack } from '@luxfi/wallet/src/components/introCards/IntroCardStack'
-import {
-  convertNotificationToIntroCard,
-  shouldRenderAsIntroCard,
-} from '@luxfi/wallet/src/features/notifications/convertNotificationToIntroCard'
-=======
 import { Flex } from 'ui/src'
 import { ModalNotification } from 'uniswap/src/components/notifications/ModalNotification'
 import { getLogger } from 'utilities/src/logger/logger'
@@ -44,7 +26,6 @@ import {
   convertNotificationToIntroCard,
   shouldRenderAsIntroCard,
 } from 'wallet/src/features/notifications/convertNotificationToIntroCard'
->>>>>>> upstream/main
 import { type StoreApi, type UseBoundStore } from 'zustand'
 
 /**

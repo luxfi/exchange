@@ -1,12 +1,7 @@
 import React, { useMemo } from 'react'
 import { Edge, NativeSafeAreaViewProps } from 'react-native-safe-area-context'
-<<<<<<< HEAD
-import { Flex, FlexProps } from '@l.x/ui/src'
-import { useAppInsets } from '@l.x/lx/src/hooks/useAppInsets'
-=======
 import { Flex, FlexProps } from 'ui/src'
 import { useAppInsets } from 'uniswap/src/hooks/useAppInsets'
->>>>>>> upstream/main
 
 // Used to determine amount of top padding for short screens
 export const SHORT_SCREEN_HEADER_HEIGHT_RATIO = 0.88

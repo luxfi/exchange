@@ -1,10 +1,5 @@
-<<<<<<< HEAD
-import { useSporeColors } from '@l.x/ui/src'
-import { opacify } from '@l.x/ui/src/theme'
-=======
 import { useSporeColors } from 'ui/src'
 import { opacify } from 'ui/src/theme'
->>>>>>> upstream/main
 import { type BidDisplayState } from '~/components/Toucan/Auction/utils/bidDetails'
 
 export function useBidStatusColors() {

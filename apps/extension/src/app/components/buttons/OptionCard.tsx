@@ -1,10 +1,5 @@
-<<<<<<< HEAD
-import { Circle, Flex, GeneratedIcon, Text, TouchableArea } from '@l.x/ui/src'
-import { iconSizes } from '@l.x/ui/src/theme'
-=======
 import { Circle, Flex, GeneratedIcon, Text, TouchableArea } from 'ui/src'
 import { iconSizes } from 'ui/src/theme'
->>>>>>> upstream/main
 
 export function OptionCard({
   Icon,

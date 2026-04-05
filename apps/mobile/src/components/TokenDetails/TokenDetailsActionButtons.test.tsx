@@ -5,19 +5,11 @@ import {
   TokenDetailsSwapButtons,
 } from 'src/components/TokenDetails/TokenDetailsActionButtons'
 import { render } from 'src/test/test-utils'
-<<<<<<< HEAD
-import { ON_PRESS_EVENT_PAYLOAD } from '@l.x/lx/src/test/fixtures'
-import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
-
-jest.mock('@l.x/gating', () => ({
-  ...jest.requireActual('@l.x/gating'),
-=======
 import { ON_PRESS_EVENT_PAYLOAD } from 'uniswap/src/test/fixtures'
 import { TestID } from 'uniswap/src/test/fixtures/testIDs'
 
 jest.mock('@universe/gating', () => ({
   ...jest.requireActual('@universe/gating'),
->>>>>>> upstream/main
   useFeatureFlag: jest.fn().mockReturnValue(false),
   useFeatureFlagWithLoading: jest.fn().mockReturnValue({ value: false, isLoading: false }),
   useFeatureFlagWithExposureLoggingDisabled: jest.fn().mockReturnValue(false),

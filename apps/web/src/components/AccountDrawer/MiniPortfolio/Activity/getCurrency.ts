@@ -1,13 +1,3 @@
-<<<<<<< HEAD
-import { Currency } from '@luxamm/sdk-core'
-import { GraphQLApi } from '@l.x/api'
-import { COMMON_BASES } from '@l.x/lx/src/constants/routing'
-import { nativeOnChain } from '@l.x/lx/src/constants/tokens'
-import { toGraphQLChain } from '@l.x/lx/src/features/chains/utils'
-import { CurrencyId } from '@l.x/lx/src/types/currency'
-import { areAddressesEqual } from '@l.x/lx/src/utils/addresses'
-import { currencyIdToAddress, currencyIdToChain, isNativeCurrencyAddress } from '@l.x/lx/src/utils/currencyId'
-=======
 import { Currency } from '@uniswap/sdk-core'
 import { GraphQLApi } from '@universe/api'
 import { COMMON_BASES } from 'uniswap/src/constants/routing'
@@ -16,7 +6,6 @@ import { toGraphQLChain } from 'uniswap/src/features/chains/utils'
 import { CurrencyId } from 'uniswap/src/types/currency'
 import { areAddressesEqual } from 'uniswap/src/utils/addresses'
 import { currencyIdToAddress, currencyIdToChain, isNativeCurrencyAddress } from 'uniswap/src/utils/currencyId'
->>>>>>> upstream/main
 import { apolloClient } from '~/appGraphql/data/apollo/client'
 import { gqlTokenToCurrencyInfo } from '~/appGraphql/data/types'
 

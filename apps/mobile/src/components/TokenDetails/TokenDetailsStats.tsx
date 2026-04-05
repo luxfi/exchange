@@ -1,30 +1,3 @@
-<<<<<<< HEAD
-import { GraphQLApi } from '@luxfi/api'
-import React, { memo, useState } from 'react'
-import { useTranslation } from 'react-i18next'
-import Animated, { FadeIn, FadeOut } from 'react-native-reanimated'
-import { useTokenDetailsContext } from 'src/components/TokenDetails/TokenDetailsContext'
-import { LongText } from 'src/components/text/LongText'
-import { Flex, Text, TouchableArea, useSporeColors } from '@l.x/ui/src'
-import { ChartBar, ChartPie, ChartPyramid, Language as LanguageIcon, TrendDown, TrendUp } from '@l.x/ui/src/components/icons'
-import { DEP_accentColors, validColor } from '@l.x/ui/src/theme'
-import {
-  useTokenBasicInfoPartsFragment,
-  useTokenBasicProjectPartsFragment,
-} from '@l.x/lx/src/data/graphql/lux-data-api/fragments'
-import { useTokenMarketStats } from '@l.x/lx/src/features/dataApi/tokenDetails/useTokenDetailsData'
-import { currencyIdToContractInput } from '@l.x/lx/src/features/dataApi/utils/currencyIdToContractInput'
-import { Language } from '@l.x/lx/src/features/language/constants'
-import { useCurrentLanguage, useCurrentLanguageInfo } from '@l.x/lx/src/features/language/hooks'
-import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
-import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
-import { NumberType } from '@l.x/utils/src/format/types'
-
-const StatsRow = memo(function _StatsRow({
-  label,
-  children,
-  statsIcon,
-=======
 import { GraphQLApi } from '@universe/api'
 import React, { memo, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
@@ -56,32 +29,21 @@ const StatsRow = memo(function StatsRowInner({
   children,
   statsIcon,
   labelAfter,
->>>>>>> upstream/main
 }: {
   label: string
   children: JSX.Element
   statsIcon: JSX.Element
-<<<<<<< HEAD
-=======
   labelAfter?: JSX.Element
->>>>>>> upstream/main
 }): JSX.Element {
   return (
     <Flex row justifyContent="space-between" pl="$spacing2">
       <Flex row alignItems="center" flex={1} gap="$spacing8" justifyContent="flex-start">
         <Flex>{statsIcon}</Flex>
-<<<<<<< HEAD
-        <Flex flex={1}>
-          <Text color="$neutral1" variant="body2">
-            {label}
-          </Text>
-=======
         <Flex row flex={1} alignItems="center" gap="$spacing4">
           <Text color="$neutral1" variant="body2">
             {label}
           </Text>
           {labelAfter}
->>>>>>> upstream/main
         </Flex>
       </Flex>
       <Flex>{children}</Flex>
@@ -89,28 +51,18 @@ const StatsRow = memo(function StatsRowInner({
   )
 })
 
-<<<<<<< HEAD
-const TokenDetailsMarketData = memo(function _TokenDetailsMarketData(): JSX.Element {
-=======
 const TokenDetailsMarketData = memo(function TokenDetailsMarketDataInner(): JSX.Element {
->>>>>>> upstream/main
   const { t } = useTranslation()
   const colors = useSporeColors()
   const defaultTokenColor = colors.neutral3.get()
   const { convertFiatAmountFormatted } = useLocalizationContext()
 
-<<<<<<< HEAD
-  const { currencyId, tokenColor } = useTokenDetailsContext()
-=======
   const { currencyId, chainId, tokenColor } = useTokenDetailsContext()
   const [showVolumeInfo, setShowVolumeInfo] = useState(false)
->>>>>>> upstream/main
 
   // Use shared hook for unified data fetching (CoinGecko-first strategy)
   const { marketCap, fdv, volume, high52w, low52w } = useTokenMarketStats(currencyId)
 
-<<<<<<< HEAD
-=======
   const hasLimitedVolumeData = chainId === UniverseChainId.Tempo
 
   const maybeLimitedVolumeDataInfoIcon = useMemo(() => {
@@ -121,7 +73,6 @@ const TokenDetailsMarketData = memo(function TokenDetailsMarketDataInner(): JSX.
     ) : undefined
   }, [hasLimitedVolumeData])
 
->>>>>>> upstream/main
   return (
     <Flex gap="$spacing8">
       <StatsRow
@@ -145,18 +96,13 @@ const TokenDetailsMarketData = memo(function TokenDetailsMarketDataInner(): JSX.
       <StatsRow
         label={t('token.stats.volume')}
         statsIcon={<ChartBar color={tokenColor ?? defaultTokenColor} size="$icon.16" />}
-<<<<<<< HEAD
-=======
         labelAfter={maybeLimitedVolumeDataInfoIcon}
->>>>>>> upstream/main
       >
         <Text textAlign="right" variant="body2">
           {convertFiatAmountFormatted(volume, NumberType.FiatTokenStats)}
         </Text>
       </StatsRow>
 
-<<<<<<< HEAD
-=======
       {hasLimitedVolumeData && (
         <WarningModal
           isOpen={showVolumeInfo}
@@ -175,7 +121,6 @@ const TokenDetailsMarketData = memo(function TokenDetailsMarketDataInner(): JSX.
         />
       )}
 
->>>>>>> upstream/main
       <StatsRow
         label={t('token.stats.priceHighYear')}
         statsIcon={<TrendUp color={tokenColor ?? defaultTokenColor} size="$icon.16" />}
@@ -197,12 +142,8 @@ const TokenDetailsMarketData = memo(function TokenDetailsMarketDataInner(): JSX.
   )
 })
 
-<<<<<<< HEAD
-export const TokenDetailsStats = memo(function _TokenDetailsStats(): JSX.Element {
-=======
 // oxlint-disable-next-line complexity -- biome-parity: oxlint is stricter here
 export const TokenDetailsStats = memo(function TokenDetailsStatsInner(): JSX.Element {
->>>>>>> upstream/main
   const { t } = useTranslation()
   const colors = useSporeColors()
   const currentLanguage = useCurrentLanguage()

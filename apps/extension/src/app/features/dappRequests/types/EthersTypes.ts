@@ -6,11 +6,7 @@ import { z } from 'zod'
  * Ethers types copied from `ethers` package
  */
 
-<<<<<<< HEAD
-// eslint-disable-next-line no-restricted-syntax
-=======
 // oxlint-disable-next-line no-restricted-syntax
->>>>>>> upstream/main
 export const BigNumberSchema = z.any() // TODO (EXT-831): Add schema once stable
 
 const AccessListEntrySchema = z.object({
@@ -52,11 +48,7 @@ export const EthersTransactionRequestSchema = z.object({
   accessList: AccessListishSchema.optional(),
   maxPriorityFeePerGas: BigNumberishSchema.optional(),
   maxFeePerGas: BigNumberishSchema.optional(),
-<<<<<<< HEAD
-  // eslint-disable-next-line no-restricted-syntax
-=======
   // oxlint-disable-next-line no-restricted-syntax
->>>>>>> upstream/main
   customData: z.record(z.string(), z.any()).optional(),
   ccipReadEnabled: z.boolean().optional(),
 })

@@ -1,14 +1,3 @@
-<<<<<<< HEAD
-import { ProtocolVersion } from '@luxamm/client-data-api/dist/data/v1/poolTypes_pb'
-import { memo } from 'react'
-import { useTranslation } from 'react-i18next'
-import { Flex, Text } from '@l.x/ui/src'
-import { iconSizes } from '@l.x/ui/src/theme/iconSizes'
-import { SplitLogo } from '@l.x/lx/src/components/CurrencyLogo/SplitLogo'
-import { V2_DEFAULT_FEE_TIER } from '@l.x/lx/src/constants/pools'
-import { useCurrencyInfos } from '@l.x/lx/src/features/tokens/useCurrencyInfo'
-import { currencyId } from '@l.x/lx/src/utils/currencyId'
-=======
 import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
 import { memo } from 'react'
 import { useTranslation } from 'react-i18next'
@@ -18,7 +7,6 @@ import { SplitLogo } from 'uniswap/src/components/CurrencyLogo/SplitLogo'
 import { V2_DEFAULT_FEE_TIER } from 'uniswap/src/constants/pools'
 import { useCurrencyInfos } from 'uniswap/src/features/tokens/useCurrencyInfo'
 import { currencyId } from 'uniswap/src/utils/currencyId'
->>>>>>> upstream/main
 import { PositionInfo } from '~/components/Liquidity/types'
 import { BIPS_BASE } from '~/constants/misc'
 

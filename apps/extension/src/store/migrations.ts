@@ -1,10 +1,5 @@
-<<<<<<< HEAD
-/* biome-ignore-all lint/suspicious/noExplicitAny: Migration functions handle arbitrary state shapes from different versions */
-/* eslint-disable @typescript-eslint/explicit-function-return-type */
-=======
 /* oxlint-disable typescript/no-explicit-any -- Migration functions handle arbitrary state shapes from different versions */
 /* oxlint-disable typescript/explicit-function-return-type */
->>>>>>> upstream/main
 
 import {
   migratePendingDappRequestsToRecord,
@@ -19,11 +14,7 @@ import {
   migrateSearchHistory,
   removeThaiBahtFromFiatCurrency,
   unchecksumDismissedTokenWarningKeys,
-<<<<<<< HEAD
-} from '@l.x/lx/src/state/luxMigrations'
-=======
 } from 'uniswap/src/state/uniswapMigrations'
->>>>>>> upstream/main
 import {
   activatePendingAccounts,
   addBatchedTransactions,
@@ -47,11 +38,7 @@ import {
   removeUniconV2BehaviorState,
   removeWalletIsUnlockedState,
   updateExploreOrderByType,
-<<<<<<< HEAD
-} from '@luxfi/wallet/src/state/walletMigrations'
-=======
 } from 'wallet/src/state/walletMigrations'
->>>>>>> upstream/main
 
 export const migrations = {
   0: removeWalletIsUnlockedState,

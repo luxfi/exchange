@@ -1,18 +1,3 @@
-<<<<<<< HEAD
-/* eslint-disable max-params */
-
-import type { Currency } from '@luxamm/sdk-core'
-import { GraphQLApi } from '@l.x/api'
-import { Flex, styled, Text } from '@l.x/ui/src'
-import { Arrow } from '@l.x/ui/src/components/arrow/Arrow'
-import { iconSizes } from '@l.x/ui/src/theme'
-import { NetworkLogo } from '@l.x/lx/src/components/CurrencyLogo/NetworkLogo'
-import {
-  CrossChainCurrencyRow,
-  CrossChainCurrencyRowProps,
-} from '@l.x/lx/src/features/transactions/swap/components/CrossChainCurrencyRow'
-import i18n from '@l.x/lx/src/i18n'
-=======
 /* oxlint-disable max-params */
 
 import type { Currency } from '@uniswap/sdk-core'
@@ -26,7 +11,6 @@ import {
   CrossChainCurrencyRowProps,
 } from 'uniswap/src/features/transactions/swap/components/CrossChainCurrencyRow'
 import i18n from 'uniswap/src/i18n'
->>>>>>> upstream/main
 import { supportedChainIdFromGQLChain } from '~/appGraphql/data/chainUtils'
 
 function getChainIdFromGqlTokenOrCurrency(token?: GraphQLApi.TokenAssetPartsFragment | Currency): number | null {

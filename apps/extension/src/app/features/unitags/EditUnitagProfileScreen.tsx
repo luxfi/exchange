@@ -6,20 +6,6 @@ import { UnitagClaimRoutes } from 'src/app/navigation/constants'
 import { navigate } from 'src/app/navigation/state'
 import { backgroundToSidePanelMessageChannel } from 'src/background/messagePassing/messageChannels'
 import { BackgroundToSidePanelRequestType } from 'src/background/messagePassing/types/requests'
-<<<<<<< HEAD
-import { AnimatePresence, Flex } from '@l.x/ui/src'
-import { Edit, Ellipsis, Trash } from '@l.x/ui/src/components/icons'
-import { ContextMenu, MenuOptionItem } from '@l.x/lx/src/components/menus/ContextMenu'
-import { ContextMenuTriggerMode } from '@l.x/lx/src/components/menus/types'
-import { useUnitagsAddressQuery } from '@l.x/lx/src/data/apiClients/unitagsApi/useUnitagsAddressQuery'
-import Trace from '@l.x/lx/src/features/telemetry/Trace'
-import { UnitagScreens } from '@l.x/lx/src/types/screens/mobile'
-import { useBooleanState } from '@l.x/utils/src/react/useBooleanState'
-import { ChangeUnitagModal } from '@luxfi/wallet/src/features/unitags/ChangeUnitagModal'
-import { DeleteUnitagModal } from '@luxfi/wallet/src/features/unitags/DeleteUnitagModal'
-import { EditUnitagProfileContent } from '@luxfi/wallet/src/features/unitags/EditUnitagProfileContent'
-import { useAccountAddressFromUrlWithThrow } from '@luxfi/wallet/src/features/wallet/hooks'
-=======
 import { AnimatePresence, Flex } from 'ui/src'
 import { Edit, Ellipsis, Trash } from 'ui/src/components/icons'
 import { ContextMenu, MenuOptionItem } from 'uniswap/src/components/menus/ContextMenu'
@@ -32,7 +18,6 @@ import { ChangeUnitagModal } from 'wallet/src/features/unitags/ChangeUnitagModal
 import { DeleteUnitagModal } from 'wallet/src/features/unitags/DeleteUnitagModal'
 import { EditUnitagProfileContent } from 'wallet/src/features/unitags/EditUnitagProfileContent'
 import { useAccountAddressFromUrlWithThrow } from 'wallet/src/features/wallet/hooks'
->>>>>>> upstream/main
 
 export function EditUnitagProfileScreen({ enableBack = false }: { enableBack?: boolean }): JSX.Element {
   const { t } = useTranslation()

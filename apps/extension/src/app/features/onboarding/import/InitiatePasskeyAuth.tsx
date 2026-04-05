@@ -10,35 +10,16 @@ import { useOnboardingSteps } from 'src/app/features/onboarding/OnboardingStepsC
 import { OnboardingRoutes, TopLevelRoutes } from 'src/app/navigation/constants'
 import { navigate } from 'src/app/navigation/state'
 import { bringWindowToFront, closeWindow, openPopupWindow } from 'src/app/navigation/utils'
-<<<<<<< HEAD
-import { Button, Flex, IconButton, SpinningLoader, Text } from '@l.x/ui/src'
-import { X } from '@l.x/ui/src/components/icons'
-import { LuxLogo } from '@l.x/ui/src/components/icons/LXLogo'
-import { EmbeddedWalletApiClient } from '@l.x/lx/src/data/rest/embeddedWallet/requests'
-import { parseMessage } from '@l.x/lx/src/extension/messagePassing/platform'
-=======
 import { Button, Flex, IconButton, SpinningLoader, Text } from 'ui/src'
 import { X } from 'ui/src/components/icons'
 import { UniswapLogo } from 'ui/src/components/icons/UniswapLogo'
 import { EmbeddedWalletApiClient } from 'uniswap/src/data/rest/embeddedWallet/requests'
 import { parseMessage } from 'uniswap/src/extension/messagePassing/platform'
->>>>>>> upstream/main
 import {
   ExtensionToInterfaceRequestType,
   PasskeyCredentialRetrievedSchema,
   PasskeyRequest,
   PasskeySignInFlowOpenedSchema,
-<<<<<<< HEAD
-} from '@l.x/lx/src/extension/messagePassing/types/requests'
-import { EXTENSION_PASSKEY_AUTH_PATH } from '@l.x/lx/src/features/passkey/constants'
-import { getPrivyEnums } from '@l.x/lx/src/features/passkey/embeddedWallet'
-import { useEmbeddedWalletBaseUrl } from '@l.x/lx/src/features/passkey/hooks/useEmbeddedWalletBaseUrl'
-import Trace from '@l.x/lx/src/features/telemetry/Trace'
-import { ExtensionOnboardingFlow, ExtensionOnboardingScreens } from '@l.x/lx/src/types/screens/extension'
-import { logger } from '@l.x/utils/src/logger/logger'
-import { useEvent } from '@l.x/utils/src/react/hooks'
-import { useInterval } from '@l.x/utils/src/time/timing'
-=======
 } from 'uniswap/src/extension/messagePassing/types/requests'
 import { EXTENSION_PASSKEY_AUTH_PATH } from 'uniswap/src/features/passkey/constants'
 import { getPrivyEnums } from 'uniswap/src/features/passkey/embeddedWallet'
@@ -48,7 +29,6 @@ import { ExtensionOnboardingFlow, ExtensionOnboardingScreens } from 'uniswap/src
 import { logger } from 'utilities/src/logger/logger'
 import { useEvent } from 'utilities/src/react/hooks'
 import { useInterval } from 'utilities/src/time/timing'
->>>>>>> upstream/main
 import { v4 as uuid } from 'uuid'
 
 /**************************************************************************************************************
@@ -134,11 +114,7 @@ function InitiatePasskeyAuthContent(): JSX.Element {
 
   const popupWindow = useRef<chrome.windows.Window | undefined>(undefined)
 
-<<<<<<< HEAD
-  // biome-ignore lint/correctness/useExhaustiveDependencies: Only run once on mount to initiate auth flow, all handlers are created fresh each render
-=======
   // oxlint-disable-next-line react/exhaustive-deps -- Only run once on mount to initiate auth flow, all handlers are created fresh each render
->>>>>>> upstream/main
   useEffect(() => {
     let handleMessagePasskeySignInFlowOpened: Parameters<typeof chrome.runtime.onMessageExternal.addListener>[0]
     let handleMessagePasskeyCredentialRetrieved: Parameters<typeof chrome.runtime.onMessageExternal.addListener>[0]
@@ -183,17 +159,6 @@ function InitiatePasskeyAuthContent(): JSX.Element {
 
         chrome.runtime.onMessageExternal.addListener(handleMessagePasskeyCredentialRetrieved)
 
-<<<<<<< HEAD
-=======
-        // oxlint-disable-next-line max-params
->>>>>>> upstream/main
-        handleMessagePasskeySignInFlowOpened = async (
-          message: unknown,
-          _sender: unknown,
-          sendResponse: (response: unknown) => void,
-<<<<<<< HEAD
-          // eslint-disable-next-line max-params
-=======
 >>>>>>> upstream/main
         ) => {
           try {
@@ -253,7 +218,6 @@ function InitiatePasskeyAuthContent(): JSX.Element {
 <<<<<<< HEAD
 =======
     // oxlint-disable-next-line react/exhaustive-deps -- biome-parity: oxlint is stricter here
->>>>>>> upstream/main
   }, [])
 
   const [showBringWindowToFrontButton, setShowBringWindowToFrontButton] = useState(false)
@@ -314,11 +278,7 @@ function InitiatePasskeyAuthContent(): JSX.Element {
       </Flex>
 
       <Flex gap="$spacing32" centered>
-<<<<<<< HEAD
-        <LuxLogo size={80} />
-=======
         <UniswapLogo size={80} />
->>>>>>> upstream/main
 
         <Text>{t('onboarding.importPasskey.continueInSecureWindow')}</Text>
 

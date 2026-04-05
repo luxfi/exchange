@@ -1,16 +1,3 @@
-<<<<<<< HEAD
-import { GraphQLApi } from '@luxfi/api'
-import React, { useMemo } from 'react'
-import { StyleSheet } from 'react-native'
-import { FlatList } from 'react-native-gesture-handler'
-import { Flex, Text } from '@l.x/ui/src'
-import { spacing } from '@l.x/ui/src/theme'
-import { AddressDisplay } from '@l.x/lx/src/components/accounts/AddressDisplay'
-import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
-import { NumberType } from '@l.x/utils/src/format/types'
-import { useAccountListData } from '@luxfi/wallet/src/features/accounts/useAccountListData'
-import { Account } from '@luxfi/wallet/src/features/wallet/accounts/types'
-=======
 import { GraphQLApi } from '@universe/api'
 import React, { useMemo } from 'react'
 import { StyleSheet } from 'react-native'
@@ -22,7 +9,6 @@ import { useLocalizationContext } from 'uniswap/src/features/language/Localizati
 import { NumberType } from 'utilities/src/format/types'
 import { useAccountListData } from 'wallet/src/features/accounts/useAccountListData'
 import { Account } from 'wallet/src/features/wallet/accounts/types'
->>>>>>> upstream/main
 
 interface SortedAddressData {
   address: string
@@ -31,11 +17,7 @@ interface SortedAddressData {
 
 type Portfolio = NonNullable<NonNullable<NonNullable<GraphQLApi.AccountListQuery['portfolios']>[0]>>
 
-<<<<<<< HEAD
-function _AssociatedAccountsList({ accounts }: { accounts: Account[] }): JSX.Element {
-=======
 function AssociatedAccountsListInner({ accounts }: { accounts: Account[] }): JSX.Element {
->>>>>>> upstream/main
   const addresses = useMemo(() => accounts.map((account) => account.address), [accounts])
   const { data, loading } = useAccountListData({
     addresses,
@@ -83,11 +65,7 @@ function AssociatedAccountsListInner({ accounts }: { accounts: Account[] }): JSX
   )
 }
 
-<<<<<<< HEAD
-export const AssociatedAccountsList = React.memo(_AssociatedAccountsList)
-=======
 export const AssociatedAccountsList = React.memo(AssociatedAccountsListInner)
->>>>>>> upstream/main
 
 function AssociatedAccountRow({
   index,

@@ -1,11 +1,6 @@
 import { Link } from 'react-router'
-<<<<<<< HEAD
-import { ColorTokens, Flex, GeneratedIcon, Text, TouchableArea, useSporeColors } from '@l.x/ui/src'
-import { RotatableChevron } from '@l.x/ui/src/components/icons'
-=======
 import { ColorTokens, Flex, GeneratedIcon, Text, TouchableArea, useSporeColors } from 'ui/src'
 import { RotatableChevron } from 'ui/src/components/icons'
->>>>>>> upstream/main
 
 export function SettingsItem({
   Icon,

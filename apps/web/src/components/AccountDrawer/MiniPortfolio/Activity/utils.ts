@@ -1,16 +1,4 @@
 import { BigNumber } from '@ethersproject/bignumber'
-<<<<<<< HEAD
-import { GraphQLApi, TradingApi } from '@l.x/api'
-import { getYear, isSameDay, isSameMonth, isSameWeek, isSameYear } from 'date-fns'
-import { parseUnits } from 'ethers/lib/utils'
-import { getNativeAddress } from '@l.x/lx/src/constants/addresses'
-import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
-import { TransactionStatus } from '@l.x/lx/src/features/transactions/types/transactionDetails'
-import i18n from '@l.x/lx/src/i18n'
-import { logger } from '@l.x/utils/src/logger/logger'
-import { ONE_SECOND_MS } from '@l.x/utils/src/time/time'
-import { DEFAULT_ERC20_DECIMALS } from '@l.x/utils/src/tokens/constants'
-=======
 import { GraphQLApi, TradingApi } from '@universe/api'
 import { getYear, isSameDay, isSameMonth, isSameWeek, isSameYear } from 'date-fns'
 import { parseUnits } from 'ethers/lib/utils'
@@ -21,7 +9,6 @@ import i18n from 'uniswap/src/i18n'
 import { logger } from 'utilities/src/logger/logger'
 import { ONE_SECOND_MS } from 'utilities/src/time/time'
 import { DEFAULT_ERC20_DECIMALS } from 'utilities/src/tokens/constants'
->>>>>>> upstream/main
 import { Activity, ActivityMap } from '~/components/AccountDrawer/MiniPortfolio/Activity/types'
 
 interface ActivityGroup {
@@ -81,11 +68,7 @@ export const createGroups = (activities: Array<Activity> = [], hideSpam = false)
     } else {
       const year = getYear(addedTime)
 
-<<<<<<< HEAD
-      // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
-=======
       // oxlint-disable-next-line typescript/no-unnecessary-condition
->>>>>>> upstream/main
       if (!yearMap[year]) {
         yearMap[year] = [activity]
       } else {
@@ -119,15 +102,9 @@ export function getActivityNonce(activity: Activity): BigNumber | undefined {
   if (
     // sometime the nonce is being sent in as null value
     // when creating a limit order (should be undefined or BigNumberish)
-<<<<<<< HEAD
-    // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
-    activity.options?.request?.nonce !== undefined &&
-    // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
-=======
     // oxlint-disable-next-line typescript/no-unnecessary-condition
     activity.options?.request?.nonce !== undefined &&
     // oxlint-disable-next-line typescript/no-unnecessary-condition
->>>>>>> upstream/main
     activity.options.request.nonce !== null
   ) {
     return BigNumber.from(activity.options.request.nonce)
@@ -159,11 +136,7 @@ export function haveSameNonce(activity1: Activity, activity2: Activity): boolean
  * Note: All activity types set a hash value:
  * - Regular transactions: use their transaction hash
  * - Fiat on/off ramps: set hash = id in the parser
-<<<<<<< HEAD
- * - DEX orders: set hash = orderHash
-=======
  * - UniswapX orders: set hash = orderHash
->>>>>>> upstream/main
  *
  * @param activities Array of activities to map
  * @returns ActivityMap keyed by transaction hash
@@ -174,11 +147,7 @@ export function createActivityMapByHash(activities: (Activity | undefined)[]): A
       return acc
     }
 
-<<<<<<< HEAD
-    // Unfilled DEX orders will not have a hash, use the orderHash instead
-=======
     // Unfilled UniswapX orders will not have a hash, use the orderHash instead
->>>>>>> upstream/main
     const activityHash = activity.hash ?? activity.offchainOrderDetails?.orderHash
 
     if (!activityHash) {

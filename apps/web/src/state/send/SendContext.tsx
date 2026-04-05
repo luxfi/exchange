@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import { Currency } from '@luxamm/sdk-core'
-=======
 import { Currency } from '@uniswap/sdk-core'
->>>>>>> upstream/main
 import {
   createContext,
   Dispatch,
@@ -13,11 +9,7 @@ import {
   useMemo,
   useState,
 } from 'react'
-<<<<<<< HEAD
-import { useEnabledChains } from '@l.x/lx/src/features/chains/hooks/useEnabledChains'
-=======
 import { useEnabledChains } from 'uniswap/src/features/chains/hooks/useEnabledChains'
->>>>>>> upstream/main
 import { RecipientData, SendInfo, useDerivedSendInfo } from '~/state/send/hooks'
 import { useSwapAndLimitContext } from '~/state/swap/useSwapContext'
 

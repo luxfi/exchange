@@ -4,15 +4,9 @@ import {
   getWebSocketUrl,
   provideSessionService,
   SharedQueryClient,
-<<<<<<< HEAD
-} from '@l.x/api'
-import { FeatureFlags, getIsSessionServiceEnabled, useFeatureFlag } from '@l.x/gating'
-import type { TokenPriceMessage, TokenSubscriptionParams } from '@l.x/prices'
-=======
 } from '@universe/api'
 import { FeatureFlags, getIsSessionServiceEnabled, useFeatureFlag } from '@universe/gating'
 import type { TokenPriceMessage, TokenSubscriptionParams } from '@universe/prices'
->>>>>>> upstream/main
 import {
   createPriceKey,
   createPriceSubscriptionHandler,
@@ -21,16 +15,6 @@ import {
   parseTokenPriceMessage,
   priceKeys,
   RestPriceBatcher,
-<<<<<<< HEAD
-} from '@l.x/prices'
-import type { WebSocketClient } from '@l.x/websocket'
-import { createWebSocketClient, createZustandConnectionStore } from '@l.x/websocket'
-import type { ReactElement, ReactNode } from 'react'
-import { useState } from 'react'
-import { isDevEnv } from '@l.x/utils/src/environment/env'
-import { logger } from '@l.x/utils/src/logger/logger'
-import { REQUEST_SOURCE } from '@l.x/utils/src/platform/requestSource'
-=======
 } from '@universe/prices'
 import type { WebSocketClient } from '@universe/websocket'
 import { createWebSocketClient, createZustandConnectionStore } from '@universe/websocket'
@@ -39,7 +23,6 @@ import { useState } from 'react'
 import { isDevEnv } from 'utilities/src/environment/env'
 import { logger } from 'utilities/src/logger/logger'
 import { REQUEST_SOURCE } from 'utilities/src/platform/requestSource'
->>>>>>> upstream/main
 import { createRestPriceClient } from '~/state/livePrices/createRestPriceClient'
 
 function createLivePricesClient(): WebSocketClient<TokenSubscriptionParams, TokenPriceMessage['data']> | null {
@@ -47,11 +30,7 @@ function createLivePricesClient(): WebSocketClient<TokenSubscriptionParams, Toke
   const subscriptionApiUrl = getEntryGatewayUrl()
   if (!subscriptionApiUrl) {
     if (isDevEnv()) {
-<<<<<<< HEAD
-      // biome-ignore lint/suspicious/noConsole: Dev-only warning
-=======
       // oxlint-disable-next-line no-console -- Dev-only warning
->>>>>>> upstream/main
       console.warn('[livePrices] subscriptionApiUrl not available, live prices disabled')
     }
     return null

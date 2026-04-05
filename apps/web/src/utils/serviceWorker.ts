@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import { logger } from '@l.x/utils/src/logger/logger'
-=======
 import { logger } from 'utilities/src/logger/logger'
->>>>>>> upstream/main
 
 export function unregister() {
   if ('serviceWorker' in navigator) {

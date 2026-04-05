@@ -1,11 +1,7 @@
 /**
  * Cookie utilities for rewriting Set-Cookie headers from the Entry Gateway proxy.
  *
-<<<<<<< HEAD
- * The backend sets cookies with Domain=.lux.org and __Host-/__Secure- prefixes.
-=======
  * The backend sets cookies with Domain=.uniswap.org and __Host-/__Secure- prefixes.
->>>>>>> upstream/main
  * On Vercel previews (*.vercel.app) or staging domains, the browser silently drops
  * these cookies because the domain doesn't match. This causes session-based flows
  * (InitSession -> RequestChallenge) to fail with "no session id provided".
@@ -36,11 +32,7 @@ export function rewriteProxiedCookie(cookie: string): string {
     }
   }
 
-<<<<<<< HEAD
-  // Remove Domain attribute (e.g., Domain=.lux.org)
-=======
   // Remove Domain attribute (e.g., Domain=.uniswap.org)
->>>>>>> upstream/main
   rewritten = rewritten.replace(/Domain=[^;]+;?\s?/gi, '')
 
   // Handle SameSite attribute — ensure Lax

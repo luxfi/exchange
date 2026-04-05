@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-# Lux Extension
-=======
 # Uniswap Extension
->>>>>>> upstream/main
 
 ## Developer Quickstart
 
@@ -10,31 +6,10 @@
 
 Before running the extension, you need to get the environment variables from 1password in order to get full functionality. Run the command `bun extension env:local:download` to copy them to your root folder.
 
-<<<<<<< HEAD
-=======
-### Build Systems
-
-The extension supports two build systems during the migration from Webpack to WXT:
-
-- **WXT** (new) - Preferred for local development. Opens browser automatically.
-- **Webpack** (legacy) - Still used for production builds during the transition.
-
->>>>>>> upstream/main
-### Running the extension locally
-
-First, install dependencies from the top level of the monorepo:
-
-```bash
-bun install
-```
-
-<<<<<<< HEAD
-=======
 ---
 
 #### Option 1: WXT (recommended)
 
->>>>>>> upstream/main
 ```bash
 bun extension dev
 ```
@@ -68,13 +43,7 @@ export default defineWebExtConfig({
 });
 ```
 
-<<<<<<< HEAD
-##### Running with absolute paths (for Scantastic testing)
-
-Our Scantastic API requires a consistent origin header, so the build must be loaded from an absolute path. Chrome generates a consistent extension ID based on the path it was loaded from.
-=======
 ##### Running WXT with absolute paths (for Scantastic testing)
->>>>>>> upstream/main
 
 ```bash
 # Mac
@@ -84,11 +53,6 @@ bun extension start:absolute
 bun extension start:absolute:windows
 ```
 
-<<<<<<< HEAD
-## Migrations
-
-We use `redux-persist` to persist the Redux state between user sessions. Most of this state is shared between the mobile app and the extension. Please review the [Wallet Migrations README](../../pkgs/wallet/src/state//README.md) for details on how to write migrations when you add or remove anything from the Redux state structure.
-=======
 ---
 
 #### Option 2: Webpack (legacy)
@@ -133,4 +97,3 @@ The backend allows these origins, and the ID is consistently generated based on 
 ## Migrations
 
 We use `redux-persist` to persist the Redux state between user sessions. Most of this state is shared between the mobile app and the extension. Please review the [Wallet Migrations README](../../packages/wallet/src/state//README.md) for details on how to write migrations when you add or remove anything from the Redux state structure.
->>>>>>> upstream/main

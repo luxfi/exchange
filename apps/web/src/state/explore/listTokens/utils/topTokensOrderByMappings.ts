@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import { TokensOrderBy } from '@l.x/api'
-=======
 import { TokensOrderBy } from '@universe/api'
->>>>>>> upstream/main
 import { TimePeriod } from '~/appGraphql/data/util'
 import { TokenSortMethod } from '~/components/Tokens/constants'
 

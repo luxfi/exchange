@@ -1,11 +1,6 @@
 import { BUTTON_PADDING, NUM_GRAPHS } from 'src/components/PriceExplorer/constants'
-<<<<<<< HEAD
-import { useDeviceDimensions } from '@l.x/ui/src/hooks/useDeviceDimensions'
-import { heightBreakpoints } from '@l.x/ui/src/theme'
-=======
 import { useDeviceDimensions } from 'ui/src/hooks/useDeviceDimensions'
 import { heightBreakpoints } from 'ui/src/theme'
->>>>>>> upstream/main
 
 type ChartDimensions = {
   chartHeight: number

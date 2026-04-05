@@ -3,22 +3,6 @@ import { atom, useAtom } from 'jotai'
 import { useAtomValue } from 'jotai/utils'
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
-<<<<<<< HEAD
-import { Button, Flex, Separator, SpinningLoader, Text, TouchableArea } from '@l.x/ui/src'
-import { lxUrls } from 'lx/src/constants/urls'
-import { BackArrow } from '@l.x/ui/src/components/icons/BackArrow'
-import { EnvelopeHeart } from '@l.x/ui/src/components/icons/EnvelopeHeart'
-import { EnvelopeLock } from '@l.x/ui/src/components/icons/EnvelopeLock'
-import { GoogleLogo } from '@l.x/ui/src/components/icons/GoogleLogo'
-import { Passkey } from '@l.x/ui/src/components/icons/Passkey'
-import { Person } from '@l.x/ui/src/components/icons/Person'
-import { useSporeColors } from '@l.x/ui/src/hooks/useSporeColors'
-import { ElementName, ModalName } from 'lx/src/features/telemetry/constants'
-import Trace from 'lx/src/features/telemetry/Trace'
-import { TestID } from 'lx/src/test/fixtures/testIDs'
-import { logger } from '@l.x/utils/src/logger/logger'
-import { useEvent } from '@l.x/utils/src/react/hooks'
-=======
 import { Button, Flex, Separator, SpinningLoader, Text, TouchableArea } from 'ui/src'
 import { BackArrow } from 'ui/src/components/icons/BackArrow'
 import { EnvelopeHeart } from 'ui/src/components/icons/EnvelopeHeart'
@@ -32,7 +16,6 @@ import Trace from 'uniswap/src/features/telemetry/Trace'
 import { TestID } from 'uniswap/src/test/fixtures/testIDs'
 import { logger } from 'utilities/src/logger/logger'
 import { useEvent } from 'utilities/src/react/hooks'
->>>>>>> upstream/main
 import { useAccountDrawer } from '~/components/AccountDrawer/MiniPortfolio/hooks'
 import { AppleLogo } from '~/components/Icons/AppleLogo'
 import { OptionRow } from '~/components/Passkey/BackupLoginComponents'
@@ -110,11 +93,7 @@ export function EmbeddedWalletConnectionsModal(): JSX.Element {
             <TouchableArea variant="unstyled" onPress={handleBackToConnect}>
               <BackArrow size="$icon.20" color="$neutral1" />
             </TouchableArea>
-<<<<<<< HEAD
-            <TouchableArea variant="unstyled" onPress={() => window.open(lxUrls.helpUrl, '_blank')}>
-=======
             <TouchableArea variant="unstyled" onPress={() => window.open('https://support.uniswap.org', '_blank')}>
->>>>>>> upstream/main
               <Flex
                 row
                 gap="$gap4"

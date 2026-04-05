@@ -1,11 +1,5 @@
-<<<<<<< HEAD
-import '@hanzogui/core/reset.css'
-import 'src/app/Global.css'
-
-=======
 import '@tamagui/core/reset.css'
 import 'src/app/Global.css'
->>>>>>> upstream/main
 import { useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import { createHashRouter, RouterProvider } from 'react-router'
@@ -13,16 +7,6 @@ import { ErrorElement } from 'src/app/components/ErrorElement'
 import { BaseAppContainer } from 'src/app/core/BaseAppContainer'
 import { DatadogAppNameTag } from 'src/app/datadog'
 import { initExtensionAnalytics } from 'src/app/utils/analytics'
-<<<<<<< HEAD
-import { Button, Flex, Image, Text } from '@l.x/ui/src'
-import { LUX_LOGO } from '@l.x/ui/src/assets'
-import { GoogleChromeLogo } from '@l.x/ui/src/components/logos/GoogleChromeLogo'
-import { iconSizes, spacing } from '@l.x/ui/src/theme'
-import { ElementName } from '@l.x/lx/src/features/telemetry/constants'
-import Trace from '@l.x/lx/src/features/telemetry/Trace'
-import { ExtensionScreens } from '@l.x/lx/src/types/screens/extension'
-import { useTestnetModeForLoggingAndAnalytics } from '@luxfi/wallet/src/features/testnetMode/hooks/useTestnetModeForLoggingAndAnalytics'
-=======
 import { Button, Flex, Image, Text } from 'ui/src'
 import { UNISWAP_LOGO } from 'ui/src/assets'
 import { GoogleChromeLogo } from 'ui/src/components/logos/GoogleChromeLogo'
@@ -31,7 +15,6 @@ import { ElementName } from 'uniswap/src/features/telemetry/constants'
 import Trace from 'uniswap/src/features/telemetry/Trace'
 import { ExtensionScreens } from 'uniswap/src/types/screens/extension'
 import { useTestnetModeForLoggingAndAnalytics } from 'wallet/src/features/testnetMode/hooks/useTestnetModeForLoggingAndAnalytics'
->>>>>>> upstream/main
 
 const router = createHashRouter([
   {
@@ -58,11 +41,7 @@ function PopupContent(): JSX.Element {
       <Flex fill gap="$spacing16" height="100%" px="$spacing24" py="$spacing24">
         <Flex row>
           <Flex position="relative">
-<<<<<<< HEAD
-            <Image height={iconSizes.icon40} source={LUX_LOGO} width={iconSizes.icon40} />
-=======
             <Image height={iconSizes.icon40} source={UNISWAP_LOGO} width={iconSizes.icon40} />
->>>>>>> upstream/main
             <Flex
               backgroundColor="$surface1"
               borderColor="$surface3"

@@ -1,15 +1,9 @@
 import { PropsWithChildren, useEffect, useRef } from 'react'
 import { useSelector } from 'react-redux'
 import { useIsWalletUnlocked } from 'src/app/hooks/useIsWalletUnlocked'
-<<<<<<< HEAD
-import { useIsChromeWindowFocused } from '@l.x/lx/src/extension/useIsChromeWindowFocused'
-import { selectDeviceAccessTimeoutMinutes } from '@l.x/lx/src/features/settings/selectors'
-import { logger } from '@l.x/utils/src/logger/logger'
-=======
 import { useIsChromeWindowFocused } from 'uniswap/src/extension/useIsChromeWindowFocused'
 import { selectDeviceAccessTimeoutMinutes } from 'uniswap/src/features/settings/selectors'
 import { logger } from 'utilities/src/logger/logger'
->>>>>>> upstream/main
 
 export const AUTO_LOCK_ALARM_NAME = 'AutoLockAlarm'
 

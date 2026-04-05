@@ -1,11 +1,6 @@
 import { PersistState } from 'redux-persist'
-<<<<<<< HEAD
-import { PreV55SearchResult } from '@l.x/lx/src/state/oldTypes'
-import { migrateSearchHistory } from '@l.x/lx/src/state/luxMigrations'
-=======
 import { PreV55SearchResult } from 'uniswap/src/state/oldTypes'
 import { migrateSearchHistory } from 'uniswap/src/state/uniswapMigrations'
->>>>>>> upstream/main
 
 type PersistAppStateV55 = {
   _persist: PersistState

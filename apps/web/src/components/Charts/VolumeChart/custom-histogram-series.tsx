@@ -18,17 +18,11 @@ import {
 } from '~/components/Charts/VolumeChart/renderer'
 import { CustomHistogramData, getCumulativeSum } from '~/components/Charts/VolumeChart/utils'
 
-<<<<<<< HEAD
-export class CustomHistogramSeries<TData extends CustomHistogramData>
-  implements ICustomSeriesPaneView<Time, TData, CustomHistogramSeriesOptions>
-{
-=======
 export class CustomHistogramSeries<TData extends CustomHistogramData> implements ICustomSeriesPaneView<
   Time,
   TData,
   CustomHistogramSeriesOptions
 > {
->>>>>>> upstream/main
   _renderer: CustomHistogramSeriesRenderer<TData>
   _colors: string[]
   _background?: string

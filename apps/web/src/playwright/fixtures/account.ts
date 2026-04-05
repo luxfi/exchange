@@ -1,13 +1,3 @@
-<<<<<<< HEAD
-import { getPortfolio } from '@luxamm/client-data-api/dist/data/v1/api-DataApiService_connectquery'
-import { lxUrls } from '@l.x/lx/src/constants/urls'
-import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
-import { shortenAddress } from '@l.x/utils/src/addresses'
-import { expect, type Page } from '~/playwright/fixtures'
-import { Mocks } from '~/playwright/mocks/mocks'
-
-// eslint-disable-next-line multiline-comment-style
-=======
 import { getPortfolio } from '@uniswap/client-data-api/dist/data/v1/api-DataApiService_connectquery'
 import { uniswapUrls } from 'uniswap/src/constants/urls'
 import { TestID } from 'uniswap/src/test/fixtures/testIDs'
@@ -16,7 +6,6 @@ import { expect, type Page } from '~/playwright/fixtures'
 import { Mocks } from '~/playwright/mocks/mocks'
 
 // oxlint-disable-next-line multiline-comment-style
->>>>>>> upstream/main
 /**
  * Mocks the Unitag API response for a specific address
  * @param page The Playwright page
@@ -34,13 +23,8 @@ export async function mockUnitagResponse({
   unitag: string | null
 }) {
   await page.route(
-<<<<<<< HEAD
-    // eslint-disable-next-line security/detect-non-literal-regexp -- Test fixture using known-safe URL constant
-    new RegExp(`${lxUrls.unitagsApiUrl.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}/address\\?address=${address}`),
-=======
     // oxlint-disable-next-line security/detect-non-literal-regexp -- test fixture using known-safe URL constant
     new RegExp(`${uniswapUrls.unitagsApiUrl.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}/address\\?address=${address}`),
->>>>>>> upstream/main
     async (route) => {
       await route.fulfill({
         body: JSON.stringify({
@@ -57,11 +41,7 @@ export async function mockUnitagResponse({
  * @param page The Playwright page
  * @param mockPath Optional path to mock JSON (default: get_portfolio with tokens)
  */
-<<<<<<< HEAD
-// eslint-disable-next-line import/no-unused-modules
-=======
 // oxlint-disable-next-line import/no-unused-modules
->>>>>>> upstream/main
 export async function mockGetPortfolioResponse({
   page,
   mockPath = Mocks.DataApiService.get_portfolio,

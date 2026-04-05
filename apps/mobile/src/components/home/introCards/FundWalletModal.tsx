@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
-=======
 import { FeatureFlags, useFeatureFlag } from '@universe/gating'
->>>>>>> upstream/main
 import React, { type PropsWithChildren, useCallback, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { FlatList } from 'react-native'
@@ -11,17 +7,6 @@ import { navigate } from 'src/app/navigation/rootNavigation'
 import { useReactNavigationModal } from 'src/components/modals/useReactNavigationModal'
 import { useOpenReceiveModal } from 'src/features/modals/hooks/useOpenReceiveModal'
 import { openModal } from 'src/features/modals/modalSlice'
-<<<<<<< HEAD
-import { Flex, UniversalImage, useShadowPropsShort } from '@l.x/ui/src'
-import { ArrowDownCircle, Buy } from '@l.x/ui/src/components/icons'
-import { UniversalImageResizeMode } from '@l.x/ui/src/components/UniversalImage/types'
-import { borderRadii, iconSizes, spacing } from '@l.x/ui/src/theme'
-import { ActionCard, type ActionCardItem } from '@l.x/lx/src/components/misc/ActionCard'
-import { Modal } from '@l.x/lx/src/components/modals/Modal'
-import { useCexTransferProviders } from '@l.x/lx/src/features/fiatOnRamp/useCexTransferProviders'
-import { ElementName, ModalName } from '@l.x/lx/src/features/telemetry/constants'
-import { usePortfolioEmptyStateBackground } from '@luxfi/wallet/src/components/portfolio/empty'
-=======
 import { Flex, UniversalImage, useShadowPropsShort } from 'ui/src'
 import { ArrowDownCircle, Buy } from 'ui/src/components/icons'
 import { UniversalImageResizeMode } from 'ui/src/components/UniversalImage/types'
@@ -31,7 +16,6 @@ import { Modal } from 'uniswap/src/components/modals/Modal'
 import { useCexTransferProviders } from 'uniswap/src/features/fiatOnRamp/useCexTransferProviders'
 import { ElementName, ModalName } from 'uniswap/src/features/telemetry/constants'
 import { usePortfolioEmptyStateBackground } from 'wallet/src/components/portfolio/empty'
->>>>>>> upstream/main
 
 export function FundWalletModal(): JSX.Element {
   const shadowProps = useShadowPropsShort()

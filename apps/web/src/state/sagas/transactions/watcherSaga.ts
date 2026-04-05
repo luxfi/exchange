@@ -3,15 +3,9 @@ import { QueryClient } from '@tanstack/react-query'
 import { useCallback } from 'react'
 import { useDispatch } from 'react-redux'
 import { call } from 'typed-redux-saga'
-<<<<<<< HEAD
-import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
-import { refetchQueries } from '@l.x/lx/src/features/portfolio/portfolioUpdates/refetchQueriesSaga'
-import { createSaga } from '@l.x/lx/src/utils/saga'
-=======
 import { UniverseChainId } from 'uniswap/src/features/chains/types'
 import { refetchQueries } from 'uniswap/src/features/portfolio/portfolioUpdates/refetchQueriesSaga'
 import { createSaga } from 'uniswap/src/utils/saga'
->>>>>>> upstream/main
 import { createUniverseTransaction } from '~/state/sagas/utils/transaction'
 import { PendingTransactionDetails } from '~/state/transactions/types'
 

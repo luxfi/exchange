@@ -1,15 +1,4 @@
 import { Row } from '@tanstack/react-table'
-<<<<<<< HEAD
-import { SharedEventName } from '@luxamm/analytics-events'
-import { memo, useCallback } from 'react'
-import { useTranslation } from 'react-i18next'
-import { useNavigate } from 'react-router'
-import { Flex, TouchableArea } from '@l.x/ui/src'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { ElementName, SectionName } from 'lx/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
-import { useTrace } from '@l.x/utils/src/telemetry/trace/TraceContext'
-=======
 import { SharedEventName } from '@uniswap/analytics-events'
 import { memo, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
@@ -19,7 +8,6 @@ import { UniverseChainId } from 'uniswap/src/features/chains/types'
 import { ElementName, SectionName } from 'uniswap/src/features/telemetry/constants'
 import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
 import { useTrace } from 'utilities/src/telemetry/trace/TraceContext'
->>>>>>> upstream/main
 import { PositionInfo } from '~/components/Liquidity/types'
 import { getPositionUrl } from '~/components/Liquidity/utils/getPositionUrl'
 import { Table } from '~/components/Table'

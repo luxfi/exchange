@@ -5,20 +5,6 @@ import { OnboardingScreen } from 'src/app/features/onboarding/OnboardingScreen'
 import { useOnboardingSteps } from 'src/app/features/onboarding/OnboardingSteps'
 import { useScantasticContext } from 'src/app/features/onboarding/scan/ScantasticContextProvider'
 import { decryptMessage } from 'src/app/features/onboarding/scan/utils'
-<<<<<<< HEAD
-import { Flex, Input, inputStyles, Square, Text } from '@l.x/ui/src'
-import { Mobile } from '@l.x/ui/src/components/icons'
-import { fonts, iconSizes } from '@l.x/ui/src/theme'
-import { lxUrls } from '@l.x/lx/src/constants/urls'
-import Trace from '@l.x/lx/src/features/telemetry/Trace'
-import { ExtensionOnboardingFlow, ExtensionOnboardingScreens } from '@l.x/lx/src/types/screens/extension'
-import { logger } from '@l.x/utils/src/logger/logger'
-import { arraysAreEqual } from '@l.x/utils/src/primitives/array'
-import { ONE_SECOND_MS } from '@l.x/utils/src/time/time'
-import { useInterval, useTimeout } from '@l.x/utils/src/time/timing'
-import { useOnboardingContext } from '@luxfi/wallet/src/features/onboarding/OnboardingContext'
-import { getOtpDurationString } from '@luxfi/wallet/src/utils/duration'
-=======
 import { Flex, Input, inputStyles, Square, Text } from 'ui/src'
 import { Mobile } from 'ui/src/components/icons'
 import { fonts, iconSizes } from 'ui/src/theme'
@@ -31,7 +17,6 @@ import { ONE_SECOND_MS } from 'utilities/src/time/time'
 import { useInterval, useTimeout } from 'utilities/src/time/timing'
 import { useOnboardingContext } from 'wallet/src/features/onboarding/OnboardingContext'
 import { getOtpDurationString } from 'wallet/src/utils/duration'
->>>>>>> upstream/main
 
 const MAX_FAILED_OTP_ATTEMPTS = 3
 
@@ -91,11 +76,7 @@ export function OTPInput(): JSX.Element {
     setError(false)
     setLoading(true)
     // submit OTP to receive blob
-<<<<<<< HEAD
-    const response = await fetch(`${lxUrls.scantasticApiUrl}/otp`, {
-=======
     const response = await fetch(`${uniswapUrls.scantasticApiUrl}/otp`, {
->>>>>>> upstream/main
       method: 'POST',
       headers: {
         Accept: 'application/json',
@@ -123,11 +104,7 @@ export function OTPInput(): JSX.Element {
           return
         }
       }
-<<<<<<< HEAD
-      throw new Error(`fetch(${lxUrls.scantasticApiUrl}/otp failed to include an encrypted seed`)
-=======
       throw new Error(`fetch(${uniswapUrls.scantasticApiUrl}/otp failed to include an encrypted seed`)
->>>>>>> upstream/main
     }
     const preImage = await decryptMessage(privateKey, data.encryptedSeed)
     const words = preImage.split(' ')

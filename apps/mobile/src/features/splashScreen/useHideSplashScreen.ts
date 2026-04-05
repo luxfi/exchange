@@ -1,10 +1,6 @@
 import { useDispatch } from 'react-redux'
 import { dismissSplashScreen } from 'src/features/splashScreen/splashScreenSlice'
-<<<<<<< HEAD
-import { useEvent } from '@l.x/utils/src/react/hooks'
-=======
 import { useEvent } from 'utilities/src/react/hooks'
->>>>>>> upstream/main
 
 /**
  * Custom wrapped function to hide the splash screen.

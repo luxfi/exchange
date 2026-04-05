@@ -1,9 +1,5 @@
 import { useIsFocused } from '@react-navigation/native'
-<<<<<<< HEAD
-import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
-=======
 import { FeatureFlags, useFeatureFlag } from '@universe/gating'
->>>>>>> upstream/main
 import { useCallback, useMemo, useState } from 'react'
 import { Video } from 'react-native-video'
 import { useDispatch, useSelector } from 'react-redux'
@@ -11,19 +7,6 @@ import { navigate } from 'src/app/navigation/rootNavigation'
 import { useBiometricAppSettings } from 'src/features/biometrics/useBiometricAppSettings'
 import { useBiometricPrompt } from 'src/features/biometricsSettings/hooks'
 import { useHomeScreenState } from 'src/screens/HomeScreen/useHomeScreenState'
-<<<<<<< HEAD
-import { Flex, Image } from '@l.x/ui/src'
-import { SMART_WALLET_UPGRADE_FALLBACK, SMART_WALLET_UPGRADE_VIDEO } from '@l.x/ui/src/assets'
-import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
-import { logger } from '@l.x/utils/src/logger/logger'
-import { useEvent } from '@l.x/utils/src/react/hooks'
-import { SmartWalletCreatedModal } from '@luxfi/wallet/src/components/smartWallet/modals/SmartWalletCreatedModal'
-import { SmartWalletUpgradeModals } from '@luxfi/wallet/src/components/smartWallet/modals/SmartWalletUpgradeModal'
-import { selectHasSeenCreatedSmartWalletModal } from '@luxfi/wallet/src/features/behaviorHistory/selectors'
-import { setHasSeenSmartWalletCreatedWalletModal } from '@luxfi/wallet/src/features/behaviorHistory/slice'
-import { useAccountCountChanged, useActiveAccountWithThrow } from '@luxfi/wallet/src/features/wallet/hooks'
-import { setSmartWalletConsent } from '@luxfi/wallet/src/features/wallet/slice'
-=======
 import { Flex, Image } from 'ui/src'
 import { SMART_WALLET_UPGRADE_FALLBACK, SMART_WALLET_UPGRADE_VIDEO } from 'ui/src/assets'
 import { ModalName } from 'uniswap/src/features/telemetry/constants'
@@ -35,7 +18,6 @@ import { selectHasSeenCreatedSmartWalletModal } from 'wallet/src/features/behavi
 import { setHasSeenSmartWalletCreatedWalletModal } from 'wallet/src/features/behaviorHistory/slice'
 import { useAccountCountChanged, useActiveAccountWithThrow } from 'wallet/src/features/wallet/hooks'
 import { setSmartWalletConsent } from 'wallet/src/features/wallet/slice'
->>>>>>> upstream/main
 
 export function SmartWalletModals({ isLayoutReady }: { isLayoutReady: boolean }): JSX.Element {
   const dispatch = useDispatch()

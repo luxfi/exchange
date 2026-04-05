@@ -1,20 +1,3 @@
-<<<<<<< HEAD
-import { TradingApi } from '@l.x/api'
-import ms from 'ms'
-import { useCallback, useEffect, useMemo } from 'react'
-import { TradingApiClient } from '@l.x/lx/src/data/apiClients/tradingApi/TradingApiClient'
-import { getChainInfo } from '@l.x/lx/src/features/chains/chainInfo'
-import { RetryOptions, UniverseChainId } from '@l.x/lx/src/features/chains/types'
-import { InterfaceEventName } from '@l.x/lx/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
-import { checkedTransaction } from '@l.x/lx/src/features/transactions/slice'
-import { isLX } from '@l.x/lx/src/features/transactions/swap/utils/routing'
-import { toTradingApiSupportedChainId } from '@l.x/lx/src/features/transactions/swap/utils/tradingApi'
-import { TransactionReceipt, TransactionStatus } from '@l.x/lx/src/features/transactions/types/transactionDetails'
-import { receiptFromViemReceipt } from '@l.x/lx/src/features/transactions/utils/receipt'
-import { shouldCheckTransaction } from '@l.x/lx/src/utils/polling'
-import { isValidHexString } from '@l.x/utils/src/addresses/hex'
-=======
 import { TradingApi } from '@universe/api'
 import ms from 'ms'
 import { useCallback, useEffect, useMemo } from 'react'
@@ -30,7 +13,6 @@ import { TransactionReceipt, TransactionStatus } from 'uniswap/src/features/tran
 import { receiptFromViemReceipt } from 'uniswap/src/features/transactions/utils/receipt'
 import { shouldCheckTransaction } from 'uniswap/src/utils/polling'
 import { isValidHexString } from 'utilities/src/addresses/hex'
->>>>>>> upstream/main
 import { usePublicClient } from 'wagmi'
 import { useAccount } from '~/hooks/useAccount'
 import useCurrentBlockTimestamp from '~/hooks/useCurrentBlockTimestamp'
@@ -55,13 +37,8 @@ function usePendingTransactions(chainId?: UniverseChainId): PendingTransactionDe
     }
     return multichainTransactions.flatMap(([tx, txChainId]) => {
       // Avoid polling for already-deposited bridge transactions, as they will be finalized by the bridge updater.
-<<<<<<< HEAD
-      // Also avoid polling DEX orders, as they are polled by usePollPendingOrders using the DEX backend API.
-      if (isPendingTx(tx, /* skipDepositedBridgeTxs = */ true) && txChainId === chainId && !isLX(tx)) {
-=======
       // Also avoid polling UniswapX orders, as they are polled by usePollPendingOrders using the UniswapX backend API.
       if (isPendingTx(tx, /* skipDepositedBridgeTxs = */ true) && txChainId === chainId && !isUniswapX(tx)) {
->>>>>>> upstream/main
         // Ignore batch txs which need to be polled against wallet instead of chain.
         return tx.batchInfo ? [] : [tx]
       }

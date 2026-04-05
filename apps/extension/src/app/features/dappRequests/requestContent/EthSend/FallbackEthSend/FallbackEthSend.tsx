@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import { GasFeeResult } from '@l.x/api'
-=======
 import { GasFeeResult } from '@universe/api'
->>>>>>> upstream/main
 import { useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useDappLastChainId } from 'src/app/features/dapp/hooks'
@@ -10,21 +6,6 @@ import { DappRequestContent } from 'src/app/features/dappRequests/DappRequestCon
 import { useDappRequestQueueContext } from 'src/app/features/dappRequests/DappRequestQueueContext'
 import { isNonZeroBigNumber } from 'src/app/features/dappRequests/requestContent/EthSend/Swap/utils'
 import { SendTransactionRequest } from 'src/app/features/dappRequests/types/DappRequestTypes'
-<<<<<<< HEAD
-import { Anchor, Flex, Text, TouchableArea } from '@l.x/ui/src'
-import { AnimatedCopySheets, ExternalLink } from '@l.x/ui/src/components/icons'
-import { ContentRow } from '@l.x/lx/src/components/transactions/requests/ContentRow'
-import { CopyNotificationType } from '@l.x/lx/src/features/notifications/slice/types'
-import { ExplorerDataType, getExplorerLink } from '@l.x/lx/src/utils/linking'
-import { ellipseMiddle, shortenAddress } from '@l.x/utils/src/addresses'
-import { useCopyToClipboard } from '@luxfi/wallet/src/components/copy/useCopyToClipboard'
-import {
-  SpendingDetails,
-  SpendingEthDetails,
-} from '@luxfi/wallet/src/features/transactions/TransactionRequest/SpendingDetails'
-import { useNoYoloParser } from '@luxfi/wallet/src/utils/useNoYoloParser'
-import { useTransactionCurrencies } from '@luxfi/wallet/src/utils/useTransactionCurrencies'
-=======
 import { Anchor, Flex, Text, TouchableArea } from 'ui/src'
 import { AnimatedCopySheets, ExternalLink } from 'ui/src/components/icons'
 import { ContentRow } from 'uniswap/src/components/transactions/requests/ContentRow'
@@ -38,7 +19,6 @@ import {
 } from 'wallet/src/features/transactions/TransactionRequest/SpendingDetails'
 import { useNoYoloParser } from 'wallet/src/utils/useNoYoloParser'
 import { useTransactionCurrencies } from 'wallet/src/utils/useTransactionCurrencies'
->>>>>>> upstream/main
 
 interface FallbackEthSendRequestProps {
   transactionGasFeeResult: GasFeeResult

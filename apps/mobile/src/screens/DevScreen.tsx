@@ -5,36 +5,15 @@ import { useDispatch, useSelector } from 'react-redux'
 import { navigate } from 'src/app/navigation/rootNavigation'
 import { BackButton } from 'src/components/buttons/BackButton'
 import { Screen } from 'src/components/layout/Screen'
-<<<<<<< HEAD
-import { Flex, Switch, Text, TouchableArea } from '@l.x/ui/src'
-import { CheckmarkCircle, CopyAlt } from '@l.x/ui/src/components/icons'
-import { spacing } from '@l.x/ui/src/theme'
-import { pushNotification } from '@l.x/lx/src/features/notifications/slice/slice'
-import { AppNotificationType } from '@l.x/lx/src/features/notifications/slice/types'
-=======
 import { Flex, Switch, Text, TouchableArea } from 'ui/src'
 import { CheckmarkCircle, CopyAlt } from 'ui/src/components/icons'
 import { spacing } from 'ui/src/theme'
 import { pushNotification } from 'uniswap/src/features/notifications/slice/slice'
 import { AppNotificationType } from 'uniswap/src/features/notifications/slice/types'
->>>>>>> upstream/main
 import {
   resetDismissedBridgedAssetWarnings,
   resetDismissedCompatibleAddressWarnings,
   resetDismissedWarnings,
-<<<<<<< HEAD
-} from '@l.x/lx/src/features/tokens/warnings/slice/slice'
-import { useAppInsets } from '@l.x/lx/src/hooks/useAppInsets'
-import { MobileScreens } from '@l.x/lx/src/types/screens/mobile'
-import { setClipboard } from '@l.x/utils/src/clipboard/clipboard'
-import { logger } from '@l.x/utils/src/logger/logger'
-import { UniconSampleSheet } from '@luxfi/wallet/src/components/DevelopmentOnly/UniconSampleSheet'
-import { createOnboardingAccount } from '@luxfi/wallet/src/features/onboarding/createOnboardingAccount'
-import { createAccountsActions } from '@luxfi/wallet/src/features/wallet/create/createAccountsSaga'
-import { useActiveAccount } from '@luxfi/wallet/src/features/wallet/hooks'
-import { selectSortedSignerMnemonicAccounts } from '@luxfi/wallet/src/features/wallet/selectors'
-import { resetWallet } from '@luxfi/wallet/src/features/wallet/slice'
-=======
 } from 'uniswap/src/features/tokens/warnings/slice/slice'
 import { useAppInsets } from 'uniswap/src/hooks/useAppInsets'
 import { MobileScreens } from 'uniswap/src/types/screens/mobile'
@@ -46,7 +25,6 @@ import { createAccountsActions } from 'wallet/src/features/wallet/create/createA
 import { useActiveAccount } from 'wallet/src/features/wallet/hooks'
 import { selectSortedSignerMnemonicAccounts } from 'wallet/src/features/wallet/selectors'
 import { resetWallet } from 'wallet/src/features/wallet/slice'
->>>>>>> upstream/main
 
 /**
  * Dev screen accessible in the Settings screen.

@@ -1,11 +1,6 @@
 import { useTranslation } from 'react-i18next'
-<<<<<<< HEAD
-import { Wallet } from '@l.x/ui/src/components/icons/Wallet'
-import { Flex, Text } from '@l.x/ui/src/index'
-=======
 import { Wallet } from 'ui/src/components/icons/Wallet'
 import { Flex, Text } from 'ui/src/index'
->>>>>>> upstream/main
 
 export function NoSolanaWalletConnectedView() {
   const { t } = useTranslation()

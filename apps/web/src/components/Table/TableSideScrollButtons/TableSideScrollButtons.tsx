@@ -1,11 +1,6 @@
 import { RowData, Table as TanstackTable } from '@tanstack/react-table'
-<<<<<<< HEAD
-import { AnimatePresence, Flex } from '@l.x/ui/src'
-import { zIndexes } from '@l.x/ui/src/theme'
-=======
 import { AnimatePresence, Flex } from 'ui/src'
 import { zIndexes } from 'ui/src/theme'
->>>>>>> upstream/main
 import { TableScrollMask } from '~/components/Table/TableScrollMask'
 import { TableScrollButton } from '~/components/Table/TableSideScrollButtons/TableScrollButton'
 

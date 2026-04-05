@@ -6,19 +6,6 @@ import {
   StatsigContext,
   useGateValue,
   useLayer,
-<<<<<<< HEAD
-} from '@l.x/gating'
-import { memo, useContext, useEffect, useState } from 'react'
-import { useDispatch } from 'react-redux'
-import { Button, Flex, Switch, Text, useShadowPropsShort } from '@l.x/ui/src'
-import { Flag } from '@l.x/ui/src/components/icons/Flag'
-import { Settings } from '@l.x/ui/src/components/icons/Settings'
-import { resetLxBehaviorHistory } from '@l.x/lx/src/features/behaviorHistory/slice'
-import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
-import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
-import { isBetaEnv, isDevEnv } from '@l.x/utils/src/environment/env'
-import { useEvent } from '@l.x/utils/src/react/hooks'
-=======
 } from '@universe/gating'
 import { memo, useContext, useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
@@ -30,16 +17,11 @@ import { ModalName } from 'uniswap/src/features/telemetry/constants'
 import { TestID } from 'uniswap/src/test/fixtures/testIDs'
 import { isBetaEnv, isDevEnv } from 'utilities/src/environment/env'
 import { useEvent } from 'utilities/src/react/hooks'
->>>>>>> upstream/main
 import { GatingRowContent, GatingSwitch } from '~/components/FeatureFlagModal/FeatureFlagModal'
 import { MouseoverTooltip, TooltipSize } from '~/components/Tooltip'
 import { usePinnedExperiments, usePinnedFeatureFlags } from '~/dev/usePinnedFeatureFlags'
 import { useModalState } from '~/hooks/useModalState'
-<<<<<<< HEAD
-import { EllipsisGuiStyle } from '~/theme/components/styles'
-=======
 import { EllipsisTamaguiStyle } from '~/theme/components/styles'
->>>>>>> upstream/main
 
 const FLAG_BOX_MAX_WIDTH = 300
 
@@ -77,11 +59,7 @@ const PinnedFlagRow = memo(function PinnedFlagRow({ gateName }: { gateName: stri
       py="$spacing4"
       onPress={(e: { stopPropagation: () => void }) => e.stopPropagation()}
     >
-<<<<<<< HEAD
-      <Text {...EllipsisGuiStyle}>{gateName}</Text>
-=======
       <Text {...EllipsisTamaguiStyle}>{gateName}</Text>
->>>>>>> upstream/main
       <Switch checked={checked} onCheckedChange={onCheckedChange} variant="branded" />
     </Flex>
   )
@@ -152,11 +130,7 @@ export default function DevFlagsBox() {
   const dispatch = useDispatch()
 
   const onPressReset = (): void => {
-<<<<<<< HEAD
-    dispatch(resetLxBehaviorHistory())
-=======
     dispatch(resetUniswapBehaviorHistory())
->>>>>>> upstream/main
   }
 
   return (

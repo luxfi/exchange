@@ -1,19 +1,4 @@
 import { TransactionRequest } from '@ethersproject/abstract-provider'
-<<<<<<< HEAD
-import { Currency, CurrencyAmount } from '@luxamm/sdk-core'
-import type { GasFeeResult } from '@l.x/api'
-import { useWeb3React } from '@web3-react/core'
-import { useMemo } from 'react'
-import { nativeOnChain } from '@l.x/lx/src/constants/tokens'
-import { useUnitagsAddressQuery } from '@l.x/lx/src/data/apiClients/unitagsApi/useUnitagsAddressQuery'
-import { useUnitagsUsernameQuery } from '@l.x/lx/src/data/apiClients/unitagsApi/useUnitagsUsernameQuery'
-import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
-import { useAddressFromEns, useENSName } from '@l.x/lx/src/features/ens/api'
-import { GasSpeed } from '@l.x/lx/src/features/gas/utils'
-import { chainIdToPlatform } from '@l.x/lx/src/features/platforms/utils/chains'
-import { getValidAddress } from '@l.x/lx/src/utils/addresses'
-import { isEVMAddressWithChecksum } from '@l.x/utils/src/addresses/evm/evm'
-=======
 import { Currency, CurrencyAmount } from '@uniswap/sdk-core'
 import type { GasFeeResult } from '@universe/api'
 import { useWeb3React } from '@web3-react/core'
@@ -27,7 +12,6 @@ import { GasSpeed } from 'uniswap/src/features/gas/utils'
 import { chainIdToPlatform } from 'uniswap/src/features/platforms/utils/chains'
 import { getValidAddress } from 'uniswap/src/utils/addresses'
 import { isEVMAddressWithChecksum } from 'utilities/src/addresses/evm/evm'
->>>>>>> upstream/main
 import { NATIVE_CHAIN_ID } from '~/constants/tokens'
 import { useCurrency } from '~/hooks/Tokens'
 import { useAccount } from '~/hooks/useAccount'
@@ -183,11 +167,7 @@ export function useDerivedSendInfo(state: SendState): SendInfo {
       totalAmount = totalAmount.add(parsedTokenAmount)
     }
 
-<<<<<<< HEAD
-    // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
-=======
     // oxlint-disable-next-line typescript/no-unnecessary-condition
->>>>>>> upstream/main
     if (!totalAmount || nativeCurrencyBalance.lessThan(totalAmount)) {
       return SendInputError.INSUFFICIENT_FUNDS_FOR_GAS
     }

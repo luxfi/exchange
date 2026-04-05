@@ -1,9 +1,5 @@
 import { Navigate, useParams } from 'react-router'
-<<<<<<< HEAD
-import { areCurrencyIdsEqual } from '@l.x/lx/src/utils/currencyId'
-=======
 import { areCurrencyIdsEqual } from 'uniswap/src/utils/currencyId'
->>>>>>> upstream/main
 
 export default function AddLiquidityV2WithTokenRedirects() {
   const { currencyIdA, currencyIdB } = useParams<{ currencyIdA: string; currencyIdB: string }>()

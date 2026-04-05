@@ -1,17 +1,3 @@
-<<<<<<< HEAD
-/* eslint-disable import/no-unused-modules */
-
-import { Account } from '@l.x/lx/src/features/accounts/store/types/Account'
-import { AccountsGetters } from '@l.x/lx/src/features/accounts/store/types/AccountsState'
-import { ConnectorStatus } from '@l.x/lx/src/features/accounts/store/types/Connector'
-import { CrossChainAddresses } from '@l.x/lx/src/features/accounts/store/types/Wallet'
-import { toConnectionStatusInfo } from '@l.x/lx/src/features/accounts/store/utils/connection'
-import {
-  FlexiblePlatformInput as Flexible,
-  resolvePlatform,
-} from '@l.x/lx/src/features/accounts/store/utils/flexibleInput'
-import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
-=======
 /* oxlint-disable import/no-unused-modules */
 
 import { Account } from 'uniswap/src/features/accounts/store/types/Account'
@@ -24,7 +10,6 @@ import {
   resolvePlatform,
 } from 'uniswap/src/features/accounts/store/utils/flexibleInput'
 import { Platform } from 'uniswap/src/features/platforms/types/Platform'
->>>>>>> upstream/main
 import type { WebAccountsData } from '~/features/accounts/store/types'
 
 export function createAccountsStoreGetters(getState: () => WebAccountsData) {
@@ -91,11 +76,7 @@ export function createAccountsStoreGetters(getState: () => WebAccountsData) {
 
     const account: Account<Platform> = getState().accounts[address]
 
-<<<<<<< HEAD
-    // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
-=======
     // oxlint-disable-next-line typescript/no-unnecessary-condition
->>>>>>> upstream/main
     if (!account) {
       return undefined
     }

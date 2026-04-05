@@ -18,18 +18,6 @@ import { PasswordError } from 'src/features/onboarding/PasswordError'
 import { SafeKeyboardOnboardingScreen } from 'src/features/onboarding/SafeKeyboardOnboardingScreen'
 import { onRestoreComplete } from 'src/screens/Import/onRestoreComplete'
 import { useNavigationHeader } from 'src/utils/useNavigationHeader'
-<<<<<<< HEAD
-import { Button, Flex, Text, TouchableArea } from '@l.x/ui/src'
-import { Cloud } from '@l.x/ui/src/components/icons'
-import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
-import { ImportType } from '@l.x/lx/src/types/onboarding'
-import { OnboardingScreens } from '@l.x/lx/src/types/screens/mobile'
-import { getCloudProviderName } from '@l.x/lx/src/utils/cloud-backup/getCloudProviderName'
-import { dismissNativeKeyboard } from '@l.x/utils/src/device/keyboard/dismissNativeKeyboard'
-import { MINUTES_IN_HOUR, ONE_HOUR_MS, ONE_MINUTE_MS } from '@l.x/utils/src/time/time'
-import { useOnboardingContext } from '@luxfi/wallet/src/features/onboarding/OnboardingContext'
-import { BackupType } from '@luxfi/wallet/src/features/wallet/accounts/types'
-=======
 import { Button, Flex, Text, TouchableArea } from 'ui/src'
 import { Cloud } from 'ui/src/components/icons'
 import { TestID } from 'uniswap/src/test/fixtures/testIDs'
@@ -40,7 +28,6 @@ import { dismissNativeKeyboard } from 'utilities/src/device/keyboard/dismissNati
 import { MINUTES_IN_HOUR, ONE_HOUR_MS, ONE_MINUTE_MS } from 'utilities/src/time/time'
 import { useOnboardingContext } from 'wallet/src/features/onboarding/OnboardingContext'
 import { BackupType } from 'wallet/src/features/wallet/accounts/types'
->>>>>>> upstream/main
 
 type Props = NativeStackScreenProps<OnboardingStackParamList, OnboardingScreens.RestoreCloudBackupPassword>
 

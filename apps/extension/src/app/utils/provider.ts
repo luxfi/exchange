@@ -22,11 +22,7 @@
  * 7. after receiving a response, we handle accordingly:
  *
  * +----------------------------+-----------------------------------------+-----------------------------------------------+
-<<<<<<< HEAD
- * | Is Lux Default Wallet? | Provider slot occupied by other wallet? |                   Behavior                    |
-=======
  * | Is Uniswap Default Wallet? | Provider slot occupied by other wallet? |                   Behavior                    |
->>>>>>> upstream/main
  * +----------------------------+-----------------------------------------+-----------------------------------------------+
  * | Yes                        | Yes                                     | We override + spoof `isMetaMask`              |
  * | Yes                        | No                                      | We override + spoof `isMetaMask`              |
@@ -43,11 +39,7 @@ export async function setIsDefaultProviderToStorage(isDefault: boolean): Promise
 }
 
 export async function getIsDefaultProviderFromStorage(): Promise<boolean> {
-<<<<<<< HEAD
-  // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
-=======
   // oxlint-disable-next-line typescript/no-unnecessary-condition
->>>>>>> upstream/main
   const isDefaultProvider = (await chrome.storage.local.get(IS_DEFAULT_PROVIDER_KEY))?.[IS_DEFAULT_PROVIDER_KEY]
 
   if (isDefaultProvider !== undefined) {

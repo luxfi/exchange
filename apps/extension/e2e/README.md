@@ -1,10 +1,6 @@
 # Extension E2E Tests
 
-<<<<<<< HEAD
-End-to-end tests for the Lux Chrome Extension using Playwright.
-=======
 End-to-end tests for the Uniswap Chrome Extension using Playwright.
->>>>>>> upstream/main
 
 ## Setup
 
@@ -72,11 +68,7 @@ xvfb-run -a bun run e2e:smoke
 ### onboardedExtensionTest
 - Loads extension with fresh user data
 - Automatically completes onboarding with test wallet
-<<<<<<< HEAD
-- Uses test seed phrase: `light light light light light light light light light light light energy`
-=======
 - Uses test seed phrase: `test test test test test test test test test test test junk`
->>>>>>> upstream/main
 - Use for testing wallet functionality
 
 ## Programmatic Onboarding

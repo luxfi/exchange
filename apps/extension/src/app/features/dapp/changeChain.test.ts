@@ -2,31 +2,18 @@ import { JsonRpcProvider } from '@ethersproject/providers'
 import { providerErrors, serializeError } from '@metamask/rpc-errors'
 import { changeChain } from 'src/app/features/dapp/changeChain'
 import { dappStore } from 'src/app/features/dapp/store'
-<<<<<<< HEAD
-import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
-import { chainIdToHexadecimalString } from '@l.x/lx/src/features/chains/utils'
-import { DappResponseType } from '@l.x/lx/src/features/dappRequests/types'
-import { ExtensionEventName } from '@l.x/lx/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
-=======
 import { UniverseChainId } from 'uniswap/src/features/chains/types'
 import { chainIdToHexadecimalString } from 'uniswap/src/features/chains/utils'
 import { DappResponseType } from 'uniswap/src/features/dappRequests/types'
 import { ExtensionEventName } from 'uniswap/src/features/telemetry/constants'
 import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
->>>>>>> upstream/main
 
 // Mock dependencies
 jest.mock('@ethersproject/providers')
 jest.mock('@metamask/rpc-errors')
 jest.mock('src/app/features/dapp/store')
-<<<<<<< HEAD
-jest.mock('lx/src/features/telemetry/send')
-jest.mock('lx/src/features/chains/utils')
-=======
 jest.mock('uniswap/src/features/telemetry/send')
 jest.mock('uniswap/src/features/chains/utils')
->>>>>>> upstream/main
 
 describe('changeChain', () => {
   const mockRequestId = 'test-request-id'
@@ -59,11 +46,7 @@ describe('changeChain', () => {
       error: serializeError(
         providerErrors.custom({
           code: 4902,
-<<<<<<< HEAD
-          message: 'Lux Wallet does not support switching to this chain.',
-=======
           message: 'Uniswap Wallet does not support switching to this chain.',
->>>>>>> upstream/main
         }),
       ),
       requestId: mockRequestId,

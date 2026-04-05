@@ -1,10 +1,5 @@
-<<<<<<< HEAD
-import type { StorybookConfig } from '@storybook/react-webpack5'
-import { dirname, join, resolve } from 'path'
-=======
 import { dirname, join, resolve } from 'path'
 import type { StorybookConfig } from '@storybook/react-webpack5'
->>>>>>> upstream/main
 import TerserPlugin from 'terser-webpack-plugin'
 import { DefinePlugin } from 'webpack'
 
@@ -17,17 +12,10 @@ function getAbsolutePath(value: string): any {
 }
 const config: StorybookConfig = {
   stories: [
-<<<<<<< HEAD
-    '../../../pkgs/ui/**/*.stories.?(ts|tsx)',
-    '../../../pkgs/ui/**/*.mdx',
-    '../../../pkgs/lx/src/**/*.stories.?(ts|tsx|js|jsx)',
-    '../../../pkgs/lx/**/*.mdx',
-=======
     '../../../packages/ui/**/*.stories.?(ts|tsx)',
     '../../../packages/ui/**/*.mdx',
     '../../../packages/uniswap/src/**/*.stories.?(ts|tsx|js|jsx)',
     '../../../packages/uniswap/**/*.mdx',
->>>>>>> upstream/main
   ],
   addons: [
     getAbsolutePath('@storybook/preset-create-react-app'),
@@ -52,11 +40,7 @@ const config: StorybookConfig = {
     config.plugins.push(
       new DefinePlugin({
         __DEV__: process.env.NODE_ENV === 'development',
-<<<<<<< HEAD
-        'process.env.IS_LUX_EXTENSION': JSON.stringify(process.env.STORYBOOK_EXTENSION || 'false'),
-=======
         'process.env.IS_UNISWAP_EXTENSION': JSON.stringify(process.env.STORYBOOK_EXTENSION || 'false'),
->>>>>>> upstream/main
       }),
     )
 
@@ -88,11 +72,7 @@ const config: StorybookConfig = {
       config.module.rules.push({
         test: /\.(tsx?|jsx?)$/,
         // Exclude node_modules except for expo packages and related modules
-<<<<<<< HEAD
-        exclude: /node_modules\/(?!(expo-.*|@expo|@react-native|@lux\/.*)\/).*/,
-=======
         exclude: /node_modules\/(?!(expo-.*|@expo|@react-native|@uniswap\/.*)\/).*/,
->>>>>>> upstream/main
         use: {
           loader: 'babel-loader',
           options: {
@@ -111,11 +91,7 @@ const config: StorybookConfig = {
       config.module.rules.push({
         test: /\.(tsx?|jsx?)$/,
         // Exclude node_modules except for expo packages and related modules
-<<<<<<< HEAD
-        exclude: /node_modules\/(?!(expo-.*|@expo|@react-native|@lux\/.*)\/).*/,
-=======
         exclude: /node_modules\/(?!(expo-.*|@expo|@react-native|@uniswap\/.*)\/).*/,
->>>>>>> upstream/main
         use: {
           loader: 'babel-loader',
           options: {
@@ -207,15 +183,9 @@ const config: StorybookConfig = {
               name: 'vendors',
               priority: 10,
             },
-<<<<<<< HEAD
-            gui: {
-              test: /[\\/]node_modules[\\/]gui[\\/]/,
-              name: 'gui',
-=======
             tamagui: {
               test: /[\\/]node_modules[\\/]tamagui[\\/]/,
               name: 'tamagui',
->>>>>>> upstream/main
               priority: 20,
             },
             reactNative: {
@@ -241,15 +211,9 @@ const config: StorybookConfig = {
               name: 'vendors',
               priority: 10,
             },
-<<<<<<< HEAD
-            gui: {
-              test: /[\\/]node_modules[\\/]gui[\\/]/,
-              name: 'gui',
-=======
             tamagui: {
               test: /[\\/]node_modules[\\/]tamagui[\\/]/,
               name: 'tamagui',
->>>>>>> upstream/main
               priority: 20,
             },
             reactNative: {

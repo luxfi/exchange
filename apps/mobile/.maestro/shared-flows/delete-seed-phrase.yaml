@@ -1,10 +1,6 @@
 # Shared flow for deleting a wallet's seed phrase through the settings menu
 
-<<<<<<< HEAD
-appId: com.lux.exchange.dev
-=======
 appId: com.uniswap.mobile.dev
->>>>>>> upstream/main
 ---
 # Wait for the SettingsIcon button to be visible; without this, e2e test sometimes registers a success but the button is not actually tapped.
 - extendedWaitUntil:

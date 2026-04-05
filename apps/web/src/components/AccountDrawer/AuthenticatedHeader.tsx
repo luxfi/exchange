@@ -1,31 +1,4 @@
 import { NetworkStatus } from '@apollo/client'
-<<<<<<< HEAD
-import { CurrencyAmount, Token } from '@luxamm/sdk-core'
-import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
-import { useCallback, useState } from 'react'
-import { useTranslation } from 'react-i18next'
-import { Button, Flex, IconButton, Image, useSporeColors } from '@l.x/ui/src'
-import { LUX_LOGO } from '@l.x/ui/src/assets'
-import { Shine } from '@l.x/ui/src/loading/Shine'
-import { iconSizes } from '@l.x/ui/src/theme'
-import AnimatedNumber, {
-  BALANCE_CHANGE_INDICATION_DURATION,
-} from '@l.x/lx/src/components/AnimatedNumber/AnimatedNumber'
-import { TestnetModeBanner } from '@l.x/lx/src/components/banners/TestnetModeBanner'
-import { RelativeChange } from '@l.x/lx/src/components/RelativeChange/RelativeChange'
-import { useConnectionStatus } from '@l.x/lx/src/features/accounts/store/hooks'
-import { usePortfolioTotalValue } from '@l.x/lx/src/features/dataApi/balances/balancesRest'
-import { FiatCurrency } from '@l.x/lx/src/features/fiatCurrency/constants'
-import { useAppFiatCurrency, useAppFiatCurrencyInfo } from '@l.x/lx/src/features/fiatCurrency/hooks'
-import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
-import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
-import { useHasAccountMismatchOnAnyChain } from '@l.x/lx/src/features/smartWallet/mismatch/hooks'
-import { ElementName, ModalName } from '@l.x/lx/src/features/telemetry/constants'
-import Trace from '@l.x/lx/src/features/telemetry/Trace'
-import i18next from '@l.x/lx/src/i18n'
-import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
-import { NumberType } from '@l.x/utils/src/format/types'
-=======
 import { CurrencyAmount, Token } from '@uniswap/sdk-core'
 import { FeatureFlags, useFeatureFlag } from '@universe/gating'
 import { useCallback, useState } from 'react'
@@ -51,7 +24,6 @@ import Trace from 'uniswap/src/features/telemetry/Trace'
 import i18next from 'uniswap/src/i18n'
 import { TestID } from 'uniswap/src/test/fixtures/testIDs'
 import { NumberType } from 'utilities/src/format/types'
->>>>>>> upstream/main
 import { MultiBlockchainAddressDisplay } from '~/components/AccountDetails/MultiBlockchainAddressDisplay'
 import { DisconnectButton } from '~/components/AccountDrawer/DisconnectButton'
 import { DownloadGraduatedWalletCard } from '~/components/AccountDrawer/DownloadGraduatedWalletCard'
@@ -64,15 +36,9 @@ import { LimitedSupportBanner } from '~/components/Banner/LimitedSupportBanner'
 import DelegationMismatchModal from '~/components/delegation/DelegationMismatchModal'
 import { Settings } from '~/components/Icons/Settings'
 import StatusIcon from '~/components/StatusIcon'
-<<<<<<< HEAD
-import { ExtensionRequestMethods, useLuxExtensionRequest } from '~/components/WalletModal/useWagmiConnectorWithId'
-import { useAccountsStore } from '~/features/accounts/store/hooks'
-import { useIsLxExtensionConnected } from '~/hooks/useIsLuxExtensionConnected'
-=======
 import { ExtensionRequestMethods, useUniswapExtensionRequest } from '~/components/WalletModal/useWagmiConnectorWithId'
 import { useAccountsStore } from '~/features/accounts/store/hooks'
 import { useIsUniswapExtensionConnected } from '~/hooks/useIsUniswapExtensionConnected'
->>>>>>> upstream/main
 import { useModalState } from '~/hooks/useModalState'
 import { useIsPortfolioZero } from '~/pages/Portfolio/Overview/hooks/useIsPortfolioZero'
 import { useUserHasAvailableClaim, useUserUnclaimedAmount } from '~/state/claim/hooks'
@@ -95,15 +61,9 @@ export default function AuthenticatedHeader({
     return Boolean(evmWalletId && svmWalletId && evmWalletId !== svmWalletId)
   }) // if different wallets are connected, do not show mini wallet icon
 
-<<<<<<< HEAD
-  const isLuxExtensionConnected = useIsLxExtensionConnected()
-  const luxExtensionRequest = useLuxExtensionRequest()
-  const shouldShowExtensionButton = isLuxExtensionConnected && !isSolanaConnected
-=======
   const isUniswapExtensionConnected = useIsUniswapExtensionConnected()
   const uniswapExtensionRequest = useUniswapExtensionRequest()
   const shouldShowExtensionButton = isUniswapExtensionConnected && !isSolanaConnected
->>>>>>> upstream/main
   const isRightToLeft = i18next.dir() === 'rtl'
 
   const unclaimedAmount: CurrencyAmount<Token> | undefined = useUserUnclaimedAmount(evmAddress)
@@ -140,15 +100,9 @@ export default function AuthenticatedHeader({
     (currency === FiatCurrency.UnitedStatesDollar || currency === FiatCurrency.Euro) && currencyComponents.symbolAtFront
 
   const handleOpenExtensionSidebar = useCallback(() => {
-<<<<<<< HEAD
-    luxExtensionRequest?.(ExtensionRequestMethods.OPEN_SIDEBAR, 'Tokens')
-    accountDrawer.close()
-  }, [luxExtensionRequest, accountDrawer])
-=======
     uniswapExtensionRequest?.(ExtensionRequestMethods.OPEN_SIDEBAR, 'Tokens')
     accountDrawer.close()
   }, [uniswapExtensionRequest, accountDrawer])
->>>>>>> upstream/main
 
   return (
     <>
@@ -166,11 +120,7 @@ export default function AuthenticatedHeader({
                 <IconButton
                   size="small"
                   emphasis="text-only"
-<<<<<<< HEAD
-                  icon={<Image height={iconSizes.icon24} source={LUX_LOGO} width={iconSizes.icon24} />}
-=======
                   icon={<Image height={iconSizes.icon24} source={UNISWAP_LOGO} width={iconSizes.icon24} />}
->>>>>>> upstream/main
                   borderRadius="$rounded32"
                   hoverStyle={{
                     backgroundColor: '$surface2',

@@ -1,14 +1,7 @@
-<<<<<<< HEAD
-/* eslint-disable max-lines */
-import { type Provider } from '@ethersproject/providers'
-import { providerErrors, rpcErrors, serializeError } from '@metamask/rpc-errors'
-import { FeatureFlags, getFeatureFlag } from '@l.x/gating'
-=======
 /* oxlint-disable max-lines */
 import { type Provider } from '@ethersproject/providers'
 import { providerErrors, rpcErrors, serializeError } from '@metamask/rpc-errors'
 import { FeatureFlags, getFeatureFlag } from '@universe/gating'
->>>>>>> upstream/main
 import { createSearchParams } from 'react-router'
 import { changeChain } from 'src/app/features/dapp/changeChain'
 import { type DappInfo, dappStore } from 'src/app/features/dapp/store'
@@ -41,13 +34,8 @@ import {
   type SignMessageResponse,
   type SignTypedDataRequest,
   type SignTypedDataResponse,
-<<<<<<< HEAD
-  type LuxOpenSidebarRequest,
-  type LuxOpenSidebarResponse,
-=======
   type UniswapOpenSidebarRequest,
   type UniswapOpenSidebarResponse,
->>>>>>> upstream/main
 } from 'src/app/features/dappRequests/types/DappRequestTypes'
 import { HexadecimalNumberSchema } from 'src/app/features/dappRequests/types/utilityTypes'
 import { isWalletUnlocked } from 'src/app/hooks/useIsWalletUnlocked'
@@ -56,16 +44,6 @@ import { navigate } from 'src/app/navigation/state'
 import { dappResponseMessageChannel } from 'src/background/messagePassing/messageChannels'
 import getCalldataInfoFromTransaction from 'src/background/utils/getCalldataInfoFromTransaction'
 import { call, put, select, take } from 'typed-redux-saga'
-<<<<<<< HEAD
-import { hexadecimalStringToInt, toSupportedChainId } from '@l.x/lx/src/features/chains/utils'
-import { DappRequestType, DappResponseType } from '@l.x/lx/src/features/dappRequests/types'
-import { pushNotification } from '@l.x/lx/src/features/notifications/slice/slice'
-import { AppNotificationType } from '@l.x/lx/src/features/notifications/slice/types'
-import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
-import { getEnabledChainIdsSaga } from '@l.x/lx/src/features/settings/saga'
-import { ExtensionEventName } from '@l.x/lx/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
-=======
 import { hexadecimalStringToInt, toSupportedChainId } from 'uniswap/src/features/chains/utils'
 import { DappRequestType, DappResponseType } from 'uniswap/src/features/dappRequests/types'
 import { pushNotification } from 'uniswap/src/features/notifications/slice/slice'
@@ -74,28 +52,10 @@ import { Platform } from 'uniswap/src/features/platforms/types/Platform'
 import { getEnabledChainIdsSaga } from 'uniswap/src/features/settings/saga'
 import { ExtensionEventName } from 'uniswap/src/features/telemetry/constants'
 import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
->>>>>>> upstream/main
 import {
   TransactionOriginType,
   TransactionType,
   type TransactionTypeInfo,
-<<<<<<< HEAD
-} from '@l.x/lx/src/features/transactions/types/transactionDetails'
-import { extractBaseUrl } from '@l.x/utils/src/format/urls'
-import { logger } from '@l.x/utils/src/logger/logger'
-import { getCallsStatusHelper } from '@luxfi/wallet/src/features/batchedTransactions/eip5792Utils'
-import { addBatchedTransaction } from '@luxfi/wallet/src/features/batchedTransactions/slice'
-import { generateBatchId, getCapabilitiesResponse } from '@luxfi/wallet/src/features/batchedTransactions/utils'
-import { type Call } from '@luxfi/wallet/src/features/dappRequests/types'
-import {
-  type ExecuteTransactionParams,
-  executeTransaction,
-} from '@luxfi/wallet/src/features/transactions/executeTransaction/executeTransactionSaga'
-import { type SignedTransactionRequest } from '@luxfi/wallet/src/features/transactions/executeTransaction/types'
-import { getProvider, getSignerManager } from '@luxfi/wallet/src/features/wallet/context'
-import { selectActiveAccount, selectHasSmartWalletConsent } from '@luxfi/wallet/src/features/wallet/selectors'
-import { signMessage, signTypedDataMessage } from '@luxfi/wallet/src/features/wallet/signing/signing'
-=======
 } from 'uniswap/src/features/transactions/types/transactionDetails'
 import { extractBaseUrl } from 'utilities/src/format/urls'
 import { logger } from 'utilities/src/logger/logger'
@@ -111,7 +71,6 @@ import { type SignedTransactionRequest } from 'wallet/src/features/transactions/
 import { getProvider, getSignerManager } from 'wallet/src/features/wallet/context'
 import { selectActiveAccount, selectHasSmartWalletConsent } from 'wallet/src/features/wallet/selectors'
 import { signMessage, signTypedDataMessage } from 'wallet/src/features/wallet/signing/signing'
->>>>>>> upstream/main
 
 export function isDappRequestWithDappInfo(
   request: DappRequestNoDappInfo | DappRequestWithDappInfo,
@@ -146,11 +105,7 @@ const ACCOUNT_INFO_TYPES = [DappRequestType.GetChainId, DappRequestType.GetAccou
  * @param requestParams DappRequest and senderTabInfo (required for sending response)
  * i think remove all the checks from here and push to later.
  */
-<<<<<<< HEAD
-// eslint-disable-next-line complexity
-=======
 // oxlint-disable-next-line complexity
->>>>>>> upstream/main
 function* handleRequest(requestParams: DappRequestNoDappInfo) {
   if (
     requestParams.dappRequest.type === DappRequestType.SendCalls ||
@@ -172,11 +127,7 @@ function* handleRequest(requestParams: DappRequestNoDappInfo) {
     }
   }
 
-<<<<<<< HEAD
-  if (requestParams.dappRequest.type === DappRequestType.LuxOpenSidebar) {
-=======
   if (requestParams.dappRequest.type === DappRequestType.UniswapOpenSidebar) {
->>>>>>> upstream/main
     // We can auto-confirm these requests since they are only for navigating to a certain tab
     // At this point the sidebar is already open
     yield* call(handleConfirmRequestNoDappInfo, requestParams)
@@ -246,11 +197,7 @@ function* handleRequest(requestParams: DappRequestNoDappInfo) {
           error: serializeError(
             providerErrors.custom({
               code: 4902,
-<<<<<<< HEAD
-              message: 'Lux Wallet does not support switching to this chain.',
-=======
               message: 'Uniswap Wallet does not support switching to this chain.',
->>>>>>> upstream/main
             }),
           ),
           requestId: requestParams.dappRequest.requestId,
@@ -438,11 +385,7 @@ export function* handleSendTransaction({
   )
 
   // do not block on this function call since it should happen in parallel
-<<<<<<< HEAD
-  // eslint-disable-next-line @typescript-eslint/no-floating-promises
-=======
   // oxlint-disable-next-line typescript/no-floating-promises
->>>>>>> upstream/main
   onTransactionSentToChain(transactionHash, provider)
 
   const response: SendTransactionResponse = {
@@ -580,11 +523,7 @@ export function* handleSignTypedData({
   }
 }
 
-<<<<<<< HEAD
-export function* handleLuxOpenSidebarRequest(request: LuxOpenSidebarRequest, senderTabInfo: SenderTabInfo) {
-=======
 export function* handleUniswapOpenSidebarRequest(request: UniswapOpenSidebarRequest, senderTabInfo: SenderTabInfo) {
->>>>>>> upstream/main
   if (request.tab) {
     yield* call(navigate, {
       pathname: AppRoutes.Home,
@@ -593,13 +532,8 @@ export function* handleUniswapOpenSidebarRequest(request: UniswapOpenSidebarRequ
       }).toString(),
     })
   }
-<<<<<<< HEAD
-  const response: LuxOpenSidebarResponse = {
-    type: DappResponseType.LuxOpenSidebarResponse,
-=======
   const response: UniswapOpenSidebarResponse = {
     type: DappResponseType.UniswapOpenSidebarResponse,
->>>>>>> upstream/main
     requestId: request.requestId,
   }
   yield* call(dappResponseMessageChannel.sendMessageToTab, senderTabInfo.id, response)

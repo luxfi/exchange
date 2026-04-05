@@ -74,20 +74,6 @@ import {
   resetTokensOrderBy,
   resetTokensOrderByAndMetadataDisplayType,
   restructureTransactionsAndNotifications,
-<<<<<<< HEAD
-  transformNotificationCountToStatus,
-  updateLanguageSettings,
-} from 'src/app/mobileMigrations'
-import { AccountType } from '@l.x/lx/src/features/accounts/types'
-import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
-import { FiatCurrency } from '@l.x/lx/src/features/fiatCurrency/constants'
-import { Language } from '@l.x/lx/src/features/language/constants'
-import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
-import { TransactionStatus, TransactionType } from '@l.x/lx/src/features/transactions/types/transactionDetails'
-import { DappRequestType } from '@l.x/lx/src/types/walletConnect'
-import { createThrowingProxy } from '@l.x/utils/src/test/utils'
-import { SwapProtectionSetting } from '@luxfi/wallet/src/features/wallet/slice'
-=======
   setWalletDeviceLanguage,
   transformNotificationCountToStatus,
   updateLanguageSettings,
@@ -106,7 +92,6 @@ import { SwapProtectionSetting } from 'wallet/src/features/wallet/slice'
 jest.mock('uniswap/src/i18n/utils', () => ({
   getWalletDeviceLanguage: jest.fn(),
 }))
->>>>>>> upstream/main
 
 describe('restructureTransactionsAndNotifications', () => {
   it('restructures transactions from byChainId to address-based format', () => {
@@ -872,8 +857,6 @@ describe('updateLanguageSettings', () => {
   })
 })
 
-<<<<<<< HEAD
-=======
 describe('setWalletDeviceLanguage', () => {
   const mockGetWalletDeviceLanguage = jest.mocked(getWalletDeviceLanguage)
 
@@ -917,7 +900,6 @@ describe('setWalletDeviceLanguage', () => {
   })
 })
 
->>>>>>> upstream/main
 describe('addWalletIsFunded', () => {
   it('adds walletIsFunded to telemetry', () => {
     const state = { telemetry: { lastBalancesReport: 0 } }

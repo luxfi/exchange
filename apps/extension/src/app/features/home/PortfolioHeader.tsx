@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import { SharedEventName } from '@luxamm/analytics-events'
-=======
 import { SharedEventName } from '@uniswap/analytics-events'
->>>>>>> upstream/main
 import { memo, useEffect, useState } from 'react'
 import Animated, { useAnimatedStyle, useSharedValue, withDelay, withTiming } from 'react-native-reanimated'
 import { useDispatch, useSelector } from 'react-redux'
@@ -12,29 +8,6 @@ import { selectPopupState } from 'src/app/features/popups/selectors'
 import { closePopup, openPopup, PopupName } from 'src/app/features/popups/slice'
 import { AppRoutes } from 'src/app/navigation/constants'
 import { navigate } from 'src/app/navigation/state'
-<<<<<<< HEAD
-import { Circle, Flex, Popover, Text, TouchableArea, UniversalImage } from '@l.x/ui/src'
-import { animationPresets } from '@l.x/ui/src/animations'
-import { CopyAlt, Globe, RotatableChevron, Settings } from '@l.x/ui/src/components/icons'
-import { borderRadii, iconSizes } from '@l.x/ui/src/theme'
-import { DappIconPlaceholder } from '@l.x/lx/src/components/dapps/DappIconPlaceholder'
-import { AccountIcon } from '@l.x/lx/src/features/accounts/AccountIcon'
-import { DisplayNameType } from '@l.x/lx/src/features/accounts/types'
-import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
-import { pushNotification } from '@l.x/lx/src/features/notifications/slice/slice'
-import { AppNotificationType, CopyNotificationType } from '@l.x/lx/src/features/notifications/slice/types'
-import { ElementName } from '@l.x/lx/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
-import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
-import { ExtensionScreens } from '@l.x/lx/src/types/screens/extension'
-import { sanitizeAddressText } from '@l.x/lx/src/utils/addresses'
-import { shortenAddress } from '@l.x/utils/src/addresses'
-import { setClipboard } from '@l.x/utils/src/clipboard/clipboard'
-import { extractNameFromUrl } from '@l.x/utils/src/format/extractNameFromUrl'
-import { AnimatedUnitagDisplayName } from '@luxfi/wallet/src/components/accounts/AnimatedUnitagDisplayName'
-import useIsFocused from '@luxfi/wallet/src/features/focus/useIsFocused'
-import { useDisplayName } from '@luxfi/wallet/src/features/wallet/hooks'
-=======
 import { Circle, Flex, Popover, Text, TouchableArea, UniversalImage } from 'ui/src'
 import { animationPresets } from 'ui/src/animations'
 import { CopyAlt, Globe, RotatableChevron, Settings } from 'ui/src/components/icons'
@@ -56,7 +29,6 @@ import { extractNameFromUrl } from 'utilities/src/format/extractNameFromUrl'
 import { AnimatedUnitagDisplayName } from 'wallet/src/components/accounts/AnimatedUnitagDisplayName'
 import useIsFocused from 'wallet/src/features/focus/useIsFocused'
 import { useDisplayName } from 'wallet/src/features/wallet/hooks'
->>>>>>> upstream/main
 
 const POPUP_SHADOW_RADIUS = 4
 
@@ -83,54 +55,7 @@ const RotatingSettingsIcon = ({ onPressSettings }: { onPressSettings(): void }):
         }),
       )
     }
-<<<<<<< HEAD
-=======
-    // oxlint-disable-next-line react/exhaustive-deps -- biome-parity: oxlint is stricter here
->>>>>>> upstream/main
-  }, [isScreenFocused])
-
-  const onBegin = (): void => {
-    pressProgress.value = withTiming(1)
-  }
-
-  const onCancel = (): void => {
-    pressProgress.value = withTiming(0)
-  }
-
-  const onPressSettingsLocal = (): void => {
-    shouldEnableAnimationNextEnter = true
-    onPressSettings()
-  }
-
-  const animatedStyle = useAnimatedStyle(() => {
-    return {
-      transform: [{ rotate: `${pressProgress.value * 120}deg` }, { scale: 1 - pressProgress.value / 10 }],
-      opacity: 1 - pressProgress.value / 2,
-      justifyContent: 'center',
-    }
-  }, [pressProgress])
-
-  return (
-    <TouchableArea
-      hoverable
-      borderRadius="$roundedFull"
-      p="$spacing6"
-      onHoverIn={onBegin}
-      onHoverOut={onCancel}
-      onPress={onPressSettingsLocal}
-    >
-      <Animated.View style={animatedStyle} testID={TestID.AccountHeaderSettings}>
-        <Settings color="$neutral2" size="$icon.20" />
-      </Animated.View>
-    </TouchableArea>
-  )
-}
-
-<<<<<<< HEAD
-export const PortfolioHeader = memo(function _PortfolioHeader({ address }: PortfolioHeaderProps): JSX.Element {
-=======
 export const PortfolioHeader = memo(function PortfolioHeaderInner({ address }: PortfolioHeaderProps): JSX.Element {
->>>>>>> upstream/main
   const dispatch = useDispatch()
 
   const displayName = useDisplayName(address)

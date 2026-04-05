@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import { iconSizes } from '@l.x/ui/src/theme'
-=======
 import { iconSizes } from 'ui/src/theme'
->>>>>>> upstream/main
 
 export const HEADER_TRANSITION = `all 0.2s ease`
 

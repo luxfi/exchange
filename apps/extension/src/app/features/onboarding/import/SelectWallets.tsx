@@ -1,32 +1,11 @@
 import { useQuery } from '@tanstack/react-query'
-<<<<<<< HEAD
-import { FeatureFlags, useFeatureFlag } from '@luxfi/gating'
-=======
 import { FeatureFlags, useFeatureFlag } from '@universe/gating'
->>>>>>> upstream/main
 import { ComponentProps, useMemo, useState } from 'react'
 import { Trans, useTranslation } from 'react-i18next'
 import { SelectWalletsSkeleton } from 'src/app/components/loading/SelectWalletSkeleton'
 import { OnboardingScreen } from 'src/app/features/onboarding/OnboardingScreen'
 import { useOnboardingSteps } from 'src/app/features/onboarding/OnboardingSteps'
 import { useSubmitOnEnter } from 'src/app/features/onboarding/utils'
-<<<<<<< HEAD
-import { Flex, ScrollView, SpinningLoader, Square, Text, Tooltip, TouchableArea } from '@l.x/ui/src'
-import { WalletFilled } from '@l.x/ui/src/components/icons'
-import { iconSizes, zIndexes } from '@l.x/ui/src/theme'
-import { lxUrls } from '@l.x/lx/src/constants/urls'
-import Trace from '@l.x/lx/src/features/telemetry/Trace'
-import { ExtensionOnboardingFlow, ExtensionOnboardingScreens } from '@l.x/lx/src/types/screens/extension'
-import { openUri } from '@l.x/lx/src/utils/linking'
-import { useEvent } from '@l.x/utils/src/react/hooks'
-import { ReactQueryCacheKey } from '@l.x/utils/src/reactQuery/cache'
-import { queryWithoutCache } from '@l.x/utils/src/reactQuery/queryOptions'
-import WalletPreviewCard from '@luxfi/wallet/src/components/WalletPreviewCard/WalletPreviewCard'
-import { useImportableAccounts } from '@luxfi/wallet/src/features/onboarding/hooks/useImportableAccounts'
-import { useSelectAccounts } from '@luxfi/wallet/src/features/onboarding/hooks/useSelectAccounts'
-import { useOnboardingContext } from '@luxfi/wallet/src/features/onboarding/OnboardingContext'
-import { BackupType } from '@luxfi/wallet/src/features/wallet/accounts/types'
-=======
 import { Flex, ScrollView, SpinningLoader, Square, Text, Tooltip, TouchableArea } from 'ui/src'
 import { WalletFilled } from 'ui/src/components/icons'
 import { iconSizes, zIndexes } from 'ui/src/theme'
@@ -42,7 +21,6 @@ import { useImportableAccounts } from 'wallet/src/features/onboarding/hooks/useI
 import { useSelectAccounts } from 'wallet/src/features/onboarding/hooks/useSelectAccounts'
 import { useOnboardingContext } from 'wallet/src/features/onboarding/OnboardingContext'
 import { BackupType } from 'wallet/src/features/wallet/accounts/types'
->>>>>>> upstream/main
 
 export function SelectWallets({ flow }: { flow: ExtensionOnboardingFlow }): JSX.Element {
   const { t } = useTranslation()
@@ -160,11 +138,7 @@ function SmartWalletTooltip(): JSX.Element | undefined {
           <Text variant="body4" color="$neutral2">
             {`${t('smartWallet.modal.description.block1')} ${t('smartWallet.modal.description.block2')}`}
           </Text>
-<<<<<<< HEAD
-          <TouchableArea onPress={() => onPressLearnMore(lxUrls.helpArticleUrls.smartWalletDelegation)}>
-=======
           <TouchableArea onPress={() => onPressLearnMore(uniswapUrls.helpArticleUrls.smartWalletDelegation)}>
->>>>>>> upstream/main
             <Text variant="buttonLabel4" color="$neutral1" mt="$spacing4">
               {t('common.button.learn')}
             </Text>

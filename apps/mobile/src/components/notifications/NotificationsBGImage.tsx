@@ -1,12 +1,7 @@
 import { useLayoutEffect, useState } from 'react'
 import { Dimensions, Image, Platform } from 'react-native'
-<<<<<<< HEAD
-import { Flex, useIsDarkMode } from '@l.x/ui/src'
-import { ONBOARDING_NOTIFICATIONS_DARK, ONBOARDING_NOTIFICATIONS_LIGHT } from '@l.x/ui/src/assets'
-=======
 import { Flex, useIsDarkMode } from 'ui/src'
 import { ONBOARDING_NOTIFICATIONS_DARK, ONBOARDING_NOTIFICATIONS_LIGHT } from 'ui/src/assets'
->>>>>>> upstream/main
 
 /**
  * Helper component to render the notifications background image based on the current theme

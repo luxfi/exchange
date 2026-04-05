@@ -1,19 +1,10 @@
 import { useQuery } from '@tanstack/react-query'
-<<<<<<< HEAD
-import { ProtocolVersion } from '@luxamm/client-data-api/dist/data/v1/poolTypes_pb'
-import { Currency } from '@luxamm/sdk-core'
-import JSBI from 'jsbi'
-import { useMemo } from 'react'
-import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
-import { ReactQueryCacheKey } from '@l.x/utils/src/reactQuery/cache'
-=======
 import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
 import { Currency } from '@uniswap/sdk-core'
 import JSBI from 'jsbi'
 import { useMemo } from 'react'
 import { UniverseChainId } from 'uniswap/src/features/chains/types'
 import { ReactQueryCacheKey } from 'utilities/src/reactQuery/cache'
->>>>>>> upstream/main
 import { calculateTokensLocked } from '~/components/Charts/LiquidityChart/utils/calculateTokensLocked'
 import { ChartEntry } from '~/components/Charts/LiquidityRangeInput/types'
 import { usePoolActiveLiquidity } from '~/hooks/usePoolTickData'

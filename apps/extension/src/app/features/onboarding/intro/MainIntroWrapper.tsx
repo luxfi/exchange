@@ -1,12 +1,7 @@
 import { PropsWithChildren, ReactNode } from 'react'
 import { ONBOARDING_CONTENT_WIDTH } from 'src/app/features/onboarding/utils'
-<<<<<<< HEAD
-import { Flex } from '@l.x/ui/src'
-import { LandingBackground } from '@luxfi/wallet/src/components/landing/LandingBackground'
-=======
 import { Flex } from 'ui/src'
 import { LandingBackground } from 'wallet/src/components/landing/LandingBackground'
->>>>>>> upstream/main
 
 // Fixed padding value to align content with a certain point on the background
 const CONTAINER_PADDING_TOP = 340

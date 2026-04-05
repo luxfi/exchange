@@ -5,45 +5,6 @@
   "include": [],
   "references": [
     {
-<<<<<<< HEAD
-      "path": "./pkgs/utilities"
-    },
-    {
-      "path": "./pkgs/wallet"
-    },
-    {
-      "path": "./pkgs/ui"
-    },
-    {
-      "path": "./pkgs/api"
-    },
-    {
-      "path": "./pkgs/config"
-    },
-    {
-      "path": "./pkgs/sessions"
-    },
-    {
-      "path": "./pkgs/gating"
-    },
-    {
-      "path": "./pkgs/notifications"
-    },
-    {
-      "path": "./pkgs/hashcash-native"
-    },
-    {
-      "path": "./pkgs/mycelium"
-    },
-    {
-      "path": "./pkgs/websocket"
-    },
-    {
-      "path": "./pkgs/prices"
-    },
-    {
-      "path": "./pkgs/lx"
-=======
       "path": "./packages/utilities"
     },
     {
@@ -54,18 +15,11 @@
     },
     {
       "path": "./packages/ui"
->>>>>>> upstream/main
     },
     {
       "path": "./apps/web"
     },
     {
-<<<<<<< HEAD
-      "path": "./apps/extension"
-    },
-    {
-      "path": "./apps/mobile"
-=======
       "path": "./packages/api"
     },
     {
@@ -76,36 +30,11 @@
     },
     {
       "path": "./packages/sessions"
->>>>>>> upstream/main
     },
     {
       "path": "./config/vitest-presets"
     },
     {
-<<<<<<< HEAD
-      "path": "./tools/lux-nx"
-    },
-    {
-      "path": "./pkgs/react-query"
-    },
-    {
-      "path": "./pkgs/analytics"
-    },
-    {
-      "path": "./pkgs/privacy"
-    },
-    {
-      "path": "./pkgs/logger"
-    },
-    {
-      "path": "./pkgs/trpc"
-    },
-    {
-      "path": "./pkgs/eslint-config"
-    }
-  ]
-}
-=======
       "path": "./tools/uniswap-nx"
     },
     {
@@ -161,4 +90,3 @@
     }
   ]
 }
->>>>>>> upstream/main

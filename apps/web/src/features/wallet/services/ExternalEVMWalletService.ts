@@ -1,15 +1,8 @@
 import { getAccount } from '@wagmi/core'
-<<<<<<< HEAD
-import { AccountType } from '@l.x/lx/src/features/accounts/types'
-import { createEVMWalletService } from '@l.x/lx/src/features/wallet/services/createEVMWalletService'
-import type { WalletService } from '@l.x/lx/src/features/wallet/services/IWalletService'
-import { WalletMeta } from '@l.x/lx/src/features/wallet/types/WalletMeta'
-=======
 import { AccountType } from 'uniswap/src/features/accounts/types'
 import { createEVMWalletService } from 'uniswap/src/features/wallet/services/createEVMWalletService'
 import type { WalletService } from 'uniswap/src/features/wallet/services/IWalletService'
 import { WalletMeta } from 'uniswap/src/features/wallet/types/WalletMeta'
->>>>>>> upstream/main
 import { wagmiConfig } from '~/components/Web3Provider/wagmiConfig'
 
 export function getExternalEVMWalletService(): WalletService {

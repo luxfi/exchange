@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
-=======
 import { FeatureFlags, useFeatureFlag } from '@universe/gating'
->>>>>>> upstream/main
 import { useCallback, useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useDispatch } from 'react-redux'
@@ -16,11 +12,7 @@ import { ThemeToggleWithLabel } from 'src/app/features/settings/ThemeToggle'
 import { AppRoutes, SettingsRoutes } from 'src/app/navigation/constants'
 import { useExtensionNavigation } from 'src/app/navigation/utils'
 import { getIsDefaultProviderFromStorage, setIsDefaultProviderToStorage } from 'src/app/utils/provider'
-<<<<<<< HEAD
-import { Button, Flex, ScrollView, Text } from '@l.x/ui/src'
-=======
 import { Button, Flex, ScrollView, Text } from 'ui/src'
->>>>>>> upstream/main
 import {
   ArrowUpRight,
   Chart,
@@ -34,17 +26,6 @@ import {
   Settings,
   Sliders,
   Wrench,
-<<<<<<< HEAD
-} from '@l.x/ui/src/components/icons'
-import { lxUrls } from '@l.x/lx/src/constants/urls'
-import { resetLuxBehaviorHistory } from '@l.x/lx/src/features/behaviorHistory/slice'
-import { useEnabledChains } from '@l.x/lx/src/features/chains/hooks/useEnabledChains'
-import { FiatCurrency, ORDERED_CURRENCIES } from '@l.x/lx/src/features/fiatCurrency/constants'
-import { getFiatCurrencyName, useAppFiatCurrencyInfo } from '@l.x/lx/src/features/fiatCurrency/hooks'
-import { Language, WALLET_SUPPORTED_LANGUAGES } from '@l.x/lx/src/features/language/constants'
-import { getLanguageInfo, useCurrentLanguageInfo } from '@l.x/lx/src/features/language/hooks'
-import { PasskeyManagementModal } from '@l.x/lx/src/features/passkey/PasskeyManagementModal'
-=======
 } from 'ui/src/components/icons'
 import { uniswapUrls } from 'uniswap/src/constants/urls'
 import { resetUniswapBehaviorHistory } from 'uniswap/src/features/behaviorHistory/slice'
@@ -54,32 +35,10 @@ import { getFiatCurrencyName, useAppFiatCurrencyInfo } from 'uniswap/src/feature
 import { Language, WALLET_SUPPORTED_LANGUAGES } from 'uniswap/src/features/language/constants'
 import { getLanguageInfo, useCurrentLanguageInfo } from 'uniswap/src/features/language/hooks'
 import { PasskeyManagementModal } from 'uniswap/src/features/passkey/PasskeyManagementModal'
->>>>>>> upstream/main
 import {
   setCurrentFiatCurrency,
   setCurrentLanguage,
   setIsTestnetModeEnabled,
-<<<<<<< HEAD
-} from '@l.x/lx/src/features/settings/slice'
-import { WalletEventName } from '@l.x/lx/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
-import Trace from '@l.x/lx/src/features/telemetry/Trace'
-import { TestnetModeModal } from '@l.x/lx/src/features/testnets/TestnetModeModal'
-import { changeLanguage } from '@l.x/lx/src/i18n'
-import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
-import { ExtensionScreens } from '@l.x/lx/src/types/screens/extension'
-import { isDevEnv } from '@l.x/utils/src/environment/env'
-import { logger } from '@l.x/utils/src/logger/logger'
-import { PermissionsModal } from '@luxfi/wallet/src/components/settings/permissions/PermissionsModal'
-import { PortfolioBalanceModal } from '@luxfi/wallet/src/components/settings/portfolioBalance/PortfolioBalanceModal'
-import { SmartWalletAdvancedSettingsModal } from '@luxfi/wallet/src/components/smartWallet/modals/SmartWalletAdvancedSettingsModal'
-import { authActions } from '@luxfi/wallet/src/features/auth/saga'
-import { AuthActionType } from '@luxfi/wallet/src/features/auth/types'
-import { resetWalletBehaviorHistory } from '@luxfi/wallet/src/features/behaviorHistory/slice'
-import { BackupType } from '@luxfi/wallet/src/features/wallet/accounts/types'
-import { hasBackup } from '@luxfi/wallet/src/features/wallet/accounts/utils'
-import { useSignerAccounts } from '@luxfi/wallet/src/features/wallet/hooks'
-=======
 } from 'uniswap/src/features/settings/slice'
 import { WalletEventName } from 'uniswap/src/features/telemetry/constants'
 import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
@@ -99,7 +58,6 @@ import { resetWalletBehaviorHistory } from 'wallet/src/features/behaviorHistory/
 import { BackupType } from 'wallet/src/features/wallet/accounts/types'
 import { hasBackup } from 'wallet/src/features/wallet/accounts/utils'
 import { useSignerAccounts } from 'wallet/src/features/wallet/hooks'
->>>>>>> upstream/main
 
 const manifestVersion = chrome.runtime.getManifest().version
 
@@ -243,11 +201,7 @@ export function SettingsScreen(): JSX.Element {
                   title="Clear behavior history"
                   onPress={() => {
                     dispatch(resetWalletBehaviorHistory())
-<<<<<<< HEAD
-                    dispatch(resetLuxBehaviorHistory())
-=======
                     dispatch(resetUniswapBehaviorHistory())
->>>>>>> upstream/main
                   }}
                 />
               )}
@@ -335,11 +289,7 @@ export function SettingsScreen(): JSX.Element {
               <SettingsItem
                 Icon={HelpCenter}
                 title={t('settings.setting.helpCenter.title')}
-<<<<<<< HEAD
-                url={lxUrls.helpArticleUrls.extensionHelp}
-=======
                 url={uniswapUrls.helpArticleUrls.extensionHelp}
->>>>>>> upstream/main
                 RightIcon={ArrowUpRight}
               />
               <Text

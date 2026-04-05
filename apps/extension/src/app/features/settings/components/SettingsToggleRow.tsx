@@ -1,9 +1,5 @@
 import { SCREEN_ITEM_HORIZONTAL_PAD } from 'src/app/constants'
-<<<<<<< HEAD
-import { Flex, GeneratedIcon, Switch, Text } from '@l.x/ui/src'
-=======
 import { Flex, GeneratedIcon, Switch, Text } from 'ui/src'
->>>>>>> upstream/main
 
 export function SettingsToggleRow({
   Icon,

@@ -1,25 +1,14 @@
-<<<<<<< HEAD
-import type { GasFeeResult } from '@l.x/api'
-=======
 import type { GasFeeResult } from '@universe/api'
->>>>>>> upstream/main
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useDappLastChainId } from 'src/app/features/dapp/hooks'
 import { DappRequestContent } from 'src/app/features/dappRequests/DappRequestContent'
 import { useDappRequestQueueContext } from 'src/app/features/dappRequests/DappRequestQueueContext'
 import { SendTransactionRequest } from 'src/app/features/dappRequests/types/DappRequestTypes'
-<<<<<<< HEAD
-import { useBooleanState } from '@l.x/utils/src/react/useBooleanState'
-import { DappTransactionScanningContent } from '@luxfi/wallet/src/components/dappRequests/DappTransactionScanningContent'
-import { TransactionRiskLevel } from '@luxfi/wallet/src/features/dappRequests/types'
-import { shouldDisableConfirm } from '@luxfi/wallet/src/features/dappRequests/utils/riskUtils'
-=======
 import { useBooleanState } from 'utilities/src/react/useBooleanState'
 import { DappTransactionScanningContent } from 'wallet/src/components/dappRequests/DappTransactionScanningContent'
 import { TransactionRiskLevel } from 'wallet/src/features/dappRequests/types'
 import { shouldDisableConfirm } from 'wallet/src/features/dappRequests/utils/riskUtils'
->>>>>>> upstream/main
 
 interface ParsedTransactionRequestContentProps {
   transactionGasFeeResult: GasFeeResult

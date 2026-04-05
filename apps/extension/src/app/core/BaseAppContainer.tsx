@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import { ApiInit, getEntryGatewayUrl, provideSessionService } from '@l.x/api'
-=======
 import { ApiInit, getEntryGatewayUrl, provideSessionService } from '@universe/api'
->>>>>>> upstream/main
 import {
   getIsHashcashSolverEnabled,
   getIsSessionServiceEnabled,
@@ -10,11 +6,7 @@ import {
   getIsSessionUpgradeAutoEnabled,
   getIsTurnstileSolverEnabled,
   useIsSessionServiceEnabled,
-<<<<<<< HEAD
-} from '@l.x/gating'
-=======
 } from '@universe/gating'
->>>>>>> upstream/main
 import {
   type ChallengeSolver,
   ChallengeType,
@@ -26,11 +18,7 @@ import {
   createSessionInitializationService,
   createTurnstileMockSolver,
   type SessionInitializationService,
-<<<<<<< HEAD
-} from '@l.x/sessions'
-=======
 } from '@universe/sessions'
->>>>>>> upstream/main
 import { PropsWithChildren, useEffect } from 'react'
 import { I18nextProvider } from 'react-i18next'
 import { GraphqlProvider } from 'src/app/apollo'
@@ -40,18 +28,6 @@ import { type DatadogAppNameTag } from 'src/app/datadog'
 import { onHashcashSolveCompleted, sessionInitAnalytics } from 'src/app/features/sessions/analytics'
 import { useOnCrashAppStateResetter } from 'src/store/appStateResetter'
 import { getReduxStore } from 'src/store/store'
-<<<<<<< HEAD
-import { BlankUrlProvider } from 'lx/src/contexts/UrlContext'
-import { useCurrentLanguage } from 'lx/src/features/language/hooks'
-import { LocalizationContextProvider } from 'lx/src/features/language/LocalizationContext'
-import { getLocale } from 'lx/src/features/language/navigatorLocale'
-import Trace from 'lx/src/features/telemetry/Trace'
-import i18n, { changeLanguage } from 'lx/src/i18n'
-import { getLogger } from '@l.x/utils/src/logger/logger'
-import { ErrorBoundary } from '@luxfi/wallet/src/components/ErrorBoundary/ErrorBoundary'
-import { StatsigUserIdentifiersUpdater } from '@luxfi/wallet/src/features/gating/StatsigUserIdentifiersUpdater'
-import { SharedWalletProvider } from '@luxfi/wallet/src/providers/SharedWalletProvider'
-=======
 import { BlankUrlProvider } from 'uniswap/src/contexts/UrlContext'
 import { useCurrentLanguage } from 'uniswap/src/features/language/hooks'
 import { LocalizationContextProvider } from 'uniswap/src/features/language/LocalizationContext'
@@ -62,7 +38,6 @@ import { getLogger } from 'utilities/src/logger/logger'
 import { ErrorBoundary } from 'wallet/src/components/ErrorBoundary/ErrorBoundary'
 import { StatsigUserIdentifiersUpdater } from 'wallet/src/features/gating/StatsigUserIdentifiersUpdater'
 import { SharedWalletProvider } from 'wallet/src/providers/SharedWalletProvider'
->>>>>>> upstream/main
 
 const provideSessionInitializationService = (): SessionInitializationService => {
   // Create performance tracker with feature flag control
@@ -88,11 +63,7 @@ const provideSessionInitializationService = (): SessionInitializationService => 
           createHashcashWorkerChannel({
             getWorker: () =>
               new Worker(
-<<<<<<< HEAD
-                new URL('@l.x/sessions/src/challenge-solvers/hashcash/worker/hashcash.worker.ts', import.meta.url),
-=======
                 new URL('@universe/sessions/src/challenge-solvers/hashcash/worker/hashcash.worker.ts', import.meta.url),
->>>>>>> upstream/main
                 { type: 'module' },
               ),
           }),

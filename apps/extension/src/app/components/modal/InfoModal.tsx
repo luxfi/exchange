@@ -1,17 +1,9 @@
 import { ReactNode } from 'react'
-<<<<<<< HEAD
-import { Anchor, Button, ButtonEmphasis, Flex, Text, TouchableArea, useSporeColors } from '@l.x/ui/src'
-import { X } from '@l.x/ui/src/components/icons'
-import { zIndexes } from '@l.x/ui/src/theme'
-import { Modal } from '@l.x/lx/src/components/modals/Modal'
-import { ModalNameType } from '@l.x/lx/src/features/telemetry/constants'
-=======
 import { Anchor, Button, ButtonEmphasis, Flex, Text, TouchableArea, useSporeColors } from 'ui/src'
 import { X } from 'ui/src/components/icons'
 import { zIndexes } from 'ui/src/theme'
 import { Modal } from 'uniswap/src/components/modals/Modal'
 import { ModalNameType } from 'uniswap/src/features/telemetry/constants'
->>>>>>> upstream/main
 
 export interface ModalProps {
   name: ModalNameType

@@ -1,10 +1,5 @@
-<<<<<<< HEAD
-import { CommandType } from '@luxamm/universal-router-sdk'
-import { FeeAmount as FeeAmountV3 } from '@luxamm/v3-sdk'
-=======
 import { CommandType } from '@uniswap/universal-router-sdk'
 import { FeeAmount as FeeAmountV3 } from '@uniswap/v3-sdk'
->>>>>>> upstream/main
 import { BigNumberSchema } from 'src/app/features/dappRequests/types/EthersTypes'
 import { z } from 'zod'
 
@@ -16,11 +11,7 @@ const CommandNameSchema = z.enum(
 // TODO: remove this fallback once params are fully typed or we are able to import them from the universal router sdk
 const FallbackParamSchema = z.object({
   name: z.string(),
-<<<<<<< HEAD
-  // eslint-disable-next-line no-restricted-syntax
-=======
   // oxlint-disable-next-line no-restricted-syntax
->>>>>>> upstream/main
   value: z.any(),
 })
 

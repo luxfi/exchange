@@ -12,17 +12,10 @@ import { useOnboardingSteps } from 'src/app/features/onboarding/OnboardingSteps'
 import { cryptoKeyToJWK, KEY_PARAMS } from 'src/app/features/onboarding/scan/utils'
 import { OnboardingRoutes, TopLevelRoutes } from 'src/app/navigation/constants'
 import { navigate } from 'src/app/navigation/state'
-<<<<<<< HEAD
-import { lxUrls } from '@l.x/lx/src/constants/urls'
-import { logger } from '@l.x/utils/src/logger/logger'
-import { ONE_DAY_MS, ONE_MINUTE_MS, ONE_SECOND_MS } from '@l.x/utils/src/time/time'
-import { ScantasticParamsSchema } from '@luxfi/wallet/src/features/scantastic/types'
-=======
 import { uniswapUrls } from 'uniswap/src/constants/urls'
 import { logger } from 'utilities/src/logger/logger'
 import { ONE_DAY_MS, ONE_MINUTE_MS, ONE_SECOND_MS } from 'utilities/src/time/time'
 import { ScantasticParamsSchema } from 'wallet/src/features/scantastic/types'
->>>>>>> upstream/main
 
 type ScantasticContextState = {
   isLoadingUUID: boolean
@@ -82,11 +75,7 @@ export function ScantasticContextProvider({ children }: PropsWithChildren): JSX.
       }
 
       // Initiate scantastic onboarding session
-<<<<<<< HEAD
-      const response = await fetch(`${lxUrls.scantasticApiUrl}/uuid`, {
-=======
       const response = await fetch(`${uniswapUrls.scantasticApiUrl}/uuid`, {
->>>>>>> upstream/main
         method: 'POST',
         headers: {
           Accept: 'application/json',

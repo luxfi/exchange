@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-/* eslint-env node */
-
-=======
 >>>>>>> upstream/main
 const fs = require('fs')
 const path = require('path')
@@ -13,7 +9,6 @@ const { _ } = require('ajv')
 const schema = require('../src/utils/tokenlist.schema.json')
 =======
 const schema = require('@uniswap/token-lists/dist/tokenlist.schema.json')
->>>>>>> upstream/main
 
 // Generate token list validator
 const tokenListAjv = new Ajv({

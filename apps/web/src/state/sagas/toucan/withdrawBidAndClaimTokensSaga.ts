@@ -1,17 +1,9 @@
 import { call } from 'typed-redux-saga'
-<<<<<<< HEAD
-import { AuctionEventName } from '@l.x/lx/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
-import { TransactionStepType } from '@l.x/lx/src/features/transactions/steps/types'
-import { ToucanWithdrawBidAndClaimTokensTransactionStep } from '@l.x/lx/src/features/transactions/toucan/steps/withdrawBidAndClaimTokens'
-import { createSaga } from '@l.x/lx/src/utils/saga'
-=======
 import { AuctionEventName } from 'uniswap/src/features/telemetry/constants'
 import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
 import { TransactionStepType } from 'uniswap/src/features/transactions/steps/types'
 import { ToucanWithdrawBidAndClaimTokensTransactionStep } from 'uniswap/src/features/transactions/toucan/steps/withdrawBidAndClaimTokens'
 import { createSaga } from 'uniswap/src/utils/saga'
->>>>>>> upstream/main
 import { popupRegistry } from '~/components/Popups/registry'
 import { PopupType } from '~/components/Popups/types'
 import { WithdrawBidAndClaimTokensToucanBidParams } from '~/state/sagas/toucan/types'

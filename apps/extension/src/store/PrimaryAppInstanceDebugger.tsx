@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-/* eslint-disable react/forbid-elements */
-=======
 /* oxlint-disable react/forbid-elements */
->>>>>>> upstream/main
 import { useIsPrimaryAppInstance } from 'src/store/storeSynchronization'
 
 // This is a dev-only component that renders a small green/red dot in the bottom right corner of the screen
@@ -11,11 +7,7 @@ export default function PrimaryAppInstanceDebugger(): JSX.Element | null {
   const isPrimaryAppInstance = useIsPrimaryAppInstance()
 
   return (
-<<<<<<< HEAD
-    // biome-ignore  lint/correctness/noRestrictedElements: needed here
-=======
     // oxlint-disable-next-line react/forbid-elements -- needed here
->>>>>>> upstream/main
     <div
       style={{
         position: 'fixed',

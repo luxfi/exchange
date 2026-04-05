@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import { PositionStatus } from '@luxamm/client-data-api/dist/data/v1/poolTypes_pb'
-=======
 import { PositionStatus } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
->>>>>>> upstream/main
 import { LiquidityPositionStatusIndicator } from '~/components/Liquidity/LiquidityPositionStatusIndicator'
 import { render } from '~/test-utils/render'
 

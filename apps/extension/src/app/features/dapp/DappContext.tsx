@@ -7,15 +7,9 @@ import { isConnectedAccount } from 'src/app/features/dapp/utils'
 import { closePopup, PopupName } from 'src/app/features/popups/slice'
 import { backgroundToSidePanelMessageChannel } from 'src/background/messagePassing/messageChannels'
 import { BackgroundToSidePanelRequestType } from 'src/background/messagePassing/types/requests'
-<<<<<<< HEAD
-import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
-import { extractBaseUrl } from '@l.x/utils/src/format/urls'
-import { useActiveAccountAddress } from '@luxfi/wallet/src/features/wallet/hooks'
-=======
 import { UniverseChainId } from 'uniswap/src/features/chains/types'
 import { extractBaseUrl } from 'utilities/src/format/urls'
 import { useActiveAccountAddress } from 'wallet/src/features/wallet/hooks'
->>>>>>> upstream/main
 
 type DappContextState = {
   dappUrl: string
@@ -56,11 +50,7 @@ export function DappContextProvider({ children }: { children: ReactNode }): JSX.
     }
 
     // need to update dapp info on mount
-<<<<<<< HEAD
-    // eslint-disable-next-line @typescript-eslint/no-floating-promises
-=======
     // oxlint-disable-next-line typescript/no-floating-promises
->>>>>>> upstream/main
     updateDappInfo()
 
     return backgroundToSidePanelMessageChannel.addMessageListener(

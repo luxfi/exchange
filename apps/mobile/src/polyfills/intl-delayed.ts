@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import { getWalletDeviceLocale } from '@l.x/lx/src/i18n/utils'
-=======
 import { getWalletDeviceLocale } from 'uniswap/src/i18n/utils'
->>>>>>> upstream/main
 
 export function initDynamicIntlPolyfills(): void {
   const locale = getWalletDeviceLocale()
@@ -14,11 +10,7 @@ export function initDynamicIntlPolyfills(): void {
  * We need to load them synchronously because the polyfills are needed for other code to run.
  * Polyfills affect the app startup time, so we need to load them selectively.
  */
-<<<<<<< HEAD
-// eslint-disable-next-line complexity
-=======
 // oxlint-disable-next-line complexity
->>>>>>> upstream/main
 function loadDynamicIntlPolyfills(locale: string): void {
   const baseCode = locale.split('-')[0]
 

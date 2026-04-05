@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import { type GasFeeResult } from '@l.x/api'
-=======
 import { type GasFeeResult } from '@universe/api'
->>>>>>> upstream/main
 import { useCallback, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useDappLastChainId } from 'src/app/features/dapp/hooks'
@@ -17,15 +13,6 @@ import {
   type ParsedCall,
   type SendCallsRequest,
 } from 'src/app/features/dappRequests/types/DappRequestTypes'
-<<<<<<< HEAD
-import { type UniverseChainId } from '@l.x/lx/src/features/chains/types'
-import { TransactionType, type TransactionTypeInfo } from '@l.x/lx/src/features/transactions/types/transactionDetails'
-import { useBooleanState } from '@l.x/utils/src/react/useBooleanState'
-import { BatchedRequestDetailsContent } from '@luxfi/wallet/src/components/BatchedTransactions/BatchedTransactionDetails'
-import { DappSendCallsScanningContent } from '@luxfi/wallet/src/components/dappRequests/DappSendCallsScanningContent'
-import { type TransactionRiskLevel } from '@luxfi/wallet/src/features/dappRequests/types'
-import { shouldDisableConfirm } from '@luxfi/wallet/src/features/dappRequests/utils/riskUtils'
-=======
 import { type UniverseChainId } from 'uniswap/src/features/chains/types'
 import { TransactionType, type TransactionTypeInfo } from 'uniswap/src/features/transactions/types/transactionDetails'
 import { useBooleanState } from 'utilities/src/react/useBooleanState'
@@ -33,7 +20,6 @@ import { BatchedRequestDetailsContent } from 'wallet/src/components/BatchedTrans
 import { DappSendCallsScanningContent } from 'wallet/src/components/dappRequests/DappSendCallsScanningContent'
 import { type TransactionRiskLevel } from 'wallet/src/features/dappRequests/types'
 import { shouldDisableConfirm } from 'wallet/src/features/dappRequests/utils/riskUtils'
->>>>>>> upstream/main
 
 interface SendCallsRequestContentProps {
   dappRequest: SendCallsRequest

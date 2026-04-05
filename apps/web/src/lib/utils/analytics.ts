@@ -1,36 +1,13 @@
-<<<<<<< HEAD
-import { Currency, CurrencyAmount, Percent, Price, Token } from '@luxamm/sdk-core'
-import { TradingApi } from '@l.x/api'
-import { SwapTradeBaseProperties } from '@l.x/lx/src/features/telemetry/types'
-import { getRouteAnalyticsData, tradeRoutingToFillType } from '@l.x/lx/src/features/transactions/swap/analytics'
-import { planAnalyticsToSnakeCase } from '@l.x/lx/src/features/transactions/swap/plan/types'
-=======
 import { Currency, CurrencyAmount, Percent, Price, Token } from '@uniswap/sdk-core'
 import { TradingApi } from '@universe/api'
 import { SwapTradeBaseProperties } from 'uniswap/src/features/telemetry/types'
 import { getRouteAnalyticsData, tradeRoutingToFillType } from 'uniswap/src/features/transactions/swap/analytics'
 import { planAnalyticsToSnakeCase } from 'uniswap/src/features/transactions/swap/plan/types'
->>>>>>> upstream/main
 import {
   BridgeTrade,
   ChainedActionTrade,
   ClassicTrade,
   PriorityOrderTrade,
-<<<<<<< HEAD
-  LXTrade,
-  LXV2Trade,
-  LXV3Trade,
-} from '@l.x/lx/src/features/transactions/swap/types/trade'
-import { isClassic } from '@l.x/lx/src/features/transactions/swap/utils/routing'
-import {
-  type PlanSwapTransactionInfoFields,
-  TransactionOriginType,
-} from '@l.x/lx/src/features/transactions/types/transactionDetails'
-import { ITraceContext } from '@l.x/utils/src/telemetry/trace/TraceContext'
-import { NATIVE_CHAIN_ID } from '~/constants/tokens'
-import { InterfaceTrade, OffchainOrderType, QuoteMethod, SubmittableTrade } from '~/state/routing/types'
-import { isClassicTrade, isSubmittableTrade, isLXTrade } from '~/state/routing/utils'
-=======
   UniswapXTrade,
   UniswapXV2Trade,
   UniswapXV3Trade,
@@ -44,7 +21,6 @@ import { ITraceContext } from 'utilities/src/telemetry/trace/TraceContext'
 import { NATIVE_CHAIN_ID } from '~/constants/tokens'
 import { InterfaceTrade, OffchainOrderType, QuoteMethod, SubmittableTrade } from '~/state/routing/types'
 import { isClassicTrade, isSubmittableTrade, isUniswapXTrade } from '~/state/routing/utils'
->>>>>>> upstream/main
 import { computeRealizedPriceImpact } from '~/utils/prices'
 
 export const getDurationUntilTimestampSeconds = (futureTimestampInSecondsSinceEpoch?: number): number | undefined => {
@@ -78,11 +54,7 @@ function getEstimatedNetworkFee(trade: InterfaceTrade) {
   if (isClassicTrade(trade)) {
     return trade.gasUseEstimateUSD
   }
-<<<<<<< HEAD
-  if (isLXTrade(trade)) {
-=======
   if (isUniswapXTrade(trade)) {
->>>>>>> upstream/main
     return trade.classicGasUseEstimateUSD
   }
   return undefined
@@ -108,11 +80,7 @@ export function formatCommonPropertiesForTrade({
   batchId,
   includedPermitTransactionStep,
 }: {
-<<<<<<< HEAD
-  trade: InterfaceTrade | ClassicTrade | LXTrade | BridgeTrade | ChainedActionTrade
-=======
   trade: InterfaceTrade | ClassicTrade | UniswapXTrade | BridgeTrade | ChainedActionTrade
->>>>>>> upstream/main
   allowedSlippage: Percent
   outputFeeFiatValue?: number
   isBatched?: boolean
@@ -121,13 +89,8 @@ export function formatCommonPropertiesForTrade({
 }): SwapTradeBaseProperties {
   const isUniversalSwapFlow =
     trade instanceof ClassicTrade ||
-<<<<<<< HEAD
-    trade instanceof LXV2Trade ||
-    trade instanceof LXV3Trade ||
-=======
     trade instanceof UniswapXV2Trade ||
     trade instanceof UniswapXV3Trade ||
->>>>>>> upstream/main
     trade instanceof PriorityOrderTrade ||
     trade instanceof BridgeTrade ||
     trade instanceof ChainedActionTrade
@@ -135,11 +98,7 @@ export function formatCommonPropertiesForTrade({
   return {
     routing: isUniversalSwapFlow ? tradeRoutingToFillType(trade) : trade.fillType,
     type: trade.tradeType,
-<<<<<<< HEAD
-    ura_quote_id: isUniversalSwapFlow ? trade.quote.quote.quoteId : isLXTrade(trade) ? trade.quoteId : undefined,
-=======
     ura_quote_id: isUniversalSwapFlow ? trade.quote.quote.quoteId : isUniswapXTrade(trade) ? trade.quoteId : undefined,
->>>>>>> upstream/main
     ura_request_id: isUniversalSwapFlow
       ? trade.quote.requestId
       : isSubmittableTrade(trade)
@@ -186,11 +145,7 @@ export function formatCommonPropertiesForTrade({
     token_in_detected_tax: formatPercentNumber(trade.inputTax),
     offchain_order_type: isUniversalSwapFlow
       ? tradeRoutingToOffchainOrderType(trade.routing)
-<<<<<<< HEAD
-      : isLXTrade(trade)
-=======
       : isUniswapXTrade(trade)
->>>>>>> upstream/main
         ? trade.offchainOrderType
         : undefined,
     transactionOriginType: TransactionOriginType.Internal,
@@ -213,11 +168,7 @@ export const formatSwapSignedAnalyticsEventProperties = ({
   includedPermitTransactionStep,
   planAnalytics,
 }: {
-<<<<<<< HEAD
-  trade: SubmittableTrade | ClassicTrade | LXTrade | BridgeTrade | ChainedActionTrade
-=======
   trade: SubmittableTrade | ClassicTrade | UniswapXTrade | BridgeTrade | ChainedActionTrade
->>>>>>> upstream/main
   allowedSlippage: Percent
   fiatValues: { amountIn?: number; amountOut?: number; feeUsd?: number }
   txHash?: string
@@ -251,11 +202,7 @@ export const formatSwapSignedAnalyticsEventProperties = ({
 })
 
 function getQuoteMethod(trade: InterfaceTrade) {
-<<<<<<< HEAD
-  if (isLXTrade(trade)) {
-=======
   if (isUniswapXTrade(trade)) {
->>>>>>> upstream/main
     return QuoteMethod.ROUTING_API
   }
 

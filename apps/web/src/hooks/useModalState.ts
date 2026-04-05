@@ -1,9 +1,5 @@
 import { useCallback, useMemo } from 'react'
-<<<<<<< HEAD
-import { ModalNameType } from '@l.x/lx/src/features/telemetry/constants'
-=======
 import { ModalNameType } from 'uniswap/src/features/telemetry/constants'
->>>>>>> upstream/main
 import { setCloseModal, setOpenModal } from '~/state/application/reducer'
 import { useAppDispatch, useAppSelector } from '~/state/hooks'
 

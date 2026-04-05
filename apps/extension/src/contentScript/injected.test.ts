@@ -16,11 +16,7 @@ describe('injected', () => {
     // This does not exist in the extension execution environment for content scripts
     Object.defineProperty(document, 'head', { value: undefined, writable: true })
 
-<<<<<<< HEAD
-    // eslint-disable-next-line @typescript-eslint/no-var-requires
-=======
     // oxlint-disable-next-line typescript/no-var-requires
->>>>>>> upstream/main
     const injected = require('../entrypoints/injected.content')
     expect(injected).toBeTruthy()
   })

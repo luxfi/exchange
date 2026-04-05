@@ -1,12 +1,6 @@
-<<<<<<< HEAD
-import { logger } from '@l.x/utils/src/logger/logger'
-import { SecretPayload } from '@luxfi/wallet/src/features/wallet/Keyring/crypto'
-import { PersistedStorage } from '@luxfi/wallet/src/utils/persistedStorage'
-=======
 import { logger } from 'utilities/src/logger/logger'
 import { SecretPayload } from 'wallet/src/features/wallet/Keyring/crypto'
 import { PersistedStorage } from 'wallet/src/utils/persistedStorage'
->>>>>>> upstream/main
 
 export type BiometricUnlockStorageData = {
   credentialId: string

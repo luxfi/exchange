@@ -1,20 +1,12 @@
 import { useEffect } from 'react'
-<<<<<<< HEAD
-import { assertWebElement, GuiElement, useSporeColors } from '@l.x/ui/src'
-=======
 import { assertWebElement, TamaguiElement, useSporeColors } from 'ui/src'
->>>>>>> upstream/main
 
 export function useApplyChartTextureEffects({
   chartDivElement,
   showDottedBackground,
   showLeftFadeOverlay,
 }: {
-<<<<<<< HEAD
-  chartDivElement: GuiElement | null
-=======
   chartDivElement: TamaguiElement | null
->>>>>>> upstream/main
   showDottedBackground: boolean
   showLeftFadeOverlay: boolean
 }) {

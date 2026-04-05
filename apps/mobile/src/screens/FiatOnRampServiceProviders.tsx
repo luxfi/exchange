@@ -9,23 +9,6 @@ import { FiatOnRampStackParamList } from 'src/app/navigation/types'
 import { BackButton } from 'src/components/buttons/BackButton'
 import { Screen } from 'src/components/layout/Screen'
 import { useFiatOnRampContext } from 'src/features/fiatOnRamp/FiatOnRampContext'
-<<<<<<< HEAD
-import { Flex, Inset, Text } from '@l.x/ui/src'
-import { AnimatedFlex } from '@l.x/ui/src/components/layout/AnimatedFlex'
-import { iconSizes } from '@l.x/ui/src/theme'
-import { CurrencyLogo } from '@l.x/lx/src/components/CurrencyLogo/CurrencyLogo'
-import { HandleBar } from '@l.x/lx/src/components/modals/HandleBar'
-import { EdgeFade } from '@l.x/lx/src/features/fiatOnRamp/EdgeFade/EdgeFade'
-import { FORQuoteItem } from '@l.x/lx/src/features/fiatOnRamp/FORQuoteItem'
-import { PaymentMethodFilter } from '@l.x/lx/src/features/fiatOnRamp/PaymentMethodFilter/PaymentMethodFilter'
-import { FORQuote } from '@l.x/lx/src/features/fiatOnRamp/types'
-import { filterQuotesByPaymentMethod } from '@l.x/lx/src/features/fiatOnRamp/utils'
-import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
-import { FiatOffRampEventName, FiatOnRampEventName } from '@l.x/lx/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
-import { FiatOnRampScreens } from '@l.x/lx/src/types/screens/mobile'
-import { NumberType } from '@l.x/utils/src/format/types'
-=======
 import { Flex, Inset, Text } from 'ui/src'
 import { AnimatedFlex } from 'ui/src/components/layout/AnimatedFlex'
 import { iconSizes } from 'ui/src/theme'
@@ -41,7 +24,6 @@ import { FiatOffRampEventName, FiatOnRampEventName } from 'uniswap/src/features/
 import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
 import { FiatOnRampScreens } from 'uniswap/src/types/screens/mobile'
 import { NumberType } from 'utilities/src/format/types'
->>>>>>> upstream/main
 
 type Props = NativeStackScreenProps<FiatOnRampStackParamList, FiatOnRampScreens.ServiceProviders>
 

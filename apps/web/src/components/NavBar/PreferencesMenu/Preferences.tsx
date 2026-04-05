@@ -1,13 +1,4 @@
 import { useTranslation } from 'react-i18next'
-<<<<<<< HEAD
-import { ColorTokens, Flex, Text, TouchableArea, useSporeColors } from '@l.x/ui/src'
-import { RotatableChevron } from '@l.x/ui/src/components/icons/RotatableChevron'
-import { ThemeToggle } from '@l.x/lx/src/components/appearance/ThemeToggle'
-import { useAppFiatCurrency } from '@l.x/lx/src/features/fiatCurrency/hooks'
-import { useCurrentLanguage, useLanguageInfo } from '@l.x/lx/src/features/language/hooks'
-import { ElementName } from '@l.x/lx/src/features/telemetry/constants'
-import Trace from '@l.x/lx/src/features/telemetry/Trace'
-=======
 import { ColorTokens, Flex, Text, TouchableArea, useSporeColors } from 'ui/src'
 import { RotatableChevron } from 'ui/src/components/icons/RotatableChevron'
 import { ThemeToggle } from 'uniswap/src/components/appearance/ThemeToggle'
@@ -15,7 +6,6 @@ import { useAppFiatCurrency } from 'uniswap/src/features/fiatCurrency/hooks'
 import { useCurrentLanguage, useLanguageInfo } from 'uniswap/src/features/language/hooks'
 import { ElementName } from 'uniswap/src/features/telemetry/constants'
 import Trace from 'uniswap/src/features/telemetry/Trace'
->>>>>>> upstream/main
 import { PreferencesHeader } from '~/components/NavBar/PreferencesMenu/Header'
 import { PreferencesView } from '~/components/NavBar/PreferencesMenu/shared'
 

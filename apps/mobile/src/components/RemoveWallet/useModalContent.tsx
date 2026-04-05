@@ -1,20 +1,11 @@
 import React, { useMemo } from 'react'
 import { Trans, useTranslation } from 'react-i18next'
-<<<<<<< HEAD
-import { GeneratedIcon, Text, ThemeKeys } from '@l.x/ui/src'
-import { AlertTriangle, Trash, WalletFilled } from '@l.x/ui/src/components/icons'
-import { AccountType } from '@l.x/lx/src/features/accounts/types'
-import { getCloudProviderName } from '@l.x/lx/src/utils/cloud-backup/getCloudProviderName'
-import { Account } from '@luxfi/wallet/src/features/wallet/accounts/types'
-import { useDisplayName } from '@luxfi/wallet/src/features/wallet/hooks'
-=======
 import { GeneratedIcon, Text, ThemeKeys } from 'ui/src'
 import { AlertTriangle, Trash, WalletFilled } from 'ui/src/components/icons'
 import { AccountType } from 'uniswap/src/features/accounts/types'
 import { getCloudProviderName } from 'uniswap/src/utils/cloud-backup/getCloudProviderName'
 import { Account } from 'wallet/src/features/wallet/accounts/types'
 import { useDisplayName } from 'wallet/src/features/wallet/hooks'
->>>>>>> upstream/main
 
 export enum RemoveWalletStep {
   Warning = 'warning',

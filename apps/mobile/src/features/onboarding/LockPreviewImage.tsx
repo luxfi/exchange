@@ -1,10 +1,5 @@
-<<<<<<< HEAD
-import { Flex, useShadowPropsShort } from '@l.x/ui/src'
-import { Lock } from '@l.x/ui/src/components/icons'
-=======
 import { Flex, useShadowPropsShort } from 'ui/src'
 import { Lock } from 'ui/src/components/icons'
->>>>>>> upstream/main
 
 const BOX_ROW_COUNT = 4
 const BOX_COL_COUNT = 2

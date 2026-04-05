@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-/* eslint-disable max-lines */
-=======
 /* oxlint-disable max-lines */
->>>>>>> upstream/main
 /**
  * Util to format numbers inside reanimated worklets.
  *

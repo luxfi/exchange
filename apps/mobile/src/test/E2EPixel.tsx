@@ -1,11 +1,6 @@
 import { TouchableOpacity } from 'react-native'
-<<<<<<< HEAD
-import { config } from '@l.x/lx/src/config'
-import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
-=======
 import { config } from 'uniswap/src/config'
 import { TestID } from 'uniswap/src/test/fixtures/testIDs'
->>>>>>> upstream/main
 /**
  * Workaround for E2E tests for the runner to access actions that
  * are hard to get to.

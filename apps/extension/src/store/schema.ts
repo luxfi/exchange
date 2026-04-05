@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import { RankingType } from '@luxfi/api'
-=======
 import { RankingType } from '@universe/api'
->>>>>>> upstream/main
 
 // only add fields that are persisted
 export const initialSchema = {
@@ -268,11 +264,7 @@ const v24SchemaIntermediate = {
   },
   userSettings: {
     ...v23Schema.userSettings,
-<<<<<<< HEAD
-    // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
-=======
     // oxlint-disable-next-line typescript/no-unnecessary-condition
->>>>>>> upstream/main
     hapticsEnabled: v23Schema.appearanceSettings.hapticsEnabled ?? false,
   },
 }

@@ -1,43 +1,18 @@
-<<<<<<< HEAD
-import { Currency, CurrencyAmount, TradeType } from '@luxamm/sdk-core'
-import { TradingApi } from '@l.x/api'
-=======
 import { Currency, CurrencyAmount, TradeType } from '@uniswap/sdk-core'
 import { TradingApi } from '@universe/api'
->>>>>>> upstream/main
 import { TFunction } from 'i18next'
 import { atom } from 'jotai'
 import { useAtomValue, useUpdateAtom } from 'jotai/utils'
 import { useCallback, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-<<<<<<< HEAD
-import { Button, Flex, styled, TouchableArea } from '@l.x/ui/src'
-import { ArrowDown } from '@l.x/ui/src/components/icons/ArrowDown'
-import { X } from '@l.x/ui/src/components/icons/X'
-import { Modal } from '@l.x/lx/src/components/modals/Modal'
-=======
 import { Button, Flex, styled, TouchableArea } from 'ui/src'
 import { ArrowDown } from 'ui/src/components/icons/ArrowDown'
 import { X } from 'ui/src/components/icons/X'
 import { Modal } from 'uniswap/src/components/modals/Modal'
->>>>>>> upstream/main
 import {
   FORMAT_DATE_TIME_SHORT,
   useFormattedDateTime,
   useLocalizedDayjs,
-<<<<<<< HEAD
-} from '@l.x/lx/src/features/language/localizedDayjs'
-import { InterfaceEventName, ModalName } from '@l.x/lx/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
-import { useUSDCValue } from '@l.x/lx/src/features/transactions/hooks/useUSDCPriceWrapper'
-import { hasTradeType } from '@l.x/lx/src/features/transactions/swap/utils/trade'
-import { TransactionStatus, DEXOrderDetails } from '@l.x/lx/src/features/transactions/types/transactionDetails'
-import { isLimitCancellable } from '@l.x/lx/src/features/transactions/utils/dexUtils'
-import { CurrencyField } from '@l.x/lx/src/types/currency'
-import { currencyIdToAddress } from '@l.x/lx/src/utils/currencyId'
-import { ExplorerDataType, getExplorerLink } from '@l.x/lx/src/utils/linking'
-import { logger } from '@l.x/utils/src/logger/logger'
-=======
 } from 'uniswap/src/features/language/localizedDayjs'
 import { InterfaceEventName, ModalName } from 'uniswap/src/features/telemetry/constants'
 import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
@@ -49,7 +24,6 @@ import { CurrencyField } from 'uniswap/src/types/currency'
 import { currencyIdToAddress } from 'uniswap/src/utils/currencyId'
 import { ExplorerDataType, getExplorerLink } from 'uniswap/src/utils/linking'
 import { logger } from 'utilities/src/logger/logger'
->>>>>>> upstream/main
 import {
   CancellationState,
   CancelOrdersDialog,
@@ -65,21 +39,13 @@ import AlertTriangleFilled from '~/components/Icons/AlertTriangleFilled'
 import { LimitDisclaimer } from '~/components/swap/LimitDisclaimer'
 import { SwapModalHeaderAmount } from '~/components/swap/SwapModalHeaderAmount'
 import { useCurrency } from '~/hooks/Tokens'
-<<<<<<< HEAD
-import { useDEXOrderByOrderHash } from '~/state/transactions/hooks'
-=======
 import { useUniswapXOrderByOrderHash } from '~/state/transactions/hooks'
->>>>>>> upstream/main
 import { ThemedText } from '~/theme/components'
 import { Divider } from '~/theme/components/Dividers'
 
 type SelectedOrderInfo = {
   modalOpen?: boolean
-<<<<<<< HEAD
-  order?: DEXOrderDetails
-=======
   order?: UniswapXOrderDetails
->>>>>>> upstream/main
 }
 
 const selectedOrderAtom = atom<SelectedOrderInfo | undefined>(undefined)
@@ -88,13 +54,8 @@ export function useOpenOffchainActivityModal() {
   const setSelectedOrder = useUpdateAtom(selectedOrderAtom)
 
   return useCallback(
-<<<<<<< HEAD
-    (order: DEXOrderDetails) => {
-      sendAnalyticsEvent(InterfaceEventName.DEXOrderDetailsSheetOpened, {
-=======
     (order: UniswapXOrderDetails) => {
       sendAnalyticsEvent(InterfaceEventName.UniswapXOrderDetailsSheetOpened, {
->>>>>>> upstream/main
         order: order.orderHash ?? order.id,
       })
       setSelectedOrder({ order, modalOpen: true })
@@ -140,11 +101,7 @@ const AlertIconContainer = styled(Flex, {
   borderRadius: '$rounded12',
 })
 
-<<<<<<< HEAD
-export function useOrderAmounts(order?: DEXOrderDetails):
-=======
 export function useOrderAmounts(order?: UniswapXOrderDetails):
->>>>>>> upstream/main
   | {
       inputAmount: CurrencyAmount<Currency>
       outputAmount: CurrencyAmount<Currency>
@@ -217,11 +174,7 @@ function getOrderTitle({
   }
 }
 
-<<<<<<< HEAD
-export function OrderContent({ order, onCancel }: { order: DEXOrderDetails; onCancel?: () => void }) {
-=======
 export function OrderContent({ order, onCancel }: { order: UniswapXOrderDetails; onCancel?: () => void }) {
->>>>>>> upstream/main
   const { t } = useTranslation()
   const amounts = useOrderAmounts(order)
   const amountsDefined = !!amounts?.inputAmount.currency && !!amounts.outputAmount.currency
@@ -343,15 +296,9 @@ export function OrderContent({ order, onCancel }: { order: UniswapXOrderDetails;
 }
 
 /* Returns the order currently selected in the UI synced with updates from order status polling */
-<<<<<<< HEAD
-function useSyncedSelectedOrder(): DEXOrderDetails | undefined {
-  const selectedOrder = useAtomValue(selectedOrderAtom)
-  const localPendingOrder = useDEXOrderByOrderHash(selectedOrder?.order?.orderHash ?? '')
-=======
 function useSyncedSelectedOrder(): UniswapXOrderDetails | undefined {
   const selectedOrder = useAtomValue(selectedOrderAtom)
   const localPendingOrder = useUniswapXOrderByOrderHash(selectedOrder?.order?.orderHash ?? '')
->>>>>>> upstream/main
 
   return useMemo(() => {
     if (!selectedOrder?.order) {
@@ -373,17 +320,6 @@ function useSyncedSelectedOrder(): UniswapXOrderDetails | undefined {
  * This is the modal that appears when you click on an X order in the activity tab.
  *
  * It needs to handle multiple types of X orders:
-<<<<<<< HEAD
- * - Pending orders initiated locally i.e. DEXOrderDetails
- * - Pending/expired/cancelled orders initiated remotely and tracked locally i.e. SwapOrderDetailsParts from the Activity query
- * - Filled orders i.e. TransactionDetailsParts from the Activity query.
- *
- * Because of this, we try to converge the different cases into the one type, DEXOrderDetails,
- * which can be passed around within the Activity in the case of remote records. However, all the fields may not
- * be defined in the remote cases.
- */
-function OffchainActivityModalContent({ order }: { order: DEXOrderDetails }) {
-=======
  * - Pending orders initiated locally i.e. UniswapXOrderDetails
  * - Pending/expired/cancelled orders initiated remotely and tracked locally i.e. SwapOrderDetailsParts from the Activity query
  * - Filled orders i.e. TransactionDetailsParts from the Activity query.
@@ -393,7 +329,6 @@ function OffchainActivityModalContent({ order }: { order: DEXOrderDetails }) {
  * be defined in the remote cases.
  */
 function OffchainActivityModalContent({ order }: { order: UniswapXOrderDetails }) {
->>>>>>> upstream/main
   const { t } = useTranslation()
   const [cancelState, setCancelState] = useState(CancellationState.NOT_STARTED)
   const [cancelTxHash, setCancelTxHash] = useState<string | undefined>()

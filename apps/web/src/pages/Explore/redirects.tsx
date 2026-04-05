@@ -1,10 +1,6 @@
 import { lazy, Suspense } from 'react'
 import { Navigate, useLocation, useParams } from 'react-router'
-<<<<<<< HEAD
-import { Loader } from '@l.x/ui/src/loading/Loader'
-=======
 import { Loader } from 'ui/src/loading/Loader'
->>>>>>> upstream/main
 import { ExploreTab } from '~/pages/Explore/constants'
 
 const Explore = lazy(() => import('~/pages/Explore'))

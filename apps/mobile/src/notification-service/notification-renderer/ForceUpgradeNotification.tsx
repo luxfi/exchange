@@ -1,17 +1,3 @@
-<<<<<<< HEAD
-import type { InAppNotification } from '@l.x/api'
-import type { NotificationClickTarget } from '@l.x/notifications'
-import { memo, useEffect, useRef, useState } from 'react'
-import { useTranslation } from 'react-i18next'
-import { SeedPhraseModalContent } from 'src/components/forceUpgrade/ForceUpgradeModal'
-import { useSporeColors } from '@l.x/ui/src'
-import { Modal } from '@l.x/lx/src/components/modals/Modal'
-import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
-import { useEvent } from '@l.x/utils/src/react/hooks'
-import { ForceUpgradeModalContent } from '@luxfi/wallet/src/features/forceUpgrade/ForceUpgradeModalContent'
-import { SignerMnemonicAccount } from '@luxfi/wallet/src/features/wallet/accounts/types'
-import { useSignerAccounts } from '@luxfi/wallet/src/features/wallet/hooks'
-=======
 import type { InAppNotification } from '@universe/api'
 import type { NotificationClickTarget } from '@universe/notifications'
 import { memo, useEffect, useRef, useState } from 'react'
@@ -24,7 +10,6 @@ import { useEvent } from 'utilities/src/react/hooks'
 import { ForceUpgradeModalContent } from 'wallet/src/features/forceUpgrade/ForceUpgradeModalContent'
 import { SignerMnemonicAccount } from 'wallet/src/features/wallet/accounts/types'
 import { useSignerAccounts } from 'wallet/src/features/wallet/hooks'
->>>>>>> upstream/main
 
 interface ForceUpgradeNotificationProps {
   notification: InAppNotification
@@ -50,11 +35,7 @@ function isRequiredUpgrade(notification: InAppNotification): boolean {
  * Custom force upgrade notification renderer that preserves the legacy UI.
  *
  * This component renders the force upgrade modal with:
-<<<<<<< HEAD
- * - Custom image section (Lux logo with dot pattern and "New!" tag)
-=======
  * - Custom image section (Uniswap logo with dot pattern and "New!" tag)
->>>>>>> upstream/main
  * - Non-dismissible modal for required upgrades (no background tap dismiss)
  * - Seed phrase backup flow for required upgrades
  *

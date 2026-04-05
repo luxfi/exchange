@@ -1,29 +1,3 @@
-<<<<<<< HEAD
-import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
-import { useMemo } from 'react'
-import { dataApiServiceClient } from 'lx/src/data/apiClients/dataApiService/listTokens'
-import { useEvent } from '@l.x/utils/src/react/hooks'
-import { createListTokensService, type ListTokensService } from '~/state/explore/listTokens/services/listTokensService'
-import { getEffectiveListTokensOptions, type UseListTokensOptions } from '~/state/explore/listTokens/types'
-import { useTopTokensLegacy } from '~/state/explore/listTokens/useTopTokensLegacy'
-import { useExploreBackendSortingEnabled } from '~/state/explore/useExploreBackendSortingEnabled'
-
-/**
- * Returns a ListTokensService that fetches explore tokens as MultichainToken[].
- * Chooses legacy explore API vs backend-sorted list-tokens (with or without multichain
- * response) based on backend sorting and multichain UX feature flags. Options
- * (sort, time period, etc.) are applied when calling getListTokens on the
- * returned service.
- *
- * @param options - Optional list options; defaults from getEffectiveListTokensOptions.
- */
-// eslint-disable-next-line import/no-unused-modules -- service used by consumers that need ListTokens in MultichainToken shape
-export function useListTokensService(options?: UseListTokensOptions): ListTokensService {
-  const effectiveOptions = getEffectiveListTokensOptions(options)
-  const backendSorting = useExploreBackendSortingEnabled()
-  const multichainUx = useFeatureFlag(FeatureFlags.MultichainTokenUx)
-
-=======
 import { useInfiniteQuery, useQuery } from '@tanstack/react-query'
 import { FeatureFlags, useFeatureFlag } from '@universe/gating'
 import { useMemo } from 'react'
@@ -86,7 +60,6 @@ export function useListTokensService(
     [chainIds, optionsKeySegment],
   )
 
->>>>>>> upstream/main
   const legacyResult = useTopTokensLegacy({
     enabled: !backendSorting,
     options: effectiveOptions,
@@ -100,17 +73,9 @@ export function useListTokensService(
     return multichainUx ? ('backend_sorted_multichain' as const) : ('backend_sorted_legacy' as const)
   })
 
-<<<<<<< HEAD
-  const listTokens = useEvent((params: Parameters<typeof dataApiServiceClient.listTokens>[0]) =>
-    dataApiServiceClient.listTokens(params),
-  )
-
-  return useMemo(
-=======
   const listTokens = useEvent((params: ListTokensParams) => dataApiServiceClient.listTokens(params))
 
   const service = useMemo(
->>>>>>> upstream/main
     () =>
       createListTokensService({
         getSourceType,
@@ -119,8 +84,6 @@ export function useListTokensService(
       }),
     [getSourceType, getTokenStats, listTokens],
   )
-<<<<<<< HEAD
-=======
 
   const {
     data,
@@ -188,5 +151,4 @@ export function useListTokensService(
     hasNextPage: backendSorting ? hasNextPage : false,
     isFetchingNextPage: backendSorting ? isFetchingNextPage : false,
   }
->>>>>>> upstream/main
 }

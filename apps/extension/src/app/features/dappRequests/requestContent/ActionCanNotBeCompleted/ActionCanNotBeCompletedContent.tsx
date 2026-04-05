@@ -1,20 +1,11 @@
 import { useTranslation } from 'react-i18next'
 import { DappRequestContent } from 'src/app/features/dappRequests/DappRequestContent'
-<<<<<<< HEAD
-import { Flex, Text } from '@l.x/ui/src'
-import { AlertTriangleFilled } from '@l.x/ui/src/components/icons'
-import { LearnMoreLink } from '@l.x/lx/src/components/text/LearnMoreLink'
-import { lxUrls } from '@l.x/lx/src/constants/urls'
-import { WalletEventName } from '@l.x/lx/src/features/telemetry/constants'
-import Trace from '@l.x/lx/src/features/telemetry/Trace'
-=======
 import { Flex, Text } from 'ui/src'
 import { AlertTriangleFilled } from 'ui/src/components/icons'
 import { LearnMoreLink } from 'uniswap/src/components/text/LearnMoreLink'
 import { uniswapUrls } from 'uniswap/src/constants/urls'
 import { WalletEventName } from 'uniswap/src/features/telemetry/constants'
 import Trace from 'uniswap/src/features/telemetry/Trace'
->>>>>>> upstream/main
 
 export function ActionCanNotBeCompletedContent(): JSX.Element {
   const { t } = useTranslation()
@@ -44,11 +35,7 @@ export function ActionCanNotBeCompletedContent(): JSX.Element {
               </Text>
               <LearnMoreLink
                 textVariant="buttonLabel4"
-<<<<<<< HEAD
-                url={lxUrls.helpArticleUrls.mismatchedImports}
-=======
                 url={uniswapUrls.helpArticleUrls.mismatchedImports}
->>>>>>> upstream/main
                 textColor="$neutral1"
               />
             </Flex>

@@ -1,27 +1,12 @@
 import { RefObject, useCallback, useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-<<<<<<< HEAD
-import { Button, Flex, styled, Text, useWindowDimensions } from '@l.x/ui/src'
-import { Gift } from '@l.x/ui/src/components/icons/Gift'
-import { useSporeColorsForTheme } from '@l.x/ui/src/hooks/useSporeColors'
-=======
 import { Button, Flex, styled, Text, useWindowDimensions } from 'ui/src'
 import { Gift } from 'ui/src/components/icons/Gift'
 import { useSporeColorsForTheme } from 'ui/src/hooks/useSporeColors'
->>>>>>> upstream/main
 import {
   MouseGlow,
   renderSnowflakesWeb,
   SnowflakeContainer,
-<<<<<<< HEAD
-} from '@l.x/lx/src/components/banners/shared/SharedSnowflakeComponents'
-import { ElementName } from '@l.x/lx/src/features/telemetry/constants'
-import Trace from '@l.x/lx/src/features/telemetry/Trace'
-import { useSnowflakeAnimation } from '@l.x/lx/src/hooks/useSnowflakeAnimation'
-import { isMobileWeb } from '@l.x/utils/src/platform'
-import { useAccountDrawer } from '~/components/AccountDrawer/MiniPortfolio/hooks'
-import { MenuStateVariant, useSetMenuCallback } from '~/components/AccountDrawer/menuState'
-=======
 } from 'uniswap/src/components/banners/shared/SharedSnowflakeComponents'
 import { ElementName } from 'uniswap/src/features/telemetry/constants'
 import Trace from 'uniswap/src/features/telemetry/Trace'
@@ -29,7 +14,6 @@ import { useSnowflakeAnimation } from 'uniswap/src/hooks/useSnowflakeAnimation'
 import { isMobileWeb } from 'utilities/src/platform'
 import { MenuStateVariant, useSetMenuCallback } from '~/components/AccountDrawer/menuState'
 import { useAccountDrawer } from '~/components/AccountDrawer/MiniPortfolio/hooks'
->>>>>>> upstream/main
 import { useActiveAddresses } from '~/features/accounts/store/hooks'
 
 const DisconnectedContainer = styled(Flex, {
@@ -103,11 +87,7 @@ export function DisconnectedState({ parentRef }: { parentRef: RefObject<HTMLDivE
   })
 
   return (
-<<<<<<< HEAD
-    // biome-ignore lint/correctness/noRestrictedElements: Web-only mouse tracking for glow effect
-=======
     // oxlint-disable-next-line react/forbid-elements -- Web-only mouse tracking for glow effect
->>>>>>> upstream/main
     <div
       style={{
         width: '100%',
@@ -151,19 +131,11 @@ export function DisconnectedState({ parentRef }: { parentRef: RefObject<HTMLDivE
 
           <Flex alignItems="center" gap="$spacing12">
             <Text variant="heading3" color={darkColors.neutral1.val}>
-<<<<<<< HEAD
-              {t('home.banner.luxWrapped2025.title')}
-            </Text>
-
-            <Text color={darkColors.neutral2.val} variant="body1" textAlign="center">
-              {t('home.banner.luxWrapped2025.description')}
-=======
               {t('home.banner.uniswapWrapped2025.title')}
             </Text>
 
             <Text color={darkColors.neutral2.val} variant="body1" textAlign="center">
               {t('home.banner.uniswapWrapped2025.description')}
->>>>>>> upstream/main
             </Text>
           </Flex>
           <Flex row centered>

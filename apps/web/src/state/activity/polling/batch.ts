@@ -1,18 +1,10 @@
 import { Web3Provider } from '@ethersproject/providers'
 import { useEffect, useMemo } from 'react'
-<<<<<<< HEAD
-import { TransactionStatus } from '@l.x/lx/src/features/transactions/types/transactionDetails'
-import { HexString } from '@l.x/utils/src/addresses/hex'
-import { logger } from '@l.x/utils/src/logger/logger'
-import { useEvent } from '@l.x/utils/src/react/hooks'
-import { ONE_HOUR_MS } from '@l.x/utils/src/time/time'
-=======
 import { TransactionStatus } from 'uniswap/src/features/transactions/types/transactionDetails'
 import { HexString } from 'utilities/src/addresses/hex'
 import { logger } from 'utilities/src/logger/logger'
 import { useEvent } from 'utilities/src/react/hooks'
 import { ONE_HOUR_MS } from 'utilities/src/time/time'
->>>>>>> upstream/main
 import { useAccount } from '~/hooks/useAccount'
 import { useEthersWeb3Provider } from '~/hooks/useEthersProvider'
 import { ActivityUpdateTransactionType, OnActivityUpdate } from '~/state/activity/types'
@@ -104,11 +96,7 @@ export function usePollPendingBatchTransactions(onActivityUpdate: OnActivityUpda
           )
         }
       } catch (error) {
-<<<<<<< HEAD
-        // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
-=======
         // oxlint-disable-next-line typescript/no-unnecessary-condition
->>>>>>> upstream/main
         FAILURE_COUNT_MAP[transaction.batchInfo.batchId] = (FAILURE_COUNT_MAP[transaction.batchInfo.batchId] ?? 0) + 1
         if (FAILURE_COUNT_MAP[transaction.batchInfo.batchId] >= FAILURE_COUNT_THRESHOLD) {
           const connectorId = transaction.batchInfo.connectorId

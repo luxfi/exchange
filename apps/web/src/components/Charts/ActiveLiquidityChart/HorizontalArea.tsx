@@ -1,9 +1,5 @@
 import { ScaleLinear } from 'd3'
-<<<<<<< HEAD
-import { useSporeColors } from '@l.x/ui/src'
-=======
 import { useSporeColors } from 'ui/src'
->>>>>>> upstream/main
 import { ChartEntry } from '~/components/Charts/LiquidityRangeInput/types'
 
 export const HorizontalArea = ({

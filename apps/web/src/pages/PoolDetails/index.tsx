@@ -1,29 +1,15 @@
-<<<<<<< HEAD
-import { GraphQLApi } from '@l.x/api'
-import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
-=======
 import { GraphQLApi } from '@universe/api'
 import { FeatureFlags, useFeatureFlag } from '@universe/gating'
->>>>>>> upstream/main
 import { useEffect, useMemo, useReducer } from 'react'
 import { Helmet } from 'react-helmet-async/lib/index'
 import { useTranslation } from 'react-i18next'
 import { useNavigate, useParams } from 'react-router'
-<<<<<<< HEAD
-import { Flex, Separator, styled, Text, useIsDarkMode, useSporeColors } from '@l.x/ui/src'
-import { getChainInfo } from '@l.x/lx/src/features/chains/chainInfo'
-import { InterfacePageName, ModalName } from '@l.x/lx/src/features/telemetry/constants'
-import Trace from '@l.x/lx/src/features/telemetry/Trace'
-import { AddressStringFormat, normalizeAddress } from '@l.x/lx/src/utils/addresses'
-import { isEVMAddress } from '@l.x/utils/src/addresses/evm/evm'
-=======
 import { Flex, Separator, styled, Text, useIsDarkMode, useSporeColors } from 'ui/src'
 import { getChainInfo } from 'uniswap/src/features/chains/chainInfo'
 import { InterfacePageName, ModalName } from 'uniswap/src/features/telemetry/constants'
 import Trace from 'uniswap/src/features/telemetry/Trace'
 import { AddressStringFormat, normalizeAddress } from 'uniswap/src/utils/addresses'
 import { isEVMAddress } from 'utilities/src/addresses/evm/evm'
->>>>>>> upstream/main
 import { PoolData, usePoolData } from '~/appGraphql/data/pools/usePoolData'
 import { calculateApr } from '~/appGraphql/data/pools/useTopPools'
 import { gqlToCurrency, unwrapToken } from '~/appGraphql/data/util'
@@ -178,15 +164,9 @@ export default function PoolDetailsPage() {
   const showRewardsDistribution = useMemo(() => {
     return Boolean(
       isLPIncentivesEnabled &&
-<<<<<<< HEAD
-        poolData &&
-        poolData.rewardsCampaign?.boostedApr &&
-        poolData.rewardsCampaign.boostedApr > 0,
-=======
       poolData &&
       poolData.rewardsCampaign?.boostedApr &&
       poolData.rewardsCampaign.boostedApr > 0,
->>>>>>> upstream/main
     )
   }, [isLPIncentivesEnabled, poolData])
 

@@ -1,9 +1,5 @@
 // This file is used only by jest in the test environment. To check the extension
-<<<<<<< HEAD
-// build set up, see wxt.config.ts.
-=======
 // build set up, see the webpack.config.js file.
->>>>>>> upstream/main
 
 // Inline Babel plugin to transform import.meta.url for Jest compatibility.
 // Jest runs in CommonJS mode where import.meta is not available.
@@ -19,10 +15,7 @@ function importMetaTransformPlugin() {
 
 module.exports = function (api) {
   api.cache.using(() => process.env.NODE_ENV)
-<<<<<<< HEAD
-=======
   // oxlint-disable-next-line no-var -- biome-parity: oxlint is stricter here
->>>>>>> upstream/main
   var plugins = [
     'react-native-web',
     [

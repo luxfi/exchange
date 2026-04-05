@@ -1,20 +1,11 @@
 import { useMemo } from 'react'
 import { Trans } from 'react-i18next'
-<<<<<<< HEAD
-import { Flex } from '@l.x/ui/src'
-import { iconSizes } from '@l.x/ui/src/theme'
-import { FiatCurrency, ORDERED_CURRENCIES } from '@l.x/lx/src/features/fiatCurrency/constants'
-import { useAppFiatCurrency } from '@l.x/lx/src/features/fiatCurrency/hooks'
-import { SlideOutMenu } from '~/components/AccountDrawer/SlideOutMenu'
-import { MenuColumn, MenuItem } from '~/components/AccountDrawer/shared'
-=======
 import { Flex } from 'ui/src'
 import { iconSizes } from 'ui/src/theme'
 import { FiatCurrency, ORDERED_CURRENCIES } from 'uniswap/src/features/fiatCurrency/constants'
 import { useAppFiatCurrency } from 'uniswap/src/features/fiatCurrency/hooks'
 import { MenuColumn, MenuItem } from '~/components/AccountDrawer/shared'
 import { SlideOutMenu } from '~/components/AccountDrawer/SlideOutMenu'
->>>>>>> upstream/main
 import { getLocalCurrencyIcon } from '~/constants/localCurrencies'
 import { useLocalCurrencyLinkProps } from '~/hooks/useLocalCurrencyLinkProps'
 

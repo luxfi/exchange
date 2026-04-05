@@ -6,21 +6,6 @@ import { ActivityIndicator, Alert } from 'react-native'
 import { useDispatch } from 'react-redux'
 import { OnboardingStackParamList, SettingsStackParamList } from 'src/app/navigation/types'
 import { backupMnemonicToCloudStorage } from 'src/features/CloudBackup/RNCloudStorageBackupsManager'
-<<<<<<< HEAD
-import { Flex, Text } from '@l.x/ui/src'
-import { CheckmarkCircle } from '@l.x/ui/src/components/icons'
-import { iconSizes } from '@l.x/ui/src/theme'
-import { MobileScreens, OnboardingScreens } from '@l.x/lx/src/types/screens/mobile'
-import { getCloudProviderName } from '@l.x/lx/src/utils/cloud-backup/getCloudProviderName'
-import { logger } from '@l.x/utils/src/logger/logger'
-import { ONE_SECOND_MS } from '@l.x/utils/src/time/time'
-import { promiseMinDelay } from '@l.x/utils/src/time/timing'
-import { useOnboardingContext } from '@luxfi/wallet/src/features/onboarding/OnboardingContext'
-import { EditAccountAction, editAccountActions } from '@luxfi/wallet/src/features/wallet/accounts/editAccountSaga'
-import { BackupType } from '@luxfi/wallet/src/features/wallet/accounts/types'
-import { hasBackup } from '@luxfi/wallet/src/features/wallet/accounts/utils'
-import { useSignerAccount } from '@luxfi/wallet/src/features/wallet/hooks'
-=======
 import { Flex, Text } from 'ui/src'
 import { CheckmarkCircle } from 'ui/src/components/icons'
 import { iconSizes } from 'ui/src/theme'
@@ -34,7 +19,6 @@ import { EditAccountAction, editAccountActions } from 'wallet/src/features/walle
 import { BackupType } from 'wallet/src/features/wallet/accounts/types'
 import { hasBackup } from 'wallet/src/features/wallet/accounts/utils'
 import { useSignerAccount } from 'wallet/src/features/wallet/hooks'
->>>>>>> upstream/main
 
 type Props = {
   accountAddress: Address

@@ -1,14 +1,8 @@
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
-<<<<<<< HEAD
-import { AnimatePresence, Flex, Text, TouchableArea } from '@l.x/ui/src'
-import { Check, CopySheets } from '@l.x/ui/src/components/icons'
-import { iconSizes, zIndexes } from '@l.x/ui/src/theme'
-=======
 import { AnimatePresence, Flex, Text, TouchableArea } from 'ui/src'
 import { Check, CopySheets } from 'ui/src/components/icons'
 import { iconSizes, zIndexes } from 'ui/src/theme'
->>>>>>> upstream/main
 
 export function CopyButton({ onCopyPress }: { onCopyPress: () => Promise<void> }): JSX.Element {
   const { t } = useTranslation()

@@ -1,14 +1,7 @@
-<<<<<<< HEAD
-import { WETH_ADDRESS } from '@luxamm/universal-router-sdk'
-import { lxUrls } from '@l.x/lx/src/constants/urls'
-import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
-import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
-=======
 import { WETH_ADDRESS } from '@uniswap/universal-router-sdk'
 import { uniswapUrls } from 'uniswap/src/constants/urls'
 import { UniverseChainId } from 'uniswap/src/features/chains/types'
 import { TestID } from 'uniswap/src/test/fixtures/testIDs'
->>>>>>> upstream/main
 import { parseEther } from 'viem'
 import { createExpectSingleTransaction } from '~/playwright/anvil/transactions'
 import { expect, getTest } from '~/playwright/fixtures'
@@ -37,11 +30,7 @@ test.describe(
         options: { blocks: 2 },
       })
 
-<<<<<<< HEAD
-      await stubTradingApiEndpoint({ page, endpoint: lxUrls.tradingApiPaths.swap })
-=======
       await stubTradingApiEndpoint({ page, endpoint: uniswapUrls.tradingApiPaths.swap })
->>>>>>> upstream/main
 
       await anvil.setErc20Balance({
         address: assume0xAddress(WETH_ADDRESS(UniverseChainId.Mainnet)),
@@ -50,19 +39,11 @@ test.describe(
       await page.goto(`/swap`)
 
       await page.getByTestId(TestID.ChooseInputToken).click()
-<<<<<<< HEAD
-      // eslint-disable-next-line
-      await page.getByTestId('token-option-1-WETH').first().click()
-
-      await page.getByTestId(TestID.ChooseOutputToken).click()
-      // eslint-disable-next-line
-=======
       // oxlint-disable-next-line
       await page.getByTestId('token-option-1-WETH').first().click()
 
       await page.getByTestId(TestID.ChooseOutputToken).click()
       // oxlint-disable-next-line
->>>>>>> upstream/main
       await page.getByTestId('token-option-1-ETH').first().click()
 
       await page.getByTestId(TestID.AmountInputIn).fill('0.01')
@@ -81,19 +62,11 @@ test.describe(
         options: { blocks: 2 },
       })
 
-<<<<<<< HEAD
-      await stubTradingApiEndpoint({ page, endpoint: lxUrls.tradingApiPaths.swap })
-
-      await page.goto(`/swap`)
-      await page.getByTestId(TestID.ChooseOutputToken).click()
-      // eslint-disable-next-line
-=======
       await stubTradingApiEndpoint({ page, endpoint: uniswapUrls.tradingApiPaths.swap })
 
       await page.goto(`/swap`)
       await page.getByTestId(TestID.ChooseOutputToken).click()
       // oxlint-disable-next-line
->>>>>>> upstream/main
       await page.getByTestId('token-option-1-WETH').first().click()
 
       await page.getByTestId(TestID.AmountInputIn).click()

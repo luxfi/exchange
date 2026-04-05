@@ -1,13 +1,6 @@
-<<<<<<< HEAD
-import '@hanzogui/core/reset.css'
-import 'src/app/Global.css'
-import 'symbol-observable' // Needed by `reduxed-chrome-storage` as polyfill, order matters
-
-=======
 import '@tamagui/core/reset.css'
 import 'src/app/Global.css'
 import 'symbol-observable' // Needed by `reduxed-chrome-storage` as polyfill, order matters
->>>>>>> upstream/main
 import { useEffect } from 'react'
 import { createHashRouter, RouteObject, RouterProvider } from 'react-router'
 import { PersistGate } from 'redux-persist/integration/react'
@@ -38,34 +31,20 @@ import { OnboardingWrapper } from 'src/app/features/onboarding/OnboardingWrapper
 import { PasswordImport } from 'src/app/features/onboarding/PasswordImport'
 import { ResetComplete } from 'src/app/features/onboarding/reset/ResetComplete'
 import { OTPInput } from 'src/app/features/onboarding/scan/OTPInput'
-<<<<<<< HEAD
-import { ScanToOnboard } from 'src/app/features/onboarding/scan/ScanToOnboard'
-import { ScantasticContextProvider } from 'src/app/features/onboarding/scan/ScantasticContextProvider'
-=======
 import { ScantasticContextProvider } from 'src/app/features/onboarding/scan/ScantasticContextProvider'
 import { ScanToOnboard } from 'src/app/features/onboarding/scan/ScanToOnboard'
->>>>>>> upstream/main
 import { OnboardingRoutes, TopLevelRoutes } from 'src/app/navigation/constants'
 import { OnboardingNavigationProvider } from 'src/app/navigation/providers'
 import { setRouter, setRouterState } from 'src/app/navigation/state'
 import { initExtensionAnalytics } from 'src/app/utils/analytics'
 import { checksIfSupportsSidePanel } from 'src/app/utils/chrome'
 import { PrimaryAppInstanceDebuggerLazy } from 'src/store/PrimaryAppInstanceDebuggerLazy'
-<<<<<<< HEAD
-import { ExtensionEventName } from '@l.x/lx/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
-import { ExtensionOnboardingFlow } from '@l.x/lx/src/types/screens/extension'
-import { AccountsStoreContextProvider } from '@luxfi/wallet/src/features/accounts/store/provider'
-import { WalletLuxProvider } from '@luxfi/wallet/src/features/transactions/contexts/WalletLuxContext'
-import { getReduxPersistor } from '@luxfi/wallet/src/state/persistor'
-=======
 import { ExtensionEventName } from 'uniswap/src/features/telemetry/constants'
 import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
 import { ExtensionOnboardingFlow } from 'uniswap/src/types/screens/extension'
 import { AccountsStoreContextProvider } from 'wallet/src/features/accounts/store/provider'
 import { WalletUniswapProvider } from 'wallet/src/features/transactions/contexts/WalletUniswapContext'
 import { getReduxPersistor } from 'wallet/src/state/persistor'
->>>>>>> upstream/main
 
 const supportsSidePanel = checksIfSupportsSidePanel()
 
@@ -216,20 +195,12 @@ export default function OnboardingApp(): JSX.Element {
     <PersistGate persistor={getReduxPersistor()}>
       <BaseAppContainer appName={DatadogAppNameTag.Onboarding}>
         <OnboardingNavigationProvider>
-<<<<<<< HEAD
-          <WalletLuxProvider>
-=======
           <WalletUniswapProvider>
->>>>>>> upstream/main
             <AccountsStoreContextProvider>
               <PrimaryAppInstanceDebuggerLazy />
               <RouterProvider router={router} />
             </AccountsStoreContextProvider>
-<<<<<<< HEAD
-          </WalletLuxProvider>
-=======
           </WalletUniswapProvider>
->>>>>>> upstream/main
         </OnboardingNavigationProvider>
       </BaseAppContainer>
     </PersistGate>

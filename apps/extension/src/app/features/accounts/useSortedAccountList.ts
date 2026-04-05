@@ -1,11 +1,6 @@
 import { useMemo } from 'react'
-<<<<<<< HEAD
-import { usePrevious } from '@l.x/utils/src/react/hooks'
-import { useAccountListData } from '@luxfi/wallet/src/features/accounts/useAccountListData'
-=======
 import { usePrevious } from 'utilities/src/react/hooks'
 import { useAccountListData } from 'wallet/src/features/accounts/useAccountListData'
->>>>>>> upstream/main
 
 interface AddressWithBalance {
   address: Address
@@ -17,11 +12,7 @@ export function useSortedAccountList(addresses: Address[]): AddressWithBalance[]
     addresses,
   })
 
-<<<<<<< HEAD
-  /* 
-=======
   /*
->>>>>>> upstream/main
   Why are we using previousAccountBalanceData?
 
   This is a workaround for a data fetching inefficiency. When removing an address, we send a new query 

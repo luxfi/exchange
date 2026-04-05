@@ -1,13 +1,8 @@
 import { useTranslation } from 'react-i18next'
 import { OnboardingRoutes, TopLevelRoutes } from 'src/app/navigation/constants'
 import { navigate } from 'src/app/navigation/state'
-<<<<<<< HEAD
-import { Flex, Text, TouchableArea } from '@l.x/ui/src'
-import { ScanQr } from '@l.x/ui/src/components/icons'
-=======
 import { Flex, Text, TouchableArea } from 'ui/src'
 import { ScanQr } from 'ui/src/components/icons'
->>>>>>> upstream/main
 
 export function SyncFromPhoneButton({
   isResetting,

@@ -1,17 +1,9 @@
 import { Action, Reducer } from 'redux'
-<<<<<<< HEAD
-import { logger } from '@l.x/utils/src/logger/logger'
-
-// We use `any` in a few places in this file because those values truly can be anything, so that's the proper type.
-
-// biome-ignore lint/suspicious/noExplicitAny: PersistPartial type allows any shape for redux-persist compatibility
-=======
 import { logger } from 'utilities/src/logger/logger'
 
 // We use `any` in a few places in this file because those values truly can be anything, so that's the proper type.
 
 // oxlint-disable-next-line typescript/no-explicit-any -- PersistPartial type allows any shape for redux-persist compatibility
->>>>>>> upstream/main
 type PersistPartial = { _persist: undefined } | any
 
 export function enhancePersistReducer<S, A extends Action = Action>(
@@ -37,11 +29,7 @@ function forceRehydrationFromDiskWhenResumingPersistence<S, A extends Action = A
 ): Reducer<S & PersistPartial, A> {
   return (state, action) => {
     if (action.type !== 'persist/PERSIST') {
-<<<<<<< HEAD
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-return
-=======
       // oxlint-disable-next-line typescript/no-unsafe-return
->>>>>>> upstream/main
       return reducer(state, action)
     }
 
@@ -52,11 +40,7 @@ function forceRehydrationFromDiskWhenResumingPersistence<S, A extends Action = A
       _persist: undefined,
     }
 
-<<<<<<< HEAD
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
-=======
     // oxlint-disable-next-line typescript/no-unsafe-return
->>>>>>> upstream/main
     return reducer(newState, action)
   }
 }

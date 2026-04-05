@@ -1,19 +1,10 @@
 import { WalletReadyState as SolanaWalletReadyState } from '@solana/wallet-adapter-base'
-<<<<<<< HEAD
-import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
-import { CONNECTION_PROVIDER_IDS } from '@l.x/lx/src/constants/web3'
-import { ConnectorStatus } from '@l.x/lx/src/features/accounts/store/types/Connector'
-import { ChainScopeType } from '@l.x/lx/src/features/accounts/store/types/Session'
-import { SigningCapability } from '@l.x/lx/src/features/accounts/store/types/Wallet'
-import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
-=======
 import { FeatureFlags, useFeatureFlag } from '@universe/gating'
 import { CONNECTION_PROVIDER_IDS } from 'uniswap/src/constants/web3'
 import { ConnectorStatus } from 'uniswap/src/features/accounts/store/types/Connector'
 import { ChainScopeType } from 'uniswap/src/features/accounts/store/types/Session'
 import { SigningCapability } from 'uniswap/src/features/accounts/store/types/Wallet'
 import { Platform } from 'uniswap/src/features/platforms/types/Platform'
->>>>>>> upstream/main
 import { useAccountsStoreContext } from '~/features/accounts/store/provider'
 import { mocked } from '~/test-utils/mocked'
 import { renderHook } from '~/test-utils/render'
@@ -34,11 +25,7 @@ vi.mock('wagmi', async () => ({
   useChainId: () => mockUseWagmiChainId(),
 }))
 
-<<<<<<< HEAD
-vi.mock('@l.x/gating', async (importOriginal) => {
-=======
 vi.mock('@universe/gating', async (importOriginal) => {
->>>>>>> upstream/main
   return {
     ...(await importOriginal()),
     useFeatureFlag: vi.fn(),
@@ -244,11 +231,7 @@ describe('Web Accounts Store Provider', () => {
 
       // Should have only one wallet (deduplicated)
       const walletIds = Object.keys(state.wallets)
-<<<<<<< HEAD
-      expect(walletIds).toHaveLength(2) // Lux wallet connect connector is added manually to store, so its always defined, hence length is 2
-=======
       expect(walletIds).toHaveLength(2) // Uniswap wallet connect connector is added manually to store, so its always defined, hence length is 2
->>>>>>> upstream/main
       expect(walletIds[0]).toBe('metamask') // EVM library ID takes precedence
 
       const wallet = state.wallets.metamask

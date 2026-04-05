@@ -1,18 +1,9 @@
-<<<<<<< HEAD
-import { AccountType } from '@l.x/lx/src/features/accounts/types'
-import { extractNameFromUrl } from '@l.x/utils/src/format/extractNameFromUrl'
-import { bubbleToTop } from '@l.x/utils/src/primitives/array'
-import { ONE_SECOND_MS } from '@l.x/utils/src/time/time'
-import { promiseTimeout } from '@l.x/utils/src/time/timing'
-import { Account, SignerMnemonicAccount } from '@luxfi/wallet/src/features/wallet/accounts/types'
-=======
 import { AccountType } from 'uniswap/src/features/accounts/types'
 import { extractNameFromUrl } from 'utilities/src/format/extractNameFromUrl'
 import { bubbleToTop } from 'utilities/src/primitives/array'
 import { ONE_SECOND_MS } from 'utilities/src/time/time'
 import { promiseTimeout } from 'utilities/src/time/timing'
 import { Account, SignerMnemonicAccount } from 'wallet/src/features/wallet/accounts/types'
->>>>>>> upstream/main
 
 const MAX_TAB_QUERY_TIME = ONE_SECOND_MS
 

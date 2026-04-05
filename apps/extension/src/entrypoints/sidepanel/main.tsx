@@ -1,19 +1,10 @@
-<<<<<<< HEAD
-// eslint-disable-next-line @typescript-eslint/triple-slash-reference
-/// <reference path="../../../../../index.d.ts" />
-// eslint-disable-next-line @typescript-eslint/triple-slash-reference
-=======
 // oxlint-disable-next-line typescript/triple-slash-reference
 /// <reference path="../../../../../index.d.ts" />
 // oxlint-disable-next-line typescript/triple-slash-reference
->>>>>>> upstream/main
 /// <reference path="../../../.wxt/wxt.d.ts" />
 
 import 'src/app/utils/devtools'
 import 'symbol-observable' // Needed by `reduxed-chrome-storage` as polyfill, order matters
-<<<<<<< HEAD
-
-=======
 >>>>>>> upstream/main
 import React from 'react'
 import { createRoot } from 'react-dom/client'
@@ -32,7 +23,6 @@ import { initializeScrollWatcher } from 'uniswap/src/components/modals/ScrollLoc
 import { initializePortfolioQueryOverrides } from 'uniswap/src/data/rest/portfolioBalanceOverrides'
 import { logger } from 'utilities/src/logger/logger'
 // oxlint-disable-next-line typescript/no-explicit-any -- Global polyfill cleanup requires any type for runtime modification
->>>>>>> upstream/main
 ;(globalThis as any).regeneratorRuntime = undefined
 
 export function makeSidebar(): void {
@@ -50,11 +40,7 @@ export function makeSidebar(): void {
         })
       })
 
-<<<<<<< HEAD
-    // biome-ignore lint/style/noNonNullAssertion: DOM root element guaranteed to exist in extension context
-=======
     // oxlint-disable-next-line typescript/no-non-null-assertion -- DOM root element guaranteed to exist in extension context
->>>>>>> upstream/main
     const container = window.document.querySelector('#root')!
     const root = createRoot(container)
 

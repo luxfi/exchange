@@ -1,7 +1,4 @@
 import 'symbol-observable' // Needed by `reduxed-chrome-storage` as polyfill, order matters
-<<<<<<< HEAD
-
-=======
 >>>>>>> upstream/main
 import { AUTO_LOCK_ALARM_NAME } from 'src/app/components/AutoLockProvider'
 import { initStatSigForBrowserScripts } from 'src/app/core/initStatSigForBrowserScripts'
@@ -34,7 +31,6 @@ import { ExtensionEventName } from 'uniswap/src/features/telemetry/constants'
 import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
 import { logger } from 'utilities/src/logger/logger'
 import { Keyring } from 'wallet/src/features/wallet/Keyring/Keyring'
->>>>>>> upstream/main
 import { defineBackground } from 'wxt/utils/define-background'
 
 async function enableSidebar(): Promise<void> {
@@ -66,11 +62,7 @@ async function initApp(): Promise<void> {
   })
 
   // Sets uninstall URL
-<<<<<<< HEAD
-  chrome.runtime.setUninstallURL(lxUrls.chromeExtensionUninstallUrl)
-=======
   chrome.runtime.setUninstallURL(uniswapUrls.chromeExtensionUninstallUrl)
->>>>>>> upstream/main
 
   await backgroundStore.init()
 }
@@ -199,11 +191,7 @@ function makeBackground(): void {
   })
 }
 
-<<<<<<< HEAD
-// eslint-disable-next-line import/no-unused-modules
-=======
 // oxlint-disable-next-line import/no-unused-modules
->>>>>>> upstream/main
 export default defineBackground({
   type: 'module',
   main() {

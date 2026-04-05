@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-import { useLayoutEffect, useState } from 'react'
-=======
 >>>>>>> upstream/main
 import Row from '~/components/deprecated/Row'
 import { Input, InputProps } from '~/components/NumericalInput'
@@ -65,4 +62,3 @@ export function useWidthAdjustedDisplayValue(displayValue: string) {
   return postWidthAdjustedDisplayValue
 }
 =======
->>>>>>> upstream/main

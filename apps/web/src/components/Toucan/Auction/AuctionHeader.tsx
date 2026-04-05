@@ -1,23 +1,3 @@
-<<<<<<< HEAD
-import { DynamicConfigs, useDynamicConfigValue, VerifiedAuctionsConfigKey } from '@l.x/gating'
-import { memo, useMemo } from 'react'
-import { useTranslation } from 'react-i18next'
-import { Link } from 'react-router'
-import { Flex, Text, useIsDarkMode, useMedia } from '@l.x/ui/src'
-import { CheckmarkCircle } from '@l.x/ui/src/components/icons/CheckmarkCircle'
-import { RotatableChevron } from '@l.x/ui/src/components/icons/RotatableChevron'
-import { iconSizes } from '@l.x/ui/src/theme'
-import { TokenLogo } from 'lx/src/components/CurrencyLogo/TokenLogo'
-import { WarningSeverity } from 'lx/src/components/modals/WarningModal/types'
-import WarningIcon from 'lx/src/components/warnings/WarningIcon'
-import { getChainInfo } from 'lx/src/features/chains/chainInfo'
-import { CurrencyInfo } from 'lx/src/features/dataApi/types'
-import { getTokenWarningSeverity } from 'lx/src/features/tokens/warnings/safetyUtils'
-import { getTokenDetailsURL } from '~/appGraphql/data/util'
-import { BreadcrumbNavContainer, BreadcrumbNavLink, CurrentPageBreadcrumb } from '~/components/BreadcrumbNav'
-import { useAuctionStore } from '~/components/Toucan/Auction/store/useAuctionStore'
-import { EllipsisGuiStyle } from '~/theme/components/styles'
-=======
 import { DynamicConfigs, useDynamicConfigValue, VerifiedAuctionsConfigKey } from '@universe/gating'
 import { memo, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
@@ -36,7 +16,6 @@ import { getTokenDetailsURL } from '~/appGraphql/data/util'
 import { BreadcrumbNavContainer, BreadcrumbNavLink, CurrentPageBreadcrumb } from '~/components/BreadcrumbNav'
 import { useAuctionStore } from '~/components/Toucan/Auction/store/useAuctionStore'
 import { EllipsisTamaguiStyle } from '~/theme/components/styles'
->>>>>>> upstream/main
 
 // TODO | Toucan - Investigate why BreadcrumbNavLink doesn't re-render on theme change in this component tree.
 // The same component works correctly in PoolDetailsHeader.tsx. This memo + useIsDarkMode is a workaround
@@ -89,11 +68,7 @@ const AuctionTokenInfo = ({
       />
       <Flex gap={4} justifyContent="center">
         <Flex row gap="$gap4">
-<<<<<<< HEAD
-          <Text variant="heading3" $lg={{ variant: 'subheading1' }} minWidth={40} {...EllipsisGuiStyle}>
-=======
           <Text variant="heading3" $lg={{ variant: 'subheading1' }} minWidth={40} {...EllipsisTamaguiStyle}>
->>>>>>> upstream/main
             {name}
           </Text>
           {severity > WarningSeverity.Low && <WarningIcon size="$icon.16" severity={severity} />}

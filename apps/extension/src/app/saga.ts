@@ -8,28 +8,16 @@ import {
 import { dappRequestApprovalWatcher } from 'src/app/features/dappRequests/dappRequestApprovalWatcherSaga'
 import { dappRequestWatcher } from 'src/app/features/dappRequests/saga'
 import { call, spawn } from 'typed-redux-saga'
-<<<<<<< HEAD
-import { getMonitoredSagaReducers, type MonitoredSaga } from '@l.x/lx/src/utils/saga'
-import { apolloClientRef } from '@luxfi/wallet/src/data/apollo/usePersistedApolloClient'
-import { authActions, authReducer, authSaga, authSagaName } from '@luxfi/wallet/src/features/auth/saga'
-import { deviceLocaleWatcher } from '@luxfi/wallet/src/features/i18n/deviceLocaleWatcherSaga'
-import { initProviders } from '@luxfi/wallet/src/features/providers/saga'
-=======
 import { getMonitoredSagaReducers, type MonitoredSaga } from 'uniswap/src/utils/saga'
 import { apolloClientRef } from 'wallet/src/data/apollo/usePersistedApolloClient'
 import { authActions, authReducer, authSaga, authSagaName } from 'wallet/src/features/auth/saga'
 import { initProviders } from 'wallet/src/features/providers/saga'
->>>>>>> upstream/main
 import {
   removeDelegationActions,
   removeDelegationReducer,
   removeDelegationSaga,
   removeDelegationSagaName,
-<<<<<<< HEAD
-} from '@luxfi/wallet/src/features/smartWallet/sagas/removeDelegationSaga'
-=======
 } from 'wallet/src/features/smartWallet/sagas/removeDelegationSaga'
->>>>>>> upstream/main
 import {
   executePlanActions,
   executePlanReducer,
@@ -43,35 +31,21 @@ import {
   prepareAndSignSwapReducer,
   prepareAndSignSwapSaga,
   prepareAndSignSwapSagaName,
-<<<<<<< HEAD
-} from '@luxfi/wallet/src/features/transactions/swap/configuredSagas'
-import { watchTransactionEvents } from '@luxfi/wallet/src/features/transactions/watcher/transactionFinalizationSaga'
-import { transactionWatcher } from '@luxfi/wallet/src/features/transactions/watcher/transactionWatcherSaga'
-=======
 } from 'wallet/src/features/transactions/swap/configuredSagas'
 import { watchTransactionEvents } from 'wallet/src/features/transactions/watcher/transactionFinalizationSaga'
 import { transactionWatcher } from 'wallet/src/features/transactions/watcher/transactionWatcherSaga'
->>>>>>> upstream/main
 import {
   editAccountActions,
   editAccountReducer,
   editAccountSaga,
   editAccountSagaName,
-<<<<<<< HEAD
-} from '@luxfi/wallet/src/features/wallet/accounts/editAccountSaga'
-=======
 } from 'wallet/src/features/wallet/accounts/editAccountSaga'
->>>>>>> upstream/main
 import {
   createAccountsActions,
   createAccountsReducer,
   createAccountsSaga,
   createAccountsSagaName,
-<<<<<<< HEAD
-} from '@luxfi/wallet/src/features/wallet/create/createAccountsSaga'
-=======
 } from 'wallet/src/features/wallet/create/createAccountsSaga'
->>>>>>> upstream/main
 
 // Stateful sagas that are registered with the store on startup
 const monitoredSagas: Record<string, MonitoredSaga> = {
@@ -131,10 +105,6 @@ const sagasInitializedOnStartup = [
   dappRequestWatcher,
   initProviders,
   watchTransactionEvents,
-<<<<<<< HEAD
-  deviceLocaleWatcher,
-=======
->>>>>>> upstream/main
 ] as const
 
 export const monitoredSagaReducers = getMonitoredSagaReducers(monitoredSagas)

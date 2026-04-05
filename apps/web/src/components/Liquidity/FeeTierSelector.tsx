@@ -1,14 +1,3 @@
-<<<<<<< HEAD
-import type { Percent } from '@luxamm/sdk-core'
-import type { ReactNode } from 'react'
-import { useReducer } from 'react'
-import { useTranslation } from 'react-i18next'
-import { Button, Flex, HeightAnimator, styled, Text, TouchableArea } from '@l.x/ui/src'
-import { CheckCircleFilled } from '@l.x/ui/src/components/icons/CheckCircleFilled'
-import { RotatableChevron } from '@l.x/ui/src/components/icons/RotatableChevron'
-import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
-import { NumberType } from '@l.x/utils/src/format/types'
-=======
 import type { Percent } from '@uniswap/sdk-core'
 import type { ReactNode } from 'react'
 import { useReducer } from 'react'
@@ -18,7 +7,6 @@ import { CheckCircleFilled } from 'ui/src/components/icons/CheckCircleFilled'
 import { RotatableChevron } from 'ui/src/components/icons/RotatableChevron'
 import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
 import { NumberType } from 'utilities/src/format/types'
->>>>>>> upstream/main
 import type { FeeData } from '~/components/Liquidity/Create/types'
 import { getFeeTierKey, isDynamicFeeTier } from '~/components/Liquidity/utils/feeTiers'
 import { LpIncentivesAprDisplay } from '~/components/LpIncentives/LpIncentivesAprDisplay'

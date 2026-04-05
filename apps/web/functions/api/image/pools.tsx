@@ -1,12 +1,6 @@
-<<<<<<< HEAD
-// biome-ignore-all lint/correctness/noRestrictedElements: ignoring for the whole file
-
-import { ProtocolVersion } from '@l.x/api/src/clients/graphql/__generated__/schema-types'
-=======
 /* oxlint-disable react/forbid-elements -- ignoring for the whole file */
 
 import { ProtocolVersion } from '@universe/api/src/clients/graphql/__generated__/schema-types'
->>>>>>> upstream/main
 import { ImageResponse } from '@vercel/og'
 import { WATERMARK_URL } from 'functions/constants'
 import { Data, PositionStatus } from 'functions/utils/cache'
@@ -253,11 +247,7 @@ export async function renderPoolOgImage({
                   </div>
                 )}
               </div>
-<<<<<<< HEAD
-              <img src={WATERMARK_URL} alt="" height="72px" width="324px" />
-=======
               <img src={WATERMARK_URL} alt="Uniswap" height="72px" width="324px" />
->>>>>>> upstream/main
             </div>
           </div>
         </div>

@@ -1,18 +1,9 @@
 import '~/test-utils/tokens/mocks'
-<<<<<<< HEAD
-
-import { ApolloError } from '@apollo/client'
-import { type Currency, Percent, Token } from '@luxamm/sdk-core'
-import { GraphQLApi } from '@l.x/api'
-import { DEFAULT_TICK_SPACING } from '@l.x/lx/src/constants/pools'
-import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
-=======
 import { ApolloError } from '@apollo/client'
 import { type Currency, Percent, Token } from '@uniswap/sdk-core'
 import { GraphQLApi } from '@universe/api'
 import { DEFAULT_TICK_SPACING } from 'uniswap/src/constants/pools'
 import { UniverseChainId } from 'uniswap/src/features/chains/types'
->>>>>>> upstream/main
 import { usePoolsFromTokenAddress } from '~/appGraphql/data/pools/usePoolsFromTokenAddress'
 import { ExploreTablesFilterStoreContextProvider } from '~/pages/Explore/exploreTablesFilterStore'
 import { TokenDetailsPoolsTable } from '~/pages/TokenDetails/components/activity/TokenDetailsPoolsTable'

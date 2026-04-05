@@ -1,9 +1,5 @@
 import { QueryResult } from '@apollo/client'
-<<<<<<< HEAD
-import { GraphQLApi } from '@l.x/api'
-=======
 import { GraphQLApi } from '@universe/api'
->>>>>>> upstream/main
 
 export const validTokenProjectResponse = {
   data: {
@@ -22,11 +18,7 @@ export const validTokenProjectResponse = {
         homepageUrl: 'https://www.circle.com/en/usdc',
         twitterName: 'circle',
         logoUrl:
-<<<<<<< HEAD
-          'https://raw.githubusercontent.com/Lux/assets/master/blockchains/ethereum/assets/0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48/logo.png',
-=======
           'https://raw.githubusercontent.com/Uniswap/assets/master/blockchains/ethereum/assets/0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48/logo.png',
->>>>>>> upstream/main
         __typename: 'TokenProject',
       },
       __typename: 'Token',

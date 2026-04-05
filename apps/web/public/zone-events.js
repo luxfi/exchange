@@ -1,11 +1,6 @@
 /**
-<<<<<<< HEAD
- * zone-events.ts  – TEMP shim for Gui scroll-lock bug
- *   → Must run **before** `@hanzogui/polyfill-dev` is imported.
-=======
  * zone-events.ts  – TEMP shim for Tamagui scroll-lock bug
  *   → Must run **before** `@tamagui/polyfill-dev` is imported.
->>>>>>> upstream/main
  */
 
 // Browsers that default key events (`touchmove`, `wheel`) to passive:true
@@ -26,20 +21,12 @@ const IS_BLINK_BASED = /\b(?:Chrome|CriOS|SamsungBrowser|Opera|Edg)\/\d+/i.test(
     return !!opts.capture
   }
 
-<<<<<<< HEAD
-  // eslint-disable-next-line max-params
-=======
   // oxlint-disable-next-line max-params
->>>>>>> upstream/main
   EventTarget.prototype.addEventListener = function (type, cb, opts) {
     return nativeAdd.call(this, type, cb, normalizeOpts(opts))
   }
 
-<<<<<<< HEAD
-  // eslint-disable-next-line max-params
-=======
   // oxlint-disable-next-line max-params
->>>>>>> upstream/main
   EventTarget.prototype.removeEventListener = function (type, cb, opts) {
     return nativeRm.call(this, type, cb, normalizeOpts(opts))
   }

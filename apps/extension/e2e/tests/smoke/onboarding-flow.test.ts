@@ -1,10 +1,6 @@
 import { expect } from '@playwright/test'
 import { freshExtensionTest as test } from 'e2e/fixtures/extension.fixture'
-<<<<<<< HEAD
-import { ONE_SECOND_MS } from '@l.x/utils/src/time/time'
-=======
 import { ONE_SECOND_MS } from 'utilities/src/time/time'
->>>>>>> upstream/main
 
 test.describe('Extension Onboarding Flow', () => {
   test('onboarding tab opens automatically on fresh install', async ({ context }) => {
@@ -24,11 +20,7 @@ test.describe('Extension Onboarding Flow', () => {
 
     // Verify we're on the onboarding page
     const title = await onboardingPage.title()
-<<<<<<< HEAD
-    expect(title).toContain('Lux Extension')
-=======
     expect(title).toContain('Uniswap Extension')
->>>>>>> upstream/main
   })
 
   test.skip('sidebar is disabled before onboarding completion', async () => {

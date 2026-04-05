@@ -13,13 +13,8 @@ import {
   removeDappInfoToChromeLocalStorage,
   setLanguageToNavigatorLanguage,
 } from 'src/store/extensionMigrations'
-<<<<<<< HEAD
-import { Language } from '@l.x/lx/src/features/language/constants'
-import { createThrowingProxy } from '@l.x/utils/src/test/utils'
-=======
 import { Language } from 'uniswap/src/features/language/constants'
 import { createThrowingProxy } from 'utilities/src/test/utils'
->>>>>>> upstream/main
 
 describe('removeDappInfoToChromeLocalStorage', () => {
   it('removes dapp from state', () => {

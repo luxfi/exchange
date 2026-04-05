@@ -1,24 +1,13 @@
 import { renderHook } from '@testing-library/react'
-<<<<<<< HEAD
-import { ProtocolVersion } from '@luxamm/client-data-api/dist/data/v1/poolTypes_pb'
-import { Percent } from '@luxamm/sdk-core'
-import { useGetPoolsByTokens } from '@l.x/lx/src/data/rest/getPools'
-import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
-=======
 import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
 import { Percent } from '@uniswap/sdk-core'
 import { useGetPoolsByTokens } from 'uniswap/src/data/rest/getPools'
 import { UniverseChainId } from 'uniswap/src/features/chains/types'
->>>>>>> upstream/main
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import { useAllFeeTierPoolData } from '~/components/Liquidity/hooks/useAllFeeTierPoolData'
 import { TEST_TOKEN_1, TEST_TOKEN_2 } from '~/test-utils/constants'
 
-<<<<<<< HEAD
-vi.mock('lx/src/data/rest/getPools', () => ({
-=======
 vi.mock('uniswap/src/data/rest/getPools', () => ({
->>>>>>> upstream/main
   useGetPoolsByTokens: vi.fn(),
 }))
 

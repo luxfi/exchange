@@ -1,17 +1,9 @@
-<<<<<<< HEAD
-import { FeatureFlags, useFeatureFlag } from '@luxfi/gating'
-import { getSdkError } from '@walletconnect/utils'
-import React, { useMemo, useState } from 'react'
-import { useTranslation } from 'react-i18next'
-import Animated, { useAnimatedStyle, useSharedValue } from 'react-native-reanimated'
-=======
 import { useBottomSheetInternal } from '@gorhom/bottom-sheet'
 import { FeatureFlags, useFeatureFlag } from '@universe/gating'
 import { getSdkError } from '@walletconnect/utils'
 import React, { useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import Animated, { useAnimatedStyle } from 'react-native-reanimated'
->>>>>>> upstream/main
 import { useDispatch, useSelector } from 'react-redux'
 import { ModalWithOverlay, ModalWithOverlayProps } from 'src/components/Requests/ModalWithOverlay/ModalWithOverlay'
 import { selectDidOpenFromDeepLink } from 'src/features/walletConnect/selectors'
@@ -24,24 +16,6 @@ import {
   setDidOpenFromDeepLink,
   WalletConnectPendingSession,
 } from 'src/features/walletConnect/walletConnectSlice'
-<<<<<<< HEAD
-import { Flex } from '@l.x/ui/src'
-import { AccountType } from '@l.x/lx/src/features/accounts/types'
-import { pushNotification } from '@l.x/lx/src/features/notifications/slice/slice'
-import { AppNotificationType } from '@l.x/lx/src/features/notifications/slice/types'
-import { MobileEventName, ModalName } from '@l.x/lx/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
-import { DappRequestType, WalletConnectEvent, WCEventType, WCRequestOutcome } from '@l.x/lx/src/types/walletConnect'
-import { useEvent } from '@l.x/utils/src/react/hooks'
-import { ONE_SECOND_MS } from '@l.x/utils/src/time/time'
-import { DappConnectionContent } from '@luxfi/wallet/src/components/dappRequests/DappConnectionContent'
-import { DappRequestHeader } from '@luxfi/wallet/src/components/dappRequests/DappRequestHeader'
-import { getCapabilitiesCore } from '@luxfi/wallet/src/features/batchedTransactions/utils'
-import { useBlockaidVerification } from '@luxfi/wallet/src/features/dappRequests/hooks/useBlockaidVerification'
-import { useDappConnectionConfirmation } from '@luxfi/wallet/src/features/dappRequests/hooks/useDappConnectionConfirmation'
-import { DappConnectionInfo, DappVerificationStatus } from '@luxfi/wallet/src/features/dappRequests/types'
-import { mergeVerificationStatuses } from '@luxfi/wallet/src/features/dappRequests/verification'
-=======
 import { Flex } from 'ui/src'
 import { AccountType } from 'uniswap/src/features/accounts/types'
 import { pushNotification } from 'uniswap/src/features/notifications/slice/slice'
@@ -58,16 +32,11 @@ import { useBlockaidVerification } from 'wallet/src/features/dappRequests/hooks/
 import { useDappConnectionConfirmation } from 'wallet/src/features/dappRequests/hooks/useDappConnectionConfirmation'
 import { DappConnectionInfo, DappVerificationStatus } from 'wallet/src/features/dappRequests/types'
 import { mergeVerificationStatuses } from 'wallet/src/features/dappRequests/verification'
->>>>>>> upstream/main
 import {
   useActiveAccountWithThrow,
   useHasSmartWalletConsent,
   useSignerAccounts,
-<<<<<<< HEAD
-} from '@luxfi/wallet/src/features/wallet/hooks'
-=======
 } from 'wallet/src/features/wallet/hooks'
->>>>>>> upstream/main
 
 type Props = {
   pendingSession: WalletConnectPendingSession
@@ -275,13 +244,7 @@ function PendingConnectionModalContent({
   confirmedWarning,
 }: PendingConnectionModalContentProps): JSX.Element {
   const { t } = useTranslation()
-<<<<<<< HEAD
-  // In @gorhom/bottom-sheet v5, animatedFooterHeight was removed from useBottomSheetInternal().
-  // Default to 0; the footer manages its own height via BottomSheetFooter.
-  const animatedFooterHeight = useSharedValue(0)
-=======
   const { animatedFooterHeight } = useBottomSheetInternal()
->>>>>>> upstream/main
 
   const bottomSpacerStyle = useAnimatedStyle(() => ({
     height: animatedFooterHeight.value,

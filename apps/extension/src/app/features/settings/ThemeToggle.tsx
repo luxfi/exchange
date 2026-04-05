@@ -1,14 +1,8 @@
 import { useTranslation } from 'react-i18next'
 import { SCREEN_ITEM_HORIZONTAL_PAD } from 'src/app/constants'
-<<<<<<< HEAD
-import { Flex, Text } from '@l.x/ui/src'
-import { Contrast } from '@l.x/ui/src/components/icons'
-import { ThemeToggle } from '@l.x/lx/src/components/appearance/ThemeToggle'
-=======
 import { Flex, Text } from 'ui/src'
 import { Contrast } from 'ui/src/components/icons'
 import { ThemeToggle } from 'uniswap/src/components/appearance/ThemeToggle'
->>>>>>> upstream/main
 
 export function ThemeToggleWithLabel(): JSX.Element {
   const { t } = useTranslation()

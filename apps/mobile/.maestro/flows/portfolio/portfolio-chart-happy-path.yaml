@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-appId: com.lux.exchange.dev
-=======
 appId: com.uniswap.mobile.dev
->>>>>>> upstream/main
 jsEngine: graaljs
 env:
   E2E_RECOVERY_PHRASE: ${E2E_RECOVERY_PHRASE}
@@ -18,11 +14,7 @@ env:
 
 - runFlow: ../../shared-flows/start.yaml
 - runFlow: ../../shared-flows/recover-fast.yaml
-<<<<<<< HEAD
-- openLink: lux://e2e/override-gates?gates=profit_loss
-=======
 - openLink: uniswap://e2e/override-gates?gates=profit_loss
->>>>>>> upstream/main
 - tapOn:
     text: "Open"
     optional: true
@@ -65,12 +57,9 @@ env:
     id: ${output.testIds.PortfolioChartCollapsed}
 
 - assertVisible:
-<<<<<<< HEAD
-=======
     id: ${output.testIds.PortfolioPerformance}
 
 - assertVisible:
->>>>>>> upstream/main
     id: ${output.testIds.PortfolioChartPeriodPrefix}1h
 
 - assertVisible:

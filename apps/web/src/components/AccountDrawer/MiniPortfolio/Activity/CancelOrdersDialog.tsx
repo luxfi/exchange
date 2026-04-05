@@ -1,22 +1,3 @@
-<<<<<<< HEAD
-import { CurrencyAmount } from '@luxamm/sdk-core'
-import { TradingApi } from '@l.x/api'
-import { useMemo } from 'react'
-import { useTranslation } from 'react-i18next'
-import { Flex, styled, Text, useSporeColors } from '@l.x/ui/src'
-import { Blocked } from '@l.x/ui/src/components/icons/Blocked'
-import { Dialog } from '@l.x/lx/src/components/dialog/Dialog'
-import { GetHelpHeader } from '@l.x/lx/src/components/dialog/GetHelpHeader'
-import { Modal } from '@l.x/lx/src/components/modals/Modal'
-import { nativeOnChain } from '@l.x/lx/src/constants/tokens'
-import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
-import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
-import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
-import { useUSDCValue } from '@l.x/lx/src/features/transactions/hooks/useUSDCPriceWrapper'
-import { DEXOrderDetails } from '@l.x/lx/src/features/transactions/types/transactionDetails'
-import { ExplorerDataType, getExplorerLink } from '@l.x/lx/src/utils/linking'
-import { NumberType } from '@l.x/utils/src/format/types'
-=======
 import { CurrencyAmount } from '@uniswap/sdk-core'
 import { TradingApi } from '@universe/api'
 import { useMemo } from 'react'
@@ -34,7 +15,6 @@ import { useUSDCValue } from 'uniswap/src/features/transactions/hooks/useUSDCPri
 import { UniswapXOrderDetails } from 'uniswap/src/features/transactions/types/transactionDetails'
 import { ExplorerDataType, getExplorerLink } from 'uniswap/src/utils/linking'
 import { NumberType } from 'utilities/src/format/types'
->>>>>>> upstream/main
 import { useCancelOrdersGasEstimate } from '~/components/AccountDrawer/MiniPortfolio/Activity/hooks'
 import { ConfirmedIcon, LogoContainer, SubmittedIcon } from '~/components/AccountDrawer/MiniPortfolio/Activity/Logos'
 import { LoaderV3 } from '~/components/Icons/LoadingSpinner'
@@ -64,11 +44,7 @@ export enum CancellationState {
 }
 
 interface CancelOrdersDialogProps {
-<<<<<<< HEAD
-  orders: DEXOrderDetails[]
-=======
   orders: UniswapXOrderDetails[]
->>>>>>> upstream/main
   cancelState: CancellationState
   cancelTxHash?: string
   onConfirm: () => void
@@ -78,11 +54,7 @@ interface CancelOrdersDialogProps {
 
 function useCancelOrdersDialogContent(
   state: CancellationState,
-<<<<<<< HEAD
-  orders: DEXOrderDetails[],
-=======
   orders: UniswapXOrderDetails[],
->>>>>>> upstream/main
 ): { title?: string; icon: JSX.Element } {
   const { t } = useTranslation()
   const colors = useSporeColors()
@@ -162,11 +134,7 @@ export function CancelOrdersDialog(props: CancelOrdersDialogProps) {
             {cancelSubmitted ? (
               <ExternalLink
                 href={
-<<<<<<< HEAD
-                  // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
-=======
                   // oxlint-disable-next-line typescript/no-unnecessary-condition
->>>>>>> upstream/main
                   firstOrder
                     ? getExplorerLink({
                         chainId: firstOrder.chainId,
@@ -205,11 +173,7 @@ export function CancelOrdersDialog(props: CancelOrdersDialogProps) {
         displayHelpCTA
         iconBackgroundColor="$surface3"
       >
-<<<<<<< HEAD
-        {/* eslint-disable-next-line @typescript-eslint/no-unnecessary-condition */}
-=======
         {/* oxlint-disable-next-line typescript/no-unnecessary-condition */}
->>>>>>> upstream/main
         <GasEstimateDisplay chainId={orders[0].chainId} gasEstimateValue={cancellationGasFeeInfo?.gasFeeDisplayValue} />
       </Dialog>
     )

@@ -1,12 +1,6 @@
-<<<<<<< HEAD
-import { PositionStatus, ProtocolVersion } from '@luxamm/client-data-api/dist/data/v1/poolTypes_pb'
-import { Protocols } from '@luxamm/client-liquidity/dist/lx/liquidity/v1/types_pb'
-import { AppTFunction } from '@l.x/ui/src/i18n/types'
-=======
 import { PositionStatus, ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
 import { Protocols } from '@uniswap/client-liquidity/dist/uniswap/liquidity/v1/types_pb'
 import { AppTFunction } from 'ui/src/i18n/types'
->>>>>>> upstream/main
 
 export function getProtocolVersionLabel(version: ProtocolVersion): string | undefined {
   switch (version) {

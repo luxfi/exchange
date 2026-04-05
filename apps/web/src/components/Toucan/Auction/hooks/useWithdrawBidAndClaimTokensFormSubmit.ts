@@ -1,30 +1,6 @@
 import type {
   ExitBidAndClaimTokensResponse,
   ExitBidPositionResponse,
-<<<<<<< HEAD
-} from '@luxamm/client-liquidity/dist/lx/liquidity/v1/auction_pb'
-import { BidToExit, ChainId } from '@luxamm/client-liquidity/dist/lx/liquidity/v1/types_pb'
-import { useCallback, useMemo, useRef, useState } from 'react'
-import { useExitBidAndClaimTokensMutation } from '@l.x/lx/src/data/rest/auctions/useExitBidAndClaimTokensMutation'
-import { useExitBidPositionMutation } from '@l.x/lx/src/data/rest/auctions/useExitBidPositionMutation'
-import { AuctionEventName } from '@l.x/lx/src/features/telemetry/constants'
-import type { UniverseEventProperties } from '@l.x/lx/src/features/telemetry/types'
-import { SetCurrentStepFn } from '@l.x/lx/src/features/transactions/swap/types/swapCallback'
-import { validateTransactionRequest } from '@l.x/lx/src/features/transactions/swap/utils/trade'
-import {
-  ToucanWithdrawBidAndClaimTokensTransactionInfo,
-  TransactionType,
-} from '@l.x/lx/src/features/transactions/types/transactionDetails'
-import { ValidatedTransactionRequest } from '@l.x/lx/src/features/transactions/types/transactionRequests'
-import { useWallet } from '@l.x/lx/src/features/wallet/hooks/useWallet'
-import {
-  isSignerMnemonicAccountDetails,
-  SignerMnemonicAccountDetails,
-} from '@l.x/lx/src/features/wallet/types/AccountDetails'
-import { logger } from '@l.x/utils/src/logger/logger'
-import { useEvent } from '@l.x/utils/src/react/hooks'
-import { useTrace } from '@l.x/utils/src/telemetry/trace/TraceContext'
-=======
 } from '@uniswap/client-liquidity/dist/uniswap/liquidity/v1/auction_pb'
 import { BidToExit, ChainId } from '@uniswap/client-liquidity/dist/uniswap/liquidity/v1/types_pb'
 import { useCallback, useMemo, useRef, useState } from 'react'
@@ -47,7 +23,6 @@ import {
 import { logger } from 'utilities/src/logger/logger'
 import { useEvent } from 'utilities/src/react/hooks'
 import { useTrace } from 'utilities/src/telemetry/trace/TraceContext'
->>>>>>> upstream/main
 import { getAuctionWithdrawBaseAnalyticsProperties } from '~/components/Toucan/Auction/analytics'
 import { AuctionBidStatus } from '~/components/Toucan/Auction/store/types'
 import { useAuctionStore, useAuctionStoreActions } from '~/components/Toucan/Auction/store/useAuctionStore'

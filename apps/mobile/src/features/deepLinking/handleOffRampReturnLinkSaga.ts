@@ -3,21 +3,6 @@ import { navigate } from 'src/app/navigation/rootNavigation'
 import { openModal } from 'src/features/modals/modalSlice'
 import { dismissInAppBrowser } from 'src/utils/linking'
 import { call, put } from 'typed-redux-saga'
-<<<<<<< HEAD
-import { AssetType, TradeableAsset } from '@l.x/lx/src/entities/assets'
-import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
-import { FiatOffRampMetaData, OffRampTransferDetailsResponse } from '@l.x/lx/src/features/fiatOnRamp/types'
-import { FiatOffRampEventName, ModalName } from '@l.x/lx/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
-import { TransactionScreen } from '@l.x/lx/src/features/transactions/components/TransactionModal/TransactionModalContext'
-import { forceFetchFiatOnRampTransactions } from '@l.x/lx/src/features/transactions/slice'
-import i18n from '@l.x/lx/src/i18n'
-import { CurrencyField } from '@l.x/lx/src/types/currency'
-import { MobileScreens } from '@l.x/lx/src/types/screens/mobile'
-import { createTransactionId } from '@l.x/lx/src/utils/createTransactionId'
-import { logger } from '@l.x/utils/src/logger/logger'
-import { fetchOffRampTransferDetails } from '@luxfi/wallet/src/features/fiatOnRamp/api'
-=======
 import { AssetType, TradeableAsset } from 'uniswap/src/entities/assets'
 import { UniverseChainId } from 'uniswap/src/features/chains/types'
 import { FiatOffRampMetaData, OffRampTransferDetailsResponse } from 'uniswap/src/features/fiatOnRamp/types'
@@ -31,7 +16,6 @@ import { MobileScreens } from 'uniswap/src/types/screens/mobile'
 import { createTransactionId } from 'uniswap/src/utils/createTransactionId'
 import { logger } from 'utilities/src/logger/logger'
 import { fetchOffRampTransferDetails } from 'wallet/src/features/fiatOnRamp/api'
->>>>>>> upstream/main
 
 export function* handleOffRampReturnLink(url: URL) {
   try {

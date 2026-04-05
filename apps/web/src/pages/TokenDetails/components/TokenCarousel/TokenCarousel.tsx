@@ -1,17 +1,9 @@
 import { ComponentProps, useEffect, useMemo, useRef, useState } from 'react'
-<<<<<<< HEAD
-import { Flex, GeneratedIcon, LinearGradient, Text, TouchableArea } from '@l.x/ui/src'
-import { ArrowLeft } from '@l.x/ui/src/components/icons/ArrowLeft'
-import { ArrowRight } from '@l.x/ui/src/components/icons/ArrowRight'
-import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
-import { useEvent } from '@l.x/utils/src/react/hooks'
-=======
 import { Flex, GeneratedIcon, LinearGradient, Text, TouchableArea } from 'ui/src'
 import { ArrowLeft } from 'ui/src/components/icons/ArrowLeft'
 import { ArrowRight } from 'ui/src/components/icons/ArrowRight'
 import { UniverseChainId } from 'uniswap/src/features/chains/types'
 import { useEvent } from 'utilities/src/react/hooks'
->>>>>>> upstream/main
 import { MouseoverTooltip, TooltipSize } from '~/components/Tooltip'
 import {
   CARD_SPACING,
@@ -50,11 +42,7 @@ export function TokenCarousel({
   const [showRightGradient, setShowRightGradient] = useState(true)
 
   const carouselTokens = useMemo(() => {
-<<<<<<< HEAD
-    return topTokens?.slice(0, MAX_CAROUSEL_TOKENS) ?? []
-=======
     return topTokens.slice(0, MAX_CAROUSEL_TOKENS)
->>>>>>> upstream/main
   }, [topTokens])
 
   const moveScroll = useEvent((direction: 'left' | 'right'): void => {
@@ -153,11 +141,7 @@ export function TokenCarousel({
         )}
         <Flex ref={scrollRef} row overflow="scroll" gap="$gap12" pl="$spacing2" scrollbarWidth="none">
           {carouselTokens.map((token) => (
-<<<<<<< HEAD
-            <TokenCarouselCard key={`${token.address}-${token.chain}`} token={token} sparklines={sparklines} />
-=======
             <TokenCarouselCard key={token.multichainId} token={token} sparklines={sparklines} />
->>>>>>> upstream/main
           ))}
         </Flex>
       </Flex>

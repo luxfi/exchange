@@ -1,7 +1,4 @@
 import '~/test-utils/tokens/mocks'
-<<<<<<< HEAD
-
-=======
 >>>>>>> upstream/main
 import { BigNumber } from '@ethersproject/bignumber'
 import { useFilterPossiblyMaliciousPositions } from '~/hooks/useFilterPossiblyMaliciousPositions'
@@ -69,7 +66,6 @@ describe('useFilterPossiblyMaliciousPositions', () => {
     mocked(useTokenContractsConstant).mockReturnValue([{ result: 'Lux-LP.org' }, { result: 'Claim Rewards' }])
 =======
     mocked(useTokenContractsConstant).mockReturnValue([{ result: 'Uniswap-LP.org' }, { result: 'Claim Rewards' }])
->>>>>>> upstream/main
 
     const { result } = renderHook(() => useFilterPossiblyMaliciousPositions(positions))
 

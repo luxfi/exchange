@@ -1,20 +1,12 @@
 import { type NetInfoState } from '@react-native-community/netinfo'
-<<<<<<< HEAD
-import { ContentStyle } from '@l.x/api'
-=======
 import { ContentStyle } from '@universe/api'
->>>>>>> upstream/main
 import { selectSomeModalOpen } from 'src/features/modals/selectSomeModalOpen'
 import {
   createOfflineCondition,
   isOfflineBannerNotification,
   OFFLINE_BANNER_NOTIFICATION_ID,
 } from 'src/notification-service/data-sources/reactive/offlineCondition'
-<<<<<<< HEAD
-import { selectFinishedOnboarding } from '@luxfi/wallet/src/features/wallet/selectors'
-=======
 import { selectFinishedOnboarding } from 'wallet/src/features/wallet/selectors'
->>>>>>> upstream/main
 
 // Mock NetInfo
 const mockAddEventListener = jest.fn()
@@ -65,11 +57,7 @@ describe('offlineCondition', () => {
         mockSelectSomeModalOpen.mockReturnValue(false)
 
         let capturedCallback: (state: NetInfoState) => void = jest.fn()
-<<<<<<< HEAD
-        // eslint-disable-next-line max-nested-callbacks
-=======
         // oxlint-disable-next-line max-nested-callbacks
->>>>>>> upstream/main
         mockAddEventListener.mockImplementation((callback: (state: NetInfoState) => void) => {
           capturedCallback = callback
           return jest.fn()

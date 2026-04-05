@@ -1,22 +1,11 @@
 // Ordering is intentional and must be preserved: sideEffects followed by functionality.
 import '~/sideEffects'
-<<<<<<< HEAD
-
-import { getDeviceId } from '@amplitude/analytics-browser'
-import { ApolloProvider } from '@apollo/client'
-import { InsightsProvider } from '@hanzo/insights-react'
-import { datadogRum } from '@datadog/browser-rum'
-import { PrivyProvider } from '@privy-io/react-auth'
-import { ApiInit, getEntryGatewayUrl, provideSessionService } from '@l.x/api'
-import type { StatsigUser } from '@l.x/gating'
-=======
 import { getDeviceId } from '@amplitude/analytics-browser'
 import { ApolloProvider } from '@apollo/client'
 import { datadogRum } from '@datadog/browser-rum'
 import { PrivyProvider } from '@privy-io/react-auth'
 import { ApiInit, getEntryGatewayUrl, provideSessionService } from '@universe/api'
 import type { StatsigUser } from '@universe/gating'
->>>>>>> upstream/main
 import {
   getIsHashcashSolverEnabled,
   getIsSessionServiceEnabled,
@@ -24,11 +13,7 @@ import {
   getIsSessionUpgradeAutoEnabled,
   getIsTurnstileSolverEnabled,
   useIsSessionServiceEnabled,
-<<<<<<< HEAD
-} from '@l.x/gating'
-=======
 } from '@universe/gating'
->>>>>>> upstream/main
 import {
   type ChallengeSolver,
   ChallengeType,
@@ -40,35 +25,13 @@ import {
   createSessionInitializationService,
   createTurnstileMockSolver,
   createTurnstileSolver,
-<<<<<<< HEAD
-} from '@l.x/sessions'
-=======
 } from '@universe/sessions'
->>>>>>> upstream/main
 import { NuqsAdapter } from 'nuqs/adapters/react-router/v7'
 import type { PropsWithChildren, ReactNode } from 'react'
 import { StrictMode, useEffect, useMemo } from 'react'
 import { createRoot } from 'react-dom/client'
 import { Helmet, HelmetProvider } from 'react-helmet-async/lib/index'
 import { I18nextProvider } from 'react-i18next'
-<<<<<<< HEAD
-// eslint-disable-next-line no-restricted-imports -- configures Reanimated logger to suppress dev warnings while shared packages still use Reanimated
-import { configureReanimatedLogger } from 'react-native-reanimated'
-import { Provider } from 'react-redux'
-import { BrowserRouter, HashRouter, useLocation } from 'react-router'
-import { PortalProvider } from '@l.x/ui/src'
-import { ReactRouterUrlProvider } from '@l.x/lx/src/contexts/UrlContext'
-import { initializePortfolioQueryOverrides } from '@l.x/lx/src/data/rest/portfolioBalanceOverrides'
-import { StatsigProviderWrapper } from '@l.x/lx/src/features/gating/StatsigProviderWrapper'
-import { LocalizationContextProvider } from '@l.x/lx/src/features/language/LocalizationContext'
-import { TokenPriceProvider } from '@l.x/lx/src/features/prices/TokenPriceContext'
-import i18n from '@l.x/lx/src/i18n'
-import { initializeDatadog } from '@l.x/lx/src/utils/datadog'
-import { localDevDatadogEnabled } from '@l.x/utils/src/environment/constants'
-import { isDevEnv, isTestEnv } from '@l.x/utils/src/environment/env'
-import { getLogger } from '@l.x/utils/src/logger/logger'
-// biome-ignore lint/style/noRestrictedImports: custom useAccount hook requires statsig
-=======
 // oxlint-disable-next-line no-restricted-imports -- configures Reanimated logger to suppress dev warnings while shared packages still use Reanimated
 import { configureReanimatedLogger } from 'react-native-reanimated'
 import { Provider } from 'react-redux'
@@ -85,20 +48,14 @@ import { localDevDatadogEnabled } from 'utilities/src/environment/constants'
 import { isDevEnv, isTestEnv } from 'utilities/src/environment/env'
 import { getLogger } from 'utilities/src/logger/logger'
 // oxlint-disable-next-line no-restricted-imports -- custom useAccount hook requires statsig
->>>>>>> upstream/main
 import { useAccount } from 'wagmi'
 import { AssetActivityProvider } from '~/appGraphql/data/apollo/AssetActivityProvider'
 import { apolloClient } from '~/appGraphql/data/apollo/client'
 import { TokenBalancesProvider } from '~/appGraphql/data/apollo/TokenBalancesProvider'
 import { QueryClientPersistProvider } from '~/components/PersistQueryClient'
 import { createWeb3Provider, WalletCapabilitiesEffects } from '~/components/Web3Provider/createWeb3Provider'
-<<<<<<< HEAD
-import { WebLuxProvider } from '~/components/Web3Provider/WebLuxContext'
-import { initWagmiConfig, wagmiConfig } from '~/components/Web3Provider/wagmiConfig'
-=======
 import { wagmiConfig } from '~/components/Web3Provider/wagmiConfig'
 import { WebUniswapProvider } from '~/components/Web3Provider/WebUniswapContext'
->>>>>>> upstream/main
 import { AccountsStoreDevTool } from '~/features/accounts/store/devtools'
 import { WebAccountsStoreProvider } from '~/features/accounts/store/provider'
 import { ConnectWalletMutationProvider } from '~/features/wallet/connection/hooks/useConnectWalletMutation'
@@ -112,11 +69,7 @@ import { onHashcashSolveCompleted, onTurnstileSolveCompleted, sessionInitAnalyti
 import store from '~/state'
 import { LivePricesProvider } from '~/state/livePrices/LivePricesProvider'
 import { ThemedGlobalStyle, ThemeProvider } from '~/theme'
-<<<<<<< HEAD
-import { GuiProvider } from '~/theme/guiProvider'
-=======
 import { TamaguiProvider } from '~/theme/tamaguiProvider'
->>>>>>> upstream/main
 import { isBrowserRouterEnabled } from '~/utils/env'
 import { unregister as unregisterServiceWorker } from '~/utils/serviceWorker'
 import { getCanonicalUrl } from '~/utils/urlRoutes'
@@ -170,11 +123,7 @@ const provideSessionInitService = () => {
           createHashcashWorkerChannel({
             getWorker: () => {
               return new Worker(
-<<<<<<< HEAD
-                new URL('@l.x/sessions/src/challenge-solvers/hashcash/worker/hashcash.worker.ts', import.meta.url),
-=======
                 new URL('@universe/sessions/src/challenge-solvers/hashcash/worker/hashcash.worker.ts', import.meta.url),
->>>>>>> upstream/main
                 { type: 'module' },
               )
             },
@@ -233,14 +182,8 @@ function Updaters() {
   )
 }
 
-<<<<<<< HEAD
-// Web3Provider is created lazily after brand config loads (see loadBrandConfig below).
-// This ensures wagmi sees the correct default chain from config.json.
-let Web3Provider: ReturnType<typeof createWeb3Provider>
-=======
 // Production Web3Provider – always reconnects on mount and runs capability effects.
 const Web3Provider = createWeb3Provider({ wagmiConfig })
->>>>>>> upstream/main
 
 function GraphqlProviders({ children }: { children: React.ReactNode }) {
   return (
@@ -258,32 +201,7 @@ function StatsigProvider({ children }: PropsWithChildren) {
     () => ({
       userID: getDeviceId(),
       customIDs: { address: account.address ?? '' },
-<<<<<<< HEAD
-=======
-      custom: {
-        appVersion: process.env.REACT_APP_VERSION_TAG ?? 'unknown',
-      },
->>>>>>> upstream/main
-    }),
-    [account.address],
-  )
-
-  useEffect(() => {
-    datadogRum.setUserProperty('connection', {
-      type: account.connector?.type,
-      name: account.connector?.name,
-      rdns: account.connector?.id,
-      address: account.address,
-      status: account.status,
-    })
-  }, [account])
-
-  const onStatsigInit = () => {
-<<<<<<< HEAD
-    // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
-=======
     // oxlint-disable-next-line typescript/no-unnecessary-condition
->>>>>>> upstream/main
     if (!isDevEnv() || localDevDatadogEnabled) {
       initializeDatadog('web').catch(() => undefined)
     }
@@ -316,22 +234,6 @@ const Router = isBrowserRouterEnabled() ? BrowserRouter : HashRouter
 const RootApp = (): JSX.Element => {
   return (
     <StrictMode>
-<<<<<<< HEAD
-      <InsightsProvider
-        apiKey={process.env.REACT_APP_INSIGHTS_API_KEY || 'hi_a5316882b930d11c9183007d70c3955b'}
-        options={{
-          api_host: process.env.REACT_APP_INSIGHTS_HOST || 'https://insights.hanzo.ai',
-          capture_pageview: true,
-          capture_pageleave: true,
-          autocapture: true,
-          loaded: (hi: any) => {
-            const slug = brand.appDomain?.replace(/\./g, '-') || 'lux-exchange'
-            const org = brand.name?.split(' ')[0]?.toLowerCase() || 'lux'
-            hi.register({ app: slug, org })
-          },
-        }}
-      >
-=======
 >>>>>>> upstream/main
       <HelmetProvider>
         <ReactRouterUrlProvider>
@@ -348,11 +250,7 @@ const RootApp = (): JSX.Element => {
                             <ExternalWalletProvider>
                               <ConnectWalletMutationProvider>
                                 <WebAccountsStoreProvider>
-<<<<<<< HEAD
-                                  <WebLuxProvider>
-=======
                                   <WebUniswapProvider>
->>>>>>> upstream/main
                                     <TokenPriceProvider>
                                       <GraphqlProviders>
                                         <LivePricesProvider>
@@ -360,32 +258,20 @@ const RootApp = (): JSX.Element => {
                                             <BlockNumberProvider>
                                               <Updaters />
                                               <ThemeProvider>
-<<<<<<< HEAD
-                                                <GuiProvider>
-=======
                                                 <TamaguiProvider>
->>>>>>> upstream/main
                                                   <PortalProvider>
                                                     <WebNotificationServiceManager />
                                                     <ThemedGlobalStyle />
                                                     <App />
                                                   </PortalProvider>
-<<<<<<< HEAD
-                                                </GuiProvider>
-=======
                                                 </TamaguiProvider>
->>>>>>> upstream/main
                                               </ThemeProvider>
                                             </BlockNumberProvider>
                                           </LocalizationContextProvider>
                                         </LivePricesProvider>
                                       </GraphqlProviders>
                                     </TokenPriceProvider>
-<<<<<<< HEAD
-                                  </WebLuxProvider>
-=======
                                   </WebUniswapProvider>
->>>>>>> upstream/main
                                 </WebAccountsStoreProvider>
                               </ConnectWalletMutationProvider>
                             </ExternalWalletProvider>
@@ -400,10 +286,6 @@ const RootApp = (): JSX.Element => {
           </Provider>
         </ReactRouterUrlProvider>
       </HelmetProvider>
-<<<<<<< HEAD
-      </InsightsProvider>
-=======
->>>>>>> upstream/main
     </StrictMode>
   )
 }
@@ -443,7 +325,6 @@ loadBrandConfig().then(() => {
 })
 =======
 createRoot(container).render(<RootApp />)
->>>>>>> upstream/main
 
 // We once had a ServiceWorker, and users who have not visited since then may still have it registered.
 // This ensures it is truly gone.

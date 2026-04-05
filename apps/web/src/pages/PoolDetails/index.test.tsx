@@ -1,12 +1,7 @@
 import React from 'react'
 import { useParams } from 'react-router'
-<<<<<<< HEAD
-import { dismissTokenWarning } from '@l.x/lx/src/features/tokens/warnings/slice/slice'
-import { TokenProtectionWarning } from '@l.x/lx/src/features/tokens/warnings/types'
-=======
 import { dismissTokenWarning } from 'uniswap/src/features/tokens/warnings/slice/slice'
 import { TokenProtectionWarning } from 'uniswap/src/features/tokens/warnings/types'
->>>>>>> upstream/main
 import { usePoolData } from '~/appGraphql/data/pools/usePoolData'
 import PoolDetails from '~/pages/PoolDetails'
 import store from '~/state'
@@ -14,11 +9,7 @@ import { mocked } from '~/test-utils/mocked'
 import { validParams, validPoolDataResponse } from '~/test-utils/pools/fixtures'
 import { act, render, waitFor } from '~/test-utils/render'
 
-<<<<<<< HEAD
-// eslint-disable-next-line import/no-unused-modules, jest/no-export
-=======
 // oxlint-disable-next-line import/no-unused-modules, jest/no-export
->>>>>>> upstream/main
 export const mockNavigate = vi.fn()
 
 vi.mock('react-router', async () => {

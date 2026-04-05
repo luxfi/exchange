@@ -1,11 +1,6 @@
 import { ReactNode } from 'react'
-<<<<<<< HEAD
-import { Flex, Text, TouchableArea } from '@l.x/ui/src'
-import { RotatableChevron } from '@l.x/ui/src/components/icons/RotatableChevron'
-=======
 import { Flex, Text, TouchableArea } from 'ui/src'
 import { RotatableChevron } from 'ui/src/components/icons/RotatableChevron'
->>>>>>> upstream/main
 
 export function SettingsButton({
   title,

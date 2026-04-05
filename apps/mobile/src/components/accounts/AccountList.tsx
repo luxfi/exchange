@@ -1,25 +1,11 @@
 import { useMutation } from '@tanstack/react-query'
-<<<<<<< HEAD
-import { isNonPollingRequestInFlight } from '@luxfi/api'
-=======
 import { isNonPollingRequestInFlight } from '@universe/api'
->>>>>>> upstream/main
 import { LinearGradient } from 'expo-linear-gradient'
 import { ComponentProps, default as React, useCallback, useEffect, useMemo, useRef } from 'react'
 import { useTranslation } from 'react-i18next'
 import { StyleSheet } from 'react-native'
 import { FlatList } from 'react-native-gesture-handler'
 import { AccountCardItem } from 'src/components/accounts/AccountCardItem'
-<<<<<<< HEAD
-import { Flex, Text, useSporeColors } from '@l.x/ui/src'
-import { opacify, spacing } from '@l.x/ui/src/theme'
-import { PollingInterval } from '@l.x/lx/src/constants/misc'
-import { AccountType } from '@l.x/lx/src/features/accounts/types'
-import { logger } from '@l.x/utils/src/logger/logger'
-import { useEvent } from '@l.x/utils/src/react/hooks'
-import { useAccountListData } from '@luxfi/wallet/src/features/accounts/useAccountListData'
-import { Account } from '@luxfi/wallet/src/features/wallet/accounts/types'
-=======
 import { Flex, Text, useSporeColors } from 'ui/src'
 import { opacify, spacing } from 'ui/src/theme'
 import { PollingInterval } from 'uniswap/src/constants/misc'
@@ -28,7 +14,6 @@ import { logger } from 'utilities/src/logger/logger'
 import { useEvent } from 'utilities/src/react/hooks'
 import { useAccountListData } from 'wallet/src/features/accounts/useAccountListData'
 import { Account } from 'wallet/src/features/wallet/accounts/types'
->>>>>>> upstream/main
 
 type AccountListProps = Pick<ComponentProps<typeof AccountCardItem>, 'onPress'> & {
   accounts: Account[]
@@ -161,11 +146,7 @@ export function AccountList({ accounts, onPress, isVisible, onClose }: AccountLi
   }, [hasSignerAccounts, hasViewOnlyAccounts, signerAccounts, viewOnlyAccounts])
 
   const renderItem = useCallback(
-<<<<<<< HEAD
-    // eslint-disable-next-line consistent-return
-=======
     // oxlint-disable-next-line consistent-return
->>>>>>> upstream/main
     ({ item }: { item: AccountListItem }) => {
       switch (item.type) {
         case AccountListItemType.ViewOnlyHeader:

@@ -1,14 +1,8 @@
 import { useAuthorizationSignature, useLoginWithEmail, usePrivy } from '@privy-io/react-auth'
 import { fireEvent, waitFor } from '@testing-library/react'
-<<<<<<< HEAD
-import { EmbeddedWalletApiClient } from 'lx/src/data/rest/embeddedWallet/requests'
-import { attemptPinDecryption, executeRecovery } from 'lx/src/features/passkey/recoveryExecute'
-import { ModalName } from 'lx/src/features/telemetry/constants'
-=======
 import { EmbeddedWalletApiClient } from 'uniswap/src/data/rest/embeddedWallet/requests'
 import { attemptPinDecryption, executeRecovery } from 'uniswap/src/features/passkey/recoveryExecute'
 import { ModalName } from 'uniswap/src/features/telemetry/constants'
->>>>>>> upstream/main
 import { RecoverWalletModal } from '~/components/Passkey/RecoverWalletModal'
 import { useModalState } from '~/hooks/useModalState'
 import { render, screen } from '~/test-utils/render'
@@ -27,38 +21,22 @@ vi.mock('~/hooks/useModalState', () => ({
   useModalState: vi.fn(),
 }))
 
-<<<<<<< HEAD
-vi.mock('lx/src/data/rest/embeddedWallet/requests', () => ({
-=======
 vi.mock('uniswap/src/data/rest/embeddedWallet/requests', () => ({
->>>>>>> upstream/main
   EmbeddedWalletApiClient: {
     fetchGetRecoveryConfig: vi.fn(),
   },
 }))
 
-<<<<<<< HEAD
-vi.mock('lx/src/features/passkey/recoveryExecute', () => ({
-=======
 vi.mock('uniswap/src/features/passkey/recoveryExecute', () => ({
->>>>>>> upstream/main
   attemptPinDecryption: vi.fn(),
   executeRecovery: vi.fn(),
 }))
 
-<<<<<<< HEAD
-vi.mock('lx/src/features/passkey/embeddedWallet', () => ({
-  registerNewPasskey: vi.fn(),
-}))
-
-vi.mock('lx/src/features/telemetry/send', () => ({
-=======
 vi.mock('uniswap/src/features/passkey/embeddedWallet', () => ({
   registerNewPasskey: vi.fn(),
 }))
 
 vi.mock('uniswap/src/features/telemetry/send', () => ({
->>>>>>> upstream/main
   sendAnalyticsEvent: vi.fn(),
 }))
 
@@ -322,11 +300,7 @@ describe('RecoverWalletModal', () => {
 
   it('Add passkey button triggers executeRecovery', async () => {
     vi.spyOn(console, 'warn').mockImplementation(() => {})
-<<<<<<< HEAD
-    const { registerNewPasskey } = await import('lx/src/features/passkey/embeddedWallet')
-=======
     const { registerNewPasskey } = await import('uniswap/src/features/passkey/embeddedWallet')
->>>>>>> upstream/main
     setupMocks()
     render(<RecoverWalletModal />)
     await goToEnterPinStep()

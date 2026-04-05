@@ -1,31 +1,9 @@
-<<<<<<< HEAD
-import { SharedEventName } from '@luxamm/analytics-events'
-=======
 import { SharedEventName } from '@uniswap/analytics-events'
->>>>>>> upstream/main
 import React, { useCallback, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { NativeSyntheticEvent, Share } from 'react-native'
 import ContextMenu, { ContextMenuOnPressNativeEvent } from 'react-native-context-menu-view'
 import { useDispatch } from 'react-redux'
-<<<<<<< HEAD
-import { TouchableArea } from '@l.x/ui/src'
-import { Ellipsis } from '@l.x/ui/src/components/icons'
-import { lxUrls } from 'lx/src/constants/urls'
-import { useUnitagsAddressQuery } from 'lx/src/data/apiClients/unitagsApi/useUnitagsAddressQuery'
-import { getChainInfo } from 'lx/src/features/chains/chainInfo'
-import { useEnabledChains } from 'lx/src/features/chains/hooks/useEnabledChains'
-import { pushNotification } from 'lx/src/features/notifications/slice/slice'
-import { AppNotificationType, CopyNotificationType } from 'lx/src/features/notifications/slice/types'
-import { ElementName, WalletEventName } from 'lx/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
-import { MobileScreens } from 'lx/src/types/screens/mobile'
-import { ShareableEntity } from 'lx/src/types/sharing'
-import { ExplorerDataType, getExplorerLink, getPortfolioUrl, openUri } from 'lx/src/utils/linking'
-import { setClipboard } from '@l.x/utils/src/clipboard/clipboard'
-import { logger } from '@l.x/utils/src/logger/logger'
-import { noop } from '@l.x/utils/src/react/noop'
-=======
 import { TouchableArea } from 'ui/src'
 import { Ellipsis } from 'ui/src/components/icons'
 import { uniswapUrls } from 'uniswap/src/constants/urls'
@@ -42,7 +20,6 @@ import { ExplorerDataType, getExplorerLink, getPortfolioUrl, openUri } from 'uni
 import { setClipboard } from 'utilities/src/clipboard/clipboard'
 import { logger } from 'utilities/src/logger/logger'
 import { noop } from 'utilities/src/react/noop'
->>>>>>> upstream/main
 
 type MenuAction = {
   title: string
@@ -81,11 +58,7 @@ export function ProfileContextMenu({ address }: { address: Address }): JSX.Eleme
     const params = new URLSearchParams()
     params.append('tf_11041337007757', address) // Wallet Address
     params.append('tf_7005922218125', 'report_unitag') // Report Type Dropdown
-<<<<<<< HEAD
-    const prefilledRequestUrl = lxUrls.helpRequestUrl + '?' + params.toString()
-=======
     const prefilledRequestUrl = uniswapUrls.helpRequestUrl + '?' + params.toString()
->>>>>>> upstream/main
     openUri({ uri: prefilledRequestUrl }).catch((e) =>
       logger.error(e, { tags: { file: 'ProfileContextMenu', function: 'reportProfileLink' } }),
     )

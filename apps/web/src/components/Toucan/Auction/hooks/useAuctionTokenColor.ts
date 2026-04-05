@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import { useSporeColors } from '@l.x/ui/src'
-=======
 import { useSporeColors } from 'ui/src'
->>>>>>> upstream/main
 import { useAuctionStore } from '~/components/Toucan/Auction/store/useAuctionStore'
 
 /**

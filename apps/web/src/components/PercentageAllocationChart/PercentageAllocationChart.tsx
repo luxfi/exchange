@@ -1,18 +1,3 @@
-<<<<<<< HEAD
-import React, { useMemo, useState } from 'react'
-import { useTranslation } from 'react-i18next'
-import { Flex } from '@l.x/ui/src'
-import { Text } from '@l.x/ui/src/components/text'
-import useResizeObserver from 'use-resize-observer'
-
-export interface PercentageAllocationItem {
-  id: string
-  percentage: number
-  color: string
-  label: string
-  icon?: React.ReactNode
-}
-=======
 import { useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Flex } from 'ui/src'
@@ -26,7 +11,6 @@ import { useChartHover } from '~/components/PercentageAllocationChart/useChartHo
 export type { PercentageAllocationItem } from '~/components/PercentageAllocationChart/types'
 
 const DEFAULT_MAX_LEGEND_ITEMS = 5
->>>>>>> upstream/main
 
 interface PercentageAllocationChartProps {
   items: PercentageAllocationItem[]
@@ -35,159 +19,6 @@ interface PercentageAllocationChartProps {
   className?: string
 }
 
-<<<<<<< HEAD
-const MIN_BAR_WIDTH = 8
-const GAP_WIDTH = 4
-const MAX_SMALL_ITEMS = 4
-const DEFAULT_MAX_LEGEND_ITEMS = 5
-
-// the minimum percentage needed to meet the minimum bar width
-// items below this percentage threshold will be a fixed width equal to the minimum bar width
-function computeMinAutoPercentage({
-  items,
-  chartWidth,
-  minBarWidth,
-}: {
-  items: PercentageAllocationItem[]
-  chartWidth: number
-  minBarWidth: number
-}): number {
-  // Calculate gap compensation - each item except the last has a 4px gap
-  const totalGaps = Math.max(0, items.length - 1) * GAP_WIDTH
-  const availableWidth = chartWidth - totalGaps
-
-  // Recalculate min width percentage based on available width
-  return availableWidth > 0 ? (minBarWidth / availableWidth) * 100 : 2
-}
-
-function separateSmallItems(
-  items: PercentageAllocationItem[],
-  minWidthPercentage: number,
-): {
-  itemsWithNormalWidth: PercentageAllocationItem[]
-  itemsNeedingMinWidth: PercentageAllocationItem[]
-} {
-  return items.reduce(
-    (acc, item) => {
-      if (item.percentage > minWidthPercentage) {
-        acc.itemsWithNormalWidth.push(item)
-      } else {
-        acc.itemsNeedingMinWidth.push(item)
-      }
-      return acc
-    },
-    { itemsWithNormalWidth: [], itemsNeedingMinWidth: [] } as {
-      itemsWithNormalWidth: PercentageAllocationItem[]
-      itemsNeedingMinWidth: PercentageAllocationItem[]
-    },
-  )
-}
-
-// if there are more than 4 items that need the minimum width, group the rest into an "Others" category
-function groupOthers({
-  items,
-  minWidthPercentage,
-}: {
-  items: PercentageAllocationItem[]
-  minWidthPercentage: number
-}): PercentageAllocationItem[] {
-  const { itemsWithNormalWidth, itemsNeedingMinWidth } = separateSmallItems(items, minWidthPercentage)
-
-  if (itemsNeedingMinWidth.length <= MAX_SMALL_ITEMS) {
-    return items
-  } else {
-    const visibleSmallItems = itemsNeedingMinWidth.slice(0, MAX_SMALL_ITEMS)
-    const groupedSmallItems = itemsNeedingMinWidth.slice(MAX_SMALL_ITEMS)
-    const othersPercentage = groupedSmallItems.reduce((sum, item) => sum + item.percentage, 0)
-
-    return [
-      ...itemsWithNormalWidth,
-      ...visibleSmallItems,
-      {
-        id: 'others',
-        percentage: othersPercentage,
-        color: '$neutral1',
-        label: 'Others',
-      },
-    ]
-  }
-}
-
-// adjust the widths of the items to allow for the small fixed-width bar items
-function adjustItemWidths({
-  items,
-  chartWidth,
-  minBarWidth,
-}: {
-  items: PercentageAllocationItem[]
-  chartWidth: number | undefined
-  minBarWidth: number
-}) {
-  if (items.length === 0) {
-    return []
-  }
-  if (!chartWidth) {
-    // if the chart width is not available, fallback to basic percentage widths
-    return items.map((item) => {
-      return {
-        ...item,
-        style: {
-          width: `${item.percentage}%`,
-          flexShrink: 1,
-        },
-      }
-    })
-  }
-
-  // Sort by percentage (highest first)
-  const sortedItems = items.sort((a, b) => b.percentage - a.percentage)
-
-  const minWidthPercentage = computeMinAutoPercentage({ items: sortedItems, chartWidth, minBarWidth })
-  const groupedItems = groupOthers({ items: sortedItems, minWidthPercentage })
-  const newMinWidthPercentage = computeMinAutoPercentage({
-    items: groupedItems,
-    chartWidth,
-    minBarWidth,
-  })
-  // Identify items that need minimum width
-  const { itemsWithNormalWidth, itemsNeedingMinWidth } = separateSmallItems(groupedItems, newMinWidthPercentage)
-
-  // Calculate total percentage used by minimum width items
-  const minWidthTotalPercentage = itemsNeedingMinWidth.length * newMinWidthPercentage
-
-  // Calculate remaining percentage for normal width items
-  const remainingPercentage = 100 - minWidthTotalPercentage
-
-  // Calculate total original percentage of normal width items
-  const normalItemsTotalPercentage = itemsWithNormalWidth.reduce((sum, item) => sum + item.percentage, 0)
-
-  // Create adjusted items with calculated widths
-  return groupedItems.map((item) => {
-    const needsMinWidth = item.percentage <= newMinWidthPercentage
-
-    if (needsMinWidth) {
-      return {
-        ...item,
-        style: {
-          width: '8px',
-          flexShrink: 0,
-        },
-      }
-    } else {
-      // Calculate proportional width based on remaining space
-      const proportionalWidth = (item.percentage / normalItemsTotalPercentage) * remainingPercentage
-      return {
-        ...item,
-        style: {
-          width: `${proportionalWidth}%`,
-          flexShrink: 1,
-        },
-      }
-    }
-  })
-}
-
-=======
 >>>>>>> upstream/main
 export function PercentageAllocationChart({
   items,
@@ -325,7 +156,6 @@ export function PercentageAllocationChart({
         totalItemsCount={adjustedItems.length}
         maxLegendItems={maxLegendItems}
       />
->>>>>>> upstream/main
     </Flex>
   )
 }

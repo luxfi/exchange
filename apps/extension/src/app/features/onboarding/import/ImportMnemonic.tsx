@@ -13,18 +13,6 @@ import { useOnboardingSteps } from 'src/app/features/onboarding/OnboardingSteps'
 import { SyncFromPhoneButton } from 'src/app/features/onboarding/SyncFromPhoneButton'
 import { TopLevelRoutes } from 'src/app/navigation/constants'
 import { navigate } from 'src/app/navigation/state'
-<<<<<<< HEAD
-import { Button, Flex, Input, inputStyles, Square, Text } from '@l.x/ui/src'
-import { FileListLock, RotatableChevron } from '@l.x/ui/src/components/icons'
-import { fonts, iconSizes } from '@l.x/ui/src/theme'
-import Trace from '@l.x/lx/src/features/telemetry/Trace'
-import { ExtensionOnboardingFlow, ExtensionOnboardingScreens } from '@l.x/lx/src/types/screens/extension'
-import { useDebounce } from '@l.x/utils/src/time/timing'
-import { useOnboardingContext } from '@luxfi/wallet/src/features/onboarding/OnboardingContext'
-import { EditAccountAction, editAccountActions } from '@luxfi/wallet/src/features/wallet/accounts/editAccountSaga'
-import { useSignerAccounts } from '@luxfi/wallet/src/features/wallet/hooks'
-import { isValidMnemonicWord, validateMnemonic } from '@luxfi/wallet/src/utils/mnemonics'
-=======
 import { Button, Flex, Input, inputStyles, Square, Text } from 'ui/src'
 import { FileListLock, RotatableChevron } from 'ui/src/components/icons'
 import { fonts, iconSizes } from 'ui/src/theme'
@@ -35,7 +23,6 @@ import { useOnboardingContext } from 'wallet/src/features/onboarding/OnboardingC
 import { EditAccountAction, editAccountActions } from 'wallet/src/features/wallet/accounts/editAccountSaga'
 import { useSignerAccounts } from 'wallet/src/features/wallet/hooks'
 import { isValidMnemonicWord, validateMnemonic } from 'wallet/src/utils/mnemonics'
->>>>>>> upstream/main
 
 const inputRefs: Array<Input | null> = Array(24).fill(null)
 
@@ -297,11 +284,7 @@ const RecoveryPhraseWord = forwardRef<
     handleKeyPress: (index: number) => (e: NativeSyntheticEvent<TextInputKeyPressEventData>) => void
     onSubmitEditing: () => void
   }
-<<<<<<< HEAD
->(function _RecoveryPhraseWord(
-=======
 >(function RecoveryPhraseWordInner(
->>>>>>> upstream/main
   { word, index, handleBlur, handleChange, handleKeyPress, onSubmitEditing },
   ref,
 ): JSX.Element {

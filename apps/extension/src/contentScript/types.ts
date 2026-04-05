@@ -5,11 +5,7 @@ export enum ETH_PROVIDER_CONFIG {
   RESPONSE = 'ETHEREUM_PROVIDER_SCHEMA_RESPONSE',
 }
 
-<<<<<<< HEAD
-/* eslint-disable no-restricted-syntax  */
-=======
 /* oxlint-disable no-restricted-syntax  */
->>>>>>> upstream/main
 const ExtensionResponseSchema = z
   .object({
     requestId: z.string(),

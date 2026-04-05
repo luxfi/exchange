@@ -2,15 +2,6 @@ import process from 'process'
 import type { ProxyOptions } from 'vite'
 
 // Entry Gateway API URLs
-<<<<<<< HEAD
-const DEV_ENTRY_GATEWAY_API_BASE_URL = 'https://entry-gateway.backend-dev.api.lux.org'
-const STAGING_ENTRY_GATEWAY_API_BASE_URL = 'https://entry-gateway.backend-staging.api.lux.org'
-const PROD_ENTRY_GATEWAY_API_BASE_URL = 'https://entry-gateway.backend-prod.api.lux.org'
-
-/**
- * Returns the appropriate Entry Gateway API URL for the proxy target.
- * Duplicated from @luxfi/api to avoid importing app code into build config.
-=======
 const DEV_ENTRY_GATEWAY_API_BASE_URL = 'https://entry-gateway.backend-dev.api.uniswap.org'
 const STAGING_ENTRY_GATEWAY_API_BASE_URL = 'https://entry-gateway.backend-staging.api.uniswap.org'
 const PROD_ENTRY_GATEWAY_API_BASE_URL = 'https://entry-gateway.backend-prod.api.uniswap.org'
@@ -18,7 +9,6 @@ const PROD_ENTRY_GATEWAY_API_BASE_URL = 'https://entry-gateway.backend-prod.api.
 /**
  * Returns the appropriate Entry Gateway API URL for the proxy target.
  * Duplicated from @universe/api to avoid importing app code into build config.
->>>>>>> upstream/main
  */
 function getEntryGatewayProxyTarget(): string {
   // Allow override via environment variable
@@ -38,11 +28,7 @@ function getEntryGatewayProxyTarget(): string {
   }
 }
 
-<<<<<<< HEAD
-// eslint-disable-next-line import/no-unused-modules -- used in vite.config.mts
-=======
 // oxlint-disable-next-line import/no-unused-modules -- used in vite.config.mts
->>>>>>> upstream/main
 export function createEntryGatewayProxy(ctx: {
   getLogger: () => {
     log: typeof console.log
@@ -153,11 +139,7 @@ export function createEntryGatewayProxy(ctx: {
       })
 
       // Log any errors
-<<<<<<< HEAD
-      // eslint-disable-next-line max-params
-=======
       // oxlint-disable-next-line max-params
->>>>>>> upstream/main
       proxy.on('error', (err, req, res) => {
         getLogger().log('[Proxy] Error:', err)
       })

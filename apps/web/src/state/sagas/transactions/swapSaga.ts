@@ -1,27 +1,8 @@
-<<<<<<< HEAD
-import { TradingApi } from '@l.x/api'
-import { Experiments } from '@l.x/gating'
-=======
 import { TradingApi } from '@universe/api'
->>>>>>> upstream/main
 import ms from 'ms'
 import { useCallback } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { call, type SagaGenerator } from 'typed-redux-saga'
-<<<<<<< HEAD
-import { resolvePlatform } from '@l.x/lx/src/features/accounts/store/utils/flexibleInput'
-import { type UniverseChainId } from '@l.x/lx/src/features/chains/types'
-import { isL2ChainId } from '@l.x/lx/src/features/chains/utils'
-import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
-import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
-import { SwapEventName } from '@l.x/lx/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
-import { type SwapTradeBaseProperties } from '@l.x/lx/src/features/telemetry/types'
-import { logExperimentQualifyingEvent } from '@l.x/lx/src/features/telemetry/utils/logExperimentQualifyingEvent'
-import { selectSwapStartTimestamp } from '@l.x/lx/src/features/timing/selectors'
-import { updateSwapStartTimestamp } from '@l.x/lx/src/features/timing/slice'
-import { UnexpectedTransactionStateError } from '@l.x/lx/src/features/transactions/errors'
-=======
 import { resolvePlatform } from 'uniswap/src/features/accounts/store/utils/flexibleInput'
 import { type UniverseChainId } from 'uniswap/src/features/chains/types'
 import { isL2ChainId } from 'uniswap/src/features/chains/utils'
@@ -33,25 +14,11 @@ import { type SwapTradeBaseProperties } from 'uniswap/src/features/telemetry/typ
 import { selectSwapStartTimestamp } from 'uniswap/src/features/timing/selectors'
 import { updateSwapStartTimestamp } from 'uniswap/src/features/timing/slice'
 import { UnexpectedTransactionStateError } from 'uniswap/src/features/transactions/errors'
->>>>>>> upstream/main
 import {
   HandleSwapBatchedStepParams,
   type HandleSwapStepParams,
   type TransactionStep,
   TransactionStepType,
-<<<<<<< HEAD
-} from '@l.x/lx/src/features/transactions/steps/types'
-import {
-  type ExtractedBaseTradeAnalyticsProperties,
-  getBaseTradeAnalyticsProperties,
-} from '@l.x/lx/src/features/transactions/swap/analytics'
-import { getFlashblocksExperimentStatus } from '@l.x/lx/src/features/transactions/swap/hooks/useIsUnichainFlashblocksEnabled'
-import { planActions } from '@l.x/lx/src/features/transactions/swap/plan/planSaga'
-import { type PlanAnalyticsFields, planAnalyticsToCamelCase } from '@l.x/lx/src/features/transactions/swap/plan/types'
-import { handleSwitchChains } from '@l.x/lx/src/features/transactions/swap/plan/utils'
-import { getSwapTxRequest } from '@l.x/lx/src/features/transactions/swap/steps/swap'
-import { useSwapFormStore } from '@l.x/lx/src/features/transactions/swap/stores/swapFormStore/useSwapFormStore'
-=======
 } from 'uniswap/src/features/transactions/steps/types'
 import {
   type ExtractedBaseTradeAnalyticsProperties,
@@ -62,50 +29,26 @@ import { type PlanAnalyticsFields, planAnalyticsToCamelCase } from 'uniswap/src/
 import { handleSwitchChains } from 'uniswap/src/features/transactions/swap/plan/utils'
 import { getSwapTxRequest } from 'uniswap/src/features/transactions/swap/steps/swap'
 import { useSwapFormStore } from 'uniswap/src/features/transactions/swap/stores/swapFormStore/useSwapFormStore'
->>>>>>> upstream/main
 import {
   type SwapCallback,
   type SwapCallbackParams,
   type SwapExecutionCallbacks,
-<<<<<<< HEAD
-} from '@l.x/lx/src/features/transactions/swap/types/swapCallback'
-import {
-  PermitMethod,
-  type ValidatedSwapTxContext,
-} from '@l.x/lx/src/features/transactions/swap/types/swapTxAndGasInfo'
-=======
 } from 'uniswap/src/features/transactions/swap/types/swapCallback'
 import {
   PermitMethod,
   type ValidatedSwapTxContext,
 } from 'uniswap/src/features/transactions/swap/types/swapTxAndGasInfo'
->>>>>>> upstream/main
 import {
   type BridgeTrade,
   type ChainedActionTrade,
   type ClassicTrade,
-<<<<<<< HEAD
-} from '@l.x/lx/src/features/transactions/swap/types/trade'
-import { slippageToleranceToPercent } from '@l.x/lx/src/features/transactions/swap/utils/format'
-import { generateSwapTransactionSteps } from '@l.x/lx/src/features/transactions/swap/utils/generateSwapTransactionSteps'
-=======
 } from 'uniswap/src/features/transactions/swap/types/trade'
 import { slippageToleranceToPercent } from 'uniswap/src/features/transactions/swap/utils/format'
 import { generateSwapTransactionSteps } from 'uniswap/src/features/transactions/swap/utils/generateSwapTransactionSteps'
->>>>>>> upstream/main
 import {
   isClassic,
   isJupiter,
   requireRouting,
-<<<<<<< HEAD
-  LXSWAP_ROUTING_VARIANTS,
-} from '@l.x/lx/src/features/transactions/swap/utils/routing'
-import { getClassicQuoteFromResponse } from '@l.x/lx/src/features/transactions/swap/utils/tradingApi'
-import { createMonitoredSaga } from '@l.x/lx/src/utils/saga'
-import { logger } from '@l.x/utils/src/logger/logger'
-import { useEvent } from '@l.x/utils/src/react/hooks'
-import { useTrace } from '@l.x/utils/src/telemetry/trace/TraceContext'
-=======
   UNISWAPX_ROUTING_VARIANTS,
 } from 'uniswap/src/features/transactions/swap/utils/routing'
 import { getClassicQuoteFromResponse } from 'uniswap/src/features/transactions/swap/utils/tradingApi'
@@ -113,7 +56,6 @@ import { createMonitoredSaga } from 'uniswap/src/utils/saga'
 import { logger } from 'utilities/src/logger/logger'
 import { useEvent } from 'utilities/src/react/hooks'
 import { useTrace } from 'utilities/src/telemetry/trace/TraceContext'
->>>>>>> upstream/main
 import { useTotalBalancesUsdForAnalytics } from '~/appGraphql/data/apollo/useTotalBalancesUsdForAnalytics'
 import { popupRegistry } from '~/components/Popups/registry'
 import { PopupType } from '~/components/Popups/types'
@@ -125,11 +67,7 @@ import { useSetOverrideOneClickSwapFlag } from '~/pages/Swap/settings/OneClickSw
 import { handleAtomicSendCalls } from '~/state/sagas/transactions/5792'
 import { useGetOnPressRetry } from '~/state/sagas/transactions/retry'
 import { jupiterSwap } from '~/state/sagas/transactions/solana'
-<<<<<<< HEAD
-import { handleDEXPlanSignatureStep, handleDEXSignatureStep } from '~/state/sagas/transactions/dex'
-=======
 import { handleUniswapXPlanSignatureStep, handleUniswapXSignatureStep } from '~/state/sagas/transactions/uniswapx'
->>>>>>> upstream/main
 import {
   getDisplayableError,
   getSwapTransactionInfo,
@@ -176,24 +114,8 @@ function* handleSwapTransactionStep(params: HandleSwapStepParams): SagaGenerator
   handleSwapTransactionAnalytics({ ...params, hash })
 
   const chainId = trade.inputAmount.currency.chainId
-<<<<<<< HEAD
-  const { shouldLogQualifyingEvent, shouldShowModal } = getFlashblocksExperimentStatus({
-    chainId,
-    routing: trade.routing,
-  })
-
-  if (shouldLogQualifyingEvent) {
-    logExperimentQualifyingEvent({
-      experiment: Experiments.UnichainFlashblocksModal,
-    })
-  }
-
-  // Show regular popup for control variant or ineligible swaps
-  if (!shouldShowModal && !planId) {
-=======
 
   if (!planId) {
->>>>>>> upstream/main
     popupRegistry.addPopup(
       { type: PopupType.Transaction, hash },
       hash,
@@ -357,15 +279,9 @@ function* swap(params: SwapParams) {
           })
           break
         }
-<<<<<<< HEAD
-        case TransactionStepType.DEXSignature: {
-          requireRouting(trade, LXSWAP_ROUTING_VARIANTS)
-          yield* call(handleDEXSignatureStep, { address, step, setCurrentStep, trade, analytics })
-=======
         case TransactionStepType.UniswapXSignature: {
           requireRouting(trade, UNISWAPX_ROUTING_VARIANTS)
           yield* call(handleUniswapXSignatureStep, { address, step, setCurrentStep, trade, analytics })
->>>>>>> upstream/main
           break
         }
         default: {
@@ -501,11 +417,7 @@ export function useSwapCallback(): SwapCallback {
             handleSwapTransactionStep,
             handleSwapTransactionBatchedStep,
             handleSignatureStep,
-<<<<<<< HEAD
-            handleDEXPlanSignatureStep,
-=======
             handleUniswapXPlanSignatureStep,
->>>>>>> upstream/main
             getDisplayableError: (args) => getDisplayableError({ ...args, isPlanStep: true }),
             getOnPressRetry,
             sendToast,

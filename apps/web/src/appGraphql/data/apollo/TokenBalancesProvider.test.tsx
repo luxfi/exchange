@@ -1,9 +1,5 @@
 import { fireEvent, screen, waitFor } from '@testing-library/react'
-<<<<<<< HEAD
-import { Flex } from '@l.x/ui/src'
-=======
 import { Flex } from 'ui/src'
->>>>>>> upstream/main
 import { PrefetchBalancesWrapper, useTokenBalancesQuery } from '~/appGraphql/data/apollo/AdaptiveTokenBalancesProvider'
 import { useAccount } from '~/hooks/useAccount'
 import { mocked } from '~/test-utils/mocked'
@@ -24,13 +20,8 @@ const { mockLazyFetch, mockBalanceQueryResponse } = vi.hoisted(() => {
   return { mockLazyFetch, mockBalanceQueryResponse }
 })
 
-<<<<<<< HEAD
-vi.mock('@luxfi/api', async () => {
-  const actual = await vi.importActual('@luxfi/api')
-=======
 vi.mock('@universe/api', async () => {
   const actual = await vi.importActual('@universe/api')
->>>>>>> upstream/main
   return {
     ...actual,
     GraphQLApi: {

@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-/* eslint-disable max-lines */
-=======
 /* oxlint-disable max-lines */
->>>>>>> upstream/main
 import { rpcErrors, serializeError } from '@metamask/rpc-errors'
 import { removeDappConnection } from 'src/app/features/dapp/actions'
 import { changeChain } from 'src/app/features/dapp/changeChain'
@@ -29,19 +25,6 @@ import {
   type DappRequestMessage,
 } from 'src/background/messagePassing/types/requests'
 import { checkAreMigrationsPending, readReduxStateFromStorage } from 'src/background/utils/persistedStateUtils'
-<<<<<<< HEAD
-import { getFeatureFlaggedChainIds } from '@l.x/lx/src/features/chains/hooks/useFeatureFlaggedChainIds'
-import { getEnabledChains, hexadecimalStringToInt, toSupportedChainId } from '@l.x/lx/src/features/chains/utils'
-import { DappRequestType, DappResponseType, EthMethod } from '@l.x/lx/src/features/dappRequests/types'
-import { ExtensionEventName } from '@l.x/lx/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
-import { type WindowEthereumRequestProperties } from '@l.x/lx/src/features/telemetry/types'
-import { extractBaseUrl } from '@l.x/utils/src/format/urls'
-import { logger } from '@l.x/utils/src/logger/logger'
-import { getCapabilitiesResponse } from '@luxfi/wallet/src/features/batchedTransactions/utils'
-import { walletContextValue } from '@luxfi/wallet/src/features/wallet/context'
-import { selectHasSmartWalletConsent } from '@luxfi/wallet/src/features/wallet/selectors'
-=======
 import { getFeatureFlaggedChainIds } from 'uniswap/src/features/chains/hooks/useFeatureFlaggedChainIds'
 import { getEnabledChains, hexadecimalStringToInt, toSupportedChainId } from 'uniswap/src/features/chains/utils'
 import { DappRequestType, DappResponseType, EthMethod } from 'uniswap/src/features/dappRequests/types'
@@ -53,7 +36,6 @@ import { logger } from 'utilities/src/logger/logger'
 import { getCapabilitiesResponse } from 'wallet/src/features/batchedTransactions/utils'
 import { walletContextValue } from 'wallet/src/features/wallet/context'
 import { selectHasSmartWalletConsent } from 'wallet/src/features/wallet/selectors'
->>>>>>> upstream/main
 
 // Request classification constants for determining which requests need user interaction
 const REQUEST_CLASSIFICATION = {
@@ -62,11 +44,7 @@ const REQUEST_CLASSIFICATION = {
     DappRequestType.SendTransaction,
     DappRequestType.SignMessage,
     DappRequestType.SignTypedData,
-<<<<<<< HEAD
-    DappRequestType.LuxOpenSidebar,
-=======
     DappRequestType.UniswapOpenSidebar,
->>>>>>> upstream/main
     DappRequestType.RequestPermissions,
     DappRequestType.SendCalls,
   ]),

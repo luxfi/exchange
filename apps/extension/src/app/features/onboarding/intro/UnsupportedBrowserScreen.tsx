@@ -1,17 +1,10 @@
 import { useTranslation } from 'react-i18next'
 import { MainIntroWrapper } from 'src/app/features/onboarding/intro/MainIntroWrapper'
 import { isAndroid } from 'src/app/utils/chrome'
-<<<<<<< HEAD
-import { Flex, Text } from '@l.x/ui/src'
-import { AlertTriangleFilled } from '@l.x/ui/src/components/icons'
-import Trace from '@l.x/lx/src/features/telemetry/Trace'
-import { ExtensionScreens } from '@l.x/lx/src/types/screens/extension'
-=======
 import { Flex, Text } from 'ui/src'
 import { AlertTriangleFilled } from 'ui/src/components/icons'
 import Trace from 'uniswap/src/features/telemetry/Trace'
 import { ExtensionScreens } from 'uniswap/src/types/screens/extension'
->>>>>>> upstream/main
 
 export function UnsupportedBrowserScreen(): JSX.Element {
   const { t } = useTranslation()

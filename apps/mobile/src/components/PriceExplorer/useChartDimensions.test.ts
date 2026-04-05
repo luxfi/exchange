@@ -1,11 +1,7 @@
 import { renderHook } from '@testing-library/react-native'
 import { Dimensions } from 'react-native'
 import { useChartDimensions } from 'src/components/PriceExplorer/useChartDimensions'
-<<<<<<< HEAD
-import { heightBreakpoints } from '@l.x/ui/src/theme'
-=======
 import { heightBreakpoints } from 'ui/src/theme'
->>>>>>> upstream/main
 
 const sharedDimensions = {
   height: 1000,

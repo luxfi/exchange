@@ -11,24 +11,14 @@ import {
   parseSignRequest,
   parseTransactionRequest,
 } from 'src/features/walletConnect/utils'
-<<<<<<< HEAD
-import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
-import { EthMethod } from '@l.x/lx/src/features/dappRequests/types'
-import { DappRequestType } from '@l.x/lx/src/types/walletConnect'
-=======
 import { UniverseChainId } from 'uniswap/src/features/chains/types'
 import { EthMethod } from 'uniswap/src/features/dappRequests/types'
 import { DappRequestType } from 'uniswap/src/types/walletConnect'
->>>>>>> upstream/main
 
 const EIP155_MAINNET = 'eip155:1'
 const EIP155_POLYGON = 'eip155:137'
 const EIP155_OPTIMISM = 'eip155:10'
-<<<<<<< HEAD
-const EIP155_LINEA_UNSUPPORTED = 'eip155:59144'
-=======
 const EIP155_FANTOM_UNSUPPORTED = 'eip155:250'
->>>>>>> upstream/main
 
 const TEST_ADDRESS = '0xdFb84E543C39ACa3c6a39ea4e3B6c40eE7d2EBdA'
 
@@ -56,11 +46,7 @@ describe(getSupportedWalletConnectChains, () => {
   })
 
   it('handles list of valid chains including an invalid chain', () => {
-<<<<<<< HEAD
-    expect(getSupportedWalletConnectChains([EIP155_MAINNET, EIP155_POLYGON, EIP155_LINEA_UNSUPPORTED])).toEqual([
-=======
     expect(getSupportedWalletConnectChains([EIP155_MAINNET, EIP155_POLYGON, EIP155_FANTOM_UNSUPPORTED])).toEqual([
->>>>>>> upstream/main
       UniverseChainId.Mainnet,
       UniverseChainId.Polygon,
     ])
@@ -77,11 +63,7 @@ describe(getChainIdFromEIP155String, () => {
   })
 
   it('handles invalid eip155 address', () => {
-<<<<<<< HEAD
-    expect(getChainIdFromEIP155String(EIP155_LINEA_UNSUPPORTED)).toBeNull()
-=======
     expect(getChainIdFromEIP155String(EIP155_FANTOM_UNSUPPORTED)).toBeNull()
->>>>>>> upstream/main
   })
 })
 

@@ -2,21 +2,6 @@ import { BottomSheetSectionList } from '@gorhom/bottom-sheet'
 import React, { memo, useCallback, useMemo, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { ListRenderItemInfo } from 'react-native'
-<<<<<<< HEAD
-import { Flex, Inset, Loader } from '@l.x/ui/src'
-import { BaseCard } from '@l.x/lx/src/components/BaseCard/BaseCard'
-import { TokenOptionItem } from '@l.x/lx/src/components/lists/items/tokens/TokenOptionItem'
-import { OnchainItemListOptionType, TokenOption } from '@l.x/lx/src/components/lists/items/types'
-import { PortfolioBalance } from '@l.x/lx/src/features/dataApi/types'
-import { FiatOnRampCurrency, FORCurrencyOrBalance } from '@l.x/lx/src/features/fiatOnRamp/types'
-import { getUnsupportedFORTokensWithBalance, isSupportedFORCurrency } from '@l.x/lx/src/features/fiatOnRamp/utils'
-import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
-import { getTokenProtectionWarning } from '@l.x/lx/src/features/tokens/warnings/safetyUtils'
-import { useDismissedTokenWarnings } from '@l.x/lx/src/features/tokens/warnings/slice/hooks'
-import { ListSeparatorToggle } from '@l.x/lx/src/features/transactions/TransactionDetails/ListSeparatorToggle'
-import { CurrencyId } from '@l.x/lx/src/types/currency'
-import { NumberType } from '@l.x/utils/src/format/types'
-=======
 import { Flex, Inset, Loader } from 'ui/src'
 import { BaseCard } from 'uniswap/src/components/BaseCard/BaseCard'
 import { TokenOptionItem } from 'uniswap/src/components/lists/items/tokens/TokenOptionItem'
@@ -30,7 +15,6 @@ import { useDismissedTokenWarnings } from 'uniswap/src/features/tokens/warnings/
 import { ListSeparatorToggle } from 'uniswap/src/features/transactions/TransactionDetails/ListSeparatorToggle'
 import { CurrencyId } from 'uniswap/src/types/currency'
 import { NumberType } from 'utilities/src/format/types'
->>>>>>> upstream/main
 
 interface Props {
   onSelectCurrency: (currency: FiatOnRampCurrency) => void
@@ -94,11 +78,7 @@ function TokenOptionItemWrapper({
   )
 }
 
-<<<<<<< HEAD
-function _TokenFiatOnRampList({
-=======
 function TokenFiatOnRampListInner({
->>>>>>> upstream/main
   onSelectCurrency,
   error,
   onRetry,
@@ -221,8 +201,4 @@ function key(item: FiatOnRampCurrency): CurrencyId {
   return item.currencyInfo?.currencyId ?? ''
 }
 
-<<<<<<< HEAD
-export const TokenFiatOnRampList = memo(_TokenFiatOnRampList)
-=======
 export const TokenFiatOnRampList = memo(TokenFiatOnRampListInner)
->>>>>>> upstream/main

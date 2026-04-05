@@ -1,19 +1,11 @@
 import { useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { LockPreviewImage } from 'src/features/onboarding/LockPreviewImage'
-<<<<<<< HEAD
-import { Button, Flex, LabeledCheckbox, Text, useIsDarkMode, useShadowPropsShort } from '@l.x/ui/src'
-import { CheckCircleFilled } from '@l.x/ui/src/components/icons'
-import { Modal } from '@l.x/lx/src/components/modals/Modal'
-import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
-import { BackupType } from '@luxfi/wallet/src/features/wallet/accounts/types'
-=======
 import { Button, Flex, LabeledCheckbox, Text, useIsDarkMode, useShadowPropsShort } from 'ui/src'
 import { CheckCircleFilled } from 'ui/src/components/icons'
 import { Modal } from 'uniswap/src/components/modals/Modal'
 import { ModalName } from 'uniswap/src/features/telemetry/constants'
 import { BackupType } from 'wallet/src/features/wallet/accounts/types'
->>>>>>> upstream/main
 
 const PREVIEW_BOX_HEIGHT = 122
 
@@ -27,11 +19,7 @@ export function BackupSpeedBumpModal({ backupType, onContinue, onClose }: Backup
   const { t } = useTranslation()
   const [checked, setChecked] = useState(false)
 
-<<<<<<< HEAD
-  // eslint-disable-next-line consistent-return
-=======
   // oxlint-disable-next-line consistent-return
->>>>>>> upstream/main
   const { preview, title, description, disclaimer } = useMemo(() => {
     switch (backupType) {
       case BackupType.Cloud:

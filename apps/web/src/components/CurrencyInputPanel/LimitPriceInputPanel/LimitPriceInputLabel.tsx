@@ -1,12 +1,6 @@
-<<<<<<< HEAD
-import { Currency } from '@luxamm/sdk-core'
-import { Trans } from 'react-i18next'
-import { Text } from '@l.x/ui/src'
-=======
 import { Currency } from '@uniswap/sdk-core'
 import { Trans } from 'react-i18next'
 import { Text } from 'ui/src'
->>>>>>> upstream/main
 import { PrefetchBalancesWrapper } from '~/appGraphql/data/apollo/AdaptiveTokenBalancesProvider'
 import Row from '~/components/deprecated/Row'
 import CurrencyLogo from '~/components/Logo/CurrencyLogo'

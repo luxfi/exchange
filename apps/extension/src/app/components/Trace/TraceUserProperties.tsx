@@ -1,20 +1,5 @@
 import { datadogRum } from '@datadog/browser-rum'
 import { useQuery } from '@tanstack/react-query'
-<<<<<<< HEAD
-import { provideLuxIdentifierService } from '@l.x/api'
-import { luxIdentifierQuery } from '@l.x/sessions'
-import { useEffect } from 'react'
-import { useIsDarkMode } from '@l.x/ui/src'
-import { DisplayNameType } from '@l.x/lx/src/features/accounts/types'
-import { useEnabledChains } from '@l.x/lx/src/features/chains/hooks/useEnabledChains'
-import { useAppFiatCurrencyInfo } from '@l.x/lx/src/features/fiatCurrency/hooks'
-import { useCurrentLanguage } from '@l.x/lx/src/features/language/hooks'
-import { useHideSmallBalancesSetting, useHideSpamTokensSetting } from '@l.x/lx/src/features/settings/hooks'
-import { ExtensionUserPropertyName, setUserProperty } from '@l.x/lx/src/features/telemetry/user'
-// biome-ignore lint/style/noRestrictedImports: Direct analytics import required for user property tracking
-import { analytics } from '@l.x/utils/src/telemetry/analytics/analytics'
-import { useGatingUserPropertyUsernames } from '@luxfi/wallet/src/features/gating/userPropertyHooks'
-=======
 import { provideUniswapIdentifierService } from '@universe/api'
 import { uniswapIdentifierQuery } from '@universe/sessions'
 import { useEffect } from 'react'
@@ -28,17 +13,12 @@ import { ExtensionUserPropertyName, setUserProperty } from 'uniswap/src/features
 // oxlint-disable-next-line no-restricted-imports -- Direct analytics import required for user property tracking
 import { analytics } from 'utilities/src/telemetry/analytics/analytics'
 import { useGatingUserPropertyUsernames } from 'wallet/src/features/gating/userPropertyHooks'
->>>>>>> upstream/main
 import {
   useActiveAccount,
   useDisplayName,
   useSignerAccounts,
   useViewOnlyAccounts,
-<<<<<<< HEAD
-} from '@luxfi/wallet/src/features/wallet/hooks'
-=======
 } from 'wallet/src/features/wallet/hooks'
->>>>>>> upstream/main
 
 /** Component that tracks UserProperties during the lifetime of the app */
 export function TraceUserProperties(): null {
@@ -53,11 +33,7 @@ export function TraceUserProperties(): null {
   const { isTestnetModeEnabled } = useEnabledChains()
   const displayName = useDisplayName(activeAccount?.address)
 
-<<<<<<< HEAD
-  const { data: luxIdentifier } = useQuery(luxIdentifierQuery(provideLuxIdentifierService))
-=======
   const { data: uniswapIdentifier } = useQuery(uniswapIdentifierQuery(provideUniswapIdentifierService))
->>>>>>> upstream/main
 
   useGatingUserPropertyUsernames()
 
@@ -68,17 +44,10 @@ export function TraceUserProperties(): null {
   }, [activeAccount?.address])
 
   useEffect(() => {
-<<<<<<< HEAD
-    if (luxIdentifier) {
-      datadogRum.setUserProperty(ExtensionUserPropertyName.LuxIdentifier, luxIdentifier)
-    }
-  }, [luxIdentifier])
-=======
     if (uniswapIdentifier) {
       datadogRum.setUserProperty(ExtensionUserPropertyName.UniswapIdentifier, uniswapIdentifier)
     }
   }, [uniswapIdentifier])
->>>>>>> upstream/main
 
   // Set user properties for amplitude
 
