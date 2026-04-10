@@ -13,3 +13,21 @@ jobs:
     with:
       image: ghcr.io/luxfi/exchange
     secrets: inherit
+
+  notify-universe:
+    needs: docker
+    if: startsWith(github.ref, 'refs/tags/v')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: peter-evans/repository-dispatch@v3
+        with:
+          token: ${{ secrets.UNIVERSE_PAT }}
+          repository: luxfi/universe
+          event-type: image-published
+          client-payload: |
+            {
+              "service": "exchange",
+              "image": "ghcr.io/luxfi/exchange",
+              "tag": "${{ github.ref_name }}",
+              "sha": "${{ github.sha }}"
+            }
