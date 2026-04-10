@@ -15,7 +15,6 @@ jobs:
     uses: hanzoai/.github/.github/workflows/docker-build.yml@main
     with:
       image: ghcr.io/luxfi/exchange
-      platforms: linux/amd64
     secrets: inherit
 
   notify-universe:
