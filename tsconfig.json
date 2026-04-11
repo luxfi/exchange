@@ -23,9 +23,6 @@
       "path": "./packages/api"
     },
     {
-      "path": "./apps/extension"
-    },
-    {
       "path": "./packages/config"
     },
     {
