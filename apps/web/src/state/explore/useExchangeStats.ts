@@ -22,11 +22,11 @@ import {
   type PublicPool,
 } from './publicTokenData'
 
-// V3 subgraph endpoint — served by graph-node, proxied through exchange ingress
-const SUBGRAPH_V3_URL =
-  process.env.REACT_APP_SUBGRAPH_V3_URL ||
-  process.env.NEXT_PUBLIC_SUBGRAPH_V3_URL ||
-  'https://api-exchange.lux.network/subgraph/v3'
+// V3 graph engine endpoint — served by luxfi/graph, proxied through exchange ingress
+const GRAPH_ENGINE_URL =
+  process.env.REACT_APP_GRAPH_ENGINE_URL ||
+  process.env.NEXT_PUBLIC_GRAPH_ENGINE_URL ||
+  'https://api-exchange.lux.network/v1/graphql'
 
 function chainIdToGqlChain(chainId: number): string {
   return CHAIN_TO_GQL[chainId] ?? GraphQLApi.Chain.Ethereum
@@ -132,17 +132,17 @@ async function fetchSubgraph(chainId: number): Promise<SubgraphData | null> {
       }
     }`
 
-    const response = await fetch(SUBGRAPH_V3_URL, {
+    const response = await fetch(GRAPH_ENGINE_URL, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ query }),
       signal: AbortSignal.timeout(10000),
     })
 
-    if (!response.ok) throw new Error(`Subgraph ${response.status}`)
+    if (!response.ok) throw new Error(`graph engine ${response.status}`)
     const result = await response.json()
     if (result.errors) {
-      console.warn('Subgraph query errors:', result.errors)
+      console.warn('Graph engine query errors:', result.errors)
       return null
     }
     // Normalize factories array → factory single object
@@ -179,7 +179,7 @@ async function fetchSubgraph(chainId: number): Promise<SubgraphData | null> {
       poolVolume24h,
     }
   } catch (error) {
-    console.warn('Subgraph query failed, using on-chain fallback:', error)
+    console.warn('Graph engine query failed, using on-chain fallback:', error)
     // Return fallback data from deployed V3 contracts
     const { FALLBACK_POOLS, FALLBACK_FACTORY } = await import('~/pages/Trade/fallbackData')
     return {

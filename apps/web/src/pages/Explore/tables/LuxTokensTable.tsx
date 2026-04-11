@@ -1,7 +1,7 @@
 /**
  * Lux Network Tokens Table
  *
- * Renders tokens from the Lux V3 subgraph when the explore page
+ * Renders tokens from the luxfi/graph engine when the explore page
  * is filtered to the Lux chain.
  */
 import { memo } from 'react'
