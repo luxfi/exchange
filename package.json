@@ -189,7 +189,7 @@
   ],
   "pnpm": {
     "overrides": {
-      "@hanzo/gui": "4.3.2",
+      "@hanzo/gui": "4.3.1",
       "@hanzogui/core": "4.3.1",
       "@hanzogui/web": "4.3.1",
       "@hanzogui/helpers": "4.3.1",
