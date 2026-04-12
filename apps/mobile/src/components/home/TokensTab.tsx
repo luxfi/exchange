@@ -1,5 +1,5 @@
 import { useStartProfiler } from '@shopify/react-native-performance'
-import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import React, { forwardRef, memo, useCallback, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { FlatList } from 'react-native'

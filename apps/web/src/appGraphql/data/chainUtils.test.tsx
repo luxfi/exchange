@@ -1,4 +1,4 @@
-import { GraphQLApi } from '@universe/api'
+import { GraphQLApi } from '@l.x/api'
 import { UniverseChainId } from 'uniswap/src/features/chains/types'
 import { isBackendSupportedChain } from 'uniswap/src/features/chains/utils'
 import { supportedChainIdFromGQLChain } from '~/appGraphql/data/chainUtils'

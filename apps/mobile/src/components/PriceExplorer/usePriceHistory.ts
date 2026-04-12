@@ -1,4 +1,4 @@
-import { type GqlResult, GraphQLApi, isError, isNonPollingRequestInFlight } from '@universe/api'
+import { type GqlResult, GraphQLApi, isError, isNonPollingRequestInFlight } from '@l.x/api'
 import maxBy from 'lodash/maxBy'
 import { type Dispatch, type SetStateAction, useCallback, useMemo, useRef, useState } from 'react'
 import { type SharedValue, useDerivedValue } from 'react-native-reanimated'

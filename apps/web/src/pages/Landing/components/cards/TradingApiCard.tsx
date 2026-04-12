@@ -1,4 +1,4 @@
-import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { useTranslation } from 'react-i18next'
 import { LayerGroup } from 'ui/src/components/icons/LayerGroup'
 import { opacify } from 'ui/src/theme'

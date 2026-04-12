@@ -1,6 +1,6 @@
 import { NetworkStatus } from '@apollo/client'
 import { SharedEventName } from '@uniswap/analytics-events'
-import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { useCallback, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { ScrollSync } from 'react-scroll-sync'

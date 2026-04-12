@@ -1,6 +1,6 @@
 import { WalletName as SolanaWalletName, WalletReadyState as SolanaWalletReadyState } from '@solana/wallet-adapter-base'
 import { Wallet as SolanaWallet, useWallet as useSolanaWallet } from '@solana/wallet-adapter-react'
-import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { useMemo } from 'react'
 import { CONNECTION_PROVIDER_IDS, CONNECTION_PROVIDER_NAMES } from 'uniswap/src/constants/web3'
 import type { Account } from 'uniswap/src/features/accounts/store/types/Account'

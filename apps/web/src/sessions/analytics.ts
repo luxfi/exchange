@@ -1,4 +1,4 @@
-import type { HashcashSolveAnalytics, SessionInitAnalytics, TurnstileSolveAnalytics } from '@universe/sessions'
+import type { HashcashSolveAnalytics, SessionInitAnalytics, TurnstileSolveAnalytics } from '@l.x/sessions'
 import { SessionsEventName } from 'uniswap/src/features/telemetry/constants'
 import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
 

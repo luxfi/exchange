@@ -1,4 +1,4 @@
-import { GraphQLApi } from '@universe/api'
+import { GraphQLApi } from '@l.x/api'
 import { Trans } from 'react-i18next'
 import { Flex, Text } from 'ui/src'
 import { useEnabledChains } from 'uniswap/src/features/chains/hooks/useEnabledChains'

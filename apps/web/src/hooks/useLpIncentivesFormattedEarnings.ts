@@ -1,6 +1,6 @@
 import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
 import { type Currency, CurrencyAmount } from '@uniswap/sdk-core'
-import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import JSBI from 'jsbi'
 import { useMemo } from 'react'
 import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'

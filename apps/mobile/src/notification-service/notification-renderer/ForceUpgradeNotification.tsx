@@ -1,5 +1,5 @@
-import type { InAppNotification } from '@universe/api'
-import type { NotificationClickTarget } from '@universe/notifications'
+import type { InAppNotification } from '@l.x/api'
+import type { NotificationClickTarget } from '@l.x/notifications'
 import { memo, useEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { SeedPhraseModalContent } from 'src/components/forceUpgrade/ForceUpgradeModal'

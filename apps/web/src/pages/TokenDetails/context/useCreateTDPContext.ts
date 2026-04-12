@@ -1,5 +1,5 @@
-import { GraphQLApi } from '@universe/api'
-import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import { GraphQLApi } from '@l.x/api'
+import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { useMemo } from 'react'
 import { useLocation, useParams } from 'react-router'
 import { useSporeColors } from 'ui/src'

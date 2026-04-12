@@ -13,7 +13,7 @@ vi.mock('~/pages/Portfolio/hooks/usePortfolioAddresses', () => ({
   usePortfolioAddresses: vi.fn(),
 }))
 
-vi.mock('@universe/gating', async (importOriginal) => ({
+vi.mock('@l.x/gating', async (importOriginal) => ({
   ...(await importOriginal()),
   useFeatureFlag: vi.fn().mockReturnValue(false),
   FeatureFlags: { MultichainTokenUx: 'multichain_token_ux' },

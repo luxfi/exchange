@@ -9,7 +9,7 @@ import {
   render as RNRender,
   renderHook as RNRenderHook,
 } from '@testing-library/react-native'
-import { GraphQLApi } from '@universe/api'
+import { GraphQLApi } from '@l.x/api'
 import React, { PropsWithChildren } from 'react'
 import type { MobileState } from 'src/app/mobileReducer'
 import { MobileWalletNavigationProvider } from 'src/app/MobileWalletNavigationProvider'

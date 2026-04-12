@@ -1,5 +1,5 @@
 import { CurrencyAmount } from '@uniswap/sdk-core'
-import { GraphQLApi } from '@universe/api'
+import { GraphQLApi } from '@l.x/api'
 import { TFunction } from 'i18next'
 import JSBI from 'jsbi'
 import ms from 'ms'

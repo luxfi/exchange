@@ -1,6 +1,6 @@
 import { useBottomSheetInternal } from '@gorhom/bottom-sheet'
 import { useNetInfo } from '@react-native-community/netinfo'
-import { GasFeeResult } from '@universe/api'
+import { GasFeeResult } from '@l.x/api'
 import { useTranslation } from 'react-i18next'
 import Animated, { useAnimatedStyle } from 'react-native-reanimated'
 import { ClientDetails, PermitInfo } from 'src/components/Requests/RequestModal/ClientDetails'

@@ -1,5 +1,5 @@
 import { type NativeStackScreenProps } from '@react-navigation/native-stack'
-import { DynamicConfigs, OnDeviceRecoveryConfigKey, useDynamicConfigValue } from '@universe/gating'
+import { DynamicConfigs, OnDeviceRecoveryConfigKey, useDynamicConfigValue } from '@l.x/gating'
 import dayjs from 'dayjs'
 import { isEnrolledAsync } from 'expo-local-authentication'
 import { useCallback, useEffect, useState } from 'react'

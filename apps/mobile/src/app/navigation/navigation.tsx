@@ -1,7 +1,7 @@
 import { NavigationContainer, NavigationIndependentTree } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { createStackNavigator, TransitionPresets } from '@react-navigation/stack'
-import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import React, { useEffect } from 'react'
 import { DevSettings } from 'react-native'
 import { INCLUDE_PROTOTYPE_FEATURES, IS_E2E_TEST } from 'react-native-dotenv'

@@ -1,4 +1,4 @@
-import { GraphQLApi } from '@universe/api'
+import { GraphQLApi } from '@l.x/api'
 import { UTCTimestamp } from 'lightweight-charts'
 import { useMemo } from 'react'
 import { hashKey } from 'utilities/src/reactQuery/hashKey'

@@ -1,4 +1,4 @@
-import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { useUpdateAtom } from 'jotai/utils'
 import { MutableRefObject, useEffect, useRef } from 'react'
 import { useTranslation } from 'react-i18next'

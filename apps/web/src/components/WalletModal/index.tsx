@@ -1,4 +1,4 @@
-import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { Platform } from 'uniswap/src/features/platforms/types/Platform'
 import { MenuStateVariant, useSetMenuCallback } from '~/components/AccountDrawer/menuState'
 import { EmbeddedWalletConnectionsModal } from '~/components/WalletModal/EmbeddedWalletModal'

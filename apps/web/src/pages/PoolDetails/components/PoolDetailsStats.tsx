@@ -1,5 +1,5 @@
 import { Currency } from '@uniswap/sdk-core'
-import { GraphQLApi } from '@universe/api'
+import { GraphQLApi } from '@l.x/api'
 import { ReactNode, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router'

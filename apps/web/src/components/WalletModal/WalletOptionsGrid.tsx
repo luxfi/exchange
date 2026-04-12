@@ -1,4 +1,4 @@
-import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { Fragment } from 'react'
 import { Flex, Separator } from 'ui/src'
 import { CONNECTION_PROVIDER_IDS } from 'uniswap/src/constants/web3'

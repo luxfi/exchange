@@ -1,6 +1,6 @@
 import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
 import type { Currency } from '@uniswap/sdk-core'
-import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import ms from 'ms'
 import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'

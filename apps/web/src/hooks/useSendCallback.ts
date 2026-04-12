@@ -1,6 +1,6 @@
 import type { TransactionRequest } from '@ethersproject/abstract-provider'
 import type { Currency, CurrencyAmount } from '@uniswap/sdk-core'
-import type { GasFeeResult } from '@universe/api'
+import type { GasFeeResult } from '@l.x/api'
 import { useCallback, useRef } from 'react'
 import { AssetType } from 'uniswap/src/entities/assets'
 import { useSupportedChainId } from 'uniswap/src/features/chains/hooks/useSupportedChainId'

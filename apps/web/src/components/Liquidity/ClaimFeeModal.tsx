@@ -3,7 +3,7 @@ import { ClaimLPFeesRequest } from '@uniswap/client-liquidity/dist/uniswap/liqui
 import { V3Pool, V3Position, V4Pool, V4Position } from '@uniswap/client-liquidity/dist/uniswap/liquidity/v1/types_pb'
 import { ClaimFeesRequest } from '@uniswap/client-liquidity/dist/uniswap/liquidity/v2/api_pb'
 import { type Currency, CurrencyAmount } from '@uniswap/sdk-core'
-import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { type Dispatch, type SetStateAction, useMemo, useState } from 'react'
 import { Trans, useTranslation } from 'react-i18next'
 import { Button, Flex, Switch, Text } from 'ui/src'

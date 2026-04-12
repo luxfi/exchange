@@ -1,4 +1,4 @@
-import { TradingApi } from '@universe/api'
+import { TradingApi } from '@l.x/api'
 import { useEffect, useMemo } from 'react'
 import { useDispatch } from 'react-redux'
 import { useMergeLocalAndRemoteTransactions } from 'uniswap/src/features/activity/hooks/useMergeLocalAndRemoteTransactions'

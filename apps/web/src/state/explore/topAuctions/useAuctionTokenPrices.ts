@@ -1,4 +1,4 @@
-import { GraphQLApi } from '@universe/api'
+import { GraphQLApi } from '@l.x/api'
 import { useMemo } from 'react'
 import {
   buildContractInputForAddress,

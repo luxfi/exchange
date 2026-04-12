@@ -1,4 +1,4 @@
-import { GraphQLApi } from '@universe/api'
+import { GraphQLApi } from '@l.x/api'
 import { useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Flex, styled, Text, TouchableArea } from 'ui/src'

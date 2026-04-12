@@ -1,7 +1,7 @@
 /* oxlint-disable max-lines */
 /* oxlint-disable complexity */
 import { type NativeStackScreenProps } from '@react-navigation/native-stack'
-import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { Image } from 'expo-image'
 import React, { type ComponentProps, useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'

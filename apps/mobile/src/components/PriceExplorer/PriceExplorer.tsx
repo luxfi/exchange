@@ -1,4 +1,4 @@
-import { GraphQLApi } from '@universe/api'
+import { GraphQLApi } from '@l.x/api'
 import React, { memo, PropsWithChildren, ReactElement, useCallback, useEffect, useMemo, useState } from 'react'
 import { I18nManager } from 'react-native'
 import { SharedValue, useDerivedValue } from 'react-native-reanimated'

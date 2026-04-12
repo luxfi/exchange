@@ -13,7 +13,7 @@ import {
   DatadogIgnoredErrorsValType,
   DynamicConfigs,
   getDynamicConfigValue,
-} from '@universe/gating'
+} from '@l.x/gating'
 import { PropsWithChildren, default as React, useEffect, useState } from 'react'
 import { DatadogContext } from 'src/features/datadog/DatadogContext'
 import { config } from 'uniswap/src/config'

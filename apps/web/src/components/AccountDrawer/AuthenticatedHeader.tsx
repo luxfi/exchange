@@ -1,6 +1,6 @@
 import { NetworkStatus } from '@apollo/client'
 import { CurrencyAmount, Token } from '@uniswap/sdk-core'
-import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { useCallback, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Button, Flex, IconButton, Image, useSporeColors } from 'ui/src'

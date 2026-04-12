@@ -1,6 +1,6 @@
 import { type ColumnDef, Row } from '@tanstack/react-table'
 import { SharedEventName } from '@uniswap/analytics-events'
-import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { useCallback, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { TouchableArea } from 'ui/src'

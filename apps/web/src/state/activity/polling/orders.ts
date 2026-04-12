@@ -1,5 +1,5 @@
 import { TradeType } from '@uniswap/sdk-core'
-import { TradingApi } from '@universe/api'
+import { TradingApi } from '@l.x/api'
 import ms from 'ms'
 import { useEffect, useRef, useState } from 'react'
 import { uniswapUrls } from 'uniswap/src/constants/urls'

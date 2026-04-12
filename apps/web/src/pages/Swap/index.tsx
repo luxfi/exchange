@@ -1,5 +1,5 @@
 import type { Currency } from '@uniswap/sdk-core'
-import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { useCallback, useEffect, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'

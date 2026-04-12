@@ -1,6 +1,6 @@
 /* oxlint-disable max-lines */
 import { PositionStatus, ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
-import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { atom, useAtom } from 'jotai'
 import { useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'

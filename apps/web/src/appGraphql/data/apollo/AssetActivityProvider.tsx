@@ -1,4 +1,4 @@
-import { GraphQLApi } from '@universe/api'
+import { GraphQLApi } from '@l.x/api'
 import ms from 'ms'
 import { PropsWithChildren, useEffect, useMemo, useState } from 'react'
 import { useEnabledChains } from 'uniswap/src/features/chains/hooks/useEnabledChains'

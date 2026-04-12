@@ -1,4 +1,4 @@
-import { GraphQLApi } from '@universe/api'
+import { GraphQLApi } from '@l.x/api'
 import { NativeSyntheticEvent, Share } from 'react-native'
 import { ContextMenuAction, ContextMenuOnPressNativeEvent } from 'react-native-context-menu-view'
 import configureMockStore from 'redux-mock-store'

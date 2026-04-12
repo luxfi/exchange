@@ -8,8 +8,8 @@ import { render } from 'src/test/test-utils'
 import { ON_PRESS_EVENT_PAYLOAD } from 'uniswap/src/test/fixtures'
 import { TestID } from 'uniswap/src/test/fixtures/testIDs'
 
-jest.mock('@universe/gating', () => ({
-  ...jest.requireActual('@universe/gating'),
+jest.mock('@l.x/gating', () => ({
+  ...jest.requireActual('@l.x/gating'),
   useFeatureFlag: jest.fn().mockReturnValue(false),
   useFeatureFlagWithLoading: jest.fn().mockReturnValue({ value: false, isLoading: false }),
   useFeatureFlagWithExposureLoggingDisabled: jest.fn().mockReturnValue(false),

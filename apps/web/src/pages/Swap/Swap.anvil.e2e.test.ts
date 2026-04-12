@@ -1,6 +1,6 @@
 import { MaxUint160, MaxUint256, PERMIT2_ADDRESS } from '@uniswap/permit2-sdk'
 import { UNIVERSAL_ROUTER_ADDRESS, UniversalRouterVersion } from '@uniswap/universal-router-sdk'
-import { TradingApi } from '@universe/api'
+import { TradingApi } from '@l.x/api'
 import { USDT } from 'uniswap/src/constants/tokens'
 import { uniswapUrls } from 'uniswap/src/constants/urls'
 import { UniverseChainId } from 'uniswap/src/features/chains/types'

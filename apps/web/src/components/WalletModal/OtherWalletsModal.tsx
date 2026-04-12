@@ -1,4 +1,4 @@
-import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import React from 'react'
 import { Trans } from 'react-i18next'
 import { Flex, Separator, Text, TouchableArea } from 'ui/src'

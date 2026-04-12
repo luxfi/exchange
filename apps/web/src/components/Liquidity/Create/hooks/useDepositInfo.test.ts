@@ -3,7 +3,7 @@ import { CurrencyAmount } from '@uniswap/sdk-core'
 import { Pair } from '@uniswap/v2-sdk'
 import { FeeAmount, nearestUsableTick, TICK_SPACINGS, TickMath, Pool as V3Pool } from '@uniswap/v3-sdk'
 import { Pool as V4Pool } from '@uniswap/v4-sdk'
-import { useDynamicConfigValue } from '@universe/gating'
+import { useDynamicConfigValue } from '@l.x/gating'
 import JSBI from 'jsbi'
 import { ZERO_ADDRESS } from 'uniswap/src/constants/misc'
 import { USDC, USDT } from 'uniswap/src/constants/tokens'
@@ -26,7 +26,7 @@ vi.mock('uniswap/src/features/portfolio/api', async (importOriginal) => ({
   useOnChainCurrencyBalance: vi.fn(),
 }))
 
-vi.mock('@universe/gating', async (importOriginal) => ({
+vi.mock('@l.x/gating', async (importOriginal) => ({
   ...(await importOriginal()),
   useDynamicConfigValue: vi.fn(),
 }))

@@ -1,6 +1,6 @@
 import 'utilities/src/logger/mocks'
 import { BigNumber } from '@ethersproject/bignumber'
-import { GraphQLApi } from '@universe/api'
+import { GraphQLApi } from '@l.x/api'
 import { UniverseChainId } from 'uniswap/src/features/chains/types'
 import { TransactionStatus } from 'uniswap/src/features/transactions/types/transactionDetails'
 import { DEFAULT_ERC20_DECIMALS } from 'utilities/src/tokens/constants'

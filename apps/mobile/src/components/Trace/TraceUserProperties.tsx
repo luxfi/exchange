@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query'
-import { provideUniswapIdentifierService } from '@universe/api'
-import { uniswapIdentifierQuery } from '@universe/sessions'
+import { provideUniswapIdentifierService } from '@l.x/api'
+import { uniswapIdentifierQuery } from '@l.x/sessions'
 import { useEffect, useMemo } from 'react'
 import { NativeModules, useWindowDimensions } from 'react-native'
 import { OneSignal } from 'react-native-onesignal'

@@ -1,5 +1,5 @@
-import { GraphQLApi } from '@universe/api'
-import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import { GraphQLApi } from '@l.x/api'
+import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { useEffect, useMemo, useReducer } from 'react'
 import { Helmet } from 'react-helmet-async/lib/index'
 import { useTranslation } from 'react-i18next'

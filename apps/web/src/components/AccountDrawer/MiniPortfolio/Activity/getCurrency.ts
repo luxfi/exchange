@@ -1,5 +1,5 @@
 import { Currency } from '@uniswap/sdk-core'
-import { GraphQLApi } from '@universe/api'
+import { GraphQLApi } from '@l.x/api'
 import { COMMON_BASES } from 'uniswap/src/constants/routing'
 import { nativeOnChain } from 'uniswap/src/constants/tokens'
 import { toGraphQLChain } from 'uniswap/src/features/chains/utils'

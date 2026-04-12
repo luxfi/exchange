@@ -4,10 +4,10 @@ import {
   Notification,
   OnClick,
 } from '@uniswap/client-notification-service/dist/uniswap/notificationservice/v1/api_pb'
-import { type InAppNotification, OnClickAction } from '@universe/api'
-import { DynamicConfigs, getDynamicConfigValue, OutageBannerChainIdConfigKey } from '@universe/gating'
-import { createNotificationDataSource } from '@universe/notifications/src/notification-data-source/implementations/createNotificationDataSource'
-import { type NotificationDataSource } from '@universe/notifications/src/notification-data-source/NotificationDataSource'
+import { type InAppNotification, OnClickAction } from '@l.x/api'
+import { DynamicConfigs, getDynamicConfigValue, OutageBannerChainIdConfigKey } from '@l.x/gating'
+import { createNotificationDataSource } from '@l.x/notifications/src/notification-data-source/implementations/createNotificationDataSource'
+import { type NotificationDataSource } from '@l.x/notifications/src/notification-data-source/NotificationDataSource'
 import { capitalize } from 'tsafe'
 import { uniswapUrls } from 'uniswap/src/constants/urls'
 import { getChainInfo } from 'uniswap/src/features/chains/chainInfo'

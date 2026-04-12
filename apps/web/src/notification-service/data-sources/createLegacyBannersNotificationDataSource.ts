@@ -8,13 +8,13 @@ import {
   NotificationVersion,
   OnClick,
 } from '@uniswap/client-notification-service/dist/uniswap/notificationservice/v1/api_pb'
-import { BackgroundType, ContentStyle, type InAppNotification, OnClickAction } from '@universe/api'
-import { FeatureFlags, getFeatureFlag } from '@universe/gating'
+import { BackgroundType, ContentStyle, type InAppNotification, OnClickAction } from '@l.x/api'
+import { FeatureFlags, getFeatureFlag } from '@l.x/gating'
 import {
   createNotificationDataSource,
   type NotificationDataSource,
   type NotificationTracker,
-} from '@universe/notifications'
+} from '@l.x/notifications'
 import {
   NO_FEES_ICON,
   NO_UNISWAP_INTERFACE_FEES_BANNER_DARK,

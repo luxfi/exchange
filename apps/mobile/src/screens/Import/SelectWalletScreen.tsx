@@ -1,5 +1,5 @@
 import { NativeStackScreenProps } from '@react-navigation/native-stack'
-import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import React, { ComponentProps, useCallback } from 'react'
 import { Trans, useTranslation } from 'react-i18next'
 import { ScrollView } from 'react-native'

@@ -3,7 +3,7 @@ import {
   Metadata,
   Notification,
 } from '@uniswap/client-notification-service/dist/uniswap/notificationservice/v1/api_pb'
-import { ContentStyle } from '@universe/api'
+import { ContentStyle } from '@l.x/api'
 import { type MobileState } from 'src/app/mobileReducer'
 import {
   BACKUP_REMINDER_NOTIFICATION_ID,

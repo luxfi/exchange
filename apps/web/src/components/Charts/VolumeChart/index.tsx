@@ -1,4 +1,4 @@
-import { GraphQLApi } from '@universe/api'
+import { GraphQLApi } from '@l.x/api'
 import { TFunction } from 'i18next'
 import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'

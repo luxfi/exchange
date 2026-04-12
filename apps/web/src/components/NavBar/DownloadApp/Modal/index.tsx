@@ -1,4 +1,4 @@
-import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { atom, useAtom } from 'jotai'
 import { useCallback, useEffect, useState } from 'react'
 import { AnimatedPager, Flex } from 'ui/src'

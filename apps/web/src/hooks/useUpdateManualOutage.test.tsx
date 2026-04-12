@@ -1,6 +1,6 @@
 import { ApolloError } from '@apollo/client'
 import { renderHook } from '@testing-library/react'
-import { GraphQLApi } from '@universe/api'
+import { GraphQLApi } from '@l.x/api'
 import { UniverseChainId } from 'uniswap/src/features/chains/types'
 import { useIsOffline } from 'utilities/src/connection/useIsOffline'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'

@@ -1,6 +1,6 @@
 /* oxlint-disable react/forbid-elements -- ignoring for the whole file */
 
-import { ProtocolVersion } from '@universe/api/src/clients/graphql/__generated__/schema-types'
+import { ProtocolVersion } from '@l.x/api/src/clients/graphql/__generated__/schema-types'
 import { ImageResponse } from '@vercel/og'
 import { WATERMARK_URL } from 'functions/constants'
 import { Data, PositionStatus } from 'functions/utils/cache'

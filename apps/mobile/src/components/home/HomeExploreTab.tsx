@@ -1,6 +1,6 @@
 import { ReactNavigationPerformanceView } from '@shopify/react-native-performance-navigation'
-import { GraphQLApi } from '@universe/api'
-import { DynamicConfigs, HomeScreenExploreTokensConfigKey, useDynamicConfigValue } from '@universe/gating'
+import { GraphQLApi } from '@l.x/api'
+import { DynamicConfigs, HomeScreenExploreTokensConfigKey, useDynamicConfigValue } from '@l.x/gating'
 import { ForwardedRef, forwardRef, memo, useCallback, useEffect, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { FlatList, LayoutRectangle, RefreshControl } from 'react-native'

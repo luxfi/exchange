@@ -1,4 +1,4 @@
-import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { useTranslation } from 'react-i18next'
 import { Flex, useIsTouchDevice, useMedia } from 'ui/src'
 import { UniverseChainId } from 'uniswap/src/features/chains/types'

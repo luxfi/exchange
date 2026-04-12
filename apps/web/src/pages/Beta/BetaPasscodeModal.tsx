@@ -3,7 +3,7 @@ import {
   EmbeddedWalletBetaPassphrasesKey,
   getDynamicConfigValue,
   getOverrideAdapter,
-} from '@universe/gating'
+} from '@l.x/gating'
 import { useCallback, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Button, Flex, Image, Input, Text } from 'ui/src'

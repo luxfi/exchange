@@ -1,4 +1,4 @@
-import { FeatureFlags, getFeatureFlagName } from '@universe/gating'
+import { FeatureFlags, getFeatureFlagName } from '@l.x/gating'
 import ms from 'ms'
 import { TestID } from 'uniswap/src/test/fixtures/testIDs'
 import { expect, getTest } from '~/playwright/fixtures'

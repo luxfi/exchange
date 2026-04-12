@@ -1,6 +1,6 @@
 import { CommonActions } from '@react-navigation/core'
 import { NativeStackScreenProps } from '@react-navigation/native-stack'
-import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import React, { useCallback, useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { ScrollView } from 'react-native-gesture-handler'

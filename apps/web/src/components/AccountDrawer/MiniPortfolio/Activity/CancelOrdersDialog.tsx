@@ -1,5 +1,5 @@
 import { CurrencyAmount } from '@uniswap/sdk-core'
-import { TradingApi } from '@universe/api'
+import { TradingApi } from '@l.x/api'
 import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Flex, styled, Text, useSporeColors } from 'ui/src'

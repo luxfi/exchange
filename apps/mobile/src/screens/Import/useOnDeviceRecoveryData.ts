@@ -1,4 +1,4 @@
-import { GraphQLApi } from '@universe/api'
+import { GraphQLApi } from '@l.x/api'
 import { useEffect, useMemo, useState } from 'react'
 import { useUnitagsAddressQuery } from 'uniswap/src/data/apiClients/unitagsApi/useUnitagsAddressQuery'
 import { useEnabledChains } from 'uniswap/src/features/chains/hooks/useEnabledChains'

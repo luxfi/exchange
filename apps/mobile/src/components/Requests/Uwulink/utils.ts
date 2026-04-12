@@ -4,7 +4,7 @@ import {
   UwULinkAllowlistItem,
   UwuLinkConfigKey,
   useDynamicConfigValue,
-} from '@universe/gating'
+} from '@l.x/gating'
 import { parseEther } from 'ethers/lib/utils'
 import { WalletConnectSigningRequest } from 'src/features/walletConnect/walletConnectSlice'
 import { AssetType } from 'uniswap/src/entities/assets'

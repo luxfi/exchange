@@ -1,5 +1,5 @@
 import { getRewards } from '@uniswap/client-data-api/dist/data/v1/api-DataApiService_connectquery'
-import { FeatureFlags } from '@universe/gating'
+import { FeatureFlags } from '@l.x/gating'
 import { uniswapUrls } from 'uniswap/src/constants/urls'
 import { expect, getTest } from '~/playwright/fixtures'
 import { createTestUrlBuilder } from '~/playwright/fixtures/urls'

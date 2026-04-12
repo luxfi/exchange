@@ -1,4 +1,4 @@
-import { GraphQLApi, isNonPollingRequestInFlight } from '@universe/api'
+import { GraphQLApi, isNonPollingRequestInFlight } from '@l.x/api'
 import React, { memo, useMemo } from 'react'
 import type { StyleProp, ViewProps, ViewStyle } from 'react-native'
 import ContextMenu from 'react-native-context-menu-view'

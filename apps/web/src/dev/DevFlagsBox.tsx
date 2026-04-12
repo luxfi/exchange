@@ -6,7 +6,7 @@ import {
   StatsigContext,
   useGateValue,
   useLayer,
-} from '@universe/gating'
+} from '@l.x/gating'
 import { memo, useContext, useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { Button, Flex, Switch, Text, useShadowPropsShort } from 'ui/src'

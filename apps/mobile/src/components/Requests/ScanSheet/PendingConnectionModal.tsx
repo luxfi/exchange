@@ -1,5 +1,5 @@
 import { useBottomSheetInternal } from '@gorhom/bottom-sheet'
-import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { getSdkError } from '@walletconnect/utils'
 import React, { useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'

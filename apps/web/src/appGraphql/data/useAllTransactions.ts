@@ -1,4 +1,4 @@
-import { GraphQLApi } from '@universe/api'
+import { GraphQLApi } from '@l.x/api'
 import { useCallback, useMemo, useRef } from 'react'
 import { UniverseChainId } from 'uniswap/src/features/chains/types'
 import { fromGraphQLChain } from 'uniswap/src/features/chains/utils'

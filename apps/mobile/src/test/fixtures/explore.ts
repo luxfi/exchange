@@ -1,4 +1,4 @@
-import { GraphQLApi } from '@universe/api'
+import { GraphQLApi } from '@l.x/api'
 import { TokenItemData } from 'src/components/explore/TokenItemData'
 import { UniverseChainId } from 'uniswap/src/features/chains/types'
 import { token } from 'uniswap/src/test/fixtures'

@@ -1,5 +1,5 @@
 import { FeeAmount } from '@uniswap/v3-sdk'
-import { GraphQLApi } from '@universe/api'
+import { GraphQLApi } from '@l.x/api'
 import { V2_DEFAULT_FEE_TIER } from 'uniswap/src/constants/pools'
 import { GQL_MAINNET_CHAINS } from 'uniswap/src/features/chains/chainInfo'
 import { UniverseChainId } from 'uniswap/src/features/chains/types'
@@ -15,8 +15,8 @@ const { mockV4Query, mockV3Query, mockV2Query, mockUseEnabledChains } = vi.hoist
   return { mockV4Query, mockV3Query, mockV2Query, mockUseEnabledChains }
 })
 
-vi.mock('@universe/api', async () => {
-  const actual = await vi.importActual('@universe/api')
+vi.mock('@l.x/api', async () => {
+  const actual = await vi.importActual('@l.x/api')
   return {
     ...actual,
     GraphQLApi: {

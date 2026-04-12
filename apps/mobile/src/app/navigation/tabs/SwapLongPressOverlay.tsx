@@ -1,4 +1,4 @@
-import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { BlurView } from 'expo-blur'
 import { type ReactNode, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'

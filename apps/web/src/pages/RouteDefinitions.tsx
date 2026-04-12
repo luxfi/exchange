@@ -1,4 +1,4 @@
-import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { lazy, ReactNode, Suspense, useMemo } from 'react'
 import { matchPath, Navigate, Route, Routes, useLocation } from 'react-router'
 import { WRAPPED_PATH } from 'uniswap/src/components/banners/shared/utils'

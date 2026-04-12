@@ -1,4 +1,4 @@
-import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { useLocation, useNavigate } from 'react-router'
 import { WRAPPED_PATH } from 'uniswap/src/components/banners/shared/utils'
 import { UniswapWrapped2025Banner } from 'uniswap/src/components/banners/UniswapWrapped2025Banner/UniswapWrapped2025Banner'

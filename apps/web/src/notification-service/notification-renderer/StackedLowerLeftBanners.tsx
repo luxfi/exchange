@@ -1,7 +1,7 @@
 /* oxlint-disable import/no-unused-modules */
 
-import type { InAppNotification } from '@universe/api'
-import { InlineBannerNotification, type NotificationClickTarget } from '@universe/notifications'
+import type { InAppNotification } from '@l.x/api'
+import { InlineBannerNotification, type NotificationClickTarget } from '@l.x/notifications'
 import { AnimatePresence, motion } from 'framer-motion'
 import { memo, useEffect } from 'react'
 import { Portal, useMedia } from 'ui/src'

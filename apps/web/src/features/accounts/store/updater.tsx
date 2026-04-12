@@ -1,5 +1,5 @@
 import { Web3Provider as EthersWeb3Provider, ExternalProvider } from '@ethersproject/providers'
-import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { useUpdateAtom } from 'jotai/utils'
 import { useEffect } from 'react'
 import { useLocation } from 'react-router'

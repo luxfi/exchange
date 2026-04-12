@@ -1,5 +1,5 @@
 import { useScrollToTop } from '@react-navigation/native'
-import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { useEffect, useMemo, useRef } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useDispatch } from 'react-redux'

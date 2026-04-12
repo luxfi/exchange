@@ -1,5 +1,5 @@
 import { useNavigation } from '@react-navigation/core'
-import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { default as React, useCallback, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { ListRenderItemInfo } from 'react-native'

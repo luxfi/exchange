@@ -1,4 +1,4 @@
-import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { useMemo } from 'react'
 import { chainIdToPlatform } from 'uniswap/src/features/platforms/utils/chains'
 import { filterSettingsByPlatformAndTradeRouting } from 'uniswap/src/features/transactions/components/settings/utils'

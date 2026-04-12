@@ -7,8 +7,8 @@ import {
   provideSessionService,
   SESSION_INIT_QUERY_KEY,
   SharedQueryClient,
-} from '@universe/api'
-import { getIsSessionServiceEnabled } from '@universe/gating'
+} from '@l.x/api'
+import { getIsSessionServiceEnabled } from '@l.x/gating'
 import {
   createApiNotificationTracker,
   createBaseNotificationProcessor,
@@ -17,7 +17,7 @@ import {
   getNotificationQueryOptions,
   type NotificationDataSource,
   type NotificationService,
-} from '@universe/notifications'
+} from '@l.x/notifications'
 import ms from 'ms'
 import { useEffect, useMemo, useRef } from 'react'
 import { useLocation, useNavigate } from 'react-router'

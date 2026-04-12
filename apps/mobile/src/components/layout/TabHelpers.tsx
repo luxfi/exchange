@@ -1,6 +1,6 @@
 /* oxlint-disable react-native/no-unused-styles */
 import { FlashList, FlashListProps } from '@shopify/flash-list'
-import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import React, { RefObject, useCallback, useMemo } from 'react'
 import {
   FlatList,

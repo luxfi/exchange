@@ -1,4 +1,4 @@
-import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { Trans, useTranslation } from 'react-i18next'
 import { Flex, Image, Text, useSporeColors } from 'ui/src'
 import { BINANCE_WALLET_ICON, UNISWAP_LOGO } from 'ui/src/assets'

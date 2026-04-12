@@ -1,6 +1,6 @@
-import { ContentStyle, type InAppNotification } from '@universe/api'
-import type { NotificationClickTarget } from '@universe/notifications'
-import { InlineBannerNotification } from '@universe/notifications/src/notification-renderer/components/InlineBannerNotification'
+import { ContentStyle, type InAppNotification } from '@l.x/api'
+import type { NotificationClickTarget } from '@l.x/notifications'
+import { InlineBannerNotification } from '@l.x/notifications/src/notification-renderer/components/InlineBannerNotification'
 import { Fragment, memo, useEffect, useMemo } from 'react'
 import { isOfflineBannerNotification } from 'src/notification-service/data-sources/reactive/offlineCondition'
 import {

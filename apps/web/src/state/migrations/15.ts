@@ -1,4 +1,4 @@
-import { GraphQLApi } from '@universe/api'
+import { GraphQLApi } from '@l.x/api'
 import { PersistState } from 'redux-persist'
 import { createPersistState, createSafeMigration } from 'uniswap/src/state/createSafeMigration'
 import { PreV55SearchResult, PreV55SearchResultType, TokenSearchResult } from 'uniswap/src/state/oldTypes'

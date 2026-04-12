@@ -1,4 +1,4 @@
-import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { useCallback, useEffect, useMemo } from 'react'
 import { StyleProp, ViewStyle } from 'react-native'
 import Animated, { SharedValue, useAnimatedStyle, useSharedValue } from 'react-native-reanimated'

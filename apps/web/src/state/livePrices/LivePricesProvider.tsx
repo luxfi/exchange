@@ -4,9 +4,9 @@ import {
   getWebSocketUrl,
   provideSessionService,
   SharedQueryClient,
-} from '@universe/api'
-import { FeatureFlags, getIsSessionServiceEnabled, useFeatureFlag } from '@universe/gating'
-import type { TokenPriceMessage, TokenSubscriptionParams } from '@universe/prices'
+} from '@l.x/api'
+import { FeatureFlags, getIsSessionServiceEnabled, useFeatureFlag } from '@l.x/gating'
+import type { TokenPriceMessage, TokenSubscriptionParams } from '@l.x/prices'
 import {
   createPriceKey,
   createPriceSubscriptionHandler,
@@ -15,9 +15,9 @@ import {
   parseTokenPriceMessage,
   priceKeys,
   RestPriceBatcher,
-} from '@universe/prices'
-import type { WebSocketClient } from '@universe/websocket'
-import { createWebSocketClient, createZustandConnectionStore } from '@universe/websocket'
+} from '@l.x/prices'
+import type { WebSocketClient } from '@l.x/websocket'
+import { createWebSocketClient, createZustandConnectionStore } from '@l.x/websocket'
 import type { ReactElement, ReactNode } from 'react'
 import { useState } from 'react'
 import { isDevEnv } from 'utilities/src/environment/env'

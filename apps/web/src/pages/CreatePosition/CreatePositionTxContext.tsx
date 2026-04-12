@@ -13,7 +13,7 @@ import {
 import { LPAction } from '@uniswap/client-liquidity/dist/uniswap/liquidity/v2/types_pb'
 import { Currency, CurrencyAmount } from '@uniswap/sdk-core'
 import { Pair } from '@uniswap/v2-sdk'
-import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import {
   createContext,
   type Dispatch,

@@ -1,5 +1,5 @@
 import { useBottomSheetInternal } from '@gorhom/bottom-sheet'
-import { type GasFeeResult } from '@universe/api'
+import { type GasFeeResult } from '@l.x/api'
 import { formatUnits } from 'ethers/lib/utils'
 import { useTranslation } from 'react-i18next'
 import Animated, { useAnimatedStyle } from 'react-native-reanimated'

@@ -1,5 +1,5 @@
 import { SkipToken, skipToken } from '@reduxjs/toolkit/query/react'
-import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { useMemo } from 'react'
 import { useIsMismatchAccountQuery } from 'uniswap/src/features/smartWallet/mismatch/hooks'
 import { useUniswapXPriorityOrderFlag } from 'uniswap/src/features/transactions/swap/utils/protocols'

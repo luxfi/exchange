@@ -1,6 +1,6 @@
 import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
 import { Currency } from '@uniswap/sdk-core'
-import { GraphQLApi } from '@universe/api'
+import { GraphQLApi } from '@l.x/api'
 import * as d3 from 'd3'
 import { UseSporeColorsReturn } from 'ui/src/hooks/useSporeColors'
 import { TickData } from '~/appGraphql/data/AllV3TicksQuery'

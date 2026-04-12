@@ -1,6 +1,6 @@
 import { BottomSheetScrollView } from '@gorhom/bottom-sheet'
-import { GraphQLApi } from '@universe/api'
-import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import { GraphQLApi } from '@l.x/api'
+import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { useCallback, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useWindowDimensions } from 'react-native'

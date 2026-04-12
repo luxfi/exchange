@@ -1,4 +1,4 @@
-import { GraphQLApi } from '@universe/api'
+import { GraphQLApi } from '@l.x/api'
 import { CustomStyleOptions, DeepPartial, ISeriesApi, Logical, UTCTimestamp, WhitespaceData } from 'lightweight-charts'
 import { useMemo } from 'react'
 import { ColorTokens, useSporeColors } from 'ui/src'

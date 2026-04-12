@@ -1,4 +1,4 @@
-import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import React, { type PropsWithChildren, useCallback, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { FlatList } from 'react-native'

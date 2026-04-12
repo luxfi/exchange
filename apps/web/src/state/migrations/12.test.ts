@@ -1,4 +1,4 @@
-import { GraphQLApi } from '@universe/api'
+import { GraphQLApi } from '@l.x/api'
 import { createMigrate } from 'redux-persist'
 import { createThrowingProxy } from 'utilities/src/test/utils'
 import { vi } from 'vitest'

@@ -1,4 +1,4 @@
-import type { ApiNotificationTrackerContext } from '@universe/notifications'
+import type { ApiNotificationTrackerContext } from '@l.x/notifications'
 import { MMKV } from 'react-native-mmkv'
 import { getLogger } from 'utilities/src/logger/logger'
 import { z } from 'zod'

@@ -1,4 +1,4 @@
-import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { CONNECTION_PROVIDER_IDS } from 'uniswap/src/constants/web3'
 import { SigningCapability } from 'uniswap/src/features/accounts/store/types/Wallet'
 import { Platform } from 'uniswap/src/features/platforms/types/Platform'
@@ -37,7 +37,7 @@ vi.mock('~/components/Web3Provider/constants', async () => {
   }
 })
 
-vi.mock('@universe/gating', async (importOriginal) => {
+vi.mock('@l.x/gating', async (importOriginal) => {
   return {
     ...(await importOriginal()),
     useFeatureFlag: vi.fn(),

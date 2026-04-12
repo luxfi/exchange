@@ -1,5 +1,5 @@
 import { waitFor } from '@testing-library/react-native'
-import { GraphQLApi } from '@universe/api'
+import { GraphQLApi } from '@l.x/api'
 import { act } from 'react-test-renderer'
 import { useTokenPriceHistory } from 'src/components/PriceExplorer/usePriceHistory'
 import { renderHookWithProviders } from 'src/test/render'

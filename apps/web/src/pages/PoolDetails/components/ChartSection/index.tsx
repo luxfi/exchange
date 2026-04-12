@@ -1,7 +1,7 @@
 import { ProtocolVersion as RestProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
 import { Currency, NativeCurrency, Token } from '@uniswap/sdk-core'
 import { FeeAmount } from '@uniswap/v3-sdk'
-import { GraphQLApi, parseRestProtocolVersion } from '@universe/api'
+import { GraphQLApi, parseRestProtocolVersion } from '@l.x/api'
 import { useAtomValue } from 'jotai/utils'
 import { useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'

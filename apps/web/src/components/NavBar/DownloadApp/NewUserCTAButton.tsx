@@ -1,4 +1,4 @@
-import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { useTranslation } from 'react-i18next'
 import { Button } from 'ui/src'
 import { ElementName, ModalName } from 'uniswap/src/features/telemetry/constants'

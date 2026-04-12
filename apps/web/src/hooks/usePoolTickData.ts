@@ -2,7 +2,7 @@ import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes
 import { Currency, Token, V3_CORE_FACTORY_ADDRESSES } from '@uniswap/sdk-core'
 import { FeeAmount, TICK_SPACINGS, tickToPrice as tickToPriceV3, Pool as V3Pool } from '@uniswap/v3-sdk'
 import { tickToPrice as tickToPriceV4, Pool as V4Pool } from '@uniswap/v4-sdk'
-import { GraphQLApi } from '@universe/api'
+import { GraphQLApi } from '@l.x/api'
 import JSBI from 'jsbi'
 import ms from 'ms'
 import { useEffect, useMemo, useState } from 'react'

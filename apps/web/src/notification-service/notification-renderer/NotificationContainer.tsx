@@ -1,6 +1,6 @@
 /* oxlint-disable import/no-unused-modules */
-import { ContentStyle, type InAppNotification } from '@universe/api'
-import { type NotificationClickTarget } from '@universe/notifications'
+import { ContentStyle, type InAppNotification } from '@l.x/api'
+import { type NotificationClickTarget } from '@l.x/notifications'
 import { useEffect, useMemo } from 'react'
 import { ModalNotification } from 'uniswap/src/components/notifications/ModalNotification'
 import { getLogger } from 'utilities/src/logger/logger'

@@ -1,5 +1,5 @@
 import path from 'path'
-import { FeatureFlagClient, type FeatureFlags, getFeatureFlagName } from '@universe/gating'
+import { FeatureFlagClient, type FeatureFlags, getFeatureFlagName } from '@l.x/gating'
 
 export function createTestUrlBuilder({
   basePath,

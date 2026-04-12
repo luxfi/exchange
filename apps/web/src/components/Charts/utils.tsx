@@ -1,4 +1,4 @@
-import { GraphQLApi } from '@universe/api'
+import { GraphQLApi } from '@l.x/api'
 import { TickMarkType, UTCTimestamp } from 'lightweight-charts'
 import ms from 'ms'
 

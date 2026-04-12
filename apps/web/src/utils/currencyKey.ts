@@ -1,5 +1,5 @@
 import { Currency } from '@uniswap/sdk-core'
-import { GraphQLApi } from '@universe/api'
+import { GraphQLApi } from '@l.x/api'
 import { normalizeTokenAddressForCache } from 'uniswap/src/data/cache'
 import { UniverseChainId } from 'uniswap/src/features/chains/types'
 import { fromGraphQLChain } from 'uniswap/src/features/chains/utils'

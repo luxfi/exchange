@@ -3,7 +3,7 @@
 import { ApolloError } from '@apollo/client'
 import { createColumnHelper } from '@tanstack/react-table'
 import type { MultichainToken } from '@uniswap/client-data-api/dist/data/v1/types_pb'
-import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { ReactElement, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Flex, Text, useMedia } from 'ui/src'

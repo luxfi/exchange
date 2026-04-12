@@ -1,4 +1,4 @@
-import { GraphQLApi } from '@universe/api'
+import { GraphQLApi } from '@l.x/api'
 import { useMemo } from 'react'
 import { ZERO_ADDRESS } from 'uniswap/src/constants/misc'
 import { toGraphQLChain } from 'uniswap/src/features/chains/utils'

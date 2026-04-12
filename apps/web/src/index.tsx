@@ -4,8 +4,8 @@ import { getDeviceId } from '@amplitude/analytics-browser'
 import { ApolloProvider } from '@apollo/client'
 import { datadogRum } from '@datadog/browser-rum'
 import { PrivyProvider } from '@privy-io/react-auth'
-import { ApiInit, getEntryGatewayUrl, provideSessionService } from '@universe/api'
-import type { StatsigUser } from '@universe/gating'
+import { ApiInit, getEntryGatewayUrl, provideSessionService } from '@l.x/api'
+import type { StatsigUser } from '@l.x/gating'
 import {
   getIsHashcashSolverEnabled,
   getIsSessionServiceEnabled,
@@ -13,7 +13,7 @@ import {
   getIsSessionUpgradeAutoEnabled,
   getIsTurnstileSolverEnabled,
   useIsSessionServiceEnabled,
-} from '@universe/gating'
+} from '@l.x/gating'
 import {
   type ChallengeSolver,
   ChallengeType,
@@ -25,7 +25,7 @@ import {
   createSessionInitializationService,
   createTurnstileMockSolver,
   createTurnstileSolver,
-} from '@universe/sessions'
+} from '@l.x/sessions'
 import { NuqsAdapter } from 'nuqs/adapters/react-router/v7'
 import type { PropsWithChildren, ReactNode } from 'react'
 import { StrictMode, useEffect, useMemo } from 'react'
@@ -123,7 +123,7 @@ const provideSessionInitService = () => {
           createHashcashWorkerChannel({
             getWorker: () => {
               return new Worker(
-                new URL('@universe/sessions/src/challenge-solvers/hashcash/worker/hashcash.worker.ts', import.meta.url),
+                new URL('@l.x/sessions/src/challenge-solvers/hashcash/worker/hashcash.worker.ts', import.meta.url),
                 { type: 'module' },
               )
             },

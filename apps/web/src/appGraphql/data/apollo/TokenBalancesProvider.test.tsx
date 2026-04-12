@@ -20,8 +20,8 @@ const { mockLazyFetch, mockBalanceQueryResponse } = vi.hoisted(() => {
   return { mockLazyFetch, mockBalanceQueryResponse }
 })
 
-vi.mock('@universe/api', async () => {
-  const actual = await vi.importActual('@universe/api')
+vi.mock('@l.x/api', async () => {
+  const actual = await vi.importActual('@l.x/api')
   return {
     ...actual,
     GraphQLApi: {

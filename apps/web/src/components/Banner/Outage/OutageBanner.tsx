@@ -1,4 +1,4 @@
-import { GraphQLApi } from '@universe/api'
+import { GraphQLApi } from '@l.x/api'
 import { ReactNode, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { capitalize } from 'tsafe'

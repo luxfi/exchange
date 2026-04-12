@@ -1,6 +1,6 @@
 import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
 import { Currency } from '@uniswap/sdk-core'
-import { GraphQLApi } from '@universe/api'
+import { GraphQLApi } from '@l.x/api'
 import type { StoreApi, UseBoundStore } from 'zustand'
 import { create } from 'zustand'
 import { devtools, subscribeWithSelector } from 'zustand/middleware'

@@ -1,4 +1,4 @@
-import { GraphQLApi } from '@universe/api'
+import { GraphQLApi } from '@l.x/api'
 import { useContext, useEffect, useRef } from 'react'
 import { useParams } from 'react-router'
 import { UniverseChainId } from 'uniswap/src/features/chains/types'

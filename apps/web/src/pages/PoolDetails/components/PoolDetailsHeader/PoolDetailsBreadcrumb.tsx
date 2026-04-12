@@ -1,4 +1,4 @@
-import { GraphQLApi } from '@universe/api'
+import { GraphQLApi } from '@l.x/api'
 import { useTranslation } from 'react-i18next'
 import { Flex, Shine } from 'ui/src'
 import { RotatableChevron } from 'ui/src/components/icons/RotatableChevron'

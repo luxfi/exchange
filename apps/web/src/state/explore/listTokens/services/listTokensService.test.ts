@@ -6,7 +6,7 @@ import {
   TokenStats,
   TokenType,
 } from '@uniswap/client-data-api/dist/data/v1/types_pb'
-import { TokensOrderBy } from '@universe/api'
+import { TokensOrderBy } from '@l.x/api'
 import { describe, expect, it, vi } from 'vitest'
 import { TimePeriod } from '~/appGraphql/data/util'
 import { TokenSortMethod } from '~/components/Tokens/constants'

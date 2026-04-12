@@ -1,6 +1,6 @@
 import { TransactionRequest } from '@ethersproject/abstract-provider'
 import { Currency, CurrencyAmount } from '@uniswap/sdk-core'
-import type { GasFeeResult } from '@universe/api'
+import type { GasFeeResult } from '@l.x/api'
 import { useWeb3React } from '@web3-react/core'
 import { useMemo } from 'react'
 import { nativeOnChain } from 'uniswap/src/constants/tokens'

@@ -1,4 +1,4 @@
-import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { useEffect, useMemo } from 'react'
 import { useLocation, useNavigate, useSearchParams } from 'react-router'
 import { UniverseChainId } from 'uniswap/src/features/chains/types'

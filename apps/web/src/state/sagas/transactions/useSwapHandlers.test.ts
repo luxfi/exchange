@@ -1,4 +1,4 @@
-import { FeeType, TradingApi } from '@universe/api'
+import { FeeType, TradingApi } from '@l.x/api'
 import { AccountType } from 'uniswap/src/features/accounts/types'
 import { DEFAULT_GAS_STRATEGY } from 'uniswap/src/features/gas/consts'
 import { Platform } from 'uniswap/src/features/platforms/types/Platform'

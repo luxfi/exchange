@@ -6,9 +6,9 @@ import {
   NotificationVersion,
   OnClick,
 } from '@uniswap/client-notification-service/dist/uniswap/notificationservice/v1/api_pb'
-import { BackgroundType, ContentStyle, type InAppNotification, OnClickAction } from '@universe/api'
-import { DynamicConfigs, ForceUpgradeConfigKey, type ForceUpgradeStatus, getDynamicConfigValue } from '@universe/gating'
-import { createIntervalNotificationDataSource, type NotificationDataSource } from '@universe/notifications'
+import { BackgroundType, ContentStyle, type InAppNotification, OnClickAction } from '@l.x/api'
+import { DynamicConfigs, ForceUpgradeConfigKey, type ForceUpgradeStatus, getDynamicConfigValue } from '@l.x/gating'
+import { createIntervalNotificationDataSource, type NotificationDataSource } from '@l.x/notifications'
 import { UNISWAP_LOGO } from 'ui/src/assets'
 import i18n from 'uniswap/src/i18n'
 import { ONE_SECOND_MS } from 'utilities/src/time/time'

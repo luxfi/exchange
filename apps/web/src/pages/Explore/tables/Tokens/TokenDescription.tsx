@@ -1,4 +1,4 @@
-import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { useTranslation } from 'react-i18next'
 import { Flex, styled, Text, View } from 'ui/src'
 import { iconSizes } from 'ui/src/theme'

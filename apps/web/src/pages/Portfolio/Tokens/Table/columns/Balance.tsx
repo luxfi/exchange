@@ -1,4 +1,4 @@
-import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { memo, useMemo } from 'react'
 import { Text, TextProps } from 'ui/src'
 import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'

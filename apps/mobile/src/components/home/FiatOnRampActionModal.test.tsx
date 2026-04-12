@@ -21,8 +21,8 @@ jest.mock('src/app/navigation/rootNavigation', () => ({
   navigate: jest.fn(),
 }))
 
-jest.mock('@universe/gating', () => ({
-  ...jest.requireActual('@universe/gating'),
+jest.mock('@l.x/gating', () => ({
+  ...jest.requireActual('@l.x/gating'),
   useFeatureFlag: jest.fn().mockReturnValue(false),
   useFeatureFlagWithLoading: jest.fn().mockReturnValue({ value: false, isLoading: false }),
   useFeatureFlagWithExposureLoggingDisabled: jest.fn().mockReturnValue(false),

@@ -1,4 +1,4 @@
-import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { useMemo } from 'react'
 import { getChainInfo, TOUCAN_AUCTION_SUPPORTED_CHAINS } from 'uniswap/src/features/chains/chainInfo'
 import { UniverseChainId } from 'uniswap/src/features/chains/types'

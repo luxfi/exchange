@@ -1,4 +1,4 @@
-import { TradingApi } from '@universe/api'
+import { TradingApi } from '@l.x/api'
 import { getChainLabel } from 'uniswap/src/features/chains/utils'
 import { SwapEventName } from 'uniswap/src/features/telemetry/constants'
 import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'

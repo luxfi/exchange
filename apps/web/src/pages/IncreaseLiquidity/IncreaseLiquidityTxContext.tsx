@@ -5,7 +5,7 @@ import {
 } from '@uniswap/client-liquidity/dist/uniswap/liquidity/v2/api_pb'
 import { LPAction, LPToken } from '@uniswap/client-liquidity/dist/uniswap/liquidity/v2/types_pb'
 import type { Currency, CurrencyAmount } from '@uniswap/sdk-core'
-import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import {
   createContext,
   Dispatch,

@@ -1,4 +1,4 @@
-import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { useEffect, useMemo, useRef } from 'react'
 import {
   PLAN_POLLING_INITIAL_DELAY_MS,

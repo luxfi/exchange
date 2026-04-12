@@ -1,5 +1,5 @@
 import { InfiniteData, useInfiniteQuery } from '@tanstack/react-query'
-import { type DataApiPool, type ListTopPoolsResponse, ProtocolVersion, TopPoolsOrderBy } from '@universe/api'
+import { type DataApiPool, type ListTopPoolsResponse, ProtocolVersion, TopPoolsOrderBy } from '@l.x/api'
 import { useMemo } from 'react'
 import { DEFAULT_TICK_SPACING } from 'uniswap/src/constants/pools'
 import { dataApiQueries } from 'uniswap/src/data/apiClients/dataApiService/dataApiQueries'

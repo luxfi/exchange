@@ -1,4 +1,4 @@
-import { GraphQLApi } from '@universe/api'
+import { GraphQLApi } from '@l.x/api'
 import { useMemo } from 'react'
 import { normalizeTokenAddressForCache } from 'uniswap/src/data/cache'
 import { normalizeTextInput } from 'utilities/src/primitives/string'

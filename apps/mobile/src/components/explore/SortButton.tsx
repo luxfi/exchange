@@ -1,4 +1,4 @@
-import { CustomRankingType, RankingType } from '@universe/api'
+import { CustomRankingType, RankingType } from '@l.x/api'
 import React, { memo, useCallback, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { getTokensOrderByMenuLabel, getTokensOrderBySelectedLabel } from 'src/features/explore/utils'

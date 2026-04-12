@@ -1,5 +1,5 @@
 import { ChartPeriod } from '@uniswap/client-data-api/dist/data/v1/api_pb'
-import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { memo, useMemo, useState } from 'react'
 import { Flex, Separator, styled, useMedia } from 'ui/src'
 import { useGetPortfolioHistoricalValueChartQuery } from 'uniswap/src/data/rest/getPortfolioChart'

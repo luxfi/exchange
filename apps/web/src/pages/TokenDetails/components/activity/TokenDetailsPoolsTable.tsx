@@ -1,6 +1,6 @@
 import { ApolloError } from '@apollo/client'
 import { type Currency } from '@uniswap/sdk-core'
-import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { useMemo } from 'react'
 import { Flex } from 'ui/src'
 import { AddressStringFormat, normalizeAddress } from 'uniswap/src/utils/addresses'

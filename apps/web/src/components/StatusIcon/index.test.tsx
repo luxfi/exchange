@@ -20,7 +20,7 @@ vi.mock('~/features/accounts/store/hooks', () => ({
   useConnectionStatus: vi.fn(() => ({ isConnected: false, isConnecting: false, isDisconnected: true })),
 }))
 
-vi.mock('@universe/gating', async (importOriginal) => {
+vi.mock('@l.x/gating', async (importOriginal) => {
   return {
     ...(await importOriginal()),
     useFeatureFlag: vi.fn(),

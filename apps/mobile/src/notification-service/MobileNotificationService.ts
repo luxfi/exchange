@@ -6,8 +6,8 @@ import {
   getEntryGatewayUrl,
   provideSessionService,
   SharedQueryClient,
-} from '@universe/api'
-import { getIsSessionServiceEnabled } from '@universe/gating'
+} from '@l.x/api'
+import { getIsSessionServiceEnabled } from '@l.x/gating'
 import {
   createApiNotificationTracker,
   createBaseNotificationProcessor,
@@ -16,7 +16,7 @@ import {
   createReactiveDataSource,
   getNotificationQueryOptions,
   type NotificationService,
-} from '@universe/notifications'
+} from '@l.x/notifications'
 import { Appearance } from 'react-native'
 import DeviceInfo from 'react-native-device-info'
 import { MobileState } from 'src/app/mobileReducer'

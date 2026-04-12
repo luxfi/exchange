@@ -2,7 +2,7 @@ import { LiquidityService } from '@uniswap/client-liquidity/dist/uniswap/liquidi
 import { PERMIT2_ADDRESS } from '@uniswap/permit2-sdk'
 import { V2_FACTORY_ADDRESSES } from '@uniswap/sdk-core'
 import { computePairAddress } from '@uniswap/v2-sdk'
-import { FeatureFlags, getFeatureFlagName } from '@universe/gating'
+import { FeatureFlags, getFeatureFlagName } from '@l.x/gating'
 import { USDT } from 'uniswap/src/constants/tokens'
 import { UniverseChainId } from 'uniswap/src/features/chains/types'
 import { WETH } from 'uniswap/src/test/fixtures/lib/sdk'

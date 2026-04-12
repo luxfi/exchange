@@ -1,5 +1,5 @@
 import { ChartPeriod, GetPortfolioChartResponse } from '@uniswap/client-data-api/dist/data/v1/api_pb'
-import { GraphQLApi } from '@universe/api'
+import { GraphQLApi } from '@l.x/api'
 import { UTCTimestamp } from 'lightweight-charts'
 import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'

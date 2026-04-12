@@ -1,4 +1,4 @@
-import { createNotificationTelemetry, type NotificationTelemetry } from '@universe/notifications'
+import { createNotificationTelemetry, type NotificationTelemetry } from '@l.x/notifications'
 import { InterfaceEventName } from 'uniswap/src/features/telemetry/constants'
 import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
 

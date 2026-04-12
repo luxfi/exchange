@@ -1,4 +1,4 @@
-import { getOverrideAdapter } from '@universe/gating'
+import { getOverrideAdapter } from '@l.x/gating'
 import { TestID } from 'uniswap/src/test/fixtures/testIDs'
 import { BetaPasscodeModal } from '~/pages/Beta/BetaPasscodeModal'
 import { act, fireEvent, render, screen } from '~/test-utils/render'
@@ -12,8 +12,8 @@ vi.mock('ui/src/assets', async (importOriginal) => {
 })
 
 const mockGetDynamicConfigValue = vi.fn().mockReturnValue([])
-vi.mock('@universe/gating', async (importOriginal) => {
-  const actual = await importOriginal<typeof import('@universe/gating')>()
+vi.mock('@l.x/gating', async (importOriginal) => {
+  const actual = await importOriginal<typeof import('@l.x/gating')>()
   return {
     ...actual,
     getDynamicConfigValue: (...args: unknown[]) => mockGetDynamicConfigValue(...args),

@@ -1,6 +1,6 @@
 import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
 import type { Currency } from '@uniswap/sdk-core'
-import { parseRestProtocolVersion } from '@universe/api'
+import { parseRestProtocolVersion } from '@l.x/api'
 import type { Dispatch, SetStateAction } from 'react'
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'

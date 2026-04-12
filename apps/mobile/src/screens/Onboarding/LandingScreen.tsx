@@ -1,6 +1,6 @@
 import { NativeStackScreenProps } from '@react-navigation/native-stack'
 import { ReactNavigationPerformanceView } from '@shopify/react-native-performance-navigation'
-import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import React, { useCallback, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useAnimatedStyle, useSharedValue, withDelay, withTiming } from 'react-native-reanimated'

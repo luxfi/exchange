@@ -1,5 +1,5 @@
 import { SharedEventName } from '@uniswap/analytics-events'
-import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import React, { useCallback, useEffect, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'

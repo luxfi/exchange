@@ -1,5 +1,5 @@
 import { UseQueryResult } from '@tanstack/react-query'
-import type { UnitagAddressResponse } from '@universe/api'
+import type { UnitagAddressResponse } from '@l.x/api'
 import configureMockStore from 'redux-mock-store'
 import { thunk } from 'redux-thunk'
 import FavoriteWalletCard, { FavoriteWalletCardProps } from 'src/components/explore/FavoriteWalletCard'

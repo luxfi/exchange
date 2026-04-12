@@ -1,6 +1,6 @@
 import '~/test-utils/tokens/mocks'
 import userEvent from '@testing-library/user-event'
-import { GraphQLApi } from '@universe/api'
+import { GraphQLApi } from '@l.x/api'
 import { useUniswapContext } from 'uniswap/src/contexts/UniswapContext'
 import { AccountsStore } from 'uniswap/src/features/accounts/store/types/AccountsState'
 import { UniverseChainId } from 'uniswap/src/features/chains/types'

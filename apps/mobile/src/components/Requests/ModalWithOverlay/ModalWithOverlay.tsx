@@ -1,5 +1,5 @@
 import { BottomSheetFooter, BottomSheetScrollView, useBottomSheetInternal } from '@gorhom/bottom-sheet'
-import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { PropsWithChildren, useCallback, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import {

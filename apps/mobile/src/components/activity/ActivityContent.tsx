@@ -1,7 +1,7 @@
 import type { LegendListRef } from '@legendapp/list'
 import { LegendList } from '@legendapp/list'
 import { useScrollToTop } from '@react-navigation/native'
-import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import type { ForwardedRef } from 'react'
 import { forwardRef, memo, useMemo, useRef, useState } from 'react'
 import type { FlatList } from 'react-native'

@@ -1,4 +1,4 @@
-import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { PropsWithChildren } from 'react'
 import { Text, TextProps } from 'ui/src'
 import { breakpoints } from 'ui/src/theme'

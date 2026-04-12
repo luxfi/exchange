@@ -1,5 +1,5 @@
 import { Currency, CurrencyAmount, TradeType } from '@uniswap/sdk-core'
-import { TradingApi } from '@universe/api'
+import { TradingApi } from '@l.x/api'
 import { TFunction } from 'i18next'
 import { atom } from 'jotai'
 import { useAtomValue, useUpdateAtom } from 'jotai/utils'

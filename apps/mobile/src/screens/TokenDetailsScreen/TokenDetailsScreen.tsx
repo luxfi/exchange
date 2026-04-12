@@ -1,6 +1,6 @@
 import { useApolloClient } from '@apollo/client'
 import { ReactNavigationPerformanceView } from '@shopify/react-native-performance-navigation'
-import { GQLQueries, GraphQLApi } from '@universe/api'
+import { GQLQueries, GraphQLApi } from '@l.x/api'
 import React, { memo, useEffect, useMemo } from 'react'
 import { FadeInDown, FadeOutDown } from 'react-native-reanimated'
 import type { AppStackScreenProp } from 'src/app/navigation/types'

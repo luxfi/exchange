@@ -1,8 +1,8 @@
 /* oxlint-disable typescript/no-unnecessary-condition */
 
 import { createColumnHelper } from '@tanstack/react-table'
-import { GraphQLApi } from '@universe/api'
-import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import { GraphQLApi } from '@l.x/api'
+import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { useMemo, useReducer, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Flex, styled, Text, useMedia, View } from 'ui/src'

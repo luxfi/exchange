@@ -1,4 +1,4 @@
-import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { useTranslation } from 'react-i18next'
 import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
 import { isLowSlippage } from 'uniswap/src/features/transactions/components/settings/settingsConfigurations/slippage/SlippageLPWarning'

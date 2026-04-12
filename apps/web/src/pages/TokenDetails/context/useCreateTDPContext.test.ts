@@ -1,4 +1,4 @@
-import { GraphQLApi } from '@universe/api'
+import { GraphQLApi } from '@l.x/api'
 import { useLocation, useParams } from 'react-router'
 import { USDC_MAINNET } from 'uniswap/src/constants/tokens'
 import { UniverseChainId } from 'uniswap/src/features/chains/types'
@@ -17,8 +17,8 @@ vi.mock('react-router', async (importOriginal) => {
   }
 })
 
-vi.mock('@universe/api', async (importOriginal) => {
-  const actual = await importOriginal<typeof import('@universe/api')>()
+vi.mock('@l.x/api', async (importOriginal) => {
+  const actual = await importOriginal<typeof import('@l.x/api')>()
   return {
     ...actual,
     GraphQLApi: {
@@ -28,7 +28,7 @@ vi.mock('@universe/api', async (importOriginal) => {
   }
 })
 
-vi.mock('@universe/gating', async (importOriginal) => {
+vi.mock('@l.x/gating', async (importOriginal) => {
   return {
     ...(await importOriginal()),
     useFeatureFlag: vi.fn(() => false),

@@ -1,5 +1,5 @@
 import { useInfiniteQuery, useQuery } from '@tanstack/react-query'
-import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { useMemo } from 'react'
 import { dataApiServiceClient, type ListTokensParams } from 'uniswap/src/data/apiClients/dataApiService/listTokens'
 import { useEnabledChains } from 'uniswap/src/features/chains/hooks/useEnabledChains'

@@ -1,5 +1,5 @@
 import { BigNumber } from '@ethersproject/bignumber'
-import { GraphQLApi, TradingApi } from '@universe/api'
+import { GraphQLApi, TradingApi } from '@l.x/api'
 import { getYear, isSameDay, isSameMonth, isSameWeek, isSameYear } from 'date-fns'
 import { parseUnits } from 'ethers/lib/utils'
 import { getNativeAddress } from 'uniswap/src/constants/addresses'

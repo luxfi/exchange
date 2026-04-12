@@ -5,8 +5,8 @@ import {
   TokenRankingsStat,
   TokenStats,
 } from '@uniswap/client-explore/dist/uniswap/explore/v1/service_pb'
-import { ALL_NETWORKS_ARG } from '@universe/api'
-import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import { ALL_NETWORKS_ARG } from '@l.x/api'
+import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import React, { memo, useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import {

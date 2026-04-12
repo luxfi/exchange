@@ -1,5 +1,5 @@
 import { useMutation } from '@tanstack/react-query'
-import { isNonPollingRequestInFlight } from '@universe/api'
+import { isNonPollingRequestInFlight } from '@l.x/api'
 import { LinearGradient } from 'expo-linear-gradient'
 import { ComponentProps, default as React, useCallback, useEffect, useMemo, useRef } from 'react'
 import { useTranslation } from 'react-i18next'

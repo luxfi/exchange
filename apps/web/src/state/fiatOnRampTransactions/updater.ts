@@ -1,4 +1,4 @@
-import { GraphQLApi } from '@universe/api'
+import { GraphQLApi } from '@l.x/api'
 import ms from 'ms'
 import { useEffect } from 'react'
 import { ForApiClient } from 'uniswap/src/data/apiClients/forApi/ForApiClient'

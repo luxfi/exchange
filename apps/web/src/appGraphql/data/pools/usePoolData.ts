@@ -1,5 +1,5 @@
 import { FeeAmount, TICK_SPACINGS } from '@uniswap/v3-sdk'
-import { GraphQLApi } from '@universe/api'
+import { GraphQLApi } from '@l.x/api'
 import ms from 'ms'
 import { useMemo } from 'react'
 import { V2_DEFAULT_FEE_TIER } from 'uniswap/src/constants/pools'

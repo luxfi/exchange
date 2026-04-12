@@ -1,4 +1,4 @@
-import { GraphQLApi } from '@universe/api'
+import { GraphQLApi } from '@l.x/api'
 import { UTCTimestamp } from 'lightweight-charts'
 import { ReactElement, ReactNode } from 'react'
 import { Flex, LinearGradient, styled, Text, useSporeColors } from 'ui/src'

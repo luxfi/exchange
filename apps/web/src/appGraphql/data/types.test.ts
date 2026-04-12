@@ -1,4 +1,4 @@
-import { GraphQLApi } from '@universe/api'
+import { GraphQLApi } from '@l.x/api'
 import { DAI, nativeOnChain, USDC_MAINNET } from 'uniswap/src/constants/tokens'
 import { UniverseChainId } from 'uniswap/src/features/chains/types'
 import { TokenList } from 'uniswap/src/features/dataApi/types'

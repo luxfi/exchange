@@ -1,4 +1,4 @@
-import { FeatureFlags, getFeatureFlag } from '@universe/gating'
+import { FeatureFlags, getFeatureFlag } from '@l.x/gating'
 import { navigate } from 'src/app/navigation/rootNavigation'
 import { closeAllModals } from 'src/features/modals/modalSlice'
 import { HomeScreenTabIndex } from 'src/screens/HomeScreen/HomeScreenTabIndex'

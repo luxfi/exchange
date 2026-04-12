@@ -1,4 +1,4 @@
-import { CustomRankingType, RankingType } from '@universe/api'
+import { CustomRankingType, RankingType } from '@l.x/api'
 import { AppTFunction } from 'ui/src/i18n/types'
 import { ExploreOrderBy, TokenMetadataDisplayType } from 'wallet/src/features/wallet/types'
 

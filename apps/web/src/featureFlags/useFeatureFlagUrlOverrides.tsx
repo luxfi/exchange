@@ -1,4 +1,4 @@
-import { getOverrideAdapter, useStatsigClientStatus } from '@universe/gating'
+import { getOverrideAdapter, useStatsigClientStatus } from '@l.x/gating'
 import { useEffect } from 'react'
 import { useUrlContext } from 'uniswap/src/contexts/UrlContext'
 import { isProdEnv } from 'utilities/src/environment/env'

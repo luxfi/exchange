@@ -1,7 +1,7 @@
 /* oxlint-disable max-lines */
 import { AnyAction } from '@reduxjs/toolkit'
 import { WalletKitTypes } from '@reown/walletkit'
-import { FeatureFlags, getFeatureFlag } from '@universe/gating'
+import { FeatureFlags, getFeatureFlag } from '@l.x/gating'
 import { PendingRequestTypes, ProposalTypes, SessionTypes, Verify } from '@walletconnect/types'
 import { buildApprovedNamespaces, getSdkError, populateAuthPayload } from '@walletconnect/utils'
 import { Alert } from 'react-native'

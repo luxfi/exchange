@@ -1,5 +1,5 @@
 import { useFocusEffect } from '@react-navigation/core'
-import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { navigate } from 'src/app/navigation/rootNavigation'
 import { WalletRestoreType } from 'src/components/RestoreWalletModal/RestoreWalletModalState'

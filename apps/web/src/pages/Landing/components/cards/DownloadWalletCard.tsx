@@ -1,5 +1,5 @@
 import { Alignment, Fit, Layout, useRive } from '@rive-app/react-canvas'
-import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { Trans, useTranslation } from 'react-i18next'
 import { Flex, useIsDarkMode, useSporeColors } from 'ui/src'
 import { Star } from 'ui/src/components/icons/Star'

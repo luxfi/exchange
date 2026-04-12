@@ -1,4 +1,4 @@
-import { GraphQLApi } from '@universe/api'
+import { GraphQLApi } from '@l.x/api'
 import { ElementName } from 'uniswap/src/features/telemetry/constants'
 import i18n from 'uniswap/src/i18n'
 

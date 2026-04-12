@@ -1,4 +1,4 @@
-import { FeatureFlags, getFeatureFlag } from '@universe/gating'
+import { FeatureFlags, getFeatureFlag } from '@l.x/gating'
 import { navigate } from 'src/app/navigation/rootNavigation'
 import { HomeScreenTabIndex } from 'src/screens/HomeScreen/HomeScreenTabIndex'
 import { dismissInAppBrowser } from 'src/utils/linking'

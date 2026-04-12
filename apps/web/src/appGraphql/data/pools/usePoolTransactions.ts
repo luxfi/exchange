@@ -1,4 +1,4 @@
-import { GraphQLApi } from '@universe/api'
+import { GraphQLApi } from '@l.x/api'
 import { useCallback, useMemo, useRef } from 'react'
 import { WRAPPED_NATIVE_CURRENCY } from 'uniswap/src/constants/tokens'
 import { useEnabledChains } from 'uniswap/src/features/chains/hooks/useEnabledChains'

@@ -1,6 +1,6 @@
 import userEvent from '@testing-library/user-event'
-import { GraphQLApi } from '@universe/api'
-import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import { GraphQLApi } from '@l.x/api'
+import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { USDC_MAINNET } from 'uniswap/src/constants/tokens'
 import { TestID } from 'uniswap/src/test/fixtures/testIDs'
 import { useCurrency } from '~/hooks/Tokens'
@@ -19,7 +19,7 @@ vi.mock('~/pages/TokenDetails/context/useTDPStore', () => ({
   useTDPStore: vi.fn(),
 }))
 
-vi.mock('@universe/gating', async (importOriginal) => {
+vi.mock('@l.x/gating', async (importOriginal) => {
   return {
     ...(await importOriginal()),
     useFeatureFlag: vi.fn(),

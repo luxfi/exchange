@@ -1,4 +1,4 @@
-import { FeatureFlags } from '@universe/gating'
+import { FeatureFlags } from '@l.x/gating'
 import { OnchainItemSectionName } from 'uniswap/src/components/lists/OnchainItemList/types'
 import { TestID } from 'uniswap/src/test/fixtures/testIDs'
 import { expect, getTest } from '~/playwright/fixtures'

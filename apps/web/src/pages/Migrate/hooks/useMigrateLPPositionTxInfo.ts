@@ -5,7 +5,7 @@ import type {
   MigrateV3ToV4LPPositionRequest,
 } from '@uniswap/client-liquidity/dist/uniswap/liquidity/v1/api_pb'
 import { type Currency, CurrencyAmount } from '@uniswap/sdk-core'
-import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { type Dispatch, type SetStateAction, useEffect, useMemo, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { liquidityQueries } from 'uniswap/src/data/apiClients/liquidityService/liquidityQueries'

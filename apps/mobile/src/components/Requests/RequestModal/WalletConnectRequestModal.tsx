@@ -1,5 +1,5 @@
 import { useNetInfo } from '@react-native-community/netinfo'
-import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { getSdkError } from '@walletconnect/utils'
 import { providers } from 'ethers'
 import React, { useMemo, useRef, useState } from 'react'

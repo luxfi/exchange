@@ -1,4 +1,4 @@
-import { GraphQLApi } from '@universe/api'
+import { GraphQLApi } from '@l.x/api'
 import React, { memo, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import Animated, { FadeIn, FadeOut } from 'react-native-reanimated'

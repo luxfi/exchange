@@ -1,4 +1,4 @@
-import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { parseToRgb } from 'polished'
 import { useTranslation } from 'react-i18next'
 import { Flex, styled, Text, useSporeColors } from 'ui/src'

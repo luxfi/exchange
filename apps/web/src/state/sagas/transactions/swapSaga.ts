@@ -1,4 +1,4 @@
-import { TradingApi } from '@universe/api'
+import { TradingApi } from '@l.x/api'
 import ms from 'ms'
 import { useCallback } from 'react'
 import { useDispatch, useSelector } from 'react-redux'

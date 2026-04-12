@@ -1,4 +1,4 @@
-import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { Flex, styled, Nav as TamaguiNav, useMedia } from 'ui/src'
 import { breakpoints, INTERFACE_NAV_HEIGHT, zIndexes } from 'ui/src/theme'
 import { useConnectionStatus } from 'uniswap/src/features/accounts/store/hooks'

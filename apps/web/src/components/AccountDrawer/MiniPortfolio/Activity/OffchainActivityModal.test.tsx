@@ -1,7 +1,7 @@
 import '~/test-utils/tokens/mocks'
 import 'utilities/src/logger/mocks'
 import { WETH9 } from '@uniswap/sdk-core'
-import { TradingApi } from '@universe/api'
+import { TradingApi } from '@l.x/api'
 import { DAI } from 'uniswap/src/constants/tokens'
 import { UniverseChainId } from 'uniswap/src/features/chains/types'
 import {

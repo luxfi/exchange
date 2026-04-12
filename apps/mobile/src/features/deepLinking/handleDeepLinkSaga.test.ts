@@ -41,8 +41,8 @@ jest.mock('expo-web-browser', () => ({
     FULL_SCREEN: 'fullScreen',
   },
 }))
-jest.mock('@universe/gating', () => ({
-  ...jest.requireActual('@universe/gating'),
+jest.mock('@l.x/gating', () => ({
+  ...jest.requireActual('@l.x/gating'),
   getStatsigClient: jest.fn(() => ({
     checkGate: jest.fn(() => false), // Always return false to avoid Korea gate redirects
   })),

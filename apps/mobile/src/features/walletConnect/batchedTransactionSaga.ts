@@ -1,5 +1,5 @@
-import { TradingApi } from '@universe/api'
-import { FeatureFlags, getFeatureFlag } from '@universe/gating'
+import { TradingApi } from '@l.x/api'
+import { FeatureFlags, getFeatureFlag } from '@l.x/gating'
 import { getInternalError, getSdkError } from '@walletconnect/utils'
 import { navigate } from 'src/app/navigation/rootNavigation'
 import { wcWeb3Wallet } from 'src/features/walletConnect/walletConnectClient'

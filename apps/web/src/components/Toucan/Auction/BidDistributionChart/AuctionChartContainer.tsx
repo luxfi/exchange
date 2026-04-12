@@ -1,4 +1,4 @@
-import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { lazy, Suspense, useEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Button, Flex, useIsDarkMode, useMedia } from 'ui/src'

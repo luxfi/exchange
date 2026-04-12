@@ -1,4 +1,4 @@
-import { GraphQLApi } from '@universe/api'
+import { GraphQLApi } from '@l.x/api'
 import React, { useMemo } from 'react'
 import { StyleSheet } from 'react-native'
 import { FlatList } from 'react-native-gesture-handler'

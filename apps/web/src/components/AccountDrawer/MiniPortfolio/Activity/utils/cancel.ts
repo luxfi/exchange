@@ -1,4 +1,4 @@
-import { TradingApi } from '@universe/api'
+import { TradingApi } from '@l.x/api'
 import { ContractTransaction } from 'ethers/lib/ethers'
 import { useCallback, useMemo } from 'react'
 import {

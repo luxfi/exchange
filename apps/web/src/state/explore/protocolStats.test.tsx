@@ -1,12 +1,12 @@
 import { ProtocolStatsResponse } from '@uniswap/client-explore/dist/uniswap/explore/v1/service_pb'
-import { useFeatureFlagWithLoading } from '@universe/gating'
+import { useFeatureFlagWithLoading } from '@l.x/gating'
 import type { Mock } from 'vitest'
 import { vi } from 'vitest'
 import { ExploreContextProvider } from '~/state/explore'
 import { use24hProtocolVolume, useDailyTVLWithChange } from '~/state/explore/protocolStats'
 import { render, screen } from '~/test-utils/render'
 
-vi.mock('@universe/gating', async (importOriginal) => {
+vi.mock('@l.x/gating', async (importOriginal) => {
   return {
     ...(await importOriginal()),
     useFeatureFlagWithLoading: vi.fn(() => ({ value: true, isLoading: false })), // Ensure mock returns value immediately

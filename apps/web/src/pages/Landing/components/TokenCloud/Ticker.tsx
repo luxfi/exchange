@@ -1,4 +1,4 @@
-import { GraphQLApi } from '@universe/api'
+import { GraphQLApi } from '@l.x/api'
 import { useMemo } from 'react'
 import { Flex, Text } from 'ui/src'
 import { ItemPoint } from 'uniswap/src/components/IconCloud/IconCloud'

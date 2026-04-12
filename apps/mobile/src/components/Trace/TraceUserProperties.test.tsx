@@ -28,11 +28,11 @@ jest.mock('@tanstack/react-query', () => ({
   ...jest.requireActual('@tanstack/react-query'),
   useQuery: jest.fn().mockReturnValue({ data: undefined }),
 }))
-jest.mock('@universe/api', () => ({
-  ...jest.requireActual('@universe/api'),
+jest.mock('@l.x/api', () => ({
+  ...jest.requireActual('@l.x/api'),
   provideUniswapIdentifierService: {},
 }))
-jest.mock('@universe/sessions', () => ({
+jest.mock('@l.x/sessions', () => ({
   uniswapIdentifierQuery: jest.fn().mockReturnValue({}),
 }))
 jest.mock('react-native/Libraries/Utilities/useColorScheme')
