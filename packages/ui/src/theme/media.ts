@@ -1,4 +1,4 @@
-import { createMedia } from '@tamagui/react-native-media-driver'
+import { createMedia } from '@hanzogui/react-native-media-driver'
 import { breakpoints, heightBreakpoints } from 'ui/src/theme'
 
 export const media = createMedia({

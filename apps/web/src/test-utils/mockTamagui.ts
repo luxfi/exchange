@@ -2,7 +2,7 @@ import React from 'react'
 import { vi } from 'vitest'
 
 // Mock problematic Tamagui hooks
-vi.mock('@tamagui/use-event', () => ({
+vi.mock('@hanzogui/use-event', () => ({
   useEvent: (callback: unknown) => {
     // Return a stable callback that won't throw during render
     const callbackRef = React.useRef(callback)
@@ -22,8 +22,8 @@ vi.mock('@tamagui/use-event', () => ({
     React.useLayoutEffect(() => {
       curRef.current = currentValue
     })
-// Mock @tamagui/use-element-layout used by HeightAnimator
-vi.mock('@tamagui/use-element-layout', () => ({
+// Mock @hanzogui/use-element-layout used by HeightAnimator
+vi.mock('@hanzogui/use-element-layout', () => ({
   useElementLayout: () => ({
     ref: React.useRef(null),
     onLayout: vi.fn(),
@@ -161,7 +161,7 @@ const mockDialogComponents = () => {
   }
 }
 
-vi.mock('@tamagui/dialog', () => mockDialogComponents())
+vi.mock('@hanzogui/dialog', () => mockDialogComponents())
 
 // Also mock Dialog , which is imported as part of 'tamagui'
 vi.mock('tamagui', async () => {

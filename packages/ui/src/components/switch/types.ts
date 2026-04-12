@@ -1,4 +1,4 @@
-import { SwitchProps as TamaguiSwitchProps } from 'tamagui'
+import { SwitchProps as TamaguiSwitchProps } from '@hanzo/gui'
 import { SporeComponentVariant } from 'ui/src/components/types'
 
 export type SwitchProps = TamaguiSwitchProps & {

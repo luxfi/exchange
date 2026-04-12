@@ -1,5 +1,5 @@
 import { PropsWithChildren } from 'react'
-import { GetProps, styled, Text as TamaguiText } from 'tamagui'
+import { GetProps, styled, Text as TamaguiText } from '@hanzo/gui'
 import { Flex } from 'ui/src/components/layout'
 import { HiddenFromScreenReaders } from 'ui/src/components/text/HiddenFromScreenReaders'
 import { useEnableFontScaling } from 'ui/src/components/text/useEnableFontScaling'

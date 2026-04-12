@@ -1,4 +1,4 @@
-import { getConfig } from 'tamagui'
+import { getConfig } from '@hanzo/gui'
 import { lineHeightFallbacks } from 'ui/src/components/buttons/Button/constants'
 
 export const getLineHeightForButtonFontTokenKey = (size: '$micro' | '$small' | '$medium' | '$large'): number => {

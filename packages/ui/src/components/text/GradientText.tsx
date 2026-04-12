@@ -1,5 +1,5 @@
 import { PropsWithChildren } from 'react'
-import { GetProps } from 'tamagui'
+import { GetProps } from '@hanzo/gui'
 import { LinearGradientProps } from 'tamagui/linear-gradient'
 import { Text } from 'ui/src/components/text'
 

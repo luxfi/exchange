@@ -1,6 +1,6 @@
 // until the web app needs all of tamagui, avoid heavy imports there
 // oxlint-disable-next-line no-restricted-imports -- until the web app needs all of tamagui, avoid heavy imports there
-import { createFont, isAndroid } from '@tamagui/core'
+import { createFont, isAndroid } from '@hanzogui/core'
 import { needsSmallFont } from 'ui/src/utils/needs-small-font'
 import { isWebApp, isWebPlatform } from 'utilities/src/platform'
 

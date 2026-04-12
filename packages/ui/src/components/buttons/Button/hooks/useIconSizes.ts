@@ -1,5 +1,5 @@
 import { useMemo } from 'react'
-import { getTokenValue } from 'tamagui'
+import { getTokenValue } from '@hanzo/gui'
 import { TypeOfButton } from 'ui/src/components/buttons/Button/components/types'
 import { lineHeights } from 'ui/src/components/buttons/Button/constants'
 import { ButtonProps } from 'ui/src/components/buttons/Button/types'

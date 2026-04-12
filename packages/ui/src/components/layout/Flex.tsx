@@ -1,5 +1,5 @@
 import type { Insets } from 'react-native'
-import { GetProps, SizeTokens, styled, View } from 'tamagui'
+import { GetProps, SizeTokens, styled, View } from '@hanzo/gui'
 import { animationsEnter, animationsEnterExit, animationsExit } from 'ui/src/animations/presets'
 
 export const flexStyles = {

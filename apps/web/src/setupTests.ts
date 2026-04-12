@@ -147,7 +147,7 @@ const IntersectionObserverMock = vi.fn(() => ({
 
 vi.stubGlobal('IntersectionObserver', IntersectionObserverMock)
 
-vi.mock('react-native-svg', () => require('@tamagui/react-native-svg'))
+vi.mock('react-native-svg', () => require('@hanzogui/react-native-svg'))
 
 vi.mock('expo-blur', () => ({
   BlurView: ({ children }: any) => {
@@ -177,7 +177,7 @@ vi.mock('@uniswap/analytics-events', () => {
   }
 })
 
-vi.mock('@tamagui/animations-moti', () => ({
+vi.mock('@hanzogui/animations-moti', () => ({
   createAnimations: () => ({
     '100ms': {
       type: 'timing',
