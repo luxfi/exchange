@@ -35,7 +35,7 @@
     "react-native-svg": "15.13.0",
     "react-native-webview": "13.13.5",
     "react-remove-scroll": "2.7.2",
-    "@hanzo/gui": "4.3.1",
+    "@hanzo/gui": "4.3.2",
     "@l.x/utils": "workspace:^",
     "uuid": "9.0.0",
     "wcag-contrast": "3.0.0"
