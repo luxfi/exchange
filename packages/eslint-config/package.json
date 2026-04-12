@@ -1,5 +1,5 @@
 {
-  "name": "@uniswap/eslint-config",
+  "name": "@luxfi/eslint-config",
   "version": "0.0.1",
   "description": "Uniswap ESLint config",
   "repository": "https://github.com/Uniswap/eslint-config",

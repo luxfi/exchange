@@ -10,7 +10,6 @@
     "lint:fix": "nx lint:fix api",
     "typecheck": "nx typecheck api",
     "typecheck:tsgo": "nx typecheck:tsgo api",
-    "prepare": "nx prepare api",
     "test": "nx test api",
     "graphql:generate": "nx graphql:generate api",
     "graphql:schema": "nx graphql:schema api",

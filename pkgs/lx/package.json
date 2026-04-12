@@ -2,7 +2,6 @@
   "name": "@l.x/lx",
   "version": "1.0.8",
   "scripts": {
-    "prepare": "nx prepare @l.x/lx",
     "build": "nx build @l.x/lx",
     "contracts:compile:abi": "nx contracts:compile:abi @l.x/lx",
     "contracts:compile:v3": "nx contracts:compile:v3 @l.x/lx",

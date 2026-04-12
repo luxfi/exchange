@@ -1,5 +1,5 @@
 {
-  "name": "@uniswap/mobile",
+  "name": "@luxfi/mobile",
   "version": "0.0.1",
   "private": true,
   "license": "GPL-3.0-or-later",
@@ -44,7 +44,6 @@
     "ios:beta": "nx ios:beta mobile",
     "ios:bundle": "nx ios:bundle mobile",
     "ios:release": "nx ios:release mobile",
->>>>>>> upstream/main
     "lint:eslint": "nx lint:eslint mobile",
     "lint:eslint:fix": "nx lint:eslint:fix mobile",
     "lint": "nx lint mobile",
@@ -116,11 +115,11 @@
     "@uniswap/client-notification-service": "0.0.11",
     "@uniswap/ethers-rs-mobile": "0.0.5",
     "@uniswap/sdk-core": "7.12.1",
-    "@universe/api": "workspace:^",
-    "@universe/gating": "workspace:^",
-    "@universe/hashcash-native": "workspace:^",
-    "@universe/notifications": "workspace:^",
-    "@universe/sessions": "workspace:^",
+    "@l.x/api": "workspace:^",
+    "@l.x/gating": "workspace:^",
+    "@l.x/hashcash-native": "workspace:^",
+    "@l.x/notifications": "workspace:^",
+    "@l.x/sessions": "workspace:^",
     "@walletconnect/core": "2.23.0",
     "@walletconnect/react-native-compat": "2.23.0",
     "@walletconnect/types": "2.23.0",
@@ -150,16 +149,6 @@
     "expo-web-browser": "14.2.0",
     "fuse.js": "6.5.3",
     "i18next": "23.10.0",
-<<<<<<< HEAD
-    "lodash": "4.17.21",
-    "react": "19.0.3",
-    "react-freeze": "1.0.3",
-    "react-i18next": "14.1.0",
-    "react-native": "catalog:",
-    "react-native-appsflyer": "6.13.1",
-    "react-native-bootsplash": "6.3.10",
-    "react-native-context-menu-view": "1.21.0",
-=======
     "lodash": "4.17.23",
     "react": "19.0.3",
     "react-freeze": "1.0.3",
@@ -205,10 +194,10 @@
     "sp-react-native-in-app-updates": "1.5.0",
     "ts-node": "10.9.2",
     "typed-redux-saga": "1.5.0",
-    "uniswap": "workspace:^",
-    "utilities": "workspace:^",
+    "@l.x/lx": "workspace:^",
+    "@l.x/utils": "workspace:^",
     "uuid": "9.0.0",
-    "wallet": "workspace:^",
+    "@luxfi/wallet": "workspace:^",
     "zod": "4.3.6",
     "zustand": "5.0.6"
   },
@@ -227,7 +216,7 @@
     "@storybook/addon-ondevice-controls": "8.5.2",
     "@storybook/react": "8.5.2",
     "@storybook/react-native": "8.5.2",
-    "@hanzogui/babel-plugin": "3.0.6",
+    "@hanzogui/babel-plugin": "3.0.2",
     "@testing-library/react-native": "13.3.3",
     "@types/inquirer": "9.0.8",
     "@types/jest": "29.5.14",
@@ -235,7 +224,6 @@
     "@types/react": "19.0.10",
     "@types/redux-mock-store": "1.0.6",
     "@typescript/native-preview": "7.0.0-dev.20260311.1",
-    "@uniswap/eslint-config": "workspace:^",
     "@welldone-software/why-did-you-render": "10.0.1",
     "babel-loader": "8.2.3",
     "babel-plugin-module-resolver": "5.0.0",
@@ -262,6 +250,7 @@
     "reactotron-react-native-mmkv": "0.2.8",
     "reactotron-redux": "3.2.0",
     "redux-saga-test-plan": "4.0.4",
-    "typescript": "5.8.3"
+    "typescript": "5.8.3",
+    "@luxfi/eslint-config": "workspace:^"
   }
 }
