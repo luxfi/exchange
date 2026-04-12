@@ -121,7 +121,7 @@
     "terser-webpack-plugin": "5.3.9",
     "tsafe": "1.6.4",
     "typescript": "5.8.3",
-    "vite": "7.3.1",
+    "vite": "8.0.8",
     "vite-plugin-bundlesize": "0.2.0",
     "vite-plugin-commonjs": "0.10.4",
     "vite-plugin-node-polyfills": "0.24.0",
