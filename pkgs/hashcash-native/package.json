@@ -59,13 +59,13 @@
     "@luxfi/eslint-config": "workspace:^",
     "eslint": "8.57.1",
     "nitrogen": "0.31.10",
-    "react": "19.0.3",
+    "react": "19.2.5",
     "react-native": "npm:@hanzogui/react-native@0.79.5-fork.1",
     "react-native-nitro-modules": "0.31.10",
-    "typescript": "5.8.3"
+    "typescript": "5.9.3"
   },
   "peerDependencies": {
-    "react": ">=19.0.0",
+    "react": "19.2.5",
     "react-native": ">=0.79.0",
     "react-native-nitro-modules": ">=0.31.0"
   },

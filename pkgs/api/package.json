@@ -39,7 +39,7 @@
     "@luxamm/client-unirpc-v2": "0.0.105",
     "expo-secure-store": "14.0.1",
     "graphql": "16.6.0",
-    "react": "19.0.3"
+    "react": "19.2.5"
   },
   "devDependencies": {
     "@graphql-codegen/cli": "3.3.1",
@@ -58,7 +58,7 @@
     "eslint": "8.57.1",
     "openapi-typescript-codegen": "0.27.0",
     "ts-morph": "23.0.0",
-    "typescript": "5.8.3",
+    "typescript": "5.9.3",
     "viem": "2.30.5",
     "vitest": "3.2.1",
     "zod": "npm:@hanzogui/zod@4.3.6-fork.1"

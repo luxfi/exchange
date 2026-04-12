@@ -16,7 +16,7 @@
     "@typescript/native-preview": "7.0.0-dev.20260311.1",
     "depcheck": "1.4.7",
     "eslint": "10.0.2",
-    "typescript": "5.8.3",
+    "typescript": "5.9.3",
     "vitest": "3.2.1",
     "@luxfi/eslint-config": "workspace:^"
   },

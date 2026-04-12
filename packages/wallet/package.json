@@ -52,7 +52,7 @@
     "lodash": "4.17.23",
     "mockdate": "3.0.5",
     "no-yolo-signatures": "0.0.2",
-    "react": "19.0.3",
+    "react": "19.2.5",
     "react-i18next": "14.1.0",
     "react-native": "0.79.5",
     "react-native-context-menu-view": "1.15.0",
@@ -90,7 +90,7 @@
     "jest-extended": "4.0.2",
     "jest-presets": "workspace:^",
     "react-test-renderer": "19.0.3",
-    "typescript": "5.8.3",
+    "typescript": "5.9.3",
     "@luxfi/eslint-config": "workspace:^"
   },
   "main": "src/index.ts",

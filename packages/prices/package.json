@@ -9,7 +9,7 @@
     "@l.x/utils": "workspace:^"
   },
   "peerDependencies": {
-    "react": "19.0.3"
+    "react": "19.2.5"
   },
   "devDependencies": {
     "@testing-library/react": "16.3.0",
@@ -18,8 +18,8 @@
     "@vitest/coverage-v8": "3.2.1",
     "depcheck": "1.4.7",
     "eslint": "10.0.2",
-    "react": "19.0.3",
-    "typescript": "5.8.3",
+    "react": "19.2.5",
+    "typescript": "5.9.3",
     "vitest": "3.2.1",
     "@luxfi/eslint-config": "workspace:^"
   },

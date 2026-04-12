@@ -16,8 +16,8 @@
     "@hanzo/docs-ui": "^16.7.5",
     "lucide-react": "^0.468.0",
     "next": "16.0.1",
-    "react": "19.2.0",
-    "react-dom": "19.2.0",
+    "react": "19.2.5",
+    "react-dom": "19.2.5",
     "tailwindcss": "^4.1.16",
     "zod": "^3.24.1"
   },
@@ -30,7 +30,7 @@
     "postcss": "^8.4.49",
     "rehype-pretty-code": "^0.14.1",
     "shiki": "^1.27.2",
-    "typescript": "^5.7.2"
+    "typescript": "5.9.3"
   },
-  "packageManager": "pnpm@10.12.4"
+  "packageManager": "pnpm@10.11.0"
 }
