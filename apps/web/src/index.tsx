@@ -183,7 +183,9 @@ function Updaters() {
 }
 
 // Production Web3Provider – always reconnects on mount and runs capability effects.
-const Web3Provider = createWeb3Provider({ wagmiConfig })
+// Initialized with the default wagmi config; reassigned per-brand at boot
+// (see brand init below where `Web3Provider = createWeb3Provider({ wagmiConfig: brandWagmiConfig })`).
+let Web3Provider = createWeb3Provider({ wagmiConfig })
 
 function GraphqlProviders({ children }: { children: React.ReactNode }) {
   return (
