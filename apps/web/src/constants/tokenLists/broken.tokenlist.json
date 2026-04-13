@@ -8,11 +8,7 @@
   },
   "tags": {},
   "logoURI": "ipfs://QmNa8mQkrNKp1WEEeGjFezDmDeodkWRevGFN8JCV7b4Xir",
-<<<<<<< HEAD
-  "keywords": ["lux", "broken"],
-=======
   "keywords": ["uniswap", "broken"],
->>>>>>> upstream/main
   "tokens": [
     {
       "name": "UNI HODL",

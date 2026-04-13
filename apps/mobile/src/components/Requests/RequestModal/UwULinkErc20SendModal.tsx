@@ -1,28 +1,5 @@
-<<<<<<< HEAD
-import { type GasFeeResult } from '@l.x/api'
-import { formatUnits } from 'ethers/lib/utils'
-import { useTranslation } from 'react-i18next'
-import Animated, { useAnimatedStyle, useSharedValue } from 'react-native-reanimated'
-import { ModalWithOverlay } from 'src/components/Requests/ModalWithOverlay/ModalWithOverlay'
-import { type UwuLinkErc20Request } from 'src/features/walletConnect/walletConnectSlice'
-import { Flex, SpinningLoader, Text, UniversalImage, useIsDarkMode } from '@l.x/ui/src'
-import { UniversalImageResizeMode } from '@l.x/ui/src/components/UniversalImage/types'
-import { iconSizes, spacing } from '@l.x/ui/src/theme'
-import { TokenLogo } from '@l.x/lx/src/components/CurrencyLogo/TokenLogo'
-import { NetworkFee } from '@l.x/lx/src/components/gas/NetworkFee'
-import { nativeOnChain } from '@l.x/lx/src/constants/tokens'
-import { getChainLabel } from '@l.x/lx/src/features/chains/utils'
-import { type CurrencyInfo } from '@l.x/lx/src/features/dataApi/types'
-import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
-import { useOnChainCurrencyBalance } from '@l.x/lx/src/features/portfolio/api'
-import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
-import { useCurrencyInfo } from '@l.x/lx/src/features/tokens/useCurrencyInfo'
-import { buildCurrencyId } from '@l.x/lx/src/utils/currencyId'
-import { NumberType } from '@l.x/utils/src/format/types'
-import { useActiveAccountAddressWithThrow } from '@luxfi/wallet/src/features/wallet/hooks'
-=======
 import { useBottomSheetInternal } from '@gorhom/bottom-sheet'
-import { type GasFeeResult } from '@universe/api'
+import { type GasFeeResult } from '@l.x/api'
 import { formatUnits } from 'ethers/lib/utils'
 import { useTranslation } from 'react-i18next'
 import Animated, { useAnimatedStyle } from 'react-native-reanimated'
@@ -43,7 +20,6 @@ import { useCurrencyInfo } from 'uniswap/src/features/tokens/useCurrencyInfo'
 import { buildCurrencyId } from 'uniswap/src/utils/currencyId'
 import { NumberType } from 'utilities/src/format/types'
 import { useActiveAccountAddressWithThrow } from 'wallet/src/features/wallet/hooks'
->>>>>>> upstream/main
 
 type Props = {
   onClose: () => void
@@ -116,13 +92,7 @@ function UwULinkErc20SendModalContent({
 }): JSX.Element {
   const { t } = useTranslation()
   const isDarkMode = useIsDarkMode()
-<<<<<<< HEAD
-  // In @gorhom/bottom-sheet v5, animatedFooterHeight was removed from useBottomSheetInternal().
-  // Default to 0; the footer manages its own height via BottomSheetFooter.
-  const animatedFooterHeight = useSharedValue(0)
-=======
   const { animatedFooterHeight } = useBottomSheetInternal()
->>>>>>> upstream/main
   const bottomSpacerStyle = useAnimatedStyle(() => ({
     height: animatedFooterHeight.value,
   }))

@@ -1,14 +1,3 @@
-<<<<<<< HEAD
-import { ProtocolVersion } from '@luxamm/client-data-api/dist/data/v1/poolTypes_pb'
-import { Currency, CurrencyAmount, Price } from '@luxamm/sdk-core'
-import { Pair } from '@luxamm/v2-sdk'
-import { FeeAmount, nearestUsableTick, TICK_SPACINGS, TickMath, Pool as V3Pool } from '@luxamm/v3-sdk'
-import { Pool as V4Pool } from '@luxamm/v4-sdk'
-import JSBI from 'jsbi'
-import { ZERO_ADDRESS } from '@l.x/lx/src/constants/misc'
-import { nativeOnChain, USDT } from '@l.x/lx/src/constants/tokens'
-import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
-=======
 import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
 import { Currency, CurrencyAmount, Price } from '@uniswap/sdk-core'
 import { Pair } from '@uniswap/v2-sdk'
@@ -18,7 +7,6 @@ import JSBI from 'jsbi'
 import { ZERO_ADDRESS } from 'uniswap/src/constants/misc'
 import { nativeOnChain, USDT } from 'uniswap/src/constants/tokens'
 import { UniverseChainId } from 'uniswap/src/features/chains/types'
->>>>>>> upstream/main
 import {
   CreateV2PositionInfo,
   CreateV3PositionInfo,
@@ -43,11 +31,7 @@ const tickSpaceLimits = [
   nearestUsableTick(TickMath.MAX_TICK, TICK_SPACINGS[FeeAmount.MEDIUM]),
 ]
 
-<<<<<<< HEAD
-// eslint-disable-next-line max-params
-=======
 // oxlint-disable-next-line max-params
->>>>>>> upstream/main
 function getInitialPrice(base: Currency, quote: Currency, input: string) {
   const parsedQuoteAmount = tryParseCurrencyAmount(input, quote)
   const baseAmount = tryParseCurrencyAmount('1', base)
@@ -859,8 +843,6 @@ describe('getV4PriceRangeInfo', () => {
       })
     })
   })
-<<<<<<< HEAD
-=======
 
   describe('migration with initialPosition tick alignment', () => {
     // Simulates migrating a V3 full-range position (0.3% fee, tick spacing 60, ticks -887220/887220)
@@ -967,7 +949,6 @@ describe('getV4PriceRangeInfo', () => {
       expect(result?.ticks).toEqual([-887200, -800000])
     })
   })
->>>>>>> upstream/main
 })
 
 describe('getFieldsDisabled', () => {

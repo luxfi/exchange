@@ -1,15 +1,8 @@
 import { createPromiseClient } from '@connectrpc/connect'
-<<<<<<< HEAD
-import { DataApiService } from '@luxamm/client-data-api/dist/data/v1/api_connect'
+import { DataApiService } from '@uniswap/client-data-api/dist/data/v1/api_connect'
 import { getEntryGatewayUrl, getTransport } from '@l.x/api'
 import type { RestPriceClient, TokenIdentifier, TokenPriceData } from '@l.x/prices'
 import { createPriceKey } from '@l.x/prices'
-=======
-import { DataApiService } from '@uniswap/client-data-api/dist/data/v1/api_connect'
-import { getEntryGatewayUrl, getTransport } from '@universe/api'
-import type { RestPriceClient, TokenIdentifier, TokenPriceData } from '@universe/prices'
-import { createPriceKey } from '@universe/prices'
->>>>>>> upstream/main
 
 // Route through the Entry Gateway (not the Cloudflare gateway) because
 // GetTokenPrices is only registered on EGW, not on the CF gateway.

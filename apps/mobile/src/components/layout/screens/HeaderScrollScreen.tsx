@@ -7,15 +7,9 @@ import { Screen } from 'src/components/layout/Screen'
 import { HorizontalEdgeGestureTarget } from 'src/components/layout/screens/EdgeGestureTarget'
 import { ScrollHeader } from 'src/components/layout/screens/ScrollHeader'
 import { VirtualizedList } from 'src/components/layout/VirtualizedList'
-<<<<<<< HEAD
-import { ColorTokens, Flex, flexStyles, useSporeColors } from '@l.x/ui/src'
-import { iconSizes } from '@l.x/ui/src/theme'
-import { HandleBar } from '@l.x/lx/src/components/modals/HandleBar'
-=======
 import { ColorTokens, Flex, flexStyles, useSporeColors } from 'ui/src'
 import { iconSizes } from 'ui/src/theme'
 import { HandleBar } from 'uniswap/src/components/modals/HandleBar'
->>>>>>> upstream/main
 
 // Distance to scroll to show scrolled state header elements
 const SHOW_HEADER_SCROLL_Y_DISTANCE = 50
@@ -43,11 +37,7 @@ export function HeaderScrollScreen({
   const colors = useSporeColors()
 
   // difficult to properly type
-<<<<<<< HEAD
-  // biome-ignore lint/suspicious/noExplicitAny: FlatList generic type is complex and varies by data
-=======
   // oxlint-disable-next-line typescript/no-explicit-any -- FlatList generic type is complex and varies by data
->>>>>>> upstream/main
   const listRef = useRef<FlatList<any>>(null)
 
   // scrolls to top when tapping on the active tab

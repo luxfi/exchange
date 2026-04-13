@@ -1,19 +1,6 @@
 import { NetworkStatus } from '@apollo/client'
-<<<<<<< HEAD
-import { SharedEventName } from '@luxamm/analytics-events'
-import { useCallback, useState } from 'react'
-import { useTranslation } from 'react-i18next'
-import { ScrollSync } from 'react-scroll-sync'
-import { Flex } from '@l.x/ui/src'
-import { ElementName, SectionName } from '@l.x/lx/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
-import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
-import { useTrace } from '@l.x/utils/src/telemetry/trace/TraceContext'
-import { PortfolioExpandoRow } from '~/pages/Portfolio/components/PortfolioExpandoRow'
-import { TokenData } from '~/pages/Portfolio/Tokens/hooks/useTransformTokenTableData'
-=======
 import { SharedEventName } from '@uniswap/analytics-events'
-import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { useCallback, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { ScrollSync } from 'react-scroll-sync'
@@ -25,7 +12,6 @@ import { useTrace } from 'utilities/src/telemetry/trace/TraceContext'
 import { PortfolioExpandoRow } from '~/pages/Portfolio/components/PortfolioExpandoRow'
 import { TokenData } from '~/pages/Portfolio/Tokens/hooks/useTransformTokenTableData'
 import { TokenColumns } from '~/pages/Portfolio/Tokens/Table/columns/useTokenColumns'
->>>>>>> upstream/main
 import { TokensTableInner } from '~/pages/Portfolio/Tokens/Table/TokensTableInner'
 
 const TOKENS_TABLE_MAX_HEIGHT = 700
@@ -44,44 +30,7 @@ export function TokensTable({ visible, hidden, loading, refetching, error }: Tok
   const [isOpen, setIsOpen] = useState(false)
   const tableLoading = loading && !refetching
   const trace = useTrace()
-<<<<<<< HEAD
-=======
-  const isProfitLossEnabled = useFeatureFlag(FeatureFlags.ProfitLoss)
-
-  const hiddenColumns = useMemo(() => {
-    if (isProfitLossEnabled) {
-      return undefined
-    }
-    return [TokenColumns.AvgCost, TokenColumns.UnrealizedPnl]
-  }, [isProfitLossEnabled])
->>>>>>> upstream/main
-
-  const handleToggleHiddenTokens = useCallback(() => {
-    const newIsOpen = !isOpen
-    setIsOpen(newIsOpen)
-    sendAnalyticsEvent(SharedEventName.ELEMENT_CLICKED, {
-      element: ElementName.PortfolioHiddenTokensExpandoRow,
-      section: SectionName.PortfolioTokensTab,
-      ...trace,
-    })
-  }, [isOpen, trace])
-
-  return (
-    // Scroll Sync Architecture:
-    // - Outer ScrollSync coordinates horizontal scrolling between visible and hidden tables
-    // - Each TokensTableInner uses externalScrollSync=true to skip its own ScrollSync wrapper
-    // - Both tables use ScrollSyncPane with scrollGroup="portfolio-tokens" for coordination
-    // - DO NOT remove this outer ScrollSync wrapper without updating the Table components
-    <ScrollSync horizontal vertical={false}>
-      <Flex gap="$spacing16">
-        <TokensTableInner
-          tokenData={visible}
-          loading={tableLoading}
-          error={error}
-<<<<<<< HEAD
-=======
           hiddenColumns={hiddenColumns}
->>>>>>> upstream/main
           maxHeight={TOKENS_TABLE_MAX_HEIGHT}
         />
         {hidden.length > 0 && (
@@ -99,10 +48,7 @@ export function TokensTable({ visible, hidden, loading, refetching, error }: Tok
                 hideHeader
                 loading={tableLoading}
                 error={error}
-<<<<<<< HEAD
-=======
                 hiddenColumns={hiddenColumns}
->>>>>>> upstream/main
                 maxHeight={TOKENS_TABLE_MAX_HEIGHT}
               />
             )}

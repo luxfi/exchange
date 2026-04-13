@@ -1,16 +1,3 @@
-<<<<<<< HEAD
-import { Currency } from '@luxamm/sdk-core'
-import { useMemo } from 'react'
-import { useTranslation } from 'react-i18next'
-import { ChartBarCrossed } from '@l.x/ui/src/components/icons/ChartBarCrossed'
-import { Ellipsis } from '@l.x/ui/src/components/icons/Ellipsis'
-import { Flag } from '@l.x/ui/src/components/icons/Flag'
-import { GlobeFilled } from '@l.x/ui/src/components/icons/GlobeFilled'
-import { XTwitter } from '@l.x/ui/src/components/icons/XTwitter'
-import { getBlockExplorerIcon } from '@l.x/lx/src/components/chains/BlockExplorerIcon'
-import { getChainInfo } from '@l.x/lx/src/features/chains/chainInfo'
-import { ExplorerDataType, getExplorerLink } from '@l.x/lx/src/utils/linking'
-=======
 import { Currency } from '@uniswap/sdk-core'
 import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
@@ -22,7 +9,6 @@ import { XTwitter } from 'ui/src/components/icons/XTwitter'
 import { getBlockExplorerIcon } from 'uniswap/src/components/chains/BlockExplorerIcon'
 import { getChainInfo } from 'uniswap/src/features/chains/chainInfo'
 import { ExplorerDataType, getExplorerLink } from 'uniswap/src/utils/linking'
->>>>>>> upstream/main
 import { deriveFromSections } from '~/components/Explore/stickyHeader/HeaderActions/deriveHeaderActions'
 import {
   type HeaderAction,

@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import type { CurrencyInfo } from '@l.x/lx/src/features/dataApi/types'
-=======
 import type { CurrencyInfo } from 'uniswap/src/features/dataApi/types'
->>>>>>> upstream/main
 import { Q96 } from '~/components/Toucan/Auction/BidDistributionChart/utils/q96'
 import {
   computeCompletedAuctionMarketFdvUsd,

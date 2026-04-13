@@ -1,9 +1,5 @@
 import { createContext, PropsWithChildren, useContext, useState } from 'react'
-<<<<<<< HEAD
-import { LimitsExpiry } from '@l.x/lx/src/types/limits'
-=======
 import { LimitsExpiry } from 'uniswap/src/types/limits'
->>>>>>> upstream/main
 import { useDerivedLimitInfo } from '~/state/limit/hooks'
 import { LimitContextType, LimitState } from '~/state/limit/types'
 

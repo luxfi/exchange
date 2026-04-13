@@ -1,4 +1,4 @@
-import { TamaguiProvider as OGTamaguiProvider, TamaguiProviderProps } from 'tamagui'
+import { TamaguiProvider as OGTamaguiProvider, TamaguiProviderProps } from '@hanzo/gui'
 import { config } from 'ui/src/tamagui.config'
 
 /**

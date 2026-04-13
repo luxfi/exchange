@@ -3,15 +3,9 @@ import { useDispatch } from 'react-redux'
 import { navigate } from 'src/app/navigation/rootNavigation'
 import { useBiometricAppSettings } from 'src/features/biometrics/useBiometricAppSettings'
 import { useBiometricPrompt } from 'src/features/biometricsSettings/hooks'
-<<<<<<< HEAD
-import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
-import { useActiveAccount } from '@luxfi/wallet/src/features/wallet/hooks'
-import { setSmartWalletConsent } from '@luxfi/wallet/src/features/wallet/slice'
-=======
 import { ModalName } from 'uniswap/src/features/telemetry/constants'
 import { useActiveAccount } from 'wallet/src/features/wallet/hooks'
 import { setSmartWalletConsent } from 'wallet/src/features/wallet/slice'
->>>>>>> upstream/main
 
 /**
  * Hook for enabling smart wallet with biometrics in modals.

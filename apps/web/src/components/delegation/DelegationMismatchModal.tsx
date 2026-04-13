@@ -1,16 +1,3 @@
-<<<<<<< HEAD
-import { SharedEventName } from '@luxamm/analytics-events'
-import { useMemo } from 'react'
-import { useTranslation } from 'react-i18next'
-import { Flex, Text, useSporeColors } from '@l.x/ui/src'
-import { Blocked } from '@l.x/ui/src/components/icons/Blocked'
-import { Dialog } from '@l.x/lx/src/components/dialog/Dialog'
-import { lxUrls } from '@l.x/lx/src/constants/urls'
-import { ElementName, ModalName } from '@l.x/lx/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
-import { Trace } from '@l.x/lx/src/features/telemetry/Trace'
-import { useEvent } from '@l.x/utils/src/react/hooks'
-=======
 import { SharedEventName } from '@uniswap/analytics-events'
 import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
@@ -22,7 +9,6 @@ import { ElementName, ModalName } from 'uniswap/src/features/telemetry/constants
 import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
 import { Trace } from 'uniswap/src/features/telemetry/Trace'
 import { useEvent } from 'utilities/src/react/hooks'
->>>>>>> upstream/main
 import { WalletAlertBadge } from '~/components/Badge/WalletAlertBadge'
 import { useWalletDisplay } from '~/components/Web3Status/RecentlyConnectedModal'
 import { useAccount } from '~/hooks/useAccount'
@@ -46,11 +32,7 @@ function DelegationMismatchModal({ onClose }: DelegationMismatchModalProps) {
     t('smartWallets.delegationMismatchModal.features.1ClickSwaps'),
     <>
       {t('smartWallets.delegationMismatchModal.features.gasFreeSwaps')}
-<<<<<<< HEAD
-      <span style={{ color: colors.neutral2.val }}>{` (${t('dex.label')})`}</span>
-=======
       <span style={{ color: colors.neutral2.val }}>{` (${t('uniswapx.label')})`}</span>
->>>>>>> upstream/main
     </>,
     t('smartWallets.delegationMismatchModal.features.limitOrders'),
   ]
@@ -117,11 +99,7 @@ function DelegationMismatchModal({ onClose }: DelegationMismatchModalProps) {
         icon={<WalletAlertBadge walletIcon={iconSrc} />}
         primaryButton={primaryButton}
         secondaryButton={secondaryButton}
-<<<<<<< HEAD
-        learnMoreUrl={lxUrls.helpArticleUrls.mismatchedImports}
-=======
         learnMoreUrl={uniswapUrls.helpArticleUrls.mismatchedImports}
->>>>>>> upstream/main
         learnMoreTextColor="$accent1"
         learnMoreTextVariant="buttonLabel3"
         onClose={onClose}

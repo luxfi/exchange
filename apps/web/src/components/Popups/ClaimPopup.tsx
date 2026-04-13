@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-import { CurrencyAmount, Token } from '@luxamm/sdk-core'
-import { useEffect } from 'react'
-import { Trans, useTranslation } from 'react-i18next'
-import { Button, Flex, Text, TouchableArea } from '@l.x/ui/src'
-import { Heart } from '@l.x/ui/src/components/icons/Heart'
-import { X } from '@l.x/ui/src/components/icons/X'
-import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
-=======
 import { CurrencyAmount, Token } from '@uniswap/sdk-core'
 import { useEffect } from 'react'
 import { Trans, useTranslation } from 'react-i18next'
@@ -14,7 +5,6 @@ import { Button, Flex, Text, TouchableArea } from 'ui/src'
 import { Heart } from 'ui/src/components/icons/Heart'
 import { X } from 'ui/src/components/icons/X'
 import { ModalName } from 'uniswap/src/features/telemetry/constants'
->>>>>>> upstream/main
 import tokenLogo from '~/assets/images/token-logo.png'
 import { CardBGImage, CardNoise } from '~/components/earn/styled'
 import { useAccount } from '~/hooks/useAccount'
@@ -46,19 +36,12 @@ export default function ClaimPopup() {
   const unclaimedAmount: CurrencyAmount<Token> | undefined = useUserUnclaimedAmount(account.address)
 
   // listen for available claim and show popup if needed
-<<<<<<< HEAD
-  // biome-ignore lint/correctness/useExhaustiveDependencies: toggleClaimPopup function changes every time the popup changes, so this will cause an infinite loop
-=======
   // oxlint-disable-next-line react/exhaustive-deps -- toggleClaimPopup function changes every time the popup changes, so this will cause an infinite loop
->>>>>>> upstream/main
   useEffect(() => {
     if (userHasAvailableclaim) {
       toggleClaimPopup()
     }
-<<<<<<< HEAD
-=======
     // oxlint-disable-next-line react/exhaustive-deps -- biome-parity: oxlint is stricter here
->>>>>>> upstream/main
   }, [userHasAvailableclaim])
 
   return (

@@ -1,10 +1,5 @@
-<<<<<<< HEAD
-import { Flex, useIsDarkMode, useMedia } from '@l.x/ui/src'
-import { zIndexes } from '@l.x/ui/src/theme'
-=======
 import { Flex, useIsDarkMode, useMedia } from 'ui/src'
 import { zIndexes } from 'ui/src/theme'
->>>>>>> upstream/main
 import gridDarkSvg from '~/assets/images/portfolio-connect-wallet-banner-grid/dark.svg'
 import gridLightSvg from '~/assets/images/portfolio-connect-wallet-banner-grid/light.svg'
 import { AnimatedEmblems } from '~/pages/Portfolio/components/AnimatedStyledBanner/AnimatedEmblems'

@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import { Currency } from '@luxamm/sdk-core'
-=======
 import { Currency } from '@uniswap/sdk-core'
->>>>>>> upstream/main
 import { useMemo } from 'react'
 import { createCurrencyParsersWithValidation } from '~/components/Liquidity/parsers/urlParsers'
 import { NATIVE_CHAIN_ID } from '~/constants/tokens'

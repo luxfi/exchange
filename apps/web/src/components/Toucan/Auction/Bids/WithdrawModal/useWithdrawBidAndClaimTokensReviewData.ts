@@ -1,14 +1,7 @@
-<<<<<<< HEAD
-import { Currency, CurrencyAmount } from '@luxamm/sdk-core'
-import { useCallback, useEffect, useMemo, useState } from 'react'
-import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
-import { useNativeCurrencyInfo } from '@l.x/lx/src/features/tokens/useCurrencyInfo'
-=======
 import { Currency, CurrencyAmount } from '@uniswap/sdk-core'
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { UniverseChainId } from 'uniswap/src/features/chains/types'
 import { useNativeCurrencyInfo } from 'uniswap/src/features/tokens/useCurrencyInfo'
->>>>>>> upstream/main
 import { useFormattedGasFee } from '~/components/Toucan/Auction/hooks/useFormattedGasFee'
 import {
   PreparedWithdrawBidAndClaimTokensTransaction,
@@ -66,11 +59,7 @@ export function useWithdrawBidAndClaimTokensReviewData({
   }, [isOpen])
 
   // Prepare transaction when modal opens
-<<<<<<< HEAD
-  // biome-ignore lint/correctness/useExhaustiveDependencies: retryTrigger is intentionally included, submitState excluded
-=======
   // oxlint-disable-next-line react/exhaustive-deps -- retryTrigger is intentionally included, submitState excluded
->>>>>>> upstream/main
   useEffect(() => {
     let cancelled = false
 
@@ -85,11 +74,7 @@ export function useWithdrawBidAndClaimTokensReviewData({
     ;(async () => {
       try {
         const result = await submitState.prepareTransaction()
-<<<<<<< HEAD
-        // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
-=======
         // oxlint-disable-next-line typescript/no-unnecessary-condition
->>>>>>> upstream/main
         if (!cancelled) {
           if (!result) {
             setPreparedWithdrawBidAndClaimTokens(undefined)
@@ -100,21 +85,13 @@ export function useWithdrawBidAndClaimTokensReviewData({
           }
         }
       } catch (error) {
-<<<<<<< HEAD
-        // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
-=======
         // oxlint-disable-next-line typescript/no-unnecessary-condition
->>>>>>> upstream/main
         if (!cancelled) {
           setPreparedWithdrawBidAndClaimTokens(undefined)
           setPreparationError(error instanceof Error ? error : new Error('Failed to prepare withdraw and claim'))
         }
       } finally {
-<<<<<<< HEAD
-        // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
-=======
         // oxlint-disable-next-line typescript/no-unnecessary-condition
->>>>>>> upstream/main
         if (!cancelled) {
           setIsPreparing(false)
         }
@@ -124,10 +101,7 @@ export function useWithdrawBidAndClaimTokensReviewData({
     return () => {
       cancelled = true
     }
-<<<<<<< HEAD
-=======
     // oxlint-disable-next-line react/exhaustive-deps -- biome-parity: oxlint is stricter here
->>>>>>> upstream/main
   }, [isOpen, retryTrigger])
 
   // Calculate gas fee

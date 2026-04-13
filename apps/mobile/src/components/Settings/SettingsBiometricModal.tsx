@@ -19,17 +19,10 @@ import {
   setRequiredForTransactions,
 } from 'src/features/biometricsSettings/slice'
 import { openSettings } from 'src/utils/linking'
-<<<<<<< HEAD
-import { Flex, Switch, Text, TouchableArea } from '@l.x/ui/src'
-import { Modal } from '@l.x/lx/src/components/modals/Modal'
-import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
-import { isAndroid, isIOS } from '@l.x/utils/src/platform'
-=======
 import { Flex, Switch, Text, TouchableArea } from 'ui/src'
 import { Modal } from 'uniswap/src/components/modals/Modal'
 import { ModalName } from 'uniswap/src/features/telemetry/constants'
 import { isAndroid, isIOS } from 'utilities/src/platform'
->>>>>>> upstream/main
 
 interface BiometricAuthSetting {
   onValueChange: (newValue: boolean) => void

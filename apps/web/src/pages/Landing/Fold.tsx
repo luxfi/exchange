@@ -1,9 +1,5 @@
 import { forwardRef } from 'react'
-<<<<<<< HEAD
-import { Flex } from '@l.x/ui/src'
-=======
 import { Flex } from 'ui/src'
->>>>>>> upstream/main
 import { AppsOverview } from '~/pages/Landing/sections/AppsOverview'
 import { Footer } from '~/pages/Landing/sections/Footer'
 import { NewsletterEtc } from '~/pages/Landing/sections/NewsletterEtc'

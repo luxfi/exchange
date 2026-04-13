@@ -1,14 +1,4 @@
-<<<<<<< HEAD
 import { GraphQLApi } from '@l.x/api'
-import React from 'react'
-import { Link } from 'react-router'
-import { Flex, styled, Text, TouchableArea, useMedia } from '@l.x/ui/src'
-import { ArrowDownArrowUp } from '@l.x/ui/src/components/icons/ArrowDownArrowUp'
-import { useEnabledChains } from '@l.x/lx/src/features/chains/hooks/useEnabledChains'
-import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
-import { toGraphQLChain } from '@l.x/lx/src/features/chains/utils'
-=======
-import { GraphQLApi } from '@universe/api'
 import React from 'react'
 import { Link } from 'react-router'
 import { Flex, styled, Text, TouchableArea, useMedia } from 'ui/src'
@@ -16,25 +6,16 @@ import { ArrowDownArrowUp } from 'ui/src/components/icons/ArrowDownArrowUp'
 import { useEnabledChains } from 'uniswap/src/features/chains/hooks/useEnabledChains'
 import { UniverseChainId } from 'uniswap/src/features/chains/types'
 import { toGraphQLChain } from 'uniswap/src/features/chains/utils'
->>>>>>> upstream/main
 import { getTokenDetailsURL } from '~/appGraphql/data/util'
 import { HEADER_TRANSITION } from '~/components/Explore/stickyHeader/constants'
 import { getHeaderTitleVariant } from '~/components/Explore/stickyHeader/getHeaderLogoSize'
 import { FeeData } from '~/components/Liquidity/Create/types'
 import { LiquidityPositionInfoBadges } from '~/components/Liquidity/LiquidityPositionInfoBadges'
-<<<<<<< HEAD
-import { ClickableGuiStyle } from '~/theme/components/styles'
-
-const StyledLink = styled(Link, {
-  color: '$neutral1',
-  ...ClickableGuiStyle,
-=======
 import { ClickableTamaguiStyle } from '~/theme/components/styles'
 
 const StyledLink = styled(Link, {
   color: '$neutral1',
   ...ClickableTamaguiStyle,
->>>>>>> upstream/main
   '$platform-web': {
     textDecoration: 'none',
   },
@@ -92,11 +73,7 @@ export function PoolDetailsTitle({
       </Flex>
       <TouchableArea
         hoverable
-<<<<<<< HEAD
-        {...ClickableGuiStyle}
-=======
         {...ClickableTamaguiStyle}
->>>>>>> upstream/main
         onPress={toggleReversed}
         testID="toggle-tokens-reverse-arrows"
       >

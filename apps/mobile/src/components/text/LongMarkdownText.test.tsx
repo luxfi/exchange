@@ -3,13 +3,8 @@ import { MarkdownProps } from 'react-native-markdown-display'
 import { ReactTestInstance } from 'react-test-renderer'
 import { LongMarkdownText } from 'src/components/text/LongMarkdownText'
 import { fireEvent, render, within } from 'src/test/test-utils'
-<<<<<<< HEAD
-import { fonts } from '@l.x/ui/src/theme'
-import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
-=======
 import { fonts } from 'ui/src/theme'
 import { TestID } from 'uniswap/src/test/fixtures/testIDs'
->>>>>>> upstream/main
 
 const TEXT_VARIANT = 'body2'
 const LINE_HEIGHT = fonts[TEXT_VARIANT].lineHeight

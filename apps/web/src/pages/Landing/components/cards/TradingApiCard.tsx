@@ -1,16 +1,8 @@
-<<<<<<< HEAD
 import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
-import { useTranslation } from 'react-i18next'
-import { LayerGroup } from '@l.x/ui/src/components/icons/LayerGroup'
-import { opacify } from '@l.x/ui/src/theme'
-import { lxUrls } from '@l.x/lx/src/constants/urls'
-=======
-import { FeatureFlags, useFeatureFlag } from '@universe/gating'
 import { useTranslation } from 'react-i18next'
 import { LayerGroup } from 'ui/src/components/icons/LayerGroup'
 import { opacify } from 'ui/src/theme'
 import { uniswapUrls } from 'uniswap/src/constants/urls'
->>>>>>> upstream/main
 import { CardContents } from '~/pages/Landing/components/cards/CardContents'
 import { PillButton } from '~/pages/Landing/components/cards/PillButton'
 import ValuePropCard from '~/pages/Landing/components/cards/ValuePropCard'
@@ -27,11 +19,7 @@ export function TradingApiCard() {
       $theme-dark={{
         backgroundColor: opacify(12, primary),
       }}
-<<<<<<< HEAD
-      href={lxUrls.tradingApiDocsUrl}
-=======
       href={uniswapUrls.tradingApiDocsUrl}
->>>>>>> upstream/main
       color={primary}
       title={
         <PillButton

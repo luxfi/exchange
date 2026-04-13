@@ -1,17 +1,17 @@
 {
-  "name": "@universe/config",
+  "name": "@l.x/config",
   "version": "0.0.0",
   "dependencies": {
     "react-native-dotenv": "3.2.0",
-    "utilities": "workspace:^"
+    "@l.x/utils": "workspace:^"
   },
   "devDependencies": {
     "@types/node": "22.13.1",
     "@typescript/native-preview": "7.0.0-dev.20260311.1",
-    "@uniswap/eslint-config": "workspace:^",
     "depcheck": "1.4.7",
     "eslint": "10.0.2",
-    "typescript": "5.8.3"
+    "typescript": "5.9.3",
+    "@luxfi/eslint-config": "workspace:^"
   },
   "scripts": {
     "typecheck": "nx typecheck config",

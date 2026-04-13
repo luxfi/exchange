@@ -1,16 +1,9 @@
 import { useAtom } from 'jotai'
 import { useEffect, useMemo } from 'react'
-<<<<<<< HEAD
-import { Flex, RemoveScroll } from '@l.x/ui/src'
-import { zIndexes } from '@l.x/ui/src/theme'
-import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
-import { isMobileWeb } from '@l.x/utils/src/platform'
-=======
 import { Flex, RemoveScroll } from 'ui/src'
 import { zIndexes } from 'ui/src/theme'
 import { TestID } from 'uniswap/src/test/fixtures/testIDs'
 import { isMobileWeb } from 'utilities/src/platform'
->>>>>>> upstream/main
 import { DefaultMenu } from '~/components/AccountDrawer/DefaultMenu'
 import { useAccountDrawer } from '~/components/AccountDrawer/MiniPortfolio/hooks'
 import { AdaptiveDropdown } from '~/components/Dropdowns/AdaptiveDropdown'

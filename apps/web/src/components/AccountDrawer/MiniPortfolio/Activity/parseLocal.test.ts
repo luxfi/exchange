@@ -1,40 +1,21 @@
 import '~/test-utils/tokens/mocks'
-<<<<<<< HEAD
-
-import type { Token } from '@luxamm/sdk-core'
-import { TradeType as MockTradeType } from '@luxamm/sdk-core'
-import { TradingApi } from '@l.x/api'
-import { DAI as MockDAI, USDC_MAINNET as MockUSDC_MAINNET } from '@l.x/lx/src/constants/tokens'
-import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
-import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
-=======
 import type { Token } from '@uniswap/sdk-core'
 import { TradeType as MockTradeType } from '@uniswap/sdk-core'
-import { TradingApi } from '@universe/api'
+import { TradingApi } from '@l.x/api'
 import { DAI as MockDAI, USDC_MAINNET as MockUSDC_MAINNET } from 'uniswap/src/constants/tokens'
 import { UniverseChainId } from 'uniswap/src/features/chains/types'
 import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
->>>>>>> upstream/main
 import type {
   ExactInputSwapTransactionInfo,
   ExactOutputSwapTransactionInfo,
   InterfaceTransactionDetails,
-<<<<<<< HEAD
-} from '@l.x/lx/src/features/transactions/types/transactionDetails'
-=======
 } from 'uniswap/src/features/transactions/types/transactionDetails'
->>>>>>> upstream/main
 import {
   TransactionOriginType,
   TransactionStatus,
   TransactionType,
-<<<<<<< HEAD
-} from '@l.x/lx/src/features/transactions/types/transactionDetails'
-import { currencyId } from '@l.x/lx/src/utils/currencyId'
-=======
 } from 'uniswap/src/features/transactions/types/transactionDetails'
 import { currencyId } from 'uniswap/src/utils/currencyId'
->>>>>>> upstream/main
 import { transactionToActivity, useLocalActivities } from '~/components/AccountDrawer/MiniPortfolio/Activity/parseLocal'
 import type { TransactionInfo } from '~/state/transactions/types'
 import { act, renderHook, waitFor } from '~/test-utils/render'
@@ -61,11 +42,7 @@ function mockSwapInfo({
       outputCurrencyId: currencyId(outputCurrency),
       expectedOutputCurrencyAmountRaw: outputCurrencyAmountRaw,
       minimumOutputCurrencyAmountRaw: outputCurrencyAmountRaw,
-<<<<<<< HEAD
-      isLXOrder: false,
-=======
       isUniswapXOrder: false,
->>>>>>> upstream/main
     }
   } else {
     return {
@@ -76,11 +53,7 @@ function mockSwapInfo({
       maximumInputCurrencyAmountRaw: inputCurrencyAmountRaw,
       outputCurrencyId: currencyId(outputCurrency),
       outputCurrencyAmountRaw,
-<<<<<<< HEAD
-      isLXOrder: false,
-=======
       isUniswapXOrder: false,
->>>>>>> upstream/main
     }
   }
 }
@@ -224,19 +197,11 @@ describe('parseLocalActivity', () => {
     expect(result.current[mockHash('0xswap_exact_input', TransactionStatus.Failed)]?.title).toEqual('Swap failed')
   })
 
-<<<<<<< HEAD
-  describe('DEX Orders', () => {
-    const DEXBoltIcon =
-      "data:image/svg+xml,%3csvg%20width='10'%20height='14'%20viewBox='0%200%2010%2014'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M9.97119%206.19815C9.91786%206.07749%209.79854%206.00016%209.66654%206.00016H6.66654V1.00016C6.66654%200.862156%206.58189%200.738159%206.45255%200.688826C6.32255%200.638826%206.17787%200.674818%206.0852%200.776818L0.0852016%207.44349C-0.00279838%207.54149%20-0.025439%207.68149%200.028561%207.80216C0.0818943%207.92283%200.201208%208.00016%200.333208%208.00016H3.33321V13.0002C3.33321%2013.1382%203.41786%2013.2622%203.5472%2013.3115C3.58653%2013.3262%203.62654%2013.3335%203.66654%2013.3335C3.75921%2013.3335%203.84988%2013.2948%203.91455%2013.2228L9.91455%206.55616C10.0025%206.45882%2010.0245%206.31815%209.97119%206.19815Z'%20fill='url(%23paint0_linear_1816_1801)'/%3e%3cdefs%3e%3clinearGradient%20id='paint0_linear_1816_1801'%20x1='-10.1808'%20y1='-12.0005'%20x2='10.6572'%20y2='-11.6015'%20gradientUnits='userSpaceOnUse'%3e%3cstop%20stop-color='%234673FA'/%3e%3cstop%20offset='1'%20stop-color='%239646FA'/%3e%3c/linearGradient%3e%3c/defs%3e%3c/svg%3e"
-
-    it('handles DEX order with legacy isLXOrder flag', async () => {
-=======
   describe('UniswapX Orders', () => {
     const UniswapXBoltIcon =
       "data:image/svg+xml,%3csvg%20width='10'%20height='14'%20viewBox='0%200%2010%2014'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M9.97119%206.19815C9.91786%206.07749%209.79854%206.00016%209.66654%206.00016H6.66654V1.00016C6.66654%200.862156%206.58189%200.738159%206.45255%200.688826C6.32255%200.638826%206.17787%200.674818%206.0852%200.776818L0.0852016%207.44349C-0.00279838%207.54149%20-0.025439%207.68149%200.028561%207.80216C0.0818943%207.92283%200.201208%208.00016%200.333208%208.00016H3.33321V13.0002C3.33321%2013.1382%203.41786%2013.2622%203.5472%2013.3115C3.58653%2013.3262%203.62654%2013.3335%203.66654%2013.3335C3.75921%2013.3335%203.84988%2013.2948%203.91455%2013.2228L9.91455%206.55616C10.0025%206.45882%2010.0245%206.31815%209.97119%206.19815Z'%20fill='url(%23paint0_linear_1816_1801)'/%3e%3cdefs%3e%3clinearGradient%20id='paint0_linear_1816_1801'%20x1='-10.1808'%20y1='-12.0005'%20x2='10.6572'%20y2='-11.6015'%20gradientUnits='userSpaceOnUse'%3e%3cstop%20stop-color='%234673FA'/%3e%3cstop%20offset='1'%20stop-color='%239646FA'/%3e%3c/linearGradient%3e%3c/defs%3e%3c/svg%3e"
 
     it('handles UniswapX order with legacy isUniswapXOrder flag', async () => {
->>>>>>> upstream/main
       const { formatNumberOrString } = renderHook(() => useLocalizationContext()).result.current
 
       const details = {
@@ -248,15 +213,9 @@ describe('parseLocalActivity', () => {
             outputCurrency: MockDAI,
             outputCurrencyAmountRaw: mockCurrencyAmountRaw,
           }),
-<<<<<<< HEAD
-          isLXOrder: true,
-        },
-        hash: '0xdex_legacy',
-=======
           isUniswapXOrder: true,
         },
         hash: '0xuniswapx_legacy',
->>>>>>> upstream/main
         status: TransactionStatus.Pending,
         chainId: 1,
         from: mockAccount1,
@@ -268,19 +227,11 @@ describe('parseLocalActivity', () => {
         chainId: 1,
         currencies: [MockUSDC_MAINNET, MockDAI],
         descriptor: '1.00 USDC for 1.00 DAI',
-<<<<<<< HEAD
-        hash: '0xdex_legacy',
-        from: mockAccount1,
-        status: TransactionStatus.Pending,
-        title: 'Swapping',
-        prefixIconSrc: DEXBoltIcon,
-=======
         hash: '0xuniswapx_legacy',
         from: mockAccount1,
         status: TransactionStatus.Pending,
         title: 'Swapping',
         prefixIconSrc: UniswapXBoltIcon,
->>>>>>> upstream/main
       })
     })
 
@@ -313,11 +264,7 @@ describe('parseLocalActivity', () => {
         from: mockAccount1,
         status: TransactionStatus.Pending,
         title: 'Limit opened',
-<<<<<<< HEAD
-        prefixIconSrc: DEXBoltIcon,
-=======
         prefixIconSrc: UniswapXBoltIcon,
->>>>>>> upstream/main
         offchainOrderDetails: expect.objectContaining({
           routing: TradingApi.Routing.DUTCH_LIMIT,
           orderHash: '0xlimit123',
@@ -364,11 +311,7 @@ describe('parseLocalActivity', () => {
             outputCurrency: MockDAI,
             outputCurrencyAmountRaw: mockCurrencyAmountRaw,
           }),
-<<<<<<< HEAD
-          isLXOrder: true,
-=======
           isUniswapXOrder: true,
->>>>>>> upstream/main
         },
         routing: TradingApi.Routing.DUTCH_LIMIT,
         orderHash: '0xlimit_insufficient',
@@ -384,19 +327,11 @@ describe('parseLocalActivity', () => {
         status: TransactionStatus.Pending,
         title: 'Limit opened',
         statusMessage: expect.stringContaining('insufficient funds'),
-<<<<<<< HEAD
-        prefixIconSrc: DEXBoltIcon,
-      })
-    })
-
-    it('handles DEX order without trade type info', async () => {
-=======
         prefixIconSrc: UniswapXBoltIcon,
       })
     })
 
     it('handles UniswapX order without trade type info', async () => {
->>>>>>> upstream/main
       const { formatNumberOrString } = renderHook(() => useLocalizationContext()).result.current
 
       // Mock console.warn since we expect parsing to fail for swaps without tradeType
@@ -405,17 +340,10 @@ describe('parseLocalActivity', () => {
       const details = {
         typeInfo: {
           type: TransactionType.Swap,
-<<<<<<< HEAD
-          isLXOrder: true,
-          inputCurrencyId: '1-0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2',
-          outputCurrencyId: '1-0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48',
-          // Missing tradeType - so it won't be handled as DEX
-=======
           isUniswapXOrder: true,
           inputCurrencyId: '1-0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2',
           outputCurrencyId: '1-0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48',
           // Missing tradeType - so it won't be handled as UniswapX
->>>>>>> upstream/main
         },
         routing: TradingApi.Routing.DUTCH_V2,
         orderHash: '0xno_trade_type',
@@ -428,11 +356,7 @@ describe('parseLocalActivity', () => {
 
       const result = await transactionToActivity({ details, formatNumber: formatNumberOrString })
 
-<<<<<<< HEAD
-      // Without tradeType, it's not considered DEX and returns undefined
-=======
       // Without tradeType, it's not considered UniswapX and returns undefined
->>>>>>> upstream/main
       // because regular swap parsing also requires tradeType
       expect(result).toBeUndefined()
 

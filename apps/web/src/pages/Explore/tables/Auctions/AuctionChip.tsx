@@ -1,21 +1,12 @@
 import { useEffect, useMemo, useRef } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router'
-<<<<<<< HEAD
-import { Flex, Text, TouchableArea, useSporeColors } from '@l.x/ui/src'
-import { CheckmarkCircle } from '@l.x/ui/src/components/icons/CheckmarkCircle'
-import { iconSizes, opacifyRaw } from '@l.x/ui/src/theme'
-import { TokenLogo } from '@l.x/lx/src/components/CurrencyLogo/TokenLogo'
-import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
-import { NumberType } from '@l.x/utils/src/format/types'
-=======
 import { Flex, Text, TouchableArea, useSporeColors } from 'ui/src'
 import { CheckmarkCircle } from 'ui/src/components/icons/CheckmarkCircle'
 import { iconSizes, opacifyRaw } from 'ui/src/theme'
 import { TokenLogo } from 'uniswap/src/components/CurrencyLogo/TokenLogo'
 import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
 import { NumberType } from 'utilities/src/format/types'
->>>>>>> upstream/main
 import { useAuctionTimeRemaining } from '~/components/Toucan/Auction/hooks/useAuctionTimeRemaining'
 import { formatCompactFromRaw } from '~/components/Toucan/Auction/utils/fixedPointFdv'
 import { getAuctionMetadata } from '~/components/Toucan/Config/config'
@@ -62,11 +53,7 @@ export function AuctionChip({
   const lockedTokenColorRef = useRef<string | null>(null)
 
   // Reset locked color when logoUrl changes
-<<<<<<< HEAD
-  // biome-ignore lint/correctness/useExhaustiveDependencies: logoUrl is intentionally a dependency to trigger reset on logo change
-=======
   // oxlint-disable-next-line react/exhaustive-deps -- logoUrl is intentionally a dependency to trigger reset on logo change
->>>>>>> upstream/main
   useEffect(() => {
     lockedTokenColorRef.current = null
   }, [logoUrl])

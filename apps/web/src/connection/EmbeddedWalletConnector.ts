@@ -1,10 +1,5 @@
-<<<<<<< HEAD
-import { CONNECTION_PROVIDER_IDS, CONNECTION_PROVIDER_NAMES } from '@l.x/lx/src/constants/web3'
-import { HexString } from '@l.x/utils/src/addresses/hex'
-=======
 import { CONNECTION_PROVIDER_IDS, CONNECTION_PROVIDER_NAMES } from 'uniswap/src/constants/web3'
 import { HexString } from 'utilities/src/addresses/hex'
->>>>>>> upstream/main
 import {
   getAddress,
   ProviderConnectInfo,
@@ -26,20 +21,12 @@ export function embeddedWallet(_parameters: EmbeddedWalletParameters = {}) {
   type Properties = {
     onConnect(connectInfo: ProviderConnectInfo): void
   }
-<<<<<<< HEAD
-  type StorageItem = { 'embeddedWallet.disconnected': true }
-=======
   type StorageItem = { 'embeddedUniswapWallet.disconnected': true }
->>>>>>> upstream/main
 
   return createConnector<Provider, Properties, StorageItem>((config) => ({
     id: CONNECTION_PROVIDER_IDS.EMBEDDED_WALLET_CONNECTOR_ID,
     name: CONNECTION_PROVIDER_NAMES.EMBEDDED_WALLET,
-<<<<<<< HEAD
-    type: 'embeddedWallet',
-=======
     type: 'embeddedUniswapWallet',
->>>>>>> upstream/main
     async setup() {
       const provider = await this.getProvider()
       provider.on('connect', this.onConnect.bind(this) as Listener)
@@ -85,11 +72,7 @@ export function embeddedWallet(_parameters: EmbeddedWalletParameters = {}) {
           currentChainId = chain.id
         }
 
-<<<<<<< HEAD
-        await config.storage?.removeItem('embeddedWallet.disconnected')
-=======
         await config.storage?.removeItem('embeddedUniswapWallet.disconnected')
->>>>>>> upstream/main
 
         if (accounts.length === 0) {
           throw new ResourceUnavailableRpcError(new Error('No accounts available'))
@@ -115,11 +98,7 @@ export function embeddedWallet(_parameters: EmbeddedWalletParameters = {}) {
       provider.removeListener('disconnect', this.onDisconnect.bind(this))
       provider.on('connect', this.onConnect.bind(this) as Listener)
 
-<<<<<<< HEAD
-      config.storage?.setItem('embeddedWallet.disconnected', true)
-=======
       config.storage?.setItem('embeddedUniswapWallet.disconnected', true)
->>>>>>> upstream/main
     },
     async getAccounts() {
       const provider = await this.getProvider()
@@ -174,11 +153,7 @@ export function embeddedWallet(_parameters: EmbeddedWalletParameters = {}) {
       else if (config.emitter.listenerCount('connect')) {
         const chainId = (await this.getChainId()).toString()
         this.onConnect({ chainId })
-<<<<<<< HEAD
-        await config.storage?.removeItem('embeddedWallet.disconnected')
-=======
         await config.storage?.removeItem('embeddedUniswapWallet.disconnected')
->>>>>>> upstream/main
       }
       // Regular change event
       else {

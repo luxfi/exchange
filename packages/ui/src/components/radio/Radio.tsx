@@ -1,5 +1,5 @@
 import { createContext, PropsWithChildren, ReactElement, useContext, useState } from 'react'
-import { AnimatePresence, GetThemeValueForKey, RadioGroup, RadioGroupItemProps, RadioGroupProps } from 'tamagui'
+import { AnimatePresence, GetThemeValueForKey, RadioGroup, RadioGroupItemProps, RadioGroupProps } from '@hanzo/gui'
 import { Flex } from 'ui/src/components/layout'
 import { SporeComponentVariant } from 'ui/src/components/types'
 

@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import { Percent } from '@luxamm/sdk-core'
-=======
 import { Percent } from '@uniswap/sdk-core'
->>>>>>> upstream/main
 
 const PRECISION = 10_000
 const DENOMINATOR = PRECISION * 100

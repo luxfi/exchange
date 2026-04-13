@@ -1,13 +1,8 @@
 import { isAddress } from '@ethersproject/address'
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
-<<<<<<< HEAD
-import { Flex, Input, Text } from '@l.x/ui/src'
-import { fonts } from '@l.x/ui/src/theme/fonts'
-=======
 import { Flex, Input, Text } from 'ui/src'
 import { fonts } from 'ui/src/theme/fonts'
->>>>>>> upstream/main
 
 export function isValidPoolOwner(value: string): boolean {
   return value === '' || isAddress(value)
@@ -63,11 +58,7 @@ export function PoolOwnerSection({
       </Flex>
       {hasError && (
         <Text variant="body4" color="$statusCritical" textAlign="center" pt="$spacing4">
-<<<<<<< HEAD
-          {t('toucan.createAuction.step.customizePool.poolOwner.error')}
-=======
           {t('toucan.createAuction.invalidAddressError')}
->>>>>>> upstream/main
         </Text>
       )}
     </Flex>

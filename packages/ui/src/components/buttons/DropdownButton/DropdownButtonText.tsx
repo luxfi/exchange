@@ -1,4 +1,4 @@
-import { styled } from 'tamagui'
+import { styled } from '@hanzo/gui'
 import { CustomButtonText } from 'ui/src/components/buttons/Button/components/CustomButtonText/CustomButtonText'
 import {
   dropdownButtonStyledContext,

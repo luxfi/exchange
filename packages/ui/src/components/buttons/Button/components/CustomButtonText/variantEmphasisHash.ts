@@ -1,4 +1,4 @@
-import { TextProps } from 'tamagui'
+import { TextProps } from '@hanzo/gui'
 import type { ButtonEmphasis, ButtonVariant } from 'ui/src/components/buttons/Button/types'
 
 type TextStyleLookup = {

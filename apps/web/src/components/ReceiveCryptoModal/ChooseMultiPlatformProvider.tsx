@@ -1,25 +1,3 @@
-<<<<<<< HEAD
-import { brand, getBrandUrl, getDocsUrl } from '@l.x/config'
-import { useMemo } from 'react'
-import { Trans, useTranslation } from 'react-i18next'
-import { Flex, Text, TouchableArea, useIsDarkMode, useSporeColors } from '@l.x/ui/src'
-import { iconSizes } from '@l.x/ui/src/theme'
-import { NetworkLogo } from '@l.x/lx/src/components/CurrencyLogo/NetworkLogo'
-import { LX_WEB_URL } from '@l.x/lx/src/constants/urls'
-import { MAINNET_CHAIN_INFO } from '@l.x/lx/src/features/chains/evm/info/mainnet'
-import { useEnabledChains } from '@l.x/lx/src/features/chains/hooks/useEnabledChains'
-import { SOLANA_CHAIN_INFO } from '@l.x/lx/src/features/chains/svm/info/solana'
-import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
-import { ServiceProviderLogoStyles } from '@l.x/lx/src/features/fiatOnRamp/constants'
-import { useFiatOnRampAggregatorTransferWidgetQuery } from '@l.x/lx/src/features/fiatOnRamp/hooks/useFiatOnRampQueries'
-import { FORServiceProvider } from '@l.x/lx/src/features/fiatOnRamp/types'
-import { getOptionalServiceProviderLogo } from '@l.x/lx/src/features/fiatOnRamp/utils'
-import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
-import { FiatOnRampEventName } from '@l.x/lx/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
-import { shortenAddress } from '@l.x/utils/src/addresses'
-import { useEvent } from '@l.x/utils/src/react/hooks'
-=======
 import { useMemo } from 'react'
 import { Trans, useTranslation } from 'react-i18next'
 import { Flex, Text, TouchableArea, useIsDarkMode, useSporeColors } from 'ui/src'
@@ -39,7 +17,6 @@ import { FiatOnRampEventName } from 'uniswap/src/features/telemetry/constants'
 import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
 import { shortenAddress } from 'utilities/src/addresses'
 import { useEvent } from 'utilities/src/react/hooks'
->>>>>>> upstream/main
 import { v4 as uuid } from 'uuid'
 import { useActiveAddresses } from '~/features/accounts/store/hooks'
 import { deprecatedStyled } from '~/lib/deprecated-styled'
@@ -87,11 +64,7 @@ function ProviderPlatform({
       serviceProvider: selectedServiceProvider.serviceProvider,
       walletAddress: address ?? '', // satisfy typecheck: useFiatOnRampAggregatorTransferWidgetQuery will only query if walletAddress is defined
       externalSessionId: externalTransactionId,
-<<<<<<< HEAD
-      redirectUrl: `${LX_WEB_URL}/buy`,
-=======
       redirectUrl: `${UNISWAP_WEB_URL}/buy`,
->>>>>>> upstream/main
     }
   }, [selectedServiceProvider, address, externalTransactionId])
 
@@ -202,11 +175,7 @@ export function ChooseMultiPlatformProvider({
       <Flex alignItems="center" gap="$spacing48">
         <Flex alignItems="center" gap="$spacing24">
           <img
-<<<<<<< HEAD
-            style={ServiceProviderLogoStyles.luxLogoWrapper}
-=======
             style={ServiceProviderLogoStyles.uniswapLogoWrapper}
->>>>>>> upstream/main
             height={120}
             src={getOptionalServiceProviderLogo(selectedServiceProvider.logos, isDarkMode)}
             width={120}
@@ -243,20 +212,12 @@ export function ChooseMultiPlatformProvider({
             }}
             components={{
               tosLink: (
-<<<<<<< HEAD
-                <StyledLink color={colors.neutral3.val} href={getBrandUrl("/terms")}>
-=======
                 <StyledLink color={colors.neutral3.val} href="https://uniswap.org/terms-of-service/">
->>>>>>> upstream/main
                   {t('common.termsOfService')}
                 </StyledLink>
               ),
               privacyLink: (
-<<<<<<< HEAD
-                <StyledLink color={colors.neutral3.val} href={getBrandUrl("/privacy")}>
-=======
                 <StyledLink color={colors.neutral3.val} href="https://uniswap.org/privacy-policy">
->>>>>>> upstream/main
                   {t('common.privacyPolicy')}
                 </StyledLink>
               ),

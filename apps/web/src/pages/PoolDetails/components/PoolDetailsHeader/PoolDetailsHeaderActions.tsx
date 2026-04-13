@@ -1,22 +1,11 @@
-<<<<<<< HEAD
-import { ProtocolVersion } from '@luxamm/client-data-api/dist/data/v1/poolTypes_pb'
-import { GraphQLApi, parseRestProtocolVersion } from '@l.x/api'
-import { useTranslation } from 'react-i18next'
-import { Flex, useMedia } from '@l.x/ui/src'
-import { ReportPoolDataModal } from '@l.x/lx/src/components/reporting/ReportPoolDataModal'
-import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
-import { useEvent } from '@l.x/utils/src/react/hooks'
-import { useBooleanState } from '@l.x/utils/src/react/useBooleanState'
-=======
 import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
-import { GraphQLApi, parseRestProtocolVersion } from '@universe/api'
+import { GraphQLApi, parseRestProtocolVersion } from '@l.x/api'
 import { useTranslation } from 'react-i18next'
 import { Flex, useMedia } from 'ui/src'
 import { ReportPoolDataModal } from 'uniswap/src/components/reporting/ReportPoolDataModal'
 import { UniverseChainId } from 'uniswap/src/features/chains/types'
 import { useEvent } from 'utilities/src/react/hooks'
 import { useBooleanState } from 'utilities/src/react/useBooleanState'
->>>>>>> upstream/main
 import { gqlToCurrency } from '~/appGraphql/data/util'
 import { DesktopHeaderActions } from '~/components/Explore/stickyHeader/HeaderActions/DesktopHeaderActions'
 import { MobileHeaderActions } from '~/components/Explore/stickyHeader/HeaderActions/MobileHeaderActions'

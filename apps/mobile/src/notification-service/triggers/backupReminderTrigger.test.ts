@@ -2,34 +2,20 @@ import {
   Content,
   Metadata,
   Notification,
-<<<<<<< HEAD
-} from '@luxamm/client-notification-service/dist/lx/notificationservice/v1/api_pb'
-import { ContentStyle } from '@l.x/api'
-=======
 } from '@uniswap/client-notification-service/dist/uniswap/notificationservice/v1/api_pb'
-import { ContentStyle } from '@universe/api'
->>>>>>> upstream/main
+import { ContentStyle } from '@l.x/api'
 import { type MobileState } from 'src/app/mobileReducer'
 import {
   BACKUP_REMINDER_NOTIFICATION_ID,
   createBackupReminderTrigger,
   isBackupReminderNotification,
 } from 'src/notification-service/triggers/backupReminderTrigger'
-<<<<<<< HEAD
-import { AccountType } from '@l.x/lx/src/features/accounts/types'
-import { ONE_DAY_MS } from '@l.x/utils/src/time/time'
-import { selectBackupReminderLastSeenTs } from '@luxfi/wallet/src/features/behaviorHistory/selectors'
-import { setBackupReminderLastSeenTs } from '@luxfi/wallet/src/features/behaviorHistory/slice'
-import { hasExternalBackup } from '@luxfi/wallet/src/features/wallet/accounts/utils'
-import { selectActiveAccount } from '@luxfi/wallet/src/features/wallet/selectors'
-=======
 import { AccountType } from 'uniswap/src/features/accounts/types'
 import { ONE_DAY_MS } from 'utilities/src/time/time'
 import { selectBackupReminderLastSeenTs } from 'wallet/src/features/behaviorHistory/selectors'
 import { setBackupReminderLastSeenTs } from 'wallet/src/features/behaviorHistory/slice'
 import { hasExternalBackup } from 'wallet/src/features/wallet/accounts/utils'
 import { selectActiveAccount } from 'wallet/src/features/wallet/selectors'
->>>>>>> upstream/main
 
 jest.mock('wallet/src/features/behaviorHistory/selectors')
 jest.mock('wallet/src/features/wallet/selectors')

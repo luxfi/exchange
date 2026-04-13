@@ -1,9 +1,5 @@
 import { Trans } from 'react-i18next'
-<<<<<<< HEAD
-import { Flex, Text, useMedia } from '@l.x/ui/src'
-=======
 import { Flex, Text, useMedia } from 'ui/src'
->>>>>>> upstream/main
 
 export const DetectedBadge = () => {
   const media = useMedia()

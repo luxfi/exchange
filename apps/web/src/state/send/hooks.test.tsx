@@ -1,13 +1,7 @@
 import { renderHook } from '@testing-library/react'
-<<<<<<< HEAD
-import { useUnitagsAddressQuery } from '@l.x/lx/src/data/apiClients/unitagsApi/useUnitagsAddressQuery'
-import { useUnitagsUsernameQuery } from '@l.x/lx/src/data/apiClients/unitagsApi/useUnitagsUsernameQuery'
-import { useAddressFromEns, useENSName } from '@l.x/lx/src/features/ens/api'
-=======
 import { useUnitagsAddressQuery } from 'uniswap/src/data/apiClients/unitagsApi/useUnitagsAddressQuery'
 import { useUnitagsUsernameQuery } from 'uniswap/src/data/apiClients/unitagsApi/useUnitagsUsernameQuery'
 import { useAddressFromEns, useENSName } from 'uniswap/src/features/ens/api'
->>>>>>> upstream/main
 import { getAddress } from 'viem'
 import type { Mock } from 'vitest'
 import { useDerivedSendInfo } from '~/state/send/hooks'
@@ -57,16 +51,6 @@ vi.mock('~/lib/hooks/useCurrencyBalance', () => ({
 vi.mock('~/utils/transfer', () => ({
   useCreateTransferTransaction: () => undefined,
 }))
-<<<<<<< HEAD
-vi.mock('lx/src/features/ens/api', () => ({
-  useENSName: vi.fn(),
-  useAddressFromEns: vi.fn(),
-}))
-vi.mock('lx/src/data/apiClients/unitagsApi/useUnitagsAddressQuery', () => ({
-  useUnitagsAddressQuery: vi.fn(),
-}))
-vi.mock('lx/src/data/apiClients/unitagsApi/useUnitagsUsernameQuery', () => ({
-=======
 vi.mock('uniswap/src/features/ens/api', () => ({
   useENSName: vi.fn(),
   useAddressFromEns: vi.fn(),
@@ -75,7 +59,6 @@ vi.mock('uniswap/src/data/apiClients/unitagsApi/useUnitagsAddressQuery', () => (
   useUnitagsAddressQuery: vi.fn(),
 }))
 vi.mock('uniswap/src/data/apiClients/unitagsApi/useUnitagsUsernameQuery', () => ({
->>>>>>> upstream/main
   useUnitagsUsernameQuery: vi.fn(),
 }))
 

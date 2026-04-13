@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import type { Checkpoint } from '@luxamm/client-data-api/dist/data/v1/auction_pb'
-=======
 import type { Checkpoint } from '@uniswap/client-data-api/dist/data/v1/auction_pb'
->>>>>>> upstream/main
 import type { AuctionDetails, AuctionProgressData } from '~/components/Toucan/Auction/store/types'
 import { AuctionProgressState } from '~/components/Toucan/Auction/store/types'
 

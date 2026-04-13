@@ -1,9 +1,5 @@
 import { useDeviceSupportsBiometricAuth } from 'src/features/biometrics/useDeviceSupportsBiometricAuth'
-<<<<<<< HEAD
-import { Faceid, Fingerprint } from '@l.x/ui/src/components/icons'
-=======
 import { Faceid, Fingerprint } from 'ui/src/components/icons'
->>>>>>> upstream/main
 
 export type BiometricsIconProps = {
   color?: string

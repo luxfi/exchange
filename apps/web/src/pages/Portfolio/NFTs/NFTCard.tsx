@@ -1,27 +1,3 @@
-<<<<<<< HEAD
-import { SharedEventName } from '@luxamm/analytics-events'
-import { memo, useCallback, useEffect, useMemo, useState } from 'react'
-import { useTranslation } from 'react-i18next'
-import { Flex, Text, TouchableArea, useSporeColors } from '@l.x/ui/src'
-import { ArrowUpRight } from '@l.x/ui/src/components/icons/ArrowUpRight'
-import { MoreHorizontal } from '@l.x/ui/src/components/icons/MoreHorizontal'
-import { zIndexes } from '@l.x/ui/src/theme'
-import { iconSizes } from '@l.x/ui/src/theme/iconSizes'
-import { NetworkLogo } from 'lx/src/components/CurrencyLogo/NetworkLogo'
-import { ContextMenu } from 'lx/src/components/menus/ContextMenu'
-import { ContextMenuTriggerMode } from 'lx/src/components/menus/types'
-import { NftView, NftViewProps } from 'lx/src/components/nfts/NftView'
-import { useActiveAddresses } from 'lx/src/features/accounts/store/hooks'
-import { fromGraphQLChain } from 'lx/src/features/chains/utils'
-import { useNFTContextMenuItems } from 'lx/src/features/nfts/hooks/useNftContextMenuItems'
-import { getNFTAssetKey } from 'lx/src/features/nfts/utils'
-import { ElementName, SectionName } from 'lx/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
-import { TestID } from 'lx/src/test/fixtures/testIDs'
-import { getNftExplorerLink, getOpenseaLink, openUri } from 'lx/src/utils/linking'
-import { isMobileWeb } from '@l.x/utils/src/platform'
-import { useBooleanState } from '@l.x/utils/src/react/useBooleanState'
-=======
 import { SharedEventName } from '@uniswap/analytics-events'
 import { memo, useCallback, useEffect, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
@@ -44,7 +20,6 @@ import { TestID } from 'uniswap/src/test/fixtures/testIDs'
 import { getNftExplorerLink, getOpenseaLink, openUri } from 'uniswap/src/utils/linking'
 import { isMobileWeb } from 'utilities/src/platform'
 import { useBooleanState } from 'utilities/src/react/useBooleanState'
->>>>>>> upstream/main
 import { GroupHoverTransition } from '~/components/GroupHoverTransition'
 import { POPUP_MEDIUM_DISMISS_MS } from '~/components/Popups/constants'
 import { popupRegistry } from '~/components/Popups/registry'
@@ -72,11 +47,7 @@ type NftCardProps = Omit<NftViewProps, 'onPress'> & {
   onPress?: () => void
 }
 
-<<<<<<< HEAD
-function _NFTCard(props: NftCardProps): JSX.Element {
-=======
 function NFTCardInner(props: NftCardProps): JSX.Element {
->>>>>>> upstream/main
   const { value: isHovered, setTrue: setIsHovered, setFalse: setIsHoveredFalse } = useBooleanState(false)
   const colors = useSporeColors()
   const { t } = useTranslation()
@@ -189,33 +160,7 @@ function NFTCardInner(props: NftCardProps): JSX.Element {
   )
 
   const handlePress = useCallback(
-<<<<<<< HEAD
-=======
-    // oxlint-disable-next-line no-unused-vars -- biome-parity: oxlint is stricter here
->>>>>>> upstream/main
-    async (event?: any) => {
-      // Prefer OpenSea URL, fall back to block explorer if no OpenSea URL available
-      const url = openseaUrl || explorerUrl
-      const linkType = openseaUrl ? 'opensea' : 'block_explorer'
-
-      if (url) {
-        await openUri({ uri: url })
-      }
-
-      sendAnalyticsEvent(SharedEventName.ELEMENT_CLICKED, {
-        element: ElementName.PortfolioNftItem,
-        section: SectionName.PortfolioNftsTab,
-        collection_name: props.item.collectionName,
-        collection_address: props.item.contractAddress,
-        token_id: props.item.tokenId,
-        link_type: linkType,
-      })
-      props.onPress?.()
-    },
-<<<<<<< HEAD
-=======
     // oxlint-disable-next-line react/exhaustive-deps -- biome-parity: oxlint is stricter here
->>>>>>> upstream/main
     [openseaUrl, explorerUrl, props.item.collectionName, props.item.contractAddress, props.item.tokenId, props.onPress],
   )
 
@@ -229,9 +174,6 @@ function NFTCardInner(props: NftCardProps): JSX.Element {
         borderWidth="$spacing1"
         borderColor="$surface3"
         gap="$spacing4"
-<<<<<<< HEAD
-        transition="all 80ms ease-in-out"
-=======
 >>>>>>> upstream/main
         {...(isActive && !isMobileWeb ? activeCardStyles : {})}
         onMouseEnter={setIsHovered}
@@ -284,7 +226,6 @@ function NFTCardInner(props: NftCardProps): JSX.Element {
 <<<<<<< HEAD
             transition="all 80ms ease-in-out"
 =======
->>>>>>> upstream/main
             useGroupItemHover
             defaultContent={
               <Flex row alignItems="center" gap="$spacing4" justifyContent="space-between" height={SUBTITLE_HEIGHT}>
@@ -320,10 +261,6 @@ function NFTCardInner(props: NftCardProps): JSX.Element {
   )
 }
 
-<<<<<<< HEAD
-export const NFTCard = memo(_NFTCard)
-=======
 export const NFTCard = memo(NFTCardInner)
->>>>>>> upstream/main
 
 NFTCard.displayName = 'NFTCard'

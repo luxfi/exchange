@@ -1,19 +1,10 @@
 import { memo } from 'react'
-<<<<<<< HEAD
-import { Flex, TouchableArea, useIsTouchDevice } from '@l.x/ui/src'
-import { MoreHorizontal } from '@l.x/ui/src/components/icons/MoreHorizontal'
-import { ContextMenu } from 'lx/src/components/menus/ContextMenu'
-import { ContextMenuTriggerMode } from 'lx/src/components/menus/types'
-import { ElementName, SectionName } from 'lx/src/features/telemetry/constants'
-import { useBooleanState } from '@l.x/utils/src/react/useBooleanState'
-=======
 import { Flex, TouchableArea, useIsTouchDevice } from 'ui/src'
 import { MoreHorizontal } from 'ui/src/components/icons/MoreHorizontal'
 import { ContextMenu } from 'uniswap/src/components/menus/ContextMenu'
 import { ContextMenuTriggerMode } from 'uniswap/src/components/menus/types'
 import { ElementName, SectionName } from 'uniswap/src/features/telemetry/constants'
 import { useBooleanState } from 'utilities/src/react/useBooleanState'
->>>>>>> upstream/main
 import { useLiquidityPositionDropdownOptions } from '~/components/Liquidity/hooks/useLiquidityPositionDropdownOptions'
 import { PositionInfo } from '~/components/Liquidity/types'
 
@@ -49,11 +40,7 @@ export const LiquidityPositionDropdownMenu = memo(function LiquidityPositionDrop
       elementName={ElementName.PortfolioPoolContextMenu}
       sectionName={SectionName.PortfolioPoolsTab}
     >
-<<<<<<< HEAD
-      {/* biome-ignore lint/correctness/noRestrictedElements: needed here */}
-=======
       {/* oxlint-disable-next-line react/forbid-elements -- raw div needed for onContextMenu */}
->>>>>>> upstream/main
       <div style={{ cursor: 'pointer' }} onContextMenu={openMenu}>
         <TouchableArea
           onPressIn={(e) => e.stopPropagation()}

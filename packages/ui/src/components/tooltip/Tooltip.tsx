@@ -1,7 +1,7 @@
-import { Tooltip as TamaguiTooltip, TooltipProps, withStaticProperties } from 'tamagui'
+import { Tooltip as TamaguiTooltip, TooltipProps, withStaticProperties } from '@hanzo/gui'
 import { PlatformSplitStubError } from 'utilities/src/errors'
 
-export type { TooltipProps } from 'tamagui'
+export type { TooltipProps } from '@hanzo/gui'
 
 type TriggerProps = React.ComponentProps<typeof TamaguiTooltip.Trigger>
 export type TooltipContentProps = Omit<React.ComponentProps<typeof TamaguiTooltip.Content>, 'zIndex'> & {

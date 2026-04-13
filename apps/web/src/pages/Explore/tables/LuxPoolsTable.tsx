@@ -1,7 +1,7 @@
 /**
  * Lux Network Pools Table
  *
- * Renders pools from the Lux V3 subgraph when the explore page
+ * Renders pools from the luxfi/graph engine when the explore page
  * is filtered to the Lux chain. Includes full trading history per pool.
  */
 import { memo, useState } from 'react'

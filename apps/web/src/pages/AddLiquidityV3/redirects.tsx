@@ -1,11 +1,6 @@
 import { Navigate, useParams } from 'react-router'
-<<<<<<< HEAD
-import { useEnabledChains } from '@l.x/lx/src/features/chains/hooks/useEnabledChains'
-import { areCurrencyIdsEqual } from '@l.x/lx/src/utils/currencyId'
-=======
 import { useEnabledChains } from 'uniswap/src/features/chains/hooks/useEnabledChains'
 import { areCurrencyIdsEqual } from 'uniswap/src/utils/currencyId'
->>>>>>> upstream/main
 import { useAccount } from '~/hooks/useAccount'
 import { getChainUrlParam } from '~/utils/chainParams'
 

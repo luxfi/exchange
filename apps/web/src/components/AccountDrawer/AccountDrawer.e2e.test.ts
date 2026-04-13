@@ -1,10 +1,5 @@
-<<<<<<< HEAD
-/* eslint-disable no-restricted-syntax */
-import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
-=======
 /* oxlint-disable no-restricted-syntax */
 import { TestID } from 'uniswap/src/test/fixtures/testIDs'
->>>>>>> upstream/main
 import { expect, getTest, type Page } from '~/playwright/fixtures'
 import { getVisibleDropdownElementByTestId } from '~/playwright/fixtures/utils'
 import { HAYDEN_ADDRESS } from '~/playwright/fixtures/wallets'
@@ -12,11 +7,7 @@ import { Mocks } from '~/playwright/mocks/mocks'
 
 const test = getTest()
 
-<<<<<<< HEAD
-const GRAPHQL_URL = /(gateway|api)\.lux\.org/
-=======
 const GRAPHQL_URL = /(gateway|api)\.uniswap\.org/
->>>>>>> upstream/main
 
 async function countPortfolioBalancesQueries(page: Page, actions: () => Promise<void>) {
   let portfolioBalanceCount = 0

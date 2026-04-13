@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import type { HexString } from '@l.x/utils/src/addresses/hex'
-=======
 import type { HexString } from 'utilities/src/addresses/hex'
->>>>>>> upstream/main
 
 export interface ChainCapabilities {
   [capabilityName: string]:

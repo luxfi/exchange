@@ -1,22 +1,6 @@
 import React, { useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useTokenDetailsNavigation } from 'src/components/TokenDetails/hooks'
-<<<<<<< HEAD
-import { Flex, Separator, Text, TouchableArea } from '@l.x/ui/src'
-import { iconSizes } from '@l.x/ui/src/theme'
-import { TokenLogo } from '@l.x/lx/src/components/CurrencyLogo/TokenLogo'
-import { InlineNetworkPill } from '@l.x/lx/src/components/network/NetworkPill'
-import { AccountType } from '@l.x/lx/src/features/accounts/types'
-import { useEnabledChains } from '@l.x/lx/src/features/chains/hooks/useEnabledChains'
-import { PortfolioBalance } from '@l.x/lx/src/features/dataApi/types'
-import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
-import { MobileEventName } from '@l.x/lx/src/features/telemetry/constants'
-import Trace from '@l.x/lx/src/features/telemetry/Trace'
-import { CurrencyId } from '@l.x/lx/src/types/currency'
-import { getSymbolDisplayText } from '@l.x/lx/src/utils/currency'
-import { NumberType } from '@l.x/utils/src/format/types'
-import { useActiveAccount, useDisplayName } from '@luxfi/wallet/src/features/wallet/hooks'
-=======
 import { Flex, Separator, Text, TouchableArea } from 'ui/src'
 import { iconSizes } from 'ui/src/theme'
 import { TokenLogo } from 'uniswap/src/components/CurrencyLogo/TokenLogo'
@@ -31,7 +15,6 @@ import { CurrencyId } from 'uniswap/src/types/currency'
 import { getSymbolDisplayText } from 'uniswap/src/utils/currency'
 import { NumberType } from 'utilities/src/format/types'
 import { useActiveAccount, useDisplayName } from 'wallet/src/features/wallet/hooks'
->>>>>>> upstream/main
 
 /**
  * Renders token balances for current chain (if any) and other chains (if any).

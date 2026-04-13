@@ -1,17 +1,9 @@
 import { runSaga } from 'redux-saga'
-<<<<<<< HEAD
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { addTransaction } from 'lx/src/features/transactions/slice'
-import type { HandleOnChainStepParams, OnChainTransactionStep } from 'lx/src/features/transactions/steps/types'
-import { TransactionStepType } from 'lx/src/features/transactions/steps/types'
-import { TransactionType } from 'lx/src/features/transactions/types/transactionDetails'
-=======
 import { UniverseChainId } from 'uniswap/src/features/chains/types'
 import { addTransaction } from 'uniswap/src/features/transactions/slice'
 import type { HandleOnChainStepParams, OnChainTransactionStep } from 'uniswap/src/features/transactions/steps/types'
 import { TransactionStepType } from 'uniswap/src/features/transactions/steps/types'
 import { TransactionType } from 'uniswap/src/features/transactions/types/transactionDetails'
->>>>>>> upstream/main
 
 const mockSendTransaction = vi.fn()
 
@@ -52,13 +44,8 @@ vi.mock('~/state/activity/utils', () => ({
   getRoutingForTransaction: vi.fn().mockReturnValue('CLASSIC'),
 }))
 
-<<<<<<< HEAD
 vi.mock('@l.x/gating', async (importOriginal) => {
   const actual = await importOriginal<typeof import('@l.x/gating')>()
-=======
-vi.mock('@universe/gating', async (importOriginal) => {
-  const actual = await importOriginal<typeof import('@universe/gating')>()
->>>>>>> upstream/main
   return {
     ...actual,
     getDynamicConfigValue: vi.fn().mockReturnValue([]),
@@ -110,11 +97,7 @@ describe('handleOnChainStep', () => {
     vi.clearAllMocks()
 
     // Force sync submission path by including chainId in blocked list
-<<<<<<< HEAD
     const gating = await import('@l.x/gating')
-=======
-    const gating = await import('@universe/gating')
->>>>>>> upstream/main
     vi.mocked(gating.getDynamicConfigValue).mockReturnValue([chainId])
 
     // Return modified data to trigger onModification path

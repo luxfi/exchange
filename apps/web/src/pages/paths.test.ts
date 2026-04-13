@@ -1,9 +1,5 @@
 import React from 'react'
-<<<<<<< HEAD
-import { WRAPPED_SOL_ADDRESS_SOLANA } from '@l.x/lx/src/features/chains/svm/defaults'
-=======
 import { WRAPPED_SOL_ADDRESS_SOLANA } from 'uniswap/src/features/chains/svm/defaults'
->>>>>>> upstream/main
 import { getExploreTitle } from '~/pages/getExploreTitle'
 import {
   getAddLiquidityPageTitle,
@@ -37,53 +33,6 @@ describe('Paths', () => {
 
 describe('getExploreTitle', () => {
   it('should return the correct title for /explore', () => {
-<<<<<<< HEAD
-    expect(getExploreTitle('/explore')).toBe('Explore top tokens on Ethereum on Lux')
-  })
-
-  it('should return the correct title for /explore/ethereum', () => {
-    expect(getExploreTitle('/explore/ethereum')).toBe('Explore top tokens on Ethereum on Lux')
-  })
-
-  it('should return the correct title for /explore/polygon', () => {
-    expect(getExploreTitle('/explore/polygon')).toBe('Explore top tokens on Polygon on Lux')
-  })
-
-  it('should return the correct title for /explore/tokens', () => {
-    expect(getExploreTitle('/explore/tokens')).toBe('Explore top tokens on Ethereum on Lux')
-  })
-
-  it('should return the correct title for /explore/pools', () => {
-    expect(getExploreTitle('/explore/pools')).toBe('Explore top pools on Ethereum on Lux')
-  })
-
-  it('should return the correct title for /explore/transactions', () => {
-    expect(getExploreTitle('/explore/transactions')).toBe('Explore top transactions on Ethereum on Lux')
-  })
-
-  it('should return the correct title for /explore/tokens/ethereum', () => {
-    expect(getExploreTitle('/explore/tokens/ethereum')).toBe('Explore top tokens on Ethereum on Lux')
-  })
-
-  it('should return the correct title for /explore/pools/ethereum', () => {
-    expect(getExploreTitle('/explore/pools/ethereum')).toBe('Explore top pools on Ethereum on Lux')
-  })
-
-  it('should return the correct title for /explore/transactions/ethereum', () => {
-    expect(getExploreTitle('/explore/transactions/ethereum')).toBe('Explore top transactions on Ethereum on Lux')
-  })
-
-  it('should return the correct title for /explore/tokens/optimism', () => {
-    expect(getExploreTitle('/explore/tokens/optimism')).toBe('Explore top tokens on Optimism on Lux')
-  })
-
-  it('should return the correct title for /explore/pools/optimism', () => {
-    expect(getExploreTitle('/explore/pools/optimism')).toBe('Explore top pools on Optimism on Lux')
-  })
-
-  it('should return the correct title for /explore/transactions/optimism', () => {
-    expect(getExploreTitle('/explore/transactions/optimism')).toBe('Explore top transactions on Optimism on Lux')
-=======
     expect(getExploreTitle('/explore')).toBe('Explore top tokens on Ethereum on Uniswap')
   })
 
@@ -129,18 +78,13 @@ describe('getExploreTitle', () => {
 
   it('should return the correct title for /explore/transactions/optimism', () => {
     expect(getExploreTitle('/explore/transactions/optimism')).toBe('Explore top transactions on Optimism on Uniswap')
->>>>>>> upstream/main
   })
 })
 
 describe('positionPage static titles and descriptions', () => {
   it('should return the correct title & description for v4 positions page', () => {
     const v4PositionsPageUrl = '/positions/v4/optimism/512372'
-<<<<<<< HEAD
-    expect(getPositionPageTitle(v4PositionsPageUrl)).toBe('Manage pool liquidity on Lux')
-=======
     expect(getPositionPageTitle(v4PositionsPageUrl)).toBe('Manage pool liquidity on Uniswap')
->>>>>>> upstream/main
     expect(getPositionPageDescription(v4PositionsPageUrl)).toBe(
       'View your active v4 liquidity positions. Add new positions.',
     )
@@ -148,11 +92,7 @@ describe('positionPage static titles and descriptions', () => {
 
   it('should return the correct title & description for v3 positions page', () => {
     const v3PositionsPageUrl = '/positions/v3/optimism/512372'
-<<<<<<< HEAD
-    expect(getPositionPageTitle(v3PositionsPageUrl)).toBe('Manage pool liquidity (v3) on Lux')
-=======
     expect(getPositionPageTitle(v3PositionsPageUrl)).toBe('Manage pool liquidity (v3) on Uniswap')
->>>>>>> upstream/main
     expect(getPositionPageDescription(v3PositionsPageUrl)).toBe(
       'View your active v3 liquidity positions. Add new positions.',
     )
@@ -160,23 +100,14 @@ describe('positionPage static titles and descriptions', () => {
 
   it('should return the correct title & description for v2 positions page', () => {
     const v2PositionsPageUrl = '/positions/v2/ethereum/0x004375Dff511095CC5A197A54140a24eFEF3A416'
-<<<<<<< HEAD
-    expect(getPositionPageTitle(v2PositionsPageUrl)).toBe('Manage pool liquidity (v2) on Lux')
-=======
     expect(getPositionPageTitle(v2PositionsPageUrl)).toBe('Manage pool liquidity (v2) on Uniswap')
->>>>>>> upstream/main
     expect(getPositionPageDescription(v2PositionsPageUrl)).toBe(
       'View your active v2 liquidity positions. Add new positions.',
     )
   })
 
   it('should return the correct title for Add Liquidity pages', () => {
-<<<<<<< HEAD
-    expect(getAddLiquidityPageTitle('/add')).toBe('Add liquidity to pools on Lux')
-    expect(getAddLiquidityPageTitle('/add/v2')).toBe('Add liquidity to pools (v2) on Lux')
-=======
     expect(getAddLiquidityPageTitle('/add')).toBe('Add liquidity to pools on Uniswap')
     expect(getAddLiquidityPageTitle('/add/v2')).toBe('Add liquidity to pools (v2) on Uniswap')
->>>>>>> upstream/main
   })
 })

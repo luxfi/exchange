@@ -1,10 +1,6 @@
 import { useTranslation } from 'react-i18next'
 import { useLocation } from 'react-router'
-<<<<<<< HEAD
-import { RotatableChevron } from '@l.x/ui/src/components/icons/RotatableChevron'
-=======
 import { RotatableChevron } from 'ui/src/components/icons/RotatableChevron'
->>>>>>> upstream/main
 import { BreadcrumbNavContainer, BreadcrumbNavLink, CurrentPageBreadcrumb } from '~/components/BreadcrumbNav'
 import { useTDPStore } from '~/pages/TokenDetails/context/useTDPStore'
 

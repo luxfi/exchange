@@ -1,11 +1,7 @@
 import { BrushBehavior, brushY, D3BrushEvent, ScaleLinear, select } from 'd3'
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-<<<<<<< HEAD
-import { useSporeColors } from '@l.x/ui/src'
-=======
 import { useSporeColors } from 'ui/src'
->>>>>>> upstream/main
 import { brushHandleAccentPath, brushHandlePath, OffScreenHandle } from '~/components/Charts/LiquidityRangeInput/svg'
 import usePrevious from '~/hooks/usePrevious'
 
@@ -19,11 +15,7 @@ const BRUSH_EXTENT_MARGIN_PX = 2
  * Returns true if every element in `a` maps to the
  * same pixel coordinate as elements in `b`
  */
-<<<<<<< HEAD
-// eslint-disable-next-line max-params
-=======
 // oxlint-disable-next-line max-params
->>>>>>> upstream/main
 const compare = (a: [number, number], b: [number, number], yScale: ScaleLinear<number, number>): boolean => {
   // normalize pixels to 1 decimals
   const aNorm = a.map((y) => yScale(y).toFixed(1))

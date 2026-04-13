@@ -1,27 +1,3 @@
-<<<<<<< HEAD
-import { type TokenList } from '@luxamm/token-lists'
-import { type CombinedState } from 'redux'
-import { assert, type Equals } from 'tsafe'
-import { AppearanceSettingsState } from '@l.x/lx/src/features/appearance/slice'
-import { type LXBehaviorHistoryState } from '@l.x/lx/src/features/behaviorHistory/slice'
-import { type UniverseChainId } from '@l.x/lx/src/features/chains/types'
-import { type FavoritesState } from '@l.x/lx/src/features/favorites/slice'
-import { type NotificationState } from '@l.x/lx/src/features/notifications/slice/slice'
-import { type PortfolioState } from '@l.x/lx/src/features/portfolio/slice/slice'
-import { type SearchHistoryState } from '@l.x/lx/src/features/search/searchHistorySlice'
-import { type UserSettingsState } from '@l.x/lx/src/features/settings/slice'
-import { type DelegatedState } from '@l.x/lx/src/features/smartWallet/delegation/types'
-import { type TimingState } from '@l.x/lx/src/features/timing/slice'
-import { type TokensState } from '@l.x/lx/src/features/tokens/warnings/slice/slice'
-import { type TransactionsState } from '@l.x/lx/src/features/transactions/slice'
-import { type SwapSettingsState } from '@l.x/lx/src/features/transactions/swap/state/slice'
-import {
-  type InterfaceTransactionDetails,
-  type TransactionDetails,
-} from '@l.x/lx/src/features/transactions/types/transactionDetails'
-import { type VisibilityState } from '@l.x/lx/src/features/visibility/slice'
-import { type SagaState } from '@l.x/lx/src/utils/saga'
-=======
 import { type TokenList } from '@uniswap/token-lists'
 import { type CombinedState } from 'redux'
 import { assert, type Equals } from 'tsafe'
@@ -44,7 +20,6 @@ import {
 } from 'uniswap/src/features/transactions/types/transactionDetails'
 import { type VisibilityState } from 'uniswap/src/features/visibility/slice'
 import { type SagaState } from 'uniswap/src/utils/saga'
->>>>>>> upstream/main
 import { type PopupType } from '~/components/Popups/types'
 import { type ApplicationState, type OpenModalParams } from '~/state/application/reducer'
 import { type FiatOnRampTransactionsState } from '~/state/fiatOnRampTransactions/reducer'
@@ -87,15 +62,9 @@ type ExpectedAppState = CombinedState<{
   readonly saga: Record<string, SagaState>
   readonly [routingApi.reducerPath]: ReturnType<typeof routingApi.reducer>
 
-<<<<<<< HEAD
-  // Lux State
-  readonly appearanceSettings: AppearanceSettingsState
-  readonly luxBehaviorHistory: LXBehaviorHistoryState
-=======
   // Uniswap State
   readonly appearanceSettings: AppearanceSettingsState
   readonly uniswapBehaviorHistory: UniswapBehaviorHistoryState
->>>>>>> upstream/main
   readonly favorites: FavoritesState
   readonly notifications: NotificationState
   readonly searchHistory: Readonly<SearchHistoryState>

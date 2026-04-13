@@ -1,11 +1,6 @@
 import { ReactElement } from 'react'
-<<<<<<< HEAD
-import { Flex, useIsDarkMode, useSporeColors } from '@l.x/ui/src'
-import { zIndexes } from '@l.x/ui/src/theme'
-=======
 import { Flex, useIsDarkMode, useSporeColors } from 'ui/src'
 import { zIndexes } from 'ui/src/theme'
->>>>>>> upstream/main
 import {
   EmblemA,
   EmblemB,

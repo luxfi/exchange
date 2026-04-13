@@ -1,14 +1,8 @@
 import { useEffect, useMemo, useRef } from 'react'
 import { useTranslation } from 'react-i18next'
-<<<<<<< HEAD
-import { Flex } from '@l.x/ui/src'
-import { useActiveAddress } from '@l.x/lx/src/features/accounts/store/hooks'
-import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
-=======
 import { Flex } from 'ui/src'
 import { useActiveAddress } from 'uniswap/src/features/accounts/store/hooks'
 import { UniverseChainId } from 'uniswap/src/features/chains/types'
->>>>>>> upstream/main
 import { isGroupingMeaningful } from '~/components/Charts/ToucanChart/bidDistribution/utils/tickGrouping'
 import { ChartMode } from '~/components/Charts/ToucanChart/renderer'
 import { BidDistributionChartPlaceholder } from '~/components/Toucan/Auction/BidDistributionChart/BidDistributionChartPlaceholder'

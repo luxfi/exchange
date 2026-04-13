@@ -28,11 +28,7 @@ module.exports = {
     STATSIG_PROXY_URL_OVERRIDE: '',
     TRADING_API_KEY: 'key',
     TRADING_API_URL_OVERRIDE: '',
-<<<<<<< HEAD
-    LUX_API_KEY: 'key',
-=======
     UNISWAP_API_KEY: 'key',
->>>>>>> upstream/main
     UNITAGS_API_URL_OVERRIDE: '',
     WALLETCONNECT_PROJECT_ID: 123,
     WALLETCONNECT_PROJECT_ID_BETA: 123,

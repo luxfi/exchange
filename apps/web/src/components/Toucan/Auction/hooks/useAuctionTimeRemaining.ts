@@ -1,12 +1,7 @@
 import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
-<<<<<<< HEAD
-import { getDurationRemainingString } from '@l.x/utils/src/time/duration'
-import { ONE_SECOND_MS } from '@l.x/utils/src/time/time'
-=======
 import { getDurationRemainingString } from 'utilities/src/time/duration'
 import { ONE_SECOND_MS } from 'utilities/src/time/time'
->>>>>>> upstream/main
 import useMachineTimeMs from '~/hooks/useMachineTime'
 
 interface AuctionTimeRemainingData {

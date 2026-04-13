@@ -1,17 +1,8 @@
-<<<<<<< HEAD
-import { brand, getBrandUrl, getDocsUrl } from '@l.x/config'
-import { Trans, useTranslation } from 'react-i18next'
-import { Flex, Text, useIsDarkMode, useSporeColors } from '@l.x/ui/src'
-import { ServiceProviderLogoStyles } from '@l.x/lx/src/features/fiatOnRamp/constants'
-import { FORServiceProvider } from '@l.x/lx/src/features/fiatOnRamp/types'
-import { getOptionalServiceProviderLogo } from '@l.x/lx/src/features/fiatOnRamp/utils'
-=======
 import { Trans, useTranslation } from 'react-i18next'
 import { Flex, Text, useIsDarkMode, useSporeColors } from 'ui/src'
 import { ServiceProviderLogoStyles } from 'uniswap/src/features/fiatOnRamp/constants'
 import { FORServiceProvider } from 'uniswap/src/features/fiatOnRamp/types'
 import { getOptionalServiceProviderLogo } from 'uniswap/src/features/fiatOnRamp/utils'
->>>>>>> upstream/main
 import { deprecatedStyled } from '~/lib/deprecated-styled'
 import { ConnectingViewWrapper } from '~/pages/Swap/Buy/shared'
 import { ExternalLink } from '~/theme/components/Links'
@@ -36,11 +27,7 @@ export function ProviderConnectedView({ closeModal, selectedServiceProvider }: P
       <Flex alignItems="center" gap="$spacing48">
         <Flex alignItems="center" gap="$spacing24">
           <img
-<<<<<<< HEAD
-            style={ServiceProviderLogoStyles.luxLogoWrapper}
-=======
             style={ServiceProviderLogoStyles.uniswapLogoWrapper}
->>>>>>> upstream/main
             height={120}
             src={getOptionalServiceProviderLogo(selectedServiceProvider.logos, isDarkMode)}
             width={120}
@@ -65,20 +52,12 @@ export function ProviderConnectedView({ closeModal, selectedServiceProvider }: P
             }}
             components={{
               tosLink: (
-<<<<<<< HEAD
-                <StyledLink color={colors.neutral3.val} href={getBrandUrl("/terms")}>
-=======
                 <StyledLink color={colors.neutral3.val} href="https://uniswap.org/terms-of-service/">
->>>>>>> upstream/main
                   {t('common.termsOfService')}
                 </StyledLink>
               ),
               privacyLink: (
-<<<<<<< HEAD
-                <StyledLink color={colors.neutral3.val} href={getBrandUrl("/privacy")}>
-=======
                 <StyledLink color={colors.neutral3.val} href="https://uniswap.org/privacy-policy">
->>>>>>> upstream/main
                   {t('common.privacyPolicy')}
                 </StyledLink>
               ),

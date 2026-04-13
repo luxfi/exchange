@@ -1,11 +1,7 @@
 import { NavigationContainer, NavigationIndependentTree } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { createStackNavigator, TransitionPresets } from '@react-navigation/stack'
-<<<<<<< HEAD
 import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
-=======
-import { FeatureFlags, useFeatureFlag } from '@universe/gating'
->>>>>>> upstream/main
 import React, { useEffect } from 'react'
 import { DevSettings } from 'react-native'
 import { INCLUDE_PROTOTYPE_FEATURES, IS_E2E_TEST } from 'react-native-dotenv'
@@ -40,18 +36,12 @@ import { HorizontalEdgeGestureTarget } from 'src/components/layout/screens/EdgeG
 import { AdvancedSettingsModal } from 'src/components/modals/ReactNavigationModals/AdvancedSettingsModal'
 import { BridgedAssetModalScreen } from 'src/components/modals/ReactNavigationModals/BridgedAssetModal'
 import { HiddenTokenInfoModalScreen } from 'src/components/modals/ReactNavigationModals/HiddenTokenInfoModalScreen'
-<<<<<<< HEAD
-import { LanguageSettingsScreen } from 'src/components/modals/ReactNavigationModals/LanguageSettingsScreen'
-=======
 >>>>>>> upstream/main
 import { PasskeyHelpModalScreen } from 'src/components/modals/ReactNavigationModals/PasskeyHelpModalScreen'
 import { PasskeyManagementModalScreen } from 'src/components/modals/ReactNavigationModals/PasskeyManagementModalScreen'
 import { PermissionsSettingsScreen } from 'src/components/modals/ReactNavigationModals/PermissionsSettingsScreen'
 import { PortfolioBalanceSettingsScreen } from 'src/components/modals/ReactNavigationModals/PortfolioBalanceSettingsScreen'
-<<<<<<< HEAD
-=======
 import { ReportPortfolioDataModalScreen } from 'src/components/modals/ReactNavigationModals/ReportPortfolioDataModalScreen'
->>>>>>> upstream/main
 import { ReportTokenDataModalScreen } from 'src/components/modals/ReactNavigationModals/ReportTokenDataModalScreen'
 import { ReportTokenIssueModalScreen } from 'src/components/modals/ReactNavigationModals/ReportTokenIssueModalScreen'
 import { SmartWalletEnabledModalScreen } from 'src/components/modals/ReactNavigationModals/SmartWalletEnabledModalScreen'
@@ -113,48 +103,20 @@ import { SettingsCloudBackupPasswordCreateScreen } from 'src/screens/SettingsClo
 import { SettingsCloudBackupProcessingScreen } from 'src/screens/SettingsCloudBackupProcessingScreen'
 import { SettingsCloudBackupStatus } from 'src/screens/SettingsCloudBackupStatus'
 import { SettingsFiatCurrencyModal } from 'src/screens/SettingsFiatCurrencyModal'
-<<<<<<< HEAD
-=======
-import { SettingsLanguageModal } from 'src/screens/SettingsLanguageModal'
->>>>>>> upstream/main
-import { SettingsNotificationsScreen } from 'src/screens/SettingsNotificationsScreen'
-import { SettingsPrivacyScreen } from 'src/screens/SettingsPrivacyScreen'
-import { SettingsScreen } from 'src/screens/SettingsScreen'
-import { SettingsSmartWalletScreen } from 'src/screens/SettingsSmartWalletScreen'
-import { SettingsStorageScreen } from 'src/screens/SettingsStorageScreen'
-import { SettingsViewSeedPhraseScreen } from 'src/screens/SettingsViewSeedPhraseScreen'
-import { SettingsWalletManageConnection } from 'src/screens/SettingsWalletManageConnection'
-import { TokenDetailsScreen } from 'src/screens/TokenDetailsScreen/TokenDetailsScreen'
-import { ViewPrivateKeysScreen } from 'src/screens/ViewPrivateKeys/ViewPrivateKeysScreen'
-import { WebViewScreen } from 'src/screens/WebViewScreen'
-<<<<<<< HEAD
-import { useSporeColors } from '@l.x/ui/src'
-import { spacing } from '@l.x/ui/src/theme'
-import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
-import { useAppInsets } from '@l.x/lx/src/hooks/useAppInsets'
-import { OnboardingEntryPoint } from '@l.x/lx/src/types/onboarding'
-=======
 import { useSporeColors } from 'ui/src'
 import { spacing } from 'ui/src/theme'
 import { ModalName } from 'uniswap/src/features/telemetry/constants'
 import { useAppInsets } from 'uniswap/src/hooks/useAppInsets'
 import { OnboardingEntryPoint } from 'uniswap/src/types/onboarding'
->>>>>>> upstream/main
 import {
   FiatOnRampScreens,
   MobileScreens,
   OnboardingScreens,
   UnitagScreens,
   type UnitagStackParamList,
-<<<<<<< HEAD
-} from '@l.x/lx/src/types/screens/mobile'
-import { OnboardingContextProvider } from '@luxfi/wallet/src/features/onboarding/OnboardingContext'
-import { selectFinishedOnboarding } from '@luxfi/wallet/src/features/wallet/selectors'
-=======
 } from 'uniswap/src/types/screens/mobile'
 import { OnboardingContextProvider } from 'wallet/src/features/onboarding/OnboardingContext'
 import { selectFinishedOnboarding } from 'wallet/src/features/wallet/selectors'
->>>>>>> upstream/main
 
 /**
  * Note that we need to explicitly check for the imports from 'react-native-dotenv'
@@ -449,20 +411,7 @@ export function AppStackNavigator(): JSX.Element {
         <AppStack.Screen component={BuyNativeTokenModal} name={ModalName.BuyNativeToken} />
         <AppStack.Screen component={HiddenTokenInfoModalScreen} name={ModalName.HiddenTokenInfoModal} />
         <AppStack.Screen component={ReportTokenIssueModalScreen} name={ModalName.ReportTokenIssue} />
-<<<<<<< HEAD
-=======
-        <AppStack.Screen component={ReportPortfolioDataModalScreen} name={ModalName.ReportPortfolioData} />
->>>>>>> upstream/main
-        <AppStack.Screen component={ReportTokenDataModalScreen} name={ModalName.ReportTokenData} />
-        <AppStack.Screen component={ScreenshotWarningModal} name={ModalName.ScreenshotWarning} />
-        <AppStack.Screen component={PasskeyManagementModalScreen} name={ModalName.PasskeyManagement} />
-        <AppStack.Screen component={PasskeyHelpModalScreen} name={ModalName.PasskeysHelp} />
-        <AppStack.Screen component={SettingsBiometricModal} name={ModalName.BiometricsModal} />
-        <AppStack.Screen component={SettingsFiatCurrencyModal} name={ModalName.FiatCurrencySelector} />
-<<<<<<< HEAD
-=======
         <AppStack.Screen component={SettingsLanguageModal} name={ModalName.LanguageSelector} />
->>>>>>> upstream/main
         <AppStack.Screen component={ManageWalletsModal} name={ModalName.ManageWalletsModal} />
         <AppStack.Screen component={EditLabelSettingsModal} name={ModalName.EditLabelSettingsModal} />
         <AppStack.Screen component={EditProfileSettingsModal} name={ModalName.EditProfileSettingsModal} />
@@ -476,7 +425,6 @@ export function AppStackNavigator(): JSX.Element {
 <<<<<<< HEAD
         <AppStack.Screen component={LanguageSettingsScreen} name={ModalName.LanguageSelector} />
 =======
->>>>>>> upstream/main
         <AppStack.Screen component={SmartWalletNudgeScreen} name={ModalName.SmartWalletNudge} />
         <AppStack.Screen component={BridgedAssetModalScreen} name={ModalName.BridgedAsset} />
         <AppStack.Screen component={WormholeModalScreen} name={ModalName.Wormhole} />

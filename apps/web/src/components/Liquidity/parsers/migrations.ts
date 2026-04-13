@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import { FeeAmount, TICK_SPACINGS } from '@luxamm/v3-sdk'
-=======
 import { FeeAmount, TICK_SPACINGS } from '@uniswap/v3-sdk'
->>>>>>> upstream/main
 import { FeeData } from '~/components/Liquidity/Create/types'
 import { isDynamicFeeTier } from '~/components/Liquidity/utils/feeTiers'
 

@@ -1,18 +1,9 @@
-<<<<<<< HEAD
-import { Currency } from '@luxamm/sdk-core'
-import { ReactNode, useEffect, useRef } from 'react'
-import { Flex, FlexProps } from '@l.x/ui/src'
-import { CurrencyInputPanel } from '@l.x/lx/src/components/CurrencyInputPanel/CurrencyInputPanel'
-import { CurrencyInputPanelRef } from '@l.x/lx/src/components/CurrencyInputPanel/types'
-import { CurrencyField } from '@l.x/lx/src/types/currency'
-=======
 import { Currency } from '@uniswap/sdk-core'
 import { ReactNode, useEffect, useRef } from 'react'
 import { Flex, FlexProps } from 'ui/src'
 import { CurrencyInputPanel } from 'uniswap/src/components/CurrencyInputPanel/CurrencyInputPanel'
 import { CurrencyInputPanelRef } from 'uniswap/src/components/CurrencyInputPanel/types'
 import { CurrencyField } from 'uniswap/src/types/currency'
->>>>>>> upstream/main
 import { useTokenBalanceWithBuffer } from '~/components/Liquidity/Create/hooks/useDepositInfo'
 import { useNativeTokenPercentageBufferExperiment } from '~/components/Liquidity/Create/hooks/useNativeTokenPercentageBufferExperiment'
 import { DepositInfo } from '~/components/Liquidity/types'

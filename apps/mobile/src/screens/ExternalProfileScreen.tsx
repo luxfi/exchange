@@ -12,16 +12,6 @@ import { TAB_STYLES, TabContentProps, TabLabel } from 'src/components/layout/Tab
 import TraceTabView from 'src/components/Trace/TraceTabView'
 import { ProfileHeader } from 'src/features/externalProfile/ProfileHeader'
 import { ExploreModalAwareView } from 'src/screens/ModalAwareView'
-<<<<<<< HEAD
-import { Flex, useSporeColors } from '@l.x/ui/src'
-import { spacing } from '@l.x/ui/src/theme'
-import { DisplayNameType } from '@l.x/lx/src/features/accounts/types'
-import { SectionName } from '@l.x/lx/src/features/telemetry/constants'
-import Trace from '@l.x/lx/src/features/telemetry/Trace'
-import { useAppInsets } from '@l.x/lx/src/hooks/useAppInsets'
-import { MobileScreens } from '@l.x/lx/src/types/screens/mobile'
-import { useDisplayName } from '@luxfi/wallet/src/features/wallet/hooks'
-=======
 import { Flex, useSporeColors } from 'ui/src'
 import { spacing } from 'ui/src/theme'
 import { DisplayNameType } from 'uniswap/src/features/accounts/types'
@@ -30,7 +20,6 @@ import Trace from 'uniswap/src/features/telemetry/Trace'
 import { useAppInsets } from 'uniswap/src/hooks/useAppInsets'
 import { MobileScreens } from 'uniswap/src/types/screens/mobile'
 import { useDisplayName } from 'wallet/src/features/wallet/hooks'
->>>>>>> upstream/main
 
 type Props = NativeStackScreenProps<AppStackParamList, MobileScreens.ExternalProfile> & {
   renderedInModal?: boolean

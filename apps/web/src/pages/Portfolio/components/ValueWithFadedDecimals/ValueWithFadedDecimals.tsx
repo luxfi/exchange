@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import { EM_DASH, Text, TextProps } from '@l.x/ui/src'
-=======
 import { EM_DASH, Text, TextProps } from 'ui/src'
->>>>>>> upstream/main
 import { useParseCurrencyAmountParts } from '~/pages/Portfolio/components/ValueWithFadedDecimals/parseCurrencyAmountParts'
 
 type ValueWithFadedDecimalsProps = {

@@ -1,11 +1,6 @@
 import React, { HTMLProps, useCallback } from 'react'
-<<<<<<< HEAD
-import { InterfaceEventName } from 'lx/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
-=======
 import { InterfaceEventName } from 'uniswap/src/features/telemetry/constants'
 import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
->>>>>>> upstream/main
 import { css, deprecatedStyled } from '~/lib/deprecated-styled'
 import { ClickableStyle } from '~/theme/components/styles'
 import { anonymizeLink } from '~/utils/anonymizeLink'
@@ -58,10 +53,7 @@ export function ExternalLink({
         rest.onClick(event)
       }
     },
-<<<<<<< HEAD
-=======
     // oxlint-disable-next-line react/exhaustive-deps -- biome-parity: oxlint is stricter here
->>>>>>> upstream/main
     [rest.onClick],
   )
   return <StyledLink target={target} rel={rel} href={href} onClick={handleClick} {...rest} />

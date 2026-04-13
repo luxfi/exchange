@@ -1,13 +1,8 @@
 import { Alert } from 'react-native'
 import { isCloudStorageAvailable } from 'src/features/CloudBackup/RNCloudStorageBackupsManager'
 import { openSettings } from 'src/utils/linking'
-<<<<<<< HEAD
-import { AppTFunction } from '@l.x/ui/src/i18n/types'
-import { isAndroid } from '@l.x/utils/src/platform'
-=======
 import { AppTFunction } from 'ui/src/i18n/types'
 import { isAndroid } from 'utilities/src/platform'
->>>>>>> upstream/main
 
 /**
  * Checks whether cloud backup (iCloud/GDrive) is available. Otherwise we

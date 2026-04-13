@@ -3,26 +3,11 @@ import {
   ContentStyle,
   Notification,
   OnClick,
-<<<<<<< HEAD
-} from '@luxamm/client-notification-service/dist/lx/notificationservice/v1/api_pb'
+} from '@uniswap/client-notification-service/dist/uniswap/notificationservice/v1/api_pb'
 import { type InAppNotification, OnClickAction } from '@l.x/api'
 import { DynamicConfigs, getDynamicConfigValue, OutageBannerChainIdConfigKey } from '@l.x/gating'
 import { createNotificationDataSource } from '@l.x/notifications/src/notification-data-source/implementations/createNotificationDataSource'
 import { type NotificationDataSource } from '@l.x/notifications/src/notification-data-source/NotificationDataSource'
-import { capitalize } from 'tsafe'
-import { lxUrls } from '@l.x/lx/src/constants/urls'
-import { getChainInfo } from '@l.x/lx/src/features/chains/chainInfo'
-import { DEFAULT_MS_BEFORE_WARNING } from '@l.x/lx/src/features/chains/evm/rpc'
-import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
-import { InterfacePageName } from '@l.x/lx/src/features/telemetry/constants'
-import i18n from '@l.x/lx/src/i18n'
-import { getLogger } from '@l.x/utils/src/logger/logger'
-=======
-} from '@uniswap/client-notification-service/dist/uniswap/notificationservice/v1/api_pb'
-import { type InAppNotification, OnClickAction } from '@universe/api'
-import { DynamicConfigs, getDynamicConfigValue, OutageBannerChainIdConfigKey } from '@universe/gating'
-import { createNotificationDataSource } from '@universe/notifications/src/notification-data-source/implementations/createNotificationDataSource'
-import { type NotificationDataSource } from '@universe/notifications/src/notification-data-source/NotificationDataSource'
 import { capitalize } from 'tsafe'
 import { uniswapUrls } from 'uniswap/src/constants/urls'
 import { getChainInfo } from 'uniswap/src/features/chains/chainInfo'
@@ -31,7 +16,6 @@ import { UniverseChainId } from 'uniswap/src/features/chains/types'
 import { InterfacePageName } from 'uniswap/src/features/telemetry/constants'
 import i18n from 'uniswap/src/i18n'
 import { getLogger } from 'utilities/src/logger/logger'
->>>>>>> upstream/main
 import { useManualChainOutageStore } from '~/state/outage/store'
 import { ChainOutageData } from '~/state/outage/types'
 import { getChainIdFromChainUrlParam } from '~/utils/chainParams'
@@ -72,11 +56,7 @@ const OUTAGE_DISPLAY_PAGES: InterfacePageName[] = [
  * These are passed as getter functions to allow checking at poll time.
  */
 interface CreateSystemAlertsDataSourceContext {
-<<<<<<< HEAD
-  /** Get the current swap input chain ID (from LuxContext) */
-=======
   /** Get the current swap input chain ID (from UniswapContext) */
->>>>>>> upstream/main
   getSwapInputChainId: () => UniverseChainId | undefined
   /** Get the current block timestamp (from useCurrentBlockTimestamp) */
   getBlockTimestamp: () => bigint | undefined
@@ -211,11 +191,7 @@ function checkOutage(ctx: {
       chainId: outage.chainId,
       chainName,
       version: outage.version?.toString(),
-<<<<<<< HEAD
-      helpUrl: lxUrls.helpArticleUrls.subgraphDowntime,
-=======
       helpUrl: uniswapUrls.helpArticleUrls.subgraphDowntime,
->>>>>>> upstream/main
     }),
   }
 }

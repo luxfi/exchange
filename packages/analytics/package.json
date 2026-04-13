@@ -1,5 +1,5 @@
 {
-  "name": "@universe/analytics",
+  "name": "@l.x/analytics",
   "version": "0.0.0",
   "dependencies": {
     "@amplitude/analytics-node": "1.5.36"
@@ -7,10 +7,10 @@
   "devDependencies": {
     "@types/node": "22.13.1",
     "@typescript/native-preview": "7.0.0-dev.20260311.1",
-    "@uniswap/eslint-config": "workspace:^",
     "depcheck": "1.4.7",
     "eslint": "10.0.2",
-    "typescript": "5.8.3"
+    "typescript": "5.9.3",
+    "@luxfi/eslint-config": "workspace:^"
   },
   "scripts": {
     "typecheck": "nx typecheck analytics",

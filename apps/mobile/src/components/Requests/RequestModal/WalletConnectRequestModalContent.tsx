@@ -1,39 +1,14 @@
-<<<<<<< HEAD
+import { useBottomSheetInternal } from '@gorhom/bottom-sheet'
 import { useNetInfo } from '@react-native-community/netinfo'
 import { GasFeeResult } from '@l.x/api'
 import { useTranslation } from 'react-i18next'
-import Animated, { useAnimatedStyle, useSharedValue } from 'react-native-reanimated'
-=======
-import { useBottomSheetInternal } from '@gorhom/bottom-sheet'
-import { useNetInfo } from '@react-native-community/netinfo'
-import { GasFeeResult } from '@universe/api'
-import { useTranslation } from 'react-i18next'
 import Animated, { useAnimatedStyle } from 'react-native-reanimated'
->>>>>>> upstream/main
 import { ClientDetails, PermitInfo } from 'src/components/Requests/RequestModal/ClientDetails'
 import {
   isBatchedTransactionRequest,
   isTransactionRequest,
   WalletConnectSigningRequest,
 } from 'src/features/walletConnect/walletConnectSlice'
-<<<<<<< HEAD
-import { Flex, Text } from '@l.x/ui/src'
-import { AlertTriangleFilled } from '@l.x/ui/src/components/icons'
-import { BaseCard } from '@l.x/lx/src/components/BaseCard/BaseCard'
-import { getChainInfo } from '@l.x/lx/src/features/chains/chainInfo'
-import { EthMethod } from '@l.x/lx/src/features/dappRequests/types'
-import { hasGasEstimationFailed } from '@l.x/lx/src/features/gas/utils'
-import { isPrimaryTypePermit, UwULinkMethod } from '@l.x/lx/src/types/walletConnect'
-import { buildCurrencyId } from '@l.x/lx/src/utils/currencyId'
-import { logger } from '@l.x/utils/src/logger/logger'
-import { MAX_HIDDEN_CALLS_BY_DEFAULT } from '@luxfi/wallet/src/components/BatchedTransactions/BatchedTransactionDetails'
-import { DappPersonalSignContent } from '@luxfi/wallet/src/components/dappRequests/DappPersonalSignContent'
-import { DappSendCallsScanningContent } from '@luxfi/wallet/src/components/dappRequests/DappSendCallsScanningContent'
-import { DappSignTypedDataContent } from '@luxfi/wallet/src/components/dappRequests/DappSignTypedDataContent'
-import { DappTransactionScanningContent } from '@luxfi/wallet/src/components/dappRequests/DappTransactionScanningContent'
-import { WarningBox } from '@luxfi/wallet/src/components/WarningBox/WarningBox'
-import { TransactionRiskLevel } from '@luxfi/wallet/src/features/dappRequests/types'
-=======
 import { Flex, Text } from 'ui/src'
 import { AlertTriangleFilled } from 'ui/src/components/icons'
 import { BaseCard } from 'uniswap/src/components/BaseCard/BaseCard'
@@ -50,7 +25,6 @@ import { DappSignTypedDataContent } from 'wallet/src/components/dappRequests/Dap
 import { DappTransactionScanningContent } from 'wallet/src/components/dappRequests/DappTransactionScanningContent'
 import { WarningBox } from 'wallet/src/components/WarningBox/WarningBox'
 import { TransactionRiskLevel } from 'wallet/src/features/dappRequests/types'
->>>>>>> upstream/main
 
 const isPotentiallyUnsafe = (request: WalletConnectSigningRequest): boolean => request.type !== EthMethod.PersonalSign
 
@@ -105,13 +79,7 @@ export function WalletConnectRequestModalContent({
   const permitInfo = getPermitInfo(request)
   const nativeCurrency = getChainInfo(chainId).nativeCurrency
 
-<<<<<<< HEAD
-  // In @gorhom/bottom-sheet v5, animatedFooterHeight was removed from useBottomSheetInternal().
-  // Default to 0; the footer manages its own height via BottomSheetFooter.
-  const animatedFooterHeight = useSharedValue(0)
-=======
   const { animatedFooterHeight } = useBottomSheetInternal()
->>>>>>> upstream/main
 
   const netInfo = useNetInfo()
 

@@ -1,16 +1,4 @@
-<<<<<<< HEAD
 import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
-import { memo } from 'react'
-import { useTranslation } from 'react-i18next'
-import { EM_DASH, Flex, Text } from '@l.x/ui/src'
-import { ChevronsOut } from '@l.x/ui/src/components/icons/ChevronsOut'
-import { TokenLogo } from 'lx/src/components/CurrencyLogo/TokenLogo'
-import { NetworkIconList } from 'lx/src/components/network/NetworkIconList/NetworkIconList'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { CurrencyInfo } from 'lx/src/features/dataApi/types'
-import { getSymbolDisplayText } from 'lx/src/utils/currency'
-=======
-import { FeatureFlags, useFeatureFlag } from '@universe/gating'
 import { memo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { EM_DASH, Flex, Text } from 'ui/src'
@@ -20,7 +8,6 @@ import { NetworkIconList } from 'uniswap/src/components/network/NetworkIconList/
 import { UniverseChainId } from 'uniswap/src/features/chains/types'
 import { CurrencyInfo } from 'uniswap/src/features/dataApi/types'
 import { getSymbolDisplayText } from 'uniswap/src/utils/currency'
->>>>>>> upstream/main
 import { GroupHoverTransition } from '~/components/GroupHoverTransition'
 import { EmptyTableCell } from '~/pages/Portfolio/EmptyTableCell'
 import { usePortfolioRoutes } from '~/pages/Portfolio/Header/hooks/usePortfolioRoutes'
@@ -61,39 +48,6 @@ export const TokenDisplay = memo(function TokenDisplay({ currencyInfo, chainIds,
         <Text variant="body3" color="$neutral1" numberOfLines={1}>
           {currency.name || EM_DASH}
         </Text>
-<<<<<<< HEAD
-        {showNetworksHover ? (
-          <GroupHoverTransition
-            height={SYMBOL_SLOT_HEIGHT}
-            transition="all 80ms ease-in-out"
-            defaultContent={
-              <Text
-                variant="body4"
-                $platform-web={{ minWidth: 'fit-content' }}
-                color="$neutral2"
-                height={SYMBOL_SLOT_HEIGHT}
-                width="100%"
-                numberOfLines={1}
-              >
-                {symbolText}
-              </Text>
-            }
-            hoverContent={
-              <Flex row gap="$gap4">
-                <Text variant="body4" color="$neutral2">
-                  {t('portfolio.tokens.table.balances')}
-                </Text>
-                {!isExpanded && <NetworkIconList chainIds={chainIds} />}
-                <ChevronsOut color="$neutral2" size="$icon.16" />
-              </Flex>
-            }
-          />
-        ) : (
-          <Text variant="body4" color="$neutral2" numberOfLines={1}>
-            {symbolText}
-          </Text>
-        )}
-=======
         <GroupHoverTransition
           height={SYMBOL_SLOT_HEIGHT}
           showTransition={showNetworksHover}
@@ -119,7 +73,6 @@ export const TokenDisplay = memo(function TokenDisplay({ currencyInfo, chainIds,
             </Flex>
           }
         />
->>>>>>> upstream/main
       </Flex>
     </Flex>
   )

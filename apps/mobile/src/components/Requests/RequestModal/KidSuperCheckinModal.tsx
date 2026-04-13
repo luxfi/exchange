@@ -1,26 +1,14 @@
-<<<<<<< HEAD
-import { useTranslation } from 'react-i18next'
-import Animated, { useAnimatedStyle, useSharedValue } from 'react-native-reanimated'
-=======
 import { useBottomSheetInternal } from '@gorhom/bottom-sheet'
 import { useTranslation } from 'react-i18next'
 import Animated, { useAnimatedStyle } from 'react-native-reanimated'
->>>>>>> upstream/main
 import { ModalWithOverlay } from 'src/components/Requests/ModalWithOverlay/ModalWithOverlay'
 import { RequestDetailsContent } from 'src/components/Requests/RequestModal/RequestDetails'
 import { useUwuLinkContractAllowlist } from 'src/components/Requests/Uwulink/utils'
 import { type SignRequest } from 'src/features/walletConnect/walletConnectSlice'
-<<<<<<< HEAD
-import { Flex, UniversalImage, useIsDarkMode } from '@l.x/ui/src'
-import { UniversalImageResizeMode } from '@l.x/ui/src/components/UniversalImage/types'
-import { spacing } from '@l.x/ui/src/theme'
-import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
-=======
 import { Flex, UniversalImage, useIsDarkMode } from 'ui/src'
 import { UniversalImageResizeMode } from 'ui/src/components/UniversalImage/types'
 import { spacing } from 'ui/src/theme'
 import { ModalName } from 'uniswap/src/features/telemetry/constants'
->>>>>>> upstream/main
 
 type Props = {
   onClose: () => void
@@ -50,17 +38,10 @@ export function KidSuperCheckinModal({ onClose, onConfirm, onReject, request }: 
   )
 }
 
-<<<<<<< HEAD
-function useLuxCafeLogo(): string | undefined {
-  const isDarkMode = useIsDarkMode()
-  const uwuLinkContractAllowlist = useUwuLinkContractAllowlist()
-  const logos = uwuLinkContractAllowlist.tokenRecipients.find((recipient) => recipient.name === 'Lux Cafe')?.logo
-=======
 function useUniswapCafeLogo(): string | undefined {
   const isDarkMode = useIsDarkMode()
   const uwuLinkContractAllowlist = useUwuLinkContractAllowlist()
   const logos = uwuLinkContractAllowlist.tokenRecipients.find((recipient) => recipient.name === 'Uniswap Cafe')?.logo
->>>>>>> upstream/main
 
   if (!logos) {
     return undefined
@@ -70,22 +51,12 @@ function useUniswapCafeLogo(): string | undefined {
 }
 
 function KidSuperCheckinModalContent({ request }: { request: SignRequest }): JSX.Element {
-<<<<<<< HEAD
-  // In @gorhom/bottom-sheet v5, animatedFooterHeight was removed from useBottomSheetInternal().
-  // Default to 0; the footer manages its own height via BottomSheetFooter.
-  const animatedFooterHeight = useSharedValue(0)
-=======
   const { animatedFooterHeight } = useBottomSheetInternal()
->>>>>>> upstream/main
   const bottomSpacerStyle = useAnimatedStyle(() => ({
     height: animatedFooterHeight.value,
   }))
 
-<<<<<<< HEAD
-  const logo = useLuxCafeLogo()
-=======
   const logo = useUniswapCafeLogo()
->>>>>>> upstream/main
 
   return (
     <Flex centered gap="$spacing12" justifyContent="space-between" pb="$spacing12">

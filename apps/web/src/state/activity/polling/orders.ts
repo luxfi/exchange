@@ -1,28 +1,5 @@
-<<<<<<< HEAD
-import { TradeType } from '@luxamm/sdk-core'
-import { TradingApi } from '@l.x/api'
-import ms from 'ms'
-import { useEffect, useRef, useState } from 'react'
-import { lxUrls } from '@l.x/lx/src/constants/urls'
-import { isL2ChainId } from '@l.x/lx/src/features/chains/utils'
-import { InterfaceEventName } from '@l.x/lx/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
-import { tradeRoutingToFillType } from '@l.x/lx/src/features/transactions/swap/analytics'
-import {
-  ExactInputSwapTransactionInfo,
-  TransactionStatus,
-  DEXOrderDetails,
-} from '@l.x/lx/src/features/transactions/types/transactionDetails'
-import { isFinalizedTxStatus } from '@l.x/lx/src/features/transactions/types/utils'
-import { convertOrderStatusToTransactionStatus } from '@l.x/lx/src/features/transactions/utils/dexUtils'
-import { logger } from '@l.x/utils/src/logger/logger'
-import { useAccount } from '~/hooks/useAccount'
-import { ActivityUpdateTransactionType, OnActivityUpdate } from '~/state/activity/types'
-import { usePendingDEXOrders } from '~/state/transactions/hooks'
-import { OrderQueryResponse, DEXBackendOrder } from '~/types/dex'
-=======
 import { TradeType } from '@uniswap/sdk-core'
-import { TradingApi } from '@universe/api'
+import { TradingApi } from '@l.x/api'
 import ms from 'ms'
 import { useEffect, useRef, useState } from 'react'
 import { uniswapUrls } from 'uniswap/src/constants/urls'
@@ -42,7 +19,6 @@ import { useAccount } from '~/hooks/useAccount'
 import { ActivityUpdateTransactionType, OnActivityUpdate } from '~/state/activity/types'
 import { usePendingUniswapXOrders } from '~/state/transactions/hooks'
 import { OrderQueryResponse, UniswapXBackendOrder } from '~/types/uniswapx'
->>>>>>> upstream/main
 
 const STANDARD_POLLING_INITIAL_INTERVAL = ms(`2s`)
 const STANDARD_POLLING_MAX_INTERVAL = ms('30s')
@@ -54,15 +30,9 @@ export const QUICK_POLL_MAX_INTERVAL = ms('30s')
 export const QUICK_POLL_INITIAL_PHASE = ms('10s')
 export const QUICK_POLL_MEDIUM_PHASE = ms('200s')
 
-<<<<<<< HEAD
-const LUX_GATEWAY_DNS_URL = process.env.REACT_APP_LUX_GATEWAY_DNS
-if (LUX_GATEWAY_DNS_URL === undefined) {
-  throw new Error(`LUX_GATEWAY_DNS_URL must be defined environment variables`)
-=======
 const UNISWAP_GATEWAY_DNS_URL = process.env.REACT_APP_UNISWAP_GATEWAY_DNS
 if (UNISWAP_GATEWAY_DNS_URL === undefined) {
   throw new Error(`UNISWAP_GATEWAY_DNS_URL must be defined environment variables`)
->>>>>>> upstream/main
 }
 
 export function getQuickPollingInterval(orderStartTime: number) {
@@ -81,25 +51,15 @@ async function fetchStatuses({
   swapper,
 }: {
   endpoint: 'limit-orders' | 'orders'
-<<<<<<< HEAD
-  orders: DEXOrderDetails[]
-  swapper: string
-}): Promise<DEXBackendOrder[]> {
-=======
   orders: UniswapXOrderDetails[]
   swapper: string
 }): Promise<UniswapXBackendOrder[]> {
->>>>>>> upstream/main
   const hashes = orders.map((order) => order.orderHash)
   if (hashes.length === 0) {
     return []
   }
 
-<<<<<<< HEAD
-  const result = await global.fetch(`${LUX_GATEWAY_DNS_URL}/${endpoint}?swapper=${swapper}&orderHashes=${hashes}`)
-=======
   const result = await global.fetch(`${UNISWAP_GATEWAY_DNS_URL}/${endpoint}?swapper=${swapper}&orderHashes=${hashes}`)
->>>>>>> upstream/main
   const statuses = (await result.json()) as OrderQueryResponse
   return statuses.orders
 }
@@ -107,13 +67,8 @@ async function fetchStatuses({
 export async function fetchOpenLimitOrders(params: {
   account?: string
   orderHashes?: string[]
-<<<<<<< HEAD
-}): Promise<DEXBackendOrder[]> {
-  let url = `${LUX_GATEWAY_DNS_URL}${lxUrls.limitOrderStatusesPath}`
-=======
 }): Promise<UniswapXBackendOrder[]> {
   let url = `${UNISWAP_GATEWAY_DNS_URL}${uniswapUrls.limitOrderStatusesPath}`
->>>>>>> upstream/main
   const queryParams: string[] = []
 
   if (params.account) {
@@ -134,24 +89,14 @@ export async function fetchOpenLimitOrders(params: {
   return statuses.orders
 }
 
-<<<<<<< HEAD
-async function fetchLimitStatuses(account: string, orders: DEXOrderDetails[]): Promise<DEXBackendOrder[]> {
-=======
 async function fetchLimitStatuses(account: string, orders: UniswapXOrderDetails[]): Promise<UniswapXBackendOrder[]> {
->>>>>>> upstream/main
   const limitOrders = orders.filter((order) => order.routing === TradingApi.Routing.DUTCH_LIMIT)
   return fetchStatuses({ endpoint: 'limit-orders', orders: limitOrders, swapper: account })
 }
 
-<<<<<<< HEAD
-async function fetchOrderStatuses(account: string, orders: DEXOrderDetails[]): Promise<DEXBackendOrder[]> {
-  const dexOrders = orders.filter((order) => order.routing !== TradingApi.Routing.DUTCH_LIMIT)
-  return fetchStatuses({ endpoint: 'orders', orders: dexOrders, swapper: account })
-=======
 async function fetchOrderStatuses(account: string, orders: UniswapXOrderDetails[]): Promise<UniswapXBackendOrder[]> {
   const uniswapXOrders = orders.filter((order) => order.routing !== TradingApi.Routing.DUTCH_LIMIT)
   return fetchStatuses({ endpoint: 'orders', orders: uniswapXOrders, swapper: account })
->>>>>>> upstream/main
 }
 
 function updateOrders({
@@ -159,13 +104,8 @@ function updateOrders({
   statuses,
   onActivityUpdate,
 }: {
-<<<<<<< HEAD
-  pendingOrders: DEXOrderDetails[]
-  statuses: DEXBackendOrder[]
-=======
   pendingOrders: UniswapXOrderDetails[]
   statuses: UniswapXBackendOrder[]
->>>>>>> upstream/main
   onActivityUpdate: OnActivityUpdate
 }) {
   pendingOrders.forEach((pendingOrder) => {
@@ -188,11 +128,7 @@ function updateOrders({
       return
     }
 
-<<<<<<< HEAD
-    const updatedTransaction: DEXOrderDetails = {
-=======
     const updatedTransaction: UniswapXOrderDetails = {
->>>>>>> upstream/main
       ...pendingOrder,
       status: transactionStatus,
       hash:
@@ -207,19 +143,11 @@ function updateOrders({
       'settledAmounts' in updatedOrder &&
       updatedOrder.settledAmounts?.[0]?.amountOut
     ) {
-<<<<<<< HEAD
-      // DEX orders always have swap typeInfo with tradeType
-      if ('tradeType' in pendingOrder.typeInfo && pendingOrder.typeInfo.tradeType === TradeType.EXACT_INPUT) {
-        const exactInputTypeInfo = updatedTransaction.typeInfo as ExactInputSwapTransactionInfo
-        exactInputTypeInfo.settledOutputCurrencyAmountRaw = updatedOrder.settledAmounts[0].amountOut
-        // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
-=======
       // UniswapX orders always have swap typeInfo with tradeType
       if ('tradeType' in pendingOrder.typeInfo && pendingOrder.typeInfo.tradeType === TradeType.EXACT_INPUT) {
         const exactInputTypeInfo = updatedTransaction.typeInfo as ExactInputSwapTransactionInfo
         exactInputTypeInfo.settledOutputCurrencyAmountRaw = updatedOrder.settledAmounts[0].amountOut
         // oxlint-disable-next-line typescript/no-unnecessary-condition
->>>>>>> upstream/main
       } else if ('tradeType' in pendingOrder.typeInfo && pendingOrder.typeInfo.tradeType === TradeType.EXACT_OUTPUT) {
         // TODO(WEB-3962): Handle settled EXACT_OUTPUT amounts
       }
@@ -243,11 +171,7 @@ function updateOrders({
     }
 
     onActivityUpdate({
-<<<<<<< HEAD
-      type: ActivityUpdateTransactionType.DEXOrder,
-=======
       type: ActivityUpdateTransactionType.UniswapXOrder,
->>>>>>> upstream/main
       chainId: pendingOrder.chainId,
       original: pendingOrder,
       update: updatedTransaction,
@@ -261,11 +185,7 @@ function useQuickPolling({
   onActivityUpdate,
 }: {
   account: { address?: string }
-<<<<<<< HEAD
-  pendingOrders: DEXOrderDetails[]
-=======
   pendingOrders: UniswapXOrderDetails[]
->>>>>>> upstream/main
   onActivityUpdate: OnActivityUpdate
 }) {
   const [delay, setDelay] = useState(QUICK_POLL_INITIAL_INTERVAL)
@@ -320,11 +240,7 @@ function useStandardPolling({
   onActivityUpdate,
 }: {
   account: { address?: string }
-<<<<<<< HEAD
-  pendingOrders: DEXOrderDetails[]
-=======
   pendingOrders: UniswapXOrderDetails[]
->>>>>>> upstream/main
   onActivityUpdate: OnActivityUpdate
 }) {
   const [delay, setDelay] = useState(STANDARD_POLLING_INITIAL_INTERVAL)
@@ -374,11 +290,7 @@ function useStandardPolling({
 
 export function usePollPendingOrders(onActivityUpdate: OnActivityUpdate) {
   const account = useAccount()
-<<<<<<< HEAD
-  const pendingOrders = usePendingDEXOrders()
-=======
   const pendingOrders = usePendingUniswapXOrders()
->>>>>>> upstream/main
 
   useQuickPolling({ account, pendingOrders, onActivityUpdate })
   useStandardPolling({ account, pendingOrders, onActivityUpdate })

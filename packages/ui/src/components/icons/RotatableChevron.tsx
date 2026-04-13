@@ -1,6 +1,6 @@
 import { memo, useMemo } from 'react'
 import { I18nManager } from 'react-native'
-import { ColorTokens } from 'tamagui'
+import { ColorTokens } from '@hanzo/gui'
 import { IconProps } from 'ui/src/components/factories/createIcon'
 import { Chevron } from 'ui/src/components/icons'
 import { Flex, FlexProps } from 'ui/src/components/layout'

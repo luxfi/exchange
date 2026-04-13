@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import { nearestUsableTick, TickMath } from '@luxamm/v3-sdk'
-=======
 import { nearestUsableTick, TickMath } from '@uniswap/v3-sdk'
->>>>>>> upstream/main
 import {
   CHART_BEHAVIOR,
   CHART_DIMENSIONS,

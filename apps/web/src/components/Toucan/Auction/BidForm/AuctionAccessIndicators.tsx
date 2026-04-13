@@ -1,15 +1,3 @@
-<<<<<<< HEAD
-import { KycVerificationStatus } from '@luxamm/client-liquidity/dist/lx/liquidity/v1/types_pb'
-import { useTranslation } from 'react-i18next'
-import { Flex, styled, Text, TouchableArea } from '@l.x/ui/src'
-import { EnvelopeCheck } from '@l.x/ui/src/components/icons/EnvelopeCheck'
-import { EnvelopeLock } from '@l.x/ui/src/components/icons/EnvelopeLock'
-import { UserCheck } from '@l.x/ui/src/components/icons/UserCheck'
-import { UserLock } from '@l.x/ui/src/components/icons/UserLock'
-import { InfoTooltip } from '@l.x/lx/src/components/tooltip/InfoTooltip'
-import { useActiveAddress } from '@l.x/lx/src/features/accounts/store/hooks'
-import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
-=======
 import { KycVerificationStatus } from '@uniswap/client-liquidity/dist/uniswap/liquidity/v1/types_pb'
 import { useTranslation } from 'react-i18next'
 import { Flex, styled, Text, TouchableArea } from 'ui/src'
@@ -20,7 +8,6 @@ import { UserLock } from 'ui/src/components/icons/UserLock'
 import { InfoTooltip } from 'uniswap/src/components/tooltip/InfoTooltip'
 import { useActiveAddress } from 'uniswap/src/features/accounts/store/hooks'
 import { UniverseChainId } from 'uniswap/src/features/chains/types'
->>>>>>> upstream/main
 import { useAuctionKycStatus } from '~/components/Toucan/Auction/hooks/useAuctionKycStatus'
 import { useAuctionStore } from '~/components/Toucan/Auction/store/useAuctionStore'
 

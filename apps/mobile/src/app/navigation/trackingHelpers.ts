@@ -2,11 +2,7 @@ import { DdRumReactNavigationTracking } from '@datadog/mobile-react-navigation'
 import { NavigationContainerRefWithCurrent } from '@react-navigation/core'
 import { NavigationState } from '@react-navigation/native'
 import { navigationRef, navRefs } from 'src/app/navigation/navigationRef'
-<<<<<<< HEAD
-import { datadogEnabledBuild } from '@l.x/utils/src/environment/constants'
-=======
 import { datadogEnabledBuild } from 'utilities/src/environment/constants'
->>>>>>> upstream/main
 
 /**
  * Since we are using multiple navigation containers, we need to start and stop tracking views

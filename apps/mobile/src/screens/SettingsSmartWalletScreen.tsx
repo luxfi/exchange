@@ -1,18 +1,10 @@
 import { useTranslation } from 'react-i18next'
 import { ScreenWithHeader } from 'src/components/layout/screens/ScreenWithHeader'
-<<<<<<< HEAD
-import { Flex, Text } from '@l.x/ui/src'
-import {
-  SmartWalletHelpIcon,
-  SmartWalletSettingsContent,
-} from '@luxfi/wallet/src/features/smartWallet/SmartWalletSettingsContent'
-=======
 import { Flex, Text } from 'ui/src'
 import {
   SmartWalletHelpIcon,
   SmartWalletSettingsContent,
 } from 'wallet/src/features/smartWallet/SmartWalletSettingsContent'
->>>>>>> upstream/main
 
 export function SettingsSmartWalletScreen(): JSX.Element {
   const { t } = useTranslation()

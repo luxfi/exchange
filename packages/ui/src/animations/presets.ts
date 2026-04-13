@@ -1,4 +1,4 @@
-import type { ViewStyle } from 'tamagui'
+import type { ViewStyle } from '@hanzo/gui'
 
 // for now only enter/exit though we can change this in the future to support
 // any type of animation, likely we'd want to split that into multiple files

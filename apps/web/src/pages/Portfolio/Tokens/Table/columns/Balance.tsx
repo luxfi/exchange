@@ -1,16 +1,8 @@
-<<<<<<< HEAD
 import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
-import { memo, useMemo } from 'react'
-import { Text, TextProps } from '@l.x/ui/src'
-import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
-import { NumberType } from '@l.x/utils/src/format/types'
-=======
-import { FeatureFlags, useFeatureFlag } from '@universe/gating'
 import { memo, useMemo } from 'react'
 import { Text, TextProps } from 'ui/src'
 import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
 import { NumberType } from 'utilities/src/format/types'
->>>>>>> upstream/main
 import { EllipsisText } from '~/components/Table/shared/TableText'
 import { ValueWithFadedDecimals } from '~/pages/Portfolio/components/ValueWithFadedDecimals/ValueWithFadedDecimals'
 import { EmptyTableCell } from '~/pages/Portfolio/EmptyTableCell'

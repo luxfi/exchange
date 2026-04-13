@@ -1,16 +1,8 @@
-<<<<<<< HEAD
-import { ProtocolVersion } from '@luxamm/client-data-api/dist/data/v1/poolTypes_pb'
-import { useMemo } from 'react'
-import { useTranslation } from 'react-i18next'
-import { Button, Flex, Switch, Text } from '@l.x/ui/src'
-import { nativeOnChain } from '@l.x/lx/src/constants/tokens'
-=======
 import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
 import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Button, Flex, Switch, Text } from 'ui/src'
 import { nativeOnChain } from 'uniswap/src/constants/tokens'
->>>>>>> upstream/main
 import { ErrorCallout } from '~/components/ErrorCallout'
 import { DepositInputForm } from '~/components/Liquidity/DepositInputForm'
 import { useUpdatedAmountsFromDependentAmount } from '~/components/Liquidity/hooks/useDependentAmountFallback'
@@ -115,19 +107,11 @@ export function IncreaseLiquidityForm() {
 
   const requestLoading = Boolean(
     !dataFetchingError &&
-<<<<<<< HEAD
-      !error &&
-      currencyAmounts?.TOKEN0 &&
-      currencyAmounts.TOKEN1 &&
-      !txInfo?.txRequest &&
-      !fotErrorToken,
-=======
     !error &&
     currencyAmounts?.TOKEN0 &&
     currencyAmounts.TOKEN1 &&
     !txInfo?.txRequest &&
     !fotErrorToken,
->>>>>>> upstream/main
   )
 
   return (

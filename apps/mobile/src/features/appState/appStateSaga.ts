@@ -2,11 +2,7 @@ import { AppState, AppStateStatus } from 'react-native'
 import { EventChannel, eventChannel, SagaIterator } from 'redux-saga'
 import { transitionAppState } from 'src/features/appState/appStateSlice'
 import { cancelled, put, take } from 'typed-redux-saga'
-<<<<<<< HEAD
-import { isAndroid } from '@l.x/utils/src/platform'
-=======
 import { isAndroid } from 'utilities/src/platform'
->>>>>>> upstream/main
 
 //------------------------------
 // appStateSaga
@@ -52,11 +48,7 @@ function appStateSubscription(onChange: (value: AppStateStatus) => void): () => 
   let blurSubscription: ReturnType<typeof AppState.addEventListener> | undefined
   let focusSubscription: ReturnType<typeof AppState.addEventListener> | undefined
 
-<<<<<<< HEAD
-  // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
-=======
   // oxlint-disable-next-line typescript/no-unnecessary-condition
->>>>>>> upstream/main
   if (isAndroid && IS_ANDROID_SUBSCRIPTION_ENABLED) {
     blurSubscription = AppState.addEventListener('blur', () => {
       onChange('inactive' as AppStateStatus)

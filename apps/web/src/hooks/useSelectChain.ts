@@ -1,16 +1,8 @@
-<<<<<<< HEAD
-import { useIsSupportedChainIdCallback } from '@l.x/lx/src/features/chains/hooks/useSupportedChainId'
-import { EVMUniverseChainId, UniverseChainId } from '@l.x/lx/src/features/chains/types'
-import { isSVMChain } from '@l.x/lx/src/features/platforms/utils/chains'
-import { logger } from '@l.x/utils/src/logger/logger'
-import { useEvent } from '@l.x/utils/src/react/hooks'
-=======
 import { useIsSupportedChainIdCallback } from 'uniswap/src/features/chains/hooks/useSupportedChainId'
 import { EVMUniverseChainId, UniverseChainId } from 'uniswap/src/features/chains/types'
 import { isSVMChain } from 'uniswap/src/features/platforms/utils/chains'
 import { logger } from 'utilities/src/logger/logger'
 import { useEvent } from 'utilities/src/react/hooks'
->>>>>>> upstream/main
 import { UserRejectedRequestError } from 'viem'
 import { useSwitchChain as useSwitchChainWagmi } from 'wagmi'
 import { popupRegistry } from '~/components/Popups/registry'

@@ -1,14 +1,8 @@
 import { useEffect, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-<<<<<<< HEAD
-import { Flex, Text, useMedia } from '@l.x/ui/src'
-import { ElementName } from '@l.x/lx/src/features/telemetry/constants'
-import { useEvent } from '@l.x/utils/src/react/hooks'
-=======
 import { Flex, Text, useMedia } from 'ui/src'
 import { ElementName } from 'uniswap/src/features/telemetry/constants'
 import { useEvent } from 'utilities/src/react/hooks'
->>>>>>> upstream/main
 import { Bid } from '~/components/Toucan/Auction/Bids/Bid'
 import { BidDetailsModal } from '~/components/Toucan/Auction/Bids/BidDetailsModal'
 import { BidsSkeleton } from '~/components/Toucan/Auction/Bids/BidsSkeleton'

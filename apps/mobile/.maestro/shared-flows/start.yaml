@@ -1,10 +1,6 @@
 # this flow should be used at the beginning of every flow that tests the app
 # it will generate the test ids and launch the app consistently across all flows
-<<<<<<< HEAD
-appId: com.lux.exchange.dev
-=======
 appId: com.uniswap.mobile.dev
->>>>>>> upstream/main
 ---
 - runScript: ../scripts/dist/testIds.js
 
@@ -33,11 +29,7 @@ appId: com.uniswap.mobile.dev
       true: ${CI != 'true'}
     commands:
       # Launch dev client with disableOnboarding to skip onboarding popup (only works for iOS)
-<<<<<<< HEAD
-      - openLink: "lux://expo-development-client/?url=http://localhost:8081&disableOnboarding=1"
-=======
       - openLink: "uniswap://expo-development-client/?url=http://localhost:8081&disableOnboarding=1"
->>>>>>> upstream/main
       # Wait for app to fully load after deep link
       - waitForAnimationToEnd
       # On Android, disableOnboarding doesn't work - tap the Metro server URL to continue

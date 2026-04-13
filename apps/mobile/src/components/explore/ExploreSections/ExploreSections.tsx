@@ -4,15 +4,9 @@ import {
   TokenRankingsResponse,
   TokenRankingsStat,
   TokenStats,
-<<<<<<< HEAD
-} from '@luxamm/client-explore/dist/lx/explore/v1/service_pb'
-import { ALL_NETWORKS_ARG } from '@luxfi/api'
-import { FeatureFlags, useFeatureFlag } from '@luxfi/gating'
-=======
 } from '@uniswap/client-explore/dist/uniswap/explore/v1/service_pb'
-import { ALL_NETWORKS_ARG } from '@universe/api'
-import { FeatureFlags, useFeatureFlag } from '@universe/gating'
->>>>>>> upstream/main
+import { ALL_NETWORKS_ARG } from '@l.x/api'
+import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import React, { memo, useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import {
@@ -34,27 +28,6 @@ import { SortButton } from 'src/components/explore/SortButton'
 import { TokenItem } from 'src/components/explore/TokenItem'
 import { TokenItemData } from 'src/components/explore/TokenItemData'
 import { getTokenMetadataDisplayType } from 'src/features/explore/utils'
-<<<<<<< HEAD
-import { Flex, Loader, Text } from '@l.x/ui/src'
-import { AnimatedBottomSheetFlashList } from '@l.x/ui/src/components/AnimatedFlashList/AnimatedFlashList'
-import { NoTokens } from '@l.x/ui/src/components/icons'
-import { spacing } from '@l.x/ui/src/theme'
-import { BaseCard } from '@l.x/lx/src/components/BaseCard/BaseCard'
-import { useTokenRankingsQuery } from '@l.x/lx/src/data/rest/tokenRankings'
-import type { UniverseChainId } from '@l.x/lx/src/features/chains/types'
-import { fromGraphQLChain } from '@l.x/lx/src/features/chains/utils'
-import { MobileEventName } from '@l.x/lx/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
-import { useAppInsets } from '@l.x/lx/src/hooks/useAppInsets'
-import { buildCurrencyId, buildNativeCurrencyId } from '@l.x/lx/src/utils/currencyId'
-import { DDRumManualTiming } from '@l.x/utils/src/logger/datadog/datadogEvents'
-import { usePerformanceLogger } from '@l.x/utils/src/logger/usePerformanceLogger'
-import { useEvent } from '@l.x/utils/src/react/hooks'
-import { useInitialLoadingState } from '@l.x/utils/src/react/useInitialLoadingState'
-import { selectTokensOrderBy } from '@luxfi/wallet/src/features/wallet/selectors'
-import { setTokensOrderBy } from '@luxfi/wallet/src/features/wallet/slice'
-import { ExploreOrderBy, TokenMetadataDisplayType } from '@luxfi/wallet/src/features/wallet/types'
-=======
 import { Flex, Loader, Text } from 'ui/src'
 import { AnimatedBottomSheetFlashList } from 'ui/src/components/AnimatedFlashList/AnimatedFlashList'
 import { NoTokens } from 'ui/src/components/icons'
@@ -74,7 +47,6 @@ import { useInitialLoadingState } from 'utilities/src/react/useInitialLoadingSta
 import { selectTokensOrderBy } from 'wallet/src/features/wallet/selectors'
 import { setTokensOrderBy } from 'wallet/src/features/wallet/slice'
 import { ExploreOrderBy, TokenMetadataDisplayType } from 'wallet/src/features/wallet/types'
->>>>>>> upstream/main
 
 const TOKEN_ITEM_SIZE = 68
 const AMOUNT_TO_DRAW = 18
@@ -103,11 +75,7 @@ const renderItem = ({
   )
 }
 
-<<<<<<< HEAD
-function _ExploreSections({
-=======
 function ExploreSectionsInner({
->>>>>>> upstream/main
   listRef,
   showFavorites = true,
   orderByMetric,
@@ -386,11 +354,7 @@ const ListHeader = memo(function ListHeader({
   return (
     <Sortable.Layer>
       {showFavorites && <FavoritesSection showLoading={showLoading} listRef={listRef} />}
-<<<<<<< HEAD
-      <Flex row alignItems="center" justifyContent="space-between" px="$spacing20">
-=======
       <Flex row alignItems="center" justifyContent="space-between" px="$spacing12">
->>>>>>> upstream/main
         <Text color="$neutral2" flexShrink={0} paddingEnd="$spacing8" variant="subheading1">
           {t('explore.tokens.top.title')}
         </Text>
@@ -480,8 +444,4 @@ function useOrderBy(): {
   return { uiOrderBy, orderBy, onOrderByChange }
 }
 
-<<<<<<< HEAD
-export const ExploreSections = memo(_ExploreSections)
-=======
 export const ExploreSections = memo(ExploreSectionsInner)
->>>>>>> upstream/main

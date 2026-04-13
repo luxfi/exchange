@@ -3,21 +3,9 @@ import {
   Metadata,
   Notification,
   OnClick,
-<<<<<<< HEAD
-} from '@luxamm/client-notification-service/dist/lx/notificationservice/v1/api_pb'
+} from '@uniswap/client-notification-service/dist/uniswap/notificationservice/v1/api_pb'
 import { ContentStyle, type InAppNotification, OnClickAction } from '@l.x/api'
 import { type TriggerCondition } from '@l.x/notifications/src/notification-data-source/implementations/createLocalTriggerDataSource'
-import { type MobileState } from 'src/app/mobileReducer'
-import { AccountType } from '@l.x/lx/src/features/accounts/types'
-import { ONE_DAY_MS } from '@l.x/utils/src/time/time'
-import { selectBackupReminderLastSeenTs } from '@luxfi/wallet/src/features/behaviorHistory/selectors'
-import { setBackupReminderLastSeenTs } from '@luxfi/wallet/src/features/behaviorHistory/slice'
-import { hasExternalBackup } from '@luxfi/wallet/src/features/wallet/accounts/utils'
-import { selectActiveAccount } from '@luxfi/wallet/src/features/wallet/selectors'
-=======
-} from '@uniswap/client-notification-service/dist/uniswap/notificationservice/v1/api_pb'
-import { ContentStyle, type InAppNotification, OnClickAction } from '@universe/api'
-import { type TriggerCondition } from '@universe/notifications/src/notification-data-source/implementations/createLocalTriggerDataSource'
 import { type MobileState } from 'src/app/mobileReducer'
 import { AccountType } from 'uniswap/src/features/accounts/types'
 import { ONE_DAY_MS } from 'utilities/src/time/time'
@@ -25,7 +13,6 @@ import { selectBackupReminderLastSeenTs } from 'wallet/src/features/behaviorHist
 import { setBackupReminderLastSeenTs } from 'wallet/src/features/behaviorHistory/slice'
 import { hasExternalBackup } from 'wallet/src/features/wallet/accounts/utils'
 import { selectActiveAccount } from 'wallet/src/features/wallet/selectors'
->>>>>>> upstream/main
 
 /**
  * Minimum portfolio value in USD to show the backup reminder

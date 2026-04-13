@@ -1,18 +1,4 @@
-<<<<<<< HEAD
 import { GraphQLApi } from '@l.x/api'
-import { useCallback } from 'react'
-import { useAllCommonBaseCurrencies } from '@l.x/lx/src/components/TokenSelector/hooks/useAllCommonBaseCurrencies'
-import { MELD_NATIVE_SOL_ADDRESS_SOLANA } from '@l.x/lx/src/features/chains/svm/defaults'
-import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
-import { isUniverseChainId } from '@l.x/lx/src/features/chains/utils'
-import { CurrencyInfo, TokenList } from '@l.x/lx/src/features/dataApi/types'
-import { buildCurrencyInfo } from '@l.x/lx/src/features/dataApi/utils/buildCurrency'
-import { getCurrencySafetyInfo } from '@l.x/lx/src/features/dataApi/utils/getCurrencySafetyInfo'
-import { FORSupportedToken } from '@l.x/lx/src/features/fiatOnRamp/types'
-import { areAddressesEqual } from '@l.x/lx/src/utils/addresses'
-import { currencyId } from '@l.x/lx/src/utils/currencyId'
-=======
-import { GraphQLApi } from '@universe/api'
 import { useCallback } from 'react'
 import { useAllCommonBaseCurrencies } from 'uniswap/src/components/TokenSelector/hooks/useAllCommonBaseCurrencies'
 import { MELD_NATIVE_SOL_ADDRESS_SOLANA } from 'uniswap/src/features/chains/svm/defaults'
@@ -24,7 +10,6 @@ import { getCurrencySafetyInfo } from 'uniswap/src/features/dataApi/utils/getCur
 import { FORSupportedToken } from 'uniswap/src/features/fiatOnRamp/types'
 import { areAddressesEqual } from 'uniswap/src/utils/addresses'
 import { currencyId } from 'uniswap/src/utils/currencyId'
->>>>>>> upstream/main
 import { fiatOnRampToCurrency, gqlToCurrency, PricePoint } from '~/appGraphql/data/util'
 
 // TODO(WEB-3839): replace all usage of Currency in the web app with CurrencyInfo

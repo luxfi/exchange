@@ -2,15 +2,9 @@ import { useEffect, useMemo } from 'react'
 import { Helmet } from 'react-helmet-async/lib/index'
 import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router'
-<<<<<<< HEAD
-import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
-import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
-import { NumberType } from '@l.x/utils/src/format/types'
-=======
 import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
 import { ModalName } from 'uniswap/src/features/telemetry/constants'
 import { NumberType } from 'utilities/src/format/types'
->>>>>>> upstream/main
 import { useScroll } from '~/hooks/useScroll'
 import { useScrollCompact } from '~/hooks/useScrollCompact'
 import { ExploreTab } from '~/pages/Explore/constants'

@@ -1,17 +1,6 @@
 import { navigationRef } from 'src/app/navigation/navigationRef'
 import { store } from 'src/app/store'
 import { MOBILE_NAV_PREFIX, UNITAG_NAV_PREFIX } from 'src/notification-service/data-sources/banners/types'
-<<<<<<< HEAD
-import { getNativeAddress } from '@l.x/lx/src/constants/addresses'
-import { AssetType } from '@l.x/lx/src/entities/assets'
-import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
-import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
-import { CurrencyField } from '@l.x/lx/src/types/currency'
-import { ImportType, OnboardingEntryPoint } from '@l.x/lx/src/types/onboarding'
-import { MobileScreens, OnboardingScreens, UnitagScreens } from '@l.x/lx/src/types/screens/mobile'
-import { openUri } from '@l.x/lx/src/utils/linking'
-import { getLogger } from '@l.x/utils/src/logger/logger'
-=======
 import { getNativeAddress } from 'uniswap/src/constants/addresses'
 import { AssetType } from 'uniswap/src/entities/assets'
 import { UniverseChainId } from 'uniswap/src/features/chains/types'
@@ -21,7 +10,6 @@ import { ImportType, OnboardingEntryPoint } from 'uniswap/src/types/onboarding'
 import { MobileScreens, OnboardingScreens, UnitagScreens } from 'uniswap/src/types/screens/mobile'
 import { openUri } from 'uniswap/src/utils/linking'
 import { getLogger } from 'utilities/src/logger/logger'
->>>>>>> upstream/main
 
 /**
  * Chain name to UniverseChainId mapping for swap navigation
@@ -43,11 +31,7 @@ function handleMobileNavigation(url: string, path: string): void {
   // Handle mobile://modal/{ModalName} pattern for direct modal navigation
   if (path.startsWith('modal/')) {
     const modalName = path.replace('modal/', '')
-<<<<<<< HEAD
-    // biome-ignore lint/suspicious/noExplicitAny: Navigation refs need flexible typing for dynamic routes
-=======
     // oxlint-disable-next-line typescript/no-explicit-any -- Navigation refs need flexible typing for dynamic routes
->>>>>>> upstream/main
     navigationRef.navigate(modalName as any)
     return
   }
@@ -96,11 +80,7 @@ function handleMobileNavigation(url: string, path: string): void {
       selectingCurrencyChainId: selectingChainId,
     }
 
-<<<<<<< HEAD
-    // biome-ignore lint/suspicious/noExplicitAny: Navigation refs need flexible typing for dynamic routes
-=======
     // oxlint-disable-next-line typescript/no-explicit-any -- Navigation refs need flexible typing for dynamic routes
->>>>>>> upstream/main
     navigationRef.navigate(ModalName.Swap as any, initialState)
     return
   }
@@ -111,11 +91,7 @@ function handleMobileNavigation(url: string, path: string): void {
     const chainParam = urlObj.searchParams.get('chain')
     const chainId = chainParam ? CHAIN_ID_MAP[chainParam.toLowerCase()] : undefined
 
-<<<<<<< HEAD
-    // biome-ignore lint/suspicious/noExplicitAny: Navigation refs need flexible typing for dynamic routes
-=======
     // oxlint-disable-next-line typescript/no-explicit-any -- Navigation refs need flexible typing for dynamic routes
->>>>>>> upstream/main
     navigationRef.navigate(ModalName.Explore as any, {
       screen: MobileScreens.Explore,
       params: { chainId },
@@ -125,11 +101,7 @@ function handleMobileNavigation(url: string, path: string): void {
 
   // Handle mobile://backup pattern for backup flow navigation
   if (path === 'backup') {
-<<<<<<< HEAD
-    // biome-ignore lint/suspicious/noExplicitAny: Navigation refs need flexible typing for dynamic routes
-=======
     // oxlint-disable-next-line typescript/no-explicit-any -- Navigation refs need flexible typing for dynamic routes
->>>>>>> upstream/main
     navigationRef.navigate(MobileScreens.OnboardingStack as any, {
       screen: OnboardingScreens.Backup,
       params: {
@@ -147,21 +119,12 @@ function handleMobileNavigation(url: string, path: string): void {
   // e.g., "SettingsStack/SettingsViewSeedPhrase" → navigate(SettingsStack, { screen: SettingsViewSeedPhrase })
   if (parts.length >= 2) {
     const [stack, screen] = parts
-<<<<<<< HEAD
-    // biome-ignore lint/suspicious/noExplicitAny: Navigation refs need flexible typing for dynamic routes
-    const screenParams: any = { screen }
-    // biome-ignore lint/suspicious/noExplicitAny: Navigation refs need flexible typing for dynamic routes
-    navigationRef.navigate(stack as any, screenParams)
-  } else if (parts.length === 1) {
-    // biome-ignore lint/suspicious/noExplicitAny: Navigation refs need flexible typing for dynamic routes
-=======
     // oxlint-disable-next-line typescript/no-explicit-any -- Navigation refs need flexible typing for dynamic routes
     const screenParams: any = { screen }
     // oxlint-disable-next-line typescript/no-explicit-any -- Navigation refs need flexible typing for dynamic routes
     navigationRef.navigate(stack as any, screenParams)
   } else if (parts.length === 1) {
     // oxlint-disable-next-line typescript/no-explicit-any -- Navigation refs need flexible typing for dynamic routes
->>>>>>> upstream/main
     navigationRef.navigate(parts[0] as any)
   }
 }
@@ -190,11 +153,7 @@ function handleUnitagNavigation(url: string, screen: string): void {
     return
   }
 
-<<<<<<< HEAD
-  // biome-ignore lint/suspicious/noExplicitAny: Navigation refs need flexible typing for dynamic routes
-=======
   // oxlint-disable-next-line typescript/no-explicit-any -- Navigation refs need flexible typing for dynamic routes
->>>>>>> upstream/main
   const params: any = {
     screen: UnitagScreens.ClaimUnitag,
     params: {
@@ -202,11 +161,7 @@ function handleUnitagNavigation(url: string, screen: string): void {
       address: activeAddress,
     },
   }
-<<<<<<< HEAD
-  // biome-ignore lint/suspicious/noExplicitAny: Navigation refs need flexible typing for dynamic routes
-=======
   // oxlint-disable-next-line typescript/no-explicit-any -- Navigation refs need flexible typing for dynamic routes
->>>>>>> upstream/main
   navigationRef.navigate(MobileScreens.UnitagStack as any, params)
 }
 

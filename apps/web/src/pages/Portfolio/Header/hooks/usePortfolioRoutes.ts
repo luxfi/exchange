@@ -1,18 +1,9 @@
-<<<<<<< HEAD
 import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
-import { useEffect, useMemo } from 'react'
-import { useLocation, useNavigate, useSearchParams } from 'react-router'
-import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
-import { PlatformAddress } from '@l.x/lx/src/features/platforms/types/PlatformSpecificAddress'
-import { getPlatformAddress } from '@l.x/lx/src/features/platforms/utils/addresses'
-=======
-import { FeatureFlags, useFeatureFlag } from '@universe/gating'
 import { useEffect, useMemo } from 'react'
 import { useLocation, useNavigate, useSearchParams } from 'react-router'
 import { UniverseChainId } from 'uniswap/src/features/chains/types'
 import { PlatformAddress } from 'uniswap/src/features/platforms/types/PlatformSpecificAddress'
 import { getPlatformAddress } from 'uniswap/src/features/platforms/utils/addresses'
->>>>>>> upstream/main
 import { useActiveAddresses } from '~/features/accounts/store/hooks'
 import { isPortfolioTab, PortfolioTab } from '~/pages/Portfolio/types'
 import { buildPortfolioUrl, pathToPortfolioTab } from '~/pages/Portfolio/utils/portfolioUrls'

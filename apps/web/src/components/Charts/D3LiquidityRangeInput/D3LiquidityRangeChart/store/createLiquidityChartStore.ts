@@ -1,12 +1,6 @@
-<<<<<<< HEAD
-import { ProtocolVersion } from '@luxamm/client-data-api/dist/data/v1/poolTypes_pb'
-import { Currency } from '@luxamm/sdk-core'
-import { GraphQLApi } from '@l.x/api'
-=======
 import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
 import { Currency } from '@uniswap/sdk-core'
-import { GraphQLApi } from '@universe/api'
->>>>>>> upstream/main
+import { GraphQLApi } from '@l.x/api'
 import type { StoreApi, UseBoundStore } from 'zustand'
 import { create } from 'zustand'
 import { devtools, subscribeWithSelector } from 'zustand/middleware'

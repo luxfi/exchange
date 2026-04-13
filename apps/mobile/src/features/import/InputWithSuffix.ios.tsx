@@ -1,13 +1,7 @@
 import { InputWithSuffixProps } from 'src/features/import/InputWIthSuffixProps'
-<<<<<<< HEAD
-import { Flex } from '@l.x/ui/src'
-import { TextInput } from '@l.x/lx/src/components/input/TextInput'
-import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
-=======
 import { Flex } from 'ui/src'
 import { TextInput } from 'uniswap/src/components/input/TextInput'
 import { TestID } from 'uniswap/src/test/fixtures/testIDs'
->>>>>>> upstream/main
 
 export default function InputWithSuffix({
   alwaysShowInputSuffix = false,

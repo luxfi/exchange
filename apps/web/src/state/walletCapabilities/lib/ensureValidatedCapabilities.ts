@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import { ensure0xHex, type HexString, isValidHexString, numberToHex } from '@l.x/utils/src/addresses/hex'
-=======
 import { ensure0xHex, type HexString, isValidHexString, numberToHex } from 'utilities/src/addresses/hex'
->>>>>>> upstream/main
 import { ChainCapabilities, GetCapabilitiesResult } from '~/state/walletCapabilities/lib/types'
 
 /**

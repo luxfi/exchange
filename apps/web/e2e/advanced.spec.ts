@@ -2,8 +2,8 @@
  * Lux Exchange - Advanced Trading Page E2E Tests
  *
  * Tests the advanced trading terminal at /#/advanced.
- * The TradePage renders pool data from the V3 subgraph with automatic
- * fallback to on-chain contract data when the subgraph is unreachable.
+ * The TradePage renders pool data from the luxfi/graph engine with automatic
+ * fallback to on-chain contract data when the graph engine is unreachable.
  * All tests run unconditionally -- data is always available.
  *
  * Usage:
@@ -38,7 +38,7 @@ async function hasVisibleText(page: import('@playwright/test').Page, text: strin
 test.describe('Advanced Trading Page @critical', () => {
   test.beforeEach(async ({ page }) => {
     await page.goto('/#/advanced')
-    // Wait for data to load (subgraph or fallback)
+    // Wait for data to load (graph engine or fallback)
     await page.waitForTimeout(8000)
   })
 

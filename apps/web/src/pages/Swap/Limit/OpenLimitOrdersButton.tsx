@@ -1,20 +1,11 @@
 import { ReactNode } from 'react'
 import { Trans, useTranslation } from 'react-i18next'
-<<<<<<< HEAD
-import { Flex, Text, TouchableArea } from '@l.x/ui/src'
-import { Arrow } from '@l.x/ui/src/components/arrow/Arrow'
-import { Clock } from '@l.x/ui/src/components/icons/Clock'
-import { iconSizes } from '@l.x/ui/src/theme'
-import { useOpenLimitOrders } from '~/components/AccountDrawer/MiniPortfolio/Activity/hooks'
-import { ClickableGuiStyle } from '~/theme/components/styles'
-=======
 import { Flex, Text, TouchableArea } from 'ui/src'
 import { Arrow } from 'ui/src/components/arrow/Arrow'
 import { Clock } from 'ui/src/components/icons/Clock'
 import { iconSizes } from 'ui/src/theme'
 import { useOpenLimitOrders } from '~/components/AccountDrawer/MiniPortfolio/Activity/hooks'
 import { ClickableTamaguiStyle } from '~/theme/components/styles'
->>>>>>> upstream/main
 
 function getExtraWarning(openLimitOrders: any[]) {
   if (openLimitOrders.length >= 100) {
@@ -47,11 +38,7 @@ function TabButton({ text, icon, extraWarning, onClick, disabled }: TabButtonPro
       justifyContent="space-between"
       alignItems="center"
       mt="$spacing12"
-<<<<<<< HEAD
-      {...ClickableGuiStyle}
-=======
       {...ClickableTamaguiStyle}
->>>>>>> upstream/main
     >
       <Flex row justifyContent="space-between" alignItems="center" gap="$spacing12" width="100%">
         <Flex row gap="$spacing8">

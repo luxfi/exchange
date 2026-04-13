@@ -29,10 +29,6 @@ const RiseInStyles = css<{ count?: number; delay?: number }>`
 
 export const RiseInText = deprecatedStyled.span<{ delay?: number }>`
   display: inline-flex;
-<<<<<<< HEAD
-  color: #FFFFFF;
-=======
->>>>>>> upstream/main
   ${RiseInStyles}
 `
 

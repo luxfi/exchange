@@ -1,23 +1,11 @@
-<<<<<<< HEAD
-import { ChartPeriod } from '@luxamm/client-data-api/dist/data/v1/api_pb'
-import { LinearGradient } from 'expo-linear-gradient'
-import { TFunction } from 'i18next'
-=======
 import { ChartPeriod } from '@uniswap/client-data-api/dist/data/v1/api_pb'
 import { LinearGradient } from 'expo-linear-gradient'
->>>>>>> upstream/main
 import { memo, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { I18nManager, StyleSheet } from 'react-native'
 import { DotGrid } from 'src/components/charts/DotGrid'
 import { type ChartData, SparklineChart } from 'src/components/home/PortfolioChart/SparklineChart'
 import { Loader } from 'src/components/loading/loaders'
-<<<<<<< HEAD
-import { Flex, Separator, Text, TouchableArea, useSporeColors } from '@l.x/ui/src'
-import { useDeviceDimensions } from '@l.x/ui/src/hooks/useDeviceDimensions'
-import { opacify } from '@l.x/ui/src/theme'
-import { TestID } from 'lx/src/test/fixtures/testIDs'
-=======
 import { Flex, Separator, Text, TouchableArea, useSporeColors } from 'ui/src'
 import { useDeviceDimensions } from 'ui/src/hooks/useDeviceDimensions'
 import { opacify } from 'ui/src/theme'
@@ -29,7 +17,6 @@ import {
 } from 'uniswap/src/features/portfolio/chartPeriod'
 import { Trace } from 'uniswap/src/features/telemetry/Trace'
 import { TestID } from 'uniswap/src/test/fixtures/testIDs'
->>>>>>> upstream/main
 
 const EXPANDED_CHART_HEIGHT = 180
 const COLLAPSED_CHART_VISIBLE_HEIGHT = 70
@@ -39,57 +26,6 @@ const GRADIENT_WIDTH = 40
 // Horizontal padding: 24px each side from contentHeader + wrapper padding layers
 const CHART_HORIZONTAL_PADDING = 48
 
-<<<<<<< HEAD
-export const PERIOD_OPTIONS: ChartPeriod[] = [
-  ChartPeriod.HOUR,
-  ChartPeriod.DAY,
-  ChartPeriod.WEEK,
-  ChartPeriod.MONTH,
-  ChartPeriod.YEAR,
-  ChartPeriod.MAX,
-]
-
-// TODO(CONS-1374): move periodToTestIdSuffixValue and periodToLabel to shared lx package
-function periodToTestIdSuffixValue(period: ChartPeriod): string {
-  switch (period) {
-    case ChartPeriod.HOUR:
-      return '1h'
-    case ChartPeriod.DAY:
-      return '1d'
-    case ChartPeriod.WEEK:
-      return '1w'
-    case ChartPeriod.MONTH:
-      return '1m'
-    case ChartPeriod.YEAR:
-      return '1y'
-    case ChartPeriod.MAX:
-      return 'all'
-    default:
-      return 'unknown'
-  }
-}
-
-function periodToLabel(t: TFunction, period: ChartPeriod): string {
-  switch (period) {
-    case ChartPeriod.HOUR:
-      return t('token.priceExplorer.timeRangeLabel.hour')
-    case ChartPeriod.DAY:
-      return t('token.priceExplorer.timeRangeLabel.day')
-    case ChartPeriod.WEEK:
-      return t('token.priceExplorer.timeRangeLabel.week')
-    case ChartPeriod.MONTH:
-      return t('token.priceExplorer.timeRangeLabel.month')
-    case ChartPeriod.YEAR:
-      return t('token.priceExplorer.timeRangeLabel.year')
-    case ChartPeriod.MAX:
-      return t('common.all')
-    default:
-      return ''
-  }
-}
-
-=======
->>>>>>> upstream/main
 interface PortfolioChartProps {
   data: ChartData
   loading: boolean
@@ -197,33 +133,6 @@ export const PortfolioChart = memo(function PortfolioChart({
 
       {/* Time range selector */}
       <Flex row>
-<<<<<<< HEAD
-        {PERIOD_OPTIONS.map((period) => {
-          const isSelected = period === chartPeriod
-          const periodIdSuffix = periodToTestIdSuffixValue(period)
-          return (
-            <TouchableArea key={period} flex={1} alignItems="center" onPress={() => onChartPeriodChange(period)}>
-              <Flex
-                alignItems="center"
-                justifyContent="center"
-                px={isSelected ? '$spacing8' : '$none'}
-                py="$spacing6"
-                borderRadius="$rounded16"
-                backgroundColor={isSelected ? '$surface3' : undefined}
-                testID={isSelected ? `${TestID.PortfolioChartSelectedPeriodPrefix}${periodIdSuffix}` : undefined}
-              >
-                <Text
-                  allowFontScaling={false}
-                  numberOfLines={1}
-                  testID={`${TestID.PortfolioChartPeriodPrefix}${periodIdSuffix}`}
-                  variant="buttonLabel3"
-                  color={isSelected ? '$neutral1' : '$neutral2'}
-                >
-                  {periodToLabel(t, period)}
-                </Text>
-              </Flex>
-            </TouchableArea>
-=======
         {CHART_PERIOD_OPTIONS.map((period) => {
           const isSelected = period === chartPeriod
           const periodIdSuffix = chartPeriodToTestIdSuffix(period)
@@ -251,7 +160,6 @@ export const PortfolioChart = memo(function PortfolioChart({
                 </Flex>
               </TouchableArea>
             </Trace>
->>>>>>> upstream/main
           )
         })}
       </Flex>

@@ -1,24 +1,8 @@
-<<<<<<< HEAD
-import { FeatureFlags, useFeatureFlag } from '@luxfi/gating'
-=======
-import { FeatureFlags, useFeatureFlag } from '@universe/gating'
->>>>>>> upstream/main
+import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { memo, useCallback, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { KeyboardAvoidingView } from 'react-native-keyboard-controller'
 import { ESTIMATED_BOTTOM_TABS_HEIGHT } from 'src/app/navigation/tabs/CustomTabBar/constants'
-<<<<<<< HEAD
-import { Flex, flexStyles, Text, TouchableArea } from '@l.x/ui/src'
-import { spacing } from '@l.x/ui/src/theme'
-import type { UniverseChainId } from '@l.x/lx/src/features/chains/types'
-import { SearchModalNoQueryList } from '@l.x/lx/src/features/search/SearchModal/SearchModalNoQueryList'
-import { SearchModalResultsList } from '@l.x/lx/src/features/search/SearchModal/SearchModalResultsList'
-import { MOBILE_SEARCH_TABS, SearchTab } from '@l.x/lx/src/features/search/SearchModal/types'
-import { ElementName, SectionName } from '@l.x/lx/src/features/telemetry/constants'
-import Trace from '@l.x/lx/src/features/telemetry/Trace'
-import { useAppInsets } from '@l.x/lx/src/hooks/useAppInsets'
-import { useDebounce } from '@l.x/utils/src/time/timing'
-=======
 import { Flex, flexStyles, Text, TouchableArea } from 'ui/src'
 import { spacing } from 'ui/src/theme'
 import type { UniverseChainId } from 'uniswap/src/features/chains/types'
@@ -29,7 +13,6 @@ import { ElementName, SectionName } from 'uniswap/src/features/telemetry/constan
 import Trace from 'uniswap/src/features/telemetry/Trace'
 import { useAppInsets } from 'uniswap/src/hooks/useAppInsets'
 import { useDebounce } from 'utilities/src/time/timing'
->>>>>>> upstream/main
 
 const MobileSearchTab = ({
   tab,
@@ -57,28 +40,16 @@ const MobileSearchTab = ({
   )
 }
 
-<<<<<<< HEAD
-export const ExploreScreenSearchResultsList = memo(function _ExploreScreenSearchResultsList({
-=======
 export const ExploreScreenSearchResultsList = memo(function ExploreScreenSearchResultsListInner({
->>>>>>> upstream/main
   searchQuery,
   parsedSearchQuery,
   chainFilter,
   parsedChainFilter,
-<<<<<<< HEAD
-  onResetChainFilter,
-=======
->>>>>>> upstream/main
 }: {
   searchQuery: string
   parsedSearchQuery: string | null
   chainFilter: UniverseChainId | null
   parsedChainFilter: UniverseChainId | null
-<<<<<<< HEAD
-  onResetChainFilter?: () => void
-=======
->>>>>>> upstream/main
 }): JSX.Element {
   const debouncedSearchQuery = useDebounce(searchQuery)
   const debouncedParsedSearchQuery = useDebounce(parsedSearchQuery)
@@ -89,11 +60,7 @@ export const ExploreScreenSearchResultsList = memo(function ExploreScreenSearchR
 
   const getTabLabel = useCallback(
     // So that the linter errors if someone adds a new tab without updating the switch statement
-<<<<<<< HEAD
-    // eslint-disable-next-line consistent-return
-=======
     // oxlint-disable-next-line consistent-return
->>>>>>> upstream/main
     (tab: SearchTab): string => {
       switch (tab) {
         case SearchTab.All:
@@ -109,14 +76,6 @@ export const ExploreScreenSearchResultsList = memo(function ExploreScreenSearchR
     [t],
   )
 
-<<<<<<< HEAD
-  const onResetFilters = useCallback(() => {
-    setActiveTab(SearchTab.All)
-    onResetChainFilter?.()
-  }, [onResetChainFilter])
-
-=======
->>>>>>> upstream/main
   const contentContainerStyle = useMemo(
     () => ({
       paddingBottom: (isBottomTabsEnabled ? ESTIMATED_BOTTOM_TABS_HEIGHT + spacing.spacing32 : 0) + insets.bottom,
@@ -148,10 +107,6 @@ export const ExploreScreenSearchResultsList = memo(function ExploreScreenSearchR
             activeTab={activeTab}
             renderedInModal={!isBottomTabsEnabled}
             contentContainerStyle={contentContainerStyle}
-<<<<<<< HEAD
-            onResetFilters={onResetFilters}
-=======
->>>>>>> upstream/main
           />
         ) : (
           <SearchModalNoQueryList

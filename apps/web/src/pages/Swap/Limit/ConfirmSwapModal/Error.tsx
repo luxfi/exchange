@@ -1,24 +1,13 @@
 import { Trans, useTranslation } from 'react-i18next'
-<<<<<<< HEAD
-import { Button, Flex, Text } from '@l.x/ui/src'
-import { LearnMoreLink } from '@l.x/lx/src/components/text/LearnMoreLink'
-import { lxUrls } from '@l.x/lx/src/constants/urls'
-import { ExplorerDataType, getExplorerLink } from '@l.x/lx/src/utils/linking'
-=======
 import { Button, Flex, Text } from 'ui/src'
 import { LearnMoreLink } from 'uniswap/src/components/text/LearnMoreLink'
 import { uniswapUrls } from 'uniswap/src/constants/urls'
 import { ExplorerDataType, getExplorerLink } from 'uniswap/src/utils/linking'
->>>>>>> upstream/main
 import AlertTriangleFilled from '~/components/Icons/AlertTriangleFilled'
 import { SwapResult } from '~/hooks/useSwapCallback'
 import { TradeSummary } from '~/pages/Swap/Limit/ConfirmSwapModal/TradeSummary'
 import { InterfaceTrade, TradeFillType } from '~/state/routing/types'
-<<<<<<< HEAD
-import { isLimitTrade, isLXTrade } from '~/state/routing/utils'
-=======
 import { isLimitTrade, isUniswapXTrade } from '~/state/routing/utils'
->>>>>>> upstream/main
 import { ExternalLink } from '~/theme/components/Links'
 
 export enum PendingModalError {
@@ -47,67 +36,40 @@ function getErrorContent({ errorType, trade }: { errorType: PendingModalError; t
       return {
         title: <Trans i18nKey="error.tokenApproval" />,
         message: <Trans i18nKey="error.tokenApproval.message" />,
-<<<<<<< HEAD
-        supportArticleURL: lxUrls.helpArticleUrls.approvalsExplainer,
-=======
         supportArticleURL: uniswapUrls.helpArticleUrls.approvalsExplainer,
->>>>>>> upstream/main
       }
     case PendingModalError.PERMIT_ERROR:
       return {
         title: <Trans i18nKey="permit.approval.fail" />,
         message: <Trans i18nKey="permit.approval.fail.message" />,
-<<<<<<< HEAD
-        supportArticleURL: lxUrls.helpArticleUrls.approvalsExplainer,
-=======
         supportArticleURL: uniswapUrls.helpArticleUrls.approvalsExplainer,
->>>>>>> upstream/main
       }
     case PendingModalError.XV2_HARD_QUOTE_ERROR:
       return {
         title: <Trans i18nKey="common.swap.failed" />,
-<<<<<<< HEAD
-        message: <Trans i18nKey="swap.fail.dex" />,
-        supportArticleURL: lxUrls.helpArticleUrls.dexFailure,
-=======
         message: <Trans i18nKey="swap.fail.uniswapX" />,
         supportArticleURL: uniswapUrls.helpArticleUrls.uniswapXFailure,
->>>>>>> upstream/main
       }
     case PendingModalError.CONFIRMATION_ERROR:
       if (isLimitTrade(trade)) {
         return {
           title: <Trans i18nKey="common.limit.failed" />,
-<<<<<<< HEAD
-          supportArticleURL: lxUrls.helpArticleUrls.limitsFailure,
-=======
           supportArticleURL: uniswapUrls.helpArticleUrls.limitsFailure,
->>>>>>> upstream/main
         }
       } else {
         return {
           title: <Trans i18nKey="common.swap.failed" />,
           message: <Trans i18nKey="swap.fail.message" />,
-<<<<<<< HEAD
-          supportArticleURL: isLXTrade(trade)
-            ? lxUrls.helpArticleUrls.dexFailure
-            : lxUrls.helpArticleUrls.transactionFailure,
-=======
           supportArticleURL: isUniswapXTrade(trade)
             ? uniswapUrls.helpArticleUrls.uniswapXFailure
             : uniswapUrls.helpArticleUrls.transactionFailure,
->>>>>>> upstream/main
         }
       }
     case PendingModalError.WRAP_ERROR:
       return {
         title: <Trans i18nKey="common.wrap.failed" />,
         message: <Trans i18nKey="token.wrap.fail.message" />,
-<<<<<<< HEAD
-        supportArticleURL: lxUrls.helpArticleUrls.wethExplainer,
-=======
         supportArticleURL: uniswapUrls.helpArticleUrls.wethExplainer,
->>>>>>> upstream/main
       }
     default:
       return {
@@ -117,11 +79,7 @@ function getErrorContent({ errorType, trade }: { errorType: PendingModalError; t
   }
 }
 
-<<<<<<< HEAD
-// biome-ignore lint/suspicious/noShadowRestrictedNames: Error is appropriate component name here
-=======
 // oxlint-disable-next-line no-shadow-restricted-names -- Error is appropriate component name here
->>>>>>> upstream/main
 export default function Error({ errorType, trade, showTrade, swapResult, onRetry }: ErrorModalContentProps) {
   const { title, message, supportArticleURL } = getErrorContent({ errorType, trade })
   const { t } = useTranslation()

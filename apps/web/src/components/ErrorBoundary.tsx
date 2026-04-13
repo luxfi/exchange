@@ -1,19 +1,11 @@
 import { ErrorBoundary as DatadogErrorBoundary } from '@datadog/browser-rum-react'
 import { type PropsWithChildren, useCallback, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-<<<<<<< HEAD
-import { Button, Flex, Switch, Text, TouchableArea } from '@l.x/ui/src'
-import { CopyAlt } from '@l.x/ui/src/components/icons/CopyAlt'
-import { RotatableChevron } from '@l.x/ui/src/components/icons/RotatableChevron'
-import { lxUrls } from '@l.x/lx/src/constants/urls'
-import { logger } from '@l.x/utils/src/logger/logger'
-=======
 import { Button, Flex, Switch, Text, TouchableArea } from 'ui/src'
 import { CopyAlt } from 'ui/src/components/icons/CopyAlt'
 import { RotatableChevron } from 'ui/src/components/icons/RotatableChevron'
 import { uniswapUrls } from 'uniswap/src/constants/urls'
 import { logger } from 'utilities/src/logger/logger'
->>>>>>> upstream/main
 import { useIsMobile } from '~/hooks/screenSize/useIsMobile'
 import { deprecatedStyled } from '~/lib/deprecated-styled'
 import { persistor } from '~/state'
@@ -106,11 +98,7 @@ const Fallback = ({ error, eventId }: { error: Error; eventId: string | null }) 
           <ExternalLink
             style={{ flexGrow: 1, flexBasis: 0 }}
             id="get-support-on-discord"
-<<<<<<< HEAD
-            href={lxUrls.helpRequestUrl}
-=======
             href={uniswapUrls.helpRequestUrl}
->>>>>>> upstream/main
             target="_blank"
           >
             <Flex row>

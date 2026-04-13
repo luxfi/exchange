@@ -6,18 +6,6 @@ import { AppStackScreenProp } from 'src/app/navigation/types'
 import { useReactNavigationModal } from 'src/components/modals/useReactNavigationModal'
 import { WalletRestoreType } from 'src/components/RestoreWalletModal/RestoreWalletModalState'
 import { closeAllModals } from 'src/features/modals/modalSlice'
-<<<<<<< HEAD
-import { Button, Flex, useSporeColors } from '@l.x/ui/src'
-import { ArrowDownCircleFilledWithBorder, WalletFilled } from '@l.x/ui/src/components/icons'
-import { spacing } from '@l.x/ui/src/theme'
-import { GenericHeader } from '@l.x/lx/src/components/misc/GenericHeader'
-import { Modal } from '@l.x/lx/src/components/modals/Modal'
-import { ElementName, ModalName } from '@l.x/lx/src/features/telemetry/constants'
-import Trace from '@l.x/lx/src/features/telemetry/Trace'
-import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
-import { ImportType, OnboardingEntryPoint } from '@l.x/lx/src/types/onboarding'
-import { MobileScreens, OnboardingScreens } from '@l.x/lx/src/types/screens/mobile'
-=======
 import { Button, Flex, useSporeColors } from 'ui/src'
 import { ArrowDownCircleFilledWithBorder, WalletFilled } from 'ui/src/components/icons'
 import { spacing } from 'ui/src/theme'
@@ -28,7 +16,6 @@ import Trace from 'uniswap/src/features/telemetry/Trace'
 import { TestID } from 'uniswap/src/test/fixtures/testIDs'
 import { ImportType, OnboardingEntryPoint } from 'uniswap/src/types/onboarding'
 import { MobileScreens, OnboardingScreens } from 'uniswap/src/types/screens/mobile'
->>>>>>> upstream/main
 
 const CONTAINER_HEIGHT = 160
 const OUTER_RING_SIZE = 260

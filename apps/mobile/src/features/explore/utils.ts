@@ -1,12 +1,6 @@
-<<<<<<< HEAD
-import { CustomRankingType, RankingType } from '@luxfi/api'
-import { AppTFunction } from '@l.x/ui/src/i18n/types'
-import { ExploreOrderBy, TokenMetadataDisplayType } from '@luxfi/wallet/src/features/wallet/types'
-=======
-import { CustomRankingType, RankingType } from '@universe/api'
+import { CustomRankingType, RankingType } from '@l.x/api'
 import { AppTFunction } from 'ui/src/i18n/types'
 import { ExploreOrderBy, TokenMetadataDisplayType } from 'wallet/src/features/wallet/types'
->>>>>>> upstream/main
 
 export function getTokenMetadataDisplayType(orderBy: ExploreOrderBy): TokenMetadataDisplayType {
   switch (orderBy) {

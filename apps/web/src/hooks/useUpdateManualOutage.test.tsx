@@ -1,14 +1,8 @@
 import { ApolloError } from '@apollo/client'
 import { renderHook } from '@testing-library/react'
-<<<<<<< HEAD
 import { GraphQLApi } from '@l.x/api'
-import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
-import { useIsOffline } from '@l.x/utils/src/connection/useIsOffline'
-=======
-import { GraphQLApi } from '@universe/api'
 import { UniverseChainId } from 'uniswap/src/features/chains/types'
 import { useIsOffline } from 'utilities/src/connection/useIsOffline'
->>>>>>> upstream/main
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { useUpdateManualOutage } from '~/hooks/useUpdateManualOutage'
 import { useManualChainOutageStore } from '~/state/outage/store'
@@ -147,11 +141,7 @@ describe('useUpdateManualOutage', () => {
     })
 
     it('should show banner when ExternalAPIError is detected', () => {
-<<<<<<< HEAD
-      // The Lux API returns errorType at the root level of GraphQL errors,
-=======
       // The Uniswap API returns errorType at the root level of GraphQL errors,
->>>>>>> upstream/main
       // not in extensions. We need to cast to bypass TypeScript's strict typing.
       const externalApiError = new ApolloError({
         graphQLErrors: [

@@ -1,26 +1,9 @@
-<<<<<<< HEAD
-/* eslint-disable max-lines */
-import { BigNumber } from '@ethersproject/bignumber'
-import { queryOptions, useQuery } from '@tanstack/react-query'
-import type { Currency } from '@luxamm/sdk-core'
-import { CurrencyAmount, TradeType } from '@luxamm/sdk-core'
-import { TradingApi } from '@l.x/api'
-import { ZERO_ADDRESS } from '@l.x/lx/src/constants/misc'
-import { nativeOnChain } from '@l.x/lx/src/constants/tokens'
-import { useEnabledChains } from '@l.x/lx/src/features/chains/hooks/useEnabledChains'
-import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
-import type { FORTransaction } from '@l.x/lx/src/features/fiatOnRamp/types'
-import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
-import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
-import { isLX } from '@l.x/lx/src/features/transactions/swap/utils/routing'
-import { hasTradeType } from '@l.x/lx/src/features/transactions/swap/utils/trade'
-=======
 /* oxlint-disable max-lines */
 import { BigNumber } from '@ethersproject/bignumber'
 import { queryOptions, useQuery } from '@tanstack/react-query'
 import type { Currency } from '@uniswap/sdk-core'
 import { CurrencyAmount, TradeType } from '@uniswap/sdk-core'
-import { TradingApi } from '@universe/api'
+import { TradingApi } from '@l.x/api'
 import { ZERO_ADDRESS } from 'uniswap/src/constants/misc'
 import { nativeOnChain } from 'uniswap/src/constants/tokens'
 import { useEnabledChains } from 'uniswap/src/features/chains/hooks/useEnabledChains'
@@ -30,7 +13,6 @@ import { useLocalizationContext } from 'uniswap/src/features/language/Localizati
 import { Platform } from 'uniswap/src/features/platforms/types/Platform'
 import { isUniswapX } from 'uniswap/src/features/transactions/swap/utils/routing'
 import { hasTradeType } from 'uniswap/src/features/transactions/swap/utils/trade'
->>>>>>> upstream/main
 import type {
   ApproveTransactionInfo,
   BridgeTransactionInfo,
@@ -48,21 +30,6 @@ import type {
   SendTokenTransactionInfo,
   ToucanBidTransactionInfo,
   ToucanWithdrawBidAndClaimTokensTransactionInfo,
-<<<<<<< HEAD
-  DEXOrderDetails,
-  WrapTransactionInfo,
-} from '@l.x/lx/src/features/transactions/types/transactionDetails'
-import { TransactionStatus, TransactionType } from '@l.x/lx/src/features/transactions/types/transactionDetails'
-import { isConfirmedSwapTypeInfo } from '@l.x/lx/src/features/transactions/types/utils'
-import i18n from '@l.x/lx/src/i18n'
-import { getValidAddress } from '@l.x/lx/src/utils/addresses'
-import { buildCurrencyId, buildNativeCurrencyId, currencyIdToChain } from '@l.x/lx/src/utils/currencyId'
-import { NumberType } from '@l.x/utils/src/format/types'
-import { logger } from '@l.x/utils/src/logger/logger'
-import { ReactQueryCacheKey } from '@l.x/utils/src/reactQuery/cache'
-import { ONE_SECOND_MS } from '@l.x/utils/src/time/time'
-import DEXBolt from '~/assets/svg/bolt.svg'
-=======
   UniswapXOrderDetails,
   WrapTransactionInfo,
 } from 'uniswap/src/features/transactions/types/transactionDetails'
@@ -76,7 +43,6 @@ import { logger } from 'utilities/src/logger/logger'
 import { ReactQueryCacheKey } from 'utilities/src/reactQuery/cache'
 import { ONE_SECOND_MS } from 'utilities/src/time/time'
 import UniswapXBolt from '~/assets/svg/bolt.svg'
->>>>>>> upstream/main
 import StaticRouteIcon from '~/assets/svg/static_route.svg'
 import {
   getActivityTitle,
@@ -102,20 +68,6 @@ import { isConfirmedTx } from '~/state/transactions/utils'
 type FormatNumberFunctionType = ReturnType<typeof useLocalizationContext>['formatNumberOrString']
 type FormatFiatPriceFunctionType = ReturnType<typeof useLocalizationContext>['convertFiatAmountFormatted']
 
-<<<<<<< HEAD
-// Narrowing helper for when we actually need DEX-specific fields
-function isLXDetails(
-  details: InterfaceTransactionDetails,
-): details is DEXOrderDetails<InterfaceBaseTransactionDetails> {
-  return 'routing' in details && isLX(details)
-}
-
-/**
- * Checks if a transaction is a DEX order by examining both the routing field (new approach)
- * and the isLXOrder flag (legacy approach for backward compatibility)
- */
-function isLXActivity(details: InterfaceTransactionDetails): boolean {
-=======
 // Narrowing helper for when we actually need UniswapX-specific fields
 function isUniswapXDetails(
   details: InterfaceTransactionDetails,
@@ -128,7 +80,6 @@ function isUniswapXDetails(
  * and the isUniswapXOrder flag (legacy approach for backward compatibility)
  */
 function isUniswapXActivity(details: InterfaceTransactionDetails): boolean {
->>>>>>> upstream/main
   const { typeInfo } = details
 
   // Must be a swap with trade type info
@@ -137,21 +88,13 @@ function isUniswapXActivity(details: InterfaceTransactionDetails): boolean {
   }
 
   // Check new routing-based approach
-<<<<<<< HEAD
-  if (isLXDetails(details)) {
-=======
   if (isUniswapXDetails(details)) {
->>>>>>> upstream/main
     return true
   }
 
   // Fall back to legacy flag for backward compatibility with existing transactions
   // stored before migration to routing-based structure (see WALL-7143)
-<<<<<<< HEAD
-  return 'isLXOrder' in typeInfo && typeInfo.isLXOrder === true
-=======
   return 'isUniswapXOrder' in typeInfo && typeInfo.isUniswapXOrder === true
->>>>>>> upstream/main
 }
 
 function buildCurrencyDescriptor({
@@ -224,11 +167,7 @@ async function parseSwap({
       isSwap: true,
     }),
     currencies: [tokenIn, tokenOut],
-<<<<<<< HEAD
-    prefixIconSrc: swap.isLXOrder ? DEXBolt : undefined,
-=======
     prefixIconSrc: swap.isUniswapXOrder ? UniswapXBolt : undefined,
->>>>>>> upstream/main
   }
 }
 
@@ -258,11 +197,7 @@ async function parseConfirmedSwap({
       isSwap: true,
     }),
     currencies: [tokenIn, tokenOut],
-<<<<<<< HEAD
-    prefixIconSrc: swap.isLXOrder ? DEXBolt : undefined,
-=======
     prefixIconSrc: swap.isUniswapXOrder ? UniswapXBolt : undefined,
->>>>>>> upstream/main
   }
 }
 
@@ -619,11 +554,7 @@ async function parseLpIncentivesClaim({
   }
 }
 
-<<<<<<< HEAD
-async function parseDEXOrderLocal({
-=======
 async function parseUniswapXOrderLocal({
->>>>>>> upstream/main
   details,
   formatNumber,
 }: {
@@ -631,13 +562,8 @@ async function parseUniswapXOrderLocal({
   formatNumber: FormatNumberFunctionType
 }): Promise<Partial<Activity>> {
   const { typeInfo } = details
-<<<<<<< HEAD
-  const dexOrderDetails = isLXDetails(details) ? details : undefined
-  const isLimitOrder = dexOrderDetails?.routing === TradingApi.Routing.DUTCH_LIMIT
-=======
   const uniswapXOrderDetails = isUniswapXDetails(details) ? details : undefined
   const isLimitOrder = uniswapXOrderDetails?.routing === TradingApi.Routing.DUTCH_LIMIT
->>>>>>> upstream/main
 
   // Get the appropriate order text table
   const orderTextTable = getOrderTextTable()
@@ -661,17 +587,10 @@ async function parseUniswapXOrderLocal({
   })
 
   // Create offchainOrderDetails if we have routing information
-<<<<<<< HEAD
-  const offchainOrderDetails = dexOrderDetails
-    ? {
-        ...dexOrderDetails,
-        orderHash: dexOrderDetails.orderHash || dexOrderDetails.hash,
-=======
   const offchainOrderDetails = uniswapXOrderDetails
     ? {
         ...uniswapXOrderDetails,
         orderHash: uniswapXOrderDetails.orderHash || uniswapXOrderDetails.hash,
->>>>>>> upstream/main
       }
     : undefined
 
@@ -680,11 +599,7 @@ async function parseUniswapXOrderLocal({
     title,
     status: orderTextTableEntry.status,
     statusMessage,
-<<<<<<< HEAD
-    prefixIconSrc: DEXBolt,
-=======
     prefixIconSrc: UniswapXBolt,
->>>>>>> upstream/main
     offchainOrderDetails,
   }
 }
@@ -744,13 +659,8 @@ export async function transactionToActivity({
   }
   const { chainId } = details
   try {
-<<<<<<< HEAD
-    // For swaps that might be DEX, we'll set the title later
-    const shouldDeferTitle = details.typeInfo.type === TransactionType.Swap && isLXActivity(details)
-=======
     // For swaps that might be UniswapX, we'll set the title later
     const shouldDeferTitle = details.typeInfo.type === TransactionType.Swap && isUniswapXActivity(details)
->>>>>>> upstream/main
 
     const defaultFields: Activity = {
       id: details.id,
@@ -767,13 +677,8 @@ export async function transactionToActivity({
     let additionalFields: Partial<Activity> = {}
     const info = details.typeInfo
     if (info.type === TransactionType.Swap) {
-<<<<<<< HEAD
-      if (isLXActivity(details)) {
-        additionalFields = await parseDEXOrderLocal({
-=======
       if (isUniswapXActivity(details)) {
         additionalFields = await parseUniswapXOrderLocal({
->>>>>>> upstream/main
           details,
           formatNumber,
         })
@@ -869,17 +774,10 @@ export async function transactionToActivity({
 
     const activity = { ...defaultFields, ...additionalFields }
 
-<<<<<<< HEAD
-    // Skip the canceled transaction override for DEX orders since they handle it specially
-    const isLX = details.typeInfo.type === TransactionType.Swap && isLXActivity(details)
-    const CancelledTransactionTitleTable = getCancelledTransactionTitleTable()
-    if (details.status === TransactionStatus.Canceled && !isLX) {
-=======
     // Skip the canceled transaction override for UniswapX orders since they handle it specially
     const isUniswapX = details.typeInfo.type === TransactionType.Swap && isUniswapXActivity(details)
     const CancelledTransactionTitleTable = getCancelledTransactionTitleTable()
     if (details.status === TransactionStatus.Canceled && !isUniswapX) {
->>>>>>> upstream/main
       activity.title = CancelledTransactionTitleTable[details.typeInfo.type]
       activity.status = TransactionStatus.Success
     }

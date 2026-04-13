@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import { colorsDark, colorsLight } from '@l.x/ui/src/theme'
-=======
 import { colorsDark, colorsLight } from 'ui/src/theme'
->>>>>>> upstream/main
 import { ArrowChangeDown } from '~/components/Icons/ArrowChangeDown'
 import { ArrowChangeUp } from '~/components/Icons/ArrowChangeUp'
 import { deprecatedStyled } from '~/lib/deprecated-styled'

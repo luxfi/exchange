@@ -1,6 +1,6 @@
 {
   "name": "@l.x/config",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "dependencies": {
     "react-native-dotenv": "3.2.0",
     "@l.x/utils": "workspace:^"
@@ -12,7 +12,7 @@
     "depcheck": "1.4.7",
     "eslint": "8.57.1",
     "jsdom": "^26.1.0",
-    "typescript": "5.8.3",
+    "typescript": "5.9.3",
     "vitest": "^4.0.16"
   },
   "scripts": {

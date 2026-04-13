@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import { LimitsExpiry } from '@l.x/lx/src/types/limits'
-=======
 import { LimitsExpiry } from 'uniswap/src/types/limits'
->>>>>>> upstream/main
 import { LimitExpirySection } from '~/pages/Swap/Limit/LimitExpirySection'
 import { LimitContext } from '~/state/limit/LimitContext'
 import { render } from '~/test-utils/render'

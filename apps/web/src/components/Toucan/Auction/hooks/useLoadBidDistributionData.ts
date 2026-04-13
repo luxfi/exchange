@@ -1,17 +1,9 @@
 import { useQuery } from '@tanstack/react-query'
-<<<<<<< HEAD
-import { GetBidsRequest } from '@luxamm/client-data-api/dist/data/v1/auction_pb'
-import { useEffect, useMemo, useRef } from 'react'
-import { auctionQueries } from '@l.x/lx/src/data/rest/auctions/auctionQueries'
-import { EVMUniverseChainId } from '@l.x/lx/src/features/chains/types'
-import { logger } from '@l.x/utils/src/logger/logger'
-=======
 import { GetBidsRequest } from '@uniswap/client-data-api/dist/data/v1/auction_pb'
 import { useEffect, useMemo, useRef } from 'react'
 import { auctionQueries } from 'uniswap/src/data/rest/auctions/auctionQueries'
 import { EVMUniverseChainId } from 'uniswap/src/features/chains/types'
 import { logger } from 'utilities/src/logger/logger'
->>>>>>> upstream/main
 import { CHART_CONSTRAINTS, MAX_RENDERABLE_BARS } from '~/components/Toucan/Auction/BidDistributionChart/constants'
 import { AuctionProgressState, BidDistributionData } from '~/components/Toucan/Auction/store/types'
 import { useAuctionStore, useAuctionStoreActions } from '~/components/Toucan/Auction/store/useAuctionStore'

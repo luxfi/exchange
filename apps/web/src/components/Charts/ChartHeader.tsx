@@ -1,17 +1,4 @@
-<<<<<<< HEAD
 import { GraphQLApi } from '@l.x/api'
-import { UTCTimestamp } from 'lightweight-charts'
-import { ReactElement, ReactNode } from 'react'
-import { Flex, LinearGradient, styled, Text, useSporeColors } from '@l.x/ui/src'
-import { zIndexes } from '@l.x/ui/src/theme'
-import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
-import { FiatNumberType, NumberType } from '@l.x/utils/src/format/types'
-import { getProtocolColor, getProtocolName } from '~/appGraphql/data/util'
-import { useHeaderDateFormatter } from '~/components/Charts/hooks/useHeaderDateFormatter'
-import { PROTOCOL_LEGEND_ELEMENT_ID } from '~/components/Charts/types'
-import { EllipsisGuiStyle } from '~/theme/components/styles'
-=======
-import { GraphQLApi } from '@universe/api'
 import { UTCTimestamp } from 'lightweight-charts'
 import { ReactElement, ReactNode } from 'react'
 import { Flex, LinearGradient, styled, Text, useSporeColors } from 'ui/src'
@@ -22,7 +9,6 @@ import { getProtocolColor, getProtocolName } from '~/appGraphql/data/util'
 import { useHeaderDateFormatter } from '~/components/Charts/hooks/useHeaderDateFormatter'
 import { PROTOCOL_LEGEND_ELEMENT_ID } from '~/components/Charts/types'
 import { EllipsisTamaguiStyle } from '~/theme/components/styles'
->>>>>>> upstream/main
 
 type ChartHeaderProtocolInfo = { protocol: GraphQLApi.PriceSource; value?: number }
 
@@ -66,11 +52,7 @@ function ProtocolLegend({ protocolData }: { protocolData?: ChartHeaderProtocolIn
                 </Text>
 
                 <Flex borderRadius="$rounded4" width={12} height={12} backgroundColor={getProtocolColor(protocol)} />
-<<<<<<< HEAD
-                <Text variant="body4" textAlign="right" lineHeight={12} {...EllipsisGuiStyle}>
-=======
                 <Text variant="body4" textAlign="right" lineHeight={12} {...EllipsisTamaguiStyle}>
->>>>>>> upstream/main
                   {display}
                 </Text>
               </Flex>
@@ -97,11 +79,7 @@ function HeaderValueDisplay({ value, valueFormatterType = NumberType.FiatTokenSt
   }
 
   return (
-<<<<<<< HEAD
-    <Text variant="heading2" {...EllipsisGuiStyle}>
-=======
     <Text variant="heading2" {...EllipsisTamaguiStyle}>
->>>>>>> upstream/main
       {convertFiatAmountFormatted(value, valueFormatterType)}
     </Text>
   )
@@ -159,11 +137,7 @@ export function ChartHeader({
       <Flex position="absolute" gap="$gap4" pb="$padding8" pr="$padding8" pointerEvents="none">
         <ChartBackgroundGradient />
         <HeaderValueDisplay value={value} valueFormatterType={valueFormatterType} />
-<<<<<<< HEAD
-        <Flex row gap="$gap8" $sm={{ flexDirection: 'column' }} {...EllipsisGuiStyle}>
-=======
         <Flex row gap="$gap8" $sm={{ flexDirection: 'column' }} {...EllipsisTamaguiStyle}>
->>>>>>> upstream/main
           {additionalFields}
           <HeaderTimeDisplay time={time} timePlaceholder={timePlaceholder} />
         </Flex>

@@ -1,12 +1,7 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
-<<<<<<< HEAD
-import { Button, SpinningLoader, useIsShortMobileDevice } from '@l.x/ui/src'
-import { InfoCircleFilled } from '@l.x/ui/src/components/icons/InfoCircleFilled'
-=======
 import { Button, SpinningLoader, useIsShortMobileDevice } from 'ui/src'
 import { InfoCircleFilled } from 'ui/src/components/icons/InfoCircleFilled'
->>>>>>> upstream/main
 
 interface FiatOnRampCtaButtonProps {
   onPress: () => void

@@ -1,19 +1,3 @@
-<<<<<<< HEAD
-/* eslint-disable @typescript-eslint/no-unnecessary-condition */
-import { Contract } from '@ethersproject/contracts'
-import { MaxAllowanceTransferAmount, permit2Address } from '@luxamm/permit2-sdk'
-import { Currency, CurrencyAmount, MaxUint256, Token } from '@luxamm/sdk-core'
-import ms from 'ms'
-import { useMemo } from 'react'
-import ERC20_ABI from '@l.x/lx/src/abis/erc20.json'
-import { PERMIT2_ABI } from '@l.x/lx/src/abis/permit2'
-import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
-import { createApprovalTransactionStep } from '@l.x/lx/src/features/transactions/steps/approve'
-import { Permit2TransactionStep } from '@l.x/lx/src/features/transactions/steps/permit2Transaction'
-import { TransactionStep, TransactionStepType } from '@l.x/lx/src/features/transactions/steps/types'
-import { validateTransactionRequest } from '@l.x/lx/src/features/transactions/swap/utils/trade'
-import { useEvent } from '@l.x/utils/src/react/hooks'
-=======
 /* oxlint-disable typescript/no-unnecessary-condition */
 import { Contract } from '@ethersproject/contracts'
 import { MaxAllowanceTransferAmount, permit2Address } from '@uniswap/permit2-sdk'
@@ -28,7 +12,6 @@ import { Permit2TransactionStep } from 'uniswap/src/features/transactions/steps/
 import { TransactionStep, TransactionStepType } from 'uniswap/src/features/transactions/steps/types'
 import { validateTransactionRequest } from 'uniswap/src/features/transactions/swap/utils/trade'
 import { useEvent } from 'utilities/src/react/hooks'
->>>>>>> upstream/main
 import { AuctionDetails } from '~/components/Toucan/Auction/store/types'
 import { useAccount } from '~/hooks/useAccount'
 import { useEthersProvider } from '~/hooks/useEthersProvider'
@@ -103,17 +86,10 @@ export function useBidPermit2Flow({
 
   const needsPermit2Allowance = Boolean(
     !isNativeBidToken &&
-<<<<<<< HEAD
-      bidTokenAmount &&
-      permitAllowance !== undefined &&
-      permitExpiration !== undefined &&
-      !isPermit2AllowanceGranted,
-=======
     bidTokenAmount &&
     permitAllowance !== undefined &&
     permitExpiration !== undefined &&
     !isPermit2AllowanceGranted,
->>>>>>> upstream/main
   )
 
   const permit2ApprovalPending = useHasPendingPermit2Approval(bidTokenAmount?.currency, auctionDetails?.address)

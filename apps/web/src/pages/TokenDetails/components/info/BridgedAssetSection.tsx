@@ -1,20 +1,11 @@
 import { useAtom } from 'jotai'
 import { useNavigate } from 'react-router'
-<<<<<<< HEAD
-import { BridgedAssetModalAtom } from '@l.x/lx/src/components/BridgedAsset/BridgedAssetModal'
-import { BridgedAssetTDPSection } from '@l.x/lx/src/components/BridgedAsset/BridgedAssetTDPSection'
-import { CurrencyInfo } from '@l.x/lx/src/features/dataApi/types'
-import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
-import { logger } from '@l.x/utils/src/logger/logger'
-import { useEvent } from '@l.x/utils/src/react/hooks'
-=======
 import { BridgedAssetModalAtom } from 'uniswap/src/components/BridgedAsset/BridgedAssetModal'
 import { BridgedAssetTDPSection } from 'uniswap/src/components/BridgedAsset/BridgedAssetTDPSection'
 import { CurrencyInfo } from 'uniswap/src/features/dataApi/types'
 import { ModalName } from 'uniswap/src/features/telemetry/constants'
 import { logger } from 'utilities/src/logger/logger'
 import { useEvent } from 'utilities/src/react/hooks'
->>>>>>> upstream/main
 import { TokenQueryData } from '~/appGraphql/data/Token'
 import { useModalState } from '~/hooks/useModalState'
 

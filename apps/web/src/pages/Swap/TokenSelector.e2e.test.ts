@@ -1,12 +1,6 @@
-<<<<<<< HEAD
 import { FeatureFlags } from '@l.x/gating'
-import { OnchainItemSectionName } from '@l.x/lx/src/components/lists/OnchainItemList/types'
-import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
-=======
-import { FeatureFlags } from '@universe/gating'
 import { OnchainItemSectionName } from 'uniswap/src/components/lists/OnchainItemList/types'
 import { TestID } from 'uniswap/src/test/fixtures/testIDs'
->>>>>>> upstream/main
 import { expect, getTest } from '~/playwright/fixtures'
 import { createTestUrlBuilder } from '~/playwright/fixtures/urls'
 

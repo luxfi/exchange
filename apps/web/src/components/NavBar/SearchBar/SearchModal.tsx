@@ -1,25 +1,5 @@
 import { memo, useCallback, useEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-<<<<<<< HEAD
-import { Flex, type Input, Text, TouchableArea, useMedia, useScrollbarStyles, useSporeColors } from '@l.x/ui/src'
-import { Modal } from '@l.x/lx/src/components/modals/Modal'
-import { useUpdateScrollLock } from '@l.x/lx/src/components/modals/ScrollLock'
-import { NetworkFilter } from '@l.x/lx/src/components/network/NetworkFilter'
-import { useEnabledChains } from '@l.x/lx/src/features/chains/hooks/useEnabledChains'
-import { useFilterCallbacks } from '@l.x/lx/src/features/search/SearchModal/hooks/useFilterCallbacks'
-import { SearchModalNoQueryList } from '@l.x/lx/src/features/search/SearchModal/SearchModalNoQueryList'
-import { SearchModalResultsList } from '@l.x/lx/src/features/search/SearchModal/SearchModalResultsList'
-import { SearchTab, WEB_SEARCH_TABS } from '@l.x/lx/src/features/search/SearchModal/types'
-import { SearchTextInput } from '@l.x/lx/src/features/search/SearchTextInput'
-import { ElementName, InterfaceEventName, ModalName, SectionName } from '@l.x/lx/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
-import { Trace } from '@l.x/lx/src/features/telemetry/Trace'
-import { useTrace } from '@l.x/utils/src/telemetry/trace/TraceContext'
-import { useDebounce } from '@l.x/utils/src/time/timing'
-import { useModalState } from '~/hooks/useModalState'
-
-export const SearchModal = memo(function _SearchModal(): JSX.Element {
-=======
 import { Flex, type Input, Text, TouchableArea, useMedia, useScrollbarStyles, useSporeColors } from 'ui/src'
 import { Modal } from 'uniswap/src/components/modals/Modal'
 import { useUpdateScrollLock } from 'uniswap/src/components/modals/ScrollLock'
@@ -38,7 +18,6 @@ import { useDebounce } from 'utilities/src/time/timing'
 import { useModalState } from '~/hooks/useModalState'
 
 export const SearchModal = memo(function SearchModalInner(): JSX.Element {
->>>>>>> upstream/main
   const colors = useSporeColors()
   const { t } = useTranslation()
   const media = useMedia()
@@ -84,20 +63,9 @@ export const SearchModal = memo(function SearchModalInner(): JSX.Element {
     onClose()
   }, [onChangeText, onClose])
 
-<<<<<<< HEAD
-  const onResetFilters = useCallback(() => {
-    onChangeChainFilter(null)
-    setActiveTab(SearchTab.All)
-  }, [onChangeChainFilter])
-
-  const { chains: enabledChains } = useEnabledChains()
-
-  // Gui Dialog/Sheets should remove background scroll by default but does not work to disable ArrowUp/Down key scrolling
-=======
   const { chains: enabledChains } = useEnabledChains()
 
   // Tamagui Dialog/Sheets should remove background scroll by default but does not work to disable ArrowUp/Down key scrolling
->>>>>>> upstream/main
   useUpdateScrollLock({ isModalOpen })
 
   return (
@@ -117,11 +85,7 @@ export const SearchModal = memo(function SearchModalInner(): JSX.Element {
       analyticsProperties={{
         search_tab: activeTab,
       }}
-<<<<<<< HEAD
-      // Use percent mode to avoid Gui bug where 'fit' snapped
-=======
       // Use percent mode to avoid Tamagui bug where 'fit' snapped
->>>>>>> upstream/main
       // modals may incorrectly resize on their own when keyboard is visible
       snapPointsMode="percent"
       snapPoints={[85]}
@@ -186,10 +150,6 @@ export const SearchModal = memo(function SearchModalInner(): JSX.Element {
               searchFilter={searchFilter}
               activeTab={activeTab}
               onSelect={onSelect}
-<<<<<<< HEAD
-              onResetFilters={onResetFilters}
-=======
->>>>>>> upstream/main
               renderedInModal={false}
             />
           ) : (

@@ -14,17 +14,11 @@ import {
 } from '~/components/Charts/StackedLineChart/stacked-area-series/options'
 import { StackedAreaSeriesRenderer } from '~/components/Charts/StackedLineChart/stacked-area-series/renderer'
 
-<<<<<<< HEAD
-export class StackedAreaSeries<TData extends StackedAreaData>
-  implements ICustomSeriesPaneView<Time, TData, StackedAreaSeriesOptions>
-{
-=======
 export class StackedAreaSeries<TData extends StackedAreaData> implements ICustomSeriesPaneView<
   Time,
   TData,
   StackedAreaSeriesOptions
 > {
->>>>>>> upstream/main
   _renderer: StackedAreaSeriesRenderer<TData>
 
   constructor() {

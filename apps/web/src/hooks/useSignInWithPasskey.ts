@@ -1,29 +1,16 @@
 import { connect } from '@wagmi/core'
 import { useDispatch } from 'react-redux'
-<<<<<<< HEAD
-import { CONNECTION_PROVIDER_IDS } from '@l.x/lx/src/constants/web3'
-=======
 import { CONNECTION_PROVIDER_IDS } from 'uniswap/src/constants/web3'
->>>>>>> upstream/main
 import {
   createNewEmbeddedWallet,
   signInWithPasskey as signInWithPasskeyAPI,
   signMessageWithPasskey,
-<<<<<<< HEAD
-} from '@l.x/lx/src/features/passkey/embeddedWallet'
-import { InterfaceEventName } from '@l.x/lx/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
-import { WalletConnectionResult } from '@l.x/lx/src/features/telemetry/types'
-import { useClaimUnitag } from '@l.x/lx/src/features/unitags/hooks/useClaimUnitag'
-import { logger } from '@l.x/utils/src/logger/logger'
-=======
 } from 'uniswap/src/features/passkey/embeddedWallet'
 import { InterfaceEventName } from 'uniswap/src/features/telemetry/constants'
 import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
 import { WalletConnectionResult } from 'uniswap/src/features/telemetry/types'
 import { useClaimUnitag } from 'uniswap/src/features/unitags/hooks/useClaimUnitag'
 import { logger } from 'utilities/src/logger/logger'
->>>>>>> upstream/main
 import { useWagmiConnectorWithId } from '~/components/WalletModal/useWagmiConnectorWithId'
 import { wagmiConfig } from '~/components/Web3Provider/wagmiConfig'
 import { walletTypeToAmplitudeWalletType } from '~/components/Web3Provider/walletConnect'

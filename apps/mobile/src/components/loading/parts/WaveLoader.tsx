@@ -8,13 +8,8 @@ import Animated, {
   withTiming,
 } from 'react-native-reanimated'
 import { useChartDimensions } from 'src/components/PriceExplorer/useChartDimensions'
-<<<<<<< HEAD
-import { Flex, useSporeColors } from '@l.x/ui/src'
-import Wave from '@l.x/ui/src/assets/backgrounds/wave.svg'
-=======
 import { Flex, useSporeColors } from 'ui/src'
 import Wave from 'ui/src/assets/backgrounds/wave.svg'
->>>>>>> upstream/main
 
 const WAVE_WIDTH = 416
 const WAVE_DURATION = 2000
@@ -26,10 +21,7 @@ export function WaveLoader(): JSX.Element {
 
   useEffect(() => {
     yPosition.value = withRepeat(withTiming(1, { duration: WAVE_DURATION }), Infinity, false)
-<<<<<<< HEAD
-=======
     // oxlint-disable-next-line react/exhaustive-deps -- biome-parity: oxlint is stricter here
->>>>>>> upstream/main
   }, [])
 
   const animatedStyle = useAnimatedStyle(() => ({

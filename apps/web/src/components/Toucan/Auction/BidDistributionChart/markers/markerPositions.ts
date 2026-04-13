@@ -39,26 +39,8 @@ export function markerPositionsEqual(leftPositions: MarkerPosition[], rightPosit
     const rightBidIds = new Set(rightPosition.bids.map((bid) => bid.bidId))
     const bidsEqual = leftBidIds.size === rightBidIds.size && [...leftBidIds].every((id) => rightBidIds.has(id))
 
-<<<<<<< HEAD
-=======
-    // Compare per-bid range status
-    const rangeMapEqual = leftPosition.bids.every(
-      (bid) => leftPosition.bidRangeMap[bid.bidId] === rightPosition.bidRangeMap[bid.bidId],
-    )
-
->>>>>>> upstream/main
-    return (
-      leftPosition.id === rightPosition.id &&
-      leftPosition.address === rightPosition.address &&
-      Math.abs(leftPosition.left - rightPosition.left) < MARKER_CONFIG.POSITION_TOLERANCE &&
-      Math.abs(leftPosition.top - rightPosition.top) < MARKER_CONFIG.POSITION_TOLERANCE &&
-<<<<<<< HEAD
-      leftPosition.isInRange === rightPosition.isInRange &&
-      bidsEqual
-=======
       bidsEqual &&
       rangeMapEqual
->>>>>>> upstream/main
     )
   })
 }

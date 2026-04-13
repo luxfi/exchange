@@ -1,9 +1,5 @@
 import { act, renderHook } from '@testing-library/react'
-<<<<<<< HEAD
-import { mockLogger } from '@l.x/utils/src/logger/mocks'
-=======
 import { mockLogger } from 'utilities/src/logger/mocks'
->>>>>>> upstream/main
 import { useDeferredComponent } from '~/hooks/useDeferredComponent'
 
 describe('useDeferredComponent', () => {

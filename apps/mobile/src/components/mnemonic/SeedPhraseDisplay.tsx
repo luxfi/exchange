@@ -8,19 +8,11 @@ import { WalletRestoreType } from 'src/components/RestoreWalletModal/RestoreWall
 import { useBiometricAppSpeedBump } from 'src/features/biometrics/useBiometricAppSpeedBump'
 import { useLockScreenOnBlur } from 'src/features/lockScreen/hooks/useLockScreenOnBlur'
 import { useWalletRestore } from 'src/features/wallet/useWalletRestore'
-<<<<<<< HEAD
-import { Button, Flex } from '@l.x/ui/src'
-import { WarningSeverity } from '@l.x/lx/src/components/modals/WarningModal/types'
-import { WarningModal } from '@l.x/lx/src/components/modals/WarningModal/WarningModal'
-import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
-import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
-=======
 import { Button, Flex } from 'ui/src'
 import { WarningSeverity } from 'uniswap/src/components/modals/WarningModal/types'
 import { WarningModal } from 'uniswap/src/components/modals/WarningModal/WarningModal'
 import { ModalName } from 'uniswap/src/features/telemetry/constants'
 import { TestID } from 'uniswap/src/test/fixtures/testIDs'
->>>>>>> upstream/main
 
 type Props = {
   mnemonicId: string
@@ -60,11 +52,7 @@ export function SeedPhraseDisplay({ mnemonicId, onDismiss, walletNeedsRestore }:
   }
   const { onBiometricContinue } = useBiometricAppSpeedBump(onShowSeedPhraseConfirmed)
 
-<<<<<<< HEAD
-  // biome-ignore lint/correctness/useExhaustiveDependencies: we want to recalculate this when showSeedPhrase changes
-=======
   // oxlint-disable-next-line react/exhaustive-deps -- we want to recalculate this when showSeedPhrase changes
->>>>>>> upstream/main
   useEffect(() => {
     const listener = addScreenshotListener(() =>
       navigate(ModalName.ScreenshotWarning, { acknowledgeText: t('common.button.close') }),

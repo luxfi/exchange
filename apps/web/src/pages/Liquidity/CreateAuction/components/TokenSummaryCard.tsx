@@ -1,16 +1,9 @@
 import type { ReactNode } from 'react'
 import { useTranslation } from 'react-i18next'
-<<<<<<< HEAD
-import { Button, Flex, Separator, Text } from '@l.x/ui/src'
-import { Edit } from '@l.x/ui/src/components/icons/Edit'
-import { CurrencyLogo } from 'lx/src/components/CurrencyLogo/CurrencyLogo'
-import { TokenLogo } from 'lx/src/components/CurrencyLogo/TokenLogo'
-=======
 import { Button, Flex, Separator, Text } from 'ui/src'
 import { Edit } from 'ui/src/components/icons/Edit'
 import { CurrencyLogo } from 'uniswap/src/components/CurrencyLogo/CurrencyLogo'
 import { TokenLogo } from 'uniswap/src/components/CurrencyLogo/TokenLogo'
->>>>>>> upstream/main
 import { useCreateAuctionStore } from '~/pages/Liquidity/CreateAuction/CreateAuctionContext'
 import { TokenMode } from '~/pages/Liquidity/CreateAuction/types'
 

@@ -1,18 +1,9 @@
-<<<<<<< HEAD
 import { GraphQLApi } from '@l.x/api'
-import { DAI, nativeOnChain, USDC_MAINNET } from '@l.x/lx/src/constants/tokens'
-import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
-import { TokenList } from '@l.x/lx/src/features/dataApi/types'
-import { removeSafetyInfo } from '@l.x/lx/src/test/fixtures/wallet/currencies'
-import { currencyId } from '@l.x/lx/src/utils/currencyId'
-=======
-import { GraphQLApi } from '@universe/api'
 import { DAI, nativeOnChain, USDC_MAINNET } from 'uniswap/src/constants/tokens'
 import { UniverseChainId } from 'uniswap/src/features/chains/types'
 import { TokenList } from 'uniswap/src/features/dataApi/types'
 import { removeSafetyInfo } from 'uniswap/src/test/fixtures/wallet/currencies'
 import { currencyId } from 'uniswap/src/utils/currencyId'
->>>>>>> upstream/main
 import { gqlTokenToCurrencyInfo } from '~/appGraphql/data/types'
 import { NATIVE_CHAIN_ID } from '~/constants/tokens'
 

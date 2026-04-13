@@ -4,16 +4,6 @@ import { navigate } from 'src/app/navigation/rootNavigation'
 import { UnitagStackScreenProp } from 'src/app/navigation/types'
 import { SafeKeyboardOnboardingScreen } from 'src/features/onboarding/SafeKeyboardOnboardingScreen'
 import { useNavigationHeader } from 'src/utils/useNavigationHeader'
-<<<<<<< HEAD
-import { Flex } from '@l.x/ui/src'
-import { Photo } from '@l.x/ui/src/components/icons'
-import { UnitagEventName } from '@l.x/lx/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
-import { ImportType, OnboardingEntryPoint } from '@l.x/lx/src/types/onboarding'
-import { MobileScreens, OnboardingScreens, UnitagScreens } from '@l.x/lx/src/types/screens/mobile'
-import { useOnboardingContext } from '@luxfi/wallet/src/features/onboarding/OnboardingContext'
-import { UnitagChooseProfilePicContent } from '@luxfi/wallet/src/features/unitags/UnitagChooseProfilePicContent'
-=======
 import { Flex } from 'ui/src'
 import { Photo } from 'ui/src/components/icons'
 import { UnitagEventName } from 'uniswap/src/features/telemetry/constants'
@@ -22,7 +12,6 @@ import { ImportType, OnboardingEntryPoint } from 'uniswap/src/types/onboarding'
 import { MobileScreens, OnboardingScreens, UnitagScreens } from 'uniswap/src/types/screens/mobile'
 import { useOnboardingContext } from 'wallet/src/features/onboarding/OnboardingContext'
 import { UnitagChooseProfilePicContent } from 'wallet/src/features/unitags/UnitagChooseProfilePicContent'
->>>>>>> upstream/main
 
 export function UnitagChooseProfilePicScreen({
   navigation,

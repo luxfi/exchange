@@ -1,17 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-<<<<<<< HEAD
-import { Flex, Text } from '@l.x/ui/src'
-import { InfoCircleFilled } from '@l.x/ui/src/components/icons/InfoCircleFilled'
-import { TokenLogo } from '@l.x/lx/src/components/CurrencyLogo/TokenLogo'
-import { GetHelpHeader } from '@l.x/lx/src/components/dialog/GetHelpHeader'
-import { Modal } from '@l.x/lx/src/components/modals/Modal'
-import { lxUrls } from '@l.x/lx/src/constants/urls'
-import { useActiveAddress } from '@l.x/lx/src/features/accounts/store/hooks'
-import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
-import { ElementName, ModalName } from '@l.x/lx/src/features/telemetry/constants'
-import { useEvent } from '@l.x/utils/src/react/hooks'
-=======
 import { Flex, Text } from 'ui/src'
 import { InfoCircleFilled } from 'ui/src/components/icons/InfoCircleFilled'
 import { TokenLogo } from 'uniswap/src/components/CurrencyLogo/TokenLogo'
@@ -22,7 +10,6 @@ import { useActiveAddress } from 'uniswap/src/features/accounts/store/hooks'
 import { Platform } from 'uniswap/src/features/platforms/types/Platform'
 import { ElementName, ModalName } from 'uniswap/src/features/telemetry/constants'
 import { useEvent } from 'utilities/src/react/hooks'
->>>>>>> upstream/main
 import { useWithdrawBidAndClaimTokensReviewData } from '~/components/Toucan/Auction/Bids/WithdrawModal/useWithdrawBidAndClaimTokensReviewData'
 import { useWithdrawModalData } from '~/components/Toucan/Auction/Bids/WithdrawModal/useWithdrawModalData'
 import { useWithdrawBidAndClaimTokensFormSubmit } from '~/components/Toucan/Auction/hooks/useWithdrawBidAndClaimTokensFormSubmit'
@@ -131,11 +118,7 @@ export function WithdrawModal({
   const isSubmitting = submissionStatus !== 'idle'
   const isWaitingForWallet = submissionStatus === 'waitingForWallet'
 
-<<<<<<< HEAD
-  const helpLink = lxUrls.helpArticleUrls.toucanWithdrawHelp
-=======
   const helpLink = uniswapUrls.helpArticleUrls.toucanWithdrawHelp
->>>>>>> upstream/main
 
   const modalTitle = t('toucan.withdraw.title')
 

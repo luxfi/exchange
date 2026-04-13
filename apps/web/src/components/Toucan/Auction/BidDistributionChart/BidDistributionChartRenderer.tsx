@@ -1,13 +1,3 @@
-<<<<<<< HEAD
-/* eslint-disable max-lines */
-import type { IChartApi, ISeriesApi, UTCTimestamp } from 'lightweight-charts'
-import { memo, useCallback, useEffect, useMemo, useRef, useState } from 'react'
-import { Flex, useMedia, useSporeColors } from '@l.x/ui/src'
-import { opacify } from '@l.x/ui/src/theme'
-import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
-import { NumberType } from '@l.x/utils/src/format/types'
-import { useEvent } from '@l.x/utils/src/react/hooks'
-=======
 /* oxlint-disable max-lines */
 import type { IChartApi, ISeriesApi, UTCTimestamp } from 'lightweight-charts'
 import { memo, useCallback, useEffect, useMemo, useRef, useState } from 'react'
@@ -16,7 +6,6 @@ import { opacify } from 'ui/src/theme'
 import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
 import { NumberType } from 'utilities/src/format/types'
 import { useEvent } from 'utilities/src/react/hooks'
->>>>>>> upstream/main
 import { EXTENSION_PADDING_TICKS } from '~/components/Charts/ToucanChart/bidDistribution/controller/logic/overlays'
 import { ToucanBidDistributionChartController } from '~/components/Charts/ToucanChart/bidDistribution/ToucanBidDistributionChartController'
 import type {
@@ -270,11 +259,7 @@ function BidDistributionChartRendererComponent({
     return calculateRangePaddingUnits({ priceScaleFactor })
   }, [priceScaleFactor])
 
-<<<<<<< HEAD
-  // biome-ignore lint/correctness/useExhaustiveDependencies: chartHoverResetKey and isPlacingBid are included to force canvas redraws
-=======
   // oxlint-disable-next-line react/exhaustive-deps -- chartHoverResetKey and isPlacingBid are included to force canvas redraws
->>>>>>> upstream/main
   const histogramData = useMemo((): ToucanChartData[] => {
     // lightweight-charts uses `time` as the X axis. We encode ticks as integer "time" values by multiplying
     // by `priceScaleFactor` (to avoid collisions) and rounding. The bar height (`value`) is the Y axis.
@@ -307,10 +292,7 @@ function BidDistributionChartRendererComponent({
     }
 
     return Array.from(timeToData.values())
-<<<<<<< HEAD
-=======
     // oxlint-disable-next-line react/exhaustive-deps -- biome-parity: oxlint is stricter here
->>>>>>> upstream/main
   }, [chartData.bars, groupTicksEnabled, groupedBars, priceScaleFactor, chartHoverResetKey, isPlacingBid])
 
   const totalBidVolume = chartData.totalBidVolume

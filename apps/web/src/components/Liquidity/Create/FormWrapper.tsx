@@ -1,13 +1,3 @@
-<<<<<<< HEAD
-import { ProtocolVersion } from '@luxamm/client-data-api/dist/data/v1/poolTypes_pb'
-import { Currency } from '@luxamm/sdk-core'
-import { Dispatch, SetStateAction, useMemo } from 'react'
-import { useTranslation } from 'react-i18next'
-import { AnimatePresence, Flex, HeightAnimator, Text, useMedia } from '@l.x/ui/src'
-import { Chevron } from '@l.x/ui/src/components/icons/Chevron'
-import { SectionName } from '@l.x/lx/src/features/telemetry/constants'
-import Trace from '@l.x/lx/src/features/telemetry/Trace'
-=======
 import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
 import { Currency } from '@uniswap/sdk-core'
 import { Dispatch, SetStateAction, useMemo } from 'react'
@@ -16,7 +6,6 @@ import { AnimatePresence, Flex, HeightAnimator, Text, useMedia } from 'ui/src'
 import { Chevron } from 'ui/src/components/icons/Chevron'
 import { SectionName } from 'uniswap/src/features/telemetry/constants'
 import Trace from 'uniswap/src/features/telemetry/Trace'
->>>>>>> upstream/main
 import { BreadcrumbNavContainer, BreadcrumbNavLink } from '~/components/BreadcrumbNav'
 import { Container } from '~/components/Liquidity/Create/Container'
 import { EditSelectTokensStep } from '~/components/Liquidity/Create/EditStep'
@@ -83,11 +72,7 @@ export function FormStepsWrapper({
       <AnimatePresence>
         {(step === PositionFlowStep.PRICE_RANGE || step === PositionFlowStep.DEPOSIT) && (
           <Container
-<<<<<<< HEAD
-            // @ts-ignore - ignoring animation prop type issue with gui
-=======
             // @ts-ignore - ignoring animation prop type issue with tamagui
->>>>>>> upstream/main
             animation={['200ms', { delay: 210 }]}
             enterStyle={{ y: -10, opacity: 0 }}
             exitStyle={{ opacity: 0 }}

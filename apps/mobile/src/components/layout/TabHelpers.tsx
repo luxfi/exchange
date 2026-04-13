@@ -1,12 +1,6 @@
-<<<<<<< HEAD
-/* eslint-disable react-native/no-unused-styles */
-import { FlashList, FlashListProps } from '@shopify/flash-list'
-import { FeatureFlags, useFeatureFlag } from '@luxfi/gating'
-=======
 /* oxlint-disable react-native/no-unused-styles */
 import { FlashList, FlashListProps } from '@shopify/flash-list'
-import { FeatureFlags, useFeatureFlag } from '@universe/gating'
->>>>>>> upstream/main
+import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import React, { RefObject, useCallback, useMemo } from 'react'
 import {
   FlatList,
@@ -19,17 +13,10 @@ import {
 } from 'react-native'
 import Animated, { SharedValue } from 'react-native-reanimated'
 import { Route } from 'react-native-tab-view'
-<<<<<<< HEAD
-import { Flex, Text } from '@l.x/ui/src'
-import { colorsLight, spacing } from '@l.x/ui/src/theme'
-import { TestIDType } from '@l.x/lx/src/test/fixtures/testIDs'
-import { PendingNotificationBadge } from '@luxfi/wallet/src/features/notifications/components/PendingNotificationBadge'
-=======
 import { Flex, Text } from 'ui/src'
 import { colorsLight, spacing } from 'ui/src/theme'
 import { TestIDType } from 'uniswap/src/test/fixtures/testIDs'
 import { PendingNotificationBadge } from 'wallet/src/features/notifications/components/PendingNotificationBadge'
->>>>>>> upstream/main
 
 export const TAB_VIEW_SCROLL_THROTTLE = 16
 export const TAB_BAR_HEIGHT = 48

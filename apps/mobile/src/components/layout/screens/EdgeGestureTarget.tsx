@@ -1,11 +1,6 @@
 import React from 'react'
-<<<<<<< HEAD
-import { Flex } from '@l.x/ui/src'
-import { useDeviceDimensions } from '@l.x/ui/src/hooks/useDeviceDimensions'
-=======
 import { Flex } from 'ui/src'
 import { useDeviceDimensions } from 'ui/src/hooks/useDeviceDimensions'
->>>>>>> upstream/main
 
 /**
  * Adds a transparent box to the specific edge as a gesture target.

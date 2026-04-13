@@ -5,7 +5,7 @@ import {
   getTokenValue,
   Checkbox as TamaguiCheckbox,
   CheckboxProps as TamaguiCheckboxPops,
-} from 'tamagui'
+} from '@hanzo/gui'
 import { Check } from 'ui/src/components/icons'
 import { Flex, FlexProps } from 'ui/src/components/layout'
 import { SporeComponentVariant } from 'ui/src/components/types'

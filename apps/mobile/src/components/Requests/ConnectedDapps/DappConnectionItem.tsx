@@ -1,27 +1,14 @@
-<<<<<<< HEAD
-=======
 import 'react-native-reanimated'
->>>>>>> upstream/main
 import React from 'react'
 import { useTranslation } from 'react-i18next'
 import { NativeSyntheticEvent, StyleSheet } from 'react-native'
 import ContextMenu, { ContextMenuOnPressNativeEvent } from 'react-native-context-menu-view'
-<<<<<<< HEAD
-import 'react-native-reanimated'
-import { FadeIn, FadeOut } from 'react-native-reanimated'
-import { WalletConnectSession } from 'src/features/walletConnect/walletConnectSlice'
-import { AnimatedTouchableArea, Flex, Text } from '@l.x/ui/src'
-import { iconSizes, spacing } from '@l.x/ui/src/theme'
-import { noop } from '@l.x/utils/src/react/noop'
-import { DappHeaderIcon } from '@luxfi/wallet/src/components/dappRequests/DappHeaderIcon'
-=======
 import { FadeIn, FadeOut } from 'react-native-reanimated'
 import { WalletConnectSession } from 'src/features/walletConnect/walletConnectSlice'
 import { AnimatedTouchableArea, Flex, Text } from 'ui/src'
 import { iconSizes, spacing } from 'ui/src/theme'
 import { noop } from 'utilities/src/react/noop'
 import { DappHeaderIcon } from 'wallet/src/components/dappRequests/DappHeaderIcon'
->>>>>>> upstream/main
 
 export function DappConnectionItem({
   session,

@@ -1,11 +1,6 @@
 import { useEffect } from 'react'
-<<<<<<< HEAD
-import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
-import { useIsBlocked } from '@l.x/lx/src/features/trm/hooks'
-=======
 import { ModalName } from 'uniswap/src/features/telemetry/constants'
 import { useIsBlocked } from 'uniswap/src/features/trm/hooks'
->>>>>>> upstream/main
 import { setOpenModal } from '~/state/application/reducer'
 import { useAppDispatch } from '~/state/hooks'
 

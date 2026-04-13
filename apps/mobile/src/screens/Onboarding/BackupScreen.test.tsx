@@ -7,17 +7,10 @@ import { AppStackParamList, OnboardingStackParamList } from 'src/app/navigation/
 import { BackupScreen } from 'src/screens/Onboarding/BackupScreen'
 import { renderWithProviders } from 'src/test/render'
 import { render } from 'src/test/test-utils'
-<<<<<<< HEAD
-import { ImportType, OnboardingEntryPoint } from '@l.x/lx/src/types/onboarding'
-import { MobileScreens, OnboardingScreens } from '@l.x/lx/src/types/screens/mobile'
-import { GuiProvider } from '@luxfi/wallet/src/providers/gui-provider'
-import { ACCOUNT, preloadedWalletPackageState } from '@luxfi/wallet/src/test/fixtures'
-=======
 import { ImportType, OnboardingEntryPoint } from 'uniswap/src/types/onboarding'
 import { MobileScreens, OnboardingScreens } from 'uniswap/src/types/screens/mobile'
 import { TamaguiProvider } from 'wallet/src/providers/tamagui-provider'
 import { ACCOUNT, preloadedWalletPackageState } from 'wallet/src/test/fixtures'
->>>>>>> upstream/main
 
 jest.mock('wallet/src/features/wallet/accounts/utils', () => ({
   hasExternalBackup: jest.fn(),
@@ -55,15 +48,9 @@ describe(BackupScreen, () => {
 
   it('renders backup options when some are completed', async () => {
     const tree = renderWithProviders(
-<<<<<<< HEAD
-      <GuiProvider>
-        <BackupScreen navigation={navigationProp} route={routeProp} />
-      </GuiProvider>,
-=======
       <TamaguiProvider>
         <BackupScreen navigation={navigationProp} route={routeProp} />
       </TamaguiProvider>,
->>>>>>> upstream/main
       { preloadedState: preloadedWalletPackageState({ account: ACCOUNT }) },
     )
 

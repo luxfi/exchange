@@ -1,17 +1,9 @@
-<<<<<<< HEAD
-/* eslint-env node */
-
-=======
 >>>>>>> upstream/main
 const fs = require('fs')
 const { parseStringPromise, Builder } = require('xml2js')
 
 // Inline version of normalizeTokenAddressForCache to avoid PNG import issues
-<<<<<<< HEAD
-// Copied from lux/src/data/cache.ts
-=======
 // Copied from uniswap/src/data/cache.ts
->>>>>>> upstream/main
 function normalizeTokenAddressForCache(address) {
   if (address === 'NATIVE' || address === 'native') {
     return 'native'
@@ -41,17 +33,6 @@ const getTopPoolsQuery = (v3Chain) => `
   }
 `
 
-<<<<<<< HEAD
-// Brand domain — reads from BRAND_DOMAIN env or defaults to lux.exchange
-const BRAND_DOMAIN = process.env.BRAND_DOMAIN || 'lux.exchange'
-const BRAND_ORIGIN = `https://${BRAND_DOMAIN}`
-
-// Token ranking API — reads from EXPLORE_API env or defaults
-const EXPLORE_API = process.env.EXPLORE_API || `https://gw.${BRAND_DOMAIN}`
-const GRAPHQL_API = process.env.GRAPHQL_API || `https://gw.${BRAND_DOMAIN}/v1/graphql`
-
-=======
->>>>>>> upstream/main
 const chains = [
   'ETHEREUM',
   'ARBITRUM',
@@ -60,10 +41,7 @@ const chains = [
   'BASE',
   'BNB',
   'CELO',
-<<<<<<< HEAD
-=======
   'UNICHAIN',
->>>>>>> upstream/main
   'AVALANCHE',
   'BLAST',
   'SONEIUM',
@@ -87,21 +65,13 @@ fs.readFile('./public/tokens-sitemap.xml', 'utf8', async (_err, data) => {
     }
 
     const tokensResponse = await fetch(
-<<<<<<< HEAD
-      `${EXPLORE_API}/v2/lux.explore.v1.ExploreStatsService/TokenRankings?connect=v1&encoding=json&message=` +
-=======
       'https://interface.gateway.uniswap.org/v2/uniswap.explore.v1.ExploreStatsService/TokenRankings?connect=v1&encoding=json&message=' +
->>>>>>> upstream/main
         encodeURIComponent(JSON.stringify({ chainId: 'ALL_NETWORKS' })),
       {
         method: 'GET',
         headers: {
           accept: '*/*',
-<<<<<<< HEAD
-          origin: BRAND_ORIGIN,
-=======
           origin: 'https://app.uniswap.org',
->>>>>>> upstream/main
           'content-type': 'application/json',
         },
       },
@@ -113,11 +83,7 @@ fs.readFile('./public/tokens-sitemap.xml', 'utf8', async (_err, data) => {
     })
 
     tokenAddresses.forEach(({ chainName, address }) => {
-<<<<<<< HEAD
-      const tokenURL = `${BRAND_ORIGIN}/explore/tokens/${chainName}/${normalizeTokenAddressForCache(address)}`
-=======
       const tokenURL = `https://app.uniswap.org/explore/tokens/${chainName}/${normalizeTokenAddressForCache(address)}`
->>>>>>> upstream/main
       if (!(tokenURL in tokenURLs)) {
         sitemap.urlset.url.push({
           loc: [tokenURL],
@@ -163,19 +129,11 @@ fs.readFile('./public/pools-sitemap.xml', 'utf8', async (_err, data) => {
     }
 
     for (const chainName of chains) {
-<<<<<<< HEAD
-      const poolsResponse = await fetch(GRAPHQL_API, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Origin: BRAND_ORIGIN,
-=======
       const poolsResponse = await fetch('https://api.uniswap.org/v1/graphql', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
           Origin: 'https://app.uniswap.org',
->>>>>>> upstream/main
         },
         body: JSON.stringify({ query: getTopPoolsQuery(chainName) }),
       })
@@ -185,11 +143,7 @@ fs.readFile('./public/pools-sitemap.xml', 'utf8', async (_err, data) => {
       const poolAddresses = v3PoolAddresses.concat(v2PoolAddresses)
 
       poolAddresses.forEach((address) => {
-<<<<<<< HEAD
-        const poolUrl = `${BRAND_ORIGIN}/explore/pools/${chainName.toLowerCase()}/${normalizeTokenAddressForCache(address)}`
-=======
         const poolUrl = `https://app.uniswap.org/explore/pools/${chainName.toLowerCase()}/${normalizeTokenAddressForCache(address)}`
->>>>>>> upstream/main
         if (!(poolUrl in poolURLs)) {
           sitemap.urlset.url.push({
             loc: [poolUrl],
@@ -239,4 +193,3 @@ function stampSitemaps() {
 }
 stampSitemaps()
 =======
->>>>>>> upstream/main

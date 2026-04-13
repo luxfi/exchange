@@ -1,13 +1,7 @@
-<<<<<<< HEAD
-import times from 'lodash/times'
-import React, { useEffect, useState } from 'react'
-import { Dimensions, StyleSheet, Text, View } from 'react-native'
-=======
 import { SCREEN_WIDTH } from '@gorhom/bottom-sheet'
 import times from 'lodash/times'
 import React, { useEffect, useState } from 'react'
 import { StyleSheet, Text, View } from 'react-native'
->>>>>>> upstream/main
 import Animated, {
   SharedValue,
   useAnimatedReaction,
@@ -19,32 +13,18 @@ import Animated, {
 } from 'react-native-reanimated'
 import { ValueAndFormattedWithAnimation } from 'src/components/PriceExplorer/usePrice'
 import { PriceNumberOfDigits } from 'src/components/PriceExplorer/usePriceHistory'
-<<<<<<< HEAD
-import { TextLoaderWrapper, useSporeColors } from '@l.x/ui/src'
-import { fonts } from '@l.x/ui/src/theme'
-=======
 import { TextLoaderWrapper, useSporeColors } from 'ui/src'
 import { fonts } from 'ui/src/theme'
->>>>>>> upstream/main
 import {
   ADDITIONAL_WIDTH_FOR_ANIMATIONS,
   AnimatedCharStyles,
   DIGIT_HEIGHT,
   NUMBER_ARRAY,
   NUMBER_WIDTH_ARRAY,
-<<<<<<< HEAD
-} from '@l.x/lx/src/components/AnimatedNumber/AnimatedNumber'
-import { TopAndBottomGradient } from '@l.x/lx/src/components/AnimatedNumber/TopAndBottomGradient'
-import { FiatCurrencyInfo } from '@l.x/lx/src/features/fiatOnRamp/types'
-import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
-
-const SCREEN_WIDTH = Dimensions.get('window').width
-=======
 } from 'uniswap/src/components/AnimatedNumber/AnimatedNumber'
 import { TopAndBottomGradient } from 'uniswap/src/components/AnimatedNumber/TopAndBottomGradient'
 import { FiatCurrencyInfo } from 'uniswap/src/features/fiatOnRamp/types'
 import { TestID } from 'uniswap/src/test/fixtures/testIDs'
->>>>>>> upstream/main
 
 // if price per token has > 3 numbers before the decimal, start showing decimals in neutral3
 // otherwise, show entire price in neutral1

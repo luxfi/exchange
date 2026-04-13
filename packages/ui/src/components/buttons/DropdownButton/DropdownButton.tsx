@@ -1,6 +1,6 @@
 import { cloneElement, Fragment, forwardRef, useMemo } from 'react'
-import type { TamaguiElement } from 'tamagui'
-import { withStaticProperties } from 'tamagui'
+import type { TamaguiElement } from '@hanzo/gui'
+import { withStaticProperties } from '@hanzo/gui'
 import { ThemedIcon } from 'ui/src/components/buttons/Button/components/ThemedIcon'
 import { useIsStringOrTransTag } from 'ui/src/components/buttons/Button/hooks/useIsStringOrTransTag'
 import { getIconPosition } from 'ui/src/components/buttons/Button/utils/getIconPosition'

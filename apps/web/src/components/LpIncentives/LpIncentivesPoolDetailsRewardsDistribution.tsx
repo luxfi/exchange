@@ -1,28 +1,15 @@
-<<<<<<< HEAD
-import { CurrencyAmount } from '@luxamm/sdk-core'
-import { GraphQLApi } from '@l.x/api'
-=======
 import { CurrencyAmount } from '@uniswap/sdk-core'
-import { GraphQLApi } from '@universe/api'
->>>>>>> upstream/main
+import { GraphQLApi } from '@l.x/api'
 import { TFunction } from 'i18next'
 import JSBI from 'jsbi'
 import ms from 'ms'
 import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
-<<<<<<< HEAD
-import { Flex, Text } from '@l.x/ui/src'
-import { useCurrentLanguage } from '@l.x/lx/src/features/language/hooks'
-import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
-import { useUSDCPrice } from '@l.x/lx/src/features/transactions/hooks/useUSDCPriceWrapper'
-import { NumberType } from '@l.x/utils/src/format/types'
-=======
 import { Flex, Text } from 'ui/src'
 import { useCurrentLanguage } from 'uniswap/src/features/language/hooks'
 import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
 import { useUSDCPrice } from 'uniswap/src/features/transactions/hooks/useUSDCPriceWrapper'
 import { NumberType } from 'utilities/src/format/types'
->>>>>>> upstream/main
 import { LP_INCENTIVES_REWARD_TOKEN } from '~/components/LpIncentives/constants'
 
 function formatDateRange({

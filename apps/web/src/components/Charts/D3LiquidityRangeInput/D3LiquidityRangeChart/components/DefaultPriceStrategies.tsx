@@ -1,16 +1,8 @@
-<<<<<<< HEAD
-import { Flex, Shine, styled, Text } from '@l.x/ui/src'
-import { ElementName } from '@l.x/lx/src/features/telemetry/constants'
-import Trace from '@l.x/lx/src/features/telemetry/Trace'
-import i18n from '@l.x/lx/src/i18n'
-import { useEvent } from '@l.x/utils/src/react/hooks'
-=======
 import { Flex, Shine, styled, Text } from 'ui/src'
 import { ElementName } from 'uniswap/src/features/telemetry/constants'
 import Trace from 'uniswap/src/features/telemetry/Trace'
 import i18n from 'uniswap/src/i18n'
 import { useEvent } from 'utilities/src/react/hooks'
->>>>>>> upstream/main
 import { useChartPriceState } from '~/components/Charts/D3LiquidityRangeInput/D3LiquidityRangeChart/store/selectors/priceSelectors'
 import { useLiquidityChartStoreRenderingContext } from '~/components/Charts/D3LiquidityRangeInput/D3LiquidityRangeChart/store/selectors/viewSelectors'
 import { DefaultPriceStrategy } from '~/components/Charts/D3LiquidityRangeInput/D3LiquidityRangeChart/store/types'
@@ -18,11 +10,7 @@ import { useLiquidityChartStoreActions } from '~/components/Charts/D3LiquidityRa
 import { POPUP_MEDIUM_DISMISS_MS } from '~/components/Popups/constants'
 import { popupRegistry } from '~/components/Popups/registry'
 import { PopupType } from '~/components/Popups/types'
-<<<<<<< HEAD
-import { ClickableGuiStyle } from '~/theme/components/styles'
-=======
 import { ClickableTamaguiStyle } from '~/theme/components/styles'
->>>>>>> upstream/main
 
 const Container = styled(Flex, {
   flex: 1,
@@ -37,11 +25,7 @@ const Container = styled(Flex, {
     p: '$spacing8',
     gap: '$spacing4',
   },
-<<<<<<< HEAD
-  ...ClickableGuiStyle,
-=======
   ...ClickableTamaguiStyle,
->>>>>>> upstream/main
 })
 
 type PriceStrategy = {

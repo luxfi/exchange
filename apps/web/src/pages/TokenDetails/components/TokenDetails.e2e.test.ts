@@ -1,14 +1,7 @@
-<<<<<<< HEAD
-/* eslint-disable no-restricted-syntax */
-
-import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
-import { shortenAddress } from '@l.x/utils/src/addresses'
-=======
 /* oxlint-disable no-restricted-syntax */
 
 import { TestID } from 'uniswap/src/test/fixtures/testIDs'
 import { shortenAddress } from 'utilities/src/addresses'
->>>>>>> upstream/main
 import { expect, getTest } from '~/playwright/fixtures'
 import { Mocks } from '~/playwright/mocks/mocks'
 
@@ -45,11 +38,7 @@ test.describe(
       await page.goto(`/explore/tokens/ethereum/${UNI_ADDRESS}`)
       // Wait for the GraphQL response to complete before checking UI elements
       await graphql.waitForResponse('TokenWeb')
-<<<<<<< HEAD
-      await expect(page.getByText('Lux').first()).toBeVisible()
-=======
       await expect(page.getByText('Uniswap').first()).toBeVisible()
->>>>>>> upstream/main
 
       // Stats should have: TVL, FDV, market cap
       await expect(page.getByTestId(TestID.TokenDetailsStats)).toBeVisible()
@@ -74,17 +63,10 @@ test.describe(
       )
 
       const websiteLink = infoLinks.getByRole('link', { name: 'Website' })
-<<<<<<< HEAD
-      await expect(websiteLink).toHaveAttribute('href', /lux\.org/)
-
-      const twitterLink = infoLinks.getByRole('link', { name: 'Twitter' })
-      await expect(twitterLink).toHaveAttribute('href', new RegExp('x.com/Lux'))
-=======
       await expect(websiteLink).toHaveAttribute('href', /uniswap\.org/)
 
       const twitterLink = infoLinks.getByRole('link', { name: 'Twitter' })
       await expect(twitterLink).toHaveAttribute('href', new RegExp('x.com/Uniswap'))
->>>>>>> upstream/main
 
       // Contract address should be displayed in header
       await expect(

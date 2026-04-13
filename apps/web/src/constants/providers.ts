@@ -1,10 +1,5 @@
-<<<<<<< HEAD
-import { ALL_EVM_CHAIN_IDS, getChainInfo } from '@l.x/lx/src/features/chains/chainInfo'
-import { EVMUniverseChainId, UniverseChainId } from '@l.x/lx/src/features/chains/types'
-=======
 import { ALL_EVM_CHAIN_IDS, getChainInfo } from 'uniswap/src/features/chains/chainInfo'
 import { EVMUniverseChainId, UniverseChainId } from 'uniswap/src/features/chains/types'
->>>>>>> upstream/main
 import AppJsonRpcProvider from '~/rpc/AppJsonRpcProvider'
 import ConfiguredJsonRpcProvider from '~/rpc/ConfiguredJsonRpcProvider'
 

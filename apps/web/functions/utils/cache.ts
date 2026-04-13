@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 import { GraphQLApi } from '@l.x/api'
-=======
-import { GraphQLApi } from '@universe/api'
->>>>>>> upstream/main
 
 interface TokenData {
   symbol: string

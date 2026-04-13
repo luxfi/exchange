@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import { SharedEventName } from '@luxamm/analytics-events'
-=======
 import { SharedEventName } from '@uniswap/analytics-events'
->>>>>>> upstream/main
 import { useCallback, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import type { NativeSyntheticEvent } from 'react-native'
@@ -12,22 +8,6 @@ import { interpolate, useAnimatedStyle } from 'react-native-reanimated'
 import { useDispatch } from 'react-redux'
 import { navigate } from 'src/app/navigation/rootNavigation'
 import { openModal } from 'src/features/modals/modalSlice'
-<<<<<<< HEAD
-import { ScannerModalState } from '@l.x/lx/src/components/ReceiveQRCode/constants'
-import { AssetType } from '@l.x/lx/src/entities/assets'
-import type { UniverseChainId } from '@l.x/lx/src/features/chains/types'
-import { useSelectHasTokenFavorited } from '@l.x/lx/src/features/favorites/useSelectHasTokenFavorited'
-import { useToggleFavoriteCallback } from '@l.x/lx/src/features/favorites/useToggleFavoriteCallback'
-import type { SectionName } from '@l.x/lx/src/features/telemetry/constants'
-import { ElementName, ModalName } from '@l.x/lx/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
-import type { TransactionState } from '@l.x/lx/src/features/transactions/types/transactionState'
-import type { CurrencyId } from '@l.x/lx/src/types/currency'
-import { CurrencyField } from '@l.x/lx/src/types/currency'
-import { currencyIdToAddress } from '@l.x/lx/src/utils/currencyId'
-import { useEvent } from '@l.x/utils/src/react/hooks'
-import { useWalletNavigation } from '@luxfi/wallet/src/contexts/WalletNavigationContext'
-=======
 import { ScannerModalState } from 'uniswap/src/components/ReceiveQRCode/constants'
 import { AssetType } from 'uniswap/src/entities/assets'
 import type { UniverseChainId } from 'uniswap/src/features/chains/types'
@@ -42,7 +22,6 @@ import { CurrencyField } from 'uniswap/src/types/currency'
 import { currencyIdToAddress } from 'uniswap/src/utils/currencyId'
 import { useEvent } from 'utilities/src/react/hooks'
 import { useWalletNavigation } from 'wallet/src/contexts/WalletNavigationContext'
->>>>>>> upstream/main
 
 interface TokenMenuParams {
   currencyId: CurrencyId

@@ -1,17 +1,9 @@
 import { Trans } from 'react-i18next'
-<<<<<<< HEAD
-import { Separator } from '@l.x/ui/src'
-import Column from '~/components/deprecated/Column'
-import { RowBetween } from '~/components/deprecated/Row'
-import RouterLabel from '~/components/RouterLabel'
-import { DEXDescription } from '~/components/swap/GasBreakdownTooltip'
-=======
 import { Separator } from 'ui/src'
 import Column from '~/components/deprecated/Column'
 import { RowBetween } from '~/components/deprecated/Row'
 import RouterLabel from '~/components/RouterLabel'
 import { UniswapXDescription } from '~/components/swap/GasBreakdownTooltip'
->>>>>>> upstream/main
 import { SubmittableTrade } from '~/state/routing/types'
 import { ThemedText } from '~/theme/components'
 
@@ -31,11 +23,7 @@ export function RoutingTooltip({ trade }: { trade: SubmittableTrade }) {
     <Column gap="md">
       <RouteLabel trade={trade} />
       <Separator />
-<<<<<<< HEAD
-      <DEXDescription />
-=======
       <UniswapXDescription />
->>>>>>> upstream/main
     </Column>
   )
 }

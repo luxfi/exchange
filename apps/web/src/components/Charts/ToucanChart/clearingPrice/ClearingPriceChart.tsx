@@ -1,15 +1,8 @@
 import { useQuery } from '@tanstack/react-query'
-<<<<<<< HEAD
-import { GetClearingPriceHistoryRequest } from '@luxamm/client-data-api/dist/data/v1/auction_pb'
-import { useMemo } from 'react'
-import { useTranslation } from 'react-i18next'
-import { auctionQueries } from '@l.x/lx/src/data/rest/auctions/auctionQueries'
-=======
 import { GetClearingPriceHistoryRequest } from '@uniswap/client-data-api/dist/data/v1/auction_pb'
 import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { auctionQueries } from 'uniswap/src/data/rest/auctions/auctionQueries'
->>>>>>> upstream/main
 import { ClearingPriceChartRenderer } from '~/components/Charts/ToucanChart/clearingPrice/ClearingPriceChartRenderer'
 import { normalizeClearingSeries } from '~/components/Charts/ToucanChart/clearingPrice/utils/normalizeSeries'
 import { calculateMaxFractionDigits } from '~/components/Charts/ToucanChart/clearingPrice/utils/yAxisRange'
@@ -104,10 +97,7 @@ export function ClearingPriceChart({
         auctionStartBlockTimestamp,
         auctionEndBlockTimestamp,
       }),
-<<<<<<< HEAD
-=======
     // oxlint-disable-next-line react/exhaustive-deps -- biome-parity: oxlint is stricter here
->>>>>>> upstream/main
     [
       auctionDetails,
       auctionDetails.token?.currency.decimals,

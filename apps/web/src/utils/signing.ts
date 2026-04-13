@@ -1,11 +1,7 @@
 import type { TypedDataDomain, TypedDataField } from '@ethersproject/abstract-signer'
 import { _TypedDataEncoder } from '@ethersproject/hash'
 import type { JsonRpcProvider, JsonRpcSigner } from '@ethersproject/providers'
-<<<<<<< HEAD
-import { logger } from '@l.x/utils/src/logger/logger'
-=======
 import { logger } from 'utilities/src/logger/logger'
->>>>>>> upstream/main
 import { getWalletMeta, WalletType } from '~/utils/walletMeta'
 
 // These are WalletConnect peers which do not implement eth_signTypedData_v4, but *do* implement eth_signTypedData.

@@ -7,18 +7,6 @@ import {
   Position as RestPosition,
   Token as RestToken,
   V4Position as RestV4Position,
-<<<<<<< HEAD
-} from '@luxamm/client-data-api/dist/data/v1/poolTypes_pb'
-import { ChainId, PoolInformation } from '@luxamm/client-liquidity/dist/lx/liquidity/v1/types_pb'
-import { CurrencyAmount, Token } from '@luxamm/sdk-core'
-import { Pair } from '@luxamm/v2-sdk'
-import { FeeAmount, TICK_SPACINGS, Pool as V3Pool, Position as V3Position } from '@luxamm/v3-sdk'
-import { Pool as V4Pool, Position as V4Position } from '@luxamm/v4-sdk'
-import { ZERO_ADDRESS } from '@l.x/lx/src/constants/misc'
-import { DAI, USDT } from '@l.x/lx/src/constants/tokens'
-import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
-import { WETH } from '@l.x/lx/src/test/fixtures/lib/sdk'
-=======
 } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
 import { ChainId, PoolInformation } from '@uniswap/client-liquidity/dist/uniswap/liquidity/v1/types_pb'
 import { CurrencyAmount, Token } from '@uniswap/sdk-core'
@@ -29,7 +17,6 @@ import { ZERO_ADDRESS } from 'uniswap/src/constants/misc'
 import { DAI, USDT } from 'uniswap/src/constants/tokens'
 import { UniverseChainId } from 'uniswap/src/features/chains/types'
 import { WETH } from 'uniswap/src/test/fixtures/lib/sdk'
->>>>>>> upstream/main
 import { describe, expect, it } from 'vitest'
 import { getSDKPoolFromPoolInformation, parseRestPosition } from '~/components/Liquidity/utils/parseFromRest'
 import { ETH_MAINNET } from '~/test-utils/constants'
@@ -174,11 +161,7 @@ describe('parseRestPosition', () => {
     address: '0xb2839134B8151964f19f6f3c7D59C70ae52852F5',
     symbol: 'UNI-V2',
     decimals: 18,
-<<<<<<< HEAD
-    name: 'Lux V2',
-=======
     name: 'Uniswap V2',
->>>>>>> upstream/main
   }
   const liquidityToken = new Token(
     liquidityTokenRest.chainId,

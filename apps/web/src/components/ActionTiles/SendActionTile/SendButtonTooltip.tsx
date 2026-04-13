@@ -1,17 +1,10 @@
 import Portal from '@reach/portal'
 import { PropsWithChildren, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-<<<<<<< HEAD
-import { Flex, Text, useSporeColors } from '@l.x/ui/src'
-import { InfoCircleFilled } from '@l.x/ui/src/components/icons/InfoCircleFilled'
-import { logger } from '@l.x/utils/src/logger/logger'
-import { useEvent } from '@l.x/utils/src/react/hooks'
-=======
 import { Flex, Text, useSporeColors } from 'ui/src'
 import { InfoCircleFilled } from 'ui/src/components/icons/InfoCircleFilled'
 import { logger } from 'utilities/src/logger/logger'
 import { useEvent } from 'utilities/src/react/hooks'
->>>>>>> upstream/main
 
 export function SendButtonTooltip({
   children,

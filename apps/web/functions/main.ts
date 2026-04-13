@@ -8,9 +8,5 @@ const app = createApp({
   getTrustedClientIp: (c) => c.req.header('cf-connecting-ip'),
 })
 
-<<<<<<< HEAD
-// eslint-disable-next-line import/no-unused-modules
-=======
 // oxlint-disable-next-line import/no-unused-modules
->>>>>>> upstream/main
 export default app

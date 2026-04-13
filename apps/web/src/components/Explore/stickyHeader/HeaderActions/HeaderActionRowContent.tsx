@@ -1,10 +1,5 @@
-<<<<<<< HEAD
-import type { TextProps } from '@l.x/ui/src'
-import { Flex, Text } from '@l.x/ui/src'
-=======
 import type { TextProps } from 'ui/src'
 import { Flex, Text } from 'ui/src'
->>>>>>> upstream/main
 
 interface HeaderActionRowContentProps {
   title: string

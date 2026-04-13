@@ -9,13 +9,8 @@ import { HorizontalEdgeGestureTarget } from 'src/components/layout/screens/EdgeG
 import { ExploreScreen } from 'src/screens/ExploreScreen'
 import { ExternalProfileScreen } from 'src/screens/ExternalProfileScreen'
 import { TokenDetailsScreen } from 'src/screens/TokenDetailsScreen/TokenDetailsScreen'
-<<<<<<< HEAD
-import { useSporeColors } from '@l.x/ui/src'
-import { MobileScreens } from '@l.x/lx/src/types/screens/mobile'
-=======
 import { useSporeColors } from 'ui/src'
 import { MobileScreens } from 'uniswap/src/types/screens/mobile'
->>>>>>> upstream/main
 
 const ExploreStack = createNativeStackNavigator<ExploreStackParamList>()
 

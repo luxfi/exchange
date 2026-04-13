@@ -5,8 +5,4 @@ import vitestPreset from './vitest/vitest-preset.js'
 export default defineConfig({
   ...vitestPreset,
   // Additional overrides can be added here if needed
-<<<<<<< HEAD
 })
-=======
-})
->>>>>>> upstream/main

@@ -1,15 +1,8 @@
 import { useQuery } from '@tanstack/react-query'
-<<<<<<< HEAD
-import { GetAuctionRequest } from '@luxamm/client-data-api/dist/data/v1/auction_pb'
-import { useEffect, useMemo, useRef } from 'react'
-import { auctionQueries } from '@l.x/lx/src/data/rest/auctions/auctionQueries'
-import { EVMUniverseChainId, UniverseChainId } from '@l.x/lx/src/features/chains/types'
-=======
 import { GetAuctionRequest } from '@uniswap/client-data-api/dist/data/v1/auction_pb'
 import { useEffect, useMemo, useRef } from 'react'
 import { auctionQueries } from 'uniswap/src/data/rest/auctions/auctionQueries'
 import { EVMUniverseChainId, UniverseChainId } from 'uniswap/src/features/chains/types'
->>>>>>> upstream/main
 import { useAuctionTokenInfo } from '~/components/Toucan/Auction/hooks/useAuctionTokenInfo'
 import { AuctionDetails, AuctionDetailsLoadState } from '~/components/Toucan/Auction/store/types'
 import { useAuctionStoreActions } from '~/components/Toucan/Auction/store/useAuctionStore'

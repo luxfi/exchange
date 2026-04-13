@@ -14,13 +14,8 @@ import {
   WalletConnectSession,
   WalletConnectSigningRequest,
 } from 'src/features/walletConnect/walletConnectSlice'
-<<<<<<< HEAD
-import { ScannerModalState } from '@l.x/lx/src/components/ReceiveQRCode/constants'
-import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
-=======
 import { ScannerModalState } from 'uniswap/src/components/ReceiveQRCode/constants'
 import { ModalName } from 'uniswap/src/features/telemetry/constants'
->>>>>>> upstream/main
 
 interface WalletConnect {
   sessions: WalletConnectSession[]

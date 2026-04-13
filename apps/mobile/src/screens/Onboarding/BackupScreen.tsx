@@ -13,19 +13,6 @@ import { BackButton } from 'src/components/buttons/BackButton'
 import { checkCloudBackupOrShowAlert } from 'src/components/mnemonic/cloudImportUtils'
 import { OnboardingScreen } from 'src/features/onboarding/OnboardingScreen'
 import { OptionCard } from 'src/features/onboarding/OptionCard'
-<<<<<<< HEAD
-import { Flex, ScrollView, Text, TouchableArea, useShadowPropsShort } from '@l.x/ui/src'
-import { Cloud, PenLine, QuestionInCircleFilled, ShieldCheck } from '@l.x/ui/src/components/icons'
-import { ElementName } from '@l.x/lx/src/features/telemetry/constants'
-import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
-import { ImportType, OnboardingEntryPoint } from '@l.x/lx/src/types/onboarding'
-import { MobileScreens, OnboardingScreens } from '@l.x/lx/src/types/screens/mobile'
-import { getCloudProviderName } from '@l.x/lx/src/utils/cloud-backup/getCloudProviderName'
-import { useOnboardingContext } from '@luxfi/wallet/src/features/onboarding/OnboardingContext'
-import { BackupType } from '@luxfi/wallet/src/features/wallet/accounts/types'
-import { hasBackup, hasExternalBackup } from '@luxfi/wallet/src/features/wallet/accounts/utils'
-import { useActiveAccount } from '@luxfi/wallet/src/features/wallet/hooks'
-=======
 import { Flex, ScrollView, Text, TouchableArea, useShadowPropsShort } from 'ui/src'
 import { Cloud, PenLine, QuestionInCircleFilled, ShieldCheck } from 'ui/src/components/icons'
 import { ElementName } from 'uniswap/src/features/telemetry/constants'
@@ -37,7 +24,6 @@ import { useOnboardingContext } from 'wallet/src/features/onboarding/OnboardingC
 import { BackupType } from 'wallet/src/features/wallet/accounts/types'
 import { hasBackup, hasExternalBackup } from 'wallet/src/features/wallet/accounts/utils'
 import { useActiveAccount } from 'wallet/src/features/wallet/hooks'
->>>>>>> upstream/main
 
 type Props = CompositeScreenProps<
   StackScreenProps<OnboardingStackParamList, OnboardingScreens.Backup>,

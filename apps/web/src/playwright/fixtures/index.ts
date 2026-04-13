@@ -1,9 +1,4 @@
-<<<<<<< HEAD
-/* eslint-disable check-file/no-index */
-// biome-ignore lint/style/noRestrictedImports: playwright test utilities needed for test fixtures
-=======
 // oxlint-disable-next-line no-restricted-imports -- playwright test utilities needed for test fixtures
->>>>>>> upstream/main
 import { mergeTests } from '@playwright/test'
 import { test as amplitudeTest } from '~/playwright/fixtures/amplitude'
 import { test as anvilTest } from '~/playwright/fixtures/anvil'
@@ -11,20 +6,12 @@ import { test as dataApiTest } from '~/playwright/fixtures/dataApi'
 import { test as graphqlTest } from '~/playwright/fixtures/graphql'
 import { test as tradingApiTest } from '~/playwright/fixtures/tradingApi'
 
-<<<<<<< HEAD
-// biome-ignore-start lint/style/noRestrictedImports: playwright re-export needed for test framework
-// eslint-disable-next-line no-restricted-syntax
-export * from '@playwright/test'
-
-// biome-ignore-end lint/style/noRestrictedImports: playwright re-export needed for test framework
-=======
 /* oxlint-disable no-restricted-imports -- playwright re-export needed for test framework */
 // oxlint-disable-next-line no-restricted-syntax
 // oxlint-disable-next-line no-restricted-imports -- biome-parity: oxlint is stricter here
 export * from '@playwright/test'
 
 /* oxlint-enable no-restricted-imports */
->>>>>>> upstream/main
 
 // Configuration interface for test fixtures
 interface TestConfig {

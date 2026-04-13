@@ -2,16 +2,6 @@ import { useUpdateAtom } from 'jotai/utils'
 import { BaseSyntheticEvent } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useDispatch } from 'react-redux'
-<<<<<<< HEAD
-import { Flex, Text, TouchableArea } from '@l.x/ui/src'
-import { X } from '@l.x/ui/src/components/icons/X'
-import { CONNECTION_PROVIDER_IDS } from '@l.x/lx/src/constants/web3'
-import { setEmbeddedWalletGraduateCardDismissed } from '@l.x/lx/src/features/behaviorHistory/slice'
-import { ElementName, ModalName } from '@l.x/lx/src/features/telemetry/constants'
-import Trace from '@l.x/lx/src/features/telemetry/Trace'
-import { useEvent } from '@l.x/utils/src/react/hooks'
-import { ONE_DAY_MS } from '@l.x/utils/src/time/time'
-=======
 import { Flex, Text, TouchableArea } from 'ui/src'
 import { X } from 'ui/src/components/icons/X'
 import { CONNECTION_PROVIDER_IDS } from 'uniswap/src/constants/web3'
@@ -20,7 +10,6 @@ import { ElementName, ModalName } from 'uniswap/src/features/telemetry/constants
 import Trace from 'uniswap/src/features/telemetry/Trace'
 import { useEvent } from 'utilities/src/react/hooks'
 import { ONE_DAY_MS } from 'utilities/src/time/time'
->>>>>>> upstream/main
 import flowerImage from '~/assets/images/flower.png'
 import { downloadAppModalPageAtom, Page } from '~/components/NavBar/DownloadApp/Modal'
 import { useAccount } from '~/hooks/useAccount'
@@ -43,11 +32,7 @@ export function DownloadGraduatedWalletCard(): JSX.Element | null {
   const isEmbeddedWallet = account.connector?.id === CONNECTION_PROVIDER_IDS.EMBEDDED_WALLET_CONNECTOR_ID
   const isEWBackedUp = useAppSelector((state) => state.user.isEmbeddedWalletBackedUp)
   const dismissedTimestamp = useAppSelector(
-<<<<<<< HEAD
-    (state) => state.luxBehaviorHistory.embeddedWalletGraduateCardDismissed?.[account.address ?? ''],
-=======
     (state) => state.uniswapBehaviorHistory.embeddedWalletGraduateCardDismissed?.[account.address ?? ''],
->>>>>>> upstream/main
   )
 
   const isSessionDismissed = useAppSelector((state) =>
@@ -106,11 +91,7 @@ export function DownloadGraduatedWalletCard(): JSX.Element | null {
           <Flex row flex={1} py="$spacing16" px="$spacing12">
             <Flex flex={0} gap="$spacing4" pl="$spacing12">
               <Text variant="buttonLabel3" color="$neutral1">
-<<<<<<< HEAD
-                {t('common.downloadLuxWallet')}
-=======
                 {t('common.downloadUniswapWallet')}
->>>>>>> upstream/main
               </Text>
               <Text variant="body3" color="$neutral2">
                 {t('account.downloadWallet.subtitle')}

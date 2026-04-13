@@ -6,29 +6,6 @@ import { navigate } from 'src/app/navigation/rootNavigation'
 import { useTokenDetailsContext } from 'src/components/TokenDetails/TokenDetailsContext'
 import { TokenDetailsFavoriteButton } from 'src/components/TokenDetails/TokenDetailsFavoriteButton'
 import { useTokenDetailsCurrentChainBalance } from 'src/components/TokenDetails/useTokenDetailsCurrentChainBalance'
-<<<<<<< HEAD
-import { Flex, Text } from '@l.x/ui/src'
-import { Ellipsis } from '@l.x/ui/src/components/icons'
-import { AnimatedFlex } from '@l.x/ui/src/components/layout/AnimatedFlex'
-import { iconSizes, spacing } from '@l.x/ui/src/theme'
-import { TokenLogo } from '@l.x/lx/src/components/CurrencyLogo/TokenLogo'
-import { ContextMenu } from '@l.x/lx/src/components/menus/ContextMenu'
-import { ContextMenuTriggerMode } from '@l.x/lx/src/components/menus/types'
-import {
-  useTokenBasicInfoPartsFragment,
-  useTokenBasicProjectPartsFragment,
-} from '@l.x/lx/src/data/graphql/lux-data-api/fragments'
-import { fromGraphQLChain } from '@l.x/lx/src/features/chains/utils'
-import { TokenList } from '@l.x/lx/src/features/dataApi/types'
-import {
-  TokenMenuActionType,
-  useTokenContextMenuOptions,
-} from '@l.x/lx/src/features/portfolio/balances/hooks/useTokenContextMenuOptions'
-import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
-import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
-import { useEvent } from '@l.x/utils/src/react/hooks'
-import { useBooleanState } from '@l.x/utils/src/react/useBooleanState'
-=======
 import { Flex, Text } from 'ui/src'
 import { Ellipsis } from 'ui/src/components/icons'
 import { AnimatedFlex } from 'ui/src/components/layout/AnimatedFlex'
@@ -50,7 +27,6 @@ import { ElementName, ModalName, SectionName } from 'uniswap/src/features/teleme
 import { TestID } from 'uniswap/src/test/fixtures/testIDs'
 import { useEvent } from 'utilities/src/react/hooks'
 import { useBooleanState } from 'utilities/src/react/useBooleanState'
->>>>>>> upstream/main
 
 export const HeaderTitleElement = memo(function HeaderTitleElement(): JSX.Element {
   const { t } = useTranslation()
@@ -123,20 +99,8 @@ export const HeaderRightElement = memo(function HeaderRightElement(): JSX.Elemen
   return (
     <AnimatedFlex row alignItems="center" entering={FadeIn} gap="$spacing12">
       <ContextMenu
-<<<<<<< HEAD
-=======
-        trackItemClicks
->>>>>>> upstream/main
-        menuItems={menuActions}
-        triggerMode={ContextMenuTriggerMode.Primary}
-        isOpen={isOpen}
-        openMenu={openMenu}
-        closeMenu={closeMenu}
-<<<<<<< HEAD
-=======
         elementName={ElementName.TokenDetailsContextMenu}
         sectionName={SectionName.TokenDetails}
->>>>>>> upstream/main
       >
         <Flex
           hitSlop={{ right: 5, left: 20, top: 20, bottom: 20 }}

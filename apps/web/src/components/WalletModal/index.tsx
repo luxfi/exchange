@@ -1,10 +1,5 @@
-<<<<<<< HEAD
 import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
-import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
-=======
-import { FeatureFlags, useFeatureFlag } from '@universe/gating'
 import { Platform } from 'uniswap/src/features/platforms/types/Platform'
->>>>>>> upstream/main
 import { MenuStateVariant, useSetMenuCallback } from '~/components/AccountDrawer/menuState'
 import { EmbeddedWalletConnectionsModal } from '~/components/WalletModal/EmbeddedWalletModal'
 import { StandardWalletModal } from '~/components/WalletModal/StandardWalletModal'

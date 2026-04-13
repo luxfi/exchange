@@ -1,13 +1,3 @@
-<<<<<<< HEAD
-import { Currency } from '@luxamm/sdk-core'
-import React from 'react'
-import { Trans } from 'react-i18next'
-import { WalletConnectSigningRequest } from 'src/features/walletConnect/walletConnectSlice'
-import { Text } from '@l.x/ui/src'
-import { EthMethod, WalletConnectEthMethod } from '@l.x/lx/src/features/dappRequests/types'
-import { getCurrencyAmount, ValueType } from '@l.x/lx/src/features/tokens/getCurrencyAmount'
-import { UwULinkMethod } from '@l.x/lx/src/types/walletConnect'
-=======
 import { Currency } from '@uniswap/sdk-core'
 import React from 'react'
 import { Trans } from 'react-i18next'
@@ -16,7 +6,6 @@ import { Text } from 'ui/src'
 import { EthMethod, WalletConnectEthMethod } from 'uniswap/src/features/dappRequests/types'
 import { getCurrencyAmount, ValueType } from 'uniswap/src/features/tokens/getCurrencyAmount'
 import { UwULinkMethod } from 'uniswap/src/types/walletConnect'
->>>>>>> upstream/main
 
 export function HeaderText({
   request,

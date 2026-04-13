@@ -1,10 +1,6 @@
 import { usePreventLock } from 'src/features/lockScreen/hooks/usePreventLock'
 import { promptPushPermission } from 'src/features/notifications/Onesignal'
-<<<<<<< HEAD
-import { useEvent } from '@l.x/utils/src/react/hooks'
-=======
 import { useEvent } from 'utilities/src/react/hooks'
->>>>>>> upstream/main
 
 /**
  * Custom hook to handle push notification permissions with Android-specific considerations.

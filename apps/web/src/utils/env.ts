@@ -1,26 +1,3 @@
-<<<<<<< HEAD
-import { brand } from '@l.x/config'
-import { isBetaEnv, isProdEnv } from '@l.x/utils/src/environment/env'
-
-/** Check if we are running on a known production exchange domain */
-function isKnownExchangeDomain({ hostname }: { hostname: string }): boolean {
-  if (brand.appDomain && hostname === brand.appDomain) {
-    return true
-  }
-  return (
-    hostname === 'lux.exchange' ||
-    hostname === 'app.lux.exchange' ||
-    hostname === 'zoo.exchange' ||
-    hostname === 'app.zoo.exchange'
-  )
-}
-
-function isStagingDomain({ hostname }: { hostname: string }): boolean {
-  if (brand.appDomain) {
-    return hostname === `staging.${brand.appDomain}`
-  }
-  return hostname === 'staging.lux.exchange' || hostname === 'staging.zoo.exchange'
-=======
 import { isBetaEnv, isProdEnv } from 'utilities/src/environment/env'
 
 function isAppUniswapOrg({ hostname }: { hostname: string }): boolean {
@@ -29,19 +6,13 @@ function isAppUniswapOrg({ hostname }: { hostname: string }): boolean {
 
 function isAppUniswapStagingOrg({ hostname }: { hostname: string }): boolean {
   return hostname === 'app.corn-staging.com'
->>>>>>> upstream/main
 }
 
 export function isBrowserRouterEnabled(): boolean {
   if (isProdEnv()) {
     if (
-<<<<<<< HEAD
-      isKnownExchangeDomain(window.location) ||
-      isStagingDomain(window.location) ||
-=======
       isAppUniswapOrg(window.location) ||
       isAppUniswapStagingOrg(window.location) ||
->>>>>>> upstream/main
       isLocalhost(window.location) // playwright tests
     ) {
       return true
@@ -57,17 +28,10 @@ function isLocalhost({ hostname }: { hostname: string }): boolean {
 
 export function isRemoteReportingEnabled(): boolean {
   // Disable in e2e test environments
-<<<<<<< HEAD
-  if (isBetaEnv() && !isStagingDomain(window.location)) {
-    return false
-  }
-  if (isProdEnv() && !isKnownExchangeDomain(window.location)) {
-=======
   if (isBetaEnv() && !isAppUniswapStagingOrg(window.location)) {
     return false
   }
   if (isProdEnv() && !isAppUniswapOrg(window.location)) {
->>>>>>> upstream/main
     return false
   }
   return process.env.REACT_APP_ANALYTICS_ENABLED === 'true'

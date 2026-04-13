@@ -291,10 +291,7 @@ const PulseDot = memo(function PulseDot({
 
   useEffect(() => {
     progress.value = withRepeat(withTiming(1, { duration: PULSE_DURATION_MS }), -1, false)
-<<<<<<< HEAD
-=======
     // oxlint-disable-next-line react-hooks/exhaustive-deps -- progress is a stable Reanimated SharedValue
->>>>>>> upstream/main
   }, [])
 
   const animatedProps = useAnimatedProps(() => ({

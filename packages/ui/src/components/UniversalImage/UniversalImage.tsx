@@ -1,6 +1,6 @@
 /* oxlint-disable complexity */
 import { useEffect, useState } from 'react'
-import { type ColorTokens, Image } from 'tamagui'
+import { type ColorTokens, Image } from '@hanzo/gui'
 import { Flex } from 'ui/src/components/layout/Flex'
 import { PlainImage } from 'ui/src/components/UniversalImage/internal/PlainImage'
 import { SvgImage } from 'ui/src/components/UniversalImage/internal/SvgImage'

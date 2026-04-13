@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-appId: com.lux.exchange.dev
-=======
 appId: com.uniswap.mobile.dev
->>>>>>> upstream/main
 jsEngine: graaljs
 env:
   DATADOG_API_KEY: ${DATADOG_API_KEY}

@@ -1,45 +1,25 @@
-<<<<<<< HEAD
 # .dockerignore for Lux Exchange Docker builds
-=======
-# =============================================================================
-# .dockerignore for Docker builds (api-self-serve, mission-control)
-# =============================================================================
->>>>>>> upstream/main
 
 # Dependencies (reinstalled in container)
 node_modules
+**/node_modules
+.pnpm-store
 
 # Git
 .git
 .gitattributes
 
-<<<<<<< HEAD
 # Build outputs
 **/.turbo
 **/.nx
-# Only exclude app dist/ dirs (packages/*/dist/ is pre-built and committed — needed at build time)
+**/.next
+.output
+# Only exclude app dist/ dirs (packages/*/dist/ is pre-built and committed)
 apps/*/dist
 
 # Mobile/native artifacts (not needed for web)
 apps/mobile/ios
 apps/mobile/android
-=======
-# Build outputs (rebuilt in container)
-**/build
-**/dist
-**/.turbo
-**/.nx
-
-# Other apps (not needed for api-self-serve)
-apps/web
-apps/mobile
-apps/extension
-apps/cli
-
-# Mobile/native artifacts
-**/ios
-**/android
->>>>>>> upstream/main
 **/*.podspec
 
 # Tests
@@ -58,29 +38,15 @@ apps/cli
 **/.env.local
 **/.env.*.local
 
-<<<<<<< HEAD
-# Lock files for other package managers (bun.lock has stale workspace refs)
+# Lock files for other package managers
 bun.lock
 bun.lockb
-=======
+
 # Docs
 *.md
-!README.md
->>>>>>> upstream/main
 
 # Misc
 .DS_Store
 *.log
 **/.storybook
 **/storybook-static
-<<<<<<< HEAD
-node_modules
-.pnpm-store
-bun.lock
-bun.lockb
-.turbo
-dist
-.next
-.output
-=======
->>>>>>> upstream/main

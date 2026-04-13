@@ -31,19 +31,11 @@ vi.mock('~/hooks/useAccount', () => ({
   useAccount: vi.fn(),
 }))
 
-<<<<<<< HEAD
-vi.mock('lx/src/features/wallet/hooks/useWallet', () => ({
-  useWallet: vi.fn(),
-}))
-
-vi.mock('lx/src/features/passkey/hooks/useGetPasskeyAuthStatus', () => ({
-=======
 vi.mock('uniswap/src/features/wallet/hooks/useWallet', () => ({
   useWallet: vi.fn(),
 }))
 
 vi.mock('uniswap/src/features/passkey/hooks/useGetPasskeyAuthStatus', () => ({
->>>>>>> upstream/main
   useGetPasskeyAuthStatus: vi.fn(),
 }))
 
@@ -55,18 +47,6 @@ vi.mock('~/hooks/Tokens', () => ({
   useCurrencyInfo: vi.fn(),
 }))
 
-<<<<<<< HEAD
-import { ProtocolVersion } from '@luxamm/client-data-api/dist/data/v1/poolTypes_pb'
-import { CurrencyAmount } from '@luxamm/sdk-core'
-import { useDispatch } from 'react-redux'
-import { useNavigate } from 'react-router'
-import { DAI, USDC_MAINNET } from 'lx/src/constants/tokens'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { useGetPasskeyAuthStatus } from 'lx/src/features/passkey/hooks/useGetPasskeyAuthStatus'
-import { LPTransactionSettingsStoreContextProvider } from 'lx/src/features/transactions/components/settings/stores/transactionSettingsStore/LPTransactionSettingsStoreContextProvider'
-import { useWallet } from 'lx/src/features/wallet/hooks/useWallet'
-import { useTrace } from '@l.x/utils/src/telemetry/trace/TraceContext'
-=======
 import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
 import { CurrencyAmount } from '@uniswap/sdk-core'
 import { useDispatch } from 'react-redux'
@@ -77,7 +57,6 @@ import { useGetPasskeyAuthStatus } from 'uniswap/src/features/passkey/hooks/useG
 import { LPTransactionSettingsStoreContextProvider } from 'uniswap/src/features/transactions/components/settings/stores/transactionSettingsStore/LPTransactionSettingsStoreContextProvider'
 import { useWallet } from 'uniswap/src/features/wallet/hooks/useWallet'
 import { useTrace } from 'utilities/src/telemetry/trace/TraceContext'
->>>>>>> upstream/main
 import { useCurrencyInfo } from '~/hooks/Tokens'
 import { useAccount } from '~/hooks/useAccount'
 import useSelectChain from '~/hooks/useSelectChain'

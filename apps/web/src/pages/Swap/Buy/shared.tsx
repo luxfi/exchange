@@ -1,15 +1,3 @@
-<<<<<<< HEAD
-import { Currency } from '@luxamm/sdk-core'
-import { PropsWithChildren } from 'react'
-import { Flex, ModalCloseIcon, styled, TouchableArea, useSporeColors } from '@l.x/ui/src'
-import { ReactComponent as ForConnectingBackground } from '@l.x/ui/src/assets/backgrounds/for-connecting-v2.svg'
-import { ArrowLeft } from '@l.x/ui/src/components/icons/ArrowLeft'
-import { FiatCurrencyInfo, FORCountry, RampDirection } from '@l.x/lx/src/features/fiatOnRamp/types'
-import { LocalizedFormatter } from '@l.x/lx/src/features/language/formatter'
-import { navigatorLocale } from '@l.x/lx/src/features/language/navigatorLocale'
-import { NumberType } from '@l.x/utils/src/format/types'
-import { logger } from '@l.x/utils/src/logger/logger'
-=======
 import { Currency } from '@uniswap/sdk-core'
 import { PropsWithChildren } from 'react'
 import { Flex, ModalCloseIcon, styled, TouchableArea, useSporeColors } from 'ui/src'
@@ -20,7 +8,6 @@ import { LocalizedFormatter } from 'uniswap/src/features/language/formatter'
 import { navigatorLocale } from 'uniswap/src/features/language/navigatorLocale'
 import { NumberType } from 'utilities/src/format/types'
 import { logger } from 'utilities/src/logger/logger'
->>>>>>> upstream/main
 
 export const ContentWrapper = styled(Flex, {
   backgroundColor: '$surface1',

@@ -2,7 +2,7 @@ import { useContext, useMemo } from 'react'
 import { ExploreContext } from '~/state/explore'
 
 /**
- * Returns factory-level stats from the Lux V3 subgraph.
+ * Returns factory-level stats from the luxfi/graph engine.
  * Used by the landing page to show real pool count and transaction count.
  */
 export function useFactoryStats() {

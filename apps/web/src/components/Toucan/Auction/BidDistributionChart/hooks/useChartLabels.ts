@@ -1,10 +1,6 @@
 import { IChartApi, UTCTimestamp } from 'lightweight-charts'
 import { useCallback } from 'react'
-<<<<<<< HEAD
-import { UseSporeColorsReturn } from '@l.x/ui/src/hooks/useSporeColors'
-=======
 import { UseSporeColorsReturn } from 'ui/src/hooks/useSporeColors'
->>>>>>> upstream/main
 import { LABEL_CONFIG } from '~/components/Toucan/Auction/BidDistributionChart/constants'
 import { formatTokenPriceSubscript } from '~/components/Toucan/Auction/BidDistributionChart/utils/tokenFormatters'
 import { calculateDynamicLabelIncrement } from '~/components/Toucan/Auction/BidDistributionChart/utils/utils'
@@ -51,11 +47,7 @@ export function useChartLabels(params: UseChartLabelsParams) {
         minSigDigits: 3,
         maxSigDigits: 4,
       })
-<<<<<<< HEAD
-      // eslint-disable-next-line no-unsanitized/property -- HTML is generated from number, not user input
-=======
       // oxlint-disable-next-line no-unsanitized/property -- HTML is generated from number, not user input
->>>>>>> upstream/main
       label.innerHTML = formatted.html
 
       return label

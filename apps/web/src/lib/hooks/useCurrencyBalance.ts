@@ -1,16 +1,8 @@
-<<<<<<< HEAD
-import { Currency, CurrencyAmount, Token } from '@luxamm/sdk-core'
-import JSBI from 'jsbi'
-import { useMemo } from 'react'
-import { getCurrencyAmount, ValueType } from '@l.x/lx/src/features/tokens/getCurrencyAmount'
-import { isEVMAddress } from '@l.x/utils/src/addresses/evm/evm'
-=======
 import { Currency, CurrencyAmount, Token } from '@uniswap/sdk-core'
 import JSBI from 'jsbi'
 import { useMemo } from 'react'
 import { getCurrencyAmount, ValueType } from 'uniswap/src/features/tokens/getCurrencyAmount'
 import { isEVMAddress } from 'utilities/src/addresses/evm/evm'
->>>>>>> upstream/main
 import { erc20Abi } from 'viem'
 import { useBalance, useReadContracts } from 'wagmi'
 import { useAccount } from '~/hooks/useAccount'
@@ -61,11 +53,7 @@ function useRpcTokenBalancesWithLoadingIndicator({
   return useMemo(
     () => [
       address && validatedTokens.length > 0
-<<<<<<< HEAD
-        ? // eslint-disable-next-line max-params
-=======
         ? // oxlint-disable-next-line max-params
->>>>>>> upstream/main
           validatedTokens.reduce<{ [tokenAddress: string]: CurrencyAmount<Token> | undefined }>((memo, token, i) => {
             const value = data?.[i].result
             if (!value) {
@@ -153,11 +141,7 @@ function useGqlCurrencyBalances(
       const key = currencyKey(currency)
       const balance = balanceMap[key]
 
-<<<<<<< HEAD
-      // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
-=======
       // oxlint-disable-next-line typescript/no-unnecessary-condition
->>>>>>> upstream/main
       if (balance) {
         const currencyAmount = getCurrencyAmount({
           value: balance.balance.toString(),
@@ -176,11 +160,7 @@ function useGqlCurrencyBalances(
 }
 
 /**
-<<<<<<< HEAD
- * @deprecated use usePortfolioBalances & getOnChainBalancesFetch from pkgs/lux instead
-=======
  * @deprecated use usePortfolioBalances & getOnChainBalancesFetch from packages/uniswap instead
->>>>>>> upstream/main
  *
  * Returns balances for tokens on currently-connected chainId via RPC.
  * Falls back to graphql TokenBalances if user is not connected to chain, a.k.a !isSynced.

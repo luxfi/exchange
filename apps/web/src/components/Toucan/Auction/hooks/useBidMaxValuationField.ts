@@ -1,15 +1,3 @@
-<<<<<<< HEAD
-/* eslint-disable max-lines */
-import { Currency, CurrencyAmount } from '@luxamm/sdk-core'
-import { useEffect, useMemo, useRef, useState } from 'react'
-import { useTranslation } from 'react-i18next'
-import { getPrimaryStablecoin } from '@l.x/lx/src/features/chains/utils'
-import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
-import { getCurrencyAmount, ValueType } from '@l.x/lx/src/features/tokens/getCurrencyAmount'
-import { useCurrencyInfo } from '@l.x/lx/src/features/tokens/useCurrencyInfo'
-import { useUSDCPrice, useUSDCValue } from '@l.x/lx/src/features/transactions/hooks/useUSDCPriceWrapper'
-import { useEvent } from '@l.x/utils/src/react/hooks'
-=======
 /* oxlint-disable max-lines */
 import { Currency, CurrencyAmount } from '@uniswap/sdk-core'
 import { useEffect, useMemo, useRef, useState } from 'react'
@@ -20,7 +8,6 @@ import { getCurrencyAmount, ValueType } from 'uniswap/src/features/tokens/getCur
 import { useCurrencyInfo } from 'uniswap/src/features/tokens/useCurrencyInfo'
 import { useUSDCPrice, useUSDCValue } from 'uniswap/src/features/transactions/hooks/useUSDCPriceWrapper'
 import { useEvent } from 'utilities/src/react/hooks'
->>>>>>> upstream/main
 import { priceToQ96WithDecimals, q96ToPriceString } from '~/components/Toucan/Auction/BidDistributionChart/utils/q96'
 import { snapToNearestTick } from '~/components/Toucan/Auction/utils/ticks'
 import tryParseCurrencyAmount from '~/lib/utils/tryParseCurrencyAmount'

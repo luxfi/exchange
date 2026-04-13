@@ -1,10 +1,5 @@
-<<<<<<< HEAD
-import { FeatureFlagClient, type FeatureFlags, getFeatureFlagName } from '@luxfi/gating'
 import path from 'path'
-=======
-import path from 'path'
-import { FeatureFlagClient, type FeatureFlags, getFeatureFlagName } from '@universe/gating'
->>>>>>> upstream/main
+import { FeatureFlagClient, type FeatureFlags, getFeatureFlagName } from '@l.x/gating'
 
 export function createTestUrlBuilder({
   basePath,

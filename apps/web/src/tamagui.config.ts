@@ -20,7 +20,7 @@ export const config = createTamagui({
 
 type Conf = typeof config
 
-declare module '@tamagui/core' {
+declare module '@hanzogui/core' {
   // oxlint-disable-next-line typescript/no-empty-interface
   interface TamaguiCustomConfig extends Conf {}
 

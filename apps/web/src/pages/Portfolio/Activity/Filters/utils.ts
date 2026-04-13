@@ -1,20 +1,3 @@
-<<<<<<< HEAD
-import { TransactionTypeFilter } from '@luxamm/client-data-api/dist/data/v1/types_pb'
-import { Box } from '@l.x/ui/src/components/icons/Box'
-import { Coin } from '@l.x/ui/src/components/icons/Coin'
-import { CoinConvert } from '@l.x/ui/src/components/icons/CoinConvert'
-import { Lock } from '@l.x/ui/src/components/icons/Lock'
-import { Minus } from '@l.x/ui/src/components/icons/Minus'
-import { MoneyHand } from '@l.x/ui/src/components/icons/MoneyHand'
-import { Plus } from '@l.x/ui/src/components/icons/Plus'
-import { Pools } from '@l.x/ui/src/components/icons/Pools'
-import { ReceiveAlt } from '@l.x/ui/src/components/icons/ReceiveAlt'
-import { SendAction } from '@l.x/ui/src/components/icons/SendAction'
-import { AppTFunction } from '@l.x/ui/src/i18n/types'
-import { ActivityItem } from '@l.x/lx/src/components/activity/generateActivityItemRenderer'
-import { isLoadingItem, isSectionHeader } from '@l.x/lx/src/components/activity/utils'
-import { TransactionDetails, TransactionType } from '@l.x/lx/src/features/transactions/types/transactionDetails'
-=======
 import { TransactionTypeFilter } from '@uniswap/client-data-api/dist/data/v1/types_pb'
 import { Box } from 'ui/src/components/icons/Box'
 import { Coin } from 'ui/src/components/icons/Coin'
@@ -30,7 +13,6 @@ import { AppTFunction } from 'ui/src/i18n/types'
 import { ActivityItem } from 'uniswap/src/components/activity/generateActivityItemRenderer'
 import { isLoadingItem, isSectionHeader } from 'uniswap/src/components/activity/utils'
 import { TransactionDetails, TransactionType } from 'uniswap/src/features/transactions/types/transactionDetails'
->>>>>>> upstream/main
 import { SelectOption } from '~/components/Dropdowns/DropdownSelector'
 
 export enum ActivityFilterType {

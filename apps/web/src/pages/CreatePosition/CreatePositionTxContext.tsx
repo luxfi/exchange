@@ -1,16 +1,3 @@
-<<<<<<< HEAD
-import { useQuery } from '@tanstack/react-query'
-import { ProtocolVersion } from '@luxamm/client-data-api/dist/data/v1/poolTypes_pb'
-import {
-  CheckApprovalLPResponse,
-  CreateLPPositionRequest,
-  CreateLPPositionResponse,
-} from '@luxamm/client-liquidity/dist/lx/liquidity/v1/api_pb'
-import { V4CreateLPPosition } from '@luxamm/client-liquidity/dist/lx/liquidity/v1/types_pb'
-import { Currency, CurrencyAmount } from '@luxamm/sdk-core'
-import { Pair } from '@luxamm/v2-sdk'
-import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
-=======
 /* oxlint-disable max-lines */
 import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
 import {
@@ -26,8 +13,7 @@ import {
 import { LPAction } from '@uniswap/client-liquidity/dist/uniswap/liquidity/v2/types_pb'
 import { Currency, CurrencyAmount } from '@uniswap/sdk-core'
 import { Pair } from '@uniswap/v2-sdk'
-import { FeatureFlags, useFeatureFlag } from '@universe/gating'
->>>>>>> upstream/main
+import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import {
   createContext,
   type Dispatch,
@@ -41,26 +27,6 @@ import {
   useState,
 } from 'react'
 import { useSelector } from 'react-redux'
-<<<<<<< HEAD
-import { useLuxContextSelector } from '@l.x/lx/src/contexts/LuxContext'
-import { liquidityQueries } from '@l.x/lx/src/data/apiClients/liquidityService/liquidityQueries'
-import { useActiveAddress } from '@l.x/lx/src/features/accounts/store/hooks'
-import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
-import { toSupportedChainId } from '@l.x/lx/src/features/chains/utils'
-import { useTransactionGasFee, useUSDCurrencyAmountOfGasFee } from '@l.x/lx/src/features/gas/hooks'
-import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
-import { DelegatedState } from '@l.x/lx/src/features/smartWallet/delegation/types'
-import { InterfaceEventName } from '@l.x/lx/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
-import { useTransactionSettingsStore } from '@l.x/lx/src/features/transactions/components/settings/stores/transactionSettingsStore/useTransactionSettingsStore'
-import { CreatePositionTxAndGasInfo, LiquidityTransactionType } from '@l.x/lx/src/features/transactions/liquidity/types'
-import { getErrorMessageToDisplay, parseErrorMessageTitle } from '@l.x/lx/src/features/transactions/liquidity/utils'
-import { TransactionStepType } from '@l.x/lx/src/features/transactions/steps/types'
-import { PermitMethod } from '@l.x/lx/src/features/transactions/swap/types/swapTxAndGasInfo'
-import { validatePermit, validateTransactionRequest } from '@l.x/lx/src/features/transactions/swap/utils/trade'
-import { logger } from '@l.x/utils/src/logger/logger'
-import { ONE_SECOND_MS } from '@l.x/utils/src/time/time'
-=======
 import { useUniswapContextSelector } from 'uniswap/src/contexts/UniswapContext'
 import { type NormalizedApprovalData } from 'uniswap/src/data/apiClients/liquidityService/normalizeApprovalResponse'
 import { useCheckLPApprovalQuery } from 'uniswap/src/data/apiClients/liquidityService/useCheckLPApprovalQuery'
@@ -80,7 +46,6 @@ import { TransactionStepType } from 'uniswap/src/features/transactions/steps/typ
 import { PermitMethod } from 'uniswap/src/features/transactions/swap/types/swapTxAndGasInfo'
 import { validatePermit, validateTransactionRequest } from 'uniswap/src/features/transactions/swap/utils/trade'
 import { logger } from 'utilities/src/logger/logger'
->>>>>>> upstream/main
 import { useDepositInfo } from '~/components/Liquidity/Create/hooks/useDepositInfo'
 import { useDynamicNativeSlippage } from '~/components/Liquidity/Create/hooks/useLPSlippageValues'
 import { useCreatePositionDependentAmountFallback } from '~/components/Liquidity/hooks/useDependentAmountFallback'
@@ -90,13 +55,7 @@ import { isInvalidRange, isOutOfRange } from '~/components/Liquidity/utils/price
 import { useCreateLiquidityContext } from '~/pages/CreatePosition/CreateLiquidityContextProvider'
 import { PositionField } from '~/types/position'
 
-<<<<<<< HEAD
-/**
- * @internal - exported for testing
- */
-=======
 /** @internal - exported for testing */
->>>>>>> upstream/main
 export function generateCreatePositionTxRequest({
   protocolVersion,
   approvalCalldata,
@@ -108,15 +67,9 @@ export function generateCreatePositionTxRequest({
   delegatedAddress,
 }: {
   protocolVersion: ProtocolVersion
-<<<<<<< HEAD
-  approvalCalldata?: CheckApprovalLPResponse
-  createCalldata?: CreateLPPositionResponse
-  createCalldataQueryParams?: CreateLPPositionRequest
-=======
   approvalCalldata?: NormalizedApprovalData
   createCalldata?: CreateLPPositionResponse | CreateClassicPositionResponse | CreatePositionResponse
   createCalldataQueryParams?: CreateLPPositionRequest | CreatePositionRequest
->>>>>>> upstream/main
   currencyAmounts?: { [field in PositionField]?: Maybe<CurrencyAmount<Currency>> }
   poolOrPair: Pair | undefined
   canBatchTransactions: boolean
@@ -126,44 +79,6 @@ export function generateCreatePositionTxRequest({
     return undefined
   }
 
-<<<<<<< HEAD
-  const validatedApprove0Request = validateTransactionRequest(approvalCalldata?.token0Approval)
-  if (approvalCalldata?.token0Approval && !validatedApprove0Request) {
-    return undefined
-  }
-
-  const validatedApprove1Request = validateTransactionRequest(approvalCalldata?.token1Approval)
-  if (approvalCalldata?.token1Approval && !validatedApprove1Request) {
-    return undefined
-  }
-
-  const validatedRevoke0Request = validateTransactionRequest(approvalCalldata?.token0Cancel)
-  if (approvalCalldata?.token0Cancel && !validatedRevoke0Request) {
-    return undefined
-  }
-
-  const validatedRevoke1Request = validateTransactionRequest(approvalCalldata?.token1Cancel)
-  if (approvalCalldata?.token1Cancel && !validatedRevoke1Request) {
-    return undefined
-  }
-
-  const validatedPermitRequest = validatePermit(approvalCalldata?.permitData.value)
-  if (approvalCalldata?.permitData.value && !validatedPermitRequest) {
-    return undefined
-  }
-
-  const validatedToken0PermitTransaction = validateTransactionRequest(approvalCalldata?.token0PermitTransaction)
-  const validatedToken1PermitTransaction = validateTransactionRequest(approvalCalldata?.token1PermitTransaction)
-
-  const txRequest = validateTransactionRequest(createCalldata.create)
-  if (!txRequest && !(validatedToken0PermitTransaction || validatedToken1PermitTransaction)) {
-    // Allow missing txRequest if mismatched (unsigned flow using token0PermitTransaction/2)
-    return undefined
-  }
-
-  let updatedCreateCalldataQueryParams: CreateLPPositionRequest | undefined
-  if (createCalldataQueryParams?.createLpPosition.case === 'v4CreateLpPosition') {
-=======
   const approveToken0Request = validateTransactionRequest(approvalCalldata?.token0Approval)
   const approveToken1Request = validateTransactionRequest(approvalCalldata?.token1Approval)
   const revokeToken0Request = validateTransactionRequest(approvalCalldata?.token0Cancel)
@@ -202,18 +117,12 @@ export function generateCreatePositionTxRequest({
         })
       : createCalldataQueryParams
   } else if (createCalldataQueryParams?.createLpPosition.case === 'v4CreateLpPosition') {
->>>>>>> upstream/main
     updatedCreateCalldataQueryParams = new CreateLPPositionRequest({
       createLpPosition: {
         case: 'v4CreateLpPosition',
         value: new V4CreateLPPosition({
           ...createCalldataQueryParams.createLpPosition.value,
-<<<<<<< HEAD
-          batchPermitData:
-            approvalCalldata?.permitData.case === 'permitBatchData' ? approvalCalldata.permitData.value : undefined,
-=======
           batchPermitData,
->>>>>>> upstream/main
         }),
       },
     })
@@ -233,19 +142,6 @@ export function generateCreatePositionTxRequest({
       currency1Amount: currencyAmounts.TOKEN1,
       liquidityToken: protocolVersion === ProtocolVersion.V2 ? poolOrPair?.liquidityToken : undefined,
     },
-<<<<<<< HEAD
-    approveToken0Request: validatedApprove0Request,
-    approveToken1Request: validatedApprove1Request,
-    txRequest,
-    approvePositionTokenRequest: undefined,
-    revokeToken0Request: validatedRevoke0Request,
-    revokeToken1Request: validatedRevoke1Request,
-    permit: validatedPermitRequest ? { method: PermitMethod.TypedData, typedData: validatedPermitRequest } : undefined,
-    token0PermitTransaction: validatedToken0PermitTransaction,
-    token1PermitTransaction: validatedToken1PermitTransaction,
-    positionTokenPermitTransaction: undefined,
-    sqrtRatioX96: createCalldata.sqrtRatioX96,
-=======
     approveToken0Request,
     approveToken1Request,
     txRequest,
@@ -256,7 +152,6 @@ export function generateCreatePositionTxRequest({
     token0PermitTransaction,
     token1PermitTransaction,
     positionTokenPermitTransaction: undefined,
->>>>>>> upstream/main
   } satisfies CreatePositionTxAndGasInfo
 }
 interface CreatePositionTxContextType {
@@ -282,66 +177,10 @@ export function CreatePositionTxContextProvider({ children }: PropsWithChildren)
     poolOrPair,
     depositState,
     creatingPoolOrPair,
-<<<<<<< HEAD
-=======
-    poolId,
->>>>>>> upstream/main
-    currentTransactionStep,
-    positionState,
-    setRefetch,
-  } = useCreateLiquidityContext()
-  const evmAddress = useActiveAddress(Platform.EVM)
-  const { TOKEN0, TOKEN1 } = currencies.display
-  const { exactField } = depositState
-
-  const invalidRange = protocolVersion !== ProtocolVersion.V2 && isInvalidRange(ticks[0], ticks[1])
-  const depositInfoProps = useMemo(() => {
-    const [tickLower, tickUpper] = ticks
-    const outOfRange = isOutOfRange({
-      poolOrPair,
-      lowerTick: tickLower,
-      upperTick: tickUpper,
-    })
-
-    return {
-      protocolVersion,
-      poolOrPair,
-      address: evmAddress,
-      token0: TOKEN0,
-      token1: TOKEN1,
-      tickLower: protocolVersion !== ProtocolVersion.V2 ? (tickLower ?? undefined) : undefined,
-      tickUpper: protocolVersion !== ProtocolVersion.V2 ? (tickUpper ?? undefined) : undefined,
-      exactField,
-      exactAmounts: depositState.exactAmounts,
-      skipDependentAmount: protocolVersion === ProtocolVersion.V2 ? false : outOfRange || invalidRange,
-    }
-  }, [TOKEN0, TOKEN1, exactField, ticks, poolOrPair, depositState, evmAddress, protocolVersion, invalidRange])
-
-  const {
-    currencyMaxAmounts,
-    currencyAmounts,
-    error: inputError,
-    formattedAmounts,
-    currencyAmountsUSDValue,
-    currencyBalances,
-  } = useDepositInfo(depositInfoProps)
-
-  const { customDeadline, customSlippageTolerance, isSlippageDirty } = useTransactionSettingsStore((s) => ({
-    customDeadline: s.customDeadline,
-    customSlippageTolerance: s.customSlippageTolerance,
-    isSlippageDirty: s.isSlippageDirty,
-  }))
-  const isLiquidityBatchedTransactionsEnabled = useFeatureFlag(FeatureFlags.LiquidityBatchedTransactions)
-  const isLpDynamicNativeSlippageEnabled = useFeatureFlag(FeatureFlags.LpDynamicNativeSlippage)
-<<<<<<< HEAD
-  const canBatchTransactions =
-    (useLuxContextSelector((ctx) => ctx.getCanBatchTransactions?.(poolOrPair?.chainId)) ?? false) &&
-=======
   const isCreatePositionV2 = useFeatureFlag(FeatureFlags.CreatePositionV2)
   const isCheckApprovalV2 = useFeatureFlag(FeatureFlags.CheckApprovalV2)
   const canBatchTransactions =
     (useUniswapContextSelector((ctx) => ctx.getCanBatchTransactions?.(poolOrPair?.chainId)) ?? false) &&
->>>>>>> upstream/main
     poolOrPair?.chainId !== UniverseChainId.Monad &&
     isLiquidityBatchedTransactionsEnabled
 
@@ -357,24 +196,6 @@ export function CreatePositionTxContextProvider({ children }: PropsWithChildren)
       protocolVersion,
       currencyAmounts,
       canBatchTransactions,
-<<<<<<< HEAD
-    })
-  }, [evmAddress, protocolVersion, currencyAmounts, canBatchTransactions])
-
-  const {
-    data: approvalCalldata,
-    error: approvalError,
-    isLoading: approvalLoading,
-    refetch: approvalRefetch,
-  } = useQuery(
-    liquidityQueries.checkApproval({
-      params: addLiquidityApprovalParams,
-      staleTime: 5 * ONE_SECOND_MS,
-      retry: false,
-      enabled: !!addLiquidityApprovalParams && !inputError && !transactionError && !invalidRange,
-    }),
-  )
-=======
       action: LPAction.CREATE,
       isCheckApprovalV2,
     })
@@ -389,7 +210,6 @@ export function CreatePositionTxContextProvider({ children }: PropsWithChildren)
     approvalQueryParams: addLiquidityApprovalParams,
     isQueryEnabled: !!addLiquidityApprovalParams && !inputError && !transactionError && !invalidRange,
   })
->>>>>>> upstream/main
 
   if (approvalError) {
     const message = parseErrorMessageTitle(approvalError, { defaultTitle: 'unknown CheckLpApprovalQuery' })
@@ -402,18 +222,11 @@ export function CreatePositionTxContextProvider({ children }: PropsWithChildren)
     })
   }
 
-<<<<<<< HEAD
-  const gasFeeToken0USD = useUSDCurrencyAmountOfGasFee(poolOrPair?.chainId, approvalCalldata?.gasFeeToken0Approval)
-  const gasFeeToken1USD = useUSDCurrencyAmountOfGasFee(poolOrPair?.chainId, approvalCalldata?.gasFeeToken1Approval)
-  const gasFeeToken0PermitUSD = useUSDCurrencyAmountOfGasFee(poolOrPair?.chainId, approvalCalldata?.gasFeeToken0Permit)
-  const gasFeeToken1PermitUSD = useUSDCurrencyAmountOfGasFee(poolOrPair?.chainId, approvalCalldata?.gasFeeToken1Permit)
-=======
   const { gasFeeToken0Approval, gasFeeToken1Approval, gasFeeToken0Permit, gasFeeToken1Permit } = approvalCalldata ?? {}
   const gasFeeToken0USD = useUSDCurrencyAmountOfGasFee(poolOrPair?.chainId, gasFeeToken0Approval)
   const gasFeeToken1USD = useUSDCurrencyAmountOfGasFee(poolOrPair?.chainId, gasFeeToken1Approval)
   const gasFeeToken0PermitUSD = useUSDCurrencyAmountOfGasFee(poolOrPair?.chainId, gasFeeToken0Permit)
   const gasFeeToken1PermitUSD = useUSDCurrencyAmountOfGasFee(poolOrPair?.chainId, gasFeeToken1Permit)
->>>>>>> upstream/main
 
   const nativeTokenBalance = useMemo(() => {
     if (!isLpDynamicNativeSlippageEnabled || protocolVersion !== ProtocolVersion.V4) {
@@ -427,31 +240,8 @@ export function CreatePositionTxContextProvider({ children }: PropsWithChildren)
     return undefined
   }, [isLpDynamicNativeSlippageEnabled, protocolVersion, currencyMaxAmounts])
 
-<<<<<<< HEAD
-=======
-  const useV2Endpoints = isCreatePositionV2
-
->>>>>>> upstream/main
-  const createCalldataQueryParams = useMemo(() => {
-    return generateLiquidityServiceCreateCalldataQueryParams({
-      address: evmAddress,
-      approvalCalldata,
-      positionState,
-      protocolVersion,
-      creatingPoolOrPair,
-      displayCurrencies: currencies.display,
-      ticks,
-      poolOrPair,
-      currencyAmounts,
-      independentField: depositState.exactField,
-      slippageTolerance: nativeTokenBalance && !isSlippageDirty ? undefined : customSlippageTolerance,
-      customDeadline,
-      nativeTokenBalance,
-<<<<<<< HEAD
-=======
       useV2Endpoints,
       poolId,
->>>>>>> upstream/main
     })
   }, [
     evmAddress,
@@ -460,22 +250,7 @@ export function CreatePositionTxContextProvider({ children }: PropsWithChildren)
     creatingPoolOrPair,
     ticks,
     poolOrPair,
-<<<<<<< HEAD
-=======
-    poolId,
->>>>>>> upstream/main
-    positionState,
-    depositState.exactField,
-    customSlippageTolerance,
-    isSlippageDirty,
-    currencies.display,
-    protocolVersion,
-    customDeadline,
-    nativeTokenBalance,
-<<<<<<< HEAD
-=======
     useV2Endpoints,
->>>>>>> upstream/main
   ])
 
   const isUserCommittedToCreate =
@@ -492,22 +267,6 @@ export function CreatePositionTxContextProvider({ children }: PropsWithChildren)
     Boolean(approvalCalldata) &&
     Boolean(createCalldataQueryParams)
 
-<<<<<<< HEAD
-  const {
-    data: createCalldata,
-    error: createError,
-    refetch: createRefetch,
-  } = useQuery(
-    liquidityQueries.createPosition({
-      params: createCalldataQueryParams,
-      refetchInterval: transactionError ? false : 5 * ONE_SECOND_MS,
-      retry: false,
-      enabled: isQueryEnabled,
-    }),
-  )
-
-  // biome-ignore lint/correctness/useExhaustiveDependencies: +createCalldataQueryParams, +addLiquidityApprovalParams
-=======
   const { createCalldata, createError, createRefetch } = useCreatePositionQuery({
     createCalldataQueryParams,
     transactionError: !!transactionError,
@@ -515,7 +274,6 @@ export function CreatePositionTxContextProvider({ children }: PropsWithChildren)
   })
 
   // oxlint-disable-next-line react/exhaustive-deps -- +createCalldataQueryParams, +addLiquidityApprovalParams
->>>>>>> upstream/main
   useEffect(() => {
     setRefetch(() => (approvalError ? approvalRefetch : createError ? createRefetch : undefined)) // this must set it as a function otherwise it will actually call createRefetch immediately
   }, [
@@ -551,21 +309,6 @@ export function CreatePositionTxContextProvider({ children }: PropsWithChildren)
     }
   }
 
-<<<<<<< HEAD
-  const dependentAmountFallback = useCreatePositionDependentAmountFallback(
-    createCalldataQueryParams,
-    isQueryEnabled && Boolean(createError),
-  )
-
-  const actualGasFee = createCalldata?.gasFee
-  const needsApprovals = !!(
-    approvalCalldata?.token0Approval ||
-    approvalCalldata?.token1Approval ||
-    approvalCalldata?.token0Cancel ||
-    approvalCalldata?.token1Cancel ||
-    approvalCalldata?.token0PermitTransaction ||
-    approvalCalldata?.token1PermitTransaction
-=======
   const dependentAmountFallback = useCreatePositionDependentAmountFallback({
     queryParams: createCalldataQueryParams,
     isQueryEnabled: isQueryEnabled && Boolean(createError),
@@ -592,7 +335,6 @@ export function CreatePositionTxContextProvider({ children }: PropsWithChildren)
     token1Cancel ||
     token0PermitTransaction ||
     token1PermitTransaction,
->>>>>>> upstream/main
   )
   const { value: calculatedGasFee } = useTransactionGasFee({
     tx: createCalldata?.create,
@@ -604,9 +346,6 @@ export function CreatePositionTxContextProvider({ children }: PropsWithChildren)
   )
 
   const lastKnownGasFeeRef = useRef<CurrencyAmount<Currency> | undefined>(undefined)
-<<<<<<< HEAD
-
-=======
 >>>>>>> upstream/main
   const totalGasFee = useMemo(() => {
     const fees = [gasFeeToken0USD, gasFeeToken1USD, increaseGasFeeUsd, gasFeeToken0PermitUSD, gasFeeToken1PermitUSD]
@@ -630,15 +369,11 @@ export function CreatePositionTxContextProvider({ children }: PropsWithChildren)
       protocolVersion,
       approvalCalldata,
       createCalldata,
-<<<<<<< HEAD
-      createCalldataQueryParams,
-=======
       createCalldataQueryParams:
         createCalldataQueryParams instanceof CreateLPPositionRequest ||
         createCalldataQueryParams instanceof CreatePositionRequest
           ? createCalldataQueryParams
           : undefined,
->>>>>>> upstream/main
       currencyAmounts,
       poolOrPair: protocolVersion === ProtocolVersion.V2 ? poolOrPair : undefined,
       canBatchTransactions,
@@ -658,12 +393,6 @@ export function CreatePositionTxContextProvider({ children }: PropsWithChildren)
   useDynamicNativeSlippage({
     isEnabled: isLpDynamicNativeSlippageEnabled,
     nativeTokenBalance,
-<<<<<<< HEAD
-    createCalldata,
-    isSlippageDirty,
-  })
-
-=======
     createCalldata: createCalldata instanceof CreateLPPositionResponse ? createCalldata : undefined,
     isSlippageDirty,
   })
@@ -683,19 +412,13 @@ export function CreatePositionTxContextProvider({ children }: PropsWithChildren)
     return createCalldata?.dependentAmount
   }, [createCalldata, createError, dependentAmountFallback, depositState.exactField])
 
->>>>>>> upstream/main
   const value = useMemo(
     (): CreatePositionTxContextType => ({
       txInfo,
       gasFeeEstimateUSD: totalGasFee,
       transactionError,
       setTransactionError,
-<<<<<<< HEAD
-      dependentAmount:
-        createError && dependentAmountFallback ? dependentAmountFallback : createCalldata?.dependentAmount,
-=======
       dependentAmount,
->>>>>>> upstream/main
       currencyAmounts,
       inputError,
       formattedAmounts,
@@ -706,13 +429,7 @@ export function CreatePositionTxContextProvider({ children }: PropsWithChildren)
       txInfo,
       totalGasFee,
       transactionError,
-<<<<<<< HEAD
-      createError,
-      dependentAmountFallback,
-      createCalldata?.dependentAmount,
-=======
       dependentAmount,
->>>>>>> upstream/main
       currencyAmounts,
       inputError,
       formattedAmounts,
@@ -729,7 +446,6 @@ export const useCreatePositionTxContext = (): CreatePositionTxContextType => {
 <<<<<<< HEAD
 
 =======
->>>>>>> upstream/main
   if (!context) {
     throw new Error('`useCreatePositionTxContext` must be used inside of `CreatePositionTxContextProvider`')
   }

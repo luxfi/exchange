@@ -1,10 +1,5 @@
-<<<<<<< HEAD
-import { Flex, styled } from '@l.x/ui/src'
-import { fonts, TextVariantTokens } from '@l.x/ui/src/theme'
-=======
 import { Flex, styled } from 'ui/src'
 import { fonts, TextVariantTokens } from 'ui/src/theme'
->>>>>>> upstream/main
 
 const LOADER_PADDING = 2
 export function TextLoader({ variant, width }: { variant: TextVariantTokens; width: number }) {

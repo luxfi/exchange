@@ -13,11 +13,7 @@ describe('LimitPresetPriceButton', () => {
     [5, false, true],
     [5, true, false],
     [10, false, true],
-<<<<<<< HEAD
-    // eslint-disable-next-line max-params
-=======
     // oxlint-disable-next-line max-params
->>>>>>> upstream/main
   ])('renders %p correctly, disabled %p and selected %p', async (num, disabled, selected) => {
     const onSelect = vi.fn()
     const { container } = render(

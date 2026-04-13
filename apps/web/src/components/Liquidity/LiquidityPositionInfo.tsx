@@ -1,18 +1,3 @@
-<<<<<<< HEAD
-import { ProtocolVersion } from '@luxamm/client-data-api/dist/data/v1/poolTypes_pb'
-import { useMemo } from 'react'
-import { useTranslation } from 'react-i18next'
-import { useNavigate } from 'react-router'
-import { Anchor, Circle, Flex, Text, useMedia } from '@l.x/ui/src'
-import { ArrowRight } from '@l.x/ui/src/components/icons/ArrowRight'
-import { NetworkLogo } from '@l.x/lx/src/components/CurrencyLogo/NetworkLogo'
-import { SplitLogo } from '@l.x/lx/src/components/CurrencyLogo/SplitLogo'
-import { getChainInfo } from '@l.x/lx/src/features/chains/chainInfo'
-import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
-import { useCurrencyInfos } from '@l.x/lx/src/features/tokens/useCurrencyInfo'
-import { currencyId } from '@l.x/lx/src/utils/currencyId'
-import { getPoolDetailsURL } from '@l.x/lx/src/utils/linking'
-=======
 import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
 import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
@@ -26,7 +11,6 @@ import { useLocalizationContext } from 'uniswap/src/features/language/Localizati
 import { useCurrencyInfos } from 'uniswap/src/features/tokens/useCurrencyInfo'
 import { currencyId } from 'uniswap/src/utils/currencyId'
 import { getPoolDetailsURL } from 'uniswap/src/utils/linking'
->>>>>>> upstream/main
 import { LiquidityPositionInfoBadges } from '~/components/Liquidity/LiquidityPositionInfoBadges'
 import {
   LiquidityPositionStatusIndicator,
@@ -35,11 +19,7 @@ import {
 import { TextLoader } from '~/components/Liquidity/Loader'
 import { PositionInfo } from '~/components/Liquidity/types'
 import { LpIncentivesAprDisplay } from '~/components/LpIncentives/LpIncentivesAprDisplay'
-<<<<<<< HEAD
-import { ClickableGuiStyle } from '~/theme/components/styles'
-=======
 import { ClickableTamaguiStyle } from '~/theme/components/styles'
->>>>>>> upstream/main
 import { isV4UnsupportedChain } from '~/utils/networkSupportsV4'
 
 interface LiquidityPositionInfoProps {
@@ -130,11 +110,7 @@ export function LiquidityPositionInfo({
           <Flex>
             {linkToPool ? (
               <Anchor href={getPoolDetailsURL(positionInfo.poolId, positionInfo.chainId)} textDecorationLine="none">
-<<<<<<< HEAD
-                <Text variant="subheading1" {...ClickableGuiStyle}>
-=======
                 <Text variant="subheading1" {...ClickableTamaguiStyle}>
->>>>>>> upstream/main
                   {currency0Amount.currency.symbol} / {currency1Amount.currency.symbol}
                 </Text>
               </Anchor>

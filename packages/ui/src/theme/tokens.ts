@@ -1,6 +1,6 @@
 // until the web app needs all of tamagui, avoid heavy imports there
 // oxlint-disable-next-line no-restricted-imports -- until the web app needs all of tamagui, avoid heavy imports there
-import { type ColorTokens, createTokens } from '@tamagui/core'
+import { type ColorTokens, createTokens } from '@hanzogui/core'
 import type { DynamicColor } from 'ui/src/hooks/useSporeColors'
 import { borderRadii } from 'ui/src/theme/borderRadii'
 import { colors as color } from 'ui/src/theme/color/colors'

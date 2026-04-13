@@ -1,35 +1,10 @@
-<<<<<<< HEAD
-import { ProtocolVersion } from '@luxamm/client-data-api/dist/data/v1/poolTypes_pb'
-import type { Currency, CurrencyAmount } from '@luxamm/sdk-core'
-=======
 import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
 import type { Currency, CurrencyAmount } from '@uniswap/sdk-core'
->>>>>>> upstream/main
 import type { Dispatch, SetStateAction } from 'react'
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { Trans, useTranslation } from 'react-i18next'
 import { useDispatch } from 'react-redux'
 import { useLocation, useNavigate, useParams } from 'react-router'
-<<<<<<< HEAD
-import { Button, Flex, Main, styled } from '@l.x/ui/src'
-import { ArrowDown } from '@l.x/ui/src/components/icons/ArrowDown'
-import { RotatableChevron } from '@l.x/ui/src/components/icons/RotatableChevron'
-import { RotateLeft } from '@l.x/ui/src/components/icons/RotateLeft'
-import { useGetPositionQuery } from '@l.x/lx/src/data/rest/getPosition'
-import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
-import { InterfacePageName, ModalName, SectionName } from '@l.x/lx/src/features/telemetry/constants'
-import Trace from '@l.x/lx/src/features/telemetry/Trace'
-import { LPTransactionSettingsStoreContextProvider } from '@l.x/lx/src/features/transactions/components/settings/stores/transactionSettingsStore/LPTransactionSettingsStoreContextProvider'
-import { useUSDCValue } from '@l.x/lx/src/features/transactions/hooks/useUSDCPriceWrapper'
-import { isValidLiquidityTxContext } from '@l.x/lx/src/features/transactions/liquidity/types'
-import { getErrorMessageToDisplay } from '@l.x/lx/src/features/transactions/liquidity/utils'
-import type { TransactionStep } from '@l.x/lx/src/features/transactions/steps/types'
-import { useWallet } from '@l.x/lx/src/features/wallet/hooks/useWallet'
-import { isSignerMnemonicAccountDetails } from '@l.x/lx/src/features/wallet/types/AccountDetails'
-import { areAddressesEqual } from '@l.x/lx/src/utils/addresses'
-import { currencyId, currencyIdToAddress } from '@l.x/lx/src/utils/currencyId'
-import { useTrace } from '@l.x/utils/src/telemetry/trace/TraceContext'
-=======
 import { Button, Flex, Main, styled } from 'ui/src'
 import { ArrowDown } from 'ui/src/components/icons/ArrowDown'
 import { RotatableChevron } from 'ui/src/components/icons/RotatableChevron'
@@ -48,7 +23,6 @@ import { isSignerMnemonicAccountDetails } from 'uniswap/src/features/wallet/type
 import { areAddressesEqual } from 'uniswap/src/utils/addresses'
 import { currencyId, currencyIdToAddress } from 'uniswap/src/utils/currencyId'
 import { useTrace } from 'utilities/src/telemetry/trace/TraceContext'
->>>>>>> upstream/main
 import { BreadcrumbNavLink } from '~/components/BreadcrumbNav'
 import { ErrorCallout } from '~/components/ErrorCallout'
 import { getLPBaseAnalyticsProperties } from '~/components/Liquidity/analytics'
@@ -213,11 +187,7 @@ function MigrateInner({
     currency1Amount.currency,
   ])
 
-<<<<<<< HEAD
-  // biome-ignore lint/correctness/useExhaustiveDependencies: +setIsReviewModalOpen
-=======
   // oxlint-disable-next-line react/exhaustive-deps -- +setIsReviewModalOpen
->>>>>>> upstream/main
   const priceRangeProps = useMemo(() => {
     return {
       positionInfo,

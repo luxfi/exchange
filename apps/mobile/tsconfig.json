@@ -5,36 +5,6 @@
   "exclude": [".storybook/storybook.requires.ts"],
   "references": [
     {
-<<<<<<< HEAD
-      "path": "../../pkgs/wallet"
-    },
-    {
-      "path": "../../pkgs/utilities"
-    },
-    {
-      "path": "../../pkgs/sessions"
-    },
-    {
-      "path": "../../pkgs/notifications"
-    },
-    {
-      "path": "../../pkgs/hashcash-native"
-    },
-    {
-      "path": "../../pkgs/gating"
-    },
-    {
-      "path": "../../pkgs/api"
-    },
-    {
-      "path": "../../pkgs/eslint-config"
-    },
-    {
-      "path": "../../pkgs/ui"
-    },
-    {
-      "path": "../../pkgs/lx"
-=======
       "path": "../../packages/sessions"
     },
     {
@@ -60,7 +30,6 @@
     },
     {
       "path": "../../packages/uniswap"
->>>>>>> upstream/main
     }
   ],
   "compilerOptions": {

@@ -64,11 +64,7 @@ describe('ExploreStatsSection', () => {
 
     // Should show formatted volume and TVL values
     expect(screen.getByText(/1D volume/i)).toBeInTheDocument()
-<<<<<<< HEAD
-    expect(screen.getByText(/Total Lux TVL/i)).toBeInTheDocument()
-=======
     expect(screen.getByText(/Total Uniswap TVL/i)).toBeInTheDocument()
->>>>>>> upstream/main
 
     // Should not show loading bubbles
     const loadingBubbles = container.querySelectorAll('[style*="animation-name: shine"]')
@@ -104,11 +100,7 @@ describe('ExploreStatsSection', () => {
 
     // Data should appear
     expect(screen.getByText(/1D volume/i)).toBeInTheDocument()
-<<<<<<< HEAD
-    expect(screen.getByText(/Total Lux TVL/i)).toBeInTheDocument()
-=======
     expect(screen.getByText(/Total Uniswap TVL/i)).toBeInTheDocument()
->>>>>>> upstream/main
   })
 
   it('ensures consistent dimensions between loading and loaded states', () => {
@@ -150,11 +142,7 @@ describe('ExploreStatsSection', () => {
     expect(loadingBubbles.length).toBeGreaterThan(0)
 
     // TVL data should still be visible
-<<<<<<< HEAD
-    expect(screen.getByText(/Total Lux TVL/i)).toBeInTheDocument()
-=======
     expect(screen.getByText(/Total Uniswap TVL/i)).toBeInTheDocument()
->>>>>>> upstream/main
   })
 
   it('shows TVL loading state with proper dimensions', () => {
@@ -200,11 +188,7 @@ describe('ExploreStatsSection', () => {
     const loadedBubbles = container.querySelectorAll('[style*="animation-name: shine"]')
     expect(loadedBubbles.length).toBe(0)
     expect(screen.getByText(/1D volume/i)).toBeInTheDocument()
-<<<<<<< HEAD
-    expect(screen.getByText(/Total Lux TVL/i)).toBeInTheDocument()
-=======
     expect(screen.getByText(/Total Uniswap TVL/i)).toBeInTheDocument()
->>>>>>> upstream/main
 
     // Ensure no leftover loading artifacts
     const remainingLoadingElements = container.querySelectorAll('[style*="animation-name: shine"]')

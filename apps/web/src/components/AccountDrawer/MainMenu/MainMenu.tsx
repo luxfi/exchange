@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import { useActiveAddresses } from '@l.x/lx/src/features/accounts/store/hooks'
-=======
 import { useActiveAddresses } from 'uniswap/src/features/accounts/store/hooks'
->>>>>>> upstream/main
 import AuthenticatedHeader from '~/components/AccountDrawer/AuthenticatedHeader'
 import { MenuStateVariant, useSetMenuCallback } from '~/components/AccountDrawer/menuState'
 import WalletModal from '~/components/WalletModal'

@@ -18,11 +18,7 @@ jest.mock('src/app/store', () => ({
 }))
 
 const mockOpenUri = jest.fn()
-<<<<<<< HEAD
-jest.mock('lx/src/utils/linking', () => ({
-=======
 jest.mock('uniswap/src/utils/linking', () => ({
->>>>>>> upstream/main
   openUri: mockOpenUri,
 }))
 
@@ -54,11 +50,7 @@ describe('handleNotificationNavigation', () => {
         getState: (): unknown => mockGetState(),
       },
     }))
-<<<<<<< HEAD
-    jest.doMock('lx/src/utils/linking', () => ({
-=======
     jest.doMock('uniswap/src/utils/linking', () => ({
->>>>>>> upstream/main
       openUri: mockOpenUri,
     }))
     jest.doMock('utilities/src/logger/logger', () => ({
@@ -428,21 +420,12 @@ describe('handleNotificationNavigation', () => {
       })
     })
 
-<<<<<<< HEAD
-    it('opens Lux explore URLs', () => {
-      mockOpenUri.mockResolvedValue(undefined)
-
-      handleNotificationNavigation('https://app.lux.org/explore/tokens/monad')
-
-      expect(mockOpenUri).toHaveBeenCalledWith({ uri: 'https://app.lux.org/explore/tokens/monad' })
-=======
     it('opens Uniswap explore URLs', () => {
       mockOpenUri.mockResolvedValue(undefined)
 
       handleNotificationNavigation('https://app.uniswap.org/explore/tokens/monad')
 
       expect(mockOpenUri).toHaveBeenCalledWith({ uri: 'https://app.uniswap.org/explore/tokens/monad' })
->>>>>>> upstream/main
     })
   })
 

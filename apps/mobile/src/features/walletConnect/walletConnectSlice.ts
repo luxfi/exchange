@@ -1,18 +1,10 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit'
 import { type ProposalTypes, type SessionTypes } from '@walletconnect/types'
-<<<<<<< HEAD
-import { type UniverseChainId } from '@l.x/lx/src/features/chains/types'
-import { EthMethod, type EthSignMethod } from '@l.x/lx/src/features/dappRequests/types'
-import { type DappRequestInfo, type EthTransaction, UwULinkMethod } from '@l.x/lx/src/types/walletConnect'
-import { logger } from '@l.x/utils/src/logger/logger'
-import { type Call, type Capability, type DappVerificationStatus } from '@luxfi/wallet/src/features/dappRequests/types'
-=======
 import { type UniverseChainId } from 'uniswap/src/features/chains/types'
 import { EthMethod, type EthSignMethod } from 'uniswap/src/features/dappRequests/types'
 import { type DappRequestInfo, type EthTransaction, UwULinkMethod } from 'uniswap/src/types/walletConnect'
 import { logger } from 'utilities/src/logger/logger'
 import { type Call, type Capability, type DappVerificationStatus } from 'wallet/src/features/dappRequests/types'
->>>>>>> upstream/main
 
 export type WalletConnectPendingSession = {
   id: string

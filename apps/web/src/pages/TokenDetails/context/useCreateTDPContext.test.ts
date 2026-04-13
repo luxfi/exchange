@@ -1,14 +1,7 @@
-<<<<<<< HEAD
 import { GraphQLApi } from '@l.x/api'
-import { useLocation, useParams } from 'react-router'
-import { USDC_MAINNET } from 'lx/src/constants/tokens'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-=======
-import { GraphQLApi } from '@universe/api'
 import { useLocation, useParams } from 'react-router'
 import { USDC_MAINNET } from 'uniswap/src/constants/tokens'
 import { UniverseChainId } from 'uniswap/src/features/chains/types'
->>>>>>> upstream/main
 import { NATIVE_CHAIN_ID } from '~/constants/tokens'
 import { useCreateTDPContext } from '~/pages/TokenDetails/context/useCreateTDPContext'
 import { mocked } from '~/test-utils/mocked'
@@ -24,13 +17,8 @@ vi.mock('react-router', async (importOriginal) => {
   }
 })
 
-<<<<<<< HEAD
 vi.mock('@l.x/api', async (importOriginal) => {
   const actual = await importOriginal<typeof import('@l.x/api')>()
-=======
-vi.mock('@universe/api', async (importOriginal) => {
-  const actual = await importOriginal<typeof import('@universe/api')>()
->>>>>>> upstream/main
   return {
     ...actual,
     GraphQLApi: {
@@ -40,11 +28,7 @@ vi.mock('@universe/api', async (importOriginal) => {
   }
 })
 
-<<<<<<< HEAD
 vi.mock('@l.x/gating', async (importOriginal) => {
-=======
-vi.mock('@universe/gating', async (importOriginal) => {
->>>>>>> upstream/main
   return {
     ...(await importOriginal()),
     useFeatureFlag: vi.fn(() => false),
@@ -95,13 +79,8 @@ vi.mock('~/features/accounts/store/hooks', () => ({
   })),
 }))
 
-<<<<<<< HEAD
-vi.mock('lx/src/features/dataApi/balances/balances', async (importOriginal) => {
-  const actual = await importOriginal<typeof import('lx/src/features/dataApi/balances/balances')>()
-=======
 vi.mock('uniswap/src/features/dataApi/balances/balances', async (importOriginal) => {
   const actual = await importOriginal<typeof import('uniswap/src/features/dataApi/balances/balances')>()
->>>>>>> upstream/main
   return {
     ...actual,
     usePortfolioBalances: vi.fn(() => ({ data: undefined })),

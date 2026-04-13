@@ -1,15 +1,9 @@
 import { ReactNode } from 'react'
 import type { To } from 'react-router'
 import { Link } from 'react-router'
-<<<<<<< HEAD
-import { Flex, styled, Text } from '@l.x/ui/src'
-import { Check } from '@l.x/ui/src/components/icons/Check'
-import { ClickableGuiStyle } from '~/theme/components/styles'
-=======
 import { Flex, styled, Text } from 'ui/src'
 import { Check } from 'ui/src/components/icons/Check'
 import { ClickableTamaguiStyle } from '~/theme/components/styles'
->>>>>>> upstream/main
 
 const InternalLinkMenuItem = styled(Link, {
   flex: 1,
@@ -19,11 +13,7 @@ const InternalLinkMenuItem = styled(Link, {
   py: '$spacing12',
   justifyContent: 'space-between',
   color: '$neutral1',
-<<<<<<< HEAD
-  ...ClickableGuiStyle,
-=======
   ...ClickableTamaguiStyle,
->>>>>>> upstream/main
 
   '$platform-web': {
     textDecoration: 'none',

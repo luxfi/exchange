@@ -1,9 +1,5 @@
 import { CSSProperties, ReactNode } from 'react'
-<<<<<<< HEAD
-import { Flex } from '@l.x/ui/src'
-=======
 import { Flex } from 'ui/src'
->>>>>>> upstream/main
 
 interface TokenLaunchedBannerWrapperProps {
   bannerGradient: CSSProperties

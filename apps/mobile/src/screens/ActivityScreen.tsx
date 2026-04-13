@@ -1,24 +1,11 @@
 import { useScrollToTop } from '@react-navigation/native'
-<<<<<<< HEAD
-import { FeatureFlags, useFeatureFlag } from '@luxfi/gating'
-=======
-import { FeatureFlags, useFeatureFlag } from '@universe/gating'
->>>>>>> upstream/main
+import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { useEffect, useMemo, useRef } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useDispatch } from 'react-redux'
 import { ESTIMATED_BOTTOM_TABS_HEIGHT } from 'src/app/navigation/tabs/CustomTabBar/constants'
 import { ActivityContent } from 'src/components/activity/ActivityContent'
 import { Screen } from 'src/components/layout/Screen'
-<<<<<<< HEAD
-import { Text } from '@l.x/ui/src'
-import { spacing } from '@l.x/ui/src/theme'
-import { AccountType } from '@l.x/lx/src/features/accounts/types'
-import { useSelectAddressHasNotifications } from '@l.x/lx/src/features/notifications/slice/hooks'
-import { setNotificationStatus } from '@l.x/lx/src/features/notifications/slice/slice'
-import { useAppInsets } from '@l.x/lx/src/hooks/useAppInsets'
-import { useActiveAccountWithThrow } from '@luxfi/wallet/src/features/wallet/hooks'
-=======
 import { Text } from 'ui/src'
 import { spacing } from 'ui/src/theme'
 import { AccountType } from 'uniswap/src/features/accounts/types'
@@ -26,7 +13,6 @@ import { useSelectAddressHasNotifications } from 'uniswap/src/features/notificat
 import { setNotificationStatus } from 'uniswap/src/features/notifications/slice/slice'
 import { useAppInsets } from 'uniswap/src/hooks/useAppInsets'
 import { useActiveAccountWithThrow } from 'wallet/src/features/wallet/hooks'
->>>>>>> upstream/main
 
 export function ActivityScreen(): JSX.Element {
   const { t } = useTranslation()

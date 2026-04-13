@@ -1,13 +1,7 @@
-<<<<<<< HEAD
-// biome-ignore lint/style/noRestrictedImports: Trading API fixtures need direct Playwright imports
-import { test as base, type Page, type Route } from '@playwright/test'
-import { lxUrls } from 'lx/src/constants/urls'
-=======
 /* oxlint-disable react-hooks/rules-of-hooks -- Playwright fixtures use `use()` which is not a React hook */
 // oxlint-disable-next-line no-restricted-imports -- Trading API fixtures need direct Playwright imports
 import { test as base, type Page, type Route } from '@playwright/test'
 import { uniswapUrls } from 'uniswap/src/constants/urls'
->>>>>>> upstream/main
 import { Mocks } from '~/playwright/mocks/mocks'
 
 const DEFAULT_TEST_GAS_LIMIT = '20000000'
@@ -27,11 +21,7 @@ const shouldIgnorePageError = (error: Error): { ignored: boolean } => {
 /**
  * Generic helper function to stub trading API endpoints and disable transaction simulation
  */
-<<<<<<< HEAD
-// eslint-disable-next-line max-params
-=======
 // oxlint-disable-next-line max-params
->>>>>>> upstream/main
 export async function stubTradingApiEndpoint({
   page,
   endpoint,
@@ -78,11 +68,7 @@ export async function stubTradingApiEndpoint({
       }
 
       // Set a high gas limit to avoid OutOfGas
-<<<<<<< HEAD
-      if (endpoint === lxUrls.tradingApiPaths.swap) {
-=======
       if (endpoint === uniswapUrls.tradingApiPaths.swap) {
->>>>>>> upstream/main
         responseJson.swap.gasLimit = DEFAULT_TEST_GAS_LIMIT
       }
 
@@ -105,13 +91,8 @@ export async function stubTradingApiEndpoint({
 
   // Match the exact endpoint path, optionally followed by query params
   // Avoids matching longer paths (e.g., /v1/swap should not match /v1/swappable_tokens or /v1/swaps)
-<<<<<<< HEAD
-  const escapedUrl = `${lxUrls.tradingApiUrl}${endpoint}`.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
-  // eslint-disable-next-line security/detect-non-literal-regexp -- escapedUrl is sanitized above via regex escaping
-=======
   const escapedUrl = `${uniswapUrls.tradingApiUrl}${endpoint}`.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
   // oxlint-disable-next-line security/detect-non-literal-regexp -- escapedUrl is sanitized via regex escaping
->>>>>>> upstream/main
   await page.route(new RegExp(`^${escapedUrl}(\\?.*)?$`), handler)
 }
 
@@ -119,15 +100,9 @@ export async function stubTradingApiEndpoint({
  * Mocks the /v1/swap endpoint with a static mock response
  * Use this instead of stubTradingApiEndpoint when you need to avoid calling the real API
  */
-<<<<<<< HEAD
-// eslint-disable-next-line import/no-unused-modules
-export async function mockTradingApiSwapResponse({ page }: { page: Page }) {
-  await page.route(`**/${lxUrls.tradingApiPaths.swap}`, async (route) => {
-=======
 // oxlint-disable-next-line import/no-unused-modules
 export async function mockTradingApiSwapResponse({ page }: { page: Page }) {
   await page.route(`**/${uniswapUrls.tradingApiPaths.swap}`, async (route) => {
->>>>>>> upstream/main
     await route.fulfill({ path: Mocks.TradingApi.swap })
   })
 }
@@ -138,11 +113,7 @@ type TradingApiFixture = {
 
 export const test = base.extend<TradingApiFixture>({
   // Intercept tx polling requests to trading api and succeed
-<<<<<<< HEAD
-  // https://trading-api-labs.interface.gateway.lux.org/v1/swaps
-=======
   // https://trading-api-labs.interface.gateway.uniswap.org/v1/swaps
->>>>>>> upstream/main
   // {
   //     "requestId": "1b0bef68-a804-4532-b956-781bf9856229",
   //     "swaps": [
@@ -157,11 +128,7 @@ export const test = base.extend<TradingApiFixture>({
     async ({ page }, use) => {
       try {
         await page.route(
-<<<<<<< HEAD
-          `${lxUrls.tradingApiUrl}${lxUrls.tradingApiPaths.swaps}?txHashes=*`,
-=======
           `${uniswapUrls.tradingApiUrl}${uniswapUrls.tradingApiPaths.swaps}?txHashes=*`,
->>>>>>> upstream/main
           async (route) => {
             try {
               const response = await route.fetch()

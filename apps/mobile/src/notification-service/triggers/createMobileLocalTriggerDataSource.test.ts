@@ -1,10 +1,5 @@
-<<<<<<< HEAD
 import { createLocalTriggerDataSource } from '@l.x/notifications/src/notification-data-source/implementations/createLocalTriggerDataSource'
 import { type NotificationTracker } from '@l.x/notifications/src/notification-tracker/NotificationTracker'
-=======
-import { createLocalTriggerDataSource } from '@universe/notifications/src/notification-data-source/implementations/createLocalTriggerDataSource'
-import { type NotificationTracker } from '@universe/notifications/src/notification-tracker/NotificationTracker'
->>>>>>> upstream/main
 import { type MobileState } from 'src/app/mobileReducer'
 import { createBackupReminderTrigger } from 'src/notification-service/triggers/backupReminderTrigger'
 import {
@@ -12,11 +7,7 @@ import {
   isLocalTriggerNotification,
 } from 'src/notification-service/triggers/createMobileLocalTriggerDataSource'
 
-<<<<<<< HEAD
 jest.mock('@l.x/notifications/src/notification-data-source/implementations/createLocalTriggerDataSource')
-=======
-jest.mock('@universe/notifications/src/notification-data-source/implementations/createLocalTriggerDataSource')
->>>>>>> upstream/main
 jest.mock('src/notification-service/triggers/backupReminderTrigger')
 
 const mockCreateLocalTriggerDataSource = createLocalTriggerDataSource as jest.MockedFunction<

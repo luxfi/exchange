@@ -1,14 +1,7 @@
-<<<<<<< HEAD
-import { ChainId } from '@luxamm/client-liquidity/dist/lx/liquidity/v1/types_pb'
-import { useCallback, useRef, useState } from 'react'
-import { useSubmitBidMutation } from '@l.x/lx/src/data/rest/auctions/useSubmitBidMutation'
-import { logger } from '@l.x/utils/src/logger/logger'
-=======
 import { ChainId } from '@uniswap/client-liquidity/dist/uniswap/liquidity/v1/types_pb'
 import { useCallback, useRef, useState } from 'react'
 import { useSubmitBidMutation } from 'uniswap/src/data/rest/auctions/useSubmitBidMutation'
 import { logger } from 'utilities/src/logger/logger'
->>>>>>> upstream/main
 import { PreparedBidTransaction } from '~/components/Toucan/Auction/hooks/useBidFormSubmit'
 
 export enum BidSimulationErrorType {
@@ -135,11 +128,7 @@ export function useBidSimulation({
         simulateTransaction: false,
       })
 
-<<<<<<< HEAD
-      // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition -- ref may be set during await
-=======
       // oxlint-disable-next-line typescript/no-unnecessary-condition -- ref may be set during await
->>>>>>> upstream/main
       if (isAbortedRef.current) {
         return false
       }
@@ -147,11 +136,7 @@ export function useBidSimulation({
       setIsSimulating(false)
       return true
     } catch (error) {
-<<<<<<< HEAD
-      // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition -- ref may be set during await
-=======
       // oxlint-disable-next-line typescript/no-unnecessary-condition -- ref may be set during await
->>>>>>> upstream/main
       if (isAbortedRef.current) {
         return false
       }

@@ -1,17 +1,9 @@
 import React from 'react'
-<<<<<<< HEAD
-import { Flex, Text, TouchableArea, useIsDarkMode } from '@l.x/ui/src'
-import { iconSizes } from '@l.x/ui/src/theme'
-import { ElementName } from '@l.x/lx/src/features/telemetry/constants'
-import Trace from '@l.x/lx/src/features/telemetry/Trace'
-import { TestIDType } from '@l.x/lx/src/test/fixtures/testIDs'
-=======
 import { Flex, Text, TouchableArea, useIsDarkMode } from 'ui/src'
 import { iconSizes } from 'ui/src/theme'
 import { ElementName } from 'uniswap/src/features/telemetry/constants'
 import Trace from 'uniswap/src/features/telemetry/Trace'
 import { TestIDType } from 'uniswap/src/test/fixtures/testIDs'
->>>>>>> upstream/main
 
 export function OptionCard({
   title,

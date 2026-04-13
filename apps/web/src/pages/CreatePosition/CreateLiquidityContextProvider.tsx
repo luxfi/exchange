@@ -1,13 +1,3 @@
-<<<<<<< HEAD
-import { ProtocolVersion } from '@luxamm/client-data-api/dist/data/v1/poolTypes_pb'
-import { Currency, Price, Token } from '@luxamm/sdk-core'
-import { Pair } from '@luxamm/v2-sdk'
-import { Pool as V3Pool } from '@luxamm/v3-sdk'
-import { Pool as V4Pool } from '@luxamm/v4-sdk'
-import { createContext, Dispatch, SetStateAction, useContext, useEffect, useMemo, useState } from 'react'
-import { TransactionStep } from '@l.x/lx/src/features/transactions/steps/types'
-import { useEvent } from '@l.x/utils/src/react/hooks'
-=======
 import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
 import { Currency, Price, Token } from '@uniswap/sdk-core'
 import { Pair } from '@uniswap/v2-sdk'
@@ -16,7 +6,6 @@ import { Pool as V4Pool } from '@uniswap/v4-sdk'
 import { createContext, Dispatch, SetStateAction, useContext, useEffect, useMemo, useState } from 'react'
 import { TransactionStep } from 'uniswap/src/features/transactions/steps/types'
 import { useEvent } from 'utilities/src/react/hooks'
->>>>>>> upstream/main
 import { useDerivedPositionInfo } from '~/components/Liquidity/Create/hooks/useDerivedPositionInfo'
 import { useLiquidityUrlState } from '~/components/Liquidity/Create/hooks/useLiquidityUrlState'
 import {

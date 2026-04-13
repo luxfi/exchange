@@ -1,4 +1,4 @@
-import { ColorTokens } from 'tamagui'
+import { ColorTokens } from '@hanzo/gui'
 
 export function getMenuItemColor<T>({
   overrideColor,

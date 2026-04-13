@@ -13,16 +13,6 @@ import { checkOsBiometricAuthEnabled, useBiometricName } from 'src/features/biom
 import { setRequiredForTransactions } from 'src/features/biometricsSettings/slice'
 import { useCompleteOnboardingCallback } from 'src/features/onboarding/hooks'
 import { OnboardingScreen } from 'src/features/onboarding/OnboardingScreen'
-<<<<<<< HEAD
-import { Button, Flex, useIsDarkMode, useSporeColors } from '@l.x/ui/src'
-import { SECURITY_SCREEN_BACKGROUND_DARK, SECURITY_SCREEN_BACKGROUND_LIGHT } from '@l.x/ui/src/assets'
-import { Lock } from '@l.x/ui/src/components/icons'
-import { ElementName } from '@l.x/lx/src/features/telemetry/constants'
-import Trace from '@l.x/lx/src/features/telemetry/Trace'
-import { ImportType } from '@l.x/lx/src/types/onboarding'
-import { OnboardingScreens } from '@l.x/lx/src/types/screens/mobile'
-import { isIOS } from '@l.x/utils/src/platform'
-=======
 import { Button, Flex, useIsDarkMode, useSporeColors } from 'ui/src'
 import { SECURITY_SCREEN_BACKGROUND_DARK, SECURITY_SCREEN_BACKGROUND_LIGHT } from 'ui/src/assets'
 import { Lock } from 'ui/src/components/icons'
@@ -31,7 +21,6 @@ import Trace from 'uniswap/src/features/telemetry/Trace'
 import { ImportType } from 'uniswap/src/types/onboarding'
 import { OnboardingScreens } from 'uniswap/src/types/screens/mobile'
 import { isIOS } from 'utilities/src/platform'
->>>>>>> upstream/main
 
 type Props = NativeStackScreenProps<OnboardingStackParamList, OnboardingScreens.Security>
 

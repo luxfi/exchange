@@ -2,11 +2,7 @@ export function hasURL(str?: string): boolean {
   if (!str) {
     return false
   }
-<<<<<<< HEAD
-  // eslint-disable-next-line security/detect-non-literal-regexp
-=======
   // oxlint-disable-next-line security/detect-non-literal-regexp
->>>>>>> upstream/main
   const pattern = new RegExp(
     '([a-zA-Z0-9]+://)?' + // optional protocol
       '([a-zA-Z0-9_]+:[a-zA-Z0-9_]+@)?' + //  optional username:password

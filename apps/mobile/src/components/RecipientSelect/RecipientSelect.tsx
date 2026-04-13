@@ -3,18 +3,6 @@ import { useTranslation } from 'react-i18next'
 import { TextInput } from 'react-native'
 import { KeyboardAvoidingView } from 'react-native-keyboard-controller'
 import { RecipientScanModal } from 'src/components/RecipientSelect/RecipientScanModal'
-<<<<<<< HEAD
-import { Flex, flexStyles, Loader, Text, TouchableArea } from '@l.x/ui/src'
-import { Scan, UserSearch } from '@l.x/ui/src/components/icons'
-import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
-import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
-import { dismissNativeKeyboard } from '@l.x/utils/src/device/keyboard/dismissNativeKeyboard'
-import { isIOS } from '@l.x/utils/src/platform'
-import { useFilteredRecipientSections } from '@luxfi/wallet/src/components/RecipientSearch/hooks'
-import { RecipientList } from '@luxfi/wallet/src/components/RecipientSearch/RecipientList'
-import { RecipientSelectSpeedBumps } from '@luxfi/wallet/src/components/RecipientSearch/RecipientSelectSpeedBumps'
-import { SearchBar } from '@luxfi/wallet/src/features/search/SearchBar'
-=======
 import { Flex, flexStyles, Loader, Text, TouchableArea } from 'ui/src'
 import { Scan, UserSearch } from 'ui/src/components/icons'
 import { UniverseChainId } from 'uniswap/src/features/chains/types'
@@ -25,7 +13,6 @@ import { useFilteredRecipientSections } from 'wallet/src/components/RecipientSea
 import { RecipientList } from 'wallet/src/components/RecipientSearch/RecipientList'
 import { RecipientSelectSpeedBumps } from 'wallet/src/components/RecipientSearch/RecipientSelectSpeedBumps'
 import { SearchBar } from 'wallet/src/features/search/SearchBar'
->>>>>>> upstream/main
 
 interface RecipientSelectProps {
   onSelectRecipient: (newRecipientAddress: string) => void
@@ -45,11 +32,7 @@ function QRScannerIconButton({ onPress }: { onPress: () => void }): JSX.Element 
   )
 }
 
-<<<<<<< HEAD
-function _RecipientSelect({
-=======
 function RecipientSelectInner({
->>>>>>> upstream/main
   onSelectRecipient,
   onHideRecipientSelector,
   recipient,
@@ -171,8 +154,4 @@ function RecipientSelectInner({
   )
 }
 
-<<<<<<< HEAD
-export const RecipientSelect = memo(_RecipientSelect)
-=======
 export const RecipientSelect = memo(RecipientSelectInner)
->>>>>>> upstream/main

@@ -5,18 +5,6 @@ import {
   Pair as RestPair,
   Position as RestPosition,
   Token as RestToken,
-<<<<<<< HEAD
-} from '@luxamm/client-data-api/dist/data/v1/poolTypes_pb'
-import { PoolInformation } from '@luxamm/client-liquidity/dist/lx/liquidity/v1/types_pb'
-import { Currency, CurrencyAmount, Token } from '@luxamm/sdk-core'
-import { Pair } from '@luxamm/v2-sdk'
-import { FeeAmount, Pool as V3Pool, Position as V3Position } from '@luxamm/v3-sdk'
-import { Pool as V4Pool, Position as V4Position } from '@luxamm/v4-sdk'
-import { ZERO_ADDRESS } from '@l.x/lx/src/constants/misc'
-import { DEFAULT_TICK_SPACING } from '@l.x/lx/src/constants/pools'
-import { nativeOnChain } from '@l.x/lx/src/constants/tokens'
-import { logger } from '@l.x/utils/src/logger/logger'
-=======
 } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
 import { PoolInformation } from '@uniswap/client-liquidity/dist/uniswap/liquidity/v1/types_pb'
 import { Currency, CurrencyAmount, Token } from '@uniswap/sdk-core'
@@ -27,7 +15,6 @@ import { ZERO_ADDRESS } from 'uniswap/src/constants/misc'
 import { DEFAULT_TICK_SPACING } from 'uniswap/src/constants/pools'
 import { nativeOnChain } from 'uniswap/src/constants/tokens'
 import { logger } from 'utilities/src/logger/logger'
->>>>>>> upstream/main
 import { DYNAMIC_FEE_DATA, FeeData } from '~/components/Liquidity/Create/types'
 import { PositionInfo } from '~/components/Liquidity/types'
 

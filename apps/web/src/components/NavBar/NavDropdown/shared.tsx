@@ -1,10 +1,5 @@
-<<<<<<< HEAD
-import { styled } from '@l.x/ui/src'
-import { Flex } from '@l.x/ui/src/components/layout'
-=======
 import { styled } from 'ui/src'
 import { Flex } from 'ui/src/components/layout'
->>>>>>> upstream/main
 
 export const NavDropdownDefaultWrapper = styled(Flex, {
   width: '100%',

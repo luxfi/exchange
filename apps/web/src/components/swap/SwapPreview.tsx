@@ -1,16 +1,8 @@
-<<<<<<< HEAD
-import { Currency, Percent, TradeType } from '@luxamm/sdk-core'
-import { Trans } from 'react-i18next'
-import { Flex, Text } from '@l.x/ui/src'
-import { useUSDCValue } from '@l.x/lx/src/features/transactions/hooks/useUSDCPriceWrapper'
-import { CurrencyField } from '@l.x/lx/src/types/currency'
-=======
 import { Currency, Percent, TradeType } from '@uniswap/sdk-core'
 import { Trans } from 'react-i18next'
 import { Flex, Text } from 'ui/src'
 import { useUSDCValue } from 'uniswap/src/features/transactions/hooks/useUSDCPriceWrapper'
 import { CurrencyField } from 'uniswap/src/types/currency'
->>>>>>> upstream/main
 import { AutoColumn } from '~/components/deprecated/Column'
 import { SwapModalHeaderAmount } from '~/components/swap/SwapModalHeaderAmount'
 import { deprecatedStyled } from '~/lib/deprecated-styled'

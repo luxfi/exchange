@@ -1,15 +1,3 @@
-<<<<<<< HEAD
-import { ProtocolVersion } from '@luxamm/client-data-api/dist/data/v1/poolTypes_pb'
-import { Currency } from '@luxamm/sdk-core'
-import { FeeAmount, TICK_SPACINGS, tickToPrice } from '@luxamm/v3-sdk'
-import { tickToPrice as tickToPriceV4 } from '@luxamm/v4-sdk'
-import JSBI from 'jsbi'
-import { ISeriesApi, UTCTimestamp } from 'lightweight-charts'
-import { useEffect, useState } from 'react'
-import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
-import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
-import { NumberType } from '@l.x/utils/src/format/types'
-=======
 import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
 import { Currency } from '@uniswap/sdk-core'
 import { FeeAmount, TICK_SPACINGS, tickToPrice } from '@uniswap/v3-sdk'
@@ -20,7 +8,6 @@ import { useEffect, useState } from 'react'
 import { UniverseChainId } from 'uniswap/src/features/chains/types'
 import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
 import { NumberType } from 'utilities/src/format/types'
->>>>>>> upstream/main
 import { ChartHoverData, ChartModel, ChartModelParams } from '~/components/Charts/ChartModel'
 import { LiquidityBarSeries } from '~/components/Charts/LiquidityChart/liquidity-bar-series'
 import {

@@ -3,11 +3,7 @@ import { Text } from 'react-native'
 import { LazyModalRenderer } from 'src/app/modals/LazyModalRenderer'
 import { preloadedMobileState, preloadedModalsState } from 'src/test/fixtures'
 import { renderWithProviders } from 'src/test/render'
-<<<<<<< HEAD
-import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
-=======
 import { ModalName } from 'uniswap/src/features/telemetry/constants'
->>>>>>> upstream/main
 
 describe(LazyModalRenderer, () => {
   it('renders null when modal is not open', () => {

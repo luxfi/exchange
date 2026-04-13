@@ -1,16 +1,6 @@
 import { ChangeEvent, ForwardedRef, forwardRef, KeyboardEvent, useCallback, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { capitalize } from 'tsafe'
-<<<<<<< HEAD
-import { Flex, Popover, Text, Tooltip, TouchableArea, TouchableAreaEvent, styled as UIStyled } from '@l.x/ui/src'
-import { Unitag } from '@l.x/ui/src/components/icons/Unitag'
-import { X } from '@l.x/ui/src/components/icons/X'
-import { zIndexes } from '@l.x/ui/src/theme'
-import { useUnitagsAddressQuery } from '@l.x/lx/src/data/apiClients/unitagsApi/useUnitagsAddressQuery'
-import { AccountIcon } from '@l.x/lx/src/features/accounts/AccountIcon'
-import { useENSName } from '@l.x/lx/src/features/ens/api'
-import { shortenAddress } from '@l.x/utils/src/addresses'
-=======
 import { Flex, Popover, Text, Tooltip, TouchableArea, TouchableAreaEvent, styled as UIStyled } from 'ui/src'
 import { Unitag } from 'ui/src/components/icons/Unitag'
 import { X } from 'ui/src/components/icons/X'
@@ -19,7 +9,6 @@ import { useUnitagsAddressQuery } from 'uniswap/src/data/apiClients/unitagsApi/u
 import { AccountIcon } from 'uniswap/src/features/accounts/AccountIcon'
 import { useENSName } from 'uniswap/src/features/ens/api'
 import { shortenAddress } from 'utilities/src/addresses'
->>>>>>> upstream/main
 import Column, { AutoColumn } from '~/components/deprecated/Column'
 import Row from '~/components/deprecated/Row'
 import { useAccount } from '~/hooks/useAccount'

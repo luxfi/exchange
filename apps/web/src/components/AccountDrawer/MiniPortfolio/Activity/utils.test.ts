@@ -1,16 +1,9 @@
 import 'utilities/src/logger/mocks'
 import { BigNumber } from '@ethersproject/bignumber'
-<<<<<<< HEAD
 import { GraphQLApi } from '@l.x/api'
-import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
-import { TransactionStatus } from '@l.x/lx/src/features/transactions/types/transactionDetails'
-import { DEFAULT_ERC20_DECIMALS } from '@l.x/utils/src/tokens/constants'
-=======
-import { GraphQLApi } from '@universe/api'
 import { UniverseChainId } from 'uniswap/src/features/chains/types'
 import { TransactionStatus } from 'uniswap/src/features/transactions/types/transactionDetails'
 import { DEFAULT_ERC20_DECIMALS } from 'utilities/src/tokens/constants'
->>>>>>> upstream/main
 import { vi } from 'vitest'
 import { type Activity } from '~/components/AccountDrawer/MiniPortfolio/Activity/types'
 import {

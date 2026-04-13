@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import { Currency, CurrencyAmount, Fraction, Price } from '@luxamm/sdk-core'
-=======
 import { Currency, CurrencyAmount, Fraction, Price } from '@uniswap/sdk-core'
->>>>>>> upstream/main
 import { parseUnits } from 'ethers/lib/utils'
 import JSBI from 'jsbi'
 import { useMemo } from 'react'

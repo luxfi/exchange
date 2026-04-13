@@ -6,16 +6,6 @@ import { OnboardingStackParamList } from 'src/app/navigation/types'
 import { useCloudBackups } from 'src/features/CloudBackup/useCloudBackups'
 import { OnboardingScreen } from 'src/features/onboarding/OnboardingScreen'
 import { useNavigationHeader } from 'src/utils/useNavigationHeader'
-<<<<<<< HEAD
-import { Flex, Loader } from '@l.x/ui/src'
-import { DownloadAlt, OSDynamicCloudIcon } from '@l.x/ui/src/components/icons'
-import { imageSizes } from '@l.x/ui/src/theme'
-import { BaseCard } from '@l.x/lx/src/components/BaseCard/BaseCard'
-import { ImportType } from '@l.x/lx/src/types/onboarding'
-import { OnboardingScreens } from '@l.x/lx/src/types/screens/mobile'
-import { getCloudProviderName } from '@l.x/lx/src/utils/cloud-backup/getCloudProviderName'
-import { useOnboardingContext } from '@luxfi/wallet/src/features/onboarding/OnboardingContext'
-=======
 import { Flex, Loader } from 'ui/src'
 import { DownloadAlt, OSDynamicCloudIcon } from 'ui/src/components/icons'
 import { imageSizes } from 'ui/src/theme'
@@ -24,7 +14,6 @@ import { ImportType } from 'uniswap/src/types/onboarding'
 import { OnboardingScreens } from 'uniswap/src/types/screens/mobile'
 import { getCloudProviderName } from 'uniswap/src/utils/cloud-backup/getCloudProviderName'
 import { useOnboardingContext } from 'wallet/src/features/onboarding/OnboardingContext'
->>>>>>> upstream/main
 
 type Props = NativeStackScreenProps<OnboardingStackParamList, OnboardingScreens.RestoreCloudBackupLoading>
 

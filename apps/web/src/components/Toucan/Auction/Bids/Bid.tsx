@@ -1,17 +1,9 @@
 import { useTranslation } from 'react-i18next'
-<<<<<<< HEAD
-import { Flex, Text, TouchableArea } from '@l.x/ui/src'
-import { useEvent } from '@l.x/utils/src/react/hooks'
-import { BidProgressIndicator } from '~/components/Toucan/Auction/Bids/BidProgressIndicator'
-import { getDisplayStateColor, useBidStatusColors } from '~/components/Toucan/Auction/hooks/useBidStatusColors'
-import { BidListItem } from '~/components/Toucan/Auction/hooks/useBidsListData'
-=======
 import { Flex, Text, TouchableArea } from 'ui/src'
 import { useEvent } from 'utilities/src/react/hooks'
 import { BidProgressIndicator } from '~/components/Toucan/Auction/Bids/BidProgressIndicator'
 import { BidListItem } from '~/components/Toucan/Auction/hooks/useBidsListData'
 import { getDisplayStateColor, useBidStatusColors } from '~/components/Toucan/Auction/hooks/useBidStatusColors'
->>>>>>> upstream/main
 import { UserBid } from '~/components/Toucan/Auction/store/types'
 import { type BidDisplayState } from '~/components/Toucan/Auction/utils/bidDetails'
 import { useTimeAgo } from '~/components/Toucan/Shared/TimeCell'

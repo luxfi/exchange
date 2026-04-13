@@ -1,10 +1,6 @@
 import { useEffect, useState } from 'react'
 import { AppStackNavigationProp } from 'src/app/navigation/types'
-<<<<<<< HEAD
-import { isIOS } from '@l.x/utils/src/platform'
-=======
 import { isIOS } from 'utilities/src/platform'
->>>>>>> upstream/main
 
 /**
  * Utility hook used to delay rendering initially so that the screen render a skeleton of placeholders

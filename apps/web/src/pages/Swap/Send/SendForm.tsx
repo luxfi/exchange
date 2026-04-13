@@ -1,26 +1,6 @@
 import { useMutation } from '@tanstack/react-query'
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-<<<<<<< HEAD
-import { Button, Flex } from '@l.x/ui/src'
-import { GetHelpHeader } from '@l.x/lx/src/components/dialog/GetHelpHeader'
-import { lxUrls } from '@l.x/lx/src/constants/urls'
-import { useActiveAddress, useConnectionStatus } from '@l.x/lx/src/features/accounts/store/hooks'
-import { useIsSmartContractAddress } from '@l.x/lx/src/features/address/useIsSmartContractAddress'
-import { useEnabledChains } from '@l.x/lx/src/features/chains/hooks/useEnabledChains'
-import { chainIdToPlatform, isSVMChain } from '@l.x/lx/src/features/platforms/utils/chains'
-import { ElementName, InterfaceEventName, ModalName } from '@l.x/lx/src/features/telemetry/constants'
-import Trace from '@l.x/lx/src/features/telemetry/Trace'
-import { useCurrencyInfo } from '@l.x/lx/src/features/tokens/useCurrencyInfo'
-import { useDismissedCompatibleAddressWarnings } from '@l.x/lx/src/features/tokens/warnings/slice/hooks'
-import {
-  TransactionScreen,
-  useTransactionModalContext,
-} from '@l.x/lx/src/features/transactions/components/TransactionModal/TransactionModalContext'
-import { CompatibleAddressModal } from '@l.x/lx/src/features/transactions/modals/CompatibleAddressModal'
-import { areAddressesEqual } from '@l.x/lx/src/utils/addresses'
-import { currencyId } from '@l.x/lx/src/utils/currencyId'
-=======
 import { Button, Flex } from 'ui/src'
 import { GetHelpHeader } from 'uniswap/src/components/dialog/GetHelpHeader'
 import { uniswapUrls } from 'uniswap/src/constants/urls'
@@ -39,7 +19,6 @@ import {
 import { CompatibleAddressModal } from 'uniswap/src/features/transactions/modals/CompatibleAddressModal'
 import { areAddressesEqual } from 'uniswap/src/utils/addresses'
 import { currencyId } from 'uniswap/src/utils/currencyId'
->>>>>>> upstream/main
 import { useAccountDrawer } from '~/components/AccountDrawer/MiniPortfolio/hooks'
 import { useGroupedRecentTransfers } from '~/hooks/useGroupedRecentTransfers'
 import { useModalState } from '~/hooks/useModalState'
@@ -181,11 +160,7 @@ function SendFormInner({ disableTokenInputs = false, onCurrencyChange }: SendFor
     setSendFormModalState(newState ?? SendFormModalState.None)
   }, [])
 
-<<<<<<< HEAD
-  // biome-ignore lint/correctness/useExhaustiveDependencies: +recipientData?.address
-=======
   // oxlint-disable-next-line react/exhaustive-deps -- +recipientData?.address
->>>>>>> upstream/main
   useEffect(() => {
     setSendFormSpeedBumpState(() => ({
       [SendSpeedBump.SELF_SEND_SPEED_BUMP]: isCurrentWallet,
@@ -347,11 +322,7 @@ function SendFormInner({ disableTokenInputs = false, onCurrencyChange }: SendFor
           closeHeaderComponent={
             <GetHelpHeader
               closeModal={handleCancelCompatibleAddressSpeedBump}
-<<<<<<< HEAD
-              link={lxUrls.helpArticleUrls.bridgedAssets}
-=======
               link={uniswapUrls.helpArticleUrls.bridgedAssets}
->>>>>>> upstream/main
               mb="$spacing12"
             />
           }

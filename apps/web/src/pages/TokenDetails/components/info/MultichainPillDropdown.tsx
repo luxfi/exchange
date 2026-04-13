@@ -1,15 +1,8 @@
 import type React from 'react'
-<<<<<<< HEAD
-import { Flex, Popover, Text, TouchableArea, useMedia } from '@l.x/ui/src'
-import { AdaptiveWebPopoverContent } from '@l.x/ui/src/components/popover/AdaptiveWebPopoverContent'
-import { Modal } from 'lx/src/components/modals/Modal'
-import { ModalName } from 'lx/src/features/telemetry/constants'
-=======
 import { Flex, Popover, Text, TouchableArea, useMedia } from 'ui/src'
 import { AdaptiveWebPopoverContent } from 'ui/src/components/popover/AdaptiveWebPopoverContent'
 import { Modal } from 'uniswap/src/components/modals/Modal'
 import { ModalName } from 'uniswap/src/features/telemetry/constants'
->>>>>>> upstream/main
 
 const MULTICHAIN_SNAP_POINTS = ['65%', '100%']
 

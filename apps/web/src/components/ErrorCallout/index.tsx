@@ -1,15 +1,8 @@
 import { useTranslation } from 'react-i18next'
-<<<<<<< HEAD
-import { Flex, Text, TouchableArea } from '@l.x/ui/src'
-import { AlertTriangleFilled } from '@l.x/ui/src/components/icons/AlertTriangleFilled'
-import { RotateLeft } from '@l.x/ui/src/components/icons/RotateLeft'
-import { ClickableGuiStyle } from '~/theme/components/styles'
-=======
 import { Flex, Text, TouchableArea } from 'ui/src'
 import { AlertTriangleFilled } from 'ui/src/components/icons/AlertTriangleFilled'
 import { RotateLeft } from 'ui/src/components/icons/RotateLeft'
 import { ClickableTamaguiStyle } from '~/theme/components/styles'
->>>>>>> upstream/main
 
 export function ErrorCallout({
   errorMessage,
@@ -58,11 +51,7 @@ export function ErrorCallout({
           </Text>
         )}
         {Boolean(onPress) && (
-<<<<<<< HEAD
-          <TouchableArea row {...ClickableGuiStyle} onPress={onPress} mt="$spacing2">
-=======
           <TouchableArea row {...ClickableTamaguiStyle} onPress={onPress} mt="$spacing2">
->>>>>>> upstream/main
             <Flex row gap="$gap4">
               {pressIcon}
               <Text variant="buttonLabel3">{action || t('common.button.tryAgain')}</Text>

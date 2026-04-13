@@ -8,20 +8,6 @@ import { useLockScreenOnBlur } from 'src/features/lockScreen/hooks/useLockScreen
 import { SafeKeyboardOnboardingScreen } from 'src/features/onboarding/SafeKeyboardOnboardingScreen'
 import { onRestoreComplete } from 'src/screens/Import/onRestoreComplete'
 import { useNavigationHeader } from 'src/utils/useNavigationHeader'
-<<<<<<< HEAD
-import { Button, Flex, Text, TouchableArea } from '@l.x/ui/src'
-import { QuestionInCircleFilled } from '@l.x/ui/src/components/icons'
-import { lxUrls } from '@l.x/lx/src/constants/urls'
-import { ElementName } from '@l.x/lx/src/features/telemetry/constants'
-import Trace from '@l.x/lx/src/features/telemetry/Trace'
-import { ImportType } from '@l.x/lx/src/types/onboarding'
-import { OnboardingScreens } from '@l.x/lx/src/types/screens/mobile'
-import { openUri } from '@l.x/lx/src/utils/linking'
-import { useOnboardingContext } from '@luxfi/wallet/src/features/onboarding/OnboardingContext'
-import { BackupType } from '@luxfi/wallet/src/features/wallet/accounts/types'
-import { useSignerAccounts } from '@luxfi/wallet/src/features/wallet/hooks'
-import { Keyring } from '@luxfi/wallet/src/features/wallet/Keyring/Keyring'
-=======
 import { Button, Flex, Text, TouchableArea } from 'ui/src'
 import { QuestionInCircleFilled } from 'ui/src/components/icons'
 import { uniswapUrls } from 'uniswap/src/constants/urls'
@@ -34,18 +20,13 @@ import { useOnboardingContext } from 'wallet/src/features/onboarding/OnboardingC
 import { BackupType } from 'wallet/src/features/wallet/accounts/types'
 import { useSignerAccounts } from 'wallet/src/features/wallet/hooks'
 import { Keyring } from 'wallet/src/features/wallet/Keyring/Keyring'
->>>>>>> upstream/main
 import {
   MnemonicValidationError,
   translateMnemonicErrorMessage,
   userFinishedTypingWord,
   validateMnemonic,
   validateSetOfWords,
-<<<<<<< HEAD
-} from '@luxfi/wallet/src/utils/mnemonics'
-=======
 } from 'wallet/src/utils/mnemonics'
->>>>>>> upstream/main
 
 type Props = NativeStackScreenProps<OnboardingStackParamList, OnboardingScreens.SeedPhraseInput>
 
@@ -133,11 +114,7 @@ export function SeedPhraseInputScreen({ navigation, route: { params } }: Props):
   }
 
   const onPressRecoveryHelpButton = (): Promise<void> =>
-<<<<<<< HEAD
-    openUri({ uri: lxUrls.helpArticleUrls.recoveryPhraseHowToImport })
-=======
     openUri({ uri: uniswapUrls.helpArticleUrls.recoveryPhraseHowToImport })
->>>>>>> upstream/main
 
   const onPressTryAgainButton = (): void => {
     navigation.replace(OnboardingScreens.RestoreCloudBackupLoading, params)

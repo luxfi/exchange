@@ -1,13 +1,4 @@
 import { useTranslation } from 'react-i18next'
-<<<<<<< HEAD
-import { AnimatableCopyIcon, Flex, FlexProps } from '@l.x/ui/src'
-import { ElementName } from '@l.x/lx/src/features/telemetry/constants'
-import Trace from '@l.x/lx/src/features/telemetry/Trace'
-import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
-import { useEvent } from '@l.x/utils/src/react/hooks'
-import { useBooleanState } from '@l.x/utils/src/react/useBooleanState'
-import { ONE_SECOND_MS } from '@l.x/utils/src/time/time'
-=======
 import { AnimatableCopyIcon, Flex, FlexProps } from 'ui/src'
 import { ElementName } from 'uniswap/src/features/telemetry/constants'
 import Trace from 'uniswap/src/features/telemetry/Trace'
@@ -15,7 +6,6 @@ import { TestID } from 'uniswap/src/test/fixtures/testIDs'
 import { useEvent } from 'utilities/src/react/hooks'
 import { useBooleanState } from 'utilities/src/react/useBooleanState'
 import { ONE_SECOND_MS } from 'utilities/src/time/time'
->>>>>>> upstream/main
 import { ActionTile } from '~/components/AccountDrawer/ActionTile'
 import { Wiggle } from '~/components/animations/Wiggle'
 import useCopyClipboard from '~/hooks/useCopyClipboard'

@@ -1,18 +1,6 @@
 import React, { useCallback } from 'react'
 import { Trans, useTranslation } from 'react-i18next'
 import { navigate } from 'src/app/navigation/rootNavigation'
-<<<<<<< HEAD
-import { Flex, Image, Text, TouchableArea, TouchableAreaProps, useIsDarkMode, useIsShortMobileDevice } from '@l.x/ui/src'
-import { UNITAGS_BANNER_VERTICAL_DARK, UNITAGS_BANNER_VERTICAL_LIGHT } from '@l.x/ui/src/assets'
-import { useDeviceDimensions } from '@l.x/ui/src/hooks/useDeviceDimensions'
-import { iconSizes } from '@l.x/ui/src/theme'
-import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
-import { UNITAG_SUFFIX_NO_LEADING_DOT } from '@l.x/lx/src/features/unitags/constants'
-import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
-import { MobileScreens, UnitagScreens } from '@l.x/lx/src/types/screens/mobile'
-import { dismissNativeKeyboard } from '@l.x/utils/src/device/keyboard/dismissNativeKeyboard'
-import { useUnitagClaimHandler } from '@luxfi/wallet/src/features/unitags/useUnitagClaimHandler'
-=======
 import { Flex, Image, Text, TouchableArea, TouchableAreaProps, useIsDarkMode, useIsShortMobileDevice } from 'ui/src'
 import { UNITAGS_BANNER_VERTICAL_DARK, UNITAGS_BANNER_VERTICAL_LIGHT } from 'ui/src/assets'
 import { useDeviceDimensions } from 'ui/src/hooks/useDeviceDimensions'
@@ -23,7 +11,6 @@ import { TestID } from 'uniswap/src/test/fixtures/testIDs'
 import { MobileScreens, UnitagScreens } from 'uniswap/src/types/screens/mobile'
 import { dismissNativeKeyboard } from 'utilities/src/device/keyboard/dismissNativeKeyboard'
 import { useUnitagClaimHandler } from 'wallet/src/features/unitags/useUnitagClaimHandler'
->>>>>>> upstream/main
 
 const IMAGE_ASPECT_RATIO = 0.42
 const IMAGE_SCREEN_WIDTH_PROPORTION = 0.18

@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-import { brand, getBrandUrl, getDocsUrl } from '@l.x/config'
-=======
 >>>>>>> upstream/main
 import { lazy, PropsWithChildren, ReactNode, Suspense, useState } from 'react'
 import { useTranslation } from 'react-i18next'
@@ -36,7 +33,6 @@ import { uniswapUrls } from 'uniswap/src/constants/urls'
 import { ElementName, ModalName } from 'uniswap/src/features/telemetry/constants'
 import Trace from 'uniswap/src/features/telemetry/Trace'
 import { useEvent } from 'utilities/src/react/hooks'
->>>>>>> upstream/main
 import AppStoreBadge from '~/assets/images/app-store-badge.png'
 import ExtensionIllustration from '~/assets/images/extensionIllustration.png'
 import PlayStoreBadge from '~/assets/images/play-store-badge.png'
@@ -120,11 +116,7 @@ function CardInfo({ title, details, children }: PropsWithChildren<{ title: strin
   return (
     <Flex row p="$spacing8" justifyContent="space-between" alignItems="center" width="100%">
       <Flex alignItems="flex-start">
-<<<<<<< HEAD
-        <Text variant="body2" fontWeight={500}>
-=======
         <Text variant="body2" fontWeight="535">
->>>>>>> upstream/main
           {title}
         </Text>
         <Text variant="body4" color="$neutral2">
@@ -141,37 +133,19 @@ function DownloadMobile() {
   const account = useAccount()
   return (
     <ModalContent
-<<<<<<< HEAD
-      title={t('common.downloadLuxApp')}
-=======
       title={t('common.downloadUniswapApp')}
->>>>>>> upstream/main
       subtext={t('common.scanQRDownload')}
       maxWidth="620px"
       px="60px"
       my="$spacing24"
     >
-<<<<<<< HEAD
-      <BadgeLink href={getBrandUrl('/wallet')}>
-=======
       <BadgeLink href="https://uniswapwallet.onelink.me/8q3y/m4i9qsez?af_qr=true">
->>>>>>> upstream/main
         <Suspense fallback={<Loader.Box width={200} height={200} />}>
           <LazyWalletOneLinkQR width={200} height={200} />
         </Suspense>
       </BadgeLink>
       <Trace
         logPress
-<<<<<<< HEAD
-        element={ElementName.LuxWalletModalDownloadButton}
-        properties={{ connector_id: account.connector?.id }}
-      >
-        <Flex row justifyContent="center" gap="$spacing16">
-          <BadgeLink href={getBrandUrl("/wallet/ios")}>
-            <Image src={AppStoreBadge} alt="App Store Badge" width={150} height={50} />
-          </BadgeLink>
-          <BadgeLink href={getBrandUrl("/wallet/android")}>
-=======
         element={ElementName.UniswapWalletModalDownloadButton}
         properties={{ connector_id: account.connector?.id }}
       >
@@ -180,7 +154,6 @@ function DownloadMobile() {
             <Image src={AppStoreBadge} alt="App Store Badge" width={150} height={50} />
           </BadgeLink>
           <BadgeLink href="https://play.google.com/store/apps/details?id=com.uniswap.mobile&pcampaignid=web_share">
->>>>>>> upstream/main
             <Image src={PlayStoreBadge} alt="Play Store Badge" width={170} height={50} />
           </BadgeLink>
         </Flex>
@@ -210,13 +183,8 @@ function DownloadApps({ setPage }: { setPage: (page: Page) => void }) {
     <Trace logImpression modal={ModalName.DownloadApp} properties={{ connector_id: account.connector?.id }}>
       <ModalContent
         title={t('downloadApp.modal.getTheApp.title')}
-<<<<<<< HEAD
-        subtext={t('downloadApp.modal.luxProducts.subtitle')}
-        header={<Image height={iconSizes.icon64} source={LUX_LOGO} width={iconSizes.icon64} />}
-=======
         subtext={t('downloadApp.modal.uniswapProducts.subtitle')}
         header={<Image height={iconSizes.icon64} source={UNISWAP_LOGO} width={iconSizes.icon64} />}
->>>>>>> upstream/main
         maxWidth="620px"
       >
         <Flex row gap="$spacing12" width="100%" alignItems="flex-start">
@@ -230,17 +198,10 @@ function DownloadApps({ setPage }: { setPage: (page: Page) => void }) {
             <IllustrationContainer>
               <Illustration src={WalletIllustration} alt="Wallet example page" />
             </IllustrationContainer>
-<<<<<<< HEAD
-            <CardInfo title={t('common.luxMobile')} details={t('common.iOSAndroid')}>
-              <Trace
-                logPress
-                element={ElementName.LuxWalletModalDownloadButton}
-=======
             <CardInfo title={t('common.uniswapMobile')} details={t('common.iOSAndroid')}>
               <Trace
                 logPress
                 element={ElementName.UniswapWalletModalDownloadButton}
->>>>>>> upstream/main
                 properties={{ connector_id: account.connector?.id }}
               >
                 <Flex row gap="$spacing8" alignItems="center">
@@ -257,11 +218,7 @@ function DownloadApps({ setPage }: { setPage: (page: Page) => void }) {
           <Trace logPress element={ElementName.ExtensionDownloadButton}>
             <Card
               onClick={() => {
-<<<<<<< HEAD
-                window.open(lxUrls.chromeExtension)
-=======
                 window.open(uniswapUrls.chromeExtension)
->>>>>>> upstream/main
                 onPressCard()
               }}
             >

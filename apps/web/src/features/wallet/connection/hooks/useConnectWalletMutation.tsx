@@ -1,12 +1,7 @@
 import { useMutation } from '@tanstack/react-query'
 import { createContext, useContext, useMemo } from 'react'
-<<<<<<< HEAD
-import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
-import { useEvent } from '@l.x/utils/src/react/hooks'
-=======
 import { Platform } from 'uniswap/src/features/platforms/types/Platform'
 import { useEvent } from 'utilities/src/react/hooks'
->>>>>>> upstream/main
 import { ExternalWallet } from '~/features/accounts/store/types'
 import { ConnectionService } from '~/features/wallet/connection/services/IConnectionService'
 

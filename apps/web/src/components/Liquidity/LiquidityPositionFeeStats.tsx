@@ -1,13 +1,3 @@
-<<<<<<< HEAD
-import { ProtocolVersion } from '@luxamm/client-data-api/dist/data/v1/poolTypes_pb'
-import { Dispatch, SetStateAction } from 'react'
-import { Trans, useTranslation } from 'react-i18next'
-import { Flex, styled, Text, useMedia } from '@l.x/ui/src'
-import { ArrowDownArrowUp } from '@l.x/ui/src/components/icons/ArrowDownArrowUp'
-import { InfoCircleFilled } from '@l.x/ui/src/components/icons/InfoCircleFilled'
-import { CurrencyInfo } from '@l.x/lx/src/features/dataApi/types'
-import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
-=======
 import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
 import { Dispatch, SetStateAction } from 'react'
 import { Trans, useTranslation } from 'react-i18next'
@@ -16,7 +6,6 @@ import { ArrowDownArrowUp } from 'ui/src/components/icons/ArrowDownArrowUp'
 import { InfoCircleFilled } from 'ui/src/components/icons/InfoCircleFilled'
 import { CurrencyInfo } from 'uniswap/src/features/dataApi/types'
 import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
->>>>>>> upstream/main
 import { CHART_WIDTH } from '~/components/Charts/LiquidityPositionRangeChart/LiquidityPositionRangeChart'
 import { useGetRangeDisplay } from '~/components/Liquidity/hooks/useGetRangeDisplay'
 import { TextLoader } from '~/components/Liquidity/Loader'
@@ -24,11 +13,7 @@ import LPIncentiveFeeStatTooltip from '~/components/Liquidity/LPIncentives/LPInc
 import { LPIncentiveRewardsBadge } from '~/components/Liquidity/LPIncentives/LPIncentiveRewardsBadge'
 import { PriceOrdering } from '~/components/Liquidity/types'
 import { MouseoverTooltip, TooltipSize } from '~/components/Tooltip'
-<<<<<<< HEAD
-import { ClickableGuiStyle } from '~/theme/components/styles'
-=======
 import { ClickableTamaguiStyle } from '~/theme/components/styles'
->>>>>>> upstream/main
 
 interface LiquidityPositionFeeStatsProps extends LiquidityPositionMinMaxRangeProps {
   version: ProtocolVersion
@@ -262,11 +247,7 @@ export function MinMaxRange({
                 e.stopPropagation()
                 setPricesInverted((prevInverted) => !prevInverted)
               }}
-<<<<<<< HEAD
-              {...ClickableGuiStyle}
-=======
               {...ClickableTamaguiStyle}
->>>>>>> upstream/main
               display="none"
               $group-item-hover={{ display: 'flex' }}
             >

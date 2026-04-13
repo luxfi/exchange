@@ -1,20 +1,11 @@
 import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router'
-<<<<<<< HEAD
-import { Flex, Image, Text, TouchableArea } from '@l.x/ui/src'
-import { InterfaceEventName, InterfacePageName } from '@l.x/lx/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
-import Trace from '@l.x/lx/src/features/telemetry/Trace'
-import { ExtensionUninstallFeedbackOptions } from '@l.x/lx/src/features/telemetry/types'
-import MobileAppLogo from '~/assets/svg/lux_app_logo.svg'
-=======
 import { Flex, Image, Text, TouchableArea } from 'ui/src'
 import { InterfaceEventName, InterfacePageName } from 'uniswap/src/features/telemetry/constants'
 import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
 import Trace from 'uniswap/src/features/telemetry/Trace'
 import { ExtensionUninstallFeedbackOptions } from 'uniswap/src/features/telemetry/types'
 import MobileAppLogo from '~/assets/svg/uniswap_app_logo.svg'
->>>>>>> upstream/main
 
 const LOGO_SIZE = 60
 const MAX_WIDTH = 500

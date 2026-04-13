@@ -54,11 +54,7 @@
       "outputs": []
     },
     "ajv": {
-<<<<<<< HEAD
-      "command": "node scripts/compile-ajv-validators.js",
-=======
       "command": "bun run scripts/compile-ajv-validators.js",
->>>>>>> upstream/main
       "options": {
         "cwd": "{projectRoot}"
       },
@@ -67,11 +63,7 @@
       "outputs": ["{projectRoot}/src/utils/__generated__"]
     },
     "graphql:generate": {
-<<<<<<< HEAD
-      "command": "echo 'GraphQL generation handled by lux package'",
-=======
       "command": "echo 'GraphQL generation handled by uniswap package'",
->>>>>>> upstream/main
       "options": {
         "cwd": "{projectRoot}"
       }
@@ -98,11 +90,7 @@
       }
     },
     "sitemap:generate": {
-<<<<<<< HEAD
-      "command": "node scripts/generate-sitemap.js",
-=======
       "command": "bun run scripts/generate-sitemap.js",
->>>>>>> upstream/main
       "options": {
         "cwd": "{projectRoot}"
       },
@@ -159,11 +147,7 @@
       "defaultConfiguration": "staging"
     },
     "build-vercel": {
-<<<<<<< HEAD
-      "command": "DEPLOY_TARGET=vercel VITE_ENABLE_ENTRY_GATEWAY_PROXY=true NODE_OPTIONS=\"--max-old-space-size=12288\" VITE_DISABLE_SOURCEMAP=true vite build --mode staging && npx tsx scripts/build-vercel.ts",
-=======
       "command": "DEPLOY_TARGET=vercel VITE_ENABLE_ENTRY_GATEWAY_PROXY=true NODE_OPTIONS=\"--max-old-space-size=12288\" VITE_DISABLE_SOURCEMAP=true vite build --mode staging && bun scripts/build-vercel.ts",
->>>>>>> upstream/main
       "options": {
         "cwd": "{projectRoot}"
       }
@@ -215,15 +199,6 @@
     },
     "lint": {
       "executor": "nx:noop",
-<<<<<<< HEAD
-      "dependsOn": ["check:circular", "check:deps:usage", "lint:eslint", "lint:biome"]
-    },
-    "lint:fix": {},
-    "lint:biome": {},
-    "lint:biome:fix": {},
-    "lint:eslint": {
-      "command": "NODE_OPTIONS=--max_old_space_size=8192 eslint --ignore-path .gitignore --cache --cache-location node_modules/.cache/eslint/ --max-warnings=0 .",
-=======
       "dependsOn": ["check:circular", "check:deps:usage", "lint:eslint", "oxlint"]
     },
     "lint:fix": {},
@@ -231,17 +206,12 @@
     "check:fix": {},
     "lint:eslint": {
       "command": "NODE_OPTIONS='--max_old_space_size=8192 --max-semi-space-size=256' eslint --cache --cache-location node_modules/.cache/eslint/ --max-warnings=0 .",
->>>>>>> upstream/main
       "options": {
         "cwd": "{projectRoot}"
       }
     },
     "lint:eslint:fix": {
-<<<<<<< HEAD
-      "command": "NODE_OPTIONS=--max_old_space_size=8192 eslint --ignore-path .gitignore --cache --cache-location node_modules/.cache/eslint/ . --fix",
-=======
       "command": "NODE_OPTIONS='--max_old_space_size=8192 --max-semi-space-size=256' eslint --cache --cache-location node_modules/.cache/eslint/ . --fix",
->>>>>>> upstream/main
       "options": {
         "cwd": "{projectRoot}"
       }
@@ -341,11 +311,7 @@
       }
     },
     "test:bundle": {
-<<<<<<< HEAD
-      "command": "node -r esbuild-register ./src/test-utils/bundle-size-test.ts",
-=======
       "command": "bun run -r esbuild-register ./src/test-utils/bundle-size-test.ts",
->>>>>>> upstream/main
       "options": {
         "cwd": "{projectRoot}"
       }
@@ -363,11 +329,7 @@
       }
     },
     "deduplicate": {
-<<<<<<< HEAD
-      "command": "pnpm dedupe",
-=======
       "command": "echo 'Bun automatically deduplicates dependencies'",
->>>>>>> upstream/main
       "options": {
         "cwd": "{projectRoot}"
       }
@@ -379,11 +341,7 @@
       }
     },
     "storybook:run:with-tests": {
-<<<<<<< HEAD
-      "command": "concurrently -s second -n \"SB RUN,SB TEST WATCH\" -c \"magenta,blue\" \"pnpm storybook:run --quiet\" \"wait-on tcp:127.0.0.1:6006 -t 600000 && pnpm storybook:test --watch\"",
-=======
       "command": "concurrently -s second -n \"SB RUN,SB TEST WATCH\" -c \"magenta,blue\" \"bun run storybook:run --quiet\" \"wait-on tcp:127.0.0.1:6006 -t 600000 && bun run storybook:test --watch\"",
->>>>>>> upstream/main
       "options": {
         "cwd": "{projectRoot}"
       }
@@ -401,13 +359,6 @@
       }
     },
     "storybook:test:standalone": {
-<<<<<<< HEAD
-      "command": "concurrently -k -s first -n \"SB BUILD,SB TEST\" -c \"magenta,blue\" \"pnpm storybook:build && http-server storybook-static --port 6006 --silent\" \"wait-on --timeout 600000 tcp:127.0.0.1:6006 && pnpm storybook:test --maxWorkers=2\"",
-      "options": {
-        "cwd": "{projectRoot}"
-      }
-    }
-=======
       "command": "concurrently -k -s first -n \"SB BUILD,SB TEST\" -c \"magenta,blue\" \"bun run storybook:build && http-server storybook-static --port 6006 --silent\" \"wait-on --timeout 600000 tcp:127.0.0.1:6006 && bun run storybook:test --maxWorkers=2\"",
       "options": {
         "cwd": "{projectRoot}"
@@ -418,6 +369,5 @@
     "oxlint": {},
     "oxlint:fix": {},
     "oxlint:type-aware": {}
->>>>>>> upstream/main
   }
 }

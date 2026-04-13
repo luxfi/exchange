@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-import { brand, getGatewayUrl, getWsUrl } from '@l.x/config'
-=======
 >>>>>>> upstream/main
 import { poolImageHandler } from 'functions/api/image/pools'
 import { positionImageHandler } from 'functions/api/image/positions'
@@ -22,22 +19,6 @@ interface AppConfig {
   getTrustedClientIp: (c: Context) => string | undefined
 }
 
-<<<<<<< HEAD
-// ── Shared constants (derived from runtime brand config) ─────────────
-export const ENTRY_GATEWAY_URLS = {
-  get development() { return getGatewayUrl('/conversion') },
-  get staging() { return getGatewayUrl('/conversion') },
-  get production() { return getGatewayUrl('/conversion') },
-} as const
-
-// Statsig proxy -- routed through gateway in production
-const STATSIG_PROXY_TARGET_FN = () => getGatewayUrl('/gateway')
-
-export const WEBSOCKET_URLS = {
-  get development() { return getWsUrl('/staging') },
-  get staging() { return getWsUrl('/staging') },
-  get production() { return getWsUrl('') },
-=======
 // ── Shared constants ─────────────────────────────────────────────────
 export const ENTRY_GATEWAY_URLS = {
   development: 'https://entry-gateway.backend-staging.api.uniswap.org',
@@ -53,7 +34,6 @@ export const WEBSOCKET_URLS = {
   development: 'https://websockets.backend-staging.api.uniswap.org',
   staging: 'https://websockets.backend-staging.api.uniswap.org',
   production: 'https://websockets.backend-prod.api.uniswap.org',
->>>>>>> upstream/main
 } as const
 
 // ── Cache-Control middleware for image routes ───────────────────────────
@@ -61,15 +41,7 @@ function cacheControl(maxAge: number) {
   return async (c: Context, next: () => Promise<void>) => {
     await next()
     if (c.res.ok) {
-<<<<<<< HEAD
-      c.res = new Response(c.res.body, {
-        status: c.res.status,
-        statusText: c.res.statusText,
-        headers: new Headers([...c.res.headers.entries(), ['Cache-Control', `public, max-age=${maxAge}`]]),
-      })
-=======
       c.res.headers.set('Cache-Control', `public, max-age=${maxAge}`)
->>>>>>> upstream/main
     }
   }
 }
@@ -77,27 +49,6 @@ function cacheControl(maxAge: number) {
 export function createApp({ fetchSpaHtml, getEntryGatewayUrl, getWebSocketUrl, getTrustedClientIp }: AppConfig) {
   const app = new Hono<{ Bindings: Bindings }>()
 
-<<<<<<< HEAD
-  // ── Security headers middleware ──────────────────────────────────────
-  // Create a new Response to avoid "Can't modify immutable headers" in Vite dev
-  app.use('*', async (c, next) => {
-    await next()
-    const secHeaders = new Headers(c.res.headers)
-    secHeaders.set('X-Frame-Options', 'DENY')
-    secHeaders.set('X-Content-Type-Options', 'nosniff')
-    secHeaders.set('Strict-Transport-Security', 'max-age=31536000; includeSubDomains; preload')
-    secHeaders.set('Referrer-Policy', 'strict-origin-when-cross-origin')
-    secHeaders.set('Permissions-Policy', 'camera=(), microphone=(), geolocation=(), interest-cohort=()')
-    secHeaders.set('X-DNS-Prefetch-Control', 'on')
-    c.res = new Response(c.res.body, {
-      status: c.res.status,
-      statusText: c.res.statusText,
-      headers: secHeaders,
-    })
-  })
-
-=======
->>>>>>> upstream/main
   // ── OG image routes ────────────────────────────────────────────────────
   app.get('/api/image/tokens/:networkName/:tokenAddress', cacheControl(604800), tokenImageHandler)
 
@@ -136,7 +87,6 @@ export function createApp({ fetchSpaHtml, getEntryGatewayUrl, getWebSocketUrl, g
     // Rewrite Set-Cookie headers so cookies work on non-.lux.exchange domains
 =======
     // Rewrite Set-Cookie headers so cookies work on non-.uniswap.org domains
->>>>>>> upstream/main
     // (Vercel previews, staging, etc.)
     return rewriteProxiedCookies(response)
   })
@@ -146,11 +96,7 @@ export function createApp({ fetchSpaHtml, getEntryGatewayUrl, getWebSocketUrl, g
     const path = c.req.path.replace(/^\/config/, '/v1/statsig-proxy')
     const query = new URL(c.req.url).search
 
-<<<<<<< HEAD
-    return proxy(`${STATSIG_PROXY_TARGET_FN()}${path}${query}`, {
-=======
     return proxy(`${STATSIG_PROXY_TARGET}${path}${query}`, {
->>>>>>> upstream/main
       ...c.req,
       headers: {
         ...c.req.header(),
@@ -162,11 +108,7 @@ export function createApp({ fetchSpaHtml, getEntryGatewayUrl, getWebSocketUrl, g
 
   // ── BFF proxy: WebSocket ────────────────────────────────────────────
   // In production, clients connect directly to the backend WebSocket
-<<<<<<< HEAD
-  // service — see getWebSocketUrl() in pkgs/api/src/getWebSocketUrl.ts.
-=======
   // service — see getWebSocketUrl() in packages/api/src/getWebSocketUrl.ts.
->>>>>>> upstream/main
   // This proxy is used in local dev (Vite + @cloudflare/vite-plugin) and
   // on Cloudflare Workers staging, where the CF Workers runtime handles
   // the WebSocket upgrade natively via fetch().

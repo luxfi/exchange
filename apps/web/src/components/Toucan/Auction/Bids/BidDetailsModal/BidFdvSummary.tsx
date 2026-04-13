@@ -1,10 +1,6 @@
 import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
-<<<<<<< HEAD
-import { Flex, styled, Text } from '@l.x/ui/src'
-=======
 import { Flex, styled, Text } from 'ui/src'
->>>>>>> upstream/main
 import { FdvArrowMarker } from '~/components/Toucan/Auction/Bids/BidDetailsModal/FdvArrowMarker'
 import { useBidStatusColors } from '~/components/Toucan/Auction/hooks/useBidStatusColors'
 import { type BidDisplayState } from '~/components/Toucan/Auction/utils/bidDetails'

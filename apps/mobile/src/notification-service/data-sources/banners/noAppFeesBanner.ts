@@ -4,22 +4,9 @@ import {
   Notification,
   NotificationVersion,
   OnClick,
-<<<<<<< HEAD
-} from '@luxamm/client-notification-service/dist/lx/notificationservice/v1/api_pb'
+} from '@uniswap/client-notification-service/dist/uniswap/notificationservice/v1/api_pb'
 import { BackgroundType, ContentStyle, type InAppNotification, OnClickAction } from '@l.x/api'
 import { FeatureFlags, getFeatureFlag } from '@l.x/gating'
-import { BannerId } from 'src/notification-service/data-sources/banners/types'
-import {
-  NO_FEES_ICON,
-  NO_LUX_INTERFACE_FEES_BANNER_DARK,
-  NO_LUX_INTERFACE_FEES_BANNER_LIGHT,
-} from '@l.x/ui/src/assets'
-import { lxUrls } from '@l.x/lx/src/constants/urls'
-import i18n from '@l.x/lx/src/i18n'
-=======
-} from '@uniswap/client-notification-service/dist/uniswap/notificationservice/v1/api_pb'
-import { BackgroundType, ContentStyle, type InAppNotification, OnClickAction } from '@universe/api'
-import { FeatureFlags, getFeatureFlag } from '@universe/gating'
 import { BannerId } from 'src/notification-service/data-sources/banners/types'
 import {
   NO_FEES_ICON,
@@ -28,18 +15,13 @@ import {
 } from 'ui/src/assets'
 import { uniswapUrls } from 'uniswap/src/constants/urls'
 import i18n from 'uniswap/src/i18n'
->>>>>>> upstream/main
 
 /**
  * Check if No App Fees banner should be shown based on feature flag.
  * The processor will filter based on tracked state.onNavigate
  */
 export async function checkNoAppFeesBanner(isDarkMode: boolean): Promise<InAppNotification | null> {
-<<<<<<< HEAD
-  const isEnabled = getFeatureFlag(FeatureFlags.NoLuxInterfaceFees)
-=======
   const isEnabled = getFeatureFlag(FeatureFlags.NoUniswapInterfaceFees)
->>>>>>> upstream/main
 
   if (!isEnabled) {
     return null
@@ -62,17 +44,10 @@ function createNoAppFeesBanner(isDarkMode: boolean): InAppNotification {
       iconLink: NO_FEES_ICON,
       background: new Background({
         backgroundType: BackgroundType.IMAGE,
-<<<<<<< HEAD
-        link: isDarkMode ? NO_LUX_INTERFACE_FEES_BANNER_DARK : NO_LUX_INTERFACE_FEES_BANNER_LIGHT,
-        backgroundOnClick: new OnClick({
-          onClick: [OnClickAction.EXTERNAL_LINK, OnClickAction.DISMISS, OnClickAction.ACK],
-          onClickLink: lxUrls.helpArticleUrls.swapFeeInfo,
-=======
         link: isDarkMode ? NO_UNISWAP_INTERFACE_FEES_BANNER_DARK : NO_UNISWAP_INTERFACE_FEES_BANNER_LIGHT,
         backgroundOnClick: new OnClick({
           onClick: [OnClickAction.EXTERNAL_LINK, OnClickAction.DISMISS, OnClickAction.ACK],
           onClickLink: uniswapUrls.helpArticleUrls.swapFeeInfo,
->>>>>>> upstream/main
         }),
       }),
       onDismissClick: new OnClick({

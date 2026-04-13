@@ -1,16 +1,4 @@
 import { useTranslation } from 'react-i18next'
-<<<<<<< HEAD
-import { Button, Flex, Image, Text, TouchableArea, useSporeColors } from '@l.x/ui/src'
-import toucanIntroBackground from '@l.x/ui/src/assets/backgrounds/toucan-intro.png'
-import { Rocket } from '@l.x/ui/src/components/icons/Rocket'
-import { X } from '@l.x/ui/src/components/icons/X'
-import { Modal } from '@l.x/lx/src/components/modals/Modal'
-import { lxUrls } from '@l.x/lx/src/constants/urls'
-import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
-import { ExternalLink } from '~/theme/components/Links'
-
-const LEARN_MORE_URL = lxUrls.helpArticleUrls.toucanIntro
-=======
 import { Button, Flex, Image, Text, TouchableArea, useSporeColors } from 'ui/src'
 import toucanIntroBackground from 'ui/src/assets/backgrounds/toucan-intro.png'
 import { Rocket } from 'ui/src/components/icons/Rocket'
@@ -21,7 +9,6 @@ import { ModalName } from 'uniswap/src/features/telemetry/constants'
 import { ExternalLink } from '~/theme/components/Links'
 
 const LEARN_MORE_URL = uniswapUrls.helpArticleUrls.toucanIntro
->>>>>>> upstream/main
 
 interface ToucanIntroModalProps {
   isOpen: boolean

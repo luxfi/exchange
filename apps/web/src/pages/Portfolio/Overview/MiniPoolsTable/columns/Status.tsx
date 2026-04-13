@@ -1,16 +1,8 @@
-<<<<<<< HEAD
-import { PositionStatus } from '@luxamm/client-data-api/dist/data/v1/poolTypes_pb'
-import { TFunction } from 'i18next'
-import { memo } from 'react'
-import { useTranslation } from 'react-i18next'
-import { ColorTokens, Flex, Text } from '@l.x/ui/src'
-=======
 import { PositionStatus } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
 import { TFunction } from 'i18next'
 import { memo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { ColorTokens, Flex, Text } from 'ui/src'
->>>>>>> upstream/main
 import { PositionInfo } from '~/components/Liquidity/types'
 
 const getStatusText = (status: PositionStatus, t: TFunction) => {

@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import { Flex, Text } from '@l.x/ui/src'
-=======
 import { Flex, Text } from 'ui/src'
->>>>>>> upstream/main
 import { LoadingRow } from '~/components/Liquidity/Loader'
 import { LoadingRows } from '~/components/Loader/styled'
 import { TopPoolsCard } from '~/pages/Positions/TopPoolsCard'

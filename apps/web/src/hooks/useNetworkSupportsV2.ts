@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import { V2_ROUTER_ADDRESSES } from '@luxamm/sdk-core'
-=======
 import { V2_ROUTER_ADDRESSES } from '@uniswap/sdk-core'
->>>>>>> upstream/main
 import { useAccount } from '~/hooks/useAccount'
 
 /**

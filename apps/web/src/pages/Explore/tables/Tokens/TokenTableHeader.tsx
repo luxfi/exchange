@@ -1,13 +1,5 @@
 import { useCallback, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
-<<<<<<< HEAD
-import { Flex } from '@l.x/ui/src'
-import { OrderDirection } from '~/appGraphql/data/util'
-import { ClickableHeaderRow, HeaderArrow, HeaderSortText } from '~/components/Table/shared/SortableHeader'
-import { HEADER_DESCRIPTIONS, TokenSortMethod } from '~/components/Tokens/constants'
-import { MouseoverTooltip, TooltipSize } from '~/components/Tooltip'
-import { useTokenTableSortStoreActions } from '~/pages/Explore/tables/Tokens/tokenTableSortStore'
-=======
 import { Flex } from 'ui/src'
 import { getChainInfo } from 'uniswap/src/features/chains/chainInfo'
 import { OrderDirection } from '~/appGraphql/data/util'
@@ -17,7 +9,6 @@ import { MouseoverTooltip, TooltipSize } from '~/components/Tooltip'
 import { useExploreParams } from '~/pages/Explore/redirects'
 import { useTokenTableSortStoreActions } from '~/pages/Explore/tables/Tokens/tokenTableSortStore'
 import { getChainIdFromChainUrlParam } from '~/utils/chainParams'
->>>>>>> upstream/main
 
 function getHeaderText({ t, category }: { t: (key: string) => string; category: TokenSortMethod }): string {
   const SORT_METHOD_LABEL_KEYS: Record<TokenSortMethod, string> = {
@@ -40,24 +31,6 @@ export function TokenTableHeader({
   direction: OrderDirection
 }) {
   const { t } = useTranslation()
-<<<<<<< HEAD
-=======
-  const { chainName } = useExploreParams()
->>>>>>> upstream/main
-  const headerText = useMemo(() => getHeaderText({ t, category }), [t, category])
-  const { setSort } = useTokenTableSortStoreActions()
-  const handleSortCategory = useCallback(() => setSort(category), [setSort, category])
-
-<<<<<<< HEAD
-  return (
-    <ClickableHeaderRow onPress={handleSortCategory} group>
-      <MouseoverTooltip
-        disabled={!HEADER_DESCRIPTIONS[category]}
-        size={TooltipSize.Small}
-        text={HEADER_DESCRIPTIONS[category]}
-        placement="top"
-      >
-=======
   const networkName = useMemo(() => {
     if (category !== TokenSortMethod.PRICE || !chainName) {
       return undefined
@@ -70,7 +43,6 @@ export function TokenTableHeader({
   return (
     <ClickableHeaderRow onPress={handleSortCategory} group>
       <MouseoverTooltip disabled={!tooltipContent} size={TooltipSize.Small} text={tooltipContent} placement="top">
->>>>>>> upstream/main
         <Flex row gap="$gap4" alignItems="center">
           {isCurrentSortMethod && <HeaderArrow orderDirection={direction} size="$icon.16" />}
           <HeaderSortText active={isCurrentSortMethod} variant="body3">

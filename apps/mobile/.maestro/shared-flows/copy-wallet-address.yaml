@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-appId: com.lux.exchange.dev
-=======
 appId: com.uniswap.mobile.dev
->>>>>>> upstream/main
 ---
 # Shared flow to copy the wallet's own address from the Receive QR modal
 # Must run from the home screen

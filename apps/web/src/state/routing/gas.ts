@@ -1,18 +1,3 @@
-<<<<<<< HEAD
-import { MaxUint256, permit2Address } from '@luxamm/permit2-sdk'
-import { Currency } from '@luxamm/sdk-core'
-import ERC20_ABI from '@l.x/lx/src/abis/erc20.json'
-import { Erc20, Weth } from '@l.x/lx/src/abis/types'
-import WETH_ABI from '@l.x/lx/src/abis/weth.json'
-import { WRAPPED_NATIVE_CURRENCY } from '@l.x/lx/src/constants/tokens'
-import { EVMUniverseChainId, UniverseChainId } from '@l.x/lx/src/features/chains/types'
-import { WRAP_FALLBACK_GAS_LIMIT_IN_GWEI } from '@l.x/lx/src/features/transactions/swap/review/services/swapTxAndGasInfoService/constants'
-import { getContract } from '@l.x/utils/src/contracts/getContract'
-import { RPC_PROVIDERS } from '~/constants/providers'
-import { ApproveInfo, WrapInfo } from '~/state/routing/types'
-
-// TODO(DEX): add fallback gas limits per chain? l2s have higher costs
-=======
 import { MaxUint256, permit2Address } from '@uniswap/permit2-sdk'
 import { Currency } from '@uniswap/sdk-core'
 import ERC20_ABI from 'uniswap/src/abis/erc20.json'
@@ -26,7 +11,6 @@ import { RPC_PROVIDERS } from '~/constants/providers'
 import { ApproveInfo, WrapInfo } from '~/state/routing/types'
 
 // TODO(UniswapX): add fallback gas limits per chain? l2s have higher costs
->>>>>>> upstream/main
 const APPROVE_FALLBACK_GAS_LIMIT_IN_GWEI = 65_000
 
 export async function getApproveInfo({

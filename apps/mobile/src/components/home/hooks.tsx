@@ -1,22 +1,12 @@
-<<<<<<< HEAD
-import { FeatureFlags, useFeatureFlag } from '@luxfi/gating'
-=======
-import { FeatureFlags, useFeatureFlag } from '@universe/gating'
->>>>>>> upstream/main
+import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { useCallback, useEffect, useMemo } from 'react'
 import { StyleProp, ViewStyle } from 'react-native'
 import Animated, { SharedValue, useAnimatedStyle, useSharedValue } from 'react-native-reanimated'
 import { ESTIMATED_BOTTOM_TABS_HEIGHT } from 'src/app/navigation/tabs/CustomTabBar/constants'
 import { TAB_BAR_HEIGHT } from 'src/components/layout/TabHelpers'
-<<<<<<< HEAD
-import { useDeviceDimensions } from '@l.x/ui/src/hooks/useDeviceDimensions'
-import { useAppInsets } from '@l.x/lx/src/hooks/useAppInsets'
-import { useActiveAccount } from '@luxfi/wallet/src/features/wallet/hooks'
-=======
 import { useDeviceDimensions } from 'ui/src/hooks/useDeviceDimensions'
 import { useAppInsets } from 'uniswap/src/hooks/useAppInsets'
 import { useActiveAccount } from 'wallet/src/features/wallet/hooks'
->>>>>>> upstream/main
 
 export function useAdaptiveFooter(contentContainerStyle?: StyleProp<ViewStyle>): {
   onContentSizeChange?: (w: number, h: number) => void
@@ -61,18 +51,11 @@ export function useAdaptiveFooter(contentContainerStyle?: StyleProp<ViewStyle>):
 
       footerHeight.value = Math.max(0, calculatedFooterHeight)
     },
-<<<<<<< HEAD
-    [contentContainerStyle, maxContentHeight, HEIGHT_TO_SUBTRACT],
-  )
-
-  // biome-ignore lint/correctness/useExhaustiveDependencies: we want to recalculate this when activeAccount changes
-=======
     // oxlint-disable-next-line react/exhaustive-deps -- biome-parity: oxlint is stricter here
     [contentContainerStyle, maxContentHeight, HEIGHT_TO_SUBTRACT],
   )
 
   // oxlint-disable-next-line react/exhaustive-deps -- we want to recalculate this when activeAccount changes
->>>>>>> upstream/main
   useEffect(() => {
     // Reset footer height to the initial value when the active account changes
     // (the fullHeight value is used for the same reason as the initial value)

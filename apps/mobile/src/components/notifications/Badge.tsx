@@ -1,11 +1,6 @@
 import React, { memo, PropsWithChildren } from 'react'
-<<<<<<< HEAD
-import { Flex } from '@l.x/ui/src'
-import { useSelectAddressHasNotifications } from '@l.x/lx/src/features/notifications/slice/hooks'
-=======
 import { Flex } from 'ui/src'
 import { useSelectAddressHasNotifications } from 'uniswap/src/features/notifications/slice/hooks'
->>>>>>> upstream/main
 
 type Props = PropsWithChildren<{
   address: Address
@@ -13,11 +8,7 @@ type Props = PropsWithChildren<{
 
 const NOTIFICATION_DOT_SIZE = 12
 
-<<<<<<< HEAD
-function _NotificationBadge({ children, address }: Props): JSX.Element {
-=======
 function NotificationBadgeInner({ children, address }: Props): JSX.Element {
->>>>>>> upstream/main
   const hasNotifications = useSelectAddressHasNotifications(address)
   return (
     <Flex position="relative">
@@ -40,8 +31,4 @@ function NotificationBadgeInner({ children, address }: Props): JSX.Element {
   )
 }
 
-<<<<<<< HEAD
-export const NotificationBadge = memo(_NotificationBadge)
-=======
 export const NotificationBadge = memo(NotificationBadgeInner)
->>>>>>> upstream/main

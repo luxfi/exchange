@@ -8,19 +8,6 @@ import { AppStackScreenProp } from 'src/app/navigation/types'
 import { BackHeader } from 'src/components/layout/BackHeader'
 import { useReactNavigationModal } from 'src/components/modals/useReactNavigationModal'
 import { navigateBackFromEditingWallet } from 'src/components/Settings/EditWalletModal/EditWalletNavigation'
-<<<<<<< HEAD
-import { Flex, Text } from '@l.x/ui/src'
-import { Ellipsis } from '@l.x/ui/src/components/icons'
-import { Modal } from '@l.x/lx/src/components/modals/Modal'
-import { useBottomSheetSafeKeyboard } from '@l.x/lx/src/components/modals/useBottomSheetSafeKeyboard'
-import { useUnitagsAddressQuery } from '@l.x/lx/src/data/apiClients/unitagsApi/useUnitagsAddressQuery'
-import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
-import { MobileScreens } from '@l.x/lx/src/types/screens/mobile'
-import { dismissNativeKeyboard } from '@l.x/utils/src/device/keyboard/dismissNativeKeyboard'
-import { ChangeUnitagModal } from '@luxfi/wallet/src/features/unitags/ChangeUnitagModal'
-import { DeleteUnitagModal } from '@luxfi/wallet/src/features/unitags/DeleteUnitagModal'
-import { EditUnitagProfileContent } from '@luxfi/wallet/src/features/unitags/EditUnitagProfileContent'
-=======
 import { Flex, Text } from 'ui/src'
 import { Ellipsis } from 'ui/src/components/icons'
 import { Modal } from 'uniswap/src/components/modals/Modal'
@@ -32,7 +19,6 @@ import { dismissNativeKeyboard } from 'utilities/src/device/keyboard/dismissNati
 import { ChangeUnitagModal } from 'wallet/src/features/unitags/ChangeUnitagModal'
 import { DeleteUnitagModal } from 'wallet/src/features/unitags/DeleteUnitagModal'
 import { EditUnitagProfileContent } from 'wallet/src/features/unitags/EditUnitagProfileContent'
->>>>>>> upstream/main
 
 export function EditProfileSettingsModal({
   route,

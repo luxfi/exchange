@@ -1,15 +1,9 @@
 import { BottomSheetScrollView } from '@gorhom/bottom-sheet'
 import { useTranslation } from 'react-i18next'
 import { NetworkBalanceList } from 'src/components/TokenDetails/NetworkBalanceList'
-<<<<<<< HEAD
-import { Flex, Text } from '@l.x/ui/src'
-import { spacing } from '@l.x/ui/src/theme'
-import { PortfolioBalance } from '@l.x/lx/src/features/dataApi/types'
-=======
 import { Flex, Text } from 'ui/src'
 import { spacing } from 'ui/src/theme'
 import { PortfolioBalance } from 'uniswap/src/features/dataApi/types'
->>>>>>> upstream/main
 
 const STICKY_HEADER_INDICES = [0]
 const NETWORK_SHEET_CONTENT_STYLE = { paddingBottom: spacing.spacing48 }

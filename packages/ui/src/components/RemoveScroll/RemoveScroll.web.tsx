@@ -1,11 +1,11 @@
-import { RemoveScroll as TamaguiRemoveScroll } from '@tamagui/remove-scroll'
+import { RemoveScroll as TamaguiRemoveScroll } from '@hanzogui/remove-scroll'
 import type { ReactNode } from 'react'
 import { RemoveScroll as ReactRemoveScroll } from 'react-remove-scroll'
 import type { RemoveScrollProps } from 'ui/src/components/RemoveScroll/RemoveScroll'
 import { isMobileWeb } from 'utilities/src/platform'
 
 /**
- * On mobile web we use @tamagui/remove-scroll, which only sets overflow:hidden
+ * On mobile web we use @hanzogui/remove-scroll, which only sets overflow:hidden
  * on <html>. This is compatible with portaled Tamagui Sheets/drawers —
  * react-remove-scroll's event-based blocking breaks them because React's
  * synthetic events propagate through portal boundaries while its DOM

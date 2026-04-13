@@ -1,18 +1,3 @@
-<<<<<<< HEAD
-import { Currency, CurrencyAmount, Price } from '@luxamm/sdk-core'
-import { parseUnits } from 'ethers/lib/utils'
-import JSBI from 'jsbi'
-import { useCallback, useMemo, useState } from 'react'
-import { TouchableArea } from '@l.x/ui/src'
-import { ArrowDownArrowUp } from '@l.x/ui/src/components/icons/ArrowDownArrowUp'
-import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
-import { InterfaceEventName } from '@l.x/lx/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
-// biome-ignore lint/style/noRestrictedImports: We need to import this directly so we can format with `en-US` locale
-import { formatCurrencyAmount as formatCurrencyAmountRaw } from '@l.x/utils/src/format/localeBased'
-import { NumberType } from '@l.x/utils/src/format/types'
-import { isSafeNumber } from '@l.x/utils/src/primitives/integer'
-=======
 import { Currency, CurrencyAmount, Price } from '@uniswap/sdk-core'
 import { parseUnits } from 'ethers/lib/utils'
 import JSBI from 'jsbi'
@@ -27,7 +12,6 @@ import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
 import { formatCurrencyAmount as formatCurrencyAmountRaw } from 'utilities/src/format/localeBased'
 import { NumberType } from 'utilities/src/format/types'
 import { isSafeNumber } from 'utilities/src/primitives/integer'
->>>>>>> upstream/main
 import { PrefetchBalancesWrapper } from '~/appGraphql/data/apollo/AdaptiveTokenBalancesProvider'
 import {
   LimitCustomMarketPriceButton,
@@ -286,10 +270,7 @@ export function LimitPriceInputPanel({ onCurrencySelect }: LimitPriceInputPanelP
       <CurrencySearchModal
         isOpen={Boolean(currencySelectModalField)}
         switchNetworkAction={SwitchNetworkAction.Limit}
-<<<<<<< HEAD
-=======
         chainIds={LIMIT_SUPPORTED_CHAINS}
->>>>>>> upstream/main
         onDismiss={() => setCurrencySelectModalField(undefined)}
         onCurrencySelect={(currency) => {
           if (!currencySelectModalField) {

@@ -1,12 +1,6 @@
-<<<<<<< HEAD
-// Based mostly on https://github.com/Lux/interface/blob/main/src/theme/index.tsx
-
-import { colorsDark, colorsLight } from '@l.x/ui/src/theme'
-=======
 // Based mostly on https://github.com/Uniswap/interface/blob/main/src/theme/index.tsx
 
 import { colorsDark, colorsLight } from 'ui/src/theme'
->>>>>>> upstream/main
 
 export const colors = {
   white: '#FFFFFF',
@@ -40,13 +34,8 @@ export const colors = {
   pink700: '#55072A',
   pink800: '#350318',
   pink900: '#2B000B',
-<<<<<<< HEAD
-  pinkBase: '#F5F5F5',
-  pinkVibrant: '#CCCCCC',
-=======
   pinkBase: '#FC74FE',
   pinkVibrant: '#F50DB4',
->>>>>>> upstream/main
   red50: '#FAECEA',
   red100: '#FED5CF',
   red200: '#FEA79B',
@@ -97,11 +86,7 @@ export const colors = {
   blueVibrant: '#587BFF',
   // TODO: add magenta 50-900
   magenta300: '#FD82FF',
-<<<<<<< HEAD
-  magentaVibrant: '#FFFFFF',
-=======
   magentaVibrant: '#FC72FF',
->>>>>>> upstream/main
   purple300: '#8440F2',
   purple900: '#1C0337',
   purpleVibrant: '#6100FF',
@@ -201,15 +186,9 @@ const commonTheme = {
   chain_56_background: colors.networkBsc,
   chain_81457: colors.networkBlast,
   chain_7777777: colors.neutral1_light,
-<<<<<<< HEAD
-  promotional: colors.accent1_light,
-
-  brandedGradient: `linear-gradient(139.57deg, ${colors.accent1_dark} 4.35%, ${colors.accent1_light} 96.44%)`,
-=======
   promotional: colors.magenta300,
 
   brandedGradient: 'linear-gradient(139.57deg, #FF79C9 4.35%, #FFB8E2 96.44%);',
->>>>>>> upstream/main
   promotionalGradient: colors.accent1_light,
 }
 

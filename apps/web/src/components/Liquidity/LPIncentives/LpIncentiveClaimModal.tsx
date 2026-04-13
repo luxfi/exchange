@@ -1,23 +1,4 @@
 import { useQuery } from '@tanstack/react-query'
-<<<<<<< HEAD
-import { ClaimLPRewardsRequest } from '@luxamm/client-liquidity/dist/lx/liquidity/v1/api_pb'
-import { Distributor } from '@luxamm/client-liquidity/dist/lx/liquidity/v1/types_pb'
-import { Token } from '@luxamm/sdk-core'
-import { useEffect, useMemo, useState } from 'react'
-import { useTranslation } from 'react-i18next'
-import { useDispatch } from 'react-redux'
-import { Flex, Image, Text } from '@l.x/ui/src'
-import { iconSizes } from '@l.x/ui/src/theme'
-import { Dialog } from '@l.x/lx/src/components/dialog/Dialog'
-import { InlineWarningCard } from '@l.x/lx/src/components/InlineWarningCard/InlineWarningCard'
-import { WarningSeverity } from '@l.x/lx/src/components/modals/WarningModal/types'
-import { liquidityQueries } from '@l.x/lx/src/data/apiClients/liquidityService/liquidityQueries'
-import { ModalName, LXEventName } from '@l.x/lx/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
-import { TransactionStep } from '@l.x/lx/src/features/transactions/steps/types'
-import { logger } from '@l.x/utils/src/logger/logger'
-import { useEvent } from '@l.x/utils/src/react/hooks'
-=======
 import { ClaimLPRewardsRequest } from '@uniswap/client-liquidity/dist/uniswap/liquidity/v1/api_pb'
 import { Distributor } from '@uniswap/client-liquidity/dist/uniswap/liquidity/v1/types_pb'
 import { Token } from '@uniswap/sdk-core'
@@ -35,7 +16,6 @@ import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
 import { TransactionStep } from 'uniswap/src/features/transactions/steps/types'
 import { logger } from 'utilities/src/logger/logger'
 import { useEvent } from 'utilities/src/react/hooks'
->>>>>>> upstream/main
 import { useFormattedTokenRewards } from '~/components/Liquidity/LPIncentives/hooks/useFormattedTokenRewards'
 import { useLpIncentiveClaimButtonConfig } from '~/components/Liquidity/LPIncentives/hooks/useLpIncentiveClaimButtonConfig'
 import { LP_INCENTIVES_REWARD_TOKEN } from '~/components/LpIncentives/constants'
@@ -93,11 +73,7 @@ export function LpIncentiveClaimModal({
 
   useEffect(() => {
     if (calldataError) {
-<<<<<<< HEAD
-      sendAnalyticsEvent(LXEventName.LpIncentiveCollectRewardsErrorThrown, {
-=======
       sendAnalyticsEvent(UniswapEventName.LpIncentiveCollectRewardsErrorThrown, {
->>>>>>> upstream/main
         error: calldataError.message,
       })
     }
@@ -109,11 +85,7 @@ export function LpIncentiveClaimModal({
     }
 
     if (!skipAnalytics) {
-<<<<<<< HEAD
-      sendAnalyticsEvent(LXEventName.LpIncentiveCollectRewardsRetry)
-=======
       sendAnalyticsEvent(UniswapEventName.LpIncentiveCollectRewardsRetry)
->>>>>>> upstream/main
     }
 
     setError(null)

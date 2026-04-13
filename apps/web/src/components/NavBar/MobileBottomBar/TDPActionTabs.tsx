@@ -1,17 +1,10 @@
 import { useCallback, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router'
-<<<<<<< HEAD
-import { Button, Flex, useMedia } from '@l.x/ui/src'
-import { ArrowDownCircle } from '@l.x/ui/src/components/icons/ArrowDownCircle'
-import { ArrowUpCircle } from '@l.x/ui/src/components/icons/ArrowUpCircle'
-import { isEVMChain } from '@l.x/lx/src/features/platforms/utils/chains'
-=======
 import { Button, Flex, useMedia } from 'ui/src'
 import { ArrowDownCircle } from 'ui/src/components/icons/ArrowDownCircle'
 import { ArrowUpCircle } from 'ui/src/components/icons/ArrowUpCircle'
 import { isEVMChain } from 'uniswap/src/features/platforms/utils/chains'
->>>>>>> upstream/main
 import { NATIVE_CHAIN_ID } from '~/constants/tokens'
 import { useActiveAccount } from '~/features/accounts/store/hooks'
 import useSelectChain from '~/hooks/useSelectChain'

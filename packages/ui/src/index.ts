@@ -1,4 +1,4 @@
-export { PortalProvider } from '@tamagui/portal'
+export { PortalProvider } from '@hanzogui/portal'
 export type {
   Adapt,
   AnchorProps,
@@ -20,7 +20,7 @@ export type {
   ThemeName,
   Tokens,
   ViewProps,
-} from 'tamagui'
+} from '@hanzo/gui'
 export {
   Accordion,
   Anchor,
@@ -59,7 +59,7 @@ export {
   View,
   VisuallyHidden,
   YGroup,
-} from 'tamagui'
+} from '@hanzo/gui'
 export { LinearGradient, type LinearGradientProps } from 'tamagui/linear-gradient'
 export * from 'ui/src/animations'
 export * from './components/AnimatableCopyIcon/AnimatableCopyIcon'

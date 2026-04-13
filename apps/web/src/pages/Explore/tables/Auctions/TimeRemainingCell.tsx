@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import { Flex } from '@l.x/ui/src'
-=======
 import { Flex } from 'ui/src'
->>>>>>> upstream/main
 import { TableText } from '~/components/Table/shared/TableText'
 import { useAuctionTimeRemaining } from '~/components/Toucan/Auction/hooks/useAuctionTimeRemaining'
 

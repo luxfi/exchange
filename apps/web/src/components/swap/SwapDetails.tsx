@@ -1,13 +1,3 @@
-<<<<<<< HEAD
-import { Currency, Percent } from '@luxamm/sdk-core'
-import { PropsWithChildren, ReactNode, useMemo } from 'react'
-import { Trans, useTranslation } from 'react-i18next'
-import { Button, Flex, Separator, Text } from '@l.x/ui/src'
-import { AlertTriangleFilled } from '@l.x/ui/src/components/icons/AlertTriangleFilled'
-import { ElementName, SwapEventName } from '@l.x/lx/src/features/telemetry/constants'
-import Trace from '@l.x/lx/src/features/telemetry/Trace'
-import { useTrace } from '@l.x/utils/src/telemetry/trace/TraceContext'
-=======
 import { Currency, Percent } from '@uniswap/sdk-core'
 import { PropsWithChildren, ReactNode, useMemo } from 'react'
 import { Trans, useTranslation } from 'react-i18next'
@@ -16,19 +6,13 @@ import { AlertTriangleFilled } from 'ui/src/components/icons/AlertTriangleFilled
 import { ElementName, SwapEventName } from 'uniswap/src/features/telemetry/constants'
 import Trace from 'uniswap/src/features/telemetry/Trace'
 import { useTrace } from 'utilities/src/telemetry/trace/TraceContext'
->>>>>>> upstream/main
 import { ReactComponent as ExpandoIconClosed } from '~/assets/svg/expando-icon-closed.svg'
 import { ReactComponent as ExpandoIconOpened } from '~/assets/svg/expando-icon-opened.svg'
 import Column from '~/components/deprecated/Column'
 import { AutoRow, RowBetween } from '~/components/deprecated/Row'
 import { LimitDisclaimer } from '~/components/swap/LimitDisclaimer'
-<<<<<<< HEAD
-import SwapLineItem, { SwapLineItemType } from '~/components/swap/SwapLineItem'
-import { SwapCallbackError, SwapShowAcceptChanges } from '~/components/swap/styled'
-=======
 import { SwapCallbackError, SwapShowAcceptChanges } from '~/components/swap/styled'
 import SwapLineItem, { SwapLineItemType } from '~/components/swap/SwapLineItem'
->>>>>>> upstream/main
 import { Allowance, AllowanceState } from '~/hooks/usePermit2Allowance'
 import { SwapResult } from '~/hooks/useSwapCallback'
 import { deprecatedStyled } from '~/lib/deprecated-styled'
