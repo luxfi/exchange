@@ -1,10 +1,5 @@
-<<<<<<< HEAD
-import defaultTokenList from '@luxamm/default-token-list'
-import { mockLogger } from '@l.x/utils/src/logger/mocks'
-=======
 import defaultTokenList from '@uniswap/default-token-list'
 import { mockLogger } from 'utilities/src/logger/mocks'
->>>>>>> upstream/main
 import createFetchMock from 'vitest-fetch-mock'
 import fetchTokenList from '~/lib/hooks/useTokenList/fetchTokenList'
 import contenthashToUri from '~/lib/utils/contenthashToUri'
@@ -18,11 +13,7 @@ const fetchMocker = createFetchMock(vi)
 const mockContenthashToUri = mocked(contenthashToUri)
 const mockLoggerDebug = mocked(mockLogger.debug)
 
-<<<<<<< HEAD
-// eslint-disable-next-line jest/no-disabled-tests
-=======
 // oxlint-disable-next-line jest/no-disabled-tests
->>>>>>> upstream/main
 describe.skip('fetchTokenList', () => {
   const resolver = vi.fn()
 

@@ -4,23 +4,6 @@ import { connect } from '@wagmi/core'
 import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useDispatch } from 'react-redux'
-<<<<<<< HEAD
-import { Flex } from '@l.x/ui/src'
-import { Modal } from 'lx/src/components/modals/Modal'
-import { CONNECTION_PROVIDER_IDS } from 'lx/src/constants/web3'
-import { UnitagsApiClient } from 'lx/src/data/apiClients/unitagsApi/UnitagsApiClient'
-import { EmbeddedWalletApiClient } from 'lx/src/data/rest/embeddedWallet/requests'
-import { base64urlToBase64 } from 'lx/src/features/passkey/deviceSession'
-import { registerNewPasskey } from 'lx/src/features/passkey/embeddedWallet'
-import { hashAuthMethodId } from 'lx/src/features/passkey/pinCrypto'
-import { attemptPinDecryption, executeRecovery } from 'lx/src/features/passkey/recoveryExecute'
-import { InterfaceEventName, ModalName } from 'lx/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
-import { WalletConnectionResult } from 'lx/src/features/telemetry/types'
-import { shortenAddress } from '@l.x/utils/src/addresses'
-import { logger } from '@l.x/utils/src/logger/logger'
-import { useEvent } from '@l.x/utils/src/react/hooks'
-=======
 import { Flex } from 'ui/src'
 import { Modal } from 'uniswap/src/components/modals/Modal'
 import { CONNECTION_PROVIDER_IDS } from 'uniswap/src/constants/web3'
@@ -36,7 +19,6 @@ import { WalletConnectionResult } from 'uniswap/src/features/telemetry/types'
 import { shortenAddress } from 'utilities/src/addresses'
 import { logger } from 'utilities/src/logger/logger'
 import { useEvent } from 'utilities/src/react/hooks'
->>>>>>> upstream/main
 import { LIST_AUTHENTICATORS_QUERY_KEY } from '~/components/AccountDrawer/PasskeyMenu/PasskeyMenu'
 import { useDigitInput } from '~/components/Passkey/BackupLoginComponents'
 import {
@@ -420,9 +402,6 @@ export function RecoverWalletModal() {
   const isValidEmail = EMAIL_REGEX.test(email)
 
   return (
-<<<<<<< HEAD
-    <Modal name={ModalName.RecoverWallet} isModalOpen={isOpen} onClose={handleClose} maxWidth={420}>
-=======
     <Modal
       name={ModalName.RecoverWallet}
       isModalOpen={isOpen}
@@ -430,7 +409,6 @@ export function RecoverWalletModal() {
       isDismissible={false}
       maxWidth={420}
     >
->>>>>>> upstream/main
       <Flex gap="$gap24" alignItems="center" width="100%">
         {step === RecoverStep.OAUTH_LOADING && <OAuthLoadingStep oauthError={oauthError} handleClose={handleClose} />}
         {step === RecoverStep.EMAIL_ENTRY && (

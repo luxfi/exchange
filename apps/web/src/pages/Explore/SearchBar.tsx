@@ -1,18 +1,10 @@
 import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-<<<<<<< HEAD
-import { Flex, IconButton, Input, useSporeColors } from '@l.x/ui/src'
-import { X } from '@l.x/ui/src/components/icons/X'
-import { zIndexes } from '@l.x/ui/src/theme'
-import { ElementName, InterfaceEventName } from '@l.x/lx/src/features/telemetry/constants'
-import Trace from '@l.x/lx/src/features/telemetry/Trace'
-=======
 import { Flex, IconButton, Input, useSporeColors } from 'ui/src'
 import { X } from 'ui/src/components/icons/X'
 import { zIndexes } from 'ui/src/theme'
 import { ElementName, InterfaceEventName } from 'uniswap/src/features/telemetry/constants'
 import Trace from 'uniswap/src/features/telemetry/Trace'
->>>>>>> upstream/main
 import { ReactComponent as SearchIcon } from '~/assets/svg/search.svg'
 import useDebounce from '~/hooks/useDebounce'
 import { ExploreTab } from '~/pages/Explore/constants'

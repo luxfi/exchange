@@ -1,12 +1,6 @@
-<<<<<<< HEAD
-import { USDC } from '@l.x/lx/src/constants/tokens'
-import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
-import { testMigrateDismissedTokenWarnings } from '@l.x/lx/src/state/luxMigrationTests'
-=======
 import { USDC } from 'uniswap/src/constants/tokens'
 import { UniverseChainId } from 'uniswap/src/features/chains/types'
 import { testMigrateDismissedTokenWarnings } from 'uniswap/src/state/uniswapMigrationTests'
->>>>>>> upstream/main
 import { migration60 } from '~/state/migrations/60'
 
 const previousState = {

@@ -1,10 +1,6 @@
 # Deep Link Support
 
-<<<<<<< HEAD
-This guide explains how to create URLs that link directly to specific pages and features on the Lux Exchange web application (`app.lux.exchange`). These URLs work seamlessly with the mobile app through universal links.
-=======
 This guide explains how to create URLs that link directly to specific pages and features on the Uniswap web application (`app.uniswap.org`). These URLs work seamlessly with the mobile app through universal links.
->>>>>>> upstream/main
 
 ## Trading Interfaces
 
@@ -15,11 +11,7 @@ Opens the swap interface with pre-filled token pairs, amounts, and chain selecti
 **Format:**
 
 ```url
-<<<<<<< HEAD
-https://app.lux.exchange/swap?inputCurrency={address}&outputCurrency={address}&chain={network}&outputChain={network}&value={amount}&field={INPUT|OUTPUT}
-=======
 https://app.uniswap.org/swap?inputCurrency={address}&outputCurrency={address}&chain={network}&outputChain={network}&value={amount}&field={INPUT|OUTPUT}
->>>>>>> upstream/main
 ```
 
 **Parameters:**
@@ -34,15 +26,9 @@ https://app.uniswap.org/swap?inputCurrency={address}&outputCurrency={address}&ch
 **Examples:**
 
 ```url
-<<<<<<< HEAD
-https://app.lux.exchange/swap?inputCurrency=ETH&outputCurrency=0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984&chain=ethereum
-https://app.lux.exchange/swap?inputCurrency=0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48&outputCurrency=NATIVE&chain=ethereum&value=100&field=INPUT
-https://app.lux.exchange/swap?inputCurrency=NATIVE&outputCurrency=0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359&chain=polygon&outputChain=base
-=======
 https://app.uniswap.org/swap?inputCurrency=ETH&outputCurrency=0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984&chain=ethereum
 https://app.uniswap.org/swap?inputCurrency=0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48&outputCurrency=NATIVE&chain=ethereum&value=100&field=INPUT
 https://app.uniswap.org/swap?inputCurrency=NATIVE&outputCurrency=0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359&chain=polygon&outputChain=base
->>>>>>> upstream/main
 ```
 
 ### Buy (Fiat On-Ramp)
@@ -52,11 +38,7 @@ Opens the fiat on-ramp interface for purchasing crypto with fiat currency.
 **Format:**
 
 ```url
-<<<<<<< HEAD
-https://app.lux.exchange/buy?value={amount}&currencyCode={code}&isTokenInputMode={boolean}&providers={providers}
-=======
 https://app.uniswap.org/buy?value={amount}&currencyCode={code}&isTokenInputMode={boolean}&providers={providers}
->>>>>>> upstream/main
 ```
 
 **Parameters:**
@@ -71,17 +53,10 @@ https://app.uniswap.org/buy?value={amount}&currencyCode={code}&isTokenInputMode=
 **Examples:**
 
 ```url
-<<<<<<< HEAD
-https://app.lux.exchange/buy
-https://app.lux.exchange/buy?value=100&currencyCode=ETH
-https://app.lux.exchange/buy?value=0.5&currencyCode=UNI_UNICHAIN&providers=moonpay,coinbasepay
-https://app.lux.exchange/buy?value=1000&currencyCode=USDC_BASE&isTokenInputMode=false
-=======
 https://app.uniswap.org/buy
 https://app.uniswap.org/buy?value=100&currencyCode=ETH
 https://app.uniswap.org/buy?value=0.5&currencyCode=UNI_UNICHAIN&providers=moonpay,coinbasepay
 https://app.uniswap.org/buy?value=1000&currencyCode=USDC_BASE&isTokenInputMode=false
->>>>>>> upstream/main
 ```
 
 ### Sell (Fiat Off-Ramp)
@@ -91,11 +66,7 @@ Opens the fiat off-ramp interface for selling crypto for fiat currency.
 **Format:**
 
 ```url
-<<<<<<< HEAD
-https://app.lux.exchange/sell
-=======
 https://app.uniswap.org/sell
->>>>>>> upstream/main
 ```
 
 **Note:** Parameters are typically added by the provider when users return from completing a transaction.
@@ -107,11 +78,7 @@ Opens the limit orders trading interface with optional pre-filled token pairs.
 **Format:**
 
 ```url
-<<<<<<< HEAD
-https://app.lux.exchange/limit?inputCurrency={address}&outputCurrency={address}&chain={network}
-=======
 https://app.uniswap.org/limit?inputCurrency={address}&outputCurrency={address}&chain={network}
->>>>>>> upstream/main
 ```
 
 **Parameters:**
@@ -125,13 +92,8 @@ https://app.uniswap.org/limit?inputCurrency={address}&outputCurrency={address}&c
 **Examples:**
 
 ```url
-<<<<<<< HEAD
-https://app.lux.exchange/limit
-https://app.lux.exchange/limit?inputCurrency=NATIVE&outputCurrency=0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984&chain=ethereum
-=======
 https://app.uniswap.org/limit
 https://app.uniswap.org/limit?inputCurrency=NATIVE&outputCurrency=0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984&chain=ethereum
->>>>>>> upstream/main
 ```
 
 ### Send (Web Only)
@@ -141,11 +103,7 @@ Opens the send tokens interface for transferring tokens to another address.
 **Format:**
 
 ```url
-<<<<<<< HEAD
-https://app.lux.exchange/send
-=======
 https://app.uniswap.org/send
->>>>>>> upstream/main
 ```
 
 **Note:** Currently doesn't support pre-filled parameters via URL.
@@ -159,25 +117,15 @@ Browse tokens, pools, and trending assets.
 **Format:**
 
 ```url
-<<<<<<< HEAD
-https://app.lux.exchange/explore
-=======
 https://app.uniswap.org/explore
->>>>>>> upstream/main
 ```
 
 **With specific tab:**
 
 ```url
-<<<<<<< HEAD
-https://app.lux.exchange/explore/tokens
-https://app.lux.exchange/explore/pools
-https://app.lux.exchange/explore/transactions
-=======
 https://app.uniswap.org/explore/tokens
 https://app.uniswap.org/explore/pools
 https://app.uniswap.org/explore/transactions
->>>>>>> upstream/main
 ```
 
 ### Token Pages
@@ -189,11 +137,7 @@ Opens a token's detail page with charts, price information, and trading options.
 **Format:**
 
 ```url
-<<<<<<< HEAD
-https://app.lux.exchange/explore/tokens/{chainName}/{tokenAddress}
-=======
 https://app.uniswap.org/explore/tokens/{chainName}/{tokenAddress}
->>>>>>> upstream/main
 ```
 
 **Parameters:**
@@ -204,25 +148,15 @@ https://app.uniswap.org/explore/tokens/{chainName}/{tokenAddress}
 **Examples:**
 
 ```url
-<<<<<<< HEAD
-https://app.lux.exchange/explore/tokens/ethereum/0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984
-https://app.lux.exchange/explore/tokens/unichain/NATIVE
-https://app.lux.exchange/explore/tokens/base/0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913
-=======
 https://app.uniswap.org/explore/tokens/ethereum/0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984
 https://app.uniswap.org/explore/tokens/unichain/NATIVE
 https://app.uniswap.org/explore/tokens/base/0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913
->>>>>>> upstream/main
 ```
 
 **Legacy Format (also supported):**
 
 ```url
-<<<<<<< HEAD
-https://app.lux.exchange/tokens/{chainName}/{tokenAddress}
-=======
 https://app.uniswap.org/tokens/{chainName}/{tokenAddress}
->>>>>>> upstream/main
 ```
 
 #### Browse Tokens by Network
@@ -232,11 +166,7 @@ Opens the token explorer page filtered to a specific network.
 **Format:**
 
 ```url
-<<<<<<< HEAD
-https://app.lux.exchange/explore/tokens/{chainName}
-=======
 https://app.uniswap.org/explore/tokens/{chainName}
->>>>>>> upstream/main
 ```
 
 **Note:** If no chain name is provided, defaults to all chains.
@@ -244,15 +174,9 @@ https://app.uniswap.org/explore/tokens/{chainName}
 **Examples:**
 
 ```url
-<<<<<<< HEAD
-https://app.lux.exchange/explore/tokens/ethereum
-https://app.lux.exchange/explore/tokens/unichain
-https://app.lux.exchange/explore/tokens
-=======
 https://app.uniswap.org/explore/tokens/ethereum
 https://app.uniswap.org/explore/tokens/unichain
 https://app.uniswap.org/explore/tokens
->>>>>>> upstream/main
 ```
 
 ### Pool Pages (Web Only)
@@ -264,11 +188,7 @@ Opens a liquidity pool's detail page with trading information and liquidity data
 **Format:**
 
 ```url
-<<<<<<< HEAD
-https://app.lux.exchange/explore/pools/{chainName}/{poolAddress}
-=======
 https://app.uniswap.org/explore/pools/{chainName}/{poolAddress}
->>>>>>> upstream/main
 ```
 
 **Parameters:**
@@ -279,11 +199,7 @@ https://app.uniswap.org/explore/pools/{chainName}/{poolAddress}
 **Example:**
 
 ```url
-<<<<<<< HEAD
-https://app.lux.exchange/explore/pools/ethereum/0x88e6A0c2dDD26FEEb64F039a2c41296FcB3f5640
-=======
 https://app.uniswap.org/explore/pools/ethereum/0x88e6A0c2dDD26FEEb64F039a2c41296FcB3f5640
->>>>>>> upstream/main
 ```
 
 ## Tips for Creating Deep Links
@@ -322,21 +238,12 @@ You can specify native currencies (ETH, MATIC, etc.) in several ways:
 
 Both domains work identically:
 
-<<<<<<< HEAD
-- `https://app.lux.exchange/...`
-- `https://lux.exchange/...`
-
-### Mobile Compatibility
-
-All these URLs work seamlessly with the Lux Exchange mobile app via universal links. When users click these links on mobile devices with the app installed, they'll open directly in the app.
-=======
 - `https://app.uniswap.org/...`
 - `https://uniswap.org/...`
 
 ### Mobile Compatibility
 
 All these URLs work seamlessly with the Uniswap mobile app via universal links. When users click these links on mobile devices with the app installed, they'll open directly in the app.
->>>>>>> upstream/main
 
 ### Bookmarking & Sharing
 

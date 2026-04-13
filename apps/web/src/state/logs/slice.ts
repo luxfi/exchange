@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-/* eslint-disable @typescript-eslint/no-unnecessary-condition */
-=======
 /* oxlint-disable typescript/no-unnecessary-condition */
->>>>>>> upstream/main
 import type { Filter } from '@ethersproject/providers'
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { filterToKey, Log } from '~/state/logs/utils'

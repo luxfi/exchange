@@ -4,7 +4,7 @@
  * Derived from deployed V3 contracts on Lux Mainnet (chain 96369).
  * Token addresses match @luxfi/exchange/tokens and CLAUDE.md DEPLOYMENTS.
  *
- * Used when the V3 subgraph (api-exchange.lux.network/subgraph/v3) is
+ * Used when the graph engine (api-exchange.lux.network/v1/graphql) is
  * unreachable (502, timeout, CORS). This is not mock data -- it is the
  * last-known-good snapshot of real on-chain state.
  */
@@ -192,8 +192,8 @@ export const FALLBACK_DAY_DATA: Record<string, ReturnType<typeof generateDayData
 // ─── GraphQL response builders ────────────────────────────────────
 
 /**
- * Matches a subgraph GraphQL query string and returns the appropriate
- * fallback data shaped exactly like the subgraph would return it.
+ * Matches a graph engine GraphQL query string and returns the appropriate
+ * fallback data shaped exactly like the graph engine would return it.
  * Returns null if the query is unrecognized.
  */
 export function matchFallbackQuery(query: string): unknown | null {
@@ -221,7 +221,7 @@ export function matchFallbackQuery(query: string): unknown | null {
   if (q.includes('poolDayDatas(') && dayPoolMatch) {
     const poolId = dayPoolMatch[1]
     const data = FALLBACK_DAY_DATA[poolId] ?? []
-    // subgraph returns desc, caller reverses
+    // graph engine returns desc, caller reverses
     return { poolDayDatas: [...data].reverse() }
   }
 

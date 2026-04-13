@@ -1,17 +1,9 @@
 import { useTranslation } from 'react-i18next'
-<<<<<<< HEAD
-import { Flex, Text, TouchableArea, useSporeColors } from '@l.x/ui/src'
-import { AlertTriangleFilled } from '@l.x/ui/src/components/icons/AlertTriangleFilled'
-import { InfoCircleFilled } from '@l.x/ui/src/components/icons/InfoCircleFilled'
-import { ElementName } from '@l.x/lx/src/features/telemetry/constants'
-import Trace from '@l.x/lx/src/features/telemetry/Trace'
-=======
 import { Flex, Text, TouchableArea, useSporeColors } from 'ui/src'
 import { AlertTriangleFilled } from 'ui/src/components/icons/AlertTriangleFilled'
 import { InfoCircleFilled } from 'ui/src/components/icons/InfoCircleFilled'
 import { ElementName } from 'uniswap/src/features/telemetry/constants'
 import Trace from 'uniswap/src/features/telemetry/Trace'
->>>>>>> upstream/main
 
 interface LimitedSupportBannerProps {
   onPress: () => void

@@ -1,20 +1,5 @@
 import { VersionedTransaction } from '@solana/web3.js'
-<<<<<<< HEAD
 import { JupiterExecuteResponse, TradingApi } from '@l.x/api'
-import { call, delay, spawn } from 'typed-redux-saga'
-import { JupiterApiClient } from '@l.x/lx/src/data/apiClients/jupiterApi/JupiterFetchClient'
-import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
-import { refetchRestQueriesViaOnchainOverrideVariant } from '@l.x/lx/src/features/portfolio/portfolioUpdates/rest/refetchRestQueriesViaOnchainOverrideVariantSaga'
-import { SwapEventName } from '@l.x/lx/src/features/telemetry/constants/features'
-import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
-import { JupiterExecuteError } from '@l.x/lx/src/features/transactions/errors'
-import { addTransaction } from '@l.x/lx/src/features/transactions/slice'
-import { ExtractedBaseTradeAnalyticsProperties } from '@l.x/lx/src/features/transactions/swap/analytics'
-import { SolanaTrade } from '@l.x/lx/src/features/transactions/swap/types/solana'
-import { ValidatedSolanaSwapTxAndGasInfo } from '@l.x/lx/src/features/transactions/swap/types/swapTxAndGasInfo'
-import { SwapEventType, timestampTracker } from '@l.x/lx/src/features/transactions/swap/utils/SwapEventTimestampTracker'
-=======
-import { JupiterExecuteResponse, TradingApi } from '@universe/api'
 import { call, delay, spawn } from 'typed-redux-saga'
 import { JupiterApiClient } from 'uniswap/src/data/apiClients/jupiterApi/JupiterFetchClient'
 import { UniverseChainId } from 'uniswap/src/features/chains/types'
@@ -27,21 +12,14 @@ import { ExtractedBaseTradeAnalyticsProperties } from 'uniswap/src/features/tran
 import { SolanaTrade } from 'uniswap/src/features/transactions/swap/types/solana'
 import { ValidatedSolanaSwapTxAndGasInfo } from 'uniswap/src/features/transactions/swap/types/swapTxAndGasInfo'
 import { SwapEventType, timestampTracker } from 'uniswap/src/features/transactions/swap/utils/SwapEventTimestampTracker'
->>>>>>> upstream/main
 import {
   InterfaceBaseTransactionDetails,
   SolanaTransactionDetails,
   TransactionOriginType,
   TransactionStatus,
-<<<<<<< HEAD
-} from '@l.x/lx/src/features/transactions/types/transactionDetails'
-import { tryCatch } from '@l.x/utils/src/errors'
-import { ONE_SECOND_MS } from '@l.x/utils/src/time/time'
-=======
 } from 'uniswap/src/features/transactions/types/transactionDetails'
 import { tryCatch } from 'utilities/src/errors'
 import { ONE_SECOND_MS } from 'utilities/src/time/time'
->>>>>>> upstream/main
 import { popupRegistry } from '~/components/Popups/registry'
 import { PopupType } from '~/components/Popups/types'
 import { signSolanaTransactionWithCurrentWallet } from '~/components/Web3Provider/signSolanaTransaction'

@@ -1,17 +1,3 @@
-<<<<<<< HEAD
-import { SVGProps } from 'react'
-import { Flex, styled, useSporeColors } from '@l.x/ui/src'
-import { brand } from '@l.x/config'
-
-// Default logo — simple triangle (used when no brand logoUrl is set)
-function DefaultLogo({ color, onClick }: { color: string; onClick?: () => void }) {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 100 100"
-=======
 import { SVGProps, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Flex, styled, useSporeColors } from 'ui/src'
@@ -23,14 +9,10 @@ function Logo({ color, onClick }: { color: string; onClick?: () => void }) {
       width="20"
       height="22"
       viewBox="0 0 20 22"
->>>>>>> upstream/main
       fill="none"
       onClick={onClick}
       cursor="pointer"
     >
-<<<<<<< HEAD
-      <path d="M50 85 L15 25 L85 25 Z" fill={color} />
-=======
       <path
         d="M6.04898 1.5328C5.77502 1.49053 5.76347 1.48557 5.89239 1.46587C6.13945 1.42808 6.72283 1.47958 7.12484 1.57466C8.06336 1.79654 8.91735 2.36494 9.82894 3.37442L10.0711 3.64261L10.4176 3.58721C11.8771 3.35393 13.3619 3.53933 14.6038 4.10994C14.9454 4.26692 15.4841 4.5794 15.5514 4.6597C15.5728 4.6853 15.6122 4.85003 15.6389 5.02582C15.7311 5.63398 15.6849 6.10014 15.4979 6.44831C15.3962 6.63778 15.3905 6.69782 15.4589 6.85997C15.5135 6.98936 15.6658 7.08513 15.8166 7.08492C16.1252 7.08451 16.4574 6.58831 16.6113 5.89789L16.6724 5.62364L16.7935 5.76009C17.4579 6.5087 17.9796 7.52962 18.0693 8.25631L18.0926 8.44578L17.981 8.27353C17.7888 7.97714 17.5957 7.77537 17.3484 7.61264C16.9027 7.31931 16.4314 7.21948 15.1833 7.15406C14.056 7.09498 13.418 6.99921 12.7854 6.79404C11.709 6.445 11.1664 5.98015 9.88789 4.31174C9.31999 3.57068 8.96899 3.16067 8.61984 2.83048C7.82646 2.08022 7.04689 1.68675 6.04898 1.5328Z"
         fill={color}
@@ -143,7 +125,6 @@ function HolidayLogo({ color, onClick }: { color: string; onClick?: () => void }
           <rect width="41" height="41" fill="white" />
         </clipPath>
       </defs>
->>>>>>> upstream/main
     </svg>
   )
 }
@@ -167,22 +148,6 @@ type NavIconProps = SVGProps<SVGSVGElement> & {
 
 export const NavIcon = ({ clickable, onClick }: NavIconProps) => {
   const colors = useSporeColors()
-<<<<<<< HEAD
-
-  return (
-    <Container clickable={clickable}>
-      {brand.logoUrl ? (
-        <img
-          src={brand.logoUrl}
-          alt={brand.shortName || brand.name || ''}
-          width={24}
-          height={24}
-          style={{ cursor: onClick ? 'pointer' : 'auto', objectFit: 'contain' }}
-          onClick={onClick}
-        />
-      ) : (
-        <DefaultLogo color={colors.accent1.val} onClick={onClick} />
-=======
   const showHolidayUni = useMemo(() => {
     const date = new Date()
     // months in javascript are 0 indexed...
@@ -197,7 +162,6 @@ export const NavIcon = ({ clickable, onClick }: NavIconProps) => {
         <HolidayLogo color={colors.accent1.val} onClick={onClick} />
       ) : (
         <Logo color={colors.accent1.val} onClick={onClick} />
->>>>>>> upstream/main
       )}
     </Container>
   )

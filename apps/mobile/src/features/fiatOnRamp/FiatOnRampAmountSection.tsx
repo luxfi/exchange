@@ -12,27 +12,6 @@ import {
   useIsShortMobileDevice,
   useShakeAnimation,
   useSporeColors,
-<<<<<<< HEAD
-} from '@l.x/ui/src'
-import { ArrowDownArrowUp } from '@l.x/ui/src/components/icons'
-import { AnimatedFlex } from '@l.x/ui/src/components/layout/AnimatedFlex'
-import { useDeviceDimensions } from '@l.x/ui/src/hooks/useDeviceDimensions'
-import { useDynamicFontSizing } from '@l.x/ui/src/hooks/useDynamicFontSizing'
-import { fonts, spacing } from '@l.x/ui/src/theme'
-import { AmountInput } from '@l.x/lx/src/components/AmountInput/AmountInput'
-import { TextInput } from '@l.x/lx/src/components/input/TextInput'
-import { Pill } from '@l.x/lx/src/components/pill/Pill'
-import { PortfolioBalance } from '@l.x/lx/src/features/dataApi/types'
-import { useFormatExactCurrencyAmount } from '@l.x/lx/src/features/fiatOnRamp/hooks'
-import { FiatCurrencyInfo, FiatOnRampCurrency } from '@l.x/lx/src/features/fiatOnRamp/types'
-import { useMaxAmountSpend } from '@l.x/lx/src/features/gas/hooks/useMaxAmountSpend'
-import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
-import { getCurrencyAmount, ValueType } from '@l.x/lx/src/features/tokens/getCurrencyAmount'
-import { TransactionType } from '@l.x/lx/src/features/transactions/types/transactionDetails'
-import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
-import { usePrevious } from '@l.x/utils/src/react/hooks'
-import { DEFAULT_DELAY, useDebounce } from '@l.x/utils/src/time/timing'
-=======
 } from 'ui/src'
 import { ArrowDownArrowUp } from 'ui/src/components/icons'
 import { AnimatedFlex } from 'ui/src/components/layout/AnimatedFlex'
@@ -52,7 +31,6 @@ import { TransactionType } from 'uniswap/src/features/transactions/types/transac
 import { TestID } from 'uniswap/src/test/fixtures/testIDs'
 import { usePrevious } from 'utilities/src/react/hooks'
 import { DEFAULT_DELAY, useDebounce } from 'utilities/src/time/timing'
->>>>>>> upstream/main
 
 const MAX_INPUT_FONT_SIZE = 52
 const MIN_INPUT_FONT_SIZE = 32
@@ -102,12 +80,8 @@ export type FiatOnRampAmountSectionRef = {
 }
 
 export const FiatOnRampAmountSection = forwardRef<FiatOnRampAmountSectionRef, FiatOnRampAmountSectionProps>(
-<<<<<<< HEAD
-  function _FiatOnRampAmountSection(
-=======
   // oxlint-disable-next-line complexity -- biome-parity: oxlint is stricter here
   function FiatOnRampAmountSectionInner(
->>>>>>> upstream/main
     {
       disabled,
       value,

@@ -1,10 +1,5 @@
-<<<<<<< HEAD
 import { type InAppNotification } from '@l.x/api'
 import { type NotificationClickTarget } from '@l.x/notifications'
-=======
-import { type InAppNotification } from '@universe/api'
-import { type NotificationClickTarget } from '@universe/notifications'
->>>>>>> upstream/main
 import { useEffect } from 'react'
 import { BackupReminderModal } from 'src/app/modals/BackupReminderModal'
 

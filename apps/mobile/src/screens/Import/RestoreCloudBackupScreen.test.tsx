@@ -4,11 +4,7 @@ import React from 'react'
 import { OnboardingStackParamList } from 'src/app/navigation/types'
 import { RestoreCloudBackupScreen } from 'src/screens/Import/RestoreCloudBackupScreen'
 import { render } from 'src/test/test-utils'
-<<<<<<< HEAD
-import { OnboardingScreens } from '@l.x/lx/src/types/screens/mobile'
-=======
 import { OnboardingScreens } from 'uniswap/src/types/screens/mobile'
->>>>>>> upstream/main
 
 const setOptionsSpy = jest.fn()
 

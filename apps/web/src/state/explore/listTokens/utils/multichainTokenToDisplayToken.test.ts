@@ -1,5 +1,5 @@
 import { ChainToken, MultichainToken, TokenStats, TokenType } from '@uniswap/client-data-api/dist/data/v1/types_pb'
-import { GraphQLApi } from '@universe/api'
+import { GraphQLApi } from '@l.x/api'
 import { toGraphQLChain } from 'uniswap/src/features/chains/utils'
 import { createDataApiMultichainToken } from 'uniswap/src/test/fixtures/dataApi/multichainToken'
 import { describe, expect, it, vi } from 'vitest'

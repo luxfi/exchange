@@ -1,20 +1,6 @@
 import React, { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useTokenDetailsContext } from 'src/components/TokenDetails/TokenDetailsContext'
-<<<<<<< HEAD
-import { Button, ColorTokens, Flex, GeneratedIcon, getContrastPassingTextColor } from '@l.x/ui/src'
-import { IconButton } from '@l.x/ui/src/components/buttons/IconButton/IconButton'
-import { GridView, X } from '@l.x/ui/src/components/icons'
-import { opacify, validColor } from '@l.x/ui/src/theme'
-import { ContextMenu, MenuOptionItem } from '@l.x/lx/src/components/menus/ContextMenu'
-import { ContextMenuTriggerMode } from '@l.x/lx/src/components/menus/types'
-import { TokenList } from '@l.x/lx/src/features/dataApi/types'
-import { ElementName, MobileEventName, SectionName } from '@l.x/lx/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
-import Trace from '@l.x/lx/src/features/telemetry/Trace'
-import { TestID, TestIDType } from '@l.x/lx/src/test/fixtures/testIDs'
-import { useBooleanState } from '@l.x/utils/src/react/useBooleanState'
-=======
 import { Button, ColorTokens, Flex, GeneratedIcon, getContrastPassingTextColor } from 'ui/src'
 import { IconButton } from 'ui/src/components/buttons/IconButton/IconButton'
 import { GridView, X } from 'ui/src/components/icons'
@@ -27,7 +13,6 @@ import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
 import Trace from 'uniswap/src/features/telemetry/Trace'
 import { TestID, TestIDType } from 'uniswap/src/test/fixtures/testIDs'
 import { useBooleanState } from 'utilities/src/react/useBooleanState'
->>>>>>> upstream/main
 
 function CTAButton({
   title,

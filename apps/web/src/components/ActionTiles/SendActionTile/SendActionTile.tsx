@@ -1,14 +1,4 @@
 import { useTranslation } from 'react-i18next'
-<<<<<<< HEAD
-import { FlexProps } from '@l.x/ui/src'
-import { SendAction } from '@l.x/ui/src/components/icons/SendAction'
-import { useLuxContext } from '@l.x/lx/src/contexts/LuxContext'
-import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
-import { ElementName } from '@l.x/lx/src/features/telemetry/constants'
-import Trace from '@l.x/lx/src/features/telemetry/Trace'
-import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
-import { useEvent } from '@l.x/utils/src/react/hooks'
-=======
 import { FlexProps } from 'ui/src'
 import { SendAction } from 'ui/src/components/icons/SendAction'
 import { useUniswapContext } from 'uniswap/src/contexts/UniswapContext'
@@ -17,7 +7,6 @@ import { ElementName } from 'uniswap/src/features/telemetry/constants'
 import Trace from 'uniswap/src/features/telemetry/Trace'
 import { TestID } from 'uniswap/src/test/fixtures/testIDs'
 import { useEvent } from 'utilities/src/react/hooks'
->>>>>>> upstream/main
 import { ActionTileWithIconAnimation } from '~/components/ActionTiles/ActionTileWithIconAnimation'
 import { SendButtonTooltip } from '~/components/ActionTiles/SendActionTile/SendButtonTooltip'
 import { useActiveAddresses } from '~/features/accounts/store/hooks'
@@ -36,11 +25,7 @@ export function SendActionTile({
   dataTestId?: string
 }): JSX.Element {
   const { t } = useTranslation()
-<<<<<<< HEAD
-  const { navigateToSendFlow } = useLuxContext()
-=======
   const { navigateToSendFlow } = useUniswapContext()
->>>>>>> upstream/main
   const { evmAddress, svmAddress } = useActiveAddresses()
   const { chainId } = usePortfolioRoutes()
 

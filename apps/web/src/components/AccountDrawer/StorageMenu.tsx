@@ -1,11 +1,6 @@
 import { useTranslation } from 'react-i18next'
-<<<<<<< HEAD
-import { StorageHelpIcon, StorageSettingsContent } from '@l.x/lx/src/features/settings/storage/StorageSettingsContent'
-import { useEvent } from '@l.x/utils/src/react/hooks'
-=======
 import { StorageHelpIcon, StorageSettingsContent } from 'uniswap/src/features/settings/storage/StorageSettingsContent'
 import { useEvent } from 'utilities/src/react/hooks'
->>>>>>> upstream/main
 import { SlideOutMenu } from '~/components/AccountDrawer/SlideOutMenu'
 import { useAppStateResetter } from '~/state/reset/appResetter'
 

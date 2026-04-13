@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-# Lux Industries Inc. Web Interface
-
-## Accessing the Lux Exchange
-
-To access the Lux Exchange, use an IPFS gateway link from the
-[latest release](https://github.com/Lux/lux-interface/releases/latest),
-or visit [app.lux.exchange](https://app.lux.exchange).
-=======
 # Uniswap Labs Web Interface
 
 ## Accessing the Uniswap Interface
@@ -14,7 +5,6 @@ or visit [app.lux.exchange](https://app.lux.exchange).
 To access the Uniswap Interface, use an IPFS gateway link from the
 [latest release](https://github.com/Uniswap/uniswap-interface/releases/latest),
 or visit [app.uniswap.org](https://app.uniswap.org).
->>>>>>> upstream/main
 
 ## Tech Stack
 
@@ -37,11 +27,7 @@ bun web dev
 
 The dev server runs on port 3000 by default.
 
-<<<<<<< HEAD
-Using a different port may cause CORS errors for certain Lux Backend services.
-=======
 Using a different port may cause CORS errors for certain Uniswap Backend services.
->>>>>>> upstream/main
 
 ## Development Commands
 

@@ -1,14 +1,7 @@
-<<<<<<< HEAD
-import { searchTokens } from '@luxamm/client-search/dist/search/v1/api-searchService_connectquery'
-import { OnchainItemSectionName } from '@l.x/lx/src/components/lists/OnchainItemList/types'
-import { UNI } from '@l.x/lx/src/constants/tokens'
-import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
-=======
 import { searchTokens } from '@uniswap/client-search/dist/search/v1/api-searchService_connectquery'
 import { OnchainItemSectionName } from 'uniswap/src/components/lists/OnchainItemList/types'
 import { UNI } from 'uniswap/src/constants/tokens'
 import { TestID } from 'uniswap/src/test/fixtures/testIDs'
->>>>>>> upstream/main
 import { expect, getTest, type Page } from '~/playwright/fixtures'
 import { Mocks } from '~/playwright/mocks/mocks'
 
@@ -35,13 +28,8 @@ test.describe(
       await page.goto('/')
       await page.getByTestId(TestID.NavSearchIcon).click()
       await page.getByTestId(TestID.ExploreSearchInput).click()
-<<<<<<< HEAD
-      await page.getByTestId(TestID.ExploreSearchInput).fill('Lux')
-      await page.getByRole('button', { name: 'Lux UNI 0x1f98...F984' }).click()
-=======
       await page.getByTestId(TestID.ExploreSearchInput).fill('Uniswap')
       await page.getByRole('button', { name: 'Uniswap UNI 0x1f98...F984' }).click()
->>>>>>> upstream/main
     })
 
     test('should yield clickable result that is then added to recent searches', async ({ page }) => {
@@ -52,11 +40,7 @@ test.describe(
     test('should go to the selected result when recent results are shown', async ({ page }) => {
       await page.getByTestId(TestID.NavSearchIcon).click()
       await expect(page.getByTestId(`section-header-${OnchainItemSectionName.RecentSearches}`)).toBeVisible()
-<<<<<<< HEAD
-      await expect(page.getByRole('button', { name: 'Lux UNI 0x1f98...F984' })).toBeVisible()
-=======
       await expect(page.getByRole('button', { name: 'Uniswap UNI 0x1f98...F984' })).toBeVisible()
->>>>>>> upstream/main
     })
 
     test('should clear recent searches when the clear button is clicked', async ({ page }) => {

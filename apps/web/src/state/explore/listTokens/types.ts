@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-import { TimePeriod } from '~/appGraphql/data/util'
-import { TokenSortMethod } from '~/components/Tokens/constants'
-
-=======
 import type { MultichainToken } from '@uniswap/client-data-api/dist/data/v1/types_pb'
 import type { SparklineMap } from '~/appGraphql/data/types'
 import { TimePeriod } from '~/appGraphql/data/util'
@@ -25,7 +20,6 @@ export interface UseListTokensResult extends UseListTokensServiceResult {
   sparklines: SparklineMap
 }
 
->>>>>>> upstream/main
 /** Optional flat options for top tokens. When provided, used instead of Explore filter store (e.g. for TDP carousel). */
 export type UseListTokensOptions = {
   sortMethod?: TokenSortMethod

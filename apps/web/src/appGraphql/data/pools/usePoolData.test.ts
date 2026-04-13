@@ -1,16 +1,8 @@
-<<<<<<< HEAD
-import { FeeAmount } from '@luxamm/v3-sdk'
-import { GraphQLApi } from '@l.x/api'
-import { V2_DEFAULT_FEE_TIER } from '@l.x/lx/src/constants/pools'
-import { GQL_MAINNET_CHAINS } from '@l.x/lx/src/features/chains/chainInfo'
-import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
-=======
 import { FeeAmount } from '@uniswap/v3-sdk'
-import { GraphQLApi } from '@universe/api'
+import { GraphQLApi } from '@l.x/api'
 import { V2_DEFAULT_FEE_TIER } from 'uniswap/src/constants/pools'
 import { GQL_MAINNET_CHAINS } from 'uniswap/src/features/chains/chainInfo'
 import { UniverseChainId } from 'uniswap/src/features/chains/types'
->>>>>>> upstream/main
 import { usePoolData } from '~/appGraphql/data/pools/usePoolData'
 import { validBEPoolToken0, validBEPoolToken1 } from '~/test-utils/pools/fixtures'
 import { renderHook } from '~/test-utils/render'
@@ -23,13 +15,8 @@ const { mockV4Query, mockV3Query, mockV2Query, mockUseEnabledChains } = vi.hoist
   return { mockV4Query, mockV3Query, mockV2Query, mockUseEnabledChains }
 })
 
-<<<<<<< HEAD
 vi.mock('@l.x/api', async () => {
   const actual = await vi.importActual('@l.x/api')
-=======
-vi.mock('@universe/api', async () => {
-  const actual = await vi.importActual('@universe/api')
->>>>>>> upstream/main
   return {
     ...actual,
     GraphQLApi: {
@@ -41,13 +28,8 @@ vi.mock('@universe/api', async () => {
   }
 })
 
-<<<<<<< HEAD
-vi.mock('lx/src/features/chains/hooks/useEnabledChains', async () => {
-  const actual = await vi.importActual('lx/src/features/chains/hooks/useEnabledChains')
-=======
 vi.mock('uniswap/src/features/chains/hooks/useEnabledChains', async () => {
   const actual = await vi.importActual('uniswap/src/features/chains/hooks/useEnabledChains')
->>>>>>> upstream/main
   return {
     ...actual,
     useEnabledChains: mockUseEnabledChains,

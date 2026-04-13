@@ -1,21 +1,11 @@
-<<<<<<< HEAD
 import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { getIsNotificationServiceLocalOverrideEnabled } from '@l.x/notifications'
-=======
-import { FeatureFlags, useFeatureFlag } from '@universe/gating'
-import { getIsNotificationServiceLocalOverrideEnabled } from '@universe/notifications'
->>>>>>> upstream/main
 import React from 'react'
 import { useTranslation } from 'react-i18next'
 import { BackButtonView } from 'src/components/layout/BackButtonView'
 import { SeedPhraseDisplay } from 'src/components/mnemonic/SeedPhraseDisplay'
-<<<<<<< HEAD
-import { Flex, Text, TouchableArea } from '@l.x/ui/src'
-import { ForceUpgrade } from '@luxfi/wallet/src/features/forceUpgrade/ForceUpgrade'
-=======
 import { Flex, Text, TouchableArea } from 'ui/src'
 import { ForceUpgrade } from 'wallet/src/features/forceUpgrade/ForceUpgrade'
->>>>>>> upstream/main
 
 const BACK_BUTTON_SIZE = 24
 const BACK_BUTTON_SIZE_TOKEN = '$icon.24'

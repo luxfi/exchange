@@ -1,57 +1,20 @@
 {
-<<<<<<< HEAD
-  "defaultSrc": [
-    "'self'"
-  ],
-  "scriptSrc": [
-    "'self'",
-    "'wasm-unsafe-eval'",
-    "https://challenges.cloudflare.com"
-  ],
-=======
   "defaultSrc": ["'self'"],
   "scriptSrc": ["'self'", "'wasm-unsafe-eval'", "https://challenges.cloudflare.com"],
->>>>>>> upstream/main
   "styleSrc": [
     "'self'",
     "'unsafe-inline'",
     "https://fonts.googleapis.com",
-<<<<<<< HEAD
-    "https://fonts.gstatic.com"
-=======
     "https://fonts.gstatic.com",
     "https://fonts.gstatic.com/s/inter/v18/*"
->>>>>>> upstream/main
   ],
   "fontSrc": [
     "'self'",
     "https://fonts.googleapis.com",
-<<<<<<< HEAD
-    "https://fonts.gstatic.com"
-  ],
-  "imgSrc": [
-    "'self'",
-    "blob:",
-    "data:",
-    "https://*.lux.exchange",
-    "https://*.zoo.exchange",
-    "https://*.lux.network",
-    "https://*.zoo.network",
-    "https://assets.coingecko.com",
-    "https://raw.githubusercontent.com",
-    "https://tokens.lux.org",
-    "https://lh3.googleusercontent.com",
-    "https://images-country.meld.io",
-    "https://trustwallet.com",
-    "https://api.web3modal.org",
-    "https://explorer-api.walletconnect.com"
-  ],
-=======
     "https://fonts.gstatic.com",
     "https://fonts.gstatic.com/s/inter/v18/*"
   ],
   "imgSrc": ["*", "blob:", "data:"],
->>>>>>> upstream/main
   "frameSrc": [
     "'self'",
     "https://buy.moonpay.com/",
@@ -59,33 +22,11 @@
     "https://verify.walletconnect.com/",
     "https://verify.walletconnect.org/",
     "https://id.porto.sh",
-<<<<<<< HEAD
-    "https://wrapped.lux.exchange",
-    "https://wrapped.zoo.exchange",
-    "https://auth.privy.io"
-  ],
-  "mediaSrc": [
-    "'self'",
-    "https://*.lux.exchange",
-    "https://*.zoo.exchange",
-    "https://*.lux.network"
-  ],
-  "objectSrc": [
-    "'none'"
-  ],
-  "baseUri": [
-    "'self'"
-  ],
-  "formAction": [
-    "'none'"
-  ],
-=======
     "https://wrapped.uniswap.org",
     "https://auth.privy.io"
   ],
   "mediaSrc": ["'self'", "*"],
   "formAction": ["'none'"],
->>>>>>> upstream/main
   "connectSrc": [
     "'self'",
     "blob:",
@@ -102,26 +43,12 @@
     "https://*.nodereal.io",
     "https://*.optimism.io",
     "https://*.quiknode.pro",
-<<<<<<< HEAD
-    "https://*.lux.exchange",
-    "https://*.zoo.exchange",
-=======
     "https://*.uniswap.org",
->>>>>>> upstream/main
     "https://*.walletconnect.com",
     "https://*.walletconnect.org",
     "https://api.avax.network/ext/bc/C/rpc",
     "https://api.moonpay.com/",
     "https://api.opensea.io",
-<<<<<<< HEAD
-    "https://bsc-dataseed1.bnbchain.org",
-    "https://bsc-dataseed2.ninicoin.io",
-    "https://bscrpc.com",
-    "https://buy.moonpay.com/",
-    "https://celo-org.github.io",
-    "https://erasld2vrf.execute-api.us-east-2.amazonaws.com",
-    "https://ethereum-optimism.github.io/",
-=======
     "https://bsc-dataseed.bnbchain.org",
     "https://bsc-dataseed1.bnbchain.org",
     "https://bsc-dataseed2.bnbchain.org",
@@ -133,7 +60,6 @@
     "https://bsc-dataseed2.ninicoin.io",
     "https://bscrpc.com",
     "https://buy.moonpay.com/",
->>>>>>> upstream/main
     "https://forno.celo.org/",
     "https://images-country.meld.io",
     "https://lh3.googleusercontent.com/",
@@ -147,42 +73,12 @@
     "https://rpc.mevblocker.io/",
     "https://rpc.scroll.io/",
     "https://rpc.sepolia.org/",
-<<<<<<< HEAD
-=======
-    "https://rpc.linea.build",
->>>>>>> upstream/main
-    "https://rpc.soneium.org",
-    "https://rpc.tempo.xyz",
-    "https://sepolia.gateway.tenderly.co",
-    "https://ethereum-sepolia-rpc.publicnode.com",
-    "https://rpc.zora.energy/",
-    "https://sockjs-us3.pusher.com/",
-    "https://sparrow.cloudflare.com/",
-    "https://statsigapi.net",
-    "https://trustwallet.com",
-<<<<<<< HEAD
-    "https://lux.exchange",
-    "https://zoo.exchange",
-    "https://valid.rpki.cloudflare.com",
-    "https://vercel.com",
-    "https://vercel.live/",
-    "https://x6ahx1oagk.execute-api.us-east-2.amazonaws.com",
-    "https://mainnet.era.zksync.io/",
-    "https://8mr3mthjba.execute-api.us-east-2.amazonaws.com",
-    "https://rpc.degen.tips",
-    "https://rpc-mainnet.maticvigil.com",
-    "https://api.lux.network/",
-    "https://api.lux-test.network/",
-    "https://api.zoo.network/",
-    "https://api.zoo-test.network/",
-=======
     "https://uniswap.org",
     "https://valid.rpki.cloudflare.com",
     "https://vercel.com",
     "https://vercel.live/",
     "https://mainnet.era.zksync.io/",
     "https://mainnet.unichain.org/",
->>>>>>> upstream/main
     "https://api.web3modal.org",
     "https://api.statsig.com",
     "https://featuregates.org",
@@ -198,26 +94,6 @@
     "https://ipv6-check-perf.radar.cloudflare.com/",
     "https://performance.radar.cloudflare.com/",
     "https://invalid.rpki.cloudflare.com/",
-<<<<<<< HEAD
-    "https://insights.hanzo.ai",
-    "https://gw.lux.exchange",
-    "https://gw.zoo.exchange",
-    "wss://*.lux.exchange",
-    "wss://*.zoo.exchange",
-    "wss://relay.walletconnect.com",
-    "wss://relay.walletconnect.org",
-    "wss://ws-us3.pusher.com/",
-    "wss://nbstream.binance.com"
-  ],
-  "workerSrc": [
-    "'self'",
-    "blob:"
-  ],
-  "reportUri": [
-    "https://gw.lux.exchange/csp-report",
-    "https://gw.zoo.exchange/csp-report"
-  ]
-=======
     "wss://*.uniswap.org",
     "wss://relay.walletconnect.com",
     "wss://relay.walletconnect.org",
@@ -226,5 +102,4 @@
     "wss://nbstream.binance.info"
   ],
   "workerSrc": ["'self'", "blob:"]
->>>>>>> upstream/main
 }

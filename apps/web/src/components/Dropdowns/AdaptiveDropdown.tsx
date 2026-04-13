@@ -10,15 +10,9 @@ import {
   useShadowPropsMedium,
   VisuallyHidden,
   WebBottomSheet,
-<<<<<<< HEAD
-} from '@l.x/ui/src'
-import { INTERFACE_NAV_HEIGHT, zIndexes } from '@l.x/ui/src/theme'
-import { useEvent } from '@l.x/utils/src/react/hooks'
-=======
 } from 'ui/src'
 import { INTERFACE_NAV_HEIGHT, zIndexes } from 'ui/src/theme'
 import { useEvent } from 'utilities/src/react/hooks'
->>>>>>> upstream/main
 import { MouseoverTooltip, TooltipSize } from '~/components/Tooltip'
 import { useOnClickOutside } from '~/hooks/useOnClickOutside'
 
@@ -132,11 +126,7 @@ export function AdaptiveDropdown({
   const [flipVertical, setFlipVertical] = useState(false)
   const [dropdownMaxHeight, setDropdownMaxHeight] = useState<number | undefined>(undefined)
 
-<<<<<<< HEAD
-  // biome-ignore lint/correctness/useExhaustiveDependencies: +dropdownNode, +node
-=======
   // oxlint-disable-next-line react/exhaustive-deps -- +dropdownNode, +node
->>>>>>> upstream/main
   useEffect(() => {
     if (isOpen && !isSheet && node.current) {
       const rect = node.current.getBoundingClientRect()
@@ -175,11 +165,7 @@ export function AdaptiveDropdown({
           </Flex>
         </VisuallyHidden>
       )}
-<<<<<<< HEAD
-      {/* biome-ignore lint/correctness/noRestrictedElements: needed here */}
-=======
       {/* oxlint-disable-next-line react/forbid-elements -- needed here */}
->>>>>>> upstream/main
       <div ref={node} style={{ width: '100%', ...containerStyle }}>
         <DropdownContainer>
           {trigger && (

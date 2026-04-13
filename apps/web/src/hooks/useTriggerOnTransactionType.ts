@@ -1,11 +1,6 @@
 import { useEffect, useMemo } from 'react'
-<<<<<<< HEAD
-import { TransactionType } from '@l.x/lx/src/features/transactions/types/transactionDetails'
-import { usePrevious } from '@l.x/utils/src/react/hooks'
-=======
 import { TransactionType } from 'uniswap/src/features/transactions/types/transactionDetails'
 import { usePrevious } from 'utilities/src/react/hooks'
->>>>>>> upstream/main
 import { usePendingTransactions } from '~/state/transactions/hooks'
 
 /**

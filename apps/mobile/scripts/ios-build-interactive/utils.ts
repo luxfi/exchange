@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-// biome-ignore-all lint/suspicious/noConsole: CLI tool needs console for user interaction
-=======
 /* oxlint-disable no-console -- CLI tool needs console for user interaction */
->>>>>>> upstream/main
 
 import { exec, spawn } from 'child_process'
 import { promisify } from 'util'
@@ -67,11 +63,7 @@ export const CONSTANTS = {
 // Types
 export type BuildType = 'simulator' | 'device'
 export type Configuration = 'Debug' | 'Release'
-<<<<<<< HEAD
-export type Scheme = 'Lux'
-=======
 export type Scheme = 'Uniswap'
->>>>>>> upstream/main
 
 export interface BuildConfig {
   buildType: BuildType
@@ -117,11 +109,7 @@ export const runCommand = async (command: string): Promise<{ stdout: string; std
 
 export const spawnProcess = (command: string, args: string[]): Promise<void> => {
   return new Promise((resolve, reject) => {
-<<<<<<< HEAD
-    // biome-ignore lint/suspicious/noExplicitAny: Node spawn options type requires any for stdio config
-=======
     // oxlint-disable-next-line typescript/no-explicit-any -- Node spawn options type requires any for stdio config
->>>>>>> upstream/main
     const process = spawn(command, args, { stdio: 'inherit' } as any)
     process.on('close', (code) => {
       if (code === 0) {

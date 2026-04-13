@@ -1,18 +1,5 @@
 import { useCallback, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-<<<<<<< HEAD
-import { Flex, Text, TouchableArea } from '@l.x/ui/src'
-import { BackArrow } from '@l.x/ui/src/components/icons/BackArrow'
-import { CheckCircleFilled } from '@l.x/ui/src/components/icons/CheckCircleFilled'
-import { EnvelopeLock } from '@l.x/ui/src/components/icons/EnvelopeLock'
-import { GoogleLogo } from '@l.x/ui/src/components/icons/GoogleLogo'
-import { X } from '@l.x/ui/src/components/icons/X'
-import { useSporeColors } from '@l.x/ui/src/hooks/useSporeColors'
-import { SpinningLoader } from '@l.x/ui/src/loading/SpinningLoader'
-import { ElementName } from 'lx/src/features/telemetry/constants'
-import Trace from 'lx/src/features/telemetry/Trace'
-import { TestID } from 'lx/src/test/fixtures/testIDs'
-=======
 import { Flex, Text, TouchableArea } from 'ui/src'
 import { BackArrow } from 'ui/src/components/icons/BackArrow'
 import { CheckCircleFilled } from 'ui/src/components/icons/CheckCircleFilled'
@@ -24,7 +11,6 @@ import { SpinningLoader } from 'ui/src/loading/SpinningLoader'
 import { ElementName } from 'uniswap/src/features/telemetry/constants'
 import Trace from 'uniswap/src/features/telemetry/Trace'
 import { TestID } from 'uniswap/src/test/fixtures/testIDs'
->>>>>>> upstream/main
 import { AppleLogo } from '~/components/Icons/AppleLogo'
 
 export function useDigitInput({ length, onComplete }: { length: number; onComplete?: (code: string) => void }) {

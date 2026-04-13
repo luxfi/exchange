@@ -1,14 +1,7 @@
-<<<<<<< HEAD
-import { Token } from '@luxamm/sdk-core'
-import { createMigrate } from 'redux-persist'
-import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
-import { createThrowingProxy } from '@l.x/utils/src/test/utils'
-=======
 import { Token } from '@uniswap/sdk-core'
 import { createMigrate } from 'redux-persist'
 import { UniverseChainId } from 'uniswap/src/features/chains/types'
 import { createThrowingProxy } from 'utilities/src/test/utils'
->>>>>>> upstream/main
 import { vi } from 'vitest'
 import { migration1 } from '~/state/migrations/1'
 import { migration2 } from '~/state/migrations/2'

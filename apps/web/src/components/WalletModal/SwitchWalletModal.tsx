@@ -1,18 +1,10 @@
 import { TFunction } from 'i18next'
 import { useTranslation } from 'react-i18next'
-<<<<<<< HEAD
-import { Flex, Text, TouchableArea } from '@l.x/ui/src'
-import { ArrowLeft } from '@l.x/ui/src/components/icons/ArrowLeft'
-import { Platform } from 'lx/src/features/platforms/types/Platform'
-import { isMobileWeb } from '@l.x/utils/src/platform'
-import { LXWalletOptions } from '~/components/WalletModal/LuxWalletOptions'
-=======
 import { Flex, Text, TouchableArea } from 'ui/src'
 import { ArrowLeft } from 'ui/src/components/icons/ArrowLeft'
 import { Platform } from 'uniswap/src/features/platforms/types/Platform'
 import { isMobileWeb } from 'utilities/src/platform'
 import { UniswapWalletOptions } from '~/components/WalletModal/UniswapWalletOptions'
->>>>>>> upstream/main
 import { WalletModalLayout } from '~/components/WalletModal/WalletModalLayout'
 import { WalletOptionsGrid } from '~/components/WalletModal/WalletOptionsGrid'
 import { useOrderedWallets } from '~/features/wallet/connection/hooks/useOrderedWalletConnectors'
@@ -48,11 +40,7 @@ export function SwitchWalletModal({
     </Flex>
   )
 
-<<<<<<< HEAD
-  const luxOptions = <LXWalletOptions />
-=======
   const uniswapOptions = <UniswapWalletOptions />
->>>>>>> upstream/main
 
   const walletOptions = (
     <WalletOptionsGrid
@@ -69,11 +57,7 @@ export function SwitchWalletModal({
       header={
         <Flex gap="$gap16">
           {header}
-<<<<<<< HEAD
-          {connectOnPlatform !== Platform.SVM ? luxOptions : null}
-=======
           {connectOnPlatform !== Platform.SVM ? uniswapOptions : null}
->>>>>>> upstream/main
         </Flex>
       }
       hidePolicyNotice={connectOnPlatform === Platform.SVM && wallets.length === 0}

@@ -1,13 +1,7 @@
 import { connect, getConnectors } from '@wagmi/core'
-<<<<<<< HEAD
-import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
-import { isPlaywrightEnv } from '@l.x/utils/src/environment/env'
-import { sleep } from '@l.x/utils/src/time/timing'
-=======
 import { Platform } from 'uniswap/src/features/platforms/types/Platform'
 import { isPlaywrightEnv } from 'utilities/src/environment/env'
 import { sleep } from 'utilities/src/time/timing'
->>>>>>> upstream/main
 import { wagmiConfig } from '~/components/Web3Provider/wagmiConfig'
 import { ExternalConnector } from '~/features/accounts/store/types'
 import { createConnectionService, GetConnectorFn } from '~/features/wallet/connection/services/createConnectionService'

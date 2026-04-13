@@ -1,9 +1,5 @@
 import { AddressZero } from '@ethersproject/constants'
-<<<<<<< HEAD
-import { CurrencyAmount, Percent, Token } from '@luxamm/sdk-core'
-=======
 import { CurrencyAmount, Percent, Token } from '@uniswap/sdk-core'
->>>>>>> upstream/main
 import { calculateSlippageAmount } from '~/utils/calculateSlippageAmount'
 
 describe('#calculateSlippageAmount', () => {

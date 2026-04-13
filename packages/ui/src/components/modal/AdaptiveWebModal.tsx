@@ -10,7 +10,7 @@ import {
   useMedia,
   type View,
   VisuallyHidden,
-} from 'tamagui'
+} from '@hanzo/gui'
 import { type CloseIconProps, CloseIconWithHover } from 'ui/src/components/icons/CloseIconWithHover'
 import { Flex, type FlexProps } from 'ui/src/components/layout'
 import { RemoveScroll } from 'ui/src/components/RemoveScroll/RemoveScroll'

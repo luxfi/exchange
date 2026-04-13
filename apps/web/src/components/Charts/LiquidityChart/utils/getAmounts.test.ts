@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import { TickMath } from '@luxamm/v3-sdk'
-=======
 import { TickMath } from '@uniswap/v3-sdk'
->>>>>>> upstream/main
 import JSBI from 'jsbi'
 import { describe, expect, it } from 'vitest'
 import { getAmount0, getAmount1 } from '~/components/Charts/LiquidityChart/utils/getAmounts'

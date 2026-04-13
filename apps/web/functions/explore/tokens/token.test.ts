@@ -31,11 +31,7 @@ test.each(tokens)('should inject metadata for valid tokens', async (token) => {
   const url = 'http://localhost:3000/explore/tokens/' + token.network + '/' + token.address
   const body = await fetch(new Request(url)).then((res) => res.text())
   expect(body).toMatchSnapshot()
-<<<<<<< HEAD
-  expect(body).toContain(`<meta property="og:title" content="Get ${token.tokenData.symbol} on Lux" data-rh="true">`)
-=======
   expect(body).toContain(`<meta property="og:title" content="Get ${token.tokenData.symbol} on Uniswap" data-rh="true">`)
->>>>>>> upstream/main
   expect(body).not.toContain(`<meta property="og:description"`)
   expect(body).not.toContain(`<meta name="description"`)
   expect(body).toContain(`<meta property="og:image" content="${token.image}" data-rh="true">`)
@@ -44,17 +40,6 @@ test.each(tokens)('should inject metadata for valid tokens', async (token) => {
   expect(body).toContain(`<meta property="og:type" content="website" data-rh="true">`)
   expect(body).toContain(`<meta property="og:url" content="${url}" data-rh="true">`)
   expect(body).toContain(
-<<<<<<< HEAD
-    `<meta property="og:image:alt" content="Get ${token.tokenData.symbol} on Lux" data-rh="true">`,
-  )
-  expect(body).toContain(`<meta property="twitter:card" content="summary_large_image" data-rh="true">`)
-  expect(body).toContain(
-    `<meta property="twitter:title" content="Get ${token.tokenData.symbol} on Lux" data-rh="true">`,
-  )
-  expect(body).toContain(`<meta property="twitter:image" content="${token.image}" data-rh="true">`)
-  expect(body).toContain(
-    `<meta property="twitter:image:alt" content="Get ${token.tokenData.symbol} on Lux" data-rh="true">`,
-=======
     `<meta property="og:image:alt" content="Get ${token.tokenData.symbol} on Uniswap" data-rh="true">`,
   )
   expect(body).toContain(`<meta property="twitter:card" content="summary_large_image" data-rh="true">`)
@@ -64,7 +49,6 @@ test.each(tokens)('should inject metadata for valid tokens', async (token) => {
   expect(body).toContain(`<meta property="twitter:image" content="${token.image}" data-rh="true">`)
   expect(body).toContain(
     `<meta property="twitter:image:alt" content="Get ${token.tokenData.symbol} on Uniswap" data-rh="true">`,
->>>>>>> upstream/main
   )
 })
 

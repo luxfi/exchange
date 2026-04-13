@@ -37,35 +37,6 @@
     "types": ["node"],
     "useUnknownInCatchVariables": true,
     "paths": {
-<<<<<<< HEAD
-      "@l.x/api/*": ["./pkgs/api/*"],
-      "@l.x/config/*": ["./pkgs/config/*"],
-      "@l.x/gating/*": ["./pkgs/gating/*"],
-      "@l.x/notifications/*": ["./pkgs/notifications/*"],
-      "@l.x/sessions/*": ["./pkgs/sessions/*"],
-      "@l.x/hashcash-native": ["./pkgs/hashcash-native/src/index.ts"],
-      "@l.x/hashcash-native/*": ["./pkgs/hashcash-native/*"],
-      "@l.x/lx/*": ["./pkgs/lx/*"],
-      "@l.x/mycelium/*": ["./pkgs/mycelium/*"],
-      "@l.x/websocket/*": ["./pkgs/websocket/*"],
-      "@l.x/prices/*": ["./pkgs/prices/*"],
-      "@l.x/privacy/*": ["./pkgs/privacy/*"],
-      "@l.x/logger/*": ["./pkgs/logger/*"],
-      "@l.x/react-query/*": ["./pkgs/react-query/*"],
-      "@l.x/analytics/*": ["./pkgs/analytics/*"],
-      "@l.x/trpc/*": ["./pkgs/trpc/*"],
-      "@l.x/ui/*": ["./pkgs/ui/*"],
-      "@l.x/utils/*": ["./pkgs/utilities/*"],
-      "@luxfi/wallet/*": ["./pkgs/wallet/*"],
-      "@luxfi/dex/*": ["./pkgs/dex/*"],
-      "@luxfi/exchange/*": ["./pkgs/exchange/*"],
-      "@luxamm/client-privy-embedded-wallet/dist/lx/privy-embedded-wallet/v1/service_pb": [
-        "./pkgs/api/stubs/privy-service-pb"
-      ],
-      "@luxamm/client-privy-embedded-wallet/dist/lx/privy-embedded-wallet/v1/service_connect": [
-        "./pkgs/api/stubs/privy-service-connect"
-      ]
-=======
       "@universe/api/*": ["./packages/api/*"],
       "@universe/cli/*": ["./apps/cli/*"],
       "@universe/config/*": ["./packages/config/*"],
@@ -95,7 +66,6 @@
       "@universe/react-query/*": ["./packages/react-query/*"],
       "@universe/analytics/*": ["./packages/analytics/*"],
       "@universe/trpc/*": ["./packages/trpc/*"]
->>>>>>> upstream/main
     }
   }
 }

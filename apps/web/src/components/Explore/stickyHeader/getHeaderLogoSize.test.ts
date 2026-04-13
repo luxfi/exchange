@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import { fonts } from '@l.x/ui/src/theme/fonts'
-=======
 import { fonts } from 'ui/src/theme/fonts'
->>>>>>> upstream/main
 import { HEADER_LOGO_SIZE } from '~/components/Explore/stickyHeader/constants'
 import {
   getHeaderLogoSize,

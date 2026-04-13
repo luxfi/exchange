@@ -29,22 +29,6 @@
     "types": ["chrome", "vitest/globals"],
     "useUnknownInCatchVariables": false,
     "paths": {
-<<<<<<< HEAD
-      "@/*": ["./*"],
-      "~/*": ["./src/*"],
-      "@l.x/ui/src/*": ["../../pkgs/ui/src/*"],
-      "@l.x/utils/src/*": ["../../pkgs/utilities/src/*"],
-      "@l.x/lx/src/*": ["../../pkgs/lx/src/*"],
-      "@luxfi/dex/src/*": ["../../pkgs/dex/src/*"],
-      "@luxfi/exchange/src/*": ["../../pkgs/exchange/src/*"]
-    }
-  },
-  "include": [
-    "app/**/*",
-    "components/**/*",
-    "config/**/*",
-    "lib/**/*",
-=======
       "~/*": ["./src/*"],
       "ui/src/*": ["../../packages/ui/src/*"],
       "utilities/src/*": ["../../packages/utilities/src/*"],
@@ -52,53 +36,17 @@
     }
   },
   "include": [
->>>>>>> upstream/main
     "src/**/*",
     "src/**/*.json",
     ".storybook/preview.tsx",
     ".storybook/main.ts",
     "vite.config.mts",
     "scripts/*",
-<<<<<<< HEAD
-    "vite/*",
-    "next-env.d.ts"
-=======
     "vite/*"
->>>>>>> upstream/main
   ],
   "exclude": ["scripts/build-vercel.ts"],
   "references": [
     {
-<<<<<<< HEAD
-      "path": "../../pkgs/utilities"
-    },
-    {
-      "path": "../../pkgs/websocket"
-    },
-    {
-      "path": "../../pkgs/sessions"
-    },
-    {
-      "path": "../../pkgs/prices"
-    },
-    {
-      "path": "../../pkgs/notifications"
-    },
-    {
-      "path": "../../pkgs/gating"
-    },
-    {
-      "path": "../../pkgs/ui"
-    },
-    {
-      "path": "../../pkgs/config"
-    },
-    {
-      "path": "../../pkgs/api"
-    },
-    {
-      "path": "../../pkgs/lx"
-=======
       "path": "../../packages/utilities"
     },
     {
@@ -124,7 +72,6 @@
     },
     {
       "path": "../../packages/uniswap"
->>>>>>> upstream/main
     }
   ]
 }

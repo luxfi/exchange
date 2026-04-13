@@ -3,26 +3,16 @@ import {
   parseSwapLinkMobileFormatOrThrow,
   parseSwapLinkWebFormatOrThrow,
 } from 'src/features/deepLinking/parseSwapLink'
-<<<<<<< HEAD
-import { AssetType } from '@l.x/lx/src/entities/assets'
-import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
-import { CurrencyField } from '@l.x/lx/src/types/currency'
-=======
 import { AssetType } from 'uniswap/src/entities/assets'
 import { UniverseChainId } from 'uniswap/src/features/chains/types'
 import { CurrencyField } from 'uniswap/src/types/currency'
->>>>>>> upstream/main
 
 describe('parseSwapLink', () => {
   describe('Mobile format', () => {
     it('should parse valid mobile format link', () => {
       // Using USDC address on mainnet
       const url = new URL(
-<<<<<<< HEAD
-        'https://lux.org/mobile-redirect?screen=swap&inputCurrencyId=1-0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee&outputCurrencyId=1-0xdAC17F958D2ee523a2206206994597C13D831ec7&currencyField=input&amount=100',
-=======
         'https://uniswap.org/mobile-redirect?screen=swap&inputCurrencyId=1-0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee&outputCurrencyId=1-0xdAC17F958D2ee523a2206206994597C13D831ec7&currencyField=input&amount=100',
->>>>>>> upstream/main
       )
 
       const result = parseSwapLinkMobileFormatOrThrow(url)
@@ -34,11 +24,7 @@ describe('parseSwapLink', () => {
 
     it('should handle missing inputCurrencyId', () => {
       const url = new URL(
-<<<<<<< HEAD
-        'https://lux.org/mobile-redirect?screen=swap&outputCurrencyId=1-0xdAC17F958D2ee523a2206206994597C13D831ec7&currencyField=input&amount=100',
-=======
         'https://uniswap.org/mobile-redirect?screen=swap&outputCurrencyId=1-0xdAC17F958D2ee523a2206206994597C13D831ec7&currencyField=input&amount=100',
->>>>>>> upstream/main
       )
 
       expect(() => parseSwapLinkMobileFormatOrThrow(url)).toThrow('Not mobile format - missing currencyId parameters')
@@ -48,11 +34,7 @@ describe('parseSwapLink', () => {
   describe('Universal format', () => {
     it('should parse valid web format link', () => {
       const url = new URL(
-<<<<<<< HEAD
-        'https://app.lux.org/swap?inputCurrency=ETH&outputCurrency=0xdAC17F958D2ee523a2206206994597C13D831ec7&chain=ethereum&value=1.5&field=INPUT',
-=======
         'https://app.uniswap.org/swap?inputCurrency=ETH&outputCurrency=0xdAC17F958D2ee523a2206206994597C13D831ec7&chain=ethereum&value=1.5&field=INPUT',
->>>>>>> upstream/main
       )
 
       const result = parseSwapLinkWebFormatOrThrow(url)
@@ -64,11 +46,7 @@ describe('parseSwapLink', () => {
 
     it('should handle ETH as native currency', () => {
       const url = new URL(
-<<<<<<< HEAD
-        'https://app.lux.org/swap?inputCurrency=ETH&outputCurrency=0xdAC17F958D2ee523a2206206994597C13D831ec7&chain=ethereum',
-=======
         'https://app.uniswap.org/swap?inputCurrency=ETH&outputCurrency=0xdAC17F958D2ee523a2206206994597C13D831ec7&chain=ethereum',
->>>>>>> upstream/main
       )
 
       const result = parseSwapLinkWebFormatOrThrow(url)
@@ -79,11 +57,7 @@ describe('parseSwapLink', () => {
 
     it('should handle cross-chain swaps', () => {
       const url = new URL(
-<<<<<<< HEAD
-        'https://app.lux.org/swap?inputCurrency=ETH&chain=ethereum&outputCurrency=0x53E0bca35eC356BD5ddDFebbD1Fc0fD03FaBad39&outputChain=polygon',
-=======
         'https://app.uniswap.org/swap?inputCurrency=ETH&chain=ethereum&outputCurrency=0x53E0bca35eC356BD5ddDFebbD1Fc0fD03FaBad39&outputChain=polygon',
->>>>>>> upstream/main
       )
 
       const result = parseSwapLinkWebFormatOrThrow(url)
@@ -93,21 +67,13 @@ describe('parseSwapLink', () => {
     })
 
     it('should handle missing currencies', () => {
-<<<<<<< HEAD
-      const url = new URL('https://app.lux.org/swap?chain=ethereum')
-=======
       const url = new URL('https://app.uniswap.org/swap?chain=ethereum')
->>>>>>> upstream/main
 
       expect(() => parseSwapLinkWebFormatOrThrow(url)).toThrow('Not web format - missing currency parameters')
     })
 
     it('should handle only input currency provided', () => {
-<<<<<<< HEAD
-      const url = new URL('https://app.lux.org/swap?inputCurrency=ETH&chain=ethereum')
-=======
       const url = new URL('https://app.uniswap.org/swap?inputCurrency=ETH&chain=ethereum')
->>>>>>> upstream/main
 
       const result = parseSwapLinkWebFormatOrThrow(url)
 
@@ -119,11 +85,7 @@ describe('parseSwapLink', () => {
 
     it('should handle only output currency provided', () => {
       const url = new URL(
-<<<<<<< HEAD
-        'https://app.lux.org/swap?outputCurrency=0xdAC17F958D2ee523a2206206994597C13D831ec7&chain=ethereum',
-=======
         'https://app.uniswap.org/swap?outputCurrency=0xdAC17F958D2ee523a2206206994597C13D831ec7&chain=ethereum',
->>>>>>> upstream/main
       )
 
       const result = parseSwapLinkWebFormatOrThrow(url)
@@ -136,11 +98,7 @@ describe('parseSwapLink', () => {
 
     it('should handle invalid field values', () => {
       const url = new URL(
-<<<<<<< HEAD
-        'https://app.lux.org/swap?inputCurrency=ETH&outputCurrency=0xdAC17F958D2ee523a2206206994597C13D831ec7&field=INVALID',
-=======
         'https://app.uniswap.org/swap?inputCurrency=ETH&outputCurrency=0xdAC17F958D2ee523a2206206994597C13D831ec7&field=INVALID',
->>>>>>> upstream/main
       )
 
       expect(() => parseSwapLinkWebFormatOrThrow(url)).toThrow('Invalid field. Must be either `INPUT` or `OUTPUT`')
@@ -217,11 +175,7 @@ describe('parseSwapLink', () => {
     it('should parse valid Sepolia testnet link', () => {
       // Using Sepolia testnet chain ID (11155111) and valid USDC address
       const url = new URL(
-<<<<<<< HEAD
-        `https://lux.org/mobile-redirect?screen=swap&inputCurrencyId=${UniverseChainId.Sepolia}-0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee&outputCurrencyId=${UniverseChainId.Sepolia}-0x1c7d4b196cb0c7b01d743fbc6116a902379c7238&currencyField=input&amount=1.5`,
-=======
         `https://uniswap.org/mobile-redirect?screen=swap&inputCurrencyId=${UniverseChainId.Sepolia}-0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee&outputCurrencyId=${UniverseChainId.Sepolia}-0x1c7d4b196cb0c7b01d743fbc6116a902379c7238&currencyField=input&amount=1.5`,
->>>>>>> upstream/main
       )
 
       const result = parseSwapLinkMobileFormatOrThrow(url)
@@ -234,11 +188,7 @@ describe('parseSwapLink', () => {
 
     it('should parse valid UnichainSepolia link', () => {
       const url = new URL(
-<<<<<<< HEAD
-        `https://lux.org/mobile-redirect?screen=swap&inputCurrencyId=${UniverseChainId.UnichainSepolia}-0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee&outputCurrencyId=${UniverseChainId.UnichainSepolia}-0x31d0220469e10c4E71834a79b1f276d740d3768F&currencyField=input&amount=0.5`,
-=======
         `https://uniswap.org/mobile-redirect?screen=swap&inputCurrencyId=${UniverseChainId.UnichainSepolia}-0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee&outputCurrencyId=${UniverseChainId.UnichainSepolia}-0x31d0220469e10c4E71834a79b1f276d740d3768F&currencyField=input&amount=0.5`,
->>>>>>> upstream/main
       )
 
       const result = parseSwapLinkMobileFormatOrThrow(url)
@@ -252,11 +202,7 @@ describe('parseSwapLink', () => {
     it('should reject mixed testnet and mainnet chains', () => {
       // Try to swap from Sepolia (testnet) to Mainnet
       const url = new URL(
-<<<<<<< HEAD
-        `https://lux.org/mobile-redirect?screen=swap&inputCurrencyId=${UniverseChainId.Sepolia}-0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee&outputCurrencyId=${UniverseChainId.Mainnet}-0xdAC17F958D2ee523a2206206994597C13D831ec7&currencyField=input&amount=1`,
-=======
         `https://uniswap.org/mobile-redirect?screen=swap&inputCurrencyId=${UniverseChainId.Sepolia}-0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee&outputCurrencyId=${UniverseChainId.Mainnet}-0xdAC17F958D2ee523a2206206994597C13D831ec7&currencyField=input&amount=1`,
->>>>>>> upstream/main
       )
 
       const testFn = (): void => {
@@ -268,11 +214,7 @@ describe('parseSwapLink', () => {
     it('should reject mixed mainnet and testnet chains', () => {
       // Try to swap from Mainnet to UnichainSepolia (testnet)
       const url = new URL(
-<<<<<<< HEAD
-        `https://lux.org/mobile-redirect?screen=swap&inputCurrencyId=${UniverseChainId.Mainnet}-0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee&outputCurrencyId=${UniverseChainId.UnichainSepolia}-0x31d0220469e10c4E71834a79b1f276d740d3768F&currencyField=input&amount=1`,
-=======
         `https://uniswap.org/mobile-redirect?screen=swap&inputCurrencyId=${UniverseChainId.Mainnet}-0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee&outputCurrencyId=${UniverseChainId.UnichainSepolia}-0x31d0220469e10c4E71834a79b1f276d740d3768F&currencyField=input&amount=1`,
->>>>>>> upstream/main
       )
 
       const testFn = (): void => {
@@ -285,11 +227,7 @@ describe('parseSwapLink', () => {
   describe('Web format with testnets', () => {
     it('should parse valid Sepolia testnet link', () => {
       const url = new URL(
-<<<<<<< HEAD
-        'https://app.lux.org/swap?inputCurrency=ETH&outputCurrency=0x1c7d4b196cb0c7b01d743fbc6116a902379c7238&chain=ethereum_sepolia&value=2.5&field=INPUT',
-=======
         'https://app.uniswap.org/swap?inputCurrency=ETH&outputCurrency=0x1c7d4b196cb0c7b01d743fbc6116a902379c7238&chain=ethereum_sepolia&value=2.5&field=INPUT',
->>>>>>> upstream/main
       )
 
       const result = parseSwapLinkWebFormatOrThrow(url)
@@ -302,11 +240,7 @@ describe('parseSwapLink', () => {
 
     it('should handle cross-chain testnet swaps', () => {
       const url = new URL(
-<<<<<<< HEAD
-        'https://app.lux.org/swap?inputCurrency=ETH&chain=ethereum_sepolia&outputCurrency=0x31d0220469e10c4E71834a79b1f276d740d3768F&outputChain=unichain_sepolia&value=1.0',
-=======
         'https://app.uniswap.org/swap?inputCurrency=ETH&chain=ethereum_sepolia&outputCurrency=0x31d0220469e10c4E71834a79b1f276d740d3768F&outputChain=unichain_sepolia&value=1.0',
->>>>>>> upstream/main
       )
 
       const result = parseSwapLinkWebFormatOrThrow(url)
@@ -319,11 +253,7 @@ describe('parseSwapLink', () => {
     it('should reject mixed testnet and mainnet in web format', () => {
       // Try to swap from Sepolia to Ethereum mainnet
       const url = new URL(
-<<<<<<< HEAD
-        'https://app.lux.org/swap?inputCurrency=ETH&chain=ethereum_sepolia&outputCurrency=0xdAC17F958D2ee523a2206206994597C13D831ec7&outputChain=ethereum',
-=======
         'https://app.uniswap.org/swap?inputCurrency=ETH&chain=ethereum_sepolia&outputCurrency=0xdAC17F958D2ee523a2206206994597C13D831ec7&outputChain=ethereum',
->>>>>>> upstream/main
       )
 
       const testFn = (): void => {
@@ -335,11 +265,7 @@ describe('parseSwapLink', () => {
     it('should reject mixed mainnet and testnet in web format', () => {
       // Try to swap from Ethereum mainnet to Sepolia
       const url = new URL(
-<<<<<<< HEAD
-        'https://app.lux.org/swap?inputCurrency=ETH&chain=ethereum&outputCurrency=0x1c7d4b196cb0c7b01d743fbc6116a902379c7238&outputChain=ethereum_sepolia',
-=======
         'https://app.uniswap.org/swap?inputCurrency=ETH&chain=ethereum&outputCurrency=0x1c7d4b196cb0c7b01d743fbc6116a902379c7238&outputChain=ethereum_sepolia',
->>>>>>> upstream/main
       )
 
       const testFn = (): void => {
@@ -349,11 +275,7 @@ describe('parseSwapLink', () => {
     })
 
     it('should handle only input currency on testnet', () => {
-<<<<<<< HEAD
-      const url = new URL('https://app.lux.org/swap?inputCurrency=ETH&chain=ethereum_sepolia')
-=======
       const url = new URL('https://app.uniswap.org/swap?inputCurrency=ETH&chain=ethereum_sepolia')
->>>>>>> upstream/main
 
       const result = parseSwapLinkWebFormatOrThrow(url)
 
@@ -365,11 +287,7 @@ describe('parseSwapLink', () => {
 
     it('should handle only output currency on testnet', () => {
       const url = new URL(
-<<<<<<< HEAD
-        'https://app.lux.org/swap?outputCurrency=0x1c7d4b196cb0c7b01d743fbc6116a902379c7238&chain=ethereum_sepolia',
-=======
         'https://app.uniswap.org/swap?outputCurrency=0x1c7d4b196cb0c7b01d743fbc6116a902379c7238&chain=ethereum_sepolia',
->>>>>>> upstream/main
       )
 
       const result = parseSwapLinkWebFormatOrThrow(url)
@@ -385,11 +303,7 @@ describe('parseSwapLink', () => {
     it('should allow swaps between different testnet chains', () => {
       // Sepolia to UnichainSepolia should work (both testnets)
       const url = new URL(
-<<<<<<< HEAD
-        `https://lux.org/mobile-redirect?screen=swap&inputCurrencyId=${UniverseChainId.Sepolia}-0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee&outputCurrencyId=${UniverseChainId.UnichainSepolia}-0x31d0220469e10c4E71834a79b1f276d740d3768F&currencyField=input&amount=1`,
-=======
         `https://uniswap.org/mobile-redirect?screen=swap&inputCurrencyId=${UniverseChainId.Sepolia}-0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee&outputCurrencyId=${UniverseChainId.UnichainSepolia}-0x31d0220469e10c4E71834a79b1f276d740d3768F&currencyField=input&amount=1`,
->>>>>>> upstream/main
       )
 
       const result = parseSwapLinkMobileFormatOrThrow(url)
@@ -400,11 +314,7 @@ describe('parseSwapLink', () => {
 
     it('should allow swaps between UnichainSepolia and Sepolia', () => {
       const url = new URL(
-<<<<<<< HEAD
-        `https://lux.org/mobile-redirect?screen=swap&inputCurrencyId=${UniverseChainId.UnichainSepolia}-0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee&outputCurrencyId=${UniverseChainId.Sepolia}-0x1c7d4b196cb0c7b01d743fbc6116a902379c7238&currencyField=output&amount=50`,
-=======
         `https://uniswap.org/mobile-redirect?screen=swap&inputCurrencyId=${UniverseChainId.UnichainSepolia}-0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee&outputCurrencyId=${UniverseChainId.Sepolia}-0x1c7d4b196cb0c7b01d743fbc6116a902379c7238&currencyField=output&amount=50`,
->>>>>>> upstream/main
       )
 
       const result = parseSwapLinkMobileFormatOrThrow(url)
@@ -419,11 +329,7 @@ describe('parseSwapLink', () => {
     it('should handle parsing errors gracefully for mobile format', () => {
       // URL with malformed parameters
       const url = new URL(
-<<<<<<< HEAD
-        'https://lux.org/mobile-redirect?screen=swap&inputCurrencyId=invalid&outputCurrencyId=also-invalid',
-=======
         'https://uniswap.org/mobile-redirect?screen=swap&inputCurrencyId=invalid&outputCurrencyId=also-invalid',
->>>>>>> upstream/main
       )
 
       expect(() => parseSwapLinkMobileFormatOrThrow(url)).toThrow()

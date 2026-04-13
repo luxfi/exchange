@@ -9,15 +9,9 @@ import {
   NativeSeedPhraseInputProps,
   NativeSeedPhraseInputRef,
 } from 'src/screens/Import/SeedPhraseInputScreen/SeedPhraseInput/types'
-<<<<<<< HEAD
-import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
-import { OnboardingScreens } from '@l.x/lx/src/types/screens/mobile'
-import { isAndroid } from '@l.x/utils/src/platform'
-=======
 import { TestID } from 'uniswap/src/test/fixtures/testIDs'
 import { OnboardingScreens } from 'uniswap/src/types/screens/mobile'
 import { isAndroid } from 'utilities/src/platform'
->>>>>>> upstream/main
 
 const styles = StyleSheet.create({
   input: {
@@ -30,11 +24,7 @@ type SeedPhraseInputProps = NativeSeedPhraseInputProps & {
   navigation: NativeStackNavigationProp<OnboardingStackParamList, OnboardingScreens.SeedPhraseInput>
 }
 
-<<<<<<< HEAD
-export const SeedPhraseInput = forwardRef<NativeSeedPhraseInputRef, SeedPhraseInputProps>(function _SeedPhraseInput(
-=======
 export const SeedPhraseInput = forwardRef<NativeSeedPhraseInputRef, SeedPhraseInputProps>(function SeedPhraseInputInner(
->>>>>>> upstream/main
   { navigation, ...rest },
   ref,
 ) {

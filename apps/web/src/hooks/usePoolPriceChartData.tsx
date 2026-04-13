@@ -1,14 +1,7 @@
-<<<<<<< HEAD
 import { GraphQLApi } from '@l.x/api'
 import { UTCTimestamp } from 'lightweight-charts'
 import { useMemo } from 'react'
-import { hashKey } from '@l.x/utils/src/reactQuery/hashKey'
-=======
-import { GraphQLApi } from '@universe/api'
-import { UTCTimestamp } from 'lightweight-charts'
-import { useMemo } from 'react'
 import { hashKey } from 'utilities/src/reactQuery/hashKey'
->>>>>>> upstream/main
 import { PriceChartData } from '~/components/Charts/PriceChart'
 import { ChartQueryResult, ChartType, DataQuality } from '~/components/Charts/utils'
 import { removeOutliers } from '~/utils/prices'

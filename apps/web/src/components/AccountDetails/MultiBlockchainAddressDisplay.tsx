@@ -1,26 +1,5 @@
 import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
-<<<<<<< HEAD
-import { Flex, Text } from '@l.x/ui/src'
-import { Unitag } from '@l.x/ui/src/components/icons/Unitag'
-import { iconSizes } from '@l.x/ui/src/theme'
-import { NetworkLogo } from '@l.x/lx/src/components/CurrencyLogo/NetworkLogo'
-import { InfoTooltip } from '@l.x/lx/src/components/tooltip/InfoTooltip'
-import { useUnitagsAddressQuery } from '@l.x/lx/src/data/apiClients/unitagsApi/useUnitagsAddressQuery'
-import { MAINNET_CHAIN_INFO } from '@l.x/lx/src/features/chains/evm/info/mainnet'
-import { useEnabledChains } from '@l.x/lx/src/features/chains/hooks/useEnabledChains'
-import { SOLANA_CHAIN_INFO } from '@l.x/lx/src/features/chains/svm/info/solana'
-import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
-import { useENSName } from '@l.x/lx/src/features/ens/api'
-import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
-import { PlatformAddress } from '@l.x/lx/src/features/platforms/types/PlatformSpecificAddress'
-import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
-import { shortenAddress } from '@l.x/utils/src/addresses'
-import StatusIcon from '~/components/StatusIcon'
-import { useAccountsStore, useActiveAddresses } from '~/features/accounts/store/hooks'
-import { CopyHelper } from '~/theme/components/CopyHelper'
-import { EllipsisGuiStyle } from '~/theme/components/styles'
-=======
 import { Flex, Text } from 'ui/src'
 import { Unitag } from 'ui/src/components/icons/Unitag'
 import { iconSizes } from 'ui/src/theme'
@@ -40,7 +19,6 @@ import StatusIcon from '~/components/StatusIcon'
 import { useAccountsStore, useActiveAddresses } from '~/features/accounts/store/hooks'
 import { CopyHelper } from '~/theme/components/CopyHelper'
 import { EllipsisTamaguiStyle } from '~/theme/components/styles'
->>>>>>> upstream/main
 
 function AddressDisplay({
   unitag,
@@ -53,11 +31,7 @@ function AddressDisplay({
 }) {
   return (
     <Flex row gap="$spacing2" alignItems="center" data-testid={TestID.AddressDisplay}>
-<<<<<<< HEAD
-      <Text variant="subheading1" color="$neutral1" {...EllipsisGuiStyle}>
-=======
       <Text variant="subheading1" color="$neutral1" {...EllipsisTamaguiStyle}>
->>>>>>> upstream/main
         {unitag ?? ensName ?? shortenedAddress}
       </Text>
       {unitag && (

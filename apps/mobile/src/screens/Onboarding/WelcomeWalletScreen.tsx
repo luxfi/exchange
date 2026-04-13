@@ -5,29 +5,6 @@ import { useTranslation } from 'react-i18next'
 import { AppStackParamList, OnboardingStackParamList } from 'src/app/navigation/types'
 import { Screen } from 'src/components/layout/Screen'
 import { useNavigationHeader } from 'src/utils/useNavigationHeader'
-<<<<<<< HEAD
-import { Button, Flex, Loader, Text, useMedia, useSporeColors } from '@l.x/ui/src'
-import { Arrow } from '@l.x/ui/src/components/arrow/Arrow'
-import { Lock } from '@l.x/ui/src/components/icons'
-import { fonts, iconSizes, opacify } from '@l.x/ui/src/theme'
-import AnimatedNumber from '@l.x/lx/src/components/AnimatedNumber/AnimatedNumber'
-import { DisplayNameText } from '@l.x/lx/src/components/accounts/DisplayNameText'
-import { AccountIcon } from '@l.x/lx/src/features/accounts/AccountIcon'
-import { DisplayNameType } from '@l.x/lx/src/features/accounts/types'
-import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
-import { ElementName } from '@l.x/lx/src/features/telemetry/constants'
-import Trace from '@l.x/lx/src/features/telemetry/Trace'
-import i18next from '@l.x/lx/src/i18n'
-import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
-import { MobileScreens, OnboardingScreens } from '@l.x/lx/src/types/screens/mobile'
-import { NumberType } from '@l.x/utils/src/format/types'
-import {
-  useCreateOnboardingAccountIfNone,
-  useOnboardingContext,
-} from '@luxfi/wallet/src/features/onboarding/OnboardingContext'
-import { UnitagProfilePicture } from '@luxfi/wallet/src/features/unitags/UnitagProfilePicture'
-import { useDisplayName } from '@luxfi/wallet/src/features/wallet/hooks'
-=======
 import { Button, Flex, Loader, Text, useMedia, useSporeColors } from 'ui/src'
 import { Arrow } from 'ui/src/components/arrow/Arrow'
 import { Lock } from 'ui/src/components/icons'
@@ -49,7 +26,6 @@ import {
 } from 'wallet/src/features/onboarding/OnboardingContext'
 import { UnitagProfilePicture } from 'wallet/src/features/unitags/UnitagProfilePicture'
 import { useDisplayName } from 'wallet/src/features/wallet/hooks'
->>>>>>> upstream/main
 
 type Props = CompositeScreenProps<
   NativeStackScreenProps<OnboardingStackParamList, OnboardingScreens.WelcomeWallet>,

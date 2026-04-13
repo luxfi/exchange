@@ -1,13 +1,7 @@
 import { createMigrate } from 'redux-persist'
-<<<<<<< HEAD
-import { FiatCurrency } from '@l.x/lx/src/features/fiatCurrency/constants'
-import { Language } from '@l.x/lx/src/features/language/constants'
-import { DeviceAccessTimeout } from '@l.x/lx/src/features/settings/constants'
-=======
 import { FiatCurrency } from 'uniswap/src/features/fiatCurrency/constants'
 import { Language } from 'uniswap/src/features/language/constants'
 import { DeviceAccessTimeout } from 'uniswap/src/features/settings/constants'
->>>>>>> upstream/main
 import { migration1 } from '~/state/migrations/1'
 import { migration2 } from '~/state/migrations/2'
 import { migration3 } from '~/state/migrations/3'

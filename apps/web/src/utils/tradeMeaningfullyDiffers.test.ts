@@ -1,10 +1,5 @@
-<<<<<<< HEAD
-import { Percent, TradeType } from '@luxamm/sdk-core'
-import { Route } from '@luxamm/v3-sdk'
-=======
 import { Percent, TradeType } from '@uniswap/sdk-core'
 import { Route } from '@uniswap/v3-sdk'
->>>>>>> upstream/main
 import { ClassicTrade, QuoteMethod } from '~/state/routing/types'
 import {
   TEST_POOL_13,

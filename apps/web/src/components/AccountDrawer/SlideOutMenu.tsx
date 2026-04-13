@@ -1,10 +1,5 @@
-<<<<<<< HEAD
-import { Flex, FlexProps, Text, TouchableArea, useScrollbarStyles } from '@l.x/ui/src'
-import { ArrowLeft } from '@l.x/ui/src/components/icons/ArrowLeft'
-=======
 import { Flex, FlexProps, Text, TouchableArea, useScrollbarStyles } from 'ui/src'
 import { ArrowLeft } from 'ui/src/components/icons/ArrowLeft'
->>>>>>> upstream/main
 
 type SlideOutMenuProps = {
   children: React.ReactNode

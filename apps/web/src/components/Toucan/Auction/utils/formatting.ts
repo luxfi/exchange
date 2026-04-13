@@ -16,8 +16,6 @@ export function formatTimestampToDate(timestamp: bigint): string {
     year: 'numeric',
   })
 }
-<<<<<<< HEAD
-=======
 
 /**
  * Formats a Date to a short date+time string: "MM/DD HH:MM"
@@ -30,4 +28,3 @@ export function formatShortDateTime(date: Date): string {
   const minutes = String(date.getUTCMinutes()).padStart(2, '0')
   return `${month}/${day} ${hours}:${minutes}`
 }
->>>>>>> upstream/main

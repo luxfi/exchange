@@ -1,5 +1,5 @@
 import { cloneElement, memo } from 'react'
-import { useStyle } from 'tamagui'
+import { useStyle } from '@hanzo/gui'
 import { CustomButtonText } from 'ui/src/components/buttons/Button/components/CustomButtonText/CustomButtonText'
 import { TypeOfButton } from 'ui/src/components/buttons/Button/components/types'
 import { useIconSizes } from 'ui/src/components/buttons/Button/hooks/useIconSizes'

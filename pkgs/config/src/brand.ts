@@ -1,7 +1,7 @@
 /**
  * Runtime brand configuration for white-label deployments.
  *
- * Single source of truth: brand.json from @luxfi/brand or @zooai/brand.
+ * Single source of truth: brand.json mounted via ConfigMap per deployment.
  *
  * How it works:
  * 1. Build copies brand.json from the brand package into the static dir
@@ -9,7 +9,7 @@
  * 3. SPA calls loadBrandConfig() before first render
  * 4. All brand references use the `brand` export which updates in place
  *
- * Secrets: Use Lux KMS for any sensitive values (API keys, WalletConnect project IDs).
+ * Secrets: Use KMS for any sensitive values (API keys, WalletConnect project IDs).
  */
 
 /** Theme color overrides applied on top of the default dark/light themes.
@@ -55,17 +55,17 @@ export interface BrandConfig {
   name: string
   title: string
   description: string
-  /** Short product abbreviation, e.g. "LX" or "Zoo" — used in UI labels */
+  /** Short product abbreviation — used in UI labels */
   shortName: string
-  /** Casual lab name, e.g. "Lux Labs" or "Zoo Labs" — used in social/legal text */
+  /** Casual lab name — used in social/legal text */
   labsName: string
-  /** Legal entity name for Terms/Privacy, e.g. "Lux Industries Inc." */
+  /** Legal entity name for Terms/Privacy */
   legalEntity: string
-  /** Wallet product name, e.g. "Zoo Wallet" or "Lux Wallet" */
+  /** Wallet product name */
   walletName: string
-  /** Protocol product name, e.g. "Zoo Protocol" or "Lux Protocol" */
+  /** Protocol product name */
   protocolName: string
-  /** Copyright holder name, e.g. "Zoo Labs Foundation" */
+  /** Copyright holder name */
   copyrightHolder: string
   appDomain: string
   docsDomain: string
@@ -164,7 +164,7 @@ export let runtimeConfig: RuntimeConfig | null = null
  * ConfigMap mounted by K8s for white-label deployments.
  *
  * Loads /brand.json. In K8s, this is a ConfigMap mount.
- * Secrets (API keys) come from Lux KMS, injected server-side.
+ * Secrets (API keys) come from KMS, injected server-side.
  */
 export async function loadBrandConfig(): Promise<RuntimeConfig> {
   try {
@@ -180,7 +180,7 @@ export async function loadBrandConfig(): Promise<RuntimeConfig> {
     // Derive convenience fields from name if not explicitly set
     const baseName = brand.name.replace(/\s*exchange\s*/i, '').trim()
     if (!brand.shortName && baseName) {
-      // "Lux" → "LX", "Zoo" → "Zoo", "Liquid" → "Liquid"
+      // Short names: 3 chars or fewer get uppercased, rest stay as-is
       brand.shortName = baseName.length <= 3 ? baseName.toUpperCase() : baseName
     }
     if (!brand.labsName && baseName) {

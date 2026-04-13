@@ -1,4 +1,4 @@
-import { createAnimations } from '@tamagui/animations-moti'
+import { createAnimations } from '@hanzogui/animations-moti'
 import { Easing } from 'react-native-reanimated'
 import { delayAnimations200ms } from 'ui/src/theme/animations/delay200ms'
 

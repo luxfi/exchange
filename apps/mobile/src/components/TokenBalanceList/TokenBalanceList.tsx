@@ -12,32 +12,6 @@ import { useAppStackNavigation } from 'src/app/navigation/types'
 import { useAdaptiveFooter } from 'src/components/home/hooks'
 import { TAB_BAR_HEIGHT, TAB_VIEW_SCROLL_THROTTLE, TabProps } from 'src/components/layout/TabHelpers'
 import { useAppStateTrigger } from 'src/utils/useAppStateTrigger'
-<<<<<<< HEAD
-import { Flex, Loader, useSporeColors } from '@l.x/ui/src'
-import { AnimatedFlex } from '@l.x/ui/src/components/layout/AnimatedFlex'
-import { zIndexes } from '@l.x/ui/src/theme'
-import { BaseCard } from '@l.x/lx/src/components/BaseCard/BaseCard'
-import { EmptyTokensList } from '@l.x/lx/src/components/portfolio/EmptyTokensList'
-import { HiddenTokensRow } from '@l.x/lx/src/components/portfolio/HiddenTokensRow'
-import { TokenBalanceItem } from '@l.x/lx/src/components/portfolio/TokenBalanceItem'
-import { TokenBalanceItemContextMenu } from '@l.x/lx/src/components/portfolio/TokenBalanceItemContextMenu'
-import { pushNotification } from '@l.x/lx/src/features/notifications/slice/slice'
-import { AppNotificationType, CopyNotificationType } from '@l.x/lx/src/features/notifications/slice/types'
-import {
-  TokenBalanceListContextProvider,
-  useTokenBalanceListContext,
-} from '@l.x/lx/src/features/portfolio/TokenBalanceListContext'
-import { isHiddenTokenBalancesRow, TokenBalanceListRow } from '@l.x/lx/src/features/portfolio/types'
-import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
-import { useAppInsets } from '@l.x/lx/src/hooks/useAppInsets'
-import { CurrencyId } from '@l.x/lx/src/types/currency'
-import { MobileScreens } from '@l.x/lx/src/types/screens/mobile'
-import { setClipboard } from '@l.x/utils/src/clipboard/clipboard'
-import { DDRumManualTiming } from '@l.x/utils/src/logger/datadog/datadogEvents'
-import { usePerformanceLogger } from '@l.x/utils/src/logger/usePerformanceLogger'
-import { isAndroid } from '@l.x/utils/src/platform'
-import { noop } from '@l.x/utils/src/react/noop'
-=======
 import { Flex, Loader, useSporeColors } from 'ui/src'
 import { AnimatedFlex } from 'ui/src/components/layout/AnimatedFlex'
 import { zIndexes } from 'ui/src/theme'
@@ -63,7 +37,6 @@ import { DDRumManualTiming } from 'utilities/src/logger/datadog/datadogEvents'
 import { usePerformanceLogger } from 'utilities/src/logger/usePerformanceLogger'
 import { isAndroid } from 'utilities/src/platform'
 import { noop } from 'utilities/src/react/noop'
->>>>>>> upstream/main
 
 type TokenBalanceListProps = TabProps & {
   empty?: JSX.Element | null
@@ -74,22 +47,14 @@ type TokenBalanceListProps = TabProps & {
 const ESTIMATED_TOKEN_ITEM_HEIGHT = 64
 
 export const TokenBalanceList = forwardRef<FlatList<TokenBalanceListRow>, TokenBalanceListProps>(
-<<<<<<< HEAD
-  function _TokenBalanceList({ owner, onPressToken, isExternalProfile = false, ...rest }, ref): JSX.Element {
-=======
   function TokenBalanceListInner({ owner, onPressToken, isExternalProfile = false, ...rest }, ref): JSX.Element {
->>>>>>> upstream/main
     return (
       <TokenBalanceListContextProvider
         isExternalProfile={isExternalProfile}
         evmOwner={owner}
         onPressToken={onPressToken}
       >
-<<<<<<< HEAD
-        <TokenBalanceListInner
-=======
         <TokenBalanceListContent
->>>>>>> upstream/main
           ref={ref}
           isExternalProfile={isExternalProfile}
           owner={owner}
@@ -101,13 +66,8 @@ export const TokenBalanceList = forwardRef<FlatList<TokenBalanceListRow>, TokenB
   },
 )
 
-<<<<<<< HEAD
-const TokenBalanceListInner = forwardRef<FlatList<TokenBalanceListRow>, TokenBalanceListProps>(
-  function _TokenBalanceListInner(
-=======
 const TokenBalanceListContent = forwardRef<FlatList<TokenBalanceListRow>, TokenBalanceListProps>(
   function TokenBalanceListContentInner(
->>>>>>> upstream/main
     {
       empty,
       containerProps,
@@ -203,21 +163,13 @@ const TokenBalanceListContent = forwardRef<FlatList<TokenBalanceListRow>, TokenB
       [],
     )
 
-<<<<<<< HEAD
-    const data = balancesById ? rows : undefined
-=======
     const hasData = !!balancesById
     const data = hasData ? rows : undefined
->>>>>>> upstream/main
 
     // Note: `PerformanceView` must wrap the entire return statement to properly track interactive states.
     return (
       <ReactNavigationPerformanceView
-<<<<<<< HEAD
-        interactive={balancesById !== undefined}
-=======
         interactive={hasData}
->>>>>>> upstream/main
         screenName={
           // Marks the home screen as interactive when balances are defined
           MobileScreens.Home
@@ -254,23 +206,14 @@ const TokenBalanceListContent = forwardRef<FlatList<TokenBalanceListRow>, TokenB
   },
 )
 
-<<<<<<< HEAD
-const HeaderComponent = memo(function _HeaderComponent(): JSX.Element | null {
-=======
 const HeaderComponent = memo(function HeaderComponentInner(): JSX.Element | null {
->>>>>>> upstream/main
   const { t } = useTranslation()
   const { balancesById, networkStatus, refetch, isPortfolioBalancesLoading } = useTokenBalanceListContext()
 
   useAppStateTrigger({ from: 'background', to: 'active', callback: refetch || noop })
 
-<<<<<<< HEAD
-  const hasErrorWithCachedValues =
-    !isPortfolioBalancesLoading && !!balancesById && networkStatus === NetworkStatus.error
-=======
   const hasData = !!balancesById
   const hasErrorWithCachedValues = !isPortfolioBalancesLoading && hasData && networkStatus === NetworkStatus.error
->>>>>>> upstream/main
 
   return hasErrorWithCachedValues ? (
     <AnimatedFlex entering={FadeInDown} exiting={FadeOut} px="$spacing24" py="$spacing8">
@@ -287,14 +230,9 @@ const TokenBalanceItemRow = memo(function TokenBalanceItemRow({ item }: { item: 
     navigate(ModalName.HiddenTokenInfoModal)
   }, [])
 
-<<<<<<< HEAD
-  const portfolioBalance = balancesById?.[item]
-  const hasPortfolioBalance = !!portfolioBalance
-=======
   const balance = balancesById?.[item]
   const currencyInfo = balance?.tokens[0]?.currencyInfo
   const isHidden = balance?.isHidden ?? false
->>>>>>> upstream/main
 
   const copyAddressToClipboard = useCallback(
     async (address: string): Promise<void> => {
@@ -309,29 +247,6 @@ const TokenBalanceItemRow = memo(function TokenBalanceItemRow({ item }: { item: 
     [dispatch],
   )
 
-<<<<<<< HEAD
-  const tokenBalanceItem = useMemo(() => {
-    if (!hasPortfolioBalance) {
-      return null
-    }
-
-    return (
-      <TokenBalanceItem
-        padded
-        isHidden={portfolioBalance.isHidden ?? false}
-        isLoading={isWarmLoading}
-        currencyInfo={portfolioBalance.currencyInfo}
-      />
-    )
-  }, [hasPortfolioBalance, portfolioBalance?.isHidden, portfolioBalance?.currencyInfo, isWarmLoading])
-
-  const handlePressToken = useCallback((): void => {
-    const currencyId = portfolioBalance?.currencyInfo.currencyId
-    if (currencyId && onPressToken) {
-      onPressToken(currencyId)
-    }
-  }, [onPressToken, portfolioBalance?.currencyInfo.currencyId])
-=======
   // Adapter to bridge multichain balance to PortfolioBalance shape for the context menu.
   const portfolioBalance: PortfolioBalance | undefined = useMemo(() => {
     if (!balance?.tokens[0]) {
@@ -354,21 +269,14 @@ const TokenBalanceItemRow = memo(function TokenBalanceItemRow({ item }: { item: 
       onPressToken(currencyInfo.currencyId)
     }
   }, [currencyInfo?.currencyId, onPressToken])
->>>>>>> upstream/main
 
   if (isHiddenTokenBalancesRow(item)) {
     return <HiddenTokensRow onPressLearnMore={handlePressLearnMore} />
   }
 
-<<<<<<< HEAD
-  if (!portfolioBalance) {
-    // This can happen when the view is out of focus and the user sells/sends 100% of a token's balance.
-    // In that case, the token is removed from the `balancesById` object, but the FlatList is still using the cached array of IDs until the view comes back into focus.
-=======
   if (!balance || !portfolioBalance || !currencyInfo) {
     // This can happen when the view is out of focus and the user sells/sends 100% of a token's balance.
     // In that case, the token is removed from the balances object, but the FlatList is still using the cached array of IDs until the view comes back into focus.
->>>>>>> upstream/main
     // As soon as the view comes back into focus, the FlatList will re-render with the latest data, so users won't really see this Skeleton for more than a few milliseconds when this happens.
     return (
       <Flex height={ESTIMATED_TOKEN_ITEM_HEIGHT} px="$spacing24">
@@ -390,11 +298,7 @@ const TokenBalanceItemRow = memo(function TokenBalanceItemRow({ item }: { item: 
       }
       onPressToken={handlePressToken}
     >
-<<<<<<< HEAD
-      {tokenBalanceItem}
-=======
       <TokenBalanceItem padded isHidden={isHidden} isLoading={isWarmLoading} currencyInfo={currencyInfo} />
->>>>>>> upstream/main
     </TokenBalanceItemContextMenu>
   )
 })

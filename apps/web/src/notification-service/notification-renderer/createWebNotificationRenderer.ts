@@ -1,12 +1,6 @@
-<<<<<<< HEAD
-/* eslint-disable import/no-unused-modules */
+/* oxlint-disable import/no-unused-modules */
 import { ContentStyle, type InAppNotification } from '@l.x/api'
 import { createNotificationRenderer, type NotificationRenderer } from '@l.x/notifications'
-=======
-/* oxlint-disable import/no-unused-modules */
-import { ContentStyle, type InAppNotification } from '@universe/api'
-import { createNotificationRenderer, type NotificationRenderer } from '@universe/notifications'
->>>>>>> upstream/main
 import { type StoreApi, type UseBoundStore } from 'zustand'
 import { type NotificationState } from '~/notification-service/notification-renderer/notificationStore'
 

@@ -1,14 +1,4 @@
 import { useQuery } from '@tanstack/react-query'
-<<<<<<< HEAD
-import { GetBidsByWalletRequest } from '@luxamm/client-data-api/dist/data/v1/auction_pb'
-import { useCallback, useEffect, useMemo, useRef } from 'react'
-import { auctionQueries } from '@l.x/lx/src/data/rest/auctions/auctionQueries'
-import { EVMUniverseChainId } from '@l.x/lx/src/features/chains/types'
-import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
-import { TransactionStatus } from '@l.x/lx/src/features/transactions/types/transactionDetails'
-import { isFinalizedTxStatus } from '@l.x/lx/src/features/transactions/types/utils'
-import { logger } from '@l.x/utils/src/logger/logger'
-=======
 import { GetBidsByWalletRequest } from '@uniswap/client-data-api/dist/data/v1/auction_pb'
 import { useCallback, useEffect, useMemo, useRef } from 'react'
 import { auctionQueries } from 'uniswap/src/data/rest/auctions/auctionQueries'
@@ -17,7 +7,6 @@ import { Platform } from 'uniswap/src/features/platforms/types/Platform'
 import { TransactionStatus } from 'uniswap/src/features/transactions/types/transactionDetails'
 import { isFinalizedTxStatus } from 'uniswap/src/features/transactions/types/utils'
 import { logger } from 'utilities/src/logger/logger'
->>>>>>> upstream/main
 import { areUserBidsEqual, sortUserBidsById } from '~/components/Toucan/Auction/BidDistributionChart/utils/equality'
 import { AuctionBidStatus, AuctionProgressState } from '~/components/Toucan/Auction/store/types'
 import { useAuctionStore, useAuctionStoreActions } from '~/components/Toucan/Auction/store/useAuctionStore'

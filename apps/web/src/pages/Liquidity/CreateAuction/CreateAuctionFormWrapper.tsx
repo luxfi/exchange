@@ -1,12 +1,7 @@
 import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
-<<<<<<< HEAD
-import { Flex, Text, useMedia } from '@l.x/ui/src'
-import { Chevron } from '@l.x/ui/src/components/icons/Chevron'
-=======
 import { Flex, Text, useMedia } from 'ui/src'
 import { Chevron } from 'ui/src/components/icons/Chevron'
->>>>>>> upstream/main
 import { BreadcrumbNavContainer, BreadcrumbNavLink } from '~/components/BreadcrumbNav'
 import {
   PoolProgressIndicator,
@@ -17,35 +12,6 @@ import {
   useCreateAuctionStore,
   useCreateAuctionStoreActions,
 } from '~/pages/Liquidity/CreateAuction/CreateAuctionContext'
-<<<<<<< HEAD
-=======
-import { useIsStepValid } from '~/pages/Liquidity/CreateAuction/hooks/useIsStepValid'
->>>>>>> upstream/main
-import { CreateAuctionStep } from '~/pages/Liquidity/CreateAuction/types'
-
-const WIDTH = {
-  positionCard: 720,
-  sidebar: SIDEBAR_WIDTH,
-}
-
-export function CreateAuctionFormWrapper({ children }: { children: React.ReactNode }) {
-  const { t } = useTranslation()
-  const media = useMedia()
-  const step = useCreateAuctionStore((state) => state.step)
-  const { setStep } = useCreateAuctionStoreActions()
-<<<<<<< HEAD
-
-  const progressSteps = useMemo(() => {
-    const createStep = ({ label, stepEnum }: { label: string; stepEnum: CreateAuctionStep }) => ({
-      label,
-      active: step === stepEnum,
-      onPress: () => {
-        if (stepEnum < step) {
-          setStep(stepEnum)
-        }
-      },
-    })
-=======
   const isStep0Valid = useIsStepValid(CreateAuctionStep.ADD_TOKEN_INFO)
   const isStep1Valid = useIsStepValid(CreateAuctionStep.CONFIGURE_AUCTION)
 
@@ -60,7 +26,6 @@ export function CreateAuctionFormWrapper({ children }: { children: React.ReactNo
         onPress: canNavigate ? () => setStep(stepEnum) : undefined,
       }
     }
->>>>>>> upstream/main
 
     return [
       createStep({ label: t('toucan.createAuction.step.tokenInfo'), stepEnum: CreateAuctionStep.ADD_TOKEN_INFO }),
@@ -71,11 +36,7 @@ export function CreateAuctionFormWrapper({ children }: { children: React.ReactNo
       createStep({ label: t('toucan.createAuction.step.customizePool'), stepEnum: CreateAuctionStep.CUSTOMIZE_POOL }),
       // Review step intentionally excluded - shown inline without step navigation
     ]
-<<<<<<< HEAD
-  }, [step, setStep, t])
-=======
   }, [step, setStep, t, isStep0Valid, isStep1Valid])
->>>>>>> upstream/main
 
   return (
     <Flex

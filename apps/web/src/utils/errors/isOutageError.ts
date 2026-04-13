@@ -10,13 +10,8 @@ const OUTAGE_ERROR_CODES = {
 } as const
 
 /**
-<<<<<<< HEAD
- * Custom Lux API error types that indicate an outage.
- * These are returned at the root level of GraphQL errors from the Lux API,
-=======
  * Custom Uniswap API error types that indicate an outage.
  * These are returned at the root level of GraphQL errors from the Uniswap API,
->>>>>>> upstream/main
  * not in the standard `extensions` field.
  */
 const OUTAGE_ERROR_TYPES = {
@@ -24,17 +19,10 @@ const OUTAGE_ERROR_TYPES = {
 } as const
 
 /**
-<<<<<<< HEAD
- * Type for Lux API GraphQL errors which include custom fields
- * like `errorType` at the root level (not in extensions).
- */
-interface LuxGraphQLError {
-=======
  * Type for Uniswap API GraphQL errors which include custom fields
  * like `errorType` at the root level (not in extensions).
  */
 interface UniswapGraphQLError {
->>>>>>> upstream/main
   message: string
   errorType?: string
   extensions?: {
@@ -69,19 +57,11 @@ export function isOutageError(error: ApolloError): boolean {
   // Check for server errors (5xx), timeouts, and external API errors
   if (error.graphQLErrors.length > 0) {
     for (const gqlError of error.graphQLErrors) {
-<<<<<<< HEAD
-      // Cast to our extended type since Lux API returns custom fields at root level
-      const luxError = gqlError as LuxGraphQLError
-
-      // Check standard Apollo error codes in extensions
-      const extensions = luxError.extensions
-=======
       // Cast to our extended type since Uniswap API returns custom fields at root level
       const uniswapError = gqlError as UniswapGraphQLError
 
       // Check standard Apollo error codes in extensions
       const extensions = uniswapError.extensions
->>>>>>> upstream/main
       if (
         extensions?.code === OUTAGE_ERROR_CODES.INTERNAL_SERVER_ERROR ||
         extensions?.code === OUTAGE_ERROR_CODES.TIMEOUT
@@ -89,15 +69,9 @@ export function isOutageError(error: ApolloError): boolean {
         return true
       }
 
-<<<<<<< HEAD
-      // Check custom Lux API error types at root level (not in extensions)
-      // The Lux API returns errorType directly on the error object
-      if (luxError.errorType === OUTAGE_ERROR_TYPES.EXTERNAL_API_ERROR) {
-=======
       // Check custom Uniswap API error types at root level (not in extensions)
       // The Uniswap API returns errorType directly on the error object
       if (uniswapError.errorType === OUTAGE_ERROR_TYPES.EXTERNAL_API_ERROR) {
->>>>>>> upstream/main
         return true
       }
     }

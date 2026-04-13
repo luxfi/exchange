@@ -1,5 +1,5 @@
 {
-  "name": "@universe/hashcash-native",
+  "name": "@l.x/hashcash-native",
   "version": "0.0.1",
   "description": "Native hashcash proof-of-work solver for React Native",
   "author": "Uniswap Labs",
@@ -58,16 +58,16 @@
   },
   "devDependencies": {
     "@typescript/native-preview": "7.0.0-dev.20260311.1",
-    "@uniswap/eslint-config": "workspace:^",
     "eslint": "10.0.2",
     "nitrogen": "0.31.10",
-    "react": "19.0.3",
+    "react": "19.2.5",
     "react-native": "0.79.5",
     "react-native-nitro-modules": "0.31.10",
-    "typescript": "5.8.3"
+    "typescript": "5.9.3",
+    "@luxfi/eslint-config": "workspace:^"
   },
   "peerDependencies": {
-    "react": ">=19.0.0",
+    "react": "19.2.5",
     "react-native": ">=0.79.0",
     "react-native-nitro-modules": ">=0.31.0"
   }

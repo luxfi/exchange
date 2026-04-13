@@ -65,25 +65,7 @@ import {
   resetTokensOrderBy,
   resetTokensOrderByAndMetadataDisplayType,
   restructureTransactionsAndNotifications,
-<<<<<<< HEAD
-=======
-  setWalletDeviceLanguage,
->>>>>>> upstream/main
-  transformNotificationCountToStatus,
-  updateLanguageSettings,
-} from 'src/app/mobileMigrations'
-import {
-  addActivityVisibility,
-  addDismissedBridgedAndCompatibleWarnings,
-  migrateDismissedTokenWarnings,
-  migrateSearchHistory,
-  removeThaiBahtFromFiatCurrency,
-  unchecksumDismissedTokenWarningKeys,
-<<<<<<< HEAD
-} from '@l.x/lx/src/state/luxMigrations'
-=======
 } from 'uniswap/src/state/uniswapMigrations'
->>>>>>> upstream/main
 import {
   activatePendingAccounts,
   addBatchedTransactions,
@@ -108,11 +90,7 @@ import {
   removeUniconV2BehaviorState,
   removeWalletIsUnlockedState,
   updateExploreOrderByType,
-<<<<<<< HEAD
-} from '@luxfi/wallet/src/state/walletMigrations'
-=======
 } from 'wallet/src/state/walletMigrations'
->>>>>>> upstream/main
 
 export const migrations = {
   0: restructureTransactionsAndNotifications,
@@ -212,13 +190,7 @@ export const migrations = {
   94: addDismissedBridgedAndCompatibleWarnings,
   95: addActivityVisibility,
   96: migrateDismissedTokenWarnings,
-<<<<<<< HEAD
-}
-
-export const MOBILE_STATE_VERSION = 96
-=======
   97: setWalletDeviceLanguage,
 }
 
 export const MOBILE_STATE_VERSION = 97
->>>>>>> upstream/main

@@ -1,17 +1,9 @@
 import { memo } from 'react'
-<<<<<<< HEAD
-import { Text } from '@l.x/ui/src'
-import { PollingInterval } from '@l.x/lx/src/constants/misc'
-import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
-import { useUSDCValue } from '@l.x/lx/src/features/transactions/hooks/useUSDCPriceWrapper'
-import { NumberType } from '@l.x/utils/src/format/types'
-=======
 import { Text } from 'ui/src'
 import { PollingInterval } from 'uniswap/src/constants/misc'
 import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
 import { useUSDCValue } from 'uniswap/src/features/transactions/hooks/useUSDCPriceWrapper'
 import { NumberType } from 'utilities/src/format/types'
->>>>>>> upstream/main
 import { PositionInfo } from '~/components/Liquidity/types'
 import { EmptyTableCell } from '~/pages/Portfolio/EmptyTableCell'
 

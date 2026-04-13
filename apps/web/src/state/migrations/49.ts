@@ -13,11 +13,7 @@ export const migration49 = (
     return undefined
   }
 
-<<<<<<< HEAD
-  // biome-ignore lint/correctness/noUnusedVariables: we want to remove localWebTransactions
-=======
   // oxlint-disable-next-line no-unused-vars -- we want to remove localWebTransactions
->>>>>>> upstream/main
   const { localWebTransactions, ...restState } = state
 
   return {

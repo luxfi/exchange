@@ -1,4 +1,4 @@
-import { styled } from 'tamagui'
+import { styled } from '@hanzo/gui'
 import { CustomButtonFrame } from 'ui/src/components/buttons/Button/components/CustomButtonFrame/CustomButtonFrame'
 import { dropdownButtonStyledContext } from 'ui/src/components/buttons/DropdownButton/constants'
 

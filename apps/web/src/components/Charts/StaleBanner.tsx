@@ -1,11 +1,6 @@
 import { useTranslation } from 'react-i18next'
-<<<<<<< HEAD
-import { Flex, styled, Text, useIsDarkMode } from '@l.x/ui/src'
-import { ChartBarCrossed } from '@l.x/ui/src/components/icons/ChartBarCrossed'
-=======
 import { Flex, styled, Text, useIsDarkMode } from 'ui/src'
 import { ChartBarCrossed } from 'ui/src/components/icons/ChartBarCrossed'
->>>>>>> upstream/main
 import { ChartTooltip } from '~/components/Charts/ChartTooltip'
 
 const StaleBannerWrapper = styled(ChartTooltip, {

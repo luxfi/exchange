@@ -1,11 +1,4 @@
 import { useMemo } from 'react'
-<<<<<<< HEAD
-import { Flex, Text } from '@l.x/ui/src'
-import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
-import { NumberType } from '@l.x/utils/src/format/types'
-import type { ClearingPriceChartPoint } from '~/components/Charts/ToucanChart/clearingPrice/types'
-import type { BidTokenInfo } from '~/components/Toucan/Auction/store/types'
-=======
 import { useTranslation } from 'react-i18next'
 import { Flex, Text } from 'ui/src'
 import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
@@ -15,44 +8,29 @@ import { formatTickForDisplay } from '~/components/Toucan/Auction/BidDistributio
 import type { BidTokenInfo } from '~/components/Toucan/Auction/store/types'
 import { formatCompactFromRaw } from '~/components/Toucan/Auction/utils/fixedPointFdv'
 import { formatTimestampToDate } from '~/components/Toucan/Auction/utils/formatting'
->>>>>>> upstream/main
 import { SubscriptZeroPrice } from '~/components/Toucan/Shared/SubscriptZeroPrice'
 
 interface ClearingPriceTooltipBodyProps {
   data: ClearingPriceChartPoint
   bidTokenInfo: BidTokenInfo
-<<<<<<< HEAD
-  maxFractionDigits: number
-  scaleFactor: number
-=======
   scaleFactor: number
   totalSupply?: string
   auctionTokenDecimals?: number
->>>>>>> upstream/main
 }
 
 /**
  * Tooltip content for the clearing price chart.
-<<<<<<< HEAD
- * Displays the price in bid token (with subscript notation for small values)
- * and its fiat equivalent.
-=======
  * Displays the date, price in bid token (with subscript notation for small values),
  * its fiat equivalent, and FDV when available.
->>>>>>> upstream/main
  */
 export function ClearingPriceTooltipBody({
   data,
   bidTokenInfo,
   scaleFactor,
-<<<<<<< HEAD
-}: ClearingPriceTooltipBodyProps): JSX.Element {
-=======
   totalSupply,
   auctionTokenDecimals,
 }: ClearingPriceTooltipBodyProps): JSX.Element {
   const { t } = useTranslation()
->>>>>>> upstream/main
   const { convertFiatAmountFormatted } = useLocalizationContext()
 
   // Unscale the value (chart data is scaled for Y-axis display)
@@ -63,22 +41,6 @@ export function ClearingPriceTooltipBody({
     return convertFiatAmountFormatted(fiatAmount, NumberType.FiatTokenPrice)
   }, [originalValue, bidTokenInfo.priceFiat, convertFiatAmountFormatted])
 
-<<<<<<< HEAD
-  return (
-    <Flex flexDirection="column" gap="$gap2">
-      <SubscriptZeroPrice
-        value={originalValue}
-        symbol={bidTokenInfo.symbol}
-        minSignificantDigits={2}
-        maxSignificantDigits={4}
-        subscriptThreshold={4}
-        variant="body3"
-        color="$neutral1"
-      />
-      <Text variant="body4" color="$neutral2">
-        {fiatValue}
-      </Text>
-=======
   const dateStr = formatTimestampToDate(BigInt(data.time))
 
   // FDV: price per auction token * total supply
@@ -149,7 +111,6 @@ export function ClearingPriceTooltipBody({
           </Text>
         </Flex>
       )}
->>>>>>> upstream/main
     </Flex>
   )
 }

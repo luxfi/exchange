@@ -1,12 +1,7 @@
 import Fuse from 'fuse.js'
 import React from 'react'
-<<<<<<< HEAD
-import { Flex, Text, TextProps } from '@l.x/ui/src'
-import { TextVariantTokens } from '@l.x/ui/src/theme'
-=======
 import { Flex, Text, TextProps } from 'ui/src'
 import { TextVariantTokens } from 'ui/src/theme'
->>>>>>> upstream/main
 
 interface TextWithFuseMatchesProps {
   text: string

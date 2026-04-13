@@ -1,18 +1,4 @@
 import type { TransactionResponse } from '@ethersproject/providers'
-<<<<<<< HEAD
-import MerkleDistributorJSON from '@luxamm/merkle-distributor/build/MerkleDistributor.json'
-import { CurrencyAmount, MERKLE_DISTRIBUTOR_ADDRESS, Token } from '@luxamm/sdk-core'
-import { useWeb3React } from '@web3-react/core'
-import JSBI from 'jsbi'
-import { useEffect, useState } from 'react'
-import { UNI } from '@l.x/lx/src/constants/tokens'
-import { normalizeTokenAddressForCache } from '@l.x/lx/src/data/cache'
-import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
-import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
-import { TransactionType } from '@l.x/lx/src/features/transactions/types/transactionDetails'
-import { getValidAddress } from '@l.x/lx/src/utils/addresses'
-import { logger } from '@l.x/utils/src/logger/logger'
-=======
 import MerkleDistributorJSON from '@uniswap/merkle-distributor/build/MerkleDistributor.json'
 import { CurrencyAmount, MERKLE_DISTRIBUTOR_ADDRESS, Token } from '@uniswap/sdk-core'
 import { useWeb3React } from '@web3-react/core'
@@ -25,7 +11,6 @@ import { Platform } from 'uniswap/src/features/platforms/types/Platform'
 import { TransactionType } from 'uniswap/src/features/transactions/types/transactionDetails'
 import { getValidAddress } from 'uniswap/src/utils/addresses'
 import { logger } from 'utilities/src/logger/logger'
->>>>>>> upstream/main
 import { useReadContract } from 'wagmi'
 import { useAccount } from '~/hooks/useAccount'
 import { useContract } from '~/hooks/useContract'
@@ -81,11 +66,7 @@ function fetchClaimMapping(): Promise<ClaimAddressMapping> {
   return (
     FETCH_CLAIM_MAPPING_PROMISE ??
     (FETCH_CLAIM_MAPPING_PROMISE = fetch(
-<<<<<<< HEAD
-      `https://raw.githubusercontent.com/Lux/mrkl-drop-data-chunks/final/chunks/mapping.json`,
-=======
       `https://raw.githubusercontent.com/Uniswap/mrkl-drop-data-chunks/final/chunks/mapping.json`,
->>>>>>> upstream/main
     )
       .then((res) => res.json())
       .catch((error) => {
@@ -98,17 +79,10 @@ function fetchClaimMapping(): Promise<ClaimAddressMapping> {
 const FETCH_CLAIM_FILE_PROMISES: { [startingAddress: string]: Promise<{ [address: string]: UserClaimData }> } = {}
 function fetchClaimFile(key: string): Promise<{ [address: string]: UserClaimData }> {
   return (
-<<<<<<< HEAD
-    // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
-    FETCH_CLAIM_FILE_PROMISES[key] ??
-    (FETCH_CLAIM_FILE_PROMISES[key] = fetch(
-      `https://raw.githubusercontent.com/Lux/mrkl-drop-data-chunks/final/chunks/${key}.json`,
-=======
     // oxlint-disable-next-line typescript/no-unnecessary-condition
     FETCH_CLAIM_FILE_PROMISES[key] ??
     (FETCH_CLAIM_FILE_PROMISES[key] = fetch(
       `https://raw.githubusercontent.com/Uniswap/mrkl-drop-data-chunks/final/chunks/${key}.json`,
->>>>>>> upstream/main
     )
       .then((res) => res.json())
       .catch((error) => {
@@ -127,11 +101,7 @@ function fetchClaim(account: string): Promise<UserClaimData> {
   }
 
   return (
-<<<<<<< HEAD
-    // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
-=======
     // oxlint-disable-next-line typescript/no-unnecessary-condition
->>>>>>> upstream/main
     FETCH_CLAIM_PROMISES[account] ??
     (FETCH_CLAIM_PROMISES[account] = fetchClaimMapping()
       .then((mapping) => {
@@ -153,11 +123,7 @@ function fetchClaim(account: string): Promise<UserClaimData> {
       })
       .then(fetchClaimFile)
       .then((result) => {
-<<<<<<< HEAD
-        // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
-=======
         // oxlint-disable-next-line typescript/no-unnecessary-condition
->>>>>>> upstream/main
         if (result[formatted]) {
           return result[formatted]
         }

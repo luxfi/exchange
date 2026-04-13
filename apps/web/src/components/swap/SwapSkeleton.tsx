@@ -1,11 +1,6 @@
 import { useTranslation } from 'react-i18next'
-<<<<<<< HEAD
-import { Flex, styled, Text } from '@l.x/ui/src'
-import { ArrowDown } from '@l.x/ui/src/components/icons/ArrowDown'
-=======
 import { Flex, styled, Text } from 'ui/src'
 import { ArrowDown } from 'ui/src/components/icons/ArrowDown'
->>>>>>> upstream/main
 import { ArrowContainer, ArrowWrapper } from '~/components/swap/styled'
 import { deprecatedStyled } from '~/lib/deprecated-styled'
 

@@ -19,19 +19,11 @@ import {
 import { BidDistributionData, BidTokenInfo, OptimisticBid, UserBid } from '~/components/Toucan/Auction/store/types'
 import { approximateNumberFromRaw } from '~/components/Toucan/Auction/utils/fixedPointFdv'
 
-<<<<<<< HEAD
-/* eslint-disable max-lines -- TODO(Toucan): refactor/ split into smaller modules */
-/**
- * Represents a single bar in the distribution chart
- */
-// eslint-disable-next-line import/no-unused-modules
-=======
 /* oxlint-disable max-lines -- TODO(Toucan): refactor/ split into smaller modules */
 /**
  * Represents a single bar in the distribution chart
  */
 // oxlint-disable-next-line import/no-unused-modules
->>>>>>> upstream/main
 export interface ChartBarData {
   tick: number // Tick value in smallest unit (decimal, for chart rendering)
   tickQ96: string // Original Q96 string for precise matching and click handling
@@ -43,11 +35,7 @@ export interface ChartBarData {
 /**
  * Processed chart data with calculated axis information
  */
-<<<<<<< HEAD
-// eslint-disable-next-line import/no-unused-modules
-=======
 // oxlint-disable-next-line import/no-unused-modules
->>>>>>> upstream/main
 export interface ProcessedChartData {
   bars: ChartBarData[]
   yAxisLevels: number[]
@@ -127,11 +115,7 @@ export function mergeUserBidVolumes(params: {
     }
   })
 
-<<<<<<< HEAD
-  // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition -- updatedMap may be set inside forEach
-=======
   // oxlint-disable-next-line typescript/no-unnecessary-condition -- updatedMap may be set inside forEach
->>>>>>> upstream/main
   return updatedMap ?? bidDistributionData
 }
 
@@ -165,18 +149,11 @@ function calculateBarStepAndRange(params: { minTick: number; maxTick: number; ti
 
   if (dataSteps >= CHART_CONSTRAINTS.MIN_BARS) {
     // We have enough steps, use them all
-<<<<<<< HEAD
-    return {
-      barStep: tickSize,
-      rangeMax: maxTick,
-      totalBars: dataSteps,
-=======
     const cappedSteps = Math.min(dataSteps, MAX_RENDERABLE_BARS)
     return {
       barStep: tickSize,
       rangeMax: cappedSteps < dataSteps ? minTick + (cappedSteps - 1) * tickSize : maxTick,
       totalBars: cappedSteps,
->>>>>>> upstream/main
     }
   } else {
     // Need to extend range to reach MIN_BARS

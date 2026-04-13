@@ -1,5 +1,5 @@
 {
-  "name": "@universe/gating",
+  "name": "@l.x/gating",
   "version": "0.0.0",
   "dependencies": {
     "@statsig/client-core": "3.12.2",
@@ -7,18 +7,18 @@
     "@statsig/js-local-overrides": "3.12.2",
     "@statsig/react-bindings": "3.12.2",
     "@statsig/react-native-bindings": "3.12.2",
-    "@universe/api": "workspace:*",
-    "@universe/config": "workspace:*",
-    "utilities": "workspace:*"
+    "@l.x/api": "workspace:*",
+    "@l.x/config": "workspace:*",
+    "@l.x/utils": "workspace:*"
   },
   "devDependencies": {
     "@types/node": "22.13.1",
     "@typescript/native-preview": "7.0.0-dev.20260311.1",
-    "@uniswap/eslint-config": "workspace:^",
     "depcheck": "1.4.7",
     "eslint": "10.0.2",
-    "typescript": "5.8.3",
-    "vitest": "3.2.1"
+    "typescript": "5.9.3",
+    "vitest": "3.2.1",
+    "@luxfi/eslint-config": "workspace:^"
   },
   "scripts": {
     "typecheck": "nx typecheck gating",

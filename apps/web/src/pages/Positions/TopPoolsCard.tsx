@@ -1,18 +1,9 @@
-<<<<<<< HEAD
 import { GraphQLApi } from '@l.x/api'
-import { Trans } from 'react-i18next'
-import { Flex, Text } from '@l.x/ui/src'
-import { useEnabledChains } from '@l.x/lx/src/features/chains/hooks/useEnabledChains'
-import { toGraphQLChain } from '@l.x/lx/src/features/chains/utils'
-import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
-=======
-import { GraphQLApi } from '@universe/api'
 import { Trans } from 'react-i18next'
 import { Flex, Text } from 'ui/src'
 import { useEnabledChains } from 'uniswap/src/features/chains/hooks/useEnabledChains'
 import { toGraphQLChain } from 'uniswap/src/features/chains/utils'
 import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
->>>>>>> upstream/main
 import { supportedChainIdFromGQLChain } from '~/appGraphql/data/chainUtils'
 import { gqlToCurrency, unwrapToken } from '~/appGraphql/data/util'
 import { LiquidityPositionInfoBadges } from '~/components/Liquidity/LiquidityPositionInfoBadges'

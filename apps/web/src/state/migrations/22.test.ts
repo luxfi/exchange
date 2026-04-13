@@ -1,13 +1,7 @@
 import { createMigrate } from 'redux-persist'
-<<<<<<< HEAD
-import { FiatCurrency } from '@l.x/lx/src/features/fiatCurrency/constants'
-import { Language } from '@l.x/lx/src/features/language/constants'
-import * as languageUtils from '@l.x/lx/src/features/language/utils'
-=======
 import { FiatCurrency } from 'uniswap/src/features/fiatCurrency/constants'
 import { Language } from 'uniswap/src/features/language/constants'
 import * as languageUtils from 'uniswap/src/features/language/utils'
->>>>>>> upstream/main
 import { migration1 } from '~/state/migrations/1'
 import { migration2 } from '~/state/migrations/2'
 import { migration3 } from '~/state/migrations/3'
@@ -39,21 +33,13 @@ vi.mock('utilities/src/platform', () => ({
   isAndroid: false,
 }))
 
-<<<<<<< HEAD
-vi.mock('lx/src/features/language/utils', () => ({
-=======
 vi.mock('uniswap/src/features/language/utils', () => ({
->>>>>>> upstream/main
   getCurrentLanguageFromNavigator: vi.fn().mockReturnValue('en'),
 }))
 
 const mockGetCurrentLanguageFromNavigator = vi.mocked(languageUtils.getCurrentLanguageFromNavigator)
 
-<<<<<<< HEAD
-vi.mock('lx/src/features/language/hooks', () => ({
-=======
 vi.mock('uniswap/src/features/language/hooks', () => ({
->>>>>>> upstream/main
   navigatorLocale: vi.fn().mockReturnValue('en-US'),
 }))
 

@@ -8,31 +8,6 @@ import { SEND_CONTENT_RENDER_DELAY_MS } from 'src/features/send/constants'
 import { SendFormButton } from 'src/features/send/SendFormButton'
 import { SendHeader } from 'src/features/send/SendHeader'
 import { SendTokenForm } from 'src/features/send/SendTokenForm'
-<<<<<<< HEAD
-import { Flex, useSporeColors } from '@l.x/ui/src'
-import { Eye } from '@l.x/ui/src/components/icons'
-import { Modal } from 'lx/src/components/modals/Modal'
-import { WarningSeverity } from 'lx/src/components/modals/WarningModal/types'
-import { WarningModal } from 'lx/src/components/modals/WarningModal/WarningModal'
-import { TokenSelectorModal } from 'lx/src/components/TokenSelector/TokenSelector'
-import { TokenSelectorFlow, TokenSelectorVariation } from 'lx/src/components/TokenSelector/types'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { ModalName } from 'lx/src/features/telemetry/constants'
-import {
-  TransactionModalFooterContainer,
-  TransactionModalInnerContainer,
-} from '@l.x/lx/src/features/transactions/components/TransactionModal/TransactionModal'
-import {
-  TransactionScreen,
-  useTransactionModalContext,
-} from '@l.x/lx/src/features/transactions/components/TransactionModal/TransactionModalContext'
-import { CompatibleAddressModal } from '@l.x/lx/src/features/transactions/modals/CompatibleAddressModal'
-import { LowNativeBalanceModal } from '@l.x/lx/src/features/transactions/modals/LowNativeBalanceModal'
-import { CurrencyField } from '@l.x/lx/src/types/currency'
-import { createTransactionId } from '@l.x/lx/src/utils/createTransactionId'
-import { useActiveAddresses } from '@luxfi/wallet/src/features/accounts/store/hooks'
-import { useSendContext } from '@luxfi/wallet/src/features/transactions/contexts/SendContext'
-=======
 import { Flex, useSporeColors } from 'ui/src'
 import { Eye } from 'ui/src/components/icons'
 import { Modal } from 'uniswap/src/components/modals/Modal'
@@ -56,7 +31,6 @@ import { CurrencyField } from 'uniswap/src/types/currency'
 import { createTransactionId } from 'uniswap/src/utils/createTransactionId'
 import { useActiveAddresses } from 'wallet/src/features/accounts/store/hooks'
 import { useSendContext } from 'wallet/src/features/transactions/contexts/SendContext'
->>>>>>> upstream/main
 
 function useGoToReviewScreen(): () => void {
   const { updateSendForm } = useSendContext()

@@ -1,5 +1,5 @@
 {
-  "name": "@universe/api",
+  "name": "@l.x/api",
   "version": "0.0.0",
   "scripts": {
     "lint:eslint": "nx lint:eslint api",
@@ -8,7 +8,6 @@
     "lint:fix": "nx lint:fix api",
     "typecheck": "nx typecheck api",
     "typecheck:tsgo": "nx typecheck:tsgo api",
-    "prepare": "nx prepare api",
     "test": "nx test api",
     "graphql:generate": "nx graphql:generate api",
     "graphql:schema": "nx graphql:schema api",
@@ -37,12 +36,12 @@
     "@uniswap/client-liquidity": "0.3.0",
     "@uniswap/client-notification-service": "0.0.11",
     "@uniswap/client-unirpc-v2": "0.0.2",
-    "@universe/config": "workspace:^",
-    "@universe/sessions": "workspace:^",
+    "@l.x/config": "workspace:^",
+    "@l.x/sessions": "workspace:^",
     "expo-secure-store": "14.0.1",
     "graphql": "16.10.0",
-    "react": "19.0.3",
-    "utilities": "workspace:^"
+    "react": "19.2.5",
+    "@l.x/utils": "workspace:^"
   },
   "devDependencies": {
     "@graphql-codegen/cli": "3.3.1",
@@ -55,16 +54,16 @@
     "@types/node": "22.13.1",
     "@types/react": "19.0.10",
     "@typescript/native-preview": "7.0.0-dev.20260311.1",
-    "@uniswap/eslint-config": "workspace:^",
     "@vitest/coverage-v8": "3.2.1",
     "depcheck": "1.4.7",
     "eslint": "10.0.2",
     "openapi-typescript-codegen": "0.27.0",
     "ts-morph": "23.0.0",
-    "typescript": "5.8.3",
+    "typescript": "5.9.3",
     "viem": "2.30.5",
     "vitest": "3.2.1",
-    "zod": "4.3.6"
+    "zod": "4.3.6",
+    "@luxfi/eslint-config": "workspace:^"
   },
   "optionalDependencies": {
     "@uniswap/client-privy-embedded-wallet": "0.0.5"

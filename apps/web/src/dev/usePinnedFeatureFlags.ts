@@ -7,11 +7,7 @@ import { useCallback } from 'react'
 import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
 
-<<<<<<< HEAD
-const STORAGE_KEY = 'lx_dev_pinned_gating'
-=======
 const STORAGE_KEY = 'uniswap_dev_pinned_gating'
->>>>>>> upstream/main
 
 function validatePinned(parsed: unknown): string[] {
   if (!Array.isArray(parsed) || !parsed.every((x) => typeof x === 'string')) {

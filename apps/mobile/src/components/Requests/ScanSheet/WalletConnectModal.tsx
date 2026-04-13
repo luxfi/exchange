@@ -1,16 +1,8 @@
-<<<<<<< HEAD
+import 'react-native-reanimated'
+import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import React, { useCallback, useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Alert } from 'react-native'
-import 'react-native-reanimated'
-import { FeatureFlags, useFeatureFlag } from '@luxfi/gating'
-=======
-import 'react-native-reanimated'
-import { FeatureFlags, useFeatureFlag } from '@universe/gating'
-import React, { useCallback, useEffect, useState } from 'react'
-import { useTranslation } from 'react-i18next'
-import { Alert } from 'react-native'
->>>>>>> upstream/main
 import { useDispatch } from 'react-redux'
 import { useEagerExternalProfileRootNavigation } from 'src/app/navigation/hooks'
 import { BackButtonView } from 'src/components/layout/BackButtonView'
@@ -26,23 +18,6 @@ import { openDeepLink } from 'src/features/deepLinking/handleDeepLinkSaga'
 import { useWalletConnect } from 'src/features/walletConnect/useWalletConnect'
 import { pairWithWalletConnectURI } from 'src/features/walletConnect/utils'
 import { addRequest } from 'src/features/walletConnect/walletConnectSlice'
-<<<<<<< HEAD
-import { Flex, Text, TouchableArea, useIsDarkMode } from '@l.x/ui/src'
-import { QrCode, Scan } from '@l.x/ui/src/components/icons'
-import { useSporeColorsForTheme } from '@l.x/ui/src/hooks/useSporeColors'
-import { Modal } from '@l.x/lx/src/components/modals/Modal'
-import { ScannerModalState } from '@l.x/lx/src/components/ReceiveQRCode/constants'
-import { ReceiveQRCode } from '@l.x/lx/src/components/ReceiveQRCode/ReceiveQRCode'
-import { AccountType } from '@l.x/lx/src/features/accounts/types'
-import { ElementName, ModalName } from '@l.x/lx/src/features/telemetry/constants'
-import Trace from '@l.x/lx/src/features/telemetry/Trace'
-import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
-import { UwULinkRequest } from '@l.x/lx/src/types/walletConnect'
-import { isBetaEnv, isDevEnv } from '@l.x/utils/src/environment/env'
-import { logger } from '@l.x/utils/src/logger/logger'
-import { useContractManager, useProviderManager } from '@luxfi/wallet/src/features/wallet/context'
-import { useActiveAccount } from '@luxfi/wallet/src/features/wallet/hooks'
-=======
 import { Flex, Text, TouchableArea, useIsDarkMode } from 'ui/src'
 import { QrCode, Scan } from 'ui/src/components/icons'
 import { useSporeColorsForTheme } from 'ui/src/hooks/useSporeColors'
@@ -58,7 +33,6 @@ import { isBetaEnv, isDevEnv } from 'utilities/src/environment/env'
 import { logger } from 'utilities/src/logger/logger'
 import { useContractManager, useProviderManager } from 'wallet/src/features/wallet/context'
 import { useActiveAccount } from 'wallet/src/features/wallet/hooks'
->>>>>>> upstream/main
 
 type Props = {
   initialScreenState?: ScannerModalState
@@ -100,10 +74,7 @@ export function WalletConnectModal({
   }, [hasPendingSessionError])
 
   const onScanCode = useCallback(
-<<<<<<< HEAD
-=======
     // oxlint-disable-next-line complexity -- biome-parity: oxlint is stricter here
->>>>>>> upstream/main
     async (uri: string) => {
       // don't scan any QR codes if there is an error popup open or camera is frozen
       if (!activeAccount || hasPendingSessionError || shouldFreezeCamera) {

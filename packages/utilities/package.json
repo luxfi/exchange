@@ -1,5 +1,5 @@
 {
-  "name": "utilities",
+  "name": "@l.x/utils",
   "version": "0.0.0",
   "dependencies": {
     "@amplitude/analytics-browser": "1.12.1",
@@ -30,7 +30,7 @@
     "graphql": "16.10.0",
     "jsbi": "3.2.5",
     "promise": "8.3.0",
-    "react": "19.0.3",
+    "react": "19.2.5",
     "react-native": "0.79.5",
     "react-native-device-info": "10.11.0",
     "redux": "4.2.1",
@@ -45,12 +45,12 @@
     "@types/react": "19.0.10",
     "@types/uuid": "9.0.1",
     "@typescript/native-preview": "7.0.0-dev.20260311.1",
-    "@uniswap/eslint-config": "workspace:^",
     "@vitest/coverage-v8": "3.2.1",
     "eslint": "10.0.2",
-    "typescript": "5.8.3",
+    "typescript": "5.9.3",
     "vitest": "3.2.1",
-    "vitest-presets": "workspace:^"
+    "vitest-presets": "workspace:^",
+    "@luxfi/eslint-config": "workspace:^"
   },
   "main": "src/index.ts",
   "private": true,

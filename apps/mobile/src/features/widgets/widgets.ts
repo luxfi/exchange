@@ -1,20 +1,6 @@
 import { NativeModules } from 'react-native'
 import { getItem, reloadAllTimelines, setItem } from 'react-native-widgetkit'
 import { getBuildVariant } from 'src/utils/version'
-<<<<<<< HEAD
-import { AccountType } from '@l.x/lx/src/features/accounts/types'
-import { currencyIdToContractInput } from '@l.x/lx/src/features/dataApi/utils/currencyIdToContractInput'
-import { MobileEventName } from '@l.x/lx/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
-import { CurrencyId } from '@l.x/lx/src/types/currency'
-import { WidgetEvent } from '@l.x/lx/src/types/widgets'
-import { isAndroid } from '@l.x/utils/src/platform'
-// biome-ignore lint/style/noRestrictedImports: Required for analytics initialization
-import { analytics } from '@l.x/utils/src/telemetry/analytics/analytics'
-import { Account } from '@luxfi/wallet/src/features/wallet/accounts/types'
-
-const APP_GROUP = 'group.com.lux.widgets'
-=======
 import { AccountType } from 'uniswap/src/features/accounts/types'
 import { currencyIdToContractInput } from 'uniswap/src/features/dataApi/utils/currencyIdToContractInput'
 import { MobileEventName } from 'uniswap/src/features/telemetry/constants'
@@ -27,7 +13,6 @@ import { analytics } from 'utilities/src/telemetry/analytics/analytics'
 import { Account } from 'wallet/src/features/wallet/accounts/types'
 
 const APP_GROUP = 'group.com.uniswap.widgets'
->>>>>>> upstream/main
 const KEY_WIDGET_EVENTS = getBuildVariant() + '.widgets.configuration.events'
 const KEY_WIDGET_CACHE = getBuildVariant() + '.widgets.configuration.cache'
 const KEY_WIDGETS_FAVORITE = getBuildVariant() + '.widgets.favorites'
@@ -137,10 +122,6 @@ async function hasWidgetsInstalled(): Promise<boolean> {
   if (isAndroid) {
     return false
   }
-<<<<<<< HEAD
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-return
-=======
   // oxlint-disable-next-line typescript/no-unsafe-return
->>>>>>> upstream/main
   return await RNWidgets.hasWidgetsInstalled()
 }

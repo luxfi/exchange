@@ -1,4 +1,4 @@
-import { useStyle } from 'tamagui'
+import { useStyle } from '@hanzo/gui'
 import { CustomButtonText } from 'ui/src/components/buttons/Button/components/CustomButtonText/CustomButtonText'
 import type { TypeOfButton } from 'ui/src/components/buttons/Button/components/types'
 import { useIconSizes } from 'ui/src/components/buttons/Button/hooks/useIconSizes'

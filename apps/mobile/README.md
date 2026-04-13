@@ -1,16 +1,8 @@
-<<<<<<< HEAD
-# Lux Wallet
-
-[Lux Wallet](https://wallet.lux.exchange/) is the simplest, safest, and most powerful self-custodial crypto wallet. It is developed by the Lux Industries Inc. team, inventors of the Lux Protocol.
-
-If you have suggestions on how we can improve the app, or would like to report a bug or a problem, check out the [Lux Help Center](https://support.lux.exchange/).
-=======
 # Uniswap Wallet
 
 [Uniswap Wallet](https://wallet.uniswap.org/) is the simplest, safest, and most powerful self-custodial crypto wallet. It is developed by the Uniswap Labs team, inventors of the Uniswap Protocol.
 
 If you have suggestions on how we can improve the app, or would like to report a bug or a problem, check out the [Uniswap Help Center](https://support.uniswap.org/).
->>>>>>> upstream/main
 
 ## Table of contents
 
@@ -111,22 +103,14 @@ Note: If you are indeed using an Apple Silicon Mac, we recommend setting up your
     Look at the `.bun-version` file in your workspace to determine which version to install. Run the following command to install it, being mindful of the version string here (npm comes with node, so it should work if the above step has been completed correctly)
 
     ```bash
-<<<<<<< HEAD
-    curl -fsSL https://bun.sh/install | bash -s "bun-v1.3.1"
-=======
     curl -fsSL https://bun.sh/install | bash -s "bun-v1.3.11"
->>>>>>> upstream/main
     ```
 
     Check version to verify installation
 
     ```bash
     > bun -v
-<<<<<<< HEAD
-    1.3.1
-=======
     1.3.11
->>>>>>> upstream/main
     ```
 
 5. Install `ruby`
@@ -166,11 +150,7 @@ Note: If you are indeed using an Apple Silicon Mac, we recommend setting up your
 
 You should start with downloading Xcode if you don't already have it installed, since the file is so large. You can find it here: [developer.apple.com/xcode](https://developer.apple.com/xcode/)
 
-<<<<<<< HEAD
-You must use the [Required Xcode Version](https://github.com/Lux/universe/blob/main/.xcode-version) to compile the app. [Older versions of xCode can be found here](https://developer.apple.com/download/all/?q=xcode).
-=======
 You must use the [Required Xcode Version](https://github.com/Uniswap/universe/blob/main/.xcode-version) to compile the app. [Older versions of xCode can be found here](https://developer.apple.com/download/all/?q=xcode).
->>>>>>> upstream/main
 
 #### Add Xcode Command Line Tools
 
@@ -262,11 +242,7 @@ Or you can use one command to run them all one after the other: `bun install && 
 
 You can also run the app from Xcode, which is necessary for any Swift related changes. Xcode will automatically start the metro bundler.
 
-<<<<<<< HEAD
-Hopefully you now (after a few minutes) see the Lux Wallet running in the iOS Simulator!
-=======
 Hopefully you now (after a few minutes) see the Uniswap Wallet running in the iOS Simulator!
->>>>>>> upstream/main
 
 ### Using Radon IDE (VSCode/Cursor Extension)
 
@@ -285,17 +261,10 @@ In `.vscode/launch.json`, you will see configurations for each platform. This is
 #### Running on a Physical iOS Device
 
 1. Follow all steps listed above.
-<<<<<<< HEAD
-2. Sign into your `@lux.exchange` Apple ID (`Cmd + ,` -> Accounts tab) + download provisioning profiles
-3. Connect your iOS device + follow the on-screen prompts to trust your computer
-4. Select the Lux target + your connect device, then `Cmd + R` or use the ▶️ button the start the build
-5. You may get an error about your device not yet being added to the Lux Apple Developer account; if so, click `Register` and restart the build
-=======
 2. Sign into your `@uniswap.org` Apple ID (`Cmd + ,` -> Accounts tab) + download provisioning profiles
 3. Connect your iOS device + follow the on-screen prompts to trust your computer
 4. Select the Uniswap target + your connect device, then `Cmd + R` or use the ▶️ button the start the build
 5. You may get an error about your device not yet being added to the Uniswap Apple Developer account; if so, click `Register` and restart the build
->>>>>>> upstream/main
 
 ## Important Libraries and Tools
 
@@ -310,11 +279,7 @@ These are some tools you might want to familiarize yourself with to understand t
 
 ## Migrations
 
-<<<<<<< HEAD
-We use `redux-persist` to persist the Redux state between user sessions. Most of this state is shared between the mobile app and the extension. Please review the [Wallet Migrations README](../../pkgs/wallet/src/state//README.md) for details on how to write migrations when you add or remove anything from the Redux state structure.
-=======
 We use `redux-persist` to persist the Redux state between user sessions. Most of this state is shared between the mobile app and the extension. Please review the [Wallet Migrations README](../../packages/wallet/src/state//README.md) for details on how to write migrations when you add or remove anything from the Redux state structure.
->>>>>>> upstream/main
 
 ## Testing & Performance
 
@@ -337,11 +302,7 @@ We use `redux-persist` to persist the Redux state between user sessions. Most of
 `sudo xcode-select --switch /Applications/Xcode.app`
 `pod install`
 
-<<<<<<< HEAD
-- `unable to open file (in target "OneSignalNotificationServiceExtension" in project "Lux")`.
-=======
 - `unable to open file (in target "OneSignalNotificationServiceExtension" in project "Uniswap")`.
->>>>>>> upstream/main
   Resolve this issue by navigating to the `ios/` directory and running `pod update`.
 
 - `Build target hermes-engine: Command PhaseScriptExecution failed with a nonzero exit code`
@@ -354,11 +315,7 @@ We use `redux-persist` to persist the Redux state between user sessions. Most of
 `cd ios && pod repo update`
 `cd ios && pod update hermes-engine --no-repo-update`
 
-<<<<<<< HEAD
-Context: <https://luxteam.slack.com/archives/C02GYG8TU12/p1692640189802989?thread_ts=1692635970.952869&cid=C02GYG8TU12>
-=======
 Context: <https://uniswapteam.slack.com/archives/C02GYG8TU12/p1692640189802989?thread_ts=1692635970.952869&cid=C02GYG8TU12>
->>>>>>> upstream/main
 
 ### Common fixes
 

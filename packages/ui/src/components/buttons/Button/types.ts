@@ -1,4 +1,4 @@
-import type { GetProps } from 'tamagui'
+import type { GetProps } from '@hanzo/gui'
 import { CustomButtonFrame } from 'ui/src/components/buttons/Button/components/CustomButtonFrame/CustomButtonFrame'
 import type { FlexProps } from 'ui/src/components/layout'
 

@@ -1,20 +1,3 @@
-<<<<<<< HEAD
-//! gui-ignore
-// gui-ignore
-import { KycVerificationStatus } from '@luxamm/client-liquidity/dist/lx/liquidity/v1/types_pb'
-import { useCallback, useState } from 'react'
-import { useTranslation } from 'react-i18next'
-import { Flex, styled, useColorsFromTokenColor } from '@l.x/ui/src'
-import { WarningSeverity } from 'lx/src/components/modals/WarningModal/types'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { AuctionEventName } from 'lx/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from 'lx/src/features/telemetry/send'
-import { getTokenWarningSeverity } from 'lx/src/features/tokens/warnings/safetyUtils'
-import { TokenWarningCard } from 'lx/src/features/tokens/warnings/TokenWarningCard'
-import TokenWarningModal from 'lx/src/features/tokens/warnings/TokenWarningModal'
-import { useEvent } from '@l.x/utils/src/react/hooks'
-import { useTrace } from '@l.x/utils/src/telemetry/trace/TraceContext'
-=======
 //! tamagui-ignore
 // tamagui-ignore
 import { KycVerificationStatus } from '@uniswap/client-liquidity/dist/uniswap/liquidity/v1/types_pb'
@@ -30,7 +13,6 @@ import { TokenWarningCard } from 'uniswap/src/features/tokens/warnings/TokenWarn
 import TokenWarningModal from 'uniswap/src/features/tokens/warnings/TokenWarningModal'
 import { useEvent } from 'utilities/src/react/hooks'
 import { useTrace } from 'utilities/src/telemetry/trace/TraceContext'
->>>>>>> upstream/main
 import { zeroAddress } from 'viem'
 import { useAccountDrawer } from '~/components/AccountDrawer/MiniPortfolio/hooks'
 import { getAuctionBidInputtedAnalyticsProperties } from '~/components/Toucan/Auction/analytics'

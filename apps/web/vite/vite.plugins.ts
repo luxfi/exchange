@@ -15,30 +15,16 @@ const CSP_DIRECTIVE_MAP: Record<string, string> = {
   mediaSrc: 'media-src',
   fontSrc: 'font-src',
   formAction: 'form-action',
-<<<<<<< HEAD
-  objectSrc: 'object-src',
-  baseUri: 'base-uri',
-  reportUri: 'report-uri',
-}
-
-// This plugin is used in vite.config.mts
-// eslint-disable-next-line import/no-unused-modules
-=======
 }
 
 // This plugin is used in vite.config.mts
 // oxlint-disable-next-line import/no-unused-modules
->>>>>>> upstream/main
 export function cspMetaTagPlugin(mode?: string): Plugin {
   return {
     name: 'inject-csp-meta',
 
     transformIndexHtml(html) {
-<<<<<<< HEAD
-      // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
-=======
       // oxlint-disable-next-line typescript/no-unnecessary-condition
->>>>>>> upstream/main
       const env = mode ?? process.env.NODE_ENV ?? 'development'
       const skip = process.env.VITE_SKIP_CSP === 'true'
 
@@ -46,29 +32,15 @@ export function cspMetaTagPlugin(mode?: string): Plugin {
         return html
       }
 
-<<<<<<< HEAD
-      // Load base CSP - try apps/web/public first, fall back to cwd/public
-      const webRoot = path.resolve(process.cwd(), 'apps', 'web')
-      const baseCSPPath = fs.existsSync(path.resolve(webRoot, 'public', 'csp.json'))
-        ? path.resolve(webRoot, 'public', 'csp.json')
-        : path.resolve(process.cwd(), 'public', 'csp.json')
-=======
       // Load base CSP - adjust path to be relative to the project root
       const baseCSPPath = path.resolve(process.cwd(), 'public', 'csp.json')
->>>>>>> upstream/main
       const baseCSP = JSON.parse(fs.readFileSync(baseCSPPath, 'utf-8'))
 
       // Optionally extend with dev/staging
       const envConfigFile = env === 'development' ? 'dev-csp.json' : env === 'staging' ? 'staging-csp.json' : null
 
       if (envConfigFile) {
-<<<<<<< HEAD
-        const extraCSPPath = fs.existsSync(path.resolve(webRoot, 'public', envConfigFile))
-          ? path.resolve(webRoot, 'public', envConfigFile)
-          : path.resolve(process.cwd(), 'public', envConfigFile)
-=======
         const extraCSPPath = path.resolve(process.cwd(), 'public', envConfigFile)
->>>>>>> upstream/main
         const extraCSP = JSON.parse(fs.readFileSync(extraCSPPath, 'utf-8'))
         for (const [key, value] of Object.entries(extraCSP)) {
           if (Array.isArray(value)) {
@@ -91,11 +63,7 @@ export function cspMetaTagPlugin(mode?: string): Plugin {
           if (!directive) {
             // Log unknown directives in development only
             if (env === 'development') {
-<<<<<<< HEAD
-              // biome-ignore lint/suspicious/noConsole: Required for Vite build debugging
-=======
               // oxlint-disable-next-line no-console -- Required for Vite build debugging
->>>>>>> upstream/main
               console.warn(`Unknown CSP directive: ${key}`)
             }
             return null
@@ -151,11 +119,7 @@ const getLocalEnvUrl = (envUrlKey: string) => {
               new URL(value)
               return value
             } catch (_e) {
-<<<<<<< HEAD
-              // biome-ignore lint/suspicious/noConsole: Required for Vite build debugging
-=======
               // oxlint-disable-next-line no-console -- Required for Vite build debugging
->>>>>>> upstream/main
               console.warn(`Invalid URL found for ${envUrlKey}: ${value}`)
               return null
             }
@@ -165,11 +129,7 @@ const getLocalEnvUrl = (envUrlKey: string) => {
     }
     return null
   } catch (error) {
-<<<<<<< HEAD
-    // biome-ignore lint/suspicious/noConsole: Required for Vite build debugging
-=======
     // oxlint-disable-next-line no-console -- Required for Vite build debugging
->>>>>>> upstream/main
     console.error(`Error retrieving environment URL for ${envUrlKey}:`, error)
     return null
   }

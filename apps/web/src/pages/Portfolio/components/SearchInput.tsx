@@ -1,15 +1,8 @@
 import { useEffect, useState } from 'react'
-<<<<<<< HEAD
-import { Flex, Input } from '@l.x/ui/src'
-import { Search } from '@l.x/ui/src/components/icons/Search'
-import { SearchInputProps } from '@l.x/lx/src/components/nfts/types'
-import { useDebouncedCallback } from '@l.x/utils/src/react/useDebouncedCallback'
-=======
 import { Flex, Input } from 'ui/src'
 import { Search } from 'ui/src/components/icons/Search'
 import { SearchInputProps } from 'uniswap/src/components/nfts/types'
 import { useDebouncedCallback } from 'utilities/src/react/useDebouncedCallback'
->>>>>>> upstream/main
 
 const DEFAULT_SEARCH_INPUT_WIDTH = 280
 const DEBOUNCE_DELAY_MS = 300
@@ -51,17 +44,10 @@ export function SearchInput({
         padding="$spacing12"
         paddingLeft="$spacing40"
         placeholderTextColor="$neutral2"
-<<<<<<< HEAD
-        fontSize={14}
-        borderColor="$surface3"
-        fontWeight="500"
-        lineHeight={18}
-=======
         fontSize="$body3"
         borderColor="$surface3"
         fontWeight="500"
         lineHeight="130%"
->>>>>>> upstream/main
         color="$neutral2"
         focusStyle={{
           backgroundColor: '$surface1',

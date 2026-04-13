@@ -1,20 +1,11 @@
 import { Dispatch, SetStateAction } from 'react'
 import { useTranslation } from 'react-i18next'
-<<<<<<< HEAD
-import { Button, Flex, Text } from '@l.x/ui/src'
-import { Key } from '@l.x/ui/src/components/icons/Key'
-import { PrivyLogo } from '@l.x/ui/src/components/logos/PrivyLogo'
-import { ModalName } from 'lx/src/features/telemetry/constants'
-import { Trace } from 'lx/src/features/telemetry/Trace'
-import { TestID } from 'lx/src/test/fixtures/testIDs'
-=======
 import { Button, Flex, Text } from 'ui/src'
 import { Key } from 'ui/src/components/icons/Key'
 import { PrivyLogo } from 'ui/src/components/logos/PrivyLogo'
 import { ModalName } from 'uniswap/src/features/telemetry/constants'
 import { Trace } from 'uniswap/src/features/telemetry/Trace'
 import { TestID } from 'uniswap/src/test/fixtures/testIDs'
->>>>>>> upstream/main
 import { Page } from '~/components/NavBar/DownloadApp/Modal'
 import { ModalContent } from '~/components/NavBar/DownloadApp/Modal/Content'
 

@@ -1,15 +1,8 @@
 import { Link } from 'react-router'
-<<<<<<< HEAD
-import { Flex, Separator, Text } from '@l.x/ui/src'
-import { ElementName, InterfacePageName } from '@l.x/lx/src/features/telemetry/constants'
-import Trace from '@l.x/lx/src/features/telemetry/Trace'
-import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
-=======
 import { Flex, Separator, Text } from 'ui/src'
 import { ElementName, InterfacePageName } from 'uniswap/src/features/telemetry/constants'
 import Trace from 'uniswap/src/features/telemetry/Trace'
 import { TestID } from 'uniswap/src/test/fixtures/testIDs'
->>>>>>> upstream/main
 import { usePortfolioRoutes } from '~/pages/Portfolio/Header/hooks/usePortfolioRoutes'
 import { PortfolioTabInfo, usePortfolioTabs } from '~/pages/Portfolio/Header/hooks/usePortfolioTabs'
 import { PortfolioTab } from '~/pages/Portfolio/types'

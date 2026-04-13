@@ -1,19 +1,10 @@
 import { CSSProperties } from 'react'
-<<<<<<< HEAD
-import { Avatar, Flex, styled } from '@l.x/ui/src'
-import { Check } from '@l.x/ui/src/components/icons/Check'
-import { Text } from '@l.x/ui/src/components/text/Text'
-import { iconSizes } from '@l.x/ui/src/theme'
-import { FORCountry } from '@l.x/lx/src/features/fiatOnRamp/types'
-import { getCountryFlagSvgUrl } from '@l.x/lx/src/features/fiatOnRamp/utils'
-=======
 import { Avatar, Flex, styled } from 'ui/src'
 import { Check } from 'ui/src/components/icons/Check'
 import { Text } from 'ui/src/components/text/Text'
 import { iconSizes } from 'ui/src/theme'
 import { FORCountry } from 'uniswap/src/features/fiatOnRamp/types'
 import { getCountryFlagSvgUrl } from 'uniswap/src/features/fiatOnRamp/utils'
->>>>>>> upstream/main
 
 const RowWrapper = styled(Flex, {
   row: true,

@@ -1,11 +1,6 @@
 import { memo, Suspense } from 'react'
-<<<<<<< HEAD
-import { ModalName, ModalNameType } from '@l.x/lx/src/features/telemetry/constants'
-import { logger } from '@l.x/utils/src/logger/logger'
-=======
 import { ModalName, ModalNameType } from 'uniswap/src/features/telemetry/constants'
 import { logger } from 'utilities/src/logger/logger'
->>>>>>> upstream/main
 import ErrorBoundary from '~/components/ErrorBoundary'
 import { ModalRegistry, ModalWrapperProps } from '~/components/TopLevelModals/types'
 import { useModalState } from '~/hooks/useModalState'
@@ -23,23 +18,7 @@ const OffchainActivityModal = createLazy(() =>
     default: module.OffchainActivityModal,
   })),
 )
-<<<<<<< HEAD
-=======
-const TransactionDetailsModalDispatcher = createLazy(() =>
-  import('~/components/TopLevelModals/TransactionDetailsModalDispatcher').then((module) => ({
-    default: module.TransactionDetailsModalDispatcher,
-  })),
-)
->>>>>>> upstream/main
-const UkDisclaimerModal = createLazy(() =>
-  import('~/components/TopLevelModals/UkDisclaimerModal').then((module) => ({ default: module.UkDisclaimerModal })),
-)
-const TestnetModeModal = createLazy(() =>
-<<<<<<< HEAD
-  import('lx/src/features/testnets/TestnetModeModal').then((module) => ({ default: module.TestnetModeModal })),
-=======
   import('uniswap/src/features/testnets/TestnetModeModal').then((module) => ({ default: module.TestnetModeModal })),
->>>>>>> upstream/main
 )
 const GetTheAppModal = createLazy(() =>
   import('~/components/NavBar/DownloadApp/Modal').then((module) => ({ default: module.GetTheAppModal })),
@@ -66,11 +45,7 @@ const ClaimFeeModal = createLazy(() =>
   import('~/components/Liquidity/ClaimFeeModal').then((module) => ({ default: module.ClaimFeeModal })),
 )
 const PasskeysHelpModal = createLazy(() =>
-<<<<<<< HEAD
-  import('lx/src/features/passkey/PasskeysHelpModal').then((module) => ({ default: module.PasskeysHelpModal })),
-=======
   import('uniswap/src/features/passkey/PasskeysHelpModal').then((module) => ({ default: module.PasskeysHelpModal })),
->>>>>>> upstream/main
 )
 
 const DelegationMismatchModal = createLazy(() =>
@@ -91,31 +66,19 @@ const SendModal = createLazy(() =>
 )
 
 const BridgedAssetModal = createLazy(() =>
-<<<<<<< HEAD
-  import('lx/src/components/BridgedAsset/BridgedAssetModal').then((module) => ({
-=======
   import('uniswap/src/components/BridgedAsset/BridgedAssetModal').then((module) => ({
->>>>>>> upstream/main
     default: module.BridgedAssetModal,
   })),
 )
 
 const WormholeModal = createLazy(() =>
-<<<<<<< HEAD
-  import('lx/src/components/BridgedAsset/WormholeModal').then((module) => ({
-=======
   import('uniswap/src/components/BridgedAsset/WormholeModal').then((module) => ({
->>>>>>> upstream/main
     default: module.WormholeModal,
   })),
 )
 
 const ReportTokenModal = createLazy(() =>
-<<<<<<< HEAD
-  import('lx/src/components/reporting/ReportTokenIssueModal').then((module) => ({
-=======
   import('uniswap/src/components/reporting/ReportTokenIssueModal').then((module) => ({
->>>>>>> upstream/main
     default: module.ReportTokenIssueModal,
   })),
 )
@@ -184,13 +147,10 @@ export const modalRegistry: ModalRegistry = {
     component: OffchainActivityModal,
     shouldMount: () => true,
   },
-<<<<<<< HEAD
-=======
   [ModalName.TransactionDetails]: {
     component: TransactionDetailsModalDispatcher,
     shouldMount: () => true,
   },
->>>>>>> upstream/main
   [ModalName.UkDisclaimer]: {
     component: UkDisclaimerModal,
     shouldMount: () => true,

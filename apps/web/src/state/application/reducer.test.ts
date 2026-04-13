@@ -1,9 +1,5 @@
 import { createStore, Store } from 'redux'
-<<<<<<< HEAD
-import { ModalName } from 'lx/src/features/telemetry/constants'
-=======
 import { ModalName } from 'uniswap/src/features/telemetry/constants'
->>>>>>> upstream/main
 import reducer, {
   ApplicationState,
   DeletePasskeyModalParams,

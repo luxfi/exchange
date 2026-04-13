@@ -1,14 +1,7 @@
-<<<<<<< HEAD
-import { Currency } from '@luxamm/sdk-core'
-import { CurrencyLogo as UniverseCurrencyLogo } from '@l.x/lx/src/components/CurrencyLogo/CurrencyLogo'
-import { useCurrencyInfo } from '@l.x/lx/src/features/tokens/useCurrencyInfo'
-import { buildCurrencyId, currencyAddress } from '@l.x/lx/src/utils/currencyId'
-=======
 import { Currency } from '@uniswap/sdk-core'
 import { CurrencyLogo as UniverseCurrencyLogo } from 'uniswap/src/components/CurrencyLogo/CurrencyLogo'
 import { useCurrencyInfo } from 'uniswap/src/features/tokens/useCurrencyInfo'
 import { buildCurrencyId, currencyAddress } from 'uniswap/src/utils/currencyId'
->>>>>>> upstream/main
 import { AssetLogoBaseProps } from '~/components/Logo/AssetLogo'
 
 export default function CurrencyLogo(
@@ -22,17 +15,10 @@ export default function CurrencyLogo(
     return null
   }
 
-<<<<<<< HEAD
-  return <_CurrencyLogo currency={currency} {...rest} />
-}
-
-const _CurrencyLogo = (
-=======
   return <CurrencyLogoInner currency={currency} {...rest} />
 }
 
 const CurrencyLogoInner = (
->>>>>>> upstream/main
   props: AssetLogoBaseProps & {
     currency: Currency
   },

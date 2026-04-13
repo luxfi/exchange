@@ -1,9 +1,5 @@
 import { useEffect, useState } from 'react'
-<<<<<<< HEAD
-import { Flex, useSporeColors } from '@l.x/ui/src'
-=======
 import { Flex, useSporeColors } from 'ui/src'
->>>>>>> upstream/main
 
 export interface ChartModelWithLiveDot {
   getLastPointCoordinates?: () => { x: number; y: number } | null
@@ -19,24 +15,7 @@ interface LiveDotRendererProps {
   chartContainer?: HTMLElement | null
   overrideColor?: string
   dataKey?: string | number // Tracks when chart data changes (e.g., time period change)
-<<<<<<< HEAD
-=======
-  coordinateOverride?: { x: number; y: number } | null // Synchronous coordinates from controller.update()
->>>>>>> upstream/main
-}
-
-export function LiveDotRenderer({
-  chartModel,
-  isHovering,
-  isZoomed,
-  hoverCoordinates,
-  chartContainer,
-  overrideColor,
-  dataKey,
-<<<<<<< HEAD
-=======
   coordinateOverride,
->>>>>>> upstream/main
 }: LiveDotRendererProps) {
   const colors = useSporeColors()
   const [coordinates, setCoordinates] = useState<{ x: number; y: number } | null>(null)
@@ -114,19 +93,11 @@ export function LiveDotRenderer({
     return null
   }
 
-<<<<<<< HEAD
-  if (!isHovering && !coordinates) {
-    return null
-  }
-
-  const renderCoordinates = isHovering ? hoverCoordinates : coordinates
-=======
   if (!isHovering && !coordinateOverride && !coordinates) {
     return null
   }
 
   const renderCoordinates = isHovering ? hoverCoordinates : (coordinateOverride ?? coordinates)
->>>>>>> upstream/main
   if (!renderCoordinates) {
     return null
   }

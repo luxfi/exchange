@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 import { GraphQLApi } from '@l.x/api'
-=======
-import { GraphQLApi } from '@universe/api'
->>>>>>> upstream/main
 
 export default function getNetworkLogoUrl(network: string, origin: string) {
   switch (network) {

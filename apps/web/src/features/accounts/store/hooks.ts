@@ -1,19 +1,3 @@
-<<<<<<< HEAD
-/* eslint-disable import/no-unused-modules */
-
-import { useMemo } from 'react'
-import { CONNECTION_PROVIDER_IDS } from '@l.x/lx/src/constants/web3'
-import { AccessPattern } from '@l.x/lx/src/features/accounts/store/types/Connector'
-import { createUseActiveAccount } from '@l.x/lx/src/features/accounts/store/utils/accounts'
-import { createUseActiveAddress, createUseActiveAddresses } from '@l.x/lx/src/features/accounts/store/utils/addresses'
-import {
-  createUseActiveConnector,
-  createUseConnectionStatus,
-} from '@l.x/lx/src/features/accounts/store/utils/connection'
-import { createUseAccountsStore } from '@l.x/lx/src/features/accounts/store/utils/createUseAccountsStore'
-import { createUseActiveWallet, createUseWalletWithId } from '@l.x/lx/src/features/accounts/store/utils/wallets'
-import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
-=======
 /* oxlint-disable import/no-unused-modules */
 
 import { useMemo } from 'react'
@@ -28,7 +12,6 @@ import {
 import { createUseAccountsStore } from 'uniswap/src/features/accounts/store/utils/createUseAccountsStore'
 import { createUseActiveWallet, createUseWalletWithId } from 'uniswap/src/features/accounts/store/utils/wallets'
 import { Platform } from 'uniswap/src/features/platforms/types/Platform'
->>>>>>> upstream/main
 import { useAccountsStoreContext } from '~/features/accounts/store/provider'
 
 export const useAccountsStore = createUseAccountsStore(useAccountsStoreContext)

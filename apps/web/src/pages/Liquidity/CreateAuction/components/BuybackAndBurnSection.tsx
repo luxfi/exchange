@@ -1,4 +1,4 @@
-import { helpUrl } from '@universe/api'
+import { helpUrl } from '@l.x/api'
 import { useTranslation } from 'react-i18next'
 import { Flex, Switch, Text } from 'ui/src'
 import { ExternalLink } from '~/theme/components/Links'

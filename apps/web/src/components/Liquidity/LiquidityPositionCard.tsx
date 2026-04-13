@@ -1,22 +1,6 @@
-<<<<<<< HEAD
-/* eslint-disable max-lines */
-import { ProtocolVersion } from '@luxamm/client-data-api/dist/data/v1/poolTypes_pb'
-import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
-import { useMemo, useState } from 'react'
-import { useTranslation } from 'react-i18next'
-import { Flex, Shine, Text, TouchableArea, useIsTouchDevice, useMedia } from '@l.x/ui/src'
-import { ArrowsLeftRight } from '@l.x/ui/src/components/icons/ArrowsLeftRight'
-import { zIndexes } from '@l.x/ui/src/theme'
-import { PollingInterval } from 'lx/src/constants/misc'
-import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
-import { useCurrencyInfo } from 'lx/src/features/tokens/useCurrencyInfo'
-import { useUSDCValue } from 'lx/src/features/transactions/hooks/useUSDCPriceWrapper'
-import { buildCurrencyId, currencyAddress } from 'lx/src/utils/currencyId'
-import { NumberType } from '@l.x/utils/src/format/types'
-=======
 /* oxlint-disable max-lines */
 import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
-import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Flex, Shine, Text, TouchableArea, useIsTouchDevice, useMedia } from 'ui/src'
@@ -28,7 +12,6 @@ import { useCurrencyInfo } from 'uniswap/src/features/tokens/useCurrencyInfo'
 import { useUSDCValue } from 'uniswap/src/features/transactions/hooks/useUSDCPriceWrapper'
 import { buildCurrencyId, currencyAddress } from 'uniswap/src/utils/currencyId'
 import { NumberType } from 'utilities/src/format/types'
->>>>>>> upstream/main
 import {
   CHART_HEIGHT,
   CHART_WIDTH,
@@ -48,11 +31,7 @@ import { getBaseAndQuoteCurrencies } from '~/components/Liquidity/utils/currency
 import { MouseoverTooltip } from '~/components/Tooltip'
 import useHoverProps from '~/hooks/useHoverProps'
 import { useLpIncentivesFormattedEarnings } from '~/hooks/useLpIncentivesFormattedEarnings'
-<<<<<<< HEAD
-import { ClickableGuiStyle } from '~/theme/components/styles'
-=======
 import { ClickableTamaguiStyle } from '~/theme/components/styles'
->>>>>>> upstream/main
 
 export function LiquidityPositionCardLoader() {
   return (
@@ -357,11 +336,7 @@ function MiniPositionCard({
       </Flex>
       {priceOrdering.priceLower && priceOrdering.priceUpper && !isFullRange ? (
         <TouchableArea
-<<<<<<< HEAD
-          {...ClickableGuiStyle}
-=======
           {...ClickableTamaguiStyle}
->>>>>>> upstream/main
           onPress={(e) => {
             e.preventDefault()
             e.stopPropagation()

@@ -1,11 +1,7 @@
 import type { LegendListRef } from '@legendapp/list'
 import { LegendList } from '@legendapp/list'
 import { useScrollToTop } from '@react-navigation/native'
-<<<<<<< HEAD
-import { FeatureFlags, useFeatureFlag } from '@luxfi/gating'
-=======
-import { FeatureFlags, useFeatureFlag } from '@universe/gating'
->>>>>>> upstream/main
+import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import type { ForwardedRef } from 'react'
 import { forwardRef, memo, useMemo, useRef, useState } from 'react'
 import type { FlatList } from 'react-native'
@@ -20,18 +16,6 @@ import { useBiometricAppSettings } from 'src/features/biometrics/useBiometricApp
 import { useBiometricPrompt } from 'src/features/biometricsSettings/hooks'
 import { openModal } from 'src/features/modals/modalSlice'
 import { removePendingSession } from 'src/features/walletConnect/walletConnectSlice'
-<<<<<<< HEAD
-import { Flex, Loader, useSporeColors } from '@l.x/ui/src'
-import { ScannerModalState } from '@l.x/lx/src/components/ReceiveQRCode/constants'
-import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
-import { useAppInsets } from '@l.x/lx/src/hooks/useAppInsets'
-import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
-import { DDRumManualTiming } from '@l.x/utils/src/logger/datadog/datadogEvents'
-import { usePerformanceLogger } from '@l.x/utils/src/logger/usePerformanceLogger'
-import { isAndroid } from '@l.x/utils/src/platform'
-import { useEvent } from '@l.x/utils/src/react/hooks'
-import { useActivityDataWallet } from '@luxfi/wallet/src/features/activity/useActivityDataWallet'
-=======
 import { Flex, Loader, useSporeColors } from 'ui/src'
 import { ScannerModalState } from 'uniswap/src/components/ReceiveQRCode/constants'
 import { ModalName } from 'uniswap/src/features/telemetry/constants'
@@ -42,18 +26,13 @@ import { usePerformanceLogger } from 'utilities/src/logger/usePerformanceLogger'
 import { isAndroid } from 'utilities/src/platform'
 import { useEvent } from 'utilities/src/react/hooks'
 import { useActivityDataWallet } from 'wallet/src/features/activity/useActivityDataWallet'
->>>>>>> upstream/main
 
 const ESTIMATED_ITEM_SIZE = 92
 const AMOUNT_TO_DRAW = 18
 const ON_END_REACHED_THRESHOLD = 0.1 // trigger onEndReached at 10% of visible length
 
 export const ActivityContent = memo(
-<<<<<<< HEAD
-  forwardRef<FlatList<unknown>, TabProps>(function _ActivityTab(
-=======
   forwardRef<FlatList<unknown>, TabProps>(function ActivityTabInner(
->>>>>>> upstream/main
     {
       owner,
       containerProps,
@@ -167,11 +146,7 @@ export const ActivityContent = memo(
           />
         ) : (
           <List
-<<<<<<< HEAD
-            // biome-ignore lint/suspicious/noExplicitAny: FlatList ref type is complex with animated wrapper
-=======
             // oxlint-disable-next-line typescript/no-explicit-any -- FlatList ref type is complex with animated wrapper
->>>>>>> upstream/main
             ref={ref as ForwardedRef<Animated.FlatList<any>>}
             initialNumToRender={10}
             keyExtractor={keyExtractor}

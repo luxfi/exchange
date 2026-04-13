@@ -1,20 +1,11 @@
 import { memo, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-<<<<<<< HEAD
-import { Flex } from '@l.x/ui/src'
-import { Calendar } from '@l.x/ui/src/components/icons/Calendar'
-import { Filter } from '@l.x/ui/src/components/icons/Filter'
-import { ElementName } from '@l.x/lx/src/features/telemetry/constants'
-import Trace from '@l.x/lx/src/features/telemetry/Trace'
-import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
-=======
 import { Flex } from 'ui/src'
 import { Calendar } from 'ui/src/components/icons/Calendar'
 import { Filter } from 'ui/src/components/icons/Filter'
 import { ElementName } from 'uniswap/src/features/telemetry/constants'
 import Trace from 'uniswap/src/features/telemetry/Trace'
 import { TestID } from 'uniswap/src/test/fixtures/testIDs'
->>>>>>> upstream/main
 import { DropdownSelector } from '~/components/Dropdowns/DropdownSelector'
 import { getTimePeriodFilterOptions, getTransactionTypeFilterOptions } from '~/pages/Portfolio/Activity/Filters/utils'
 
@@ -30,11 +21,7 @@ interface ActivityFiltersProps {
   onTimePeriodChange: (value: string) => void
 }
 
-<<<<<<< HEAD
-function _ActivityFilters({
-=======
 function ActivityFiltersInner({
->>>>>>> upstream/main
   selectedTransactionType,
   onTransactionTypeChange,
   selectedTimePeriod,
@@ -95,8 +82,4 @@ function ActivityFiltersInner({
   )
 }
 
-<<<<<<< HEAD
-export const ActivityFilters = memo(_ActivityFilters)
-=======
 export const ActivityFilters = memo(ActivityFiltersInner)
->>>>>>> upstream/main

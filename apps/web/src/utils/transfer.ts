@@ -1,16 +1,6 @@
 import { TransactionRequest } from '@ethersproject/abstract-provider'
 import type { Web3Provider } from '@ethersproject/providers'
 import { useQuery } from '@tanstack/react-query'
-<<<<<<< HEAD
-import { Currency, CurrencyAmount } from '@luxamm/sdk-core'
-import { useCallback } from 'react'
-import ERC20_ABI from '@l.x/lx/src/abis/erc20.json'
-import { Erc20 } from '@l.x/lx/src/abis/types'
-import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
-import { getContract } from '@l.x/utils/src/contracts/getContract'
-import { logger } from '@l.x/utils/src/logger/logger'
-import { ReactQueryCacheKey } from '@l.x/utils/src/reactQuery/cache'
-=======
 import { Currency, CurrencyAmount } from '@uniswap/sdk-core'
 import { useCallback } from 'react'
 import ERC20_ABI from 'uniswap/src/abis/erc20.json'
@@ -19,7 +9,6 @@ import { UniverseChainId } from 'uniswap/src/features/chains/types'
 import { getContract } from 'utilities/src/contracts/getContract'
 import { logger } from 'utilities/src/logger/logger'
 import { ReactQueryCacheKey } from 'utilities/src/reactQuery/cache'
->>>>>>> upstream/main
 
 interface TransferInfo {
   provider?: Web3Provider
@@ -93,11 +82,7 @@ function getNativeTransferRequest(params: TransferCurrencyParams): TransactionRe
 
 async function getTokenTransferRequest(transferParams: TransferCurrencyParams): Promise<TransactionRequest | null> {
   const { provider, account, chainId, toAddress, tokenAddress, amountInWei } = transferParams
-<<<<<<< HEAD
-  const tokenContract = getContract({ address: tokenAddress, ABI: ERC20_ABI, provider, account }) as unknown as Erc20
-=======
   const tokenContract = getContract({ address: tokenAddress, ABI: ERC20_ABI, provider, account }) as Erc20
->>>>>>> upstream/main
 
   try {
     const populatedTransaction = await tokenContract.populateTransaction.transfer(toAddress, amountInWei, {

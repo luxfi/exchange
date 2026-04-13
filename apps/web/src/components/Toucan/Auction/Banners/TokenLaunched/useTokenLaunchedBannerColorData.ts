@@ -1,9 +1,5 @@
 import { useMemo } from 'react'
-<<<<<<< HEAD
-import { opacifyRaw } from '@l.x/ui/src/theme/color/utils'
-=======
 import { opacifyRaw } from 'ui/src/theme/color/utils'
->>>>>>> upstream/main
 
 interface UseTokenLaunchedBannerDataProps {
   tokenColor?: string

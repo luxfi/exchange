@@ -1,17 +1,3 @@
-<<<<<<< HEAD
-import { Currency } from '@luxamm/sdk-core'
-import { memo } from 'react'
-import { Flex, useColorSchemeFromSeed } from '@l.x/ui/src'
-import { zIndexes } from '@l.x/ui/src/theme'
-import { STATUS_RATIO } from '@l.x/lx/src/components/CurrencyLogo/CurrencyLogo'
-import { NetworkLogo } from '@l.x/lx/src/components/CurrencyLogo/NetworkLogo'
-import { SplitLogo } from '@l.x/lx/src/components/CurrencyLogo/SplitLogo'
-import { TokenLogo } from '@l.x/lx/src/components/CurrencyLogo/TokenLogo'
-import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
-import { useCurrencyInfo } from '@l.x/lx/src/features/tokens/useCurrencyInfo'
-import { buildCurrencyId, currencyAddress } from '@l.x/lx/src/utils/currencyId'
-import { isMobileApp } from '@l.x/utils/src/platform'
-=======
 import { Currency } from '@uniswap/sdk-core'
 import { memo } from 'react'
 import { Flex, useColorSchemeFromSeed } from 'ui/src'
@@ -24,7 +10,6 @@ import { UniverseChainId } from 'uniswap/src/features/chains/types'
 import { useCurrencyInfo } from 'uniswap/src/features/tokens/useCurrencyInfo'
 import { buildCurrencyId, currencyAddress } from 'uniswap/src/utils/currencyId'
 import { isMobileApp } from 'utilities/src/platform'
->>>>>>> upstream/main
 import { deprecatedStyled } from '~/lib/deprecated-styled'
 
 const MissingImageLogo = deprecatedStyled.div<{ $size?: string; $textColor: string; $backgroundColor: string }>`
@@ -77,19 +62,7 @@ export const DoubleCurrencyLogo = memo(function DoubleCurrencyLogo({
   size = 32,
   customIcon,
   includeNetwork = true,
-<<<<<<< HEAD
-=======
-  showMainnetNetworkLogo = false,
->>>>>>> upstream/main
-}: {
-  currencies: Array<Currency | undefined>
-  size?: number
-  customIcon?: React.ReactNode
-  includeNetwork?: boolean
-<<<<<<< HEAD
-=======
   showMainnetNetworkLogo?: boolean
->>>>>>> upstream/main
 }) {
   const currencyId0 = currencies[0] ? buildCurrencyId(currencies[0].chainId, currencyAddress(currencies[0])) : undefined
   const currencyId1 = currencies[1] ? buildCurrencyId(currencies[1].chainId, currencyAddress(currencies[1])) : undefined
@@ -103,12 +76,6 @@ export const DoubleCurrencyLogo = memo(function DoubleCurrencyLogo({
     return <LogolessPlaceholder currency={currencies[0]} size={size} includeNetwork={Boolean(chainId)} />
   }
   if (invalidCurrencyLogo0 && currencyInfos[1]?.logoUrl) {
-<<<<<<< HEAD
-    return <TokenLogo url={currencyInfos[1].logoUrl} size={size} chainId={chainId} />
-  }
-  if (invalidCurrencyLogo1 && currencyInfos[0]?.logoUrl) {
-    return <TokenLogo url={currencyInfos[0]?.logoUrl} size={size} chainId={chainId} />
-=======
     return (
       <TokenLogo
         url={currencyInfos[1].logoUrl}
@@ -127,7 +94,6 @@ export const DoubleCurrencyLogo = memo(function DoubleCurrencyLogo({
         showMainnetNetworkLogo={showMainnetNetworkLogo}
       />
     )
->>>>>>> upstream/main
   }
   return (
     <SplitLogo
@@ -136,10 +102,7 @@ export const DoubleCurrencyLogo = memo(function DoubleCurrencyLogo({
       outputCurrencyInfo={currencyInfos[1]}
       customIcon={customIcon}
       size={size}
-<<<<<<< HEAD
-=======
       showMainnetNetworkLogo={showMainnetNetworkLogo}
->>>>>>> upstream/main
     />
   )
 })

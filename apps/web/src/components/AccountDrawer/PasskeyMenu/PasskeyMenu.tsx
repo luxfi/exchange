@@ -1,32 +1,6 @@
 import { useQuery } from '@tanstack/react-query'
 import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-<<<<<<< HEAD
-import { Anchor, Button, Flex, Loader, Text, TouchableArea, useSporeColors } from '@l.x/ui/src'
-import { Buoy } from '@l.x/ui/src/components/icons/Buoy'
-import { EnvelopeLock } from '@l.x/ui/src/components/icons/EnvelopeLock'
-import { GoogleLogo } from '@l.x/ui/src/components/icons/GoogleLogo'
-import { MoreHorizontal } from '@l.x/ui/src/components/icons/MoreHorizontal'
-import { Passkey } from '@l.x/ui/src/components/icons/Passkey'
-import { Trash } from '@l.x/ui/src/components/icons/Trash'
-import { Windows } from '@l.x/ui/src/components/icons/Windows'
-import { GoogleChromeLogo } from '@l.x/ui/src/components/logos/GoogleChromeLogo'
-import { UseSporeColorsReturn } from '@l.x/ui/src/hooks/useSporeColors'
-import { iconSizes } from '@l.x/ui/src/theme'
-import { ContextMenu } from 'lx/src/components/menus/ContextMenu'
-import { ContextMenuTriggerMode } from 'lx/src/components/menus/types'
-import { lxUrls } from 'lx/src/constants/urls'
-import type { Authenticator, RecoveryMethod } from 'lx/src/features/passkey/embeddedWallet'
-import { AuthenticatorNameType, getPrivyEnums, listAuthenticators } from 'lx/src/features/passkey/embeddedWallet'
-import { ElementName, ModalName } from 'lx/src/features/telemetry/constants'
-import Trace from 'lx/src/features/telemetry/Trace'
-import i18n from 'lx/src/i18n'
-import { TestID } from 'lx/src/test/fixtures/testIDs'
-import { logger } from '@l.x/utils/src/logger/logger'
-import { useEvent } from '@l.x/utils/src/react/hooks'
-import { SlideOutMenu } from '~/components/AccountDrawer/SlideOutMenu'
-import { MenuColumn } from '~/components/AccountDrawer/shared'
-=======
 import { Anchor, Button, Flex, Loader, Text, TouchableArea, useSporeColors } from 'ui/src'
 import { Buoy } from 'ui/src/components/icons/Buoy'
 import { EnvelopeLock } from 'ui/src/components/icons/EnvelopeLock'
@@ -51,17 +25,12 @@ import { logger } from 'utilities/src/logger/logger'
 import { useEvent } from 'utilities/src/react/hooks'
 import { MenuColumn } from '~/components/AccountDrawer/shared'
 import { SlideOutMenu } from '~/components/AccountDrawer/SlideOutMenu'
->>>>>>> upstream/main
 import { AndroidLogo } from '~/components/Icons/AndroidLogo'
 import { AppleLogo } from '~/components/Icons/AppleLogo'
 import { setOpenModal } from '~/state/application/reducer'
 import { useEmbeddedWalletState } from '~/state/embeddedWallet/store'
 import { useAppDispatch } from '~/state/hooks'
-<<<<<<< HEAD
-import { ClickableGuiStyle } from '~/theme/components/styles'
-=======
 import { ClickableTamaguiStyle } from '~/theme/components/styles'
->>>>>>> upstream/main
 
 function getPrivyAppId(): string | undefined {
   return process.env.PRIVY_APP_ID
@@ -359,13 +328,8 @@ export default function PasskeyMenu({ onClose }: { onClose: () => void }) {
             <Anchor
               target="_blank"
               rel="noreferrer"
-<<<<<<< HEAD
-              href={lxUrls.helpArticleUrls.passkeysInfo}
-              {...ClickableGuiStyle}
-=======
               href={uniswapUrls.helpArticleUrls.passkeysInfo}
               {...ClickableTamaguiStyle}
->>>>>>> upstream/main
             >
               <Buoy size="$icon.20" color="$neutral2" />
             </Anchor>
@@ -389,15 +353,8 @@ export default function PasskeyMenu({ onClose }: { onClose: () => void }) {
               ))}
               <Flex row alignSelf="stretch">
                 <Trace logPress element={ElementName.AddPasskey}>
-<<<<<<< HEAD
-                  <Button size="medium" variant="branded" emphasis="secondary" onPress={handleAddPasskey}>
-                    <Text variant="buttonLabel2" color="$blue400">
-                      {t('common.passkeys.add')}
-                    </Text>
-=======
                   <Button variant="default" emphasis="secondary" size="medium" onPress={handleAddPasskey}>
                     <Text variant="buttonLabel2">{t('common.passkeys.add')}</Text>
->>>>>>> upstream/main
                   </Button>
                 </Trace>
               </Flex>

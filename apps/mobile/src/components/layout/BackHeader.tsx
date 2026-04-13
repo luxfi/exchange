@@ -1,10 +1,6 @@
 import React, { PropsWithChildren } from 'react'
 import { BackButton } from 'src/components/buttons/BackButton'
-<<<<<<< HEAD
-import { Flex, FlexProps } from '@l.x/ui/src'
-=======
 import { Flex, FlexProps } from 'ui/src'
->>>>>>> upstream/main
 
 const BACK_BUTTON_SIZE = 24
 const BACK_BUTTON_SIZE_TOKEN = '$icon.24'

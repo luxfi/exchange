@@ -1,9 +1,5 @@
 import { BottomSheetFooter, BottomSheetScrollView, useBottomSheetInternal } from '@gorhom/bottom-sheet'
-<<<<<<< HEAD
-import { FeatureFlags, useFeatureFlag } from '@luxfi/gating'
-=======
-import { FeatureFlags, useFeatureFlag } from '@universe/gating'
->>>>>>> upstream/main
+import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { PropsWithChildren, useCallback, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import {
@@ -16,16 +12,6 @@ import {
   View,
   ViewStyle,
 } from 'react-native'
-<<<<<<< HEAD
-import { AnimatedStyle, useDerivedValue, useSharedValue } from 'react-native-reanimated'
-import { ScrollDownOverlay } from 'src/components/Requests/ModalWithOverlay/ScrollDownOverlay'
-import { Button, ButtonProps, Flex } from '@l.x/ui/src'
-import { spacing } from '@l.x/ui/src/theme'
-import { Modal } from '@l.x/lx/src/components/modals/Modal'
-import { ModalProps } from '@l.x/lx/src/components/modals/ModalProps'
-import { useAppInsets } from '@l.x/lx/src/hooks/useAppInsets'
-import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
-=======
 import { AnimatedStyle, useDerivedValue } from 'react-native-reanimated'
 import { ScrollDownOverlay } from 'src/components/Requests/ModalWithOverlay/ScrollDownOverlay'
 import { Button, ButtonProps, Flex } from 'ui/src'
@@ -34,7 +20,6 @@ import { Modal } from 'uniswap/src/components/modals/Modal'
 import { ModalProps } from 'uniswap/src/components/modals/ModalProps'
 import { useAppInsets } from 'uniswap/src/hooks/useAppInsets'
 import { TestID } from 'uniswap/src/test/fixtures/testIDs'
->>>>>>> upstream/main
 
 const MEASURE_LAYOUT_TIMEOUT = 100
 
@@ -97,11 +82,7 @@ export function ModalWithOverlay({
   }, [])
 
   const measureContent = useCallback((parentHeight: number) => {
-<<<<<<< HEAD
-    // eslint-disable-next-line max-params
-=======
     // oxlint-disable-next-line max-params
->>>>>>> upstream/main
     const onSuccess: MeasureLayoutOnSuccessCallback = (x, y, w, h) => {
       if (h > parentHeight) {
         setShowOverlay(!startedScrollingRef.current)
@@ -200,19 +181,9 @@ function ModalFooter({
 }: ModalFooterProps): JSX.Element {
   const { t } = useTranslation()
   const insets = useAppInsets()
-<<<<<<< HEAD
-  const { animatedPosition, animatedHandleHeight, animatedContainerHeight } =
-    useBottomSheetInternal()
-
-  // In @gorhom/bottom-sheet v5, animatedFooterHeight was removed from useBottomSheetInternal().
-  // Default to 0; the BottomSheetFooter component manages its own height internally.
-  const animatedFooterHeight = useSharedValue(0)
-
-=======
   const { animatedPosition, animatedHandleHeight, animatedFooterHeight, animatedContainerHeight } =
     useBottomSheetInternal()
 
->>>>>>> upstream/main
   // Calculate position of the modal footer to ensure it stays at the bottom of the screen
   // when the modal content is scrolled
   const animatedFooterPosition = useDerivedValue(

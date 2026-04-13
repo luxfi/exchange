@@ -1,7 +1,7 @@
 /**
  * Lux Exchange - Explore Page (Lux Network) E2E Tests
  *
- * Tests the explore page filtered to Lux chain with real V3 subgraph data.
+ * Tests the explore page filtered to Lux chain with real graph engine data.
  * Verifies tokens, pools, and trading history for Lux LPs.
  *
  * Usage:

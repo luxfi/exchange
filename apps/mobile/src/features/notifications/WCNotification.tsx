@@ -1,18 +1,6 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
 import { openModal } from 'src/features/modals/modalSlice'
-<<<<<<< HEAD
-import { iconSizes } from '@l.x/ui/src/theme'
-import { DappLogoWithTxStatus } from '@l.x/lx/src/components/CurrencyLogo/LogoWithTxStatus'
-import { NotificationToast } from '@l.x/lx/src/components/notifications/NotificationToast'
-import { ScannerModalState } from '@l.x/lx/src/components/ReceiveQRCode/constants'
-import { toSupportedChainId } from '@l.x/lx/src/features/chains/utils'
-import { NOTIFICATION_ICON_SIZE } from '@l.x/lx/src/features/notifications/constants'
-import { WalletConnectNotification } from '@l.x/lx/src/features/notifications/slice/types'
-import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
-import { WalletConnectEvent } from '@l.x/lx/src/types/walletConnect'
-import { formWCNotificationTitle } from '@luxfi/wallet/src/features/notifications/utils'
-=======
 import { iconSizes } from 'ui/src/theme'
 import { DappLogoWithTxStatus } from 'uniswap/src/components/CurrencyLogo/LogoWithTxStatus'
 import { NotificationToast } from 'uniswap/src/components/notifications/NotificationToast'
@@ -23,7 +11,6 @@ import { WalletConnectNotification } from 'uniswap/src/features/notifications/sl
 import { ModalName } from 'uniswap/src/features/telemetry/constants'
 import { WalletConnectEvent } from 'uniswap/src/types/walletConnect'
 import { formWCNotificationTitle } from 'wallet/src/features/notifications/utils'
->>>>>>> upstream/main
 
 export function WCNotification({ notification }: { notification: WalletConnectNotification }): JSX.Element {
   const { imageUrl, chainId, address, event, hideDelay, dappName } = notification

@@ -1,13 +1,7 @@
 import { NetworkStatus } from '@apollo/client'
-<<<<<<< HEAD
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { useSortedPortfolioBalancesMultichain } from 'lx/src/features/dataApi/balances/balances'
-import type { PortfolioChainBalance, PortfolioMultichainBalance } from 'lx/src/features/dataApi/types'
-=======
 import { UniverseChainId } from 'uniswap/src/features/chains/types'
 import { useSortedPortfolioBalancesMultichain } from 'uniswap/src/features/dataApi/balances/balances'
 import type { PortfolioChainBalance, PortfolioMultichainBalance } from 'uniswap/src/features/dataApi/types'
->>>>>>> upstream/main
 import { describe, expect, it, vi } from 'vitest'
 import { usePortfolioAddresses } from '~/pages/Portfolio/hooks/usePortfolioAddresses'
 import { useTransformTokenTableData } from '~/pages/Portfolio/Tokens/hooks/useTransformTokenTableData'
@@ -19,23 +13,14 @@ vi.mock('~/pages/Portfolio/hooks/usePortfolioAddresses', () => ({
   usePortfolioAddresses: vi.fn(),
 }))
 
-<<<<<<< HEAD
 vi.mock('@l.x/gating', async (importOriginal) => ({
-=======
-vi.mock('@universe/gating', async (importOriginal) => ({
->>>>>>> upstream/main
   ...(await importOriginal()),
   useFeatureFlag: vi.fn().mockReturnValue(false),
   FeatureFlags: { MultichainTokenUx: 'multichain_token_ux' },
 }))
 
-<<<<<<< HEAD
-vi.mock('lx/src/features/dataApi/balances/balances', async (importOriginal) => {
-  const actual = await importOriginal<typeof import('lx/src/features/dataApi/balances/balances')>()
-=======
 vi.mock('uniswap/src/features/dataApi/balances/balances', async (importOriginal) => {
   const actual = await importOriginal<typeof import('uniswap/src/features/dataApi/balances/balances')>()
->>>>>>> upstream/main
   return {
     ...actual,
     useSortedPortfolioBalancesMultichain: vi.fn(),
@@ -88,24 +73,7 @@ describe('useTransformTokenTableData', () => {
     })
     mockUseSortedPortfolioBalancesMultichain.mockReturnValue({
       data: undefined,
-<<<<<<< HEAD
-=======
       balancesById: undefined,
->>>>>>> upstream/main
-      loading: false,
-      error: undefined,
-      refetch: undefined,
-      networkStatus: NetworkStatus.ready,
-    } as ReturnType<typeof useSortedPortfolioBalancesMultichain>)
-  })
-
-  it('returns empty visible and hidden when no sorted balances', () => {
-    mockUseSortedPortfolioBalancesMultichain.mockReturnValue({
-      data: undefined,
-<<<<<<< HEAD
-=======
-      balancesById: undefined,
->>>>>>> upstream/main
       loading: false,
       error: undefined,
       refetch: undefined,
@@ -134,43 +102,7 @@ describe('useTransformTokenTableData', () => {
         balances: [balanceWithTokens, balanceWithNoTokens],
         hiddenBalances: [],
       },
-<<<<<<< HEAD
-=======
       balancesById: undefined,
->>>>>>> upstream/main
-      loading: false,
-      error: undefined,
-      refetch: vi.fn(),
-      networkStatus: NetworkStatus.ready,
-    } as ReturnType<typeof useSortedPortfolioBalancesMultichain>)
-
-    const { result } = renderHook(() => useTransformTokenTableData({}))
-
-    expect(result.current.visible).not.toBeNull()
-    expect(result.current.visible).toHaveLength(1)
-    expect(result.current.visible![0].id).toBe('with-tokens')
-    expect(result.current.visible![0].tokens).toHaveLength(1)
-  })
-
-  it('filters out balances with no tokens from hidden', () => {
-    const hiddenWithTokens = createMultichainBalance({
-      id: 'hidden-with-tokens',
-      tokens: [createChainBalance()],
-    })
-    const hiddenWithNoTokens = createMultichainBalance({
-      id: 'hidden-no-tokens',
-      tokens: [],
-    })
-
-    mockUseSortedPortfolioBalancesMultichain.mockReturnValue({
-      data: {
-        balances: [],
-        hiddenBalances: [hiddenWithTokens, hiddenWithNoTokens],
-      },
-<<<<<<< HEAD
-=======
-      balancesById: undefined,
->>>>>>> upstream/main
       loading: false,
       error: undefined,
       refetch: vi.fn(),
@@ -197,57 +129,7 @@ describe('useTransformTokenTableData', () => {
         balances: [balance1, balance2],
         hiddenBalances: [],
       },
-<<<<<<< HEAD
-=======
       balancesById: undefined,
->>>>>>> upstream/main
-      loading: false,
-      error: undefined,
-      refetch: vi.fn(),
-      networkStatus: NetworkStatus.ready,
-    } as ReturnType<typeof useSortedPortfolioBalancesMultichain>)
-
-    const { result } = renderHook(() => useTransformTokenTableData({}))
-
-    expect(result.current.visible).not.toBeNull()
-    for (const row of result.current.visible!) {
-      expect(row.tokens.length).toBeGreaterThanOrEqual(1)
-      expect(row.tokens[0]).toBeDefined()
-    }
-
-    expect(result.current.hidden).not.toBeNull()
-    for (const row of result.current.hidden!) {
-      expect(row.tokens.length).toBeGreaterThanOrEqual(1)
-      expect(row.tokens[0]).toBeDefined()
-    }
-  })
-
-  it('when chainIds is set, only includes balances with a token on a selected chain and filters tokens to those chains', () => {
-    const chain1Only = createMultichainBalance({
-      id: 'chain-1-only',
-      tokens: [createChainBalance({ chainId: 1, valueUsd: 500 })],
-    })
-    const multichain = createMultichainBalance({
-      id: 'multichain',
-      tokens: [
-        createChainBalance({ chainId: 1, valueUsd: 300 }),
-        createChainBalance({ chainId: 42161, valueUsd: 200 }),
-      ],
-    })
-    const chain42161Only = createMultichainBalance({
-      id: 'chain-42161-only',
-      tokens: [createChainBalance({ chainId: 42161, valueUsd: 100 })],
-    })
-
-    mockUseSortedPortfolioBalancesMultichain.mockReturnValue({
-      data: {
-        balances: [chain1Only, multichain, chain42161Only],
-        hiddenBalances: [],
-      },
-<<<<<<< HEAD
-=======
-      balancesById: undefined,
->>>>>>> upstream/main
       loading: false,
       error: undefined,
       refetch: vi.fn(),

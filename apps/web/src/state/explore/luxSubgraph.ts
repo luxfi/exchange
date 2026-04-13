@@ -1,7 +1,7 @@
 /**
- * Lux V3 Subgraph Data Hooks
+ * Lux V3 Graph Engine Data Hooks
  *
- * Fetches tokens, pools, and swap history directly from the Lux V3 subgraph.
+ * Fetches tokens, pools, and swap history from the luxfi/graph engine.
  * Used when the explore page is filtered to the Lux chain (96369).
  */
 import { useQuery } from '@tanstack/react-query'
@@ -9,7 +9,10 @@ import { useQuery } from '@tanstack/react-query'
 // ─── Constants ─────────────────────────────────────────────────────
 
 export const LUX_CHAIN_ID = 96369
-export const SUBGRAPH_URL = 'https://api-exchange.lux.network/subgraph/v3'
+export const GRAPH_ENGINE_URL =
+  process.env.REACT_APP_GRAPH_ENGINE_URL ||
+  process.env.NEXT_PUBLIC_GRAPH_ENGINE_URL ||
+  'https://api-exchange.lux.network/v1/graphql'
 
 // ─── Types ─────────────────────────────────────────────────────────
 
@@ -68,22 +71,22 @@ export interface LuxFactory {
 
 async function sgQuery<T>(query: string): Promise<T> {
   try {
-    const res = await fetch(SUBGRAPH_URL, {
+    const res = await fetch(GRAPH_ENGINE_URL, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ query }),
       signal: AbortSignal.timeout(5000),
     })
-    if (!res.ok) throw new Error(`subgraph ${res.status}`)
+    if (!res.ok) throw new Error(`graph engine ${res.status}`)
     const json = await res.json()
     if (json.errors) throw new Error(json.errors[0].message)
     return json.data
   } catch {
-    // Subgraph unreachable -- use fallback from TradePage fallback data
+    // Graph engine unreachable -- use fallback from TradePage fallback data
     const { matchFallbackQuery } = await import('~/pages/Trade/fallbackData')
     const fallback = matchFallbackQuery(query)
     if (fallback) return fallback as T
-    throw new Error('Subgraph unavailable and no fallback for this query')
+    throw new Error('Graph engine unavailable and no fallback for this query')
   }
 }
 

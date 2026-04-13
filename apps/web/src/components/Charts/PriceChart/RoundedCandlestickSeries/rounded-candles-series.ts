@@ -17,12 +17,8 @@ import {
 import { RoundedCandleSeriesRenderer } from '~/components/Charts/PriceChart/RoundedCandlestickSeries/renderer'
 
 export interface RoundedCandleSeriesOptions
-<<<<<<< HEAD
-  extends CustomSeriesOptions,
-=======
   extends
     CustomSeriesOptions,
->>>>>>> upstream/main
     Exclude<CandlestickSeriesOptions, 'borderVisible' | 'borderColor' | 'borderUpColor' | 'borderDownColor'> {
   radius: (barSpacing: number) => number
   neutralColor: string
@@ -49,17 +45,11 @@ const defaultOptions: RoundedCandleSeriesOptions = {
   },
 } as const
 
-<<<<<<< HEAD
-export class RoundedCandleSeries<TData extends CandlestickData<UTCTimestamp>>
-  implements ICustomSeriesPaneView<Time, TData, RoundedCandleSeriesOptions>
-{
-=======
 export class RoundedCandleSeries<TData extends CandlestickData<UTCTimestamp>> implements ICustomSeriesPaneView<
   Time,
   TData,
   RoundedCandleSeriesOptions
 > {
->>>>>>> upstream/main
   _renderer: RoundedCandleSeriesRenderer<TData>
 
   constructor() {

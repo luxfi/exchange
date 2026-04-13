@@ -1,10 +1,5 @@
-<<<<<<< HEAD
-import { ProtocolVersion } from '@luxamm/client-data-api/dist/data/v1/poolTypes_pb'
-import { DEFAULT_TICK_SPACING } from '@l.x/lx/src/constants/pools'
-=======
 import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
 import { DEFAULT_TICK_SPACING } from 'uniswap/src/constants/pools'
->>>>>>> upstream/main
 import { LiquidityPositionInfoBadges } from '~/components/Liquidity/LiquidityPositionInfoBadges'
 import { fireEvent, render } from '~/test-utils/render'
 

@@ -8,21 +8,6 @@ import { AppStackScreenProp } from 'src/app/navigation/types'
 import { BackHeader } from 'src/components/layout/BackHeader'
 import { useReactNavigationModal } from 'src/components/modals/useReactNavigationModal'
 import { navigateBackFromEditingWallet } from 'src/components/Settings/EditWalletModal/EditWalletNavigation'
-<<<<<<< HEAD
-import { Button, Flex, Text } from '@l.x/ui/src'
-import { fonts } from '@l.x/ui/src/theme'
-import { TextInput } from '@l.x/lx/src/components/input/TextInput'
-import { Modal } from '@l.x/lx/src/components/modals/Modal'
-import { DisplayNameType } from '@l.x/lx/src/features/accounts/types'
-import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
-import { MobileScreens } from '@l.x/lx/src/types/screens/mobile'
-import { sanitizeAddressText } from '@l.x/lx/src/utils/addresses'
-import { shortenAddress } from '@l.x/utils/src/addresses'
-import { dismissNativeKeyboard } from '@l.x/utils/src/device/keyboard/dismissNativeKeyboard'
-import { NICKNAME_MAX_LENGTH } from '@luxfi/wallet/src/constants/accounts'
-import { EditAccountAction, editAccountActions } from '@luxfi/wallet/src/features/wallet/accounts/editAccountSaga'
-import { useDisplayName } from '@luxfi/wallet/src/features/wallet/hooks'
-=======
 import { Button, Flex, Text } from 'ui/src'
 import { fonts } from 'ui/src/theme'
 import { TextInput } from 'uniswap/src/components/input/TextInput'
@@ -36,7 +21,6 @@ import { dismissNativeKeyboard } from 'utilities/src/device/keyboard/dismissNati
 import { NICKNAME_MAX_LENGTH } from 'wallet/src/constants/accounts'
 import { EditAccountAction, editAccountActions } from 'wallet/src/features/wallet/accounts/editAccountSaga'
 import { useDisplayName } from 'wallet/src/features/wallet/hooks'
->>>>>>> upstream/main
 
 export function EditLabelSettingsModal({
   route,
@@ -86,11 +70,7 @@ export function EditLabelSettingsModal({
   return (
     <Modal fullScreen name={ModalName.EditLabelSettingsModal} onClose={onClose}>
       {/* This GestureDetector is used to consume all pan gestures and prevent
-<<<<<<< HEAD
-           keyboard from flickering (see https://github.com/Lux/universe/pull/8242) */}
-=======
            keyboard from flickering (see https://github.com/Uniswap/universe/pull/8242) */}
->>>>>>> upstream/main
       <GestureDetector gesture={Gesture.Pan()}>
         <Flex style={styles.base}>
           <BackHeader alignment="center" mx="$spacing16" pt="$spacing16" onPressBack={onPressBack}>

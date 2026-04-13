@@ -10,11 +10,7 @@ import { pushNotificationsReducer } from 'src/features/notifications/slice'
 import { splashScreenReducer } from 'src/features/splashScreen/splashScreenSlice'
 import { tweaksReducer } from 'src/features/tweaks/slice'
 import { walletConnectReducer } from 'src/features/walletConnect/walletConnectSlice'
-<<<<<<< HEAD
-import { walletPersistedStateList, walletReducers } from '@luxfi/wallet/src/state/walletReducer'
-=======
 import { walletPersistedStateList, walletReducers } from 'wallet/src/state/walletReducer'
->>>>>>> upstream/main
 
 const mobileReducers = {
   ...walletReducers,

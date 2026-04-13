@@ -12,11 +12,7 @@ export function clientToProvider(client?: Client<Transport, Chain>, chainId?: nu
   }
   const { chain, transport } = client
 
-<<<<<<< HEAD
-  // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
-=======
   // oxlint-disable-next-line typescript/no-unnecessary-condition
->>>>>>> upstream/main
   const network = chain
     ? {
         chainId: chain.id,

@@ -1,9 +1,5 @@
 import { type PersistState } from 'redux-persist'
-<<<<<<< HEAD
-import { type Language, Locale, mapLocaleToLanguage } from '@l.x/lx/src/features/language/constants'
-=======
 import { type Language, Locale, mapLocaleToLanguage } from 'uniswap/src/features/language/constants'
->>>>>>> upstream/main
 
 export type PersistAppStateV19 = {
   _persist: PersistState

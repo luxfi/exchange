@@ -13,15 +13,6 @@ import { useLineChartFiatDelta } from 'src/components/PriceExplorer/useFiatDelta
 import { useLineChartPrice, useLineChartRelativeChange } from 'src/components/PriceExplorer/usePrice'
 import { AnimatedText } from 'src/components/text/AnimatedText'
 import { numberToPercentWorklet } from 'src/utils/reanimated'
-<<<<<<< HEAD
-import { Flex, Text, useSporeColors } from '@l.x/ui/src'
-import { AnimatedCaretChange } from '@l.x/ui/src/components/icons'
-import { FiatCurrency } from '@l.x/lx/src/features/fiatCurrency/constants'
-import { useAppFiatCurrency, useAppFiatCurrencyInfo } from '@l.x/lx/src/features/fiatCurrency/hooks'
-import { useCurrentLocale } from '@l.x/lx/src/features/language/hooks'
-import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
-import { isAndroid } from '@l.x/utils/src/platform'
-=======
 import { Flex, Text, useSporeColors } from 'ui/src'
 import { AnimatedCaretChange } from 'ui/src/components/icons'
 import { FiatCurrency } from 'uniswap/src/features/fiatCurrency/constants'
@@ -29,7 +20,6 @@ import { useAppFiatCurrency, useAppFiatCurrencyInfo } from 'uniswap/src/features
 import { useCurrentLocale } from 'uniswap/src/features/language/hooks'
 import { TestID } from 'uniswap/src/test/fixtures/testIDs'
 import { isAndroid } from 'utilities/src/platform'
->>>>>>> upstream/main
 
 export function PriceText({ maxWidth }: { loading: boolean; maxWidth?: number }): JSX.Element {
   const price = useLineChartPrice()
@@ -112,10 +102,7 @@ export function RelativeChangeText({
       cancelAnimation(contentOpacity)
       contentOpacity.value = 0
     }
-<<<<<<< HEAD
-=======
     // oxlint-disable-next-line react/exhaustive-deps -- biome-parity: oxlint is stricter here
->>>>>>> upstream/main
   }, [loading])
 
   const animatedContentStyle = useAnimatedStyle(() => ({

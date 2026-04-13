@@ -1,9 +1,5 @@
 import { useMemo } from 'react'
-<<<<<<< HEAD
-import { useAppFiatCurrencyInfo } from '@l.x/lx/src/features/fiatCurrency/hooks'
-=======
 import { useAppFiatCurrencyInfo } from 'uniswap/src/features/fiatCurrency/hooks'
->>>>>>> upstream/main
 
 interface ParsedCurrencyAmountParts {
   prefixSymbol: string

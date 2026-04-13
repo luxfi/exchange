@@ -2,11 +2,7 @@ import React from 'react'
 import * as charts from 'react-native-wagmi-charts'
 import { DatetimeText, PriceText, RelativeChangeText } from 'src/components/PriceExplorer/Text'
 import { render, within } from 'src/test/test-utils'
-<<<<<<< HEAD
-import { amounts } from '@l.x/lx/src/test/fixtures'
-=======
 import { amounts } from 'uniswap/src/test/fixtures'
->>>>>>> upstream/main
 
 jest.mock('react-native-wagmi-charts')
 const mockedUseLineChartPrice = charts.useLineChartPrice as jest.Mock

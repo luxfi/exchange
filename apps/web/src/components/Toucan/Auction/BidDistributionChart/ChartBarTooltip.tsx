@@ -1,12 +1,7 @@
 import { forwardRef } from 'react'
 import { useTranslation } from 'react-i18next'
-<<<<<<< HEAD
-import { Flex, Text } from '@l.x/ui/src'
-import { zIndexes } from '@l.x/ui/src/theme'
-=======
 import { Flex, Text } from 'ui/src'
 import { zIndexes } from 'ui/src/theme'
->>>>>>> upstream/main
 import { TOOLTIP_CONFIG } from '~/components/Toucan/Auction/BidDistributionChart/constants'
 import { formatTickForDisplay } from '~/components/Toucan/Auction/BidDistributionChart/utils/utils'
 import { BidTokenInfo } from '~/components/Toucan/Auction/store/types'

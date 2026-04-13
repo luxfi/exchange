@@ -1,16 +1,6 @@
 import React, { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { navigate } from 'src/app/navigation/rootNavigation'
-<<<<<<< HEAD
-import { Flex, TouchableArea } from '@l.x/ui/src'
-import { RotatableChevron } from '@l.x/ui/src/components/icons'
-import { iconSizes } from '@l.x/ui/src/theme'
-import { AddressDisplay } from '@l.x/lx/src/components/accounts/AddressDisplay'
-import { ExpandoRow } from '@l.x/lx/src/components/ExpandoRow/ExpandoRow'
-import { AccountType } from '@l.x/lx/src/features/accounts/types'
-import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
-import { useAccountsList, useActiveAccountWithThrow } from '@luxfi/wallet/src/features/wallet/hooks'
-=======
 import { Flex, TouchableArea } from 'ui/src'
 import { RotatableChevron } from 'ui/src/components/icons'
 import { iconSizes } from 'ui/src/theme'
@@ -19,7 +9,6 @@ import { ExpandoRow } from 'uniswap/src/components/ExpandoRow/ExpandoRow'
 import { AccountType } from 'uniswap/src/features/accounts/types'
 import { ModalName } from 'uniswap/src/features/telemetry/constants'
 import { useAccountsList, useActiveAccountWithThrow } from 'wallet/src/features/wallet/hooks'
->>>>>>> upstream/main
 
 const DEFAULT_ACCOUNTS_TO_DISPLAY = 3
 interface Account {

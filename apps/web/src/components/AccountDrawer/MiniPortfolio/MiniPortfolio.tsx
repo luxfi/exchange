@@ -1,16 +1,9 @@
 import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
-<<<<<<< HEAD
-import { Flex, Text } from '@l.x/ui/src'
-import { ActivityItem } from '@l.x/lx/src/components/activity/generateActivityItemRenderer'
-import { useActivityData } from '@l.x/lx/src/features/activity/hooks/useActivityData'
-import { ElementName } from '@l.x/lx/src/features/telemetry/constants'
-=======
 import { Flex, Text } from 'ui/src'
 import { ActivityItem } from 'uniswap/src/components/activity/generateActivityItemRenderer'
 import { useActivityData } from 'uniswap/src/features/activity/hooks/useActivityData'
 import { ElementName } from 'uniswap/src/features/telemetry/constants'
->>>>>>> upstream/main
 import { useAccountDrawer } from '~/components/AccountDrawer/MiniPortfolio/hooks'
 import { filterTransactionDetailsFromActivityItems } from '~/pages/Portfolio/Activity/Filters/utils'
 import { ViewAllButton } from '~/pages/Portfolio/Overview/ViewAllButton'

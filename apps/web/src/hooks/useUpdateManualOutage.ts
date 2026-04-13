@@ -1,15 +1,8 @@
 import { ApolloError } from '@apollo/client'
-<<<<<<< HEAD
 import { GraphQLApi } from '@l.x/api'
-import { useEffect } from 'react'
-import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
-import { useIsOffline } from '@l.x/utils/src/connection/useIsOffline'
-=======
-import { GraphQLApi } from '@universe/api'
 import { useEffect } from 'react'
 import { UniverseChainId } from 'uniswap/src/features/chains/types'
 import { useIsOffline } from 'utilities/src/connection/useIsOffline'
->>>>>>> upstream/main
 import { useManualChainOutageStore } from '~/state/outage/store'
 import { isOutageError } from '~/utils/errors/isOutageError'
 
@@ -39,11 +32,7 @@ export function useUpdateManualOutage({
 }) {
   const isOffline = useIsOffline()
 
-<<<<<<< HEAD
-  // biome-ignore lint/correctness/useExhaustiveDependencies: trigger is intentionally included to force re-execution when its value changes
-=======
   // oxlint-disable-next-line react/exhaustive-deps -- trigger is intentionally included to force re-execution when its value changes
->>>>>>> upstream/main
   useEffect(() => {
     if (!chainId || isOffline) {
       return

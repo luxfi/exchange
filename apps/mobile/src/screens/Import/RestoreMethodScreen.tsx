@@ -1,9 +1,5 @@
 import { NativeStackScreenProps } from '@react-navigation/native-stack'
-<<<<<<< HEAD
-import { FeatureFlags, useFeatureFlag } from '@luxfi/gating'
-=======
-import { FeatureFlags, useFeatureFlag } from '@universe/gating'
->>>>>>> upstream/main
+import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import React from 'react'
 import { useTranslation } from 'react-i18next'
 import { OnboardingStackParamList } from 'src/app/navigation/types'
@@ -15,17 +11,6 @@ import {
   restoreWalletWithSeedPhraseOption,
 } from 'src/screens/Import/constants'
 import { useNavigationHeader } from 'src/utils/useNavigationHeader'
-<<<<<<< HEAD
-import { Flex, Text, TouchableArea } from '@l.x/ui/src'
-import { WalletFilled } from '@l.x/ui/src/components/icons'
-import { useIsDarkMode } from '@l.x/ui/src/hooks/useIsDarkMode'
-import { ElementName, ModalName } from '@l.x/lx/src/features/telemetry/constants'
-import Trace from '@l.x/lx/src/features/telemetry/Trace'
-import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
-import { ImportType } from '@l.x/lx/src/types/onboarding'
-import { OnboardingScreens } from '@l.x/lx/src/types/screens/mobile'
-import { logger } from '@l.x/utils/src/logger/logger'
-=======
 import { Flex, Text, TouchableArea } from 'ui/src'
 import { WalletFilled } from 'ui/src/components/icons'
 import { useIsDarkMode } from 'ui/src/hooks/useIsDarkMode'
@@ -35,7 +20,6 @@ import { TestID } from 'uniswap/src/test/fixtures/testIDs'
 import { ImportType } from 'uniswap/src/types/onboarding'
 import { OnboardingScreens } from 'uniswap/src/types/screens/mobile'
 import { logger } from 'utilities/src/logger/logger'
->>>>>>> upstream/main
 
 const options: ImportMethodOption[] = [restoreFromCloudBackupOption, restoreWalletWithSeedPhraseOption]
 

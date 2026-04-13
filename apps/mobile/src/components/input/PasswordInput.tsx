@@ -1,20 +1,11 @@
 import React, { forwardRef, useState } from 'react'
 import { TextInput as NativeTextInput } from 'react-native'
-<<<<<<< HEAD
-import { Flex, TouchableArea } from '@l.x/ui/src'
-import { Eye, EyeOff } from '@l.x/ui/src/components/icons'
-import { AnimatedFlex } from '@l.x/ui/src/components/layout/AnimatedFlex'
-import { TextInput, TextInputProps } from '@l.x/lx/src/components/input/TextInput'
-
-export const PasswordInput = forwardRef<NativeTextInput, TextInputProps>(function _PasswordInput(props, ref) {
-=======
 import { Flex, TouchableArea } from 'ui/src'
 import { Eye, EyeOff } from 'ui/src/components/icons'
 import { AnimatedFlex } from 'ui/src/components/layout/AnimatedFlex'
 import { TextInput, TextInputProps } from 'uniswap/src/components/input/TextInput'
 
 export const PasswordInput = forwardRef<NativeTextInput, TextInputProps>(function PasswordInputInner(props, ref) {
->>>>>>> upstream/main
   const [showPassword, setShowPassword] = useState(false)
 
   const { value, placeholder, onChangeText, returnKeyType, onSubmitEditing, ...rest } = props

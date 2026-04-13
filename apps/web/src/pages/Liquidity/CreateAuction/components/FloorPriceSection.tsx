@@ -1,16 +1,3 @@
-<<<<<<< HEAD
-import { type Currency, type CurrencyAmount } from '@luxamm/sdk-core'
-import { useCallback, useLayoutEffect, useMemo, useRef, useState } from 'react'
-import { useTranslation } from 'react-i18next'
-import { Flex, Input, Text, TouchableArea } from '@l.x/ui/src'
-import { fonts } from '@l.x/ui/src/theme'
-import { type UniverseChainId } from 'lx/src/features/chains/types'
-import { useAppFiatCurrencyInfo } from 'lx/src/features/fiatCurrency/hooks'
-import { useCurrentLocale } from 'lx/src/features/language/hooks'
-import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
-import { useUSDCPrice } from 'lx/src/features/transactions/hooks/useUSDCPriceWrapper'
-import { NumberType } from '@l.x/utils/src/format/types'
-=======
 import { type Currency, type CurrencyAmount } from '@uniswap/sdk-core'
 import { useCallback, useLayoutEffect, useMemo, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
@@ -22,7 +9,6 @@ import { useCurrentLocale } from 'uniswap/src/features/language/hooks'
 import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
 import { useUSDCPrice } from 'uniswap/src/features/transactions/hooks/useUSDCPriceWrapper'
 import { NumberType } from 'utilities/src/format/types'
->>>>>>> upstream/main
 import { RaiseCurrency } from '~/pages/Liquidity/CreateAuction/types'
 import { getRaiseCurrencyAsCurrency } from '~/pages/Liquidity/CreateAuction/utils'
 

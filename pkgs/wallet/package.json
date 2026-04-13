@@ -1,6 +1,6 @@
 {
   "name": "@luxfi/wallet",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "scripts": {
     "check:deps:usage": "nx check:deps:usage wallet",
     "lint:biome": "nx lint:biome wallet",
@@ -50,7 +50,7 @@
     "lodash": "4.17.21",
     "mockdate": "3.0.5",
     "no-yolo-signatures": "0.0.2",
-    "react": "19.0.3",
+    "react": "19.2.5",
     "react-i18next": "14.1.0",
     "react-native": "npm:@hanzogui/react-native@0.79.5-fork.1",
     "react-native-context-menu-view": "1.21.0",
@@ -89,7 +89,7 @@
     "jest-extended": "4.0.2",
     "jest-presets": "workspace:^",
     "react-test-renderer": "19.0.3",
-    "typescript": "5.8.3"
+    "typescript": "5.9.3"
   },
   "main": "src/index.ts",
   "types": "src/index.ts",

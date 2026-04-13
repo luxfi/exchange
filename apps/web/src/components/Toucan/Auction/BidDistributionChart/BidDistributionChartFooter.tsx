@@ -1,12 +1,7 @@
 import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
-<<<<<<< HEAD
-import { Flex, SegmentedControl, Text, Tooltip, useColorsFromTokenColor, useSporeColors } from '@l.x/ui/src'
-import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
-=======
 import { Flex, SegmentedControl, Text, Tooltip, useColorsFromTokenColor, useSporeColors } from 'ui/src'
 import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
->>>>>>> upstream/main
 import { getChartBarColors } from '~/components/Charts/ToucanChart/utils/colors'
 import { BidDistributionChartTab } from '~/components/Toucan/Auction/AuctionChartShared'
 import { AuctionProgressBar } from '~/components/Toucan/Auction/AuctionProgressBar'
@@ -20,11 +15,6 @@ interface LegendDotProps {
   color: string
 }
 
-<<<<<<< HEAD
-interface ChartFooterProps {
-  activeTab: BidDistributionChartTab
-  groupingToggleDisabled?: boolean
-=======
 interface LegendDotOutlineProps {
   color: string
 }
@@ -34,7 +24,6 @@ interface ChartFooterProps {
   groupingToggleDisabled?: boolean
   /** V2 combined chart mode: show legend on left, zoom on right */
   combinedMode?: boolean
->>>>>>> upstream/main
 }
 
 type GroupingOption = 'grouped' | 'ungrouped'
@@ -43,24 +32,7 @@ const LegendDot = ({ color }: LegendDotProps) => (
   <Flex width="$spacing8" height="$spacing8" borderRadius="$roundedFull" backgroundColor={color} />
 )
 
-<<<<<<< HEAD
-=======
-const LegendDotDashed = ({ color }: LegendDotOutlineProps) => (
-  <svg width={9} height={9} viewBox="0 0 9 9" fill="none">
-    <circle cx={4.5} cy={4.5} r={4} stroke={color} strokeDasharray="1 1" />
-  </svg>
-)
-
->>>>>>> upstream/main
-/**
- * Shared chart footer component displaying auction progress.
- * Used by both ClearingPriceChart and BidDistributionChart tabs.
- */
-<<<<<<< HEAD
-export const ChartFooter = ({ activeTab, groupingToggleDisabled = false }: ChartFooterProps) => {
-=======
 export const ChartFooter = ({ activeTab, groupingToggleDisabled = false, combinedMode = false }: ChartFooterProps) => {
->>>>>>> upstream/main
   const { formatPercent } = useLocalizationContext()
   const { t } = useTranslation()
   const colors = useSporeColors()
@@ -142,23 +114,6 @@ export const ChartFooter = ({ activeTab, groupingToggleDisabled = false, combine
   const hideZoomForInProgressClearingPrice = isClearingPriceActive && isAuctionInProgress
   const showZoomControls = !hideZoomForInProgressClearingPrice
   const isZoomDisabled = !isClearingPriceActive && isDistributionActive && groupTicksEnabled
-<<<<<<< HEAD
-  let activeZoomState = clearingPriceZoomState
-  if (!isClearingPriceActive) {
-    activeZoomState = isDistributionActive ? chartZoomStates.distribution : chartZoomStates.demand
-  }
-
-  const handleZoomIn = () => {
-    requestChartZoom(isClearingPriceActive ? 'clearingPrice' : activeTab, 'zoomIn')
-  }
-
-  const handleZoomOut = () => {
-    requestChartZoom(isClearingPriceActive ? 'clearingPrice' : activeTab, 'zoomOut')
-  }
-
-  const handleResetZoom = () => {
-    requestChartZoom(isClearingPriceActive ? 'clearingPrice' : activeTab, 'reset')
-=======
 
   // In combined mode, the CombinedAuctionChart owns zoom state via clearingPriceZoomState
   const isCombinedChartActive = combinedMode && !isClearingPriceActive && activeTab !== BidDistributionChartTab.Demand
@@ -179,7 +134,6 @@ export const ChartFooter = ({ activeTab, groupingToggleDisabled = false, combine
 
   const handleResetZoom = () => {
     requestChartZoom(zoomTarget, 'reset')
->>>>>>> upstream/main
   }
 
   const handleGroupingChange = (option: GroupingOption) => {
@@ -201,68 +155,6 @@ export const ChartFooter = ({ activeTab, groupingToggleDisabled = false, combine
     [t],
   )
 
-<<<<<<< HEAD
-  return (
-    <Flex width="100%" mt={-15}>
-      <Flex row alignItems="center" justifyContent="space-between" pt="$spacing6" height={34}>
-        <Flex row alignItems="center" gap="$spacing12">
-          {isDistributionActive && !groupingToggleDisabled && (
-            <SegmentedControl
-              options={groupingOptions}
-              selectedOption={groupTicksEnabled ? 'grouped' : 'ungrouped'}
-              onSelectOption={handleGroupingChange}
-              size="xsmall"
-            />
-          )}
-          {showZoomControls && (
-            <AuctionChartZoomControls
-              onZoomIn={handleZoomIn}
-              onZoomOut={handleZoomOut}
-              onReset={handleResetZoom}
-              isZoomDisabled={isZoomDisabled}
-              isResetDisabled={!activeZoomState.isZoomed}
-            />
-          )}
-        </Flex>
-        {isDistributionActive && hasConcentration ? (
-          <Flex row alignItems="center" gap="$spacing12" $sm={{ display: 'none' }}>
-            {legendItems.map(({ color, label, tooltipContent }) => {
-              const legendContent = (
-                <Flex key={label} row alignItems="center" gap="$spacing4">
-                  <LegendDot color={color} />
-                  <Text variant="body4" color="$neutral2">
-                    {label}
-                  </Text>
-                </Flex>
-              )
-
-              if (tooltipContent) {
-                return (
-                  <Tooltip key={label} placement="top" delay={75} offset={{ mainAxis: 8 }}>
-                    <Tooltip.Trigger cursor="default">{legendContent}</Tooltip.Trigger>
-                    <Tooltip.Content
-                      backgroundColor="$surface1"
-                      borderRadius="$rounded12"
-                      borderWidth="$spacing1"
-                      borderColor="$surface3"
-                      py="$spacing8"
-                      px="$spacing12"
-                      zIndex="$tooltip"
-                    >
-                      <Text variant="body4" color="$neutral2">
-                        {tooltipContent}
-                      </Text>
-                    </Tooltip.Content>
-                  </Tooltip>
-                )
-              }
-
-              return legendContent
-            })}
-          </Flex>
-        ) : (
-          <Flex />
-=======
   const combinedLegendColor = auctionTokenColor ?? colors.accent1.val
 
   return (
@@ -365,7 +257,6 @@ export const ChartFooter = ({ activeTab, groupingToggleDisabled = false, combine
               <Flex />
             )}
           </>
->>>>>>> upstream/main
         )}
       </Flex>
       <Flex my="$spacing16" pt="$spacing4" gap="$gap12" $sm={{ my: '$none', mt: '$spacing8' }}>

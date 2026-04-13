@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import { Flex } from '@l.x/ui/src'
-=======
 import { Flex } from 'ui/src'
->>>>>>> upstream/main
 
 interface PulsingIndicatorDotProps {
   color: string

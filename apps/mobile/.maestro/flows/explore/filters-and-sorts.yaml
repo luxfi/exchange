@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-appId: com.lux.exchange.dev
-=======
 appId: com.uniswap.mobile.dev
->>>>>>> upstream/main
 jsEngine: graaljs
 env:
   E2E_RECOVERY_PHRASE: ${E2E_RECOVERY_PHRASE}

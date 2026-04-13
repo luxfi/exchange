@@ -1,6 +1,6 @@
 {
   "name": "@l.x/analytics",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "dependencies": {
     "@amplitude/analytics-node": "1.5.36"
   },
@@ -10,7 +10,7 @@
     "@luxfi/eslint-config": "workspace:^",
     "depcheck": "1.4.7",
     "eslint": "8.57.1",
-    "typescript": "5.8.3"
+    "typescript": "5.9.3"
   },
   "scripts": {
     "typecheck": "nx typecheck analytics",

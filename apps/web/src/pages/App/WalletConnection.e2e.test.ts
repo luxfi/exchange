@@ -1,12 +1,6 @@
-<<<<<<< HEAD
 import { FeatureFlags, getFeatureFlagName } from '@l.x/gating'
 import ms from 'ms'
-import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
-=======
-import { FeatureFlags, getFeatureFlagName } from '@universe/gating'
-import ms from 'ms'
 import { TestID } from 'uniswap/src/test/fixtures/testIDs'
->>>>>>> upstream/main
 import { expect, getTest } from '~/playwright/fixtures'
 import { getVisibleDropdownElementByTestId } from '~/playwright/fixtures/utils'
 

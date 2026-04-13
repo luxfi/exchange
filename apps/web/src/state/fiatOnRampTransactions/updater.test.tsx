@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import { ForApiClient } from '@l.x/lx/src/data/apiClients/forApi/ForApiClient'
-=======
 import { ForApiClient } from 'uniswap/src/data/apiClients/forApi/ForApiClient'
->>>>>>> upstream/main
 import { useFiatOnRampTransactions } from '~/state/fiatOnRampTransactions/hooks'
 import { FiatOnRampTransactionStatus, FiatOnRampTransactionType } from '~/state/fiatOnRampTransactions/types'
 import Updater from '~/state/fiatOnRampTransactions/updater'

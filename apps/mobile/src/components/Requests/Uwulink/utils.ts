@@ -4,23 +4,13 @@ import {
   UwULinkAllowlistItem,
   UwuLinkConfigKey,
   useDynamicConfigValue,
-<<<<<<< HEAD
-} from '@luxfi/gating'
-import { parseEther } from 'ethers/lib/utils'
-import { WalletConnectSigningRequest } from 'src/features/walletConnect/walletConnectSlice'
-import { AssetType } from '@l.x/lx/src/entities/assets'
-import { SignerMnemonicAccountMeta } from '@l.x/lx/src/features/accounts/types'
-import { EthMethod } from '@l.x/lx/src/features/dappRequests/types'
-import { isUwULinkAllowlistType } from '@l.x/lx/src/features/gating/typeGuards'
-=======
-} from '@universe/gating'
+} from '@l.x/gating'
 import { parseEther } from 'ethers/lib/utils'
 import { WalletConnectSigningRequest } from 'src/features/walletConnect/walletConnectSlice'
 import { AssetType } from 'uniswap/src/entities/assets'
 import { SignerMnemonicAccountMeta } from 'uniswap/src/features/accounts/types'
 import { EthMethod } from 'uniswap/src/features/dappRequests/types'
 import { isUwULinkAllowlistType } from 'uniswap/src/features/gating/typeGuards'
->>>>>>> upstream/main
 import {
   DappRequestType,
   EthTransaction,
@@ -28,18 +18,6 @@ import {
   UwULinkMethod,
   UwULinkRequest,
   UwULinkRequestInfo,
-<<<<<<< HEAD
-} from '@l.x/lx/src/types/walletConnect'
-import { areAddressesEqual } from '@l.x/lx/src/utils/addresses'
-import { ContractManager } from '@luxfi/wallet/src/features/contracts/ContractManager'
-import { ProviderManager } from '@luxfi/wallet/src/features/providers/ProviderManager'
-import { getTokenSendRequest } from '@luxfi/wallet/src/features/transactions/send/hooks/useSendTransactionRequest'
-import { SendCurrencyParams } from '@luxfi/wallet/src/features/transactions/send/types'
-
-const UWULINK_MAX_TXN_VALUE = '0.001'
-
-export const LUX_URL_SCHEME_UWU_LINK = 'lux://uwulink?'
-=======
 } from 'uniswap/src/types/walletConnect'
 import { areAddressesEqual } from 'uniswap/src/utils/addresses'
 import { ContractManager } from 'wallet/src/features/contracts/ContractManager'
@@ -50,7 +28,6 @@ import { SendCurrencyParams } from 'wallet/src/features/transactions/send/types'
 const UWULINK_MAX_TXN_VALUE = '0.001'
 
 export const UNISWAP_URL_SCHEME_UWU_LINK = 'uniswap://uwulink?'
->>>>>>> upstream/main
 export const UWULINK_PREFIX = 'uwulink' as const
 
 // uwulink{...} format for uwulink direct link
@@ -60,15 +37,6 @@ export function isUwULinkDirectLink(uri: string): boolean {
   return uri.startsWith(`${UWULINK_PREFIX}{`)
 }
 
-<<<<<<< HEAD
-// lux://uwulink?uwulink{...} format for uwulink deep link
-export function isUwuLinkLuxDeepLink(uri: string): boolean {
-  return uri.startsWith(`${LUX_URL_SCHEME_UWU_LINK}${UWULINK_PREFIX}`)
-}
-
-export function parseUwuLinkDataFromDeeplink(uri: string): string {
-  return uri.slice(LUX_URL_SCHEME_UWU_LINK.length + UWULINK_PREFIX.length).replaceAll('\\', '')
-=======
 // uniswap://uwulink?uwulink{...} format for uwulink deep link
 export function isUwuLinkUniswapDeepLink(uri: string): boolean {
   return uri.startsWith(`${UNISWAP_URL_SCHEME_UWU_LINK}${UWULINK_PREFIX}`)
@@ -76,7 +44,6 @@ export function isUwuLinkUniswapDeepLink(uri: string): boolean {
 
 export function parseUwuLinkDataFromDeeplink(uri: string): string {
   return uri.slice(UNISWAP_URL_SCHEME_UWU_LINK.length + UWULINK_PREFIX.length).replaceAll('\\', '')
->>>>>>> upstream/main
 }
 
 // Gets the UWULink contract allow list from statsig dynamic config.

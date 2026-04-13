@@ -1,11 +1,6 @@
 import React, { forwardRef } from 'react'
-<<<<<<< HEAD
-import { Locale } from '@l.x/lx/src/features/language/constants'
-import { useCurrentLocale } from '@l.x/lx/src/features/language/hooks'
-=======
 import { Locale } from 'uniswap/src/features/language/constants'
 import { useCurrentLocale } from 'uniswap/src/features/language/hooks'
->>>>>>> upstream/main
 import { loadingOpacityMixin } from '~/components/Loader/styled'
 import { deprecatedStyled } from '~/lib/deprecated-styled'
 import { escapeRegExp } from '~/utils/escapeRegExp'
@@ -112,11 +107,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
               ? value.toString().slice(prependSymbol.length, value.toString().length + 1)
               : value
 
-<<<<<<< HEAD
-            // replace commas with periods, because lux exclusively uses period as the decimal separator
-=======
             // replace commas with periods, because uniswap exclusively uses period as the decimal separator
->>>>>>> upstream/main
             enforcer(formattedValue.replace(/,/g, '.'))
           } else {
             enforcer(event.target.value.replace(/,/g, '.'))

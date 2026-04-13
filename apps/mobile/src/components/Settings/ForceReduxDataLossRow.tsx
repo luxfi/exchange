@@ -1,21 +1,12 @@
 import { useState } from 'react'
 import { DevSettings } from 'react-native'
 import { MMKV } from 'react-native-mmkv'
-<<<<<<< HEAD
-import { Flex, type IconProps, Text, TouchableArea } from '@l.x/ui/src'
-import { RotatableChevron, LuxLogo } from '@l.x/ui/src/components/icons'
-import { WarningSeverity } from '@l.x/lx/src/components/modals/WarningModal/types'
-import { WarningModal } from '@l.x/lx/src/components/modals/WarningModal/WarningModal'
-import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
-import { logger } from '@l.x/utils/src/logger/logger'
-=======
 import { Flex, type IconProps, Text, TouchableArea } from 'ui/src'
 import { RotatableChevron, UniswapLogo } from 'ui/src/components/icons'
 import { WarningSeverity } from 'uniswap/src/components/modals/WarningModal/types'
 import { WarningModal } from 'uniswap/src/components/modals/WarningModal/WarningModal'
 import { ModalName } from 'uniswap/src/features/telemetry/constants'
 import { logger } from 'utilities/src/logger/logger'
->>>>>>> upstream/main
 
 /**
  * Dev tool to simulate complete Redux data loss while keeping Keyring intact.
@@ -59,11 +50,7 @@ export function ForceReduxDataLossRow({ iconProps }: { iconProps: IconProps }): 
         <Flex row alignItems="center" justifyContent="space-between" py="$spacing4">
           <Flex row alignItems="center">
             <Flex centered height={32} width={32}>
-<<<<<<< HEAD
-              <LuxLogo {...iconProps} />
-=======
               <UniswapLogo {...iconProps} />
->>>>>>> upstream/main
             </Flex>
             <Text ml="$spacing12" variant="body1">
               Test recovery

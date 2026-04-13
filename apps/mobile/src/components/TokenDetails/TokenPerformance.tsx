@@ -1,4 +1,4 @@
-import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { memo } from 'react'
 import { useTokenDetailsContext } from 'src/components/TokenDetails/TokenDetailsContext'
 import { Flex, Separator } from 'ui/src'

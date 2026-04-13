@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-/* eslint-disable max-lines */
-import '@testing-library/jest-dom' // jest custom assertions
-import 'jest-styled-components' // adds style diffs to snapshot tests
-import '~/polyfills' // add polyfills
-// eslint-disable-next-line
-import './test-utils/mockGui' // mock problematic Gui components
-
-=======
 /* oxlint-disable max-lines */
 import '@testing-library/jest-dom' // jest custom assertions
 import 'jest-styled-components' // adds style diffs to snapshot tests
@@ -15,7 +6,6 @@ import '~/polyfills' // add polyfills
 import './test-utils/mockTamagui' // mock problematic Tamagui components
 import { Readable } from 'stream'
 import { TextDecoder, TextEncoder } from 'util'
->>>>>>> upstream/main
 import { type createPopper } from '@popperjs/core'
 import {
   BaseWalletAdapter,
@@ -23,27 +13,15 @@ import {
   type WalletName,
   WalletReadyState,
 } from '@solana/wallet-adapter-base'
-<<<<<<< HEAD
 import { useFeatureFlag } from '@l.x/gating'
-=======
-import { useFeatureFlag } from '@universe/gating'
->>>>>>> upstream/main
 import { useWeb3React } from '@web3-react/core'
 import { config as loadEnv } from 'dotenv'
 import failOnConsole from 'jest-fail-on-console'
 import { disableNetConnect, restore as restoreNetConnect } from 'nock'
 import React from 'react'
-<<<<<<< HEAD
-import { Readable } from 'stream'
-import { type UniverseChainId } from '@l.x/lx/src/features/chains/types'
-import { setupi18n } from '@l.x/lx/src/i18n/i18n-setup-interface'
-import { mockLocalizationContext } from '@l.x/lx/src/test/mocks/locale'
-import { TextDecoder, TextEncoder } from 'util'
-=======
 import { type UniverseChainId } from 'uniswap/src/features/chains/types'
 import { setupi18n } from 'uniswap/src/i18n/i18n-setup-interface'
 import { mockLocalizationContext } from 'uniswap/src/test/mocks/locale'
->>>>>>> upstream/main
 import { toBeVisible } from '~/test-utils/matchers'
 import { mocked } from '~/test-utils/mocked'
 
@@ -124,17 +102,10 @@ setupi18n()
 
 // Sets origin to the production origin, because some tests depend on this.
 // This prevents each test file from needing to set this manually.
-<<<<<<< HEAD
-globalThis.origin = 'https://lux.exchange'
-
-// Polyfill browser APIs (jest is a node.js environment):
-// biome-ignore lint/complexity/noUselessLoneBlockStatements: block used to scope polyfill assignments
-=======
 globalThis.origin = 'https://app.uniswap.org'
 
 // Polyfill browser APIs (jest is a node.js environment):
 // oxlint-disable-next-line no-lone-blocks -- block used to scope polyfill assignments
->>>>>>> upstream/main
 {
   window.open = vi.fn()
   window.getComputedStyle = vi.fn()
@@ -147,11 +118,7 @@ globalThis.origin = 'https://app.uniswap.org'
   }
 
   globalThis.matchMedia =
-<<<<<<< HEAD
-    // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
-=======
     // oxlint-disable-next-line typescript/no-unnecessary-condition
->>>>>>> upstream/main
     globalThis.matchMedia ||
     ((query) => {
       const reducedMotion = query.match(/prefers-reduced-motion: ([a-zA-Z0-9-]+)/)
@@ -180,11 +147,7 @@ const IntersectionObserverMock = vi.fn(() => ({
 
 vi.stubGlobal('IntersectionObserver', IntersectionObserverMock)
 
-<<<<<<< HEAD
 vi.mock('react-native-svg', () => require('@hanzogui/react-native-svg'))
-=======
-vi.mock('react-native-svg', () => require('@tamagui/react-native-svg'))
->>>>>>> upstream/main
 
 vi.mock('expo-blur', () => ({
   BlurView: ({ children }: any) => {
@@ -206,11 +169,7 @@ vi.mock('@datadog/browser-logs', () => ({
 }))
 
 // This package must be mocked because it doesn't support ESM
-<<<<<<< HEAD
-vi.mock('@luxamm/analytics-events', () => {
-=======
 vi.mock('@uniswap/analytics-events', () => {
->>>>>>> upstream/main
   return {
     SharedEventName: {},
     sendAnalyticsEvent: vi.fn(),
@@ -218,11 +177,7 @@ vi.mock('@uniswap/analytics-events', () => {
   }
 })
 
-<<<<<<< HEAD
 vi.mock('@hanzogui/animations-moti', () => ({
-=======
-vi.mock('@tamagui/animations-moti', () => ({
->>>>>>> upstream/main
   createAnimations: () => ({
     '100ms': {
       type: 'timing',
@@ -242,11 +197,7 @@ vi.mock('@tamagui/animations-moti', () => ({
   },
 }))
 
-<<<<<<< HEAD
-vi.mock('@luxamm/analytics', () => ({
-=======
 vi.mock('@uniswap/analytics', () => ({
->>>>>>> upstream/main
   Trace: ({ children }: any) => {
     return React.createElement(React.Fragment, {}, children)
   },
@@ -283,11 +234,7 @@ vi.mock('utilities/src/platform', async () => {
   }
 })
 
-<<<<<<< HEAD
-vi.mock('lx/src/features/telemetry/Trace', () => ({
-=======
 vi.mock('uniswap/src/features/telemetry/Trace', () => ({
->>>>>>> upstream/main
   default: ({ children }: any) => {
     return React.createElement(React.Fragment, {}, children)
   },
@@ -296,11 +243,7 @@ vi.mock('uniswap/src/features/telemetry/Trace', () => ({
   },
 }))
 
-<<<<<<< HEAD
-vi.mock('lx/src/features/accounts/store/hooks', () => ({
-=======
 vi.mock('uniswap/src/features/accounts/store/hooks', () => ({
->>>>>>> upstream/main
   useConnectionStatus: vi.fn(() => ({ isConnecting: false })),
 }))
 
@@ -385,11 +328,7 @@ vi.mock('@popperjs/core', async () => {
   }
 })
 
-<<<<<<< HEAD
-vi.mock('lx/src/features/language/LocalizationContext', () => mockLocalizationContext({}))
-=======
 vi.mock('uniswap/src/features/language/LocalizationContext', () => mockLocalizationContext({}))
->>>>>>> upstream/main
 
 vi.mock('@web3-react/core', async () => {
   const web3React: any = await vi.importActual('@web3-react/core')
@@ -438,11 +377,7 @@ failOnConsole({
   shouldFailOnWarn: true,
   allowMessage: (message, type) => {
     if (type === 'error') {
-<<<<<<< HEAD
-      // TODO(TAM-47): remove this allowed warning once Gui is upgraded >= 1.100
-=======
       // TODO(TAM-47): remove this allowed warning once Tamagui is upgraded >= 1.100
->>>>>>> upstream/main
       if (message.startsWith('[moti]: Invalid transform value.')) {
         return true
       }
@@ -450,25 +385,15 @@ failOnConsole({
       if (
         message.includes('Each child in a list should have a unique') &&
         (message.includes('Trans') ||
-<<<<<<< HEAD
-          message.includes('DEXDescription') ||
-=======
           message.includes('UniswapXDescription') ||
->>>>>>> upstream/main
           message.includes('SwapPreview') ||
           message.includes('LimitPriceInputLabel'))
       ) {
         return true
       }
-<<<<<<< HEAD
-      // Nuances from gui causing issues with React 19
-      if (message.includes('React does not recognize the') && message.includes('prop on a DOM element')) {
-        // This is coming from gui passing through props to the DOM element
-=======
       // Nuances from tamagui causing issues with React 19
       if (message.includes('React does not recognize the') && message.includes('prop on a DOM element')) {
         // This is coming from tamagui passing through props to the DOM element
->>>>>>> upstream/main
         return true
       }
 
@@ -494,11 +419,7 @@ failOnConsole({
   },
 })
 
-<<<<<<< HEAD
 vi.mock('@l.x/gating', async (importOriginal) => {
-=======
-vi.mock('@universe/gating', async (importOriginal) => {
->>>>>>> upstream/main
   return {
     ...(await importOriginal()),
     useFeatureFlag: vi.fn(),
@@ -523,22 +444,14 @@ vi.mock('@universe/gating', async (importOriginal) => {
   }
 })
 
-<<<<<<< HEAD
-vi.mock('lx/src/features/chains/hooks/useOrderedChainIds', () => {
-=======
 vi.mock('uniswap/src/features/chains/hooks/useOrderedChainIds', () => {
->>>>>>> upstream/main
   return {
     useOrderedChainIds: (chainIds: UniverseChainId[]) => chainIds,
   }
 })
 
 function muteStatsigWarnings() {
-<<<<<<< HEAD
-  // biome-ignore lint/suspicious/noConsole: strictly for testing
-=======
   // oxlint-disable-next-line no-console -- strictly for testing
->>>>>>> upstream/main
   const originalWarn = console.warn
   vi.spyOn(console, 'warn').mockImplementation((message, ...args) => {
     const isStatsigWarning = args.some((arg) => {
@@ -554,11 +467,7 @@ function muteStatsigWarnings() {
   })
 }
 
-<<<<<<< HEAD
-// biome-ignore lint/suspicious/noConsole: strictly for testing
-=======
 // oxlint-disable-next-line no-console -- strictly for testing
->>>>>>> upstream/main
 const originalConsoleDebug = console.debug
 // Mocks are configured to reset between tests (by CRA), so they must be set in a beforeEach.
 beforeEach(() => {

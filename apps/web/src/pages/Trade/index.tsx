@@ -15,7 +15,10 @@ import { matchFallbackQuery } from './fallbackData'
 
 // ─── Constants ──────────────────────────────────────────────────────
 
-const SUBGRAPH_URL = 'https://api-exchange.lux.network/subgraph/v3'
+const GRAPH_ENGINE_URL =
+  process.env.REACT_APP_GRAPH_ENGINE_URL ||
+  process.env.NEXT_PUBLIC_GRAPH_ENGINE_URL ||
+  'https://api-exchange.lux.network/v1/graphql'
 
 // ─── Subgraph Types ─────────────────────────────────────────────────
 
@@ -65,25 +68,25 @@ interface SGFactory {
   totalValueLockedUSD: string
 }
 
-// ─── Subgraph Query Helper ──────────────────────────────────────────
+// ─── Graph Engine Query Helper ─────────────────────────────────────
 
 async function sgQuery<T>(query: string): Promise<T> {
   try {
-    const res = await fetch(SUBGRAPH_URL, {
+    const res = await fetch(GRAPH_ENGINE_URL, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ query }),
       signal: AbortSignal.timeout(5000),
     })
-    if (!res.ok) throw new Error(`subgraph ${res.status}`)
+    if (!res.ok) throw new Error(`graph engine ${res.status}`)
     const json = await res.json()
     if (json.errors) throw new Error(json.errors[0].message)
     return json.data
   } catch {
-    // Subgraph unreachable (502, timeout, CORS) -- use on-chain fallback data
+    // Graph engine unreachable -- use on-chain fallback data
     const fallback = matchFallbackQuery(query)
     if (fallback) return fallback as T
-    throw new Error('Subgraph unavailable and no fallback for this query')
+    throw new Error('Graph engine unavailable and no fallback for this query')
   }
 }
 

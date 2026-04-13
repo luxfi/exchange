@@ -1,11 +1,11 @@
-import { AdaptParent } from '@tamagui/adapt'
+import { AdaptParent } from '@hanzogui/adapt'
 import { useEffect, useId } from 'react'
-import { styled, Tooltip as TamaguiTooltip, withStaticProperties } from 'tamagui'
+import { styled, Tooltip as TamaguiTooltip, withStaticProperties } from '@hanzo/gui'
 import { TooltipContentProps } from 'ui/src/components/tooltip/Tooltip'
 import { useEvent } from 'utilities/src/react/hooks'
 import { useBooleanState } from 'utilities/src/react/useBooleanState'
 
-export type { TooltipProps } from 'tamagui'
+export type { TooltipProps } from '@hanzo/gui'
 
 const ANIMATION_OFFSET = 4
 

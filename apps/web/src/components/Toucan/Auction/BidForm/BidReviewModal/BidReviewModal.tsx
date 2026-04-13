@@ -1,18 +1,3 @@
-<<<<<<< HEAD
-/* eslint-disable max-lines */
-import { Currency, CurrencyAmount } from '@luxamm/sdk-core'
-import { useEffect, useMemo, useState } from 'react'
-import { Trans, useTranslation } from 'react-i18next'
-import { Flex, Text } from '@l.x/ui/src'
-import { AlertTriangleFilled } from '@l.x/ui/src/components/icons/AlertTriangleFilled'
-import { Modal } from '@l.x/lx/src/components/modals/Modal'
-import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
-import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
-import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
-import { TransactionStep, TransactionStepType } from '@l.x/lx/src/features/transactions/steps/types'
-import { NumberType } from '@l.x/utils/src/format/types'
-import { useEvent } from '@l.x/utils/src/react/hooks'
-=======
 /* oxlint-disable max-lines */
 import { Currency, CurrencyAmount } from '@uniswap/sdk-core'
 import { useEffect, useMemo, useState } from 'react'
@@ -26,7 +11,6 @@ import { ModalName } from 'uniswap/src/features/telemetry/constants'
 import { TransactionStep, TransactionStepType } from 'uniswap/src/features/transactions/steps/types'
 import { NumberType } from 'utilities/src/format/types'
 import { useEvent } from 'utilities/src/react/hooks'
->>>>>>> upstream/main
 import CurrencyLogo from '~/components/Logo/CurrencyLogo'
 import {
   BidProgressIndicator,

@@ -1,4 +1,4 @@
-import { XStackProps } from 'tamagui'
+import { XStackProps } from '@hanzo/gui'
 
 export const FOCUS_SCALE = 0.98
 export const PRESS_SCALE = FOCUS_SCALE

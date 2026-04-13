@@ -1,14 +1,5 @@
 import { BigNumber } from '@ethersproject/bignumber'
 import { useQuery } from '@tanstack/react-query'
-<<<<<<< HEAD
-import { ProtocolVersion } from '@luxamm/client-data-api/dist/data/v1/poolTypes_pb'
-import JSBI from 'jsbi'
-import { useMemo } from 'react'
-import { Erc721 } from '@l.x/lx/src/abis/types/Erc721'
-import { NonfungiblePositionManager } from '@l.x/lx/src/abis/types/v3/NonfungiblePositionManager'
-import { EVMUniverseChainId } from '@l.x/lx/src/features/chains/types'
-import { ReactQueryCacheKey } from '@l.x/utils/src/reactQuery/cache'
-=======
 import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
 import JSBI from 'jsbi'
 import { useMemo } from 'react'
@@ -16,7 +7,6 @@ import { Erc721 } from 'uniswap/src/abis/types/Erc721'
 import { NonfungiblePositionManager } from 'uniswap/src/abis/types/v3/NonfungiblePositionManager'
 import { EVMUniverseChainId } from 'uniswap/src/features/chains/types'
 import { ReactQueryCacheKey } from 'utilities/src/reactQuery/cache'
->>>>>>> upstream/main
 import { useV3NFTPositionManagerContract, useV4NFTPositionManagerContract } from '~/hooks/useContract'
 
 type TokenId = number | JSBI | BigNumber

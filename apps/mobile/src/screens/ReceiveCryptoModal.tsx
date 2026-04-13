@@ -1,28 +1,10 @@
-<<<<<<< HEAD
-import { SharedEventName } from '@luxamm/analytics-events'
-=======
 import { SharedEventName } from '@uniswap/analytics-events'
->>>>>>> upstream/main
 import { useTranslation } from 'react-i18next'
 import { useDispatch } from 'react-redux'
 import { AppStackScreenProp } from 'src/app/navigation/types'
 import { useReactNavigationModal } from 'src/components/modals/useReactNavigationModal'
 import { ServiceProviderSelector } from 'src/features/fiatOnRamp/ExchangeTransferServiceProviderSelector'
 import { openModal } from 'src/features/modals/modalSlice'
-<<<<<<< HEAD
-import { Flex, Separator, Text, TouchableArea, useSporeColors } from '@l.x/ui/src'
-import { CopySheets, QrCode } from '@l.x/ui/src/components/icons'
-import { AddressDisplay } from '@l.x/lx/src/components/accounts/AddressDisplay'
-import { Modal } from '@l.x/lx/src/components/modals/Modal'
-import { ScannerModalState } from '@l.x/lx/src/components/ReceiveQRCode/constants'
-import { pushNotification } from '@l.x/lx/src/features/notifications/slice/slice'
-import { AppNotificationType, CopyNotificationType } from '@l.x/lx/src/features/notifications/slice/types'
-import { ElementName, ModalName } from '@l.x/lx/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
-import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
-import { setClipboard } from '@l.x/utils/src/clipboard/clipboard'
-import { useActiveAccountAddressWithThrow } from '@luxfi/wallet/src/features/wallet/hooks'
-=======
 import { Flex, Separator, Text, TouchableArea, useSporeColors } from 'ui/src'
 import { CopySheets, QrCode } from 'ui/src/components/icons'
 import { AddressDisplay } from 'uniswap/src/components/accounts/AddressDisplay'
@@ -35,7 +17,6 @@ import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
 import { TestID } from 'uniswap/src/test/fixtures/testIDs'
 import { setClipboard } from 'utilities/src/clipboard/clipboard'
 import { useActiveAccountAddressWithThrow } from 'wallet/src/features/wallet/hooks'
->>>>>>> upstream/main
 
 const ACCOUNT_IMAGE_SIZE = 52
 const ICON_SIZE = 32

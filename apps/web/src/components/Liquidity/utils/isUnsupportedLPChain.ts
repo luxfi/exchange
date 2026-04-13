@@ -1,12 +1,6 @@
-<<<<<<< HEAD
-import { ProtocolVersion } from '@luxamm/client-data-api/dist/data/v1/poolTypes_pb'
-import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
-import { isSVMChain } from '@l.x/lx/src/features/platforms/utils/chains'
-=======
 import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
 import { UniverseChainId } from 'uniswap/src/features/chains/types'
 import { isSVMChain } from 'uniswap/src/features/platforms/utils/chains'
->>>>>>> upstream/main
 import { SUPPORTED_V2POOL_CHAIN_IDS } from '~/hooks/useNetworkSupportsV2'
 import { isV4UnsupportedChain } from '~/utils/networkSupportsV4'
 

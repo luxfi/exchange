@@ -7,18 +7,6 @@ import {
   useAddressNotificationToggle,
   useSettingNotificationToggle,
 } from 'src/features/notifications/hooks/useNotificationsToggle'
-<<<<<<< HEAD
-import { Flex, Switch, Text } from '@l.x/ui/src'
-import { useDeviceDimensions } from '@l.x/ui/src/hooks/useDeviceDimensions'
-import { iconSizes, spacing } from '@l.x/ui/src/theme'
-import { AddressDisplay } from '@l.x/lx/src/components/accounts/AddressDisplay'
-import { AccountType } from '@l.x/lx/src/features/accounts/types'
-import { MobileEventName } from '@l.x/lx/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
-import { NotificationToggleLoggingType } from '@l.x/lx/src/features/telemetry/types'
-import { useAppInsets } from '@l.x/lx/src/hooks/useAppInsets'
-import { useAccountsList } from '@luxfi/wallet/src/features/wallet/hooks'
-=======
 import { Flex, Switch, Text } from 'ui/src'
 import { useDeviceDimensions } from 'ui/src/hooks/useDeviceDimensions'
 import { iconSizes, spacing } from 'ui/src/theme'
@@ -29,7 +17,6 @@ import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
 import { NotificationToggleLoggingType } from 'uniswap/src/features/telemetry/types'
 import { useAppInsets } from 'uniswap/src/hooks/useAppInsets'
 import { useAccountsList } from 'wallet/src/features/wallet/hooks'
->>>>>>> upstream/main
 
 const ROW_ITEM_HEIGHT = 40
 
@@ -54,11 +41,7 @@ type SettingItem = {
 
 type NotificationItem = SettingItem | AccountItem
 
-<<<<<<< HEAD
-function _SettingsNotificationsScreen(): JSX.Element {
-=======
 function SettingsNotificationsScreenInner(): JSX.Element {
->>>>>>> upstream/main
   const { t } = useTranslation()
   const insets = useAppInsets()
   const { fullWidth, fullHeight } = useDeviceDimensions()
@@ -134,11 +117,7 @@ function SettingsNotificationsScreenInner(): JSX.Element {
   )
 }
 
-<<<<<<< HEAD
-export const SettingsNotificationsScreen = memo(_SettingsNotificationsScreen)
-=======
 export const SettingsNotificationsScreen = memo(SettingsNotificationsScreenInner)
->>>>>>> upstream/main
 
 SettingsNotificationsScreen.displayName = 'SettingsNotificationsScreen'
 
@@ -227,11 +206,7 @@ function onPermissionChanged(enabled: boolean, type: NotificationToggleLoggingTy
 
 const PENDING_DELAY = 100
 
-<<<<<<< HEAD
-function _AddressNotificationsSwitch({ address }: { address: string }): JSX.Element {
-=======
 function AddressNotificationsSwitchInner({ address }: { address: string }): JSX.Element {
->>>>>>> upstream/main
   const { isEnabled, isPending, toggle } = useAddressNotificationToggle({
     address,
     onToggle: (enabled) => onPermissionChanged(enabled, 'wallet_activity'),
@@ -261,10 +236,6 @@ function AddressNotificationsSwitchInner({ address }: { address: string }): JSX.
 
   return <Switch checked={isEnabled} disabled={showDisabled} variant="branded" onCheckedChange={toggle} />
 }
-<<<<<<< HEAD
-const AddressNotificationsSwitch = memo(_AddressNotificationsSwitch)
-=======
 const AddressNotificationsSwitch = memo(AddressNotificationsSwitchInner)
->>>>>>> upstream/main
 
 AddressNotificationsSwitch.displayName = 'AddressNotificationsSwitch'

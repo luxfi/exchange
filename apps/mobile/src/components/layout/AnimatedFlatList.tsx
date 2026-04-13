@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-// biome-ignore-all lint/suspicious/noExplicitAny: Generic FlatList types are complex and varied
-=======
 /* oxlint-disable typescript/no-explicit-any -- Generic FlatList types are complex and varied */
->>>>>>> upstream/main
 // Adds ForwardRef to Animated.FlaList
 // https://github.com/software-mansion/react-native-reanimated/issues/2976
 
@@ -12,13 +8,9 @@ import { FlatList, FlatListProps, LayoutChangeEvent, View } from 'react-native'
 import Animated, { ILayoutAnimationBuilder } from 'react-native-reanimated'
 
 // difficult to properly type
-<<<<<<< HEAD
-const ReanimatedFlatList = Animated.createAnimatedComponent(FlatList as any) as any
-=======
 // oxlint-disable-next-line typescript/no-explicit-any -- biome-parity: oxlint is stricter here
 const ReanimatedFlatList = Animated.createAnimatedComponent(FlatList as any) as any
 // oxlint-disable-next-line typescript/no-explicit-any -- biome-parity: oxlint is stricter here
->>>>>>> upstream/main
 const ReanimatedBottomSheetFlatList = Animated.createAnimatedComponent(BottomSheetFlatList as any) as any
 const AnimatedView = Animated.createAnimatedComponent(View)
 
@@ -56,16 +48,10 @@ interface ReanimatedFlatlistProps<T> extends FlatListProps<T> {
  *
  * TODO: [MOB-207] remove this and use Animated.FlatList directly when can use refs with it. Also type the generic T properly for FlatList and dont use `any`
  */
-<<<<<<< HEAD
-export const AnimatedFlatList = forwardRef<Animated.FlatList<any>, ReanimatedFlatlistProps<any>>(
-  function _AnimatedFlatList({ itemLayoutAnimation, FlatListComponent = ReanimatedFlatList, ...restProps }, ref) {
-    // biome-ignore lint/correctness/useExhaustiveDependencies: itemLayoutAnimation intentionally excluded to avoid recreation
-=======
 // oxlint-disable-next-line typescript/no-explicit-any -- biome-parity: oxlint is stricter here
 export const AnimatedFlatList = forwardRef<Animated.FlatList<any>, ReanimatedFlatlistProps<any>>(
   function AnimatedFlatListInner({ itemLayoutAnimation, FlatListComponent = ReanimatedFlatList, ...restProps }, ref) {
     // oxlint-disable-next-line react/exhaustive-deps -- itemLayoutAnimation intentionally excluded to avoid recreation
->>>>>>> upstream/main
     const cellRenderer = React.useMemo(() => createCellRenderer(itemLayoutAnimation), [])
     return <FlatListComponent ref={ref} {...restProps} CellRendererComponent={cellRenderer} />
   },
@@ -75,14 +61,9 @@ export const AnimatedFlatList = forwardRef<Animated.FlatList<any>, ReanimatedFla
  * In bottom sheet contexts, this will support pull to dismiss.
  * See AnimatedFlatList for other props.
  */
-<<<<<<< HEAD
-export const AnimatedBottomSheetFlatList = forwardRef<Animated.FlatList<any>, ReanimatedFlatlistProps<any>>(
-  function _AnimatedBottomSheetFlatList(props, ref) {
-=======
 // oxlint-disable-next-line typescript/no-explicit-any -- biome-parity: oxlint is stricter here
 export const AnimatedBottomSheetFlatList = forwardRef<Animated.FlatList<any>, ReanimatedFlatlistProps<any>>(
   function AnimatedBottomSheetFlatListInner(props, ref) {
->>>>>>> upstream/main
     return <AnimatedFlatList {...props} ref={ref} FlatListComponent={ReanimatedBottomSheetFlatList} />
   },
 )

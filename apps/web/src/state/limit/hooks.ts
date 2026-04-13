@@ -1,18 +1,5 @@
-<<<<<<< HEAD
-import { Currency, CurrencyAmount, Price, TradeType } from '@luxamm/sdk-core'
-import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
-import JSBI from 'jsbi'
-import { useEffect, useMemo, useState } from 'react'
-import { nativeOnChain } from '@l.x/lx/src/constants/tokens'
-import { getStablecoinsForChain, isUniverseChainId } from '@l.x/lx/src/features/chains/utils'
-import { isEVMChain, isSVMChain } from '@l.x/lx/src/features/platforms/utils/chains'
-import { useTrade } from '@l.x/lx/src/features/transactions/swap/hooks/useTrade'
-import { SwapFee, Trade } from '@l.x/lx/src/features/transactions/swap/types/trade'
-import { isClassic } from '@l.x/lx/src/features/transactions/swap/utils/routing'
-import { CurrencyField } from '@l.x/lx/src/types/currency'
-=======
 import { Currency, CurrencyAmount, Price, TradeType } from '@uniswap/sdk-core'
-import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import JSBI from 'jsbi'
 import { useEffect, useMemo, useState } from 'react'
 import { nativeOnChain } from 'uniswap/src/constants/tokens'
@@ -23,7 +10,6 @@ import { useTrade } from 'uniswap/src/features/transactions/swap/hooks/useTrade'
 import { SwapFee, Trade } from 'uniswap/src/features/transactions/swap/types/trade'
 import { isClassic } from 'uniswap/src/features/transactions/swap/utils/routing'
 import { CurrencyField } from 'uniswap/src/types/currency'
->>>>>>> upstream/main
 import { useAccount } from '~/hooks/useAccount'
 import { useCurrencyBalances } from '~/lib/hooks/useCurrencyBalance'
 import tryParseCurrencyAmount from '~/lib/utils/tryParseCurrencyAmount'
@@ -247,14 +233,10 @@ function useMarketPriceAndFee(
   outputCurrency: Currency | undefined,
 ): { marketPrice?: Price<Currency, Currency>; fee?: SwapFeeInfo } {
   const skip =
-<<<<<<< HEAD
-    !(inputCurrency && outputCurrency) || isSVMChain(inputCurrency.chainId) || isSVMChain(outputCurrency.chainId)
-=======
     !(inputCurrency && outputCurrency) ||
     !LIMIT_SUPPORTED_CHAINS.includes(inputCurrency.chainId) ||
     isSVMChain(inputCurrency.chainId) ||
     isSVMChain(outputCurrency.chainId)
->>>>>>> upstream/main
 
   // TODO(limits): update amount for MATIC and CELO once Limits are supported on those chains
   const baseCurrencyAmount =
@@ -312,11 +294,7 @@ function useMarketPriceAndFee(
 
     const priceA = tradeA.routes[0]?.midPrice
     const priceB = tradeB.routes[0]?.midPrice
-<<<<<<< HEAD
-    // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
-=======
     // oxlint-disable-next-line typescript/no-unnecessary-condition
->>>>>>> upstream/main
     if (!priceA || !priceB) {
       return undefined
     }

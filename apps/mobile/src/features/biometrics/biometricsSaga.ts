@@ -10,74 +10,21 @@ import { BiometricAuthenticationStatus, tryLocalAuthenticate } from 'src/feature
 import {
   setAuthenticationStatus,
   setDeviceSupportsBiometrics,
-<<<<<<< HEAD
-=======
-  setIsBiometricsDisabledInOSSettings,
->>>>>>> upstream/main
-  setIsEnrolled,
-  setSupportedAuthenticationTypes,
-  TriggerAuthenticationPayload,
-  triggerAuthentication,
-} from 'src/features/biometrics/biometricsSlice'
-import { all, call, cancel, fork, put, take } from 'typed-redux-saga'
-
-//------------------------------------------------------------------------------------------------
-// biometricsSaga
-//------------------------------------------------------------------------------------------------
-
-export function* biometricsSaga(): SagaIterator {
-  // check for biometrics support (todo: persist this as this never changes per device)
-<<<<<<< HEAD
-  const { deviceSupportsBiometrics, isEnrolled, supportedAuthenticationTypes } = yield* call(checkBiometricsSupport)
-=======
   const { deviceSupportsBiometrics, isEnrolled, isBiometricsDisabledInOSSettings, supportedAuthenticationTypes } =
     yield* call(checkBiometricsSupport)
->>>>>>> upstream/main
   // @ts-expect-error -- `all` doesn't accept the type of `put`
   yield* all([
     put(setDeviceSupportsBiometrics(deviceSupportsBiometrics)),
     put(setIsEnrolled(isEnrolled)),
-<<<<<<< HEAD
-=======
-    put(setIsBiometricsDisabledInOSSettings(isBiometricsDisabledInOSSettings)),
->>>>>>> upstream/main
-    put(setSupportedAuthenticationTypes(supportedAuthenticationTypes)),
-  ])
-  // --------------------------------------------------------------------------------------------
-  // Watch for authentication triggers
-  // --------------------------------------------------------------------------------------------
-  const authTask: Task = yield* fork(function* watchAuthenticationTriggers(): SagaIterator {
-    while (true) {
-      const action = yield* take(triggerAuthentication)
-      yield* call(handleAuthentication, action)
-    }
-  })
-  return () => {
-    cancel(authTask)
-  }
-}
-
-async function getAllBiometricsSupport(): Promise<{
-  deviceSupportsBiometrics: boolean
-  isEnrolled: boolean
-<<<<<<< HEAD
-  supportedAuthenticationTypes: AuthenticationType[]
-}> {
-  const [deviceSupportsBiometrics, isEnrolled, supportedAuthenticationTypes] = await Promise.all([
-=======
   isBiometricsDisabledInOSSettings: boolean
   supportedAuthenticationTypes: AuthenticationType[]
 }> {
   const [deviceSupportsBiometrics, isEnrolled, supportedAuthenticationTypes] = await Promise.all([
     // Contrary to what the name suggests, it returns false when biometrics are disabled in the settings
->>>>>>> upstream/main
     hasHardwareAsync(),
     isEnrolledAsync(),
     supportedAuthenticationTypesAsync(),
   ])
-<<<<<<< HEAD
-  return { deviceSupportsBiometrics, isEnrolled, supportedAuthenticationTypes }
-=======
 
   const isBiometricsDisabledInOSSettings =
     (supportedAuthenticationTypes.includes(AuthenticationType.FINGERPRINT) ||
@@ -90,16 +37,12 @@ async function getAllBiometricsSupport(): Promise<{
     supportedAuthenticationTypes,
     isBiometricsDisabledInOSSettings,
   }
->>>>>>> upstream/main
 }
 
 function* checkBiometricsSupport(): SagaIterator<{
   deviceSupportsBiometrics: boolean
   isEnrolled: boolean
-<<<<<<< HEAD
-=======
   isBiometricsDisabledInOSSettings: boolean
->>>>>>> upstream/main
   supportedAuthenticationTypes: AuthenticationType[]
 }> {
   return yield* call(getAllBiometricsSupport)

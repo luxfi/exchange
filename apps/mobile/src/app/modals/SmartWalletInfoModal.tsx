@@ -1,21 +1,12 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
 import { useReactNavigationModal } from 'src/components/modals/useReactNavigationModal'
-<<<<<<< HEAD
-import { Button, Flex, Text, TouchableArea, useSporeColors } from '@l.x/ui/src'
-import { SmartWallet } from '@l.x/ui/src/components/icons'
-import { Modal } from '@l.x/lx/src/components/modals/Modal'
-import { lxUrls } from '@l.x/lx/src/constants/urls'
-import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
-import { openUri } from '@l.x/lx/src/utils/linking'
-=======
 import { Button, Flex, Text, TouchableArea, useSporeColors } from 'ui/src'
 import { SmartWallet } from 'ui/src/components/icons'
 import { Modal } from 'uniswap/src/components/modals/Modal'
 import { uniswapUrls } from 'uniswap/src/constants/urls'
 import { ModalName } from 'uniswap/src/features/telemetry/constants'
 import { openUri } from 'uniswap/src/utils/linking'
->>>>>>> upstream/main
 
 const onPressLearnMore = (url: string): Promise<void> => openUri({ uri: url })
 
@@ -38,11 +29,7 @@ export function SmartWalletInfoModal(): JSX.Element {
           <Text textAlign="center" variant="body3" color="$neutral2">
             {t('smartWallet.modal.description.block2')}
           </Text>
-<<<<<<< HEAD
-          <TouchableArea onPress={() => onPressLearnMore(lxUrls.helpArticleUrls.smartWalletDelegation)}>
-=======
           <TouchableArea onPress={() => onPressLearnMore(uniswapUrls.helpArticleUrls.smartWalletDelegation)}>
->>>>>>> upstream/main
             <Text textAlign="center" variant="buttonLabel3" color="$neutral1">
               {t('common.button.learn')}
             </Text>

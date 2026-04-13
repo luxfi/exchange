@@ -1,9 +1,5 @@
 import { ReactNode } from 'react'
-<<<<<<< HEAD
-import { Flex, Switch, Text } from '@l.x/ui/src'
-=======
 import { Flex, Switch, Text } from 'ui/src'
->>>>>>> upstream/main
 
 interface SettingsToggleProps {
   title: string | ReactNode

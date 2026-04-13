@@ -1,60 +1,9 @@
-<<<<<<< HEAD
-import { useQuery } from '@tanstack/react-query'
-import { ProtocolVersion } from '@luxamm/client-data-api/dist/data/v1/poolTypes_pb'
-import { ClaimLPFeesRequest } from '@luxamm/client-liquidity/dist/lx/liquidity/v1/api_pb'
-import {
-  V2Pool,
-  V2Position,
-  V3Pool,
-  V3Position,
-  V4Pool,
-  V4Position,
-} from '@luxamm/client-liquidity/dist/lx/liquidity/v1/types_pb'
-import { Currency, CurrencyAmount } from '@luxamm/sdk-core'
-import { Dispatch, SetStateAction, useMemo, useState } from 'react'
-import { Trans, useTranslation } from 'react-i18next'
-import { Button, Flex, Switch, Text } from '@l.x/ui/src'
-import { Passkey } from '@l.x/ui/src/components/icons/Passkey'
-import { iconSizes } from '@l.x/ui/src/theme'
-import { CurrencyLogo } from '@l.x/lx/src/components/CurrencyLogo/CurrencyLogo'
-import { GetHelpHeader } from '@l.x/lx/src/components/dialog/GetHelpHeader'
-import { Modal } from '@l.x/lx/src/components/modals/Modal'
-import { PollingInterval, ZERO_ADDRESS } from '@l.x/lx/src/constants/misc'
-import { nativeOnChain } from '@l.x/lx/src/constants/tokens'
-import { lxUrls } from '@l.x/lx/src/constants/urls'
-import { liquidityQueries } from '@l.x/lx/src/data/apiClients/liquidityService/liquidityQueries'
-import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
-import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
-import { useGetPasskeyAuthStatus } from '@l.x/lx/src/features/passkey/hooks/useGetPasskeyAuthStatus'
-import { InterfaceEventName, ModalName } from '@l.x/lx/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
-import { useCurrencyInfo } from '@l.x/lx/src/features/tokens/useCurrencyInfo'
-import { useUSDCValue } from '@l.x/lx/src/features/transactions/hooks/useUSDCPriceWrapper'
-import {
-  CollectFeesTxAndGasInfo,
-  isValidLiquidityTxContext,
-  LiquidityTransactionType,
-} from '@l.x/lx/src/features/transactions/liquidity/types'
-import { getErrorMessageToDisplay, parseErrorMessageTitle } from '@l.x/lx/src/features/transactions/liquidity/utils'
-import { TransactionStep } from '@l.x/lx/src/features/transactions/steps/types'
-import { validateTransactionRequest } from '@l.x/lx/src/features/transactions/swap/utils/trade'
-import { useWallet } from '@l.x/lx/src/features/wallet/hooks/useWallet'
-import { isSignerMnemonicAccountDetails } from '@l.x/lx/src/features/wallet/types/AccountDetails'
-import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
-import { currencyId } from '@l.x/lx/src/utils/currencyId'
-import { NumberType } from '@l.x/utils/src/format/types'
-import { logger } from '@l.x/utils/src/logger/logger'
-import { useTrace } from '@l.x/utils/src/telemetry/trace/TraceContext'
-import { ErrorCallout } from '~/components/ErrorCallout'
-import { getLPBaseAnalyticsProperties } from '~/components/Liquidity/analytics'
-import { PositionInfo } from '~/components/Liquidity/types'
-=======
 import { ProtocolVersion } from '@uniswap/client-data-api/dist/data/v1/poolTypes_pb'
 import { ClaimLPFeesRequest } from '@uniswap/client-liquidity/dist/uniswap/liquidity/v1/api_pb'
 import { V3Pool, V3Position, V4Pool, V4Position } from '@uniswap/client-liquidity/dist/uniswap/liquidity/v1/types_pb'
 import { ClaimFeesRequest } from '@uniswap/client-liquidity/dist/uniswap/liquidity/v2/api_pb'
 import { type Currency, CurrencyAmount } from '@uniswap/sdk-core'
-import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { type Dispatch, type SetStateAction, useMemo, useState } from 'react'
 import { Trans, useTranslation } from 'react-i18next'
 import { Button, Flex, Switch, Text } from 'ui/src'
@@ -92,7 +41,6 @@ import { useTrace } from 'utilities/src/telemetry/trace/TraceContext'
 import { ErrorCallout } from '~/components/ErrorCallout'
 import { getLPBaseAnalyticsProperties } from '~/components/Liquidity/analytics'
 import type { PositionInfo } from '~/components/Liquidity/types'
->>>>>>> upstream/main
 import { canUnwrapCurrency, getCurrencyWithOptionalUnwrap } from '~/components/Liquidity/utils/currency'
 import { getProtocols } from '~/components/Liquidity/utils/protocolVersion'
 import { useAccount } from '~/hooks/useAccount'
@@ -117,60 +65,13 @@ function getProtocolCase(
   }
 }
 
-<<<<<<< HEAD
-=======
-// V2 does not support claim fees
->>>>>>> upstream/main
-function getClaimLpFeesRequest({
-  currency0,
-  currency1,
-  positionInfo,
-  unwrapNativeCurrency,
-  address,
-<<<<<<< HEAD
-=======
   isClaimFeesNewEndpoint,
->>>>>>> upstream/main
 }: {
   currency0: Currency
   currency1: Currency
   positionInfo: PositionInfo
   unwrapNativeCurrency: boolean
   address: string | undefined
-<<<<<<< HEAD
-}): ClaimLPFeesRequest | undefined {
-  const protocolCase = getProtocolCase(positionInfo.version)
-
-  if (!protocolCase || !address) {
-    return undefined
-  }
-
-  if (protocolCase === 'v2ClaimLpFeesRequest') {
-    return new ClaimLPFeesRequest({
-      claimLPFeesRequest: {
-        case: protocolCase,
-        value: {
-          simulateTransaction: true,
-          protocol: getProtocols(positionInfo.version),
-          position: new V2Position({
-            pool: new V2Pool({
-              token0: currency0.isNative ? ZERO_ADDRESS : currency0.address,
-              token1: currency1.isNative ? ZERO_ADDRESS : currency1.address,
-            }),
-          }),
-          walletAddress: address,
-          chainId: currency0.chainId,
-          collectAsWETH: !unwrapNativeCurrency,
-        },
-      },
-    })
-  }
-
-  if (!positionInfo.tokenId) {
-    return undefined
-  }
-
-=======
   isClaimFeesNewEndpoint: boolean
 }): ClaimLPFeesRequest | ClaimFeesRequest | undefined {
   const protocolCase = getProtocolCase(positionInfo.version)
@@ -190,7 +91,6 @@ function getClaimLpFeesRequest({
     })
   }
 
->>>>>>> upstream/main
   if (protocolCase === 'v3ClaimLpFeesRequest') {
     return new ClaimLPFeesRequest({
       claimLPFeesRequest: {
@@ -217,33 +117,6 @@ function getClaimLpFeesRequest({
         },
       },
     })
-<<<<<<< HEAD
-  }
-
-  return new ClaimLPFeesRequest({
-    claimLPFeesRequest: {
-      case: protocolCase,
-      value: {
-        simulateTransaction: true,
-        protocol: getProtocols(positionInfo.version),
-        tokenId: Number(positionInfo.tokenId),
-        position: new V4Position({
-          pool: new V4Pool({
-            token0: currency0.isNative ? ZERO_ADDRESS : currency0.address,
-            token1: currency1.isNative ? ZERO_ADDRESS : currency1.address,
-            fee: positionInfo.feeTier?.feeAmount,
-            tickSpacing: positionInfo.tickSpacing ? Number(positionInfo.tickSpacing) : undefined,
-            hooks: positionInfo.v4hook,
-          }),
-          tickLower: positionInfo.tickLower,
-          tickUpper: positionInfo.tickUpper,
-        }),
-        walletAddress: address,
-        chainId: currency0.chainId,
-      },
-    },
-  })
-=======
   } else if (protocolCase === 'v4ClaimLpFeesRequest') {
     return new ClaimLPFeesRequest({
       claimLPFeesRequest: {
@@ -271,7 +144,6 @@ function getClaimLpFeesRequest({
   }
 
   return undefined
->>>>>>> upstream/main
 }
 
 function UnwrapUnderCard({
@@ -351,13 +223,9 @@ export function ClaimFeeModal() {
     connectedAccount.connector?.id,
   )
 
-<<<<<<< HEAD
-  const claimLpFeesParams = useMemo(() => {
-=======
   const isClaimFeesV2 = useFeatureFlag(FeatureFlags.ClaimFeesV2)
 
   const claimFeesQueryParams = useMemo((): ClaimLPFeesRequest | ClaimFeesRequest | undefined => {
->>>>>>> upstream/main
     if (!positionInfo || !currency0 || !currency1) {
       return undefined
     }
@@ -368,26 +236,6 @@ export function ClaimFeeModal() {
       positionInfo,
       unwrapNativeCurrency,
       address: account?.address,
-<<<<<<< HEAD
-    })
-  }, [account?.address, currency0, currency1, positionInfo, unwrapNativeCurrency])
-
-  const {
-    data,
-    isLoading: calldataLoading,
-    error,
-    refetch,
-  } = useQuery(
-    liquidityQueries.claimFees({
-      params: claimLpFeesParams,
-      enabled: Boolean(claimLpFeesParams),
-    }),
-  )
-
-  // prevent logging of the empty error object for now since those are burying signals
-  if (error && Object.keys(error).length > 0) {
-    const message = parseErrorMessageTitle(error, { defaultTitle: 'unknown ClaimLPFeesCalldataQuery' })
-=======
       isClaimFeesNewEndpoint: isClaimFeesV2,
     })
   }, [account?.address, currency0, currency1, positionInfo, unwrapNativeCurrency, isClaimFeesV2])
@@ -407,7 +255,6 @@ export function ClaimFeeModal() {
     const message = parseErrorMessageTitle(error, {
       defaultTitle: 'unknown ClaimLPFeesCalldataQuery',
     })
->>>>>>> upstream/main
     logger.error(message, {
       tags: {
         file: 'ClaimFeeModal',
@@ -417,83 +264,7 @@ export function ClaimFeeModal() {
 
     sendAnalyticsEvent(InterfaceEventName.CollectLiquidityFailed, {
       message,
-<<<<<<< HEAD
-=======
-      ...claimFeesQueryParams,
->>>>>>> upstream/main
-    })
-  }
-
-  const txInfo = useMemo((): CollectFeesTxAndGasInfo | undefined => {
-    const validatedTxRequest = validateTransactionRequest(data?.claim)
-
-    if (!positionInfo || !validatedTxRequest) {
-      return undefined
-    }
-
-    return {
-      type: LiquidityTransactionType.Collect,
-      protocolVersion: positionInfo.version,
-      action: {
-        type: LiquidityTransactionType.Collect,
-        currency0Amount: fee0Amount || CurrencyAmount.fromRawAmount(positionInfo.currency0Amount.currency, 0),
-        currency1Amount: fee1Amount || CurrencyAmount.fromRawAmount(positionInfo.currency1Amount.currency, 0),
-      },
-      txRequest: validatedTxRequest,
-    }
-  }, [data?.claim, fee0Amount, fee1Amount, positionInfo])
-
-  const onPressConfirm = async () => {
-    const isValidTx = isValidLiquidityTxContext(txInfo)
-    if (!account || !isSignerMnemonicAccountDetails(account) || !isValidTx) {
-      return
-    }
-
-    dispatch(
-      liquiditySaga.actions.trigger({
-        selectChain,
-        startChainId,
-        account,
-        liquidityTxContext: txInfo,
-        setCurrentStep: setCurrentTransactionStep,
-        setSteps: () => undefined,
-        onSuccess: () => {
-          closeModal()
-        },
-        onFailure: () => {
-          setCurrentTransactionStep(undefined)
-        },
-        analytics:
-          positionInfo && fee0Amount?.currency && fee1Amount?.currency
-            ? {
-                ...getLPBaseAnalyticsProperties({
-                  trace,
-                  tickSpacing: positionInfo.tickSpacing,
-                  tickLower: positionInfo.tickLower,
-                  tickUpper: positionInfo.tickUpper,
-                  hook: positionInfo.v4hook,
-                  poolId: positionInfo.poolId,
-                  currency0: currencyInfo0?.currency ?? fee0Amount.currency,
-                  currency1: currencyInfo1?.currency ?? fee1Amount.currency,
-                  currency0AmountUsd: fee0AmountUsd,
-                  currency1AmountUsd: fee1AmountUsd,
-                  version: positionInfo.version,
-                }),
-              }
-            : undefined,
-      }),
-    )
-  }
-
-  return (
-    <Modal name={ModalName.ClaimFee} onClose={closeModal} isDismissible>
-      <Flex gap="$gap16">
-        <GetHelpHeader
-<<<<<<< HEAD
-          link={lxUrls.helpRequestUrl}
-=======
           link={uniswapUrls.helpRequestUrl}
->>>>>>> upstream/main
           title={t('pool.collectFees')}
           closeModal={closeModal}
           closeDataTestId="ClaimFeeModal-close-icon"
@@ -565,11 +336,7 @@ export function ClaimFeeModal() {
             size="large"
             variant="branded"
             onPress={onPressConfirm}
-<<<<<<< HEAD
-            icon={needsPasskeySignin ? <Passkey size="$icon.24" color="$neutral1" /> : undefined}
-=======
             icon={needsPasskeySignin ? <Passkey size="$icon.24" color="$white" /> : undefined}
->>>>>>> upstream/main
           >
             {currentTransactionStep
               ? isSignedInWithPasskey

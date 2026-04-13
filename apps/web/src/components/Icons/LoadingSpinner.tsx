@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import { useSporeColors } from '@l.x/ui/src'
-=======
 import { useSporeColors } from 'ui/src'
->>>>>>> upstream/main
 import { StyledRotatingSVG } from '~/components/Icons/shared'
 
 /**

@@ -1,9 +1,5 @@
 import { lighten } from 'polished'
-<<<<<<< HEAD
-import { FlexProps, Shine, useSporeColors, View, ViewProps } from '@l.x/ui/src'
-=======
 import { FlexProps, Shine, useSporeColors, View, ViewProps } from 'ui/src'
->>>>>>> upstream/main
 
 interface LoadingBubbleProps {
   delay?: string

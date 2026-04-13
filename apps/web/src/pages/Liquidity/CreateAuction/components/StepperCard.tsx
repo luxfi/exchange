@@ -1,12 +1,6 @@
-<<<<<<< HEAD
-import { Flex, Text, TouchableArea } from '@l.x/ui/src'
-import { Minus } from '@l.x/ui/src/components/icons/Minus'
-import { Plus } from '@l.x/ui/src/components/icons/Plus'
-=======
 import { Flex, Text, TouchableArea } from 'ui/src'
 import { Minus } from 'ui/src/components/icons/Minus'
 import { Plus } from 'ui/src/components/icons/Plus'
->>>>>>> upstream/main
 
 export function StepperCard({
   label,

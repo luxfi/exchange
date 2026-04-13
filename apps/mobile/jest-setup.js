@@ -1,18 +1,4 @@
 // From https://reactnavigation.org/docs/testing/#setting-up-jest
-<<<<<<< HEAD
-import 'react-native-gesture-handler/jestSetup';
-import { setUpTests } from 'react-native-reanimated';
-// Other
-import 'core-js' // necessary so setImmediate works in tests
-import 'utilities/jest-package-mocks'
-import 'lux/jest-package-mocks'
-import 'wallet/jest-package-mocks'
-import 'config/jest-presets/ui/ui-package-mocks'
-
-import 'lux/src/i18n' // Uses real translations for tests
-
-import mockRNCNetInfo from '@react-native-community/netinfo/jest/netinfo-mock.js'
-=======
 import 'react-native-gesture-handler/jestSetup'
 // Other
 import 'core-js' // necessary so setImmediate works in tests
@@ -23,20 +9,13 @@ import 'config/jest-presets/ui/ui-package-mocks'
 import 'uniswap/src/i18n' // Uses real translations for tests
 import mockRNCNetInfo from '@react-native-community/netinfo/jest/netinfo-mock.js'
 import { setUpTests } from 'react-native-reanimated'
->>>>>>> upstream/main
 
 setUpTests()
 
 // Silence the warning: Animated: `useNativeDriver` is not supported because the native animated module is missing
-<<<<<<< HEAD
-jest.mock('react-native/Libraries/Animated/NativeAnimatedModule');
-
-jest.mock('@luxamm/client-explore/dist/lux/explore/v1/service-ExploreStatsService_connectquery', () => {})
-=======
 jest.mock('react-native/Libraries/Animated/NativeAnimatedModule')
 
 jest.mock('@uniswap/client-explore/dist/uniswap/explore/v1/service-ExploreStatsService_connectquery', () => {})
->>>>>>> upstream/main
 
 jest.mock('@walletconnect/react-native-compat', () => ({}))
 
@@ -58,15 +37,9 @@ jest.mock('react-native-onesignal', () => {
         getOnesignalId: jest.fn(() => 'dummyUserId'),
         pushSubscription: {
           getTokenAsync: jest.fn(() => 'dummyPushToken'),
-<<<<<<< HEAD
-        }
-      },
-    }
-=======
         },
       },
     },
->>>>>>> upstream/main
   }
 })
 
@@ -125,11 +98,7 @@ jest.mock('@react-native-firebase/auth', () => () => ({
   signInAnonymously: jest.fn(),
 }))
 
-<<<<<<< HEAD
-jest.mock("react-native-bootsplash", () => {
-=======
 jest.mock('react-native-bootsplash', () => {
->>>>>>> upstream/main
   return {
     hide: jest.fn().mockResolvedValue(),
     isVisible: jest.fn().mockResolvedValue(false),
@@ -138,19 +107,10 @@ jest.mock('react-native-bootsplash', () => {
       logo: { source: 0 },
       brand: { source: 0 },
     }),
-<<<<<<< HEAD
-  };
-});
-
-jest.mock("react-native-keyboard-controller", () =>
-  require("react-native-keyboard-controller/jest"),
-);
-=======
   }
 })
 
 jest.mock('react-native-keyboard-controller', () => require('react-native-keyboard-controller/jest'))
->>>>>>> upstream/main
 
 // Mock @gorhom/bottom-sheet with plain View components
 jest.mock('@gorhom/bottom-sheet', () => {

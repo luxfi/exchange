@@ -2,23 +2,13 @@ import { fireEvent } from '@testing-library/react-native'
 import React from 'react'
 import { NetworkBalanceList } from 'src/components/TokenDetails/NetworkBalanceList'
 import { render } from 'src/test/test-utils'
-<<<<<<< HEAD
-import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
-import { PortfolioBalance } from '@l.x/lx/src/features/dataApi/types'
-import { ON_PRESS_EVENT_PAYLOAD } from '@l.x/lx/src/test/fixtures'
-import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
-
-jest.mock('@l.x/gating', () => ({
-  ...jest.requireActual('@l.x/gating'),
-=======
 import { UniverseChainId } from 'uniswap/src/features/chains/types'
 import { PortfolioBalance } from 'uniswap/src/features/dataApi/types'
 import { ON_PRESS_EVENT_PAYLOAD } from 'uniswap/src/test/fixtures'
 import { TestID } from 'uniswap/src/test/fixtures/testIDs'
 
-jest.mock('@universe/gating', () => ({
-  ...jest.requireActual('@universe/gating'),
->>>>>>> upstream/main
+jest.mock('@l.x/gating', () => ({
+  ...jest.requireActual('@l.x/gating'),
   useFeatureFlag: jest.fn().mockReturnValue(false),
   useFeatureFlagWithLoading: jest.fn().mockReturnValue({ value: false, isLoading: false }),
   useFeatureFlagWithExposureLoggingDisabled: jest.fn().mockReturnValue(false),

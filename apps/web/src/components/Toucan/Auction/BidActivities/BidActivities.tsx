@@ -1,16 +1,4 @@
 import { createColumnHelper } from '@tanstack/react-table'
-<<<<<<< HEAD
-import { AuctionActivityEntry } from '@luxamm/client-data-api/dist/data/v1/auction_pb'
-import { AnimatePresence, motion } from 'framer-motion'
-import { type ReactElement, useCallback, useEffect, useMemo, useRef, useState } from 'react'
-import { useTranslation } from 'react-i18next'
-import { Flex, Text, Unicon, useMedia } from '@l.x/ui/src'
-import { useColorHexFromThemeKey } from '@l.x/ui/src/hooks/useColorHexFromThemeKey'
-import { opacifyRaw } from '@l.x/ui/src/theme'
-import { useAppFiatCurrencyInfo } from '@l.x/lx/src/features/fiatCurrency/hooks'
-import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
-import { shortenAddress } from '@l.x/utils/src/addresses'
-=======
 import { AuctionActivityEntry } from '@uniswap/client-data-api/dist/data/v1/auction_pb'
 import { AnimatePresence, motion } from 'framer-motion'
 import { type ReactElement, useCallback, useEffect, useMemo, useRef, useState } from 'react'
@@ -21,7 +9,6 @@ import { opacifyRaw } from 'ui/src/theme'
 import { useAppFiatCurrencyInfo } from 'uniswap/src/features/fiatCurrency/hooks'
 import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
 import { shortenAddress } from 'utilities/src/addresses'
->>>>>>> upstream/main
 import { Table } from '~/components/Table'
 import { Cell } from '~/components/Table/Cell'
 import { TableText } from '~/components/Table/shared/TableText'
@@ -75,11 +62,7 @@ function AnimatedBidRow({ children }: { children: React.ReactNode }) {
   )
 }
 
-<<<<<<< HEAD
-export const BidActivities = () => {
-=======
 export const BidActivities = ({ hideHeader = false }: { hideHeader?: boolean } = {}) => {
->>>>>>> upstream/main
   const { t } = useTranslation()
   const { convertFiatAmount } = useLocalizationContext()
   const { symbol: currencySymbol } = useAppFiatCurrencyInfo()
@@ -305,11 +288,7 @@ export const BidActivities = ({ hideHeader = false }: { hideHeader?: boolean } =
 
   return (
     <Flex width="100%" minWidth={0} flexShrink={1} gap="$spacing24">
-<<<<<<< HEAD
-      <Text variant={media.lg ? 'subheading1' : 'heading3'}>{t('toucan.auction.latestActivity')}</Text>
-=======
       {!hideHeader && <Text variant={media.lg ? 'subheading1' : 'heading3'}>{t('toucan.auction.latestActivity')}</Text>}
->>>>>>> upstream/main
       {showPlaceholder ? (
         <Flex
           height={160}

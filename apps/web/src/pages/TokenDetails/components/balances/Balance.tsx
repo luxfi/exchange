@@ -1,18 +1,5 @@
-<<<<<<< HEAD
-import { Currency } from '@luxamm/sdk-core'
-import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
-import { useTranslation } from 'react-i18next'
-import { Flex, Text, TouchableArea } from '@l.x/ui/src'
-import { iconSizes } from '@l.x/ui/src/theme'
-import { CurrencyLogo } from 'lx/src/components/CurrencyLogo/CurrencyLogo'
-import { UniverseChainId } from 'lx/src/features/chains/types'
-import { getChainLabel } from 'lx/src/features/chains/utils'
-import { PortfolioBalance } from 'lx/src/features/dataApi/types'
-import { useLocalizationContext } from 'lx/src/features/language/LocalizationContext'
-import { NumberType } from '@l.x/utils/src/format/types'
-=======
 import { Currency } from '@uniswap/sdk-core'
-import { FeatureFlags, useFeatureFlag } from '@universe/gating'
+import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
 import { useTranslation } from 'react-i18next'
 import { Flex, Text, TouchableArea } from 'ui/src'
 import { iconSizes } from 'ui/src/theme'
@@ -22,7 +9,6 @@ import { getChainLabel } from 'uniswap/src/features/chains/utils'
 import { PortfolioBalance } from 'uniswap/src/features/dataApi/types'
 import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
 import { NumberType } from 'utilities/src/format/types'
->>>>>>> upstream/main
 import { ChainLogo } from '~/components/Logo/ChainLogo'
 import { MouseoverTooltip, TooltipSize } from '~/components/Tooltip'
 

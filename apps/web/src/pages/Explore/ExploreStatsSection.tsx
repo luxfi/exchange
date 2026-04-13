@@ -1,16 +1,9 @@
 import { Fragment, memo, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
-<<<<<<< HEAD
-import { AnimatePresence, Flex, isTouchable, Popover, Text, useMedia, useShadowPropsMedium } from '@l.x/ui/src'
-import { zIndexes } from '@l.x/ui/src/theme'
-import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
-import { NumberType } from '@l.x/utils/src/format/types'
-=======
 import { AnimatePresence, Flex, isTouchable, Popover, Text, useMedia, useShadowPropsMedium } from 'ui/src'
 import { zIndexes } from 'ui/src/theme'
 import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
 import { NumberType } from 'utilities/src/format/types'
->>>>>>> upstream/main
 import { DeltaArrow } from '~/components/DeltaArrow/DeltaArrow'
 import { LoadingBubble } from '~/components/Tokens/loading'
 import { use24hProtocolVolume, useDailyTVLWithChange } from '~/state/explore/protocolStats'
@@ -60,21 +53,13 @@ export const ExploreStatsSection = ({ shouldHideStats = false }: { shouldHideSta
           { label: t('common.protocol.v2'), value: protocolVolumes.v2 },
         ],
       },
-<<<<<<< HEAD
-      { label: t('common.totalLuxTVL'), value: formatPrice(totalTVL), change: totalTVL24hrChangePercent },
-=======
       { label: t('common.totalUniswapTVL'), value: formatPrice(totalTVL), change: totalTVL24hrChangePercent },
->>>>>>> upstream/main
       { label: t('explore.v2TVL'), value: formatPrice(protocolTVL.v2), change: protocolChangePercent.v2 },
       { label: t('explore.v3TVL'), value: formatPrice(protocolTVL.v3), change: protocolChangePercent.v3 },
       { label: t('explore.v4TVL'), value: formatPrice(protocolTVL.v4), change: protocolChangePercent.v4 },
     ]
 
-<<<<<<< HEAD
-    // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
-=======
     // oxlint-disable-next-line typescript/no-unnecessary-condition
->>>>>>> upstream/main
     return stats.filter((state): state is Exclude<typeof state, null> => state !== null)
   }, [
     t,

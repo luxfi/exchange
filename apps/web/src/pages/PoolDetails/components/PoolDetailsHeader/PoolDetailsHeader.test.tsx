@@ -1,16 +1,9 @@
 import '~/test-utils/tokens/mocks'
 import userEvent from '@testing-library/user-event'
-<<<<<<< HEAD
-import { DEFAULT_TICK_SPACING } from '@l.x/lx/src/constants/pools'
-import { dismissTokenWarning } from '@l.x/lx/src/features/tokens/warnings/slice/slice'
-import { TokenProtectionWarning } from '@l.x/lx/src/features/tokens/warnings/types'
-import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
-=======
 import { DEFAULT_TICK_SPACING } from 'uniswap/src/constants/pools'
 import { dismissTokenWarning } from 'uniswap/src/features/tokens/warnings/slice/slice'
 import { TokenProtectionWarning } from 'uniswap/src/features/tokens/warnings/types'
 import { TestID } from 'uniswap/src/test/fixtures/testIDs'
->>>>>>> upstream/main
 import { ChartType, PriceChartType } from '~/components/Charts/utils'
 import { PoolsDetailsChartType } from '~/pages/PoolDetails/components/ChartSection'
 import { PoolDetailsBreadcrumb } from '~/pages/PoolDetails/components/PoolDetailsHeader/PoolDetailsBreadcrumb'

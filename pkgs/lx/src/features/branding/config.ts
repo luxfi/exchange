@@ -13,24 +13,23 @@ export interface BrandConfig {
   chains: UniverseChainId[]
 }
 
-const LUX_BRAND: BrandConfig = {
-  name: 'Lux Exchange',
-  title: 'Lux Exchange',
-  description: 'Decentralized exchange on Lux Network',
-  url: 'https://dex.lux.network',
-  coinName: 'LUX',
-  networkName: 'Lux Network',
-  primaryColor: '#E84142',
-  chains: [], // empty = show all
+const DEFAULT_BRAND: BrandConfig = {
+  name: '▼ Exchange',
+  title: '▼ Exchange',
+  description: 'Decentralized exchange',
+  url: '',
+  coinName: '',
+  networkName: '▼ Network',
+  primaryColor: '#FFFFFF',
+  chains: [],
 }
 
 /**
- * Returns the brand configuration based on the NEXT_PUBLIC_BRAND_NAME env var.
- * Defaults to Lux Exchange brand. White-label brands are configured via
- * runtime /config.json (see @l.x/config BrandConfig).
+ * Returns the default brand configuration.
+ * White-label brands override via runtime /config.json (see @l.x/config BrandConfig).
  */
 export function getBrandConfig(): BrandConfig {
-  return LUX_BRAND
+  return DEFAULT_BRAND
 }
 
 /**

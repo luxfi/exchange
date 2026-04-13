@@ -1,9 +1,5 @@
 import { useEffect } from 'react'
-<<<<<<< HEAD
-import { useEvent } from '@l.x/utils/src/react/hooks'
-=======
 import { useEvent } from 'utilities/src/react/hooks'
->>>>>>> upstream/main
 import { useAccountEffect } from 'wagmi'
 import { useAccount } from '~/hooks/useAccount'
 import { useAppDispatch, useAppSelector } from '~/state/hooks'

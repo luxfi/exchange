@@ -1,12 +1,7 @@
 import * as WebBrowser from 'expo-web-browser'
 import { Linking } from 'react-native'
-<<<<<<< HEAD
-import { BUNDLE_ID } from '@l.x/utils/src/environment/env.native'
-import { isIOS } from '@l.x/utils/src/platform'
-=======
 import { BUNDLE_ID } from 'utilities/src/environment/env.native'
 import { isIOS } from 'utilities/src/platform'
->>>>>>> upstream/main
 
 export async function dismissInAppBrowser(): Promise<void> {
   await WebBrowser.dismissBrowser()

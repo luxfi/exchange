@@ -1,21 +1,11 @@
-<<<<<<< HEAD
 import { TradingApi } from '@l.x/api'
-import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
-=======
-import { TradingApi } from '@universe/api'
 import { UniverseChainId } from 'uniswap/src/features/chains/types'
->>>>>>> upstream/main
 import {
   TransactionOriginType,
   TransactionStatus,
   TransactionType,
-<<<<<<< HEAD
-  DEXOrderDetails,
-} from '@l.x/lx/src/features/transactions/types/transactionDetails'
-=======
   UniswapXOrderDetails,
 } from 'uniswap/src/features/transactions/types/transactionDetails'
->>>>>>> upstream/main
 import { useOpenLimitOrders } from '~/components/AccountDrawer/MiniPortfolio/Activity/hooks'
 import { OpenLimitOrdersButton } from '~/pages/Swap/Limit/OpenLimitOrdersButton'
 import { mocked } from '~/test-utils/mocked'
@@ -29,11 +19,7 @@ vi.mock('~/components/AccountDrawer/MiniPortfolio/Activity/hooks', async () => {
   }
 })
 
-<<<<<<< HEAD
-const mockLimitActivity: DEXOrderDetails = {
-=======
 const mockLimitActivity: UniswapXOrderDetails = {
->>>>>>> upstream/main
   id: '0x123',
   hash: '0x123',
   orderHash: '0x123',
@@ -52,11 +38,7 @@ const mockLimitActivity: UniswapXOrderDetails = {
     expectedOutputCurrencyAmountRaw: '2000000000000000000',
     minimumOutputCurrencyAmountRaw: '2000000000000000000',
     settledOutputCurrencyAmountRaw: '2000000000000000000',
-<<<<<<< HEAD
-    isLXOrder: true,
-=======
     isUniswapXOrder: true,
->>>>>>> upstream/main
   },
 }
 

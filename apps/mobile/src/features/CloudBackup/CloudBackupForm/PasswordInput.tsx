@@ -4,23 +4,14 @@ import { TextInput } from 'react-native'
 import { PasswordInput } from 'src/components/input/PasswordInput'
 import { useCloudBackupPasswordFormContext } from 'src/features/CloudBackup/CloudBackupForm/CloudBackupPasswordFormContext'
 import { PasswordError } from 'src/features/onboarding/PasswordError'
-<<<<<<< HEAD
-import { Flex, Text } from '@l.x/ui/src'
-import { useDebounce } from '@l.x/utils/src/time/timing'
-=======
 import { Flex, Text } from 'ui/src'
 import { useDebounce } from 'utilities/src/time/timing'
->>>>>>> upstream/main
 import {
   getPasswordStrengthTextAndColor,
   PASSWORD_VALIDATION_DEBOUNCE_MS,
   PasswordErrors,
   PasswordStrength,
-<<<<<<< HEAD
-} from '@luxfi/wallet/src/utils/password'
-=======
 } from 'wallet/src/utils/password'
->>>>>>> upstream/main
 
 export function CloudPasswordInput(): JSX.Element {
   const { password, error, passwordStrength, isConfirmation, onPasswordChangeText, onPasswordSubmitEditing } =

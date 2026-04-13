@@ -1,4 +1,4 @@
-import { Stack, styled } from 'tamagui'
+import { Stack, styled } from '@hanzo/gui'
 import { isWebPlatform } from 'utilities/src/platform'
 
 export const Separator = styled(Stack, {

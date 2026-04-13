@@ -1,21 +1,12 @@
 import { Cell, flexRender, Row, RowData } from '@tanstack/react-table'
 import { memo, useMemo } from 'react'
 import { Link, LinkProps, useLocation } from 'react-router'
-<<<<<<< HEAD
-import { Flex, styled } from '@l.x/ui/src'
-import { useSporeColors } from '@l.x/ui/src/hooks/useSporeColors'
-import { breakpoints } from '@l.x/ui/src/theme'
-import { ElementName } from '@l.x/lx/src/features/telemetry/constants'
-import Trace from '@l.x/lx/src/features/telemetry/Trace'
-import { useTrace } from '@l.x/utils/src/telemetry/trace/TraceContext'
-=======
 import { Flex, styled } from 'ui/src'
 import { useSporeColors } from 'ui/src/hooks/useSporeColors'
 import { breakpoints } from 'ui/src/theme'
 import { ElementName } from 'uniswap/src/features/telemetry/constants'
 import Trace from 'uniswap/src/features/telemetry/Trace'
 import { useTrace } from 'utilities/src/telemetry/trace/TraceContext'
->>>>>>> upstream/main
 import { ROW_HEIGHT_DESKTOP, ROW_HEIGHT_MOBILE_WEB } from '~/components/Table/constants'
 import { getCommonPinningStyles } from '~/components/Table/PinnedColumns/getCommonPinningStyles'
 import { CellContainer, DataRow } from '~/components/Table/styled'

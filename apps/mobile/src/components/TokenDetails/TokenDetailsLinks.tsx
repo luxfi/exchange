@@ -1,37 +1,12 @@
 import { BottomSheetScrollView } from '@gorhom/bottom-sheet'
-<<<<<<< HEAD
 import { GraphQLApi } from '@l.x/api'
 import { FeatureFlags, useFeatureFlag } from '@l.x/gating'
-=======
-import { GraphQLApi } from '@universe/api'
-import { FeatureFlags, useFeatureFlag } from '@universe/gating'
->>>>>>> upstream/main
 import { useCallback, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useWindowDimensions } from 'react-native'
 import { FlatList } from 'react-native-gesture-handler'
 import { LinkButton, type LinkButtonProps, LinkButtonType } from 'src/components/TokenDetails/LinkButton'
 import { useTokenDetailsContext } from 'src/components/TokenDetails/TokenDetailsContext'
-<<<<<<< HEAD
-import { Flex, Text } from '@l.x/ui/src'
-import { BlockExplorer, GlobeFilled, Page, XTwitter } from '@l.x/ui/src/components/icons'
-import { spacing } from '@l.x/ui/src/theme'
-import { getBlockExplorerIcon } from '@l.x/lx/src/components/chains/BlockExplorerIcon'
-import { MultichainAddressList } from '@l.x/lx/src/components/MultichainTokenDetails/MultichainAddressList'
-import { MultichainExplorerList } from '@l.x/lx/src/components/MultichainTokenDetails/MultichainExplorerList'
-import type { MultichainTokenEntry } from '@l.x/lx/src/components/MultichainTokenDetails/useOrderedMultichainEntries'
-import { useOrderedMultichainEntries } from '@l.x/lx/src/components/MultichainTokenDetails/useOrderedMultichainEntries'
-import { Modal } from '@l.x/lx/src/components/modals/Modal'
-import { useTokenProjectUrlsPartsFragment } from '@l.x/lx/src/data/graphql/lux-data-api/fragments'
-import { getChainInfo } from '@l.x/lx/src/features/chains/chainInfo'
-import { fromGraphQLChain } from '@l.x/lx/src/features/chains/utils'
-import { currencyIdToContractInput } from '@l.x/lx/src/features/dataApi/utils/currencyIdToContractInput'
-import { chainIdToPlatform } from '@l.x/lx/src/features/platforms/utils/chains'
-import { ElementName, ModalName } from '@l.x/lx/src/features/telemetry/constants'
-import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
-import { isDefaultNativeAddress, isNativeCurrencyAddress } from '@l.x/lx/src/utils/currencyId'
-import { ExplorerDataType, getExplorerLink, getTwitterLink, openUri } from '@l.x/lx/src/utils/linking'
-=======
 import { Flex, Text } from 'ui/src'
 import { BlockExplorer, GlobeFilled, Page, XTwitter } from 'ui/src/components/icons'
 import { spacing } from 'ui/src/theme'
@@ -50,7 +25,6 @@ import { ElementName, ModalName } from 'uniswap/src/features/telemetry/constants
 import { TestID } from 'uniswap/src/test/fixtures/testIDs'
 import { isDefaultNativeAddress, isNativeCurrencyAddress } from 'uniswap/src/utils/currencyId'
 import { ExplorerDataType, getExplorerLink, getTwitterLink, openUri } from 'uniswap/src/utils/linking'
->>>>>>> upstream/main
 
 const MIN_SHEET_HEIGHT = 520
 const INITIAL_SNAP_PERCENT = 0.65
@@ -80,11 +54,7 @@ function useMultichainTokenEntries(currencyId: string): MultichainTokenEntry[] {
     for (const token of tokens) {
       const chainId = fromGraphQLChain(token.chain)
       if (chainId && token.address) {
-<<<<<<< HEAD
-        result.push({ chainId, address: token.address })
-=======
         result.push({ chainId, address: token.address, isNative: false })
->>>>>>> upstream/main
       }
     }
     return result
@@ -96,11 +66,7 @@ function useMultichainTokenEntries(currencyId: string): MultichainTokenEntry[] {
 export function TokenDetailsLinks(): JSX.Element {
   const { t } = useTranslation()
 
-<<<<<<< HEAD
-  const { address, chainId, currencyId, copyAddressToClipboard } = useTokenDetailsContext()
-=======
   const { address, chainId, currencyId } = useTokenDetailsContext()
->>>>>>> upstream/main
 
   const isMultichainTokenUx = useFeatureFlag(FeatureFlags.MultichainTokenUx)
   const multichainEntries = useMultichainTokenEntries(currencyId)
@@ -128,17 +94,6 @@ export function TokenDetailsLinks(): JSX.Element {
     setIsExplorerSheetOpen(false)
   }, [])
 
-<<<<<<< HEAD
-  const handleCopyAddress = useCallback(
-    async (addr: string) => {
-      await copyAddressToClipboard(addr)
-      setIsAddressSheetOpen(false)
-    },
-    [copyAddressToClipboard],
-  )
-
-=======
->>>>>>> upstream/main
   const links = useMemo((): LinkButtonProps[] => {
     const showMultichainDropdowns = isMultichainTokenUx && hasMultipleChains
     const isNativeAddress = isDefaultNativeAddress({ address, platform: chainIdToPlatform(chainId) })
@@ -251,32 +206,11 @@ export function TokenDetailsLinks(): JSX.Element {
         </Modal>
       )}
 
-<<<<<<< HEAD
-      {isAddressSheetOpen && (
-        <Modal
-          fullScreen
-          overrideInnerContainer
-          name={ModalName.MultichainAddressModal}
-          snapPoints={multichainSnapPoints}
-          onClose={() => setIsAddressSheetOpen(false)}
-        >
-          <BottomSheetScrollView contentContainerStyle={SCROLL_CONTENT_STYLE} showsVerticalScrollIndicator={false}>
-            <MultichainAddressList
-              renderedInModal
-              chains={multichainEntries}
-              showInlineFeedback={false}
-              onCopyAddress={handleCopyAddress}
-            />
-          </BottomSheetScrollView>
-        </Modal>
-      )}
-=======
       <MultichainAddressSheet
         isOpen={isAddressSheetOpen}
         chains={multichainEntries}
         onClose={() => setIsAddressSheetOpen(false)}
       />
->>>>>>> upstream/main
     </Flex>
   )
 }

@@ -1,19 +1,11 @@
 import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useLocation, useNavigate } from 'react-router'
-<<<<<<< HEAD
-import { Flex, Text, TouchableArea } from '@l.x/ui/src'
-import { ArrowRight } from '@l.x/ui/src/components/icons/ArrowRight'
-import { CoinConvert } from '@l.x/ui/src/components/icons/CoinConvert'
-import { getChainInfo } from '@l.x/lx/src/features/chains/chainInfo'
-import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
-=======
 import { Flex, Text, TouchableArea } from 'ui/src'
 import { ArrowRight } from 'ui/src/components/icons/ArrowRight'
 import { CoinConvert } from 'ui/src/components/icons/CoinConvert'
 import { getChainInfo } from 'uniswap/src/features/chains/chainInfo'
 import { UniverseChainId } from 'uniswap/src/features/chains/types'
->>>>>>> upstream/main
 import { NATIVE_CHAIN_ID } from '~/constants/tokens'
 import { useTokenBalances } from '~/hooks/useTokenBalances'
 

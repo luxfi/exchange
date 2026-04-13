@@ -1,20 +1,3 @@
-<<<<<<< HEAD
-import React, { useState } from 'react'
-import { useTranslation } from 'react-i18next'
-import { Alert } from 'react-native'
-import 'react-native-reanimated'
-import { QRCodeScanner } from 'src/components/QRCodeScanner/QRCodeScanner'
-import { getSupportedURI, URIType } from 'src/components/Requests/ScanSheet/util'
-import { Flex, Text, TouchableArea, useIsDarkMode } from '@l.x/ui/src'
-import { QrCode, Scan } from '@l.x/ui/src/components/icons'
-import { useSporeColorsForTheme } from '@l.x/ui/src/hooks/useSporeColors'
-import { Modal } from '@l.x/lx/src/components/modals/Modal'
-import { ScannerModalState } from '@l.x/lx/src/components/ReceiveQRCode/constants'
-import { ReceiveQRCode } from '@l.x/lx/src/components/ReceiveQRCode/ReceiveQRCode'
-import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
-import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
-import { useActiveAccountAddress } from '@luxfi/wallet/src/features/wallet/hooks'
-=======
 import 'react-native-reanimated'
 import React, { useState } from 'react'
 import { useTranslation } from 'react-i18next'
@@ -30,7 +13,6 @@ import { ReceiveQRCode } from 'uniswap/src/components/ReceiveQRCode/ReceiveQRCod
 import { ModalName } from 'uniswap/src/features/telemetry/constants'
 import { TestID } from 'uniswap/src/test/fixtures/testIDs'
 import { useActiveAccountAddress } from 'wallet/src/features/wallet/hooks'
->>>>>>> upstream/main
 
 type Props = {
   onClose: () => void

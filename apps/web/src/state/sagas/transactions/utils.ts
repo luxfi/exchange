@@ -1,61 +1,34 @@
-<<<<<<< HEAD
-/* eslint-disable max-lines */
-import { datadogRum } from '@datadog/browser-rum'
-import type { TransactionResponse } from '@ethersproject/abstract-provider'
-import type { JsonRpcSigner, Web3Provider } from '@ethersproject/providers'
-import { TradeType } from '@luxamm/sdk-core'
-import { FetchError, TradingApi } from '@l.x/api'
-import { BlockedAsyncSubmissionChainIdsConfigKey, DynamicConfigs, getDynamicConfigValue } from '@l.x/gating'
-=======
 /* oxlint-disable max-lines */
 import { datadogRum } from '@datadog/browser-rum'
 import type { TransactionResponse } from '@ethersproject/abstract-provider'
 import type { JsonRpcSigner, Web3Provider } from '@ethersproject/providers'
 import { TradeType } from '@uniswap/sdk-core'
-import { FetchError, TradingApi } from '@universe/api'
-import { BlockedAsyncSubmissionChainIdsConfigKey, DynamicConfigs, getDynamicConfigValue } from '@universe/gating'
->>>>>>> upstream/main
+import { FetchError, TradingApi } from '@l.x/api'
+import { BlockedAsyncSubmissionChainIdsConfigKey, DynamicConfigs, getDynamicConfigValue } from '@l.x/gating'
 import ms from 'ms'
 import type { Action } from 'redux'
 import type { SagaGenerator } from 'typed-redux-saga'
 import { call, cancel, delay, fork, put, race, select, spawn, take } from 'typed-redux-saga'
-<<<<<<< HEAD
-import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
-import { isL2ChainId, isUniverseChainId } from '@l.x/lx/src/features/chains/utils'
-import { AppNotification, AppNotificationType } from '@l.x/lx/src/features/notifications/slice/types'
-=======
 import { UniverseChainId } from 'uniswap/src/features/chains/types'
 import { isL2ChainId, isUniverseChainId } from 'uniswap/src/features/chains/utils'
 import { AppNotification, AppNotificationType } from 'uniswap/src/features/notifications/slice/types'
->>>>>>> upstream/main
 import {
   ApprovalEditedInWalletError,
   HandledTransactionInterrupt,
   TransactionError,
   TransactionStepFailedError,
   UnexpectedTransactionStateError,
-<<<<<<< HEAD
-} from '@l.x/lx/src/features/transactions/errors'
-=======
 } from 'uniswap/src/features/transactions/errors'
->>>>>>> upstream/main
 import {
   addTransaction,
   finalizeTransaction,
   interfaceApplyTransactionHashToBatch,
   interfaceUpdateTransactionInfo,
   type TransactionsState,
-<<<<<<< HEAD
-} from '@l.x/lx/src/features/transactions/slice'
-import { TokenApprovalTransactionStep } from '@l.x/lx/src/features/transactions/steps/approve'
-import type { Permit2TransactionStep } from '@l.x/lx/src/features/transactions/steps/permit2Transaction'
-import { TokenRevocationTransactionStep } from '@l.x/lx/src/features/transactions/steps/revoke'
-=======
 } from 'uniswap/src/features/transactions/slice'
 import { TokenApprovalTransactionStep } from 'uniswap/src/features/transactions/steps/approve'
 import type { Permit2TransactionStep } from 'uniswap/src/features/transactions/steps/permit2Transaction'
 import { TokenRevocationTransactionStep } from 'uniswap/src/features/transactions/steps/revoke'
->>>>>>> upstream/main
 import type {
   HandleApprovalStepParams,
   HandleOnChainPermit2TransactionStep,
@@ -63,28 +36,16 @@ import type {
   HandleSignatureStepParams,
   OnChainTransactionStep,
   TransactionStep,
-<<<<<<< HEAD
-} from '@l.x/lx/src/features/transactions/steps/types'
-import { TransactionStepType } from '@l.x/lx/src/features/transactions/steps/types'
-import { SolanaTrade } from '@l.x/lx/src/features/transactions/swap/types/solana'
-=======
 } from 'uniswap/src/features/transactions/steps/types'
 import { TransactionStepType } from 'uniswap/src/features/transactions/steps/types'
 import { SolanaTrade } from 'uniswap/src/features/transactions/swap/types/solana'
->>>>>>> upstream/main
 import type {
   BridgeTrade,
   ChainedActionTrade,
   ClassicTrade,
-<<<<<<< HEAD
-  LXTrade,
-} from '@l.x/lx/src/features/transactions/swap/types/trade'
-import { isLX } from '@l.x/lx/src/features/transactions/swap/utils/routing'
-=======
   UniswapXTrade,
 } from 'uniswap/src/features/transactions/swap/types/trade'
 import { isUniswapX } from 'uniswap/src/features/transactions/swap/utils/routing'
->>>>>>> upstream/main
 import type {
   ApproveTransactionInfo,
   BridgeTransactionInfo,
@@ -93,27 +54,11 @@ import type {
   InterfaceTransactionDetails,
   Permit2ApproveTransactionInfo,
   PlanSwapTransactionInfoFields,
-<<<<<<< HEAD
-} from '@l.x/lx/src/features/transactions/types/transactionDetails'
-=======
 } from 'uniswap/src/features/transactions/types/transactionDetails'
->>>>>>> upstream/main
 import {
   TransactionOriginType,
   TransactionStatus,
   TransactionType,
-<<<<<<< HEAD
-} from '@l.x/lx/src/features/transactions/types/transactionDetails'
-import { getInterfaceTransaction, isInterfaceTransaction } from '@l.x/lx/src/features/transactions/types/utils'
-import { areAddressesEqual } from '@l.x/lx/src/utils/addresses'
-import { parseERC20ApproveCalldata } from '@l.x/lx/src/utils/approvals'
-import { currencyId } from '@l.x/lx/src/utils/currencyId'
-import { interruptTransactionFlow } from '@l.x/lx/src/utils/saga'
-import { HexString, isValidHexString } from '@l.x/utils/src/addresses/hex'
-import { logger } from '@l.x/utils/src/logger/logger'
-import { noop } from '@l.x/utils/src/react/noop'
-import { hexlifyTransaction } from '@l.x/utils/src/transactions/hexlifyTransaction'
-=======
 } from 'uniswap/src/features/transactions/types/transactionDetails'
 import { getInterfaceTransaction, isInterfaceTransaction } from 'uniswap/src/features/transactions/types/utils'
 import { areAddressesEqual } from 'uniswap/src/utils/addresses'
@@ -124,7 +69,6 @@ import { HexString, isValidHexString } from 'utilities/src/addresses/hex'
 import { logger } from 'utilities/src/logger/logger'
 import { noop } from 'utilities/src/react/noop'
 import { hexlifyTransaction } from 'utilities/src/transactions/hexlifyTransaction'
->>>>>>> upstream/main
 import type { Transaction } from 'viem'
 import { getConnectorClient, getTransaction } from 'wagmi/actions'
 import { popupRegistry } from '~/components/Popups/registry'
@@ -553,11 +497,7 @@ function* waitForTransaction(hash: string | undefined, step: TransactionStep) {
   while (true) {
     const { payload } = yield* take<ReturnType<typeof finalizeTransaction>>(finalizeTransaction.type)
     // Note: This function is only used for classic/bridge transactions that have immediate transaction hashes.
-<<<<<<< HEAD
-    // DEX orders use a different flow (handleDEXSignatureStep) and don't call this function.
-=======
     // UniswapX orders use a different flow (handleUniswapXSignatureStep) and don't call this function.
->>>>>>> upstream/main
     if (payload.id === hash) {
       if (payload.status === TransactionStatus.Success) {
         return payload
@@ -607,30 +547,18 @@ export function getSwapTransactionInfo(params: {
   transactedUSDValue?: number
 }): SwapInfo | BridgeTransactionInfo
 export function getSwapTransactionInfo(params: {
-<<<<<<< HEAD
-  trade: LXTrade
-  swapStartTimestamp?: number
-  planAnalytics?: PlanSwapTransactionInfoFields
-  transactedUSDValue?: number
-}): SwapInfo & { isLXOrder: true }
-=======
   trade: UniswapXTrade
   swapStartTimestamp?: number
   planAnalytics?: PlanSwapTransactionInfoFields
   transactedUSDValue?: number
 }): SwapInfo & { isUniswapXOrder: true }
->>>>>>> upstream/main
 export function getSwapTransactionInfo({
   trade,
   swapStartTimestamp,
   planAnalytics,
   transactedUSDValue,
 }: {
-<<<<<<< HEAD
-  trade: ClassicTrade | BridgeTrade | LXTrade | SolanaTrade | ChainedActionTrade
-=======
   trade: ClassicTrade | BridgeTrade | UniswapXTrade | SolanaTrade | ChainedActionTrade
->>>>>>> upstream/main
   swapStartTimestamp?: number
   planAnalytics?: PlanSwapTransactionInfoFields
   transactedUSDValue?: number
@@ -657,11 +585,7 @@ export function getSwapTransactionInfo({
   return {
     type: TransactionType.Swap,
     ...commonAttributes,
-<<<<<<< HEAD
-    isLXOrder: isLX(trade),
-=======
     isUniswapXOrder: isUniswapX(trade),
->>>>>>> upstream/main
     ...(trade.tradeType === TradeType.EXACT_INPUT
       ? {
           tradeType: TradeType.EXACT_INPUT,

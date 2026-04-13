@@ -1,20 +1,11 @@
 import { Dispatch, SetStateAction, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
-<<<<<<< HEAD
-import { Flex, Text } from '@l.x/ui/src'
-import { Person } from '@l.x/ui/src/components/icons/Person'
-import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
-import Trace from '@l.x/lx/src/features/telemetry/Trace'
-import { ClaimUnitagContent } from '@l.x/lx/src/features/unitags/ClaimUnitagContent'
-import { ExtensionScreens } from '@l.x/lx/src/types/screens/extension'
-=======
 import { Flex, Text } from 'ui/src'
 import { Person } from 'ui/src/components/icons/Person'
 import { ModalName } from 'uniswap/src/features/telemetry/constants'
 import Trace from 'uniswap/src/features/telemetry/Trace'
 import { ClaimUnitagContent } from 'uniswap/src/features/unitags/ClaimUnitagContent'
 import { ExtensionScreens } from 'uniswap/src/types/screens/extension'
->>>>>>> upstream/main
 import { Page } from '~/components/NavBar/DownloadApp/Modal'
 import { ModalContent } from '~/components/NavBar/DownloadApp/Modal/Content'
 

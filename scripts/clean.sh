@@ -69,9 +69,7 @@ bun nx reset || true
 # Always remove specific build artifacts and cache directories
 echo "Removing build artifacts and cache directories..."
 # Remove build artifacts dirs in apps
-rm -rf dist apps/web/.wrangler apps/extension/.output
-# Remove the extension's WXT artifacts but NOT the chrome data dir
-find apps/extension/.wxt -mindepth 1 -maxdepth 1 ! -name 'chrome-data' -exec sh -c 'echo "Removing $1" && rm -rf "$1"' _ {} \; 2>/dev/null || true
+rm -rf dist apps/web/.wrangler
 # Remove nested node_modules dirs (note, the root ./node_modules will not be affected here)
 find . -path "./node_modules" -prune -o -type d -name "node_modules" -exec sh -c 'echo "Removing $1" && rm -rf "$1"' _ {} \; 2>/dev/null || true
 # Remove tsbuildinfo files (except those in node_modules)

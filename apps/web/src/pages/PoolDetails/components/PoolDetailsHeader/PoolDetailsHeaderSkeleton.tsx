@@ -1,10 +1,5 @@
-<<<<<<< HEAD
-import { Flex, Shine, styled, useMedia } from '@l.x/ui/src'
-import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
-=======
 import { Flex, Shine, styled, useMedia } from 'ui/src'
 import { TestID } from 'uniswap/src/test/fixtures/testIDs'
->>>>>>> upstream/main
 import { ACTION_BUBBLE_SIZE } from '~/components/Explore/stickyHeader/constants'
 import { getHeaderLogoSize, getHeaderTitleLineHeight } from '~/components/Explore/stickyHeader/getHeaderLogoSize'
 

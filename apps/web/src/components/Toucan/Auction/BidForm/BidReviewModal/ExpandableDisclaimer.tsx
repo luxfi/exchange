@@ -1,10 +1,6 @@
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
-<<<<<<< HEAD
-import { Flex, Text, TouchableArea } from '@l.x/ui/src'
-=======
 import { Flex, Text, TouchableArea } from 'ui/src'
->>>>>>> upstream/main
 
 interface ExpandableDisclaimerProps {
   className?: string

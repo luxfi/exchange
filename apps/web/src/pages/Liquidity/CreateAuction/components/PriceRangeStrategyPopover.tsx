@@ -1,13 +1,7 @@
 import { useTranslation } from 'react-i18next'
-<<<<<<< HEAD
-import { Flex, IconButton, Popover, Text, TouchableArea } from '@l.x/ui/src'
-import { CheckCircleFilled } from '@l.x/ui/src/components/icons/CheckCircleFilled'
-import { RotatableChevron } from '@l.x/ui/src/components/icons/RotatableChevron'
-=======
 import { Flex, IconButton, Popover, Text, TouchableArea } from 'ui/src'
 import { CheckCircleFilled } from 'ui/src/components/icons/CheckCircleFilled'
 import { RotatableChevron } from 'ui/src/components/icons/RotatableChevron'
->>>>>>> upstream/main
 import { PriceRangeStrategy } from '~/pages/Liquidity/CreateAuction/types'
 
 const BAR_ICON_SIZE = 20

@@ -1,14 +1,8 @@
 import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
-<<<<<<< HEAD
-import { GeneratedIcon } from '@l.x/ui/src'
-import { Bank, SwapDotted } from '@l.x/ui/src/components/icons'
-import { CurrencyField } from '@l.x/lx/src/types/currency'
-=======
 import { GeneratedIcon } from 'ui/src'
 import { Bank, SwapDotted } from 'ui/src/components/icons'
 import { CurrencyField } from 'uniswap/src/types/currency'
->>>>>>> upstream/main
 
 interface TokenCTAButtonVariant {
   title: string

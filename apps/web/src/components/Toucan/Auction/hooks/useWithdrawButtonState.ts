@@ -1,10 +1,6 @@
 import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
-<<<<<<< HEAD
-import { EVMUniverseChainId } from '@l.x/lx/src/features/chains/types'
-=======
 import { EVMUniverseChainId } from 'uniswap/src/features/chains/types'
->>>>>>> upstream/main
 import { useBidsListData } from '~/components/Toucan/Auction/hooks/useBidsListData'
 import { useDurationRemaining } from '~/components/Toucan/Auction/hooks/useDurationRemaining'
 import { AuctionBidStatus } from '~/components/Toucan/Auction/store/types'

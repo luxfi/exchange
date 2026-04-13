@@ -1,14 +1,3 @@
-<<<<<<< HEAD
-import { Percent } from '@luxamm/sdk-core'
-import { WETH_ADDRESS as getWethAddress } from '@luxamm/universal-router-sdk'
-import { useEffect, useState } from 'react'
-import FOT_DETECTOR_ABI from '@l.x/lx/src/abis/fee-on-transfer-detector.json'
-import { FeeOnTransferDetector } from '@l.x/lx/src/abis/types'
-import { UniverseChainId } from '@l.x/lx/src/features/chains/types'
-import { InterfaceEventName } from '@l.x/lx/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
-import { logger } from '@l.x/utils/src/logger/logger'
-=======
 import { Percent } from '@uniswap/sdk-core'
 import { WETH_ADDRESS as getWethAddress } from '@uniswap/universal-router-sdk'
 import { useEffect, useState } from 'react'
@@ -18,7 +7,6 @@ import { UniverseChainId } from 'uniswap/src/features/chains/types'
 import { InterfaceEventName } from 'uniswap/src/features/telemetry/constants'
 import { sendAnalyticsEvent } from 'uniswap/src/features/telemetry/send'
 import { logger } from 'utilities/src/logger/logger'
->>>>>>> upstream/main
 import { BIPS_BASE, ZERO_PERCENT } from '~/constants/misc'
 import { useAccount } from '~/hooks/useAccount'
 import { useContract } from '~/hooks/useContract'

@@ -1,12 +1,7 @@
 import { atom, useAtom } from 'jotai'
 import { useUpdateAtom } from 'jotai/utils'
-<<<<<<< HEAD
-import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
-import { useEvent } from '@l.x/utils/src/react/hooks'
-=======
 import { Platform } from 'uniswap/src/features/platforms/types/Platform'
 import { useEvent } from 'utilities/src/react/hooks'
->>>>>>> upstream/main
 
 export enum MenuStateVariant {
   MAIN = 'main',

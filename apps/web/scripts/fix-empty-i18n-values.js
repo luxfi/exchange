@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-/* eslint-env node */
-
-=======
->>>>>>> upstream/main
 // idk why but defaultValue int working in i18next-parser.config.js
 
 const fs = require('fs')

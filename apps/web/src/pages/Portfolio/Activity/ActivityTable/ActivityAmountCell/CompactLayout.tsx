@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import { Flex, Text } from '@l.x/ui/src'
-=======
 import { Flex, Text } from 'ui/src'
->>>>>>> upstream/main
 
 interface CompactLayoutProps {
   typeLabel: string

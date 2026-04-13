@@ -2,21 +2,12 @@ import React, { useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useReactNavigationModal } from 'src/components/modals/useReactNavigationModal'
 import { useOpenReceiveModal } from 'src/features/modals/hooks/useOpenReceiveModal'
-<<<<<<< HEAD
-import { Button, Flex, Image, Text, useIsDarkMode, useSporeColors } from '@l.x/ui/src'
-import { CEX_TRANSFER_MODAL_BG_DARK, CEX_TRANSFER_MODAL_BG_LIGHT } from '@l.x/ui/src/assets'
-import { Modal } from '@l.x/lx/src/components/modals/Modal'
-import { lxUrls } from '@l.x/lx/src/constants/urls'
-import { ModalName } from '@l.x/lx/src/features/telemetry/constants'
-import { openUri } from '@l.x/lx/src/utils/linking'
-=======
 import { Button, Flex, Image, Text, useIsDarkMode, useSporeColors } from 'ui/src'
 import { CEX_TRANSFER_MODAL_BG_DARK, CEX_TRANSFER_MODAL_BG_LIGHT } from 'ui/src/assets'
 import { Modal } from 'uniswap/src/components/modals/Modal'
 import { uniswapUrls } from 'uniswap/src/constants/urls'
 import { ModalName } from 'uniswap/src/features/telemetry/constants'
 import { openUri } from 'uniswap/src/utils/linking'
->>>>>>> upstream/main
 
 const BG_IMAGE_MAX_HEIGHT = 80
 
@@ -54,11 +45,7 @@ export function KoreaCexTransferInfoModal(): JSX.Element {
             flex={1}
             size="large"
             emphasis="secondary"
-<<<<<<< HEAD
-            onPress={() => openUri({ uri: lxUrls.helpArticleUrls.cexTransferKorea })}
-=======
             onPress={() => openUri({ uri: uniswapUrls.helpArticleUrls.cexTransferKorea })}
->>>>>>> upstream/main
           >
             {t('common.button.learn')}
           </Button>

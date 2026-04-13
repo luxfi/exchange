@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 import { GraphQLApi } from '@l.x/api'
-=======
-import { GraphQLApi } from '@universe/api'
->>>>>>> upstream/main
 import client from 'functions/client'
 import { Data } from 'functions/utils/cache'
 
@@ -58,12 +54,7 @@ export default async function getPool({
   const token0 = data.token0
   const token1 = data.token1
   const name = `${token0?.symbol}/${token1?.symbol}`
-<<<<<<< HEAD
-  const { brand } = await import('@l.x/config')
-  const title = `${name} on ${brand.shortName || 'Exchange'}`
-=======
   const title = `${name} on Uniswap`
->>>>>>> upstream/main
 
   const formattedAsset: Data = {
     title,

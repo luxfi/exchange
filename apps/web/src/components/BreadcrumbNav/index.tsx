@@ -1,13 +1,3 @@
-<<<<<<< HEAD
-import { Currency } from '@luxamm/sdk-core'
-import { useState } from 'react'
-import { useTranslation } from 'react-i18next'
-import { Link } from 'react-router'
-import { Flex, styled, Text, TextProps, useMedia } from '@l.x/ui/src'
-import { iconSizes } from '@l.x/ui/src/theme'
-import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
-import { shortenAddress } from '@l.x/utils/src/addresses'
-=======
 import { Currency } from '@uniswap/sdk-core'
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
@@ -16,7 +6,6 @@ import { Flex, styled, Text, TextProps, useMedia } from 'ui/src'
 import { iconSizes } from 'ui/src/theme'
 import { TestID } from 'uniswap/src/test/fixtures/testIDs'
 import { shortenAddress } from 'utilities/src/addresses'
->>>>>>> upstream/main
 import { CopyHelper } from '~/theme/components/CopyHelper'
 
 export const BreadcrumbNavContainer = styled(Flex, {

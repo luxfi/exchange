@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-import { Passkey } from '@l.x/ui/src/components/icons/Passkey'
-import { Flex, FlexProps } from '@l.x/ui/src/components/layout'
-import { breakpoints } from '@l.x/ui/src/theme'
-import { CONNECTION_PROVIDER_NAMES } from 'lx/src/constants/web3'
-import { AccountIcon } from 'lx/src/features/accounts/AccountIcon'
-import { Platform } from 'lx/src/features/platforms/types/Platform'
-import { isEVMAddress } from '@l.x/utils/src/addresses/evm/evm'
-=======
 import { Passkey } from 'ui/src/components/icons/Passkey'
 import { Flex, FlexProps } from 'ui/src/components/layout'
 import { breakpoints } from 'ui/src/theme'
@@ -14,7 +5,6 @@ import { CONNECTION_PROVIDER_NAMES } from 'uniswap/src/constants/web3'
 import { AccountIcon } from 'uniswap/src/features/accounts/AccountIcon'
 import { Platform } from 'uniswap/src/features/platforms/types/Platform'
 import { isEVMAddress } from 'utilities/src/addresses/evm/evm'
->>>>>>> upstream/main
 import sockImg from '~/assets/svg/socks.svg'
 import { CONNECTOR_ICON_OVERRIDE_MAP } from '~/components/Web3Provider/constants'
 import { useActiveAddresses, useActiveWallet } from '~/features/accounts/store/hooks'

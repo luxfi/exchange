@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import i18n from '@l.x/lx/src/i18n'
-=======
 import i18n from 'uniswap/src/i18n'
->>>>>>> upstream/main
 import { v4 as uuid } from 'uuid'
 
 // You may throw an instance of this class when the user rejects a request in their wallet.
@@ -17,11 +13,7 @@ export class UserRejectedRequestError extends Error {
 export function toReadableError(errorText: string, error: unknown) {
   if (typeof error === 'object' && error !== null) {
     const e = error as Error & { reason?: string }
-<<<<<<< HEAD
-    // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
-=======
     // oxlint-disable-next-line typescript/no-unnecessary-condition
->>>>>>> upstream/main
     return new Error(`${errorText} 👺 ${e.message ?? e.reason ?? 'unknown'}`)
   }
   return new Error(`${errorText} 👺 ${error}`)
@@ -33,17 +25,10 @@ export class WrongChainError extends Error {
   }
 }
 
-<<<<<<< HEAD
-export class DEXv2HardQuoteError extends Error {
-  constructor() {
-    super(i18n.t('dex.v2QuoteFailed'))
-    this.name = 'DEXv2HardQuoteError'
-=======
 export class UniswapXv2HardQuoteError extends Error {
   constructor() {
     super(i18n.t('uniswapx.v2QuoteFailed'))
     this.name = 'UniswapXv2HardQuoteError'
->>>>>>> upstream/main
   }
 }
 

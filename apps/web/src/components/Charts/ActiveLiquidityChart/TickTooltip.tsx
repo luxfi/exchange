@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-import { Currency, Percent } from '@luxamm/sdk-core'
-import { useTranslation } from 'react-i18next'
-import { Flex, FlexProps, Text } from '@l.x/ui/src'
-import { iconSizes } from '@l.x/ui/src/theme'
-import { useLocalizationContext } from '@l.x/lx/src/features/language/LocalizationContext'
-import { useUSDCValue } from '@l.x/lx/src/features/transactions/hooks/useUSDCPriceWrapper'
-import { NumberType } from '@l.x/utils/src/format/types'
-=======
 import { Currency, Percent } from '@uniswap/sdk-core'
 import { useTranslation } from 'react-i18next'
 import { Flex, FlexProps, Text } from 'ui/src'
@@ -14,7 +5,6 @@ import { iconSizes } from 'ui/src/theme'
 import { useLocalizationContext } from 'uniswap/src/features/language/LocalizationContext'
 import { useUSDCValue } from 'uniswap/src/features/transactions/hooks/useUSDCPriceWrapper'
 import { NumberType } from 'utilities/src/format/types'
->>>>>>> upstream/main
 import { LiquidityBarData } from '~/components/Charts/LiquidityChart/types'
 import { ChartEntry } from '~/components/Charts/LiquidityRangeInput/types'
 import { DoubleCurrencyLogo } from '~/components/Logo/DoubleLogo'

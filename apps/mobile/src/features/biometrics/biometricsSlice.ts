@@ -6,32 +6,13 @@ import { BiometricAuthenticationStatus } from 'src/features/biometrics/biometric
 // Biometrics State
 //------------------------------------------------------------------------------------------------
 
-<<<<<<< HEAD
-// eslint-disable-next-line import/no-unused-modules
-=======
 // oxlint-disable-next-line import/no-unused-modules
->>>>>>> upstream/main
 export interface BiometricsState {
   authenticationStatus: BiometricAuthenticationStatus
   deviceSupportsBiometrics: boolean | undefined
   lastAuthenticationTime: number | undefined
   isEnrolled: boolean | undefined
-<<<<<<< HEAD
-=======
-  isBiometricsDisabledInOSSettings: boolean | undefined
->>>>>>> upstream/main
-  supportedAuthenticationTypes: AuthenticationType[] | undefined
-}
-
-const initialState: BiometricsState = {
-  authenticationStatus: BiometricAuthenticationStatus.Invalid,
-  deviceSupportsBiometrics: undefined,
-  lastAuthenticationTime: undefined,
-  isEnrolled: undefined,
-<<<<<<< HEAD
-=======
   isBiometricsDisabledInOSSettings: undefined,
->>>>>>> upstream/main
   supportedAuthenticationTypes: undefined,
 }
 
@@ -57,32 +38,7 @@ const biometricsSlice = createSlice({
     setIsEnrolled: (state, action: PayloadAction<boolean>) => {
       state.isEnrolled = action.payload
     },
-<<<<<<< HEAD
-=======
-    setIsBiometricsDisabledInOSSettings: (state, action: PayloadAction<boolean>) => {
-      state.isBiometricsDisabledInOSSettings = action.payload
-    },
->>>>>>> upstream/main
-    setSupportedAuthenticationTypes: (state, action: PayloadAction<AuthenticationType[]>) => {
-      state.supportedAuthenticationTypes = action.payload
-    },
-    invalidateAuthentication: (state) => {
-      state.authenticationStatus = BiometricAuthenticationStatus.Invalid
-    },
-    triggerAuthentication: (_state, _action: PayloadAction<TriggerAuthenticationPayload>) => {
-      // handled by saga
-    },
-  },
-})
-
-export const {
-  setAuthenticationStatus,
-  setDeviceSupportsBiometrics,
-  setIsEnrolled,
-<<<<<<< HEAD
-=======
   setIsBiometricsDisabledInOSSettings,
->>>>>>> upstream/main
   setSupportedAuthenticationTypes,
   triggerAuthentication,
 } = biometricsSlice.actions
@@ -98,12 +54,9 @@ export const selectDeviceSupportsBiometrics = (state: { biometrics: BiometricsSt
 
 const selectIsEnrolled = (state: { biometrics: BiometricsState }): boolean | undefined => state.biometrics.isEnrolled
 
-<<<<<<< HEAD
-=======
 export const selectIsBiometricsDisabledInOSSettings = (state: { biometrics: BiometricsState }): boolean | undefined =>
   state.biometrics.isBiometricsDisabledInOSSettings
 
->>>>>>> upstream/main
 const selectSupportedAuthenticationTypes = (state: { biometrics: BiometricsState }): AuthenticationType[] | undefined =>
   state.biometrics.supportedAuthenticationTypes
 

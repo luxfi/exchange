@@ -1,14 +1,3 @@
-<<<<<<< HEAD
-import { brand } from '@l.x/config'
-import { Fragment, useCallback, useMemo } from 'react'
-import { Trans, useTranslation } from 'react-i18next'
-import { useNavigate } from 'react-router'
-import { Flex, Text, useMedia, useSporeColors } from '@l.x/ui/src'
-import { RotatableChevron } from '@l.x/ui/src/components/icons/RotatableChevron'
-import { INTERFACE_NAV_HEIGHT } from '@l.x/ui/src/theme'
-import { useEnabledChains } from '@l.x/lx/src/features/chains/hooks/useEnabledChains'
-import { SwapRedirectFn } from '@l.x/lx/src/features/transactions/components/TransactionModal/TransactionModalContext'
-=======
 import { Fragment, useCallback, useMemo } from 'react'
 import { Trans, useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router'
@@ -17,7 +6,6 @@ import { RotatableChevron } from 'ui/src/components/icons/RotatableChevron'
 import { INTERFACE_NAV_HEIGHT } from 'ui/src/theme'
 import { useEnabledChains } from 'uniswap/src/features/chains/hooks/useEnabledChains'
 import { SwapRedirectFn } from 'uniswap/src/features/transactions/components/TransactionModal/TransactionModalContext'
->>>>>>> upstream/main
 import { ColumnCenter } from '~/components/deprecated/Column'
 import { useCurrency } from '~/hooks/Tokens'
 import { useScroll } from '~/hooks/useScroll'
@@ -94,29 +82,6 @@ export function Hero({ scrollToRef, transition }: HeroProps) {
       pt={INTERFACE_NAV_HEIGHT}
       pointerEvents="none"
     >
-<<<<<<< HEAD
-      {/* Background video */}
-      <video
-        autoPlay
-        loop
-        muted
-        playsInline
-        style={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          width: '100%',
-          height: '100%',
-          objectFit: 'cover',
-          zIndex: -1,
-          opacity: 0.4,
-        }}
-      >
-        <source src={`/videos/${brand.appDomain?.split('.')[0] || 'lux'}-hero.mp4`} type="video/mp4" />
-      </video>
-
-=======
->>>>>>> upstream/main
       {!media.sm && <TokenCloud />}
 
       <Flex

@@ -1,19 +1,10 @@
-<<<<<<< HEAD
-import { FeatureFlags, getFeatureFlag } from '@luxfi/gating'
-=======
-import { FeatureFlags, getFeatureFlag } from '@universe/gating'
->>>>>>> upstream/main
+import { FeatureFlags, getFeatureFlag } from '@l.x/gating'
 import { navigate } from 'src/app/navigation/rootNavigation'
 import { HomeScreenTabIndex } from 'src/screens/HomeScreen/HomeScreenTabIndex'
 import { dismissInAppBrowser } from 'src/utils/linking'
 import { call, put } from 'typed-redux-saga'
-<<<<<<< HEAD
-import { forceFetchFiatOnRampTransactions } from '@l.x/lx/src/features/transactions/slice'
-import { MobileScreens } from '@l.x/lx/src/types/screens/mobile'
-=======
 import { forceFetchFiatOnRampTransactions } from 'uniswap/src/features/transactions/slice'
 import { MobileScreens } from 'uniswap/src/types/screens/mobile'
->>>>>>> upstream/main
 
 export function* handleOnRampReturnLink() {
   yield* put(forceFetchFiatOnRampTransactions())

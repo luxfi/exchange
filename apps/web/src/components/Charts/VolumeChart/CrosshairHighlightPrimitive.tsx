@@ -75,11 +75,7 @@ class CrosshairHighlightPaneRenderer implements ISeriesPrimitivePaneRenderer {
     if (!this._data.visible) {
       return
     }
-<<<<<<< HEAD
-    // biome-ignore lint/correctness/useHookAtTopLevel: this is not a hook
-=======
     // oxlint-disable-next-line react/rules-of-hooks -- this is not a hook
->>>>>>> upstream/main
     target.useBitmapCoordinateSpace((scope) => {
       const ctx = scope.context
       const crosshairPos = positionsLine({

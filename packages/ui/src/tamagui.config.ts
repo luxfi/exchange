@@ -1,4 +1,4 @@
-import { createTamagui } from 'tamagui'
+import { createTamagui } from '@hanzo/gui'
 import { animations } from 'ui/src/theme/animations'
 import { configWithoutAnimations } from 'ui/src/theme/config'
 

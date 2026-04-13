@@ -1,14 +1,7 @@
-<<<<<<< HEAD
-import { type Currency, type CurrencyAmount, Fraction, Percent } from '@luxamm/sdk-core'
-import { nativeOnChain } from 'lx/src/constants/tokens'
-import { getChainInfo } from 'lx/src/features/chains/chainInfo'
-import type { UniverseChainId } from 'lx/src/features/chains/types'
-=======
 import { type Currency, type CurrencyAmount, Fraction, Percent } from '@uniswap/sdk-core'
 import { nativeOnChain } from 'uniswap/src/constants/tokens'
 import { getChainInfo } from 'uniswap/src/features/chains/chainInfo'
 import type { UniverseChainId } from 'uniswap/src/features/chains/types'
->>>>>>> upstream/main
 import { AuctionType, PriceRangeStrategy, RaiseCurrency } from '~/pages/Liquidity/CreateAuction/types'
 
 const PERCENT_SCALE = 1_000_000

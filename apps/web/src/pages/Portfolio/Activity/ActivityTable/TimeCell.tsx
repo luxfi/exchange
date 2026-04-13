@@ -1,13 +1,7 @@
 import { memo, useMemo } from 'react'
-<<<<<<< HEAD
-import { Flex, Text, TextProps } from '@l.x/ui/src'
-import { useFormattedTimeForActivity } from '@l.x/lx/src/components/activity/hooks/useFormattedTime'
-import { FORMAT_TIME_SHORT, useLocalizedDayjs } from '@l.x/lx/src/features/language/localizedDayjs'
-=======
 import { Flex, Text, TextProps } from 'ui/src'
 import { useFormattedTimeForActivity } from 'uniswap/src/components/activity/hooks/useFormattedTime'
 import { FORMAT_TIME_SHORT, useLocalizedDayjs } from 'uniswap/src/features/language/localizedDayjs'
->>>>>>> upstream/main
 import { GroupHoverTransition } from '~/components/GroupHoverTransition'
 
 const FORMAT_DATE_WITH_WEEKDAY = 'ddd MMM D, YYYY'
@@ -19,11 +13,7 @@ interface TimeCellProps {
   textAlign?: TextProps['textAlign']
 }
 
-<<<<<<< HEAD
-function _TimeCell({ timestamp, showFullDateOnHover = false, textAlign = 'left' }: TimeCellProps) {
-=======
 function TimeCellInner({ timestamp, showFullDateOnHover = false, textAlign = 'left' }: TimeCellProps) {
->>>>>>> upstream/main
   const formattedTime = useFormattedTimeForActivity(timestamp)
   const localizedDayjs = useLocalizedDayjs()
 
@@ -61,8 +51,4 @@ function TimeCellInner({ timestamp, showFullDateOnHover = false, textAlign = 'le
   )
 }
 
-<<<<<<< HEAD
-export const TimeCell = memo(_TimeCell)
-=======
 export const TimeCell = memo(TimeCellInner)
->>>>>>> upstream/main

@@ -1,9 +1,5 @@
 import { NativeStackScreenProps } from '@react-navigation/native-stack'
-<<<<<<< HEAD
-import { SharedEventName } from '@luxamm/analytics-events'
-=======
 import { SharedEventName } from '@uniswap/analytics-events'
->>>>>>> upstream/main
 import { TFunction } from 'i18next'
 import React, { useCallback, useEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
@@ -13,26 +9,6 @@ import { GenericImportForm } from 'src/features/import/GenericImportForm'
 import { useCompleteOnboardingCallback } from 'src/features/onboarding/hooks'
 import { SafeKeyboardOnboardingScreen } from 'src/features/onboarding/SafeKeyboardOnboardingScreen'
 import { useNavigationHeader } from 'src/utils/useNavigationHeader'
-<<<<<<< HEAD
-import { Button, Flex, Text } from '@l.x/ui/src'
-import { Eye, GraduationCap } from '@l.x/ui/src/components/icons'
-import { useIsSmartContractAddress } from '@l.x/lx/src/features/address/useIsSmartContractAddress'
-import { useEnabledChains } from '@l.x/lx/src/features/chains/hooks/useEnabledChains'
-import { usePortfolioBalances } from '@l.x/lx/src/features/dataApi/balances/balances'
-import { ENS_SUFFIX } from '@l.x/lx/src/features/ens/constants'
-import { useENS } from '@l.x/lx/src/features/ens/useENS'
-import { Platform } from '@l.x/lx/src/features/platforms/types/Platform'
-import { ElementName } from '@l.x/lx/src/features/telemetry/constants'
-import { sendAnalyticsEvent } from '@l.x/lx/src/features/telemetry/send'
-import { TestID } from '@l.x/lx/src/test/fixtures/testIDs'
-import { OnboardingScreens } from '@l.x/lx/src/types/screens/mobile'
-import { areAddressesEqual, getValidAddress } from '@l.x/lx/src/utils/addresses'
-import { dismissNativeKeyboard } from '@l.x/utils/src/device/keyboard/dismissNativeKeyboard'
-import { normalizeTextInput } from '@l.x/utils/src/primitives/string'
-import { createViewOnlyAccount } from '@luxfi/wallet/src/features/onboarding/createViewOnlyAccount'
-import { createAccountsActions } from '@luxfi/wallet/src/features/wallet/create/createAccountsSaga'
-import { useAccounts } from '@luxfi/wallet/src/features/wallet/hooks'
-=======
 import { Button, Flex, Text } from 'ui/src'
 import { Eye, GraduationCap } from 'ui/src/components/icons'
 import { useIsSmartContractAddress } from 'uniswap/src/features/address/useIsSmartContractAddress'
@@ -51,7 +27,6 @@ import { normalizeTextInput } from 'utilities/src/primitives/string'
 import { createViewOnlyAccount } from 'wallet/src/features/onboarding/createViewOnlyAccount'
 import { createAccountsActions } from 'wallet/src/features/wallet/create/createAccountsSaga'
 import { useAccounts } from 'wallet/src/features/wallet/hooks'
->>>>>>> upstream/main
 
 type Props = NativeStackScreenProps<OnboardingStackParamList, OnboardingScreens.WatchWallet>
 
@@ -188,11 +163,7 @@ export function WatchWalletScreen({ navigation, route: { params } }: Props): JSX
     setValue(text?.trim())
   }
 
-<<<<<<< HEAD
-  // biome-ignore lint/correctness/useExhaustiveDependencies: Only want to reset timer on value change
-=======
   // oxlint-disable-next-line react/exhaustive-deps -- Only want to reset timer on value change
->>>>>>> upstream/main
   useEffect(() => {
     const delayFn = setTimeout(() => {
       setShowLiveCheck(true)

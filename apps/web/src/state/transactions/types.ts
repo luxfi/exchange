@@ -1,21 +1,12 @@
 import type { TransactionResponse } from '@ethersproject/abstract-provider'
-<<<<<<< HEAD
-import type { TransactionStep, TransactionStepType } from '@l.x/lx/src/features/transactions/steps/types'
-=======
 import type { TransactionStep, TransactionStepType } from 'uniswap/src/features/transactions/steps/types'
->>>>>>> upstream/main
 import type {
   InterfaceTransactionDetails,
   TransactionReceipt,
   TransactionStatus,
   TransactionTypeInfo,
-<<<<<<< HEAD
-} from '@l.x/lx/src/features/transactions/types/transactionDetails'
-import type { ValidatedTransactionRequest } from '@l.x/lx/src/features/transactions/types/transactionRequests'
-=======
 } from 'uniswap/src/features/transactions/types/transactionDetails'
 import type { ValidatedTransactionRequest } from 'uniswap/src/features/transactions/types/transactionRequests'
->>>>>>> upstream/main
 
 /**
  * Re-export for backward compatibility
