@@ -1,10 +1,9 @@
 # @l.x/provider — Regulated Provider SDK
 
 Jurisdiction-neutral client for the `@lux/standard/provider` interface.
-Use in any Lux exchange fork to delegate regulated flow to an external
-compliance provider. The package is safe to import even in pure-DeFi
-forks — every method short-circuits to "not handled / native only" when
-no provider is configured.
+Vite-native: reads `import.meta.env` for configuration. Safe to import
+even in pure-DeFi forks — every method short-circuits to "not handled"
+when no provider is configured.
 
 ## Install
 
@@ -33,21 +32,27 @@ if (await client.handles('IBIT/USDL')) {
 }
 ```
 
-### Config — env-driven, white-label safe
+### Config — Vite env-driven
 
 ```ts
-const cfg = readProviderConfig({
-  LIQUIDITY_PROVIDER_ADAPTER:         process.env.NEXT_PUBLIC_LIQUIDITY_PROVIDER_ADAPTER,
-  LIQUIDITY_PROVIDER_ROUTER:          process.env.NEXT_PUBLIC_LIQUIDITY_PROVIDER_ROUTER,
-  LIQUIDITY_PROVIDER_NAME:            process.env.NEXT_PUBLIC_LIQUIDITY_PROVIDER_NAME,
-  LIQUIDITY_PROVIDER_ONBOARDING_URL:  process.env.NEXT_PUBLIC_LIQUIDITY_PROVIDER_ONBOARDING_URL,
-  LIQUIDITY_PROVIDER_VERIFY_URL:      process.env.NEXT_PUBLIC_LIQUIDITY_PROVIDER_VERIFY_URL,
-})
+// In a Vite app:
+import { readProviderConfig } from '@l.x/provider/config'
+const cfg = readProviderConfig(import.meta.env as any)
 ```
 
-> `LIQUIDITY_PROVIDER_*` follows the generic finance term — a liquidity
-> provider is any market maker or regulated venue that offers quotes.
-> These keys are not tied to any specific brand.
+Env keys:
+
+| Key                              | Meaning                               |
+|----------------------------------|---------------------------------------|
+| `VITE_LIQUIDITY_ADAPTER`         | adapter address (IRegulatedProvider)  |
+| `VITE_LIQUIDITY_ROUTER`          | Lux ProviderRouter address            |
+| `VITE_LIQUIDITY_NAME`            | human-readable provider name          |
+| `VITE_LIQUIDITY_ONBOARDING_URL`  | URL to the provider's KYC flow        |
+| `VITE_LIQUIDITY_VERIFY_URL`      | URL to the provider's verify page     |
+
+> `LIQUIDITY_*` follows the generic finance term — a liquidity provider
+> is any market maker or regulated venue that offers quotes. These keys
+> are not tied to any specific brand.
 
 ### React — drop-in gate
 
@@ -68,14 +73,14 @@ If regulated + not eligible: gate renders a CTA:
 ## White-label forks
 
 ```env
-NEXT_PUBLIC_LIQUIDITY_PROVIDER_ADAPTER=0x…
-NEXT_PUBLIC_LIQUIDITY_PROVIDER_ROUTER=0x…
-NEXT_PUBLIC_LIQUIDITY_PROVIDER_NAME=Your Provider
-NEXT_PUBLIC_LIQUIDITY_PROVIDER_ONBOARDING_URL=https://onboard.provider.tld
+VITE_LIQUIDITY_ADAPTER=0x…
+VITE_LIQUIDITY_ROUTER=0x…
+VITE_LIQUIDITY_NAME=Your Provider
+VITE_LIQUIDITY_ONBOARDING_URL=https://onboard.provider.tld
 ```
 
-If the env vars are unset, `client.enabled()` returns `false` and every
-gate is a transparent pass-through. Pure DeFi mode, zero code changes.
+If the env vars are unset, `client.enabled() === false` and every gate
+is a transparent pass-through. Pure DeFi mode, zero code changes.
 
 ## Flow
 
