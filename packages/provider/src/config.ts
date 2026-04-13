@@ -4,18 +4,15 @@ import type { Address } from 'viem'
  * Provider configuration.
  *
  * `adapter` and `router` are read by the contract client.
- * `name` / `onboardingUrl` / `verifyUrl` are read by the UI to render
- * branded onboarding and verification flows.
- *
- * Any field may be null/undefined. A null `adapter` runs in pure-DeFi
- * mode; the UI hides regulated-asset controls entirely in that case.
+ * `name` / `onboardingUrl` are read by the UI to render the "get verified"
+ * CTA. A null `adapter` runs in pure-DeFi mode — the UI hides regulated-
+ * asset controls entirely.
  */
 export interface ProviderConfig {
   adapter: Address | null
   router: Address | null
   name: string | null
   onboardingUrl: string | null
-  verifyUrl: string | null
 }
 
 export const NULL_PROVIDER: ProviderConfig = {
@@ -23,7 +20,6 @@ export const NULL_PROVIDER: ProviderConfig = {
   router: null,
   name: null,
   onboardingUrl: null,
-  verifyUrl: null,
 }
 
 /**
@@ -34,10 +30,8 @@ export const NULL_PROVIDER: ProviderConfig = {
  *   VITE_LIQUIDITY_ROUTER          Lux ProviderRouter address
  *   VITE_LIQUIDITY_NAME            human-readable provider name
  *   VITE_LIQUIDITY_ONBOARDING_URL  URL to the provider's KYC flow
- *   VITE_LIQUIDITY_VERIFY_URL      URL to the provider's verification page
  *
- * Pass `import.meta.env` from a Vite app. Any missing key → that field
- * is null; the `RegulatedSwapGate` falls back to pass-through.
+ * Pass `import.meta.env`. Missing keys → null fields → pass-through gate.
  */
 export function readProviderConfig(env: Record<string, string | undefined>): ProviderConfig {
   const adapter = (env.VITE_LIQUIDITY_ADAPTER || '') as Address
@@ -45,9 +39,8 @@ export function readProviderConfig(env: Record<string, string | undefined>): Pro
   return {
     adapter: adapter.length ? adapter : null,
     router:  router.length  ? router  : null,
-    name:           env.VITE_LIQUIDITY_NAME           ?? null,
-    onboardingUrl:  env.VITE_LIQUIDITY_ONBOARDING_URL ?? null,
-    verifyUrl:      env.VITE_LIQUIDITY_VERIFY_URL     ?? null,
+    name:          env.VITE_LIQUIDITY_NAME          ?? null,
+    onboardingUrl: env.VITE_LIQUIDITY_ONBOARDING_URL ?? null,
   }
 }
 

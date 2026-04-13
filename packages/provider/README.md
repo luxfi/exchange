@@ -48,7 +48,6 @@ Env keys:
 | `VITE_LIQUIDITY_ROUTER`          | Lux ProviderRouter address            |
 | `VITE_LIQUIDITY_NAME`            | human-readable provider name          |
 | `VITE_LIQUIDITY_ONBOARDING_URL`  | URL to the provider's KYC flow        |
-| `VITE_LIQUIDITY_VERIFY_URL`      | URL to the provider's verify page     |
 
 > `LIQUIDITY_*` follows the generic finance term — a liquidity provider
 > is any market maker or regulated venue that offers quotes. These keys
