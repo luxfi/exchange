@@ -336,9 +336,14 @@ export default defineConfig(({ mode }) => {
     },
   ]
 
-  // Create process.env definitions for ALL environment variables
+  // Create process.env definitions for ALL environment variables.
+  // Filter out empty keys (can happen if .env file has a stray delimiter
+  // or blank line parsed as an empty key), which rolldown rejects as
+  // "invalid identifier" in the define block.
   const envDefines = Object.fromEntries(
-    Object.entries(env).map(([key, value]) => [`process.env.${key}`, JSON.stringify(value)]),
+    Object.entries(env)
+      .filter(([key]) => key && /^[A-Za-z_][A-Za-z0-9_]*$/.test(key))
+      .map(([key, value]) => [`process.env.${key}`, JSON.stringify(value)]),
   )
 
   const defines = {
