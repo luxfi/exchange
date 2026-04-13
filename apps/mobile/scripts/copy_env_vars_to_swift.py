@@ -3,11 +3,7 @@ import os
 ENV_DEFAULTS_FILE = '../../.env.defaults'
 ENV_DEFAULTS_LOCAL_FILE = '../../.env.defaults.local'
 SWIFT_FILE_PATHS = ['ios/WidgetsCore/Env.swift', 'ios/OneSignalNotificationServiceExtension/Env.swift']
-<<<<<<< HEAD
 SWIFT_ENV_VARIABLES = ['LUX_API_KEY', 'STATSIG_API_KEY']
-=======
-SWIFT_ENV_VARIABLES = ['UNISWAP_API_KEY', 'STATSIG_API_KEY']
->>>>>>> upstream/main
 
 def to_swift_constant_line(key, value):
   return f'  static let {key.upper()} = "{value}"'

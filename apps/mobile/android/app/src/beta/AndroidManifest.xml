@@ -18,17 +18,10 @@
         <category android:name="android.intent.category.BROWSABLE" />
 
         <data android:scheme="https" />
-<<<<<<< HEAD
         <data android:host="lux.exchange" />
         <data android:host="app.lux.exchange" />
         <data android:host="lux.com" />
         <data android:host="app.lux.com" />
-=======
-        <data android:host="uniswap.org" />
-        <data android:host="app.uniswap.org" />
-        <data android:host="uniswap.com" />
-        <data android:host="app.uniswap.com" />
->>>>>>> upstream/main
       </intent-filter>
     </activity>
 

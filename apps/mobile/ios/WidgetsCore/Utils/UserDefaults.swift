@@ -9,11 +9,7 @@ import Foundation
 import OSLog
 import WidgetKit
 
-<<<<<<< HEAD
 let APP_GROUP = "group.com.lux.widgets"
-=======
-let APP_GROUP = "group.com.uniswap.widgets"
->>>>>>> upstream/main
 
 public struct WidgetDataFavorites: Decodable {
   
@@ -95,11 +91,7 @@ public enum Change: String, Codable {
   case removed = "removed"
 }
 
-<<<<<<< HEAD
 public struct LuxUserDefaults {
-=======
-public struct UniswapUserDefaults {
->>>>>>> upstream/main
   private static var buildString = getBuildVariantString(bundleId: Bundle.main.bundleIdentifier!)
   
   static let keyEvents = buildString + ".widgets.configuration.events"

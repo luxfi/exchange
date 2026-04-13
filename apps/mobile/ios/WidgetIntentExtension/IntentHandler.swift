@@ -46,13 +46,8 @@ class IntentHandler: INExtension, TokenPriceConfigurationIntentHandling {
   }
 
   func provideSelectedTokenOptionsCollection(for intent: TokenPriceConfigurationIntent) async throws -> INObjectCollection<IntentToken> {
-<<<<<<< HEAD
     let favorites = LuxUserDefaults.readFavorites()
     let addresses = LuxUserDefaults.readAccounts().accounts.filter{$0.isSigner}.map{$0.address}
-=======
-    let favorites = UniswapUserDefaults.readFavorites()
-    let addresses = UniswapUserDefaults.readAccounts().accounts.filter{$0.isSigner}.map{$0.address}
->>>>>>> upstream/main
     // [WAll-4969] In the future should read chains from app state
     let chains = ["ETHEREUM", "POLYGON", "ARBITRUM", "OPTIMISM", "BASE", "BNB", "BLAST", "ZORA", "CELO", "AVALANCHE", "ZKSYNC", "WORLDCHAIN"]
 

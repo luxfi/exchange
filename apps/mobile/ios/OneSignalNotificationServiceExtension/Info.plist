@@ -10,11 +10,7 @@
 		<string>$(PRODUCT_MODULE_NAME).NotificationService</string>
 	</dict>
 	<key>OneSignal_app_groups_key</key>
-<<<<<<< HEAD
 	<string>group.com.lux.mobile.onesignal</string>
-=======
-	<string>group.com.uniswap.mobile.onesignal</string>
->>>>>>> upstream/main
 	<key>BUNDLE_ID_SUFFIX</key>
 	<string>$(BUNDLE_ID_SUFFIX)</string>
 </dict>

@@ -11,20 +11,11 @@ test-results/
 
 # utility script output
 scripts/dist
-<<<<<<< HEAD
 tools/lux-nx/dist
 
 # next.js
 .next/
 out/
-=======
-tools/uniswap-nx/dist
-
-# build output
-.next/
-out/
-bin/
->>>>>>> upstream/main
 build
 
 # React Router
@@ -44,14 +35,11 @@ yarn-error.log*
 .env
 .env.local
 .env.defaults.local
-<<<<<<< HEAD
 .env.production
 apps/web/.env
 
 # built extension artifacts
 apps/extension/dist-firefox/
-=======
->>>>>>> upstream/main
 
 # turbo
 .turbo
@@ -69,11 +57,7 @@ dist/out-tsc/*
 tsconfig.tsbuildinfo
 
 # Locale backup/generated files
-<<<<<<< HEAD
 packages/lux/src/i18n/locales/source/*_old.json
-=======
-packages/uniswap/src/i18n/locales/source/*_old.json
->>>>>>> upstream/main
 
 # ci
 .ci-cache/
@@ -110,10 +94,6 @@ CLAUDE.local.md
 # cursor
 .cursor/mcp.json
 .cursor/rules/local-workflow.mdc
-<<<<<<< HEAD
-=======
-.cursor/*.log
->>>>>>> upstream/main
 
 # lefthook
 .lefthook/
@@ -128,7 +108,6 @@ CLAUDE.local.md
 
 # temporary files
 /tmp/
-<<<<<<< HEAD
 packages/lx/CLAUDE.md
 .nx/
 CLAUDE.md
@@ -163,6 +142,3 @@ investigate-*.js
 MEMORY.md
 cache/
 *.png
-=======
-.env*.local
->>>>>>> upstream/main

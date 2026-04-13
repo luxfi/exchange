@@ -51,7 +51,6 @@ public struct Metrics {
     WidgetCenter.shared.getCurrentConfigurations { result in
       if case .success(let config) = result {
         let currConfig = WidgetDataConfiguration(config)
-<<<<<<< HEAD
         let cachedConfig = LuxUserDefaults.readConfiguration()
         let diff = findMultiDifferenceFromCache(current: currConfig.configuration, fromCached: cachedConfig.configuration)
         
@@ -61,17 +60,6 @@ public struct Metrics {
         widgetEvents.events.append(contentsOf: newEvents)
         LuxUserDefaults.writeEventsChanges(data: widgetEvents)
         LuxUserDefaults.writeConfiguration(data: currConfig)
-=======
-        let cachedConfig = UniswapUserDefaults.readConfiguration()
-        let diff = findMultiDifferenceFromCache(current: currConfig.configuration, fromCached: cachedConfig.configuration)
-        
-        var widgetEvents = UniswapUserDefaults.readEventChanges()
-        var newEvents = diff.added.map {WidgetEvent(family: $0.family, kind: $0.kind, change: .added)}
-        newEvents.append(contentsOf: diff.removed.map {WidgetEvent(family: $0.family, kind: $0.kind, change: .removed)})
-        widgetEvents.events.append(contentsOf: newEvents)
-        UniswapUserDefaults.writeEventsChanges(data: widgetEvents)
-        UniswapUserDefaults.writeConfiguration(data: currConfig)
->>>>>>> upstream/main
       }
     }
   }

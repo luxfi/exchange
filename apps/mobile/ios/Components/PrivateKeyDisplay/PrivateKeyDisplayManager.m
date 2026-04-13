@@ -1,10 +1,6 @@
 //
 //  PrivateKeyDisplayManager.m
-<<<<<<< HEAD
 //  Lux
-=======
-//  Uniswap
->>>>>>> upstream/main
 //
 //  Created by Chris Lee on 5/9/2025.
 //

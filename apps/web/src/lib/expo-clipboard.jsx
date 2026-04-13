@@ -39,10 +39,6 @@ const Clipboard = {
 }
 
 // Non-JSX implementation of ClipboardPasteButton
-<<<<<<< HEAD
-=======
-// oxlint-disable-next-line no-unused-vars -- biome-parity: oxlint is stricter here
->>>>>>> upstream/main
 const createPasteButton = (options = {}) => {
   console.warn('ClipboardPasteButton is mocked and will not render a real button')
 

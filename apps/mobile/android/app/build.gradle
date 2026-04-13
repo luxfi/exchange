@@ -67,28 +67,16 @@ if (isCI && datadogPropertiesAvailable) {
   apply from: "../../../../node_modules/@datadog/mobile-react-native/datadog-sourcemaps.gradle"
 }
 
-<<<<<<< HEAD
 def devVersionName = "1.69"
 def betaVersionName = "1.69"
 def prodVersionName = "1.69"
-=======
-def devVersionName = "1.70"
-def betaVersionName = "1.70"
-def prodVersionName = "1.70"
->>>>>>> upstream/main
 
 android {
     ndkVersion rootProject.ext.ndkVersion
 
-<<<<<<< HEAD
     namespace "com.lux.exchange"
     defaultConfig {
         applicationId "com.lux.exchange.mobile"
-=======
-    namespace "com.uniswap"
-    defaultConfig {
-        applicationId "com.uniswap.mobile"
->>>>>>> upstream/main
         compileSdk rootProject.ext.compileSdkVersion
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
@@ -134,20 +122,12 @@ android {
     productFlavors {
       dev {
         isDefault(true)
-<<<<<<< HEAD
         applicationId "com.lux.exchange.mobile.dev"
-=======
-        applicationId "com.uniswap.mobile.dev"
->>>>>>> upstream/main
         versionName devVersionName
         dimension "variant"
       }
       beta {
-<<<<<<< HEAD
         applicationId "com.lux.exchange.mobile.beta"
-=======
-        applicationId "com.uniswap.mobile.beta"
->>>>>>> upstream/main
         versionName betaVersionName
         dimension "variant"
       }
@@ -222,11 +202,7 @@ android {
     sourceSets {
         main {
           jniLibs {
-<<<<<<< HEAD
             srcDir '../../../../node_modules/@luxamm/ethers-rs-mobile/android/jniLibs'
-=======
-            srcDir '../../../../node_modules/@uniswap/ethers-rs-mobile/android/jniLibs'
->>>>>>> upstream/main
           }
         }
     }

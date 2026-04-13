@@ -16,18 +16,7 @@ setup_permissions([
 $RNFirebaseAsStaticFramework = true
 $RNFirebaseAnalyticsWithoutAdIdSupport=true
 
-<<<<<<< HEAD
 target 'Lux' do
-=======
-project 'Uniswap',
-  'Debug' => :debug,
-  'DebugOptimized' => :debug,
-  'Release' => :release,
-  'Dev' => :release,
-  'Beta' => :release
-
-target 'Uniswap' do
->>>>>>> upstream/main
   use_frameworks! :linkage => :static
   use_expo_modules!
   post_integrate do |installer|
@@ -62,26 +51,17 @@ target 'Uniswap' do
     :hermes_enabled => true
   )
 
-<<<<<<< HEAD
   target 'LuxTests' do
-=======
-  target 'UniswapTests' do
->>>>>>> upstream/main
     inherit! :complete
     # Pods for testing
   end
 
-<<<<<<< HEAD
   pod 'EthersRS', :path =>  '../../../node_modules/@l.x/ethers-rs-mobile'
-=======
-  pod 'EthersRS', :path =>  '../../../node_modules/@uniswap/ethers-rs-mobile'
->>>>>>> upstream/main
   pod 'Argon2Swift', '1.0.3'
 
   post_install do |installer|
     react_native_post_install(installer, "../../../node_modules/react-native")
 
-<<<<<<< HEAD
     # Get absolute paths for Xcode 26 compatibility
     pods_root = installer.sandbox.root.to_s
     project_root = File.expand_path('../../../..', pods_root)
@@ -109,13 +89,10 @@ target 'Uniswap' do
       FileUtils.ln_sf(header, symlink_path) unless File.exist?(symlink_path)
     end
 
-=======
->>>>>>> upstream/main
     installer.pods_project.targets.each do |target|
       target.build_configurations.each do |config|
         config.build_settings['CODE_SIGNING_ALLOWED'] = 'NO'
         config.build_settings['APPLICATION_EXTENSION_API_ONLY'] = 'No'
-<<<<<<< HEAD
       end
 
       # Fix Argon2Swift module for Xcode 26 - add to Argon2Swift pod target
@@ -142,29 +119,13 @@ target 'Uniswap' do
         target.build_configurations.each do |config|
           # Disable Clang modules to avoid "must be imported from module" errors
           config.build_settings['CLANG_ENABLE_MODULES'] = 'NO'
-=======
-
-        # Optimize native code in DebugOptimized for faster Simulator runtime.
-        # Hermes ships pre-compiled and is unaffected. Source-compiled pods
-        # (Yoga, React-Core, RNScreens, RNReanimated, RNGestureHandler, etc.)
-        # run dramatically faster with optimization enabled.
-        # RN dev tools (Metro, React DevTools) work over the network and are unaffected.
-        if config.name == 'DebugOptimized'
-          config.build_settings['GCC_OPTIMIZATION_LEVEL'] = 's'
-          config.build_settings['SWIFT_OPTIMIZATION_LEVEL'] = '-O'
-          config.build_settings['MTL_ENABLE_DEBUG_INFO'] = 'NO'
->>>>>>> upstream/main
         end
       end
     end
 
     # Xcode 26+ has a stricter module verifier that requires the consuming target
     # to resolve transitive C module dependencies. Argon2Swift depends on an internal
-<<<<<<< HEAD
     # 'argon2' C module — add its modulemap path so the Lux target (the only
-=======
-    # 'argon2' C module — add its modulemap path so the Uniswap target (the only
->>>>>>> upstream/main
     # target declaring Argon2Swift) can find it.
     argon2_srcroot = installer.sandbox.pod_dir('Argon2Swift')
     argon2_module_paths = [
@@ -172,7 +133,6 @@ target 'Uniswap' do
       "#{argon2_srcroot}/Sources/Argon2",
       "#{argon2_srcroot}/Sources/Argon2/include",
     ]
-<<<<<<< HEAD
     lux_aggregate = installer.aggregate_targets.find { |t| t.label == 'Pods-Lux' }
     if lux_aggregate
       lux_aggregate.xcconfigs.each do |config_name, xcconfig|
@@ -180,15 +140,6 @@ target 'Uniswap' do
         new_paths = argon2_module_paths.map { |p| "\"#{p}\"" }.join(' ')
         xcconfig.attributes['SWIFT_INCLUDE_PATHS'] = "$(inherited) #{new_paths} #{existing}".strip
         xcconfig_path = lux_aggregate.xcconfig_path(config_name)
-=======
-    uniswap_aggregate = installer.aggregate_targets.find { |t| t.label == 'Pods-Uniswap' }
-    if uniswap_aggregate
-      uniswap_aggregate.xcconfigs.each do |config_name, xcconfig|
-        existing = xcconfig.attributes['SWIFT_INCLUDE_PATHS'] || ''
-        new_paths = argon2_module_paths.map { |p| "\"#{p}\"" }.join(' ')
-        xcconfig.attributes['SWIFT_INCLUDE_PATHS'] = "$(inherited) #{new_paths} #{existing}".strip
-        xcconfig_path = uniswap_aggregate.xcconfig_path(config_name)
->>>>>>> upstream/main
         xcconfig.save_as(xcconfig_path)
       end
     end

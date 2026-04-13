@@ -1,10 +1,6 @@
 //
 //  Chart.swift
-<<<<<<< HEAD
 //  LuxWidgetsCore
-=======
-//  UniswapWidgetsCore
->>>>>>> upstream/main
 //
 //  Created by Eric Huang on 7/21/23.
 //
