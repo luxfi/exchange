@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 /* eslint-disable max-lines */
 import { cloudflare } from '@cloudflare/vite-plugin'
 import { guiPlugin } from '@hanzogui/vite-plugin'
@@ -10,34 +9,15 @@ import path from 'path'
 import { createHash } from 'node:crypto'
 import process from 'process'
 import { fileURLToPath } from 'url'
-=======
-import { execSync } from 'child_process'
-import fs from 'fs'
-import { createHash } from 'node:crypto'
-import path from 'path'
-import process from 'process'
-import { fileURLToPath } from 'url'
-/* eslint-disable max-lines */
-import { cloudflare } from '@cloudflare/vite-plugin'
-import { tamaguiPlugin } from '@tamagui/vite-plugin'
-import react from '@vitejs/plugin-react'
-import { config as dotenvConfig } from 'dotenv'
->>>>>>> upstream/main
 import { defineConfig, loadEnv, type ViteDevServer } from 'vite'
 import bundlesize from 'vite-plugin-bundlesize'
 import commonjs from 'vite-plugin-commonjs'
 import { nodePolyfills } from 'vite-plugin-node-polyfills'
 import svgr from 'vite-plugin-svgr'
 import tsconfigPaths from 'vite-tsconfig-paths'
-<<<<<<< HEAD
 import { generateAssetsIgnorePlugin } from './vite/generateAssetsIgnorePlugin.js'
 import { cspMetaTagPlugin } from './vite/vite.plugins.js'
 import {createEntryGatewayProxy} from './vite/entry-gateway-proxy'
-=======
-import { createEntryGatewayProxy } from './vite/entry-gateway-proxy'
-import { generateAssetsIgnorePlugin } from './vite/generateAssetsIgnorePlugin.js'
-import { cspMetaTagPlugin } from './vite/vite.plugins.js'
->>>>>>> upstream/main
 
 // Get current file directory (ESM equivalent of __dirname)
 const __filename = fileURLToPath(import.meta.url)
@@ -46,25 +26,15 @@ const __dirname = path.dirname(__filename)
 // When the private embedded wallet package is not installed,
 // externalize it so Rollup doesn't fail to resolve dynamic imports at build time.
 // At runtime, the dynamic import will fail and the try/catch in loadPrivyPbModule() provides
-<<<<<<< HEAD
 // a clear error message: "Embedded Wallet requires @luxamm/client-privy-embedded-wallet".
 const privyPackageInstalled = fs.existsSync(
   path.resolve(__dirname, '../../node_modules/@luxamm/client-privy-embedded-wallet')
-=======
-// a clear error message: "Embedded Wallet requires @uniswap/client-privy-embedded-wallet".
-const privyPackageInstalled = fs.existsSync(
-  path.resolve(__dirname, '../../node_modules/@uniswap/client-privy-embedded-wallet'),
->>>>>>> upstream/main
 )
 const ENABLE_REACT_COMPILER = process.env.ENABLE_REACT_COMPILER === 'true'
 const ReactCompilerConfig = {
   target: '18', // '17' | '18' | '19'
 }
-<<<<<<< HEAD
 const DEPLOY_TARGET = process.env.DEPLOY_TARGET || (process.env.DOCKER_BUILD ? 'static' : 'cloudflare')
-=======
-const DEPLOY_TARGET = process.env.DEPLOY_TARGET || 'cloudflare'
->>>>>>> upstream/main
 const VITE_DISABLE_SOURCEMAP = process.env.VITE_DISABLE_SOURCEMAP === 'true'
 const DEBUG_PROXY = process.env.VITE_DEBUG_PROXY === 'true'
 const ENABLE_PROXY = process.env.VITE_ENABLE_ENTRY_GATEWAY_PROXY === 'true'
@@ -153,14 +123,9 @@ const portWarningPlugin = (isProduction: boolean) =>
         },
       }
 
-<<<<<<< HEAD
 // Get git commit hash (may fail in Docker where .git is excluded)
 let commitHash = 'unknown'
 try { commitHash = execSync('git rev-parse HEAD').toString().trim() } catch {}
-=======
-// Get git commit hash
-const commitHash = execSync('git rev-parse HEAD').toString().trim()
->>>>>>> upstream/main
 
 // Compute next dev version from latest non-RC web/* git tag
 function getNextDevVersion(): string {
@@ -199,14 +164,7 @@ export default defineConfig(({ mode }) => {
         }
       }
     } catch (error) {
-<<<<<<< HEAD
       console.warn(`Warning: Failed to read ${rootEnvDefaultsLocalPath}:`, error instanceof Error ? error.message : String(error))
-=======
-      console.warn(
-        `Warning: Failed to read ${rootEnvDefaultsLocalPath}:`,
-        error instanceof Error ? error.message : String(error),
-      )
->>>>>>> upstream/main
     }
   }
 
@@ -229,11 +187,7 @@ export default defineConfig(({ mode }) => {
 
   // Env vars that should be overridable from Vercel/CI (process.env takes precedence over .env files)
   const VERCEL_OVERRIDABLE_ENV_VARS = [
-<<<<<<< HEAD
     'LUX_GATEWAY_DNS',
-=======
-    'UNISWAP_GATEWAY_DNS',
->>>>>>> upstream/main
     'API_BASE_URL_V2_OVERRIDE',
     'ENTRY_GATEWAY_API_URL_OVERRIDE',
   ]
@@ -255,7 +209,6 @@ export default defineConfig(({ mode }) => {
   const overrides = {
     // External package aliases
     'react-native': 'react-native-web',
-<<<<<<< HEAD
     'expo-blur': path.resolve(__dirname, 'src/lib/expo-blur-mock.jsx'),
     '@web3-react/core': path.resolve(__dirname, 'src/connection/web3reactShim.ts'),
     'lx/src': path.resolve(__dirname, '../../pkgs/lx/src'),
@@ -367,23 +320,12 @@ export default defineConfig(({ mode }) => {
     '@lingui/macro': path.resolve(__dirname, 'src/lib/lingui-stub.tsx'),
     // React Compiler injects this import into transformed files across all packages
     'react-compiler-runtime': path.resolve(__dirname, '../../node_modules/react-compiler-runtime'),
-=======
-    'expo-blur': path.resolve(__dirname, './.storybook/__mocks__/expo-blur.jsx'),
-    '@web3-react/core': path.resolve(__dirname, 'src/connection/web3reactShim.ts'),
-    'uniswap/src': path.resolve(__dirname, '../../packages/uniswap/src'),
-    'utilities/src': path.resolve(__dirname, '../../packages/utilities/src'),
-    'ui/src': path.resolve(__dirname, '../../packages/ui/src'),
-    'expo-clipboard': path.resolve(__dirname, 'src/lib/expo-clipboard.jsx'),
-    // Force JSBI to use ESM build so transform plugin can add __esModule marker
-    jsbi: path.resolve(__dirname, '../../node_modules/jsbi/dist/jsbi.mjs'),
->>>>>>> upstream/main
   }
 
   // Aliases that need exact matching (using resolve.alias array format)
   const exactAliases = [
     // Use web app-specific i18n entry that doesn't import wallet's i18n-setup (exact match only)
     {
-<<<<<<< HEAD
       find: /^lx\/src\/i18n$/,
       replacement: path.resolve(__dirname, '../../pkgs/lx/src/i18n/index.web-app.ts'),
     },
@@ -391,10 +333,6 @@ export default defineConfig(({ mode }) => {
     {
       find: /^~\//,
       replacement: path.resolve(__dirname, 'src') + '/',
-=======
-      find: /^uniswap\/src\/i18n$/,
-      replacement: path.resolve(__dirname, '../../packages/uniswap/src/i18n/index.web-app.ts'),
->>>>>>> upstream/main
     },
   ]
 
@@ -410,23 +348,16 @@ export default defineConfig(({ mode }) => {
     'process.env.REACT_APP_GIT_COMMIT_HASH': JSON.stringify(commitHash),
     'process.env.REACT_APP_STAGING': JSON.stringify(mode === 'staging'),
     'process.env.REACT_APP_WEB_BUILD_TYPE': JSON.stringify('vite'),
-<<<<<<< HEAD
     'process.env.IS_WEB': JSON.stringify('true'),
-=======
->>>>>>> upstream/main
     // Enable Tamagui's global z-index stacking to fix modal stacking issues
     'process.env.TAMAGUI_STACK_Z_INDEX_GLOBAL': JSON.stringify('true'),
     // So getConfig().isVercelEnvironment is true in the client on Vercel; enables direct staging WS URL to match EGW
     ...(isVercelDeploy ? { 'process.env.VERCEL': JSON.stringify(process.env.VERCEL ?? '0') } : {}),
     ...envDefines,
     // Fallback: compute next version from git tags when not set by CI
-<<<<<<< HEAD
     ...(!env.REACT_APP_VERSION_TAG
       ? { 'process.env.REACT_APP_VERSION_TAG': JSON.stringify(getNextDevVersion()) }
       : {}),
-=======
-    ...(!env.REACT_APP_VERSION_TAG ? { 'process.env.REACT_APP_VERSION_TAG': JSON.stringify(getNextDevVersion()) } : {}),
->>>>>>> upstream/main
   }
 
   const cacheDir = path.resolve(__dirname, 'node_modules/.vite')
@@ -439,7 +370,6 @@ export default defineConfig(({ mode }) => {
 
     resolve: {
       // .web-app file extensions take priority over .web for web app-specific overrides
-<<<<<<< HEAD
       extensions: ['.web-app.tsx', '.web-app.ts', '.web-app.js', '.web.tsx', '.web.ts', '.web.js', '.tsx', '.ts', '.js'],
       modules: [path.resolve(root, 'node_modules')],
       dedupe: [
@@ -476,36 +406,6 @@ export default defineConfig(({ mode }) => {
         ...exactAliases,
         ...Object.entries(overrides).map(([find, replacement]) => ({ find, replacement })),
       ],
-=======
-      extensions: [
-        '.web-app.tsx',
-        '.web-app.ts',
-        '.web-app.js',
-        '.web.tsx',
-        '.web.ts',
-        '.web.js',
-        '.tsx',
-        '.ts',
-        '.js',
-      ],
-      modules: [path.resolve(root, 'node_modules')],
-      dedupe: [
-        '@uniswap/sdk-core',
-        '@uniswap/v2-sdk',
-        '@uniswap/v3-sdk',
-        '@uniswap/v4-sdk',
-        '@uniswap/router-sdk',
-        '@uniswap/universal-router-sdk',
-        '@uniswap/uniswapx-sdk',
-        '@uniswap/permit2-sdk',
-        '@visx/responsive',
-        'jsbi',
-        'ethers',
-        'react',
-        'react-dom',
-      ],
-      alias: [...exactAliases, ...Object.entries(overrides).map(([find, replacement]) => ({ find, replacement }))],
->>>>>>> upstream/main
     },
 
     plugins: [
@@ -539,13 +439,8 @@ export default defineConfig(({ mode }) => {
           // Transform JSX in react-native libraries that ship JSX in .js files
           const needsJsxTransform = [
             'node_modules/react-native-reanimated',
-<<<<<<< HEAD
             'node_modules/expo-blur'  // In case it's not fully mocked
           ].some(path => id.includes(path))
-=======
-            'node_modules/expo-blur', // In case it's not fully mocked
-          ].some((path) => id.includes(path))
->>>>>>> upstream/main
 
           if (!needsJsxTransform || !id.endsWith('.js')) {
             return null
@@ -563,17 +458,10 @@ export default defineConfig(({ mode }) => {
       },
       portWarningPlugin(isProduction),
       reactPlugin(),
-<<<<<<< HEAD
       (isProduction || isStaging) && process.env.DISABLE_EXTRACTION !== '1'
         ? guiPlugin({
             config: '../../pkgs/ui/src/tamagui.config.ts',
             components: ['ui', 'lx', 'utilities'],
-=======
-      isProduction || isStaging
-        ? tamaguiPlugin({
-            config: '../../packages/ui/src/tamagui.config.ts',
-            components: ['ui', 'uniswap', 'utilities'],
->>>>>>> upstream/main
             optimize: true,
             importsWhitelist: ['constants.js'],
           })
@@ -706,45 +594,20 @@ export default defineConfig(({ mode }) => {
         'ui',
         '@uniswap/sdk-core',
         '@uniswap/v2-sdk',
-<<<<<<< HEAD
         '@uniswap/router-sdk',
         '@luxamm/v3-sdk',
         '@luxamm/v4-sdk',
         '@luxamm/universal-router-sdk',
         '@luxamm/sdk',
         '@luxamm/permit2-sdk',
-=======
-        '@uniswap/v3-sdk',
-        '@uniswap/v4-sdk',
-        '@uniswap/router-sdk',
-        '@uniswap/universal-router-sdk',
-        '@uniswap/uniswapx-sdk',
-        '@uniswap/permit2-sdk',
->>>>>>> upstream/main
         'jsbi',
         'ethers',
         '@visx/responsive',
       ],
       // Libraries that shouldn't be pre-bundled
-<<<<<<< HEAD
       exclude: ['expo-clipboard', '@connectrpc/connect', '@luxamm/client-liquidity'],
       esbuildOptions: {
         resolveExtensions: ['.web-app.js', '.web-app.ts', '.web-app.tsx', '.web.js', '.web.ts', '.web.tsx', '.js', '.ts', '.tsx'],
-=======
-      exclude: ['expo-clipboard', '@connectrpc/connect', '@uniswap/client-liquidity'],
-      esbuildOptions: {
-        resolveExtensions: [
-          '.web-app.js',
-          '.web-app.ts',
-          '.web-app.tsx',
-          '.web.js',
-          '.web.ts',
-          '.web.tsx',
-          '.js',
-          '.ts',
-          '.tsx',
-        ],
->>>>>>> upstream/main
         loader: {
           '.js': 'jsx',
           '.ts': 'ts',
@@ -757,17 +620,10 @@ export default defineConfig(({ mode }) => {
       port: DEFAULT_PORT,
       proxy: {
         '/config': {
-<<<<<<< HEAD
           target: 'https://gw.lux.exchange',
           changeOrigin: true,
           secure: true,
           rewrite: (path) => path.replace(/^\/config/, '/gateway/v1/statsig-proxy'),
-=======
-          target: 'https://gating.interface.gateway.uniswap.org',
-          changeOrigin: true,
-          secure: true,
-          rewrite: (path) => path.replace(/^\/config/, '/v1/statsig-proxy'),
->>>>>>> upstream/main
         },
         ...(ENABLE_PROXY ? { '/entry-gateway': createEntryGatewayProxy({ getLogger }) } : {}),
       },
@@ -775,7 +631,6 @@ export default defineConfig(({ mode }) => {
 
     build: {
       outDir: 'build',
-<<<<<<< HEAD
       sourcemap: VITE_DISABLE_SOURCEMAP || process.env.DOCKER_BUILD ? false : (isProduction && !isVercelDeploy ? 'hidden' : true),
       minify: isProduction && !isVercelDeploy ? 'esbuild' : undefined,
       rollupOptions: {
@@ -791,25 +646,12 @@ export default defineConfig(({ mode }) => {
           // Externalize unavailable optional packages
           /^@luxdex\/conedison/,
           /x_verification_connect/,
-=======
-      sourcemap: VITE_DISABLE_SOURCEMAP ? false : isProduction && !isVercelDeploy ? 'hidden' : true,
-      minify: isProduction && !isVercelDeploy ? 'esbuild' : undefined,
-      rollupOptions: {
-        external: [
-          /\.stories\.[tj]sx?$/,
-          /\.mdx$/,
-          /expo-clipboard\/build\/ClipboardPasteButton\.js/,
-          // When the private package is not installed, externalize it so Rollup doesn't error.
-          // Dynamic imports of this module will fail at runtime (caught by loadPrivyPbModule's try/catch).
-          ...(!privyPackageInstalled ? [/^@uniswap\/client-privy-embedded-wallet/] : []),
->>>>>>> upstream/main
         ],
         output: {
           // Ensure consistent file naming for better caching
           entryFileNames: 'assets/[name]-[hash].js',
           chunkFileNames: 'assets/[name]-[hash].js',
           assetFileNames: 'assets/[name]-[hash].[ext]',
-<<<<<<< HEAD
           manualChunks(id: string) {
             // Locale files (lazy-loadable)
             if (id.includes('/i18n/locales/') && !id.includes('en-US')) {
@@ -837,8 +679,6 @@ export default defineConfig(({ mode }) => {
             // Splitting them causes the CJS interop wrapper to create a broken factory
             // function instead of the real React module, making createContext undefined.
           },
-=======
->>>>>>> upstream/main
         },
       },
       // Increase the warning limit for larger chunks
