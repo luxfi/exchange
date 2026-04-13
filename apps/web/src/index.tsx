@@ -28,7 +28,7 @@ import {
 } from '@l.x/sessions'
 import { NuqsAdapter } from 'nuqs/adapters/react-router/v7'
 import type { PropsWithChildren, ReactNode } from 'react'
-import { StrictMode, useEffect, useMemo } from 'react'
+import { StrictMode, useCallback, useEffect, useMemo } from 'react'
 import { createRoot } from 'react-dom/client'
 import { Helmet, HelmetProvider } from 'react-helmet-async/lib/index'
 import { I18nextProvider } from 'react-i18next'
@@ -201,11 +201,16 @@ function StatsigProvider({ children }: PropsWithChildren) {
     () => ({
       userID: getDeviceId(),
       customIDs: { address: account.address ?? '' },
+    }),
+    [account.address],
+  )
+
+  const onStatsigInit = useCallback(() => {
     // oxlint-disable-next-line typescript/no-unnecessary-condition
     if (!isDevEnv() || localDevDatadogEnabled) {
       initializeDatadog('web').catch(() => undefined)
     }
-  }
+  }, [])
 
   return (
     <StatsigProviderWrapper user={statsigUser} onInit={onStatsigInit}>
