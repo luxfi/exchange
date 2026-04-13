@@ -201,7 +201,7 @@
       "@hanzogui/static": "4.3.1",
       "@hanzogui/animate": "4.3.1",
       "@hanzogui/animate-presence": "4.3.1",
-      "@hanzogui/adapt": "4.3.1",
+      "@hanzogui/adapt": "3.0.2",
       "@hanzogui/dialog": "4.3.1",
       "@hanzogui/alert-dialog": "4.3.1",
       "@hanzogui/dismissable": "4.3.1",

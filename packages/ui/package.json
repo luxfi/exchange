@@ -7,7 +7,7 @@
     "@shopify/flash-list": "1.7.6",
     "@shopify/react-native-skia": "2.2.20",
     "@storybook/react": "8.5.2",
-    "@hanzogui/adapt": "4.3.1",
+    "@hanzogui/adapt": "3.0.2",
     "@hanzogui/animations-css": "4.3.1",
     "@hanzogui/animations-react-native": "4.3.1",
     "@hanzogui/font-inter": "4.3.1",
