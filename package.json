@@ -44,7 +44,7 @@
     "@tailwindcss/postcss": "^4.1.18",
     "tailwindcss": "4.1.18",
     "autoprefixer": "^10.4.23",
-    "@hanzogui/component-helpers": "3.0.2"
+    "@hanzogui/component-helpers": "4.4.0"
   },
   "engines": {
     "node": ">=22",
