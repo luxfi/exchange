@@ -141,12 +141,10 @@ export function TransactionPopupContent({ hash, onClose }: { hash: string; onClo
     }),
   )
 
->>>>>>> upstream/main
   if (!transaction || !activity) {
     return null
   }
 
-<<<<<<< HEAD
   if (
     isFlashblockNotification &&
     !isNonInstantFlashblockTransactionType(transaction) &&
@@ -156,83 +154,3 @@ export function TransactionPopupContent({ hash, onClose }: { hash: string; onClo
   }
 
   const onClick = () => {
-=======
-  const openExplorerLink = () => {
-    if (!activity.hash) {
-      return
-    }
-    window.open(
-      getExplorerLink({ chainId: activity.chainId, data: activity.hash, type: ExplorerDataType.TRANSACTION }),
-      '_blank',
-    )
-  }
-
-  const explorerUrlUnavailable = isPendingTx(transaction) && transaction.batchInfo
-
-  return (
-    <ActivityPopupContent
-      activity={activity}
-      onClick={explorerUrlUnavailable || !activity.hash ? undefined : openExplorerLink}
-      onClose={onClose}
-    />
-  )
-}
-
-export function PlanPopupContent({ planId, onClose }: { planId: string; onClose: () => void }) {
-  const plan = usePlanTransactions([planId]).at(0)
-  const openTransactionDetailsModal = useOpenTransactionDetailsModal()
-  const { formatNumberOrString } = useLocalizationContext()
-  const { data: activity } = useQuery(
-    getTransactionToActivityQueryOptions({ transaction: plan, formatNumber: formatNumberOrString }),
-  )
-
-  if (!activity || !plan) {
-    return null
-  }
-
-  const onClick = () => openTransactionDetailsModal(plan)
-
-  return <ActivityPopupContent activity={activity} onClose={onClose} onClick={onClick} />
-}
-
-export function UniswapXOrderPopupContent({ orderHash, onClose }: { orderHash: string; onClose: () => void }) {
-  const order = useUniswapXOrderByOrderHash(orderHash)
-  const openOffchainActivityModal = useOpenOffchainActivityModal()
-
-  const { formatNumberOrString } = useLocalizationContext()
-
-  const { data: activity } = useQuery(
-    getTransactionToActivityQueryOptions({ transaction: order, formatNumber: formatNumberOrString }),
-  )
-
-  if (!activity || !order) {
-    return null
-  }
-
-  const onClick = () => openOffchainActivityModal(order)
-
-  return <ActivityPopupContent activity={activity} onClose={onClose} onClick={onClick} />
-}
-
-export function FORTransactionPopupContent({
-  transaction,
-  onClose,
-}: {
-  transaction: FORTransaction
-  onClose: () => void
-}) {
-  const { formatNumberOrString, convertFiatAmountFormatted } = useLocalizationContext()
-  const { data: activity } = useQuery(
-    getFORTransactionToActivityQueryOptions({
-      transaction,
-      formatNumber: formatNumberOrString,
-      formatFiatPrice: convertFiatAmountFormatted,
-    }),
-  )
-
-  if (!activity) {
-    return null
-  }
-
-  return <ActivityPopupContent activity={activity} onClose={onClose} onClick={noop} />
-}

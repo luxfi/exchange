@@ -346,7 +346,6 @@ export function CreatePositionTxContextProvider({ children }: PropsWithChildren)
   )
 
   const lastKnownGasFeeRef = useRef<CurrencyAmount<Currency> | undefined>(undefined)
->>>>>>> upstream/main
   const totalGasFee = useMemo(() => {
     const fees = [gasFeeToken0USD, gasFeeToken1USD, increaseGasFeeUsd, gasFeeToken0PermitUSD, gasFeeToken1PermitUSD]
     const currentFee = fees.reduce((total, fee) => {
@@ -443,12 +442,4 @@ export function CreatePositionTxContextProvider({ children }: PropsWithChildren)
 
 export const useCreatePositionTxContext = (): CreatePositionTxContextType => {
   const context = useContext(CreatePositionTxContext)
-<<<<<<< HEAD
 
-=======
-  if (!context) {
-    throw new Error('`useCreatePositionTxContext` must be used inside of `CreatePositionTxContextProvider`')
-  }
-
-  return context
-}

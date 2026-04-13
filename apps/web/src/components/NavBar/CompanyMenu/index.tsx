@@ -40,7 +40,6 @@ export function CompanyMenu() {
     closeMenu()
   }, [location, closeMenu])
 
->>>>>>> upstream/main
   return (
     <Popover ref={popoverRef} placement="bottom" hoverable={!media.xl} stayInFrame allowFlip onOpenChange={setIsOpen}>
       <Popover.Trigger data-testid={TestID.NavCompanyMenu}>
@@ -55,32 +54,8 @@ export function CompanyMenu() {
         >
           <Trace logPress element={ElementName.NavbarCompanyMenuLogo}>
             <Link to="/?intro=true" style={{ textDecoration: 'none' }}>
-<<<<<<< HEAD
               <Flex row alignItems="center" gap="$gap4" data-testid={TestID.NavLuxLogo}>
                 <NavIcon />
                 {isLargeScreen && (
                   <Text variant="subheading1" color="$accent1" userSelect="none">
                     {brand.name.replace(/\s*exchange\s*/i, '')}
-=======
-              <Flex row alignItems="center" gap="$gap4" data-testid={TestID.NavUniswapLogo}>
-                <NavIcon />
-                {isLargeScreen && (
-                  <Text variant="subheading1" color="$accent1" userSelect="none">
-                    Uniswap
-                  </Text>
-                )}
-              </Flex>
-            </Link>
-          </Trace>
-          {media.md && <Hamburger size={22} color="$neutral2" cursor="pointer" ml="16px" />}
-          {!media.md && (
-            <ArrowDownWrapper open={isOpen}>
-              <ArrowChangeDown width="12px" height="12px" />
-            </ArrowDownWrapper>
-          )}
-        </Flex>
-      </Popover.Trigger>
-      {isMobileDrawer ? <MobileMenuDrawer isOpen={isOpen} closeMenu={closeMenu} /> : <MenuDropdown close={closeMenu} />}
-    </Popover>
-  )
-}

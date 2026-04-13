@@ -79,7 +79,6 @@ function convertPortfolioChartDataToPriceChartData(
   })
 }
 
->>>>>>> upstream/main
 interface PortfolioChartProps {
   isPortfolioZero: boolean
   chartData?: GetPortfolioChartResponse
@@ -122,7 +121,6 @@ export function PortfolioChart({
   }, [portfolioChartData?.points])
 
   const periodOptions = useMemo<Array<SegmentedControlOption<string>>>(() => {
-<<<<<<< HEAD
     const options: Array<[ChartPeriod, string]> = [
       [ChartPeriod.HOUR, t('token.priceExplorer.timeRangeLabel.hour')],
       [ChartPeriod.DAY, t('token.priceExplorer.timeRangeLabel.day')],
@@ -138,65 +136,3 @@ export function PortfolioChart({
         <Flex data-testid={`${TestID.PortfolioChartPeriodPrefix}${periodLabelToTestIdSuffix[period]}`}>
           <Text variant="buttonLabel4" color={period === selectedPeriod ? undefined : '$neutral2'}>
             {label}
-=======
-    return CHART_PERIOD_OPTIONS.map((period) => ({
-      value: String(period),
-      wrapper: <Trace key={`${period}-trace`} logPress element={chartPeriodToElementName(period)} />,
-      display: (
-        <Flex data-testid={`${TestID.PortfolioChartPeriodPrefix}${chartPeriodToTestIdSuffix(period)}`}>
-          <Text variant="buttonLabel4" color={period === selectedPeriod ? undefined : '$neutral2'}>
-            {chartPeriodToLabel(t, period)}
-          </Text>
-        </Flex>
-      ),
-    }))
-  }, [selectedPeriod, t])
-
-  const chartData = useMemo(() => {
-    if (!portfolioChartData?.points) {
-      return []
-    }
-    return convertPortfolioChartDataToPriceChartData(portfolioChartData.points)
-  }, [portfolioChartData])
-
-  // Determine color based on portfolio balance change
-  const chartColor = useMemo(() => {
-    if (chartData.length < 2) {
-      return colors.accent1.val
-    }
-    const firstValue = chartData[0].value
-    const lastValue = chartData[chartData.length - 1].value
-    if (lastValue > firstValue) {
-      return colors.statusSuccess.val
-    }
-    if (lastValue < firstValue) {
-      return colors.statusCritical.val
-    }
-    return colors.statusSuccess.val
-  }, [chartData, colors])
-
-            pricePercentChange={chartPercentChange?.percentChange}
-            additionalHeaderContent={
-              <Text variant="body2" color="$neutral2" ml={-4}>
-                {chartPeriodToTimeLabel(t, selectedPeriod).toLocaleLowerCase()}
-              </Text>
-            }
-          />
-        </Flex>
-      )}
-      <Flex
-        $md={{ width: '100%' }}
-        opacity={isPortfolioZero ? 0.5 : 1}
-        pointerEvents={isPortfolioZero || isDemoView ? 'none' : 'auto'}
-      >
-        <SegmentedControl
-          disabled={isDisabled}
-          fullWidth={media.md}
-          options={periodOptions}
-          selectedOption={String(selectedPeriod)}
-          onSelectOption={(periodStr: string) => setSelectedPeriod(Number(periodStr) as ChartPeriod)}
-        />
-      </Flex>
-    </Flex>
-  )
-}

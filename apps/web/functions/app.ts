@@ -1,4 +1,3 @@
->>>>>>> upstream/main
 import { poolImageHandler } from 'functions/api/image/pools'
 import { positionImageHandler } from 'functions/api/image/positions'
 import { tokenImageHandler } from 'functions/api/image/tokens'
@@ -83,67 +82,4 @@ export function createApp({ fetchSpaHtml, getEntryGatewayUrl, getWebSocketUrl, g
       redirect: 'manual',
     })
 
-<<<<<<< HEAD
     // Rewrite Set-Cookie headers so cookies work on non-.lux.exchange domains
-=======
-    // Rewrite Set-Cookie headers so cookies work on non-.uniswap.org domains
-    // (Vercel previews, staging, etc.)
-    return rewriteProxiedCookies(response)
-  })
-
-  // ── BFF proxy: config ──────────────────────────────────────────────
-  app.all('/config/*', async (c) => {
-    const path = c.req.path.replace(/^\/config/, '/v1/statsig-proxy')
-    const query = new URL(c.req.url).search
-
-    return proxy(`${STATSIG_PROXY_TARGET}${path}${query}`, {
-      ...c.req,
-      headers: {
-        ...c.req.header(),
-        host: undefined,
-      },
-      redirect: 'manual',
-    })
-  })
-
-  // ── BFF proxy: WebSocket ────────────────────────────────────────────
-  // In production, clients connect directly to the backend WebSocket
-  // service — see getWebSocketUrl() in packages/api/src/getWebSocketUrl.ts.
-  // This proxy is used in local dev (Vite + @cloudflare/vite-plugin) and
-  // on Cloudflare Workers staging, where the CF Workers runtime handles
-  // the WebSocket upgrade natively via fetch().
-  // Headers are stripped to avoid forwarding the local dev origin/host
-  // to the backend, which would reject them.
-  app.get('/ws', async (c) => {
-    const wsUrl = getWebSocketUrl(c)
-    const headers = new Headers(c.req.raw.headers)
-    headers.delete('host')
-    headers.delete('origin')
-    try {
-      return await fetch(wsUrl, { headers })
-    } catch (err) {
-      return c.text(`WebSocket proxy error: ${err}`, 502)
-    }
-  })
-
-  // ── Catch-all: SPA serving + meta tag injection ────────────────────────
-  app.all('*', async (c: Context) => {
-    const url = new URL(c.req.url)
-
-    const next = async () => {
-      const response = await fetchSpaHtml(c)
-      c.res = response
-    }
-
-    // API routes should not be processed by meta tag injection
-    if (url.pathname.startsWith('/api/')) {
-      await next()
-      return c.res
-    }
-
-    // For non-API routes, use meta tag injection middleware
-    return metaTagInjectionMiddleware(c, next)
-  })
-
-  return app
-}

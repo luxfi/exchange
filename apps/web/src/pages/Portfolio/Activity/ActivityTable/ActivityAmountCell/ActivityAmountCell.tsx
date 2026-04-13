@@ -246,14 +246,12 @@ function ActivityAmountCellInner({ transaction, variant = 'full' }: ActivityAmou
         )
       }
 
->>>>>>> upstream/main
       const formattedAmountWithSymbol = formatAmountWithSymbol(
         singleFormattedData.amount,
         singleCurrencyInfo?.currency.symbol,
       )
       const usdValue = getUsdValue(singleFormattedData.value)
 
-<<<<<<< HEAD
       if (showOnLeft) {
         return (
           <DualTokenLayout
@@ -276,76 +274,3 @@ function ActivityAmountCellInner({ transaction, variant = 'full' }: ActivityAmou
           outputFormattedAmount={formattedAmountWithSymbol}
           inputUsdValue={null}
           outputUsdValue={usdValue}
-=======
-      // Full variant: Single token layout
-      return (
-        <DualTokenLayout
-          inputCurrency={singleCurrencyInfo ?? null}
-          outputCurrency={null}
-          inputFormattedAmount={formattedAmountWithSymbol}
-          outputFormattedAmount={null}
-          inputUsdValue={usdValue}
-          outputUsdValue={null}
-          separator={null}
-        />
-      )
-    }
-
-    case 'liquidity-pair': {
-      if (variant === 'compact') {
-        return (
-          <CompactLayout
-            typeLabel={typeLabel}
-            logo={createSplitLogo({ chainId, inputCurrencyInfo: currency0Info, outputCurrencyInfo: currency1Info })}
-            amountText={formatCompactAmountText({
-              inputAmount: currency0FormattedData.amount,
-              inputSymbol: currency0Info?.currency.symbol,
-              outputAmount: currency1FormattedData.amount,
-              outputSymbol: currency1Info?.currency.symbol,
-              separator: '&',
-            })}
-          />
-        )
-      }
-
-      const token0Amount = formatAmountWithSymbol(currency0FormattedData.amount, currency0Info?.currency.symbol)
-      const token1Amount = formatAmountWithSymbol(currency1FormattedData.amount, currency1Info?.currency.symbol)
-
-      return (
-        <DualTokenLayout
-          inputCurrency={currency0Info}
-          outputCurrency={currency1Info}
-          inputFormattedAmount={token0Amount}
-          outputFormattedAmount={token1Amount}
-          inputUsdValue={getUsdValue(currency0FormattedData.value)}
-          outputUsdValue={getUsdValue(currency1FormattedData.value)}
-          separator={<Plus size={16} color="$neutral2" />}
-        />
-      )
-    }
-
-    case 'nft': {
-      // NFT layout with image preview
-      const purchaseAmountText =
-        nftPurchaseFormattedData.amount && nftPurchaseCurrencyInfo
-          ? formatAmountWithSymbol(nftPurchaseFormattedData.amount, nftPurchaseCurrencyInfo.currency.symbol)
-          : null
-
-      return (
-        <Flex row alignItems="center" gap="$gap8" justifyContent="flex-start" minWidth={180}>
-          <NftAmountDisplay
-            nftImageUrl={amount.nftImageUrl}
-            nftName={amount.nftName}
-            nftCollectionName={amount.nftCollectionName}
-            purchaseAmountText={purchaseAmountText}
-          />
-        </Flex>
-      )
-    }
-
-    default:
-      return <EmptyCell />
-  }
-}
-
-export const ActivityAmountCell = memo(ActivityAmountCellInner)

@@ -40,7 +40,6 @@ export function useLPSlippageValue({
  * When the backend returns a new slippage value for native token pools, apply it as both
  * the custom and auto tolerance. Since we omit slippageTolerance from the request when
  * nativeTokenBalance is provided, the backend always computes the optimal value.
->>>>>>> upstream/main
  */
 export function useDynamicNativeSlippage({
   isEnabled,
@@ -73,8 +72,4 @@ export function useDynamicNativeSlippage({
     isSlippageDirty,
     setCustomSlippageTolerance,
     setAutoSlippageTolerance,
-<<<<<<< HEAD
     setIsSlippageDirty,
-=======
-  ])
-}

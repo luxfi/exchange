@@ -234,7 +234,6 @@ const Router = isBrowserRouterEnabled() ? BrowserRouter : HashRouter
 const RootApp = (): JSX.Element => {
   return (
     <StrictMode>
->>>>>>> upstream/main
       <HelmetProvider>
         <ReactRouterUrlProvider>
           <Provider store={store}>
@@ -290,7 +289,6 @@ const RootApp = (): JSX.Element => {
   )
 }
 
-<<<<<<< HEAD
 // Load runtime brand config before rendering (fetches /config.json)
 import { brand, loadBrandConfig } from '@l.x/config'
 
@@ -323,9 +321,3 @@ loadBrandConfig().then(() => {
 
   createRoot(container).render(<RootApp />)
 })
-=======
-createRoot(container).render(<RootApp />)
-
-// We once had a ServiceWorker, and users who have not visited since then may still have it registered.
-// This ensures it is truly gone.
-unregisterServiceWorker()

@@ -9,7 +9,6 @@ const NORMALIZATION_RULES = [
 ]
 
 export function normalizeWalletName(name: string) {
->>>>>>> upstream/main
   return NORMALIZATION_RULES.reduce((name, rule) => rule(name), name)
 }
 
@@ -71,35 +70,4 @@ function shouldMergeConnectors(
 /** Merges 2 connectors if they are on different platforms and have no custom connector id, otherwise returns `connectors` as is. */
 function getMergedConnectors(connectors: WalletConnectorMeta[]): WalletConnectorMeta[] {
   const [connector1, connector2, ...rest] = connectors
-<<<<<<< HEAD
   // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
-=======
-  // oxlint-disable-next-line typescript/no-unnecessary-condition
-  if (connector1 && connector2 && shouldMergeConnectors([connector1, connector2, ...rest])) {
-    return [mergeWalletConnectorMeta(connector1, connector2)]
-  }
-  return connectors
-}
-
-/**
- * Merges wallet connectors with the same name into a single wallet connector.
- * @param walletConnectors - The wallet connectors to merge.
- * @returns A new wallet connector that represents the same wallet on multiple platforms.
- */
-export function deduplicateWalletConnectorMeta(walletConnectorMeta: WalletConnectorMeta[]): WalletConnectorMeta[] {
-  const keyToConnectorsMap = new Map<string, WalletConnectorMeta[]>()
-
-  for (const connector of walletConnectorMeta) {
-    // Use name as key, as solana wallet names do not have ids or rdns
-    const key = normalizeWalletName(connector.name)
-    const existing = keyToConnectorsMap.get(key) ?? []
-    keyToConnectorsMap.set(key, [...existing, connector])
-  }
-
-  const deduplicatedConnectors: WalletConnectorMeta[] = []
-  for (const connectors of keyToConnectorsMap.values()) {
-    deduplicatedConnectors.push(...getMergedConnectors(connectors))
-  }
-
-  return deduplicatedConnectors
-}

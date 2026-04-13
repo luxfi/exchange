@@ -157,7 +157,6 @@ function* handlePositionTransactionStep(params: HandlePositionStepParams) {
       | UniverseEventProperties[LiquidityEventName.RemoveLiquiditySubmitted]
       | UniverseEventProperties[LiquidityEventName.MigrateLiquiditySubmitted]
       | UniverseEventProperties[LiquidityEventName.CollectLiquiditySubmitted])
->>>>>>> upstream/main
   }
 
   popupRegistry.addPopup({ type: PopupType.Transaction, hash }, hash)
@@ -355,7 +354,6 @@ function getLiquidityTransactionInfo(
     currency1AmountRaw: quotient1.toString(),
   }
 }
-<<<<<<< HEAD
 
 function* pollForLPPriceDiscrepancy(params: {
   hash: string
@@ -424,4 +422,3 @@ function* pollForLPPriceDiscrepancy(params: {
 
   throw new Error('Max polling attempts reached')
 }
-=======

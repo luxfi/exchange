@@ -129,7 +129,6 @@ export function IncreaseLiquidityTxContextProvider({ children }: PropsWithChildr
     })
   }
 
->>>>>>> upstream/main
   const {
     token0Approval,
     token1Approval,
@@ -334,57 +333,5 @@ export function IncreaseLiquidityTxContextProvider({ children }: PropsWithChildr
     token0PermitTransaction,
     token1PermitTransaction,
     increaseCalldataQueryParams,
-<<<<<<< HEAD
     increaseLiquidityTokenApprovals,
     sqrtRatioX96,
-=======
-    canBatchTransactions,
-    delegatedAddress,
-  ])
-
-  const totalGasFee = useMemo(() => {
-    const fees = [
-      gasFeeToken0USD,
-      gasFeeToken1USD,
-      gasFeeLiquidityTokenUSD,
-      increaseGasFeeUsd,
-      gasFeeToken0PermitUSD,
-      gasFeeToken1PermitUSD,
-    ]
-    return fees.reduce((total, fee) => {
-      if (fee && total) {
-        return total.add(fee)
-      }
-      return total || fee
-    })
-  }, [
-    gasFeeToken0USD,
-    gasFeeToken1USD,
-    gasFeeLiquidityTokenUSD,
-    increaseGasFeeUsd,
-    gasFeeToken0PermitUSD,
-    gasFeeToken1PermitUSD,
-  ])
-
-  const value = {
-    txInfo: increaseLiquidityTxContext,
-    gasFeeEstimateUSD: totalGasFee ?? undefined,
-    dependentAmount,
-    error: transactionError,
-    setTransactionError,
-    refetch: approvalError ? approvalRefetch : calldataError ? calldataRefetch : undefined,
-    fotErrorToken,
-  }
-
-  return <IncreaseLiquidityTxContext.Provider value={value}>{children}</IncreaseLiquidityTxContext.Provider>
-}
-
-export const useIncreaseLiquidityTxContext = (): IncreasePositionContextType => {
-  const increaseContext = useContext(IncreaseLiquidityTxContext)
-
-  if (!increaseContext) {
-    throw new Error('`useIncreaseLiquidityTxContext` must be used inside of `IncreaseLiquidityTxContextProvider`')
-  }
-
-  return increaseContext
-}

@@ -19,7 +19,6 @@ interface PercentageAllocationChartProps {
   className?: string
 }
 
->>>>>>> upstream/main
 export function PercentageAllocationChart({
   items,
   minBarWidth = MIN_BAR_WIDTH,
@@ -28,7 +27,6 @@ export function PercentageAllocationChart({
 }: PercentageAllocationChartProps): JSX.Element {
   const { t } = useTranslation()
   const { ref: chartRef, width: chartWidth } = useResizeObserver<HTMLElement>()
-<<<<<<< HEAD
   const [hoveredItem, setHoveredItem] = useState<string | null>(null)
   const [showAllItems, setShowAllItems] = useState(false)
 
@@ -126,36 +124,3 @@ export function PercentageAllocationChart({
           </Flex>
         )}
       </Flex>
-=======
-  const { hoveredItemId, onHover } = useChartHover()
-  const [showAllItems, setShowAllItems] = useState(false)
-
-  const adjustedItems = useMemo(
-    () => adjustItemWidths({ t, items, chartWidth, minBarWidth }),
-    [t, items, chartWidth, minBarWidth],
-  )
-
-  const displayItems = showAllItems ? adjustedItems : adjustedItems.slice(0, maxLegendItems)
-  const hasMoreItems = adjustedItems.length > maxLegendItems
-
-  return (
-    <Flex flexDirection="column" gap="$spacing16" ref={chartRef} className={className}>
-      <PercentageBars
-        adjustedItems={adjustedItems}
-        hoveredItemId={hoveredItemId}
-        onHover={onHover}
-        minBarWidth={minBarWidth}
-      />
-      <Legend
-        items={displayItems}
-        hoveredItemId={hoveredItemId}
-        onItemHover={onHover}
-        hasMoreItems={hasMoreItems}
-        showAllItems={showAllItems}
-        onShowAllToggle={() => setShowAllItems((prev) => !prev)}
-        totalItemsCount={adjustedItems.length}
-        maxLegendItems={maxLegendItems}
-      />
-    </Flex>
-  )
-}

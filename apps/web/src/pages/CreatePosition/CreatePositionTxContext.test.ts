@@ -79,7 +79,6 @@ describe('generateCreatePositionTxRequest', () => {
       }),
     },
   })
->>>>>>> upstream/main
       })
     })
 
@@ -352,10 +351,4 @@ describe('generateCreatePositionTxRequest', () => {
           value: '0',
           data: '0x',
         },
-<<<<<<< HEAD
         sqrtRatioX96: undefined,
-=======
-      })
-    })
-  })
-})

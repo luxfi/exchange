@@ -36,7 +36,6 @@ import { HorizontalEdgeGestureTarget } from 'src/components/layout/screens/EdgeG
 import { AdvancedSettingsModal } from 'src/components/modals/ReactNavigationModals/AdvancedSettingsModal'
 import { BridgedAssetModalScreen } from 'src/components/modals/ReactNavigationModals/BridgedAssetModal'
 import { HiddenTokenInfoModalScreen } from 'src/components/modals/ReactNavigationModals/HiddenTokenInfoModalScreen'
->>>>>>> upstream/main
 import { PasskeyHelpModalScreen } from 'src/components/modals/ReactNavigationModals/PasskeyHelpModalScreen'
 import { PasskeyManagementModalScreen } from 'src/components/modals/ReactNavigationModals/PasskeyManagementModalScreen'
 import { PermissionsSettingsScreen } from 'src/components/modals/ReactNavigationModals/PermissionsSettingsScreen'
@@ -422,31 +421,4 @@ export function AppStackNavigator(): JSX.Element {
         <AppStack.Screen component={SettingsAppearanceModal} name={ModalName.SettingsAppearance} />
         <AppStack.Screen component={PermissionsSettingsScreen} name={ModalName.PermissionsModal} />
         <AppStack.Screen component={PortfolioBalanceSettingsScreen} name={ModalName.PortfolioBalanceModal} />
-<<<<<<< HEAD
         <AppStack.Screen component={LanguageSettingsScreen} name={ModalName.LanguageSelector} />
-=======
-        <AppStack.Screen component={SmartWalletNudgeScreen} name={ModalName.SmartWalletNudge} />
-        <AppStack.Screen component={BridgedAssetModalScreen} name={ModalName.BridgedAsset} />
-        <AppStack.Screen component={WormholeModalScreen} name={ModalName.Wormhole} />
-        {enabledInEnvOrDev &&
-          ((): JSX.Element => {
-            return <AppStack.Screen component={ExperimentsModal} name={ModalName.Experiments} />
-          })()}
-      </AppStack.Group>
-      {/* Explicitly using __DEV__ so that the bundler knows to exclude this code from release builds */}
-      {__DEV__ &&
-        ((): JSX.Element => {
-          const StorybookUIRoot = require('src/../.storybook').default
-          const { HashcashBenchmarkScreen } = require('src/screens/HashcashBenchmarkScreen')
-          const { SessionsDebugScreen } = require('src/screens/SessionsDebugScreen')
-          return (
-            <>
-              <AppStack.Screen component={StorybookUIRoot} name={MobileScreens.Storybook} />
-              <AppStack.Screen component={HashcashBenchmarkScreen} name={MobileScreens.HashcashBenchmark} />
-              <AppStack.Screen component={SessionsDebugScreen} name={MobileScreens.SessionsDebug} />
-            </>
-          )
-        })()}
-    </AppStack.Navigator>
-  )
-}

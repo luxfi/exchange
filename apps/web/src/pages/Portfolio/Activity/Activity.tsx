@@ -82,7 +82,6 @@ export default function PortfolioActivity() {
     )
   })
 
->>>>>>> upstream/main
   return (
     <Trace logImpression page={InterfacePageName.PortfolioActivityPage} properties={{ isExternal: isExternalWallet }}>
       <Flex gap="$spacing28" mt="$spacing12">
@@ -113,7 +112,6 @@ export default function PortfolioActivity() {
             </Trace>
           )}
         </Flex>
-<<<<<<< HEAD
 
         {selectedTransaction && (
           <TransactionDetailsModal
@@ -126,8 +124,3 @@ export default function PortfolioActivity() {
             onCopySuccess={onCopySuccess}
           />
         )}
-=======
-      </Flex>
-    </Trace>
-  )
-}

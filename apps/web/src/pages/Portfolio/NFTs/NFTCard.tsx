@@ -174,7 +174,6 @@ function NFTCardInner(props: NftCardProps): JSX.Element {
         borderWidth="$spacing1"
         borderColor="$surface3"
         gap="$spacing4"
->>>>>>> upstream/main
         {...(isActive && !isMobileWeb ? activeCardStyles : {})}
         onMouseEnter={setIsHovered}
         onMouseLeave={setIsHoveredFalse}
@@ -223,44 +222,4 @@ function NFTCardInner(props: NftCardProps): JSX.Element {
           </Text>
           <GroupHoverTransition
             height={SUBTITLE_HEIGHT}
-<<<<<<< HEAD
             transition="all 80ms ease-in-out"
-=======
-            useGroupItemHover
-            defaultContent={
-              <Flex row alignItems="center" gap="$spacing4" justifyContent="space-between" height={SUBTITLE_HEIGHT}>
-                <Text
-                  variant="body4"
-                  color="$neutral2"
-                  numberOfLines={1}
-                  testID={TestID.PortfolioNftCardCollectionName}
-                >
-                  {props.item.collectionName}
-                </Text>
-                {props.item.chain && chainId && <NetworkLogo chainId={chainId} size={iconSizes.icon12} />}
-              </Flex>
-            }
-            hoverContent={
-              <Flex
-                row
-                alignItems="center"
-                gap="$spacing2"
-                height={SUBTITLE_HEIGHT}
-                testID={TestID.PortfolioNftCardViewOnLink}
-              >
-                <Text variant="body4" color="$neutral2">
-                  {openseaUrl ? t('common.opensea.link') : t('common.viewOnExplorer')}
-                </Text>
-                <ArrowUpRight size="$icon.12" color="$neutral2" />
-              </Flex>
-            }
-          />
-        </Flex>
-      </TouchableArea>
-    </Flex>
-  )
-}
-
-export const NFTCard = memo(NFTCardInner)
-
-NFTCard.displayName = 'NFTCard'

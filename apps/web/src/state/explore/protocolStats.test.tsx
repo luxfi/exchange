@@ -112,7 +112,6 @@ describe('use24hProtocolVolume', () => {
     expect(result.totalVolume).toBe(0)
     expect(result.totalChangePercent).toBe(0)
     expect(result.protocolVolumes).toEqual({ v2: 0, v3: 0, v4: 0 })
->>>>>>> upstream/main
     // Verify warnings were logged for missing data
     expect(mockWarn).toHaveBeenCalled()
     mockWarn.mockRestore()
@@ -197,11 +196,4 @@ describe('useDailyTVLWithChange', () => {
     expect(result.totalChangePercent).toBe(0)
     expect(result.protocolTVL).toEqual({ v2: 0, v3: 0, v4: 0 })
     expect(result.protocolChangePercent).toEqual({ v2: 0, v3: 0, v4: 0 })
-<<<<<<< HEAD
 
-=======
-    // Verify warnings were logged for missing data
-    expect(mockWarn).toHaveBeenCalled()
-    mockWarn.mockRestore()
-  })
-})

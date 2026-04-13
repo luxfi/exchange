@@ -74,7 +74,6 @@ export const useTabsContent = (): TabsSection[] => {
           internal: true,
           elementName: ElementName.NavbarTradeDropdownSell,
         },
->>>>>>> upstream/main
       ],
     },
     {
@@ -142,7 +141,6 @@ export const useTabsContent = (): TabsSection[] => {
       ],
     },
     {
-<<<<<<< HEAD
       title: t('common.options', { defaultValue: 'Options' }),
       href: '/options',
       isActive: pathname.startsWith('/options'),
@@ -150,66 +148,3 @@ export const useTabsContent = (): TabsSection[] => {
       elementName: ElementName.NavbarOptionsTab,
     },
     {
-=======
-      title: t('common.portfolio'),
-      href: buildPortfolioUrl({
-        tab: PortfolioTab.Overview,
-        chainId: portfolioChainId,
-      }),
-      isActive: pathname.startsWith('/portfolio') && !isExternalWallet,
-      icon: <Wallet color="$accent1" size="$icon.20" />,
-      elementName: ElementName.NavbarPortfolioTab,
-      items: [
-        {
-          label: t('portfolio.overview.title'),
-          href: buildPortfolioUrl({
-            tab: PortfolioTab.Overview,
-            chainId: portfolioChainId,
-          }),
-          internal: true,
-          elementName: ElementName.NavbarPortfolioDropdownOverview,
-        },
-        {
-          label: t('portfolio.tokens.title'),
-          href: buildPortfolioUrl({
-            tab: PortfolioTab.Tokens,
-            chainId: portfolioChainId,
-          }),
-          internal: true,
-          elementName: ElementName.NavbarPortfolioDropdownTokens,
-        },
-        ...(isPortfolioDefiTabEnabled
-          ? [
-              {
-                label: t('portfolio.defi.title'),
-                href: buildPortfolioUrl({
-                  tab: PortfolioTab.Defi,
-                  chainId: portfolioChainId,
-                }),
-                internal: true,
-                elementName: ElementName.NavbarPortfolioDropdownDefi,
-              },
-            ]
-          : []),
-        {
-          label: t('portfolio.nfts.title'),
-          href: buildPortfolioUrl({
-            tab: PortfolioTab.Nfts,
-            chainId: portfolioChainId,
-          }),
-          internal: true,
-          elementName: ElementName.NavbarPortfolioDropdownNfts,
-        },
-        {
-          label: t('portfolio.activity.title'),
-          href: buildPortfolioUrl({
-            tab: PortfolioTab.Activity,
-            chainId: portfolioChainId,
-          }),
-          internal: true,
-          elementName: ElementName.NavbarPortfolioDropdownActivity,
-        },
-      ],
-    },
-  ]
-}

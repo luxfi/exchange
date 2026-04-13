@@ -142,7 +142,6 @@ export const MiniActivityTable = memo(function MiniActivityTable({
     [handleTransactionClick],
   )
 
->>>>>>> upstream/main
   const handleSeeAllActivity = useCallback(() => {
     navigate(viewAllHref)
   }, [navigate, viewAllHref])
@@ -212,7 +211,6 @@ export const MiniActivityTable = memo(function MiniActivityTable({
           testId={TestID.PortfolioOverviewViewAllActivity}
         />
       )}
-<<<<<<< HEAD
       {selectedTransaction && (
         <TransactionDetailsModal
           isExternalProfile={isExternalWallet}
@@ -222,7 +220,3 @@ export const MiniActivityTable = memo(function MiniActivityTable({
           onCopySuccess={onCopySuccess}
         />
       )}
-=======
-    </Flex>
-  )
-})

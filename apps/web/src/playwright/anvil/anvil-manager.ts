@@ -210,7 +210,6 @@ function createAnvilManager(configOverrides?: Partial<AnvilConfig>): AnvilManage
     async start(): Promise<void> {
       const cfg = getConfig()
 
->>>>>>> upstream/main
       if (childProcess) {
         console.log('Anvil is already running')
         return
@@ -348,40 +347,7 @@ function createAnvilManager(configOverrides?: Partial<AnvilConfig>): AnvilManage
     },
 
     getUrl(): string {
-<<<<<<< HEAD
       // In luxd mode, get URL from luxd-manager
       if (isLuxdMode()) {
         return getLuxdManager().getUrl()
       }
-=======
-      const cfg = getConfig()
-      return `http://${cfg.host}:${cfg.port}`
-    },
-  }
-
-  return manager
-}
-
-// Singleton instance managed in module scope
-let managerInstance: AnvilManager | null = null
-
-/**
- * Get the singleton Anvil manager instance
- * Creates it lazily on first access
- */
-export function getAnvilManager(): AnvilManager {
-  if (!managerInstance) {
-    managerInstance = createAnvilManager()
-  }
-  return managerInstance
-}
-
-/**
- * Reset the singleton instance (useful for testing)
- */
-function _resetAnvilManager(): void {
-  if (managerInstance) {
-    managerInstance.stop().catch(console.error)
-  }
-  managerInstance = null
-}

@@ -38,7 +38,6 @@ export function RemoveLiquidityTxContextProvider({ children }: PropsWithChildren
 
   const removeLiquidityTxInfo = useRemoveLiquidityTxAndGasInfo({ account: evmAddress })
   const { approvalLoading, decreaseCalldataLoading, decreaseCalldata, error, refetch } = removeLiquidityTxInfo
->>>>>>> upstream/main
 
   useEffect(() => {
     logContextUpdate('RemoveLiquidityTxContext', removeLiquidityTxInfo)
@@ -95,27 +94,4 @@ export function RemoveLiquidityTxContextProvider({ children }: PropsWithChildren
     currency1,
     removeLiquidityTxInfo.v2LpTokenApproval?.positionTokenApproval,
     percent,
-<<<<<<< HEAD
     sqrtRatioX96,
-=======
-    delegatedAddress,
-  ])
-
-  return (
-    <RemoveLiquidityTxContext.Provider
-      value={{ ...removeLiquidityTxInfo, txContext: decreaseLiquidityTxContext, error, refetch }}
-    >
-      {children}
-    </RemoveLiquidityTxContext.Provider>
-  )
-}
-
-export const useRemoveLiquidityTxContext = (): RemoveLiquidityTxInfo => {
-  const removeContext = useContext(RemoveLiquidityTxContext)
-
-  if (removeContext === undefined) {
-    throw new Error('`useRemoveLiquidityTxContext` must be used inside of `RemoveLiquidityTxContextProvider`')
-  }
-
-  return removeContext
-}

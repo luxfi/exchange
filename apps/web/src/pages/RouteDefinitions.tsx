@@ -50,7 +50,6 @@ const CreateAuction = lazy(() => import('~/pages/Liquidity/CreateAuction/CreateA
 const XOAuthCallbackPage = lazy(() => import('~/pages/Liquidity/CreateAuction/XOAuthCallbackPage'))
 const BetaPage = lazy(() => import('~/pages/Beta'))
 const Wrapped = lazy(() => import('~/pages/Wrapped'))
->>>>>>> upstream/main
 
 interface RouterConfig {
   browserRouterEnabled?: boolean
@@ -445,7 +444,6 @@ export const routes: RouteDefinition[] = [
       </Suspense>
     ),
   }),
-<<<<<<< HEAD
   createRouteDefinition({
     path: '/terms',
     getTitle: () => 'Terms of Service',
@@ -476,24 +474,3 @@ export const routes: RouteDefinition[] = [
       </Suspense>
     ),
   }),
-=======
-  createRouteDefinition({ path: '*', getElement: () => <Navigate to="/not-found" replace /> }),
-  createRouteDefinition({ path: '/not-found', getElement: () => <NotFound /> }),
-]
-
-export const findRouteByPath = (pathname: string) => {
-  for (const route of routes) {
-    const match = matchPath(route.path, pathname)
-    if (match) {
-      return route
-    }
-    const subPaths = route.nestedPaths.map((nestedPath) => `${route.path}/${nestedPath}`)
-    for (const subPath of subPaths) {
-      const match = matchPath(subPath, pathname)
-      if (match) {
-        return route
-      }
-    }
-  }
-  return undefined
-}

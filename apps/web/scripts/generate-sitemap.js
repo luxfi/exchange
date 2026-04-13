@@ -1,4 +1,3 @@
->>>>>>> upstream/main
 const fs = require('fs')
 const { parseStringPromise, Builder } = require('xml2js')
 
@@ -174,7 +173,6 @@ fs.readFile('./public/pools-sitemap.xml', 'utf8', async (_err, data) => {
     console.error(e)
   }
 })
-<<<<<<< HEAD
 
 // Stamp brand domain into static sitemap templates
 // __BRAND_ORIGIN__ placeholders in sitemap.xml and app-sitemap.xml get replaced
@@ -192,4 +190,3 @@ function stampSitemaps() {
   }
 }
 stampSitemaps()
-=======
